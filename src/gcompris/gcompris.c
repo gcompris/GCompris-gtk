@@ -138,9 +138,6 @@ static gchar *popt_user_dir	   = NULL;
 static gint  popt_experimental     = FALSE;
 static gint  popt_no_quit	   = FALSE;
 static gint  popt_no_config        = FALSE;
-static gchar *popt_server          = NULL;
-static gint  *popt_web_only        = NULL;
-static gchar *popt_cache_dir       = NULL;
 static gchar *popt_drag_mode       = NULL;
 static gchar *sugarBundleId        = NULL;
 static gchar *sugarActivityId      = NULL;
@@ -225,15 +222,6 @@ static GOptionEntry options[] = {
 
   {"disable-config",'\0', 0, G_OPTION_ARG_NONE, &popt_no_config,
    N_("Disable the config button"), NULL},
-  {"server", '\0', 0, G_OPTION_ARG_STRING, &popt_server,
-   N_("GCompris will get images, sounds and activity data from this server if not found locally."), NULL},
-
-  {"web-only", '\0', 0, G_OPTION_ARG_NONE, &popt_web_only,
-   N_("Only when --server is provided, disable check for local resource first."
-      " Data are always taken from the web server."), NULL},
-
-  {"cache-dir", '\0', 0, G_OPTION_ARG_STRING, &popt_cache_dir,
-   N_("In server mode, specify the cache directory used to avoid useless downloads."), NULL},
 
   {"drag-mode", 'g', 0, G_OPTION_ARG_STRING, &popt_drag_mode,
    N_("Global drag and drop mode: normal, 2clicks, both. Default mode is normal."), NULL},
@@ -1628,27 +1616,6 @@ main (int argc, char *argv[])
       properties->reread_menu = TRUE;
   }
 
-  if (popt_server){
-#ifdef USE_GNET
-      properties->server = g_strdup(popt_server);
-#else
-      printf("The --server option cannot be used because GCompris has been compiled without network support!");
-      exit(1);
-#endif
-  }
-
-  if(popt_web_only) {
-    g_free(properties->package_data_dir);
-    properties->package_data_dir = g_strdup("");
-
-    g_free(properties->system_icon_dir);
-    properties->system_icon_dir = g_strdup("");
-  }
-
-  if (popt_server){
-      properties->cache_dir = g_strdup(popt_cache_dir);
-  }
-
   if (popt_drag_mode){
     if (strcmp(popt_drag_mode, "default") == 0)
       properties->drag_mode = GC_DRAG_MODE_GRAB;
@@ -1716,17 +1683,7 @@ main (int argc, char *argv[])
 
   rsvg_init();
 
-  /* Cache init */
-  gc_cache_init(-1);
-
-  /* networking init */
-  gc_net_init();
-
-
   setup_window ();
-
-  //  if (properties->fullscreen)
-  //    gc_fullscreen_set(properties->fullscreen);
 
   gtk_widget_show_all (window);
 

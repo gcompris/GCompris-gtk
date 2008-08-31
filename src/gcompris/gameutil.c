@@ -42,7 +42,7 @@ typedef void (*sighandler_t)(int);
 #ifdef __GNUC__
 static const guint8 null_img[] __attribute__ ((__aligned__ (4))) =
 #else
-static const guint8 null_img[] =
+  static const guint8 null_img[] =
 #endif
 { ""
   /* Pixbuf magic (0x47646b50) */
@@ -261,7 +261,7 @@ void gc_item_focus_init(GooCanvasItem *source_item,
 				   goo_canvas_item_get_parent(target_item),
 				   &bounds.x2, &bounds.y2);
   highlight_item = g_object_get_data (G_OBJECT(target_item),
-		     "highlight_item");
+				      "highlight_item");
 
   if(highlight_item)
     {
@@ -314,7 +314,7 @@ void gc_item_focus_init(GooCanvasItem *source_item,
  * @param[in] target_itemis the same as the one passed to
  *            gc_item_focus_init()
  */
- void gc_item_focus_remove(GooCanvasItem *source_item,
+void gc_item_focus_remove(GooCanvasItem *source_item,
 			  GooCanvasItem *target_item)
 {
   GooCanvasItem *highlight_item;
@@ -327,10 +327,10 @@ void gc_item_focus_init(GooCanvasItem *source_item,
 				       target_item);
 
   highlight_item = g_object_get_data (G_OBJECT(target_item),
-		     "highlight_item");
+				      "highlight_item");
 
   if(highlight_item)
-      goo_canvas_item_remove(highlight_item);
+    goo_canvas_item_remove(highlight_item);
 }
 
 /*
@@ -374,8 +374,8 @@ void gc_item_absolute_move(GooCanvasItem *item, int x, int y)
 
 /* ======================================= */
 /** As gnome does not implement its own API : gc_item_rotate
-   we have to do it ourselves ....
-   rotation is clockwise if angle > 0
+    we have to do it ourselves ....
+    rotation is clockwise if angle > 0
 */
 void
 gc_item_rotate(GooCanvasItem *item, double angle) {
@@ -390,7 +390,7 @@ gc_item_rotate(GooCanvasItem *item, double angle) {
    we have to do it ourselves ....
    IMPORTANT NOTE : This is designed for an item with "anchor" =  GTK_ANCHOR_CENTER
    rotation is clockwise if angle > 0
- */
+*/
 void
 gc_item_rotate_relative(GooCanvasItem *item, double angle)
 {
@@ -494,60 +494,18 @@ gc_item_rotate_relative_with_center(GooCanvasItem *item, double angle, int x, in
   goo_canvas_item_rotate(item, angle, x1+x, y1+y);
 }
 
-/**
- * Display the number of stars representing the difficulty level at the x,y location
- * The stars are created in a group 'parent'
- * The new group in which the stars are created is returned.
- * This is only usefull for the menu plugin and the configuration dialog box.
- */
-GooCanvasItem *
-gc_difficulty_display(GooCanvasItem *parent,
-		      double x, double y,
-		      double ratio,
-		      gint difficulty)
-{
-  GdkPixbuf *pixmap = NULL;
-  GooCanvasItem *stars_group = NULL;
-  GooCanvasItem *item = NULL;
-  gchar *filename = NULL;
-
-  if(difficulty==0 || difficulty>6)
-    return NULL;
-
-  filename = g_strdup_printf("difficulty_star%d.png", difficulty);
-  pixmap   = gc_skin_pixmap_load(filename);
-  g_free(filename);
-
-  if(!pixmap)
-    return NULL;
-
-  stars_group = goo_canvas_group_new (parent, NULL);
-
-  item = goo_canvas_image_new (stars_group,
-			       pixmap,
-			       0,
-			       0,
-			       NULL);
-  goo_canvas_item_translate(item, x, y);
-  goo_canvas_item_scale(item, ratio, ratio);
-
-  gdk_pixbuf_unref(pixmap);
-
-  return(stars_group);
-}
-
 gchar *g_utf8_strndup(gchar* utf8text, gint n)
 {
- gchar* result;
+  gchar* result;
 
- gint len = g_utf8_strlen(utf8text, -1);
+  gint len = g_utf8_strlen(utf8text, -1);
 
- if( n < len && n > 0 )
-   len = n;
+  if( n < len && n > 0 )
+    len = n;
 
- result = g_strndup(utf8text, g_utf8_offset_to_pointer(utf8text, len) - utf8text);
+  result = g_strndup(utf8text, g_utf8_offset_to_pointer(utf8text, len) - utf8text);
 
- return result;
+  return result;
 }
 
 /** \brief search a given relative file in all gcompris dir it could be found
@@ -577,11 +535,8 @@ gc_file_find_absolute(const gchar *format, ...)
   va_end (args);
 
   /* Check it's already found */
-  if( g_file_test (filename, G_FILE_TEST_EXISTS)
-      || gc_net_is_url(filename) )
-    {
-      return filename;
-    }
+  if( g_file_test (filename, G_FILE_TEST_EXISTS) )
+    return filename;
 
   /*
    * Search it on the file system
@@ -615,23 +570,14 @@ gc_file_find_absolute(const gchar *format, ...)
 	      g_free(filename2);
 	      goto FOUND;
 	    }
-      g_free(absolute_filename);
-	  /* Now check if this file is on the net */
-	  if((absolute_filename = gc_net_get_url_from_file(filename2, NULL)))
-	    {
-	      g_strfreev(tmp);
-	      g_free(filename2);
-	      goto FOUND;
-	    }
-
-      g_free(filename2);
-      g_free(absolute_filename);
+	  g_free(filename2);
 	  /* Try the short locale */
 	  if(g_strv_length(tmp)>1)
 	    {
 	      locale[2] = '\0';
 	      filename2 = g_strjoinv(locale, tmp);
 	      g_strfreev(tmp);
+	      g_free(absolute_filename);
 	      absolute_filename = g_strdup_printf("%s/%s", dir_to_search[i], filename2);
 	      if(g_file_test (absolute_filename, G_FILE_TEST_EXISTS))
 		{
@@ -639,17 +585,11 @@ gc_file_find_absolute(const gchar *format, ...)
 		  goto FOUND;
 		}
 
-	      /* Now check if this file is on the net */
-	      if((absolute_filename = gc_net_get_url_from_file(filename2, NULL)))
-		{
-		  g_free(filename2);
-		  goto FOUND;
-		}
-        g_free(filename2);
+	      g_free(filename2);
 
 	    }
-      else
-          g_strfreev(tmp);
+	  else
+	    g_strfreev(tmp);
 	}
       else
 	{
@@ -657,11 +597,6 @@ gc_file_find_absolute(const gchar *format, ...)
 
 	  if(g_file_test (absolute_filename, G_FILE_TEST_EXISTS))
 	    goto FOUND;
-    g_free(absolute_filename);
-	  /* Now check if this file is on the net */
-	  if((absolute_filename = gc_net_get_url_from_file(filename, NULL)))
-	    goto FOUND;
-      g_free(absolute_filename);
 	}
 
       i++;

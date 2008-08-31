@@ -146,7 +146,7 @@ gc_prop_new ()
   tmp = (GcomprisProperties *) malloc (sizeof (GcomprisProperties));
   tmp->music		 = 1;
   tmp->fx		 = 1;
-  tmp->fullscreen	 = 0;
+  tmp->fullscreen	 = 1;
   tmp->timer		 = 1;
   tmp->skin		 = g_strdup("babytoy");
   tmp->key		 = g_strdup("default");
@@ -164,8 +164,6 @@ gc_prop_new ()
   tmp->administration    = FALSE;
   tmp->reread_menu       = FALSE;
   tmp->experimental      = FALSE;
-
-  tmp->server            = NULL;
 
   tmp->package_data_dir           = NULL;
   tmp->package_skin_dir           = NULL;
@@ -529,7 +527,6 @@ gc_prop_destroy (GcomprisProperties *props)
   g_free(props->database);
   g_free(props->config_dir);
   g_free(props->user_dir);
-  g_free(props->server);
   g_free(props->root_menu);
   g_free(props);
 }

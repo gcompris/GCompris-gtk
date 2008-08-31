@@ -390,21 +390,7 @@ AC_ARG_ENABLE(sqlite,
           with_sqlite="$enableval", with_sqlite="yes")
 AC_MSG_RESULT($with_sqlite)
 
-dnl GNET support (BROKEN)
-dnl AC_MSG_CHECKING([wether we build with GNET (if not, networking will be disabled)])
-dnl AC_ARG_ENABLE(gnet,
-dnl           AC_HELP_STRING(
-dnl           [--enable-gnet],
-dnl           [Turn on gnet (will let GCompris fetch content from a web server)]),
-dnl           with_gnet="$enableval", with_gnet="no")
-dnl AC_MSG_RESULT($with_gnet)
-
-dnl if test x$with_gnet = xyes; then
-dnl   PKG_CHECK_MODULES(GNET, gnet-2.0,, AC_MSG_ERROR([*** GNET not found!]))
-dnl   AC_DEFINE([USE_GNET], 1,[Networking is enabled])
-dnl fi
-
-dnl DBUS support
+dnl DBUS support (Needed only for OLPC XO)
 AC_MSG_CHECKING([wether we build with DBUS (needed only for OLPC SUGAR XO)])
 AC_ARG_ENABLE(dbus,
           AC_HELP_STRING(

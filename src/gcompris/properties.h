@@ -62,8 +62,7 @@ typedef struct {
   /* this are set by gc_im_init() */
   GtkIMContext *context;
   gchar        *default_context;
-  gint         experimental;
-  gchar        *server;
+  gint          experimental;
   gint		drag_mode;
 } GcomprisProperties;
 

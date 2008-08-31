@@ -31,11 +31,7 @@
 
 #include "gcompris.h"
 
-void gc_net_init();
 GdkPixbuf *gc_net_load_pixmap(const char *url);
 xmlDocPtr  gc_net_load_xml(const char *url);
-gchar     *gc_net_get_url_from_file(const gchar *format, ...);
-gboolean   gc_net_is_url(const char *url);
-GSList    *gc_net_dir_read_name(const gchar* dir, const gchar *ext);
 
 #endif

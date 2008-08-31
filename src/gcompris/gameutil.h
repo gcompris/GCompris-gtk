@@ -56,10 +56,6 @@ void		 gc_item_rotate_relative(GooCanvasItem *item, double angle);
 void		 gc_item_rotate_with_center(GooCanvasItem *item, double angle, int x, int y);
 void		 gc_item_rotate_relative_with_center(GooCanvasItem *item, double angle, int x, int y);
 
-GooCanvasItem *gc_difficulty_display(GooCanvasItem *parent, double x, double y,
-				     double ratio,
-				     int difficulty);
-
 /* find the complete filename looking for the file everywhere (printf formatting supported) */
 gchar		 *gc_file_find_absolute(const gchar *filename, ...);
 int               gc_util_create_rootdir (gchar *rootdir);

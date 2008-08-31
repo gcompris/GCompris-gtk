@@ -75,6 +75,10 @@ static void              display_section (gchar *path);
 static void              display_welcome (MenuItems *menuitems);
 static void		 create_panel(GooCanvasItem *parent);
 static void		 create_top(GooCanvasItem *parent, gchar *path);
+static GooCanvasItem	*menu_difficulty_display(GooCanvasItem *parent,
+						 double x, double y,
+						 double ratio,
+						 gint difficulty);
 
 static double current_x = 0.0;
 static double current_y = 0.0;
@@ -476,11 +480,11 @@ static void menu_create_item(GooCanvasItem *parent, MenuItems *menuitems, Gcompr
   if (board->difficulty != NULL)
     {
       difficulty = atoi(board->difficulty);
-      gc_difficulty_display(parent,
-			    (double)current_x - pixmap_w/2 - 25,
-			    (double)current_y - pixmap_h/2,
-			    (double) 0.6,
-			    difficulty);
+      menu_difficulty_display(parent,
+			      (double)current_x - pixmap_w/2 - 25,
+			      (double)current_y - pixmap_h/2,
+			      (double) 0.6,
+			      difficulty);
     }
 
   // display board availability due to sound voice not present
@@ -903,3 +907,45 @@ static void
 menu_config_stop()
 {
 }
+
+/**
+ * Display the number of stars representing the difficulty level at the x,y location
+ * The stars are created in a group 'parent'
+ * The new group in which the stars are created is returned.
+ */
+static GooCanvasItem *
+menu_difficulty_display(GooCanvasItem *parent,
+		      double x, double y,
+		      double ratio,
+		      gint difficulty)
+{
+  GdkPixbuf *pixmap = NULL;
+  GooCanvasItem *stars_group = NULL;
+  GooCanvasItem *item = NULL;
+  gchar *filename = NULL;
+
+  if(difficulty==0 || difficulty>6)
+    return NULL;
+
+  filename = g_strdup_printf("difficulty_star%d.png", difficulty);
+  pixmap   = gc_skin_pixmap_load(filename);
+  g_free(filename);
+
+  if(!pixmap)
+    return NULL;
+
+  stars_group = goo_canvas_group_new (parent, NULL);
+
+  item = goo_canvas_image_new (stars_group,
+			       pixmap,
+			       0,
+			       0,
+			       NULL);
+  goo_canvas_item_translate(item, x, y);
+  goo_canvas_item_scale(item, ratio, ratio);
+
+  gdk_pixbuf_unref(pixmap);
+
+  return(stars_group);
+}
+
