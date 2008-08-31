@@ -293,7 +293,7 @@ static void smallnumbers_next_level()
   /* Try the next level */
   speed=100+(40/gcomprisBoard->level);
   fallSpeed=5000-gcomprisBoard->level*200;
-  imageZoom=0.9+(0.5/gcomprisBoard->level);
+  imageZoom=0.4+(0.5/gcomprisBoard->level);
   gcomprisBoard->sublevel=1;
   gc_score_set(gcomprisBoard->sublevel);
 }
@@ -359,12 +359,11 @@ static gint smallnumbers_move_items (GtkWidget *widget, gpointer data)
 
 static void smallnumbers_create_item(GooCanvasItem *parent)
 {
-  GdkPixbuf *smallnumbers_pixmap = NULL;
   GooCanvasItem *item;
   GooCanvasItem *group_item;
   guint i;
   guint total_number = 0;
-  double x = 0.0;
+  double x;
   guint number_of_dice = number_of_dices;
 
   group_item = goo_canvas_group_new (parent, NULL);
@@ -424,30 +423,24 @@ static void smallnumbers_create_item(GooCanvasItem *parent)
     /*
      * Now the images
      */
-    str1 = g_strdup_printf("level%c.png", numbers[i]);
-    str2 = gc_skin_image_get(str1);
-
-    smallnumbers_pixmap = gc_pixmap_load(str2);
+    RsvgHandle *svg_handle;
+    RsvgDimensionData rsvg_dimension;
+    str1 = g_strdup_printf("smallnumbers/dice%c.svgz", numbers[i]);
+    svg_handle = gc_rsvg_load(str1);
+    rsvg_handle_get_dimensions (svg_handle, &rsvg_dimension);
 
     g_free(str1);
-    g_free(str2);
 
-    if(x==0.0)
-      {
-	x = (double)(g_random_int()%(BOARDWIDTH-
-			     (guint)(gdk_pixbuf_get_width(smallnumbers_pixmap)* imageZoom)*2));
-      }
-    else
-      {
-	x += ((gdk_pixbuf_get_width(smallnumbers_pixmap)-10)*imageZoom);
-      }
+    x = (double)(g_random_int()%(BOARDWIDTH-
+				 (guint)(rsvg_dimension.width * imageZoom)*2));
 
-    item = goo_canvas_image_new (group_item,
-				 smallnumbers_pixmap,
-				 x,
-				 -gdk_pixbuf_get_height(smallnumbers_pixmap)*imageZoom,
-				  NULL);
-    gdk_pixbuf_unref(smallnumbers_pixmap);
+    item = goo_svg_item_new (group_item, svg_handle, NULL);
+    goo_canvas_item_translate(item,
+			      x,
+			      - (rsvg_dimension.height * imageZoom ));
+    goo_canvas_item_scale(item, imageZoom, imageZoom);
+    g_object_unref(svg_handle);
+
   }
   g_object_set_data (G_OBJECT (group_item), "dice_number", GINT_TO_POINTER (total_number));
 

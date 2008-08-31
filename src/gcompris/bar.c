@@ -54,12 +54,15 @@ static void	 setup_item_signals (GooCanvasItem *item, gchar* name);
 //static void	 _force_bar_down(void);
 //static void	 _force_bar_up(char *data);
 static gint	 bar_play_sound (gchar *sound);
+static void	 play_level_voice(int level);
 
 static gint current_level = -1;
 static gint current_flags = -1;
 static GooCanvasItem *bar_item  = NULL;
 static GooCanvasItem *exit_item = NULL;
 static GooCanvasItem *home_item = NULL;
+static GooCanvasItem *level_up_item = NULL;
+static GooCanvasItem *level_down_item = NULL;
 static GooCanvasItem *level_item = NULL;
 static GooCanvasItem *help_item = NULL;
 static GooCanvasItem *repeat_item = NULL;
@@ -140,7 +143,6 @@ void gc_bar_start (GooCanvas *theCanvas)
 
   // HOME
   pixmap = gc_skin_pixmap_load("home.png");
-  zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
   home_item = goo_canvas_image_new (rootitem,
 				    pixmap,
 				    (width/NUMBER_OF_ITEMS) * 4,
@@ -152,22 +154,42 @@ void gc_bar_start (GooCanvas *theCanvas)
 
 
   // LEVEL
-  pixmap = gc_skin_pixmap_load("level1.png");
-  zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
-  level_item = goo_canvas_image_new (rootitem,
+  pixmap = gc_skin_pixmap_load("level_up.png");
+  int level_up_height = gdk_pixbuf_get_height(pixmap);
+  int level_up_width = gdk_pixbuf_get_width(pixmap);
+  level_up_item = goo_canvas_image_new (rootitem,
 				     pixmap,
 				     (width/NUMBER_OF_ITEMS) * 3,
 				     buttony,
 				     NULL);
   gdk_pixbuf_unref(pixmap);
+  setup_item_signals(level_up_item, "level_up");
+
+  pixmap = gc_skin_pixmap_load("level_down.png");
+  level_down_item = goo_canvas_image_new (rootitem,
+				     pixmap,
+				     (width/NUMBER_OF_ITEMS) * 3,
+				     buttony + level_up_height,
+				     NULL);
+  gdk_pixbuf_unref(pixmap);
+  setup_item_signals(level_down_item, "level_down");
 
   current_level = 1;
 
-  setup_item_signals(level_item, "level");
+  level_item =
+    goo_canvas_text_new (rootitem,
+			 "1",
+			 (width/NUMBER_OF_ITEMS) * 3 + level_up_width/2,
+			 buttony + 30,
+			 -1,
+			 GTK_ANCHOR_CENTER,
+			 "font", gc_skin_font_board_title_bold,
+			 "fill-color-rgba", gc_skin_get_color("menu/text"),
+			 "alignment", PANGO_ALIGN_CENTER,
+			 NULL);
 
   // REPEAT
   pixmap = gc_skin_pixmap_load("repeat.png");
-  zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
   repeat_item = goo_canvas_image_new (rootitem,
 				      pixmap,
 				      (width/NUMBER_OF_ITEMS) * 0,
@@ -180,7 +202,6 @@ void gc_bar_start (GooCanvas *theCanvas)
 
   // HELP
   pixmap = gc_skin_pixmap_load("help.png");
-  zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
   help_item = goo_canvas_image_new (rootitem,
 				    pixmap,
 				    (width/NUMBER_OF_ITEMS) * 1,
@@ -194,7 +215,6 @@ void gc_bar_start (GooCanvas *theCanvas)
   if(properties->disable_config == 0)
     {
       pixmap = gc_skin_pixmap_load("config.png");
-      zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
       config_item = goo_canvas_image_new (rootitem,
 					  pixmap,
 					  (width/NUMBER_OF_ITEMS) * 2,
@@ -207,7 +227,6 @@ void gc_bar_start (GooCanvas *theCanvas)
 
   // ABOUT
   pixmap = gc_skin_pixmap_load("about.png");
-  zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
   about_item = goo_canvas_image_new (rootitem,
 				     pixmap,
 				     (width/NUMBER_OF_ITEMS) * 3,
@@ -219,6 +238,18 @@ void gc_bar_start (GooCanvas *theCanvas)
 
   // Show them all
   update_exit_button();
+  g_object_set (level_up_item,
+		"visibility", GOO_CANVAS_ITEM_INVISIBLE,
+		NULL);
+  g_object_set (level_down_item,
+		"visibility", GOO_CANVAS_ITEM_INVISIBLE,
+		NULL);
+  g_object_set (level_up_item,
+		"visibility", GOO_CANVAS_ITEM_INVISIBLE,
+		NULL);
+  g_object_set (level_down_item,
+		"visibility", GOO_CANVAS_ITEM_INVISIBLE,
+		NULL);
   g_object_set (level_item,
 		"visibility", GOO_CANVAS_ITEM_INVISIBLE,
 		NULL);
@@ -245,7 +276,6 @@ void gc_bar_start (GooCanvas *theCanvas)
 void gc_bar_set_level(GcomprisBoard *gcomprisBoard)
 {
   char *str = NULL;
-  GdkPixbuf *pixmap = NULL;
 
   goo_canvas_item_raise(rootitem, NULL);
   /* Non yet initialized : Something Wrong */
@@ -258,15 +288,13 @@ void gc_bar_set_level(GcomprisBoard *gcomprisBoard)
   if(gcomprisBoard!=NULL)
     {
 
-      str = g_strdup_printf("level%d.png", gcomprisBoard->level);
-      pixmap = gc_skin_pixmap_load(str);
-
-      g_free(str);
+      str = g_strdup_printf("%d", gcomprisBoard->level);
 
       g_object_set (level_item,
-		    "pixbuf", pixmap,
+		    "text", str,
 		    NULL);
-      gdk_pixbuf_unref(pixmap);
+
+      g_free(str);
 
     }
 
@@ -338,13 +366,29 @@ gc_bar_set (const GComprisBarFlags flags)
   update_exit_button();
 
   if(flags&GC_BAR_LEVEL)
+    {
+    g_object_set (level_up_item,
+		  "visibility", GOO_CANVAS_ITEM_VISIBLE,
+		  NULL);
+    g_object_set (level_down_item,
+		  "visibility", GOO_CANVAS_ITEM_VISIBLE,
+		  NULL);
     g_object_set (level_item,
 		  "visibility", GOO_CANVAS_ITEM_VISIBLE,
 		  NULL);
+    }
   else
+    {
+    g_object_set (level_up_item,
+		  "visibility", GOO_CANVAS_ITEM_INVISIBLE,
+		  NULL);
+    g_object_set (level_down_item,
+		  "visibility", GOO_CANVAS_ITEM_INVISIBLE,
+		  NULL);
     g_object_set (level_item,
 		  "visibility", GOO_CANVAS_ITEM_INVISIBLE,
 		  NULL);
+    }
 
   if(gc_help_has_board(gc_board_get_current()))
     g_object_set (help_item,
@@ -592,6 +636,30 @@ on_leave_notify (GooCanvasItem  *item,
   return FALSE;
 }
 
+/** Play the audio number given in @level
+ */
+static void
+play_level_voice(int level)
+{
+  /* Play the audio level number */
+  gchar *number_str = g_strdup_printf("%d", level);
+
+  if ( level < 10 )
+    {
+      /* Set the number as unicode */
+      gchar *level_str = gc_sound_alphabet(number_str);
+      g_free(number_str);
+      number_str = level_str;
+    }
+
+  gchar *audio_str = g_strdup_printf("voices/$LOCALE/alphabet/%s", number_str);
+
+  gc_sound_play_ogg("voices/$LOCALE/misc/level.ogg", audio_str, NULL);
+
+  g_free(number_str);
+  g_free(audio_str);
+}
+
 /* Callback for the bar operations */
 static gboolean
 item_event_bar (GooCanvasItem  *item,
@@ -615,53 +683,30 @@ item_event_bar (GooCanvasItem  *item,
       if(gcomprisBoard && gcomprisBoard->plugin->ok != NULL)
 	gcomprisBoard->plugin->ok();
     }
-  else if(!strcmp((char *)data, "level"))
+  else if(!strcmp((char *)data, "level_up"))
     {
-      gint tmp = current_level;
-
-      if(event->button == 1)
-	{
 	  current_level++;
 	  if(gcomprisBoard && current_level > gcomprisBoard->maxlevel)
 	    current_level=1;
-	}
-      else
-	{
-	  /* Decrease the level */
-	  current_level--;
-	  if(current_level < 1)
-	    current_level = gcomprisBoard->maxlevel;
-	}
 
-      if(tmp!=current_level)
-	{
-	  /* Set the level first because it can set a different current_level */
+	  /* Set the level */
 	  if(gcomprisBoard && gcomprisBoard->plugin->set_level != NULL)
-	    {
-	      gcomprisBoard->plugin->set_level(current_level);
-	    }
+	    gcomprisBoard->plugin->set_level(current_level);
 
-	  {
-	    /* Play the audio level number */
-	    gchar *number_str = g_strdup_printf("%d", current_level);
+	  play_level_voice(current_level);
+    }
+  else if(!strcmp((char *)data, "level_down"))
+    {
+      /* Decrease the level */
+      current_level--;
+      if(current_level < 1)
+	current_level = gcomprisBoard->maxlevel;
 
-	    if ( current_level < 10 )
-	      {
-		/* Set the number as unicode */
-		gchar *current_level_str = gc_sound_alphabet(number_str);
-		g_free(number_str);
-		number_str = current_level_str;
-	      }
+      /* Set the level */
+      if(gcomprisBoard && gcomprisBoard->plugin->set_level != NULL)
+	gcomprisBoard->plugin->set_level(current_level);
 
-	    gchar *audio_str = g_strdup_printf("voices/$LOCALE/alphabet/%s", number_str);
-
-	    gc_sound_play_ogg("voices/$LOCALE/misc/level.ogg", audio_str, NULL);
-
-	    g_free(number_str);
-	    g_free(audio_str);
-
-	  }
-	}
+      play_level_voice(current_level);
     }
   else if(!strcmp((char *)data, "back"))
     {
