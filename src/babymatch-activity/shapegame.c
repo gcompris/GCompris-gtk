@@ -924,6 +924,9 @@ item_event_drag(GooCanvasItem *item,
 	{
 	case SHAPE_TARGET:
 	  /* unplace this shape */
+	  if (shape->placed)
+	    g_object_set (shape->placed->target_point, "visibility",
+			  GOO_CANVAS_ITEM_VISIBLE, NULL);
 	  shape->placed->shape_place = NULL;
 	  shape->placed = NULL;
 	  /* No break on purpose */
@@ -1045,6 +1048,8 @@ item_event_drag(GooCanvasItem *item,
 				+ BOARDWIDTH/SHAPE_BOX_WIDTH_RATIO,
 				found_shape->y - (bounds.y2 - bounds.y1) / 2);
 
+	  g_object_set (found_shape->target_point, "visibility",
+			GOO_CANVAS_ITEM_INVISIBLE, NULL);
 	  g_object_set (target_item, "visibility",
 			GOO_CANVAS_ITEM_VISIBLE, NULL);
 	  goo_canvas_item_raise(target_item, NULL);
