@@ -56,7 +56,7 @@ static void	 end_board (void);
 static gboolean	 is_our_board (GcomprisBoard *gcomprisBoard);
 static void	 set_level (guint level);
 static int	 gamewon;
-static void	 game_won(void);
+static int	 from;
 
 static gint timer_id;
 static gboolean animation;
@@ -99,6 +99,10 @@ static gboolean		 item_event (GooCanvasItem  *item,
 				     GooCanvasItem  *target,
 				     GdkEventButton *event,
 				     gpointer data);
+static gboolean          hightlight(GooCanvasItem *item,
+                                    GooCanvasItem  *target,
+                                    GdkEventButton *event,
+                                    gpointer status);
 static gboolean		 animate_step();
 static void		 update_water();
 static void		 toggle_lock(GooCanvasItem *item);
@@ -145,11 +149,6 @@ static void pause_board (gboolean pause)
   if(gcomprisBoard==NULL)
     return;
 
-  if(gamewon == TRUE && pause == FALSE) /* the game is won */
-    {
-      game_won();
-    }
-
   board_paused = pause;
 }
 
@@ -172,7 +171,6 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       animation = FALSE;
 
-      gamewon = FALSE;
       pause_board(FALSE);
     }
 }
@@ -234,6 +232,7 @@ static void canal_lock_next_level()
 
   canal_lock_destroy_all_items();
   gamewon = FALSE;
+  from = 0;
 
   /* Original state of the lock */
   boat_position = BOAT_POS_LEFT;
@@ -275,8 +274,8 @@ static GooCanvasItem *canal_lock_create_item(GooCanvasItem *parent)
 			  BASE_LINE - LEFT_CANAL_HEIGHT - gdk_pixbuf_get_height(pixmap)*0.9,
 			  NULL);
   g_signal_connect(tuxboat_item, "button-press-event",
-		     (GtkSignalFunc) item_event,
-		     NULL);
+                   (GtkSignalFunc) item_event,
+                   NULL);
   gc_item_focus_init(tuxboat_item, NULL);
 
   tuxboat_width = gdk_pixbuf_get_width(pixmap);
@@ -334,6 +333,12 @@ static GooCanvasItem *canal_lock_create_item(GooCanvasItem *parent)
   g_signal_connect(lock_left_item, "button-press-event",
 		   (GtkSignalFunc) item_event,
 		   NULL);
+  g_signal_connect(lock_left_item, "enter_notify_event",
+		   (GtkSignalFunc) hightlight,
+		   GINT_TO_POINTER(TRUE));
+  g_signal_connect(lock_left_item, "leave_notify_event",
+		   (GtkSignalFunc) hightlight,
+		   GINT_TO_POINTER(FALSE));
 
   /* This is the right lock */
   lock_right_item = goo_canvas_rect_new (boardRootItem,
@@ -347,6 +352,12 @@ static GooCanvasItem *canal_lock_create_item(GooCanvasItem *parent)
   g_signal_connect(lock_right_item, "button-press-event",
 		   (GtkSignalFunc) item_event,
 		   NULL);
+  g_signal_connect(lock_right_item, "enter_notify_event",
+		   (GtkSignalFunc) hightlight,
+		   GINT_TO_POINTER(TRUE));
+  g_signal_connect(lock_right_item, "leave_notify_event",
+		   (GtkSignalFunc) hightlight,
+		   GINT_TO_POINTER(FALSE));
 
   /* This is the water conduit under the canal */
   goo_canvas_rect_new (boardRootItem,
@@ -401,6 +412,12 @@ static GooCanvasItem *canal_lock_create_item(GooCanvasItem *parent)
   g_signal_connect(canallock_left_item, "button-press-event",
 		     (GtkSignalFunc) item_event,
 		     NULL);
+  g_signal_connect(canallock_left_item, "enter_notify_event",
+		   (GtkSignalFunc) hightlight,
+		   GINT_TO_POINTER(TRUE));
+  g_signal_connect(canallock_left_item, "leave_notify_event",
+		   (GtkSignalFunc) hightlight,
+		   GINT_TO_POINTER(FALSE));
 
   canallock_right_item =
     goo_canvas_rect_new (boardRootItem,
@@ -411,31 +428,20 @@ static GooCanvasItem *canal_lock_create_item(GooCanvasItem *parent)
 			 "fill_color_rgba", CANALLOCK_COLOR,
 			 "line-width", (double) 0,
 			 NULL);
-    g_signal_connect(canallock_right_item, "button-press-event",
-		     (GtkSignalFunc) item_event,
-		     NULL);
+  g_signal_connect(canallock_right_item, "button-press-event",
+                   (GtkSignalFunc) item_event,
+                   NULL);
+  g_signal_connect(canallock_right_item, "enter_notify_event",
+		   (GtkSignalFunc) hightlight,
+		   GINT_TO_POINTER(TRUE));
+  g_signal_connect(canallock_right_item, "leave_notify_event",
+		   (GtkSignalFunc) hightlight,
+		   GINT_TO_POINTER(FALSE));
 
 
 
   return NULL;
 }
-/* ==================================== */
-static void game_won()
-{
-  gcomprisBoard->sublevel++;
-
-  if(gcomprisBoard->sublevel>gcomprisBoard->number_of_sublevel) {
-    /* Try the next level */
-    gcomprisBoard->sublevel=1;
-    gcomprisBoard->level++;
-    if(gcomprisBoard->level>gcomprisBoard->maxlevel)
-      gcomprisBoard->level = gcomprisBoard->maxlevel;
-
-    gc_sound_play_ogg ("sounds/bonus.wav", NULL);
-  }
-  canal_lock_next_level();
-}
-
 /* ==================================== */
 /* Move the boat to the next possible position */
 static void
@@ -458,12 +464,22 @@ move_boat()
       boat_position = BOAT_POS_LEFT;
       timer_item_limit_x = (LEFT_CANAL_WIDTH - tuxboat_width)/2;
       timer_step_x1 = -2;
+      if (from == 1)
+        {
+          gamewon = TRUE;
+          from = 0;
+        }
     }
   else if(boat_position == BOAT_POS_MIDDLE && !lock_right_up)
     {
       boat_position = BOAT_POS_RIGHT;
       timer_item_limit_x = LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH + (RIGHT_CANAL_WIDTH - tuxboat_width)/2;
       timer_step_x1 = 2;
+      if (from == 0)
+        {
+          gamewon = TRUE;
+          from = 1;
+        }
     }
   else if(boat_position == BOAT_POS_RIGHT && !lock_right_up)
     {
@@ -478,6 +494,8 @@ move_boat()
       animation = FALSE;
       return;
     }
+
+  gc_item_focus_remove(tuxboat_item, NULL);
 
   gc_sound_play_ogg ("sounds/eraser2.wav", NULL);
 
@@ -628,6 +646,8 @@ animate_step()
       timer_id = 0;
       animation = FALSE;
       update_water();
+      if (timer_item == tuxboat_item)
+        gc_item_focus_init(tuxboat_item, NULL);
     }
   else if((bounds.x1 >= timer_item_limit_x && timer_step_x1 > 0) ||
      (bounds.x1 <= timer_item_limit_x && timer_step_x1 < 0))
@@ -636,6 +656,13 @@ animate_step()
       timer_id = 0;
       animation = FALSE;
       update_water();
+      if (gamewon)
+        {
+          gc_bonus_display(TRUE, GC_BONUS_FLOWER);
+          gamewon = FALSE;
+        }
+      if (timer_item == tuxboat_item)
+        gc_item_focus_init(tuxboat_item, NULL);
     }
 
   return TRUE;
@@ -643,13 +670,18 @@ animate_step()
 
 /* ==================================== */
 /* Highlight the given item */
-static void hightlight(GooCanvasItem *item, gboolean status)
+static gboolean
+hightlight(GooCanvasItem *item,
+           GooCanvasItem  *target,
+           GdkEventButton *event,
+           gpointer status_)
 {
   guint color = 0;
+  gboolean status = GPOINTER_TO_INT(status_);
 
   /* This is an image, not a rectangle */
   if(item == tuxboat_item)
-    return;
+    return FALSE;
 
   if(item == lock_left_item ||
      item == lock_right_item)
@@ -663,10 +695,11 @@ static void hightlight(GooCanvasItem *item, gboolean status)
     }
 
 
-    g_object_set(item,
-			  "fill_color_rgba", color,
-			  NULL);
+  g_object_set(item,
+               "fill_color_rgba", color,
+               NULL);
 
+  return TRUE;
 }
 
 /* ==================================== */
@@ -679,60 +712,46 @@ item_event (GooCanvasItem  *item,
   if(board_paused)
     return FALSE;
 
-  switch (event->type)
+  /* If there is already an animation do nothing */
+  if(animation)
+    return FALSE;
+
+  if(item == lock_left_item)
     {
-    case GDK_ENTER_NOTIFY:
-      hightlight(item, TRUE);
-      break;
-    case GDK_LEAVE_NOTIFY:
-      hightlight(item, FALSE);
-      break;
-    case GDK_BUTTON_PRESS:
-
-      /* If there is already an animation do nothing */
-      if(animation)
-	return FALSE;
-
-      if(item == lock_left_item)
-	{
-	  if(lock_water_low && canallock_right_up)
-	      toggle_lock(item);
-	  else
-	    gc_sound_play_ogg ("sounds/crash.ogg", NULL);
-
-	}
-      else if(item == lock_right_item)
-	{
-	  if(!lock_water_low && canallock_left_up)
-	      toggle_lock(item);
-	  else
-	    gc_sound_play_ogg ("sounds/crash.ogg", NULL);
-	}
-      else if(item == canallock_left_item && canallock_right_up)
-	{
-	  if(lock_right_up)
-	      toggle_lock(item);
-	  else
-	    gc_sound_play_ogg ("sounds/crash.ogg", NULL);
-	}
-      else if(item == canallock_right_item && canallock_left_up)
-	{
-	  if(lock_left_up)
-	      toggle_lock(item);
-	  else
-	    gc_sound_play_ogg ("sounds/crash.ogg", NULL);
-	}
-      else if(item == tuxboat_item)
-	{
-	  move_boat();
-	}
+      if(lock_water_low && canallock_right_up)
+        toggle_lock(item);
       else
-	{
-	  gc_sound_play_ogg ("sounds/crash.ogg", NULL);
-	}
-      break;
-    default:
-      break;
+        gc_sound_play_ogg ("sounds/crash.ogg", NULL);
+
+    }
+  else if(item == lock_right_item)
+    {
+      if(!lock_water_low && canallock_left_up)
+        toggle_lock(item);
+      else
+        gc_sound_play_ogg ("sounds/crash.ogg", NULL);
+    }
+  else if(item == canallock_left_item && canallock_right_up)
+    {
+      if(lock_right_up)
+        toggle_lock(item);
+      else
+        gc_sound_play_ogg ("sounds/crash.ogg", NULL);
+    }
+  else if(item == canallock_right_item && canallock_left_up)
+    {
+      if(lock_left_up)
+        toggle_lock(item);
+      else
+        gc_sound_play_ogg ("sounds/crash.ogg", NULL);
+    }
+  else if(item == tuxboat_item)
+    {
+      move_boat();
+    }
+  else
+    {
+      gc_sound_play_ogg ("sounds/crash.ogg", NULL);
     }
   return FALSE;
 }

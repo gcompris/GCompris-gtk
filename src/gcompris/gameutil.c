@@ -331,6 +331,9 @@ void gc_item_focus_remove(GooCanvasItem *source_item,
 
   if(highlight_item)
     goo_canvas_item_remove(highlight_item);
+
+  g_object_set_data (G_OBJECT(target_item), "highlight_item",
+		     NULL);
 }
 
 /*
