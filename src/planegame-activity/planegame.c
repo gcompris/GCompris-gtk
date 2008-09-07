@@ -305,8 +305,8 @@ static void planegame_next_level()
   else
     {
       gc_score_start(SCORESTYLE_NOTE,
-			   BOARDWIDTH - 220,
-			   BOARDHEIGHT - 50,
+			   BOARDWIDTH - 195,
+			   BOARDHEIGHT - 30,
 			   gcomprisBoard->number_of_sublevel);
       gc_score_set(gcomprisBoard->sublevel);
     }

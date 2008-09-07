@@ -407,7 +407,7 @@ static GooCanvasItem *enumerate_create_item(GooCanvasItem *parent)
 	  guint x, y;
 
 	  x = g_random_int_range(0, ANSWER_X-gdk_pixbuf_get_width(pixmap)-ANSWER_WIDTH);
-	  y = g_random_int_range(0, BOARDHEIGHT-gdk_pixbuf_get_height(pixmap));
+	  y = g_random_int_range(0, BOARDHEIGHT-BARHEIGHT-10-gdk_pixbuf_get_height(pixmap));
 
 	  item = goo_canvas_image_new (boardRootItem,
 				       pixmap,

@@ -532,7 +532,7 @@ static void process_ok()
 static void request_score()
 {
   GdkPixbuf *button_pixmap = NULL;
-  double y_offset = 160;
+  double y_offset = 130;
   double x_offset = 245;
   gchar *tmpstr;
 

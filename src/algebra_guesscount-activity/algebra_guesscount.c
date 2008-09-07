@@ -215,9 +215,9 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     gcomprisBoard->sublevel=1;
     gcomprisBoard->number_of_sublevel=NUMBER_OF_SUBLEVELS; /* Go to next level after this number of 'play' */
     gc_score_start(SCORESTYLE_NOTE,
-			 50,
-			 BOARDHEIGHT - 50,
-			 gcomprisBoard->number_of_sublevel);
+                   BOARDWIDTH - 195,
+                   BOARDHEIGHT - 30,
+                   gcomprisBoard->number_of_sublevel);
     gc_bar_set(GC_BAR_LEVEL);
 
     algebra_guesscount_next_level();
