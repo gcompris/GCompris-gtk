@@ -33,13 +33,17 @@ import platform
 from gcompris import gcompris_gettext as _
 
 pid = None
+fles = None
 
 class Gcompris_tuxpaint:
   """TuxPaint Launcher"""
-  global pid
 
   def __init__(self, gcomprisBoard):
     self.gcomprisBoard = gcomprisBoard
+    self.rootitem = None
+    # global parameter to access object structures from global fonctions
+    global fles
+    fles=self
     pass
 
   def configuration(self, value, init):
@@ -72,9 +76,6 @@ class Gcompris_tuxpaint:
 
     self.window = self.gcomprisBoard.canvas.get_toplevel()
 
-    #global board
-    #board = self
-
     Prop = gcompris.get_properties()
 
     #get default values
@@ -83,7 +84,7 @@ class Gcompris_tuxpaint:
     #replace configured values
     self.config_dict.update(gcompris.get_board_conf())
 
-    self.rootitem = goocanvas.Group(parent =  self.gcomprisBoard.canvas.get_root_item())
+    self.rootitem = goocanvas.Group(parent = self.gcomprisBoard.canvas.get_root_item())
 
     options = [progname]
 
@@ -104,6 +105,7 @@ class Gcompris_tuxpaint:
 
     gcompris.sound.close()
 
+    global pid
     try:
        # bug in working_directory=None ?
        if (tuxpaint_dir):
@@ -126,7 +128,7 @@ class Gcompris_tuxpaint:
     gcompris.bar_set(0)
     gcompris.bar_hide(1)
 
-    gcompris.set_background(self.rootitem,
+    gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                             gcompris.skin.image_to_skin("gcompris-bg.jpg"))
 
     textItem = goocanvas.Text(
@@ -237,8 +239,13 @@ def child_callback(fd,  cond, data):
 
   global pid
   pid = None
+
+  global fles
+  fles.end()
   gcompris.end_board()
 
 def stop_board():
+  global fles
+  fles.end()
   gcompris.end_board()
 
