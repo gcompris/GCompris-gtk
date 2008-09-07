@@ -168,7 +168,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->level = 1;
       gcomprisBoard->maxlevel = 6;
       gc_bar_set(GC_BAR_LEVEL);
-      gc_bar_location(30, -1, 0.6);
+      gc_bar_location(BOARDWIDTH-BARWIDTH + 100, -1, 0.7);
 
       /* Init of paratrooper struct */
       paratrooperItem.rootitem = NULL;
@@ -216,6 +216,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
   switch (keyval)
     {
       /* Avoid all this keys to be interpreted by this game */
+    case 0:
     case GDK_Shift_L:
     case GDK_Shift_R:
     case GDK_Control_L:
@@ -597,6 +598,8 @@ void next_state()
 				  bounds.y2);
 	drop_tux_id = \
 	  gtk_timeout_add (10, (GtkFunction) paratrooper_move_tux, NULL);
+
+        gc_item_focus_remove(planeitem, NULL);
       }
       break;
 
@@ -612,7 +615,7 @@ void next_state()
 		      "rsvg-handle", svg_handle,
 		      NULL);
 
-	gc_item_focus_init(paratrooperItem.paratrooper, NULL);
+        gc_item_focus_remove(paratrooperItem.paratrooper, NULL);
 	g_object_unref(svg_handle);
 
 	paratrooperItem.status = TUX_FLYING;
@@ -640,6 +643,7 @@ void next_state()
       paratrooperItem.speed	= 3;
       g_object_set (paratrooperItem.paratrooper, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
       g_object_set (planeitem, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+      gc_item_focus_init(planeitem, NULL);
       break;
 
     default:
@@ -657,15 +661,6 @@ item_event (GooCanvasItem  *item,
   if(!gcomprisBoard)
     return FALSE;
 
-   switch (event->type)
-     {
-     case GDK_BUTTON_PRESS:
-       next_state();
-       break;
-
-     default:
-       break;
-     }
-
-   return FALSE;
- }
+  next_state();
+  return FALSE;
+}

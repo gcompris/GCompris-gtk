@@ -168,6 +168,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       canal_lock_next_level();
 
       gc_bar_set(0);
+      gc_bar_location(0, -1, 0.7);
 
       animation = FALSE;
 

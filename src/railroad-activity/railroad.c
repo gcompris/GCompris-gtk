@@ -187,6 +187,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       } else {
 	gc_bar_set(GC_BAR_LEVEL|GC_BAR_REPEAT);
       }
+      gc_bar_location(BOARDWIDTH-BARWIDTH + 120, 0, 0.7);
 
       railroad_next_level();
 

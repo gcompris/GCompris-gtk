@@ -318,16 +318,20 @@ gc_bar_set_repeat_icon (GdkPixbuf *pixmap)
 
 /** Setting the bar location
  * @param[in] x the bar x coordinate, -1 to set the default
- * @param[in] y the bar x coordinate, -1 to set the default
+ * @param[in] y the bar y coordinate, -1 to set the default
  * @param[in] zoom the bar zoom factor, -1 to set the default
  */
 void
 gc_bar_location (int x, int y, double zoom)
 {
+  // Make the y coord be assigned at its bottom
+  int ny = (y == -1 ? _default_y : y);
+  ny += BARHEIGHT - (zoom == -1 ? _default_zoom : zoom) * BARHEIGHT;
+
   goo_canvas_item_set_transform(rootitem, NULL);
   goo_canvas_item_translate(rootitem,
 			    (x == -1 ? _default_x : x),
-			    (y == -1 ? _default_y : y));
+			    y = ny);
   goo_canvas_item_scale(rootitem,
 			(zoom == -1 ? _default_zoom : zoom),
 			(zoom == -1 ? _default_zoom : zoom));

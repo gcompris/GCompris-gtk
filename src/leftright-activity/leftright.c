@@ -158,6 +158,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     gcomprisBoard->number_of_sublevel = NUMBER_OF_SUBLEVELS;
     gc_score_start(SCORESTYLE_NOTE, 10, 50, gcomprisBoard->number_of_sublevel);
     gc_bar_set(GC_BAR_LEVEL);
+    gc_bar_location(BOARDWIDTH-BARWIDTH + 110, 5, 0.8);
 
     leftright_next_level();
 
