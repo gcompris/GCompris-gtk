@@ -1,7 +1,6 @@
 imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/leftright
 img_DATA = \
-	leftright-bg.jpg \
-	leftright-select.png \
+	leftright-bg.svgz \
 	main_droite_dessus_0.png \
 	main_droite_dessus_180.png \
 	main_droite_dessus_270.png \

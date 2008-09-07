@@ -32,20 +32,16 @@ static int gamewon;
 static int last_hand = -1;
 
 static void process_ok(void);
-static void highlight_selected(int);
+static void clicked_left(void);
+static void clicked_right(void);
 static void game_won();
 
 #define LEFT 0
 #define RIGHT 1
 
-// the values are taken from the backgound image colors-bg.jpg
-#define BUTTON_AREA_X1 83
-#define BUTTON_AREA_X2 487
-#define BUTTON_AREA_Y1 380
-
-#define CENTER_LEFT_X 200
-#define CENTER_LEFT_Y 430
-#define CENTER_RIGHT_X 600
+#define CENTER_LEFT_X 110
+#define CENTER_LEFT_Y 365
+#define CENTER_RIGHT_X 520
 #define CENTER_RIGHT_Y CENTER_LEFT_Y
 
 #define HAND_X 400
@@ -68,15 +64,10 @@ static void game_won();
 static GooCanvasItem *boardRootItem = NULL;
 
 static GooCanvasItem *hand_image_item = NULL;
-static GooCanvasItem *left_highlight_image_item = NULL, *right_highlight_image_item = NULL;
 
 static GooCanvasItem *leftright_create_item(GooCanvasItem *parent);
 static void leftright_destroy_all_items(void);
 static void leftright_next_level(void);
-static gboolean item_event (GooCanvasItem  *item,
-			    GooCanvasItem  *target,
-			    GdkEventButton *event,
-			    gpointer data);
 
 static int answer;
 
@@ -136,7 +127,6 @@ static void pause_board (gboolean pause)
   if(gcomprisBoard==NULL)
     return;
 
-  gc_bar_hide(FALSE);
   if(gamewon == TRUE && pause == FALSE) /* the game is won */
     game_won();
 
@@ -150,7 +140,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
   if(agcomprisBoard!=NULL) {
     gcomprisBoard=agcomprisBoard;
     gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
-			    "leftright/leftright-bg.jpg");
+                      "leftright/leftright-bg.svgz");
     gcomprisBoard->level=1;
     gcomprisBoard->maxlevel=NUMBER_OF_LEVELS;
     gcomprisBoard->sublevel=1;
@@ -158,7 +148,6 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     gcomprisBoard->number_of_sublevel = NUMBER_OF_SUBLEVELS;
     gc_score_start(SCORESTYLE_NOTE, 10, 50, gcomprisBoard->number_of_sublevel);
     gc_bar_set(GC_BAR_LEVEL);
-    gc_bar_location(BOARDWIDTH-BARWIDTH + 110, 5, 0.8);
 
     leftright_next_level();
 
@@ -233,7 +222,6 @@ static void leftright_destroy_all_items() {
  *
  * =====================================================================*/
 static GooCanvasItem *leftright_create_item(GooCanvasItem *parent) {
-  GdkPixbuf *highlight_pixmap = NULL;
   GdkPixbuf *hand_pixmap = NULL;
   gchar *str;
   int i;
@@ -241,63 +229,17 @@ static GooCanvasItem *leftright_create_item(GooCanvasItem *parent) {
   boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
 					NULL);
 
+  gc_util_button_text(boardRootItem,
+		      CENTER_LEFT_X, CENTER_LEFT_Y,
+		      "button_large.png",
+		      _("left"),
+		      (GtkSignalFunc) clicked_left, NULL);
 
-  highlight_pixmap = gc_pixmap_load("leftright/leftright-select.png");
-
-  left_highlight_image_item = goo_canvas_image_new (boardRootItem,
-						    highlight_pixmap,
-						    BUTTON_AREA_X1,
-						    BUTTON_AREA_Y1,
-						     NULL);
-
-  right_highlight_image_item = goo_canvas_image_new (boardRootItem,
-						     highlight_pixmap,
-						     BUTTON_AREA_X2,
-						     BUTTON_AREA_Y1,
-						     NULL);
-
-  g_object_set (right_highlight_image_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
-  g_object_set (left_highlight_image_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
-
-  goo_canvas_text_new (boardRootItem,
-		       _("left"),
-		       (double) CENTER_LEFT_X + 1.0,
-		       (double) CENTER_LEFT_Y + 1.0,
-		       -1,
-		       GTK_ANCHOR_CENTER,
-		       "font", gc_skin_font_board_big,
-		       "fill-color", "black",
-		       NULL);
-
-  goo_canvas_text_new (boardRootItem,
-		       _("left"),
-		       (double) CENTER_LEFT_X,
-		       (double) CENTER_LEFT_Y,
-		       -1,
-		       GTK_ANCHOR_CENTER,
-		       "font", gc_skin_font_board_big,
-		       "fill-color", TEXT_COLOR,
-		       NULL);
-
-  goo_canvas_text_new (boardRootItem,
-		       _("right"),
-		       (double) CENTER_RIGHT_X + 1.0,
-		       (double) CENTER_RIGHT_Y + 1.0,
-		       -1,
-		       GTK_ANCHOR_CENTER,
-		       "font", gc_skin_font_board_big,
-		       "fill-color", "black",
-		       NULL);
-
-  goo_canvas_text_new (boardRootItem,
-		       _("right"),
-		       (double) CENTER_RIGHT_X,
-		       (double) CENTER_RIGHT_Y,
-		       -1,
-		       GTK_ANCHOR_CENTER,
-		       "font", gc_skin_font_board_big,
-		       "fill-color", TEXT_COLOR,
-		       NULL);
+  gc_util_button_text(boardRootItem,
+		      CENTER_RIGHT_X, CENTER_RIGHT_Y,
+		      "button_large.png",
+		      _("right"),
+		      (GtkSignalFunc) clicked_right, NULL);
 
   // make sure that next hand is not the same as previous
   do {
@@ -313,20 +255,16 @@ static GooCanvasItem *leftright_create_item(GooCanvasItem *parent) {
 
   str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, hands[i]);
   hand_pixmap = gc_pixmap_load(str);
-  hand_image_item = goo_canvas_image_new (boardRootItem,
-					  hand_pixmap,
-					  HAND_X - (gdk_pixbuf_get_width(hand_pixmap)/2),
-					  HAND_Y - (gdk_pixbuf_get_height(hand_pixmap)/2),
-					  NULL);
+  hand_image_item =
+    goo_canvas_image_new (boardRootItem,
+                          hand_pixmap,
+                          HAND_X - (gdk_pixbuf_get_width(hand_pixmap)/2),
+                          HAND_Y - (gdk_pixbuf_get_height(hand_pixmap)/2),
+                          NULL);
 
   g_free(str);
 
-  gdk_pixbuf_unref(highlight_pixmap);
   gdk_pixbuf_unref(hand_pixmap);
-
-  g_signal_connect(goo_canvas_get_root_item(gcomprisBoard->canvas),
-		   "button_press_event",
-		   (GtkSignalFunc) item_event, NULL);
 
   return NULL;
 }
@@ -361,57 +299,21 @@ static void process_ok() {
 /* =====================================================================
  *
  * =====================================================================*/
-static gboolean item_event (GooCanvasItem  *item,
-			    GooCanvasItem  *target,
-			    GdkEventButton *event,
-			    gpointer data)
-
+static void
+clicked_left()
 {
-  double x, y;
-  int side;
-
-  x = event->x;
-  y = event->y;
-
-  if (!gcomprisBoard || board_paused)
-    return FALSE;
-
-  if (y>CLICKABLE_Y1 && y<CLICKABLE_Y2)
-    {
-      if (x>CLICKABLE_X1 && x<CLICKABLE_X2)
-	{ // the left button is clicked
-	  gc_sound_play_ogg ("sounds/bleep.wav", NULL);
-	  board_paused = TRUE;
-	  side = LEFT;
-	  highlight_selected(side);
-	  gamewon = (side == answer);
-	  process_ok();
-	}
-
-      if (x>CLICKABLE_X3 && x<CLICKABLE_X4)
-	{ // the left button is clicked
-	  gc_sound_play_ogg ("sounds/bleep.wav", NULL);
-	  board_paused = TRUE;
-	  side = RIGHT;
-	  highlight_selected(side);
-	  gamewon = (side == answer);
-	  process_ok();
-	}
-    }
-
-  return FALSE;
+  gc_sound_play_ogg ("sounds/bleep.wav", NULL);
+  board_paused = TRUE;
+  gamewon = (LEFT == answer);
+  process_ok();
 }
 
-/* =====================================================================
- *
- * =====================================================================*/
-static void highlight_selected(int side) {
-  if (side == LEFT) {
-    g_object_set (right_highlight_image_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
-    g_object_set (left_highlight_image_item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
-  }
-  if (side == RIGHT) {
-    g_object_set (right_highlight_image_item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
-    g_object_set (left_highlight_image_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
-  }
+static void
+clicked_right()
+{
+  gc_sound_play_ogg ("sounds/bleep.wav", NULL);
+  board_paused = TRUE;
+  gamewon = (RIGHT == answer);
+  process_ok();
 }
+
