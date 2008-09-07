@@ -67,7 +67,7 @@ static int item_height;
 
 static guint colorlist [] =
   {
-    0x00FFFFFF,
+    0x0020C0FF,
     0xA00000FF,
     0xF00000FF,
     0x00A000FF,
@@ -76,7 +76,7 @@ static guint colorlist [] =
     0x0000FFFF,
     0x505000FF,
     0xA0A000FF,
-    0xF0F000FF,
+    0xC0C000FF,
     0x005050FF,
     0x00A0A0FF,
     0x500050FF,
@@ -320,39 +320,31 @@ hanoi_create_item(GooCanvasItem *parent)
 			  NULL);
 
 
-  pixmap = gc_skin_pixmap_load("gcompris-shapelabel.png");
-  if(pixmap) {
-    item = goo_canvas_image_new (boardRootItem,
-				 pixmap,
-				 10,
-				 BOARDHEIGHT - 80,
-				 NULL);
-    goo_canvas_item_scale(item,
-			  (double)(BOARDWIDTH-20)/gdk_pixbuf_get_width(pixmap),
-			  1);
-    gdk_pixbuf_unref(pixmap);
-  }
+  if (gcomprisBoard->level == 1)
+    {
+      pixmap = gc_skin_pixmap_load("gcompris-shapelabel.png");
+      if(pixmap) {
+        item = goo_canvas_image_new (boardRootItem,
+                                     pixmap,
+                                     10,
+                                     BOARDHEIGHT - 110,
+                                     NULL);
+        goo_canvas_item_scale(item,
+                              (double)(BOARDWIDTH-20)/gdk_pixbuf_get_width(pixmap),
+                              1);
+        gdk_pixbuf_unref(pixmap);
+      }
 
-  goo_canvas_text_new (boardRootItem,
-		       _("Build the same tower in the empty area as the one you see on the right-hand side."),
-		       (double) BOARDWIDTH/2 +1,
-		       (double) BOARDHEIGHT - 70 +1,
-		       -1,
-		       GTK_ANCHOR_NORTH,
-		       "font", gc_skin_font_board_medium,
-		       "fill-color", "black",
-			 NULL);
-
-  goo_canvas_text_new (boardRootItem,
-		       _("Build the same tower in the empty area as the one you see on the right-hand side."),
-		       (double) BOARDWIDTH/2,
-		       (double) BOARDHEIGHT - 70,
-		       -1,
-		       GTK_ANCHOR_NORTH,
-		       "font", gc_skin_font_board_medium,
-		       "fill_color_rgba", gc_skin_color_text_button,
-			 NULL);
-
+      goo_canvas_text_new (boardRootItem,
+                           _("Build the same tower in the empty area as the one you see on the right-hand side."),
+                           (double) BOARDWIDTH/2,
+                           (double) BOARDHEIGHT - 100,
+                           -1,
+                           GTK_ANCHOR_NORTH,
+                           "font", gc_skin_font_board_medium,
+                           "fill_color_rgba", gc_skin_color_text_button,
+                           NULL);
+    }
 
   /*----------------------------------------*/
   /* Empty the solution */
@@ -533,10 +525,10 @@ hanoi_create_item(GooCanvasItem *parent)
 	      goo_canvas_text_new (group,
 				   (char *)car,
 				   20,
-				   2,
+				   0,
 				   -1,
 				   GTK_ANCHOR_NORTH,
-				   "font", gc_skin_font_board_tiny,
+				   "font", gc_skin_font_board_big_bold,
 				   "fill-color", "white",
 				   NULL);
 
