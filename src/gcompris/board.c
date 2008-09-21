@@ -389,13 +389,13 @@ gc_board_play(GcomprisBoard *gcomprisBoard)
       bp = gcomprisBoard->plugin;
       gc_board_set_current(gcomprisBoard);
 
+      gc_activity_intro_play(gcomprisBoard);
+
       bp->start_board(gcomprisBoard);
       bp_data->playing = TRUE;
 
       /* Force the bar to go on top of the activities canvas items */
       gc_bar_hide (FALSE);
-
-      gc_activity_intro_play(gcomprisBoard);
 
       return;
     }

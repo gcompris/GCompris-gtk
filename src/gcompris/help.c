@@ -103,8 +103,6 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
 
   gc_board_pause(TRUE);
 
-  gc_activity_intro_play(gcomprisBoard);
-
   item_selected = NULL;
   item_selected_text = NULL;
 
