@@ -28,10 +28,13 @@ else
 fi
 
 if test "$activitysrc" = "administration-activity" || \
+   test "$activitysrc" = "chat-activity" || \
    test "$activitysrc" = "tuxpaint-activity" || \
    test "$activitysrc" = "melody-activity" || \
-   test "$activitysrc" = "gcompris-activity" ; then
-  echo "Skipping $activitysrc"
+   test "$activitysrc" = "login-activity" || \
+   test "$activitysrc" = "gcompris-activity" || \
+   test "$activitysrc" = "old-gcompris-activity" ; then
+  echo "  Skipping it, not relevant for xo or not ready for it."
   exit 0
 fi
 
@@ -53,14 +56,10 @@ else
   exit 1
 fi
 
-with_clock="--exclude resources/skins/gartoon/timers"
-for act in `grep timers/clock */*.c | cut -d/ -f1 | sort -u | xargs`
-do
-  if test "$activitysrc" = $act; then
-    echo "Adding timers/clock files"
-    with_clock=""
-  fi
-done
+# Bundle names must be formated without underscores
+# This translate chess_computer in chessComputer
+bundle_id=`echo $activity | sed 's/_\([a-z]\)/\U\1/g'`
+echo $bundle_id
 
 # Create the Sugar specific startup scripts
 activity_dir=${activity}.activity
@@ -75,7 +74,7 @@ mkdir -p $activity_dir/activity
 mkdir -p $activity_dir/bin
 mv $activity_dir/*.svg $activity_dir/activity/activity-gcompris.svg
 cp activity.info $activity_dir/activity
-sed -i s/@ACTIVITY_NAME@/$activity/g $activity_dir/activity/activity.info
+sed -i s/@ACTIVITY_NAME@/$bundle_id/g $activity_dir/activity/activity.info
 cp old-gcompris-instance $activity_dir/
 cp old-gcompris-factory $activity_dir/
 cp old-gcompris-activity $activity_dir/
@@ -135,6 +134,16 @@ if [ -f $pythonplugindir/*.py ]; then
   # Add the GCompris binding
   rm -f $activity_dir/gcompris
   ln -s ../boards/python/gcompris -t $activity_dir
+fi
+
+# Add the timers skin if needed (python activity don't use it)
+with_clock="--exclude resources/skins/gartoon/timers"
+if [ "$haspyfile" = "" ]; then
+  has_timer=`egrep "gc_timer_display|timers/clock" $plugindir/../*.c`
+  if test "$has_timer" != ""; then
+    echo "  Adding timers/clock files"
+    with_clock=""
+  fi
 fi
 
 # Add the runit.sh script

@@ -1,8 +1,10 @@
 [Activity]
 name = @ACTIVITY_NAME@
-activity_version = 6
+activity_version = 10
 host_version = 1
 service_name = net.gcompris.@ACTIVITY_NAME@Activity
+bundle_id = net.gcompris.@ACTIVITY_NAME@Activity
 icon = activity-gcompris
 exec = gcompris-activity
 show_launcher = yes
+license = GPLv3+
