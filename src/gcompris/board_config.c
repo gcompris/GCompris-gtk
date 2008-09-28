@@ -268,7 +268,9 @@ _combo_box_changed(GtkComboBox *combobox,
 static inline int my_strcmp(gchar *a, gchar *b) { return strcmp( a, b); }
 
 
-GtkComboBox *gc_board_config_combo_box(const gchar *label, GList *strings, gchar *key, gchar *init)
+GtkComboBox *gc_board_config_combo_box(const gchar *label,
+                                       GList *strings,
+                                       gchar *key, gchar *init)
 {
   check_key( key);
 
@@ -279,7 +281,11 @@ GtkComboBox *gc_board_config_combo_box(const gchar *label, GList *strings, gchar
   gint init_index = 0;
 
   if (init)
-    init_index =  g_list_position ( strings, g_list_find_custom ( strings,(gconstpointer)  init, (GCompareFunc) my_strcmp));
+    init_index =
+      g_list_position ( strings,
+                        g_list_find_custom ( strings,
+                                             (gconstpointer) init,
+                                             (GCompareFunc) my_strcmp));
 
   if (init_index < 0)
     init_index=0;

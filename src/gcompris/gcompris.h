@@ -96,7 +96,11 @@ typedef enum
   GC_BAR_CONFIG	   = 1 << 2,
   GC_BAR_ABOUT	   = 1 << 3,
   GC_BAR_REPEAT_ICON = 1 << 4,
-  GC_BAR_QUIT	   = 1 << 5,
+  /* Internal use */
+  GC_BAR_HOME	   = 1 << 5,
+  GC_BAR_EXIT	   = 1 << 6,
+  GC_BAR_LEVEL_DOWN = 1 << 7,
+  GC_BAR_HELP      = 1 << 8,
 } GComprisBarFlags;
 
 /* Difficulty filtering */

@@ -31,38 +31,27 @@
 #define SOUNDLISTFILE PACKAGE
 
 #define BAR_GAP		10	/* Value used to fill space above and under icons in the bar */
-#define NUMBER_OF_ITEMS 5	/* Max Number of buttons in the bar                              */
 
 static void	 update_exit_button();
 static gboolean  on_enter_notify (GooCanvasItem *item,
 				  GooCanvasItem *target,
 				  GdkEventCrossing *event,
-				  char *data);
+                                  GComprisBarFlags flag);
 static gboolean  on_leave_notify (GooCanvasItem *item,
 				  GooCanvasItem *target,
 				  GdkEventCrossing *event,
-				  char *data);
+                                  GComprisBarFlags flag);
 static gboolean item_event_bar (GooCanvasItem  *item,
 				GooCanvasItem  *target,
 				GdkEventButton *event,
-				gchar *data);
+                                GComprisBarFlags flag);
 static void	 bar_reset_sound_id (void);
-static void	 setup_item_signals (GooCanvasItem *item, gchar* name);
-static gint	 bar_play_sound (gchar *sound);
+static gint	 bar_play_sound (GooCanvasItem *item);
 static void	 play_level_voice(int level);
 
 static gint current_level = -1;
-static gint current_flags = -1;
+static gint current_flags = 0;
 static GooCanvasItem *bar_item  = NULL;
-static GooCanvasItem *exit_item = NULL;
-static GooCanvasItem *home_item = NULL;
-static GooCanvasItem *level_up_item = NULL;
-static GooCanvasItem *level_down_item = NULL;
-static GooCanvasItem *level_item = NULL;
-static GooCanvasItem *help_item = NULL;
-static GooCanvasItem *repeat_item = NULL;
-static GooCanvasItem *config_item = NULL;
-static GooCanvasItem *about_item = NULL;
 static GooCanvasItem *rootitem = NULL;
 
 static gint sound_play_id = 0;
@@ -75,6 +64,8 @@ static int _default_zoom;
 
 static void  confirm_quit(gboolean answer);
 
+static GSList *buttons = NULL;
+
 /*
 
  * Main entry point
@@ -82,6 +73,78 @@ static void  confirm_quit(gboolean answer);
  *
  */
 
+gint
+compare_flag(GooCanvasItem *item,
+             GComprisBarFlags flag)
+{
+  return (GPOINTER_TO_UINT(g_object_get_data(G_OBJECT (item),
+                                             "flag")) != flag);
+}
+
+/* Return the item for the given flag or NULL if non existant */
+GooCanvasItem *
+get_item(GComprisBarFlags flag)
+{
+  GSList *node =
+    g_slist_find_custom (buttons,
+                         GUINT_TO_POINTER(flag),
+                         (GCompareFunc) compare_flag);
+  printf("get_item %d\n", flag);
+  if (!node)
+    return NULL;
+
+  printf("                  FOUND %p\n", node->data);
+  return (GooCanvasItem *)node->data;
+}
+
+void
+item_visibility(GComprisBarFlags flag,
+                gboolean visible)
+{
+  GooCanvasItem *item = get_item(flag);
+  g_assert(item);
+
+  if (visible)
+    g_object_set (item,
+                  "visibility", GOO_CANVAS_ITEM_VISIBLE,
+                  NULL);
+  else
+    g_object_set (item,
+		  "visibility", GOO_CANVAS_ITEM_INVISIBLE,
+		  NULL);
+}
+
+/* Return a new button item */
+GooCanvasItem *
+new_button(GooCanvasItem *rootitem,
+           GComprisBarFlags flag,
+           gchar *file)
+{
+  GdkPixbuf *pixmap = gc_skin_pixmap_load(file);
+  GooCanvasItem *item =
+    goo_canvas_image_new (rootitem,
+                          pixmap,
+                          0,
+                          -15,
+                          NULL);
+  printf("new_button %d = %p\n", flag, item);
+  g_object_set (item,
+                "visibility", GOO_CANVAS_ITEM_INVISIBLE,
+                NULL);
+  g_object_set_data (G_OBJECT(item), "flag",
+		     GUINT_TO_POINTER(flag));
+  g_signal_connect (item, "enter_notify_event",
+		    (GtkSignalFunc) on_enter_notify,
+                    GUINT_TO_POINTER(flag));
+  g_signal_connect (item, "leave_notify_event",
+		    (GtkSignalFunc) on_leave_notify,
+                    GUINT_TO_POINTER(flag));
+  g_signal_connect(item, "button_press_event",
+		   (GtkSignalFunc) item_event_bar,
+		   GUINT_TO_POINTER(flag));
+  gdk_pixbuf_unref(pixmap);
+  return item;
+}
 
 /*
  * Do all the bar display and register the events
@@ -112,150 +175,83 @@ void gc_bar_start (GooCanvas *theCanvas)
 				   0,
 				   0,
 				NULL);
-  setup_item_signals(bar_item, "bar");
   gdk_pixbuf_unref(pixmap);
 
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
   buttony = (height-gdk_pixbuf_get_height(pixmap)*zoom)/2 - 20;
 
+  /*
+   * The Order in which buttons are created represents
+   * also the order in which they will be displayed
+   */
+
   // EXIT
   if(properties->disable_quit == 0)
-    {
-      pixmap = gc_skin_pixmap_load("button_exit.png");
-      exit_item = goo_canvas_image_new (rootitem,
-					pixmap,
-					(width/NUMBER_OF_ITEMS) * 0,
-					buttony,
-					NULL);
-      gdk_pixbuf_unref(pixmap);
+    buttons = g_slist_append(buttons,
+                             new_button(rootitem,
+                                        GC_BAR_EXIT,
+                                        "button_exit.png"));
 
-      setup_item_signals(exit_item, "quit");
-    }
-
-  // HOME
-  pixmap = gc_skin_pixmap_load("home.png");
-  home_item = goo_canvas_image_new (rootitem,
-				    pixmap,
-				    (width/NUMBER_OF_ITEMS) * 4,
-				    buttony,
-				     NULL);
-  gdk_pixbuf_unref(pixmap);
-
-  setup_item_signals(home_item, "back");
-
-
-  // LEVEL
-  pixmap = gc_skin_pixmap_load("level_up.png");
-  int level_up_height = gdk_pixbuf_get_height(pixmap);
-  int level_up_width = gdk_pixbuf_get_width(pixmap);
-  level_up_item = goo_canvas_image_new (rootitem,
-				     pixmap,
-				     (width/NUMBER_OF_ITEMS) * 3,
-				     buttony,
-				     NULL);
-  gdk_pixbuf_unref(pixmap);
-  setup_item_signals(level_up_item, "level_up");
-
-  pixmap = gc_skin_pixmap_load("level_down.png");
-  level_down_item = goo_canvas_image_new (rootitem,
-				     pixmap,
-				     (width/NUMBER_OF_ITEMS) * 3,
-				     buttony + level_up_height,
-				     NULL);
-  gdk_pixbuf_unref(pixmap);
-  setup_item_signals(level_down_item, "level_down");
-
-  current_level = 1;
-
-  level_item =
-    goo_canvas_text_new (rootitem,
-			 "1",
-			 (width/NUMBER_OF_ITEMS) * 3 + level_up_width/2,
-			 buttony + 30,
-			 -1,
-			 GTK_ANCHOR_CENTER,
-			 "font", gc_skin_font_board_title_bold,
-			 "fill-color-rgba", gc_skin_get_color("menu/text"),
-			 "alignment", PANGO_ALIGN_CENTER,
-			 NULL);
-
-  // REPEAT
-  pixmap = gc_skin_pixmap_load("repeat.png");
-  repeat_item = goo_canvas_image_new (rootitem,
-				      pixmap,
-				      (width/NUMBER_OF_ITEMS) * 0,
-				      buttony,
-				       NULL);
-  gdk_pixbuf_unref(pixmap);
-
-  setup_item_signals(repeat_item, "repeat");
-
-
-  // HELP
-  pixmap = gc_skin_pixmap_load("help.png");
-  help_item = goo_canvas_image_new (rootitem,
-				    pixmap,
-				    (width/NUMBER_OF_ITEMS) * 1,
-				    buttony,
-				    NULL);
-  gdk_pixbuf_unref(pixmap);
-
-  setup_item_signals(help_item, "help");
+  // ABOUT
+  buttons = g_slist_append(buttons,
+                           new_button(rootitem,
+                                      GC_BAR_ABOUT,
+                                      "about.png"));
 
   // CONFIG
   if(properties->disable_config == 0)
-    {
-      pixmap = gc_skin_pixmap_load("config.png");
-      config_item = goo_canvas_image_new (rootitem,
-					  pixmap,
-					  (width/NUMBER_OF_ITEMS) * 2,
-					  buttony,
-					  NULL);
-      gdk_pixbuf_unref(pixmap);
+    buttons = g_slist_append(buttons,
+                             new_button(rootitem,
+                                        GC_BAR_CONFIG,
+                                        "config.png"));
 
-      setup_item_signals(config_item, "configuration");
-    }
+  // HELP
+  buttons = g_slist_append(buttons,
+                           new_button(rootitem,
+                                      GC_BAR_HELP,
+                                      "help.png"));
 
-  // ABOUT
-  pixmap = gc_skin_pixmap_load("about.png");
-  about_item = goo_canvas_image_new (rootitem,
-				     pixmap,
-				     (width/NUMBER_OF_ITEMS) * 3,
-				     buttony,
-				     NULL);
-  gdk_pixbuf_unref(pixmap);
+  // LEVEL
+  GooCanvasItem *rootitem_level = goo_canvas_group_new (rootitem, NULL);
+  g_object_set (rootitem_level,
+                "visibility", GOO_CANVAS_ITEM_INVISIBLE,
+                NULL);
+  g_object_set_data (G_OBJECT(rootitem_level), "flag",
+		     GUINT_TO_POINTER(GC_BAR_LEVEL));
+  buttons = g_slist_append(buttons, rootitem_level);
 
-  setup_item_signals(about_item, "about");
+  GooCanvasItem *item = new_button(rootitem_level,
+             GC_BAR_LEVEL,
+             "level_up.png");
 
-  // Show them all
+  g_object_set (item,
+                "visibility", GOO_CANVAS_ITEM_VISIBLE,
+                NULL);
+
+  item = new_button(rootitem_level,
+                    GC_BAR_LEVEL_DOWN,
+                    "level_down.png");
+  g_object_set(item, "y", 20.0, NULL);
+  g_object_set (item,
+                "visibility", GOO_CANVAS_ITEM_VISIBLE,
+                NULL);
+
+  current_level = 1;
+
+  // REPEAT
+  buttons = g_slist_append(buttons,
+                           new_button(rootitem,
+                                      GC_BAR_REPEAT,
+                                      "repeat.png"));
+
+  // HOME
+  buttons = g_slist_append(buttons,
+                           new_button(rootitem,
+                                      GC_BAR_HOME,
+                                      "home.png"));
+
   update_exit_button();
-  g_object_set (level_up_item,
-		"visibility", GOO_CANVAS_ITEM_INVISIBLE,
-		NULL);
-  g_object_set (level_down_item,
-		"visibility", GOO_CANVAS_ITEM_INVISIBLE,
-		NULL);
-  g_object_set (level_up_item,
-		"visibility", GOO_CANVAS_ITEM_INVISIBLE,
-		NULL);
-  g_object_set (level_down_item,
-		"visibility", GOO_CANVAS_ITEM_INVISIBLE,
-		NULL);
-  g_object_set (level_item,
-		"visibility", GOO_CANVAS_ITEM_INVISIBLE,
-		NULL);
-  g_object_set (repeat_item,
-		"visibility", GOO_CANVAS_ITEM_INVISIBLE,
-		NULL);
-
-  if(config_item)
-    g_object_set (config_item,
-		  "visibility", GOO_CANVAS_ITEM_INVISIBLE,
-		  NULL);
-
-  g_object_set (about_item,
-		"visibility", GOO_CANVAS_ITEM_INVISIBLE,
-		NULL);
+  gc_bar_set(0);
 
   _hidden = FALSE;
 }
@@ -263,11 +259,10 @@ void gc_bar_start (GooCanvas *theCanvas)
 
 void gc_bar_set_level(GcomprisBoard *gcomprisBoard)
 {
-  char *str = NULL;
 
   goo_canvas_item_raise(rootitem, NULL);
   /* Non yet initialized : Something Wrong */
-  if(level_item==NULL)
+  if(get_item(GC_BAR_LEVEL)==NULL)
     {
       g_message("in bar_set_level, level_item uninitialized : should not happen\n");
       return;
@@ -276,6 +271,8 @@ void gc_bar_set_level(GcomprisBoard *gcomprisBoard)
   if(gcomprisBoard!=NULL)
     {
 
+#if 0
+  char *str = NULL;
       str = g_strdup_printf("%d", gcomprisBoard->level);
 
       g_object_set (level_item,
@@ -283,6 +280,7 @@ void gc_bar_set_level(GcomprisBoard *gcomprisBoard)
 		    NULL);
 
       g_free(str);
+#endif
 
     }
 
@@ -303,15 +301,16 @@ void gc_bar_set_level(GcomprisBoard *gcomprisBoard)
 void
 gc_bar_set_repeat_icon (GdkPixbuf *pixmap)
 {
+  GooCanvasItem *item;
   goo_canvas_item_raise(rootitem, NULL);
   /* Non yet initialized : Something Wrong */
-  if(level_item==NULL)
+  if( (item = get_item(GC_BAR_REPEAT)) == NULL)
     {
       g_message("in bar_set_level, level_item uninitialized : should not happen\n");
       return;
     }
 
-  g_object_set (repeat_item,
+  g_object_set (item,
 		"pixbuf", pixmap,
 		NULL);
 }
@@ -347,7 +346,7 @@ gc_bar_set (const GComprisBarFlags flags)
   goo_canvas_item_raise(rootitem, NULL);
 
   /* Non yet initialized : Something Wrong */
-  if(level_item==NULL)
+  if(get_item(GC_BAR_LEVEL) == NULL)
     {
       g_message("in bar_set_level, level_item uninitialized : should not happen\n");
       return;
@@ -355,8 +354,53 @@ gc_bar_set (const GComprisBarFlags flags)
 
   current_flags = flags;
 
+  if(gc_help_has_board(gc_board_get_current()))
+    current_flags |= GC_BAR_HELP;
+
+  if(flags&GC_BAR_ABOUT)
+    current_flags |= GC_BAR_ABOUT;
+
+  if(flags&GC_BAR_CONFIG)
+    current_flags |= GC_BAR_CONFIG;
+
   update_exit_button();
 
+  GSList *list;
+  double x = 0;
+  for (list = buttons; list != NULL; list = list->next)
+    {
+      GooCanvasItem *item = (GooCanvasItem *)list->data;
+      GComprisBarFlags flag =
+        GPOINTER_TO_UINT(g_object_get_data(G_OBJECT (item), "flag"));
+      printf("gc_bar_set flag=%d  current_flags=%d\n", flag, current_flags);
+      if (flag & current_flags)
+        {
+          GooCanvasBounds bounds;
+          goo_canvas_item_get_bounds(item, &bounds);
+          printf("  GOT IT x=%f     item=%p\n", x, item);
+          goo_canvas_item_set_transform(item, NULL);
+          goo_canvas_item_translate(item, x, 0);
+          x += bounds.x2 - bounds.x1 + BAR_GAP;
+          g_object_set (item,
+                        "visibility", GOO_CANVAS_ITEM_VISIBLE,
+                        NULL);
+        }
+      else
+          g_object_set (item,
+                        "visibility", GOO_CANVAS_ITEM_INVISIBLE,
+                        NULL);
+
+    }
+
+  /* Scale the bar back to fit the buttons, no more */
+  GooCanvasBounds bounds;
+  goo_canvas_item_set_transform(bar_item, NULL);
+  goo_canvas_item_get_bounds(bar_item, &bounds);
+  goo_canvas_item_scale(bar_item,
+                        x / (bounds.x2 - bounds.x1),
+                        1);
+
+#if 0
   if(flags&GC_BAR_LEVEL)
     {
     g_object_set (level_up_item,
@@ -381,56 +425,28 @@ gc_bar_set (const GComprisBarFlags flags)
 		  "visibility", GOO_CANVAS_ITEM_INVISIBLE,
 		  NULL);
     }
-
-  if(gc_help_has_board(gc_board_get_current()))
-    g_object_set (help_item,
-		  "visibility", GOO_CANVAS_ITEM_VISIBLE,
-		  NULL);
-  else
-    g_object_set (help_item,
-		  "visibility", GOO_CANVAS_ITEM_INVISIBLE,
-		  NULL);
+#endif
 
   if(flags&GC_BAR_REPEAT) {
     GdkPixbuf *pixmap;
 
     /* Set the repeat icon to the original one */
     pixmap = gc_skin_pixmap_load("repeat.png");
-    g_object_set (repeat_item,
+    g_object_set (get_item(GC_BAR_REPEAT),
 		  "pixbuf", pixmap,
 		  NULL);
     gdk_pixbuf_unref(pixmap);
 
-    g_object_set (repeat_item,
-		  "visibility", GOO_CANVAS_ITEM_VISIBLE,
-		  NULL);
+    item_visibility(GC_BAR_REPEAT, TRUE);
+
   } else {
 
-    if(flags&GC_BAR_REPEAT_ICON)
-      g_object_set (repeat_item,
-		    "visibility", GOO_CANVAS_ITEM_VISIBLE,
-		    NULL);
+    if(flags&GC_BAR_REPEAT)
+      item_visibility(GC_BAR_REPEAT, TRUE);
     else
-      g_object_set (repeat_item,
-		    "visibility", GOO_CANVAS_ITEM_INVISIBLE,
-		    NULL);
+      item_visibility(GC_BAR_REPEAT, FALSE);
   }
 
-  if(flags&GC_BAR_CONFIG && config_item)
-    g_object_set (config_item,
-		  "visibility", GOO_CANVAS_ITEM_VISIBLE,
-		  NULL);
-  else
-    g_object_set (config_item,
-		  "visibility", GOO_CANVAS_ITEM_INVISIBLE,
-		  NULL);
-
-  if(flags&GC_BAR_ABOUT)
-    g_object_set(about_item,
-		 "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
-  else
-    g_object_set(about_item,
-		 "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 }
 
 /* Hide all icons in the control bar
@@ -440,7 +456,7 @@ void
 gc_bar_hide (gboolean hide)
 {
   /* Non yet initialized : Something Wrong */
-  g_assert(level_item);
+  g_assert(rootitem);
 
   _hidden = hide;
 
@@ -468,22 +484,17 @@ gc_bar_hide (gboolean hide)
 static void update_exit_button()
 {
 
-  if (!gc_board_get_current() || gc_board_get_current()->previous_board == NULL)
+  if (gc_board_get_current() &&
+      gc_board_get_current()->previous_board == NULL)
     {
       /* We are in the upper menu: show it */
-      if(exit_item)
-	g_object_set(exit_item,
-		     "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
-      g_object_set(home_item,
-		   "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+      current_flags |= GC_BAR_EXIT;
+      current_flags &= ~GC_BAR_HOME;
     }
   else
     {
-      if(exit_item)
-	g_object_set(exit_item,
-		     "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
-      g_object_set(home_item,
-		   "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+      current_flags &= ~GC_BAR_EXIT;
+      current_flags |= GC_BAR_HOME;
     }
 }
 
@@ -491,13 +502,15 @@ static void update_exit_button()
  * This is called to play sound
  *
  */
-static gint bar_play_sound (gchar *sound)
+static gint bar_play_sound (GooCanvasItem *item)
 {
   int policy = gc_sound_policy_get();
   gchar *str;
   gc_sound_policy_set(PLAY_ONLY_IF_IDLE);
 
-  str = g_strdup_printf("voices/$LOCALE/misc/%s.ogg", sound);
+  GComprisBarFlags flag =
+    GPOINTER_TO_UINT(g_object_get_data(G_OBJECT (item), "flag"));
+  str = g_strdup_printf("voices/$LOCALE/misc/%d.ogg", flag);
 
   gc_sound_play_ogg(str, NULL);
 
@@ -520,12 +533,13 @@ static gboolean
 on_enter_notify (GooCanvasItem  *item,
 		 GooCanvasItem  *target,
 		 GdkEventCrossing *event,
-		 char *data)
+                 GComprisBarFlags flag)
 {
   if(_hidden)
     return FALSE;
 
-  sound_play_id = g_timeout_add (1000, (GtkFunction) bar_play_sound, data);
+  sound_play_id =
+    g_timeout_add (1000, (GtkFunction) bar_play_sound, item);
 
   return FALSE;
 }
@@ -534,7 +548,7 @@ static gboolean
 on_leave_notify (GooCanvasItem  *item,
 		 GooCanvasItem  *target,
 		 GdkEventCrossing *event,
-		 char *data)
+                 GComprisBarFlags flag)
 {
   bar_reset_sound_id();
 
@@ -570,7 +584,7 @@ static gboolean
 item_event_bar (GooCanvasItem  *item,
 		GooCanvasItem  *target,
 		GdkEventButton *event,
-		gchar *data)
+		GComprisBarFlags flag)
 {
   GcomprisBoard *gcomprisBoard = gc_board_get_current();
 
@@ -580,102 +594,92 @@ item_event_bar (GooCanvasItem  *item,
   bar_reset_sound_id();
   gc_sound_play_ogg ("sounds/bleep.wav", NULL);
 
-  if(!strcmp((char *)data, "ok"))
+  printf("flag=%d\n", flag);
+  switch (flag)
     {
-      if(gcomprisBoard && gcomprisBoard->plugin->ok != NULL)
-	gcomprisBoard->plugin->ok();
-    }
-  else if(!strcmp((char *)data, "level_up"))
-    {
-	  current_level++;
-	  if(gcomprisBoard && current_level > gcomprisBoard->maxlevel)
-	    current_level=1;
+    case GC_BAR_LEVEL:
+      {
+        current_level++;
+        if(gcomprisBoard && current_level > gcomprisBoard->maxlevel)
+          current_level=1;
 
-	  /* Set the level */
-	  if(gcomprisBoard && gcomprisBoard->plugin->set_level != NULL)
-	    gcomprisBoard->plugin->set_level(current_level);
+        /* Set the level */
+        if(gcomprisBoard && gcomprisBoard->plugin->set_level != NULL)
+          gcomprisBoard->plugin->set_level(current_level);
 
-	  play_level_voice(current_level);
-    }
-  else if(!strcmp((char *)data, "level_down"))
-    {
-      /* Decrease the level */
-      current_level--;
-      if(current_level < 1)
-	current_level = gcomprisBoard->maxlevel;
+        play_level_voice(current_level);
+      }
+      break;
+    case GC_BAR_LEVEL_DOWN:
+      {
+        /* Decrease the level */
+        current_level--;
+        if(current_level < 1)
+          current_level = gcomprisBoard->maxlevel;
 
-      /* Set the level */
-      if(gcomprisBoard && gcomprisBoard->plugin->set_level != NULL)
-	gcomprisBoard->plugin->set_level(current_level);
+        /* Set the level */
+        if(gcomprisBoard && gcomprisBoard->plugin->set_level != NULL)
+          gcomprisBoard->plugin->set_level(current_level);
 
-      play_level_voice(current_level);
-    }
-  else if(!strcmp((char *)data, "back"))
-    {
-      gc_bar_hide (TRUE);
-      gc_board_stop();
-    }
-  else if(!strcmp((char *)data, "help"))
-    {
-      gc_help_start(gcomprisBoard);
-    }
-  else if(!strcmp((char *)data, "repeat"))
-    {
-      if(gcomprisBoard && gcomprisBoard->plugin->repeat != NULL)
-	{
-	  gcomprisBoard->plugin->repeat();
-	}
-    }
-  else if(!strcmp((char *)data, "configuration"))
-    {
-      if(gcomprisBoard && gcomprisBoard->plugin->config_start != NULL)
-	{
-	  gcomprisBoard->plugin->config_start(gcomprisBoard,
-					      gc_profile_get_current());
-	}
-    }
-  else if(!strcmp((char *)data, "about"))
-    {
-      gc_about_start();
-    }
-  else if(!strcmp((char *)data, "quit"))
-    {
-      GcomprisProperties *properties = gc_prop_get();
+        play_level_voice(current_level);
+      }
+      break;
+    case GC_BAR_HOME:
+      {
+        gc_bar_hide (TRUE);
+        gc_board_stop();
+      }
+      break;
+    case GC_BAR_HELP:
+      {
+        gc_help_start(gcomprisBoard);
+      }
+      break;
+    case GC_BAR_REPEAT:
+      {
+        if(gcomprisBoard && gcomprisBoard->plugin->repeat != NULL)
+          {
+            gcomprisBoard->plugin->repeat();
+          }
+      }
+      break;
+    case GC_BAR_CONFIG:
+      {
+        if(gcomprisBoard && gcomprisBoard->plugin->config_start != NULL)
+          {
+            gcomprisBoard->plugin->config_start(gcomprisBoard,
+                                                gc_profile_get_current());
+          }
+      }
+      break;
+    case GC_BAR_ABOUT:
+      {
+        gc_about_start();
+      }
+      break;
+    case GC_BAR_EXIT:
+      {
+        GcomprisProperties *properties = gc_prop_get();
 
-      if(strlen(properties->root_menu) == 1)
-	gc_confirm_box( _("GCompris confirmation"),
-			_("Are you sure you want to quit?"),
-			_("Yes, I am sure!"),
-			_("No, I want to keep going"),
-			(ConfirmCallBack) confirm_quit);
-      else
-	confirm_quit(TRUE);
+        if(strlen(properties->root_menu) == 1)
+          gc_confirm_box( _("GCompris confirmation"),
+                          _("Are you sure you want to quit?"),
+                          _("Yes, I am sure!"),
+                          _("No, I want to keep going"),
+                          (ConfirmCallBack) confirm_quit);
+        else
+          confirm_quit(TRUE);
+      }
+      break;
+    default:
+      break;
     }
-  else if(!strcmp((char *)data, "bar"))
-    {
-    }
-
   return TRUE;
 }
 
-static void
+  static void
 confirm_quit(gboolean answer)
 {
   if (answer)
     gc_exit();
-}
-
-static void
-setup_item_signals (GooCanvasItem *item, gchar* name)
-{
-  g_signal_connect (item, "enter_notify_event",
-		    (GtkSignalFunc) on_enter_notify, name);
-  g_signal_connect (item, "leave_notify_event",
-		    (GtkSignalFunc) on_leave_notify, name);
-  g_signal_connect(item, "button_press_event",
-		   (GtkSignalFunc) item_event_bar,
-		   name);
-
-  if(strcmp(name, "bar"))
-    gc_item_focus_init(item, NULL);
 }
