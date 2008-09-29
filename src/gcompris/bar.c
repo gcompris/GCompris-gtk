@@ -53,6 +53,7 @@ static gint current_level = -1;
 static gint current_flags = 0;
 static GooCanvasItem *bar_item  = NULL;
 static GooCanvasItem *rootitem = NULL;
+static GooCanvasItem *level_item;
 
 static gint sound_play_id = 0;
 static gboolean _hidden;     /* Dialog boxes request a bar hide */
@@ -211,7 +212,7 @@ void gc_bar_start (GooCanvas *theCanvas)
                                       GC_BAR_HELP,
                                       "help.png"));
 
-  // LEVEL
+  // LEVEL (Multiple buttons for this one)
   GooCanvasItem *rootitem_level = goo_canvas_group_new (rootitem, NULL);
   g_object_set (rootitem_level,
                 "visibility", GOO_CANVAS_ITEM_INVISIBLE,
@@ -236,6 +237,19 @@ void gc_bar_start (GooCanvas *theCanvas)
                 "visibility", GOO_CANVAS_ITEM_VISIBLE,
                 NULL);
 
+  GooCanvasBounds bounds;
+  goo_canvas_item_get_bounds(item, &bounds);
+
+  level_item =
+    goo_canvas_text_new (rootitem_level,
+                         "",
+                         (bounds.x2 - bounds.x1) / 2,
+                         (bounds.y2 - bounds.y1) - 15,
+                         -1,
+                         GTK_ANCHOR_CENTER,
+                         "font", gc_skin_font_board_title_bold,
+                         "fill-color-rgba", gc_skin_color_title,
+                         NULL);
   current_level = 1;
 
   // REPEAT
@@ -270,9 +284,7 @@ void gc_bar_set_level(GcomprisBoard *gcomprisBoard)
 
   if(gcomprisBoard!=NULL)
     {
-
-#if 0
-  char *str = NULL;
+      char *str = NULL;
       str = g_strdup_printf("%d", gcomprisBoard->level);
 
       g_object_set (level_item,
@@ -280,8 +292,6 @@ void gc_bar_set_level(GcomprisBoard *gcomprisBoard)
 		    NULL);
 
       g_free(str);
-#endif
-
     }
 
   current_level = gcomprisBoard->level;
@@ -372,14 +382,14 @@ gc_bar_set (const GComprisBarFlags flags)
       GooCanvasItem *item = (GooCanvasItem *)list->data;
       GComprisBarFlags flag =
         GPOINTER_TO_UINT(g_object_get_data(G_OBJECT (item), "flag"));
-      printf("gc_bar_set flag=%d  current_flags=%d\n", flag, current_flags);
+
       if (flag & current_flags)
         {
           GooCanvasBounds bounds;
-          goo_canvas_item_get_bounds(item, &bounds);
-          printf("  GOT IT x=%f     item=%p\n", x, item);
           goo_canvas_item_set_transform(item, NULL);
+          goo_canvas_item_get_bounds(item, &bounds);
           goo_canvas_item_translate(item, x, 0);
+          gc_item_focus_init(item, NULL);
           x += bounds.x2 - bounds.x1 + BAR_GAP;
           g_object_set (item,
                         "visibility", GOO_CANVAS_ITEM_VISIBLE,
@@ -399,33 +409,6 @@ gc_bar_set (const GComprisBarFlags flags)
   goo_canvas_item_scale(bar_item,
                         x / (bounds.x2 - bounds.x1),
                         1);
-
-#if 0
-  if(flags&GC_BAR_LEVEL)
-    {
-    g_object_set (level_up_item,
-		  "visibility", GOO_CANVAS_ITEM_VISIBLE,
-		  NULL);
-    g_object_set (level_down_item,
-		  "visibility", GOO_CANVAS_ITEM_VISIBLE,
-		  NULL);
-    g_object_set (level_item,
-		  "visibility", GOO_CANVAS_ITEM_VISIBLE,
-		  NULL);
-    }
-  else
-    {
-    g_object_set (level_up_item,
-		  "visibility", GOO_CANVAS_ITEM_INVISIBLE,
-		  NULL);
-    g_object_set (level_down_item,
-		  "visibility", GOO_CANVAS_ITEM_INVISIBLE,
-		  NULL);
-    g_object_set (level_item,
-		  "visibility", GOO_CANVAS_ITEM_INVISIBLE,
-		  NULL);
-    }
-#endif
 
   if(flags&GC_BAR_REPEAT) {
     GdkPixbuf *pixmap;
