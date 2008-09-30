@@ -90,11 +90,9 @@ get_item(GComprisBarFlags flag)
     g_slist_find_custom (buttons,
                          GUINT_TO_POINTER(flag),
                          (GCompareFunc) compare_flag);
-  printf("get_item %d\n", flag);
   if (!node)
     return NULL;
 
-  printf("                  FOUND %p\n", node->data);
   return (GooCanvasItem *)node->data;
 }
 
@@ -128,7 +126,7 @@ new_button(GooCanvasItem *rootitem,
                           0,
                           -15,
                           NULL);
-  printf("new_button %d = %p\n", flag, item);
+
   g_object_set (item,
                 "visibility", GOO_CANVAS_ITEM_INVISIBLE,
                 NULL);
@@ -154,14 +152,13 @@ void gc_bar_start (GooCanvas *theCanvas)
 {
   GcomprisProperties *properties = gc_prop_get();
   GdkPixbuf   *pixmap = NULL;
-  gint16       width, height;
+  gint16       height;
   gint16       buttony;
   double       zoom;
 
-  width  = BARWIDTH;
   height = BARHEIGHT-2;
 
-  _default_x = width / 2;
+  _default_x = BOARDWIDTH/2;
   _default_y = BOARDHEIGHT - BARHEIGHT;
   _default_zoom = 1.0;
 
@@ -577,7 +574,6 @@ item_event_bar (GooCanvasItem  *item,
   bar_reset_sound_id();
   gc_sound_play_ogg ("sounds/bleep.wav", NULL);
 
-  printf("flag=%d\n", flag);
   switch (flag)
     {
     case GC_BAR_LEVEL:
