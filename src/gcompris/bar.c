@@ -59,7 +59,6 @@ static gint sound_play_id = 0;
 static gboolean _hidden;     /* Dialog boxes request a bar hide */
 
 /* Default position for the bar */
-static int _default_x;
 static int _default_y;
 static int _default_zoom;
 
@@ -158,14 +157,12 @@ void gc_bar_start (GooCanvas *theCanvas)
 
   height = BARHEIGHT-2;
 
-  _default_x = BOARDWIDTH/2;
   _default_y = BOARDHEIGHT - BARHEIGHT;
   _default_zoom = 1.0;
 
   bar_reset_sound_id();
 
   rootitem = goo_canvas_group_new (goo_canvas_get_root_item(theCanvas), NULL);
-  goo_canvas_item_translate(rootitem, _default_x, _default_y);
 
   pixmap = gc_skin_pixmap_load("bar_bg.png");
   bar_item = goo_canvas_image_new (rootitem,
@@ -335,9 +332,11 @@ gc_bar_location (int x, int y, double zoom)
   ny += BARHEIGHT - (zoom == -1 ? _default_zoom : zoom) * BARHEIGHT;
 
   goo_canvas_item_set_transform(rootitem, NULL);
-  goo_canvas_item_translate(rootitem,
-			    (x == -1 ? _default_x : x),
-			    y = ny);
+
+  GooCanvasBounds bounds;
+  goo_canvas_item_get_bounds(rootitem, &bounds);
+  int nx = (x == -1 ? (BOARDWIDTH - bounds.x2 - bounds.x1)/2 : x);
+  goo_canvas_item_translate(rootitem, nx, ny);
   goo_canvas_item_scale(rootitem,
 			(zoom == -1 ? _default_zoom : zoom),
 			(zoom == -1 ? _default_zoom : zoom));

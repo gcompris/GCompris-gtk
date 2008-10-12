@@ -245,7 +245,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     } else {
       gc_bar_set(GC_BAR_CONFIG);
     }
-    gc_bar_location(0, -1, 0.7);
+    gc_bar_location(5, -1, 0.8);
 
     gamewon = FALSE;
 
