@@ -224,8 +224,10 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel=1;
 
       /* Set back the bar to it's original location */
+      gc_bar_location (-1, -1, -1);
       gc_bar_set(GC_BAR_CONFIG|GC_BAR_ABOUT);
       gc_bar_set_level(gcomprisBoard);
+      /* FIXME: Bootstrap should not be needed */
       gc_bar_location (-1, -1, -1);
 
 

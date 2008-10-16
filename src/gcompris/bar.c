@@ -335,7 +335,7 @@ gc_bar_location (int x, int y, double zoom)
 
   GooCanvasBounds bounds;
   goo_canvas_item_get_bounds(rootitem, &bounds);
-  int nx = (x == -1 ? (BOARDWIDTH - bounds.x2 - bounds.x1)/2 : x);
+  int nx = (x == -1 ? (BOARDWIDTH - (bounds.x2 - bounds.x1))/2 : x);
   goo_canvas_item_translate(rootitem, nx, ny);
   goo_canvas_item_scale(rootitem,
 			(zoom == -1 ? _default_zoom : zoom),
