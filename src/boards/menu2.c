@@ -227,8 +227,6 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
       gc_bar_location (-1, -1, -1);
       gc_bar_set(GC_BAR_CONFIG|GC_BAR_ABOUT);
       gc_bar_set_level(gcomprisBoard);
-      /* FIXME: Bootstrap should not be needed */
-      gc_bar_location (-1, -1, -1);
 
 
       menuitems = g_new(MenuItems, 1);

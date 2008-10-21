@@ -259,6 +259,11 @@ void gc_bar_start (GooCanvas *theCanvas)
                                       "home.png"));
 
   update_exit_button();
+
+  /* FIXME: Bootstrap for centering should not be needed */
+  gc_bar_set(GC_BAR_CONFIG|GC_BAR_ABOUT);
+  /* Set back the bar to it's original location */
+  gc_bar_location (-1, -1, -1);
   gc_bar_set(0);
 
   _hidden = FALSE;

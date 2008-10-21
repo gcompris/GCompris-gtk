@@ -32,9 +32,7 @@ static GooCanvasItem *second_item;
 static GooCanvasItem *hour_item;
 static GooCanvasItem *minute_item;
 static GooCanvasItem *digital_time_item;
-static GooCanvasItem *digital_time_item_s;
 static GooCanvasItem *time_to_find_item;
-static GooCanvasItem *time_to_find_item_s;
 
 static gboolean dragging = FALSE;
 static double drag_x, drag_y;
@@ -314,7 +312,6 @@ static void display_hour(guint hour)
 
   currentTime.hour=hour;
   display_digital_time(digital_time_item, &currentTime);
-  display_digital_time(digital_time_item_s, &currentTime);
 }
 
 static void display_minute(guint minute)
@@ -349,7 +346,6 @@ static void display_minute(guint minute)
 
   currentTime.minute=minute;
   display_digital_time(digital_time_item, &currentTime);
-  display_digital_time(digital_time_item_s, &currentTime);
 }
 
 static void display_second(guint second)
@@ -379,7 +375,6 @@ static void display_second(guint second)
 
   currentTime.second=second;
   display_digital_time(digital_time_item, &currentTime);
-  display_digital_time(digital_time_item_s, &currentTime);
 }
 
 
@@ -474,18 +469,6 @@ clockgame_create_item(GooCanvasItem *parent)
   /* Create the text area for the digital time display */
   if(gcomprisBoard->level<4)
     {
-      digital_time_item_s =
-	goo_canvas_text_new (boardRootItem,
-			     "",
-			     (double) cx + 1.0,
-			     (double) cy +  needle_size/2 + 1.0,
-			     -1,
-			     GTK_ANCHOR_CENTER,
-			     "font", gc_skin_font_board_medium,
-			     "fill_color_rgba", 0xc4c4c4ff,
-			     NULL);
-      display_digital_time(digital_time_item_s, &currentTime);
-
       digital_time_item =
 	goo_canvas_text_new (boardRootItem,
 			     "",
@@ -500,7 +483,6 @@ clockgame_create_item(GooCanvasItem *parent)
     }
   else
     {
-      digital_time_item_s = NULL;
       digital_time_item = NULL;
     }
 
@@ -543,16 +525,6 @@ clockgame_create_item(GooCanvasItem *parent)
   /* Create the text area for the time to find display */
   goo_canvas_text_new (boardRootItem,
 		       _("Set the watch to:"),
-		       (double) BOARDWIDTH*0.17 + 1.0,
-		       (double) cy + needle_size +  needle_size / 3 - 30 + 1.0,
-		       -1,
-		       GTK_ANCHOR_CENTER,
-		       "font", gc_skin_font_board_small,
-		       "fill_color_rgba", gc_skin_color_shadow,
-		       NULL);
-
-  goo_canvas_text_new (boardRootItem,
-		       _("Set the watch to:"),
 		       (double) BOARDWIDTH*0.17,
 		       (double) cy + needle_size +  needle_size / 3 - 30,
 		       -1,
@@ -560,18 +532,6 @@ clockgame_create_item(GooCanvasItem *parent)
 		       "font", gc_skin_font_board_small,
 		       "fill_color_rgba", gc_skin_get_color("clockgame/text"),
 		       NULL);
-
-  time_to_find_item_s = \
-    goo_canvas_text_new (boardRootItem,
-			 "",
-			 (double) BOARDWIDTH*0.17 + 1.0,
-			 (double) cy + needle_size +  needle_size / 3 + 1.0,
-			 -1,
-			 GTK_ANCHOR_CENTER,
-			 "font", gc_skin_font_board_big_bold,
-			 "fill_color_rgba", gc_skin_color_shadow,
-			 NULL);
-  display_digital_time(time_to_find_item_s, &timeToFind);
 
   time_to_find_item = \
     goo_canvas_text_new (boardRootItem,
