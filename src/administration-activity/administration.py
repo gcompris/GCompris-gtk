@@ -41,13 +41,14 @@ class Gcompris_administration:
     # only have to kill it. The canvas deletes all the items it contains automaticaly.
     self.rootitem = goocanvas.Group(parent =  self.gcomprisBoard.canvas.get_root_item())
 
-    gap = 10
+    gapx = 6
+    gapy = 10
     panel_x = 120
-    self.select_area = (gap , gap, panel_x + gap , gcompris.BOARD_HEIGHT-gap)
-    self.panel_area  = (panel_x + 2*gap ,
-                        gap,
-                        gcompris.BOARD_WIDTH-gap,
-                        gcompris.BOARD_HEIGHT-gap)
+    self.select_area = (gapx, gapy, panel_x + gapx , gcompris.BOARD_HEIGHT-gapy)
+    self.panel_area  = (panel_x + 2*gapx ,
+                        gapy,
+                        gcompris.BOARD_WIDTH-gapx,
+                        gcompris.BOARD_HEIGHT-gapy)
 
 
 
@@ -95,6 +96,7 @@ class Gcompris_administration:
     gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                             gcompris.skin.image_to_skin("gcompris-bg.jpg"))
     gcompris.bar_set_level(self.gcomprisBoard)
+    gcompris.bar_location(25, -1, 0.6)
 
     goocanvas.Rect(
       parent = self.rootitem,

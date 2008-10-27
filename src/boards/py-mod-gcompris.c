@@ -230,6 +230,27 @@ py_gc_bar_hide(PyObject* self, PyObject* args)
   return Py_None;
 }
 
+/* void gc_bar_location (int x, int y, double zoom); */
+static PyObject*
+py_gc_bar_location(PyObject* self, PyObject* args)
+{
+  gint x;
+  gint y;
+  double zoom;
+
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, "iid:gc_bar_location",
+                       &x, &y, &zoom))
+    return NULL;
+
+  /* Call the corresponding C function */
+  gc_bar_location(x, y, zoom);
+
+  /* Create and return the result */
+  Py_INCREF(Py_None);
+  return Py_None;
+}
+
 /* GooCanvas *gc_get_canvas(void); */
 static PyObject*
 py_gc_get_canvas(PyObject* self, PyObject* args)
@@ -1495,6 +1516,7 @@ static PyMethodDef PythonGcomprisModule[] = {
   { "bar_set_repeat_icon",  py_gc_bar_set_repeat_icon, METH_VARARGS, "gc_bar_set_repeat_icon" },
   { "bar_set",  py_gc_bar_set, METH_VARARGS, "gc_bar_set" },
   { "bar_hide",  py_gc_bar_hide, METH_VARARGS, "gc_bar_hide" },
+  { "bar_location",  py_gc_bar_location, METH_VARARGS, "gc_bar_location" },
   { "get_canvas",  py_gc_get_canvas, METH_VARARGS, "gc_get_canvas" },
   { "get_window",  py_gc_get_window, METH_VARARGS, "gc_get_window" },
   { "get_locale",  py_gc_locale_get, METH_VARARGS, "gc_locale_get" },

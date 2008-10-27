@@ -61,7 +61,7 @@ class Module:
             parent = self.root_select_item,
             x = select_area[0]+2,
             y = y1,
-            width = select_area[2]-2 - select_area[0]+2,
+            width = select_area[2] - select_area[0] - 4,
             height = y2 - y1,
             fill_color="white",
             stroke_color="white",
