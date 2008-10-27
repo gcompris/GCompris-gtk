@@ -229,7 +229,7 @@ class Board_list:
       if  board_cell[0] == None:
         row_dict[''] =  \
                      model.append(None,
-                                  [self.pixbuf_skin_at_height('tuxplane.png', height),
+                                  [self.pixbuf_admin_at_height('administration/tuxplane.png', height),
                                    _('Main menu') + '\n' + '/',
                                    not board_cell[1].board_id in self.out_dict[self.active_profile.profile_id],
                                    '%s/%s' % (board_cell[1].section,board_cell[1].name), self.pixbuf_configurable(board_cell[1])])
@@ -243,12 +243,11 @@ class Board_list:
                                        '%s/%s' % (board_cell[1].section,board_cell[1].name), self.pixbuf_configurable(board_cell[1])])
 
 
-  def pixbuf_skin_at_height(self, file, height):
-    pixbuf = gcompris.skin.load_pixmap(file)
+  def pixbuf_admin_at_height(self, file, height):
+    pixbuf = gcompris.utils.load_pixmap(file)
     width = pixbuf.get_width()* height / pixbuf.get_height()
     del pixbuf
-    pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(gcompris.DATA_DIR + '/' +
-                                                  gcompris.skin.image_to_skin(file),
+    pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(gcompris.DATA_DIR + '/' + file,
                                                   width, height)
     return pixbuf
 
@@ -386,6 +385,8 @@ class Board_list:
     pass
 
   def row_selected(self, treeview,  model):
+    if treeview.get_selection().get_selected()[1] == None:
+      return
     path = model.get_path(treeview.get_selection().get_selected()[1])
 
     self.selected_board = self.board_dict[model[path][3]]
