@@ -200,6 +200,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
       gc_bar_set(GC_BAR_LEVEL);
+      gc_bar_location(10, -1, 0.7);
 
       reversecount_next_level();
 
@@ -434,14 +435,14 @@ static GooCanvasItem *reversecount_create_item(GooCanvasItem *parent)
 
 
   block_width =  BOARDWIDTH/number_of_item_x;
-  block_height = (BOARDHEIGHT-BARHEIGHT/2)/number_of_item_y;
+  block_height = (BOARDHEIGHT-BARHEIGHT)/number_of_item_y;
 
   /* Timer is not requested */
   if(properties->timer > 0)
     {
       errors = number_of_dices + 4 - (MIN(properties->timer, 4));
       create_clock(BOARDWIDTH - block_width - 100,
-		   BOARDHEIGHT - block_height - 100 - BARHEIGHT/2,
+		   BOARDHEIGHT - block_height - 100 - BARHEIGHT,
 		   errors) ;
     }
   else
@@ -464,13 +465,13 @@ static GooCanvasItem *reversecount_create_item(GooCanvasItem *parent)
       goo_canvas_item_translate(item, i, j);
       goo_canvas_item_scale(item, xratio, yratio);
 
-      j=BOARDHEIGHT-BARHEIGHT/2-block_height;
+      j=BOARDHEIGHT-BARHEIGHT-block_height;
       item = goo_svg_item_new (boardRootItem, svg_handle, NULL);
       goo_canvas_item_translate(item, i, j);
       goo_canvas_item_scale(item, xratio, yratio);
     }
 
-  for(j = block_height; j<=BOARDHEIGHT - (block_height*2) - BARHEIGHT/2;
+  for(j = block_height; j<=BOARDHEIGHT - (block_height*2) - BARHEIGHT;
       j += block_height)
     {
       i = 0;
@@ -604,7 +605,7 @@ display_item_at(gchar *imagename, int block)
   int i,j;
 
   block_width  = BOARDWIDTH/number_of_item_x;
-  block_height = (BOARDHEIGHT-BARHEIGHT/2)/number_of_item_y;
+  block_height = (BOARDHEIGHT-BARHEIGHT)/number_of_item_y;
 
   if(block < number_of_item_x)
     {
@@ -675,7 +676,7 @@ move_item_at(GooCanvasItem *item, int block, double ratio)
   GooCanvasBounds bounds;
 
   block_width  = BOARDWIDTH/number_of_item_x;
-  block_height = (BOARDHEIGHT-BARHEIGHT/2)/number_of_item_y;
+  block_height = (BOARDHEIGHT-BARHEIGHT)/number_of_item_y;
 
   if(block < number_of_item_x)
     {

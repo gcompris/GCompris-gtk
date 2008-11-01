@@ -314,6 +314,7 @@ click_on_letter_next_level()
 {
   /* It must be set it for the warning dialogs */
   gc_bar_set(GC_BAR_CONFIG|GC_BAR_LEVEL|GC_BAR_REPEAT);
+  gc_bar_location(BOARDWIDTH-270, 5, 0.7);
 
   gc_bar_set_level(gcomprisBoard);
 

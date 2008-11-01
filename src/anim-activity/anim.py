@@ -147,8 +147,8 @@ class Gcompris_anim:
     #
     # Drawing area is editing image area
     # Palying area is playing map
-    self.drawing_area = [124.0, 20.0, gcompris.BOARD_WIDTH - 15, gcompris.BOARD_HEIGHT - 90]
-    self.playing_area = [124.0, 20.0, gcompris.BOARD_WIDTH - 15, gcompris.BOARD_HEIGHT - 78]
+    self.drawing_area = [124.0, 20.0, gcompris.BOARD_WIDTH - 15, gcompris.BOARD_HEIGHT - 40]
+    self.playing_area = [124.0, 20.0, gcompris.BOARD_WIDTH - 15, gcompris.BOARD_HEIGHT - 40]
 
     # Global used for the select event
     #
@@ -194,7 +194,6 @@ class Gcompris_anim:
     self.gcomprisBoard.sublevel=0
     self.gcomprisBoard.number_of_sublevel=0
 
-    gcompris.bar_set(0)
     gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                             gcompris.skin.image_to_skin("gcompris-bg.jpg"))
 
@@ -216,6 +215,8 @@ class Gcompris_anim:
     self.draw_drawing_area(self.grid_step)
     self.draw_playing_area()
 
+    gcompris.bar_set(0)
+    gcompris.bar_location(10, -1, 0.6)
 
   def end(self):
     # stop the animation
@@ -812,7 +813,7 @@ class Gcompris_anim:
       parent = self.rootitem,
       text = 1,
       x = x_left + minibutton_width + 14,
-      y = y_top,
+      y = y_top - 15,
       font = gcompris.skin.get_font("gcompris/board/medium"),
       fill_color = "white")
 

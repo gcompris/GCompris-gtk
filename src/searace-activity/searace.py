@@ -95,9 +95,6 @@ class Gcompris_searace:
     # We display what's going on here
     self.statusitem = []
 
-    #print("Gcompris_searace __init__.")
-
-
   def start(self):
     self.gcomprisBoard.level=1
     self.gcomprisBoard.maxlevel=4
@@ -142,13 +139,16 @@ class Gcompris_searace:
     pixmap = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("ok.png"))
     item = goocanvas.Image(parent = self.rootitem,
                            pixbuf = pixmap,
-                           x = gcompris.BOARD_WIDTH - pixmap.get_width() - 20,
-                           y = gcompris.BOARD_HEIGHT - pixmap.get_height() - 5
                            )
+    zoom = 0.7
+    item.scale(zoom, zoom)
+    item.set_properties(x = (gcompris.BOARD_WIDTH / 2 + 40) / zoom,
+                        y = (gcompris.BOARD_HEIGHT - 90) / zoom)
     item.connect("button_press_event", self.ok_event)
     gcompris.utils.item_focus_init(item, None)
 
     gcompris.bar_set_level(self.gcomprisBoard)
+    gcompris.bar_location(gcompris.BOARD_WIDTH/2 - 60, -1, 0.6)
 
 
   def end(self):
@@ -157,9 +157,6 @@ class Gcompris_searace:
 
     # Remove the root item removes all the others inside it
     self.rootitem.remove()
-
-    #print("Gcompris_searace end.")
-
 
   def pause(self, pause):
 
@@ -405,8 +402,8 @@ class Gcompris_searace:
     self.left_boat.sw.set_shadow_type(gtk.SHADOW_ETCHED_OUT)
 
     w = 250.0
-    h = 100.0
-    y = 350.0 # The upper limit of the text boxes
+    h = 160.0
+    y = 355.0 # The upper limit of the text boxes
     x_left  = gcompris.BOARD_WIDTH/4 - 30
     x_right = (gcompris.BOARD_WIDTH/4)*3 + 30
 
@@ -480,7 +477,7 @@ class Gcompris_searace:
       text="",
       font=gcompris.skin.get_font("gcompris/content"),
       x=gcompris.BOARD_WIDTH/2,
-      y=y-40,
+      y=y-12,
       fill_color_rgba=0X000a89FFL,
       anchor = gtk.ANCHOR_CENTER
       )

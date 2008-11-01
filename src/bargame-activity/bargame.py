@@ -82,6 +82,7 @@ class Gcompris_bargame:
     else:
       gcompris.bar_set(gcompris.BAR_LEVEL|gcompris.BAR_REPEAT)
     gcompris.bar_set_level(self.gcomprisBoard)
+    gcompris.bar_location(10, -1, 0.7)
 
     # Create persistent over levels root item canvas for the board
     self.rootitem_p = goocanvas.Group(

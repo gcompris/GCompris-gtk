@@ -266,6 +266,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     gcomprisBoard->maxlevel=3;
     gcomprisBoard->sublevel=1;
     gc_bar_set(GC_BAR_LEVEL);
+    gc_bar_location(0, -1, 0.6);
     submarine_next_level();
     gamewon = FALSE;
     pause_board(FALSE);

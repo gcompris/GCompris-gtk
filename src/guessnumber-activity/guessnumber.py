@@ -86,6 +86,7 @@ class Gcompris_guessnumber:
     gcompris.bar_set(gcompris.BAR_LEVEL)
 
     gcompris.bar_set_level(self.gcomprisBoard)
+    gcompris.bar_location(gcompris.BOARD_WIDTH - 160, -1, 0.7)
 
     gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                             "guessnumber/cave.png")

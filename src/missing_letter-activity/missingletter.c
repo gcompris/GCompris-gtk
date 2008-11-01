@@ -171,6 +171,7 @@ start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel -= 2;
 
       gc_bar_set(GC_BAR_CONFIG | GC_BAR_LEVEL);
+      gc_bar_location(10, -1, 0.9);
 
       missing_letter_next_level();
 

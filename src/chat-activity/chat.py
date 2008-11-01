@@ -54,6 +54,7 @@ class Gcompris_chat:
 
   def start(self):
     gcompris.bar_set (0)
+    gcompris.bar_location(gcompris.BOARD_WIDTH - 160, -1, 0.6)
     gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                             gcompris.skin.image_to_skin("gcompris-bg.jpg"))
     self.rootitem = goocanvas.Group(parent =  self.gcomprisBoard.canvas.get_root_item())
@@ -65,7 +66,7 @@ class Gcompris_chat:
     self.global_area_sw.set_shadow_type(gtk.SHADOW_ETCHED_OUT)
 
     w = gcompris.BOARD_WIDTH - 240.0
-    h = gcompris.BOARD_HEIGHT - 120.0
+    h = gcompris.BOARD_HEIGHT - 100.0
     y = 20.0 # The upper limit of the text boxes
     x  = 20.0
 
@@ -137,7 +138,7 @@ class Gcompris_chat:
     self.channel = gtk.Entry()
     w = 160.0
     h = 30.0
-    y = gcompris.BOARD_HEIGHT - 180.0
+    y = gcompris.BOARD_HEIGHT - 160.0
     x = x
 
 
@@ -171,7 +172,7 @@ class Gcompris_chat:
     x = 20.0
     w = gcompris.BOARD_WIDTH - x * 2
     h = 30.0
-    y = gcompris.BOARD_HEIGHT - 90.0
+    y = gcompris.BOARD_HEIGHT - 70.0
 
 
     goocanvas.Widget(

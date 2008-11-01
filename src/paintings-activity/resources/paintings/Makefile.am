@@ -6,6 +6,12 @@ xml_in_files = \
 	board1_1.xml.in \
 	board1_2.xml.in \
 	board1_3.xml.in \
+	board1_4.xml.in \
+	board1_5.xml.in \
+	board1_6.xml.in \
+	board1_7.xml.in \
+	board1_8.xml.in \
+	board1_9.xml.in \
 	board2_0.xml.in \
 	board2_1.xml.in \
 	board2_2.xml.in \

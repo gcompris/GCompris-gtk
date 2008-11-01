@@ -175,6 +175,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 			   BOARDHEIGHT - 50,
 			   gcomprisBoard->number_of_sublevel);
       gc_bar_set(GC_BAR_LEVEL);
+      gc_bar_location(10, -1, 0.8);
 
       /* TRANSLATORS: Put here the mathematical operators '+-x/' for  your language. */
       operators=_("+-×÷");

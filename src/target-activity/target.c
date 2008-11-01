@@ -320,6 +320,7 @@ static void target_next_level()
 
   gc_bar_set(GC_BAR_LEVEL);
   gc_bar_set_level(gcomprisBoard);
+  gc_bar_location(BOARDWIDTH-200, -1, 0.8);
 
   target_destroy_all_items();
   gamewon = FALSE;

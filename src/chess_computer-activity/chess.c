@@ -288,6 +288,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	default:
 	  gc_bar_set(0);
 	}
+      gc_bar_location(BOARDWIDTH-200, -1, 0.7);
 
       if(start_child (gnuchess_bin, &read_chan,
 		      &write_chan, &gnuchess_pid)==FALSE)

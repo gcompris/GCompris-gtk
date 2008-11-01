@@ -699,7 +699,6 @@ class Gcompris_gnumch:
         self.board.number_of_sublevel = self.levelset.num_sublevels
         self.trog_wait = 1900
 
-        gcompris.bar_set(0)
         gcompris.set_background(self.board.canvas.get_root_item(),
                                 gcompris.skin.image_to_skin("gcompris-bg.jpg"))
         gcompris.bar_set_level(self.board)
@@ -797,6 +796,9 @@ class Gcompris_gnumch:
 
         # the spare life
         self.muncher.spare.goocanvas.raise_(None)
+
+        gcompris.bar_set(0)
+        gcompris.bar_location(10, -1, 0.6)
 
         self.startGame()
 

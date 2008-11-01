@@ -188,6 +188,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->level = 1;
       gcomprisBoard->maxlevel = 9;
       gc_bar_set(GC_BAR_CONFIG|GC_BAR_LEVEL);
+      gc_bar_location(BOARDWIDTH-240, -1, 0.7);
       PangoFontDescription *font_medium = pango_font_description_from_string(gc_skin_font_board_medium);
       font_size = PANGO_PIXELS(pango_font_description_get_size (font_medium));
       interline = (int) (1.5*font_size);
