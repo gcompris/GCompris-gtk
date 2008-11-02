@@ -246,10 +246,16 @@ void gc_bar_start (GooCanvas *theCanvas)
                          NULL);
   current_level = 1;
 
-  // REPEAT
+  // REPEAT (Default)
   buttons = g_slist_append(buttons,
                            new_button(rootitem,
                                       GC_BAR_REPEAT,
+                                      "repeat.png"));
+
+  // REPEAT ICON
+  buttons = g_slist_append(buttons,
+                           new_button(rootitem,
+                                      GC_BAR_REPEAT_ICON,
                                       "repeat.png"));
 
   // HOME
@@ -313,7 +319,7 @@ gc_bar_set_repeat_icon (GdkPixbuf *pixmap)
   GooCanvasItem *item;
   goo_canvas_item_raise(rootitem, NULL);
   /* Non yet initialized : Something Wrong */
-  if( (item = get_item(GC_BAR_REPEAT)) == NULL)
+  if( (item = get_item(GC_BAR_REPEAT_ICON)) == NULL)
     {
       g_message("in bar_set_level, level_item uninitialized : should not happen\n");
       return;
@@ -374,6 +380,12 @@ gc_bar_set (const GComprisBarFlags flags)
   if(flags&GC_BAR_CONFIG)
     current_flags |= GC_BAR_CONFIG;
 
+  if(flags&GC_BAR_REPEAT_ICON)
+    current_flags |= GC_BAR_REPEAT_ICON;
+
+  if(flags&GC_BAR_REPEAT)
+    current_flags |= GC_BAR_REPEAT;
+
   update_exit_button();
 
   GSList *list;
@@ -410,26 +422,6 @@ gc_bar_set (const GComprisBarFlags flags)
   goo_canvas_item_scale(bar_item,
                         x / (bounds.x2 - bounds.x1),
                         1);
-
-  if(flags&GC_BAR_REPEAT) {
-    GdkPixbuf *pixmap;
-
-    /* Set the repeat icon to the original one */
-    pixmap = gc_skin_pixmap_load("repeat.png");
-    g_object_set (get_item(GC_BAR_REPEAT),
-		  "pixbuf", pixmap,
-		  NULL);
-    gdk_pixbuf_unref(pixmap);
-
-    item_visibility(GC_BAR_REPEAT, TRUE);
-
-  } else {
-
-    if(flags&GC_BAR_REPEAT)
-      item_visibility(GC_BAR_REPEAT, TRUE);
-    else
-      item_visibility(GC_BAR_REPEAT, FALSE);
-  }
 
 }
 
@@ -618,6 +610,7 @@ item_event_bar (GooCanvasItem  *item,
         gc_help_start(gcomprisBoard);
       }
       break;
+    case GC_BAR_REPEAT_ICON:
     case GC_BAR_REPEAT:
       {
         if(gcomprisBoard && gcomprisBoard->plugin->repeat != NULL)

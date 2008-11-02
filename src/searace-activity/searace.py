@@ -148,8 +148,7 @@ class Gcompris_searace:
     gcompris.utils.item_focus_init(item, None)
 
     gcompris.bar_set_level(self.gcomprisBoard)
-    gcompris.bar_location(gcompris.BOARD_WIDTH/2 - 60, -1, 0.6)
-
+    gcompris.bar_location(gcompris.BOARD_WIDTH/2 - 90, -1, 0.6)
 
   def end(self):
 
@@ -685,8 +684,7 @@ class Gcompris_searace:
     cx = math.cos(angle_pi)
     penalty=3
     if(cx<0):
-      penalty*=4
-
+      penalty*=5
     return(cx*condition[1]*-1*penalty)
 
   #
@@ -762,6 +760,7 @@ class Gcompris_searace:
       angle = abs(angle-360)
     boat.speeditem.props.text = \
         _("Angle:") + str(angle) + " " + _("Wind:") + str(int(wind)*-1)
+    boat.speeditem.raise_(None)
     boat.timer = gobject.timeout_add(int(self.timerinc+wind),
                                      self.cmd_forward, boat, value)
 
@@ -924,13 +923,13 @@ class Gcompris_searace:
           coord = (x, y, boat_angle, step_x, line_style) # x y angle distance line_style
 
       # ----------
-        goocanvas.Polyline(
-          parent = self.root_weather_item,
-          points = goocanvas.Points([(bx, by), (coord[0], coord[1])]),
-          stroke_color_rgba = 0x00CC00FFL,
-          line_width = 2.0,
-          line_dash = coord[4]
-          )
+      goocanvas.Polyline(
+        parent = self.root_weather_item,
+        points = goocanvas.Points([(bx, by), (coord[0], coord[1])]),
+        stroke_color_rgba = 0x00CC00FFL,
+        line_width = 2.0,
+        line_dash = coord[4]
+        )
       bx = coord[0]
       by = coord[1]
       ba = coord[2]
