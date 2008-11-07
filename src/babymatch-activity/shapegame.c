@@ -529,18 +529,18 @@ static void shapegame_init_canvas(GooCanvasItem *parent)
 			  0,
 			  0,
 			  NULL);
-  gdk_pixbuf_unref(pixmap);
 
   tooltip_text_item = \
     goo_canvas_text_new (tooltip_root_item,
 			 "",
-			 (double)gdk_pixbuf_get_width(pixmap)/2,
+			 gdk_pixbuf_get_width(pixmap)/2,
 			 24.0,
 			 -1,
 			 GTK_ANCHOR_CENTER,
 			 "font", gc_skin_font_board_small,
 			 "fill_color_rgba", gc_skin_color_text_button,
 			 NULL);
+  gdk_pixbuf_unref(pixmap);
 
   /* Hide the tooltip */
   g_object_set (tooltip_root_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
@@ -559,18 +559,18 @@ static void shapegame_init_canvas(GooCanvasItem *parent)
 			  0,
 			  0,
 			  NULL);
-  gdk_pixbuf_unref(pixmap);
 
   continue_text_item = \
     goo_canvas_text_new (continue_root_item,
 			 "",
-			 (double)gdk_pixbuf_get_width(pixmap)/2,
+			 gdk_pixbuf_get_width(pixmap)/2,
 			 24.0,
 			 -1,
 			 GTK_ANCHOR_CENTER,
 			 "font", gc_skin_font_board_small,
 			 "fill_color_rgba", gc_skin_color_text_button,
 			 NULL);
+  gdk_pixbuf_unref(pixmap);
 
   g_signal_connect(continue_root_item,
 		   "button_press_event",
@@ -1365,20 +1365,6 @@ create_title(char *name, double x, double y,
 	     guint32 color_rgba)
 {
   GooCanvasItem *item;
-
-  /* Shadow */
-  item = \
-    goo_canvas_text_new (shape_root_item,
-			 gettext(name),
-			 x + 1.0,
-			 y + 1.0,
-			 -1,
-			 anchor,
-			 "font", gc_skin_font_board_medium,
-			 "fill_color_rgba", gc_skin_color_shadow,
-			 NULL);
-
-  goo_canvas_item_raise(item, NULL);
 
   item = \
     goo_canvas_text_new (shape_root_item,

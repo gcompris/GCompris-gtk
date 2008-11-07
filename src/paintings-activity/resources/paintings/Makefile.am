@@ -12,6 +12,9 @@ xml_in_files = \
 	board1_7.xml.in \
 	board1_8.xml.in \
 	board1_9.xml.in \
+	board1_10.xml.in \
+	board1_11.xml.in \
+	board1_12.xml.in \
 	board2_0.xml.in \
 	board2_1.xml.in \
 	board2_2.xml.in \
@@ -81,6 +84,161 @@ img_DATA = \
 	Botticelli_Venus_d2.png \
 	Botticelli_Venus_d3.png \
 	Botticelli_Venus_d4.png \
+	degas_class-dance_1.png \
+	degas_class-dance_2.png \
+	degas_class-dance_3.png \
+	degas_class-dance_4.png \
+	degas_class-dance_5.png \
+	degas_class-dance_6.png \
+	EjiriSuruga_a1.png \
+	EjiriSuruga_a2.png \
+	EjiriSuruga_a3.png \
+	EjiriSuruga_b1.png \
+	EjiriSuruga_b2.png \
+	EjiriSuruga_b3.png \
+	EjiriSuruga_c1.png \
+	EjiriSuruga_c2.png \
+	EjiriSuruga_c3.png \
+	EjiriSuruga_d1.png \
+	EjiriSuruga_d2.png \
+	EjiriSuruga_d3.png \
+	GreatWave_a1.png \
+	GreatWave_a2.png \
+	GreatWave_a3.png \
+	GreatWave_b1.png \
+	GreatWave_b2.png \
+	GreatWave_b3.png \
+	GreatWave_c1.png \
+	GreatWave_c2.png \
+	GreatWave_c3.png \
+	GreatWave_d1.png \
+	GreatWave_d2.png \
+	GreatWave_d3.png \
+	HiroshigeHorsePrawns_a1.png \
+	HiroshigeHorsePrawns_a2.png \
+	HiroshigeHorsePrawns_a3.png \
+	HiroshigeHorsePrawns_a4.png \
+	HiroshigeHorsePrawns_b1.png \
+	HiroshigeHorsePrawns_b2.png \
+	HiroshigeHorsePrawns_b3.png \
+	HiroshigeHorsePrawns_b4.png \
+	HiroshigeHorsePrawns_c1.png \
+	HiroshigeHorsePrawns_c2.png \
+	HiroshigeHorsePrawns_c3.png \
+	HiroshigeHorsePrawns_c4.png \
+	HiroshigeHorsePrawns_d1.png \
+	HiroshigeHorsePrawns_d2.png \
+	HiroshigeHorsePrawns_d3.png \
+	HiroshigeHorsePrawns_d4.png \
+	HiroshigeInokashiraSnow_a1.png \
+	HiroshigeInokashiraSnow_a2.png \
+	HiroshigeInokashiraSnow_a3.png \
+	HiroshigeInokashiraSnow_a4.png \
+	HiroshigeInokashiraSnow_b1.png \
+	HiroshigeInokashiraSnow_b2.png \
+	HiroshigeInokashiraSnow_b3.png \
+	HiroshigeInokashiraSnow_b4.png \
+	HiroshigeInokashiraSnow_c1.png \
+	HiroshigeInokashiraSnow_c2.png \
+	HiroshigeInokashiraSnow_c3.png \
+	HiroshigeInokashiraSnow_c4.png \
+	HiroshigeInokashiraSnow_d1.png \
+	HiroshigeInokashiraSnow_d2.png \
+	HiroshigeInokashiraSnow_d3.png \
+	HiroshigeInokashiraSnow_d4.png \
+	HokusaiBridge_a1.png \
+	HokusaiBridge_a2.png \
+	HokusaiBridge_a3.png \
+	HokusaiBridge_a4.png \
+	HokusaiBridge_b1.png \
+	HokusaiBridge_b2.png \
+	HokusaiBridge_b3.png \
+	HokusaiBridge_b4.png \
+	HokusaiBridge_c1.png \
+	HokusaiBridge_c2.png \
+	HokusaiBridge_c3.png \
+	HokusaiBridge_c4.png \
+	HokusaiBridge_d1.png \
+	HokusaiBridge_d2.png \
+	HokusaiBridge_d3.png \
+	HokusaiBridge_d4.png \
+	HokusaiBridge_e1.png \
+	HokusaiBridge_e2.png \
+	HokusaiBridge_e3.png \
+	HokusaiBridge_e4.png \
+	HokusaiOiranKamuro_a1.png \
+	HokusaiOiranKamuro_a2.png \
+	HokusaiOiranKamuro_a3.png \
+	HokusaiOiranKamuro_b1.png \
+	HokusaiOiranKamuro_b2.png \
+	HokusaiOiranKamuro_b3.png \
+	HokusaiPoppies_a1.png \
+	HokusaiPoppies_a2.png \
+	HokusaiPoppies_a3.png \
+	HokusaiPoppies_a4.png \
+	HokusaiPoppies_a5.png \
+	HokusaiPoppies_b1.png \
+	HokusaiPoppies_b2.png \
+	HokusaiPoppies_b3.png \
+	HokusaiPoppies_b4.png \
+	HokusaiPoppies_b5.png \
+	HokusaiPoppies_c1.png \
+	HokusaiPoppies_c2.png \
+	HokusaiPoppies_c3.png \
+	HokusaiPoppies_c4.png \
+	HokusaiPoppies_c5.png \
+	HokusaiPoppies_d1.png \
+	HokusaiPoppies_d2.png \
+	HokusaiPoppies_d3.png \
+	HokusaiPoppies_d4.png \
+	HokusaiPoppies_d5.png \
+	HokusaiPoppies_e1.png \
+	HokusaiPoppies_e2.png \
+	HokusaiPoppies_e3.png \
+	HokusaiPoppies_e4.png \
+	HokusaiPoppies_e5.png \
+	HokusaiWomanHoldingFan_a1.png \
+	HokusaiWomanHoldingFan_a2.png \
+	HokusaiWomanHoldingFan_a3.png \
+	HokusaiWomanHoldingFan_b1.png \
+	HokusaiWomanHoldingFan_b2.png \
+	HokusaiWomanHoldingFan_b3.png \
+	HokusaiWomanHoldingFan_c1.png \
+	HokusaiWomanHoldingFan_c2.png \
+	HokusaiWomanHoldingFan_c3.png \
+	kandinky_1.png \
+	kandinky_2.png \
+	kandinky_3.png \
+	kandinky_4.png \
+	kandinky_5.png \
+	kandinky_6.png \
+	kandinky_7.png \
+	kandinky_8.png \
+	KazusaSeaRoute_a1.png \
+	KazusaSeaRoute_a2.png \
+	KazusaSeaRoute_a3.png \
+	KazusaSeaRoute_a4.png \
+	KazusaSeaRoute_a5.png \
+	KazusaSeaRoute_b1.png \
+	KazusaSeaRoute_b2.png \
+	KazusaSeaRoute_b3.png \
+	KazusaSeaRoute_b4.png \
+	KazusaSeaRoute_b5.png \
+	KazusaSeaRoute_c1.png \
+	KazusaSeaRoute_c2.png \
+	KazusaSeaRoute_c3.png \
+	KazusaSeaRoute_c4.png \
+	KazusaSeaRoute_c5.png \
+	KazusaSeaRoute_d1.png \
+	KazusaSeaRoute_d2.png \
+	KazusaSeaRoute_d3.png \
+	KazusaSeaRoute_d4.png \
+	KazusaSeaRoute_d5.png \
+	KazusaSeaRoute_e1.png \
+	KazusaSeaRoute_e2.png \
+	KazusaSeaRoute_e3.png \
+	KazusaSeaRoute_e4.png \
+	KazusaSeaRoute_e5.png \
 	Le_Caravage_Egypte_a1.png \
 	Le_Caravage_Egypte_a2.png \
 	Le_Caravage_Egypte_a3.png \
@@ -105,38 +263,6 @@ img_DATA = \
 	Michelangelo_Pieta_c2.png \
 	Michelangelo_Pieta_c3.png \
 	Michelangelo_Pieta_c4.png \
-	bazille_rampart_1.jpg \
-	bazille_rampart_2.jpg \
-	bazille_rampart_3.jpg \
-	bazille_rampart_4.jpg \
-	bazille_rampart_5.jpg \
-	bazille_rampart_6.jpg \
-	cassat_summertime_1.jpg \
-	cassat_summertime_2.jpg \
-	cassat_summertime_3.jpg \
-	cassat_summertime_4.jpg \
-	cassat_summertime_5.jpg \
-	cassat_summertime_6.jpg \
-	degas_class-dance_1.png \
-	degas_class-dance_2.png \
-	degas_class-dance_3.png \
-	degas_class-dance_4.png \
-	degas_class-dance_5.png \
-	degas_class-dance_6.png \
-	gogh_auvert_1.jpg \
-	gogh_auvert_2.jpg \
-	gogh_auvert_3.jpg \
-	gogh_auvert_4.jpg \
-	gogh_auvert_5.jpg \
-	gogh_auvert_6.jpg \
-	kandinky_1.png \
-	kandinky_2.png \
-	kandinky_3.png \
-	kandinky_4.png \
-	kandinky_5.png \
-	kandinky_6.png \
-	kandinky_7.png \
-	kandinky_8.png \
 	renoir-filles_piano-1.png \
 	renoir-filles_piano-2.png \
 	renoir-filles_piano-3.png \
