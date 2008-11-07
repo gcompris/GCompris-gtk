@@ -351,7 +351,7 @@ static void repeat ()
 
       g_free(str);
 
-      str = g_strdup_printf(gettext(colors[GPOINTER_TO_INT(g_list_nth_data(listColors, 0))*2+1]));
+      str = g_strdup(gettext(colors[GPOINTER_TO_INT(g_list_nth_data(listColors, 0))*2+1]));
 
       goo_canvas_text_new (boardRootItem,
 			   str,

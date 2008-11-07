@@ -1754,7 +1754,7 @@ GcomprisBoard *gc_db_get_board_from_id(int board_id)
   gcomprisBoard->gmodule_file = NULL;
 
   /* From DB we have only package_data_dir. */
-  gcomprisBoard->board_dir = g_strdup_printf(properties->package_data_dir);
+  gcomprisBoard->board_dir = g_strdup(properties->package_data_dir);
 
   gcomprisBoard->board_id = board_id;
   gcomprisBoard->name = g_strdup(result[i++]);
