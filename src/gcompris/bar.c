@@ -170,10 +170,10 @@ void gc_bar_start (GooCanvas *theCanvas)
 				   0,
 				   0,
 				NULL);
-  gdk_pixbuf_unref(pixmap);
 
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
   buttony = (height-gdk_pixbuf_get_height(pixmap)*zoom)/2 - 20;
+  gdk_pixbuf_unref(pixmap);
 
   /*
    * The Order in which buttons are created represents
