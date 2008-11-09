@@ -241,8 +241,6 @@ display_confirm(gchar *title,
 				    (double) button_y + 2*button_h/3,
 				     NULL);
 
-  //gdk_pixbuf_unref(pixmap);
-
   g_signal_connect(no_button, "button_press_event",
 		     (GtkSignalFunc) button_event,
 		     "/no/");
@@ -256,8 +254,6 @@ display_confirm(gchar *title,
 				   - gdk_pixbuf_get_width(pixmap_cross)/2,
 				   button_y + 2*button_h/3,
 				    NULL);
-
-  gdk_pixbuf_unref(pixmap_cross);
 
   g_signal_connect(no_cross, "button_press_event",
 		     (GtkSignalFunc) button_event,
@@ -282,8 +278,6 @@ display_confirm(gchar *title,
 				     (double) button_y + button_h/3,
 				      NULL);
 
-  gdk_pixbuf_unref(pixmap);
-
   g_signal_connect(yes_button, "button_press_event",
 		     (GtkSignalFunc) button_event,
 		     "/yes/");
@@ -298,7 +292,6 @@ display_confirm(gchar *title,
 				    button_y + button_h/3,
 				     NULL);
 
-  gdk_pixbuf_unref(pixmap_stick);
 
   g_signal_connect(yes_stick, "button_press_event",
 		     (GtkSignalFunc) button_event,
@@ -316,6 +309,10 @@ display_confirm(gchar *title,
 		       NULL);
 
   confirm_displayed = TRUE;
+
+  gdk_pixbuf_unref(pixmap);
+  gdk_pixbuf_unref(pixmap_stick);
+  gdk_pixbuf_unref(pixmap_cross);
 
 }
 
