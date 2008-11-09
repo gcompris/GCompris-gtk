@@ -196,7 +196,7 @@ display_confirm(gchar *title,
 				   NULL);
 
   svg_handle = gc_skin_rsvg_load("dialog_help.svgz");
-  item = goo_svg_item_new (rootitem, svg_handle, NULL);
+  item = goo_canvas_svg_new (rootitem, svg_handle, NULL);
 
   RsvgDimensionData dimension;
   rsvg_handle_get_dimensions(svg_handle, &dimension);

@@ -1,3 +1,51 @@
+2008-11-09  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	API cleanup, now our svg item has the same API signature
+	as native goocanvas items: goo_canvas_svg_new()
+
+	* src/erase-activity/erase.c: (add_one_item):
+	* src/gcompris/about.c: (gc_about_start):
+	* src/gcompris/config.c: (gc_config_start):
+	* src/gcompris/dialog.c: (gc_dialog):
+	* src/gcompris/gcompris.c: (_set_svg_background):
+	* src/gcompris/gcompris_confirm.c: (display_confirm):
+	* src/gcompris/help.c: (gc_help_start):
+	* src/goocanvas/src/Makefile.am:
+	* src/goocanvas/src/goocanvas.h:
+	* src/goocanvas/src/goocanvassvg.c:
+	(goo_canvas_svg_install_common_properties), (goo_canvas_svg_init),
+	(goo_canvas_svg_new), (goo_canvas_svg_update),
+	(goo_canvas_svg_paint), (goo_canvas_svg_finalize),
+	(goo_canvas_svg_set_common_property),
+	(goo_canvas_svg_set_property), (goo_canvas_svg_is_item_at),
+	(goo_canvas_svg_class_init):
+	* src/goocanvas/src/goocanvassvg.h:
+	* src/goocanvas/src/svg-item.c:
+	* src/goocanvas/src/svg-item.h:
+	* src/magic_hat_minus-activity/magic_hat.c: (place_item):
+	* src/maze-activity/maze.c: (maze_next_level):
+	* src/money-activity/money.c: (money_next_level):
+	* src/money-activity/money_widget.c: (money_widget_add):
+	* src/paratrooper-activity/paratrooper.c: (paratrooper_next_level),
+	(paratrooper_create_cloud):
+	* src/planegame-activity/planegame.c: (planegame_next_level),
+	(planegame_create_item):
+	* src/reversecount-activity/reversecount.c:
+	(reversecount_create_item):
+	* src/smallnumbers-activity/smallnumbers.c:
+	(smallnumbers_create_item):
+
+2008-11-09  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Added support for svg-id in our goo canvas svg item.
+	Added missing cleanup code in it.
+
+	* src/goocanvas/src/svg-item.c:
+	(goo_svg_item_install_common_properties), (goo_svg_item_init),
+	(goo_svg_item_paint), (goo_svg_item_finalize),
+	(goo_svg_item_set_common_property), (goo_svg_item_class_init):
+	* src/goocanvas/src/svg-item.h:
+
 2008-11-08  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	More New paintings from Marc Levivier:

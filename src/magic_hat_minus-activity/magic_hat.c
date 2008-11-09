@@ -575,7 +575,7 @@ static void place_item(frame * my_frame, int type)
 
       for (k = 0 ; k < nb_item ; k++)
 	{
-	  item = goo_svg_item_new (boardRootItem,
+	  item = goo_canvas_svg_new (boardRootItem,
 				   image, NULL);
 	  goo_canvas_item_translate(item,
 				    item_x,

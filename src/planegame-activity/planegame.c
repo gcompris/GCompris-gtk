@@ -279,7 +279,7 @@ static void planegame_next_level()
 
   goo_canvas_item_translate(planeitem, plane_x, plane_y);
 
-  item = goo_svg_item_new (planeitem,
+  item = goo_canvas_svg_new (planeitem,
 			   svg_handle,
 			   NULL);
 
@@ -461,7 +461,7 @@ static GooCanvasItem *planegame_create_item(GooCanvasItem *parent)
 			    BOARDWIDTH,
 			    y);
 
-  item = goo_svg_item_new (itemgroup,
+  item = goo_canvas_svg_new (itemgroup,
 			   svg_handle,
 			   NULL);
   goo_canvas_item_scale(item, imageZoom, imageZoom);

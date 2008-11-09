@@ -41,7 +41,7 @@ libgoocanvas_public_headers =		\
 	goocanvasutils.h		\
 	goocanvaswidget.h		\
 	goocanvas.h			\
-	svg-item.h
+	goocanvassvg.h
 
 libgoocanvas_la_SOURCES =		\
 	goocanvasatk.h			\
@@ -64,7 +64,7 @@ libgoocanvas_la_SOURCES =		\
 	goocanvasutils.c		\
 	goocanvaswidget.c		\
 	goocanvas.c			\
-	svg-item.c
+	goocanvassvg.c
 
 libgoocanvas_extra_sources =		\
 	$(libgoocanvas_public_headers)	\

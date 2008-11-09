@@ -471,7 +471,7 @@ static void money_next_level()
 
     rsvg_handle_get_dimensions(svg_handle, &dimension);
 
-    item = goo_svg_item_new ( boardRootItem,
+    item = goo_canvas_svg_new ( boardRootItem,
 			      svg_handle,
 			      NULL);
 

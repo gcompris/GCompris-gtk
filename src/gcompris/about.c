@@ -74,7 +74,7 @@ void gc_about_start ()
   rsvg_handle_get_dimensions(svg_handle, &dimension);
   x_start = (BOARDWIDTH - dimension.width)/2;
   y_start = (BOARDHEIGHT - dimension.height)/2;
-  item = goo_svg_item_new (rootitem, svg_handle, NULL);
+  item = goo_canvas_svg_new (rootitem, svg_handle, NULL);
   goo_canvas_item_translate(item, x_start, y_start);
   y = y_start + dimension.height;
   g_object_unref (svg_handle);

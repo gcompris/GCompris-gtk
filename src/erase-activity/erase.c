@@ -371,7 +371,7 @@ static void add_one_item(int i, int j, int protect)
 
       assert(CoverPixmap[current_layer]);
       GooCanvasItem *item =
-	goo_svg_item_new (boardRootItem,
+	goo_canvas_svg_new (boardRootItem,
 			  CoverPixmap[current_layer],
 			  NULL);
       rsvg_handle_get_dimensions(CoverPixmap[current_layer], &dimension);

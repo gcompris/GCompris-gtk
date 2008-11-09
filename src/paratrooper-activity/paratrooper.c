@@ -314,7 +314,7 @@ static void paratrooper_next_level()
 
   plane_x = -rsvg_dimension.width;
   plane_y = 10;
-  planeitem = goo_svg_item_new (planeroot,
+  planeitem = goo_canvas_svg_new (planeroot,
 				svg_handle,
 				NULL);
 
@@ -356,7 +356,7 @@ static void paratrooper_next_level()
   boat_y = BOARDHEIGHT - 100;
   boat_landarea_y = boat_y + 20;
   item = \
-    goo_svg_item_new (boardRootItem,
+    goo_canvas_svg_new (boardRootItem,
 		      svg_handle,
 		      NULL);
   goo_canvas_item_translate(item,
@@ -392,7 +392,7 @@ static void paratrooper_next_level()
 			  NULL);
 
   paratrooperItem.paratrooper = \
-    goo_svg_item_new (paratrooperItem.rootitem,
+    goo_canvas_svg_new (paratrooperItem.rootitem,
 		      NULL,
 		      NULL);
 
@@ -527,7 +527,7 @@ paratrooper_create_cloud(GooCanvasItem *parent)
     goo_canvas_group_new (parent,
 			  NULL);
 
-  item = goo_svg_item_new (root,
+  item = goo_canvas_svg_new (root,
 			   svg_handle,
 			   NULL);
 

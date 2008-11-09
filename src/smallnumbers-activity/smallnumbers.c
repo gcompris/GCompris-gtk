@@ -434,7 +434,7 @@ static void smallnumbers_create_item(GooCanvasItem *parent)
     x = (double)(g_random_int()%(BOARDWIDTH-
 				 (guint)(rsvg_dimension.width * imageZoom)*2));
 
-    item = goo_svg_item_new (group_item, svg_handle, NULL);
+    item = goo_canvas_svg_new (group_item, svg_handle, NULL);
     goo_canvas_item_translate(item,
 			      x,
 			      - (rsvg_dimension.height * imageZoom ));

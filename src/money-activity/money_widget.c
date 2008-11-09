@@ -293,7 +293,7 @@ money_widget_add (Money_Widget *moneyWidget, MoneyEuroType value)
   yratio =  block_height / (dimension.height + BORDER_GAP);
   ratio = yratio = MIN(xratio, yratio);
 
-  item =  goo_svg_item_new(moneyWidget->priv->rootItem,
+  item =  goo_canvas_svg_new(moneyWidget->priv->rootItem,
 			   svg_handle,
 			   NULL);
 

@@ -77,7 +77,7 @@ void gc_dialog(gchar *str, DialogBoxCallBack dbcb)
 					 NULL);
 
   svg_handle = gc_skin_rsvg_load("dialogbox.svgz");
-  itemDialogText = goo_svg_item_new (rootDialogItem, svg_handle, NULL);
+  itemDialogText = goo_canvas_svg_new (rootDialogItem, svg_handle, NULL);
 
   RsvgDimensionData dimension;
   rsvg_handle_get_dimensions(svg_handle, &dimension);

@@ -461,12 +461,12 @@ static GooCanvasItem *reversecount_create_item(GooCanvasItem *parent)
   for(i=0; i<BOARDWIDTH; i+=block_width)
     {
       j=0;
-      item = goo_svg_item_new (boardRootItem, svg_handle, NULL);
+      item = goo_canvas_svg_new (boardRootItem, svg_handle, NULL);
       goo_canvas_item_translate(item, i, j);
       goo_canvas_item_scale(item, xratio, yratio);
 
       j=BOARDHEIGHT-BARHEIGHT-block_height;
-      item = goo_svg_item_new (boardRootItem, svg_handle, NULL);
+      item = goo_canvas_svg_new (boardRootItem, svg_handle, NULL);
       goo_canvas_item_translate(item, i, j);
       goo_canvas_item_scale(item, xratio, yratio);
     }
@@ -475,13 +475,13 @@ static GooCanvasItem *reversecount_create_item(GooCanvasItem *parent)
       j += block_height)
     {
       i = 0;
-      item = goo_svg_item_new (boardRootItem, svg_handle, NULL);
+      item = goo_canvas_svg_new (boardRootItem, svg_handle, NULL);
       goo_canvas_item_translate(item, i, j);
       goo_canvas_item_scale(item, xratio, yratio);
 
 
       i = BOARDWIDTH - block_width;
-      item = goo_svg_item_new (boardRootItem, svg_handle, NULL);
+      item = goo_canvas_svg_new (boardRootItem, svg_handle, NULL);
       goo_canvas_item_translate(item, i, j);
       goo_canvas_item_scale(item, xratio, yratio);
     }
@@ -496,7 +496,7 @@ static GooCanvasItem *reversecount_create_item(GooCanvasItem *parent)
 
   dice_area_x = BOARDWIDTH - block_width - rsvg_dimension.width - 20;
 
-  item = goo_svg_item_new (boardRootItem, svg_handle, NULL);
+  item = goo_canvas_svg_new (boardRootItem, svg_handle, NULL);
   goo_canvas_item_translate(item,
 			    dice_area_x, block_height + 20);
 
@@ -515,7 +515,7 @@ static GooCanvasItem *reversecount_create_item(GooCanvasItem *parent)
       i = dice_area_x + dice_width * d + 20;
       j = block_height + 24 + d*7;
 
-      item = goo_svg_item_new (boardRootItem, svg_handle, NULL);
+      item = goo_canvas_svg_new (boardRootItem, svg_handle, NULL);
       goo_canvas_item_translate(item,
 				i, j);
 
@@ -551,7 +551,7 @@ static GooCanvasItem *reversecount_create_item(GooCanvasItem *parent)
   tuxRootItem = goo_canvas_group_new (boardRootItem, NULL);
 
   svg_handle = gc_rsvg_load("reversecount/tux_top_south.svgz");
-  tuxItem = goo_svg_item_new (tuxRootItem, svg_handle, NULL);
+  tuxItem = goo_canvas_svg_new (tuxRootItem, svg_handle, NULL);
 
   RsvgDimensionData dimension;
   rsvg_handle_get_dimensions(svg_handle, &dimension);

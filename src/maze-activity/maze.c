@@ -295,7 +295,7 @@ static void maze_next_level() {
   RsvgHandle *svg_handle = NULL;
   gchar *filename = gc_file_find_absolute("maze/tux_top_south.svg");
   svg_handle = rsvg_handle_new_from_file (filename, &error);
-  tuxitem = goo_svg_item_new (tuxgroup, svg_handle,
+  tuxitem = goo_canvas_svg_new (tuxgroup, svg_handle,
 			      NULL);
   g_free(filename);
   g_object_unref (svg_handle);
