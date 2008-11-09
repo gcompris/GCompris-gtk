@@ -31,7 +31,7 @@ static void
 goo_canvas_svg_install_common_properties (GObjectClass *gobject_class)
 {
   g_object_class_install_property (gobject_class, PROP_SVGHANDLE,
-				   g_param_spec_object ("rsvg-handle",
+				   g_param_spec_object ("svg-handle",
 							"Rsvg Handle",
 							"The RsvgHandle to display",
 							RSVG_TYPE_HANDLE,
@@ -216,6 +216,11 @@ goo_canvas_svg_is_item_at (GooCanvasItemSimple *simple,
 			  cairo_t             *cr,
 			  gboolean             is_pointer_event)
 {
+  GooCanvasSvg *canvas_svg = (GooCanvasSvg*) simple;
+
+  if ((x > canvas_svg->width) || (y > canvas_svg->height))
+    return FALSE;
+
   /* Don't do hit-detection for now. */
   return TRUE;
 }
