@@ -91,7 +91,7 @@ update-voices:
 all-local:
 
 
-ACLOCAL_AMFLAGS =
+ACLOCAL_AMFLAGS = -I m4
 
 if OS_MACOSX
 BUNDLE_RESOURCES_DIR=$(BUNDLE_APPDIR)/Contents/Resources

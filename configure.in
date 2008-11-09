@@ -4,20 +4,7 @@ AC_INIT(src/gcompris/gcompris.c)
 AC_CANONICAL_TARGET
 AM_INIT_AUTOMAKE(gcompris, 8.5PRE2)
 AM_CONFIG_HEADER(config.h)
-
-# Internal libgoocanvas versioning
-# Libtool versioning - only update before a public release.
-# If the code has changed at all: REVISION++.
-# If any interfaces have changed at all: CURRENT++, REVISION=0.
-# If it is backwards compatible: AGE++, else AGE=0.
-LT_CURRENT=3
-LT_REVISION=0
-LT_AGE=0
-
-LT_VERSION_INFO="$LT_CURRENT:$LT_REVISION:$LT_AGE"
-
-AC_SUBST(LT_VERSION_INFO)
-
+AC_CONFIG_MACRO_DIR([m4])
 
 AM_MAINTAINER_MODE
 
@@ -193,8 +180,6 @@ if test "x$enable_rebuilds" = "xyes" && \
   REBUILD=
 fi
 AC_SUBST(REBUILD)
-
-AM_ICONV
 
 LDFLAGS="${LDFLAGS}"
 

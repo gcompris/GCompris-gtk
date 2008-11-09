@@ -1601,7 +1601,7 @@ static void submarine_explosion()
 {
   GdkPixbuf *pixmap = NULL;
 
-  if (submarine_explosion)
+  if (submarine_destroyed)
     return;
 
   submarine_destroyed = TRUE;

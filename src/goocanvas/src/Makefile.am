@@ -19,8 +19,6 @@ no_undefined = -no-undefined
 endif
 
 libtool_opts =				\
-  -version-info $(LT_VERSION_INFO)	\
-  -export-dynamic $(no_undefined)	\
   -rpath $(libdir)
 
 libgoocanvas_la_LDFLAGS = $(libtool_opts)
