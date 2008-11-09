@@ -145,6 +145,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
       gc_bar_set(GC_BAR_LEVEL);
 
+      gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
+			"billard/foot_background.png");
+
       minigolf_next_level();
 
       gamewon = FALSE;
@@ -194,9 +197,6 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 /* set initial values for the next level */
 static void minigolf_next_level()
 {
-
-  gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
-		    "billard/foot_background.png");
 
   gc_bar_set_level(gcomprisBoard);
 
@@ -607,7 +607,8 @@ static void minigolf_move(GList *item_list)
 	    }
 
 
-	  gc_item_absolute_move(item, machItem->xpos, machItem->ypos);
+	  if (machItem->vxo != 0 || machItem->vyo != 0)
+	    gc_item_absolute_move(item, machItem->xpos, machItem->ypos);
 
 	  if((machItem->ypos>=MIN_Y2-machItem->height-BORDER
 	      && (bounds.y1 - machItem->ypos)<=0) || collision == TRUE)
