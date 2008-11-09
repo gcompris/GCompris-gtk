@@ -53,6 +53,31 @@ py_gc_pixmap_load(PyObject* self, PyObject* args)
 
 }
 
+/* RsvgHandle *gc_svg_load(char *pixmapfile); */
+static PyObject*
+py_gc_svg_load(PyObject* self, PyObject* args)
+{
+  char* pixmapfile;
+  RsvgHandle* result;
+  PyObject* pyresult;
+
+  /* Parse arguments */
+
+  if(!PyArg_ParseTuple(args, "s:gc_svg_load", &pixmapfile))
+    return NULL;
+
+  /* Call the corresponding C function */
+  result = gc_rsvg_load(pixmapfile);
+
+  /* Create and return the result */
+  pyresult = (PyObject*) pygobject_new((GObject*) result);
+
+  rsvg_handle_free(result);
+
+  return(pyresult);
+
+}
+
 /* gchar *gc_file_find_absolute(gchar *file); */
 static PyObject*
 py_gc_file_find_absolute(PyObject* self, PyObject* args)
@@ -364,6 +389,7 @@ py_gcompris_canvas_get_property(PyObject* self, PyObject* args)
 
 static PyMethodDef PythonGcomprisUtilsModule[] = {
   { "load_pixmap",  py_gc_pixmap_load, METH_VARARGS, "gc_pixmap_load" },
+  { "load_svg",  py_gc_svg_load, METH_VARARGS, "gc_svg_load" },
   { "find_file_absolute",  py_gc_file_find_absolute, METH_VARARGS, "gc_file_find_absolute" },
   { "item_focus_init",  py_gc_item_focus_init, METH_VARARGS, "gc_item_focus_init" },
   { "item_absolute_move",  py_gc_item_absolute_move, METH_VARARGS, "gc_item_absolute_move" },
