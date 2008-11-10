@@ -681,7 +681,6 @@ gc_util_button_text(GooCanvasItem *rootitem,
 			       x,
 			       y,
 			       NULL);
-  gdk_pixbuf_unref(pixmap);
   g_signal_connect(item,
 		   "button_press_event",
 		   (GtkSignalFunc) process, data);
@@ -702,4 +701,5 @@ gc_util_button_text(GooCanvasItem *rootitem,
 		   "button_press_event",
 		   process, data);
   gc_item_focus_init(item_text, item);
+  gdk_pixbuf_unref(pixmap);
 }

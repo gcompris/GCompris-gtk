@@ -46,6 +46,31 @@ goo_canvas_svg_install_common_properties (GObjectClass *gobject_class)
 
 }
 
+static void _init_surface(GooCanvasSvg *canvas_svg)
+{
+  RsvgDimensionData dimension_data;
+  rsvg_handle_get_dimensions (canvas_svg->svg_handle, &dimension_data);
+  canvas_svg->width = dimension_data.width;
+  canvas_svg->height = dimension_data.height;
+
+  if (canvas_svg->pattern)
+      cairo_pattern_destroy(canvas_svg->pattern);
+  canvas_svg->pattern = NULL;
+
+  if (canvas_svg->cr)
+    cairo_destroy(canvas_svg->cr);
+  canvas_svg->cr = NULL;
+
+  cairo_surface_t* cst =
+    cairo_image_surface_create (CAIRO_FORMAT_ARGB32,
+				canvas_svg->width,
+				canvas_svg->height);
+  canvas_svg->cr = cairo_create (cst);
+  rsvg_handle_render_cairo (canvas_svg->svg_handle, canvas_svg->cr);
+  canvas_svg->pattern = cairo_pattern_create_for_surface (cst);
+  cairo_surface_destroy(cst);
+}
+
 /* The standard object initialization function. */
 static void
 goo_canvas_svg_init (GooCanvasSvg *canvas_svg)
@@ -53,6 +78,9 @@ goo_canvas_svg_init (GooCanvasSvg *canvas_svg)
   canvas_svg->width = 0.0;
   canvas_svg->height = 0.0;
   canvas_svg->id = NULL;
+  canvas_svg->cr = NULL;
+  canvas_svg->pattern = NULL;
+
 }
 
 
@@ -68,19 +96,13 @@ goo_canvas_svg_new (GooCanvasItem      *parent,
   GooCanvasSvg *canvas_svg;
   const char *first_property;
   va_list var_args;
-  RsvgDimensionData dimension_data;
 
   item = g_object_new (GOO_TYPE_CANVAS_SVG, NULL);
 
   canvas_svg = (GooCanvasSvg*) item;
   canvas_svg->svg_handle = svg_handle;
   if(svg_handle)
-    {
-      g_object_ref (svg_handle);
-      rsvg_handle_get_dimensions (svg_handle, &dimension_data);
-      canvas_svg->width = dimension_data.width;
-      canvas_svg->height = dimension_data.height;
-    }
+      _init_surface(canvas_svg);
 
   va_start (var_args, svg_handle);
   first_property = va_arg (var_args, char*);
@@ -104,7 +126,7 @@ goo_canvas_svg_new (GooCanvasItem      *parent,
    storing them in simple->bounds. */
 static void
 goo_canvas_svg_update  (GooCanvasItemSimple *simple,
-		      cairo_t             *cr)
+			cairo_t             *cr)
 {
   GooCanvasSvg *canvas_svg = (GooCanvasSvg*) simple;
 
@@ -126,8 +148,11 @@ goo_canvas_svg_paint (GooCanvasItemSimple   *simple,
   GooCanvasSvg *canvas_svg = (GooCanvasSvg*) simple;
 
   if(canvas_svg->svg_handle)
-    rsvg_handle_render_cairo_sub (canvas_svg->svg_handle, cr,
-                                  canvas_svg->id);
+    {
+      cairo_set_source (cr, canvas_svg->pattern);
+      cairo_paint (cr);
+    }
+  //rsvg_handle_render_cairo_sub (canvas_svg->svg_handle, cr, canvas_svg->id);
 }
 
 
@@ -145,31 +170,34 @@ goo_canvas_svg_finalize (GObject *object)
     g_free(canvas_svg->id);
   canvas_svg->id = NULL;
 
+  if (canvas_svg->pattern)
+      cairo_pattern_destroy(canvas_svg->pattern);
+  canvas_svg->pattern = NULL;
+
+  if (canvas_svg->cr)
+    cairo_destroy(canvas_svg->cr);
+  canvas_svg->cr = NULL;
+
+
   G_OBJECT_CLASS (goo_canvas_svg_parent_class)->finalize (object);
 }
 
 
 static void
 goo_canvas_svg_set_common_property (GObject              *object,
-				  GooCanvasSvg           *canvas_svg,
-				  guint                 prop_id,
-				  const GValue         *value,
-				  GParamSpec           *pspec)
+				    GooCanvasSvg         *canvas_svg,
+				    guint                 prop_id,
+				    const GValue         *value,
+				    GParamSpec           *pspec)
 {
   RsvgHandle *svg_handle;
-  RsvgDimensionData dimension_data;
 
   switch (prop_id)
     {
     case PROP_SVGHANDLE:
       svg_handle = g_value_get_object (value);
-      if(canvas_svg->svg_handle)
-	g_object_unref (canvas_svg->svg_handle);
-      g_object_ref (svg_handle);
       canvas_svg->svg_handle = svg_handle;
-      rsvg_handle_get_dimensions (svg_handle, &dimension_data);
-      canvas_svg->width = dimension_data.width;
-      canvas_svg->height = dimension_data.height;
+      _init_surface(canvas_svg);
       break;
     case PROP_SVG_ID:
       if (!g_value_get_string (value))

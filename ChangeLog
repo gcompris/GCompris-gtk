@@ -1,3 +1,22 @@
+2008-11-10  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Performance improvement of the goocanvas svg item. Now the
+	rsvg rendering is only done once in a sairo surface and copyed
+	again to the cairo target when needed.
+
+	* src/gcompris/config.c: (set_locale_flag):
+	* src/gcompris/gameutil.c: (gc_util_button_text):
+	* src/gcompris/gcompris.c: (_set_svg_background):
+	* src/goocanvas/src/goocanvassvg.c: (_init_surface),
+	(goo_canvas_svg_init), (goo_canvas_svg_new),
+	(goo_canvas_svg_paint), (goo_canvas_svg_finalize),
+	(goo_canvas_svg_set_common_property):
+	* src/goocanvas/src/goocanvassvg.h:
+	* src/magic_hat_minus-activity/magic_hat.c: (item_event):
+	* src/paratrooper-activity/paratrooper.c: (next_state):
+	* src/reversecount-activity/reversecount.c: (item_event):
+	* src/watercycle-activity/watercycle.py:
+
 2008-11-09  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	API cleanup, now our svg item has the same API signature

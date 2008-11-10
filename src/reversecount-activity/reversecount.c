@@ -780,7 +780,7 @@ item_event (GooCanvasItem  *item,
   rsvg_handle = gc_rsvg_load(str);
 
   g_object_set (item,
-		"rsvg-handle", rsvg_handle,
+		"svg-handle", rsvg_handle,
 		NULL);
   gc_item_focus_init(item, NULL);
   g_object_unref(rsvg_handle);

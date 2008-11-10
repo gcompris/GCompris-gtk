@@ -581,7 +581,7 @@ void next_state()
 
 	svg_handle = gc_rsvg_load("paratrooper/minitux.svgz");
 	g_object_set (paratrooperItem.paratrooper,
-		      "rsvg-handle", svg_handle,
+		      "svg-handle", svg_handle,
 		      NULL);
 	g_object_unref(svg_handle);
 	gc_item_focus_init(paratrooperItem.paratrooper, NULL);
@@ -612,7 +612,7 @@ void next_state()
 	svg_handle = gc_rsvg_load("paratrooper/parachute.svgz");
 
 	g_object_set (paratrooperItem.paratrooper,
-		      "rsvg-handle", svg_handle,
+		      "svg-handle", svg_handle,
 		      NULL);
 
         gc_item_focus_remove(paratrooperItem.paratrooper, NULL);

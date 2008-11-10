@@ -24,9 +24,10 @@ import gcompris.skin
 import gcompris.sound
 import gtk
 import gtk.gdk
+import rsvg
 
 class Gcompris_watercycle:
-  """The Cycle Water activity"""
+  """The Water Cycle activity"""
 
 
   def __init__(self, gcomprisBoard):
@@ -53,8 +54,6 @@ class Gcompris_watercycle:
 
     gcompris.bar_set(0)
     gcompris.bar_location(gcompris.BOARD_WIDTH - 140, -1, 0.7)
-    gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
-                            "watercycle/background.png")
     gcompris.bar_set_level(self.gcomprisBoard)
 
     gcompris.sound.play_ogg("sounds/Harbor1.wav", "sounds/Harbor3.wav")
@@ -62,6 +61,12 @@ class Gcompris_watercycle:
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains automaticaly.
     self.rootitem = goocanvas.Group(parent =  self.gcomprisBoard.canvas.get_root_item())
+
+    svghandle = gcompris.utils.load_svg("watercycle/watercycle.svgz")
+    goocanvas.Svg(
+      parent = self.rootitem,
+      svg_handle = svghandle
+      )
 
     # Take care, the items are stacked on each other in the order you add them.
     # If you need, you can reorder them later with raise and lower functions.

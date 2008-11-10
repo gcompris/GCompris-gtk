@@ -489,7 +489,7 @@ _set_svg_background(GooCanvasItem *parent, gchar *file)
 
   if(backgroundsvgimg)
     g_object_set(backgroundsvgimg,
-		 "rsvg-handle", rsvg_handle,
+		 "svg-handle", rsvg_handle,
 		 NULL);
   else
     backgroundsvgimg = goo_canvas_svg_new (parent,

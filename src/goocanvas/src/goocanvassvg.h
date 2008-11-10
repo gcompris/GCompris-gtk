@@ -33,6 +33,8 @@ struct _GooCanvasSvg
   RsvgHandle *svg_handle;
   gdouble width, height;
   gchar *id;
+  cairo_t *cr;
+  cairo_pattern_t *pattern;
 };
 
 struct _GooCanvasSvgClass

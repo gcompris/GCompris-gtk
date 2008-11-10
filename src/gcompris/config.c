@@ -584,7 +584,7 @@ set_locale_flag(gchar *locale)
 				(y_flag_start + 40) / xratio);
 
       g_object_set (item_locale_flag,
-		    "rsvg-handle", svg_handle,
+		    "svg-handle", svg_handle,
 		    NULL);
 
       g_object_unref(svg_handle);
@@ -594,7 +594,7 @@ set_locale_flag(gchar *locale)
     {
       /* No flags */
       g_object_set (item_locale_flag,
-		    "rsvg-handle", rsvg_handle_new(),
+		    "svg-handle", rsvg_handle_new(),
 		    NULL);
     }
 

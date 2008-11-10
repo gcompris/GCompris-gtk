@@ -625,7 +625,7 @@ static gboolean item_event (GooCanvasItem  *item,
 
 	pixmap = gc_rsvg_load("magic_hat/star-clear.svgz");
 
-	g_object_set(item, "rsvg-handle", pixmap, NULL);
+	g_object_set(item, "svg-handle", pixmap, NULL);
 
 	g_object_unref(pixmap);
 
@@ -650,7 +650,7 @@ static gboolean item_event (GooCanvasItem  *item,
 	    pixmap = gc_rsvg_load("magic_hat/star3.svgz");
 	    break;
 	  }
-      g_object_set(item, "rsvg-handle", pixmap, NULL);
+      g_object_set(item, "svg-handle", pixmap, NULL);
 
       g_object_unref(pixmap);
     }
