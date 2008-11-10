@@ -157,19 +157,19 @@ gboolean gc_db_init(gboolean disable_database_)
     /* if size of file is null, we recreate the tables */
     if (buf.st_size == 0){
       creation = TRUE;
-      g_warning("Database file is empty! Trying to create table...");
+      g_message("Database file is empty! Trying to create table...");
     }
   }
 #endif
 
   rc = sqlite3_open(properties->database, &gcompris_db);
   if( rc ){
-    g_warning("Can't open database %s : %s\n", properties->database, sqlite3_errmsg(gcompris_db));
+    g_message("Can't open database %s : %s\n", properties->database, sqlite3_errmsg(gcompris_db));
     sqlite3_close(gcompris_db);
     exit(1);
   }
 
-  g_warning("Database %s opened", properties->database);
+  g_message("Database %s opened", properties->database);
 
   if (creation){
     /* create all tables needed */
@@ -244,7 +244,7 @@ gboolean gc_db_init(gboolean disable_database_)
       g_error("SQL error: %s\n", zErrMsg);
     }
 
-    g_warning("Database tables created");
+    g_message("Database tables created");
 
     request = g_strdup_printf(SET_VERSION(VERSION));
 
@@ -305,7 +305,7 @@ gboolean gc_db_init(gboolean disable_database_)
     if (!(strcmp(result[1],"ok")==0))
       g_error("DATABASE integrity check returns %s \n", result[1]);
 
-    g_warning("Database Integrity ok");
+    g_message("Database Integrity ok");
     sqlite3_free_table(result);
 
     rc = sqlite3_get_table(gcompris_db,
@@ -320,7 +320,7 @@ gboolean gc_db_init(gboolean disable_database_)
     }
 
     if (strcmp(result[1],VERSION)!=0)
-      g_warning("Running GCompris is %s, but database version is %s", VERSION, result[1]);
+      g_message("Running GCompris is %s, but database version is %s", VERSION, result[1]);
     sqlite3_free_table(result);
 
     /* Schema upgrade */
@@ -339,7 +339,7 @@ gboolean gc_db_init(gboolean disable_database_)
     sqlite3_free_table(result);
     if(version <= 16)
       {
-	g_warning("Upgrading from <16 schema version\n");
+	g_message("Upgrading from <16 schema version\n");
 	rc = sqlite3_exec(gcompris_db,CREATE_TABLE_LOGS, NULL,  0, &zErrMsg);
 	if( rc!=SQLITE_OK ) {
 	  g_error("SQL error: %s\n", zErrMsg);
@@ -359,7 +359,7 @@ gboolean gc_db_exit()
 
 #ifdef USE_SQLITE
   sqlite3_close(gcompris_db);
-  g_warning("Database closed");
+  g_message("Database closed");
   return TRUE;
 #endif
 }
@@ -934,7 +934,7 @@ GcomprisProfile *gc_db_get_profile_from_id(gint profile_id)
     g_free(request);
 
     if (nrow == 0){
-      g_warning("No users' groups for profile %s", profile->name);
+      g_message("No users' groups for profile %s", profile->name);
       profile->group_ids = NULL;
     } else {
       ids = NULL;
@@ -966,7 +966,7 @@ GcomprisProfile *gc_db_get_profile_from_id(gint profile_id)
     g_free(request);
 
     if (nrow == 0){
-      g_warning("No activities for profile %s", profile->name);
+      g_message("No activities for profile %s", profile->name);
       profile->activities = NULL;
     } else {
       ids = NULL;
@@ -1111,7 +1111,7 @@ GList *gc_db_users_from_group_get(gint group_id)
   g_free(request);
 
   if (nrow == 0){
-    g_warning("No users in the group id %d", group_id);
+    g_message("No users in the group id %d", group_id);
   } else {
     i = ncolumn;
     while (i < (nrow +1)*ncolumn) {
@@ -1167,7 +1167,7 @@ GcomprisUser *gc_db_get_user_from_id(gint user_id)
   g_free(request);
 
   if (nrow == 0){
-    g_warning("No user with id  %d", user_id);
+    g_message("No user with id  %d", user_id);
     return NULL;
   } else {
     i = ncolumn;
@@ -1223,7 +1223,7 @@ GcomprisClass *gc_db_get_class_from_id(gint class_id)
   g_free(request);
 
   if (nrow == 0){
-    g_warning("No class with id %d", class_id);
+    g_message("No class with id %d", class_id);
     return NULL;
     return NULL;
   } else {
@@ -1392,7 +1392,7 @@ GHashTable *gc_db_conf_with_table_get(int profile_id, int board_id,
   request = g_strdup_printf(GET_CONF(profile_id,
 				     board_id));
 
-  g_warning ( "Request get_conf : %s", request);
+  g_message ( "Request get_conf : %s", request);
 
   rc = sqlite3_get_table(gcompris_db,
 			 request,
@@ -1414,7 +1414,7 @@ GHashTable *gc_db_conf_with_table_get(int profile_id, int board_id,
       g_hash_table_replace (hash_conf,
 			    g_strdup(result[i]),
 			    g_strdup(result[i+1]));
-      g_warning("get_conf: put key %s value %s in the hash",
+      g_message("get_conf: put key %s value %s in the hash",
 		result[i],
 		result[i+1]);
     }
@@ -1534,7 +1534,7 @@ GList *gc_db_profiles_list_get()
     g_free(request);
 
     if (nrow_ == 0){
-      g_warning("No users groups for profile %s", profile->name);
+      g_message("No users groups for profile %s", profile->name);
       profile->group_ids = NULL;
     } else {
       ids_ = NULL;
@@ -1567,7 +1567,7 @@ GList *gc_db_profiles_list_get()
     g_free(request);
 
     if (nrow_ == 0){
-      g_warning("No activities out for profile %s", profile->name);
+      g_message("No activities out for profile %s", profile->name);
       profile->activities = NULL;
     } else {
       ids_ = NULL;
@@ -1627,7 +1627,7 @@ GcomprisGroup *gc_db_get_group_from_id(int group_id)
   g_free(request);
 
   if (nrow == 0){
-    g_warning("No group with id  %d", group_id);
+    g_message("No group with id  %d", group_id);
     return NULL;
   } else {
     i = ncolumn;
@@ -1678,7 +1678,7 @@ GList *gc_db_get_groups_list()
   }
 
   if (nrow == 0){
-    g_warning("No groups !");
+    g_message("No groups !");
     return NULL;
   } else {
     i = ncolumn;
@@ -1813,7 +1813,7 @@ GList *gc_db_get_users_list()
   }
 
   if (nrow == 0){
-    g_warning("No users !");
+    g_message("No users !");
     return NULL;
   } else {
     i = ncolumn;
@@ -1867,7 +1867,7 @@ GList *gc_db_get_classes_list()
   }
 
   if (nrow == 0){
-    g_warning("No groups !");
+    g_message("No groups !");
     return NULL;
   } else {
     i = ncolumn;

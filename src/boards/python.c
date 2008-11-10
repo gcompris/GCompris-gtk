@@ -179,7 +179,7 @@ pythonboard_init (GcomprisBoard *agcomprisBoard){
     execstr = g_strdup_printf("import sys; sys.path.append('%s')",properties->package_python_plugin_dir );
 #endif
 
-    g_warning("Executing %s\n", execstr);
+    g_message("Executing %s\n", execstr);
     if(PyRun_SimpleString(execstr)!=0){
       pythonboard_is_ready = FALSE;
       g_warning("! Python disabled: Cannot add plugins dir into search path\n");
@@ -221,7 +221,7 @@ pythonboard_init (GcomprisBoard *agcomprisBoard){
 
 	    /* Test if board come with --python_plugin_dir option */
 
-	    g_warning("board_dir: '%s' python_plugin_dir '%s' file_name '%s'",
+	    g_message("board_dir: '%s' python_plugin_dir '%s' file_name '%s'",
 		      board->board_dir,
 		      properties->package_python_plugin_dir,
 		      board_file_name);
@@ -241,7 +241,7 @@ pythonboard_init (GcomprisBoard *agcomprisBoard){
 
 	      if (PyObject_HasAttrString( py_boardclass, "config_start")) {
 		config_boards = g_list_append(config_boards, board);
-		g_warning("The board '%s' has a configuration entry",
+		g_message("The board '%s' has a configuration entry",
 			  board_file_name);
 	      }
 	    }

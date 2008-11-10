@@ -7,10 +7,10 @@
 #ifndef __GOO_CANVAS_SVG_H__
 #define __GOO_CANVAS_SVG_H__
 
-#include <librsvg/rsvg.h>
-#include <librsvg/rsvg-cairo.h>
 #include <gtk/gtk.h>
 #include "goocanvasitemsimple.h"
+#include <librsvg/rsvg.h>
+#include <librsvg/rsvg-cairo.h>
 
 G_BEGIN_DECLS
 
@@ -30,7 +30,6 @@ struct _GooCanvasSvg
 {
   GooCanvasItemSimple parent_object;
 
-  RsvgHandle *svg_handle;
   gdouble width, height;
   gchar *id;
   cairo_t *cr;

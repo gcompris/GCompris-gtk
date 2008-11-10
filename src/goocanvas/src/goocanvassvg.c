@@ -46,10 +46,11 @@ goo_canvas_svg_install_common_properties (GObjectClass *gobject_class)
 
 }
 
-static void _init_surface(GooCanvasSvg *canvas_svg)
+static void _init_surface(GooCanvasSvg *canvas_svg,
+			  RsvgHandle *svg_handle)
 {
   RsvgDimensionData dimension_data;
-  rsvg_handle_get_dimensions (canvas_svg->svg_handle, &dimension_data);
+  rsvg_handle_get_dimensions (svg_handle, &dimension_data);
   canvas_svg->width = dimension_data.width;
   canvas_svg->height = dimension_data.height;
 
@@ -66,7 +67,7 @@ static void _init_surface(GooCanvasSvg *canvas_svg)
 				canvas_svg->width,
 				canvas_svg->height);
   canvas_svg->cr = cairo_create (cst);
-  rsvg_handle_render_cairo (canvas_svg->svg_handle, canvas_svg->cr);
+  rsvg_handle_render_cairo (svg_handle, canvas_svg->cr);
   canvas_svg->pattern = cairo_pattern_create_for_surface (cst);
   cairo_surface_destroy(cst);
 }
@@ -100,9 +101,8 @@ goo_canvas_svg_new (GooCanvasItem      *parent,
   item = g_object_new (GOO_TYPE_CANVAS_SVG, NULL);
 
   canvas_svg = (GooCanvasSvg*) item;
-  canvas_svg->svg_handle = svg_handle;
   if(svg_handle)
-      _init_surface(canvas_svg);
+    _init_surface(canvas_svg, svg_handle);
 
   va_start (var_args, svg_handle);
   first_property = va_arg (var_args, char*);
@@ -147,12 +147,11 @@ goo_canvas_svg_paint (GooCanvasItemSimple   *simple,
 {
   GooCanvasSvg *canvas_svg = (GooCanvasSvg*) simple;
 
-  if(canvas_svg->svg_handle)
+  if(canvas_svg->pattern)
     {
       cairo_set_source (cr, canvas_svg->pattern);
       cairo_paint (cr);
     }
-  //rsvg_handle_render_cairo_sub (canvas_svg->svg_handle, cr, canvas_svg->id);
 }
 
 
@@ -160,11 +159,6 @@ static void
 goo_canvas_svg_finalize (GObject *object)
 {
   GooCanvasSvg *canvas_svg = (GooCanvasSvg*) object;
-
-  /* Free our data if we didn't have a model. */
-  if(canvas_svg->svg_handle)
-    g_object_unref (canvas_svg->svg_handle);
-  canvas_svg->svg_handle = NULL;
 
   if (canvas_svg->id)
     g_free(canvas_svg->id);
@@ -196,8 +190,7 @@ goo_canvas_svg_set_common_property (GObject              *object,
     {
     case PROP_SVGHANDLE:
       svg_handle = g_value_get_object (value);
-      canvas_svg->svg_handle = svg_handle;
-      _init_surface(canvas_svg);
+      _init_surface(canvas_svg, svg_handle);
       break;
     case PROP_SVG_ID:
       if (!g_value_get_string (value))
