@@ -332,7 +332,8 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
 			 x_start + 40,
 			 y_start,
 			 618.0,
-			 280.0);
+			 280.0,
+			 NULL);
   gtk_widget_show_all (sw);
 
   set_content(text_to_display);

@@ -186,23 +186,23 @@ GList           *gc_menu_get_boards();
 #define COLOR_SUBTITLE		0xB00400FF
 #define COLOR_SHADOW		0x000000FF
 
-#define FONT_TITLE		"Sans 20"
-#define FONT_TITLE_FALLBACK	"Sans 12"
-#define FONT_SUBTITLE		"Sans 16"
-#define FONT_SUBTITLE_FALLBACK	"Sans 12"
-#define FONT_CONTENT		"Sans 12"
-#define FONT_CONTENT_FALLBACK	"Sans 12"
+#define FONT_TITLE		"sans 20"
+#define FONT_TITLE_FALLBACK	"sans 12"
+#define FONT_SUBTITLE		"sans 16"
+#define FONT_SUBTITLE_FALLBACK	"sans 12"
+#define FONT_CONTENT		"sans 12"
+#define FONT_CONTENT_FALLBACK	"sans 12"
 
-#define FONT_BOARD_TINY		"Sans 10"
-#define FONT_BOARD_SMALL	"Sans 12"
-#define FONT_BOARD_MEDIUM	"Sans 14"
-#define FONT_BOARD_BIG		"Sans 16"
-#define FONT_BOARD_BIG_BOLD	"Sans bold 16"
-#define FONT_BOARD_FIXED	"Fixed 12"
-#define FONT_BOARD_TITLE	"Sans 20"
-#define FONT_BOARD_TITLE_BOLD	"Sans bold 20"
-#define FONT_BOARD_HUGE		"Sans 28"
-#define FONT_BOARD_HUGE_BOLD	"Sans bold 28"
+#define FONT_BOARD_TINY		"sans 10"
+#define FONT_BOARD_SMALL	"sans 12"
+#define FONT_BOARD_MEDIUM	"sans 14"
+#define FONT_BOARD_BIG		"sans 16"
+#define FONT_BOARD_BIG_BOLD	"sans bold 16"
+#define FONT_BOARD_FIXED	"fixed 12"
+#define FONT_BOARD_TITLE	"sans 20"
+#define FONT_BOARD_TITLE_BOLD	"sans bold 20"
+#define FONT_BOARD_HUGE		"sans 28"
+#define FONT_BOARD_HUGE_BOLD	"sans bold 28"
 
 /*=========================================================*/
 // These are gcompris defined cursors
