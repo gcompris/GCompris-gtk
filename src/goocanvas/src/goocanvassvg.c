@@ -67,8 +67,33 @@ static void _init_surface(GooCanvasSvg *canvas_svg,
 				canvas_svg->width,
 				canvas_svg->height);
   canvas_svg->cr = cairo_create (cst);
-  rsvg_handle_render_cairo (svg_handle, canvas_svg->cr);
+  rsvg_handle_render_cairo_sub (svg_handle, canvas_svg->cr,
+				canvas_svg->id);
   canvas_svg->pattern = cairo_pattern_create_for_surface (cst);
+
+  /* Get the real coordinates */
+  canvas_svg->x1 = canvas_svg->width;
+  canvas_svg->x2 = 0;
+  canvas_svg->y1 = canvas_svg->height;
+  canvas_svg->y2 = 0;
+  unsigned char* data = cairo_image_surface_get_data(cst);
+  int x;
+  int stride = cairo_image_surface_get_stride(cst);
+  for (x=0; x<stride/4; x++)
+    {
+      int y;
+      for (y=0; y<canvas_svg->height; y++)
+	{
+	  guint32 point = *(guint32*)&data[y*stride + x*4];
+	  if (point != 0)
+	    {
+	      ((x > canvas_svg->x2) ? canvas_svg->x2 = x : x);
+	      ((x < canvas_svg->x1) ? canvas_svg->x1 = x : x);
+	      ((y > canvas_svg->y2) ? canvas_svg->y2 = y : y);
+	      ((y < canvas_svg->y1) ? canvas_svg->y1 = y : y);
+	    }
+	}
+    }
   cairo_surface_destroy(cst);
 }
 
@@ -78,6 +103,10 @@ goo_canvas_svg_init (GooCanvasSvg *canvas_svg)
 {
   canvas_svg->width = 0.0;
   canvas_svg->height = 0.0;
+  canvas_svg->x1 = 0.0;
+  canvas_svg->y1 = 0.0;
+  canvas_svg->x2 = 0.0;
+  canvas_svg->y2 = 0.0;
   canvas_svg->id = NULL;
   canvas_svg->cr = NULL;
   canvas_svg->pattern = NULL;
@@ -100,15 +129,15 @@ goo_canvas_svg_new (GooCanvasItem      *parent,
 
   item = g_object_new (GOO_TYPE_CANVAS_SVG, NULL);
 
-  canvas_svg = (GooCanvasSvg*) item;
-  if(svg_handle)
-    _init_surface(canvas_svg, svg_handle);
-
   va_start (var_args, svg_handle);
   first_property = va_arg (var_args, char*);
   if (first_property)
     g_object_set_valist ((GObject*) item, first_property, var_args);
   va_end (var_args);
+
+  canvas_svg = (GooCanvasSvg*) item;
+  if(svg_handle)
+    _init_surface(canvas_svg, svg_handle);
 
   if (parent)
     {
@@ -131,10 +160,10 @@ goo_canvas_svg_update  (GooCanvasItemSimple *simple,
   GooCanvasSvg *canvas_svg = (GooCanvasSvg*) simple;
 
   /* Compute the new bounds. */
-  simple->bounds.x1 = 0;
-  simple->bounds.y1 = 0;
-  simple->bounds.x2 = canvas_svg->width;
-  simple->bounds.y2 = canvas_svg->height;
+  simple->bounds.x1 = canvas_svg->x1;
+  simple->bounds.y1 = canvas_svg->y1;
+  simple->bounds.x2 = canvas_svg->x2;
+  simple->bounds.y2 = canvas_svg->y2;
 }
 
 
@@ -239,7 +268,8 @@ goo_canvas_svg_is_item_at (GooCanvasItemSimple *simple,
 {
   GooCanvasSvg *canvas_svg = (GooCanvasSvg*) simple;
 
-  if ((x > canvas_svg->width) || (y > canvas_svg->height))
+  if (x < canvas_svg->x1 || (x > canvas_svg->y2)
+      || y < canvas_svg->y1 || (y > canvas_svg->y2))
     return FALSE;
 
   /* Don't do hit-detection for now. */

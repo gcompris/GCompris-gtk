@@ -34,6 +34,10 @@ struct _GooCanvasSvg
   gchar *id;
   cairo_t *cr;
   cairo_pattern_t *pattern;
+  double x1;
+  double y1;
+  double x2;
+  double y2;
 };
 
 struct _GooCanvasSvgClass

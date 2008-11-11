@@ -65,48 +65,42 @@ class Gcompris_watercycle:
     svghandle = gcompris.utils.load_svg("watercycle/watercycle.svgz")
     goocanvas.Svg(
       parent = self.rootitem,
-      svg_handle = svghandle
+      svg_handle = svghandle,
+      svg_id = "#BACKGROUND"
       )
 
     # Take care, the items are stacked on each other in the order you add them.
     # If you need, you can reorder them later with raise and lower functions.
 
     # The River
-    self.riveritem = \
-      goocanvas.Image(
-        parent = self.rootitem,
-      pixbuf = gcompris.utils.load_pixmap("watercycle/riverempty.png"),
-      x=150.0,
-      y=50.0
+    self.riveritem = goocanvas.Svg(
+      parent = self.rootitem,
+      svg_handle = svghandle,
+      svg_id = "#RIVERWATER"
       )
+    self.riveritem.props.visibility = goocanvas.ITEM_INVISIBLE
     self.riverfull = 0
 
     # The bad water
-    self.badwateritem = \
-      goocanvas.Image(
-        parent = self.rootitem,
-      pixbuf = gcompris.utils.load_pixmap("watercycle/badwater_off.png"),
-      x=360.0,
-      y=292.0
+    self.badwateritem = goocanvas.Svg(
+      parent = self.rootitem,
+      svg_handle = svghandle,
+      svg_id = "#DIRTYWATER"
       )
 
     # The clean water
-    self.cleanwateritem = \
-      goocanvas.Image(
-        parent = self.rootitem,
-      pixbuf = gcompris.utils.load_pixmap("watercycle/cleanwater_off.png"),
-      x=470.0,
-      y=130.0
+    self.cleanwateritem = goocanvas.Svg(
+      parent = self.rootitem,
+      svg_handle = svghandle,
+      svg_id = "#CLEANWATER"
       )
     self.cleanwaterstatus = 0
 
     # The Sun
-    self.sunitem = \
-      goocanvas.Image(
-        parent = self.rootitem,
-      pixbuf = gcompris.utils.load_pixmap("watercycle/sun.png"),
-      x=10.0,
-      y=70.0
+    self.sunitem = goocanvas.Svg(
+      parent = self.rootitem,
+      svg_handle = svghandle,
+      svg_id = "#SUN"
       )
     self.sunitem.connect("button_press_event", self.sun_item_event)
     # This item is clickeable and it must be seen
@@ -114,46 +108,28 @@ class Gcompris_watercycle:
     self.sun_direction = -1
     self.sun_on = 0
 
-    # The sun mask object to simulate the see
-
-    goocanvas.Rect(
-      parent = self.rootitem,
-      x=10.0,
-      y=89.0,
-      width=80.0,
-      height=66.0,
-      fill_color_rgba=0x0099FFFFL,
-      line_width=0.0
-      )
-
     # The Snow
-    self.snowitem = \
-      goocanvas.Image(
-        parent = self.rootitem,
-      pixbuf = gcompris.utils.load_pixmap("watercycle/snow.png"),
-      x=180.0,
-      y=3.0
+    self.snowitem = goocanvas.Svg(
+      parent = self.rootitem,
+      svg_handle = svghandle,
+      svg_id = "#SNOW"
       )
     self.snowitem.props.visibility = goocanvas.ITEM_INVISIBLE
 
     # The rain
-    self.rainitem = \
-      goocanvas.Image(
-        parent = self.rootitem,
-      pixbuf = gcompris.utils.load_pixmap("watercycle/rain.png"),
-      x=40.0,
-      y=70.0
+    self.rainitem = goocanvas.Svg(
+      parent = self.rootitem,
+      svg_handle = svghandle,
+      svg_id = "#RAIN"
       )
     self.rainitem.props.visibility = goocanvas.ITEM_INVISIBLE
     self.rain_on = 0
 
     # The cloud
-    self.clouditem = \
-      goocanvas.Image(
-        parent = self.rootitem,
-      pixbuf = gcompris.utils.load_pixmap("watercycle/cloud.png"),
-      x=10.0,
-      y=10.0
+    self.clouditem = goocanvas.Svg(
+      parent = self.rootitem,
+      svg_handle = svghandle,
+      svg_id = "#CLOUD"
       )
     self.clouditem.props.visibility = goocanvas.ITEM_INVISIBLE
     self.clouditem.connect("button_press_event", self.cloud_item_event)
@@ -162,22 +138,18 @@ class Gcompris_watercycle:
     self.cloud_on = 0
 
     # The vapor
-    self.vaporitem = \
-      goocanvas.Image(
-        parent = self.rootitem,
-      pixbuf = gcompris.utils.load_pixmap("watercycle/vapor.png"),
-      x=35.0,
-      y=150.0
+    self.vaporitem = goocanvas.Svg(
+      parent = self.rootitem,
+      svg_handle = svghandle,
+      svg_id = "#VAPOR"
       )
     self.vaporitem.props.visibility = goocanvas.ITEM_INVISIBLE
 
     # The Waterpump
-    self.waterpumpitem = \
-      goocanvas.Image(
-        parent = self.rootitem,
-      pixbuf = gcompris.utils.load_pixmap("watercycle/waterpump.png"),
-      x=165.0,
-      y=120.0
+    self.waterpumpitem = goocanvas.Svg(
+      parent = self.rootitem,
+      svg_handle = svghandle,
+      svg_id = "#PUMPSTATION"
       )
     self.waterpumpitem.connect("button_press_event", self.waterpump_item_event)
     # This item is clickeable and it must be seen
@@ -185,21 +157,17 @@ class Gcompris_watercycle:
     self.waterpump_on = 0
 
     # The pump water
-    self.pumpwateritem = \
-      goocanvas.Image(
-        parent = self.rootitem,
-      pixbuf = gcompris.utils.load_pixmap("watercycle/pumpwater_off.png"),
-      x=270.0,
-      y=133.0
+    self.pumpwateritem = goocanvas.Svg(
+      parent = self.rootitem,
+      svg_handle = svghandle,
+      svg_id = "#CLEANWATER"
       )
 
     # The WaterCleaning
-    self.watercleaningitem = \
-      goocanvas.Image(
-        parent = self.rootitem,
-      pixbuf = gcompris.utils.load_pixmap("watercycle/watercleaning.png"),
-      x=520.0,
-      y=380.0
+    self.watercleaningitem = goocanvas.Svg(
+      parent = self.rootitem,
+      svg_handle = svghandle,
+      svg_id = "#CLEANSTATION"
       )
     self.watercleaningitem.connect("button_press_event", self.watercleaning_item_event)
     # This item is clickeable and it must be seen
@@ -216,12 +184,10 @@ class Gcompris_watercycle:
     self.tuxboatcanvas.props.y = 430.0
 
     # Tux in the shower (without water)
-    self.tuxshoweritem = \
-      goocanvas.Image(
-        parent = self.rootitem,
-      pixbuf = gcompris.utils.load_pixmap("watercycle/minitux.png"),
-      x=569.0,
-      y=239.0
+    self.tuxshoweritem = goocanvas.Svg(
+      parent = self.rootitem,
+      svg_handle = svghandle,
+      svg_id = "#SHOWER"
       )
     self.tuxshoweritem.props.visibility = goocanvas.ITEM_INVISIBLE
     self.tuxisinshower = 0
@@ -288,6 +254,12 @@ class Gcompris_watercycle:
     # Some item ordering
     self.rainitem.raise_(None)
     self.clouditem.raise_(None)
+
+#    goocanvas.Svg(
+#      parent = self.rootitem,
+#      svg_handle = svghandle,
+#      svg_id = "#FOREGROUND"
+#      )
 
     # Ready GO
     self.move_boat()
