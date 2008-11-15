@@ -268,11 +268,13 @@ goo_canvas_svg_is_item_at (GooCanvasItemSimple *simple,
 {
   GooCanvasSvg *canvas_svg = (GooCanvasSvg*) simple;
 
-  if (x < canvas_svg->x1 || (x > canvas_svg->y2)
-      || y < canvas_svg->y1 || (y > canvas_svg->y2))
+  /* FIXME BAD HACK: Disable detection of huge objects to allow
+     having an SVG FOREGROUND scene while having hits on items bellow */
+  if ( canvas_svg->x2 - canvas_svg->x1 > 400
+       || x < canvas_svg->x1 || x > canvas_svg->x2
+       || y < canvas_svg->y1 || y > canvas_svg->y2)
     return FALSE;
 
-  /* Don't do hit-detection for now. */
   return TRUE;
 }
 
