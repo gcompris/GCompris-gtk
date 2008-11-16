@@ -42,9 +42,6 @@ class Gcompris_watercycle:
     # The basic tick for object moves
     self.timerinc = 50
 
-    # The tick for the boat is variable
-    self.boat_timerinc = self.timerinc
-
     # Need to manage the timers to quit properly
     self.boat_timer = 0
     self.sun_timer = 0
@@ -66,7 +63,8 @@ class Gcompris_watercycle:
     goocanvas.Svg(
       parent = self.rootitem,
       svg_handle = svghandle,
-      svg_id = "#BACKGROUND"
+      svg_id = "#BACKGROUND",
+      hit_detection = False
       )
 
     # Take care, the items are stacked on each other in the order you add them.
@@ -102,7 +100,7 @@ class Gcompris_watercycle:
     self.sunitem = goocanvas.Svg(
       parent = self.rootitem,
       svg_handle = svghandle,
-      svg_id = "#SUN"
+      svg_id = "#SUN",
       )
     self.sunitem.connect("button_press_event", self.sun_item_event)
     # This item is clickeable and it must be seen
@@ -175,6 +173,7 @@ class Gcompris_watercycle:
       svg_handle = svghandle,
       svg_id = "#BOAT"
       )
+    self.boatitem.translate(-100, 0);
     self.boatitem_parked = goocanvas.Svg(
       parent = self.rootitem,
       svg_handle = svghandle,
@@ -195,7 +194,6 @@ class Gcompris_watercycle:
       svg_id = "#SHOWER_TUX"
       )
     self.shower_tux.props.visibility = goocanvas.ITEM_INVISIBLE
-    self.tuxisinshower = 0
 
     # Tux in the shower with the water
     self.tuxshowerwateritem = goocanvas.Svg(
@@ -245,7 +243,8 @@ class Gcompris_watercycle:
     goocanvas.Svg(
       parent = self.rootitem,
       svg_handle = svghandle,
-      svg_id = "#FOREGROUND"
+      svg_id = "#FOREGROUND",
+      hit_detection = False
       )
 
     # Some item ordering
@@ -253,7 +252,19 @@ class Gcompris_watercycle:
     self.clouditem.raise_(None)
 
     # Ready GO
-    self.move_boat()
+    target_x = 700
+    trip_x = int(target_x - self.boatitem.get_bounds().x1)
+    print self.boatitem.get_bounds().x1
+    print trip_x
+    self.boatitem.animate(target_x,
+                          0,
+                          1,
+                          1,
+                          True,
+                          40*trip_x,
+                          40,
+                          goocanvas.ANIMATE_FREEZE)
+    self.boat_timer = gobject.timeout_add(40 * trip_x + 4000, self.boat_arrived)
 
 
   def end(self):
@@ -295,7 +306,7 @@ class Gcompris_watercycle:
       self.waterlevel -= 1
 
     # It tux is in the shower and it works, then remove some water
-    if (self.tuxisinshower and self.cleanwaterstatus and self.showerbutton
+    if (self.cleanwaterstatus and self.showerbutton
         and self.waterlevel < self.waterlevel_min) :
       self.waterlevel += 2
 
@@ -328,31 +339,15 @@ class Gcompris_watercycle:
     self.cleanwaterstatus = status
 
 
-  def move_boat(self):
-    if( self.boatitem.get_bounds().x2 < 760 ) :
+  def boat_arrived(self):
+    # We are parked, change the boat to remove tux
+    self.boatitem_parked.props.visibility = goocanvas.ITEM_VISIBLE
+#    self.boatitem.props.visibility = goocanvas.ITEM_INVISIBLE
+    gcompris.sound.play_ogg("sounds/Harbor3.wav")
 
-      # Make the boat slow down when arriving
-      if(self.boatitem.get_bounds().x2 == 700
-         or self.boatitem.get_bounds().x2 == 701):
-        self.boat_timerinc+=50
-
-      self.boatitem.translate(2, 0)
-      self.boat_timer = gobject.timeout_add(self.boat_timerinc, self.move_boat)
-    else:
-      if self.boatitem.get_bounds().x2 < 770 :
-        # Park the boat
-        self.boatitem.translate(0.7, -0.7)
-        self.boat_timer = gobject.timeout_add(self.timerinc, self.move_boat)
-      else :
-        # We are parked, change the boat to remove tux
-        self.boatitem_parked.props.visibility = goocanvas.ITEM_VISIBLE
-        self.boatitem.props.visibility = goocanvas.ITEM_INVISIBLE
-        gcompris.sound.play_ogg("sounds/Harbor3.wav")
-
-        # Now display tux in the shower
-        self.tuxshoweritem.props.visibility = goocanvas.ITEM_VISIBLE
-        self.shower_tux.props.visibility = goocanvas.ITEM_VISIBLE
-        self.tuxisinshower = 1
+    # Now display tux in the shower
+    self.tuxshoweritem.props.visibility = goocanvas.ITEM_VISIBLE
+    self.shower_tux.props.visibility = goocanvas.ITEM_VISIBLE
 
 
   def move_cloud(self):
@@ -477,9 +472,6 @@ class Gcompris_watercycle:
   # If Tux is in the shower, we must display the water if needed
   def shower_water_update(self):
 
-    if not self.tuxisinshower:
-      return
-
     if self.cleanwaterstatus and self.showerbutton:
       self.tuxshoweritem.props.visibility = goocanvas.ITEM_INVISIBLE
       self.tuxshowerwateritem.props.visibility = goocanvas.ITEM_VISIBLE
@@ -489,10 +481,6 @@ class Gcompris_watercycle:
 
 
   def showerbutton_item_event(self, widget, target, event=None):
-
-    # Not active until tux is in the shower and the watercleaning station is running
-    if not self.tuxisinshower:
-      return
 
     if not self.watercleaning_on:
       return

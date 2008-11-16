@@ -12,7 +12,8 @@ enum {
 
   /* Convenience properties. */
   PROP_SVGHANDLE,
-  PROP_SVG_ID
+  PROP_SVG_ID,
+  PROP_HIT_DETECTION
 };
 
 static void goo_canvas_svg_finalize     (GObject            *object);
@@ -43,6 +44,13 @@ goo_canvas_svg_install_common_properties (GObjectClass *gobject_class)
 							"The svg id to display, NULL to display all",
 							NULL,
 							G_PARAM_WRITABLE));
+
+  g_object_class_install_property (gobject_class, PROP_HIT_DETECTION,
+				   g_param_spec_boolean ("hit-detection",
+                                                         "Hit detection",
+                                                         "Set to false to disable hit detection",
+                                                         TRUE,
+                                                         G_PARAM_WRITABLE));
 
 }
 
@@ -110,7 +118,7 @@ goo_canvas_svg_init (GooCanvasSvg *canvas_svg)
   canvas_svg->id = NULL;
   canvas_svg->cr = NULL;
   canvas_svg->pattern = NULL;
-
+  canvas_svg->hit_detection = TRUE;
 }
 
 
@@ -119,8 +127,8 @@ goo_canvas_svg_init (GooCanvasSvg *canvas_svg)
    in with the standard canvas items. */
 GooCanvasItem*
 goo_canvas_svg_new (GooCanvasItem      *parent,
-		  RsvgHandle         *svg_handle,
-		  ...)
+                    RsvgHandle         *svg_handle,
+                    ...)
 {
   GooCanvasItem *item;
   GooCanvasSvg *canvas_svg;
@@ -227,6 +235,9 @@ goo_canvas_svg_set_common_property (GObject              *object,
       else
         canvas_svg->id = g_value_dup_string(value);
       break;
+    case PROP_HIT_DETECTION:
+      canvas_svg->hit_detection = g_value_get_boolean (value);
+      break;
     default:
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
       break;
@@ -236,9 +247,9 @@ goo_canvas_svg_set_common_property (GObject              *object,
 
 static void
 goo_canvas_svg_set_property (GObject              *object,
-			   guint                 prop_id,
-			   const GValue         *value,
-			   GParamSpec           *pspec)
+                             guint                 prop_id,
+                             const GValue         *value,
+                             GParamSpec           *pspec)
 {
   GooCanvasItemSimple *simple = (GooCanvasItemSimple*) object;
   GooCanvasSvg *image = (GooCanvasSvg*) object;
@@ -250,7 +261,7 @@ goo_canvas_svg_set_property (GObject              *object,
     }
 
   goo_canvas_svg_set_common_property (object, image, prop_id,
-				    value, pspec);
+                                      value, pspec);
   goo_canvas_item_simple_changed (simple, TRUE);
 }
 
@@ -261,18 +272,18 @@ goo_canvas_svg_set_property (GObject              *object,
    otherwise it should return FALSE. */
 static gboolean
 goo_canvas_svg_is_item_at (GooCanvasItemSimple *simple,
-			  gdouble              x,
-			  gdouble              y,
-			  cairo_t             *cr,
-			  gboolean             is_pointer_event)
+                           gdouble              x,
+                           gdouble              y,
+                           cairo_t             *cr,
+                           gboolean             is_pointer_event)
 {
   GooCanvasSvg *canvas_svg = (GooCanvasSvg*) simple;
 
-  /* FIXME BAD HACK: Disable detection of huge objects to allow
-     having an SVG FOREGROUND scene while having hits on items bellow */
-  if ( canvas_svg->x2 - canvas_svg->x1 > 400
-       || x < canvas_svg->x1 || x > canvas_svg->x2
-       || y < canvas_svg->y1 || y > canvas_svg->y2)
+  if (!canvas_svg->hit_detection)
+    return FALSE;
+
+  if ( x < canvas_svg->x1 || x > canvas_svg->x2
+       || y < canvas_svg->y1 || y > canvas_svg->y2 )
     return FALSE;
 
   return TRUE;

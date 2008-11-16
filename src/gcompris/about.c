@@ -241,8 +241,6 @@ void gc_about_start ()
 		   (GtkSignalFunc) item_event_ok,
 		   "ok");
   gc_item_focus_init(item, NULL);
-  gdk_pixbuf_unref(pixmap);
-
 
   goo_canvas_text_new (rootitem,
 		       _("OK"),
@@ -266,6 +264,8 @@ void gc_about_start ()
 		     (GtkSignalFunc) item_event_ok,
 		     "ok");
   gc_item_focus_init(item2, item);
+  gdk_pixbuf_unref(pixmap);
+
 
   pixmap = gc_skin_pixmap_load("gcompris-about.png");
 
