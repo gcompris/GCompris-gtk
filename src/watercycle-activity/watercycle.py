@@ -43,8 +43,7 @@ class Gcompris_watercycle:
     self.timerinc = 50
 
     # Need to manage the timers to quit properly
-    self.vapor_timer = 0
-    self.cloud_timer = 0
+    self.sun_timer = 0
     self.waterlevel_timer = 0
 
     gcompris.bar_set(0)
@@ -72,26 +71,29 @@ class Gcompris_watercycle:
     self.riveritem = goocanvas.Svg(
       parent = self.rootitem,
       svg_handle = svghandle,
-      svg_id = "#RIVERWATER"
+      svg_id = "#RIVERWATER",
+      pointer_events = goocanvas.EVENTS_NONE,
+      visibility = goocanvas.ITEM_INVISIBLE
       )
-    self.riveritem.props.visibility = goocanvas.ITEM_INVISIBLE
     self.riverfull = 0
 
     # The dirty water
     self.dirtywater = goocanvas.Svg(
       parent = self.rootitem,
       svg_handle = svghandle,
-      svg_id = "#DIRTYWATER"
+      svg_id = "#DIRTYWATER",
+      pointer_events = goocanvas.EVENTS_NONE,
+      visibility = goocanvas.ITEM_INVISIBLE
       )
-    self.dirtywater.props.visibility = goocanvas.ITEM_INVISIBLE
 
     # The clean water
     self.cleanwateritem = goocanvas.Svg(
       parent = self.rootitem,
       svg_handle = svghandle,
-      svg_id = "#CLEANWATER"
+      svg_id = "#CLEANWATER",
+      pointer_events = goocanvas.EVENTS_NONE,
+      visibility = goocanvas.ITEM_INVISIBLE
       )
-    self.cleanwateritem.props.visibility = goocanvas.ITEM_INVISIBLE
     self.cleanwaterstatus = 0
 
     # The Sun
@@ -113,27 +115,31 @@ class Gcompris_watercycle:
     self.snowitem = goocanvas.Svg(
       parent = self.rootitem,
       svg_handle = svghandle,
-      svg_id = "#SNOW"
+      svg_id = "#SNOW",
+      pointer_events = goocanvas.EVENTS_NONE,
+      visibility = goocanvas.ITEM_INVISIBLE
       )
-    self.snowitem.props.visibility = goocanvas.ITEM_INVISIBLE
 
     # The rain
     self.rainitem = goocanvas.Svg(
       parent = self.rootitem,
       svg_handle = svghandle,
-      svg_id = "#RAIN"
+      svg_id = "#RAIN",
+      pointer_events = goocanvas.EVENTS_NONE,
+      visibility = goocanvas.ITEM_INVISIBLE
       )
-    self.rainitem.props.visibility = goocanvas.ITEM_INVISIBLE
     self.rain_on = 0
 
     # The cloud
     self.clouditem = goocanvas.Svg(
       parent = self.rootitem,
       svg_handle = svghandle,
-      svg_id = "#CLOUD"
+      svg_id = "#CLOUD",
+      visibility = goocanvas.ITEM_INVISIBLE
       )
     self.clouditem.props.visibility = goocanvas.ITEM_INVISIBLE
     self.clouditem.connect("button_press_event", self.cloud_item_event)
+    self.clouditem.connect("animation-finished", self.cloud_arrived)
     # This item is clickeable and it must be seen
     gcompris.utils.item_focus_init(self.clouditem, None)
     self.cloud_on = 0
@@ -142,9 +148,11 @@ class Gcompris_watercycle:
     self.vaporitem = goocanvas.Svg(
       parent = self.rootitem,
       svg_handle = svghandle,
-      svg_id = "#VAPOR"
+      svg_id = "#VAPOR",
+      pointer_events = goocanvas.EVENTS_NONE,
+      visibility = goocanvas.ITEM_INVISIBLE
       )
-    self.vaporitem.props.visibility = goocanvas.ITEM_INVISIBLE
+    self.vaporitem.connect("animation-finished", self.vapor_arrived)
 
     # The Waterpump
     self.waterpumpitem = goocanvas.Svg(
@@ -212,11 +220,9 @@ class Gcompris_watercycle:
       svg_id = "#SHOWER_BUTTON_ON",
       visibility = goocanvas.ITEM_INVISIBLE
       )
-
     self.showerbuttonitem_on.connect("button_press_event", self.showerbutton_item_event)
     # This item is clickeable and it must be seen
     gcompris.utils.item_focus_init(self.showerbuttonitem_on, None)
-    self.showerbuttonitem_on.props.visibility = goocanvas.ITEM_INVISIBLE
     self.showerbutton = 0
 
     self.showerbuttonitem_off = goocanvas.Svg(
@@ -233,7 +239,7 @@ class Gcompris_watercycle:
     self.waterlevel_max = 65
     self.waterlevel_min = 85
     self.waterlevel     = self.waterlevel_min
-    self.waterlevel_timer = gobject.timeout_add(1000, self.update_waterlevel)
+#    self.waterlevel_timer = gobject.timeout_add(1000, self.update_waterlevel)
 
     self.waterlevel_item = \
         goocanvas.Polyline(
@@ -254,6 +260,7 @@ class Gcompris_watercycle:
     # Some item ordering
     self.rainitem.raise_(None)
     self.clouditem.raise_(None)
+    self.vaporitem.raise_(None)
 
     # Ready GO
     target_x = 700
@@ -271,10 +278,8 @@ class Gcompris_watercycle:
 
   def end(self):
     # Remove all the timer first
-    if self.vapor_timer :
-      gobject.source_remove(self.vapor_timer)
-    if self.cloud_timer :
-      gobject.source_remove(self.cloud_timer)
+    if self.sun_timer :
+      gobject.source_remove(self.sun_timer)
     if self.waterlevel_timer :
       gobject.source_remove(self.waterlevel_timer)
 
@@ -346,12 +351,12 @@ class Gcompris_watercycle:
     # Now display tux in the shower
     self.tuxshoweritem.props.visibility = goocanvas.ITEM_VISIBLE
     self.shower_tux.props.visibility = goocanvas.ITEM_VISIBLE
+    self.showerbuttonitem_off.props.visibility = goocanvas.ITEM_VISIBLE
 
   def sun_down(self):
     # Move the sun down
-    print "sun_down"
+    sun_timer = 0
     trip_y = self.sunitem_orig_y1 - self.sunitem_target_y1
-    print trip_y
     if self.sun_connect_handler:
       self.sunitem.disconnect(self.sun_connect_handler)
     self.sun_connect_handler = self.sunitem.connect("animation-finished", self.sun_down_arrived)
@@ -366,29 +371,40 @@ class Gcompris_watercycle:
     return False
 
   def sun_up_arrived(self, item, status):
-    print "sun_up_arrived"
-    gobject.timeout_add(10, self.sun_down)
+    self.sun_timer = gobject.timeout_add(15000, self.sun_down)
     # Start the vapor
-    self.vapor_timer = gobject.timeout_add(5000 , self.init_vapor)
-    self.vapor_on = 1
-        # Start the cloud
-    if(not self.cloud_on):
-      self.cloud_timer = gobject.timeout_add(10000, self.move_cloud)
-      self.cloud_on = 1
+    self.init_vapor()
     # Remove the snow
     self.snowitem.props.visibility = goocanvas.ITEM_INVISIBLE
 
   def sun_down_arrived(self, item, status):
-    print "sun_down_arrived"
     self.sun_on = 0
     gcompris.utils.item_focus_init(self.sunitem, None)
-    # Stop the vapor
-    self.vapor_on = 0
-    self.vaporitem.props.visibility = goocanvas.ITEM_INVISIBLE
     # Stop the sun
     self.sun_on = 0
 
+  def cloud_arrived(self, item, status):
+    print "cloud_arrived"
+    self.clouditem.props.visibility = goocanvas.ITEM_INVISIBLE
+    self.cloud_on = 0
+
   def move_cloud(self):
+    print "move_cloud"
+    if (self.cloud_on):
+      return
+    self.cloud_on = 1
+    self.clouditem.props.visibility = goocanvas.ITEM_VISIBLE
+    trip_x = 700
+    self.clouditem.animate(trip_x,
+                           0,
+                           1,
+                           1,
+                           True,
+                           40*trip_x,
+                           40,
+                           goocanvas.ANIMATE_RESET)
+
+  def move_cloud_old(self):
     if(self.cloud_on):
       self.clouditem.props.visibility = goocanvas.ITEM_VISIBLE
     else:
@@ -417,20 +433,29 @@ class Gcompris_watercycle:
       self.rain_on = 0
       self.clouditem.props.visibility = goocanvas.ITEM_INVISIBLE
       self.rainitem.props.visibility = goocanvas.ITEM_INVISIBLE
-    else:
-      self.cloud_timer = gobject.timeout_add(self.timerinc, self.move_cloud)
+
+  def vapor_arrived(self, item, state):
+    print "vapor_arrived"
+    self.vapor_on = 0
+    self.vaporitem.props.visibility = goocanvas.ITEM_INVISIBLE
+    # Start the cloud
+    print self.cloud_on
+    self.move_cloud()
 
   def init_vapor(self):
     self.vapor_on = 1
     self.vaporitem.props.visibility = goocanvas.ITEM_VISIBLE
-    self.move_vapor()
+    trip_y = 80
+    self.vaporitem.animate(0,
+                           trip_y * -1,
+                           1,
+                           1,
+                           True,
+                           40*trip_y,
+                           40,
+                           goocanvas.ANIMATE_RESET)
 
-  def move_vapor(self):
-    self.vaporitem.translate(0, -1);
-    if( self.vaporitem.get_bounds().y1 < 20 ) :
-      self.vaporitem.translate(0, +100);
 
-    self.vapor_timer = gobject.timeout_add(self.timerinc, self.move_vapor)
 
   def pause(self, pause):
     pass
