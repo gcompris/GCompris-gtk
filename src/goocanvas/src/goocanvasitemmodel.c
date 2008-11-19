@@ -37,6 +37,7 @@ enum {
   CHANGED,
 
   CHILD_NOTIFY,
+  ANIMATION_FINISHED,
 
   LAST_SIGNAL
 };
@@ -97,7 +98,7 @@ goo_canvas_item_model_base_init (gpointer g_iface)
 {
   static GObjectNotifyContext cpn_context = { 0, NULL, NULL };
   static gboolean initialized = FALSE;
-  
+
   if (!initialized)
     {
       GType iface_type = G_TYPE_FROM_INTERFACE (g_iface);
@@ -183,7 +184,7 @@ goo_canvas_item_model_base_init (gpointer g_iface)
        * @pspec: the #GParamSpec of the changed child property.
        *
        * Emitted for each child property that has changed.
-       * The signal's detail holds the property name. 
+       * The signal's detail holds the property name.
        */
       item_model_signals[CHILD_NOTIFY] =
 	g_signal_new ("child_notify",
@@ -195,6 +196,22 @@ goo_canvas_item_model_base_init (gpointer g_iface)
 		      G_TYPE_NONE, 1,
 		      G_TYPE_PARAM);
 
+      /**
+       * GooCanvasItemModel::animation-finished
+       * @item: the item model that received the signal.
+       * @stopped: if the animation was explicitly stopped.
+       *
+       * Emitted when the item model animation has finished.
+       */
+      item_model_signals[ANIMATION_FINISHED] =
+	g_signal_new ("animation-finished",
+		      iface_type,
+		      G_SIGNAL_RUN_LAST,
+		      G_STRUCT_OFFSET (GooCanvasItemModelIface, animation_finished),
+		      NULL, NULL,
+		      g_cclosure_marshal_VOID__BOOLEAN,
+		      G_TYPE_NONE, 1,
+		      G_TYPE_BOOLEAN);
 
       g_object_interface_install_property (g_iface,
 					   g_param_spec_object ("parent",
@@ -269,7 +286,7 @@ goo_canvas_item_model_base_init (gpointer g_iface)
  * @child: the child to add.
  * @position: the position of the child, or -1 to place it last (at the top of
  *  the stacking order).
- * 
+ *
  * Adds a child at the given stack position.
  **/
 void
@@ -291,7 +308,7 @@ goo_canvas_item_model_add_child      (GooCanvasItemModel  *model,
  * @model: an item model.
  * @old_position: the current position of the child.
  * @new_position: the new position of the child.
- * 
+ *
  * Moves a child to a new stack position.
  **/
 void
@@ -311,7 +328,7 @@ goo_canvas_item_model_move_child     (GooCanvasItemModel  *model,
  * goo_canvas_item_model_remove_child:
  * @model: an item model.
  * @child_num: the position of the child to remove.
- * 
+ *
  * Removes the child at the given position.
  **/
 void
@@ -330,9 +347,9 @@ goo_canvas_item_model_remove_child   (GooCanvasItemModel  *model,
  * goo_canvas_item_model_find_child:
  * @model: an item model.
  * @child: the child to find.
- * 
+ *
  * Attempts to find the given child with the container's stack.
- * 
+ *
  * Returns: the position of the given @child, or -1 if it isn't found.
  **/
 gint
@@ -357,9 +374,9 @@ goo_canvas_item_model_find_child     (GooCanvasItemModel *model,
 /**
  * goo_canvas_item_model_is_container:
  * @model: an item model.
- * 
+ *
  * Tests to see if the given item model is a container.
- * 
+ *
  * Returns: %TRUE if the item model is a container.
  **/
 gboolean
@@ -374,9 +391,9 @@ goo_canvas_item_model_is_container (GooCanvasItemModel       *model)
 /**
  * goo_canvas_item_model_get_n_children:
  * @model: an item model.
- * 
+ *
  * Gets the number of children of the container.
- * 
+ *
  * Returns: the number of children.
  **/
 gint
@@ -392,9 +409,9 @@ goo_canvas_item_model_get_n_children (GooCanvasItemModel       *model)
  * goo_canvas_item_model_get_child:
  * @model: an item model.
  * @child_num: the position of a child in the container's stack.
- * 
+ *
  * Gets the child at the given stack position.
- * 
+ *
  * Returns: the child at the given stack position.
  **/
 GooCanvasItemModel*
@@ -410,9 +427,9 @@ goo_canvas_item_model_get_child (GooCanvasItemModel  *model,
 /**
  * goo_canvas_item_model_get_parent:
  * @model: an item model.
- * 
+ *
  * Gets the parent of the given model.
- * 
+ *
  * Returns: the parent model, or %NULL if the model has no parent.
  **/
 GooCanvasItemModel*
@@ -426,7 +443,7 @@ goo_canvas_item_model_get_parent  (GooCanvasItemModel *model)
  * goo_canvas_item_model_set_parent:
  * @model: an item model.
  * @parent: the new parent item model.
- * 
+ *
  * This function is only intended to be used when implementing new canvas
  * item models (specifically container models such as #GooCanvasGroupModel).
  * It sets the parent of the child model.
@@ -448,7 +465,7 @@ goo_canvas_item_model_set_parent (GooCanvasItemModel *model,
 /**
  * goo_canvas_item_model_remove:
  * @model: an item model.
- * 
+ *
  * Removes a model from its parent. If the model is in a canvas it will be
  * removed.
  *
@@ -477,7 +494,7 @@ goo_canvas_item_model_remove         (GooCanvasItemModel *model)
  * @model: an item model.
  * @above: the item model to raise @model above, or %NULL to raise @model to the top
  *  of the stack.
- * 
+ *
  * Raises a model in the stacking order.
  **/
 void
@@ -520,7 +537,7 @@ goo_canvas_item_model_raise          (GooCanvasItemModel *model,
  * @model: an item model.
  * @below: the item model to lower @model below, or %NULL to lower @model to the
  *  bottom of the stack.
- * 
+ *
  * Lowers a model in the stacking order.
  **/
 void
@@ -562,9 +579,9 @@ goo_canvas_item_model_lower          (GooCanvasItemModel *model,
  * goo_canvas_item_model_get_transform:
  * @model: an item model.
  * @transform: the place to store the transform.
- * 
+ *
  * Gets the transformation matrix of an item model.
- * 
+ *
  * Returns: %TRUE if a transform is set.
  **/
 gboolean
@@ -582,7 +599,7 @@ goo_canvas_item_model_get_transform  (GooCanvasItemModel *model,
  * @model: an item model.
  * @transform: the new transformation matrix, or %NULL to reset the
  *  transformation to the identity matrix.
- * 
+ *
  * Sets the transformation matrix of an item model.
  **/
 void
@@ -600,13 +617,13 @@ goo_canvas_item_model_set_transform  (GooCanvasItemModel   *model,
  * @y: returns the y coordinate of the origin of the model's coordinate space.
  * @scale: returns the scale of the model.
  * @rotation: returns the clockwise rotation of the model, in degrees (0-360).
- * 
+ *
  * This function can be used to get the position, scale and rotation of an
  * item model, providing that the model has a simple transformation matrix
  * (e.g. set with goo_canvas_item_model_set_simple_transform(), or using a
  * combination of simple translate, scale and rotate operations). If the model
  * has a complex transformation matrix the results will be incorrect.
- * 
+ *
  * Returns: %TRUE if a transform is set.
  **/
 gboolean
@@ -655,7 +672,7 @@ goo_canvas_item_model_get_simple_transform (GooCanvasItemModel *model,
  * @y: the y coordinate of the origin of the model's coordinate space.
  * @scale: the scale of the model.
  * @rotation: the clockwise rotation of the model, in degrees.
- * 
+ *
  * A convenience function to set the item model's transformation matrix.
  **/
 void
@@ -680,7 +697,7 @@ goo_canvas_item_model_set_simple_transform (GooCanvasItemModel *model,
  * @model: an item model.
  * @tx: the amount to move the origin in the horizontal direction.
  * @ty: the amount to move the origin in the vertical direction.
- * 
+ *
  * Translates the origin of the model's coordinate system by the given amounts.
  **/
 void
@@ -702,7 +719,7 @@ goo_canvas_item_model_translate      (GooCanvasItemModel *model,
  * @model: an item model.
  * @sx: the amount to scale the horizontal axis.
  * @sy: the amount to scale the vertical axis.
- * 
+ *
  * Scales the model's coordinate system by the given amounts.
  **/
 void
@@ -725,7 +742,7 @@ goo_canvas_item_model_scale          (GooCanvasItemModel *model,
  * @degrees: the clockwise angle of rotation.
  * @cx: the x coordinate of the origin of the rotation.
  * @cy: the y coordinate of the origin of the rotation.
- * 
+ *
  * Rotates the model's coordinate system by the given amount, about the given
  * origin.
  **/
@@ -753,7 +770,7 @@ goo_canvas_item_model_rotate         (GooCanvasItemModel *model,
  * @degrees: the skew angle.
  * @cx: the x coordinate of the origin of the skew transform.
  * @cy: the y coordinate of the origin of the skew transform.
- * 
+ *
  * Skews the model's coordinate system along the x axis by the given amount,
  * about the given origin.
  **/
@@ -782,7 +799,7 @@ goo_canvas_item_model_skew_x         (GooCanvasItemModel *model,
  * @degrees: the skew angle.
  * @cx: the x coordinate of the origin of the skew transform.
  * @cy: the y coordinate of the origin of the skew transform.
- * 
+ *
  * Skews the model's coordinate system along the y axis by the given amount,
  * about the given origin.
  **/
@@ -808,10 +825,10 @@ goo_canvas_item_model_skew_y         (GooCanvasItemModel *model,
 /**
  * goo_canvas_item_model_get_style:
  * @model: an item model.
- * 
+ *
  * Gets the model's style. If the model doesn't have its own style it will
  * return its parent's style.
- * 
+ *
  * Returns: the model's style.
  **/
 GooCanvasStyle*
@@ -827,7 +844,7 @@ goo_canvas_item_model_get_style      (GooCanvasItemModel   *model)
  * goo_canvas_item_model_set_style:
  * @model: an item model.
  * @style: a style.
- * 
+ *
  * Sets the model's style, by copying the properties from the given style.
  **/
 void
@@ -868,7 +885,7 @@ extern void _goo_canvas_item_animate_internal (GooCanvasItem       *item,
  *  second).
  * @step_time: the time between each animation step, in milliseconds.
  * @type: specifies what happens when the animation finishes.
- * 
+ *
  * Animates a model from its current position to the given offsets, scale
  * and rotation.
  **/
@@ -891,13 +908,15 @@ goo_canvas_item_model_animate        (GooCanvasItemModel  *model,
 /**
  * goo_canvas_item_model_stop_animation:
  * @model: an item model.
- * 
+ *
  * Stops any current animation for the given model, leaving it at its current
  * position.
  **/
 void
 goo_canvas_item_model_stop_animation (GooCanvasItemModel *model)
 {
+  g_signal_emit_by_name (model, "animation-finished", TRUE);
+
   /* This will result in a call to goo_canvas_item_free_animation() above. */
   g_object_set_data (G_OBJECT (model), animation_key, NULL);
 }
@@ -920,7 +939,7 @@ extern void _goo_canvas_item_set_child_properties_internal (GObject *object, GOb
  * @child: a child #GooCanvasItemModel.
  * @property_name: the name of the child property to get.
  * @value: a location to return the value.
- * 
+ *
  * Gets a child property of @child.
  **/
 void
@@ -944,7 +963,7 @@ goo_canvas_item_model_get_child_property (GooCanvasItemModel *model,
  * @child: a child #GooCanvasItemModel.
  * @property_name: the name of the child property to set.
  * @value: the value to set the property to.
- * 
+ *
  * Sets a child property of @child.
  **/
 void
@@ -968,7 +987,7 @@ goo_canvas_item_model_set_child_property (GooCanvasItemModel *model,
  * @child: a child #GooCanvasItemModel.
  * @var_args: pairs of property names and value pointers, and a terminating
  *  %NULL.
- * 
+ *
  * Gets the values of one or more child properties of @child.
  **/
 void
@@ -988,7 +1007,7 @@ goo_canvas_item_model_get_child_properties_valist (GooCanvasItemModel *model,
  * @model: a #GooCanvasItemModel.
  * @child: a child #GooCanvasItemModel.
  * @var_args: pairs of property names and values, and a terminating %NULL.
- * 
+ *
  * Sets the values of one or more child properties of @child.
  **/
 void
@@ -1008,7 +1027,7 @@ goo_canvas_item_model_set_child_properties_valist (GooCanvasItemModel *model,
  * @model: a #GooCanvasItemModel.
  * @child: a child #GooCanvasItemModel.
  * @...: pairs of property names and value pointers, and a terminating %NULL.
- * 
+ *
  * Gets the values of one or more child properties of @child.
  **/
 void
@@ -1017,7 +1036,7 @@ goo_canvas_item_model_get_child_properties  (GooCanvasItemModel   *model,
 					     ...)
 {
   va_list var_args;
-  
+
   va_start (var_args, child);
   goo_canvas_item_model_get_child_properties_valist (model, child, var_args);
   va_end (var_args);
@@ -1029,7 +1048,7 @@ goo_canvas_item_model_get_child_properties  (GooCanvasItemModel   *model,
  * @model: a #GooCanvasItemModel.
  * @child: a child #GooCanvasItemModel.
  * @...: pairs of property names and values, and a terminating %NULL.
- * 
+ *
  * Sets the values of one or more child properties of @child.
  **/
 void
@@ -1038,7 +1057,7 @@ goo_canvas_item_model_set_child_properties  (GooCanvasItemModel   *model,
 					     ...)
 {
   va_list var_args;
-  
+
   va_start (var_args, child);
   goo_canvas_item_model_set_child_properties_valist (model, child, var_args);
   va_end (var_args);
@@ -1051,12 +1070,12 @@ goo_canvas_item_model_set_child_properties  (GooCanvasItemModel   *model,
  * @mclass: a #GObjectClass
  * @property_id: the id for the property
  * @pspec: the #GParamSpec for the property
- * 
+ *
  * This function is only intended to be used when implementing new canvas
  * item models, specifically layout container item models such as
  * #GooCanvasTableModel.
  *
- * It installs a child property on a canvas item class. 
+ * It installs a child property on a canvas item class.
  **/
 void
 goo_canvas_item_model_class_install_child_property (GObjectClass *mclass,
@@ -1111,7 +1130,7 @@ goo_canvas_item_model_class_find_child_property (GObjectClass *mclass,
  * goo_canvas_item_model_class_list_child_properties:
  * @mclass: a #GObjectClass
  * @n_properties: location to return the number of child properties found
- * @returns: a newly allocated array of #GParamSpec*. The array must be 
+ * @returns: a newly allocated array of #GParamSpec*. The array must be
  *           freed with g_free().
  *
  * This function is only intended to be used when implementing new canvas

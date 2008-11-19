@@ -43,8 +43,6 @@ class Gcompris_watercycle:
     self.timerinc = 50
 
     # Need to manage the timers to quit properly
-    self.boat_timer = 0
-    self.sun_timer = 0
     self.vapor_timer = 0
     self.cloud_timer = 0
     self.waterlevel_timer = 0
@@ -64,7 +62,7 @@ class Gcompris_watercycle:
       parent = self.rootitem,
       svg_handle = svghandle,
       svg_id = "#BACKGROUND",
-      hit_detection = False
+      pointer_events = goocanvas.EVENTS_NONE
       )
 
     # Take care, the items are stacked on each other in the order you add them.
@@ -107,6 +105,9 @@ class Gcompris_watercycle:
     gcompris.utils.item_focus_init(self.sunitem, None)
     self.sun_direction = -1
     self.sun_on = 0
+    self.sunitem_orig_y1 = self.sunitem.get_bounds().y1
+    self.sunitem_target_y1 = 10
+    self.sun_connect_handler = 0
 
     # The Snow
     self.snowitem = goocanvas.Svg(
@@ -177,37 +178,39 @@ class Gcompris_watercycle:
     self.boatitem_parked = goocanvas.Svg(
       parent = self.rootitem,
       svg_handle = svghandle,
-      svg_id = "#BOAT_PARKED"
+      svg_id = "#BOAT_PARKED",
+      visibility = goocanvas.ITEM_INVISIBLE
       )
-    self.boatitem_parked.props.visibility = goocanvas.ITEM_INVISIBLE
 
     # Tux in the shower (without water)
     self.tuxshoweritem = goocanvas.Svg(
       parent = self.rootitem,
       svg_handle = svghandle,
-      svg_id = "#SHOWER"
+      svg_id = "#SHOWER",
+      visibility = goocanvas.ITEM_INVISIBLE
       )
-    self.tuxshoweritem.props.visibility = goocanvas.ITEM_INVISIBLE
+
     self.shower_tux = goocanvas.Svg(
       parent = self.rootitem,
       svg_handle = svghandle,
-      svg_id = "#SHOWER_TUX"
+      svg_id = "#SHOWER_TUX",
+      visibility = goocanvas.ITEM_INVISIBLE
       )
-    self.shower_tux.props.visibility = goocanvas.ITEM_INVISIBLE
 
     # Tux in the shower with the water
     self.tuxshowerwateritem = goocanvas.Svg(
       parent = self.rootitem,
       svg_handle = svghandle,
-      svg_id = "#SHOWER_ON"
+      svg_id = "#SHOWER_ON",
+      visibility = goocanvas.ITEM_INVISIBLE
       )
-    self.tuxshowerwateritem.props.visibility = goocanvas.ITEM_INVISIBLE
 
     # The shower on/off button (I need to get the 2 buttons to manage the focus)
     self.showerbuttonitem_on = goocanvas.Svg(
       parent = self.rootitem,
       svg_handle = svghandle,
-      svg_id = "#SHOWER_BUTTON_ON"
+      svg_id = "#SHOWER_BUTTON_ON",
+      visibility = goocanvas.ITEM_INVISIBLE
       )
 
     self.showerbuttonitem_on.connect("button_press_event", self.showerbutton_item_event)
@@ -219,7 +222,8 @@ class Gcompris_watercycle:
     self.showerbuttonitem_off = goocanvas.Svg(
       parent = self.rootitem,
       svg_handle = svghandle,
-      svg_id = "#SHOWER_BUTTON_OFF"
+      svg_id = "#SHOWER_BUTTON_OFF",
+      visibility = goocanvas.ITEM_INVISIBLE
       )
     self.showerbuttonitem_off.connect("button_press_event", self.showerbutton_item_event)
     # This item is clickeable and it must be seen
@@ -244,7 +248,7 @@ class Gcompris_watercycle:
       parent = self.rootitem,
       svg_handle = svghandle,
       svg_id = "#FOREGROUND",
-      hit_detection = False
+      pointer_events = goocanvas.EVENTS_NONE
       )
 
     # Some item ordering
@@ -254,8 +258,7 @@ class Gcompris_watercycle:
     # Ready GO
     target_x = 700
     trip_x = int(target_x - self.boatitem.get_bounds().x1)
-    print self.boatitem.get_bounds().x1
-    print trip_x
+    self.boatitem.connect("animation-finished", self.boat_arrived)
     self.boatitem.animate(target_x,
                           0,
                           1,
@@ -264,15 +267,10 @@ class Gcompris_watercycle:
                           40*trip_x,
                           40,
                           goocanvas.ANIMATE_FREEZE)
-    self.boat_timer = gobject.timeout_add(40 * trip_x + 4000, self.boat_arrived)
 
 
   def end(self):
     # Remove all the timer first
-    if self.boat_timer :
-      gobject.source_remove(self.boat_timer)
-    if self.sun_timer :
-      gobject.source_remove(self.sun_timer)
     if self.vapor_timer :
       gobject.source_remove(self.vapor_timer)
     if self.cloud_timer :
@@ -339,16 +337,56 @@ class Gcompris_watercycle:
     self.cleanwaterstatus = status
 
 
-  def boat_arrived(self):
-    # We are parked, change the boat to remove tux
+  def boat_arrived(self, item, status):
+    # park the boat, change the boat to remove tux
     self.boatitem_parked.props.visibility = goocanvas.ITEM_VISIBLE
-#    self.boatitem.props.visibility = goocanvas.ITEM_INVISIBLE
+    self.boatitem.props.visibility = goocanvas.ITEM_INVISIBLE
     gcompris.sound.play_ogg("sounds/Harbor3.wav")
 
     # Now display tux in the shower
     self.tuxshoweritem.props.visibility = goocanvas.ITEM_VISIBLE
     self.shower_tux.props.visibility = goocanvas.ITEM_VISIBLE
 
+  def sun_down(self):
+    # Move the sun down
+    print "sun_down"
+    trip_y = self.sunitem_orig_y1 - self.sunitem_target_y1
+    print trip_y
+    if self.sun_connect_handler:
+      self.sunitem.disconnect(self.sun_connect_handler)
+    self.sun_connect_handler = self.sunitem.connect("animation-finished", self.sun_down_arrived)
+    self.sunitem.animate(0,
+                         0,
+                         1,
+                         1,
+                         True,
+                         int(40*abs(trip_y)),
+                         40,
+                         goocanvas.ANIMATE_FREEZE)
+    return False
+
+  def sun_up_arrived(self, item, status):
+    print "sun_up_arrived"
+    gobject.timeout_add(10, self.sun_down)
+    # Start the vapor
+    self.vapor_timer = gobject.timeout_add(5000 , self.init_vapor)
+    self.vapor_on = 1
+        # Start the cloud
+    if(not self.cloud_on):
+      self.cloud_timer = gobject.timeout_add(10000, self.move_cloud)
+      self.cloud_on = 1
+    # Remove the snow
+    self.snowitem.props.visibility = goocanvas.ITEM_INVISIBLE
+
+  def sun_down_arrived(self, item, status):
+    print "sun_down_arrived"
+    self.sun_on = 0
+    gcompris.utils.item_focus_init(self.sunitem, None)
+    # Stop the vapor
+    self.vapor_on = 0
+    self.vaporitem.props.visibility = goocanvas.ITEM_INVISIBLE
+    # Stop the sun
+    self.sun_on = 0
 
   def move_cloud(self):
     if(self.cloud_on):
@@ -394,36 +432,6 @@ class Gcompris_watercycle:
 
     self.vapor_timer = gobject.timeout_add(self.timerinc, self.move_vapor)
 
-  def move_sun(self):
-    gcompris.utils.item_focus_init(self.sunitem, None)
-    self.sunitem.translate(0, self.sun_direction);
-    if( (self.sunitem.get_bounds().y1 > 0 and
-         self.sunitem.get_bounds().y1 < 70 ) ) :
-      self.sun_timer = gobject.timeout_add(self.timerinc, self.move_sun)
-    else :
-      # The sun is at is top
-      if(self.sun_direction < 0) :
-        # Stop the sun
-        self.sun_timer = gobject.timeout_add(15000, self.move_sun)
-        # Start the vapor
-        self.vapor_timer = gobject.timeout_add(5000 , self.init_vapor)
-        self.vapor_on = 1
-        # Start the cloud
-        if(not self.cloud_on):
-          self.cloud_timer = gobject.timeout_add(10000, self.move_cloud)
-          self.cloud_on = 1
-        # Remove the snow
-        self.snowitem.props.visibility = goocanvas.ITEM_INVISIBLE
-
-      else :
-        # Stop the vapor
-        self.vapor_on = 0
-        self.vaporitem.props.visibility = goocanvas.ITEM_INVISIBLE
-        # Stop the sun
-        self.sun_on = 0
-
-      self.sun_direction = self.sun_direction * -1
-
   def pause(self, pause):
     pass
 
@@ -434,8 +442,21 @@ class Gcompris_watercycle:
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
         if not self.sun_on :
+          gcompris.utils.item_focus_remove(self.sunitem, None)
           gcompris.sound.play_ogg("sounds/bleep.wav")
-          self.sun_timer = gobject.timeout_add(self.timerinc, self.move_sun)
+          trip_y = self.sunitem_target_y1 - self.sunitem_orig_y1
+          if self.sun_connect_handler:
+            self.sunitem.disconnect(self.sun_connect_handler)
+          self.sun_connect_handler = self.sunitem.connect("animation-finished", self.sun_up_arrived)
+          self.sunitem.animate(0,
+                               trip_y,
+                               1,
+                               1,
+                               True,
+                               int(40*abs(trip_y)),
+                               40,
+                               goocanvas.ANIMATE_FREEZE)
+
           self.sun_on = 1
         return True
     return False

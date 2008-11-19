@@ -126,6 +126,7 @@ typedef struct _GooCanvasItem       GooCanvasItem;
  * @key_release_event: signal emitted when a key is released.
  * @grab_broken_event: signal emitted when a grab that the item has is lost.
  * @child_notify: signal emitted when a child property is changed.
+ * @animation_finished: signal emitted when the item's animation has finished.
  *
  * #GooCanvasItemIFace holds the virtual methods that make up the
  * #GooCanvasItem interface.
@@ -280,6 +281,8 @@ struct _GooCanvasItemIface
 							 gboolean		 keyboard_tooltip,
 							 gpointer /*GtkTooltip*/		*tooltip);
 
+  void			(* animation_finished)		(GooCanvasItem           *item,
+							 gboolean                 stopped);
 
   /* Padding for future expansion */
   void (*_goo_canvas_reserved1) (void);

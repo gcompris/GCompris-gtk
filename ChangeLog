@@ -1,3 +1,25 @@
+2008-11-19  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- In progress watercycle.
+	- Grabed code from goocanvas trunk by Damon Chaplin to have
+	a signal "animation-finished"
+	- Removed hiy_detection to use pointer_events=None instead.
+
+	* src/boards/goocanvas.defs:
+	* src/boards/py-mod-utils.c: (py_gc_item_focus_remove):
+	* src/goocanvas/src/goocanvasitem.c: (goo_canvas_item_base_init),
+	(goo_canvas_item_animate_cb), (goo_canvas_item_stop_animation):
+	* src/goocanvas/src/goocanvasitem.h:
+	* src/goocanvas/src/goocanvasitemmodel.c:
+	(goo_canvas_item_model_base_init),
+	(goo_canvas_item_model_stop_animation):
+	* src/goocanvas/src/goocanvasitemmodel.h:
+	* src/goocanvas/src/goocanvassvg.c:
+	(goo_canvas_svg_install_common_properties), (goo_canvas_svg_init),
+	(goo_canvas_svg_set_common_property), (goo_canvas_svg_is_item_at):
+	* src/goocanvas/src/goocanvassvg.h:
+	* src/watercycle-activity/watercycle.py:
+
 2008-11-10  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Performance improvement of the goocanvas svg item. Now the

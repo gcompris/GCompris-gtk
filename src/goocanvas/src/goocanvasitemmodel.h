@@ -55,6 +55,7 @@ G_BEGIN_DECLS
  * @child_removed: signal emitted when a child is removed.
  * @changed: signal emitted when the model has changed.
  * @child_notify: signal emitted when a child property has changed.
+ * @animation_finished: signal emitted when the model's animation has finished.
  *
  * #GooCanvasItemModelIFace holds the virtual methods that make up the
  * #GooCanvasItemModel interface.
@@ -134,6 +135,9 @@ struct _GooCanvasItemModelIface
 							 gboolean		 recompute_bounds);
   void                 (* child_notify)			(GooCanvasItemModel	*model,
 							 GParamSpec		*pspec);
+
+  void		       (* animation_finished)		(GooCanvasItemModel     *model,
+							 gboolean                stopped);
 
   /*< private >*/
 

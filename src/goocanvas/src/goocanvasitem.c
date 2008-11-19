@@ -47,6 +47,7 @@ enum {
   /* Miscellaneous signals. */
   GRAB_BROKEN_EVENT,
   CHILD_NOTIFY,
+  ANIMATION_FINISHED,
 
   LAST_SIGNAL
 };
@@ -100,7 +101,7 @@ goo_canvas_item_base_init (gpointer g_iface)
 {
   static GObjectNotifyContext cpn_context = { 0, NULL, NULL };
   static gboolean initialized = FALSE;
-  
+
   if (!initialized)
     {
       GType iface_type = G_TYPE_FROM_INTERFACE (g_iface);
@@ -361,7 +362,7 @@ goo_canvas_item_base_init (gpointer g_iface)
        * @pspec: the #GParamSpec of the changed child property.
        *
        * Emitted for each child property that has changed.
-       * The signal's detail holds the property name. 
+       * The signal's detail holds the property name.
        */
       canvas_item_signals[CHILD_NOTIFY] =
 	g_signal_new ("child_notify",
@@ -373,6 +374,23 @@ goo_canvas_item_base_init (gpointer g_iface)
 		      G_TYPE_NONE, 1,
 		      G_TYPE_PARAM);
 
+
+      /**
+       * GooCanvasItem::animation-finished
+       * @item: the item that received the signal.
+       * @stopped: if the animation was explicitly stopped.
+       *
+       * Emitted when the item animation has finished.
+       */
+      canvas_item_signals[ANIMATION_FINISHED] =
+	g_signal_new ("animation-finished",
+		      iface_type,
+		      G_SIGNAL_RUN_LAST,
+		      G_STRUCT_OFFSET (GooCanvasItemIface, animation_finished),
+		      NULL, NULL,
+		      g_cclosure_marshal_VOID__BOOLEAN,
+		      G_TYPE_NONE, 1,
+		      G_TYPE_BOOLEAN);
 
       g_object_interface_install_property (g_iface,
 					   g_param_spec_object ("parent",
@@ -444,9 +462,9 @@ goo_canvas_item_base_init (gpointer g_iface)
 /**
  * goo_canvas_item_get_canvas:
  * @item: a #GooCanvasItem.
- * 
+ *
  * Returns the #GooCanvas containing the given #GooCanvasItem.
- * 
+ *
  * Returns: the #GooCanvas.
  **/
 GooCanvas*
@@ -473,7 +491,7 @@ goo_canvas_item_get_canvas (GooCanvasItem *item)
  * goo_canvas_item_set_canvas:
  * @item: a #GooCanvasItem.
  * @canvas: a #GooCanvas
- * 
+ *
  * This function is only intended to be used when implementing new canvas
  * items, specifically container items such as #GooCanvasGroup.
  *
@@ -496,7 +514,7 @@ goo_canvas_item_set_canvas     (GooCanvasItem   *item,
  * @child: the item to add.
  * @position: the position of the item, or -1 to place it last (at the top of
  *  the stacking order).
- * 
+ *
  * Adds a child item to a container item at the given stack position.
  **/
 void
@@ -518,7 +536,7 @@ goo_canvas_item_add_child      (GooCanvasItem       *item,
  * @item: a container item.
  * @old_position: the current position of the child item.
  * @new_position: the new position of the child item.
- * 
+ *
  * Moves a child item to a new stack position within the container.
  **/
 void
@@ -538,7 +556,7 @@ goo_canvas_item_move_child     (GooCanvasItem       *item,
  * goo_canvas_item_remove_child:
  * @item: a container item.
  * @child_num: the position of the child item to remove.
- * 
+ *
  * Removes the child item at the given position.
  **/
 void
@@ -557,9 +575,9 @@ goo_canvas_item_remove_child   (GooCanvasItem       *item,
  * goo_canvas_item_find_child:
  * @item: a container item.
  * @child: the child item to find.
- * 
+ *
  * Attempts to find the given child item with the container's stack.
- * 
+ *
  * Returns: the position of the given @child item, or -1 if it isn't found.
  **/
 gint
@@ -584,9 +602,9 @@ goo_canvas_item_find_child     (GooCanvasItem *item,
 /**
  * goo_canvas_item_is_container:
  * @item: an item.
- * 
+ *
  * Tests to see if the given item is a container.
- * 
+ *
  * Returns: %TRUE if the item is a container.
  **/
 gboolean
@@ -601,9 +619,9 @@ goo_canvas_item_is_container (GooCanvasItem       *item)
 /**
  * goo_canvas_item_get_n_children:
  * @item: a container item.
- * 
+ *
  * Gets the number of children of the container.
- * 
+ *
  * Returns: the number of children.
  **/
 gint
@@ -619,9 +637,9 @@ goo_canvas_item_get_n_children (GooCanvasItem       *item)
  * goo_canvas_item_get_child:
  * @item: a container item.
  * @child_num: the position of a child in the container's stack.
- * 
+ *
  * Gets the child item at the given stack position.
- * 
+ *
  * Returns: the child item at the given stack position.
  **/
 GooCanvasItem*
@@ -637,9 +655,9 @@ goo_canvas_item_get_child (GooCanvasItem       *item,
 /**
  * goo_canvas_item_get_parent:
  * @item: an item.
- * 
+ *
  * Gets the parent of the given item.
- * 
+ *
  * Returns: the parent item, or %NULL if the item has no parent.
  **/
 GooCanvasItem*
@@ -655,7 +673,7 @@ goo_canvas_item_get_parent  (GooCanvasItem *item)
  * goo_canvas_item_set_parent:
  * @item: an item.
  * @parent: the new parent item.
- * 
+ *
  * This function is only intended to be used when implementing new canvas
  * items (specifically container items such as #GooCanvasGroup).
  * It sets the parent of the child item.
@@ -677,7 +695,7 @@ goo_canvas_item_set_parent (GooCanvasItem *item,
 /**
  * goo_canvas_item_remove:
  * @item: an item.
- * 
+ *
  * Removes an item from its parent. If the item is in a canvas it will be
  * removed.
  *
@@ -706,7 +724,7 @@ goo_canvas_item_remove (GooCanvasItem *item)
  * @item: an item.
  * @above: the item to raise @item above, or %NULL to raise @item to the top
  *  of the stack.
- * 
+ *
  * Raises an item in the stacking order.
  **/
 void
@@ -749,7 +767,7 @@ goo_canvas_item_raise          (GooCanvasItem *item,
  * @item: an item.
  * @below: the item to lower @item below, or %NULL to lower @item to the
  *  bottom of the stack.
- * 
+ *
  * Lowers an item in the stacking order.
  **/
 void
@@ -791,9 +809,9 @@ goo_canvas_item_lower          (GooCanvasItem *item,
  * goo_canvas_item_get_transform:
  * @item: an item.
  * @transform: the place to store the transform.
- * 
+ *
  * Gets the transformation matrix of an item.
- * 
+ *
  * Returns: %TRUE if a transform is set.
  **/
 gboolean
@@ -811,11 +829,11 @@ goo_canvas_item_get_transform  (GooCanvasItem   *item,
  * @item: an item.
  * @child: a child of @item.
  * @transform: the place to store the transform.
- * 
+ *
  * Gets the transformation matrix of an item combined with any special
  * transform needed for the given child. These special transforms are used
  * by layout items such as #GooCanvasTable.
- * 
+ *
  * Returns: %TRUE if a transform is set.
  **/
 gboolean
@@ -841,7 +859,7 @@ goo_canvas_item_get_transform_for_child  (GooCanvasItem  *item,
  * @item: an item.
  * @transform: the new transformation matrix, or %NULL to reset the
  *  transformation to the identity matrix.
- * 
+ *
  * Sets the transformation matrix of an item.
  **/
 void
@@ -859,13 +877,13 @@ goo_canvas_item_set_transform  (GooCanvasItem        *item,
  * @y: returns the y coordinate of the origin of the item's coordinate space.
  * @scale: returns the scale of the item.
  * @rotation: returns the clockwise rotation of the item, in degrees (0-360).
- * 
+ *
  * This function can be used to get the position, scale and rotation of an
  * item, providing that the item has a simple transformation matrix
  * (e.g. set with goo_canvas_item_set_simple_transform(), or using a
  * combination of simple translate, scale and rotate operations). If the item
  * has a complex transformation matrix the results will be incorrect.
- * 
+ *
  * Returns: %TRUE if a transform is set.
  **/
 gboolean
@@ -914,7 +932,7 @@ goo_canvas_item_get_simple_transform (GooCanvasItem   *item,
  * @y: the y coordinate of the origin of the item's coordinate space.
  * @scale: the scale of the item.
  * @rotation: the clockwise rotation of the item, in degrees.
- * 
+ *
  * A convenience function to set the item's transformation matrix.
  **/
 void
@@ -939,7 +957,7 @@ goo_canvas_item_set_simple_transform (GooCanvasItem   *item,
  * @item: an item.
  * @tx: the amount to move the origin in the horizontal direction.
  * @ty: the amount to move the origin in the vertical direction.
- * 
+ *
  * Translates the origin of the item's coordinate system by the given amounts.
  **/
 void
@@ -961,7 +979,7 @@ goo_canvas_item_translate      (GooCanvasItem *item,
  * @item: an item.
  * @sx: the amount to scale the horizontal axis.
  * @sy: the amount to scale the vertical axis.
- * 
+ *
  * Scales the item's coordinate system by the given amounts.
  **/
 void
@@ -984,7 +1002,7 @@ goo_canvas_item_scale          (GooCanvasItem *item,
  * @degrees: the clockwise angle of rotation.
  * @cx: the x coordinate of the origin of the rotation.
  * @cy: the y coordinate of the origin of the rotation.
- * 
+ *
  * Rotates the item's coordinate system by the given amount, about the given
  * origin.
  **/
@@ -1012,7 +1030,7 @@ goo_canvas_item_rotate         (GooCanvasItem *item,
  * @degrees: the skew angle.
  * @cx: the x coordinate of the origin of the skew transform.
  * @cy: the y coordinate of the origin of the skew transform.
- * 
+ *
  * Skews the item's coordinate system along the x axis by the given amount,
  * about the given origin.
  **/
@@ -1041,7 +1059,7 @@ goo_canvas_item_skew_x         (GooCanvasItem *item,
  * @degrees: the skew angle.
  * @cx: the x coordinate of the origin of the skew transform.
  * @cy: the y coordinate of the origin of the skew transform.
- * 
+ *
  * Skews the item's coordinate system along the y axis by the given amount,
  * about the given origin.
  **/
@@ -1067,10 +1085,10 @@ goo_canvas_item_skew_y         (GooCanvasItem *item,
 /**
  * goo_canvas_item_get_style:
  * @item: an item.
- * 
+ *
  * Gets the item's style. If the item doesn't have its own style it will return
  * its parent's style.
- * 
+ *
  * Returns: the item's style.
  **/
 GooCanvasStyle*
@@ -1086,7 +1104,7 @@ goo_canvas_item_get_style      (GooCanvasItem   *item)
  * goo_canvas_item_set_style:
  * @item: an item.
  * @style: a style.
- * 
+ *
  * Sets the item's style, by copying the properties from the given style.
  **/
 void
@@ -1167,9 +1185,15 @@ goo_canvas_item_animate_cb (GooCanvasItemAnimation *anim)
 	  /* This will result in a call to goo_canvas_item_free_animation()
 	     above. We've set the timeout_id to 0 so it isn't removed twice. */
 	  if (model)
-	    g_object_set_data (G_OBJECT (model), animation_key, NULL);
+	    {
+	      g_signal_emit_by_name (model, "animation-finished", FALSE);
+	      g_object_set_data (G_OBJECT (model), animation_key, NULL);
+	    }
 	  else
-	    g_object_set_data (G_OBJECT (item), animation_key, NULL);
+	    {
+	      g_signal_emit_by_name (item, "animation-finished", FALSE);
+	      g_object_set_data (G_OBJECT (item), animation_key, NULL);
+	    }
 	  break;
 
 	case GOO_CANVAS_ANIMATE_RESTART:
@@ -1318,7 +1342,7 @@ _goo_canvas_item_animate_internal (GooCanvasItem       *item,
  *  second).
  * @step_time: the time between each animation step, in milliseconds.
  * @type: specifies what happens when the animation finishes.
- * 
+ *
  * Animates an item from its current position to the given offsets, scale
  * and rotation.
  **/
@@ -1341,13 +1365,15 @@ goo_canvas_item_animate        (GooCanvasItem *item,
 /**
  * goo_canvas_item_stop_animation:
  * @item: an item.
- * 
+ *
  * Stops any current animation for the given item, leaving it at its current
  * position.
  **/
 void
 goo_canvas_item_stop_animation (GooCanvasItem *item)
 {
+  g_signal_emit_by_name (item, "animation-finished", TRUE);
+
   /* This will result in a call to goo_canvas_item_free_animation() above. */
   g_object_set_data (G_OBJECT (item), animation_key, NULL);
 }
@@ -1358,7 +1384,7 @@ goo_canvas_item_stop_animation (GooCanvasItem *item)
 /**
  * goo_canvas_item_request_update:
  * @item: a #GooCanvasItem.
- * 
+ *
  * This function is only intended to be used when implementing new canvas
  * items.
  *
@@ -1381,7 +1407,7 @@ goo_canvas_item_request_update  (GooCanvasItem *item)
  * goo_canvas_item_get_bounds:
  * @item: a #GooCanvasItem.
  * @bounds: a #GooCanvasBounds to return the bounds in.
- * 
+ *
  * Gets the bounds of the item.
  *
  * Note that the bounds includes the entire fill and stroke extents of the
@@ -1408,12 +1434,12 @@ goo_canvas_item_get_bounds  (GooCanvasItem   *item,
  * @parent_is_visible: %TRUE if the parent item is visible (which
  *  implies that all ancestors are also visible).
  * @found_items: the list of items found so far.
- * 
+ *
  * This function is only intended to be used when implementing new canvas
  * items, specifically container items such as #GooCanvasGroup.
  *
  * It gets the items at the given point.
- * 
+ *
  * Returns: the @found_items list, with any more found items added onto
  *  the start of the list, leaving the top item first.
  **/
@@ -1439,7 +1465,7 @@ goo_canvas_item_get_items_at (GooCanvasItem  *item,
 /**
  * goo_canvas_item_is_visible:
  * @item: a #GooCanvasItem.
- * 
+ *
  * Checks if the item is visible.
  *
  * This entails checking the item's own visibility setting, as well as those
@@ -1447,7 +1473,7 @@ goo_canvas_item_get_items_at (GooCanvasItem  *item,
  *
  * Note that the item may be scrolled off the screen and so may not
  * be actually visible to the user.
- * 
+ *
  * Returns: %TRUE if the item is visible.
  **/
 gboolean
@@ -1472,9 +1498,9 @@ goo_canvas_item_is_visible  (GooCanvasItem   *item)
 /**
  * goo_canvas_item_get_model:
  * @item: a #GooCanvasItem.
- * 
+ *
  * Gets the model of the given canvas item.
- * 
+ *
  * Returns: the item's model, or %NULL if it has no model.
  **/
 GooCanvasItemModel*
@@ -1490,7 +1516,7 @@ goo_canvas_item_get_model	  (GooCanvasItem   *item)
  * goo_canvas_item_set_model:
  * @item: a #GooCanvasItem.
  * @model: a #GooCanvasItemModel.
- * 
+ *
  * Sets the model of the given canvas item.
  **/
 void
@@ -1507,7 +1533,7 @@ goo_canvas_item_set_model	  (GooCanvasItem      *item,
 /**
  * goo_canvas_item_ensure_updated:
  * @item: a #GooCanvasItem.
- * 
+ *
  * This function is only intended to be used when implementing new canvas
  * items.
  *
@@ -1531,7 +1557,7 @@ goo_canvas_item_ensure_updated (GooCanvasItem *item)
  * @entire_tree: if the entire subtree should be updated.
  * @cr: a cairo context.
  * @bounds: a #GooCanvasBounds to return the new bounds in.
- * 
+ *
  * This function is only intended to be used when implementing new canvas
  * items, specifically container items such as #GooCanvasGroup.
  *
@@ -1556,7 +1582,7 @@ goo_canvas_item_update      (GooCanvasItem   *item,
  * @bounds: the bounds that need to be repainted.
  * @scale: the scale to use to determine whether an item should be painted.
  *  See #GooCanvasItem:visibility-threshold.
- * 
+ *
  * This function is only intended to be used when implementing new canvas
  * items, specifically container items such as #GooCanvasGroup.
  *
@@ -1583,12 +1609,12 @@ goo_canvas_item_paint (GooCanvasItem         *item,
  * @cr: a cairo context.
  * @requested_area: a #GooCanvasBounds to return the requested area in, in the
  *  parent's coordinate space.
- * 
+ *
  * This function is only intended to be used when implementing new canvas
  * items, specifically layout items such as #GooCanvasTable.
  *
  * It gets the requested area of a child item.
- * 
+ *
  * Returns: %TRUE if the item should be allocated space.
  **/
 gboolean
@@ -1607,14 +1633,14 @@ goo_canvas_item_get_requested_area (GooCanvasItem    *item,
  * @item: a #GooCanvasItem.
  * @cr: a cairo context.
  * @width: the width that the item may be allocated.
- * 
+ *
  * This function is only intended to be used when implementing new canvas
  * items, specifically layout items such as #GooCanvasTable.
  *
  * It gets the requested height of a child item, assuming it is allocated the
  * given width. This is useful for text items whose requested height may change
  * depending on the allocated width.
- * 
+ *
  * Returns: the requested height of the item, given the allocated width,
  *  or %-1 if the item doesn't support this method or its height doesn't
  *  change when allocated different widths.
@@ -1645,7 +1671,7 @@ goo_canvas_item_get_requested_height (GooCanvasItem       *item,
  *  the device coordinate space.
  * @y_offset: the y offset of the allocated area from the requested area in
  *  the device coordinate space.
- * 
+ *
  * This function is only intended to be used when implementing new canvas
  * items, specifically layout items such as #GooCanvasTable.
  *
@@ -1988,7 +2014,7 @@ _goo_canvas_item_set_child_properties_internal (GObject              *object,
  * @child: a child #GooCanvasItem.
  * @property_name: the name of the child property to get.
  * @value: a location to return the value.
- * 
+ *
  * Gets a child property of @child.
  **/
 void
@@ -2012,7 +2038,7 @@ goo_canvas_item_get_child_property (GooCanvasItem *item,
  * @child: a child #GooCanvasItem.
  * @property_name: the name of the child property to set.
  * @value: the value to set the property to.
- * 
+ *
  * Sets a child property of @child.
  **/
 void
@@ -2036,7 +2062,7 @@ goo_canvas_item_set_child_property (GooCanvasItem   *item,
  * @child: a child #GooCanvasItem.
  * @var_args: pairs of property names and value pointers, and a terminating
  *  %NULL.
- * 
+ *
  * Gets the values of one or more child properties of @child.
  **/
 void
@@ -2056,7 +2082,7 @@ goo_canvas_item_get_child_properties_valist (GooCanvasItem   *item,
  * @item: a #GooCanvasItem.
  * @child: a child #GooCanvasItem.
  * @var_args: pairs of property names and values, and a terminating %NULL.
- * 
+ *
  * Sets the values of one or more child properties of @child.
  **/
 void
@@ -2076,7 +2102,7 @@ goo_canvas_item_set_child_properties_valist (GooCanvasItem   *item,
  * @item: a #GooCanvasItem.
  * @child: a child #GooCanvasItem.
  * @...: pairs of property names and value pointers, and a terminating %NULL.
- * 
+ *
  * Gets the values of one or more child properties of @child.
  **/
 void
@@ -2085,7 +2111,7 @@ goo_canvas_item_get_child_properties        (GooCanvasItem   *item,
 					     ...)
 {
   va_list var_args;
-  
+
   va_start (var_args, child);
   goo_canvas_item_get_child_properties_valist (item, child, var_args);
   va_end (var_args);
@@ -2097,7 +2123,7 @@ goo_canvas_item_get_child_properties        (GooCanvasItem   *item,
  * @item: a #GooCanvasItem.
  * @child: a child #GooCanvasItem.
  * @...: pairs of property names and values, and a terminating %NULL.
- * 
+ *
  * Sets the values of one or more child properties of @child.
  **/
 void
@@ -2106,7 +2132,7 @@ goo_canvas_item_set_child_properties        (GooCanvasItem   *item,
 					     ...)
 {
   va_list var_args;
-  
+
   va_start (var_args, child);
   goo_canvas_item_set_child_properties_valist (item, child, var_args);
   va_end (var_args);
@@ -2119,11 +2145,11 @@ goo_canvas_item_set_child_properties        (GooCanvasItem   *item,
  * @iclass: a #GObjectClass
  * @property_id: the id for the property
  * @pspec: the #GParamSpec for the property
- * 
+ *
  * This function is only intended to be used when implementing new canvas
  * items, specifically layout container items such as #GooCanvasTable.
  *
- * It installs a child property on a canvas item class. 
+ * It installs a child property on a canvas item class.
  **/
 void
 goo_canvas_item_class_install_child_property (GObjectClass *iclass,
@@ -2177,7 +2203,7 @@ goo_canvas_item_class_find_child_property (GObjectClass *iclass,
  * goo_canvas_item_class_list_child_properties:
  * @iclass: a #GObjectClass
  * @n_properties: location to return the number of child properties found
- * @returns: a newly allocated array of #GParamSpec*. The array must be 
+ * @returns: a newly allocated array of #GParamSpec*. The array must be
  *           freed with g_free().
  *
  * This function is only intended to be used when implementing new canvas

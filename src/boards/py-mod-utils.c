@@ -126,6 +126,35 @@ py_gc_item_focus_init(PyObject* self, PyObject* args)
 }
 
 
+/* gint	gc_item_focus_remove(GooCanvasItem *source_item,
+                           GooCanvasItem *target_item);
+*/
+static PyObject*
+py_gc_item_focus_remove(PyObject* self, PyObject* args)
+{
+  PyObject* pyitem;
+  PyObject* pytarget;
+  GooCanvasItem* item;
+  GooCanvasItem* target = NULL;
+
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, "OO:gc_item_focus_remove",
+		       &pyitem, &pytarget))
+    return NULL;
+
+  item = (GooCanvasItem*) pygobject_get(pyitem);
+  if(pytarget != Py_None)
+    target = (GooCanvasItem*) pygobject_get(pytarget);
+
+  /* Call the corresponding C function */
+  gc_item_focus_remove(item, target);
+
+  /* Create and return the result */
+  Py_INCREF(Py_None);
+  return Py_None;
+}
+
+
 /* void gc_item_absolute_move(GooCanvasItem *item, int x, int y); */
 static PyObject*
 py_gc_item_absolute_move(PyObject* self, PyObject* args)
@@ -392,6 +421,7 @@ static PyMethodDef PythonGcomprisUtilsModule[] = {
   { "load_svg",  py_gc_svg_load, METH_VARARGS, "gc_svg_load" },
   { "find_file_absolute",  py_gc_file_find_absolute, METH_VARARGS, "gc_file_find_absolute" },
   { "item_focus_init",  py_gc_item_focus_init, METH_VARARGS, "gc_item_focus_init" },
+  { "item_focus_remove",  py_gc_item_focus_remove, METH_VARARGS, "gc_item_focus_remove" },
   { "item_absolute_move",  py_gc_item_absolute_move, METH_VARARGS, "gc_item_absolute_move" },
   { "item_rotate",  py_gc_item_rotate, METH_VARARGS, "gc_item_rotate" },
   { "item_rotate_relative",  py_gc_item_rotate_relative, METH_VARARGS, "gc_item_rotate_relative" },

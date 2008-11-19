@@ -38,7 +38,6 @@ struct _GooCanvasSvg
   double y1;
   double x2;
   double y2;
-  gboolean hit_detection;
 };
 
 struct _GooCanvasSvgClass
