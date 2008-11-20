@@ -1186,13 +1186,13 @@ goo_canvas_item_animate_cb (GooCanvasItemAnimation *anim)
 	     above. We've set the timeout_id to 0 so it isn't removed twice. */
 	  if (model)
 	    {
-	      g_signal_emit_by_name (model, "animation-finished", FALSE);
 	      g_object_set_data (G_OBJECT (model), animation_key, NULL);
+	      g_signal_emit_by_name (model, "animation-finished", FALSE);
 	    }
 	  else
 	    {
-	      g_signal_emit_by_name (item, "animation-finished", FALSE);
 	      g_object_set_data (G_OBJECT (item), animation_key, NULL);
+	      g_signal_emit_by_name (item, "animation-finished", FALSE);
 	    }
 	  break;
 
@@ -1372,10 +1372,10 @@ goo_canvas_item_animate        (GooCanvasItem *item,
 void
 goo_canvas_item_stop_animation (GooCanvasItem *item)
 {
-  g_signal_emit_by_name (item, "animation-finished", TRUE);
-
   /* This will result in a call to goo_canvas_item_free_animation() above. */
   g_object_set_data (G_OBJECT (item), animation_key, NULL);
+
+  g_signal_emit_by_name (item, "animation-finished", TRUE);
 }
 
 

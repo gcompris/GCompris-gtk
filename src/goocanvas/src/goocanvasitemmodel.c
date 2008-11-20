@@ -915,10 +915,10 @@ goo_canvas_item_model_animate        (GooCanvasItemModel  *model,
 void
 goo_canvas_item_model_stop_animation (GooCanvasItemModel *model)
 {
-  g_signal_emit_by_name (model, "animation-finished", TRUE);
-
   /* This will result in a call to goo_canvas_item_free_animation() above. */
   g_object_set_data (G_OBJECT (model), animation_key, NULL);
+
+  g_signal_emit_by_name (model, "animation-finished", TRUE);
 }
 
 

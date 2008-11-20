@@ -43,7 +43,6 @@ class Gcompris_watercycle:
     self.timerinc = 50
 
     # Need to manage the timers to quit properly
-    self.sun_timer = 0
     self.waterlevel_timer = 0
 
     gcompris.bar_set(0)
@@ -138,10 +137,7 @@ class Gcompris_watercycle:
       visibility = goocanvas.ITEM_INVISIBLE
       )
     self.clouditem.props.visibility = goocanvas.ITEM_INVISIBLE
-    self.clouditem.connect("button_press_event", self.cloud_item_event)
     self.clouditem.connect("animation-finished", self.cloud_arrived)
-    # This item is clickeable and it must be seen
-    gcompris.utils.item_focus_init(self.clouditem, None)
     self.cloud_on = 0
 
     # The vapor
@@ -278,8 +274,6 @@ class Gcompris_watercycle:
 
   def end(self):
     # Remove all the timer first
-    if self.sun_timer :
-      gobject.source_remove(self.sun_timer)
     if self.waterlevel_timer :
       gobject.source_remove(self.waterlevel_timer)
 
@@ -351,15 +345,15 @@ class Gcompris_watercycle:
     # Now display tux in the shower
     self.tuxshoweritem.props.visibility = goocanvas.ITEM_VISIBLE
     self.shower_tux.props.visibility = goocanvas.ITEM_VISIBLE
-    self.showerbuttonitem_off.props.visibility = goocanvas.ITEM_VISIBLE
+    self.showerbuttonitem_on.props.visibility = goocanvas.ITEM_VISIBLE
 
   def sun_down(self):
     # Move the sun down
-    sun_timer = 0
     trip_y = self.sunitem_orig_y1 - self.sunitem_target_y1
     if self.sun_connect_handler:
       self.sunitem.disconnect(self.sun_connect_handler)
-    self.sun_connect_handler = self.sunitem.connect("animation-finished", self.sun_down_arrived)
+    self.sun_connect_handler = self.sunitem.connect("animation-finished",
+                                                    self.sun_down_arrived)
     self.sunitem.animate(0,
                          0,
                          1,
@@ -371,7 +365,6 @@ class Gcompris_watercycle:
     return False
 
   def sun_up_arrived(self, item, status):
-    self.sun_timer = gobject.timeout_add(15000, self.sun_down)
     # Start the vapor
     self.init_vapor()
     # Remove the snow
@@ -384,17 +377,16 @@ class Gcompris_watercycle:
     self.sun_on = 0
 
   def cloud_arrived(self, item, status):
-    print "cloud_arrived"
-    self.clouditem.props.visibility = goocanvas.ITEM_INVISIBLE
-    self.cloud_on = 0
+    self.sun_down()
+    self.clouditem.connect("button_press_event", self.cloud_item_event)
+    gcompris.utils.item_focus_init(self.clouditem, None)
 
   def move_cloud(self):
-    print "move_cloud"
     if (self.cloud_on):
       return
     self.cloud_on = 1
     self.clouditem.props.visibility = goocanvas.ITEM_VISIBLE
-    trip_x = 700
+    trip_x = 270
     self.clouditem.animate(trip_x,
                            0,
                            1,
@@ -402,7 +394,7 @@ class Gcompris_watercycle:
                            True,
                            40*trip_x,
                            40,
-                           goocanvas.ANIMATE_RESET)
+                           goocanvas.ANIMATE_FREEZE)
 
   def move_cloud_old(self):
     if(self.cloud_on):
@@ -435,7 +427,6 @@ class Gcompris_watercycle:
       self.rainitem.props.visibility = goocanvas.ITEM_INVISIBLE
 
   def vapor_arrived(self, item, state):
-    print "vapor_arrived"
     self.vapor_on = 0
     self.vaporitem.props.visibility = goocanvas.ITEM_INVISIBLE
     # Start the cloud
@@ -490,7 +481,11 @@ class Gcompris_watercycle:
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
         gcompris.sound.play_ogg("sounds/Water5.wav")
+        self.rainitem.props.visibility = goocanvas.ITEM_VISIBLE
+        self.snowitem.props.visibility = goocanvas.ITEM_VISIBLE
+        self.riveritem.props.visibility = goocanvas.ITEM_VISIBLE
         self.rain_on = 1
+        self.riverfull = 1
         return True
     return False
 
@@ -499,18 +494,18 @@ class Gcompris_watercycle:
       if event.button == 1:
         if self.riverfull:
           gcompris.sound.play_ogg("sounds/bubble.wav")
+          self.cleanwateritem.props.visibility = goocanvas.ITEM_VISIBLE
           self.waterpump_on = 1
-          self.pumpwateritem.props.pixbuf = gcompris.utils.load_pixmap("watercycle/pumpwater.png");
         return True
     return False
 
   def watercleaning_item_event(self, widget, target, event=None):
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
-        if self.waterpump_on:
+        if self.riverfull:
           gcompris.sound.play_ogg("sounds/bubble.wav")
           self.watercleaning_on = 1
-          self.dirtywater.props.pixbuf = gcompris.utils.load_pixmap("watercycle/badwater.png");
+          self.dirtywater.props.visibility = goocanvas.ITEM_VISIBLE
         return True
     return False
 
