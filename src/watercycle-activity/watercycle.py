@@ -32,6 +32,7 @@ class Gcompris_watercycle:
 
   def __init__(self, gcomprisBoard):
     self.gcomprisBoard = gcomprisBoard
+    self.boat_is_arrived = False
 
   def start(self):
     self.gcomprisBoard.level=1
@@ -39,8 +40,9 @@ class Gcompris_watercycle:
     self.gcomprisBoard.sublevel=1
     self.gcomprisBoard.number_of_sublevel=1
 
-    # The basic tick for object moves
-    self.timerinc = 50
+    # The basic duration factor for object animations
+    # Higher is longer animation (slower)
+    self.timerinc = 20
 
     # Need to manage the timers to quit properly
     self.waterlevel_timer = 0
@@ -93,7 +95,6 @@ class Gcompris_watercycle:
       pointer_events = goocanvas.EVENTS_NONE,
       visibility = goocanvas.ITEM_INVISIBLE
       )
-    self.cleanwaterstatus = 0
 
     # The Sun
     self.sunitem = goocanvas.Svg(
@@ -104,7 +105,6 @@ class Gcompris_watercycle:
     self.sunitem.connect("button_press_event", self.sun_item_event)
     # This item is clickeable and it must be seen
     gcompris.utils.item_focus_init(self.sunitem, None)
-    self.sun_direction = -1
     self.sun_on = 0
     self.sunitem_orig_y1 = self.sunitem.get_bounds().y1
     self.sunitem_target_y1 = 10
@@ -127,7 +127,6 @@ class Gcompris_watercycle:
       pointer_events = goocanvas.EVENTS_NONE,
       visibility = goocanvas.ITEM_INVISIBLE
       )
-    self.rain_on = 0
 
     # The cloud
     self.clouditem = goocanvas.Svg(
@@ -216,10 +215,11 @@ class Gcompris_watercycle:
       svg_id = "#SHOWER_BUTTON_ON",
       visibility = goocanvas.ITEM_INVISIBLE
       )
-    self.showerbuttonitem_on.connect("button_press_event", self.showerbutton_item_event)
+    self.showerbuttonitem_on.connect("button_press_event", self.showerbutton_item_event,
+                                     True)
     # This item is clickeable and it must be seen
     gcompris.utils.item_focus_init(self.showerbuttonitem_on, None)
-    self.showerbutton = 0
+    self.showerbutton = False
 
     self.showerbuttonitem_off = goocanvas.Svg(
       parent = self.rootitem,
@@ -227,24 +227,10 @@ class Gcompris_watercycle:
       svg_id = "#SHOWER_BUTTON_OFF",
       visibility = goocanvas.ITEM_INVISIBLE
       )
-    self.showerbuttonitem_off.connect("button_press_event", self.showerbutton_item_event)
+    self.showerbuttonitem_off.connect("button_press_event", self.showerbutton_item_event,
+                                      False)
     # This item is clickeable and it must be seen
     gcompris.utils.item_focus_init(self.showerbuttonitem_off, None)
-
-    # The level of water in the castle
-    self.waterlevel_max = 65
-    self.waterlevel_min = 85
-    self.waterlevel     = self.waterlevel_min
-#    self.waterlevel_timer = gobject.timeout_add(1000, self.update_waterlevel)
-
-    self.waterlevel_item = \
-        goocanvas.Polyline(
-      parent = self.rootitem,
-      points = goocanvas.Points([(655 , self.waterlevel),
-                                 (655 , self.waterlevel_min)]),
-      stroke_color_rgba = 0x0033FFFFL,
-      line_width = 20.0
-      )
 
     goocanvas.Svg(
       parent = self.rootitem,
@@ -252,6 +238,21 @@ class Gcompris_watercycle:
       svg_id = "#FOREGROUND",
       pointer_events = goocanvas.EVENTS_NONE
       )
+
+    # The level of water in the castle
+    self.waterlevel_max = 12
+    self.waterlevel_min = 1
+    self.waterlevel_x_ratio = 1.3
+    self.waterlevel = 1
+    self.waterlevel_item = goocanvas.Ellipse(
+                parent = self.rootitem,
+                center_x = 635,
+                center_y = 142,
+                radius_x = 1,
+                radius_y = 1,
+                fill_color_rgba = 0x0033FFC0L,
+                line_width = 0)
+    self.waterlevel_timer = gobject.timeout_add(1000, self.update_waterlevel)
 
     # Some item ordering
     self.rainitem.raise_(None)
@@ -267,7 +268,7 @@ class Gcompris_watercycle:
                           1,
                           1,
                           True,
-                          40*trip_x,
+                          self.timerinc*trip_x,
                           40,
                           goocanvas.ANIMATE_FREEZE)
 
@@ -299,45 +300,31 @@ class Gcompris_watercycle:
   def update_waterlevel(self):
     old_waterlevel = self.waterlevel
 
-    if self.waterpump_on and self.waterlevel > self.waterlevel_max :
-      self.waterlevel -= 1
+    if self.waterpump_on and self.waterlevel < self.waterlevel_max :
+      self.waterlevel += 1
 
     # It tux is in the shower and it works, then remove some water
-    if (self.cleanwaterstatus and self.showerbutton
-        and self.waterlevel < self.waterlevel_min) :
-      self.waterlevel += 2
+    if (self.showerbutton
+        and self.waterlevel > self.waterlevel_min) :
+      self.waterlevel -= 2
+
+    if self.waterlevel < 0:
+      self.waterlevel = self.waterlevel_min
 
     # Redisplay the level of water if needed
     if old_waterlevel != self.waterlevel :
-      self.waterlevel_item.props.points = goocanvas.Points([(655 , self.waterlevel),
-                                                            (655 , self.waterlevel_min)])
-    # Update the clean water tubes
-    if self.waterlevel < self.waterlevel_min - 5 :
-      self.set_cleanwater(1)
-    else:
-      self.set_cleanwater(0)
-      # In this case, de activate the shower to avoid blinking tubes
-      self.showerbuttonitem_on.props.visibility = goocanvas.ITEM_INVISIBLE
-      self.showerbuttonitem_off.props.visibility = goocanvas.ITEM_VISIBLE
-      self.showerbutton = 0
-      self.shower_water_update()
+      self.waterlevel_item.props.radius_x = self.waterlevel * self.waterlevel_x_ratio
+      self.waterlevel_item.props.radius_y = self.waterlevel
+
+    if self.waterlevel < self.waterlevel_min + 3 :
+      # In this case, de activate the shower
+      self.showerbutton_update(False)
 
     self.waterlevel_timer = gobject.timeout_add(1000, self.update_waterlevel)
 
-
-  def set_cleanwater(self, status):
-    if(status == self.cleanwaterstatus):
-      return
-
-    if status:
-      self.cleanwateritem.props.pixbuf = gcompris.utils.load_pixmap("watercycle/cleanwater.png");
-    else:
-      self.cleanwateritem.props.pixbuf = gcompris.utils.load_pixmap("watercycle/cleanwater_off.png");
-    self.cleanwaterstatus = status
-
-
   def boat_arrived(self, item, status):
     # park the boat, change the boat to remove tux
+    self.boat_is_arrived = True
     self.boatitem_parked.props.visibility = goocanvas.ITEM_VISIBLE
     self.boatitem.props.visibility = goocanvas.ITEM_INVISIBLE
     gcompris.sound.play_ogg("sounds/Harbor3.wav")
@@ -359,7 +346,7 @@ class Gcompris_watercycle:
                          1,
                          1,
                          True,
-                         int(40*abs(trip_y)),
+                         int(self.timerinc*abs(trip_y)),
                          40,
                          goocanvas.ANIMATE_FREEZE)
     return False
@@ -371,7 +358,6 @@ class Gcompris_watercycle:
     self.snowitem.props.visibility = goocanvas.ITEM_INVISIBLE
 
   def sun_down_arrived(self, item, status):
-    self.sun_on = 0
     gcompris.utils.item_focus_init(self.sunitem, None)
     # Stop the sun
     self.sun_on = 0
@@ -392,45 +378,14 @@ class Gcompris_watercycle:
                            1,
                            1,
                            True,
-                           40*trip_x,
+                           self.timerinc*trip_x,
                            40,
                            goocanvas.ANIMATE_FREEZE)
-
-  def move_cloud_old(self):
-    if(self.cloud_on):
-      self.clouditem.props.visibility = goocanvas.ITEM_VISIBLE
-    else:
-      self.clouditem.props.visibility = goocanvas.ITEM_INVISIBLE
-
-    if(self.rain_on):
-      self.rainitem.props.visibility = goocanvas.ITEM_VISIBLE
-      # The snow appear if we are close to the left mountain
-      if( self.clouditem.get_bounds().x1 < 250):
-          self.snowitem.props.visibility = goocanvas.ITEM_VISIBLE
-      # The river
-      if(not self.riverfull):
-        self.riveritem.props.pixbuf = gcompris.utils.load_pixmap("watercycle/riverfull.png");
-        self.riverfull = 1
-
-    else:
-      self.rainitem.props.visibility = goocanvas.ITEM_INVISIBLE
-
-    self.clouditem.translate(1, 0);
-    gcompris.utils.item_focus_init(self.clouditem, None)
-    self.rainitem.translate(1, 0);
-    if( self.clouditem.get_bounds().x1 > 800 ) :
-      self.clouditem.translate(-800, 0);
-      self.rainitem.translate(-800, 0);
-      self.cloud_on = 0
-      self.rain_on = 0
-      self.clouditem.props.visibility = goocanvas.ITEM_INVISIBLE
-      self.rainitem.props.visibility = goocanvas.ITEM_INVISIBLE
 
   def vapor_arrived(self, item, state):
     self.vapor_on = 0
     self.vaporitem.props.visibility = goocanvas.ITEM_INVISIBLE
     # Start the cloud
-    print self.cloud_on
     self.move_cloud()
 
   def init_vapor(self):
@@ -442,7 +397,7 @@ class Gcompris_watercycle:
                            1,
                            1,
                            True,
-                           40*trip_y,
+                           self.timerinc*trip_y,
                            40,
                            goocanvas.ANIMATE_RESET)
 
@@ -469,7 +424,7 @@ class Gcompris_watercycle:
                                1,
                                1,
                                True,
-                               int(40*abs(trip_y)),
+                               int(self.timerinc*abs(trip_y)),
                                40,
                                goocanvas.ANIMATE_FREEZE)
 
@@ -484,7 +439,6 @@ class Gcompris_watercycle:
         self.rainitem.props.visibility = goocanvas.ITEM_VISIBLE
         self.snowitem.props.visibility = goocanvas.ITEM_VISIBLE
         self.riveritem.props.visibility = goocanvas.ITEM_VISIBLE
-        self.rain_on = 1
         self.riverfull = 1
         return True
     return False
@@ -513,30 +467,30 @@ class Gcompris_watercycle:
   # If Tux is in the shower, we must display the water if needed
   def shower_water_update(self):
 
-    if self.cleanwaterstatus and self.showerbutton:
-      self.tuxshoweritem.props.visibility = goocanvas.ITEM_INVISIBLE
+    if (self.waterlevel > self.waterlevel_min) and self.showerbutton:
       self.tuxshowerwateritem.props.visibility = goocanvas.ITEM_VISIBLE
     else:
-      self.tuxshoweritem.props.visibility = goocanvas.ITEM_VISIBLE
       self.tuxshowerwateritem.props.visibility = goocanvas.ITEM_INVISIBLE
 
-
-  def showerbutton_item_event(self, widget, target, event=None):
+  def showerbutton_update(self, state):
 
     if not self.watercleaning_on:
       return
 
-    if event.type == gtk.gdk.BUTTON_PRESS:
-      if event.button == 1:
-        if self.showerbutton:
-          gcompris.sound.play_ogg("sounds/bleep.wav")
-          self.showerbuttonitem_on.props.visibility = goocanvas.ITEM_INVISIBLE
-          self.showerbuttonitem_off.props.visibility = goocanvas.ITEM_VISIBLE
-        else:
-          gcompris.sound.play_ogg("sounds/apert2.wav")
-          self.showerbuttonitem_on.props.visibility = goocanvas.ITEM_VISIBLE
-          self.showerbuttonitem_off.props.visibility = goocanvas.ITEM_INVISIBLE
+    self.showerbutton = state
+    if not self.showerbutton:
+      gcompris.sound.play_ogg("sounds/bleep.wav")
+      self.showerbuttonitem_on.props.visibility = goocanvas.ITEM_VISIBLE
+      self.showerbuttonitem_off.props.visibility = goocanvas.ITEM_INVISIBLE
+    else:
+      gcompris.sound.play_ogg("sounds/apert2.wav")
+      self.showerbuttonitem_on.props.visibility = goocanvas.ITEM_INVISIBLE
+      self.showerbuttonitem_off.props.visibility = goocanvas.ITEM_VISIBLE
 
-        self.showerbutton = not self.showerbutton
+    self.shower_water_update()
 
-        self.shower_water_update()
+
+  def showerbutton_item_event(self, widget, target, event, state):
+
+    self.showerbutton_update(state)
+
