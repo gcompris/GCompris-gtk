@@ -1,3 +1,16 @@
+2008-11-24  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/shapegame.c: (item_event_drag): Fixed a crash in case of multiple sound list.
+	  This was especially the case in the level 3 of the double entry activity.
+          Merged from trunk Commit r3628
+	* src/canal_lock-activity/resources/canal_lock/canal_lock.svgz: Created by
+	  Stéphane Cabaraux tef/cyberground/org
+
+2008-11-24  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/watercycle-activity/resources/watercycle/watercycle.svgz: Created by
+	  Stéphane Cabaraux tef/cyberground/org
+
 2008-11-21  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Imported goocanvas commit r31, it allows animation to be
