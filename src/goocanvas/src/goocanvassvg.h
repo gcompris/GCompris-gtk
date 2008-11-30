@@ -30,6 +30,7 @@ struct _GooCanvasSvg
 {
   GooCanvasItemSimple parent_object;
 
+  RsvgHandle *svg_handle;
   gdouble width, height;
   gchar *id;
   cairo_t *cr;

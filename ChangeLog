@@ -1,3 +1,16 @@
+2008-12-01  Bruno Coudoin,,,,  <set EMAIL_ADDRESS environment variable>
+
+	- Completed the canal lock rework based on the new graphism
+	  by Stephane Cabaraux.
+
+	* src/canal_lock-activity/canal_lock.c: (start_board),
+	(canal_lock_next_level), (set_lock_event),
+	(canal_lock_create_item), (move_boat), (update_water),
+	(toggle_lock), (animate_step), (item_event), (update_lights):
+	* src/goocanvas/src/goocanvassvg.c: (_init_surface),
+	(goo_canvas_svg_finalize), (goo_canvas_svg_set_common_property):
+	* src/goocanvas/src/goocanvassvg.h:
+
 2008-11-24  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/shapegame.c: (item_event_drag): Fixed a crash in case of multiple sound list.
@@ -9,7 +22,7 @@
 2008-11-24  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/watercycle-activity/resources/watercycle/watercycle.svgz: Created by
-	  Stéphane Cabaraux tef/cyberground/org
+	  Stephane Cabaraux tef/cyberground/org
 
 2008-11-21  Bruno coudoin  <bruno.coudoin@free.fr>
 

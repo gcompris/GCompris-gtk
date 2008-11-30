@@ -22,25 +22,24 @@
 
 #define ANIMATE_SPEED 30
 
-#define CANAL_COLOR		0x0010FFFF
+#define CANAL_COLOR		0x0000B8FF
 #define LOCK_COLOR		0x8cc679FF
 #define LOCK_COLOR_H		0x71A65FFF
 #define CANALLOCK_COLOR		0xd1cd0cFF
 #define CANALLOCK_COLOR_H	0xf1ed1cFF
-#define GROUND_COLOR		0x9b5f5aFF
-#define BASE_LINE		400
-#define LEFT_CANAL_HEIGHT	100
-#define LEFT_CANAL_WIDTH	325
-#define RIGHT_CANAL_HEIGHT	200
+#define BASE_LINE		396
+#define LEFT_CANAL_HEIGHT	90
+#define LEFT_CANAL_WIDTH	329
+#define RIGHT_CANAL_HEIGHT	191
 #define RIGHT_CANAL_WIDTH	325
-#define MIDDLE_CANAL_WIDTH	(BOARDWIDTH - RIGHT_CANAL_WIDTH -  LEFT_CANAL_WIDTH)
+#define MIDDLE_CANAL_WIDTH	(BOARDWIDTH - RIGHT_CANAL_WIDTH - LEFT_CANAL_WIDTH)
 
 #define LOCK_WIDTH		20
 #define LOCK_HEIGHT_MAX		(RIGHT_CANAL_HEIGHT + 40)
 #define LOCK_HEIGHT_MIN		60
 #define LOCK_RHEIGHT_MIN	160
 
-#define SUBCANAL_BASE_LINE	(BASE_LINE + 80)
+#define SUBCANAL_BASE_LINE	(BASE_LINE + 84)
 #define SUBCANAL_HEIGHT		40
 
 #define CANALLOCK_WIDTH		30
@@ -69,12 +68,15 @@ static GooCanvasItem	*lock_right_item	= NULL;
 static GooCanvasItem	*canallock_left_item	= NULL;
 static GooCanvasItem	*canallock_right_item	= NULL;
 
-static GooCanvasItem	*canal_left_item	= NULL;
 static GooCanvasItem	*canal_middle_item	= NULL;
-static GooCanvasItem	*canal_right_item	= NULL;
 
 static GooCanvasItem	*tuxboat_item		= NULL;
 static double		 tuxboat_width;
+
+static GooCanvasItem    *left_red_on_item;
+static GooCanvasItem    *left_green_on_item;
+static GooCanvasItem    *right_red_on_item;
+static GooCanvasItem    *right_green_on_item;
 
 #define BOAT_POS_LEFT		1
 #define BOAT_POS_MIDDLE		2
@@ -106,6 +108,7 @@ static gboolean          hightlight(GooCanvasItem *item,
 static gboolean		 animate_step();
 static void		 update_water();
 static void		 toggle_lock(GooCanvasItem *item);
+static void		 update_lights();
 
 /* Description of this plugin */
 static BoardPlugin menu_bp =
@@ -164,6 +167,13 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel=2;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
+
+      boardRootItem =
+	goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+			      NULL);
+
+      /* Try the next level */
+      canal_lock_create_item(boardRootItem);
 
       canal_lock_next_level();
 
@@ -225,13 +235,8 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 /* set initial values for the next level */
 static void canal_lock_next_level()
 {
-
-  gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
-			  "canal_lock/canal_lock_bg.png");
-
   gc_bar_set_level(gcomprisBoard);
 
-  canal_lock_destroy_all_items();
   gamewon = FALSE;
   from = 0;
 
@@ -244,8 +249,7 @@ static void canal_lock_next_level()
   canallock_left_up = TRUE;
   canallock_right_up = TRUE;
 
-  /* Try the next level */
-  canal_lock_create_item(goo_canvas_get_root_item(gcomprisBoard->canvas));
+  update_lights();
 }
 /* ==================================== */
 /* Destroy all the items */
@@ -256,50 +260,99 @@ static void canal_lock_destroy_all_items()
 
   boardRootItem = NULL;
 }
-/* ==================================== */
-static GooCanvasItem *canal_lock_create_item(GooCanvasItem *parent)
+
+static void
+set_lock_event(GooCanvasItem *item)
 {
-  GdkPixbuf *pixmap = NULL;
+  g_signal_connect(item, "button-press-event",
+		   (GtkSignalFunc) item_event,
+		   NULL);
+  g_signal_connect(item, "enter_notify_event",
+		   (GtkSignalFunc) hightlight,
+		   GINT_TO_POINTER(TRUE));
+  g_signal_connect(item, "leave_notify_event",
+		   (GtkSignalFunc) hightlight,
+		   GINT_TO_POINTER(FALSE));
+}
 
-  boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
-					NULL);
+/* ==================================== */
+static GooCanvasItem *canal_lock_create_item(GooCanvasItem *boardRootItem)
+{
+  RsvgHandle *svg_handle;
 
+  svg_handle = gc_rsvg_load("canal_lock/canal_lock.svgz");
+
+  /* The background */
+  goo_canvas_svg_new (boardRootItem, svg_handle,
+		      "svg-id", "#BACKGROUND",
+		      "pointer-events", GOO_CANVAS_EVENTS_NONE,
+		      NULL);
 
   /* The boat */
-  pixmap = gc_pixmap_load("canal_lock/tuxboat.png");
+  tuxboat_item = goo_canvas_svg_new (boardRootItem, svg_handle,
+				     "svg-id", "#BOAT_NO_SAIL", NULL);
 
-  tuxboat_item = \
-    goo_canvas_image_new (boardRootItem,
-			  pixmap,
-			  (LEFT_CANAL_WIDTH - gdk_pixbuf_get_width(pixmap)) / 2,
-			  BASE_LINE - LEFT_CANAL_HEIGHT - gdk_pixbuf_get_height(pixmap)*0.9,
-			  NULL);
   g_signal_connect(tuxboat_item, "button-press-event",
                    (GtkSignalFunc) item_event,
                    NULL);
   gc_item_focus_init(tuxboat_item, NULL);
 
-  tuxboat_width = gdk_pixbuf_get_width(pixmap);
-  gdk_pixbuf_unref(pixmap);
+  GooCanvasBounds bounds;
+  goo_canvas_item_get_bounds(tuxboat_item, &bounds);
+  tuxboat_width = bounds.x2 - bounds.x1 + 20;
 
-  /* This is the ground canal */
-  goo_canvas_rect_new (boardRootItem,
-		       0,
-		       BASE_LINE,
-		       BOARDWIDTH,
-		       BOARDHEIGHT - BASE_LINE,
-		       "fill_color_rgba", GROUND_COLOR,
-		       "line-width", (double) 0,
-		       NULL);
+  /* The left lights */
+  goo_canvas_svg_new (boardRootItem, svg_handle,
+		      "svg-id", "#LEFT_RED_OFF",
+		      "visibility", GOO_CANVAS_ITEM_VISIBLE,
+		      "pointer-events", GOO_CANVAS_EVENTS_NONE,
+		      NULL);
+  goo_canvas_svg_new (boardRootItem, svg_handle,
+		      "svg-id", "#LEFT_GREEN_OFF",
+		      "visibility", GOO_CANVAS_ITEM_VISIBLE,
+		      "pointer-events", GOO_CANVAS_EVENTS_NONE,
+		      NULL);
+  left_red_on_item =
+    goo_canvas_svg_new (boardRootItem, svg_handle,
+			"svg-id", "#LEFT_RED_ON",
+			"visibility", GOO_CANVAS_ITEM_INVISIBLE,
+			"pointer-events", GOO_CANVAS_EVENTS_NONE,
+			NULL);
+  left_green_on_item =
+    goo_canvas_svg_new (boardRootItem, svg_handle,
+			"svg-id", "#LEFT_GREEN_ON",
+			"visibility", GOO_CANVAS_ITEM_INVISIBLE,
+			"pointer-events", GOO_CANVAS_EVENTS_NONE,
+			NULL);
+  goo_canvas_svg_new (boardRootItem, svg_handle,
+		      "svg-id", "#LEFT_LIGHT_BASE",
+		      "pointer-events", GOO_CANVAS_EVENTS_NONE,
+		      NULL);
 
-  /* This is the left canal */
-  canal_left_item = goo_canvas_rect_new (boardRootItem,
-					 0,
-					 BASE_LINE - LEFT_CANAL_HEIGHT,
-					 LEFT_CANAL_WIDTH,
-					 LEFT_CANAL_HEIGHT,
-					 "fill_color_rgba", CANAL_COLOR,
-					 "line-width", (double) 0,
+  /* The right lights */
+  goo_canvas_svg_new (boardRootItem, svg_handle,
+		      "svg-id", "#RIGHT_RED_OFF",
+		      "visibility", GOO_CANVAS_ITEM_VISIBLE,
+		      "pointer-events", GOO_CANVAS_EVENTS_NONE,
+		      NULL);
+  goo_canvas_svg_new (boardRootItem, svg_handle,
+		      "svg-id", "#RIGHT_GREEN_OFF",
+		      "visibility", GOO_CANVAS_ITEM_VISIBLE,
+		      "pointer-events", GOO_CANVAS_EVENTS_NONE,
+		      NULL);
+  right_red_on_item = goo_canvas_svg_new (boardRootItem, svg_handle,
+					 "svg-id", "#RIGHT_RED_ON",
+					 "visibility", GOO_CANVAS_ITEM_INVISIBLE,
+					 "pointer-events", GOO_CANVAS_EVENTS_NONE,
+					 NULL);
+  right_green_on_item = goo_canvas_svg_new (boardRootItem, svg_handle,
+					 "svg-id", "#RIGHT_GREEN_ON",
+					 "visibility", GOO_CANVAS_ITEM_INVISIBLE,
+					 "pointer-events", GOO_CANVAS_EVENTS_NONE,
+					 NULL);
+  goo_canvas_svg_new (boardRootItem, svg_handle,
+					 "svg-id", "#RIGHT_LIGHT_BASE",
+					 "pointer-events", GOO_CANVAS_EVENTS_NONE,
 					 NULL);
 
   /* This is the middle canal */
@@ -311,16 +364,7 @@ static GooCanvasItem *canal_lock_create_item(GooCanvasItem *parent)
 					   "fill_color_rgba", CANAL_COLOR,
 					   "line-width", (double) 0,
 					   NULL);
-
-  /* This is the right canal */
-  canal_right_item = goo_canvas_rect_new (boardRootItem,
-					  LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH,
-					  BASE_LINE - RIGHT_CANAL_HEIGHT,
-					  RIGHT_CANAL_WIDTH,
-					  RIGHT_CANAL_HEIGHT,
-					  "fill_color_rgba", CANAL_COLOR,
-					  "line-width", (double) 0,
-					  NULL);
+  goo_canvas_item_raise(tuxboat_item, canal_middle_item);
 
   /* This is the left lock */
   lock_left_item = goo_canvas_rect_new (boardRootItem,
@@ -331,15 +375,7 @@ static GooCanvasItem *canal_lock_create_item(GooCanvasItem *parent)
 					"fill_color_rgba", LOCK_COLOR,
 					"line-width", (double) 0,
 					NULL);
-  g_signal_connect(lock_left_item, "button-press-event",
-		   (GtkSignalFunc) item_event,
-		   NULL);
-  g_signal_connect(lock_left_item, "enter_notify_event",
-		   (GtkSignalFunc) hightlight,
-		   GINT_TO_POINTER(TRUE));
-  g_signal_connect(lock_left_item, "leave_notify_event",
-		   (GtkSignalFunc) hightlight,
-		   GINT_TO_POINTER(FALSE));
+  set_lock_event(lock_left_item);
 
   /* This is the right lock */
   lock_right_item = goo_canvas_rect_new (boardRootItem,
@@ -350,55 +386,7 @@ static GooCanvasItem *canal_lock_create_item(GooCanvasItem *parent)
 					 "fill_color_rgba", LOCK_COLOR,
 					 "line-width", (double) 0,
 					 NULL);
-  g_signal_connect(lock_right_item, "button-press-event",
-		   (GtkSignalFunc) item_event,
-		   NULL);
-  g_signal_connect(lock_right_item, "enter_notify_event",
-		   (GtkSignalFunc) hightlight,
-		   GINT_TO_POINTER(TRUE));
-  g_signal_connect(lock_right_item, "leave_notify_event",
-		   (GtkSignalFunc) hightlight,
-		   GINT_TO_POINTER(FALSE));
-
-  /* This is the water conduit under the canal */
-  goo_canvas_rect_new (boardRootItem,
-		       LEFT_CANAL_WIDTH/2,
-		       SUBCANAL_BASE_LINE - SUBCANAL_HEIGHT,
-		       LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH + RIGHT_CANAL_WIDTH/2 - LEFT_CANAL_WIDTH/2,
-		       SUBCANAL_HEIGHT,
-		       "fill_color_rgba", CANAL_COLOR,
-		       "line-width", (double) 0,
-		       NULL);
-
-  /* Left conduit */
-  goo_canvas_rect_new (boardRootItem,
-		       LEFT_CANAL_WIDTH/2,
-		       BASE_LINE,
-		       SUBCANAL_HEIGHT,
-		       SUBCANAL_BASE_LINE - BASE_LINE,
-		       "fill_color_rgba", CANAL_COLOR,
-		       "line-width", (double) 0,
-		       NULL);
-
-  /* Middle conduit */
-  goo_canvas_rect_new (boardRootItem,
-		       LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH/2 - SUBCANAL_HEIGHT/2,
-		       BASE_LINE,
-		       SUBCANAL_HEIGHT/2,
-		       SUBCANAL_BASE_LINE - BASE_LINE,
-		       "fill_color_rgba", CANAL_COLOR,
-		       "line-width", (double) 0,
-		       NULL);
-
-  /* Right conduit */
-  goo_canvas_rect_new (boardRootItem,
-		       LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH + RIGHT_CANAL_WIDTH/2,
-		       BASE_LINE,
-		       SUBCANAL_HEIGHT,
-		       SUBCANAL_BASE_LINE - BASE_LINE,
-		       "fill_color_rgba", CANAL_COLOR,
-		       "line-width", (double) 0,
-		       NULL);
+  set_lock_event(lock_right_item);
 
   /* And to finish, the 2 canal locks */
   canallock_left_item =
@@ -410,15 +398,7 @@ static GooCanvasItem *canal_lock_create_item(GooCanvasItem *parent)
 			 "fill_color_rgba", CANALLOCK_COLOR,
 			 "line-width", (double) 0,
 			 NULL);
-  g_signal_connect(canallock_left_item, "button-press-event",
-		     (GtkSignalFunc) item_event,
-		     NULL);
-  g_signal_connect(canallock_left_item, "enter_notify_event",
-		   (GtkSignalFunc) hightlight,
-		   GINT_TO_POINTER(TRUE));
-  g_signal_connect(canallock_left_item, "leave_notify_event",
-		   (GtkSignalFunc) hightlight,
-		   GINT_TO_POINTER(FALSE));
+  set_lock_event(canallock_left_item);
 
   canallock_right_item =
     goo_canvas_rect_new (boardRootItem,
@@ -429,17 +409,9 @@ static GooCanvasItem *canal_lock_create_item(GooCanvasItem *parent)
 			 "fill_color_rgba", CANALLOCK_COLOR,
 			 "line-width", (double) 0,
 			 NULL);
-  g_signal_connect(canallock_right_item, "button-press-event",
-                   (GtkSignalFunc) item_event,
-                   NULL);
-  g_signal_connect(canallock_right_item, "enter_notify_event",
-		   (GtkSignalFunc) hightlight,
-		   GINT_TO_POINTER(TRUE));
-  g_signal_connect(canallock_right_item, "leave_notify_event",
-		   (GtkSignalFunc) hightlight,
-		   GINT_TO_POINTER(FALSE));
+  set_lock_event(canallock_right_item);
 
-
+  g_object_unref (svg_handle);
 
   return NULL;
 }
@@ -449,7 +421,9 @@ static void
 move_boat()
 {
 
-  /* If there is already an animation do nothing else set animation to avoid deadlock */
+  /* If there is already an animation do nothing
+   * else set animation to avoid deadlock
+   */
   if(animation)
     return;
   animation = TRUE;
@@ -459,6 +433,8 @@ move_boat()
       boat_position = BOAT_POS_MIDDLE;
       timer_item_limit_x = LEFT_CANAL_WIDTH + (MIDDLE_CANAL_WIDTH - tuxboat_width)/2;
       timer_step_x1 = 2;
+      g_object_set (tuxboat_item,
+		    "svg-id", "#BOAT", NULL);
     }
   else if(boat_position == BOAT_POS_MIDDLE && !lock_left_up)
     {
@@ -470,6 +446,8 @@ move_boat()
           gamewon = TRUE;
           from = 0;
         }
+      g_object_set (tuxboat_item,
+		    "svg-id", "#BOAT", NULL);
     }
   else if(boat_position == BOAT_POS_MIDDLE && !lock_right_up)
     {
@@ -481,12 +459,16 @@ move_boat()
           gamewon = TRUE;
           from = 1;
         }
+      g_object_set (tuxboat_item,
+		    "svg-id", "#BOAT", NULL);
     }
   else if(boat_position == BOAT_POS_RIGHT && !lock_right_up)
     {
       boat_position = BOAT_POS_MIDDLE;
       timer_item_limit_x = LEFT_CANAL_WIDTH + (MIDDLE_CANAL_WIDTH - tuxboat_width)/2;
       timer_step_x1 = -2;
+      g_object_set (tuxboat_item,
+		    "svg-id", "#BOAT", NULL);
     }
   else
     {
@@ -539,6 +521,8 @@ static void update_water()
 			y1);
   timer_step_y1 = (status ? 2 : -2);
   timer_step_x1 = 0;
+
+  gc_item_focus_remove(tuxboat_item, NULL);
 
   timer_id = gtk_timeout_add (ANIMATE_SPEED, (GtkFunction) animate_step, NULL);
 }
@@ -599,6 +583,8 @@ toggle_lock(GooCanvasItem *item)
   timer_step_y1 = (status ? 2 : -2);
   timer_step_x1 = 0;
 
+  gc_item_focus_remove(tuxboat_item, NULL);
+
   timer_id = gtk_timeout_add (animate_speed, (GtkFunction) animate_step,
 			      NULL);
 
@@ -616,11 +602,8 @@ animate_step()
   GooCanvasBounds bounds;
   goo_canvas_item_get_bounds(timer_item, &bounds);
 
-  if(GOO_IS_CANVAS_IMAGE(timer_item))
-    g_object_set(timer_item,
-		 "x", bounds.x1 + timer_step_x1,
-		 "y", bounds.y1 + timer_step_y1,
-		 NULL);
+  if(GOO_IS_CANVAS_SVG(timer_item))
+    goo_canvas_item_translate(timer_item, timer_step_x1, timer_step_y1);
   else if(GOO_IS_CANVAS_RECT(timer_item))
     g_object_set(timer_item,
 		 "x", bounds.x1 + timer_step_x1,
@@ -631,13 +614,8 @@ animate_step()
   /* Special case for raising/lowering the boat */
   if(boat_position==BOAT_POS_MIDDLE && timer_item==canal_middle_item)
     {
-      GooCanvasBounds bounds;
-
-      goo_canvas_item_get_bounds(tuxboat_item, &bounds);
-
-      g_object_set(tuxboat_item,
-			    "y", bounds.y1 + timer_step_y1,
-			    NULL);
+      goo_canvas_item_translate(tuxboat_item, 0, timer_step_y1);
+      gc_item_focus_remove(tuxboat_item, NULL);
     }
 
   if((bounds.y1 >= timer_item_limit_y && timer_step_y1 > 0) ||
@@ -647,8 +625,9 @@ animate_step()
       timer_id = 0;
       animation = FALSE;
       update_water();
-      if (timer_item == tuxboat_item)
-        gc_item_focus_init(tuxboat_item, NULL);
+      gc_item_focus_init(tuxboat_item, NULL);
+      g_object_set (tuxboat_item,
+		    "svg-id", "#BOAT_NO_SAIL", NULL);
     }
   else if((bounds.x1 >= timer_item_limit_x && timer_step_x1 > 0) ||
      (bounds.x1 <= timer_item_limit_x && timer_step_x1 < 0))
@@ -662,8 +641,9 @@ animate_step()
           gc_bonus_display(TRUE, GC_BONUS_FLOWER);
           gamewon = FALSE;
         }
-      if (timer_item == tuxboat_item)
-        gc_item_focus_init(tuxboat_item, NULL);
+      gc_item_focus_init(tuxboat_item, NULL);
+      g_object_set (tuxboat_item,
+		    "svg-id", "#BOAT_NO_SAIL", NULL);
     }
 
   return TRUE;
@@ -754,6 +734,48 @@ item_event (GooCanvasItem  *item,
     {
       gc_sound_play_ogg ("sounds/crash.ogg", NULL);
     }
+
+  update_lights();
   return FALSE;
 }
 
+static void update_lights()
+{
+  if(lock_water_low && !lock_left_up)
+    {
+      g_object_set (left_red_on_item,
+		    "visibility", GOO_CANVAS_ITEM_INVISIBLE,
+		    NULL);
+      g_object_set (left_green_on_item,
+		    "visibility", GOO_CANVAS_ITEM_VISIBLE,
+		    NULL);
+    }
+  else
+    {
+      g_object_set (left_red_on_item,
+		    "visibility", GOO_CANVAS_ITEM_VISIBLE,
+		    NULL);
+      g_object_set (left_green_on_item,
+		    "visibility", GOO_CANVAS_ITEM_INVISIBLE,
+		    NULL);
+    }
+
+  if(!lock_water_low && !lock_right_up)
+    {
+      g_object_set (right_red_on_item,
+		    "visibility", GOO_CANVAS_ITEM_INVISIBLE,
+		    NULL);
+      g_object_set (right_green_on_item,
+		    "visibility", GOO_CANVAS_ITEM_VISIBLE,
+		    NULL);
+    }
+  else
+    {
+      g_object_set (right_red_on_item,
+		    "visibility", GOO_CANVAS_ITEM_VISIBLE,
+		    NULL);
+      g_object_set (right_green_on_item,
+		    "visibility", GOO_CANVAS_ITEM_INVISIBLE,
+		    NULL);
+    }
+}

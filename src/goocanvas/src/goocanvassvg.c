@@ -49,10 +49,13 @@ goo_canvas_svg_install_common_properties (GObjectClass *gobject_class)
 static void _init_surface(GooCanvasSvg *canvas_svg,
 			  RsvgHandle *svg_handle)
 {
+  g_assert(svg_handle);
   RsvgDimensionData dimension_data;
   rsvg_handle_get_dimensions (svg_handle, &dimension_data);
   canvas_svg->width = dimension_data.width;
   canvas_svg->height = dimension_data.height;
+  canvas_svg->svg_handle = svg_handle;
+  g_object_ref(svg_handle);
 
   if (canvas_svg->pattern)
       cairo_pattern_destroy(canvas_svg->pattern);
@@ -200,6 +203,9 @@ goo_canvas_svg_finalize (GObject *object)
     cairo_destroy(canvas_svg->cr);
   canvas_svg->cr = NULL;
 
+  if (canvas_svg->svg_handle)
+    g_object_unref (canvas_svg->svg_handle);
+  canvas_svg->svg_handle = NULL;
 
   G_OBJECT_CLASS (goo_canvas_svg_parent_class)->finalize (object);
 }
@@ -218,13 +224,19 @@ goo_canvas_svg_set_common_property (GObject              *object,
     {
     case PROP_SVGHANDLE:
       svg_handle = g_value_get_object (value);
+      if(canvas_svg->svg_handle)
+      g_object_unref (canvas_svg->svg_handle);
       _init_surface(canvas_svg, svg_handle);
       break;
     case PROP_SVG_ID:
+      if(canvas_svg->id)
+	g_free(canvas_svg->id);
       if (!g_value_get_string (value))
-        canvas_svg->id = NULL;
+	canvas_svg->id = NULL;
       else
         canvas_svg->id = g_value_dup_string(value);
+      if (canvas_svg->svg_handle)
+	_init_surface(canvas_svg, canvas_svg->svg_handle);
       break;
     default:
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
