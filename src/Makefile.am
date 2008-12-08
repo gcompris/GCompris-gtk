@@ -55,6 +55,7 @@ SUBDIRS = goocanvas gcompris boards \
 	memory_mult_div-activity \
 	memory_mult_div_tux-activity \
 	memory_mult_tux-activity \
+	memory_enumerate-activity \
 	memory_sound-activity \
 	memory_sound_tux-activity \
 	memory_tux-activity \

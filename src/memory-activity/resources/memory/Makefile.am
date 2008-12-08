@@ -74,6 +74,16 @@ img_DATA = \
 	tri.ogg \
 	Tux_mute.png \
 	Tux_play.png \
-	tux-teacher.png
+	tux-teacher.png \
+	math_0.svg \
+	math_1.svg \
+	math_2.svg \
+	math_3.svg \
+	math_4.svg \
+	math_5.svg \
+	math_6.svg \
+	math_7.svg \
+	math_8.svg \
+	math_9.svg 
 
 EXTRA_DIST = $(img_DATA)

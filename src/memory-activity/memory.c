@@ -75,6 +75,7 @@ typedef enum
   BOARDMODE_ADD_MINUS            = 6,
   BOARDMODE_MULT_DIV             = 7,
   BOARDMODE_ADD_MINUS_MULT_DIV   = 8,
+  BOARDMODE_ENUMERATE            = 9,
 } BoardMode;
 static BoardMode currentBoardMode = BOARDMODE_NORMAL;
 
@@ -254,6 +255,22 @@ static gchar *soundList[] =
 
 #define NUMBER_OF_SOUNDS G_N_ELEMENTS(soundList)
 
+/* List of images to use in the enumerate memory */
+static gchar *enumerateList[] =
+{
+	"memory/math_0.svg",
+	"memory/math_1.svg",
+	"memory/math_2.svg",
+	"memory/math_3.svg",
+	"memory/math_4.svg",
+	"memory/math_5.svg",
+	"memory/math_6.svg",
+	"memory/math_7.svg",
+	"memory/math_8.svg",
+	"memory/math_9.svg",
+};
+#define NUMBER_OF_ENUMERATES G_N_ELEMENTS(enumerateList)
+
 static SoundPolicy sound_policy;
 
 /* Description of this plugin */
@@ -392,6 +409,8 @@ static guint div_levelDescription[10][2] =
 #define TYPE_MINUS     64
 #define TYPE_MULT      128
 #define TYPE_DIV       256
+#define TYPE_ENUMERATE 512
+#define TYPE_ENUMERATE_IMAGE 1024
 
 static GList *passed_token = NULL;
 
@@ -496,6 +515,14 @@ void get_random_token(int token_type, gint *returned_type, gchar **string, gchar
     data = g_list_append(data, dat);
   }
 
+  if (token_type & TYPE_ENUMERATE){
+    max_token += NUMBER_OF_ENUMERATES;
+
+    DATUM *dat = g_malloc0(sizeof(DATUM));
+    dat->bound = max_token;
+    dat->type =  TYPE_ENUMERATE;
+    data = g_list_append(data, dat);
+  }
 
 
   g_assert(max_token >0);
@@ -584,6 +611,11 @@ void get_random_token(int token_type, gint *returned_type, gchar **string, gchar
 	second = g_strdup_printf("%d",i2);
 	break;
       }
+    case TYPE_ENUMERATE:
+      result = g_malloc0(2*sizeof(gunichar));
+      g_utf8_strncpy(result, g_utf8_offset_to_pointer (numbers,k),1);
+      second = g_strdup(enumerateList[k]);
+      break;      
     default:
       /* should never append */
       g_error("never !");
@@ -764,10 +796,22 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 					  currentUiMode=UIMODE_NORMAL;
 					  currentBoardMode=BOARDMODE_ADD_MINUS_MULT_DIV;
 					} else {
-					  currentMode=MODE_NORMAL;
-					  currentUiMode=UIMODE_NORMAL;
-					  currentBoardMode=BOARDMODE_NORMAL;
-					  g_warning("Fallback mode set to images");
+					  if(g_strcasecmp(gcomprisBoard->mode, "enumerate")==0){
+					    currentMode=MODE_NORMAL;
+					    currentUiMode=UIMODE_NORMAL;
+					    currentBoardMode=BOARDMODE_ENUMERATE;
+					  } else {
+					    if(g_strcasecmp(gcomprisBoard->mode, "enumerate_tux")==0){
+					      currentMode=MODE_TUX;
+					      currentUiMode=UIMODE_NORMAL;
+					      currentBoardMode=BOARDMODE_ENUMERATE;
+					    } else {
+					      currentMode=MODE_NORMAL;
+					      currentUiMode=UIMODE_NORMAL;
+					      currentBoardMode=BOARDMODE_NORMAL;
+					      g_warning("Fallback mode set to images");
+					    }
+					  }
 					}
 				      }
 				    }
@@ -786,7 +830,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	  }
 	}
       }
-
+    
 
       if (currentUiMode == UIMODE_SOUND)
 	{
@@ -815,6 +859,11 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	}
       else
 	{
+	  if (currentBoardMode==BOARDMODE_ENUMERATE)
+	    {
+             gcomprisBoard->maxlevel = 6;	
+	    }
+	  
 	  gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			    "memory/scenery_background.png");
 	  base_x1 = BASE_CARD_X1;
@@ -1059,9 +1108,13 @@ static void get_image(MemoryItem *memoryItem, guint x, guint y)
   if(memoryArray[x][y])
     {
       // Get the pair's image
-      if (memoryArray[x][y]->type & (TYPE_ADD|TYPE_MINUS|TYPE_MULT|TYPE_DIV)){
+      if (memoryArray[x][y]->type & (TYPE_ADD|TYPE_MINUS|TYPE_MULT|TYPE_DIV|TYPE_ENUMERATE)){
 	memoryItem->data = memoryArray[x][y]->second_value;
-	memoryItem->type =  memoryArray[x][y]->type;
+	if (memoryArray[x][y]->type == TYPE_ENUMERATE) {
+		memoryItem->type = TYPE_ENUMERATE_IMAGE;
+        } else {
+	   memoryItem->type =  memoryArray[x][y]->type;
+	}   
 	memoryArray[x][y] = memoryItem;
 	// if created by g_malloc0, this is not usefull;
 	//memoryItem->second_value = NULL;
@@ -1141,6 +1194,10 @@ static void get_image(MemoryItem *memoryItem, guint x, guint y)
   case BOARDMODE_ADD_MINUS_MULT_DIV:
     get_random_token ( TYPE_ADD | TYPE_MINUS |TYPE_MULT | TYPE_DIV , &memoryItem->type,  &memoryItem->data, &memoryItem->second_value);
     g_assert (memoryItem->type & (TYPE_ADD | TYPE_MINUS |TYPE_MULT | TYPE_DIV));
+    break;
+  case BOARDMODE_ENUMERATE:
+    get_random_token ( TYPE_ENUMERATE , &memoryItem->type,  &memoryItem->data, &memoryItem->second_value);
+    g_assert (memoryItem->type & TYPE_ENUMERATE);
     break;
 
   default:
@@ -1318,17 +1375,30 @@ static void create_item(GooCanvasItem *parent)
 	    gdk_pixbuf_unref(pixmap);
 	  }
 	  else {
-	    if(memoryItem->type == TYPE_IMAGE) {
-	      pixmap = gc_pixmap_load(memoryItem->data);
+	    
+	    if(memoryItem->type & (TYPE_IMAGE|TYPE_ENUMERATE_IMAGE)) {
+              pixmap = gc_pixmap_load(memoryItem->data);
 
 	      memoryItem->frontcardItem =	\
 		goo_canvas_image_new (memoryItem->rootItem,
 				      pixmap,
-				      (width2-
-				       gdk_pixbuf_get_width(pixmap))/2,
-				      (height2-
-				       gdk_pixbuf_get_height(pixmap))/2,
-				       NULL);
+				      0.0,
+				      0.0,
+				      NULL);
+	      
+	      /* scale only in ENUMERATE (image size too big) */
+		 if(memoryItem->type == TYPE_ENUMERATE_IMAGE) {
+		    goo_canvas_item_scale(memoryItem->frontcardItem,
+					  (0.9*width2 / gdk_pixbuf_get_width(pixmap)),
+					  (0.9*height2 / gdk_pixbuf_get_height(pixmap)));
+		    goo_canvas_item_translate(memoryItem->frontcardItem,
+					      0.1 * width2,
+					      0.1 * height2);
+		 } else {
+	            goo_canvas_item_translate(memoryItem->frontcardItem,
+					      (width2 - gdk_pixbuf_get_width(pixmap))/2,
+					      (height2 - gdk_pixbuf_get_height(pixmap))/2);
+		 }
 	      gdk_pixbuf_unref(pixmap);
 
 	    } else {
@@ -1632,7 +1702,7 @@ compare_card (gconstpointer a,
   MemoryItem *card1 = (MemoryItem *)a;
   MemoryItem *card2 = (MemoryItem *)b;
 
-  if (card1->type & (TYPE_ADD|TYPE_MINUS|TYPE_MULT|TYPE_DIV)){
+  if (card1->type & (TYPE_ADD|TYPE_MINUS|TYPE_MULT|TYPE_DIV|TYPE_ENUMERATE|TYPE_ENUMERATE_IMAGE)){
     if ((!card1->second_value) && ( card2->second_value)){
       return strcmp(card1->data,card2->second_value);
     }

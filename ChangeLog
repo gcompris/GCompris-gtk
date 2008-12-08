@@ -1,3 +1,27 @@
+2008-12-08  Yves Combe <yves@ycombe.net>
+
+	- add new activity: memory_enumerate. Pictures by Mathieu.
+
+	* configure.in:
+	* po/POTFILES.in:
+	* src/Makefile.am:
+	* src/memory-activity/memory.c: (get_random_token), (start_board),
+	(get_image), (create_item), (compare_card):
+	* src/memory-activity/resources/memory/math_0.svg:
+	* src/memory-activity/resources/memory/math_1.svg:
+	* src/memory-activity/resources/memory/math_2.svg:
+	* src/memory-activity/resources/memory/math_3.svg:
+	* src/memory-activity/resources/memory/math_4.svg:
+	* src/memory-activity/resources/memory/math_5.svg:
+	* src/memory-activity/resources/memory/math_6.svg:
+	* src/memory-activity/resources/memory/math_7.svg:
+	* src/memory-activity/resources/memory/math_8.svg:
+	* src/memory-activity/resources/memory/math_9.svg:
+	* src/memory_enumerate-activity/Makefile.am:
+	* src/memory_enumerate-activity/init_path.sh:
+	* src/memory_enumerate-activity/memo_enumerate.svg:
+	* src/memory_enumerate-activity/memory_enumerate.xml.in:
+
 2008-12-01  Bruno Coudoin,,,,  <set EMAIL_ADDRESS environment variable>
 
 	- Completed the canal lock rework based on the new graphism

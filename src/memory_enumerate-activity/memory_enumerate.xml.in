@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GCompris>
+  <Board 
+	 name="memory_enumarate"
+	 type="memory" 
+	 section="/math/numeration"
+	 mode="enumerate" 
+	 difficulty="1"
+	 icon="memo_enumerate.svg" 
+	 author="Yves Combe (yves@ycombe.net)"
+	 boarddir="">
+	 <_title>Enumeration memory game</_title>
+ 	 <_description>Turn the cards over to match the number with the drawn picture.</_description>
+	<_prerequisite>Addition</_prerequisite>
+	<_goal>Numeration training, memory.</_goal>
+	<_manual xml:space="preserve">You can see some cards, but you can't see what's on the other side of them. Each card is hiding a number of pictures, or the written number.</_manual>
+  </Board>
+  <Data directory=""/>
+</GCompris>
