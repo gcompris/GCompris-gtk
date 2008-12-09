@@ -267,9 +267,9 @@ void gc_bar_start (GooCanvas *theCanvas)
   update_exit_button();
 
   /* FIXME: Bootstrap for centering should not be needed */
-  gc_bar_set(GC_BAR_CONFIG|GC_BAR_ABOUT);
+  //  gc_bar_set(GC_BAR_CONFIG|GC_BAR_ABOUT);
   /* Set back the bar to it's original location */
-  gc_bar_location (-1, -1, -1);
+  //gc_bar_location (-1, -1, -1);
   gc_bar_set(0);
 
   _hidden = FALSE;
@@ -358,6 +358,9 @@ gc_bar_location (int x, int y, double zoom)
 void
 gc_bar_set (const GComprisBarFlags flags)
 {
+  // Always reset the zoom factor or the calculation
+  // will be wrong
+  gc_bar_location (-1, -1, -1);
 
   _hidden = FALSE;
   goo_canvas_item_raise(rootitem, NULL);
@@ -423,6 +426,8 @@ gc_bar_set (const GComprisBarFlags flags)
                         x / (bounds.x2 - bounds.x1),
                         1);
 
+  // Always center the bar with its new bounds
+  gc_bar_location (-1, -1, -1);
 }
 
 /* Hide all icons in the control bar
