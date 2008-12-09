@@ -1,3 +1,16 @@
+2008-12-09  Yves Combe,,,  <yves@ycombe.net>
+
+	- add new activity: memory_wordnumber. Icon by Mathieu.
+
+	* configure.in:
+	* src/Makefile.am:
+	* src/memory-activity/memory.c: (get_random_token), (start_board),
+	(get_image), (compare_card):
+	* src/memory_wordnumber-activity/Makefile.am:
+	* src/memory_wordnumber-activity/init_path.sh:
+	* src/memory_wordnumber-activity/memo_wordnumber.svg:
+	* src/memory_wordnumber-activity/memory_wordnumber.xml.in:
+
 2008-12-09  Bruno Coudoin,,,,  <bruno.coudoin@free.fr>
 
 	Ported the penalty activity. Reworked the graphism and

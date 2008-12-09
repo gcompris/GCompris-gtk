@@ -76,6 +76,7 @@ typedef enum
   BOARDMODE_MULT_DIV             = 7,
   BOARDMODE_ADD_MINUS_MULT_DIV   = 8,
   BOARDMODE_ENUMERATE            = 9,
+  BOARDMODE_WORDNUMBER           = 10,
 } BoardMode;
 static BoardMode currentBoardMode = BOARDMODE_NORMAL;
 
@@ -271,6 +272,23 @@ static gchar *enumerateList[] =
 };
 #define NUMBER_OF_ENUMERATES G_N_ELEMENTS(enumerateList)
 
+/* List of images to use in the enumerate memory */
+static gchar *wordnumberList[] =
+{
+	N_("zero"),
+	N_("one"),
+	N_("two"),
+	N_("three"),
+	N_("for"),
+	N_("five"),
+	N_("six"),
+	N_("seven"),
+	N_("height"),
+	N_("nine"),
+};
+#define NUMBER_OF_WORDNUMBERS G_N_ELEMENTS(wordnumberList)
+
+
 static SoundPolicy sound_policy;
 
 /* Description of this plugin */
@@ -400,17 +418,18 @@ static guint div_levelDescription[10][2] =
  *
  */
 
-#define TYPE_IMAGE     1
-#define TYPE_NUMBER    2
-#define TYPE_UPPERCASE 4
-#define TYPE_LOWERCASE 8
-#define TYPE_SOUND     16
-#define TYPE_ADD       32
-#define TYPE_MINUS     64
-#define TYPE_MULT      128
-#define TYPE_DIV       256
-#define TYPE_ENUMERATE 512
+#define TYPE_IMAGE              1
+#define TYPE_NUMBER             2
+#define TYPE_UPPERCASE          4
+#define TYPE_LOWERCASE          8
+#define TYPE_SOUND             16
+#define TYPE_ADD               32
+#define TYPE_MINUS             64
+#define TYPE_MULT             128
+#define TYPE_DIV              256
+#define TYPE_ENUMERATE        512
 #define TYPE_ENUMERATE_IMAGE 1024
+#define TYPE_WORDNUMBER      2048
 
 static GList *passed_token = NULL;
 
@@ -523,6 +542,15 @@ void get_random_token(int token_type, gint *returned_type, gchar **string, gchar
     dat->type =  TYPE_ENUMERATE;
     data = g_list_append(data, dat);
   }
+  
+  if (token_type & TYPE_WORDNUMBER){
+    max_token += NUMBER_OF_WORDNUMBERS;
+
+    DATUM *dat = g_malloc0(sizeof(DATUM));
+    dat->bound = max_token;
+    dat->type =  TYPE_WORDNUMBER;
+    data = g_list_append(data, dat);
+  }
 
 
   g_assert(max_token >0);
@@ -612,10 +640,19 @@ void get_random_token(int token_type, gint *returned_type, gchar **string, gchar
 	break;
       }
     case TYPE_ENUMERATE:
+      {
       result = g_malloc0(2*sizeof(gunichar));
       g_utf8_strncpy(result, g_utf8_offset_to_pointer (numbers,k),1);
       second = g_strdup(enumerateList[k]);
-      break;      
+      break;
+      }
+    case TYPE_WORDNUMBER:
+      {
+      result = g_malloc0(2*sizeof(gunichar));
+      g_utf8_strncpy(result, g_utf8_offset_to_pointer (numbers,k),1);
+      second = g_strdup(wordnumberList[k]);
+      break;
+      }
     default:
       /* should never append */
       g_error("never !");
@@ -806,10 +843,22 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 					      currentUiMode=UIMODE_NORMAL;
 					      currentBoardMode=BOARDMODE_ENUMERATE;
 					    } else {
-					      currentMode=MODE_NORMAL;
-					      currentUiMode=UIMODE_NORMAL;
-					      currentBoardMode=BOARDMODE_NORMAL;
-					      g_warning("Fallback mode set to images");
+				              if(g_strcasecmp(gcomprisBoard->mode, "wordnumber")==0){
+						currentMode=MODE_NORMAL;
+						currentUiMode=UIMODE_NORMAL;
+						currentBoardMode=BOARDMODE_WORDNUMBER;
+					      } else {
+						if(g_strcasecmp(gcomprisBoard->mode, "wordnumber_tux")==0){
+					          currentMode=MODE_TUX;
+						  currentUiMode=UIMODE_NORMAL;
+						  currentBoardMode=BOARDMODE_WORDNUMBER;
+						} else {
+						  currentMode=MODE_NORMAL;
+						  currentUiMode=UIMODE_NORMAL;
+						  currentBoardMode=BOARDMODE_NORMAL;
+						  g_warning("Fallback mode set to images");
+						}  
+					      }
 					    }
 					  }
 					}
@@ -830,7 +879,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	  }
 	}
       }
-    
+      
 
       if (currentUiMode == UIMODE_SOUND)
 	{
@@ -859,7 +908,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	}
       else
 	{
-	  if (currentBoardMode==BOARDMODE_ENUMERATE)
+        if ((currentBoardMode==BOARDMODE_ENUMERATE)||(currentBoardMode==BOARDMODE_WORDNUMBER))
 	    {
              gcomprisBoard->maxlevel = 6;	
 	    }
@@ -1108,7 +1157,7 @@ static void get_image(MemoryItem *memoryItem, guint x, guint y)
   if(memoryArray[x][y])
     {
       // Get the pair's image
-      if (memoryArray[x][y]->type & (TYPE_ADD|TYPE_MINUS|TYPE_MULT|TYPE_DIV|TYPE_ENUMERATE)){
+      if (memoryArray[x][y]->type & (TYPE_ADD|TYPE_MINUS|TYPE_MULT|TYPE_DIV|TYPE_ENUMERATE|TYPE_WORDNUMBER)){
 	memoryItem->data = memoryArray[x][y]->second_value;
 	if (memoryArray[x][y]->type == TYPE_ENUMERATE) {
 		memoryItem->type = TYPE_ENUMERATE_IMAGE;
@@ -1199,6 +1248,11 @@ static void get_image(MemoryItem *memoryItem, guint x, guint y)
     get_random_token ( TYPE_ENUMERATE , &memoryItem->type,  &memoryItem->data, &memoryItem->second_value);
     g_assert (memoryItem->type & TYPE_ENUMERATE);
     break;
+  case BOARDMODE_WORDNUMBER:
+    get_random_token ( TYPE_WORDNUMBER , &memoryItem->type,  &memoryItem->data, &memoryItem->second_value);
+    g_assert (memoryItem->type & TYPE_WORDNUMBER);
+    break;
+    
 
   default:
     g_error("Don't now in what mode run !");
@@ -1702,7 +1756,7 @@ compare_card (gconstpointer a,
   MemoryItem *card1 = (MemoryItem *)a;
   MemoryItem *card2 = (MemoryItem *)b;
 
-  if (card1->type & (TYPE_ADD|TYPE_MINUS|TYPE_MULT|TYPE_DIV|TYPE_ENUMERATE|TYPE_ENUMERATE_IMAGE)){
+  if (card1->type & (TYPE_ADD|TYPE_MINUS|TYPE_MULT|TYPE_DIV|TYPE_ENUMERATE|TYPE_ENUMERATE_IMAGE|TYPE_WORDNUMBER)){
     if ((!card1->second_value) && ( card2->second_value)){
       return strcmp(card1->data,card2->second_value);
     }

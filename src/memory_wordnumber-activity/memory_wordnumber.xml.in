@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GCompris>
+  <Board 
+	 name="memory_wordnumber"
+	 type="memory" 
+	 section="/reading"
+	 mode="wordnumber" 
+	 difficulty="1"
+	 icon="memo_wordnumber.svg" 
+	 author="Yves Combe (yves@ycombe.net)"
+	 boarddir="">
+	 <_title>Wordnumber memory game</_title>
+ 	 <_description>Turn the cards over to match the number with the word matching it.</_description>
+	<_prerequisite>Reading</_prerequisite>
+	<_goal>Reading numbers, memory.</_goal>
+	<_manual xml:space="preserve">You can see some cards, but you can't see what's on the other side of them. Each card is hiding a number of number, or the word of the number.</_manual>
+  </Board>
+  <Data directory=""/>
+</GCompris>
