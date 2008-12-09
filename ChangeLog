@@ -1,3 +1,18 @@
+2008-12-09  Bruno Coudoin,,,,  <bruno.coudoin@free.fr>
+
+	Ported the penalty activity. Reworked the graphism and
+	the implementation to be more goocanvas aware.
+
+	* configure.in:
+	* src/penalty-activity/Makefile.am:
+	* src/penalty-activity/gcompris:
+	* src/penalty-activity/init_path.sh:
+	* src/penalty-activity/penalty.py:
+	* src/penalty-activity/penalty.svg:
+	* src/penalty-activity/penalty.xml.in:
+	* src/penalty-activity/resources/Makefile.am:
+	* src/penalty-activity/resources/penalty/Makefile.am:
+
 2008-12-08  Yves Combe <yves@ycombe.net>
 
 	- add new activity: memory_enumerate. Pictures by Mathieu.
@@ -22,7 +37,7 @@
 	* src/memory_enumerate-activity/memo_enumerate.svg:
 	* src/memory_enumerate-activity/memory_enumerate.xml.in:
 
-2008-12-01  Bruno Coudoin,,,,  <set EMAIL_ADDRESS environment variable>
+2008-12-01  Bruno Coudoin
 
 	- Completed the canal lock rework based on the new graphism
 	  by Stephane Cabaraux.
