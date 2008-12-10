@@ -162,6 +162,8 @@ static void sound_callback(gchar *file);
 static void start_callback(gchar *file);
 static gboolean playing_sound = FALSE;
 
+static void gcompris_adapt_font_size(GooCanvasText *textItem, gdouble width, gdouble height);
+
 // Number of images for x and y by level
 static guint levelDescription[] =
 {
@@ -1158,7 +1160,12 @@ static void get_image(MemoryItem *memoryItem, guint x, guint y)
     {
       // Get the pair's image
       if (memoryArray[x][y]->type & (TYPE_ADD|TYPE_MINUS|TYPE_MULT|TYPE_DIV|TYPE_ENUMERATE|TYPE_WORDNUMBER)){
-	memoryItem->data = memoryArray[x][y]->second_value;
+	/* translate word for numbers */      
+	if(memoryArray[x][y]->type == TYPE_WORDNUMBER) {
+           memoryItem->data = gettext(memoryArray[x][y]->second_value);
+	} else {
+	   memoryItem->data = memoryArray[x][y]->second_value;
+	}
 	if (memoryArray[x][y]->type == TYPE_ENUMERATE) {
 		memoryItem->type = TYPE_ENUMERATE_IMAGE;
         } else {
@@ -1472,6 +1479,10 @@ static void create_item(GooCanvasItem *parent)
 				     "font", font,
 				     "fill_color_rgba", 0xFFFFFFFF,
 				     NULL);
+
+	      if(memoryItem->type == TYPE_WORDNUMBER){
+	        gcompris_adapt_font_size(GOO_CANVAS_TEXT(memoryItem->frontcardItem), width2, height2);
+	      }
 	    }
 	  }
 
@@ -1929,4 +1940,41 @@ static void start_callback(gchar *file){
     return;
 
   playing_sound = FALSE;
+}
+
+static void gcompris_adapt_font_size(GooCanvasText *textItem, gdouble width, gdouble height) {
+	g_assert ((width > 0) && (height > 0));
+	
+	gdouble wscale, hscale, scale;
+	
+	/* Get size of the text */
+	PangoRectangle ink, log;
+	goo_canvas_text_get_natural_extents (textItem,
+					     &ink,
+					     &log);
+	
+
+	/* get real size */
+	gint lwidth = PANGO_PIXELS(log.width);
+	gint lheight = PANGO_PIXELS(log.height);
+	
+	/* Calculate scale to get text fit in width and height */
+	wscale = lwidth > ((int) width) ? width / lwidth : 1.0;
+	hscale = lheight > ((int) height) ? height / lheight : 1.0;
+	
+	/* scale is  MIN */
+	scale = wscale < hscale ? wscale : hscale;
+	
+	if(scale == 1.0)
+	  return;
+
+	/* get and change the font description */
+	PangoFontDescription *desc;
+	g_object_get(textItem, "font-desc", &desc, NULL);
+	
+	gint size = pango_font_description_get_size(desc) * scale;
+
+	pango_font_description_set_size(desc, size);
+	
+	g_object_set(textItem, "font-desc", desc, NULL);
 }

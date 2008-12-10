@@ -1,3 +1,11 @@
+2008-12-10  Yves Combe,,,  <yves@ycombe.net>
+
+	Automaticly reduce font size if text is too wide.
+	TODO: pass this function (gcompris_adapt_font_size) in core.
+
+	* src/memory-activity/memory.c: (get_image), (create_item),
+	(gcompris_adapt_font_size):
+
 2008-12-09  Yves Combe,,,  <yves@ycombe.net>
 
 	- add new activity: memory_wordnumber. Icon by Mathieu.
