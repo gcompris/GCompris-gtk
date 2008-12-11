@@ -285,7 +285,7 @@ static gchar *wordnumberList[] =
 	N_("five"),
 	N_("six"),
 	N_("seven"),
-	N_("height"),
+	N_("eight"),
 	N_("nine"),
 };
 #define NUMBER_OF_WORDNUMBERS G_N_ELEMENTS(wordnumberList)
@@ -544,7 +544,7 @@ void get_random_token(int token_type, gint *returned_type, gchar **string, gchar
     dat->type =  TYPE_ENUMERATE;
     data = g_list_append(data, dat);
   }
-  
+
   if (token_type & TYPE_WORDNUMBER){
     max_token += NUMBER_OF_WORDNUMBERS;
 
@@ -859,7 +859,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 						  currentUiMode=UIMODE_NORMAL;
 						  currentBoardMode=BOARDMODE_NORMAL;
 						  g_warning("Fallback mode set to images");
-						}  
+						}
 					      }
 					    }
 					  }
@@ -881,7 +881,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	  }
 	}
       }
-      
+
 
       if (currentUiMode == UIMODE_SOUND)
 	{
@@ -912,9 +912,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	{
         if ((currentBoardMode==BOARDMODE_ENUMERATE)||(currentBoardMode==BOARDMODE_WORDNUMBER))
 	    {
-             gcomprisBoard->maxlevel = 6;	
+             gcomprisBoard->maxlevel = 6;
 	    }
-	  
+
 	  gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			    "memory/scenery_background.png");
 	  base_x1 = BASE_CARD_X1;
@@ -1160,7 +1160,7 @@ static void get_image(MemoryItem *memoryItem, guint x, guint y)
     {
       // Get the pair's image
       if (memoryArray[x][y]->type & (TYPE_ADD|TYPE_MINUS|TYPE_MULT|TYPE_DIV|TYPE_ENUMERATE|TYPE_WORDNUMBER)){
-	/* translate word for numbers */      
+	/* translate word for numbers */
 	if(memoryArray[x][y]->type == TYPE_WORDNUMBER) {
            memoryItem->data = gettext(memoryArray[x][y]->second_value);
 	} else {
@@ -1170,7 +1170,7 @@ static void get_image(MemoryItem *memoryItem, guint x, guint y)
 		memoryItem->type = TYPE_ENUMERATE_IMAGE;
         } else {
 	   memoryItem->type =  memoryArray[x][y]->type;
-	}   
+	}
 	memoryArray[x][y] = memoryItem;
 	// if created by g_malloc0, this is not usefull;
 	//memoryItem->second_value = NULL;
@@ -1259,7 +1259,7 @@ static void get_image(MemoryItem *memoryItem, guint x, guint y)
     get_random_token ( TYPE_WORDNUMBER , &memoryItem->type,  &memoryItem->data, &memoryItem->second_value);
     g_assert (memoryItem->type & TYPE_WORDNUMBER);
     break;
-    
+
 
   default:
     g_error("Don't now in what mode run !");
@@ -1436,7 +1436,7 @@ static void create_item(GooCanvasItem *parent)
 	    gdk_pixbuf_unref(pixmap);
 	  }
 	  else {
-	    
+
 	    if(memoryItem->type & (TYPE_IMAGE|TYPE_ENUMERATE_IMAGE)) {
               pixmap = gc_pixmap_load(memoryItem->data);
 
@@ -1446,7 +1446,7 @@ static void create_item(GooCanvasItem *parent)
 				      0.0,
 				      0.0,
 				      NULL);
-	      
+
 	      /* scale only in ENUMERATE (image size too big) */
 		 if(memoryItem->type == TYPE_ENUMERATE_IMAGE) {
 		    goo_canvas_item_scale(memoryItem->frontcardItem,
@@ -1944,37 +1944,37 @@ static void start_callback(gchar *file){
 
 static void gcompris_adapt_font_size(GooCanvasText *textItem, gdouble width, gdouble height) {
 	g_assert ((width > 0) && (height > 0));
-	
+
 	gdouble wscale, hscale, scale;
-	
+
 	/* Get size of the text */
 	PangoRectangle ink, log;
 	goo_canvas_text_get_natural_extents (textItem,
 					     &ink,
 					     &log);
-	
+
 
 	/* get real size */
 	gint lwidth = PANGO_PIXELS(log.width);
 	gint lheight = PANGO_PIXELS(log.height);
-	
+
 	/* Calculate scale to get text fit in width and height */
 	wscale = lwidth > ((int) width) ? width / lwidth : 1.0;
 	hscale = lheight > ((int) height) ? height / lheight : 1.0;
-	
+
 	/* scale is  MIN */
 	scale = wscale < hscale ? wscale : hscale;
-	
+
 	if(scale == 1.0)
 	  return;
 
 	/* get and change the font description */
 	PangoFontDescription *desc;
 	g_object_get(textItem, "font-desc", &desc, NULL);
-	
+
 	gint size = pango_font_description_get_size(desc) * scale;
 
 	pango_font_description_set_size(desc, size);
-	
+
 	g_object_set(textItem, "font-desc", desc, NULL);
 }
