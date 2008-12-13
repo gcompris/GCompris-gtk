@@ -19,7 +19,14 @@
 	* src/memory_wordnumber-activity/memo_wordnumber.svg:
 	* src/memory_wordnumber-activity/memory_wordnumber.xml.in:
 
-2008-12-09  Bruno Coudoin,,,,  <bruno.coudoin@free.fr>
+2008-12-13  Bruno Coudoin  <bruno.coudoin@free.fr>
+
+	Removed deprecated menu description in lib/menu/gcompris
+
+	* Makefile.am:
+	* gcompris:
+
+2008-12-09  Bruno Coudoin  <bruno.coudoin@free.fr>
 
 	Ported the penalty activity. Reworked the graphism and
 	the implementation to be more goocanvas aware.

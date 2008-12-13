@@ -24,17 +24,10 @@ if BUILD_MINGW32
 Applicationsdir = $(datadir)/
 Applications_in_files =
 Applications_DATA =
-
-Menudir=$(prefix)
-Menu_DATA=
-
 else
 Applicationsdir = $(datadir)/applications/
 Applications_in_files = gcompris.desktop.in gcompris-edit.desktop.in
 Applications_DATA = gcompris.desktop gcompris-edit.desktop
-
-Menudir=$(prefix)/lib/menu
-Menu_DATA=gcompris
 endif
 
 @INTLTOOL_DESKTOP_RULE@
@@ -42,7 +35,6 @@ endif
 EXTRA_DIST = \
 	$(Applications_in_files) \
 	$(icon_DATA) \
-	$(Menu_DATA) \
 	intltool-extract.in \
 	intltool-merge.in \
 	intltool-update.in \
