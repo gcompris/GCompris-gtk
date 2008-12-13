@@ -432,7 +432,10 @@ static void shapegame_next_level()
       /* Try the next level */
       gcomprisBoard->sublevel = gcomprisBoard->number_of_sublevel;
       if(!increment_sublevel())
-	return;
+	{
+	  g_free(filename);
+	  return;
+	}
     }
 
   gc_bar_set_level(gcomprisBoard);
