@@ -59,10 +59,6 @@ static void		 destroy_board(void);
 #define HORIZONTAL_SEPARATION 20
 #define VERTICAL_SEPARATION 20
 
-static char* background_images[] = {"algebra_guesscount/tiger1_RS",
-				    "algebra_guesscount/tigerdrink001.jpg",
-				    "algebra_guesscount/tigercub003.jpg",
-				    "algebra_guesscount/tigerplay001.jpg"};
 static const char  oper_values[] = {'+', '-', 'x', ':', '='};
 static const char *oper_images[] = {"plus", "minus", "by", "div", "equal"};
 static const int   num_values[] = {1,2,3,4,5,6,7,8,9,10,25,50,100};
@@ -92,8 +88,10 @@ struct _token {
 token token_value[MAX_NUMBER*2-1];
 token * ptr_token_selected[MAX_NUMBER*2-1];
 
-static const int y_equal_offset[] = {Y_ANS,Y_ANS+BUTTON_HEIGHT+VERTICAL_SEPARATION,
-				     Y_ANS+2*BUTTON_HEIGHT+2*VERTICAL_SEPARATION,Y_ANS+3*BUTTON_HEIGHT+3*VERTICAL_SEPARATION};
+static const int y_equal_offset[] = {Y_ANS,
+				     Y_ANS+BUTTON_HEIGHT+VERTICAL_SEPARATION,
+				     Y_ANS+2*BUTTON_HEIGHT+2*VERTICAL_SEPARATION,
+				     Y_ANS+3*BUTTON_HEIGHT+3*VERTICAL_SEPARATION};
 
 static const int x_token_offset[] = {X_NUM1,X_OPE,X_NUM2,X_OPE,X_NUM2,X_OPE,X_NUM2,X_OPE,X_NUM2};
 static const int y_token_offset[] = {Y_ANS, Y_ANS,Y_ANS,
@@ -111,7 +109,6 @@ static GooCanvasItem *boardRootItem = NULL;
 
 static GdkPixbuf * num_pixmap[NUM_VALUES];
 static GdkPixbuf * oper_pixmap[5];
-static GdkPixbuf *button_pixmap = NULL;
 
 static GooCanvasItem *oper_item[4];
 static GooCanvasItem *num_item[MAX_NUMBER];
@@ -138,6 +135,14 @@ static gboolean item_event_oper_moved (GooCanvasItem  *item,
 
 static int generate_numbers();
 static int token_result();
+
+static char *background_images[NUMBER_OF_LEVELS] =
+  {
+    "algebra_guesscount/tiger1_RS.jpg",
+    "algebra_guesscount/tigercub003.jpg",
+    "algebra_guesscount/tigerdrink001.jpg",
+    "algebra_guesscount/tigerplay001.jpg"
+  };
 
 /* Description of this plugin */
 static BoardPlugin menu_bp =
@@ -195,30 +200,26 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     // load pixmap files
     g_warning("loading pixmaps in start_board\n");
     for (i=0; i<NUM_VALUES; i++) {
-      str = g_strdup_printf("%s/%d.png", gcomprisBoard->boarddir,num_values[i]);
+      str = g_strdup_printf("%s/%d.svg", gcomprisBoard->boarddir,num_values[i]);
       num_pixmap[i] = gc_pixmap_load(str);
       g_free(str);
     }
     for (i=0; i<5; i++) {
-      str = g_strdup_printf("%s/%s.png", gcomprisBoard->boarddir,oper_images[i]);
+      str = g_strdup_printf("%s/%s.svg", gcomprisBoard->boarddir,oper_images[i]);
       oper_pixmap[i] = gc_pixmap_load(str);
       g_free(str);
     }
 
-    str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir,"button.png");
-    button_pixmap = gc_pixmap_load(str);
-    g_free(str);
-
-    gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),"algebra_guesscount/tiger1_RS.jpg");
     gcomprisBoard->level=1;
     gcomprisBoard->maxlevel=NUMBER_OF_LEVELS;
     gcomprisBoard->sublevel=1;
     gcomprisBoard->number_of_sublevel=NUMBER_OF_SUBLEVELS; /* Go to next level after this number of 'play' */
     gc_score_start(SCORESTYLE_NOTE,
-                   BOARDWIDTH - 195,
-                   BOARDHEIGHT - 30,
+                   10,
+                   30,
                    gcomprisBoard->number_of_sublevel);
     gc_bar_set(GC_BAR_LEVEL);
+    gc_bar_location(10, -1, 0.8);
 
     algebra_guesscount_next_level();
 
@@ -265,6 +266,8 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard) {
 static void algebra_guesscount_next_level() {
   gc_bar_set_level(gcomprisBoard);
 
+  gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
+		    background_images[gcomprisBoard->level - 1]);
   algebra_guesscount_destroy_all_items();
   gamewon = FALSE;
   token_count = 0;
@@ -533,7 +536,6 @@ static void game_won() {
     if(gcomprisBoard->level>gcomprisBoard->maxlevel)
       gcomprisBoard->level = gcomprisBoard->maxlevel;
 
-    gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),background_images[gcomprisBoard->level-1]);
   }
   algebra_guesscount_next_level();
 }

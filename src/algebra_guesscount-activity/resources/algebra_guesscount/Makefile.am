@@ -1,25 +1,24 @@
 imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/algebra_guesscount
 img_DATA = \
 	README \
-	100.png \
-	10.png \
-	1.png \
-	25.png \
-	2.png \
-	3.png \
-	4.png \
-	50.png \
-	5.png \
-	6.png \
-	7.png \
-	8.png \
-	9.png \
-	button.png \
-	by.png \
-	div.png \
-	equal.png \
-	minus.png \
-	plus.png \
+	100.svg \
+	10.svg \
+	1.svg \
+	25.svg \
+	2.svg \
+	3.svg \
+	4.svg \
+	50.svg \
+	5.svg \
+	6.svg \
+	7.svg \
+	8.svg \
+	9.svg \
+	by.svg \
+	div.svg \
+	equal.svg \
+	minus.svg \
+	plus.svg \
 	tiger1_RS.jpg \
 	tigercub003.jpg \
 	tigerdrink001.jpg \

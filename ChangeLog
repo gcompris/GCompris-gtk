@@ -1,5 +1,50 @@
 2008-12-21  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	Integrated original svg images in the algebra_guescount activity.
+
+	* src/algebra_guesscount-activity/algebra_guesscount.c:
+	(start_board), (algebra_guesscount_next_level), (game_won):
+	* src/algebra_guesscount-activity/resources/algebra_guesscount/1.sv
+	g:
+	* src/algebra_guesscount-activity/resources/algebra_guesscount/10.s
+	vg:
+	* src/algebra_guesscount-activity/resources/algebra_guesscount/100.
+	svg:
+	* src/algebra_guesscount-activity/resources/algebra_guesscount/2.sv
+	g:
+	* src/algebra_guesscount-activity/resources/algebra_guesscount/25.s
+	vg:
+	* src/algebra_guesscount-activity/resources/algebra_guesscount/3.sv
+	g:
+	* src/algebra_guesscount-activity/resources/algebra_guesscount/4.sv
+	g:
+	* src/algebra_guesscount-activity/resources/algebra_guesscount/5.sv
+	g:
+	* src/algebra_guesscount-activity/resources/algebra_guesscount/50.s
+	vg:
+	* src/algebra_guesscount-activity/resources/algebra_guesscount/6.sv
+	g:
+	* src/algebra_guesscount-activity/resources/algebra_guesscount/7.sv
+	g:
+	* src/algebra_guesscount-activity/resources/algebra_guesscount/8.sv
+	g:
+	* src/algebra_guesscount-activity/resources/algebra_guesscount/9.sv
+	g:
+	* src/algebra_guesscount-activity/resources/algebra_guesscount/Make
+	file.am:
+	* src/algebra_guesscount-activity/resources/algebra_guesscount/by.s
+	vg:
+	* src/algebra_guesscount-activity/resources/algebra_guesscount/div.
+	svg:
+	* src/algebra_guesscount-activity/resources/algebra_guesscount/equa
+	l.svg:
+	* src/algebra_guesscount-activity/resources/algebra_guesscount/minu
+	s.svg:
+	* src/algebra_guesscount-activity/resources/algebra_guesscount/plus
+	.svg:
+
+2008-12-21  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	Integrated original svg images in the melody activity.
 
 	* src/Makefile.am:
