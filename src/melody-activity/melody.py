@@ -70,15 +70,15 @@ class Gcompris_melody:
                       [
       # xylophon
       [
-      {'theme': "xylofon", 'background': "melody/xylofon_background.png", 'hittool': "melody/xylofon_cursor.png", 'hitofset_x': 50, 'hitofset_y': 50},
-      [ {'x': 150.0, 'y': 101.0,  'image': "melody/xylofon_son1.png", 'sound': "melody/xylofon_son1.ogg"},
-        {'x': 284.0, 'y': 118.0,  'image': "melody/xylofon_son2.png", 'sound': "melody/xylofon_son2.ogg"},
-        {'x': 412.0, 'y': 140.0, 'image': "melody/xylofon_son3.png", 'sound': "melody/xylofon_son3.ogg"},
-        {'x': 546.0, 'y': 157.0, 'image': "melody/xylofon_son4.png", 'sound': "melody/xylofon_son4.ogg"} ] ],
+      {'theme': "xylofon", 'background': "melody/xylofon_background.svg", 'hittool': "melody/xylofon_cursor.png", 'hitofset_x': 50, 'hitofset_y': 50},
+      [ {'x': 150.0, 'y': 101.0,  'image': "melody/xylofon_son1.svg", 'sound': "melody/xylofon_son1.ogg"},
+        {'x': 284.0, 'y': 118.0,  'image': "melody/xylofon_son2.svg", 'sound': "melody/xylofon_son2.ogg"},
+        {'x': 412.0, 'y': 140.0, 'image': "melody/xylofon_son3.svg", 'sound': "melody/xylofon_son3.ogg"},
+        {'x': 546.0, 'y': 157.0, 'image': "melody/xylofon_son4.svg", 'sound': "melody/xylofon_son4.ogg"} ] ],
 
       # guitar
       [
-      {'theme': "guitar", 'background': "melody/guitar_background.jpg", 'hittool': "melody/guitar_cursor.png", 'hitofset_x': 400, 'hitofset_y': -5},
+      {'theme': "guitar", 'background': "melody/guitar_background.svg", 'hittool': "melody/guitar_cursor.svg", 'hitofset_x': 400, 'hitofset_y': -5},
       [ {'x': 0, 'y': 170.0,  'image': "melody/guitar_son1.png", 'sound': "melody/guitar_son1.ogg"},
         {'x': 0, 'y': 230.0,  'image': "melody/guitar_son2.png", 'sound': "melody/guitar_son2.ogg"},
         {'x': 0, 'y': 290.0, 'image': "melody/guitar_son3.png", 'sound': "melody/guitar_son3.ogg"},

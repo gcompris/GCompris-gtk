@@ -1,8 +1,7 @@
 imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/melody
 img_DATA = \
-	guitar_background.jpg \
-	guitar_background.png \
-	guitar_cursor.png \
+	guitar_background.svg \
+	guitar_cursor.svg \
 	guitar_melody.ogg \
 	guitar_son1.ogg \
 	guitar_son1.png \
@@ -23,17 +22,17 @@ img_DATA = \
 	tachos_son3.png \
 	tachos_son4.ogg \
 	tachos_son4.png \
-	xylofon_background.png \
+	xylofon_background.svg \
 	xylofon_cursor.png \
 	xylofon_melody.ogg \
 	xylofon_son1.ogg \
-	xylofon_son1.png \
+	xylofon_son1.svg \
 	xylofon_son2.ogg \
-	xylofon_son2.png \
+	xylofon_son2.svg \
 	xylofon_son3.ogg \
-	xylofon_son3.png \
+	xylofon_son3.svg \
 	xylofon_son4.ogg \
-	xylofon_son4.png \
+	xylofon_son4.svg \
 	switch.png
 
 EXTRA_DIST = $(img_DATA)
