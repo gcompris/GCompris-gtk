@@ -1,5 +1,25 @@
 2008-12-22  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	More work to use more svg
+
+	* configure.in:
+	* src/babymatch-activity/resources/babymatch/fusee.svg:
+	* src/billard-activity/billard.c: (start_board):
+	* src/billard-activity/resources/billard/Makefile.am:
+	* src/followline-activity/followline.py:
+	* src/followline-activity/resources/followline/Makefile.am:
+	* src/followline-activity/resources/followline/water_spot.svg:
+	* src/imageid-activity/imageid.c: (start_board):
+	* src/imageid-activity/resources/imageid/Makefile.am:
+	* src/leftright-activity/resources/leftright/background.kpm:
+	* src/readingh-activity/reading.c: (start_board), (ask_ready),
+	(ask_yes_no):
+	* src/readingh-activity/resources/Makefile.am:
+	* src/tangram-activity/gtans.c: (start_board):
+	* src/tangram-activity/resources/tangram/Makefile.am:
+
+2008-12-22  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	Integrated original svg images in the clockgame activity.
 
 	* src/clockgame-activity/clockgame.c: (start_board):

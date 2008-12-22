@@ -28,7 +28,7 @@ img_DATA = \
 	cartable.png \
 	chien.png \
 	fish.png \
-	imageid-bg.jpg \
+	imageid-bg.svgz \
 	maison.png \
 	pomme.png
 

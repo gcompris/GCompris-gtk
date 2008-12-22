@@ -146,7 +146,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gc_bar_set(GC_BAR_LEVEL);
 
       gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
-			"billard/foot_background.png");
+			"billard/foot_background.svgz");
 
       minigolf_next_level();
 

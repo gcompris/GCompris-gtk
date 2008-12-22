@@ -174,14 +174,10 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
   if(agcomprisBoard!=NULL)
     {
-      gchar *img;
-
       gcomprisBoard=agcomprisBoard;
 
-      img = gc_skin_image_get("reading-bg.jpg");
       gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
-			      img);
-      g_free(img);
+			"readingh/reading-bg.svgz");
       wait_for_ready = TRUE;
       gamewon = FALSE;
 
@@ -572,7 +568,6 @@ ask_ready(gboolean status)
 				y_offset,
 				NULL);
 
-  gdk_pixbuf_unref(button_pixmap);
   g_signal_connect(item1, "button-press-event",
 		     (GtkSignalFunc) item_event_valid,
 		     "R");
@@ -586,6 +581,7 @@ ask_ready(gboolean status)
 			       "font", gc_skin_font_board_big,
 			       "fill-color", "white",
 				NULL);
+  gdk_pixbuf_unref(button_pixmap);
 
   g_signal_connect(item2, "button-press-event",
 		   (GtkSignalFunc) item_event_valid,
@@ -611,7 +607,6 @@ ask_yes_no()
 			       y_offset,
 			       NULL);
 
-  gdk_pixbuf_unref(button_pixmap);
   g_signal_connect(item, "button-press-event",
 		   (GtkSignalFunc) item_event_valid,
 		   "Y");
@@ -632,14 +627,12 @@ ask_yes_no()
 
   /*----- NO -----*/
   y_offset += 100;
-  button_pixmap = gc_skin_pixmap_load("button_large2.png");
   item = goo_canvas_image_new (boardRootItem,
 			       button_pixmap,
 			       x_offset,
 			       y_offset,
 			       NULL);
 
-  gdk_pixbuf_unref(button_pixmap);
   g_signal_connect(item, "button-press-event",
 		   (GtkSignalFunc) item_event_valid,
 		   "N");
@@ -654,6 +647,7 @@ ask_yes_no()
 			      "fill-color", "white",
 			      NULL);
 
+  gdk_pixbuf_unref(button_pixmap);
   g_signal_connect(item, "button-press-event",
 		   (GtkSignalFunc) item_event_valid,
 		   "N");

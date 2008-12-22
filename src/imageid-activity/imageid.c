@@ -154,7 +154,7 @@ start_board (GcomprisBoard *agcomprisBoard)
     {
       gcomprisBoard=agcomprisBoard;
       gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
-			"imageid/imageid-bg.jpg");
+			"imageid/imageid-bg.svgz");
       gcomprisBoard->level=1;
       gcomprisBoard->sublevel=1;
 

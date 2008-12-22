@@ -65,7 +65,7 @@ class Gcompris_followline:
     self.gcomprisBoard.number_of_sublevel=1
     gcompris.bar_set(gcompris.BAR_LEVEL)
     gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
-                            "followline/followline.png")
+                            "followline/followline.svgz")
     self.background_item_connect_id = \
         self.gcomprisBoard.canvas.get_root_item().connect("motion_notify_event",
                                                           self.loosing_item_event)
@@ -216,7 +216,7 @@ class Gcompris_followline:
     # A water spot will be displayed when the user win
     self.water_spot = goocanvas.Image(
       parent = self.water_spot_group,
-      pixbuf = gcompris.utils.load_pixmap("followline/water_spot.png"),
+      pixbuf = gcompris.utils.load_pixmap("followline/water_spot.svg"),
       x = 580,
       y = 260,
       )

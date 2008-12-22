@@ -88,7 +88,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gc_bar_set(0);
 
       gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
-			"tangram/gtans_bg.png");
+			"tangram/gtans_bg.svgz");
 
       selectedgrande = FALSE;
       taninitstart();

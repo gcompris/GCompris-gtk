@@ -1,1 +1,1 @@
-SUBDIRS = wordsgame
+SUBDIRS = wordsgame readingh
