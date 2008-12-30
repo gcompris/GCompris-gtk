@@ -28,6 +28,18 @@
 #include "gcompris_config.h"
 #include "about.h"
 
+// Reset the item at its 0,0 coordinate and then translate
+// it to x,y
+#define SET_ITEM_LOCATION(item, x, y)			\
+  {							\
+    GooCanvasBounds bounds;				\
+    goo_canvas_item_set_transform(item, NULL);		\
+    goo_canvas_item_get_bounds(item, &bounds);		\
+    goo_canvas_item_translate(item,			\
+			      -1 * bounds.x1 + x,	\
+			      -1 * bounds.y1 + y);	\
+  }
+
 #define SOUNDLISTFILE PACKAGE
 
 #define BAR_GAP		10	/* Value used to fill space above and under icons in the bar */
@@ -115,19 +127,19 @@ item_visibility(GComprisBarFlags flag,
 /* Return a new button item */
 GooCanvasItem *
 new_button(GooCanvasItem *rootitem,
+	   RsvgHandle *svg_handle,
            GComprisBarFlags flag,
-           gchar *file)
+           gchar *svg_id)
 {
-  GdkPixbuf *pixmap = gc_skin_pixmap_load(file);
   GooCanvasItem *item =
-    goo_canvas_image_new (rootitem,
-                          pixmap,
-                          0,
-                          -15,
-                          NULL);
+    goo_canvas_svg_new (rootitem,
+			svg_handle,
+			"svg-id", svg_id,
+			NULL);
+  SET_ITEM_LOCATION(item, 0, 0);
 
   g_object_set (item,
-                "visibility", GOO_CANVAS_ITEM_INVISIBLE,
+                "visibility", GOO_CANVAS_ITEM_VISIBLE,
                 NULL);
   g_object_set_data (G_OBJECT(item), "flag",
 		     GUINT_TO_POINTER(flag));
@@ -140,7 +152,6 @@ new_button(GooCanvasItem *rootitem,
   g_signal_connect(item, "button_press_event",
 		   (GtkSignalFunc) item_event_bar,
 		   GUINT_TO_POINTER(flag));
-  gdk_pixbuf_unref(pixmap);
   return item;
 }
 
@@ -150,10 +161,11 @@ new_button(GooCanvasItem *rootitem,
 void gc_bar_start (GooCanvas *theCanvas)
 {
   GcomprisProperties *properties = gc_prop_get();
-  GdkPixbuf   *pixmap = NULL;
   gint16       height;
   gint16       buttony;
   double       zoom;
+  RsvgHandle  *svg_handle;
+  GooCanvasBounds bounds;
 
   height = BARHEIGHT-2;
 
@@ -164,16 +176,21 @@ void gc_bar_start (GooCanvas *theCanvas)
 
   rootitem = goo_canvas_group_new (goo_canvas_get_root_item(theCanvas), NULL);
 
-  pixmap = gc_skin_pixmap_load("bar_bg.png");
-  bar_item = goo_canvas_image_new (rootitem,
-				   pixmap,
-				   0,
-				   0,
-				NULL);
+  svg_handle = gc_skin_rsvg_load("skin.svg");
+  bar_item = goo_canvas_svg_new (rootitem,
+				 svg_handle,
+				 "svg-id", "#BAR_BG",
+				 "pointer-events", GOO_CANVAS_EVENTS_NONE,
+				 NULL);
+  SET_ITEM_LOCATION(bar_item, 0, 0);
 
-  zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
-  buttony = (height-gdk_pixbuf_get_height(pixmap)*zoom)/2 - 20;
-  gdk_pixbuf_unref(pixmap);
+  goo_canvas_item_get_bounds(bar_item, &bounds);
+  printf("height-BAR_GAP=%d\n", height-BAR_GAP);
+  zoom = (double)(height-BAR_GAP)/(bounds.y2 - bounds.y1);
+  printf("bar width=%f\n", (bounds.x2 - bounds.x1));
+  printf("bar height=%f\n", (bounds.y2 - bounds.y1));
+  buttony = (height-(bounds.y2 - bounds.y1)*zoom)/2 - 20;
+  printf("zoom=%f  buttony=%d\n", zoom, buttony);
 
   /*
    * The Order in which buttons are created represents
@@ -184,27 +201,31 @@ void gc_bar_start (GooCanvas *theCanvas)
   if(properties->disable_quit == 0)
     buttons = g_slist_append(buttons,
                              new_button(rootitem,
+					svg_handle,
                                         GC_BAR_EXIT,
-                                        "button_exit.png"));
+                                        "#EXIT"));
 
   // ABOUT
   buttons = g_slist_append(buttons,
                            new_button(rootitem,
+				      svg_handle,
                                       GC_BAR_ABOUT,
-                                      "about.png"));
+                                      "#ABOUT"));
 
   // CONFIG
   if(properties->disable_config == 0)
     buttons = g_slist_append(buttons,
                              new_button(rootitem,
+					svg_handle,
                                         GC_BAR_CONFIG,
-                                        "config.png"));
+                                        "#CONFIG"));
 
   // HELP
   buttons = g_slist_append(buttons,
                            new_button(rootitem,
+				      svg_handle,
                                       GC_BAR_HELP,
-                                      "help.png"));
+                                      "#HELP"));
 
   // LEVEL (Multiple buttons for this one)
   GooCanvasItem *rootitem_level = goo_canvas_group_new (rootitem, NULL);
@@ -216,29 +237,30 @@ void gc_bar_start (GooCanvas *theCanvas)
   buttons = g_slist_append(buttons, rootitem_level);
 
   GooCanvasItem *item = new_button(rootitem_level,
-             GC_BAR_LEVEL,
-             "level_up.png");
+				   svg_handle,
+				   GC_BAR_LEVEL_DOWN,
+				   "#LEVEL_DOWN");
 
   g_object_set (item,
                 "visibility", GOO_CANVAS_ITEM_VISIBLE,
                 NULL);
 
   item = new_button(rootitem_level,
-                    GC_BAR_LEVEL_DOWN,
-                    "level_down.png");
-  g_object_set(item, "y", 20.0, NULL);
+		    svg_handle,
+                    GC_BAR_LEVEL,
+                    "#LEVEL_UP");
+  goo_canvas_item_translate(item, 45, 0);
   g_object_set (item,
                 "visibility", GOO_CANVAS_ITEM_VISIBLE,
                 NULL);
 
-  GooCanvasBounds bounds;
   goo_canvas_item_get_bounds(item, &bounds);
 
   level_item =
     goo_canvas_text_new (rootitem_level,
                          "",
-                         (bounds.x2 - bounds.x1) / 2,
-                         (bounds.y2 - bounds.y1) - 15,
+                         bounds.x1 - 10,
+                         (bounds.y2 - bounds.y1) / 2,
                          -1,
                          GTK_ANCHOR_CENTER,
                          "font", gc_skin_font_board_title_bold,
@@ -249,27 +271,26 @@ void gc_bar_start (GooCanvas *theCanvas)
   // REPEAT (Default)
   buttons = g_slist_append(buttons,
                            new_button(rootitem,
+				      svg_handle,
                                       GC_BAR_REPEAT,
-                                      "repeat.png"));
+                                      "#REPEAT"));
 
   // REPEAT ICON
   buttons = g_slist_append(buttons,
                            new_button(rootitem,
+				      svg_handle,
                                       GC_BAR_REPEAT_ICON,
-                                      "repeat.png"));
+                                      "#REPEAT"));
 
   // HOME
   buttons = g_slist_append(buttons,
                            new_button(rootitem,
+				      svg_handle,
                                       GC_BAR_HOME,
-                                      "home.png"));
+                                      "#HOME"));
 
   update_exit_button();
 
-  /* FIXME: Bootstrap for centering should not be needed */
-  //  gc_bar_set(GC_BAR_CONFIG|GC_BAR_ABOUT);
-  /* Set back the bar to it's original location */
-  //gc_bar_location (-1, -1, -1);
   gc_bar_set(0);
 
   _hidden = FALSE;
@@ -351,7 +372,7 @@ gc_bar_location (int x, int y, double zoom)
   goo_canvas_item_scale(rootitem,
 			(zoom == -1 ? _default_zoom : zoom),
 			(zoom == -1 ? _default_zoom : zoom));
-
+  //#endif
 }
 
 /* Setting list of available icons in the control bar */
@@ -360,7 +381,7 @@ gc_bar_set (const GComprisBarFlags flags)
 {
   // Always reset the zoom factor or the calculation
   // will be wrong
-  gc_bar_location (-1, -1, -1);
+  goo_canvas_item_set_transform(rootitem, NULL);
 
   _hidden = FALSE;
   goo_canvas_item_raise(rootitem, NULL);
@@ -402,11 +423,11 @@ gc_bar_set (const GComprisBarFlags flags)
       if (flag & current_flags)
         {
           GooCanvasBounds bounds;
-          goo_canvas_item_set_transform(item, NULL);
+	  SET_ITEM_LOCATION(item, x, -20);
           goo_canvas_item_get_bounds(item, &bounds);
-          goo_canvas_item_translate(item, x, 0);
           gc_item_focus_init(item, NULL);
           x += bounds.x2 - bounds.x1 + BAR_GAP;
+
           g_object_set (item,
                         "visibility", GOO_CANVAS_ITEM_VISIBLE,
                         NULL);
@@ -419,14 +440,15 @@ gc_bar_set (const GComprisBarFlags flags)
     }
 
   /* Scale the bar back to fit the buttons, no more */
+  SET_ITEM_LOCATION(bar_item, 0, 0);
   GooCanvasBounds bounds;
-  goo_canvas_item_set_transform(bar_item, NULL);
   goo_canvas_item_get_bounds(bar_item, &bounds);
   goo_canvas_item_scale(bar_item,
                         x / (bounds.x2 - bounds.x1),
                         1);
 
   // Always center the bar with its new bounds
+  //SET_ITEM_LOCATION(rootitem, 0, _default_y);
   gc_bar_location (-1, -1, -1);
 }
 
