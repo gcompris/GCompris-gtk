@@ -160,7 +160,6 @@ display_confirm(gchar *title,
   GdkPixbuf	 *pixmap = NULL;
   GdkPixbuf	 *pixmap_cross = NULL;
   GdkPixbuf	 *pixmap_stick = NULL;
-  RsvgHandle	 *svg_handle = NULL;
 
   if(rootitem)
     return;
@@ -195,14 +194,11 @@ display_confirm(gchar *title,
   rootitem = goo_canvas_group_new (goo_canvas_get_root_item(gc_get_canvas()),
 				   NULL);
 
-  svg_handle = gc_skin_rsvg_load("dialog_help.svgz");
-  item = goo_canvas_svg_new (rootitem, svg_handle, NULL);
-
-  RsvgDimensionData dimension;
-  rsvg_handle_get_dimensions(svg_handle, &dimension);
-  goo_canvas_item_translate(item, (BOARDWIDTH - dimension.width)/2,
-			    (BOARDHEIGHT - dimension.height)/2);
-  g_object_unref (svg_handle);
+  item = goo_canvas_svg_new (rootitem,
+			     gc_skin_rsvg_get(),
+			     "svg-id", "#DIALOG",
+			     "pointer-events", GOO_CANVAS_EVENTS_NONE,
+			     NULL);
 
   /* Title */
   goo_canvas_text_new (rootitem,

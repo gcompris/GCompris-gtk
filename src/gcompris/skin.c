@@ -106,6 +106,8 @@ gc_skin_pixmap_load(char *pixmapfile)
  * skin directory.
  * If not found, try in the default skin directory
  * If not found abort gcompris
+ * @WARNING: Do not free the returned handle, it is kept
+ *           cached internally.
  */
 RsvgHandle *
 gc_skin_rsvg_get()

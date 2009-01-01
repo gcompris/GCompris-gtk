@@ -52,7 +52,9 @@ void gc_dialog(gchar *str, DialogBoxCallBack dbcb)
 {
   GooCanvasItem *item_text   = NULL;
   GooCanvasItem *item_text_ok   = NULL;
-  RsvgHandle    *svg_handle = NULL;
+  GdkPixbuf   *pixmap;
+  gint y_start;
+  gint x_start;
 
   g_warning("Dialog=%s\n", str);
 
@@ -76,28 +78,46 @@ void gc_dialog(gchar *str, DialogBoxCallBack dbcb)
   rootDialogItem = goo_canvas_group_new (goo_canvas_get_root_item(gc_get_canvas()),
 					 NULL);
 
-  svg_handle = gc_skin_rsvg_load("dialogbox.svgz");
-  itemDialogText = goo_canvas_svg_new (rootDialogItem, svg_handle, NULL);
+  itemDialogText = goo_canvas_svg_new (rootDialogItem,
+				       gc_skin_rsvg_get(),
+				       "svg-id", "#DIALOG",
+				       NULL);
+  g_signal_connect(itemDialogText, "button_press_event",
+		   (GtkSignalFunc) item_event_ok,
+		   dbcb);
 
-  RsvgDimensionData dimension;
-  rsvg_handle_get_dimensions(svg_handle, &dimension);
-  goo_canvas_item_translate(itemDialogText,
-			    (BOARDWIDTH - dimension.width)/2,
-			    (BOARDHEIGHT - dimension.height)/2);
-  g_object_unref (svg_handle);
+  GooCanvasBounds bounds;
+  goo_canvas_item_get_bounds(itemDialogText, &bounds);
+  x_start = bounds.x1;
+  y_start = bounds.y1;
 
+  /* OK Button */
+  pixmap = gc_skin_pixmap_load("button_large.png");
+  GooCanvasItem *item = \
+    goo_canvas_image_new (rootDialogItem,
+			  pixmap,
+			  BOARDWIDTH * 0.5 - gdk_pixbuf_get_width(pixmap)/2,
+			  bounds.y2 - gdk_pixbuf_get_height(pixmap) - 5,
+			  NULL);
+
+  g_signal_connect(item, "button_press_event",
+		   (GtkSignalFunc) item_event_ok,
+		   dbcb);
+  gc_item_focus_init(item, NULL);
 
   /* OK Text */
   item_text_ok = goo_canvas_text_new (rootDialogItem,
 				      _("OK"),
 				      BOARDWIDTH * 0.5,
-				      BOARDHEIGHT - 30 -
-				      (BOARDHEIGHT - dimension.height)/2,
+				      bounds.y2 - gdk_pixbuf_get_height(pixmap) + 15,
 				      -1,
 				      GTK_ANCHOR_CENTER,
 				      "font", gc_skin_font_title,
 				      "fill-color-rgba", gc_skin_color_text_button,
 				      NULL);
+
+  gc_item_focus_init(item_text_ok, item);
+  gdk_pixbuf_unref(pixmap);
 
   g_signal_connect(itemDialogText, "button_press_event",
 		   (GtkSignalFunc) item_event_ok,
@@ -106,7 +126,7 @@ void gc_dialog(gchar *str, DialogBoxCallBack dbcb)
   item_text = goo_canvas_text_new (rootDialogItem,
 				   str,
 				   BOARDWIDTH / 2,
-				   (BOARDHEIGHT - dimension.height)/2 + 60,
+				   (bounds.y2 - bounds.y1)/2 - 100,
 				   BOARDWIDTH / 2,
 				   GTK_ANCHOR_CENTER,
 				   "alignment", PANGO_ALIGN_CENTER,

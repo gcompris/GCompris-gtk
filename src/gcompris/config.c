@@ -159,7 +159,6 @@ gc_config_start ()
   gint x_text_start = 0;
   gint y = 0;
   GooCanvasItem *item, *item2;
-  RsvgHandle *svg_handle = NULL;
 
   /* Pause the board */
   gc_board_pause(TRUE);
@@ -172,15 +171,18 @@ gc_config_start ()
   rootitem = goo_canvas_group_new (goo_canvas_get_root_item(gc_get_canvas()),
 				   NULL);
 
-  svg_handle = gc_skin_rsvg_load("dialog_help.svgz");
-  RsvgDimensionData dimension;
-  rsvg_handle_get_dimensions(svg_handle, &dimension);
-  x_start = (BOARDWIDTH - dimension.width)/2;
-  y_start = (BOARDHEIGHT - dimension.height)/2;
-  item = goo_canvas_svg_new (rootitem, svg_handle, NULL);
-  goo_canvas_item_translate(item, x_start, y_start);
-  y = y_start + dimension.height;
-  g_object_unref (svg_handle);
+  item = goo_canvas_svg_new (rootitem,
+			     gc_skin_rsvg_get(),
+			     "svg-id", "#DIALOG",
+			     "pointer-events", GOO_CANVAS_EVENTS_NONE,
+			     NULL);
+
+  GooCanvasBounds bounds;
+  goo_canvas_item_get_bounds(item, &bounds);
+  x_start = bounds.x1;
+  y_start = bounds.y1;
+
+  y = bounds.y2;
 
   goo_canvas_text_new (rootitem,
 		       _("GCompris Configuration"),
@@ -212,13 +214,14 @@ gc_config_start ()
   y_flag_start = y_start - gdk_pixbuf_get_width(pixmap_checked)/2;
 
   /* Display a bad icon if this locale is not available */
-  pixmap   = gc_skin_pixmap_load("mini_bad.png");
-  item_bad_flag = goo_canvas_image_new (rootitem,
-					pixmap,
-					(double) x_flag_start - 20,
-					(double) y_start - gdk_pixbuf_get_width(pixmap_checked)/2,
-					NULL);
-  gdk_pixbuf_unref(pixmap);
+  item_bad_flag = goo_canvas_svg_new (rootitem,
+			     gc_skin_rsvg_get(),
+			     "svg-id", "#UNCHECKED",
+			     "pointer-events", GOO_CANVAS_EVENTS_NONE,
+			     NULL);
+  SET_ITEM_LOCATION(item_bad_flag,
+		    x_flag_start + 5,
+		    y_start - gdk_pixbuf_get_width(pixmap_checked)/2);
 
   /*
    * The current locale is the one found in the config file

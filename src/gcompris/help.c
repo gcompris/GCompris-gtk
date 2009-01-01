@@ -96,7 +96,6 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
   gint x_start = 0;
   gchar   *name = NULL;
   gchar   *text_to_display = NULL;
-  RsvgHandle *svg_handle = NULL;
 
   if(rootitem)
     return;
@@ -112,19 +111,20 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
   rootitem = goo_canvas_group_new (goo_canvas_get_root_item(gc_get_canvas()),
 				   NULL);
 
-  svg_handle = gc_skin_rsvg_load("dialog_help.svgz");
+  item = goo_canvas_svg_new (rootitem,
+			     gc_skin_rsvg_get(),
+			     "svg-id", "#DIALOG",
+			     "pointer-events", GOO_CANVAS_EVENTS_NONE,
+			     NULL);
 
-  RsvgDimensionData dimension;
-  rsvg_handle_get_dimensions(svg_handle, &dimension);
-  x_start = (BOARDWIDTH - dimension.width)/2;
-  y_start = (BOARDHEIGHT - dimension.height)/2;
+  GooCanvasBounds bounds;
+  goo_canvas_item_get_bounds(item, &bounds);
+  x_start = bounds.x1;
+  y_start = bounds.y1;
 
-  item = goo_canvas_svg_new (rootitem, svg_handle, NULL);
-  goo_canvas_item_translate(item, x_start, y_start);
-  y = y_start + dimension.height;
-  g_object_unref (svg_handle);
+  y = bounds.y2;
 
-  y_start += 14;
+  y_start += 15;
   if(gcomprisBoard->section && gcomprisBoard->name) {
     text_to_display = g_strdup_printf("%s/%s", gcomprisBoard->section, gcomprisBoard->name);
      goo_canvas_text_new (rootitem,
@@ -139,7 +139,7 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
     g_free(text_to_display);
   }
 
-  y_start += 35;
+  y_start += 30;
   goo_canvas_text_new (rootitem,
 		       name,
 		       BOARDWIDTH/2,
