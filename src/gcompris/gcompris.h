@@ -62,6 +62,8 @@
 #include "dmalloc.h"
 #endif
 
+#include <librsvg/rsvg.h>
+
 #define BOARDWIDTH  800
 #define BOARDHEIGHT 520
 #define BARHEIGHT   40
@@ -84,6 +86,9 @@ void		 gc_board_end(void);
 void		 gc_bar_start (GooCanvas *theCanvas);
 
 void		 gc_set_background(GooCanvasItem *parent, gchar *file);
+void		 gc_set_background_by_id(GooCanvasItem *parent,
+					 RsvgHandle *rsvg_handle,
+					 gchar *id);
 void		 gc_bar_set_level (GcomprisBoard *gcomprisBoard);
 void		 gc_bar_set_repeat_icon (GdkPixbuf *pixmap);
 

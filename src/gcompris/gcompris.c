@@ -44,8 +44,6 @@
 #include "gcompris-nsbundle.h"
 #endif
 
-#include <librsvg/rsvg.h>
-
 /* get the default database name */
 #define DEFAULT_DATABASE "gcompris_sqlite.db"
 
@@ -525,6 +523,22 @@ _set_pixmap_background(GooCanvasItem *parent, gchar *file)
 
 }
 
+void _clear_svg_background()
+{
+  if(backgroundsvgimg)
+    goo_canvas_item_remove(backgroundsvgimg);
+
+  backgroundsvgimg = NULL;
+}
+
+void _clear_pixmap_background()
+{
+  if(backgroundimg)
+    goo_canvas_item_remove(backgroundimg);
+
+  backgroundimg = NULL;
+}
+
 void
 gc_set_background(GooCanvasItem *parent, gchar *file)
 {
@@ -542,12 +556,32 @@ gc_set_background(GooCanvasItem *parent, gchar *file)
     }
   else
     {
-      if(backgroundsvgimg)
-	goo_canvas_item_remove(backgroundsvgimg);
-
-      backgroundsvgimg = NULL;
+      _clear_svg_background();
       _set_pixmap_background(parent, file);
     }
+}
+
+void
+gc_set_background_by_id(GooCanvasItem *parent, RsvgHandle *rsvg_handle,
+			gchar *id)
+{
+  g_assert(parent);
+  g_assert(rsvg_handle);
+
+  _clear_pixmap_background();
+
+  if(backgroundsvgimg)
+    g_object_set(backgroundsvgimg,
+		 "svg-handle", rsvg_handle,
+		 "svg-id", id,
+		 NULL);
+  else
+    backgroundsvgimg = goo_canvas_svg_new (parent,
+					   rsvg_handle,
+					   "svg-id", id,
+					   NULL);
+
+  goo_canvas_item_lower(backgroundsvgimg, NULL);
 }
 
 /* Redraw the black background

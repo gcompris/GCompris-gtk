@@ -39,6 +39,21 @@
 #define MIN(a,b) (((a) < (b)) ? (a) : (b))
 #endif
 
+// This is especially usefull for SVG images that are loaded
+// by their Ids and that are not at the 0,0 coordinate in the
+// source file.
+// This reset the item at its 0,0 coordinate and then translate
+// it to x,y
+#define SET_ITEM_LOCATION(item, x, y)			\
+  {							\
+    GooCanvasBounds bounds;				\
+    goo_canvas_item_set_transform(item, NULL);		\
+    goo_canvas_item_get_bounds(item, &bounds);		\
+    goo_canvas_item_translate(item,			\
+			      -1 * bounds.x1 + x,	\
+			      -1 * bounds.y1 + y);	\
+  }
+
 gchar 		*g_utf8_strndup(gchar*,gint);
 gchar           *reactivate_newline(char *str);
 

@@ -102,6 +102,26 @@ gc_skin_pixmap_load(char *pixmapfile)
 }
 
 /*
+ * Return the rsvg_handle of skin.svg from the current
+ * skin directory.
+ * If not found, try in the default skin directory
+ * If not found abort gcompris
+ */
+RsvgHandle *
+gc_skin_rsvg_get()
+{
+  /* Return value is cached, we don't support skin change on the fly */
+  static RsvgHandle *result_svg = NULL;
+
+  if (result_svg)
+    return result_svg;
+
+  result_svg = gc_skin_rsvg_load("skin.svg");
+
+  return (result_svg);
+}
+
+/*
  * Load a pixmap from the current skin directory
  * If not found, try in the default skin directory
  * If not found abort gcompris

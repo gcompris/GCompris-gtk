@@ -28,18 +28,6 @@
 #include "gcompris_config.h"
 #include "about.h"
 
-// Reset the item at its 0,0 coordinate and then translate
-// it to x,y
-#define SET_ITEM_LOCATION(item, x, y)			\
-  {							\
-    GooCanvasBounds bounds;				\
-    goo_canvas_item_set_transform(item, NULL);		\
-    goo_canvas_item_get_bounds(item, &bounds);		\
-    goo_canvas_item_translate(item,			\
-			      -1 * bounds.x1 + x,	\
-			      -1 * bounds.y1 + y);	\
-  }
-
 #define SOUNDLISTFILE PACKAGE
 
 #define BAR_GAP		10	/* Value used to fill space above and under icons in the bar */
@@ -176,7 +164,7 @@ void gc_bar_start (GooCanvas *theCanvas)
 
   rootitem = goo_canvas_group_new (goo_canvas_get_root_item(theCanvas), NULL);
 
-  svg_handle = gc_skin_rsvg_load("skin.svg");
+  svg_handle = gc_skin_rsvg_get();
   bar_item = goo_canvas_svg_new (rootitem,
 				 svg_handle,
 				 "svg-id", "#BAR_BG",
@@ -185,12 +173,8 @@ void gc_bar_start (GooCanvas *theCanvas)
   SET_ITEM_LOCATION(bar_item, 0, 0);
 
   goo_canvas_item_get_bounds(bar_item, &bounds);
-  printf("height-BAR_GAP=%d\n", height-BAR_GAP);
   zoom = (double)(height-BAR_GAP)/(bounds.y2 - bounds.y1);
-  printf("bar width=%f\n", (bounds.x2 - bounds.x1));
-  printf("bar height=%f\n", (bounds.y2 - bounds.y1));
   buttony = (height-(bounds.y2 - bounds.y1)*zoom)/2 - 20;
-  printf("zoom=%f  buttony=%d\n", zoom, buttony);
 
   /*
    * The Order in which buttons are created represents
@@ -249,7 +233,7 @@ void gc_bar_start (GooCanvas *theCanvas)
 		    svg_handle,
                     GC_BAR_LEVEL,
                     "#LEVEL_UP");
-  goo_canvas_item_translate(item, 45, 0);
+  goo_canvas_item_translate(item, 50, 0);
   g_object_set (item,
                 "visibility", GOO_CANVAS_ITEM_VISIBLE,
                 NULL);
@@ -260,7 +244,7 @@ void gc_bar_start (GooCanvas *theCanvas)
     goo_canvas_text_new (rootitem_level,
                          "",
                          bounds.x1 - 10,
-                         (bounds.y2 - bounds.y1) / 2,
+                         (bounds.y2 - bounds.y1) / 2 + 4,
                          -1,
                          GTK_ANCHOR_CENTER,
                          "font", gc_skin_font_board_title_bold,

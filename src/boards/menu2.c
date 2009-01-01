@@ -215,8 +215,9 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
 
   if(agcomprisBoard != NULL)
     {
-      gchar *img;
+      RsvgHandle *svg_handle;
 
+      printf("menu2 start\n");
       gcomprisBoard=agcomprisBoard;
 
       /* set initial values for this level */
@@ -228,10 +229,11 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
 
       menuitems = g_new(MenuItems, 1);
 
-      img = gc_skin_image_get("gcompris-menu2bg.png");
-      gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
-			      img);
-      g_free(img);
+      svg_handle = gc_skin_rsvg_get();
+
+      gc_set_background_by_id (goo_canvas_get_root_item(gcomprisBoard->canvas),
+			       svg_handle,
+			       "#BACKGROUND");
 
       boardRootItem = \
 	goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
@@ -239,6 +241,18 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
 
       g_object_set_data_full(G_OBJECT (boardRootItem),
 			     "menuitems", menuitems, g_free);
+
+      goo_canvas_svg_new (boardRootItem,
+			  svg_handle,
+			  "svg-id", "#BUTTON_VERTICAL",
+			  "pointer-events", GOO_CANVAS_EVENTS_NONE,
+			  NULL);
+
+      goo_canvas_svg_new (boardRootItem,
+			  svg_handle,
+			  "svg-id", "#BUTTON_HORIZONTAL",
+			  "pointer-events", GOO_CANVAS_EVENTS_NONE,
+			  NULL);
 
       create_info_area(boardRootItem, menuitems);
 

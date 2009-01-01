@@ -1,3 +1,20 @@
+2009-01-01  Bruno Coudoin,,,  <bruno.coudoin@free.fr>
+
+	Added an API entry gc_set_background_by_id to ease
+	SVG integration.
+	Now the menu uses the svg data from the skin.svg file.
+
+	* boards/skins/gartoon/skin.svg:
+	* src/boards/menu2.c: (menu_start):
+	* src/gcompris/bar.c: (gc_bar_start):
+	* src/gcompris/gameutil.h:
+	* src/gcompris/gcompris.c: (_clear_svg_background),
+	(_clear_pixmap_background), (gc_set_background),
+	(gc_set_background_by_id):
+	* src/gcompris/gcompris.h:
+	* src/gcompris/skin.c: (gc_skin_rsvg_get):
+	* src/gcompris/skin.h:
+
 2008-12-22  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	More work to use more svg
