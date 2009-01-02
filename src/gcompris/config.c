@@ -34,8 +34,9 @@ static GooCanvasItem	*item_bad_flag		= NULL;
 static GooCanvasItem	*item_timer_text	= NULL;
 static GooCanvasItem	*item_skin_text		= NULL;
 static GooCanvasItem	*item_filter_text	= NULL;
-static GdkPixbuf	*pixmap_checked		= NULL;
-static GdkPixbuf	*pixmap_unchecked	= NULL;
+static gchar		*pixmap_checked		= NULL;
+static gchar		*pixmap_unchecked	= NULL;
+static guint		 pixmap_width;
 
 static gchar		*current_locale		= NULL;
 static GList		*skinlist		= NULL;
@@ -194,9 +195,9 @@ gc_config_start ()
 		       "fill-color-rgba", gc_skin_color_title,
 		       NULL);
 
-  pixmap_checked   = gc_skin_pixmap_load("button_checked.png");
-  pixmap_unchecked = gc_skin_pixmap_load("button_unchecked.png");
-
+  pixmap_checked   = "#CHECKED";
+  pixmap_unchecked = "#UNCHECKED";
+  pixmap_width = 30;
 
   x_start += 150;
   x_flag_start = x_start + 50;
@@ -209,9 +210,9 @@ gc_config_start ()
   display_previous_next(x_start, y_start, "locale_previous", "locale_next");
 
   item_locale_flag = goo_canvas_svg_new (rootitem,
-				       rsvg_handle_new(),
-				       NULL);
-  y_flag_start = y_start - gdk_pixbuf_get_width(pixmap_checked)/2;
+					 rsvg_handle_new(),
+					 NULL);
+  y_flag_start = y_start - pixmap_width/2;
 
   /* Display a bad icon if this locale is not available */
   item_bad_flag = goo_canvas_svg_new (rootitem,
@@ -221,7 +222,7 @@ gc_config_start ()
 			     NULL);
   SET_ITEM_LOCATION(item_bad_flag,
 		    x_flag_start + 5,
-		    y_start - gdk_pixbuf_get_width(pixmap_checked)/2);
+		    y_start - pixmap_width/2);
 
   /*
    * The current locale is the one found in the config file
@@ -242,11 +243,12 @@ gc_config_start ()
   // Fullscreen / Window
   y_start += Y_GAP;
 
-  item = goo_canvas_image_new (rootitem,
-			       (properties->fullscreen ? pixmap_checked : pixmap_unchecked),
-			       (double) x_start,
-			       (double) y_start - gdk_pixbuf_get_width(pixmap_checked)/2,
-			       NULL);
+  item = goo_canvas_svg_new (rootitem,
+			     gc_skin_rsvg_get(),
+			     "svg-id", (properties->fullscreen ? pixmap_checked : pixmap_unchecked),
+			     "autocrop", TRUE,
+			     NULL);
+  SET_ITEM_LOCATION(item, x_start, y_start - pixmap_width/2);
 
   g_signal_connect(item, "button_press_event",
 		   (GtkSignalFunc) item_event_ok,
@@ -267,11 +269,12 @@ gc_config_start ()
   // Music
   y_start += Y_GAP;
 
-  item = goo_canvas_image_new (rootitem,
-			       (properties->music ? pixmap_checked : pixmap_unchecked),
-			       (double) x_start,
-			       (double) y_start - gdk_pixbuf_get_width(pixmap_checked)/2,
-			       NULL);
+  item = goo_canvas_svg_new (rootitem,
+			     gc_skin_rsvg_get(),
+			     "svg-id", (properties->music ? pixmap_checked : pixmap_unchecked),
+			     "autocrop", TRUE,
+			     NULL);
+  SET_ITEM_LOCATION(item, x_start, y_start - pixmap_width/2);
 
   g_signal_connect(item, "button_press_event",
 		   (GtkSignalFunc) item_event_ok,
@@ -292,11 +295,12 @@ gc_config_start ()
   // Effect
   y_start += Y_GAP;
 
-  item = goo_canvas_image_new (rootitem,
-			       (properties->fx ? pixmap_checked : pixmap_unchecked),
-			       (double) x_start,
-			       (double) y_start - gdk_pixbuf_get_width(pixmap_checked)/2,
-			       NULL);
+  item = goo_canvas_svg_new (rootitem,
+			     gc_skin_rsvg_get(),
+			     "svg-id", (properties->fx ? pixmap_checked : pixmap_unchecked),
+			     "autocrop", TRUE,
+			     NULL);
+  SET_ITEM_LOCATION(item, x_start, y_start - pixmap_width/2);
 
   g_signal_connect(item, "button_press_event",
 		   (GtkSignalFunc) item_event_ok,
@@ -465,14 +469,6 @@ void gc_config_stop ()
 
   stars_group = NULL;
 
-  if(pixmap_unchecked)
-    gdk_pixbuf_unref(pixmap_unchecked);
-  pixmap_unchecked = NULL;
-
-  if(pixmap_checked)
-    gdk_pixbuf_unref(pixmap_checked);
-  pixmap_checked = NULL;
-
   /* UnPause the board */
   if(is_displayed)
     gc_board_pause(FALSE);
@@ -516,35 +512,36 @@ static void
 display_previous_next(guint x_start, guint y_start,
 		      gchar *eventname_previous, gchar *eventname_next)
 {
-  GdkPixbuf   *pixmap = NULL;
   GooCanvasItem *item;
+  GooCanvasBounds bounds;
 
-  pixmap = gc_skin_pixmap_load("button_backward.png");
-  item = goo_canvas_image_new (rootitem,
-			       pixmap,
-			       (double) x_start - gdk_pixbuf_get_width(pixmap) - 10,
-			       (double) y_start - gdk_pixbuf_get_width(pixmap_checked)/2,
-			       NULL);
+  item = goo_canvas_svg_new (rootitem,
+			     gc_skin_rsvg_get(),
+			     "svg-id", "#PREVIOUS",
+			     NULL);
+  goo_canvas_item_get_bounds(item, &bounds);
+  SET_ITEM_LOCATION(item,
+		    x_start - (bounds.x2 - bounds.x1) - 10,
+		    y_start - pixmap_width/2);
 
   g_signal_connect(item, "button_press_event",
 		   (GtkSignalFunc) item_event_ok,
 		   eventname_previous);
   gc_item_focus_init(item, NULL);
-  gdk_pixbuf_unref(pixmap);
 
 
-  pixmap = gc_skin_pixmap_load("button_forward.png");
-  item = goo_canvas_image_new (rootitem,
-			       pixmap,
-			       (double) x_start,
-			       (double) y_start - gdk_pixbuf_get_width(pixmap_checked)/2,
-			       NULL);
+  item = goo_canvas_svg_new (rootitem,
+			     gc_skin_rsvg_get(),
+			     "svg-id", "#NEXT",
+			     NULL);
+  SET_ITEM_LOCATION(item,
+		    x_start,
+		    y_start - pixmap_width/2);
 
   g_signal_connect(item, "button_press_event",
 		   (GtkSignalFunc) item_event_ok,
 		   eventname_next);
   gc_item_focus_init(item, NULL);
-  gdk_pixbuf_unref(pixmap);
 }
 
 static void
@@ -728,7 +725,7 @@ item_event_ok(GooCanvasItem *item,
       gc_fullscreen_set(properties->fullscreen);
 
       g_object_set (item,
-		    "pixbuf", (properties->fullscreen ? pixmap_checked : pixmap_unchecked),
+		    "svg-id", (properties->fullscreen ? pixmap_checked : pixmap_unchecked),
 		    NULL);
 
       gc_item_focus_init(item, NULL);
@@ -737,7 +734,7 @@ item_event_ok(GooCanvasItem *item,
     {
       properties->music = (properties->music ? 0 : 1);
       g_object_set (item,
-		    "pixbuf", (properties->music ? pixmap_checked : pixmap_unchecked),
+		    "svg-id", (properties->music ? pixmap_checked : pixmap_unchecked),
 		    NULL);
       if(!properties->music)
 	{
@@ -753,7 +750,7 @@ item_event_ok(GooCanvasItem *item,
     {
       properties->fx = (properties->fx ? 0 : 1);
       g_object_set (item,
-		    "pixbuf", (properties->fx ? pixmap_checked : pixmap_unchecked),
+		    "svg-id", (properties->fx ? pixmap_checked : pixmap_unchecked),
 		    NULL);
       gc_item_focus_init(item, NULL);
     }

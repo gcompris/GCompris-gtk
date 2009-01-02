@@ -39,6 +39,7 @@ struct _GooCanvasSvg
   double y1;
   double x2;
   double y2;
+  guint autocrop : 1;
 };
 
 struct _GooCanvasSvgClass

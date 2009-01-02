@@ -13,13 +13,14 @@ enum {
   /* Convenience properties. */
   PROP_SVGHANDLE,
   PROP_SVG_ID,
+  PROP_AUTOCROP,
 };
 
 static void goo_canvas_svg_finalize     (GObject            *object);
 static void goo_canvas_svg_set_property (GObject            *object,
-				       guint               param_id,
-				       const GValue       *value,
-				       GParamSpec         *pspec);
+					 guint               param_id,
+					 const GValue       *value,
+					 GParamSpec         *pspec);
 
 
 /* Use the GLib convenience macro to define the type. GooCanvasSvg is the
@@ -44,6 +45,46 @@ goo_canvas_svg_install_common_properties (GObjectClass *gobject_class)
 							NULL,
 							G_PARAM_WRITABLE));
 
+  g_object_class_install_property (gobject_class, PROP_AUTOCROP,
+				   g_param_spec_boolean ("autocrop",
+							 "Auto Crop",
+							 "Set to True to crop the image, default is False",
+							 FALSE,
+							 G_PARAM_WRITABLE));
+
+}
+
+/* Return a new surface with the item in src_surface being
+ * assigned to 0,0 coordinate.
+ */
+static cairo_surface_t*
+_autocrop(cairo_surface_t *src_surface,
+	  double x1, double x2, double y1, double y2)
+{
+  cairo_surface_t* dst_surface =
+    cairo_image_surface_create (CAIRO_FORMAT_ARGB32,
+				x2 - x1 + 1,
+				y2 - y1 + 1);
+
+  unsigned char* src_data = cairo_image_surface_get_data(src_surface);
+  unsigned char* dst_data = cairo_image_surface_get_data(dst_surface);
+
+  int src_stride = cairo_image_surface_get_stride(src_surface);
+  int dst_stride = cairo_image_surface_get_stride(dst_surface);
+
+  int x;
+  for (x = x1; x <= x2; x++)
+    {
+      int y;
+      for (y = y1; y <= y2; y++)
+	{
+	  guint32 point = *(guint32*)&src_data[y*src_stride + x*4];
+	  *(guint32*)&dst_data[((y-(int)y1)*dst_stride)
+			    + (x*4 - (int)x1*4)] = point;
+	}
+    }
+
+  return dst_surface;
 }
 
 static void _init_surface(GooCanvasSvg *canvas_svg,
@@ -72,7 +113,6 @@ static void _init_surface(GooCanvasSvg *canvas_svg,
   canvas_svg->cr = cairo_create (cst);
   rsvg_handle_render_cairo_sub (svg_handle, canvas_svg->cr,
 				canvas_svg->id);
-  canvas_svg->pattern = cairo_pattern_create_for_surface (cst);
 
   /* Get the real coordinates */
   canvas_svg->x1 = canvas_svg->width;
@@ -97,6 +137,21 @@ static void _init_surface(GooCanvasSvg *canvas_svg,
 	    }
 	}
     }
+
+  if(stride > 0 && canvas_svg->autocrop)
+    {
+      canvas_svg->pattern =				\
+	cairo_pattern_create_for_surface ( _autocrop(cst,
+						     canvas_svg->x1, canvas_svg->x2,
+						     canvas_svg->y1, canvas_svg->y2) );
+      canvas_svg->x2 = canvas_svg->x2 - canvas_svg->x1;
+      canvas_svg->y2 = canvas_svg->y2 - canvas_svg->y1;
+      canvas_svg->x1 = 0;
+      canvas_svg->y1 = 0;
+    }
+  else
+    canvas_svg->pattern = cairo_pattern_create_for_surface (cst);
+
   cairo_surface_destroy(cst);
 }
 
@@ -113,6 +168,7 @@ goo_canvas_svg_init (GooCanvasSvg *canvas_svg)
   canvas_svg->id = NULL;
   canvas_svg->cr = NULL;
   canvas_svg->pattern = NULL;
+  canvas_svg->autocrop = FALSE;
 }
 
 
@@ -238,6 +294,8 @@ goo_canvas_svg_set_common_property (GObject              *object,
       if (canvas_svg->svg_handle)
 	_init_surface(canvas_svg, canvas_svg->svg_handle);
       break;
+    case PROP_AUTOCROP:
+      canvas_svg->autocrop = g_value_get_boolean (value);
     default:
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
       break;

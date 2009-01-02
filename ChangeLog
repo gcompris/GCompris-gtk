@@ -1,3 +1,15 @@
+2009-01-02  Bruno Coudoin,,,  <bruno.coudoin@free.fr>
+
+	Added an autocrop feature in the svg goocanvas item.
+
+	* src/gcompris/config.c: (gc_config_start), (gc_config_stop),
+	(display_previous_next), (item_event_ok):
+	* src/goocanvas/src/goocanvassvg.c:
+	(goo_canvas_svg_install_common_properties), (_autocrop),
+	(_init_surface), (goo_canvas_svg_init),
+	(goo_canvas_svg_set_common_property):
+	* src/goocanvas/src/goocanvassvg.h:
+
 2009-01-01  Bruno Coudoin,,,  <bruno.coudoin@free.fr>
 
 	More integration of the single file skin.
