@@ -89,21 +89,26 @@ gc_score_set(guint value)
   case SCORESTYLE_NOTE :
     {
       gchar *tmp;
-      GdkPixbuf *button_pixmap = NULL;
+      GooCanvasItem *item;
+      GooCanvasBounds bounds;
 
-      button_pixmap = gc_skin_pixmap_load("button_large.png");
-      goo_canvas_image_new (boardRootItem,
-			    button_pixmap,
-			    x,
-			    y-gdk_pixbuf_get_height(button_pixmap)/2,
+      item =
+	goo_canvas_svg_new (boardRootItem,
+			    gc_skin_rsvg_get(),
+			    "svg-id", "#BUTTON_TEXT",
+			    "autocrop", TRUE,
 			    NULL);
+      goo_canvas_item_get_bounds(item, &bounds);
+
+      SET_ITEM_LOCATION(item,
+			x,
+			y - (bounds.y2 - bounds.y1)/2 );
 
       tmp = g_strdup_printf("%d/%d", value, max);
       display_number(boardRootItem,
-		     x + gdk_pixbuf_get_width(button_pixmap)/2,
-		     y - gdk_pixbuf_get_height(button_pixmap)/2,
+		     x + (bounds.x2 - bounds.x1)/2,
+		     y - (bounds.y2 - bounds.y1)/2,
 		     tmp);
-      gdk_pixbuf_unref(button_pixmap);
       g_free(tmp);
     }
     break;
