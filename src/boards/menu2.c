@@ -95,7 +95,7 @@ static double icon_size, icon_size_panel, icon_size_top, top_arrow_size;
 
 static gdouble get_ratio(GdkPixbuf *pixmap, gdouble size);
 
-#define P_X 15
+#define P_X 8
 #define P_Y 35
 #define P_W 80
 #define P_H 480

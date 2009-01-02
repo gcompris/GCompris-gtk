@@ -27,7 +27,7 @@
 
 #define SOUNDLISTFILE PACKAGE
 
-#define GAP_TO_BUTTON -20
+#define GAP_TO_BUTTON -30
 
 static gboolean item_event_help (GooCanvasItem  *item,
 				 GooCanvasItem  *target,
@@ -89,7 +89,8 @@ gboolean gc_help_has_board (GcomprisBoard *gcomprisBoard)
 void gc_help_start (GcomprisBoard *gcomprisBoard)
 {
 
-  GdkPixbuf   *pixmap = NULL;
+  GdkPixbuf *pixmap;
+  gchar *item_id = "#UP";
   GooCanvasItem *item, *item2;
   gint y = 0;
   gint y_start = 0;
@@ -118,6 +119,7 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
 			     NULL);
 
   GooCanvasBounds bounds;
+  guint pixmap_width = 40;
   goo_canvas_item_get_bounds(item, &bounds);
   x_start = bounds.x1;
   y_start = bounds.y1;
@@ -151,18 +153,19 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
 		       NULL);
 
 
-  y_start += 120;
-
-  pixmap = gc_skin_pixmap_load("button_up.png");
+  y_start += 80;
 
   // Prerequisite Button
   if(prerequisite)
     {
-      item_prerequisite = goo_canvas_image_new (rootitem,
-						pixmap,
-						(BOARDWIDTH*0.2) - gdk_pixbuf_get_width(pixmap)/2,
-						y_start - gdk_pixbuf_get_height(pixmap) - 10,
-						NULL);
+      item_prerequisite = goo_canvas_svg_new (rootitem,
+					      gc_skin_rsvg_get(),
+					      "svg-id", item_id,
+					      "autocrop", TRUE,
+					      NULL);
+      SET_ITEM_LOCATION(item_prerequisite,
+			(BOARDWIDTH*0.2) - pixmap_width/2,
+			y_start  - 10)
 
       g_signal_connect(item_prerequisite, "button_press_event",
 			 (GtkSignalFunc) item_event_help,
@@ -173,7 +176,7 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
 	goo_canvas_text_new (rootitem,
 			     _("Prerequisite"),
 			     BOARDWIDTH*0.20,
-			     y_start - gdk_pixbuf_get_height(pixmap)  + GAP_TO_BUTTON,
+			     y_start   + GAP_TO_BUTTON,
 			     -1,
 			     GTK_ANCHOR_CENTER,
 			     "font", gc_skin_font_content,
@@ -187,11 +190,14 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
   // Goal Button
   if(goal)
     {
-      item_goal = goo_canvas_image_new (rootitem,
-					pixmap,
-					(BOARDWIDTH*0.4) - gdk_pixbuf_get_width(pixmap)/2,
-					y_start - gdk_pixbuf_get_height(pixmap) - 10,
-					NULL);
+      item_goal = goo_canvas_svg_new (rootitem,
+				      gc_skin_rsvg_get(),
+				      "svg-id", item_id,
+				      "autocrop", TRUE,
+				      NULL);
+      SET_ITEM_LOCATION(item_goal,
+			(BOARDWIDTH*0.4) - pixmap_width/2,
+			y_start  - 10);
 
       g_signal_connect(item_goal, "button_press_event",
 			 (GtkSignalFunc) item_event_help,
@@ -201,7 +207,7 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
       item_goal_text = goo_canvas_text_new (rootitem,
 					    _("Goal"),
 					    BOARDWIDTH*0.4,
-					    y_start - gdk_pixbuf_get_height(pixmap)  + GAP_TO_BUTTON,
+					    y_start   + GAP_TO_BUTTON,
 					    -1,
 					    GTK_ANCHOR_CENTER,
 					    "font", gc_skin_font_content,
@@ -215,11 +221,14 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
   // Manual Button
   if(manual)
     {
-      item_manual = goo_canvas_image_new (rootitem,
-					  pixmap,
-					  (BOARDWIDTH*0.6) - gdk_pixbuf_get_width(pixmap)/2,
-					  y_start - gdk_pixbuf_get_height(pixmap) - 10,
-					   NULL);
+      item_manual = goo_canvas_svg_new (rootitem,
+					gc_skin_rsvg_get(),
+					"svg-id", item_id,
+					"autocrop", TRUE,
+					NULL);
+      SET_ITEM_LOCATION(item_manual,
+			(BOARDWIDTH*0.6) - pixmap_width/2,
+			y_start  - 10);
 
       g_signal_connect(item_manual, "button_press_event",
 			 (GtkSignalFunc) item_event_help,
@@ -229,7 +238,7 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
       item_manual_text = goo_canvas_text_new (rootitem,
 					      _("Manual"),
 					      BOARDWIDTH*0.6,
-					      y_start - gdk_pixbuf_get_height(pixmap)  + GAP_TO_BUTTON,
+					      y_start   + GAP_TO_BUTTON,
 					      -1,
 					      GTK_ANCHOR_CENTER,
 					      "font", gc_skin_font_content,
@@ -243,11 +252,14 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
   // Credit Button
   if(credit)
     {
-      item_credit = goo_canvas_image_new (rootitem,
-					  pixmap,
-					  (BOARDWIDTH*0.8) - gdk_pixbuf_get_width(pixmap)/2,
-					  y_start - gdk_pixbuf_get_height(pixmap) - 10,
-					   NULL);
+      item_credit = goo_canvas_svg_new (rootitem,
+					gc_skin_rsvg_get(),
+					"svg-id", item_id,
+					"autocrop", TRUE,
+					NULL);
+      SET_ITEM_LOCATION(item_credit,
+			(BOARDWIDTH*0.8) - pixmap_width/2,
+			y_start  - 10);
 
       g_signal_connect(item_credit, "button_press_event",
 			 (GtkSignalFunc) item_event_help,
@@ -257,7 +269,7 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
       item_credit_text = goo_canvas_text_new (rootitem,
 					      _("Credit"),
 					      BOARDWIDTH*0.8,
-					      y_start - gdk_pixbuf_get_height(pixmap)  + GAP_TO_BUTTON,
+					      y_start   + GAP_TO_BUTTON,
 					      -1,
 					      GTK_ANCHOR_CENTER,
 					      "font", gc_skin_font_content,
@@ -267,8 +279,6 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
 			 (GtkSignalFunc) item_event_help,
 			 "credit");
     }
-
-  gdk_pixbuf_unref(pixmap);
 
   // CONTENT
 
@@ -295,7 +305,7 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
       select_item(item_credit, item_credit_text);
     }
 
-  y_start += 5;
+  y_start += 45;
 
   /* Create a scrolled area for the text content */
   GtkWidget *view;
@@ -401,26 +411,24 @@ void gc_help_stop ()
 
 static void select_item(GooCanvasItem *item, GooCanvasItem *item_text)
 {
-  GdkPixbuf   *pixmap = NULL;
+  gchar *item_id;
 
   if(item_selected)
     {
-      pixmap = gc_skin_pixmap_load("button_up.png");
+      item_id = "#UP";
       g_object_set(item_selected,
-		   "pixbuf", pixmap,
+		   "svg-id", item_id,
 		   NULL);
       g_object_set(item_selected_text,
 		   "fill-color-rgba", gc_skin_get_color("gcompris/helpunselect"),
 		   NULL);
 
-      gdk_pixbuf_unref(pixmap);
     }
 
-  pixmap = gc_skin_pixmap_load("button_up_selected.png");
+  item_id = "#UP_SELECTED";
   g_object_set(item,
-	       "pixbuf", pixmap,
+	       "svg-id", item_id,
 	       NULL);
-  gdk_pixbuf_unref(pixmap);
   g_object_set(item_text,
 	       "fill-color-rgba", gc_skin_get_color("gcompris/helpselect"),
 	       NULL);

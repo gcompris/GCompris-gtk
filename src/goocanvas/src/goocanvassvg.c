@@ -296,6 +296,7 @@ goo_canvas_svg_set_common_property (GObject              *object,
       break;
     case PROP_AUTOCROP:
       canvas_svg->autocrop = g_value_get_boolean (value);
+      break;
     default:
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
       break;
