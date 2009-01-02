@@ -43,7 +43,7 @@ void gc_about_start ()
   gdouble y_start = 0;
   gdouble x_start = 0;
   gint y = 0;
-  GooCanvasItem *item, *item2;
+  GooCanvasItem *item;
   gint plane_y;
 
   static gchar *content =
@@ -79,16 +79,26 @@ void gc_about_start ()
   x_start = bounds.x1;
   y_start = bounds.y1;
 
-  y = bounds.y2;
+  y = bounds.y2 - 26;
 
   goo_canvas_text_new (rootitem,
 		       _("About GCompris"),
 		       (gdouble) BOARDWIDTH/2,
-		       (gdouble) y_start + 40,
+		       (gdouble) y_start + 35,
 		       -1,
 		       GTK_ANCHOR_CENTER,
 		       "font", gc_skin_font_title,
 		       "fill-color-rgba", gc_skin_color_title,
+		       NULL);
+
+  goo_canvas_text_new (rootitem,
+		       _("GCompris Home Page: http://gcompris.net"),
+		       (gdouble) BOARDWIDTH/2,
+		       (gdouble)  y_start + 58,
+		       -1,
+		       GTK_ANCHOR_CENTER,
+		       "font", gc_skin_font_content,
+		       "fill-color-rgba", gc_skin_color_subtitle,
 		       NULL);
 
   goo_canvas_text_new (rootitem,
@@ -188,32 +198,11 @@ void gc_about_start ()
 				  NULL);
     }
 
-  // GCompris Reference
-  y_start += 80;
-  pixmap = gc_skin_pixmap_load("gcomprislogo.png");
-  item = goo_canvas_image_new (rootitem,
-			       pixmap,
-			       (double) (BOARDWIDTH*0.3) - gdk_pixbuf_get_width(pixmap)/2,
-			       (double) y_start - gdk_pixbuf_get_height(pixmap)/2,
-				NULL);
-
-  gdk_pixbuf_unref(pixmap);
-
-  item = goo_canvas_text_new (rootitem,
-			      _("GCompris Home Page\nhttp://gcompris.net"),
-			      (gdouble) BOARDWIDTH/2-320,
-			      (gdouble)  y_start + 5,
-			      -1,
-			      GTK_ANCHOR_NORTH_WEST,
-			      "font", gc_skin_font_content,
-			      "fill-color-rgba", gc_skin_color_subtitle,
-			      NULL);
-
   // Copyright
   item = goo_canvas_text_new (rootitem,
 			      "Copyright 2000-2008 Bruno Coudoin and Others",
 			      (gdouble)  BOARDWIDTH/2,
-			      (gdouble)  y - 95,
+			      (gdouble)  y - 55,
 			      -1,
 			      GTK_ANCHOR_CENTER,
 			      "font", gc_skin_font_content,
@@ -224,7 +213,7 @@ void gc_about_start ()
   item = goo_canvas_text_new (rootitem,
 			      _("This software is a GNU Package and is released under the GNU General Public License"),
 			      (gdouble)  BOARDWIDTH/2,
-			      (gdouble)  y - 80,
+			      (gdouble)  y - 40,
 			      -1,
 			      GTK_ANCHOR_CENTER,
 			      "font", gc_skin_font_content,
@@ -232,54 +221,27 @@ void gc_about_start ()
 			      NULL);
 
   // OK
-  pixmap = gc_skin_pixmap_load("button_large.png");
-  item = goo_canvas_image_new (rootitem,
-			       pixmap,
-			       (double) BOARDWIDTH*0.5 - gdk_pixbuf_get_width(pixmap)/2,
-			       (double) y - gdk_pixbuf_get_height(pixmap) - 5,
-				NULL);
+  gc_util_button_text_svg(rootitem,
+			  BOARDWIDTH * 0.5,
+			  y,
+			  "#BUTTON_TEXT",
+			  _("OK"),
+			  (GtkSignalFunc) item_event_ok,
+			  "ok");
 
-  g_signal_connect(item, "button_press_event",
-		   (GtkSignalFunc) item_event_ok,
-		   "ok");
-  gc_item_focus_init(item, NULL);
-
-  goo_canvas_text_new (rootitem,
-		       _("OK"),
-		       (gdouble)  BOARDWIDTH*0.5 + 1.0,
-		       (gdouble)  y - gdk_pixbuf_get_height(pixmap) + 20 + 1.0,
-		       -1,
-		       GTK_ANCHOR_CENTER,
-		       "font", gc_skin_font_title,
-		       "fill-color-rgba", gc_skin_color_shadow,
-		       NULL);
-  item2 = goo_canvas_text_new (rootitem,
-			       _("OK"),
-			       (gdouble)  BOARDWIDTH*0.5,
-			       (gdouble)  y - gdk_pixbuf_get_height(pixmap) + 20,
-			       -1,
-			       GTK_ANCHOR_CENTER,
-			       "font", gc_skin_font_title,
-			       "fill-color-rgba", gc_skin_color_text_button,
-			       NULL);
-  g_signal_connect(item2, "button_press_event",
-		     (GtkSignalFunc) item_event_ok,
-		     "ok");
-  gc_item_focus_init(item2, item);
-  gdk_pixbuf_unref(pixmap);
-
-
+  // The animation
   pixmap = gc_skin_pixmap_load("gcompris-about.png");
 
   plane_y = BOARDHEIGHT - gdk_pixbuf_get_height(pixmap);
   item = goo_canvas_image_new (rootitem,
 			       pixmap,
-			       -gdk_pixbuf_get_width(pixmap),
-			       plane_y);
+			       -1 * gdk_pixbuf_get_width(pixmap),
+			       plane_y,
+			       NULL);
 
   goo_canvas_item_animate (item,
 			   BOARDWIDTH + gdk_pixbuf_get_width(pixmap),
-			   -gdk_pixbuf_get_height(pixmap),
+			   -1 * gdk_pixbuf_get_height(pixmap),
 			   0.4,
 			   -30,
 			   TRUE,

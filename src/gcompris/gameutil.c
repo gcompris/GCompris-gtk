@@ -703,3 +703,55 @@ gc_util_button_text(GooCanvasItem *rootitem,
   gc_item_focus_init(item_text, item);
   gdk_pixbuf_unref(pixmap);
 }
+
+/** Display a button with the given text (BY SKIN'S SVG ID)
+ *
+ * \param x the x coordinate of the button
+ * \param y the y coordinate of the button
+ * \param button_file the image file to use as the button
+ * \param text is the text to display in the button
+ * \param process is the callback function
+ * \param data is the user data passed to the callback function
+ *
+ * \return void
+ */
+void
+gc_util_button_text_svg(GooCanvasItem *rootitem,
+			guint x, guint y,
+			char *button_id,
+			char *text,
+			GtkSignalFunc process,
+			gpointer data)
+{
+  GooCanvasItem *item;
+  GooCanvasItem *item_text;
+
+  /* The Button */
+  item = goo_canvas_svg_new (rootitem,
+			     gc_skin_rsvg_get(),
+			     "svg-id", button_id,
+			     "autocrop", TRUE,
+			     NULL);
+  SET_ITEM_LOCATION_CENTER(item, x, y);
+
+  g_signal_connect(item,
+		   "button_press_event",
+		   (GtkSignalFunc) process, data);
+  gc_item_focus_init(item, NULL);
+
+  /* The Text */
+  item_text =
+    goo_canvas_text_new (rootitem,
+			 text,
+			 x,
+			 y,
+			 -1,
+			 GTK_ANCHOR_CENTER,
+			 "font", gc_skin_font_board_small,
+			 "fill_color_rgba", gc_skin_color_text_button,
+			 NULL);
+  g_signal_connect(item_text,
+		   "button_press_event",
+		   process, data);
+  gc_item_focus_init(item_text, item);
+}

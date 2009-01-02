@@ -154,12 +154,11 @@ void
 gc_config_start ()
 {
   GcomprisProperties	*properties = gc_prop_get();
-  GdkPixbuf   *pixmap = NULL;
   gint y_start = 0;
   gint x_start = 0;
   gint x_text_start = 0;
   gint y = 0;
-  GooCanvasItem *item, *item2;
+  GooCanvasItem *item;
 
   /* Pause the board */
   gc_board_pause(TRUE);
@@ -183,7 +182,7 @@ gc_config_start ()
   x_start = bounds.x1;
   y_start = bounds.y1;
 
-  y = bounds.y2;
+  y = bounds.y2 - 26;
 
   goo_canvas_text_new (rootitem,
 		       _("GCompris Configuration"),
@@ -417,42 +416,13 @@ gc_config_start ()
 
 
   // OK
-  pixmap = gc_skin_pixmap_load("button_large.png");
-  item = goo_canvas_image_new (rootitem,
-			       pixmap,
-			       (double) (BOARDWIDTH*0.5) - gdk_pixbuf_get_width(pixmap)/2,
-			       (double) y - gdk_pixbuf_get_height(pixmap) - 5,
-			       NULL);
-
-  g_signal_connect(item, "button_press_event",
-		   (GtkSignalFunc) item_event_ok,
-		   "ok");
-  gc_item_focus_init(item, NULL);
-
-  goo_canvas_text_new (rootitem,
-		       _("OK"),
-		       (gdouble)  BOARDWIDTH*0.5 + 1.0,
-		       (gdouble)  y - gdk_pixbuf_get_height(pixmap) + 20 + 1.0,
-		       -1,
-		       GTK_ANCHOR_CENTER,
-		       "font", gc_skin_font_title,
-		       "fill-color-rgba", gc_skin_color_shadow,
-		       NULL);
-  item2 = goo_canvas_text_new (rootitem,
-			       _("OK"),
-			       (gdouble)  BOARDWIDTH*0.5,
-			       (gdouble)  y - gdk_pixbuf_get_height(pixmap) + 20,
-			       -1,
-			       GTK_ANCHOR_CENTER,
-			       "font", gc_skin_font_title,
-			       "fill-color-rgba", gc_skin_color_text_button,
-			       NULL);
-  g_signal_connect(item2, "button_press_event",
-		   (GtkSignalFunc) item_event_ok,
-		   "ok");
-  gc_item_focus_init(item2, item);
-  gdk_pixbuf_unref(pixmap);
-
+  gc_util_button_text_svg(rootitem,
+			  BOARDWIDTH * 0.5,
+			  y,
+			  "#BUTTON_TEXT",
+			  _("OK"),
+			  (GtkSignalFunc) item_event_ok,
+			  "ok");
 
   is_displayed = TRUE;
 }

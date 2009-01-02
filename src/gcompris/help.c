@@ -89,9 +89,8 @@ gboolean gc_help_has_board (GcomprisBoard *gcomprisBoard)
 void gc_help_start (GcomprisBoard *gcomprisBoard)
 {
 
-  GdkPixbuf *pixmap;
   gchar *item_id = "#UP";
-  GooCanvasItem *item, *item2;
+  GooCanvasItem *item;
   gint y = 0;
   gint y_start = 0;
   gint x_start = 0;
@@ -124,7 +123,7 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
   x_start = bounds.x1;
   y_start = bounds.y1;
 
-  y = bounds.y2;
+  y = bounds.y2 - 26;
 
   y_start += 15;
   if(gcomprisBoard->section && gcomprisBoard->name) {
@@ -348,33 +347,13 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
 
   set_content(text_to_display);
   // OK
-  pixmap = gc_skin_pixmap_load("button_large.png");
-
-  item = goo_canvas_image_new (rootitem,
-			       pixmap,
-			       (BOARDWIDTH*0.5) - gdk_pixbuf_get_width(pixmap)/2,
-			       y - gdk_pixbuf_get_height(pixmap) - 5,
-				NULL);
-
-  g_signal_connect(item, "button_press_event",
-		     (GtkSignalFunc) item_event_help,
-		     "ok");
-  gc_item_focus_init(item, NULL);
-
-  item2 = goo_canvas_text_new (rootitem,
-			       _("OK"),
-			       BOARDWIDTH*0.5,
-			       y - gdk_pixbuf_get_height(pixmap) + 20,
-			       -1,
-			       GTK_ANCHOR_CENTER,
-			       "font", gc_skin_font_title,
-			       "fill-color-rgba", gc_skin_color_text_button,
-			       NULL);
-  g_signal_connect(item2, "button_press_event",
-		     (GtkSignalFunc) item_event_help,
-		     "ok");
-  gc_item_focus_init(item2, item);
-  gdk_pixbuf_unref(pixmap);
+  gc_util_button_text_svg(rootitem,
+			  BOARDWIDTH * 0.5,
+			  y,
+			  "#BUTTON_TEXT",
+			  _("OK"),
+			  (GtkSignalFunc) item_event_help,
+			  "ok");
 
   gc_bar_hide(TRUE);
 

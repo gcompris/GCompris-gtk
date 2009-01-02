@@ -44,14 +44,25 @@
 // source file.
 // This reset the item at its 0,0 coordinate and then translate
 // it to x,y
-#define SET_ITEM_LOCATION(item, x, y)			\
-  {							\
-    GooCanvasBounds bounds;				\
-    goo_canvas_item_set_transform(item, NULL);		\
-    goo_canvas_item_get_bounds(item, &bounds);		\
-    goo_canvas_item_translate(item,			\
-			      -1 * bounds.x1 + x,	\
-			      -1 * bounds.y1 + y);	\
+#define SET_ITEM_LOCATION(item, x, y)					\
+  {									\
+  GooCanvasBounds bounds;						\
+    goo_canvas_item_set_transform(item, NULL);				\
+    goo_canvas_item_get_bounds(item, &bounds);				\
+    goo_canvas_item_translate(item,					\
+			      -1 * bounds.x1 + x,			\
+			      -1 * bounds.y1 + y);			\
+  }
+
+/* Same as above but centerer around x,y */
+#define SET_ITEM_LOCATION_CENTER(item, x, y)				\
+  {									\
+    GooCanvasBounds bounds;						\
+    goo_canvas_item_set_transform(item, NULL);				\
+    goo_canvas_item_get_bounds(item, &bounds);				\
+    goo_canvas_item_translate(item,					\
+			      -1 * bounds.x1 + x - (bounds.x2 - bounds.x1)/2, \
+			      -1 * bounds.y1 + y - (bounds.y2 - bounds.y1)/2); \
   }
 
 gchar 		*g_utf8_strndup(gchar*,gint);
@@ -82,4 +93,10 @@ void		 gc_util_button_text(GooCanvasItem *rootitem,
 				     char *text,
 				     GtkSignalFunc process,
 				     gpointer data);
+void		 gc_util_button_text_svg(GooCanvasItem *rootitem,
+					 guint x, guint y,
+					 char *button_id,
+					 char *text,
+					 GtkSignalFunc process,
+					 gpointer data);
 #endif
