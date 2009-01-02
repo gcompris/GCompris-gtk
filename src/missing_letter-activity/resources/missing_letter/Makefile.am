@@ -26,6 +26,8 @@ img_DATA = \
 	banana.png \
 	bed.png \
 	bottle.png \
+	button.png \
+	button_selected.png \
 	cake.png \
 	car.png \
 	cartable.png \

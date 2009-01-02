@@ -307,7 +307,7 @@ missing_letter_create_item(GooCanvasItem *parent)
     goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
 			  NULL);
 
-  button_pixmap = gc_skin_pixmap_load("button.png");
+  button_pixmap = gc_pixmap_load("missing_letter/button.png");
   /* display the image */
   board = g_list_nth_data(board_list, board_number);
   g_assert(board != NULL);
@@ -503,14 +503,14 @@ highlight_selected(GooCanvasItem * button)
 
   if (selected_button != NULL && selected_button != button)
     {
-      button_pixmap = gc_skin_pixmap_load("button.png");
+      button_pixmap = gc_pixmap_load("missing_letter/button.png");
       g_object_set(selected_button, "pixbuf", button_pixmap, NULL);
       gdk_pixbuf_unref(button_pixmap);
     }
 
   if (selected_button != button)
     {
-      button_pixmap_selected = gc_skin_pixmap_load("button_selected.png");
+      button_pixmap_selected = gc_pixmap_load("missing_letter/button_selected.png");
       g_object_set(button, "pixbuf", button_pixmap_selected, NULL);
       selected_button = button;
       gdk_pixbuf_unref(button_pixmap_selected);
