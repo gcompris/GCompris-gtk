@@ -45,7 +45,7 @@ class Module:
         return 999
 
     def init(self, index, select_area, callback):
-        height = 80
+        height = 90
         x   = select_area[0] + (select_area[2] - select_area[0]) / 2
         y1  = select_area[1] + height * index + 2
         y2  = select_area[1] + height * (index + 1) + 1
@@ -72,9 +72,9 @@ class Module:
         y1 += 5
         itemimg = goocanvas.Image(
             parent = self.root_select_item,
-            pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("config_" +
-                                                                            self.module_name +
-                                                                            ".png")),
+            pixbuf = gcompris.utils.load_pixmap("administration/config_" +
+                                                self.module_name +
+                                                ".svgz"),
             x = x,
             y = y1,
             )
@@ -84,7 +84,7 @@ class Module:
         itemimg.connect("button_press_event", callback, self)
         gcompris.utils.item_focus_init(itemimg, None)
 
-        y1 += bounds.y2 - bounds.y1
+        y1 += bounds.y2 - bounds.y1 + 3
 
         item = goocanvas.Text(
             parent = self.root_select_item,

@@ -229,7 +229,7 @@ class Board_list:
       if  board_cell[0] == None:
         row_dict[''] =  \
                      model.append(None,
-                                  [self.pixbuf_admin_at_height('administration/tuxplane.png', height),
+                                  [self.pixbuf_admin_at_height('administration/tuxplane.svg', height),
                                    _('Main menu') + '\n' + '/',
                                    not board_cell[1].board_id in self.out_dict[self.active_profile.profile_id],
                                    '%s/%s' % (board_cell[1].section,board_cell[1].name), self.pixbuf_configurable(board_cell[1])])

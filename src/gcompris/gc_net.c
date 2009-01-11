@@ -1,4 +1,4 @@
-/* gcompris - gameutil_net.c
+/* gcompris - gc_net.c
  *
  * Copyright (C) 2006 Bruno Coudoin
  *
@@ -18,15 +18,30 @@
 
 #include "gc_net.h"
 #include "gc_core.h"
+#include <string.h>
+
+static gboolean
+path_represents_svg_image (const char *path)
+{
+	/* Synchronous mime sniffing is a really bad idea here
+	 * since it's only useful for people adding custom icons,
+	 * and if they're doing that, they can behave themselves
+	 * and use a .svg extension.
+	 */
+	return path != NULL && (strstr (path, ".svg") != NULL || strstr (path, ".svgz") != NULL);
+}
 
 /** Load a pixmap localy
  *
  * \param pixmapfile : a full path to the file to load as an image
  * \return a GdkPixbuf or NULL
  */
-GdkPixbuf *gc_net_load_pixmap(const char *url)
+GdkPixbuf *gc_net_load_pixmap(const char *file)
 {
-  return(gdk_pixbuf_new_from_file (url, NULL));
+  if (path_represents_svg_image (file))
+    return(rsvg_pixbuf_from_file (file, NULL));
+  else
+    return(gdk_pixbuf_new_from_file (file, NULL));
 }
 
 /** Load an xml file from the network

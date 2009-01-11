@@ -1,4 +1,4 @@
-imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/ballcatch
+imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/penalty
 img_DATA = \
 	penalty_bg.svgz
 

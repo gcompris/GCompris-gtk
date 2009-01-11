@@ -1,3 +1,32 @@
+2009-01-11  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Added support for detecting and loading .svg and .svgz files through rsvg
+	in our internal gc_pixmap_load() method.
+	More work towards full svg skin
+
+	* configure.in:
+	* src/Makefile.am:
+	* src/administration-activity/admin/board_list.py:
+	* src/administration-activity/admin/module.py:
+	* src/administration-activity/resources/administration/Makefile.am:
+	* src/doubleclick-activity/Makefile.am:
+	* src/doubleclick-activity/doubleclick.py:
+	* src/doubleclick-activity/doubleclick.svg:
+	* src/doubleclick-activity/doubleclick.xml.in:
+	* src/doubleclick-activity/gcompris:
+	* src/doubleclick-activity/init_path.sh:
+	* src/doubleclick-activity/resources/Makefile.am:
+	* src/doubleclick-activity/resources/doubleclick/Makefile.am:
+	* src/doubleclick-activity/resources/doubleclick/doubleclick.svg:
+	* src/doubleclick-activity/resources/doubleclick/foot.svg:
+	* src/doubleclick-activity/resources/doubleclick/foot_shadow.svg:
+	* src/doubleclick-activity/resources/doubleclick/penalty_bg.svg:
+	* src/doubleclick-activity/resources/doubleclick/teen_tux.svg:
+	* src/gcompris/gc_net.c: (path_represents_svg_image),
+	(gc_net_load_pixmap):
+	* src/penalty-activity/penalty.xml.in:
+	* src/penalty-activity/resources/penalty/Makefile.am:
+
 2009-01-02  Bruno Coudoin,,,  <bruno.coudoin@free.fr>
 
 	Added an autocrop feature in the svg goocanvas item.

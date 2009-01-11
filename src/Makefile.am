@@ -21,7 +21,6 @@ SUBDIRS = goocanvas gcompris boards \
 	colors-activity \
 	crane-activity \
 	doubleentry-activity \
-	doubleclick-activity \
 	enumerate-activity \
 	erase-activity \
 	erase_clic-activity \
