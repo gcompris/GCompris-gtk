@@ -1,3 +1,11 @@
+2008-12-22  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	use AC_CANONICAL_HOST rather than AC_CANONICAL_TARGET for cross-compile purposes.
+	Without this change, a --target option to ./configure is emitted without a good
+	reason, which is misleading.
+
+	* configure.in:
+
 2009-01-11  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Added support for detecting and loading .svg and .svgz files through rsvg
