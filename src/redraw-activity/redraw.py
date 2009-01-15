@@ -229,21 +229,21 @@ class Gcompris_redraw:
       if(t.has_key('points')):
         goocanvas.Image(
           parent = self.root_erroritem,
-          pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("mini_bad.png")),
+          pixbuf = gcompris.utils.load_pixmap("redraw/mini_bad.png"),
           x = t['points'][0] + (t['points'][2]-t['points'][0])/2 - icw + xofset,
           y = t['points'][1] + (t['points'][3]-t['points'][1])/2 -ich
           )
       elif(t.has_key('width')):
         goocanvas.Image(
           parent = self.root_erroritem,
-          pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("mini_bad.png")),
+          pixbuf = gcompris.utils.load_pixmap("redraw/mini_bad.png"),
           x = t['x'] + t['width']/2 - icw + xofset,
           y = t['y'] + t['height']/2 - ich
           )
       elif(t.has_key('radius_x')):
         goocanvas.Image(
           parent = self.root_erroritem,
-          pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("mini_bad.png")),
+          pixbuf = gcompris.utils.load_pixmap("redraw/mini_bad.png"),
           x = t['center_x'] -icw + xofset,
           y = t['center_y'] -ich
           )
