@@ -455,7 +455,6 @@ static gboolean next_spot()
 static void menu_create_item(GooCanvasItem *parent, MenuItems *menuitems, GcomprisBoard *board)
 {
   GdkPixbuf *menu_pixmap = NULL;
-  GdkPixbuf *pixmap = NULL;
   GooCanvasItem *menu_button;
   int difficulty;
   gchar *tmp_board_dir;
@@ -529,15 +528,14 @@ static void menu_create_item(GooCanvasItem *parent, MenuItems *menuitems, Gcompr
   // display menu icon ========================== BEGIN
   if(g_strcasecmp(board->type, "menu") == 0)
     {
-      pixmap = gc_skin_pixmap_load("menuicon.png");
-      goo_canvas_image_new (parent,
-			    pixmap,
-			    current_x - pixmap_w/2 - 25 -
-			    gdk_pixbuf_get_width(pixmap)/2,
-			    current_y - pixmap_h/2-
-			    gdk_pixbuf_get_height(pixmap)/2,
-			    NULL);
-      gdk_pixbuf_unref(pixmap);
+      GooCanvasItem *item = goo_canvas_svg_new (parent,
+						gc_skin_rsvg_get(),
+						"svg-id", "#MENUICON",
+						"pointer-events", GOO_CANVAS_EVENTS_NONE,
+						NULL);
+      SET_ITEM_LOCATION(item,
+			current_x - pixmap_w/2 - 25,
+			current_y - pixmap_h/2);
     }
 
   gdk_pixbuf_unref(menu_pixmap);
@@ -930,32 +928,24 @@ menu_difficulty_display(GooCanvasItem *parent,
 		      double ratio,
 		      gint difficulty)
 {
-  GdkPixbuf *pixmap = NULL;
   GooCanvasItem *stars_group = NULL;
   GooCanvasItem *item = NULL;
-  gchar *filename = NULL;
+  gchar *svg_id = NULL;
 
   if(difficulty==0 || difficulty>6)
     return NULL;
 
-  filename = g_strdup_printf("difficulty_star%d.png", difficulty);
-  pixmap   = gc_skin_pixmap_load(filename);
-  g_free(filename);
-
-  if(!pixmap)
-    return NULL;
+  svg_id = g_strdup_printf("#DIFFICULTY%d", difficulty);
 
   stars_group = goo_canvas_group_new (parent, NULL);
 
-  item = goo_canvas_image_new (stars_group,
-			       pixmap,
-			       0,
-			       0,
-			       NULL);
-  goo_canvas_item_translate(item, x, y);
-  goo_canvas_item_scale(item, ratio, ratio);
+  item = goo_canvas_svg_new (stars_group,
+			     gc_skin_rsvg_get(),
+			     "svg-id", svg_id,
+			     NULL);
+  SET_ITEM_LOCATION(item, x, y);
 
-  gdk_pixbuf_unref(pixmap);
+  g_free(svg_id);
 
   return(stars_group);
 }
