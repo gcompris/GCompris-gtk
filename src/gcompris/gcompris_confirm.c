@@ -157,9 +157,6 @@ display_confirm(gchar *title,
 		ConfirmCallBack iscb) {
 
   GooCanvasItem  *item;
-  GdkPixbuf	 *pixmap = NULL;
-  GdkPixbuf	 *pixmap_cross = NULL;
-  GdkPixbuf	 *pixmap_stick = NULL;
 
   if(rootitem)
     return;
@@ -226,16 +223,18 @@ display_confirm(gchar *title,
    * -------
    */
 
-  pixmap = gc_skin_pixmap_load("button_large.png");
-  pixmap_stick = gc_skin_pixmap_load("button_checked.png");
-  pixmap_cross = gc_skin_pixmap_load("bad.png");
-
+  GooCanvasBounds bounds;
   // CANCEL
-  no_button = goo_canvas_image_new (rootitem,
-				    pixmap,
-				    (double) button_x ,
-				    (double) button_y + 2*button_h/3,
-				     NULL);
+  no_button = goo_canvas_svg_new (rootitem,
+				  gc_skin_rsvg_get(),
+				  "svg-id", "#BUTTON_TEXT",
+				  NULL);
+  goo_canvas_item_get_bounds(no_button, &bounds);
+  gint button_width = bounds.x2 - bounds.x1;
+  button_x += button_width / 2;
+  SET_ITEM_LOCATION_CENTER(no_button,
+			   button_x,
+			   button_y + 2*button_h/3);
 
   g_signal_connect(no_button, "button_press_event",
 		     (GtkSignalFunc) button_event,
@@ -244,12 +243,13 @@ display_confirm(gchar *title,
   gc_item_focus_init(no_button, NULL);
 
   // CANCEL CROSS
-  no_cross = goo_canvas_image_new (rootitem,
-				   pixmap_cross,
-				   button_x  + gdk_pixbuf_get_width(pixmap)/2
-				   - gdk_pixbuf_get_width(pixmap_cross)/2,
-				   button_y + 2*button_h/3,
-				    NULL);
+  no_cross = goo_canvas_svg_new (rootitem,
+				 gc_skin_rsvg_get(),
+				 "svg-id", "#UNCHECKED",
+				 NULL);
+  SET_ITEM_LOCATION_CENTER(no_cross,
+			   button_x ,
+			   button_y + 2*button_h/3);
 
   g_signal_connect(no_cross, "button_press_event",
 		     (GtkSignalFunc) button_event,
@@ -259,8 +259,8 @@ display_confirm(gchar *title,
 
   goo_canvas_text_new (rootitem,
 		       no_text,
-		       (gdouble)  button_x + gdk_pixbuf_get_width(pixmap) + button_x_int ,
-		       (gdouble)  button_y + 2*button_h/3 + 20,
+		       (gdouble)  button_x + button_width/2 + button_x_int ,
+		       (gdouble)  button_y + 2*button_h/3,
 		       -1,
 		       GTK_ANCHOR_WEST,
 		       "font", gc_skin_font_subtitle,
@@ -268,11 +268,14 @@ display_confirm(gchar *title,
 		       NULL);
 
   // OK
-  yes_button = goo_canvas_image_new (rootitem,
-				     pixmap,
-				     (double) button_x ,
-				     (double) button_y + button_h/3,
-				      NULL);
+  yes_button = goo_canvas_svg_new (rootitem,
+				   gc_skin_rsvg_get(),
+				   "svg-id", "#BUTTON_TEXT",
+				   NULL);
+
+  SET_ITEM_LOCATION_CENTER(yes_button,
+			   button_x ,
+			   button_y + button_h/3);
 
   g_signal_connect(yes_button, "button_press_event",
 		     (GtkSignalFunc) button_event,
@@ -281,12 +284,13 @@ display_confirm(gchar *title,
   gc_item_focus_init(yes_button, NULL);
 
   // OK stick
-  yes_stick = goo_canvas_image_new (rootitem,
-				    pixmap_stick,
-				    button_x + gdk_pixbuf_get_width(pixmap)/2
-				    - gdk_pixbuf_get_width(pixmap_stick)/2,
-				    button_y + button_h/3,
+  yes_stick = goo_canvas_svg_new (rootitem,
+				    gc_skin_rsvg_get(),
+				    "svg-id", "#CHECKED",
 				     NULL);
+  SET_ITEM_LOCATION_CENTER(yes_stick,
+			   button_x ,
+			   button_y + button_h/3);
 
 
   g_signal_connect(yes_stick, "button_press_event",
@@ -296,8 +300,8 @@ display_confirm(gchar *title,
 
   goo_canvas_text_new (rootitem,
 		       yes_text,
-		       (gdouble)  button_x + gdk_pixbuf_get_width(pixmap) + button_x_int ,
-		       (gdouble)  button_y + button_h/3 + 20,
+		       (gdouble)  button_x + button_width/2 + button_x_int ,
+		       (gdouble)  button_y + button_h/3,
 		       -1,
 		       GTK_ANCHOR_WEST,
 		       "font", gc_skin_font_subtitle,
@@ -305,10 +309,6 @@ display_confirm(gchar *title,
 		       NULL);
 
   confirm_displayed = TRUE;
-
-  gdk_pixbuf_unref(pixmap);
-  gdk_pixbuf_unref(pixmap_stick);
-  gdk_pixbuf_unref(pixmap_cross);
 
 }
 
