@@ -87,30 +87,27 @@ void create_mainwindow (GooCanvasItem *rootitem)
   /* Gcompris */
   /* add here buttons */
 
-  GdkPixbuf   *pixmap_l = NULL;
-  GdkPixbuf   *pixmap_r = NULL;
   GdkPixbuf   *pixmap_show = NULL;
   GdkPixbuf   *pixmap_outline = NULL;
   GdkPixbuf   *pixmap_symetry = NULL;
   GooCanvasItem *previous_figure, *next_figure;
   GooCanvasItem *show_figure, *outline_figure, *symetry;
 
-  pixmap_l = gc_skin_pixmap_load("button_backward.png");
+  previous_figure = goo_canvas_svg_new (rootitem,
+					gc_skin_rsvg_get(),
+					"svg-id", "#PREVIOUS",
+					NULL);
+  SET_ITEM_LOCATION_CENTER(previous_figure,
+			   X_BASE_SMALLAREA,
+			   Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 30);
 
-  pixmap_r = gc_skin_pixmap_load("button_forward.png");
-
-  previous_figure = goo_canvas_image_new (rootitem,
-					  pixmap_l,
-					  X_BASE_SMALLAREA,
-					  Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 20,
-					   NULL);
-
-  next_figure = goo_canvas_image_new (rootitem,
-				      pixmap_r,
-				      X_BASE_SMALLAREA + WIDTH_SMALLAREA -
-				      gdk_pixbuf_get_width (pixmap_r),
-				      Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 20,
-				       NULL);
+  next_figure = goo_canvas_svg_new (rootitem,
+				    gc_skin_rsvg_get(),
+				    "svg-id", "#NEXT",
+				    NULL);
+  SET_ITEM_LOCATION_CENTER(next_figure,
+			   X_BASE_SMALLAREA + WIDTH_SMALLAREA,
+			   Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 30);
 
 
   g_signal_connect(previous_figure, "button_press_event",

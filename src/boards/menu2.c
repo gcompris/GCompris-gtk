@@ -786,20 +786,17 @@ create_top(GooCanvasItem *parent, gchar *path)
 	}
       else
 	{
-	  pixmap = gc_skin_pixmap_load("button_forward.png");
-	  ratio = get_ratio(pixmap, top_arrow_size);
-
 	  item = \
-	    goo_canvas_image_new (parent,
-				  pixmap,
-				  0, 0,
-				  NULL);
+	    goo_canvas_svg_new (parent,
+				gc_skin_rsvg_get(),
+				"svg-id", "#MENUICON",
+				"pointer-events", GOO_CANVAS_EVENTS_NONE,
+				NULL);
 
-	  goo_canvas_item_translate(item,
-				    current_top_x,
-				    current_top_y + top_arrow_size);
-	  goo_canvas_item_scale(item, ratio, ratio);
-	  gdk_pixbuf_unref(pixmap);
+	  SET_ITEM_LOCATION(item,
+			    current_top_x,
+			    current_top_y + top_arrow_size);
+	  //	  goo_canvas_item_scale(item, ratio, ratio);
 
 	  current_top_x += top_arrow_size + top_int_x;
 	}

@@ -600,7 +600,6 @@ static void
 add_shape_to_list_of_shapes(Shape *shape)
 {
   GooCanvasItem *item;
-  GdkPixbuf   *pixmap = NULL;
   GooCanvasItem *shape_list_group_root = NULL;
   double ICON_GAP    = 5.0;
   double ICON_HEIGHT = (double)(shapeBox.h / shapeBox.nb_shape_y) - ICON_GAP;
@@ -613,14 +612,14 @@ add_shape_to_list_of_shapes(Shape *shape)
   /* If the first list is full, add the previous/forward buttons          */
   if(g_hash_table_size(shapelist_table) == (shapeBox.nb_shape_x * shapeBox.nb_shape_y))
     {
-      pixmap = gc_skin_pixmap_load("button_backward.png");
       previous_shapelist_item = \
-	goo_canvas_image_new (shape_list_root_item,
-			      pixmap,
-			      shapeBox.x + (shapeBox.w/2) -
-			      gdk_pixbuf_get_width(pixmap) - 2,
-			      shapeBox.y + shapeBox.h,
+	goo_canvas_svg_new (shape_list_root_item,
+			      gc_skin_rsvg_get(),
+			      "svg-id", "#PREVIOUS",
 			      NULL);
+      SET_ITEM_LOCATION(previous_shapelist_item,
+			shapeBox.x - 5,
+			shapeBox.y + shapeBox.h);
 
       g_signal_connect(previous_shapelist_item,
 		       "button_press_event",
@@ -628,21 +627,21 @@ add_shape_to_list_of_shapes(Shape *shape)
 		       "previous_shapelist");
       gc_item_focus_init(previous_shapelist_item, NULL);
 
-      gdk_pixbuf_unref(pixmap);
-
-      pixmap = gc_skin_pixmap_load("button_forward.png");
       next_shapelist_item = \
-	goo_canvas_image_new (shape_list_root_item,
-			      pixmap,
-			      shapeBox.x + (shapeBox.w/2) + 2,
-			      shapeBox.y + shapeBox.h,
-			      NULL);
+	goo_canvas_svg_new (shape_list_root_item,
+			    gc_skin_rsvg_get(),
+			    "svg-id", "#NEXT",
+			    NULL);
+
+      SET_ITEM_LOCATION(next_shapelist_item,
+			shapeBox.x + shapeBox.w / 2,
+			shapeBox.y + shapeBox.h);
 
       g_signal_connect(next_shapelist_item, "button_press_event",
 		       (GtkSignalFunc) item_event_ok,
 		       "next_shapelist");
       gc_item_focus_init(next_shapelist_item, NULL);
-      gdk_pixbuf_unref(pixmap);
+
       g_object_set (next_shapelist_item, "visibility",
 		    GOO_CANVAS_ITEM_INVISIBLE, NULL);
 

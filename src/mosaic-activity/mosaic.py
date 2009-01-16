@@ -236,7 +236,7 @@ class Gcompris_mosaic:
       # Create the check button to show the selected color
       self.checked_color_item = goocanvas.Image(
         parent = self.rootitem,
-        pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("button_checked.png")) )
+        pixbuf = gcompris.utils.load_pixmap("mosaic/button_checked.png") );
 
       self.checked_color_item.props.visibility = goocanvas.ITEM_INVISIBLE
 
