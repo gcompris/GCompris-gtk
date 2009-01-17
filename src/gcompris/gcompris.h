@@ -90,7 +90,7 @@ void		 gc_set_background_by_id(GooCanvasItem *parent,
 					 RsvgHandle *rsvg_handle,
 					 gchar *id);
 void		 gc_bar_set_level (GcomprisBoard *gcomprisBoard);
-void		 gc_bar_set_repeat_icon (GdkPixbuf *pixmap);
+void		 gc_bar_set_repeat_icon (RsvgHandle *svg_handle);
 
 /* Status bar control */
 typedef enum

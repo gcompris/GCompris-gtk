@@ -703,12 +703,7 @@ class Gcompris_gnumch:
                                 gcompris.skin.image_to_skin("gcompris-bg.jpg"))
         gcompris.bar_set_level(self.board)
 
-        pixmap = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("button_reload.png"))
-        if(pixmap):
-            gcompris.bar_set_repeat_icon(pixmap)
-            gcompris.bar_set(gcompris.BAR_LEVEL | gcompris.BAR_REPEAT_ICON)
-        else:
-            gcompris.bar_set(gcompris.BAR_LEVEL | gcompris.BAR_REPEAT)
+        gcompris.bar_set(gcompris.BAR_LEVEL | gcompris.BAR_REPEAT)
 
         # create our rootitem. We put each canvas item here so at the end we only
         # need to remove the rootitem

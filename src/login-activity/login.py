@@ -54,12 +54,7 @@ class Gcompris_login:
     self.gcomprisBoard.maxlevel=1
     self.gcomprisBoard.sublevel=1
     self.gcomprisBoard.number_of_sublevel=1
-    pixmap = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("button_reload.png"))
-    if(pixmap):
-      gcompris.bar_set_repeat_icon(pixmap)
-      gcompris.bar_set(gcompris.BAR_REPEAT_ICON)
-    else:
-      gcompris.bar_set(gcompris.BAR_REPEAT)
+    gcompris.bar_set(gcompris.BAR_REPEAT)
 
     gcompris.bar_set_level(self.gcomprisBoard)
 

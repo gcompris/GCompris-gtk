@@ -313,13 +313,10 @@ void gc_bar_set_level(GcomprisBoard *gcomprisBoard)
  *
  * Override the repeat icon to a new one specific to your current board.
  * This must be called before calling gc_bar_set with GC_BAR_REPEAT_ICON
- * the given pixmap is not freed.
- *
- * Next call to gc_bar_set with GC_BAR_REPEAT will restore the default icon.
- *
+ * the given svg_handle is not freed.
  */
 void
-gc_bar_set_repeat_icon (GdkPixbuf *pixmap)
+gc_bar_set_repeat_icon (RsvgHandle *svg_handle)
 {
   GooCanvasItem *item;
   goo_canvas_item_raise(rootitem, NULL);
@@ -331,7 +328,8 @@ gc_bar_set_repeat_icon (GdkPixbuf *pixmap)
     }
 
   g_object_set (item,
-		"pixbuf", pixmap,
+		"svg-handle", svg_handle,
+		"svg-id", NULL,
 		NULL);
 }
 

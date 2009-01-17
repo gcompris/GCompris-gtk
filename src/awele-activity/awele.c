@@ -141,9 +141,6 @@ start_board (GcomprisBoard * agcomprisBoard)
 
   if (agcomprisBoard != NULL)
     {
-      gchar *str;
-      GdkPixbuf *pixmap = NULL;
-
       gcomprisBoard = agcomprisBoard;
       gcomprisBoard->level = 1;
       gcomprisBoard->maxlevel = 9;
@@ -151,16 +148,7 @@ start_board (GcomprisBoard * agcomprisBoard)
       gcomprisBoard->number_of_sublevel = 1;	/* Go to next level after
 						 * this number of 'play' */
 
-      str = gc_skin_image_get("button_reload.png");
-      pixmap = gc_pixmap_load(str);
-      g_free(str);
-      if(pixmap) {
-	gc_bar_set_repeat_icon(pixmap);
-	gdk_pixbuf_unref(pixmap);
-	gc_bar_set(GC_BAR_LEVEL|GC_BAR_REPEAT_ICON);
-      } else {
-	gc_bar_set(GC_BAR_LEVEL|GC_BAR_REPEAT);
-      }
+      gc_bar_set(GC_BAR_LEVEL|GC_BAR_REPEAT);
 
       gchar *anim_file = "awele/sablier.txt";
       animation = gc_anim_load(  anim_file );

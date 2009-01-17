@@ -75,12 +75,7 @@ class Gcompris_bargame:
   def start(self):
     # load pixmaps for the ui.
     #
-    pixmap = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("button_reload.png"))
-    if(pixmap):
-      gcompris.bar_set_repeat_icon(pixmap)
-      gcompris.bar_set(gcompris.BAR_LEVEL|gcompris.BAR_REPEAT_ICON)
-    else:
-      gcompris.bar_set(gcompris.BAR_LEVEL|gcompris.BAR_REPEAT)
+    gcompris.bar_set(gcompris.BAR_LEVEL|gcompris.BAR_REPEAT)
     gcompris.bar_set_level(self.gcomprisBoard)
     gcompris.bar_location(10, -1, 0.7)
 

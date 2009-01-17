@@ -154,9 +154,6 @@ static void pause_board (gboolean pause)
  */
 static void start_board (GcomprisBoard *agcomprisBoard)
 {
-  GdkPixbuf *pixmap = NULL;
-  char *str;
-
   if(agcomprisBoard!=NULL)
     {
       gcomprisBoard=agcomprisBoard;
@@ -169,16 +166,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 			   BOARDHEIGHT - 70,
 			   gcomprisBoard->number_of_sublevel);
 
-      str = gc_skin_image_get("button_reload.png");
-      pixmap = gc_pixmap_load(str);
-      g_free(str);
-      if(pixmap) {
-	gc_bar_set_repeat_icon(pixmap);
-	gdk_pixbuf_unref(pixmap);
-	gc_bar_set(GC_BAR_LEVEL|GC_BAR_REPEAT_ICON);
-      } else {
-	gc_bar_set(GC_BAR_LEVEL|GC_BAR_REPEAT);
-      }
+      gc_bar_set(GC_BAR_LEVEL|GC_BAR_REPEAT);
 
       gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			"traffic/traffic-bg.jpg");

@@ -179,8 +179,6 @@ static void set_level (guint level) {
  * =====================================================================*/
 static void start_board (GcomprisBoard *agcomprisBoard) {
 
-  GdkPixbuf *pixmap = NULL;
-
   if(agcomprisBoard!=NULL) {
     gchar *img;
 
@@ -216,10 +214,11 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     }
 
     if(!modeIs2D || modeIsInvisible) {
-      pixmap = gc_skin_pixmap_load("maze-2d-bubble.png");
-      if(pixmap) {
-	gc_bar_set_repeat_icon(pixmap);
-	gdk_pixbuf_unref(pixmap);
+      RsvgHandle *svg_handle;
+      svg_handle = gc_rsvg_load("maze/maze-2d-bubble.svg");
+      if(svg_handle) {
+	gc_bar_set_repeat_icon(svg_handle);
+	g_object_unref(svg_handle);
 	gc_bar_set(GC_BAR_LEVEL|GC_BAR_REPEAT_ICON);
       } else {
 	gc_bar_set(GC_BAR_LEVEL|GC_BAR_REPEAT);
@@ -228,6 +227,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
       /* 2D Regular mode */
       gc_bar_set(GC_BAR_LEVEL);
     }
+    gc_bar_location(-1, -1, 0.6);
 
     gamewon = FALSE;
 
@@ -291,13 +291,9 @@ static void maze_next_level() {
   end=g_random_int()%hoogte;
 
   /* Draw the tux */
-  GError *error = NULL;
-  RsvgHandle *svg_handle = NULL;
-  gchar *filename = gc_file_find_absolute("maze/tux_top_south.svg");
-  svg_handle = rsvg_handle_new_from_file (filename, &error);
+  RsvgHandle *svg_handle = gc_rsvg_load("maze/tux_top_south.svg");
   tuxitem = goo_canvas_svg_new (tuxgroup, svg_handle,
-			      NULL);
-  g_free(filename);
+				NULL);
   g_object_unref (svg_handle);
 
   goo_canvas_item_translate(tuxgroup,
@@ -419,8 +415,6 @@ static void setlevelproperties(){
  *
  */
 static void repeat () {
-  GdkPixbuf *pixmap = NULL;
-
   if(modeIsInvisible) {
     if(mapActive) {
       g_object_set (wallgroup, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
@@ -439,11 +433,11 @@ static void repeat () {
     return;
 
   if(threeDactive) {
-
-    pixmap = gc_skin_pixmap_load("maze-3d-bubble.png");
-    if(pixmap) {
-      gc_bar_set_repeat_icon(pixmap);
-      gdk_pixbuf_unref(pixmap);
+    RsvgHandle *svg_handle;
+    svg_handle = gc_rsvg_load("maze/maze-3d-bubble.svg");
+    if(svg_handle) {
+      gc_bar_set_repeat_icon(svg_handle);
+      g_object_unref(svg_handle);
     }
     twoDdisplay();
     /* Display a warning that you can't move there */
@@ -451,10 +445,11 @@ static void repeat () {
 
   } else {
 
-    pixmap = gc_skin_pixmap_load("maze-2d-bubble.png");
-    if(pixmap) {
-      gc_bar_set_repeat_icon(pixmap);
-      gdk_pixbuf_unref(pixmap);
+    RsvgHandle *svg_handle;
+    svg_handle = gc_rsvg_load("maze/maze-2d-bubble.svg");
+    if(svg_handle) {
+      gc_bar_set_repeat_icon(svg_handle);
+      g_object_unref(svg_handle);
     }
     g_object_set (warning_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
     threeDdisplay();
@@ -1508,7 +1503,7 @@ threeDdisplay()
 {
   gc_sound_play_ogg ("sounds/flip.wav", NULL);
   gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
-		    "maze/maze-bg.jpg");
+		    "maze/maze-bg.svgz");
   g_object_set (boardRootItem, "visibility",
 		GOO_CANVAS_ITEM_INVISIBLE, NULL);
   threeDactive=TRUE;

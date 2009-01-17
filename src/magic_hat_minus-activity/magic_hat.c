@@ -177,6 +177,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	gcomprisBoard->sublevel = 1;
 	gcomprisBoard->number_of_sublevel = 1;	// Go to next level after this number of 'play'
 	gc_bar_set(GC_BAR_LEVEL);
+	gc_bar_location(20, -1, 0.7);
 
 	if (strcmp(gcomprisBoard->mode, "minus") == 0)
 		board_mode = MODE_MINUS;

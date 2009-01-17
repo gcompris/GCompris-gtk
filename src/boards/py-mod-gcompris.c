@@ -177,15 +177,15 @@ static PyObject*
 py_gc_bar_set_repeat_icon(PyObject* self, PyObject* args)
 {
   PyObject* pyObject;
-  GdkPixbuf* pixmap;
+  RsvgHandle *svg_handle;
 
   /* Parse arguments */
   if(!PyArg_ParseTuple(args, "O:gc_bar_set_repeat_icon", &pyObject))
     return NULL;
-  pixmap = (GdkPixbuf*) pygobject_get(pyObject);
+  svg_handle = (RsvgHandle*) pygobject_get(pyObject);
 
   /* Call the corresponding C function */
-  gc_bar_set_repeat_icon(pixmap);
+  gc_bar_set_repeat_icon(svg_handle);
 
   /* Create and return the result */
   Py_INCREF(Py_None);

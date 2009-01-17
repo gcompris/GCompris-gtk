@@ -92,12 +92,7 @@ class Gcompris_sudoku:
     self.gcomprisBoard.maxlevel=len(self.sudoku)
     self.gcomprisBoard.sublevel=1
 
-    pixmap = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("button_reload.png"))
-    if(pixmap):
-      gcompris.bar_set_repeat_icon(pixmap)
-      gcompris.bar_set(gcompris.BAR_LEVEL|gcompris.BAR_REPEAT_ICON)
-    else:
-      gcompris.bar_set(gcompris.BAR_LEVEL|gcompris.BAR_REPEAT)
+    gcompris.bar_set(gcompris.BAR_LEVEL|gcompris.BAR_REPEAT)
 
     gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                             gcompris.skin.image_to_skin("gcompris-bg.jpg"))

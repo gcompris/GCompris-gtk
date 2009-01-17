@@ -177,16 +177,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 		     gcomprisBoard->number_of_sublevel);
 
 
-      str = gc_skin_image_get("button_reload.png");
-      pixmap = gc_pixmap_load(str);
-      g_free(str);
-      if(pixmap) {
-	gc_bar_set_repeat_icon(pixmap);
-	gdk_pixbuf_unref(pixmap);
-	gc_bar_set(GC_BAR_LEVEL|GC_BAR_REPEAT_ICON);
-      } else {
-	gc_bar_set(GC_BAR_LEVEL|GC_BAR_REPEAT);
-      }
+      gc_bar_set(GC_BAR_LEVEL|GC_BAR_REPEAT);
       gc_bar_location(BOARDWIDTH-200, 3, 0.6);
 
       railroad_next_level();

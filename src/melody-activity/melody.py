@@ -95,13 +95,7 @@ class Gcompris_melody:
     self.maxtheme = len(self.melodylist)-1
     self.gcomprisBoard.maxlevel = 9
 
-    #
-    pixmap = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("button_reload.png"))
-    if(pixmap):
-      gcompris.bar_set_repeat_icon(pixmap)
-      gcompris.bar_set(gcompris.BAR_LEVEL|gcompris.BAR_REPEAT_ICON)
-    else:
-      gcompris.bar_set(gcompris.BAR_LEVEL|gcompris.BAR_REPEAT)
+    gcompris.bar_set(gcompris.BAR_LEVEL|gcompris.BAR_REPEAT)
 
 
     self.pause(1);

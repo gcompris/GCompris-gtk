@@ -72,12 +72,7 @@ class Gcompris_connect4:
         # only have to kill it. The canvas deletes all the items it contains automaticaly.
         self.rootitem = goocanvas.Group(parent =  self.gcomprisBoard.canvas.get_root_item())
 
-        pixmap = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("button_reload.png"))
-        if(pixmap):
-            gcompris.bar_set_repeat_icon(pixmap)
-            board_bar = board_bar | gcompris.BAR_REPEAT_ICON
-        else:
-            board_bar = board_bar | gcompris.BAR_REPEAT
+        board_bar = board_bar | gcompris.BAR_REPEAT
         gcompris.bar_set(board_bar)
 
         selector = \
