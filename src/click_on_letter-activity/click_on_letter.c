@@ -183,6 +183,18 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	  gamewon = FALSE;
 	  pause_board(FALSE);
 	}
+
+      RsvgHandle *svg_handle;
+      svg_handle = gc_rsvg_load("click_on_letter/repeat.svg");
+      if(svg_handle) {
+	gc_bar_set_repeat_icon(svg_handle);
+	g_object_unref(svg_handle);
+	gc_bar_set(GC_BAR_LEVEL|GC_BAR_REPEAT_ICON);
+      } else {
+	gc_bar_set(GC_BAR_LEVEL|GC_BAR_REPEAT);
+      }
+      gc_bar_location(BOARDWIDTH-270, 5, 0.7);
+
     }
 
 }
@@ -312,10 +324,6 @@ static gboolean sounds_are_fine()
 static void
 click_on_letter_next_level()
 {
-  /* It must be set it for the warning dialogs */
-  gc_bar_set(GC_BAR_CONFIG|GC_BAR_LEVEL|GC_BAR_REPEAT);
-  gc_bar_location(BOARDWIDTH-270, 5, 0.7);
-
   gc_bar_set_level(gcomprisBoard);
 
   click_on_letter_destroy_all_items();
