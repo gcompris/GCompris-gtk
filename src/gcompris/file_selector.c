@@ -329,7 +329,7 @@ display_files(GooCanvasItem *root_item, gchar *rootdir)
 
   /* Initial image position */
   guint ix  = 0.0;
-  guint iy  = 0.0;
+  guint iy  = 30.0;
 
   GtkWidget	  *w;
   GooCanvasItem *bg_item;
@@ -460,7 +460,7 @@ display_files(GooCanvasItem *root_item, gchar *rootdir)
   while(listrunner)
     {
       /* add the file to the display */
-      GdkPixbuf *pixmap_current;
+      gchar *svg_id;
 
       gchar *allfilename = listrunner->data;
       gchar *filename    = g_path_get_basename(allfilename);
@@ -474,18 +474,18 @@ display_files(GooCanvasItem *root_item, gchar *rootdir)
 	}
 
       if(g_file_test(allfilename, G_FILE_TEST_IS_DIR))
-	pixmap_current  = gc_pixmap_load(gc_skin_image_get("directory.png"));
+	svg_id = "#FOLDER";
       else
-	pixmap_current  = gc_pixmap_load(gc_skin_image_get("file.png"));
+	svg_id = "#FILE";
 
-      item = goo_canvas_image_new (goo_canvas_get_root_item(GOO_CANVAS(canvas)),
-				   pixmap_current,
-				   ix + (IMAGE_WIDTH + IMAGE_GAP
-					 - gdk_pixbuf_get_width(pixmap_current))/2,
-				   iy,
-				   NULL);
+      item = goo_canvas_svg_new (goo_canvas_get_root_item(GOO_CANVAS(canvas)),
+				 gc_skin_rsvg_get(),
+				 "svg-id", svg_id,
+				 NULL);
 
-      gdk_pixbuf_unref(pixmap_current);
+      SET_ITEM_LOCATION_CENTER(item,
+			       ix + (IMAGE_WIDTH + IMAGE_GAP)/2,
+			       iy);
 
       if(g_file_test(allfilename, G_FILE_TEST_IS_DIR))
 	{
@@ -511,7 +511,7 @@ display_files(GooCanvasItem *root_item, gchar *rootdir)
 			     iy + 10,
 			     -1,
 			     GTK_ANCHOR_CENTER,
-			     "font", "Sans 7",
+			     "font", "Sans 6",
 			     "fill-color-rgba",
 			     gc_skin_get_color("gcompris/fileselectcol"),
 			     NULL);
@@ -520,9 +520,10 @@ display_files(GooCanvasItem *root_item, gchar *rootdir)
       item = goo_canvas_text_new (goo_canvas_get_root_item(GOO_CANVAS(canvas)),
 				  file_wo_ext,
 				  ix + (IMAGE_WIDTH + IMAGE_GAP)/2,
-				  iy + IMAGE_HEIGHT - 5,
+				  iy + IMAGE_HEIGHT - 30,
 				  -1,
 				  GTK_ANCHOR_CENTER,
+				  "font", "Sans 7",
 				  "fill-color-rgba", gc_skin_get_color("gcompris/fileselectcol"),
 				  NULL);
       g_free(file_wo_ext);
