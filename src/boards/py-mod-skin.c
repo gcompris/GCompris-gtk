@@ -75,6 +75,29 @@ py_gc_skin_pixmap_load(PyObject* self, PyObject* args)
 }
 
 
+/* GdkPixbuf *gc_skin_rsvg_get(); */
+static PyObject*
+py_gc_skin_rsvg_get(PyObject* self, PyObject* args)
+{
+  RsvgHandle* result;
+  PyObject* pyresult;
+
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, ":gc_skin_rsvg_get"))
+    return NULL;
+
+  /* Call the corresponding C function */
+  result = gc_skin_rsvg_get();
+
+  /* Create and return the result */
+  pyresult = (PyObject*) pygobject_new((GObject*) result);
+
+  g_object_unref(result);
+
+  return(pyresult);
+}
+
+
 /* guint32 gc_skin_get_color_default(gchar* id, guint32 def); */
 static PyObject*
 py_gc_skin_get_color_default(PyObject* self, PyObject* args)
@@ -156,6 +179,7 @@ py_gc_skin_get_font(PyObject* self, PyObject* args)
 static PyMethodDef PythonGcomprisSkinModule[] = {
   { "image_to_skin",  py_gc_skin_image_get, METH_VARARGS, "gc_skin_image_get" },
   { "load_pixmap",  py_gc_skin_pixmap_load, METH_VARARGS, "gc_skin_pixmap_load" },
+  { "svg_get",  py_gc_skin_rsvg_get, METH_VARARGS, "gc_skin_rsvg_get" },
   { "get_color_default",  py_gc_skin_get_color_default, METH_VARARGS,
     "gc_skin_get_color_default" },
   { "get_font_default",  py_gc_skin_get_font_default, METH_VARARGS,

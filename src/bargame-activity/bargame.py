@@ -247,12 +247,15 @@ class Gcompris_bargame:
     self.answer.set_number_of_balls(self.number_balls[self.gcomprisBoard.sublevel-1])
 
     # The OK Button
-    pixmap = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("ok.png"))
-    item = goocanvas.Image(parent = self.rootitem,
-                           pixbuf = pixmap,
-                           x = gcompris.BOARD_WIDTH - pixmap.get_width() - 10,
-                           y = gcompris.BOARD_HEIGHT - 210
-                           )
+    item = goocanvas.Svg(parent = self.rootitem,
+                         svg_handle = gcompris.skin.svg_get(),
+                         svg_id = "#OK"
+                         )
+    item.translate(item.get_bounds().x1 * -1
+                   + gcompris.BOARD_WIDTH - (item.get_bounds().x2 - item.get_bounds().x1) - 10,
+                   item.get_bounds().y1 * -1
+                   + gcompris.BOARD_HEIGHT - 230)
+
     item.connect("button_press_event", self.ok_event)
     gcompris.utils.item_focus_init(item, None)
 

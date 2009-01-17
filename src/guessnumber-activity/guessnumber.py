@@ -237,12 +237,15 @@ class Gcompris_guessnumber:
         )
 
       # The OK Button
-      pixmap = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("ok.png"))
-      item = goocanvas.Image(parent = self.rootitem,
-                             pixbuf = pixmap,
-                             x = gcompris.BOARD_WIDTH - pixmap.get_width() - 30,
-                             y = 65
-                             )
+      item = goocanvas.Svg(parent = self.rootitem,
+                           svg_handle = gcompris.skin.svg_get(),
+                           svg_id = "#OK"
+                           )
+      item.translate(item.get_bounds().x1 * -1
+                     + gcompris.BOARD_WIDTH - (item.get_bounds().x2 - item.get_bounds().x1) - 30,
+                     item.get_bounds().y1 * -1
+                     + 65)
+
       item.connect("button_press_event", self.ok_event, text_item)
       gcompris.utils.item_focus_init(item, None)
 

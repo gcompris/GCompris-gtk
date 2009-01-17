@@ -131,14 +131,16 @@ class Gcompris_searace:
 
 
     # The OK Button
-    pixmap = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("ok.png"))
-    item = goocanvas.Image(parent = self.rootitem,
-                           pixbuf = pixmap,
-                           )
+    item = goocanvas.Svg(parent = self.rootitem,
+                         svg_handle = gcompris.skin.svg_get(),
+                         svg_id = "#OK"
+                         )
     zoom = 0.7
+    item.translate( (item.get_bounds().x1 * -1)
+                     + ( gcompris.BOARD_WIDTH / 2 + 25 ) / zoom,
+                    (item.get_bounds().y1 * -1)
+                     + (gcompris.BOARD_HEIGHT - 125) / zoom )
     item.scale(zoom, zoom)
-    item.set_properties(x = (gcompris.BOARD_WIDTH / 2 + 40) / zoom,
-                        y = (gcompris.BOARD_HEIGHT - 90) / zoom)
     item.connect("button_press_event", self.ok_event)
     gcompris.utils.item_focus_init(item, None)
 

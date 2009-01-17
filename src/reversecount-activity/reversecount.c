@@ -534,18 +534,16 @@ static GooCanvasItem *reversecount_create_item(GooCanvasItem *parent)
   g_object_unref(svg_handle);
 
   // OK Button (Validation)
-  GdkPixbuf   *pixmap = NULL;
-  pixmap = gc_skin_pixmap_load("ok.png");
-  item = goo_canvas_image_new (boardRootItem,
-			       pixmap,
-			       dice_area_x -
-			       gdk_pixbuf_get_width(pixmap) - 15,
-			       block_height + 20,
-			       NULL);
+  item = goo_canvas_svg_new (boardRootItem,
+			     gc_skin_rsvg_get(),
+			     "svg-id", "#OK",
+			     NULL);
+  SET_ITEM_LOCATION(item,
+		    dice_area_x - 60,
+		    block_height + 20);
   g_signal_connect(item, "button_press_event",
 		   (GtkSignalFunc) process_ok, NULL);
   gc_item_focus_init(item, NULL);
-  gdk_pixbuf_unref(pixmap);
 
   // Tux
   tuxRootItem = goo_canvas_group_new (boardRootItem, NULL);

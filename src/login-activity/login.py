@@ -255,7 +255,6 @@ class Gcompris_login:
     current_line = 0
     max_letter_by_line = (gcompris.BOARD_WIDTH-start_x*2)/step_x
     letter_by_line = max_letter_by_line
-    button_pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("ok.png"))
 
     for letter in letters:
 
@@ -265,12 +264,15 @@ class Gcompris_login:
       else:
         text = letter.upper() + letter.lower()
 
-      item = goocanvas.Image(
-        parent = self.letter_rootitem,
-        pixbuf = button_pixbuf,
-        x = x -  button_pixbuf.get_width()/2,
-        y = y -  button_pixbuf.get_height()/2,
-        )
+      item = goocanvas.Svg(parent = self.rootitem,
+                           svg_handle = gcompris.skin.svg_get(),
+                           svg_id = "#OK"
+                           )
+      item.translate(item.get_bounds().x1 * -1
+                     + x - (item.get_bounds().x2 - item.get_bounds().x1) / 2,
+                     item.get_bounds().y1 * -1
+                     + y - (item.get_bounds().y2 - item.get_bounds().y1) / 2)
+
       # This item is clickeable and it must be seen
       gcompris.utils.item_focus_init(item, None)
       item.connect("button_press_event", self.letter_click_event,

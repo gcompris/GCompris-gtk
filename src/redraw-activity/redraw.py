@@ -43,14 +43,14 @@ class Gcompris_redraw:
 
     # TOOL SELECTION
     self.tools = [
-      ["RECT",           "draw/tool-rectangle.png",       "draw/tool-rectangle_on.png",          gcompris.CURSOR_RECT],
-      ["FILL_RECT",      "draw/tool-filledrectangle.png", "draw/tool-filledrectangle_on.png",    gcompris.CURSOR_FILLRECT],
-      ["CIRCLE",         "draw/tool-circle.png",          "draw/tool-circle_on.png",             gcompris.CURSOR_CIRCLE],
-      ["FILL_CIRCLE",    "draw/tool-filledcircle.png",    "draw/tool-filledcircle_on.png",       gcompris.CURSOR_FILLCIRCLE],
-      ["LINE",           "draw/tool-line.png",            "draw/tool-line_on.png",               gcompris.CURSOR_LINE],
-      ["DEL",            "draw/tool-del.png",             "draw/tool-del_on.png",                gcompris.CURSOR_DEL],
-      ["FILL",           "draw/tool-fill.png",            "draw/tool-fill_on.png",               gcompris.CURSOR_FILL],
-      ["SELECT",         "draw/tool-select.png",          "draw/tool-select_on.png",             gcompris.CURSOR_SELECT]
+      ["RECT",           "anim/tool-rectangle.png",       "anim/tool-rectangle_on.png",          gcompris.CURSOR_RECT],
+      ["FILL_RECT",      "anim/tool-filledrectangle.png", "anim/tool-filledrectangle_on.png",    gcompris.CURSOR_FILLRECT],
+      ["CIRCLE",         "anim/tool-circle.png",          "anim/tool-circle_on.png",             gcompris.CURSOR_CIRCLE],
+      ["FILL_CIRCLE",    "anim/tool-filledcircle.png",    "anim/tool-filledcircle_on.png",       gcompris.CURSOR_FILLCIRCLE],
+      ["LINE",           "anim/tool-line.png",            "anim/tool-line_on.png",               gcompris.CURSOR_LINE],
+      ["DEL",            "anim/tool-del.png",             "anim/tool-del_on.png",                gcompris.CURSOR_DEL],
+      ["FILL",           "anim/tool-fill.png",            "anim/tool-fill_on.png",               gcompris.CURSOR_FILL],
+      ["SELECT",         "anim/tool-select.png",          "anim/tool-select_on.png",             gcompris.CURSOR_SELECT]
       ]
 
     self.current_tool=0
@@ -340,7 +340,7 @@ class Gcompris_redraw:
 
     goocanvas.Image(
       parent = self.rootitem,
-      pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("draw/tool-selector.png")),
+      pixbuf = gcompris.utils.load_pixmap("anim/tool-selector.png"),
       x=5,
       y=5.0,
       width=30.0
@@ -360,7 +360,7 @@ class Gcompris_redraw:
 
       item = goocanvas.Image(
         parent = self.rootitem,
-        pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[i][1])),
+        pixbuf = gcompris.utils.load_pixmap(self.tools[i][1]),
         x = theX,
         y = y
         )
@@ -371,16 +371,19 @@ class Gcompris_redraw:
     # The last item is select, we select it by default
     self.current_tool = i
     self.old_tool_item = item
-    self.old_tool_item.props.pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[i][2]))
+    self.old_tool_item.props.pixbuf = gcompris.utils.load_pixmap(self.tools[i][2])
     gcompris.set_cursor(self.tools[i][3]);
 
     # The OK Button
-    pixmap = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("ok.png"))
-    item = goocanvas.Image(parent = self.rootitem,
-                           pixbuf = pixmap,
-                           x = 20,
-                           y = gcompris.BOARD_HEIGHT - 100
-                           )
+    item = goocanvas.Svg(parent = self.rootitem,
+                         svg_handle = gcompris.skin.svg_get(),
+                         svg_id = "#OK"
+                         )
+    item.translate(item.get_bounds().x1 * -1
+                   + 20,
+                   item.get_bounds().y1 * -1
+                   + gcompris.BOARD_HEIGHT - 100)
+
     item.connect("button_press_event", self.ok_event)
     gcompris.utils.item_focus_init(item, None)
 

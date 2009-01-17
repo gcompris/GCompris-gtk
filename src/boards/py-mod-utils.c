@@ -418,7 +418,7 @@ py_gcompris_canvas_get_property(PyObject* self, PyObject* args)
 
 static PyMethodDef PythonGcomprisUtilsModule[] = {
   { "load_pixmap",  py_gc_pixmap_load, METH_VARARGS, "gc_pixmap_load" },
-  { "load_svg",  py_gc_svg_load, METH_VARARGS, "gc_svg_load" },
+  { "load_svg",  py_gc_svg_load, METH_VARARGS, "gc_rsvg_load" },
   { "find_file_absolute",  py_gc_file_find_absolute, METH_VARARGS, "gc_file_find_absolute" },
   { "item_focus_init",  py_gc_item_focus_init, METH_VARARGS, "gc_item_focus_init" },
   { "item_focus_remove",  py_gc_item_focus_remove, METH_VARARGS, "gc_item_focus_remove" },
