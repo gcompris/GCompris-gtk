@@ -157,6 +157,7 @@ start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel = 4;
 
       gc_bar_set(GC_BAR_LEVEL|GC_BAR_CONFIG);
+      gc_bar_location(-1, -1, 0.7);
 
       gamewon = FALSE;
       pause_board(FALSE);
@@ -337,23 +338,23 @@ scale_anim_plate(void)
   if(diff == 0 && (gcomprisBoard->level == 2
 		   || gcomprisBoard->level == 4))
     {
-      GdkPixbuf *button_pixmap;
-      double x_offset = BOARDWIDTH/2, y_offset = BOARDHEIGHT*0.6;
 
-      button_pixmap = gc_skin_pixmap_load("button_large2.png");
-      int w = gdk_pixbuf_get_width(button_pixmap);
-      int h = gdk_pixbuf_get_height(button_pixmap);
-      goo_canvas_image_new (boardRootItem,
-			    button_pixmap,
-			    x_offset - w/2,
-			    y_offset,
-			    NULL);
-      gdk_pixbuf_unref(button_pixmap);
+      double x_offset = BOARDWIDTH/2;
+      double y_offset = BOARDHEIGHT*0.7;
+
+      GooCanvasItem *item = goo_canvas_svg_new (boardRootItem,
+						gc_skin_rsvg_get(),
+						"svg-id", "#BUTTON_TEXT",
+						NULL);
+      SET_ITEM_LOCATION_CENTER(item,
+			       x_offset / 2,
+			       y_offset);
+      goo_canvas_item_scale(item, 2, 1);
 
       answer_item = goo_canvas_text_new(boardRootItem,
 					"",
 					x_offset,
-					y_offset + h/2,
+					y_offset,
 					-1,
 					GTK_ANCHOR_CENTER,
 					"font", gc_skin_font_board_title_bold,
@@ -519,6 +520,7 @@ scale_drag_event(GooCanvasItem *w,
 	      plate=0;
 	  }
 	scale_item_move_to(scale, plate);
+	gc_item_focus_init(scale->item, NULL);
       }
       break;
     default:

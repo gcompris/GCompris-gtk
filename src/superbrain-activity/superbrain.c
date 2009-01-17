@@ -279,11 +279,14 @@ static void superbrain_next_level()
 					NULL);
 
   /* The OK Button */
-  gc_util_button_text(boardLogoItem,
-		      270, 50,
-		      "button_large.png",
-		      _("OK"),
-		      (GtkSignalFunc) process_ok, NULL);
+  GooCanvasItem *item = goo_canvas_svg_new (boardLogoItem,
+					    gc_skin_rsvg_get(),
+					    "svg-id", "#OK",
+					    NULL);
+  SET_ITEM_LOCATION(item, 270, 50);
+  g_signal_connect(item, "button_press_event",
+		   (GtkSignalFunc) process_ok, NULL);
+  gc_item_focus_init(item, NULL);
 
   /* The list of the pieces */
   for(i=0; i<number_of_color; i++)

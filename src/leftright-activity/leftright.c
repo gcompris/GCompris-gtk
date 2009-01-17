@@ -39,11 +39,6 @@ static void game_won();
 #define LEFT 0
 #define RIGHT 1
 
-#define CENTER_LEFT_X 110
-#define CENTER_LEFT_Y 365
-#define CENTER_RIGHT_X 520
-#define CENTER_RIGHT_Y CENTER_LEFT_Y
-
 #define HAND_X 400
 #define HAND_Y 200
 
@@ -229,17 +224,17 @@ static GooCanvasItem *leftright_create_item(GooCanvasItem *parent) {
   boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
 					NULL);
 
-  gc_util_button_text(boardRootItem,
-		      CENTER_LEFT_X, CENTER_LEFT_Y,
-		      "button_large.png",
-		      _("left"),
-		      (GtkSignalFunc) clicked_left, NULL);
+  gc_util_button_text_svg(boardRootItem,
+			  BOARDWIDTH/3, BOARDHEIGHT*2/3 + 50,
+			  "#BUTTON_TEXT",
+			  _("left"),
+			  (GtkSignalFunc) clicked_left, NULL);
 
-  gc_util_button_text(boardRootItem,
-		      CENTER_RIGHT_X, CENTER_RIGHT_Y,
-		      "button_large.png",
-		      _("right"),
-		      (GtkSignalFunc) clicked_right, NULL);
+  gc_util_button_text_svg(boardRootItem,
+			  BOARDWIDTH*2/3, BOARDHEIGHT*2/3 + 50,
+			  "#BUTTON_TEXT",
+			  _("right"),
+			  (GtkSignalFunc) clicked_right, NULL);
 
   // make sure that next hand is not the same as previous
   do {

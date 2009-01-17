@@ -105,7 +105,7 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
 			  ImageSelectorCallBack iscb)
 {
 
-  GooCanvasItem *item, *item2;
+  GooCanvasItem *item;
   GdkPixbuf	*pixmap = NULL;
   gint		 y = 0;
   gint		 y_start = 0;
@@ -140,8 +140,6 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
   gdk_pixbuf_unref(pixmap);
 
   y_start += 110;
-
-  pixmap = gc_skin_pixmap_load("button_large.png");
 
   /*
    * Create the list scrollbar
@@ -276,32 +274,13 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
    * OK Button
    * ---------
    */
-  item = goo_canvas_image_new (rootitem,
-			       pixmap,
-			       (double) (BOARDWIDTH*0.5) - gdk_pixbuf_get_width(pixmap)/2,
-			       (double) y - gdk_pixbuf_get_height(pixmap) - 10,
-				NULL);
-
-  g_signal_connect(item, "button_press_event",
-		     (GtkSignalFunc) item_event_images_selector,
-		     "/ok/");
-  gc_item_focus_init(item, NULL);
-
-  item2 = goo_canvas_text_new (rootitem,
-			       _("OK"),
-			       (gdouble)  BOARDWIDTH*0.5,
-			       (gdouble)  y - gdk_pixbuf_get_height(pixmap) + 15,
-			       -1,
-			       GTK_ANCHOR_CENTER,
-			       "font", gc_skin_font_title,
-			       "fill-color-rgba", gc_skin_color_text_button,
-			       NULL);
-  g_signal_connect(item2, "button_press_event",
-		     (GtkSignalFunc) item_event_images_selector,
-		     "/ok/");
-  gc_item_focus_init(item2, item);
-  gdk_pixbuf_unref(pixmap);
-
+  gc_util_button_text_svg(rootitem,
+			  (BOARDWIDTH*0.5),
+			  y - 30,
+			  "#BUTTON_TEXT",
+			  _("OK"),
+			  (GtkSignalFunc) item_event_images_selector,
+			  "/ok/");
 }
 
 /*

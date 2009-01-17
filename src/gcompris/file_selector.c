@@ -152,7 +152,6 @@ display_file_selector(int the_mode,
 		      FileSelectorCallBack iscb)
 {
   GooCanvasItem    *item;
-  GooCanvasItem    *item2;
   GdkPixbuf	   *pixmap = NULL;
   gint		    y = 0;
   gint		    y_start = 0;
@@ -250,61 +249,22 @@ display_file_selector(int the_mode,
    * -------
    */
 
-  pixmap = gc_skin_pixmap_load("button_large.png");
-
   // CANCEL
-  item = goo_canvas_image_new (rootitem,
-			       pixmap,
-			       (double) (BOARDWIDTH*0.33) - gdk_pixbuf_get_width(pixmap)/2,
-			       (double) y - gdk_pixbuf_get_height(pixmap) - 25,
-				NULL);
-
-  g_signal_connect(item, "button_press_event",
-		   (GtkSignalFunc) item_event_file_selector,
-		   "/cancel/");
-  gc_item_focus_init(item, NULL);
-
-  item2 = goo_canvas_text_new (rootitem,
-			      _("CANCEL"),
-			      (gdouble)  BOARDWIDTH*0.33,
-			      (gdouble)  y - gdk_pixbuf_get_height(pixmap),
-			      -1,
-			      GTK_ANCHOR_CENTER,
-			      "font", gc_skin_font_title,
-			      "fill-color-rgba", gc_skin_color_text_button,
-			      NULL);
-  g_signal_connect(item2, "button_press_event",
-		   (GtkSignalFunc) item_event_file_selector,
-		   "/cancel/");
-  gc_item_focus_init(item2, item);
-
+  gc_util_button_text_svg(rootitem,
+			  BOARDWIDTH * 1/3,
+			  y - 48,
+			  "#BUTTON_TEXT",
+			  _("CANCEL"),
+			  (GtkSignalFunc) item_event_file_selector,
+			  "/cancel/");
   // OK
-  item = goo_canvas_image_new (rootitem,
-			       pixmap,
-			       (double) (BOARDWIDTH*0.66) - gdk_pixbuf_get_width(pixmap)/2,
-			       (double) y - gdk_pixbuf_get_height(pixmap) - 25,
-				NULL);
-
-  g_signal_connect(item, "button_press_event",
-		     (GtkSignalFunc) item_event_file_selector,
-		     "/ok/");
-  gc_item_focus_init(item, NULL);
-
-  item2 = goo_canvas_text_new (rootitem,
-			      (mode==MODE_LOAD ? _("LOAD") : _("SAVE")),
-			      (gdouble)  BOARDWIDTH*0.66,
-			      (gdouble)  y - gdk_pixbuf_get_height(pixmap),
-			      -1,
-			      GTK_ANCHOR_CENTER,
-			      "font", gc_skin_font_title,
-			      "fill-color-rgba", gc_skin_color_text_button,
-			      NULL);
-  g_signal_connect(item2, "button_press_event",
-		   (GtkSignalFunc) item_event_file_selector,
-		   "/ok/");
-  gc_item_focus_init(item2, item);
-  gdk_pixbuf_unref(pixmap);
-
+  gc_util_button_text_svg(rootitem,
+			  BOARDWIDTH * 2/3,
+			  y - 48,
+			  "#BUTTON_TEXT",
+			  (mode==MODE_LOAD ? _("LOAD") : _("SAVE")),
+			  (GtkSignalFunc) item_event_file_selector,
+			  "/cancel/");
 
   file_selector_displayed = TRUE;
 
