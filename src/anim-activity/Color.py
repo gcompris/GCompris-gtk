@@ -92,7 +92,7 @@ class Color:
                                       self.displaycolor_item_event,
                                       False)
 
-        pixmap = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("draw/color-selector.png"))
+        pixmap = gcompris.utils.load_pixmap("anim/color-selector.png")
 
         x = (self.drawing_area[2] - self.drawing_area[0]
              - pixmap.get_width())/2 + self.drawing_area[0]
