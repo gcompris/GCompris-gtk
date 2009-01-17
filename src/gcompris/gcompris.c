@@ -423,31 +423,31 @@ void gc_cursor_set(guint gdk_cursor_type)
 
     switch (gdk_cursor_type) {
     case GCOMPRIS_DEFAULT_CURSOR :
-      cursor_pixbuf = gc_skin_pixmap_load("cursor_default.png");
+      cursor_pixbuf = gc_skin_pixmap_load("cursors/default.png");
       break;
     case GCOMPRIS_LINE_CURSOR :
-      cursor_pixbuf = gc_skin_pixmap_load("cursor_line.png");
+      cursor_pixbuf = gc_skin_pixmap_load("cursors/line.png");
       break;
     case GCOMPRIS_RECT_CURSOR :
-      cursor_pixbuf = gc_skin_pixmap_load("cursor_rect.png");
+      cursor_pixbuf = gc_skin_pixmap_load("cursors/rect.png");
       break;
     case GCOMPRIS_FILLRECT_CURSOR :
-      cursor_pixbuf = gc_skin_pixmap_load("cursor_fillrect.png");
+      cursor_pixbuf = gc_skin_pixmap_load("cursors/fillrect.png");
       break;
     case GCOMPRIS_CIRCLE_CURSOR :
-      cursor_pixbuf = gc_skin_pixmap_load("cursor_circle.png");
+      cursor_pixbuf = gc_skin_pixmap_load("cursors/circle.png");
       break;
     case GCOMPRIS_FILLCIRCLE_CURSOR :
-      cursor_pixbuf = gc_skin_pixmap_load("cursor_fillcircle.png");
+      cursor_pixbuf = gc_skin_pixmap_load("cursors/fillcircle.png");
       break;
     case GCOMPRIS_FILL_CURSOR :
-      cursor_pixbuf = gc_skin_pixmap_load("cursor_fill.png");
+      cursor_pixbuf = gc_skin_pixmap_load("cursors/fill.png");
       break;
     case GCOMPRIS_DEL_CURSOR :
-      cursor_pixbuf = gc_skin_pixmap_load("cursor_del.png");
+      cursor_pixbuf = gc_skin_pixmap_load("cursors/del.png");
       break;
     case GCOMPRIS_SELECT_CURSOR :
-      cursor_pixbuf = gc_skin_pixmap_load("cursor_select.png");
+      cursor_pixbuf = gc_skin_pixmap_load("cursors/select.png");
       break;
     default :
       return;
