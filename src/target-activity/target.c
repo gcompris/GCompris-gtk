@@ -38,6 +38,7 @@ static void		 game_won(void);
 static GooCanvasItem *boardRootItem = NULL;
 static GooCanvasItem *valueRootItem = NULL;
 static GooCanvasItem *speedRootItem = NULL;
+static GooCanvasItem *tooltipItem = NULL;
 
 static double wind_speed;
 static double ang;
@@ -69,6 +70,10 @@ static gboolean		item_event (GooCanvasItem  *item,
 				    GooCanvasItem  *target,
 				    GdkEventButton *event,
 				    gpointer data);
+static gboolean		tooltip_event (GooCanvasItem  *item,
+				       GooCanvasItem  *target,
+				       GdkEventButton *event,
+				       gpointer gpoint);
 static void		animate_items(void);
 static void		launch_dart(double item_x, double item_y);
 
@@ -199,6 +204,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas), "target/target_background.jpg");
 
+      gc_bar_set(GC_BAR_LEVEL);
+      gc_bar_location(BOARDWIDTH-200, -1, 0.8);
+
       target_next_level();
 
       gamewon = FALSE;
@@ -318,9 +326,7 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 static void target_next_level()
 {
 
-  gc_bar_set(GC_BAR_LEVEL);
   gc_bar_set_level(gcomprisBoard);
-  gc_bar_location(BOARDWIDTH-200, -1, 0.8);
 
   target_destroy_all_items();
   gamewon = FALSE;
@@ -486,6 +492,18 @@ static GooCanvasItem *target_create_item(GooCanvasItem *parent)
 
   display_windspeed();
 
+  /* Tooltip */
+  tooltipItem =
+    goo_canvas_text_new (boardRootItem,
+			 "",
+			 150,
+			 -140,
+			 -1,
+			 GTK_ANCHOR_CENTER,
+			 "font", gc_skin_font_board_title_bold,
+			 "fill-color", "white",
+			 NULL);
+
   return NULL;
 }
 /* ==================================== */
@@ -537,7 +555,6 @@ static void request_score()
   double x_offset = 245;
   gchar *tmpstr;
 
-  gc_bar_set(GC_BAR_LEVEL);
   button_pixmap = gc_skin_pixmap_load("button_large2.png");
   goo_canvas_image_new (boardRootItem,
 			button_pixmap,
@@ -560,10 +577,11 @@ static void request_score()
   gdk_pixbuf_unref(button_pixmap);
 }
 
-static void add_points(double x, double y)
+static guint add_points(double x, double y)
 {
   guint i;
   double diametre;
+  guint points;
 
   // Calculate the distance
   diametre = sqrt(x*x+y*y);
@@ -572,11 +590,13 @@ static void add_points(double x, double y)
     {
       if(diametre < targetDefinition[gcomprisBoard->level-1].target_width_value[i*2])
 	{
-	  user_points += targetDefinition[gcomprisBoard->level-1].target_width_value[i*2+1];
+	  points = targetDefinition[gcomprisBoard->level-1].target_width_value[i*2+1];
+	  user_points += points;
 	  break;
 	}
     }
 
+  return points;
 }
 
 
@@ -610,12 +630,21 @@ static void animate_items()
     {
       gc_sound_play_ogg ("sounds/brick.wav", NULL);
 
+      // Calc the point for this dart
+      guint points = add_points(animate_item_x, animate_item_y);
+
+      // Add a tooltip on this dart to let the children
+      // see how we count it
+      g_signal_connect(animate_item,
+		       "enter_notify_event", (GtkSignalFunc) tooltip_event,
+		       GINT_TO_POINTER(points));
+      g_signal_connect(animate_item,
+		       "leave_notify_event", (GtkSignalFunc) tooltip_event,
+		       GINT_TO_POINTER(-1));
+
       gtk_timeout_remove (animate_id);
       animate_id = 0;
       animate_item = NULL;
-
-      // Calc the point for this dart
-      add_points(animate_item_x, animate_item_y);
 
       // Change the wind for the next target
       display_windspeed();
@@ -689,4 +718,27 @@ item_event (GooCanvasItem  *item,
     }
 
   return FALSE;
+}
+
+static gboolean
+tooltip_event (GooCanvasItem  *item,
+	       GooCanvasItem  *target,
+	       GdkEventButton *event,
+	       gpointer gpoint)
+{
+  gint point = GPOINTER_TO_INT(gpoint);
+
+  if (point >= 0) {
+    gchar *tmpstr = g_strdup_printf("%d", point);
+    g_object_set(tooltipItem,
+		 "text", tmpstr,
+		 NULL);
+    g_free(tmpstr);
+  } else {
+    g_object_set(tooltipItem,
+		 "text", "",
+		 NULL);
+  }
+
+  return TRUE;
 }

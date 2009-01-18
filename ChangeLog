@@ -1,3 +1,12 @@
+2009-01-19  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Now the target activity has a tooltip on each dart to let
+	the children know the value of it.
+
+	* src/target-activity/target.c: (start_board), (target_next_level),
+	(target_create_item), (request_score), (add_points),
+	(animate_items), (tooltip_event):
+
 2008-12-22  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	use AC_CANONICAL_HOST rather than AC_CANONICAL_TARGET for cross-compile purposes.
