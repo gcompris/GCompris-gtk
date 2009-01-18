@@ -73,9 +73,9 @@ static guint32 directory_label_y;
 
 /* Represent the limits of the file area */
 #define	DRAWING_AREA_X1	40.0
-#define DRAWING_AREA_Y1	220.0
+#define DRAWING_AREA_Y1	130.0
 #define DRAWING_AREA_X2	760.0
-#define DRAWING_AREA_Y2	500.0
+#define DRAWING_AREA_Y2	490.0
 
 #define HORIZONTAL_NUMBER_OF_IMAGE	5
 #define VERTICAL_NUMBER_OF_IMAGE	3
@@ -152,10 +152,6 @@ display_file_selector(int the_mode,
 		      FileSelectorCallBack iscb)
 {
   GooCanvasItem    *item;
-  GdkPixbuf	   *pixmap = NULL;
-  gint		    y = 0;
-  gint		    y_start = 0;
-  gint		    x_start = 0;
   gchar		   *name = NULL;
   gchar            *full_rootdir;
 
@@ -179,18 +175,11 @@ display_file_selector(int the_mode,
   rootitem = goo_canvas_group_new (goo_canvas_get_root_item(gc_get_canvas()),
 				   NULL);
 
-  pixmap = gc_skin_pixmap_load("file_selector_bg.png");
-  y_start = (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2;
-  x_start = (BOARDWIDTH - gdk_pixbuf_get_width(pixmap))/2;
-
-  item = goo_canvas_image_new (rootitem,
-			       pixmap,
-			       x_start,
-			       y_start,
-			       NULL);
-
-  y = BOARDHEIGHT - (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2 + 20;
-  gdk_pixbuf_unref(pixmap);
+  item = goo_canvas_svg_new (rootitem,
+			     gc_skin_rsvg_get(),
+			     "svg-id", "#FILE_SELECTOR",
+			     "pointer-events", GOO_CANVAS_EVENTS_NONE,
+			     NULL);
 
   /* Entry area */
   widget_entry = gtk_entry_new ();
@@ -242,8 +231,6 @@ display_file_selector(int the_mode,
     gtk_combo_box_set_active(GTK_COMBO_BOX(gtk_combo_filetypes), 0);
   }
 
-  y_start += 110;
-
   /*
    * Buttons
    * -------
@@ -252,7 +239,7 @@ display_file_selector(int the_mode,
   // CANCEL
   gc_util_button_text_svg(rootitem,
 			  BOARDWIDTH * 1/3,
-			  y - 48,
+			  BOARDHEIGHT - 32,
 			  "#BUTTON_TEXT",
 			  _("CANCEL"),
 			  (GtkSignalFunc) item_event_file_selector,
@@ -260,7 +247,7 @@ display_file_selector(int the_mode,
   // OK
   gc_util_button_text_svg(rootitem,
 			  BOARDWIDTH * 2/3,
-			  y - 48,
+			  BOARDHEIGHT - 32,
 			  "#BUTTON_TEXT",
 			  (mode==MODE_LOAD ? _("LOAD") : _("SAVE")),
 			  (GtkSignalFunc) item_event_file_selector,
@@ -380,6 +367,7 @@ display_files(GooCanvasItem *root_item, gchar *rootdir)
 			      (gdouble)directory_label_y,
 			      -1,
 			      GTK_ANCHOR_NW,
+			      "font", "Sans 7",
 			      "fill-color-rgba",
 			      gc_skin_get_color("gcompris/fileselectcol"),
 			      NULL);

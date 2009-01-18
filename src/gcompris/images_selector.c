@@ -106,10 +106,7 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
 {
 
   GooCanvasItem *item;
-  GdkPixbuf	*pixmap = NULL;
-  gint		 y = 0;
   gint		 y_start = 0;
-  gint		 x_start = 0;
   gchar		*dataseturl = NULL;
 
   GtkWidget	*w;
@@ -128,16 +125,11 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
 
   images_selector_displayed = TRUE;
 
-  pixmap = gc_skin_pixmap_load("images_selector_bg.png");
-  y_start = (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2;
-  x_start = (BOARDWIDTH - gdk_pixbuf_get_width(pixmap))/2;
-  item = goo_canvas_image_new (rootitem,
-			       pixmap,
-			       (double) x_start,
-			       (double) y_start,
-				NULL);
-  y = BOARDHEIGHT - (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2;
-  gdk_pixbuf_unref(pixmap);
+  item = goo_canvas_svg_new (rootitem,
+			     gc_skin_rsvg_get(),
+			     "svg-id", "#IMAGE_SELECTOR",
+			     "pointer-events", GOO_CANVAS_EVENTS_NONE,
+			     NULL);
 
   y_start += 110;
 
@@ -165,7 +157,8 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
 				      * gc_zoom_factor_get(),
 				      (LIST_AREA_Y2 - LIST_AREA_Y1)
 				      * gc_zoom_factor_get(),
-				      "fill-color-rgba", gc_skin_get_color("gcompris/imageselectbg"),
+				      "fill-color-rgba",
+				      gc_skin_get_color("gcompris/imageselectbg_left"),
 				      "line-width", 0.0,
 				      NULL);
 
@@ -218,7 +211,8 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
 			 * gc_zoom_factor_get(),
 			 (DRAWING_AREA_Y2 - DRAWING_AREA_Y1)
 			 * gc_zoom_factor_get(),
-			 "fill-color-rgba", gc_skin_get_color("gcompris/imageselectbg"),
+			 "fill-color-rgba",
+			 gc_skin_get_color("gcompris/imageselectbg_right"),
 			 "line-width", 0.0,
 			 NULL);
 
@@ -276,7 +270,7 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
    */
   gc_util_button_text_svg(rootitem,
 			  (BOARDWIDTH*0.5),
-			  y - 30,
+			  BOARDHEIGHT - 32,
 			  "#BUTTON_TEXT",
 			  _("OK"),
 			  (GtkSignalFunc) item_event_images_selector,
