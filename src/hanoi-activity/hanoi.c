@@ -313,7 +313,6 @@ hanoi_create_item(GooCanvasItem *parent)
   guint color_to_place;
   guint used_colors[NUMBER_OF_COLOR];
   guint w;
-  GdkPixbuf *pixmap = NULL;
 
   boardRootItem = \
     goo_canvas_group_new (parent,
@@ -322,25 +321,20 @@ hanoi_create_item(GooCanvasItem *parent)
 
   if (gcomprisBoard->level == 1)
     {
-      pixmap = gc_skin_pixmap_load("gcompris-shapelabel.png");
-      if(pixmap) {
-        item = goo_canvas_image_new (boardRootItem,
-                                     pixmap,
-                                     10,
-                                     BOARDHEIGHT - 110,
-                                     NULL);
-        goo_canvas_item_scale(item,
-                              (double)(BOARDWIDTH-20)/gdk_pixbuf_get_width(pixmap),
-                              1);
-        gdk_pixbuf_unref(pixmap);
-      }
+      item = goo_canvas_svg_new (boardRootItem,
+				 gc_skin_rsvg_get(),
+				 "svg-id", "#BAR_BG",
+				 NULL);
+      SET_ITEM_LOCATION_CENTER(item,
+			       BOARDWIDTH/2,
+			       50);
 
       goo_canvas_text_new (boardRootItem,
                            _("Build the same tower in the empty area as the one you see on the right-hand side."),
-                           (double) BOARDWIDTH/2,
-                           (double) BOARDHEIGHT - 100,
+                           BOARDWIDTH/2,
+                           50,
                            -1,
-                           GTK_ANCHOR_NORTH,
+                           GTK_ANCHOR_CENTER,
                            "font", gc_skin_font_board_medium,
                            "fill_color_rgba", gc_skin_color_text_button,
                            NULL);

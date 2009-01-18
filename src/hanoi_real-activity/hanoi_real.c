@@ -260,25 +260,20 @@ hanoi_create_item(GooCanvasItem *parent)
   boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
 					NULL);
 
-  pixmap = gc_skin_pixmap_load("gcompris-shapelabel.png");
-  if(pixmap) {
-    item = goo_canvas_image_new (boardRootItem,
-				 pixmap,
-				 10,
-				 BOARDHEIGHT - 110,
-				 NULL);
-    goo_canvas_item_scale(item,
-			  (double)(BOARDWIDTH - 20)/gdk_pixbuf_get_width(pixmap),
-			  1);
-    gdk_pixbuf_unref(pixmap);
-  }
+  item = goo_canvas_svg_new (boardRootItem,
+			     gc_skin_rsvg_get(),
+			     "svg-id", "#BAR_BG",
+			     NULL);
+  SET_ITEM_LOCATION_CENTER(item,
+			   BOARDWIDTH/2,
+			   BOARDHEIGHT - 100);
 
   goo_canvas_text_new (boardRootItem,
 		       _("Move the entire stack to the right peg, one disc at a time"),
 		       BOARDWIDTH/2,
 		       BOARDHEIGHT - 100,
 		       -1,
-		       GTK_ANCHOR_NORTH,
+		       GTK_ANCHOR_CENTER,
 		       "font", gc_skin_font_board_medium,
 		       "fill_color_rgba", gc_skin_color_text_button,
 		       "alignment", PANGO_ALIGN_CENTER,
