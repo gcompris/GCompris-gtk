@@ -115,8 +115,6 @@ static GooCanvasItem	*tooltip_bg_item;
 
 /* The continue button */
 static GooCanvasItem	*continue_root_item;
-static GooCanvasItem	*continue_text_item;
-static GooCanvasItem	*continue_bg_item;
 
 static void		 start_board (GcomprisBoard *agcomprisBoard);
 static void 		 pause_board (gboolean pause);
@@ -451,9 +449,6 @@ static void process_ok()
   gamewon = TRUE;
 
   /* Show the tooltip to let the user continue the game */
-  g_object_set(continue_text_item,
-	       "text", _("Continue"),
-	       NULL);
   g_object_set (continue_root_item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
 }
 
@@ -510,7 +505,6 @@ static void shapegame_destroy_all_items()
 
 static void shapegame_init_canvas(GooCanvasItem *parent)
 {
-  GdkPixbuf       *pixmap = NULL;
 
   shape_root_item = goo_canvas_group_new (parent, NULL);
   goo_canvas_item_translate(shape_root_item,
@@ -525,25 +519,29 @@ static void shapegame_init_canvas(GooCanvasItem *parent)
   goo_canvas_item_translate(tooltip_root_item, 10, BOARDHEIGHT-70);
 
 
-  pixmap = gc_skin_pixmap_load("button_large.png");
   tooltip_bg_item = \
-    goo_canvas_image_new (tooltip_root_item,
-			  pixmap,
-			  0,
-			  0,
-			  NULL);
+    goo_canvas_rect_new (tooltip_root_item,
+			 0,
+			 0,
+			 0,
+			 0,
+			 "stroke_color_rgba", 0xFFFFFFFFL,
+			 "fill_color_rgba", 0x0000FF90L,
+			 "line-width", (double) 2,
+			 "radius-x", (double) 10,
+			 "radius-y", (double) 10,
+			 NULL);
 
   tooltip_text_item = \
     goo_canvas_text_new (tooltip_root_item,
 			 "",
-			 gdk_pixbuf_get_width(pixmap)/2,
-			 24.0,
+			 15,
+			 15,
 			 -1,
-			 GTK_ANCHOR_CENTER,
+			 GTK_ANCHOR_WEST,
 			 "font", gc_skin_font_board_small,
 			 "fill_color_rgba", gc_skin_color_text_button,
 			 NULL);
-  gdk_pixbuf_unref(pixmap);
 
   /* Hide the tooltip */
   g_object_set (tooltip_root_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
@@ -555,31 +553,15 @@ static void shapegame_init_canvas(GooCanvasItem *parent)
   goo_canvas_item_translate(continue_root_item, 5, 5);
 
 
-  pixmap = gc_skin_pixmap_load("button_large.png");
-  continue_bg_item = \
-    goo_canvas_image_new (continue_root_item,
-			  pixmap,
-			  0,
-			  0,
-			  NULL);
-
-  continue_text_item = \
-    goo_canvas_text_new (continue_root_item,
-			 "",
-			 gdk_pixbuf_get_width(pixmap)/2,
-			 24.0,
-			 -1,
-			 GTK_ANCHOR_CENTER,
-			 "font", gc_skin_font_board_small,
-			 "fill_color_rgba", gc_skin_color_text_button,
-			 NULL);
-  gdk_pixbuf_unref(pixmap);
+  continue_root_item = \
+    goo_canvas_svg_new (continue_root_item,
+			gc_skin_rsvg_get(),
+			"svg-id", "#OK",
+			NULL);
+  SET_ITEM_LOCATION(continue_root_item, 15, 15);
+  gc_item_focus_init(continue_root_item, NULL);
 
   g_signal_connect(continue_root_item,
-		   "button_press_event",
-		   (GtkSignalFunc) item_event_ok,
-		   "continue_click");
-  g_signal_connect(continue_text_item,
 		   "button_press_event",
 		   (GtkSignalFunc) item_event_ok,
 		   "continue_click");
@@ -1100,6 +1082,15 @@ item_event(GooCanvasItem *item, GooCanvasItem *target,
 		     "text", shape->tooltip,
 		     NULL);
 	g_object_set (tooltip_root_item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+
+	/* Set the background */
+	GooCanvasBounds bounds;
+	goo_canvas_item_get_bounds (tooltip_text_item, &bounds);
+	g_object_set(tooltip_bg_item,
+		     "width", bounds.x2 - bounds.x1 + 30,
+		     "height", bounds.y2 - bounds.y1 + 15,
+		     NULL);
+
       }
       break;
 

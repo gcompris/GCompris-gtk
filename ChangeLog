@@ -1,5 +1,17 @@
 2009-01-19  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	Now shapegame tooltip is a a transparent rectangle instead
+	of a fixed button. The rectangle follow the tooltip size to
+	avoid the text growing after the button effect.
+
+	* boards/skins/gartoon/skin.svg:
+	* src/babymatch-activity/shapegame.c: (process_ok),
+	(shapegame_init_canvas), (item_event):
+	* src/imageid-activity/imageid.c: (imageid_create_item),
+	(highlight_selected):
+
+2009-01-19  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	Now the target activity has a tooltip on each dart to let
 	the children know the value of it.
 

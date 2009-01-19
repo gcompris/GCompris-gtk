@@ -288,7 +288,6 @@ imageid_create_item(GooCanvasItem *parent)
   int x, y, xp, yp;
   guint vertical_separation;
   GdkPixbuf *pixmap = NULL;
-  GdkPixbuf *button_pixmap = NULL;
   Board *board;
   guint i;
 
@@ -300,7 +299,6 @@ imageid_create_item(GooCanvasItem *parent)
     goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
 			  NULL);
 
-  button_pixmap = gc_skin_pixmap_load("button_large.png");
   /* display the image */
   board = g_list_nth_data(board_list, board_number);
   g_assert(board != NULL);
@@ -328,8 +326,10 @@ imageid_create_item(GooCanvasItem *parent)
 
   vertical_separation = 10 + 60 / i;
 
+  guint button_pixmap_height = 48;
+  guint button_pixmap_width = 191;
   yp = (BOARDHEIGHT -
-	i * gdk_pixbuf_get_height(button_pixmap)
+	i *  button_pixmap_height
 	- 2 * vertical_separation)/2 - 20;
 
   i = 0;
@@ -338,11 +338,13 @@ imageid_create_item(GooCanvasItem *parent)
       group = goo_canvas_group_new (boardRootItem,
 				    NULL);
 
-      button = goo_canvas_image_new (group,
-				     button_pixmap,
-				     xp,
-				     yp,
-				     NULL);
+      button = goo_canvas_svg_new (group,
+				   gc_skin_rsvg_get(),
+				   "svg-id", "#BUTTON_TEXT",
+				   NULL);
+      SET_ITEM_LOCATION(button,
+			xp,
+			yp);
 
       g_object_set_data(G_OBJECT(group),
 		      "button", button);
@@ -353,8 +355,8 @@ imageid_create_item(GooCanvasItem *parent)
 
       item = goo_canvas_text_new (group,
 				  board->text[i],
-				  xp + gdk_pixbuf_get_width(button_pixmap)/2 + 1.0,
-				  yp + gdk_pixbuf_get_height(button_pixmap)/2 + 1.0,
+				  xp +  button_pixmap_width/2 + 1.0,
+				  yp +  button_pixmap_height/2 + 1.0,
 				  -1,
 				  GTK_ANCHOR_CENTER,
 				  "font", gc_skin_font_board_big,
@@ -367,8 +369,8 @@ imageid_create_item(GooCanvasItem *parent)
 
       item = goo_canvas_text_new (group,
 				  board->text[i],
-				  xp + gdk_pixbuf_get_width(button_pixmap)/2,
-				  yp + gdk_pixbuf_get_height(button_pixmap)/2,
+				  xp +  button_pixmap_width/2,
+				  yp +  button_pixmap_height/2,
 				  -1,
 				  GTK_ANCHOR_CENTER,
 				  "font", gc_skin_font_board_big,
@@ -379,12 +381,10 @@ imageid_create_item(GooCanvasItem *parent)
 		       (GtkSignalFunc) item_event,
 		       GINT_TO_POINTER(i));
 
-      yp += gdk_pixbuf_get_height(button_pixmap) + vertical_separation;
+      yp +=  button_pixmap_height + vertical_separation;
 
       i++;
     }
-
-  gdk_pixbuf_unref(button_pixmap);
 
 }
 /* ==================================== */
@@ -456,21 +456,19 @@ item_event (GooCanvasItem  *item,
 static void
 highlight_selected(GooCanvasItem * button)
 {
-  GdkPixbuf *button_pixmap_selected = NULL, *button_pixmap = NULL;
-
   if (selected_button != NULL && selected_button != button)
     {
-      button_pixmap = gc_skin_pixmap_load("button_large.png");
-      g_object_set(selected_button, "pixbuf", button_pixmap, NULL);
-      gdk_pixbuf_unref(button_pixmap);
+      g_object_set(selected_button,
+		   "svg-id", "#BUTTON_TEXT",
+		   NULL);
     }
 
   if (selected_button != button)
     {
-      button_pixmap_selected = gc_skin_pixmap_load("button_large_selected.png");
-      g_object_set(button, "pixbuf", button_pixmap_selected, NULL);
+      g_object_set(button,
+		   "svg-id", "#BUTTON_TEXT_SELECTED",
+		   NULL);
       selected_button = button;
-      gdk_pixbuf_unref(button_pixmap_selected);
     }
 
 }
