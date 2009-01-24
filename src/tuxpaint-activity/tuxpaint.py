@@ -128,8 +128,7 @@ class Gcompris_tuxpaint:
     gcompris.bar_set(0)
     gcompris.bar_hide(1)
 
-    gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
-                            gcompris.skin.image_to_skin("gcompris-bg.jpg"))
+    gcompris.set_default_background(self.gcomprisBoard.canvas.get_root_item())
 
     textItem = goocanvas.Text(
       parent = self.rootitem,

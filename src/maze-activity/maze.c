@@ -180,17 +180,14 @@ static void set_level (guint level) {
 static void start_board (GcomprisBoard *agcomprisBoard) {
 
   if(agcomprisBoard!=NULL) {
-    gchar *img;
 
     gcomprisBoard=agcomprisBoard;
 
     /* disable im_context */
     gcomprisBoard->disable_im_context = TRUE;
 
-    img = gc_skin_image_get("gcompris-bg.jpg");
-    gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
-			    img);
-    g_free(img);
+    gc_set_default_background(goo_canvas_get_root_item(gcomprisBoard->canvas));
+
     gcomprisBoard->level=1;
     gcomprisBoard->maxlevel=9;
 
@@ -1486,11 +1483,8 @@ draw3D()
 static void
 twoDdisplay()
 {
-  char *fileskin;
   gc_sound_play_ogg ("sounds/flip.wav", NULL);
-  fileskin = gc_skin_image_get("gcompris-bg.jpg");
-  gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas), fileskin);
-  g_free(fileskin);
+  gc_set_default_background(goo_canvas_get_root_item(gcomprisBoard->canvas));
 
   if (threedgroup)
     g_object_set (threedgroup, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);

@@ -243,7 +243,7 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
 
       goo_canvas_svg_new (boardRootItem,
 			  svg_handle,
-			  "svg-id", "#BUTTON_VERTICAL",
+			  "svg-id", "#SELECTOR",
 			  "pointer-events", GOO_CANVAS_EVENTS_NONE,
 			  NULL);
 

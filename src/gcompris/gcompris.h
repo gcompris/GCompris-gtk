@@ -85,11 +85,39 @@ void		 gc_board_end(void);
 /* Control Bar methods */
 void		 gc_bar_start (GooCanvas *theCanvas);
 
+/** Set the default background of your activity.
+ *  Always set the background in your activity startup.
+ *  activity startup.
+ *  @param[in] parent is the canvas root item
+ */
+void		 gc_set_default_background(GooCanvasItem *parent);
+/** Set the given background of your activity.
+ *  Always set the background in your activity startup.
+ *  activity startup.
+ *  @param[in] parent is the canvas root item
+ *  @param[in] file is a relative file. It can be svg, png or jpg.
+ */
 void		 gc_set_background(GooCanvasItem *parent, gchar *file);
+/** Set the given rsvg image as the activity background.
+ *  Always set the background in your activity startup.
+ *  @param[in] parent is the canvas root item
+ *  @param[in] rsvg_handle is the svg background
+ *  @param[in] id is the id of the item to display in rsvg_handle.
+ *             Set id to NULL to display all the image.
+ */
 void		 gc_set_background_by_id(GooCanvasItem *parent,
 					 RsvgHandle *rsvg_handle,
 					 gchar *id);
+/** Update the bar to display the current level
+ *  You must maintain the current level in your GcomprisBoard->level.
+ *  @param[in] gcomprisBoard is your activity handle
+ */
 void		 gc_bar_set_level (GcomprisBoard *gcomprisBoard);
+/** The repeat icon as set with the flag GC_BAR_REPEAT can be
+ *  overrided with your specific icon. Use this if the default
+ *  repeat icon does not match your action.
+ *  @param[in] svg_handle is the handle to the svg image.
+ */
 void		 gc_bar_set_repeat_icon (RsvgHandle *svg_handle);
 
 /* Status bar control */
@@ -114,13 +142,23 @@ typedef enum {
   GCOMPRIS_FILTER_UNDER,
   GCOMPRIS_FILTER_ABOVE,
 } GcomprisFilterType;
-
+/** Set the different option that must be present in the control bar.
+ *  @param[in} glags is a bit mask of GComprisBarFlags.
+ */
 void		 gc_bar_set (const GComprisBarFlags flags);
+/** Hide of show the control bar.
+ *  @param[in] hide set to true to hide the bar.
+ */
 void		 gc_bar_hide (gboolean hide);
+/** Specify where in your activity must be set the control bar
+ *  @param[in] x is the x coordinate. Set to -1 to keep the default.
+ *  @param[in] y is the x coordinate Set to -1 to keep the default.
+ *  @param[in] zoom is the zoom factor. Set to -1 to keep the default.
+ */
 void		 gc_bar_location (int x, int y, double zoom);
 
 /* General */
-GooCanvas     *gc_get_canvas(void);
+GooCanvas       *gc_get_canvas(void);
 GtkWidget	*gc_get_window(void);
 
 const gchar	*gc_locale_get(void);

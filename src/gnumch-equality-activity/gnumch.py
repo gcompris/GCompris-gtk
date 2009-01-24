@@ -699,8 +699,7 @@ class Gcompris_gnumch:
         self.board.number_of_sublevel = self.levelset.num_sublevels
         self.trog_wait = 1900
 
-        gcompris.set_background(self.board.canvas.get_root_item(),
-                                gcompris.skin.image_to_skin("gcompris-bg.jpg"))
+        gcompris.set_default_background(self.gcomprisBoard.canvas.get_root_item())
         gcompris.bar_set_level(self.board)
 
         gcompris.bar_set(gcompris.BAR_LEVEL | gcompris.BAR_REPEAT)

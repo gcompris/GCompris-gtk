@@ -46,8 +46,8 @@ class Gcompris_electric:
     # Part of UI : tools buttons
     # TOOL SELECTION
     self.tools = [
-      ["DEL",    "draw/tool-del.png",     "draw/tool-del_on.png",     gcompris.CURSOR_DEL],
-      ["SELECT", "draw/tool-select.png",  "draw/tool-select_on.png",  gcompris.CURSOR_SELECT]
+      ["DEL",    "electric/tool-del.png",     "electric/tool-del_on.png",     gcompris.CURSOR_DEL],
+      ["SELECT", "electric/tool-select.png",  "electric/tool-select_on.png",  gcompris.CURSOR_SELECT]
       ]
 
     # These are used to let us restart only after the bonus is displayed.
@@ -76,8 +76,7 @@ class Gcompris_electric:
 
     gcompris.bar_location(gcompris.BOARD_WIDTH - 160, -1, 0.7)
 
-    gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
-                            gcompris.skin.image_to_skin("gcompris-bg.jpg"))
+    gcompris.set_default_background(self.gcomprisBoard.canvas.get_root_item())
 
     self.display_game()
 
@@ -212,7 +211,7 @@ class Gcompris_electric:
         item = \
             goocanvas.Image(
           parent = self.rootitem,
-          pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[i][1])),
+          pixbuf = gcompris.utils.load_pixmap(self.tools[i][1]),
           x=x,
           y=y
           )
@@ -225,7 +224,7 @@ class Gcompris_electric:
           # Always select the SELECT item by default
           self.current_tool = i
           self.old_tool_item = item
-          self.old_tool_item.props.pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[i][2]))
+          self.old_tool_item.props.pixbuf = gcompris.utils.load_pixmap(self.tools[i][2])
           gcompris.set_cursor(self.tools[i][3]);
 
         # Add the item in self.tools for later use
@@ -1602,14 +1601,10 @@ class Selector:
       self.rootitem = electric.rootitem
 
 
-      goocanvas.Image(
-        parent = self.rootitem,
-        pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("draw/tool-selector.png")),
-        x=5,
-        y=5.0,
-        width=107.0,
-        height=517.0,
-        )
+      goocanvas.Svg(parent = self.rootitem,
+                    svg_handle = gcompris.skin.svg_get(),
+                    svg_id = "#SELECTOR"
+                    )
 
       self.x = 15
       self.y = 60

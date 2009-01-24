@@ -55,8 +55,7 @@ class Gcompris_chat:
   def start(self):
     gcompris.bar_set (0)
     gcompris.bar_location(gcompris.BOARD_WIDTH - 160, -1, 0.6)
-    gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
-                            gcompris.skin.image_to_skin("gcompris-bg.jpg"))
+    gcompris.set_default_background(self.gcomprisBoard.canvas.get_root_item())
     self.rootitem = goocanvas.Group(parent =  self.gcomprisBoard.canvas.get_root_item())
 
     # The global area

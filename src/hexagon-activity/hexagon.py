@@ -45,8 +45,7 @@ class Gcompris_hexagon:
     self.gcomprisBoard.sublevel=1
     self.gcomprisBoard.number_of_sublevel=1
     gcompris.bar_set(gcompris.BAR_LEVEL)
-    gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
-                            gcompris.skin.image_to_skin("gcompris-bg.jpg"))
+    gcompris.set_default_background(self.gcomprisBoard.canvas.get_root_item())
     gcompris.bar_set_level(self.gcomprisBoard)
     self.set_level(1)
     self.game_start()

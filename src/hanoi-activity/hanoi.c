@@ -142,7 +142,6 @@ pause_board (gboolean pause)
 static void
 start_board (GcomprisBoard *agcomprisBoard)
 {
-  gchar *img;
 
   if(agcomprisBoard!=NULL)
     {
@@ -153,9 +152,7 @@ start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
       gc_bar_set(GC_BAR_LEVEL);
 
-      gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
-			img = gc_skin_image_get("gcompris-bg.jpg"));
-      g_free(img);
+      gc_set_default_background(goo_canvas_get_root_item(gcomprisBoard->canvas));
 
       gc_drag_start(goo_canvas_get_root_item(gcomprisBoard->canvas),
 		    (GcDragFunc)item_event,

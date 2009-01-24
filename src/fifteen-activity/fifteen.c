@@ -160,12 +160,7 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 /* set initial values for the next level */
 static void fifteen_next_level()
 {
-  gchar *img;
-
-  img = gc_skin_image_get("gcompris-bg.jpg");
-  gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
-			  img);
-  g_free(img);
+  gc_set_default_background(goo_canvas_get_root_item(gcomprisBoard->canvas));
 
   gc_bar_set_level(gcomprisBoard);
 

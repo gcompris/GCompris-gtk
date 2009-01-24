@@ -169,7 +169,6 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 {
 
   if (agcomprisBoard != NULL) {
-        gchar *img;
 
 	gcomprisBoard = agcomprisBoard;
 	gcomprisBoard->level = 1;
@@ -186,9 +185,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	else
 		board_mode = DEFAULT_MODE;
 
-	img = gc_skin_image_get("gcompris-bg.jpg");
-	gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas), img);
-	g_free(img);
+	gc_set_default_background(goo_canvas_get_root_item(gcomprisBoard->canvas));
 
 	magic_hat_next_level();
 

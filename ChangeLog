@@ -1,3 +1,36 @@
+2009-01-24  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Added a gc_set_default_background() api entry.
+	Exported it and gc_set_background_by_id() to python.
+	Removed the need for gcompris-bg.jpg which is now in skin.svg
+
+	* boards/skins/gartoon/skin.svg:
+	* src/administration-activity/administration.py:
+	* src/anim-activity/anim.py:
+	* src/awele-activity/awele.c: (awele_next_level):
+	* src/boards/py-mod-gcompris.c: (py_gc_set_background_by_id),
+	(py_gc_set_default_background):
+	* src/chat-activity/chat.py:
+	* src/chess_computer-activity/chess.c: (chess_next_level):
+	* src/electric-activity/electric.py:
+	* src/electric-activity/resources/electric/Makefile.am:
+	* src/fifteen-activity/fifteen.c: (fifteen_next_level):
+	* src/gcompris/gcompris.c: (_set_svg_background),
+	(gc_set_background), (gc_set_default_background):
+	* src/gcompris/gcompris.h:
+	* src/gnumch-equality-activity/gnumch.py:
+	* src/hanoi-activity/hanoi.c: (start_board):
+	* src/hanoi_real-activity/hanoi_real.c: (start_board):
+	* src/hexagon-activity/hexagon.py:
+	* src/magic_hat_minus-activity/magic_hat.c: (start_board):
+	* src/maze-activity/maze.c: (start_board), (twoDdisplay):
+	* src/pythontemplate-activity/pythontemplate.py:
+	* src/pythontest-activity/pythontest.py:
+	* src/redraw-activity/redraw.py:
+	* src/searace-activity/searace.py:
+	* src/sudoku-activity/sudoku.py:
+	* src/tuxpaint-activity/tuxpaint.py:
+
 2009-01-19  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Now shapegame tooltip is a a transparent rectangle instead

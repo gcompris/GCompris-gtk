@@ -44,8 +44,7 @@ class Gcompris_pythontemplate:
     gcompris.bar_set(gcompris.BAR_LEVEL)
 
     # Set a background image
-    gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
-                            gcompris.skin.image_to_skin("gcompris-bg.jpg"))
+    gcompris.set_default_background(self.gcomprisBoard.canvas.get_root_item())
 
 
   def end(self):

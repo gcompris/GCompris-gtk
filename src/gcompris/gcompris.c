@@ -479,7 +479,7 @@ GtkWidget *gc_get_window()
 }
 
 static void
-_set_svg_background(GooCanvasItem *parent, gchar *file)
+_set_svg_background(GooCanvasItem *parent, gchar *file, gchar *id)
 {
   RsvgHandle *rsvg_handle;
 
@@ -488,6 +488,7 @@ _set_svg_background(GooCanvasItem *parent, gchar *file)
   if(backgroundsvgimg)
     g_object_set(backgroundsvgimg,
 		 "svg-handle", rsvg_handle,
+		 "svg-id", id,
 		 NULL);
   else
     backgroundsvgimg = goo_canvas_svg_new (parent,
@@ -552,7 +553,7 @@ gc_set_background(GooCanvasItem *parent, gchar *file)
 	goo_canvas_item_remove(backgroundimg);
 
       backgroundimg = NULL;
-      _set_svg_background(parent, file);
+      _set_svg_background(parent, file, NULL);
     }
   else
     {
@@ -582,6 +583,14 @@ gc_set_background_by_id(GooCanvasItem *parent, RsvgHandle *rsvg_handle,
 					   NULL);
 
   goo_canvas_item_lower(backgroundsvgimg, NULL);
+}
+
+void
+gc_set_default_background(GooCanvasItem *parent)
+{
+  gc_set_background_by_id(parent,
+			  gc_skin_rsvg_get(),
+			  "#BACKGROUND");
 }
 
 /* Redraw the black background

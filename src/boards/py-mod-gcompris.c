@@ -149,6 +149,51 @@ py_gc_set_background(PyObject* self, PyObject* args)
 }
 
 
+/* GooCanvasItem *gc_set_background_by_id(GooCanvasGroup *parent,
+   RsvgHandle svg_handle, gchar *id); */
+static PyObject*
+py_gc_set_background_by_id(PyObject* self, PyObject* args)
+{
+  PyObject* pyCanvasGroup;
+  PyObject* pySvgHandle;
+  GooCanvasItem* canvasGroup;
+  RsvgHandle *svg_handle;
+  gchar* id;
+
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, "OOs:gc_set_background_by_id",
+		       &pyCanvasGroup, &pySvgHandle, &id))
+    return NULL;
+  canvasGroup = (GooCanvasItem*) pygobject_get(pyCanvasGroup);
+  svg_handle = (RsvgHandle*) pygobject_get(pySvgHandle);
+
+  /* Call the corresponding C function */
+  gc_set_background_by_id(canvasGroup, svg_handle, id);
+
+  return Py_None;
+}
+
+
+/* GooCanvasItem *gc_set_default_background(GooCanvasGroup *parent) */
+static PyObject*
+py_gc_set_default_background(PyObject* self, PyObject* args)
+{
+  PyObject* pyCanvasGroup;
+  GooCanvasItem* canvasGroup;
+
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, "O:gc_set_background_by_id",
+		       &pyCanvasGroup))
+    return NULL;
+  canvasGroup = (GooCanvasItem*) pygobject_get(pyCanvasGroup);
+
+  /* Call the corresponding C function */
+  gc_set_default_background(canvasGroup);
+
+  return Py_None;
+}
+
+
 /* void gc_bar_set_level (GcomprisBoard *gcomprisBoard); */
 static PyObject*
 py_gc_bar_set_level(PyObject* self, PyObject* args)
@@ -172,7 +217,7 @@ py_gc_bar_set_level(PyObject* self, PyObject* args)
 }
 
 
-/* void gc_bar_set_repeat_icon (GdkPixbuf *pixmap); */
+/* void gc_bar_set_repeat_icon (RsvgHandle *svg_handle); */
 static PyObject*
 py_gc_bar_set_repeat_icon(PyObject* self, PyObject* args)
 {
@@ -1512,6 +1557,8 @@ static PyMethodDef PythonGcomprisModule[] = {
   { "end_board",  py_gc_board_end, METH_VARARGS, "gc_board_end" },
   { "bar_start",  py_gc_bar_start, METH_VARARGS, "gc_bar_start" },
   { "set_background",  py_gc_set_background, METH_VARARGS, "gc_set_background" },
+  { "set_background_by_id",  py_gc_set_background_by_id, METH_VARARGS, "gc_set_background_by_id" },
+  { "set_default_background",  py_gc_set_default_background, METH_VARARGS, "gc_set_default_background" },
   { "bar_set_level",  py_gc_bar_set_level, METH_VARARGS, "gc_bar_set_level" },
   { "bar_set_repeat_icon",  py_gc_bar_set_repeat_icon, METH_VARARGS, "gc_bar_set_repeat_icon" },
   { "bar_set",  py_gc_bar_set, METH_VARARGS, "gc_bar_set" },

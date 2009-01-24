@@ -107,12 +107,7 @@ class Gcompris_searace:
     # only have to kill it. The canvas deletes all the items it contains automaticaly.
     self.rootitem = goocanvas.Group(parent =  self.gcomprisBoard.canvas.get_root_item())
 
-    pixmap = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("gcompris-bg.jpg"))
-    item = goocanvas.Image(parent = self.rootitem,
-                           pixbuf = pixmap,
-                           x=0,
-                           y=0,
-                           )
+    gcompris.set_default_background(self.gcomprisBoard.canvas.get_root_item())
     item.connect("button_press_event", self.ruler_item_event)
     item.connect("button_release_event", self.ruler_item_event)
     item.connect("motion_notify_event", self.ruler_item_event)

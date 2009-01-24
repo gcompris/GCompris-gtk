@@ -110,8 +110,7 @@ class Gcompris_pythontest:
     self.colors['line'] = self.config_colors[color_name]
 
     gcompris.bar_set(gcompris.BAR_CONFIG)
-    gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
-                            gcompris.skin.image_to_skin("gcompris-bg.jpg"))
+    gcompris.set_default_background(self.gcomprisBoard.canvas.get_root_item())
     gcompris.bar_set_level(self.gcomprisBoard)
 
     # Create our rootitem. We put each canvas item in it so at the end we

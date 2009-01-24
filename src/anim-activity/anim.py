@@ -194,8 +194,7 @@ class Gcompris_anim:
     self.gcomprisBoard.sublevel=0
     self.gcomprisBoard.number_of_sublevel=0
 
-    gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
-                            gcompris.skin.image_to_skin("gcompris-bg.jpg"))
+    gcompris.set_default_background(self.gcomprisBoard.canvas.get_root_item())
 
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains automaticaly.
