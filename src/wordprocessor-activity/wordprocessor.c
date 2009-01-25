@@ -166,7 +166,7 @@ static void		 apply_color_style(int style_index);
 #define word_area_x1 120
 #define word_area_y1 20
 #define word_area_width 650
-#define word_area_height 430
+#define word_area_height 485
 
 #define combo_style_x1 5
 #define combo_style_width 105
@@ -247,19 +247,15 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
   if(agcomprisBoard!=NULL)
     {
-      gchar *img;
-
       gcomprisBoard=agcomprisBoard;
       gcomprisBoard->level=1;
       gcomprisBoard->maxlevel=1;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
       gc_bar_set(0);
+      gc_bar_location(10, -1, 0.6);
 
-      img = gc_skin_image_get("gcompris-shapebg.jpg");
-      gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
-			      img);
-      g_free(img);
+      gc_set_default_background(goo_canvas_get_root_item(gcomprisBoard->canvas));
 
       wordprocessor_create();
 
@@ -361,7 +357,7 @@ static GooCanvasItem *wordprocessor_create()
   /*
    * The save button
    */
-  pixmap = gc_skin_pixmap_load("draw/tool-save.png");
+  pixmap = gc_pixmap_load("wordprocessor/tool-save.png");
   item = \
     goo_canvas_image_new (boardRootItem,
 			  pixmap,
@@ -377,7 +373,7 @@ static GooCanvasItem *wordprocessor_create()
   /*
    * The load button
    */
-  pixmap = gc_skin_pixmap_load("draw/tool-load.png");
+  pixmap = gc_pixmap_load("wordprocessor/tool-load.png");
   item = \
     goo_canvas_image_new (boardRootItem,
 			  pixmap,
