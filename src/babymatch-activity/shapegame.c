@@ -116,6 +116,8 @@ static GooCanvasItem	*tooltip_bg_item;
 /* The continue button */
 static GooCanvasItem	*continue_root_item;
 
+static GooCanvasItem	*selector_item;
+
 static void		 start_board (GcomprisBoard *agcomprisBoard);
 static void 		 pause_board (gboolean pause);
 static void 		 end_board (void);
@@ -141,7 +143,8 @@ static Shape 		*create_shape(ShapeType type, char *name, char *tooltip,
 static gboolean 	 increment_sublevel(void);
 static void 		 create_title(char *name, double x, double y,
 				      GtkAnchorType anchor,
-				      guint32 color_rgba);
+				      guint32 color_rgba,
+				      gchar *color_background);
 static gint		 item_event_ok(GooCanvasItem *item, GooCanvasItem *target,
 				       GdkEvent *event,
 				       gchar *data);
@@ -278,14 +281,19 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       if(default_background)
 	{
-	  gchar *img;
-
 	  // Default case, load the default background
-	  img = gc_skin_image_get("gcompris-shapebg.jpg");
-	  gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
-			    img);
-	  g_free(img);
+	  gc_set_default_background(goo_canvas_get_root_item(gcomprisBoard->canvas));
 	}
+
+      // And the vertical selector
+      selector_item =
+	goo_canvas_svg_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+			    gc_skin_rsvg_get(),
+			    "svg-id", "#SELECTOR",
+			    "pointer-events", GOO_CANVAS_EVENTS_NONE,
+			    NULL);
+
+      /* FIXME: This no more works ! */
       gc_drag_start(goo_canvas_get_root_item(gcomprisBoard->canvas),
 		    (GcDragFunc) item_event_drag, drag_mode);
       shapegame_next_level();
@@ -310,6 +318,11 @@ end_board ()
   if (strcmp(gcomprisBoard->name, "imagename")==0){
     gc_locale_reset();
   }
+
+  if (selector_item)
+    goo_canvas_item_remove(selector_item);
+  selector_item = NULL;
+
 
   gcomprisBoard = NULL;
 }
@@ -724,7 +737,7 @@ add_shape_to_list_of_shapes(Shape *shape)
 		  gdk_pixbuf_unref(scale);
 
 		  // add the hand
-		  hand = gc_skin_pixmap_load("hand.svg");
+		  hand = gc_pixmap_load("shapegame/hand.svg");
 		  h = ICON_HEIGHT/3;
 		  w = gdk_pixbuf_get_width(hand) * h / gdk_pixbuf_get_height(hand);
 		  scale = gdk_pixbuf_scale_simple(hand, w, h, GDK_INTERP_BILINEAR);
@@ -1359,7 +1372,8 @@ add_shape_to_canvas(Shape *shape)
 static void
 create_title(char *name, double x, double y,
 	     GtkAnchorType anchor,
-	     guint32 color_rgba)
+	     guint32 color_rgba,
+	     gchar *color_background)
 {
   GooCanvasItem *item;
 
@@ -1370,9 +1384,29 @@ create_title(char *name, double x, double y,
 			 y,
 			 -1,
 			 anchor,
-			 "font", gc_skin_font_board_medium,
+			 "font", gc_skin_font_board_small,
 			 "fill_color_rgba", color_rgba,
 			 NULL);
+
+  /* Display a background if a color is provided */
+  if(color_background) {
+    guint32 color_background_rgba = gc_skin_get_color(color_background);
+    GooCanvasBounds bounds;
+    int gap = 8;
+
+    goo_canvas_item_get_bounds (item, &bounds);
+    goo_canvas_rect_new (shape_root_item,
+			 x - (bounds.x2 - bounds.x1)/2 - gap,
+			 y - (bounds.y2 - bounds.y1)/2 - gap,
+			 bounds.x2 - bounds.x1 + gap*2,
+			 bounds.y2 - bounds.y1 + gap*2,
+			 "stroke_color_rgba", 0xFFFFFFFFL,
+			 "fill_color_rgba", color_background_rgba,
+			 "line-width", (double) 2,
+			 "radius-x", (double) 10,
+			 "radius-y", (double) 10,
+			 NULL);
+  }
 
   goo_canvas_item_raise(item, NULL);
 }
@@ -1459,6 +1493,7 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, GList **
   char *locale;
   char *color_text;
   guint color_rgba;
+  char *color_background = NULL;
 
   if(/* if the node has no name */
      !xmlnode->name ||
@@ -1472,14 +1507,6 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, GList **
     return;
 
   pixmapfile = (char *)xmlGetProp(xmlnode, BAD_CAST "pixmapfile");
-  if(pixmapfile) {
-    /* If the pixmapfile starts with skin: then get the skin relative image instead */
-    if(!strncmp(pixmapfile, "skin:", 5)) {
-      gchar *oldpixmapfile = pixmapfile;
-      pixmapfile = gc_skin_image_get(oldpixmapfile+5);
-      g_free(oldpixmapfile);
-    }
-  }
 
   targetfile = (char *)xmlGetProp(xmlnode, BAD_CAST "targetfile");
 
@@ -1550,6 +1577,10 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, GList **
     color_rgba = gc_skin_get_color("gcompris/content");	/* the default */
   }
 
+  /* get the COLOR of the Title Specified by skin reference */
+  /* Default is NULL */
+  color_background = (char *)xmlGetProp(xmlnode, BAD_CAST "color_background_skin");
+
   /* get the name and tooltip of the shape */
   name    = NULL;
   tooltip = NULL;
@@ -1607,7 +1638,8 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, GList **
       if(name != NULL) {
 	newname = g_strcompress(name);
 
-	create_title(newname, x, y, anchor_gtk, color_rgba);
+	create_title(newname, x, y, anchor_gtk,
+		     color_rgba, color_background);
 	g_free(newname);
       }
     }
@@ -1616,6 +1648,7 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, GList **
   g_free(name);
   g_free(targetfile);
   g_free(tooltip);
+  xmlFree(color_background);
 }
 
 /* parse the doc, add it to our internal structures and to the clist */

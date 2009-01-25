@@ -1,3 +1,62 @@
+2009-01-26  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Reworked shapegame code to:
+	- load the vertical selector from the skin
+	- allow a color_background_skin in the Title xml board files.
+	  It display a background around the title text. It avoid text
+	  being bigger than the fixed background.
+
+	* boards/skins/gartoon/hand.svg:
+	* boards/skins/gartoon/skin.xml:
+	* configure.in:
+	* src/babymatch-activity/resources/Makefile.am:
+	* src/babymatch-activity/resources/babymatch/board1_0.xml.in:
+	* src/babymatch-activity/resources/babymatch/board2_0.xml.in:
+	* src/babymatch-activity/resources/babymatch/board3_0.xml.in:
+	* src/babymatch-activity/resources/babymatch/board4_0.xml.in:
+	* src/babymatch-activity/resources/babymatch/board5_0.xml.in:
+	* src/babymatch-activity/resources/babymatch/board6_0.xml.in:
+	* src/babymatch-activity/resources/babymatch/board7_0.xml.in:
+	* src/babymatch-activity/resources/shapegame/Makefile.am:
+	* src/babymatch-activity/shapegame.c: (start_board), (end_board),
+	(add_shape_to_list_of_shapes), (create_title),
+	(add_xml_shape_to_data):
+	* src/babyshapes-activity/resources/babyshapes/board5_0.xml.in:
+	* src/babyshapes-activity/resources/babyshapes/board6_0.xml.in:
+	* src/babyshapes-activity/resources/babyshapes/board7_0.xml.in:
+	* src/chronos-activity/resources/chronos/board1_0.xml.in:
+	* src/chronos-activity/resources/chronos/board4_3.xml.in:
+	* src/doubleentry-activity/resources/doubleentry/board3_0.xml.in:
+	* src/imagename-activity/resources/imagename/board1_0.xml.in:
+	* src/imagename-activity/resources/imagename/board2_0.xml.in:
+	* src/imagename-activity/resources/imagename/board3_0.xml.in:
+	* src/imagename-activity/resources/imagename/board4_0.xml.in:
+	* src/imagename-activity/resources/imagename/board5_0.xml.in:
+	* src/imagename-activity/resources/imagename/board6_0.xml.in:
+	* src/imagename-activity/resources/imagename/board7_0.xml.in:
+	* src/paintings-activity/resources/paintings/board1_0.xml.in:
+	* src/paintings-activity/resources/paintings/board1_1.xml.in:
+	* src/paintings-activity/resources/paintings/board1_10.xml.in:
+	* src/paintings-activity/resources/paintings/board1_11.xml.in:
+	* src/paintings-activity/resources/paintings/board1_12.xml.in:
+	* src/paintings-activity/resources/paintings/board1_2.xml.in:
+	* src/paintings-activity/resources/paintings/board1_3.xml.in:
+	* src/paintings-activity/resources/paintings/board1_4.xml.in:
+	* src/paintings-activity/resources/paintings/board1_5.xml.in:
+	* src/paintings-activity/resources/paintings/board1_6.xml.in:
+	* src/paintings-activity/resources/paintings/board1_7.xml.in:
+	* src/paintings-activity/resources/paintings/board1_8.xml.in:
+	* src/paintings-activity/resources/paintings/board1_9.xml.in:
+	* src/paintings-activity/resources/paintings/board2_0.xml.in:
+	* src/paintings-activity/resources/paintings/board2_1.xml.in:
+	* src/paintings-activity/resources/paintings/board2_2.xml.in:
+	* src/paintings-activity/resources/paintings/board2_3.xml.in:
+	* src/paintings-activity/resources/paintings/board3_0.xml.in:
+	* src/paintings-activity/resources/paintings/board3_1.xml.in:
+	* src/paintings-activity/resources/paintings/board4_0.xml.in:
+	* src/paintings-activity/resources/paintings/board5_0.xml.in:
+	* src/paintings-activity/resources/paintings/board6_0.xml.in:
+
 2009-01-24  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Added a gc_set_default_background() api entry.

@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ShapeGame>
-  <Shape name="1" pixmapfile="skin:gcompris-shapelabel.png" type="SHAPE_BACKGROUND"
-	 x="405" y="495" zoomx="1" zoomy="1" position="0"/>
-  <Title x="394" y="495" justification="GTK_JUSTIFY_CENTER" color_skin="gcompris/text button">
+  <Title x="394" y="495" justification="GTK_JUSTIFY_CENTER" color_skin="gcompris/text button" color_background_skin="gcompris/shadow">
     <_name>Edgar Degas, The Dancing Class - 1873-75</_name>
   </Title>
   <Shape name="A" pixmapfile="paintings/degas_class-dance_1.png" x="320" y="90"  zoomx="1" zoomy="1" position="0"/>

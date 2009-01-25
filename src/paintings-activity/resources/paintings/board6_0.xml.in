@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ShapeGame>
-  <Shape name="1" pixmapfile="skin:gcompris-shapelabel.png" type="SHAPE_BACKGROUND"
-	 x="405" y="495" zoomx="1" zoomy="1" position="0"/>
-  <Title x="405" y="495" justification="GTK_JUSTIFY_CENTER" color_skin="gcompris/text button">
+  <Title x="405" y="495" justification="GTK_JUSTIFY_CENTER" color_skin="gcompris/text button" color_background_skin="gcompris/shadow">
     <_name>Vincent Van Gogh, Village Street in Auvers - 1890</_name>
   </Title>
   <Shape name="C" pixmapfile="paintings/gogh_auvert_3.jpg" x="594" y="120" zoomx="1" zoomy="1" position="0"/>

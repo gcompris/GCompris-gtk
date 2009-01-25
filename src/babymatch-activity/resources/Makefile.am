@@ -1,1 +1,1 @@
-SUBDIRS=babymatch
+SUBDIRS=babymatch shapegame
