@@ -535,21 +535,45 @@ reading_drop_items ()
   return (FALSE);
 }
 
+static GooCanvasItem *
+addBackground(GooCanvasItem *parent,
+	      GooCanvasItem *item)
+{
+  GooCanvasBounds bounds;
+  int gap = 8;
+
+  goo_canvas_item_get_bounds (item, &bounds);
+
+  return(goo_canvas_rect_new (parent,
+			      bounds.x1 - gap,
+			      bounds.y1 - gap,
+			      bounds.x2 - bounds.x1 + gap*2,
+			      bounds.y2 - bounds.y1 + gap*2,
+			      "stroke_color_rgba", 0xFFFFFFFFL,
+			      "fill_color_rgba", 0XD5C393FFL,
+			      "line-width", (double) 2,
+			      "radius-x", (double) 10,
+			      "radius-y", (double) 10,
+			      NULL) );
+}
+
 static void
 ask_ready(gboolean status)
 {
   static GooCanvasItem *item1 = NULL;
   static GooCanvasItem *item2 = NULL;
-  GdkPixbuf *button_pixmap = NULL;
-  double y_offset = 250;
-  double x_offset = 400;
+  double x_offset = 560;
+  double y_offset = 260;
 
   if(textToFind==NULL)
     return;
 
   if(status==FALSE)
     {
-      if(item1!=NULL)
+      gc_item_focus_remove(item1, NULL);
+      gc_item_focus_remove(item2, item1);
+
+  if(item1!=NULL)
 	goo_canvas_item_remove(item1);
 
       if(item2!=NULL)
@@ -561,96 +585,93 @@ ask_ready(gboolean status)
     }
 
   /*----- READY -----*/
-  button_pixmap = gc_skin_pixmap_load("button_large2.png");
-  item1 = goo_canvas_image_new (boardRootItem,
-				button_pixmap,
-				x_offset,
-				y_offset,
-				NULL);
-
-  g_signal_connect(item1, "button-press-event",
-		     (GtkSignalFunc) item_event_valid,
-		     "R");
-
   item2 = goo_canvas_text_new (boardRootItem,
 			       _("I am Ready"),
-			       x_offset + gdk_pixbuf_get_width(button_pixmap)/2,
-			       y_offset + 40,
+			       x_offset,
+			       y_offset,
 			       -1,
 			       GTK_ANCHOR_CENTER,
 			       "font", gc_skin_font_board_big,
 			       "fill-color", "white",
 				NULL);
-  gdk_pixbuf_unref(button_pixmap);
 
   g_signal_connect(item2, "button-press-event",
 		   (GtkSignalFunc) item_event_valid,
 		   "R");
+
+  item1 = addBackground(boardRootItem, item2);
+
+  g_signal_connect(item1, "button-press-event",
+		   (GtkSignalFunc) item_event_valid,
+		   "R");
+  gc_item_focus_init(item1, NULL);
+  gc_item_focus_init(item2, item1);
+  goo_canvas_item_raise(item2, NULL);
 }
 
 static void
 ask_yes_no()
 {
-  GooCanvasItem *item;
-  GdkPixbuf *button_pixmap = NULL;
-  double y_offset = 250;
-  double x_offset = 400;
+  GooCanvasItem *item1;
+  GooCanvasItem *item2;
+  double x_offset = 560;
+  double y_offset = 260;
 
   if(textToFind==NULL)
     return;
 
   /*----- YES -----*/
-  button_pixmap = gc_skin_pixmap_load("button_large2.png");
-  item = goo_canvas_image_new (boardRootItem,
-			       button_pixmap,
-			       x_offset,
-			       y_offset,
-			       NULL);
 
-  g_signal_connect(item, "button-press-event",
+  item2 =
+    goo_canvas_text_new (boardRootItem,
+			 ("Yes, I saw it"),
+			 x_offset,
+			 y_offset,
+			 -1,
+			 GTK_ANCHOR_CENTER,
+			 "font", gc_skin_font_board_big,
+			 "fill-color", "white",
+			 NULL);
+
+  item1 = addBackground(boardRootItem, item2);
+
+  g_signal_connect(item2, "button-press-event",
+		   (GtkSignalFunc) item_event_valid,
+		   "Y");
+  g_signal_connect(item1, "button-press-event",
 		   (GtkSignalFunc) item_event_valid,
 		   "Y");
 
-  item = goo_canvas_text_new (boardRootItem,
-			      ("Yes, I saw it"),
-			      x_offset + gdk_pixbuf_get_width(button_pixmap)/2,
-			      y_offset + 40,
-			      -1,
-			      GTK_ANCHOR_CENTER,
-			      "font", gc_skin_font_board_big,
-			      "fill-color", "white",
-			      NULL);
-
-  g_signal_connect(item, "button-press-event",
-		   (GtkSignalFunc) item_event_valid,
-		   "Y");
+  gc_item_focus_init(item1, NULL);
+  gc_item_focus_init(item2, item1);
+  goo_canvas_item_raise(item2, NULL);
 
   /*----- NO -----*/
   y_offset += 100;
-  item = goo_canvas_image_new (boardRootItem,
-			       button_pixmap,
-			       x_offset,
-			       y_offset,
-			       NULL);
 
-  g_signal_connect(item, "button-press-event",
+  item2 =
+    goo_canvas_text_new (boardRootItem,
+			 _("No, it was not there"),
+			 x_offset,
+			 y_offset,
+			 -1,
+			 GTK_ANCHOR_CENTER,
+			 "font", gc_skin_font_board_big,
+			 "fill-color", "white",
+			 NULL);
+
+  item1 = addBackground(boardRootItem, item2);
+
+  g_signal_connect(item2, "button-press-event",
+		   (GtkSignalFunc) item_event_valid,
+		   "N");
+  g_signal_connect(item1, "button-press-event",
 		   (GtkSignalFunc) item_event_valid,
 		   "N");
 
-  item = goo_canvas_text_new (boardRootItem,
-			      _("No, it was not there"),
-			      x_offset + gdk_pixbuf_get_width(button_pixmap)/2,
-			      y_offset + 40,
-			      -1,
-			      GTK_ANCHOR_CENTER,
-			      "font", gc_skin_font_board_big,
-			      "fill-color", "white",
-			      NULL);
-
-  gdk_pixbuf_unref(button_pixmap);
-  g_signal_connect(item, "button-press-event",
-		   (GtkSignalFunc) item_event_valid,
-		   "N");
+  gc_item_focus_init(item1, NULL);
+  gc_item_focus_init(item2, item1);
+  goo_canvas_item_raise(item2, NULL);
 }
 
 
