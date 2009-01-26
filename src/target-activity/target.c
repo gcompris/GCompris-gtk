@@ -202,7 +202,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
 
-      gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas), "target/target_background.jpg");
+      gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
+			"target/target_background.svgz");
 
       gc_bar_set(GC_BAR_LEVEL);
       gc_bar_location(BOARDWIDTH-200, -1, 0.8);
@@ -388,8 +389,8 @@ static void display_windspeed()
   double w = 4.0;
   goo_canvas_polyline_new (speedRootItem, FALSE, 0,
 			   "points", canvasPoints,
-			   "stroke-color-rgba", 0x6df438C0,
-			   "fill-color", "green",
+			   "stroke-color-rgba", 0Xa05a2cffL,
+			   "fill-color-rgba", 0Xa05a2cffL,
 			   "line-width", w,
 			   "end-arrow", TRUE,
 			   "arrow-tip-length", 7.0,
@@ -405,9 +406,9 @@ static void display_windspeed()
 			 SPEED_CENTER_Y,
 			 10.0,
 			 10.0,
-			 "fill_color_rgba", 0x6df438C0,
-			 "stroke-color", "red",
-			 "line-width", (double)1,
+			 "fill_color_rgba", 0Xa05a2cffL,
+			 "stroke-color", "black",
+			 "line-width", (double)2,
 			 NULL);
 
   tmpstr = g_strdup_printf(_("Wind speed = %d\nkilometers/hour"), (guint)wind_speed);
@@ -486,7 +487,7 @@ static GooCanvasItem *target_create_item(GooCanvasItem *parent)
 		       -1,
 		       GTK_ANCHOR_CENTER,
 		       "font", gc_skin_font_board_medium,
-		       "fill-color", "white",
+		       "fill-color", "black",
 		       NULL);
   g_free(tmpstr);
 
@@ -584,7 +585,7 @@ static void request_score()
 			 (bounds.x2 - bounds.x1) + gap*2,
 			 (bounds.y2 - bounds.y1) + gap*2,
 			 "stroke_color_rgba", 0xFFFFFFFFL,
-			 "fill_color_rgba", 0x0000FF90L,
+			 "fill_color_rgba", 0X5599FFCCL,
 			 "line-width", (double) 2,
 			 "radius-x", (double) 10,
 			 "radius-y", (double) 10,

@@ -1,3 +1,11 @@
+2009-01-27  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	New background image for the target activity by Mathieu Ignacio.
+
+	* src/target-activity/resources/target/Makefile.am:
+	* src/target-activity/target.c: (start_board), (display_windspeed),
+	(target_create_item), (request_score):
+
 2009-01-26  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Reworked target activity to no more use the button_large2 pixmap.
