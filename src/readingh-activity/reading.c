@@ -573,7 +573,7 @@ ask_ready(gboolean status)
       gc_item_focus_remove(item1, NULL);
       gc_item_focus_remove(item2, item1);
 
-  if(item1!=NULL)
+      if(item1!=NULL)
 	goo_canvas_item_remove(item1);
 
       if(item2!=NULL)

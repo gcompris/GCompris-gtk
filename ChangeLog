@@ -1,5 +1,13 @@
 2009-01-26  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	Reworked target activity to no more use the button_large2 pixmap.
+	Instead we have a cute translucant background that follows the
+	text size.
+
+	* src/target-activity/target.c: (key_press), (request_score):
+
+2009-01-26  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	Reworked shapegame code to:
 	- load the vertical selector from the skin
 	- allow a color_background_skin in the Title xml board files.

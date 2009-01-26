@@ -242,7 +242,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 {
   guint c;
 
-  if(!gcomprisBoard)
+  if(!gcomprisBoard || gamewon == TRUE)
     return FALSE;
 
   /* Add some filter for control and shift key */
@@ -550,23 +550,16 @@ static void process_ok()
  */
 static void request_score()
 {
-  GdkPixbuf *button_pixmap = NULL;
-  double y_offset = 130;
-  double x_offset = 245;
+  double x_offset = 390;
+  double y_offset = 150;
   gchar *tmpstr;
 
-  button_pixmap = gc_skin_pixmap_load("button_large2.png");
-  goo_canvas_image_new (boardRootItem,
-			button_pixmap,
-			x_offset,
-			y_offset,
-			 NULL);
-
-  tmpstr =  g_strdup_printf(_("Points = %s"), "");
+  /* Set the maximum text to calc the background */
+  tmpstr =  g_strdup_printf(_("Points = %s"), "00000");
   answer_item = goo_canvas_text_new (boardRootItem,
 				     tmpstr,
-				     (double) x_offset + gdk_pixbuf_get_width(button_pixmap)/2,
-				     (double) y_offset + gdk_pixbuf_get_height(button_pixmap)/2,
+				     (double) x_offset,
+				     (double) y_offset,
 				     -1,
 				     GTK_ANCHOR_CENTER,
 				     "font", gc_skin_font_board_title_bold,
@@ -574,7 +567,36 @@ static void request_score()
 				     NULL);
   g_free(tmpstr);
 
-  gdk_pixbuf_unref(button_pixmap);
+  GooCanvasBounds bounds;
+  goo_canvas_item_get_bounds (answer_item, &bounds);
+  goo_canvas_convert_to_item_space(goo_canvas_item_get_canvas(answer_item),
+				   answer_item,
+				   &bounds.x1, &bounds.y1);
+  goo_canvas_convert_to_item_space(goo_canvas_item_get_canvas(answer_item),
+				   answer_item,
+				   &bounds.x2, &bounds.y2);
+
+  int gap = 15;
+  GooCanvasItem *item =				\
+    goo_canvas_rect_new (boardRootItem,
+			 bounds.x1 - gap,
+			 bounds.y1 - gap,
+			 (bounds.x2 - bounds.x1) + gap*2,
+			 (bounds.y2 - bounds.y1) + gap*2,
+			 "stroke_color_rgba", 0xFFFFFFFFL,
+			 "fill_color_rgba", 0x0000FF90L,
+			 "line-width", (double) 2,
+			 "radius-x", (double) 10,
+			 "radius-y", (double) 10,
+			 NULL);
+  goo_canvas_item_raise(answer_item, item);
+
+  /* Set the correct initial text */
+  tmpstr = g_strdup_printf(_("Points = %s"), answer_string);
+  g_object_set(answer_item,
+	       "text", tmpstr,
+	       NULL);
+  g_free(tmpstr);
 }
 
 static guint add_points(double x, double y)
