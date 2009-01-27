@@ -464,7 +464,7 @@ class Board_list:
       box.show()
       symbols_box.pack_start(box, True, False, 0)
       self.stars[i] = gtk.Image()
-      self.stars[i].set_from_pixbuf(gcompris.skin.load_pixmap('difficulty_star%d.png' % (i)))
+      self.stars[i].set_from_pixbuf(gcompris.utils.load_pixmap('administration/difficulty%d.svgz' % (i)))
       self.stars[i].show()
       box.pack_start(self.stars[i], False, False, 0)
       i_label = gtk.Label()
@@ -669,6 +669,9 @@ class Board_list:
 
   def ok_callback(self, dict):
 
+    if not dict:
+      return
+
     for key, value in dict.iteritems():
       if key in self.already_conf:
         req = 'UPDATE board_profile_conf SET conf_value=\'%s\' WHERE profile_id=%d AND board_id=-1 AND conf_key=\'%s\'' % (value, self.active_profile.profile_id, key)
@@ -696,10 +699,13 @@ class Board_list:
 
 
   def login_configure(self, button):
+    print "debug: login_configure"
     board_log = self.get_board_by_name('/login/login', self.boards_list)
+    print board_log
+    # FIXME This call no more work
     gcompris.admin.board_config_start(board_log,
                                       self.active_profile)
-
+    print "debug: done"
 
 
   def wordlist(self, button):

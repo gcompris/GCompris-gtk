@@ -223,15 +223,6 @@ class Gcompris_login:
     x = gcompris.BOARD_WIDTH/2
     y = 20
 
-    # The shadow
-    goocanvas.Text(
-      parent = self.letter_rootitem,
-      x= x + 1.5,
-      y= y + 1.5,
-      text= _("Login: ") + start_filter + "...",
-      fill_color="black",
-      font=gcompris.skin.get_font("gcompris/board/huge"),
-      )
     # The text
     goocanvas.Text(
       parent = self.letter_rootitem,
@@ -264,20 +255,6 @@ class Gcompris_login:
       else:
         text = letter.upper() + letter.lower()
 
-      item = goocanvas.Svg(parent = self.rootitem,
-                           svg_handle = gcompris.skin.svg_get(),
-                           svg_id = "#OK"
-                           )
-      item.translate(item.get_bounds().x1 * -1
-                     + x - (item.get_bounds().x2 - item.get_bounds().x1) / 2,
-                     item.get_bounds().y1 * -1
-                     + y - (item.get_bounds().y2 - item.get_bounds().y1) / 2)
-
-      # This item is clickeable and it must be seen
-      gcompris.utils.item_focus_init(item, None)
-      item.connect("button_press_event", self.letter_click_event,
-                   (users, start_filter + letter))
-
       # The text
       item =goocanvas.Text(
         parent = self.letter_rootitem,
@@ -289,6 +266,29 @@ class Gcompris_login:
         )
       item.connect("button_press_event", self.letter_click_event,
                    (users, start_filter + letter))
+
+      gap = 10
+      bounds = item.get_bounds()
+      item_bg = \
+          goocanvas.Rect(
+          parent = self.letter_rootitem,
+          x = bounds.x1 - gap,
+          y = bounds.y1 - gap,
+          width = bounds.x2 - bounds.x1 + gap*2,
+          height = bounds.y2 - bounds.y1 + gap*2,
+          line_width=2.0,
+          fill_color_rgba=0x555555CAL,
+          stroke_color_rgba=0xFFFFFFFFL,
+          radius_x=5.0,
+          radius_y=5.0)
+      # This item is clickeable and it must be seen
+      gcompris.utils.item_focus_init(item, item_bg)
+      gcompris.utils.item_focus_init(item_bg, None)
+      item_bg.connect("button_press_event", self.letter_click_event,
+                      (users, start_filter + letter))
+      item.raise_(None)
+
+
       x += step_x
 
       i += 1
@@ -318,7 +318,6 @@ class Gcompris_login:
     x = gcompris.BOARD_WIDTH/4
     i = 0
     step_y = 90
-    button_pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("button_large2.png"))
 
     for user in users:
       if eval(self.config_dict['uppercase_only']):
@@ -329,27 +328,37 @@ class Gcompris_login:
       if not login.startswith(start_filter):
         continue
 
-      item =goocanvas.Image(
-        parent = self.rootitem,
-        pixbuf = button_pixbuf,
-        x = x -  button_pixbuf.get_width()/2,
-        y = y -  button_pixbuf.get_height()/2,
-        )
-      # This item is clickeable and it must be seen
-      gcompris.utils.item_focus_init(item, None)
-      item.connect("button_press_event", self.name_click_event, user)
-
-
       # The text
       item = goocanvas.Text(
         parent = self.rootitem,
         x= x,
-        y= y - button_pixbuf.get_height()/2 + 5,
+        y= y,
         text= login,
         fill_color="white",
         font=gcompris.skin.get_font("gcompris/board/huge"),
+        anchor = gtk.ANCHOR_CENTER,
         )
       item.connect("button_press_event", self.name_click_event, user)
+
+      gap = 10
+      bounds = item.get_bounds()
+      item_bg = \
+          goocanvas.Rect(
+          parent = self.rootitem,
+          x = bounds.x1 - gap,
+          y = bounds.y1 - gap,
+          width = bounds.x2 - bounds.x1 + gap*2,
+          height = bounds.y2 - bounds.y1 + gap*2,
+          line_width=2.0,
+          fill_color_rgba=0x555555CAL,
+          stroke_color_rgba=0xFFFFFFFFL,
+          radius_x=5.0,
+          radius_y=5.0)
+      item_bg.connect("button_press_event", self.name_click_event, user)
+      item.raise_(item_bg)
+      # This item is clickeable and it must be seen
+      gcompris.utils.item_focus_init(item, item_bg)
+      gcompris.utils.item_focus_init(item_bg, None)
 
       y += step_y
       i += 1
@@ -364,7 +373,7 @@ class Gcompris_login:
   # Event when a click happen on a letter
   # data[0] is the user list we work on
   # data[1] is the start filter
-  def letter_click_event(self, widget, event, data):
+  def letter_click_event(self, widget, target, event, data):
     if event.type == gtk.gdk.BUTTON_PRESS:
       self.letter_rootitem.remove()
       self.display_user_by_letter(data[0], data[1])
@@ -453,6 +462,7 @@ class Gcompris_login:
       widget.set_text('')
 
   def config_start(self, profile):
+    print "debug login.py config_start"
     # keep profile in mind
     self.configuring_profile = profile
 

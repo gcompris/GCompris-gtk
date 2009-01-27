@@ -1,5 +1,15 @@
 2009-01-27  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	Reworked login to no more need button_large2.png. Removed
+	this image as it is no more used.
+	There is a bug in board_list.py, the login cannot be edited.
+
+	* src/administration-activity/admin/board_list.py:
+	* src/administration-activity/resources/administration/Makefile.am:
+	* src/login-activity/login.py:
+
+2009-01-27  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	New background image for the target activity by Mathieu Ignacio.
 
 	* src/target-activity/resources/target/Makefile.am:
