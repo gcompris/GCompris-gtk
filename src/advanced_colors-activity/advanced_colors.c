@@ -476,7 +476,13 @@ static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 	  sColor = g_strdup_printf("color%d", i+1);
 	  if (!strcmp((char *)xmlnode->name, sColor))
 	    {
-	      colors[i] = gettext((char *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1));
+	      text = (char*)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	      if(text)
+		{
+		  colors[i] = gettext((char *)text);
+		  g_free(text);
+		}
+	      text = NULL;
 	      g_free(sColor);
 	      break;
 	    }

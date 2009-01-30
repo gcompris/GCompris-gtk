@@ -831,6 +831,7 @@ static void
 reading_config_start(GcomprisBoard *agcomprisBoard,
 		    GcomprisProfile *aProfile)
 {
+  GcomprisBoardConf *conf;
   board_conf = agcomprisBoard;
   profile_conf = aProfile;
 
@@ -841,7 +842,7 @@ reading_config_start(GcomprisBoard *agcomprisBoard,
 				 agcomprisBoard->name,
 				 aProfile? aProfile->name: "");
 
-  gc_board_config_window_display( label,
+  conf = gc_board_config_window_display( label,
 				 (GcomprisConfCallback )conf_ok);
 
   g_free(label);
@@ -851,8 +852,8 @@ reading_config_start(GcomprisBoard *agcomprisBoard,
 
   gchar *locale = g_hash_table_lookup( config, "locale");
 
-  gc_board_config_combo_locales( locale);
-
+  gc_board_config_combo_locales(conf, locale);
+  gc_board_config_wordlist(conf, "wordsgame/default-$LOCALE.xml");
 }
 
 

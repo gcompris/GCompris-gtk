@@ -625,8 +625,8 @@ config_start(GcomprisBoard *agcomprisBoard,
   gchar *label = g_strdup_printf(_("<b>%s</b> configuration\n for profile <b>%s</b>"),
 				 agcomprisBoard->name,
 				 aProfile ? aProfile->name : "");
-
-  gc_board_config_window_display(label, conf_ok);
+  GcomprisBoardConf *bconf;
+  bconf = gc_board_config_window_display(label, conf_ok);
 
   g_free(label);
 
@@ -635,7 +635,7 @@ config_start(GcomprisBoard *agcomprisBoard,
 
   gchar *saved_locale_sound = g_hash_table_lookup( config, "locale_sound");
 
-  gc_board_config_combo_locales_asset( "Select sound locale", saved_locale_sound,
+  gc_board_config_combo_locales_asset(bconf, "Select sound locale", saved_locale_sound,
 				"voices/$LOCALE/colors/purple.ogg");
 
   gboolean up_init = FALSE;
@@ -645,7 +645,7 @@ config_start(GcomprisBoard *agcomprisBoard,
   if (up_init_str && (strcmp(up_init_str, "True")==0))
     up_init = TRUE;
 
-  gc_board_config_boolean_box(_("Uppercase only text"),
+  gc_board_config_boolean_box(bconf, _("Uppercase only text"),
 		       "uppercase_only",
 		       up_init);
 

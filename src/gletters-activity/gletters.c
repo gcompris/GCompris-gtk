@@ -847,7 +847,7 @@ gletter_config_start(GcomprisBoard *agcomprisBoard,
   label = g_strdup_printf(_("<b>%s</b> configuration\n for profile <b>%s</b>"),
 			  agcomprisBoard->name, aProfile ? aProfile->name : "");
 
-  gc_board_config_window_display(label, (GcomprisConfCallback )conf_ok);
+  GcomprisBoardConf *bconf = gc_board_config_window_display(label, (GcomprisConfCallback )conf_ok);
 
   g_free(label);
 
@@ -856,7 +856,7 @@ gletter_config_start(GcomprisBoard *agcomprisBoard,
 
   gchar *locale = g_hash_table_lookup( config, "locale");
 
-  gc_board_config_combo_locales( locale);
+  gc_board_config_combo_locales( bconf, locale);
 
   gboolean up_init = FALSE;
 
@@ -865,7 +865,7 @@ gletter_config_start(GcomprisBoard *agcomprisBoard,
   if (up_init_str && (strcmp(up_init_str, "True")==0))
     up_init = TRUE;
 
-  gc_board_conf_separator();
+  gc_board_conf_separator(bconf);
 
   gchar *control_sound = g_hash_table_lookup( config, "with_sound");
   if (control_sound && strcmp(g_hash_table_lookup( config, "with_sound"),"True")==0)
@@ -873,11 +873,11 @@ gletter_config_start(GcomprisBoard *agcomprisBoard,
   else
     with_sound = FALSE;
 
-  gc_board_config_boolean_box(_("Enable sounds"), "with_sound", with_sound);
+  gc_board_config_boolean_box(bconf, _("Enable sounds"), "with_sound", with_sound);
 
-  gc_board_conf_separator();
+  gc_board_conf_separator(bconf);
 
-  gc_board_config_boolean_box(_("Uppercase only text"),
+  gc_board_config_boolean_box(bconf, _("Uppercase only text"),
 		       "uppercase_only",
 		       up_init);
 

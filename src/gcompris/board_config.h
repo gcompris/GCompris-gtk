@@ -18,6 +18,18 @@
 
 #ifndef BOARD_CONFIG_H
 #define BOARD_CONFIG_H
+#include "gcompris.h"
+
+/* the callback type */
+typedef void (*GcomprisConfCallback) (GHashTable *table);
+
+typedef struct 
+{
+	GtkWindow *conf_window;
+	GtkVBox *main_conf_box;
+	GHashTable *hash_conf;
+	GcomprisConfCallback Confcallback;
+} GcomprisBoardConf;
 
 void	 gc_board_config_start(GcomprisBoard *aBoard,
 			       GcomprisProfile *aProfile);
@@ -29,14 +41,11 @@ void	 gc_board_config_stop();
 /* You can add your own widget if you need */
 /* the callback is called wish the hash key, value when the apply button is clicked */
 
-/* the callback type */
-typedef void (*GcomprisConfCallback) (GHashTable *table);
+GcomprisBoardConf *gc_board_config_window_display(gchar *label, GcomprisConfCallback callback);
 
-GtkVBox *gc_board_config_window_display(gchar *label, GcomprisConfCallback callback);
+GtkCheckButton *gc_board_config_boolean_box(GcomprisBoardConf *config, const gchar *label, gchar *key, gboolean initial_value);
 
-GtkCheckButton *gc_board_config_boolean_box(const gchar *label, gchar *key, gboolean initial_value);
-
-GtkComboBox *gc_board_config_combo_box(const gchar *label, GList *strings, gchar *key, gchar *init);
+GtkComboBox *gc_board_config_combo_box(GcomprisBoardConf *config, const gchar *label, GList *strings, gchar *key, gchar *init);
 
 /* Params: */
 /*   - Label */
@@ -45,25 +54,25 @@ GtkComboBox *gc_board_config_combo_box(const gchar *label, GList *strings, gchar
 /* Returns */
 /*   - g_hash_table (gchar *values, GtkWidget *pointer) */
 
-GHashTable *gc_board_config_radio_buttons(const gchar *label,
+GHashTable *gc_board_config_radio_buttons(GcomprisBoardConf *config, const gchar *label,
 				   gchar *key,
 				   GHashTable *buttons_label,
 				   gchar *init);
 
-GtkSpinButton *gc_board_config_spin_int(const gchar *label,
+GtkSpinButton *gc_board_config_spin_int(GcomprisBoardConf *config, const gchar *label,
 				 gchar *key,
 				 gint min,
 				 gint max,
 				 gint step,
 				 gint init);
 
-GtkHSeparator *gc_board_conf_separator();
+GtkHSeparator *gc_board_conf_separator(GcomprisBoardConf *config);
 
 GList *gc_locale_gets_list();
 
-GtkComboBox *gc_board_config_combo_locales( gchar *init);
+GtkComboBox *gc_board_config_combo_locales(GcomprisBoardConf *config, gchar *init);
 
-GtkComboBox *gc_board_config_combo_drag( gint init);
+GtkComboBox *gc_board_config_combo_drag( GcomprisBoardConf *config, gint init);
 
 void gc_locale_change(gchar *locale);
 
@@ -71,10 +80,8 @@ void gc_locale_reset();
 
 GList *gc_locale_gets_asset_list(const gchar *file);
 
-GtkComboBox *gc_board_config_combo_locales_asset(const gchar *label, gchar *init,
-					  const gchar *file);
-#endif
-
+GtkComboBox *gc_board_config_combo_locales_asset(GcomprisBoardConf *config,
+	const gchar *label, gchar *init, const gchar *file);
 /***********************************/
 /* TextView  facility              */
 /* Callback is text vaidating function */
@@ -83,8 +90,13 @@ GtkComboBox *gc_board_config_combo_locales_asset(const gchar *label, gchar *init
 
 typedef gboolean (*GcomprisTextCallback) (gchar *key, gchar *text, GtkLabel *label);
 
-GtkTextView *gc_board_config_textview(const gchar *label,
+GtkTextView *gc_board_config_textview(GcomprisBoardConf *config, const gchar *label,
 			       gchar *key,
 			       const gchar*description,
 			       gchar *init_text,
 			       GcomprisTextCallback validate);
+
+GtkWidget *gc_board_config_wordlist(GcomprisBoardConf *config, const gchar *files);
+
+#endif
+

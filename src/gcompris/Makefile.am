@@ -61,7 +61,9 @@ gcompris_SOURCES = \
 	binreloc.c \
 	binreloc.h \
 	board.h board.c \
-	board_config.h \
+	board_config_common.c board_config_common.h \
+	board_config_combo.c board_config_radio.c\
+	board_config_textview.c board_config_wordlist.c \
 	board_config.h board_config.c \
 	bonus.c \
 	bonus.h \

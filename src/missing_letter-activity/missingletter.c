@@ -764,8 +764,8 @@ config_start(GcomprisBoard *agcomprisBoard,
   gchar *label = g_strdup_printf(_("<b>%s</b> configuration\n for profile <b>%s</b>"),
 				 agcomprisBoard->name,
 				 aProfile ? aProfile->name : "");
-
-  gc_board_config_window_display( label,
+  GcomprisBoardConf *bconf;
+  bconf = gc_board_config_window_display( label,
 				 (GcomprisConfCallback )conf_ok);
 
   g_free(label);
@@ -775,7 +775,7 @@ config_start(GcomprisBoard *agcomprisBoard,
 
   gchar *locale = g_hash_table_lookup( config, "locale");
 
-  gc_board_config_combo_locales( locale);
+  gc_board_config_combo_locales(bconf, locale);
 
 }
 

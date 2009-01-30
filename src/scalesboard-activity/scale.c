@@ -949,8 +949,9 @@ config_start(GcomprisBoard *agcomprisBoard,
 				  agcomprisBoard->name,
 				  aProfile? aProfile->name : "");
 
-  gc_board_config_window_display( label,
-				  (GcomprisConfCallback )conf_ok);
+  GcomprisBoardConf *bconf;
+  bconf = gc_board_config_window_display( label,
+					  (GcomprisConfCallback )conf_ok);
 
   g_free(label);
 
@@ -965,7 +966,7 @@ config_start(GcomprisBoard *agcomprisBoard,
   else
     drag_previous = 0;
 
-  gc_board_config_combo_drag( drag_mode);
+  gc_board_config_combo_drag(bconf, drag_mode);
 
 }
 

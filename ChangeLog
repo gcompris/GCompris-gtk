@@ -1,4 +1,4 @@
-2009-03-26  Wolfram Sang <wolfram@iswi.org>
+2009-06-20  Wolfram Sang <wolfram@iswi.org>
 
 	- From trunk
 	* src/board/shapegame.c:
@@ -14,6 +14,44 @@
 	  Fix this by ensuring that the object to move or drop is the
 	  same one that got dragged.
 
+2009-06-20  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- From trunk
+	Miguel DE IZARRA implemented the wordlist selector.
+	We need some improvement to save data in the ~/My GCompris
+	instead of the system datadir directory.
+
+	* src/boards/advanced_colors.c: (add_xml_data):
+	* src/boards/click_on_letter.c: (config_start):
+	* src/boards/colors.c: (colors_config_start):
+	* src/boards/gletters.c: (gletter_config_start):
+	* src/boards/imageid.c: (add_xml_data), (config_start):
+	* src/boards/missingletter.c: (config_start):
+	* src/boards/py-mod-gcompris.c: (py_gc_board_config_boolean_box),
+	(py_gc_board_config_combo_box), (py_gc_board_config_radio_buttons),
+	(py_gc_board_config_spin_int), (py_gc_board_conf_separator),
+	(py_gc_board_config_combo_locales),
+	(py_gc_board_config_combo_locales_asset),
+	(py_gc_board_config_textview):
+	* src/boards/reading.c: (reading_config_start):
+	* src/boards/scale.c: (config_start):
+	* src/boards/shapegame.c: (config_start):
+	* src/boards/smallnumbers.c: (smallnumber_config_start):
+	* src/boards/wordsgame.c: (start_board), (conf_ok),
+	(wordsgame_config_start), (wordsgame_config_stop):
+	* src/gcompris/Makefile.am:
+	* src/gcompris/board_config.c: (gc_board_conf_close),
+	(_response_board_conf), (_conf_window_configured),
+	(gc_board_config_window_display),
+	(gc_board_conf_boolean_box_toggled), (gc_board_config_boolean_box),
+	(spin_changed), (gc_board_config_spin_int),
+	(gc_board_conf_separator):
+	* src/gcompris/board_config.h:
+	* src/gcompris/wordlist.c: (gc_wordlist_get_from_file),
+	(gc_wordlist_dump), (gc_wordlist_get_levelwordlist),
+	(gc_wordlist_random_word_get), (gc_wordlist_free_level),
+	(gc_wordlist_free), (gc_wordlist_set_wordlist), (gc_wordlist_save):
+	* src/gcompris/wordlist.h:
 
 2009-04-14  Bruno coudoin  <bruno.coudoin@free.fr>
 

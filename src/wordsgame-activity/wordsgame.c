@@ -78,6 +78,10 @@ static gboolean		 wordsgame_destroy_items(GPtrArray *items);
 static void		 wordsgame_destroy_all_items(void);
 static void		 wordsgame_next_level(void);
 static void		 wordsgame_add_new_item(void);
+static void		 wordsgame_config_start(GcomprisBoard *agcomprisBoard,
+					     GcomprisProfile *aProfile);
+static void		 wordsgame_config_stop(void);
+
 
 static void		 player_win(LettersItem *item);
 static void		 player_loose(void);
@@ -120,8 +124,8 @@ static BoardPlugin menu_bp =
     set_level,
     NULL,
     NULL,
-    NULL,
-    NULL
+    wordsgame_config_start,
+    wordsgame_config_stop
   };
 
 /*
@@ -184,7 +188,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->level = 1;
       gcomprisBoard->maxlevel = 6;
       gcomprisBoard->sublevel = 0;
-      gc_bar_set(GC_BAR_LEVEL);
+      gc_bar_set(GC_BAR_LEVEL|GC_BAR_CONFIG);
 
       /* Default speed */
       speed=DEFAULT_SPEED;
@@ -737,3 +741,30 @@ static void player_loose()
 {
   gc_sound_play_ogg ("sounds/crash.wav", NULL);
 }
+
+static void conf_ok(gpointer data)
+{
+	pause_board(FALSE);
+}
+
+static void wordsgame_config_start(GcomprisBoard *agcomprisBoard, GcomprisProfile *aProfile)
+{
+	if (gcomprisBoard)
+		pause_board(TRUE);
+
+	gchar *label = g_strdup_printf(_("<b>%s</b> configuration\n for profile <b>%s</b>"),
+			agcomprisBoard->name,
+			aProfile? aProfile->name: "");
+	GcomprisBoardConf *bconf;
+	bconf = gc_board_config_window_display( label,
+			(GcomprisConfCallback )conf_ok);
+
+	g_free(label);
+
+	gc_board_config_wordlist(bconf, "wordsgame/default-$LOCALE.xml");
+}
+
+static void wordsgame_config_stop(void)
+{
+}
+
