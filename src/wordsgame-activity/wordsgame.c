@@ -587,6 +587,7 @@ static GooCanvasItem *wordsgame_create_item(GooCanvasItem *parent)
   GooCanvasItem *item2;
   LettersItem *item;
   gchar *word = gc_wordlist_random_word_get(gc_wordlist, gcomprisBoard->level);
+  GtkAnchorType direction_anchor = GTK_ANCHOR_NW;
 
   if(!word)
     /* Should display the dialog box here */
@@ -600,6 +601,9 @@ static GooCanvasItem *wordsgame_create_item(GooCanvasItem *parent)
   item->letter=g_utf8_strndup(item->word,1);
   item->pos=g_utf8_find_next_char(item->word,NULL);
 
+  if (pango_unichar_direction(g_utf8_get_char(item->word)))
+    direction_anchor = GTK_ANCHOR_NE;
+
   item->rootitem = goo_canvas_group_new (parent, NULL);
   goo_canvas_item_translate(item->rootitem, 0, -12);
 
@@ -612,7 +616,7 @@ static GooCanvasItem *wordsgame_create_item(GooCanvasItem *parent)
 			 (double) 0,
 			 (double) 0,
 			 -1,
-			 GTK_ANCHOR_NW,
+			 direction_anchor,
 			 "font", gc_skin_font_board_huge_bold,
 			 "fill_color_rgba", 0xba00ffff,
 			 NULL);
@@ -623,7 +627,7 @@ static GooCanvasItem *wordsgame_create_item(GooCanvasItem *parent)
 			 (double) 0,
 			 (double) 0,
 			 -1,
-			 GTK_ANCHOR_NW,
+			 direction_anchor,
 			 "font", gc_skin_font_board_huge_bold,
 			 "fill-color", "blue",
 			 NULL);
@@ -632,13 +636,21 @@ static GooCanvasItem *wordsgame_create_item(GooCanvasItem *parent)
 
   GooCanvasBounds bounds;
 
-
   goo_canvas_item_get_bounds    (item->rootitem,
 				 &bounds);
 
-  goo_canvas_item_translate (item->rootitem,
-			     (g_random_int()%(BOARDWIDTH-(gint)(bounds.x2))),
-			     0);
+ if(direction_anchor == GTK_ANCHOR_NW)
+   goo_canvas_item_translate (item->rootitem,
+			      (g_random_int()%(BOARDWIDTH-(gint)(bounds.x2))),
+			      0);
+  else
+   {
+      double new_x = (double)( g_random_int()%BOARDWIDTH);
+      if ( new_x < -bounds.x1 )
+	new_x -=  bounds.x1;
+      goo_canvas_item_translate (item->rootitem,
+				 new_x ,(double) 0);
+   }
 
 
   g_static_rw_lock_writer_lock (&items_lock);
