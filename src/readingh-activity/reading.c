@@ -42,7 +42,8 @@ static GooCanvasItem *boardRootItem = NULL;
 typedef enum
 {
   MODE_HORIZONTAL		= 0,
-  MODE_VERTICAL			= 1
+  MODE_VERTICAL			= 1,
+  MODE_HORIZONTAL_RTL		= 2
 } Mode;
 static Mode currentMode = MODE_VERTICAL;
 
@@ -206,12 +207,6 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       g_warning ("Font to display words have size %d  ascent : %d, descent : %d.\n Set inerline to %d",
 		 font_size, ascent, descent, interline);
 
-      /* Default mode */
-      currentMode=MODE_VERTICAL;
-      if(gcomprisBoard->mode
-	 && g_strcasecmp(gcomprisBoard->mode, "horizontal") == 0)
-	currentMode = MODE_HORIZONTAL;
-
       gc_wordlist = gc_wordlist_get_from_file("wordsgame/default-$LOCALE.xml");
 
       if(!gc_wordlist)
@@ -227,7 +222,17 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	    }
 	}
 
-      reading_next_level();
+
+      currentMode=MODE_VERTICAL; // Default mode
+      if(gcomprisBoard->mode && g_strcasecmp(gcomprisBoard->mode, "horizontal")==0)
+        {
+          if (pango_unichar_direction(g_utf8_get_char(gc_wordlist_random_word_get(gc_wordlist, gcomprisBoard->level))) == PANGO_DIRECTION_RTL)
+              currentMode=MODE_HORIZONTAL_RTL;
+          else
+               currentMode=MODE_HORIZONTAL;
+        }
+
+       reading_next_level();
     }
 }
 
@@ -308,7 +313,7 @@ static gint reading_next_level()
     }
   else
     {
-      current_x = BASE_X1;
+      current_x = BASE_X2;
       numberOfLine = 2 + gcomprisBoard->level;
     }
 
@@ -461,6 +466,8 @@ reading_create_item(GooCanvasItem *parent)
 
   if(currentMode==MODE_HORIZONTAL)
     anchor=GTK_ANCHOR_WEST;
+  else if (currentMode==MODE_HORIZONTAL_RTL)
+    anchor=GTK_ANCHOR_EAST;
 
   previousFocus.item = \
     goo_canvas_text_new (previousFocus.rootItem,
@@ -499,6 +506,23 @@ reading_create_item(GooCanvasItem *parent)
       current_y += interline;
       numberOfLine--;
     }
+  else if (currentMode==MODE_HORIZONTAL_RTL)
+    {
+      GooCanvasBounds bounds;
+      goo_canvas_item_get_bounds(previousFocus.rootItem, &bounds);
+
+      // Are we out of bound
+      if(bounds.x1<BASE_X1)
+	{
+	  // Do the line Wrapping
+	  goo_canvas_item_translate(previousFocus.rootItem, BASE_X2-bounds.x2, interline);
+	  current_y += interline;
+	  current_x = BASE_X2;
+	  numberOfLine--;
+	}
+      current_x -= bounds.x2-bounds.x1 + font_size;
+     }
+
   else
     {
       GooCanvasBounds bounds;
