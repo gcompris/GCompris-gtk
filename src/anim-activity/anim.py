@@ -81,9 +81,6 @@ class Gcompris_anim:
       # draw is adapted to little kids : big anchors
       self.DEFAULT_ANCHOR_SIZE	= 12
 
-      # Step used in grid is wider
-      self.grid_step = 10
-
       # draw specific UI
       self.selector_section = "draw2"
     else:
@@ -91,9 +88,6 @@ class Gcompris_anim:
       #
       # Normal anchors
       self.DEFAULT_ANCHOR_SIZE	= 8
-
-      # Step used in grid is wider
-      self.grid_step = 5
 
       # anim specific UI
       self.selector_section = "anim2"
@@ -128,16 +122,13 @@ class Gcompris_anim:
       ["FLIP",           "anim/tool-flip.png",            "anim/tool-flip_on.png",               gcompris.CURSOR_DEFAULT],
       ["RAISE",          "anim/tool-up.png",              "anim/tool-up_on.png",                 gcompris.CURSOR_DEFAULT],
       ["LOWER",          "anim/tool-down.png",            "anim/tool-down_on.png",               gcompris.CURSOR_DEFAULT],
-      ["CCW",            "anim/tool-rotation-ccw.png",    "anim/tool-rotation-ccw_on.png",       gcompris.CURSOR_DEFAULT],
-      ["CW",             "anim/tool-rotation-cw.png",     "anim/tool-rotation-cw_on.png",        gcompris.CURSOR_DEFAULT],
+# FIXME NEED A CLEAN IMPLEMENTATION OF THE ROTATION
+#      ["CCW",            "anim/tool-rotation-ccw.png",    "anim/tool-rotation-ccw_on.png",       gcompris.CURSOR_DEFAULT],
+#      ["CW",             "anim/tool-rotation-cw.png",     "anim/tool-rotation-cw_on.png",        gcompris.CURSOR_DEFAULT],
       ]
 
     # keep the tool selected
     self.current_tool=0
-
-    # step of the grid used for positioning objects
-    # TODO : add a parameters to put step=5 in draw and step=1 in anim
-    self.current_step = 0
 
     # selected object
     self.selected = None
@@ -150,12 +141,6 @@ class Gcompris_anim:
     self.drawing_area = [124.0, 20.0, gcompris.BOARD_WIDTH - 15, gcompris.BOARD_HEIGHT - 40]
     self.playing_area = [124.0, 20.0, gcompris.BOARD_WIDTH - 15, gcompris.BOARD_HEIGHT - 40]
 
-    # Global used for the select event
-    #
-    # used to keep the distance between pointer and corner in moving objects
-    self.in_select_ofx = -1
-    self.in_select_ofy = -1
-
     # The frame counter
     # TODO : check if used
     self.item_frame_counter = []
@@ -167,19 +152,6 @@ class Gcompris_anim:
     # Part of UI
     # The root items
     self.root_toolitem  = []
-
-    # Anim2 variables
-    # animlist is the full list of all items.
-    # each item is keeped with it's frame information
-    #    - frames where it's modified
-    #    - all modifications for each frame
-    #
-    # list of items in the full animation
-    self.animlist = []
-    # list of z values in last shot
-    self.list_z_last_shot = []
-    # list of actual z values
-    self.list_z_actual = []
 
     # used to handle draw creation of object
     self.created_object = None
@@ -211,7 +183,7 @@ class Gcompris_anim:
     self.color = Color(self.rootitem, self.drawing_area)
     self.color.draw()
 
-    self.draw_drawing_area(self.grid_step)
+    self.draw_drawing_area()
     self.draw_playing_area()
 
     gcompris.bar_set(0)
@@ -421,20 +393,14 @@ class Gcompris_anim:
           return False
 
         elif (self.tools[tool][0] == "MOVIE"):
-          if len(self.animlist) == 0:
-            print 'Mmm... Need to make shots before run anim !!'
-            return False
-
           if not self.running:
-            # unselect object if necessary
-            #self.anim_item_unselect()
+            self.deselect()
 
             self.playing_start()
             return False
 
-        elif (self.tools[tool][0] != "SELECT") and (self.selected):
-          #self.anim_item_unselect()
-          pass
+        elif (self.tools[tool][0] != "SELECT"):
+          self.deselect()
 
         #
         # Normal case, tool button switch
@@ -453,7 +419,7 @@ class Gcompris_anim:
 
 
   # Display the drawing area
-  def draw_drawing_area(self,step):
+  def draw_drawing_area(self):
 
     x1 = self.drawing_area[0]
     y1 = self.drawing_area[1]
@@ -481,7 +447,6 @@ class Gcompris_anim:
       goocanvas.Group(
         parent = self.rootitem,
       )
-    self.draw_grid(x1,x2,y1,y2,step)
 
     # Create the root_anim group which contains all the drawings.
     # At root_anim root, there is a group for each drawings.
@@ -495,7 +460,6 @@ class Gcompris_anim:
                                       int(self.playing_area[1]-self.drawing_area[1])
                                       )
 
-    # Create a group for the first drawing
 
   # Display the drawing area
   def draw_playing_area(self):
@@ -591,46 +555,10 @@ class Gcompris_anim:
                                          self.refresh_loop)
       self.speed_item.set_properties(text = self.anim_speed)
 
-  # Draw the grid
-  #
-  def draw_grid(self, x1, x2, y1, y2, step):
-
-    self.current_step = step
-
-    color = 0x1D0DFFFFL
-
-    self.grid = \
-      goocanvas.Group(
-        parent = self.rootitem,
-      )
-    self.grid.props.visibility = goocanvas.ITEM_INVISIBLE
-
-    for i in range(int(x1), int(x2), step):
-      item = \
-        goocanvas.Polyline(
-          parent = self.grid,
-        points = goocanvas.Points([(i , y1), (i , y2)]),
-        fill_color_rgba=color,
-        line_width=1.0,
-        )
-      # Clicking on lines let you create object
-      item.connect("button_press_event", self.item_event)
-      item.connect("button_release_event", self.item_event)
-      item.connect("motion_notify_event", self.item_event)
-
-    for i in range(int(y1), int(y2), step):
-      item = \
-        goocanvas.Polyline(
-          parent = self.grid,
-        points= goocanvas.Points([(x1, i), (x2 , i)]),
-        fill_color_rgba=color,
-        line_width=1.0,
-        )
-      item.connect("button_press_event", self.item_event)
-      item.connect("button_release_event", self.item_event)
-      item.connect("motion_notify_event", self.item_event)
-
-
+  def deselect(self):
+    if self.selected:
+      self.selected.deselect()
+      self.selected = None
 
   # Main callback on item comes here first
   # And are then dispatched to the proper functions
@@ -646,9 +574,7 @@ class Gcompris_anim:
 
         animItem = item.get_data("AnimItem")
         if not animItem:
-          if self.selected:
-              self.selected.deselect()
-              self.selected = None
+          self.deselect()
         else:
           if self.tools[self.current_tool][0] == "FILL":
             animItem.fill(self.color.fill,
@@ -703,7 +629,7 @@ class Gcompris_anim:
                                                 target)
 
           # We keep all object in a unique list
-          self.animlist.append(self.created_object)
+          #self.animlist.append(self.created_object)
 
     #
     # MOTION EVENT
@@ -741,12 +667,6 @@ class Gcompris_anim:
 
     return False
 
-
-  def refresh(self, time):
-    # We keep all object in a unique list
-    # Here we order them to refresh them for the given time
-    for item in self.animlist:
-      item.display_at_time(time)
 
   def refresh_loop(self):
     self.timeline.next()
@@ -832,5 +752,3 @@ def image_selected(image):
     fles.created_object.create_item_event(fles.root_drawingitem,
                                           fles.root_drawingitem)
 
-  # We keep all object in a unique list
-  fles.animlist.append(fles.created_object)

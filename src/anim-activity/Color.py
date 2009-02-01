@@ -35,6 +35,7 @@ class Color:
 
     def __init__(self, rootitem, drawing_area):
         self.rootitem = goocanvas.Group(parent = rootitem)
+        self.root_coloritem = goocanvas.Group(parent = rootitem)
         self.drawing_area = drawing_area
         self.running = False
         # Part of UI: colors buttons
@@ -103,10 +104,6 @@ class Color:
 
         c = 0
 
-        self.root_coloritem = \
-            goocanvas.Group(
-                parent = self.rootitem,
-                )
         self.root_coloritem.props.visibility = goocanvas.ITEM_INVISIBLE
 
 
@@ -143,6 +140,7 @@ class Color:
 
         if self.previous_color:
             self.root_coloritem.props.visibility = goocanvas.ITEM_INVISIBLE
+            self.root_coloritem.lower(None)
             if fill:
                 self.fill = self.previous_color
             else:
@@ -152,6 +150,7 @@ class Color:
         else:
 
             self.root_coloritem.props.visibility = goocanvas.ITEM_VISIBLE
+            self.root_coloritem.raise_(None)
 
             if fill:
                 self.previous_color = self.fill
@@ -167,8 +166,7 @@ class Color:
 
         if event.type == gtk.gdk.BUTTON_PRESS:
             gcompris.sound.play_ogg("sounds/drip.wav")
-            if event.button == 1:
-                self.previous_color = 0L
+            self.previous_color = 0L
 
             if self.stroke == 0L:
                 self.stroke = color
@@ -178,4 +176,5 @@ class Color:
                 self.fillcolor_tool.set_properties(fill_color_rgba = color)
 
             self.root_coloritem.props.visibility = goocanvas.ITEM_INVISIBLE
+            self.root_coloritem.lower(None)
 

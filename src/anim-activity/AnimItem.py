@@ -34,7 +34,6 @@ class AnimItem:
         self.anim = anim
         self.rootitem = goocanvas.Group(parent = anim.rootitem)
         self.drawing_area = anim.drawing_area
-        self.step = anim.current_step
         gcompris.sound.play_ogg("sounds/bleep.wav")
 
         self.step = 1
@@ -218,12 +217,18 @@ class AnimItem:
         print self.visible
 
     def raise_(self):
-        print "raise"
-        self.item.raise_(None)
+        parent = self.item.get_parent()
+        rootparent = parent.get_parent()
+        child_num = rootparent.find_child (parent);
+        if child_num < rootparent.get_n_children() - 1:
+            rootparent.move_child (child_num, child_num + 1);
 
     def lower(self):
-        print "lower"
-        self.item.lower(None)
+        parent = self.item.get_parent()
+        rootparent = parent.get_parent()
+        child_num = rootparent.find_child (parent);
+        if child_num > 0:
+            rootparent.move_child (child_num, child_num - 1);
 
 
     def rotate(self, angle):
