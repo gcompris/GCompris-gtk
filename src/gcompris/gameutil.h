@@ -85,6 +85,7 @@ void		 gc_item_rotate_relative_with_center(GooCanvasItem *item, double angle, in
 
 /* find the complete filename looking for the file everywhere (printf formatting supported) */
 gchar		 *gc_file_find_absolute(const gchar *filename, ...);
+gchar		 *gc_file_find_absolute_writeable(const gchar *filename, ...);
 int               gc_util_create_rootdir (gchar *rootdir);
 
 void		 gc_activity_intro_play (GcomprisBoard *gcomprisBoard);

@@ -87,7 +87,7 @@ GdkPixbuf *gc_pixmap_load_or_null(const gchar *format, ...)
   filename = gc_file_find_absolute(pixmapfile);
 
   if(filename)
-    pixmap = gc_net_load_pixmap(filename);
+     pixmap = gdk_pixbuf_new_from_file(filename,NULL);
 
   g_free(pixmapfile);
   g_free(filename);
@@ -582,6 +582,9 @@ gc_file_find_absolute(const gchar *format, ...)
    * Search it on the file system
    */
 
+  if(properties->server)
+  	dir_to_search[i++] = "";
+  dir_to_search[i++] = properties->user_dir;
   dir_to_search[i++] = properties->package_data_dir;
   dir_to_search[i++] = properties->package_skin_dir;
   dir_to_search[i++] = NULL;
@@ -624,6 +627,7 @@ gc_file_find_absolute(const gchar *format, ...)
 		  g_free(filename2);
 		  goto FOUND;
 		}
+	      g_free(absolute_filename);
 
 	      g_free(filename2);
 
@@ -651,6 +655,35 @@ gc_file_find_absolute(const gchar *format, ...)
   char *abs_name = realpath(absolute_filename, NULL);
   g_free(absolute_filename);
   return abs_name;
+}
+
+gchar*
+gc_file_find_absolute_writeable(const gchar *format, ...)
+{
+  gchar *filename, *absolute_filename, *dirname;
+  GcomprisProperties *prop;
+  va_list args;
+
+  va_start (args, format);
+  filename = g_strdup_vprintf (format, args);
+  va_end (args);
+
+  prop = gc_prop_get();
+  absolute_filename = g_build_filename(prop->user_dir, filename,NULL);
+  g_free(filename);
+  dirname = g_path_get_dirname(absolute_filename);
+  if(!g_file_test(dirname, G_FILE_TEST_IS_DIR))
+    {
+      if(g_mkdir_with_parents(dirname, 0755))
+      {
+      	g_free(absolute_filename);
+	absolute_filename=NULL;
+      }
+    }
+  g_free(dirname);
+  if(absolute_filename)
+  	gc_cache_add(absolute_filename);
+  return absolute_filename;
 }
 
 /** Create a directory if needed.

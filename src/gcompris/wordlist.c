@@ -384,7 +384,7 @@ void gc_wordlist_save(GcomprisWordlist *wordlist)
 		}
 	}
 
-	filename = gc_file_find_absolute(wordlist->filename);
+	filename = gc_file_find_absolute_writeable(wordlist->filename);
 	if(filename)
 	{
 		if(xmlSaveFormatFileEnc(filename, doc, NULL, 1)<0)

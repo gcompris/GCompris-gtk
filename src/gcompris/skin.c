@@ -308,7 +308,7 @@ skin_xml_load (gchar* skin)
       return;
     }
 
-  xmldoc = gc_net_load_xml(xmlfilename);
+  xmldoc = xmlParseFile(xmlfilename);
   g_free(xmlfilename);
 
   if(!xmldoc)

@@ -31,7 +31,15 @@
 
 #include "gcompris.h"
 
-GdkPixbuf *gc_net_load_pixmap(const char *url);
-xmlDocPtr  gc_net_load_xml(const char *url);
+void gc_net_init();
+gchar     *gc_net_get_url_from_file(const gchar *format, ...);
+GSList    *gc_net_dir_read_name(const gchar* dir, const gchar *ext);
+void gc_net_destroy();
+
+void gc_cache_init(void);
+void gc_cache_add(gchar *filename);
+void gc_cache_remove(gchar *filename);
+void gc_cache_save(void);
+void gc_cache_destroy(void);
 
 #endif

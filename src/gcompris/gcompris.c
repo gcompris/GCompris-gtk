@@ -730,7 +730,7 @@ static void setup_window ()
 					    NULL);
     if(iconfile)
       {
-	icon_pixbuf = gc_pixmap_load(iconfile);
+	icon_pixbuf = gdk_pixbuf_new_from_file(iconfile, NULL);
 	g_free(iconfile);
 
 	if (icon_pixbuf)
@@ -1060,6 +1060,8 @@ static void cleanup()
   gc_db_exit();
   gc_fullscreen_set(FALSE);
   gc_menu_destroy();
+  gc_net_destroy();
+  gc_cache_destroy();
   gc_prop_destroy(gc_prop_get());
 }
 
@@ -1717,6 +1719,10 @@ main (int argc, char *argv[])
   /*------------------------------------------------------------*/
 
   single_instance_check();
+
+  /* networking init */
+  gc_net_init();
+  gc_cache_init();
 
   gc_skin_load(properties->skin);
 

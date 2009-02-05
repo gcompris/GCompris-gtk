@@ -41,6 +41,7 @@ static gint		 item_event_imageset_selector(GooCanvasItem *item,
 						      gpointer data);
 static void		 item_event_scroll(GtkAdjustment *adj,
 					   GooCanvas *canvas);
+static gboolean          read_xml_file(gchar *fname);
 static gboolean		 read_dataset_directory(gchar *dataset_dir);
 static void		 display_image(gchar *imagename, GooCanvasItem *rootitem);
 static void		 free_stuff (GSList *data);
@@ -261,6 +262,34 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
       g_warning("dataset %s is a directory. Trying to read xml", dataseturl);
 
       read_dataset_directory(dataseturl);
+    }
+  else if(dataseturl)
+    {
+      /* Read the given data set file, local or net */
+      read_xml_file(dataseturl);
+    }
+  else
+    {
+      /* Network code for dataset directory */
+      GSList *filelist = NULL;
+      GSList *i = NULL;
+
+      g_free(dataseturl);
+      dataseturl = g_strconcat("boards/", dataset, NULL);
+      /* TODO */
+      filelist = NULL; //gc_net_dir_read_name(dataseturl, ".xml");
+
+      for (i = filelist; i != NULL; i = g_slist_next (i))
+	{
+	  gchar *url = gc_file_find_absolute(i->data,
+					     NULL);
+	  g_warning("processing dataset=%s\n", (char *)i->data);
+	  read_xml_file(url);
+	  g_free(url);
+	}
+
+      g_slist_free(filelist);
+
     }
   g_free(dataseturl);
 
@@ -718,6 +747,45 @@ parse_doc(xmlDocPtr doc) {
   }
 
   return;
+}
+
+
+/* read an xml file into our memory structures and update our view,
+ * dump any old data we have in memory if we can load a new set
+ *
+ * \param fname is an absolute file name
+ *
+ */
+static gboolean
+read_xml_file(gchar *fname)
+{
+  /* pointer to the new doc */
+  xmlDocPtr doc;
+
+  g_return_val_if_fail(fname!=NULL, FALSE);
+
+  doc = xmlParseFile(fname);
+
+  /* in case something went wrong */
+  if(!doc)
+    return FALSE;
+
+  if(/* if there is no root element */
+     !doc->children ||
+     /* if it doesn't have a name */
+     !doc->children->name ||
+     /* if it isn't the good node */
+     g_strcasecmp((gchar *)doc->children->name, "ImageSetRoot")!=0) {
+    xmlFreeDoc(doc);
+    return FALSE;
+  }
+
+  /* parse our document and replace old data */
+  parse_doc(doc);
+
+  xmlFreeDoc(doc);
+
+  return TRUE;
 }
 
 

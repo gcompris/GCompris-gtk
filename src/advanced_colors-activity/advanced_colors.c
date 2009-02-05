@@ -520,7 +520,7 @@ static gboolean read_xml_file(char *fname)
   g_return_val_if_fail(fname!=NULL,FALSE);
 
   /* parse the new file and put the result into newdoc */
-  doc = gc_net_load_xml(fname);
+  doc = xmlParseFile(fname);
 
   /* in case something went wrong */
   if(!doc)

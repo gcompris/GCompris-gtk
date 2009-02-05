@@ -1,5 +1,54 @@
-2009-01-31  Bruno coudoin  <bruno.coudoin@free.fr>
+2009-06-20  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	From trunk.
+	Miguel DE IZARRA added support for online wordlist.
+	This save custom data in user_dir and make a content.txt (a md5sum
+	like file) listing custom files. Simply put this files in a web server
+	to diffuse in classroom.
+
+	GCompris clients are launch with --server and --cache-dir
+	On start, client download content.txt from server.
+
+	And when a client need a file:
+	- first he search in server list (from content.txt)
+	- if found, he check md5 of file in cache_dir
+	- if md5 isn't ok, file is download in cache_dir
+	  file in cache_dir is used
+	- if not found, search in package_dir (like now)
+
+	* configure.in:
+	* src/boards/advanced_colors.c: (read_xml_file):
+	* src/boards/imageid.c: (read_xml_file):
+	* src/boards/missingletter.c: (read_xml_file):
+	* src/boards/python/admin/board_list.py:
+	* src/boards/read_colors.c: (read_xml_file):
+	* src/boards/shapegame.c: (read_xml_file):
+	* src/boards/superbrain.c: (mark_pieces):
+	* src/boards/wordprocessor.c: (load_buffer):
+	* src/gcompris/Makefile.am:
+	* src/gcompris/board_config_wordlist.c: (_return_clicked),
+	(gc_board_config_wordlist):
+	* src/gcompris/cache.c:
+	* src/gcompris/config.c: (set_locale_flag):
+	* src/gcompris/dialog.c:
+	* src/gcompris/gameutil.c: (gc_pixmap_load),
+	(gc_file_find_absolute), (gc_file_find_absolute_writeable):
+	* src/gcompris/gameutil.h:
+	* src/gcompris/gc_core.h:
+	* src/gcompris/gc_net.c: (load_md5file), (gc_net_init),
+	(gc_net_destroy), (gc_net_get_url_from_file), (gc_cache_init),
+	(gc_cache_get_relative), (gc_cache_add), (gc_cache_remove),
+	(_table_foreach), (gc_cache_save), (gc_cache_destroy):
+	* src/gcompris/gc_net.h:
+	* src/gcompris/gcompris.c: (setup_window), (cleanup), (main):
+	* src/gcompris/images_selector.c: (gc_selector_images_start),
+	(read_xml_file):
+	* src/gcompris/skin.c: (skin_xml_load):
+	* src/gcompris/wordlist.c: (gc_wordlist_save):
+
+2009-06-20  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	From trunk
 	Vitali Perchonok is com gmail from vitali.pe
 	Fixed crash bug when changing level while dragging an item  (2 click drag mode)
 

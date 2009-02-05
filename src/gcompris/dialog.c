@@ -27,9 +27,6 @@ static gboolean item_event_ok (GooCanvasItem  *item,
 			       GdkEventButton *event,
 			       DialogBoxCallBack dbcb);
 
-typedef void (*sighandler_t)(int);
-
-
 /*
  * Close the dialog box if it was open. It not, do nothing.
  */

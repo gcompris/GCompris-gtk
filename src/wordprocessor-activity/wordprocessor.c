@@ -1012,7 +1012,7 @@ load_buffer(gchar *file, gchar *file_type)
   GtkTextIter iter_start, iter_end;
 
   /* parse the new file and put the result into newdoc */
-  doc = gc_net_load_xml(file);
+  doc = xmlParseFile(file);
 
   /* in case something went wrong */
   if(!doc)

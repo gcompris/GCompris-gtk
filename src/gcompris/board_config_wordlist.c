@@ -118,6 +118,22 @@ static void _textview_changed(GtkWidget *w, gpointer data)
 	gtk_widget_set_sensitive(GTK_WIDGET(u->button), TRUE);
 }
 
+static void _return_clicked(GtkWidget *w, gpointer data)
+{
+	int level;
+	user_param_type_wordlist *u = (user_param_type_wordlist*)data;
+	gchar *filename;
+
+	filename = gc_file_find_absolute_writeable(u->wordlist->filename);
+	gc_cache_remove(filename);
+	g_free(filename);
+
+	level = gtk_combo_box_get_active(u->combo_level)+1;
+	_combo_lang_changed(u->combo_lang, u);
+	gtk_combo_box_set_active(u->combo_level, level-1);
+	_combo_level_changed(u->combo_level, u);
+}
+
 static void _button_clicked(GtkWidget *w, gpointer data)
 {
 	user_param_type_wordlist *u = (user_param_type_wordlist*)data;
@@ -223,10 +239,18 @@ GtkWidget *gc_board_config_wordlist(GcomprisBoardConf *config, const gchar *file
 	gtk_container_add (GTK_CONTAINER(scroll), textview);
 
 	/* valid button */
+	hbox = gtk_hbox_new(FALSE, 8);
+	gtk_widget_show(hbox);
+	gtk_box_pack_start(GTK_BOX(vbox), hbox, FALSE, FALSE, 8);
+
+	GtkWidget * b_default = gtk_button_new_with_label(_("Return to default"));
+	gtk_widget_show(b_default);
+	gtk_box_pack_start(GTK_BOX(hbox), b_default, FALSE, FALSE, 8);
+
 	button = gtk_button_new_from_stock(GTK_STOCK_APPLY);
 	gtk_widget_show(button);
 	gtk_widget_set_sensitive(button, FALSE);
-	gtk_box_pack_start(GTK_BOX(vbox), button, FALSE, FALSE, 8);
+	gtk_box_pack_start(GTK_BOX(hbox), button, FALSE, FALSE, 8);
 
 	/* user_data */
 	user_data = g_malloc0(sizeof(user_param_type_wordlist));
@@ -246,6 +270,8 @@ GtkWidget *gc_board_config_wordlist(GcomprisBoardConf *config, const gchar *file
 		G_CALLBACK(_textview_changed), (gpointer)user_data);
 	g_signal_connect(G_OBJECT(button), "clicked",
 		G_CALLBACK(_button_clicked), (gpointer)user_data);
+	g_signal_connect(G_OBJECT(b_default), "clicked",
+		G_CALLBACK(_return_clicked), (gpointer)user_data);
 
 
 	_combo_lang_changed(GTK_COMBO_BOX(combo_lang), user_data);

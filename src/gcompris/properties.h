@@ -63,6 +63,7 @@ typedef struct {
   GtkIMContext *context;
   gchar        *default_context;
   gint          experimental;
+  gchar        *server;
   gint		drag_mode;
 } GcomprisProperties;
 
