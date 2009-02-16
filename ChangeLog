@@ -1,5 +1,34 @@
 2009-06-20  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	From trunk
+	- Miquel DE IZARRA Added support for editing the content
+	  of the missing letter activity.
+
+	* boards/missing_letter/Makefile.am:
+	* boards/missing_letter/board1.xml.in:
+	* boards/missing_letter/board2.xml.in:
+	* boards/missing_letter/board3.xml.in:
+	* boards/missing_letter/board4.xml.in:
+	* src/boards/Makefile.am:
+	* src/boards/missingletter.c: (pause_board), (start_board),
+	(end_board), (set_level), (missing_letter_next_level),
+	(missing_letter_create_item), (game_won), (init_xml),
+	(add_xml_data), (missing_read_xml_file),
+	(missing_destroy_board_list), (conf_ok), (config_start):
+	* src/boards/missingletter_config.c: (new_clicked),
+	(delete_clicked), (valid_entry), (apply_clicked), (up_clicked),
+	(down_clicked), (_save), (save_clicked), (level_changed),
+	(text_changed), (selection_changed), (destroy_conf_data),
+	(configure_colummns), (config_missing_letter):
+	* src/boards/reading.c: (reading_create_item), (get_random_word):
+	* src/gcompris/board_config_wordlist.c: (gc_board_config_wordlist):
+	* src/gcompris/gc_net.c: (gc_net_get_url_from_file),
+	(gc_cache_import_pixmap):
+	* src/gcompris/gc_net.h:
+	* src/gcompris/gcompris.c: (main):
+
+2009-06-20  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	From trunk.
 	Miguel DE IZARRA added support for online wordlist.
 	This save custom data in user_dir and make a content.txt (a md5sum

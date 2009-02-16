@@ -627,8 +627,6 @@ gc_file_find_absolute(const gchar *format, ...)
 		  g_free(filename2);
 		  goto FOUND;
 		}
-	      g_free(absolute_filename);
-
 	      g_free(filename2);
 
 	    }

@@ -38,6 +38,7 @@ void gc_net_destroy();
 
 void gc_cache_init(void);
 void gc_cache_add(gchar *filename);
+gchar* gc_cache_import_pixmap(gchar *filename, gchar *boarddir, gint width, gint height);
 void gc_cache_remove(gchar *filename);
 void gc_cache_save(void);
 void gc_cache_destroy(void);

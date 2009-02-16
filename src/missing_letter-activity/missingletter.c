@@ -24,18 +24,11 @@
 #include <libxml/tree.h>
 #include <libxml/parser.h>
 
+#include "missingletter.h"
+
 #define SOUNDLISTFILE PACKAGE
 
-#define MAX_PROPOSAL 6
-typedef struct _Board {
-  gchar *pixmapfile;
-  gchar *question;
-  gchar *answer;
-  gchar *text[MAX_PROPOSAL + 1];
-  guint solution;
-} Board;
-
-static GcomprisBoard *gcomprisBoard = NULL;
+GcomprisBoard *gcomprisBoard_missing = NULL;
 static gboolean board_paused = TRUE;
 
 static void		 start_board (GcomprisBoard *agcomprisBoard);
@@ -43,6 +36,7 @@ static void		 pause_board (gboolean pause);
 static void		 end_board (void);
 static gboolean		 is_our_board (GcomprisBoard *gcomprisBoard);
 static void		 set_level (guint level);
+static int gamewon;
 static void		 process_ok(gchar *answer);
 static void		 highlight_selected(GooCanvasItem *);
 static void		 game_won(void);
@@ -50,15 +44,14 @@ static void		 config_start(GcomprisBoard *agcomprisBoard,
 					     GcomprisProfile *aProfile);
 static void		 config_stop(void);
 
-static int gamewon;
+/* from missingletter_config.c */
+void config_missing_letter(GcomprisBoardConf *config);
 
 /* XML */
-static gboolean		 read_xml_file(char *fname);
 static void		 init_xml(guint level);
-static void		 add_xml_data(xmlDocPtr, xmlNodePtr, GNode *);
-static void		 parse_doc(xmlDocPtr doc);
-static gboolean		 read_xml_file(char *fname);
-static void		 destroy_board_list();
+static void		 add_xml_data(xmlDocPtr, xmlNodePtr, GList **list);
+gboolean		 missing_read_xml_file(char *fname, GList **list);
+void			 missing_destroy_board_list(GList *);
 static void		 destroy_board(Board * board);
 
 /* This is the list of boards */
@@ -122,7 +115,7 @@ GET_BPLUGIN_INFO(missingletter)
  */
 static void pause_board (gboolean pause)
 {
-  if(gcomprisBoard==NULL)
+  if(gcomprisBoard_missing==NULL)
     return;
 
   gc_bar_hide(FALSE);
@@ -135,12 +128,31 @@ static void pause_board (gboolean pause)
   board_paused = pause;
 }
 
+static void _init(GcomprisBoard *agcomprisBoard)
+{
+  gchar * filename;
+  gcomprisBoard_missing->level=1;
+
+  /* Calculate the maxlevel based on the available data file for this board */
+  gcomprisBoard_missing->maxlevel = 1;
+  while((filename = gc_file_find_absolute("%s/board%d.xml",
+					  gcomprisBoard_missing->boarddir,
+					  ++gcomprisBoard_missing->maxlevel)))
+    g_free(filename);
+
+  gcomprisBoard_missing->maxlevel--;
+
+  gcomprisBoard_missing->sublevel=1;
+  gcomprisBoard_missing->number_of_sublevel=G_MAXINT;
+
+  init_xml(gcomprisBoard_missing->level);
+}
+
 /*
  */
 static void
 start_board (GcomprisBoard *agcomprisBoard)
 {
-  gchar *filename = NULL;
   GHashTable *config = gc_db_get_board_conf();
 
   gc_locale_set(g_hash_table_lookup( config, "locale"));
@@ -149,27 +161,10 @@ start_board (GcomprisBoard *agcomprisBoard)
 
   if(agcomprisBoard!=NULL)
     {
-      gcomprisBoard=agcomprisBoard;
-      gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
+      gcomprisBoard_missing=agcomprisBoard;
+      gc_set_background(goo_canvas_get_root_item(gcomprisBoard_missing->canvas),
 			"missing_letter/missingletter-bg.jpg");
-      gcomprisBoard->level=1;
-      gcomprisBoard->sublevel=1;
-
-      /* Calculate the maxlevel based on the available data file for this board */
-      gcomprisBoard->maxlevel=1;
-
-      while( (filename = gc_file_find_absolute("%s/board%d.xml",
-					       gcomprisBoard->boarddir,
-					       gcomprisBoard->maxlevel++,
-					       NULL)) )
-	{
-	  g_free(filename);
-
-	}
-      g_free(filename);
-
-      gcomprisBoard->maxlevel -= 2;
-
+       _init(agcomprisBoard);
       gc_bar_set(GC_BAR_CONFIG | GC_BAR_LEVEL);
       gc_bar_location(10, -1, 0.9);
 
@@ -183,27 +178,29 @@ start_board (GcomprisBoard *agcomprisBoard)
 static void end_board ()
 {
 
-  if(gcomprisBoard!=NULL)
+  if(gcomprisBoard_missing!=NULL)
     {
       pause_board(TRUE);
       gc_score_end();
       missing_letter_destroy_all_items();
-      destroy_board_list();
+      missing_destroy_board_list(board_list);
+      board_list = NULL;
     }
 
   gc_locale_reset();
 
-  gcomprisBoard = NULL;
+  gcomprisBoard_missing = NULL;
 }
 
 static void
 set_level (guint level)
 {
 
-  if(gcomprisBoard!=NULL)
+  if(gcomprisBoard_missing!=NULL)
     {
-      gcomprisBoard->level=level;
-      gcomprisBoard->sublevel=1;
+      gcomprisBoard_missing->level=level;
+      gcomprisBoard_missing->sublevel=1;
+      init_xml(gcomprisBoard_missing->level);
       missing_letter_next_level();
     }
 }
@@ -230,28 +227,26 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 static void
 missing_letter_next_level()
 {
-  gc_bar_set_level(gcomprisBoard);
+  gc_bar_set_level(gcomprisBoard_missing);
 
   missing_letter_destroy_all_items();
   selected_button = NULL;
   gamewon = FALSE;
 
-  destroy_board_list();
-  init_xml(gcomprisBoard->level);
-
-  gcomprisBoard->number_of_sublevel = g_list_length(board_list);
+  init_xml(gcomprisBoard_missing->level);
+  gcomprisBoard_missing->number_of_sublevel = g_list_length(board_list);
 
   gc_score_end();
   gc_score_start(SCORESTYLE_NOTE,
 		 BOARDWIDTH - 195,
 		 BOARDHEIGHT - 30,
-		 gcomprisBoard->number_of_sublevel);
+		 gcomprisBoard_missing->number_of_sublevel);
 
 
-  gc_score_set(gcomprisBoard->sublevel);
+  gc_score_set(gcomprisBoard_missing->sublevel);
 
   /* Try the next level */
-  missing_letter_create_item(goo_canvas_get_root_item(gcomprisBoard->canvas));
+  missing_letter_create_item(goo_canvas_get_root_item(gcomprisBoard_missing->canvas));
 }
 
 static void
@@ -261,10 +256,10 @@ missing_letter_next_sublevel()
   selected_button = NULL;
   gamewon = FALSE;
 
-  gc_score_set(gcomprisBoard->sublevel);
+  gc_score_set(gcomprisBoard_missing->sublevel);
 
   /* Try the next level */
-  missing_letter_create_item(goo_canvas_get_root_item(gcomprisBoard->canvas));
+  missing_letter_create_item(goo_canvas_get_root_item(gcomprisBoard_missing->canvas));
 }
 
 /* ==================================== */
@@ -299,12 +294,12 @@ missing_letter_create_item(GooCanvasItem *parent)
   guint vertical_separation;
   gint i;
 
-  board_number = gcomprisBoard->sublevel-1;
+  board_number = gcomprisBoard_missing->sublevel-1;
 
   g_assert(board_number >= 0  && board_number < g_list_length(board_list));
 
   boardRootItem = \
-    goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+    goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard_missing->canvas),
 			  NULL);
 
   button_pixmap = gc_pixmap_load("missing_letter/button.png");
@@ -417,15 +412,15 @@ missing_letter_create_item(GooCanvasItem *parent)
 
 /* ==================================== */
 static void game_won() {
-  gcomprisBoard->sublevel++;
+  gcomprisBoard_missing->sublevel++;
 
-  if(gcomprisBoard->sublevel>gcomprisBoard->number_of_sublevel)
+  if(gcomprisBoard_missing->sublevel>gcomprisBoard_missing->number_of_sublevel)
     {
       /* Try the next level */
-      gcomprisBoard->sublevel=1;
-      gcomprisBoard->level++;
-      if(gcomprisBoard->level>gcomprisBoard->maxlevel)
-	gcomprisBoard->level = gcomprisBoard->maxlevel;
+      gcomprisBoard_missing->sublevel=1;
+      gcomprisBoard_missing->level++;
+      if(gcomprisBoard_missing->level>gcomprisBoard_missing->maxlevel)
+	gcomprisBoard_missing->level = gcomprisBoard_missing->maxlevel;
 
       missing_letter_next_level();
     }
@@ -526,17 +521,22 @@ init_xml(guint level)
 {
   gchar *filename;
 
+  if(board_list)
+    {
+      missing_destroy_board_list(board_list);
+      board_list = NULL;
+    }
   filename = gc_file_find_absolute("%s/board%d.xml",
-				   gcomprisBoard->boarddir,
+				   gcomprisBoard_missing->boarddir,
 				   level);
-
-  g_assert(read_xml_file(filename)== TRUE);
+  missing_read_xml_file(filename, &board_list);
+  gcomprisBoard_missing->number_of_sublevel = g_list_length(board_list);
   g_free(filename);
 }
 
 /* ==================================== */
 static void
-add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
+add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GList **list)
 {
   Board * board = g_new0(Board,1);
   guint text_index = 0;
@@ -582,6 +582,7 @@ add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
       gc_dialog(_("Data file for this level is not properly formatted."),
 		gc_board_stop);
       g_free(board);
+      *list = NULL;
       return;
     }
 
@@ -609,33 +610,21 @@ add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 
   /* Insert boards randomly in the list */
   if(g_random_int_range(0, 2))
-    board_list = g_list_append (board_list, board);
+    *list = g_list_append (*list, board);
   else
-    board_list = g_list_prepend (board_list, board);
-}
-
-/* ==================================== */
-static void
-parse_doc(xmlDocPtr doc)
-{
-  xmlNodePtr node;
-
-  for(node = doc->children->children; node != NULL; node = node->next) {
-    if ( g_strcasecmp((gchar *)node->name, "Board") == 0 )
-      add_xml_data(doc, node,NULL);
-  }
-
+    *list = g_list_prepend (*list, board);
 }
 
 /* ==================================== */
 /* read an xml file into our memory structures and update our view,
    dump any old data we have in memory if we can load a new set */
-static gboolean
-read_xml_file(char *fname)
+gboolean missing_read_xml_file(char *fname, GList **list)
 {
   /* pointer to the new doc */
   xmlDocPtr doc;
+  xmlNodePtr node;
 
+  *list = NULL;
   g_return_val_if_fail(fname!=NULL,FALSE);
 
   /* parse the new file and put the result into newdoc */
@@ -649,26 +638,28 @@ read_xml_file(char *fname)
      !doc->children ||
      /* if it doesn't have a name */
      !doc->children->name ||
-     /* if it isn't a ImageId node */
+     /* if it isn't a missing letter node */
      g_strcasecmp((char *)doc->children->name,"missing_letter")!=0) {
     xmlFreeDoc(doc);
     return FALSE;
   }
 
-  parse_doc(doc);
+  for(node = doc->children->children; node != NULL; node = node->next) {
+    if ( g_strcasecmp((gchar *)node->name, "Board") == 0 )
+      add_xml_data(doc, node, list);
+  }
   xmlFreeDoc(doc);
   return TRUE;
 }
 /* ======================================= */
-static void
-destroy_board_list()
+void
+missing_destroy_board_list(GList *list)
 {
   Board *board;
-
-  while(g_list_length(board_list)>0)
+  while(g_list_length(list)>0)
     {
-      board = g_list_nth_data(board_list, 0);
-      board_list = g_list_remove (board_list, board);
+      board = g_list_nth_data(list, 0);
+      list = g_list_remove (list, board);
       destroy_board(board);
     }
 }
@@ -715,14 +706,14 @@ static GcomprisConfCallback
 conf_ok(GHashTable *table)
 {
   if (!table){
-    if (gcomprisBoard)
+    if (gcomprisBoard_missing)
       pause_board(FALSE);
     return NULL;
   }
 
   g_hash_table_foreach(table, (GHFunc) save_table, NULL);
 
-  if (gcomprisBoard){
+  if (gcomprisBoard_missing){
     gc_locale_reset();
 
     GHashTable *config;
@@ -737,9 +728,9 @@ conf_ok(GHashTable *table)
     if (profile_conf)
       g_hash_table_destroy(config);
 
-    destroy_board_list();
+    missing_destroy_board_list(board_list);
 
-    init_xml(gcomprisBoard->level);
+    init_xml(gcomprisBoard_missing->level);
 
     missing_letter_next_level();
 
@@ -747,6 +738,7 @@ conf_ok(GHashTable *table)
 
     board_conf = NULL;
   profile_conf = NULL;
+  pause_board(FALSE);
 
   return NULL;
 }
@@ -758,7 +750,7 @@ config_start(GcomprisBoard *agcomprisBoard,
   board_conf = agcomprisBoard;
   profile_conf = aProfile;
 
-  if (gcomprisBoard)
+  if (gcomprisBoard_missing)
     pause_board(TRUE);
 
   gchar *label = g_strdup_printf(_("<b>%s</b> configuration\n for profile <b>%s</b>"),
@@ -776,7 +768,7 @@ config_start(GcomprisBoard *agcomprisBoard,
   gchar *locale = g_hash_table_lookup( config, "locale");
 
   gc_board_config_combo_locales(bconf, locale);
-
+  config_missing_letter(bconf);
 }
 
 

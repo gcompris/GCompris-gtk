@@ -49,7 +49,7 @@ static void _combo_level_changed(GtkComboBox *combo_level, gpointer user_data)
 	}
 
 	wordsArray = g_malloc0(sizeof(gpointer)*(g_slist_length(lw->words)+1));
-	
+
 	for(i=0, list = lw->words; list; list=list->next)
 	{
 		wordsArray[i]=(gchar*)list->data;
@@ -159,7 +159,7 @@ static void _button_clicked(GtkWidget *w, gpointer data)
 static void _destroy(GtkWidget *w, gpointer data)
 {
 	user_param_type_wordlist *u = (user_param_type_wordlist*)data;
-	
+
 	gc_wordlist_free(u->wordlist);
 	g_free(u);
 }
@@ -177,7 +177,7 @@ GtkWidget *gc_board_config_wordlist(GcomprisBoardConf *config, const gchar *file
 	const gchar *locale;
 
 	/* frame */
-	frame = gtk_frame_new("Change wordlist");
+	frame = gtk_frame_new(_("Configure the list of words"));
 	gtk_widget_show(frame);
 	gtk_box_pack_start(GTK_BOX(config->main_conf_box), frame, FALSE, FALSE, 8);
 
@@ -206,7 +206,7 @@ GtkWidget *gc_board_config_wordlist(GcomprisBoardConf *config, const gchar *file
 
 	gtk_widget_show(combo_lang);
 	hbox = gtk_hbox_new(FALSE, 8);
-	label = gtk_label_new(_("Choice language"));
+	label = gtk_label_new(_("Choice of the language"));
 	gtk_widget_show(label);
 	gtk_widget_show(hbox);
 	gtk_box_pack_start(GTK_BOX(hbox), label, FALSE, FALSE, 8);
@@ -218,7 +218,7 @@ GtkWidget *gc_board_config_wordlist(GcomprisBoardConf *config, const gchar *file
 
 	gtk_widget_show(combo_level);
 	hbox = gtk_hbox_new(FALSE, 8);
-	label = gtk_label_new(_("Choice level"));
+	label = gtk_label_new(_("Choice of the level"));
 	gtk_widget_show(label);
 	gtk_widget_show(hbox);
 	gtk_box_pack_start(GTK_BOX(hbox), label, FALSE, FALSE, 8);
@@ -243,7 +243,7 @@ GtkWidget *gc_board_config_wordlist(GcomprisBoardConf *config, const gchar *file
 	gtk_widget_show(hbox);
 	gtk_box_pack_start(GTK_BOX(vbox), hbox, FALSE, FALSE, 8);
 
-	GtkWidget * b_default = gtk_button_new_with_label(_("Return to default"));
+	GtkWidget * b_default = gtk_button_new_with_label(_("Back to default"));
 	gtk_widget_show(b_default);
 	gtk_box_pack_start(GTK_BOX(hbox), b_default, FALSE, FALSE, 8);
 

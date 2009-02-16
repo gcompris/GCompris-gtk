@@ -187,7 +187,8 @@ gc_net_get_url_from_file(const gchar *format, ...)
 
   return cache;
 #endif
-  }
+}
+
 
 #if 0
 /** return a glist with the content of the files in the given directory

@@ -451,7 +451,15 @@ reading_create_item(GooCanvasItem *parent)
       word = g_strdup(textToFind);
     }
 
-  g_assert(word!=NULL);
+  if(word==NULL)
+  {
+  	gc_dialog(_("Skip this level. Not enough word in the list !"),
+		(DialogBoxCallBack)reading_next_level);
+	gcomprisBoard->level++;
+	if(gcomprisBoard->level>gcomprisBoard->maxlevel)
+	  gcomprisBoard->level = gcomprisBoard->maxlevel;
+	return FALSE;
+  }
 
   if(textToFindIndex>=0)
     textToFindIndex--;
@@ -780,6 +788,7 @@ static gchar *
 get_random_word(const gchar* except)
 {
   gchar *word;
+  int count=0;
 
   word = gc_wordlist_random_word_get(gc_wordlist, gcomprisBoard->level);
 
@@ -787,6 +796,12 @@ get_random_word(const gchar* except)
     while(strcmp(except, word)==0)
       {
 	g_free(word);
+
+	if(count++>100)
+	{
+		word = NULL;
+		break;
+	}
 	word = gc_wordlist_random_word_get(gc_wordlist, gcomprisBoard->level);
       }
 

@@ -25,7 +25,7 @@ INCLUDES = 	-I$(top_srcdir)/src \
 
 libmissingletter_la_LDFLAGS = $(shared) $(no_undefined) -module -avoid-version $(gc_libs)
 libmissingletter_la_LIBADD =
-libmissingletter_la_SOURCES = missingletter.c
+libmissingletter_la_SOURCES = missingletter.c missingletter_config.c missingletter.h
 
 xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@
 
