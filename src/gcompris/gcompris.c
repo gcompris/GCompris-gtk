@@ -1679,7 +1679,7 @@ main (int argc, char *argv[])
       printf("   Server '%s'\n", properties->server);
 #else
       printf(_("The --server option cannot be used because"
-	       "GCompris has been compiled without network support!"));
+	       " GCompris has been compiled without network support!"));
       exit(1);
 #endif
   }

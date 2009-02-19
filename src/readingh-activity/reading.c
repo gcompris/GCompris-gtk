@@ -453,7 +453,7 @@ reading_create_item(GooCanvasItem *parent)
 
   if(word==NULL)
   {
-  	gc_dialog(_("Skip this level. Not enough word in the list !"),
+  	gc_dialog(_("We skip this level because there are not enough word in the list !"),
 		(DialogBoxCallBack)reading_next_level);
 	gcomprisBoard->level++;
 	if(gcomprisBoard->level>gcomprisBoard->maxlevel)
