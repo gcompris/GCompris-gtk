@@ -92,7 +92,8 @@ void gc_log_end (GcomprisBoard *gcomprisBoard, GCBonusStatusList status) {
   /* Prepare our log */
 
   /* The default format for time represenation.  See strftime(3) */
-  char *fmt = "%F %T";
+  /* Warning %F not supported on Windows */
+  char *fmt = "%Y-%m-%d %H:%M:%S";
 
   char buf[256];
 
