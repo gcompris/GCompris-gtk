@@ -64,6 +64,9 @@ class Gcompris_anim:
     self.gcomprisBoard = gcomprisBoard
     self.timeout = 0
 
+    # The list of all the user's objects
+    self.animlist = []
+
     # There is two board in the same code
     # here the diff in parameters
     if self.gcomprisBoard.mode == 'draw':
@@ -629,7 +632,7 @@ class Gcompris_anim:
                                                 target)
 
           # We keep all object in a unique list
-          #self.animlist.append(self.created_object)
+          self.animlist.append(self.created_object)
 
     #
     # MOTION EVENT
@@ -667,6 +670,11 @@ class Gcompris_anim:
 
     return False
 
+  def refresh(self, time):
+    # We keep all object in a unique list
+    # Here we order them to refresh them for the given time
+    for item in self.animlist:
+      item.display_at_time(time)
 
   def refresh_loop(self):
     self.timeline.next()
@@ -752,3 +760,5 @@ def image_selected(image):
     fles.created_object.create_item_event(fles.root_drawingitem,
                                           fles.root_drawingitem)
 
+  # We keep all object in a unique list
+  fles.animlist.append(fles.created_object)

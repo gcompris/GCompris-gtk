@@ -214,7 +214,6 @@ class AnimItem:
                                 "sounds/eraser2.wav")
         self.delete_at_time(self.anim.timeline.get_time())
         self.show(False)
-        print self.visible
 
     def raise_(self):
         parent = self.item.get_parent()
@@ -261,6 +260,9 @@ class AnimItem:
         self.set_visible_to_end(self.anim.timeline.get_time())
 
     def create_item_drag_event(self, item, target, event):
+        if event.type == gtk.gdk.BUTTON_RELEASE:
+            self.save_at_time(self.anim.timeline.get_time())
+
         if (event.type == gtk.gdk.MOTION_NOTIFY
             and event.state & gtk.gdk.BUTTON1_MASK):
 
@@ -585,7 +587,6 @@ class AnimItemRect(AnimItem):
         bounds = self.item.get_bounds()
         sx = (x2 - x1) / (bounds.x2 - bounds.x1)
         sy = (y2 - y1) / (bounds.y2 - bounds.y1)
-        print "sx=%f sy=%f" %(sx, sy)
         self.item.scale(sx, sy)
 
 
