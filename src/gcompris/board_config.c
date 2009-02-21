@@ -28,13 +28,18 @@ void
 gc_board_config_start(GcomprisBoard *aBoard, GcomprisProfile *aProfile)
 {
 
+  if (aBoard->plugin == NULL)
+    gc_board_check_file(aBoard);
+
   if (aBoard->plugin == NULL){
-    g_warning("gc_board_config_start: board %s/%s is not initialised ? Hummmm...", aBoard->section,aBoard->name);
+    g_warning("gc_board_config_start: board %s/%s is not initialised ? Hummmm...",
+	      aBoard->section, aBoard->name);
     return;
   }
 
   if (aBoard->plugin->config_start == NULL) {
-    g_warning("Trying to configure board %s/%s without config_start", aBoard->section,aBoard->name);
+    g_warning("Trying to configure board %s/%s without config_start",
+	      aBoard->section, aBoard->name);
     return;
   }
 

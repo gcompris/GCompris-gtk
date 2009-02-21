@@ -212,8 +212,10 @@ class Gcompris_tuxpaint:
     self.stamps_control.set_sensitive(not button.get_active())
 
   def apply_callback(self,table):
-    for key,value in table.iteritems():
-      gcompris.set_board_conf(self.configure_profile, self.gcomprisBoard, key, value)
+    if table:
+      for key,value in table.iteritems():
+        gcompris.set_board_conf(self.configure_profile, self.gcomprisBoard,
+                              key, value)
 
   def init_config(self):
     default_config_dict = { 'fullscreen'             : 'True',

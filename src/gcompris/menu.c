@@ -643,7 +643,7 @@ void gc_menu_load()
       g_date_set_time (today, time (NULL));
 #endif
       gchar date[11];
-      g_date_strftime (date, 11, "%F", today);
+      g_date_strftime (date, 11, "%Y-%m-%d", today);
       gc_db_set_date(date);
       gc_db_set_version(VERSION);
       g_date_free(today);

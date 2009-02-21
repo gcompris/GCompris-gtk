@@ -462,7 +462,6 @@ class Gcompris_login:
       widget.set_text('')
 
   def config_start(self, profile):
-    print "debug login.py config_start"
     # keep profile in mind
     self.configuring_profile = profile
 
