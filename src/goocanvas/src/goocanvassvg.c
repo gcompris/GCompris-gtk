@@ -87,6 +87,29 @@ _autocrop(cairo_surface_t *src_surface,
   return dst_surface;
 }
 
+static inline void
+_search_limits(GooCanvasSvg *canvas_svg,
+	       unsigned char *data,
+	       int stride, int step)
+{
+  int x;
+  for (x=0; x<stride/4; x+=step)
+    {
+      int y;
+      for (y=0; y<canvas_svg->height; y+=step)
+	{
+	  guint32 point = *(guint32*)&data[y*stride + x*4];
+	  if (point != 0)
+	    {
+	      ((x > canvas_svg->x2) ? canvas_svg->x2 = x : x);
+	      ((x < canvas_svg->x1) ? canvas_svg->x1 = x : x);
+	      ((y > canvas_svg->y2) ? canvas_svg->y2 = y : y);
+	      ((y < canvas_svg->y1) ? canvas_svg->y1 = y : y);
+	    }
+	}
+    }
+}
+
 static void _init_surface(GooCanvasSvg *canvas_svg,
 			  RsvgHandle *svg_handle)
 {
@@ -120,23 +143,18 @@ static void _init_surface(GooCanvasSvg *canvas_svg,
   canvas_svg->y1 = canvas_svg->height;
   canvas_svg->y2 = 0;
   unsigned char* data = cairo_image_surface_get_data(cst);
-  int x;
   int stride = cairo_image_surface_get_stride(cst);
-  for (x=0; x<stride/4; x++)
-    {
-      int y;
-      for (y=0; y<canvas_svg->height; y++)
-	{
-	  guint32 point = *(guint32*)&data[y*stride + x*4];
-	  if (point != 0)
-	    {
-	      ((x > canvas_svg->x2) ? canvas_svg->x2 = x : x);
-	      ((x < canvas_svg->x1) ? canvas_svg->x1 = x : x);
-	      ((y > canvas_svg->y2) ? canvas_svg->y2 = y : y);
-	      ((y < canvas_svg->y1) ? canvas_svg->y1 = y : y);
-	    }
-	}
-    }
+
+  /* Search first the top left / right limits first */
+  _search_limits(canvas_svg, data, stride, stride/4);
+  if ( canvas_svg->x1 != 0 ||
+       canvas_svg->x2 != canvas_svg->width ||
+       canvas_svg->y1 != 0 ||
+       canvas_svg->y2 != canvas_svg->height )
+    /* Search the whole image */
+    _search_limits(canvas_svg, data, stride, 2);
+
+
 
   if(stride > 0 && canvas_svg->autocrop)
     {
