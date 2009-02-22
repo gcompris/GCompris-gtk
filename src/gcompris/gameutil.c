@@ -60,13 +60,50 @@ static const guint8 null_img[] __attribute__ ((__aligned__ (4))) =
   /* pixel_data: */
   "%%%\0"};
 
-/** load a pixmap from the filesystem
+/** load a pixmap from the filesystem, return NULL if
+ *  not found and do not display an error message.
  *
  * \param format: If format contains $LOCALE, it will be first replaced by the current long locale
  *                and if not found the short locale name. It support printf formating.
  * \param ...:    additional params for the format (printf like)
  *
  * \return a new allocated pixbuf or NULL
+ */
+GdkPixbuf *gc_pixmap_load_or_null(const gchar *format, ...)
+{
+  va_list args;
+  gchar *filename;
+  gchar *pixmapfile;
+  GdkPixbuf *pixmap=NULL;
+
+  if (!format)
+    return NULL;
+
+  va_start (args, format);
+  pixmapfile = g_strdup_vprintf (format, args);
+  va_end (args);
+
+  /* Search */
+  filename = gc_file_find_absolute(pixmapfile);
+
+  if(filename)
+    pixmap = gc_net_load_pixmap(filename);
+
+  g_free(pixmapfile);
+  g_free(filename);
+
+
+  return(pixmap);
+}
+
+/** load a pixmap from the filesystem, if not found display
+ *  an error message and return an small 1x1 pixmap.
+ *
+ * \param format: If format contains $LOCALE, it will be first replaced by the current long locale
+ *                and if not found the short locale name. It support printf formating.
+ * \param ...:    additional params for the format (printf like)
+ *
+ * \return a new allocated pixbuf or a 1x1 pixmap
  */
 GdkPixbuf *gc_pixmap_load(const gchar *format, ...)
 {
@@ -86,7 +123,7 @@ GdkPixbuf *gc_pixmap_load(const gchar *format, ...)
   filename = gc_file_find_absolute(pixmapfile);
 
   if(filename)
-    pixmap = gc_net_load_pixmap(filename);
+    pixmap = gc_pixmap_load_or_null(filename);
 
   if (!filename || !pixmap)
     {

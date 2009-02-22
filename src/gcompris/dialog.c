@@ -105,7 +105,7 @@ void gc_dialog(gchar *str, DialogBoxCallBack dbcb)
 			  "#BUTTON_TEXT",
 			  _("OK"),
 			  (GtkSignalFunc) item_event_ok,
-			  "ok");
+			  dbcb);
 }
 
 /* Callback for the bar operations */

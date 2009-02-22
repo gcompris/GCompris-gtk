@@ -319,7 +319,7 @@ display_image(gchar *imagename, GooCanvasItem *root_item)
   if (imagename==NULL || !images_selector_displayed)
     return;
 
-  pixmap = gc_pixmap_load(imagename);
+  pixmap = gc_pixmap_load_or_null(imagename);
 
   /* Sad, the image is not found */
   if(!pixmap)
@@ -376,7 +376,9 @@ display_image_set(gchar *imagename, GSList *imagelist)
   if (imagename == NULL || !images_selector_displayed)
     return;
 
-  pixmap = gc_pixmap_load(imagename);
+  pixmap = gc_pixmap_load_or_null(imagename);
+  if (!pixmap)
+    return;
 
   iw = LIST_IMAGE_WIDTH * gc_zoom_factor_get();
   ih = LIST_IMAGE_HEIGHT * gc_zoom_factor_get();

@@ -69,6 +69,7 @@ gchar 		*g_utf8_strndup(gchar*,gint);
 gchar           *reactivate_newline(char *str);
 
 GdkPixbuf	*gc_pixmap_load(const gchar *filename, ...);
+GdkPixbuf       *gc_pixmap_load_or_null(const gchar *format, ...);
 RsvgHandle	*gc_rsvg_load(const gchar *format, ...);
 void		 gc_item_focus_init(GooCanvasItem *source_item,
 				    GooCanvasItem *target_item);
