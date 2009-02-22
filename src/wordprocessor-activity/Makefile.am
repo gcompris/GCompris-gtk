@@ -1,4 +1,4 @@
-SUBDIRS =
+SUBDIRS = resources
 
 if PLATFORM_WIN32
 shared = -shared

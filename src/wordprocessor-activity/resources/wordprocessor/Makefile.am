@@ -1,4 +1,4 @@
-imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/anim
+imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/wordprocessor
 img_DATA = \
 	tool-load.png \
 	tool-save.png
