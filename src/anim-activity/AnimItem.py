@@ -92,7 +92,14 @@ class AnimItem:
         self.set_visible(fromtime, sys.maxint)
 
     # Mark this object to be deleted at the given time
+    def delete_at_time_to_end(self, time):
+        index = self.delete_at_time(time)
+        del self.visible[index+1:]
+
+    # Mark this object to be deleted at the given time
+    # Return the index of the delete item in self.visible
     def delete_at_time(self, time):
+        index = 0
         for index in range(0, len(self.visible)):
             # It's the set start
             if self.visible[index][0] == time:
@@ -115,13 +122,14 @@ class AnimItem:
                 self.visible.append((time + 1, oldend))
                 self.visible.sort()
                 break
+        return index
 
     # Given a timeline index, return True if it is visible
     def is_visible(self, index):
         for visset in self.visible:
             if ( visset[0] <= index and
                  visset[1] >= index ):
-                 return True
+                return True
 
         return False
 
@@ -212,7 +220,7 @@ class AnimItem:
     def delete(self):
         gcompris.sound.play_ogg("sounds/eraser1.wav",
                                 "sounds/eraser2.wav")
-        self.delete_at_time(self.anim.timeline.get_time())
+        self.delete_at_time_to_end(self.anim.timeline.get_time())
         self.show(False)
 
     def raise_(self):
@@ -355,7 +363,8 @@ class AnimItem:
     # object.
     def set(self, prop, transform):
         self.item.set_properties(**prop)
-        self.item.set_transform(transform)
+        if transform:
+            self.item.set_transform(transform)
         if self.anchor:
             self.anchor.update()
 
