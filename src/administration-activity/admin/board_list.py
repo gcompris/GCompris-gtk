@@ -378,7 +378,7 @@ class Board_list:
     pass
 
   def row_selected(self, treeview,  model):
-    if treeview.get_selection().get_selected()[1] == None:
+    if treeview.get_selection().count_selected_rows() != 1:
       return
     path = model.get_path(treeview.get_selection().get_selected()[1])
 

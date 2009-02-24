@@ -752,6 +752,11 @@ config_start(GcomprisBoard *agcomprisBoard,
 
   if (gcomprisBoard_missing)
     pause_board(TRUE);
+  else
+    {
+      gcomprisBoard_missing=agcomprisBoard;
+      _init(agcomprisBoard);
+    }
 
   gchar *label = g_strdup_printf(_("<b>%s</b> configuration\n for profile <b>%s</b>"),
 				 agcomprisBoard->name,

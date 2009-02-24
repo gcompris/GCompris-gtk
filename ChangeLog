@@ -1,3 +1,33 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2009-02-25  Bruno coudoin  <bruno.coudoin@free.fr>
+
+       - Fixed strings:
+       * src/boards/reading.c: (reading_create_item):
+       * src/gcompris/board_config_wordlist.c: (gc_board_config_wordlist):
+
+       - Fixed bug, the configuration was crashing uppon startup from the admin mode
+       * src/boards/missingletter.c: (_init), (start_board),
+       (config_start):
+       * src/boards/missingletter_config.c:
+       * src/boards/python/admin/board_list.py:
+
 2009-06-20  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	From trunk
