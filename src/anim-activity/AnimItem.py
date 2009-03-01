@@ -92,26 +92,19 @@ class AnimItem:
         self.set_visible(fromtime, sys.maxint)
 
     # Mark this object to be deleted at the given time
-    def delete_at_time_to_end(self, time):
-        index = self.delete_at_time(time)
-        del self.visible[index+1:]
-
-    # Mark this object to be deleted at the given time
-    # Return the index of the delete item in self.visible
     def delete_at_time(self, time):
         index = 0
         for index in range(0, len(self.visible)):
             # It's the set start
             if self.visible[index][0] == time:
-                self.visible[index] = \
-                    (self.visible[index][0] + 1,
-                     self.visible[index][1])
+                del self.visible[index:]
                 break
             # It's the set end
             elif self.visible[index][1] == time:
                 self.visible[index] = \
                     (self.visible[index][0],
                      self.visible[index][1] - 1)
+                del self.visible[index+1:]
                 break
             # It's inside the set
             elif (self.visible[index][0] <= time and
@@ -119,10 +112,9 @@ class AnimItem:
                 oldend = self.visible[index][1]
                 self.visible[index] = \
                     (self.visible[index][0], time - 1)
-                self.visible.append((time + 1, oldend))
+                del self.visible[index+1:]
                 self.visible.sort()
                 break
-        return index
 
     # Given a timeline index, return True if it is visible
     def is_visible(self, index):
@@ -220,7 +212,9 @@ class AnimItem:
     def delete(self):
         gcompris.sound.play_ogg("sounds/eraser1.wav",
                                 "sounds/eraser2.wav")
-        self.delete_at_time_to_end(self.anim.timeline.get_time())
+        self.delete_at_time(self.anim.timeline.get_time())
+        if not self.visible:
+            self.anim.deleteItem(self)
         self.show(False)
 
     def raise_(self):

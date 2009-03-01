@@ -563,6 +563,12 @@ class Gcompris_anim:
       self.selected.deselect()
       self.selected = None
 
+  # Delete the item from the unique list
+  # This is called by animitem itself when the object
+  # is no more displayed on any time lines.
+  def deleteItem(self, item):
+    self.animlist.remove(item)
+
   # Main callback on item comes here first
   # And are then dispatched to the proper functions
   def item_event(self, item, target, event):
@@ -672,7 +678,7 @@ class Gcompris_anim:
 
   def refresh(self, time):
     # We keep all object in a unique list
-    # Here we order them to refresh them for the given time
+    # Here we order them to refresh them at the given time
     for item in self.animlist:
       item.display_at_time(time)
 
