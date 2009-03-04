@@ -371,8 +371,8 @@ AC_MSG_CHECKING([wether we build with GNET (if not, networking will be disabled)
 AC_ARG_ENABLE(gnet,
           AC_HELP_STRING(
           [--disable-gnet],
-          [Turn on gnet (will let GCompris fetch content from a web server)]),
-          with_gnet="$enableval", with_gnet="no")
+          [Turn off gnet (will not let GCompris fetch content from a web server)]),
+          with_gnet="$enableval", with_gnet="yes")
 AC_MSG_RESULT($with_gnet)
 
 if test x$with_gnet = xyes; then
