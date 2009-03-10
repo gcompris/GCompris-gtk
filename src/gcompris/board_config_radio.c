@@ -120,6 +120,7 @@ gc_board_config_radio_buttons(GcomprisBoardConf *conf, const gchar *label,
 					       NULL);
   Gconfig_radio *u = g_malloc0(sizeof(Gconfig_radio));
   u->hash_radio = buttons;
+  u->config = conf;
 
   u->radio_box = gtk_vbox_new (TRUE, 2);
   gtk_widget_show (GTK_WIDGET (u->radio_box));
@@ -152,7 +153,7 @@ gc_board_config_radio_buttons(GcomprisBoardConf *conf, const gchar *label,
 
   g_hash_table_foreach( buttons_label,
 			(GHFunc) create_radio_buttons,
-			(gpointer) buttons);
+			(gpointer) u);
 
   g_signal_connect (G_OBJECT(u->radio_box), "destroy", G_CALLBACK(radio_box_destroy), (gpointer) u);
 

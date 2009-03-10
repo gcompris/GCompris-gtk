@@ -12,6 +12,34 @@
 
 
 
+
+
+
+
+
+
+
+
+2009-06-21  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- From trunk
+	Patch from Miguel that fixes the configuration
+	of python activities (tuxpaint and login was crashing).
+
+	* src/boards/Makefile.am:
+	* src/boards/py-mod-gcompris.c:
+	(py_gc_board_config_window_display),
+	(py_gc_board_config_boolean_box), (py_gc_board_config_combo_box),
+	(py_gc_board_config_radio_buttons), (py_gc_board_config_spin_int),
+	(py_gc_board_conf_separator), (py_gc_board_config_combo_locales),
+	(py_gc_board_config_combo_locales_asset),
+	(py_gc_board_config_textview):
+	* src/boards/python/login.py:
+	* src/boards/python/pythontest.py:
+	* src/boards/python/tuxpaint.py:
+	* src/gcompris/board_config_radio.c:
+	(gc_board_config_radio_buttons):
+
 2009-06-21  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- From trunk

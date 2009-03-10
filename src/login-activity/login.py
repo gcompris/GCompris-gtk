@@ -472,23 +472,23 @@ class Gcompris_login:
     # the returned value is the main GtkVBox of the window,
     #we can add what you want in it.
 
-    self.main_vbox = gcompris.configuration_window ( \
+    bconf = gcompris.configuration_window ( \
       _('<b>%s</b> configuration\n for profile <b>%s</b>') % ('Login', profile.name ),
       self.ok_callback
       )
 
     # toggle box
-    uppercase = gcompris.boolean_box(_('Uppercase only text'),
+    uppercase = gcompris.boolean_box(bconf, _('Uppercase only text'),
                                         'uppercase_only',
                                         eval(self.config_dict['uppercase_only'])
                                         )
 
     #uppercase.set_sensitive(False)
 
-    gcompris.separator()
+    gcompris.separator(bconf)
 
     # toggle box
-    entry_text = gcompris.boolean_box(_('Enter login to log in'),
+    entry_text = gcompris.boolean_box(bconf, _('Enter login to log in'),
                                         'entry_text',
                                         eval(self.config_dict['entry_text'])
                                         )

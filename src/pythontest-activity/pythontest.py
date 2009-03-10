@@ -450,13 +450,13 @@ class Gcompris_pythontest:
     # the returned value is the main GtkVBox of the window,
     #we can add what you want in it.
 
-    self.main_vbox = gcompris.configuration_window ( \
+    bconf = gcompris.configuration_window ( \
       _('<b>%s</b> configuration\n for profile <b>%s</b>') % ('Pythontest', profile.name ),
       self.ok_callback
       )
 
     # toggle box
-    control_line = gcompris.boolean_box(_('Disable line drawing in circle'),
+    control_line = gcompris.boolean_box(bconf, _('Disable line drawing in circle'),
                                         'disable_line',
                                         eval(self.config_dict['disable_line'])
                                         )
@@ -465,18 +465,18 @@ class Gcompris_pythontest:
 
     # combo box
     self.color_choice = \
-       gcompris.combo_box(_('Color of the line'),
+       gcompris.combo_box(bconf, _('Color of the line'),
                           self.config_colors_list,
                           'color_line',
                           self.config_dict['color_line']
                           )
     self.color_choice.set_sensitive(not eval(self.config_dict['disable_line']))
 
-    gcompris.separator()
+    gcompris.separator(bconf)
 
     #spin button for int
     self.distance_box = \
-       gcompris.spin_int(_('Distance between circles'),
+       gcompris.spin_int(bconf, _('Distance between circles'),
                          'distance_circle',
                          20,
                          200,
@@ -484,14 +484,14 @@ class Gcompris_pythontest:
                          eval(self.config_dict['distance_circle'])
                          )
 
-    gcompris.separator()
+    gcompris.separator(bconf)
 
     #radio buttons for circle or rectangle
     patterns = { 'circle': _('Use circles'),
                  'rectangle': _('Use rectangles')
                  }
 
-    gcompris.radio_buttons(_('Choice of pattern'),
+    gcompris.radio_buttons(bconf, _('Choice of pattern'),
                            'pattern',
                            patterns,
                            self.config_dict['pattern']
@@ -500,11 +500,11 @@ class Gcompris_pythontest:
     print "List of locales shown in gcompris.combo_locale :"
     print gcompris.get_locales_list()
 
-    gcompris.separator()
+    gcompris.separator(bconf)
 
-    gcompris.combo_locales( self.config_dict['locale'])
+    gcompris.combo_locales(bconf, self.config_dict['locale'])
 
-    gcompris.separator()
+    gcompris.separator(bconf)
 
     print "List of locales shown in gcompris.combo_locales_asset :"
     locales_purple = gcompris.get_locales_asset_list( "gcompris colors", None, "audio/x-ogg", "purple.ogg")
@@ -513,9 +513,9 @@ class Gcompris_pythontest:
     label = gtk.Label()
     label.set_markup('<i>-- unused, but here for test --</i>')
     label.props.visibility = goocanvas.ITEM_VISIBLE
-    self.main_vbox.pack_start (label, False, False, 8)
+#    self.main_vbox.pack_start (label, False, False, 8)
 
-    gcompris.combo_locales_asset( _("Select sound locale"), self.config_dict['locale_sound'], "gcompris colors", None, "audio/x-ogg", "purple.ogg" )
+    gcompris.combo_locales_asset(bconf, _("Select sound locale"), self.config_dict['locale_sound'], "gcompris colors", None, "audio/x-ogg", "purple.ogg" )
 
     print gcompris.utils.get_asset_file ("gcompris colors", None, "audio/x-ogg", "purple.ogg")
     print gcompris.utils.get_asset_file_locale ("gcompris colors", None, "audio/x-ogg", "purple.ogg", None)

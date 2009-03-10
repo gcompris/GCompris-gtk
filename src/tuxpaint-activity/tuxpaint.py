@@ -182,30 +182,30 @@ class Gcompris_tuxpaint:
     #set already configured values
     self.config_dict.update(gcompris.get_conf(profile, self.gcomprisBoard))
 
-    self.main_vbox = gcompris.configuration_window(_('<b>%s</b> configuration\n for profile <b>%s</b>') % ('Tuxpaint', profile.name ),
+    bconfig = gcompris.configuration_window(_('<b>%s</b> configuration\n for profile <b>%s</b>') % ('Tuxpaint', profile.name ),
                                                    self.apply_callback)
 
 
-    gcompris.boolean_box(_('Inherit fullscreen setting from GCompris'), 'fullscreen', eval(self.config_dict['fullscreen']))
+    gcompris.boolean_box(bconfig, _('Inherit fullscreen setting from GCompris'), 'fullscreen', eval(self.config_dict['fullscreen']))
 
-    gcompris.separator()
+    gcompris.separator(bconfig)
 
-    gcompris.boolean_box(_('Inherit size setting from GCompris (800x600, 640x480)'), 'size', eval(self.config_dict['size']))
+    gcompris.boolean_box(bconfig, _('Inherit size setting from GCompris (800x600, 640x480)'), 'size', eval(self.config_dict['size']))
 
-    gcompris.separator()
+    gcompris.separator(bconfig)
 
-    gcompris.boolean_box(_('Disable shape rotation'), 'disable_shape_rotation', eval(self.config_dict['disable_shape_rotation']))
+    gcompris.boolean_box(bconfig, _('Disable shape rotation'), 'disable_shape_rotation', eval(self.config_dict['disable_shape_rotation']))
 
-    gcompris.separator()
+    gcompris.separator(bconfig)
 
-    gcompris.boolean_box(_('Show Uppercase text only'), 'uppercase_text', eval(self.config_dict['uppercase_text']))
+    gcompris.boolean_box(bconfig, _('Show Uppercase text only'), 'uppercase_text', eval(self.config_dict['uppercase_text']))
 
-    gcompris.separator()
+    gcompris.separator(bconfig)
 
-    stamps = gcompris.boolean_box(_('Disable stamps'), 'disable_stamps', eval(self.config_dict['disable_stamps']))
+    stamps = gcompris.boolean_box(bconfig, _('Disable stamps'), 'disable_stamps', eval(self.config_dict['disable_stamps']))
     stamps.connect("toggled", self.stamps_changed)
 
-    self.stamps_control = gcompris.boolean_box('Disable stamps control', 'disable_stamps_control', eval(self.config_dict['disable_stamps_control']))
+    self.stamps_control = gcompris.boolean_box(bconfig, 'Disable stamps control', 'disable_stamps_control', eval(self.config_dict['disable_stamps_control']))
     self.stamps_control.set_sensitive(not eval(self.config_dict['disable_stamps']))
 
   def stamps_changed(self, button):
