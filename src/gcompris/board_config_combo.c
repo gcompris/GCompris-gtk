@@ -453,13 +453,20 @@ GtkComboBox *gc_board_config_combo_locales_asset(GcomprisBoardConf *config, cons
   gtk_combo_box_set_active (GTK_COMBO_BOX(combobox),
 			    init_index);
 
+  _gc_boardconf_key *u = g_malloc0(sizeof(_gc_boardconf_key));
+  u -> key = g_strdup("locale_sound");
+  u -> config = config;
+
+  g_signal_connect(G_OBJECT(combobox),
+		   "destroy",
+		   G_CALLBACK(_gc_destroy_boardconf_key),
+		   u);
   g_signal_connect(G_OBJECT(combobox),
 		   "changed",
 		   G_CALLBACK(gc_board_config_combo_locales_changed),
-		   "locale_sound");
+		   u);
 
   return GTK_COMBO_BOX(combobox);
-
 }
 
 static void

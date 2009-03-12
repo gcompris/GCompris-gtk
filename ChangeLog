@@ -20,6 +20,16 @@
 
 
 
+2009-03-12  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- From trunk
+	- Fixed a crash case by Miguel in the configuration.
+	  in a languge setting configuration of an activity
+	  if we change the language, gcompris crashes.
+
+	* src/gcompris/board_config_combo.c:
+	(gc_board_config_combo_locales_asset):
+
 2009-06-21  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- From trunk
