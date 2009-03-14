@@ -1,3 +1,14 @@
+2009-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Fixed an annoying bug in the locale selection.
+	  Punjabi was twice in our internal list which makes
+	  it impossible to access locale after Portuguese in
+	  our list. It was possible to access locale by going
+	  backward but really annoying.
+	  Merged from trunk 3771
+
+	* src/gcompris/config.c:
+
 2009-02-20  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Merged 3727 from trunk
