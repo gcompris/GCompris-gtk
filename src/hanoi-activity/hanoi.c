@@ -67,7 +67,7 @@ static int item_height;
 
 static guint colorlist [] =
   {
-    0x0020C0FF,
+    0x00C0C0FF,
     0xA00000FF,
     0xF00000FF,
     0x00A000FF,
@@ -76,7 +76,7 @@ static guint colorlist [] =
     0x0000FFFF,
     0x505000FF,
     0xA0A000FF,
-    0xC0C000FF,
+    0xC0C080FF,
     0x005050FF,
     0x00A0A0FF,
     0x500050FF,
@@ -85,6 +85,24 @@ static guint colorlist [] =
   };
 #define NUMBER_OF_COLOR G_N_ELEMENTS(colorlist)
 
+static char symbollist [NUMBER_OF_COLOR] =
+  {
+    '!',
+    '/',
+    '<',
+    '>',
+    '&',
+    '~',
+    '#',
+    '{',
+    '%',
+    '|',
+    '?',
+    '}',
+    '=',
+    '+',
+    '*'
+  };
 
 /* Description of this plugin */
 static BoardPlugin menu_bp =
@@ -510,7 +528,7 @@ hanoi_create_item(GooCanvasItem *parent)
 					  "line-width", (double)1,
 					  NULL);
 
-	      car[0] = 'a' + position[i][j]->color;
+	      car[0] = symbollist[position[i][j]->color];
 	      car[1] = '\0';
 
 	      goo_canvas_text_new (group,
@@ -519,7 +537,7 @@ hanoi_create_item(GooCanvasItem *parent)
 				   0,
 				   -1,
 				   GTK_ANCHOR_NORTH,
-				   "font", gc_skin_font_board_big_bold,
+				   "font", "sans bold 14",
 				   "fill-color", "white",
 				   NULL);
 
