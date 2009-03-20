@@ -156,9 +156,9 @@ class Gcompris_login:
     # There is a problem with GTK widgets, they are not covered by the help
     # We hide/show them here
     if(pause):
-      if self.entry: self.entry.props.visibility = goocanvas.ITEM_INVISIBLE
+      if self.entry: self.widget.props.visibility = goocanvas.ITEM_INVISIBLE
     else:
-      if self.entry: self.entry.props.visibility = goocanvas.ITEM_VISIBLE
+      if self.entry: self.widget.props.visibility = goocanvas.ITEM_VISIBLE
 
 
   def set_level(self, level):
@@ -419,8 +419,6 @@ class Gcompris_login:
     self.entry.connect("activate", self.enter_callback)
     self.entry.connect("changed", self.enter_char_callback)
 
-    self.entry.props.visibility = goocanvas.ITEM_VISIBLE
-
     self.widget = goocanvas.Widget(
       parent = self.rootitem,
       widget=self.entry,
@@ -433,9 +431,6 @@ class Gcompris_login:
 
     self.widget.raise_(None)
 
-    # does not work. Why ?
-    #self.gcomprisBoard.canvas.grab_focus()
-    self.widget.grab_focus()
     self.entry.grab_focus()
 
   def enter_char_callback(self, widget):
