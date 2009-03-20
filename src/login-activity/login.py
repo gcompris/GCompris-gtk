@@ -407,9 +407,9 @@ class Gcompris_login:
     self.entry = gtk.Entry()
 
     self.entry.modify_font(pango.FontDescription("sans bold 36"))
-    text_color = gtk.gdk.color_parse("brown")
-    text_color_selected = gtk.gdk.color_parse("brown")
-    bg_color = gtk.gdk.color_parse("blue")
+    text_color = gtk.gdk.color_parse("black")
+    text_color_selected = gtk.gdk.color_parse("black")
+    bg_color = gtk.gdk.color_parse("white")
 
     self.entry.modify_text(gtk.STATE_NORMAL, text_color)
     self.entry.modify_text(gtk.STATE_SELECTED, text_color_selected)
@@ -429,7 +429,6 @@ class Gcompris_login:
       width=400,
       height=72,
       anchor=gtk.ANCHOR_CENTER,
-      size_pixels=False
       )
 
     self.widget.raise_(None)
