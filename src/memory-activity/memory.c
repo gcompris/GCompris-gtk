@@ -439,8 +439,6 @@ static GList *passed_token = NULL;
 static GooCanvasItem *tux;
 static GooCanvasItem *tux_score;
 static GooCanvasItem *player_score;
-static GooCanvasItem *tux_score_s;
-static GooCanvasItem *player_score_s;
 
 /* set the type of the token returned in string in returned_type */
 void get_random_token(int token_type, gint *returned_type, gchar **string, gchar **second_value)
@@ -896,7 +894,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	  gc_sound_policy_set(PLAY_AND_INTERRUPT);
 
 	  gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
-			    "memory/gcompris_band.png");
+			    "memory/gcompris_band.svg");
 	  base_x1 = BASE_SOUND_X1;
 	  base_y1 = BASE_SOUND_Y1;
 	  base_x2 = BASE_SOUND_X2;
@@ -904,7 +902,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	  base_x1_tux = BASE_SOUND_X1_TUX;
 
 	  if(!properties->fx) {
-	    gc_dialog(_("Error: this activity cannot be played with the\nsound effects disabled.\nGo to the configuration dialog to\nenable the sound"), gc_board_stop);
+	    gc_dialog(_("Error: this activity cannot be played with the\n"
+			"sound effects disabled.\nGo to the configuration dialog to\n"
+			"enable the sound"), gc_board_stop);
 	    return;
 	  }
 
@@ -1049,8 +1049,6 @@ static void update_scores()
 
   g_object_set(tux_score,      "text", tux_score_str, NULL);
   g_object_set(player_score,   "text", player_score_str, NULL);
-  g_object_set(tux_score_s,    "text", tux_score_str, NULL);
-  g_object_set(player_score_s, "text", player_score_str, NULL);
 
   g_free(tux_score_str);
   g_free(player_score_str);
@@ -1316,13 +1314,17 @@ static void create_item(GooCanvasItem *parent)
 
 
   if (currentUiMode == UIMODE_SOUND) {
-    GdkPixbuf *pixmap =  gc_pixmap_load("memory/transparent_square2.png");
-    goo_canvas_image_new (parent,
-			  pixmap,
-			  (currentMode == MODE_TUX ? base_x1_tux : base_x1) - 20,
-			  base_y1 - 15,
-			  NULL);
-    gdk_pixbuf_unref(pixmap);
+    goo_canvas_rect_new (parent,
+			 (currentMode == MODE_TUX ? base_x1_tux : base_x1) - 20,
+			 base_y1 - 15,
+			 width * numberOfColumn + 20*2,
+			 height * numberOfLine + 15*2,
+			 "stroke_color_rgba", 0xFFFFFFFFL,
+			 "fill_color_rgba",   0x66666690L,
+			 "line-width", (double) 2,
+			 "radius-x", (double) 10,
+			 "radius-y", (double) 10,
+			 NULL);
   }
 
   if (currentMode == MODE_TUX){
@@ -1331,34 +1333,14 @@ static void create_item(GooCanvasItem *parent)
     tux = goo_canvas_image_new (parent,
 				pixmap_tux,
 				50,
-				20,
+				140,
 				NULL);
     gdk_pixbuf_unref(pixmap_tux);
 
-    tux_score_s = goo_canvas_text_new (parent,
-				       NULL,
-				       (double) 100+1.0,
-				       (double) 200+1.0,
-				       -1,
-				       GTK_ANCHOR_CENTER,
-				       "font", gc_skin_font_board_huge_bold,
-				       "fill_color_rgba", 0x101010FF,
-				       NULL);
-
-    player_score_s = goo_canvas_text_new (parent,
-					  "",
-					  (double) 100+1.0,
-					  (double) BASE_CARD_Y2 - 20+1.0,
-					  -1,
-					  GTK_ANCHOR_CENTER,
-					  "font", gc_skin_font_board_huge_bold,
-					  "fill_color_rgba", 0x101010FF,
-					  NULL);
-
     tux_score = goo_canvas_text_new (parent,
 				     "",
-				     (double) 100,
-				     (double) 200,
+				     (double) 115,
+				     (double) 235,
 				     -1,
 				     GTK_ANCHOR_CENTER,
 				     "font", gc_skin_font_board_huge_bold,

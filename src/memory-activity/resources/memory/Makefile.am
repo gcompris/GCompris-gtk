@@ -24,7 +24,7 @@ img_DATA = \
 	backcard.png \
 	COPYRIGHT \
 	emptycard.png \
-	gcompris_band.png \
+	gcompris_band.svg \
 	guitar_melody.ogg \
 	guitar_son1.ogg \
 	guitar_son2.ogg \
@@ -70,7 +70,6 @@ img_DATA = \
 	tachos_son3.ogg \
 	tachos_son4.ogg \
 	tick.ogg \
-	transparent_square2.png \
 	tri.ogg \
 	Tux_mute.png \
 	Tux_play.png \
@@ -84,6 +83,6 @@ img_DATA = \
 	math_6.svg \
 	math_7.svg \
 	math_8.svg \
-	math_9.svg 
+	math_9.svg
 
 EXTRA_DIST = $(img_DATA)
