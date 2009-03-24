@@ -969,13 +969,6 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       Paused = FALSE;
 
-      to_tux = FALSE;
-      if (currentUiMode == UIMODE_SOUND){
-	playing_sound = TRUE;
-	gc_sound_play_ogg_cb("memory/LRBuddhist_gong_05_LA.ogg",start_callback);
-      } else
-	playing_sound = FALSE;
-
       memory_next_level();
     }
 }
@@ -1058,6 +1051,14 @@ static void update_scores()
 static void memory_next_level()
 {
   gc_bar_set_level(gcomprisBoard);
+
+  to_tux = FALSE;
+  if (currentUiMode == UIMODE_SOUND){
+    /* We play a sound here to cancel any pending sounds callback from a previous play */
+    playing_sound = TRUE;
+    gc_sound_play_ogg_cb("memory/LRBuddhist_gong_05_LA.ogg",start_callback);
+  } else
+    playing_sound = FALSE;
 
   memory_destroy_all_items();
 

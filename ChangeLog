@@ -1,3 +1,9 @@
+2009-03-25  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/memory.c: (start_board), (memory_next_level): fixed a cased in which
+	  the memory sound was in a fuzzy state if the level was changed by the user.
+	  Merged from trunk 3795
+
 2009-03-24  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Replaced a level in memory sound to make the difficulty always increasing
