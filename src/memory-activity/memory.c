@@ -170,9 +170,9 @@ static guint levelDescription[] =
   0,0,
   3,2,
   4,2,
+  5,2,
   4,3,
   6,3,
-  4,4,
   5,4,
   6,4,
   7,4,
@@ -326,6 +326,7 @@ static BoardPlugin menu_bp =
  */
 
 static gboolean to_tux = FALSE;
+static gboolean lock_user = FALSE;
 static GQueue *tux_memory;
 static gint tux_memory_size;
 static gint tux_memory_sizes[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
@@ -971,7 +972,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       to_tux = FALSE;
       if (currentUiMode == UIMODE_SOUND){
 	playing_sound = TRUE;
-	gc_sound_play_ogg_cb("sounds/LuneRouge/musique/LRBuddhist_gong_05_LA.ogg",start_callback);
+	gc_sound_play_ogg_cb("memory/LRBuddhist_gong_05_LA.ogg",start_callback);
       } else
 	playing_sound = FALSE;
 
@@ -1074,6 +1075,8 @@ static void memory_next_level()
   gcomprisBoard->sublevel=0;
 
   create_item(boardRootItem);
+
+  lock_user = FALSE;
 
   if (currentMode == MODE_TUX){
 	tux_memory_size = tux_memory_sizes[gcomprisBoard->level];
@@ -1570,10 +1573,10 @@ static gint hide_card (GtkWidget *widget, gpointer data)
     GList *to_remove = NULL;
 
     for (list =  winning_pairs; list != NULL; list=list->next)
-      if ((((WINNING *) list->data)->first == firstCard)
-	  || (((WINNING *) list->data)->first == secondCard)
-	  || (((WINNING *) list->data)->second == firstCard)
-	  || (((WINNING *) list->data)->second == secondCard) ){
+      if ((((WINNING *) list->data)->first == firstCard) ||
+	  (((WINNING *) list->data)->first == secondCard) ||
+	  (((WINNING *) list->data)->second == firstCard) ||
+	  (((WINNING *) list->data)->second == secondCard) ){
 	to_remove = g_list_append( to_remove, list->data);
       }
 
@@ -1640,20 +1643,23 @@ static void check_win()
     timeout_tux = 2000;
   }
 
+
   // Check win
   if (compare_card((gpointer) firstCard, (gpointer) secondCard) == 0) {
     gc_sound_play_ogg ("sounds/flip.wav", NULL);
     win_id = g_timeout_add (timeout,
 			    (GSourceFunc) hide_card, NULL);
+    lock_user = FALSE;
     return;
   }
 
   if (currentMode == MODE_TUX){
-		 /* time to tux to play, after a delay */
+    /* time to tux to play, after a delay */
     to_tux = TRUE;
     g_warning("Now tux will play !");
     tux_id = g_timeout_add (timeout_tux,
 			    (GSourceFunc) tux_play, NULL);
+    lock_user = FALSE;
     return;
   }
 
@@ -1668,11 +1674,12 @@ static gboolean item_event (GooCanvasItem  *item,
   if(!gcomprisBoard)
     return FALSE;
 
-  if(event->button != 1)
+  if (event->type != GDK_BUTTON_PRESS ||
+      event->button != 1)
     return FALSE;
 
   if (currentMode == MODE_TUX){
-    if (to_tux){
+    if (to_tux || lock_user){
       g_warning("He ! it's tux turn !");
       return FALSE;
     }
@@ -1715,14 +1722,15 @@ static gboolean item_event (GooCanvasItem  *item,
       if (currentMode == MODE_TUX)
 	add_card_in_tux_memory(memoryItem);
       display_card(memoryItem, ON_FRONT);
-      if (currentUiMode == UIMODE_SOUND)
+      if (currentUiMode == UIMODE_SOUND) {
 	// Check win is called from callback return
+	// The user lost, make sure she won't play again before tux
+	lock_user = TRUE;
 	return TRUE;
-      else {
+      } else {
 	check_win();
 	return TRUE;
       }
-
     }
 
   return FALSE;
@@ -1802,8 +1810,6 @@ static gint tux_play(){
     return TRUE;
   }
 
-  g_warning("Now tux playing !");
-
   if(secondCard)
     {
       display_card(firstCard, ON_BACK);
@@ -1813,9 +1819,7 @@ static gint tux_play(){
     }
 
   if (winning_pairs){
-    g_warning("I will won !");
     if (!firstCard){
-      g_warning("case 1");
       firstCard = ((WINNING *) winning_pairs->data)->first ;
       display_card(firstCard, ON_FRONT);
       if (currentUiMode == UIMODE_SOUND)
@@ -1823,7 +1827,6 @@ static gint tux_play(){
       else
 	return TRUE;
     } else {
-      g_warning("case 2");
       secondCard = ((WINNING *) winning_pairs->data)->second;
       display_card(secondCard, ON_FRONT);
       if (currentUiMode == UIMODE_SOUND)
@@ -1844,7 +1847,7 @@ static gint tux_play(){
   gboolean  stay_unknown = (remainingCards > (g_queue_get_length (tux_memory)
 					      + (firstCard ? 1 : 0)));
 
-  g_warning("remainingCards %d tux_memory %d -> stay_unknown %d ",
+  g_warning("remainingCards %d tux_memory %d -> stay_unknown %d",
 	    remainingCards,
 	    g_queue_get_length (tux_memory),
 	    stay_unknown );
@@ -1865,17 +1868,14 @@ static gint tux_play(){
     }
 
   if (!firstCard){
-    g_warning("case 3");
     firstCard = memoryArray[rx][ry];
     add_card_in_tux_memory(firstCard);
     display_card(firstCard, ON_FRONT);
-    g_warning("Now tux replay !");
     if (currentUiMode == UIMODE_SOUND)
       return FALSE;
     else
       return TRUE;
   } else {
-    g_warning("case 4");
     secondCard = memoryArray[rx][ry];
     add_card_in_tux_memory(secondCard);
     display_card(secondCard, ON_FRONT);
@@ -1884,7 +1884,6 @@ static gint tux_play(){
     else {
       if (compare_card(firstCard, secondCard)==0){
 	gc_sound_play_ogg ("sounds/flip.wav", NULL);
-	g_warning("Now tux win !");
 	win_id = g_timeout_add (1000,
 				(GSourceFunc) hide_card, NULL);
 	return TRUE;
@@ -1902,8 +1901,6 @@ static void sound_callback(gchar *file)
   if (! gcomprisBoard)
     return;
 
-  g_warning("sound_callback %s", file);
-
   playing_sound = FALSE;
   if (currentMode == MODE_TUX){
     if (to_tux) {
@@ -1920,7 +1917,6 @@ static void sound_callback(gchar *file)
 	  return;
 	}
       } else {
-	g_warning("Now tux will replay !");
 	tux_id = g_timeout_add (2000,
 			      (GSourceFunc) tux_play, NULL);
 	return;

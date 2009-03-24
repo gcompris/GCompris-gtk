@@ -1,3 +1,23 @@
+2009-03-24  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Replaced a level in memory sound to make the difficulty always increasing
+	  Merged from trunk 3790
+
+	* src/memory-activity/resources/memory/*.ogg: normalized
+	* src/memory-activity/memory.c: (start_board), (memory_next_level),
+	(hide_card), (check_win), (item_event), (tux_play),
+	(sound_callback):
+
+2009-03-17  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Fixed a little issue. It was possible for the user in
+	  memory sound against tux to click on as many card she wants
+	  if she does not wait for the end of the sound.
+	  merged from trunk 3782
+
+	* src/boards/memory.c: (memory_next_level), (check_win),
+	(item_event):
+
 2009-03-15  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Replaced letter that differenciate blocks for
