@@ -1,3 +1,9 @@
+2009-03-26  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/memory.c: (sound_callback): Hopefully fixed a race in which
+	  tux could play several time alone or stop after a single play.
+	  Merged from trunk 3800
+
 2009-03-25  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/memory.c: (start_board), (memory_next_level): fixed a cased in which

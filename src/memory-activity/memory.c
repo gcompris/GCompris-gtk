@@ -1102,11 +1102,11 @@ static void memory_destroy_all_items()
   win_id = 0;
 
   if (currentMode == MODE_TUX){
+    to_tux = FALSE;
     if (tux_id) {
       g_source_remove (tux_id);
     }
     tux_id =0;
-    to_tux = FALSE;
   }
 
   /* Now destroy all items */
@@ -1793,6 +1793,9 @@ static gint tux_play(){
     return TRUE;
   }
 
+  if ( ! to_tux )
+    return TRUE;
+
   if(secondCard)
     {
       display_card(firstCard, ON_BACK);
@@ -1882,6 +1885,9 @@ static gint tux_play(){
 static void sound_callback(gchar *file)
 {
   if (! gcomprisBoard)
+    return;
+
+  if (!playing_sound)
     return;
 
   playing_sound = FALSE;
