@@ -1,3 +1,20 @@
+2009-04-14  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Created photo hunter activity by Marc Le Douarain (http://membres.lycos.fr/mavati)
+
+	* configure.in:
+	* src/Makefile.am:
+	* src/photohunter-activity/.deps/advanced_colors.Plo:
+	* src/photohunter-activity/.deps/photohunter.Plo:
+	* src/photohunter-activity/Makefile.am:
+	* src/photohunter-activity/init_path.sh:
+	* src/photohunter-activity/photohunter.c:
+	* src/photohunter-activity/photohunter.svg:
+	* src/photohunter-activity/photohunter.xml.in:
+	* src/photohunter-activity/resources/Makefile.am:
+	* src/photohunter-activity/resources/photohunter/Makefile.am:
+	* src/photohunter-activity/resources/photohunter/euros0.csv:
+
 2009-03-26  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/memory.c: (sound_callback): Hopefully fixed a race in which

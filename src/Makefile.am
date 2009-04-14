@@ -65,6 +65,7 @@ SUBDIRS = goocanvas gcompris boards \
 	paintings-activity \
 	paratrooper-activity \
 	penalty-activity \
+	photohunter-activity \
 	planegame-activity \
 	railroad-activity \
 	read_colors-activity \
