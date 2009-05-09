@@ -8,6 +8,10 @@ fi
 # To create a full GCompris bundle on the OLPC xo:
 mkdir /tmp/gcompris.activity
 sh autogen.sh --enable-dbus --disable-sqlite --prefix=/tmp/gcompris.activity
+if test $? -ne 0; then
+  echo "ERROR: Fix autogen first"
+  exit 1
+fi
 make
 make install
 tar  -C /tmp/gcompris.activity -xzf tools/full-xo-bundle-add-on.tzf
