@@ -34,9 +34,9 @@ endif
 bin_PROGRAMS = gcompris
 
 INCLUDES = \
-	-I$(top_builddir)/intl \
+	-I$(top_srcdir)/intl \
 	-DDATADIR=\""$(datadir)"\" \
-	-I$(top_builddir)/src \
+	-I$(top_srcdir)/src \
 	-I$(top_srcdir)/src/goocanvas/src \
 	$(GCOMPRIS_CFLAGS) \
 	$(GNOME_INCLUDEDIR) \

@@ -36,9 +36,9 @@ lib_LTLIBRARIES = \
 
 libdir = $(plugindir)
 INCLUDES = \
-	-I$(top_builddir)/src \
-	-I$(top_builddir)/intl \
-	-I$(top_builddir)/src/goocanvas/src \
+	-I$(top_srcdir)/src \
+	-I$(top_srcdir)/intl \
+	-I$(top_srcdir)/src/goocanvas/src \
 	$(GCOMPRIS_CFLAGS) \
 	$(XML_CFLAGS) \
 	$(PYTHON_CFLAGS) \

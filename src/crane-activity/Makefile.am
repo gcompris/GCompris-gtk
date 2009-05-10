@@ -16,8 +16,8 @@ lib_LTLIBRARIES = \
 	libcrane.la
 
 libdir = $(plugindir)
-INCLUDES = 	-I$(top_builddir)/src \
-	-I$(top_builddir)/intl \
+INCLUDES = 	-I$(top_srcdir)/src \
+	-I$(top_srcdir)/intl \
 	-I$(top_srcdir)/src/goocanvas/src \
 	$(GCOMPRIS_CFLAGS) \
 	$(XML_CFLAGS) \
