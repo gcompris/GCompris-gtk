@@ -1683,7 +1683,7 @@ parse_doc(xmlDocPtr doc)
     {
       Shape *shape;
 
-      i = list_length == 1 ? 0 : g_random_int_range(0, g_list_length(shape_list_init)-1);
+      i = g_random_int_range(0, list_length);
       shape = g_list_nth_data(shape_list_init, i);
       add_shape_to_canvas(shape);
 
