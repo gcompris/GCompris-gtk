@@ -909,6 +909,7 @@ item_event_drag(GooCanvasItem *item,
 		GdkEvent *event, Shape *shape)
 {
   static GooCanvasItem *shadow_item = NULL;
+  static GooCanvasItem *dragged;
   double item_x, item_y;
   Shape *found_shape;
 
@@ -979,11 +980,14 @@ item_event_drag(GooCanvasItem *item,
 		       GOO_CANVAS_ITEM_INVISIBLE, NULL);
 	  gdk_pixbuf_unref(dest);
 	}
-
+      dragged = shape->item;
       gc_drag_item_move(event, NULL);
       break;
 
     case GDK_MOTION_NOTIFY:
+      if (item != dragged)
+	break;
+
       gc_drag_item_move(event, NULL);
 
       item_x = event->button.x;
@@ -1014,6 +1018,9 @@ item_event_drag(GooCanvasItem *item,
       break;
 
     case GDK_BUTTON_RELEASE:
+      if (item != dragged)
+	break;
+
       item_x = event->button.x;
       item_y = event->button.y;
       goo_canvas_convert_from_item_space(goo_canvas_item_get_canvas(item),
