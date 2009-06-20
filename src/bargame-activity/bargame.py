@@ -295,6 +295,7 @@ class Gcompris_bargame:
                 False)
 
     self.answer.new_value(self.number_balls[self.gcomprisBoard.sublevel-1][0])
+    self.profbutton.no_more_active()
 
   def gamelost(self,human):
     self.finished_sublevel = True
@@ -493,9 +494,13 @@ class Gcompris_bargame:
       bounds = self.prof_item.get_bounds()
       self.prof_item.props.x = \
           (gcompris.BOARD_WIDTH - bounds.x2-bounds.x1)/2 - 90
-      self.prof_item.connect("button_press_event",self.event_play)
+      self.prof_item.connect("button_press_event", self.event_play)
+      self.prof_image = prof_image
       # This item is clickeable and it must be seen
       gcompris.utils.item_focus_init(self.prof_item, None)
+
+    def no_more_active(self):
+      gcompris.utils.item_focus_remove(self.prof_item, None)
 
     def event_play(self, item, target, event):
       if ((event.type != gtk.gdk.BUTTON_PRESS) or
