@@ -355,7 +355,7 @@ class Gcompris_connect4:
             line_width = 8,
             line_cap = cairo.LINE_CAP_ROUND
             )
-        if player == 1:
+        if player == 1 or self.mode == 2:
             gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.FLOWER)
         elif player == 2:
             gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.FLOWER)
