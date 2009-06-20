@@ -1,3 +1,20 @@
+2009-03-26  Wolfram Sang <wolfram@iswi.org>
+
+	- From trunk
+	* src/board/shapegame.c:
+	- Fix an off-by-one bug in the calculation of the amount of levels,
+	  which made it possible to see the end-sequence just by clicking
+	  the dice.
+	- When shuffling the items for the left bar, the last item was
+	  skipped. As the upper limit for random-functions is exclusive,
+	  we have to pass the whole list_size, not list_size - 1.
+	  Also, simplify the code.
+	- Shapegames could crash if one tried to move an object while the
+	  bonus-objectmaster (e.g. sad flower) was still shown.
+	  Fix this by ensuring that the object to move or drop is the
+	  same one that got dragged.
+
+
 2009-04-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Created photo hunter activity by Marc Le Douarain (http://membres.lycos.fr/mavati)
