@@ -519,8 +519,8 @@ scale_drag_event(GooCanvasItem *w,
 	    else
 	      plate=0;
 	  }
-	scale_item_move_to(scale, plate);
 	gc_item_focus_init(scale->item, NULL);
+	scale_item_move_to(scale, plate);
       }
       break;
     default:
