@@ -70,17 +70,17 @@ class Module:
         self.select_item.connect("button_press_event", callback, self)
 
         y1 += 5
-        itemimg = goocanvas.Image(
+
+        itemimg = goocanvas.Svg(
             parent = self.root_select_item,
-            pixbuf = gcompris.utils.load_pixmap("administration/config_" +
+            svg_handle = gcompris.utils.load_svg("administration/config_" +
                                                 self.module_name +
-                                                ".svgz"),
-            x = x,
-            y = y1,
+                                                 ".svgz")
             )
+
         bounds = itemimg.get_bounds()
         centered_x = x - (bounds.x2 - bounds.x1)/2
-        itemimg.props.x = centered_x
+        itemimg.translate(centered_x, y1);
         itemimg.connect("button_press_event", callback, self)
         gcompris.utils.item_focus_init(itemimg, None)
 
