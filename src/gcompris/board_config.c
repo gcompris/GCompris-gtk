@@ -180,7 +180,7 @@ gc_board_config_window_display(gchar *label, GcomprisConfCallback callback)
       memset(&last_configure_event, 0, sizeof(GdkEventConfigure));
       gtk_widget_add_events(GTK_WIDGET(config->conf_window), GDK_STRUCTURE_MASK);
       gtk_signal_connect (GTK_OBJECT (config->conf_window), "configure_event",
-        GTK_SIGNAL_FUNC (_conf_window_configured), 0);
+        GTK_SIGNAL_FUNC (_conf_window_configured), config);
     }
   else
 #endif

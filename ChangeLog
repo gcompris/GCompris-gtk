@@ -12,9 +12,13 @@
 
 
 
+2009-06-21  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	- From trunk
+	- Patch from Miguel. On some windows manager, we were crashing
+	  when opening a configuration windows while in fullscreen.
 
-
+	* src/gcompris/board_config.c: (gc_board_config_window_display):
 
 2009-02-25  Bruno coudoin  <bruno.coudoin@free.fr>
 
