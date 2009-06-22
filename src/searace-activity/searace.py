@@ -108,9 +108,6 @@ class Gcompris_searace:
     self.rootitem = goocanvas.Group(parent =  self.gcomprisBoard.canvas.get_root_item())
 
     gcompris.set_default_background(self.gcomprisBoard.canvas.get_root_item())
-    item.connect("button_press_event", self.ruler_item_event)
-    item.connect("button_release_event", self.ruler_item_event)
-    item.connect("motion_notify_event", self.ruler_item_event)
 
     self.display_sea_area()
 
@@ -308,8 +305,21 @@ class Gcompris_searace:
 
     # We manage a 2 colors grid
     ci = 0
-    ca = 0xAACCFFFFL
+    ca = 0xc6afffFFL
     cb = 0x1D0DFFFFL
+
+    # The background
+    item = goocanvas.Rect(
+      parent = self.rootitem,
+      x = self.sea_area[0],
+      y = self.sea_area[1],
+      width = self.sea_area[2] - self.sea_area[0],
+      height = self.sea_area[3] - self.sea_area[1],
+      fill_color_rgba=0xafe0ffFFL,
+      line_width=0)
+    item.connect("button_press_event", self.ruler_item_event)
+    item.connect("button_release_event", self.ruler_item_event)
+    item.connect("motion_notify_event", self.ruler_item_event)
 
     for y in range (self.sea_area[1], self.sea_area[3]+1, int(step_y)):
       if(ci%2):
