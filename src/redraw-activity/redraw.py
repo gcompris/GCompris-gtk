@@ -395,12 +395,12 @@ class Gcompris_redraw:
       if event.button == 1:
         gcompris.sound.play_ogg("sounds/bleep.wav")
         # Deactivate old button
-        self.old_tool_item.props.pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[self.current_tool][1]))
+        self.old_tool_item.props.pixbuf = gcompris.utils.load_pixmap(self.tools[self.current_tool][1])
 
         # Activate new button
         self.current_tool = tool
         self.old_tool_item = item
-        self.old_tool_item.props.pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[self.current_tool][2]))
+        self.old_tool_item.props.pixbuf = gcompris.utils.load_pixmap(self.tools[self.current_tool][2])
         gcompris.set_cursor(self.tools[self.current_tool][3]);
 
   # Display the color selector
