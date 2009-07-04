@@ -18,8 +18,8 @@ typedef struct _GooCanvasImageData   GooCanvasImageData;
 struct _GooCanvasImageData
 {
   cairo_pattern_t *pattern;
-
   gdouble x, y, width, height;
+  gdouble width_ref, height_ref;
 };
 
 

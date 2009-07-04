@@ -129,9 +129,9 @@ goo_canvas_image_init (GooCanvasImage *image)
  * @x: the x coordinate of the image.
  * @y: the y coordinate of the image.
  * @...: optional pairs of property names and values, and a terminating %NULL.
- * 
+ *
  * Creates a new image item.
- * 
+ *
  * <!--PARAMETERS-->
  *
  * Here's an example showing how to create an image at (100.0, 100.0), using
@@ -169,6 +169,8 @@ goo_canvas_image_new (GooCanvasItem *parent,
       image_data->pattern = goo_canvas_cairo_pattern_from_pixbuf (pixbuf);
       image_data->width = gdk_pixbuf_get_width (pixbuf);
       image_data->height = gdk_pixbuf_get_height (pixbuf);
+      image_data->width_ref = image_data->width;
+      image_data->height_ref = image_data->height;
     }
 
   va_start (var_args, y);
@@ -298,6 +300,8 @@ goo_canvas_image_set_common_property (GObject              *object,
       image_data->pattern = pixbuf ? goo_canvas_cairo_pattern_from_pixbuf (pixbuf) : NULL;
       image_data->width = pixbuf ? gdk_pixbuf_get_width (pixbuf) : 0;
       image_data->height = pixbuf ? gdk_pixbuf_get_height (pixbuf) : 0;
+      image_data->width_ref = image_data->width;
+      image_data->height_ref = image_data->height;
       break;
     default:
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -372,8 +376,15 @@ goo_canvas_image_paint (GooCanvasItemSimple   *simple,
   if (!image_data->pattern)
     return;
 
+  gdouble sx = image_data->width_ref / image_data->width;
+  gdouble sy = image_data->height_ref / image_data->height;
 #if 1
-  cairo_matrix_init_translate (&matrix, -image_data->x, -image_data->y);
+  cairo_matrix_init_translate (&matrix,
+			       -image_data->x * sx,
+			       -image_data->y * sy);
+  cairo_matrix_scale(&matrix,
+		     sx,
+		     sy);
   cairo_pattern_set_matrix (image_data->pattern, &matrix);
   goo_canvas_style_set_fill_options (simple->simple_data->style, cr);
   cairo_set_source (cr, image_data->pattern);
@@ -383,7 +394,12 @@ goo_canvas_image_paint (GooCanvasItemSimple   *simple,
 #else
   /* Using cairo_paint() used to be much slower than cairo_fill(), though
      they seem similar now. I'm not sure if it matters which we use. */
-  cairo_matrix_init_translate (&matrix, -image_data->x, -image_data->y);
+  cairo_matrix_init_translate (&matrix,
+			       -image_data->x,
+			       -image_data->y);
+  cairo_matrix_scale(&matrix,
+		     sx,
+		     sy);
   cairo_pattern_set_matrix (image_data->pattern, &matrix);
   goo_canvas_style_set_fill_options (simple->simple_data->style, cr);
   cairo_set_source (cr, image_data->pattern);
@@ -514,9 +530,9 @@ goo_canvas_image_model_init (GooCanvasImageModel *emodel)
  * @x: the x coordinate of the image.
  * @y: the y coordinate of the image.
  * @...: optional pairs of property names and values, and a terminating %NULL.
- * 
+ *
  * Creates a new image model.
- * 
+ *
  * <!--PARAMETERS-->
  *
  * Here's an example showing how to create an image at (100.0, 100.0), using
