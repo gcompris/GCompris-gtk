@@ -230,18 +230,6 @@ else
 fi
 
 dnl WIN32 Specifics
-AC_MSG_CHECKING([for native Win32])
-case "$host" in
-  *-*-mingw*)
-    native_win32=yes
-    ;;
-  *)
-    native_win32=no
-    ;;
-esac
-AC_MSG_RESULT([$native_win32])
-AM_CONDITIONAL(OS_WIN32, test "$native_win32" = yes)
-
 AC_MSG_CHECKING([for Win32 platform in general])
 case "$host" in
   *-*-mingw*|*-*-cygwin*)
@@ -253,6 +241,13 @@ case "$host" in
 esac
 AC_MSG_RESULT($platform_win32)
 AM_CONDITIONAL(PLATFORM_WIN32, test "$platform_win32" = yes)
+AM_CONDITIONAL(BUILD_MINGW32, test "$platform_win32" = yes)
+if test x"$platform_win32" = xyes; then
+   LIBS="$LIBS -luuid -lole32 -lwsock32 -mno-cygwin -mms-bitfields -mwindows -mconsole"
+   #CFLAGS="$CFLAGS -D__GW32__ -DWIN32 -I$CROSS_ROOT/include -I$CROSS_ROOT/include/glibc"
+   #CFLAGS="$CFLAGS -DWIN32"
+fi
+
 
 # Ensure MSVC-compatible struct packing convention is used when
 # compiling for Win32 with gcc. GTK+ uses this convention, so we must, too.
@@ -497,24 +492,6 @@ dnl use libgw32c
 dnl define __GW32__ and WIN32
 
 # Check platform - see if WinMain needed:
-AC_MSG_CHECKING([for native Win32])
-case "$host" in
-  *-*-mingw*)
-    native_win32=yes
-    ;;
-  *)
-    native_win32=no
-    ;;
-esac
-AC_MSG_RESULT([$native_win32])
-
-AM_CONDITIONAL(BUILD_MINGW32, test "$native_win32" = yes)
-if test "$native_win32" = yes; then
-   LIBS="$LIBS -luuid -lole32 -lwsock32 -mno-cygwin -mms-bitfields -mwindows -mconsole"
-   #CFLAGS="$CFLAGS -D__GW32__ -DWIN32 -I$CROSS_ROOT/include -I$CROSS_ROOT/include/glibc"
-   #CFLAGS="$CFLAGS -DWIN32"
-fi
-
 AC_SUBST(CFLAGS)
 AC_SUBST(LIBS)
 
