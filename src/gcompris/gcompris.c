@@ -80,7 +80,7 @@ static void single_instance_release();
  * For the Activation dialog
  */
 #ifdef STATIC_MODULE
-int gc_activation_check(char *code);
+int gc_activation_check(const char *code);
 static void activation_enter_callback(GtkWidget *widget,
 				      GtkWidget *entry );
 static void activation_done();
@@ -917,7 +917,7 @@ display_activation_dialog()
  *        0  if the code is valid but out of date
  *        1  if the code is valid and under 2 years
  */
-int gc_activation_check(char *code)
+int gc_activation_check(const char *code)
 {
 #ifdef  DISABLE_ACTIVATION_CODE
   return 1;
@@ -926,7 +926,7 @@ int gc_activation_check(char *code)
   int i;
   char crc1 = 0;
   char crc2 = 0;
-  char codeddate[4];
+  char codeddate[5];
 
   if(strlen(code) != 6)
     return -1;
@@ -973,7 +973,16 @@ static void
 activation_enter_callback( GtkWidget *entry,
 			   GtkWidget *notused )
 {
-  switch(gc_activation_check((char *)gtk_entry_get_text(GTK_ENTRY(entry))))
+  const char *code = gtk_entry_get_text(GTK_ENTRY(entry));
+  // A special code to test the full version without
+  // saving the activation
+  if (strncmp(code, "123321", 6) == 0)
+    {
+      gtk_entry_set_text(GTK_ENTRY(entry), "GOOD");
+      return;
+    }
+
+  switch(gc_activation_check(code))
     {
     case 1:
       gc_prop_get()->key = strdup(gtk_entry_get_text(GTK_ENTRY(entry)));
