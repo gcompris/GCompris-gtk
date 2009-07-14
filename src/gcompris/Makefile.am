@@ -46,6 +46,7 @@ INCLUDES = \
 	$(GNET_CFLAGS) \
 	$(DBUS_CFLAGS) \
 	$(cairo_cflags) \
+	$(AUDIO_CFLAGS) \
 	$(NSBUNDLE_CPPFLAGS)
 
 gcompris_SOURCES = \
@@ -106,6 +107,7 @@ gcompris_SOURCES = \
 	skin.h \
 	soundutil.c \
 	soundutil.h \
+	gstreamer.c \
 	timer.c \
 	timer.h \
 	wordlist.c \
@@ -119,6 +121,7 @@ gcompris_LDADD = \
 	$(top_builddir)/src/goocanvas/src/libgoocanvas.la \
 	$(GCOMPRIS_LIBS) $(sqlite_ldadd) $(XML_LIBS) $(GNET_LIBS) \
 	$(DBUS_LIBS) \
+	$(AUDIO_LIBS) \
         $(INTLLIBS) $(NSBUNDLE_LDFLAGS)
 
 marshal_sources =				\
@@ -133,7 +136,6 @@ gc-marshal.c: gc-marshal.list
 
 gc-marshal.h: gc-marshal.list
 	$(GLIB_GENMARSHAL) --prefix=gc_marshal $< --header > $@
-
 
 EXTRA_DIST = \
 	Makefile.mingw gcomprisrc.rc \

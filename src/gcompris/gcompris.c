@@ -1792,6 +1792,8 @@ main (int argc, char *argv[])
 
   gc_skin_load(properties->skin);
 
+  gc_sound_build_music_list();
+
   if(properties->music || properties->fx)
     gc_sound_init();
 

@@ -361,6 +361,26 @@ if test x$TETEX = xno; then
 fi
 
 
+dnl SDLMixer support
+AC_MSG_CHECKING([wether we build with SDLMixer (will replace gstreamer by sdl mixer if enabled)])
+AC_ARG_ENABLE(sdlmixer,
+          AC_HELP_STRING(
+          [--enable-sdlmixer],
+          [Turn on sdl mixer (will replace gstreamer by sdl mixer)]),
+          with_sdlmixer="$enableval", with_sdlmixer="no")
+AC_MSG_RESULT($with_sdlmixer)
+
+if test x$with_sdlmixer = xyes; then
+  PKG_CHECK_MODULES(AUDIO, sdl,, AC_MSG_ERROR([*** SDL Mixer not found!]))
+  AC_DEFINE([USE_SDLMIXER], 1,[sdl mixer is enabled])
+else
+  dnl Default is gstreamer
+  PKG_CHECK_MODULES(AUDIO, gstreamer-0.10,, AC_MSG_ERROR([*** GSTREAMER not found!]))
+  AC_DEFINE([USE_GSTREAMER], 1,[gstreamer is enabled])
+fi
+AC_SUBST(AUDIO_CFLAGS)
+AC_SUBST(AUDIO_LIBS)
+
 dnl GNET support
 AC_MSG_CHECKING([wether we build with GNET (if not, networking will be disabled)])
 AC_ARG_ENABLE(gnet,
@@ -825,6 +845,7 @@ echo "DBUS Support (OLPC XO Sugar)             = $with_dbus"
 echo "GNET Networking (--enable-gnet)          = $with_gnet (networking depends on this)"
 echo "BINRELOC (--enable-binreloc)             = $br_cv_binreloc"
 echo "NSBundle (--enable-nsbundle)             = $nsbundle"
+echo "SDL Mixer (--enable-sdlmixer)            = $with_sdlmixer (default is gstreamer)"
 
 
 echo

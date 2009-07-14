@@ -59,4 +59,13 @@ void	 gc_sound_fx_resume(void);
 gchar   *gc_sound_alphabet(gchar *chars);
 
 
+void	 fx_play ();
+char	*get_next_sound_to_play( );
+
+gpointer bg_play (gpointer dummy);
+char	*gc_sound_get_next_music();
+void	 gc_sound_build_music_list();
+
+void gc_sound_callback(gchar *file);
+
 #endif
