@@ -16,6 +16,10 @@
  *   along with this program; if not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <config.h>
+
+#ifdef USE_GSTREAMER
+
 #include "string.h"
 
 #include "gcompris.h"
@@ -87,13 +91,6 @@ bg_bus(GstBus* bus, GstMessage* msg, gpointer data)
 }
 
 void
-gc_sound_close()
-{
-  gc_sound_bg_close();
-  gc_sound_fx_close();
-}
-
-void
 gc_sound_bg_close()
 {
   if (bg_pipeline)
@@ -127,13 +124,6 @@ gc_sound_bg_reopen()
 void
 gc_sound_fx_reopen()
 {
-}
-
-void
-gc_sound_reopen()
-{
-  gc_sound_bg_reopen();
-  gc_sound_fx_reopen();
 }
 
 void
@@ -267,3 +257,4 @@ fx_play()
   return;
 }
 
+#endif // USE_GSTREAMER
