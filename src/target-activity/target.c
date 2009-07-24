@@ -604,7 +604,7 @@ static guint add_points(double x, double y)
 {
   guint i;
   double diametre;
-  guint points;
+  guint points = 0;
 
   // Calculate the distance
   diametre = sqrt(x*x+y*y);
