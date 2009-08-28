@@ -480,7 +480,9 @@ static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 	      if(text)
 		{
 		  colors[i] = gettext((char *)text);
-		  g_free(text);
+		  // We got a translation, free the original value
+		  if ( text != colors[i] )
+		    g_free(text);
 		}
 	      text = NULL;
 	      g_free(sColor);
