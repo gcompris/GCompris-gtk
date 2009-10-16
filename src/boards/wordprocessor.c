@@ -1,6 +1,6 @@
 /* gcompris - wordprocessor.c
  *
- * Copyright (C) 2006, 2008 Bruno Coudoin
+ * Copyright (C) 2006-2007 Bruno Coudoin
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -133,28 +133,24 @@ static void	 set_level (guint level);
 static gboolean  key_release_event (GtkWidget *text_view,
 				    GdkEventKey *event);
 
-static GooCanvasItem *boardRootItem = NULL;
+static GnomeCanvasGroup *boardRootItem = NULL;
 
-static GooCanvasItem	*wordprocessor_create(void);
+static GnomeCanvasItem	*wordprocessor_create(void);
 static void		 wordprocessor_destroy_all_items(void);
 static void		 item_event(GtkWidget *item, gchar *data);
-static int		 display_style_buttons(GooCanvasItem *boardRootItem,
+static int		 display_style_buttons(GnomeCanvasGroup *boardRootItem,
 					       int x,
 					       int y);
 static void		 create_tags (GtkTextBuffer *buffer, doctype_t *doctype);
 static void		 set_default_tag (GtkTextBuffer *buffer, GtkTextTag *tag);
-static void		 display_style_selector(GooCanvasItem *boardRootItem, double y);
-static void		 display_color_style_selector(GooCanvasItem *boardRootItem, double y);
+static void		 display_style_selector(GnomeCanvasGroup *boardRootItem, double y);
+static void		 display_color_style_selector(GnomeCanvasGroup *boardRootItem, double y);
 static void		 item_event_style_selection (GtkComboBox *widget, void *data);
 static void		 item_event_color_style_selection (GtkComboBox *widget, void *data);
-static gboolean		 save_event (GooCanvasItem  *item,
-				     GooCanvasItem  *target,
-				     GdkEventButton *event,
-				     gchar *data);
-static gboolean		 load_event (GooCanvasItem  *item,
-				     GooCanvasItem  *target,
-				     GdkEventButton *event,
-				     gchar *data);
+static gint		 save_event(GnomeCanvasItem *item, GdkEvent *event,
+				    void *unused);
+static gint		 load_event(GnomeCanvasItem *item, GdkEvent *event,
+				    void *unused);
 static int		 get_style_index(gchar *style);
 static int		 get_style_current_index();
 static gint		 get_color_style_index(gchar *color_style);
@@ -166,7 +162,7 @@ static void		 apply_color_style(int style_index);
 #define word_area_x1 120
 #define word_area_y1 20
 #define word_area_width 650
-#define word_area_height 485
+#define word_area_height 480
 
 #define combo_style_x1 5
 #define combo_style_width 105
@@ -247,15 +243,19 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
   if(agcomprisBoard!=NULL)
     {
+      gchar *img;
+
       gcomprisBoard=agcomprisBoard;
       gcomprisBoard->level=1;
       gcomprisBoard->maxlevel=1;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
       gc_bar_set(0);
-      gc_bar_location(10, -1, 0.6);
 
-      gc_set_default_background(goo_canvas_get_root_item(gcomprisBoard->canvas));
+      img = gc_skin_image_get("gcompris-shapebg.jpg");
+      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+			      img);
+      g_free(img);
 
       wordprocessor_create();
 
@@ -301,20 +301,23 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 static void wordprocessor_destroy_all_items()
 {
   if(boardRootItem!=NULL)
-    goo_canvas_item_remove(boardRootItem);
+    gtk_object_destroy (GTK_OBJECT(boardRootItem));
 
   boardRootItem = NULL;
 }
 /* ==================================== */
-static GooCanvasItem *wordprocessor_create()
+static GnomeCanvasItem *wordprocessor_create()
 {
-  GooCanvasItem *item = NULL;
+  GnomeCanvasItem *item = NULL;
   GdkPixbuf *pixmap;
   double y;
 
-  boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
-					NULL);
-
+  boardRootItem = GNOME_CANVAS_GROUP(
+				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
+							    gnome_canvas_group_get_type (),
+							    "x", (double) 0,
+							    "y", (double) 0,
+							    NULL));
 
   selected_tag = NULL;
   view = gtk_text_view_new ();
@@ -333,13 +336,15 @@ static GooCanvasItem *wordprocessor_create()
 				  GTK_POLICY_ALWAYS);
   gtk_container_add (GTK_CONTAINER (sw), view);
 
-  item = goo_canvas_widget_new (boardRootItem,
-				GTK_WIDGET(sw),
-				word_area_x1,
-				word_area_y1,
-				word_area_width,
-				word_area_height,
+  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(boardRootItem),
+				gnome_canvas_widget_get_type (),
+				"widget", GTK_WIDGET(sw),
+				"x", (double) word_area_x1,
+				"y", (double) word_area_y1,
+				"width", (double) word_area_width,
+				"height", (double) word_area_height,
 				"anchor", GTK_ANCHOR_NW,
+				"size_pixels", FALSE,
 				NULL);
   gtk_widget_show(GTK_WIDGET(view));
   gtk_widget_show(GTK_WIDGET(sw));
@@ -357,34 +362,40 @@ static GooCanvasItem *wordprocessor_create()
   /*
    * The save button
    */
-  pixmap = gc_pixmap_load("wordprocessor/tool-save.png");
+  pixmap = gc_skin_pixmap_load("draw/tool-save.png");
   item = \
-    goo_canvas_image_new (boardRootItem,
-			  pixmap,
-			  17.0,
-			  y,
-			  NULL);
+    gnome_canvas_item_new (boardRootItem,
+			   gnome_canvas_pixbuf_get_type(),
+			   "pixbuf", pixmap,
+			   "x", 17.0,
+			   "y", y,
+			   "anchor", GTK_ANCHOR_NW,
+			   NULL);
   gdk_pixbuf_unref(pixmap);
-  g_signal_connect(item, "button_press_event",
-		   (GtkSignalFunc) save_event, buffer);
-  gc_item_focus_init(item, NULL);
-
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) save_event, buffer);
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) gc_item_focus_event,
+		     NULL);
 
   /*
    * The load button
    */
-  pixmap = gc_pixmap_load("wordprocessor/tool-load.png");
+  pixmap = gc_skin_pixmap_load("draw/tool-load.png");
   item = \
-    goo_canvas_image_new (boardRootItem,
-			  pixmap,
-			  60.0,
-			  y,
-			  NULL);
+    gnome_canvas_item_new (boardRootItem,
+			   gnome_canvas_pixbuf_get_type(),
+			   "pixbuf", pixmap,
+			   "x", 60.0,
+			   "y", y,
+			   "anchor", GTK_ANCHOR_NW,
+			   NULL);
   gdk_pixbuf_unref(pixmap);
-  g_signal_connect(item, "button_press_event",
-		   (GtkSignalFunc) load_event, buffer);
-  gc_item_focus_init(item, NULL);
-
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) load_event, buffer);
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) gc_item_focus_event,
+		     NULL);
 
   y += 45;
   /*
@@ -405,7 +416,7 @@ static GooCanvasItem *wordprocessor_create()
 
   gtk_widget_grab_focus(view);
 
- return NULL;
+  return NULL;
 }
 
 /*
@@ -414,7 +425,7 @@ static GooCanvasItem *wordprocessor_create()
  * \return the new y coordinate
  */
 static int
-display_style_buttons(GooCanvasItem *boardRootItem,
+display_style_buttons(GnomeCanvasGroup *boardRootItem,
 		      int x,
 		      int y)
 {
@@ -430,16 +441,18 @@ display_style_buttons(GooCanvasItem *boardRootItem,
     {
       gtk_button_style[i] = gtk_button_new_with_label(gettext(styles_tab[i*2]));
 
-      goo_canvas_widget_new (boardRootItem,
-			     GTK_WIDGET(gtk_button_style[i]),
-			     combo_style_x1,
-			     y,
-			     combo_style_width,
-			     35.0,
+      gnome_canvas_item_new (boardRootItem,
+			     gnome_canvas_widget_get_type (),
+			     "widget", GTK_WIDGET(gtk_button_style[i]),
+			     "x", (double) combo_style_x1,
+			     "y", (double) y,
+			     "width", (double) combo_style_width,
+			     "height", 35.0,
 			     "anchor", GTK_ANCHOR_NW,
+			     "size_pixels", FALSE,
 			     NULL);
 
-      g_signal_connect(GTK_OBJECT(gtk_button_style[i]), "pressed",
+      gtk_signal_connect(GTK_OBJECT(gtk_button_style[i]), "pressed",
 			 (GtkSignalFunc)item_event, styles_tab[i*2+1] );
 
       y += offset_y;
@@ -592,7 +605,7 @@ get_tag_from_name(gchar *tag_name)
  * --------------------------------
  */
 static void
-display_style_selector(GooCanvasItem *boardRootItem, double y)
+display_style_selector(GnomeCanvasGroup *boardRootItem, double y)
 {
   int i = 0;
 
@@ -602,13 +615,15 @@ display_style_selector(GooCanvasItem *boardRootItem, double y)
     gtk_combo_box_append_text(GTK_COMBO_BOX(gtk_combo_styles),
 			      gettext(doctype_list[i++]->name));
 
-  goo_canvas_widget_new (boardRootItem,
-			 GTK_WIDGET(gtk_combo_styles),
-			 combo_style_x1,
-			 y,
-			 combo_style_width,
-			 35.0,
+  gnome_canvas_item_new (GNOME_CANVAS_GROUP(boardRootItem),
+			 gnome_canvas_widget_get_type (),
+			 "widget", GTK_WIDGET(gtk_combo_styles),
+			 "x", (double) combo_style_x1,
+			 "y", y,
+			 "width", (double) combo_style_width,
+			 "height", 35.0,
 			 "anchor", GTK_ANCHOR_NW,
+			 "size_pixels", FALSE,
 			 NULL);
 
   gtk_widget_show(GTK_WIDGET(gtk_combo_styles));
@@ -625,7 +640,7 @@ display_style_selector(GooCanvasItem *boardRootItem, double y)
  * --------------------------------------
  */
 static void
-display_color_style_selector(GooCanvasItem *boardRootItem, double y)
+display_color_style_selector(GnomeCanvasGroup *boardRootItem, double y)
 {
   int i = 0;
 
@@ -635,13 +650,15 @@ display_color_style_selector(GooCanvasItem *boardRootItem, double y)
     gtk_combo_box_append_text(GTK_COMBO_BOX(gtk_combo_colors),
 			      gettext(color_style_list[i++][0]));
 
-  goo_canvas_widget_new (boardRootItem,
-			 GTK_WIDGET(gtk_combo_colors),
-			 combo_style_x1,
-			 y,
-			 combo_style_width,
-			 35.0,
+  gnome_canvas_item_new (GNOME_CANVAS_GROUP(boardRootItem),
+			 gnome_canvas_widget_get_type (),
+			 "widget", GTK_WIDGET(gtk_combo_colors),
+			 "x", (double) combo_style_x1,
+			 "y", y,
+			 "width", (double) combo_style_width,
+			 "height", 35.0,
 			 "anchor", GTK_ANCHOR_NW,
+			 "size_pixels", FALSE,
 			 NULL);
 
   gtk_widget_show(GTK_WIDGET(gtk_combo_colors));
@@ -859,7 +876,7 @@ escape(char *input)
 }
 
 static void
-save_buffer(gchar *file, gchar *file_type, void *unused)
+save_buffer(gchar *file, gchar *file_type)
 {
   GtkTextIter iter_start, iter_end;
   GSList *tags = NULL, *tagp = NULL;
@@ -986,27 +1003,24 @@ save_buffer(gchar *file, gchar *file_type, void *unused)
 
 }
 
-static gboolean
-save_event (GooCanvasItem  *item,
-	    GooCanvasItem  *target,
-	    GdkEventButton *event,
-	    gchar *data)
+static gint
+save_event(GnomeCanvasItem *item, GdkEvent *event, void *unused)
 {
-  if (event->button != 1)
+  if (event->type != GDK_BUTTON_PRESS || event->button.button != 1)
     return FALSE;
 
   pause_board(TRUE);
 
   gc_selector_file_save(gcomprisBoard,
 			"wordprocessor",
-			".xhtml",
-			save_buffer, NULL);
+			"wordprocessor/xhtml",
+			save_buffer);
 
   return FALSE;
 }
 
 static void
-load_buffer(gchar *file, gchar *file_type, void *unused)
+load_buffer(gchar *file, gchar *file_type)
 {
   GtkTextBuffer *buffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW (view));
   xmlDocPtr doc;
@@ -1119,21 +1133,18 @@ load_buffer(gchar *file, gchar *file_type, void *unused)
   xmlFreeDoc(doc);
 }
 
-static gboolean
-load_event (GooCanvasItem  *item,
-	    GooCanvasItem  *target,
-	    GdkEventButton *event,
-	    gchar *data)
+static gint
+load_event(GnomeCanvasItem *item, GdkEvent *event, void *unused)
 {
-  if (event->button != 1)
+  if (event->type != GDK_BUTTON_PRESS || event->button.button != 1)
     return FALSE;
 
   pause_board(TRUE);
 
   gc_selector_file_load(gcomprisBoard,
 			"wordprocessor",
-			".xhtml",
-			load_buffer, NULL);
+			"wordprocessor/xhtml",
+			load_buffer);
 
   return FALSE;
 }
