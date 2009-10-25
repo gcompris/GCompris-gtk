@@ -393,7 +393,8 @@ class Gcompris_anim:
 
           gcompris.images_selector_start(self.gcomprisBoard,
                                          "dataset",
-                                         image_selected);
+                                         image_selected,
+                                         self);
           return False
 
         elif (self.tools[tool][0] == "MOVIE"):
@@ -750,9 +751,8 @@ def general_restore(filename, filetype, fles):
   print "general_restore : ", filename, " type ",filetype
 
 
-def image_selected(image):
+def image_selected(image, fles):
   #fles is used because self is not passed through callback
-  global fles
   print "image selected %s" %(image,)
   pixmap = gcompris.utils.load_pixmap(image)
 

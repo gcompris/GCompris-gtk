@@ -404,14 +404,15 @@ py_gc_cursor_set(PyObject* self, PyObject* args)
 /* Some functions and variables needed to get the image selector working */
 static PyObject* pyImageSelectorCallBackFunc = NULL;
 
-void pyImageSelectorCallBack(gchar* image){
+void pyImageSelectorCallBack(gchar* image, void *user_data){
   PyObject* args;
   PyObject* result;
   if(pyImageSelectorCallBackFunc==NULL) return;
 
   /* Build arguments */
-  args = PyTuple_New(1);
+  args = PyTuple_New(2);
   PyTuple_SetItem(args, 0, Py_BuildValue("s", image));
+  PyTuple_SetItem(args, 1, Py_BuildValue("O", user_data));
   result = PyObject_CallObject(pyImageSelectorCallBackFunc, args);
   if(result==NULL){
     PyErr_Print();
@@ -431,13 +432,15 @@ py_gc_selector_images_start(PyObject* self, PyObject* args)
   GcomprisBoard* cGcomprisBoard;
   PyObject* pyCallback;
   gchar* dataset;
+  void *user_data;
 
   /* Parse arguments */
   if(!PyArg_ParseTuple(args,
-		       "OsO:gc_selector_images_start",
+		       "OsOO:gc_selector_images_start",
 		       &pyGcomprisBoard,
 		       &dataset,
-		       &pyCallback))
+		       &pyCallback,
+		       &user_data))
     return NULL;
   if(!PyCallable_Check(pyCallback)) return NULL;
   cGcomprisBoard = ((pyGcomprisBoardObject*) pyGcomprisBoard)->cdata;
@@ -446,7 +449,8 @@ py_gc_selector_images_start(PyObject* self, PyObject* args)
   pyImageSelectorCallBackFunc = pyCallback;
   gc_selector_images_start(cGcomprisBoard,
 			   dataset,
-			   pyImageSelectorCallBack);
+			   pyImageSelectorCallBack,
+			   user_data);
 
   /* Create and return the result */
   Py_INCREF(Py_None);

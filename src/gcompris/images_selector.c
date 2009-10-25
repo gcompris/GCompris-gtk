@@ -58,6 +58,7 @@ static GtkWidget	*canvas_image_selector; /* The scrolled right part */
 static GooCanvasItem    *image_bg_item;
 
 static ImageSelectorCallBack imageSelectorCallBack = NULL;
+static void *current_user_context = NULL;
 
 static gboolean		 display_in_progress;
 
@@ -103,7 +104,8 @@ static GtkAdjustment    *image_adj;
 
 void
 gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
-			  ImageSelectorCallBack iscb)
+			  ImageSelectorCallBack iscb,
+			  void *user_context)
 {
 
   GooCanvasItem *item;
@@ -120,6 +122,7 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
   gc_board_pause(TRUE);
 
   imageSelectorCallBack = iscb;
+  current_user_context = user_context;
 
   rootitem = goo_canvas_group_new (goo_canvas_get_root_item(gc_get_canvas()),
 				   NULL);
@@ -568,7 +571,7 @@ item_event_images_selector(GooCanvasItem *item,
   else
     {
       if(imageSelectorCallBack!=NULL)
-	imageSelectorCallBack(data);
+	imageSelectorCallBack(data, current_user_context);
 
       gc_selector_images_stop();
     }

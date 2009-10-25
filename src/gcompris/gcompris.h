@@ -168,10 +168,12 @@ gchar		*gc_locale_get_name(gchar *locale);
 
 void		 gc_cursor_set(guint gdk_cursor_type);
 
-typedef void     (*ImageSelectorCallBack)     (gchar* image);
+typedef void     (*ImageSelectorCallBack)     (gchar* image,
+					       void *user_context);
 void		 gc_selector_images_start (GcomprisBoard *gcomprisBoard,
-						 gchar *dataset,
-						 ImageSelectorCallBack imscb);
+					   gchar *dataset,
+					   ImageSelectorCallBack imscb,
+					   void *user_context);
 void		 gc_selector_images_stop (void);
 
 typedef void     (*FileSelectorCallBack)     (gchar *file, gchar *file_type,
