@@ -67,6 +67,7 @@ static GtkWidget            *gtk_combo_filetypes = NULL;
 static gchar *current_rootdir = NULL;
 static void *current_user_context = NULL;
 static GtkWidget *widget_entry = NULL;
+static gchar *current_extension = NULL;
 
 /* Represent the limits of control area */
 static guint32 control_area_x1;
@@ -138,6 +139,10 @@ gc_selector_file_stop ()
 
   gc_bar_hide(FALSE);
   file_selector_displayed = FALSE;
+
+  //  if (current_extension)
+  //    g_free(current_extension);
+  current_extension = NULL;
 }
 
 
@@ -599,12 +604,14 @@ item_event_file_selector (GooCanvasItem  *item,
 		  gtk_tree_model_get (model, &iter, 0,
 				      &file_type, -1);
 	      }
+	    else
+	      file_type = g_strdup(current_extension);
 
 	    result = g_strdup_printf("%s/%s%s",
 				     current_rootdir,
 				     gtk_entry_get_text(GTK_ENTRY(widget_entry)),
 				     (file_type ? file_type :  "") );
-
+	    printf("result=%s\n", result);
 	    /* Callback with the proper params */
 	    fileSelectorCallBack(result, file_type, current_user_context);
 
@@ -636,6 +643,16 @@ item_event_file_selector (GooCanvasItem  *item,
 	  gtk_entry_set_text(GTK_ENTRY(widget_entry),
 			     g_path_get_basename(file_wo_ext));
 	  g_free(file_wo_ext);
+
+
+	  if (current_extension && ext)
+	    {
+	      g_free(current_extension);
+	      current_extension = g_strdup(ext);
+	    }
+	  else if ( ext )
+	    current_extension = g_strdup(ext);
+
 	}
       break;
     default:

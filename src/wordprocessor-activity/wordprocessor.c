@@ -857,7 +857,7 @@ escape(char *input)
 }
 
 static void
-save_buffer(gchar *file, gchar *file_type)
+save_buffer(gchar *file, gchar *file_type, void *unused)
 {
   GtkTextIter iter_start, iter_end;
   GSList *tags = NULL, *tagp = NULL;
@@ -998,13 +998,13 @@ save_event (GooCanvasItem  *item,
   gc_selector_file_save(gcomprisBoard,
 			"wordprocessor",
 			".xhtml",
-			save_buffer);
+			save_buffer, NULL);
 
   return FALSE;
 }
 
 static void
-load_buffer(gchar *file, gchar *file_type)
+load_buffer(gchar *file, gchar *file_type, void *unused)
 {
   GtkTextBuffer *buffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW (view));
   xmlDocPtr doc;
@@ -1131,7 +1131,7 @@ load_event (GooCanvasItem  *item,
   gc_selector_file_load(gcomprisBoard,
 			"wordprocessor",
 			".xhtml",
-			load_buffer);
+			load_buffer, NULL);
 
   return FALSE;
 }
