@@ -224,11 +224,11 @@ class Gcompris_anim:
     if (keyval == gtk.keysyms.F1):
       gcompris.file_selector_save( self.gcomprisBoard,
                                    self.selector_section, self.file_type,
-                                   general_save)
+                                   general_save, self)
     elif (keyval == gtk.keysyms.F2):
       gcompris.file_selector_load( self.gcomprisBoard,
                                    self.selector_section, self.file_type,
-                                   general_restore)
+                                   general_restore, self)
     elif (keyval == gtk.keysyms.Left):
       self.timeline.previous()
       return True
@@ -375,15 +375,16 @@ class Gcompris_anim:
         gcompris.sound.play_ogg("sounds/bleep.wav")
         # Some button have instant effects
         if (self.tools[tool][0] == "SAVE"):
+          print "SAVE"
           gcompris.file_selector_save( self.gcomprisBoard,
                                        self.selector_section, self.file_type,
-                                       general_save)
+                                       general_save, self)
           return False
 
         elif (self.tools[tool][0] == "LOAD"):
           gcompris.file_selector_load( self.gcomprisBoard,
                                        self.selector_section, self.file_type,
-                                       general_restore)
+                                       general_restore, self)
           return False
 
         elif (self.tools[tool][0] == "IMAGE"):
@@ -741,12 +742,11 @@ class Gcompris_anim:
 #             GLOBAL functions
 #
 ###############################################
-def general_save(filename, filetype):
-  global fles
+def general_save(filename, filetype, fles):
   print "filename=%s filetype=%s" %(filename, filetype)
 
 
-def general_restore(filename, filetype):
+def general_restore(filename, filetype, fles):
   print "general_restore : ", filename, " type ",filetype
 
 

@@ -52,7 +52,8 @@ static int		 display_file_selector(int mode,
 					       GcomprisBoard *gcomprisBoard,
 					       gchar *rootdir,
 					       gchar *file_types,
-					       FileSelectorCallBack iscb);
+					       FileSelectorCallBack iscb,
+					       void *user_context);
 static void		 entry_enter_callback( GtkWidget *widget,
 					       GtkWidget *entry );
 static gboolean		 file_selector_displayed = FALSE;
@@ -64,6 +65,7 @@ static FileSelectorCallBack  fileSelectorCallBack = NULL;
 static GtkWidget            *gtk_combo_filetypes = NULL;
 
 static gchar *current_rootdir = NULL;
+static void *current_user_context = NULL;
 static GtkWidget *widget_entry = NULL;
 
 /* Represent the limits of control area */
@@ -96,19 +98,21 @@ static guint32 directory_label_y;
  */
 
 void gc_selector_file_save (GcomprisBoard *gcomprisBoard, gchar *rootdir,
-				  gchar *file_exts,
-				  FileSelectorCallBack iscb)
+			    gchar *file_exts,
+			    FileSelectorCallBack iscb,
+			    void *user_context)
 {
   display_file_selector(MODE_SAVE, gcomprisBoard, rootdir, file_exts,
-			iscb);
+			iscb, user_context);
 }
 
 void gc_selector_file_load (GcomprisBoard *gcomprisBoard, gchar *rootdir,
-				  gchar *file_exts,
-				  FileSelectorCallBack iscb)
+			    gchar *file_exts,
+			    FileSelectorCallBack iscb,
+			    void *user_context)
 {
   display_file_selector(MODE_LOAD, gcomprisBoard, rootdir, file_exts,
-			iscb);
+			iscb, user_context);
 }
 
 /*
@@ -149,7 +153,8 @@ display_file_selector(int the_mode,
 		      GcomprisBoard *gcomprisBoard,
 		      gchar *rootdir,
 		      gchar *file_exts,
-		      FileSelectorCallBack iscb)
+		      FileSelectorCallBack iscb,
+		      void *user_context)
 {
   GooCanvasItem    *item;
   gchar		   *name = NULL;
@@ -251,7 +256,7 @@ display_file_selector(int the_mode,
 			  "#BUTTON_TEXT",
 			  (mode==MODE_LOAD ? _("LOAD") : _("SAVE")),
 			  (GtkSignalFunc) item_event_file_selector,
-			  "/cancel/");
+			  "/ok/");
 
   file_selector_displayed = TRUE;
 
@@ -259,6 +264,7 @@ display_file_selector(int the_mode,
   gc_util_create_rootdir(full_rootdir);
 
   current_rootdir = full_rootdir;
+  current_user_context = user_context;
 
   display_files(rootitem, full_rootdir);
 
@@ -599,17 +605,17 @@ item_event_file_selector (GooCanvasItem  *item,
 				     gtk_entry_get_text(GTK_ENTRY(widget_entry)),
 				     (file_type ? file_type :  "") );
 
-	  /* Callback with the proper params */
-	  fileSelectorCallBack(result, file_type);
+	    /* Callback with the proper params */
+	    fileSelectorCallBack(result, file_type, current_user_context);
 
-	  if(file_type)
-	    g_free(file_type);
+	    if(file_type)
+	      g_free(file_type);
 
-	  /* DO NOT FREE RESULT OR PYTHON SIDE WILL BE IN TROUBLE */
-	  /* ADDENDUM: DOES NOT HURT ANYMORE, WHY ? */
-	  if(result)
-	    g_free(result);
-	}
+	    /* DO NOT FREE RESULT OR PYTHON SIDE WILL BE IN TROUBLE */
+	    /* ADDENDUM: DOES NOT HURT ANYMORE, WHY ? */
+	    if(result)
+	      g_free(result);
+	  }
 	gc_selector_file_stop();
       }
       else if(!strcmp(data, "/cancel/"))

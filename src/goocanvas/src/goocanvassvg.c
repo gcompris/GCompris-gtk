@@ -111,13 +111,14 @@ _search_limits(GooCanvasSvg *canvas_svg,
 }
 
 static void _init_surface(GooCanvasSvg *canvas_svg,
-			  RsvgHandle *svg_handle)
+			  RsvgHandle *svg_handle, double zoom)
 {
+  zoom *= 2;
   g_assert(svg_handle);
   RsvgDimensionData dimension_data;
   rsvg_handle_get_dimensions (svg_handle, &dimension_data);
-  canvas_svg->width = dimension_data.width;
-  canvas_svg->height = dimension_data.height;
+  canvas_svg->width = dimension_data.width * zoom;
+  canvas_svg->height = dimension_data.height * zoom;
   canvas_svg->svg_handle = svg_handle;
   g_object_ref(svg_handle);
 
@@ -213,7 +214,7 @@ goo_canvas_svg_new (GooCanvasItem      *parent,
 
   canvas_svg = (GooCanvasSvg*) item;
   if(svg_handle)
-    _init_surface(canvas_svg, svg_handle);
+    _init_surface(canvas_svg, svg_handle, 1.0);
 
   if (parent)
     {
@@ -300,7 +301,7 @@ goo_canvas_svg_set_common_property (GObject              *object,
       svg_handle = g_value_get_object (value);
       if(canvas_svg->svg_handle)
       g_object_unref (canvas_svg->svg_handle);
-      _init_surface(canvas_svg, svg_handle);
+      _init_surface(canvas_svg, svg_handle, 1.0);
       break;
     case PROP_SVG_ID:
       if(canvas_svg->id)
@@ -310,7 +311,7 @@ goo_canvas_svg_set_common_property (GObject              *object,
       else
         canvas_svg->id = g_value_dup_string(value);
       if (canvas_svg->svg_handle)
-	_init_surface(canvas_svg, canvas_svg->svg_handle);
+	_init_surface(canvas_svg, canvas_svg->svg_handle, 1.0);
       break;
     case PROP_AUTOCROP:
       canvas_svg->autocrop = g_value_get_boolean (value);

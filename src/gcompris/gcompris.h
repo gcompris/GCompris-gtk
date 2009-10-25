@@ -174,15 +174,18 @@ void		 gc_selector_images_start (GcomprisBoard *gcomprisBoard,
 						 ImageSelectorCallBack imscb);
 void		 gc_selector_images_stop (void);
 
-typedef void     (*FileSelectorCallBack)     (gchar *file, gchar *file_type); /* file_type is one string from file_types in the save */
+typedef void     (*FileSelectorCallBack)     (gchar *file, gchar *file_type,
+					      void *user_context); /* file_type is one string from file_types in the save */
 void		 gc_selector_file_load (GcomprisBoard *gcomprisBoard,
-					      gchar *rootdir,
-					      gchar *file_types, /* A Comma separated text explaining the different file types */
-					      FileSelectorCallBack fscb);
+					gchar *rootdir, /* Relative to property->user_dir */
+					gchar *file_types, /* A Comma separated text explaining the different file types */
+					FileSelectorCallBack fscb,
+					void *user_contact);
 void		 gc_selector_file_save (GcomprisBoard *gcomprisBoard,
-					      gchar *rootdir,
-					      gchar *file_types, /* A Comma separated text explaining the different file types */
-					      FileSelectorCallBack fscb);
+					gchar *rootdir, /* Relative to property->user_dir */
+					gchar *file_types, /* A Comma separated text explaining the different file types */
+					FileSelectorCallBack fscb,
+					void *user_context);
 void		 gc_selector_file_stop (void);
 
 gchar		*gc_db_get_filename();

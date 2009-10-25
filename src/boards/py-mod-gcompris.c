@@ -528,15 +528,16 @@ py_gc_selector_images_stop(PyObject* self, PyObject* args)
 /* Some functions and variables needed to get the file selector working */
 static PyObject* pyFileSelectorCallBackFunc = NULL;
 
-void pyFileSelectorCallBack(gchar* file, char* file_type){
+void pyFileSelectorCallBack(gchar* file, char* file_type, void *user_context){
   PyObject* args;
   PyObject* result;
   if(pyFileSelectorCallBackFunc==NULL) return;
 
   /* Build arguments */
-  args  = PyTuple_New(2);
+  args  = PyTuple_New(3);
   PyTuple_SetItem(args, 0, Py_BuildValue("s", file));
   PyTuple_SetItem(args, 1, Py_BuildValue("s", file_type));
+  PyTuple_SetItem(args, 2, Py_BuildValue("O", user_context));
   result = PyObject_CallObject(pyFileSelectorCallBackFunc, args);
   if(result==NULL){
     PyErr_Print();
@@ -550,7 +551,8 @@ void pyFileSelectorCallBack(gchar* file, char* file_type){
 /* void gc_selector_file_load(GcomprisBoard *gcomprisBoard,
                                     gchar *rootdir,
 				    gchar *file_types, (A Comma separated text explaining the different file types)
-                                    FileSelectorCallBack fscb);
+                                    FileSelectorCallBack fscb,
+				    void *pyUserContext);
 */
 static PyObject*
 py_gc_selector_file_load(PyObject* self, PyObject* args){
@@ -559,14 +561,16 @@ py_gc_selector_file_load(PyObject* self, PyObject* args){
   PyObject* pyCallback;
   gchar* rootdir;
   gchar* file_types;
+  void *pyUserContext;
 
   /* Parse arguments */
   if(!PyArg_ParseTuple(args,
-		       "OssO:gc_selector_file_load",
+		       "OssOO:gc_selector_file_load",
 		       &pyGcomprisBoard,
 		       &rootdir,
 		       &file_types,
-		       &pyCallback))
+		       &pyCallback,
+		       &pyUserContext))
     return NULL;
   if(!PyCallable_Check(pyCallback)) return NULL;
   cGcomprisBoard = ((pyGcomprisBoardObject*) pyGcomprisBoard)->cdata;
@@ -574,9 +578,10 @@ py_gc_selector_file_load(PyObject* self, PyObject* args){
   /* Call the corresponding C function */
   pyFileSelectorCallBackFunc = pyCallback;
   gc_selector_file_load(cGcomprisBoard,
-                              rootdir,
-			      file_types,
-                              pyFileSelectorCallBack);
+			rootdir,
+			file_types,
+			pyFileSelectorCallBack,
+			pyUserContext);
 
   /* Create and return the result */
   Py_INCREF(Py_None);
@@ -585,9 +590,10 @@ py_gc_selector_file_load(PyObject* self, PyObject* args){
 
 
 /* void gc_selector_file_save(GcomprisBoard *gcomprisBoard,
-                                    gchar *rootdir,
-				    gchar *file_types, (A Comma separated text explaining the different file types)
-                                    FileSelectorCallBack fscb);
+                              gchar *rootdir,
+			      gchar *file_types, (A Comma separated text explaining the different file types)
+                              FileSelectorCallBack fscb,
+			      void *user_context);
 */
 static PyObject*
 py_gc_selector_file_save(PyObject* self, PyObject* args){
@@ -596,14 +602,16 @@ py_gc_selector_file_save(PyObject* self, PyObject* args){
   PyObject* pyCallback;
   gchar* rootdir;
   char* file_types;
+  void *pyUserContext;
 
   /* Parse arguments */
   if(!PyArg_ParseTuple(args,
-		       "OssO:gc_selector_file_save",
+		       "OssOO:gc_selector_file_save",
 		       &pyGcomprisBoard,
 		       &rootdir,
 		       &file_types,
-		       &pyCallback))
+		       &pyCallback,
+		       &pyUserContext))
     return NULL;
   if(!PyCallable_Check(pyCallback)) return NULL;
   cGcomprisBoard = ((pyGcomprisBoardObject*) pyGcomprisBoard)->cdata;
@@ -611,9 +619,10 @@ py_gc_selector_file_save(PyObject* self, PyObject* args){
   /* Call the corresponding C function */
   pyFileSelectorCallBackFunc = pyCallback;
   gc_selector_file_save(cGcomprisBoard,
-                              rootdir,
-			      file_types,
-                              pyFileSelectorCallBack);
+			rootdir,
+			file_types,
+			pyFileSelectorCallBack,
+			pyUserContext);
 
   /* Create and return the result */
   Py_INCREF(Py_None);
@@ -1286,9 +1295,9 @@ py_gc_board_config_spin_int(PyObject* self, PyObject* args)
   /* Parse arguments */
   if(!PyArg_ParseTuple(args, "Ossiiii:gc_board_config_radio_buttons", &py_bconf, &label, &key, &min, &max, &step, &init))
     return NULL;
-  
+
   bconf = (pyGcomprisBoardConfigObject*)py_bconf;
-  
+
   return (PyObject *)pygobject_new((GObject*) \
 				   gc_board_config_spin_int(bconf->cdata, (const gchar *)label,
 						     key,
@@ -1305,7 +1314,7 @@ static PyObject*
 py_gc_board_conf_separator(PyObject* self, PyObject* args)
 {
   PyObject *py_bconf;
-  pyGcomprisBoardConfigObject * bconf; 
+  pyGcomprisBoardConfigObject * bconf;
 
   /* Parse arguments */
   if(!PyArg_ParseTuple(args, "O:gc_board_conf_separator", &py_bconf))
@@ -1330,7 +1339,7 @@ py_gc_board_config_combo_locales(PyObject* self, PyObject* args)
   if(!PyArg_ParseTuple(args, "Os:gc_board_config_combo_locales", &py_bconf, &init))
     return NULL;
   bconf = (pyGcomprisBoardConfigObject*)py_bconf;
-  
+
   return (PyObject *)pygobject_new((GObject*) \
 				   gc_board_config_combo_locales(bconf->cdata, init));
 }
