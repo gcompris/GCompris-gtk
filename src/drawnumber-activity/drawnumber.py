@@ -203,6 +203,7 @@ class Gcompris_drawnumber :
         if idpt == self.MAX : #Action to execute if all points have been selected in good way
           gcompris.set_background(self.ROOT, self.data[self.gcomprisBoard.sublevel][0][2])
           self.gamewon = 1
+          gcompris.bar_hide(True)
           self.timeout = gobject.timeout_add(1500, self.lauch_bonus) # The level is complete -> Bonus display
 
         else : #Action to execute if the selected point isn''t the last one of this level
