@@ -29,11 +29,12 @@ import cairo
 import sys
 
 class AnimItem:
+    anim = None
 
-    def __init__(self, anim):
-        self.anim = anim
-        self.rootitem = goocanvas.Group(parent = anim.rootitem)
-        self.drawing_area = anim.drawing_area
+    def __init__(self, anim_):
+        AnimItem.anim = anim_
+        self.rootitem = goocanvas.Group(parent = anim_.rootitem)
+        self.drawing_area = anim_.drawing_area
         gcompris.sound.play_ogg("sounds/bleep.wav")
 
         self.step = 1
@@ -129,7 +130,7 @@ class AnimItem:
     def snap_to_grid(self, x, y):
 
         if self.item:
-            (x, y) = self.anim.gcomprisBoard.canvas.\
+            (x, y) = AnimItem.anim.gcomprisBoard.canvas.\
                 convert_from_item_space(self.item, x, y)
 
         # Check drawing boundaries
@@ -152,7 +153,7 @@ class AnimItem:
         result.append(float(self.drawing_area[1] + tmp*self.step))
 
         if self.item:
-            return self.anim.gcomprisBoard.canvas.\
+            return AnimItem.anim.gcomprisBoard.canvas.\
                 convert_to_item_space(self.item, x, y)
 
         return result
@@ -212,9 +213,9 @@ class AnimItem:
     def delete(self):
         gcompris.sound.play_ogg("sounds/eraser1.wav",
                                 "sounds/eraser2.wav")
-        self.delete_at_time(self.anim.timeline.get_time())
+        self.delete_at_time(AnimItem.anim.timeline.get_time())
         if not self.visible:
-            self.anim.deleteItem(self)
+            AnimItem.anim.deleteItem(self)
         self.show(False)
 
     def raise_(self):
@@ -236,7 +237,7 @@ class AnimItem:
         bounds = self.item.get_bounds()
         (cx, cy) = ( bounds.x1 + (bounds.x2-bounds.x1)/2,
                      bounds.y1 + (bounds.y2-bounds.y1)/2 )
-        (cx, cy) = self.anim.gcomprisBoard.canvas.\
+        (cx, cy) = AnimItem.anim.gcomprisBoard.canvas.\
             convert_to_item_space(self.item, cx, cy)
         self.item.rotate(angle, cx, cy)
 
@@ -257,24 +258,24 @@ class AnimItem:
     def create_item_event(self, item, target):
 
         self.refpoint = None
-        self.save_at_time(self.anim.timeline.get_time())
+        self.save_at_time(AnimItem.anim.timeline.get_time())
         # By default, an object is displayed till the timeline end
-        self.set_visible_to_end(self.anim.timeline.get_time())
+        self.set_visible_to_end(AnimItem.anim.timeline.get_time())
 
     def create_item_drag_event(self, item, target, event):
         if event.type == gtk.gdk.BUTTON_RELEASE:
-            self.save_at_time(self.anim.timeline.get_time())
+            self.save_at_time(AnimItem.anim.timeline.get_time())
 
         if (event.type == gtk.gdk.MOTION_NOTIFY
             and event.state & gtk.gdk.BUTTON1_MASK):
 
             if not self.refpoint:
-                self.refpoint = self.anim.gcomprisBoard.canvas.\
+                self.refpoint = AnimItem.anim.gcomprisBoard.canvas.\
                     convert_from_item_space(target,
                                           self.get_x1y1()[0],
                                           self.get_x1y1()[1])
 
-            (x, y) = self.anim.gcomprisBoard.canvas.\
+            (x, y) = AnimItem.anim.gcomprisBoard.canvas.\
                 convert_from_item_space(item, event.x, event.y)
 
             self.set_bounds(
@@ -288,7 +289,7 @@ class AnimItem:
         if event.type == gtk.gdk.BUTTON_RELEASE:
             self.old_x = 0
             self.old_y = 0
-            self.save_at_time(self.anim.timeline.get_time())
+            self.save_at_time(AnimItem.anim.timeline.get_time())
         elif event.type == gtk.gdk.BUTTON_PRESS:
             self.old_x = event.x
             self.old_y = event.y
@@ -369,8 +370,8 @@ class AnimItem:
 class Anchor:
     # group contains normal items.
 
-    A_WIDTH = 14
-    A_HEIGHT = 14
+    A_WIDTH = -1
+    A_HEIGHT = -1
 
     # anchortype
     ANCHOR_NW = 1
@@ -396,6 +397,9 @@ class Anchor:
 
     def __init__(self, animitem):
         self.animitem = animitem
+
+        self.A_WIDTH = animitem.anim.DEFAULT_ANCHOR_SIZE
+        self.A_HEIGHT = animitem.anim.DEFAULT_ANCHOR_SIZE
 
         self.anchorgroup = None
         self.anchors = []

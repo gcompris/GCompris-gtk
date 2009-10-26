@@ -69,31 +69,30 @@ class Gcompris_anim:
 
     # There is two board in the same code
     # here the diff in parameters
+    self.pickle_protocol = 2
     if self.gcomprisBoard.mode == 'draw':
-      self.format_string = { 'gcompris' : 'GCompris draw 2 cPikle file',
-                             'svg' : 'GCompris draw 2 svg file'
+      self.format_string = { 'gcompris' : 'GCompris draw 3 cPikle file',
                              }
     else:
-      self.format_string = { 'gcompris' : 'GCompris anim 2 cPikle file',
-                             'svg' : 'GCompris anim 2 svg file'
+      self.format_string = { 'gcompris' : 'GCompris anim 3 cPikle file',
                              }
 
     if self.gcomprisBoard.mode == 'draw':
       # DRAW
       #
       # draw is adapted to little kids : big anchors
-      self.DEFAULT_ANCHOR_SIZE	= 12
+      self.DEFAULT_ANCHOR_SIZE	= 14
 
       # draw specific UI
-      self.selector_section = "draw2"
+      self.selector_section = "draw3"
     else:
       # Anim
       #
       # Normal anchors
-      self.DEFAULT_ANCHOR_SIZE	= 8
+      self.DEFAULT_ANCHOR_SIZE	= 10
 
       # anim specific UI
-      self.selector_section = "anim2"
+      self.selector_section = "anim3"
 
     # Initialisation. Should not change in draw.
     self.running = False
@@ -737,7 +736,50 @@ class Gcompris_anim:
       font = gcompris.skin.get_font("gcompris/board/medium"),
       fill_color = "white")
 
+  def anim_to_file(self, filename):
 
+    file = open(filename, 'wb')
+
+    # Save the descriptif frame:
+    pickle.dump(fles.format_string['gcompris'], file, self.pickle_protocol)
+
+    pickle.dump(self.animlist, file, self.pickle_protocol)
+    file.close()
+
+  def file_to_anim(self, filename):
+
+    file = open(filename, 'rb')
+    try:
+      desc = pickle.load(file)
+    except:
+      file.close()
+      print 'Cannot load ', filename , " as a GCompris animation"
+      return
+
+    if type(desc) == type('str'):
+      # string
+      if 'desc' != fles.format_string['gcompris']:
+        if (desc == 'GCompris draw 3 cPikle file'
+            or desc == 'GCompris anim 3 cPikle file'):
+          print "load"
+          self.animlist = pickle.load(file)
+          for item in self.animlist:
+            item.anim = self
+        else:
+          print "ERROR: Unrecognized file format, file", filename, ' has description : ', desc
+          file.close()
+          return
+      else:
+        print "ERROR: Unrecognized file format (desc), file", filename, ' has description : ', desc
+        file.close()
+        return
+
+    elif type(desc) == type(1):
+      print filename, 'has no description. Are you sure it\'s', fles.format_string['gcompris'],'?'
+      # int
+      fles.frames_total = desc
+
+    file.close()
 
 
 ###############################################
@@ -747,11 +789,11 @@ class Gcompris_anim:
 ###############################################
 def general_save(filename, filetype, fles):
   print "filename=%s filetype=%s" %(filename, filetype)
-
+  fles.anim_to_file(filename)
 
 def general_restore(filename, filetype, fles):
   print "general_restore : ", filename, " type ",filetype
-
+  fles.file_to_anim(filename)
 
 def image_selected(image, fles):
   #fles is used because self is not passed through callback
@@ -770,3 +812,4 @@ def image_selected(image, fles):
 
   # We keep all object in a unique list
   fles.animlist.append(fles.created_object)
+
