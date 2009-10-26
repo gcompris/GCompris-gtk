@@ -1,6 +1,6 @@
 #  gcompris - anim
 #
-# Copyright (C) 2003, 2008 Bruno Coudoin (redraw code), 2004 Yves Combe (anim code)
+# Copyright (C) 2003, 2009 Bruno Coudoin
 #
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
@@ -182,6 +182,8 @@ class Gcompris_anim:
 
     self.timeline = Timeline(self)
     self.timeline.draw()
+    if self.gcomprisBoard.mode == 'draw':
+      self.timeline.hide()
 
     self.color = Color(self.rootitem, self.drawing_area)
     self.color.draw()
