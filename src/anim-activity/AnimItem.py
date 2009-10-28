@@ -40,7 +40,6 @@ class AnimItem:
         self.step = 1
 
         self.item = None
-        self.events = None
         self.anchor = None
 
         self.old_x = 0
@@ -54,6 +53,23 @@ class AnimItem:
         # The key is the time (number) and the value is a tuple
         # (properties, transformation).
         self.timeline = {}
+
+    def dump(self):
+        print "Dump AnimItem:"
+        print self.timeline
+        print self.item
+        print self.rootitem
+
+    def restore(self, anim_):
+        print "restore AnimItem:"
+        print self.timeline
+        AnimItem.anim = anim_
+        print AnimItem.anim
+        print AnimItem.anim.rootitem
+        self.rootitem = goocanvas.Group(parent = AnimItem.anim.rootitem)
+        # Should not have saved anchor in the first place
+        self.anchor = None
+        pass
 
     def test(self):
         self.set_visible(0, 10)
@@ -564,6 +580,21 @@ class Anchor:
 class AnimItemRect(AnimItem):
 
     filled = False
+
+    def dump(self):
+        print "Dump Rect:"
+        AnimItem.dump(self)
+
+    def restore(self, anim_):
+        AnimItem.restore(self, anim_)
+        self.item = \
+            goocanvas.Rect(
+                parent = self.rootitem
+                )
+        self.item.set_data("AnimItem", self)
+        self.item.connect("button_press_event", anim_.item_event)
+        self.item.connect("button_release_event", anim_.item_event)
+        self.item.connect("motion_notify_event", anim_.item_event)
 
     def __init__(self, anim, x, y, color_fill, color_stroke, line_width):
         AnimItem.__init__(self, anim)

@@ -746,6 +746,9 @@ class Gcompris_anim:
     pickle.dump(self.animlist, file, self.pickle_protocol)
     file.close()
 
+    for item in self.animlist:
+      item.dump()
+
   def file_to_anim(self, filename):
 
     file = open(filename, 'rb')
@@ -764,7 +767,9 @@ class Gcompris_anim:
           print "load"
           self.animlist = pickle.load(file)
           for item in self.animlist:
-            item.anim = self
+            item.restore(self)
+            item.dump()
+          self.refresh(self.timeline.get_time())
         else:
           print "ERROR: Unrecognized file format, file", filename, ' has description : ', desc
           file.close()
