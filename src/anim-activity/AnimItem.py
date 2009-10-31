@@ -32,19 +32,8 @@ class AnimItem:
     anim = None
 
     def __init__(self, anim_):
-        AnimItem.anim = anim_
-        self.rootitem = goocanvas.Group(parent = anim_.rootitem)
-        self.drawing_area = anim_.drawing_area
+        self.init(anim_)
         gcompris.sound.play_ogg("sounds/bleep.wav")
-
-        self.step = 1
-
-        self.item = None
-        self.anchor = None
-
-        self.old_x = 0
-        self.old_y = 0
-
         # We keep the timeline index to which we are visible
         # This is a list of tuple (from, to)
         self.visible = []
@@ -54,22 +43,67 @@ class AnimItem:
         # (properties, transformation).
         self.timeline = {}
 
+
+    def init(self, anim_):
+        AnimItem.anim = anim_
+        self.rootitem = goocanvas.Group(parent = anim_.rootitem)
+        self.drawing_area = anim_.drawing_area
+
+        self.step = 1
+
+        self.item = None
+        self.anchor = None
+
+        self.old_x = 0
+        self.old_y = 0
+
+
+    # Sadly matrix are not saved by pickle, don't know why
+    # excactly. This code transform the matrix as a regular
+    # python list.
+    def matrixDump(self, m):
+        return [m[0],m[1],m[2],m[3],m[4],m[5]]
+
+    # Sadly matrix are not saved by pickle, don't know why
+    # excactly. This code transform a python list to
+    # a cairo matrix.
+    def matrixRestore(self, m):
+        return cairo.Matrix(m[0], m[1], m[2],
+                            m[3], m[4], m[5])
+
+    def timelineDump(self, timeline):
+        result = {}
+        for k, v in timeline.iteritems():
+            result[k] = [v[0], self.matrixDump(v[1])]
+        return result
+
+    def timelineRestore(self, timeline):
+        result = {}
+        for k, v in timeline.iteritems():
+            result[k] = [v[0], self.matrixRestore(v[1])]
+        return result
+
+    def __getstate__(self):
+        print self.timeline
+        return [self.visible, self.timelineDump(self.timeline)]
+
+    def __setstate__(self, dict):
+        self.visible = dict[0]
+        self.timeline = self.timelineRestore(dict[1])
+        self.anchor = None
+
     def dump(self):
         print "Dump AnimItem:"
         print self.timeline
-        print self.item
-        print self.rootitem
+        pass
+
 
     def restore(self, anim_):
         print "restore AnimItem:"
         print self.timeline
-        AnimItem.anim = anim_
+        self.init(anim_)
         print AnimItem.anim
         print AnimItem.anim.rootitem
-        self.rootitem = goocanvas.Group(parent = AnimItem.anim.rootitem)
-        # Should not have saved anchor in the first place
-        self.anchor = None
-        pass
 
     def test(self):
         self.set_visible(0, 10)

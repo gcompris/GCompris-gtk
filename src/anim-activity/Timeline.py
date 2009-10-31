@@ -39,6 +39,7 @@ class Timeline:
         self.selected = None
         self.timelinelist = []
         self.current_time = 0
+        self.last_mark = -1
 
     def hide(self):
         self.rootitem.props.visibility = goocanvas.ITEM_INVISIBLE
@@ -51,6 +52,8 @@ class Timeline:
 
         self.selected_color = 0x3030AAFFL
         self.default_color = 0xFFFFFFFFL
+        self.default_stroke = 0x101080FFL
+        self.marked_stroke = 0xC01010FFL
 
         # Timeline coord
         x1 = self.drawing_area[0]
@@ -78,7 +81,7 @@ class Timeline:
                 width = w,
                 height = h,
                 fill_color_rgba = self.default_color,
-                stroke_color_rgba = 0x101080FFL,
+                stroke_color_rgba = self.default_stroke,
                 line_width=1.0,
                 radius_x=3.0,
                 radius_y=3.0)
@@ -98,17 +101,19 @@ class Timeline:
         # Select the first item in the timeline
         self.current_time = 0
         self.select_it(self.selected)
+        self.lastmark_it(self.timelinelist[t-1])
 
     # Return the current selected time
     def get_time(self):
         return self.current_time
 
     def set_time(self, time):
-        self.select_it(item, self.timelinelist[time])
+        self.select_it(self.timelinelist[time])
 
     def next(self):
         self.current_time += 1
-        if self.current_time >= len(self.timelinelist):
+        if self.current_time >= min(len(self.timelinelist),
+                                    self.last_mark + 1):
             self.current_time = 0
         self.select_it(self.timelinelist[self.current_time])
 
@@ -132,9 +137,23 @@ class Timeline:
         # Let anim knows there is a new time set
         self.anim.refresh(self.get_time())
 
+    def lastmark_it(self, item):
+        # Unmark previous mark
+        if self.last_mark >= 0:
+            marked_item = self.timelinelist[self.last_mark]
+            marked_item.set_properties(stroke_color_rgba = self.default_stroke)
+
+        item.set_properties(stroke_color_rgba = self.marked_stroke)
+        self.last_mark = item.get_data("time")
+
+    def get_last_mark(self):
+        return self.last_mark
+
     #
     def timeline_item_event(self, item, target, event):
 
-        self.select_it(item)
-
+        if event.button == 1:
+            self.select_it(item)
+        else:
+            self.lastmark_it(item)
 

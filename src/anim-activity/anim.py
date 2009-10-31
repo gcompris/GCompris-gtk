@@ -764,6 +764,8 @@ class Gcompris_anim:
       if 'desc' != fles.format_string['gcompris']:
         if (desc == 'GCompris draw 3 cPikle file'
             or desc == 'GCompris anim 3 cPikle file'):
+          for item in self.animlist:
+            item.delete()
           print "load"
           self.animlist = pickle.load(file)
           for item in self.animlist:
