@@ -35,7 +35,7 @@ _cairo_matrix_to_gvalue(GValue *value, PyObject *obj)
 static PyObject *
 _cairo_pattern_from_gvalue(const GValue *value)
 {
-    return PycairoPattern_FromPattern(cairo_pattern_reference((cairo_pattern_t *) g_value_get_boxed(value)));
+    return PycairoPattern_FromPattern(cairo_pattern_reference((cairo_pattern_t *) g_value_get_boxed(value)), NULL);
 }
 
 static int
