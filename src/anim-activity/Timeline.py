@@ -121,7 +121,9 @@ class Timeline:
     def previous(self):
         self.current_time -= 1
         if self.current_time < 0:
-            self.current_time = len(self.timelinelist) - 1
+            self.current_time = min(len(self.timelinelist) - 1,
+                                    self.last_mark)
+
         self.select_it(self.timelinelist[self.current_time])
 
 
