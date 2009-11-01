@@ -88,13 +88,23 @@ class AnimItem:
 
     def __getstate__(self):
         return [self.visible, self.filled,
-                self.timelineDump(self.timeline)]
+                self.timelineDump(self.timeline),
+                self.save_addon()]
 
     def __setstate__(self, dict):
         self.visible = dict[0]
         self.filled = dict[1]
         self.timeline = self.timelineRestore(dict[2])
+        self.load_addon(dict[3])
         self.anchor = None
+
+    # Some item types need to save/load more
+    # than the item properties
+    def save_addon(self):
+        return None
+
+    def load_addon(self, addon):
+        pass
 
     def dump(self):
         print "Dump AnimItem:"
@@ -621,15 +631,6 @@ class Anchor:
 #
 class AnimItemRect(AnimItem):
 
-    # This is called when an animation file is loaded
-    def restore(self, anim_):
-        AnimItem.restore(self, anim_)
-        self.item = \
-            goocanvas.Rect(
-                parent = self.rootitem
-                )
-        AnimItem.init_item(self)
-
     def __init__(self, anim, x, y, color_fill, color_stroke, line_width):
         AnimItem.__init__(self, anim)
         x,y = self.snap_to_grid(x, y)
@@ -650,6 +651,14 @@ class AnimItemRect(AnimItem):
 
         AnimItem.init_item(self)
 
+    # This is called when an animation file is loaded
+    def restore(self, anim_):
+        AnimItem.restore(self, anim_)
+        self.item = \
+            goocanvas.Rect(
+                parent = self.rootitem
+                )
+        AnimItem.init_item(self)
 
     # Fixme, should replace set_bounds in resize cases
     def scale_bounds(self, p1, p2):
@@ -733,6 +742,15 @@ class AnimItemEllipse(AnimItem):
         AnimItem.init_item(self)
 
 
+    # This is called when an animation file is loaded
+    def restore(self, anim_):
+        AnimItem.restore(self, anim_)
+        self.item = \
+            goocanvas.Ellipse(
+                parent = self.rootitem
+                )
+        AnimItem.init_item(self)
+
     def set_bounds(self, p1, p2):
         (x1, y1, x2, y2) = self.snap_obj_to_grid(p1, p2)
         radius_x = abs((x2 - x1) / 2)
@@ -787,7 +805,6 @@ class AnimItemEllipse(AnimItem):
 #
 class AnimItemLine(AnimItem):
 
-
     def __init__(self, anim, x, y,
                  color_fill, color_stroke, line_width):
         AnimItem.__init__(self, anim)
@@ -803,6 +820,14 @@ class AnimItemLine(AnimItem):
 
         AnimItem.init_item(self)
 
+    # This is called when an animation file is loaded
+    def restore(self, anim_):
+        AnimItem.restore(self, anim_)
+        self.item = \
+            goocanvas.Polyline(
+                parent = self.rootitem
+                )
+        AnimItem.init_item(self)
 
     def set_bounds(self, p1, p2):
         (x1, y1, x2, y2) = self.snap_point_to_grid(p1, p2)
@@ -856,10 +881,13 @@ class AnimItemLine(AnimItem):
 class AnimItemPixmap(AnimItem):
 
 
-    def __init__(self, anim, x, y, pixbuf):
+    def __init__(self, anim, x, y, image):
         AnimItem.__init__(self, anim)
         x, y = self.snap_to_grid(x, y)
 
+        # Keep the image for the load/save feature
+        self.image = image
+        pixbuf = gcompris.utils.load_pixmap(image)
         self.item = \
             goocanvas.Image(
                 parent = self.rootitem,
@@ -870,6 +898,24 @@ class AnimItemPixmap(AnimItem):
         AnimItem.init_item(self)
 
         self.sx = self.sy = 1.0
+
+    # This is called when an animation file is loaded
+    def restore(self, anim_):
+        AnimItem.restore(self, anim_)
+        pixbuf = gcompris.utils.load_pixmap(self.image)
+        self.item = \
+            goocanvas.Image(
+                parent = self.rootitem,
+                pixbuf = pixbuf,
+                )
+        AnimItem.init_item(self)
+
+    def save_addon(self):
+        return self.image
+
+    def load_addon(self, image):
+        self.image = image
+
 
     def set_bounds(self, p1, p2):
         (x1, y1, x2, y2) = self.snap_obj_to_grid(p1, p2)

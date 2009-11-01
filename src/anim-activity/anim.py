@@ -809,14 +809,13 @@ def general_restore(filename, filetype, fles):
 
 def image_selected(image, fles):
   #fles is used because self is not passed through callback
-  print "image selected %s" %(image,)
-  pixmap = gcompris.utils.load_pixmap(image)
+  #print "image selected %s" %(image,)
 
   # Always display the image at the center of the drawing area
   cx = (fles.drawing_area[2] - fles.drawing_area[0]) / 2
   cy = (fles.drawing_area[3] - fles.drawing_area[1]) / 2
 
-  fles.created_object = AnimItemPixmap(fles, cx, cy, pixmap)
+  fles.created_object = AnimItemPixmap(fles, cx, cy, image)
 
   if fles.created_object:
     fles.created_object.create_item_event(fles.root_drawingitem,
