@@ -55,6 +55,14 @@ class Color:
                         ]
         self.previous_color = 0L
 
+    def hide(self):
+        self.fillcolor_tool.props.visibility = goocanvas.ITEM_INVISIBLE
+        self.strokecolor_tool.props.visibility = goocanvas.ITEM_INVISIBLE
+
+    def show(self):
+        self.fillcolor_tool.props.visibility = goocanvas.ITEM_VISIBLE
+        self.strokecolor_tool.props.visibility = goocanvas.ITEM_VISIBLE
+
     # Display the color selector
     def draw(self):
 

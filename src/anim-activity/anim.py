@@ -540,6 +540,7 @@ class Gcompris_anim:
     gobject.source_remove(self.timeout)
     self.root_toolitem.props.visibility = goocanvas.ITEM_VISIBLE
     self.root_playingitem.props.visibility = goocanvas.ITEM_INVISIBLE
+    self.color.show()
 
   def speed_event(self, item, target, event, up):
 
@@ -696,7 +697,7 @@ class Gcompris_anim:
       self.root_playingitem.props.visibility = goocanvas.ITEM_VISIBLE
       self.timeout = gobject.timeout_add(1000/self.anim_speed,
                                          self.refresh_loop)
-
+      self.color.hide()
 
   def playing_event(self, item, target, event, state):
     if event.type == gtk.gdk.BUTTON_PRESS:
