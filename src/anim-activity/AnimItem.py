@@ -43,6 +43,9 @@ class AnimItem:
         # (properties, transformation).
         self.timeline = {}
 
+        # Wether an item is filled or not
+        self.filled = False
+
 
     def init(self, anim_):
         AnimItem.anim = anim_
@@ -84,12 +87,13 @@ class AnimItem:
         return result
 
     def __getstate__(self):
-        print self.timeline
-        return [self.visible, self.timelineDump(self.timeline)]
+        return [self.visible, self.filled,
+                self.timelineDump(self.timeline)]
 
     def __setstate__(self, dict):
         self.visible = dict[0]
-        self.timeline = self.timelineRestore(dict[1])
+        self.filled = dict[1]
+        self.timeline = self.timelineRestore(dict[2])
         self.anchor = None
 
     def dump(self):
@@ -99,11 +103,15 @@ class AnimItem:
 
 
     def restore(self, anim_):
-        print "restore AnimItem:"
-        print self.timeline
         self.init(anim_)
-        print AnimItem.anim
-        print AnimItem.anim.rootitem
+
+    # Each real item implementors call init_item to complete
+    # The item initialization.
+    def init_item(self):
+        self.item.set_data("AnimItem", self)
+        self.item.connect("button_press_event", AnimItem.anim.item_event)
+        self.item.connect("button_release_event", AnimItem.anim.item_event)
+        self.item.connect("motion_notify_event", AnimItem.anim.item_event)
 
     def test(self):
         self.set_visible(0, 10)
@@ -613,22 +621,14 @@ class Anchor:
 #
 class AnimItemRect(AnimItem):
 
-    filled = False
-
-    def dump(self):
-        print "Dump Rect:"
-        AnimItem.dump(self)
-
+    # This is called when an animation file is loaded
     def restore(self, anim_):
         AnimItem.restore(self, anim_)
         self.item = \
             goocanvas.Rect(
                 parent = self.rootitem
                 )
-        self.item.set_data("AnimItem", self)
-        self.item.connect("button_press_event", anim_.item_event)
-        self.item.connect("button_release_event", anim_.item_event)
-        self.item.connect("motion_notify_event", anim_.item_event)
+        AnimItem.init_item(self)
 
     def __init__(self, anim, x, y, color_fill, color_stroke, line_width):
         AnimItem.__init__(self, anim)
@@ -648,10 +648,8 @@ class AnimItemRect(AnimItem):
             self.filled = True
             self.item.set_properties(fill_color_rgba = color_fill)
 
-        self.item.set_data("AnimItem", self)
-        self.item.connect("button_press_event", anim.item_event)
-        self.item.connect("button_release_event", anim.item_event)
-        self.item.connect("motion_notify_event", anim.item_event)
+        AnimItem.init_item(self)
+
 
     # Fixme, should replace set_bounds in resize cases
     def scale_bounds(self, p1, p2):
@@ -700,18 +698,18 @@ class AnimItemRect(AnimItem):
 
     def fill(self, fill, stroke):
         gcompris.sound.play_ogg("sounds/paint1.wav")
+        print "Fill=", self.filled
         if self.filled:
             self.item.set_properties(fill_color_rgba = fill,
                                      stroke_color_rgba = stroke)
         else:
             self.item.set_properties(stroke_color_rgba = stroke)
+        self.save_at_time(AnimItem.anim.timeline.get_time())
 
 #
 # The ellipse (filled or not)
 #
 class AnimItemEllipse(AnimItem):
-
-    filled = False
 
     def __init__(self, anim, center_x, center_y,
                  color_fill, color_stroke, line_width):
@@ -732,10 +730,8 @@ class AnimItemEllipse(AnimItem):
             self.filled = True
             self.item.set_properties(fill_color_rgba = color_fill)
 
-        self.item.set_data("AnimItem", self)
-        self.item.connect("button_press_event", anim.item_event)
-        self.item.connect("button_release_event", anim.item_event)
-        self.item.connect("motion_notify_event", anim.item_event)
+        AnimItem.init_item(self)
+
 
     def set_bounds(self, p1, p2):
         (x1, y1, x2, y2) = self.snap_obj_to_grid(p1, p2)
@@ -805,10 +801,8 @@ class AnimItemLine(AnimItem):
                 line_width = line_width,
                 line_cap = cairo.LINE_CAP_ROUND)
 
-        self.item.set_data("AnimItem", self)
-        self.item.connect("button_press_event", anim.item_event)
-        self.item.connect("button_release_event", anim.item_event)
-        self.item.connect("motion_notify_event", anim.item_event)
+        AnimItem.init_item(self)
+
 
     def set_bounds(self, p1, p2):
         (x1, y1, x2, y2) = self.snap_point_to_grid(p1, p2)
@@ -873,10 +867,7 @@ class AnimItemPixmap(AnimItem):
                 x = x,
                 y = y)
 
-        self.item.set_data("AnimItem", self)
-        self.item.connect("button_press_event", anim.item_event)
-        self.item.connect("button_release_event", anim.item_event)
-        self.item.connect("motion_notify_event", anim.item_event)
+        AnimItem.init_item(self)
 
         self.sx = self.sy = 1.0
 

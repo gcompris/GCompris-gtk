@@ -39,7 +39,7 @@ class Timeline:
         self.selected = None
         self.timelinelist = []
         self.current_time = 0
-        self.last_mark = -1
+        self.lastmark = -1
 
     def hide(self):
         self.rootitem.props.visibility = goocanvas.ITEM_INVISIBLE
@@ -113,7 +113,7 @@ class Timeline:
     def next(self):
         self.current_time += 1
         if self.current_time >= min(len(self.timelinelist),
-                                    self.last_mark + 1):
+                                    self.lastmark + 1):
             self.current_time = 0
         self.select_it(self.timelinelist[self.current_time])
 
@@ -122,7 +122,7 @@ class Timeline:
         self.current_time -= 1
         if self.current_time < 0:
             self.current_time = min(len(self.timelinelist) - 1,
-                                    self.last_mark)
+                                    self.lastmark)
 
         self.select_it(self.timelinelist[self.current_time])
 
@@ -141,15 +141,18 @@ class Timeline:
 
     def lastmark_it(self, item):
         # Unmark previous mark
-        if self.last_mark >= 0:
-            marked_item = self.timelinelist[self.last_mark]
+        if self.lastmark >= 0:
+            marked_item = self.timelinelist[self.lastmark]
             marked_item.set_properties(stroke_color_rgba = self.default_stroke)
 
         item.set_properties(stroke_color_rgba = self.marked_stroke)
-        self.last_mark = item.get_data("time")
+        self.lastmark = item.get_data("time")
 
-    def get_last_mark(self):
-        return self.last_mark
+    def get_lastmark(self):
+        return self.lastmark
+
+    def set_lastmark(self, lastmark):
+        self.lastmark_it(self.timelinelist[lastmark])
 
     #
     def timeline_item_event(self, item, target, event):

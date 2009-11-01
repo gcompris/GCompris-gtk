@@ -743,11 +743,14 @@ class Gcompris_anim:
     # Save the descriptif frame:
     pickle.dump(fles.format_string['gcompris'], file, self.pickle_protocol)
 
+    # Save the last mark
+    pickle.dump(self.timeline.get_lastmark(), file, self.pickle_protocol)
+
+    # Save the animation
     pickle.dump(self.animlist, file, self.pickle_protocol)
+
     file.close()
 
-    for item in self.animlist:
-      item.dump()
 
   def file_to_anim(self, filename):
 
@@ -764,13 +767,15 @@ class Gcompris_anim:
       if 'desc' != fles.format_string['gcompris']:
         if (desc == 'GCompris draw 3 cPikle file'
             or desc == 'GCompris anim 3 cPikle file'):
+
           for item in self.animlist:
             item.delete()
-          print "load"
+
+          self.timeline.set_lastmark(pickle.load(file))
           self.animlist = pickle.load(file)
           for item in self.animlist:
             item.restore(self)
-            item.dump()
+
           self.refresh(self.timeline.get_time())
         else:
           print "ERROR: Unrecognized file format, file", filename, ' has description : ', desc
@@ -795,11 +800,11 @@ class Gcompris_anim:
 #
 ###############################################
 def general_save(filename, filetype, fles):
-  print "filename=%s filetype=%s" %(filename, filetype)
+  #print "filename=%s filetype=%s" %(filename, filetype)
   fles.anim_to_file(filename)
 
 def general_restore(filename, filetype, fles):
-  print "general_restore : ", filename, " type ",filetype
+  #print "general_restore : ", filename, " type ",filetype
   fles.file_to_anim(filename)
 
 def image_selected(image, fles):
