@@ -61,6 +61,11 @@ class AnimItem:
         self.old_y = 0
 
 
+    # Return the type name of the managed object
+    def type_name(self):
+        return (gobject.type_name(self.item))
+
+
     # Sadly matrix are not saved by pickle, don't know why
     # excactly. This code transform the matrix as a regular
     # python list.

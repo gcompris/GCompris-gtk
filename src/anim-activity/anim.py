@@ -264,11 +264,15 @@ class Gcompris_anim:
           (keyval == gtk.keysyms.Num_Lock)):
       return False
 
-    if ( (not self.selected) or
-         (gobject.type_name(self.selected.get_child(0)) != "GooCanvasText")
-         ):
-      # No Text object selected
+    if (not self.selected):
       return False
+
+    if (self.selected.type_name() != "GooCanvasText"):
+      # Process shortcuts on non text items
+      if ((keyval == gtk.keysyms.BackSpace) or
+          (keyval == gtk.keysyms.Delete)):
+        self.selected.delete()
+      return True
 
     textItem = self.selected.get_child(0)
     if (not self.last_commit):
