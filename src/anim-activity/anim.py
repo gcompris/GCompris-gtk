@@ -773,7 +773,8 @@ class Gcompris_anim:
         if (desc == 'GCompris draw 3 cPikle file'
             or desc == 'GCompris anim 3 cPikle file'):
 
-          for item in self.animlist:
+          self.deselect()
+          for item in self.animlist[:]:
             item.delete()
 
           self.timeline.set_lastmark(pickle.load(file))
