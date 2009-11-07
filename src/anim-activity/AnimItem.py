@@ -26,6 +26,7 @@ import gtk
 import gtk.gdk
 import math
 import cairo
+import pango
 import sys
 
 class AnimItem:
@@ -966,4 +967,120 @@ class AnimItemPixmap(AnimItem):
     def fill(self, fill, stroke):
         # Unsupported
         pass
+
+
+#
+# The Text
+#
+class AnimItemText(AnimItem):
+
+    def __init__(self, anim, center_x, center_y,
+                 color_stroke):
+        AnimItem.__init__(self, anim)
+        center_x, center_y = self.snap_to_grid(center_x, center_y)
+
+        self.item = \
+            goocanvas.Text(
+                parent = self.rootitem,
+                x = center_x,
+                y = center_y,
+                text=("?"),
+                fill_color_rgba=color_stroke,
+                anchor = gtk.ANCHOR_CENTER,
+                alignment = pango.ALIGN_CENTER,
+                )
+
+        AnimItem.init_item(self)
+        self.last_commit = None
+
+
+    # This is called when an animation file is loaded
+    def restore(self, anim_):
+        AnimItem.restore(self, anim_)
+        self.item = \
+            goocanvas.Text(
+                parent = self.rootitem
+                )
+        AnimItem.init_item(self)
+
+    def set_bounds(self, p1, p2):
+        (x1, y1, x2, y2) = self.snap_obj_to_grid(p1, p2)
+        center_x = ( x2 - x1 )/ 2
+        center_y = ( y2 - y1) / 2
+        self.item.set_properties(x = center_x,
+                                 y = center_y)
+
+    def get_x1y1(self):
+        bounds = self.item.get_bounds()
+        return(bounds.x1, bounds.y1)
+
+    def get_x2y1(self):
+        bounds = self.item.get_bounds()
+        return(bounds.x2, bounds.y1)
+
+    def get_x2y2(self):
+        bounds = self.item.get_bounds()
+        return(bounds.x2, bounds.y2)
+
+    def get_x1y2(self):
+        bounds = self.item.get_bounds()
+        return(bounds.x1, bounds.y2)
+
+    # Return the list of properties that have to be saved for
+    # this object
+    def get_properties(self):
+        return('x', 'y',
+               'fill_color_rgba',
+               'text')
+
+    def fill(self, fill, stroke):
+        gcompris.sound.play_ogg("sounds/paint1.wav")
+        self.item.set_properties(fill_color_rgba = stroke)
+
+    def key_press(self, keyval, commit_str, preedit_str):
+        #
+        # I suppose codec is the stdin one.
+        #
+        codec = sys.stdin.encoding
+        textItem = self.item
+        if (not self.last_commit):
+          oldtext = textItem.get_property('text').decode('UTF-8')
+        else:
+          oldtext = self.last_commit
+
+        if ((keyval == gtk.keysyms.BackSpace) or
+            (keyval == gtk.keysyms.Delete)):
+          if (len(oldtext) != 1):
+            newtext = oldtext[:-1]
+          else:
+            newtext = u'?'
+          self.last_commit = newtext
+
+        elif (keyval == gtk.keysyms.Return):
+          newtext = oldtext + '\n'
+          self.last_commit = newtext
+
+        else:
+          if ((oldtext[:1] == u'?') and (len(oldtext)==1)):
+            oldtext = u' '
+            oldtext = oldtext.strip()
+
+          if (commit_str):
+            str = commit_str
+            self.last_commit = oldtext + str
+          if (preedit_str):
+            str = preedit_str
+            self.last_commit = oldtext
+
+          if (len(oldtext) < 100):
+            newtext = oldtext + str
+          else:
+            newtext = oldtext
+
+        textItem.set_properties(text = newtext.encode('UTF-8'))
+
+        print "Text item extend: "
+        a = textItem.get_natural_extends()
+        print a
+
 

@@ -103,8 +103,6 @@ class Gcompris_anim:
 
     self.file_type = ".gcanim"
 
-    self.MAX_TEXT_CHAR = 50
-
     # Part of UI : tools buttons
     # TOOL SELECTION
     self.tools = [
@@ -159,8 +157,6 @@ class Gcompris_anim:
     self.created_object = None
 
   def start(self):
-
-    self.last_commit = None
 
     # GCompris initialisation
     self.gcomprisBoard.level=1
@@ -267,51 +263,17 @@ class Gcompris_anim:
     if (not self.selected):
       return False
 
-    if (self.selected.type_name() != "GooCanvasText"):
-      # Process shortcuts on non text items
-      if ((keyval == gtk.keysyms.BackSpace) or
-          (keyval == gtk.keysyms.Delete)):
-        self.selected.delete()
+    if (self.selected.type_name() == "GooCanvasText"):
+      self.selected.key_press(keyval, commit_str, preedit_str)
       return True
 
-    textItem = self.selected.get_child(0)
-    if (not self.last_commit):
-      oldtext = textItem.get_property('text').decode('UTF-8')
-    else:
-      oldtext = self.last_commit
-
+    # Process shortcuts on non text items
     if ((keyval == gtk.keysyms.BackSpace) or
         (keyval == gtk.keysyms.Delete)):
-      if (len(oldtext) != 1):
-        newtext = oldtext[:-1]
-      else:
-        newtext = u'?'
-      self.last_commit = newtext
+      self.selected.delete()
+      return True
 
-    elif (keyval == gtk.keysyms.Return):
-      newtext = oldtext + '\n'
-      self.last_commit = newtext
-
-    else:
-      if ((oldtext[:1] == u'?') and (len(oldtext)==1)):
-        oldtext = u' '
-        oldtext = oldtext.strip()
-
-      if (commit_str):
-        str = commit_str
-        self.last_commit = oldtext + str
-      if (preedit_str):
-        str = '<span foreground="red">'+ preedit_str +'</span>'
-        self.last_commit = oldtext
-
-      if (len(oldtext) < self.MAX_TEXT_CHAR):
-        newtext = oldtext + str
-      else:
-        newtext = oldtext
-
-    textItem.set_properties(text = newtext.encode('UTF-8'))
-
-    return True
+    return False
 
   # Display the tools
   def draw_tools(self):
@@ -640,6 +602,10 @@ class Gcompris_anim:
           self.created_object = AnimItemLine(self,
                                              event.x, event.y,
                                              None, self.color.stroke, 7)
+        elif self.tools[self.current_tool][0] == "TEXT":
+          self.created_object = AnimItemText(self,
+                                             event.x, event.y,
+                                             self.color.stroke)
 
         if self.created_object:
           self.created_object.create_item_event(item,
@@ -647,6 +613,11 @@ class Gcompris_anim:
 
           # We keep all object in a unique list
           self.animlist.append(self.created_object)
+
+          # Mark it as selected so we can write in it without
+          # having to make a real selection and keys shortcuts
+          # works
+          self.selected = self.created_object
 
     #
     # MOTION EVENT
