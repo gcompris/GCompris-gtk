@@ -261,13 +261,18 @@ class AnimItem:
     # Selecting the item creates and display its anchors
     def select(self):
         if not self.anchor:
-            self.anchor = Anchor(self)
+            self.anchor = self.get_anchor()
         self.anchor.show()
 
     # Deselecting the item deletes the anchor
     def deselect(self):
         if self.anchor:
             self.anchor.hide()
+
+    # Sub items can override it to provide another anchor
+    # type than the default one.
+    def get_anchor(self):
+        return Anchor(self)
 
     #
     # Default actions, maybe overloaded by specific items
@@ -438,9 +443,9 @@ class AnimItem:
             self.anchor.update()
 
 
-  #
-  # Add the anchors and callbacks on an item
-  #
+#
+# Add the anchors and callbacks on an item
+#
 class Anchor:
     # group contains normal items.
 
@@ -713,7 +718,6 @@ class AnimItemRect(AnimItem):
 
     def fill(self, fill, stroke):
         gcompris.sound.play_ogg("sounds/paint1.wav")
-        print "Fill=", self.filled
         if self.filled:
             self.item.set_properties(fill_color_rgba = fill,
                                      stroke_color_rgba = stroke)
@@ -970,6 +974,68 @@ class AnimItemPixmap(AnimItem):
 
 
 #
+# Add the anchors and callbacks on a Text item
+#
+class AnchorText:
+    # group contains Text items.
+
+    def __init__(self, animitem):
+        self.animitem = animitem
+
+        self.anchorgroup = None
+
+        self.anchorgroup = \
+          goocanvas.Group(
+            parent = animitem.anim.rootitem,
+          )
+
+        self.anchorbound = \
+            goocanvas.Rect(
+                parent = self.anchorgroup,
+                stroke_color_rgba = 0x000000FFL,
+                line_width = 3)
+
+        self.down = \
+            goocanvas.Image(
+            parent = self.anchorgroup,
+            pixbuf = gcompris.utils.load_pixmap("anim/down.png"),
+            )
+        self.down.connect("button_press_event",
+                    self.animitem.down_size, False)
+
+        self.up = \
+            goocanvas.Image(
+            parent = self.anchorgroup,
+            pixbuf = gcompris.utils.load_pixmap("anim/up.png"),
+            )
+        self.up.connect("button_press_event",
+                    self.animitem.up_size, False)
+
+
+    def show(self):
+        self.anchorgroup.props.visibility = goocanvas.ITEM_VISIBLE
+        self.anchorgroup.raise_(None)
+        self.update()
+
+    def update(self):
+        b = self.animitem.item.get_bounds()
+
+        self.anchorbound.set_properties(x = b.x1,
+                                        y = b.y1,
+                                        width = b.x2 - b.x1,
+                                        height = b.y2 - b.y1)
+
+        self.down.set_properties(x = b.x1,
+                                 y = b.y1 - 20)
+        self.up.set_properties(x = b.x1 + 20,
+                               y = b.y1 - 20)
+
+
+    def hide(self):
+        self.anchorgroup.props.visibility = goocanvas.ITEM_INVISIBLE
+
+
+#
 # The Text
 #
 class AnimItemText(AnimItem):
@@ -979,11 +1045,14 @@ class AnimItemText(AnimItem):
         AnimItem.__init__(self, anim)
         center_x, center_y = self.snap_to_grid(center_x, center_y)
 
+        self.text_size = 10
+
         self.item = \
             goocanvas.Text(
                 parent = self.rootitem,
                 x = center_x,
                 y = center_y,
+                font = "Sans " + str(self.text_size),
                 text=("?"),
                 fill_color_rgba=color_stroke,
                 anchor = gtk.ANCHOR_CENTER,
@@ -994,6 +1063,9 @@ class AnimItemText(AnimItem):
         self.last_commit = None
 
 
+    def get_anchor(self):
+        return AnchorText(self)
+
     # This is called when an animation file is loaded
     def restore(self, anim_):
         AnimItem.restore(self, anim_)
@@ -1003,28 +1075,39 @@ class AnimItemText(AnimItem):
                 )
         AnimItem.init_item(self)
 
+    def save_addon(self):
+        # In the future we may want to support and
+        # Save the font description (bold, italic, ...)
+        return [self.text_size, None]
+
+    def load_addon(self, addon):
+        self.text_size = addon[0]
+
+    def recenter_to_drawing_area(self):
+        # If we do not go outside the drawing area
+        # We recenter ourself
+        (x1, y1) = self.get_x1y1()
+        b = self.item.get_bounds()
+        (xx1, yy1) = self.snap_to_grid(b.x1, b.y1)
+        xoffset = xx1 - b.x1
+        yoffset = yy1 - b.y1
+        (xx2, yy2) = self.snap_to_grid(b.x2, b.y2)
+        xoffset += xx2 - b.x2
+        yoffset += yy2 - b.y2
+        self.item.set_properties(x = x1 + xoffset,
+                                 y = y1 + yoffset)
+        self.anchor.update()
+
+
     def set_bounds(self, p1, p2):
-        (x1, y1, x2, y2) = self.snap_obj_to_grid(p1, p2)
-        center_x = ( x2 - x1 )/ 2
-        center_y = ( y2 - y1) / 2
-        self.item.set_properties(x = center_x,
-                                 y = center_y)
+        (x1, y1) = self.snap_to_grid(p2[0], p2[1])
+        self.item.set_properties(x = x1,
+                                 y = y1)
 
     def get_x1y1(self):
-        bounds = self.item.get_bounds()
-        return(bounds.x1, bounds.y1)
-
-    def get_x2y1(self):
-        bounds = self.item.get_bounds()
-        return(bounds.x2, bounds.y1)
-
-    def get_x2y2(self):
-        bounds = self.item.get_bounds()
-        return(bounds.x2, bounds.y2)
-
-    def get_x1y2(self):
-        bounds = self.item.get_bounds()
-        return(bounds.x1, bounds.y2)
+        x = self.item.get_property("x")
+        y = self.item.get_property("y")
+        return(x, y)
 
     # Return the list of properties that have to be saved for
     # this object
@@ -1079,8 +1162,19 @@ class AnimItemText(AnimItem):
 
         textItem.set_properties(text = newtext.encode('UTF-8'))
 
-        print "Text item extend: "
-        a = textItem.get_natural_extends()
-        print a
+        self.recenter_to_drawing_area()
 
 
+    def set_size(self, text_size):
+        self.item.set_properties(font = "Sans " + str(text_size))
+        self.recenter_to_drawing_area()
+
+    def down_size(self, item, target, event, up):
+        if self.text_size > 4:
+            self.text_size -= 1
+        self.set_size(self.text_size)
+
+    def up_size(self, item, target, event, up):
+        if self.text_size < 40:
+            self.text_size += 1
+        self.set_size(self.text_size)

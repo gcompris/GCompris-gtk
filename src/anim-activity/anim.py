@@ -218,11 +218,13 @@ class Gcompris_anim:
     codec = sys.stdin.encoding
 
     # keyboard shortcuts
-    if (keyval == gtk.keysyms.F1):
+    if ( (keyval == gtk.keysyms.F1)
+         or (keyval == gtk.keysyms.l) ):
       gcompris.file_selector_save( self.gcomprisBoard,
                                    self.selector_section, self.file_type,
                                    general_save, self)
-    elif (keyval == gtk.keysyms.F2):
+    elif ( (keyval == gtk.keysyms.F2)
+           or (keyval == gtk.keysyms.s) ):
       gcompris.file_selector_load( self.gcomprisBoard,
                                    self.selector_section, self.file_type,
                                    general_restore, self)
