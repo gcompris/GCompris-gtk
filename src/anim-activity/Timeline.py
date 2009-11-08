@@ -143,9 +143,11 @@ class Timeline:
         # Unmark previous mark
         if self.lastmark >= 0:
             marked_item = self.timelinelist[self.lastmark]
-            marked_item.set_properties(stroke_color_rgba = self.default_stroke)
+            marked_item.set_properties(stroke_color_rgba = self.default_stroke,
+                                       line_width = 1)
 
-        item.set_properties(stroke_color_rgba = self.marked_stroke)
+        item.set_properties(stroke_color_rgba = self.marked_stroke,
+                            line_width = 3.5)
         self.lastmark = item.get_data("time")
 
     def get_lastmark(self):
@@ -157,7 +159,8 @@ class Timeline:
     #
     def timeline_item_event(self, item, target, event):
 
-        if event.button == 1:
+        if (event.type == gtk.gdk.BUTTON_PRESS
+            and event.button == 1):
             self.select_it(item)
         else:
             self.lastmark_it(item)
