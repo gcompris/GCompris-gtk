@@ -233,26 +233,6 @@ class Gcompris_anim:
     elif (keyval == gtk.keysyms.F3):
       pass
 
-    # AFAIR The keyboard part was written by bruno
-    elif ((keyval == gtk.keysyms.Shift_L) or
-          (keyval == gtk.keysyms.Shift_R) or
-          (keyval == gtk.keysyms.Control_L) or
-          (keyval == gtk.keysyms.Control_R) or
-          (keyval == gtk.keysyms.Caps_Lock) or
-          (keyval == gtk.keysyms.Shift_Lock) or
-          (keyval == gtk.keysyms.Meta_L) or
-          (keyval == gtk.keysyms.Meta_R) or
-          (keyval == gtk.keysyms.Alt_L) or
-          (keyval == gtk.keysyms.Alt_R) or
-          (keyval == gtk.keysyms.Super_L) or
-          (keyval == gtk.keysyms.Super_R) or
-          (keyval == gtk.keysyms.Hyper_L) or
-          (keyval == gtk.keysyms.Hyper_R) or
-          (keyval == gtk.keysyms.Mode_switch) or
-          (keyval == gtk.keysyms.dead_circumflex) or
-          (keyval == gtk.keysyms.Num_Lock)):
-      return False
-
     if (not self.selected):
       return False
 

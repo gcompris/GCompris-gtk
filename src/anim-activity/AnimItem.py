@@ -1165,6 +1165,7 @@ class AnimItemText(AnimItem):
             oldtext = u' '
             oldtext = oldtext.strip()
 
+          str = ""
           if (commit_str):
             str = commit_str
             self.last_commit = oldtext + str
