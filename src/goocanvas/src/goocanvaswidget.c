@@ -12,6 +12,10 @@
  *
  * GooCanvasWidget provides support for placing any GtkWidget in the canvas.
  *
+ * The #GooCanvasWidget:width and #GooCanvasWidget:height properties specify
+ * the widget's size. If either of them is -1, then the requested size of the
+ * widget is used instead, which is the default for both width and height.
+ *
  * Note that there are a number of limitations in the use of #GooCanvasWidget:
  *
  * <itemizedlist><listitem><para>
@@ -26,6 +30,8 @@
  * </para></listitem><listitem><para>
  * It doesn't have a model/view variant like the other standard items,
  * so it can only be used in a simple canvas without a model.
+ * </para></listitem><listitem><para>
+ * It can't be made a static item.
  * </para></listitem></itemizedlist>
  */
 #include <config.h>
@@ -150,6 +156,73 @@ goo_canvas_widget_new               (GooCanvasItem    *parent,
     }
 
   return item;
+}
+
+
+/* Returns the anchor position, within the given width. */
+static gdouble
+goo_canvas_widget_anchor_horizontal_pos (GtkAnchorType anchor,
+					 gdouble       width)
+{
+  switch(anchor)
+    {
+    case GTK_ANCHOR_N:
+    case GTK_ANCHOR_CENTER:
+    case GTK_ANCHOR_S:
+      return width / 2.0;
+    case GTK_ANCHOR_NE:
+    case GTK_ANCHOR_E:
+    case GTK_ANCHOR_SE:
+      return width;
+    default:
+      return 0.0;
+    }
+}
+
+
+/* Returns the anchor position, within the given height. */
+static gdouble
+goo_canvas_widget_anchor_vertical_pos (GtkAnchorType anchor,
+				       gdouble       height)
+{
+  switch (anchor)
+    {
+    case GTK_ANCHOR_W:
+    case GTK_ANCHOR_CENTER:
+    case GTK_ANCHOR_E:
+      return height / 2.0;
+    case GTK_ANCHOR_SW:
+    case GTK_ANCHOR_S:
+    case GTK_ANCHOR_SE:
+      return height;
+    default:
+      return 0.0;
+    }
+}
+
+
+/* Returns the size to use for the widget, either the item's width & height
+   properties or the widget's own requested width & height. */
+static void
+goo_canvas_widget_get_widget_size (GooCanvasWidget *witem,
+				   gdouble         *width,
+				   gdouble         *height)
+{
+  GtkRequisition requisition;
+
+  if (witem->widget)
+    {
+      /* Get the widget's requested size, if we need it. */
+      if (witem->width < 0 || witem->height < 0)
+	gtk_widget_size_request (witem->widget, &requisition);
+
+      *width = witem->width < 0 ? requisition.width : witem->width;
+      *height = witem->height < 0 ? requisition.height : witem->height;
+    }
+  else
+    {
+      *width = *height = 0.0;
+    }
 }
 
 
@@ -347,53 +420,19 @@ goo_canvas_widget_update  (GooCanvasItemSimple *simple,
 			   cairo_t             *cr)
 {
   GooCanvasWidget *witem = (GooCanvasWidget*) simple;
-  GtkRequisition requisition;
   gdouble width, height;
 
   if (witem->widget)
     {
-      /* Compute the new bounds. */
-      if (witem->width < 0 || witem->height < 0)
-	{
-	  gtk_widget_size_request (witem->widget, &requisition);
-	}
+      goo_canvas_widget_get_widget_size (witem, &width, &height);
 
       simple->bounds.x1 = witem->x;
       simple->bounds.y1 = witem->y;
-      width = witem->width < 0 ? requisition.width : witem->width;
-      height = witem->height < 0 ? requisition.height : witem->height;
 
-      switch (witem->anchor)
-	{
-	case GTK_ANCHOR_N:
-	case GTK_ANCHOR_CENTER:
-	case GTK_ANCHOR_S:
-	  simple->bounds.x1 -= width / 2.0;
-	  break;
-	case GTK_ANCHOR_NE:
-	case GTK_ANCHOR_E:
-	case GTK_ANCHOR_SE:
-	  simple->bounds.x1 -= width;
-	  break;
-	default:
-	  break;
-	}
-
-      switch (witem->anchor)
-	{
-	case GTK_ANCHOR_W:
-	case GTK_ANCHOR_CENTER:
-	case GTK_ANCHOR_E:
-	  simple->bounds.y1 -= height / 2.0;
-	  break;
-	case GTK_ANCHOR_SW:
-	case GTK_ANCHOR_S:
-	case GTK_ANCHOR_SE:
-	  simple->bounds.y1 -= height;
-	  break;
-	default:
-	  break;
-	}
+      simple->bounds.x1 -=
+        goo_canvas_widget_anchor_horizontal_pos (witem->anchor, width);
+      simple->bounds.y1 -=
+        goo_canvas_widget_anchor_vertical_pos (witem->anchor, height);
 
       simple->bounds.x2 = simple->bounds.x1 + width;
       simple->bounds.y2 = simple->bounds.y1 + height;
@@ -544,6 +583,7 @@ goo_canvas_widget_class_init (GooCanvasWidgetClass *klass)
 							G_MAXDOUBLE, -1.0,
 							G_PARAM_READWRITE));
 
+
   g_object_class_install_property (gobject_class, PROP_ANCHOR,
 				   g_param_spec_enum ("anchor",
 						      _("Anchor"),
@@ -555,5 +595,3 @@ goo_canvas_widget_class_init (GooCanvasWidgetClass *klass)
   g_object_class_override_property (gobject_class, PROP_VISIBILITY,
 				    "visibility");
 }
-
-

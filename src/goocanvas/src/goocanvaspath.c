@@ -33,26 +33,21 @@
 #include <glib/gi18n-lib.h>
 #include <gtk/gtk.h>
 #include "goocanvaspath.h"
+#include "goocanvas.h"
 
 
 enum {
   PROP_0,
 
   PROP_DATA,
+
+  PROP_X,
+  PROP_Y,
+  PROP_WIDTH,
+  PROP_HEIGHT
 };
 
 static void canvas_item_interface_init   (GooCanvasItemIface  *iface);
-static void goo_canvas_path_finalize     (GObject             *object);
-static void goo_canvas_path_get_property (GObject             *object,
-					  guint                param_id,
-					  GValue              *value,
-					  GParamSpec          *pspec);
-static void goo_canvas_path_set_property (GObject             *object,
-					  guint                param_id,
-					  const GValue        *value,
-					  GParamSpec          *pspec);
-static void goo_canvas_path_create_path  (GooCanvasItemSimple *simple,
-					  cairo_t             *cr);
 
 G_DEFINE_TYPE_WITH_CODE (GooCanvasPath, goo_canvas_path,
 			 GOO_TYPE_CANVAS_ITEM_SIMPLE,
@@ -76,23 +71,36 @@ goo_canvas_path_install_common_properties (GObjectClass *gobject_class)
 							_("The sequence of path commands"),
 							NULL,
 							G_PARAM_WRITABLE));
-}
 
+  g_object_class_install_property (gobject_class, PROP_X,
+				   g_param_spec_double ("x",
+							"X",
+							_("The x coordinate of the path"),
+							-G_MAXDOUBLE,
+							G_MAXDOUBLE, 0.0,
+							G_PARAM_READWRITE));
 
-static void
-goo_canvas_path_class_init (GooCanvasPathClass *klass)
-{
-  GObjectClass *gobject_class = (GObjectClass*) klass;
-  GooCanvasItemSimpleClass *simple_class = (GooCanvasItemSimpleClass*) klass;
+  g_object_class_install_property (gobject_class, PROP_Y,
+				   g_param_spec_double ("y",
+							"Y",
+							_("The y coordinate of the path"),
+							-G_MAXDOUBLE,
+							G_MAXDOUBLE, 0.0,
+							G_PARAM_READWRITE));
 
-  gobject_class->finalize     = goo_canvas_path_finalize;
+  g_object_class_install_property (gobject_class, PROP_WIDTH,
+				   g_param_spec_double ("width",
+							_("Width"),
+							_("The width of the path"),
+							0.0, G_MAXDOUBLE, 0.0,
+							G_PARAM_READWRITE));
 
-  gobject_class->get_property = goo_canvas_path_get_property;
-  gobject_class->set_property = goo_canvas_path_set_property;
-
-  simple_class->simple_create_path = goo_canvas_path_create_path;
-
-  goo_canvas_path_install_common_properties (gobject_class);
+  g_object_class_install_property (gobject_class, PROP_HEIGHT,
+				   g_param_spec_double ("height",
+							_("Height"),
+							_("The height of the path"),
+							0.0, G_MAXDOUBLE, 0.0,
+							G_PARAM_READWRITE));
 }
 
 
@@ -200,16 +208,164 @@ goo_canvas_path_finalize (GObject *object)
   G_OBJECT_CLASS (goo_canvas_path_parent_class)->finalize (object);
 }
 
+static void
+goo_canvas_path_common_get_extent (GooCanvas            *canvas,
+                                   GooCanvasPathData    *path_data,
+                                   GooCanvasBounds      *bounds)
+{
+  cairo_t *cr;
+
+  cr = goo_canvas_create_cairo_context (canvas);
+  goo_canvas_create_path (path_data->path_commands, cr);
+  cairo_fill_extents (cr, &bounds->x1, &bounds->y1, &bounds->x2, &bounds->y2);
+  cairo_destroy (cr);
+}
+
+
+/* Moves all the absolute points in the command by the given amounts.
+   Relative points don't need to be moved. */
+static void
+goo_canvas_path_move_command (GooCanvasPathCommand *cmd,
+			      gdouble               x_offset,
+			      gdouble               y_offset)
+{
+  switch (cmd->simple.type)
+    {
+    case GOO_CANVAS_PATH_MOVE_TO:
+    case GOO_CANVAS_PATH_CLOSE_PATH:
+    case GOO_CANVAS_PATH_LINE_TO:
+    case GOO_CANVAS_PATH_HORIZONTAL_LINE_TO:
+    case GOO_CANVAS_PATH_VERTICAL_LINE_TO:
+      if (!cmd->simple.relative)
+        {
+          cmd->simple.x += x_offset;
+          cmd->simple.y += y_offset;
+        }
+      break;
+    case GOO_CANVAS_PATH_CURVE_TO:
+    case GOO_CANVAS_PATH_SMOOTH_CURVE_TO:
+    case GOO_CANVAS_PATH_QUADRATIC_CURVE_TO:
+    case GOO_CANVAS_PATH_SMOOTH_QUADRATIC_CURVE_TO:
+      if (!cmd->curve.relative)
+        {
+          cmd->curve.x += x_offset;
+          cmd->curve.y += y_offset;
+          cmd->curve.x1 += x_offset;
+          cmd->curve.y1 += y_offset;
+          cmd->curve.x2 += x_offset;
+          cmd->curve.y2 += y_offset;
+        }
+      break;
+    case GOO_CANVAS_PATH_ELLIPTICAL_ARC:
+      if (!cmd->arc.relative)
+        {
+          cmd->arc.x += x_offset;
+          cmd->arc.y += y_offset;
+        }
+      break;
+    default:
+      g_assert_not_reached();
+      break;
+    }
+}
+
+
+/* Scales all the points in the command by the given amounts. Absolute points
+   are scaled about the given origin. */
+static void
+goo_canvas_path_scale_command (GooCanvasPathCommand *cmd,
+			       gdouble               x_origin,
+			       gdouble               y_origin,
+			       gdouble               x_scale,
+			       gdouble               y_scale)
+{
+  switch (cmd->simple.type)
+    {
+    case GOO_CANVAS_PATH_MOVE_TO:
+    case GOO_CANVAS_PATH_CLOSE_PATH:
+    case GOO_CANVAS_PATH_LINE_TO:
+    case GOO_CANVAS_PATH_HORIZONTAL_LINE_TO:
+    case GOO_CANVAS_PATH_VERTICAL_LINE_TO:
+      if (cmd->simple.relative)
+        {
+          cmd->simple.x *= x_scale;
+          cmd->simple.y *= y_scale;
+        }
+      else
+        {
+          cmd->simple.x = x_origin + (cmd->simple.x - x_origin) * x_scale;
+          cmd->simple.y = y_origin + (cmd->simple.y - y_origin) * y_scale;
+        }
+      break;
+    case GOO_CANVAS_PATH_CURVE_TO:
+    case GOO_CANVAS_PATH_SMOOTH_CURVE_TO:
+    case GOO_CANVAS_PATH_QUADRATIC_CURVE_TO:
+    case GOO_CANVAS_PATH_SMOOTH_QUADRATIC_CURVE_TO:
+      if (cmd->curve.relative)
+        {
+          cmd->curve.x *= x_scale;
+          cmd->curve.y *= y_scale;
+          cmd->curve.x1 *= x_scale;
+          cmd->curve.y1 *= y_scale;
+          cmd->curve.x2 *= x_scale;
+          cmd->curve.y2 *= y_scale;
+        }
+      else
+        {
+          cmd->curve.x =  x_origin + (cmd->curve.x -  x_origin) * x_scale;
+          cmd->curve.y =  y_origin + (cmd->curve.y -  y_origin) * y_scale;
+          cmd->curve.x1 = x_origin + (cmd->curve.x1 - x_origin) * x_scale;
+          cmd->curve.y1 = y_origin + (cmd->curve.y1 - y_origin) * y_scale;
+          cmd->curve.x2 = x_origin + (cmd->curve.x2 - x_origin) * x_scale;
+          cmd->curve.y2 = y_origin + (cmd->curve.y2 - y_origin) * y_scale;
+        }
+      break;
+    case GOO_CANVAS_PATH_ELLIPTICAL_ARC:
+      if (cmd->arc.relative)
+        {
+          cmd->arc.x *= x_scale;
+          cmd->arc.y *= y_scale;
+        }
+      else
+        {
+          cmd->arc.x = x_origin + (cmd->arc.x - x_origin) * x_scale;
+          cmd->arc.y = y_origin + (cmd->arc.y - y_origin) * y_scale;
+        }
+      break;
+    default:
+      g_assert_not_reached();
+      break;
+  }
+}
 
 static void
 goo_canvas_path_get_common_property (GObject              *object,
+                                     GooCanvas            *canvas,
 				     GooCanvasPathData    *path_data,
 				     guint                 prop_id,
 				     GValue               *value,
 				     GParamSpec           *pspec)
 {
+  GooCanvasBounds extent;
+
   switch (prop_id)
     {
+    case PROP_X:
+      goo_canvas_path_common_get_extent (canvas, path_data, &extent);
+      g_value_set_double (value, extent.x1);
+      break;
+    case PROP_Y:
+      goo_canvas_path_common_get_extent (canvas, path_data, &extent);
+      g_value_set_double (value, extent.y1);
+      break;
+    case PROP_WIDTH:
+      goo_canvas_path_common_get_extent (canvas, path_data, &extent);
+      g_value_set_double (value, extent.x2 - extent.x1);
+      break;
+    case PROP_HEIGHT:
+      goo_canvas_path_common_get_extent (canvas, path_data, &extent);
+      g_value_set_double (value, extent.y2 - extent.y1);
+      break;
     default:
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
       break;
@@ -223,26 +379,113 @@ goo_canvas_path_get_property (GObject              *object,
 			      GValue               *value,
 			      GParamSpec           *pspec)
 {
+  GooCanvasItemSimple *simple = (GooCanvasItemSimple*) object;
   GooCanvasPath *path = (GooCanvasPath*) object;
 
-  goo_canvas_path_get_common_property (object, path->path_data, prop_id,
-				       value, pspec);
+  goo_canvas_path_get_common_property (object, simple->canvas,
+                                       path->path_data, prop_id, value, pspec);
 }
 
 
 static void
 goo_canvas_path_set_common_property (GObject              *object,
+                                     GooCanvas            *canvas,
 				     GooCanvasPathData    *path_data,
 				     guint                 prop_id,
 				     const GValue         *value,
 				     GParamSpec           *pspec)
 {
+  GooCanvasBounds extent;
+  GooCanvasPathCommand *cmd;
+  gdouble x_offset, y_offset, x_scale, y_scale;
+  guint i;
+
   switch (prop_id)
     {
     case PROP_DATA:
       if (path_data->path_commands)
 	g_array_free (path_data->path_commands, TRUE);
       path_data->path_commands = goo_canvas_parse_path_data (g_value_get_string (value));
+      g_object_notify (object, "x");
+      g_object_notify (object, "y");
+      g_object_notify (object, "width");
+      g_object_notify (object, "height");
+      break;
+    case PROP_X:
+      if (path_data->path_commands->len > 0)
+        {
+	  /* Calculate the x offset from the current position. */
+          goo_canvas_path_common_get_extent (canvas, path_data, &extent);
+          x_offset = g_value_get_double (value) - extent.x1;
+
+	  /* Add the offset to all the absolute x coordinates. */
+          for (i = 0; i < path_data->path_commands->len; i++)
+            {
+              cmd = &g_array_index (path_data->path_commands,
+				    GooCanvasPathCommand, i);
+              goo_canvas_path_move_command (cmd, x_offset, 0.0);
+            }
+          g_object_notify (object, "data");
+        }
+      break;
+    case PROP_Y:
+      if (path_data->path_commands->len > 0)
+        {
+	  /* Calculate the y offset from the current position. */
+          goo_canvas_path_common_get_extent (canvas, path_data, &extent);
+          y_offset = g_value_get_double (value) - extent.y1;
+
+	  /* Add the offset to all the absolute y coordinates. */
+          for (i = 0; i < path_data->path_commands->len; i++)
+            {
+              cmd = &g_array_index (path_data->path_commands,
+				    GooCanvasPathCommand, i);
+              goo_canvas_path_move_command (cmd, 0.0, y_offset);
+            }
+          g_object_notify (object, "data");
+        }
+      break;
+    case PROP_WIDTH:
+      if (path_data->path_commands->len >= 2)
+        {
+          goo_canvas_path_common_get_extent (canvas, path_data, &extent);
+          if (extent.x2 - extent.x1 != 0.0)
+            {
+	      /* Calculate the amount to scale the path. */
+              x_scale = g_value_get_double (value) / (extent.x2 - extent.x1);
+
+	      /* Scale the x coordinates, relative to the left-most point. */
+              for (i = 0; i < path_data->path_commands->len; i++)
+                {
+                  cmd = &g_array_index (path_data->path_commands,
+					GooCanvasPathCommand, i);
+                  goo_canvas_path_scale_command (cmd, extent.x1, 0.0,
+						 x_scale, 1.0);
+                }
+              g_object_notify (object, "data");
+            }
+        }
+      break;
+    case PROP_HEIGHT:
+      if (path_data->path_commands->len >= 2)
+        {
+          goo_canvas_path_common_get_extent (canvas, path_data, &extent);
+          if (extent.y2 - extent.y1 != 0.0)
+            {
+	      /* Calculate the amount to scale the polyline. */
+              y_scale = g_value_get_double (value) / (extent.y2 - extent.y1);
+
+	      /* Scale the y coordinates, relative to the top-most point. */
+              for (i = 0; i < path_data->path_commands->len; i++)
+                {
+                  cmd = &g_array_index (path_data->path_commands,
+					GooCanvasPathCommand, i);
+                  goo_canvas_path_scale_command (cmd, 0.0, extent.y1,
+						 1.0, y_scale);
+                }
+              g_object_notify (object, "data");
+            }
+        }
       break;
     default:
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -266,8 +509,8 @@ goo_canvas_path_set_property (GObject              *object,
       return;
     }
 
-  goo_canvas_path_set_common_property (object, path->path_data, prop_id,
-				       value, pspec);
+  goo_canvas_path_set_common_property (object, simple->canvas, path->path_data,
+                                       prop_id, value, pspec);
   goo_canvas_item_simple_changed (simple, TRUE);
 }
 
@@ -279,6 +522,34 @@ goo_canvas_path_create_path (GooCanvasItemSimple *simple,
   GooCanvasPath *path = (GooCanvasPath*) simple;
 
   goo_canvas_create_path (path->path_data->path_commands, cr);
+}
+
+
+static gboolean
+goo_canvas_path_is_item_at (GooCanvasItemSimple *simple,
+			    gdouble              x,
+			    gdouble              y,
+			    cairo_t             *cr,
+			    gboolean             is_pointer_event)
+{
+  GooCanvasItemSimpleData *simple_data = simple->simple_data;
+  GooCanvasPointerEvents pointer_events = GOO_CANVAS_EVENTS_ALL;
+  gboolean do_fill;
+
+  /* By default only check the fill if a fill color/pattern is specified. */
+  do_fill = goo_canvas_style_set_fill_options (simple_data->style, cr);
+  if (!do_fill)
+    pointer_events &= ~GOO_CANVAS_EVENTS_FILL_MASK;
+
+  /* If is_pointer_event is set use the pointer_events property instead. */
+  if (is_pointer_event)
+    pointer_events = simple_data->pointer_events;
+
+  goo_canvas_path_create_path (simple, cr);
+  if (goo_canvas_item_simple_check_in_path (simple, x, y, cr, pointer_events))
+    return TRUE;
+
+  return FALSE;
 }
 
 
@@ -310,6 +581,24 @@ static void
 canvas_item_interface_init (GooCanvasItemIface *iface)
 {
   iface->set_model      = goo_canvas_path_set_model;
+}
+
+
+static void
+goo_canvas_path_class_init (GooCanvasPathClass *klass)
+{
+  GObjectClass *gobject_class = (GObjectClass*) klass;
+  GooCanvasItemSimpleClass *simple_class = (GooCanvasItemSimpleClass*) klass;
+
+  gobject_class->finalize     = goo_canvas_path_finalize;
+
+  gobject_class->get_property = goo_canvas_path_get_property;
+  gobject_class->set_property = goo_canvas_path_set_property;
+
+  simple_class->simple_create_path = goo_canvas_path_create_path;
+  simple_class->simple_is_item_at  = goo_canvas_path_is_item_at;
+
+  goo_canvas_path_install_common_properties (gobject_class);
 }
 
 
@@ -478,8 +767,8 @@ goo_canvas_path_model_get_property (GObject              *object,
 {
   GooCanvasPathModel *pmodel = (GooCanvasPathModel*) object;
 
-  goo_canvas_path_get_common_property (object, &pmodel->path_data, prop_id,
-				       value, pspec);
+  goo_canvas_path_get_common_property (object, NULL, &pmodel->path_data,
+                                       prop_id, value, pspec);
 }
 
 
@@ -491,8 +780,8 @@ goo_canvas_path_model_set_property (GObject              *object,
 {
   GooCanvasPathModel *pmodel = (GooCanvasPathModel*) object;
 
-  goo_canvas_path_set_common_property (object, &pmodel->path_data, prop_id,
-				       value, pspec);
+  goo_canvas_path_set_common_property (object, NULL, &pmodel->path_data,
+                                       prop_id, value, pspec);
   g_signal_emit_by_name (pmodel, "changed", TRUE);
 }
 

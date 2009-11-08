@@ -79,7 +79,8 @@ enum {
   PROP_DESCRIPTION,
   PROP_CAN_FOCUS,
   PROP_CLIP_PATH,
-  PROP_CLIP_FILL_RULE
+  PROP_CLIP_FILL_RULE,
+  PROP_TOOLTIP
 };
 
 static gboolean accessibility_enabled = FALSE;
@@ -287,6 +288,9 @@ goo_canvas_item_simple_install_common_properties (GObjectClass *gobject_class)
   g_object_class_override_property (gobject_class, PROP_CAN_FOCUS,
 				    "can-focus");
 
+  g_object_class_override_property (gobject_class, PROP_TOOLTIP,
+				    "tooltip");
+
   /**
    * GooCanvasItemSimple:clip-path
    *
@@ -432,27 +436,6 @@ goo_canvas_item_simple_finalize (GObject *object)
 }
 
 
-static guint
-convert_color (double red, double green, double blue, double alpha)
-{
-  guint red_byte, green_byte, blue_byte, alpha_byte;
-
-  red_byte = red * 256;
-  red_byte -= red_byte >> 8;
-
-  green_byte = green * 256;
-  green_byte -= green_byte >> 8;
-
-  blue_byte = blue * 256;
-  blue_byte -= blue_byte >> 8;
-
-  alpha_byte = alpha * 256;
-  alpha_byte -= alpha_byte >> 8;
-
-  return (red_byte << 24) + (green_byte << 16) + (blue_byte << 8) + alpha_byte;
-}
-
-
 static void
 goo_canvas_item_simple_get_common_property (GObject                 *object,
 					    GooCanvasItemSimpleData *simple_data,
@@ -465,9 +448,6 @@ goo_canvas_item_simple_get_common_property (GObject                 *object,
   GValue *svalue;
   gdouble line_width = 2.0;
   gchar *font = NULL;
-  cairo_pattern_t *pattern;
-  double red, green, blue, alpha;
-  guint rgba = 0;
 
   switch (prop_id)
     {
@@ -539,29 +519,15 @@ goo_canvas_item_simple_get_common_property (GObject                 *object,
       /* Convenience properties. */
     case PROP_STROKE_COLOR_RGBA:
       svalue = goo_canvas_style_get_property (style, goo_canvas_style_stroke_pattern_id);
-      if (svalue && svalue->data[0].v_pointer)
-	{
-	  pattern = svalue->data[0].v_pointer;
-	  if (cairo_pattern_get_type (pattern) == CAIRO_PATTERN_TYPE_SOLID)
-	    {
-	      cairo_pattern_get_rgba (pattern, &red, &green, &blue, &alpha);
-	      rgba = convert_color (red, green, blue, alpha);
-	    }
-	}
-      g_value_set_uint (value, rgba);
+      if (svalue)
+	goo_canvas_get_rgba_value_from_pattern (svalue->data[0].v_pointer,
+						value);
       break;
     case PROP_FILL_COLOR_RGBA:
       svalue = goo_canvas_style_get_property (style, goo_canvas_style_fill_pattern_id);
-      if (svalue && svalue->data[0].v_pointer)
-	{
-	  pattern = svalue->data[0].v_pointer;
-	  if (cairo_pattern_get_type (pattern) == CAIRO_PATTERN_TYPE_SOLID)
-	    {
-	      cairo_pattern_get_rgba (pattern, &red, &green, &blue, &alpha);
-	      rgba = convert_color (red, green, blue, alpha);
-	    }
-	}
-      g_value_set_uint (value, rgba);
+      if (svalue)
+	goo_canvas_get_rgba_value_from_pattern (svalue->data[0].v_pointer,
+						value);
       break;
 
       /* Other properties. */
@@ -582,6 +548,9 @@ goo_canvas_item_simple_get_common_property (GObject                 *object,
       break;
     case PROP_CLIP_FILL_RULE:
       g_value_set_enum (value, simple_data->clip_fill_rule);
+      break;
+    case PROP_TOOLTIP:
+      g_value_set_string (value, simple_data->tooltip);
       break;
     default:
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -630,10 +599,6 @@ goo_canvas_item_simple_set_common_property (GObject                 *object,
 					    GParamSpec              *pspec)
 {
   GooCanvasStyle *style;
-  GdkColor color = { 0, 0, 0, 0, };
-  guint rgba, red, green, blue, alpha;
-  GdkPixbuf *pixbuf;
-  cairo_surface_t *surface;
   cairo_pattern_t *pattern;
   gboolean recompute_bounds = FALSE;
   cairo_matrix_t *transform;
@@ -722,74 +687,29 @@ goo_canvas_item_simple_set_common_property (GObject                 *object,
 
       /* Convenience properties. */
     case PROP_STROKE_COLOR:
-      if (g_value_get_string (value))
-	gdk_color_parse (g_value_get_string (value), &color);
-      pattern = cairo_pattern_create_rgb (color.red / 65535.0,
-					  color.green / 65535.0,
-					  color.blue / 65535.0);
-      g_value_init (&tmpval, GOO_TYPE_CAIRO_PATTERN);
-      g_value_take_boxed (&tmpval, pattern);
-      goo_canvas_style_set_property (style, goo_canvas_style_stroke_pattern_id, &tmpval);
-      g_value_unset (&tmpval);
+      pattern = goo_canvas_create_pattern_from_color_value (value);
+      goo_canvas_set_style_property_from_pattern (style, goo_canvas_style_stroke_pattern_id, pattern);
       break;
     case PROP_STROKE_COLOR_RGBA:
-      rgba = g_value_get_uint (value);
-      red   = (rgba >> 24) & 0xFF;
-      green = (rgba >> 16) & 0xFF;
-      blue  = (rgba >> 8)  & 0xFF;
-      alpha = (rgba)       & 0xFF;
-      pattern = cairo_pattern_create_rgba (red / 255.0, green / 255.0,
-					   blue / 255.0, alpha / 255.0);
-      g_value_init (&tmpval, GOO_TYPE_CAIRO_PATTERN);
-      g_value_take_boxed (&tmpval, pattern);
-      goo_canvas_style_set_property (style, goo_canvas_style_stroke_pattern_id, &tmpval);
-      g_value_unset (&tmpval);
+      pattern = goo_canvas_create_pattern_from_rgba_value (value);
+      goo_canvas_set_style_property_from_pattern (style, goo_canvas_style_stroke_pattern_id, pattern);
       break;
     case PROP_STROKE_PIXBUF:
-      pixbuf = g_value_get_object (value);
-      surface = goo_canvas_cairo_surface_from_pixbuf (pixbuf);
-      pattern = cairo_pattern_create_for_surface (surface);
-      cairo_surface_destroy (surface);
-      cairo_pattern_set_extend (pattern, CAIRO_EXTEND_REPEAT);
-      g_value_init (&tmpval, GOO_TYPE_CAIRO_PATTERN);
-      g_value_take_boxed (&tmpval, pattern);
-      goo_canvas_style_set_property (style, goo_canvas_style_stroke_pattern_id, &tmpval);
-      g_value_unset (&tmpval);
+      pattern = goo_canvas_create_pattern_from_pixbuf_value (value);
+      goo_canvas_set_style_property_from_pattern (style, goo_canvas_style_stroke_pattern_id, pattern);
       break;
+
     case PROP_FILL_COLOR:
-      if (g_value_get_string (value))
-	gdk_color_parse (g_value_get_string (value), &color);
-      pattern = cairo_pattern_create_rgb (color.red / 65535.0,
-					  color.green / 65535.0,
-					  color.blue / 65535.0);
-      g_value_init (&tmpval, GOO_TYPE_CAIRO_PATTERN);
-      g_value_take_boxed (&tmpval, pattern);
-      goo_canvas_style_set_property (style, goo_canvas_style_fill_pattern_id, &tmpval);
-      g_value_unset (&tmpval);
+      pattern = goo_canvas_create_pattern_from_color_value (value);
+      goo_canvas_set_style_property_from_pattern (style, goo_canvas_style_fill_pattern_id, pattern);
       break;
     case PROP_FILL_COLOR_RGBA:
-      rgba = g_value_get_uint (value);
-      red   = (rgba >> 24) & 0xFF;
-      green = (rgba >> 16) & 0xFF;
-      blue  = (rgba >> 8)  & 0xFF;
-      alpha = (rgba)       & 0xFF;
-      pattern = cairo_pattern_create_rgba (red / 255.0, green / 255.0,
-					   blue / 255.0, alpha / 255.0);
-      g_value_init (&tmpval, GOO_TYPE_CAIRO_PATTERN);
-      g_value_take_boxed (&tmpval, pattern);
-      goo_canvas_style_set_property (style, goo_canvas_style_fill_pattern_id, &tmpval);
-      g_value_unset (&tmpval);
+      pattern = goo_canvas_create_pattern_from_rgba_value (value);
+      goo_canvas_set_style_property_from_pattern (style, goo_canvas_style_fill_pattern_id, pattern);
       break;
     case PROP_FILL_PIXBUF:
-      pixbuf = g_value_get_object (value);
-      surface = goo_canvas_cairo_surface_from_pixbuf (pixbuf);
-      pattern = cairo_pattern_create_for_surface (surface);
-      cairo_surface_destroy (surface);
-      cairo_pattern_set_extend (pattern, CAIRO_EXTEND_REPEAT);
-      g_value_init (&tmpval, GOO_TYPE_CAIRO_PATTERN);
-      g_value_take_boxed (&tmpval, pattern);
-      goo_canvas_style_set_property (style, goo_canvas_style_fill_pattern_id, &tmpval);
-      g_value_unset (&tmpval);
+      pattern = goo_canvas_create_pattern_from_pixbuf_value (value);
+      goo_canvas_set_style_property_from_pattern (style, goo_canvas_style_fill_pattern_id, pattern);
       break;
 
       /* Other properties. */
@@ -820,6 +740,9 @@ goo_canvas_item_simple_set_common_property (GObject                 *object,
     case PROP_CLIP_FILL_RULE:
       simple_data->clip_fill_rule = g_value_get_enum (value);
       recompute_bounds = TRUE;
+      break;
+    case PROP_TOOLTIP:
+      simple_data->tooltip = g_value_dup_string (value);
       break;
     default:
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -930,6 +853,9 @@ void
 goo_canvas_item_simple_changed    (GooCanvasItemSimple *item,
 				   gboolean             recompute_bounds)
 {
+  GooCanvasItemSimple *simple = (GooCanvasItemSimple*) item;
+  GooCanvasItemSimpleData *simple_data = simple->simple_data;
+
   if (recompute_bounds)
     {
       item->need_entire_subtree_update = TRUE;
@@ -945,7 +871,7 @@ goo_canvas_item_simple_changed    (GooCanvasItemSimple *item,
   else
     {
       if (item->canvas)
-	goo_canvas_request_redraw (item->canvas, &item->bounds);
+	goo_canvas_request_item_redraw (item->canvas, &item->bounds, simple_data->is_static);
     }
 }
 
@@ -1151,6 +1077,27 @@ goo_canvas_item_simple_is_visible  (GooCanvasItem   *item)
 }
 
 
+static gboolean
+goo_canvas_item_simple_get_is_static  (GooCanvasItem   *item)
+{
+  GooCanvasItemSimple *simple = (GooCanvasItemSimple*) item;
+  GooCanvasItemSimpleData *simple_data = simple->simple_data;
+
+  return simple_data->is_static;
+}
+
+
+static void
+goo_canvas_item_simple_set_is_static  (GooCanvasItem   *item,
+				       gboolean         is_static)
+{
+  GooCanvasItemSimple *simple = (GooCanvasItemSimple*) item;
+  GooCanvasItemSimpleData *simple_data = simple->simple_data;
+
+  simple_data->is_static = is_static;
+}
+
+
 /**
  * goo_canvas_item_simple_check_style:
  * @item: a #GooCanvasItemSimple.
@@ -1258,7 +1205,7 @@ goo_canvas_item_simple_update  (GooCanvasItem   *item,
   if (entire_tree || simple->need_update)
     {
       /* Request a redraw of the existing bounds. */
-      goo_canvas_request_redraw (simple->canvas, &simple->bounds);
+      goo_canvas_request_item_redraw (simple->canvas, &simple->bounds, simple_data->is_static);
 
       cairo_save (cr);
       if (simple_data->transform)
@@ -1285,7 +1232,7 @@ goo_canvas_item_simple_update  (GooCanvasItem   *item,
       cairo_restore (cr);
 
       /* Request a redraw of the new bounds. */
-      goo_canvas_request_redraw (simple->canvas, &simple->bounds);
+      goo_canvas_request_item_redraw (simple->canvas, &simple->bounds, simple_data->is_static);
     }
 
   *bounds = simple->bounds;
@@ -1301,6 +1248,9 @@ goo_canvas_item_simple_get_requested_area (GooCanvasItem    *item,
   GooCanvasItemSimpleData *simple_data = simple->simple_data;
   cairo_matrix_t matrix;
   double x_offset, y_offset;
+
+  /* Request a redraw of the existing bounds. */
+  goo_canvas_request_item_redraw (simple->canvas, &simple->bounds, simple_data->is_static);
 
   cairo_save (cr);
   if (simple_data->transform)
@@ -1370,6 +1320,7 @@ goo_canvas_item_simple_allocate_area      (GooCanvasItem         *item,
 					   gdouble                y_offset)
 {
   GooCanvasItemSimple *simple = (GooCanvasItemSimple*) item;
+  GooCanvasItemSimpleData *simple_data = simple->simple_data;
 
   /* Simple items can't resize at all, so we just adjust the bounds x & y
      positions here, and let the item be clipped if necessary. */
@@ -1377,6 +1328,9 @@ goo_canvas_item_simple_allocate_area      (GooCanvasItem         *item,
   simple->bounds.y1 += y_offset;
   simple->bounds.x2 += x_offset;
   simple->bounds.y2 += y_offset;
+
+  /* Request a redraw of the new bounds. */
+  goo_canvas_request_item_redraw (simple->canvas, &simple->bounds, simple_data->is_static);
 }
 
 
@@ -1542,6 +1496,26 @@ goo_canvas_item_simple_set_model_internal    (GooCanvasItem      *item,
 }
 
 
+static gboolean
+goo_canvas_item_simple_query_tooltip (GooCanvasItem  *item,
+				      gdouble         x,
+				      gdouble         y,
+				      gboolean        keyboard_tip,
+				      GtkTooltip     *tooltip)
+{
+  GooCanvasItemSimple *simple = (GooCanvasItemSimple*) item;
+  GooCanvasItemSimpleData *simple_data = simple->simple_data;
+
+  if (simple_data->tooltip)
+    {
+      gtk_tooltip_set_markup (tooltip, simple_data->tooltip);
+      return TRUE;
+    }
+
+  return FALSE;
+}
+
+
 static void
 canvas_item_interface_init (GooCanvasItemIface *iface)
 {
@@ -1562,9 +1536,13 @@ canvas_item_interface_init (GooCanvasItemIface *iface)
   iface->get_style          = goo_canvas_item_simple_get_style;
   iface->set_style          = goo_canvas_item_simple_set_style;
   iface->is_visible         = goo_canvas_item_simple_is_visible;
+  iface->get_is_static	    = goo_canvas_item_simple_get_is_static;
+  iface->set_is_static	    = goo_canvas_item_simple_set_is_static;
 
   iface->get_model          = goo_canvas_item_simple_get_model;
   iface->set_model          = goo_canvas_item_simple_set_model_internal;
+
+  iface->query_tooltip	    = goo_canvas_item_simple_query_tooltip;
 }
 
 
@@ -1692,7 +1670,8 @@ goo_canvas_item_simple_get_path_bounds (GooCanvasItemSimple *item,
  * This function is intended to be used by subclasses of #GooCanvasItemSimple,
  * typically in their update() or get_requested_area() methods.
  *
- * It converts the item's bounds to a bounding box in device space.
+ * It converts the item's bounds to a bounding box in the canvas (device)
+ * coordinate space.
  **/
 void
 goo_canvas_item_simple_user_bounds_to_device (GooCanvasItemSimple *item,

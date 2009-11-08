@@ -55,7 +55,6 @@ GType goo_canvas_bounds_get_type (void) G_GNUC_CONST;
 
 #define GOO_TYPE_CANVAS_ITEM            (goo_canvas_item_get_type ())
 #define GOO_CANVAS_ITEM(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GOO_TYPE_CANVAS_ITEM, GooCanvasItem))
-#define GOO_CANVAS_ITEM_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), GOO_TYPE_CANVAS_ITEM, GooCanvasItemClass))
 #define GOO_IS_CANVAS_ITEM(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GOO_TYPE_CANVAS_ITEM))
 #define GOO_CANVAS_ITEM_GET_IFACE(obj)  (G_TYPE_INSTANCE_GET_INTERFACE ((obj), GOO_TYPE_CANVAS_ITEM, GooCanvasItemIface))
 
@@ -110,6 +109,8 @@ typedef struct _GooCanvasItem       GooCanvasItem;
  * @get_style: gets the item's style.
  * @set_style: sets the item's style.
  * @is_visible: returns %TRUE if the item is currently visible.
+ * @get_is_static: returns %TRUE if the item is static.
+ * @set_is_static: notifies the item whether it is static or not.
  * @get_requested_height: returns the requested height of the item,
  *  given a particular allocated width, using the parent's coordinate space.
  * @get_model: gets the model that the canvas item is viewing.
@@ -126,7 +127,10 @@ typedef struct _GooCanvasItem       GooCanvasItem;
  * @key_release_event: signal emitted when a key is released.
  * @grab_broken_event: signal emitted when a grab that the item has is lost.
  * @child_notify: signal emitted when a child property is changed.
+ * @query_tooltip: signal emitted to query the tooltip of an item.
  * @animation_finished: signal emitted when the item's animation has finished.
+ * @scroll_event: signal emitted when the mouse wheel is activated within
+ * the item.
  *
  * #GooCanvasItemIFace holds the virtual methods that make up the
  * #GooCanvasItem interface.
@@ -271,28 +275,30 @@ struct _GooCanvasItemIface
 							 GdkEventGrabBroken	*event);
   void			(* child_notify)		(GooCanvasItem		*item,
 							 GParamSpec		*pspec);
-
-  /*< private >*/
-
-  /* We might use this in future to support tooltips. */
   gboolean		(* query_tooltip)		(GooCanvasItem		*item,
 							 gdouble		 x,
 							 gdouble		 y,
 							 gboolean		 keyboard_tooltip,
-							 gpointer /*GtkTooltip*/		*tooltip);
+							 GtkTooltip		*tooltip);
+
+  gboolean		(* get_is_static)		(GooCanvasItem		*item);
+  void			(* set_is_static)		(GooCanvasItem		*item,
+							 gboolean		 is_static);
 
   void			(* animation_finished)		(GooCanvasItem           *item,
 							 gboolean                 stopped);
+
+  gboolean		(* scroll_event)		(GooCanvasItem		*item,
+							 GooCanvasItem		*target,
+							 GdkEventScroll		*event);
+
+  /*< private >*/
 
   /* Padding for future expansion */
   void (*_goo_canvas_reserved1) (void);
   void (*_goo_canvas_reserved2) (void);
   void (*_goo_canvas_reserved3) (void);
   void (*_goo_canvas_reserved4) (void);
-  void (*_goo_canvas_reserved5) (void);
-  void (*_goo_canvas_reserved6) (void);
-  void (*_goo_canvas_reserved7) (void);
-  void (*_goo_canvas_reserved8) (void);
 };
 
 
@@ -449,6 +455,9 @@ void		   goo_canvas_item_allocate_area      (GooCanvasItem	     *item,
 						       gdouble                x_offset,
 						       gdouble                y_offset);
 
+gboolean	   goo_canvas_item_get_is_static	(GooCanvasItem		*item);
+void		   goo_canvas_item_set_is_static	(GooCanvasItem		*item,
+							 gboolean		 is_static);
 
 
 /*

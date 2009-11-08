@@ -8,6 +8,7 @@
 #define __GOO_CANVAS_PRIVATE_H__
 
 #include <gtk/gtk.h>
+#include "goocanvasstyle.h"
 
 G_BEGIN_DECLS
 
@@ -29,6 +30,22 @@ gint goo_canvas_util_ptr_array_find_index (GPtrArray *ptr_array,
 
 cairo_pattern_t* goo_canvas_cairo_pattern_from_pixbuf (GdkPixbuf *pixbuf);
 cairo_surface_t* goo_canvas_cairo_surface_from_pixbuf (GdkPixbuf *pixbuf);
+
+guint goo_canvas_convert_colors_to_rgba (double red,
+					 double green,
+					 double blue,
+					 double alpha);
+
+void goo_canvas_get_rgba_value_from_pattern (cairo_pattern_t *pattern,
+					     GValue          *value);
+
+void goo_canvas_set_style_property_from_pattern (GooCanvasStyle  *style,
+						 GQuark           property_id,
+						 cairo_pattern_t *pattern);
+
+cairo_pattern_t* goo_canvas_create_pattern_from_color_value  (const GValue *value);
+cairo_pattern_t* goo_canvas_create_pattern_from_rgba_value   (const GValue *value);
+cairo_pattern_t* goo_canvas_create_pattern_from_pixbuf_value (const GValue *value);
 
 
 gboolean goo_canvas_boolean_handled_accumulator (GSignalInvocationHint *ihint,

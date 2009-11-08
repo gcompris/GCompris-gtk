@@ -117,20 +117,16 @@ enum {
   PROP_END_ARROW,
   PROP_ARROW_LENGTH,
   PROP_ARROW_WIDTH,
-  PROP_ARROW_TIP_LENGTH
+  PROP_ARROW_TIP_LENGTH,
+
+  PROP_X,
+  PROP_Y,
+  PROP_WIDTH,
+  PROP_HEIGHT
 };
 
 
-static void goo_canvas_polyline_finalize     (GObject            *object);
 static void canvas_item_interface_init       (GooCanvasItemIface *iface);
-static void goo_canvas_polyline_get_property (GObject            *object,
-					      guint               param_id,
-					      GValue             *value,
-					      GParamSpec         *pspec);
-static void goo_canvas_polyline_set_property (GObject            *object,
-					      guint               param_id,
-					      const GValue       *value,
-					      GParamSpec         *pspec);
 
 G_DEFINE_TYPE_WITH_CODE (GooCanvasPolyline, goo_canvas_polyline,
 			 GOO_TYPE_CANVAS_ITEM_SIMPLE,
@@ -189,6 +185,36 @@ goo_canvas_polyline_install_common_properties (GObjectClass *gobject_class)
 							_("The length of the arrow tip, as a multiple of the line width"),
 							0.0, G_MAXDOUBLE, 4.0,
 							G_PARAM_READWRITE));
+
+  g_object_class_install_property (gobject_class, PROP_X,
+				   g_param_spec_double ("x",
+							"X",
+							_("The x coordinate of the left-most point of the polyline"),
+							-G_MAXDOUBLE,
+							G_MAXDOUBLE, 0.0,
+							G_PARAM_READWRITE));
+
+  g_object_class_install_property (gobject_class, PROP_Y,
+				   g_param_spec_double ("y",
+							"Y",
+							_("The y coordinate of the top-most point of the polyline"),
+							-G_MAXDOUBLE,
+							G_MAXDOUBLE, 0.0,
+							G_PARAM_READWRITE));
+
+  g_object_class_install_property (gobject_class, PROP_WIDTH,
+				   g_param_spec_double ("width",
+							_("Width"),
+							_("The width of the polyline"),
+							0.0, G_MAXDOUBLE, 0.0,
+							G_PARAM_READWRITE));
+
+  g_object_class_install_property (gobject_class, PROP_HEIGHT,
+				   g_param_spec_double ("height",
+							_("Height"),
+							_("The height of the polyline"),
+							0.0, G_MAXDOUBLE, 0.0,
+							G_PARAM_READWRITE));
 }
 
 
@@ -221,6 +247,32 @@ goo_canvas_polyline_finalize (GObject *object)
 
 
 static void
+goo_canvas_polyline_get_extent (GooCanvasPolylineData *polyline_data,
+                                GooCanvasBounds *bounds)
+{
+  guint i;
+
+  if (polyline_data->num_points == 0)
+    {
+      bounds->x1 = bounds->y1 = bounds->x2 = bounds->y2 = 0.0;
+    }
+  else
+    {
+      bounds->x1 = bounds->x2 = polyline_data->coords[0];
+      bounds->y1 = bounds->y2 = polyline_data->coords[1];
+
+      for (i = 1; i < polyline_data->num_points; i++)
+        {
+	  bounds->x1 = MIN (bounds->x1, polyline_data->coords[2 * i]);
+	  bounds->y1 = MIN (bounds->y1, polyline_data->coords[2 * i + 1]);
+	  bounds->x2 = MAX (bounds->x2, polyline_data->coords[2 * i]);
+	  bounds->y2 = MAX (bounds->y2, polyline_data->coords[2 * i + 1]);
+        }
+    }
+}
+
+
+static void
 goo_canvas_polyline_get_common_property (GObject              *object,
 					 GooCanvasPolylineData *polyline_data,
 					 guint                 prop_id,
@@ -228,6 +280,7 @@ goo_canvas_polyline_get_common_property (GObject              *object,
 					 GParamSpec           *pspec)
 {
   GooCanvasPoints *points;
+  GooCanvasBounds  extent;
 
   switch (prop_id)
     {
@@ -265,6 +318,22 @@ goo_canvas_polyline_get_common_property (GObject              *object,
     case PROP_ARROW_TIP_LENGTH:
       g_value_set_double (value, polyline_data->arrow_data
 			  ? polyline_data->arrow_data->arrow_tip_length : 4.0);
+      break;
+    case PROP_X:
+      goo_canvas_polyline_get_extent (polyline_data, &extent);
+      g_value_set_double (value, extent.x1);
+      break;
+    case PROP_Y:
+      goo_canvas_polyline_get_extent (polyline_data, &extent);
+      g_value_set_double (value, extent.y1);
+      break;
+    case PROP_WIDTH:
+      goo_canvas_polyline_get_extent (polyline_data, &extent);
+      g_value_set_double (value, extent.x2 - extent.x1);
+      break;
+    case PROP_HEIGHT:
+      goo_canvas_polyline_get_extent (polyline_data, &extent);
+      g_value_set_double (value, extent.y2 - extent.y1);
       break;
     default:
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -437,6 +506,9 @@ goo_canvas_polyline_set_common_property (GObject              *object,
 					 GParamSpec           *pspec)
 {
   GooCanvasPoints *points;
+  GooCanvasBounds  extent;
+  gdouble x_offset, y_offset, x_scale, y_scale;
+  guint i;
 
   switch (prop_id)
     {
@@ -461,6 +533,10 @@ goo_canvas_polyline_set_common_property (GObject              *object,
 		  polyline_data->num_points * 2 * sizeof (double));
 	}
       polyline_data->reconfigure_arrows = TRUE;
+      g_object_notify (object, "x");
+      g_object_notify (object, "y");
+      g_object_notify (object, "width");
+      g_object_notify (object, "height");
       break;
     case PROP_CLOSE_PATH:
       polyline_data->close_path = g_value_get_boolean (value);
@@ -488,6 +564,68 @@ goo_canvas_polyline_set_common_property (GObject              *object,
       ensure_arrow_data (polyline_data);
       polyline_data->arrow_data->arrow_tip_length = g_value_get_double (value);
       polyline_data->reconfigure_arrows = TRUE;
+      break;
+    case PROP_X:
+      if (polyline_data->num_points > 0)
+        {
+	  /* Calculate the x offset from the current position. */
+          goo_canvas_polyline_get_extent (polyline_data, &extent);
+          x_offset = g_value_get_double (value) - extent.x1;
+
+	  /* Add the offset to all the x coordinates. */
+          for (i = 0; i < polyline_data->num_points; i++)
+            polyline_data->coords[2 * i] += x_offset;
+
+          g_object_notify (object, "points");
+        }
+      break;
+    case PROP_Y:
+      if (polyline_data->num_points > 0)
+        {
+	  /* Calculate the y offset from the current position. */
+          goo_canvas_polyline_get_extent (polyline_data, &extent);
+          y_offset = g_value_get_double (value) - extent.y1;
+
+	  /* Add the offset to all the y coordinates. */
+          for (i = 0; i < polyline_data->num_points; i++)
+            polyline_data->coords[2 * i + 1] += y_offset;
+
+          g_object_notify (object, "points");
+        }
+      break;
+    case PROP_WIDTH:
+      if (polyline_data->num_points >= 2)
+        {
+          goo_canvas_polyline_get_extent (polyline_data, &extent);
+          if (extent.x2 - extent.x1 != 0.0)
+            {
+	      /* Calculate the amount to scale the polyline. */
+              x_scale = g_value_get_double (value) / (extent.x2 - extent.x1);
+
+	      /* Scale the x coordinates, relative to the left-most point. */
+              for (i = 0; i < polyline_data->num_points; i++)
+                polyline_data->coords[2 * i] = extent.x1 + (polyline_data->coords[2 * i] - extent.x1) * x_scale;
+
+              g_object_notify (object, "points");
+            }
+        }
+      break;
+    case PROP_HEIGHT:
+      if (polyline_data->num_points >= 2)
+        {
+          goo_canvas_polyline_get_extent (polyline_data, &extent);
+          if (extent.y2 - extent.y1 != 0.0)
+            {
+	      /* Calculate the amount to scale the polyline. */
+              y_scale = g_value_get_double (value) / (extent.y2 - extent.y1);
+
+	      /* Scale the y coordinates, relative to the top-most point. */
+              for (i = 0; i < polyline_data->num_points; i++)
+                polyline_data->coords[2 * i + 1] = extent.y1 + (polyline_data->coords[2 * i + 1] - extent.y1) * y_scale;
+
+              g_object_notify (object, "points");
+            }
+        }
       break;
     default:
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -768,6 +906,10 @@ goo_canvas_polyline_is_item_at (GooCanvasItemSimple *simple,
   /* Check if the item should receive events. */
   if (is_pointer_event)
     pointer_events = simple_data->pointer_events;
+
+  /* If the path isn't closed, we never check the fill. */
+  if (!(polyline_data->close_path && polyline_data->num_points > 2))
+    pointer_events &= ~GOO_CANVAS_EVENTS_FILL_MASK;
 
   goo_canvas_polyline_create_path (polyline, cr);
   if (goo_canvas_item_simple_check_in_path (simple, x, y, cr, pointer_events))

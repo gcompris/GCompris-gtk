@@ -15,7 +15,6 @@ G_BEGIN_DECLS
 
 #define GOO_TYPE_CANVAS_ITEM_MODEL            (goo_canvas_item_model_get_type ())
 #define GOO_CANVAS_ITEM_MODEL(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GOO_TYPE_CANVAS_ITEM_MODEL, GooCanvasItemModel))
-#define GOO_CANVAS_ITEM_MODEL_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), GOO_TYPE_CANVAS_ITEM_MODEL, GooCanvasItemModelClass))
 #define GOO_IS_CANVAS_ITEM_MODEL(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GOO_TYPE_CANVAS_ITEM_MODEL))
 #define GOO_CANVAS_ITEM_MODEL_GET_IFACE(obj)  (G_TYPE_INSTANCE_GET_INTERFACE ((obj), GOO_TYPE_CANVAS_ITEM_MODEL, GooCanvasItemModelIface))
 
@@ -149,7 +148,6 @@ struct _GooCanvasItemModelIface
   void (*_goo_canvas_reserved5) (void);
   void (*_goo_canvas_reserved6) (void);
   void (*_goo_canvas_reserved7) (void);
-  void (*_goo_canvas_reserved8) (void);
 };
 
 

@@ -22,6 +22,7 @@ G_BEGIN_DECLS
  * @transform: the transformation matrix of the item, or %NULL.
  * @clip_path_commands: an array of #GooCanvasPathCommand specifying the clip
  *  path of the item, or %NULL.
+ * @tooltip: the item's tooltip.
  * @visibility_threshold: the threshold scale setting at which to show the item
  *  (if the @visibility setting is set to %VISIBLE_ABOVE_THRESHOLD).
  * @visibility: the #GooCanvasItemVisibility setting specifying whether the
@@ -32,6 +33,7 @@ G_BEGIN_DECLS
  * @own_style: if the item has its own style, rather than using its parent's.
  * @clip_fill_rule: the #cairo_fill_rule_t setting specifying the fill rule
  *  used for the clip path.
+ * @is_static: if the item is static.
  *
  * This is the data common to both the model and view classes.
  */
@@ -41,9 +43,6 @@ struct _GooCanvasItemSimpleData
   GooCanvasStyle *style;
   cairo_matrix_t *transform;
   GArray *clip_path_commands;
-
-  /*< private >*/
-  /* We will store tooltips here in future. */
   gchar *tooltip;
 
   /*< public >*/
@@ -53,10 +52,11 @@ struct _GooCanvasItemSimpleData
   guint can_focus                       : 1;
   guint own_style                       : 1;
   guint clip_fill_rule			: 4;
+  guint is_static			: 1;
 
   /*< private >*/
   /* We might use this in future for a cache setting - never/always/visible. */
-  guint cache_setting			: 3;
+  guint cache_setting			: 2;
   /* We might need this for tooltips in future. */
   guint has_tooltip			: 1;
 };

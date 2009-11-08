@@ -10,6 +10,7 @@
 #include <gtk/gtk.h>
 #include <goocanvasenumtypes.h>
 #include <goocanvasellipse.h>
+#include <goocanvasgrid.h>
 #include <goocanvasgroup.h>
 #include <goocanvasimage.h>
 #include <goocanvaspath.h>
@@ -83,6 +84,10 @@ struct _GooCanvas
 
   /* This is TRUE if the background is cleared before painting the canvas. */
   guint clear_background : 1;
+
+  /* This is TRUE if the canvas is completely redrawn when scrolled. It is
+     useful when there are sticky items to reduce flicker, but is slower. */
+  guint redraw_when_scrolled : 1;
 
   /* This is the padding around the automatic bounds. */
   gdouble bounds_padding;
@@ -204,6 +209,14 @@ GooCanvasItemModel* goo_canvas_get_root_item_model (GooCanvas	       *canvas);
 void                goo_canvas_set_root_item_model (GooCanvas	       *canvas,
 						    GooCanvasItemModel *model);
 
+GooCanvasItem*  goo_canvas_get_static_root_item    (GooCanvas		*canvas);
+void            goo_canvas_set_static_root_item    (GooCanvas		*canvas,
+						    GooCanvasItem      *item);
+
+GooCanvasItemModel* goo_canvas_get_static_root_item_model (GooCanvas	       *canvas);
+void                goo_canvas_set_static_root_item_model (GooCanvas	       *canvas,
+							   GooCanvasItemModel *model);
+
 GooCanvasItem*  goo_canvas_get_item	    (GooCanvas		*canvas,
 					     GooCanvasItemModel *model);
 GooCanvasItem*  goo_canvas_get_item_at	    (GooCanvas		*canvas,
@@ -265,6 +278,9 @@ void		goo_canvas_convert_from_item_space (GooCanvas       *canvas,
 						    GooCanvasItem   *item,
 						    gdouble         *x,
 						    gdouble         *y);
+void		goo_canvas_convert_bounds_to_item_space (GooCanvas           *canvas,
+							 GooCanvasItem       *item,
+							 GooCanvasBounds     *bounds);
 
 
 /*
@@ -299,6 +315,9 @@ void		goo_canvas_update	    (GooCanvas		*canvas);
 void		goo_canvas_request_update   (GooCanvas		*canvas);
 void		goo_canvas_request_redraw   (GooCanvas		*canvas,
 					     const GooCanvasBounds *bounds);
+void		goo_canvas_request_item_redraw   (GooCanvas		*canvas,
+						  const GooCanvasBounds *bounds,
+						  gboolean               is_static);
 gdouble         goo_canvas_get_default_line_width (GooCanvas    *canvas);
 
 

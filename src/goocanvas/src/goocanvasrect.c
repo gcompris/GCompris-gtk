@@ -360,7 +360,6 @@ goo_canvas_rect_create_path (GooCanvasItemSimple *simple,
       /* Draw the plain rectangle. */
       cairo_rectangle (cr, rect_data->x, rect_data->y,
 		       rect_data->width, rect_data->height);
-      cairo_close_path (cr);
     }
 }
 

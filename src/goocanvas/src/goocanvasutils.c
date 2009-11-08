@@ -366,7 +366,7 @@ goo_canvas_line_dash_get_type (void)
   
   if (cairo_line_dash_type == 0)
     cairo_line_dash_type = g_boxed_type_register_static
-      ("GooCairoLineDash",
+      ("GooCanvasLineDash",
        (GBoxedCopyFunc) goo_canvas_line_dash_ref,
        (GBoxedFreeFunc) goo_canvas_line_dash_unref);
 
@@ -1192,3 +1192,103 @@ goo_canvas_bounds_get_type (void)
 }
 
 
+/* Converts red, green, blue and alpha doubles to an RGBA guint. */
+guint
+goo_canvas_convert_colors_to_rgba (double red,
+				   double green,
+				   double blue,
+				   double alpha)
+{
+  guint red_byte, green_byte, blue_byte, alpha_byte;
+
+  red_byte = red * 256;
+  red_byte -= red_byte >> 8;
+
+  green_byte = green * 256;
+  green_byte -= green_byte >> 8;
+
+  blue_byte = blue * 256;
+  blue_byte -= blue_byte >> 8;
+
+  alpha_byte = alpha * 256;
+  alpha_byte -= alpha_byte >> 8;
+
+  return (red_byte << 24) + (green_byte << 16) + (blue_byte << 8) + alpha_byte;
+}
+
+
+void
+goo_canvas_get_rgba_value_from_pattern (cairo_pattern_t *pattern,
+					GValue          *value)
+{
+  double red, green, blue, alpha;
+  guint rgba = 0;
+
+  if (pattern && cairo_pattern_get_type (pattern) == CAIRO_PATTERN_TYPE_SOLID)
+    {
+      cairo_pattern_get_rgba (pattern, &red, &green, &blue, &alpha);
+      rgba = goo_canvas_convert_colors_to_rgba (red, green, blue, alpha);
+    }
+  g_value_set_uint (value, rgba);
+}
+
+
+/* Sets a style property to the given pattern, taking ownership of it. */
+void
+goo_canvas_set_style_property_from_pattern (GooCanvasStyle  *style,
+					    GQuark           property_id,
+					    cairo_pattern_t *pattern)
+{
+  GValue tmpval = { 0 };
+
+  g_value_init (&tmpval, GOO_TYPE_CAIRO_PATTERN);
+  g_value_take_boxed (&tmpval, pattern);
+  goo_canvas_style_set_property (style, property_id, &tmpval);
+  g_value_unset (&tmpval);
+}
+
+
+cairo_pattern_t*
+goo_canvas_create_pattern_from_color_value (const GValue *value)
+{
+  GdkColor color = { 0, 0, 0, 0, };
+
+  if (g_value_get_string (value))
+    gdk_color_parse (g_value_get_string (value), &color);
+
+  return cairo_pattern_create_rgb (color.red / 65535.0,
+				   color.green / 65535.0,
+				   color.blue / 65535.0);
+}
+  
+
+cairo_pattern_t*
+goo_canvas_create_pattern_from_rgba_value (const GValue *value)
+{
+  guint rgba, red, green, blue, alpha;
+
+  rgba = g_value_get_uint (value);
+  red   = (rgba >> 24) & 0xFF;
+  green = (rgba >> 16) & 0xFF;
+  blue  = (rgba >> 8)  & 0xFF;
+  alpha = (rgba)       & 0xFF;
+
+  return cairo_pattern_create_rgba (red / 255.0, green / 255.0,
+				    blue / 255.0, alpha / 255.0);
+}
+
+
+cairo_pattern_t*
+goo_canvas_create_pattern_from_pixbuf_value (const GValue *value)
+{
+  GdkPixbuf *pixbuf;
+  cairo_surface_t *surface;
+  cairo_pattern_t *pattern;
+
+  pixbuf = g_value_get_object (value);
+  surface = goo_canvas_cairo_surface_from_pixbuf (pixbuf);
+  pattern = cairo_pattern_create_for_surface (surface);
+  cairo_surface_destroy (surface);
+  cairo_pattern_set_extend (pattern, CAIRO_EXTEND_REPEAT);
+  return pattern;
+}

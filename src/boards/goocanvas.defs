@@ -67,13 +67,6 @@
   (gtype-id "GOO_TYPE_CANVAS_IMAGE")
 )
 
-(define-object Svg
-  (in-module "Goo")
-  (parent "GooCanvasItemSimple")
-  (c-name "GooCanvasSvg")
-  (gtype-id "GOO_TYPE_CANVAS_SVG")
-)
-
 (define-object Group
   (in-module "Goo")
   (parent "GooCanvasItemSimple")
@@ -108,6 +101,9 @@
   (gtype-id "GOO_TYPE_CANVAS_POINTS")
   (copy-func "goo_canvas_points_ref")
   (release-func "goo_canvas_points_unref")
+  (fields
+   ("double*" "coords")
+   ("int" "num_points"))
 )
 
 (define-object Polyline
@@ -288,6 +284,36 @@
   )
 )
 
+(define-method get_static_root_item
+  (of-object "GooCanvas")
+  (c-name "goo_canvas_get_static_root_item")
+  (return-type "GooCanvasItem*")
+)
+
+(define-method set_static_root_item
+  (of-object "GooCanvas")
+  (c-name "goo_canvas_set_static_root_item")
+  (return-type "none")
+  (parameters
+    '("GooCanvasItem*" "item")
+  )
+)
+
+(define-method get_static_root_item_model
+  (of-object "GooCanvas")
+  (c-name "goo_canvas_get_static_root_item_model")
+  (return-type "GooCanvasItemModel*")
+)
+
+(define-method set_static_root_item_model
+  (of-object "GooCanvas")
+  (c-name "goo_canvas_set_static_root_item_model")
+  (return-type "none")
+  (parameters
+    '("GooCanvasItemModel*" "model")
+  )
+)
+
 (define-method get_item
   (of-object "GooCanvas")
   (c-name "goo_canvas_get_item")
@@ -442,6 +468,16 @@
   )
 )
 
+(define-method convert_bounds_to_item_space
+  (of-object "GooCanvas")
+  (c-name "goo_canvas_convert_bounds_to_item_space")
+  (return-type "none")
+  (parameters
+    '("GooCanvasItem*" "item")
+    '("GooCanvasBounds*" "bounds")
+  )
+)
+
 (define-method pointer_grab
   (of-object "GooCanvas")
   (c-name "goo_canvas_pointer_grab")
@@ -527,6 +563,16 @@
   (return-type "none")
   (parameters
     '("GooCanvasBounds*" "bounds")
+  )
+)
+
+(define-method request_item_redraw
+  (of-object "GooCanvas")
+  (c-name "goo_canvas_request_item_redraw")
+  (return-type "none")
+  (parameters
+    '("const-GooCanvasBounds*" "bounds")
+    '("gboolean" "is_static")
   )
 )
 
@@ -645,6 +691,7 @@
 
 
 
+
 ;; From goocanvasgroup.h
 
 (define-function goo_canvas_group_get_type
@@ -719,27 +766,6 @@
 
 
 
-;; From goocanvassvg.h
-
-(define-function goo_canvas_svg_get_type
-  (c-name "goo_canvas_svg_get_type")
-  (return-type "GType")
-)
-
-(define-function goo_canvas_svg_new
-  (c-name "goo_canvas_svg_new")
-  (is-constructor-of "GooCanvasSvg")
-  (return-type "GooCanvasItem*")
-  (parameters
-    '("GooCanvasItem*" "parent")
-    '("RsvgHandle*" "svg_handle")
-    '("const-gchar*" "svg_id")
-  )
-  (varargs #t)
-)
-
-
-
 ;; From goocanvasitem.h
 
 (define-function goo_canvas_item_get_type
@@ -797,6 +823,28 @@
   (return-type "none")
   (parameters
     '("gint" "child_num")
+  )
+)
+
+(define-method get_child_property
+  (of-object "GooCanvasItem")
+  (c-name "goo_canvas_item_get_child_property")
+  (return-type "none")
+  (parameters
+    '("GooCanvasItem*" "child")
+    '("const-gchar*" "property_name")
+    '("GValue*" "value")
+  )
+)
+
+(define-method set_child_property
+  (of-object "GooCanvasItem")
+  (c-name "goo_canvas_item_set_child_property")
+  (return-type "none")
+  (parameters
+    '("GooCanvasItem*" "child")
+    '("const-gchar*" "property_name")
+    '("const-GValue*" "value")
   )
 )
 
@@ -925,6 +973,18 @@
   (return-type "none")
   (parameters
     '("cairo_matrix_t*" "matrix")
+  )
+)
+
+(define-method get_simple_transform
+  (of-object "GooCanvasItem")
+  (c-name "goo_canvas_item_get_simple_transform")
+  (return-type "gboolean")
+  (parameters
+    '("gdouble*" "x")
+    '("gdouble*" "y")
+    '("gdouble*" "scale")
+    '("gdouble*" "rotation")
   )
 )
 
@@ -1510,6 +1570,28 @@
   )
 )
 
+(define-method get_child_property
+  (of-object "GooCanvasItemModel")
+  (c-name "goo_canvas_item_model_get_child_property")
+  (return-type "none")
+  (parameters
+    '("GooCanvasItemModel*" "child")
+    '("const-gchar*" "property_name")
+    '("GValue*" "value")
+  )
+)
+
+(define-method set_child_property
+  (of-object "GooCanvasItemModel")
+  (c-name "goo_canvas_item_model_set_child_property")
+  (return-type "none")
+  (parameters
+    '("GooCanvasItemModel*" "child")
+    '("const-gchar*" "property_name")
+    '("const-GValue*" "value")
+  )
+)
+
 (define-method get_child_properties
   (of-object "GooCanvasItemModel")
   (c-name "goo_canvas_item_model_get_child_properties")
@@ -1610,6 +1692,18 @@
   (return-type "none")
   (parameters
     '("cairo_matrix_t*" "matrix")
+  )
+)
+
+(define-method get_simple_transform
+  (of-object "GooCanvasItemModel")
+  (c-name "goo_canvas_item_model_get_simple_transform")
+  (return-type "gboolean")
+  (parameters
+    '("gdouble*" "x")
+    '("gdouble*" "y")
+    '("gdouble*" "scale")
+    '("gdouble*" "rotation")
   )
 )
 
@@ -2304,6 +2398,16 @@
     '("GtkAnchorType" "anchor")
   )
   (varargs #t)
+)
+
+(define-method get_natural_extents
+  (of-object "GooCanvasText")
+  (c-name "goo_canvas_text_get_natural_extents")
+  (return-type "none")
+  (parameters
+    '("PangoRectangle*" "ink_rect")
+    '("PangoRectangle*" "logical_rect")
+  )
 )
 
 (define-function goo_canvas_text_model_get_type

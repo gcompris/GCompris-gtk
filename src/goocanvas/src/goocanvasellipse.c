@@ -23,6 +23,10 @@
  *
  * To get or set the properties of an existing #GooCanvasEllipse, use
  * g_object_get() and g_object_set().
+ *
+ * The ellipse can be specified either with the "center-x", "center-y",
+ * "radius-x" and "radius-y" properties, or with the "x", "y", "width" and
+ * "height" properties.
  */
 #include <config.h>
 #include <math.h>
@@ -37,7 +41,12 @@ enum {
   PROP_CENTER_X,
   PROP_CENTER_Y,
   PROP_RADIUS_X,
-  PROP_RADIUS_Y
+  PROP_RADIUS_Y,
+
+  PROP_X,
+  PROP_Y,
+  PROP_WIDTH,
+  PROP_HEIGHT
 };
 
 
@@ -90,6 +99,36 @@ goo_canvas_ellipse_install_common_properties (GObjectClass *gobject_class)
 				   g_param_spec_double ("radius-y",
 							_("Radius Y"),
 							_("The vertical radius of the ellipse"),
+							0.0, G_MAXDOUBLE, 0.0,
+							G_PARAM_READWRITE));
+
+  g_object_class_install_property (gobject_class, PROP_X,
+				   g_param_spec_double ("x",
+							"X",
+							_("The x coordinate of the left side of the ellipse"),
+							-G_MAXDOUBLE,
+							G_MAXDOUBLE, 0.0,
+							G_PARAM_READWRITE));
+
+  g_object_class_install_property (gobject_class, PROP_Y,
+				   g_param_spec_double ("y",
+							"Y",
+							_("The y coordinate of the top of the ellipse"),
+							-G_MAXDOUBLE,
+							G_MAXDOUBLE, 0.0,
+							G_PARAM_READWRITE));
+
+  g_object_class_install_property (gobject_class, PROP_WIDTH,
+				   g_param_spec_double ("width",
+							_("Width"),
+							_("The width of the ellipse"),
+							0.0, G_MAXDOUBLE, 0.0,
+							G_PARAM_READWRITE));
+
+  g_object_class_install_property (gobject_class, PROP_HEIGHT,
+				   g_param_spec_double ("height",
+							_("Height"),
+							_("The height of the ellipse"),
 							0.0, G_MAXDOUBLE, 0.0,
 							G_PARAM_READWRITE));
 }
@@ -224,6 +263,18 @@ goo_canvas_ellipse_get_common_property (GObject              *object,
     case PROP_RADIUS_Y:
       g_value_set_double (value, ellipse_data->radius_y);
       break;
+    case PROP_X:
+      g_value_set_double (value, ellipse_data->center_x - ellipse_data->radius_x);
+      break;
+    case PROP_Y:
+      g_value_set_double (value, ellipse_data->center_y - ellipse_data->radius_y);
+      break;
+    case PROP_WIDTH:
+      g_value_set_double (value, 2.0 * ellipse_data->radius_x);
+      break;
+    case PROP_HEIGHT:
+      g_value_set_double (value, 2.0 * ellipse_data->radius_y);
+      break;
     default:
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
       break;
@@ -251,19 +302,55 @@ goo_canvas_ellipse_set_common_property (GObject              *object,
 					const GValue         *value,
 					GParamSpec           *pspec)
 {
+  gdouble x, y;
+
   switch (prop_id)
     {
     case PROP_CENTER_X:
       ellipse_data->center_x = g_value_get_double (value);
+      g_object_notify (object, "x");
       break;
     case PROP_CENTER_Y:
       ellipse_data->center_y = g_value_get_double (value);
+      g_object_notify (object, "y");
       break;
     case PROP_RADIUS_X:
       ellipse_data->radius_x = g_value_get_double (value);
+      g_object_notify (object, "width");
       break;
     case PROP_RADIUS_Y:
       ellipse_data->radius_y = g_value_get_double (value);
+      g_object_notify (object, "height");
+      break;
+    case PROP_X:
+      ellipse_data->center_x = g_value_get_double (value) + ellipse_data->radius_x;
+      g_object_notify (object, "center-x");
+      break;
+    case PROP_Y:
+      ellipse_data->center_y = g_value_get_double (value) + ellipse_data->radius_y;
+      g_object_notify (object, "center-y");
+      break;
+    case PROP_WIDTH:
+      /* Calculate the current x coordinate. */
+      x = ellipse_data->center_x - ellipse_data->radius_x;
+      /* Calculate the new radius_x, which is half the width. */
+      ellipse_data->radius_x = g_value_get_double (value) / 2.0;
+      /* Now calculate the new center_x. */
+      ellipse_data->center_x = x + ellipse_data->radius_x;
+
+      g_object_notify (object, "center-x");
+      g_object_notify (object, "radius-x");
+      break;
+    case PROP_HEIGHT:
+      /* Calculate the current y coordinate. */
+      y = ellipse_data->center_y - ellipse_data->radius_y;
+      /* Calculate the new radius_y, which is half the height. */
+      ellipse_data->radius_y = g_value_get_double (value) / 2.0;
+      /* Now calculate the new center_y. */
+      ellipse_data->center_y = y + ellipse_data->radius_y;
+
+      g_object_notify (object, "center-y");
+      g_object_notify (object, "radius-y");
       break;
     default:
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -355,6 +442,10 @@ canvas_item_interface_init (GooCanvasItemIface *iface)
  *
  * To get or set the properties of an existing #GooCanvasEllipseModel, use
  * g_object_get() and g_object_set().
+ *
+ * The ellipse can be specified either with the "center-x", "center-y",
+ * "radius-x" and "radius-y" properties, or with the "x", "y", "width" and
+ * "height" properties.
  *
  * To respond to events such as mouse clicks on the ellipse you must connect
  * to the signal handlers of the corresponding #GooCanvasEllipse objects.

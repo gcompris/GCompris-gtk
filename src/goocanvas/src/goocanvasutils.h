@@ -86,7 +86,7 @@ typedef enum
   GOO_CANVAS_ITEM_HIDDEN			= 0,
   GOO_CANVAS_ITEM_INVISIBLE			= 1,
   GOO_CANVAS_ITEM_VISIBLE			= 2,
-  GOO_CANVAS_ITEM_VISIBLE_ABOVE_THRESHOLD	= 3,
+  GOO_CANVAS_ITEM_VISIBLE_ABOVE_THRESHOLD	= 3
 } GooCanvasItemVisibility;
 
 
@@ -205,6 +205,92 @@ struct _GooCanvasLineDash
   double *dashes;
   double dash_offset;
 };
+
+
+/* These are here so we can document the cairo type wrappers - don't use. */
+#if 0
+typedef cairo_antialias_t	GooCairoAntialias;
+typedef cairo_fill_rule_t	GooCairoFillRule;
+typedef cairo_hint_metrics_t	GooCairoHintMetrics;
+typedef cairo_line_cap_t	GooCairoLineCap;
+typedef cairo_line_join_t	GooCairoLineJoin;
+typedef cairo_operator_t	GooCairoOperator;
+typedef cairo_matrix_t		GooCairoMatrix;
+typedef cairo_pattern_t		GooCairoPattern;
+#endif
+
+/**
+ * GooCairoAntialias
+ *
+ * #GooCairoAntialias is simply a wrapper for the #cairo_antialias_t type,
+ * allowing it to be used for #GObject properties.
+ *
+ * See the #cairo_antialias_t documentation.
+ */
+
+/**
+ * GooCairoFillRule
+ *
+ * #GooCairoFillRule is simply a wrapper for the #cairo_fill_rule_t type,
+ * allowing it to be used for #GObject properties.
+ *
+ * See the #cairo_fill_rule_t documentation.
+ */
+
+/**
+ * GooCairoHintMetrics
+ *
+ * #GooCairoHintMetrics is simply a wrapper for the #cairo_hint_metrics_t type,
+ * allowing it to be used for #GObject properties.
+ *
+ * See the #cairo_hint_metrics_t documentation.
+ */
+
+/**
+ * GooCairoLineCap
+ *
+ * #GooCairoLineCap is simply a wrapper for the #cairo_line_cap_t type,
+ * allowing it to be used for #GObject properties.
+ *
+ * See the #cairo_line_cap_t documentation.
+ */
+
+/**
+ * GooCairoLineJoin
+ *
+ * #GooCairoLineJoin is simply a wrapper for the #cairo_line_join_t type,
+ * allowing it to be used for #GObject properties.
+ *
+ * See the #cairo_line_join_t documentation.
+ */
+
+/**
+ * GooCairoOperator
+ *
+ * #GooCairoOperator is simply a wrapper for the #cairo_operator_t type,
+ * allowing it to be used for #GObject properties.
+ *
+ * See the #cairo_operator_t documentation.
+ */
+
+/**
+ * GooCairoMatrix
+ *
+ * #GooCairoMatrix is simply a wrapper for the #cairo_matrix_t type,
+ * allowing it to be used for #GObject properties.
+ *
+ * See the #cairo_matrix_t documentation.
+ */
+
+/**
+ * GooCairoPattern
+ *
+ * #GooCairoPattern is simply a wrapper for the #cairo_pattern_t type,
+ * allowing it to be used for #GObject properties.
+ *
+ * See the #cairo_pattern_t documentation.
+ */
+
 
 #define GOO_TYPE_CANVAS_LINE_DASH  (goo_canvas_line_dash_get_type ())
 GType              goo_canvas_line_dash_get_type (void) G_GNUC_CONST;

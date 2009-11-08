@@ -19,6 +19,10 @@
  * #GooCanvasItem functions such as goo_canvas_item_raise() and
  * goo_canvas_item_rotate().
  *
+ * The #GooCanvasText:width and #GooCanvasText:height properties specify the
+ * area of the item. If it exceeds that area because there is too much text,
+ * it is clipped. The properties can be set to -1 to disable clipping.
+ *
  * To create a #GooCanvasText use goo_canvas_text_new().
  *
  * To get or set the properties of an existing #GooCanvasText, use
@@ -30,6 +34,15 @@
 #include "goocanvastext.h"
 #include "goocanvas.h"
 
+typedef struct _GooCanvasTextPrivate GooCanvasTextPrivate;
+struct _GooCanvasTextPrivate {
+  gdouble height;
+};
+
+#define GOO_CANVAS_TEXT_GET_PRIVATE(text) \
+   (G_TYPE_INSTANCE_GET_PRIVATE ((text), GOO_TYPE_CANVAS_TEXT, GooCanvasTextPrivate))
+#define GOO_CANVAS_TEXT_MODEL_GET_PRIVATE(text) \
+   (G_TYPE_INSTANCE_GET_PRIVATE ((text), GOO_TYPE_CANVAS_TEXT_MODEL, GooCanvasTextPrivate))
 
 enum {
   PROP_0,
@@ -37,6 +50,7 @@ enum {
   PROP_X,
   PROP_Y,
   PROP_WIDTH,
+  PROP_HEIGHT,
   PROP_TEXT,
   PROP_USE_MARKUP,
   PROP_ANCHOR,
@@ -44,6 +58,15 @@ enum {
   PROP_ELLIPSIZE,
   PROP_WRAP
 };
+
+static PangoLayout*
+goo_canvas_text_create_layout (GooCanvasItemSimpleData *simple_data,
+			       GooCanvasTextData       *text_data,
+			       gdouble                  layout_width,
+			       cairo_t                 *cr,
+			       GooCanvasBounds         *bounds,
+			       gdouble	               *origin_x_return,
+			       gdouble	               *origin_y_return);
 
 static void goo_canvas_text_finalize     (GObject            *object);
 static void canvas_item_interface_init   (GooCanvasItemIface *iface);
@@ -121,6 +144,15 @@ goo_canvas_text_install_common_properties (GObjectClass *gobject_class)
 							G_MAXDOUBLE, -1.0,
 							G_PARAM_READWRITE));
 
+  g_object_class_install_property (gobject_class, PROP_HEIGHT,
+				   g_param_spec_double ("height",
+							_("Height"),
+							_("The height to use to layout the text, or -1 to use the natural height"),
+							-G_MAXDOUBLE,
+							G_MAXDOUBLE, -1.0,
+							G_PARAM_READWRITE));
+
+
   g_object_class_install_property (gobject_class, PROP_ANCHOR,
 				   g_param_spec_enum ("anchor",
 						      _("Anchor"),
@@ -142,6 +174,8 @@ goo_canvas_text_install_common_properties (GObjectClass *gobject_class)
 static void
 goo_canvas_text_init (GooCanvasText *text)
 {
+  GooCanvasTextPrivate *priv = GOO_CANVAS_TEXT_GET_PRIVATE (text);
+
   text->text_data = g_slice_new0 (GooCanvasTextData);
   text->text_data->width = -1.0;
   text->text_data->anchor = GTK_ANCHOR_NW;
@@ -149,6 +183,8 @@ goo_canvas_text_init (GooCanvasText *text)
   text->text_data->wrap = PANGO_WRAP_WORD;
 
   text->layout_width = -1.0;
+
+  priv->height = -1.0;
 }
 
 
@@ -243,9 +279,23 @@ goo_canvas_text_finalize (GObject *object)
 }
 
 
+/* Gets the private data to use, from the model or from the item itself. */
+static GooCanvasTextPrivate*
+goo_canvas_text_get_private (GooCanvasText *text)
+{
+  GooCanvasItemSimple *simple = (GooCanvasItemSimple*) text;
+
+  if (simple->model)
+    return GOO_CANVAS_TEXT_MODEL_GET_PRIVATE (simple->model);
+  else
+    return GOO_CANVAS_TEXT_GET_PRIVATE (text);
+}
+
+
 static void
 goo_canvas_text_get_common_property (GObject                 *object,
 				     GooCanvasTextData       *text_data,
+				     GooCanvasTextPrivate    *priv,
 				     guint                    prop_id,
 				     GValue                  *value,
 				     GParamSpec              *pspec)
@@ -260,6 +310,9 @@ goo_canvas_text_get_common_property (GObject                 *object,
       break;
     case PROP_WIDTH:
       g_value_set_double (value, text_data->width);
+      break;
+    case PROP_HEIGHT:
+      g_value_set_double (value, priv->height);
       break;
     case PROP_TEXT:
       g_value_set_string (value, text_data->text);
@@ -293,15 +346,17 @@ goo_canvas_text_get_property (GObject              *object,
 			      GParamSpec           *pspec)
 {
   GooCanvasText *text = (GooCanvasText*) object;
+  GooCanvasTextPrivate *priv = goo_canvas_text_get_private (text);
 
-  goo_canvas_text_get_common_property (object, text->text_data, prop_id,
-				       value, pspec);
+  goo_canvas_text_get_common_property (object, text->text_data, priv,
+                                       prop_id, value, pspec);
 }
 
 
 static void
 goo_canvas_text_set_common_property (GObject                 *object,
 				     GooCanvasTextData       *text_data,
+				     GooCanvasTextPrivate    *priv,
 				     guint                    prop_id,
 				     const GValue            *value,
 				     GParamSpec              *pspec)
@@ -316,6 +371,9 @@ goo_canvas_text_set_common_property (GObject                 *object,
       break;
     case PROP_WIDTH:
       text_data->width = g_value_get_double (value);
+      break;
+    case PROP_HEIGHT:
+      priv->height = g_value_get_double (value);
       break;
     case PROP_TEXT:
       g_free (text_data->text);
@@ -351,6 +409,7 @@ goo_canvas_text_set_property (GObject              *object,
 {
   GooCanvasItemSimple *simple = (GooCanvasItemSimple*) object;
   GooCanvasText *text = (GooCanvasText*) object;
+  GooCanvasTextPrivate *priv = goo_canvas_text_get_private (text);
 
   if (simple->model)
     {
@@ -358,7 +417,7 @@ goo_canvas_text_set_property (GObject              *object,
       return;
     }
 
-  goo_canvas_text_set_common_property (object, text->text_data, prop_id,
+  goo_canvas_text_set_common_property (object, text->text_data, priv, prop_id,
 				       value, pspec);
   goo_canvas_item_simple_changed (simple, TRUE);
 }
@@ -409,7 +468,6 @@ goo_canvas_text_create_layout (GooCanvasItemSimpleData *simple_data,
 
   font_options = cairo_font_options_create ();
   cairo_font_options_set_hint_metrics (font_options, hint_metrics);
-  cairo_font_options_set_hint_style (font_options, CAIRO_HINT_STYLE_NONE);
   pango_cairo_context_set_font_options (context, font_options);
   cairo_font_options_destroy (font_options);
 
@@ -501,8 +559,8 @@ goo_canvas_text_create_layout (GooCanvasItemSimpleData *simple_data,
 	    }
 	}
 
-      bounds->x2 = origin_x + logical_width;
-      bounds->y2 = origin_y + logical_height;
+      bounds->x2 = bounds->x1 + logical_width;
+      bounds->y2 = bounds->y1 + logical_height;
 
       /* Now adjust it to take into account the ink bounds. Calculate how far
 	 the ink rect extends outside each edge of the logical rect and adjust
@@ -535,6 +593,7 @@ goo_canvas_text_update  (GooCanvasItemSimple *simple,
 			 cairo_t             *cr)
 {
   GooCanvasText *text = (GooCanvasText*) simple;
+  GooCanvasTextPrivate *priv = goo_canvas_text_get_private (text);
   PangoLayout *layout;
 
   /* Initialize the layout width to the text item's specified width property.
@@ -547,6 +606,10 @@ goo_canvas_text_update  (GooCanvasItemSimple *simple,
 					  text->layout_width, cr,
 					  &simple->bounds, NULL, NULL);
   g_object_unref (layout);
+
+  /* If the height is set, use that. */
+  if (priv->height > 0.0)
+    simple->bounds.y2 = simple->bounds.y1 + priv->height;
 }
 
 
@@ -574,6 +637,7 @@ goo_canvas_text_is_item_at (GooCanvasItemSimple *simple,
 {
   GooCanvasItemSimpleData *simple_data = simple->simple_data;
   GooCanvasText *text = (GooCanvasText*) simple;
+  GooCanvasTextPrivate *priv = goo_canvas_text_get_private (text);
   PangoLayout *layout;
   GooCanvasBounds bounds;
   PangoLayoutIter *iter;
@@ -590,6 +654,10 @@ goo_canvas_text_is_item_at (GooCanvasItemSimple *simple,
   if (is_pointer_event
       && simple_data->pointer_events & GOO_CANVAS_EVENTS_PAINTED_MASK
       && goo_canvas_text_is_unpainted (simple_data->style))
+    return FALSE;
+
+  /* Check if the point is outside the clipped height. */
+  if (priv->height > 0.0 && y > priv->height)
     return FALSE;
 
   layout = goo_canvas_text_create_layout (simple_data, text->text_data,
@@ -644,6 +712,7 @@ goo_canvas_text_paint (GooCanvasItemSimple   *simple,
 		       const GooCanvasBounds *bounds)
 {
   GooCanvasText *text = (GooCanvasText*) simple;
+  GooCanvasTextPrivate *priv = goo_canvas_text_get_private (text);
   PangoLayout *layout;
   GooCanvasBounds layout_bounds;
   gdouble origin_x, origin_y;
@@ -659,8 +728,18 @@ goo_canvas_text_paint (GooCanvasItemSimple   *simple,
 					  text->layout_width, cr,
 					  &layout_bounds,
 					  &origin_x, &origin_y);
+  cairo_save (cr);
+
+  if (priv->height > 0.0)
+    {
+      cairo_rectangle (cr, origin_x, origin_y,
+		       text->layout_width, priv->height);
+      cairo_clip (cr);
+    }
   cairo_move_to (cr, origin_x, origin_y);
   pango_cairo_show_layout (cr, layout);
+
+  cairo_restore (cr);
   g_object_unref (layout);
 }
 
@@ -673,6 +752,7 @@ goo_canvas_text_get_requested_height (GooCanvasItem	*item,
   GooCanvasItemSimple *simple = (GooCanvasItemSimple*) item;
   GooCanvasItemSimpleData *simple_data = simple->simple_data;
   GooCanvasText *text = (GooCanvasText*) item;
+  GooCanvasTextPrivate *priv = goo_canvas_text_get_private (text);
   PangoLayout *layout;
   gdouble height;
 
@@ -693,15 +773,23 @@ goo_canvas_text_get_requested_height (GooCanvasItem	*item,
   if (simple_data->transform)
     text->layout_width /= simple_data->transform->xx;
 
-  /* Create layout with given width. */
-  layout = goo_canvas_text_create_layout (simple_data, text->text_data,
-					  text->layout_width, cr,
-					  &simple->bounds, NULL, NULL);
-  g_object_unref (layout);
+  if (priv->height < 0.0)
+    {
+     /* Create layout with given width. */
+      layout = goo_canvas_text_create_layout (simple_data, text->text_data,
+					      text->layout_width, cr,
+					      &simple->bounds, NULL, NULL);
+      g_object_unref (layout);
 
-  /* Convert to the parent's coordinate space. As above,  we only need to
+      height = simple->bounds.y2 - simple->bounds.y1;
+    }
+  else
+    {
+      height = priv->height;
+    }
+
+  /* Convert to the parent's coordinate space. As above, we only need to
      support a simple scale operation here. */
-  height = simple->bounds.y2 - simple->bounds.y1;
   if (simple_data->transform)
     height *= simple_data->transform->yy;
 
@@ -783,6 +871,8 @@ goo_canvas_text_class_init (GooCanvasTextClass *klass)
   GObjectClass *gobject_class = (GObjectClass*) klass;
   GooCanvasItemSimpleClass *simple_class = (GooCanvasItemSimpleClass*) klass;
 
+  g_type_class_add_private (gobject_class, sizeof (GooCanvasTextPrivate));
+
   gobject_class->finalize = goo_canvas_text_finalize;
 
   gobject_class->get_property = goo_canvas_text_get_property;
@@ -843,6 +933,8 @@ goo_canvas_text_model_class_init (GooCanvasTextModelClass *klass)
 {
   GObjectClass *gobject_class = (GObjectClass*) klass;
 
+  g_type_class_add_private (gobject_class, sizeof (GooCanvasTextPrivate));
+
   gobject_class->finalize     = goo_canvas_text_model_finalize;
 
   gobject_class->get_property = goo_canvas_text_model_get_property;
@@ -855,10 +947,14 @@ goo_canvas_text_model_class_init (GooCanvasTextModelClass *klass)
 static void
 goo_canvas_text_model_init (GooCanvasTextModel *tmodel)
 {
+  GooCanvasTextPrivate *priv = GOO_CANVAS_TEXT_MODEL_GET_PRIVATE (tmodel);
+
   tmodel->text_data.width = -1.0;
   tmodel->text_data.anchor = GTK_ANCHOR_NW;
   tmodel->text_data.ellipsize = PANGO_ELLIPSIZE_NONE;
   tmodel->text_data.wrap = PANGO_WRAP_WORD;
+
+  priv->height = -1.0;
 }
 
 
@@ -952,9 +1048,10 @@ goo_canvas_text_model_get_property (GObject              *object,
 				    GParamSpec           *pspec)
 {
   GooCanvasTextModel *tmodel = (GooCanvasTextModel*) object;
+  GooCanvasTextPrivate *priv = GOO_CANVAS_TEXT_MODEL_GET_PRIVATE (tmodel);
 
-  goo_canvas_text_get_common_property (object, &tmodel->text_data, prop_id,
-				       value, pspec);
+  goo_canvas_text_get_common_property (object, &tmodel->text_data, priv,
+				       prop_id, value, pspec);
 }
 
 
@@ -965,9 +1062,10 @@ goo_canvas_text_model_set_property (GObject              *object,
 				    GParamSpec           *pspec)
 {
   GooCanvasTextModel *tmodel = (GooCanvasTextModel*) object;
+  GooCanvasTextPrivate *priv = GOO_CANVAS_TEXT_MODEL_GET_PRIVATE (tmodel);
 
-  goo_canvas_text_set_common_property (object, &tmodel->text_data, prop_id,
-				       value, pspec);
+  goo_canvas_text_set_common_property (object, &tmodel->text_data, priv,
+				       prop_id, value, pspec);
   g_signal_emit_by_name (tmodel, "changed", TRUE);
 }
 

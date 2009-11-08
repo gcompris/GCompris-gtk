@@ -20,6 +20,7 @@
 typedef AtkGObjectAccessible      GooCanvasItemAccessible;
 typedef AtkGObjectAccessibleClass GooCanvasItemAccessibleClass;
 
+#define GOO_TYPE_CANVAS_ITEM_ACCESSIBLE    (goo_canvas_item_accessible_get_type ())
 #define GOO_IS_CANVAS_ITEM_ACCESSIBLE(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), goo_canvas_item_accessible_get_type ()))
 
 static void goo_canvas_item_accessible_component_interface_init (AtkComponentIface *iface);
@@ -50,15 +51,19 @@ goo_canvas_item_accessible_get_item_extents (GooCanvasItem *item,
   /* Get the bounds in device units. */
   goo_canvas_item_get_bounds (item, &bounds);
 
-  /* Convert to pixels within the entire canvas. */
-  goo_canvas_convert_to_pixels (canvas, &bounds.x1, &bounds.y1);
-  goo_canvas_convert_to_pixels (canvas, &bounds.x2, &bounds.y2);
+  /* Static items are in pixels so don't need converting. */
+  if (!goo_canvas_item_get_is_static (item))
+    {
+      /* Convert to pixels within the entire canvas. */
+      goo_canvas_convert_to_pixels (canvas, &bounds.x1, &bounds.y1);
+      goo_canvas_convert_to_pixels (canvas, &bounds.x2, &bounds.y2);
 
-  /* Convert to pixels within the visible window. */
-  bounds.x1 -= canvas->hadjustment->value;
-  bounds.y1 -= canvas->vadjustment->value;
-  bounds.x2 -= canvas->hadjustment->value;
-  bounds.y2 -= canvas->vadjustment->value;
+      /* Convert to pixels within the visible window. */
+      bounds.x1 -= canvas->hadjustment->value;
+      bounds.y1 -= canvas->vadjustment->value;
+      bounds.x2 -= canvas->hadjustment->value;
+      bounds.y2 -= canvas->vadjustment->value;
+    }
 
   /* Round up or down to integers. */
   rect->x = floor (bounds.x1);
@@ -491,7 +496,7 @@ typedef AtkGObjectAccessibleClass GooCanvasWidgetAccessibleClass;
 #define GOO_IS_CANVAS_WIDGET_ACCESSIBLE(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), goo_canvas_widget_accessible_get_type ()))
 
 G_DEFINE_TYPE (GooCanvasWidgetAccessible, goo_canvas_widget_accessible,
-	       GOO_TYPE_CANVAS_ITEM)
+	       GOO_TYPE_CANVAS_ITEM_ACCESSIBLE)
 
 
 static void
@@ -570,7 +575,7 @@ goo_canvas_widget_accessible_init (GooCanvasWidgetAccessible *accessible)
 }
 
 
-AtkObject*
+static AtkObject*
 goo_canvas_widget_accessible_new (GObject *object)
 {
   AtkObject *accessible;

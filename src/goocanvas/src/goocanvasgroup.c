@@ -25,6 +25,9 @@
  * goo_canvas_item_rotate(), and the properties such as "visibility" and
  * "pointer-events".
  *
+ * If the #GooCanvasGroup:width and #GooCanvasGroup:height properties are
+ * set to positive values then the group is clipped to the given size.
+ *
  * To create a #GooCanvasGroup use goo_canvas_group_new().
  *
  * To get or set the properties of an existing #GooCanvasGroup, use
@@ -40,9 +43,38 @@
 #include "goocanvasmarshal.h"
 #include "goocanvasatk.h"
 
+typedef struct _GooCanvasGroupPrivate GooCanvasGroupPrivate;
+struct _GooCanvasGroupPrivate {
+  gdouble x;
+  gdouble y;
+  gdouble width;
+  gdouble height;
+};
+
+#define GOO_CANVAS_GROUP_GET_PRIVATE(group)  \
+   (G_TYPE_INSTANCE_GET_PRIVATE ((group), GOO_TYPE_CANVAS_GROUP, GooCanvasGroupPrivate))
+#define GOO_CANVAS_GROUP_MODEL_GET_PRIVATE(group)  \
+   (G_TYPE_INSTANCE_GET_PRIVATE ((group), GOO_TYPE_CANVAS_GROUP_MODEL, GooCanvasGroupPrivate))
+
+enum {
+  PROP_0,
+
+  PROP_X,
+  PROP_Y,
+  PROP_WIDTH,
+  PROP_HEIGHT
+};
 
 static void goo_canvas_group_dispose	  (GObject            *object);
 static void goo_canvas_group_finalize     (GObject            *object);
+static void goo_canvas_group_get_property (GObject            *object,
+                                           guint               prop_id,
+                                           GValue             *value,
+                                           GParamSpec         *pspec);
+static void goo_canvas_group_set_property (GObject            *object,
+                                           guint               prop_id,
+                                           const GValue       *value,
+                                           GParamSpec         *pspec);
 static void canvas_item_interface_init    (GooCanvasItemIface *iface);
 
 G_DEFINE_TYPE_WITH_CODE (GooCanvasGroup, goo_canvas_group,
@@ -50,14 +82,53 @@ G_DEFINE_TYPE_WITH_CODE (GooCanvasGroup, goo_canvas_group,
 			 G_IMPLEMENT_INTERFACE (GOO_TYPE_CANVAS_ITEM,
 						canvas_item_interface_init))
 
+static void
+goo_canvas_group_install_common_properties (GObjectClass *gobject_class)
+{
+  g_object_class_install_property (gobject_class, PROP_X,
+                                  g_param_spec_double ("x",
+                                                       "X",
+                                                       _("The x coordinate of the group"),
+                                                       -G_MAXDOUBLE,
+                                                       G_MAXDOUBLE, 0.0,
+                                                       G_PARAM_READWRITE));
+
+  g_object_class_install_property (gobject_class, PROP_Y,
+                                  g_param_spec_double ("y",
+                                                       "Y",
+                                                       _("The y coordinate of the group"),
+                                                       -G_MAXDOUBLE,
+                                                       G_MAXDOUBLE, 0.0,
+                                                       G_PARAM_READWRITE));
+
+  g_object_class_install_property (gobject_class, PROP_WIDTH,
+                                  g_param_spec_double ("width",
+                                                       _("Width"),
+                                                       _("The width of the group, or -1 to use the default width"),
+                                                       -G_MAXDOUBLE,
+                                                       G_MAXDOUBLE, -1.0,
+                                                       G_PARAM_READWRITE));
+
+  g_object_class_install_property (gobject_class, PROP_HEIGHT,
+                                  g_param_spec_double ("height",
+                                                       _("Height"),
+                                                       _("The height of the group, or -1 to use the default height"),
+                                                       -G_MAXDOUBLE,
+                                                       G_MAXDOUBLE, -1.0,
+                                                       G_PARAM_READWRITE));
+}
 
 static void
 goo_canvas_group_class_init (GooCanvasGroupClass *klass)
 {
   GObjectClass *gobject_class = (GObjectClass*) klass;
 
+  g_type_class_add_private (gobject_class, sizeof (GooCanvasGroupPrivate));
+
   gobject_class->dispose  = goo_canvas_group_dispose;
   gobject_class->finalize = goo_canvas_group_finalize;
+  gobject_class->get_property = goo_canvas_group_get_property;
+  gobject_class->set_property = goo_canvas_group_set_property;
 
   /* Register our accessible factory, but only if accessibility is enabled. */
   if (!ATK_IS_NO_OP_OBJECT_FACTORY (atk_registry_get_factory (atk_get_default_registry (), GTK_TYPE_WIDGET)))
@@ -66,13 +137,22 @@ goo_canvas_group_class_init (GooCanvasGroupClass *klass)
 				     GOO_TYPE_CANVAS_GROUP,
 				     goo_canvas_item_accessible_factory_get_type ());
     }
+
+  goo_canvas_group_install_common_properties (gobject_class);
 }
 
 
 static void
 goo_canvas_group_init (GooCanvasGroup *group)
 {
+  GooCanvasGroupPrivate* priv = GOO_CANVAS_GROUP_GET_PRIVATE (group);
+
   group->items = g_ptr_array_sized_new (8);
+
+  priv->x = 0.0;
+  priv->y = 0.0;
+  priv->width = -1.0;
+  priv->height = -1.0;
 }
 
 
@@ -146,12 +226,113 @@ goo_canvas_group_finalize (GObject *object)
 }
 
 
+/* Gets the private data to use, from the model or from the item itself. */
+static GooCanvasGroupPrivate*
+goo_canvas_group_get_private (GooCanvasGroup *group)
+{
+  GooCanvasItemSimple *simple = (GooCanvasItemSimple*) group;
+
+  if (simple->model)
+    return GOO_CANVAS_GROUP_MODEL_GET_PRIVATE (simple->model);
+  else
+    return GOO_CANVAS_GROUP_GET_PRIVATE (group);
+}
+
+
+static void
+goo_canvas_group_get_common_property (GObject               *object,
+                                      GooCanvasGroupPrivate *priv,
+                                      guint                  prop_id,
+                                      GValue                *value,
+                                      GParamSpec            *pspec)
+{
+  switch (prop_id)
+    {
+    case PROP_X:
+      g_value_set_double (value, priv->x);
+      break;
+    case PROP_Y:
+      g_value_set_double (value, priv->y);
+      break;
+    case PROP_WIDTH:
+      g_value_set_double (value, priv->width);
+      break;
+    case PROP_HEIGHT:
+      g_value_set_double (value, priv->height);
+      break;
+    default:
+      G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+      break;
+    }
+}
+
+static void
+goo_canvas_group_get_property (GObject               *object,
+                               guint                  prop_id,
+                               GValue                *value,
+                               GParamSpec            *pspec)
+{
+  GooCanvasGroup *group = (GooCanvasGroup*) object;
+  GooCanvasGroupPrivate *priv = goo_canvas_group_get_private (group);
+
+  goo_canvas_group_get_common_property (object, priv, prop_id, value, pspec);
+}
+
+static void
+goo_canvas_group_set_common_property (GObject               *object,
+                                      GooCanvasGroupPrivate *priv,
+                                      guint                  prop_id,
+                                      const GValue          *value,
+                                      GParamSpec            *pspec)
+{
+  switch (prop_id)
+    {
+    case PROP_X:
+      priv->x = g_value_get_double (value);
+      break;
+    case PROP_Y:
+      priv->y = g_value_get_double (value);
+      break;
+    case PROP_WIDTH:
+      priv->width = g_value_get_double (value);
+      break;
+    case PROP_HEIGHT:
+      priv->height = g_value_get_double (value);
+      break;
+    default:
+      G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+      break;
+    }
+}
+
+static void
+goo_canvas_group_set_property (GObject                  *object,
+                               guint                     prop_id,
+                               const GValue             *value,
+                               GParamSpec               *pspec)
+{
+  GooCanvasItemSimple *simple = (GooCanvasItemSimple*) object;
+  GooCanvasGroup *group = (GooCanvasGroup*) object;
+  GooCanvasGroupPrivate *priv = goo_canvas_group_get_private (group);
+
+  if (simple->model)
+    {
+      g_warning ("Can't set property of a canvas item with a model - set the model property instead");
+      return;
+    }
+
+  goo_canvas_group_set_common_property (object, priv, prop_id, value, pspec);
+  goo_canvas_item_simple_changed (simple, TRUE);
+}
+
 static void
 goo_canvas_group_add_child     (GooCanvasItem  *item,
 				GooCanvasItem  *child,
 				gint            position)
 {
+  GooCanvasItemSimple *simple = (GooCanvasItemSimple*) item;
   GooCanvasGroup *group = (GooCanvasGroup*) item;
+  AtkObject *atk_obj, *child_atk_obj;
 
   g_object_ref (child);
 
@@ -166,6 +347,16 @@ goo_canvas_group_add_child     (GooCanvasItem  *item,
     }
 
   goo_canvas_item_set_parent (child, item);
+  goo_canvas_item_set_is_static (child, simple->simple_data->is_static);
+
+  /* Emit the "children_changed" ATK signal, if ATK is enabled. */
+  atk_obj = atk_gobject_accessible_for_object (G_OBJECT (item));
+  if (!ATK_IS_NO_OP_OBJECT (atk_obj))
+    {
+      child_atk_obj = atk_gobject_accessible_for_object (G_OBJECT (child));
+      g_signal_emit_by_name (atk_obj, "children_changed::add",
+			     position, child_atk_obj);
+    }
 
   goo_canvas_item_request_update (item);
 }
@@ -186,7 +377,8 @@ goo_canvas_group_move_child    (GooCanvasItem  *item,
   if (simple->canvas)
     {
       goo_canvas_item_get_bounds (child, &bounds);
-      goo_canvas_request_redraw (simple->canvas, &bounds);
+      goo_canvas_request_item_redraw (simple->canvas, &bounds,
+				      simple->simple_data->is_static);
     }
 
   goo_canvas_util_ptr_array_move (group->items, old_position, new_position);
@@ -203,6 +395,7 @@ goo_canvas_group_remove_child  (GooCanvasItem  *item,
   GooCanvasGroup *group = (GooCanvasGroup*) item;
   GooCanvasItem *child;
   GooCanvasBounds bounds;
+  AtkObject *atk_obj, *child_atk_obj;
 
   g_return_if_fail (child_num < group->items->len);
 
@@ -211,13 +404,23 @@ goo_canvas_group_remove_child  (GooCanvasItem  *item,
   if (simple->canvas)
     {
       goo_canvas_item_get_bounds (child, &bounds);
-      goo_canvas_request_redraw (simple->canvas, &bounds);
+      goo_canvas_request_item_redraw (simple->canvas, &bounds,
+				      simple->simple_data->is_static);
     }
+
+  /* Emit the "children_changed" ATK signal, if ATK is enabled. */
+  atk_obj = atk_gobject_accessible_for_object (G_OBJECT (item));
+  if (!ATK_IS_NO_OP_OBJECT (atk_obj))
+    {
+      child_atk_obj = atk_gobject_accessible_for_object (G_OBJECT (child));
+      g_signal_emit_by_name (atk_obj, "children_changed::remove",
+			     child_num, child_atk_obj);
+    }
+
+  g_ptr_array_remove_index (group->items, child_num);
 
   goo_canvas_item_set_parent (child, NULL);
   g_object_unref (child);
-
-  g_ptr_array_remove_index (group->items, child_num);
 
   goo_canvas_item_request_update (item);
 }
@@ -238,7 +441,9 @@ goo_canvas_group_get_child   (GooCanvasItem       *item,
 {
   GooCanvasGroup *group = (GooCanvasGroup*) item;
 
-  return group->items->pdata[child_num];
+  if (child_num < group->items->len)
+    return group->items->pdata[child_num];
+  return NULL;
 }
 
 
@@ -252,6 +457,9 @@ goo_canvas_group_set_canvas  (GooCanvasItem *item,
   GooCanvasGroup *group = (GooCanvasGroup*) item;
   gint i;
 
+  if (simple->canvas == canvas)
+    return;
+
   simple->canvas = canvas;
 
   /* Recursively set the canvas of all child items. */
@@ -259,6 +467,29 @@ goo_canvas_group_set_canvas  (GooCanvasItem *item,
     {
       GooCanvasItem *item = group->items->pdata[i];
       goo_canvas_item_set_canvas (item, canvas);
+    }
+}
+
+
+static void
+goo_canvas_group_set_is_static  (GooCanvasItem *item,
+				 gboolean       is_static)
+{
+  GooCanvasItemSimple *simple = (GooCanvasItemSimple*) item;
+  GooCanvasItemSimpleData *simple_data = simple->simple_data;
+  GooCanvasGroup *group = (GooCanvasGroup*) item;
+  gint i;
+
+  if (simple_data->is_static == is_static)
+    return;
+
+  simple_data->is_static = is_static;
+
+  /* Recursively set the canvas of all child items. */
+  for (i = 0; i < group->items->len; i++)
+    {
+      GooCanvasItem *item = group->items->pdata[i];
+      goo_canvas_item_set_is_static (item, is_static);
     }
 }
 
@@ -353,6 +584,7 @@ goo_canvas_group_update  (GooCanvasItem   *item,
 {
   GooCanvasItemSimple *simple = (GooCanvasItemSimple*) item;
   GooCanvasGroup *group = (GooCanvasGroup*) item;
+  GooCanvasGroupPrivate *priv = goo_canvas_group_get_private (group);
   GooCanvasBounds child_bounds;
   gboolean initial_bounds = TRUE;
   gint i;
@@ -372,35 +604,38 @@ goo_canvas_group_update  (GooCanvasItem   *item,
 
       cairo_save (cr);
       if (simple->simple_data->transform)
-	cairo_transform (cr, simple->simple_data->transform);
+        cairo_transform (cr, simple->simple_data->transform);
+
+      cairo_translate (cr, priv->x, priv->y);
 
       for (i = 0; i < group->items->len; i++)
-	{
-	  GooCanvasItem *child = group->items->pdata[i];
+        {
+          GooCanvasItem *child = group->items->pdata[i];
 
-	  goo_canvas_item_update (child, entire_tree, cr, &child_bounds);
-	  
-	  /* If the child has non-empty bounds, compute the union. */
-	  if (child_bounds.x1 < child_bounds.x2
-	      && child_bounds.y1 < child_bounds.y2)
-	    {
-	      if (initial_bounds)
-		{
-		  simple->bounds.x1 = child_bounds.x1;
-		  simple->bounds.y1 = child_bounds.y1;
-		  simple->bounds.x2 = child_bounds.x2;
-		  simple->bounds.y2 = child_bounds.y2;
-		  initial_bounds = FALSE;
-		}
-	      else
-		{
-		  simple->bounds.x1 = MIN (simple->bounds.x1, child_bounds.x1);
-		  simple->bounds.y1 = MIN (simple->bounds.y1, child_bounds.y1);
-		  simple->bounds.x2 = MAX (simple->bounds.x2, child_bounds.x2);
-		  simple->bounds.y2 = MAX (simple->bounds.y2, child_bounds.y2);
-		}
-	    }
-	}
+          goo_canvas_item_update (child, entire_tree, cr, &child_bounds);
+          
+          /* If the child has non-empty bounds, compute the union. */
+          if (child_bounds.x1 < child_bounds.x2
+              && child_bounds.y1 < child_bounds.y2)
+            {
+              if (initial_bounds)
+                {
+                  simple->bounds.x1 = child_bounds.x1;
+                  simple->bounds.y1 = child_bounds.y1;
+                  simple->bounds.x2 = child_bounds.x2;
+                  simple->bounds.y2 = child_bounds.y2;
+                  initial_bounds = FALSE;
+                }
+              else
+                {
+                  simple->bounds.x1 = MIN (simple->bounds.x1, child_bounds.x1);
+                  simple->bounds.y1 = MIN (simple->bounds.y1, child_bounds.y1);
+                  simple->bounds.x2 = MAX (simple->bounds.x2, child_bounds.x2);
+                  simple->bounds.y2 = MAX (simple->bounds.y2, child_bounds.y2);
+                }
+            }
+        }
+
       cairo_restore (cr);
     }
 
@@ -420,6 +655,7 @@ goo_canvas_group_get_items_at (GooCanvasItem  *item,
   GooCanvasItemSimple *simple = (GooCanvasItemSimple*) item;
   GooCanvasItemSimpleData *simple_data = simple->simple_data;
   GooCanvasGroup *group = (GooCanvasGroup*) item;
+  GooCanvasGroupPrivate *priv = goo_canvas_group_get_private (group);
   gboolean visible = parent_visible;
   int i;
 
@@ -447,6 +683,8 @@ goo_canvas_group_get_items_at (GooCanvasItem  *item,
   if (simple_data->transform)
     cairo_transform (cr, simple_data->transform);
 
+  cairo_translate (cr, priv->x, priv->y);
+
   /* If the group has a clip path, check if the point is inside it. */
   if (simple_data->clip_path_commands)
     {
@@ -456,6 +694,19 @@ goo_canvas_group_get_items_at (GooCanvasItem  *item,
       goo_canvas_create_path (simple_data->clip_path_commands, cr);
       cairo_set_fill_rule (cr, simple_data->clip_fill_rule);
       if (!cairo_in_fill (cr, user_x, user_y))
+	{
+	  cairo_restore (cr);
+	  return found_items;
+	}
+    }
+
+  if (priv->width > 0.0 && priv->height > 0.0)
+    {
+      double user_x = x, user_y = y;
+
+      cairo_device_to_user (cr, &user_x, &user_y);
+      if (user_x < 0.0 || user_x >= priv->width
+	  || user_y < 0.0 || user_y >= priv->height)
 	{
 	  cairo_restore (cr);
 	  return found_items;
@@ -487,6 +738,7 @@ goo_canvas_group_paint (GooCanvasItem         *item,
   GooCanvasItemSimple *simple = (GooCanvasItemSimple*) item;
   GooCanvasItemSimpleData *simple_data = simple->simple_data;
   GooCanvasGroup *group = (GooCanvasGroup*) item;
+  GooCanvasGroupPrivate *priv = goo_canvas_group_get_private (group);
   gint i;
 
   /* Skip the item if the bounds don't intersect the expose rectangle. */
@@ -505,11 +757,19 @@ goo_canvas_group_paint (GooCanvasItem         *item,
   if (simple_data->transform)
     cairo_transform (cr, simple_data->transform);
 
+  cairo_translate (cr, priv->x, priv->y);
+
   /* Clip with the group's clip path, if it is set. */
   if (simple_data->clip_path_commands)
     {
       goo_canvas_create_path (simple_data->clip_path_commands, cr);
       cairo_set_fill_rule (cr, simple_data->clip_fill_rule);
+      cairo_clip (cr);
+    }
+
+  if (priv->width > 0.0 && priv->height > 0.0)
+    {
+      cairo_rectangle (cr, 0.0, 0.0, priv->width, priv->height);
       cairo_clip (cr);
     }
 
@@ -539,6 +799,7 @@ canvas_item_interface_init (GooCanvasItemIface *iface)
   iface->paint          = goo_canvas_group_paint;
 
   iface->set_model      = goo_canvas_group_set_model;
+  iface->set_is_static  = goo_canvas_group_set_is_static;
 }
 
 
@@ -574,6 +835,14 @@ canvas_item_interface_init (GooCanvasItemIface *iface)
 static void item_model_interface_init (GooCanvasItemModelIface *iface);
 static void goo_canvas_group_model_dispose      (GObject            *object);
 static void goo_canvas_group_model_finalize     (GObject            *object);
+static void goo_canvas_group_model_get_property (GObject            *object,
+                                                 guint               prop_id,
+                                                 GValue             *value,
+                                                 GParamSpec         *pspec);
+static void goo_canvas_group_model_set_property (GObject            *object,
+                                                 guint               prop_id,
+                                                 const GValue       *value,
+                                                 GParamSpec         *pspec);
 
 G_DEFINE_TYPE_WITH_CODE (GooCanvasGroupModel, goo_canvas_group_model,
 			 GOO_TYPE_CANVAS_ITEM_MODEL_SIMPLE,
@@ -585,16 +854,27 @@ static void
 goo_canvas_group_model_class_init (GooCanvasGroupModelClass *klass)
 {
   GObjectClass *gobject_class = (GObjectClass*) klass;
+  g_type_class_add_private (gobject_class, sizeof (GooCanvasGroupPrivate));
 
   gobject_class->dispose  = goo_canvas_group_model_dispose;
   gobject_class->finalize = goo_canvas_group_model_finalize;
+  gobject_class->get_property  = goo_canvas_group_model_get_property;
+  gobject_class->set_property = goo_canvas_group_model_set_property;
+
+  goo_canvas_group_install_common_properties (gobject_class);
 }
 
 
 static void
 goo_canvas_group_model_init (GooCanvasGroupModel *gmodel)
 {
+  GooCanvasGroupPrivate *priv = GOO_CANVAS_GROUP_MODEL_GET_PRIVATE (gmodel);
   gmodel->children = g_ptr_array_sized_new (8);
+
+  priv->x = 0.0;
+  priv->y = 0.0;
+  priv->width = -1.0;
+  priv->height = -1.0;
 }
 
 
@@ -667,6 +947,28 @@ goo_canvas_group_model_finalize (GObject *object)
   G_OBJECT_CLASS (goo_canvas_group_model_parent_class)->finalize (object);
 }
 
+static void goo_canvas_group_model_get_property (GObject            *object,
+                                                 guint               prop_id,
+                                                 GValue             *value,
+                                                 GParamSpec         *pspec)
+{
+  GooCanvasGroupModel *model = (GooCanvasGroupModel*) object;
+  GooCanvasGroupPrivate *priv = GOO_CANVAS_GROUP_MODEL_GET_PRIVATE (model);
+
+  goo_canvas_group_get_common_property (object, priv, prop_id, value, pspec);
+}
+
+static void goo_canvas_group_model_set_property (GObject            *object,
+                                                 guint               prop_id,
+                                                 const GValue       *value,
+                                                 GParamSpec         *pspec)
+{
+  GooCanvasGroupModel *model = (GooCanvasGroupModel*) object;
+  GooCanvasGroupPrivate *priv = GOO_CANVAS_GROUP_MODEL_GET_PRIVATE (model);
+
+  goo_canvas_group_set_common_property (object, priv, prop_id, value, pspec);
+  g_signal_emit_by_name (model, "changed", TRUE);
+}
 
 extern void _goo_canvas_item_model_emit_child_added (GooCanvasItemModel *model,
 						     gint                position);
@@ -719,11 +1021,12 @@ goo_canvas_group_model_remove_child  (GooCanvasItemModel *model,
 
   child = gmodel->children->pdata[child_num];
   goo_canvas_item_model_set_parent (child, NULL);
-  g_object_unref (child);
 
   g_ptr_array_remove_index (gmodel->children, child_num);
 
   g_signal_emit_by_name (gmodel, "child-removed", child_num);
+
+  g_object_unref (child);
 }
 
 
@@ -742,7 +1045,9 @@ goo_canvas_group_model_get_child   (GooCanvasItemModel  *model,
 {
   GooCanvasGroupModel *gmodel = (GooCanvasGroupModel*) model;
 
-  return gmodel->children->pdata[child_num];
+  if (child_num < gmodel->children->len)
+    return gmodel->children->pdata[child_num];
+  return NULL;
 }
 
 

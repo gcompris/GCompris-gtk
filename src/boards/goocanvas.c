@@ -207,6 +207,8 @@ static PyTypeObject *_PyGtkContainer_Type;
 #define PyGtkContainer_Type (*_PyGtkContainer_Type)
 static PyTypeObject *_PyGtkAdjustment_Type;
 #define PyGtkAdjustment_Type (*_PyGtkAdjustment_Type)
+static PyTypeObject *_PyGdkCairoContext_Type;
+#define PyGdkCairoContext_Type (*_PyGdkCairoContext_Type)
 
 
 /* ---------- forward type declarations ---------- */
@@ -219,7 +221,6 @@ PyTypeObject G_GNUC_INTERNAL PyGooCanvasGroupModel_Type;
 PyTypeObject G_GNUC_INTERNAL PyGooCanvasEllipseModel_Type;
 PyTypeObject G_GNUC_INTERNAL PyGooCanvasItemSimple_Type;
 PyTypeObject G_GNUC_INTERNAL PyGooCanvasImage_Type;
-PyTypeObject G_GNUC_INTERNAL PyGooCanvasSvg_Type;
 PyTypeObject G_GNUC_INTERNAL PyGooCanvasGroup_Type;
 PyTypeObject G_GNUC_INTERNAL PyGooCanvasEllipse_Type;
 PyTypeObject G_GNUC_INTERNAL PyGooCanvasPath_Type;
@@ -238,7 +239,7 @@ PyTypeObject G_GNUC_INTERNAL PyGooCanvasItem_Type;
 PyTypeObject G_GNUC_INTERNAL PyGooCanvasItemModel_Type;
 
 
-#line 664 "goocanvas.override"
+#line 667 "goocanvas.override"
 
 static PyObject *
 _py_canvas_style_get_property(GooCanvasStyle *style,
@@ -289,13 +290,13 @@ _py_goo_canvas_style_set_property(GooCanvasStyle *style,
 }
 
 
-#line 293 "goocanvas.c"
+#line 296 "goocanvas.c"
 
 
 
 /* ----------- GooCanvasPoints ----------- */
 
-#line 280 "goocanvas.override"
+#line 283 "goocanvas.override"
 static int
 _wrap_goo_canvas_points_new(PyGBoxed *self, PyObject *args, PyObject *kwargs)
 {
@@ -322,8 +323,51 @@ _wrap_goo_canvas_points_new(PyGBoxed *self, PyObject *args, PyObject *kwargs)
     self->gtype = GOO_TYPE_CANVAS_POINTS;
     return 0;
 }
-#line 326 "goocanvas.c"
+#line 329 "goocanvas.c"
 
+
+#line 1883 "goocanvas.override"
+
+static PyObject *
+_wrap_goo_canvas_points__get_coords(PyObject *self, void *closure)
+{
+    gdouble     *coords;
+    int         num_points, i;
+    PyObject    *ret = Py_None;
+
+    num_points = pyg_boxed_get(self, GooCanvasPoints)->num_points;
+    coords = pyg_boxed_get(self, GooCanvasPoints)->coords;
+
+    if (num_points > 0) {
+        ret = PyList_New(num_points);
+
+        for (i = 0; i < num_points; i ++) {
+            PyObject *py_temp = Py_BuildValue("dd", coords[2*i], coords[2*i + 1]);
+            PyList_SetItem(ret, i, py_temp);
+        }
+        return ret;
+    }
+    Py_INCREF(ret);
+    return ret;
+}
+
+#line 357 "goocanvas.c"
+
+
+static PyObject *
+_wrap_goo_canvas_points__get_num_points(PyObject *self, void *closure)
+{
+    int ret;
+
+    ret = pyg_boxed_get(self, GooCanvasPoints)->num_points;
+    return PyInt_FromLong(ret);
+}
+
+static const PyGetSetDef goo_canvas_points_getsets[] = {
+    { "coords", (getter)_wrap_goo_canvas_points__get_coords, (setter)0 },
+    { "num_points", (getter)_wrap_goo_canvas_points__get_num_points, (setter)0 },
+    { NULL, (getter)0, (setter)0 },
+};
 
 PyTypeObject G_GNUC_INTERNAL PyGooCanvasPoints_Type = {
     PyObject_HEAD_INIT(NULL)
@@ -357,7 +401,7 @@ PyTypeObject G_GNUC_INTERNAL PyGooCanvasPoints_Type = {
     (iternextfunc)0,     /* tp_iternext */
     (struct PyMethodDef*)NULL, /* tp_methods */
     (struct PyMemberDef*)0,              /* tp_members */
-    (struct PyGetSetDef*)0,  /* tp_getset */
+    (struct PyGetSetDef*)goo_canvas_points_getsets,  /* tp_getset */
     NULL,                              /* tp_base */
     NULL,                              /* tp_dict */
     (descrgetfunc)0,    /* tp_descr_get */
@@ -374,7 +418,7 @@ PyTypeObject G_GNUC_INTERNAL PyGooCanvasPoints_Type = {
 
 /* ----------- GooCanvasLineDash ----------- */
 
-#line 445 "goocanvas.override"
+#line 448 "goocanvas.override"
 static int
 _wrap_goo_canvas_line_dash_newv(PyGBoxed *self, PyObject *args, PyObject *kwargs)
 {
@@ -411,7 +455,7 @@ _wrap_goo_canvas_line_dash_newv(PyGBoxed *self, PyObject *args, PyObject *kwargs
     self->free_on_dealloc = TRUE;
     return 0;
 }
-#line 415 "goocanvas.c"
+#line 461 "goocanvas.c"
 
 
 PyTypeObject G_GNUC_INTERNAL PyGooCanvasLineDash_Type = {
@@ -463,34 +507,14 @@ PyTypeObject G_GNUC_INTERNAL PyGooCanvasLineDash_Type = {
 
 /* ----------- GooCanvas ----------- */
 
-static int
-_wrap_goo_canvas_new(PyGObject *self, PyObject *args, PyObject *kwargs)
-{
-    static char* kwlist[] = { NULL };
-
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs,
-                                     ":goocanvas.Canvas.__init__",
-                                     kwlist))
-        return -1;
-
-    pygobject_constructv(self, 0, NULL);
-    if (!self->obj) {
-        PyErr_SetString(
-            PyExc_RuntimeError, 
-            "could not create goocanvas.Canvas object");
-        return -1;
-    }
-    return 0;
-}
-
 static PyObject *
 _wrap_goo_canvas_get_root_item(PyGObject *self)
 {
     GooCanvasItem *ret;
 
-    
+
     ret = goo_canvas_get_root_item(GOO_CANVAS(self->obj));
-    
+
     /* pygobject_new handles NULL checking */
     return pygobject_new((GObject *)ret);
 }
@@ -503,9 +527,9 @@ _wrap_goo_canvas_set_root_item(PyGObject *self, PyObject *args, PyObject *kwargs
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!:GooCanvas.set_root_item", kwlist, &PyGooCanvasItem_Type, &item))
         return NULL;
-    
+
     goo_canvas_set_root_item(GOO_CANVAS(self->obj), GOO_CANVAS_ITEM(item->obj));
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -515,9 +539,9 @@ _wrap_goo_canvas_get_root_item_model(PyGObject *self)
 {
     GooCanvasItemModel *ret;
 
-    
+
     ret = goo_canvas_get_root_item_model(GOO_CANVAS(self->obj));
-    
+
     /* pygobject_new handles NULL checking */
     return pygobject_new((GObject *)ret);
 }
@@ -530,9 +554,63 @@ _wrap_goo_canvas_set_root_item_model(PyGObject *self, PyObject *args, PyObject *
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!:GooCanvas.set_root_item_model", kwlist, &PyGooCanvasItemModel_Type, &model))
         return NULL;
-    
+
     goo_canvas_set_root_item_model(GOO_CANVAS(self->obj), GOO_CANVAS_ITEM_MODEL(model->obj));
-    
+
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
+static PyObject *
+_wrap_goo_canvas_get_static_root_item(PyGObject *self)
+{
+    GooCanvasItem *ret;
+
+
+    ret = goo_canvas_get_static_root_item(GOO_CANVAS(self->obj));
+
+    /* pygobject_new handles NULL checking */
+    return pygobject_new((GObject *)ret);
+}
+
+static PyObject *
+_wrap_goo_canvas_set_static_root_item(PyGObject *self, PyObject *args, PyObject *kwargs)
+{
+    static char *kwlist[] = { "item", NULL };
+    PyGObject *item;
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!:GooCanvas.set_static_root_item", kwlist, &PyGooCanvasItem_Type, &item))
+        return NULL;
+
+    goo_canvas_set_static_root_item(GOO_CANVAS(self->obj), GOO_CANVAS_ITEM(item->obj));
+
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
+static PyObject *
+_wrap_goo_canvas_get_static_root_item_model(PyGObject *self)
+{
+    GooCanvasItemModel *ret;
+
+
+    ret = goo_canvas_get_static_root_item_model(GOO_CANVAS(self->obj));
+
+    /* pygobject_new handles NULL checking */
+    return pygobject_new((GObject *)ret);
+}
+
+static PyObject *
+_wrap_goo_canvas_set_static_root_item_model(PyGObject *self, PyObject *args, PyObject *kwargs)
+{
+    static char *kwlist[] = { "model", NULL };
+    PyGObject *model;
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!:GooCanvas.set_static_root_item_model", kwlist, &PyGooCanvasItemModel_Type, &model))
+        return NULL;
+
+    goo_canvas_set_static_root_item_model(GOO_CANVAS(self->obj), GOO_CANVAS_ITEM_MODEL(model->obj));
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -546,9 +624,9 @@ _wrap_goo_canvas_get_item(PyGObject *self, PyObject *args, PyObject *kwargs)
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!:GooCanvas.get_item", kwlist, &PyGooCanvasItemModel_Type, &model))
         return NULL;
-    
+
     ret = goo_canvas_get_item(GOO_CANVAS(self->obj), GOO_CANVAS_ITEM_MODEL(model->obj));
-    
+
     /* pygobject_new handles NULL checking */
     return pygobject_new((GObject *)ret);
 }
@@ -563,14 +641,14 @@ _wrap_goo_canvas_get_item_at(PyGObject *self, PyObject *args, PyObject *kwargs)
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"ddi:GooCanvas.get_item_at", kwlist, &x, &y, &is_pointer_event))
         return NULL;
-    
+
     ret = goo_canvas_get_item_at(GOO_CANVAS(self->obj), x, y, is_pointer_event);
-    
+
     /* pygobject_new handles NULL checking */
     return pygobject_new((GObject *)ret);
 }
 
-#line 1437 "goocanvas.override"
+#line 1440 "goocanvas.override"
 static PyObject *
 _wrap_goo_canvas_get_items_at(PyGObject *self, PyObject *args, PyObject *kwargs)
 {
@@ -601,10 +679,10 @@ _wrap_goo_canvas_get_items_at(PyGObject *self, PyObject *args, PyObject *kwargs)
     return ret;
 }
 
-#line 605 "goocanvas.c"
+#line 685 "goocanvas.c"
 
 
-#line 1469 "goocanvas.override"
+#line 1472 "goocanvas.override"
 static PyObject *
 _wrap_goo_canvas_get_items_in_area(PyGObject *self, PyObject *args, PyObject *kwargs)
 {
@@ -642,7 +720,7 @@ _wrap_goo_canvas_get_items_in_area(PyGObject *self, PyObject *args, PyObject *kw
     return ret;
 }
 
-#line 646 "goocanvas.c"
+#line 726 "goocanvas.c"
 
 
 static PyObject *
@@ -650,9 +728,9 @@ _wrap_goo_canvas_get_scale(PyGObject *self)
 {
     double ret;
 
-    
+
     ret = goo_canvas_get_scale(GOO_CANVAS(self->obj));
-    
+
     return PyFloat_FromDouble(ret);
 }
 
@@ -664,14 +742,14 @@ _wrap_goo_canvas_set_scale(PyGObject *self, PyObject *args, PyObject *kwargs)
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"d:GooCanvas.set_scale", kwlist, &pixels_per_unit))
         return NULL;
-    
+
     goo_canvas_set_scale(GOO_CANVAS(self->obj), pixels_per_unit);
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
 
-#line 513 "goocanvas.override"
+#line 516 "goocanvas.override"
 static PyObject *
 _wrap_goo_canvas_get_bounds(PyGObject *self)
 {
@@ -682,7 +760,7 @@ _wrap_goo_canvas_get_bounds(PyGObject *self)
     return Py_BuildValue("dddd", left, right, top, bottom);
 }
 
-#line 686 "goocanvas.c"
+#line 766 "goocanvas.c"
 
 
 static PyObject *
@@ -693,9 +771,9 @@ _wrap_goo_canvas_set_bounds(PyGObject *self, PyObject *args, PyObject *kwargs)
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"dddd:GooCanvas.set_bounds", kwlist, &left, &top, &right, &bottom))
         return NULL;
-    
+
     goo_canvas_set_bounds(GOO_CANVAS(self->obj), left, top, right, bottom);
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -708,9 +786,9 @@ _wrap_goo_canvas_scroll_to(PyGObject *self, PyObject *args, PyObject *kwargs)
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"dd:GooCanvas.scroll_to", kwlist, &left, &top))
         return NULL;
-    
+
     goo_canvas_scroll_to(GOO_CANVAS(self->obj), left, top);
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -723,9 +801,9 @@ _wrap_goo_canvas_grab_focus(PyGObject *self, PyObject *args, PyObject *kwargs)
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!:GooCanvas.grab_focus", kwlist, &PyGooCanvasItem_Type, &item))
         return NULL;
-    
+
     goo_canvas_grab_focus(GOO_CANVAS(self->obj), GOO_CANVAS_ITEM(item->obj));
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -740,19 +818,19 @@ _wrap_goo_canvas_render(PyGObject *self, PyObject *args, PyObject *kwargs)
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!|Od:GooCanvas.render", kwlist, &PycairoContext_Type, &cr, &py_bounds, &scale))
         return NULL;
-    if (!(py_bounds == NULL || py_bounds == Py_None || 
+    if (!(py_bounds == NULL || py_bounds == Py_None ||
         PyObject_IsInstance(py_bounds, (PyObject *) &PyGooCanvasBounds_Type))) {
         PyErr_SetString(PyExc_TypeError, "parameter bounds must be goocanvas.Bounds or None");
         return NULL;
     }
-    
+
     goo_canvas_render(GOO_CANVAS(self->obj), cr->ctx, (py_bounds == NULL || py_bounds == Py_None)? NULL : &((PyGooCanvasBounds *) py_bounds)->bounds, scale);
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
 
-#line 540 "goocanvas.override"
+#line 543 "goocanvas.override"
 static PyObject *
 _wrap_goo_canvas_convert_to_pixels(PyGObject *self, PyObject *args, PyObject *kwargs)
 {
@@ -767,10 +845,10 @@ _wrap_goo_canvas_convert_to_pixels(PyGObject *self, PyObject *args, PyObject *kw
     return Py_BuildValue("dd", x, y);
 }
 
-#line 771 "goocanvas.c"
+#line 851 "goocanvas.c"
 
 
-#line 556 "goocanvas.override"
+#line 559 "goocanvas.override"
 static PyObject *
 _wrap_goo_canvas_convert_from_pixels(PyGObject *self, PyObject *args, PyObject *kwargs)
 {
@@ -785,10 +863,10 @@ _wrap_goo_canvas_convert_from_pixels(PyGObject *self, PyObject *args, PyObject *
     return Py_BuildValue("dd", x, y);
 }
 
-#line 789 "goocanvas.c"
+#line 869 "goocanvas.c"
 
 
-#line 572 "goocanvas.override"
+#line 575 "goocanvas.override"
 static PyObject *
 _wrap_goo_canvas_convert_to_item_space(PyGObject *self, PyObject *args, PyObject *kwargs)
 {
@@ -804,10 +882,10 @@ _wrap_goo_canvas_convert_to_item_space(PyGObject *self, PyObject *args, PyObject
 
     return Py_BuildValue("dd", x, y);
 }
-#line 808 "goocanvas.c"
+#line 888 "goocanvas.c"
 
 
-#line 589 "goocanvas.override"
+#line 592 "goocanvas.override"
 static PyObject *
 _wrap_goo_canvas_convert_from_item_space(PyGObject *self, PyObject *args, PyObject *kwargs)
 {
@@ -823,8 +901,24 @@ _wrap_goo_canvas_convert_from_item_space(PyGObject *self, PyObject *args, PyObje
 
     return Py_BuildValue("dd", x, y);
 }
-#line 827 "goocanvas.c"
+#line 907 "goocanvas.c"
 
+
+static PyObject *
+_wrap_goo_canvas_convert_bounds_to_item_space(PyGObject *self, PyObject *args, PyObject *kwargs)
+{
+    static char *kwlist[] = { "item", "bounds", NULL };
+    PyGObject *item;
+    PyObject *py_bounds;
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!O!:GooCanvas.convert_bounds_to_item_space", kwlist, &PyGooCanvasItem_Type, &item, &PyGooCanvasBounds_Type, &py_bounds))
+        return NULL;
+
+    goo_canvas_convert_bounds_to_item_space(GOO_CANVAS(self->obj), GOO_CANVAS_ITEM(item->obj), (py_bounds == NULL)? NULL : &((PyGooCanvasBounds *) py_bounds)->bounds);
+
+    Py_INCREF(Py_None);
+    return Py_None;
+}
 
 static PyObject *
 _wrap_goo_canvas_pointer_grab(PyGObject *self, PyObject *args, PyObject *kwargs)
@@ -847,9 +941,9 @@ _wrap_goo_canvas_pointer_grab(PyGObject *self, PyObject *args, PyObject *kwargs)
         PyErr_SetString(PyExc_TypeError, "cursor should be a GdkCursor or None");
         return NULL;
     }
-    
+
     ret = goo_canvas_pointer_grab(GOO_CANVAS(self->obj), GOO_CANVAS_ITEM(item->obj), event_mask, cursor, time);
-    
+
     return pyg_enum_from_gtype(GDK_TYPE_GRAB_STATUS, ret);
 }
 
@@ -862,9 +956,9 @@ _wrap_goo_canvas_pointer_ungrab(PyGObject *self, PyObject *args, PyObject *kwarg
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!k:GooCanvas.pointer_ungrab", kwlist, &PyGooCanvasItem_Type, &item, &time))
         return NULL;
-    
+
     goo_canvas_pointer_ungrab(GOO_CANVAS(self->obj), GOO_CANVAS_ITEM(item->obj), time);
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -880,9 +974,9 @@ _wrap_goo_canvas_keyboard_grab(PyGObject *self, PyObject *args, PyObject *kwargs
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!ik:GooCanvas.keyboard_grab", kwlist, &PyGooCanvasItem_Type, &item, &owner_events, &time))
         return NULL;
-    
+
     ret = goo_canvas_keyboard_grab(GOO_CANVAS(self->obj), GOO_CANVAS_ITEM(item->obj), owner_events, time);
-    
+
     return pyg_enum_from_gtype(GDK_TYPE_GRAB_STATUS, ret);
 }
 
@@ -895,24 +989,26 @@ _wrap_goo_canvas_keyboard_ungrab(PyGObject *self, PyObject *args, PyObject *kwar
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!k:GooCanvas.keyboard_ungrab", kwlist, &PyGooCanvasItem_Type, &item, &time))
         return NULL;
-    
+
     goo_canvas_keyboard_ungrab(GOO_CANVAS(self->obj), GOO_CANVAS_ITEM(item->obj), time);
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
 
+#line 2032 "goocanvas.override"
 static PyObject *
 _wrap_goo_canvas_create_cairo_context(PyGObject *self)
 {
     cairo_t *ret;
 
-    
     ret = goo_canvas_create_cairo_context(GOO_CANVAS(self->obj));
-    
+
     cairo_reference(ret);
-    return PycairoContext_FromContext(ret, NULL, NULL);
+    return PycairoContext_FromContext(ret, &PyGdkCairoContext_Type, NULL);
 }
+#line 1013 "goocanvas.c"
+
 
 static PyObject *
 _wrap_goo_canvas_create_item(PyGObject *self, PyObject *args, PyObject *kwargs)
@@ -923,9 +1019,9 @@ _wrap_goo_canvas_create_item(PyGObject *self, PyObject *args, PyObject *kwargs)
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!:GooCanvas.create_item", kwlist, &PyGooCanvasItemModel_Type, &model))
         return NULL;
-    
+
     ret = goo_canvas_create_item(GOO_CANVAS(self->obj), GOO_CANVAS_ITEM_MODEL(model->obj));
-    
+
     /* pygobject_new handles NULL checking */
     return pygobject_new((GObject *)ret);
 }
@@ -938,9 +1034,9 @@ _wrap_goo_canvas_unregister_item(PyGObject *self, PyObject *args, PyObject *kwar
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!:GooCanvas.unregister_item", kwlist, &PyGooCanvasItemModel_Type, &model))
         return NULL;
-    
+
     goo_canvas_unregister_item(GOO_CANVAS(self->obj), GOO_CANVAS_ITEM_MODEL(model->obj));
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -948,9 +1044,9 @@ _wrap_goo_canvas_unregister_item(PyGObject *self, PyObject *args, PyObject *kwar
 static PyObject *
 _wrap_goo_canvas_update(PyGObject *self)
 {
-    
+
     goo_canvas_update(GOO_CANVAS(self->obj));
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -958,9 +1054,9 @@ _wrap_goo_canvas_update(PyGObject *self)
 static PyObject *
 _wrap_goo_canvas_request_update(PyGObject *self)
 {
-    
+
     goo_canvas_request_update(GOO_CANVAS(self->obj));
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -973,9 +1069,25 @@ _wrap_goo_canvas_request_redraw(PyGObject *self, PyObject *args, PyObject *kwarg
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!:GooCanvas.request_redraw", kwlist, &PyGooCanvasBounds_Type, &py_bounds))
         return NULL;
-    
+
     goo_canvas_request_redraw(GOO_CANVAS(self->obj), (py_bounds == NULL)? NULL : &((PyGooCanvasBounds *) py_bounds)->bounds);
-    
+
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
+static PyObject *
+_wrap_goo_canvas_request_item_redraw(PyGObject *self, PyObject *args, PyObject *kwargs)
+{
+    static char *kwlist[] = { "bounds", "is_static", NULL };
+    PyObject *py_bounds;
+    int is_static;
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!i:GooCanvas.request_item_redraw", kwlist, &PyGooCanvasBounds_Type, &py_bounds, &is_static))
+        return NULL;
+
+    goo_canvas_request_item_redraw(GOO_CANVAS(self->obj), (py_bounds == NULL)? NULL : &((PyGooCanvasBounds *) py_bounds)->bounds, is_static);
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -985,9 +1097,9 @@ _wrap_goo_canvas_get_default_line_width(PyGObject *self)
 {
     double ret;
 
-    
+
     ret = goo_canvas_get_default_line_width(GOO_CANVAS(self->obj));
-    
+
     return PyFloat_FromDouble(ret);
 }
 
@@ -999,9 +1111,9 @@ _wrap_goo_canvas_register_widget_item(PyGObject *self, PyObject *args, PyObject 
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!:GooCanvas.register_widget_item", kwlist, &PyGooCanvasWidget_Type, &witem))
         return NULL;
-    
+
     goo_canvas_register_widget_item(GOO_CANVAS(self->obj), GOO_CANVAS_WIDGET(witem->obj));
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -1014,9 +1126,9 @@ _wrap_goo_canvas_unregister_widget_item(PyGObject *self, PyObject *args, PyObjec
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!:GooCanvas.unregister_widget_item", kwlist, &PyGooCanvasWidget_Type, &witem))
         return NULL;
-    
+
     goo_canvas_unregister_widget_item(GOO_CANVAS(self->obj), GOO_CANVAS_WIDGET(witem->obj));
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -1097,6 +1209,14 @@ static const PyMethodDef _PyGooCanvas_methods[] = {
       NULL },
     { "set_root_item_model", (PyCFunction)_wrap_goo_canvas_set_root_item_model, METH_VARARGS|METH_KEYWORDS,
       NULL },
+    { "get_static_root_item", (PyCFunction)_wrap_goo_canvas_get_static_root_item, METH_NOARGS,
+      NULL },
+    { "set_static_root_item", (PyCFunction)_wrap_goo_canvas_set_static_root_item, METH_VARARGS|METH_KEYWORDS,
+      NULL },
+    { "get_static_root_item_model", (PyCFunction)_wrap_goo_canvas_get_static_root_item_model, METH_NOARGS,
+      NULL },
+    { "set_static_root_item_model", (PyCFunction)_wrap_goo_canvas_set_static_root_item_model, METH_VARARGS|METH_KEYWORDS,
+      NULL },
     { "get_item", (PyCFunction)_wrap_goo_canvas_get_item, METH_VARARGS|METH_KEYWORDS,
       NULL },
     { "get_item_at", (PyCFunction)_wrap_goo_canvas_get_item_at, METH_VARARGS|METH_KEYWORDS,
@@ -1127,6 +1247,8 @@ static const PyMethodDef _PyGooCanvas_methods[] = {
       NULL },
     { "convert_from_item_space", (PyCFunction)_wrap_goo_canvas_convert_from_item_space, METH_VARARGS|METH_KEYWORDS,
       NULL },
+    { "convert_bounds_to_item_space", (PyCFunction)_wrap_goo_canvas_convert_bounds_to_item_space, METH_VARARGS|METH_KEYWORDS,
+      NULL },
     { "pointer_grab", (PyCFunction)_wrap_goo_canvas_pointer_grab, METH_VARARGS|METH_KEYWORDS,
       NULL },
     { "pointer_ungrab", (PyCFunction)_wrap_goo_canvas_pointer_ungrab, METH_VARARGS|METH_KEYWORDS,
@@ -1146,6 +1268,8 @@ static const PyMethodDef _PyGooCanvas_methods[] = {
     { "request_update", (PyCFunction)_wrap_goo_canvas_request_update, METH_NOARGS,
       NULL },
     { "request_redraw", (PyCFunction)_wrap_goo_canvas_request_redraw, METH_VARARGS|METH_KEYWORDS,
+      NULL },
+    { "request_item_redraw", (PyCFunction)_wrap_goo_canvas_request_item_redraw, METH_VARARGS|METH_KEYWORDS,
       NULL },
     { "get_default_line_width", (PyCFunction)_wrap_goo_canvas_get_default_line_width, METH_NOARGS,
       NULL },
@@ -1200,7 +1324,7 @@ PyTypeObject G_GNUC_INTERNAL PyGooCanvas_Type = {
     (descrgetfunc)0,    /* tp_descr_get */
     (descrsetfunc)0,    /* tp_descr_set */
     offsetof(PyGObject, inst_dict),                 /* tp_dictoffset */
-    (initproc)_wrap_goo_canvas_new,             /* tp_init */
+    (initproc)0,             /* tp_init */
     (allocfunc)0,           /* tp_alloc */
     (newfunc)0,               /* tp_new */
     (freefunc)0,             /* tp_free */
@@ -1217,7 +1341,7 @@ _wrap_GooCanvas__proxy_do_set_scroll_adjustments(GooCanvas *self, GtkAdjustment*
     PyObject *py_retval;
     PyObject *py_args;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -1238,11 +1362,11 @@ _wrap_GooCanvas__proxy_do_set_scroll_adjustments(GooCanvas *self, GtkAdjustment*
         Py_INCREF(Py_None);
         py_vadjustment = Py_None;
     }
-    
+
     py_args = PyTuple_New(2);
     PyTuple_SET_ITEM(py_args, 0, py_hadjustment);
     PyTuple_SET_ITEM(py_args, 1, py_vadjustment);
-    
+
     py_method = PyObject_GetAttrString(py_self, "do_set_scroll_adjustments");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -1273,8 +1397,8 @@ _wrap_GooCanvas__proxy_do_set_scroll_adjustments(GooCanvas *self, GtkAdjustment*
         pyg_gil_state_release(__py_state);
         return;
     }
-    
-    
+
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_args);
@@ -1291,7 +1415,7 @@ _wrap_GooCanvas__proxy_do_create_item(GooCanvas *self, GooCanvasItemModel*model)
     PyObject *py_retval;
     PyObject *py_args;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -1306,10 +1430,10 @@ _wrap_GooCanvas__proxy_do_create_item(GooCanvas *self, GooCanvasItemModel*model)
         Py_INCREF(Py_None);
         py_model = Py_None;
     }
-    
+
     py_args = PyTuple_New(1);
     PyTuple_SET_ITEM(py_args, 0, py_model);
-    
+
     py_method = PyObject_GetAttrString(py_self, "do_create_item");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -1352,14 +1476,14 @@ _wrap_GooCanvas__proxy_do_create_item(GooCanvas *self, GooCanvasItemModel*model)
     }
     retval = (GooCanvasItem*) pygobject_get(py_retval);
     g_object_ref((GObject *) retval);
-    
-    
+
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_args);
     Py_DECREF(py_self);
     pyg_gil_state_release(__py_state);
-    
+
     return retval;
 }
 static void
@@ -1372,7 +1496,7 @@ _wrap_GooCanvas__proxy_do_item_created(GooCanvas *self, GooCanvasItem*item, GooC
     PyObject *py_retval;
     PyObject *py_args;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -1393,11 +1517,11 @@ _wrap_GooCanvas__proxy_do_item_created(GooCanvas *self, GooCanvasItem*item, GooC
         Py_INCREF(Py_None);
         py_model = Py_None;
     }
-    
+
     py_args = PyTuple_New(2);
     PyTuple_SET_ITEM(py_args, 0, py_item);
     PyTuple_SET_ITEM(py_args, 1, py_model);
-    
+
     py_method = PyObject_GetAttrString(py_self, "do_item_created");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -1428,8 +1552,8 @@ _wrap_GooCanvas__proxy_do_item_created(GooCanvas *self, GooCanvasItem*item, GooC
         pyg_gil_state_release(__py_state);
         return;
     }
-    
-    
+
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_args);
@@ -1523,7 +1647,6 @@ PyTypeObject G_GNUC_INTERNAL PyGooCanvasItemModelSimple_Type = {
     (freefunc)0,             /* tp_free */
     (inquiry)0              /* tp_is_gc */
 };
-
 
 
 /* ----------- GooCanvasImageModel ----------- */
@@ -1675,7 +1798,7 @@ PyTypeObject G_GNUC_INTERNAL PyGooCanvasEllipseModel_Type = {
 
 /* ----------- GooCanvasItemSimple ----------- */
 
-#line 257 "goocanvas.override"
+#line 260 "goocanvas.override"
 static PyObject *
 _wrap_goo_canvas_item_simple_get_path_bounds(PyGObject *self, PyObject *args, PyObject *kwargs)
 {
@@ -1697,7 +1820,7 @@ _wrap_goo_canvas_item_simple_get_path_bounds(PyGObject *self, PyObject *args, Py
     return py_bounds;
 }
 
-#line 1701 "goocanvas.c"
+#line 1876 "goocanvas.c"
 
 
 static PyObject *
@@ -1709,9 +1832,9 @@ _wrap_goo_canvas_item_simple_user_bounds_to_device(PyGObject *self, PyObject *ar
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!O!:GooCanvasItemSimple.user_bounds_to_device", kwlist, &PycairoContext_Type, &cr, &PyGooCanvasBounds_Type, &py_bounds))
         return NULL;
-    
+
     goo_canvas_item_simple_user_bounds_to_device(GOO_CANVAS_ITEM_SIMPLE(self->obj), cr->ctx, (py_bounds == NULL)? NULL : &((PyGooCanvasBounds *) py_bounds)->bounds);
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -1725,9 +1848,9 @@ _wrap_goo_canvas_item_simple_user_bounds_to_parent(PyGObject *self, PyObject *ar
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!O!:GooCanvasItemSimple.user_bounds_to_parent", kwlist, &PycairoContext_Type, &cr, &PyGooCanvasBounds_Type, &py_bounds))
         return NULL;
-    
+
     goo_canvas_item_simple_user_bounds_to_parent(GOO_CANVAS_ITEM_SIMPLE(self->obj), cr->ctx, (py_bounds == NULL)? NULL : &((PyGooCanvasBounds *) py_bounds)->bounds);
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -1746,9 +1869,9 @@ _wrap_goo_canvas_item_simple_check_in_path(PyGObject *self, PyObject *args, PyOb
         return NULL;
     if (pyg_flags_get_value(GOO_TYPE_CANVAS_POINTER_EVENTS, py_pointer_events, (gpointer)&pointer_events))
         return NULL;
-    
+
     ret = goo_canvas_item_simple_check_in_path(GOO_CANVAS_ITEM_SIMPLE(self->obj), x, y, cr->ctx, pointer_events);
-    
+
     return PyBool_FromLong(ret);
 
 }
@@ -1761,9 +1884,9 @@ _wrap_goo_canvas_item_simple_paint_path(PyGObject *self, PyObject *args, PyObjec
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!:GooCanvasItemSimple.paint_path", kwlist, &PycairoContext_Type, &cr))
         return NULL;
-    
+
     goo_canvas_item_simple_paint_path(GOO_CANVAS_ITEM_SIMPLE(self->obj), cr->ctx);
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -1776,9 +1899,9 @@ _wrap_goo_canvas_item_simple_changed(PyGObject *self, PyObject *args, PyObject *
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"i:GooCanvasItemSimple.changed", kwlist, &recompute_bounds))
         return NULL;
-    
+
     goo_canvas_item_simple_changed(GOO_CANVAS_ITEM_SIMPLE(self->obj), recompute_bounds);
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -1786,9 +1909,9 @@ _wrap_goo_canvas_item_simple_changed(PyGObject *self, PyObject *args, PyObject *
 static PyObject *
 _wrap_goo_canvas_item_simple_check_style(PyGObject *self)
 {
-    
+
     goo_canvas_item_simple_check_style(GOO_CANVAS_ITEM_SIMPLE(self->obj));
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -1798,9 +1921,9 @@ _wrap_goo_canvas_item_simple_get_line_width(PyGObject *self)
 {
     double ret;
 
-    
+
     ret = goo_canvas_item_simple_get_line_width(GOO_CANVAS_ITEM_SIMPLE(self->obj));
-    
+
     return PyFloat_FromDouble(ret);
 }
 
@@ -1812,9 +1935,9 @@ _wrap_goo_canvas_item_simple_set_model(PyGObject *self, PyObject *args, PyObject
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!:GooCanvasItemSimple.set_model", kwlist, &PyGooCanvasItemModel_Type, &model))
         return NULL;
-    
+
     goo_canvas_item_simple_set_model(GOO_CANVAS_ITEM_SIMPLE(self->obj), GOO_CANVAS_ITEM_MODEL(model->obj));
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -1944,7 +2067,7 @@ static const PyMethodDef _PyGooCanvasItemSimple_methods[] = {
     { NULL, NULL, 0, NULL }
 };
 
-#line 783 "goocanvas.override"
+#line 786 "goocanvas.override"
 
 static int
 _wrap_goo_canvas_item_simple__set_bounds_x1(PyGObject *self, PyObject *py_value, void *closure)
@@ -1957,7 +2080,7 @@ _wrap_goo_canvas_item_simple__set_bounds_x1(PyGObject *self, PyObject *py_value,
     return 0;
 }
 
-#line 1961 "goocanvas.c"
+#line 2136 "goocanvas.c"
 
 
 static PyObject *
@@ -1969,7 +2092,7 @@ _wrap_goo_canvas_item_simple__get_bounds_x1(PyObject *self, void *closure)
     return PyFloat_FromDouble(ret);
 }
 
-#line 797 "goocanvas.override"
+#line 800 "goocanvas.override"
 
 static int
 _wrap_goo_canvas_item_simple__set_bounds_x2(PyGObject *self, PyObject *py_value, void *closure)
@@ -1982,7 +2105,7 @@ _wrap_goo_canvas_item_simple__set_bounds_x2(PyGObject *self, PyObject *py_value,
     return 0;
 }
 
-#line 1986 "goocanvas.c"
+#line 2161 "goocanvas.c"
 
 
 static PyObject *
@@ -1994,7 +2117,7 @@ _wrap_goo_canvas_item_simple__get_bounds_x2(PyObject *self, void *closure)
     return PyFloat_FromDouble(ret);
 }
 
-#line 811 "goocanvas.override"
+#line 814 "goocanvas.override"
 
 static int
 _wrap_goo_canvas_item_simple__set_bounds_y1(PyGObject *self, PyObject *py_value, void *closure)
@@ -2007,7 +2130,7 @@ _wrap_goo_canvas_item_simple__set_bounds_y1(PyGObject *self, PyObject *py_value,
     return 0;
 }
 
-#line 2011 "goocanvas.c"
+#line 2186 "goocanvas.c"
 
 
 static PyObject *
@@ -2019,7 +2142,7 @@ _wrap_goo_canvas_item_simple__get_bounds_y1(PyObject *self, void *closure)
     return PyFloat_FromDouble(ret);
 }
 
-#line 825 "goocanvas.override"
+#line 828 "goocanvas.override"
 
 static int
 _wrap_goo_canvas_item_simple__set_bounds_y2(PyGObject *self, PyObject *py_value, void *closure)
@@ -2032,7 +2155,7 @@ _wrap_goo_canvas_item_simple__set_bounds_y2(PyGObject *self, PyObject *py_value,
     return 0;
 }
 
-#line 2036 "goocanvas.c"
+#line 2211 "goocanvas.c"
 
 
 static PyObject *
@@ -2044,7 +2167,7 @@ _wrap_goo_canvas_item_simple__get_bounds_y2(PyObject *self, void *closure)
     return PyFloat_FromDouble(ret);
 }
 
-#line 1587 "goocanvas.override"
+#line 1590 "goocanvas.override"
 
 static int
 _wrap_goo_canvas_item_simple__set_bounds(PyGObject *self, PyObject *py_value, void *closure)
@@ -2062,7 +2185,8 @@ _wrap_goo_canvas_item_simple__get_bounds(PyGObject *self, void *closure)
 {
     return pygoo_canvas_bounds_new(&GOO_CANVAS_ITEM_SIMPLE(pygobject_get(self))->bounds);
 }
-#line 2066 "goocanvas.c"
+
+#line 2242 "goocanvas.c"
 
 
 static const PyGetSetDef goo_canvas_item_simple_getsets[] = {
@@ -2128,7 +2252,7 @@ _wrap_GooCanvasItemSimple__proxy_do_simple_create_path(GooCanvasItemSimple *self
     PyObject *py_retval;
     PyObject *py_args;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -2137,11 +2261,11 @@ _wrap_GooCanvasItemSimple__proxy_do_simple_create_path(GooCanvasItemSimple *self
         pyg_gil_state_release(__py_state);
         return;
     }
-    py_cr = PycairoContext_FromContext(cairo_reference(cr), NULL, NULL);
-    
+    py_cr = PycairoContext_FromContext(cairo_reference(cr), &PyGdkCairoContext_Type, NULL);
+
     py_args = PyTuple_New(1);
     PyTuple_SET_ITEM(py_args, 0, py_cr);
-    
+
     py_method = PyObject_GetAttrString(py_self, "do_simple_create_path");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -2172,8 +2296,8 @@ _wrap_GooCanvasItemSimple__proxy_do_simple_create_path(GooCanvasItemSimple *self
         pyg_gil_state_release(__py_state);
         return;
     }
-    
-    
+
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_args);
@@ -2189,7 +2313,7 @@ _wrap_GooCanvasItemSimple__proxy_do_simple_update(GooCanvasItemSimple *self, cai
     PyObject *py_retval;
     PyObject *py_args;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -2198,11 +2322,11 @@ _wrap_GooCanvasItemSimple__proxy_do_simple_update(GooCanvasItemSimple *self, cai
         pyg_gil_state_release(__py_state);
         return;
     }
-    py_cr = PycairoContext_FromContext(cairo_reference(cr), NULL, NULL);
-    
+    py_cr = PycairoContext_FromContext(cairo_reference(cr), &PyGdkCairoContext_Type, NULL);
+
     py_args = PyTuple_New(1);
     PyTuple_SET_ITEM(py_args, 0, py_cr);
-    
+
     py_method = PyObject_GetAttrString(py_self, "do_simple_update");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -2233,8 +2357,8 @@ _wrap_GooCanvasItemSimple__proxy_do_simple_update(GooCanvasItemSimple *self, cai
         pyg_gil_state_release(__py_state);
         return;
     }
-    
-    
+
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_args);
@@ -2251,7 +2375,7 @@ _wrap_GooCanvasItemSimple__proxy_do_simple_paint(GooCanvasItemSimple *self, cair
     PyObject *py_retval;
     PyObject *py_args;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -2260,13 +2384,13 @@ _wrap_GooCanvasItemSimple__proxy_do_simple_paint(GooCanvasItemSimple *self, cair
         pyg_gil_state_release(__py_state);
         return;
     }
-    py_cr = PycairoContext_FromContext(cairo_reference(cr), NULL, NULL);
+    py_cr = PycairoContext_FromContext(cairo_reference(cr), &PyGdkCairoContext_Type, NULL);
     py_bounds = pygoo_canvas_bounds_new(bounds);
-    
+
     py_args = PyTuple_New(2);
     PyTuple_SET_ITEM(py_args, 0, py_cr);
     PyTuple_SET_ITEM(py_args, 1, py_bounds);
-    
+
     py_method = PyObject_GetAttrString(py_self, "do_simple_paint");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -2297,8 +2421,8 @@ _wrap_GooCanvasItemSimple__proxy_do_simple_paint(GooCanvasItemSimple *self, cair
         pyg_gil_state_release(__py_state);
         return;
     }
-    
-    
+
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_args);
@@ -2319,7 +2443,7 @@ _wrap_GooCanvasItemSimple__proxy_do_simple_is_item_at(GooCanvasItemSimple *self,
     PyObject *py_retval;
     PyObject *py_args;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -2330,16 +2454,16 @@ _wrap_GooCanvasItemSimple__proxy_do_simple_is_item_at(GooCanvasItemSimple *self,
     }
     py_x = PyFloat_FromDouble(x);
     py_y = PyFloat_FromDouble(y);
-    py_cr = PycairoContext_FromContext(cairo_reference(cr), NULL, NULL);
+    py_cr = PycairoContext_FromContext(cairo_reference(cr), &PyGdkCairoContext_Type, NULL);
     py_is_pointer_event = is_pointer_event? Py_True : Py_False;
-    
+
     py_args = PyTuple_New(4);
     PyTuple_SET_ITEM(py_args, 0, py_x);
     PyTuple_SET_ITEM(py_args, 1, py_y);
     PyTuple_SET_ITEM(py_args, 2, py_cr);
     Py_INCREF(py_is_pointer_event);
     PyTuple_SET_ITEM(py_args, 3, py_is_pointer_event);
-    
+
     py_method = PyObject_GetAttrString(py_self, "do_simple_is_item_at");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -2371,15 +2495,15 @@ _wrap_GooCanvasItemSimple__proxy_do_simple_is_item_at(GooCanvasItemSimple *self,
         pyg_gil_state_release(__py_state);
         return FALSE;
     }
-    
+
     retval = PyObject_IsTrue(py_main_retval)? TRUE : FALSE;
-    
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_args);
     Py_DECREF(py_self);
     pyg_gil_state_release(__py_state);
-    
+
     return retval;
 }
 
@@ -2439,55 +2563,6 @@ PyTypeObject G_GNUC_INTERNAL PyGooCanvasImage_Type = {
     PyObject_HEAD_INIT(NULL)
     0,                                 /* ob_size */
     "goocanvas.Image",                   /* tp_name */
-    sizeof(PyGObject),          /* tp_basicsize */
-    0,                                 /* tp_itemsize */
-    /* methods */
-    (destructor)0,        /* tp_dealloc */
-    (printfunc)0,                      /* tp_print */
-    (getattrfunc)0,       /* tp_getattr */
-    (setattrfunc)0,       /* tp_setattr */
-    (cmpfunc)0,           /* tp_compare */
-    (reprfunc)0,             /* tp_repr */
-    (PyNumberMethods*)0,     /* tp_as_number */
-    (PySequenceMethods*)0, /* tp_as_sequence */
-    (PyMappingMethods*)0,   /* tp_as_mapping */
-    (hashfunc)0,             /* tp_hash */
-    (ternaryfunc)0,          /* tp_call */
-    (reprfunc)0,              /* tp_str */
-    (getattrofunc)0,     /* tp_getattro */
-    (setattrofunc)0,     /* tp_setattro */
-    (PyBufferProcs*)0,  /* tp_as_buffer */
-    Py_TPFLAGS_DEFAULT | Py_TPFLAGS_BASETYPE,                      /* tp_flags */
-    NULL,                        /* Documentation string */
-    (traverseproc)0,     /* tp_traverse */
-    (inquiry)0,             /* tp_clear */
-    (richcmpfunc)0,   /* tp_richcompare */
-    offsetof(PyGObject, weakreflist),             /* tp_weaklistoffset */
-    (getiterfunc)0,          /* tp_iter */
-    (iternextfunc)0,     /* tp_iternext */
-    (struct PyMethodDef*)NULL, /* tp_methods */
-    (struct PyMemberDef*)0,              /* tp_members */
-    (struct PyGetSetDef*)0,  /* tp_getset */
-    NULL,                              /* tp_base */
-    NULL,                              /* tp_dict */
-    (descrgetfunc)0,    /* tp_descr_get */
-    (descrsetfunc)0,    /* tp_descr_set */
-    offsetof(PyGObject, inst_dict),                 /* tp_dictoffset */
-    (initproc)0,             /* tp_init */
-    (allocfunc)0,           /* tp_alloc */
-    (newfunc)0,               /* tp_new */
-    (freefunc)0,             /* tp_free */
-    (inquiry)0              /* tp_is_gc */
-};
-
-
-
-/* ----------- GooCanvasSvg ----------- */
-
-PyTypeObject G_GNUC_INTERNAL PyGooCanvasSvg_Type = {
-    PyObject_HEAD_INIT(NULL)
-    0,                                 /* ob_size */
-    "goocanvas.Svg",                   /* tp_name */
     sizeof(PyGObject),          /* tp_basicsize */
     0,                                 /* tp_itemsize */
     /* methods */
@@ -2930,9 +3005,9 @@ _wrap_goo_canvas_style_copy(PyGObject *self)
 {
     GooCanvasStyle *ret;
 
-    
+
     ret = goo_canvas_style_copy(GOO_CANVAS_STYLE(self->obj));
-    
+
     /* pygobject_new handles NULL checking */
     return pygobject_new((GObject *)ret);
 }
@@ -2942,9 +3017,9 @@ _wrap_goo_canvas_style_get_parent(PyGObject *self)
 {
     GooCanvasStyle *ret;
 
-    
+
     ret = goo_canvas_style_get_parent(GOO_CANVAS_STYLE(self->obj));
-    
+
     /* pygobject_new handles NULL checking */
     return pygobject_new((GObject *)ret);
 }
@@ -2957,14 +3032,14 @@ _wrap_goo_canvas_style_set_parent(PyGObject *self, PyObject *args, PyObject *kwa
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!:GooCanvasStyle.set_parent", kwlist, &PyGooCanvasStyle_Type, &parent))
         return NULL;
-    
+
     goo_canvas_style_set_parent(GOO_CANVAS_STYLE(self->obj), GOO_CANVAS_STYLE(parent->obj));
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
 
-#line 716 "goocanvas.override"
+#line 719 "goocanvas.override"
 static PyObject *
 _wrap_goo_canvas_style_get_property(PyGObject *self, PyObject *args, PyObject *kwargs)
 {
@@ -2977,10 +3052,10 @@ _wrap_goo_canvas_style_get_property(PyGObject *self, PyObject *args, PyObject *k
     return _py_canvas_style_get_property(GOO_CANVAS_STYLE(self->obj), name);
 }
 
-#line 2981 "goocanvas.c"
+#line 3157 "goocanvas.c"
 
 
-#line 730 "goocanvas.override"
+#line 733 "goocanvas.override"
 static PyObject *
 _wrap_goo_canvas_style_set_property(PyGObject *self, PyObject *args, PyObject *kwargs)
 {
@@ -2997,7 +3072,7 @@ _wrap_goo_canvas_style_set_property(PyGObject *self, PyObject *args, PyObject *k
     return Py_None;
 }
 
-#line 3001 "goocanvas.c"
+#line 3177 "goocanvas.c"
 
 
 static PyObject *
@@ -3009,9 +3084,9 @@ _wrap_goo_canvas_style_set_stroke_options(PyGObject *self, PyObject *args, PyObj
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!:GooCanvasStyle.set_stroke_options", kwlist, &PycairoContext_Type, &cr))
         return NULL;
-    
+
     ret = goo_canvas_style_set_stroke_options(GOO_CANVAS_STYLE(self->obj), cr->ctx);
-    
+
     return PyBool_FromLong(ret);
 
 }
@@ -3025,9 +3100,9 @@ _wrap_goo_canvas_style_set_fill_options(PyGObject *self, PyObject *args, PyObjec
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!:GooCanvasStyle.set_fill_options", kwlist, &PycairoContext_Type, &cr))
         return NULL;
-    
+
     ret = goo_canvas_style_set_fill_options(GOO_CANVAS_STYLE(self->obj), cr->ctx);
-    
+
     return PyBool_FromLong(ret);
 
 }
@@ -3050,7 +3125,7 @@ static const PyMethodDef _PyGooCanvasStyle_methods[] = {
     { NULL, NULL, 0, NULL }
 };
 
-#line 748 "goocanvas.override"
+#line 751 "goocanvas.override"
 
 static PyObject *
 goo_canvas_style_subscript(PyGObject *self, PyObject *arg)
@@ -3084,7 +3159,7 @@ static PyMappingMethods _wrap_goo_canvas_style_tp_as_mapping = {
     (objobjargproc) _wrap_goo_canvas_style_ass_subscript, /* objobjargproc mp_ass_subscript; */
 };
 
-#line 3088 "goocanvas.c"
+#line 3264 "goocanvas.c"
 
 
 PyTypeObject G_GNUC_INTERNAL PyGooCanvasStyle_Type = {
@@ -3234,6 +3309,31 @@ PyTypeObject G_GNUC_INTERNAL PyGooCanvasTableModel_Type = {
 
 /* ----------- GooCanvasText ----------- */
 
+#line 1610 "goocanvas.override"
+static PyObject *
+_wrap_goo_canvas_text_get_natural_extents(PyGObject *self)
+{
+    PangoRectangle ink_rect, logical_rect;
+
+    goo_canvas_text_get_natural_extents(GOO_CANVAS_TEXT(self->obj), &ink_rect,
+                                        &logical_rect);
+
+    return Py_BuildValue("((iiii)(iiii))",
+			 ink_rect.x, ink_rect.y,
+			 ink_rect.width, ink_rect.height,
+			 logical_rect.x, logical_rect.y,
+			 logical_rect.width, logical_rect.height);
+}
+
+#line 3430 "goocanvas.c"
+
+
+static const PyMethodDef _PyGooCanvasText_methods[] = {
+    { "get_natural_extents", (PyCFunction)_wrap_goo_canvas_text_get_natural_extents, METH_NOARGS,
+      NULL },
+    { NULL, NULL, 0, NULL }
+};
+
 PyTypeObject G_GNUC_INTERNAL PyGooCanvasText_Type = {
     PyObject_HEAD_INIT(NULL)
     0,                                 /* ob_size */
@@ -3264,7 +3364,7 @@ PyTypeObject G_GNUC_INTERNAL PyGooCanvasText_Type = {
     offsetof(PyGObject, weakreflist),             /* tp_weaklistoffset */
     (getiterfunc)0,          /* tp_iter */
     (iternextfunc)0,     /* tp_iternext */
-    (struct PyMethodDef*)NULL, /* tp_methods */
+    (struct PyMethodDef*)_PyGooCanvasText_methods, /* tp_methods */
     (struct PyMemberDef*)0,              /* tp_members */
     (struct PyGetSetDef*)0,  /* tp_getset */
     NULL,                              /* tp_base */
@@ -3386,9 +3486,9 @@ _wrap_goo_canvas_item_get_n_children(PyGObject *self)
 {
     int ret;
 
-    
+
     ret = goo_canvas_item_get_n_children(GOO_CANVAS_ITEM(self->obj));
-    
+
     return PyInt_FromLong(ret);
 }
 
@@ -3401,9 +3501,9 @@ _wrap_goo_canvas_item_get_child(PyGObject *self, PyObject *args, PyObject *kwarg
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"i:GooCanvasItem.get_child", kwlist, &child_num))
         return NULL;
-    
+
     ret = goo_canvas_item_get_child(GOO_CANVAS_ITEM(self->obj), child_num);
-    
+
     /* pygobject_new handles NULL checking */
     return pygobject_new((GObject *)ret);
 }
@@ -3417,9 +3517,9 @@ _wrap_goo_canvas_item_find_child(PyGObject *self, PyObject *args, PyObject *kwar
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!:GooCanvasItem.find_child", kwlist, &PyGooCanvasItem_Type, &child))
         return NULL;
-    
+
     ret = goo_canvas_item_find_child(GOO_CANVAS_ITEM(self->obj), GOO_CANVAS_ITEM(child->obj));
-    
+
     return PyInt_FromLong(ret);
 }
 
@@ -3432,9 +3532,9 @@ _wrap_goo_canvas_item_add_child(PyGObject *self, PyObject *args, PyObject *kwarg
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!|i:GooCanvasItem.add_child", kwlist, &PyGooCanvasItem_Type, &child, &position))
         return NULL;
-    
+
     goo_canvas_item_add_child(GOO_CANVAS_ITEM(self->obj), GOO_CANVAS_ITEM(child->obj), position);
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -3447,14 +3547,14 @@ _wrap_goo_canvas_item_move_child(PyGObject *self, PyObject *args, PyObject *kwar
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"ii:GooCanvasItem.move_child", kwlist, &old_position, &new_position))
         return NULL;
-    
+
     goo_canvas_item_move_child(GOO_CANVAS_ITEM(self->obj), old_position, new_position);
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
 
-#line 483 "goocanvas.override"
+#line 486 "goocanvas.override"
 static PyObject *
 _wrap_goo_canvas_item_remove_child(PyGObject *self, PyObject *args, PyObject *kwargs)
 {
@@ -3483,10 +3583,129 @@ _wrap_goo_canvas_item_remove_child(PyGObject *self, PyObject *args, PyObject *kw
     Py_INCREF(Py_None);
     return Py_None;
 }
-#line 3487 "goocanvas.c"
+#line 3688 "goocanvas.c"
 
 
-#line 921 "goocanvas.override"
+#line 1711 "goocanvas.override"
+static PyObject *
+_wrap_goo_canvas_item_get_child_property(PyGObject *self,
+                                         PyObject *args,
+                                         PyObject *kwargs)
+{
+    static char    *kwlist[] = { "child", "property", NULL };
+    PyGObject *pychild;
+    gchar *property_name;
+    GooCanvasItem *item, *child;
+    GObjectClass *class;
+    GParamSpec *pspec;
+    GValue value = { 0, } ;
+    PyObject *ret;
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,
+                                     "O!s:GooCanvasItem.get_child_property",
+                                     kwlist, &PyGooCanvasItem_Type, &pychild,
+                                     &property_name)) {
+        return NULL;
+    }
+
+    item = GOO_CANVAS_ITEM(self->obj);
+    child = GOO_CANVAS_ITEM(pychild->obj);
+
+    if (goo_canvas_item_find_child(item, child) == -1) {
+        PyErr_SetString(PyExc_TypeError,
+                        "first argument must be a child");
+        return NULL;
+    }
+
+    class = G_OBJECT_GET_CLASS(item);
+    pspec = goo_canvas_item_class_find_child_property(class, property_name);
+    if (!pspec) {
+        gchar buf[512];
+        g_snprintf(buf, sizeof(buf),
+                   "item does not support property `%s'",
+                   property_name);
+
+        PyErr_SetString(PyExc_TypeError, buf);
+        return NULL;
+    }
+
+    g_value_init(&value, G_PARAM_SPEC_VALUE_TYPE(pspec));
+
+    goo_canvas_item_get_child_property(item,
+                                       child,
+                                       property_name,
+                                       &value);
+
+    ret = pyg_value_as_pyobject(&value, TRUE);
+    g_value_unset(&value);
+
+    return ret;
+}
+
+#line 3747 "goocanvas.c"
+
+
+#line 1653 "goocanvas.override"
+static PyObject *
+_wrap_goo_canvas_item_set_child_property(PyGObject *self,
+                                         PyObject *args,
+                                         PyObject *kwargs)
+{
+    static char    *kwlist[] = { "child", "property", "value", NULL };
+    gchar *property_name;
+    PyGObject *pychild;
+    GooCanvasItem *item, *child;
+    PyGObject *pyvalue;
+    GObjectClass *class;
+    GParamSpec *pspec;
+    GValue value = { 0, } ;
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,
+                                     "O!sO:GooCanvasItem.set_child_property",
+                                     kwlist,
+                                    &PyGooCanvasItem_Type, &pychild,
+                                    &property_name, &pyvalue)) {
+        return NULL;
+    }
+
+    item = GOO_CANVAS_ITEM(self->obj);
+    child = GOO_CANVAS_ITEM(pychild->obj);
+
+    if (goo_canvas_item_find_child(item, child) == -1) {
+        PyErr_SetString(PyExc_TypeError,
+                        "first argument must be a child");
+        return NULL;
+    }
+
+    class = G_OBJECT_GET_CLASS(self->obj);
+    pspec = goo_canvas_item_class_find_child_property(class, property_name);
+    if (!pspec) {
+        gchar buf[512];
+        g_snprintf(buf, sizeof(buf),
+                   "item does not support property `%s'",
+                   property_name);
+        PyErr_SetString(PyExc_TypeError, buf);
+
+        return NULL;
+    }
+
+    g_value_init(&value, G_PARAM_SPEC_VALUE_TYPE(pspec));
+
+    pyg_value_from_pyobject(&value, (PyObject*)pyvalue);
+
+    goo_canvas_item_set_child_property(item,
+                                       child,
+                                       property_name,
+                                       &value);
+    g_value_unset(&value);
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
+#line 3807 "goocanvas.c"
+
+
+#line 924 "goocanvas.override"
 static PyObject *
 _wrap_goo_canvas_item_get_child_properties(PyGObject *self, PyObject *args)
 {
@@ -3567,10 +3786,10 @@ _wrap_goo_canvas_item_get_child_properties(PyGObject *self, PyObject *args)
     return tuple;
 }
 
-#line 3571 "goocanvas.c"
+#line 3891 "goocanvas.c"
 
 
-#line 839 "goocanvas.override"
+#line 842 "goocanvas.override"
 static PyObject *
 _wrap_goo_canvas_item_set_child_properties(PyGObject *self, PyObject *args, PyObject *kwargs)
 {
@@ -3651,36 +3870,47 @@ _wrap_goo_canvas_item_set_child_properties(PyGObject *self, PyObject *args, PyOb
     return Py_None;
 }
 
-#line 3655 "goocanvas.c"
+#line 3975 "goocanvas.c"
 
 
+#line 1953 "goocanvas.override"
 static PyObject *
-_wrap_goo_canvas_item_get_transform_for_child(PyGObject *self, PyObject *args, PyObject *kwargs)
+_wrap_goo_canvas_item_get_transform_for_child(PyGObject *self,
+                                              PyObject *args,
+                                              PyObject *kwargs)
 {
-    static char *kwlist[] = { "child", "transform", NULL };
+    static char *kwlist[] = { "child", NULL };
     PyGObject *child;
-    PyObject *py_transform;
     int ret;
-    cairo_matrix_t *transform;
+    cairo_matrix_t *transform = NULL;
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!O:GooCanvasItem.get_transform_for_child", kwlist, &PyGooCanvasItem_Type, &child, &py_transform))
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,
+                                     "O!:GooCanvasItem.get_transform_for_child",
+                                     kwlist, &PyGooCanvasItem_Type, &child))
         return NULL;
-    transform = &((PycairoMatrix*)(py_transform))->matrix;
-    
-    ret = goo_canvas_item_get_transform_for_child(GOO_CANVAS_ITEM(self->obj), GOO_CANVAS_ITEM(child->obj), transform);
-    
-    return PyBool_FromLong(ret);
 
+    ret = goo_canvas_item_get_transform_for_child(GOO_CANVAS_ITEM(self->obj),
+                                                  GOO_CANVAS_ITEM(child->obj),
+                                                  transform);
+
+    if (ret)
+        return PycairoMatrix_FromMatrix(transform);
+    else
+        Py_INCREF(Py_None);
+        return Py_None;
 }
+
+#line 4005 "goocanvas.c"
+
 
 static PyObject *
 _wrap_goo_canvas_item_get_canvas(PyGObject *self)
 {
     GooCanvas *ret;
 
-    
+
     ret = goo_canvas_item_get_canvas(GOO_CANVAS_ITEM(self->obj));
-    
+
     /* pygobject_new handles NULL checking */
     return pygobject_new((GObject *)ret);
 }
@@ -3693,9 +3923,9 @@ _wrap_goo_canvas_item_set_canvas(PyGObject *self, PyObject *args, PyObject *kwar
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!:GooCanvasItem.set_canvas", kwlist, &PyGooCanvas_Type, &canvas))
         return NULL;
-    
+
     goo_canvas_item_set_canvas(GOO_CANVAS_ITEM(self->obj), GOO_CANVAS(canvas->obj));
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -3705,9 +3935,9 @@ _wrap_goo_canvas_item_get_parent(PyGObject *self)
 {
     GooCanvasItem *ret;
 
-    
+
     ret = goo_canvas_item_get_parent(GOO_CANVAS_ITEM(self->obj));
-    
+
     /* pygobject_new handles NULL checking */
     return pygobject_new((GObject *)ret);
 }
@@ -3720,9 +3950,9 @@ _wrap_goo_canvas_item_set_parent(PyGObject *self, PyObject *args, PyObject *kwar
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!:GooCanvasItem.set_parent", kwlist, &PyGooCanvasItem_Type, &parent))
         return NULL;
-    
+
     goo_canvas_item_set_parent(GOO_CANVAS_ITEM(self->obj), GOO_CANVAS_ITEM(parent->obj));
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -3730,9 +3960,9 @@ _wrap_goo_canvas_item_set_parent(PyGObject *self, PyObject *args, PyObject *kwar
 static PyObject *
 _wrap_goo_canvas_item_remove(PyGObject *self)
 {
-    
+
     goo_canvas_item_remove(GOO_CANVAS_ITEM(self->obj));
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -3742,9 +3972,9 @@ _wrap_goo_canvas_item_is_container(PyGObject *self)
 {
     int ret;
 
-    
+
     ret = goo_canvas_item_is_container(GOO_CANVAS_ITEM(self->obj));
-    
+
     return PyBool_FromLong(ret);
 
 }
@@ -3764,9 +3994,9 @@ _wrap_goo_canvas_item_raise(PyGObject *self, PyObject *args, PyObject *kwargs)
         PyErr_SetString(PyExc_TypeError, "above should be a GooCanvasItem or None");
         return NULL;
     }
-    
+
     goo_canvas_item_raise(GOO_CANVAS_ITEM(self->obj), (GooCanvasItem *) above);
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -3786,14 +4016,14 @@ _wrap_goo_canvas_item_lower(PyGObject *self, PyObject *args, PyObject *kwargs)
         PyErr_SetString(PyExc_TypeError, "below should be a GooCanvasItem or None");
         return NULL;
     }
-    
+
     goo_canvas_item_lower(GOO_CANVAS_ITEM(self->obj), (GooCanvasItem *) below);
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
 
-#line 1546 "goocanvas.override"
+#line 1549 "goocanvas.override"
 static PyObject *
 _wrap_goo_canvas_item_get_transform(PyGObject *self)
 {
@@ -3812,25 +4042,50 @@ _wrap_goo_canvas_item_get_transform(PyGObject *self)
     return matrix;
 }
 
-#line 3816 "goocanvas.c"
+#line 4147 "goocanvas.c"
 
 
+#line 1981 "goocanvas.override"
 static PyObject *
-_wrap_goo_canvas_item_set_transform(PyGObject *self, PyObject *args, PyObject *kwargs)
+_wrap_goo_canvas_item_set_transform(PyGObject *self,
+                                    PyObject *args,
+                                    PyObject *kwargs)
 {
     static char *kwlist[] = { "matrix", NULL };
     PyObject *py_matrix;
-    cairo_matrix_t *matrix;
+    cairo_matrix_t *matrix = NULL;
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O:GooCanvasItem.set_transform", kwlist, &py_matrix))
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,
+                                     "O:GooCanvasItem.set_transform",
+                                     kwlist, &py_matrix))
         return NULL;
-    matrix = &((PycairoMatrix*)(py_matrix))->matrix;
-    
+
+    if (py_matrix && (py_matrix != Py_None))
+        matrix = &((PycairoMatrix*)(py_matrix))->matrix;
+
     goo_canvas_item_set_transform(GOO_CANVAS_ITEM(self->obj), matrix);
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
+
+#line 4174 "goocanvas.c"
+
+
+#line 1627 "goocanvas.override"
+static PyObject *
+_wrap_goo_canvas_item_get_simple_transform(PyGObject *self)
+{
+    gdouble x, y, scale, rotation;
+
+    goo_canvas_item_get_simple_transform(GOO_CANVAS_ITEM(self->obj), &x, &y,
+                                         &scale, &rotation);
+
+    return Py_BuildValue("dddd", x, y, scale, rotation);
+}
+
+#line 4189 "goocanvas.c"
+
 
 static PyObject *
 _wrap_goo_canvas_item_set_simple_transform(PyGObject *self, PyObject *args, PyObject *kwargs)
@@ -3840,9 +4095,9 @@ _wrap_goo_canvas_item_set_simple_transform(PyGObject *self, PyObject *args, PyOb
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"dddd:GooCanvasItem.set_simple_transform", kwlist, &x, &y, &scale, &rotation))
         return NULL;
-    
+
     goo_canvas_item_set_simple_transform(GOO_CANVAS_ITEM(self->obj), x, y, scale, rotation);
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -3855,9 +4110,9 @@ _wrap_goo_canvas_item_translate(PyGObject *self, PyObject *args, PyObject *kwarg
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"dd:GooCanvasItem.translate", kwlist, &tx, &ty))
         return NULL;
-    
+
     goo_canvas_item_translate(GOO_CANVAS_ITEM(self->obj), tx, ty);
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -3870,9 +4125,9 @@ _wrap_goo_canvas_item_scale(PyGObject *self, PyObject *args, PyObject *kwargs)
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"dd:GooCanvasItem.scale", kwlist, &sx, &sy))
         return NULL;
-    
+
     goo_canvas_item_scale(GOO_CANVAS_ITEM(self->obj), sx, sy);
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -3885,9 +4140,9 @@ _wrap_goo_canvas_item_rotate(PyGObject *self, PyObject *args, PyObject *kwargs)
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"ddd:GooCanvasItem.rotate", kwlist, &degrees, &cx, &cy))
         return NULL;
-    
+
     goo_canvas_item_rotate(GOO_CANVAS_ITEM(self->obj), degrees, cx, cy);
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -3900,9 +4155,9 @@ _wrap_goo_canvas_item_skew_x(PyGObject *self, PyObject *args, PyObject *kwargs)
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"ddd:GooCanvasItem.skew_x", kwlist, &degrees, &cx, &cy))
         return NULL;
-    
+
     goo_canvas_item_skew_x(GOO_CANVAS_ITEM(self->obj), degrees, cx, cy);
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -3915,9 +4170,9 @@ _wrap_goo_canvas_item_skew_y(PyGObject *self, PyObject *args, PyObject *kwargs)
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"ddd:GooCanvasItem.skew_y", kwlist, &degrees, &cx, &cy))
         return NULL;
-    
+
     goo_canvas_item_skew_y(GOO_CANVAS_ITEM(self->obj), degrees, cx, cy);
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -3927,9 +4182,9 @@ _wrap_goo_canvas_item_get_style(PyGObject *self)
 {
     GooCanvasStyle *ret;
 
-    
+
     ret = goo_canvas_item_get_style(GOO_CANVAS_ITEM(self->obj));
-    
+
     /* pygobject_new handles NULL checking */
     return pygobject_new((GObject *)ret);
 }
@@ -3942,9 +4197,9 @@ _wrap_goo_canvas_item_set_style(PyGObject *self, PyObject *args, PyObject *kwarg
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!:GooCanvasItem.set_style", kwlist, &PyGooCanvasStyle_Type, &style))
         return NULL;
-    
+
     goo_canvas_item_set_style(GOO_CANVAS_ITEM(self->obj), GOO_CANVAS_STYLE(style->obj));
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -3962,9 +4217,9 @@ _wrap_goo_canvas_item_animate(PyGObject *self, PyObject *args, PyObject *kwargs)
         return NULL;
     if (pyg_enum_get_value(GOO_TYPE_CANVAS_ANIMATE_TYPE, py_type, (gpointer)&type))
         return NULL;
-    
+
     goo_canvas_item_animate(GOO_CANVAS_ITEM(self->obj), x, y, scale, degrees, absolute, duration, step_time, type);
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -3972,14 +4227,14 @@ _wrap_goo_canvas_item_animate(PyGObject *self, PyObject *args, PyObject *kwargs)
 static PyObject *
 _wrap_goo_canvas_item_stop_animation(PyGObject *self)
 {
-    
+
     goo_canvas_item_stop_animation(GOO_CANVAS_ITEM(self->obj));
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
 
-#line 525 "goocanvas.override"
+#line 528 "goocanvas.override"
 static PyObject *
 _wrap_goo_canvas_item_get_bounds(PyGObject *self)
 {
@@ -3993,10 +4248,10 @@ _wrap_goo_canvas_item_get_bounds(PyGObject *self)
     return py_bounds;
 }
 
-#line 3997 "goocanvas.c"
+#line 4353 "goocanvas.c"
 
 
-#line 1508 "goocanvas.override"
+#line 1511 "goocanvas.override"
 static PyObject *
 _wrap_goo_canvas_item_get_items_at(PyGObject *self, PyObject *args, PyObject *kwargs)
 {
@@ -4033,7 +4288,7 @@ _wrap_goo_canvas_item_get_items_at(PyGObject *self, PyObject *args, PyObject *kw
     return ret;
 }
 
-#line 4037 "goocanvas.c"
+#line 4393 "goocanvas.c"
 
 
 static PyObject *
@@ -4041,9 +4296,9 @@ _wrap_goo_canvas_item_is_visible(PyGObject *self)
 {
     int ret;
 
-    
+
     ret = goo_canvas_item_is_visible(GOO_CANVAS_ITEM(self->obj));
-    
+
     return PyBool_FromLong(ret);
 
 }
@@ -4053,9 +4308,9 @@ _wrap_goo_canvas_item_get_model(PyGObject *self)
 {
     GooCanvasItemModel *ret;
 
-    
+
     ret = goo_canvas_item_get_model(GOO_CANVAS_ITEM(self->obj));
-    
+
     /* pygobject_new handles NULL checking */
     return pygobject_new((GObject *)ret);
 }
@@ -4068,9 +4323,9 @@ _wrap_goo_canvas_item_set_model(PyGObject *self, PyObject *args, PyObject *kwarg
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!:GooCanvasItem.set_model", kwlist, &PyGooCanvasItemModel_Type, &model))
         return NULL;
-    
+
     goo_canvas_item_set_model(GOO_CANVAS_ITEM(self->obj), GOO_CANVAS_ITEM_MODEL(model->obj));
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -4078,9 +4333,9 @@ _wrap_goo_canvas_item_set_model(PyGObject *self, PyObject *args, PyObject *kwarg
 static PyObject *
 _wrap_goo_canvas_item_request_update(PyGObject *self)
 {
-    
+
     goo_canvas_item_request_update(GOO_CANVAS_ITEM(self->obj));
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -4088,29 +4343,35 @@ _wrap_goo_canvas_item_request_update(PyGObject *self)
 static PyObject *
 _wrap_goo_canvas_item_ensure_updated(PyGObject *self)
 {
-    
+
     goo_canvas_item_ensure_updated(GOO_CANVAS_ITEM(self->obj));
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
 
+#line 1932 "goocanvas.override"
 static PyObject *
 _wrap_goo_canvas_item_update(PyGObject *self, PyObject *args, PyObject *kwargs)
 {
-    static char *kwlist[] = { "entire_tree", "cr", "bounds", NULL };
-    int entire_tree;
-    PyObject *py_bounds;
-    PycairoContext *cr;
+    static char *kwlist[] = { "entire_tree", "cr", NULL };
+    int             entire_tree;
+    PycairoContext  *cr;
+    GooCanvasBounds bounds;
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs,"iO!O!:GooCanvasItem.update", kwlist, &entire_tree, &PycairoContext_Type, &cr, &PyGooCanvasBounds_Type, &py_bounds))
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,"iO!:GooCanvasItem.update",
+                                     kwlist, &entire_tree,
+                                     &PycairoContext_Type, &cr))
         return NULL;
-    
-    goo_canvas_item_update(GOO_CANVAS_ITEM(self->obj), entire_tree, cr->ctx, (py_bounds == NULL)? NULL : &((PyGooCanvasBounds *) py_bounds)->bounds);
-    
-    Py_INCREF(Py_None);
-    return Py_None;
+
+    goo_canvas_item_update(GOO_CANVAS_ITEM(self->obj), entire_tree,
+                           cr->ctx, &bounds);
+
+    return pygoo_canvas_bounds_new(&bounds);
 }
+
+#line 4475 "goocanvas.c"
+
 
 static PyObject *
 _wrap_goo_canvas_item_paint(PyGObject *self, PyObject *args, PyObject *kwargs)
@@ -4122,34 +4383,42 @@ _wrap_goo_canvas_item_paint(PyGObject *self, PyObject *args, PyObject *kwargs)
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!|Od:GooCanvasItem.paint", kwlist, &PycairoContext_Type, &cr, &py_bounds, &scale))
         return NULL;
-    if (!(py_bounds == NULL || py_bounds == Py_None || 
+    if (!(py_bounds == NULL || py_bounds == Py_None ||
         PyObject_IsInstance(py_bounds, (PyObject *) &PyGooCanvasBounds_Type))) {
         PyErr_SetString(PyExc_TypeError, "parameter bounds must be goocanvas.Bounds or None");
         return NULL;
     }
-    
+
     goo_canvas_item_paint(GOO_CANVAS_ITEM(self->obj), cr->ctx, (py_bounds == NULL || py_bounds == Py_None)? NULL : &((PyGooCanvasBounds *) py_bounds)->bounds, scale);
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
 
+#line 1909 "goocanvas.override"
 static PyObject *
-_wrap_goo_canvas_item_get_requested_area(PyGObject *self, PyObject *args, PyObject *kwargs)
+_wrap_goo_canvas_item_get_requested_area(PyGObject *self,
+                                         PyObject *args,
+                                         PyObject *kwargs)
 {
-    static char *kwlist[] = { "cr", "requested_area", NULL };
-    PyObject *py_requested_area;
-    int ret;
-    PycairoContext *cr;
+    static char     *kwlist[] = { "cr", NULL };
+    int             ret;
+    GooCanvasBounds bounds;
+    PycairoContext  *cr;
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!O!:GooCanvasItem.get_requested_area", kwlist, &PycairoContext_Type, &cr, &PyGooCanvasBounds_Type, &py_requested_area))
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,
+                                     "O!:GooCanvasItem.get_requested_area",
+                                     kwlist, &PycairoContext_Type, &cr))
         return NULL;
-    
-    ret = goo_canvas_item_get_requested_area(GOO_CANVAS_ITEM(self->obj), cr->ctx, (py_requested_area == NULL)? NULL : &((PyGooCanvasBounds *) py_requested_area)->bounds);
-    
-    return PyBool_FromLong(ret);
 
+    ret = goo_canvas_item_get_requested_area(GOO_CANVAS_ITEM(self->obj),
+                                             cr->ctx, &bounds);
+
+    return pygoo_canvas_bounds_new(&bounds);
 }
+
+#line 4522 "goocanvas.c"
+
 
 static PyObject *
 _wrap_goo_canvas_item_get_requested_height(PyGObject *self, PyObject *args, PyObject *kwargs)
@@ -4160,9 +4429,9 @@ _wrap_goo_canvas_item_get_requested_height(PyGObject *self, PyObject *args, PyOb
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!d:GooCanvasItem.get_requested_height", kwlist, &PycairoContext_Type, &cr, &width))
         return NULL;
-    
+
     ret = goo_canvas_item_get_requested_height(GOO_CANVAS_ITEM(self->obj), cr->ctx, width);
-    
+
     return PyFloat_FromDouble(ret);
 }
 
@@ -4176,14 +4445,14 @@ _wrap_goo_canvas_item_allocate_area(PyGObject *self, PyObject *args, PyObject *k
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!O!O!dd:GooCanvasItem.allocate_area", kwlist, &PycairoContext_Type, &cr, &PyGooCanvasBounds_Type, &py_requested_area, &PyGooCanvasBounds_Type, &py_allocated_area, &x_offset, &y_offset))
         return NULL;
-    
+
     goo_canvas_item_allocate_area(GOO_CANVAS_ITEM(self->obj), cr->ctx, (py_requested_area == NULL)? NULL : &((PyGooCanvasBounds *) py_requested_area)->bounds, (py_allocated_area == NULL)? NULL : &((PyGooCanvasBounds *) py_allocated_area)->bounds, x_offset, y_offset);
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
 
-#line 1208 "goocanvas.override"
+#line 1211 "goocanvas.override"
 static PyObject *
 _wrap_goo_canvas_item_find_child_property (PyObject *cls,
                                            PyObject *args,
@@ -4223,10 +4492,10 @@ _wrap_goo_canvas_item_find_child_property (PyObject *cls,
     return pyg_param_spec_new(pspec);
 }
 
-#line 4227 "goocanvas.c"
+#line 4597 "goocanvas.c"
 
 
-#line 1291 "goocanvas.override"
+#line 1294 "goocanvas.override"
 static PyObject *
 _wrap_goo_canvas_item_list_child_properties (PyObject *cls,
                                              PyObject *args,
@@ -4267,10 +4536,10 @@ _wrap_goo_canvas_item_list_child_properties (PyObject *cls,
     return list;
 }
 
-#line 4271 "goocanvas.c"
+#line 4641 "goocanvas.c"
 
 
-#line 1385 "goocanvas.override"
+#line 1388 "goocanvas.override"
 static PyObject *
 _wrap_goo_canvas_item_install_child_property (PyObject *cls,
                                               PyObject *args,
@@ -4321,7 +4590,7 @@ _wrap_goo_canvas_item_install_child_property (PyObject *cls,
     return Py_None;
 }
 
-#line 4325 "goocanvas.c"
+#line 4695 "goocanvas.c"
 
 
 static PyObject *
@@ -5142,6 +5411,10 @@ static const PyMethodDef _PyGooCanvasItem_methods[] = {
       NULL },
     { "remove_child", (PyCFunction)_wrap_goo_canvas_item_remove_child, METH_VARARGS|METH_KEYWORDS,
       NULL },
+    { "get_child_property", (PyCFunction)_wrap_goo_canvas_item_get_child_property, METH_VARARGS,
+      NULL },
+    { "set_child_property", (PyCFunction)_wrap_goo_canvas_item_set_child_property, METH_VARARGS|METH_KEYWORDS,
+      NULL },
     { "get_child_properties", (PyCFunction)_wrap_goo_canvas_item_get_child_properties, METH_VARARGS,
       NULL },
     { "set_child_properties", (PyCFunction)_wrap_goo_canvas_item_set_child_properties, METH_VARARGS|METH_KEYWORDS,
@@ -5167,6 +5440,8 @@ static const PyMethodDef _PyGooCanvasItem_methods[] = {
     { "get_transform", (PyCFunction)_wrap_goo_canvas_item_get_transform, METH_NOARGS,
       NULL },
     { "set_transform", (PyCFunction)_wrap_goo_canvas_item_set_transform, METH_VARARGS|METH_KEYWORDS,
+      NULL },
+    { "get_simple_transform", (PyCFunction)_wrap_goo_canvas_item_get_simple_transform, METH_NOARGS,
       NULL },
     { "set_simple_transform", (PyCFunction)_wrap_goo_canvas_item_set_simple_transform, METH_VARARGS|METH_KEYWORDS,
       NULL },
@@ -5342,7 +5617,7 @@ _wrap_GooCanvasItem__proxy_do_get_canvas(GooCanvasItem *self)
     GooCanvas* retval;
     PyObject *py_retval;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -5351,8 +5626,8 @@ _wrap_GooCanvasItem__proxy_do_get_canvas(GooCanvasItem *self)
         pyg_gil_state_release(__py_state);
         return NULL;
     }
-    
-    
+
+
     py_method = PyObject_GetAttrString(py_self, "do_get_canvas");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -5391,13 +5666,13 @@ _wrap_GooCanvasItem__proxy_do_get_canvas(GooCanvasItem *self)
     }
     retval = (GooCanvas*) pygobject_get(py_retval);
     g_object_ref((GObject *) retval);
-    
-    
+
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_self);
     pyg_gil_state_release(__py_state);
-    
+
     return retval;
 }
 static void
@@ -5409,7 +5684,7 @@ _wrap_GooCanvasItem__proxy_do_set_canvas(GooCanvasItem *self, GooCanvas*canvas)
     PyObject *py_retval;
     PyObject *py_args;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -5424,10 +5699,10 @@ _wrap_GooCanvasItem__proxy_do_set_canvas(GooCanvasItem *self, GooCanvas*canvas)
         Py_INCREF(Py_None);
         py_canvas = Py_None;
     }
-    
+
     py_args = PyTuple_New(1);
     PyTuple_SET_ITEM(py_args, 0, py_canvas);
-    
+
     py_method = PyObject_GetAttrString(py_self, "do_set_canvas");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -5458,8 +5733,8 @@ _wrap_GooCanvasItem__proxy_do_set_canvas(GooCanvasItem *self, GooCanvas*canvas)
         pyg_gil_state_release(__py_state);
         return;
     }
-    
-    
+
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_args);
@@ -5474,7 +5749,7 @@ _wrap_GooCanvasItem__proxy_do_get_n_children(GooCanvasItem *self)
     gint retval;
     PyObject *py_retval;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -5483,8 +5758,8 @@ _wrap_GooCanvasItem__proxy_do_get_n_children(GooCanvasItem *self)
         pyg_gil_state_release(__py_state);
         return -G_MAXINT;
     }
-    
-    
+
+
     py_method = PyObject_GetAttrString(py_self, "do_get_n_children");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -5513,13 +5788,13 @@ _wrap_GooCanvasItem__proxy_do_get_n_children(GooCanvasItem *self)
         pyg_gil_state_release(__py_state);
         return -G_MAXINT;
     }
-    
-    
+
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_self);
     pyg_gil_state_release(__py_state);
-    
+
     return retval;
 }
 static GooCanvasItem*
@@ -5532,7 +5807,7 @@ _wrap_GooCanvasItem__proxy_do_get_child(GooCanvasItem *self, gint child_num)
     PyObject *py_retval;
     PyObject *py_args;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -5542,10 +5817,10 @@ _wrap_GooCanvasItem__proxy_do_get_child(GooCanvasItem *self, gint child_num)
         return NULL;
     }
     py_child_num = PyInt_FromLong(child_num);
-    
+
     py_args = PyTuple_New(1);
     PyTuple_SET_ITEM(py_args, 0, py_child_num);
-    
+
     py_method = PyObject_GetAttrString(py_self, "do_get_child");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -5588,14 +5863,14 @@ _wrap_GooCanvasItem__proxy_do_get_child(GooCanvasItem *self, gint child_num)
     }
     retval = (GooCanvasItem*) pygobject_get(py_retval);
     g_object_ref((GObject *) retval);
-    
-    
+
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_args);
     Py_DECREF(py_self);
     pyg_gil_state_release(__py_state);
-    
+
     return retval;
 }
 static void
@@ -5605,7 +5880,7 @@ _wrap_GooCanvasItem__proxy_do_request_update(GooCanvasItem *self)
     PyObject *py_self;
     PyObject *py_retval;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -5614,8 +5889,8 @@ _wrap_GooCanvasItem__proxy_do_request_update(GooCanvasItem *self)
         pyg_gil_state_release(__py_state);
         return;
     }
-    
-    
+
+
     py_method = PyObject_GetAttrString(py_self, "do_request_update");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -5643,8 +5918,8 @@ _wrap_GooCanvasItem__proxy_do_request_update(GooCanvasItem *self)
         pyg_gil_state_release(__py_state);
         return;
     }
-    
-    
+
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_self);
@@ -5660,7 +5935,7 @@ _wrap_GooCanvasItem__proxy_do_add_child(GooCanvasItem *self, GooCanvasItem*child
     PyObject *py_retval;
     PyObject *py_args;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -5676,11 +5951,11 @@ _wrap_GooCanvasItem__proxy_do_add_child(GooCanvasItem *self, GooCanvasItem*child
         py_child = Py_None;
     }
     py_position = PyInt_FromLong(position);
-    
+
     py_args = PyTuple_New(2);
     PyTuple_SET_ITEM(py_args, 0, py_child);
     PyTuple_SET_ITEM(py_args, 1, py_position);
-    
+
     py_method = PyObject_GetAttrString(py_self, "do_add_child");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -5711,8 +5986,8 @@ _wrap_GooCanvasItem__proxy_do_add_child(GooCanvasItem *self, GooCanvasItem*child
         pyg_gil_state_release(__py_state);
         return;
     }
-    
-    
+
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_args);
@@ -5729,7 +6004,7 @@ _wrap_GooCanvasItem__proxy_do_move_child(GooCanvasItem *self, gint old_position,
     PyObject *py_retval;
     PyObject *py_args;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -5740,11 +6015,11 @@ _wrap_GooCanvasItem__proxy_do_move_child(GooCanvasItem *self, gint old_position,
     }
     py_old_position = PyInt_FromLong(old_position);
     py_new_position = PyInt_FromLong(new_position);
-    
+
     py_args = PyTuple_New(2);
     PyTuple_SET_ITEM(py_args, 0, py_old_position);
     PyTuple_SET_ITEM(py_args, 1, py_new_position);
-    
+
     py_method = PyObject_GetAttrString(py_self, "do_move_child");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -5775,8 +6050,8 @@ _wrap_GooCanvasItem__proxy_do_move_child(GooCanvasItem *self, gint old_position,
         pyg_gil_state_release(__py_state);
         return;
     }
-    
-    
+
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_args);
@@ -5792,7 +6067,7 @@ _wrap_GooCanvasItem__proxy_do_remove_child(GooCanvasItem *self, gint child_num)
     PyObject *py_retval;
     PyObject *py_args;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -5802,10 +6077,10 @@ _wrap_GooCanvasItem__proxy_do_remove_child(GooCanvasItem *self, gint child_num)
         return;
     }
     py_child_num = PyInt_FromLong(child_num);
-    
+
     py_args = PyTuple_New(1);
     PyTuple_SET_ITEM(py_args, 0, py_child_num);
-    
+
     py_method = PyObject_GetAttrString(py_self, "do_remove_child");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -5836,8 +6111,8 @@ _wrap_GooCanvasItem__proxy_do_remove_child(GooCanvasItem *self, gint child_num)
         pyg_gil_state_release(__py_state);
         return;
     }
-    
-    
+
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_args);
@@ -5852,7 +6127,7 @@ _wrap_GooCanvasItem__proxy_do_get_parent(GooCanvasItem *self)
     GooCanvasItem* retval;
     PyObject *py_retval;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -5861,8 +6136,8 @@ _wrap_GooCanvasItem__proxy_do_get_parent(GooCanvasItem *self)
         pyg_gil_state_release(__py_state);
         return NULL;
     }
-    
-    
+
+
     py_method = PyObject_GetAttrString(py_self, "do_get_parent");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -5901,13 +6176,13 @@ _wrap_GooCanvasItem__proxy_do_get_parent(GooCanvasItem *self)
     }
     retval = (GooCanvasItem*) pygobject_get(py_retval);
     g_object_ref((GObject *) retval);
-    
-    
+
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_self);
     pyg_gil_state_release(__py_state);
-    
+
     return retval;
 }
 static void
@@ -5919,7 +6194,7 @@ _wrap_GooCanvasItem__proxy_do_set_parent(GooCanvasItem *self, GooCanvasItem*pare
     PyObject *py_retval;
     PyObject *py_args;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -5934,10 +6209,10 @@ _wrap_GooCanvasItem__proxy_do_set_parent(GooCanvasItem *self, GooCanvasItem*pare
         Py_INCREF(Py_None);
         py_parent = Py_None;
     }
-    
+
     py_args = PyTuple_New(1);
     PyTuple_SET_ITEM(py_args, 0, py_parent);
-    
+
     py_method = PyObject_GetAttrString(py_self, "do_set_parent");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -5968,15 +6243,15 @@ _wrap_GooCanvasItem__proxy_do_set_parent(GooCanvasItem *self, GooCanvasItem*pare
         pyg_gil_state_release(__py_state);
         return;
     }
-    
-    
+
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_args);
     Py_DECREF(py_self);
     pyg_gil_state_release(__py_state);
 }
-#line 606 "goocanvas.override"
+#line 609 "goocanvas.override"
 static void
 _wrap_GooCanvasItem__proxy_do_get_bounds(GooCanvasItem *self, GooCanvasBounds *bounds)
 {
@@ -6002,10 +6277,10 @@ _wrap_GooCanvasItem__proxy_do_get_bounds(GooCanvasItem *self, GooCanvasBounds *b
     Py_XDECREF(py_bounds);
     pyg_gil_state_release(__py_state);
 }
-#line 6006 "goocanvas.c"
+#line 6382 "goocanvas.c"
 
 
-#line 633 "goocanvas.override"
+#line 636 "goocanvas.override"
 static void
 _wrap_GooCanvasItem__proxy_do_update(GooCanvasItem *self, gboolean entire_tree,
                                      cairo_t *cr, GooCanvasBounds *bounds)
@@ -6025,7 +6300,7 @@ _wrap_GooCanvasItem__proxy_do_update(GooCanvasItem *self, gboolean entire_tree,
 
     py_bounds = PyObject_CallMethod(py_self, "do_update", "iN",
                                     entire_tree,
-                                    PycairoContext_FromContext(cairo_reference(cr), NULL, NULL));
+                                    PycairoContext_FromContext(cairo_reference(cr), &PyGdkCairoContext_Type, NULL));
     if (py_bounds)
         *bounds = ((PyGooCanvasBounds *) py_bounds)->bounds;
     else
@@ -6035,7 +6310,7 @@ _wrap_GooCanvasItem__proxy_do_update(GooCanvasItem *self, gboolean entire_tree,
     pyg_gil_state_release(__py_state);
 }
 
-#line 6039 "goocanvas.c"
+#line 6415 "goocanvas.c"
 
 
 static void
@@ -6049,7 +6324,7 @@ _wrap_GooCanvasItem__proxy_do_paint(GooCanvasItem *self, cairo_t*cr, const GooCa
     PyObject *py_retval;
     PyObject *py_args;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -6058,15 +6333,15 @@ _wrap_GooCanvasItem__proxy_do_paint(GooCanvasItem *self, cairo_t*cr, const GooCa
         pyg_gil_state_release(__py_state);
         return;
     }
-    py_cr = PycairoContext_FromContext(cairo_reference(cr), NULL, NULL);
+    py_cr = PycairoContext_FromContext(cairo_reference(cr), &PyGdkCairoContext_Type, NULL);
     py_bounds = pygoo_canvas_bounds_new(bounds);
     py_scale = PyFloat_FromDouble(scale);
-    
+
     py_args = PyTuple_New(3);
     PyTuple_SET_ITEM(py_args, 0, py_cr);
     PyTuple_SET_ITEM(py_args, 1, py_bounds);
     PyTuple_SET_ITEM(py_args, 2, py_scale);
-    
+
     py_method = PyObject_GetAttrString(py_self, "do_paint");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -6097,8 +6372,8 @@ _wrap_GooCanvasItem__proxy_do_paint(GooCanvasItem *self, cairo_t*cr, const GooCa
         pyg_gil_state_release(__py_state);
         return;
     }
-    
-    
+
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_args);
@@ -6117,7 +6392,7 @@ _wrap_GooCanvasItem__proxy_do_get_requested_area(GooCanvasItem *self, cairo_t*cr
     PyObject *py_retval;
     PyObject *py_args;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -6126,13 +6401,13 @@ _wrap_GooCanvasItem__proxy_do_get_requested_area(GooCanvasItem *self, cairo_t*cr
         pyg_gil_state_release(__py_state);
         return FALSE;
     }
-    py_cr = PycairoContext_FromContext(cairo_reference(cr), NULL, NULL);
+    py_cr = PycairoContext_FromContext(cairo_reference(cr), &PyGdkCairoContext_Type, NULL);
     py_requested_area = pygoo_canvas_bounds_new(requested_area);
-    
+
     py_args = PyTuple_New(2);
     PyTuple_SET_ITEM(py_args, 0, py_cr);
     PyTuple_SET_ITEM(py_args, 1, py_requested_area);
-    
+
     py_method = PyObject_GetAttrString(py_self, "do_get_requested_area");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -6164,15 +6439,15 @@ _wrap_GooCanvasItem__proxy_do_get_requested_area(GooCanvasItem *self, cairo_t*cr
         pyg_gil_state_release(__py_state);
         return FALSE;
     }
-    
+
     retval = PyObject_IsTrue(py_main_retval)? TRUE : FALSE;
-    
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_args);
     Py_DECREF(py_self);
     pyg_gil_state_release(__py_state);
-    
+
     return retval;
 }
 static void
@@ -6188,7 +6463,7 @@ _wrap_GooCanvasItem__proxy_do_allocate_area(GooCanvasItem *self, cairo_t*cr, con
     PyObject *py_retval;
     PyObject *py_args;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -6197,19 +6472,19 @@ _wrap_GooCanvasItem__proxy_do_allocate_area(GooCanvasItem *self, cairo_t*cr, con
         pyg_gil_state_release(__py_state);
         return;
     }
-    py_cr = PycairoContext_FromContext(cairo_reference(cr), NULL, NULL);
+    py_cr = PycairoContext_FromContext(cairo_reference(cr), &PyGdkCairoContext_Type, NULL);
     py_requested_area = pygoo_canvas_bounds_new(requested_area);
     py_allocated_area = pygoo_canvas_bounds_new(allocated_area);
     py_x_offset = PyFloat_FromDouble(x_offset);
     py_y_offset = PyFloat_FromDouble(y_offset);
-    
+
     py_args = PyTuple_New(5);
     PyTuple_SET_ITEM(py_args, 0, py_cr);
     PyTuple_SET_ITEM(py_args, 1, py_requested_area);
     PyTuple_SET_ITEM(py_args, 2, py_allocated_area);
     PyTuple_SET_ITEM(py_args, 3, py_x_offset);
     PyTuple_SET_ITEM(py_args, 4, py_y_offset);
-    
+
     py_method = PyObject_GetAttrString(py_self, "do_allocate_area");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -6240,8 +6515,8 @@ _wrap_GooCanvasItem__proxy_do_allocate_area(GooCanvasItem *self, cairo_t*cr, con
         pyg_gil_state_release(__py_state);
         return;
     }
-    
-    
+
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_args);
@@ -6256,7 +6531,7 @@ _wrap_GooCanvasItem__proxy_do_get_style(GooCanvasItem *self)
     GooCanvasStyle* retval;
     PyObject *py_retval;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -6265,8 +6540,8 @@ _wrap_GooCanvasItem__proxy_do_get_style(GooCanvasItem *self)
         pyg_gil_state_release(__py_state);
         return NULL;
     }
-    
-    
+
+
     py_method = PyObject_GetAttrString(py_self, "do_get_style");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -6305,13 +6580,13 @@ _wrap_GooCanvasItem__proxy_do_get_style(GooCanvasItem *self)
     }
     retval = (GooCanvasStyle*) pygobject_get(py_retval);
     g_object_ref((GObject *) retval);
-    
-    
+
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_self);
     pyg_gil_state_release(__py_state);
-    
+
     return retval;
 }
 static void
@@ -6323,7 +6598,7 @@ _wrap_GooCanvasItem__proxy_do_set_style(GooCanvasItem *self, GooCanvasStyle*styl
     PyObject *py_retval;
     PyObject *py_args;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -6338,10 +6613,10 @@ _wrap_GooCanvasItem__proxy_do_set_style(GooCanvasItem *self, GooCanvasStyle*styl
         Py_INCREF(Py_None);
         py_style = Py_None;
     }
-    
+
     py_args = PyTuple_New(1);
     PyTuple_SET_ITEM(py_args, 0, py_style);
-    
+
     py_method = PyObject_GetAttrString(py_self, "do_set_style");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -6372,8 +6647,8 @@ _wrap_GooCanvasItem__proxy_do_set_style(GooCanvasItem *self, GooCanvasStyle*styl
         pyg_gil_state_release(__py_state);
         return;
     }
-    
-    
+
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_args);
@@ -6389,7 +6664,7 @@ _wrap_GooCanvasItem__proxy_do_is_visible(GooCanvasItem *self)
     PyObject *py_main_retval;
     PyObject *py_retval;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -6398,8 +6673,8 @@ _wrap_GooCanvasItem__proxy_do_is_visible(GooCanvasItem *self)
         pyg_gil_state_release(__py_state);
         return FALSE;
     }
-    
-    
+
+
     py_method = PyObject_GetAttrString(py_self, "do_is_visible");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -6428,14 +6703,14 @@ _wrap_GooCanvasItem__proxy_do_is_visible(GooCanvasItem *self)
         pyg_gil_state_release(__py_state);
         return FALSE;
     }
-    
+
     retval = PyObject_IsTrue(py_main_retval)? TRUE : FALSE;
-    
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_self);
     pyg_gil_state_release(__py_state);
-    
+
     return retval;
 }
 static gdouble
@@ -6449,7 +6724,7 @@ _wrap_GooCanvasItem__proxy_do_get_requested_height(GooCanvasItem *self, cairo_t*
     PyObject *py_retval;
     PyObject *py_args;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -6458,13 +6733,13 @@ _wrap_GooCanvasItem__proxy_do_get_requested_height(GooCanvasItem *self, cairo_t*
         pyg_gil_state_release(__py_state);
         return -G_MAXFLOAT;
     }
-    py_cr = PycairoContext_FromContext(cairo_reference(cr), NULL, NULL);
+    py_cr = PycairoContext_FromContext(cairo_reference(cr), &PyGdkCairoContext_Type, NULL);
     py_width = PyFloat_FromDouble(width);
-    
+
     py_args = PyTuple_New(2);
     PyTuple_SET_ITEM(py_args, 0, py_cr);
     PyTuple_SET_ITEM(py_args, 1, py_width);
-    
+
     py_method = PyObject_GetAttrString(py_self, "do_get_requested_height");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -6496,14 +6771,14 @@ _wrap_GooCanvasItem__proxy_do_get_requested_height(GooCanvasItem *self, cairo_t*
         pyg_gil_state_release(__py_state);
         return -G_MAXFLOAT;
     }
-    
-    
+
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_args);
     Py_DECREF(py_self);
     pyg_gil_state_release(__py_state);
-    
+
     return retval;
 }
 static GooCanvasItemModel*
@@ -6514,7 +6789,7 @@ _wrap_GooCanvasItem__proxy_do_get_model(GooCanvasItem *self)
     GooCanvasItemModel* retval;
     PyObject *py_retval;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -6523,8 +6798,8 @@ _wrap_GooCanvasItem__proxy_do_get_model(GooCanvasItem *self)
         pyg_gil_state_release(__py_state);
         return NULL;
     }
-    
-    
+
+
     py_method = PyObject_GetAttrString(py_self, "do_get_model");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -6563,13 +6838,13 @@ _wrap_GooCanvasItem__proxy_do_get_model(GooCanvasItem *self)
     }
     retval = (GooCanvasItemModel*) pygobject_get(py_retval);
     g_object_ref((GObject *) retval);
-    
-    
+
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_self);
     pyg_gil_state_release(__py_state);
-    
+
     return retval;
 }
 static void
@@ -6581,7 +6856,7 @@ _wrap_GooCanvasItem__proxy_do_set_model(GooCanvasItem *self, GooCanvasItemModel*
     PyObject *py_retval;
     PyObject *py_args;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -6596,10 +6871,10 @@ _wrap_GooCanvasItem__proxy_do_set_model(GooCanvasItem *self, GooCanvasItemModel*
         Py_INCREF(Py_None);
         py_model = Py_None;
     }
-    
+
     py_args = PyTuple_New(1);
     PyTuple_SET_ITEM(py_args, 0, py_model);
-    
+
     py_method = PyObject_GetAttrString(py_self, "do_set_model");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -6630,8 +6905,8 @@ _wrap_GooCanvasItem__proxy_do_set_model(GooCanvasItem *self, GooCanvasItemModel*
         pyg_gil_state_release(__py_state);
         return;
     }
-    
-    
+
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_args);
@@ -6650,7 +6925,7 @@ _wrap_GooCanvasItem__proxy_do_enter_notify_event(GooCanvasItem *self, GooCanvasI
     PyObject *py_retval;
     PyObject *py_args;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -6666,11 +6941,11 @@ _wrap_GooCanvasItem__proxy_do_enter_notify_event(GooCanvasItem *self, GooCanvasI
         py_target = Py_None;
     }
     py_event = pyg_boxed_new(GDK_TYPE_EVENT, event, FALSE, FALSE);
-    
+
     py_args = PyTuple_New(2);
     PyTuple_SET_ITEM(py_args, 0, py_target);
     PyTuple_SET_ITEM(py_args, 1, py_event);
-    
+
     py_method = PyObject_GetAttrString(py_self, "do_enter_notify_event");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -6702,15 +6977,15 @@ _wrap_GooCanvasItem__proxy_do_enter_notify_event(GooCanvasItem *self, GooCanvasI
         pyg_gil_state_release(__py_state);
         return FALSE;
     }
-    
+
     retval = PyObject_IsTrue(py_main_retval)? TRUE : FALSE;
-    
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_args);
     Py_DECREF(py_self);
     pyg_gil_state_release(__py_state);
-    
+
     return retval;
 }
 static gboolean
@@ -6725,7 +7000,7 @@ _wrap_GooCanvasItem__proxy_do_leave_notify_event(GooCanvasItem *self, GooCanvasI
     PyObject *py_retval;
     PyObject *py_args;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -6741,11 +7016,11 @@ _wrap_GooCanvasItem__proxy_do_leave_notify_event(GooCanvasItem *self, GooCanvasI
         py_target = Py_None;
     }
     py_event = pyg_boxed_new(GDK_TYPE_EVENT, event, FALSE, FALSE);
-    
+
     py_args = PyTuple_New(2);
     PyTuple_SET_ITEM(py_args, 0, py_target);
     PyTuple_SET_ITEM(py_args, 1, py_event);
-    
+
     py_method = PyObject_GetAttrString(py_self, "do_leave_notify_event");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -6777,15 +7052,15 @@ _wrap_GooCanvasItem__proxy_do_leave_notify_event(GooCanvasItem *self, GooCanvasI
         pyg_gil_state_release(__py_state);
         return FALSE;
     }
-    
+
     retval = PyObject_IsTrue(py_main_retval)? TRUE : FALSE;
-    
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_args);
     Py_DECREF(py_self);
     pyg_gil_state_release(__py_state);
-    
+
     return retval;
 }
 static gboolean
@@ -6800,7 +7075,7 @@ _wrap_GooCanvasItem__proxy_do_motion_notify_event(GooCanvasItem *self, GooCanvas
     PyObject *py_retval;
     PyObject *py_args;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -6816,11 +7091,11 @@ _wrap_GooCanvasItem__proxy_do_motion_notify_event(GooCanvasItem *self, GooCanvas
         py_target = Py_None;
     }
     py_event = pyg_boxed_new(GDK_TYPE_EVENT, event, FALSE, FALSE);
-    
+
     py_args = PyTuple_New(2);
     PyTuple_SET_ITEM(py_args, 0, py_target);
     PyTuple_SET_ITEM(py_args, 1, py_event);
-    
+
     py_method = PyObject_GetAttrString(py_self, "do_motion_notify_event");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -6852,15 +7127,15 @@ _wrap_GooCanvasItem__proxy_do_motion_notify_event(GooCanvasItem *self, GooCanvas
         pyg_gil_state_release(__py_state);
         return FALSE;
     }
-    
+
     retval = PyObject_IsTrue(py_main_retval)? TRUE : FALSE;
-    
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_args);
     Py_DECREF(py_self);
     pyg_gil_state_release(__py_state);
-    
+
     return retval;
 }
 static gboolean
@@ -6875,7 +7150,7 @@ _wrap_GooCanvasItem__proxy_do_button_press_event(GooCanvasItem *self, GooCanvasI
     PyObject *py_retval;
     PyObject *py_args;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -6891,11 +7166,11 @@ _wrap_GooCanvasItem__proxy_do_button_press_event(GooCanvasItem *self, GooCanvasI
         py_target = Py_None;
     }
     py_event = pyg_boxed_new(GDK_TYPE_EVENT, event, FALSE, FALSE);
-    
+
     py_args = PyTuple_New(2);
     PyTuple_SET_ITEM(py_args, 0, py_target);
     PyTuple_SET_ITEM(py_args, 1, py_event);
-    
+
     py_method = PyObject_GetAttrString(py_self, "do_button_press_event");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -6927,15 +7202,15 @@ _wrap_GooCanvasItem__proxy_do_button_press_event(GooCanvasItem *self, GooCanvasI
         pyg_gil_state_release(__py_state);
         return FALSE;
     }
-    
+
     retval = PyObject_IsTrue(py_main_retval)? TRUE : FALSE;
-    
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_args);
     Py_DECREF(py_self);
     pyg_gil_state_release(__py_state);
-    
+
     return retval;
 }
 static gboolean
@@ -6950,7 +7225,7 @@ _wrap_GooCanvasItem__proxy_do_button_release_event(GooCanvasItem *self, GooCanva
     PyObject *py_retval;
     PyObject *py_args;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -6966,11 +7241,11 @@ _wrap_GooCanvasItem__proxy_do_button_release_event(GooCanvasItem *self, GooCanva
         py_target = Py_None;
     }
     py_event = pyg_boxed_new(GDK_TYPE_EVENT, event, FALSE, FALSE);
-    
+
     py_args = PyTuple_New(2);
     PyTuple_SET_ITEM(py_args, 0, py_target);
     PyTuple_SET_ITEM(py_args, 1, py_event);
-    
+
     py_method = PyObject_GetAttrString(py_self, "do_button_release_event");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -7002,15 +7277,15 @@ _wrap_GooCanvasItem__proxy_do_button_release_event(GooCanvasItem *self, GooCanva
         pyg_gil_state_release(__py_state);
         return FALSE;
     }
-    
+
     retval = PyObject_IsTrue(py_main_retval)? TRUE : FALSE;
-    
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_args);
     Py_DECREF(py_self);
     pyg_gil_state_release(__py_state);
-    
+
     return retval;
 }
 static gboolean
@@ -7025,7 +7300,7 @@ _wrap_GooCanvasItem__proxy_do_focus_in_event(GooCanvasItem *self, GooCanvasItem*
     PyObject *py_retval;
     PyObject *py_args;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -7041,11 +7316,11 @@ _wrap_GooCanvasItem__proxy_do_focus_in_event(GooCanvasItem *self, GooCanvasItem*
         py_target = Py_None;
     }
     py_event = pyg_boxed_new(GDK_TYPE_EVENT, event, FALSE, FALSE);
-    
+
     py_args = PyTuple_New(2);
     PyTuple_SET_ITEM(py_args, 0, py_target);
     PyTuple_SET_ITEM(py_args, 1, py_event);
-    
+
     py_method = PyObject_GetAttrString(py_self, "do_focus_in_event");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -7077,15 +7352,15 @@ _wrap_GooCanvasItem__proxy_do_focus_in_event(GooCanvasItem *self, GooCanvasItem*
         pyg_gil_state_release(__py_state);
         return FALSE;
     }
-    
+
     retval = PyObject_IsTrue(py_main_retval)? TRUE : FALSE;
-    
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_args);
     Py_DECREF(py_self);
     pyg_gil_state_release(__py_state);
-    
+
     return retval;
 }
 static gboolean
@@ -7100,7 +7375,7 @@ _wrap_GooCanvasItem__proxy_do_focus_out_event(GooCanvasItem *self, GooCanvasItem
     PyObject *py_retval;
     PyObject *py_args;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -7116,11 +7391,11 @@ _wrap_GooCanvasItem__proxy_do_focus_out_event(GooCanvasItem *self, GooCanvasItem
         py_target = Py_None;
     }
     py_event = pyg_boxed_new(GDK_TYPE_EVENT, event, FALSE, FALSE);
-    
+
     py_args = PyTuple_New(2);
     PyTuple_SET_ITEM(py_args, 0, py_target);
     PyTuple_SET_ITEM(py_args, 1, py_event);
-    
+
     py_method = PyObject_GetAttrString(py_self, "do_focus_out_event");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -7152,15 +7427,15 @@ _wrap_GooCanvasItem__proxy_do_focus_out_event(GooCanvasItem *self, GooCanvasItem
         pyg_gil_state_release(__py_state);
         return FALSE;
     }
-    
+
     retval = PyObject_IsTrue(py_main_retval)? TRUE : FALSE;
-    
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_args);
     Py_DECREF(py_self);
     pyg_gil_state_release(__py_state);
-    
+
     return retval;
 }
 static gboolean
@@ -7175,7 +7450,7 @@ _wrap_GooCanvasItem__proxy_do_key_press_event(GooCanvasItem *self, GooCanvasItem
     PyObject *py_retval;
     PyObject *py_args;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -7191,11 +7466,11 @@ _wrap_GooCanvasItem__proxy_do_key_press_event(GooCanvasItem *self, GooCanvasItem
         py_target = Py_None;
     }
     py_event = pyg_boxed_new(GDK_TYPE_EVENT, event, FALSE, FALSE);
-    
+
     py_args = PyTuple_New(2);
     PyTuple_SET_ITEM(py_args, 0, py_target);
     PyTuple_SET_ITEM(py_args, 1, py_event);
-    
+
     py_method = PyObject_GetAttrString(py_self, "do_key_press_event");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -7227,15 +7502,15 @@ _wrap_GooCanvasItem__proxy_do_key_press_event(GooCanvasItem *self, GooCanvasItem
         pyg_gil_state_release(__py_state);
         return FALSE;
     }
-    
+
     retval = PyObject_IsTrue(py_main_retval)? TRUE : FALSE;
-    
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_args);
     Py_DECREF(py_self);
     pyg_gil_state_release(__py_state);
-    
+
     return retval;
 }
 static gboolean
@@ -7250,7 +7525,7 @@ _wrap_GooCanvasItem__proxy_do_key_release_event(GooCanvasItem *self, GooCanvasIt
     PyObject *py_retval;
     PyObject *py_args;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -7266,11 +7541,11 @@ _wrap_GooCanvasItem__proxy_do_key_release_event(GooCanvasItem *self, GooCanvasIt
         py_target = Py_None;
     }
     py_event = pyg_boxed_new(GDK_TYPE_EVENT, event, FALSE, FALSE);
-    
+
     py_args = PyTuple_New(2);
     PyTuple_SET_ITEM(py_args, 0, py_target);
     PyTuple_SET_ITEM(py_args, 1, py_event);
-    
+
     py_method = PyObject_GetAttrString(py_self, "do_key_release_event");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -7302,15 +7577,15 @@ _wrap_GooCanvasItem__proxy_do_key_release_event(GooCanvasItem *self, GooCanvasIt
         pyg_gil_state_release(__py_state);
         return FALSE;
     }
-    
+
     retval = PyObject_IsTrue(py_main_retval)? TRUE : FALSE;
-    
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_args);
     Py_DECREF(py_self);
     pyg_gil_state_release(__py_state);
-    
+
     return retval;
 }
 static gboolean
@@ -7325,7 +7600,7 @@ _wrap_GooCanvasItem__proxy_do_grab_broken_event(GooCanvasItem *self, GooCanvasIt
     PyObject *py_retval;
     PyObject *py_args;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -7341,11 +7616,11 @@ _wrap_GooCanvasItem__proxy_do_grab_broken_event(GooCanvasItem *self, GooCanvasIt
         py_target = Py_None;
     }
     py_event = pyg_boxed_new(GDK_TYPE_EVENT, event, FALSE, FALSE);
-    
+
     py_args = PyTuple_New(2);
     PyTuple_SET_ITEM(py_args, 0, py_target);
     PyTuple_SET_ITEM(py_args, 1, py_event);
-    
+
     py_method = PyObject_GetAttrString(py_self, "do_grab_broken_event");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -7377,15 +7652,15 @@ _wrap_GooCanvasItem__proxy_do_grab_broken_event(GooCanvasItem *self, GooCanvasIt
         pyg_gil_state_release(__py_state);
         return FALSE;
     }
-    
+
     retval = PyObject_IsTrue(py_main_retval)? TRUE : FALSE;
-    
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_args);
     Py_DECREF(py_self);
     pyg_gil_state_release(__py_state);
-    
+
     return retval;
 }
 
@@ -7722,9 +7997,9 @@ _wrap_goo_canvas_item_model_get_n_children(PyGObject *self)
 {
     int ret;
 
-    
+
     ret = goo_canvas_item_model_get_n_children(GOO_CANVAS_ITEM_MODEL(self->obj));
-    
+
     return PyInt_FromLong(ret);
 }
 
@@ -7737,9 +8012,9 @@ _wrap_goo_canvas_item_model_get_child(PyGObject *self, PyObject *args, PyObject 
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"i:GooCanvasItemModel.get_child", kwlist, &child_num))
         return NULL;
-    
+
     ret = goo_canvas_item_model_get_child(GOO_CANVAS_ITEM_MODEL(self->obj), child_num);
-    
+
     /* pygobject_new handles NULL checking */
     return pygobject_new((GObject *)ret);
 }
@@ -7753,9 +8028,9 @@ _wrap_goo_canvas_item_model_add_child(PyGObject *self, PyObject *args, PyObject 
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!i:GooCanvasItemModel.add_child", kwlist, &PyGooCanvasItemModel_Type, &child, &position))
         return NULL;
-    
+
     goo_canvas_item_model_add_child(GOO_CANVAS_ITEM_MODEL(self->obj), GOO_CANVAS_ITEM_MODEL(child->obj), position);
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -7768,9 +8043,9 @@ _wrap_goo_canvas_item_model_move_child(PyGObject *self, PyObject *args, PyObject
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"ii:GooCanvasItemModel.move_child", kwlist, &old_position, &new_position))
         return NULL;
-    
+
     goo_canvas_item_model_move_child(GOO_CANVAS_ITEM_MODEL(self->obj), old_position, new_position);
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -7783,9 +8058,9 @@ _wrap_goo_canvas_item_model_remove_child(PyGObject *self, PyObject *args, PyObje
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"i:GooCanvasItemModel.remove_child", kwlist, &child_num))
         return NULL;
-    
+
     goo_canvas_item_model_remove_child(GOO_CANVAS_ITEM_MODEL(self->obj), child_num);
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -7799,13 +8074,132 @@ _wrap_goo_canvas_item_model_find_child(PyGObject *self, PyObject *args, PyObject
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!:GooCanvasItemModel.find_child", kwlist, &PyGooCanvasItemModel_Type, &child))
         return NULL;
-    
+
     ret = goo_canvas_item_model_find_child(GOO_CANVAS_ITEM_MODEL(self->obj), GOO_CANVAS_ITEM_MODEL(child->obj));
-    
+
     return PyInt_FromLong(ret);
 }
 
-#line 1084 "goocanvas.override"
+#line 1826 "goocanvas.override"
+static PyObject *
+_wrap_goo_canvas_item_model_get_child_property(PyGObject *self,
+                                         PyObject *args,
+                                         PyObject *kwargs)
+{
+    static char    *kwlist[] = { "child", "property", NULL };
+    PyGObject *pychild;
+    gchar *property_name;
+    GooCanvasItemModel *item, *child;
+    GObjectClass *class;
+    GParamSpec *pspec;
+    GValue value = { 0, } ;
+    PyObject *ret;
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,
+                                "O!s:GooCanvasItemModel.get_child_property",
+                                kwlist, &PyGooCanvasItemModel_Type, &pychild,
+                                &property_name)) {
+        return NULL;
+    }
+
+    item = GOO_CANVAS_ITEM_MODEL(self->obj);
+    child = GOO_CANVAS_ITEM_MODEL(pychild->obj);
+
+    if (goo_canvas_item_model_find_child(item, child) == -1) {
+        PyErr_SetString(PyExc_TypeError,
+                        "first argument must be a child");
+        return NULL;
+    }
+
+    class = G_OBJECT_GET_CLASS(item);
+    pspec = goo_canvas_item_model_class_find_child_property(class, property_name);
+    if (!pspec) {
+        gchar buf[512];
+        g_snprintf(buf, sizeof(buf),
+                   "item model does not support property `%s'",
+                   property_name);
+
+        PyErr_SetString(PyExc_TypeError, buf);
+        return NULL;
+    }
+
+    g_value_init(&value, G_PARAM_SPEC_VALUE_TYPE(pspec));
+
+    goo_canvas_item_model_get_child_property(item,
+                                             child,
+                                             property_name,
+                                             &value);
+
+    ret = pyg_value_as_pyobject(&value, TRUE);
+    g_value_unset(&value);
+
+    return ret;
+}
+
+#line 8241 "goocanvas.c"
+
+
+#line 1768 "goocanvas.override"
+static PyObject *
+_wrap_goo_canvas_item_model_set_child_property(PyGObject *self,
+                                         PyObject *args,
+                                         PyObject *kwargs)
+{
+    static char    *kwlist[] = { "child", "property", "value", NULL };
+    gchar *property_name;
+    PyGObject *pychild;
+    GooCanvasItemModel *item, *child;
+    PyGObject *pyvalue;
+    GObjectClass *class;
+    GParamSpec *pspec;
+    GValue value = { 0, } ;
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,
+                                "O!sO:GooCanvasItemModel.set_child_property",
+                                kwlist,
+                                &PyGooCanvasItemModel_Type, &pychild,
+                                &property_name, &pyvalue)) {
+        return NULL;
+    }
+
+    item = GOO_CANVAS_ITEM_MODEL(self->obj);
+    child = GOO_CANVAS_ITEM_MODEL(pychild->obj);
+
+    if (goo_canvas_item_model_find_child(item, child) == -1) {
+        PyErr_SetString(PyExc_TypeError,
+                        "first argument must be a child");
+        return NULL;
+    }
+
+    class = G_OBJECT_GET_CLASS(self->obj);
+    pspec = goo_canvas_item_model_class_find_child_property(class, property_name);
+    if (!pspec) {
+        gchar buf[512];
+        g_snprintf(buf, sizeof(buf),
+                   "item model does not support property `%s'",
+                   property_name);
+        PyErr_SetString(PyExc_TypeError, buf);
+
+        return NULL;
+    }
+
+    g_value_init(&value, G_PARAM_SPEC_VALUE_TYPE(pspec));
+
+    pyg_value_from_pyobject(&value, (PyObject*)pyvalue);
+
+    goo_canvas_item_model_set_child_property(item,
+                                             child,
+                                             property_name,
+                                             &value);
+    g_value_unset(&value);
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
+#line 8301 "goocanvas.c"
+
+
+#line 1087 "goocanvas.override"
 static PyObject *
 _wrap_goo_canvas_item_model_get_child_properties(PyGObject *self, PyObject *args)
 {
@@ -7887,10 +8281,10 @@ _wrap_goo_canvas_item_model_get_child_properties(PyGObject *self, PyObject *args
     return tuple;
 }
 
-#line 7891 "goocanvas.c"
+#line 8386 "goocanvas.c"
 
 
-#line 1003 "goocanvas.override"
+#line 1006 "goocanvas.override"
 static PyObject *
 _wrap_goo_canvas_item_model_set_child_properties(PyGObject *self, PyObject *args, PyObject *kwargs)
 {
@@ -7970,7 +8364,7 @@ _wrap_goo_canvas_item_model_set_child_properties(PyGObject *self, PyObject *args
     return Py_None;
 }
 
-#line 7974 "goocanvas.c"
+#line 8469 "goocanvas.c"
 
 
 static PyObject *
@@ -7978,9 +8372,9 @@ _wrap_goo_canvas_item_model_get_parent(PyGObject *self)
 {
     GooCanvasItemModel *ret;
 
-    
+
     ret = goo_canvas_item_model_get_parent(GOO_CANVAS_ITEM_MODEL(self->obj));
-    
+
     /* pygobject_new handles NULL checking */
     return pygobject_new((GObject *)ret);
 }
@@ -7993,9 +8387,9 @@ _wrap_goo_canvas_item_model_set_parent(PyGObject *self, PyObject *args, PyObject
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!:GooCanvasItemModel.set_parent", kwlist, &PyGooCanvasItemModel_Type, &parent))
         return NULL;
-    
+
     goo_canvas_item_model_set_parent(GOO_CANVAS_ITEM_MODEL(self->obj), GOO_CANVAS_ITEM_MODEL(parent->obj));
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -8003,9 +8397,9 @@ _wrap_goo_canvas_item_model_set_parent(PyGObject *self, PyObject *args, PyObject
 static PyObject *
 _wrap_goo_canvas_item_model_remove(PyGObject *self)
 {
-    
+
     goo_canvas_item_model_remove(GOO_CANVAS_ITEM_MODEL(self->obj));
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -8015,9 +8409,9 @@ _wrap_goo_canvas_item_model_is_container(PyGObject *self)
 {
     int ret;
 
-    
+
     ret = goo_canvas_item_model_is_container(GOO_CANVAS_ITEM_MODEL(self->obj));
-    
+
     return PyBool_FromLong(ret);
 
 }
@@ -8030,9 +8424,9 @@ _wrap_goo_canvas_item_model_raise(PyGObject *self, PyObject *args, PyObject *kwa
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!:GooCanvasItemModel.raise", kwlist, &PyGooCanvasItemModel_Type, &above))
         return NULL;
-    
+
     goo_canvas_item_model_raise(GOO_CANVAS_ITEM_MODEL(self->obj), GOO_CANVAS_ITEM_MODEL(above->obj));
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -8045,14 +8439,14 @@ _wrap_goo_canvas_item_model_lower(PyGObject *self, PyObject *args, PyObject *kwa
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!:GooCanvasItemModel.lower", kwlist, &PyGooCanvasItemModel_Type, &below))
         return NULL;
-    
+
     goo_canvas_item_model_lower(GOO_CANVAS_ITEM_MODEL(self->obj), GOO_CANVAS_ITEM_MODEL(below->obj));
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
 
-#line 1566 "goocanvas.override"
+#line 1569 "goocanvas.override"
 static PyObject *
 _wrap_goo_canvas_item_model_get_transform(PyGObject *self)
 {
@@ -8072,25 +8466,51 @@ _wrap_goo_canvas_item_model_get_transform(PyGObject *self)
     return matrix;
 }
 
-#line 8076 "goocanvas.c"
+#line 8571 "goocanvas.c"
 
 
+#line 2006 "goocanvas.override"
 static PyObject *
-_wrap_goo_canvas_item_model_set_transform(PyGObject *self, PyObject *args, PyObject *kwargs)
+_wrap_goo_canvas_item_model_set_transform(PyGObject *self,
+                                          PyObject *args,
+                                          PyObject *kwargs)
 {
     static char *kwlist[] = { "matrix", NULL };
     PyObject *py_matrix;
-    cairo_matrix_t *matrix;
+    cairo_matrix_t *matrix = NULL;
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O:GooCanvasItemModel.set_transform", kwlist, &py_matrix))
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,
+                                     "O:GooCanvasItemModel.set_transform",
+                                     kwlist, &py_matrix))
         return NULL;
-    matrix = &((PycairoMatrix*)(py_matrix))->matrix;
-    
-    goo_canvas_item_model_set_transform(GOO_CANVAS_ITEM_MODEL(self->obj), matrix);
-    
+
+    if (py_matrix && (py_matrix != Py_None))
+        matrix = &((PycairoMatrix*)(py_matrix))->matrix;
+
+    goo_canvas_item_model_set_transform(GOO_CANVAS_ITEM_MODEL(self->obj),
+                                        matrix);
+
     Py_INCREF(Py_None);
     return Py_None;
 }
+
+#line 8599 "goocanvas.c"
+
+
+#line 1640 "goocanvas.override"
+static PyObject *
+_wrap_goo_canvas_item_model_get_simple_transform(PyGObject *self)
+{
+    gdouble x, y, scale, rotation;
+
+    goo_canvas_item_model_get_simple_transform(GOO_CANVAS_ITEM_MODEL(self->obj),
+                                               &x, &y, &scale, &rotation);
+
+    return Py_BuildValue("dddd", x, y, scale, rotation);
+}
+
+#line 8614 "goocanvas.c"
+
 
 static PyObject *
 _wrap_goo_canvas_item_model_set_simple_transform(PyGObject *self, PyObject *args, PyObject *kwargs)
@@ -8100,9 +8520,9 @@ _wrap_goo_canvas_item_model_set_simple_transform(PyGObject *self, PyObject *args
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"dddd:GooCanvasItemModel.set_simple_transform", kwlist, &x, &y, &scale, &rotation))
         return NULL;
-    
+
     goo_canvas_item_model_set_simple_transform(GOO_CANVAS_ITEM_MODEL(self->obj), x, y, scale, rotation);
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -8115,9 +8535,9 @@ _wrap_goo_canvas_item_model_translate(PyGObject *self, PyObject *args, PyObject 
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"dd:GooCanvasItemModel.translate", kwlist, &tx, &ty))
         return NULL;
-    
+
     goo_canvas_item_model_translate(GOO_CANVAS_ITEM_MODEL(self->obj), tx, ty);
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -8130,9 +8550,9 @@ _wrap_goo_canvas_item_model_scale(PyGObject *self, PyObject *args, PyObject *kwa
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"dd:GooCanvasItemModel.scale", kwlist, &sx, &sy))
         return NULL;
-    
+
     goo_canvas_item_model_scale(GOO_CANVAS_ITEM_MODEL(self->obj), sx, sy);
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -8145,9 +8565,9 @@ _wrap_goo_canvas_item_model_rotate(PyGObject *self, PyObject *args, PyObject *kw
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"ddd:GooCanvasItemModel.rotate", kwlist, &degrees, &cx, &cy))
         return NULL;
-    
+
     goo_canvas_item_model_rotate(GOO_CANVAS_ITEM_MODEL(self->obj), degrees, cx, cy);
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -8160,9 +8580,9 @@ _wrap_goo_canvas_item_model_skew_x(PyGObject *self, PyObject *args, PyObject *kw
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"ddd:GooCanvasItemModel.skew_x", kwlist, &degrees, &cx, &cy))
         return NULL;
-    
+
     goo_canvas_item_model_skew_x(GOO_CANVAS_ITEM_MODEL(self->obj), degrees, cx, cy);
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -8175,9 +8595,9 @@ _wrap_goo_canvas_item_model_skew_y(PyGObject *self, PyObject *args, PyObject *kw
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"ddd:GooCanvasItemModel.skew_y", kwlist, &degrees, &cx, &cy))
         return NULL;
-    
+
     goo_canvas_item_model_skew_y(GOO_CANVAS_ITEM_MODEL(self->obj), degrees, cx, cy);
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -8187,9 +8607,9 @@ _wrap_goo_canvas_item_model_get_style(PyGObject *self)
 {
     GooCanvasStyle *ret;
 
-    
+
     ret = goo_canvas_item_model_get_style(GOO_CANVAS_ITEM_MODEL(self->obj));
-    
+
     /* pygobject_new handles NULL checking */
     return pygobject_new((GObject *)ret);
 }
@@ -8202,9 +8622,9 @@ _wrap_goo_canvas_item_model_set_style(PyGObject *self, PyObject *args, PyObject 
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!:GooCanvasItemModel.set_style", kwlist, &PyGooCanvasStyle_Type, &style))
         return NULL;
-    
+
     goo_canvas_item_model_set_style(GOO_CANVAS_ITEM_MODEL(self->obj), GOO_CANVAS_STYLE(style->obj));
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -8222,9 +8642,9 @@ _wrap_goo_canvas_item_model_animate(PyGObject *self, PyObject *args, PyObject *k
         return NULL;
     if (pyg_enum_get_value(GOO_TYPE_CANVAS_ANIMATE_TYPE, py_type, (gpointer)&type))
         return NULL;
-    
+
     goo_canvas_item_model_animate(GOO_CANVAS_ITEM_MODEL(self->obj), x, y, scale, degrees, absolute, duration, step_time, type);
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -8232,14 +8652,14 @@ _wrap_goo_canvas_item_model_animate(PyGObject *self, PyObject *args, PyObject *k
 static PyObject *
 _wrap_goo_canvas_item_model_stop_animation(PyGObject *self)
 {
-    
+
     goo_canvas_item_model_stop_animation(GOO_CANVAS_ITEM_MODEL(self->obj));
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
 
-#line 1208 "goocanvas.override"
+#line 1211 "goocanvas.override"
 static PyObject *
 _wrap_goo_canvas_item_model_find_child_property (PyObject *cls,
                                                  PyObject *args,
@@ -8279,10 +8699,10 @@ _wrap_goo_canvas_item_model_find_child_property (PyObject *cls,
     return pyg_param_spec_new(pspec);
 }
 
-#line 8283 "goocanvas.c"
+#line 8804 "goocanvas.c"
 
 
-#line 1291 "goocanvas.override"
+#line 1294 "goocanvas.override"
 static PyObject *
 _wrap_goo_canvas_item_model_list_child_properties (PyObject *cls,
                                                    PyObject *args,
@@ -8323,10 +8743,10 @@ _wrap_goo_canvas_item_model_list_child_properties (PyObject *cls,
     return list;
 }
 
-#line 8327 "goocanvas.c"
+#line 8848 "goocanvas.c"
 
 
-#line 1385 "goocanvas.override"
+#line 1388 "goocanvas.override"
 static PyObject *
 _wrap_goo_canvas_item_model_install_child_property (PyObject *cls,
                                                     PyObject *args,
@@ -8377,7 +8797,7 @@ _wrap_goo_canvas_item_model_install_child_property (PyObject *cls,
     return Py_None;
 }
 
-#line 8381 "goocanvas.c"
+#line 8902 "goocanvas.c"
 
 
 static PyObject *
@@ -8732,6 +9152,10 @@ static const PyMethodDef _PyGooCanvasItemModel_methods[] = {
       NULL },
     { "find_child", (PyCFunction)_wrap_goo_canvas_item_model_find_child, METH_VARARGS|METH_KEYWORDS,
       NULL },
+    { "get_child_property", (PyCFunction)_wrap_goo_canvas_item_model_get_child_property, METH_VARARGS,
+      NULL },
+    { "set_child_property", (PyCFunction)_wrap_goo_canvas_item_model_set_child_property, METH_VARARGS|METH_KEYWORDS,
+      NULL },
     { "get_child_properties", (PyCFunction)_wrap_goo_canvas_item_model_get_child_properties, METH_VARARGS,
       NULL },
     { "set_child_properties", (PyCFunction)_wrap_goo_canvas_item_model_set_child_properties, METH_VARARGS|METH_KEYWORDS,
@@ -8751,6 +9175,8 @@ static const PyMethodDef _PyGooCanvasItemModel_methods[] = {
     { "get_transform", (PyCFunction)_wrap_goo_canvas_item_model_get_transform, METH_NOARGS,
       NULL },
     { "set_transform", (PyCFunction)_wrap_goo_canvas_item_model_set_transform, METH_VARARGS|METH_KEYWORDS,
+      NULL },
+    { "get_simple_transform", (PyCFunction)_wrap_goo_canvas_item_model_get_simple_transform, METH_NOARGS,
       NULL },
     { "set_simple_transform", (PyCFunction)_wrap_goo_canvas_item_model_set_simple_transform, METH_VARARGS|METH_KEYWORDS,
       NULL },
@@ -8866,7 +9292,7 @@ _wrap_GooCanvasItemModel__proxy_do_get_n_children(GooCanvasItemModel *self)
     gint retval;
     PyObject *py_retval;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -8875,8 +9301,8 @@ _wrap_GooCanvasItemModel__proxy_do_get_n_children(GooCanvasItemModel *self)
         pyg_gil_state_release(__py_state);
         return -G_MAXINT;
     }
-    
-    
+
+
     py_method = PyObject_GetAttrString(py_self, "do_get_n_children");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -8905,13 +9331,13 @@ _wrap_GooCanvasItemModel__proxy_do_get_n_children(GooCanvasItemModel *self)
         pyg_gil_state_release(__py_state);
         return -G_MAXINT;
     }
-    
-    
+
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_self);
     pyg_gil_state_release(__py_state);
-    
+
     return retval;
 }
 static GooCanvasItemModel*
@@ -8924,7 +9350,7 @@ _wrap_GooCanvasItemModel__proxy_do_get_child(GooCanvasItemModel *self, gint chil
     PyObject *py_retval;
     PyObject *py_args;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -8934,10 +9360,10 @@ _wrap_GooCanvasItemModel__proxy_do_get_child(GooCanvasItemModel *self, gint chil
         return NULL;
     }
     py_child_num = PyInt_FromLong(child_num);
-    
+
     py_args = PyTuple_New(1);
     PyTuple_SET_ITEM(py_args, 0, py_child_num);
-    
+
     py_method = PyObject_GetAttrString(py_self, "do_get_child");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -8980,14 +9406,14 @@ _wrap_GooCanvasItemModel__proxy_do_get_child(GooCanvasItemModel *self, gint chil
     }
     retval = (GooCanvasItemModel*) pygobject_get(py_retval);
     g_object_ref((GObject *) retval);
-    
-    
+
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_args);
     Py_DECREF(py_self);
     pyg_gil_state_release(__py_state);
-    
+
     return retval;
 }
 static void
@@ -9000,7 +9426,7 @@ _wrap_GooCanvasItemModel__proxy_do_add_child(GooCanvasItemModel *self, GooCanvas
     PyObject *py_retval;
     PyObject *py_args;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -9016,11 +9442,11 @@ _wrap_GooCanvasItemModel__proxy_do_add_child(GooCanvasItemModel *self, GooCanvas
         py_child = Py_None;
     }
     py_position = PyInt_FromLong(position);
-    
+
     py_args = PyTuple_New(2);
     PyTuple_SET_ITEM(py_args, 0, py_child);
     PyTuple_SET_ITEM(py_args, 1, py_position);
-    
+
     py_method = PyObject_GetAttrString(py_self, "do_add_child");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -9051,8 +9477,8 @@ _wrap_GooCanvasItemModel__proxy_do_add_child(GooCanvasItemModel *self, GooCanvas
         pyg_gil_state_release(__py_state);
         return;
     }
-    
-    
+
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_args);
@@ -9069,7 +9495,7 @@ _wrap_GooCanvasItemModel__proxy_do_move_child(GooCanvasItemModel *self, gint old
     PyObject *py_retval;
     PyObject *py_args;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -9080,11 +9506,11 @@ _wrap_GooCanvasItemModel__proxy_do_move_child(GooCanvasItemModel *self, gint old
     }
     py_old_position = PyInt_FromLong(old_position);
     py_new_position = PyInt_FromLong(new_position);
-    
+
     py_args = PyTuple_New(2);
     PyTuple_SET_ITEM(py_args, 0, py_old_position);
     PyTuple_SET_ITEM(py_args, 1, py_new_position);
-    
+
     py_method = PyObject_GetAttrString(py_self, "do_move_child");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -9115,8 +9541,8 @@ _wrap_GooCanvasItemModel__proxy_do_move_child(GooCanvasItemModel *self, gint old
         pyg_gil_state_release(__py_state);
         return;
     }
-    
-    
+
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_args);
@@ -9132,7 +9558,7 @@ _wrap_GooCanvasItemModel__proxy_do_remove_child(GooCanvasItemModel *self, gint c
     PyObject *py_retval;
     PyObject *py_args;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -9142,10 +9568,10 @@ _wrap_GooCanvasItemModel__proxy_do_remove_child(GooCanvasItemModel *self, gint c
         return;
     }
     py_child_num = PyInt_FromLong(child_num);
-    
+
     py_args = PyTuple_New(1);
     PyTuple_SET_ITEM(py_args, 0, py_child_num);
-    
+
     py_method = PyObject_GetAttrString(py_self, "do_remove_child");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -9176,8 +9602,8 @@ _wrap_GooCanvasItemModel__proxy_do_remove_child(GooCanvasItemModel *self, gint c
         pyg_gil_state_release(__py_state);
         return;
     }
-    
-    
+
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_args);
@@ -9192,7 +9618,7 @@ _wrap_GooCanvasItemModel__proxy_do_get_parent(GooCanvasItemModel *self)
     GooCanvasItemModel* retval;
     PyObject *py_retval;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -9201,8 +9627,8 @@ _wrap_GooCanvasItemModel__proxy_do_get_parent(GooCanvasItemModel *self)
         pyg_gil_state_release(__py_state);
         return NULL;
     }
-    
-    
+
+
     py_method = PyObject_GetAttrString(py_self, "do_get_parent");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -9241,13 +9667,13 @@ _wrap_GooCanvasItemModel__proxy_do_get_parent(GooCanvasItemModel *self)
     }
     retval = (GooCanvasItemModel*) pygobject_get(py_retval);
     g_object_ref((GObject *) retval);
-    
-    
+
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_self);
     pyg_gil_state_release(__py_state);
-    
+
     return retval;
 }
 static void
@@ -9259,7 +9685,7 @@ _wrap_GooCanvasItemModel__proxy_do_set_parent(GooCanvasItemModel *self, GooCanva
     PyObject *py_retval;
     PyObject *py_args;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -9274,10 +9700,10 @@ _wrap_GooCanvasItemModel__proxy_do_set_parent(GooCanvasItemModel *self, GooCanva
         Py_INCREF(Py_None);
         py_parent = Py_None;
     }
-    
+
     py_args = PyTuple_New(1);
     PyTuple_SET_ITEM(py_args, 0, py_parent);
-    
+
     py_method = PyObject_GetAttrString(py_self, "do_set_parent");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -9308,8 +9734,8 @@ _wrap_GooCanvasItemModel__proxy_do_set_parent(GooCanvasItemModel *self, GooCanva
         pyg_gil_state_release(__py_state);
         return;
     }
-    
-    
+
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_args);
@@ -9324,7 +9750,7 @@ _wrap_GooCanvasItemModel__proxy_do_get_style(GooCanvasItemModel *self)
     GooCanvasStyle* retval;
     PyObject *py_retval;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -9333,8 +9759,8 @@ _wrap_GooCanvasItemModel__proxy_do_get_style(GooCanvasItemModel *self)
         pyg_gil_state_release(__py_state);
         return NULL;
     }
-    
-    
+
+
     py_method = PyObject_GetAttrString(py_self, "do_get_style");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -9373,13 +9799,13 @@ _wrap_GooCanvasItemModel__proxy_do_get_style(GooCanvasItemModel *self)
     }
     retval = (GooCanvasStyle*) pygobject_get(py_retval);
     g_object_ref((GObject *) retval);
-    
-    
+
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_self);
     pyg_gil_state_release(__py_state);
-    
+
     return retval;
 }
 static void
@@ -9391,7 +9817,7 @@ _wrap_GooCanvasItemModel__proxy_do_set_style(GooCanvasItemModel *self, GooCanvas
     PyObject *py_retval;
     PyObject *py_args;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -9406,10 +9832,10 @@ _wrap_GooCanvasItemModel__proxy_do_set_style(GooCanvasItemModel *self, GooCanvas
         Py_INCREF(Py_None);
         py_style = Py_None;
     }
-    
+
     py_args = PyTuple_New(1);
     PyTuple_SET_ITEM(py_args, 0, py_style);
-    
+
     py_method = PyObject_GetAttrString(py_self, "do_set_style");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -9440,8 +9866,8 @@ _wrap_GooCanvasItemModel__proxy_do_set_style(GooCanvasItemModel *self, GooCanvas
         pyg_gil_state_release(__py_state);
         return;
     }
-    
-    
+
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_args);
@@ -9458,7 +9884,7 @@ _wrap_GooCanvasItemModel__proxy_do_create_item(GooCanvasItemModel *self, GooCanv
     PyObject *py_retval;
     PyObject *py_args;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -9473,10 +9899,10 @@ _wrap_GooCanvasItemModel__proxy_do_create_item(GooCanvasItemModel *self, GooCanv
         Py_INCREF(Py_None);
         py_canvas = Py_None;
     }
-    
+
     py_args = PyTuple_New(1);
     PyTuple_SET_ITEM(py_args, 0, py_canvas);
-    
+
     py_method = PyObject_GetAttrString(py_self, "do_create_item");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -9519,14 +9945,14 @@ _wrap_GooCanvasItemModel__proxy_do_create_item(GooCanvasItemModel *self, GooCanv
     }
     retval = (GooCanvasItem*) pygobject_get(py_retval);
     g_object_ref((GObject *) retval);
-    
-    
+
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_args);
     Py_DECREF(py_self);
     pyg_gil_state_release(__py_state);
-    
+
     return retval;
 }
 static void
@@ -9538,7 +9964,7 @@ _wrap_GooCanvasItemModel__proxy_do_child_added(GooCanvasItemModel *self, gint ch
     PyObject *py_retval;
     PyObject *py_args;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -9548,10 +9974,10 @@ _wrap_GooCanvasItemModel__proxy_do_child_added(GooCanvasItemModel *self, gint ch
         return;
     }
     py_child_num = PyInt_FromLong(child_num);
-    
+
     py_args = PyTuple_New(1);
     PyTuple_SET_ITEM(py_args, 0, py_child_num);
-    
+
     py_method = PyObject_GetAttrString(py_self, "do_child_added");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -9582,8 +10008,8 @@ _wrap_GooCanvasItemModel__proxy_do_child_added(GooCanvasItemModel *self, gint ch
         pyg_gil_state_release(__py_state);
         return;
     }
-    
-    
+
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_args);
@@ -9600,7 +10026,7 @@ _wrap_GooCanvasItemModel__proxy_do_child_moved(GooCanvasItemModel *self, gint ol
     PyObject *py_retval;
     PyObject *py_args;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -9611,11 +10037,11 @@ _wrap_GooCanvasItemModel__proxy_do_child_moved(GooCanvasItemModel *self, gint ol
     }
     py_old_child_num = PyInt_FromLong(old_child_num);
     py_new_child_num = PyInt_FromLong(new_child_num);
-    
+
     py_args = PyTuple_New(2);
     PyTuple_SET_ITEM(py_args, 0, py_old_child_num);
     PyTuple_SET_ITEM(py_args, 1, py_new_child_num);
-    
+
     py_method = PyObject_GetAttrString(py_self, "do_child_moved");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -9646,8 +10072,8 @@ _wrap_GooCanvasItemModel__proxy_do_child_moved(GooCanvasItemModel *self, gint ol
         pyg_gil_state_release(__py_state);
         return;
     }
-    
-    
+
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_args);
@@ -9663,7 +10089,7 @@ _wrap_GooCanvasItemModel__proxy_do_child_removed(GooCanvasItemModel *self, gint 
     PyObject *py_retval;
     PyObject *py_args;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -9673,10 +10099,10 @@ _wrap_GooCanvasItemModel__proxy_do_child_removed(GooCanvasItemModel *self, gint 
         return;
     }
     py_child_num = PyInt_FromLong(child_num);
-    
+
     py_args = PyTuple_New(1);
     PyTuple_SET_ITEM(py_args, 0, py_child_num);
-    
+
     py_method = PyObject_GetAttrString(py_self, "do_child_removed");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -9707,8 +10133,8 @@ _wrap_GooCanvasItemModel__proxy_do_child_removed(GooCanvasItemModel *self, gint 
         pyg_gil_state_release(__py_state);
         return;
     }
-    
-    
+
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_args);
@@ -9724,7 +10150,7 @@ _wrap_GooCanvasItemModel__proxy_do_changed(GooCanvasItemModel *self, gboolean re
     PyObject *py_retval;
     PyObject *py_args;
     PyObject *py_method;
-    
+
     __py_state = pyg_gil_state_ensure();
     py_self = pygobject_new((GObject *) self);
     if (!py_self) {
@@ -9734,11 +10160,11 @@ _wrap_GooCanvasItemModel__proxy_do_changed(GooCanvasItemModel *self, gboolean re
         return;
     }
     py_recompute_bounds = recompute_bounds? Py_True : Py_False;
-    
+
     py_args = PyTuple_New(1);
     Py_INCREF(py_recompute_bounds);
     PyTuple_SET_ITEM(py_args, 0, py_recompute_bounds);
-    
+
     py_method = PyObject_GetAttrString(py_self, "do_changed");
     if (!py_method) {
         if (PyErr_Occurred())
@@ -9769,8 +10195,8 @@ _wrap_GooCanvasItemModel__proxy_do_changed(GooCanvasItemModel *self, gboolean re
         pyg_gil_state_release(__py_state);
         return;
     }
-    
-    
+
+
     Py_XDECREF(py_retval);
     Py_DECREF(py_method);
     Py_DECREF(py_args);
@@ -9936,7 +10362,7 @@ static const GInterfaceInfo __GooCanvasItemModel__iinfo = {
 
 /* ----------- functions ----------- */
 
-#line 308 "goocanvas.override"
+#line 311 "goocanvas.override"
 static PyObject *
 _wrap_goo_canvas_polyline_new_line(PyGObject *self, PyObject *args, PyObject *kwargs)
 {
@@ -10003,10 +10429,10 @@ _wrap_goo_canvas_polyline_new_line(PyGObject *self, PyObject *args, PyObject *kw
 
     return pygobject_new((GObject *)ret);
 }
-#line 10007 "goocanvas.c"
+#line 10534 "goocanvas.c"
 
 
-#line 376 "goocanvas.override"
+#line 379 "goocanvas.override"
 static PyObject *
 _wrap_goo_canvas_polyline_model_new_line(PyGObject *self, PyObject *args, PyObject *kwargs)
 {
@@ -10074,7 +10500,7 @@ _wrap_goo_canvas_polyline_model_new_line(PyGObject *self, PyObject *args, PyObje
     return pygobject_new((GObject *)ret);
 }
 
-#line 10078 "goocanvas.c"
+#line 10605 "goocanvas.c"
 
 
 static PyObject *
@@ -10087,9 +10513,9 @@ _wrap_goo_cairo_matrix_copy(PyObject *self, PyObject *args, PyObject *kwargs)
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O:goo_cairo_matrix_copy", kwlist, &py_matrix))
         return NULL;
     matrix = &((PycairoMatrix*)(py_matrix))->matrix;
-    
+
     ret = goo_cairo_matrix_copy(matrix);
-    
+
     if (ret)
         return PycairoMatrix_FromMatrix(ret);
     else {
@@ -10108,9 +10534,9 @@ _wrap_goo_cairo_matrix_free(PyObject *self, PyObject *args, PyObject *kwargs)
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O:goo_cairo_matrix_free", kwlist, &py_matrix))
         return NULL;
     matrix = &((PycairoMatrix*)(py_matrix))->matrix;
-    
+
     goo_cairo_matrix_free(matrix);
-    
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -10190,6 +10616,18 @@ pygoocanvas_register_classes(PyObject *d)
             "could not import gtk");
         return ;
     }
+    if ((module = PyImport_ImportModule("gtk.gdk")) != NULL) {
+        _PyGdkCairoContext_Type = (PyTypeObject *)PyObject_GetAttrString(module, "CairoContext");
+        if (_PyGdkCairoContext_Type == NULL) {
+            PyErr_SetString(PyExc_ImportError,
+                "cannot import name CairoContext from gtk.gdk");
+            return ;
+        }
+    } else {
+        PyErr_SetString(PyExc_ImportError,
+            "could not import gtk.gdk");
+        return ;
+    }
 
 
 #line 198 "goocanvas.override"
@@ -10202,7 +10640,7 @@ pygoocanvas_register_classes(PyObject *d)
 
 
 
-#line 10206 "goocanvas.c"
+#line 10745 "goocanvas.c"
     pyg_register_boxed(d, "Points", GOO_TYPE_CANVAS_POINTS, &PyGooCanvasPoints_Type);
     pyg_register_boxed(d, "LineDash", GOO_TYPE_CANVAS_LINE_DASH, &PyGooCanvasLineDash_Type);
     pyg_register_interface(d, "Item", GOO_TYPE_CANVAS_ITEM, &PyGooCanvasItem_Type);
@@ -10210,7 +10648,6 @@ pygoocanvas_register_classes(PyObject *d)
     pyg_register_interface(d, "ItemModel", GOO_TYPE_CANVAS_ITEM_MODEL, &PyGooCanvasItemModel_Type);
     pyg_register_interface_info(GOO_TYPE_CANVAS_ITEM_MODEL, &__GooCanvasItemModel__iinfo);
     pygobject_register_class(d, "GooCanvas", GOO_TYPE_CANVAS, &PyGooCanvas_Type, Py_BuildValue("(O)", &PyGtkContainer_Type));
-    pyg_set_object_has_new_constructor(GOO_TYPE_CANVAS);
     pyg_register_class_init(GOO_TYPE_CANVAS, __GooCanvas_class_init);
     pygobject_register_class(d, "GooCanvasItemModelSimple", GOO_TYPE_CANVAS_ITEM_MODEL_SIMPLE, &PyGooCanvasItemModelSimple_Type, Py_BuildValue("(O)", &PyGObject_Type));
     pyg_set_object_has_new_constructor(GOO_TYPE_CANVAS_ITEM_MODEL_SIMPLE);
@@ -10225,8 +10662,6 @@ pygoocanvas_register_classes(PyObject *d)
     pyg_register_class_init(GOO_TYPE_CANVAS_ITEM_SIMPLE, __GooCanvasItemSimple_class_init);
     pygobject_register_class(d, "GooCanvasImage", GOO_TYPE_CANVAS_IMAGE, &PyGooCanvasImage_Type, Py_BuildValue("(O)", &PyGooCanvasItemSimple_Type));
     pyg_set_object_has_new_constructor(GOO_TYPE_CANVAS_IMAGE);
-    pygobject_register_class(d, "GooCanvasSvg", GOO_TYPE_CANVAS_SVG, &PyGooCanvasSvg_Type, Py_BuildValue("(O)", &PyGooCanvasItemSimple_Type));
-    pyg_set_object_has_new_constructor(GOO_TYPE_CANVAS_SVG);
     pygobject_register_class(d, "GooCanvasGroup", GOO_TYPE_CANVAS_GROUP, &PyGooCanvasGroup_Type, Py_BuildValue("(O)", &PyGooCanvasItemSimple_Type));
     pyg_set_object_has_new_constructor(GOO_TYPE_CANVAS_GROUP);
     pygobject_register_class(d, "GooCanvasEllipse", GOO_TYPE_CANVAS_ELLIPSE, &PyGooCanvasEllipse_Type, Py_BuildValue("(O)", &PyGooCanvasItemSimple_Type));
