@@ -81,7 +81,7 @@ static guint32 directory_label_y;
 #define DRAWING_AREA_Y2	490.0
 
 #define HORIZONTAL_NUMBER_OF_IMAGE	5
-#define VERTICAL_NUMBER_OF_IMAGE	3
+#define VERTICAL_NUMBER_OF_IMAGE	4
 #define IMAGE_GAP			18
 
 #define IMAGE_WIDTH  (DRAWING_AREA_X2-DRAWING_AREA_X1)/HORIZONTAL_NUMBER_OF_IMAGE-IMAGE_GAP
@@ -611,7 +611,6 @@ item_event_file_selector (GooCanvasItem  *item,
 				     current_rootdir,
 				     gtk_entry_get_text(GTK_ENTRY(widget_entry)),
 				     (file_type ? file_type :  "") );
-	    printf("result=%s\n", result);
 	    /* Callback with the proper params */
 	    fileSelectorCallBack(result, file_type, current_user_context);
 
