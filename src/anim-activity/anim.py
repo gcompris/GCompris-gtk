@@ -559,8 +559,6 @@ class Gcompris_anim:
           if self.tools[self.current_tool][0] == "FILL":
             animItem.fill(self.color.fill,
                           self.color.stroke)
-          elif self.tools[self.current_tool][0] == "FILL":
-            animItem.flip()
           elif self.tools[self.current_tool][0] == "DEL":
             animItem.delete()
           elif self.tools[self.current_tool][0] == "SELECT":

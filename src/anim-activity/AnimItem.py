@@ -291,6 +291,7 @@ class AnimItem:
 
         if self.anchor:
             self.anchor.update()
+        self.save_at_time(AnimItem.anim.timeline.get_time())
 
 
     def delete(self):
@@ -839,9 +840,23 @@ class AnimItemLine(AnimItem):
         AnimItem.restore(self, anim_)
         self.item = \
             goocanvas.Polyline(
-                parent = self.rootitem
+                parent = self.rootitem,
+                line_cap = cairo.LINE_CAP_ROUND,
+                points = self.points
                 )
         AnimItem.init_item(self)
+
+    def save_addon(self):
+        points = self.item.get_property("points").coords
+        return [points]
+
+    def load_addon(self, addon):
+        p = addon[0]
+        [(x1, y1), (x2, y2)] = [(p[0][0], p[0][1]),
+                                (p[1][0], p[1][1])]
+        self.points = goocanvas.Points([(x1 , y1),
+                                        (x2 , y2)])
+
 
     def set_bounds(self, p1, p2):
         (x1, y1, x2, y2) = self.snap_point_to_grid(p1, p2)
@@ -880,10 +895,8 @@ class AnimItemLine(AnimItem):
     # Return the list of properties that have to be saved for
     # this object
     def get_properties(self):
-        return('points',
-               'stroke_color_rgba',
-               'line_width',
-               'line_cap')
+        return('stroke_color_rgba',
+               'line_width')
 
     def fill(self, fill, stroke):
         gcompris.sound.play_ogg("sounds/paint1.wav")
@@ -925,10 +938,10 @@ class AnimItemPixmap(AnimItem):
         AnimItem.init_item(self)
 
     def save_addon(self):
-        return self.image
+        return [self.image]
 
-    def load_addon(self, image):
-        self.image = image
+    def load_addon(self, addon):
+        self.image = addon[0]
 
 
     def set_bounds(self, p1, p2):
@@ -1074,6 +1087,7 @@ class AnimItemText(AnimItem):
                 font = "Sans " + str(self.text_size),
                 )
         AnimItem.init_item(self)
+        self.last_commit = None
 
     def save_addon(self):
         # In the future we may want to support and
@@ -1096,7 +1110,9 @@ class AnimItemText(AnimItem):
         yoffset += yy2 - b.y2
         self.item.set_properties(x = x1 + xoffset,
                                  y = y1 + yoffset)
-        self.anchor.update()
+        if self.anchor:
+            self.anchor.update()
+        self.save_at_time(AnimItem.anim.timeline.get_time())
 
 
     def set_bounds(self, p1, p2):
@@ -1114,6 +1130,7 @@ class AnimItemText(AnimItem):
     def get_properties(self):
         return('x', 'y',
                'fill_color_rgba',
+               'anchor', 'alignment',
                'text')
 
     def fill(self, fill, stroke):
@@ -1161,7 +1178,6 @@ class AnimItemText(AnimItem):
             newtext = oldtext
 
         textItem.set_properties(text = newtext.encode('UTF-8'))
-
         self.recenter_to_drawing_area()
 
 
