@@ -291,13 +291,13 @@ class AnimItem:
 
         if self.anchor:
             self.anchor.update()
-        self.save_at_time(AnimItem.anim.timeline.get_time())
+        self.save_at_time(AnimItem.anim.doc.timeline.get_time())
 
 
     def delete(self):
         gcompris.sound.play_ogg("sounds/eraser1.wav",
                                 "sounds/eraser2.wav")
-        self.delete_at_time(AnimItem.anim.timeline.get_time())
+        self.delete_at_time(AnimItem.anim.doc.timeline.get_time())
         if not self.visible:
             AnimItem.anim.deleteItem(self)
         self.show(False)
@@ -342,13 +342,13 @@ class AnimItem:
     def create_item_event(self, item, target):
 
         self.refpoint = None
-        self.save_at_time(AnimItem.anim.timeline.get_time())
+        self.save_at_time(AnimItem.anim.doc.timeline.get_time())
         # By default, an object is displayed till the timeline end
-        self.set_visible_to_end(AnimItem.anim.timeline.get_time())
+        self.set_visible_to_end(AnimItem.anim.doc.timeline.get_time())
 
     def create_item_drag_event(self, item, target, event):
         if event.type == gtk.gdk.BUTTON_RELEASE:
-            self.save_at_time(AnimItem.anim.timeline.get_time())
+            self.save_at_time(AnimItem.anim.doc.timeline.get_time())
 
         if (event.type == gtk.gdk.MOTION_NOTIFY
             and event.state & gtk.gdk.BUTTON1_MASK):
@@ -373,7 +373,7 @@ class AnimItem:
         if event.type == gtk.gdk.BUTTON_RELEASE:
             self.old_x = 0
             self.old_y = 0
-            self.save_at_time(AnimItem.anim.timeline.get_time())
+            self.save_at_time(AnimItem.anim.doc.timeline.get_time())
         elif event.type == gtk.gdk.BUTTON_PRESS:
             self.old_x = event.x
             self.old_y = event.y
@@ -728,7 +728,7 @@ class AnimItemRect(AnimItem):
                                      stroke_color_rgba = stroke)
         else:
             self.item.set_properties(stroke_color_rgba = stroke)
-        self.save_at_time(AnimItem.anim.timeline.get_time())
+        self.save_at_time(AnimItem.anim.doc.timeline.get_time())
 
 #
 # The ellipse (filled or not)
@@ -1112,7 +1112,7 @@ class AnimItemText(AnimItem):
                                  y = y1 + yoffset)
         if self.anchor:
             self.anchor.update()
-        self.save_at_time(AnimItem.anim.timeline.get_time())
+        self.save_at_time(AnimItem.anim.doc.timeline.get_time())
 
 
     def set_bounds(self, p1, p2):

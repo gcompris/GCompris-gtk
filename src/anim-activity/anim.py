@@ -19,6 +19,7 @@
 #  Version 3 of anim
 # Rewrote to support a timeline. Now each object type has its own
 # python class.
+# Each frame can be re-edited at will.
 #
 #  Version 2 of anim
 # Due to performance, the animation code as been rewriten
@@ -64,18 +65,7 @@ class Gcompris_anim:
     self.gcomprisBoard = gcomprisBoard
     self.timeout = 0
 
-    # The list of all the user's objects
-    self.animlist = []
-
-    # There is two board in the same code
-    # here the diff in parameters
-    self.pickle_protocol = 2
-    if self.gcomprisBoard.mode == 'draw':
-      self.format_string = { 'gcompris' : 'GCompris draw 3 cPikle file',
-                             }
-    else:
-      self.format_string = { 'gcompris' : 'GCompris anim 3 cPikle file',
-                             }
+    self.doc = None
 
     if self.gcomprisBoard.mode == 'draw':
       # DRAW
@@ -171,14 +161,15 @@ class Gcompris_anim:
     self.rootitem = goocanvas.Group(
       parent =  self.gcomprisBoard.canvas.get_root_item())
 
+    self.doc = Document(self)
+
     # initialisation
     self.draw_tools()
     self.draw_animtools()
 
-    self.timeline = Timeline(self)
-    self.timeline.draw()
+    self.doc.timeline.draw()
     if self.gcomprisBoard.mode == 'draw':
-      self.timeline.hide()
+      self.doc.timeline.hide()
 
     self.color = Color(self.rootitem, self.drawing_area)
     self.color.draw()
@@ -229,10 +220,10 @@ class Gcompris_anim:
                                    self.selector_section, self.file_type,
                                    general_restore, self)
     elif (keyval == gtk.keysyms.Left):
-      self.timeline.previous()
+      self.doc.timeline.previous()
       return True
     elif (keyval == gtk.keysyms.Right):
-      self.timeline.next()
+      self.doc.timeline.next()
       return True
 
     # Printing
@@ -538,7 +529,7 @@ class Gcompris_anim:
   # This is called by animitem itself when the object
   # is no more displayed on any time lines.
   def deleteItem(self, item):
-    self.animlist.remove(item)
+    self.doc.animlist.remove(item)
 
   # Main callback on item comes here first
   # And are then dispatched to the proper functions
@@ -611,7 +602,7 @@ class Gcompris_anim:
                                                 target)
 
           # We keep all object in a unique list
-          self.animlist.append(self.created_object)
+          self.doc.animlist.append(self.created_object)
 
           # Mark it as selected so we can write in it without
           # having to make a real selection and keys shortcuts
@@ -657,11 +648,11 @@ class Gcompris_anim:
   def refresh(self, time):
     # We keep all object in a unique list
     # Here we order them to refresh them at the given time
-    for item in self.animlist:
+    for item in self.doc.animlist:
       item.display_at_time(time)
 
   def refresh_loop(self):
-    self.timeline.next()
+    self.doc.timeline.next()
     return True
 
   def playing_start(self):
@@ -711,12 +702,27 @@ class Gcompris_anim:
       font = gcompris.skin.get_font("gcompris/board/medium"),
       fill_color = "white")
 
+
+class Document:
+  """This holds everything releated to the animation itself"""
+
+  def __init__(self, anim_):
+    self.anim = anim_
+    self.timeline = Timeline(self.anim)
+    # The list of all the user's objects
+    self.animlist = []
+    self.item_id = 0
+
+    self.pickle_protocol = 2
+    self.format_string = { 'gcompris' : 'GCompris anim 3 cPikle file' }
+
+
   def anim_to_file(self, filename):
 
     file = open(filename, 'wb')
 
     # Save the descriptif frame:
-    pickle.dump(fles.format_string['gcompris'], file, self.pickle_protocol)
+    pickle.dump(self.format_string['gcompris'], file, self.pickle_protocol)
 
     # Save the last mark
     pickle.dump(self.timeline.get_lastmark(), file, self.pickle_protocol)
@@ -739,20 +745,20 @@ class Gcompris_anim:
 
     if type(desc) == type('str'):
       # string
-      if 'desc' != fles.format_string['gcompris']:
-        if (desc == 'GCompris draw 3 cPikle file'
-            or desc == 'GCompris anim 3 cPikle file'):
+      if 'desc' != self.format_string['gcompris']:
+        if (desc == 'GCompris anim 3 cPikle file'):
 
-          self.deselect()
+          self.anim.deselect()
           for item in self.animlist[:]:
             item.delete()
 
           self.timeline.set_lastmark(pickle.load(file))
           self.animlist = pickle.load(file)
           for item in self.animlist:
-            item.restore(self)
+            item.restore(self.anim)
 
-          self.refresh(self.timeline.get_time())
+          self.anim.refresh(self.timeline.get_time())
+          self.timeline.set_time(0)
         else:
           print "ERROR: Unrecognized file format, file", filename, ' has description : ', desc
           file.close()
@@ -763,9 +769,8 @@ class Gcompris_anim:
         return
 
     elif type(desc) == type(1):
-      print filename, 'has no description. Are you sure it\'s', fles.format_string['gcompris'],'?'
-      # int
-      fles.frames_total = desc
+      print filename, 'has no description. Are you sure it\'s', \
+          self.format_string['gcompris'],'?'
 
     file.close()
 
@@ -777,11 +782,11 @@ class Gcompris_anim:
 ###############################################
 def general_save(filename, filetype, fles):
   #print "filename=%s filetype=%s" %(filename, filetype)
-  fles.anim_to_file(filename)
+  fles.doc.anim_to_file(filename)
 
 def general_restore(filename, filetype, fles):
   #print "general_restore : ", filename, " type ",filetype
-  fles.file_to_anim(filename)
+  fles.doc.file_to_anim(filename)
 
 def image_selected(image, fles):
   #fles is used because self is not passed through callback
@@ -798,5 +803,5 @@ def image_selected(image, fles):
                                           fles.root_drawingitem)
 
   # We keep all object in a unique list
-  fles.animlist.append(fles.created_object)
+  fles.doc.animlist.append(fles.created_object)
 
