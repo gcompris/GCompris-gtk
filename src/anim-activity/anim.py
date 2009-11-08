@@ -344,7 +344,6 @@ class Gcompris_anim:
         gcompris.sound.play_ogg("sounds/bleep.wav")
         # Some button have instant effects
         if (self.tools[tool][0] == "SAVE"):
-          print "SAVE"
           gcompris.file_selector_save( self.gcomprisBoard,
                                        self.selector_section, self.file_type,
                                        general_save, self)

@@ -71,12 +71,16 @@ class AnimItem:
     # excactly. This code transform the matrix as a regular
     # python list.
     def matrixDump(self, m):
+        if not m:
+            return None
         return [m[0],m[1],m[2],m[3],m[4],m[5]]
 
     # Sadly matrix are not saved by pickle, don't know why
     # excactly. This code transform a python list to
     # a cairo matrix.
     def matrixRestore(self, m):
+        if not m:
+            return None
         return cairo.Matrix(m[0], m[1], m[2],
                             m[3], m[4], m[5])
 
@@ -934,11 +938,6 @@ class AnimItemPixmap(AnimItem):
                                  y = y1,
                                  width = abs(x2-x1),
                                  height = abs(y2-y1) )
-#        sx = (x2 - x1) / (bounds.x2 - bounds.x1)
-#        sy = (y2 - y1) / (bounds.y2 - bounds.y1)
-#        print "sx=%f sy=%f" %(self.sx * sx, self.sy * sy)
-#        self.item.scale(2.0, 2.0)
-
 
     def get_x1y1(self):
         x = self.item.get_property("x")
@@ -1071,7 +1070,8 @@ class AnimItemText(AnimItem):
         AnimItem.restore(self, anim_)
         self.item = \
             goocanvas.Text(
-                parent = self.rootitem
+                parent = self.rootitem,
+                font = "Sans " + str(self.text_size),
                 )
         AnimItem.init_item(self)
 
