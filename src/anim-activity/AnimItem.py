@@ -31,8 +31,12 @@ import sys
 
 class AnimItem:
     anim = None
+    next_id = 0
 
     def __init__(self, anim_):
+        self.id = AnimItem.next_id
+        AnimItem.next_id += 1
+
         self.init(anim_)
         gcompris.sound.play_ogg("sounds/bleep.wav")
         # We keep the timeline index to which we are visible
@@ -50,7 +54,7 @@ class AnimItem:
 
     def init(self, anim_):
         AnimItem.anim = anim_
-        self.rootitem = goocanvas.Group(parent = anim_.rootitem)
+        self.rootitem = goocanvas.Group(parent = anim_.doc.rootitem)
         self.drawing_area = anim_.drawing_area
 
         self.step = 1
@@ -61,6 +65,7 @@ class AnimItem:
         self.old_x = 0
         self.old_y = 0
 
+        self.rootitem.set_data("id", self.id)
 
     # Return the type name of the managed object
     def type_name(self):
@@ -97,15 +102,19 @@ class AnimItem:
         return result
 
     def __getstate__(self):
-        return [self.visible, self.filled,
+        return [self.id,
+                self.visible, self.filled,
                 self.timelineDump(self.timeline),
                 self.save_addon()]
 
     def __setstate__(self, dict):
-        self.visible = dict[0]
-        self.filled = dict[1]
-        self.timeline = self.timelineRestore(dict[2])
-        self.load_addon(dict[3])
+        self.id = dict[0]
+        if AnimItem.next_id <= self.id:
+            AnimItem.next_id = self.id + 1
+        self.visible = dict[1]
+        self.filled = dict[2]
+        self.timeline = self.timelineRestore(dict[3])
+        self.load_addon(dict[4])
         self.anchor = None
 
     # Some item types need to save/load more
@@ -117,8 +126,9 @@ class AnimItem:
         pass
 
     def dump(self):
-        print "Dump AnimItem:"
-        print self.timeline
+        print "Dump AnimItem: ", self.id
+        print self.rootitem.get_data("id")
+        #print self.timeline
         pass
 
 
@@ -308,6 +318,7 @@ class AnimItem:
         child_num = rootparent.find_child (parent);
         if child_num < rootparent.get_n_children() - 1:
             rootparent.move_child (child_num, child_num + 1);
+            AnimItem.anim.doc.save_zorder()
 
     def lower(self):
         parent = self.item.get_parent()
@@ -315,6 +326,7 @@ class AnimItem:
         child_num = rootparent.find_child (parent);
         if child_num > 0:
             rootparent.move_child (child_num, child_num - 1);
+            AnimItem.anim.doc.save_zorder()
 
 
     def rotate(self, angle):
@@ -429,14 +441,13 @@ class AnimItem:
             lastkey = k
             lastval = v
 
-
     # Return the (properties, transformation) of this
     # object.
     def get(self):
         result = {}
         for prop in self.get_properties():
             result[prop] = self.item.get_property(prop)
-        return(result, self.item.get_transform())
+        return( result, self.item.get_transform() )
 
     # Apply the given properties and transformation to this
     # object.

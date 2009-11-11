@@ -137,7 +137,7 @@ class Timeline:
         self.current_time = item.get_data("time")
 
         # Let anim knows there is a new time set
-        self.anim.refresh(self.get_time())
+        self.anim.doc.refresh(self.get_time())
 
     def lastmark_it(self, item):
         # Unmark previous mark

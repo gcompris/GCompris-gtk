@@ -197,10 +197,10 @@ class Gcompris_anim:
     return
 
   def repeat(self):
-    print("Gcompris_anim repeat.")
+    pass
 
   def config(self):
-    print("Gcompris_anim config.")
+    pass
 
   def key_press(self, keyval, commit_str, preedit_str):
     #
@@ -625,12 +625,6 @@ class Gcompris_anim:
 
     return False
 
-  def refresh(self, time):
-    # We keep all object in a unique list
-    # Here we order them to refresh them at the given time
-    for item in self.doc.animlist:
-      item.display_at_time(time)
-
   def refresh_loop(self):
     self.doc.timeline.next()
     return True
@@ -688,13 +682,55 @@ class Document:
 
   def __init__(self, anim_):
     self.anim = anim_
+    # This is the time line object that if at to bottom of
+    # the screen.
     self.timeline = Timeline(self.anim)
     # The list of all the user's objects
     self.animlist = []
-    self.item_id = 0
+
+    # This stores the Z order list of items at a given time.
+    # The key is the time (number) and the value is
+    # a list of items id in the order they appear on screen.
+    self.zorder = {}
+
+    # Create our rootitem. We put each canvas item in it so at the end we
+    # only have to kill it. The canvas deletes all the items it contains
+    # automaticaly.
+    self.rootitem = goocanvas.Group(
+      parent =  self.anim.gcomprisBoard.canvas.get_root_item())
 
     self.pickle_protocol = 2
     self.format_string = { 'gcompris' : 'GCompris anim 3 cPikle file' }
+
+  def refresh(self, time):
+    # We keep all object in a unique list
+    # Here we call them to give them a chance to
+    # display them if they have to
+    for item in self.animlist:
+      item.display_at_time(time)
+    self.restore_zorder()
+
+  def save_zorder(self):
+    z_order = []
+    for i in range(self.rootitem.get_n_children()):
+      item = self.rootitem.get_child(i)
+      if item.props.visibility == goocanvas.ITEM_VISIBLE:
+        z_order.append(item.get_data("id"))
+
+    self.zorder[self.timeline.get_time()] = z_order
+
+  def restore_zorder(self):
+    z_order = []
+    if self.timeline.get_time() in self.zorder:
+      z_order = self.zorder[self.timeline.get_time()]
+    for i in range(self.rootitem.get_n_children()):
+      item = self.rootitem.get_child(i)
+      item_id = item.get_data("id")
+      try:
+        z_index = z_order.index(item_id)
+        self.rootitem.move_child(i, z_index);
+      except ValueError:
+        pass
 
 
   def anim_to_file(self, filename):
@@ -709,6 +745,9 @@ class Document:
 
     # Save the animation
     pickle.dump(self.animlist, file, self.pickle_protocol)
+
+    # Save the z order
+    pickle.dump(self.zorder, file, self.pickle_protocol)
 
     file.close()
 
@@ -737,7 +776,10 @@ class Document:
           for item in self.animlist:
             item.restore(self.anim)
 
-          self.anim.refresh(self.timeline.get_time())
+          self.zorder = pickle.load(file)
+
+          # Restore is complete
+          self.refresh(self.timeline.get_time())
           self.timeline.set_time(0)
         else:
           print "ERROR: Unrecognized file format, file", filename, ' has description : ', desc
