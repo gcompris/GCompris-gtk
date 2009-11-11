@@ -904,8 +904,16 @@ display_activation_dialog()
   gtk_widget_show(GTK_WIDGET(widget_activation_entry));
   gtk_entry_set_text(GTK_ENTRY(widget_activation_entry), "CODE");
 
-  char *msg = g_strdup_printf(_("GCompris is free software released under the GPL License. In order to support its development, the Windows version provides only %d of the %d activities. You can get the full version for a small fee at\n<http://gcompris.net>\nThe GNU/Linux version does not have this restriction. Note that GCompris is being developed to free schools from monopolistic software vendors. If you also believe that we should teach freedom to children, please consider using GNU/Linux. Get more information at FSF:\n<http://www.fsf.org/philosophy>"),
-			      gc_board_number_in_demo, board_count);
+  char *msg = g_strdup_printf( \
+      _("GCompris is free software released under the GPL License. "
+	"In order to support its development, the Windows version "
+	"provides only %d of the %d activities. You can get the "
+	"full version for a small fee at\n<http://gcompris.net>\n"
+	"The GNU/Linux version does not have this restriction. "
+	"If you also believe that we should teach freedom to children, "
+	"please consider using GNU/Linux. Get more information at "
+	"FSF:\n<http://www.fsf.org/philosophy>"),
+      gc_board_number_in_demo, board_count);
   gc_dialog(msg, activation_done);
   g_free(msg);
 
