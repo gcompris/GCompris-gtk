@@ -143,20 +143,6 @@ class AnimItem:
         self.item.connect("button_release_event", AnimItem.anim.item_event)
         self.item.connect("motion_notify_event", AnimItem.anim.item_event)
 
-    def test(self):
-        self.set_visible(0, 10)
-        self.set_visible(11, 20)
-        self.set_visible(4, 8)
-        self.set_visible(0, 10)
-        self.set_visible_to_end(1000)
-        print self.is_visible(10)
-        print self.is_visible(800)
-        print self.is_visible(1001)
-        self.delete_at_time(10)
-        self.delete_at_time(1000)
-        self.delete_at_time(20)
-        print self.visible
-
     # Mark this object to be visible from fromtime to totime.
     def set_visible(self, fromtime, totime):
         self.visible.append( (fromtime, totime) )
