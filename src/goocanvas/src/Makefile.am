@@ -27,6 +27,7 @@ libgoocanvasincludedir = $(includedir)/goocanvas-1.0
 
 libgoocanvas_public_headers =		\
 	goocanvasellipse.h		\
+	goocanvasgrid.h			\
 	goocanvasgroup.h		\
 	goocanvasimage.h		\
 	goocanvasitem.h			\
@@ -48,6 +49,7 @@ libgoocanvas_la_SOURCES =		\
 	goocanvasatk.c			\
 	goocanvasellipse.c		\
 	goocanvasenumtypes.c		\
+	goocanvasgrid.c			\
 	goocanvasgroup.c		\
 	goocanvasimage.c		\
 	goocanvasitem.c			\
