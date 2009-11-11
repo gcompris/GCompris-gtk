@@ -217,6 +217,10 @@ class AnimItem:
         if(y > self.drawing_area[3]):
           y = self.drawing_area[3]
 
+        if self.item:
+            return AnimItem.anim.gcomprisBoard.canvas.\
+                convert_to_item_space(self.item, x, y)
+
         result = []
         tmp = round(((x+(self.step)) -
                      self.drawing_area[0])/self.step) - 1
@@ -225,10 +229,6 @@ class AnimItem:
         tmp = round(((y+(self.step)) -
                      self.drawing_area[1])/self.step) - 1
         result.append(float(self.drawing_area[1] + tmp*self.step))
-
-        if self.item:
-            return AnimItem.anim.gcomprisBoard.canvas.\
-                convert_to_item_space(self.item, x, y)
 
         return result
 
@@ -373,18 +373,27 @@ class AnimItem:
             self.old_y = 0
             self.save_at_time(AnimItem.anim.doc.timeline.get_time())
         elif event.type == gtk.gdk.BUTTON_PRESS:
+            #(event.x, event.y) = AnimItem.anim.gcomprisBoard.canvas.\
+            #    convert_from_item_space(item, event.x, event.y)
+            #print event.x, " ", event.y
             self.old_x = event.x
             self.old_y = event.y
         elif event.type == gtk.gdk.MOTION_NOTIFY:
+            #(event.x, event.y) = AnimItem.anim.gcomprisBoard.canvas.\
+            #    convert_from_item_space(item, event.x, event.y)
             dx = event.x - self.old_x
             dy = event.y - self.old_y
 
+            flip_x = 1
+            if item.get_transform() and item.get_transform()[0] < 0:
+                flip_x = -1
+
             bounds = self.item.get_bounds()
             # Check drawing boundaries
-            if(bounds.x1 + dx < self.drawing_area[0]):
-                dx = self.drawing_area[0] - bounds.x1
-            if(bounds.x2 + dx > self.drawing_area[2]):
-                dx = self.drawing_area[2] - bounds.x2
+            if(bounds.x1 + dx * flip_x < self.drawing_area[0]):
+                dx = (self.drawing_area[0] - bounds.x1) * flip_x
+            if(bounds.x2 + dx * flip_x > self.drawing_area[2]):
+                dx = (self.drawing_area[2] - bounds.x2) *flip_x
             if(bounds.y1 + dy < self.drawing_area[1]):
                 dy = self.drawing_area[1]- bounds.y1
             if(bounds.y2 + dy > self.drawing_area[3]):
@@ -577,7 +586,7 @@ class Anchor:
             self.fixed_y = 0
             self.offset_x = 0
             self.offset_y = 0
-            self.animitem.save_at_time(self.animitem.anim.timeline.get_time())
+            self.animitem.save_at_time(self.animitem.anim.doc.timeline.get_time())
 
         elif (event.type == gtk.gdk.MOTION_NOTIFY
             and event.state & gtk.gdk.BUTTON1_MASK):
