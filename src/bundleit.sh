@@ -6,14 +6,41 @@
 
 if test -z "$1"; then
     echo "Usage: bundleit.sh directory-activity [locale code]"
+    echo "       If no locale is provided then bundle all locales."
     echo "Example (for french locale):"
     echo "./bundleit.sh crane-activity fr"
     exit 1
 fi
 
+ERROR()
+{
+  local CNONE="\033[0m"		# No color
+  local CRED="\033[0;31m"	# Red color
+
+  echo "${CRED}$1${CNONE}"
+  exit 1
+}
+
+WARNING()
+{
+  local CNONE="\033[0m"		# No color
+  local CMAG="\033[0;35m"	# Magenta color
+  echo "${CMAG}$1${CNONE}"
+}
+
+# Sugar cleanup
+cleanup()
+{
+    echo "Cleanup $activity_dir"
+    rm -rf $activity_dir
+    rm -f $activity_dir.tar.bz2
+}
+
 lang=
 if test -n "$2"; then
     lang=$2
+else
+  WARNING "No locale specified => ALL LOCALES ARE PACKAGED"
 fi
 
 activitysrc=`basename $1`
@@ -43,18 +70,26 @@ extra_bin=""
 if test "$activitysrc" = "chess_computer-activity" || \
    test "$activitysrc" = "chess_movelearn-activity" || \
    test "$activitysrc" = "chess_partyend-activity" ; then
- extra_bin=`which gnuchess`
+  extra_bin=`which gnuchess`
+  if [ "$extra_bin" = "" ]; then
+    extra_bin=`which gnome-gnuchess`
+    if [ "$extra_bin" = "" ]; then
+      ERROR "  ERROR: Cannot find gnuchess or gnome-gnuchess"
+    fi
+  fi
 fi
 
 if test "$activitysrc" = "electric-activity" ; then
  extra_bin=`which gnucap`
+ if [ "$extra_bin" = "" ]; then
+   ERROR "  ERROR: Cannot find gnucap"
+ fi
 fi
 
 if test -f $activitysrc/init_path.sh; then
   . $activitysrc/init_path.sh
 else
-  echo "ERROR: Cannot find $activitysrc/init_path.sh"
-  exit 1
+  ERROR "  ERROR: Cannot find $activitysrc/init_path.sh"
 fi
 
 # Bundle names must be formated without underscores
@@ -92,45 +127,61 @@ if [ -f "$extra_bin" ]; then
   cp $extra_bin $activity_dir/bin
 fi
 
-# Add the skin directory
-ln -s ../../../boards/skins -t $activity_dir/resources/
-
 # Add the locale translation file
-dir=$activity_dir/locale/$lang/LC_MESSAGES
-mkdir -p $dir
-if test -r ../po/$lang.gmo; then
-    cp ../po/$lang.gmo $dir/gcompris.mo
-    echo "installing $lang.gmo as $dir/gcompris.mo"
+if [ "$lang" != "" ]; then
+  dir=$activity_dir/locale/$lang/LC_MESSAGES
+  mkdir -p $dir
+  if test -r ../po/$lang.gmo; then
+      cp ../po/$lang.gmo $dir/gcompris.mo
+  else
+      WARNING "  WARNING: No translation found in ../po/$lang.gmo"
+  fi
 else
-    echo "WARNING: No translation found in ../po/$lang.gmo"
+  for gmo in ../po/*.gmo
+  do
+    lng=`echo $gmo | sed s/.gmo//`
+    dir=$activity_dir/locale/$lng/LC_MESSAGES
+    mkdir -p $dir
+    cp ../po/$lng.gmo $dir/gcompris.mo
+  done
 fi
+
+# Never keep the voices by default
+rm -f $activity_dir/resources/voices
 
 # Add the mandatory sounds of this activity
 mandatory_sound_dir=`grep mandatory_sound_dir $activity_dir/*.xml | cut -d= -f2 | sed s/\"//g`
-if test -n "$mandatory_sound_dir"
-then
-    echo "This activity defines a mandatory_sound_dir in $mandatory_sound_dir"
-    mandatory_sound_dir=`echo "$mandatory_sound_dir" | sed 's/\$LOCALE/'$lang/`
-    echo "Adding mandatory sound dir directory: $mandatory_sound_dir"
-    up=`dirname $mandatory_sound_dir`
-    mkdir -p $activity_dir/resources/$up
-    dotdot=`echo $up | sed s/[^/]*/../g`
+localized=`echo "$mandatory_sound_dir" | grep "\$LOCALE"`
+# Is this a localized mandatory_sound_dir
+if [ "$lang" != "" -a "$localized" != "" ]; then
+  # Copying localized content
+  mandatory_sound_dir=`echo "$mandatory_sound_dir" | sed 's/\$LOCALE/'$lang/`
+  echo "  Adding mandatory sound dir directory: $mandatory_sound_dir"
+  up=`dirname $mandatory_sound_dir`
+  mkdir -p $activity_dir/resources/$up
+  dotdot=`echo $up | sed s/[^/]*/../g`
+  if [ -d ../boards/$mandatory_sound_dir ]
+  then
     ln -s $dotdot/../../../boards/$mandatory_sound_dir -t $activity_dir/resources/$up
+  else
+    echo "ERROR: Resource dir not found: $dotdot/../../../boards/$mandatory_sound_dir"
+    cleanup
+    exit 1
+  fi
 fi
 
 # Add the resources if they are in another activity
 if [ ! -d $activity_dir/resources ]; then
-  echo "This activity has it's resources in $resourcedir/"
   ln -s ../$resourcedir -t $activity_dir
 fi
 
 # Add the plugins in the proper place
-echo "This activity has it's plugindir in $plugindir"
 cp $plugindir/*.so $activity_dir
 rm -f $activity_dir/libmenu.so
 
 # Add the python plugins
-if [ -f $pythonplugindir/*.py ]; then
+haspyfile=`ls $pythonplugindir/*.py 2>/dev/null`
+if [ "$haspyfile" != "" ]; then
   cp $pythonplugindir/*.py $activity_dir
   # Add the GCompris binding
   rm -f $activity_dir/gcompris
@@ -151,6 +202,7 @@ fi
 cp $activity_dir/../runit.sh $activity_dir
 
 tar -cjf $activity_dir.tar.bz2 -h \
+    --exclude ".gitignore" \
     --exclude ".svn" \
     --exclude "resources/skins/babytoy" \
     $draw \
@@ -166,9 +218,13 @@ tar -cjf $activity_dir.tar.bz2 -h \
     $activity_dir
 
 # Create the sugar .xo zip bundle
-rm -f $activity_dir.xo
-tar -tjf $activity_dir.tar.bz2 | zip $activity_dir.xo -@
+if test -z "$lang"; then
+  suffix=""
+else
+  suffix="-$lang"
+fi
 
-# Sugar cleanup
-rm -rf $activity_dir
-rm $activity_dir.tar.bz2
+rm -f $activity_dir.xo
+tar -tjf $activity_dir.tar.bz2 | zip ${activity_dir}${suffix}.xo -@ > /dev/null
+
+cleanup
