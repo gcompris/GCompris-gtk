@@ -67,6 +67,13 @@
   (gtype-id "GOO_TYPE_CANVAS_IMAGE")
 )
 
+(define-object Svg
+  (in-module "Goo")
+  (parent "GooCanvasItemSimple")
+  (c-name "GooCanvasSvg")
+  (gtype-id "GOO_TYPE_CANVAS_SVG")
+)
+
 (define-object Group
   (in-module "Goo")
   (parent "GooCanvasItemSimple")
@@ -760,6 +767,25 @@
     '("GdkPixbuf*" "pixbuf")
     '("gdouble" "x")
     '("gdouble" "y")
+  )
+  (varargs #t)
+)
+
+
+;; From goocanvassvg.h
+
+(define-function goo_canvas_svg_get_type
+  (c-name "goo_canvas_svg_get_type")
+  (return-type "GType")
+)
+
+(define-function goo_canvas_svg_new
+  (c-name "goo_canvas_svg_new")
+  (is-constructor-of "GooCanvasSvg")
+  (return-type "GooCanvasItem*")
+  (parameters
+    '("GooCanvasItem*" "parent")
+    '("RsvgHandle*" "svg_handle")
   )
   (varargs #t)
 )
