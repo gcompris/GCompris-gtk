@@ -173,6 +173,7 @@ gc_prop_new ()
   tmp->menu_dir			  = NULL;
   tmp->system_icon_dir            = NULL;
   tmp->cache_dir                  = NULL;
+  tmp->server	                  = NULL;
   tmp->drag_mode                  = GC_DRAG_MODE_GRAB;
 
   tmp->config_dir = gc_prop_default_config_directory_get();
@@ -527,6 +528,7 @@ gc_prop_destroy (GcomprisProperties *props)
   g_free(props->database);
   g_free(props->config_dir);
   g_free(props->user_dir);
+  g_free(props->server);
   g_free(props->root_menu);
   g_free(props);
 }
