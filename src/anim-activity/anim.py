@@ -710,6 +710,15 @@ class Document:
       item.display_at_time(time)
     self.restore_zorder()
 
+  # If an item is removed, we must remove it from all
+  # the timelines in which we saved a z_order
+  def delete_from_zorder(self, item_id):
+    for z_order in self.zorder.values():
+      try:
+        z_order.remove(item_id)
+      except ValueError:
+        pass
+
   def save_zorder(self):
     z_order = []
     for i in range(self.rootitem.get_n_children()):
@@ -725,12 +734,13 @@ class Document:
       z_order = self.zorder[self.timeline.get_time()]
     for i in range(self.rootitem.get_n_children()):
       item = self.rootitem.get_child(i)
-      item_id = item.get_data("id")
-      try:
-        z_index = z_order.index(item_id)
-        self.rootitem.move_child(i, z_index);
-      except ValueError:
-        pass
+      if item:
+        item_id = item.get_data("id")
+        try:
+          z_index = z_order.index(item_id)
+          self.rootitem.move_child(i, z_index);
+        except ValueError:
+          pass
 
 
   def anim_to_file(self, filename):
@@ -779,8 +789,8 @@ class Document:
           self.zorder = pickle.load(file)
 
           # Restore is complete
-          self.refresh(self.timeline.get_time())
           self.timeline.set_time(0)
+          self.refresh(0)
         else:
           print "ERROR: Unrecognized file format, file", filename, ' has description : ', desc
           file.close()

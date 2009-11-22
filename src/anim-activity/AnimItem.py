@@ -297,6 +297,7 @@ class AnimItem:
         if not self.visible:
             AnimItem.anim.deleteItem(self)
         self.show(False)
+        AnimItem.anim.doc.delete_from_zorder(self.id)
 
     def raise_(self):
         parent = self.item.get_parent()
