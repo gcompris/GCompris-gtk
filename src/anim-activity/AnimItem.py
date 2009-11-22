@@ -496,7 +496,7 @@ class Anchor:
 
         self.anchorgroup = \
           goocanvas.Group(
-            parent = animitem.anim.rootitem,
+            parent = animitem.anim.doc.rootitem,
           )
 
         self.anchorbound = \
@@ -1004,7 +1004,7 @@ class AnchorText:
 
         self.anchorgroup = \
           goocanvas.Group(
-            parent = animitem.anim.rootitem,
+            parent = animitem.anim.doc.rootitem,
           )
 
         self.anchorbound = \
