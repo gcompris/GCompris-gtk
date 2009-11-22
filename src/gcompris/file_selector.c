@@ -464,42 +464,51 @@ display_files(GooCanvasItem *root_item, gchar *rootdir)
 			      "allfilename", allfilename, g_free);
       /* The type */
       if(ext)
-	goo_canvas_text_new (goo_canvas_get_root_item(GOO_CANVAS(canvas)),
-			     ext,
-			     ix + (IMAGE_WIDTH + IMAGE_GAP)/2,
-			     iy + 10,
-			     -1,
-			     GTK_ANCHOR_CENTER,
-			     "font", "Sans 6",
-			     "fill-color-rgba",
-			     gc_skin_get_color("gcompris/fileselectcol"),
-			     NULL);
+	{
+	  GooCanvasItem *_item = \
+	    goo_canvas_text_new (goo_canvas_get_root_item(GOO_CANVAS(canvas)),
+				 ext,
+				 ix + (IMAGE_WIDTH + IMAGE_GAP)/2,
+				 iy + 10,
+				 -1,
+				 GTK_ANCHOR_CENTER,
+				 "font", "Sans 6",
+				 "fill-color-rgba",
+				 gc_skin_get_color("gcompris/fileselectcol"),
+				 NULL);
+	  g_signal_connect(_item, "button_press_event",
+			   (GtkSignalFunc) item_event_file_selector,
+			   allfilename);
+	  gc_item_focus_init(_item, item);
+	}
 
       /* The filename */
-      item = goo_canvas_text_new (goo_canvas_get_root_item(GOO_CANVAS(canvas)),
-				  file_wo_ext,
-				  ix + (IMAGE_WIDTH + IMAGE_GAP)/2,
-				  iy + IMAGE_HEIGHT - 30,
-				  -1,
-				  GTK_ANCHOR_CENTER,
-				  "font", "Sans 7",
-				  "fill-color-rgba", gc_skin_get_color("gcompris/fileselectcol"),
-				  NULL);
+      GooCanvasItem *name_item = \
+	goo_canvas_text_new (goo_canvas_get_root_item(GOO_CANVAS(canvas)),
+			     file_wo_ext,
+			     ix + (IMAGE_WIDTH + IMAGE_GAP)/2,
+			     iy + IMAGE_HEIGHT - 30,
+			     -1,
+			     GTK_ANCHOR_CENTER,
+			     "font", "Sans 7",
+			     "fill-color-rgba", gc_skin_get_color("gcompris/fileselectcol"),
+			     NULL);
       g_free(file_wo_ext);
       g_free(filename);
 
       if(g_file_test(allfilename, G_FILE_TEST_IS_DIR))
 	{
-	  g_signal_connect(item, "button_press_event",
+	  g_signal_connect(name_item, "button_press_event",
 			   (GtkSignalFunc) item_event_directory,
 			   allfilename);
 	}
       else
 	{
-	  g_signal_connect(item, "button_press_event",
+	  g_signal_connect(name_item, "button_press_event",
 			   (GtkSignalFunc) item_event_file_selector,
 			   allfilename);
 	}
+      gc_item_focus_init(name_item, item);
 
       ix += IMAGE_WIDTH + IMAGE_GAP;
 
