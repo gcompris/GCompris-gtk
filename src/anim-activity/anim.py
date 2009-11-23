@@ -193,6 +193,8 @@ class Gcompris_anim:
     gcompris.set_cursor(gcompris.CURSOR_DEFAULT);
     self.rootitem.remove()
 
+    del self.doc
+
   def pause(self, pause):
     return
 
@@ -701,6 +703,9 @@ class Document:
 
     self.pickle_protocol = 2
     self.format_string = { 'gcompris' : 'GCompris anim 3 cPikle file' }
+
+  def __del__(self):
+    self.rootitem.remove()
 
   def refresh(self, time):
     # We keep all object in a unique list
