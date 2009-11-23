@@ -46,7 +46,13 @@ static GString *answer_string = NULL;
 static void scale_destroy_all_items(void);
 static void scale_next_level(void);
 
-#define ITEM_X_MIN 170
+#define MODE_COUNT 0	// No conversions
+#define MODE_WEIGHT 1	// kg <-> g conversions
+#define DEFAULT_MODE MODE_COUNT
+static gint board_mode = DEFAULT_MODE;
+static gint bonus_item = GC_BONUS_SMILEY;
+
+#define ITEM_X_MIN 125
 #define ITEM_X_MAX 500
 #define ITEM_Y_MIN 400
 #define ITEM_Y_MAX 500
@@ -73,6 +79,7 @@ typedef struct
 
 static GList *item_list = NULL;
 static int objet_weight = 0;
+static gboolean ask_for_answer = FALSE;
 static gdouble balance_left_y;
 static gdouble balance_right_y;
 static gdouble balance_left_x;
@@ -153,11 +160,20 @@ start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard=agcomprisBoard;
       gcomprisBoard->level=1;
       gcomprisBoard->sublevel=1;
-      gcomprisBoard->number_of_sublevel=5; /* Go to next level after this number of 'play' */
-      gcomprisBoard->maxlevel = 4;
 
       gc_bar_set(GC_BAR_LEVEL|GC_BAR_CONFIG);
       gc_bar_location(-1, -1, 0.7);
+
+      if (strcmp(gcomprisBoard->mode, "count") == 0)
+        board_mode = MODE_COUNT;
+      else if (strcmp(gcomprisBoard->mode, "weight") == 0)
+        board_mode = MODE_WEIGHT;
+      else
+        board_mode = DEFAULT_MODE;
+
+      gcomprisBoard->maxlevel = (board_mode == MODE_COUNT) ? 4 : 5;
+      gcomprisBoard->number_of_sublevel = (board_mode == MODE_COUNT) ? 5 : 3;
+      bonus_item = (board_mode == MODE_COUNT) ? GC_BONUS_SMILEY : GC_BONUS_TUX;
 
       gamewon = FALSE;
       pause_board(FALSE);
@@ -273,7 +289,10 @@ key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
       if(c>='0' && c<='9' && answer_string->len < 5)
 	answer_string = g_string_append_c(answer_string, c);
 
-      tmpstr = g_strdup_printf(_("Weight = %s"), answer_string->str);
+      if (board_mode == MODE_WEIGHT)
+        tmpstr = g_strdup_printf(_("Weight in g = %s"), answer_string->str);
+      else
+        tmpstr = g_strdup_printf(_("Weight = %s"), answer_string->str);
       g_object_set(answer_item,
 		   "text", tmpstr,
 		   NULL);
@@ -311,10 +330,13 @@ scale_anim_plate(void)
 {
   double delta_y;
   double angle;
+  double scale;
   int diff;
 
+  // in MODE_WEIGHT the granularity is gramm, so we use a different factor
+  scale = (board_mode == MODE_WEIGHT) ? 2000.0 : 10.0;
   diff = get_weight_plate(0);
-  delta_y = CLAMP(PLATE_Y_DELTA / 10.0 * diff,
+  delta_y = CLAMP(PLATE_Y_DELTA / scale * diff,
 		  -PLATE_Y_DELTA, PLATE_Y_DELTA);
 
   if(get_weight_plate(1) == 0)
@@ -335,8 +357,7 @@ scale_anim_plate(void)
       gc_item_rotate_with_center(bras, -angle, 138, 84);
     }
 
-  if(diff == 0 && (gcomprisBoard->level == 2
-		   || gcomprisBoard->level == 4))
+  if(diff == 0 && ask_for_answer)
     {
 
       double x_offset = BOARDWIDTH/2;
@@ -387,7 +408,7 @@ scale_item_move_to(ScaleItem *item, int plate)
 	gc_sound_play_ogg ("sounds/eraser1.wav", NULL);
 
       // find the first free place in the plate
-      for(index=0; index < PLATE_SIZE; index ++)
+      for(index=0; index < 2 * PLATE_SIZE; index++)
         {
 	  found = FALSE;
 	  for(list = item_list; list; list = list->next)
@@ -415,8 +436,8 @@ scale_item_move_to(ScaleItem *item, int plate)
 	      g_object_unref(item->item);
 
 	      gc_item_absolute_move(item->item,
-				    x + index * ITEM_W,
-				    y + PLATE_Y - ITEM_H + 5);
+				    x + (index % PLATE_SIZE) * ITEM_W,
+				    y + PLATE_Y - ITEM_H + 5 - (index >= PLATE_SIZE ? ITEM_H : 0));
 	      break;
             }
         }
@@ -443,6 +464,8 @@ scale_item_move_to(ScaleItem *item, int plate)
     }
 
   scale_anim_plate();
+  if (!gamewon)
+    gc_item_focus_init(item->item, NULL);
 }
 
 static gboolean
@@ -519,7 +542,6 @@ scale_drag_event(GooCanvasItem *w,
 	    else
 	      plate=0;
 	  }
-	gc_item_focus_init(scale->item, NULL);
 	scale_item_move_to(scale, plate);
       }
       break;
@@ -530,12 +552,17 @@ scale_drag_event(GooCanvasItem *w,
   return FALSE;
 }
 
+// show_weight:
+// 0 -> no unit,
+// 1 -> display g, 1000 -> display kg,
+// 10000 -> random (weighted 1:2)
 static ScaleItem *
 scale_list_add_weight(GooCanvasItem *group,
-		      gint weight)
+		      gint weight, int show_weight)
 {
   ScaleItem *new_item;
   GdkPixbuf *pixmap;
+  gchar *weight_text;
   double x, y;
   GList *last;
 
@@ -564,15 +591,43 @@ scale_list_add_weight(GooCanvasItem *group,
   new_item->y = y;
   new_item->weight = weight;
 
-  pixmap = gc_pixmap_load("scale/masse%d.png", weight);
-  new_item->item = goo_canvas_image_new(group,
-					pixmap,
-					0, 0,
-					NULL);
+  /* If selected, display multiples of 500g as 'g' or 'kg' randomly */
+  if (show_weight > 9999) {
+    if ((weight % 500) == 0)
+  	show_weight = g_random_int_range(1,3000);
+    else
+	show_weight = 1;
+  }
+
+  if (show_weight < 1000) {
+    	weight_text = g_strdup_printf("%d%s", weight, show_weight ? "\n  g" : "");
+  } else {
+  	int thousand = weight / 1000;
+  	int hundred = (weight % 1000) / 100;
+    	weight_text = g_strdup_printf("%c %c\n  kg", '0' + thousand, '0' + hundred);
+  }
+  pixmap = gc_pixmap_load("scale/masse.png");
+
+  new_item->item = goo_canvas_group_new(group, NULL);
+  goo_canvas_image_new(new_item->item,
+		       pixmap,
+		       0, 0,
+		       NULL);
+  goo_canvas_text_new(new_item->item,
+		      weight_text,
+		      18,
+		      35,
+		      -1,
+		      GTK_ANCHOR_CENTER,
+		      "font", "sans 10",
+		      "fill_color_rgba", 0x000000FFL,
+		      NULL);
+
   goo_canvas_item_translate(new_item->item,
 			    new_item->x,
 			    new_item->y);
   gdk_pixbuf_unref(pixmap);
+  g_free(weight_text);
 
   gc_item_focus_init(new_item->item, NULL);
   g_signal_connect(new_item->item, "button_press_event",
@@ -586,11 +641,15 @@ scale_list_add_weight(GooCanvasItem *group,
   return new_item;
 }
 
+// show_weight:
+// 0 -> no display,
+// 1 -> display g,
+// 1000 -> display kg, 10000 -> random (weighted 1:2)
 static ScaleItem *
 scale_list_add_object(GooCanvasItem *group,
 		      GdkPixbuf *pixmap,
 		      int weight, int plate,
-		      gboolean show_weight)
+		      int show_weight)
 {
   GooCanvasItem *item;
   ScaleItem * new_item;
@@ -610,7 +669,22 @@ scale_list_add_object(GooCanvasItem *group,
 
       x = PLATE_SIZE * ITEM_W * .5;
       y = PLATE_Y - 20.0;
-      text = g_strdup_printf("%d", objet_weight);
+      if (board_mode == MODE_WEIGHT) {
+      	if (show_weight > 9999) {
+          if ((weight % 500) == 0)
+      	    show_weight = g_random_int_range(1,3000);
+	  else
+	    show_weight = 1;
+        }
+
+      	if (show_weight < 1000)
+      		text = g_strdup_printf("%d g", objet_weight);
+      	else
+      		text = g_strdup_printf("%.1f kg", objet_weight / 1000.0);
+      } else {
+      	text = g_strdup_printf("%d", objet_weight);
+      }
+
       goo_canvas_text_new(group,
 			  text,
 			  x + 1.0,
@@ -672,7 +746,7 @@ static void
 scale_prepare_level()
 {
   GdkPixbuf *pixmap;
-  gboolean show_weight=FALSE;
+  int show_weight = 0;
   const int default_list_weight[10] = { 1, 2, 2, 5, 5, 10, 10};
   int list_weight[10]= {0};
   int i, tmp[5];
@@ -711,14 +785,127 @@ scale_prepare_level()
       break;
     }
 
+  ask_for_answer = !show_weight;
   for(i=0; list_weight[i] ; i++)
-    scale_list_add_weight(group_m, list_weight[i]);
+    scale_list_add_weight(group_m, list_weight[i], 0);
 
   pixmap = gc_pixmap_load(imageList[g_random_int_range(0,imageListCount)]);
   scale_list_add_object(group_d, pixmap, objet_weight, -1, show_weight);
   gdk_pixbuf_unref(pixmap);
 }
 
+// Defines a set of available weight-items and possible values for the "unknown" object
+struct weight_set {
+	const int list_weight[10];
+	int range_min;
+	int range_max;
+};
+
+static struct weight_set weight1 = {
+    	.list_weight = { 100,200,400,500,800,1000 },
+	.range_min = 500,
+	.range_max = 2000,
+};
+
+static struct weight_set weight2 = {
+    	.list_weight = { 100,100,200,500,1000,1500,2000,2500,3000 },
+	.range_min = 200,
+	.range_max = 9000,
+};
+static struct weight_set weight3 = {
+   	.list_weight = { 100,200,300,600,900,1200,1500 },
+	.range_min = 500,
+	.range_max = 3000,
+};
+static struct weight_set weight4 = {
+   	.list_weight = { 100,100,200,200,200,500,500,1000 },
+	.range_min = 300,
+	.range_max = 2500,
+};
+
+#define ARRAY_SIZE(arr) (sizeof(arr) / sizeof((arr)[0]))
+
+static void scale_prepare_level_weight()
+{
+    GdkPixbuf *pixmap;
+    int show_weight_objet = 1;
+    int show_weight_mass = 1;
+
+    // A level may use the following weight-sets
+    struct weight_set *set1[] = { &weight1, &weight2, &weight3, &weight4 };
+    struct weight_set *set2[] = { &weight1, &weight2, &weight4 };
+    struct weight_set *set3[] = { &weight1, &weight2, &weight3, &weight4 };
+    struct weight_set *set4[] = { &weight1, &weight2, &weight4 };
+    struct weight_set *set5[] = { &weight1, &weight4 };
+    struct weight_set *set = &weight1;
+    const int *list_weight;
+    int i, tmp[6] = { 0 };
+
+    group_m = goo_canvas_group_new(boardRootItem, NULL);
+    switch(gcomprisBoard->level)
+    {
+        case 1:
+	    set = set1[g_random_int_range(0,ARRAY_SIZE(set1))];
+            objet_weight = g_random_int_range(set->range_min / 100, set->range_max / 100) * 100;
+            list_weight = set->list_weight;
+            show_weight_objet = 1;
+            show_weight_mass = 1;
+            break;
+	case 2:
+	    set = set2[g_random_int_range(0,ARRAY_SIZE(set2))];
+            objet_weight = g_random_int_range(set->range_min / 100, set->range_max / 100) * 100;
+            list_weight = set->list_weight;
+            show_weight_objet = 10000;
+            show_weight_mass = 10000;
+            break;
+        case 3:
+	    set = set3[g_random_int_range(0,ARRAY_SIZE(set3))];
+            objet_weight = g_random_int_range(set->range_min / 100, set->range_max / 100) * 100;
+            list_weight = set->list_weight;
+            show_weight_objet = 0;
+            show_weight_mass = 1;
+            break;
+        case 4:
+	    set = set4[g_random_int_range(0,ARRAY_SIZE(set4))];
+            objet_weight = g_random_int_range(set->range_min / 100, set->range_max / 100) * 100;
+            list_weight = set->list_weight;
+            show_weight_objet = 0;
+            show_weight_mass = 10000;
+            break;
+	case 5:
+	    set = set5[g_random_int_range(0,ARRAY_SIZE(set5))];
+            objet_weight = g_random_int_range(set->range_min / 100, set->range_max / 100) * 100;
+            list_weight = set->list_weight;
+            while(1)
+            {
+                for(i=0; i< 5; i++)
+                    do
+                        tmp[i] = list_weight[g_random_int_range(0,10)];
+                    while(tmp[i]==0);
+
+                objet_weight=0;
+                for(i=0; i<5; i++)
+                    objet_weight += g_random_int_range(-1,2) * tmp[i];
+                objet_weight = abs(objet_weight);
+
+                if(!test_addition(objet_weight, tmp, 5))
+                    break;
+            }
+            list_weight = tmp;
+            show_weight_objet = 0;
+            show_weight_mass = 10000;
+            break;
+    }
+
+    ask_for_answer = !show_weight_objet;
+
+    for(i=0; list_weight[i] ; i++)
+        scale_list_add_weight(group_m, list_weight[i], show_weight_mass);
+
+    pixmap = gc_pixmap_load(imageList[g_random_int_range(0,imageListCount)]);
+    scale_list_add_object(group_d, pixmap, objet_weight,-1, show_weight_objet);
+    gdk_pixbuf_unref(pixmap);
+}
 
 static void
 scale_next_level()
@@ -794,7 +981,7 @@ scale_next_level()
   gdk_pixbuf_unref(pixmap2);
 
   /* display some hint */
-  if(gcomprisBoard->level > 2)
+  if(gcomprisBoard->level > 2 || board_mode == MODE_WEIGHT)
     goo_canvas_text_new(boardRootItem,
 			_("Take care, you can drop masses on both sides of the scale."),
 			BOARDWIDTH/2,
@@ -805,7 +992,11 @@ scale_next_level()
 			"fill-color", "darkblue",
 			NULL);
 
-  scale_prepare_level();
+  if (board_mode == MODE_COUNT)
+    scale_prepare_level();
+  else
+    scale_prepare_level_weight();
+
   last_delta=0;
   scale_anim_plate();
 }
@@ -837,11 +1028,11 @@ static void game_won()
 {
   gcomprisBoard->sublevel++;
 
-  if(gcomprisBoard->sublevel>gcomprisBoard->number_of_sublevel) {
+  if(gcomprisBoard->sublevel > gcomprisBoard->number_of_sublevel) {
     /* Try the next level */
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
-    if(gcomprisBoard->level>gcomprisBoard->maxlevel)
+    if(gcomprisBoard->level > gcomprisBoard->maxlevel)
       gcomprisBoard->level = gcomprisBoard->maxlevel;
 
     gc_sound_play_ogg ("sounds/bonus.wav", NULL);
@@ -867,10 +1058,10 @@ static void process_ok()
     {
       gamewon = TRUE;
       scale_destroy_all_items();
-      gc_bonus_display(gamewon, GC_BONUS_SMILEY);
+      gc_bonus_display(gamewon, bonus_item);
     }
   else
-    gc_bonus_display(gamewon, GC_BONUS_SMILEY);
+    gc_bonus_display(gamewon, bonus_item);
 }
 
 /* ************************************* */

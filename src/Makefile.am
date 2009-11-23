@@ -73,6 +73,7 @@ SUBDIRS = goocanvas gcompris boards \
 	readingv-activity \
 	reversecount-activity \
 	scalesboard-activity \
+	scalesboard_weight-activity \
 	smallnumbers-activity \
 	smallnumbers2-activity \
 	submarine-activity \
