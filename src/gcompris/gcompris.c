@@ -314,6 +314,14 @@ board_widget_key_press_callback (GtkWidget   *widget,
     gc_exit();
     return TRUE;
   }
+  else if(event->state & GDK_CONTROL_MASK && ((event->keyval == GDK_w)
+					 || (event->keyval == GDK_W))) {
+    gc_close_all_dialog();
+
+    if (gc_board_get_current()->previous_board != NULL)
+      gc_board_stop();
+    return TRUE;
+  }
   else if(event->state & GDK_CONTROL_MASK && ((event->keyval == GDK_f)
 					 || (event->keyval == GDK_F))) {
     /* Toggle fullscreen */
