@@ -41,6 +41,7 @@ class Timeline:
         self.current_time = 0
         self.lastmark = -1
 
+
     def hide(self):
         self.rootitem.props.visibility = goocanvas.ITEM_INVISIBLE
 
@@ -98,6 +99,16 @@ class Timeline:
             t += 1
 
 
+        # Frame Number
+        self.frame_counter = \
+            goocanvas.Text(
+            parent = self.anim.rootitem,
+            text = 0,
+            x = 43,
+            y = 460,
+            font = gcompris.skin.get_font("gcompris/board/medium"),
+            fill_color = "black")
+
         # Select the first item in the timeline
         self.current_time = 0
         self.select_it(self.selected)
@@ -138,6 +149,9 @@ class Timeline:
 
         # Let anim knows there is a new time set
         self.anim.doc.refresh(self.get_time())
+
+        self.frame_counter.set_properties(text = self.current_time)
+
 
     def lastmark_it(self, item):
         # Unmark previous mark

@@ -131,14 +131,6 @@ class Gcompris_anim:
     self.drawing_area = [124.0, 20.0, gcompris.BOARD_WIDTH - 15, gcompris.BOARD_HEIGHT - 40]
     self.playing_area = [124.0, 20.0, gcompris.BOARD_WIDTH - 15, gcompris.BOARD_HEIGHT - 40]
 
-    # The frame counter
-    # TODO : check if used
-    self.item_frame_counter = []
-
-    # Not used for the moment in anim2
-    # TODO : fix that
-    #self.current_image = 0
-
     # Part of UI
     # The root items
     self.root_toolitem  = []
@@ -171,7 +163,9 @@ class Gcompris_anim:
     if self.gcomprisBoard.mode == 'draw':
       self.doc.timeline.hide()
 
-    self.color = Color(self.rootitem, self.drawing_area)
+    self.color_rootitem = goocanvas.Group(
+      parent =  self.gcomprisBoard.canvas.get_root_item())
+    self.color = Color(self.color_rootitem, self.drawing_area)
     self.color.draw()
 
     self.draw_drawing_area()
@@ -192,6 +186,7 @@ class Gcompris_anim:
     # Remove the root item removes all the others inside it
     gcompris.set_cursor(gcompris.CURSOR_DEFAULT);
     self.rootitem.remove()
+    self.color_rootitem.remove()
 
     del self.doc
 
@@ -667,16 +662,6 @@ class Gcompris_anim:
       width=70.0,
       height=34.0,
       )
-
-    # Image Number
-    self.item_frame_counter = \
-        goocanvas.Text(
-      parent = self.rootitem,
-      text = 1,
-      x = x_left + minibutton_width + 14,
-      y = y_top - 15,
-      font = gcompris.skin.get_font("gcompris/board/medium"),
-      fill_color = "white")
 
 
 class Document:
