@@ -29,6 +29,7 @@ static int gc_drag_status;
 
 static gc_drag_mode_type gc_drag_mode;
 static GooCanvasItem *gc_drag_item;
+static GooCanvasItem *gc_drag_target;
 static double gc_drag_offset_x, gc_drag_offset_y;
 
 GooCanvasItem*
@@ -112,6 +113,7 @@ gc_drag_event (GooCanvasItem *item,
       if(gc_drag_status == 0 && event->button == 1)
 	{
 	  gc_drag_item = item;
+	  gc_drag_target = target;
 	  if(gc_drag_mode == GC_DRAG_MODE_GRAB)
 	    gc_drag_status = 2;
 	  else
@@ -130,6 +132,7 @@ gc_drag_event (GooCanvasItem *item,
 		       data);
 	  gc_drag_status = 0;
 	  gc_drag_item = NULL;
+	  gc_drag_target = NULL;
 	  gc_drag_user_data = NULL;
 	}
       else if (gc_drag_status == 1 && gc_drag_mode & GC_DRAG_MODE_2CLICKS)
@@ -147,6 +150,9 @@ gc_drag_event_root(GooCanvasItem * item,
 		   GdkEventMotion *event,
 		   gpointer data)
 {
+  if(gc_drag_target != target)
+    return FALSE;
+
   switch(event->type)
     {
     case GDK_MOTION_NOTIFY:
@@ -178,6 +184,7 @@ gc_drag_start(GooCanvasItem *root_item,
   gc_drag_user_data = NULL;
   gc_drag_status = 0;
   gc_drag_item = NULL;
+  gc_drag_target = NULL;
   gc_drag_offset_x = gc_drag_offset_y = 0;
   if (mode == GC_DRAG_MODE_DEFAULT)
     gc_drag_mode = gc_prop_get()->drag_mode;
@@ -203,6 +210,7 @@ gc_drag_stop(GooCanvasItem *root_item)
   gc_drag_user_data = NULL;
   gc_drag_status = -1;
   gc_drag_item = NULL;
+  gc_drag_target = NULL;
   gc_drag_mode = 0;
 }
 
