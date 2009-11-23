@@ -111,7 +111,7 @@ gc_drag_event (GooCanvasItem *item,
     case GDK_BUTTON_PRESS:
       if(gc_drag_status == 0 && event->button == 1)
 	{
-	  gc_drag_item = target;
+	  gc_drag_item = item;
 	  if(gc_drag_mode == GC_DRAG_MODE_GRAB)
 	    gc_drag_status = 2;
 	  else
@@ -125,7 +125,7 @@ gc_drag_event (GooCanvasItem *item,
       if(gc_drag_status == 2)
 	{
 	  gc_drag_func(gc_drag_item,
-		       target,
+		       item,
 		       (GdkEvent*)event,
 		       data);
 	  gc_drag_status = 0;
@@ -147,9 +147,6 @@ gc_drag_event_root(GooCanvasItem * item,
 		   GdkEventMotion *event,
 		   gpointer data)
 {
-  if(gc_drag_item != target)
-    return FALSE;
-
   switch(event->type)
     {
     case GDK_MOTION_NOTIFY:
@@ -157,8 +154,9 @@ gc_drag_event_root(GooCanvasItem * item,
 	{
 	  if(gc_drag_status==1 && gc_drag_mode & GC_DRAG_MODE_GRAB)
 	    gc_drag_status=2;
+
 	  gc_drag_func(gc_drag_item,
-		       target,
+		       item,
 		       (GdkEvent*)event,
 		       gc_drag_user_data);
 	}
