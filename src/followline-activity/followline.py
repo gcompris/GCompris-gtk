@@ -301,7 +301,10 @@ class Gcompris_followline:
     return done
 
   def loosing_item_event(self, widget, target, event=None):
-    if target.__class__ != goocanvas.Image:
+    if target.__class__ != goocanvas.Svg:
+      return False
+
+    if event.type == gtk.gdk.BUTTON_PRESS:
       return False
 
     if(self.state == "Started"):
