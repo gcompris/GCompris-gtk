@@ -7,12 +7,12 @@ INCLUDES = \
 	-DPACKAGE_DATA_DIR=\""$(datadir)"\" \
 	-DPACKAGE_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
 	-DG_LOG_DOMAIN=\"GooCanvas\" \
-	@PACKAGE_CFLAGS@
+	@GCOMPRIS_CFLAGS@
 
 libdir = $(plugindir)
 lib_LTLIBRARIES = libgoocanvas.la
 
-libgoocanvas_la_LIBADD = @PACKAGE_LIBS@ $(INTLLIBS)
+libgoocanvas_la_LIBADD = @GCOMPRIS_LIBS@ $(INTLLIBS)
 
 if PLATFORM_WIN32
 no_undefined = -no-undefined

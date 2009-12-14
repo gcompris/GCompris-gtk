@@ -1,16 +1,48 @@
 dnl Process this file with autoconf to produce a configure script.
 
-AC_INIT(src/gcompris/gcompris.c)
-AC_CANONICAL_HOST
-AM_INIT_AUTOMAKE(gcompris, 8.5PRE3)
+AC_INIT(gcompris, 9.0, http://gcompris.net)
+
+AM_INIT_AUTOMAKE(AC_PACKAGE_NAME, AC_PACKAGE_VERSION)
 AM_CONFIG_HEADER(config.h)
 AC_CONFIG_MACRO_DIR([m4])
 
-AM_MAINTAINER_MODE
+if test -z "$enable_maintainer_mode"; then
+  enable_maintainer_mode=yes
+fi
+AM_MAINTAINER_MODE([enable])
+
+# Use the silent-rules feature when possible.
+m4_ifdef([AM_SILENT_RULES],[AM_SILENT_RULES([yes])])
+
+dnl make sure we keep ACLOCAL_FLAGS around for maintainer builds to work
+AC_SUBST(ACLOCAL_AMFLAGS, "\${ACLOCAL_FLAGS}")
 
 dnl libtool versioning from libgnome
 
 AC_ISC_POSIX
+AC_PROG_CC
+AM_PROG_CC_STDC
+AC_HEADER_STDC
+AM_DISABLE_STATIC
+AC_LIBTOOL_WIN32_DLL
+AM_PROG_LIBTOOL
+AM_PROG_CC_C_O
+
+GNOME_COMPILE_WARNINGS(yes)
+
+#*******************************************************************************
+# Internationalization
+#*******************************************************************************
+GETTEXT_PACKAGE=gcompris
+AC_SUBST(GETTEXT_PACKAGE)
+AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [GETTEXT package name])
+
+IT_PROG_INTLTOOL([0.35.0])
+AM_GLIB_GNU_GETTEXT
+
+#*******************************************************************************
+# Check required GNOME libraries
+#*******************************************************************************
 
 GTK_REQUIRED=2.4.0
 
@@ -18,37 +50,14 @@ dnl
 dnl Start of pkg-config checks
 dnl
 
-PKG_PROG_PKG_CONFIG()
-
-PKG_CHECK_MODULES(GCOMPRIS, dnl
- [gtk+-2.0 >= $GTK_REQUIRED dnl
-  gstreamer-0.10 dnl
-  librsvg-2.0])
+PKG_CHECK_MODULES(GCOMPRIS, \
+  gtk+-2.0 >= $GTK_REQUIRED \
+  gstreamer-0.10 \
+  librsvg-2.0 \
+  libxml-2.0)
 
 AC_SUBST(GCOMPRIS_CFLAGS)
 AC_SUBST(GCOMPRIS_LIBS)
-
-AC_HEADER_DIRENT
-
-AC_PROG_CC
-AM_PROG_CC_STDC
-AM_PROG_CC_C_O
-AC_HEADER_STDC
-
-AC_PROG_INTLTOOL
-
-AM_DISABLE_STATIC
-AC_LIBTOOL_WIN32_DLL
-AM_PROG_LIBTOOL
-
-pkg_modules="gtk+-2.0 >= 2.10.0 glib-2.0 >= 2.10.0 librsvg-2.0"
-PKG_CHECK_MODULES(PACKAGE, [$pkg_modules])
-AC_SUBST(PACKAGE_CFLAGS)
-AC_SUBST(PACKAGE_LIBS)
-
-dnl for libart_lgpl
-AC_FUNC_ALLOCA
-AC_C_BIGENDIAN
 
 dnl OSX Specifics
 AC_MSG_CHECKING([for OSX])
@@ -146,18 +155,6 @@ fi
 
 AM_BINRELOC
 
-dnl GNOME2 GNOME_X_CHECKS
-AM_PATH_GLIB_2_0
-
-dnl libxml-2 Checks
-PKG_CHECK_MODULES(XML, libxml-2.0)
-AC_SUBST(XML_CFLAGS)
-AC_SUBST(XML_LIBS)
-
-dnl Freetype2 flags (needed for libgnomecanvas)
-PKG_CHECK_MODULES(FT2, freetype2)
-AC_SUBST(FT2_CFLAGS)
-
 dnl glib-genmarshal
 GLIB_GENMARSHAL=`$PKG_CONFIG --variable=glib_genmarshal glib-2.0`
 AC_SUBST(GLIB_GENMARSHAL)
@@ -189,13 +186,6 @@ ALL_LINGUAS="af am ar az bg br ca cs da de dz el en_CA en_GB eo es et eu fa fi f
 dnl GCompris needs to know which locale are supported
 AC_SUBST(ALL_LINGUAS)
 AC_DEFINE_UNQUOTED(ALL_LINGUAS, "${ALL_LINGUAS}", [Supported languages])
-
-GETTEXT_PACKAGE=gcompris
-AC_SUBST(GETTEXT_PACKAGE)
-
-AM_GLIB_GNU_GETTEXT
-
-AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package name])
 
 BUILD_DATE=`date +%y%m`
 AC_DEFINE_UNQUOTED(BUILD_DATE,"$BUILD_DATE", [Date at which GCompris has been built])
@@ -432,7 +422,7 @@ if test x$python_path != xnot ; then
 PYTHON=$python_path
 fi
 
-AM_PATH_PYTHON(2.2)
+AM_PATH_PYTHON(2.6)
 AM_CHECK_PYTHON_HEADERS( [build_python_plugin="yes"], [build_python_plugin="no"] )
 
 fi
@@ -452,7 +442,7 @@ if test x$build_python_plugin = xno; then
   AC_MSG_NOTICE([Python plugin is disabled.])
 else
   dnl Python interpreter is available so check for pygtk
-  PKG_CHECK_MODULES(PYGTK, pygtk-2.0 pycairo)
+  PKG_CHECK_MODULES(PYGTK, pygtk-2.0 pycairo >= 1.8)
 
   AC_MSG_CHECKING([for pygtk defs])
   PYGTK_DEFSDIR=`$PKG_CONFIG --variable=defsdir pygtk-2.0`
@@ -528,7 +518,8 @@ if test x$activation_code = xno; then
 fi
 
 dnl Autoconf output
-AC_OUTPUT([ Makefile.mingw
+AC_OUTPUT([
+Makefile.mingw
 Makefile
 autopackage/Makefile
 autopackage/default.apspec
