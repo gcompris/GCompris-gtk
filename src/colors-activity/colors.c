@@ -166,7 +166,7 @@ colors_config_start(GcomprisBoard *agcomprisBoard,
   if (gcomprisBoard)
     pause_board(TRUE);
 
-  label = g_strdup_printf(_("<b>%s</b> configuration\n for profile <b>%s</b>"),
+  label = g_strdup_printf(_("<b>%1$s</b> configuration\n for profile <b>%2$s</b>"),
 			  agcomprisBoard->name, aProfile ? aProfile->name : "");
 
   GcomprisBoardConf *bconf = gc_board_config_window_display(label, conf_ok);

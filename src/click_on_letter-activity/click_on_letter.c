@@ -622,7 +622,7 @@ config_start(GcomprisBoard *agcomprisBoard,
   if (gcomprisBoard)
     pause_board(TRUE);
 
-  gchar *label = g_strdup_printf(_("<b>%s</b> configuration\n for profile <b>%s</b>"),
+  gchar *label = g_strdup_printf(_("<b>%1$s</b> configuration\n for profile <b>%2$s</b>"),
 				 agcomprisBoard->name,
 				 aProfile ? aProfile->name : "");
   GcomprisBoardConf *bconf;
