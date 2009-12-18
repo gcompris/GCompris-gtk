@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-16 15:33+0200\n"
-"PO-Revision-Date: 2009-12-16 15:55+0300\n"
+"POT-Creation-Date: 2009-12-18 06:25+0200\n"
+"PO-Revision-Date: 2009-12-18 06:28+0300\n"
 "Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
 "Language: ar\n"
@@ -157,10 +157,12 @@ msgstr "أنشطة ذاكرة الحساب ضد تُكس"
 
 #: ../boards/menu.xml.in.h:1
 msgid ""
-"A simple click on an icon brings you to an activity or a menu of activities.\n"
+"A simple click on an icon brings you to an activity or a menu of "
+"activities.\n"
 "At the bottom of the screen is the GCompris control bar.\n"
 "The following icons are displayed from right to left.\n"
-"(note that each icon is displayed only if available in the current activity)\n"
+"(note that each icon is displayed only if available in the current "
+"activity)\n"
 "    Home - Exit an activity, go back to menu\n"
 "    Thumb - OK. Confirm your answer\n"
 "    Dice - Display the current level. Click to select another level\n"
@@ -345,36 +347,18 @@ msgstr ""
 "<span size='x-large'> اختر مقدار الصعوبة \n"
 "للملف الشخصي <b>%s</b></span>"
 
-#. Init configuration window:
-#. all the configuration functions will use it
-#. all the configuration functions returns values for their key in
-#. the dict passed to the apply_callback
-#. the returned value is the main GtkVBox of the window,
-#. we can add what you want in it.
 #: ../src/administration-activity/admin/board_list.py:626
-#: ../src/administration-activity/admin/board_list.py:644
+#: ../src/administration-activity/admin/board_list.py:645
 #: ../src/administration-activity/admin/wordlist.py:45
-#: ../src/babymatch-activity/shapegame.c:1847
-#: ../src/click_on_letter-activity/click_on_letter.c:625
-#: ../src/colors-activity/colors.c:169 ../src/gletters-activity/gletters.c:847
-#: ../src/imageid-activity/imageid.c:714 ../src/login-activity/login.py:476
-#: ../src/missing_letter-activity/missingletter.c:761
-#: ../src/pythontest-activity/pythontest.py:454
-#: ../src/readingh-activity/reading.c:880
-#: ../src/scalesboard-activity/scale.c:1139
-#: ../src/smallnumbers-activity/smallnumbers.c:576
-#: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:767
-#, c-format, python-format
 msgid ""
-"<b>%s</b> configuration\n"
-" for profile <b>%s</b>"
+"<b>{config}</b> configuration\n"
+" for profile <b>{profile}</b>"
 msgstr ""
-"إعدادات <b>%s</b>\n"
-"للملف الشخصي <b>%s</b>"
+"إعدادات <b>{config}</b>\n"
+"للملف الشخصي <b>{profile}</b>"
 
 #. self.main_vbox.pack_start (label, False, False, 8)
-#: ../src/administration-activity/admin/board_list.py:656
+#: ../src/administration-activity/admin/board_list.py:658
 #: ../src/colors-activity/colors.c:181
 #: ../src/pythontest-activity/pythontest.py:518
 #: ../src/smallnumbers-activity/smallnumbers.c:597
@@ -709,8 +693,8 @@ msgstr ""
 "المستخدمة لنطق أسماء الألوان.\n"
 "- يمكنك حفظ إعدادات متعددة، والتبديل بينها بسهولة. في قسم 'الملف الشخصي' أضف "
 "ملفًا شخصيًا، ثم اختر الملف الشخصي في القائمة المنسدلة في قسم 'اللوحات'، ثم "
-"اختر اللوحة التي تريد تنشطيها. يمكنك إضافة ملفات شخصة متعددة، مع قوائم "
-"لوحات مختلفة، ولغات مختلفة. يمكنك ضبط الملف الشخصي الافتراضي في قسم 'الملف "
+"اختر اللوحة التي تريد تنشطيها. يمكنك إضافة ملفات شخصة متعددة، مع قوائم لوحات "
+"مختلفة، ولغات مختلفة. يمكنك ضبط الملف الشخصي الافتراضي في قسم 'الملف "
 "الشخصي'، عن طريق اختيار الملف الشخصي الذي تريد، ثم الضغط على الزر 'افتراضي'. "
 "يمكنك أيضًا اختيار ملف شخصي من سطر الأوامر.\n"
 "- يمكنك إضافة مستخدمين، وصفوف، وفي كل صف يمكنك إنشاء مجموعة مستخدمين. لاحظ "
@@ -1217,25 +1201,24 @@ msgid ""
 "and drag in the white area to create a new shape. Once you've completed a "
 "drawing, you can select a new frame to work on by selecting one of the small "
 "rectangles on the bottom. Each frame contains the same content as its "
-"previous one. You can then edit it by moving objects a little bit or "
-"adding/deleting objects. When you create several frames and then click on "
-"the 'film' button, you will see all your images in a continuous slide-show "
-"(an infinite loop pattern). You can change the last image in your film by "
-"right clicking on a time frame. You can also change the viewing speed in "
-"this mode. In viewing mode, click on the 'drawing' button to return to "
-"drawing mode. You can also save and reload your animations with the 'floppy "
-"disk' and 'folder' buttons."
+"previous one. You can then edit it by moving objects a little bit or adding/"
+"deleting objects. When you create several frames and then click on the "
+"'film' button, you will see all your images in a continuous slide-show (an "
+"infinite loop pattern). You can change the last image in your film by right "
+"clicking on a time frame. You can also change the viewing speed in this "
+"mode. In viewing mode, click on the 'drawing' button to return to drawing "
+"mode. You can also save and reload your animations with the 'floppy disk' "
+"and 'folder' buttons."
 msgstr ""
 "اختر أداة رسم من اليسار، ثم لون الجزء الأسفل. ثم اضغط بالفأرة وحركها في "
 "المساحة البيضاء لإنشاء شكل جديد. حالما تنتهي من الرسم، يمكنك اختيار إطار "
 "جديد للعمل عليه باختيار أحد المربعات الصغيرة في الأسفل. كل إطار يحتوي نفس "
-"محتويات الإطار السابق. يمكنك حينها تعديلها بتحريك الأشياء قليلًا أو "
-"إضافة/حذف الأشياء. عندما تنشئ عدة رسومات ثم تضغط على الزر 'شريط مصور'، سوف "
-"ترى كل صورك في عرض متتابع (لا نهائي). يمكنك أيضًا تغيير سرعة العرض في هذا "
-"النمط. في نمط العرض، اضغط على زر 'الرسم' للعودة إلى نمط الرسم. يمكنك وقتها "
-"تعديل كل صورة في شريطك المصور، باستخدام محدد الصور في الزاوية السفلى اليسرى "
-"من الشاشة. يمكنك أيضًا حفظ وإعادة تحميل الصور المتحركة من خلال زر القرص "
-"المرن وزر المجلد."
+"محتويات الإطار السابق. يمكنك حينها تعديلها بتحريك الأشياء قليلًا أو إضافة/حذف "
+"الأشياء. عندما تنشئ عدة رسومات ثم تضغط على الزر 'شريط مصور'، سوف ترى كل صورك "
+"في عرض متتابع (لا نهائي). يمكنك أيضًا تغيير سرعة العرض في هذا النمط. في نمط "
+"العرض، اضغط على زر 'الرسم' للعودة إلى نمط الرسم. يمكنك وقتها تعديل كل صورة "
+"في شريطك المصور، باستخدام محدد الصور في الزاوية السفلى اليسرى من الشاشة. "
+"يمكنك أيضًا حفظ وإعادة تحميل الصور المتحركة من خلال زر القرص المرن وزر المجلد."
 
 #: ../src/awele-activity/awele.c:158
 #, c-format
@@ -1371,6 +1354,17 @@ msgstr "معاونة العقل. الوصل المنطقي."
 #: ../src/babymatch-activity/babymatch.xml.in.h:5
 msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "استعمال الفأرة: تحرك، أمسك واسحب. مراجع ثقافية"
+
+#: ../src/babymatch-activity/shapegame.c:1847
+#: ../src/click_on_letter-activity/click_on_letter.c:625
+#: ../src/colors-activity/colors.c:169
+#, c-format
+msgid ""
+"<b>%1$s</b> configuration\n"
+" for profile <b>%2$s</b>"
+msgstr ""
+"إعدادات <b>%1$s</b>\n"
+"للملف الشخصي <b>%2$s</b>"
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:1
 msgid "Complete the puzzle"
@@ -2094,8 +2088,8 @@ msgid ""
 msgstr ""
 "الكود الأصلي كُتبه سنة 2005 لورنت لاشيني. في عام 2006، ميغيل لزارا أضاف نمط "
 "اللاعبين إلى اللعبة. الصور والذكاء الصناعي مأخوذان من المشروع 4stattack "
-"تأليف جيروين فلوثويس. المشروع الأصلي يمكن إيجاده في "
-"&lt;http://forcedattack.sourceforge.net&gt;"
+"تأليف جيروين فلوثويس. المشروع الأصلي يمكن إيجاده في &lt;http://forcedattack."
+"sourceforge.net&gt;"
 
 #: ../src/connect4-activity/connect4.xml.in.h:3
 msgid "Connect 4"
@@ -3709,6 +3703,29 @@ msgstr "٠١٢٣٤٥٦٧٨٩"
 msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 msgstr "ابتثجحخدذرزسشصضطظعغفقكلمنهوي"
 
+#. Init configuration window:
+#. all the configuration functions will use it
+#. all the configuration functions returns values for their key in
+#. the dict passed to the apply_callback
+#. the returned value is the main GtkVBox of the window,
+#. we can add what you want in it.
+#: ../src/gletters-activity/gletters.c:847
+#: ../src/imageid-activity/imageid.c:714 ../src/login-activity/login.py:476
+#: ../src/missing_letter-activity/missingletter.c:761
+#: ../src/pythontest-activity/pythontest.py:454
+#: ../src/readingh-activity/reading.c:880
+#: ../src/scalesboard-activity/scale.c:1139
+#: ../src/smallnumbers-activity/smallnumbers.c:576
+#: ../src/tuxpaint-activity/tuxpaint.py:185
+#: ../src/wordsgame-activity/wordsgame.c:767
+#, c-format, python-format
+msgid ""
+"<b>%s</b> configuration\n"
+" for profile <b>%s</b>"
+msgstr ""
+"إعدادات <b>%s</b>\n"
+"للملف الشخصي <b>%s</b>"
+
 #: ../src/gletters-activity/gletters.c:876
 #: ../src/smallnumbers-activity/smallnumbers.c:595
 msgid "Enable sounds"
@@ -3939,19 +3956,18 @@ msgid ""
 "5 is another great- in front! But the number 5 does not belong in the 8 or "
 "23 families. You can't fit any number of 5s into 8 or 23 with nothing left "
 "over. So '8 isn't a multiple of 5, nor is 23. Only 5, 10, 15, 20, 25 ... are "
-"multiples (or families or steps) of 5. Use the arrow keys to navigate "
-"around the board and to avoid the Troggles. Press the spacebar to eat a "
-"number."
+"multiples (or families or steps) of 5. Use the arrow keys to navigate around "
+"the board and to avoid the Troggles. Press the spacebar to eat a number."
 msgstr ""
 "مضاعفات العدد هي كل الأرقام التي تساوي العد نفسه عدة مرات. كمثال، الأعداد "
 "24، 36، 48 و 60 هي مضاعفات العدد 12. 25 ليس من مضاعفات العدد 12 لأنه لا يوجد "
-"عدد نضربه ب‍ 12 لنحصل على 25. إن كان عدد ما أحد قاسمًا لعدد آخر، فالعدد "
-"الثاني من مضاعفات العدد الأول. مجددًا، يمكنك تشبيه بالمضاعفات بالعائلات "
-"والقواسم بأفراد العائلة. القاسم 5، والده 10، جده 15، والد جده 20، جد جده 25، "
-"وهكذا بزيادة 5 في كل مرة. 8 و 23 ليسا من مضاعفات العدد 5 لأنهما لا يقبلان "
-"القسمة عليه من دون باق. فقط الأعداد 5، 10، 15، 20، 25، ... هي مضاعفات العدد "
-"5 (آباؤه وأجداده). استخدم مفاتيح الأسهم للتنقل في أرجاء اللوحة وتجنب "
-"العوائق. اضغط زر المسافة لالتهام العدد."
+"عدد نضربه ب‍ 12 لنحصل على 25. إن كان عدد ما أحد قاسمًا لعدد آخر، فالعدد الثاني "
+"من مضاعفات العدد الأول. مجددًا، يمكنك تشبيه بالمضاعفات بالعائلات والقواسم "
+"بأفراد العائلة. القاسم 5، والده 10، جده 15، والد جده 20، جد جده 25، وهكذا "
+"بزيادة 5 في كل مرة. 8 و 23 ليسا من مضاعفات العدد 5 لأنهما لا يقبلان القسمة "
+"عليه من دون باق. فقط الأعداد 5، 10، 15، 20، 25، ... هي مضاعفات العدد 5 "
+"(آباؤه وأجداده). استخدم مفاتيح الأسهم للتنقل في أرجاء اللوحة وتجنب العوائق. "
+"اضغط زر المسافة لالتهام العدد."
 
 #: ../src/gnumch-primes-activity/gnumch-primes.xml.in.h:1
 msgid "Guide the Number Muncher to all the prime numbers."
@@ -6393,8 +6409,8 @@ msgstr ""
 msgid ""
 "Learn how to enter text in a wordprocessor. This wordprocessor is special in "
 "that it enforces the use of styles. This way, the children will understand "
-"their benefit when moving to more feature full wordprocessor like "
-"OpenOffice.org."
+"their benefit when moving to more feature full wordprocessor like OpenOffice."
+"org."
 msgstr ""
 "تعلم كيف تدخل النص في معالج النصوص. معالج النصوص هذا يختص بإمكانية إضافة "
 "الأساليب الجاهزة. بهذه الطريقة، سوف يفهم الطفل فائدته عند الانتقال إلى معالج "
