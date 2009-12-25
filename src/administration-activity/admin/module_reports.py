@@ -34,6 +34,7 @@ import log_list
 class Reports(module.Module):
   """Administrating GCompris Reports"""
 
+  already_loaded = False
 
   def __init__(self, canvas):
       module.Module.__init__(self, canvas, "reports", _("Reports") )
@@ -45,23 +46,30 @@ class Reports(module.Module):
 
 
   def start(self, area):
-      # Connect to our database
-      self.con = sqlite.connect(gcompris.get_database())
-      self.cur = self.con.cursor()
+    # Connect to our database
+    self.con = sqlite.connect(gcompris.get_database())
+    self.cur = self.con.cursor()
 
-      # Create our rootitem. We put each canvas item in it so at the end we
-      # only have to kill it. The canvas deletes all the items it contains automaticaly.
-      self.rootitem = goocanvas.Group(
-        parent = self.canvas
-          )
+    if Reports.already_loaded:
+      self.rootitem.props.visibility = goocanvas.ITEM_VISIBLE
+      self.logList.show(self.con, self.cur)
+      return
 
-      # Call our parent start
-      module.Module.start(self)
+    Reports.already_loaded = True
 
-      frame = gtk.Frame(_("Users") + " / " + _("Reports") )
-      frame.show()
+    # Create our rootitem. We put each canvas item in it so at the end we
+    # only have to kill it. The canvas deletes all the items it contains automaticaly.
+    self.rootitem = goocanvas.Group(
+      parent = self.canvas
+      )
 
-      goocanvas.Widget(
+    # Call our parent start
+    module.Module.start(self)
+
+    frame = gtk.Frame(_("Users") + " / " + _("Reports") )
+    frame.show()
+
+    goocanvas.Widget(
         parent = self.rootitem,
         widget = frame,
         x=area[0]+self.module_panel_ofset,
@@ -70,13 +78,15 @@ class Reports(module.Module):
         height=area[3]-area[1]-2*self.module_panel_ofset,
         anchor=gtk.ANCHOR_NW)
 
-      log_list.Log_list(frame, self.con, self.cur)
+    self.logList = log_list.Log_list(frame, self.con, self.cur)
+    self.logList.init()
 
   def stop(self):
     module.Module.stop(self)
 
-    # Remove the root item removes all the others inside it
-    self.rootitem.remove()
+    # This module is slow to start, we just hide it
+    self.rootitem.props.visibility = goocanvas.ITEM_INVISIBLE
+    self.logList.hide()
 
     # Close the database
     self.cur.close()

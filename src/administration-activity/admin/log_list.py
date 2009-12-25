@@ -49,8 +49,12 @@ class Log_list:
   # area is the drawing area for the list
   def __init__(self, frame, db_connect, db_cursor):
 
+      self.frame = frame
       self.cur = db_cursor
       self.con = db_connect
+
+  # area is the drawing area for the list
+  def init(self):
 
       # The user_id to work on
       self.current_user_id = 0
@@ -73,7 +77,7 @@ class Log_list:
       # Main box is vertical
       top_box = gtk.VBox(False, 8)
       top_box.show()
-      frame.add(top_box)
+      self.frame.add(top_box)
 
       # First line label and combo
       label_box = gtk.HBox(False, 8)
@@ -174,6 +178,14 @@ class Log_list:
       # Load lists
       self.user_changed_cb(self.combo_user)
       self.reload_log()
+
+  def show(self, db_connect, db_cursor):
+    self.cur = db_cursor
+    self.con = db_connect
+    self.frame.show()
+
+  def hide(self):
+    self.frame.hide()
 
   # -------------------
   # Log Management
