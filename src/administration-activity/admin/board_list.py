@@ -713,6 +713,5 @@ class Board_list:
   def login_configure(self, button):
 
     board_log = self.get_board_by_name('/login/login', self.boards_list)
-
-    gcompris.admin.start(board_log, self.active_profile)
+    gcompris.admin.board_config_start(board_log, self.active_profile)
 
