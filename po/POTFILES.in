@@ -97,6 +97,11 @@ src/babyshapes-activity/resources/babyshapes/board4_0.xml.in
 src/babyshapes-activity/resources/babyshapes/board5_0.xml.in
 src/babyshapes-activity/resources/babyshapes/board6_0.xml.in
 src/babyshapes-activity/resources/babyshapes/board7_0.xml.in
+src/babyshapes-activity/resources/babyshapes/board8_0.xml.in
+src/babyshapes-activity/resources/babyshapes/board8_1.xml.in
+src/babyshapes-activity/resources/babyshapes/board8_2.xml.in
+src/babyshapes-activity/resources/babyshapes/board8_3.xml.in
+src/babyshapes-activity/resources/babyshapes/board8_4.xml.in
 src/ballcatch-activity/ballcatch.py
 src/ballcatch-activity/ballcatch.xml.in
 src/bargame-activity/bargame.py
@@ -199,6 +204,8 @@ src/gcompris/bar.c
 src/gcompris/binreloc.c
 src/gcompris/board.c
 src/gcompris/board_config.c
+src/gcompris/board_config_combo.c
+src/gcompris/board_config_wordlist.c
 src/gcompris/bonus.c
 src/gcompris/cache.c
 src/gcompris/config.c
@@ -311,6 +318,7 @@ src/memory_tux-activity/memory_tux.xml.in
 src/memory_wordnumber-activity/memory_wordnumber.xml.in
 src/missing_letter-activity/missing_letter.xml.in
 src/missing_letter-activity/missingletter.c
+src/missing_letter-activity/missingletter_config.c
 src/missing_letter-activity/resources/missing_letter/board1.xml.in
 src/missing_letter-activity/resources/missing_letter/board2.xml.in
 src/missing_letter-activity/resources/missing_letter/board3.xml.in
@@ -349,6 +357,8 @@ src/paratrooper-activity/paratrooper.c
 src/paratrooper-activity/paratrooper.xml.in
 src/penalty-activity/penalty.py
 src/penalty-activity/penalty.xml.in
+src/photohunter-activity/photohunter.c
+src/photohunter-activity/photohunter.xml.in
 src/planegame-activity/planegame.c
 src/planegame-activity/planegame.xml.in
 src/pythontemplate-activity/pythontemplate.py
@@ -371,6 +381,7 @@ src/scalesboard-activity/scale.c
 src/scalesboard-activity/scalesboard.xml.in
 src/searace-activity/searace.py
 src/searace-activity/searace.xml.in
+src/scalesboard_weight-activity/scalesboard_weight.xml.in
 src/searace1player-activity/searace1player.xml.in
 src/smallnumbers-activity/smallnumbers.c
 src/smallnumbers-activity/smallnumbers.xml.in
