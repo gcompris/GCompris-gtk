@@ -101,6 +101,9 @@ class Board_list:
 
       self.active_profile = self.profiles_list[combobox.get_active()]
 
+      self.progressbar = gtk.ProgressBar(adjustment=None)
+      box1.pack_start(self.progressbar, False, False, 0)
+
       # Create the table
       sw = gtk.ScrolledWindow()
       sw.set_shadow_type(gtk.SHADOW_ETCHED_IN)
@@ -215,9 +218,15 @@ class Board_list:
     self.board_dict = {}
     height = 24
 
+    self.progressbar.show()
+    index = 0.0
     for board_cell in menu_list:
       self.board_dict['%s/%s' % (board_cell[1].section,board_cell[1].name)] = board_cell[1]
 
+      self.progressbar.set_fraction(index / len(menu_list))
+      index = index + 1
+      while gtk.events_pending():
+        gtk.main_iteration(False)
 
       if  board_cell[0] == None:
         row_dict[''] =  \
@@ -234,7 +243,7 @@ class Board_list:
                                        _(board_cell[1].title) + '\n' + '%s/%s' % (board_cell[1].section,board_cell[1].name),
                                        not board_cell[1].board_id in self.out_dict[self.active_profile.profile_id],
                                        '%s/%s' % (board_cell[1].section,board_cell[1].name), self.pixbuf_configurable(board_cell[1])])
-
+    self.progressbar.hide()
 
   def pixbuf_admin_at_height(self, file, height):
     pixbuf = gcompris.utils.load_pixmap(file)
