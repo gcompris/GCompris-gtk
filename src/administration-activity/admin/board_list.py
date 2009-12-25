@@ -474,7 +474,7 @@ class Board_list:
       box.show()
       symbols_box.pack_start(box, True, False, 0)
       self.stars[i] = gtk.Image()
-      self.stars[i].set_from_pixbuf(gcompris.utils.load_pixmap('administration/difficulty%d.svgz' % (i)))
+      self.stars[i].set_from_pixbuf(gcompris.utils.load_pixmap('administration/difficulty%d.svg' % (i)))
       self.stars[i].show()
       box.pack_start(self.stars[i], False, False, 0)
       i_label = gtk.Label()
