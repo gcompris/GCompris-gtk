@@ -641,42 +641,28 @@ class Board_list:
 
   def locales(self, button):
     conf_locales = self.get_configured(self.active_profile, 'locale', 'NULL')
-    self.main_vbox = gcompris.configuration_window ( \
+    bconf = gcompris.configuration_window ( \
       _('<b>{config}</b> configuration\n for profile <b>{profile}</b>').format(config='Locale',
                                                                                profile=self.active_profile.name),
       self.ok_callback
       )
 
-    label = gtk.Label()
-    label.set_line_wrap(True)
-    label.set_markup('Choose the default locale used by localizable boards for profile %s' % self.active_profile.name)
-    label.show()
-    self.main_vbox.pack_start (label, False, False, 8)
-
-    gcompris.separator()
-
-    gcompris.combo_locales( conf_locales)
+    gcompris.combo_locales(bconf, conf_locales)
 
   def locales_sound(self, button):
 
-    conf_locales = self.get_configured(self.active_profile, 'locale_sound', 'NULL')
-    self.main_vbox = gcompris.configuration_window ( \
+    conf_locales = self.get_configured(self.active_profile,
+                                       'locale_sound', 'NULL')
+    bconf = gcompris.configuration_window ( \
       _('<b>{config}</b> configuration\n for profile <b>{profile}</b>').format(config='Locale sound',
                                                                                profile=self.active_profile.name),
       self.ok_callback
       )
 
-    label = gtk.Label()
-    label.set_line_wrap(True)
-    label.set_markup('Choose the default locale for <b>sounds</b> used by localizable boards for profile %s' % self.active_profile.name)
-    label.show()
-    self.main_vbox.pack_start (label, False, False, 8)
-
-    gcompris.separator()
-
-    gcompris.combo_locales_asset( _("Select sound locale"),
+    gcompris.combo_locales_asset( bconf,
+                                  _("Select sound locale"),
                                   conf_locales,
-                                  "sounds/$LOCALE/colors/purple.ogg" )
+                                  "voices/$LOCALE/colors/red.ogg" )
 
 
   def ok_callback(self, dict):
@@ -694,7 +680,8 @@ class Board_list:
       self.con.commit()
 
   def get_configured(self, profile, key, if_not):
-    self.cur.execute('select conf_value from board_profile_conf where profile_id=%d and board_id=-1 and conf_key =\'%s\' ' % (profile.profile_id, key))
+    self.cur.execute('select conf_value from board_profile_conf where profile_id=%d and board_id=-1 and conf_key =\'%s\' '
+                     % (profile.profile_id, key))
 
     value = self.cur.fetchall()
 

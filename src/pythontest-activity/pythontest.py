@@ -213,9 +213,9 @@ class Gcompris_pythontest:
     goocanvas.Rect(
       parent = self.rootitem,
       x = 20,
-      y = gcompris.BOARD_HEIGHT-180,
+      y = gcompris.BOARD_HEIGHT-220,
       width = gcompris.BOARD_WIDTH-40,
-      height = 160,
+      height = 150,
       fill_color_rgba=0xFF663333L,
       stroke_color_rgba=0xFF33CCAAL,
       line_width=2.0)
@@ -224,7 +224,7 @@ class Gcompris_pythontest:
     self.canvasitems[6] = goocanvas.Text(
       parent = self.rootitem,
       x=gcompris.BOARD_WIDTH / 2,
-      y=gcompris.BOARD_HEIGHT - 40,
+      y=gcompris.BOARD_HEIGHT - 100,
       font=gcompris.skin.get_font("gcompris/content"),
       fill_color_rgba=0x102010FFL,
       anchor = gtk.ANCHOR_CENTER,
@@ -234,7 +234,7 @@ class Gcompris_pythontest:
     goocanvas.Text(
       parent = self.rootitem,
       x=400.0,
-      y=400.0,
+      y=360.0,
       text=("Test your reflex with the counter. Hit the 2 shifts key together.\nHit space to reset the counter and increase the speed.\nBackspace to reset the speed"),
       fill_color="black",
       anchor = gtk.ANCHOR_CENTER,
@@ -252,7 +252,7 @@ class Gcompris_pythontest:
     self.canvasitems[7] =goocanvas.Text(
       parent = self.rootitem,
       x=gcompris.BOARD_WIDTH / 2,
-      y=gcompris.BOARD_HEIGHT - 80,
+      y=gcompris.BOARD_HEIGHT - 120,
       font=gcompris.skin.get_font("gcompris/content"),
       text="Speed="+str(self.timerinc)+" ms",
       fill_color="black",
@@ -264,7 +264,7 @@ class Gcompris_pythontest:
       parent = self.rootitem,
       font=gcompris.skin.get_font("gcompris/content"),
       x=gcompris.BOARD_WIDTH / 3,
-      y=gcompris.BOARD_HEIGHT - 40,
+      y=gcompris.BOARD_HEIGHT - 100,
       fill_color_rgba=0xFF000FFFL
       )
 
@@ -272,7 +272,7 @@ class Gcompris_pythontest:
       parent = self.rootitem,
       font=gcompris.skin.get_font("gcompris/content"),
       x=gcompris.BOARD_WIDTH / 1.5,
-      y=gcompris.BOARD_HEIGHT - 40,
+      y=gcompris.BOARD_HEIGHT - 100,
       fill_color_rgba=0xFF000FFFL
       )
 
@@ -515,7 +515,9 @@ class Gcompris_pythontest:
     label.props.visibility = goocanvas.ITEM_VISIBLE
 #    self.main_vbox.pack_start (label, False, False, 8)
 
-    gcompris.combo_locales_asset(bconf, _("Select sound locale"), self.config_dict['locale_sound'], "gcompris colors", None, "audio/x-ogg", "purple.ogg" )
+    gcompris.combo_locales_asset(bconf, _("Select sound locale"),
+                                 self.config_dict['locale_sound'],
+                                 "voices/$LOCALE/colors/red.ogg" )
 
     print gcompris.utils.get_asset_file ("gcompris colors", None, "audio/x-ogg", "purple.ogg")
     print gcompris.utils.get_asset_file_locale ("gcompris colors", None, "audio/x-ogg", "purple.ogg", None)
