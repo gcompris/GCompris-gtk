@@ -35,6 +35,7 @@ import board_list
 class Boards(module.Module):
   """Administrating GCompris Boards"""
 
+  already_loaded = False
 
   def __init__(self, canvas):
     module.Module.__init__(self, canvas, "boards", _("Boards"))
@@ -45,6 +46,16 @@ class Boards(module.Module):
     return 3
 
   def start(self, area):
+    # Connect to our database
+    self.con = sqlite.connect(gcompris.get_database())
+    self.cur = self.con.cursor()
+
+    if Boards.already_loaded:
+      self.rootitem.props.visibility = goocanvas.ITEM_VISIBLE
+      self.boardList.show(self.con, self.cur)
+      return
+
+    Boards.already_loaded = True
 
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains automaticaly.
@@ -55,30 +66,28 @@ class Boards(module.Module):
 
     module.Module.start(self)
 
-    # Connect to our database
-    self.con = sqlite.connect(gcompris.get_database())
-    self.cur = self.con.cursor()
-
-    frame = gtk.Frame(_("Boards"))
-    frame.show()
+    self.frame = gtk.Frame(_("Boards"))
+    self.frame.show()
 
     goocanvas.Widget(
       parent = self.rootitem,
-      widget=frame,
+      widget=self.frame,
       x=area[0]+self.module_panel_ofset,
       y=area[1]+self.module_panel_ofset,
       width=area[2]-area[0]-2*self.module_panel_ofset,
       height=area[3]-area[1]-2*self.module_panel_ofset,
       anchor=gtk.ANCHOR_NW)
 
-    board_list.Board_list(self.con, self.cur,
-                          frame)
+    self.boardList = board_list.Board_list(self.con, self.cur,
+                                           self.frame)
+    self.boardList.init()
 
   def stop(self):
     module.Module.stop(self)
 
-    # Remove the root item removes all the others inside it
-    self.rootitem.remove()
+    # This module is slow to start, we just hide it
+    self.rootitem.props.visibility = goocanvas.ITEM_INVISIBLE
+    self.boardList.hide()
 
     # Close the database
     self.cur.close()

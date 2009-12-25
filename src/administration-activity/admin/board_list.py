@@ -46,6 +46,8 @@ class Board_list:
       self.cur = db_cursor
       self.con = db_connect
 
+  def init(self):
+
       # ---------------
       # Boards Management
       # ---------------
@@ -173,6 +175,14 @@ class Board_list:
       self.button_login.show()
       box3.pack_end(self.button_login, False, False, 0)
 
+
+  def show(self, db_connect, db_cursor):
+    self.cur = db_cursor
+    self.con = db_connect
+    self.frame.show()
+
+  def hide(self):
+    self.frame.hide()
 
   # -------------------
   # Board Management
