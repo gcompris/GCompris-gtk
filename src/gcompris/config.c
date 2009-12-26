@@ -541,7 +541,9 @@ set_locale_flag(gchar *locale)
       rsvg_handle_get_dimensions(svg_handle, &dimension);
 
       /* Calc the ratio to display it */
-      double xratio =  200.0  / dimension.width;
+      double xratio =  210.0  / dimension.width;
+      double yratio =  160.0  / dimension.height;
+      xratio = MIN(xratio, yratio);
       goo_canvas_item_set_transform(item_locale_flag, NULL);
       goo_canvas_item_scale(item_locale_flag,
 			    xratio, xratio);
