@@ -1,6 +1,6 @@
 /* gcompris - about.c
  *
- * Copyright (C) 2000, 2008 Bruno Coudoin
+ * Copyright (C) 2000, 2010 Bruno Coudoin
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -101,50 +101,42 @@ void gc_about_start ()
 		       "fill-color-rgba", gc_skin_color_subtitle,
 		       NULL);
 
-  goo_canvas_text_new (rootitem,
-		       _("Translators:"),
-		       (gdouble) BOARDWIDTH/2-320,
-		       (gdouble) y_start + 90,
-		       -1,
-		       GTK_ANCHOR_NORTH_WEST,
-		       "font", gc_skin_font_subtitle,
-		       "fill-color-rgba", gc_skin_color_subtitle,
-		       NULL);
+  gchar *text = g_strdup_printf("%s\n%s\n%s",
+				_(content),
+				_("Translators:"),
+				translators);
 
+  y_start += 100;
   goo_canvas_text_new (rootitem,
-		       translators,
+		       text,
 		       (gdouble)  BOARDWIDTH/2-320,
-		       (gdouble)  y_start + 120,
+		       (gdouble)  y_start,
 		       -1,
 		       GTK_ANCHOR_NORTH_WEST,
 		       "font", gc_skin_font_content,
 		       "fill-color-rgba", gc_skin_color_content,
 		       NULL);
-  // Version
-  y_start += 100;
+  g_free(text);
 
-  goo_canvas_text_new (rootitem,
+  // Version
+  item = \
+    goo_canvas_text_new (rootitem,
 		       "GCompris V" VERSION,
-		       (gdouble)  BOARDWIDTH/2,
+		       (gdouble)  0,
 		       (gdouble)  y_start,
 		       -1,
 		       GTK_ANCHOR_CENTER,
 		       "font", gc_skin_font_title,
 		       "fill-color-rgba", gc_skin_color_subtitle,
 		       NULL);
+  goo_canvas_item_get_bounds(item, &bounds);
+  gdouble x = BOARDWIDTH - (bounds.x2 - bounds.x1) - 20;
+  g_object_set( (GooCanvasItem*)item,
+		"x",
+		x,
+		NULL);
 
-  y_start += 140;
-  goo_canvas_text_new (rootitem,
-		       gettext(content),
-		       (gdouble) BOARDWIDTH/2-320,
-		       (gdouble)  y_start,
-		       -1,
-		       GTK_ANCHOR_NORTH_WEST,
-		       "font", gc_skin_font_content,
-		       "fill-color-rgba", gc_skin_color_content,
-		       NULL);
-
-  y_start += 40;
+  y_start += 180;
   /* Location for a potential sponsor */
   gchar *sponsor_image = gc_file_find_absolute("sponsor.png");
   if(sponsor_image)
@@ -200,7 +192,7 @@ void gc_about_start ()
 
   // Copyright
   item = goo_canvas_text_new (rootitem,
-			      "Copyright 2000-2008 Bruno Coudoin and Others",
+			      "Copyright 2000-2010 Bruno Coudoin and Others",
 			      (gdouble)  BOARDWIDTH/2,
 			      (gdouble)  y - 55,
 			      -1,
@@ -216,7 +208,7 @@ void gc_about_start ()
 			      (gdouble)  y - 40,
 			      -1,
 			      GTK_ANCHOR_CENTER,
-			      "font", gc_skin_font_content,
+			      "font", gc_skin_font_board_tiny,
 			      "fill-color-rgba", gc_skin_color_content,
 			      NULL);
 
