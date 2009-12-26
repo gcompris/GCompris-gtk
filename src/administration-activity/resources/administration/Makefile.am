@@ -6,12 +6,12 @@ img_DATA = \
 	config_profiles.svgz \
 	config_reports.svgz \
 	config_users.svgz \
-	difficulty1.svgz \
-	difficulty2.svgz \
-	difficulty3.svgz \
-	difficulty4.svgz \
-	difficulty5.svgz \
-	difficulty6.svgz
+	difficulty1.svg \
+	difficulty2.svg \
+	difficulty3.svg \
+	difficulty4.svg \
+	difficulty5.svg \
+	difficulty6.svg
 
 EXTRA_DIST = $(img_DATA) ${xml_in_files}
 CLEANFILES = $(xml_DATA)
