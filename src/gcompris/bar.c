@@ -244,11 +244,11 @@ void gc_bar_start (GooCanvas *theCanvas)
     goo_canvas_text_new (rootitem_level,
                          "",
                          bounds.x1 - 10,
-                         (bounds.y2 - bounds.y1) / 2 + 4,
+                         (bounds.y2 - bounds.y1) / 2 + 8,
                          -1,
                          GTK_ANCHOR_CENTER,
                          "font", gc_skin_font_board_title_bold,
-                         "fill-color-rgba", gc_skin_color_title,
+                         "fill-color-rgba", gc_skin_color_text_button,
                          NULL);
   current_level = 1;
 
