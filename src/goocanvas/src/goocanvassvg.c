@@ -153,7 +153,7 @@ static void _init_surface(GooCanvasSvg *canvas_svg,
        canvas_svg->y1 != 0 ||
        canvas_svg->y2 != canvas_svg->height )
     /* Search the whole image */
-    _search_limits(canvas_svg, data, stride, 2);
+    _search_limits(canvas_svg, data, stride, 1);
 
 
 
