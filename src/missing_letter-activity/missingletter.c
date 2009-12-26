@@ -65,7 +65,6 @@ static int board_number; // between 0 and board_list.length-1
 static GooCanvasItem *boardRootItem = NULL;
 
 static GooCanvasItem *text    = NULL;
-static GooCanvasItem *text_s  = NULL;
 static GooCanvasItem *selected_button = NULL;
 
 static void missing_letter_create_item(GooCanvasItem *parent);
@@ -309,16 +308,6 @@ missing_letter_create_item(GooCanvasItem *parent)
 
   pixmap = gc_pixmap_load(board->pixmapfile);
 
-  text_s = goo_canvas_text_new (boardRootItem,
-				_(board->question),
-				(double) txt_area_x + 1.0,
-				(double) txt_area_y + 1.0,
-				-1,
-				GTK_ANCHOR_CENTER,
-				"font", gc_skin_font_board_huge_bold,
-				"fill_color_rgba", gc_skin_get_color("missingletter/shadow"),
-				NULL);
-
   text = goo_canvas_text_new (boardRootItem,
 			      _(board->question),
 			      (double) txt_area_x,
@@ -441,7 +430,6 @@ process_ok(gchar *answer)
 {
   if (gamewon) {
     g_object_set(text,   "text", answer, NULL);
-    g_object_set(text_s, "text", answer, NULL);
   }
   // leave time to display the right answer
   gc_bar_hide(TRUE);
