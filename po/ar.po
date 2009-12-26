@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-18 06:25+0200\n"
-"PO-Revision-Date: 2009-12-18 06:28+0300\n"
+"POT-Creation-Date: 2009-12-26 01:53+0200\n"
+"PO-Revision-Date: 2009-12-26 02:03+0300\n"
 "Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
 "Language: ar\n"
@@ -286,37 +286,37 @@ msgstr "حزمة البرامج التربوية «فهمت»"
 msgid "Multi-activity educational game"
 msgstr "لعبة تعليمية متعدة الأنشطة"
 
-#: ../src/administration-activity/admin/board_list.py:89
+#: ../src/administration-activity/admin/board_list.py:91
 msgid "Select a profile:"
 msgstr "اختر ملفًا شخصيًا:"
 
-#: ../src/administration-activity/admin/board_list.py:143
+#: ../src/administration-activity/admin/board_list.py:148
 msgid "Filter"
 msgstr "تصفية"
 
-#: ../src/administration-activity/admin/board_list.py:148
+#: ../src/administration-activity/admin/board_list.py:153
 msgid "Select all"
 msgstr "اختر الكل"
 
-#: ../src/administration-activity/admin/board_list.py:153
+#: ../src/administration-activity/admin/board_list.py:158
 msgid "Unselect all"
 msgstr "ألغ اختيار الكل"
 
-#: ../src/administration-activity/admin/board_list.py:158
+#: ../src/administration-activity/admin/board_list.py:163
 msgid "Locales"
 msgstr "اللغات"
 
-#: ../src/administration-activity/admin/board_list.py:163
+#: ../src/administration-activity/admin/board_list.py:168
 msgid "Locales sound"
 msgstr "أصوات اللغات"
 
-#: ../src/administration-activity/admin/board_list.py:168
+#: ../src/administration-activity/admin/board_list.py:173
 #: ../src/administration-activity/admin/group_user_list.py:143
 #: ../src/administration-activity/admin/user_list.py:184
 msgid "Login"
 msgstr "اسم الولوج"
 
-#: ../src/administration-activity/admin/board_list.py:226
+#: ../src/administration-activity/admin/board_list.py:245
 msgid "Main menu"
 msgstr "قائمة الاختيارات الرئيسية"
 
@@ -325,20 +325,20 @@ msgstr "قائمة الاختيارات الرئيسية"
 #. image = gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, gtk.ICON_SIZE_MENU)
 #. image.show()
 #. column_pref.set_widget(image)
-#: ../src/administration-activity/admin/board_list.py:292
+#: ../src/administration-activity/admin/board_list.py:311
 msgid "Active"
 msgstr "نشط"
 
-#: ../src/administration-activity/admin/board_list.py:293
+#: ../src/administration-activity/admin/board_list.py:312
 msgid "Board title"
 msgstr "عنوان اللوحة"
 
-#: ../src/administration-activity/admin/board_list.py:406
+#: ../src/administration-activity/admin/board_list.py:425
 #, python-format
 msgid "Filter Boards difficulty for profile %s"
 msgstr "صعوبة لوحات التصفية للملف الشخصي %s"
 
-#: ../src/administration-activity/admin/board_list.py:437
+#: ../src/administration-activity/admin/board_list.py:456
 #, python-format
 msgid ""
 "<span size='x-large'> Select the difficulty range \n"
@@ -347,8 +347,8 @@ msgstr ""
 "<span size='x-large'> اختر مقدار الصعوبة \n"
 "للملف الشخصي <b>%s</b></span>"
 
-#: ../src/administration-activity/admin/board_list.py:626
 #: ../src/administration-activity/admin/board_list.py:645
+#: ../src/administration-activity/admin/board_list.py:657
 #: ../src/administration-activity/admin/wordlist.py:45
 msgid ""
 "<b>{config}</b> configuration\n"
@@ -358,7 +358,7 @@ msgstr ""
 "للملف الشخصي <b>{profile}</b>"
 
 #. self.main_vbox.pack_start (label, False, False, 8)
-#: ../src/administration-activity/admin/board_list.py:658
+#: ../src/administration-activity/admin/board_list.py:663
 #: ../src/colors-activity/colors.c:181
 #: ../src/pythontest-activity/pythontest.py:518
 #: ../src/smallnumbers-activity/smallnumbers.c:597
@@ -489,57 +489,59 @@ msgstr "عليك أولًا أن تختار مجموعة ضمن القائمة"
 msgid "Birth Date"
 msgstr "تاريخ الولادة"
 
-#: ../src/administration-activity/admin/log_list.py:90
+#: ../src/administration-activity/admin/log_list.py:94
 msgid "Select a user:"
 msgstr "اختر مستخدمًا:"
 
 #. Insert the ALL option (HACK, use the user_id -2 to indicate ALL)
-#: ../src/administration-activity/admin/log_list.py:101
+#: ../src/administration-activity/admin/log_list.py:105
 msgid "All users"
 msgstr "جميع المستخدمين"
 
-#: ../src/administration-activity/admin/log_list.py:107
-#: ../src/administration-activity/admin/log_list.py:286
+#: ../src/administration-activity/admin/log_list.py:111
+#: ../src/administration-activity/admin/log_list.py:298
 #: ../src/administration-activity/admin/profile_list.py:120
+#: ../src/gcompris/board_config_combo.c:125
+#: ../src/gcompris/board_config_combo.c:398
 msgid "Default"
 msgstr "الافتراضي"
 
 #. Reset buttons
-#: ../src/administration-activity/admin/log_list.py:161
+#: ../src/administration-activity/admin/log_list.py:165
 msgid "Reset"
 msgstr "إعادة ضبط"
 
-#: ../src/administration-activity/admin/log_list.py:207
+#: ../src/administration-activity/admin/log_list.py:219
 msgid "Date"
 msgstr "التاريخ"
 
-#: ../src/administration-activity/admin/log_list.py:217
+#: ../src/administration-activity/admin/log_list.py:229
 msgid "User"
 msgstr "المستخدم"
 
-#: ../src/administration-activity/admin/log_list.py:227
+#: ../src/administration-activity/admin/log_list.py:239
 msgid "Board"
 msgstr "اللوحة"
 
-#: ../src/administration-activity/admin/log_list.py:237
+#: ../src/administration-activity/admin/log_list.py:249
 #: ../src/redraw-activity/redraw.py:328
 msgid "Level"
 msgstr "المستوى"
 
-#: ../src/administration-activity/admin/log_list.py:247
+#: ../src/administration-activity/admin/log_list.py:259
 msgid "Sublevel"
 msgstr "المستوى الفرعي"
 
-#: ../src/administration-activity/admin/log_list.py:257
+#: ../src/administration-activity/admin/log_list.py:269
 msgid "Duration"
 msgstr "المدة"
 
-#: ../src/administration-activity/admin/log_list.py:267
+#: ../src/administration-activity/admin/log_list.py:279
 msgid "Status"
 msgstr "الحالة"
 
-#: ../src/administration-activity/admin/module_boards.py:40
-#: ../src/administration-activity/admin/module_boards.py:62
+#: ../src/administration-activity/admin/module_boards.py:41
+#: ../src/administration-activity/admin/module_boards.py:69
 msgid "Boards"
 msgstr "اللوحات"
 
@@ -553,12 +555,12 @@ msgstr "المجموعات"
 msgid "Profiles"
 msgstr "الملفات الشخصية"
 
-#: ../src/administration-activity/admin/module_reports.py:39
-#: ../src/administration-activity/admin/module_reports.py:61
+#: ../src/administration-activity/admin/module_reports.py:40
+#: ../src/administration-activity/admin/module_reports.py:69
 msgid "Reports"
 msgstr "التقارير"
 
-#: ../src/administration-activity/admin/module_reports.py:61
+#: ../src/administration-activity/admin/module_reports.py:69
 #: ../src/administration-activity/admin/module_users.py:39
 #: ../src/administration-activity/admin/module_users.py:61
 msgid "Users"
@@ -1401,6 +1403,26 @@ msgstr "قفل على العشب."
 #: ../src/babyshapes-activity/resources/babyshapes/board7_0.xml.in.h:1
 msgid "Lock with colored shapes."
 msgstr "قفل مع أشكال ملونة."
+
+#: ../src/babyshapes-activity/resources/babyshapes/board8_0.xml.in.h:1
+msgid "Paul Gauguin, Arearea - 1892"
+msgstr "بول جوجن، أريريا - ١٨٩٢"
+
+#: ../src/babyshapes-activity/resources/babyshapes/board8_1.xml.in.h:1
+msgid "Pieter Bruegel the Elder, The peasants wedding - 1568"
+msgstr "بيتر برويغيل البكر، زفاف الفلاحين - ١٥٦٨"
+
+#: ../src/babyshapes-activity/resources/babyshapes/board8_2.xml.in.h:1
+msgid "The Lady and the Unicorn - XVe century"
+msgstr "السيدة ووحيد القرن - القرن الخامس عشر"
+
+#: ../src/babyshapes-activity/resources/babyshapes/board8_3.xml.in.h:1
+msgid "Vincent van Gogh, Bedroom in Arles - 1888"
+msgstr "فنسنت فان جوخ، غرفة النوم في أرلِس - ١٨٨٨"
+
+#: ../src/babyshapes-activity/resources/babyshapes/board8_4.xml.in.h:1
+msgid "Ambrosius Bosschaert the Elder, Flower Still Life - 1614"
+msgstr "أمبروسس البكر. الزهرة، حياة ساكنة - ١٦١٤"
 
 #: ../src/ballcatch-activity/ballcatch.xml.in.h:1
 msgid "Make the ball go to Tux"
@@ -2438,6 +2460,61 @@ msgstr "لا، أريد المغادرة"
 #: ../src/gcompris/board.c:191
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr "التحميل الديناميكي للوحدات غير مدعوم. «فهمت» لا يمكنه التحميل.\n"
+
+#: ../src/gcompris/board_config_combo.c:157
+msgid ""
+"Select the language\n"
+" to use in the board"
+msgstr ""
+"اختر اللغة\n"
+" لاستخدامها في اللوحة"
+
+#: ../src/gcompris/board_config_combo.c:227
+msgid "Global GCompris mode"
+msgstr "نمط «فهمت» العمومي"
+
+#: ../src/gcompris/board_config_combo.c:228
+msgid "Normal"
+msgstr "عادي"
+
+#: ../src/gcompris/board_config_combo.c:229
+msgid "2 clicks"
+msgstr "نقرتان"
+
+#: ../src/gcompris/board_config_combo.c:230
+msgid "both modes"
+msgstr "كلا النمطين"
+
+#: ../src/gcompris/board_config_combo.c:258
+msgid ""
+"Select the drag and drop mode\n"
+" to use in the board"
+msgstr ""
+"اختر طريقة السحب والإفلات\n"
+" لاستخدامها في اللوحة"
+
+#. add a new level
+#: ../src/gcompris/board_config_wordlist.c:106
+#, c-format
+msgid "%d (New level)"
+msgstr "%d (مستوى جديد)"
+
+#. frame
+#: ../src/gcompris/board_config_wordlist.c:180
+msgid "Configure the list of words"
+msgstr "اضبط قائمة من الكلمات"
+
+#: ../src/gcompris/board_config_wordlist.c:209
+msgid "Choice of the language"
+msgstr "اختيار اللغة"
+
+#: ../src/gcompris/board_config_wordlist.c:221
+msgid "Choice of the level"
+msgstr "اختيار المستوى"
+
+#: ../src/gcompris/board_config_wordlist.c:246
+msgid "Back to default"
+msgstr "عد إلى المبدئية"
 
 #: ../src/gcompris/config.c:59
 msgid "Your system default"
@@ -5170,6 +5247,44 @@ msgstr "تنمية مهارات القراءة"
 msgid "Word reading"
 msgstr "قراءة الكلمات"
 
+#. pixmap
+#: ../src/missing_letter-activity/missingletter_config.c:384
+#: ../src/missing_letter-activity/missingletter_config.c:534
+msgid "Picture"
+msgstr "صورة"
+
+#. answer
+#: ../src/missing_letter-activity/missingletter_config.c:390
+#: ../src/missing_letter-activity/missingletter_config.c:525
+msgid "Answer"
+msgstr "جواب"
+
+#. question
+#: ../src/missing_letter-activity/missingletter_config.c:396
+#: ../src/missing_letter-activity/missingletter_config.c:548
+msgid "Question"
+msgstr "سؤال"
+
+#. choice
+#: ../src/missing_letter-activity/missingletter_config.c:402
+#: ../src/missing_letter-activity/missingletter_config.c:557
+msgid "Choice"
+msgstr "اختيار"
+
+#. combo level
+#: ../src/missing_letter-activity/missingletter_config.c:440
+msgid "Level:"
+msgstr "المستوى:"
+
+#: ../src/missing_letter-activity/missingletter_config.c:448
+#, c-format
+msgid "Level %d"
+msgstr "المستوى %d"
+
+#: ../src/missing_letter-activity/missingletter_config.c:538
+msgid "Filename:"
+msgstr "اسم الملف:"
+
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:1
 msgid "car/c_r/a/k/o"
 msgstr "سيارة/س_ارة/ي/ب/ت"
@@ -5414,7 +5529,7 @@ msgstr "امرأة تمسك مروحة"
 
 #: ../src/paintings-activity/resources/paintings/board2_1.xml.in.h:1
 msgid "Botticelli, Primavera - 1482"
-msgstr ""
+msgstr "بوتيتشيلي، الربيع - 1482"
 
 #: ../src/paintings-activity/resources/paintings/board2_2.xml.in.h:1
 msgid "Caravage, Rest on the Flight into Egypt - 1597"
@@ -5422,7 +5537,7 @@ msgstr "كارافاج، استراحة في الرحلة إلى مصر- 1597"
 
 #: ../src/paintings-activity/resources/paintings/board2_3.xml.in.h:1
 msgid "Botticelli, The Birth of Venus - 1482–1486"
-msgstr ""
+msgstr "بوتيتشيلي، ميلاد الزهرة - 1482–1486"
 
 #: ../src/paintings-activity/resources/paintings/board3_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
@@ -5505,6 +5620,34 @@ msgstr "انقر مرتين بالفأرة على الكرة لتسجل هدفا
 #: ../src/penalty-activity/penalty.xml.in.h:5
 msgid "Penalty kick"
 msgstr "ضربة جزاء"
+
+#: ../src/photohunter-activity/photohunter.c:136
+msgid "Error: Absolutely no photo found in the data directory"
+msgstr "خطأ: لم يُعثر على أي صور في مجلد البيانات"
+
+#: ../src/photohunter-activity/photohunter.c:564
+msgid "Error: Abnormally failed to load a data file"
+msgstr "خطأ: فشل تحميل ملف البيانات"
+
+#: ../src/photohunter-activity/photohunter.xml.in.h:1
+msgid "Find the differences between two pictures"
+msgstr "اعثر على الفرق بين الصورتين"
+
+#: ../src/photohunter-activity/photohunter.xml.in.h:2
+msgid ""
+"Observe the two pictures carefully. There are some slight differences. When "
+"you find a difference you must click on it."
+msgstr ""
+"قارن الصورتين بدقة، إذ توجد بعض الاختلافات الطفيفة. عندما تعثر على اختلاف "
+"انقر عليه."
+
+#: ../src/photohunter-activity/photohunter.xml.in.h:3
+msgid "Photo hunter"
+msgstr "صائد الصور"
+
+#: ../src/photohunter-activity/photohunter.xml.in.h:4
+msgid "Visual discrimination."
+msgstr "التمييز البصري."
 
 #: ../src/planegame-activity/planegame.c:61
 #: ../src/planegame-activity/planegame.xml.in.h:4
@@ -5867,6 +6010,7 @@ msgid "Take care, you can drop masses on both sides of the scale."
 msgstr "خذ حذرك، يمكن أن تُسقط الأوزان عن كفتي الميزان."
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:1
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:1
 msgid "Balance the scales properly"
 msgstr "وازن بين كفتي الميزان"
 
@@ -5879,6 +6023,7 @@ msgid "Mental calculation, arithmetic equality"
 msgstr "حساب ذهني، مساواة حسابية"
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:4
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:4
 msgid ""
 "The painting is an original painting created by Virginie MOREAU (virginie."
 "moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is "
@@ -6003,6 +6148,24 @@ msgstr ""
 #: ../src/searace-activity/searace.xml.in.h:9
 msgid "Sea race (2 Players)"
 msgstr "السباق البحري (لاعبان)"
+
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:2
+msgid "Drag and Drop masses to balance the scales and calculate the weight"
+msgstr "أمسك واسحب الكتل لتوازن بين كفتي الميزان وقياس الوزن"
+
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:3
+msgid "Mental calculation, arithmetic equality, unit conversion"
+msgstr "الحساب الذهني و المساواة الحسابية وتحويل الوحدات"
+
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:5
+msgid ""
+"To balance the scales, move the masses on the left or the right side. Take "
+"care of the weight and the unit of the masses, remember that a kilogram (kg) "
+"is 1000 grams (g). They can be arranged in any order."
+msgstr ""
+"لموازنة كفتي الميزان، انقل الكتل بين الجانبين. تأكد من أوزان ووحدات الكتل، "
+"وتذكر أن الكيلو جرام (كج) يساوي 1000 جرام (ج). تستطيع أن ترتب الكتل كما "
+"تشاء."
 
 #: ../src/searace1player-activity/searace1player.xml.in.h:1
 msgid "Give good instructions to your ship in order to be first in the race."
@@ -6475,21 +6638,6 @@ msgstr "أدخل الكلمات المتساقطة قبل أن تصل إلى ا�
 #~ "المصدر: http://commons.wikimedia.org/wiki/Image:Ambrosius_Bosschaert,"
 #~ "_the_Elder_04.jpg "
 
-#~ msgid "Paul Gauguin, Arearea - 1892"
-#~ msgstr "بول جوجن، أريريا - ١٨٩٢"
-
-#~ msgid "Pieter Bruegel the Elder, The peasants wedding - 1568"
-#~ msgstr "بيتر برويغيل البكر، زفاف الفلاحين - ١٥٦٨"
-
-#~ msgid "The Lady and the Unicorn - XVe century"
-#~ msgstr "السيدة ووحيد القرن - القرن الخامس عشر"
-
-#~ msgid "Vincent van Gogh, Bedroom in Arles - 1888"
-#~ msgstr "فنسنت فان جوخ، غرفة النوم في أرلِس - ١٨٨٨"
-
-#~ msgid "Ambrosius Bosschaert the Elder, Flower Still Life - 1614"
-#~ msgstr "أمبروسس البكر. الزهرة، حياة ساكنة - ١٦١٤"
-
 #~ msgid ""
 #~ "At the start, each player (one controlling the white pieces, the other "
 #~ "controlling the black pieces) controls sixteen pieces: one king, one "
@@ -6534,27 +6682,6 @@ msgstr "أدخل الكلمات المتساقطة قبل أن تصل إلى ا�
 #~ "أعِد بناء الفسيفساء على اليسار في المنطقة اليمنى. اختر لونا من المنطقة "
 #~ "السفلى ثم انقر على المربعات الرمادية لتلوينها."
 
-#~ msgid "Picture"
-#~ msgstr "صورة"
-
-#~ msgid "Answer"
-#~ msgstr "جواب"
-
-#~ msgid "Question"
-#~ msgstr "سؤال"
-
-#~ msgid "Choice"
-#~ msgstr "اختيار"
-
-#~ msgid "Level:"
-#~ msgstr "المستوى:"
-
-#~ msgid "Level %d"
-#~ msgstr "المستوى %d"
-
-#~ msgid "Filename:"
-#~ msgstr "اسم الملف:"
-
 #~ msgid "SVG is disabled. Install python xml module to enable it"
 #~ msgstr "SVG معطل. ثبت وحدة إكس إم إل بايثون لتفعيله"
 
@@ -6567,43 +6694,8 @@ msgstr "أدخل الكلمات المتساقطة قبل أن تصل إلى ا�
 #~ msgid "Yes, I saw it"
 #~ msgstr "نعم رأيتها"
 
-#~ msgid ""
-#~ "Select the language\n"
-#~ " to use in the board"
-#~ msgstr ""
-#~ "اختر اللغة\n"
-#~ " لاستخدامها في اللوحة"
-
-#~ msgid "Global GCompris mode"
-#~ msgstr "نمط «فهمت» العمومي"
-
-#~ msgid "Normal"
-#~ msgstr "عادي"
-
-#~ msgid "2 clicks"
-#~ msgstr "نقرتان"
-
-#~ msgid "both modes"
-#~ msgstr "كلا النمطين"
-
-#~ msgid ""
-#~ "Select the drag and drop mode\n"
-#~ " to use in the board"
-#~ msgstr ""
-#~ "اختر طريقة السحب والإفلات\n"
-#~ " لاستخدامها في اللوحة"
-
-#~ msgid "%d (New level)"
-#~ msgstr "%d (مستوى جديد)"
-
-#~ msgid "Configure the list of words"
-#~ msgstr "اضبط قائمة من الكلمات"
-
 #~ msgid "Language:"
 #~ msgstr "اللغة:"
-
-#~ msgid "Back to default"
-#~ msgstr "عد إلى المبدئية"
 
 #~ msgid "Arabic (Tunisia)"
 #~ msgstr "عربي (تونس)"
