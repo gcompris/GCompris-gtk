@@ -704,6 +704,8 @@ item_event_ok(GooCanvasItem *item,
   else if(!strcmp((char *)data, "music"))
     {
       properties->music = (properties->music ? 0 : 1);
+      if (properties->music)
+	gc_sound_init();
       g_object_set (item,
 		    "svg-id", (properties->music ? pixmap_checked : pixmap_unchecked),
 		    NULL);
@@ -720,6 +722,8 @@ item_event_ok(GooCanvasItem *item,
   else if(!strcmp((char *)data, "effect"))
     {
       properties->fx = (properties->fx ? 0 : 1);
+      if (properties->fx)
+	gc_sound_init();
       g_object_set (item,
 		    "svg-id", (properties->fx ? pixmap_checked : pixmap_unchecked),
 		    NULL);
