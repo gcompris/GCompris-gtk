@@ -507,7 +507,7 @@ maze_create_item(GooCanvasItem *parent)
 				      (double) BOARDHEIGHT-BARHEIGHT-25,
 				      -1,
 				      GTK_ANCHOR_CENTER,
-				      "font", gc_skin_font_board_small,
+				      "font", gc_skin_font_board_tiny,
 				      "fill_color_rgba", gc_skin_color_content,
 				      NULL);
   g_object_set (warning_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
