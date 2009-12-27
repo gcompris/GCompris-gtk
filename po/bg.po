@@ -2,13 +2,14 @@
 # Copyright (C) 2005, 2006, 2007, 2008, 2009 Free Software Foundation, Inc
 # This file is distributed under the same license as the gcompris package.
 # Yavor Doganov <yavor@gnu.org>, 2005, 2006, 2007, 2008, 2009.
+# Alexander Shopov <ash@kambanaria.org>, 2009.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gcompris trunk\n"
+"Project-Id-Version: gcompris gcomprixogoo\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-26 09:48+0200\n"
-"PO-Revision-Date: 2009-03-04 16:07+0200\n"
+"POT-Creation-Date: 2009-12-26 11:35+0200\n"
+"PO-Revision-Date: 2009-12-26 11:34+0200\n"
 "Last-Translator: Yavor Doganov <yavor@gnu.org>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
@@ -349,13 +350,12 @@ msgstr ""
 #: ../src/administration-activity/admin/board_list.py:626
 #: ../src/administration-activity/admin/board_list.py:645
 #: ../src/administration-activity/admin/wordlist.py:45
-#, fuzzy
 msgid ""
 "<b>{config}</b> configuration\n"
 " for profile <b>{profile}</b>"
 msgstr ""
-"<b>%s</b> конфигурация\n"
-" за профил <b>%s</b>"
+"Настройки на <b>{config}</b>\n"
+" за профил <b>{profile}</b>"
 
 #. self.main_vbox.pack_start (label, False, False, 8)
 #: ../src/administration-activity/admin/board_list.py:658
@@ -1205,8 +1205,8 @@ msgstr ""
 msgid "Needs to be capable of moving and clicking the mouse easily"
 msgstr "Навици за лесно владеене на мишката."
 
+# FIXME
 #: ../src/anim-activity/anim.xml.in.h:5
-#, fuzzy
 msgid ""
 "Select a drawing tool on the left, and a color down the bottom. Then click "
 "and drag in the white area to create a new shape. Once you've completed a "
@@ -1223,15 +1223,16 @@ msgid ""
 msgstr ""
 "Изберете инструмент за рисуване вляво и цвят от долната част. След това "
 "натискайте и местете в бялата зона, за да създадете нова форма. Когато "
-"рисунката е готова, можете да я снимате с бутона „камера“, като така се "
-"създава ново изображение със същото съдържание. После можете да местите "
-"обекти по малко или да ги добавяте/изтривате. Направете няколко рисунки и "
-"натиснете бутона „филм“. Ще видите всичките си изображения в безкраен "
-"кръговрат. Можете да променяте скоростта на преглед на този режим. В режим "
-"на преглед, натиснете бутона „рисунка“, за да се върнете към рисунката. След "
-"това можете да редактирате всяко от изображенията на анимацията, използвайки "
-"избора в долната лява част на екрана. Можете да запазвате и отваряте наново "
-"анимации с бутоните „дискета“ и „папка“."
+"рисунката е готова, можете да изберете нов кадър, като избeрете един от "
+"правоъгълниците отдолу. Всеки кадър съдържа същото като предхождащия го. "
+"После можете да го редактирате като местите обекти по малко или да ги "
+"добавяте/изтривате. Направете няколко кадъра и натиснете бутона „филм“. Ще "
+"видите всичките си изображения в безкраен кръговрат. Можете да редактирате "
+"последното изображение във филма като натиснете с десния бутон на мишката "
+"върху времето. Можете да променяте скоростта на преглед на този режим. В "
+"режим на преглед, натиснете бутона „рисунка“, за да се върнете към "
+"рисунката. Можете да запазвате и отваряте наново анимации с бутоните "
+"„дискета“ и „папка“."
 
 #: ../src/awele-activity/awele.c:158
 #, c-format
@@ -1239,6 +1240,8 @@ msgid ""
 "File '%s' is not found.\n"
 "You cannot play this activity."
 msgstr ""
+"Файлът „%s“ не е открит.\n"
+"Това занимание няма да работи."
 
 #: ../src/awele-activity/awele.c:349
 msgid "NORTH"
@@ -1376,13 +1379,13 @@ msgstr ""
 #: ../src/babymatch-activity/shapegame.c:1847
 #: ../src/click_on_letter-activity/click_on_letter.c:625
 #: ../src/colors-activity/colors.c:169
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "<b>%1$s</b> configuration\n"
 " for profile <b>%2$s</b>"
 msgstr ""
-"<b>%s</b> конфигурация\n"
-" за профил <b>%s</b>"
+"Настройки на <b>%1$s</b>\n"
+" за профил <b>%2$s</b>"
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:1
 msgid "Complete the puzzle"
@@ -1404,7 +1407,7 @@ msgstr "Добър контрол на мишката"
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:5
 msgid "The dog is provided by Andre Connes and released under the GPL"
-msgstr ""
+msgstr "Кучето е предоставено от Андре Кон и е под GPL."
 
 #: ../src/babyshapes-activity/resources/babyshapes/board5_0.xml.in.h:1
 msgid "Hello ! My name is Lock."
@@ -1509,17 +1512,16 @@ msgstr "Дъска Питон"
 
 #: ../src/boards/python.c:64
 msgid "Special board that embeds python into GCompris."
-msgstr "Специална дъска, която включва Питон в GCompris."
+msgstr "Специална дъска, която вгражда Питон в GCompris."
 
 #: ../src/boards/python.c:88
-#, fuzzy
 msgid "Special board that embeds python into gcompris."
-msgstr "Специална дъска, която включва Питон в GCompris."
+msgstr "Специална дъска, която вгражда Питон в GCompris."
 
 #: ../src/canal_lock-activity/canal_lock.xml.in.h:1
 #: ../src/watercycle-activity/watercycle.xml.in.h:2
 msgid "Drawing by Stephane Cabaraux."
-msgstr ""
+msgstr "Рисунката е от Стефан Кабаро."
 
 #: ../src/canal_lock-activity/canal_lock.xml.in.h:2
 msgid "Operate a canal lock"
@@ -1565,6 +1567,8 @@ msgstr ""
 msgid ""
 "ERROR: Failed to initialize the network interface. You cannot communicate."
 msgstr ""
+"ГРЕШКА: Мрежовият интерфейс не може да бъде инициализиран. Не може да се "
+"осъществи комуникация."
 
 #: ../src/chat-activity/chat.py:326
 msgid "You must set a channel in your channel entry box first.\n"
@@ -2169,7 +2173,6 @@ msgid "Mouse manipulation"
 msgstr "Операции с мишката"
 
 #: ../src/crane-activity/crane.xml.in.h:5
-#, fuzzy
 msgid ""
 "Move the items in the bottom left frame to copy their position in the top "
 "right model. Below the crane itself, you will find four arrows that let you "
@@ -2179,7 +2182,8 @@ msgstr ""
 "Движете обектите в долната лява част, за да копирате тяхната позиция в "
 "образеца горе вдясно. Под самия кран ще намерите стрелки, които позволяват "
 "движението на обектите. За да изберете обект за преместване, натиснете върху "
-"него."
+"него. Ако предпочитате, можете да използвате клавишите от клавиатурата – "
+"тези със стрелки и интервала."
 
 #: ../src/doubleentry-activity/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
@@ -2436,22 +2440,21 @@ msgstr ""
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/gcompris/about.c:58
 msgid "translator_credits"
-msgstr "Явор Доганов <yavor@gnu.org>"
+msgstr ""
+"Явор Доганов <yavor@gnu.org>\n"
+"Александър Шопов <ash@kambanaria.org>"
 
 #: ../src/gcompris/about.c:85
 msgid "About GCompris"
 msgstr "Относно GCompris"
 
 #: ../src/gcompris/about.c:95
-#, fuzzy
 msgid "GCompris Home Page: http://gcompris.net"
-msgstr ""
-"Страница на GCompris\n"
-"http://gcompris.net"
+msgstr "Страница на GCompris: http://gcompris.net"
 
 #: ../src/gcompris/about.c:105
 msgid "Translators:"
-msgstr "Преводач:"
+msgstr "Преводачи:"
 
 #: ../src/gcompris/about.c:214
 msgid ""
@@ -2656,7 +2659,7 @@ msgstr "норвежки (ниношк)"
 
 #: ../src/gcompris/config.c:100
 msgid "Occitan (languedocien)"
-msgstr "окситански"
+msgstr "провансалски"
 
 #: ../src/gcompris/config.c:101
 msgid "Punjabi"
@@ -2888,30 +2891,28 @@ msgstr ""
 
 #: ../src/gcompris/gcompris.c:177
 msgid "GCompris will find the data dir in this directory"
-msgstr ""
+msgstr "GCompris ще търси папката с данни в тази папка"
 
 #: ../src/gcompris/gcompris.c:180
 msgid "GCompris will find the skins in this directory"
-msgstr ""
+msgstr "GCompris ще търси темите в тази папка"
 
 #: ../src/gcompris/gcompris.c:183
 msgid "GCompris will find the activity plugins in this directory"
-msgstr ""
+msgstr "GCompris ще търси приставките за дейности в тази папка"
 
 #: ../src/gcompris/gcompris.c:186
-#, fuzzy
 msgid "GCompris will find the python activity in this directory"
-msgstr ""
-"Стартиране на GCompris с локална папка със занимания,\n"
-"                           добавена към менюто"
+msgstr "GCompris ще търси заниманието с Питон в тази папка"
 
 #: ../src/gcompris/gcompris.c:189
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr ""
+"GCompris ще търси файла за локала (превод във формат „.mo“) в тази папка"
 
 #: ../src/gcompris/gcompris.c:192
 msgid "GCompris will find the activities menu in this directory"
-msgstr ""
+msgstr "GCompris ще търси менюто за заниманията в тази папка"
 
 #: ../src/gcompris/gcompris.c:195
 msgid "Run GCompris in administration and user-management mode"
@@ -2952,13 +2953,13 @@ msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
 msgstr ""
-"Директория с конфигурацията: [$HOME/.config/gcompris]\n"
+"Папка с конфигурацията: [$HOME/.config/gcompris]\n"
 "                           Алтернативно може да се зададе $XDG_CONFIG_HOME."
 
 #: ../src/gcompris/gcompris.c:216
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr ""
-"Местоположение на потребителските директории:\n"
+"Местоположение на потребителските папки:\n"
 "                           [$HOME/My GCompris]"
 
 #: ../src/gcompris/gcompris.c:219
@@ -2996,7 +2997,7 @@ msgstr ""
 msgid ""
 "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr ""
-"В сървърен режим, указва директорията за кеш,\n"
+"В сървърен режим, указва папката за кеш,\n"
 "                           използвана за избягване на излишните изтегляния."
 
 #: ../src/gcompris/gcompris.c:238
@@ -3014,7 +3015,7 @@ msgstr ""
 "                           на GCompris."
 
 #: ../src/gcompris/gcompris.c:916
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support its development, the Windows version provides only %d of the %d "
@@ -3029,12 +3030,10 @@ msgstr ""
 "подкрепите разработката му, версията за „Уиндоус“ осигурява само %d от %d-те "
 "занимания. Може да се сдобиете с пълната версия срещу малка такса на\n"
 "<http://gcompris.net>\n"
-"Версията за GNU/Линукс няма такива ограничения. Забележете, че GCompris е "
-"разработен, за да освободи училищата от монополистични производители на "
-"софтуер. Ако вие също вярвате, че трябва да учим децата на свобода, "
-"обмислете възможността да използвате GNU/Линукс. Може да намерите повече "
-"информация на страниците на проекта GNU:\n"
-"<http://www.gnu.org/philosophy/philosophy.bg.html>"
+"Версията за GNU/Линукс няма такива ограничения. Ако вие също вярвате, че "
+"трябва да учим децата на свобода, обмислете възможността да използвате GNU/"
+"Линукс. Може да намерите повече информация на страниците на FSF:\n"
+"<http://www.fsf.org/philosophy.bg.html>"
 
 #: ../src/gcompris/gcompris.c:1353
 #, c-format
@@ -3139,7 +3138,7 @@ msgid ""
 "This directory contains the files you create with the GCompris educational "
 "suite\n"
 msgstr ""
-"Тази директория съдържа файловете, които създавате с образователната серия "
+"Тази папка съдържа файловете, които създавате с образователната серия "
 "GCompris\n"
 
 #: ../src/gcompris/properties.c:501
@@ -3148,7 +3147,7 @@ msgid ""
 "You can include these images in your drawings and animations.\n"
 "The image formats supported are jpeg, png and svg.\n"
 msgstr ""
-"Записвайте всякакъв вид изображения в тази директория.\n"
+"Записвайте всякакъв вид изображения в тази папка.\n"
 "Може да ги включвате във вашите рисунки и анимации.\n"
 "Поддържаните формати за изображения са JPEG, PNG и SVG.\n"
 
@@ -3805,7 +3804,7 @@ msgid ""
 "<b>%s</b> configuration\n"
 " for profile <b>%s</b>"
 msgstr ""
-"<b>%s</b> конфигурация\n"
+"Настройки на <b>%s</b>\n"
 " за профил <b>%s</b>"
 
 #: ../src/gletters-activity/gletters.c:876
@@ -4270,11 +4269,13 @@ msgid ""
 "Data file for this level is not properly formatted. Too many choices are "
 "proposed."
 msgstr ""
+"Файлът с данни за това ниво не е форматиран правилно. Предложени са "
+"прекалено много възможности за избор."
 
 #: ../src/imageid-activity/imageid.c:534
 #: ../src/missing_letter-activity/missingletter.c:582
 msgid "Data file for this level is not properly formatted."
-msgstr ""
+msgstr "Файлът с данни за това ниво не е форматиран правилно."
 
 #: ../src/imageid-activity/imageid.xml.in.h:1
 msgid "Click on the word corresponding to the printed image."
@@ -4389,9 +4390,8 @@ msgid "plane"
 msgstr "самолет"
 
 #: ../src/imagename-activity/imagename.xml.in.h:1
-#, fuzzy
 msgid "Drag and Drop each item above its name"
-msgstr "Изтегляйте и пускайте обектите над написаните им имена"
+msgstr "Изтегляйте и пускайте всеки обект върху името му"
 
 #: ../src/imagename-activity/imagename.xml.in.h:2
 msgid ""
@@ -4817,50 +4817,44 @@ msgstr "Повтаряне на мелодия"
 
 #: ../src/memory-activity/memory.c:280
 msgid "zero"
-msgstr ""
+msgstr "нула"
 
 #: ../src/memory-activity/memory.c:281
-#, fuzzy
 msgid "one"
-msgstr "Няма"
+msgstr "едно"
 
 #: ../src/memory-activity/memory.c:282
 msgid "two"
-msgstr ""
+msgstr "две"
 
 #: ../src/memory-activity/memory.c:283
-#, fuzzy
 msgid "three"
-msgstr "дърво"
+msgstr "три"
 
+# FIXME
 #: ../src/memory-activity/memory.c:284
-#, fuzzy
 msgid "for"
-msgstr "цвете"
+msgstr "четири"
 
 #: ../src/memory-activity/memory.c:285
-#, fuzzy
 msgid "five"
-msgstr "маслиненозелено"
+msgstr "пет"
 
 #: ../src/memory-activity/memory.c:286
 msgid "six"
-msgstr ""
+msgstr "шест"
 
 #: ../src/memory-activity/memory.c:287
-#, fuzzy
 msgid "seven"
-msgstr "зелено"
+msgstr "седем"
 
 #: ../src/memory-activity/memory.c:288
-#, fuzzy
 msgid "eight"
-msgstr "дясна"
+msgstr "осем"
 
 #: ../src/memory-activity/memory.c:289
-#, fuzzy
 msgid "nine"
-msgstr "винен цвят"
+msgstr "девет"
 
 #: ../src/memory-activity/memory.c:301
 msgid "Memory"
@@ -5086,27 +5080,25 @@ msgid "Division memory game against Tux"
 msgstr "Игра на памет с делене срещу Тъкс"
 
 #: ../src/memory_enumerate-activity/memory_enumerate.xml.in.h:2
-#, fuzzy
 msgid "Enumeration memory game"
-msgstr "Игра на памет с изваждане"
+msgstr "Игра на памет с изброяване"
 
 #: ../src/memory_enumerate-activity/memory_enumerate.xml.in.h:3
-#, fuzzy
 msgid "Numeration training, memory."
-msgstr "Упражнения по броене"
+msgstr "Упражнения по броене и памет"
 
 #: ../src/memory_enumerate-activity/memory_enumerate.xml.in.h:4
-#, fuzzy
 msgid "Turn the cards over to match the number with the drawn picture."
 msgstr ""
-"Обърнете картите, за да намерите две числа, които правят същия сбор, докато "
-"всички карти изчезнат."
+"Обърнете картите, за да намерите съвпадащите чифтове – число с картинка."
 
 #: ../src/memory_enumerate-activity/memory_enumerate.xml.in.h:5
 msgid ""
 "You can see some cards, but you can't see what's on the other side of them. "
 "Each card is hiding a number of pictures, or the written number."
 msgstr ""
+"Може да виждате някои карти, но не и какво има на обратната им страна. Всяка "
+"карта крие някакъв брой картинки или записаното число."
 
 #: ../src/memory_minus-activity/memory_minus.xml.in.h:1
 #: ../src/memory_minus_tux-activity/memory_minus_tux.xml.in.h:1
@@ -5292,25 +5284,23 @@ msgstr ""
 
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:2
 msgid "Reading numbers, memory."
-msgstr ""
+msgstr "Четене на числа, памет."
 
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:3
-#, fuzzy
 msgid "Turn the cards over to match the number with the word matching it."
-msgstr ""
-"Обърнете картите, за да намерите две числа, които правят същия сбор, докато "
-"всички карти изчезнат."
+msgstr "Обърнете картите, за да намерите съвпадащите число с дума."
 
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:4
-#, fuzzy
 msgid "Wordnumber memory game"
-msgstr "Игра на памет със събиране"
+msgstr "Игра на памет с думи и числа"
 
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:5
 msgid ""
 "You can see some cards, but you can't see what's on the other side of them. "
 "Each card is hiding a number of number, or the word of the number."
 msgstr ""
+"Може да виждате някои карти, но не и какво има на обратната им страна.  "
+"Всяка карта крие число изразено като цифри или дума."
 
 #: ../src/missing_letter-activity/missing_letter.xml.in.h:1
 msgid ""
@@ -5369,144 +5359,116 @@ msgid "satchel/s_tchel/a/o/i"
 msgstr "чанта/чан_а/т/д/ж"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board3.xml.in.h:1
-#, fuzzy
 msgid "ball/_all/b/p/d/m"
-msgstr "топка/_опка/т/д/к"
+msgstr "топка/_опка/т/д/к/ц"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board3.xml.in.h:2
-#, fuzzy
 msgid "bed/_ed/b/l/f/t"
-msgstr "легло/_егло/л/к/н"
+msgstr "легло/_егло/л/к/н/ф"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board3.xml.in.h:3
-#, fuzzy
 msgid "bottle/_ottle/b/t/p/l"
-msgstr "бутилка/_утилка/б/в/п"
+msgstr "бутилка/_утилка/б/в/п/ц"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board3.xml.in.h:4
-#, fuzzy
 msgid "cake/_ake/c/p/d/k"
-msgstr "торта/_орта/т/д/п"
+msgstr "торта/_орта/т/д/п/ш"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:1
-#, fuzzy
 msgid "apple/appl_/e/h/a/i/o/u"
-msgstr "ябълка/ябълк_/а/ъ/я"
+msgstr "ябълка/ябълк_/а/ъ/я/ю"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:2
-#, fuzzy
 msgid "banana/_anana/b/p/d/m"
-msgstr "банан/_анан/б/в/п"
+msgstr "банан/_анан/б/в/п/щ"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:3
-#, fuzzy
 msgid "car/_ar/c/k/b/u"
-msgstr "автомобил/а_томобил/в/ф/ш"
+msgstr "автомобил/а_томобил/в/ф/ш/х"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:4
-#, fuzzy
 msgid "dog/d_g/o/g/a/u"
-msgstr "куче/к_че/у/о/а"
+msgstr "куче/к_че/у/о/а/е"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:5
-#, fuzzy
 msgid "fish/_ish/f/h/l/j"
-msgstr "риба/_иба/р/в/н"
+msgstr "риба/_иба/р/в/н/л"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:6
-#, fuzzy
 msgid "house/h_use/o/f/u/i"
-msgstr "къща/к_ща/ъ/а/у"
+msgstr "къща/к_ща/ъ/а/у/о"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:7
-#, fuzzy
 msgid "plane/p_ane/l/j/i/t"
-msgstr "самолет/сам_лет/о/у/а"
+msgstr "самолет/сам_лет/о/у/а/и"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:8
-#, fuzzy
 msgid "satchel/_atchel/s/c/l/z"
-msgstr "чанта/_анта/ч/ш/щ"
+msgstr "чанта/_анта/ч/ш/щ/ж"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:1
-#, fuzzy
 msgid "apple/app_e/l/h/n/i/t"
-msgstr "ябълка/яб_лка/ъ/а/о"
+msgstr "ябълка/яб_лка/ъ/а/о/и/у"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:2
-#, fuzzy
 msgid "ball/b_ll/a/u/o/e/i/y"
-msgstr "топка/т_пка/о/у/ю"
+msgstr "топка/т_пка/о/у/ю/и/e"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:3
-#, fuzzy
 msgid "ball/bal_/l/h/s/z/t"
-msgstr "топка/топк_/а/ъ/я"
+msgstr "топка/топк_/а/ъ/я/у/e"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:4
-#, fuzzy
 msgid "banana/ba_ana/n/m/b/z/q"
-msgstr "банан/ба_ан/н/м/л"
+msgstr "банан/ба_ан/н/м/л/р/т"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:5
-#, fuzzy
 msgid "bed/b_d/e/a/i/o/u/s"
-msgstr "легло/л_гло/е/и/ъ"
+msgstr "легло/л_гло/е/и/ъ/ю/я"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:6
-#, fuzzy
 msgid "bed/be_/d/p/b/c/v/n"
-msgstr "легло/ле_ло/г/к/в"
+msgstr "легло/ле_ло/г/к/в/х/т"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:7
-#, fuzzy
 msgid "bottle/b_ttle/o/u/d/a/t/i"
-msgstr "бутилка/б_тилка/у/о/а"
+msgstr "бутилка/б_тилка/у/о/а/ъ/e/и"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:8
-#, fuzzy
 msgid "bottle/bott_e/l/y/r/s/g"
-msgstr "бутилка/бутилк_/а/ъ/я"
+msgstr "бутилка/бутилк_/а/ъ/я/ю/о/у"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:9
-#, fuzzy
 msgid "cake/c_ke/a/o/e/i/u/y"
-msgstr "торта/т_рта/о/у/а"
+msgstr "торта/т_рта/о/у/а/ю/я/и"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:10
-#, fuzzy
 msgid "cake/ca_e/k/q/c/r/z"
-msgstr "торта/тор_а/т/д/п"
+msgstr "торта/тор_а/т/д/п/в/з"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:11
-#, fuzzy
 msgid "car/ca_/r/w/k/c/a"
-msgstr "автомобил/автом_бил/о/а/у"
+msgstr "автомобил/автом_бил/о/а/у/ю/е"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:12
-#, fuzzy
 msgid "dog/do_/g/p/q/q/k"
-msgstr "куче/куч_/е/и/о"
+msgstr "куче/куч_/е/и/о/у/ъ"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:13
-#, fuzzy
 msgid "fish/fis_/h/o/i/y/z"
-msgstr "риба/риб_/а/ъ/я"
+msgstr "риба/риб_/а/ъ/я/e/у"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:14
-#, fuzzy
 msgid "house/_ouse/h/e/j/z/p/s"
-msgstr "къща/_ъща/к/г/т"
+msgstr "къща/_ъща/к/г/т/л/ш/д"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:15
-#, fuzzy
 msgid "plane/pl_ne/a/o/s/e/i/u/y"
-msgstr "самолет/самоле_/т/д/ш"
+msgstr "самолет/самоле_/т/д/ш/н/й/с/р"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:16
-#, fuzzy
 msgid "satchel/sa_chel/t/p/c/z/s/l"
-msgstr "чанта/чант_/а/ъ/я"
+msgstr "чанта/чант_/а/ъ/я/ю/e/у"
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
 #: ../src/money-activity/money.c:496
@@ -5598,27 +5560,28 @@ msgstr "Пиер-Огюст Реноар, „Бал в мелницата Ла �
 
 #: ../src/paintings-activity/resources/paintings/board1_2.xml.in.h:1
 msgid "Giuseppe Arcimboldo, Spring - 1573"
-msgstr ""
+msgstr "Джузепе Арчимболдо, „Пролет“ – 1573"
 
 #: ../src/paintings-activity/resources/paintings/board1_3.xml.in.h:1
 msgid "Giuseppe Arcimboldo, The Librarian - 1566)"
-msgstr ""
+msgstr "Джузепе Арчимболдо, „Библиотекарят“ – 1573"
 
+# FIXME
 #: ../src/paintings-activity/resources/paintings/board1_5.xml.in.h:1
 msgid "Woman holding a fan"
-msgstr ""
+msgstr "Жена с ветрило"
 
 #: ../src/paintings-activity/resources/paintings/board2_1.xml.in.h:1
 msgid "Botticelli, Primavera - 1482"
-msgstr ""
+msgstr "Ботичели, „Пролет“ – 1482"
 
 #: ../src/paintings-activity/resources/paintings/board2_2.xml.in.h:1
 msgid "Caravage, Rest on the Flight into Egypt - 1597"
-msgstr ""
+msgstr "Караваджо, „Отдих на път за Египет“ – 1597"
 
 #: ../src/paintings-activity/resources/paintings/board2_3.xml.in.h:1
 msgid "Botticelli, The Birth of Venus - 1482–1486"
-msgstr ""
+msgstr "Ботичели, „Раждането на Венера“ – 1482-1486"
 
 #: ../src/paintings-activity/resources/paintings/board3_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
@@ -5638,7 +5601,7 @@ msgstr "Базил, „Крепостните стени на Огюс-Морт�
 
 #: ../src/paintings-activity/resources/paintings/board5_0.xml.in.h:1
 msgid "Cassatt, Mary - Summertime - 1894"
-msgstr "Мари Касат — „Лято“ — 1894 г."
+msgstr "Мари Касат, „Лято“ — 1894 г."
 
 #: ../src/paintings-activity/resources/paintings/board6_0.xml.in.h:1
 msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
@@ -5923,9 +5886,8 @@ msgid "is being displayed"
 msgstr "е показана"
 
 #: ../src/readingh-activity/reading.c:456
-#, fuzzy
 msgid "We skip this level because there are not enough word in the list!"
-msgstr "Това ниво се пропуска, защото няма достатъчно думи в списъка."
+msgstr "Това ниво се пропуска, защото няма достатъчно думи в списъка!"
 
 #: ../src/readingh-activity/reading.c:621
 msgid "I am Ready"
@@ -6060,10 +6022,11 @@ msgstr ""
 "Тъкс е гладен. Помогнете му да намери рибата, като броите до правилния леден "
 "блок."
 
+# FIXME
 #: ../src/scalesboard-activity/scale.c:293
-#, fuzzy, c-format
+#, c-format
 msgid "Weight in g = %s"
-msgstr "Тегло = %s"
+msgstr "Тегло [грам] = %s"
 
 #: ../src/scalesboard-activity/scale.c:295
 #, c-format
@@ -6684,197 +6647,3 @@ msgstr "Упражнения с клавиатурата"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:4
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Напишете пълната дума докато пада, преди да е достигнала земята"
-
-#~ msgid ""
-#~ "The dog is provided by Andre Connes and released under the GPL.\n"
-#~ "Artist: Gauguin, Paul. Title Arearea. Licence: Public Domain. Source: "
-#~ "http://commons.wikimedia.org/wiki/Image:Paul_Gauguin_006.jpg\n"
-#~ "Artist: Pieter Bruegel the Elder. Title: The peasants wedding. Licence: "
-#~ "Public Domain. Source: http://commons.wikimedia.org/wiki/Image:"
-#~ "Pieter_Bruegel_d._Ä._011.jpg\n"
-#~ "Description: The Lady and the Unicorn (tapestries). Author: Pierre-"
-#~ "Emmanuel Malissin and Frédéric Valdes. Licence: Free but requires the "
-#~ "site and author. Source: http://www.galerie.roi-president.com\n"
-#~ "Artist: Vincent van Gogh. Title: Bedroom in Arles. Licence: Public "
-#~ "Domain. Source: http://commons.wikimedia.org/wiki/Image:"
-#~ "Vincent_Van_Gogh_0011.jpg\n"
-#~ "Artist: Ambrosius Bosschaert the Elder. Title: Flower Still Life. "
-#~ "Licence: Public Domain. Source: http://commons.wikimedia.org/wiki/Image:"
-#~ "Ambrosius_Bosschaert,_the_Elder_04.jpg"
-#~ msgstr ""
-#~ "Кучето е предоставено от Андре Кон и е издадено под GPL.\n"
-#~ "Художник: Пол Гоген. Заглавие: „Ареария“. Лиценз: обществено достояние. "
-#~ "Източник: http://commons.wikimedia.org/wiki/Image:Paul_Gauguin_006.jpg\n"
-#~ "Художник: Питер Брьогел Стари. Заглавие: „Селска сватба“. Лиценз: "
-#~ "обществено достояние. Източник: http://commons.wikimedia.org/wiki/Image:"
-#~ "Pieter_Bruegel_d._Ä._011.jpg\n"
-#~ "Описание: „Дамата с еднорога“ (гоблени). Автор: Пиер-Емануел Малисен и "
-#~ "Фредерик Валдес. Лиценз: Свободен, но изисква цитирането на уеб-сайта и "
-#~ "автора. Източник: http://www.galerie.roi-president.com\n"
-#~ "Художник: Винсент ван Гог. Заглавие: „Спалня в Арл“. Лиценз: обществено "
-#~ "достояние. Източник: http://commons.wikimedia.org/wiki/Image:"
-#~ "Vincent_Van_Gogh_0011.jpg\n"
-#~ "Художник: Амброзий Босшарт Стари. Заглавие: „Натюрморт с цветя“. Лиценз: "
-#~ "обществено достояние. Източник: http://commons.wikimedia.org/wiki/Image:"
-#~ "Ambrosius_Bosschaert,_the_Elder_04.jpg"
-
-# FIXME: Не мога да издиря превода на тази картина на български.
-# http://fr.wikipedia.org/wiki/Fichier:Paul_Gauguin_006.jpg
-#~ msgid "Paul Gauguin, Arearea - 1892"
-#~ msgstr "Пол Гоген, „Ареария“ — 1892 г."
-
-#~ msgid "Pieter Bruegel the Elder, The peasants wedding - 1568"
-#~ msgstr "Питер Брьогел Стари, „Селска сватба“ — 1568 г."
-
-#~ msgid "The Lady and the Unicorn - XVe century"
-#~ msgstr "„Дамата с еднорога“ — 15-и век"
-
-#~ msgid "Vincent van Gogh, Bedroom in Arles - 1888"
-#~ msgstr "Винсент ван Гог, „Спалня в Арл“ — 1888 г."
-
-# FIXME: Не съм сигурен за транслитерацията на името.
-#~ msgid "Ambrosius Bosschaert the Elder, Flower Still Life - 1614"
-#~ msgstr "Амброзий Босшарт Стари, „Натюрморт с цветя“ — 1614 г."
-
-#~ msgid ""
-#~ "At the start, each player (one controlling the white pieces, the other "
-#~ "controlling the black pieces) controls sixteen pieces: one king, one "
-#~ "queen, two rooks, two knights, two bishops, and eight pawns. The object "
-#~ "of the game is to checkmate the opponent's king, whereby the king is "
-#~ "under immediate attack (in \"check\") and there is no way to remove it "
-#~ "from attack on the next move."
-#~ msgstr ""
-#~ "В началото, всеки играч (единия с белите, другия с черните фигури) "
-#~ "контролира шестнадесет фигури: един цар, една царица, два топа, два коня, "
-#~ "два офицера и осем пешки. Целта на играта е да се постигне „шахмат“ на "
-#~ "противника, когато царят е атакуван (в „шах“) и няма начин да се избегне "
-#~ "атаката в следващия ход."
-
-#~ msgid "Double click the mouse"
-#~ msgstr "Двойно натискане с мишката"
-
-#~ msgid "Double click the mouse on rectangles until all the blocks disappear."
-#~ msgstr ""
-#~ "Натискайте два пъти по правоъгълниците с мишката, докато всички плочки "
-#~ "изчезнат."
-
-#~ msgid "Double click the mouse to erase the area and discover the background"
-#~ msgstr ""
-#~ "Натиснете два пъти с мишката, за да изтриете зоната и разкриете фона"
-
-#~ msgid "gcompris animation"
-#~ msgstr "Анимация GCompris"
-
-#~ msgid "gcompris drawing"
-#~ msgstr "Рисунка GCompris"
-
-#~ msgid "svg drawing"
-#~ msgstr "рисунка, формат „SVG“"
-
-#~ msgid "svg mozilla animation"
-#~ msgstr "анимация на Mozilla, формат „SVG“"
-
-#~ msgid "wordprocessor text"
-#~ msgstr "текст от текстообработваща програма"
-
-#~ msgid ""
-#~ "Rebuild the left mosaic on the right area. Select a color in the bottom "
-#~ "area and click on grey boxes to paint them."
-#~ msgstr ""
-#~ "Възстановете цялата мозайка в дясната зона. Изберете цвят от зоната долу "
-#~ "и натиснете върху сивите блокчета, за да ги оцветите."
-
-#~ msgid "Picture"
-#~ msgstr "Рисунка"
-
-#~ msgid "Answer"
-#~ msgstr "Отговор"
-
-#~ msgid "Question"
-#~ msgstr "Въпрос"
-
-#~ msgid "Choice"
-#~ msgstr "Избор"
-
-#~ msgid "Level:"
-#~ msgstr "Ниво:"
-
-#~ msgid "Level %d"
-#~ msgstr "Ниво %d"
-
-#~ msgid "Filename:"
-#~ msgstr "Име на файл:"
-
-#~ msgid "SVG is disabled. Install python xml module to enable it"
-#~ msgstr ""
-#~ "Поддръжката на SVG е изключена. Инсталирайте модула на Питон за XML, за "
-#~ "да я включите."
-
-#~ msgid "Warning: the following images cannot be accessed on your system.\n"
-#~ msgstr "Предупреждение: следните изображения не са достъпни в системата.\n"
-
-#~ msgid "The corresponding items have been skipped."
-#~ msgstr "Съответстващите елементи се пропускат."
-
-#~ msgid "Yes, I saw it"
-#~ msgstr "Да, видях я"
-
-#~ msgid ""
-#~ "Select the language\n"
-#~ " to use in the board"
-#~ msgstr ""
-#~ "Изберете език\n"
-#~ " за заниманието"
-
-#~ msgid "Global GCompris mode"
-#~ msgstr "Общ режим на GCompris"
-
-#~ msgid "Normal"
-#~ msgstr "Нормален"
-
-#~ msgid "2 clicks"
-#~ msgstr "2 натискания"
-
-#~ msgid "both modes"
-#~ msgstr "двата режима"
-
-#~ msgid ""
-#~ "Select the drag and drop mode\n"
-#~ " to use in the board"
-#~ msgstr ""
-#~ "Изберете режим\n"
-#~ " за заниманието"
-
-#~ msgid "%d (New level)"
-#~ msgstr "%d (ново ниво)"
-
-#~ msgid "Configure the list of words"
-#~ msgstr "Настройване на списъка с думи"
-
-#~ msgid "Language:"
-#~ msgstr "Език:"
-
-#~ msgid "Back to default"
-#~ msgstr "Връщане по подразбиране"
-
-#~ msgid "Arabic (Tunisia)"
-#~ msgstr "арабски (Тунис)"
-
-#~ msgid "800x600 (Default for GCompris)"
-#~ msgstr "800x600 (стандартно за GCompris)"
-
-#~ msgid "Use the antialiased canvas (slower)."
-#~ msgstr "Използване на платно със заглаждане (по-бавно)."
-
-#~ msgid "Disable XF86VidMode (No screen resolution change)."
-#~ msgstr ""
-#~ "Изключване на XF86VidMode (без промяна на\n"
-#~ "                           разделителната способност)."
-
-#~ msgid "Display the resources on stdout based on the selected activities"
-#~ msgstr ""
-#~ "Показване на ресурсите на стандартния изход, базирано на избраните "
-#~ "занимания"
-
-#~ msgid "Do not display the background images of activities."
-#~ msgstr "Без фонови изображения на заниманията."
