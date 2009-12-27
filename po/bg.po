@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris gcomprixogoo\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-26 11:35+0200\n"
-"PO-Revision-Date: 2009-12-26 11:34+0200\n"
+"POT-Creation-Date: 2009-12-27 09:06+0200\n"
+"PO-Revision-Date: 2009-12-27 08:05+0200\n"
 "Last-Translator: Yavor Doganov <yavor@gnu.org>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
@@ -286,37 +286,37 @@ msgstr "Образователна серия GCompris"
 msgid "Multi-activity educational game"
 msgstr "Игра с много занимания с образователна цел"
 
-#: ../src/administration-activity/admin/board_list.py:89
+#: ../src/administration-activity/admin/board_list.py:91
 msgid "Select a profile:"
 msgstr "Изберете профил:"
 
-#: ../src/administration-activity/admin/board_list.py:143
+#: ../src/administration-activity/admin/board_list.py:148
 msgid "Filter"
 msgstr "Филтър"
 
-#: ../src/administration-activity/admin/board_list.py:148
+#: ../src/administration-activity/admin/board_list.py:153
 msgid "Select all"
 msgstr "Избор на всичко"
 
-#: ../src/administration-activity/admin/board_list.py:153
+#: ../src/administration-activity/admin/board_list.py:158
 msgid "Unselect all"
 msgstr "Премахване на избора"
 
-#: ../src/administration-activity/admin/board_list.py:158
+#: ../src/administration-activity/admin/board_list.py:163
 msgid "Locales"
 msgstr "Локали"
 
-#: ../src/administration-activity/admin/board_list.py:163
+#: ../src/administration-activity/admin/board_list.py:168
 msgid "Locales sound"
 msgstr "Локализирани звуци"
 
-#: ../src/administration-activity/admin/board_list.py:168
+#: ../src/administration-activity/admin/board_list.py:173
 #: ../src/administration-activity/admin/group_user_list.py:143
 #: ../src/administration-activity/admin/user_list.py:184
 msgid "Login"
 msgstr "Влизане"
 
-#: ../src/administration-activity/admin/board_list.py:226
+#: ../src/administration-activity/admin/board_list.py:245
 msgid "Main menu"
 msgstr "Главно меню"
 
@@ -325,20 +325,20 @@ msgstr "Главно меню"
 #. image = gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, gtk.ICON_SIZE_MENU)
 #. image.show()
 #. column_pref.set_widget(image)
-#: ../src/administration-activity/admin/board_list.py:292
+#: ../src/administration-activity/admin/board_list.py:311
 msgid "Active"
 msgstr "Активно"
 
-#: ../src/administration-activity/admin/board_list.py:293
+#: ../src/administration-activity/admin/board_list.py:312
 msgid "Board title"
 msgstr "Заглавие на заниманието"
 
-#: ../src/administration-activity/admin/board_list.py:406
+#: ../src/administration-activity/admin/board_list.py:425
 #, python-format
 msgid "Filter Boards difficulty for profile %s"
 msgstr "Филтриране на нива на трудност на заниманията за профил „%s“"
 
-#: ../src/administration-activity/admin/board_list.py:437
+#: ../src/administration-activity/admin/board_list.py:456
 #, python-format
 msgid ""
 "<span size='x-large'> Select the difficulty range \n"
@@ -347,8 +347,8 @@ msgstr ""
 "<span size='x-large'> Изберете ниво на трудност\n"
 "за профил <b>%s</b></span>"
 
-#: ../src/administration-activity/admin/board_list.py:626
 #: ../src/administration-activity/admin/board_list.py:645
+#: ../src/administration-activity/admin/board_list.py:657
 #: ../src/administration-activity/admin/wordlist.py:45
 msgid ""
 "<b>{config}</b> configuration\n"
@@ -358,7 +358,7 @@ msgstr ""
 " за профил <b>{profile}</b>"
 
 #. self.main_vbox.pack_start (label, False, False, 8)
-#: ../src/administration-activity/admin/board_list.py:658
+#: ../src/administration-activity/admin/board_list.py:663
 #: ../src/colors-activity/colors.c:181
 #: ../src/pythontest-activity/pythontest.py:518
 #: ../src/smallnumbers-activity/smallnumbers.c:597
@@ -489,57 +489,59 @@ msgstr "Трябва да изберете група от списъка"
 msgid "Birth Date"
 msgstr "Дата на раждане"
 
-#: ../src/administration-activity/admin/log_list.py:90
+#: ../src/administration-activity/admin/log_list.py:94
 msgid "Select a user:"
 msgstr "Изберете потребител:"
 
 #. Insert the ALL option (HACK, use the user_id -2 to indicate ALL)
-#: ../src/administration-activity/admin/log_list.py:101
+#: ../src/administration-activity/admin/log_list.py:105
 msgid "All users"
 msgstr "Всички потребители"
 
-#: ../src/administration-activity/admin/log_list.py:107
-#: ../src/administration-activity/admin/log_list.py:286
+#: ../src/administration-activity/admin/log_list.py:111
+#: ../src/administration-activity/admin/log_list.py:298
 #: ../src/administration-activity/admin/profile_list.py:120
+#: ../src/gcompris/board_config_combo.c:125
+#: ../src/gcompris/board_config_combo.c:398
 msgid "Default"
 msgstr "По подразбиране"
 
 #. Reset buttons
-#: ../src/administration-activity/admin/log_list.py:161
+#: ../src/administration-activity/admin/log_list.py:165
 msgid "Reset"
 msgstr "Анулиране"
 
-#: ../src/administration-activity/admin/log_list.py:207
+#: ../src/administration-activity/admin/log_list.py:219
 msgid "Date"
 msgstr "Дата"
 
-#: ../src/administration-activity/admin/log_list.py:217
+#: ../src/administration-activity/admin/log_list.py:229
 msgid "User"
 msgstr "Потребител"
 
-#: ../src/administration-activity/admin/log_list.py:227
+#: ../src/administration-activity/admin/log_list.py:239
 msgid "Board"
 msgstr "Занимание"
 
-#: ../src/administration-activity/admin/log_list.py:237
+#: ../src/administration-activity/admin/log_list.py:249
 #: ../src/redraw-activity/redraw.py:328
 msgid "Level"
 msgstr "Ниво"
 
-#: ../src/administration-activity/admin/log_list.py:247
+#: ../src/administration-activity/admin/log_list.py:259
 msgid "Sublevel"
 msgstr "Под-ниво"
 
-#: ../src/administration-activity/admin/log_list.py:257
+#: ../src/administration-activity/admin/log_list.py:269
 msgid "Duration"
 msgstr "Времетраене"
 
-#: ../src/administration-activity/admin/log_list.py:267
+#: ../src/administration-activity/admin/log_list.py:279
 msgid "Status"
 msgstr "Състояние"
 
-#: ../src/administration-activity/admin/module_boards.py:40
-#: ../src/administration-activity/admin/module_boards.py:62
+#: ../src/administration-activity/admin/module_boards.py:41
+#: ../src/administration-activity/admin/module_boards.py:69
 msgid "Boards"
 msgstr "Занимания"
 
@@ -553,12 +555,12 @@ msgstr "Групи"
 msgid "Profiles"
 msgstr "Профили"
 
-#: ../src/administration-activity/admin/module_reports.py:39
-#: ../src/administration-activity/admin/module_reports.py:61
+#: ../src/administration-activity/admin/module_reports.py:40
+#: ../src/administration-activity/admin/module_reports.py:69
 msgid "Reports"
 msgstr "Доклади"
 
-#: ../src/administration-activity/admin/module_reports.py:61
+#: ../src/administration-activity/admin/module_reports.py:69
 #: ../src/administration-activity/admin/module_users.py:39
 #: ../src/administration-activity/admin/module_users.py:61
 msgid "Users"
@@ -1205,7 +1207,6 @@ msgstr ""
 msgid "Needs to be capable of moving and clicking the mouse easily"
 msgstr "Навици за лесно владеене на мишката."
 
-# FIXME
 #: ../src/anim-activity/anim.xml.in.h:5
 msgid ""
 "Select a drawing tool on the left, and a color down the bottom. Then click "
@@ -1420,6 +1421,27 @@ msgstr "Шаро на тревата."
 #: ../src/babyshapes-activity/resources/babyshapes/board7_0.xml.in.h:1
 msgid "Lock with colored shapes."
 msgstr "Оцветен Шаро."
+
+#: ../src/babyshapes-activity/resources/babyshapes/board8_0.xml.in.h:1
+msgid "Paul Gauguin, Arearea - 1892"
+msgstr ""
+
+#: ../src/babyshapes-activity/resources/babyshapes/board8_1.xml.in.h:1
+msgid "Pieter Bruegel the Elder, The peasants wedding - 1568"
+msgstr ""
+
+#: ../src/babyshapes-activity/resources/babyshapes/board8_2.xml.in.h:1
+msgid "The Lady and the Unicorn - XVe century"
+msgstr ""
+
+#: ../src/babyshapes-activity/resources/babyshapes/board8_3.xml.in.h:1
+#, fuzzy
+msgid "Vincent van Gogh, Bedroom in Arles - 1888"
+msgstr "Винсент ван Гог, „Селска улица в Овер“ — 1890 г."
+
+#: ../src/babyshapes-activity/resources/babyshapes/board8_4.xml.in.h:1
+msgid "Ambrosius Bosschaert the Elder, Flower Still Life - 1614"
+msgstr ""
 
 #: ../src/ballcatch-activity/ballcatch.xml.in.h:1
 msgid "Make the ball go to Tux"
@@ -2452,11 +2474,11 @@ msgstr "Относно GCompris"
 msgid "GCompris Home Page: http://gcompris.net"
 msgstr "Страница на GCompris: http://gcompris.net"
 
-#: ../src/gcompris/about.c:105
+#: ../src/gcompris/about.c:106
 msgid "Translators:"
 msgstr "Преводачи:"
 
-#: ../src/gcompris/about.c:214
+#: ../src/gcompris/about.c:206
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
@@ -2464,7 +2486,7 @@ msgstr ""
 "Този софтуер е пакет на GNU и се разпространява под условията на Общия "
 "публичен лиценз на GNU (GNU GPL)"
 
-#: ../src/gcompris/about.c:228 ../src/gcompris/config.c:422
+#: ../src/gcompris/about.c:220 ../src/gcompris/config.c:422
 #: ../src/gcompris/dialog.c:103 ../src/gcompris/help.c:354
 #: ../src/gcompris/images_selector.c:307
 msgid "OK"
@@ -2491,6 +2513,61 @@ msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr ""
 "Не се поддържа динамично зареждане на модули, GCompris не може да се "
 "зареди.\n"
+
+#: ../src/gcompris/board_config_combo.c:157
+msgid ""
+"Select the language\n"
+" to use in the board"
+msgstr ""
+
+#: ../src/gcompris/board_config_combo.c:227
+msgid "Global GCompris mode"
+msgstr ""
+
+#: ../src/gcompris/board_config_combo.c:228
+#, fuzzy
+msgid "Normal"
+msgstr "коралов цвят"
+
+#: ../src/gcompris/board_config_combo.c:229
+msgid "2 clicks"
+msgstr ""
+
+#: ../src/gcompris/board_config_combo.c:230
+msgid "both modes"
+msgstr ""
+
+#: ../src/gcompris/board_config_combo.c:258
+msgid ""
+"Select the drag and drop mode\n"
+" to use in the board"
+msgstr ""
+
+#. add a new level
+#: ../src/gcompris/board_config_wordlist.c:106
+#, c-format
+msgid "%d (New level)"
+msgstr ""
+
+#. frame
+#: ../src/gcompris/board_config_wordlist.c:180
+#, fuzzy
+msgid "Configure the list of words"
+msgstr "Завършете списъка със символи"
+
+#: ../src/gcompris/board_config_wordlist.c:209
+#, fuzzy
+msgid "Choice of the language"
+msgstr "Цвят на линията"
+
+#: ../src/gcompris/board_config_wordlist.c:221
+#, fuzzy
+msgid "Choice of the level"
+msgstr "Цвят на линията"
+
+#: ../src/gcompris/board_config_wordlist.c:246
+msgid "Back to default"
+msgstr ""
 
 #: ../src/gcompris/config.c:59
 msgid "Your system default"
@@ -2798,8 +2875,8 @@ msgstr "Ефекти"
 msgid "Couldn't open skin dir: %s"
 msgstr "Не може да бъде отворена папка с тема: %s"
 
-#: ../src/gcompris/config.c:378 ../src/gcompris/config.c:767
-#: ../src/gcompris/config.c:781
+#: ../src/gcompris/config.c:378 ../src/gcompris/config.c:773
+#: ../src/gcompris/config.c:787
 #, c-format
 msgid "Skin : %s"
 msgstr "Тема : %s"
@@ -3792,7 +3869,7 @@ msgstr "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЬЮЯ"
 #. we can add what you want in it.
 #: ../src/gletters-activity/gletters.c:847
 #: ../src/imageid-activity/imageid.c:714 ../src/login-activity/login.py:476
-#: ../src/missing_letter-activity/missingletter.c:761
+#: ../src/missing_letter-activity/missingletter.c:749
 #: ../src/pythontest-activity/pythontest.py:454
 #: ../src/readingh-activity/reading.c:880
 #: ../src/scalesboard-activity/scale.c:1139
@@ -4253,14 +4330,14 @@ msgstr "Шестоъгълник"
 #: ../src/imageid-activity/imageid.xml.in.h:3
 #: ../src/imagename-activity/imagename.xml.in.h:4
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:1
-#: ../src/missing_letter-activity/missingletter.c:84
+#: ../src/missing_letter-activity/missingletter.c:83
 #: ../src/readingh-activity/readingh.xml.in.h:4
 #: ../src/readingv-activity/readingv.xml.in.h:4
 msgid "Reading"
 msgstr "Четене"
 
 #: ../src/imageid-activity/imageid.c:95
-#: ../src/missing_letter-activity/missingletter.c:85
+#: ../src/missing_letter-activity/missingletter.c:84
 msgid "Learn how to read"
 msgstr "Научете се как да четете"
 
@@ -4273,7 +4350,7 @@ msgstr ""
 "прекалено много възможности за избор."
 
 #: ../src/imageid-activity/imageid.c:534
-#: ../src/missing_letter-activity/missingletter.c:582
+#: ../src/missing_letter-activity/missingletter.c:570
 msgid "Data file for this level is not properly formatted."
 msgstr "Файлът с данни за това ниво не е форматиран правилно."
 
@@ -5326,6 +5403,50 @@ msgstr "Упражнения по четене"
 msgid "Word reading"
 msgstr "Четене на думи"
 
+#. pixmap
+#: ../src/missing_letter-activity/missingletter_config.c:384
+#: ../src/missing_letter-activity/missingletter_config.c:534
+#, fuzzy
+msgid "Picture"
+msgstr "тъмнокафяво"
+
+#. answer
+#: ../src/missing_letter-activity/missingletter_config.c:390
+#: ../src/missing_letter-activity/missingletter_config.c:525
+#, fuzzy
+msgid "Answer"
+msgstr "Потребител"
+
+#. question
+#: ../src/missing_letter-activity/missingletter_config.c:396
+#: ../src/missing_letter-activity/missingletter_config.c:548
+#, fuzzy
+msgid "Question"
+msgstr "Броене"
+
+#. choice
+#: ../src/missing_letter-activity/missingletter_config.c:402
+#: ../src/missing_letter-activity/missingletter_config.c:557
+#, fuzzy
+msgid "Choice"
+msgstr "Чили"
+
+#. combo level
+#: ../src/missing_letter-activity/missingletter_config.c:440
+#, fuzzy
+msgid "Level:"
+msgstr "Ниво"
+
+#: ../src/missing_letter-activity/missingletter_config.c:448
+#, fuzzy, c-format
+msgid "Level %d"
+msgstr "Ниво"
+
+#: ../src/missing_letter-activity/missingletter_config.c:538
+#, fuzzy
+msgid "Filename:"
+msgstr "Име:"
+
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:1
 msgid "car/c_r/a/k/o"
 msgstr "автомобил/авт_мобил/о/у/а"
@@ -5667,6 +5788,33 @@ msgstr "Натиснете два пъти топката, за да отбел�
 #: ../src/penalty-activity/penalty.xml.in.h:5
 msgid "Penalty kick"
 msgstr "Дузпа"
+
+#: ../src/photohunter-activity/photohunter.c:136
+msgid "Error: Absolutely no photo found in the data directory"
+msgstr ""
+
+#: ../src/photohunter-activity/photohunter.c:564
+msgid "Error: Abnormally failed to load a data file"
+msgstr ""
+
+#: ../src/photohunter-activity/photohunter.xml.in.h:1
+#, fuzzy
+msgid "Find the differences between two pictures"
+msgstr "Намерете разликата от двете числа в кратко време"
+
+#: ../src/photohunter-activity/photohunter.xml.in.h:2
+msgid ""
+"Observe the two pictures carefully. There are some slight differences. When "
+"you find a difference you must click on it."
+msgstr ""
+
+#: ../src/photohunter-activity/photohunter.xml.in.h:3
+msgid "Photo hunter"
+msgstr ""
+
+#: ../src/photohunter-activity/photohunter.xml.in.h:4
+msgid "Visual discrimination."
+msgstr ""
 
 #: ../src/planegame-activity/planegame.c:61
 #: ../src/planegame-activity/planegame.xml.in.h:4
@@ -6022,11 +6170,10 @@ msgstr ""
 "Тъкс е гладен. Помогнете му да намери рибата, като броите до правилния леден "
 "блок."
 
-# FIXME
 #: ../src/scalesboard-activity/scale.c:293
 #, c-format
 msgid "Weight in g = %s"
-msgstr "Тегло [грам] = %s"
+msgstr "Тегло = %s грама"
 
 #: ../src/scalesboard-activity/scale.c:295
 #, c-format
@@ -6039,6 +6186,7 @@ msgstr ""
 "Обърнете внимание, че може да слагате тежести и на двете страни на кантара."
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:1
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:1
 msgid "Balance the scales properly"
 msgstr "Добро уравновесяване на кантара"
 
@@ -6051,6 +6199,7 @@ msgid "Mental calculation, arithmetic equality"
 msgstr "Смятане наум, аритметично равенство"
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:4
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:4
 msgid ""
 "The painting is an original painting created by Virginie MOREAU (virginie."
 "moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is "
@@ -6180,6 +6329,26 @@ msgstr ""
 #: ../src/searace-activity/searace.xml.in.h:9
 msgid "Sea race (2 Players)"
 msgstr "Морско състезание (2 играчи)"
+
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:2
+#, fuzzy
+msgid "Drag and Drop masses to balance the scales and calculate the weight"
+msgstr "Влачете тежестите, за да уравновесите кантара"
+
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:3
+#, fuzzy
+msgid "Mental calculation, arithmetic equality, unit conversion"
+msgstr "Смятане наум, аритметично равенство"
+
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:5
+#, fuzzy
+msgid ""
+"To balance the scales, move the masses on the left or the right side. Take "
+"care of the weight and the unit of the masses, remember that a kilogram (kg) "
+"is 1000 grams (g). They can be arranged in any order."
+msgstr ""
+"За да уравновесите кантара, движете тежестите от лявата страна или дясната "
+"страна. Те могат да се подреждат във всякакъв ред."
 
 #: ../src/searace1player-activity/searace1player.xml.in.h:1
 msgid "Give good instructions to your ship in order to be first in the race."
