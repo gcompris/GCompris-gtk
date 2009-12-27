@@ -1038,7 +1038,6 @@ static gint key_press_2D_relative(guint keyval, gchar *commit_str, gchar *preedi
 {
   guint richting=0,level=gcomprisBoard->level;
 
-  printf("key_press_2D_relative\n");
   switch (keyval)
     {
     case GDK_Left: viewing_direction=TURN_LEFT(viewing_direction);
