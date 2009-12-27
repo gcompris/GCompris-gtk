@@ -485,6 +485,8 @@ static void shapegame_destroy_all_items()
 {
   Shape *shape;
 
+  gc_item_focus_remove(continue_root_item, NULL);
+
   /* Cleanup of the shapes */
   while(g_list_length(shape_list)>0)
     {
