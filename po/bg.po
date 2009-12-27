@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris gcomprixogoo\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-27 09:06+0200\n"
-"PO-Revision-Date: 2009-12-27 08:05+0200\n"
+"POT-Creation-Date: 2009-12-27 09:57+0200\n"
+"PO-Revision-Date: 2009-12-27 09:40+0200\n"
 "Last-Translator: Yavor Doganov <yavor@gnu.org>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
@@ -1422,26 +1422,28 @@ msgstr "Шаро на тревата."
 msgid "Lock with colored shapes."
 msgstr "Оцветен Шаро."
 
+# FIXME: Не мога да издиря превода на тази картина на български.
+# http://fr.wikipedia.org/wiki/Fichier:Paul_Gauguin_006.jpg
 #: ../src/babyshapes-activity/resources/babyshapes/board8_0.xml.in.h:1
 msgid "Paul Gauguin, Arearea - 1892"
-msgstr ""
+msgstr "Пол Гоген, „Ареария“ — 1892 г."
 
 #: ../src/babyshapes-activity/resources/babyshapes/board8_1.xml.in.h:1
 msgid "Pieter Bruegel the Elder, The peasants wedding - 1568"
-msgstr ""
+msgstr "Питер Брьогел Стари, „Селска сватба“ — 1568 г."
 
 #: ../src/babyshapes-activity/resources/babyshapes/board8_2.xml.in.h:1
 msgid "The Lady and the Unicorn - XVe century"
-msgstr ""
+msgstr "„Дамата с еднорога“ — 15-и век"
 
 #: ../src/babyshapes-activity/resources/babyshapes/board8_3.xml.in.h:1
-#, fuzzy
 msgid "Vincent van Gogh, Bedroom in Arles - 1888"
-msgstr "Винсент ван Гог, „Селска улица в Овер“ — 1890 г."
+msgstr "Винсент ван Гог, „Спалня в Арл“ — 1888 г."
 
+# FIXME: Не съм сигурен за транслитерацията на името.
 #: ../src/babyshapes-activity/resources/babyshapes/board8_4.xml.in.h:1
 msgid "Ambrosius Bosschaert the Elder, Flower Still Life - 1614"
-msgstr ""
+msgstr "Амброзий Бошар Стари, „Натюрморт с цветя“ — 1614 г."
 
 #: ../src/ballcatch-activity/ballcatch.xml.in.h:1
 msgid "Make the ball go to Tux"
@@ -2519,55 +2521,55 @@ msgid ""
 "Select the language\n"
 " to use in the board"
 msgstr ""
+"Изберете език\n"
+" за заниманието"
 
 #: ../src/gcompris/board_config_combo.c:227
 msgid "Global GCompris mode"
-msgstr ""
+msgstr "Общ режим на GCompris"
 
 #: ../src/gcompris/board_config_combo.c:228
-#, fuzzy
 msgid "Normal"
-msgstr "коралов цвят"
+msgstr "Нормален"
 
 #: ../src/gcompris/board_config_combo.c:229
 msgid "2 clicks"
-msgstr ""
+msgstr "2 натискания"
 
 #: ../src/gcompris/board_config_combo.c:230
 msgid "both modes"
-msgstr ""
+msgstr "двата режима"
 
 #: ../src/gcompris/board_config_combo.c:258
 msgid ""
 "Select the drag and drop mode\n"
 " to use in the board"
 msgstr ""
+"Изберете режим\n"
+" за заниманието"
 
 #. add a new level
 #: ../src/gcompris/board_config_wordlist.c:106
 #, c-format
 msgid "%d (New level)"
-msgstr ""
+msgstr "%d (ново ниво)"
 
 #. frame
 #: ../src/gcompris/board_config_wordlist.c:180
-#, fuzzy
 msgid "Configure the list of words"
-msgstr "Завършете списъка със символи"
+msgstr "Настройване на списъка с думи"
 
 #: ../src/gcompris/board_config_wordlist.c:209
-#, fuzzy
 msgid "Choice of the language"
-msgstr "Цвят на линията"
+msgstr "Избор на език"
 
 #: ../src/gcompris/board_config_wordlist.c:221
-#, fuzzy
 msgid "Choice of the level"
-msgstr "Цвят на линията"
+msgstr "Избор на ниво"
 
 #: ../src/gcompris/board_config_wordlist.c:246
 msgid "Back to default"
-msgstr ""
+msgstr "Връщане по подразбиране"
 
 #: ../src/gcompris/config.c:59
 msgid "Your system default"
@@ -5406,46 +5408,40 @@ msgstr "Четене на думи"
 #. pixmap
 #: ../src/missing_letter-activity/missingletter_config.c:384
 #: ../src/missing_letter-activity/missingletter_config.c:534
-#, fuzzy
 msgid "Picture"
-msgstr "тъмнокафяво"
+msgstr "Рисунка"
 
 #. answer
 #: ../src/missing_letter-activity/missingletter_config.c:390
 #: ../src/missing_letter-activity/missingletter_config.c:525
-#, fuzzy
 msgid "Answer"
-msgstr "Потребител"
+msgstr "Отговор"
 
 #. question
 #: ../src/missing_letter-activity/missingletter_config.c:396
 #: ../src/missing_letter-activity/missingletter_config.c:548
-#, fuzzy
 msgid "Question"
-msgstr "Броене"
+msgstr "Въпрос"
 
 #. choice
 #: ../src/missing_letter-activity/missingletter_config.c:402
 #: ../src/missing_letter-activity/missingletter_config.c:557
-#, fuzzy
 msgid "Choice"
-msgstr "Чили"
+msgstr "Избор"
 
 #. combo level
 #: ../src/missing_letter-activity/missingletter_config.c:440
-#, fuzzy
 msgid "Level:"
-msgstr "Ниво"
+msgstr "Ниво:"
 
 #: ../src/missing_letter-activity/missingletter_config.c:448
-#, fuzzy, c-format
+#, c-format
 msgid "Level %d"
-msgstr "Ниво"
+msgstr "Ниво %d"
 
 #: ../src/missing_letter-activity/missingletter_config.c:538
-#, fuzzy
 msgid "Filename:"
-msgstr "Име:"
+msgstr "Име на файл:"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:1
 msgid "car/c_r/a/k/o"
@@ -5791,30 +5787,31 @@ msgstr "Дузпа"
 
 #: ../src/photohunter-activity/photohunter.c:136
 msgid "Error: Absolutely no photo found in the data directory"
-msgstr ""
+msgstr "Грешка: липсват всички изображения в папката за данни"
 
 #: ../src/photohunter-activity/photohunter.c:564
 msgid "Error: Abnormally failed to load a data file"
-msgstr ""
+msgstr "Грешка: файл с данни не може да бъде зареден"
 
 #: ../src/photohunter-activity/photohunter.xml.in.h:1
-#, fuzzy
 msgid "Find the differences between two pictures"
-msgstr "Намерете разликата от двете числа в кратко време"
+msgstr "Намерете разликата между двете изображения"
 
 #: ../src/photohunter-activity/photohunter.xml.in.h:2
 msgid ""
 "Observe the two pictures carefully. There are some slight differences. When "
 "you find a difference you must click on it."
 msgstr ""
+"Разгледайте внимателно двете изображения. Между тях има малки разлики. "
+"Когато откриете такава, натиснете върху нея."
 
 #: ../src/photohunter-activity/photohunter.xml.in.h:3
 msgid "Photo hunter"
-msgstr ""
+msgstr "Фотоловец"
 
 #: ../src/photohunter-activity/photohunter.xml.in.h:4
 msgid "Visual discrimination."
-msgstr ""
+msgstr "Визулни разлики"
 
 #: ../src/planegame-activity/planegame.c:61
 #: ../src/planegame-activity/planegame.xml.in.h:4
@@ -6331,24 +6328,22 @@ msgid "Sea race (2 Players)"
 msgstr "Морско състезание (2 играчи)"
 
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:2
-#, fuzzy
 msgid "Drag and Drop masses to balance the scales and calculate the weight"
-msgstr "Влачете тежестите, за да уравновесите кантара"
+msgstr "Влачете тежестите, за да уравновесите кантара и определите тежестта"
 
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:3
-#, fuzzy
 msgid "Mental calculation, arithmetic equality, unit conversion"
-msgstr "Смятане наум, аритметично равенство"
+msgstr "Смятане наум, аритметично равенство, преобразуване"
 
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:5
-#, fuzzy
 msgid ""
 "To balance the scales, move the masses on the left or the right side. Take "
 "care of the weight and the unit of the masses, remember that a kilogram (kg) "
 "is 1000 grams (g). They can be arranged in any order."
 msgstr ""
 "За да уравновесите кантара, движете тежестите от лявата страна или дясната "
-"страна. Те могат да се подреждат във всякакъв ред."
+"страна. Внимавайте с големината и мерните единици – 1 килограм е равен на "
+"1000 грама. Тежестите могат да се подреждат във всякакъв ред."
 
 #: ../src/searace1player-activity/searace1player.xml.in.h:1
 msgid "Give good instructions to your ship in order to be first in the race."
