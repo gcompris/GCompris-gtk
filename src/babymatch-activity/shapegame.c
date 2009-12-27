@@ -619,7 +619,7 @@ add_shape_to_list_of_shapes(Shape *shape)
 			      NULL);
       SET_ITEM_LOCATION(previous_shapelist_item,
 			shapeBox.x - 5,
-			shapeBox.y + shapeBox.h);
+			shapeBox.h);
 
       g_signal_connect(previous_shapelist_item,
 		       "button_press_event",
@@ -635,7 +635,7 @@ add_shape_to_list_of_shapes(Shape *shape)
 
       SET_ITEM_LOCATION(next_shapelist_item,
 			shapeBox.x + shapeBox.w / 2,
-			shapeBox.y + shapeBox.h);
+			shapeBox.h);
 
       g_signal_connect(next_shapelist_item, "button_press_event",
 		       (GtkSignalFunc) item_event_ok,
