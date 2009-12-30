@@ -205,7 +205,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	gcomprisBoard->sublevel = 1;
 	gcomprisBoard->number_of_sublevel = 1; /* Go to next level after this number of 'play' */
 	gc_bar_set(GC_BAR_LEVEL);
-	gc_bar_location (BOARDWIDTH-200, -1, 0.9);
+	gc_bar_location (BOARDWIDTH-200, -1, 0.8);
 
 	gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			  "crane/crane-bg.svgz");
