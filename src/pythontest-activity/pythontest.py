@@ -42,9 +42,9 @@ class Gcompris_pythontest:
     self.canvasitems = {}
 
     self.colors = {}
-    self.colors['circle_in'] = gcompris.skin.get_color("pythontest/circle in")
-    self.colors['circle_out'] = gcompris.skin.get_color("pythontest/circle out")
-    self.colors['line'] = gcompris.skin.get_color("pythontest/line")
+    self.colors['circle_in'] = 0x8080FFFF
+    self.colors['circle_out'] = 0xFFFFFFFF
+    self.colors['line'] = 0xFFFF40FF
 
     # Just for config demo
     self.config_colors = { 'red' : 0xFF0000FFL,

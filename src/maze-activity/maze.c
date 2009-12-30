@@ -36,6 +36,7 @@
 #define BASE_Y2 470
 
 #define LINE_COLOR "white"
+#define WALL_COLOR 0x1a1109ffL
 
 /* array of the board */
 static int Maze[MAX_BREEDTE][MAX_HOOGTE];
@@ -819,22 +820,22 @@ draw_background(GooCanvasItem *rootItem)
 	  if (x1==0)
 	    draw_a_line(rootItem,
 			x, y, x, y+cellsize,
-			gc_skin_get_color("maze/wall color"));
+			WALL_COLOR);
 
 	  if (y1==0)
 	    draw_a_line(rootItem,
 			x, y, x+cellsize, y,
-			gc_skin_get_color("maze/wall color"));
+			WALL_COLOR);
 
 	  if (wall&EAST)
 	    draw_a_line(rootItem,
 			x+cellsize, y, x+cellsize, y+cellsize,
-			gc_skin_get_color("maze/wall color"));
+			WALL_COLOR);
 
 	  if (wall&SOUTH)
 	    draw_a_line(rootItem,x,
 			y+cellsize, x+cellsize, y+cellsize,
-			gc_skin_get_color("maze/wall color"));
+			WALL_COLOR);
 
 	}
     }

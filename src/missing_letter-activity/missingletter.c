@@ -315,7 +315,7 @@ missing_letter_create_item(GooCanvasItem *parent)
 			      -1,
 			      GTK_ANCHOR_CENTER,
 			      "font", gc_skin_font_board_huge_bold,
-			      "fill_color_rgba", gc_skin_get_color("missingletter/question"),
+			      "fill_color_rgba", 0xFFFFFFFFL,
 			      NULL);
 
   goo_canvas_image_new (boardRootItem,
