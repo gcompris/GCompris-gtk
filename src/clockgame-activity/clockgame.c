@@ -301,8 +301,7 @@ static void display_hour(guint hour)
   double w = 4.0;
   g_object_set (hour_item,
 		"points", canvasPoints,
-		"fill-color", "darkblue",
-		"stroke-color", "red",
+		"stroke-color", "darkblue",
 		"line-width", w,
 		"end-arrow", TRUE,
 		"arrow-tip-length", needle_size/w,
@@ -336,7 +335,6 @@ static void display_minute(guint minute)
   g_object_set (minute_item,
 		"points", canvasPoints,
 		"stroke-color", "red",
-		"fill-color", "red",
 		"line-width", w,
 		"end-arrow", TRUE,
 		"arrow-tip-length", needle_size/w,
@@ -368,8 +366,7 @@ static void display_second(guint second)
   canvasPoints->coords[3]=cy - needle_size * cos(ang);
   g_object_set (second_item,
 		"points", canvasPoints,
-		"stroke-color", "red",
-		"fill_color_rgba", 0x68c46fFF,
+		"stroke-color-rgba", 0x68c46fFF,
 		"line-width", 4.0,
 		NULL);
   goo_canvas_points_unref(canvasPoints);
@@ -531,7 +528,7 @@ clockgame_create_item(GooCanvasItem *parent)
 		       -1,
 		       GTK_ANCHOR_CENTER,
 		       "font", gc_skin_font_board_small,
-		       "fill_color", "black",
+		       "fill-color", "black",
 		       NULL);
 
   time_to_find_item = \
@@ -542,7 +539,7 @@ clockgame_create_item(GooCanvasItem *parent)
 			 -1,
 			 GTK_ANCHOR_CENTER,
 			 "font", gc_skin_font_board_big_bold,
-			 "fill_color", "black",
+			 "fill-color", "black",
 			 NULL);
   display_digital_time(time_to_find_item, &timeToFind);
 
