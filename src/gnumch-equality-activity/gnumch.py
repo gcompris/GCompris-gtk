@@ -767,12 +767,12 @@ class Gcompris_gnumch:
         self.message_back = goocanvas.Rect(
             parent = self.rootitem,
             x=0, y=0, width=1, height=1,
-            fill_color_rgba = 0x60F06060L)
+            fill_color_rgba = 0x60F060F0L)
         self.message = goocanvas.Text(
             parent = self.rootitem,
             text = "",
             anchor = gtk.ANCHOR_CENTER,
-            font = gcompris.skin.get_font("gcompris/board/title bold"),
+            font = gcompris.skin.get_font("gcompris/board/big bold"),
             x = self.scrw/2,
             y = self.scrh/2)
         self.hide_message()
@@ -809,12 +809,13 @@ class Gcompris_gnumch:
     def show_message(self, text):
         self.message.set_properties( text = text )
         bounds = self.message.get_bounds()
-        w = bounds.x2 - bounds.x1
-        h = bounds.y2 - bounds.y1
-        self.message_back.set_properties( x = bounds.x1,
-                                          y = bounds.y1,
-                                          width = w,
-                                          height = h )
+        gap = 10
+        w = bounds.x2 - bounds.x1 + gap * 2
+        h = bounds.y2 - bounds.y1 + gap * 2
+        self.message_back.set_properties( x = bounds.x1 - gap,
+                                          y = bounds.y1 - gap,
+                                          width = w + gap,
+                                          height = h + gap)
         self.message_back.props.visibility = goocanvas.ITEM_VISIBLE
         self.message.props.visibility = goocanvas.ITEM_VISIBLE
 
