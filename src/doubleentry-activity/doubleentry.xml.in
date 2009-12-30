@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GCompris>
-  <Board 
+  <Board
 	 name="doubleentry"
-	 type="shapegame" 
+	 type="shapegame"
 	 section="/discovery/miscelaneous"
-	 icon="doubleentry.svg" 
+	 icon="doubleentry.svg"
+	 mandatory_sound_file="voices/$LOCALE/alphabet/U0030.ogg"
 	 difficulty="2"
 	 author="Bruno Coudoin (bruno.coudoin@free.fr)"
-	 mode="background=doubleentry/doubleentry-bg.png" 
+	 mode="background=doubleentry/doubleentry-bg.png"
 	 boarddir="doubleentry">
 	 <_title>Double-entry table</_title>
 	 <_description>Drag and Drop the items in the double-entry table</_description>
