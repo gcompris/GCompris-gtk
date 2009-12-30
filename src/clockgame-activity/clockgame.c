@@ -478,7 +478,7 @@ clockgame_create_item(GooCanvasItem *parent)
 			     -1,
 			     GTK_ANCHOR_CENTER,
 			     "font", gc_skin_font_board_medium,
-			     "fill-color", "blue",
+			     "fill-color", "black",
 			     NULL);
       display_digital_time(digital_time_item, &currentTime);
     }
@@ -531,7 +531,7 @@ clockgame_create_item(GooCanvasItem *parent)
 		       -1,
 		       GTK_ANCHOR_CENTER,
 		       "font", gc_skin_font_board_small,
-		       "fill_color_rgba", gc_skin_get_color("clockgame/text"),
+		       "fill_color", "black",
 		       NULL);
 
   time_to_find_item = \
@@ -542,7 +542,7 @@ clockgame_create_item(GooCanvasItem *parent)
 			 -1,
 			 GTK_ANCHOR_CENTER,
 			 "font", gc_skin_font_board_big_bold,
-			 "fill_color_rgba", gc_skin_get_color("clockgame/text"),
+			 "fill_color", "black",
 			 NULL);
   display_digital_time(time_to_find_item, &timeToFind);
 
