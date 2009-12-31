@@ -87,37 +87,23 @@ _autocrop(cairo_surface_t *src_surface,
   return dst_surface;
 }
 
-static inline void
-_search_limits(GooCanvasSvg *canvas_svg,
-	       unsigned char *data,
-	       int stride, int step)
-{
-  int x;
-  for (x=0; x<stride/4; x+=step)
-    {
-      int y;
-      for (y=0; y<canvas_svg->height; y+=step)
-	{
-	  guint32 point = *(guint32*)&data[y*stride + x*4];
-	  if (point != 0)
-	    {
-	      ((x > canvas_svg->x2) ? canvas_svg->x2 = x : x);
-	      ((x < canvas_svg->x1) ? canvas_svg->x1 = x : x);
-	      ((y > canvas_svg->y2) ? canvas_svg->y2 = y : y);
-	      ((y < canvas_svg->y1) ? canvas_svg->y1 = y : y);
-	    }
-	}
-    }
-}
-
 static void _init_surface(GooCanvasSvg *canvas_svg,
 			  RsvgHandle *svg_handle, double zoom)
 {
   g_assert(svg_handle);
+  RsvgDimensionData dimension_data_max;
+  rsvg_handle_get_dimensions (svg_handle, &dimension_data_max);
+
   RsvgDimensionData dimension_data;
-  rsvg_handle_get_dimensions (svg_handle, &dimension_data);
+  rsvg_handle_get_dimensions_sub (svg_handle, &dimension_data,
+				  canvas_svg->id);
   canvas_svg->width = dimension_data.width * zoom;
   canvas_svg->height = dimension_data.height * zoom;
+
+  RsvgPositionData position_data;
+  rsvg_handle_get_position_sub (svg_handle, &position_data,
+				canvas_svg->id);
+
   canvas_svg->svg_handle = svg_handle;
   g_object_ref(svg_handle);
 
@@ -131,32 +117,19 @@ static void _init_surface(GooCanvasSvg *canvas_svg,
 
   cairo_surface_t* cst =
     cairo_image_surface_create (CAIRO_FORMAT_ARGB32,
-				canvas_svg->width,
-				canvas_svg->height);
+				dimension_data_max.width,
+				dimension_data_max.height);
   canvas_svg->cr = cairo_create (cst);
   rsvg_handle_render_cairo_sub (svg_handle, canvas_svg->cr,
 				canvas_svg->id);
 
-  /* Get the real coordinates */
-  canvas_svg->x1 = canvas_svg->width;
-  canvas_svg->x2 = 0;
-  canvas_svg->y1 = canvas_svg->height;
-  canvas_svg->y2 = 0;
-  unsigned char* data = cairo_image_surface_get_data(cst);
-  int stride = cairo_image_surface_get_stride(cst);
+  /* Keep the real coordinates */
+  canvas_svg->x1 = position_data.x;
+  canvas_svg->x2 = position_data.x + dimension_data.width;
+  canvas_svg->y1 = position_data.y;
+  canvas_svg->y2 = position_data.y + dimension_data.height;
 
-  /* Search first the top left / right limits first */
-  _search_limits(canvas_svg, data, stride, canvas_svg->width);
-  if ( canvas_svg->x1 != 0 ||
-       canvas_svg->x2 != canvas_svg->width ||
-       canvas_svg->y1 != 0 ||
-       canvas_svg->y2 != canvas_svg->height )
-    /* Search the whole image */
-    _search_limits(canvas_svg, data, stride, 1);
-
-
-
-  if(stride > 0 && canvas_svg->autocrop)
+  if(dimension_data.width > 0 && canvas_svg->autocrop)
     {
       canvas_svg->pattern =				\
 	cairo_pattern_create_for_surface ( _autocrop(cst,
