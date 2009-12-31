@@ -84,12 +84,6 @@ img_DATA = \
 	Botticelli_Venus_d2.png \
 	Botticelli_Venus_d3.png \
 	Botticelli_Venus_d4.png \
-	degas_class-dance_1.png \
-	degas_class-dance_2.png \
-	degas_class-dance_3.png \
-	degas_class-dance_4.png \
-	degas_class-dance_5.png \
-	degas_class-dance_6.png \
 	EjiriSuruga_a1.png \
 	EjiriSuruga_a2.png \
 	EjiriSuruga_a3.png \
@@ -206,14 +200,6 @@ img_DATA = \
 	HokusaiWomanHoldingFan_c1.png \
 	HokusaiWomanHoldingFan_c2.png \
 	HokusaiWomanHoldingFan_c3.png \
-	kandinky_1.png \
-	kandinky_2.png \
-	kandinky_3.png \
-	kandinky_4.png \
-	kandinky_5.png \
-	kandinky_6.png \
-	kandinky_7.png \
-	kandinky_8.png \
 	KazusaSeaRoute_a1.png \
 	KazusaSeaRoute_a2.png \
 	KazusaSeaRoute_a3.png \
@@ -263,6 +249,38 @@ img_DATA = \
 	Michelangelo_Pieta_c2.png \
 	Michelangelo_Pieta_c3.png \
 	Michelangelo_Pieta_c4.png \
+	bazille_rampart_1.jpg \
+	bazille_rampart_2.jpg \
+	bazille_rampart_3.jpg \
+	bazille_rampart_4.jpg \
+	bazille_rampart_5.jpg \
+	bazille_rampart_6.jpg \
+	cassat_summertime_1.jpg \
+	cassat_summertime_2.jpg \
+	cassat_summertime_3.jpg \
+	cassat_summertime_4.jpg \
+	cassat_summertime_5.jpg \
+	cassat_summertime_6.jpg \
+	degas_class-dance_1.png \
+	degas_class-dance_2.png \
+	degas_class-dance_3.png \
+	degas_class-dance_4.png \
+	degas_class-dance_5.png \
+	degas_class-dance_6.png \
+	gogh_auvert_1.jpg \
+	gogh_auvert_2.jpg \
+	gogh_auvert_3.jpg \
+	gogh_auvert_4.jpg \
+	gogh_auvert_5.jpg \
+	gogh_auvert_6.jpg \
+	kandinky_1.png \
+	kandinky_2.png \
+	kandinky_3.png \
+	kandinky_4.png \
+	kandinky_5.png \
+	kandinky_6.png \
+	kandinky_7.png \
+	kandinky_8.png \
 	renoir-filles_piano-1.png \
 	renoir-filles_piano-2.png \
 	renoir-filles_piano-3.png \
