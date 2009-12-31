@@ -113,7 +113,6 @@ _search_limits(GooCanvasSvg *canvas_svg,
 static void _init_surface(GooCanvasSvg *canvas_svg,
 			  RsvgHandle *svg_handle, double zoom)
 {
-  zoom *= 2;
   g_assert(svg_handle);
   RsvgDimensionData dimension_data;
   rsvg_handle_get_dimensions (svg_handle, &dimension_data);
@@ -147,7 +146,7 @@ static void _init_surface(GooCanvasSvg *canvas_svg,
   int stride = cairo_image_surface_get_stride(cst);
 
   /* Search first the top left / right limits first */
-  _search_limits(canvas_svg, data, stride, stride/4);
+  _search_limits(canvas_svg, data, stride, canvas_svg->width);
   if ( canvas_svg->x1 != 0 ||
        canvas_svg->x2 != canvas_svg->width ||
        canvas_svg->y1 != 0 ||
