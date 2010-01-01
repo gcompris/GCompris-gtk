@@ -4,13 +4,13 @@
 # Nabil Ben Khalifa <nabil_benkhalifa@yahoo.fr>, 2005, 2006.
 # Djihed Afifi <djihed@gmail.com>, 2006.
 # Anas Husseini <anas_h_34@hotmail.com>, 2007.
-# Khaled Hosny <khaledhosny@eglug.org>, 2007, 2008, 2009.
+# Khaled Hosny <khaledhosny@eglug.org>, 2007, 2008, 2009, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-26 01:53+0200\n"
-"PO-Revision-Date: 2009-12-26 02:03+0300\n"
+"POT-Creation-Date: 2010-01-01 17:37+0200\n"
+"PO-Revision-Date: 2010-01-01 18:03+0300\n"
 "Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
 "Language: ar\n"
@@ -1357,7 +1357,7 @@ msgstr "معاونة العقل. الوصل المنطقي."
 msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "استعمال الفأرة: تحرك، أمسك واسحب. مراجع ثقافية"
 
-#: ../src/babymatch-activity/shapegame.c:1847
+#: ../src/babymatch-activity/shapegame.c:1849
 #: ../src/click_on_letter-activity/click_on_letter.c:625
 #: ../src/colors-activity/colors.c:169
 #, c-format
@@ -1980,7 +1980,7 @@ msgstr "معاونة العقل: التحريك والنقر بالفأرة."
 msgid "Use the left mouse button to click on the moving fish."
 msgstr "استعمل الزر الأيسر للفأرة للنقر على السمك المتحرك"
 
-#: ../src/clockgame-activity/clockgame.c:528
+#: ../src/clockgame-activity/clockgame.c:525
 msgid "Set the watch to:"
 msgstr "حرك العقارب لتحديد الساعة :"
 
@@ -2425,17 +2425,17 @@ msgstr "حوْل «فهمت»"
 msgid "GCompris Home Page: http://gcompris.net"
 msgstr "صفحة «فهمت» الرئيسية http://gcompris.net"
 
-#: ../src/gcompris/about.c:105
+#: ../src/gcompris/about.c:106
 msgid "Translators:"
 msgstr "المترجمون:"
 
-#: ../src/gcompris/about.c:214
+#: ../src/gcompris/about.c:206
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
 msgstr "هذا البرنامج حزمة من حزم جنو وقد أُصدِر وفقًا لرخصة جنو العمومية"
 
-#: ../src/gcompris/about.c:228 ../src/gcompris/config.c:422
+#: ../src/gcompris/about.c:220 ../src/gcompris/config.c:422
 #: ../src/gcompris/dialog.c:103 ../src/gcompris/help.c:354
 #: ../src/gcompris/images_selector.c:307
 msgid "OK"
@@ -2455,7 +2455,7 @@ msgstr "نعم، متأكد!"
 
 #: ../src/gcompris/bar.c:653
 msgid "No, I want to keep going"
-msgstr "لا، أريد المغادرة"
+msgstr "لا أريد المغادرة"
 
 #: ../src/gcompris/board.c:191
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
@@ -2822,8 +2822,8 @@ msgstr "التأثير"
 msgid "Couldn't open skin dir: %s"
 msgstr "تعذر فتح مجلد المظاهر : %s"
 
-#: ../src/gcompris/config.c:378 ../src/gcompris/config.c:767
-#: ../src/gcompris/config.c:781
+#: ../src/gcompris/config.c:378 ../src/gcompris/config.c:773
+#: ../src/gcompris/config.c:787
 #, c-format
 msgid "Skin : %s"
 msgstr "المظهر : %s"
@@ -3788,7 +3788,7 @@ msgstr "ابتثجحخدذرزسشصضطظعغفقكلمنهوي"
 #. we can add what you want in it.
 #: ../src/gletters-activity/gletters.c:847
 #: ../src/imageid-activity/imageid.c:714 ../src/login-activity/login.py:476
-#: ../src/missing_letter-activity/missingletter.c:761
+#: ../src/missing_letter-activity/missingletter.c:749
 #: ../src/pythontest-activity/pythontest.py:454
 #: ../src/readingh-activity/reading.c:880
 #: ../src/scalesboard-activity/scale.c:1139
@@ -4228,14 +4228,14 @@ msgstr "مسدس"
 #: ../src/imageid-activity/imageid.xml.in.h:3
 #: ../src/imagename-activity/imagename.xml.in.h:4
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:1
-#: ../src/missing_letter-activity/missingletter.c:84
+#: ../src/missing_letter-activity/missingletter.c:83
 #: ../src/readingh-activity/readingh.xml.in.h:4
 #: ../src/readingv-activity/readingv.xml.in.h:4
 msgid "Reading"
 msgstr "القراءة"
 
 #: ../src/imageid-activity/imageid.c:95
-#: ../src/missing_letter-activity/missingletter.c:85
+#: ../src/missing_letter-activity/missingletter.c:84
 msgid "Learn how to read"
 msgstr "تعلم القراءة"
 
@@ -4246,7 +4246,7 @@ msgid ""
 msgstr "ملف بيانات هذا المستوى ليس منسقا جيدا. تقترح خيارات كثيرة جدا."
 
 #: ../src/imageid-activity/imageid.c:534
-#: ../src/missing_letter-activity/missingletter.c:582
+#: ../src/missing_letter-activity/missingletter.c:570
 msgid "Data file for this level is not properly formatted."
 msgstr "ملف بيانات هذا المستوى ليس منسقا جيدا."
 
@@ -4653,23 +4653,23 @@ msgstr "أحص عدد الأشياء تحت القبعة السحرية"
 msgid "Learn addition"
 msgstr "تعلم عملية الجمع"
 
-#: ../src/maze-activity/maze.c:131 ../src/maze-activity/maze.xml.in.h:4
+#: ../src/maze-activity/maze.c:132 ../src/maze-activity/maze.xml.in.h:4
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:4
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:4
 msgid "Maze"
 msgstr "المتاهة"
 
-#: ../src/maze-activity/maze.c:132 ../src/maze-activity/maze.xml.in.h:2
+#: ../src/maze-activity/maze.c:133 ../src/maze-activity/maze.xml.in.h:2
 msgid "Find your way out of the maze"
 msgstr "اعثر على الطريق للخروج من المتاهة"
 
-#: ../src/maze-activity/maze.c:499
+#: ../src/maze-activity/maze.c:500
 msgid ""
 "Look at your position, then switch back to invisible mode to continue your "
 "moves"
 msgstr "انظر إلى موقعك، ثم حول إلى النمط غير المرئي لمتابعة تحركك"
 
-#: ../src/maze-activity/maze.c:501
+#: ../src/maze-activity/maze.c:502
 msgid ""
 "Look at your position, then switch back to 3D mode to continue your moves"
 msgstr "انظر إلى موقعك، ثم حول إلى النمط الثلاثي الأبعاد لمتابعة تحركك"
@@ -6164,8 +6164,7 @@ msgid ""
 "is 1000 grams (g). They can be arranged in any order."
 msgstr ""
 "لموازنة كفتي الميزان، انقل الكتل بين الجانبين. تأكد من أوزان ووحدات الكتل، "
-"وتذكر أن الكيلو جرام (كج) يساوي 1000 جرام (ج). تستطيع أن ترتب الكتل كما "
-"تشاء."
+"وتذكر أن الكيلو جرام (كج) يساوي 1000 جرام (ج). تستطيع أن ترتب الكتل كما تشاء."
 
 #: ../src/searace1player-activity/searace1player.xml.in.h:1
 msgid "Give good instructions to your ship in order to be first in the race."
