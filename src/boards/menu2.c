@@ -485,17 +485,6 @@ static void menu_create_item(GooCanvasItem *parent, MenuItems *menuitems, Gcompr
 				      NULL);
   goo_canvas_item_scale(menu_button, ratio, ratio);
 
-  // display difficulty stars
-  if (board->difficulty != NULL)
-    {
-      difficulty = atoi(board->difficulty);
-      menu_difficulty_display(parent,
-			      (double)current_x - pixmap_w/2 - 25,
-			      (double)current_y - pixmap_h/2,
-			      (double) 0.6,
-			      difficulty);
-    }
-
   // display board availability due to sound voice not present
   if(board->mandatory_sound_file)
     {
@@ -537,6 +526,20 @@ static void menu_create_item(GooCanvasItem *parent, MenuItems *menuitems, Gcompr
 			current_x - pixmap_w/2 - 25,
 			current_y - pixmap_h/2);
     }
+  else
+    {
+      // display difficulty stars
+      if (board->difficulty != NULL)
+	{
+	  difficulty = atoi(board->difficulty);
+	  menu_difficulty_display(parent,
+				  (double)current_x - pixmap_w/2 - 25,
+				  (double)current_y - pixmap_h/2,
+				  (double) 0.6,
+				  difficulty);
+	}
+    }
+
 
   gdk_pixbuf_unref(menu_pixmap);
 
