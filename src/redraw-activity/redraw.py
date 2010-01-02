@@ -629,7 +629,7 @@ class Gcompris_redraw:
     else:
       x_text = x2 + 5
 
-    y_text = y1 - 20
+    y_text = y1 - 15
 
     # We manage a 2 colors grid
     ci = 0
