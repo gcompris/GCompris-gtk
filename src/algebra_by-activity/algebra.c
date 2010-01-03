@@ -81,6 +81,10 @@ static void		 set_level (guint level);
 static gint		 key_press(guint keyval, gchar *commit_str, gchar *preedit_str);
 static gboolean		 solution_found();
 static void		 process_ok(void);
+static gboolean		 item_event_ready (GooCanvasItem  *item,
+					   GooCanvasItem  *target,
+					   GdkEventButton *event,
+					   gchar *data);
 
 static GooCanvasItem	*algebra_create_item(GooCanvasItem *parent);
 static void		 algebra_destroy_item(GooCanvasItem *item);
@@ -92,6 +96,7 @@ static void		 display_operand(GooCanvasItem *parent,
 					 gboolean masked);
 static void		 get_random_number(guint *first_operand, guint *second_operand);
 static void		 algebra_next_level(void);
+static void		 ask_for_ready(void);
 static gboolean		 item_event (GooCanvasItem  *item,
 				     GooCanvasItem  *target,
 				     GdkEventButton *event,
@@ -144,8 +149,8 @@ static void pause_board (gboolean pause)
   /* Make the timer follow our pause status */
   gc_timer_pause(pause);
 
-  if(gamewon == TRUE && pause == FALSE) /* the game is won */
-      algebra_next_level();
+  if(pause == FALSE)
+      ask_for_ready();
 
   board_paused = pause;
 }
@@ -225,7 +230,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       currentOperation[1]='\0';
 
       init_operation();
-      algebra_next_level();
+      ask_for_ready();
 
       gamewon = FALSE;
       pause_board(FALSE);
@@ -259,7 +264,7 @@ set_level (guint level)
     {
       gcomprisBoard->level=level;
       gcomprisBoard->sublevel=1;
-      algebra_next_level();
+      ask_for_ready();
     }
 }
 
@@ -387,6 +392,34 @@ static void timer_end()
   gc_bonus_display(gamewon, GC_BONUS_SMILEY);
 }
 
+static void ask_for_ready()
+{
+
+  algebra_destroy_all_items();
+
+  boardRootItem = \
+    goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+			  NULL);
+
+  gc_util_button_text_svg(boardRootItem,
+			  BOARDWIDTH * 0.5,
+			  BOARDHEIGHT * 0.5,
+			  "#BUTTON_TEXT",
+			  _("I am Ready"),
+			  (GtkSignalFunc) item_event_ready,
+			  "ready");
+}
+
+static gboolean item_event_ready (GooCanvasItem  *item,
+				  GooCanvasItem  *target,
+				  GdkEventButton *event,
+				  gchar *data)
+{
+  if(!strcmp((char *)data, "ready"))
+    algebra_next_level();
+
+  return TRUE;
+}
 
 /* set initial values for the next level */
 static void algebra_next_level()
@@ -397,7 +430,6 @@ static void algebra_next_level()
   boardRootItem = \
     goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
 			  NULL);
-
 
   maxtime = 20;
   gc_timer_display(TIMER_X, TIMER_Y,
@@ -410,7 +442,6 @@ static void algebra_next_level()
   gc_score_set(gcomprisBoard->sublevel);
 
 }
-
 
 static void algebra_destroy_item(GooCanvasItem *item)
 {
