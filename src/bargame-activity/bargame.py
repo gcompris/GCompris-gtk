@@ -235,7 +235,7 @@ class Gcompris_bargame:
     for i in range(self.number_balls[self.gcomprisBoard.sublevel-1][1]):
       self.balls.append(self.ball(self.rootitem,
                                   i * width_ref * scale + 150,
-                                  gcompris.BOARD_HEIGHT - 180,
+                                  gcompris.BOARD_HEIGHT - 200,
                                   scale,
                                   self.pixmap_blue_ball))
       self.balls.append(self.ball(self.rootitem,
@@ -330,7 +330,8 @@ class Gcompris_bargame:
         x=0,
         y=0)
       bounds = item.get_bounds()
-      item.scale(scale, scale)
+      # Add a little zoom offset to make sure items stick well
+      item.scale(scale + 0.01, scale)
 
       self.ombre = goocanvas.Image(
         parent = self.itemgroup,
