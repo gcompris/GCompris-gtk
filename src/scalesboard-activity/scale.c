@@ -39,6 +39,7 @@ static void game_won(void);
 
 static GooCanvasItem *boardRootItem = NULL;
 static GooCanvasItem *group_g, *group_d, *group_m;
+static GooCanvasItem *sign;
 static GooCanvasItem *bras;
 static GooCanvasItem *answer_item;
 static GString *answer_string = NULL;
@@ -341,6 +342,15 @@ scale_anim_plate(void)
 
   if(get_weight_plate(1) == 0)
     delta_y = -PLATE_Y_DELTA;
+
+  /* Update the sign */
+  if (diff == 0)
+    g_object_set(sign, "text", "=", NULL);
+  else if (diff < 0)
+    g_object_set(sign, "text", "<", NULL);
+  else
+    g_object_set(sign, "text", ">", NULL);
+
 
   if(last_delta != delta_y)
     {
@@ -945,6 +955,18 @@ scale_next_level()
 				 balance_left_y,
 				 NULL);
   gdk_pixbuf_unref(pixmap);
+
+  /* Set a sign on the scale in case it's not easy to determine
+     on which side it balances */
+  sign = goo_canvas_text_new(boardRootItem,
+			     "=",
+			     BOARDWIDTH/2 + 2,
+			     balance_left_y + 80,
+			     -1,
+			     GTK_ANCHOR_CENTER,
+			     "font", gc_skin_font_board_medium,
+			     "fill-color", "white",
+			      NULL);
 
   /* create left plate */
   group_g = goo_canvas_group_new (boardRootItem,
