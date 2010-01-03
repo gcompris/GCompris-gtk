@@ -135,7 +135,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=10; /* Go to next level after this number of 'play' */
       gc_bar_set(GC_BAR_LEVEL);
-      gc_bar_location(BOARDWIDTH-200, -1, 0.7);
+      gc_bar_location(0, -1, 0.6);
 
       /* Default mode */
       if(!gcomprisBoard->mode)
@@ -567,8 +567,8 @@ void moneyactivity_process_ok()
   if(board_paused)
     /*return FALSE*/;
 
-  printf("%f %f\n", price_target, money_widget_get_total(seller_money));
-  if(price_target == money_widget_get_total(seller_money))
+  if(price_target >= money_widget_get_total(seller_money) - 0.001 &&
+     price_target <= money_widget_get_total(seller_money) + 0.001 )
     {
       gamewon = TRUE;
       gc_bonus_display(gamewon, GC_BONUS_SMILEY);
