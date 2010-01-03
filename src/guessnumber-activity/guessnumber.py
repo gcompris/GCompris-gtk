@@ -204,7 +204,7 @@ class Gcompris_guessnumber:
         parent = self.rootitem,
         x=10.0,
         y=30.0,
-        font=gcompris.skin.get_font("gcompris/title"),
+        font=gcompris.skin.get_font("gcompris/subtitle"),
         text=(text),
         fill_color_rgba=0x1514c4ffL,
         )
