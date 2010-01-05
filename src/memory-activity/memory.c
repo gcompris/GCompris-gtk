@@ -281,7 +281,7 @@ static gchar *wordnumberList[] =
 	N_("one"),
 	N_("two"),
 	N_("three"),
-	N_("for"),
+	N_("four"),
 	N_("five"),
 	N_("six"),
 	N_("seven"),
