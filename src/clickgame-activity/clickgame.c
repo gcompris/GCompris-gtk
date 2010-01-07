@@ -33,7 +33,6 @@ static GList *item2del_list = NULL;
 
 static GcomprisBoard *gcomprisBoard = NULL;
 
-static gulong event_handle_id;
 static gint move_items_id = 0;
 static gint animate_id = 0;
 static gint drop_items_id = 0;
@@ -249,9 +248,6 @@ canvas_event (GooCanvasItem  *item,
   gdouble mouse_y;
   int ii;
 
-  if(!event)
-    return FALSE;
-
   mouse_x = event->x;
   mouse_y = event->y;
 
@@ -369,9 +365,9 @@ static void clickgame_start (GcomprisBoard *agcomprisBoard)
 		 gcomprisBoard->number_of_sublevel);
   gc_bar_set(GC_BAR_LEVEL);
 
-  event_handle_id =
-    g_signal_connect(gcomprisBoard->canvas, "enter_notify_event",
-		     (GtkSignalFunc) canvas_event, NULL);
+  g_signal_connect(goo_canvas_get_root_item(gcomprisBoard->canvas),
+		   "enter_notify_event",
+		   (GtkSignalFunc) canvas_event, NULL);
   clickgame_next_level();
 
   clickgame_pause(FALSE);
@@ -385,8 +381,8 @@ clickgame_end ()
       clickgame_pause(TRUE);
       gc_score_end();
       clickgame_destroy_all_items();
-      g_signal_handler_disconnect(gcomprisBoard->canvas,
-			    event_handle_id);
+      g_signal_handlers_disconnect_by_func(goo_canvas_get_root_item(gcomprisBoard->canvas),
+					   (GtkSignalFunc) canvas_event, NULL);
       gcomprisBoard->level = 1;       // Restart this game to zero
     }
   gcomprisBoard = NULL;
