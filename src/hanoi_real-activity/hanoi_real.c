@@ -269,7 +269,7 @@ hanoi_create_item(GooCanvasItem *parent)
 		       BOARDHEIGHT - 100,
 		       -1,
 		       GTK_ANCHOR_CENTER,
-		       "font", gc_skin_font_board_medium,
+		       "font", gc_skin_font_board_small,
 		       "fill_color_rgba", gc_skin_color_text_button,
 		       "alignment", PANGO_ALIGN_CENTER,
 		       NULL);

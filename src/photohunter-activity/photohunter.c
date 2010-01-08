@@ -104,7 +104,7 @@ static void pause_board (gboolean pause)
 {
   if(gcomprisBoard==NULL)
     return;
-  printf("pause_board() called with value=%d\n",pause);
+
   if ( LoadNextLevelAfterEndOfBonusDisplay==TRUE && pause==FALSE )
     {
       LoadNextLevelAfterEndOfBonusDisplay = FALSE;
@@ -342,13 +342,12 @@ static void StartLevel( )
     int ScanPhoto;
     char * str;
     int RandVal = Game.PhotoNbrForThisLevel[ gcomprisBoard->level ];
-    printf("Random nbr = %d (for level=%d)\n", RandVal, gcomprisBoard->level);
 
     CleanLevelDatas( );
 
     // get base filename datas to play
     gchar * RandomFileToLoad = ScanAndPickRandomFile( NULL, RandVal );
-    printf("Random file choosed = %s\n", RandomFileToLoad );
+
     for( ScanPhoto=0; ScanPhoto<2; ScanPhoto++ )
       {
 	str = g_strdup_printf("%s/%s%c.jpg", gcomprisBoard->boarddir, RandomFileToLoad, ScanPhoto==0?'a':'b' );
@@ -379,7 +378,29 @@ static void StartLevel( )
 		   gcomprisBoard->number_of_sublevel);
     gc_score_set(gcomprisBoard->sublevel);
     gc_bar_set_level(gcomprisBoard);
-    printf("Start level=%d, total=%d\n", gcomprisBoard->level, gcomprisBoard->maxlevel );
+
+    if (gcomprisBoard->level == 1)
+      {
+	GooCanvasItem *item =
+	  goo_canvas_svg_new (boardRootItem,
+			      gc_skin_rsvg_get(),
+			      "svg-id", "#BAR_BG",
+			      NULL);
+	SET_ITEM_LOCATION_CENTER(item,
+				 BOARDWIDTH/2,
+				 BOARDHEIGHT - 100);
+
+	goo_canvas_text_new (boardRootItem,
+			     _("Click on the differences between the two images."),
+			     BOARDWIDTH/2,
+			     BOARDHEIGHT - 100,
+			     -1,
+			     GTK_ANCHOR_CENTER,
+			     "font", gc_skin_font_board_small,
+			     "fill_color_rgba", gc_skin_color_text_button,
+			     "alignment", PANGO_ALIGN_CENTER,
+			     NULL);
+      }
   }
 }
 
@@ -398,7 +419,6 @@ static int TestIfClickedOnDiff( int ClickX, int ClickY )
 	       && OffsetY+pDiff->y1 <= ClickY && ClickY<= OffsetY+pDiff->y2 )
 	    {
 	      NumDiff = ScanPosi;
-	      printf("CLICKED ON DIFF%d: coords x1=%d, y1=%d, x2=%d, y2=%d\n", ScanPosi, pDiff->x1, pDiff->y1, pDiff->x2, pDiff->y2 );
 	    }
 	}
     }
@@ -422,7 +442,6 @@ static void TestClick( int ClickX, int ClickY )
 		   && pScanDiffFound->x2==pClickedDiffFound->x2 && pScanDiffFound->y2==pClickedDiffFound->y2 )
 		{
 		  DiffFound = -1;
-		  printf("THIS DIFF IS ALREADY FOUND!\n");
 		}
 	    }
 	}
@@ -437,7 +456,6 @@ static void TestClick( int ClickX, int ClickY )
 	  // end ???
 	  if ( gDiffFoundArray->len==gDiffCoorArray->len )
 	    {
-	      printf("END OF LEVEL!!!!!!!!!\n");
 	      gc_bonus_display( GC_BOARD_WIN, GC_BONUS_SMILEY );
 	      LoadNextLevelAfterEndOfBonusDisplay = TRUE;
 	    }
@@ -477,7 +495,7 @@ gchar * ScanAndPickRandomFile( int  * pNbrOfFiles, int RandomSelection )
   char SelectionFound = FALSE;
   gchar * FileChoosen = NULL;
   char * str = gc_file_find_absolute("%s", gcomprisBoard->boarddir );
-  printf("opening dir : %s\n", str);
+
   GDir * FilesDir = g_dir_open( str, 0, NULL );
   if ( FilesDir )
     {
@@ -489,12 +507,10 @@ gchar * ScanAndPickRandomFile( int  * pNbrOfFiles, int RandomSelection )
 	    {
 	      if ( g_str_has_suffix(File, ".csv") )
 		{
-		  printf("filtered file found : %s (select=%d, scan=%d)\n", File, RandomSelection, NbrOfFilesFound );
 		  if ( RandomSelection==NbrOfFilesFound )
 		    {
 		      FileChoosen = g_strdup( File );
 		      FileChoosen[ strlen(FileChoosen)-4 ] = '\0';
-		      printf("filtered file found, after cleanup : %s\n", FileChoosen );
 		      SelectionFound = TRUE;
 		    }
 		  NbrOfFilesFound++;
@@ -550,14 +566,12 @@ void ConvertCsvLine( char * FileLineDatas )
       Diff.y1 = atoi( PtrArraysCsv[ 1 ] );
       Diff.x2 = atoi( PtrArraysCsv[ 2 ] );
       Diff.y2 = atoi( PtrArraysCsv[ 3 ] );
-      printf("fields size = %d - diff coords x1=%d, y1=%d, x2=%d, y2=%d\n", NbrInfos, Diff.x1, Diff.y1, Diff.x2, Diff.y2 );
       g_array_append_val( gDiffCoorArray, Diff );
     }
 }
 void LoadCsvDiffFile( char * pFilename )
 {
   char LineBuff[ 50 ];
-  printf("opening csv file %s...\n", pFilename);
   FILE * pFileDiffDesc = fopen( pFilename, "rt" );
   if ( pFileDiffDesc )
     {
@@ -565,7 +579,6 @@ void LoadCsvDiffFile( char * pFilename )
 	{
 	  if ( fgets( LineBuff, 50, pFileDiffDesc )!=NULL )
 	    {
-	      //printf("fgets %s\n", LineBuff );
 	      if ( strlen( LineBuff )>=7 )
 		ConvertCsvLine( LineBuff );
 	    }
