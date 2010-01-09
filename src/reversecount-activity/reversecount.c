@@ -178,7 +178,8 @@ static void pause_board (gboolean pause)
     {
       game_won();
     }
-
+  else if(gamewon == FALSE && pause == FALSE) /* the game is lost */
+    reversecount_next_level();
 
   board_paused = pause;
 }
