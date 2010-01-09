@@ -66,9 +66,10 @@ class Gcompris_followline:
     gcompris.bar_set(gcompris.BAR_LEVEL)
     gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                             "followline/followline.svgz")
-    self.background_item_connect_id = \
-        self.gcomprisBoard.canvas.get_root_item().connect("motion_notify_event",
-                                                          self.loosing_item_event)
+    self.gcomprisBoard.canvas.get_root_item().connect("motion_notify_event",
+                                                      self.loosing_item_motion)
+    self.gcomprisBoard.canvas.get_root_item().connect("button_press_event",
+                                                      self.loosing_item_click)
 
     gcompris.bar_set_level(self.gcomprisBoard)
 
@@ -81,8 +82,10 @@ class Gcompris_followline:
     self.cleanup()
 
     # Disconnect from the background item
-    self.gcomprisBoard.canvas.get_root_item().disconnect(
-      self.background_item_connect_id)
+    self.gcomprisBoard.canvas.get_root_item().disconnect_by_func(
+      self.loosing_item_motion)
+    self.gcomprisBoard.canvas.get_root_item().disconnect_by_func(
+      self.loosing_item_click)
 
     gcompris.sound.policy_set(self.saved_policy)
 
@@ -194,6 +197,7 @@ class Gcompris_followline:
         line_cap = cairo.LINE_CAP_ROUND
         )
       item.connect("enter_notify_event", self.line_item_event)
+      item.connect("button_press_event", self.line_item_event)
 
       # Draw the black tube
       if x > start_x and x < stop_x-step:
@@ -300,16 +304,21 @@ class Gcompris_followline:
 
     return done
 
-  def loosing_item_event(self, widget, target, event=None):
+  def loosing_item_click(self, widget, target, event=None):
+    if target.__class__ != goocanvas.Svg:
+      return False
+    self.lost()
+
+  def loosing_item_motion(self, widget, target, event=None):
     if target.__class__ != goocanvas.Svg:
       return False
 
-    if event.type == gtk.gdk.BUTTON_PRESS:
-      return False
+    self.loosing_count += 1
+    if(self.loosing_count % 10 == 0):
+      self.lost()
 
+  def lost(self):
     if(self.state == "Started"):
-      self.loosing_count += 1
-      if(self.loosing_count % 10 == 0):
         gcompris.sound.play_ogg("sounds/smudge.wav")
         self.highlight_previous_line()
     return False
