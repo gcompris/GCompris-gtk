@@ -1,26 +1,21 @@
 #
 # Makefile.mingw
 #
-# Description: Makefile for win32 (mingw) version of GCompris Boards (Plugins)
+# Description: Makefile for win32 (mingw) version of python plugin and menu2
 #
 
 #
 # PATHS
 #
 
-GCOMPRIS_PLUGINS := 	.
 GCOMPRIS_TOP :=		../..
 CANVAS_TOP :=		$(GCOMPRIS_TOP)/src/goocanvas/src
-LIBART_TOP :=		$(GCOMPRIS_TOP)/src/libart_lgpl
-GCOMPRIS_INSTALL_DIR :=	$(GCOMPRIS_TOP)/win32-install-dir
 
 ##
 ## VARIABLE DEFINITIONS
 ##
 
 # Compiler Options
-
-CFLAGS =
 
 DEFINES = \
 	 -DPYGOOCANVAS_MAJOR_VERSION=0 \
@@ -41,7 +36,7 @@ include $(GCOMPRIS_TOP)/global_win32.mak
 ## INCLUDE PATHS
 ##
 
-INCLUDE_PATHS +=	-I$(GCOMPRIS_PLUGINS) \
+INCLUDE_PATHS +=	-I. \
 			-I$(GTK_TOP)/include \
 			-I$(GTK_TOP)/include/gtk-2.0 \
 			-I$(GLIB_TOP)/include/glib-2.0 \
@@ -62,40 +57,6 @@ INCLUDE_PATHS +=	-I$(GCOMPRIS_PLUGINS) \
 			-I$(ICONV_TOP)/include \
 			-I$(RSVG_TOP)/include/librsvg-2
 
-
-LIB_PATHS =		-L$(GTK_TOP)/lib \
-			-L$(LIBXML2_TOP)/lib \
-			-L$(SDL_TOP)/lib \
-			-L$(GCOMPRIS_TOP)/src/gcompris \
-			-L$(PYTHON_TOP)/lib
-
-
-##
-## LIBRARIES
-##
-
-LIBS =			-lgtk-win32-2.0 \
-			-lglib-2.0 \
-			-lgdk-win32-2.0 \
-			-lgobject-2.0 \
-			-lgmodule-2.0 \
-			-lgdk_pixbuf-2.0 \
-			-lpango-1.0 \
-			-lgnomecanvas-2 \
-			-lart_lgpl_2 \
-			-lpangoft2-1.0 \
-			-latk-1.0 \
-			-lpangowin32-1.0 \
-			-lgdi32 -lgthread-2.0 \
-			-lintl \
-			-lws2_32 \
-			-lpython26 \
-			-lpython \
-			libgcompris-1.la
-
-##
-## RULES
-##
 
 ##
 ## TARGET DEFINITIONS
@@ -136,9 +97,6 @@ BOARDS_C_SRC =	\
 	menu2.c \
 	$(PYTHON_C_SRC)
 
-
-
-
 BOARDS_OBJECTS = $(BOARDS_C_SRC:%.c=%.o)
 
 
@@ -149,10 +107,6 @@ BOARDS_OBJECTS = $(BOARDS_C_SRC:%.c=%.o)
 # How to make a C file
 %.o: %.c
 	$(CC) $(CFLAGS) $(INCLUDE_PATHS) $(DEFINES) -c $< -o $@
-
-.c.o:
-	$(CC) $(CFLAGS) $(DEFINES) $(INCLUDE_PATHS) -o $@.o -c $<
-	$(CC) -shared $@.o $(LIB_PATHS) $(LIBS) $(DLL_LD_FLAGS) -o $@
 
 libboards: \
 		libboards.a

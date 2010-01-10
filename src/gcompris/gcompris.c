@@ -904,7 +904,7 @@ display_activation_dialog()
     goo_canvas_widget_new (goo_canvas_get_root_item(GOO_CANVAS(canvas)),
 			   GTK_WIDGET(widget_activation_entry),
 			   BOARDWIDTH / 2 - 50,
-			   BOARDHEIGHT - 60,
+			   BOARDHEIGHT - 90,
 			   100.0,
 			   30.0,
 			   NULL);
@@ -1031,7 +1031,7 @@ activation_done()
     }
 
   gc_board_play( get_board_to_start());
-  gtk_object_destroy (GTK_OBJECT(activation_item));
+  goo_canvas_item_remove (activation_item);
 }
 #endif
 

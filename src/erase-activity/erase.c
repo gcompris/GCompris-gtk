@@ -157,7 +157,7 @@ static void pause_board (gboolean pause)
     return;
 
   if (timer_id) {
-    gtk_timeout_remove (timer_id);
+    g_source_remove (timer_id);
     timer_id = 0;
   }
 
@@ -333,7 +333,7 @@ static void erase_destroy_all_items()
   }
 
   if (timer_id) {
-    gtk_timeout_remove (timer_id);
+    g_source_remove (timer_id);
     timer_id = 0;
   }
 
@@ -424,9 +424,11 @@ static GooCanvasItem *erase_create_item()
   return NULL;
 }
 
-static void bonus() {
+static gboolean
+bonus() {
   gc_bonus_display(gamewon, GC_BONUS_SMILEY);
   timer_id = 0;
+  return FALSE;
 }
 
 /* ==================================== */
@@ -469,7 +471,7 @@ erase_one_item (GooCanvasItem *item)
     {
       gamewon = TRUE;
       erase_destroy_all_items();
-      timer_id = gtk_timeout_add (4000, (GtkFunction) bonus, NULL);
+      timer_id = g_timeout_add (4000, (GSourceFunc) bonus, NULL);
     }
 
   /* force a cleanup of the sound queue */

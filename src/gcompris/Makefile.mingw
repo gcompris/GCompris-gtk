@@ -22,11 +22,7 @@ TARGET = gcompris
 
 # Compiler and Linker Options
 
-CFLAGS =
-
 DEFINES =
-
-LDFLAGS = -mwindows -mno-cygwin -mms-bitfields
 
 #-mconsole
 #-mwindows
@@ -125,6 +121,8 @@ EXE_OBJECTS = $(EXE_C_SRC:%.c=%.o) $(RC_SRC:%.rc=%.o)
 ## LIBRARIES
 ##
 
+ACTIVITY_LIBS =		../erase-activity/libactivity.a
+
 EXE_LIBS =		../boards/libboards.a \
 			../goocanvas/src/libgoocanvas.a \
 			-lgtk-win32-2.0 \
@@ -178,7 +176,7 @@ install: all
 #
 
 $(TARGET).exe: $(EXE_OBJECTS) ../boards/libboards.a
-	$(CC) $(LDFLAGS) $(EXE_OBJECTS) $(LIB_PATHS) $(EXE_LIBS) -o $(TARGET).exe
+	$(CC) $(LDFLAGS) $(EXE_OBJECTS) $(LIB_PATHS) $(EXE_LIBS) $(ACTIVITY_LIBS) -o $(TARGET).exe
 
 ##
 ## CLEAN RULES

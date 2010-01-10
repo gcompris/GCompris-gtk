@@ -1,6 +1,5 @@
 if PYTHON_PLUGIN
 python_plugin = libpython.la
-#python_subdir = python mypaint (temporary mypaint removal until ready)
 python_subdir = python
 else
 python_plugin =

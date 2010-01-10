@@ -10,6 +10,7 @@ pkgdatadir = gcompris
 
 GCOMPRIS_SRC = ./src/gcompris
 GCOMPRIS_BOARDS = ./src/boards
+CANVAS_SRC = ./src/goocanvas/src
 GCOMPRIS_INSTALL_DIR = ./win32-install-dir
 
 include global_win32.mak
@@ -23,9 +24,10 @@ NEEDED_DLLS =		$(GNUCHESS_TOP)/bin/pthreadGC2.dll \
 			$(GNUCAP_TOP)/src/MSW/gnucap.exe \
 			$(GTK_TOP)/bin/gspawn-win32-helper.exe \
 			$(GTK_TOP)/bin/intl.dll \
-			$(GTK_TOP)/bin/jpeg62.dll \
+			$(GTK_TOP)/bin/libjpeg-7.dll \
 			$(GTK_TOP)/bin/libatk-1.0-0.dll \
 			$(GTK_TOP)/bin/libcairo-2.dll \
+			$(GTK_TOP)/bin/libexpat-1.dll \
 			$(GTK_TOP)/bin/libgdk-win32-2.0-0.dll \
 			$(GTK_TOP)/bin/libgdk_pixbuf-2.0-0.dll \
 			$(GTK_TOP)/bin/libglib-2.0-0.dll \
@@ -49,7 +51,9 @@ NEEDED_DLLS =		$(GNUCHESS_TOP)/bin/pthreadGC2.dll \
 			$(SDL_TOP)/bin/libvorbis-0.dll \
 			$(SDL_TOP)/bin/libvorbisfile-3.dll \
 			$(SQLITE_TOP)/sqlite3.dll \
-			$(RSVG_TOP)/bin/librsvg-2-2.dll
+			$(RSVG_TOP)/bin/librsvg-2-2.dll \
+			$(CROCO_TOP)/bin/libcroco-0.6-3.dll \
+			$(GSF_TOP)/bin/libgsf-1-114.dll
 
 NEEDED_FILES =		README \
 	     		README.mingw \
@@ -60,7 +64,7 @@ NEEDED_FILES =		README \
 ##
 
 all: Makefile.mingw config.h
-	$(MAKE) -C ./src/goocanvas/src -f Makefile.mingw
+	$(MAKE) -C $(CANVAS_SRC) -f Makefile.mingw
 	$(MAKE) -C $(GCOMPRIS_BOARDS) -f Makefile.mingw
 	$(MAKE) -C $(GCOMPRIS_SRC) -f Makefile.mingw
 
@@ -93,15 +97,17 @@ install: all Makefile.mingw
 
 # Copy mandratory files for the package in the package directory
 prepack: Makefile.mingw
-	mkdir -p $(GCOMPRIS_INSTALL_DIR)/GTK
+	mkdir -p $(GCOMPRIS_INSTALL_DIR)
 	cp $(NEEDED_DLLS) $(GCOMPRIS_INSTALL_DIR)
 	cp $(NEEDED_FILES) $(GCOMPRIS_INSTALL_DIR)
 	cp -r $(GTK_TOP)/etc $(GCOMPRIS_INSTALL_DIR)
-	mkdir -p $(GCOMPRIS_INSTALL_DIR)/GTK/share
+	cp -r $(GTK_TOP)/manifest $(GCOMPRIS_INSTALL_DIR)
+	mkdir -p $(GCOMPRIS_INSTALL_DIR)/share
 	cp -r $(GTK_TOP)/share/themes $(GCOMPRIS_INSTALL_DIR)/share
 	mkdir -p $(GCOMPRIS_INSTALL_DIR)/lib
 	cp -r $(GTK_TOP)/share/locale $(GCOMPRIS_INSTALL_DIR)/lib
 	cp -r $(GTK_TOP)/lib/gtk-2.0 $(GCOMPRIS_INSTALL_DIR)/lib
+	cp $(GCOMPRIS_INSTALL_DIR)/libxml2.dll $(GCOMPRIS_INSTALL_DIR)/libxml2-2.dll
 
 python: Makefile.mingw
 	cp $(PYTHON_TOP)/DLLs/tcl84.dll $(GCOMPRIS_INSTALL_DIR)
@@ -117,7 +123,7 @@ installer: Makefile.mingw gcompris-installer.nsi
 	$(MAKENSIS) gcompris-installer.nsi
 
 clean: Makefile.mingw
-	$(MAKE) -C ./src/goocanvas/src -f Makefile.mingw clean
+	$(MAKE) -C $(CANVAS_SRC) -f Makefile.mingw clean
 	$(MAKE) -C $(GCOMPRIS_SRC) -f Makefile.mingw clean
 	$(MAKE) -C $(GCOMPRIS_BOARDS) -f Makefile.mingw clean
 	rm -rf config.h
@@ -131,7 +137,6 @@ clean: Makefile.mingw
 prep: Makefile.mingw
 	mkdir -p $(GCOMPRIS_INSTALL_DIR)
 	mkdir -p $(GCOMPRIS_INSTALL_DIR)/share/$(pkgdatadir)/boards
-	cd boards ; tar cf - -h --exclude "*.in" --exclude ".*" * | ( cd ../$(GCOMPRIS_INSTALL_DIR)/share/$(pkgdatadir)/boards ; tar xf -) ; cd .. ;
 	@echo "-------------------------------------------------------------------------------"
 	@echo " WARNING: MAKE SURE TO HAVE RUN A MAKE INSTALL OF GCOMPRIS IN /USR/LOCAL FIRST"
 	@echo "-------------------------------------------------------------------------------"
@@ -139,6 +144,9 @@ prep: Makefile.mingw
 	cp -r /usr/local/share/locale/* $(GCOMPRIS_INSTALL_DIR)/share/locale/
 	@echo "Remove other .mo file not from gcompris"
 	find ./win32-install-dir/share/locale/ -name \*.mo | grep -v gcompris.mo | xargs rm -f
+	@echo "Copying activity data from /usr/local/share/gcompris"
+	mkdir -p $(GCOMPRIS_INSTALL_DIR)/share/gcompris
+	cp -r /usr/local/share/gcompris/* $(GCOMPRIS_INSTALL_DIR)/share/gcompris
 	@echo "Copy pixmap"
 	mkdir -p $(GCOMPRIS_INSTALL_DIR)/share/pixmaps
 	cp gcompris.png $(GCOMPRIS_INSTALL_DIR)/share/pixmaps
@@ -148,15 +156,4 @@ prep: Makefile.mingw
 	find $(GCOMPRIS_INSTALL_DIR) -name "Makefile*" -exec rm -f {} \;
 	find $(GCOMPRIS_INSTALL_DIR) -name "*.in" -exec rm -f {} \;
 	find $(GCOMPRIS_INSTALL_DIR) -name "*~" -exec rm -f {} \;
-	@echo Remove svg files
-	find $(GCOMPRIS_INSTALL_DIR) -name "*.svg" -exec rm -f {} \;
 
-svg2png:
-	sed -i "s:\(/[a-zA-Z0-9_-]\+\\.\)svg:\1png:g" boards/*.xml.in
-	sed -i "s:\(/[a-zA-Z0-9_-]\+\\.\)svg:\1png:g" src/*/*.c
-	sed -i "s:\(/[a-zA-Z0-9_-]\+\\.\)svg:\1png:g" src/*/*/*.py
-	for f in `find boards -name '*.svg'`; \
-	  do e=`echo $$f | sed s/.svg/.png/`; \
-	  inkscape -z -f $$f -e $$e; \
-	done
-	cd boards && make && cd ..
