@@ -12,78 +12,74 @@ GCOMPRIS_SRC = ./src/gcompris
 GCOMPRIS_BOARDS = ./src/boards
 GCOMPRIS_INSTALL_DIR = ./win32-install-dir
 
-GTK_TOP :=		/gtk
-GNUWIN32_TOP :=		/gnuwin32
-LIBXML2_TOP :=		/libxml2
-SDL_TOP :=		/sdl
-CANVAS_TOP :=		/gnomecanvas
-GNUCHESS_TOP :=		/gnuchess
-PYTHON_DLL :=		/c/WINDOWS/system32/python24.dll
-PYTHON_TOP :=		/c/Python24
-GNUCAP_TOP :=		/gnucap
-SQLITE_TOP :=		/sqlite
-
-MAKENSIS := "/c/Program Files/NSIS/makensis.exe"
+include global_win32.mak
 
 # These will be copied in the win32-install-dir ready to be packaged.
-NEEDED_DLLS =		$(GNUCHESS_TOP)/bin/pthreadGC.dll \
+NEEDED_DLLS =		$(GNUCHESS_TOP)/bin/pthreadGC2.dll \
 			$(GNUCHESS_TOP)/bin/libreadline.dll \
-			$(PYTHON_DLL) \
+			$(GNUCHESS_TOP)/bin/gnuchess.exe \
+			$(FONTCONFIG_TOP)/bin/libfontconfig-1.dll \
+			$(FREETYPE_TOP)/bin/freetype6.dll \
 			$(GNUCAP_TOP)/src/MSW/gnucap.exe \
 			$(GTK_TOP)/bin/gspawn-win32-helper.exe \
-			$(GNUCHESS_TOP)/bin/gnuchess.exe \
-			$(GNUWIN32_TOP)/bin/libintl-2.dll \
-			$(GNUWIN32_TOP)/bin/libiconv-2.dll \
-			$(CANVAS_TOP)/bin/libgnomecanvas-2-0.dll \
-			$(SDL_TOP)/bin/SDL.dll \
-			$(SDL_TOP)/bin/SDL_mixer.dll \
-			$(LIBXML2_TOP)/bin/libxml2.dll \
-			$(GTK_TOP)/bin/freetype6.dll \
 			$(GTK_TOP)/bin/intl.dll \
+			$(GTK_TOP)/bin/jpeg62.dll \
+			$(GTK_TOP)/bin/libatk-1.0-0.dll \
 			$(GTK_TOP)/bin/libcairo-2.dll \
-			$(GTK_TOP)/bin/libpangocairo-1.0-0.dll \
-			$(GTK_TOP)/bin/libart_lgpl_2-2.dll \
-			$(GTK_TOP)/bin/freetype6.dll \
-			$(GTK_TOP)/bin/libart_lgpl_2-2.dll \
 			$(GTK_TOP)/bin/libgdk-win32-2.0-0.dll \
 			$(GTK_TOP)/bin/libgdk_pixbuf-2.0-0.dll \
 			$(GTK_TOP)/bin/libglib-2.0-0.dll \
 			$(GTK_TOP)/bin/libgmodule-2.0-0.dll \
 			$(GTK_TOP)/bin/libgobject-2.0-0.dll \
-			$(GTK_TOP)/bin/libpango-1.0-0.dll \
-			$(GTK_TOP)/bin/libpangowin32-1.0-0.dll \
-			$(GTK_TOP)/bin/libpangoft2-1.0-0.dll \
-			$(GTK_TOP)/bin/libgtk-win32-2.0-0.dll \
-			$(GTK_TOP)/bin/libatk-1.0-0.dll \
-			$(GTK_TOP)/bin/libfontconfig-1.dll \
-			$(GTK_TOP)/bin/zlib1.dll \
 			$(GTK_TOP)/bin/libgthread-2.0-0.dll \
-			$(GTK_TOP)/expat/bin/xmlparse.dll \
-			$(GTK_TOP)/expat/bin/xmltok.dll \
-			$(GTK_TOP)/bin/iconv.dll \
-			$(GTK_TOP)/bin/intl.dll \
-			$(GTK_TOP)/bin/libpng13.dll \
-			$(GTK_TOP)/bin/jpeg62.dll \
+			$(GTK_TOP)/bin/libgtk-win32-2.0-0.dll \
+			$(GTK_TOP)/bin/libpango-1.0-0.dll \
+			$(GTK_TOP)/bin/libpangocairo-1.0-0.dll \
+			$(GTK_TOP)/bin/libpangoft2-1.0-0.dll \
+			$(GTK_TOP)/bin/libpangowin32-1.0-0.dll \
+			$(GTK_TOP)/bin/libgio-2.0-0.dll \
+			$(GTK_TOP)/bin/libpng12-0.dll \
+			$(GTK_TOP)/bin/zlib1.dll \
+			$(ICONV_TOP)/bin/iconv.dll \
+			$(LIBXML2_TOP)/bin/libxml2.dll \
+			$(MSVCR71_DLL) \
+			$(SDL_TOP)/bin/SDL.dll \
+			$(SDL_TOP)/bin/SDL_mixer.dll \
+			$(SDL_TOP)/bin/libogg-0.dll \
+			$(SDL_TOP)/bin/libvorbis-0.dll \
+			$(SDL_TOP)/bin/libvorbisfile-3.dll \
 			$(SQLITE_TOP)/sqlite3.dll \
-			/c/WINDOWS/system32/msvcr71.dll
+			$(RSVG_TOP)/bin/librsvg-2-2.dll
 
 NEEDED_FILES =		README \
 	     		README.mingw \
 			COPYING \
-			Changelog
+			ChangeLog
 
 ##
 ##
 
-all:
-	cp config.h.mingw config.h
+all: Makefile.mingw config.h
+	$(MAKE) -C ./src/goocanvas/src -f Makefile.mingw
 	$(MAKE) -C $(GCOMPRIS_BOARDS) -f Makefile.mingw
 	$(MAKE) -C $(GCOMPRIS_SRC) -f Makefile.mingw
 
+Makefile.mingw: Makefile.mingw.in
+	./config.status Makefile.mingw
 
-install: all
+config.h: config.h.mingw.in
+	./config.status config.h.mingw
+	cp config.h.mingw config.h
+
+gcompris-installer.nsi: gcompris-installer.nsi.in nsis_translations.desktop
+	./config.status gcompris-installer.nsi
+	./tools/create_nsis_translations.pl nsis_translations.desktop gcompris-installer.nsi nsis/translations
+
+nsis_translations.desktop: nsis_translations.desktop.in
+	LC_ALL=C /usr/bin/intltool-merge -d -u -c ./po/.intltool-merge-cache ./po nsis_translations.desktop.in nsis_translations.desktop
+
+install: all Makefile.mingw
 	mkdir -p $(GCOMPRIS_INSTALL_DIR)/share
-	$(MAKE) -C $(GCOMPRIS_BOARDS) -f Makefile.mingw install
 	$(MAKE) -C $(GCOMPRIS_SRC) -f Makefile.mingw install
 	cp -r $(GCOMPRIS_BOARDS)/python $(GCOMPRIS_INSTALL_DIR)/share/gcompris
 	rm -f $(GCOMPRIS_INSTALL_DIR)/share/gcompris/python/Makefile*
@@ -96,7 +92,7 @@ install: all
 
 
 # Copy mandratory files for the package in the package directory
-prepack:
+prepack: Makefile.mingw
 	mkdir -p $(GCOMPRIS_INSTALL_DIR)/GTK
 	cp $(NEEDED_DLLS) $(GCOMPRIS_INSTALL_DIR)
 	cp $(NEEDED_FILES) $(GCOMPRIS_INSTALL_DIR)
@@ -104,36 +100,38 @@ prepack:
 	mkdir -p $(GCOMPRIS_INSTALL_DIR)/GTK/share
 	cp -r $(GTK_TOP)/share/themes $(GCOMPRIS_INSTALL_DIR)/share
 	mkdir -p $(GCOMPRIS_INSTALL_DIR)/lib
-	cp -r $(GTK_TOP)/lib/locale $(GCOMPRIS_INSTALL_DIR)/lib
+	cp -r $(GTK_TOP)/share/locale $(GCOMPRIS_INSTALL_DIR)/lib
 	cp -r $(GTK_TOP)/lib/gtk-2.0 $(GCOMPRIS_INSTALL_DIR)/lib
-	cp -r $(GTK_TOP)/lib/pango $(GCOMPRIS_INSTALL_DIR)/lib
 
-python:
+python: Makefile.mingw
 	cp $(PYTHON_TOP)/DLLs/tcl84.dll $(GCOMPRIS_INSTALL_DIR)
 	cp $(PYTHON_TOP)/DLLs/tk84.dll $(GCOMPRIS_INSTALL_DIR)
+	cp $(PYTHON_TOP)/python24.dll $(GCOMPRIS_INSTALL_DIR)
 	cp tools/py2exe/gcompris.py $(GCOMPRIS_INSTALL_DIR)
 	cp tools/py2exe/setup.py $(GCOMPRIS_INSTALL_DIR)
 	cd $(GCOMPRIS_INSTALL_DIR);$(PYTHON_TOP)/python.exe setup.py py2exe;cp dist/library.zip python24.zip;cp dist/*.pyd .;rm -rf dist build;rm -f gcompris.py*;cd ..
 	rm -f $(GCOMPRIS_INSTALL_DIR)/tcl84.dll
 	rm -f $(GCOMPRIS_INSTALL_DIR)/tk84.dll
 
-installer:
+installer: Makefile.mingw gcompris-installer.nsi
 	$(MAKENSIS) gcompris-installer.nsi
 
-clean:
+clean: Makefile.mingw
+	$(MAKE) -C ./src/goocanvas/src -f Makefile.mingw clean
 	$(MAKE) -C $(GCOMPRIS_SRC) -f Makefile.mingw clean
 	$(MAKE) -C $(GCOMPRIS_BOARDS) -f Makefile.mingw clean
 	rm -rf config.h
 	rm -rf gcompris*.exe
+	rm -f gcompris-installer.nsi
+	rm -f nsis_translations.desktop
 
 #
 # Run this on Linux to prepare datadir for windows
 #
-prep:
-	mkdir $(GCOMPRIS_INSTALL_DIR)
-
+prep: Makefile.mingw
+	mkdir -p $(GCOMPRIS_INSTALL_DIR)
 	mkdir -p $(GCOMPRIS_INSTALL_DIR)/share/$(pkgdatadir)/boards
-	cd boards ; tar cf -  --exclude "Makefile.in" --exclude "*.in" --exclude "*~" --exclude "Makefile" --exclude "Makefile.am" --exclude .svn --exclude .xvpics * | ( cd ../$(GCOMPRIS_INSTALL_DIR)/share/$(pkgdatadir)/boards ; tar xf -) ; cd .. ;
+	cd boards ; tar cf - -h --exclude "*.in" --exclude ".*" * | ( cd ../$(GCOMPRIS_INSTALL_DIR)/share/$(pkgdatadir)/boards ; tar xf -) ; cd .. ;
 	@echo "-------------------------------------------------------------------------------"
 	@echo " WARNING: MAKE SURE TO HAVE RUN A MAKE INSTALL OF GCOMPRIS IN /USR/LOCAL FIRST"
 	@echo "-------------------------------------------------------------------------------"
@@ -142,9 +140,23 @@ prep:
 	@echo "Remove other .mo file not from gcompris"
 	find ./win32-install-dir/share/locale/ -name \*.mo | grep -v gcompris.mo | xargs rm -f
 	@echo "Copy pixmap"
-	mkdir $(GCOMPRIS_INSTALL_DIR)/share/pixmaps
+	mkdir -p $(GCOMPRIS_INSTALL_DIR)/share/pixmaps
 	cp gcompris.png $(GCOMPRIS_INSTALL_DIR)/share/pixmaps
 	@echo remove tuxpaint activity
 	rm -f $(GCOMPRIS_INSTALL_DIR)/share/$(pkgdatadir)/boards/tuxpaint.xml
-	@echo "Create the file gcompris-win-prepack.tar.gz"
-	tar --exclude "Makefile.in" --exclude "*.in" --exclude "*~" --exclude "Makefile" --exclude "Makefile.am" --exclude .svn --exclude .xvpics -czf gcompris-win-prepack.tar.gz win32-install-dir nsis tools Makefile.mingw config.h.mingw
+	rm -f $(GCOMPRIS_INSTALL_DIR)/share/gcompris/python/tuxpaint.py
+	find $(GCOMPRIS_INSTALL_DIR) -name "Makefile*" -exec rm -f {} \;
+	find $(GCOMPRIS_INSTALL_DIR) -name "*.in" -exec rm -f {} \;
+	find $(GCOMPRIS_INSTALL_DIR) -name "*~" -exec rm -f {} \;
+	@echo Remove svg files
+	find $(GCOMPRIS_INSTALL_DIR) -name "*.svg" -exec rm -f {} \;
+
+svg2png:
+	sed -i "s:\(/[a-zA-Z0-9_-]\+\\.\)svg:\1png:g" boards/*.xml.in
+	sed -i "s:\(/[a-zA-Z0-9_-]\+\\.\)svg:\1png:g" src/*/*.c
+	sed -i "s:\(/[a-zA-Z0-9_-]\+\\.\)svg:\1png:g" src/*/*/*.py
+	for f in `find boards -name '*.svg'`; \
+	  do e=`echo $$f | sed s/.svg/.png/`; \
+	  inkscape -z -f $$f -e $$e; \
+	done
+	cd boards && make && cd ..

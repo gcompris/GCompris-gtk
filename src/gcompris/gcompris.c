@@ -24,10 +24,12 @@
 #include <time.h>
 #include <string.h>
 
+#ifndef WIN32
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
 #include <X11/Xatom.h>
 #include <gdk/gdkx.h>
+#endif
 
 #include <glib/gstdio.h>
 
@@ -68,8 +70,10 @@ static gint _gc_configure_event_callback (GtkWidget   *widget,
 static gboolean _expose_background_callback (GtkWidget *widget,
 					     GdkEventExpose *event,
 					     gpointer data);
+#ifndef WIN32
 static gboolean _realize_callback (GtkWidget *widget, GdkEventExpose *event,
 				   gpointer data);
+#endif
 static gint board_widget_key_press_callback (GtkWidget   *widget,
 					    GdkEventKey *event,
 					    gpointer     client_data);
@@ -638,6 +642,7 @@ _expose_background_callback (GtkWidget *widget,
 /*
  * Sugar requires properties to be set before the windows is realized
  */
+#ifndef WIN32
 static gboolean
 _realize_callback (GtkWidget *widget, GdkEventExpose *event, gpointer data)
 {
@@ -661,6 +666,7 @@ _realize_callback (GtkWidget *widget, GdkEventExpose *event, gpointer data)
 
   return FALSE;
 }
+#endif
 
 static void
 init_background()
@@ -791,10 +797,10 @@ static void setup_window ()
 
   gtk_window_set_default_size(GTK_WINDOW(window), BOARDWIDTH, BOARDHEIGHT);
   gtk_window_set_wmclass(GTK_WINDOW(window), "gcompris", "GCompris");
-
+#ifndef WIN32
   g_signal_connect (GTK_OBJECT (window), "realize",
 		    G_CALLBACK (_realize_callback), NULL);
-
+#endif
   gtk_widget_realize (window);
 
   gtk_signal_connect (GTK_OBJECT (window), "delete_event",
@@ -1820,8 +1826,10 @@ main (int argc, char *argv[])
 	gc_sound_play_ogg("voices/$LOCALE/misc/welcome.ogg", NULL);
     }
 
+#ifndef WIN32
   if (sugarActivityId)
     gc_dbus_init(sugarActivityId);
+#endif
 
   gtk_main ();
 

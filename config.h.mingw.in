@@ -7,9 +7,6 @@
 /* Supported languages */
 #define ALL_LINGUAS "am ar az bg ca cs da de el en_CA en_GB es et fi fr ga gu he hi hr hu it lt mk ml ms nl nb nn pa pl pt pt_BR ro ru sk sl sq sr sr@Latn sv tr wa zh_CN"
 
-/* Global assetml directory */
-#define ASSETML_DIR "share/assetml"
-
 /* "Enable debug messages." */
 /* #undef DEBUG */
 
@@ -139,3 +136,8 @@
 /* Activation code is disabled */
 /* #define DISABLE_ACTIVATION_CODE 1 */
 
+/* sdl mixer is enabled */
+#define USE_SDLMIXER
+
+/* Use binary relocation */
+#define ENABLE_BINRELOC 0

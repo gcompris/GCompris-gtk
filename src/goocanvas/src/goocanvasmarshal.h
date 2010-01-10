@@ -6,13 +6,13 @@
 
 G_BEGIN_DECLS
 
-/* VOID:VOID (./goocanvasmarshal.list:1) */
+/* VOID:VOID (goocanvasmarshal.list:1) */
 #define goo_canvas_marshal_VOID__VOID	g_cclosure_marshal_VOID__VOID
 
-/* VOID:INT (./goocanvasmarshal.list:2) */
+/* VOID:INT (goocanvasmarshal.list:2) */
 #define goo_canvas_marshal_VOID__INT	g_cclosure_marshal_VOID__INT
 
-/* VOID:INT,INT (./goocanvasmarshal.list:3) */
+/* VOID:INT,INT (goocanvasmarshal.list:3) */
 extern void goo_canvas_marshal_VOID__INT_INT (GClosure     *closure,
                                               GValue       *return_value,
                                               guint         n_param_values,
@@ -20,10 +20,10 @@ extern void goo_canvas_marshal_VOID__INT_INT (GClosure     *closure,
                                               gpointer      invocation_hint,
                                               gpointer      marshal_data);
 
-/* VOID:BOOLEAN (./goocanvasmarshal.list:4) */
+/* VOID:BOOLEAN (goocanvasmarshal.list:4) */
 #define goo_canvas_marshal_VOID__BOOLEAN	g_cclosure_marshal_VOID__BOOLEAN
 
-/* VOID:OBJECT,OBJECT (./goocanvasmarshal.list:5) */
+/* VOID:OBJECT,OBJECT (goocanvasmarshal.list:5) */
 extern void goo_canvas_marshal_VOID__OBJECT_OBJECT (GClosure     *closure,
                                                     GValue       *return_value,
                                                     guint         n_param_values,
@@ -31,7 +31,7 @@ extern void goo_canvas_marshal_VOID__OBJECT_OBJECT (GClosure     *closure,
                                                     gpointer      invocation_hint,
                                                     gpointer      marshal_data);
 
-/* BOOLEAN:BOXED (./goocanvasmarshal.list:6) */
+/* BOOLEAN:BOXED (goocanvasmarshal.list:6) */
 extern void goo_canvas_marshal_BOOLEAN__BOXED (GClosure     *closure,
                                                GValue       *return_value,
                                                guint         n_param_values,
@@ -39,7 +39,7 @@ extern void goo_canvas_marshal_BOOLEAN__BOXED (GClosure     *closure,
                                                gpointer      invocation_hint,
                                                gpointer      marshal_data);
 
-/* BOOLEAN:OBJECT,BOXED (./goocanvasmarshal.list:7) */
+/* BOOLEAN:OBJECT,BOXED (goocanvasmarshal.list:7) */
 extern void goo_canvas_marshal_BOOLEAN__OBJECT_BOXED (GClosure     *closure,
                                                       GValue       *return_value,
                                                       guint         n_param_values,
@@ -47,7 +47,7 @@ extern void goo_canvas_marshal_BOOLEAN__OBJECT_BOXED (GClosure     *closure,
                                                       gpointer      invocation_hint,
                                                       gpointer      marshal_data);
 
-/* BOOLEAN:DOUBLE,DOUBLE,BOOLEAN,OBJECT (./goocanvasmarshal.list:8) */
+/* BOOLEAN:DOUBLE,DOUBLE,BOOLEAN,OBJECT (goocanvasmarshal.list:8) */
 extern void goo_canvas_marshal_BOOLEAN__DOUBLE_DOUBLE_BOOLEAN_OBJECT (GClosure     *closure,
                                                                       GValue       *return_value,
                                                                       guint         n_param_values,

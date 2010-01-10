@@ -8,18 +8,11 @@
 # PATHS
 #
 
-INCLUDE_DIR :=		.
-GTK_TOP :=		/gtk
-GLIB_TOP :=		/glib
-GNUWIN32_TOP :=		/gnuwin32
-LIBXML2_TOP :=		/libxml2
-GSTREAMER_TOP :=	/gstreamer
-PYTHON_TOP :=		/c/Python24
-CAIRO_TOP :=		/cairo
 GCOMPRIS_TOP :=		../..
+INCLUDE_DIR :=		.
+CANVAS_TOP :=		$(GCOMPRIS_TOP)/src/goocanvas/src
 GCOMPRIS_SRC :=		.
 GCOMPRIS_INSTALL_DIR :=	$(GCOMPRIS_TOP)/win32-install-dir
-SQLITE_TOP :=		/sqlite
 
 ##
 ## VARIABLE DEFINITIONS
@@ -56,28 +49,28 @@ INCLUDE_PATHS +=	-I$(INCLUDE_DIR) \
 			-I$(GTK_TOP)/include/atk-1.0 \
 			-I$(GLIB_TOP)/lib/glib-2.0/include \
 			-I$(GTK_TOP)/lib/gtk-2.0/include \
-			-I.. \
-			-I$(GTK_TOP)/include/atk-1.0 \
-			-I$(GTK_TOP)/src/libart_lgpl \
 			-I$(GTK_TOP)/include/freetype2 \
-			-I$(GSTREAME_TOP)/include/gstreamer-0.10 \
+			-I$(SDL_TOP)/include/SDL \
 			-I$(LIBXML2_TOP)/include \
-			-I$(GNUWIN32_TOP)/include \
 			-I$(CAIRO_TOP)/include/cairo \
+			-I$(RSVG_TOP)/include/librsvg-2 \
 			-I$(SQLITE_TOP) \
-			-L$(GSTREAMER_TOP) \
 			-I$(GCOMPRIS_TOP) \
-			-I$(GCOMPRIS_TOP)/src/boards
+			-I$(GCOMPRIS_TOP)/src/boards \
+			-I$(CANVAS_TOP) \
+			-I$(ICONV_TOP)/include
 
 
 LIB_PATHS =		-L$(GTK_TOP)/lib \
 	  		-L$(GLIB_TOP)/lib \
 			-L$(LIBXML2_TOP)/lib \
-			-L$(GNUWIN32_TOP)/lib \
-			-L$(GSTREAMER_TOP)/lib \
-			-L$(CANVAS_TOP)/lib \
+			-L$(SDL_TOP)/lib \
+			-L$(CANVAS_TOP) \
 			-L$(PYTHON_TOP)/libs \
 			-L$(SQLITE_TOP) \
+			-L$(ICONV_TOP)/lib \
+			-L$(CAIRO_TOP)/lib \
+			-L$(RSVG_TOP)/lib \
 			-L$(GCOMPRIS_TOP)/src/gcompris
 
 
@@ -92,8 +85,12 @@ EXE_C_SRC = \
 	binreloc.c \
 	board.c \
 	board_config.c \
+	board_config_combo.c \
+	board_config_common.c \
+	board_config_radio.c \
+	board_config_textview.c \
+	board_config_wordlist.c \
 	bonus.c \
-	cache.c \
 	config.c \
 	dialog.c \
 	drag.c \
@@ -115,6 +112,8 @@ EXE_C_SRC = \
 	score.c \
 	skin.c \
 	soundutil.c \
+	soundutil_sdl.c \
+	sdlplayer.c \
 	timer.c \
 	wordlist.c
 
@@ -126,13 +125,13 @@ EXE_OBJECTS = $(EXE_C_SRC:%.c=%.o) $(RC_SRC:%.rc=%.o)
 ## LIBRARIES
 ##
 
-EXE_LIBS =		../libgnomecanvas/libgnomecanvas.a \
-	 		../libart_lgpl/libart_lgpl.a \
-	 		../boards/libboards.a \
+EXE_LIBS =		../boards/libboards.a \
+			../goocanvas/src/libgoocanvas.a \
 			-lgtk-win32-2.0 \
 			-latk-1.0 \
 			-lpango-1.0 \
 			-lglib-2.0 \
+			-lgthread-2.0 \
 			-lgdk-win32-2.0 \
 			-lgobject-2.0 \
 			-lintl \
@@ -140,11 +139,13 @@ EXE_LIBS =		../libgnomecanvas/libgnomecanvas.a \
 			-lgdk_pixbuf-2.0 \
 			-lws2_32 \
 			-lxml2 \
-			-lgstreamer-0.10-0 \
+			-lSDLmain -lSDL -lSDL_mixer \
 			-lpangoft2-1.0 \
 			-liconv \
-			-lpython24 \
-			-lsqlite3
+			-lpython26 \
+			-lsqlite3 \
+			-lcairo \
+			-lrsvg-2
 
 
 
@@ -158,7 +159,7 @@ EXE_LIBS =		../libgnomecanvas/libgnomecanvas.a \
 
 # How to make an RC file
 %.o: %.rc
-	windres -i $< -o $@
+	$(WINDRES) -i $< -o $@
 
 ##
 ## TARGET DEFINITIONS

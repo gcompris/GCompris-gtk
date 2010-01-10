@@ -10,16 +10,9 @@
 
 GCOMPRIS_PLUGINS := 	.
 GCOMPRIS_TOP :=		../..
-GTK_TOP :=		/gtk
-GLIB_TOP :=		/glib
-GNUWIN32_TOP :=		/gnuwin32
-LIBXML2_TOP :=		/libxml2
-SDL_TOP :=		/sdl
-CANVAS_TOP :=		/gnomecanvas
-PYTHON_TOP :=		/c/Python24
-CAIRO_TOP :=		/cairo
+CANVAS_TOP :=		$(GCOMPRIS_TOP)/src/goocanvas/src
+LIBART_TOP :=		$(GCOMPRIS_TOP)/src/libart_lgpl
 GCOMPRIS_INSTALL_DIR :=	$(GCOMPRIS_TOP)/win32-install-dir
-SQLITE_TOP := /sqlite
 
 ##
 ## VARIABLE DEFINITIONS
@@ -29,7 +22,11 @@ SQLITE_TOP := /sqlite
 
 CFLAGS =
 
-DEFINES =
+DEFINES = \
+	 -DPYGOOCANVAS_MAJOR_VERSION=0 \
+	 -DPYGOOCANVAS_MINOR_VERSION=0 \
+	 -DPYGOOCANVAS_MICRO_VERSION=0
+
 
 .SUFFIXES:
 .SUFFIXES: .c .a
@@ -49,27 +46,25 @@ INCLUDE_PATHS +=	-I$(GCOMPRIS_PLUGINS) \
 			-I$(GTK_TOP)/include/gtk-2.0 \
 			-I$(GLIB_TOP)/include/glib-2.0 \
 			-I$(GTK_TOP)/include/pango-1.0 \
-			-I$(GTK_TOP)/include/atk-1.0 \
 			-I$(GLIB_TOP)/lib/glib-2.0/include \
 			-I$(GTK_TOP)/lib/gtk-2.0/include \
-			-I$(CANVAS_TOP)/include/libgnomecanvas-2.0 \
 			-I$(GTK_TOP)/include/atk-1.0 \
-			-I$(GTK_TOP)/include/libart-2.0 \
 			-I$(GTK_TOP)/include/freetype2 \
 			-I$(LIBXML2_TOP)/include \
-			-I$(GNUWIN32_TOP)/include \
 			-I$(GCOMPRIS_TOP) \
 			-I$(GCOMPRIS_TOP)/src \
+			-I$(CANVAS_TOP) \
 			-I$(CAIRO_TOP)/include/cairo \
 			-I$(PYTHON_TOP)/include \
 			-I$(PYTHON_TOP)/include/pygtk-2.0 \
-			-I$(SQLITE_TOP)
-
+			-I$(PYTHON_TOP)/include/pycairo \
+			-I$(SQLITE_TOP) \
+			-I$(ICONV_TOP)/include \
+			-I$(RSVG_TOP)/include/librsvg-2
 
 
 LIB_PATHS =		-L$(GTK_TOP)/lib \
 			-L$(LIBXML2_TOP)/lib \
-			-L$(GNUWIN32_TOP)/lib \
 			-L$(SDL_TOP)/lib \
 			-L$(GCOMPRIS_TOP)/src/gcompris \
 			-L$(PYTHON_TOP)/lib
@@ -94,7 +89,7 @@ LIBS =			-lgtk-win32-2.0 \
 			-lgdi32 -lgthread-2.0 \
 			-lintl \
 			-lws2_32 \
-			-lpython24 \
+			-lpython26 \
 			-lpython \
 			libgcompris-1.la
 
@@ -117,9 +112,10 @@ install:
 ##
 PYTHON_C_SRC = \
 	     python.c \
-	     canvas.c \
-	     canvasmodule.c \
+	     goocanvas.c \
+	     goocanvasmodule.c \
 	     py-gcompris-board.c \
+	     py-gcompris-boardconfig.c \
 	     py-gcompris-properties.c \
 	     py-gcompris-profile.c \
 	     py-gcompris-wordlist.c \
@@ -137,49 +133,7 @@ PYTHON_C_SRC = \
 	     py-mod-anim.c
 
 BOARDS_C_SRC =	\
-	advanced_colors.c \
-	algebra.c \
-	algebra_guesscount.c \
-	awele.c awele_utils.c awele_alphaBeta.c \
-	canal_lock.c \
-	chess.c chess_position.c chess_notation.c \
-	click_on_letter.c \
-	clickgame.c \
-	clockgame.c \
-	colors.c \
-	crane.c \
-	enumerate.c \
-	erase.c \
-	fifteen.c \
-	gletters.c \
-	gtans.c gtans_callbacks.c gtans_support.c gtans_interface.c \
-	hanoi.c \
-	hanoi_real.c \
-	imageid.c \
-	leftright.c \
-	machpuzzle.c \
-	magic_hat.c \
-	maze.c \
-	memory.c \
 	menu2.c \
-	missingletter.c \
-	money.c \
-	money_widget.c \
-	paratrooper.c \
-	planegame.c \
-	railroad.c \
-	read_colors.c \
-	reading.c \
-	reversecount.c \
-	scale.c \
-	shapegame.c \
-	smallnumbers.c \
-	submarine.c \
-	superbrain.c \
-	target.c \
-	traffic.c \
-	wordsgame.c \
-	wordprocessor.c \
 	$(PYTHON_C_SRC)
 
 
@@ -206,7 +160,7 @@ libboards: \
 libboards.a: $(BOARDS_OBJECTS)
 	-rm -f libboards.a
 	$(AR) cru libboards.a $(BOARDS_OBJECTS)
-	ranlib libboards.a
+	$(RANLIB) libboards.a
 
 ##
 ## CLEAN RULES

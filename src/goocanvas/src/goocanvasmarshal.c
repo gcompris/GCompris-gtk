@@ -1,4 +1,3 @@
-#include "goocanvasmarshal.h"
 
 #include	<glib-object.h>
 
@@ -48,11 +47,11 @@
 #endif /* !G_ENABLE_DEBUG */
 
 
-/* VOID:VOID (./goocanvasmarshal.list:1) */
+/* VOID:VOID (goocanvasmarshal.list:1) */
 
-/* VOID:INT (./goocanvasmarshal.list:2) */
+/* VOID:INT (goocanvasmarshal.list:2) */
 
-/* VOID:INT,INT (./goocanvasmarshal.list:3) */
+/* VOID:INT,INT (goocanvasmarshal.list:3) */
 void
 goo_canvas_marshal_VOID__INT_INT (GClosure     *closure,
                                   GValue       *return_value G_GNUC_UNUSED,
@@ -89,9 +88,9 @@ goo_canvas_marshal_VOID__INT_INT (GClosure     *closure,
             data2);
 }
 
-/* VOID:BOOLEAN (./goocanvasmarshal.list:4) */
+/* VOID:BOOLEAN (goocanvasmarshal.list:4) */
 
-/* VOID:OBJECT,OBJECT (./goocanvasmarshal.list:5) */
+/* VOID:OBJECT,OBJECT (goocanvasmarshal.list:5) */
 void
 goo_canvas_marshal_VOID__OBJECT_OBJECT (GClosure     *closure,
                                         GValue       *return_value G_GNUC_UNUSED,
@@ -128,7 +127,7 @@ goo_canvas_marshal_VOID__OBJECT_OBJECT (GClosure     *closure,
             data2);
 }
 
-/* BOOLEAN:BOXED (./goocanvasmarshal.list:6) */
+/* BOOLEAN:BOXED (goocanvasmarshal.list:6) */
 void
 goo_canvas_marshal_BOOLEAN__BOXED (GClosure     *closure,
                                    GValue       *return_value G_GNUC_UNUSED,
@@ -167,7 +166,7 @@ goo_canvas_marshal_BOOLEAN__BOXED (GClosure     *closure,
   g_value_set_boolean (return_value, v_return);
 }
 
-/* BOOLEAN:OBJECT,BOXED (./goocanvasmarshal.list:7) */
+/* BOOLEAN:OBJECT,BOXED (goocanvasmarshal.list:7) */
 void
 goo_canvas_marshal_BOOLEAN__OBJECT_BOXED (GClosure     *closure,
                                           GValue       *return_value G_GNUC_UNUSED,
@@ -208,7 +207,7 @@ goo_canvas_marshal_BOOLEAN__OBJECT_BOXED (GClosure     *closure,
   g_value_set_boolean (return_value, v_return);
 }
 
-/* BOOLEAN:DOUBLE,DOUBLE,BOOLEAN,OBJECT (./goocanvasmarshal.list:8) */
+/* BOOLEAN:DOUBLE,DOUBLE,BOOLEAN,OBJECT (goocanvasmarshal.list:8) */
 void
 goo_canvas_marshal_BOOLEAN__DOUBLE_DOUBLE_BOOLEAN_OBJECT (GClosure     *closure,
                                                           GValue       *return_value G_GNUC_UNUSED,

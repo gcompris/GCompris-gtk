@@ -55,35 +55,29 @@ Look at the NEEDED_DLLS section in the Makefile.mingw and make sure you have all
 
 2.6 PREREQUISITE SUMMARY
 ========================
-* At this point, you must have the following subdirectories:
-GTK_TOP :=		/gtk
-GNUWIN32_TOP :=		/gnuwin32
-LIBXML2_TOP :=		/libxml2
-SDL_TOP :=		/sdl
-CANVAS_TOP :=		/gnomecanvas
-GNUCHESS_TOP :=		/gnuchess
-
+Check the file global_win32.mak to know which dependancies must
+be provided and where.
 
 3: BUILDING GCOMPRIS.EXE
 ========================
-* On a GNU/Linux system, create gcompris-win-prepack.tar.gz with:
-  make -f Makefile.mingw prep
+* On GNU/Linux run make install to install the translations then:
+  make -f Makefile.mingw svg2png - Until we have svg support on Windows
+  make -f Makefile.mingw prep - create the win32-install-dir
+  make -f Makefile.mingw  - compilation step
+  make -f Makefile.mingw  prepack - include all necessary libraries in the installer directory
+  make -f Makefile.mingw install - include the generated code in the installer directory
+
 * Now on the windows system:
-* Get a tarball or CVS snapshot of gcompris.
-* untar the gcompris-win-prepack.tar.gz in it
-* Manual fix, replace chess.c by chess.c.windows
-* run: make -f Makefile.mingw from gcompris's top-level directory.  This will take a long time.
-* run: make -f Makefile.mingw prepack to include all necessary libraries in the installer directory
-* run: make -f Makefile.mingw install to include the generated code in the installer directory
-* run: make -f Makefile.mingw python to created an embedded python interpreter
+  make -f Makefile.mingw python - create an embedded python interpreter
 
-the win32-install-dir should contain anything needed to run and package GCompris.
+* the win32-install-dir contains anything needed to run and package GCompris.
+  Back to GNU/Linux, create the installer:
+  make -f Makefile.mingw installer
 
-* run make -f Makefile.make installer to create the installer
   The installer used is NSIS get it there:
   http://nsis.sourceforge.net/Main_Page
-  And install it in it's default /c/Program Files/NSIS/makensis.exe
 
-The GCompris package is created, double click on it from your file manager to test it.
+The GCompris package is created, double click on it from your file manager
+to test it.
 
 
