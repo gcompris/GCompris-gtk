@@ -41,6 +41,45 @@ _br_find_exe (GbrInitError *error)
 		*error = GBR_INIT_ERROR_DISABLED;
 	return NULL;
 #else
+#ifdef WIN32
+	/* I *thought* this program code already included the
+	   relocation code for windows. Unfortunately this is not
+	   the case and we have to add this manually. This is only
+	   one possibility; other ways of looking up the full path
+	   of gnucash-bin.exe probably exist.*/
+	gchar *prefix;
+	gchar *result;
+
+	/* From the glib docs: When passed NULL, this function looks
+	   up installation the directory of the main executable of
+	   the current process */
+	prefix = g_win32_get_package_installation_directory_of_module (NULL);
+	result = g_build_filename (prefix,
+				   "bin", "gnucash-bin.exe",
+				   (char*)NULL);
+	g_free (prefix);
+	return result;
+#elif MAC_INTEGRATION
+	gchar *prefix = NULL, *result = NULL;
+	g_type_init();
+	bundle = ige_mac_bundle_new();
+	if (!bundle) {
+	  *error = GBR_INIT_ERROR_MAC_NOT_BUNDLE;
+	  return NULL;
+	}
+	if (!ige_mac_bundle_get_is_app_bundle (bundle)) {
+	  g_object_unref(bundle);
+	  bundle = NULL;
+	  *error = GBR_INIT_ERROR_MAC_NOT_APP_BUNDLE;
+	  return NULL;
+	}
+	ige_mac_bundle_setup_environment(bundle);
+	prefix = g_strdup(ige_mac_bundle_get_path(bundle));
+	result = g_build_filename(prefix, "Contents/MacOS",
+				  "gnucash-bin", NULL);
+	g_free(prefix);
+	return result;
+#else
 	char *path, *path2, *line, *result;
 	size_t buf_size;
 	ssize_t size;
@@ -164,6 +203,7 @@ _br_find_exe (GbrInitError *error)
 	g_free (line);
 	fclose (f);
 	return path;
+#endif /* G_OS_WINDOWS */
 #endif /* ENABLE_BINRELOC */
 }
 
