@@ -145,6 +145,7 @@ EXE_LIBS =		../boards/libboards.a \
 			-lpython26 \
 			-lsqlite3 \
 			-lcairo \
+			-lpangocairo-1.0 \
 			-lrsvg-2
 
 
