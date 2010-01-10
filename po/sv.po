@@ -1,16 +1,16 @@
 # Swedish messages for GCompris.
-# Copyright (C) 2001-2009 Free Software Foundation, Inc.
+# Copyright (C) 2001-2010 Free Software Foundation, Inc.
 # Christian Rose <menthos@menthos.com>, 2001, 2002, 2003, 2005.
 # Bengt Thuree <bengt@thuree.com>, 2005.
 # Göran Uddeborg <goeran@uddeborg.se>, 2005
-# Daniel Nylander <po@danielnylander.se>, 2006, 2007, 2008, 2009.
+# Daniel Nylander <po@danielnylander.se>, 2006, 2007, 2008, 2009, 2010.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-15 12:56+0100\n"
-"PO-Revision-Date: 2009-12-15 12:58+0100\n"
+"POT-Creation-Date: 2010-01-10 19:54+0100\n"
+"PO-Revision-Date: 2010-01-10 20:14+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
@@ -191,7 +191,7 @@ msgid "GCompris Main Menu"
 msgstr "GCompris-huvudmeny"
 
 #: ../boards/menu.xml.in.h:17
-#: ../src/boards/menu2.c:856
+#: ../src/boards/menu2.c:859
 msgid "GCompris is a collection of educational games that provides different activities for children aged 2 and up."
 msgstr "GCompris är en samling pedagogiska spel som tillhandahåller olika aktiviteter för barn som är 2 år och uppåt."
 
@@ -275,37 +275,37 @@ msgstr "Pedagogiksviten GCompris"
 msgid "Multi-activity educational game"
 msgstr "Pedagogiskt spel med flera aktiviteter"
 
-#: ../src/administration-activity/admin/board_list.py:89
+#: ../src/administration-activity/admin/board_list.py:91
 msgid "Select a profile:"
 msgstr "Välj en profil:"
 
-#: ../src/administration-activity/admin/board_list.py:143
+#: ../src/administration-activity/admin/board_list.py:148
 msgid "Filter"
 msgstr "Filter"
 
-#: ../src/administration-activity/admin/board_list.py:148
+#: ../src/administration-activity/admin/board_list.py:153
 msgid "Select all"
 msgstr "Markera alla"
 
-#: ../src/administration-activity/admin/board_list.py:153
+#: ../src/administration-activity/admin/board_list.py:158
 msgid "Unselect all"
 msgstr "Avmarkera alla"
 
-#: ../src/administration-activity/admin/board_list.py:158
+#: ../src/administration-activity/admin/board_list.py:163
 msgid "Locales"
 msgstr "Lokaler"
 
-#: ../src/administration-activity/admin/board_list.py:163
+#: ../src/administration-activity/admin/board_list.py:168
 msgid "Locales sound"
 msgstr "Språk för ljudet"
 
-#: ../src/administration-activity/admin/board_list.py:168
+#: ../src/administration-activity/admin/board_list.py:173
 #: ../src/administration-activity/admin/group_user_list.py:143
 #: ../src/administration-activity/admin/user_list.py:184
 msgid "Login"
 msgstr "Inloggningsnamn"
 
-#: ../src/administration-activity/admin/board_list.py:226
+#: ../src/administration-activity/admin/board_list.py:245
 msgid "Main menu"
 msgstr "Huvudmeny"
 
@@ -314,20 +314,20 @@ msgstr "Huvudmeny"
 #. image = gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, gtk.ICON_SIZE_MENU)
 #. image.show()
 #. column_pref.set_widget(image)
-#: ../src/administration-activity/admin/board_list.py:292
+#: ../src/administration-activity/admin/board_list.py:311
 msgid "Active"
 msgstr "Aktiv"
 
-#: ../src/administration-activity/admin/board_list.py:293
+#: ../src/administration-activity/admin/board_list.py:312
 msgid "Board title"
 msgstr "Brädtitel"
 
-#: ../src/administration-activity/admin/board_list.py:406
+#: ../src/administration-activity/admin/board_list.py:425
 #, python-format
 msgid "Filter Boards difficulty for profile %s"
 msgstr "Filtrera svårighetsgrad för bräden för profilen %s"
 
-#: ../src/administration-activity/admin/board_list.py:437
+#: ../src/administration-activity/admin/board_list.py:456
 #, python-format
 msgid ""
 "<span size='x-large'> Select the difficulty range \n"
@@ -336,38 +336,18 @@ msgstr ""
 "<span size='x-large'> Välj svårighetsgrad \n"
 "för profilen <b>%s</b></span>"
 
-#. Init configuration window:
-#. all the configuration functions will use it
-#. all the configuration functions returns values for their key in
-#. the dict passed to the apply_callback
-#. the returned value is the main GtkVBox of the window,
-#. we can add what you want in it.
-#: ../src/administration-activity/admin/board_list.py:626
-#: ../src/administration-activity/admin/board_list.py:644
+#: ../src/administration-activity/admin/board_list.py:645
+#: ../src/administration-activity/admin/board_list.py:657
 #: ../src/administration-activity/admin/wordlist.py:45
-#: ../src/babymatch-activity/shapegame.c:1847
-#: ../src/click_on_letter-activity/click_on_letter.c:625
-#: ../src/colors-activity/colors.c:169
-#: ../src/gletters-activity/gletters.c:847
-#: ../src/imageid-activity/imageid.c:714
-#: ../src/login-activity/login.py:476
-#: ../src/missing_letter-activity/missingletter.c:761
-#: ../src/pythontest-activity/pythontest.py:454
-#: ../src/readingh-activity/reading.c:880
-#: ../src/scalesboard-activity/scale.c:1139
-#: ../src/smallnumbers-activity/smallnumbers.c:576
-#: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:767
-#, c-format, python-format
 msgid ""
-"<b>%s</b> configuration\n"
-" for profile <b>%s</b>"
+"<b>{config}</b> configuration\n"
+" for profile <b>{profile}</b>"
 msgstr ""
-"<b>%s</b> konfiguration\n"
-" för profilen <b>%s</b>"
+"<b>{config}</b>-konfiguration\n"
+" för profilen <b>{profile}</b>"
 
 #. self.main_vbox.pack_start (label, False, False, 8)
-#: ../src/administration-activity/admin/board_list.py:656
+#: ../src/administration-activity/admin/board_list.py:663
 #: ../src/colors-activity/colors.c:181
 #: ../src/pythontest-activity/pythontest.py:518
 #: ../src/smallnumbers-activity/smallnumbers.c:597
@@ -498,57 +478,59 @@ msgstr "Du måste först välja en grupp i listan"
 msgid "Birth Date"
 msgstr "Födelsedag"
 
-#: ../src/administration-activity/admin/log_list.py:90
+#: ../src/administration-activity/admin/log_list.py:94
 msgid "Select a user:"
 msgstr "Välj en användare:"
 
 #. Insert the ALL option (HACK, use the user_id -2 to indicate ALL)
-#: ../src/administration-activity/admin/log_list.py:101
+#: ../src/administration-activity/admin/log_list.py:105
 msgid "All users"
 msgstr "Alla användare"
 
-#: ../src/administration-activity/admin/log_list.py:107
-#: ../src/administration-activity/admin/log_list.py:286
+#: ../src/administration-activity/admin/log_list.py:111
+#: ../src/administration-activity/admin/log_list.py:298
 #: ../src/administration-activity/admin/profile_list.py:120
+#: ../src/gcompris/board_config_combo.c:125
+#: ../src/gcompris/board_config_combo.c:398
 msgid "Default"
 msgstr "Standard"
 
 #. Reset buttons
-#: ../src/administration-activity/admin/log_list.py:161
+#: ../src/administration-activity/admin/log_list.py:165
 msgid "Reset"
 msgstr "Nollställ"
 
-#: ../src/administration-activity/admin/log_list.py:207
+#: ../src/administration-activity/admin/log_list.py:219
 msgid "Date"
 msgstr "Datum"
 
-#: ../src/administration-activity/admin/log_list.py:217
+#: ../src/administration-activity/admin/log_list.py:229
 msgid "User"
 msgstr "Användare"
 
-#: ../src/administration-activity/admin/log_list.py:227
+#: ../src/administration-activity/admin/log_list.py:239
 msgid "Board"
 msgstr "Bräde"
 
-#: ../src/administration-activity/admin/log_list.py:237
+#: ../src/administration-activity/admin/log_list.py:249
 #: ../src/redraw-activity/redraw.py:328
 msgid "Level"
 msgstr "Nivå"
 
-#: ../src/administration-activity/admin/log_list.py:247
+#: ../src/administration-activity/admin/log_list.py:259
 msgid "Sublevel"
 msgstr "Undernivå"
 
-#: ../src/administration-activity/admin/log_list.py:257
+#: ../src/administration-activity/admin/log_list.py:269
 msgid "Duration"
 msgstr "Längd"
 
-#: ../src/administration-activity/admin/log_list.py:267
+#: ../src/administration-activity/admin/log_list.py:279
 msgid "Status"
 msgstr "Status"
 
-#: ../src/administration-activity/admin/module_boards.py:40
-#: ../src/administration-activity/admin/module_boards.py:62
+#: ../src/administration-activity/admin/module_boards.py:41
+#: ../src/administration-activity/admin/module_boards.py:69
 msgid "Boards"
 msgstr "Bräden"
 
@@ -562,12 +544,12 @@ msgstr "Grupper"
 msgid "Profiles"
 msgstr "Profiler"
 
-#: ../src/administration-activity/admin/module_reports.py:39
-#: ../src/administration-activity/admin/module_reports.py:61
+#: ../src/administration-activity/admin/module_reports.py:40
+#: ../src/administration-activity/admin/module_reports.py:69
 msgid "Reports"
 msgstr "Rapporter"
 
-#: ../src/administration-activity/admin/module_reports.py:61
+#: ../src/administration-activity/admin/module_reports.py:69
 #: ../src/administration-activity/admin/module_users.py:39
 #: ../src/administration-activity/admin/module_users.py:61
 msgid "Users"
@@ -1004,10 +986,15 @@ msgid "veronese"
 msgstr "veronesisk"
 
 #. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
-#: ../src/algebra_by-activity/algebra.c:181
+#: ../src/algebra_by-activity/algebra.c:186
 #: ../src/memory-activity/memory.c:945
 msgid "+-×÷"
 msgstr "+-·÷"
+
+#: ../src/algebra_by-activity/algebra.c:408
+#: ../src/readingh-activity/reading.c:621
+msgid "I am Ready"
+msgstr "Jag är redo"
 
 #: ../src/algebra_by-activity/algebra_by.xml.in.h:1
 msgid "A multiplication of two numbers is displayed. At the right of the equals sign, give the answer, the product. Use the left and right arrows to modify your answer and press the Enter key to check if you've got it right. If not, just try again."
@@ -1128,9 +1115,8 @@ msgid "Needs to be capable of moving and clicking the mouse easily"
 msgstr "Behöver kunna flytta och klicka med musen utan problem"
 
 #: ../src/anim-activity/anim.xml.in.h:5
-#, fuzzy
 msgid "Select a drawing tool on the left, and a color down the bottom. Then click and drag in the white area to create a new shape. Once you've completed a drawing, you can select a new frame to work on by selecting one of the small rectangles on the bottom. Each frame contains the same content as its previous one. You can then edit it by moving objects a little bit or adding/deleting objects. When you create several frames and then click on the 'film' button, you will see all your images in a continuous slide-show (an infinite loop pattern). You can change the last image in your film by right clicking on a time frame. You can also change the viewing speed in this mode. In viewing mode, click on the 'drawing' button to return to drawing mode. You can also save and reload your animations with the 'floppy disk' and 'folder' buttons."
-msgstr "Välj ett teckningsverktyg till vänster och en färg ifrån botten. Klicka och dra därefter i det vita området för att skapa en ny figur. När en teckning är färdig kan du ta en skärmbild av den med \"kamera\"-knappen. En ny bild med samma innehåll skapas. Du kan sedan redigera den genom att flytta objekten lite eller lägga till/ta bort objekt. Skapa många teckningar och klicka sedan på \"film\"-knappen. Du ser då dina teckningar i en oavbruten slinga. Du kan ändra visningshastigheten i detta läge. I visningsläget kan du klicka på \"teckning\"-knappen för att återvända till teckningsläget. Du kan sedan redigera varje bild i din animering genom att använda bildväljaren i det nedre vänstra hörnet av skärmen. Du kan spara och läsa in dina animeringar via \"diskett\" och \"katalog\"-knappen."
+msgstr "Välj ett teckningsverktyg till vänster och en färg ifrån botten. Klicka och dra därefter i det vita området för att skapa en ny figur. När en teckning är färdig så kan du välja en ny ram att arbeta på genom att välja en av de mindre rektanglarna i nederkant. Varje ram innehåller samma innehåll som den tidigare. Du kan sedan redigera den genom att flytta objekten lite eller lägga till/ta bort objekt. Skapa många teckningar och klicka sedan på \"film\"-knappen. Du ser då dina teckningar i ett oavbrutet bildspel (en oändlig slinga). Du kan ändra sista bilden i din film genom att högerklicka på en tidsruta. Du kan även ändra visningshastigheten i detta läge. I visningsläget kan du klicka på \"teckning\"-knappen för att återvända till teckningsläget. Du kan även spara och läsa in dina animeringar via knapparna \"diskett\" och \"katalog\"."
 
 #: ../src/awele-activity/awele.c:158
 #, c-format
@@ -1204,6 +1190,17 @@ msgstr "Motorikkoordinering. Konceptuell matchning."
 msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "Mushantering: flytta, dra och släpp. Kulturella referenser."
 
+#: ../src/babymatch-activity/shapegame.c:1849
+#: ../src/click_on_letter-activity/click_on_letter.c:625
+#: ../src/colors-activity/colors.c:169
+#, c-format
+msgid ""
+"<b>%1$s</b> configuration\n"
+" for profile <b>%2$s</b>"
+msgstr ""
+"<b>%1$s</b>-konfiguration\n"
+" för profilen <b>%2$s</b>"
+
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:1
 msgid "Complete the puzzle"
 msgstr "Lägg pusslet"
@@ -1235,6 +1232,26 @@ msgstr "Sluss på gräset."
 #: ../src/babyshapes-activity/resources/babyshapes/board7_0.xml.in.h:1
 msgid "Lock with colored shapes."
 msgstr "Sluss med färgade former."
+
+#: ../src/babyshapes-activity/resources/babyshapes/board8_0.xml.in.h:1
+msgid "Paul Gauguin, Arearea - 1892"
+msgstr "Paul Gauguin, Arearea - 1892"
+
+#: ../src/babyshapes-activity/resources/babyshapes/board8_1.xml.in.h:1
+msgid "Pieter Bruegel the Elder, The peasants wedding - 1568"
+msgstr "Pieter Bruegel den äldre, Bondebröllop - 1568"
+
+#: ../src/babyshapes-activity/resources/babyshapes/board8_2.xml.in.h:1
+msgid "The Lady and the Unicorn - XVe century"
+msgstr "Damen med enhörningen - 1400-talet"
+
+#: ../src/babyshapes-activity/resources/babyshapes/board8_3.xml.in.h:1
+msgid "Vincent van Gogh, Bedroom in Arles - 1888"
+msgstr "Vincent van Gogh, Sängkammare i Arles - 1888"
+
+#: ../src/babyshapes-activity/resources/babyshapes/board8_4.xml.in.h:1
+msgid "Ambrosius Bosschaert the Elder, Flower Still Life - 1614"
+msgstr "Ambrosius Bosschaert den äldre, Flower Still Life - 1614"
 
 #: ../src/ballcatch-activity/ballcatch.xml.in.h:1
 msgid "Make the ball go to Tux"
@@ -1322,14 +1339,13 @@ msgid "Special board that embeds python into GCompris."
 msgstr "Specialbräde som bäddar in python i GCompris."
 
 #: ../src/boards/python.c:88
-#, fuzzy
 msgid "Special board that embeds python into gcompris."
-msgstr "Specialbräde som bäddar in python i GCompris."
+msgstr "Specialbräde som bäddar in python i gcompris."
 
 #: ../src/canal_lock-activity/canal_lock.xml.in.h:1
 #: ../src/watercycle-activity/watercycle.xml.in.h:2
 msgid "Drawing by Stephane Cabaraux."
-msgstr ""
+msgstr "Målning av Stephane Cabaraux."
 
 #: ../src/canal_lock-activity/canal_lock.xml.in.h:2
 msgid "Operate a canal lock"
@@ -1361,7 +1377,7 @@ msgstr "Skriv ditt meddelande här för att skicka det till andra GCompris-anvä
 
 #: ../src/chat-activity/chat.py:202
 msgid "ERROR: Failed to initialize the network interface. You cannot communicate."
-msgstr ""
+msgstr "FEL: Misslyckades med att initiera nätverksgränssnittet. Du kan inte kommunicera över nätverket."
 
 #: ../src/chat-activity/chat.py:326
 msgid "You must set a channel in your channel entry box first.\n"
@@ -1754,7 +1770,7 @@ msgstr "Motorik: flytta och klicka med musen."
 msgid "Use the left mouse button to click on the moving fish."
 msgstr "Använd vänstra musknappen för att klicka på den rörliga fisken."
 
-#: ../src/clockgame-activity/clockgame.c:528
+#: ../src/clockgame-activity/clockgame.c:525
 msgid "Set the watch to:"
 msgstr "Ställ klockan till:"
 
@@ -1893,9 +1909,8 @@ msgid "Mouse manipulation"
 msgstr "Mushantering"
 
 #: ../src/crane-activity/crane.xml.in.h:5
-#, fuzzy
-msgid "Move the items in the bottom left frame to copy their position in the top right model. Below the crane itself, you will find four arrows that let you move items. To select the item to move, just click on it. If you prefer, you can the arrow keys and the space or tab key instead."
-msgstr "Flytta objekten i nedre vänstra ramen för att kopiera deras position i övre högra modellen. Under själva kranen finns fyra pilar som låter dig flytta på objekt. Klicka på objektet som ska flyttas."
+msgid "Move the items in the bottom left frame to copy their position in the top right model. Below the crane itself, you will find four arrows that let you move items. To select the item to move, just click on it. If you prefer, you can use the arrow keys and the space or tab key instead."
+msgstr "Flytta objekten i nedre vänstra ramen för att kopiera deras position i övre högra modellen. Under själva kranen så finns fyra pilar som låter dig flytta på objekt. Klicka på objektet som ska flyttas. Om du föredrar det så kan du istället använda piltangenterna och blanksteg- eller tabulatortangenten."
 
 #: ../src/doubleentry-activity/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
@@ -2100,7 +2115,7 @@ msgstr ""
 "Ulrika Uddeborg\n"
 "\n"
 "Skicka synpunkter på översättningen\n"
-"till tp-sv@listor.tp-sv.se"
+"<till tp-sv@listor.tp-sv.se>"
 
 #: ../src/gcompris/about.c:85
 msgid "About GCompris"
@@ -2110,15 +2125,15 @@ msgstr "Om GCompris"
 msgid "GCompris Home Page: http://gcompris.net"
 msgstr "Webbplats för GCompris: http://gcompris.net"
 
-#: ../src/gcompris/about.c:105
+#: ../src/gcompris/about.c:106
 msgid "Translators:"
 msgstr "Översättare:"
 
-#: ../src/gcompris/about.c:214
+#: ../src/gcompris/about.c:206
 msgid "This software is a GNU Package and is released under the GNU General Public License"
 msgstr "Detta program är ett GNU-paket och är släppt under Gnu Public License"
 
-#: ../src/gcompris/about.c:228
+#: ../src/gcompris/about.c:220
 #: ../src/gcompris/config.c:422
 #: ../src/gcompris/dialog.c:103
 #: ../src/gcompris/help.c:354
@@ -2145,6 +2160,61 @@ msgstr "Nej, jag vill fortsätta"
 #: ../src/gcompris/board.c:191
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr "Dynamisk inläsning av moduler stöds inte. GCompris kan inte läsa in.\n"
+
+#: ../src/gcompris/board_config_combo.c:157
+msgid ""
+"Select the language\n"
+" to use in the board"
+msgstr ""
+"Välj språket att\n"
+" använda i brädet"
+
+#: ../src/gcompris/board_config_combo.c:227
+msgid "Global GCompris mode"
+msgstr "Allmänt GCompris-läge"
+
+#: ../src/gcompris/board_config_combo.c:228
+msgid "Normal"
+msgstr "Normalt"
+
+#: ../src/gcompris/board_config_combo.c:229
+msgid "2 clicks"
+msgstr "2 klick"
+
+#: ../src/gcompris/board_config_combo.c:230
+msgid "both modes"
+msgstr "båda lägena"
+
+#: ../src/gcompris/board_config_combo.c:258
+msgid ""
+"Select the drag and drop mode\n"
+" to use in the board"
+msgstr ""
+"Välj dra och släpp-läget\n"
+" för att använda brädet"
+
+#. add a new level
+#: ../src/gcompris/board_config_wordlist.c:106
+#, c-format
+msgid "%d (New level)"
+msgstr "%d (Ny nivå)"
+
+#. frame
+#: ../src/gcompris/board_config_wordlist.c:180
+msgid "Configure the list of words"
+msgstr "Konfigurera ordlistan"
+
+#: ../src/gcompris/board_config_wordlist.c:209
+msgid "Choice of the language"
+msgstr "Val av språk"
+
+#: ../src/gcompris/board_config_wordlist.c:221
+msgid "Choice of the level"
+msgstr "Val av nivå"
+
+#: ../src/gcompris/board_config_wordlist.c:246
+msgid "Back to default"
+msgstr "Tillbaka till standard"
 
 #: ../src/gcompris/config.c:59
 msgid "Your system default"
@@ -2453,8 +2523,8 @@ msgid "Couldn't open skin dir: %s"
 msgstr "Kunde inte öppna skalkatalogen: %s"
 
 #: ../src/gcompris/config.c:378
-#: ../src/gcompris/config.c:767
-#: ../src/gcompris/config.c:781
+#: ../src/gcompris/config.c:773
+#: ../src/gcompris/config.c:787
 #, c-format
 msgid "Skin : %s"
 msgstr "Skal: %s"
@@ -2479,18 +2549,18 @@ msgstr "LÄS IN"
 msgid "SAVE"
 msgstr "SPARA"
 
-#: ../src/gcompris/gameutil.c:138
-#: ../src/gcompris/gameutil.c:196
+#: ../src/gcompris/gameutil.c:142
+#: ../src/gcompris/gameutil.c:200
 msgid "Couldn't find or load the file"
 msgstr "Kunde inte hitta eller läsa in filen"
 
-#: ../src/gcompris/gameutil.c:140
-#: ../src/gcompris/gameutil.c:198
+#: ../src/gcompris/gameutil.c:144
+#: ../src/gcompris/gameutil.c:202
 msgid "This activity is incomplete."
 msgstr "Denna aktivitet är inte klar."
 
-#: ../src/gcompris/gameutil.c:141
-#: ../src/gcompris/gameutil.c:199
+#: ../src/gcompris/gameutil.c:145
+#: ../src/gcompris/gameutil.c:203
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -2498,155 +2568,154 @@ msgstr ""
 "Avsluta och rapportera\n"
 "problemet till författarna."
 
-#: ../src/gcompris/gcompris.c:148
+#: ../src/gcompris/gcompris.c:152
 msgid "run GCompris in fullscreen mode."
 msgstr "kör GCompris i helskärmsläge."
 
-#: ../src/gcompris/gcompris.c:151
+#: ../src/gcompris/gcompris.c:155
 msgid "run GCompris in window mode."
 msgstr "kör GCompris i fönsterläge."
 
-#: ../src/gcompris/gcompris.c:154
+#: ../src/gcompris/gcompris.c:158
 msgid "run GCompris with sound enabled."
 msgstr "kör GCompris med ljud aktiverat."
 
-#: ../src/gcompris/gcompris.c:157
+#: ../src/gcompris/gcompris.c:161
 msgid "run GCompris without sound."
 msgstr "kör GCompris utan ljud."
 
-#: ../src/gcompris/gcompris.c:160
+#: ../src/gcompris/gcompris.c:164
 msgid "run GCompris with the default gnome cursor."
 msgstr "kör GCompris med gnomes standardmuspekare."
 
-#: ../src/gcompris/gcompris.c:163
+#: ../src/gcompris/gcompris.c:167
 msgid "display only activities with this difficulty level."
 msgstr "visa endast aktiviteter med denna svårighetsnivå."
 
-#: ../src/gcompris/gcompris.c:166
+#: ../src/gcompris/gcompris.c:170
 msgid "display debug informations on the console."
 msgstr "Visa felsökningsinformation på konsolen."
 
-#: ../src/gcompris/gcompris.c:169
+#: ../src/gcompris/gcompris.c:173
 msgid "Print the version of "
 msgstr "Skriver ut versionsnumret av "
 
-#: ../src/gcompris/gcompris.c:172
+#: ../src/gcompris/gcompris.c:176
 msgid "Run GCompris with local menu (e.g -l /reading will let you play only activities in the reading directory, -l /strategy/connect4 only the connect4 activity). Use '-l list' to list all the availaible activities and their descriptions."
 msgstr "Kör GCompris med lokal meny (-l /reading låter dig endast spela aktiviteter i katalogen reading (läsaktiviteterna), -l /boards/connect4 endast aktiviteten connect4 (4 i Rad)). Använd \"-l list\" för att lista alla tillgängliga aktiviteter och deras beskrivningar."
 
-#: ../src/gcompris/gcompris.c:177
+#: ../src/gcompris/gcompris.c:181
 msgid "GCompris will find the data dir in this directory"
-msgstr ""
+msgstr "GCompris kommer att söka efter datakatalogen i denna katalog"
 
-#: ../src/gcompris/gcompris.c:180
+#: ../src/gcompris/gcompris.c:184
 msgid "GCompris will find the skins in this directory"
-msgstr ""
+msgstr "GCompris kommer att söka efter skalen i denna katalog"
 
-#: ../src/gcompris/gcompris.c:183
+#: ../src/gcompris/gcompris.c:187
 msgid "GCompris will find the activity plugins in this directory"
-msgstr ""
+msgstr "GCompris kommer att söka efter aktiviteter i denna katalog"
 
-#: ../src/gcompris/gcompris.c:186
-#, fuzzy
+#: ../src/gcompris/gcompris.c:190
 msgid "GCompris will find the python activity in this directory"
-msgstr "Kör GCompris med lokal aktivitetskatalog tillagd till menyn"
+msgstr "GCompris kommer att söka efter python-aktiviteten i denna katalog"
 
-#: ../src/gcompris/gcompris.c:189
+#: ../src/gcompris/gcompris.c:193
 msgid "GCompris will find the locale file (.mo translation) in this directory"
-msgstr ""
+msgstr "GCompris kommer att söka efter lokalanpassningsfilen (filändelsen .mo) i denna katalog"
 
-#: ../src/gcompris/gcompris.c:192
+#: ../src/gcompris/gcompris.c:196
 msgid "GCompris will find the activities menu in this directory"
-msgstr ""
+msgstr "GCompris kommer att söka efter aktivitetsmenyn i denna katalog"
 
-#: ../src/gcompris/gcompris.c:195
+#: ../src/gcompris/gcompris.c:199
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Kör GCompris i administrations- och användarhanteringsläget"
 
-#: ../src/gcompris/gcompris.c:198
+#: ../src/gcompris/gcompris.c:202
 msgid "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite.db]"
 msgstr "Använd alternativ databas för profiler [$HOME/.config/gcompris/gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:201
+#: ../src/gcompris/gcompris.c:205
 msgid "Create the alternate database for profiles"
 msgstr "Skapa den alternativa databasen för profiler"
 
-#: ../src/gcompris/gcompris.c:204
+#: ../src/gcompris/gcompris.c:208
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Läs om XML-menyerna och lagra dem i databasen"
 
-#: ../src/gcompris/gcompris.c:207
+#: ../src/gcompris/gcompris.c:211
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Ställ in profilen att använda. Använd \"gcompris -a\" för att skapa profiler"
 
-#: ../src/gcompris/gcompris.c:210
+#: ../src/gcompris/gcompris.c:214
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr "Lista alla tillgängliga profiler. Använd \"gcompris -a\" för att skapa profiler"
 
-#: ../src/gcompris/gcompris.c:213
+#: ../src/gcompris/gcompris.c:217
 msgid "Config directory location: [$HOME/.config/gcompris]. Alternate is to set $XDG_CONFIG_HOME."
 msgstr "Plats för konfigurationskatalog: [$HOME/.config/gcompris]. Alternativet är att ställa in $XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:216
+#: ../src/gcompris/gcompris.c:220
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "Platsen för användarkataloger: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:219
+#: ../src/gcompris/gcompris.c:223
 msgid "Run the experimental activities"
 msgstr "Kör de experimentella aktiviteterna"
 
-#: ../src/gcompris/gcompris.c:222
+#: ../src/gcompris/gcompris.c:226
 msgid "Disable the quit button"
 msgstr "Inaktivera avslutningsknappen"
 
-#: ../src/gcompris/gcompris.c:225
+#: ../src/gcompris/gcompris.c:229
 msgid "Disable the config button"
 msgstr "Inaktivera konfigurationsknappen"
 
-#: ../src/gcompris/gcompris.c:228
+#: ../src/gcompris/gcompris.c:232
 msgid "GCompris will get images, sounds and activity data from this server if not found locally."
 msgstr "GCompris kommer att hämta bilder, ljud och aktivitetsdata från denna server om de inte hittas lokalt."
 
-#: ../src/gcompris/gcompris.c:231
+#: ../src/gcompris/gcompris.c:235
 msgid "Only when --server is provided, disable check for local resource first. Data are always taken from the web server."
 msgstr "Endast när --server anges, inaktivera först kontroll för lokala resurser. Data tas alltid från webbservern."
 
-#: ../src/gcompris/gcompris.c:235
+#: ../src/gcompris/gcompris.c:239
 msgid "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr "I serverläget, ange cachekatalogen som används för att undvika onödiga hämtningar."
 
-#: ../src/gcompris/gcompris.c:238
+#: ../src/gcompris/gcompris.c:242
 msgid "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr "Allmänt dra och släpp-läge: normal, 2clicks, both. Standardläget är normal."
 
-#: ../src/gcompris/gcompris.c:241
+#: ../src/gcompris/gcompris.c:245
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Förhindra inte körning av flera instanser av GCompris."
 
-#: ../src/gcompris/gcompris.c:916
-#, fuzzy, c-format
+#: ../src/gcompris/gcompris.c:919
+#, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to support its development, the Windows version provides only %d of the %d activities. You can get the full version for a small fee at\n"
 "<http://gcompris.net>\n"
 "The GNU/Linux version does not have this restriction. If you also believe that we should teach freedom to children, please consider using GNU/Linux. Get more information at FSF:\n"
 "<http://www.fsf.org/philosophy>"
 msgstr ""
-"GCompris är fri programvara som är utgiven under GPL-licensen. För att hjälpa dess utveckling, så kommer Windows-versionen enbart med %d av de %d aktiviteterna. Du kan få den fullständiga versionen för en liten avgift hos\n"
+"GCompris är fri programvara som är utgiven under GPL-licensen. För att hjälpa dess utveckling, så tillhandahåller endast Windows-versionen %d av de %d aktiviteterna. Du kan få den fullständiga versionen för en liten avgift på\n"
 "<http://gcompris.net>\n"
-"GNU/Linux-versionen har inte denna begränsning. Observera att GCompris utvecklas för att frigöra skolor ifrån monopolistiska programvarutillverkare. Om du också tycker att vi skall undervisa frihet till barn, överväg att använda GNU/Linux. Få mer information hos FSF:\n"
+"GNU/Linux-versionen har inte denna begränsning. Om du också tycker att vi skall undervisa frihet till barn, överväg att använda GNU/Linux. Få mer information hos FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1353
+#: ../src/gcompris/gcompris.c:1356
 #, c-format
 msgid "GCompris won't start because the lock file is less than %d seconds old.\n"
 msgstr "GCompris kommer inte att starta därför att låsningsfilen är mindre än %d sekunder gammal.\n"
 
-#: ../src/gcompris/gcompris.c:1355
+#: ../src/gcompris/gcompris.c:1358
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Låsningsfilen är: %s\n"
 
-#: ../src/gcompris/gcompris.c:1469
+#: ../src/gcompris/gcompris.c:1472
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2660,37 +2729,37 @@ msgstr ""
 "Mer information på http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1575
+#: ../src/gcompris/gcompris.c:1578
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Använd -l för att komma åt en aktivitet direkt.\n"
 
-#: ../src/gcompris/gcompris.c:1576
+#: ../src/gcompris/gcompris.c:1579
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Listan på tillgängliga aktiviteter är :\n"
 
-#: ../src/gcompris/gcompris.c:1607
+#: ../src/gcompris/gcompris.c:1610
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Antal aktiviteter: %d\n"
 
-#: ../src/gcompris/gcompris.c:1643
+#: ../src/gcompris/gcompris.c:1646
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s finns men är inte läs- eller skrivbar"
 
-#: ../src/gcompris/gcompris.c:1706
+#: ../src/gcompris/gcompris.c:1709
 #, c-format
 msgid "The --server option cannot be used because GCompris has been compiled without network support!"
 msgstr "Flaggan --server kan inte användas därför att GCompris har byggts utan nätverksstöd!"
 
-#: ../src/gcompris/gcompris.c:1760
+#: ../src/gcompris/gcompris.c:1763
 #, c-format
 msgid "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list available ones\n"
 msgstr "FEL: Profilen \"%s\" hittades inte. Kör \"gcompris --profile-list\" för att lista tillgängliga profiler\n"
 
-#: ../src/gcompris/gcompris.c:1774
+#: ../src/gcompris/gcompris.c:1777
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Listan på tillgängliga profiler är:\n"
@@ -3367,6 +3436,30 @@ msgstr "0123456789"
 msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 msgstr "ABCDEFGHIJKLMNOPQRSTUVXYZÅÄÖ"
 
+#. Init configuration window:
+#. all the configuration functions will use it
+#. all the configuration functions returns values for their key in
+#. the dict passed to the apply_callback
+#. the returned value is the main GtkVBox of the window,
+#. we can add what you want in it.
+#: ../src/gletters-activity/gletters.c:847
+#: ../src/imageid-activity/imageid.c:714
+#: ../src/login-activity/login.py:476
+#: ../src/missing_letter-activity/missingletter.c:749
+#: ../src/pythontest-activity/pythontest.py:454
+#: ../src/readingh-activity/reading.c:880
+#: ../src/scalesboard-activity/scale.c:1161
+#: ../src/smallnumbers-activity/smallnumbers.c:576
+#: ../src/tuxpaint-activity/tuxpaint.py:185
+#: ../src/wordsgame-activity/wordsgame.c:767
+#, c-format, python-format
+msgid ""
+"<b>%s</b> configuration\n"
+" for profile <b>%s</b>"
+msgstr ""
+"<b>%s</b> konfiguration\n"
+" för profilen <b>%s</b>"
+
 #: ../src/gletters-activity/gletters.c:876
 #: ../src/smallnumbers-activity/smallnumbers.c:595
 msgid "Enable sounds"
@@ -3700,25 +3793,25 @@ msgstr "hexagon"
 #: ../src/imageid-activity/imageid.xml.in.h:3
 #: ../src/imagename-activity/imagename.xml.in.h:4
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:1
-#: ../src/missing_letter-activity/missingletter.c:84
+#: ../src/missing_letter-activity/missingletter.c:83
 #: ../src/readingh-activity/readingh.xml.in.h:4
 #: ../src/readingv-activity/readingv.xml.in.h:4
 msgid "Reading"
 msgstr "Läsning"
 
 #: ../src/imageid-activity/imageid.c:95
-#: ../src/missing_letter-activity/missingletter.c:85
+#: ../src/missing_letter-activity/missingletter.c:84
 msgid "Learn how to read"
 msgstr "Lär dig läsa"
 
 #: ../src/imageid-activity/imageid.c:522
 msgid "Data file for this level is not properly formatted. Too many choices are proposed."
-msgstr ""
+msgstr "Datafilen för denna nivå är inte korrekt formaterad. För många val föreslås."
 
 #: ../src/imageid-activity/imageid.c:534
-#: ../src/missing_letter-activity/missingletter.c:582
+#: ../src/missing_letter-activity/missingletter.c:570
 msgid "Data file for this level is not properly formatted."
-msgstr ""
+msgstr "Datafilen för denna nivå är inte korrekt formaterad."
 
 #: ../src/imageid-activity/imageid.xml.in.h:1
 msgid "Click on the word corresponding to the printed image."
@@ -3832,7 +3925,6 @@ msgid "plane"
 msgstr "flygplan"
 
 #: ../src/imagename-activity/imagename.xml.in.h:1
-#, fuzzy
 msgid "Drag and Drop each item above its name"
 msgstr "Dra och släpp varje objekt på sitt namn"
 
@@ -4099,23 +4191,23 @@ msgstr "Räkna hur många objekt som finns under den magiska hatten"
 msgid "Learn addition"
 msgstr "Lär dig addition"
 
-#: ../src/maze-activity/maze.c:131
+#: ../src/maze-activity/maze.c:132
 #: ../src/maze-activity/maze.xml.in.h:4
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:4
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:4
 msgid "Maze"
 msgstr "Labyrint"
 
-#: ../src/maze-activity/maze.c:132
+#: ../src/maze-activity/maze.c:133
 #: ../src/maze-activity/maze.xml.in.h:2
 msgid "Find your way out of the maze"
 msgstr "Hitta vägen ut ur labyrinten"
 
-#: ../src/maze-activity/maze.c:499
+#: ../src/maze-activity/maze.c:500
 msgid "Look at your position, then switch back to invisible mode to continue your moves"
 msgstr "Titta på din position och växla tillbaka till osynligt läge för att fortsätta din förflyttning"
 
-#: ../src/maze-activity/maze.c:501
+#: ../src/maze-activity/maze.c:502
 msgid "Look at your position, then switch back to 3D mode to continue your moves"
 msgstr "Titta på din position och växla tillbaka till tredimensionellt läge för att fortsätta din förflyttning"
 
@@ -4210,9 +4302,8 @@ msgid "three"
 msgstr "tre"
 
 #: ../src/memory-activity/memory.c:284
-#, fuzzy
-msgid "for"
-msgstr "blomma"
+msgid "four"
+msgstr "fyra"
 
 #: ../src/memory-activity/memory.c:285
 msgid "five"
@@ -4381,23 +4472,20 @@ msgid "Division memory game against Tux"
 msgstr "Ett minnesspel med division mot Tux"
 
 #: ../src/memory_enumerate-activity/memory_enumerate.xml.in.h:2
-#, fuzzy
 msgid "Enumeration memory game"
-msgstr "Minnesspel med subtraktion"
+msgstr "Minnesspel med uppräkning"
 
 #: ../src/memory_enumerate-activity/memory_enumerate.xml.in.h:3
-#, fuzzy
 msgid "Numeration training, memory."
-msgstr "Numreringsträning"
+msgstr "Numreringsträning, minne."
 
 #: ../src/memory_enumerate-activity/memory_enumerate.xml.in.h:4
-#, fuzzy
 msgid "Turn the cards over to match the number with the drawn picture."
-msgstr "Vänd på korten för att hitta två tal som har samma summa tills alla korten är borta."
+msgstr "Vänd på korten och hitta talet som stämmer överens med bilden."
 
 #: ../src/memory_enumerate-activity/memory_enumerate.xml.in.h:5
 msgid "You can see some cards, but you can't see what's on the other side of them. Each card is hiding a number of pictures, or the written number."
-msgstr ""
+msgstr "Du kan se ett antal kort men du kan inte se vad som finns på andra sidan av dem. Varje kort döljer ett antal bilder eller ett nummer."
 
 #: ../src/memory_minus-activity/memory_minus.xml.in.h:1
 #: ../src/memory_minus_tux-activity/memory_minus_tux.xml.in.h:1
@@ -4520,21 +4608,19 @@ msgstr "Du kan se en uppsättning kort som alla ser likadana ut. Varje kort har 
 
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:2
 msgid "Reading numbers, memory."
-msgstr ""
+msgstr "Läsning av tal, minne."
 
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:3
-#, fuzzy
 msgid "Turn the cards over to match the number with the word matching it."
-msgstr "Vänd på korten för att hitta två tal som har samma summa tills alla korten är borta."
+msgstr "Vänd på korten och hitta talet som stämmer överens med ordet."
 
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:4
-#, fuzzy
 msgid "Wordnumber memory game"
-msgstr "Minnesspel med addition"
+msgstr "Minnesspel med ordnummer"
 
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:5
 msgid "You can see some cards, but you can't see what's on the other side of them. Each card is hiding a number of number, or the word of the number."
-msgstr ""
+msgstr "Du kan se ett antal kort men inte vad som finns på andra sidan av dem. Varje kort döljer ett antal nummer eller ordet på numret."
 
 #: ../src/missing_letter-activity/missing_letter.xml.in.h:1
 msgid "An object is displayed in the main area, and an incomplete word is printed under the picture. Select the missing letter to complete the word."
@@ -4555,6 +4641,44 @@ msgstr "Träna läsförmågan"
 #: ../src/missing_letter-activity/missing_letter.xml.in.h:5
 msgid "Word reading"
 msgstr "Ordläsning"
+
+#. pixmap
+#: ../src/missing_letter-activity/missingletter_config.c:384
+#: ../src/missing_letter-activity/missingletter_config.c:534
+msgid "Picture"
+msgstr "Bild"
+
+#. answer
+#: ../src/missing_letter-activity/missingletter_config.c:390
+#: ../src/missing_letter-activity/missingletter_config.c:525
+msgid "Answer"
+msgstr "Svar"
+
+#. question
+#: ../src/missing_letter-activity/missingletter_config.c:396
+#: ../src/missing_letter-activity/missingletter_config.c:548
+msgid "Question"
+msgstr "Fråga"
+
+#. choice
+#: ../src/missing_letter-activity/missingletter_config.c:402
+#: ../src/missing_letter-activity/missingletter_config.c:557
+msgid "Choice"
+msgstr "Val"
+
+#. combo level
+#: ../src/missing_letter-activity/missingletter_config.c:440
+msgid "Level:"
+msgstr "Nivå:"
+
+#: ../src/missing_letter-activity/missingletter_config.c:448
+#, c-format
+msgid "Level %d"
+msgstr "Nivå %d"
+
+#: ../src/missing_letter-activity/missingletter_config.c:538
+msgid "Filename:"
+msgstr "Filnamn:"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:1
 msgid "car/c_r/a/k/o"
@@ -4589,142 +4713,114 @@ msgid "satchel/s_tchel/a/o/i"
 msgstr "skolväska/sk_lväska/o/a/i"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board3.xml.in.h:1
-#, fuzzy
 msgid "ball/_all/b/p/d/m"
 msgstr "boll/_oll/b/p/d"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board3.xml.in.h:2
-#, fuzzy
 msgid "bed/_ed/b/l/f/t"
 msgstr "säng/_äng/s/l/f"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board3.xml.in.h:3
-#, fuzzy
 msgid "bottle/_ottle/b/t/p/l"
 msgstr "flaska/_laska/f/t/k"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board3.xml.in.h:4
-#, fuzzy
 msgid "cake/_ake/c/p/d/k"
 msgstr "tårta/_årta/t/p/d"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:1
-#, fuzzy
 msgid "apple/appl_/e/h/a/i/o/u"
 msgstr "äpple/äppl_/e/h/a"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:2
-#, fuzzy
 msgid "banana/_anana/b/p/d/m"
 msgstr "banan/_anan/b/p/d"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:3
-#, fuzzy
 msgid "car/_ar/c/k/b/u"
 msgstr "bil/_il/b/v/c"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:4
-#, fuzzy
 msgid "dog/d_g/o/g/a/u"
 msgstr "hund/h_nd/u/g/o"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:5
-#, fuzzy
 msgid "fish/_ish/f/h/l/j"
 msgstr "fisk/_isk/f/h/l"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:6
-#, fuzzy
 msgid "house/h_use/o/f/u/i"
 msgstr "hus/h_s/u/ä/i"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:7
-#, fuzzy
 msgid "plane/p_ane/l/j/i/t"
 msgstr "flygplan/flygp_an/l/j/i"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:8
-#, fuzzy
 msgid "satchel/_atchel/s/c/l/z"
 msgstr "skolväska/_kolväska/s/t/l"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:1
-#, fuzzy
 msgid "apple/app_e/l/h/n/i/t"
 msgstr "äpple/äpp_e/l/h/n"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:2
-#, fuzzy
 msgid "ball/b_ll/a/u/o/e/i/y"
 msgstr "boll/b_ll/o/u/a"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:3
-#, fuzzy
 msgid "ball/bal_/l/h/s/z/t"
 msgstr "boll/bol_/l/h/s"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:4
-#, fuzzy
 msgid "banana/ba_ana/n/m/b/z/q"
 msgstr "banan/ba_an/n/m/b"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:5
-#, fuzzy
 msgid "bed/b_d/e/a/i/o/u/s"
 msgstr "säng/s_ng/ä/e/i"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:6
-#, fuzzy
 msgid "bed/be_/d/p/b/c/v/n"
 msgstr "säng/sän_/g/p/b"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:7
-#, fuzzy
 msgid "bottle/b_ttle/o/u/d/a/t/i"
 msgstr "flaska/fl_ska/a/u/d"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:8
-#, fuzzy
 msgid "bottle/bott_e/l/y/r/s/g"
 msgstr "flaska/flas_a/k/y/r"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:9
-#, fuzzy
 msgid "cake/c_ke/a/o/e/i/u/y"
 msgstr "tårta/t_rta/å/ö/e"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:10
-#, fuzzy
 msgid "cake/ca_e/k/q/c/r/z"
 msgstr "tårta/tå_ta/r/q/t"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:11
-#, fuzzy
 msgid "car/ca_/r/w/k/c/a"
 msgstr "bil/bi_/l/r/k"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:12
-#, fuzzy
 msgid "dog/do_/g/p/q/q/k"
 msgstr "hund/hun_/d/l/p"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:13
-#, fuzzy
 msgid "fish/fis_/h/o/i/y/z"
 msgstr "fisk/fis_/k/o/i"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:14
-#, fuzzy
 msgid "house/_ouse/h/e/j/z/p/s"
 msgstr "hus/_us/h/e/j"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:15
-#, fuzzy
 msgid "plane/pl_ne/a/o/s/e/i/u/y"
 msgstr "flygplan/flygpl_n/a/o/s"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:16
-#, fuzzy
 msgid "satchel/sa_chel/t/p/c/z/s/l"
 msgstr "skolväska/sko_väska/l/p/t"
 
@@ -4805,15 +4901,15 @@ msgstr "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
 
 #: ../src/paintings-activity/resources/paintings/board1_2.xml.in.h:1
 msgid "Giuseppe Arcimboldo, Spring - 1573"
-msgstr ""
+msgstr "Giuseppe Arcimboldo, Våren - 1573"
 
 #: ../src/paintings-activity/resources/paintings/board1_3.xml.in.h:1
 msgid "Giuseppe Arcimboldo, The Librarian - 1566)"
-msgstr ""
+msgstr "Giuseppe Arcimboldo, Bibliotekarien - 1566)"
 
 #: ../src/paintings-activity/resources/paintings/board1_5.xml.in.h:1
 msgid "Woman holding a fan"
-msgstr ""
+msgstr "Kvinna som håller en fläkt"
 
 #: ../src/paintings-activity/resources/paintings/board2_1.xml.in.h:1
 msgid "Botticelli, Primavera - 1482"
@@ -4821,11 +4917,11 @@ msgstr "Botticelli, Primavera - 1482"
 
 #: ../src/paintings-activity/resources/paintings/board2_2.xml.in.h:1
 msgid "Caravage, Rest on the Flight into Egypt - 1597"
-msgstr ""
+msgstr "Caravage, Vilan under flykten till Egypten - 1597"
 
 #: ../src/paintings-activity/resources/paintings/board2_3.xml.in.h:1
 msgid "Botticelli, The Birth of Venus - 1482–1486"
-msgstr ""
+msgstr "Botticelli, Venus födelse - 1482–1486"
 
 #: ../src/paintings-activity/resources/paintings/board3_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
@@ -4894,6 +4990,34 @@ msgstr "Dubbelklicka med musen på bollen för att göra mål."
 #: ../src/penalty-activity/penalty.xml.in.h:5
 msgid "Penalty kick"
 msgstr "Straffspark"
+
+#: ../src/photohunter-activity/photohunter.c:137
+msgid "Error: Absolutely no photo found in the data directory"
+msgstr "Fel: Absolut inget foto hittades i datakatalogen"
+
+#: ../src/photohunter-activity/photohunter.c:394
+msgid "Click on the differences between the two images."
+msgstr "Klicka på skillnaderna mellan två bilder."
+
+#: ../src/photohunter-activity/photohunter.c:590
+msgid "Error: Abnormally failed to load a data file"
+msgstr "Fel: Onormalt fel vid inläsning av en datafil"
+
+#: ../src/photohunter-activity/photohunter.xml.in.h:1
+msgid "Find the differences between two pictures"
+msgstr "Hitta skillnader mellan två bilder"
+
+#: ../src/photohunter-activity/photohunter.xml.in.h:2
+msgid "Observe the two pictures carefully. There are some slight differences. When you find a difference you must click on it."
+msgstr "Titta noga på de två bilderna. Det finns några små skillnader. När du hittar något som skiljer så klicka på det."
+
+#: ../src/photohunter-activity/photohunter.xml.in.h:3
+msgid "Photo hunter"
+msgstr "Fotojägare"
+
+#: ../src/photohunter-activity/photohunter.xml.in.h:4
+msgid "Visual discrimination."
+msgstr "Visuell diskriminering."
 
 #: ../src/planegame-activity/planegame.c:61
 #: ../src/planegame-activity/planegame.xml.in.h:4
@@ -5097,12 +5221,8 @@ msgid "is being displayed"
 msgstr "visas"
 
 #: ../src/readingh-activity/reading.c:456
-msgid "We skip this level because there are not enough word in the list!"
+msgid "We skip this level because there are not enough words in the list!"
 msgstr "Vi hoppar över denna nivå därför att det inte finns tillräckligt många ord i listan!"
-
-#: ../src/readingh-activity/reading.c:621
-msgid "I am Ready"
-msgstr "Jag är redo"
 
 #: ../src/readingh-activity/reading.c:686
 msgid "No, it was not there"
@@ -5197,21 +5317,22 @@ msgstr "Träna på subtraktion med ett roligt spel"
 msgid "Tux is hungry. Help him find fish by counting to the correct ice spot."
 msgstr "Tux är hungrig. Hjälp honom hitta fisk genom att räkna den isplats som krävs för att nå dem."
 
-#: ../src/scalesboard-activity/scale.c:293
+#: ../src/scalesboard-activity/scale.c:294
 #, c-format
 msgid "Weight in g = %s"
 msgstr "Vikt i gram = %s"
 
-#: ../src/scalesboard-activity/scale.c:295
+#: ../src/scalesboard-activity/scale.c:296
 #, c-format
 msgid "Weight = %s"
 msgstr "Vikt = %s"
 
-#: ../src/scalesboard-activity/scale.c:986
+#: ../src/scalesboard-activity/scale.c:1008
 msgid "Take care, you can drop masses on both sides of the scale."
 msgstr "Var försiktig, du kan släppa vikter på båda sidor av vågen."
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:1
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:1
 msgid "Balance the scales properly"
 msgstr "Balansera vågarna"
 
@@ -5224,6 +5345,7 @@ msgid "Mental calculation, arithmetic equality"
 msgstr "Huvudräkning, aritmetisk likhet"
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:4
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:4
 msgid "The painting is an original painting created by Virginie MOREAU (virginie.moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is released under the GPL licence."
 msgstr "Målningen är en originalmålning av Virginie Moreau (virginie.moreau@free.fr) år 2001. Dess namn är \"Kryddsäljare i Egypten\". Den är utgiven under GPL-licensen."
 
@@ -5318,6 +5440,18 @@ msgstr "I denna aktivitet kommer du att lära dig hur man skriver in kommandon i
 #: ../src/searace-activity/searace.xml.in.h:9
 msgid "Sea race (2 Players)"
 msgstr "Havstävling (2 spelare)"
+
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:2
+msgid "Drag and Drop masses to balance the scales and calculate the weight"
+msgstr "Dra och släpp vikter för att balansera vågen och beräkna vikten"
+
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:3
+msgid "Mental calculation, arithmetic equality, unit conversion"
+msgstr "Huvudräkning, aritmetisk likhet, enhetskonvertering"
+
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:5
+msgid "To balance the scales, move the masses on the left or the right side. Take care of the weight and the unit of the masses, remember that a kilogram (kg) is 1000 grams (g). They can be arranged in any order."
+msgstr "För att balansera vågen så flyttar du vikterna på den högra eller vänstra sidan. Var noga med vikten och enheterna för vikterna. Kom ihåg att ett kilogram (kg) är 1000 gram (g). De kan arrangeras i valfri ordning."
 
 #: ../src/searace1player-activity/searace1player.xml.in.h:1
 msgid "Give good instructions to your ship in order to be first in the race."
@@ -5684,16 +5818,6 @@ msgstr "Skriv hela ordet innan det når marken"
 #~ "Konstnär: Ambrosius Bosschaert, den äldre Titel: Flower Still Life. "
 #~ "Licens: Public Domain. Källa: http://commons.wikimedia.org/wiki/Image:"
 #~ "Ambrosius_Bosschaert,_the_Elder_04.jpg"
-#~ msgid "Paul Gauguin, Arearea - 1892"
-#~ msgstr "Paul Gauguin, Arearea - 1892"
-#~ msgid "Pieter Bruegel the Elder, The peasants wedding - 1568"
-#~ msgstr "Pieter Bruegel den äldre, Bondebröllop - 1568"
-#~ msgid "The Lady and the Unicorn - XVe century"
-#~ msgstr "Damen med enhörningen - 1400-talet"
-#~ msgid "Vincent van Gogh, Bedroom in Arles - 1888"
-#~ msgstr "Vincent van Gogh, Sängkammare i Arles - 1888"
-#~ msgid "Ambrosius Bosschaert the Elder, Flower Still Life - 1614"
-#~ msgstr "Ambrosius Bosschaert den äldre, Flower Still Life - 1614"
 #~ msgid ""
 #~ "At the start, each player (one controlling the white pieces, the other "
 #~ "controlling the black pieces) controls sixteen pieces: one king, one "
@@ -5759,20 +5883,6 @@ msgstr "Skriv hela ordet innan det når marken"
 #~ msgstr ""
 #~ "avinstalleraren kunde inte hitta registerposter för GCompris.$\\rDet kan "
 #~ "vara så att en annan användare installerade detta program."
-#~ msgid "Picture"
-#~ msgstr "Bild"
-#~ msgid "Answer"
-#~ msgstr "Svar"
-#~ msgid "Question"
-#~ msgstr "Fråga"
-#~ msgid "Choice"
-#~ msgstr "Val"
-#~ msgid "Level:"
-#~ msgstr "Nivå:"
-#~ msgid "Level %d"
-#~ msgstr "Nivå %d"
-#~ msgid "Filename:"
-#~ msgstr "Filnamn:"
 #~ msgid "SVG is disabled. Install python xml module to enable it"
 #~ msgstr ""
 #~ "SVG är inaktiverad. Installera python xml-modulen för att aktivera den."
@@ -5782,34 +5892,8 @@ msgstr "Skriv hela ordet innan det når marken"
 #~ msgstr "Motsvarande objekt har hoppats över."
 #~ msgid "Yes, I saw it"
 #~ msgstr "Ja, jag såg det"
-#~ msgid ""
-#~ "Select the language\n"
-#~ " to use in the board"
-#~ msgstr ""
-#~ "Välj språket att\n"
-#~ " använda i brädet"
-#~ msgid "Global GCompris mode"
-#~ msgstr "Allmänt GCompris-läge"
-#~ msgid "Normal"
-#~ msgstr "Normalt"
-#~ msgid "2 clicks"
-#~ msgstr "2 klick"
-#~ msgid "both modes"
-#~ msgstr "båda lägena"
-#~ msgid ""
-#~ "Select the drag and drop mode\n"
-#~ " to use in the board"
-#~ msgstr ""
-#~ "Välj dra och släpp-läget\n"
-#~ " för att använda brädet"
-#~ msgid "%d (New level)"
-#~ msgstr "%d (Ny nivå)"
-#~ msgid "Configure the list of words"
-#~ msgstr "Konfigurera ordlistan"
 #~ msgid "Language:"
 #~ msgstr "Språk:"
-#~ msgid "Back to default"
-#~ msgstr "Tillbaka till standard"
 #~ msgid "800x600 (Default for GCompris)"
 #~ msgstr "800×600 (Standard för GCompris)"
 #~ msgid "Use the antialiased canvas (slower)."
@@ -5822,12 +5906,8 @@ msgstr "Skriv hela ordet innan det når marken"
 #~ msgstr "Visa inte bakgrundsbilderna för aktiviteterna."
 #~ msgid "Arabic (Tunisia)"
 #~ msgstr "Arabiska (Tunisien)"
-#~ msgid "Choice of the level"
-#~ msgstr "Val av nivå"
 #~ msgid "Choice of the filename"
 #~ msgstr "Val av filnamn"
-#~ msgid "Choice of the language"
-#~ msgstr "Val av språk"
 #~ msgid "Wordlist"
 #~ msgstr "Ordlista"
 #~ msgid "Improve reading skill and the ability to understand what is read."
