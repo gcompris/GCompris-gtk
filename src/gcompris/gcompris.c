@@ -90,7 +90,7 @@ static void activation_enter_callback(GtkWidget *widget,
 static void activation_done();
 static int display_activation_dialog();
 static GooCanvasItem *activation_item;
-static GtkEntry *widget_activation_entry;
+static GtkWidget *widget_activation_entry;
 #else
 #define display_activation_dialog() FALSE
 #endif
@@ -898,18 +898,15 @@ display_activation_dialog()
     }
 
   /* Entry area */
-  widget_activation_entry = (GtkEntry *)gtk_entry_new();
-  gtk_entry_set_max_length(widget_activation_entry, 6);
+  widget_activation_entry = gtk_entry_new();
+  gtk_entry_set_max_length(GTK_ENTRY(widget_activation_entry), 6);
   activation_item = \
-    goo_canvas_item_new (goo_canvas_get_root_item(canvas),
-			   goo_canvas_widget_get_type (),
-			   "widget", GTK_WIDGET(widget_activation_entry),
-			   "x", (double) BOARDWIDTH / 2 - 50,
-			   "y", (double) BOARDHEIGHT - 60,
-			   "width", 100.0,
-			   "height", 30.0,
-			   "anchor", GTK_ANCHOR_NW,
-			   "size_pixels", FALSE,
+    goo_canvas_widget_new (goo_canvas_get_root_item(GOO_CANVAS(canvas)),
+			   GTK_WIDGET(widget_activation_entry),
+			   BOARDWIDTH / 2 - 50,
+			   BOARDHEIGHT - 60,
+			   100.0,
+			   30.0,
 			   NULL);
   gtk_signal_connect(GTK_OBJECT(widget_activation_entry), "activate",
 		     GTK_SIGNAL_FUNC(activation_enter_callback),

@@ -31,6 +31,10 @@
 
 #include "gcompris.h"
 
+#ifdef WIN32
+#define realpath(N,R) _fullpath((R),(N),_MAX_PATH)
+#endif
+
 extern GooCanvas *canvas;
 
 typedef void (*sighandler_t)(int);
