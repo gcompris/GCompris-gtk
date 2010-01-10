@@ -1,0 +1,184 @@
+
+CLEANFILES = $(marshal_sources)
+
+
+#
+# Makefile.mingw
+#
+# Description: Makefile for win32 (mingw) version of GCompris
+#
+
+#
+# PATHS
+#
+
+INCLUDE_DIR :=		.
+GCOMPRIS_TOP :=		../../..
+GCOMPRIS_SRC :=		.
+GCOMPRIS_INSTALL_DIR :=	$(GCOMPRIS_TOP)/win32-install-dir
+
+##
+## VARIABLE DEFINITIONS
+##
+
+# Compiler and Linker Options
+
+CFLAGS =
+
+DEFINES =
+
+.SUFFIXES:
+.SUFFIXES: .c .a
+
+LDFLAGS = -mwindows -mno-cygwin -mms-bitfields
+
+##
+## INCLUDE  MAKEFILES
+##
+
+include $(GCOMPRIS_TOP)/global_win32.mak
+
+##
+## INCLUDE PATHS
+##
+
+INCLUDE_PATHS +=	-I$(GTK_TOP)/include \
+			-I$(GTK_TOP)/include/gtk-2.0 \
+			-I$(GLIB_TOP)/include/glib-2.0 \
+			-I$(GTK_TOP)/include/pango-1.0 \
+			-I$(GTK_TOP)/include/atk-1.0 \
+			-I$(GLIB_TOP)/lib/glib-2.0/include \
+			-I$(GTK_TOP)/lib/gtk-2.0/include \
+			-I$(GTK_TOP)/include/freetype2 \
+			-I$(LIBXML2_TOP)/include \
+			-I$(GCOMPRIS_TOP) \
+			-I$(GCOMPRIS_TOP)/src \
+			-I$(CAIRO_TOP)/include/cairo \
+			-I$(FONTCONFIG_TOP) \
+			-I$(FREETYPE_TOP)/include \
+			-I$(FREETYPE_TOP)/include/freetype2/ \
+			-I$(RSVG_TOP)/include/librsvg-2 \
+			-I.
+
+
+LIB_PATHS =		-L$(GTK_TOP)/lib \
+	  		-L$(FREETYPE_TOP)/lib
+
+##
+## LIBRARIES
+##
+
+LIBS =			-lgtk-win32-2.0 \
+			-lglib-2.0 \
+			-lgdk-win32-2.0 \
+			-lgobject-2.0 \
+			-lgmodule-2.0 \
+			-lgdk_pixbuf-2.0 \
+			-lpango-1.0 \
+			-lpangoft2-1.0 \
+			-latk-1.0 \
+			-lpangowin32-1.0 \
+			-lgdi32 -lgthread-2.0 \
+			-lintl \
+			-lws2_32
+
+##
+## TARGET DEFINITIONS
+##
+
+.PHONY: all clean
+
+all:  libgoocanvas
+
+install:
+
+marshal_sources = \
+        goocanvasmarshal.c \
+        goocanvasmarshal.h
+
+libgoocanvas: $(marshal_sources)
+
+BUILT_SOURCES = \
+        $(marshal_sources)
+
+goocanvasmarshal.h: goocanvasmarshal.list
+	$(GLIB_GENMARSHAL) $< --header --prefix=goo_canvas_marshal > $@
+goocanvasmarshal.c: goocanvasmarshal.list
+	$(GLIB_GENMARSHAL) $< --body --prefix=goo_canvas_marshal > $@
+
+
+libgoocanvasinclude_headers =	\
+	goocanvasatk.h \
+	goocanvasellipse.h \
+	goocanvasenumtypes.h \
+	goocanvasgrid.h \
+	goocanvasgroup.h \
+	goocanvas.h \
+	goocanvasimage.h \
+	goocanvasitem.h \
+	goocanvasitemmodel.h \
+	goocanvasitemsimple.h \
+	goocanvaspath.h \
+	goocanvaspolyline.h \
+	goocanvasprivate.h \
+	goocanvasrect.h \
+	goocanvasstyle.h \
+	goocanvassvg.h \
+	goocanvastable.h \
+	goocanvastext.h \
+	goocanvasutils.h \
+	goocanvaswidget.h
+
+libgoocanvas_2_a_SOURCES =			\
+	goocanvasatk.c \
+	goocanvas.c \
+	goocanvasellipse.c \
+	goocanvasenumtypes.c \
+	goocanvasgrid.c \
+	goocanvasgroup.c \
+	goocanvasimage.c \
+	goocanvasitem.c \
+	goocanvasitemmodel.c \
+	goocanvasitemsimple.c \
+	goocanvasmarshal.c \
+	goocanvaspath.c \
+	goocanvaspolyline.c \
+	goocanvasrect.c \
+	goocanvasstyle.c \
+	goocanvassvg.c \
+	goocanvastable.c \
+	goocanvastext.c \
+	goocanvasutils.c \
+	goocanvaswidget.c
+
+
+OBJECTS = $(libgoocanvas_2_a_SOURCES:%.c=%.o)
+
+#
+# BUILD Boards staticlibrary
+#
+
+# How to make a C file
+%.o: %.c
+	$(CC) $(CFLAGS) $(INCLUDE_PATHS) $(DEFINES) -c $< -o $@
+
+.c.o:
+	$(CC) $(CFLAGS) $(DEFINES) $(INCLUDE_PATHS) -o $@.o -c $<
+	$(CC) -shared $@.o $(LIB_PATHS) $(LIBS) $(DLL_LD_FLAGS) -o $@
+
+libgoocanvas: \
+		libgoocanvas.a
+
+libgoocanvas.a: $(OBJECTS)
+	-rm -f libgoocanvas.a
+	$(AR) cru libgoocanvas.a $(OBJECTS)
+	$(RANLIB) libgoocanvas.a
+
+##
+## CLEAN RULES
+##
+
+clean:
+	rm -rf *.o
+	rm -rf *.a
+	rm -rf $(marshal_sources)
