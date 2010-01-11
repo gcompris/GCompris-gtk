@@ -27,6 +27,7 @@
 #include "gc_core.h"
 #include "gcompris_config.h"
 #include "about.h"
+#include "bar.h"
 
 #define SOUNDLISTFILE PACKAGE
 
@@ -47,7 +48,7 @@ static gboolean item_event_bar (GooCanvasItem  *item,
                                 GComprisBarFlags flag);
 static void	 bar_reset_sound_id (void);
 static gint	 bar_play_sound (GooCanvasItem *item);
-static void	 play_level_voice(int level);
+static void  bar_set (const GComprisBarFlags flags);
 
 static gint current_level = -1;
 static gint current_flags = 0;
@@ -146,7 +147,8 @@ new_button(GooCanvasItem *rootitem,
 /*
  * Do all the bar display and register the events
  */
-void gc_bar_start (GooCanvas *theCanvas)
+static void
+bar_start (GooCanvas *theCanvas)
 {
   GcomprisProperties *properties = gc_prop_get();
   gint16       height;
@@ -275,13 +277,14 @@ void gc_bar_start (GooCanvas *theCanvas)
 
   update_exit_button();
 
-  gc_bar_set(0);
+  bar_set(0);
 
   _hidden = FALSE;
 }
 
 
-void gc_bar_set_level(GcomprisBoard *gcomprisBoard)
+static void
+bar_set_level(GcomprisBoard *gcomprisBoard)
 {
 
   goo_canvas_item_raise(rootitem, NULL);
@@ -315,8 +318,8 @@ void gc_bar_set_level(GcomprisBoard *gcomprisBoard)
  * This must be called before calling gc_bar_set with GC_BAR_REPEAT_ICON
  * the given svg_handle is not freed.
  */
-void
-gc_bar_set_repeat_icon (RsvgHandle *svg_handle)
+static void
+bar_set_repeat_icon (RsvgHandle *svg_handle)
 {
   GooCanvasItem *item;
   goo_canvas_item_raise(rootitem, NULL);
@@ -338,8 +341,8 @@ gc_bar_set_repeat_icon (RsvgHandle *svg_handle)
  * @param[in] y the bar y coordinate, -1 to set the default
  * @param[in] zoom the bar zoom factor, -1 to set the default
  */
-void
-gc_bar_location (int x, int y, double zoom)
+static void
+bar_location (int x, int y, double zoom)
 {
   // Make the y coord be assigned at its bottom
   int ny = (y == -1 ? _default_y : y);
@@ -358,8 +361,8 @@ gc_bar_location (int x, int y, double zoom)
 }
 
 /* Setting list of available icons in the control bar */
-void
-gc_bar_set (const GComprisBarFlags flags)
+static void
+bar_set (const GComprisBarFlags flags)
 {
   // Always reset the zoom factor or the calculation
   // will be wrong
@@ -431,14 +434,14 @@ gc_bar_set (const GComprisBarFlags flags)
 
   // Always center the bar with its new bounds
   //SET_ITEM_LOCATION(rootitem, 0, _default_y);
-  gc_bar_location (-1, -1, -1);
+  bar_location (-1, -1, -1);
 }
 
 /* Hide all icons in the control bar
  * or restore the icons to the previous value
  */
-void
-gc_bar_hide (gboolean hide)
+static void
+bar_hide (gboolean hide)
 {
   /* Non yet initialized : Something Wrong */
   g_assert(rootitem);
@@ -542,8 +545,8 @@ on_leave_notify (GooCanvasItem  *item,
 
 /** Play the audio number given in @level
  */
-static void
-play_level_voice(int level)
+void
+gc_bar_play_level_voice(int level)
 {
   /* Play the audio level number */
   gchar *number_str = g_strdup_printf("%d", level);
@@ -591,7 +594,7 @@ item_event_bar (GooCanvasItem  *item,
         if(gcomprisBoard && gcomprisBoard->plugin->set_level != NULL)
           gcomprisBoard->plugin->set_level(current_level);
 
-        play_level_voice(current_level);
+        gc_bar_play_level_voice(current_level);
       }
       break;
     case GC_BAR_LEVEL_DOWN:
@@ -605,12 +608,12 @@ item_event_bar (GooCanvasItem  *item,
         if(gcomprisBoard && gcomprisBoard->plugin->set_level != NULL)
           gcomprisBoard->plugin->set_level(current_level);
 
-        play_level_voice(current_level);
+        gc_bar_play_level_voice(current_level);
       }
       break;
     case GC_BAR_HOME:
       {
-        gc_bar_hide (TRUE);
+        bar_hide (TRUE);
         gc_board_stop();
       }
       break;
@@ -667,4 +670,68 @@ confirm_quit(gboolean answer)
 {
   if (answer)
     gc_exit();
+}
+
+/* bar registration */
+
+static Bar *custom_bar = NULL;
+
+void
+gc_bar_register (Bar *bar)
+{
+    custom_bar = bar;
+}
+
+void
+gc_bar_start (GtkContainer *workspace, GooCanvas *theCanvas)
+{
+    if (custom_bar == NULL)
+        bar_start (theCanvas);
+    else if (custom_bar->start != NULL)
+        custom_bar->start (workspace, theCanvas);
+}
+
+void
+gc_bar_set_level (GcomprisBoard *gcomprisBoard)
+{
+    if (custom_bar == NULL)
+        bar_set_level (gcomprisBoard);
+    else if (custom_bar->set_level != NULL)
+        custom_bar->set_level (gcomprisBoard);
+}
+
+void
+gc_bar_set_repeat_icon (RsvgHandle *svg_handle)
+{
+    if (custom_bar == NULL)
+        bar_set_repeat_icon (svg_handle);
+    else if (custom_bar->set_repeat_icon != NULL)
+        custom_bar->set_repeat_icon (svg_handle);
+}
+
+void
+gc_bar_location (int x, int y, double zoom)
+{
+    if (custom_bar == NULL)
+        bar_location (x, y, zoom);
+    else if (custom_bar->set_location != NULL)
+        custom_bar->set_location (x, y, zoom);
+}
+
+void
+gc_bar_set (const GComprisBarFlags flags)
+{
+    if (custom_bar == NULL)
+        bar_set (flags);
+    else if (custom_bar->set_flags != NULL)
+        custom_bar->set_flags (flags);
+}
+
+void
+gc_bar_hide (gboolean hide)
+{
+    if (custom_bar == NULL)
+        bar_hide (hide);
+    else if (custom_bar->set_hide != NULL)
+        custom_bar->set_hide (hide);
 }

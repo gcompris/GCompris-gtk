@@ -346,12 +346,13 @@ static void smallnumbers_move_item(GooCanvasItem *item)
 static gint smallnumbers_move_items (GtkWidget *widget, gpointer data)
 {
   int i;
+  int count = goo_canvas_item_get_n_children(boardRootItem);
 
   /* For each item we need to move */
-  for(i=0; i<goo_canvas_item_get_n_children(boardRootItem); i++)
+  for(i=0; i<count; i++)
     smallnumbers_move_item(goo_canvas_item_get_child(boardRootItem, i));
 
-  dummy_id = gtk_timeout_add (speed,
+  dummy_id = gtk_timeout_add (gc_timing (speed, count),
 			      (GtkFunction) smallnumbers_move_items, NULL);
 
   return(FALSE);

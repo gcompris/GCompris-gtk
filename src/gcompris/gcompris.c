@@ -37,6 +37,7 @@
 #include "gc_core.h"
 #include "gcompris_config.h"
 #include "about.h"
+#include "bar.h"
 #include <locale.h>
 
 #include "binreloc.h"
@@ -56,20 +57,14 @@ static double zoom_factor = 1.0;
 #define GC_LOCK_LIMIT 30 /* seconds */
 
 static GtkWidget *window;
+static GtkWidget *workspace;
+static GtkWidget *alignment;
 static GtkWidget *canvas;
-static GtkWidget *fixed;
-static GtkWidget *drawing_area;
 gchar * exec_prefix = NULL;
 
 //static gint pause_board_cb (GtkWidget *widget, gpointer data);
 static void quit_cb (GtkWidget *widget, gpointer data);
 static void map_cb  (GtkWidget *widget, gpointer data);
-static gint _gc_configure_event_callback (GtkWidget   *widget,
-					  GdkEventConfigure *event,
-					  gpointer     client_data);
-static gboolean _expose_background_callback (GtkWidget *widget,
-					     GdkEventExpose *event,
-					     gpointer data);
 #ifndef WIN32
 static gboolean _realize_callback (GtkWidget *widget, GdkEventExpose *event,
 				   gpointer data);
@@ -146,6 +141,10 @@ static gchar *popt_cache_dir       = NULL;
 static gchar *popt_drag_mode       = NULL;
 static gchar *sugarBundleId        = NULL;
 static gchar *sugarActivityId      = NULL;
+static gint popt_sugar_look        = FALSE;
+static gint popt_no_zoom           = FALSE;
+static gdouble popt_timing_base    = 1.0;
+static gdouble popt_timing_mult    = 1.0;
 
 static GOptionEntry options[] = {
   {"fullscreen", 'f', 0, G_OPTION_ARG_NONE, &popt_fullscreen,
@@ -250,6 +249,18 @@ static GOptionEntry options[] = {
   {"sugarActivityId", '\0', 0, G_OPTION_ARG_STRING, &sugarActivityId,
    "Sugar Activity Id", NULL},
 
+  {"sugar",'\0', 0, G_OPTION_ARG_NONE, &popt_sugar_look,
+   ("Use Sugar DE look&feel"), NULL},
+
+  {"no-zoom",'\0', 0, G_OPTION_ARG_NONE, &popt_no_zoom,
+   ("Disable maximization zoom"), NULL},
+
+  {"timing-base",'\0', 0, G_OPTION_ARG_DOUBLE, &popt_timing_base,
+   ("Increase activiites' timeout delays; useful values > 1.0; 1.0 to not change hardcoded value"), NULL},
+
+  {"timing-mult",'\0', 0, G_OPTION_ARG_DOUBLE, &popt_timing_mult,
+   ("How activiites' timeout delays are growing for several actors; useful values < 1.0; 1.0 to not change hardcoded value"), NULL},
+
   { NULL }
 };
 
@@ -272,30 +283,27 @@ double gc_zoom_factor_get()
 }
 
 static gint
-_gc_configure_event_callback (GtkWidget   *widget,
-			      GdkEventConfigure *event,
+_gc_size_allocate_event_callback (GtkWidget   *widget,
+			      GtkAllocation *allocation,
 			      gpointer     client_data)
 {
   double xratio, yratio;
-  gint screen_height, screen_width;
+  double canvas_width, canvas_height;
 
-  gdk_drawable_get_size(GDK_DRAWABLE (window->window),
-			&screen_width,
-			&screen_height);
-
-  yratio=screen_height/(float)(BOARDHEIGHT);
-  xratio=screen_width/(float)BOARDWIDTH;
+  yratio=allocation->height/(float)(BOARDHEIGHT);
+  xratio=allocation->width/(float)BOARDWIDTH;
   zoom_factor = MIN(xratio, yratio);
   g_message("The screen_width=%f screen_height=%f ratio=%f\n",
-	    (double)screen_width, (double)screen_height, zoom_factor);
+	    (double)allocation->width, (double)allocation->height, zoom_factor);
 
-  gtk_widget_set_usize (canvas, BOARDWIDTH*zoom_factor, BOARDHEIGHT*zoom_factor);
+  if (!properties->zoom && zoom_factor > 1.)
+      zoom_factor = 1.;
+
+  canvas_width = BOARDWIDTH * zoom_factor;
+  canvas_height = BOARDHEIGHT * zoom_factor;
+
+  gtk_widget_set_size_request(canvas, canvas_width, canvas_height);
   goo_canvas_set_scale (GOO_CANVAS(canvas), zoom_factor);
-  gtk_fixed_move(GTK_FIXED(fixed), canvas,
-		 (screen_width-BOARDWIDTH*zoom_factor)/2,
-		 (screen_height-BOARDHEIGHT*zoom_factor)/2);
-
-  _expose_background_callback (drawing_area, NULL, NULL);
 
   return FALSE;
 }
@@ -618,27 +626,6 @@ gc_set_default_background(GooCanvasItem *parent)
 			  "#BACKGROUND");
 }
 
-/* Redraw the black background
- */
-static gboolean
-_expose_background_callback (GtkWidget *widget,
-			     GdkEventExpose *event, gpointer data)
-{
-  gint screen_height, screen_width;
-
-  gdk_drawable_get_size(GDK_DRAWABLE (window->window),
-			&screen_width,
-			&screen_height);
-
-  gtk_widget_set_size_request (widget, screen_width, screen_height);
-  gdk_draw_rectangle (widget->window,
-		      widget->style->fg_gc[GTK_WIDGET_STATE (widget)],
-		      TRUE,
-		      0, 0, widget->allocation.width, widget->allocation.height);
-
-  return FALSE;
-}
-
 /*
  * Sugar requires properties to be set before the windows is realized
  */
@@ -669,28 +656,28 @@ _realize_callback (GtkWidget *widget, GdkEventExpose *event, gpointer data)
 #endif
 
 static void
-init_background()
+init_workspace()
 {
-  drawing_area = gtk_drawing_area_new ();
-  gtk_widget_set_size_request (drawing_area, BOARDWIDTH, BOARDHEIGHT);
-  g_signal_connect (G_OBJECT (drawing_area), "expose_event",
-		    G_CALLBACK (_expose_background_callback), NULL);
-  /* Create a vertical box in which I put first the play board area, then the button bar */
-  fixed = gtk_fixed_new ();
-  gtk_container_add(GTK_CONTAINER(window), GTK_WIDGET(fixed));
+  workspace = gtk_vbox_new(FALSE, 0);
+  gtk_container_add(GTK_CONTAINER(window), workspace);
 
-  gtk_fixed_put (GTK_FIXED(fixed), GTK_WIDGET(drawing_area), 0, 0);
-  gtk_fixed_put (GTK_FIXED(fixed), GTK_WIDGET(canvas), 0, 0);
+  GtkWidget *background = gtk_event_box_new();
+  GdkColor black = {0, 0, 0, 0};
+  gtk_widget_modify_bg(background, GTK_STATE_NORMAL, &black);
+  gtk_box_pack_end(GTK_BOX(workspace), background, TRUE, TRUE, 0);
 
-  gtk_widget_show (GTK_WIDGET(fixed));
-  gtk_widget_show (GTK_WIDGET(canvas));
+  alignment = gtk_alignment_new(.5, .5, 0., 0.);
+  g_signal_connect (GTK_OBJECT (alignment), "size-allocate",
+		      G_CALLBACK (_gc_size_allocate_event_callback), NULL);
+  gtk_container_add(GTK_CONTAINER(background), alignment);
 
-  gtk_widget_set_usize (GTK_WIDGET(canvas), BOARDWIDTH, BOARDHEIGHT);
+  gtk_container_add(GTK_CONTAINER(alignment), canvas);
+  gtk_widget_set_size_request (GTK_WIDGET(canvas), BOARDWIDTH, BOARDHEIGHT);
   goo_canvas_set_bounds (GOO_CANVAS(canvas),
 			 0, 0,
 			 BOARDWIDTH,
 			 BOARDHEIGHT);
-
+  g_object_set (G_OBJECT(canvas), "background-color", "#000", NULL);
 }
 
 static GcomprisBoard *get_board_to_start()
@@ -782,13 +769,12 @@ static void setup_window ()
   hints.height_inc = 1;
   hints.min_aspect = (float)BOARDWIDTH/BOARDHEIGHT;
   hints.max_aspect = (float)BOARDWIDTH/BOARDHEIGHT;
-  gtk_window_set_geometry_hints (GTK_WINDOW (window),
-				 NULL,
-				 &hints,
-				 GDK_HINT_RESIZE_INC |
-				 GDK_HINT_MIN_SIZE |
-				 GDK_HINT_BASE_SIZE |
-				 GDK_HINT_ASPECT);
+  gint geom_mask = GDK_HINT_RESIZE_INC |
+                   GDK_HINT_MIN_SIZE |
+                   GDK_HINT_BASE_SIZE;
+  if (!popt_sugar_look)
+      geom_mask |= GDK_HINT_ASPECT;
+  gtk_window_set_geometry_hints (GTK_WINDOW (window), NULL, &hints, geom_mask);
 
   /*
    * Set the main window
@@ -809,9 +795,6 @@ static void setup_window ()
   gtk_signal_connect (GTK_OBJECT (window), "map_event",
 		      GTK_SIGNAL_FUNC (map_cb), NULL);
 
-  gtk_signal_connect (GTK_OBJECT (window), "configure_event",
-		      GTK_SIGNAL_FUNC (_gc_configure_event_callback), NULL);
-
   // Set the cursor
   gc_cursor_set(GCOMPRIS_DEFAULT_CURSOR);
 
@@ -828,9 +811,6 @@ static void setup_window ()
 			  "key_press_event",
 			  GTK_SIGNAL_FUNC (board_widget_key_press_callback), 0);
 
-  GTK_WIDGET_SET_FLAGS (canvas, GTK_CAN_FOCUS);
-  gtk_widget_grab_focus (canvas);
-
   gc_im_init(window);
 
   gc_board_init();
@@ -841,10 +821,13 @@ static void setup_window ()
   /* Save the root_menu */
   properties->menu_board = gc_menu_section_get(properties->root_menu);
 
-  /* Run the bar */
-  gc_bar_start(GOO_CANVAS(canvas));
+  init_workspace();
 
-  init_background();
+  GTK_WIDGET_SET_FLAGS (canvas, GTK_CAN_FOCUS);
+  gtk_widget_grab_focus (canvas);
+
+  /* Run the bar */
+  gc_bar_start(GTK_CONTAINER(workspace), GOO_CANVAS(canvas));
 
   board_to_start = get_board_to_start();
 
@@ -1056,7 +1039,10 @@ void gc_fullscreen_set(gboolean state)
   if(state)
     {
       gdk_window_set_decorations (window->window, 0);
-      gtk_window_fullscreen (GTK_WINDOW(window));
+      if (popt_sugar_look)
+        gtk_window_maximize (GTK_WINDOW(window));
+      else
+        gtk_window_fullscreen (GTK_WINDOW(window));
       gtk_widget_set_uposition (window, 0, 0);
     }
   else
@@ -1311,6 +1297,13 @@ void gc_log_handler (const gchar *log_domain,
 			   gpointer user_data) {
   if(gc_debug)
     g_printerr ("%s: %s\n\n", "gcompris", message);
+}
+
+/* Refresh canvas zoom e.g. after setting zoom setting */
+void
+gc_update_canvas_zoom()
+{
+  _gc_size_allocate_event_callback(NULL, &alignment->allocation, NULL);
 }
 
 static void
@@ -1785,6 +1778,23 @@ main (int argc, char *argv[])
     exit(0);
   }
 
+  if (popt_sugar_look){
+    #ifdef USE_SUGAR
+      extern Bar sugar_bar;
+      gc_bar_register(&sugar_bar);
+      extern Score sugar_score;
+      gc_score_register(&sugar_score);
+    #else
+	  printf("GCompris was not built with Sugar DE support.\n");
+      popt_sugar_look = FALSE;
+    #endif
+  }
+
+  if (popt_no_zoom){
+    g_message("Zoom disabled");
+    properties->zoom = FALSE;
+  }
+
   /*------------------------------------------------------------*/
 
   single_instance_check();
@@ -1831,4 +1841,14 @@ main (int argc, char *argv[])
   gtk_main ();
 
   return(0);
+}
+
+gint
+gc_timing (gint timeout, gint actors_number)
+{
+  if (popt_timing_base > 1.0)
+    timeout = (int) (timeout * popt_timing_base);
+  if (popt_timing_mult < 1.0 && actors_number > 1)
+    timeout += (int) (timeout * actors_number * popt_timing_mult);
+  return timeout;
 }

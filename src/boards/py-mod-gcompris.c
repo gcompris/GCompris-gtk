@@ -113,16 +113,19 @@ py_gc_board_end(PyObject* self, PyObject* args)
 static PyObject*
 py_gc_bar_start(PyObject* self, PyObject* args)
 {
+  PyObject* pyWorkspace;
   PyObject* pyCanvas;
+  GtkContainer* workspace;
   GooCanvas* canvas;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "O:gc_bar_start", &pyCanvas))
+  if(!PyArg_ParseTuple(args, "OO:gc_bar_start", &pyWorkspace, &pyCanvas))
     return NULL;
+  workspace = (GtkContainer*) pygobject_get(pyWorkspace);
   canvas = (GooCanvas*) pygobject_get(pyCanvas);
 
   /* Call the corresponding C function */
-  gc_bar_start(canvas);
+  gc_bar_start(workspace, canvas);
 
   /* Create and return the result */
   Py_INCREF(Py_None);

@@ -45,6 +45,8 @@ AM_GLIB_GNU_GETTEXT
 #*******************************************************************************
 
 GTK_REQUIRED=2.4.0
+LIBRSVG_REQUIRED=2.26.0
+LIBXML_REQUIRED=2.7.3
 
 dnl
 dnl Start of pkg-config checks
@@ -53,8 +55,8 @@ dnl
 PKG_CHECK_MODULES(GCOMPRIS, \
   gtk+-2.0 >= $GTK_REQUIRED \
   gstreamer-0.10 \
-  librsvg-2.0 \
-  libxml-2.0)
+  librsvg-2.0 >= $LIBRSVG_REQUIRED \
+  libxml-2.0 >= $LIBXML_REQUIRED)
 
 AC_SUBST(GCOMPRIS_CFLAGS)
 AC_SUBST(GCOMPRIS_LIBS)
@@ -409,6 +411,23 @@ if test x$with_dbus = xyes; then
   AC_DEFINE([USE_DBUS], 1,[DBUS support is enabled])
 fi
 
+dnl Sugar DE support
+AC_MSG_CHECKING([wether we build with Sugar DE support])
+AC_ARG_ENABLE(sugar,
+          AC_HELP_STRING(
+          [--enable-sugar],
+          [Turn on sugar support (will let GCompris integrate well on Sugar DE)]),
+          with_sugar="$enableval", with_sugar="no")
+AC_MSG_RESULT($with_sugar)
+if test x$with_sugar = xyes; then
+  if test x$with_dbus = xno; then
+    AC_MSG_ERROR([You need to add DBUS support as well.])
+  fi
+  PKG_CHECK_MODULES(SUGAR, [sugar-toolkit])
+  AC_DEFINE([USE_SUGAR], 1, [Sugar DE support is enabled])
+fi
+AM_CONDITIONAL([SUGAR], [test x$with_sugar = xyes])
+
 dnl check for python
 AC_ARG_WITH(python,AC_HELP_STRING(
     [--with-python=path],
@@ -422,7 +441,7 @@ if test x$python_path != xnot ; then
 PYTHON=$python_path
 fi
 
-AM_PATH_PYTHON(2.6)
+AM_PATH_PYTHON
 AM_CHECK_PYTHON_HEADERS( [build_python_plugin="yes"], [build_python_plugin="no"] )
 
 fi
@@ -442,7 +461,10 @@ if test x$build_python_plugin = xno; then
   AC_MSG_NOTICE([Python plugin is disabled.])
 else
   dnl Python interpreter is available so check for pygtk
-  PKG_CHECK_MODULES(PYGTK, pygtk-2.0 pycairo >= 1.8)
+  PKG_CHECK_MODULES(PYGTK, pygtk-2.0 pycairo)
+
+  PYCAIRO_VERSION=$(pkg-config pycairo --modversion | awk -F. '{print ($1 * 1000) + $2 }')
+  AC_DEFINE_UNQUOTED([PYCAIRO_VERSION], $PYCAIRO_VERSION, [pycairo version])
 
   AC_MSG_CHECKING([for pygtk defs])
   PYGTK_DEFSDIR=`$PKG_CONFIG --variable=defsdir pygtk-2.0`
@@ -834,6 +856,7 @@ echo "Python plugin                            = $build_python_plugin"
 echo "SQLITE database (--enable-sqlite)        = $with_sqlite (profiles depend on this)"
 
 echo "DBUS Support (OLPC XO Sugar)             = $with_dbus"
+echo "Sugar DE Support                         = $with_sugar"
 echo "GNET Networking (--enable-gnet)          = $with_gnet (networking depends on this)"
 echo "BINRELOC (--enable-binreloc)             = $br_cv_binreloc"
 echo "NSBundle (--enable-nsbundle)             = $nsbundle"

@@ -46,8 +46,8 @@ static void display_number(GooCanvasItem *parent,
 /*
  * Do all the score display
  */
-void
-gc_score_start (ScoreStyleList style, guint gx, guint gy, guint gmax)
+static void
+score_start (ScoreStyleList style, guint gx, guint gy, guint gmax)
 {
 
   currentStyle = style;
@@ -65,8 +65,8 @@ gc_score_start (ScoreStyleList style, guint gx, guint gy, guint gmax)
 }
 
 
-void
-gc_score_end()
+static void
+score_end()
 {
   if(boardRootItem!=NULL)
     goo_canvas_item_remove(boardRootItem);
@@ -74,8 +74,8 @@ gc_score_end()
   boardRootItem=NULL;
 }
 
-void
-gc_score_set(guint value)
+static void
+score_set(guint value)
 {
 
   if(boardRootItem!=NULL)
@@ -151,4 +151,41 @@ display_number(GooCanvasItem *parent,
 		       "font", gc_skin_font_board_huge_bold,
 		       "fill-color-rgba", 0xe5e532FF,
 		       NULL);
+}
+
+/* custom score registration */
+
+static Score *custom_score = NULL;
+
+void
+gc_score_register (Score *score)
+{
+    custom_score = score;
+}
+
+void
+gc_score_start (ScoreStyleList style, guint x, guint y, guint max)
+{
+    if (custom_score == NULL)
+        score_start (style, x, y, max);
+    else if (custom_score->start != NULL)
+        custom_score->start (style, x, y, max);
+}
+
+void
+gc_score_end ()
+{
+    if (custom_score == NULL)
+        score_end ();
+    else if (custom_score->end != NULL)
+        custom_score->end ();
+}
+
+void
+gc_score_set (guint value)
+{
+    if (custom_score == NULL)
+        score_set (value);
+    else if (custom_score->set != NULL)
+        custom_score->set (value);
 }

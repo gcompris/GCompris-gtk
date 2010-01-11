@@ -83,7 +83,7 @@
 void		 gc_board_end(void);
 
 /* Control Bar methods */
-void		 gc_bar_start (GooCanvas *theCanvas);
+void		 gc_bar_start (GtkContainer *workspace, GooCanvas *theCanvas);
 
 /** Set the default background of your activity.
  *  Always set the background in your activity startup.
@@ -156,6 +156,10 @@ void		 gc_bar_hide (gboolean hide);
  *  @param[in] zoom is the zoom factor. Set to -1 to keep the default.
  */
 void		 gc_bar_location (int x, int y, double zoom);
+/** Pronounce level changing notification
+ *  @param[in] level to pronounce, should be < 10
+ */
+void		 gc_bar_play_level_voice (int level);
 
 /* General */
 GooCanvas       *gc_get_canvas(void);
@@ -220,10 +224,16 @@ void		 gc_log_set_comment (GcomprisBoard *gcomprisBoard, gchar *expected, gchar*
 /* Do not use it if you use the bonus API in your board */
 void		 gc_log_end (GcomprisBoard *gcomprisBoard, GCBonusStatusList status);
 
+/* Refresh canvas zoom e.g. after setting zoom setting */
+void         gc_update_canvas_zoom();
+
 /* For menu type activity */
 GList		*gc_menu_getlist(gchar *section);
 GcomprisBoard   *gc_menu_section_get(gchar *section);
 GList           *gc_menu_get_boards();
+
+/* Correct timeout delay for activity timings */
+gint gc_timing (gint timeout, gint actors_number);
 
 /*=========================================================*/
 /* Some global definition to keep a constant look and feel */

@@ -330,7 +330,7 @@ static void paratrooper_next_level()
 			  0,
 			  FALSE,
 			  BOARDWIDTH * speed,
-			  speed*1.5,
+			  gc_timing (speed * 1.5, 4),
 			  GOO_CANVAS_ANIMATE_RESTART);
 
   g_signal_connect(planeitem, "button-press-event",
@@ -373,7 +373,7 @@ static void paratrooper_next_level()
 			  0,
 			  TRUE,
 			  BOARDWIDTH/2 * 30,
-			  40*2,
+			  gc_timing (40 * 2, 4),
 			  GOO_CANVAS_ANIMATE_FREEZE);
 
   g_object_unref(svg_handle);
@@ -543,7 +543,7 @@ paratrooper_create_cloud(GooCanvasItem *parent)
 			  0,
 			  TRUE,
 			  BOARDWIDTH * (80 / ABS(windspeed)),
-			  40,
+			  gc_timing (40, 4),
 			  GOO_CANVAS_ANIMATE_RESTART);
   g_object_unref(svg_handle);
 
@@ -597,7 +597,8 @@ void next_state()
 				  (bounds.x1 > 0 ? bounds.x1 : 0),
 				  bounds.y2);
 	drop_tux_id = \
-	  gtk_timeout_add (10, (GtkFunction) paratrooper_move_tux, NULL);
+	  gtk_timeout_add (gc_timing (10, 4),
+              (GtkFunction) paratrooper_move_tux, NULL);
 
         gc_item_focus_remove(planeitem, NULL);
       }

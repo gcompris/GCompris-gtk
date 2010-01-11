@@ -176,6 +176,8 @@ gc_prop_new ()
   tmp->server	                  = NULL;
   tmp->drag_mode                  = GC_DRAG_MODE_GRAB;
 
+  tmp->zoom                       = 1;
+
   tmp->config_dir = gc_prop_default_config_directory_get();
   tmp->user_dir = gc_prop_default_user_directory_get();
   tmp->database = NULL;
@@ -424,7 +426,10 @@ gc_prop_load (GcomprisProperties *props, GCPropSourceConf source_conf)
 	  props->key = scan_get_string(scanner);
 	  if(!props->key)
 	    g_warning("Config file parsing error on token %s", token);
-	}
+	} else if(!strcmp(value.v_identifier, "zoom")) {
+	  if(!scan_get_int(scanner, &props->zoom))
+	    g_warning("Config file parsing error on token %s", token);
+    }
 	g_free(token);
 	break;
       }
@@ -555,6 +560,8 @@ gc_prop_save (GcomprisProperties *props)
   fprintf(filefd, "%s=\"%s\"\n", "skin",		props->skin);
   fprintf(filefd, "%s=\"%s\"\n", "locale",		props->locale);
   fprintf(filefd, "%s=\"%s\"\n", "key",			props->key);
+
+  fprintf(filefd, "%s=%d\n", "zoom",			props->zoom);
 
   fclose(filefd);
 

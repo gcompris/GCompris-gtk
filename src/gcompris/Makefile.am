@@ -147,3 +147,9 @@ EXTRA_DIST = \
 DONT_DIST_SOURCE = $(marshal_sources)
 
 gcompris_nsbundle_CPPFLAGS = -fconstant-string-class=NSConstantString
+
+if SUGAR
+INCLUDES += $(SUGAR_CFLAGS)
+gcompris_SOURCES += sugar.c
+gcompris_LDADD += $(SUGAR_LIBS)
+endif

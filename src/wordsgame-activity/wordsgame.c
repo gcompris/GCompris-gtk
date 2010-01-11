@@ -507,7 +507,8 @@ static gint wordsgame_move_items (GtkWidget *widget, gpointer data)
       g_static_rw_lock_reader_unlock (&items_lock);
       wordsgame_move_item(item);
     }
-  dummy_id = g_timeout_add (speed,(GtkFunction) wordsgame_move_items, NULL);
+  dummy_id = g_timeout_add (gc_timing (speed, items->len),
+          (GtkFunction) wordsgame_move_items, NULL);
   return (FALSE);
 }
 

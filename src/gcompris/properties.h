@@ -65,6 +65,7 @@ typedef struct {
   gint          experimental;
   gchar        *server;
   gint		drag_mode;
+  gint		zoom;
 } GcomprisProperties;
 
 GcomprisProperties	*gc_prop_get (void);

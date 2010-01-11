@@ -25,6 +25,7 @@
 
 static GList *item_list = NULL;
 static GList *item2del_list = NULL;
+static guint actors_count = 0;
 
 static GcomprisBoard *gcomprisBoard = NULL;
 
@@ -514,6 +515,7 @@ static void gletters_destroy_item(GooCanvasItem *item)
   key = key_find_by_item(item);
 
   item_list = g_list_remove (item_list, item);
+  --actors_count;
 
   item2del_list = g_list_remove (item2del_list, item);
 
@@ -546,6 +548,8 @@ static void gletters_destroy_all_items()
 	gletters_destroy_item(item);
       }
 
+   actors_count= 0;
+
   /* Delete the letters_table */
   if(letters_table) {
     g_hash_table_destroy (letters_table);
@@ -564,7 +568,7 @@ static gint gletters_move_items (GtkWidget *widget, gpointer data)
   /* Destroy items that falls out of the canvas */
   gletters_destroy_items();
 
-  dummy_id = gtk_timeout_add (speed,
+  dummy_id = gtk_timeout_add (gc_timing (speed, actors_count),
 			      (GtkFunction) gletters_move_items, NULL);
 
   return(FALSE);
@@ -668,6 +672,7 @@ static GooCanvasItem *gletters_create_item(GooCanvasItem *parent)
   g_object_set_data (G_OBJECT(item), "utf8_key", letter);
 
   item_list = g_list_append (item_list, item);
+  ++actors_count;
 
   /* Add letter to hash table of all falling letters. */
   g_hash_table_insert (letters_table, lettersItem, item);

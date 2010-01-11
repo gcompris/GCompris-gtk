@@ -1,6 +1,6 @@
-/* gcompris - bonus.h
+/* gcompris - bar.h
  *
- * Copyright (C) 2001, 2008 Bruno Coudoin
+ * Copyright (C) 2010, Aleksey Lim
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -16,28 +16,21 @@
  *   along with this program; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef SCORE_H
-#define SCORE_H
+#ifndef BAR_H
+#define BAR_H
 
 #include "gcompris.h"
 
-typedef enum
-{
-  SCORESTYLE_NOTE,
-  SCORESTYLE_LIFE,
-} ScoreStyleList;
-
-void gc_score_start (ScoreStyleList style, guint x, guint y, guint max);
-void gc_score_end();
-void gc_score_set(guint value);
-
 typedef struct
 {
-  void (*start) (ScoreStyleList style, guint x, guint y, guint max);
-  void (*end) ();
-  void (*set) (guint value);
-} Score;
+  void (*start) (GtkContainer *workspace, GooCanvas *theCanvas);
+  void (*set_level) (GcomprisBoard *gcomprisBoard);
+  void (*set_repeat_icon) (RsvgHandle *svg_handle);
+  void (*set_location) (int x, int y, double zoom);
+  void (*set_flags) (const GComprisBarFlags flags);
+  void (*set_hide) (gboolean hide);
+} Bar;
 
-void gc_score_register (Score *score);
+void gc_bar_register (Bar *bar);
 
 #endif

@@ -35,8 +35,7 @@ _cairo_matrix_to_gvalue(GValue *value, PyObject *obj)
 static PyObject *
 _cairo_pattern_from_gvalue(const GValue *value)
 {
-#if defined WIN32
-    // On windows we have the old cairo API for now
+#if PYCAIRO_VERSION < 1008
     return PycairoPattern_FromPattern(cairo_pattern_reference((cairo_pattern_t *) g_value_get_boxed(value)));
 #else
     return PycairoPattern_FromPattern(cairo_pattern_reference((cairo_pattern_t *) g_value_get_boxed(value)), NULL);
