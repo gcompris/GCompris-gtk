@@ -5,4 +5,4 @@ activity=memory_wordnumber
 plugindir=$path/../memory-activity/.libs
 pythonplugindir=$path 
 resourcedir=$path/../memory-activity/resources
-section="/math/numeration"
+section="/reading"
