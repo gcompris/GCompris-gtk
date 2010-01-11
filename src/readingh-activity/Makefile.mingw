@@ -1,0 +1,14 @@
+#
+# Makefile.mingw
+#
+# Description: activity compilation for win32
+#
+
+ACTIVITY = readingh-activity
+ACTIVITY_C_SRC =	\
+	reading.c \
+
+
+GCOMPRIS_TOP :=		../..
+include $(GCOMPRIS_TOP)/global_win32_activity.mak
+

@@ -13,6 +13,49 @@ GCOMPRIS_BOARDS = ./src/boards
 CANVAS_SRC = ./src/goocanvas/src
 GCOMPRIS_INSTALL_DIR = ./win32-install-dir
 
+activity_dir = advanced_colors-activity \
+	algebra_by-activity \
+	algebra_guesscount-activity \
+	awele-activity \
+	babymatch-activity \
+	billard-activity \
+	canal_lock-activity \
+	chess_computer-activity \
+	clickgame-activity \
+	click_on_letter-activity \
+	clockgame-activity \
+	colors-activity \
+	crane-activity \
+	enumerate-activity \
+	erase-activity \
+	fifteen-activity \
+	gletters-activity \
+	hanoi-activity \
+	hanoi_real-activity \
+	imageid-activity \
+	leftright-activity \
+	magic_hat_minus-activity \
+	maze-activity \
+	memory-activity \
+	missing_letter-activity \
+	money-activity \
+	paratrooper-activity \
+	photohunter-activity \
+	planegame-activity \
+	railroad-activity \
+	read_colors-activity \
+	readingh-activity \
+	reversecount-activity \
+	scalesboard-activity \
+	smallnumbers-activity \
+	submarine-activity \
+	superbrain-activity \
+	tangram-activity \
+	target-activity \
+	traffic-activity \
+	wordprocessor-activity \
+	wordsgame-activity
+
 include global_win32.mak
 
 # These will be copied in the win32-install-dir ready to be packaged.
@@ -66,6 +109,7 @@ NEEDED_FILES =		README \
 all: Makefile.mingw config.h
 	$(MAKE) -C $(CANVAS_SRC) -f Makefile.mingw
 	$(MAKE) -C $(GCOMPRIS_BOARDS) -f Makefile.mingw
+	for actdir in $(activity_dir); do $(MAKE) -C src/$$actdir -f Makefile.mingw; done
 	$(MAKE) -C $(GCOMPRIS_SRC) -f Makefile.mingw
 
 Makefile.mingw: Makefile.mingw.in
@@ -89,10 +133,6 @@ install: all Makefile.mingw
 	rm -f $(GCOMPRIS_INSTALL_DIR)/share/gcompris/python/Makefile*
 	rm -f $(GCOMPRIS_INSTALL_DIR)/share/gcompris/python/gcompris/Makefile*
 	rm -f $(GCOMPRIS_INSTALL_DIR)/share/gcompris/python/admin/Makefile*
-	cp -r $(GCOMPRIS_BOARDS)/python $(GCOMPRIS_INSTALL_DIR)/share/gcompris
-	rm -f $(GCOMPRIS_INSTALL_DIR)/share/gcompris/python/Makefile*
-	rm -f $(GCOMPRIS_INSTALL_DIR)/share/gcompris/python/gcompris/Makefile*
-	rm -f $(GCOMPRIS_INSTALL_DIR)/share/gcompris/python/admin/Makefile*
 
 
 # Copy mandratory files for the package in the package directory
@@ -110,9 +150,9 @@ prepack: Makefile.mingw
 	cp $(GCOMPRIS_INSTALL_DIR)/libxml2.dll $(GCOMPRIS_INSTALL_DIR)/libxml2-2.dll
 
 python: Makefile.mingw
-	cp $(PYTHON_TOP)/DLLs/tcl84.dll $(GCOMPRIS_INSTALL_DIR)
-	cp $(PYTHON_TOP)/DLLs/tk84.dll $(GCOMPRIS_INSTALL_DIR)
-	cp $(PYTHON_TOP)/python24.dll $(GCOMPRIS_INSTALL_DIR)
+#	cp $(PYTHON_TOP)/DLLs/tcl84.dll $(GCOMPRIS_INSTALL_DIR)
+#	cp $(PYTHON_TOP)/DLLs/tk84.dll $(GCOMPRIS_INSTALL_DIR)
+	cp $(PYTHON_TOP)/python26.dll $(GCOMPRIS_INSTALL_DIR)
 	cp tools/py2exe/gcompris.py $(GCOMPRIS_INSTALL_DIR)
 	cp tools/py2exe/setup.py $(GCOMPRIS_INSTALL_DIR)
 	cd $(GCOMPRIS_INSTALL_DIR);$(PYTHON_TOP)/python.exe setup.py py2exe;cp dist/library.zip python24.zip;cp dist/*.pyd .;rm -rf dist build;rm -f gcompris.py*;cd ..
@@ -126,6 +166,7 @@ clean: Makefile.mingw
 	$(MAKE) -C $(CANVAS_SRC) -f Makefile.mingw clean
 	$(MAKE) -C $(GCOMPRIS_SRC) -f Makefile.mingw clean
 	$(MAKE) -C $(GCOMPRIS_BOARDS) -f Makefile.mingw clean
+	for actdir in $(activity_dir); do $(MAKE) -C src/$$actdir -f Makefile.mingw clean; done
 	rm -rf config.h
 	rm -rf gcompris*.exe
 	rm -f gcompris-installer.nsi

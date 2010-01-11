@@ -1,0 +1,15 @@
+#
+# Makefile.mingw
+#
+# Description: activity compilation for win32
+#
+
+ACTIVITY = missing_letter-activity
+ACTIVITY_C_SRC =	\
+	missingletter.c \
+	missingletter_config.c \
+
+
+GCOMPRIS_TOP :=		../..
+include $(GCOMPRIS_TOP)/global_win32_activity.mak
+

@@ -29,49 +29,49 @@ static gboolean	 get_board_playing(void);
 
 #ifdef STATIC_MODULE
 int gc_activation_check(char *code);
-/* extern BoardPlugin * get_advanced_colors_bplugin_info(); */
-/* extern BoardPlugin * get_algebra_bplugin_info(); */
-/* extern BoardPlugin * get_algebra_guesscount_bplugin_info(); */
-/* extern BoardPlugin * get_awele_bplugin_info(); */
-/* extern BoardPlugin * get_canal_lock_bplugin_info(); */
-/* extern BoardPlugin * get_chess_bplugin_info(); */
-/* extern BoardPlugin * get_clickgame_bplugin_info(); */
-/* extern BoardPlugin * get_click_on_letter_bplugin_info(); */
-/* extern BoardPlugin * get_clockgame_bplugin_info(); */
-/* extern BoardPlugin * get_colors_bplugin_info(); */
-/* extern BoardPlugin * get_crane_bplugin_info(); */
-/* extern BoardPlugin * get_enumerate_bplugin_info(); */
+extern BoardPlugin * get_advanced_colors_bplugin_info();
+extern BoardPlugin * get_algebra_bplugin_info();
+extern BoardPlugin * get_algebra_guesscount_bplugin_info();
+extern BoardPlugin * get_awele_bplugin_info();
+extern BoardPlugin * get_canal_lock_bplugin_info();
+extern BoardPlugin * get_chess_bplugin_info();
+extern BoardPlugin * get_clickgame_bplugin_info();
+extern BoardPlugin * get_click_on_letter_bplugin_info();
+extern BoardPlugin * get_clockgame_bplugin_info();
+extern BoardPlugin * get_colors_bplugin_info();
+extern BoardPlugin * get_crane_bplugin_info();
+extern BoardPlugin * get_enumerate_bplugin_info();
 extern BoardPlugin * get_erase_bplugin_info();
-/* extern BoardPlugin * get_fifteen_bplugin_info(); */
-/* extern BoardPlugin * get_gletters_bplugin_info(); */
-/* extern BoardPlugin * get_gtans_bplugin_info(); */
-/* extern BoardPlugin * get_hanoi_bplugin_info(); */
-/* extern BoardPlugin * get_hanoi_real_bplugin_info(); */
-/* extern BoardPlugin * get_imageid_bplugin_info(); */
-/* extern BoardPlugin * get_leftright_bplugin_info(); */
-/* extern BoardPlugin * get_machpuzzle_bplugin_info(); */
-/* extern BoardPlugin * get_magic_hat_bplugin_info(); */
-/* extern BoardPlugin * get_maze_bplugin_info(); */
-/* extern BoardPlugin * get_memory_bplugin_info(); */
+extern BoardPlugin * get_fifteen_bplugin_info();
+extern BoardPlugin * get_gletters_bplugin_info();
+extern BoardPlugin * get_gtans_bplugin_info();
+extern BoardPlugin * get_hanoi_bplugin_info();
+extern BoardPlugin * get_hanoi_real_bplugin_info();
+extern BoardPlugin * get_imageid_bplugin_info();
+extern BoardPlugin * get_leftright_bplugin_info();
+extern BoardPlugin * get_machpuzzle_bplugin_info();
+extern BoardPlugin * get_magic_hat_bplugin_info();
+extern BoardPlugin * get_maze_bplugin_info();
+extern BoardPlugin * get_memory_bplugin_info();
 extern BoardPlugin * get_menu_bplugin_info();
-/* extern BoardPlugin * get_missingletter_bplugin_info(); */
-/* extern BoardPlugin * get_money_bplugin_info(); */
-/* extern BoardPlugin * get_paratrooper_bplugin_info(); */
-/* extern BoardPlugin * get_planegame_bplugin_info(); */
-/* extern BoardPlugin * get_railroad_bplugin_info(); */
-/* extern BoardPlugin * get_read_colors_bplugin_info(); */
-/* extern BoardPlugin * get_reading_bplugin_info(); */
-/* extern BoardPlugin * get_reversecount_bplugin_info(); */
-/* extern BoardPlugin * get_scale_bplugin_info(); */
-/* extern BoardPlugin * get_shapegame_bplugin_info(); */
-/* extern BoardPlugin * get_smallnumbers_bplugin_info(); */
-/* extern BoardPlugin * get_submarine_bplugin_info(); */
-/* extern BoardPlugin * get_superbrain_bplugin_info(); */
-/* extern BoardPlugin * get_target_bplugin_info(); */
-/* extern BoardPlugin * get_traffic_bplugin_info(); */
-/* extern BoardPlugin * get_wordsgame_bplugin_info(); */
-/* extern BoardPlugin * get_python_bplugin_info(); */
-/* extern BoardPlugin * get_wordprocessor_bplugin_info(); */
+extern BoardPlugin * get_missingletter_bplugin_info();
+extern BoardPlugin * get_money_bplugin_info();
+extern BoardPlugin * get_paratrooper_bplugin_info();
+extern BoardPlugin * get_planegame_bplugin_info();
+extern BoardPlugin * get_railroad_bplugin_info();
+extern BoardPlugin * get_read_colors_bplugin_info();
+extern BoardPlugin * get_reading_bplugin_info();
+extern BoardPlugin * get_reversecount_bplugin_info();
+extern BoardPlugin * get_scale_bplugin_info();
+extern BoardPlugin * get_shapegame_bplugin_info();
+extern BoardPlugin * get_smallnumbers_bplugin_info();
+extern BoardPlugin * get_submarine_bplugin_info();
+extern BoardPlugin * get_superbrain_bplugin_info();
+extern BoardPlugin * get_target_bplugin_info();
+extern BoardPlugin * get_traffic_bplugin_info();
+extern BoardPlugin * get_wordsgame_bplugin_info();
+extern BoardPlugin * get_python_bplugin_info();
+extern BoardPlugin * get_wordprocessor_bplugin_info();
 
 #define MAX_NUMBER_OF_BOARDS 200
 static BoardPlugin *static_boards_demo[MAX_NUMBER_OF_BOARDS];
@@ -96,78 +96,78 @@ void gc_board_init(void)
 
   bp_data = g_malloc0(sizeof (struct BoardPluginData));
 
-  /* static_boards_demo[i++] = get_awele_bplugin_info(); */
-  /* static_boards_demo[i++] = get_canal_lock_bplugin_info(); */
-  /* static_boards_demo[i++] = get_click_on_letter_bplugin_info(); */
-  /* static_boards_demo[i++] = get_clickgame_bplugin_info(); */
-  /* static_boards_demo[i++] = get_clockgame_bplugin_info(); */
-  /* static_boards_demo[i++] = get_colors_bplugin_info(); */
-  /* static_boards_demo[i++] = get_crane_bplugin_info(); */
-  /* static_boards_demo[i++] = get_enumerate_bplugin_info(); */
+  static_boards_demo[i++] = get_awele_bplugin_info();
+  static_boards_demo[i++] = get_canal_lock_bplugin_info();
+  static_boards_demo[i++] = get_click_on_letter_bplugin_info();
+  static_boards_demo[i++] = get_clickgame_bplugin_info();
+  static_boards_demo[i++] = get_clockgame_bplugin_info();
+  static_boards_demo[i++] = get_colors_bplugin_info();
+  static_boards_demo[i++] = get_crane_bplugin_info();
+  static_boards_demo[i++] = get_enumerate_bplugin_info();
   static_boards_demo[i++] = get_erase_bplugin_info();
-  /* static_boards_demo[i++] = get_gletters_bplugin_info(); */
-  /* static_boards_demo[i++] = get_gtans_bplugin_info(); */
-  /* static_boards_demo[i++] = get_hanoi_bplugin_info(); */
-  /* static_boards_demo[i++] = get_leftright_bplugin_info(); */
-  /* static_boards_demo[i++] = get_magic_hat_bplugin_info(); */
+  static_boards_demo[i++] = get_gletters_bplugin_info();
+  static_boards_demo[i++] = get_gtans_bplugin_info();
+  static_boards_demo[i++] = get_hanoi_bplugin_info();
+  static_boards_demo[i++] = get_leftright_bplugin_info();
+  static_boards_demo[i++] = get_magic_hat_bplugin_info();
   static_boards_demo[i++] = get_menu_bplugin_info();
-  /* static_boards_demo[i++] = get_money_bplugin_info(); */
-  /* static_boards_demo[i++] = get_reading_bplugin_info(); */
-  /* static_boards_demo[i++] = get_python_bplugin_info(); */
-  /* static_boards_demo[i++] = get_scale_bplugin_info(); */
-  /* static_boards_demo[i++] = get_submarine_bplugin_info(); */
-  /* static_boards_demo[i++] = get_superbrain_bplugin_info(); */
-  /* static_boards_demo[i++] = get_target_bplugin_info(); */
-  /* static_boards_demo[i++] = get_wordprocessor_bplugin_info(); */
+  static_boards_demo[i++] = get_money_bplugin_info();
+  static_boards_demo[i++] = get_reading_bplugin_info();
+  static_boards_demo[i++] = get_python_bplugin_info();
+  static_boards_demo[i++] = get_scale_bplugin_info();
+  static_boards_demo[i++] = get_submarine_bplugin_info();
+  static_boards_demo[i++] = get_superbrain_bplugin_info();
+  static_boards_demo[i++] = get_target_bplugin_info();
+  static_boards_demo[i++] = get_wordprocessor_bplugin_info();
   static_boards_demo[i++] = NULL;
 
   i=0;
 
-  /* static_boards[i++] = get_advanced_colors_bplugin_info(); */
-  /* static_boards[i++] = get_algebra_bplugin_info(); */
-  /* static_boards[i++] = get_algebra_bplugin_info(); */
-  /* static_boards[i++] = get_algebra_guesscount_bplugin_info(); */
-  /* static_boards[i++] = get_awele_bplugin_info(); */
-  /* static_boards[i++] = get_canal_lock_bplugin_info(); */
-  /* static_boards[i++] = get_chess_bplugin_info(); */
-  /* static_boards[i++] = get_click_on_letter_bplugin_info(); */
-  /* static_boards[i++] = get_clickgame_bplugin_info(); */
-  /* static_boards[i++] = get_clockgame_bplugin_info(); */
-  /* static_boards[i++] = get_colors_bplugin_info(); */
-  /* static_boards[i++] = get_crane_bplugin_info(); */
-  /* static_boards[i++] = get_enumerate_bplugin_info(); */
-  /* static_boards[i++] = get_erase_bplugin_info(); */
-  /* static_boards[i++] = get_fifteen_bplugin_info(); */
-  /* static_boards[i++] = get_gletters_bplugin_info(); */
-  /* static_boards[i++] = get_gtans_bplugin_info(); */
-  /* static_boards[i++] = get_hanoi_bplugin_info(); */
-  /* static_boards[i++] = get_hanoi_real_bplugin_info(); */
-  /* static_boards[i++] = get_imageid_bplugin_info(); */
-  /* static_boards[i++] = get_leftright_bplugin_info(); */
-  /* static_boards[i++] = get_machpuzzle_bplugin_info(); */
-  /* static_boards[i++] = get_magic_hat_bplugin_info(); */
-  /* static_boards[i++] = get_maze_bplugin_info(); */
-  /* static_boards[i++] = get_memory_bplugin_info(); */
-  /* static_boards[i++] = get_menu_bplugin_info(); */
-  /* static_boards[i++] = get_missingletter_bplugin_info(); */
-  /* static_boards[i++] = get_money_bplugin_info(); */
-  /* static_boards[i++] = get_paratrooper_bplugin_info(); */
-  /* static_boards[i++] = get_planegame_bplugin_info(); */
-  /* static_boards[i++] = get_python_bplugin_info(); */
-  /* static_boards[i++] = get_railroad_bplugin_info(); */
-  /* static_boards[i++] = get_read_colors_bplugin_info(); */
-  /* static_boards[i++] = get_reading_bplugin_info(); */
-  /* static_boards[i++] = get_reversecount_bplugin_info(); */
-  /* static_boards[i++] = get_scale_bplugin_info(); */
-  /* static_boards[i++] = get_shapegame_bplugin_info(); */
-  /* static_boards[i++] = get_smallnumbers_bplugin_info(); */
-  /* static_boards[i++] = get_submarine_bplugin_info(); */
-  /* static_boards[i++] = get_superbrain_bplugin_info(); */
-  /* static_boards[i++] = get_target_bplugin_info(); */
-  /* static_boards[i++] = get_traffic_bplugin_info(); */
-  /* static_boards[i++] = get_wordprocessor_bplugin_info(); */
-  /* static_boards[i++] = get_wordsgame_bplugin_info(); */
-  /* static_boards[i++] = NULL; */
+  static_boards[i++] = get_advanced_colors_bplugin_info();
+  static_boards[i++] = get_algebra_bplugin_info();
+  static_boards[i++] = get_algebra_bplugin_info();
+  static_boards[i++] = get_algebra_guesscount_bplugin_info();
+  static_boards[i++] = get_awele_bplugin_info();
+  static_boards[i++] = get_canal_lock_bplugin_info();
+  static_boards[i++] = get_chess_bplugin_info();
+  static_boards[i++] = get_click_on_letter_bplugin_info();
+  static_boards[i++] = get_clickgame_bplugin_info();
+  static_boards[i++] = get_clockgame_bplugin_info();
+  static_boards[i++] = get_colors_bplugin_info();
+  static_boards[i++] = get_crane_bplugin_info();
+  static_boards[i++] = get_enumerate_bplugin_info();
+  static_boards[i++] = get_erase_bplugin_info();
+  static_boards[i++] = get_fifteen_bplugin_info();
+  static_boards[i++] = get_gletters_bplugin_info();
+  static_boards[i++] = get_gtans_bplugin_info();
+  static_boards[i++] = get_hanoi_bplugin_info();
+  static_boards[i++] = get_hanoi_real_bplugin_info();
+  static_boards[i++] = get_imageid_bplugin_info();
+  static_boards[i++] = get_leftright_bplugin_info();
+  static_boards[i++] = get_machpuzzle_bplugin_info();
+  static_boards[i++] = get_magic_hat_bplugin_info();
+  static_boards[i++] = get_maze_bplugin_info();
+  static_boards[i++] = get_memory_bplugin_info();
+  static_boards[i++] = get_menu_bplugin_info();
+  static_boards[i++] = get_missingletter_bplugin_info();
+  static_boards[i++] = get_money_bplugin_info();
+  static_boards[i++] = get_paratrooper_bplugin_info();
+  static_boards[i++] = get_planegame_bplugin_info();
+  static_boards[i++] = get_python_bplugin_info();
+  static_boards[i++] = get_railroad_bplugin_info();
+  static_boards[i++] = get_read_colors_bplugin_info();
+  static_boards[i++] = get_reading_bplugin_info();
+  static_boards[i++] = get_reversecount_bplugin_info();
+  static_boards[i++] = get_scale_bplugin_info();
+  static_boards[i++] = get_shapegame_bplugin_info();
+  static_boards[i++] = get_smallnumbers_bplugin_info();
+  static_boards[i++] = get_submarine_bplugin_info();
+  static_boards[i++] = get_superbrain_bplugin_info();
+  static_boards[i++] = get_target_bplugin_info();
+  static_boards[i++] = get_traffic_bplugin_info();
+  static_boards[i++] = get_wordprocessor_bplugin_info();
+  static_boards[i++] = get_wordsgame_bplugin_info();
+  static_boards[i++] = NULL;
 
   i=0;
   while(static_boards[i] != NULL) {

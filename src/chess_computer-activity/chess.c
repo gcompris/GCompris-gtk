@@ -32,6 +32,14 @@
 # define WIN32
 #endif
 
+#ifndef SIGPIPE
+#define SIGPIPE 13
+#endif
+
+#ifndef SIGTRAP
+#define SIGTRAP 5
+#endif
+
 #define SOUNDLISTFILE PACKAGE
 
 static GcomprisBoard *gcomprisBoard = NULL;

@@ -61,7 +61,7 @@ INCLUDE_PATHS +=	-I. \
 %.o: %.c
 	$(CC) $(CFLAGS) $(INCLUDE_PATHS) $(DEFINES) -c $< -o $@
 
-all: lib$(ACTIVITY)
+all: libactivity
 
 #
 # BUILD Activity staticlibrary
@@ -69,11 +69,11 @@ all: lib$(ACTIVITY)
 
 ACTIVITY_OBJECTS = $(ACTIVITY_C_SRC:%.c=%.o)
 
-lib$(ACTIVITY): \
-		lib$(ACTIVITY).dll
+libactivity: \
+		libactivity.a
 
-lib$(ACTIVITY).dll: $(ACTIVITY_OBJECTS)
-	-rm -f libactivity.dll
+libactivity.a: $(ACTIVITY_OBJECTS)
+	-rm -f libactivity.a
 	$(AR) cru libactivity.a $(ACTIVITY_OBJECTS)
 	$(RANLIB) libactivity.a
 

@@ -1,0 +1,17 @@
+#
+# Makefile.mingw
+#
+# Description: activity compilation for win32
+#
+
+ACTIVITY = tangram-activity
+ACTIVITY_C_SRC =	\
+	gtans.c \
+	gtans_callbacks.c \
+	gtans_interface.c \
+	gtans_support.c \
+
+
+GCOMPRIS_TOP :=		../..
+include $(GCOMPRIS_TOP)/global_win32_activity.mak
+
