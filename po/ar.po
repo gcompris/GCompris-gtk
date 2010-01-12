@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-01 17:37+0200\n"
-"PO-Revision-Date: 2010-01-01 18:03+0300\n"
+"POT-Creation-Date: 2010-01-12 15:34+0200\n"
+"PO-Revision-Date: 2010-01-12 15:37+0300\n"
 "Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
 "Language: ar\n"
@@ -196,7 +196,7 @@ msgstr ""
 msgid "GCompris Main Menu"
 msgstr "قائمة «فهمت» الرئيسية"
 
-#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:856
+#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:859
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -1029,10 +1029,15 @@ msgid "veronese"
 msgstr "أزرق بنفسجي"
 
 #. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
-#: ../src/algebra_by-activity/algebra.c:181
+#: ../src/algebra_by-activity/algebra.c:186
 #: ../src/memory-activity/memory.c:945
 msgid "+-×÷"
 msgstr "+-×÷"
+
+#: ../src/algebra_by-activity/algebra.c:408
+#: ../src/readingh-activity/reading.c:621
+msgid "I am Ready"
+msgstr "أنا مستعد"
 
 #: ../src/algebra_by-activity/algebra_by.xml.in.h:1
 msgid ""
@@ -1598,12 +1603,12 @@ msgstr ""
 "على الشبكة المحلية، وأي برنامج «فهمت» على شبكتك المحلية يشغل نشاط الدردشة في "
 "هذا الوقت سيمكنه التقاط رسالتك وعرضها."
 
-#: ../src/chess_computer-activity/chess.c:215
+#: ../src/chess_computer-activity/chess.c:223
 msgid "Error: The external program gnuchess died unexpectedly"
 msgstr "خطأ: البرنامج الخارجي gnuchess انتهى بشكل غير متوقع"
 
-#: ../src/chess_computer-activity/chess.c:250
-#: ../src/chess_computer-activity/chess.c:296
+#: ../src/chess_computer-activity/chess.c:258
+#: ../src/chess_computer-activity/chess.c:304
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -1613,36 +1618,36 @@ msgstr ""
 "الشطرنج في «فهمت».\n"
 "أولًا، قم بتثبيته، ثم تحقق من وجوده في: "
 
-#: ../src/chess_computer-activity/chess.c:636
+#: ../src/chess_computer-activity/chess.c:644
 msgid "White's Turn"
 msgstr "دور الأبيض"
 
-#: ../src/chess_computer-activity/chess.c:636
+#: ../src/chess_computer-activity/chess.c:644
 msgid "Black's Turn"
 msgstr "دور الأسود"
 
-#: ../src/chess_computer-activity/chess.c:777
+#: ../src/chess_computer-activity/chess.c:785
 msgid "White checks"
 msgstr "كش ملك للأبيض"
 
-#: ../src/chess_computer-activity/chess.c:779
+#: ../src/chess_computer-activity/chess.c:787
 msgid "Black checks"
 msgstr "كش ملك للأسود"
 
-#: ../src/chess_computer-activity/chess.c:1176
+#: ../src/chess_computer-activity/chess.c:1184
 msgid "Black mates"
 msgstr "موت ملك الأسود"
 
-#: ../src/chess_computer-activity/chess.c:1181
+#: ../src/chess_computer-activity/chess.c:1189
 msgid "White mates"
 msgstr "موت ملك الأبيض"
 
-#: ../src/chess_computer-activity/chess.c:1186 ../src/gcompris/bonus.c:195
+#: ../src/chess_computer-activity/chess.c:1194 ../src/gcompris/bonus.c:195
 #: ../src/gcompris/bonus.c:204
 msgid "Drawn game"
 msgstr "تعادل"
 
-#: ../src/chess_computer-activity/chess.c:1214
+#: ../src/chess_computer-activity/chess.c:1222
 msgid "Error: The external program gnuchess died unexpectingly"
 msgstr "خطأ: البرنامج الخارجي gnuchess انتهى بشكل غير متوقع"
 
@@ -2158,11 +2163,12 @@ msgid ""
 "Move the items in the bottom left frame to copy their position in the top "
 "right model. Below the crane itself, you will find four arrows that let you "
 "move items. To select the item to move, just click on it. If you prefer, you "
-"can the arrow keys and the space or tab key instead."
+"can use the arrow keys and the space or tab key instead."
 msgstr ""
 "حرك العناصر من الإطار في اليسار السفلي لنسخ مواقعها إلى النموذج العلوي "
 "الأيمن. تحت الرافعة نفسها، ستجد الأسهم التي تسمح لك بتحريك العناصر. لاختيار "
-"عنصر لتحريكه، اضغط عليه فحسب."
+"عنصر لتحريكه، اضغط عليه فحسب. أو يمكنك استخدام مفاتيح الأسهم ومسطرة المسافات "
+"أو علامة الجدولة إذا كنت تفضل هذا."
 
 #: ../src/doubleentry-activity/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
@@ -2848,15 +2854,15 @@ msgstr "حمِّل"
 msgid "SAVE"
 msgstr "احفظ"
 
-#: ../src/gcompris/gameutil.c:138 ../src/gcompris/gameutil.c:196
+#: ../src/gcompris/gameutil.c:142 ../src/gcompris/gameutil.c:200
 msgid "Couldn't find or load the file"
 msgstr "لم أستطع العثور أو تحميل الملف "
 
-#: ../src/gcompris/gameutil.c:140 ../src/gcompris/gameutil.c:198
+#: ../src/gcompris/gameutil.c:144 ../src/gcompris/gameutil.c:202
 msgid "This activity is incomplete."
 msgstr "هذا النشاط غير مكتمل."
 
-#: ../src/gcompris/gameutil.c:141 ../src/gcompris/gameutil.c:199
+#: ../src/gcompris/gameutil.c:145 ../src/gcompris/gameutil.c:203
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -2864,39 +2870,39 @@ msgstr ""
 "الخروج وإرسال تقرير\n"
 "بالمشكلة إلى المبرمجين."
 
-#: ../src/gcompris/gcompris.c:148
+#: ../src/gcompris/gcompris.c:152
 msgid "run GCompris in fullscreen mode."
 msgstr "شغل «فهمت» في وضع ملء الشاشة."
 
-#: ../src/gcompris/gcompris.c:151
+#: ../src/gcompris/gcompris.c:155
 msgid "run GCompris in window mode."
 msgstr "شغل «فهمت» في وضع النافذة."
 
-#: ../src/gcompris/gcompris.c:154
+#: ../src/gcompris/gcompris.c:158
 msgid "run GCompris with sound enabled."
 msgstr "شغل «فهمت» مع تفعيل الصوت."
 
-#: ../src/gcompris/gcompris.c:157
+#: ../src/gcompris/gcompris.c:161
 msgid "run GCompris without sound."
 msgstr "شغل «فهمت» بدون صوت."
 
-#: ../src/gcompris/gcompris.c:160
+#: ../src/gcompris/gcompris.c:164
 msgid "run GCompris with the default gnome cursor."
 msgstr "شغل «فهمت» باستعمال مؤشر جنوم الافتراضي."
 
-#: ../src/gcompris/gcompris.c:163
+#: ../src/gcompris/gcompris.c:167
 msgid "display only activities with this difficulty level."
 msgstr "اعرض الأنشطة التي تتناسب فقط مع هذا المستوى الصعب."
 
-#: ../src/gcompris/gcompris.c:166
+#: ../src/gcompris/gcompris.c:170
 msgid "display debug informations on the console."
 msgstr "اعرض معلومات التنقيح في سطر الأوامر."
 
-#: ../src/gcompris/gcompris.c:169
+#: ../src/gcompris/gcompris.c:173
 msgid "Print the version of "
 msgstr "اطبع رقم إصدار "
 
-#: ../src/gcompris/gcompris.c:172
+#: ../src/gcompris/gcompris.c:176
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
@@ -2907,35 +2913,35 @@ msgstr ""
 "الموجودة فقط في المجلد reading، و l /strategy/connect4- سيمكنك من اللعب ب‍ "
 "'وصّل 4' فقط). استخدم '-l list' لسرد جميع النشاطات المتوفرة مع وصف لها."
 
-#: ../src/gcompris/gcompris.c:177
+#: ../src/gcompris/gcompris.c:181
 msgid "GCompris will find the data dir in this directory"
 msgstr "سيبحث «فهمت» عن دليل البيانات في هذا المجلد"
 
-#: ../src/gcompris/gcompris.c:180
+#: ../src/gcompris/gcompris.c:184
 msgid "GCompris will find the skins in this directory"
 msgstr "سيبحث «فهمت» عن المظاهر في هذا المجلد"
 
-#: ../src/gcompris/gcompris.c:183
+#: ../src/gcompris/gcompris.c:187
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "سيبحث «فهمت» عن ملحقات الأنشطة في هذا المجلد"
 
-#: ../src/gcompris/gcompris.c:186
+#: ../src/gcompris/gcompris.c:190
 msgid "GCompris will find the python activity in this directory"
 msgstr "سيبحث «فهمت» عن أنشطة بيثون في هذا المجلد"
 
-#: ../src/gcompris/gcompris.c:189
+#: ../src/gcompris/gcompris.c:193
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr "سيبحث «فهمت» عن ملفات الترجمة في هذا المجلد"
 
-#: ../src/gcompris/gcompris.c:192
+#: ../src/gcompris/gcompris.c:196
 msgid "GCompris will find the activities menu in this directory"
 msgstr "سيبحث «فهمت» عن قائمة الأنشطة في هذا المجلد"
 
-#: ../src/gcompris/gcompris.c:195
+#: ../src/gcompris/gcompris.c:199
 msgid "Run GCompris in administration and user-management mode"
 msgstr "شغل «فهمت» في نمط الإدارة"
 
-#: ../src/gcompris/gcompris.c:198
+#: ../src/gcompris/gcompris.c:202
 msgid ""
 "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
@@ -2943,26 +2949,26 @@ msgstr ""
 "استخدم قاعدة بيانات بديلة للملفات الشخصية [$HOME/.config/gcompris/"
 "gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:201
+#: ../src/gcompris/gcompris.c:205
 msgid "Create the alternate database for profiles"
 msgstr "أنشيء قاعدة بيانات بديلة للملفات الشخصية"
 
-#: ../src/gcompris/gcompris.c:204
+#: ../src/gcompris/gcompris.c:208
 msgid "Re-read XML Menus and store them in the database"
 msgstr "أعِد قراءة قوائم إكس إم إل وحفظها في قاعدة البيانات"
 
-#: ../src/gcompris/gcompris.c:207
+#: ../src/gcompris/gcompris.c:211
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr ""
 "حدد الملف الشخصي الذي تريد استخدامه. استخدم 'gompris -a' لإنشاء الملفات "
 "الشخصية"
 
-#: ../src/gcompris/gcompris.c:210
+#: ../src/gcompris/gcompris.c:214
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
 "اسرد كل الملفات الشخصية المتاحة. استخدم 'gcompris -a' لإنشاء الملفات الشخصية"
 
-#: ../src/gcompris/gcompris.c:213
+#: ../src/gcompris/gcompris.c:217
 msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
@@ -2970,23 +2976,23 @@ msgstr ""
 "مكان مجلد الإعدادات: [$HOME/.config/gcompris]. البديل هو تحديد "
 "$XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:216
+#: ../src/gcompris/gcompris.c:220
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "مكان مجلدات المستخدمين: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:219
+#: ../src/gcompris/gcompris.c:223
 msgid "Run the experimental activities"
 msgstr "شغل الأنشطة التجريبية"
 
-#: ../src/gcompris/gcompris.c:222
+#: ../src/gcompris/gcompris.c:226
 msgid "Disable the quit button"
 msgstr "عطِّل زر الخروج"
 
-#: ../src/gcompris/gcompris.c:225
+#: ../src/gcompris/gcompris.c:229
 msgid "Disable the config button"
 msgstr "عطِّل زر الإعدادات"
 
-#: ../src/gcompris/gcompris.c:228
+#: ../src/gcompris/gcompris.c:232
 msgid ""
 "GCompris will get images, sounds and activity data from this server if not "
 "found locally."
@@ -2994,7 +3000,7 @@ msgstr ""
 "«فهمت» سوف يستورد الصور والأصوات وبيانات الأنشطة من هذا الخادم إن لم تتواجد "
 "محليًا."
 
-#: ../src/gcompris/gcompris.c:231
+#: ../src/gcompris/gcompris.c:235
 msgid ""
 "Only when --server is provided, disable check for local resource first. Data "
 "are always taken from the web server."
@@ -3002,23 +3008,23 @@ msgstr ""
 "فقط عندما يتم تزويد server--، يُلغى التحقق من الموارد المحلية. ستُستورد "
 "البيانات دائمًا من خادم الوِب."
 
-#: ../src/gcompris/gcompris.c:235
+#: ../src/gcompris/gcompris.c:239
 msgid ""
 "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr ""
 "في نمط الخادم، حدد مجلد الذاكرة المخبأة المستخدم لتلافي التحميل المكرر."
 
-#: ../src/gcompris/gcompris.c:238
+#: ../src/gcompris/gcompris.c:242
 msgid ""
 "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr ""
 "نمط السحب والإفلات العام: عادي، نقرتان، كلاهما. النمط الافتراضي هو عادي."
 
-#: ../src/gcompris/gcompris.c:241
+#: ../src/gcompris/gcompris.c:245
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "لا تتجنب تشغيل عدة نسخ من «فهمت» في وقت واحد."
 
-#: ../src/gcompris/gcompris.c:916
+#: ../src/gcompris/gcompris.c:919
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -3038,18 +3044,18 @@ msgstr ""
 "البرمجيات الحرة:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1353
+#: ../src/gcompris/gcompris.c:1356
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
 msgstr "لن يبدأ «فهمت» لأن ملف القفل أحدث من %d ثوانِ.\n"
 
-#: ../src/gcompris/gcompris.c:1355
+#: ../src/gcompris/gcompris.c:1358
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "ملف القفل: %s\n"
 
-#: ../src/gcompris/gcompris.c:1469
+#: ../src/gcompris/gcompris.c:1472
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3063,34 +3069,34 @@ msgstr ""
 "لمزيد من المعلومات زر الصفحة http://gcompris.net \n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1575
+#: ../src/gcompris/gcompris.c:1578
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "استخدم l- للوصول إلى نشاط معين مباشرة.\n"
 
-#: ../src/gcompris/gcompris.c:1576
+#: ../src/gcompris/gcompris.c:1579
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "قائمة الأنشطة المتاحة: \n"
 
-#: ../src/gcompris/gcompris.c:1607
+#: ../src/gcompris/gcompris.c:1610
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "عدد الأنشطة: %d\n"
 
-#: ../src/gcompris/gcompris.c:1643
+#: ../src/gcompris/gcompris.c:1646
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "‏%s موجود لكن لا يمكن قراءته أو الكتابة به"
 
-#: ../src/gcompris/gcompris.c:1706
+#: ../src/gcompris/gcompris.c:1709
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
 "without network support!"
 msgstr "لا يمكن استخدام خيار ‪--server‬ لأن \"فهمت\" لم يُصرَّف مع دعم الشبكة"
 
-#: ../src/gcompris/gcompris.c:1760
+#: ../src/gcompris/gcompris.c:1763
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3099,7 +3105,7 @@ msgstr ""
 "خطأ: اللاحة '%s' غير موجودة. شغل 'gcompris --profile-list' لترى اللاحات "
 "المتاحة\n"
 
-#: ../src/gcompris/gcompris.c:1774
+#: ../src/gcompris/gcompris.c:1777
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "قائمة الملفات الشخصية المتاحة: \n"
@@ -3791,7 +3797,7 @@ msgstr "ابتثجحخدذرزسشصضطظعغفقكلمنهوي"
 #: ../src/missing_letter-activity/missingletter.c:749
 #: ../src/pythontest-activity/pythontest.py:454
 #: ../src/readingh-activity/reading.c:880
-#: ../src/scalesboard-activity/scale.c:1139
+#: ../src/scalesboard-activity/scale.c:1161
 #: ../src/smallnumbers-activity/smallnumbers.c:576
 #: ../src/tuxpaint-activity/tuxpaint.py:185
 #: ../src/wordsgame-activity/wordsgame.c:767
@@ -4784,7 +4790,7 @@ msgid "three"
 msgstr "ثلاثة"
 
 #: ../src/memory-activity/memory.c:284
-msgid "for"
+msgid "four"
 msgstr "أربعة"
 
 #: ../src/memory-activity/memory.c:285
@@ -5621,11 +5627,15 @@ msgstr "انقر مرتين بالفأرة على الكرة لتسجل هدفا
 msgid "Penalty kick"
 msgstr "ضربة جزاء"
 
-#: ../src/photohunter-activity/photohunter.c:136
+#: ../src/photohunter-activity/photohunter.c:137
 msgid "Error: Absolutely no photo found in the data directory"
 msgstr "خطأ: لم يُعثر على أي صور في مجلد البيانات"
 
-#: ../src/photohunter-activity/photohunter.c:564
+#: ../src/photohunter-activity/photohunter.c:394
+msgid "Click on the differences between the two images."
+msgstr "انقر على الفرق بين الصورتين."
+
+#: ../src/photohunter-activity/photohunter.c:590
 msgid "Error: Abnormally failed to load a data file"
 msgstr "خطأ: فشل تحميل ملف البيانات"
 
@@ -5864,12 +5874,8 @@ msgid "is being displayed"
 msgstr "معروضة على الشاشة"
 
 #: ../src/readingh-activity/reading.c:456
-msgid "We skip this level because there are not enough word in the list!"
+msgid "We skip this level because there are not enough words in the list!"
 msgstr "تخطينا هذا المستوى لعدم وجود كلمات كافية في القائمة!"
-
-#: ../src/readingh-activity/reading.c:621
-msgid "I am Ready"
-msgstr "أنا مستعد"
 
 #: ../src/readingh-activity/reading.c:686
 msgid "No, it was not there"
@@ -5995,17 +6001,17 @@ msgstr "مارس عملية الطرح من خلال لعبة مسلية"
 msgid "Tux is hungry. Help him find fish by counting to the correct ice spot."
 msgstr "تُكس جائع. ساعده في إيجاد سمكة بالعد حتى حفرة الجليد الصحيحة."
 
-#: ../src/scalesboard-activity/scale.c:293
+#: ../src/scalesboard-activity/scale.c:294
 #, c-format
 msgid "Weight in g = %s"
 msgstr "الوزن بالجرام = %s"
 
-#: ../src/scalesboard-activity/scale.c:295
+#: ../src/scalesboard-activity/scale.c:296
 #, c-format
 msgid "Weight = %s"
 msgstr "الوزن = %s"
 
-#: ../src/scalesboard-activity/scale.c:986
+#: ../src/scalesboard-activity/scale.c:1008
 msgid "Take care, you can drop masses on both sides of the scale."
 msgstr "خذ حذرك، يمكن أن تُسقط الأوزان عن كفتي الميزان."
 
