@@ -58,6 +58,10 @@ activity_dir = advanced_colors-activity \
 
 include global_win32.mak
 
+MSVCR90_DLL = $(LOCAL_PREFIX)/msvcm90.dll \
+	$(LOCAL_PREFIX)/msvcp90.dll \
+	$(LOCAL_PREFIX)/msvcr90.dll
+
 # These will be copied in the win32-install-dir ready to be packaged.
 NEEDED_DLLS =		$(GNUCHESS_TOP)/bin/pthreadGC2.dll \
 			$(GNUCHESS_TOP)/bin/libreadline.dll \
@@ -87,7 +91,7 @@ NEEDED_DLLS =		$(GNUCHESS_TOP)/bin/pthreadGC2.dll \
 			$(GTK_TOP)/bin/zlib1.dll \
 			$(ICONV_TOP)/bin/iconv.dll \
 			$(LIBXML2_TOP)/bin/libxml2.dll \
-			$(MSVCR71_DLL) \
+			$(MSVCR90_DLL) \
 			$(SDL_TOP)/bin/SDL.dll \
 			$(SDL_TOP)/bin/SDL_mixer.dll \
 			$(SDL_TOP)/bin/libogg-0.dll \
@@ -147,17 +151,17 @@ prepack: Makefile.mingw
 	mkdir -p $(GCOMPRIS_INSTALL_DIR)/lib
 	cp -r $(GTK_TOP)/share/locale $(GCOMPRIS_INSTALL_DIR)/lib
 	cp -r $(GTK_TOP)/lib/gtk-2.0 $(GCOMPRIS_INSTALL_DIR)/lib
-	cp $(GCOMPRIS_INSTALL_DIR)/libxml2.dll $(GCOMPRIS_INSTALL_DIR)/libxml2-2.dll
+	cp $(LOCAL_PREFIX)/libxml2-2.7.6.win32/bin/libxml2.dll $(GCOMPRIS_INSTALL_DIR)/libxml2-2.dll
 
 python: Makefile.mingw
-#	cp $(PYTHON_TOP)/DLLs/tcl84.dll $(GCOMPRIS_INSTALL_DIR)
-#	cp $(PYTHON_TOP)/DLLs/tk84.dll $(GCOMPRIS_INSTALL_DIR)
+	cp $(PYTHON_TOP)/DLLs/tcl85.dll $(GCOMPRIS_INSTALL_DIR)
+	cp $(PYTHON_TOP)/DLLs/tk85.dll $(GCOMPRIS_INSTALL_DIR)
 	cp $(PYTHON_TOP)/python26.dll $(GCOMPRIS_INSTALL_DIR)
 	cp tools/py2exe/gcompris.py $(GCOMPRIS_INSTALL_DIR)
 	cp tools/py2exe/setup.py $(GCOMPRIS_INSTALL_DIR)
-	cd $(GCOMPRIS_INSTALL_DIR);$(PYTHON_TOP)/python.exe setup.py py2exe;cp dist/library.zip python24.zip;cp dist/*.pyd .;rm -rf dist build;rm -f gcompris.py*;cd ..
-	rm -f $(GCOMPRIS_INSTALL_DIR)/tcl84.dll
-	rm -f $(GCOMPRIS_INSTALL_DIR)/tk84.dll
+	cd $(GCOMPRIS_INSTALL_DIR);$(PYTHON_TOP)/python.exe setup.py py2exe;cp dist/library.zip python26.zip;cp dist/*.pyd .;rm -rf dist build;rm -f gcompris.py*;cd ..
+	rm -f $(GCOMPRIS_INSTALL_DIR)/tcl85.dll
+	rm -f $(GCOMPRIS_INSTALL_DIR)/tk85.dll
 
 installer: Makefile.mingw gcompris-installer.nsi
 	$(MAKENSIS) gcompris-installer.nsi

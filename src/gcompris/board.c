@@ -57,6 +57,7 @@ extern BoardPlugin * get_menu_bplugin_info();
 extern BoardPlugin * get_missingletter_bplugin_info();
 extern BoardPlugin * get_money_bplugin_info();
 extern BoardPlugin * get_paratrooper_bplugin_info();
+extern BoardPlugin * get_photohunter_bplugin_info();
 extern BoardPlugin * get_planegame_bplugin_info();
 extern BoardPlugin * get_railroad_bplugin_info();
 extern BoardPlugin * get_read_colors_bplugin_info();
@@ -113,6 +114,7 @@ void gc_board_init(void)
   static_boards_demo[i++] = get_menu_bplugin_info();
   static_boards_demo[i++] = get_money_bplugin_info();
   static_boards_demo[i++] = get_reading_bplugin_info();
+  static_boards_demo[i++] = get_photohunter_bplugin_info();
   static_boards_demo[i++] = get_python_bplugin_info();
   static_boards_demo[i++] = get_scale_bplugin_info();
   static_boards_demo[i++] = get_submarine_bplugin_info();
@@ -152,6 +154,7 @@ void gc_board_init(void)
   static_boards[i++] = get_missingletter_bplugin_info();
   static_boards[i++] = get_money_bplugin_info();
   static_boards[i++] = get_paratrooper_bplugin_info();
+  static_boards[i++] = get_photohunter_bplugin_info();
   static_boards[i++] = get_planegame_bplugin_info();
   static_boards[i++] = get_python_bplugin_info();
   static_boards[i++] = get_railroad_bplugin_info();

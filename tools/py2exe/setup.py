@@ -4,7 +4,7 @@ import py2exe
 setup(
     name = 'gcompris',
     description = 'gcompris',
-    version = '8.2',
+    version = '9.0',
 
     windows = [
                   {
@@ -19,6 +19,8 @@ setup(
                   }
               },
 
-    data_files=[
-               ]
+    data_files= [
+                  ("Microsoft.VC90.CRT", py26MSdll),
+                  ("lib\Microsoft.VC90.CRT", py26MSdll)
+                ]
 )

@@ -42,12 +42,10 @@ DEFINES += 	-DHAVE_CONFIG_H
 ifneq ($(CROSSCOMPILER),)
 	# CROSS COMPILATION
 	LOCAL_PREFIX:=/home/bruno/Projets/gcompris/windows
-	MSVCR71_DLL:=$(LOCAL_PREFIX)/msvcr71.dll
 	MAKENSIS:=makensis
 else
 	# MSYS CASE
-	LOCAL_PREFIX:=
-	MSVCR71_DLL:=/c/WINDOWS/system32/msvcr71.dll
+	LOCAL_PREFIX:=/X
 	MAKENSIS:="/c/Program Files/NSIS/makensis.exe"
 endif
 
