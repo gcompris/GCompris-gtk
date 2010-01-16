@@ -367,7 +367,7 @@ static void smallnumbers_create_item(GooCanvasItem *parent)
   GooCanvasItem *group_item;
   guint i;
   guint total_number = 0;
-  double x;
+  double x = 0;
   static gdouble x_previous = 0; //remember the position of the first dice
   guint number_of_dice = number_of_dices;
 
@@ -437,15 +437,22 @@ static void smallnumbers_create_item(GooCanvasItem *parent)
     g_free(str1);
 
     gdouble item_w = rsvg_dimension.width * imageZoom;
-    if ( x_previous < BOARDWIDTH / 2 )
-      x = x_previous + item_w +
-	(gdouble)(g_random_int() % (guint)(BOARDWIDTH - x_previous
-					   - item_w * 2));
+    if (x == 0)
+      {
+	if ( x_previous < BOARDWIDTH / 2 )
+	  x = x_previous + item_w +
+	    (gdouble)(g_random_int() % (guint)(BOARDWIDTH - x_previous
+					       - item_w * 3));
 
+	else
+	  x = (double)(g_random_int() % (guint)(x_previous - item_w));
+
+	x_previous = x;
+      }
     else
-      x = (double)(g_random_int() % (guint)(x_previous - item_w));
-
-    x_previous = x;
+      {
+	x += item_w;
+      }
 
     item = goo_canvas_svg_new (group_item, svg_handle, NULL);
     goo_canvas_item_translate(item,
