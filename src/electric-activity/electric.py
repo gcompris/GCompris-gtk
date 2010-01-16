@@ -252,12 +252,12 @@ class Gcompris_electric:
   def assign_tool(self, newtool):
     # Deactivate old button
     item = self.tools[self.current_tool][4]
-    item.set_properties(pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[self.current_tool][1])))
+    item.set_properties(pixbuf = gcompris.utils.load_pixmap(self.tools[self.current_tool][1]))
 
     # Activate new button
     self.current_tool = newtool
     item = self.tools[newtool][4]
-    item.set_properties(pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[self.current_tool][2])))
+    item.set_properties(pixbuf = gcompris.utils.load_pixmap(self.tools[self.current_tool][2]))
     gcompris.set_cursor(self.tools[self.current_tool][3]);
 
 
