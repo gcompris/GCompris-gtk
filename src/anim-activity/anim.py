@@ -96,26 +96,114 @@ class Gcompris_anim:
     # Part of UI : tools buttons
     # TOOL SELECTION
     self.tools = [
-      ["SAVE",           "anim/tool-save.png",            "anim/tool-save.png",                  gcompris.CURSOR_SELECT],
-      ["LOAD",           "anim/tool-load.png",            "anim/tool-load.png",                  gcompris.CURSOR_SELECT],
-      ["MOVIE",          "anim/tool-movie.png",           "anim/tool-movie_on.png",              gcompris.CURSOR_SELECT],
-      ["SELECT",         "anim/tool-select.png",          "anim/tool-select_on.png",             gcompris.CURSOR_SELECT],
-      ["RECT",           "anim/tool-rectangle.png",       "anim/tool-rectangle_on.png",          gcompris.CURSOR_RECT],
-      ["FILL_RECT",      "anim/tool-filledrectangle.png", "anim/tool-filledrectangle_on.png",    gcompris.CURSOR_FILLRECT],
-      ["CIRCLE",         "anim/tool-circle.png",          "anim/tool-circle_on.png",             gcompris.CURSOR_CIRCLE],
-      ["FILL_CIRCLE",    "anim/tool-filledcircle.png",    "anim/tool-filledcircle_on.png",       gcompris.CURSOR_FILLCIRCLE],
-      ["LINE",           "anim/tool-line.png",            "anim/tool-line_on.png",               gcompris.CURSOR_LINE],
-      ["TEXT",           "anim/tool-text.png",            "anim/tool-text_on.png",               gcompris.CURSOR_LINE],
-      ["IMAGE",          "anim/tool-image.png",           "anim/tool-image_on.png",              gcompris.CURSOR_DEFAULT],
-      ["FILL",           "anim/tool-fill.png",            "anim/tool-fill_on.png",               gcompris.CURSOR_FILL],
-      ["DEL",            "anim/tool-del.png",             "anim/tool-del_on.png",                gcompris.CURSOR_DEL],
-      ["FLIP",           "anim/tool-flip.png",            "anim/tool-flip_on.png",               gcompris.CURSOR_DEFAULT],
-      ["RAISE",          "anim/tool-up.png",              "anim/tool-up_on.png",                 gcompris.CURSOR_DEFAULT],
-      ["LOWER",          "anim/tool-down.png",            "anim/tool-down_on.png",               gcompris.CURSOR_DEFAULT],
+      [ "SAVE",
+        "anim/tool-save.png",
+        "anim/tool-save.png",
+        gcompris.CURSOR_SELECT,
+        _("Save...")
+      ],
+      [ "LOAD",
+        "anim/tool-load.png",
+        "anim/tool-load.png",
+        gcompris.CURSOR_SELECT,
+        _("Load...")
+      ],
+      [ "MOVIE",
+        "anim/tool-movie.png",
+        "anim/tool-movie_on.png",
+        gcompris.CURSOR_SELECT,
+        _("Run the animation")
+      ],
+      [ "SELECT",
+        "anim/tool-select.png",
+        "anim/tool-select_on.png",
+        gcompris.CURSOR_SELECT,
+        _("Select")
+      ],
+      [ "RECT",
+        "anim/tool-rectangle.png",
+        "anim/tool-rectangle_on.png",
+        gcompris.CURSOR_RECT,
+        _("Rectangle")
+      ],
+      [ "FILL_RECT",
+        "anim/tool-filledrectangle.png",
+        "anim/tool-filledrectangle_on.png",
+        gcompris.CURSOR_FILLRECT,
+        _("Filled rectangle")
+      ],
+      [ "CIRCLE",
+        "anim/tool-circle.png",
+        "anim/tool-circle_on.png",
+        gcompris.CURSOR_CIRCLE,
+        _("Circle")
+      ],
+      [ "FILL_CIRCLE",
+        "anim/tool-filledcircle.png",
+        "anim/tool-filledcircle_on.png",
+        gcompris.CURSOR_FILLCIRCLE,
+        _("Filled circle")
+      ],
+      [ "LINE",
+        "anim/tool-line.png",
+        "anim/tool-line_on.png",
+        gcompris.CURSOR_LINE,
+        _("Line")
+      ],
+      [ "TEXT",
+        "anim/tool-text.png",
+        "anim/tool-text_on.png",
+        gcompris.CURSOR_LINE,
+        _("Text")
+      ],
+      [ "IMAGE",
+        "anim/tool-image.png",
+        "anim/tool-image_on.png",
+        gcompris.CURSOR_DEFAULT,
+        _("Image...")
+      ],
+      [ "FILL",
+        "anim/tool-fill.png",
+        "anim/tool-fill_on.png",
+        gcompris.CURSOR_FILL,
+        _("Fill")
+      ],
+      [ "DEL",
+        "anim/tool-del.png",
+        "anim/tool-del_on.png",
+        gcompris.CURSOR_DEL,
+        _("Delete")
+      ],
+      [ "FLIP",
+        "anim/tool-flip.png",
+        "anim/tool-flip_on.png",
+        gcompris.CURSOR_DEFAULT,
+        _("Flip")
+      ],
+      [ "RAISE",
+        "anim/tool-up.png",
+        "anim/tool-up_on.png",
+        gcompris.CURSOR_DEFAULT,
+        _("Raise")
+      ],
+      [ "LOWER",
+        "anim/tool-down.png",
+        "anim/tool-down_on.png",
+        gcompris.CURSOR_DEFAULT,
+        _("Lower")
+      ],
 # FIXME NEED A CLEAN IMPLEMENTATION OF THE ROTATION
-#      ["CCW",            "anim/tool-rotation-ccw.png",    "anim/tool-rotation-ccw_on.png",       gcompris.CURSOR_DEFAULT],
-#      ["CW",             "anim/tool-rotation-cw.png",     "anim/tool-rotation-cw_on.png",        gcompris.CURSOR_DEFAULT],
-      ]
+#      [ "CCW",
+#        "anim/tool-rotation-ccw.png",
+#        "anim/tool-rotation-ccw_on.png",
+#        gcompris.CURSOR_DEFAULT],
+#        _("Rotation left")
+#      [ "CW",
+#        "anim/tool-rotation-cw.png",
+#        "anim/tool-rotation-cw_on.png",
+#        gcompris.CURSOR_DEFAULT],
+#        _("Rotation right")
+       ]
 
     # keep the tool selected
     self.current_tool=0
@@ -283,9 +371,10 @@ class Gcompris_anim:
       item = \
         goocanvas.Image(
           parent = self.root_toolitem,
-        pixbuf = gcompris.utils.load_pixmap(self.tools[i][1]),
-        x=theX,
-        y=y
+          pixbuf = gcompris.utils.load_pixmap(self.tools[i][1]),
+          tooltip = self.tools[i][4],
+          x=theX,
+          y=y
         )
       gcompris.utils.item_focus_init(item, None)
       item.connect("button_press_event", self.tool_item_event, i)
