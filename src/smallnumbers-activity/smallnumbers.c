@@ -328,6 +328,9 @@ smallnumbers_gotkey_item(GooCanvasItem *item, guint key)
 
 static void smallnumbers_move_item(GooCanvasItem *item)
 {
+  if (item == NULL )
+    return;
+
   goo_canvas_item_translate(item, 0, 2.0);
 
   GooCanvasBounds bounds;
@@ -365,6 +368,7 @@ static void smallnumbers_create_item(GooCanvasItem *parent)
   guint i;
   guint total_number = 0;
   double x;
+  static gdouble x_previous = 0; //remember the position of the first dice
   guint number_of_dice = number_of_dices;
 
   group_item = goo_canvas_group_new (parent, NULL);
@@ -432,8 +436,16 @@ static void smallnumbers_create_item(GooCanvasItem *parent)
 
     g_free(str1);
 
-    x = (double)(g_random_int()%(BOARDWIDTH-
-				 (guint)(rsvg_dimension.width * imageZoom)*2));
+    gdouble item_w = rsvg_dimension.width * imageZoom;
+    if ( x_previous < BOARDWIDTH / 2 )
+      x = x_previous + item_w +
+	(gdouble)(g_random_int() % (guint)(BOARDWIDTH - x_previous
+					   - item_w * 2));
+
+    else
+      x = (double)(g_random_int() % (guint)(x_previous - item_w));
+
+    x_previous = x;
 
     item = goo_canvas_svg_new (group_item, svg_handle, NULL);
     goo_canvas_item_translate(item,
