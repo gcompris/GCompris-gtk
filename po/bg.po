@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris gcomprixogoo\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-27 09:57+0200\n"
-"PO-Revision-Date: 2009-12-27 09:40+0200\n"
+"POT-Creation-Date: 2010-01-16 19:54+0200\n"
+"PO-Revision-Date: 2010-01-16 19:54+0200\n"
 "Last-Translator: Yavor Doganov <yavor@gnu.org>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
@@ -194,7 +194,7 @@ msgstr ""
 msgid "GCompris Main Menu"
 msgstr "Главно меню на GCompris"
 
-#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:856
+#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:859
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -361,7 +361,7 @@ msgstr ""
 #: ../src/administration-activity/admin/board_list.py:663
 #: ../src/colors-activity/colors.c:181
 #: ../src/pythontest-activity/pythontest.py:518
-#: ../src/smallnumbers-activity/smallnumbers.c:597
+#: ../src/smallnumbers-activity/smallnumbers.c:598
 msgid "Select sound locale"
 msgstr "Изберете локал за звука"
 
@@ -1035,10 +1035,15 @@ msgid "veronese"
 msgstr "веронез"
 
 #. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
-#: ../src/algebra_by-activity/algebra.c:181
+#: ../src/algebra_by-activity/algebra.c:186
 #: ../src/memory-activity/memory.c:945
 msgid "+-×÷"
 msgstr "+-.:"
+
+#: ../src/algebra_by-activity/algebra.c:408
+#: ../src/readingh-activity/reading.c:621
+msgid "I am Ready"
+msgstr "Готов(а) съм"
 
 #: ../src/algebra_by-activity/algebra_by.xml.in.h:1
 msgid ""
@@ -1377,7 +1382,7 @@ msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr ""
 "Управление на мишката: движение, изтегляне и пускане. Обработване на връзки."
 
-#: ../src/babymatch-activity/shapegame.c:1847
+#: ../src/babymatch-activity/shapegame.c:1849
 #: ../src/click_on_letter-activity/click_on_letter.c:625
 #: ../src/colors-activity/colors.c:169
 #, c-format
@@ -1625,12 +1630,12 @@ msgstr ""
 "и всяка програма GCompris, която изпълнява това занимание на друга машина, "
 "ще получи и покаже вашето съобщение."
 
-#: ../src/chess_computer-activity/chess.c:215
+#: ../src/chess_computer-activity/chess.c:223
 msgid "Error: The external program gnuchess died unexpectedly"
 msgstr "Грешка: Външната програма „gnuchess“ загина неочаквано"
 
-#: ../src/chess_computer-activity/chess.c:250
-#: ../src/chess_computer-activity/chess.c:296
+#: ../src/chess_computer-activity/chess.c:258
+#: ../src/chess_computer-activity/chess.c:304
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -1640,36 +1645,36 @@ msgstr ""
 "за да играете шах в GCompris.\n"
 "Първо я инсталирайте и проверете дали я има в "
 
-#: ../src/chess_computer-activity/chess.c:636
+#: ../src/chess_computer-activity/chess.c:644
 msgid "White's Turn"
 msgstr "Ред на белите"
 
-#: ../src/chess_computer-activity/chess.c:636
+#: ../src/chess_computer-activity/chess.c:644
 msgid "Black's Turn"
 msgstr "Ред на черните"
 
-#: ../src/chess_computer-activity/chess.c:777
+#: ../src/chess_computer-activity/chess.c:785
 msgid "White checks"
 msgstr "Шах на белите"
 
-#: ../src/chess_computer-activity/chess.c:779
+#: ../src/chess_computer-activity/chess.c:787
 msgid "Black checks"
 msgstr "Шах на черните"
 
-#: ../src/chess_computer-activity/chess.c:1176
+#: ../src/chess_computer-activity/chess.c:1184
 msgid "Black mates"
 msgstr "Мат на черните"
 
-#: ../src/chess_computer-activity/chess.c:1181
+#: ../src/chess_computer-activity/chess.c:1189
 msgid "White mates"
 msgstr "Мат на белите"
 
-#: ../src/chess_computer-activity/chess.c:1186 ../src/gcompris/bonus.c:195
+#: ../src/chess_computer-activity/chess.c:1194 ../src/gcompris/bonus.c:195
 #: ../src/gcompris/bonus.c:204
 msgid "Drawn game"
 msgstr "Равна игра"
 
-#: ../src/chess_computer-activity/chess.c:1214
+#: ../src/chess_computer-activity/chess.c:1222
 msgid "Error: The external program gnuchess died unexpectingly"
 msgstr "Грешка: Външната програма „gnuchess“ загина неочаквано"
 
@@ -1921,7 +1926,7 @@ msgstr ""
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
 #: ../src/click_on_letter-activity/click_on_letter.c:276
-#: ../src/gletters-activity/gletters.c:228 ../src/memory-activity/memory.c:934
+#: ../src/gletters-activity/gletters.c:229 ../src/memory-activity/memory.c:934
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "абвгдежзийклмнопрстуфхцчшщъьюя"
 
@@ -1947,7 +1952,7 @@ msgstr ""
 
 #. toggle box
 #: ../src/click_on_letter-activity/click_on_letter.c:648
-#: ../src/gletters-activity/gletters.c:880 ../src/login-activity/login.py:481
+#: ../src/gletters-activity/gletters.c:885 ../src/login-activity/login.py:481
 msgid "Uppercase only text"
 msgstr "Само текст с главни букви"
 
@@ -2016,7 +2021,7 @@ msgstr "Двигателна координация: движение на ми�
 msgid "Use the left mouse button to click on the moving fish."
 msgstr "Натиснете движещата се риба с левия бутон на мишката."
 
-#: ../src/clockgame-activity/clockgame.c:528
+#: ../src/clockgame-activity/clockgame.c:525
 msgid "Set the watch to:"
 msgstr "Настройте часовника на:"
 
@@ -2201,12 +2206,12 @@ msgid ""
 "Move the items in the bottom left frame to copy their position in the top "
 "right model. Below the crane itself, you will find four arrows that let you "
 "move items. To select the item to move, just click on it. If you prefer, you "
-"can the arrow keys and the space or tab key instead."
+"can use the arrow keys and the space or tab key instead."
 msgstr ""
 "Движете обектите в долната лява част, за да копирате тяхната позиция в "
 "образеца горе вдясно. Под самия кран ще намерите стрелки, които позволяват "
 "движението на обектите. За да изберете обект за преместване, натиснете върху "
-"него. Ако предпочитате, можете да използвате клавишите от клавиатурата – "
+"него. Ако предпочитате, можете да използвате клавишите от клавиатурата — "
 "тези със стрелки и интервала."
 
 #: ../src/doubleentry-activity/doubleentry.xml.in.h:1
@@ -2488,29 +2493,29 @@ msgstr ""
 "Този софтуер е пакет на GNU и се разпространява под условията на Общия "
 "публичен лиценз на GNU (GNU GPL)"
 
-#: ../src/gcompris/about.c:220 ../src/gcompris/config.c:422
+#: ../src/gcompris/about.c:220 ../src/gcompris/config.c:447
 #: ../src/gcompris/dialog.c:103 ../src/gcompris/help.c:354
 #: ../src/gcompris/images_selector.c:307
 msgid "OK"
 msgstr "Да"
 
-#: ../src/gcompris/bar.c:650
+#: ../src/gcompris/bar.c:653
 msgid "GCompris confirmation"
 msgstr "Потвърждение на GCompris"
 
-#: ../src/gcompris/bar.c:651
+#: ../src/gcompris/bar.c:654
 msgid "Are you sure you want to quit?"
 msgstr "Сигурни ли сте, че искате да спрете програмата?"
 
-#: ../src/gcompris/bar.c:652
+#: ../src/gcompris/bar.c:655
 msgid "Yes, I am sure!"
 msgstr "Да, сигурен/сигурна съм!"
 
-#: ../src/gcompris/bar.c:653
+#: ../src/gcompris/bar.c:656
 msgid "No, I want to keep going"
 msgstr "Не, искам да продължа да се занимавам"
 
-#: ../src/gcompris/board.c:191
+#: ../src/gcompris/board.c:194
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr ""
 "Не се поддържа динамично зареждане на модули, GCompris не може да се "
@@ -2872,22 +2877,26 @@ msgstr "Музика"
 msgid "Effect"
 msgstr "Ефекти"
 
-#: ../src/gcompris/config.c:347
+#: ../src/gcompris/config.c:335
+msgid "Zoom"
+msgstr "Мащаб"
+
+#: ../src/gcompris/config.c:372
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Не може да бъде отворена папка с тема: %s"
 
-#: ../src/gcompris/config.c:378 ../src/gcompris/config.c:773
-#: ../src/gcompris/config.c:787
+#: ../src/gcompris/config.c:403 ../src/gcompris/config.c:807
+#: ../src/gcompris/config.c:821
 #, c-format
 msgid "Skin : %s"
 msgstr "Тема : %s"
 
-#: ../src/gcompris/config.c:380
+#: ../src/gcompris/config.c:405
 msgid "SKINS NOT FOUND"
 msgstr "ТЕМИТЕ НЕ СА ОТКРИТИ"
 
-#: ../src/gcompris/config.c:462
+#: ../src/gcompris/config.c:487
 msgid "English (United State)"
 msgstr "американски английски"
 
@@ -2903,15 +2912,15 @@ msgstr "ЗАРЕЖДАНЕ"
 msgid "SAVE"
 msgstr "ЗАПАЗВАНЕ"
 
-#: ../src/gcompris/gameutil.c:138 ../src/gcompris/gameutil.c:196
+#: ../src/gcompris/gameutil.c:142 ../src/gcompris/gameutil.c:200
 msgid "Couldn't find or load the file"
 msgstr "Неуспех при намирането или зареждането на файла"
 
-#: ../src/gcompris/gameutil.c:140 ../src/gcompris/gameutil.c:198
+#: ../src/gcompris/gameutil.c:144 ../src/gcompris/gameutil.c:202
 msgid "This activity is incomplete."
 msgstr "Това занимание не е завършено."
 
-#: ../src/gcompris/gameutil.c:141 ../src/gcompris/gameutil.c:199
+#: ../src/gcompris/gameutil.c:145 ../src/gcompris/gameutil.c:203
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -2919,41 +2928,41 @@ msgstr ""
 "Изход и докладване на\n"
 "проблема на авторите."
 
-#: ../src/gcompris/gcompris.c:148
+#: ../src/gcompris/gcompris.c:151
 msgid "run GCompris in fullscreen mode."
 msgstr "стартиране на GCompris на цял екран."
 
-#: ../src/gcompris/gcompris.c:151
+#: ../src/gcompris/gcompris.c:154
 msgid "run GCompris in window mode."
 msgstr "стартиране на GCompris в прозорец."
 
-#: ../src/gcompris/gcompris.c:154
+#: ../src/gcompris/gcompris.c:157
 msgid "run GCompris with sound enabled."
 msgstr "стартиране на GCompris с включен звук."
 
-#: ../src/gcompris/gcompris.c:157
+#: ../src/gcompris/gcompris.c:160
 msgid "run GCompris without sound."
 msgstr "стартиране на GCompris без звук."
 
-#: ../src/gcompris/gcompris.c:160
+#: ../src/gcompris/gcompris.c:163
 msgid "run GCompris with the default gnome cursor."
 msgstr ""
 "стартиране на GCompris със стандартния курсор на\n"
 "                           GNOME."
 
-#: ../src/gcompris/gcompris.c:163
+#: ../src/gcompris/gcompris.c:166
 msgid "display only activities with this difficulty level."
 msgstr "показване на занимания само от това ниво на трудност."
 
-#: ../src/gcompris/gcompris.c:166
+#: ../src/gcompris/gcompris.c:169
 msgid "display debug informations on the console."
 msgstr "показване на информация за грешки в конзолата."
 
-#: ../src/gcompris/gcompris.c:169
+#: ../src/gcompris/gcompris.c:172
 msgid "Print the version of "
 msgstr "Отпечатване на версията на "
 
-#: ../src/gcompris/gcompris.c:172
+#: ../src/gcompris/gcompris.c:175
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
@@ -2968,36 +2977,36 @@ msgstr ""
 "списък\n"
 "                           с всички налични занимания и техните описания."
 
-#: ../src/gcompris/gcompris.c:177
+#: ../src/gcompris/gcompris.c:180
 msgid "GCompris will find the data dir in this directory"
 msgstr "GCompris ще търси папката с данни в тази папка"
 
-#: ../src/gcompris/gcompris.c:180
+#: ../src/gcompris/gcompris.c:183
 msgid "GCompris will find the skins in this directory"
 msgstr "GCompris ще търси темите в тази папка"
 
-#: ../src/gcompris/gcompris.c:183
+#: ../src/gcompris/gcompris.c:186
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "GCompris ще търси приставките за дейности в тази папка"
 
-#: ../src/gcompris/gcompris.c:186
+#: ../src/gcompris/gcompris.c:189
 msgid "GCompris will find the python activity in this directory"
 msgstr "GCompris ще търси заниманието с Питон в тази папка"
 
-#: ../src/gcompris/gcompris.c:189
+#: ../src/gcompris/gcompris.c:192
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr ""
 "GCompris ще търси файла за локала (превод във формат „.mo“) в тази папка"
 
-#: ../src/gcompris/gcompris.c:192
+#: ../src/gcompris/gcompris.c:195
 msgid "GCompris will find the activities menu in this directory"
 msgstr "GCompris ще търси менюто за заниманията в тази папка"
 
-#: ../src/gcompris/gcompris.c:195
+#: ../src/gcompris/gcompris.c:198
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Стартиране на GCompris в административен режим"
 
-#: ../src/gcompris/gcompris.c:198
+#: ../src/gcompris/gcompris.c:201
 msgid ""
 "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
@@ -3005,29 +3014,29 @@ msgstr ""
 "Използване на алтернативна база от данни за профилите\n"
 "                           [$HOME/.config/gcompris/gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:201
+#: ../src/gcompris/gcompris.c:204
 msgid "Create the alternate database for profiles"
 msgstr "Създаване на алтернативна база от данни за профили"
 
-#: ../src/gcompris/gcompris.c:204
+#: ../src/gcompris/gcompris.c:207
 msgid "Re-read XML Menus and store them in the database"
 msgstr ""
 "Препрочитане на менютата в XML и запазване в базата\n"
 "                           от данни"
 
-#: ../src/gcompris/gcompris.c:207
+#: ../src/gcompris/gcompris.c:210
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Задаване на профила. Използвайте „gcompris -a“,\n"
 "                           за да създадете профили"
 
-#: ../src/gcompris/gcompris.c:210
+#: ../src/gcompris/gcompris.c:213
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Списък с всички налични профили. Използвайте\n"
 "                           „gcompris -a“, за да създадете профили"
 
-#: ../src/gcompris/gcompris.c:213
+#: ../src/gcompris/gcompris.c:216
 msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
@@ -3035,25 +3044,25 @@ msgstr ""
 "Папка с конфигурацията: [$HOME/.config/gcompris]\n"
 "                           Алтернативно може да се зададе $XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:216
+#: ../src/gcompris/gcompris.c:219
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr ""
 "Местоположение на потребителските папки:\n"
 "                           [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:219
+#: ../src/gcompris/gcompris.c:222
 msgid "Run the experimental activities"
 msgstr "Експериментални занимания"
 
-#: ../src/gcompris/gcompris.c:222
+#: ../src/gcompris/gcompris.c:225
 msgid "Disable the quit button"
 msgstr "Изключване на бутона за спиране на програмата"
 
-#: ../src/gcompris/gcompris.c:225
+#: ../src/gcompris/gcompris.c:228
 msgid "Disable the config button"
 msgstr "Изключване на бутона за настройване на програмата"
 
-#: ../src/gcompris/gcompris.c:228
+#: ../src/gcompris/gcompris.c:231
 msgid ""
 "GCompris will get images, sounds and activity data from this server if not "
 "found locally."
@@ -3063,7 +3072,7 @@ msgstr ""
 "могат\n"
 "                           да бъдат намерени локално."
 
-#: ../src/gcompris/gcompris.c:231
+#: ../src/gcompris/gcompris.c:234
 msgid ""
 "Only when --server is provided, disable check for local resource first. Data "
 "are always taken from the web server."
@@ -3072,14 +3081,14 @@ msgstr ""
 "                           проверката за локални ресурси. Данните винаги се\n"
 "                           вземат от уеб-сървъра."
 
-#: ../src/gcompris/gcompris.c:235
+#: ../src/gcompris/gcompris.c:238
 msgid ""
 "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr ""
 "В сървърен режим, указва папката за кеш,\n"
 "                           използвана за избягване на излишните изтегляния."
 
-#: ../src/gcompris/gcompris.c:238
+#: ../src/gcompris/gcompris.c:241
 msgid ""
 "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr ""
@@ -3087,13 +3096,13 @@ msgstr ""
 "                           натискания, и двете. Стандартният режим е "
 "нормален."
 
-#: ../src/gcompris/gcompris.c:241
+#: ../src/gcompris/gcompris.c:244
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr ""
 "Да не се избягва изпълнението на множество инстанции\n"
 "                           на GCompris."
 
-#: ../src/gcompris/gcompris.c:916
+#: ../src/gcompris/gcompris.c:902
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -3114,7 +3123,7 @@ msgstr ""
 "Линукс. Може да намерите повече информация на страниците на FSF:\n"
 "<http://www.fsf.org/philosophy.bg.html>"
 
-#: ../src/gcompris/gcompris.c:1353
+#: ../src/gcompris/gcompris.c:1349
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
@@ -3122,12 +3131,12 @@ msgstr ""
 "GCompris няма да се стартира, защото заключващият файл е по-нов от %d "
 "секунди.\n"
 
-#: ../src/gcompris/gcompris.c:1355
+#: ../src/gcompris/gcompris.c:1351
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Заключващият файл е: %s\n"
 
-#: ../src/gcompris/gcompris.c:1469
+#: ../src/gcompris/gcompris.c:1465
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3141,27 +3150,27 @@ msgstr ""
 "Повече информация на http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1575
+#: ../src/gcompris/gcompris.c:1571
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Използвайте „-l“ за директен достъп до заниманието.\n"
 
-#: ../src/gcompris/gcompris.c:1576
+#: ../src/gcompris/gcompris.c:1572
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Списъкът с наличните занимания е :\n"
 
-#: ../src/gcompris/gcompris.c:1607
+#: ../src/gcompris/gcompris.c:1603
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Брой занимания: %d\n"
 
-#: ../src/gcompris/gcompris.c:1643
+#: ../src/gcompris/gcompris.c:1639
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s съществува, но няма права за четене или запис"
 
-#: ../src/gcompris/gcompris.c:1706
+#: ../src/gcompris/gcompris.c:1702
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
@@ -3170,7 +3179,7 @@ msgstr ""
 "Опцията „--server“ не може да се използва, защото GCompris е компилиран без "
 "мрежова поддръжка."
 
-#: ../src/gcompris/gcompris.c:1760
+#: ../src/gcompris/gcompris.c:1756
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3179,7 +3188,7 @@ msgstr ""
 "ГРЕШКА: Профилът „%s“ не е открит. За списък с наличните профили изпълнете "
 "„gcompris --profile-list“\n"
 
-#: ../src/gcompris/gcompris.c:1774
+#: ../src/gcompris/gcompris.c:1770
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Списъкът с наличните профили е:\n"
@@ -3208,11 +3217,11 @@ msgstr "Ръководство"
 msgid "Credit"
 msgstr "Заслуги"
 
-#: ../src/gcompris/properties.c:492 ../src/gcompris/properties.c:499
+#: ../src/gcompris/properties.c:497 ../src/gcompris/properties.c:504
 msgid "readme"
 msgstr "прочети_ме"
 
-#: ../src/gcompris/properties.c:494
+#: ../src/gcompris/properties.c:499
 msgid ""
 "This directory contains the files you create with the GCompris educational "
 "suite\n"
@@ -3220,7 +3229,7 @@ msgstr ""
 "Тази папка съдържа файловете, които създавате с образователната серия "
 "GCompris\n"
 
-#: ../src/gcompris/properties.c:501
+#: ../src/gcompris/properties.c:506
 msgid ""
 "Put any number of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
@@ -3843,23 +3852,23 @@ msgstr "Замбия"
 msgid "Zimbabwe"
 msgstr "Зимбабве"
 
-#: ../src/gletters-activity/gletters.c:131
+#: ../src/gletters-activity/gletters.c:132
 #: ../src/gletters-activity/gletters.xml.in.h:3
 msgid "Simple Letters"
 msgstr "Прости букви"
 
-#: ../src/gletters-activity/gletters.c:132
+#: ../src/gletters-activity/gletters.c:133
 #: ../src/gletters-activity/gletters.xml.in.h:4
 msgid "Type the falling letters before they reach the ground"
 msgstr "Напишете падащите букви, преди да са достигнали земята"
 
 #. TRANSLATORS: Put here the numbers in your language
-#: ../src/gletters-activity/gletters.c:224 ../src/memory-activity/memory.c:930
+#: ../src/gletters-activity/gletters.c:225 ../src/memory-activity/memory.c:930
 msgid "0123456789"
 msgstr "0123456789"
 
 #. TRANSLATORS: Put here the alphabet uppercase in your language
-#: ../src/gletters-activity/gletters.c:234 ../src/memory-activity/memory.c:940
+#: ../src/gletters-activity/gletters.c:235 ../src/memory-activity/memory.c:940
 msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 msgstr "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЬЮЯ"
 
@@ -3869,15 +3878,15 @@ msgstr "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЬЮЯ"
 #. the dict passed to the apply_callback
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
-#: ../src/gletters-activity/gletters.c:847
+#: ../src/gletters-activity/gletters.c:852
 #: ../src/imageid-activity/imageid.c:714 ../src/login-activity/login.py:476
 #: ../src/missing_letter-activity/missingletter.c:749
 #: ../src/pythontest-activity/pythontest.py:454
 #: ../src/readingh-activity/reading.c:880
-#: ../src/scalesboard-activity/scale.c:1139
-#: ../src/smallnumbers-activity/smallnumbers.c:576
+#: ../src/scalesboard-activity/scale.c:1161
+#: ../src/smallnumbers-activity/smallnumbers.c:577
 #: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:767
+#: ../src/wordsgame-activity/wordsgame.c:768
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -3886,8 +3895,8 @@ msgstr ""
 "Настройки на <b>%s</b>\n"
 " за профил <b>%s</b>"
 
-#: ../src/gletters-activity/gletters.c:876
-#: ../src/smallnumbers-activity/smallnumbers.c:595
+#: ../src/gletters-activity/gletters.c:881
+#: ../src/smallnumbers-activity/smallnumbers.c:596
 msgid "Enable sounds"
 msgstr "Активиране на звуците"
 
@@ -4770,17 +4779,17 @@ msgstr "Пребройте колко обекти има под магичес�
 msgid "Learn addition"
 msgstr "Учене на събиране"
 
-#: ../src/maze-activity/maze.c:131 ../src/maze-activity/maze.xml.in.h:4
+#: ../src/maze-activity/maze.c:132 ../src/maze-activity/maze.xml.in.h:4
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:4
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:4
 msgid "Maze"
 msgstr "Лабиринт"
 
-#: ../src/maze-activity/maze.c:132 ../src/maze-activity/maze.xml.in.h:2
+#: ../src/maze-activity/maze.c:133 ../src/maze-activity/maze.xml.in.h:2
 msgid "Find your way out of the maze"
 msgstr "Намерете изхода от лабиринта"
 
-#: ../src/maze-activity/maze.c:499
+#: ../src/maze-activity/maze.c:500
 msgid ""
 "Look at your position, then switch back to invisible mode to continue your "
 "moves"
@@ -4788,7 +4797,7 @@ msgstr ""
 "Погледнете местоположението си и превключете обратно в невидим режим, за да "
 "се движите"
 
-#: ../src/maze-activity/maze.c:501
+#: ../src/maze-activity/maze.c:502
 msgid ""
 "Look at your position, then switch back to 3D mode to continue your moves"
 msgstr ""
@@ -4910,9 +4919,8 @@ msgstr "две"
 msgid "three"
 msgstr "три"
 
-# FIXME
 #: ../src/memory-activity/memory.c:284
-msgid "for"
+msgid "four"
 msgstr "четири"
 
 #: ../src/memory-activity/memory.c:285
@@ -5169,7 +5177,7 @@ msgstr "Упражнения по броене и памет"
 #: ../src/memory_enumerate-activity/memory_enumerate.xml.in.h:4
 msgid "Turn the cards over to match the number with the drawn picture."
 msgstr ""
-"Обърнете картите, за да намерите съвпадащите чифтове – число с картинка."
+"Обърнете картите, за да намерите съвпадащите чифтове — число с картинка."
 
 #: ../src/memory_enumerate-activity/memory_enumerate.xml.in.h:5
 msgid ""
@@ -5677,11 +5685,11 @@ msgstr "Пиер-Огюст Реноар, „Бал в мелницата Ла �
 
 #: ../src/paintings-activity/resources/paintings/board1_2.xml.in.h:1
 msgid "Giuseppe Arcimboldo, Spring - 1573"
-msgstr "Джузепе Арчимболдо, „Пролет“ – 1573"
+msgstr "Джузепе Арчимболдо, „Пролет“ — 1573"
 
 #: ../src/paintings-activity/resources/paintings/board1_3.xml.in.h:1
 msgid "Giuseppe Arcimboldo, The Librarian - 1566)"
-msgstr "Джузепе Арчимболдо, „Библиотекарят“ – 1573"
+msgstr "Джузепе Арчимболдо, „Библиотекарят“ — 1573"
 
 # FIXME
 #: ../src/paintings-activity/resources/paintings/board1_5.xml.in.h:1
@@ -5690,15 +5698,15 @@ msgstr "Жена с ветрило"
 
 #: ../src/paintings-activity/resources/paintings/board2_1.xml.in.h:1
 msgid "Botticelli, Primavera - 1482"
-msgstr "Ботичели, „Пролет“ – 1482"
+msgstr "Ботичели, „Пролет“ — 1482"
 
 #: ../src/paintings-activity/resources/paintings/board2_2.xml.in.h:1
 msgid "Caravage, Rest on the Flight into Egypt - 1597"
-msgstr "Караваджо, „Отдих на път за Египет“ – 1597"
+msgstr "Караваджо, „Отдих на път за Египет“ — 1597"
 
 #: ../src/paintings-activity/resources/paintings/board2_3.xml.in.h:1
 msgid "Botticelli, The Birth of Venus - 1482–1486"
-msgstr "Ботичели, „Раждането на Венера“ – 1482-1486"
+msgstr "Ботичели, „Раждането на Венера“ — 1482-1486"
 
 #: ../src/paintings-activity/resources/paintings/board3_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
@@ -5785,11 +5793,15 @@ msgstr "Натиснете два пъти топката, за да отбел�
 msgid "Penalty kick"
 msgstr "Дузпа"
 
-#: ../src/photohunter-activity/photohunter.c:136
+#: ../src/photohunter-activity/photohunter.c:137
 msgid "Error: Absolutely no photo found in the data directory"
 msgstr "Грешка: липсват всички изображения в папката за данни"
 
-#: ../src/photohunter-activity/photohunter.c:564
+#: ../src/photohunter-activity/photohunter.c:394
+msgid "Click on the differences between the two images."
+msgstr "Натиснете разликите между двете изображения"
+
+#: ../src/photohunter-activity/photohunter.c:590
 msgid "Error: Abnormally failed to load a data file"
 msgstr "Грешка: файл с данни не може да бъде зареден"
 
@@ -6031,12 +6043,8 @@ msgid "is being displayed"
 msgstr "е показана"
 
 #: ../src/readingh-activity/reading.c:456
-msgid "We skip this level because there are not enough word in the list!"
+msgid "We skip this level because there are not enough words in the list!"
 msgstr "Това ниво се пропуска, защото няма достатъчно думи в списъка!"
-
-#: ../src/readingh-activity/reading.c:621
-msgid "I am Ready"
-msgstr "Готов(а) съм"
 
 #: ../src/readingh-activity/reading.c:686
 msgid "No, it was not there"
@@ -6167,17 +6175,17 @@ msgstr ""
 "Тъкс е гладен. Помогнете му да намери рибата, като броите до правилния леден "
 "блок."
 
-#: ../src/scalesboard-activity/scale.c:293
+#: ../src/scalesboard-activity/scale.c:294
 #, c-format
 msgid "Weight in g = %s"
 msgstr "Тегло = %s грама"
 
-#: ../src/scalesboard-activity/scale.c:295
+#: ../src/scalesboard-activity/scale.c:296
 #, c-format
 msgid "Weight = %s"
 msgstr "Тегло = %s"
 
-#: ../src/scalesboard-activity/scale.c:986
+#: ../src/scalesboard-activity/scale.c:1008
 msgid "Take care, you can drop masses on both sides of the scale."
 msgstr ""
 "Обърнете внимание, че може да слагате тежести и на двете страни на кантара."
@@ -6342,7 +6350,7 @@ msgid ""
 "is 1000 grams (g). They can be arranged in any order."
 msgstr ""
 "За да уравновесите кантара, движете тежестите от лявата страна или дясната "
-"страна. Внимавайте с големината и мерните единици – 1 килограм е равен на "
+"страна. Внимавайте с големината и мерните единици — 1 килограм е равен на "
 "1000 грама. Тежестите могат да се подреждат във всякакъв ред."
 
 #: ../src/searace1player-activity/searace1player.xml.in.h:1
