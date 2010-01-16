@@ -44,7 +44,7 @@ AM_GLIB_GNU_GETTEXT
 # Check required GNOME libraries
 #*******************************************************************************
 
-GTK_REQUIRED=2.4.0
+GTK_REQUIRED=2.12.0
 LIBRSVG_REQUIRED=2.26.0
 LIBXML_REQUIRED=2.7.3
 
