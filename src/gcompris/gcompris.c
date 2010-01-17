@@ -800,6 +800,10 @@ static void setup_window ()
 
   canvas     = goo_canvas_new();
 
+  g_object_set (canvas,
+		"has-tooltip", TRUE,
+		NULL);
+
   g_object_set (G_OBJECT(goo_canvas_get_root_item(GOO_CANVAS(canvas))),
 		"can-focus", TRUE,
 		NULL);

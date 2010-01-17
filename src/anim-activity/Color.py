@@ -25,6 +25,8 @@ import gcompris.sound
 import gtk
 import gtk.gdk
 
+from gcompris import gcompris_gettext as _
+
 # This is the color selector of the animation activity.
 
 class Color:
@@ -81,6 +83,7 @@ class Color:
             fill_color_rgba = self.fill,
             stroke_color_rgba = 0xFFFFFFFFL,
             line_width=1.0,
+            tooltip = _("Fill color...")
             )
 
         self.strokecolor_tool = goocanvas.Rect(
@@ -92,6 +95,7 @@ class Color:
             fill_color_rgba = self.stroke,
             stroke_color_rgba = 0xFFFFFFFFL,
             line_width=1.0,
+            tooltip = _("Stroke color...")
             )
 
         self.fillcolor_tool.connect("button_press_event",

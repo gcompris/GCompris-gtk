@@ -743,13 +743,14 @@ class Gcompris_anim:
 
     # Draw the background area
 
-      goocanvas.Image(
-        parent = self.rootitem,
+    goocanvas.Image(
+      parent = self.rootitem,
       pixbuf = gcompris.utils.load_pixmap("anim/counter.png"),
       x=x_left - -11,
-      y=y_top - 2,
+      y=y_top - 20,
       width=70.0,
       height=34.0,
+      tooltip = _("Current frame")
       )
 
 
