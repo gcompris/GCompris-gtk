@@ -144,7 +144,6 @@ static void _init(GcomprisBoard *agcomprisBoard)
   gcomprisBoard_missing->sublevel=1;
   gcomprisBoard_missing->number_of_sublevel=G_MAXINT;
 
-  init_xml(gcomprisBoard_missing->level);
 }
 
 /*
@@ -199,7 +198,6 @@ set_level (guint level)
     {
       gcomprisBoard_missing->level=level;
       gcomprisBoard_missing->sublevel=1;
-      init_xml(gcomprisBoard_missing->level);
       missing_letter_next_level();
     }
 }
@@ -644,12 +642,14 @@ void
 missing_destroy_board_list(GList *list)
 {
   Board *board;
-  while(g_list_length(list)>0)
+  guint length = g_list_length(list);
+
+  while( length-- )
     {
-      board = g_list_nth_data(list, 0);
-      list = g_list_remove (list, board);
+      board = g_list_nth_data(list, length);
       destroy_board(board);
     }
+  g_list_free(list);
 }
 
 /* ======================================= */
@@ -717,6 +717,7 @@ conf_ok(GHashTable *table)
       g_hash_table_destroy(config);
 
     missing_destroy_board_list(board_list);
+    board_list = NULL;
 
     init_xml(gcomprisBoard_missing->level);
 
