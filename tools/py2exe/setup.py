@@ -15,12 +15,9 @@ setup(
     options = {
                   'py2exe': {
                       'packages':'encodings',
-                      'includes': 'cairo, pango, pangocairo, atk, gobject',
+                      'includes': 'cairo, pango, pangocairo, atk, gobject, sqlite3',
                   }
               },
 
-    data_files= [
-                  ("Microsoft.VC90.CRT", py26MSdll),
-                  ("lib\Microsoft.VC90.CRT", py26MSdll)
-                ]
+    data_files= []
 )
