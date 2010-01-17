@@ -24,6 +24,7 @@ SUBDIRS = goocanvas gcompris boards \
 	enumerate-activity \
 	erase-activity \
 	erase_clic-activity \
+	erase_2clic-activity \
 	fifteen-activity \
 	geography-activity \
 	geo_country-activity \

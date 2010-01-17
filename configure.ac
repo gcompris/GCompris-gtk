@@ -660,6 +660,7 @@ src/erase-activity/Makefile
 src/erase-activity/resources/Makefile
 src/erase-activity/resources/erase/Makefile
 src/erase_clic-activity/Makefile
+src/erase_2clic-activity/Makefile
 src/fifteen-activity/Makefile
 src/fifteen-activity/resources/Makefile
 src/fifteen-activity/resources/fifteen/Makefile
