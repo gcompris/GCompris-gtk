@@ -61,7 +61,6 @@ be provided and where.
 3: BUILDING GCOMPRIS.EXE
 ========================
 * On GNU/Linux run make install to install the translations then:
-  make -f Makefile.mingw svg2png - Until we have svg support on Windows
   make -f Makefile.mingw prep - create the win32-install-dir
   make -f Makefile.mingw  - compilation step
   make -f Makefile.mingw  prepack - include all necessary libraries in the installer directory
