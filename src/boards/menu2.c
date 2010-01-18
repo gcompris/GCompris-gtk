@@ -701,7 +701,7 @@ create_info_area(GooCanvasItem *parent, MenuItems *menuitems)
     goo_canvas_text_new (parent,
 			 "",
 			 x,
-			 y + 54,
+			 y + 70,
 			 info_w - 10,
 			 GTK_ANCHOR_CENTER,
 			 "font", gc_skin_font_board_medium,
