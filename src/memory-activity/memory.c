@@ -651,7 +651,7 @@ void get_random_token(int token_type, gint *returned_type, gchar **string, gchar
       {
       result = g_malloc0(2*sizeof(gunichar));
       g_utf8_strncpy(result, g_utf8_offset_to_pointer (numbers,k),1);
-      second = g_strdup(wordnumberList[k]);
+      second = g_strdup(gettext(wordnumberList[k]));
       break;
       }
     default:
@@ -1757,7 +1757,6 @@ compare_card (gconstpointer a,
 {
   MemoryItem *card1 = (MemoryItem *)a;
   MemoryItem *card2 = (MemoryItem *)b;
-
   if (card1->type & (TYPE_ADD|TYPE_MINUS|TYPE_MULT|TYPE_DIV|TYPE_ENUMERATE|TYPE_ENUMERATE_IMAGE|TYPE_WORDNUMBER)){
     if ((!card1->second_value) && ( card2->second_value)){
       return strcmp(card1->data,card2->second_value);
