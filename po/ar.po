@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-17 13:52+0200\n"
-"PO-Revision-Date: 2010-01-17 13:51+0300\n"
+"POT-Creation-Date: 2010-01-19 22:51+0200\n"
+"PO-Revision-Date: 2010-01-19 22:51+0300\n"
 "Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
 "MIME-Version: 1.0\n"
@@ -1179,6 +1179,14 @@ msgstr "حرك وانقر الفأرة"
 msgid "algorithm"
 msgstr "الخوارزميات"
 
+#: ../src/anim-activity/Color.py:86
+msgid "Fill color..."
+msgstr "لون التّعبئة..."
+
+#: ../src/anim-activity/Color.py:98
+msgid "Stroke color..."
+msgstr "لون الحدود..."
+
 #: ../src/anim-activity/anim.py:103
 msgid "Save..."
 msgstr "ا_حفظ..."
@@ -1244,6 +1252,10 @@ msgstr "ارفع"
 #: ../src/anim-activity/anim.py:193
 msgid "Lower"
 msgstr "اخفض"
+
+#: ../src/anim-activity/anim.py:753
+msgid "Current frame"
+msgstr "الإطار الحالي"
 
 #: ../src/anim-activity/anim.xml.in.h:1
 msgid "Create a drawing or an animation"
@@ -1530,7 +1542,7 @@ msgstr ""
 msgid "bar game"
 msgstr "لعبة الخط المستقيم"
 
-#: ../src/billard-activity/billard.c:89 ../src/erase-activity/erase.c:122
+#: ../src/billard-activity/billard.c:89 ../src/erase-activity/erase.c:123
 #: ../src/erase-activity/erase.xml.in.h:4
 msgid "Move the mouse"
 msgstr "حرك الفأرة"
@@ -2394,7 +2406,7 @@ msgstr ""
 "عنه في المساحة السفلية اليمنى. أدخل الإجابة بواسطة لوحة المفاتيح ثم انقر على "
 "'موافق' أو اضغط زر الإدخال."
 
-#: ../src/erase-activity/erase.c:123 ../src/erase-activity/erase.xml.in.h:5
+#: ../src/erase-activity/erase.c:124 ../src/erase-activity/erase.xml.in.h:5
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "حرك الفأرة لمحو الشاشة واكتشاف الخلفية"
 
@@ -3094,7 +3106,7 @@ msgstr ""
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "لا تتجنب تشغيل عدة نسخ من «فهمت» في وقت واحد."
 
-#: ../src/gcompris/gcompris.c:902
+#: ../src/gcompris/gcompris.c:906
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -3114,18 +3126,18 @@ msgstr ""
 "البرمجيات الحرة:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1349
+#: ../src/gcompris/gcompris.c:1353
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
 msgstr "لن يبدأ «فهمت» لأن ملف القفل أحدث من %d ثوانِ.\n"
 
-#: ../src/gcompris/gcompris.c:1351
+#: ../src/gcompris/gcompris.c:1355
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "ملف القفل: %s\n"
 
-#: ../src/gcompris/gcompris.c:1465
+#: ../src/gcompris/gcompris.c:1469
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3139,34 +3151,34 @@ msgstr ""
 "لمزيد من المعلومات زر الصفحة http://gcompris.net \n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1571
+#: ../src/gcompris/gcompris.c:1575
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "استخدم l- للوصول إلى نشاط معين مباشرة.\n"
 
-#: ../src/gcompris/gcompris.c:1572
+#: ../src/gcompris/gcompris.c:1576
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "قائمة الأنشطة المتاحة: \n"
 
-#: ../src/gcompris/gcompris.c:1603
+#: ../src/gcompris/gcompris.c:1607
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "عدد الأنشطة: %d\n"
 
-#: ../src/gcompris/gcompris.c:1639
+#: ../src/gcompris/gcompris.c:1643
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "‏%s موجود لكن لا يمكن قراءته أو الكتابة به"
 
-#: ../src/gcompris/gcompris.c:1702
+#: ../src/gcompris/gcompris.c:1706
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
 "without network support!"
 msgstr "لا يمكن استخدام خيار ‪--server‬ لأن \"فهمت\" لم يُصرَّف مع دعم الشبكة"
 
-#: ../src/gcompris/gcompris.c:1756
+#: ../src/gcompris/gcompris.c:1760
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3175,7 +3187,7 @@ msgstr ""
 "خطأ: اللاحة '%s' غير موجودة. شغل 'gcompris --profile-list' لترى اللاحات "
 "المتاحة\n"
 
-#: ../src/gcompris/gcompris.c:1770
+#: ../src/gcompris/gcompris.c:1774
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "قائمة الملفات الشخصية المتاحة: \n"
