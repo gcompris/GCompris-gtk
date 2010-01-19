@@ -486,7 +486,6 @@ static void player_win(GooCanvasItem *item)
   gc_sound_play_ogg ("sounds/flip.wav", NULL);
 
   gcomprisBoard->sublevel++;
-  gc_score_set(gcomprisBoard->sublevel);
 
   if(gcomprisBoard->sublevel>gcomprisBoard->number_of_sublevel)
     {
