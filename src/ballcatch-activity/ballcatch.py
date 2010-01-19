@@ -26,6 +26,7 @@ import gcompris.bonus
 import gcompris.sound
 import gtk
 import gtk.gdk
+import pango
 from gcompris import gcompris_gettext as _
 
 # ----------------------------------------
@@ -64,6 +65,20 @@ class Gcompris_ballcatch:
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains automaticaly.
     self.rootitem = goocanvas.Group(parent =  self.gcomprisBoard.canvas.get_root_item())
+
+    # The instructions
+    self.instruction = goocanvas.Text(
+      parent = self.rootitem,
+      x = 600.0,
+      y = 300.0,
+      width = 250,
+      text = _("Press the two shift keys at the same time,"
+               " to make the ball go in a straight line."),
+      fill_color = "black",
+      anchor = gtk.ANCHOR_CENTER,
+      alignment = pango.ALIGN_CENTER
+      )
+
 
     # Tux
     goocanvas.Image(
@@ -151,6 +166,9 @@ class Gcompris_ballcatch:
 
     if (keyval == gtk.keysyms.Shift_R):
       self.right_continue = False
+
+    if (not self.left_continue and not self.right_continue):
+      self.instruction.props.visibility = goocanvas.ITEM_INVISIBLE
 
     return False
 
