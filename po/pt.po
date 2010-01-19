@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-30 17:43+0000\n"
-"PO-Revision-Date: 2009-03-17 21:21-0100\n"
+"POT-Creation-Date: 2010-01-19 00:04+0000\n"
+"PO-Revision-Date: 2010-01-19 00:10-0100\n"
 "Last-Translator: IFILP-TEC <tec.ifilp.org/info?gcompris>\n"
 "Language-Team: IFILP-TEC <tec.ifilp.org/info?gcompris>\n"
 "MIME-Version: 1.0\n"
@@ -207,7 +207,7 @@ msgstr ""
 msgid "GCompris Main Menu"
 msgstr "Menu Principal do GCompris"
 
-#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:856
+#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:859
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -374,7 +374,7 @@ msgstr ""
 #: ../src/administration-activity/admin/board_list.py:663
 #: ../src/colors-activity/colors.c:181
 #: ../src/pythontest-activity/pythontest.py:518
-#: ../src/smallnumbers-activity/smallnumbers.c:597
+#: ../src/smallnumbers-activity/smallnumbers.c:617
 msgid "Select sound locale"
 msgstr "Idioma do som:"
 
@@ -1057,10 +1057,15 @@ msgid "veronese"
 msgstr "verde-garrafa"
 
 #. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
-#: ../src/algebra_by-activity/algebra.c:181
+#: ../src/algebra_by-activity/algebra.c:186
 #: ../src/memory-activity/memory.c:945
 msgid "+-×÷"
 msgstr "+−×÷"
+
+#: ../src/algebra_by-activity/algebra.c:408
+#: ../src/readingh-activity/reading.c:621
+msgid "I am Ready"
+msgstr "Começar"
 
 #: ../src/algebra_by-activity/algebra_by.xml.in.h:1
 msgid ""
@@ -1235,6 +1240,84 @@ msgstr "Ser capaz de utilizar o rato — movê-lo e clicar nos seus botões."
 #: ../src/algorithm-activity/algorithm.xml.in.h:5
 msgid "algorithm"
 msgstr "Sequência Lógica"
+
+#: ../src/anim-activity/Color.py:86
+msgid "Fill color..."
+msgstr "Cor de enchimento..."
+
+#: ../src/anim-activity/Color.py:98
+msgid "Stroke color..."
+msgstr "Cor da pincelada..."
+
+#: ../src/anim-activity/anim.py:103
+msgid "Save..."
+msgstr "Gravar..."
+
+#: ../src/anim-activity/anim.py:109
+msgid "Load..."
+msgstr "Ler..."
+
+#: ../src/anim-activity/anim.py:115
+msgid "Run the animation"
+msgstr "Executar a animação"
+
+#: ../src/anim-activity/anim.py:121
+msgid "Select"
+msgstr "Seleccionar"
+
+#: ../src/anim-activity/anim.py:127
+msgid "Rectangle"
+msgstr "Rectângulo"
+
+#: ../src/anim-activity/anim.py:133
+msgid "Filled rectangle"
+msgstr "Rectângulo preenchido"
+
+#: ../src/anim-activity/anim.py:139
+msgid "Circle"
+msgstr "Círculo"
+
+#: ../src/anim-activity/anim.py:145
+msgid "Filled circle"
+msgstr "Círculo preenchido"
+
+#: ../src/anim-activity/anim.py:151
+msgid "Line"
+msgstr "Linha"
+
+#: ../src/anim-activity/anim.py:157
+#: ../src/wordprocessor-activity/wordprocessor.c:87
+#: ../src/wordprocessor-activity/wordprocessor.c:426
+msgid "Text"
+msgstr "Texto"
+
+#: ../src/anim-activity/anim.py:163
+msgid "Image..."
+msgstr "Imagem..."
+
+#: ../src/anim-activity/anim.py:169
+msgid "Fill"
+msgstr "Preencher"
+
+#: ../src/anim-activity/anim.py:175
+msgid "Delete"
+msgstr "Apagar"
+
+#: ../src/anim-activity/anim.py:181
+msgid "Flip"
+msgstr "Rodar"
+
+#: ../src/anim-activity/anim.py:187
+msgid "Raise"
+msgstr "Aproximar"
+
+#: ../src/anim-activity/anim.py:193
+msgid "Lower"
+msgstr "Afastar"
+
+#: ../src/anim-activity/anim.py:753
+msgid "Current frame"
+msgstr "Fotograma actual"
 
 #: ../src/anim-activity/anim.xml.in.h:1
 msgid "Create a drawing or an animation"
@@ -1566,7 +1649,7 @@ msgstr ""
 msgid "bar game"
 msgstr "Jogo das Bolas"
 
-#: ../src/billard-activity/billard.c:89 ../src/erase-activity/erase.c:122
+#: ../src/billard-activity/billard.c:89 ../src/erase-activity/erase.c:123
 #: ../src/erase-activity/erase.xml.in.h:4
 msgid "Move the mouse"
 msgstr "Move o Rato"
@@ -1733,12 +1816,12 @@ msgstr ""
 "enviadas são recebidas apenas pelos computadores que estiverem ligados à "
 "rede local."
 
-#: ../src/chess_computer-activity/chess.c:215
+#: ../src/chess_computer-activity/chess.c:223
 msgid "Error: The external program gnuchess died unexpectedly"
 msgstr "Erro: a aplicação externa «gnuchess» ficou inesperadamente bloqueada."
 
-#: ../src/chess_computer-activity/chess.c:250
-#: ../src/chess_computer-activity/chess.c:296
+#: ../src/chess_computer-activity/chess.c:258
+#: ../src/chess_computer-activity/chess.c:304
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -1748,36 +1831,36 @@ msgstr ""
 "para jogar xadrez no GCompris.\n"
 "Por favor, instale-a e depois verifique se está activa."
 
-#: ../src/chess_computer-activity/chess.c:636
+#: ../src/chess_computer-activity/chess.c:644
 msgid "White's Turn"
 msgstr "Jogam as brancas."
 
-#: ../src/chess_computer-activity/chess.c:636
+#: ../src/chess_computer-activity/chess.c:644
 msgid "Black's Turn"
 msgstr "Jogam as pretas."
 
-#: ../src/chess_computer-activity/chess.c:777
+#: ../src/chess_computer-activity/chess.c:785
 msgid "White checks"
 msgstr "Xeque das brancas."
 
-#: ../src/chess_computer-activity/chess.c:779
+#: ../src/chess_computer-activity/chess.c:787
 msgid "Black checks"
 msgstr "Xeque das pretas."
 
-#: ../src/chess_computer-activity/chess.c:1176
+#: ../src/chess_computer-activity/chess.c:1184
 msgid "Black mates"
 msgstr "Mate das pretas."
 
-#: ../src/chess_computer-activity/chess.c:1181
+#: ../src/chess_computer-activity/chess.c:1189
 msgid "White mates"
 msgstr "Mate das brancas."
 
-#: ../src/chess_computer-activity/chess.c:1186 ../src/gcompris/bonus.c:195
+#: ../src/chess_computer-activity/chess.c:1194 ../src/gcompris/bonus.c:195
 #: ../src/gcompris/bonus.c:204
 msgid "Drawn game"
 msgstr "Empate."
 
-#: ../src/chess_computer-activity/chess.c:1214
+#: ../src/chess_computer-activity/chess.c:1222
 msgid "Error: The external program gnuchess died unexpectingly"
 msgstr "Erro: a aplicação externa «gnuchess» ficou inesperadamente bloqueada."
 
@@ -2037,7 +2120,7 @@ msgstr ""
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
 #: ../src/click_on_letter-activity/click_on_letter.c:276
-#: ../src/gletters-activity/gletters.c:228 ../src/memory-activity/memory.c:934
+#: ../src/gletters-activity/gletters.c:229 ../src/memory-activity/memory.c:934
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcdefghijklmnopqrstuvwxyz"
 
@@ -2063,7 +2146,7 @@ msgstr ""
 
 #. toggle box
 #: ../src/click_on_letter-activity/click_on_letter.c:648
-#: ../src/gletters-activity/gletters.c:880 ../src/login-activity/login.py:481
+#: ../src/gletters-activity/gletters.c:885 ../src/login-activity/login.py:481
 msgid "Uppercase only text"
 msgstr "Apresentar texto somente em maiúsculas."
 
@@ -2146,7 +2229,7 @@ msgstr ""
 "\n"
 "Clica com o botão esquerdo do rato nos peixes e estes desaparecerão."
 
-#: ../src/clockgame-activity/clockgame.c:528
+#: ../src/clockgame-activity/clockgame.c:525
 msgid "Set the watch to:"
 msgstr "Acerta o relógio para:"
 
@@ -2339,7 +2422,7 @@ msgid ""
 "Move the items in the bottom left frame to copy their position in the top "
 "right model. Below the crane itself, you will find four arrows that let you "
 "move items. To select the item to move, just click on it. If you prefer, you "
-"can the arrow keys and the space or tab key instead."
+"can use the arrow keys and the space or tab key instead."
 msgstr ""
 "Move os itens no painel inferior esquerdo para copiar a sua posição no "
 "painel superior direito. Por baixo da grua, existem quatro setas que te "
@@ -2535,7 +2618,7 @@ msgstr ""
 "resposta, utilizando as teclas com números. Quando tiveres terminado, clica "
 "no botão ‘Polegar’."
 
-#: ../src/erase-activity/erase.c:123 ../src/erase-activity/erase.xml.in.h:5
+#: ../src/erase-activity/erase.c:124 ../src/erase-activity/erase.xml.in.h:5
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Move o rato para apagares o painel e descobrires a imagem de fundo."
 
@@ -2673,29 +2756,29 @@ msgid ""
 msgstr ""
 "Esta aplicação é um Pacote GNU e é disponibilizada com licença GNU GPL."
 
-#: ../src/gcompris/about.c:220 ../src/gcompris/config.c:422
+#: ../src/gcompris/about.c:220 ../src/gcompris/config.c:447
 #: ../src/gcompris/dialog.c:103 ../src/gcompris/help.c:354
 #: ../src/gcompris/images_selector.c:307
 msgid "OK"
 msgstr "OK"
 
-#: ../src/gcompris/bar.c:650
+#: ../src/gcompris/bar.c:653
 msgid "GCompris confirmation"
 msgstr "GCompris: Confirmação"
 
-#: ../src/gcompris/bar.c:651
+#: ../src/gcompris/bar.c:654
 msgid "Are you sure you want to quit?"
 msgstr "O GCompris vai encerrar-se…"
 
-#: ../src/gcompris/bar.c:652
+#: ../src/gcompris/bar.c:655
 msgid "Yes, I am sure!"
 msgstr "Confirmar"
 
-#: ../src/gcompris/bar.c:653
+#: ../src/gcompris/bar.c:656
 msgid "No, I want to keep going"
 msgstr "Cancelar"
 
-#: ../src/gcompris/board.c:191
+#: ../src/gcompris/board.c:194
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr ""
 "O carregamento dinâmico dos módulos não é suportado. O GCompris não pode ser "
@@ -3057,22 +3140,26 @@ msgstr "Música"
 msgid "Effect"
 msgstr "Som"
 
-#: ../src/gcompris/config.c:347
+#: ../src/gcompris/config.c:335
+msgid "Zoom"
+msgstr "Ampliação"
+
+#: ../src/gcompris/config.c:372
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Não foi possível aceder ao reportório de temas: %s"
 
-#: ../src/gcompris/config.c:378 ../src/gcompris/config.c:773
-#: ../src/gcompris/config.c:787
+#: ../src/gcompris/config.c:403 ../src/gcompris/config.c:807
+#: ../src/gcompris/config.c:821
 #, c-format
 msgid "Skin : %s"
 msgstr "Tema: %s"
 
-#: ../src/gcompris/config.c:380
+#: ../src/gcompris/config.c:405
 msgid "SKINS NOT FOUND"
 msgstr "Temas não encontrados."
 
-#: ../src/gcompris/config.c:462
+#: ../src/gcompris/config.c:487
 msgid "English (United State)"
 msgstr "Inglês (Estados Unidos)"
 
@@ -3088,15 +3175,15 @@ msgstr "Abrir"
 msgid "SAVE"
 msgstr "Gravar"
 
-#: ../src/gcompris/gameutil.c:138 ../src/gcompris/gameutil.c:196
+#: ../src/gcompris/gameutil.c:142 ../src/gcompris/gameutil.c:200
 msgid "Couldn't find or load the file"
 msgstr "Erro: não foi possível encontrar ou carregar o ficheiro"
 
-#: ../src/gcompris/gameutil.c:140 ../src/gcompris/gameutil.c:198
+#: ../src/gcompris/gameutil.c:144 ../src/gcompris/gameutil.c:202
 msgid "This activity is incomplete."
 msgstr "Esta actividade está incompleta."
 
-#: ../src/gcompris/gameutil.c:141 ../src/gcompris/gameutil.c:199
+#: ../src/gcompris/gameutil.c:145 ../src/gcompris/gameutil.c:203
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -3104,39 +3191,39 @@ msgstr ""
 "Por favor, termine esta actividade e relate o\n"
 "problema aos autores."
 
-#: ../src/gcompris/gcompris.c:148
+#: ../src/gcompris/gcompris.c:151
 msgid "run GCompris in fullscreen mode."
 msgstr "Executar o GCompris em modo de ecrã inteiro."
 
-#: ../src/gcompris/gcompris.c:151
+#: ../src/gcompris/gcompris.c:154
 msgid "run GCompris in window mode."
 msgstr "Executar o GCompris numa janela."
 
-#: ../src/gcompris/gcompris.c:154
+#: ../src/gcompris/gcompris.c:157
 msgid "run GCompris with sound enabled."
 msgstr "Executar o GCompris com o som activado."
 
-#: ../src/gcompris/gcompris.c:157
+#: ../src/gcompris/gcompris.c:160
 msgid "run GCompris without sound."
 msgstr "Executar o GCompris com o som desactivado."
 
-#: ../src/gcompris/gcompris.c:160
+#: ../src/gcompris/gcompris.c:163
 msgid "run GCompris with the default gnome cursor."
 msgstr "Executar o GCompris com o cursor supletivo do GNOME."
 
-#: ../src/gcompris/gcompris.c:163
+#: ../src/gcompris/gcompris.c:166
 msgid "display only activities with this difficulty level."
 msgstr "Apresentar apenas as actividades com este nível de dificuldade."
 
-#: ../src/gcompris/gcompris.c:166
+#: ../src/gcompris/gcompris.c:169
 msgid "display debug informations on the console."
 msgstr "Apresentar informações de depuração (“debug”) na consola."
 
-#: ../src/gcompris/gcompris.c:169
+#: ../src/gcompris/gcompris.c:172
 msgid "Print the version of "
 msgstr "Imprimir a versão de "
 
-#: ../src/gcompris/gcompris.c:172
+#: ../src/gcompris/gcompris.c:175
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
@@ -3149,37 +3236,37 @@ msgstr ""
 "actividade «Quatro em Linha»). Execute '-l list' numa “shell” para listar "
 "todas as actividades disponíveis e as suas descrições."
 
-#: ../src/gcompris/gcompris.c:177
+#: ../src/gcompris/gcompris.c:180
 msgid "GCompris will find the data dir in this directory"
 msgstr "O GCompris irá procurar o directório de dados neste directório"
 
-#: ../src/gcompris/gcompris.c:180
+#: ../src/gcompris/gcompris.c:183
 msgid "GCompris will find the skins in this directory"
 msgstr "O GCompris irá procurar as aparências neste directório"
 
-#: ../src/gcompris/gcompris.c:183
+#: ../src/gcompris/gcompris.c:186
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "O GCompris irá procurar os plugins de actividades neste directório"
 
-#: ../src/gcompris/gcompris.c:186
+#: ../src/gcompris/gcompris.c:189
 msgid "GCompris will find the python activity in this directory"
 msgstr "O GCompris irá procurar a actividade python neste directório"
 
-#: ../src/gcompris/gcompris.c:189
+#: ../src/gcompris/gcompris.c:192
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr ""
 "O GCompris irá procurar o ficheiro de localização (tradução .mo) neste "
 "directório"
 
-#: ../src/gcompris/gcompris.c:192
+#: ../src/gcompris/gcompris.c:195
 msgid "GCompris will find the activities menu in this directory"
 msgstr "O GCompris irá procurar o menu de actividades neste directório"
 
-#: ../src/gcompris/gcompris.c:195
+#: ../src/gcompris/gcompris.c:198
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Executar o GCompris em modo de administração e gestão de utilizadores."
 
-#: ../src/gcompris/gcompris.c:198
+#: ../src/gcompris/gcompris.c:201
 msgid ""
 "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
@@ -3187,27 +3274,27 @@ msgstr ""
 "Utilizar uma base de dados alternativa para os perfis: '$HOME/.config/"
 "gcompris/gcompris_sqlite.db'."
 
-#: ../src/gcompris/gcompris.c:201
+#: ../src/gcompris/gcompris.c:204
 msgid "Create the alternate database for profiles"
 msgstr "Criar a base de dados alternativa para os perfis."
 
-#: ../src/gcompris/gcompris.c:204
+#: ../src/gcompris/gcompris.c:207
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Reler os Menus XML e gravá-los na base de dados."
 
-#: ../src/gcompris/gcompris.c:207
+#: ../src/gcompris/gcompris.c:210
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Definir o perfil a utilizar. Execute 'gcompris -a' numa “shell” para criar "
 "perfis."
 
-#: ../src/gcompris/gcompris.c:210
+#: ../src/gcompris/gcompris.c:213
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Listar todos os perfis disponíveis. Execute 'gcompris -a' numa “shell” para "
 "criar perfis."
 
-#: ../src/gcompris/gcompris.c:213
+#: ../src/gcompris/gcompris.c:216
 msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
@@ -3215,23 +3302,23 @@ msgstr ""
 "Localização da pasta de configuração: '$HOME/.config/gcompris'. Como "
 "alternativa, pode definir: '$XDG_CONFIG_HOME'."
 
-#: ../src/gcompris/gcompris.c:216
+#: ../src/gcompris/gcompris.c:219
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "Localização das pastas do utilizador: '$HOME/My GCompris'."
 
-#: ../src/gcompris/gcompris.c:219
+#: ../src/gcompris/gcompris.c:222
 msgid "Run the experimental activities"
 msgstr "Executar as actividades experimentais."
 
-#: ../src/gcompris/gcompris.c:222
+#: ../src/gcompris/gcompris.c:225
 msgid "Disable the quit button"
 msgstr "Desactivar o botão ‘Sair’."
 
-#: ../src/gcompris/gcompris.c:225
+#: ../src/gcompris/gcompris.c:228
 msgid "Disable the config button"
 msgstr "Desactivar o botão ‘Configurar’"
 
-#: ../src/gcompris/gcompris.c:228
+#: ../src/gcompris/gcompris.c:231
 msgid ""
 "GCompris will get images, sounds and activity data from this server if not "
 "found locally."
@@ -3239,7 +3326,7 @@ msgstr ""
 "O GCompris obterá imagens, sons, e dados de actividades a partir deste "
 "servidor, se não os encontrar localmente."
 
-#: ../src/gcompris/gcompris.c:231
+#: ../src/gcompris/gcompris.c:234
 msgid ""
 "Only when --server is provided, disable check for local resource first. Data "
 "are always taken from the web server."
@@ -3248,26 +3335,26 @@ msgstr ""
 "'--server' for executado. Os dados são sempre obtidos a partir do servidor "
 "“web”."
 
-#: ../src/gcompris/gcompris.c:235
+#: ../src/gcompris/gcompris.c:238
 msgid ""
 "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr ""
 "Em modo de servidor, indique a pasta de “cache”, para evitar transferências "
 "de dados desnecessárias."
 
-#: ../src/gcompris/gcompris.c:238
+#: ../src/gcompris/gcompris.c:241
 msgid ""
 "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr ""
 "Modo global de «arrastar e largar»: normal, 2 cliques, ambos. Supletivamente, "
 "aplica-se o modo normal."
 
-#: ../src/gcompris/gcompris.c:241
+#: ../src/gcompris/gcompris.c:244
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr ""
 "Não impedir a execução em simultâneo de múltiplas instâncias do GCompris."
 
-#: ../src/gcompris/gcompris.c:916
+#: ../src/gcompris/gcompris.c:906
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -3383,11 +3470,11 @@ msgstr "Instruções"
 msgid "Credit"
 msgstr "Créditos"
 
-#: ../src/gcompris/properties.c:492 ../src/gcompris/properties.c:499
+#: ../src/gcompris/properties.c:497 ../src/gcompris/properties.c:504
 msgid "readme"
 msgstr "Leia-me"
 
-#: ../src/gcompris/properties.c:494
+#: ../src/gcompris/properties.c:499
 msgid ""
 "This directory contains the files you create with the GCompris educational "
 "suite\n"
@@ -3395,7 +3482,7 @@ msgstr ""
 "Esta pasta contém os ficheiros que criou com as actividades da colecção "
 "educativa GCompris.\n"
 
-#: ../src/gcompris/properties.c:501
+#: ../src/gcompris/properties.c:506
 msgid ""
 "Put any number of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
@@ -4018,24 +4105,24 @@ msgstr "Zâmbia"
 msgid "Zimbabwe"
 msgstr "Zimbabwe"
 
-#: ../src/gletters-activity/gletters.c:131
+#: ../src/gletters-activity/gletters.c:132
 #: ../src/gletters-activity/gletters.xml.in.h:3
 msgid "Simple Letters"
 msgstr "Letras em Queda"
 
-#: ../src/gletters-activity/gletters.c:132
+#: ../src/gletters-activity/gletters.c:133
 #: ../src/gletters-activity/gletters.xml.in.h:4
 msgid "Type the falling letters before they reach the ground"
 msgstr ""
 "Digita no teclado as letras que vão caindo, antes que estas cheguem ao chão."
 
 #. TRANSLATORS: Put here the numbers in your language
-#: ../src/gletters-activity/gletters.c:224 ../src/memory-activity/memory.c:930
+#: ../src/gletters-activity/gletters.c:225 ../src/memory-activity/memory.c:930
 msgid "0123456789"
 msgstr "0123456789"
 
 #. TRANSLATORS: Put here the alphabet uppercase in your language
-#: ../src/gletters-activity/gletters.c:234 ../src/memory-activity/memory.c:940
+#: ../src/gletters-activity/gletters.c:235 ../src/memory-activity/memory.c:940
 msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
@@ -4045,15 +4132,15 @@ msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 #. the dict passed to the apply_callback
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
-#: ../src/gletters-activity/gletters.c:847
+#: ../src/gletters-activity/gletters.c:852
 #: ../src/imageid-activity/imageid.c:714 ../src/login-activity/login.py:476
-#: ../src/missing_letter-activity/missingletter.c:749
+#: ../src/missing_letter-activity/missingletter.c:750
 #: ../src/pythontest-activity/pythontest.py:454
 #: ../src/readingh-activity/reading.c:880
-#: ../src/scalesboard-activity/scale.c:1139
-#: ../src/smallnumbers-activity/smallnumbers.c:576
+#: ../src/scalesboard-activity/scale.c:1161
+#: ../src/smallnumbers-activity/smallnumbers.c:596
 #: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:767
+#: ../src/wordsgame-activity/wordsgame.c:768
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -4062,8 +4149,8 @@ msgstr ""
 "Configuração da actividade %s\n"
 "para o perfil %s."
 
-#: ../src/gletters-activity/gletters.c:876
-#: ../src/smallnumbers-activity/smallnumbers.c:595
+#: ../src/gletters-activity/gletters.c:881
+#: ../src/smallnumbers-activity/smallnumbers.c:615
 msgid "Enable sounds"
 msgstr "Activar sons."
 
@@ -4550,7 +4637,7 @@ msgstr ""
 "propostas demasiadas opções."
 
 #: ../src/imageid-activity/imageid.c:534
-#: ../src/missing_letter-activity/missingletter.c:570
+#: ../src/missing_letter-activity/missingletter.c:568
 msgid "Data file for this level is not properly formatted."
 msgstr "O ficheiro de dados deste nível não está adequadamente formatado."
 
@@ -4982,17 +5069,17 @@ msgstr "Conta as estrelas que foram colocadas debaixo do chapéu mágico."
 msgid "Learn addition"
 msgstr "Treinar a adição."
 
-#: ../src/maze-activity/maze.c:131 ../src/maze-activity/maze.xml.in.h:4
+#: ../src/maze-activity/maze.c:132 ../src/maze-activity/maze.xml.in.h:4
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:4
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:4
 msgid "Maze"
 msgstr "Labirinto"
 
-#: ../src/maze-activity/maze.c:132 ../src/maze-activity/maze.xml.in.h:2
+#: ../src/maze-activity/maze.c:133 ../src/maze-activity/maze.xml.in.h:2
 msgid "Find your way out of the maze"
 msgstr "Encontra o caminho para se sair do labirinto."
 
-#: ../src/maze-activity/maze.c:499
+#: ../src/maze-activity/maze.c:500
 msgid ""
 "Look at your position, then switch back to invisible mode to continue your "
 "moves"
@@ -5000,7 +5087,7 @@ msgstr ""
 "Vê a posição em que te encontras e volta à perspectiva invisível para "
 "continuares a movimentar-te dentro do labirinto."
 
-#: ../src/maze-activity/maze.c:501
+#: ../src/maze-activity/maze.c:502
 msgid ""
 "Look at your position, then switch back to 3D mode to continue your moves"
 msgstr ""
@@ -5137,7 +5224,7 @@ msgid "three"
 msgstr "três"
 
 #: ../src/memory-activity/memory.c:284
-msgid "for"
+msgid "four"
 msgstr "quatro"
 
 #: ../src/memory-activity/memory.c:285
@@ -6024,11 +6111,15 @@ msgstr ""
 msgid "Penalty kick"
 msgstr "Marca um Penálti"
 
-#: ../src/photohunter-activity/photohunter.c:136
+#: ../src/photohunter-activity/photohunter.c:137
 msgid "Error: Absolutely no photo found in the data directory"
 msgstr "Erro: Não foi encontrada nenhuma fotografia no directório de dados"
 
-#: ../src/photohunter-activity/photohunter.c:564
+#: ../src/photohunter-activity/photohunter.c:394
+msgid "Click on the differences between the two images."
+msgstr "Clica nas diferenças entre duas imagens."
+
+#: ../src/photohunter-activity/photohunter.c:590
 msgid "Error: Abnormally failed to load a data file"
 msgstr "Erro: Falha inesperada ao ler um ficheiro de dados"
 
@@ -6281,13 +6372,9 @@ msgid "is being displayed"
 msgstr "é apresentada?"
 
 #: ../src/readingh-activity/reading.c:456
-msgid "We skip this level because there are not enough word in the list!"
+msgid "We skip this level because there are not enough words in the list!"
 msgstr ""
 "Este nível será ignorado porque não existem palavras suficientes na lista!"
-
-#: ../src/readingh-activity/reading.c:621
-msgid "I am Ready"
-msgstr "Começar"
 
 #: ../src/readingh-activity/reading.c:686
 msgid "No, it was not there"
@@ -6439,17 +6526,17 @@ msgstr "Pratica a Subtracção com um Jogo Divertido"
 msgid "Tux is hungry. Help him find fish by counting to the correct ice spot."
 msgstr "O Tux tem fome. Ajuda-o a encontrar peixes, contando blocos de gelo."
 
-#: ../src/scalesboard-activity/scale.c:293
+#: ../src/scalesboard-activity/scale.c:294
 #, c-format
 msgid "Weight in g = %s"
 msgstr "Peso em g = %s"
 
-#: ../src/scalesboard-activity/scale.c:295
+#: ../src/scalesboard-activity/scale.c:296
 #, c-format
 msgid "Weight = %s"
 msgstr "Peso = %s"
 
-#: ../src/scalesboard-activity/scale.c:986
+#: ../src/scalesboard-activity/scale.c:1008
 msgid "Take care, you can drop masses on both sides of the scale."
 msgstr "Atenção: podes colocar pesos nos dois pratos da balança."
 
@@ -7104,11 +7191,6 @@ msgstr "Sentimental"
 #: ../src/wordprocessor-activity/wordprocessor.c:76
 msgid "Official"
 msgstr "Oficial"
-
-#: ../src/wordprocessor-activity/wordprocessor.c:87
-#: ../src/wordprocessor-activity/wordprocessor.c:426
-msgid "Text"
-msgstr "Texto"
 
 #: ../src/wordprocessor-activity/wordprocessor.c:98
 msgid "Flyer"
