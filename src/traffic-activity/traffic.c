@@ -158,7 +158,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     {
       gcomprisBoard=agcomprisBoard;
       gcomprisBoard->level=1;
-      gcomprisBoard->maxlevel=8;
+      gcomprisBoard->maxlevel=13;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=5; /* Go to next level after this number of 'play' */
       gc_score_start(SCORESTYLE_NOTE,
