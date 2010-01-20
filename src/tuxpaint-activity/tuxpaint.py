@@ -145,7 +145,7 @@ class Gcompris_tuxpaint:
     global pid
     # force kill - data loss
     if pid != None:
-      print "Tuxpaint not killed", self.pid
+      print "Tuxpaint not killed", pid
     #import os
     #os.kill(self.pid, signal.SIGKILL)
     if self.rootitem != None:
@@ -228,16 +228,6 @@ class Gcompris_tuxpaint:
     return default_config_dict
 
 def child_callback(fd,  cond, data):
-  # restore pointergrab if running fullscreen
-  if (gcompris.get_properties().fullscreen and
-      not gcompris.get_properties().noxf86vm):
-    gtk.gdk.pointer_grab(data.window.window, True, 0, data.window.window)
-
-    #bug in gtk2.6/window
-    if (gtk.gtk_version <= (2,6,10)):
-       data.window.unfullscreen()
-       data.window.fullscreen()
-
   global pid
   pid = None
 
