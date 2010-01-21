@@ -6,13 +6,14 @@
 # Jakub Friedl <jfriedl@suse.cz>, 2006.
 # Kamil Páral <ripper42@gmail.com>, 2008.
 # Petr Kovar <pknbe@volny.cz>, 2008.
-# Marek Černocký <marek@manet.cz>, 2009.
+# Marek Černocký <marek@manet.cz>, 2009, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris gnome-master\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-18 00:49+0100\n"
-"PO-Revision-Date: 2010-01-13 21:32+0100\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=gcompris&component=general\n"
+"POT-Creation-Date: 2010-01-20 23:47+0000\n"
+"PO-Revision-Date: 2010-01-21 00:31+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -364,7 +365,7 @@ msgstr ""
 #: ../src/administration-activity/admin/board_list.py:663
 #: ../src/colors-activity/colors.c:181
 #: ../src/pythontest-activity/pythontest.py:518
-#: ../src/smallnumbers-activity/smallnumbers.c:617
+#: ../src/smallnumbers-activity/smallnumbers.c:616
 msgid "Select sound locale"
 msgstr "Vyber si nastavení zvuků"
 
@@ -1192,54 +1193,47 @@ msgstr "Algoritmy"
 
 #: ../src/anim-activity/Color.py:86
 msgid "Fill color..."
-msgstr ""
+msgstr "Barva výplně…"
 
 #: ../src/anim-activity/Color.py:98
 msgid "Stroke color..."
-msgstr ""
+msgstr "Barva obrysu…"
 
 #: ../src/anim-activity/anim.py:103
 msgid "Save..."
-msgstr ""
+msgstr "Uložit…"
 
 #: ../src/anim-activity/anim.py:109
 msgid "Load..."
-msgstr ""
+msgstr "Načíst…"
 
 #: ../src/anim-activity/anim.py:115
-#, fuzzy
 msgid "Run the animation"
-msgstr "Manipulace s myší"
+msgstr "Spustit animaci"
 
 #: ../src/anim-activity/anim.py:121
-#, fuzzy
 msgid "Select"
-msgstr "Vybrat vše"
+msgstr "Vybrat"
 
 #: ../src/anim-activity/anim.py:127
-#, fuzzy
 msgid "Rectangle"
-msgstr "Použít obdélníky"
+msgstr "Obdélník"
 
 #: ../src/anim-activity/anim.py:133
-#, fuzzy
 msgid "Filled rectangle"
-msgstr "Použít obdélníky"
+msgstr "Vyplněný obdélník"
 
 #: ../src/anim-activity/anim.py:139
-#, fuzzy
 msgid "Circle"
-msgstr "Chile"
+msgstr "Kruh"
 
 #: ../src/anim-activity/anim.py:145
-#, fuzzy
 msgid "Filled circle"
-msgstr "Použít kruhy"
+msgstr "Vyplněný kruh"
 
 #: ../src/anim-activity/anim.py:151
-#, fuzzy
 msgid "Line"
-msgstr "vínová"
+msgstr "Čára"
 
 #: ../src/anim-activity/anim.py:157
 #: ../src/wordprocessor-activity/wordprocessor.c:87
@@ -1249,35 +1243,31 @@ msgstr "Text"
 
 #: ../src/anim-activity/anim.py:163
 msgid "Image..."
-msgstr ""
+msgstr "Obrázek…"
 
 #: ../src/anim-activity/anim.py:169
-#, fuzzy
 msgid "Fill"
-msgstr "Filtr"
+msgstr "Vyplnit"
 
 #: ../src/anim-activity/anim.py:175
-#, fuzzy
 msgid "Delete"
-msgstr "Výchozí"
+msgstr "Smazat"
 
 #: ../src/anim-activity/anim.py:181
 msgid "Flip"
-msgstr ""
+msgstr "Překlopit"
 
 #: ../src/anim-activity/anim.py:187
-#, fuzzy
 msgid "Raise"
-msgstr "anýzová"
+msgstr "Dopředu"
 
 #: ../src/anim-activity/anim.py:193
-#, fuzzy
 msgid "Lower"
-msgstr "květina"
+msgstr "Dozadu"
 
 #: ../src/anim-activity/anim.py:753
 msgid "Current frame"
-msgstr ""
+msgstr "Současné políčko"
 
 #: ../src/anim-activity/anim.xml.in.h:1
 msgid "Create a drawing or an animation"
@@ -1535,15 +1525,16 @@ msgid "Ambrosius Bosschaert the Elder, Flower Still Life - 1614"
 msgstr ""
 "Ambrosius Bosschaert starší, Květina stále žije (Flower Still Life) - 1614"
 
-#: ../src/ballcatch-activity/ballcatch.xml.in.h:1
-msgid "Make the ball go to Tux"
-msgstr "Hoď Tuxovi míč"
-
+#: ../src/ballcatch-activity/ballcatch.py:75
 #: ../src/ballcatch-activity/ballcatch.xml.in.h:2
 msgid ""
 "Press the two shift keys at the same time, to make the ball go in a straight "
 "line."
 msgstr "Kouli pošleš rovně stisknutím obou kláves shift zároveň."
+
+#: ../src/ballcatch-activity/ballcatch.xml.in.h:1
+msgid "Make the ball go to Tux"
+msgstr "Hoď Tuxovi míč"
 
 #: ../src/bargame-activity/bargame.xml.in.h:1
 msgid "Brain"
@@ -2964,7 +2955,7 @@ msgstr "Efekty"
 
 #: ../src/gcompris/config.c:335
 msgid "Zoom"
-msgstr ""
+msgstr "Přiblížení"
 
 #: ../src/gcompris/config.c:372
 #, c-format
@@ -3950,7 +3941,7 @@ msgstr "AÁBCČDĎEÉĚFGHIÍJKLMNŇOÓPQRŘSŠTŤUÚŮVWXYÝZŽ"
 #: ../src/pythontest-activity/pythontest.py:454
 #: ../src/readingh-activity/reading.c:880
 #: ../src/scalesboard-activity/scale.c:1161
-#: ../src/smallnumbers-activity/smallnumbers.c:596
+#: ../src/smallnumbers-activity/smallnumbers.c:595
 #: ../src/tuxpaint-activity/tuxpaint.py:185
 #: ../src/wordsgame-activity/wordsgame.c:768
 #, c-format, python-format
@@ -3962,7 +3953,7 @@ msgstr ""
 " pro profil <b>%s</b>"
 
 #: ../src/gletters-activity/gletters.c:881
-#: ../src/smallnumbers-activity/smallnumbers.c:615
+#: ../src/smallnumbers-activity/smallnumbers.c:614
 msgid "Enable sounds"
 msgstr "Povolit zvuky"
 
@@ -6824,51 +6815,3 @@ msgstr "Procvičení klávesnice"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Napiš celé padající slovo, než spadnou na zem"
 
-#~ msgid ""
-#~ "The dog is provided by Andre Connes and released under the GPL.\n"
-#~ "Artist: Gauguin, Paul. Title Arearea. Licence: Public Domain. Source: "
-#~ "http://commons.wikimedia.org/wiki/Image:Paul_Gauguin_006.jpg\n"
-#~ "Artist: Pieter Bruegel the Elder. Title: The peasants wedding. Licence: "
-#~ "Public Domain. Source: http://commons.wikimedia.org/wiki/Image:"
-#~ "Pieter_Bruegel_d._Ä._011.jpg\n"
-#~ "Description: The Lady and the Unicorn (tapestries). Author: Pierre-"
-#~ "Emmanuel Malissin and Frédéric Valdes. Licence: Free but requires the "
-#~ "site and author. Source: http://www.galerie.roi-president.com\n"
-#~ "Artist: Vincent van Gogh. Title: Bedroom in Arles. Licence: Public "
-#~ "Domain. Source: http://commons.wikimedia.org/wiki/Image:"
-#~ "Vincent_Van_Gogh_0011.jpg\n"
-#~ "Artist: Ambrosius Bosschaert the Elder. Title: Flower Still Life. "
-#~ "Licence: Public Domain. Source: http://commons.wikimedia.org/wiki/Image:"
-#~ "Ambrosius_Bosschaert,_the_Elder_04.jpg"
-#~ msgstr ""
-#~ "Psa poskytl Andre Connes a je uvolněn pod licencí GPL.\n"
-#~ "Umělec: Gauguin, Paul. Název: Kratochvíle (Arearea). Licence: Public "
-#~ "Domain. Zdroj: http://commons.wikimedia.org/wiki/Image:Paul_Gauguin_006."
-#~ "jpg\n"
-#~ "Umělec: Pieter Bruegel starší. Název: Rolnická svatba (The peasants "
-#~ "wedding). Licence: Public Domain. Source: http://commons.wikimedia.org/"
-#~ "wiki/Image:Pieter_Bruegel_d._Ä._011.jpg\n"
-#~ "Popis: Dáma a jednorožec (The Lady and the Unicorn, tapisérie). Autor: "
-#~ "Pierre-Emmanuel Malissin a Frédéric Valdes. Licence: Volná, ale je "
-#~ "požadováno uvést původ a autora. Zdroj: http://www.galerie.roi-president."
-#~ "com\n"
-#~ "Umělec: Vincent van Gogh. Název: Ložnice v Arles (Bedroom in Arles). "
-#~ "Licence: Public Domain. Zdroj: http://commons.wikimedia.org/wiki/Image:"
-#~ "Vincent_Van_Gogh_0011.jpg\n"
-#~ "Umělec: Ambrosius Bosschaert starší. Název: Květina stále žije (Flower "
-#~ "Still Life). Licence: Public Domain. Zdroj: http://commons.wikimedia.org/"
-#~ "wiki/Image:Ambrosius_Bosschaert,_the_Elder_04.jpg"
-
-#~ msgid ""
-#~ "At the start, each player (one controlling the white pieces, the other "
-#~ "controlling the black pieces) controls sixteen pieces: one king, one "
-#~ "queen, two rooks, two knights, two bishops, and eight pawns. The object "
-#~ "of the game is to checkmate the opponent's king, whereby the king is "
-#~ "under immediate attack (in \"check\") and there is no way to remove it "
-#~ "from attack on the next move."
-#~ msgstr ""
-#~ "Na začátku hry má každý z hráčů (jeden ovládá bílé figury, druhý černé) "
-#~ "šestnáct figur: jednoho krále, jednu královnu, dvě věže, dva koně, dva "
-#~ "střelce a šestnáct pěšců. Cílem hry je dát protivníkovu králi mat, kdy je "
-#~ "král pod přímým útokem (v „šachu“) a neexistuje žádná možnost, jak z něj "
-#~ "dalším tahem uniknout."
