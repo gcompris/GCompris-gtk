@@ -41,13 +41,13 @@ img_DATA = \
 	benz1885.png \
 	bg.jpg \
 	bleriot.png \
-	bolle1878.png \
+	bolle1878.svg \
 	celerifere.png \
 	chronos-tuxtree1.png \
 	chronos-tuxtree2.png \
 	chronos-tuxtree3.png \
 	chronos-tuxtree4.png \
-	Eole.png \
+	Eole.svg \
 	fardier.png \
 	garden1.png \
 	garden2.png \
