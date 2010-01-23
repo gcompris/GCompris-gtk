@@ -3,6 +3,7 @@
 *.pyc
 *.exe
 *~
+*.desktop
 .deps
 .libs
 Makefile
@@ -22,9 +23,7 @@ config.status
 config.sub
 configure
 depcomp
-gcompris-edit.desktop
 gcompris-installer.nsi
-gcompris.desktop
 intltool-extract.in
 intltool-merge.in
 intltool-update.in
@@ -33,3 +32,4 @@ ltmain.sh
 m4/
 missing
 mkinstalldirs
+win32-install-dir
