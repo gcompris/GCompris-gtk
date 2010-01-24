@@ -59,6 +59,7 @@ gcompris_SOURCES = \
 	anim.c \
 	anim.h \
 	bar.c \
+	bar.h \
 	binreloc.c \
 	binreloc.h \
 	board.h board.c \
