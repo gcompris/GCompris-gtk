@@ -101,10 +101,6 @@ class Gcompris_melody:
     self.pause(1);
     self.display_current_level()
 
-    # Play an intro sound
-    gcompris.sound.play_ogg_cb("melody/" + self.melodylist[self.theme][0]['theme'] +
-                               "_melody.ogg", self.intro_cb)
-
     Prop = gcompris.get_properties()
 
     if(not Prop.fx):
@@ -184,7 +180,30 @@ class Gcompris_melody:
     self.hitofset_x = self.melodylist[self.theme][0]['hitofset_x']
     self.hitofset_y = self.melodylist[self.theme][0]['hitofset_y']
 
+    self.waitOK(self.rootitem)
+
+  def waitOK(self, rootitem):
+    # The OK Button
+    self.ok_item = goocanvas.Svg(parent = rootitem,
+                                 svg_handle = gcompris.skin.svg_get(),
+                                 svg_id = "#OK"
+                                 )
+    item = self.ok_item
+    item.translate(item.get_bounds().x1 * -1
+                           + gcompris.BOARD_WIDTH - (item.get_bounds().x2 - item.get_bounds().x1) - 30,
+                           item.get_bounds().y1 * -1
+                           + 65)
+
+    item.connect("button_press_event", self.ok_event, None)
+    gcompris.utils.item_focus_init(item, None)
+
+  def ok_event(self, widget, target, event, data):
+    self.ok_item.props.visibility = goocanvas.ITEM_INVISIBLE
     self.populate(self.sound_list)
+    # Play an intro sound
+    gcompris.sound.play_ogg_cb("melody/" + self.melodylist[self.theme][0]['theme'] +
+                               "_melody.ogg", self.intro_cb)
+
 
 
   # records the try of the child
@@ -371,7 +390,6 @@ class Gcompris_melody:
   def intro_cb(self, file):
     #print "intro passed. go play"
     self.pause(0)
-    self.populate(self.sound_list)
 
 def stop_board():
   gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
