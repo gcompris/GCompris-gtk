@@ -24,7 +24,6 @@ import gcompris.skin
 import gcompris.sound
 import gtk
 import gtk.gdk
-import rsvg
 
 class Gcompris_watercycle:
   """The Water Cycle activity"""

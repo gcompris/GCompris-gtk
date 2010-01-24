@@ -26,7 +26,6 @@ import gcompris.bonus
 import gcompris.sound
 import gtk
 import gtk.gdk
-import rsvg
 from gcompris import gcompris_gettext as _
 
 # ----------------------------------------
