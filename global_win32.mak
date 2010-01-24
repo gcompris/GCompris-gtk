@@ -27,8 +27,8 @@ endif
 # Use -g flag when building debug version of Gcompris (including plugins).
 # Use -fnative-struct instead of -mms-bitfields when using mingw 1.1
 # (gcc 2.95)
-CFLAGS += -g -Wall -mwindows -mno-cygwin -mms-bitfields
-LDFLAGS =
+CFLAGS += -g -Wall -mno-cygwin -mms-bitfields
+LDFLAGS = -mwindows
 
 # If not specified, dlls are built with the default base address of 0x10000000.
 # When loaded into a process address space a dll will be rebased if its base
