@@ -891,7 +891,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	  /* initial state to restore */
 	  sound_policy = gc_sound_policy_get();
 
-	  gc_sound_policy_set(PLAY_AND_INTERRUPT);
+	  // Will set the PLAY_AND_INTERRUPT policy on first
+	  // user click so that intro sounds is not
 
 	  gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			    "memory/gcompris_band.svg");
@@ -1656,6 +1657,9 @@ static gboolean item_event (GooCanvasItem  *item,
 
   if(!gcomprisBoard)
     return FALSE;
+
+  if (currentUiMode == UIMODE_SOUND)
+    gc_sound_policy_set(PLAY_AND_INTERRUPT);
 
   if (event->type != GDK_BUTTON_PRESS ||
       event->button != 1)
