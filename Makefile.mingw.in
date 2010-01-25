@@ -58,10 +58,6 @@ activity_dir = advanced_colors-activity \
 
 include global_win32.mak
 
-MSVCR90_DLL = $(LOCAL_PREFIX)/msvcm90.dll \
-	$(LOCAL_PREFIX)/msvcp90.dll \
-	$(LOCAL_PREFIX)/msvcr90.dll
-
 # These will be copied in the win32-install-dir ready to be packaged.
 NEEDED_DLLS =		$(GNUCHESS_TOP)/bin/pthreadGC2.dll \
 			$(GNUCHESS_TOP)/bin/libreadline.dll \
@@ -104,6 +100,7 @@ NEEDED_DLLS =		$(GNUCHESS_TOP)/bin/pthreadGC2.dll \
 
 NEEDED_FILES =		README \
 	     		README.mingw \
+	     		README.translators \
 			COPYING \
 			ChangeLog
 
@@ -143,6 +140,7 @@ install: all Makefile.mingw
 prepack: Makefile.mingw
 	mkdir -p $(GCOMPRIS_INSTALL_DIR)
 	cp $(NEEDED_DLLS) $(GCOMPRIS_INSTALL_DIR)
+	cp -r $(LOCAL_PREFIX)/Microsoft.VC90.CRT $(GCOMPRIS_INSTALL_DIR)
 	cp $(NEEDED_FILES) $(GCOMPRIS_INSTALL_DIR)
 	cp -r $(GTK_TOP)/etc $(GCOMPRIS_INSTALL_DIR)
 	cp -r $(GTK_TOP)/manifest $(GCOMPRIS_INSTALL_DIR)
