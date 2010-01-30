@@ -123,6 +123,168 @@ static sqlite3 *gcompris_db=NULL;
      END;"
 
 
+static void _create_db()
+{
+  gchar *request;
+  char *zErrMsg;
+  char **result;
+  int rc;
+  int nrow;
+  int ncolumn;
+
+  /* create all tables needed */
+  rc = sqlite3_exec(gcompris_db,CREATE_TABLE_USERS, NULL,  0, &zErrMsg);
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+  rc = sqlite3_exec(gcompris_db,CREATE_TABLE_CLASS, NULL,  0, &zErrMsg);
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+  rc = sqlite3_exec(gcompris_db,CREATE_TABLE_GROUPS, NULL,  0, &zErrMsg);
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+  rc = sqlite3_exec(gcompris_db,CREATE_TABLE_USERS_IN_GROUPS, NULL,  0, &zErrMsg);
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+  rc = sqlite3_exec(gcompris_db,CREATE_TABLE_GROUPS_IN_PROFILES, NULL,  0, &zErrMsg);
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+  rc = sqlite3_exec(gcompris_db,CREATE_TABLE_ACTIVITIES_OUT, NULL,  0, &zErrMsg);
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+  rc = sqlite3_exec(gcompris_db,CREATE_TABLE_PROFILES, NULL,  0, &zErrMsg);
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+  rc = sqlite3_exec(gcompris_db,CREATE_TABLE_BOARDS_PROFILES_CONF, NULL,  0, &zErrMsg);
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+  rc = sqlite3_exec(gcompris_db,CREATE_TABLE_BOARDS, NULL,  0, &zErrMsg);
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+  rc = sqlite3_exec(gcompris_db,CREATE_TABLE_INFO, NULL,  0, &zErrMsg);
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+  rc = sqlite3_exec(gcompris_db,CREATE_TABLE_LOGS, NULL,  0, &zErrMsg);
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+
+  /* CREATE TRIGGERS */
+  rc = sqlite3_exec(gcompris_db,TRIGGER_DELETE_CLASS, NULL,  0, &zErrMsg);
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+  rc = sqlite3_exec(gcompris_db,TRIGGER_DELETE_GROUPS, NULL,  0, &zErrMsg);
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+  rc = sqlite3_exec(gcompris_db,TRIGGER_DELETE_PROFILES, NULL,  0, &zErrMsg);
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+  rc = sqlite3_exec(gcompris_db,TRIGGER_DELETE_USERS, NULL,  0, &zErrMsg);
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+  rc = sqlite3_exec(gcompris_db,TRIGGER_INSERT_USERS, NULL,  0, &zErrMsg);
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+  rc = sqlite3_exec(gcompris_db,TRIGGER_UPDATE_USERS, NULL,  0, &zErrMsg);
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+
+  g_message("Database tables created");
+
+  request = g_strdup_printf(SET_VERSION(VERSION));
+
+  rc = sqlite3_get_table(gcompris_db,
+			 request,
+			 &result,
+			 &nrow,
+			 &ncolumn,
+			 &zErrMsg
+			 );
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+
+  rc = sqlite3_exec(gcompris_db,SET_DEFAULT_PROFILE, NULL,  0, &zErrMsg);
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+
+  rc = sqlite3_exec(gcompris_db,ACTIVATE_DEFAULT_PROFILE, NULL,  0, &zErrMsg);
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+
+
+  request = g_strdup_printf("INSERT INTO class (class_id, name, teacher, wholegroup_id) VALUES ( 1, \"%s\", \"(%s)\", 1);",
+			    _("Unaffected"),
+			    _("Users without a class"));
+
+  rc = sqlite3_exec(gcompris_db, request, NULL,  0, &zErrMsg);
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+
+  rc = sqlite3_exec(gcompris_db,SET_DEFAULT_GROUP, NULL,  0, &zErrMsg);
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+
+
+  sqlite3_free_table(result);
+
+  g_free(request);
+
+}
+
+static gboolean
+_check_db_integrity()
+{
+  char **result;
+  int nrow;
+  int ncolumn;
+  char *zErrMsg;
+  int rc;
+
+  /* Check the db integrity */
+  rc = sqlite3_get_table(gcompris_db,
+			 PRAGMA_INTEGRITY,
+			 &result,
+			 &nrow,
+			 &ncolumn,
+			 &zErrMsg
+			 );
+  if( rc!=SQLITE_OK )
+    {
+      g_message("SQL error: %s\n", zErrMsg);
+      return FALSE;
+    }
+
+  if (!(strcmp(result[1],"ok")==0))
+    {
+      g_message("DATABASE integrity check returns %s \n", result[1]);
+      return FALSE;
+    }
+
+    sqlite3_free_table(result);
+
+    return TRUE;
+}
+
 gboolean gc_db_init(gboolean disable_database_)
 {
 
@@ -135,178 +297,54 @@ gboolean gc_db_init(gboolean disable_database_)
   int rc;
   int nrow;
   int ncolumn;
-  gchar *request;
 
   GcomprisProperties	*properties = gc_prop_get();
 
   if (!g_file_test(properties->database, G_FILE_TEST_EXISTS))
     creation = TRUE;
 
-#ifndef WIN32
-    /* this stat() does not work on WinXP */
-    /* NEEDS CHECKING IN WINXP */
-
-  else {
-    /* we have to check this file is not empty,
-       because bug in administration */
-    struct stat buf;
-
-    if (g_stat(properties->database, &buf)!=0)
-      g_error("Can't stat %s", properties->database);
-
-    /* if size of file is null, we recreate the tables */
-    if (buf.st_size == 0){
-      creation = TRUE;
-      g_message("Database file is empty! Trying to create table...");
-    }
-  }
-#endif
-
   rc = sqlite3_open(properties->database, &gcompris_db);
   if( rc ){
-    g_message("Can't open database %s : %s\n", properties->database, sqlite3_errmsg(gcompris_db));
+    g_message("Can't open database %s : %s\n", properties->database,
+	      sqlite3_errmsg(gcompris_db));
     sqlite3_close(gcompris_db);
-    exit(1);
+    disable_database = TRUE;
+    return FALSE;
   }
 
   g_message("Database %s opened", properties->database);
 
   if (creation){
-    /* create all tables needed */
-    rc = sqlite3_exec(gcompris_db,CREATE_TABLE_USERS, NULL,  0, &zErrMsg);
-    if( rc!=SQLITE_OK ){
-      g_error("SQL error: %s\n", zErrMsg);
-    }
-    rc = sqlite3_exec(gcompris_db,CREATE_TABLE_CLASS, NULL,  0, &zErrMsg);
-    if( rc!=SQLITE_OK ){
-      g_error("SQL error: %s\n", zErrMsg);
-    }
-    rc = sqlite3_exec(gcompris_db,CREATE_TABLE_GROUPS, NULL,  0, &zErrMsg);
-    if( rc!=SQLITE_OK ){
-      g_error("SQL error: %s\n", zErrMsg);
-    }
-    rc = sqlite3_exec(gcompris_db,CREATE_TABLE_USERS_IN_GROUPS, NULL,  0, &zErrMsg);
-    if( rc!=SQLITE_OK ){
-      g_error("SQL error: %s\n", zErrMsg);
-    }
-    rc = sqlite3_exec(gcompris_db,CREATE_TABLE_GROUPS_IN_PROFILES, NULL,  0, &zErrMsg);
-    if( rc!=SQLITE_OK ){
-      g_error("SQL error: %s\n", zErrMsg);
-    }
-    rc = sqlite3_exec(gcompris_db,CREATE_TABLE_ACTIVITIES_OUT, NULL,  0, &zErrMsg);
-    if( rc!=SQLITE_OK ){
-      g_error("SQL error: %s\n", zErrMsg);
-    }
-    rc = sqlite3_exec(gcompris_db,CREATE_TABLE_PROFILES, NULL,  0, &zErrMsg);
-    if( rc!=SQLITE_OK ){
-      g_error("SQL error: %s\n", zErrMsg);
-    }
-    rc = sqlite3_exec(gcompris_db,CREATE_TABLE_BOARDS_PROFILES_CONF, NULL,  0, &zErrMsg);
-    if( rc!=SQLITE_OK ){
-      g_error("SQL error: %s\n", zErrMsg);
-    }
-    rc = sqlite3_exec(gcompris_db,CREATE_TABLE_BOARDS, NULL,  0, &zErrMsg);
-    if( rc!=SQLITE_OK ){
-      g_error("SQL error: %s\n", zErrMsg);
-    }
-    rc = sqlite3_exec(gcompris_db,CREATE_TABLE_INFO, NULL,  0, &zErrMsg);
-    if( rc!=SQLITE_OK ){
-      g_error("SQL error: %s\n", zErrMsg);
-    }
-    rc = sqlite3_exec(gcompris_db,CREATE_TABLE_LOGS, NULL,  0, &zErrMsg);
-    if( rc!=SQLITE_OK ){
-      g_error("SQL error: %s\n", zErrMsg);
-    }
-
-    /* CREATE TRIGGERS */
-    rc = sqlite3_exec(gcompris_db,TRIGGER_DELETE_CLASS, NULL,  0, &zErrMsg);
-    if( rc!=SQLITE_OK ){
-      g_error("SQL error: %s\n", zErrMsg);
-    }
-    rc = sqlite3_exec(gcompris_db,TRIGGER_DELETE_GROUPS, NULL,  0, &zErrMsg);
-    if( rc!=SQLITE_OK ){
-      g_error("SQL error: %s\n", zErrMsg);
-    }
-    rc = sqlite3_exec(gcompris_db,TRIGGER_DELETE_PROFILES, NULL,  0, &zErrMsg);
-    if( rc!=SQLITE_OK ){
-      g_error("SQL error: %s\n", zErrMsg);
-    }
-    rc = sqlite3_exec(gcompris_db,TRIGGER_DELETE_USERS, NULL,  0, &zErrMsg);
-    if( rc!=SQLITE_OK ){
-      g_error("SQL error: %s\n", zErrMsg);
-    }
-    rc = sqlite3_exec(gcompris_db,TRIGGER_INSERT_USERS, NULL,  0, &zErrMsg);
-    if( rc!=SQLITE_OK ){
-      g_error("SQL error: %s\n", zErrMsg);
-    }
-    rc = sqlite3_exec(gcompris_db,TRIGGER_UPDATE_USERS, NULL,  0, &zErrMsg);
-    if( rc!=SQLITE_OK ){
-      g_error("SQL error: %s\n", zErrMsg);
-    }
-
-    g_message("Database tables created");
-
-    request = g_strdup_printf(SET_VERSION(VERSION));
-
-    rc = sqlite3_get_table(gcompris_db,
-			   request,
-			   &result,
-			   &nrow,
-			   &ncolumn,
-			   &zErrMsg
-			   );
-    if( rc!=SQLITE_OK ){
-      g_error("SQL error: %s\n", zErrMsg);
-    }
-
-    rc = sqlite3_exec(gcompris_db,SET_DEFAULT_PROFILE, NULL,  0, &zErrMsg);
-    if( rc!=SQLITE_OK ){
-      g_error("SQL error: %s\n", zErrMsg);
-    }
-
-    rc = sqlite3_exec(gcompris_db,ACTIVATE_DEFAULT_PROFILE, NULL,  0, &zErrMsg);
-    if( rc!=SQLITE_OK ){
-      g_error("SQL error: %s\n", zErrMsg);
-    }
-
-
-    request = g_strdup_printf("INSERT INTO class (class_id, name, teacher, wholegroup_id) VALUES ( 1, \"%s\", \"(%s)\", 1);",
-			      _("Unaffected"),
-			      _("Users without a class"));
-
-    rc = sqlite3_exec(gcompris_db, request, NULL,  0, &zErrMsg);
-    if( rc!=SQLITE_OK ){
-      g_error("SQL error: %s\n", zErrMsg);
-    }
-
-    rc = sqlite3_exec(gcompris_db,SET_DEFAULT_GROUP, NULL,  0, &zErrMsg);
-    if( rc!=SQLITE_OK ){
-      g_error("SQL error: %s\n", zErrMsg);
-    }
-
-
-    sqlite3_free_table(result);
-
-    g_free(request);
-
+    _create_db();
   } else {
-    /* Check the db integrity */
-    rc = sqlite3_get_table(gcompris_db,
-			   PRAGMA_INTEGRITY,
-			   &result,
-			   &nrow,
-			   &ncolumn,
-			   &zErrMsg
-			   );
-    if( rc!=SQLITE_OK ){
-      g_error("SQL error: %s\n", zErrMsg);
-    }
+    if ( ! _check_db_integrity() )
+      {
+	// We failed to load the database, let's
+	// backup it and re create it.
+	sqlite3_close(gcompris_db);
+	gchar *backup = g_strdup_printf("%s.broken", properties->database);
+	g_rename(properties->database, backup);
+	g_message("Database is broken, it is copyed in %s", backup);
+	g_free(backup);
 
-    if (!(strcmp(result[1],"ok")==0))
-      g_error("DATABASE integrity check returns %s \n", result[1]);
+	rc = sqlite3_open(properties->database, &gcompris_db);
+	if( rc ){
+	  g_message("Can't open database %s : %s\n", properties->database,
+		    sqlite3_errmsg(gcompris_db));
+	  sqlite3_close(gcompris_db);
+	  disable_database = TRUE;
+	  return FALSE;
+	}
+	_create_db();
+
+	if ( ! _check_db_integrity() )
+	  {
+	    disable_database = TRUE;
+	    return FALSE;
+	  }
+      }
 
     g_message("Database Integrity ok");
-    sqlite3_free_table(result);
 
     rc = sqlite3_get_table(gcompris_db,
 			   CHECK_VERSION,
