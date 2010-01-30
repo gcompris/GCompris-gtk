@@ -485,8 +485,6 @@ static void shapegame_destroy_all_items()
 {
   Shape *shape;
 
-  gc_item_focus_remove(continue_root_item, NULL);
-
   /* Cleanup of the shapes */
   while(g_list_length(shape_list)>0)
     {
@@ -509,6 +507,7 @@ static void shapegame_destroy_all_items()
       goo_canvas_item_remove(tooltip_root_item);
       tooltip_root_item = NULL;
 
+      gc_item_focus_remove(continue_root_item, NULL);
       goo_canvas_item_remove(continue_root_item);
       continue_root_item = NULL;
 
@@ -652,13 +651,10 @@ add_shape_to_list_of_shapes(Shape *shape)
   if(g_hash_table_size(shapelist_table)%(shapeBox.nb_shape_x * shapeBox.nb_shape_y)==0)
     {
       current_shapelistgroup_index++;
-      g_warning("Creation of the group of shape current_shapelistgroup_index=%d\n",
-		current_shapelistgroup_index);
 
       // Hide the previous group
       if(current_shapelistgroup_index>=1)
 	{
-	  g_warning(" Hide previous group\n");
 	  shape_list_group_root = GOO_CANVAS_ITEM(g_list_nth_data(shape_list_group,
 								  current_shapelistgroup_index-1));
 	  //g_object_set (shape_list_group_root, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
@@ -672,13 +668,11 @@ add_shape_to_list_of_shapes(Shape *shape)
 			      NULL);
 
       shape_list_group = g_list_append (shape_list_group, shape_list_group_root);
-      g_warning(" current_shapelistgroup_index=%d\n", current_shapelistgroup_index);
 
     }
   else
     {
       // Get the current shapelist group
-      g_warning(" get the current_shapelistgroup_index=%d\n", current_shapelistgroup_index);
       shape_list_group_root = g_list_nth_data(shape_list_group,
 					      current_shapelistgroup_index);
     }
@@ -700,8 +694,6 @@ add_shape_to_list_of_shapes(Shape *shape)
 				 ( shapeBox.nb_shape_x * shapeBox.nb_shape_y)) /
 				shapeBox.nb_shape_y) *
 			       ICON_WIDTH);
-      g_warning("  ICON_WIDTH = %f   ICON_HEIGHT = %f\n", ICON_WIDTH, ICON_HEIGHT);
-      g_warning("x_offset = %f   y_offset = %f\n", x_offset, y_offset);
 
       /* So this shape is not yet in, let's put it in now */
       g_hash_table_insert (shapelist_table, shape->pixmapfile, shape);
@@ -779,9 +771,6 @@ add_shape_to_list_of_shapes(Shape *shape)
 	      shape->icon_shape = icon_shape;
 	      icon_shape->shapelistgroup_index = current_shapelistgroup_index;
 	      shape->shapelistgroup_index = current_shapelistgroup_index;
-	      g_warning(" creation shape=%s shape->shapelistgroup_index=%d current_shapelistgroup_index=%d\n",
-			shape->name,
-			shape->shapelistgroup_index, current_shapelistgroup_index);
 	      setup_item(item, icon_shape);
 	      gc_item_focus_init(item, NULL);
 	    }
@@ -950,7 +939,6 @@ item_event_drag(GooCanvasItem *item,
 		  *p='\0';
 		  gc_sound_play_ogg(soundfiles, NULL);
 		  soundfiles = p + 1;
-		  g_warning("soundfile = %s\n", soundfiles);
 		}
 
 	      if (soundfiles != soundfile)
@@ -1242,7 +1230,6 @@ item_event_ok(GooCanvasItem *item, GooCanvasItem *target,
       root_item = g_list_nth_data(shape_list_group, current_shapelistgroup_index);
       g_object_set (root_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 
-      g_warning(" item event current_shapelistgroup_index=%d\n", current_shapelistgroup_index);
       if(!strcmp(data, "previous_shapelist"))
 	{
 	  current_shapelistgroup_index = get_no_void_group(-1);
@@ -1338,10 +1325,8 @@ add_shape_to_canvas(Shape *shape)
       goo_canvas_item_lower(item, NULL);
     }
 
-  g_warning("it's an image ? shape->pixmapfile=%s\n", shape->pixmapfile);
   if(shape->pixmapfile)
     {
-      g_warning("  Yes it is an image \n");
       pixmap = gc_pixmap_load(shape->pixmapfile);
       if(pixmap)
 	{
@@ -1575,7 +1560,6 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, GList **
     } else if (strcmp(justification, "GTK_JUSTIFY_CENTER") == 0) {
       anchor_gtk = GTK_ANCHOR_CENTER;
     } else {
-      g_warning("Unknown justification '%s'", justification);
     }
     xmlFree(justification);
   }
@@ -1740,22 +1724,16 @@ read_xml_file(char *fname)
   /*--------------------------------------------------*/
   /* Read ShapeBox property */
   shapeBox.x = xmlGetProp_Double(doc->children, BAD_CAST "shapebox_x", 15);
-  g_warning("shapeBox.x=%f\n", shapeBox.x);
 
   shapeBox.y = xmlGetProp_Double(doc->children, BAD_CAST "shapebox_y", 25);
-  g_warning("shapeBox.y=%f\n", shapeBox.y);
 
   shapeBox.w = xmlGetProp_Double(doc->children, BAD_CAST "shapebox_w", 80);
-  g_warning("shapeBox.w=%f\n", shapeBox.w);
 
   shapeBox.h = xmlGetProp_Double(doc->children, BAD_CAST "shapebox_h", 430);
-  g_warning("shapeBox.h=%f\n", shapeBox.h);
 
   shapeBox.nb_shape_x = xmlGetProp_Double(doc->children, BAD_CAST "shapebox_nb_shape_x", 1);
-  g_warning("shapeBox.nb_shape_x=%d\n", shapeBox.nb_shape_x);
 
   shapeBox.nb_shape_y = xmlGetProp_Double(doc->children, BAD_CAST "shapebox_nb_shape_y", 5);
-  g_warning("shapeBox.nb_shape_y=%d\n", shapeBox.nb_shape_y);
 
   /* Read shadow enable property */
   shadow_enable = xmlGetProp_Double(doc->children, BAD_CAST "shadow_enable", 1);

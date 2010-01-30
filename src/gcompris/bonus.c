@@ -62,7 +62,6 @@ static void	 end_bonus(void);
 void
 gc_bonus_display(GCBonusStatusList gamewon, GCBonusList bonus_id)
 {
-  g_warning("bonus display %d %d", (int) gamewon, (int) bonus_id);
   gchar *absolute_file;
 
   g_assert(bonus_id < GC_BONUS_LAST);
@@ -70,19 +69,16 @@ gc_bonus_display(GCBonusStatusList gamewon, GCBonusList bonus_id)
   gc_bar_hide(TRUE);
 
   if (bonus_display_running) {
-    g_warning("error bonus_display_running !");
     return;
   }
   else
     bonus_display_running = TRUE;
 
   if(gamewon == GC_BOARD_WIN || gamewon == GC_BOARD_DRAW) {
-    g_warning("bonus absolute filename... ");
     absolute_file = gc_file_find_absolute(greetingsList[RAND(0, NUMBER_OF_GREETINGS-1)]);
 
     if (absolute_file)
       {
-	g_warning("bonus absolute filename: %s", absolute_file );
 	gc_sound_play_ogg(absolute_file, NULL);
 	g_free(absolute_file);
       }
