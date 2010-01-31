@@ -251,6 +251,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	break;
 
       gnuchess_pathptr++;
+      g_free(gnuchess_bin);
     } while(*gnuchess_pathptr != NULL);
 
   if(*gnuchess_pathptr == NULL)
@@ -1086,16 +1087,16 @@ engine_local_cb (GIOChannel *source,
 {
   gchar buf[1000];
   char *b=buf;
-  GError *err = NULL;
   char *p,*q;
   gsize len = 0;
-  GIOStatus status = G_IO_STATUS_NORMAL;
-
   g_warning("engine_local_cb");
 
+#ifndef WIN32
+  GError *err = NULL;
+  GIOStatus status = G_IO_STATUS_NORMAL;
   status = g_io_channel_read_chars(source,
 				   buf,
-				   1000,
+				   sizeof(buf),
 				   &len,
 				   &err);
 
@@ -1115,6 +1116,21 @@ engine_local_cb (GIOChannel *source,
       /* FIXME: Not sure what to do */
       return FALSE;
     }
+#else
+  GIOError  gioError;
+  gioError = g_io_channel_read  (source,
+				 buf,
+				 sizeof(buf),
+				 &len);
+  g_warning("g_io_channel_read_line len=%d", (int)len);
+  if(gioError != G_IO_ERROR_NONE)
+    {
+      g_warning("g_io_channel_read error=%d",
+		gioError);
+      /* FIXME: Not sure what to do */
+      return FALSE;
+    }
+#endif
 
   g_warning("engine_local_cb read=%s\n", buf);
 
