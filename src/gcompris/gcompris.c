@@ -1039,24 +1039,47 @@ void gc_board_end()
  */
 void gc_fullscreen_set(gboolean state)
 {
+  static gint window_x = 0;
+  static gint window_y = 0;
+  static gint window_w = BOARDWIDTH;
+  static gint window_h = BOARDHEIGHT;
+
   fullscreen = state;
   if(state)
     {
-      gdk_window_set_decorations (window->window, 0);
+      gtk_window_get_position ( (GtkWindow*)( window ), &window_x, &window_y );
+      gtk_window_get_size ( GTK_WINDOW ( window ), &window_w, &window_h );
+#ifdef WIN32
+      // WARNING: Doing this is required on Windows
+      //          but keep the window hidden on GNU/Linux
+      gtk_widget_hide ( window );
+#endif
+      gtk_window_set_decorated ( GTK_WINDOW ( window ), FALSE );
+      gtk_window_set_type_hint ( GTK_WINDOW ( window ),
+				 GDK_WINDOW_TYPE_HINT_DESKTOP );
       if (popt_sugar_look)
-        gtk_window_maximize (GTK_WINDOW(window));
+	gtk_window_maximize ( GTK_WINDOW( window ) );
       else
-        gtk_window_fullscreen (GTK_WINDOW(window));
-      gtk_widget_set_uposition (window, 0, 0);
+        gtk_window_fullscreen ( GTK_WINDOW ( window ) );
+
+      gtk_window_move ( GTK_WINDOW ( window ), 0, 0 );
+
+      GdkScreen *screen = gtk_window_get_screen ( GTK_WINDOW ( window ) );
+      gtk_window_resize ( GTK_WINDOW ( window ),
+			  gdk_screen_get_width (screen),
+			  gdk_screen_get_height (screen) );
     }
   else
     {
-      gdk_window_set_decorations (window->window, GDK_DECOR_ALL);
-      gtk_window_unfullscreen (GTK_WINDOW(window));
-
-      /* Mandatory or on windows we get iconified */
-      gtk_window_deiconify (GTK_WINDOW(window));
+      gtk_widget_hide ( window );
+      gtk_window_set_type_hint ( GTK_WINDOW ( window ),
+				 GDK_WINDOW_TYPE_HINT_NORMAL );
+      gtk_window_unfullscreen ( GTK_WINDOW ( window ) );
+      gtk_window_set_decorated ( GTK_WINDOW ( window ), TRUE );
+      gtk_window_move ( GTK_WINDOW ( window ), window_x, window_y );
+      gtk_window_resize ( GTK_WINDOW ( window ), window_w, window_h );
     }
+  gtk_window_present ( GTK_WINDOW ( window ) );
 
 }
 
