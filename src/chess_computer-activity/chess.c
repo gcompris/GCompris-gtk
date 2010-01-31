@@ -219,8 +219,8 @@ static void pause_board (gboolean pause)
 
 void gnuchess_died(int signum)
 {
-  gnuchess_pid = 0;
-  gc_dialog(_("Error: The external program gnuchess died unexpectedly"), gc_board_stop);
+  gc_dialog(_("Error: The external program gnuchess died unexpectedly"),
+	    gc_board_stop);
 }
 
 /*
@@ -228,7 +228,6 @@ void gnuchess_died(int signum)
 static void start_board (GcomprisBoard *agcomprisBoard)
 {
 
-  gnuchess_pid = 0;
   gchar **gnuchess_pathptr = gnuchess_path;
   gchar *gnuchess_bin = NULL;
 
@@ -1058,9 +1057,6 @@ static void
 engine_local_destroy (GPid gnuchess_pid)
 {
 
-  if(!gnuchess_pid)
-    return;
-
   g_warning("engine_local_destroy () \n");
   write_child (write_chan, "quit\n");
 
@@ -1073,8 +1069,7 @@ engine_local_destroy (GPid gnuchess_pid)
   g_io_channel_close (write_chan);
   g_io_channel_unref (write_chan);
 
-  if(gnuchess_pid)
-    g_spawn_close_pid(gnuchess_pid);
+  g_spawn_close_pid(gnuchess_pid);
 }
 
 /** We got data back from gnuchess, we parse them here
@@ -1155,7 +1150,11 @@ engine_local_cb (GIOChannel *source,
     /* parse for  NUMBER ... MOVE */
     if (isdigit (*buf))
       {
-	if ((p = strstr (buf, "...")))
+	if ((p = strstr (buf, "...")) && (strlen(p) == 4) )
+	  {
+	    return TRUE;
+	  }
+	else if ((p = strstr (buf, "...")))
 	  {
 	    Square from, to;
 
@@ -1234,8 +1233,8 @@ engine_local_err_cb (GIOChannel *source,
 		     GIOCondition condition,
 		     gpointer data)
 {
-  gnuchess_pid = 0;
-  gc_dialog(_("Error: The external program gnuchess died unexpectingly"), gc_board_stop);
+  gc_dialog(_("Error: The external program gnuchess died unexpectingly"),
+	    gc_board_stop);
   return FALSE;
 }
 
@@ -1270,7 +1269,7 @@ start_child (char *cmd,
 
   }
 
-  g_warning("gnuchess subprocess is started");
+  g_warning("gnuchess subprocess is started (%d)", *Child_Process);
 
   *read_chan = g_io_channel_unix_new (Child_Out);
   *write_chan = g_io_channel_unix_new (Child_In);
