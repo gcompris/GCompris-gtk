@@ -61,7 +61,6 @@ include global_win32.mak
 # These will be copied in the win32-install-dir ready to be packaged.
 NEEDED_DLLS =		$(GNUCHESS_TOP)/bin/pthreadGC2.dll \
 			$(GNUCHESS_TOP)/bin/libreadline.dll \
-			$(GNUCHESS_TOP)/bin/gnuchess.exe \
 			$(FONTCONFIG_TOP)/bin/libfontconfig-1.dll \
 			$(FREETYPE_TOP)/bin/freetype6.dll \
 			$(GNUCAP_TOP)/src/MSW/gnucap.exe \
@@ -150,6 +149,8 @@ prepack: Makefile.mingw
 	cp -r $(GTK_TOP)/share/locale $(GCOMPRIS_INSTALL_DIR)/lib
 	cp -r $(GTK_TOP)/lib/gtk-2.0 $(GCOMPRIS_INSTALL_DIR)/lib
 	cp $(LOCAL_PREFIX)/libxml2-2.7.6.win32/bin/libxml2.dll $(GCOMPRIS_INSTALL_DIR)/libxml2-2.dll
+	mkdir -p $(GCOMPRIS_INSTALL_DIR)/bin
+	cp $(GNUCHESS_TOP)/bin/gnuchess.exe $(GCOMPRIS_INSTALL_DIR)/bin
 
 python: Makefile.mingw
 	cp $(PYTHON_TOP)/DLLs/tcl85.dll $(GCOMPRIS_INSTALL_DIR)

@@ -1,4 +1,4 @@
-; Installer script for win32 Gcompris
+; Installer script for win32 GCompris
 ; Copyed from GAIM By Herman Bloggs <hermanator12002@yahoo.com>
 ; Bruno Coudoin for GCompris
 ;
@@ -41,7 +41,7 @@ SetDateSave on
 !define GCOMPRIS_INSTALLER_DEPS			"..\win32-dev\gcompris-inst-deps"
 
 !define GCOMPRIS_REG_KEY			"SOFTWARE\gcompris"
-!define GCOMPRIS_UNINSTALL_KEY			"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Gcompris"
+!define GCOMPRIS_UNINSTALL_KEY			"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\GCompris"
 !define HKLM_APP_PATHS_KEY			"SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\gcompris.exe"
 !define GCOMPRIS_STARTUP_RUN_KEY		"SOFTWARE\Microsoft\Windows\CurrentVersion\Run"
 !define GCOMPRIS_UNINST_EXE			"gcompris-uninst.exe"
@@ -50,33 +50,26 @@ SetDateSave on
 ;--------------------------------
 ;Modern UI Configuration
 
-  !define MUI_ICON				".\gcompris.ico"
+  !define MUI_ICON				".\gcompris-install.ico"
   !define MUI_UNICON				".\gcompris-uninstal.ico"
   !define MUI_WELCOMEFINISHPAGE_BITMAP 		".\nsis\gcompris-intro.bmp"
   !define MUI_HEADERIMAGE
   !define MUI_HEADERIMAGE_BITMAP		".\nsis\gcompris-header.bmp"
 
-  ; Alter License section
-  !define MUI_LICENSEPAGE_BUTTON		$(GCOMPRIS_LICENSE_BUTTON)
-  !define MUI_LICENSEPAGE_TEXT_BOTTOM		$(GCOMPRIS_LICENSE_BOTTOM_TEXT)
-
-  !define MUI_COMPONENTSPAGE_SMALLDESC
   !define MUI_ABORTWARNING
 
   ;Finish Page config
   !define MUI_FINISHPAGE_RUN			"$INSTDIR\gcompris.exe"
   !define MUI_FINISHPAGE_RUN_NOTCHECKED
-  !define MUI_FINISHPAGE_LINK			$(GCOMPRIS_FINISH_VISIT_WEB_SITE)
+  !define MUI_FINISHPAGE_LINK			$(GcomprisFinishVisitWebSite)
   !define MUI_FINISHPAGE_LINK_LOCATION          "http://gcompris.net/"
 
 ;--------------------------------
 ;Pages
 
   !insertmacro MUI_PAGE_WELCOME
-  !insertmacro MUI_PAGE_LICENSE			"./COPYING"
-  !insertmacro MUI_PAGE_COMPONENTS
 
-  ; Gcompris install dir page
+  ; GCompris install dir page
   !insertmacro MUI_PAGE_DIRECTORY
 
   !insertmacro MUI_PAGE_INSTFILES
@@ -90,75 +83,7 @@ SetDateSave on
 ;--------------------------------
 ;Languages
 
-  ;; English goes first because its the default. The rest are
-  ;; in alphabetical order (at least the strings actually displayed
-  ;; will be).
-
-  !insertmacro MUI_LANGUAGE "English"
-
-  !insertmacro MUI_LANGUAGE "Albanian"
-  !insertmacro MUI_LANGUAGE "Bulgarian"
-  !insertmacro MUI_LANGUAGE "Catalan"
-  !insertmacro MUI_LANGUAGE "Czech"
-  !insertmacro MUI_LANGUAGE "Danish"
-  !insertmacro MUI_LANGUAGE "SimpChinese"
-  !insertmacro MUI_LANGUAGE "TradChinese"
-  !insertmacro MUI_LANGUAGE "German"
-  !insertmacro MUI_LANGUAGE "Spanish"
-  !insertmacro MUI_LANGUAGE "French"
-  !insertmacro MUI_LANGUAGE "Hebrew"
-  !insertmacro MUI_LANGUAGE "Italian"
-  !insertmacro MUI_LANGUAGE "Japanese"
-  !insertmacro MUI_LANGUAGE "Korean"
-  !insertmacro MUI_LANGUAGE "Hungarian"
-  !insertmacro MUI_LANGUAGE "Dutch"
-  !insertmacro MUI_LANGUAGE "Norwegian"
-  !insertmacro MUI_LANGUAGE "Polish"
-  !insertmacro MUI_LANGUAGE "PortugueseBR"
-  !insertmacro MUI_LANGUAGE "Portuguese"
-  !insertmacro MUI_LANGUAGE "Romanian"
-  !insertmacro MUI_LANGUAGE "Russian"
-  !insertmacro MUI_LANGUAGE "Serbian"
-  !insertmacro MUI_LANGUAGE "Slovak"
-  !insertmacro MUI_LANGUAGE "Slovenian"
-  !insertmacro MUI_LANGUAGE "Finnish"
-  !insertmacro MUI_LANGUAGE "Swedish"
-
-;--------------------------------
-;Translations
-
-  !define GCOMPRIS_DEFAULT_LANGFILE "${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\english.nsh"
-
-  !include "${GCOMPRIS_NSIS_INCLUDE_PATH}\langmacros.nsh"
-
-  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "ALBANIAN"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\albanian.nsh"
-  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "BULGARIAN"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\bulgarian.nsh"
-  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "CATALAN"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\catalan.nsh"
-  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "CZECH"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\czech.nsh"
-  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "DANISH"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\danish.nsh"
-  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "DUTCH"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\dutch.nsh"
-  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "ENGLISH"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\english.nsh"
-  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "FINNISH"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\finnish.nsh"
-  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "FRENCH"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\french.nsh"
-  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "GERMAN"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\german.nsh"
-  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "HEBREW"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\hebrew.nsh"
-  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "HUNGARIAN"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\hungarian.nsh"
-  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "ITALIAN"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\italian.nsh"
-  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "JAPANESE"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\japanese.nsh"
-  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "KOREAN"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\korean.nsh"
-  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "NORWEGIAN"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\norwegian.nsh"
-  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "POLISH"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\polish.nsh"
-  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "PORTUGUESE"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\portuguese.nsh"
-  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "PORTUGUESEBR"	"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\portuguese-br.nsh"
-  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "ROMANIAN"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\romanian.nsh"
-  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "RUSSIAN"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\russian.nsh"
-  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "SERBIAN"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\serbian-latin.nsh"
-  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "SIMPCHINESE"	"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\simp-chinese.nsh"
-  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "SLOVAK"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\slovak.nsh"
-  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "SLOVENIAN"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\slovenian.nsh"
-  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "SPANISH"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\spanish.nsh"
-  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "SWEDISH"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\swedish.nsh"
-  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "TRADCHINESE"	"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\trad-chinese.nsh"
+  @INSERT_TRANSLATIONS@
 
 ;--------------------------------
 ;Reserve Files
@@ -174,7 +99,7 @@ SetDateSave on
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;--------------------------------
-;Uninstall any old version of Gcompris
+;Uninstall any old version of GCompris
 
 Section -SecUninstallOldGcompris
   ; Check install rights..
@@ -217,11 +142,11 @@ Section -SecUninstallOldGcompris
         IfFileExists $R3 0 uninstall_problem
           ; Have uninstall string.. go ahead and uninstall.
 
-	  ; In this case just wipe out previous Gcompris install dir..
+	  ; In this case just wipe out previous GCompris install dir..
 	  ; We get here because versions 0.60a1 and 0.60a2 don't have versions set in the registry
 	  ; and versions 0.60 and lower did not correctly set the uninstall reg string
 	  ; (the string was set in quotes)
-          MessageBox MB_YESNO $(GCOMPRIS_PROMPT_WIPEOUT) IDYES do_wipeout IDNO cancel_install
+          MessageBox MB_YESNO $(GcomprisPromptWipeout) IDYES do_wipeout IDNO cancel_install
           cancel_install:
             Quit
 
@@ -243,7 +168,7 @@ Section -SecUninstallOldGcompris
               Goto uninstall_problem
 
         uninstall_problem:
-	  ; In this case just wipe out previous Gcompris install dir..
+	  ; In this case just wipe out previous GCompris install dir..
 	  ; We get here because versions 0.60a1 and 0.60a2 don't have versions set in the registry
 	  ; and versions 0.60 and lower did not correctly set the uninstall reg string
 	  ; (the string was set in quotes)
@@ -266,9 +191,9 @@ SectionEnd
 
 
 ;--------------------------------
-;Gcompris Install Section
+;GCompris Install Section
 
-Section $(GCOMPRIS_SECTION_TITLE) SecGcompris
+Section "GCompris" SecGcompris
   SectionIn 1 RO
 
   ; Check install rights..
@@ -285,7 +210,7 @@ Section $(GCOMPRIS_SECTION_TITLE) SecGcompris
     WriteRegStr HKLM "${HKLM_APP_PATHS_KEY}" "Path" "$R1\bin"
     WriteRegStr HKLM ${GCOMPRIS_REG_KEY} "" "$INSTDIR"
     WriteRegStr HKLM ${GCOMPRIS_REG_KEY} "Version" "${GCOMPRIS_VERSION}"
-    WriteRegStr HKLM "${GCOMPRIS_UNINSTALL_KEY}" "DisplayName" $(GCOMPRIS_UNINSTALL_DESC)
+    WriteRegStr HKLM "${GCOMPRIS_UNINSTALL_KEY}" "DisplayName" "GCompris Uninstall"
     WriteRegStr HKLM "${GCOMPRIS_UNINSTALL_KEY}" "UninstallString" "$INSTDIR\${GCOMPRIS_UNINST_EXE}"
     ; Sets scope of the desktop and Start Menu entries for all users.
     SetShellVarContext "all"
@@ -294,7 +219,7 @@ Section $(GCOMPRIS_SECTION_TITLE) SecGcompris
   gcompris_hkcu:
     WriteRegStr HKCU ${GCOMPRIS_REG_KEY} "" "$INSTDIR"
     WriteRegStr HKCU ${GCOMPRIS_REG_KEY} "Version" "${GCOMPRIS_VERSION}"
-    WriteRegStr HKCU "${GCOMPRIS_UNINSTALL_KEY}" "DisplayName" $(GCOMPRIS_UNINSTALL_DESC)
+    WriteRegStr HKCU "${GCOMPRIS_UNINSTALL_KEY}" "DisplayName" "GCompris Uninstall"
     WriteRegStr HKCU "${GCOMPRIS_UNINSTALL_KEY}" "UninstallString" "$INSTDIR\${GCOMPRIS_UNINST_EXE}"
     Goto gcompris_install_files
 
@@ -302,7 +227,7 @@ Section $(GCOMPRIS_SECTION_TITLE) SecGcompris
 
   gcompris_install_files:
     SetOutPath "$INSTDIR"
-    ; Gcompris files
+    ; GCompris files
     SetOverwrite on
     File /r .\win32-install-dir\*.*
 
@@ -318,16 +243,16 @@ Section $(GCOMPRIS_SECTION_TITLE) SecGcompris
 
     nt4_done:
 
-    CreateDirectory "$SMPROGRAMS\Gcompris"
-    CreateShortCut "$SMPROGRAMS\Gcompris\Gcompris.lnk" "$INSTDIR\gcompris.exe"
-    CreateShortCut "$DESKTOP\Gcompris.lnk" "$INSTDIR\gcompris.exe"
-    CreateShortCut "$SMPROGRAMS\Gcompris\Gcompris Admin.lnk" "$INSTDIR\gcompris.exe" `-a` "$INSTDIR\gcompris.exe" 1
-    CreateShortCut "$DESKTOP\Gcompris Admin.lnk" "$INSTDIR\gcompris.exe" `-a` "$INSTDIR\gcompris.exe" 1
+    CreateDirectory "$SMPROGRAMS\GCompris"
+    CreateShortCut "$SMPROGRAMS\GCompris\GCompris.lnk" "$INSTDIR\gcompris.exe"
+    CreateShortCut "$DESKTOP\GCompris.lnk" "$INSTDIR\gcompris.exe"
+    CreateShortCut "$SMPROGRAMS\GCompris\GCompris Admin.lnk" "$INSTDIR\gcompris.exe" `-a` "$INSTDIR\gcompris.exe" 1
+    CreateShortCut "$DESKTOP\GCompris Admin.lnk" "$INSTDIR\gcompris.exe" `-a` "$INSTDIR\gcompris.exe" 1
     SetOutPath "$INSTDIR"
 
     ; If we don't have install rights.. we're done
     StrCmp $R0 "NONE" done
-    CreateShortCut "$SMPROGRAMS\Gcompris\Uninstall.lnk" "$INSTDIR\${GCOMPRIS_UNINST_EXE}"
+    CreateShortCut "$SMPROGRAMS\GCompris\Uninstall.lnk" "$INSTDIR\${GCOMPRIS_UNINST_EXE}"
     SetOverwrite off
 
     ; Write out installer language
@@ -345,7 +270,7 @@ Section $(GCOMPRIS_SECTION_TITLE) SecGcompris
     WriteRegStr HKLM "${GCOMPRIS_STARTUP_RUN_KEY}" "Gcompris" "$INSTDIR\gcompris.exe"
 
   done:
-SectionEnd ; end of default Gcompris section
+SectionEnd ; end of default GCompris section
 
 ;--------------------------------
 ;Uninstaller Section
@@ -403,7 +328,7 @@ Section Uninstall
     Delete "$INSTDIR\bz2.pyd"
     Delete "$INSTDIR\freetype6.dll"
     Delete "$INSTDIR\gnucap.exe"
-    Delete "$INSTDIR\gnuchess.exe"
+    Delete "$INSTDIR\bin\gnuchess.exe"
     Delete "$INSTDIR\gobject.pyd"
     Delete "$INSTDIR\gspawn-win32-helper.exe"
     Delete "$INSTDIR\iconv.dll"
@@ -427,7 +352,6 @@ Section Uninstall
     Delete "$INSTDIR\libpangocairo-1.0-0.dll"
     Delete "$INSTDIR\libpangoft2-1.0-0.dll"
     Delete "$INSTDIR\libpangowin32-1.0-0.dll"
-    Delete "$INSTDIR\libpng13.dll"
     Delete "$INSTDIR\libreadline.dll"
     Delete "$INSTDIR\libxml2.dll"
     Delete "$INSTDIR\msvcr71.dll"
@@ -445,38 +369,71 @@ Section Uninstall
     Delete "$INSTDIR\zlib.pyd"
     Delete "$INSTDIR\zlib1.dll"
     Delete "$INSTDIR\README.mingw"
+    Delete "$INSTDIR\config.h.mingw"
+    Delete "$INSTDIR\libexpat.dll"
+    Delete "$INSTDIR\libgio-2.0-0.dll"
+    Delete "$INSTDIR\libogg-0.dll"
+    Delete "$INSTDIR\libpng12-0.dll"
+    Delete "$INSTDIR\libvorbis-0.dll"
+    Delete "$INSTDIR\libvorbisfile-3.dll"
+    Delete "$INSTDIR\pthreadGC2.dll"
+    Delete "$INSTDIR\README.translators"
+    Delete "$INSTDIR\_ctypes.pyd"
+    Delete "$INSTDIR\_sqlite3.pyd"
+    Delete "$INSTDIR\cairo._cairo.pyd"
+    Delete "$INSTDIR\gobject._gobject.pyd"
+    Delete "$INSTDIR\gtk._gtk.pyd"
+    Delete "$INSTDIR\libcroco-0.6-3.dll"
+    Delete "$INSTDIR\libexpat-1.dll"
+    Delete "$INSTDIR\libgio-2.0-0.dll"
+    Delete "$INSTDIR\libgsf-1-114.dll"
+    Delete "$INSTDIR\libjpeg-7.dll"
+    Delete "$INSTDIR\libogg-0.dll"
+    Delete "$INSTDIR\libpng12-0.dll"
+    Delete "$INSTDIR\librsvg-2-2.dll"
+    Delete "$INSTDIR\libvorbis-0.dll"
+    Delete "$INSTDIR\libvorbisfile-3.dll"
+    Delete "$INSTDIR\libxml2-2.dll"
+    Delete "$INSTDIR\pthreadGC2.dll"
+    Delete "$INSTDIR\python26.dll"
+    Delete "$INSTDIR\python26.zip"
+    Delete "$INSTDIR\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest"
+    Delete "$INSTDIR\Microsoft.VC90.CRT\msvcm90.dll"
+    Delete "$INSTDIR\Microsoft.VC90.CRT\msvcp90.dll"
+    Delete "$INSTDIR\Microsoft.VC90.CRT\msvcr90.dll"
+    Delete "$INSTDIR\manifest\gtk+-bundle_2.18.5-20091215_win32.mft"
+    Delete "$INSTDIR\manifest\libcroco_0.6.2-1_win32.mft"
+    Delete "$INSTDIR\manifest\libgsf_1.14.15-1_win32.mft"
+    Delete "$INSTDIR\manifest\librsvg_2.26.0-1_win32.mft"
+    Delete "$INSTDIR\manifest\librsvg-dev_2.26.0-1_win32.mft"
+    Delete "$INSTDIR\manifest\svg-gdk-pixbuf-loader_2.26.0-1_win32.mft"
+    Delete "$INSTDIR\manifest\svg-gtk-engine_2.26.0-1_win32.mft"
 
-    ;Try to remove Gcompris install dir .. if empty
+    ;Try to remove GCompris install dir .. if empty
     RMDir "$INSTDIR"
 
     ; Shortcuts..
-    RMDir /r "$SMPROGRAMS\Gcompris"
-    Delete "$DESKTOP\Gcompris.lnk"
-    Delete "$DESKTOP\Gcompris Admin.lnk"
+    RMDir /r "$SMPROGRAMS\GCompris"
+    Delete "$DESKTOP\GCompris.lnk"
+    Delete "$DESKTOP\GCompris Admin.lnk"
 
     Goto done
 
   cant_uninstall:
     IfSilent skip_mb
-    MessageBox MB_OK $(un.GCOMPRIS_UNINSTALL_ERROR_1) IDOK
+    MessageBox MB_OK $(unGcomprisUninstallError1) IDOK
     skip_mb:
     Quit
 
   no_rights:
     IfSilent skip_mb1
-    MessageBox MB_OK $(un.GCOMPRIS_UNINSTALL_ERROR_2) IDOK
+    MessageBox MB_OK $(unGcomprisUninstallError2) IDOK
     skip_mb1:
     Quit
 
   done:
 SectionEnd ; end of uninstall section
 
-;--------------------------------
-;Descriptions
-!insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
-  !insertmacro MUI_DESCRIPTION_TEXT ${SecGcompris} \
-	$(GCOMPRIS_SECTION_DESCRIPTION)
-!insertmacro MUI_FUNCTION_DESCRIPTION_END
 
 ;--------------------------------
 ;Functions
@@ -642,7 +599,7 @@ FunctionEnd
 Function RunCheck
   System::Call 'kernel32::OpenMutex(i 2031617, b 0, t "gcompris_is_running") i .R0'
   IntCmp $R0 0 done
-  MessageBox MB_OK|MB_ICONEXCLAMATION $(GCOMPRIS_IS_RUNNING) IDOK
+  MessageBox MB_OK|MB_ICONEXCLAMATION $(GcomprisIsRunning) IDOK
     Abort
   done:
 FunctionEnd
@@ -650,7 +607,7 @@ FunctionEnd
 Function un.RunCheck
   System::Call 'kernel32::OpenMutex(i 2031617, b 0, t "gcompris_is_running") i .R0'
   IntCmp $R0 0 done
-  MessageBox MB_OK|MB_ICONEXCLAMATION $(GCOMPRIS_IS_RUNNING) IDOK
+  MessageBox MB_OK|MB_ICONEXCLAMATION $(GcomprisIsRunning) IDOK
     Abort
   done:
 FunctionEnd
@@ -659,10 +616,10 @@ Function .onInit
   System::Call 'kernel32::CreateMutexA(i 0, i 0, t "gcompris_installer_running") i .r1 ?e'
   Pop $R0
   StrCmp $R0 0 +3
-    MessageBox MB_OK|MB_ICONEXCLAMATION $(INSTALLER_IS_RUNNING)
+    MessageBox MB_OK|MB_ICONEXCLAMATION $(InstallerIsRunning)
     Abort
   Call RunCheck
-  StrCpy $name "Gcompris ${GCOMPRIS_VERSION}"
+  StrCpy $name "GCompris ${GCOMPRIS_VERSION}"
   StrCpy $ISSILENT "/NOUI"
 
   ; GTK installer has two silent states.. one with Message boxes, one without
@@ -695,7 +652,7 @@ Function .onInit
   Pop $0
 
   StrCmp $0 "HKLM" 0 user_dir
-    StrCpy $INSTDIR "$PROGRAMFILES\Gcompris"
+    StrCpy $INSTDIR "$PROGRAMFILES\GCompris"
     Goto instdir_done
   user_dir:
     StrCpy $2 "$SMPROGRAMS"
@@ -703,7 +660,7 @@ Function .onInit
     Call GetParent
     Call GetParent
     Pop $2
-    StrCpy $INSTDIR "$2\Gcompris"
+    StrCpy $INSTDIR "$2\GCompris"
 
   instdir_done:
 
@@ -711,7 +668,7 @@ FunctionEnd
 
 Function un.onInit
   Call un.RunCheck
-  StrCpy $name "Gcompris ${GCOMPRIS_VERSION}"
+  StrCpy $name "GCompris ${GCOMPRIS_VERSION}"
 
   ; Get stored language prefrence
   ReadRegStr $LANGUAGE HKCU ${GCOMPRIS_REG_KEY} "${GCOMPRIS_REG_LANG}"
