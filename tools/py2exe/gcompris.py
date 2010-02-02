@@ -21,9 +21,6 @@ import cairo
 import pangocairo
 import atk
 import gobject
-import pysqlite2
-from pysqlite2 import dbapi2 as sqlite
-# For tuxpaint launcher
-#import _winreg
+from sqlite3 import dbapi2 as sqlite 
 
 print "Hello gcompris world now"
