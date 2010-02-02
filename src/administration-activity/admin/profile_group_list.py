@@ -27,9 +27,6 @@ from gcompris import gcompris_gettext as _
 
 import constants
 
-# Database
-from pysqlite2 import dbapi2 as sqlite
-
 #import group_edit
 
 # Group Management

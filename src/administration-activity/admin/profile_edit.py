@@ -26,9 +26,6 @@ import profile_group_list
 
 import constants
 
-# Database
-from pysqlite2 import dbapi2 as sqlite
-
 # Group Management
 (
   COLUMN_GROUPID,

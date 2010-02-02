@@ -22,9 +22,6 @@ import gobject
 import gcompris
 from gcompris import gcompris_gettext as _
 
-# Database
-from pysqlite2 import dbapi2 as sqlite
-
 import user_list
 
 import constants

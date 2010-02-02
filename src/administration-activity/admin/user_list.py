@@ -24,9 +24,6 @@ import gtk.gdk
 import gobject
 from gcompris import gcompris_gettext as _
 
-# Database
-from pysqlite2 import dbapi2 as sqlite
-
 import constants
 import user_edit
 

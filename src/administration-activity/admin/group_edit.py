@@ -25,9 +25,6 @@ import group_user_list
 
 import constants
 
-# Database
-from pysqlite2 import dbapi2 as sqlite
-
 # User List Management
 (
   COLUMN_USERID,
