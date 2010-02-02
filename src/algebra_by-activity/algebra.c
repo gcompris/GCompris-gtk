@@ -397,6 +397,9 @@ static void ask_for_ready()
 
   algebra_destroy_all_items();
 
+  gc_bar_set_level(gcomprisBoard);
+  gc_score_set(gcomprisBoard->sublevel);
+
   boardRootItem = \
     goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
 			  NULL);
