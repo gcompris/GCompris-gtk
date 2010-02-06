@@ -29,6 +29,7 @@ boards/sound_group.xml.in
 boards/strategy.xml.in
 gcompris-edit.desktop.in
 gcompris.desktop.in
+nsis_translations.desktop.in
 src/administration-activity/admin/__init__.py
 src/administration-activity/admin/board_list.py
 src/administration-activity/admin/class_edit.py
@@ -194,6 +195,7 @@ src/enumerate-activity/enumerate.xml.in
 src/erase-activity/erase.c
 src/erase-activity/erase.xml.in
 src/erase_clic-activity/erase_clic.xml.in
+src/erase_2clic-activity/erase_2clic.xml.in
 src/fifteen-activity/fifteen.c
 src/fifteen-activity/fifteen.xml.in
 src/followline-activity/followline.py
@@ -229,6 +231,7 @@ src/gcompris/profile.c
 src/gcompris/properties.c
 src/gcompris/score.c
 src/gcompris/skin.c
+src/gcompris/sugar.c
 src/gcompris/soundutil.c
 src/gcompris/timer.c
 src/gcompris/wordlist.c
