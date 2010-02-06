@@ -38,6 +38,7 @@ static gboolean	 is_our_board (GcomprisBoard *gcomprisBoard);
 static void	 set_level (guint level);
 static int	 gamewon;
 static void	 game_won(void);
+static void	 set_cursor();
 
 static GooCanvasItem *boardRootItem = NULL;
 
@@ -167,6 +168,9 @@ static void pause_board (gboolean pause)
       game_won();
     }
 
+  if (pause == FALSE)
+    set_cursor();
+
   board_paused = pause;
 }
 
@@ -210,25 +214,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       gamewon = FALSE;
       pause_board(FALSE);
-
-      GcomprisProperties *properties = gc_prop_get ();
-      if(properties->defaultcursor == GCOMPRIS_DEFAULT_CURSOR)
-	{
-	  GdkPixbuf *cursor_pixbuf = gc_pixmap_load("erase/sponge.png");
-	  if(cursor_pixbuf)
-	    {
-	      GdkCursor *cursor = NULL;
-	      cursor = gdk_cursor_new_from_pixbuf(gdk_display_get_default(),
-						  cursor_pixbuf,
-						  gdk_pixbuf_get_width(cursor_pixbuf)/2,
-						  gdk_pixbuf_get_height(cursor_pixbuf)/2);
-	      gdk_window_set_cursor(gc_get_window()->window, cursor);
-	      gdk_cursor_unref(cursor);
-	      gdk_pixbuf_unref(cursor_pixbuf);
-	    }
-	}
     }
 }
+
 /* ======================================= */
 static void end_board ()
 {
@@ -275,6 +263,26 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 	}
     }
   return FALSE;
+}
+
+static void set_cursor()
+{
+  GcomprisProperties *properties = gc_prop_get ();
+  if(properties->defaultcursor == GCOMPRIS_DEFAULT_CURSOR)
+    {
+      GdkPixbuf *cursor_pixbuf = gc_pixmap_load("erase/sponge.png");
+      if(cursor_pixbuf)
+	{
+	  GdkCursor *cursor = NULL;
+	  cursor = gdk_cursor_new_from_pixbuf(gdk_display_get_default(),
+					      cursor_pixbuf,
+					      gdk_pixbuf_get_width(cursor_pixbuf)/2,
+					      gdk_pixbuf_get_height(cursor_pixbuf)/2);
+	  gdk_window_set_cursor(gc_get_window()->window, cursor);
+	  gdk_cursor_unref(cursor);
+	  gdk_pixbuf_unref(cursor_pixbuf);
+	}
+    }
 }
 
 static int get_num_layers()
