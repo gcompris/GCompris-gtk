@@ -25,7 +25,15 @@ import gtk.gdk
 from gcompris import gcompris_gettext as _
 
 # Database
-from pysqlite2 import dbapi2 as sqlite
+try:
+  from sqlite3 import dbapi2 as sqlite # python 2.5
+except:
+  try:
+    from pysqlite2 import dbapi2 as sqlite
+  except:
+    print 'This program requires pysqlite2\n',\
+        'http://initd.org/tracker/pysqlite/'
+    sys.exit(1)
 
 import module
 import group_list

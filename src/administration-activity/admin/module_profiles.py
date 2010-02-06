@@ -29,7 +29,15 @@ import module
 import profile_list
 
 # Database
-from pysqlite2 import dbapi2 as sqlite
+try:
+  from sqlite3 import dbapi2 as sqlite # python 2.5
+except:
+  try:
+    from pysqlite2 import dbapi2 as sqlite
+  except:
+    print 'This program requires pysqlite2\n',\
+        'http://initd.org/tracker/pysqlite/'
+    sys.exit(1)
 
 class Profiles(module.Module):
   """Administrating GCompris Profiles"""
