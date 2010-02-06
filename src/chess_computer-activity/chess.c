@@ -1081,8 +1081,7 @@ engine_local_cb (GIOChannel *source,
 		 gpointer data)
 {
   gchar buf[1000];
-  char *b=buf;
-  char *p,*q;
+  gchar *pbuf = buf;
   gsize len = 0;
   g_warning("engine_local_cb");
 
@@ -1091,7 +1090,7 @@ engine_local_cb (GIOChannel *source,
   GIOStatus status = G_IO_STATUS_NORMAL;
   status = g_io_channel_read_chars(source,
 				   buf,
-				   sizeof(buf),
+				   sizeof(buf)-1,
 				   &len,
 				   &err);
 
@@ -1115,7 +1114,7 @@ engine_local_cb (GIOChannel *source,
   GIOError  gioError;
   gioError = g_io_channel_read  (source,
 				 buf,
-				 sizeof(buf),
+				 sizeof(buf)-1,
 				 &len);
   g_warning("g_io_channel_read_line len=%d", (int)len);
   if(gioError != G_IO_ERROR_NONE)
@@ -1127,34 +1126,29 @@ engine_local_cb (GIOChannel *source,
     }
 #endif
 
+  buf[len] = '\0';
+
   g_warning("engine_local_cb read=%s\n", buf);
 
-  if (len > 0) {
-    b[len] = 0;
-    b += len;
-  }
-
   while (1) {
-    char tmp;
+    char *next;
+    char *p;
 
-    q = strchr (buf,'\n');
-    if (q == NULL) break;
-    tmp = *(q+1);
-    *(q+1) = '\0';
+    next = strchr (pbuf,'\n');
+    if (next == NULL) { g_warning("BREAK"); break;}
+    *next='\0';
+    next++;
 
-    *q='\0';
-    *(q+1) = tmp;
-
-    g_warning("engine_local_cb read=%s\n", buf);
+    g_warning("engine_local_cb line=%s\n", pbuf);
 
     /* parse for  NUMBER ... MOVE */
-    if (isdigit (*buf))
+    if (isdigit (*pbuf))
       {
-	if ((p = strstr (buf, "...")) && (strlen(p) == 4) )
+	if ((p = strstr (pbuf, "...")) && (strlen(p) == 4) )
 	  {
 	    return TRUE;
 	  }
-	else if ((p = strstr (buf, "...")))
+	else if ((p = strstr (pbuf, "...")))
 	  {
 	    Square from, to;
 
@@ -1166,19 +1160,19 @@ engine_local_cb (GIOChannel *source,
 	    position_move (position, from, to);
 	    move_piece_to(from , to);
 	  }
-	else if ((p = strstr (buf, " ")))
+	else if ((p = strstr (pbuf, " ")))
 	  {
-	    /* It's a legal move case */
-	    g_warning("Legal move to %s\n", p+1);
+	    /* It's an unkown response */
+	    g_warning("Unkown response %s\n", p+1);
 	  }
       }
 
     /* parse for move MOVE */
-    if (!strncmp ("My move is : ",buf,13))
+    if (!strncmp ("My move is : ",pbuf,13))
       {
 	Square from, to;
 
-	p = strstr (buf, ":");
+	p = strstr (pbuf, ":");
 	g_warning("computer moves to %s\n", p+1);
 
 	if (san_to_move (position, p+1, &from, &to))
@@ -1189,28 +1183,28 @@ engine_local_cb (GIOChannel *source,
       }
 
     /* parse for illegal move */
-    if (!strncmp ("Illegal move",buf,12))
+    if (!strncmp ("Illegal move",pbuf,12))
       {
-	g_warning("Illegal move to %s : SHOULD NOT HAPPEN", buf+31);
+	g_warning("Illegal move to %s : SHOULD NOT HAPPEN", pbuf+31);
       }
 
-    if (!strncmp ("0-1",buf,3))
+    if (!strncmp ("0-1",pbuf,3))
       {
 	display_info(_("Black mates"));
       }
 
-    if (!strncmp ("1-0",buf,3))
+    if (!strncmp ("1-0",pbuf,3))
       {
 	display_info(_("White mates"));
       }
 
-    if (!strncmp ("1/2-1/2",buf,7))
+    if (!strncmp ("1/2-1/2",pbuf,7))
       {
 	display_info(_("Drawn game"));
       }
 
     /* parse for feature */
-    if (!strncmp ("feature",buf,7))
+    if (!strncmp ("feature",pbuf,7))
       {
 	write_child(write_chan, "accepted setboard\n");
 	write_child(write_chan, "accepted analyze\n");
@@ -1220,9 +1214,8 @@ engine_local_cb (GIOChannel *source,
 	write_child(write_chan, "accepted myname\n");
 	write_child(write_chan, "accepted done\n");
       }
-
-    memmove (buf, q+1, sizeof(buf) - ( q + 1 - buf));
-    b -= (q + 1 - buf);
+    // Process next line
+    pbuf = next;
   }
 
   return TRUE;
@@ -1269,7 +1262,7 @@ start_child (char *cmd,
 
   }
 
-  g_warning("gnuchess subprocess is started (%d)", *Child_Process);
+  g_warning("gnuchess subprocess is started (%d)", (int)*Child_Process);
 
   *read_chan = g_io_channel_unix_new (Child_Out);
   *write_chan = g_io_channel_unix_new (Child_In);
