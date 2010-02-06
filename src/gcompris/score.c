@@ -138,7 +138,7 @@ display_number(GooCanvasItem *parent,
 		       GTK_ANCHOR_NORTH,
 		       "alignment", PANGO_ALIGN_CENTER,
 		       "font", gc_skin_font_board_huge_bold,
-		       "fill-color-rgba", 0x7a8699FF,
+		       "fill-color-rgba", 0x696969FF,
 		       NULL);
 
   goo_canvas_text_new (parent,
@@ -149,7 +149,7 @@ display_number(GooCanvasItem *parent,
 		       GTK_ANCHOR_NORTH,
 		       "alignment", PANGO_ALIGN_CENTER,
 		       "font", gc_skin_font_board_huge_bold,
-		       "fill-color-rgba", 0xe5e532FF,
+		       "fill-color-rgba", 0xFFFFFFFF,
 		       NULL);
 }
 
