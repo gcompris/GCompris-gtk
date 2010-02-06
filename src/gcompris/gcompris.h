@@ -170,6 +170,7 @@ void		 gc_locale_set(gchar *locale);
 char		*gc_locale_get_user_default(void);
 gchar		*gc_locale_get_name(gchar *locale);
 
+guint		 gc_cursor_get();
 void		 gc_cursor_set(guint gdk_cursor_type);
 
 typedef void     (*ImageSelectorCallBack)     (gchar* image,

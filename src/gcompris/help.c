@@ -59,7 +59,9 @@ static GooCanvasItem *item_credit_text        = NULL;
 static GooCanvasItem *item_selected		= NULL;
 static GooCanvasItem *item_selected_text	= NULL;
 
-static GtkTextBuffer   *buffer_content;
+static GtkTextBuffer *buffer_content;
+static guint	      caller_cursor;
+
 /*
  * Main entry point
  * ----------------
@@ -101,6 +103,9 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
     return;
 
   gc_board_pause(TRUE);
+
+  caller_cursor = gc_cursor_get();
+  gc_cursor_set(GCOMPRIS_DEFAULT_CURSOR);
 
   item_selected = NULL;
   item_selected_text = NULL;
@@ -374,6 +379,7 @@ void gc_help_stop ()
 	  goo_canvas_item_remove(rootitem);
 	  rootitem = NULL;
 	}
+      gc_cursor_set(caller_cursor);
       gc_board_pause(FALSE);
     }
 

@@ -94,6 +94,7 @@ static GtkWidget *widget_activation_entry;
 static GcomprisProperties *properties = NULL;
 static gboolean		   is_mapped = FALSE;
 static gboolean		   fullscreen;
+static guint		   gc_cursor_current;
 
 /****************************************************************************/
 /* Some constants.  */
@@ -438,6 +439,11 @@ board_widget_key_press_callback (GtkWidget   *widget,
   return FALSE;
 };
 
+guint gc_cursor_get()
+{
+  return gc_cursor_current;
+}
+
 void gc_cursor_set(guint gdk_cursor_type)
 {
   GdkCursor *cursor = NULL;
@@ -496,6 +502,7 @@ void gc_cursor_set(guint gdk_cursor_type)
 	gdk_pixbuf_unref(cursor_pixbuf);
       }
   }
+  gc_cursor_current = gdk_cursor_type;
 }
 
 /**
