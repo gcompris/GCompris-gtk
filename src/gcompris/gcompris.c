@@ -935,7 +935,7 @@ display_activation_dialog()
  * Return -1 if the code is not valid
  *        0  if the code is valid but out of date
  *        1  if the code is valid and under 2 years
- *        2  if the code is valid and under 2 years
+ *        2  for the demo code
  */
 gint gc_activation_check(const char *code)
 {
@@ -947,6 +947,9 @@ gint gc_activation_check(const char *code)
   char crc1 = 0;
   char crc2 = 0;
   char codeddate[5];
+
+  if (properties->administration)
+    return 1;
 
   if(strlen(code) != 6)
     return -1;

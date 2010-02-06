@@ -233,10 +233,7 @@ gc_board_check_file(GcomprisBoard *gcomprisBoard)
     return TRUE;
   }
 
-  if(properties->administration)
-    key_is_valid = 1;
-  else
-    key_is_valid = gc_activation_check(properties->key);
+  key_is_valid = gc_activation_check(properties->key);
 
   i = 0;
   if(key_is_valid >= 1)
