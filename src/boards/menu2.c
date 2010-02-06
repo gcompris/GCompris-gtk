@@ -706,7 +706,7 @@ create_info_area(GooCanvasItem *parent, MenuItems *menuitems)
 			 GTK_ANCHOR_CENTER,
 			 "font", gc_skin_font_board_medium,
 			 "fill-color-rgba", gc_skin_get_color("menu/text"),
-			 //FIXME BROKEN "alignment", PANGO_ALIGN_CENTER,
+			 "alignment", PANGO_ALIGN_CENTER,
 			 NULL);
 
   menuitems->author_item = \
