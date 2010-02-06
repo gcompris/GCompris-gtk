@@ -88,7 +88,7 @@ void gc_dialog(gchar *str, DialogBoxCallBack dbcb)
   goo_canvas_text_new (rootDialogItem,
 		       str,
 		       BOARDWIDTH / 2,
-		       (bounds.y2 - bounds.y1)/2 - 100,
+		       (bounds.y2 - bounds.y1) / 2,
 		       BOARDWIDTH / 2,
 		       GTK_ANCHOR_CENTER,
 		       "alignment", PANGO_ALIGN_CENTER,
