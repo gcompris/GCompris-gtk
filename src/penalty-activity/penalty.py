@@ -97,7 +97,8 @@ class Gcompris_penalty:
     item = goocanvas.Svg(
       parent = self.rootitem,
       svg_handle = svghandle,
-      svg_id = "#HELP"
+      svg_id = "#HELP",
+      autocrop = True
       )
     item.connect("button_press_event", self.help)
     # This item is clickeable and it must be seen
@@ -194,6 +195,8 @@ class Gcompris_penalty:
   # ---------------------
 
   def next_level(self):
+
+    self.help_item.props.visibility = goocanvas.ITEM_VISIBLE
 
     # Set the level in the control bar
     gcompris.bar_set_level(self.gcomprisBoard);
