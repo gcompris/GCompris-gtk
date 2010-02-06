@@ -9,17 +9,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-06 06:48+0200\n"
-"PO-Revision-Date: 2010-01-19 22:51+0300\n"
+"POT-Creation-Date: 2010-02-06 07:22+0200\n"
+"PO-Revision-Date: 2010-02-06 07:29+0300\n"
 "Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ar\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
-"X-Generator: Virtaal 0.5.1\n"
+"X-Generator: Virtaal 0.5.2\n"
 
 #: ../boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
@@ -272,7 +272,7 @@ msgstr "إدارة «فهمت»"
 
 #: ../gcompris-edit.desktop.in.h:2
 msgid "GCompris Administration"
-msgstr "إدارة «فهمت» "
+msgstr "إدارة «فهمت»"
 
 #: ../gcompris.desktop.in.h:1
 msgid "Educational game for ages 2 to 10"
@@ -286,13 +286,48 @@ msgstr "حزمة البرامج التربوية «فهمت»"
 msgid "Multi-activity educational game"
 msgstr "لعبة تعليمية متعدة الأنشطة"
 
+#: ../nsis_translations.desktop.in.h:1
+msgid ""
+"An instance of GCompris is currently running. Exit GCompris and then try "
+"again."
+msgstr "تعمل سيرورة من «فهمت» حاليا، أغلق «فهمت» ثم أعد المحاولة."
+
+#: ../nsis_translations.desktop.in.h:2
+msgid "The installer is already running."
+msgstr "يعمل المثبّت بالفعل."
+
+#: ../nsis_translations.desktop.in.h:3
+msgid "Visit the GCompris Web Site"
+msgstr "اذهب إلى موقع «فهمت»"
+
+#: ../nsis_translations.desktop.in.h:4
+msgid "You do not have permission to uninstall this application."
+msgstr "لا تملك صلاحيات إزالة هذا التطبيق."
+
+#: ../nsis_translations.desktop.in.h:5
+msgid ""
+"Your old GCompris directory is about to be deleted. Would you like to "
+"continue?$\\r$\\rNote: Any non-standard plugins that you may have installed "
+"will be deleted.$\\rGCompris user settings will not be affected."
+msgstr ""
+"مجلد «فهمت» القديم على وشك أن يحذف. أتريد المواصلة؟$\\r$\\rلاحظ: أي إضافة غير "
+"رسمية قد تكون ثبتها ستُحذف.$\\r$\\rلن تتأثر إعدادات مستخدم «فهمت»."
+
+#: ../nsis_translations.desktop.in.h:6
+msgid ""
+"the uninstaller could not find registry entries for GCompris.$\\rIt is likely "
+"that another user installed this application."
+msgstr ""
+"تعذّر العثور على مدخلات «فهمت» في مضبطة وندوز.$\\rغالبا ثبت مستخدم آخر هذا "
+"التطبيق."
+
 #: ../src/administration-activity/admin/board_list.py:88
 msgid "Select a profile:"
 msgstr "اختر ملفًا شخصيًا:"
 
 #: ../src/administration-activity/admin/board_list.py:145
 msgid "Filter"
-msgstr "تصفية"
+msgstr "رشّح"
 
 #: ../src/administration-activity/admin/board_list.py:150
 msgid "Select all"
@@ -1070,6 +1105,7 @@ msgstr "تدرب على عملية الضرب"
 
 #: ../src/algebra_guesscount-activity/algebra_guesscount.xml.in.h:1
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:1
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:1
 msgid ""
 "Animal pictures come from the Animal Photography Page of Ralf Schmode "
 "(http://schmode.net/). Ralf has kindly permitted Gcompris to include his "
@@ -1565,6 +1601,7 @@ msgstr "اركل الكرة إلى الهدف"
 #: ../src/connect4-activity/connect4.xml.in.h:6
 #: ../src/erase-activity/erase.xml.in.h:3
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:6
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:6
 #: ../src/fifteen-activity/fifteen.xml.in.h:2
 #: ../src/hanoi-activity/hanoi.xml.in.h:3
 #: ../src/memory-activity/memory.xml.in.h:4
@@ -2228,6 +2265,7 @@ msgstr "قم بقيادة الرافعة وانسخ النموذج"
 #: ../src/crane-activity/crane.xml.in.h:3
 #: ../src/erase-activity/erase.xml.in.h:2
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:5
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:5
 #: ../src/penalty-activity/penalty.xml.in.h:3
 msgid "Motor-coordination"
 msgstr "معاونة العقل"
@@ -2437,6 +2475,18 @@ msgstr "انقر بالفأرة على المربعات حتى تختفي جمي
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:4
 msgid "Click the mouse to erase the area and discover the background"
 msgstr "حرك الفأرة لمحو الشاشة واكتشاف الخلفية"
+
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
+msgid "Double click the mouse"
+msgstr "انقر الفأرة مرتين"
+
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:3
+msgid "Double click the mouse on rectangles until all the blocks disappear."
+msgstr "انقر مرتين بالفأرة على المربعات حتى تختفي جميع الكتل."
+
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:4
+msgid "Double click the mouse to erase the area and discover the background"
+msgstr "انقر مرتين بالفأرة لمحو المنطقة واكتشاف الخلفية"
 
 #: ../src/fifteen-activity/fifteen.xml.in.h:1
 msgid ""
@@ -2902,7 +2952,7 @@ msgstr "موسيقى"
 msgid "Effect"
 msgstr "التأثير"
 
-#: ../src/gcompris/config.c:335
+#: ../src/gcompris/config.c:335 ../src/gcompris/sugar.c:82
 msgid "Zoom"
 msgstr "التقريب"
 
@@ -3236,6 +3286,38 @@ msgstr ""
 "ضع أي عدد من الصور في هذا المجلد.\n"
 "يمكنك تضمين هذه الصور في رسومك وشريطك المتحرك.\n"
 "هيئة الصور المدعومة هي: jpeg، png، و svg.\n"
+
+#: ../src/gcompris/sugar.c:70
+msgid "Help"
+msgstr "مساعدة"
+
+#: ../src/gcompris/sugar.c:71
+msgid "About"
+msgstr "عنْ"
+
+#: ../src/gcompris/sugar.c:72
+msgid "Previous level"
+msgstr "المستوى السابق"
+
+#: ../src/gcompris/sugar.c:75
+msgid "Next level"
+msgstr "المستوى التالي"
+
+#: ../src/gcompris/sugar.c:77
+msgid "Refresh"
+msgstr "أعِد التحميل"
+
+#: ../src/gcompris/sugar.c:78
+msgid "Settings"
+msgstr "الإعدادات"
+
+#: ../src/gcompris/sugar.c:84
+msgid "Back"
+msgstr "السابق"
+
+#: ../src/gcompris/sugar.c:85
+msgid "Stop"
+msgstr "أوقِف"
 
 #: ../src/gcompris/timer.c:244
 msgid "Time Elapsed"
@@ -6732,15 +6814,6 @@ msgstr "أدخل الكلمات المتساقطة قبل أن تصل إلى ا�
 #~ "ستة عشر قطعة: ملك ووزير وطابيتين وفيلين وحصانين وثمان جنود. هدف اللعبة هو "
 #~ "التخلص من الملك المنافس، بحيث يكون في مرمى هجوم مباشر ولا سبيل إلى إبعاده "
 #~ "عن الهجوم في النقلة التالية."
-
-#~ msgid "Double click the mouse"
-#~ msgstr "انقر الفأرة مرتين"
-
-#~ msgid "Double click the mouse on rectangles until all the blocks disappear."
-#~ msgstr "انقر مرتين بالفأرة على المربعات حتى تختفي جميع الكتل."
-
-#~ msgid "Double click the mouse to erase the area and discover the background"
-#~ msgstr "انقر مرتين بالفأرة لمحو المنطقة واكتشاف الخلفية"
 
 #~ msgid "gcompris animation"
 #~ msgstr "رسوم «فهمت» المتحركة"
