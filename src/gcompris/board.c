@@ -239,7 +239,7 @@ gc_board_check_file(GcomprisBoard *gcomprisBoard)
     key_is_valid = gc_activation_check(properties->key);
 
   i = 0;
-  if(key_is_valid == 1)
+  if(key_is_valid >= 1)
     {
       while(static_boards[i++] != NULL) {
 
