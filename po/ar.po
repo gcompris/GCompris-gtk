@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-19 22:51+0200\n"
+"POT-Creation-Date: 2010-02-06 06:48+0200\n"
 "PO-Revision-Date: 2010-01-19 22:51+0300\n"
 "Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
@@ -286,37 +286,37 @@ msgstr "حزمة البرامج التربوية «فهمت»"
 msgid "Multi-activity educational game"
 msgstr "لعبة تعليمية متعدة الأنشطة"
 
-#: ../src/administration-activity/admin/board_list.py:91
+#: ../src/administration-activity/admin/board_list.py:88
 msgid "Select a profile:"
 msgstr "اختر ملفًا شخصيًا:"
 
-#: ../src/administration-activity/admin/board_list.py:148
+#: ../src/administration-activity/admin/board_list.py:145
 msgid "Filter"
 msgstr "تصفية"
 
-#: ../src/administration-activity/admin/board_list.py:153
+#: ../src/administration-activity/admin/board_list.py:150
 msgid "Select all"
 msgstr "اختر الكل"
 
-#: ../src/administration-activity/admin/board_list.py:158
+#: ../src/administration-activity/admin/board_list.py:155
 msgid "Unselect all"
 msgstr "ألغ اختيار الكل"
 
-#: ../src/administration-activity/admin/board_list.py:163
+#: ../src/administration-activity/admin/board_list.py:160
 msgid "Locales"
 msgstr "اللغات"
 
-#: ../src/administration-activity/admin/board_list.py:168
+#: ../src/administration-activity/admin/board_list.py:165
 msgid "Locales sound"
 msgstr "أصوات اللغات"
 
-#: ../src/administration-activity/admin/board_list.py:173
-#: ../src/administration-activity/admin/group_user_list.py:143
-#: ../src/administration-activity/admin/user_list.py:184
+#: ../src/administration-activity/admin/board_list.py:170
+#: ../src/administration-activity/admin/group_user_list.py:140
+#: ../src/administration-activity/admin/user_list.py:181
 msgid "Login"
 msgstr "اسم الولوج"
 
-#: ../src/administration-activity/admin/board_list.py:245
+#: ../src/administration-activity/admin/board_list.py:242
 msgid "Main menu"
 msgstr "قائمة الاختيارات الرئيسية"
 
@@ -325,20 +325,20 @@ msgstr "قائمة الاختيارات الرئيسية"
 #. image = gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, gtk.ICON_SIZE_MENU)
 #. image.show()
 #. column_pref.set_widget(image)
-#: ../src/administration-activity/admin/board_list.py:311
+#: ../src/administration-activity/admin/board_list.py:308
 msgid "Active"
 msgstr "نشط"
 
-#: ../src/administration-activity/admin/board_list.py:312
+#: ../src/administration-activity/admin/board_list.py:309
 msgid "Board title"
 msgstr "عنوان اللوحة"
 
-#: ../src/administration-activity/admin/board_list.py:425
+#: ../src/administration-activity/admin/board_list.py:422
 #, python-format
 msgid "Filter Boards difficulty for profile %s"
 msgstr "صعوبة لوحات التصفية للملف الشخصي %s"
 
-#: ../src/administration-activity/admin/board_list.py:456
+#: ../src/administration-activity/admin/board_list.py:453
 #, python-format
 msgid ""
 "<span size='x-large'> Select the difficulty range \n"
@@ -347,8 +347,8 @@ msgstr ""
 "<span size='x-large'> اختر مقدار الصعوبة \n"
 "للملف الشخصي <b>%s</b></span>"
 
-#: ../src/administration-activity/admin/board_list.py:645
-#: ../src/administration-activity/admin/board_list.py:657
+#: ../src/administration-activity/admin/board_list.py:642
+#: ../src/administration-activity/admin/board_list.py:654
 #: ../src/administration-activity/admin/wordlist.py:45
 msgid ""
 "<b>{config}</b> configuration\n"
@@ -358,185 +358,185 @@ msgstr ""
 "للملف الشخصي <b>{profile}</b>"
 
 #. self.main_vbox.pack_start (label, False, False, 8)
-#: ../src/administration-activity/admin/board_list.py:663
+#: ../src/administration-activity/admin/board_list.py:660
 #: ../src/colors-activity/colors.c:181
 #: ../src/pythontest-activity/pythontest.py:518
-#: ../src/smallnumbers-activity/smallnumbers.c:617
+#: ../src/smallnumbers-activity/smallnumbers.c:616
 msgid "Select sound locale"
 msgstr "اختر لغة الأصوات"
 
-#: ../src/administration-activity/admin/class_edit.py:59
+#: ../src/administration-activity/admin/class_edit.py:56
 msgid "Editing a Class"
 msgstr "تحرير صف"
 
-#: ../src/administration-activity/admin/class_edit.py:64
+#: ../src/administration-activity/admin/class_edit.py:61
 msgid "Editing class: "
 msgstr "تحرير الصف:"
 
-#: ../src/administration-activity/admin/class_edit.py:67
+#: ../src/administration-activity/admin/class_edit.py:64
 msgid "Editing a new class"
 msgstr "تحرير صف جديد"
 
-#: ../src/administration-activity/admin/class_edit.py:89
+#: ../src/administration-activity/admin/class_edit.py:86
 msgid "Class:"
 msgstr "الصف:"
 
 #. FIXME: How to remove the default selection
 #. Label and Entry for the teacher name
-#: ../src/administration-activity/admin/class_edit.py:102
+#: ../src/administration-activity/admin/class_edit.py:99
 msgid "Teacher:"
 msgstr "المعلم:"
 
-#: ../src/administration-activity/admin/class_edit.py:112
+#: ../src/administration-activity/admin/class_edit.py:109
 msgid "Assign all the users belonging to this class"
 msgstr "تعليم جميع المستخدمين المنتمين إلى هذا الصف"
 
-#: ../src/administration-activity/admin/class_edit.py:252
-#: ../src/administration-activity/admin/group_edit.py:264
-#: ../src/administration-activity/admin/group_user_list.py:153
-#: ../src/administration-activity/admin/user_list.py:194
+#: ../src/administration-activity/admin/class_edit.py:249
+#: ../src/administration-activity/admin/group_edit.py:261
+#: ../src/administration-activity/admin/group_user_list.py:150
+#: ../src/administration-activity/admin/user_list.py:191
 msgid "First Name"
 msgstr "الاسم"
 
-#: ../src/administration-activity/admin/class_edit.py:263
-#: ../src/administration-activity/admin/group_edit.py:275
-#: ../src/administration-activity/admin/group_user_list.py:163
-#: ../src/administration-activity/admin/user_list.py:204
+#: ../src/administration-activity/admin/class_edit.py:260
+#: ../src/administration-activity/admin/group_edit.py:272
+#: ../src/administration-activity/admin/group_user_list.py:160
+#: ../src/administration-activity/admin/user_list.py:201
 msgid "Last Name"
 msgstr "الكنية"
 
-#: ../src/administration-activity/admin/class_edit.py:338
+#: ../src/administration-activity/admin/class_edit.py:335
 msgid "You need to provide at least a name for your class"
 msgstr "تحتاج أن تزود صفك باسم على الأقل"
 
-#: ../src/administration-activity/admin/class_edit.py:383
+#: ../src/administration-activity/admin/class_edit.py:380
 msgid "There is already a class with this name"
 msgstr "هناك صف يحمل نفس الاسم"
 
-#: ../src/administration-activity/admin/class_list.py:168
-#: ../src/administration-activity/admin/profile_edit.py:269
-#: ../src/administration-activity/admin/profile_group_list.py:143
+#: ../src/administration-activity/admin/class_list.py:165
+#: ../src/administration-activity/admin/profile_edit.py:266
+#: ../src/administration-activity/admin/profile_group_list.py:140
 msgid "Class"
 msgstr "الصف"
 
-#: ../src/administration-activity/admin/class_list.py:178
+#: ../src/administration-activity/admin/class_list.py:175
 msgid "Teacher"
 msgstr "المعلم"
 
-#: ../src/administration-activity/admin/group_edit.py:59
+#: ../src/administration-activity/admin/group_edit.py:56
 msgid "Editing a Group"
 msgstr "تحرير مجموعة"
 
-#: ../src/administration-activity/admin/group_edit.py:65
+#: ../src/administration-activity/admin/group_edit.py:62
 msgid "Editing group: "
 msgstr "تحرير المجموعة:"
 
-#: ../src/administration-activity/admin/group_edit.py:66
+#: ../src/administration-activity/admin/group_edit.py:63
 msgid " for class: "
 msgstr "للصف:"
 
-#: ../src/administration-activity/admin/group_edit.py:69
+#: ../src/administration-activity/admin/group_edit.py:66
 msgid "Editing a new group"
 msgstr "تحرير مجموعة جديدة"
 
-#: ../src/administration-activity/admin/group_edit.py:89
+#: ../src/administration-activity/admin/group_edit.py:86
 msgid "Group:"
 msgstr "مجموعة:"
 
 #. FIXME: How to remove the selection
 #. Label and Entry for the first name
-#: ../src/administration-activity/admin/group_edit.py:101
-#: ../src/administration-activity/admin/profile_edit.py:98
+#: ../src/administration-activity/admin/group_edit.py:98
+#: ../src/administration-activity/admin/profile_edit.py:95
 msgid "Description:"
 msgstr "الوصف:"
 
 #. Top message gives instructions
-#: ../src/administration-activity/admin/group_edit.py:112
+#: ../src/administration-activity/admin/group_edit.py:109
 msgid "Assign all the users belonging to this group"
 msgstr "تعليم جميع المستخدمين المنتمين إلى هذه المجموعة"
 
-#: ../src/administration-activity/admin/group_edit.py:358
+#: ../src/administration-activity/admin/group_edit.py:355
 msgid "You need to provide at least a name for your group"
 msgstr "تحتاج أن تعطي المجموعة اسمًا على الأقل"
 
-#: ../src/administration-activity/admin/group_edit.py:372
+#: ../src/administration-activity/admin/group_edit.py:369
 msgid "There is already a group with this name"
 msgstr "هناك مجموعة تحمل هذا الاسم"
 
-#: ../src/administration-activity/admin/group_list.py:85
+#: ../src/administration-activity/admin/group_list.py:82
 msgid "Select a class:"
 msgstr "اختر صفًا:"
 
-#: ../src/administration-activity/admin/group_list.py:213
-#: ../src/administration-activity/admin/profile_edit.py:279
-#: ../src/administration-activity/admin/profile_group_list.py:153
+#: ../src/administration-activity/admin/group_list.py:210
+#: ../src/administration-activity/admin/profile_edit.py:276
+#: ../src/administration-activity/admin/profile_group_list.py:150
 msgid "Group"
 msgstr "المجموعة"
 
-#: ../src/administration-activity/admin/group_list.py:224
-#: ../src/administration-activity/admin/profile_edit.py:289
-#: ../src/administration-activity/admin/profile_group_list.py:163
-#: ../src/administration-activity/admin/profile_list.py:197
+#: ../src/administration-activity/admin/group_list.py:221
+#: ../src/administration-activity/admin/profile_edit.py:286
+#: ../src/administration-activity/admin/profile_group_list.py:160
+#: ../src/administration-activity/admin/profile_list.py:194
 msgid "Description"
 msgstr "الوصف"
 
-#: ../src/administration-activity/admin/group_list.py:321
+#: ../src/administration-activity/admin/group_list.py:318
 msgid "You must first select a group in the list"
 msgstr "عليك أولًا أن تختار مجموعة ضمن القائمة"
 
-#: ../src/administration-activity/admin/group_user_list.py:173
-#: ../src/administration-activity/admin/user_list.py:214
+#: ../src/administration-activity/admin/group_user_list.py:170
+#: ../src/administration-activity/admin/user_list.py:211
 msgid "Birth Date"
 msgstr "تاريخ الولادة"
 
-#: ../src/administration-activity/admin/log_list.py:94
+#: ../src/administration-activity/admin/log_list.py:91
 msgid "Select a user:"
 msgstr "اختر مستخدمًا:"
 
 #. Insert the ALL option (HACK, use the user_id -2 to indicate ALL)
-#: ../src/administration-activity/admin/log_list.py:105
+#: ../src/administration-activity/admin/log_list.py:102
 msgid "All users"
 msgstr "جميع المستخدمين"
 
-#: ../src/administration-activity/admin/log_list.py:111
-#: ../src/administration-activity/admin/log_list.py:298
-#: ../src/administration-activity/admin/profile_list.py:120
+#: ../src/administration-activity/admin/log_list.py:108
+#: ../src/administration-activity/admin/log_list.py:295
+#: ../src/administration-activity/admin/profile_list.py:117
 #: ../src/gcompris/board_config_combo.c:125
 #: ../src/gcompris/board_config_combo.c:398
 msgid "Default"
 msgstr "الافتراضي"
 
 #. Reset buttons
-#: ../src/administration-activity/admin/log_list.py:165
+#: ../src/administration-activity/admin/log_list.py:162
 msgid "Reset"
 msgstr "إعادة ضبط"
 
-#: ../src/administration-activity/admin/log_list.py:219
+#: ../src/administration-activity/admin/log_list.py:216
 msgid "Date"
 msgstr "التاريخ"
 
-#: ../src/administration-activity/admin/log_list.py:229
+#: ../src/administration-activity/admin/log_list.py:226
 msgid "User"
 msgstr "المستخدم"
 
-#: ../src/administration-activity/admin/log_list.py:239
+#: ../src/administration-activity/admin/log_list.py:236
 msgid "Board"
 msgstr "اللوحة"
 
-#: ../src/administration-activity/admin/log_list.py:249
+#: ../src/administration-activity/admin/log_list.py:246
 #: ../src/redraw-activity/redraw.py:328
 msgid "Level"
 msgstr "المستوى"
 
-#: ../src/administration-activity/admin/log_list.py:259
+#: ../src/administration-activity/admin/log_list.py:256
 msgid "Sublevel"
 msgstr "المستوى الفرعي"
 
-#: ../src/administration-activity/admin/log_list.py:269
+#: ../src/administration-activity/admin/log_list.py:266
 msgid "Duration"
 msgstr "المدة"
 
-#: ../src/administration-activity/admin/log_list.py:279
+#: ../src/administration-activity/admin/log_list.py:276
 msgid "Status"
 msgstr "الحالة"
 
@@ -571,85 +571,85 @@ msgstr "المستخدمون"
 msgid "Classes"
 msgstr "الصفوف"
 
-#: ../src/administration-activity/admin/profile_edit.py:59
+#: ../src/administration-activity/admin/profile_edit.py:56
 msgid "Editing a Profile"
 msgstr "تحرير ملف شخصي"
 
-#: ../src/administration-activity/admin/profile_edit.py:64
+#: ../src/administration-activity/admin/profile_edit.py:61
 msgid "Editing profile: "
 msgstr "تحرير الملف الشخصي: "
 
-#: ../src/administration-activity/admin/profile_edit.py:67
+#: ../src/administration-activity/admin/profile_edit.py:64
 msgid "Editing a new profile"
 msgstr "تحرير ملف شخصي جديد"
 
-#: ../src/administration-activity/admin/profile_edit.py:86
+#: ../src/administration-activity/admin/profile_edit.py:83
 msgid "Profile:"
 msgstr "الملف الشخصي: "
 
 #. Top message gives instructions
-#: ../src/administration-activity/admin/profile_edit.py:109
+#: ../src/administration-activity/admin/profile_edit.py:106
 msgid "Assign all the groups belonging to this profile"
 msgstr "تعليم جميع المجموعات المنتمية لهذا الملف الشخصي"
 
-#: ../src/administration-activity/admin/profile_edit.py:377
+#: ../src/administration-activity/admin/profile_edit.py:374
 msgid "You need to provide at least a name for your profile"
 msgstr "عليك أن تعطي اسمًا لملفك الشخصي على الأقل"
 
-#: ../src/administration-activity/admin/profile_edit.py:399
+#: ../src/administration-activity/admin/profile_edit.py:396
 msgid "There is already a profile with this name"
 msgstr "هناك ملف شخصي يحمل هذا الاسم"
 
-#: ../src/administration-activity/admin/profile_list.py:187
+#: ../src/administration-activity/admin/profile_list.py:184
 msgid "Profile"
 msgstr "الملف الشخصي"
 
-#: ../src/administration-activity/admin/profile_list.py:314
+#: ../src/administration-activity/admin/profile_list.py:311
 msgid "[Default]"
 msgstr "[افتراضي]"
 
-#: ../src/administration-activity/admin/user_edit.py:50
+#: ../src/administration-activity/admin/user_edit.py:47
 msgid "Editing a User"
 msgstr "تحرير مستخدم"
 
-#: ../src/administration-activity/admin/user_edit.py:55
+#: ../src/administration-activity/admin/user_edit.py:52
 msgid "Editing a User "
 msgstr "تحرير مستخدم"
 
-#: ../src/administration-activity/admin/user_edit.py:61
+#: ../src/administration-activity/admin/user_edit.py:58
 msgid "Editing a new user"
 msgstr "تحرير مستخدم جديد"
 
-#: ../src/administration-activity/admin/user_edit.py:78
+#: ../src/administration-activity/admin/user_edit.py:75
 msgid "Login:"
 msgstr "اسم الولوج:"
 
 #. FIXME: How to remove the selection
 #. Label and Entry for the first name
-#: ../src/administration-activity/admin/user_edit.py:89
+#: ../src/administration-activity/admin/user_edit.py:86
 msgid "First name:"
 msgstr "الاسم:"
 
 #. Label and Entry for the last name
-#: ../src/administration-activity/admin/user_edit.py:98
+#: ../src/administration-activity/admin/user_edit.py:95
 msgid "Last name:"
 msgstr "الكنية:"
 
 #. Label and Entry for the birth date
-#: ../src/administration-activity/admin/user_edit.py:107
+#: ../src/administration-activity/admin/user_edit.py:104
 msgid "Birth date:"
 msgstr "تاريخ الولادة:"
 
-#: ../src/administration-activity/admin/user_edit.py:159
+#: ../src/administration-activity/admin/user_edit.py:156
 msgid ""
 "You need to provide at least a login, first name and last name for your users"
 msgstr "عليك أن تعطي على الأقل اسم ولوج، اسم وكنية كل مستخدم"
 
-#: ../src/administration-activity/admin/user_edit.py:176
+#: ../src/administration-activity/admin/user_edit.py:173
 msgid "There is already a user with this login"
 msgstr "هناك مستخدم يحمل اسم الولوج هذا"
 
-#: ../src/administration-activity/admin/user_list.py:288
+#: ../src/administration-activity/admin/user_list.py:285
 msgid ""
 "To import a user list from a file, first select a class.\n"
 "FILE FORMAT: Your file must be formatted like this:\n"
@@ -661,7 +661,7 @@ msgstr ""
 "اسم الولوج؛الاسم؛الكنية؛تاريخ الميلاد\n"
 "يمكنك أن تستخدم الفاصلة أو النقطتين بدلأ من الفاصلة المنقوطة."
 
-#: ../src/administration-activity/admin/user_list.py:366
+#: ../src/administration-activity/admin/user_list.py:363
 #, python-format
 msgid ""
 "One or more logins are not unique !\n"
@@ -1030,11 +1030,11 @@ msgstr "أزرق بنفسجي"
 
 #. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
 #: ../src/algebra_by-activity/algebra.c:186
-#: ../src/memory-activity/memory.c:945
+#: ../src/memory-activity/memory.c:946
 msgid "+-×÷"
 msgstr "+-×÷"
 
-#: ../src/algebra_by-activity/algebra.c:408
+#: ../src/algebra_by-activity/algebra.c:411
 #: ../src/readingh-activity/reading.c:621
 msgid "I am Ready"
 msgstr "أنا مستعد"
@@ -1440,7 +1440,7 @@ msgstr "معاونة العقل. الوصل المنطقي."
 msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "استعمال الفأرة: تحرك، أمسك واسحب. مراجع ثقافية"
 
-#: ../src/babymatch-activity/shapegame.c:1849
+#: ../src/babymatch-activity/shapegame.c:1827
 #: ../src/click_on_letter-activity/click_on_letter.c:625
 #: ../src/colors-activity/colors.c:169
 #, c-format
@@ -1507,15 +1507,16 @@ msgstr "فنسنت فان جوخ، غرفة النوم في أرلِس - ١٨٨�
 msgid "Ambrosius Bosschaert the Elder, Flower Still Life - 1614"
 msgstr "أمبروسس البكر. الزهرة، حياة ساكنة - ١٦١٤"
 
-#: ../src/ballcatch-activity/ballcatch.xml.in.h:1
-msgid "Make the ball go to Tux"
-msgstr "أوصل الكرة إلى تُكس"
-
+#: ../src/ballcatch-activity/ballcatch.py:75
 #: ../src/ballcatch-activity/ballcatch.xml.in.h:2
 msgid ""
 "Press the two shift keys at the same time, to make the ball go in a straight "
 "line."
 msgstr "اضغط على زري Shift في وقت واحد لجعل الكرة تتحرك في خط مستقيم."
+
+#: ../src/ballcatch-activity/ballcatch.xml.in.h:1
+msgid "Make the ball go to Tux"
+msgstr "أوصل الكرة إلى تُكس"
 
 #: ../src/bargame-activity/bargame.xml.in.h:1
 msgid "Brain"
@@ -1681,7 +1682,7 @@ msgstr ""
 "على الشبكة المحلية، وأي برنامج «فهمت» على شبكتك المحلية يشغل نشاط الدردشة في "
 "هذا الوقت سيمكنه التقاط رسالتك وعرضها."
 
-#: ../src/chess_computer-activity/chess.c:223
+#: ../src/chess_computer-activity/chess.c:222
 msgid "Error: The external program gnuchess died unexpectedly"
 msgstr "خطأ: البرنامج الخارجي gnuchess انتهى بشكل غير متوقع"
 
@@ -1712,20 +1713,20 @@ msgstr "كش ملك للأبيض"
 msgid "Black checks"
 msgstr "كش ملك للأسود"
 
-#: ../src/chess_computer-activity/chess.c:1184
+#: ../src/chess_computer-activity/chess.c:1199
 msgid "Black mates"
 msgstr "موت ملك الأسود"
 
-#: ../src/chess_computer-activity/chess.c:1189
+#: ../src/chess_computer-activity/chess.c:1204
 msgid "White mates"
 msgstr "موت ملك الأبيض"
 
-#: ../src/chess_computer-activity/chess.c:1194 ../src/gcompris/bonus.c:195
-#: ../src/gcompris/bonus.c:204
+#: ../src/chess_computer-activity/chess.c:1209 ../src/gcompris/bonus.c:191
+#: ../src/gcompris/bonus.c:200
 msgid "Drawn game"
 msgstr "تعادل"
 
-#: ../src/chess_computer-activity/chess.c:1222
+#: ../src/chess_computer-activity/chess.c:1236
 msgid "Error: The external program gnuchess died unexpectingly"
 msgstr "خطأ: البرنامج الخارجي gnuchess انتهى بشكل غير متوقع"
 
@@ -1958,7 +1959,7 @@ msgid "Cars"
 msgstr "سيارات"
 
 #: ../src/click_on_letter-activity/click_on_letter.c:271
-#: ../src/memory-activity/memory.c:905
+#: ../src/memory-activity/memory.c:906
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -1972,7 +1973,7 @@ msgstr ""
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
 #: ../src/click_on_letter-activity/click_on_letter.c:276
-#: ../src/gletters-activity/gletters.c:229 ../src/memory-activity/memory.c:934
+#: ../src/gletters-activity/gletters.c:229 ../src/memory-activity/memory.c:935
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "ابتثجحخدذرزسشصضطظعغفقكلمنهوي"
 
@@ -3126,18 +3127,18 @@ msgstr ""
 "البرمجيات الحرة:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1353
+#: ../src/gcompris/gcompris.c:1376
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
 msgstr "لن يبدأ «فهمت» لأن ملف القفل أحدث من %d ثوانِ.\n"
 
-#: ../src/gcompris/gcompris.c:1355
+#: ../src/gcompris/gcompris.c:1378
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "ملف القفل: %s\n"
 
-#: ../src/gcompris/gcompris.c:1469
+#: ../src/gcompris/gcompris.c:1492
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3151,34 +3152,34 @@ msgstr ""
 "لمزيد من المعلومات زر الصفحة http://gcompris.net \n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1575
+#: ../src/gcompris/gcompris.c:1595
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "استخدم l- للوصول إلى نشاط معين مباشرة.\n"
 
-#: ../src/gcompris/gcompris.c:1576
+#: ../src/gcompris/gcompris.c:1596
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "قائمة الأنشطة المتاحة: \n"
 
-#: ../src/gcompris/gcompris.c:1607
+#: ../src/gcompris/gcompris.c:1627
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "عدد الأنشطة: %d\n"
 
-#: ../src/gcompris/gcompris.c:1643
+#: ../src/gcompris/gcompris.c:1663
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "‏%s موجود لكن لا يمكن قراءته أو الكتابة به"
 
-#: ../src/gcompris/gcompris.c:1706
+#: ../src/gcompris/gcompris.c:1726
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
 "without network support!"
 msgstr "لا يمكن استخدام خيار ‪--server‬ لأن \"فهمت\" لم يُصرَّف مع دعم الشبكة"
 
-#: ../src/gcompris/gcompris.c:1760
+#: ../src/gcompris/gcompris.c:1780
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3187,16 +3188,16 @@ msgstr ""
 "خطأ: اللاحة '%s' غير موجودة. شغل 'gcompris --profile-list' لترى اللاحات "
 "المتاحة\n"
 
-#: ../src/gcompris/gcompris.c:1774
+#: ../src/gcompris/gcompris.c:1794
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "قائمة الملفات الشخصية المتاحة: \n"
 
-#: ../src/gcompris/gcompris_db.c:274
+#: ../src/gcompris/gcompris_db.c:234
 msgid "Unaffected"
 msgstr "غير متأثر"
 
-#: ../src/gcompris/gcompris_db.c:275
+#: ../src/gcompris/gcompris_db.c:235
 msgid "Users without a class"
 msgstr "مستخدمون لا ينتمون إلى أي صف"
 
@@ -3859,12 +3860,12 @@ msgid "Type the falling letters before they reach the ground"
 msgstr "أدخل الحروف المتساقطة قبل أن تصل إلى الأرض"
 
 #. TRANSLATORS: Put here the numbers in your language
-#: ../src/gletters-activity/gletters.c:225 ../src/memory-activity/memory.c:930
+#: ../src/gletters-activity/gletters.c:225 ../src/memory-activity/memory.c:931
 msgid "0123456789"
 msgstr "٠١٢٣٤٥٦٧٨٩"
 
 #. TRANSLATORS: Put here the alphabet uppercase in your language
-#: ../src/gletters-activity/gletters.c:235 ../src/memory-activity/memory.c:940
+#: ../src/gletters-activity/gletters.c:235 ../src/memory-activity/memory.c:941
 msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 msgstr "ابتثجحخدذرزسشصضطظعغفقكلمنهوي"
 
@@ -3880,7 +3881,7 @@ msgstr "ابتثجحخدذرزسشصضطظعغفقكلمنهوي"
 #: ../src/pythontest-activity/pythontest.py:454
 #: ../src/readingh-activity/reading.c:880
 #: ../src/scalesboard-activity/scale.c:1161
-#: ../src/smallnumbers-activity/smallnumbers.c:596
+#: ../src/smallnumbers-activity/smallnumbers.c:595
 #: ../src/tuxpaint-activity/tuxpaint.py:185
 #: ../src/wordsgame-activity/wordsgame.c:768
 #, c-format, python-format
@@ -3892,7 +3893,7 @@ msgstr ""
 "للملف الشخصي <b>%s</b>"
 
 #: ../src/gletters-activity/gletters.c:881
-#: ../src/smallnumbers-activity/smallnumbers.c:615
+#: ../src/smallnumbers-activity/smallnumbers.c:614
 msgid "Enable sounds"
 msgstr "تفعيل الأصوات"
 
@@ -4825,7 +4826,7 @@ msgstr ""
 "النمطين الظاهر والخفي. النمط الظاهر يرشدك إلى موقعك كخريطة: لا يمكنك تحريك "
 "تُكس في النمط الظاهر."
 
-#: ../src/melody-activity/melody.py:111
+#: ../src/melody-activity/melody.py:107
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -5605,11 +5606,11 @@ msgstr "بيار-أوغست رينوار، طواحين الهواء 1876"
 
 #: ../src/paintings-activity/resources/paintings/board1_2.xml.in.h:1
 msgid "Giuseppe Arcimboldo, Spring - 1573"
-msgstr ""
+msgstr "جوزيبي أرتشمبولدو، الربيع - 1573"
 
 #: ../src/paintings-activity/resources/paintings/board1_3.xml.in.h:1
 msgid "Giuseppe Arcimboldo, The Librarian - 1566)"
-msgstr ""
+msgstr "جوزيبي أرتشمبولدو، أمين المكتبة - 1566"
 
 #: ../src/paintings-activity/resources/paintings/board1_5.xml.in.h:1
 msgid "Woman holding a fan"
@@ -5683,11 +5684,11 @@ msgstr "المظلي"
 msgid "This board is game-oriented. No specific skills are needed to play."
 msgstr "هذه اللعبة من أجل المرح فقط. ليس هناك مهارات محددة مطلوبة للعب بها."
 
-#: ../src/penalty-activity/penalty.py:292
+#: ../src/penalty-activity/penalty.py:291
 msgid "Click on the balloon to place it again."
 msgstr "انقر على الكرة لتعيدها."
 
-#: ../src/penalty-activity/penalty.py:294
+#: ../src/penalty-activity/penalty.py:293
 msgid "Click twice on the balloon to shoot it."
 msgstr "انقر مرتين على الكرة لتسدد."
 
@@ -5709,17 +5710,13 @@ msgstr "انقر مرتين بالفأرة على الكرة لتسجل هدفا
 msgid "Penalty kick"
 msgstr "ضربة جزاء"
 
-#: ../src/photohunter-activity/photohunter.c:137
+#: ../src/photohunter-activity/photohunter.c:511
 msgid "Error: Absolutely no photo found in the data directory"
 msgstr "خطأ: لم يُعثر على أي صور في مجلد البيانات"
 
-#: ../src/photohunter-activity/photohunter.c:394
+#: ../src/photohunter-activity/photohunter.c:574
 msgid "Click on the differences between the two images."
 msgstr "انقر على الفرق بين الصورتين."
-
-#: ../src/photohunter-activity/photohunter.c:590
-msgid "Error: Abnormally failed to load a data file"
-msgstr "خطأ: فشل تحميل ملف البيانات"
 
 #: ../src/photohunter-activity/photohunter.xml.in.h:1
 msgid "Find the differences between two pictures"
@@ -6686,6 +6683,9 @@ msgstr "التدرب على لوحة المفاتيح"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:4
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "أدخل الكلمات المتساقطة قبل أن تصل إلى الأرض"
+
+#~ msgid "Error: Abnormally failed to load a data file"
+#~ msgstr "خطأ: فشل تحميل ملف البيانات"
 
 #~ msgid ""
 #~ "The dog is provided by Andre Connes and released under the GPL.\n"
