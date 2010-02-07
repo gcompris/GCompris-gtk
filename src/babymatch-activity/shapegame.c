@@ -1647,6 +1647,28 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, GList **
   xmlFree(color_background);
 }
 
+static void
+insert_shape_random(GList *shapes_, int shapeMask)
+{
+  int list_length, i;
+
+  GList *shapes = g_list_copy(shapes_);
+
+  /* Insert each of the shapes randomly */
+  while((list_length = g_list_length(shapes)))
+    {
+      Shape *shape;
+
+      i = g_random_int_range(0, list_length);
+      shape = g_list_nth_data(shapes, i);
+      if (shape->type & shapeMask)
+	add_shape_to_canvas(shape);
+
+      shapes = g_list_remove (shapes, shape);
+    }
+  g_list_free(shapes);
+}
+
 /* parse the doc, add it to our internal structures and to the clist */
 static void
 parse_doc(xmlDocPtr doc)
@@ -1654,7 +1676,6 @@ parse_doc(xmlDocPtr doc)
   GList *shape_list_init = NULL;
   xmlNodePtr node;
   GooCanvasItem *item;
-  int list_length, i;
 
   /* find <Shape> nodes and add them to the list, this just
      loops through all the children of the root of the document */
@@ -1665,19 +1686,8 @@ parse_doc(xmlDocPtr doc)
   }
 
   shape_list = g_list_copy(shape_list_init);
-
-  /* Insert each of the shapes randomly */
-  while((list_length = g_list_length(shape_list_init)))
-    {
-      Shape *shape;
-
-      i = g_random_int_range(0, list_length);
-      shape = g_list_nth_data(shape_list_init, i);
-      add_shape_to_canvas(shape);
-
-      shape_list_init = g_list_remove (shape_list_init, shape);
-    }
-
+  insert_shape_random(shape_list_init, 0xFF ^ SHAPE_BACKGROUND);
+  insert_shape_random(shape_list_init, SHAPE_BACKGROUND);
   g_list_free(shape_list_init);
   shape_list_init = NULL;
 
