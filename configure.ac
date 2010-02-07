@@ -680,6 +680,7 @@ src/geo_country-activity/resources/geo_country/mexico/Makefile
 src/geo_country-activity/resources/geo_country/norway/Makefile
 src/geo_country-activity/resources/geo_country/poland/Makefile
 src/geo_country-activity/resources/geo_country/turkey/Makefile
+src/geo_country-activity/resources/geo_country/usa/Makefile
 src/geography-activity/Makefile
 src/geography-activity/resources/Makefile
 src/geography-activity/resources/geography/Makefile

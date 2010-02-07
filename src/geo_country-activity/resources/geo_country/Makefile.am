@@ -1,3 +1,4 @@
+
 SUBDIRS = \
 	argentina \
 	brazil \
@@ -7,7 +8,8 @@ SUBDIRS = \
 	mexico \
 	norway \
 	poland \
-	turkey
+	turkey \
+	usa
 
 xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/geo_country
 
@@ -22,7 +24,9 @@ xml_in_files = \
 	board6_0.xml.in \
 	board7_0.xml.in \
 	board8_0.xml.in \
-	board9_0.xml.in
+	board9_0.xml.in \
+	board10_0.xml.in \
+	board10_1.xml.in
 
 xml_DATA = $(xml_in_files:.xml.in=.xml)
 
