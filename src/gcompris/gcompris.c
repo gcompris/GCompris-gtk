@@ -78,7 +78,6 @@ static void single_instance_release();
 /*
  * For the Activation dialog
  */
-#define STATIC_MODULE 1
 #ifdef STATIC_MODULE
 int gc_activation_check(const char *code);
 static void activation_enter_callback(GtkWidget *widget,
