@@ -251,9 +251,6 @@ pythonboard_init (GcomprisBoard *agcomprisBoard){
   gchar* execstr;
   gchar* userplugindir;
 
-  char* board_file_name;
-  char* boardclass;
-
   GcomprisProperties *properties = gc_prop_get();
 
   if (pythonboard_is_ready)
