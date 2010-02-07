@@ -157,7 +157,7 @@ register(
         (PF_STRING, "title", "GCompris puzzle title", ""),
         (PF_SPINNER, "type", "Type of puzzle (0 Normal 1 Rectangle)", 0, (0, 1, 1) ),
         (PF_SPINNER, "level", "The level in the activity", 1, (1, 9, 1) ),
-        (PF_SPINNER, "sublevel", "The sub level in the activity", 1, (1, 20, 1) )
+        (PF_SPINNER, "sublevel", "The sub level in the activity", 0, (0, 20, 1) )
     ],
     [],
     gcompris_puzzle)
@@ -274,7 +274,7 @@ register(
         (PF_SPINNER, "bordersize", "The Size of border between country", 1, (1, 20, 1) ),
         (PF_TOGGLE, "keepLimit", "Keep limit between country", False),
         (PF_SPINNER, "level", "The level in the activity", 1, (1, 100, 1) ),
-        (PF_SPINNER, "sublevel", "The sub level in the activity", 1, (1, 20, 1) ),
+        (PF_SPINNER, "sublevel", "The sub level in the activity", 0, (0, 20, 1) ),
     ],
     [],
     gcompris_geography)
