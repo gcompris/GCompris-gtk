@@ -135,6 +135,115 @@ get_pythonboards_list()
   return pythonboards_list;
 }
 
+/* This loops over all the boards and for the python one
+ * checks if they have a config method defined. If so
+ * they are put in a list.
+ */
+static void
+init_config_boards()
+{
+  static gboolean called_once = FALSE;
+  GList *python_boards;
+  GList *list;
+  PyObject* globals;
+  static char *python_args[]={ "" };
+  static char* python_prog_name="gcompris";
+  char* boardclass;
+  char* board_file_name;
+  PyObject* main_module;
+  char* boarddir;
+  gchar *userplugindir;
+  GcomprisProperties *properties = gc_prop_get();
+  PyObject* module_dict;
+  PyObject* py_boardclass;
+
+  if (called_once)
+    return;
+
+  called_once = TRUE;
+
+  if(!Py_IsInitialized()){
+    /* Initialize the python interpreter */
+    Py_SetProgramName(python_prog_name);
+    Py_Initialize();
+
+    PySys_SetArgv(1, python_args);
+
+    init_pygobject();
+
+    main_module = PyImport_AddModule("__main__");
+    globals = PyModule_GetDict(main_module);
+
+    if(globals==NULL){
+      g_print("Cannot get info from the python interpreter. Seems there is a problem with this one.\n");
+      return;
+    }
+
+    /* Add the python plugins dir to the python's search path */
+    boarddir = g_strdup_printf("import sys; sys.path.append('%s')",
+			       properties->package_python_plugin_dir );
+
+    PyRun_SimpleString(boarddir);
+    g_free(boarddir);
+
+#ifndef DISABLE_USER_PLUGIN_DIR
+    g_free(userplugindir);
+#endif
+
+    /* Load the gcompris modules */
+    python_gcompris_module_init();
+  }
+  else {
+    main_module = PyImport_AddModule("__main__"); /* Borrowed reference */
+    globals = PyModule_GetDict(main_module); /* Borrowed reference */
+  }
+
+
+  /* Get the list of python boards */
+  python_boards = get_pythonboards_list();
+
+  /* Search in the list each one with a config entry */
+  for(list = python_boards; list != NULL; list = list->next) {
+    GcomprisBoard *board = (GcomprisBoard *) list->data;
+
+    /* Python is now initialized we create some usefull variables */
+    board_file_name = strchr(board->type, ':')+1;
+    boardclass = g_strdup_printf("Gcompris_%s", board_file_name);
+
+    /* Test if board come with --python_plugin_dir option */
+
+    g_message("board_dir: '%s' python_plugin_dir '%s' file_name '%s'",
+	      board->board_dir,
+	      properties->package_python_plugin_dir,
+	      board_file_name);
+
+    /* Insert the board module into the python's interpreter */
+    python_board_module = PyImport_ImportModuleEx(board_file_name,
+						  globals,
+						  globals,
+						  NULL);
+
+    if(python_board_module!=NULL){
+      /* Get the module dictionnary */
+      module_dict = PyModule_GetDict(python_board_module);
+
+      /* Get the python board class */
+      py_boardclass = PyDict_GetItemString(module_dict, boardclass);
+
+      if (PyObject_HasAttrString( py_boardclass, "config_start")) {
+	config_boards = g_list_append(config_boards, board);
+	g_message("The board '%s' has a configuration entry",
+		  board_file_name);
+      }
+    }
+    g_free(boardclass);
+  }
+  g_list_free(python_boards);
+
+  /* Finalize the python interpreter */
+  Py_Finalize();
+}
+
 static void
 pythonboard_init (GcomprisBoard *agcomprisBoard){
   PyObject* main_module;
@@ -144,8 +253,6 @@ pythonboard_init (GcomprisBoard *agcomprisBoard){
 
   char* board_file_name;
   char* boardclass;
-  PyObject* module_dict;
-  PyObject* py_boardclass;
 
   GcomprisProperties *properties = gc_prop_get();
 
@@ -204,54 +311,7 @@ pythonboard_init (GcomprisBoard *agcomprisBoard){
 	if(PyRun_SimpleString(execstr)!=0){
 	  pythonboard_is_ready = FALSE;
 	  g_warning("! Python disabled: Cannot import gcompris modules\n");
-	} else {
-	  GList *python_boards;
-	  GList *list;
-
-	  /* Get the list of python boards */
-	  python_boards = get_pythonboards_list();
-
-	  /* Search in the list each one with a config entry */
-	  for(list = python_boards; list != NULL; list = list->next) {
-	    GcomprisBoard *board = (GcomprisBoard *) list->data;
-
-	    /* Python is now initialized we create some usefull variables */
-	    board_file_name = strchr(board->type, ':')+1;
-	    boardclass = g_strdup_printf("Gcompris_%s", board_file_name);
-
-	    /* Test if board come with --python_plugin_dir option */
-
-	    g_message("board_dir: '%s' python_plugin_dir '%s' file_name '%s'",
-		      board->board_dir,
-		      properties->package_python_plugin_dir,
-		      board_file_name);
-
-	    /* Insert the board module into the python's interpreter */
-	    python_board_module = PyImport_ImportModuleEx(board_file_name,
-							  globals,
-							  globals,
-							  NULL);
-
-	    if(python_board_module!=NULL){
-	      /* Get the module dictionnary */
-	      module_dict = PyModule_GetDict(python_board_module);
-
-	      /* Get the python board class */
-	      py_boardclass = PyDict_GetItemString(module_dict, boardclass);
-
-	      if (PyObject_HasAttrString( py_boardclass, "config_start")) {
-		config_boards = g_list_append(config_boards, board);
-		g_message("The board '%s' has a configuration entry",
-			  board_file_name);
-	      }
-	    }
-
-	    g_free(boardclass);
-	  }
-
-	  g_list_free(python_boards);
 	}
-      }
     }
     g_free(execstr);
 
@@ -260,6 +320,7 @@ pythonboard_init (GcomprisBoard *agcomprisBoard){
   /* Finalize the python interpreter */
   Py_Finalize();
 
+  }
 }
 
 /*
@@ -431,6 +492,7 @@ static gboolean pythonboard_is_our_board (GcomprisBoard *gcomprisBoard){
 
       if (g_ascii_strncasecmp(gcomprisBoard->type, "python", 6)==0) {
 
+	init_config_boards();
 	/* Set the plugin entry */
 	if (g_list_find (config_boards, gcomprisBoard)){
 	  gcomprisBoard->plugin = &menu_bp;

@@ -248,8 +248,6 @@ gc_board_check_file(GcomprisBoard *gcomprisBoard)
 	  g_message("We found the correct plugin for board %s (type=%s)\n",
 		    gcomprisBoard->name, gcomprisBoard->type);
 
-	  gcomprisBoard->plugin = bp;
-
 	  return TRUE;
 	}
       }
@@ -278,8 +276,6 @@ gc_board_check_file(GcomprisBoard *gcomprisBoard)
 
 	  g_warning("We found the correct plugin for board %s (type=%s)\n",
 		  gcomprisBoard->name, gcomprisBoard->type);
-
-	  gcomprisBoard->plugin = bp;
 
 	  return TRUE;
 	}
