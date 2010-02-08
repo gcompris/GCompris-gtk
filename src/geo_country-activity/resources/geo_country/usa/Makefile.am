@@ -4,7 +4,7 @@ img_DATA = \
 	alaska.png \
 	arizona.png \
 	arkansas.png \
-	background0.png \
+	background1.png \
 	background.png \
 	california.png \
 	colorado.png \
