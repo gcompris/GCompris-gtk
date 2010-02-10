@@ -353,8 +353,9 @@ gc_sound_instance_init (GTypeInstance   *instance,
 static void
 default_sound_played_signal_handler (GcomprisSound *obj, gchar *file, gpointer user_data)
 {
-        /* Here, we trigger the real file write. */
-        g_warning ("sound_played: %s\n", file);
+  // Warning file is no more valid here.
+  //         it as been deleted by gc_sound_callback(file) that
+  //         happens before we get there.
 }
 
 static void
