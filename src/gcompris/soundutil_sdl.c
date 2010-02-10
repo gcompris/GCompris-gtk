@@ -30,7 +30,6 @@
 #include <signal.h>
 #include <glib.h>
 
-static int	 sound_policy;
 static gboolean	 music_paused = FALSE;
 static gboolean	 sound_closed = FALSE;
 
@@ -90,7 +89,8 @@ gc_sound_init()
   lock_fx = g_mutex_new ();
   cond = g_cond_new ();
 
-  sound_policy = PLAY_AFTER_CURRENT;
+  gc_sound_policy_set(PLAY_AFTER_CURRENT);
+
 
   if(sdlplayer_init()!=0) {
     /* Sound init failed. Desactivate the sound */
