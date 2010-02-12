@@ -41,6 +41,7 @@ img_DATA = \
 	oklahoma.png \
 	oregon.png \
 	pennsylvania.png \
+	rhode_island.png \
 	south_carolina.png \
 	south_dakota.png \
 	tennessee.png \
