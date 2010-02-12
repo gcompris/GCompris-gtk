@@ -35,7 +35,6 @@ static gboolean	 sound_closed = FALSE;
 
 /* mutex */
 GMutex		*lock = NULL;
-GMutex		*lock_music = NULL;
 GMutex		*lock_fx = NULL;
 GCond		*cond = NULL;
 
@@ -68,7 +67,7 @@ gc_sound_init()
       if(sound_closed == TRUE)
 	gc_sound_reopen();
 
-	  return;
+      return;
     }
   sound_init = 1;
 
@@ -85,7 +84,6 @@ gc_sound_init()
   if (!g_thread_supported ()) g_thread_init (NULL);
 
   lock = g_mutex_new ();
-  lock_music = g_mutex_new ();
   lock_fx = g_mutex_new ();
   cond = g_cond_new ();
 
@@ -112,19 +110,7 @@ gc_sound_init()
 void
 gc_sound_bg_close()
 {
-  if ( !sound_closed )
-    {
-      sound_closed = TRUE;
-      if ( music_paused ) {
-         music_paused = FALSE;
-	gc_sound_bg_resume();
-         }
-      g_mutex_lock(lock_fx);
-      sdlplayer_halt_music();
-      sdlplayer_halt_fx();
-      g_mutex_lock(lock_music);
-      sdlplayer_close();
-    }
+  gc_sound_bg_pause();
 }
 
 void
@@ -140,9 +126,7 @@ gc_sound_fx_reopen()
       {
 	sdlplayer_reopen();
 	g_mutex_unlock(lock_fx);
-	g_mutex_unlock(lock_music);
 	sound_closed = FALSE;
-	music_paused = FALSE;
       }
   }
 }
@@ -150,6 +134,15 @@ gc_sound_fx_reopen()
 void
 gc_sound_bg_reopen()
 {
+  if (gc_prop_get()->fx || gc_prop_get()->music) {
+    if (sound_closed)
+      {
+	sdlplayer_reopen();
+	sound_closed = FALSE;
+	music_paused = FALSE;
+      }
+  }
+  gc_sound_bg_resume();
 }
 
 void
@@ -162,8 +155,11 @@ gc_sound_bg_pause()
 void
 gc_sound_bg_resume()
 {
-  sdlplayer_resume_music();
+  if (!gc_prop_get()->music)
+    return;
+
   music_paused = FALSE;
+  sdlplayer_resume_music();
 }
 
 void
@@ -233,16 +229,11 @@ scheduler_music (gpointer user_data)
 	  while(!gc_prop_get()->music || music_paused || sound_closed)
 	    g_usleep(1000000);
 
-	  /* WARNING Displaying stuff in a thread seems to make gcompris unstable */
-	  /*	  display_ogg_file_credits((char *)g_list_nth_data(musiclist, i)); */
 	  //	  if(decode_ogg_file((char *)g_list_nth_data(musiclist, i))!=0)
-	  g_mutex_lock(lock_music);
 	  if(sdlplayer_music((char *)g_slist_nth_data(musiclist, i), 128)!=0){
 	    g_warning("sdlplayer_music failed, try again in 5 seconds");
 	    g_usleep(5000000);
 	  }
-	  g_mutex_unlock(lock_music);
-
 	}
     }
 
