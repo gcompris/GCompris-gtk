@@ -64,6 +64,9 @@ class Gcompris_login:
     # Get the default profile
     self.Prop = gcompris.get_properties()
 
+    if not self.Prop:
+      return
+
     # init config to default values
     self.config_dict = self.init_config()
 
