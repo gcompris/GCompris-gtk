@@ -69,6 +69,7 @@ case "$host" in
     OSX_CFLAGS="$CFLAGS -arch i386 -arch ppc "
     ;;
   *)
+    AC_CHECK_LIB(X11, XOpenDisplay)
     native_osx=no
     OSX_CFLAGS=""
     ;;
