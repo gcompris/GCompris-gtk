@@ -911,9 +911,6 @@ display_activation_dialog()
 		     GTK_SIGNAL_FUNC(activation_enter_callback),
 		     NULL);
 
-  gtk_widget_show(GTK_WIDGET(widget_activation_entry));
-  gtk_entry_set_text(GTK_ENTRY(widget_activation_entry), "CODE");
-
   char *msg = g_strdup_printf( \
       _("GCompris is free software released under the GPL License. "
 	"In order to support its development, the Windows version "
@@ -927,6 +924,9 @@ display_activation_dialog()
   gc_dialog(msg, activation_done);
   g_free(msg);
 
+  gtk_widget_show(GTK_WIDGET(widget_activation_entry));
+  gtk_entry_set_text(GTK_ENTRY(widget_activation_entry), "CODE");
+  gtk_widget_grab_focus(GTK_WIDGET(widget_activation_entry));
   return TRUE;
 }
 
