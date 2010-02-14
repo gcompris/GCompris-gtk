@@ -848,7 +848,7 @@ static void scale_prepare_level_weight()
     struct weight_set *set4[] = { &weight1, &weight2, &weight4 };
     struct weight_set *set5[] = { &weight1, &weight4 };
     struct weight_set *set = &weight1;
-    const int *list_weight;
+    const int *list_weight = NULL;
     int i, tmp[6] = { 0 };
 
     group_m = goo_canvas_group_new(boardRootItem, NULL);
