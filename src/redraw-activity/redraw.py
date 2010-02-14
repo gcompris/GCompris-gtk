@@ -25,8 +25,21 @@ import gcompris.bonus
 import gcompris.sound
 import gtk
 import gtk.gdk
+import pango
 import copy
 import math
+
+C_BLACK   = 0x00000000L
+C_RED     = 0xFF0c0c00L
+C_YELLOW  = 0xFFFF0c00L
+C_BROWN   = 0xB9BC0D00L
+C_GREEN   = 0x33FF0000L
+C_MAGENTA = 0x83189100L
+C_GREY    = 0xC2C2C200L
+C_BLUE    = 0x1010FF00L
+
+C_FILL    = 0xC0
+C_STROKE  = 0xFF
 
 class Gcompris_redraw:
   """The Re-drawing activity"""
@@ -56,16 +69,14 @@ class Gcompris_redraw:
     self.current_tool=0
 
     # COLOR SELECTION
-    self.color_fill = 0xA0
-    self.color_stroke = 0xFF
-    self.colors = [ 0x00000000L,
-                    0xFF000000L,
-                    0xFFFF0c00L,
-                    0xB9BC0D00L,
-                    0x33FF0000L,
-                    0x83189100L,
-                    0xC2C2C200L,
-                    0x1010FF00L]
+    self.colors = [ C_BLACK,
+                    C_RED,
+                    C_YELLOW,
+                    C_BROWN,
+                    C_GREEN,
+                    C_MAGENTA,
+                    C_GREY,
+                    C_BLUE]
 
     self.current_color = 0
     self.current_step = 0
@@ -420,7 +431,7 @@ class Gcompris_redraw:
 
       item = goocanvas.Rect(
         parent = self.rootitem,
-        fill_color_rgba = self.colors[i] | self.color_stroke,
+        fill_color_rgba = self.colors[i] | C_STROKE,
         x=theX,
         y=y,
         width=30,
@@ -500,22 +511,6 @@ class Gcompris_redraw:
     item.connect("leave_notify_event", self.target_item_event)
 
     self.draw_grid(x1,x2,y1,y2,step)
-
-    #
-    # Given coord are returned swapped
-    # Work fine for rect and ellipse but not line
-    # so that y2 > y1 and x2 > x1
-    #
-  def reorder_coord(self, x1, y1, x2, y2):
-    p = [x1, y1, x2, y2]
-    if(x1>x2):
-      p[0] = x2
-      p[2] = x1
-    if(y1>y2):
-      p[1] = y2
-      p[3] = y1
-    return p
-
 
   #
   # Take a drawing and return a symmetrical one
@@ -629,7 +624,7 @@ class Gcompris_redraw:
     else:
       x_text = x2 + 5
 
-    y_text = y1 - 15
+    y_text = y1 - 10
 
     # We manage a 2 colors grid
     ci = 0
@@ -649,14 +644,25 @@ class Gcompris_redraw:
         stroke_color_rgba = color,
         line_width = 1.0,
         )
+
+      labelName_x = int((i-x1) / step)
+      if x1<self.target_area[0] and self.gcomprisBoard.mode == 'symmetrical':
+        labelName_x = int((x2-x1) / step) - int((i-x1) / step) - 1
+
+      label_x = i
+      if x1<self.target_area[0] and self.gcomprisBoard.mode == 'symmetrical':
+        label_x += 20
+
       # Text number
       goocanvas.Text(
         parent = self.rootitem,
-        text = int((i-x1) / step),
+        text = labelName_x,
         font = gcompris.skin.get_font("gcompris/board/tiny"),
-        x = i,
+        x = label_x,
         y = y_text,
-        fill_color_rgba = 0x000000FFL
+        fill_color_rgba = 0x000000FFL,
+        anchor = gtk.ANCHOR_CENTER,
+        alignment = pango.ALIGN_CENTER
         )
 
       # Clicking on lines let you create object
@@ -688,7 +694,7 @@ class Gcompris_redraw:
         font = gcompris.skin.get_font("gcompris/board/tiny"),
         x = x_text,
         y = i,
-        fill_color_rgba=0x000000FFL
+        fill_color_rgba=0x000000FFL,
         )
 
       # Clicking on lines let you create object
@@ -814,10 +820,10 @@ class Gcompris_redraw:
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
         if self.tools[self.current_tool][0] == "FILL":
-          item.props.fill_color_rgba = self.colors[self.current_color] | self.color_fill
+          item.props.fill_color_rgba = self.colors[self.current_color] | C_FILL
           # Reset the item in our list
           self.current_drawing[drawing_item_index]['fill_color_rgba'] = \
-              self.colors[self.current_color] | self.color_fill
+              self.colors[self.current_color] | C_FILL
           gcompris.sound.play_ogg("sounds/paint1.wav")
           return True
     return False
@@ -827,10 +833,10 @@ class Gcompris_redraw:
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
         if self.tools[self.current_tool][0] == "FILL":
-          item.props.stroke_color_rgba = self.colors[self.current_color] | self.color_stroke
+          item.props.stroke_color_rgba = self.colors[self.current_color] | C_STROKE
           # Reset the item in our list
           self.current_drawing[drawing_item_index]['stroke_color_rgba'] = \
-              self.colors[self.current_color] | self.color_stroke
+              self.colors[self.current_color] | C_STROKE
           gcompris.sound.play_ogg("sounds/paint1.wav")
           return True
     return False
@@ -922,7 +928,7 @@ class Gcompris_redraw:
           parent = self.root_drawingitem,
           points = goocanvas.Points([(self.pos_x, self.pos_y),
                                      (x, y)]),
-          stroke_color_rgba = self.colors[self.current_color] | self.color_stroke,
+          stroke_color_rgba = self.colors[self.current_color] | C_STROKE,
           line_width = 8.0
           )
         self.newitem.connect("button_press_event",
@@ -937,7 +943,7 @@ class Gcompris_redraw:
         # Add the new item in our list
         self.current_drawing.append({'tool': self.tools[self.current_tool][0],
                                      'points':(self.pos_x, self.pos_y, x, y),
-                                     'stroke_color_rgba' : self.colors[self.current_color] | self.color_stroke,
+                                     'stroke_color_rgba' : self.colors[self.current_color] | C_STROKE,
                                      'line_width':8.0})
 
       elif self.tools[self.current_tool][0] == "RECT":
@@ -954,7 +960,7 @@ class Gcompris_redraw:
           y=self.pos_y,
           width=0,
           height=0,
-          stroke_color_rgba = self.colors[self.current_color] | self.color_stroke,
+          stroke_color_rgba = self.colors[self.current_color] | C_STROKE,
           line_width=4.0
           )
         self.newitem.connect("button_press_event",
@@ -972,7 +978,7 @@ class Gcompris_redraw:
                                      'y':self.pos_y,
                                      'width':x,
                                      'height':y,
-                                     'stroke_color_rgba':self.colors[self.current_color] | self.color_stroke,
+                                     'stroke_color_rgba':self.colors[self.current_color] | C_STROKE,
                                      'line_width':4.0})
 
       elif self.tools[self.current_tool][0] == "FILL_RECT":
@@ -989,7 +995,7 @@ class Gcompris_redraw:
           y = self.pos_y,
           width = 0,
           height = 0,
-          fill_color_rgba = self.colors[self.current_color] | self.color_fill,
+          fill_color_rgba = self.colors[self.current_color] | C_FILL,
           stroke_color_rgba = 0x000000FFL,
           line_width = 1.0
           )
@@ -1008,7 +1014,7 @@ class Gcompris_redraw:
                                      'y':self.pos_y,
                                      'width':0,
                                      'height':0,
-                                     'fill_color_rgba':self.colors[self.current_color] | self.color_fill,
+                                     'fill_color_rgba':self.colors[self.current_color] | C_FILL,
                                      'stroke_color_rgba':0x000000FFL,
                                      'line_width':1.0})
 
@@ -1026,7 +1032,7 @@ class Gcompris_redraw:
           center_y = self.pos_y,
           radius_x = 0,
           radius_y = 0,
-          stroke_color_rgba = self.colors[self.current_color] | self.color_stroke,
+          stroke_color_rgba = self.colors[self.current_color] | C_STROKE,
           line_width = 5.0
           )
         self.newitem.connect("button_press_event",
@@ -1044,7 +1050,7 @@ class Gcompris_redraw:
                                      'center_y':self.pos_y,
                                      'radius_x':0,
                                      'radius_y':0,
-                                     'stroke_color_rgba':self.colors[self.current_color] | self.color_stroke,
+                                     'stroke_color_rgba':self.colors[self.current_color] | C_STROKE,
                                      'line_width':5.0})
 
       elif self.tools[self.current_tool][0] == "FILL_CIRCLE":
@@ -1061,7 +1067,7 @@ class Gcompris_redraw:
           center_y = self.pos_y,
           radius_x = 0,
           radius_y = 0,
-          fill_color_rgba = self.colors[self.current_color] | self.color_fill,
+          fill_color_rgba = self.colors[self.current_color] | C_FILL,
           stroke_color_rgba = 0x000000FFL,
           line_width = 1.0
           )
@@ -1080,7 +1086,7 @@ class Gcompris_redraw:
                                      'center_y':self.pos_y,
                                      'radius_x':0,
                                      'radius_y':0,
-                                     'fill_color_rgba':self.colors[self.current_color] | self.color_fill,
+                                     'fill_color_rgba':self.colors[self.current_color] | C_FILL,
                                      'stroke_color_rgba':0x000000FFL,
                                      'line_width':1.0})
       if self.newitem != 0:
@@ -1211,192 +1217,192 @@ class Gcompris_redraw:
       self.drawlist = \
                     [
         # Two stripes
-      [{'width': 280.0, 'line_width': 1.0, 'height': 20.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010FFA0L, 'y': 80.0, 'tool': 'FILL_RECT', 'x': 140.0},
-       {'width': 280.0, 'line_width': 1.0, 'height': 20.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010FFA0L, 'y': 420.0, 'tool': 'FILL_RECT', 'x': 140.0}]
+      [{'width': 280.0, 'line_width': 1.0, 'height': 20.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_BLUE|C_FILL, 'y': 80.0, 'tool': 'FILL_RECT', 'x': 140.0},
+       {'width': 280.0, 'line_width': 1.0, 'height': 20.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_BLUE|C_FILL, 'y': 420.0, 'tool': 'FILL_RECT', 'x': 140.0}]
       ,
       # Top centered box
-      [{'width': 160.0, 'height': 40.0, 'line_width': 1.0, 'fill_color_rgba': 0x1010FFA0L, 'stroke_color_rgba': 255L, 'y': 40.0, 'x': 200.0, 'tool': 'FILL_RECT'}]
+      [{'width': 160.0, 'height': 40.0, 'line_width': 1.0, 'fill_color_rgba': C_BLUE|C_FILL, 'stroke_color_rgba': C_STROKE, 'y': 40.0, 'x': 200.0, 'tool': 'FILL_RECT'}]
       ,
       # 4 small corners
-      [{'width': 40.0, 'height': 40.0,  'line_width': 1.0,'fill_color_rgba': 0x1010FFA0L, 'stroke_color_rgba': 255L, 'y': 40.0, 'x': 160.0, 'tool': 'FILL_RECT'},
-       {'width': 400.0-360.0, 'height': 80.0-40.0,  'line_width': 1.0,'fill_color_rgba': 0x1010FFA0L, 'stroke_color_rgba': 255L, 'y': 40.0, 'x': 360.0, 'tool': 'FILL_RECT'},
-       {'width': 200.0-160.0, 'height': 480.0-440.0, 'line_width': 1.0, 'fill_color_rgba': 0x1010FFA0L, 'stroke_color_rgba': 255L, 'y': 440.0, 'x': 160.0, 'tool': 'FILL_RECT'},
-       {'width': 400.0-360.0, 'height': 480.0-440.0,  'line_width': 1.0,'fill_color_rgba': 0x1010FFA0L, 'stroke_color_rgba': 255L, 'y': 440.0, 'x': 360.0, 'tool': 'FILL_RECT'}]
+      [{'width': 40.0, 'height': 40.0,  'line_width': 1.0,'fill_color_rgba': C_BLUE|C_FILL, 'stroke_color_rgba': C_STROKE, 'y': 40.0, 'x': 160.0, 'tool': 'FILL_RECT'},
+       {'width': 400.0-360.0, 'height': 80.0-40.0,  'line_width': 1.0,'fill_color_rgba': C_BLUE|C_FILL, 'stroke_color_rgba': C_STROKE, 'y': 40.0, 'x': 360.0, 'tool': 'FILL_RECT'},
+       {'width': 200.0-160.0, 'height': 480.0-440.0, 'line_width': 1.0, 'fill_color_rgba': C_BLUE|C_FILL, 'stroke_color_rgba': C_STROKE, 'y': 440.0, 'x': 160.0, 'tool': 'FILL_RECT'},
+       {'width': 400.0-360.0, 'height': 480.0-440.0,  'line_width': 1.0,'fill_color_rgba': C_BLUE|C_FILL, 'stroke_color_rgba': C_STROKE, 'y': 440.0, 'x': 360.0, 'tool': 'FILL_RECT'}]
       ,
       # 4 non filled Rects organised in rect and shifted
-      [{'width': 200.0-180.0, 'height': 360.0-200.0, 'stroke_color_rgba': 0x1010FFFFL, 'line_width': 4.0, 'y': 200.0, 'x': 180.0, 'tool': 'RECT'},
-       {'width': 340.0-180.0, 'height': 400.0-380.0, 'stroke_color_rgba': 0x1010FFFFL, 'line_width': 4.0, 'y':380.0, 'x': 180.0, 'tool': 'RECT'},
-       {'width': 380.0-360.0, 'height': 400.0-240.0, 'stroke_color_rgba': 0x1010FFFFL, 'line_width': 4.0, 'y': 240.0, 'x': 360.0, 'tool': 'RECT'},
-       {'width': 380.0-220.0, 'height': 220.0-200.0, 'stroke_color_rgba': 0x1010FFFFL, 'line_width': 4.0, 'y': 200.0, 'x': 220.0, 'tool': 'RECT'}]
+      [{'width': 200.0-180.0, 'height': 360.0-200.0, 'stroke_color_rgba': C_BLUE|C_STROKE, 'line_width': 4.0, 'y': 200.0, 'x': 180.0, 'tool': 'RECT'},
+       {'width': 340.0-180.0, 'height': 400.0-380.0, 'stroke_color_rgba': C_BLUE|C_STROKE, 'line_width': 4.0, 'y':380.0, 'x': 180.0, 'tool': 'RECT'},
+       {'width': 380.0-360.0, 'height': 400.0-240.0, 'stroke_color_rgba': C_BLUE|C_STROKE, 'line_width': 4.0, 'y': 240.0, 'x': 360.0, 'tool': 'RECT'},
+       {'width': 380.0-220.0, 'height': 220.0-200.0, 'stroke_color_rgba': C_BLUE|C_STROKE, 'line_width': 4.0, 'y': 200.0, 'x': 220.0, 'tool': 'RECT'}]
       ,
       # Letter A
-      [{'tool': 'LINE', 'points': (200.0, 120.0, 280.0, 120.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-       {'tool': 'LINE', 'points': (280.0, 120.0, 280.0,240.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-       {'tool': 'LINE', 'points': (200.0, 120.0, 200.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-       {'tool': 'LINE', 'points': (200.0, 180.0, 280.0, 180.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL}]
+      [{'tool': 'LINE', 'points': (200.0, 120.0, 280.0, 120.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+       {'tool': 'LINE', 'points': (280.0, 120.0, 280.0,240.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+       {'tool': 'LINE', 'points': (200.0, 120.0, 200.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+       {'tool': 'LINE', 'points': (200.0, 180.0, 280.0, 180.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE}]
       ,
       # Letter B
-      [{'tool': 'LINE', 'points': (240.0, 240.0, 320.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-       {'tool': 'LINE', 'points': (300.0, 180.0, 320.0,200.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-       {'tool': 'LINE', 'points': (300.0, 180.0, 320.0, 160.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-       {'tool': 'LINE', 'points': (240.0, 180.0, 300.0, 180.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-       {'tool': 'LINE', 'points': (320.0, 100.0, 320.0, 160.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-       {'tool':'LINE', 'points': (240.0, 100.0, 320.0, 100.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-       {'tool': 'LINE', 'points': (240.0, 100.0, 240.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-       {'tool': 'LINE', 'points': (320.0, 200.0, 320.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL}]
+      [{'tool': 'LINE', 'points': (240.0, 240.0, 320.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+       {'tool': 'LINE', 'points': (300.0, 180.0, 320.0,200.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+       {'tool': 'LINE', 'points': (300.0, 180.0, 320.0, 160.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+       {'tool': 'LINE', 'points': (240.0, 180.0, 300.0, 180.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+       {'tool': 'LINE', 'points': (320.0, 100.0, 320.0, 160.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+       {'tool':'LINE', 'points': (240.0, 100.0, 320.0, 100.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+       {'tool': 'LINE', 'points': (240.0, 100.0, 240.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+       {'tool': 'LINE', 'points': (320.0, 200.0, 320.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE}]
       ,
       # A door
-      [{'width': 360.0-200.0, 'height': 360.0-180.0, 'stroke_color_rgba': 0x1010FFFFL, 'line_width': 4.0, 'y': 180.0, 'x': 200.0, 'tool': 'RECT'},
-       {'radius_x': 20, 'radius_y': 20, 'line_width': 1.0, 'fill_color_rgba': 0x1010FFA0L, 'stroke_color_rgba': 255L, 'center_y': 280.0+20, 'center_x': 300.0+20, 'tool': 'FILL_CIRCLE'},
-       {'width': 320.0-240.0, 'height': 260.0-200.0, 'line_width': 1.0, 'fill_color_rgba': 0x1010FFA0L, 'stroke_color_rgba': 255L, 'y': 200.0, 'x': 240.0, 'tool': 'FILL_RECT'}],
+      [{'width': 360.0-200.0, 'height': 360.0-180.0, 'stroke_color_rgba': C_BLUE|C_STROKE, 'line_width': 4.0, 'y': 180.0, 'x': 200.0, 'tool': 'RECT'},
+       {'radius_x': 20, 'radius_y': 20, 'line_width': 1.0, 'fill_color_rgba': C_BLUE|C_FILL, 'stroke_color_rgba': C_STROKE, 'center_y': 280.0+20, 'center_x': 300.0+20, 'tool': 'FILL_CIRCLE'},
+       {'width': 320.0-240.0, 'height': 260.0-200.0, 'line_width': 1.0, 'fill_color_rgba': C_BLUE|C_FILL, 'stroke_color_rgba': C_STROKE, 'y': 200.0, 'x': 240.0, 'tool': 'FILL_RECT'}],
       # A top left kind of target
-      [{'radius_x': 50, 'radius_y': 50, 'stroke_color_rgba': 0x1010FFFFL, 'center_y': 40.0+50, 'center_x': 160.0+50, 'tool': 'CIRCLE', 'line_width': 5.0},
-       {'radius_x': 30, 'radius_y': 30, 'line_width': 1.0, 'fill_color_rgba': 0x1010FFA0L, 'stroke_color_rgba': 255L, 'center_y': 60.0+30, 'center_x': 180.0+30, 'tool': 'FILL_CIRCLE'}]
+      [{'radius_x': 50, 'radius_y': 50, 'stroke_color_rgba': C_BLUE|C_STROKE, 'center_y': 40.0+50, 'center_x': 160.0+50, 'tool': 'CIRCLE', 'line_width': 5.0},
+       {'radius_x': 30, 'radius_y': 30, 'line_width': 1.0, 'fill_color_rgba': C_BLUE|C_FILL, 'stroke_color_rgba': C_STROKE, 'center_y': 60.0+30, 'center_x': 180.0+30, 'tool': 'FILL_CIRCLE'}]
       ,
       # 4 Huge Diagonal lines
-      [{'tool': 'LINE', 'points': (140.0, 260.0, 260.0, 20.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-       {'tool': 'LINE', 'points': (140.0, 260.0, 260.0, 500.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-       {'tool': 'LINE', 'points': (260.0, 500.0, 420.0, 260.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-       {'tool': 'LINE', 'points': (260.0, 20.0, 420.0, 260.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL}]
+      [{'tool': 'LINE', 'points': (140.0, 260.0, 260.0, 20.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+       {'tool': 'LINE', 'points': (140.0, 260.0, 260.0, 500.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+       {'tool': 'LINE', 'points': (260.0, 500.0, 420.0, 260.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+       {'tool': 'LINE', 'points': (260.0, 20.0, 420.0, 260.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE}]
       ,
       # Balloon
-      [{'tool': 'LINE', 'points': (220.0, 240.0, 220.0, 340.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-       {'radius_x': 40, 'line_width': 1.0, 'radius_y': 50, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'center_y': 140.0+50, 'tool': 'FILL_CIRCLE', 'center_x': 180.0+40},
-       {'radius_x': 40, 'line_width': 1.0, 'radius_y': 50, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'center_y': 80.0+50, 'tool': 'FILL_CIRCLE', 'center_x': 300.0+40},
-       {'tool': 'LINE', 'points': (340.0, 180.0, 340.0, 280.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL}]
+      [{'tool': 'LINE', 'points': (220.0, 240.0, 220.0, 340.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+       {'radius_x': 40, 'line_width': 1.0, 'radius_y': 50, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_RED|C_FILL, 'center_y': 140.0+50, 'tool': 'FILL_CIRCLE', 'center_x': 180.0+40},
+       {'radius_x': 40, 'line_width': 1.0, 'radius_y': 50, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'center_y': 80.0+50, 'tool': 'FILL_CIRCLE', 'center_x': 300.0+40},
+       {'tool': 'LINE', 'points': (340.0, 180.0, 340.0, 280.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE}]
       ,
       # Watch
-      [{'radius_x': 100, 'radius_y': 100, 'stroke_color_rgba': 0x1010FFFFL, 'line_width': 5.0, 'center_y': 140.0+100, 'tool': 'CIRCLE', 'center_x': 180.0+100},
-       {'tool': 'LINE', 'points': (280.0, 160.0, 280.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': 0xFF0000A0L},
-       {'tool': 'LINE', 'points': (280.0, 240.0, 320.0, 200.0), 'line_width': 8.0, 'stroke_color_rgba': 352271359L},
-       {'tool': 'LINE', 'points': (220.0, 280.0, 280.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': 4294905087L}]
+      [{'radius_x': 100, 'radius_y': 100, 'stroke_color_rgba': C_BLUE|C_STROKE, 'line_width': 5.0, 'center_y': 140.0+100, 'tool': 'CIRCLE', 'center_x': 180.0+100},
+       {'tool': 'LINE', 'points': (280.0, 160.0, 280.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': C_RED|C_STROKE},
+       {'tool': 'LINE', 'points': (280.0, 240.0, 320.0, 200.0), 'line_width': 8.0, 'stroke_color_rgba': C_GREEN|C_STROKE},
+       {'tool': 'LINE', 'points': (220.0, 280.0, 280.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': C_YELLOW|C_STROKE}]
       ,
       # Colored pyramid
-      [{'width': 280.0-260.0, 'line_width': 1.0, 'height': 120.0-100.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'y': 100.0, 'x': 260.0, 'tool': 'FILL_RECT'},
-       {'width': 300.0-240.0, 'line_width': 1.0, 'height': 140.0-120.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xffff0cA0L, 'y': 120.0,  'x': 240.0, 'tool': 'FILL_RECT'},
-       {'width': 320.0-220.0, 'line_width': 1.0, 'height': 160.0-140.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 140.0, 'tool': 'FILL_RECT', 'x': 220.0},
-       {'width': 340.0-200.0, 'line_width': 1.0, 'height': 180.0-160.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 160.0, 'tool': 'FILL_RECT', 'x': 200.0},
-       {'width': 360.0-180.0, 'line_width': 1.0, 'height': 200.0-180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xC2C2C2A0L, 'y': 180.0, 'tool': 'FILL_RECT', 'x': 180.0}]
+      [{'width': 280.0-260.0, 'line_width': 1.0, 'height': 120.0-100.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_RED|C_FILL, 'y': 100.0, 'x': 260.0, 'tool': 'FILL_RECT'},
+       {'width': 300.0-240.0, 'line_width': 1.0, 'height': 140.0-120.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_YELLOW|C_FILL, 'y': 120.0,  'x': 240.0, 'tool': 'FILL_RECT'},
+       {'width': 320.0-220.0, 'line_width': 1.0, 'height': 160.0-140.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'y': 140.0, 'tool': 'FILL_RECT', 'x': 220.0},
+       {'width': 340.0-200.0, 'line_width': 1.0, 'height': 180.0-160.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'y': 160.0, 'tool': 'FILL_RECT', 'x': 200.0},
+       {'width': 360.0-180.0, 'line_width': 1.0, 'height': 200.0-180.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREY|C_FILL, 'y': 180.0, 'tool': 'FILL_RECT', 'x': 180.0}]
       ,
       # Colored Rectangle bigger and bigger
-      [{'width': 180.0-140.0, 'line_width': 1.0, 'height': 60.0-20.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 20.0, 'tool': 'FILL_RECT', 'x': 140.0},
-       {'width': 240.0-180.0, 'line_width': 1.0, 'height': 120.0-60.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'y': 60.0, 'tool': 'FILL_RECT', 'x': 180.0},
-       {'width': 320.0-240.0, 'line_width': 1.0, 'height': 200.0-120.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xffff0cA0L, 'y': 120.0, 'tool': 'FILL_RECT', 'x': 240.0},
-       {'width': 420.0-320.0, 'line_width': 1.0, 'height': 300.0-200.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 200.0, 'tool': 'FILL_RECT', 'x': 320.0}]
+      [{'width': 180.0-140.0, 'line_width': 1.0, 'height': 60.0-20.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'y': 20.0, 'tool': 'FILL_RECT', 'x': 140.0},
+       {'width': 240.0-180.0, 'line_width': 1.0, 'height': 120.0-60.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_RED|C_FILL, 'y': 60.0, 'tool': 'FILL_RECT', 'x': 180.0},
+       {'width': 320.0-240.0, 'line_width': 1.0, 'height': 200.0-120.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_YELLOW|C_FILL, 'y': 120.0, 'tool': 'FILL_RECT', 'x': 240.0},
+       {'width': 420.0-320.0, 'line_width': 1.0, 'height': 300.0-200.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'y': 200.0, 'tool': 'FILL_RECT', 'x': 320.0}]
       ,
       # Tree
-      [{'width': 420.0-140.0, 'line_width': 1.0, 'height': 500.0-460.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x000000A0L, 'y': 460.0, 'tool': 'FILL_RECT', 'x': 140.0},
-       {'width': 260.0-240.0, 'line_width': 1.0, 'height': 460.0-360.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 360.0, 'tool': 'FILL_RECT', 'x': 240.0},
-       {'radius_x': 70, 'line_width': 1.0, 'radius_y': 40, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'center_y': 280.0+40, 'tool': 'FILL_CIRCLE', 'center_x': 180.0+70}]
+      [{'width': 420.0-140.0, 'line_width': 1.0, 'height': 500.0-460.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_BLACK|C_FILL, 'y': 460.0, 'tool': 'FILL_RECT', 'x': 140.0},
+       {'width': 260.0-240.0, 'line_width': 1.0, 'height': 460.0-360.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'y': 360.0, 'tool': 'FILL_RECT', 'x': 240.0},
+       {'radius_x': 70, 'line_width': 1.0, 'radius_y': 40, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'center_y': 280.0+40, 'tool': 'FILL_CIRCLE', 'center_x': 180.0+70}]
       ,
       # bipbip (big non flying bird)
-      [{'width': 280.0-260.0, 'line_width': 1.0, 'height': 320.0-120.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 120.0, 'tool': 'FILL_RECT', 'x': 260.0},
-       {'width': 300.0-260.0, 'line_width': 1.0, 'height': 120.0-80.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 80.0, 'tool': 'FILL_RECT', 'x': 260.0},
-       {'width': 320.0-300.0, 'line_width': 1.0, 'height': 120.0-100.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 100.0, 'tool': 'FILL_RECT', 'x': 300.0},
-       {'width': 280.0-200.0, 'line_width': 1.0, 'height': 380.0-320.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 320.0, 'tool': 'FILL_RECT', 'x': 200.0},
-       {'width': 220.0-200.0, 'line_width': 1.0, 'height': 320.0-300.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 300.0, 'tool': 'FILL_RECT', 'x': 200.0},
-       {'width': 260.0-240.0, 'line_width': 1.0, 'height': 460.0-380.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 380.0, 'tool': 'FILL_RECT', 'x': 240.0},
-       {'width': 280.0-260.0, 'line_width': 1.0, 'height': 460.0-440.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 440.0, 'tool': 'FILL_RECT', 'x': 260.0}]
+      [{'width': 280.0-260.0, 'line_width': 1.0, 'height': 320.0-120.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'y': 120.0, 'tool': 'FILL_RECT', 'x': 260.0},
+       {'width': 300.0-260.0, 'line_width': 1.0, 'height': 120.0-80.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'y': 80.0, 'tool': 'FILL_RECT', 'x': 260.0},
+       {'width': 320.0-300.0, 'line_width': 1.0, 'height': 120.0-100.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'y': 100.0, 'tool': 'FILL_RECT', 'x': 300.0},
+       {'width': 280.0-200.0, 'line_width': 1.0, 'height': 380.0-320.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'y': 320.0, 'tool': 'FILL_RECT', 'x': 200.0},
+       {'width': 220.0-200.0, 'line_width': 1.0, 'height': 320.0-300.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'y': 300.0, 'tool': 'FILL_RECT', 'x': 200.0},
+       {'width': 260.0-240.0, 'line_width': 1.0, 'height': 460.0-380.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'y': 380.0, 'tool': 'FILL_RECT', 'x': 240.0},
+       {'width': 280.0-260.0, 'line_width': 1.0, 'height': 460.0-440.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'y': 440.0, 'tool': 'FILL_RECT', 'x': 260.0}]
       ,
       # Dog
-      [{'width': 180.0-160.0, 'line_width': 1.0, 'height': 200.0-180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x831891A0L, 'y': 180.0, 'tool': 'FILL_RECT', 'x': 160.0},
-       {'width': 340.0-180.0, 'line_width': 1.0, 'height': 240.0-200.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x831891A0L, 'y': 200.0, 'tool': 'FILL_RECT', 'x': 180.0},
-       {'width': 200.0-180.0, 'line_width': 1.0, 'height': 280.0-240.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x831891A0L, 'y': 240.0, 'tool': 'FILL_RECT', 'x': 180.0},
-       {'width': 340.0-320.0,'line_width': 1.0, 'height': 280.0-240.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x831891A0L, 'y': 240.0, 'tool': 'FILL_RECT', 'x': 320.0},
-       {'width': 380.0-320.0, 'line_width': 1.0, 'height': 200.0-160.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x831891A0L, 'y': 160.0, 'tool': 'FILL_RECT', 'x': 320.0}]
+      [{'width': 180.0-160.0, 'line_width': 1.0, 'height': 200.0-180.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_MAGENTA|C_FILL, 'y': 180.0, 'tool': 'FILL_RECT', 'x': 160.0},
+       {'width': 340.0-180.0, 'line_width': 1.0, 'height': 240.0-200.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_MAGENTA|C_FILL, 'y': 200.0, 'tool': 'FILL_RECT', 'x': 180.0},
+       {'width': 200.0-180.0, 'line_width': 1.0, 'height': 280.0-240.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_MAGENTA|C_FILL, 'y': 240.0, 'tool': 'FILL_RECT', 'x': 180.0},
+       {'width': 340.0-320.0,'line_width': 1.0, 'height': 280.0-240.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_MAGENTA|C_FILL, 'y': 240.0, 'tool': 'FILL_RECT', 'x': 320.0},
+       {'width': 380.0-320.0, 'line_width': 1.0, 'height': 200.0-160.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_MAGENTA|C_FILL, 'y': 160.0, 'tool': 'FILL_RECT', 'x': 320.0}]
       ,
       # Fish
-      [{'radius_x': 90, 'line_width': 1.0, 'radius_y': 60, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xffff0cA0L, 'center_y': 160.0+60, 'tool': 'FILL_CIRCLE', 'center_x': 180.0+90},
-       {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010FFA0L, 'center_y': 200.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 320.0+10},
-       {'width': 180.0-160.0, 'line_width': 1.0, 'height': 260.0-180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xffff0cA0L, 'y': 180.0, 'tool': 'FILL_RECT', 'x': 160.0}]
+      [{'radius_x': 90, 'line_width': 1.0, 'radius_y': 60, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_YELLOW|C_FILL, 'center_y': 160.0+60, 'tool': 'FILL_CIRCLE', 'center_x': 180.0+90},
+       {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_BLUE|C_FILL, 'center_y': 200.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 320.0+10},
+       {'width': 180.0-160.0, 'line_width': 1.0, 'height': 260.0-180.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_YELLOW|C_FILL, 'y': 180.0, 'tool': 'FILL_RECT', 'x': 160.0}]
       ,
       # Balloon (human)
-      [{'radius_x': 90, 'line_width': 1.0, 'radius_y': 100, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'center_y': 100.0+100, 'tool': 'FILL_CIRCLE', 'center_x': 200.0+90},
-       {'radius_x': 50, 'line_width': 1.0, 'radius_y': 30, 'stroke_color_rgba': 255L, 'stroke_color_rgba': 4294905087L, 'center_y': 320.0, 'tool': 'FILL_RECT', 'center_x': 240.0},
-       {'tool': 'LINE', 'points': (220.0, 260.0, 260.0, 320.0), 'line_width': 8.0, 'stroke_color_rgba': 4287383039L},
-       {'tool': 'LINE', 'points': (320.0, 320.0, 360.0, 260.0), 'line_width': 8.0, 'stroke_color_rgba': 4287383039L}]
+      [{'radius_x': 90, 'line_width': 1.0, 'radius_y': 100, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_RED|C_FILL, 'center_y': 100.0+100, 'tool': 'FILL_CIRCLE', 'center_x': 200.0+90},
+       {'radius_x': 50, 'line_width': 1.0, 'radius_y': 30, 'stroke_color_rgba': C_STROKE, 'stroke_color_rgba': C_YELLOW|C_STROKE, 'center_y': 320.0, 'tool': 'FILL_RECT', 'center_x': 240.0},
+       {'tool': 'LINE', 'points': (220.0, 260.0, 260.0, 320.0), 'line_width': 8.0, 'stroke_color_rgba': C_YELLOW|C_STROKE},
+       {'tool': 'LINE', 'points': (320.0, 320.0, 360.0, 260.0), 'line_width': 8.0, 'stroke_color_rgba': C_YELLOW|C_STROKE}]
       ,
       # House
-      [{'width': 360.0-200.0, 'line_width': 1.0, 'height': 340.0-240.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 240.0, 'tool': 'FILL_RECT', 'x': 200.0},
-       {'width': 280.0-240.0, 'line_width': 1.0, 'height': 340.0-280.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010FFA0L, 'y': 280.0, 'tool': 'FILL_RECT', 'x': 240.0},
-       {'width': 340.0-300.0, 'line_width': 1.0, 'height': 300.0-260.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010FFA0L, 'y': 260.0, 'tool': 'FILL_RECT', 'x': 300.0},
-       {'tool': 'LINE', 'points': (200.0, 240.0, 280.0, 160.0), 'line_width': 8.0, 'stroke_color_rgba': 4287383039L},
-       {'tool': 'LINE', 'points': (280.0, 160.0, 360.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': 4287383039L}]
+      [{'width': 360.0-200.0, 'line_width': 1.0, 'height': 340.0-240.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'y': 240.0, 'tool': 'FILL_RECT', 'x': 200.0},
+       {'width': 280.0-240.0, 'line_width': 1.0, 'height': 340.0-280.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_BLUE|C_FILL, 'y': 280.0, 'tool': 'FILL_RECT', 'x': 240.0},
+       {'width': 340.0-300.0, 'line_width': 1.0, 'height': 300.0-260.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_BLUE|C_FILL, 'y': 260.0, 'tool': 'FILL_RECT', 'x': 300.0},
+       {'tool': 'LINE', 'points': (200.0, 240.0, 280.0, 160.0), 'line_width': 8.0, 'stroke_color_rgba': C_YELLOW|C_STROKE},
+       {'tool': 'LINE', 'points': (280.0, 160.0, 360.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': C_YELLOW|C_STROKE}]
       ,
       # Truck
-      [{'radius_x': 20, 'line_width': 1.0, 'radius_y': 20, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010FFA0L, 'center_y': 240.0+20, 'tool': 'FILL_CIRCLE', 'center_x': 180.0+20},
-       {'radius_x': 20, 'line_width': 1.0, 'radius_y': 20, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010FFA0L, 'center_y': 240.0+20, 'tool': 'FILL_CIRCLE', 'center_x': 280.0+20},
-       {'width': 220.0-160.0, 'line_width': 1.0, 'height': 260.0-220.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'y': 220.0, 'tool': 'FILL_RECT', 'x': 160.0},
-       {'width': 300.0-220.0, 'line_width': 1.0, 'height': 260.0-180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'y': 180.0, 'tool': 'FILL_RECT', 'x': 220.0},
-       {'width': 320.0-300.0, 'line_width': 1.0, 'height': 260.0-220.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'y': 220.0, 'tool': 'FILL_RECT', 'x': 300.0},
-       {'width': 280.0-240.0, 'line_width': 1.0, 'height': 260.0-200.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010FFA0L, 'y': 200.0, 'tool': 'FILL_RECT', 'x': 240.0}]
+      [{'radius_x': 20, 'line_width': 1.0, 'radius_y': 20, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_BLUE|C_FILL, 'center_y': 240.0+20, 'tool': 'FILL_CIRCLE', 'center_x': 180.0+20},
+       {'radius_x': 20, 'line_width': 1.0, 'radius_y': 20, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_BLUE|C_FILL, 'center_y': 240.0+20, 'tool': 'FILL_CIRCLE', 'center_x': 280.0+20},
+       {'width': 220.0-160.0, 'line_width': 1.0, 'height': 260.0-220.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_RED|C_FILL, 'y': 220.0, 'tool': 'FILL_RECT', 'x': 160.0},
+       {'width': 300.0-220.0, 'line_width': 1.0, 'height': 260.0-180.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_RED|C_FILL, 'y': 180.0, 'tool': 'FILL_RECT', 'x': 220.0},
+       {'width': 320.0-300.0, 'line_width': 1.0, 'height': 260.0-220.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_RED|C_FILL, 'y': 220.0, 'tool': 'FILL_RECT', 'x': 300.0},
+       {'width': 280.0-240.0, 'line_width': 1.0, 'height': 260.0-200.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_BLUE|C_FILL, 'y': 200.0, 'tool': 'FILL_RECT', 'x': 240.0}]
       ,
       # Fire truck
-      [{'radius_x': 20, 'line_width': 1.0, 'radius_y': 20, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'center_y': 260.0+20, 'tool': 'FILL_CIRCLE', 'center_x': 160.0+20},
-       {'radius_x': 20, 'line_width': 1.0, 'radius_y': 20, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'center_y': 260.0+20, 'tool': 'FILL_CIRCLE', 'center_x': 320.0+20},
-       {'width': 380.0-160.0, 'line_width': 1.0, 'height': 280.0-220.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'y': 220.0, 'tool': 'FILL_RECT', 'x': 160.0},
-       {'tool': 'LINE', 'points': (160.0, 200.0, 340.0, 180.0), 'line_width': 8.0, 'stroke_color_rgba': 0xFF0000A0L},
-       {'width': 200.0-180.0, 'line_width': 1.0, 'height': 220.0-200.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'y': 200.0, 'tool': 'FILL_RECT', 'x': 180.0},
-       {'width': 360.0-320.0, 'line_width': 1.0, 'height': 260.0-220.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010FFA0L, 'y': 220.0, 'tool': 'FILL_RECT', 'x': 320.0},
-       {'width': 300.0-280.0, 'line_width': 1.0, 'height': 260.0-220.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010FFA0L, 'y': 220.0, 'tool': 'FILL_RECT', 'x': 280.0}]
+      [{'radius_x': 20, 'line_width': 1.0, 'radius_y': 20, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_RED|C_FILL, 'center_y': 260.0+20, 'tool': 'FILL_CIRCLE', 'center_x': 160.0+20},
+       {'radius_x': 20, 'line_width': 1.0, 'radius_y': 20, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_RED|C_FILL, 'center_y': 260.0+20, 'tool': 'FILL_CIRCLE', 'center_x': 320.0+20},
+       {'width': 380.0-160.0, 'line_width': 1.0, 'height': 280.0-220.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_RED|C_FILL, 'y': 220.0, 'tool': 'FILL_RECT', 'x': 160.0},
+       {'tool': 'LINE', 'points': (160.0, 200.0, 340.0, 180.0), 'line_width': 8.0, 'stroke_color_rgba': C_RED|C_STROKE},
+       {'width': 200.0-180.0, 'line_width': 1.0, 'height': 220.0-200.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_RED|C_FILL, 'y': 200.0, 'tool': 'FILL_RECT', 'x': 180.0},
+       {'width': 360.0-320.0, 'line_width': 1.0, 'height': 260.0-220.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_BLUE|C_FILL, 'y': 220.0, 'tool': 'FILL_RECT', 'x': 320.0},
+       {'width': 300.0-280.0, 'line_width': 1.0, 'height': 260.0-220.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_BLUE|C_FILL, 'y': 220.0, 'tool': 'FILL_RECT', 'x': 280.0}]
       ,
       # Billard
       [
-        {'line_width': 8.0, 'points': (180.0, 80.0, 180.0, 440.0), 'tool': 'LINE', 'stroke_color_rgba': 0x1010FFFFL},
-        {'line_width': 8.0, 'points': (180.0, 460.0, 380.0, 460.0), 'tool': 'LINE', 'stroke_color_rgba': 0x1010FFFFL},
-        {'line_width': 8.0, 'points': (380.0, 80.0, 380.0, 440.0), 'tool': 'LINE', 'stroke_color_rgba': 0x1010FFFFL},
-        {'line_width': 8.0, 'points': (180.0, 60.0, 380.0, 60.0), 'tool': 'LINE', 'stroke_color_rgba': 0x1010FFFFL},
-        {'line_width': 8.0, 'points': (280.0, 320.0, 280.0, 420.0), 'tool': 'LINE', 'stroke_color_rgba': 2199425535L},
-        {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010FFA0L, 'center_y': 300.0+10, 'center_x': 260.0+10, 'tool': 'FILL_CIRCLE'},
-        {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x831891A0L, 'center_y': 100.0+10, 'center_x': 240.0+10, 'tool': 'FILL_CIRCLE'},
-        {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'center_y': 100.0+10, 'center_x': 260.0+10, 'tool': 'FILL_CIRCLE'},
-        {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'center_y': 100.0+10, 'center_x': 280.0+10, 'tool': 'FILL_CIRCLE'},
-        {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x000000A0L, 'center_y': 100.0+10, 'center_x': 300.0+10, 'tool': 'FILL_CIRCLE'},
-        {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xb9bc0dffL, 'center_y': 120.0+10, 'center_x': 260.0+10, 'tool': 'FILL_CIRCLE'},
-        {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'center_y': 120.0+10, 'center_x': 280.0+10, 'tool': 'FILL_CIRCLE'}
+        {'line_width': 8.0, 'points': (180.0, 80.0, 180.0, 440.0), 'tool': 'LINE', 'stroke_color_rgba': C_BLUE|C_STROKE},
+        {'line_width': 8.0, 'points': (180.0, 460.0, 380.0, 460.0), 'tool': 'LINE', 'stroke_color_rgba': C_BLUE|C_STROKE},
+        {'line_width': 8.0, 'points': (380.0, 80.0, 380.0, 440.0), 'tool': 'LINE', 'stroke_color_rgba': C_BLUE|C_STROKE},
+        {'line_width': 8.0, 'points': (180.0, 60.0, 380.0, 60.0), 'tool': 'LINE', 'stroke_color_rgba': C_BLUE|C_STROKE},
+        {'line_width': 8.0, 'points': (280.0, 320.0, 280.0, 420.0), 'tool': 'LINE', 'stroke_color_rgba': C_MAGENTA|C_STROKE},
+        {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_BLUE|C_FILL, 'center_y': 300.0+10, 'center_x': 260.0+10, 'tool': 'FILL_CIRCLE'},
+        {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_MAGENTA|C_FILL, 'center_y': 100.0+10, 'center_x': 240.0+10, 'tool': 'FILL_CIRCLE'},
+        {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'center_y': 100.0+10, 'center_x': 260.0+10, 'tool': 'FILL_CIRCLE'},
+        {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_RED|C_FILL, 'center_y': 100.0+10, 'center_x': 280.0+10, 'tool': 'FILL_CIRCLE'},
+        {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_BLACK|C_FILL, 'center_y': 100.0+10, 'center_x': 300.0+10, 'tool': 'FILL_CIRCLE'},
+        {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_BROWN|C_FILL, 'center_y': 120.0+10, 'center_x': 260.0+10, 'tool': 'FILL_CIRCLE'},
+        {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'center_y': 120.0+10, 'center_x': 280.0+10, 'tool': 'FILL_CIRCLE'}
         ]
       ,
       # Clara (my daughter)
-      [{'width': 240.0-220.0, 'line_width': 1.0, 'height': 480.0-400.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x831891A0L, 'y': 400.0, 'x': 220.0, 'tool': 'FILL_RECT'},
-       {'width': 320.0-300.0, 'line_width': 1.0, 'height': 480.0-400.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x831891A0L, 'y': 400.0, 'x': 300.0, 'tool': 'FILL_RECT'},
-       {'width': 220.0-160.0, 'line_width': 1.0, 'height': 200.0-180.0,'stroke_color_rgba': 255L, 'fill_color_rgba': 0x831891A0L, 'y': 180.0, 'x': 160.0, 'tool': 'FILL_RECT'},
-       {'width': 380.0-320.0, 'line_width': 1.0, 'height': 200.0-180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x831891A0L, 'y': 180.0, 'x': 320.0, 'tool': 'FILL_RECT'},
-       {'width': 380.0-360.0, 'line_width': 1.0, 'height': 180.0-120.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x831891A0L, 'y': 120.0, 'x': 360.0, 'tool': 'FILL_RECT'},
-       {'width': 180.0-160.0, 'line_width': 1.0, 'height': 260.0-200.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x831891A0L, 'y': 200.0, 'x': 160.0, 'tool': 'FILL_RECT'},
-       {'radius_x': 50, 'line_width': 1.0, 'radius_y': 50, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'center_y': 60.0+50, 'center_x': 220.0+50, 'tool': 'FILL_CIRCLE'},
-       {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00a0L, 'center_y': 100.0+10, 'center_x': 240.0+10, 'tool': 'FILL_CIRCLE'},
-       {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00a0L, 'center_y': 100.0+10, 'center_x': 280.0+10, 'tool': 'FILL_CIRCLE'},
-       {'line_width': 8.0, 'points': (260.0, 140.0, 280.0, 140.0), 'tool': 'LINE', 'stroke_color_rgba': 0xFF0000A0L},
-       {'width': 300.0-240.0, 'line_width': 1.0, 'height': 180.0-160.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 160.0, 'x': 240.0, 'tool': 'FILL_RECT'},
-       {'width': 320.0-220.0, 'line_width': 1.0, 'height': 320.0-180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 180.0, 'x': 220.0, 'tool': 'FILL_RECT'},
-       {'width': 340.0-200.0, 'line_width': 1.0, 'height': 400.0-320.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 320.0, 'x': 200.0, 'tool': 'FILL_RECT'}]
+      [{'width': 240.0-220.0, 'line_width': 1.0, 'height': 480.0-400.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_MAGENTA|C_FILL, 'y': 400.0, 'x': 220.0, 'tool': 'FILL_RECT'},
+       {'width': 320.0-300.0, 'line_width': 1.0, 'height': 480.0-400.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_MAGENTA|C_FILL, 'y': 400.0, 'x': 300.0, 'tool': 'FILL_RECT'},
+       {'width': 220.0-160.0, 'line_width': 1.0, 'height': 200.0-180.0,'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_MAGENTA|C_FILL, 'y': 180.0, 'x': 160.0, 'tool': 'FILL_RECT'},
+       {'width': 380.0-320.0, 'line_width': 1.0, 'height': 200.0-180.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_MAGENTA|C_FILL, 'y': 180.0, 'x': 320.0, 'tool': 'FILL_RECT'},
+       {'width': 380.0-360.0, 'line_width': 1.0, 'height': 180.0-120.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_MAGENTA|C_FILL, 'y': 120.0, 'x': 360.0, 'tool': 'FILL_RECT'},
+       {'width': 180.0-160.0, 'line_width': 1.0, 'height': 260.0-200.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_MAGENTA|C_FILL, 'y': 200.0, 'x': 160.0, 'tool': 'FILL_RECT'},
+       {'radius_x': 50, 'line_width': 1.0, 'radius_y': 50, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'center_y': 60.0+50, 'center_x': 220.0+50, 'tool': 'FILL_CIRCLE'},
+       {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'center_y': 100.0+10, 'center_x': 240.0+10, 'tool': 'FILL_CIRCLE'},
+       {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'center_y': 100.0+10, 'center_x': 280.0+10, 'tool': 'FILL_CIRCLE'},
+       {'line_width': 8.0, 'points': (260.0, 140.0, 280.0, 140.0), 'tool': 'LINE', 'stroke_color_rgba': C_RED|C_STROKE},
+       {'width': 300.0-240.0, 'line_width': 1.0, 'height': 180.0-160.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'y': 160.0, 'x': 240.0, 'tool': 'FILL_RECT'},
+       {'width': 320.0-220.0, 'line_width': 1.0, 'height': 320.0-180.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'y': 180.0, 'x': 220.0, 'tool': 'FILL_RECT'},
+       {'width': 340.0-200.0, 'line_width': 1.0, 'height': 400.0-320.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'y': 320.0, 'x': 200.0, 'tool': 'FILL_RECT'}]
       ,
       # Bicycle
-      [{'radius_x': 40, 'radius_y': 40, 'stroke_color_rgba': 4287383039L, 'line_width': 5.0, 'center_y': 260.0+40, 'tool': 'CIRCLE', 'center_x': 160.0+40},
-       {'radius_x': 40, 'radius_y': 40, 'stroke_color_rgba': 4287383039L, 'line_width': 5.0, 'center_y': 260.0+40, 'tool': 'CIRCLE', 'center_x': 320.0+40},
-       {'tool': 'LINE', 'points': (200.0, 300.0, 280.0, 300.0), 'line_width': 8.0, 'stroke_color_rgba': 0xFF0000A0L},
-       {'tool': 'LINE', 'points': (280.0,300.0, 340.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': 0xFF0000A0L},
-       {'tool': 'LINE', 'points': (240.0, 240.0, 340.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': 0xFF0000A0L},
-       {'tool': 'LINE', 'points': (200.0, 300.0, 240.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': 0xFF0000A0L},
-       {'tool': 'LINE', 'points': (240.0, 220.0, 240.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': 2199425535L},
-       {'tool': 'LINE', 'points': (220.0, 220.0, 260.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': 2199425535L},
-       {'tool': 'LINE', 'points': (340.0, 200.0, 340.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': 2199425535L},
-       {'tool': 'LINE', 'points': (320.0, 200.0, 340.0, 200.0), 'line_width': 8.0, 'stroke_color_rgba': 2199425535L},
-       {'tool': 'LINE', 'points': (340.0, 240.0, 360.0, 300.0), 'line_width': 8.0, 'stroke_color_rgba': 0xFF0000A0L}]
+      [{'radius_x': 40, 'radius_y': 40, 'stroke_color_rgba': C_YELLOW|C_STROKE, 'line_width': 5.0, 'center_y': 260.0+40, 'tool': 'CIRCLE', 'center_x': 160.0+40},
+       {'radius_x': 40, 'radius_y': 40, 'stroke_color_rgba': C_YELLOW|C_STROKE, 'line_width': 5.0, 'center_y': 260.0+40, 'tool': 'CIRCLE', 'center_x': 320.0+40},
+       {'tool': 'LINE', 'points': (200.0, 300.0, 280.0, 300.0), 'line_width': 8.0, 'stroke_color_rgba': C_RED|C_STROKE},
+       {'tool': 'LINE', 'points': (280.0,300.0, 340.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': C_RED|C_STROKE},
+       {'tool': 'LINE', 'points': (240.0, 240.0, 340.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': C_RED|C_STROKE},
+       {'tool': 'LINE', 'points': (200.0, 300.0, 240.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': C_RED|C_STROKE},
+       {'tool': 'LINE', 'points': (240.0, 220.0, 240.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': C_MAGENTA|C_STROKE},
+       {'tool': 'LINE', 'points': (220.0, 220.0, 260.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': C_MAGENTA|C_STROKE},
+       {'tool': 'LINE', 'points': (340.0, 200.0, 340.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': C_MAGENTA|C_STROKE},
+       {'tool': 'LINE', 'points': (320.0, 200.0, 340.0, 200.0), 'line_width': 8.0, 'stroke_color_rgba': C_MAGENTA|C_STROKE},
+       {'tool': 'LINE', 'points': (340.0, 240.0, 360.0, 300.0), 'line_width': 8.0, 'stroke_color_rgba': C_RED|C_STROKE}]
       ,
       # Sea boat and sun
-      [{'width': 420.0-140.0, 'line_width': 1.0, 'height': 500.0-420.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00a0L, 'y': 420.0, 'tool': 'FILL_RECT', 'x': 140.0},
-       {'radius_x': 50, 'line_width': 1.0, 'radius_y': 50, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xffff0cA0L, 'center_y': 60.0+50, 'tool': 'FILL_CIRCLE', 'center_x': 160.0+50},
-       {'radius_x': 50, 'line_width': 1.0, 'radius_y': 20, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010FFA0L, 'center_y': 160.0+20, 'tool': 'FILL_CIRCLE', 'center_x': 260.0+50},
-       {'radius_x': 30, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010FFA0L, 'center_y': 200.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 300.0+30},
-       {'radius_x': 20,'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba':0x1010FFA0L, 'center_y': 140.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 360.0+20},
-       {'tool': 'LINE','points': (220.0, 400.0, 240.0, 420.0), 'line_width': 8.0, 'stroke_color_rgba': 0xFF0000A0L},
-       {'tool': 'LINE', 'points': (240.0, 420.0, 280.0, 420.0), 'line_width': 8.0, 'stroke_color_rgba': 0xFF0000A0L},
-       {'tool': 'LINE', 'points': (280.0, 420.0, 300.0, 400.0), 'line_width': 8.0, 'stroke_color_rgba': 0xFF0000A0L},
-       {'tool': 'LINE', 'points': (220.0, 400.0, 300.0, 400.0), 'line_width': 8.0, 'stroke_color_rgba': 0xFF0000A0L},
-       {'tool': 'LINE', 'points': (260.0, 280.0, 260.0, 400.0),'line_width': 8.0, 'stroke_color_rgba': 0xFF0000A0L},
-       {'tool': 'LINE', 'points':(260.0, 280.0, 300.0, 380.0), 'line_width': 8.0, 'stroke_color_rgba': 2199425535L},
-       {'tool': 'LINE', 'points': (260.0, 380.0, 300.0, 380.0), 'line_width': 8.0,'stroke_color_rgba': 2199425535L}]
+      [{'width': 420.0-140.0, 'line_width': 1.0, 'height': 500.0-420.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'y': 420.0, 'tool': 'FILL_RECT', 'x': 140.0},
+       {'radius_x': 50, 'line_width': 1.0, 'radius_y': 50, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_YELLOW|C_FILL, 'center_y': 60.0+50, 'tool': 'FILL_CIRCLE', 'center_x': 160.0+50},
+       {'radius_x': 50, 'line_width': 1.0, 'radius_y': 20, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_BLUE|C_FILL, 'center_y': 160.0+20, 'tool': 'FILL_CIRCLE', 'center_x': 260.0+50},
+       {'radius_x': 30, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_BLUE|C_FILL, 'center_y': 200.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 300.0+30},
+       {'radius_x': 20,'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba':C_BLUE|C_FILL, 'center_y': 140.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 360.0+20},
+       {'tool': 'LINE','points': (220.0, 400.0, 240.0, 420.0), 'line_width': 8.0, 'stroke_color_rgba': C_RED|C_STROKE},
+       {'tool': 'LINE', 'points': (240.0, 420.0, 280.0, 420.0), 'line_width': 8.0, 'stroke_color_rgba': C_RED|C_STROKE},
+       {'tool': 'LINE', 'points': (280.0, 420.0, 300.0, 400.0), 'line_width': 8.0, 'stroke_color_rgba': C_RED|C_STROKE},
+       {'tool': 'LINE', 'points': (220.0, 400.0, 300.0, 400.0), 'line_width': 8.0, 'stroke_color_rgba': C_RED|C_STROKE},
+       {'tool': 'LINE', 'points': (260.0, 280.0, 260.0, 400.0),'line_width': 8.0, 'stroke_color_rgba': C_RED|C_STROKE},
+       {'tool': 'LINE', 'points':(260.0, 280.0, 300.0, 380.0), 'line_width': 8.0, 'stroke_color_rgba': C_MAGENTA|C_STROKE},
+       {'tool': 'LINE', 'points': (260.0, 380.0, 300.0, 380.0), 'line_width': 8.0,'stroke_color_rgba': C_MAGENTA|C_STROKE}]
 
       ]
     else:
@@ -1404,129 +1410,129 @@ class Gcompris_redraw:
       self.drawlist = \
       [
         # 3 white box in triangle
-        [{'width': 420.0-380.0, 'line_width': 1.0, 'height': 260.0-220.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010FFA0L, 'y': 220.0, 'tool': 'FILL_RECT', 'x': 380.0},
-         {'width': 380.0-340.0, 'line_width': 1.0, 'height': 220.0-180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010FFA0L, 'y': 180.0, 'tool': 'FILL_RECT', 'x': 340.0},
-         {'width': 380.0-340.0, 'line_width': 1.0, 'height': 300.0-260.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010FFA0L, 'y': 260.0, 'tool': 'FILL_RECT', 'x': 340.0}]
+        [{'width': 420.0-380.0, 'line_width': 1.0, 'height': 260.0-220.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_BLUE|C_FILL, 'y': 220.0, 'tool': 'FILL_RECT', 'x': 380.0},
+         {'width': 380.0-340.0, 'line_width': 1.0, 'height': 220.0-180.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_BLUE|C_FILL, 'y': 180.0, 'tool': 'FILL_RECT', 'x': 340.0},
+         {'width': 380.0-340.0, 'line_width': 1.0, 'height': 300.0-260.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_BLUE|C_FILL, 'y': 260.0, 'tool': 'FILL_RECT', 'x': 340.0}]
         ,
         # Colored pyramid
-        [{'width': 420.0-140.0, 'line_width': 1.0, 'height': 460.0-420.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xC2C2C2A0L, 'y': 420.0, 'tool': 'FILL_RECT', 'x': 140.0},
-         {'width': 420.0-180.0, 'line_width': 1.0, 'height': 420.0-380.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 380.0, 'tool': 'FILL_RECT', 'x': 180.0},
-         {'width': 420.0-220.0, 'line_width': 1.0, 'height': 380.0-340.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 340.0, 'tool': 'FILL_RECT', 'x': 220.0},
-         {'width': 420.0-260.0, 'line_width': 1.0, 'height': 340.0-300.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xffff0cA0L, 'y': 300.0, 'tool': 'FILL_RECT', 'x': 260.0},
-         {'width': 420.0-300.0, 'line_width': 1.0, 'height': 300.0-260.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'y': 260.0, 'tool': 'FILL_RECT', 'x': 300.0},
-         {'width': 420.0-340.0, 'line_width': 1.0, 'height': 260.0-220.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x000000A0L, 'y': 220.0, 'tool': 'FILL_RECT', 'x': 340.0},
-         {'width': 420.0-380.0, 'line_width': 1.0, 'height': 220.0-180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x000000A0L, 'y': 180.0, 'tool': 'FILL_RECT', 'x': 380.0}]
+        [{'width': 420.0-140.0, 'line_width': 1.0, 'height': 460.0-420.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREY|C_FILL, 'y': 420.0, 'tool': 'FILL_RECT', 'x': 140.0},
+         {'width': 420.0-180.0, 'line_width': 1.0, 'height': 420.0-380.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'y': 380.0, 'tool': 'FILL_RECT', 'x': 180.0},
+         {'width': 420.0-220.0, 'line_width': 1.0, 'height': 380.0-340.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'y': 340.0, 'tool': 'FILL_RECT', 'x': 220.0},
+         {'width': 420.0-260.0, 'line_width': 1.0, 'height': 340.0-300.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_YELLOW|C_FILL, 'y': 300.0, 'tool': 'FILL_RECT', 'x': 260.0},
+         {'width': 420.0-300.0, 'line_width': 1.0, 'height': 300.0-260.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_RED|C_FILL, 'y': 260.0, 'tool': 'FILL_RECT', 'x': 300.0},
+         {'width': 420.0-340.0, 'line_width': 1.0, 'height': 260.0-220.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_BLACK|C_FILL, 'y': 220.0, 'tool': 'FILL_RECT', 'x': 340.0},
+         {'width': 420.0-380.0, 'line_width': 1.0, 'height': 220.0-180.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_BLACK|C_FILL, 'y': 180.0, 'tool': 'FILL_RECT', 'x': 380.0}]
         ,
         # Butterfly
-        [{'width': 420.0-380.0, 'line_width': 1.0, 'height': 380.0-180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xffff0cA0L, 'y': 180.0, 'tool': 'FILL_RECT', 'x': 380.0},
-         {'tool': 'LINE', 'points': (360.0, 80.0, 400.0, 180.0), 'line_width': 8.0, 'stroke_color_rgba': 707406591L},
-         {'radius_x': 100, 'line_width': 1.0, 'radius_y': 170, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'center_y': 100.0+170, 'tool': 'FILL_CIRCLE', 'center_x': 180.0+100},
-         {'radius_x': 50, 'line_width': 1.0, 'radius_y': 100, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x831891A0L, 'center_y': 180.0+100, 'tool': 'FILL_CIRCLE', 'center_x': 260.0+50}]
+        [{'width': 420.0-380.0, 'line_width': 1.0, 'height': 380.0-180.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_YELLOW|C_FILL, 'y': 180.0, 'tool': 'FILL_RECT', 'x': 380.0},
+         {'tool': 'LINE', 'points': (360.0, 80.0, 400.0, 180.0), 'line_width': 8.0, 'stroke_color_rgba': C_STROKE},
+         {'radius_x': 100, 'line_width': 1.0, 'radius_y': 170, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'center_y': 100.0+170, 'tool': 'FILL_CIRCLE', 'center_x': 180.0+100},
+         {'radius_x': 50, 'line_width': 1.0, 'radius_y': 100, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_MAGENTA|C_FILL, 'center_y': 180.0+100, 'tool': 'FILL_CIRCLE', 'center_x': 260.0+50}]
         ,
         # Robot
-        [{'width': 420.0-340.0, 'line_width': 1.0, 'height': 360.0-160.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'y': 160.0, 'tool': 'FILL_RECT', 'x': 340.0},
-         {'width': 380.0-340.0, 'line_width': 1.0, 'height': 500.0-360.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 360.0, 'tool': 'FILL_RECT', 'x': 340.0},
-         {'width': 340.0-260.0, 'line_width': 1.0, 'height': 200.0-160.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 160.0, 'tool': 'FILL_RECT', 'x': 260.0},
-         {'width': 300.0-260.0, 'line_width': 1.0, 'height': 280.0-200.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 200.0, 'tool': 'FILL_RECT', 'x': 260.0},
-         {'width': 420.0-380.0, 'line_width': 1.0, 'height': 160.0-140.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 140.0, 'tool': 'FILL_RECT', 'x': 380.0},
-         {'width': 420.0-360.0, 'line_width': 1.0, 'height': 140.0-60.0,  'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00a0L, 'y': 60.0, 'tool': 'FILL_RECT', 'x': 360.0},
-         {'width': 420.0-400.0, 'line_width': 1.0, 'height': 120.0-100.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xb9bc0dffL, 'y': 100.0, 'tool': 'FILL_RECT', 'x': 400.0},
-         {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'center_y': 80.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 380.0+10}]
+        [{'width': 420.0-340.0, 'line_width': 1.0, 'height': 360.0-160.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_RED|C_FILL, 'y': 160.0, 'tool': 'FILL_RECT', 'x': 340.0},
+         {'width': 380.0-340.0, 'line_width': 1.0, 'height': 500.0-360.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'y': 360.0, 'tool': 'FILL_RECT', 'x': 340.0},
+         {'width': 340.0-260.0, 'line_width': 1.0, 'height': 200.0-160.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'y': 160.0, 'tool': 'FILL_RECT', 'x': 260.0},
+         {'width': 300.0-260.0, 'line_width': 1.0, 'height': 280.0-200.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'y': 200.0, 'tool': 'FILL_RECT', 'x': 260.0},
+         {'width': 420.0-380.0, 'line_width': 1.0, 'height': 160.0-140.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'y': 140.0, 'tool': 'FILL_RECT', 'x': 380.0},
+         {'width': 420.0-360.0, 'line_width': 1.0, 'height': 140.0-60.0,  'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'y': 60.0, 'tool': 'FILL_RECT', 'x': 360.0},
+         {'width': 420.0-400.0, 'line_width': 1.0, 'height': 120.0-100.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_BROWN|C_FILL, 'y': 100.0, 'tool': 'FILL_RECT', 'x': 400.0},
+         {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'center_y': 80.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 380.0+10}]
         ,
         # Arrow
-        [{'width': 420.0-300.0, 'line_width': 1.0, 'height': 260.0-240.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 240.0, 'tool': 'FILL_RECT', 'x': 300.0},
-         {'tool': 'LINE', 'points': (180.0, 240.0, 300.0, 140.0), 'line_width': 8.0, 'stroke_color_rgba': 4287383039L},
-         {'tool': 'LINE', 'points': (180.0, 240.0, 180.0, 260.0), 'line_width': 8.0, 'stroke_color_rgba': 4287383039L},
-         {'tool': 'LINE', 'points': (180.0, 260.0, 300.0, 360.0), 'line_width': 8.0, 'stroke_color_rgba': 4287383039L},
-         {'tool': 'LINE', 'points': (300.0, 140.0, 300.0, 360.0), 'line_width': 8.0, 'stroke_color_rgba': 4287383039L}]
+        [{'width': 420.0-300.0, 'line_width': 1.0, 'height': 260.0-240.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'y': 240.0, 'tool': 'FILL_RECT', 'x': 300.0},
+         {'tool': 'LINE', 'points': (180.0, 240.0, 300.0, 140.0), 'line_width': 8.0, 'stroke_color_rgba': C_YELLOW|C_STROKE},
+         {'tool': 'LINE', 'points': (180.0, 240.0, 180.0, 260.0), 'line_width': 8.0, 'stroke_color_rgba': C_YELLOW|C_STROKE},
+         {'tool': 'LINE', 'points': (180.0, 260.0, 300.0, 360.0), 'line_width': 8.0, 'stroke_color_rgba': C_YELLOW|C_STROKE},
+         {'tool': 'LINE', 'points': (300.0, 140.0, 300.0, 360.0), 'line_width': 8.0, 'stroke_color_rgba': C_YELLOW|C_STROKE}]
         ,
         # House
-        [{'width': 420.0-200.0, 'line_width': 1.0, 'height': 460.0-440.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010FFA0L, 'y': 440.0, 'tool': 'FILL_RECT', 'x': 200.0},
-         {'width': 220.0-200.0, 'line_width': 1.0, 'height': 440.0-280.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010FFA0L, 'y': 280.0, 'tool': 'FILL_RECT', 'x': 200.0},
-         {'width': 420.0-200.0, 'line_width': 1.0, 'height': 280.0-260.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010FFA0L, 'y': 260.0, 'tool': 'FILL_RECT', 'x': 200.0},
-         {'width': 420.0-380.0, 'line_width': 1.0, 'height': 440.0-360.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'y': 360.0, 'tool': 'FILL_RECT', 'x': 380.0},
-         {'width': 360.0-240.0, 'line_width': 1.0, 'height': 400.0-300.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xffff0cA0L, 'y': 300.0, 'tool': 'FILL_RECT', 'x': 240.0},
-         {'tool': 'LINE', 'points': (200.0, 260.0, 420.0, 100.0), 'line_width': 8.0, 'stroke_color_rgba': 4294905087L}]
+        [{'width': 420.0-200.0, 'line_width': 1.0, 'height': 460.0-440.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_BLUE|C_FILL, 'y': 440.0, 'tool': 'FILL_RECT', 'x': 200.0},
+         {'width': 220.0-200.0, 'line_width': 1.0, 'height': 440.0-280.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_BLUE|C_FILL, 'y': 280.0, 'tool': 'FILL_RECT', 'x': 200.0},
+         {'width': 420.0-200.0, 'line_width': 1.0, 'height': 280.0-260.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_BLUE|C_FILL, 'y': 260.0, 'tool': 'FILL_RECT', 'x': 200.0},
+         {'width': 420.0-380.0, 'line_width': 1.0, 'height': 440.0-360.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_RED|C_FILL, 'y': 360.0, 'tool': 'FILL_RECT', 'x': 380.0},
+         {'width': 360.0-240.0, 'line_width': 1.0, 'height': 400.0-300.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_YELLOW|C_FILL, 'y': 300.0, 'tool': 'FILL_RECT', 'x': 240.0},
+         {'tool': 'LINE', 'points': (200.0, 260.0, 420.0, 100.0), 'line_width': 8.0, 'stroke_color_rgba': C_YELLOW|C_STROKE}]
         ,
         # Plane
-        [{'width': 420.0-360.0, 'line_width': 1.0, 'height': 380.0-140.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'y': 140.0, 'tool': 'FILL_RECT', 'x': 360.0},
-         {'width': 360.0-180.0, 'line_width': 1.0, 'height': 280.0-220.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 220.0, 'tool': 'FILL_RECT', 'x': 180.0},
-         {'width': 260.0-240.0, 'line_width': 1.0, 'height': 220.0-200.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x000000A0L, 'y': 200.0, 'tool': 'FILL_RECT', 'x': 240.0},
-         {'tool': 'LINE', 'points': (180.0, 200.0, 320.0, 200.0), 'line_width': 8.0, 'stroke_color_rgba': 4283674623L},
-         {'width': 420.0-400.0, 'line_width': 1.0, 'height': 420.0-360.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 360.0, 'tool': 'FILL_RECT', 'x': 400.0},
-         {'width': 420.0-380.0, 'line_width': 1.0, 'height': 180.0-160.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 160.0, 'tool': 'FILL_RECT', 'x': 380.0}]
+        [{'width': 420.0-360.0, 'line_width': 1.0, 'height': 380.0-140.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_RED|C_FILL, 'y': 140.0, 'tool': 'FILL_RECT', 'x': 360.0},
+         {'width': 360.0-180.0, 'line_width': 1.0, 'height': 280.0-220.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'y': 220.0, 'tool': 'FILL_RECT', 'x': 180.0},
+         {'width': 260.0-240.0, 'line_width': 1.0, 'height': 220.0-200.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_BLACK|C_FILL, 'y': 200.0, 'tool': 'FILL_RECT', 'x': 240.0},
+         {'tool': 'LINE', 'points': (180.0, 200.0, 320.0, 200.0), 'line_width': 8.0, 'stroke_color_rgba': C_YELLOW|C_STROKE},
+         {'width': 420.0-400.0, 'line_width': 1.0, 'height': 420.0-360.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'y': 360.0, 'tool': 'FILL_RECT', 'x': 400.0},
+         {'width': 420.0-380.0, 'line_width': 1.0, 'height': 180.0-160.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'y': 160.0, 'tool': 'FILL_RECT', 'x': 380.0}]
         ,
         # bipbip (big non flying bird)
-        [{'width': 280.0-260.0, 'line_width': 1.0, 'height': 320.0-120.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 120.0, 'tool': 'FILL_RECT', 'x': 260.0},
-         {'width': 300.0-260.0, 'line_width': 1.0, 'height': 120.0-80.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 80.0, 'tool': 'FILL_RECT', 'x': 260.0},
-         {'width': 320.0-300.0, 'line_width': 1.0, 'height': 120.0-100.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 100.0, 'tool': 'FILL_RECT', 'x': 300.0},
-         {'width': 280.0-200.0, 'line_width': 1.0, 'height': 380.0-320.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 320.0, 'tool': 'FILL_RECT', 'x': 200.0},
-         {'width': 220.0-200.0, 'line_width': 1.0, 'height': 320.0-300.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 300.0, 'tool': 'FILL_RECT', 'x': 200.0},
-         {'width': 260.0-240.0, 'line_width': 1.0, 'height': 460.0-380.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 380.0, 'tool': 'FILL_RECT', 'x': 240.0},
-         {'width': 280.0-260.0, 'line_width': 1.0, 'height': 460.0-440.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 440.0, 'tool': 'FILL_RECT', 'x': 260.0}]
+        [{'width': 280.0-260.0, 'line_width': 1.0, 'height': 320.0-120.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'y': 120.0, 'tool': 'FILL_RECT', 'x': 260.0},
+         {'width': 300.0-260.0, 'line_width': 1.0, 'height': 120.0-80.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'y': 80.0, 'tool': 'FILL_RECT', 'x': 260.0},
+         {'width': 320.0-300.0, 'line_width': 1.0, 'height': 120.0-100.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'y': 100.0, 'tool': 'FILL_RECT', 'x': 300.0},
+         {'width': 280.0-200.0, 'line_width': 1.0, 'height': 380.0-320.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'y': 320.0, 'tool': 'FILL_RECT', 'x': 200.0},
+         {'width': 220.0-200.0, 'line_width': 1.0, 'height': 320.0-300.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'y': 300.0, 'tool': 'FILL_RECT', 'x': 200.0},
+         {'width': 260.0-240.0, 'line_width': 1.0, 'height': 460.0-380.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'y': 380.0, 'tool': 'FILL_RECT', 'x': 240.0},
+         {'width': 280.0-260.0, 'line_width': 1.0, 'height': 460.0-440.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'y': 440.0, 'tool': 'FILL_RECT', 'x': 260.0}]
         ,
         # Dog
-        [{'width': 180.0-160.0, 'line_width': 1.0, 'height': 200.0-180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x831891A0L, 'y': 180.0, 'tool': 'FILL_RECT', 'x': 160.0},
-         {'width': 340.0-180.0, 'line_width': 1.0, 'height': 240.0-200.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x831891A0L, 'y': 200.0, 'tool': 'FILL_RECT', 'x': 180.0},
-         {'width': 200.0-180.0, 'line_width': 1.0, 'height': 280.0-240.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x831891A0L, 'y': 240.0, 'tool': 'FILL_RECT', 'x': 180.0},
-         {'width': 340.0-320.0, 'line_width': 1.0, 'height': 280.0-240.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x831891A0L, 'y': 240.0, 'tool': 'FILL_RECT', 'x': 320.0},
-         {'width': 380.0-320.0, 'line_width': 1.0, 'height': 200.0-160.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x831891A0L, 'y': 160.0, 'tool': 'FILL_RECT', 'x': 320.0}]
+        [{'width': 180.0-160.0, 'line_width': 1.0, 'height': 200.0-180.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_MAGENTA|C_FILL, 'y': 180.0, 'tool': 'FILL_RECT', 'x': 160.0},
+         {'width': 340.0-180.0, 'line_width': 1.0, 'height': 240.0-200.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_MAGENTA|C_FILL, 'y': 200.0, 'tool': 'FILL_RECT', 'x': 180.0},
+         {'width': 200.0-180.0, 'line_width': 1.0, 'height': 280.0-240.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_MAGENTA|C_FILL, 'y': 240.0, 'tool': 'FILL_RECT', 'x': 180.0},
+         {'width': 340.0-320.0, 'line_width': 1.0, 'height': 280.0-240.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_MAGENTA|C_FILL, 'y': 240.0, 'tool': 'FILL_RECT', 'x': 320.0},
+         {'width': 380.0-320.0, 'line_width': 1.0, 'height': 200.0-160.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_MAGENTA|C_FILL, 'y': 160.0, 'tool': 'FILL_RECT', 'x': 320.0}]
         ,
         # Fish
-        [{'radius_x': 90, 'line_width': 1.0, 'radius_y': 60, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xffff0cA0L, 'center_y': 160.0+60, 'tool': 'FILL_CIRCLE', 'center_x': 180.0+90},
-         {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010FFA0L, 'center_y': 200.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 320.0+10},
-         {'width': 180.0-160.0, 'line_width': 1.0, 'height': 260.0-180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xffff0cA0L, 'y': 180.0, 'tool': 'FILL_RECT', 'x': 160.0}]
+        [{'radius_x': 90, 'line_width': 1.0, 'radius_y': 60, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_YELLOW|C_FILL, 'center_y': 160.0+60, 'tool': 'FILL_CIRCLE', 'center_x': 180.0+90},
+         {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_BLUE|C_FILL, 'center_y': 200.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 320.0+10},
+         {'width': 180.0-160.0, 'line_width': 1.0, 'height': 260.0-180.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_YELLOW|C_FILL, 'y': 180.0, 'tool': 'FILL_RECT', 'x': 160.0}]
         ,
         # Boat
-        [{'tool': 'LINE', 'points': (260.0, 340.0, 420.0, 340.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-         {'tool': 'LINE', 'points': (220.0, 260.0, 260.0, 340.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-         {'tool': 'LINE', 'points': (220.0, 260.0, 420.0, 260.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-         {'tool': 'LINE', 'points': (340.0, 260.0, 360.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-         {'tool': 'LINE', 'points': (360.0, 220.0, 420.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-         {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'center_y': 280.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 300.0+10},
-         {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'center_y': 280.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 340.0+10},
-         {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'center_y': 280.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 380.0+10}]
+        [{'tool': 'LINE', 'points': (260.0, 340.0, 420.0, 340.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+         {'tool': 'LINE', 'points': (220.0, 260.0, 260.0, 340.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+         {'tool': 'LINE', 'points': (220.0, 260.0, 420.0, 260.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+         {'tool': 'LINE', 'points': (340.0, 260.0, 360.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+         {'tool': 'LINE', 'points': (360.0, 220.0, 420.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+         {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_RED|C_FILL, 'center_y': 280.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 300.0+10},
+         {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_RED|C_FILL, 'center_y': 280.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 340.0+10},
+         {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_RED|C_FILL, 'center_y': 280.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 380.0+10}]
         ,
         # Spaceship
-        [{'tool': 'LINE', 'points': (220.0, 400.0, 340.0, 400.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-         {'tool': 'LINE', 'points': (340.0, 400.0, 360.0, 420.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-         {'tool': 'LINE', 'points': (360.0, 320.0, 360.0, 420.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-         {'tool': 'LINE', 'points': (340.0, 300.0, 360.0, 320.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-         {'tool': 'LINE', 'points': (340.0, 100.0, 340.0, 300.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-         {'tool': 'LINE', 'points': (200.0, 420.0, 220.0, 400.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-         {'tool': 'LINE', 'points': (200.0, 320.0, 200.0, 420.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-         {'tool': 'LINE', 'points': (200.0, 320.0, 220.0, 300.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-         {'tool': 'LINE', 'points': (220.0, 100.0, 220.0, 300.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-         {'tool': 'LINE', 'points': (220.0, 100.0, 280.0, 20.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-         {'tool': 'LINE', 'points': (280.0, 20.0, 340.0, 100.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-         {'tool': 'LINE', 'points': (220.0, 100.0, 340.0, 100.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-         {'tool': 'LINE', 'points': (220.0, 120.0, 340.0, 120.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-         {'tool': 'LINE', 'points': (220.0, 300.0, 340.0, 300.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-         {'tool': 'LINE', 'points': (280.0, 300.0, 280.0, 420.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL}]
+        [{'tool': 'LINE', 'points': (220.0, 400.0, 340.0, 400.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+         {'tool': 'LINE', 'points': (340.0, 400.0, 360.0, 420.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+         {'tool': 'LINE', 'points': (360.0, 320.0, 360.0, 420.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+         {'tool': 'LINE', 'points': (340.0, 300.0, 360.0, 320.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+         {'tool': 'LINE', 'points': (340.0, 100.0, 340.0, 300.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+         {'tool': 'LINE', 'points': (200.0, 420.0, 220.0, 400.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+         {'tool': 'LINE', 'points': (200.0, 320.0, 200.0, 420.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+         {'tool': 'LINE', 'points': (200.0, 320.0, 220.0, 300.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+         {'tool': 'LINE', 'points': (220.0, 100.0, 220.0, 300.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+         {'tool': 'LINE', 'points': (220.0, 100.0, 280.0, 20.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+         {'tool': 'LINE', 'points': (280.0, 20.0, 340.0, 100.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+         {'tool': 'LINE', 'points': (220.0, 100.0, 340.0, 100.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+         {'tool': 'LINE', 'points': (220.0, 120.0, 340.0, 120.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+         {'tool': 'LINE', 'points': (220.0, 300.0, 340.0, 300.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+         {'tool': 'LINE', 'points': (280.0, 300.0, 280.0, 420.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE}]
         ,
         # Question mark
-        [{'tool': 'LINE', 'points': (280.0, 260.0, 280.0, 440.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-         {'tool': 'LINE', 'points': (280.0, 260.0, 340.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-         {'tool': 'LINE', 'points': (340.0, 160.0, 340.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-         {'tool': 'LINE', 'points': (280.0, 120.0, 340.0, 160.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-         {'tool': 'LINE', 'points': (220.0, 160.0, 280.0, 120.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-         {'tool': 'LINE', 'points': (220.0, 160.0, 220.0, 200.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-         {'tool': 'LINE', 'points': (220.0, 200.0, 260.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL}]
+        [{'tool': 'LINE', 'points': (280.0, 260.0, 280.0, 440.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+         {'tool': 'LINE', 'points': (280.0, 260.0, 340.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+         {'tool': 'LINE', 'points': (340.0, 160.0, 340.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+         {'tool': 'LINE', 'points': (280.0, 120.0, 340.0, 160.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+         {'tool': 'LINE', 'points': (220.0, 160.0, 280.0, 120.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+         {'tool': 'LINE', 'points': (220.0, 160.0, 220.0, 200.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+         {'tool': 'LINE', 'points': (220.0, 200.0, 260.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE}]
         ,
         # Flying toy (cerf volant in french)
-        [{'tool': 'LINE', 'points': (160.0, 140.0, 260.0, 100.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-         {'tool': 'LINE', 'points': (160.0, 140.0, 160.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-         {'tool': 'LINE', 'points': (160.0, 220.0, 260.0, 380.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-         {'tool': 'LINE', 'points': (260.0, 380.0, 360.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-         {'tool': 'LINE', 'points': (360.0, 140.0, 360.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-         {'tool': 'LINE', 'points': (260.0, 100.0, 360.0, 140.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
-         {'tool': 'LINE', 'points': (220.0, 500.0, 260.0, 380.0), 'line_width': 8.0, 'stroke_color_rgba': 707406591L},
-         {'width': 240.0-220.0, 'line_width': 1.0, 'height': 180.0-160.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'y': 160.0, 'tool': 'FILL_RECT', 'x': 220.0},
-         {'width': 300.0-280.0, 'line_width': 1.0, 'height': 220.0-200.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'y': 200.0, 'tool': 'FILL_RECT', 'x': 280.0},
-         {'width': 240.0-220.0, 'line_width': 1.0, 'height': 260.0-240.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'y': 240.0, 'tool': 'FILL_RECT', 'x': 220.0},
-         {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'center_y': 160.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 280.0+10},
-         {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'center_y': 200.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 220.0+10},
-         {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'center_y': 240.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 280.0+10}]
+        [{'tool': 'LINE', 'points': (160.0, 140.0, 260.0, 100.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+         {'tool': 'LINE', 'points': (160.0, 140.0, 160.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+         {'tool': 'LINE', 'points': (160.0, 220.0, 260.0, 380.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+         {'tool': 'LINE', 'points': (260.0, 380.0, 360.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+         {'tool': 'LINE', 'points': (360.0, 140.0, 360.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+         {'tool': 'LINE', 'points': (260.0, 100.0, 360.0, 140.0), 'line_width': 8.0, 'stroke_color_rgba': C_BLUE|C_STROKE},
+         {'tool': 'LINE', 'points': (220.0, 500.0, 260.0, 380.0), 'line_width': 8.0, 'stroke_color_rgba': C_STROKE},
+         {'width': 240.0-220.0, 'line_width': 1.0, 'height': 180.0-160.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_RED|C_FILL, 'y': 160.0, 'tool': 'FILL_RECT', 'x': 220.0},
+         {'width': 300.0-280.0, 'line_width': 1.0, 'height': 220.0-200.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_RED|C_FILL, 'y': 200.0, 'tool': 'FILL_RECT', 'x': 280.0},
+         {'width': 240.0-220.0, 'line_width': 1.0, 'height': 260.0-240.0, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_RED|C_FILL, 'y': 240.0, 'tool': 'FILL_RECT', 'x': 220.0},
+         {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'center_y': 160.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 280.0+10},
+         {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'center_y': 200.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 220.0+10},
+         {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': C_STROKE, 'fill_color_rgba': C_GREEN|C_FILL, 'center_y': 240.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 280.0+10}]
 
       ]
 
