@@ -62,7 +62,7 @@ static gint timer_id = 0;
 
 #define LAST_COLOR 8
 #define LAST_BOARD 9
-#define MAX_ERRORS 10
+#define MAX_ERRORS 4
 #define CLOCK_X 40
 #define CLOCK_Y 420
 
@@ -125,6 +125,12 @@ static void pause_board (gboolean pause)
   if(gamewon == TRUE && pause == FALSE) /* the game is won */
     game_won();
 
+  if(gamewon == FALSE && pause == FALSE &&
+     errors < 1) {
+    gcomprisBoard->sublevel = 1;
+    colors_next_level();
+  }
+
   board_paused = pause;
 }
 
@@ -146,7 +152,6 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
 		   gcomprisBoard->number_of_sublevel);
 
     gamewon = FALSE;
-    errors = MAX_ERRORS;
     init_xml();
 
     g_signal_connect(goo_canvas_get_root_item(gcomprisBoard->canvas),
@@ -216,6 +221,7 @@ static void colors_next_level() {
 
   /* initialize board only once*/
   if (gcomprisBoard->sublevel == 1) {
+    errors = MAX_ERRORS;
     // we generate a list of color indexes in a random order
     while (g_list_length(listColors) > 0)
       listColors = g_list_remove(listColors, g_list_nth_data(listColors,0));
@@ -347,15 +353,12 @@ static gboolean ok_timeout()
   gc_bonus_display(gamewon, GC_BONUS_SMILEY);
   if (!gamewon)
     errors--;
-  if (errors <1)
-    errors = 1;
-  update_clock();
+  if (errors >= 1)
+    update_clock();
 
-  if (errors <= 1) {
-    gamewon = TRUE;
-    gc_bonus_display(gamewon, GC_BOARD_LOOSE);
-  }
-
+  g_object_set (highlight_image_item,
+		"visibility", GOO_CANVAS_ITEM_INVISIBLE,
+		NULL);
   return FALSE;
 }
 
