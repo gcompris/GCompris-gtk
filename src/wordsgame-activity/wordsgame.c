@@ -178,6 +178,10 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     {
       gcomprisBoard=agcomprisBoard;
 
+      GHashTable *config = gc_db_get_board_conf();
+      gc_locale_change(g_hash_table_lookup( config, "locale"));
+      g_hash_table_destroy(config);
+
       /* disable im_context */
       //gcomprisBoard->disable_im_context = TRUE;
 
@@ -233,8 +237,9 @@ end_board ()
 	gc_wordlist_free(gc_wordlist);
 	gc_wordlist = NULL;
       }
-
     }
+
+  gc_locale_reset();
 }
 
 static void
@@ -755,26 +760,88 @@ static void player_loose()
   gc_sound_play_ogg ("sounds/crash.wav", NULL);
 }
 
-static void conf_ok(gpointer data)
+/* ************************************* */
+/* *            Configuration          * */
+/* ************************************* */
+
+
+/* ======================= */
+/* = config_start        = */
+/* ======================= */
+
+static GcomprisProfile *profile_conf;
+static GcomprisBoard   *board_conf;
+static void save_table (gpointer key,
+			gpointer value,
+			gpointer user_data)
 {
-	pause_board(FALSE);
+  gc_db_set_board_conf ( profile_conf,
+			    board_conf,
+			    (gchar *) key,
+			    (gchar *) value);
 }
 
-static void wordsgame_config_start(GcomprisBoard *agcomprisBoard, GcomprisProfile *aProfile)
+static void conf_ok(GHashTable *table)
 {
-	if (gcomprisBoard)
-		pause_board(TRUE);
+  if (!table){
+    if (gcomprisBoard)
+      pause_board(FALSE);
+    return;
+  }
 
-	gchar *label = g_strdup_printf(_("<b>%s</b> configuration\n for profile <b>%s</b>"),
-			agcomprisBoard->name,
-			aProfile? aProfile->name: "");
-	GcomprisBoardConf *bconf;
-	bconf = gc_board_config_window_display( label,
-			(GcomprisConfCallback )conf_ok);
+  g_hash_table_foreach(table, (GHFunc) save_table, NULL);
 
-	g_free(label);
+  if (gcomprisBoard){
+    gc_locale_reset();
 
-	gc_board_config_wordlist(bconf, "wordsgame/default-$LOCALE.xml");
+    GHashTable *config;
+
+    if (profile_conf)
+      config = gc_db_get_board_conf();
+    else
+      config = table;
+
+    gc_locale_set(g_hash_table_lookup( config, "locale"));
+
+    if (profile_conf)
+      g_hash_table_destroy(config);
+
+    wordsgame_next_level();
+
+    pause_board(FALSE);
+  }
+
+  board_conf = NULL;
+  profile_conf = NULL;
+}
+
+static void
+wordsgame_config_start(GcomprisBoard *agcomprisBoard,
+		       GcomprisProfile *aProfile)
+{
+  GcomprisBoardConf *conf;
+  board_conf = agcomprisBoard;
+  profile_conf = aProfile;
+
+  if (gcomprisBoard)
+    pause_board(TRUE);
+
+  gchar *label = g_strdup_printf(_("<b>%s</b> configuration\n for profile <b>%s</b>"),
+				 agcomprisBoard->name,
+				 aProfile? aProfile->name: "");
+
+  conf = gc_board_config_window_display( label,
+				 (GcomprisConfCallback )conf_ok);
+
+  g_free(label);
+
+  /* init the combo to previously saved value */
+  GHashTable *config = gc_db_get_conf( profile_conf, board_conf);
+
+  gchar *locale = g_hash_table_lookup( config, "locale");
+
+  gc_board_config_combo_locales(conf, locale);
+  gc_board_config_wordlist(conf, "wordsgame/default-$LOCALE.xml");
 }
 
 static void wordsgame_config_stop(void)
