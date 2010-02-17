@@ -792,8 +792,6 @@ static void conf_ok(GHashTable *table)
   g_hash_table_foreach(table, (GHFunc) save_table, NULL);
 
   if (gcomprisBoard){
-    gc_locale_reset();
-
     GHashTable *config;
 
     if (profile_conf)

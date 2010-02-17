@@ -101,8 +101,6 @@ class Gcompris_electric:
 
   def end(self):
 
-    gcompris.reset_locale()
-
     gcompris.set_cursor(gcompris.CURSOR_DEFAULT);
 
     # Remove the root item removes all the others inside it

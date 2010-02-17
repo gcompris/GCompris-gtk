@@ -139,7 +139,6 @@ conf_ok(GHashTable *table)
     else
       config = table;
 
-    gc_locale_reset();
     gc_locale_set(g_hash_table_lookup(config, "locale_sound"));
 
     if (profile_conf)

@@ -169,7 +169,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 {
   GHashTable *config = gc_db_get_board_conf();
 
-  gc_locale_set(g_hash_table_lookup( config, "locale"));
+  gc_locale_change(g_hash_table_lookup( config, "locale"));
 
   g_hash_table_destroy(config);
 
@@ -842,8 +842,6 @@ static void conf_ok(GHashTable *table)
   g_hash_table_foreach(table, (GHFunc) save_table, NULL);
 
   if (gcomprisBoard){
-    gc_locale_reset();
-
     GHashTable *config;
 
     if (profile_conf)

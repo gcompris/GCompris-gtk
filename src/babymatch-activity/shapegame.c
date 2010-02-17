@@ -220,7 +220,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
   GHashTable *config = gc_db_get_board_conf();
 
   if (strcmp(agcomprisBoard->name, "imagename")==0){
-    gc_locale_set(g_hash_table_lookup( config, "locale"));
+    gc_locale_change(g_hash_table_lookup( config, "locale"));
   }
 
   gchar *drag_mode_str = g_hash_table_lookup( config, "drag_mode");
@@ -1797,8 +1797,6 @@ static void conf_ok(GHashTable *table)
       config = table;
 
     if (strcmp(gcomprisBoard->name, "imagename")==0){
-      gc_locale_reset();
-
       gc_locale_set(g_hash_table_lookup( config, "locale"));
     }
 

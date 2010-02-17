@@ -96,8 +96,6 @@ class Gcompris_guessnumber:
 
   def end(self):
 
-    gcompris.reset_locale()
-
     # Remove the root item removes all the others inside it
     self.cleanup_game()
 
