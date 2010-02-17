@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-11 21:02+0300\n"
-"PO-Revision-Date: 2010-01-25 18:05+0300\n"
+"POT-Creation-Date: 2010-01-26 15:39+0300\n"
+"PO-Revision-Date: 2010-01-26 15:54+0300\n"
 "Last-Translator: Andrey Cherepanov <skull@kde.ru>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "MIME-Version: 1.0\n"
@@ -362,7 +362,7 @@ msgstr ""
 #: ../src/administration-activity/admin/board_list.py:663
 #: ../src/colors-activity/colors.c:181
 #: ../src/pythontest-activity/pythontest.py:518
-#: ../src/smallnumbers-activity/smallnumbers.c:597
+#: ../src/smallnumbers-activity/smallnumbers.c:616
 msgid "Select sound locale"
 msgstr "Выбор языка для звука"
 
@@ -1033,7 +1033,7 @@ msgstr "веронез"
 
 #. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
 #: ../src/algebra_by-activity/algebra.c:186
-#: ../src/memory-activity/memory.c:945
+#: ../src/memory-activity/memory.c:946
 msgid "+-×÷"
 msgstr "+-×÷"
 
@@ -1190,6 +1190,84 @@ msgstr "Перемещение и нажатие кнопок мыши"
 msgid "algorithm"
 msgstr "Алгоритм"
 
+#: ../src/anim-activity/Color.py:86
+msgid "Fill color..."
+msgstr "Цвет заливки..."
+
+#: ../src/anim-activity/Color.py:98
+msgid "Stroke color..."
+msgstr "Цвет рисования..."
+
+#: ../src/anim-activity/anim.py:103
+msgid "Save..."
+msgstr "Сохранить..."
+
+#: ../src/anim-activity/anim.py:109
+msgid "Load..."
+msgstr "Загрузить..."
+
+#: ../src/anim-activity/anim.py:115
+msgid "Run the animation"
+msgstr "Запуск анимации"
+
+#: ../src/anim-activity/anim.py:121
+msgid "Select"
+msgstr "Выбор"
+
+#: ../src/anim-activity/anim.py:127
+msgid "Rectangle"
+msgstr "Прямоугольник"
+
+#: ../src/anim-activity/anim.py:133
+msgid "Filled rectangle"
+msgstr "Закрашенный прямоугольник"
+
+#: ../src/anim-activity/anim.py:139
+msgid "Circle"
+msgstr "Овал"
+
+#: ../src/anim-activity/anim.py:145
+msgid "Filled circle"
+msgstr "Закрашенный овал"
+
+#: ../src/anim-activity/anim.py:151
+msgid "Line"
+msgstr "Линия"
+
+#: ../src/anim-activity/anim.py:157
+#: ../src/wordprocessor-activity/wordprocessor.c:87
+#: ../src/wordprocessor-activity/wordprocessor.c:426
+msgid "Text"
+msgstr "Текст"
+
+#: ../src/anim-activity/anim.py:163
+msgid "Image..."
+msgstr "Вставить картинку..."
+
+#: ../src/anim-activity/anim.py:169
+msgid "Fill"
+msgstr "Заливка"
+
+#: ../src/anim-activity/anim.py:175
+msgid "Delete"
+msgstr "Ластик"
+
+#: ../src/anim-activity/anim.py:181
+msgid "Flip"
+msgstr "Отражение"
+
+#: ../src/anim-activity/anim.py:187
+msgid "Raise"
+msgstr "На уровень выше"
+
+#: ../src/anim-activity/anim.py:193
+msgid "Lower"
+msgstr "На уровень ниже"
+
+#: ../src/anim-activity/anim.py:753
+msgid "Current frame"
+msgstr "Текущий рисунок"
+
 #: ../src/anim-activity/anim.xml.in.h:1
 msgid "Create a drawing or an animation"
 msgstr "Создайте рисунок или мультфильм"
@@ -1207,7 +1285,7 @@ msgid ""
 msgstr ""
 "В этой игре ребёнок может свободно рисовать.\n"
 "Цель — создавать красивые рисунки, используя базовые \n"
-"фигуры: прямоугольники, эллипсы и линии."
+"фигуры: прямоугольники, овалы и линии."
 
 #: ../src/anim-activity/anim.xml.in.h:4 ../src/draw-activity/draw.xml.in.h:4
 msgid "Needs to be capable of moving and clicking the mouse easily"
@@ -1439,15 +1517,16 @@ msgstr "Винсент Ван Гог, «Спальня художника в А�
 msgid "Ambrosius Bosschaert the Elder, Flower Still Life - 1614"
 msgstr "Амброзиус Босхарт Старший, «Цветочный натюрморт» — 1614"
 
-#: ../src/ballcatch-activity/ballcatch.xml.in.h:1
-msgid "Make the ball go to Tux"
-msgstr "Бросьте мяч пингвинёнку Туксу"
-
+#: ../src/ballcatch-activity/ballcatch.py:75
 #: ../src/ballcatch-activity/ballcatch.xml.in.h:2
 msgid ""
 "Press the two shift keys at the same time, to make the ball go in a straight "
 "line."
 msgstr "Нажмите две клавиши Shift одновременно, чтобы кинуть мяч."
+
+#: ../src/ballcatch-activity/ballcatch.xml.in.h:1
+msgid "Make the ball go to Tux"
+msgstr "Бросьте мяч пингвинёнку Туксу"
 
 #: ../src/bargame-activity/bargame.xml.in.h:1
 msgid "Brain"
@@ -1475,7 +1554,7 @@ msgstr ""
 msgid "bar game"
 msgstr "Последний шар"
 
-#: ../src/billard-activity/billard.c:89 ../src/erase-activity/erase.c:122
+#: ../src/billard-activity/billard.c:89 ../src/erase-activity/erase.c:123
 #: ../src/erase-activity/erase.xml.in.h:4
 msgid "Move the mouse"
 msgstr "Перемещение мышки"
@@ -1614,12 +1693,12 @@ msgstr ""
 "вашей локальной сети, не через Интернет. Для того, чтобы отправить "
 "сообщение, наберите его и нажмите клавишу Enter."
 
-#: ../src/chess_computer-activity/chess.c:215
+#: ../src/chess_computer-activity/chess.c:223
 msgid "Error: The external program gnuchess died unexpectedly"
 msgstr "Ошибка: внешняя программа gnuchess неожиданно завершилась"
 
-#: ../src/chess_computer-activity/chess.c:250
-#: ../src/chess_computer-activity/chess.c:296
+#: ../src/chess_computer-activity/chess.c:258
+#: ../src/chess_computer-activity/chess.c:304
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -1631,36 +1710,36 @@ msgstr ""
 "дистрибутиве GNU/Linux.\n"
 "Проверьте, что эта программа установлена"
 
-#: ../src/chess_computer-activity/chess.c:636
+#: ../src/chess_computer-activity/chess.c:644
 msgid "White's Turn"
 msgstr "Ход белых"
 
-#: ../src/chess_computer-activity/chess.c:636
+#: ../src/chess_computer-activity/chess.c:644
 msgid "Black's Turn"
 msgstr "Ход чёрных"
 
-#: ../src/chess_computer-activity/chess.c:777
+#: ../src/chess_computer-activity/chess.c:785
 msgid "White checks"
 msgstr "Шах чёрным"
 
-#: ../src/chess_computer-activity/chess.c:779
+#: ../src/chess_computer-activity/chess.c:787
 msgid "Black checks"
 msgstr "Шах белым"
 
-#: ../src/chess_computer-activity/chess.c:1176
+#: ../src/chess_computer-activity/chess.c:1184
 msgid "Black mates"
 msgstr "Мат белым"
 
-#: ../src/chess_computer-activity/chess.c:1181
+#: ../src/chess_computer-activity/chess.c:1189
 msgid "White mates"
 msgstr "Мат чёрным"
 
-#: ../src/chess_computer-activity/chess.c:1186 ../src/gcompris/bonus.c:195
+#: ../src/chess_computer-activity/chess.c:1194 ../src/gcompris/bonus.c:195
 #: ../src/gcompris/bonus.c:204
 msgid "Drawn game"
 msgstr "Ничья"
 
-#: ../src/chess_computer-activity/chess.c:1214
+#: ../src/chess_computer-activity/chess.c:1222
 msgid "Error: The external program gnuchess died unexpectingly"
 msgstr "Ошибка: внешняя программа gnuchess неожиданно завершилась"
 
@@ -1897,7 +1976,7 @@ msgid "Cars"
 msgstr "Автомобили"
 
 #: ../src/click_on_letter-activity/click_on_letter.c:271
-#: ../src/memory-activity/memory.c:905
+#: ../src/memory-activity/memory.c:906
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -1912,7 +1991,7 @@ msgstr ""
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
 #: ../src/click_on_letter-activity/click_on_letter.c:276
-#: ../src/gletters-activity/gletters.c:228 ../src/memory-activity/memory.c:934
+#: ../src/gletters-activity/gletters.c:229 ../src/memory-activity/memory.c:935
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "абвгдеёжзийклмнопрстуфхцчшщэюя"
 
@@ -1938,7 +2017,7 @@ msgstr ""
 
 #. toggle box
 #: ../src/click_on_letter-activity/click_on_letter.c:648
-#: ../src/gletters-activity/gletters.c:880 ../src/login-activity/login.py:481
+#: ../src/gletters-activity/gletters.c:885 ../src/login-activity/login.py:481
 msgid "Uppercase only text"
 msgstr "Текст только в верхнем регистре"
 
@@ -2195,11 +2274,11 @@ msgid ""
 "move items. To select the item to move, just click on it. If you prefer, you "
 "can use the arrow keys and the space or tab key instead."
 msgstr ""
-"Двигайте предметы в левом поле, чтобы расположить их по образцу, указанному в "
-"правом поле. "
-"Под левым полем находится пульт управления краном с стрелочками, нажимая на "
-"которые вы перемещаете выбранный предмет в соответствующем направлении на "
-"одну клетку. Для выбора перемещаемого предмета просто щёлкните на нем."
+"Двигайте предметы в левом поле, чтобы расположить их по образцу, указанному "
+"в правом поле. Под левым полем находится пульт управления краном с "
+"стрелочками, нажимая на которые вы перемещаете выбранный предмет в "
+"соответствующем направлении на одну клетку. Для выбора перемещаемого "
+"предмета просто щёлкните на нем."
 
 #: ../src/doubleentry-activity/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
@@ -2361,7 +2440,7 @@ msgstr ""
 "выберите внизу справа ячейку для ответа. Введите ответ с клавиатуры и "
 "щёлкните кнопку ОК или клавишу Enter."
 
-#: ../src/erase-activity/erase.c:123 ../src/erase-activity/erase.xml.in.h:5
+#: ../src/erase-activity/erase.c:124 ../src/erase-activity/erase.xml.in.h:5
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Двигайте мышкой для того, чтобы очистить фон и увидеть картинку"
 
@@ -2478,29 +2557,29 @@ msgid ""
 "License"
 msgstr "Это программа является частью GNU и выпущена под лицензией GPL"
 
-#: ../src/gcompris/about.c:220 ../src/gcompris/config.c:422
+#: ../src/gcompris/about.c:220 ../src/gcompris/config.c:447
 #: ../src/gcompris/dialog.c:103 ../src/gcompris/help.c:354
 #: ../src/gcompris/images_selector.c:307
 msgid "OK"
 msgstr "OK"
 
-#: ../src/gcompris/bar.c:650
+#: ../src/gcompris/bar.c:653
 msgid "GCompris confirmation"
 msgstr "Подтверждение GCompris"
 
-#: ../src/gcompris/bar.c:651
+#: ../src/gcompris/bar.c:654
 msgid "Are you sure you want to quit?"
 msgstr "Выйти из программы?"
 
-#: ../src/gcompris/bar.c:652
+#: ../src/gcompris/bar.c:655
 msgid "Yes, I am sure!"
 msgstr "Да"
 
-#: ../src/gcompris/bar.c:653
+#: ../src/gcompris/bar.c:656
 msgid "No, I want to keep going"
 msgstr "Нет, я хочу продолжить"
 
-#: ../src/gcompris/board.c:191
+#: ../src/gcompris/board.c:194
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr ""
 "Динамическая подгрузка модулей не поддерживается. Невозможно загрузить "
@@ -2862,22 +2941,26 @@ msgstr "Музыка"
 msgid "Effect"
 msgstr "Эффекты"
 
-#: ../src/gcompris/config.c:347
+#: ../src/gcompris/config.c:335
+msgid "Zoom"
+msgstr "Масштаб"
+
+#: ../src/gcompris/config.c:372
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Невозможно открыть папку с темами: %s"
 
-#: ../src/gcompris/config.c:378 ../src/gcompris/config.c:773
-#: ../src/gcompris/config.c:787
+#: ../src/gcompris/config.c:403 ../src/gcompris/config.c:807
+#: ../src/gcompris/config.c:821
 #, c-format
 msgid "Skin : %s"
 msgstr "Тема: %s"
 
-#: ../src/gcompris/config.c:380
+#: ../src/gcompris/config.c:405
 msgid "SKINS NOT FOUND"
 msgstr "ТЕМЫ НЕ НАЙДЕНЫ"
 
-#: ../src/gcompris/config.c:462
+#: ../src/gcompris/config.c:487
 msgid "English (United State)"
 msgstr "Английский (США)"
 
@@ -2893,15 +2976,15 @@ msgstr "ЗАГРУЗИТЬ"
 msgid "SAVE"
 msgstr "СОХРАНИТЬ"
 
-#: ../src/gcompris/gameutil.c:138 ../src/gcompris/gameutil.c:196
+#: ../src/gcompris/gameutil.c:142 ../src/gcompris/gameutil.c:200
 msgid "Couldn't find or load the file"
 msgstr "Невозможно найти или загрузить файл"
 
-#: ../src/gcompris/gameutil.c:140 ../src/gcompris/gameutil.c:198
+#: ../src/gcompris/gameutil.c:144 ../src/gcompris/gameutil.c:202
 msgid "This activity is incomplete."
 msgstr "Упражнение не выполнено."
 
-#: ../src/gcompris/gameutil.c:141 ../src/gcompris/gameutil.c:199
+#: ../src/gcompris/gameutil.c:145 ../src/gcompris/gameutil.c:203
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -2909,39 +2992,39 @@ msgstr ""
 "Выйдите из программы и \n"
 "сообщите об этой проблеме авторам."
 
-#: ../src/gcompris/gcompris.c:148
+#: ../src/gcompris/gcompris.c:151
 msgid "run GCompris in fullscreen mode."
 msgstr "Запустить GCompris в полноэкранном режиме."
 
-#: ../src/gcompris/gcompris.c:151
+#: ../src/gcompris/gcompris.c:154
 msgid "run GCompris in window mode."
 msgstr "Запустить GCompris в окне."
 
-#: ../src/gcompris/gcompris.c:154
+#: ../src/gcompris/gcompris.c:157
 msgid "run GCompris with sound enabled."
 msgstr "Запустить GCompris с включенным звуком."
 
-#: ../src/gcompris/gcompris.c:157
+#: ../src/gcompris/gcompris.c:160
 msgid "run GCompris without sound."
 msgstr "Запустить GCompris без звука."
 
-#: ../src/gcompris/gcompris.c:160
+#: ../src/gcompris/gcompris.c:163
 msgid "run GCompris with the default gnome cursor."
 msgstr "Запустить GCompris с курсором GNOME по умолчанию."
 
-#: ../src/gcompris/gcompris.c:163
+#: ../src/gcompris/gcompris.c:166
 msgid "display only activities with this difficulty level."
 msgstr "Показывать упражнения только с указанным уровнем сложности."
 
-#: ../src/gcompris/gcompris.c:166
+#: ../src/gcompris/gcompris.c:169
 msgid "display debug informations on the console."
 msgstr "Выводить отладочную информацию в консоль."
 
-#: ../src/gcompris/gcompris.c:169
+#: ../src/gcompris/gcompris.c:172
 msgid "Print the version of "
 msgstr "Вывод версии "
 
-#: ../src/gcompris/gcompris.c:172
+#: ../src/gcompris/gcompris.c:175
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
@@ -2953,35 +3036,35 @@ msgstr ""
 "ряд»). Запустите с параметром «-l list» для просмотра списка упражнений и их "
 "описаний."
 
-#: ../src/gcompris/gcompris.c:177
+#: ../src/gcompris/gcompris.c:180
 msgid "GCompris will find the data dir in this directory"
 msgstr "Каталог с данными"
 
-#: ../src/gcompris/gcompris.c:180
+#: ../src/gcompris/gcompris.c:183
 msgid "GCompris will find the skins in this directory"
 msgstr "Каталог с темами оформления"
 
-#: ../src/gcompris/gcompris.c:183
+#: ../src/gcompris/gcompris.c:186
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "Каталог с модулями упражнений"
 
-#: ../src/gcompris/gcompris.c:186
+#: ../src/gcompris/gcompris.c:189
 msgid "GCompris will find the python activity in this directory"
 msgstr "Каталог с упражнениями на Python"
 
-#: ../src/gcompris/gcompris.c:189
+#: ../src/gcompris/gcompris.c:192
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr "Каталог с локализацией"
 
-#: ../src/gcompris/gcompris.c:192
+#: ../src/gcompris/gcompris.c:195
 msgid "GCompris will find the activities menu in this directory"
 msgstr "Каталог с меню упражнений"
 
-#: ../src/gcompris/gcompris.c:195
+#: ../src/gcompris/gcompris.c:198
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Запустить GCompris в административном режиме."
 
-#: ../src/gcompris/gcompris.c:198
+#: ../src/gcompris/gcompris.c:201
 msgid ""
 "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
@@ -2989,24 +3072,24 @@ msgstr ""
 "Использовать другую базу данных профилей [$HOME/.config/gcompris/"
 "gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:201
+#: ../src/gcompris/gcompris.c:204
 msgid "Create the alternate database for profiles"
 msgstr "Создать новую базу данных профилей"
 
-#: ../src/gcompris/gcompris.c:204
+#: ../src/gcompris/gcompris.c:207
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Перечитать меню в XML и сохранить его в базе данных"
 
-#: ../src/gcompris/gcompris.c:207
+#: ../src/gcompris/gcompris.c:210
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Использовать профиль. Запустите «gcompris -a» для создания профиля"
 
-#: ../src/gcompris/gcompris.c:210
+#: ../src/gcompris/gcompris.c:213
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Список всех доступных профилей. Запустите «gcompris -a» для создания профиля"
 
-#: ../src/gcompris/gcompris.c:213
+#: ../src/gcompris/gcompris.c:216
 msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
@@ -3014,23 +3097,23 @@ msgstr ""
 "Расположение конфигурации: [$HOME/.config/gcompris]. Альтернативное "
 "расположение: $XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:216
+#: ../src/gcompris/gcompris.c:219
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "Расположение папок пользователя: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:219
+#: ../src/gcompris/gcompris.c:222
 msgid "Run the experimental activities"
 msgstr "Показывать экспериментальные упражнения."
 
-#: ../src/gcompris/gcompris.c:222
+#: ../src/gcompris/gcompris.c:225
 msgid "Disable the quit button"
 msgstr "Отключить кнопку выхода."
 
-#: ../src/gcompris/gcompris.c:225
+#: ../src/gcompris/gcompris.c:228
 msgid "Disable the config button"
 msgstr "Отключить кнопку настройки."
 
-#: ../src/gcompris/gcompris.c:228
+#: ../src/gcompris/gcompris.c:231
 msgid ""
 "GCompris will get images, sounds and activity data from this server if not "
 "found locally."
@@ -3038,7 +3121,7 @@ msgstr ""
 "GCompris может получать изображения, звуки и данные упражнений с сервера, "
 "если они не обнаружены локально."
 
-#: ../src/gcompris/gcompris.c:231
+#: ../src/gcompris/gcompris.c:234
 msgid ""
 "Only when --server is provided, disable check for local resource first. Data "
 "are always taken from the web server."
@@ -3046,22 +3129,22 @@ msgstr ""
 "Отключить использование локальных ресурсов (при указании параметра «--"
 "server»). Все данные будут браться с веб-сервера."
 
-#: ../src/gcompris/gcompris.c:235
+#: ../src/gcompris/gcompris.c:238
 msgid ""
 "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr "Расположение кеша в режиме работы с сервером."
 
-#: ../src/gcompris/gcompris.c:238
+#: ../src/gcompris/gcompris.c:241
 msgid ""
 "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr ""
 "Режим перетаскивания: обычный, двойной щелчок, оба. По умолчанию: обычный."
 
-#: ../src/gcompris/gcompris.c:241
+#: ../src/gcompris/gcompris.c:244
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Запретить запуск нескольких экземпляров GCompris."
 
-#: ../src/gcompris/gcompris.c:916
+#: ../src/gcompris/gcompris.c:906
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -3126,7 +3209,8 @@ msgstr "Доступные упражнения:\n"
 msgid "Number of activities: %d\n"
 msgstr "Количество упражнений: %d\n"
 
-#: ../src/gcompris/gcompris.c:1643, c-format
+#: ../src/gcompris/gcompris.c:1643
+#, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "База данных %s существует, но не доступна для чтения или записи"
 
@@ -3137,8 +3221,7 @@ msgid ""
 "without network support!"
 msgstr ""
 "Опция --server не может быть использована так как программа GCompris была "
-"собрана без "
-"поддержки сети!"
+"собрана без поддержки сети!"
 
 #: ../src/gcompris/gcompris.c:1760
 #, c-format
@@ -3178,17 +3261,17 @@ msgstr "Руководство"
 msgid "Credit"
 msgstr "Информация"
 
-#: ../src/gcompris/properties.c:492 ../src/gcompris/properties.c:499
+#: ../src/gcompris/properties.c:497 ../src/gcompris/properties.c:504
 msgid "readme"
 msgstr "readme"
 
-#: ../src/gcompris/properties.c:494
+#: ../src/gcompris/properties.c:499
 msgid ""
 "This directory contains the files you create with the GCompris educational "
 "suite\n"
 msgstr "Эта папка содержит файлы, которые вы создали в GCompris\n"
 
-#: ../src/gcompris/properties.c:501
+#: ../src/gcompris/properties.c:506
 msgid ""
 "Put any number of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
@@ -3811,23 +3894,23 @@ msgstr "Замбия"
 msgid "Zimbabwe"
 msgstr "Зимбабве"
 
-#: ../src/gletters-activity/gletters.c:131
+#: ../src/gletters-activity/gletters.c:132
 #: ../src/gletters-activity/gletters.xml.in.h:3
 msgid "Simple Letters"
 msgstr "Падающие буквы"
 
-#: ../src/gletters-activity/gletters.c:132
+#: ../src/gletters-activity/gletters.c:133
 #: ../src/gletters-activity/gletters.xml.in.h:4
 msgid "Type the falling letters before they reach the ground"
 msgstr "Нажимайте клавиши с буквами, пока они не упали на землю"
 
 #. TRANSLATORS: Put here the numbers in your language
-#: ../src/gletters-activity/gletters.c:224 ../src/memory-activity/memory.c:930
+#: ../src/gletters-activity/gletters.c:225 ../src/memory-activity/memory.c:931
 msgid "0123456789"
 msgstr "0123456789"
 
 #. TRANSLATORS: Put here the alphabet uppercase in your language
-#: ../src/gletters-activity/gletters.c:234 ../src/memory-activity/memory.c:940
+#: ../src/gletters-activity/gletters.c:235 ../src/memory-activity/memory.c:941
 msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 msgstr "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЭЮЯ"
 
@@ -3837,15 +3920,15 @@ msgstr "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЭЮЯ"
 #. the dict passed to the apply_callback
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
-#: ../src/gletters-activity/gletters.c:847
+#: ../src/gletters-activity/gletters.c:852
 #: ../src/imageid-activity/imageid.c:714 ../src/login-activity/login.py:476
-#: ../src/missing_letter-activity/missingletter.c:749
+#: ../src/missing_letter-activity/missingletter.c:750
 #: ../src/pythontest-activity/pythontest.py:454
 #: ../src/readingh-activity/reading.c:880
 #: ../src/scalesboard-activity/scale.c:1161
-#: ../src/smallnumbers-activity/smallnumbers.c:576
+#: ../src/smallnumbers-activity/smallnumbers.c:595
 #: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:767
+#: ../src/wordsgame-activity/wordsgame.c:768
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -3854,8 +3937,8 @@ msgstr ""
 "<b>%s</b> Настройка \n"
 " профиля <b>%s</b>"
 
-#: ../src/gletters-activity/gletters.c:876
-#: ../src/smallnumbers-activity/smallnumbers.c:595
+#: ../src/gletters-activity/gletters.c:881
+#: ../src/smallnumbers-activity/smallnumbers.c:614
 msgid "Enable sounds"
 msgstr "Включить звуки"
 
@@ -4301,7 +4384,7 @@ msgstr ""
 "много вариантов."
 
 #: ../src/imageid-activity/imageid.c:534
-#: ../src/missing_letter-activity/missingletter.c:570
+#: ../src/missing_letter-activity/missingletter.c:568
 msgid "Data file for this level is not properly formatted."
 msgstr "Файл данных для этого уровня сформирован неправильно."
 
@@ -4807,7 +4890,7 @@ msgstr ""
 "Видимый режим позволяет видеть свою позицию на карте. В видимом режиме "
 "перемещаться нельзя."
 
-#: ../src/melody-activity/melody.py:111
+#: ../src/melody-activity/melody.py:107
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -5108,8 +5191,8 @@ msgstr "Тренировка счёта и памяти."
 #: ../src/memory_enumerate-activity/memory_enumerate.xml.in.h:4
 msgid "Turn the cards over to match the number with the drawn picture."
 msgstr ""
-"Переворачивайте карточки чтобы найти парочку с числом и соответствующей этому "
-"числу картинкой."
+"Переворачивайте карточки чтобы найти парочку с числом и соответствующей "
+"этому числу картинкой."
 
 #: ../src/memory_enumerate-activity/memory_enumerate.xml.in.h:5
 msgid ""
@@ -5117,9 +5200,8 @@ msgid ""
 "Each card is hiding a number of pictures, or the written number."
 msgstr ""
 "Карточки расположены рубашкой вверх. Вы можете одновременно перевернуть не "
-"более "
-"двух карточек. Подберите две карты с числом и соответствующим этому числу "
-"количеством картинок."
+"более двух карточек. Подберите две карты с числом и соответствующим этому "
+"числу количеством картинок."
 
 #: ../src/memory_minus-activity/memory_minus.xml.in.h:1
 #: ../src/memory_minus_tux-activity/memory_minus_tux.xml.in.h:1
@@ -5294,11 +5376,10 @@ msgid ""
 "twins than he does."
 msgstr ""
 "Показан набор карт рубашками вверх. Каждая карта имеет пару с таким же "
-"рисунком на обратной "
-"стороне. При щелчке по карте, она переворачивается и показывает обратную "
-"сторону. Но вы можете видеть только две перевёрнутые карты одновременно.Вы "
-"должны запоминать позиции скрытых рисунков. При открытии двух карт с "
-"одинаковым рисунком, они удаляются со стола."
+"рисунком на обратной стороне. При щелчке по карте, она переворачивается и "
+"показывает обратную сторону. Но вы можете видеть только две перевёрнутые "
+"карты одновременно.Вы должны запоминать позиции скрытых рисунков. При "
+"открытии двух карт с одинаковым рисунком, они удаляются со стола."
 
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:2
 msgid "Reading numbers, memory."
@@ -5320,8 +5401,8 @@ msgid ""
 "Each card is hiding a number of number, or the word of the number."
 msgstr ""
 "Карточки расположены рубашкой вверх. Вы можете одновременно перевернуть не "
-"более "
-"двух карточек. Подберите две карты с числом и словом, обозначающим это число."
+"более двух карточек. Подберите две карты с числом и словом, обозначающим это "
+"число."
 
 #: ../src/missing_letter-activity/missing_letter.xml.in.h:1
 msgid ""
@@ -5701,11 +5782,11 @@ msgstr ""
 "Эта область для игр. Не требуются какие-либо специальных навыки, чтобы "
 "играть."
 
-#: ../src/penalty-activity/penalty.py:292
+#: ../src/penalty-activity/penalty.py:291
 msgid "Click on the balloon to place it again."
 msgstr "Щёлкните на воздушном шаре, чтобы разместить его снова."
 
-#: ../src/penalty-activity/penalty.py:294
+#: ../src/penalty-activity/penalty.py:293
 msgid "Click twice on the balloon to shoot it."
 msgstr "Дважды щелкните на воздушном шаре, чтобы выстрелить в него."
 
@@ -5727,13 +5808,13 @@ msgstr "Дважды щелкните мышью на шаре, чтобы за�
 msgid "Penalty kick"
 msgstr "Штрафной удар"
 
-#: ../src/photohunter-activity/photohunter.c:136
+#: ../src/photohunter-activity/photohunter.c:511
 msgid "Error: Absolutely no photo found in the data directory"
 msgstr "ОШИБКА: не найдено фотографий в каталоге данных"
 
-#: ../src/photohunter-activity/photohunter.c:564
-msgid "Error: Abnormally failed to load a data file"
-msgstr "Ошибка: не удалось загрузить файл с данными"
+#: ../src/photohunter-activity/photohunter.c:574
+msgid "Click on the differences between the two images."
+msgstr "Найдите разницу между двумя картинками."
 
 #: ../src/photohunter-activity/photohunter.xml.in.h:1
 msgid "Find the differences between two pictures"
@@ -5744,9 +5825,8 @@ msgid ""
 "Observe the two pictures carefully. There are some slight differences. When "
 "you find a difference you must click on it."
 msgstr ""
-"Рассмотрите тщательно две картинки. Между ними есть небольшие различия. Когда "
-"вы найдете "
-"различие вы должны щёлкнуть на нём."
+"Рассмотрите тщательно две картинки. Между ними есть небольшие различия. "
+"Когда вы найдете различие вы должны щёлкнуть на нём."
 
 #: ../src/photohunter-activity/photohunter.xml.in.h:3
 msgid "Photo hunter"
@@ -6668,11 +6748,6 @@ msgstr "Романтично"
 msgid "Official"
 msgstr "Официально"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:87
-#: ../src/wordprocessor-activity/wordprocessor.c:426
-msgid "Text"
-msgstr "Текст"
-
 #: ../src/wordprocessor-activity/wordprocessor.c:98
 msgid "Flyer"
 msgstr "Объявление"
@@ -6746,4 +6821,5 @@ msgstr "Тренировка навыков работы с клавиатуро
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Наберите слово полностью, пока оно падает на землю"
 
-
+#~ msgid "Error: Abnormally failed to load a data file"
+#~ msgstr "Ошибка: не удалось загрузить файл с данными"
