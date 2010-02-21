@@ -722,6 +722,9 @@ src/imagename-activity/resources/imagename/Makefile
 src/leftright-activity/Makefile
 src/leftright-activity/resources/Makefile
 src/leftright-activity/resources/leftright/Makefile
+src/lightsoff-activity/Makefile
+src/lightsoff-activity/resources/Makefile
+src/lightsoff-activity/resources/lightsoff/Makefile
 src/login-activity/Makefile
 src/login-activity/resources/Makefile
 src/login-activity/resources/login/Makefile

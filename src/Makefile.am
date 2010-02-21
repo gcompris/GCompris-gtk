@@ -34,6 +34,7 @@ SUBDIRS = goocanvas gcompris boards \
 	imageid-activity \
 	imagename-activity \
 	leftright-activity \
+	lightsoff-activity \
 	magic_hat_minus-activity \
 	magic_hat_plus-activity \
 	maze-activity \
