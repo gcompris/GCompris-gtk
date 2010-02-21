@@ -7,13 +7,13 @@
 # Kamil Páral <ripper42@gmail.com>, 2008.
 # Petr Kovar <pknbe@volny.cz>, 2008.
 # Marek Černocký <marek@manet.cz>, 2009, 2010.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris gnome-master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=gcompris&component=general\n"
-"POT-Creation-Date: 2010-01-20 23:47+0000\n"
-"PO-Revision-Date: 2010-01-21 00:31+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-02-21 20:32+0100\n"
+"PO-Revision-Date: 2010-02-21 15:45+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -33,7 +33,7 @@ msgstr "Vyber aktivitu levým tlačítkem myši."
 
 #: ../boards/algebramenu.xml.in.h:1
 msgid "Go to calculation activities"
-msgstr "Jdi na početní aktivity"
+msgstr "Jít na početní aktivity"
 
 #: ../boards/algebramenu.xml.in.h:2
 msgid "Various calculation activities."
@@ -178,17 +178,17 @@ msgid ""
 "    1, 2 or 3 complex stars - 7 years and up"
 msgstr ""
 "Jedno kliknutí na ikonu ti nabídne aktivitu nebo seznam aktivit.\n"
-"Na spodní straně obrazovky je ovládací lišta GComprisu.\n"
+"Na spodní straně obrazovky je ovládací lišta aplikace GCompris.\n"
 "Následující ikony jsou zobrazeny zprava doleva.\n"
-"(vězte, že každá ikona je zobrazena pouze když je dostupná v aktuální "
+"(věz, že každá ikona je zobrazena pouze, když je dostupná v aktuální "
 "aktivitě)\n"
 "    Domů - Ukončí aktivitu a vrátí se do nabídky\n"
-"    Palec - Budiž. Potvrzení vaší odpovědi\n"
-"    Kostka - Zobrazuje aktuální úroveň. Klikněte pro výběr jiné úrovně\n"
+"    Palec - Budiž. Potvrzení tvé odpovědi\n"
+"    Kostka - Zobrazuje aktuální úroveň. Kliknutím vybereš jinou úroveň\n"
 "    Rty - Zopakuje otázku\n"
 "    Otazník - Nápověda\n"
 "    Nářadí - Zobrazí nabídku nastavení\n"
-"    Tučňákovo letadlo - Informace o GComprisu\n"
+"    Tučňákovo letadlo - Informace o aplikaci GCompris\n"
 "    Noc - Ukončí GCompris\n"
 "Hvězdy ukazují doporučený věk každé hry:\n"
 "    1, 2 nebo 3 jednoduché hvězdy - pro děti od 2 do 6 let\n"
@@ -228,7 +228,7 @@ msgstr "Manipulace s myší."
 
 #: ../boards/mouse.xml.in.h:2
 msgid "Various mouse-based activities (clicking, moving)"
-msgstr "Různé aktivity založené na myši (klikání, pohyb)"
+msgstr "Různé aktivity založené na práci s myši (klikání, pohyb)"
 
 #: ../boards/numeration.xml.in.h:1
 msgid "Numeration"
@@ -268,7 +268,7 @@ msgstr "Strategické hry"
 
 #: ../boards/strategy.xml.in.h:2
 msgid "Strategy games like chess, connect4, ..."
-msgstr "Strategické hry - šachy, connect4, …"
+msgstr "Strategické hry - šachy, spoj 4, …"
 
 #: ../gcompris-edit.desktop.in.h:1
 msgid "Administration for gcompris"
@@ -290,37 +290,76 @@ msgstr "Vzdělávací sada GCompris"
 msgid "Multi-activity educational game"
 msgstr "Vzdělávací hra s mnohými aktivitami"
 
-#: ../src/administration-activity/admin/board_list.py:91
+#: ../nsis_translations.desktop.in.h:1
+msgid ""
+"An instance of GCompris is currently running. Exit GCompris and then try "
+"again."
+msgstr ""
+"V tuto chvíli běží nějaká kopie aplikace GCompris. Ukončete GCompris a "
+"zkuste to znovu."
+
+#: ../nsis_translations.desktop.in.h:2
+msgid "The installer is already running."
+msgstr "Instalátor již běží."
+
+#: ../nsis_translations.desktop.in.h:3
+msgid "Visit the GCompris Web Site"
+msgstr "Navštívit webové stránky GCompris"
+
+#: ../nsis_translations.desktop.in.h:4
+msgid "You do not have permission to uninstall this application."
+msgstr "Nemáte oprávnění tuto aplikaci odinstalovat."
+
+#: ../nsis_translations.desktop.in.h:5
+msgid ""
+"Your old GCompris directory is about to be deleted. Would you like to "
+"continue?$\\r$\\rNote: Any non-standard plugins that you may have installed "
+"will be deleted.$\\rGCompris user settings will not be affected."
+msgstr ""
+"Vaše stará složka GCompris bude vymazaná. Chcete pokračovat?$\\r$"
+"\\rUpozornění: Nestandardní zásuvné moduly, které jste měli případně "
+"nainstalované, budou smazány.$\\rUživatelská nastavení GCompris zůstanou "
+"zachována."
+
+#: ../nsis_translations.desktop.in.h:6
+msgid ""
+"the uninstaller could not find registry entries for GCompris.$\\rIt is "
+"likely that another user installed this application."
+msgstr ""
+"odinstalační program nemůže najít záznamy v registru pro GCompris.$\\rVypadá "
+"to, že aplikaci instaloval jiný uživatel."
+
+#: ../src/administration-activity/admin/board_list.py:88
 msgid "Select a profile:"
 msgstr "Vyber si profil:"
 
-#: ../src/administration-activity/admin/board_list.py:148
+#: ../src/administration-activity/admin/board_list.py:145
 msgid "Filter"
 msgstr "Filtr"
 
-#: ../src/administration-activity/admin/board_list.py:153
+#: ../src/administration-activity/admin/board_list.py:150
 msgid "Select all"
 msgstr "Vybrat vše"
 
-#: ../src/administration-activity/admin/board_list.py:158
+#: ../src/administration-activity/admin/board_list.py:155
 msgid "Unselect all"
 msgstr "Zrušit výběr"
 
-#: ../src/administration-activity/admin/board_list.py:163
+#: ../src/administration-activity/admin/board_list.py:160
 msgid "Locales"
 msgstr "Nastavení jazyka"
 
-#: ../src/administration-activity/admin/board_list.py:168
+#: ../src/administration-activity/admin/board_list.py:165
 msgid "Locales sound"
 msgstr "Nastavení jazyka -- zvuky"
 
-#: ../src/administration-activity/admin/board_list.py:173
-#: ../src/administration-activity/admin/group_user_list.py:143
-#: ../src/administration-activity/admin/user_list.py:184
+#: ../src/administration-activity/admin/board_list.py:170
+#: ../src/administration-activity/admin/group_user_list.py:140
+#: ../src/administration-activity/admin/user_list.py:181
 msgid "Login"
 msgstr "Přihlášení"
 
-#: ../src/administration-activity/admin/board_list.py:245
+#: ../src/administration-activity/admin/board_list.py:242
 msgid "Main menu"
 msgstr "Hlavní nabídka"
 
@@ -329,20 +368,20 @@ msgstr "Hlavní nabídka"
 #. image = gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, gtk.ICON_SIZE_MENU)
 #. image.show()
 #. column_pref.set_widget(image)
-#: ../src/administration-activity/admin/board_list.py:311
+#: ../src/administration-activity/admin/board_list.py:308
 msgid "Active"
 msgstr "Aktivní"
 
-#: ../src/administration-activity/admin/board_list.py:312
+#: ../src/administration-activity/admin/board_list.py:309
 msgid "Board title"
 msgstr "Název desky"
 
-#: ../src/administration-activity/admin/board_list.py:425
+#: ../src/administration-activity/admin/board_list.py:422
 #, python-format
 msgid "Filter Boards difficulty for profile %s"
 msgstr "Filtr obtížnosti Desek pro profil %s"
 
-#: ../src/administration-activity/admin/board_list.py:456
+#: ../src/administration-activity/admin/board_list.py:453
 #, python-format
 msgid ""
 "<span size='x-large'> Select the difficulty range \n"
@@ -351,8 +390,8 @@ msgstr ""
 "<span size='x-large'> Vyberte obtížnost \n"
 "pro profil <b>%s</b></span>"
 
-#: ../src/administration-activity/admin/board_list.py:645
-#: ../src/administration-activity/admin/board_list.py:657
+#: ../src/administration-activity/admin/board_list.py:642
+#: ../src/administration-activity/admin/board_list.py:654
 #: ../src/administration-activity/admin/wordlist.py:45
 msgid ""
 "<b>{config}</b> configuration\n"
@@ -362,300 +401,300 @@ msgstr ""
 " pro profil <b>{profile}</b>"
 
 #. self.main_vbox.pack_start (label, False, False, 8)
-#: ../src/administration-activity/admin/board_list.py:663
-#: ../src/colors-activity/colors.c:181
+#: ../src/administration-activity/admin/board_list.py:660
+#: ../src/colors-activity/colors.c:180
 #: ../src/pythontest-activity/pythontest.py:518
 #: ../src/smallnumbers-activity/smallnumbers.c:616
 msgid "Select sound locale"
 msgstr "Vyber si nastavení zvuků"
 
-#: ../src/administration-activity/admin/class_edit.py:59
+#: ../src/administration-activity/admin/class_edit.py:56
 msgid "Editing a Class"
 msgstr "Úprava třídy"
 
-#: ../src/administration-activity/admin/class_edit.py:64
+#: ../src/administration-activity/admin/class_edit.py:61
 msgid "Editing class: "
 msgstr "Úprava třídy: "
 
-#: ../src/administration-activity/admin/class_edit.py:67
+#: ../src/administration-activity/admin/class_edit.py:64
 msgid "Editing a new class"
 msgstr "Úprava nové třídy"
 
-#: ../src/administration-activity/admin/class_edit.py:89
+#: ../src/administration-activity/admin/class_edit.py:86
 msgid "Class:"
 msgstr "Třída:"
 
 #. FIXME: How to remove the default selection
 #. Label and Entry for the teacher name
-#: ../src/administration-activity/admin/class_edit.py:102
+#: ../src/administration-activity/admin/class_edit.py:99
 msgid "Teacher:"
 msgstr "Učitel:"
 
-#: ../src/administration-activity/admin/class_edit.py:112
+#: ../src/administration-activity/admin/class_edit.py:109
 msgid "Assign all the users belonging to this class"
 msgstr "Přiřaď všechny uživatele příslušející této třídě"
 
-#: ../src/administration-activity/admin/class_edit.py:252
-#: ../src/administration-activity/admin/group_edit.py:264
-#: ../src/administration-activity/admin/group_user_list.py:153
-#: ../src/administration-activity/admin/user_list.py:194
+#: ../src/administration-activity/admin/class_edit.py:249
+#: ../src/administration-activity/admin/group_edit.py:261
+#: ../src/administration-activity/admin/group_user_list.py:150
+#: ../src/administration-activity/admin/user_list.py:191
 msgid "First Name"
 msgstr "Jméno"
 
-#: ../src/administration-activity/admin/class_edit.py:263
-#: ../src/administration-activity/admin/group_edit.py:275
-#: ../src/administration-activity/admin/group_user_list.py:163
-#: ../src/administration-activity/admin/user_list.py:204
+#: ../src/administration-activity/admin/class_edit.py:260
+#: ../src/administration-activity/admin/group_edit.py:272
+#: ../src/administration-activity/admin/group_user_list.py:160
+#: ../src/administration-activity/admin/user_list.py:201
 msgid "Last Name"
 msgstr "Příjmení"
 
-#: ../src/administration-activity/admin/class_edit.py:338
+#: ../src/administration-activity/admin/class_edit.py:335
 msgid "You need to provide at least a name for your class"
 msgstr "Je potřeba zadat alespoň jméno vaší třídy"
 
-#: ../src/administration-activity/admin/class_edit.py:383
+#: ../src/administration-activity/admin/class_edit.py:380
 msgid "There is already a class with this name"
 msgstr "Třída s tímto jménem již existuje"
 
-#: ../src/administration-activity/admin/class_list.py:168
-#: ../src/administration-activity/admin/profile_edit.py:269
-#: ../src/administration-activity/admin/profile_group_list.py:143
+#: ../src/administration-activity/admin/class_list.py:165
+#: ../src/administration-activity/admin/profile_edit.py:266
+#: ../src/administration-activity/admin/profile_group_list.py:140
 msgid "Class"
 msgstr "Třída"
 
-#: ../src/administration-activity/admin/class_list.py:178
+#: ../src/administration-activity/admin/class_list.py:175
 msgid "Teacher"
 msgstr "Učitel"
 
-#: ../src/administration-activity/admin/group_edit.py:59
+#: ../src/administration-activity/admin/group_edit.py:56
 msgid "Editing a Group"
 msgstr "Úprava skupiny"
 
-#: ../src/administration-activity/admin/group_edit.py:65
+#: ../src/administration-activity/admin/group_edit.py:62
 msgid "Editing group: "
 msgstr "Úprava skupiny: "
 
-#: ../src/administration-activity/admin/group_edit.py:66
+#: ../src/administration-activity/admin/group_edit.py:63
 msgid " for class: "
 msgstr " pro třídu: "
 
-#: ../src/administration-activity/admin/group_edit.py:69
+#: ../src/administration-activity/admin/group_edit.py:66
 msgid "Editing a new group"
 msgstr "Úprava nové skupiny"
 
-#: ../src/administration-activity/admin/group_edit.py:89
+#: ../src/administration-activity/admin/group_edit.py:86
 msgid "Group:"
 msgstr "Skupina:"
 
 #. FIXME: How to remove the selection
 #. Label and Entry for the first name
-#: ../src/administration-activity/admin/group_edit.py:101
-#: ../src/administration-activity/admin/profile_edit.py:98
+#: ../src/administration-activity/admin/group_edit.py:98
+#: ../src/administration-activity/admin/profile_edit.py:95
 msgid "Description:"
 msgstr "Popis:"
 
 #. Top message gives instructions
-#: ../src/administration-activity/admin/group_edit.py:112
+#: ../src/administration-activity/admin/group_edit.py:109
 msgid "Assign all the users belonging to this group"
 msgstr "Přiřaď všechny uživatele příslušející k této skupině"
 
-#: ../src/administration-activity/admin/group_edit.py:358
+#: ../src/administration-activity/admin/group_edit.py:355
 msgid "You need to provide at least a name for your group"
 msgstr "Je nutné zadat alespoň jméno vaší skupiny"
 
-#: ../src/administration-activity/admin/group_edit.py:372
+#: ../src/administration-activity/admin/group_edit.py:369
 msgid "There is already a group with this name"
 msgstr "Skupina s tímto jménem již existuje"
 
-#: ../src/administration-activity/admin/group_list.py:85
+#: ../src/administration-activity/admin/group_list.py:82
 msgid "Select a class:"
 msgstr "Zvolte třídu:"
 
-#: ../src/administration-activity/admin/group_list.py:213
-#: ../src/administration-activity/admin/profile_edit.py:279
-#: ../src/administration-activity/admin/profile_group_list.py:153
+#: ../src/administration-activity/admin/group_list.py:210
+#: ../src/administration-activity/admin/profile_edit.py:276
+#: ../src/administration-activity/admin/profile_group_list.py:150
 msgid "Group"
 msgstr "Skupina"
 
-#: ../src/administration-activity/admin/group_list.py:224
-#: ../src/administration-activity/admin/profile_edit.py:289
-#: ../src/administration-activity/admin/profile_group_list.py:163
-#: ../src/administration-activity/admin/profile_list.py:197
+#: ../src/administration-activity/admin/group_list.py:221
+#: ../src/administration-activity/admin/profile_edit.py:286
+#: ../src/administration-activity/admin/profile_group_list.py:160
+#: ../src/administration-activity/admin/profile_list.py:194
 msgid "Description"
 msgstr "Popis"
 
-#: ../src/administration-activity/admin/group_list.py:321
+#: ../src/administration-activity/admin/group_list.py:318
 msgid "You must first select a group in the list"
 msgstr "Nejprve musíte zvolit skupinu ze seznamu"
 
-#: ../src/administration-activity/admin/group_user_list.py:173
-#: ../src/administration-activity/admin/user_list.py:214
+#: ../src/administration-activity/admin/group_user_list.py:170
+#: ../src/administration-activity/admin/user_list.py:211
 msgid "Birth Date"
 msgstr "Datum narození"
 
-#: ../src/administration-activity/admin/log_list.py:94
+#: ../src/administration-activity/admin/log_list.py:91
 msgid "Select a user:"
 msgstr "Vyberte uživatele:"
 
 #. Insert the ALL option (HACK, use the user_id -2 to indicate ALL)
-#: ../src/administration-activity/admin/log_list.py:105
+#: ../src/administration-activity/admin/log_list.py:102
 msgid "All users"
 msgstr "Všichni uživatelé"
 
-#: ../src/administration-activity/admin/log_list.py:111
-#: ../src/administration-activity/admin/log_list.py:298
-#: ../src/administration-activity/admin/profile_list.py:120
+#: ../src/administration-activity/admin/log_list.py:108
+#: ../src/administration-activity/admin/log_list.py:295
+#: ../src/administration-activity/admin/profile_list.py:117
 #: ../src/gcompris/board_config_combo.c:125
 #: ../src/gcompris/board_config_combo.c:398
 msgid "Default"
 msgstr "Výchozí"
 
 #. Reset buttons
-#: ../src/administration-activity/admin/log_list.py:165
+#: ../src/administration-activity/admin/log_list.py:162
 msgid "Reset"
 msgstr "Vynulovat"
 
-#: ../src/administration-activity/admin/log_list.py:219
+#: ../src/administration-activity/admin/log_list.py:216
 msgid "Date"
 msgstr "Datum"
 
-#: ../src/administration-activity/admin/log_list.py:229
+#: ../src/administration-activity/admin/log_list.py:226
 msgid "User"
 msgstr "Uživatel"
 
-#: ../src/administration-activity/admin/log_list.py:239
+#: ../src/administration-activity/admin/log_list.py:236
 msgid "Board"
 msgstr "Hrací deska"
 
-#: ../src/administration-activity/admin/log_list.py:249
-#: ../src/redraw-activity/redraw.py:328
+#: ../src/administration-activity/admin/log_list.py:246
+#: ../src/redraw-activity/redraw.py:339
 msgid "Level"
 msgstr "Úroveň"
 
-#: ../src/administration-activity/admin/log_list.py:259
+#: ../src/administration-activity/admin/log_list.py:256
 msgid "Sublevel"
 msgstr "Podřízená úroveň"
 
-#: ../src/administration-activity/admin/log_list.py:269
+#: ../src/administration-activity/admin/log_list.py:266
 msgid "Duration"
 msgstr "Délka trvání"
 
-#: ../src/administration-activity/admin/log_list.py:279
+#: ../src/administration-activity/admin/log_list.py:276
 msgid "Status"
 msgstr "Stav"
 
-#: ../src/administration-activity/admin/module_boards.py:41
-#: ../src/administration-activity/admin/module_boards.py:69
+#: ../src/administration-activity/admin/module_boards.py:49
+#: ../src/administration-activity/admin/module_boards.py:77
 msgid "Boards"
 msgstr "Desky"
 
-#: ../src/administration-activity/admin/module_groups.py:38
-#: ../src/administration-activity/admin/module_groups.py:61
+#: ../src/administration-activity/admin/module_groups.py:46
+#: ../src/administration-activity/admin/module_groups.py:69
 msgid "Groups"
 msgstr "Skupiny"
 
-#: ../src/administration-activity/admin/module_profiles.py:39
-#: ../src/administration-activity/admin/module_profiles.py:60
+#: ../src/administration-activity/admin/module_profiles.py:47
+#: ../src/administration-activity/admin/module_profiles.py:68
 msgid "Profiles"
 msgstr "Profily"
 
-#: ../src/administration-activity/admin/module_reports.py:40
-#: ../src/administration-activity/admin/module_reports.py:69
+#: ../src/administration-activity/admin/module_reports.py:48
+#: ../src/administration-activity/admin/module_reports.py:77
 msgid "Reports"
 msgstr "Záznamy"
 
-#: ../src/administration-activity/admin/module_reports.py:69
-#: ../src/administration-activity/admin/module_users.py:39
-#: ../src/administration-activity/admin/module_users.py:61
+#: ../src/administration-activity/admin/module_reports.py:77
+#: ../src/administration-activity/admin/module_users.py:47
+#: ../src/administration-activity/admin/module_users.py:69
 msgid "Users"
 msgstr "Uživatelé"
 
-#: ../src/administration-activity/admin/module_users.py:39
-#: ../src/administration-activity/admin/module_users.py:61
+#: ../src/administration-activity/admin/module_users.py:47
+#: ../src/administration-activity/admin/module_users.py:69
 msgid "Classes"
 msgstr "Třídy"
 
-#: ../src/administration-activity/admin/profile_edit.py:59
+#: ../src/administration-activity/admin/profile_edit.py:56
 msgid "Editing a Profile"
 msgstr "Úprava profilu"
 
-#: ../src/administration-activity/admin/profile_edit.py:64
+#: ../src/administration-activity/admin/profile_edit.py:61
 msgid "Editing profile: "
 msgstr "Úprava profilu: "
 
-#: ../src/administration-activity/admin/profile_edit.py:67
+#: ../src/administration-activity/admin/profile_edit.py:64
 msgid "Editing a new profile"
 msgstr "Úprava nového profilu"
 
-#: ../src/administration-activity/admin/profile_edit.py:86
+#: ../src/administration-activity/admin/profile_edit.py:83
 msgid "Profile:"
 msgstr "Profil:"
 
 #. Top message gives instructions
-#: ../src/administration-activity/admin/profile_edit.py:109
+#: ../src/administration-activity/admin/profile_edit.py:106
 msgid "Assign all the groups belonging to this profile"
 msgstr "Přiřaď všechny skupiny příslušející tomuto profilu"
 
-#: ../src/administration-activity/admin/profile_edit.py:377
+#: ../src/administration-activity/admin/profile_edit.py:374
 msgid "You need to provide at least a name for your profile"
 msgstr "Je nutné zadat alespoň jméno vašeho profilu"
 
-#: ../src/administration-activity/admin/profile_edit.py:399
+#: ../src/administration-activity/admin/profile_edit.py:396
 msgid "There is already a profile with this name"
 msgstr "Profil s tímto jménem již existuje"
 
-#: ../src/administration-activity/admin/profile_list.py:187
+#: ../src/administration-activity/admin/profile_list.py:184
 msgid "Profile"
 msgstr "Profil"
 
-#: ../src/administration-activity/admin/profile_list.py:314
+#: ../src/administration-activity/admin/profile_list.py:311
 msgid "[Default]"
 msgstr "[Výchozí]"
 
-#: ../src/administration-activity/admin/user_edit.py:50
+#: ../src/administration-activity/admin/user_edit.py:47
 msgid "Editing a User"
 msgstr "Úprava uživatele"
 
-#: ../src/administration-activity/admin/user_edit.py:55
+#: ../src/administration-activity/admin/user_edit.py:52
 msgid "Editing a User "
 msgstr "Úprava uživatele "
 
-#: ../src/administration-activity/admin/user_edit.py:61
+#: ../src/administration-activity/admin/user_edit.py:58
 msgid "Editing a new user"
 msgstr "Úprava nového uživatele"
 
-#: ../src/administration-activity/admin/user_edit.py:78
+#: ../src/administration-activity/admin/user_edit.py:75
 msgid "Login:"
 msgstr "Přihlášení:"
 
 #. FIXME: How to remove the selection
 #. Label and Entry for the first name
-#: ../src/administration-activity/admin/user_edit.py:89
+#: ../src/administration-activity/admin/user_edit.py:86
 msgid "First name:"
 msgstr "Jméno:"
 
 #. Label and Entry for the last name
-#: ../src/administration-activity/admin/user_edit.py:98
+#: ../src/administration-activity/admin/user_edit.py:95
 msgid "Last name:"
 msgstr "Příjmení:"
 
 #. Label and Entry for the birth date
-#: ../src/administration-activity/admin/user_edit.py:107
+#: ../src/administration-activity/admin/user_edit.py:104
 msgid "Birth date:"
 msgstr "Datum narození:"
 
-#: ../src/administration-activity/admin/user_edit.py:159
+#: ../src/administration-activity/admin/user_edit.py:156
 msgid ""
 "You need to provide at least a login, first name and last name for your users"
 msgstr ""
 "Je nutné zadat alespoň jedno uživatelské jméno, vlastní jméno a příjmení "
 "vašich uživatelů"
 
-#: ../src/administration-activity/admin/user_edit.py:176
+#: ../src/administration-activity/admin/user_edit.py:173
 msgid "There is already a user with this login"
 msgstr "Uživatel s tímto jménem již existuje"
 
-#: ../src/administration-activity/admin/user_list.py:288
+#: ../src/administration-activity/admin/user_list.py:285
 msgid ""
 "To import a user list from a file, first select a class.\n"
 "FILE FORMAT: Your file must be formatted like this:\n"
@@ -667,7 +706,7 @@ msgstr ""
 "přihlašovací jméno;jméno;příjmení;datum narození\n"
 "Oddělovač je detekován automaticky a může jím být: „,“, „;“ nebo „:“"
 
-#: ../src/administration-activity/admin/user_list.py:366
+#: ../src/administration-activity/admin/user_list.py:363
 #, python-format
 msgid ""
 "One or more logins are not unique !\n"
@@ -1039,11 +1078,11 @@ msgstr "šeděmodrá"
 
 #. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
 #: ../src/algebra_by-activity/algebra.c:186
-#: ../src/memory-activity/memory.c:945
+#: ../src/memory-activity/memory.c:946
 msgid "+-×÷"
 msgstr "+-.:"
 
-#: ../src/algebra_by-activity/algebra.c:408
+#: ../src/algebra_by-activity/algebra.c:411
 #: ../src/readingh-activity/reading.c:621
 msgid "I am Ready"
 msgstr "Jsem připraven"
@@ -1079,6 +1118,7 @@ msgstr "Procvičení operace násobení"
 
 #: ../src/algebra_guesscount-activity/algebra_guesscount.xml.in.h:1
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:1
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:1
 msgid ""
 "Animal pictures come from the Animal Photography Page of Ralf Schmode "
 "(http://schmode.net/). Ralf has kindly permitted Gcompris to include his "
@@ -1290,7 +1330,7 @@ msgstr ""
 
 #: ../src/anim-activity/anim.xml.in.h:4 ../src/draw-activity/draw.xml.in.h:4
 msgid "Needs to be capable of moving and clicking the mouse easily"
-msgstr "Musí dobře ovládat pohyb a klikání myší"
+msgstr "Vyžaduje dobré ovládání pohybu a klikání myší"
 
 #: ../src/anim-activity/anim.xml.in.h:5
 msgid ""
@@ -1429,7 +1469,7 @@ msgstr ""
 #: ../src/babymatch-activity/resources/babymatch/board6_0.xml.in.h:1
 #: ../src/babymatch-activity/resources/babymatch/board7_0.xml.in.h:1
 msgid "Drag and Drop the items to make them match"
-msgstr "Pro přiřazení položek je táhni a pusť"
+msgstr "Přetažením přiřadíš položky"
 
 #: ../src/babymatch-activity/babymatch.xml.in.h:2
 msgid ""
@@ -1457,9 +1497,9 @@ msgstr "Koordinace pohybu. Párování pojmů."
 msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "Manipulace s myší: pohyb, tažení a puštění."
 
-#: ../src/babymatch-activity/shapegame.c:1849
-#: ../src/click_on_letter-activity/click_on_letter.c:625
-#: ../src/colors-activity/colors.c:169
+#: ../src/babymatch-activity/shapegame.c:1835
+#: ../src/click_on_letter-activity/click_on_letter.c:624
+#: ../src/colors-activity/colors.c:168
 #, c-format
 msgid ""
 "<b>%1$s</b> configuration\n"
@@ -1561,7 +1601,7 @@ msgstr ""
 msgid "bar game"
 msgstr "Poslední prohrává"
 
-#: ../src/billard-activity/billard.c:89 ../src/erase-activity/erase.c:123
+#: ../src/billard-activity/billard.c:89 ../src/erase-activity/erase.c:124
 #: ../src/erase-activity/erase.xml.in.h:4
 msgid "Move the mouse"
 msgstr "Hýbej myší"
@@ -1583,6 +1623,7 @@ msgstr "Pošli míč do branky"
 #: ../src/connect4-activity/connect4.xml.in.h:6
 #: ../src/erase-activity/erase.xml.in.h:3
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:6
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:6
 #: ../src/fifteen-activity/fifteen.xml.in.h:2
 #: ../src/hanoi-activity/hanoi.xml.in.h:3
 #: ../src/memory-activity/memory.xml.in.h:4
@@ -1705,7 +1746,7 @@ msgstr ""
 "spuštěný GCompris s aktivním rozhovorem na lokální síti tuto zprávu přijme a "
 "zobrazí."
 
-#: ../src/chess_computer-activity/chess.c:223
+#: ../src/chess_computer-activity/chess.c:222
 msgid "Error: The external program gnuchess died unexpectedly"
 msgstr "Chyba: Externí program gnuchess neočekávaně skončil"
 
@@ -1716,9 +1757,9 @@ msgid ""
 "to play chess in gcompris.\n"
 "First install it, and check it is in "
 msgstr ""
-"Chyba: Externí program gnuchess je vyžadován\n"
-"pro hraní šachů v gcomprisu.\n"
-"Nejdříve ho nainstaluj a zkontroluj, jestli je v "
+"Chyba: Pro hraní šachů v gcomprisu je vyžadován\n"
+"externí program gnuchess.\n"
+"Nejdříve jej nainstaluj a zkontroluj, jestli je v "
 
 #: ../src/chess_computer-activity/chess.c:644
 msgid "White's Turn"
@@ -1736,20 +1777,20 @@ msgstr "Bílý dává šach"
 msgid "Black checks"
 msgstr "Černý dává šach"
 
-#: ../src/chess_computer-activity/chess.c:1184
+#: ../src/chess_computer-activity/chess.c:1193
 msgid "Black mates"
 msgstr "Černý dává mat"
 
-#: ../src/chess_computer-activity/chess.c:1189
+#: ../src/chess_computer-activity/chess.c:1198
 msgid "White mates"
 msgstr "Bílý dává mat"
 
-#: ../src/chess_computer-activity/chess.c:1194 ../src/gcompris/bonus.c:195
-#: ../src/gcompris/bonus.c:204
+#: ../src/chess_computer-activity/chess.c:1203 ../src/gcompris/bonus.c:191
+#: ../src/gcompris/bonus.c:200
 msgid "Drawn game"
 msgstr "Remíza"
 
-#: ../src/chess_computer-activity/chess.c:1222
+#: ../src/chess_computer-activity/chess.c:1229
 msgid "Error: The external program gnuchess died unexpectingly"
 msgstr "Chyba: Externí program gnuchess neočekávaně skončil"
 
@@ -1985,7 +2026,7 @@ msgid "Cars"
 msgstr "Auta"
 
 #: ../src/click_on_letter-activity/click_on_letter.c:271
-#: ../src/memory-activity/memory.c:905
+#: ../src/memory-activity/memory.c:906
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -1994,14 +2035,14 @@ msgid ""
 msgstr ""
 "Chyba: tuto aktivitu nelze hrát s vypnutými\n"
 "zvukovými efekty.\n"
-"Zvuk zapni v dialogové okně\n"
+"Zvuk zapni v dialogovém okně\n"
 "nastavení"
 
 #. TRANSLATORS: Put here the alphabet in your language
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
 #: ../src/click_on_letter-activity/click_on_letter.c:276
-#: ../src/gletters-activity/gletters.c:229 ../src/memory-activity/memory.c:934
+#: ../src/gletters-activity/gletters.c:229 ../src/memory-activity/memory.c:935
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "aábcčdďeéěfghiíjklmnňoópqrřsštťuúůvwxyýzž"
 
@@ -2026,8 +2067,8 @@ msgstr ""
 "angličtiny, je mi líto!"
 
 #. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:648
-#: ../src/gletters-activity/gletters.c:885 ../src/login-activity/login.py:481
+#: ../src/click_on_letter-activity/click_on_letter.c:647
+#: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:484
 msgid "Uppercase only text"
 msgstr "Text pouze velkými písmeny"
 
@@ -2205,8 +2246,8 @@ msgid ""
 "key to drop a piece."
 msgstr ""
 "Klikni na místo na čáře, kam chceš kousek položit. Můžeš také použít klávesy "
-"se šipkami pro pohyb kousku vlevo nebo vpravo, šipkou dolů nebo mezerníkem "
-"kousek položíš."
+"se šipkami pro pohyb kousku vlevo nebo vpravo, šipkou dolů nebo jej "
+"mezerníkem položíš."
 
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:3
 msgid "Connect 4 (2 Players)"
@@ -2265,6 +2306,7 @@ msgstr "Řiď jeřáb a sestav podle modelu"
 #: ../src/crane-activity/crane.xml.in.h:3
 #: ../src/erase-activity/erase.xml.in.h:2
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:5
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:5
 #: ../src/penalty-activity/penalty.xml.in.h:3
 msgid "Motor-coordination"
 msgstr "Koordinace pohybu"
@@ -2446,10 +2488,10 @@ msgid ""
 "the keyboard and press the OK button or the 'Enter' key."
 msgstr ""
 "Nejdříve položky správně zorganizuj, aby se daly spočítat. Pak vpravo dole "
-"vyber položku, na kterou chceš odpovídat. Zadej odpověď klávesnicí a stiskni "
-"tlačítko Budiž nebo klávesu „Enter“."
+"vyber položku, na kterou chceš odpovídat. Zadej odpověď pomocí klávesnice a "
+"stiskni tlačítko Budiž nebo klávesu „Enter“."
 
-#: ../src/erase-activity/erase.c:124 ../src/erase-activity/erase.xml.in.h:5
+#: ../src/erase-activity/erase.c:125 ../src/erase-activity/erase.xml.in.h:5
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Hýbáním myší vymažeš oblast a objeví se pozadí"
 
@@ -2479,6 +2521,18 @@ msgstr "Klikej myší na obdélníky, dokud všechny bloky nezmizí."
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:4
 msgid "Click the mouse to erase the area and discover the background"
 msgstr "Klikáním myší vymažeš oblast a objeví se pozadí"
+
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
+msgid "Double click the mouse"
+msgstr "Dvojité klikání myší"
+
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:3
+msgid "Double click the mouse on rectangles until all the blocks disappear."
+msgstr "Klikej dvojitě myší na obdélníky, dokud všechny bloky nezmizí."
+
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:4
+msgid "Double click the mouse to erase the area and discover the background"
+msgstr "Dvojitým klikáním myší vymažeš oblast a objeví se pozadí"
 
 #: ../src/fifteen-activity/fifteen.xml.in.h:1
 msgid ""
@@ -2571,7 +2625,7 @@ msgstr ""
 "Licence"
 
 #: ../src/gcompris/about.c:220 ../src/gcompris/config.c:447
-#: ../src/gcompris/dialog.c:103 ../src/gcompris/help.c:354
+#: ../src/gcompris/dialog.c:103 ../src/gcompris/help.c:359
 #: ../src/gcompris/images_selector.c:307
 msgid "OK"
 msgstr "Budiž"
@@ -2953,7 +3007,7 @@ msgstr "Hudba"
 msgid "Effect"
 msgstr "Efekty"
 
-#: ../src/gcompris/config.c:335
+#: ../src/gcompris/config.c:335 ../src/gcompris/sugar.c:82
 msgid "Zoom"
 msgstr "Přiblížení"
 
@@ -3004,39 +3058,39 @@ msgstr ""
 "Ukonči ji a nahlas\n"
 "problém autorům"
 
-#: ../src/gcompris/gcompris.c:151
+#: ../src/gcompris/gcompris.c:152
 msgid "run GCompris in fullscreen mode."
 msgstr "spustit GCompris v režimu celé obrazovky."
 
-#: ../src/gcompris/gcompris.c:154
+#: ../src/gcompris/gcompris.c:155
 msgid "run GCompris in window mode."
 msgstr "spustit GCompris v režimu okna."
 
-#: ../src/gcompris/gcompris.c:157
+#: ../src/gcompris/gcompris.c:158
 msgid "run GCompris with sound enabled."
 msgstr "spustit GCompris se zapnutými zvuky."
 
-#: ../src/gcompris/gcompris.c:160
+#: ../src/gcompris/gcompris.c:161
 msgid "run GCompris without sound."
 msgstr "spustit GCompris bez zvuku."
 
-#: ../src/gcompris/gcompris.c:163
+#: ../src/gcompris/gcompris.c:164
 msgid "run GCompris with the default gnome cursor."
 msgstr "spustit GCompris s výchozím kurzorem gnome."
 
-#: ../src/gcompris/gcompris.c:166
+#: ../src/gcompris/gcompris.c:167
 msgid "display only activities with this difficulty level."
 msgstr "zobrazovat jen aktivity s touto úrovní obtížnosti."
 
-#: ../src/gcompris/gcompris.c:169
+#: ../src/gcompris/gcompris.c:170
 msgid "display debug informations on the console."
 msgstr "zobrazovat ladicí informace na konzoli."
 
-#: ../src/gcompris/gcompris.c:172
+#: ../src/gcompris/gcompris.c:173
 msgid "Print the version of "
 msgstr "Vytiskne verzi "
 
-#: ../src/gcompris/gcompris.c:175
+#: ../src/gcompris/gcompris.c:176
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
@@ -3048,61 +3102,59 @@ msgstr ""
 "connect4). Použij „-l list“ pro seznam všech dostupných aktivit a jejich "
 "popisů."
 
-#: ../src/gcompris/gcompris.c:180
+#: ../src/gcompris/gcompris.c:181
 msgid "GCompris will find the data dir in this directory"
-msgstr "Aplikace GCompris bude bude hledat datovou složku v této složce"
+msgstr "Aplikace GCompris bude hledat datovou složku v této složce"
 
-#: ../src/gcompris/gcompris.c:183
+#: ../src/gcompris/gcompris.c:184
 msgid "GCompris will find the skins in this directory"
-msgstr "Aplikace GCompris bude bude hledat masky vzhledu v této složce"
+msgstr "Aplikace GCompris bude hledat masky vzhledu v této složce"
 
-#: ../src/gcompris/gcompris.c:186
+#: ../src/gcompris/gcompris.c:187
 msgid "GCompris will find the activity plugins in this directory"
-msgstr ""
-"Aplikace GCompris bude bude hledat zásuvné moduly aktivit v této složce"
+msgstr "Aplikace GCompris bude hledat zásuvné moduly aktivit v této složce"
 
-#: ../src/gcompris/gcompris.c:189
+#: ../src/gcompris/gcompris.c:190
 msgid "GCompris will find the python activity in this directory"
-msgstr "Aplikace GCompris bude bude hledat aktivity python v této složce"
+msgstr "Aplikace GCompris bude hledat aktivity python v této složce"
 
-#: ../src/gcompris/gcompris.c:192
+#: ../src/gcompris/gcompris.c:193
 msgid "GCompris will find the locale file (.mo translation) in this directory"
-msgstr ""
-"Aplikace GCompris bude bude hledat soubory s překlady (.mo) v této složce"
+msgstr "Aplikace GCompris bude hledat soubory s překlady (.mo) v této složce"
 
-#: ../src/gcompris/gcompris.c:195
+#: ../src/gcompris/gcompris.c:196
 msgid "GCompris will find the activities menu in this directory"
-msgstr "Aplikace GCompris bude bude hledat nabídku aktivit v této složce"
+msgstr "Aplikace GCompris bude hledat nabídku aktivit v této složce"
 
-#: ../src/gcompris/gcompris.c:198
+#: ../src/gcompris/gcompris.c:199
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Spustit GCompris v administračním a řídícím módu"
 
-#: ../src/gcompris/gcompris.c:201
+#: ../src/gcompris/gcompris.c:202
 msgid ""
 "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
 msgstr ""
 "Použít náhradní databázi profilů [$HOME/.config/gcompris/gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:204
+#: ../src/gcompris/gcompris.c:205
 msgid "Create the alternate database for profiles"
 msgstr "Vytvořit alternativní databázi pro profily"
 
-#: ../src/gcompris/gcompris.c:207
+#: ../src/gcompris/gcompris.c:208
 msgid "Re-read XML Menus and store them in the database"
-msgstr "Znovu načíst XML menu a uložit je do databáze"
+msgstr "Znovu načíst nabídku XML a uložit ji do databáze"
 
-#: ../src/gcompris/gcompris.c:210
+#: ../src/gcompris/gcompris.c:211
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Vybrat profil. Pro vytvoření profilu použijte „gcompris -a“"
 
-#: ../src/gcompris/gcompris.c:213
+#: ../src/gcompris/gcompris.c:214
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Seznam všech dostupných profilů. Pro vytvoření profilu použijte „gcompris -a“"
 
-#: ../src/gcompris/gcompris.c:216
+#: ../src/gcompris/gcompris.c:217
 msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
@@ -3110,23 +3162,23 @@ msgstr ""
 "Adresář s nastavením: [$HOME/.config/gcompris]. Alternativou je nastavení "
 "$XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:219
+#: ../src/gcompris/gcompris.c:220
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "Adresář uživatele: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:222
+#: ../src/gcompris/gcompris.c:223
 msgid "Run the experimental activities"
 msgstr "Jít na pokusné aktivity"
 
-#: ../src/gcompris/gcompris.c:225
+#: ../src/gcompris/gcompris.c:226
 msgid "Disable the quit button"
 msgstr "Vypnout tlačítko konec"
 
-#: ../src/gcompris/gcompris.c:228
+#: ../src/gcompris/gcompris.c:229
 msgid "Disable the config button"
 msgstr "Vypnout tlačítko nastavení"
 
-#: ../src/gcompris/gcompris.c:231
+#: ../src/gcompris/gcompris.c:232
 msgid ""
 "GCompris will get images, sounds and activity data from this server if not "
 "found locally."
@@ -3134,7 +3186,7 @@ msgstr ""
 "Z tohoto serveru GCompris získá obrázky, zvuky a data aktivit, pokud nejsou "
 "k dispozici místní."
 
-#: ../src/gcompris/gcompris.c:234
+#: ../src/gcompris/gcompris.c:235
 msgid ""
 "Only when --server is provided, disable check for local resource first. Data "
 "are always taken from the web server."
@@ -3142,25 +3194,25 @@ msgstr ""
 "Pouze když je zadáno --server, vypne úvodní kontrolu pro místní zdroje. Data "
 "jsou vždy brána z webového serveru."
 
-#: ../src/gcompris/gcompris.c:238
+#: ../src/gcompris/gcompris.c:239
 msgid ""
 "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr ""
 "U serverového režimu určete adresář mezipaměti pro omezení zbytečných "
 "stahování."
 
-#: ../src/gcompris/gcompris.c:241
+#: ../src/gcompris/gcompris.c:242
 msgid ""
 "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr ""
 "Obecný režim táhni a pusť: normální, dvojklik, oboje. Výchozí režim je "
 "normální."
 
-#: ../src/gcompris/gcompris.c:244
+#: ../src/gcompris/gcompris.c:245
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Povolit spuštění více GComprisů najednou."
 
-#: ../src/gcompris/gcompris.c:906
+#: ../src/gcompris/gcompris.c:915
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -3181,20 +3233,20 @@ msgstr ""
 "na FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1353
+#: ../src/gcompris/gcompris.c:1393
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
 msgstr ""
-"GCompris se nemůže spustit, protože zámkový soubor je méně než %d sekund "
+"GCompris se nemůže spustit, protože soubor zámku je méně než %d sekund "
 "starý.\n"
 
-#: ../src/gcompris/gcompris.c:1355
+#: ../src/gcompris/gcompris.c:1395
 #, c-format
 msgid "The lock file is: %s\n"
-msgstr "Zámkový soubor je: %s\n"
+msgstr "Soubor zámku je: %s\n"
 
-#: ../src/gcompris/gcompris.c:1469
+#: ../src/gcompris/gcompris.c:1509
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3208,27 +3260,27 @@ msgstr ""
 "Více informací na http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1575
+#: ../src/gcompris/gcompris.c:1612
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Pro přímý přístup k aktivitě použijte -l.\n"
 
-#: ../src/gcompris/gcompris.c:1576
+#: ../src/gcompris/gcompris.c:1613
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Seznam dostupných aktivit:\n"
 
-#: ../src/gcompris/gcompris.c:1607
+#: ../src/gcompris/gcompris.c:1644
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Počet aktivit: %d\n"
 
-#: ../src/gcompris/gcompris.c:1643
+#: ../src/gcompris/gcompris.c:1680
 #, c-format
 msgid "%s exists but is not readable or writable"
-msgstr "%s existuje, ale není čitelný nebo zapisovatelný."
+msgstr "%s existuje, ale nelze jej číst nebo do něj zapisovat"
 
-#: ../src/gcompris/gcompris.c:1706
+#: ../src/gcompris/gcompris.c:1743
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
@@ -3237,7 +3289,7 @@ msgstr ""
 "Přepínač --server nelze použít, protože GCompris byl přeložen bez podpory "
 "sítě."
 
-#: ../src/gcompris/gcompris.c:1760
+#: ../src/gcompris/gcompris.c:1797
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3246,32 +3298,32 @@ msgstr ""
 "CHYBA: Profil „%s“ nebyl nalezen. Dostupné profily si vypíšete spuštěním "
 "„gcompris --profile-list“\n"
 
-#: ../src/gcompris/gcompris.c:1774
+#: ../src/gcompris/gcompris.c:1811
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Seznam dostupných profilů:\n"
 
-#: ../src/gcompris/gcompris_db.c:274
+#: ../src/gcompris/gcompris_db.c:234
 msgid "Unaffected"
 msgstr "Neovlivněný"
 
-#: ../src/gcompris/gcompris_db.c:275
+#: ../src/gcompris/gcompris_db.c:235
 msgid "Users without a class"
 msgstr "Uživatelé bez třídy"
 
-#: ../src/gcompris/help.c:176
+#: ../src/gcompris/help.c:181
 msgid "Prerequisite"
 msgstr "Předpoklad"
 
-#: ../src/gcompris/help.c:207
+#: ../src/gcompris/help.c:212
 msgid "Goal"
 msgstr "Cíl"
 
-#: ../src/gcompris/help.c:238
+#: ../src/gcompris/help.c:243
 msgid "Manual"
-msgstr "Manuál"
+msgstr "Příručka"
 
-#: ../src/gcompris/help.c:269
+#: ../src/gcompris/help.c:274
 msgid "Credit"
 msgstr "Zásluhy"
 
@@ -3295,6 +3347,38 @@ msgstr ""
 "Tyto obrazy pak můžete vkládat do svých kreseb a animací.\n"
 "Podporované formáty jsou jpeg, png a svg.\n"
 
+#: ../src/gcompris/sugar.c:70
+msgid "Help"
+msgstr "Nápověda"
+
+#: ../src/gcompris/sugar.c:71
+msgid "About"
+msgstr "O aplikaci"
+
+#: ../src/gcompris/sugar.c:72
+msgid "Previous level"
+msgstr "Předchozí úroveň"
+
+#: ../src/gcompris/sugar.c:75
+msgid "Next level"
+msgstr "Následující úroveň"
+
+#: ../src/gcompris/sugar.c:77
+msgid "Refresh"
+msgstr "Obnovit"
+
+#: ../src/gcompris/sugar.c:78
+msgid "Settings"
+msgstr "Nastavení"
+
+#: ../src/gcompris/sugar.c:84
+msgid "Back"
+msgstr "Zpět"
+
+#: ../src/gcompris/sugar.c:85
+msgid "Stop"
+msgstr "Zastavit"
+
 #: ../src/gcompris/timer.c:244
 msgid "Time Elapsed"
 msgstr "Čas vypršel"
@@ -3306,7 +3390,7 @@ msgstr "Zbývající čas = %d"
 
 #: ../src/geo_country-activity/geo_country.xml.in.h:1
 msgid "Drag and Drop the regions to redraw the whole country"
-msgstr "Táhni a pusť oblasti, aby byla země zase celá"
+msgstr "Přetáhni oblasti, aby byla země zase celá"
 
 #: ../src/geo_country-activity/geo_country.xml.in.h:2
 msgid "Locate the region"
@@ -3362,7 +3446,7 @@ msgstr "Brazilská hrabství"
 
 #: ../src/geography-activity/geography.xml.in.h:1
 msgid "Drag and Drop the items to redraw the whole map"
-msgstr "Táhni a pusť položky pro překreslení celé mapy"
+msgstr "Celou mapu překreslíš přetažením položek"
 
 #: ../src/geography-activity/geography.xml.in.h:2
 msgid "Locate the countries"
@@ -3645,7 +3729,7 @@ msgstr "Rusko"
 
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:19
 msgid "Serbia Montenegro"
-msgstr "Srbsko a Černá hora"
+msgstr "Srbsko a Černá Hora"
 
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:20
 msgid "Slovak Republic"
@@ -3666,7 +3750,7 @@ msgstr "Ukrajina"
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:1
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:2
 msgid "Algeria"
-msgstr "Alžír"
+msgstr "Alžírsko"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:2
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:4
@@ -3676,7 +3760,7 @@ msgstr "Benin"
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:3
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:6
 msgid "Burkina Faso"
-msgstr "Horní Volta"
+msgstr "Burkina Faso"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:4
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:7
@@ -3879,7 +3963,7 @@ msgstr "Namibie"
 
 #: ../src/geography-activity/resources/geography/board4_1.xml.in.h:13
 msgid "Republic of Congo"
-msgstr "Kongo"
+msgstr "Republika Kongo"
 
 #: ../src/geography-activity/resources/geography/board4_1.xml.in.h:15
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:32
@@ -3920,12 +4004,12 @@ msgid "Type the falling letters before they reach the ground"
 msgstr "Napiš padající písmeno, než dopadne na zem"
 
 #. TRANSLATORS: Put here the numbers in your language
-#: ../src/gletters-activity/gletters.c:225 ../src/memory-activity/memory.c:930
+#: ../src/gletters-activity/gletters.c:225 ../src/memory-activity/memory.c:931
 msgid "0123456789"
 msgstr "0123456789"
 
 #. TRANSLATORS: Put here the alphabet uppercase in your language
-#: ../src/gletters-activity/gletters.c:235 ../src/memory-activity/memory.c:940
+#: ../src/gletters-activity/gletters.c:235 ../src/memory-activity/memory.c:941
 msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 msgstr "AÁBCČDĎEÉĚFGHIÍJKLMNŇOÓPQRŘSŠTŤUÚŮVWXYÝZŽ"
 
@@ -3935,15 +4019,15 @@ msgstr "AÁBCČDĎEÉĚFGHIÍJKLMNŇOÓPQRŘSŠTŤUÚŮVWXYÝZŽ"
 #. the dict passed to the apply_callback
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
-#: ../src/gletters-activity/gletters.c:852
-#: ../src/imageid-activity/imageid.c:714 ../src/login-activity/login.py:476
-#: ../src/missing_letter-activity/missingletter.c:750
+#: ../src/gletters-activity/gletters.c:850
+#: ../src/imageid-activity/imageid.c:712 ../src/login-activity/login.py:479
+#: ../src/missing_letter-activity/missingletter.c:748
 #: ../src/pythontest-activity/pythontest.py:454
-#: ../src/readingh-activity/reading.c:880
+#: ../src/readingh-activity/reading.c:878
 #: ../src/scalesboard-activity/scale.c:1161
 #: ../src/smallnumbers-activity/smallnumbers.c:595
 #: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:768
+#: ../src/wordsgame-activity/wordsgame.c:827
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -3952,7 +4036,7 @@ msgstr ""
 "Nastavení <b>%s</b>\n"
 " pro profil <b>%s</b>"
 
-#: ../src/gletters-activity/gletters.c:881
+#: ../src/gletters-activity/gletters.c:879
 #: ../src/smallnumbers-activity/smallnumbers.c:614
 msgid "Enable sounds"
 msgstr "Povolit zvuky"
@@ -3988,7 +4072,7 @@ msgid ""
 "Use the arrow keys to navigate around the board and to avoid the Troggles. "
 "Press the spacebar to eat a number."
 msgstr ""
-"Pro pohyb na desce použij šipky na klávesnici. Pro snědení čísla stiskni "
+"K pohybu na desce použij šipky na klávesnici. Pro snědení čísla stiskni "
 "mezerník."
 
 #: ../src/gnumch-equality-activity/gnumch.py:94
@@ -4235,25 +4319,25 @@ msgstr ""
 "6, 2 . 3 = 6). Takže 6 není prvočíslo. Pro pohyb na desce použij šipky na "
 "klávesnici. Pro snězení čísla použij mezerník."
 
-#: ../src/guessnumber-activity/guessnumber.py:201
+#: ../src/guessnumber-activity/guessnumber.py:199
 #, python-format
 msgid "Guess a number between %d and %d"
 msgstr "Uhádni číslo mezi %d a %d"
 
-#: ../src/guessnumber-activity/guessnumber.py:301
+#: ../src/guessnumber-activity/guessnumber.py:299
 #, python-format
 msgid "Please enter a number between %d and %d"
 msgstr "Zadej prosím číslo mezi %d a %d"
 
-#: ../src/guessnumber-activity/guessnumber.py:306
+#: ../src/guessnumber-activity/guessnumber.py:304
 msgid "Out of range"
 msgstr "Mimo rozsah"
 
-#: ../src/guessnumber-activity/guessnumber.py:312
+#: ../src/guessnumber-activity/guessnumber.py:310
 msgid "Too high"
 msgstr "Příliš velké"
 
-#: ../src/guessnumber-activity/guessnumber.py:314
+#: ../src/guessnumber-activity/guessnumber.py:312
 msgid "Too low"
 msgstr "Příliš malé"
 
@@ -4716,16 +4800,16 @@ msgstr ""
 "Je zobrazena ruka. Urči, jestli je to pravá nebo levá ruka. Klikni na "
 "červené tlačítko vlevo nebo na zelené tlačítko vpravo."
 
-#: ../src/login-activity/login.py:98
+#: ../src/login-activity/login.py:101
 msgid "Profile: "
 msgstr "Profil: "
 
-#: ../src/login-activity/login.py:231
+#: ../src/login-activity/login.py:234
 msgid "Login: "
 msgstr "Přihlášení: "
 
 #. toggle box
-#: ../src/login-activity/login.py:491
+#: ../src/login-activity/login.py:494
 msgid "Enter login to log in"
 msgstr "Pro přihlášení zadej své přihlašovací jméno"
 
@@ -4911,7 +4995,7 @@ msgstr ""
 "dává informaci o tvé pozici na mapě. Ve viditelném režimu nemůžeš Tuxem "
 "pohybovat."
 
-#: ../src/melody-activity/melody.py:111
+#: ../src/melody-activity/melody.py:107
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -5128,7 +5212,7 @@ msgstr ""
 "skrývá operaci, nebo odpověď na ni.\n"
 "\n"
 "V této hře ukrývají karty dvě části matematické operace. Musíš nalézt obě a "
-"spojit je opět dohromady. Klikni na kartu a podívej se jaké číslo skrývá, "
+"spojit je opět dohromady. Klikni na kartu a podívej se, jaké číslo skrývá, "
 "pak zkus najít další kartu, která k ní patří a tak spojíš celou operaci "
 "dohromady. V každém tahu můžeš otočit pouze dvě karty, takže si musíš "
 "zapamatovat, kde se čísla skrývají, pak je můžeš dát dohromady, když "
@@ -5674,7 +5758,7 @@ msgstr ""
 msgid "Practice money usage including cents"
 msgstr "Procvič si používání peněz včetně halířů"
 
-#: ../src/mosaic-activity/mosaic.py:188
+#: ../src/mosaic-activity/mosaic.py:186
 msgid "Rebuild the same mosaic on the right area"
 msgstr "Vpravo sestav stejnou mozaiku"
 
@@ -5688,7 +5772,7 @@ msgstr "Sestav skládačku"
 
 #: ../src/paintings-activity/paintings.xml.in.h:2
 msgid "Drag and Drop the items to rebuild the original paintings"
-msgstr "Táhni a pusť položky pro znovusestavení původních kreseb"
+msgstr "Přetažením položek sestavíš původní kresby"
 
 #: ../src/paintings-activity/paintings.xml.in.h:3
 msgid ""
@@ -5793,11 +5877,11 @@ msgstr "Parašutista"
 msgid "This board is game-oriented. No specific skills are needed to play."
 msgstr "Tato scéna je zaměřená na hru. Nejsou potřeba specifické dovednosti."
 
-#: ../src/penalty-activity/penalty.py:292
+#: ../src/penalty-activity/penalty.py:294
 msgid "Click on the balloon to place it again."
 msgstr "Klikni na balón a tím jej nachystáš na nový výkop."
 
-#: ../src/penalty-activity/penalty.py:294
+#: ../src/penalty-activity/penalty.py:296
 msgid "Click twice on the balloon to shoot it."
 msgstr "Klikni dvakrát na balón"
 
@@ -5819,17 +5903,13 @@ msgstr "Dvojitým kliknutím myší na balón dáváš góly."
 msgid "Penalty kick"
 msgstr "Pokutový kop"
 
-#: ../src/photohunter-activity/photohunter.c:137
+#: ../src/photohunter-activity/photohunter.c:511
 msgid "Error: Absolutely no photo found in the data directory"
 msgstr "Chyba: V datové složce nebyly nalezeny vůbec žádné fotografie"
 
-#: ../src/photohunter-activity/photohunter.c:394
+#: ../src/photohunter-activity/photohunter.c:574
 msgid "Click on the differences between the two images."
 msgstr "Klikni na rozdíl mezi dvěma obrázky."
-
-#: ../src/photohunter-activity/photohunter.c:590
-msgid "Error: Abnormally failed to load a data file"
-msgstr "Chyba: Nestandardní selhání při načítání datového souboru"
 
 #: ../src/photohunter-activity/photohunter.xml.in.h:1
 msgid "Find the differences between two pictures"
@@ -5976,9 +6056,9 @@ msgid ""
 "again. Check your construction by clicking on the hand at the bottom."
 msgstr ""
 "Nahoře je na několik sekund zobrazen vlak - lokomotiva a vagón(y). Znovu jej "
-"v horní části obrazovky sestav vybráním správných vagónů a lokomotivy. Zruš "
-"výběr položky kliknutím na ni. Svůj výběr potvrď kliknutím na ruku ve spodní "
-"části."
+"v horní části obrazovky sestav vybráním správných vagónů a lokomotivy. "
+"kliknutím na položku zrušíš její výběr. Svůj výběr potvrď kliknutím na ruku "
+"ve spodní části."
 
 #: ../src/railroad-activity/railroad.xml.in.h:3
 msgid "Memory-training"
@@ -6049,7 +6129,7 @@ msgid "This board teaches basic colors."
 msgstr "Tato hrací deska učí základní barvy."
 
 #: ../src/readingh-activity/reading.c:220
-#: ../src/wordsgame-activity/wordsgame.c:207
+#: ../src/wordsgame-activity/wordsgame.c:211
 msgid ""
 "Error: We can't find\n"
 "a list of words to play this game.\n"
@@ -6122,7 +6202,7 @@ msgstr "Trénování čtení v omezeném čase"
 msgid "Vertical-reading practice"
 msgstr "Procvičování vertikálního čtení"
 
-#: ../src/redraw-activity/redraw.py:875
+#: ../src/redraw-activity/redraw.py:881
 msgid "Coordinate"
 msgstr "Koordinace"
 
@@ -6214,7 +6294,7 @@ msgstr "Správně vyrovnat váhy"
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:2
 msgid "Drag and Drop masses to balance the scales"
-msgstr "Táhni a pusť závaží, abys vyrovnal váhu"
+msgstr "Přetažením závaží vyrovnej váhu"
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:3
 msgid "Mental calculation, arithmetic equality"
@@ -6815,3 +6895,5 @@ msgstr "Procvičení klávesnice"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Napiš celé padající slovo, než spadnou na zem"
 
+#~ msgid "Error: Abnormally failed to load a data file"
+#~ msgstr "Chyba: Nestandardní selhání při načítání datového souboru"
