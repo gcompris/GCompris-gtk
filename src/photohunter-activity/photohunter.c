@@ -141,6 +141,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->number_of_sublevel = G_MAXINT;
 
       gc_bar_set(GC_BAR_LEVEL);
+      gc_bar_location(-1, -1, 0.5);
 
       g_signal_connect(goo_canvas_get_root_item(gcomprisBoard->canvas),
 		       "button_press_event",
