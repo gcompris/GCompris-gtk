@@ -11,9 +11,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris gnome-master\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-21 20:32+0100\n"
-"PO-Revision-Date: 2010-02-21 15:45+0100\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=gcompris&component=general\n"
+"POT-Creation-Date: 2010-02-24 22:24+0000\n"
+"PO-Revision-Date: 2010-02-22 13:34+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -4800,6 +4801,48 @@ msgstr ""
 "Je zobrazena ruka. Urči, jestli je to pravá nebo levá ruka. Klikni na "
 "červené tlačítko vlevo nebo na zelené tlačítko vpravo."
 
+#: ../src/lightsoff-activity/lightsoff.py:442
+msgid ""
+"Switch off all the lights, I have to go to sleep.\n"
+"If you need help, click on me."
+msgstr ""
+"Vypni všechna světla, abych mohl jít spát.\n"
+"Pokud potřebuješ pomoc, klikni na mě."
+
+#: ../src/lightsoff-activity/lightsoff.xml.in.h:1
+msgid "Lights Off"
+msgstr "Vypínání světel"
+
+#: ../src/lightsoff-activity/lightsoff.xml.in.h:2
+msgid "The aim is to switch off all the lights"
+msgstr "Cílem je vypnout všechna světla"
+
+#: ../src/lightsoff-activity/lightsoff.xml.in.h:3
+msgid "The aim is to switch off all the lights."
+msgstr "Cílem je vypnout všechna světla."
+
+#: ../src/lightsoff-activity/lightsoff.xml.in.h:4
+msgid ""
+"The effect of pressing a button is to toggle the state of that button, and "
+"of its immediate vertical and horizontal neighbours. The sun and the color "
+"of the sky depend on the number of clicks needed to solve the puzzle. If you "
+"click on Tux, the solution is shown."
+msgstr ""
+"Zmáčknutí tlačítka se projeví přepnutím jeho stavu a současně i stavu jeho "
+"přímo svisle a vodorovně sousedících tlačítek. Slunce a barva oblohy závisí "
+"na počtu kliknutí potřebných k vyřešení hlavolamu. Když klikneš na tučňáka, "
+"ukáže ti řešení."
+
+#: ../src/lightsoff-activity/lightsoff.xml.in.h:5
+msgid ""
+"The solver algorithm described on the haar.clara.co.uk is a valuable "
+"resource to know more about the Lights Off game: &lt;http://www.haar.clara."
+"co.uk/Lights/solving.html&gt;"
+msgstr ""
+"Postup řešení popsaný na haar.clara.co.uk je pro hru „Vypínání světel“ "
+"cenným zdrojem znalostí: &lt;http://www.haar.clara.co.uk/Lights/solving."
+"html&gt;"
+
 #: ../src/login-activity/login.py:101
 msgid "Profile: "
 msgstr "Profil: "
@@ -5903,11 +5946,11 @@ msgstr "Dvojitým kliknutím myší na balón dáváš góly."
 msgid "Penalty kick"
 msgstr "Pokutový kop"
 
-#: ../src/photohunter-activity/photohunter.c:511
+#: ../src/photohunter-activity/photohunter.c:512
 msgid "Error: Absolutely no photo found in the data directory"
 msgstr "Chyba: V datové složce nebyly nalezeny vůbec žádné fotografie"
 
-#: ../src/photohunter-activity/photohunter.c:574
+#: ../src/photohunter-activity/photohunter.c:575
 msgid "Click on the differences between the two images."
 msgstr "Klikni na rozdíl mezi dvěma obrázky."
 
@@ -6895,5 +6938,3 @@ msgstr "Procvičení klávesnice"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Napiš celé padající slovo, než spadnou na zem"
 
-#~ msgid "Error: Abnormally failed to load a data file"
-#~ msgstr "Chyba: Nestandardní selhání při načítání datového souboru"
