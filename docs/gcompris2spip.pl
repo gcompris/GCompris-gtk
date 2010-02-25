@@ -28,9 +28,7 @@ use Data::Dumper;
 #  Authors: Bruno Coudoin <bruno.coudoin@free.fr>
 #
 
-# Prerequisite: We need to have the translation in the xml files in order
-#               for this script to work.
-#               activate @INTLTOOL_XML_RULE@ in boards/Makefile.am
+# Prerequisite: We need to run the tool create_boards_menu.sh first
 
 # -----------------------------------------------------------------------------------------
 # USAGE:
@@ -54,23 +52,25 @@ my %sections = (
 		"da", 37,
 		"de", 54,
 		"dz", 0,
-		"el", 0,
+		"el", 222,
 		"en", 2,
 		"en_CA", 0,
 		"en_GB", 0,
+		"eo", 0,
 		"es", 40,
 		"et", 0,
 		"eu", 0,
+		"fa", 380,
 		"fi", 36,
 		"fr", 1,
 		"ga", 0,
 		"gl", 0,
 		"gu", 0,
-		"he", 0,
+		"he", 383,
 		"hi", 0,
-		"hr", 0,
+		"hr", 419,
 		"hu", 121,
-		"id", 0,
+		"id", 369,
 		"it", 60,
 		"ja", 0,
 		"ka", 0,
@@ -92,7 +92,7 @@ my %sections = (
 		"ro", 0,
 		"ru", 160,
 		"rw", 0,
-		"sk", 0,
+		"sk", 396,
 		"sl", 0,
 		"so", 172,
 		"sq", 0,
@@ -103,9 +103,10 @@ my %sections = (
 		"th", 0,
 		"tr", 157,
 		"uk", 161,
+		"ur", 0,
 		"vi", 116,
 		"wa", 0,
-		"zh_CN", 0,
+		"zh_CN", 425,
 		"zh_TW", 0,
 	       );
 
@@ -121,23 +122,25 @@ my %rubriques = (
 		 "da", 61,
 		 "de", 64,
 		 "dz", 0,
-		 "el", 0,
+		 "el", 223,
 		 "en", 12,
 		 "en_CA", 0,
 		 "en_GB", 0,
+		 "eo", 0,
 		 "es", 47,
 		 "et", 0,
 		 "eu", 0,
+		 "fa", 381,
 		 "fi", 73,
 		 "fr", 6,
 		 "ga", 0,
 		 "gl", 0,
 		 "gu", 0,
-		 "he", 0,
+		 "he", 388,
 		 "hi", 0,
-		 "hr", 0,
+		 "hr", 442,
 		 "hu", 123,
-		 "id", 0,
+		 "id", 374,
 		 "it", 66,
 		 "ja", 0,
 		 "ka", 0,
@@ -159,7 +162,7 @@ my %rubriques = (
 		 "ro", 0,
 		 "ru", 162,
 		 "rw", 0,
-		 "sk", 0,
+		 "sk", 397,
 		 "sl", 0,
 		 "so", 173,
 		 "sq", 0,
@@ -170,9 +173,10 @@ my %rubriques = (
 		 "th", 0,
 		 "tr", 158,
 		 "uk", 164,
+		 "ur", 0,
 		 "vi", 117,
 		 "wa", 0,
-		 "zh_CN", 0,
+		 "zh_CN", 430,
 		 "zh_TW", 0,
 		);
 
@@ -189,23 +193,25 @@ my %rubriques_all = (
 		 "da", 62,
 		 "de", 65,
 		 "dz", 0,
-		 "el", 0,
+		 "el", 224,
 		 "en", 68,
 		 "en_CA", 0,
 		 "en_GB", 0,
+		 "eo", 0,
 		 "es", 71,
 		 "et", 0,
 		 "eu", 0,
+		 "fa", 441,
 		 "fi", 74,
 		 "fr", 63,
 		 "ga", 0,
 		 "gu", 0,
 		 "gl", 0,
-		 "he", 0,
+		 "he", 389,
 		 "hi", 0,
-		 "hr", 0,
+		 "hr", 443,
 		 "hu", 124,
-		 "id", 0,
+		 "id", 444,
 		 "it", 67,
 		 "ja", 0,
 		 "ka", 0,
@@ -227,7 +233,7 @@ my %rubriques_all = (
 		 "ro", 0,
 		 "ru", 163,
 		 "rw", 0,
-		 "sk", 0,
+		 "sk", 398,
 		 "sl", 0,
 		 "so", 174,
 		 "sq", 0,
@@ -238,9 +244,10 @@ my %rubriques_all = (
 		 "th", 0,
 		 "tr", 159,
 		 "uk", 165,
+		 "ur", 0,
 		 "vi", 118,
 		 "wa", 0,
-		 "zh_CN", 0,
+		 "zh_CN", 431,
 		 "zh_TW", 0,
 		);
 #-------------------------------------------------------------------------------
@@ -278,8 +285,8 @@ my ($sec, $min, $hours, $day, $month, $year) = (localtime)[0,1,2,3,4,5];
 my $date = "".($year+1900)."-".($month+1)."-"."$day $hours:$min:$sec";
 
 my $gcompris_root_dir = "..";
-my $boards_dir        = "$gcompris_root_dir/boards";
-my $ALL_LINGUAS_STR   = `grep "ALL_LINGUAS=" $gcompris_root_dir/configure.in | cut -d= -f2`;
+my $boards_dir        = "$gcompris_root_dir/docs/boards";
+my $ALL_LINGUAS_STR   = `grep "ALL_LINGUAS=" $gcompris_root_dir/configure.ac | cut -d= -f2`;
 $ALL_LINGUAS_STR      =~ s/\"//g;
 my @ALL_LINGUAS       = split(' ', $ALL_LINGUAS_STR);
 push @ALL_LINGUAS, "en";	# Add english, it's not in the po list
@@ -313,7 +320,7 @@ my $article_id    = $first_article;
 
 # First, Get all the boards description files
 opendir DIR, $boards_dir or die "cannot open dir $boards_dir: $!";
-my @files = grep { $_ =~ /\.xml$/} readdir DIR;
+my @files = grep { $_ =~ /\.xml.in$/} readdir DIR;
 closedir DIR;
 
 #-------------------------------------------------------------------------------

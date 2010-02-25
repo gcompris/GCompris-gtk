@@ -10,7 +10,7 @@
     standalone="no"
     cdata-section-elements="namelist"
     indent="yes"/>
-  
+
   <xsl:template match="/">
     <xsl:for-each select="GCompris/Board">
       <xsl:if test="@type != 'menu'">
@@ -42,12 +42,12 @@
             <lien_auteur>1</lien_auteur>
             <ps>__REMOVEME__</ps>
 
-            <surtitre>
+            <surtitre>__REMOVEME__
               <xsl:value-of select="@author"/>
               (<xsl:value-of select="@name"/>.xml)
             </surtitre>
 
-            <titre>
+            <titre>__REMOVEME__
               <xsl:variable name="tmptext" select="title[@xml:lang=$language]"/>
               <xsl:if test="not($tmptext)">
                 <xsl:value-of select="title"/>
@@ -55,7 +55,7 @@
               <xsl:value-of select="$tmptext"/>
             </titre>
 
-            <descriptif>
+            <descriptif>__REMOVEME__
               <xsl:variable name="tmptext" select="prerequisite[@xml:lang=$language]"/>
               <xsl:if test="not($tmptext)">
                 <xsl:value-of select="prerequisite"/>
@@ -63,7 +63,7 @@
               <xsl:value-of select="$tmptext"/>
             </descriptif>
 
-            <soustitre>
+            <soustitre>__REMOVEME__
               <xsl:variable name="tmptext" select="description[@xml:lang=$language]"/>
               <xsl:if test="not($tmptext)">
                 <xsl:value-of select="description"/>
@@ -71,7 +71,7 @@
               <xsl:value-of select="$tmptext"/>
             </soustitre>
 
-            <chapo>
+            <chapo>__REMOVEME__
               <xsl:variable name="tmptext" select="goal[@xml:lang=$language]"/>
               <xsl:if test="not($tmptext)">
                 <xsl:value-of select="goal"/>
@@ -86,7 +86,7 @@
                     <xsl:attribute name="src">
                       <xsl:value-of select="concat('screenshots/',@name)"/>.jpg</xsl:attribute>
                     </IMG>
-                  
+
                     <DIV class="flottante">
                       <IMG border="0" alt="" align="right">
                         <xsl:attribute name="src"><xsl:value-of select="@icon"/></xsl:attribute>
@@ -112,13 +112,13 @@
                     <xsl:variable name="tmptext5" select="manual[@xml:lang=$language]"/>
                     <xsl:if test="not($tmptext5)">
                       <xsl:value-of select="manual"/>
-                    </xsl:if>                    
+                    </xsl:if>
                     <xsl:value-of select="$tmptext5"/>
                     __NBSP__
                   </DIV>
 
                 </HTML>
-                
+
 
               </texte>
             </article>
