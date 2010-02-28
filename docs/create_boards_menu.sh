@@ -3,6 +3,7 @@
 LC_ALL=C
 
 mkdir -p boards
+rm -f boards/*
 
 for m in ../boards/*.xml.in ../src/*/*.xml.in
 do

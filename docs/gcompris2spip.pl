@@ -5,7 +5,7 @@ use Data::Dumper;
 #
 #  The translation status from .po files
 #
-#  Copyright (C) 2004-2005 Bruno Coudoin.
+#  Copyright (C) 2004-2010 Bruno Coudoin.
 #
 #  gcompris2spip is free software; you can redistribute it and/or
 #  modify it under the terms of the GNU General Public License
@@ -34,6 +34,7 @@ use Data::Dumper;
 # USAGE:
 # This tool requires no parameters. It must be run withing the gcompris/docs directory
 # It will extract xml menus from gcompris/boards and create a spip XML version for them
+# in the output file all_article.spip
 #------------------------------------------------------------------------------------------
 
 
