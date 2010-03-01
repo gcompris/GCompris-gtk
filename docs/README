@@ -8,7 +8,7 @@
 # Create the screenshots articles all_article.spip
 ./gcompris2spip.pl
 # Include all_article.spip in dump2.xml
-sed -s "s/</SPIP>//" dump2.xml
+sed -i "s:</SPIP>::" dump2.xml
 cat all_article.spip >> dump2.xml
 echo -e "\n</SPIP>" >> dump2.xml
 # Check no screenshots are missing

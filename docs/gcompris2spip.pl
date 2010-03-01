@@ -31,11 +31,11 @@ use Data::Dumper;
 # Prerequisite: We need to run the tool create_boards_menu.sh first
 
 # -----------------------------------------------------------------------------------------
-# USAGE:
-# This tool requires no parameters. It must be run withing the gcompris/docs directory
-# It will extract xml menus from gcompris/boards and create a spip XML version for them
-# in the output file all_article.spip
-#------------------------------------------------------------------------------------------
+# USAGE: This tool requires no parameters. It must be run withing the
+# gcompris/docs directory It will extract xml menus from the boards
+# directory and create a spip XML version for them in the output file
+# all_article.spip
+# ------------------------------------------------------------------------------------------
 
 
 #-------------------------------------------------------------------------------
@@ -321,7 +321,7 @@ my $article_id    = $first_article;
 
 # First, Get all the boards description files
 opendir DIR, $boards_dir or die "cannot open dir $boards_dir: $!";
-my @files = grep { $_ =~ /\.xml.in$/} readdir DIR;
+my @files = grep { $_ =~ /\.xml$/} readdir DIR;
 closedir DIR;
 
 #-------------------------------------------------------------------------------
