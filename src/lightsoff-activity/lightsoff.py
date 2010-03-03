@@ -556,7 +556,7 @@ class Gcompris_lightsoff:
       # only have to kill it. The canvas deletes all the items it contains
       # automaticaly.
       self.rootitem =  \
-          goocanvas.Group(parent = self.gcomprisBoard.canvas.get_root_item())
+          goocanvas.Group(parent = self.backroot)
 
       svghandle = gcompris.utils.load_svg("lightsoff/onoff.svgz")
       iwidth = svghandle.props.width
