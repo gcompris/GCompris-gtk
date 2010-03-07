@@ -16,15 +16,22 @@
 # Yannis Kaskamanidis <ttnfy17@sch.gr>, 2007.
 # Yannis Kaskamanidis <ttnfy17@yahoo.gr>, 2007.
 # kiolalis <ttnfy17@yahoo.gr>, 2008, 2010.
+# Yannis Kaskamanidis <kiolalis@gmail.com>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug."
 "cgi?product=gcompris&component=general\n"
-"POT-Creation-Date: 2010-01-31 12:54+0000\n"
-"PO-Revision-Date: 2010-02-04 19:37+0200\n"
-"Last-Translator: \n"
-"Language-Team: Ελληνικά <kde-i18n-doc@kde.org>\n"
+"POT-Creation-Date: 2010-02-21 20:21+0000\n"
+"PO-Revision-Date: 2010-03-06 16:27+0200\n"
+"Last-Translator: Yannis Kaskamanidis <kiolalis@gmail.com>\n"
+"Language-Team: Ελληνικά <i18ngr@lists.hellug.gr"
+">\n"
+">\n"
+">\n"
+">\n"
+">\n"
+">\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -304,37 +311,78 @@ msgstr "Εκπαιδευτική σουίτα GCompris"
 msgid "Multi-activity educational game"
 msgstr "Εκπαιδευτικό παιχνίδι πολλαπλών δραστηριοτήτων"
 
-#: ../src/administration-activity/admin/board_list.py:91
+#: ../nsis_translations.desktop.in.h:1
+msgid ""
+"An instance of GCompris is currently running. Exit GCompris and then try "
+"again."
+msgstr ""
+"Ένα στιγμιότυπο του GCompris εκτελείται ήδη. Κλείστε το GCompris και "
+"προσπαθήστε πάλι."
+
+#: ../nsis_translations.desktop.in.h:2
+#| msgid "The race is already being run"
+msgid "The installer is already running."
+msgstr "Ο εγκαταστάτης εκτελείται ήδη."
+
+#: ../nsis_translations.desktop.in.h:3
+msgid "Visit the GCompris Web Site"
+msgstr "Επισκεφθείτε τον ιστότοπο του GCompris"
+
+#: ../nsis_translations.desktop.in.h:4
+msgid "You do not have permission to uninstall this application."
+msgstr "Δεν έχετε δικαιώματα απεγκατάστασης αυτής της εφαρμογής."
+
+#: ../nsis_translations.desktop.in.h:5
+msgid ""
+"Your old GCompris directory is about to be deleted. Would you like to "
+"continue?$\\r$\\rNote: Any non-standard plugins that you may have installed "
+"will be deleted.$\\rGCompris user settings will not be affected."
+msgstr ""
+"Ο παλιός κατάλογος του GCompris πρόκειται να διαγραφεί. Θέλετε να "
+"συνεχίσετε;$\\r$\\rΣημείωση: όλα τα μη επίσημα πρόσθετα που πιθανόν "
+"έχετε εγκαταστήσει θα διαγραφούν.$\\rΟι ρυθμίσεις χρήστη του "
+"GCompris δεν θα επηρεαστούν."
+
+#: ../nsis_translations.desktop.in.h:6
+msgid ""
+"the uninstaller could not find registry entries for GCompris.$\\rIt is "
+"likely that another user installed this application."
+msgstr ""
+"Ο απεγκαταστάτης δεν μπόρεσε να βρει καταχωρήσεις μητρώου "
+"για το GCompris.$\\rΦαίνεται πως κάποιος άλλος χρήστης έχει "
+"εγκαταστήσει αυτή την εφαρμογή."
+
+#: ../src/administration-activity/admin/board_list.py:88
 msgid "Select a profile:"
 msgstr "Διάλεξε προφίλ:"
 
-#: ../src/administration-activity/admin/board_list.py:148
+#: ../src/administration-activity/admin/board_list.py:145
 msgid "Filter"
 msgstr "Φίλτρο"
 
-#: ../src/administration-activity/admin/board_list.py:153
+#: ../src/administration-activity/admin/board_list.py:150
 msgid "Select all"
 msgstr "Επιλογή όλων"
 
-#: ../src/administration-activity/admin/board_list.py:158
+#: ../src/administration-activity/admin/board_list.py:155
 msgid "Unselect all"
 msgstr "Αποεπιλογή όλων"
 
-#: ../src/administration-activity/admin/board_list.py:163
+#: ../src/administration-activity/admin/board_list.py:160
 msgid "Locales"
 msgstr "Γλώσσα"
 
-#: ../src/administration-activity/admin/board_list.py:168
+#: ../src/administration-activity/admin/board_list.py:165
 msgid "Locales sound"
 msgstr "Ήχος"
 
-#: ../src/administration-activity/admin/board_list.py:173
-#: ../src/administration-activity/admin/group_user_list.py:143
-#: ../src/administration-activity/admin/user_list.py:184
+#: ../src/administration-activity/admin/board_list.py:170
+#: ../src/administration-activity/admin/group_user_list.py:140
+#: ../src/administration-activity/admin/user_list.py:181
 msgid "Login"
 msgstr "Σύνδεση"
 
-#: ../src/administration-activity/admin/board_list.py:245
+#: ../src/administration-activity/admin/board_list.py:242
 msgid "Main menu"
 msgstr "Κύριο Μενού"
 
@@ -343,20 +391,20 @@ msgstr "Κύριο Μενού"
 #. image = gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, gtk.ICON_SIZE_MENU)
 #. image.show()
 #. column_pref.set_widget(image)
-#: ../src/administration-activity/admin/board_list.py:311
+#: ../src/administration-activity/admin/board_list.py:308
 msgid "Active"
 msgstr "Ενεργό"
 
-#: ../src/administration-activity/admin/board_list.py:312
+#: ../src/administration-activity/admin/board_list.py:309
 msgid "Board title"
 msgstr "Τίτλος πίνακα"
 
-#: ../src/administration-activity/admin/board_list.py:425
+#: ../src/administration-activity/admin/board_list.py:422
 #, python-format
 msgid "Filter Boards difficulty for profile %s"
 msgstr "Επιλογή επιπέδων δυσκολίας για τους Πίνακες σε κάθε προφίλ%s"
 
-#: ../src/administration-activity/admin/board_list.py:456
+#: ../src/administration-activity/admin/board_list.py:453
 #, python-format
 msgid ""
 "<span size='x-large'> Select the difficulty range \n"
@@ -365,8 +413,8 @@ msgstr ""
 "<span size='x-large'> Επέλεξε το βαθμό δυσκολίας \n"
 "για το προφίλ <b>%s</b></span>"
 
-#: ../src/administration-activity/admin/board_list.py:645
-#: ../src/administration-activity/admin/board_list.py:657
+#: ../src/administration-activity/admin/board_list.py:642
+#: ../src/administration-activity/admin/board_list.py:654
 #: ../src/administration-activity/admin/wordlist.py:45
 msgid ""
 "<b>{config}</b> configuration\n"
@@ -376,300 +424,300 @@ msgstr ""
 " για το προφίλ <b>{profile}</b>"
 
 #. self.main_vbox.pack_start (label, False, False, 8)
-#: ../src/administration-activity/admin/board_list.py:663
-#: ../src/colors-activity/colors.c:181
+#: ../src/administration-activity/admin/board_list.py:660
+#: ../src/colors-activity/colors.c:180
 #: ../src/pythontest-activity/pythontest.py:518
 #: ../src/smallnumbers-activity/smallnumbers.c:616
 msgid "Select sound locale"
 msgstr "Διάλεξε τοπικοποιημένο σύνολο ήχων"
 
-#: ../src/administration-activity/admin/class_edit.py:59
+#: ../src/administration-activity/admin/class_edit.py:56
 msgid "Editing a Class"
 msgstr "Επεξεργαστείτε την τάξη"
 
-#: ../src/administration-activity/admin/class_edit.py:64
+#: ../src/administration-activity/admin/class_edit.py:61
 msgid "Editing class: "
 msgstr "Επεξεργαστείτε τάξη: "
 
-#: ../src/administration-activity/admin/class_edit.py:67
+#: ../src/administration-activity/admin/class_edit.py:64
 msgid "Editing a new class"
 msgstr "Επεξεργαστείτε μια νέα τάξη"
 
-#: ../src/administration-activity/admin/class_edit.py:89
+#: ../src/administration-activity/admin/class_edit.py:86
 msgid "Class:"
 msgstr "Τάξη:"
 
 #. FIXME: How to remove the default selection
 #. Label and Entry for the teacher name
-#: ../src/administration-activity/admin/class_edit.py:102
+#: ../src/administration-activity/admin/class_edit.py:99
 msgid "Teacher:"
 msgstr "Δάσκαλος:"
 
-#: ../src/administration-activity/admin/class_edit.py:112
+#: ../src/administration-activity/admin/class_edit.py:109
 msgid "Assign all the users belonging to this class"
 msgstr "Ορίστε τους χρήστες που ανήκουν σε αυτή την τάξη"
 
-#: ../src/administration-activity/admin/class_edit.py:252
-#: ../src/administration-activity/admin/group_edit.py:264
-#: ../src/administration-activity/admin/group_user_list.py:153
-#: ../src/administration-activity/admin/user_list.py:194
+#: ../src/administration-activity/admin/class_edit.py:249
+#: ../src/administration-activity/admin/group_edit.py:261
+#: ../src/administration-activity/admin/group_user_list.py:150
+#: ../src/administration-activity/admin/user_list.py:191
 msgid "First Name"
 msgstr "Όνομα"
 
-#: ../src/administration-activity/admin/class_edit.py:263
-#: ../src/administration-activity/admin/group_edit.py:275
-#: ../src/administration-activity/admin/group_user_list.py:163
-#: ../src/administration-activity/admin/user_list.py:204
+#: ../src/administration-activity/admin/class_edit.py:260
+#: ../src/administration-activity/admin/group_edit.py:272
+#: ../src/administration-activity/admin/group_user_list.py:160
+#: ../src/administration-activity/admin/user_list.py:201
 msgid "Last Name"
 msgstr "Επώνυμο"
 
-#: ../src/administration-activity/admin/class_edit.py:338
+#: ../src/administration-activity/admin/class_edit.py:335
 msgid "You need to provide at least a name for your class"
 msgstr "Χρειάζεται να δώσεις ένα όνομα τουλάχιστον για την τάξη σου"
 
-#: ../src/administration-activity/admin/class_edit.py:383
+#: ../src/administration-activity/admin/class_edit.py:380
 msgid "There is already a class with this name"
 msgstr "Υπάρχει ήδη μια τάξη με αυτό το όνομα"
 
-#: ../src/administration-activity/admin/class_list.py:168
-#: ../src/administration-activity/admin/profile_edit.py:269
-#: ../src/administration-activity/admin/profile_group_list.py:143
+#: ../src/administration-activity/admin/class_list.py:165
+#: ../src/administration-activity/admin/profile_edit.py:266
+#: ../src/administration-activity/admin/profile_group_list.py:140
 msgid "Class"
 msgstr "Τάξη"
 
-#: ../src/administration-activity/admin/class_list.py:178
+#: ../src/administration-activity/admin/class_list.py:175
 msgid "Teacher"
 msgstr "Δάσκαλος"
 
-#: ../src/administration-activity/admin/group_edit.py:59
+#: ../src/administration-activity/admin/group_edit.py:56
 msgid "Editing a Group"
 msgstr "Επεξεργασία μιας ομάδας"
 
-#: ../src/administration-activity/admin/group_edit.py:65
+#: ../src/administration-activity/admin/group_edit.py:62
 msgid "Editing group: "
 msgstr "Επεξεργασία ομάδας:"
 
-#: ../src/administration-activity/admin/group_edit.py:66
+#: ../src/administration-activity/admin/group_edit.py:63
 msgid " for class: "
 msgstr "για την τάξη:"
 
-#: ../src/administration-activity/admin/group_edit.py:69
+#: ../src/administration-activity/admin/group_edit.py:66
 msgid "Editing a new group"
 msgstr "Επεξεργασία μιας νέας ομάδας:"
 
-#: ../src/administration-activity/admin/group_edit.py:89
+#: ../src/administration-activity/admin/group_edit.py:86
 msgid "Group:"
 msgstr "Ομάδα:"
 
 #. FIXME: How to remove the selection
 #. Label and Entry for the first name
-#: ../src/administration-activity/admin/group_edit.py:101
-#: ../src/administration-activity/admin/profile_edit.py:98
+#: ../src/administration-activity/admin/group_edit.py:98
+#: ../src/administration-activity/admin/profile_edit.py:95
 msgid "Description:"
 msgstr "Περιγραφή:"
 
 #. Top message gives instructions
-#: ../src/administration-activity/admin/group_edit.py:112
+#: ../src/administration-activity/admin/group_edit.py:109
 msgid "Assign all the users belonging to this group"
 msgstr "Ορίστε όλους τους χρήστες που ανήκουν σε αυτή την ομάδα"
 
-#: ../src/administration-activity/admin/group_edit.py:358
+#: ../src/administration-activity/admin/group_edit.py:355
 msgid "You need to provide at least a name for your group"
 msgstr "Πρέπει να βάλεις ένα όνομα για την ομάδα σου"
 
-#: ../src/administration-activity/admin/group_edit.py:372
+#: ../src/administration-activity/admin/group_edit.py:369
 msgid "There is already a group with this name"
 msgstr "Υπάρχει ήδη μια ομάδα με αυτό το όνομα"
 
-#: ../src/administration-activity/admin/group_list.py:85
+#: ../src/administration-activity/admin/group_list.py:82
 msgid "Select a class:"
 msgstr "Διάλεξε τάξη:"
 
-#: ../src/administration-activity/admin/group_list.py:213
-#: ../src/administration-activity/admin/profile_edit.py:279
-#: ../src/administration-activity/admin/profile_group_list.py:153
+#: ../src/administration-activity/admin/group_list.py:210
+#: ../src/administration-activity/admin/profile_edit.py:276
+#: ../src/administration-activity/admin/profile_group_list.py:150
 msgid "Group"
 msgstr "Ομάδα"
 
-#: ../src/administration-activity/admin/group_list.py:224
-#: ../src/administration-activity/admin/profile_edit.py:289
-#: ../src/administration-activity/admin/profile_group_list.py:163
-#: ../src/administration-activity/admin/profile_list.py:197
+#: ../src/administration-activity/admin/group_list.py:221
+#: ../src/administration-activity/admin/profile_edit.py:286
+#: ../src/administration-activity/admin/profile_group_list.py:160
+#: ../src/administration-activity/admin/profile_list.py:194
 msgid "Description"
 msgstr "Περιγραφή"
 
-#: ../src/administration-activity/admin/group_list.py:321
+#: ../src/administration-activity/admin/group_list.py:318
 msgid "You must first select a group in the list"
 msgstr "Πρέπει πρώτα να επιλέξετε ομάδα από τον κατάλογο"
 
-#: ../src/administration-activity/admin/group_user_list.py:173
-#: ../src/administration-activity/admin/user_list.py:214
+#: ../src/administration-activity/admin/group_user_list.py:170
+#: ../src/administration-activity/admin/user_list.py:211
 msgid "Birth Date"
 msgstr "Ημερομηνία γέννησης"
 
-#: ../src/administration-activity/admin/log_list.py:94
+#: ../src/administration-activity/admin/log_list.py:91
 msgid "Select a user:"
 msgstr "Διάλεξε χρήστη:"
 
 #. Insert the ALL option (HACK, use the user_id -2 to indicate ALL)
-#: ../src/administration-activity/admin/log_list.py:105
+#: ../src/administration-activity/admin/log_list.py:102
 msgid "All users"
 msgstr "Όλοι οι χρήστες"
 
-#: ../src/administration-activity/admin/log_list.py:111
-#: ../src/administration-activity/admin/log_list.py:298
-#: ../src/administration-activity/admin/profile_list.py:120
+#: ../src/administration-activity/admin/log_list.py:108
+#: ../src/administration-activity/admin/log_list.py:295
+#: ../src/administration-activity/admin/profile_list.py:117
 #: ../src/gcompris/board_config_combo.c:125
 #: ../src/gcompris/board_config_combo.c:398
 msgid "Default"
 msgstr "Προεπιλεγμένο"
 
 #. Reset buttons
-#: ../src/administration-activity/admin/log_list.py:165
+#: ../src/administration-activity/admin/log_list.py:162
 msgid "Reset"
 msgstr "Επαναφορά"
 
-#: ../src/administration-activity/admin/log_list.py:219
+#: ../src/administration-activity/admin/log_list.py:216
 msgid "Date"
 msgstr "Ημερομηνία"
 
-#: ../src/administration-activity/admin/log_list.py:229
+#: ../src/administration-activity/admin/log_list.py:226
 msgid "User"
 msgstr "Χρήστης"
 
-#: ../src/administration-activity/admin/log_list.py:239
+#: ../src/administration-activity/admin/log_list.py:236
 msgid "Board"
 msgstr "Πίνακας"
 
-#: ../src/administration-activity/admin/log_list.py:249
-#: ../src/redraw-activity/redraw.py:328
+#: ../src/administration-activity/admin/log_list.py:246
+#: ../src/redraw-activity/redraw.py:339
 msgid "Level"
 msgstr "Επίπεδο"
 
-#: ../src/administration-activity/admin/log_list.py:259
+#: ../src/administration-activity/admin/log_list.py:256
 msgid "Sublevel"
 msgstr "Υποεπίπεδο"
 
-#: ../src/administration-activity/admin/log_list.py:269
+#: ../src/administration-activity/admin/log_list.py:266
 msgid "Duration"
 msgstr "Διάρκεια"
 
-#: ../src/administration-activity/admin/log_list.py:279
+#: ../src/administration-activity/admin/log_list.py:276
 msgid "Status"
 msgstr "Κατάσταση"
 
-#: ../src/administration-activity/admin/module_boards.py:41
-#: ../src/administration-activity/admin/module_boards.py:69
+#: ../src/administration-activity/admin/module_boards.py:49
+#: ../src/administration-activity/admin/module_boards.py:77
 msgid "Boards"
 msgstr "Πίνακες"
 
-#: ../src/administration-activity/admin/module_groups.py:38
-#: ../src/administration-activity/admin/module_groups.py:61
+#: ../src/administration-activity/admin/module_groups.py:46
+#: ../src/administration-activity/admin/module_groups.py:69
 msgid "Groups"
 msgstr "Ομάδες"
 
-#: ../src/administration-activity/admin/module_profiles.py:39
-#: ../src/administration-activity/admin/module_profiles.py:60
+#: ../src/administration-activity/admin/module_profiles.py:47
+#: ../src/administration-activity/admin/module_profiles.py:68
 msgid "Profiles"
 msgstr "Προφίλ"
 
-#: ../src/administration-activity/admin/module_reports.py:40
-#: ../src/administration-activity/admin/module_reports.py:69
+#: ../src/administration-activity/admin/module_reports.py:48
+#: ../src/administration-activity/admin/module_reports.py:77
 msgid "Reports"
 msgstr "Αναφορές"
 
-#: ../src/administration-activity/admin/module_reports.py:69
-#: ../src/administration-activity/admin/module_users.py:39
-#: ../src/administration-activity/admin/module_users.py:61
+#: ../src/administration-activity/admin/module_reports.py:77
+#: ../src/administration-activity/admin/module_users.py:47
+#: ../src/administration-activity/admin/module_users.py:69
 msgid "Users"
 msgstr "Χρήστες"
 
-#: ../src/administration-activity/admin/module_users.py:39
-#: ../src/administration-activity/admin/module_users.py:61
+#: ../src/administration-activity/admin/module_users.py:47
+#: ../src/administration-activity/admin/module_users.py:69
 msgid "Classes"
 msgstr "Τάξεις"
 
-#: ../src/administration-activity/admin/profile_edit.py:59
+#: ../src/administration-activity/admin/profile_edit.py:56
 msgid "Editing a Profile"
 msgstr "Επεξεργασία ενός προφίλ"
 
-#: ../src/administration-activity/admin/profile_edit.py:64
+#: ../src/administration-activity/admin/profile_edit.py:61
 msgid "Editing profile: "
 msgstr "Επεξεργασία προφίλ:"
 
-#: ../src/administration-activity/admin/profile_edit.py:67
+#: ../src/administration-activity/admin/profile_edit.py:64
 msgid "Editing a new profile"
 msgstr "Επεξεργασία ενός νέου προφίλ"
 
-#: ../src/administration-activity/admin/profile_edit.py:86
+#: ../src/administration-activity/admin/profile_edit.py:83
 msgid "Profile:"
 msgstr "Προφίλ:"
 
 #. Top message gives instructions
-#: ../src/administration-activity/admin/profile_edit.py:109
+#: ../src/administration-activity/admin/profile_edit.py:106
 msgid "Assign all the groups belonging to this profile"
 msgstr "Προσδιορίστε όλες τις ομάδες που ανήκουν σε αυτό το προφίλ"
 
-#: ../src/administration-activity/admin/profile_edit.py:377
+#: ../src/administration-activity/admin/profile_edit.py:374
 msgid "You need to provide at least a name for your profile"
 msgstr "Πρέπει να βάλεις ένα όνομα για το προφίλ σου"
 
-#: ../src/administration-activity/admin/profile_edit.py:399
+#: ../src/administration-activity/admin/profile_edit.py:396
 msgid "There is already a profile with this name"
 msgstr "Υπάρχει ήδη ένα προφίλ με αυτό το όνομα"
 
-#: ../src/administration-activity/admin/profile_list.py:187
+#: ../src/administration-activity/admin/profile_list.py:184
 msgid "Profile"
 msgstr "Προφίλ"
 
-#: ../src/administration-activity/admin/profile_list.py:314
+#: ../src/administration-activity/admin/profile_list.py:311
 msgid "[Default]"
 msgstr "[Καθορισμένο]"
 
-#: ../src/administration-activity/admin/user_edit.py:50
+#: ../src/administration-activity/admin/user_edit.py:47
 msgid "Editing a User"
 msgstr "Επεξεργασία ενός χρήστη"
 
-#: ../src/administration-activity/admin/user_edit.py:55
+#: ../src/administration-activity/admin/user_edit.py:52
 msgid "Editing a User "
 msgstr "Επεξεργασία ενός χρήστη"
 
-#: ../src/administration-activity/admin/user_edit.py:61
+#: ../src/administration-activity/admin/user_edit.py:58
 msgid "Editing a new user"
 msgstr "Επεξεργασία ενός νέου χρήστη"
 
-#: ../src/administration-activity/admin/user_edit.py:78
+#: ../src/administration-activity/admin/user_edit.py:75
 msgid "Login:"
 msgstr "Σύνδεση:"
 
 #. FIXME: How to remove the selection
 #. Label and Entry for the first name
-#: ../src/administration-activity/admin/user_edit.py:89
+#: ../src/administration-activity/admin/user_edit.py:86
 msgid "First name:"
 msgstr "Όνομα:"
 
 #. Label and Entry for the last name
-#: ../src/administration-activity/admin/user_edit.py:98
+#: ../src/administration-activity/admin/user_edit.py:95
 msgid "Last name:"
 msgstr "Επώνυμο:"
 
 #. Label and Entry for the birth date
-#: ../src/administration-activity/admin/user_edit.py:107
+#: ../src/administration-activity/admin/user_edit.py:104
 msgid "Birth date:"
 msgstr "Ημερομηνία γέννησης:"
 
-#: ../src/administration-activity/admin/user_edit.py:159
+#: ../src/administration-activity/admin/user_edit.py:156
 msgid ""
 "You need to provide at least a login, first name and last name for your users"
 msgstr ""
 "Για τη σύνδεση, πρέπει να δώσεις το λιγότερο ένα όνομα και ένα επώνυμο για "
 "τους χρήστες"
 
-#: ../src/administration-activity/admin/user_edit.py:176
+#: ../src/administration-activity/admin/user_edit.py:173
 msgid "There is already a user with this login"
 msgstr "Υπάρχει ήδη ένας χρήστης με αυτό το όνομα"
 
-#: ../src/administration-activity/admin/user_list.py:288
+#: ../src/administration-activity/admin/user_list.py:285
 msgid ""
 "To import a user list from a file, first select a class.\n"
 "FILE FORMAT: Your file must be formatted like this:\n"
@@ -681,7 +729,7 @@ msgstr ""
 "σύνδεση;Όνομα;Επώνυμο; Ημερομηνία Γέννησης\n"
 "Το σύμβολο διαχωρισμού των στοιχείων μπορεί να είναι: ',', ';' or ':'"
 
-#: ../src/administration-activity/admin/user_list.py:366
+#: ../src/administration-activity/admin/user_list.py:363
 #, python-format
 msgid ""
 "One or more logins are not unique !\n"
@@ -1063,7 +1111,7 @@ msgstr "βερονέζ"
 msgid "+-×÷"
 msgstr "+-*/"
 
-#: ../src/algebra_by-activity/algebra.c:408
+#: ../src/algebra_by-activity/algebra.c:411
 #: ../src/readingh-activity/reading.c:621
 msgid "I am Ready"
 msgstr "Είμαι Έτοιμος"
@@ -1100,6 +1148,7 @@ msgstr "Εξάσκηση στον πολλαπλασιασμό"
 
 #: ../src/algebra_guesscount-activity/algebra_guesscount.xml.in.h:1
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:1
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:1
 msgid ""
 "Animal pictures come from the Animal Photography Page of Ralf Schmode "
 "(http://schmode.net/). Ralf has kindly permitted Gcompris to include his "
@@ -1236,37 +1285,30 @@ msgid "Load..."
 msgstr "Φόρτωση..."
 
 #: ../src/anim-activity/anim.py:115
-#| msgid "Mouse manipulation"
 msgid "Run the animation"
 msgstr "Εκτέλεση κινούμενης απεικόνισης"
 
 #: ../src/anim-activity/anim.py:121
-#| msgid "Select all"
 msgid "Select"
 msgstr "Επιλογή"
 
 #: ../src/anim-activity/anim.py:127
-#| msgid "Use rectangles"
 msgid "Rectangle"
 msgstr "Ορθογώνιο"
 
 #: ../src/anim-activity/anim.py:133
-#| msgid "Use rectangles"
 msgid "Filled rectangle"
 msgstr "Χρωματισμένο ορθογώνιο"
 
 #: ../src/anim-activity/anim.py:139
-#| msgid "Chile"
 msgid "Circle"
 msgstr "Κύκλος"
 
 #: ../src/anim-activity/anim.py:145
-#| msgid "Use circles"
 msgid "Filled circle"
 msgstr "Χρωματισμένοι κύκλοι"
 
 #: ../src/anim-activity/anim.py:151
-#| msgid "wine"
 msgid "Line"
 msgstr "Γραμμή"
 
@@ -1281,12 +1323,10 @@ msgid "Image..."
 msgstr "Εικόνα..."
 
 #: ../src/anim-activity/anim.py:169
-#| msgid "Filter"
 msgid "Fill"
 msgstr "Γέμισμα"
 
 #: ../src/anim-activity/anim.py:175
-#| msgid "Default"
 msgid "Delete"
 msgstr "Διαγραφή"
 
@@ -1295,12 +1335,10 @@ msgid "Flip"
 msgstr "Κατοπτρισμός"
 
 #: ../src/anim-activity/anim.py:187
-#| msgid "anise"
 msgid "Raise"
 msgstr "Ανώτερο"
 
 #: ../src/anim-activity/anim.py:193
-#| msgid "flower"
 msgid "Lower"
 msgstr "Κατώτερο"
 
@@ -1515,9 +1553,9 @@ msgstr ""
 "Χειρισμός ποντικιού: κίνηση, μετακίνηση και τοποθέτηση. Πολιτιστικές "
 "αναφορές."
 
-#: ../src/babymatch-activity/shapegame.c:1827
-#: ../src/click_on_letter-activity/click_on_letter.c:625
-#: ../src/colors-activity/colors.c:169
+#: ../src/babymatch-activity/shapegame.c:1835
+#: ../src/click_on_letter-activity/click_on_letter.c:624
+#: ../src/colors-activity/colors.c:168
 #, c-format
 msgid ""
 "<b>%1$s</b> configuration\n"
@@ -1624,7 +1662,7 @@ msgstr ""
 msgid "bar game"
 msgstr "Ο πρώτος ... χάνει!"
 
-#: ../src/billard-activity/billard.c:89 ../src/erase-activity/erase.c:123
+#: ../src/billard-activity/billard.c:89 ../src/erase-activity/erase.c:124
 #: ../src/erase-activity/erase.xml.in.h:4
 msgid "Move the mouse"
 msgstr "Κίνησε το ποντίκι"
@@ -1646,6 +1684,7 @@ msgstr "Κλώτσησε τη μπάλα για να μπει στο τέρμα"
 #: ../src/connect4-activity/connect4.xml.in.h:6
 #: ../src/erase-activity/erase.xml.in.h:3
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:6
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:6
 #: ../src/fifteen-activity/fifteen.xml.in.h:2
 #: ../src/hanoi-activity/hanoi.xml.in.h:3
 #: ../src/memory-activity/memory.xml.in.h:4
@@ -1777,7 +1816,7 @@ msgstr ""
 "που τρέχει τη δραστηριότητα συνομιλίας σε αυτό το δίκτυο, θα λάβει και θα "
 "εμφανίσει το μήνυμά σας."
 
-#: ../src/chess_computer-activity/chess.c:223
+#: ../src/chess_computer-activity/chess.c:222
 msgid "Error: The external program gnuchess died unexpectedly"
 msgstr "Σφάλμα: Η εξωτερική εφαρμογή gnuchess τερματίστηκε απροσδόκητα"
 
@@ -1816,24 +1855,24 @@ msgstr ""
 "Ο παίκτης με τα μαύρα απειλεί\n"
 "το βασιλιά του αντιπάλου"
 
-#: ../src/chess_computer-activity/chess.c:1184
+#: ../src/chess_computer-activity/chess.c:1193
 msgid "Black mates"
 msgstr ""
 "Κίνηση ματ του παίκτη\n"
 "με τα μαύρα πιόνια"
 
-#: ../src/chess_computer-activity/chess.c:1189
+#: ../src/chess_computer-activity/chess.c:1198
 msgid "White mates"
 msgstr ""
 "Κίνηση ματ του παίκτη\n"
 "με τα άσπρα πιόνια"
 
-#: ../src/chess_computer-activity/chess.c:1194 ../src/gcompris/bonus.c:191
+#: ../src/chess_computer-activity/chess.c:1203 ../src/gcompris/bonus.c:191
 #: ../src/gcompris/bonus.c:200
 msgid "Drawn game"
 msgstr "Ισόπαλο παιχνίδι"
 
-#: ../src/chess_computer-activity/chess.c:1222
+#: ../src/chess_computer-activity/chess.c:1229
 msgid "Error: The external program gnuchess died unexpectingly"
 msgstr "Σφάλμα: Η εξωτερική εφαρμογή gnuchess τερματίστηκε απροσδόκητα"
 
@@ -2119,8 +2158,8 @@ msgstr ""
 "συγγνώμη!"
 
 #. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:648
-#: ../src/gletters-activity/gletters.c:885 ../src/login-activity/login.py:481
+#: ../src/click_on_letter-activity/click_on_letter.c:647
+#: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:484
 msgid "Uppercase only text"
 msgstr "Κείμενο μόνο με κεφαλαία γράμματα"
 
@@ -2366,6 +2405,7 @@ msgstr "Οδήγησε το γερανό και αντέγραψε το μοντ
 #: ../src/crane-activity/crane.xml.in.h:3
 #: ../src/erase-activity/erase.xml.in.h:2
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:5
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:5
 #: ../src/penalty-activity/penalty.xml.in.h:3
 msgid "Motor-coordination"
 msgstr "Συγχρονισμός κίνησης"
@@ -2376,11 +2416,6 @@ msgid "Mouse manipulation"
 msgstr "Χρήση ποντικιού"
 
 #: ../src/crane-activity/crane.xml.in.h:5
-#| msgid ""
-#| "Move the items in the bottom left frame to copy their position in the top "
-#| "right model. Below the crane itself, you will find four arrows that let "
-#| "you move items. To select the item to move, just click on it. If you "
-#| "prefer, you can the arrow keys and the space or tab key instead."
 msgid ""
 "Move the items in the bottom left frame to copy their position in the top "
 "right model. Below the crane itself, you will find four arrows that let you "
@@ -2390,9 +2425,9 @@ msgstr ""
 "Μετακινήστε τα αντικείμενα από το αριστερό πλαίσιο στη σωστή τους θέση στο "
 "δεξιό πλαίσιο. Κάτω από τον γερανό θα βρείτε τα βέλη που σας επιτρέπουν να  "
 "μετακινείτε τα αντικείμενα προς διάφορες κατευθύνσεις. Για να μετακινήσετε "
-"ένα "
-"αντικείμενο κάντε κλικ επάνω του. Εάν προτιμάτε, μπορείτε να χρησιμοποιήσετε "
-"τα πλήκτρα με τα βελάκια και το πλήκτρο διαστήματος ή το πλήκτρο tab."
+"ένα αντικείμενο κάντε κλικ επάνω του. Εάν προτιμάτε, μπορείτε να "
+"χρησιμοποιήσετε τα πλήκτρα με τα βελάκια και το πλήκτρο διαστήματος ή το "
+"πλήκτρο tab."
 
 #: ../src/doubleentry-activity/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
@@ -2572,7 +2607,7 @@ msgstr ""
 "ή Backspace για να διορθώσεις. Όταν γράψεις τους αριθμούς, πάτησε το OK "
 "(αντίχειρας) ή το πλήκτρο Enter."
 
-#: ../src/erase-activity/erase.c:124 ../src/erase-activity/erase.xml.in.h:5
+#: ../src/erase-activity/erase.c:125 ../src/erase-activity/erase.xml.in.h:5
 msgid "Move the mouse to erase the area and discover the background"
 msgstr ""
 "Κίνησε το ποντίκι για να σβήσεις την επιφάνεια και να αποκαλύψεις το φόντο"
@@ -2606,6 +2641,22 @@ msgstr "Κάνε κλικ με το ποντίκι μέχρι να εξαφαν�
 msgid "Click the mouse to erase the area and discover the background"
 msgstr ""
 "Κίνησε το ποντίκι για να σβήσεις την επιφάνεια και να αποκαλύψεις το φόντο"
+
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
+msgid "Double click the mouse"
+msgstr "Κάνε διπλό κλικ με το ποντίκι"
+
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:3
+msgid "Double click the mouse on rectangles until all the blocks disappear."
+msgstr ""
+"Κάνε διπλό κλικ με το ποντίκι μέχρι να εξαφανιστούν όλα τα ορθογώνια "
+"παραλληλόγραμμα."
+
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:4
+msgid "Double click the mouse to erase the area and discover the background"
+msgstr ""
+"Κάνε διπλό κλικ με το ποντίκι για να διαγράψεις την επιφάνεια και να "
+"ανακαλύψεις τι υπάρχει στο παρασκήνιο."
 
 #: ../src/fifteen-activity/fifteen.xml.in.h:1
 msgid ""
@@ -2696,7 +2747,7 @@ msgstr ""
 "Το GCompris είναι ένα πακέτο GNU και διέπεται από τους όρους της GNU/GPL"
 
 #: ../src/gcompris/about.c:220 ../src/gcompris/config.c:447
-#: ../src/gcompris/dialog.c:103 ../src/gcompris/help.c:354
+#: ../src/gcompris/dialog.c:103 ../src/gcompris/help.c:359
 #: ../src/gcompris/images_selector.c:307
 msgid "OK"
 msgstr "Εντάξει"
@@ -3080,7 +3131,7 @@ msgstr "Μουσική"
 msgid "Effect"
 msgstr "Εφέ"
 
-#: ../src/gcompris/config.c:335
+#: ../src/gcompris/config.c:335 ../src/gcompris/sugar.c:82
 msgid "Zoom"
 msgstr "Εστίαση"
 
@@ -3131,39 +3182,39 @@ msgstr ""
 "Έξοδος και αναφορά\n"
 "του προβλήματος στους συγγραφείς."
 
-#: ../src/gcompris/gcompris.c:151
+#: ../src/gcompris/gcompris.c:152
 msgid "run GCompris in fullscreen mode."
 msgstr "εκτέλεση gcompris σε λειτουργία πλήρους οθόνης."
 
-#: ../src/gcompris/gcompris.c:154
+#: ../src/gcompris/gcompris.c:155
 msgid "run GCompris in window mode."
 msgstr "εκτέλεση gcompris σε λειτουργία παραθύρου "
 
-#: ../src/gcompris/gcompris.c:157
+#: ../src/gcompris/gcompris.c:158
 msgid "run GCompris with sound enabled."
 msgstr "εκτέλεση gcompris με ενεργοποιημένο τον ήχο. "
 
-#: ../src/gcompris/gcompris.c:160
+#: ../src/gcompris/gcompris.c:161
 msgid "run GCompris without sound."
 msgstr "εκτέλεση gcompris χωρίς ήχο."
 
-#: ../src/gcompris/gcompris.c:163
+#: ../src/gcompris/gcompris.c:164
 msgid "run GCompris with the default gnome cursor."
 msgstr "εκτέλεση gcompris με τον προεπιλεγμένο δρομέα του gnome."
 
-#: ../src/gcompris/gcompris.c:166
+#: ../src/gcompris/gcompris.c:167
 msgid "display only activities with this difficulty level."
 msgstr "εμφάνιση των δραστηριοτήτων με αυτό το επίπεδο δυσκολίας μόνο."
 
-#: ../src/gcompris/gcompris.c:169
+#: ../src/gcompris/gcompris.c:170
 msgid "display debug informations on the console."
 msgstr "εμφάνιση πληροφοριών αποσφαλμάτωσης στην κονσόλα."
 
-#: ../src/gcompris/gcompris.c:172
+#: ../src/gcompris/gcompris.c:173
 msgid "Print the version of "
 msgstr "Εκτύπωση της έκδοσης του"
 
-#: ../src/gcompris/gcompris.c:175
+#: ../src/gcompris/gcompris.c:176
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
@@ -3174,38 +3225,38 @@ msgstr ""
 "επιτρέπει να παίξεις μόνο με τις δραστηριότητες του καταλόγου reading, -l/"
 "strategy/connect4 σου επιτρέπει να παίξεις με το παιχνίδι connect 4)"
 
-#: ../src/gcompris/gcompris.c:180
+#: ../src/gcompris/gcompris.c:181
 msgid "GCompris will find the data dir in this directory"
 msgstr "Το GCompris θα βρει τα δεδομένα σε αυτόν τον κατάλογο."
 
-#: ../src/gcompris/gcompris.c:183
+#: ../src/gcompris/gcompris.c:184
 msgid "GCompris will find the skins in this directory"
 msgstr "Το GCompris θα βρει τα θέματα σε αυτόν τον κατάλογο."
 
-#: ../src/gcompris/gcompris.c:186
+#: ../src/gcompris/gcompris.c:187
 msgid "GCompris will find the activity plugins in this directory"
 msgstr ""
 "Το GCompris θα βρει τα πρόσθετα των δραστηριοτήτων σε αυτόν τον κατάλογο."
 
-#: ../src/gcompris/gcompris.c:189
+#: ../src/gcompris/gcompris.c:190
 msgid "GCompris will find the python activity in this directory"
 msgstr "Το GCompris θα βρει τη δραστηριότητα σε αυτόν τον κατάλογο."
 
-#: ../src/gcompris/gcompris.c:192
+#: ../src/gcompris/gcompris.c:193
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr "plugins "
 
-#: ../src/gcompris/gcompris.c:195
+#: ../src/gcompris/gcompris.c:196
 msgid "GCompris will find the activities menu in this directory"
 msgstr "Το GCompris θα βρει το μενού των δραστηριοτήτων σε αυτόν τον κατάλογο."
 
-#: ../src/gcompris/gcompris.c:198
+#: ../src/gcompris/gcompris.c:199
 msgid "Run GCompris in administration and user-management mode"
 msgstr ""
 "Άνοιξε το GCompris σε κατάσταση λειτουργίας διαχειριστή και διαχείρισης "
 "χρηστών"
 
-#: ../src/gcompris/gcompris.c:201
+#: ../src/gcompris/gcompris.c:202
 msgid ""
 "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
@@ -3213,27 +3264,27 @@ msgstr ""
 "Χρησιμοποίησε εναλλακτική βάση δεδομένων για τα προφίλ [$HOME/.config/"
 "gcompris/gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:204
+#: ../src/gcompris/gcompris.c:205
 msgid "Create the alternate database for profiles"
 msgstr "Κατασκεύασε εναλλακτική βάση δεδομένων για τα προφίλ"
 
-#: ../src/gcompris/gcompris.c:207
+#: ../src/gcompris/gcompris.c:208
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Ξαναδιάβασε τα μενού XML και αποθήκευσέ τα στη βάση δεδομένων"
 
-#: ../src/gcompris/gcompris.c:210
+#: ../src/gcompris/gcompris.c:211
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Καθόρισε το προφίλ που θα χρησιμοποιηθεί. Χρησιμοποίησε την εντολή 'gcompris "
 "-a' για να φτιάξεις καινούρια προφίλ"
 
-#: ../src/gcompris/gcompris.c:213
+#: ../src/gcompris/gcompris.c:214
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Κατάλογος όλων των διαθέσιμων προφιλ. Χρησιμοποίησε την εντολή 'gcompris -a' "
 "για να φτιάξεις καινούρια προφίλ"
 
-#: ../src/gcompris/gcompris.c:216
+#: ../src/gcompris/gcompris.c:217
 msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
@@ -3241,23 +3292,23 @@ msgstr ""
 "Τοποθεσία καταλόγου Config [$HOME/.config/gcompris]. Εναλλακτικά μπορεί να "
 "καθοριστεί στο $XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:219
+#: ../src/gcompris/gcompris.c:220
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "Τοποθεσία των καταλόγων του χρήστη: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:222
+#: ../src/gcompris/gcompris.c:223
 msgid "Run the experimental activities"
 msgstr "Εκτέλεσε τις δραστηριότητες πειραματισμού"
 
-#: ../src/gcompris/gcompris.c:225
+#: ../src/gcompris/gcompris.c:226
 msgid "Disable the quit button"
 msgstr "Απενεργοποίησε το κουμπί της εξόδου"
 
-#: ../src/gcompris/gcompris.c:228
+#: ../src/gcompris/gcompris.c:229
 msgid "Disable the config button"
 msgstr "Απενεργοποίηση του κουμπιού config"
 
-#: ../src/gcompris/gcompris.c:231
+#: ../src/gcompris/gcompris.c:232
 msgid ""
 "GCompris will get images, sounds and activity data from this server if not "
 "found locally."
@@ -3265,7 +3316,7 @@ msgstr ""
 "Το GCompris θα φορτώσει εικόνες, ήχους και δεδομένα δραστηριοτήτων από τον "
 "εξυπηρετητή αν αυτά δεν βρεθούν τοπικά."
 
-#: ../src/gcompris/gcompris.c:234
+#: ../src/gcompris/gcompris.c:235
 msgid ""
 "Only when --server is provided, disable check for local resource first. Data "
 "are always taken from the web server."
@@ -3273,7 +3324,7 @@ msgstr ""
 "Απενεργοποίησε πρώτα τους τοπικούς πόρους, μόνον όταν ο εξυπηρετητής είναι "
 "διαθέσιμος. Τα δεδομένα λαμβάνονται μόνο από τον διαδικτυακό εξυπηρετητή."
 
-#: ../src/gcompris/gcompris.c:238
+#: ../src/gcompris/gcompris.c:239
 msgid ""
 "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr ""
@@ -3281,18 +3332,18 @@ msgstr ""
 "(cache) που χρησιμοποιείται για να αποφύγεις ανώφελες μεταφορτώσεις "
 "(downloads)."
 
-#: ../src/gcompris/gcompris.c:241
+#: ../src/gcompris/gcompris.c:242
 msgid ""
 "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr ""
 "Καθολική λειτουργία μετακίνησης και απόθεσης: κανονικά, 2 κλικ, αμφότερα. Η "
 "προκαθορισμένη λειτουργία είναι ομαλή."
 
-#: ../src/gcompris/gcompris.c:244
+#: ../src/gcompris/gcompris.c:245
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Να αποφεύγετε την εκτέλεση πολλαπλών στιγμιότυπων του GCompris."
 
-#: ../src/gcompris/gcompris.c:906
+#: ../src/gcompris/gcompris.c:915
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -3317,7 +3368,7 @@ msgstr ""
 "Περισσότερες πληροφορίες στο FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1353
+#: ../src/gcompris/gcompris.c:1393
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
@@ -3325,12 +3376,12 @@ msgstr ""
 "Δεν είναι δυνατή η εκκίνηση του gcompris επειδή το αρχείο κλειδώματος είναι "
 "ενεργό για λιγότερο από %d δευτερόλεπτα.\n"
 
-#: ../src/gcompris/gcompris.c:1355
+#: ../src/gcompris/gcompris.c:1395
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Το αρχείο κλειδώματος είναι: %s\n"
 
-#: ../src/gcompris/gcompris.c:1469
+#: ../src/gcompris/gcompris.c:1509
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3344,28 +3395,28 @@ msgstr ""
 "Πληροφορίες στο http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1575
+#: ../src/gcompris/gcompris.c:1612
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr ""
 "Χρησιμοποίησε το -l για να αποκτήσεις άμεση πρόσβαση σε μια δραστηριότητα.\n"
 
-#: ../src/gcompris/gcompris.c:1576
+#: ../src/gcompris/gcompris.c:1613
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Ο κατάλογος των διαθέσιμων δραστηριοτήτων είναι:\n"
 
-#: ../src/gcompris/gcompris.c:1607
+#: ../src/gcompris/gcompris.c:1644
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Αριθμός δραστηριοτήτων: %d\n"
 
-#: ../src/gcompris/gcompris.c:1643
+#: ../src/gcompris/gcompris.c:1680
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s υπάρχει αλλά δεν είναι αναγνώσιμο ή εγγράψιμο"
 
-#: ../src/gcompris/gcompris.c:1706
+#: ../src/gcompris/gcompris.c:1743
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
@@ -3374,7 +3425,7 @@ msgstr ""
 "Η επιλογή --διακομιστή δεν μπορεί να χρησιμοποιηθεί, επειδή το GCompris έχει "
 "μεταγλωττιστεί χωρίς υποστήριξη δικτύου!"
 
-#: ../src/gcompris/gcompris.c:1760
+#: ../src/gcompris/gcompris.c:1797
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3383,7 +3434,7 @@ msgstr ""
 "ΣΦΑΛΜΑ: Το προφίλ '%s' δεν βρέθηκε. Εκτελέστε την εντολή  'gcompris --"
 "profile-list' για να δείτε τα διαθέσιμα προφίλ\n"
 
-#: ../src/gcompris/gcompris.c:1774
+#: ../src/gcompris/gcompris.c:1811
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Ο κατάλογος των διαθέσιμων προφίλ είναι:\n"
@@ -3396,19 +3447,19 @@ msgstr "Άθικτο"
 msgid "Users without a class"
 msgstr "Χρήστες που δεν ανήκουν σε κάποια τάξη"
 
-#: ../src/gcompris/help.c:176
+#: ../src/gcompris/help.c:181
 msgid "Prerequisite"
 msgstr "Προαπαιτούμενα"
 
-#: ../src/gcompris/help.c:207
+#: ../src/gcompris/help.c:212
 msgid "Goal"
 msgstr "Στόχος"
 
-#: ../src/gcompris/help.c:238
+#: ../src/gcompris/help.c:243
 msgid "Manual"
 msgstr "Οδηγός"
 
-#: ../src/gcompris/help.c:269
+#: ../src/gcompris/help.c:274
 msgid "Credit"
 msgstr "Μνεία"
 
@@ -3434,6 +3485,41 @@ msgstr ""
 "Μπορείς να συμπεριλάβεις αυτές τις εικόνες στα ζωγραφικά και στα κινούμενα "
 "σχέδια.\n"
 "Οι μορφές των αρχείων που υποστηρίζονται είναι jpeg, png και svg.\n"
+
+#: ../src/gcompris/sugar.c:70
+msgid "Help"
+msgstr "Βοήθεια"
+
+#: ../src/gcompris/sugar.c:71
+#| msgid "boat"
+msgid "About"
+msgstr "Σχετικά"
+
+#: ../src/gcompris/sugar.c:72
+msgid "Previous level"
+msgstr "Προηγούμενο επίπεδο"
+
+#: ../src/gcompris/sugar.c:75
+#| msgid "%d (New level)"
+msgid "Next level"
+msgstr "Επόμενο επίπεδο"
+
+#: ../src/gcompris/sugar.c:77
+msgid "Refresh"
+msgstr "Ανανέωση"
+
+#: ../src/gcompris/sugar.c:78
+msgid "Settings"
+msgstr "Ρυθμίσεις"
+
+#: ../src/gcompris/sugar.c:84
+#| msgid "back"
+msgid "Back"
+msgstr "Πίσω"
+
+#: ../src/gcompris/sugar.c:85
+msgid "Stop"
+msgstr "Διακοπή"
 
 #: ../src/gcompris/timer.c:244
 msgid "Time Elapsed"
@@ -4078,15 +4164,15 @@ msgstr "ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ"
 #. the dict passed to the apply_callback
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
-#: ../src/gletters-activity/gletters.c:852
-#: ../src/imageid-activity/imageid.c:714 ../src/login-activity/login.py:476
-#: ../src/missing_letter-activity/missingletter.c:750
+#: ../src/gletters-activity/gletters.c:850
+#: ../src/imageid-activity/imageid.c:712 ../src/login-activity/login.py:479
+#: ../src/missing_letter-activity/missingletter.c:748
 #: ../src/pythontest-activity/pythontest.py:454
-#: ../src/readingh-activity/reading.c:880
+#: ../src/readingh-activity/reading.c:878
 #: ../src/scalesboard-activity/scale.c:1161
 #: ../src/smallnumbers-activity/smallnumbers.c:595
 #: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:768
+#: ../src/wordsgame-activity/wordsgame.c:827
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -4095,7 +4181,7 @@ msgstr ""
 "<b>%s</b> Ρυθμίσεις\n"
 " για το προφίλ <b>%s</b>"
 
-#: ../src/gletters-activity/gletters.c:881
+#: ../src/gletters-activity/gletters.c:879
 #: ../src/smallnumbers-activity/smallnumbers.c:614
 msgid "Enable sounds"
 msgstr "Ενεργοποίηση ήχων"
@@ -4394,25 +4480,25 @@ msgstr ""
 "αποφεύγοντας τους Τρωγλοδύτες. Πιέστε το πλήκτρο διαστήματος για να \"φάτε\" "
 "έναν αριθμό."
 
-#: ../src/guessnumber-activity/guessnumber.py:201
+#: ../src/guessnumber-activity/guessnumber.py:199
 #, python-format
 msgid "Guess a number between %d and %d"
 msgstr "Μάντεψε έναν αριθμό μεταξύ %d και %d"
 
-#: ../src/guessnumber-activity/guessnumber.py:301
+#: ../src/guessnumber-activity/guessnumber.py:299
 #, python-format
 msgid "Please enter a number between %d and %d"
 msgstr "Παρακαλώ βάλε έναν αριθμό μεταξύ %d και %d"
 
-#: ../src/guessnumber-activity/guessnumber.py:306
+#: ../src/guessnumber-activity/guessnumber.py:304
 msgid "Out of range"
 msgstr "Εκτός ορίων"
 
-#: ../src/guessnumber-activity/guessnumber.py:312
+#: ../src/guessnumber-activity/guessnumber.py:310
 msgid "Too high"
 msgstr "Πολύ μεγάλο"
 
-#: ../src/guessnumber-activity/guessnumber.py:314
+#: ../src/guessnumber-activity/guessnumber.py:312
 msgid "Too low"
 msgstr "Πολύ μικρό"
 
@@ -4890,16 +4976,59 @@ msgstr ""
 "Εμφανίζεται ένα χέρι. Είναι το αριστερό ή το δεξί; Κάνε κλικ στο κόκκινο "
 "κουμπί για το αριστερό ή στο πράσινο κουμπί για το δεξί χέρι."
 
-#: ../src/login-activity/login.py:98
+#: ../src/lightsoff-activity/lightsoff.py:417
+msgid ""
+"Switch off all the lights, I have to go to sleep.\n"
+"If you need help, click on me."
+msgstr ""
+"Σβήστε όλα τα φώτα, πρέπει να πάω για ύπνο.\n"
+"Εάν χρειάζεστε βοήθεια, κάντε κλικ πάνω μου."
+
+#: ../src/lightsoff-activity/lightsoff.xml.in.h:1
+msgid "Lights Off"
+msgstr "Σβηστά φώτα"
+
+#: ../src/lightsoff-activity/lightsoff.xml.in.h:2
+msgid "The aim is to switch off all the lights"
+msgstr "Σκοπός του παιχνιδιού είναι να σβήσουν όλα τα φώτα."
+
+#: ../src/lightsoff-activity/lightsoff.xml.in.h:3
+msgid "The aim is to switch off all the lights."
+msgstr "Σκοπός του παιχνιδιού είναι να σβήσουν όλα τα φώτα."
+
+#: ../src/lightsoff-activity/lightsoff.xml.in.h:4
+msgid ""
+"The effect of pressing a button is to toggle the state of that button, and "
+"of its immediate vertical and horizontal neighbours. The sun and the color "
+"of the sky depend on the number of clicks needed to solve the puzzle. If you "
+"click on Tux, the solution is shown."
+msgstr ""
+"Η επίπτωση που έχει το πάτημα ενός πλήκτρο είναι η εναλλαγή της "
+"κατάστασής του, καθώς και των άμεσων γειτονικών, κάθετων και "
+"οριζόντιων, πλήκτρων. Ο ήλιος και το χρώμα τ' ουρανού εξαρτώνται "
+"από τον αριθμό των κλικ που χρειάζονται για τη λύση του παζλ. "
+"Εάν κάνεις κλικ στον Tux, θα εμφανιστεί η λύση."
+
+#: ../src/lightsoff-activity/lightsoff.xml.in.h:5
+msgid ""
+"The solver algorithm described on the haar.clara.co.uk is a valuable "
+"resource to know more about the Lights Off game: &lt;http://www.haar.clara."
+"co.uk/Lights/solving.html&gt;"
+msgstr ""
+"Ο αλγόριθμος επίλυσης που περιγράφεται στο haar.clara.co.uk είναι "
+"μια αξιόλογη πηγή για να μάθεις περισσότερα σχετικά με το παιχνίδι "
+"Κλείσε τα φώτα: &lt;http://www.haar.clara.co.uk/Lights/solving.html&gt;"
+
+#: ../src/login-activity/login.py:101
 msgid "Profile: "
 msgstr "Προφίλ: "
 
-#: ../src/login-activity/login.py:231
+#: ../src/login-activity/login.py:234
 msgid "Login: "
 msgstr "Σύνδεση:"
 
 #. toggle box
-#: ../src/login-activity/login.py:491
+#: ../src/login-activity/login.py:494
 msgid "Enter login to log in"
 msgstr "Πιέστε Σύνδεση για να συνδεθείτε"
 
@@ -5149,7 +5278,6 @@ msgid "three"
 msgstr "τρία"
 
 #: ../src/memory-activity/memory.c:284
-#| msgid "for"
 msgid "four"
 msgstr "τέσσερα"
 
@@ -5889,7 +6017,7 @@ msgstr ""
 msgid "Practice money usage including cents"
 msgstr "Εξάσκηση στη χρήση ευρώ και λεπτών"
 
-#: ../src/mosaic-activity/mosaic.py:188
+#: ../src/mosaic-activity/mosaic.py:186
 msgid "Rebuild the same mosaic on the right area"
 msgstr "Ξαναφτιάξε το ίδιο μωσαϊκό στη δεξιά πλευρά"
 
@@ -6017,11 +6145,11 @@ msgstr ""
 "Αυτός ο πίνακας έχει παιγνιώδη χαρακτήρα. Δεν απαιτούνται ιδιαίτερες "
 "δεξιότητες για να παίξει κανείς."
 
-#: ../src/penalty-activity/penalty.py:291
+#: ../src/penalty-activity/penalty.py:294
 msgid "Click on the balloon to place it again."
 msgstr "Κάνε κλικ στο μπαλόνι για να το ξαναβάλεις στη θέση του."
 
-#: ../src/penalty-activity/penalty.py:293
+#: ../src/penalty-activity/penalty.py:296
 msgid "Click twice on the balloon to shoot it."
 msgstr "Χτύπα δυο φορές το μπαλόνι για να σουτάρεις."
 
@@ -6050,7 +6178,6 @@ msgid "Error: Absolutely no photo found in the data directory"
 msgstr "ΣΦΑΛΜΑ: Δεν βρέθηκε καμία φωτογραφία στον κατάλογο δεδομένων."
 
 #: ../src/photohunter-activity/photohunter.c:574
-#| msgid "Find the differences between two pictures"
 msgid "Click on the differences between the two images."
 msgstr "Βρείτε τις διαφορές μεταξύ των δύο εικόνων."
 
@@ -6281,7 +6408,7 @@ msgid "This board teaches basic colors."
 msgstr "Αυτός ο πίνακας διδάσκει τα βασικά χρώματα."
 
 #: ../src/readingh-activity/reading.c:220
-#: ../src/wordsgame-activity/wordsgame.c:207
+#: ../src/wordsgame-activity/wordsgame.c:211
 msgid ""
 "Error: We can't find\n"
 "a list of words to play this game.\n"
@@ -6298,7 +6425,6 @@ msgid "is being displayed"
 msgstr "εμφανίζεται"
 
 #: ../src/readingh-activity/reading.c:456
-#| msgid "We skip this level because there are not enough word in the list!"
 msgid "We skip this level because there are not enough words in the list!"
 msgstr ""
 "Αυτό το επίπεδο θα αγνοηθεί επειδή δεν υπάρχουν αρκετές λέξεις στον κατάλογο!"
@@ -6361,7 +6487,7 @@ msgstr "Εξάσκηση ανάγνωσης σε συγκεκριμένο χρό
 msgid "Vertical-reading practice"
 msgstr "Εξάσκηση κάθετης ανάγνωσης"
 
-#: ../src/redraw-activity/redraw.py:875
+#: ../src/redraw-activity/redraw.py:881
 msgid "Coordinate"
 msgstr "Συντεταγμένη"
 
@@ -7155,19 +7281,6 @@ msgstr "Πληκτρολόγησε την λέξη πριν αυτή πέσει 
 #~ "(στο \"έλεγχος\") και δεν υπάρχει τρόπος να αποφύγει την απειλή στην "
 #~ "επόμενη κίνηση."
 
-#~ msgid "Double click the mouse"
-#~ msgstr "Κάνε διπλό κλικ με το ποντίκι"
-
-#~ msgid "Double click the mouse on rectangles until all the blocks disappear."
-#~ msgstr ""
-#~ "Κάνε διπλό κλικ με το ποντίκι μέχρι να εξαφανιστούν όλα τα ορθογώνια "
-#~ "παραλληλόγραμμα."
-
-#~ msgid "Double click the mouse to erase the area and discover the background"
-#~ msgstr ""
-#~ "Κάνε διπλό κλικ με το ποντίκι για να διαγράψεις την επιφάνεια και να "
-#~ "ανακαλύψεις τι υπάρχει στο παρασκήνιο."
-
 #~ msgid "gcompris animation"
 #~ msgstr "Κινούμενα σχέδια GCompris"
 
@@ -7190,10 +7303,3 @@ msgstr "Πληκτρολόγησε την λέξη πριν αυτή πέσει 
 #~ "Ξαναφτιάξε το αριστερό μωσαϊκό στη δεξιά περιοχή. Κατόπιν, επέλεξε ένα "
 #~ "χρώμα από την περιοχή κάτω και κάνε κλικ στα γκρίζα κουτιά για να τα "
 #~ "χρωματίσεις."
-
-#~ msgid ""
-#~ "An instance of GCompris is currently running. Exit GCompris and then try "
-#~ "again."
-#~ msgstr ""
-#~ "Ένα στιγμιότυπο του GCompris εκτελείται ήδη. Κλείστε το GCompris και "
-#~ "προσπαθήστε πάλι."
