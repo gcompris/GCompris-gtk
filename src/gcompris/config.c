@@ -60,6 +60,7 @@ static gchar *linguas[] = {
   "af_ZA.UTF-8", 	N_("Afrikaans"),
   "am_ET.UTF-8", 	N_("Amharic"),
   "ar_AE.UTF-8", 	N_("Arabic"),
+  "ast_ES.UTF-8", 	N_("Asturian"),
   "az_AZ.UTF-8", 	N_("Turkish (Azerbaijan)"),
   "bg_BG.UTF-8",	N_("Bulgarian"),
   "br_FR.UTF-8",	N_("Breton"),
@@ -558,6 +559,11 @@ set_locale_flag(gchar *locale)
   /* Not found, Try now with the short locale name */
   if(!filename) {
     filename = gc_file_find_absolute("flags/%.2s.svgz", locale);
+  }
+
+  /* Not found, Try now with the short long locale name */
+  if(!filename) {
+    filename = gc_file_find_absolute("flags/%.3s.svgz", locale);
   }
 
   if(filename)
