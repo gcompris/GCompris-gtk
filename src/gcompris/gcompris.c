@@ -24,11 +24,22 @@
 #include <time.h>
 #include <string.h>
 
-#ifndef WIN32
+#include "gcompris.h"
+
+#ifdef WIN32
+// WIN32
+#elif NSBUNDLE
+// MACOSX
+#else WIN32
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
 #include <X11/Xatom.h>
 #include <gdk/gdkx.h>
+#endif
+
+// Include Mac OS X menu synchronization on native OSX build
+#ifdef  MAC_INTEGRATION
+#include "ige-mac-menu.h"
 #endif
 
 #include <glib/gstdio.h>
@@ -44,7 +55,7 @@
 
 /* for NSBUNDLE */
 #ifdef NSBUNDLE
-#include "gcompris-nsbundle.h"
+//#include "gcompris-nsbundle.h"
 #endif
 
 /* get the default database name */
@@ -65,7 +76,9 @@ gchar * exec_prefix = NULL;
 //static gint pause_board_cb (GtkWidget *widget, gpointer data);
 static void quit_cb (GtkWidget *widget, gpointer data);
 static void map_cb  (GtkWidget *widget, gpointer data);
-#ifndef WIN32
+#ifdef WIN32
+#elif NSBUNDLE
+#else WIN32
 static gboolean _realize_callback (GtkWidget *widget, GdkEventExpose *event,
 				   gpointer data);
 #endif
@@ -290,7 +303,7 @@ _gc_size_allocate_event_callback (GtkWidget   *widget,
 {
   double xratio, yratio;
   double canvas_width, canvas_height;
-
+  printf("gc_size_allocate\n");
   yratio=allocation->height/(float)(BOARDHEIGHT);
   xratio=allocation->width/(float)BOARDWIDTH;
   zoom_factor = MIN(xratio, yratio);
@@ -636,7 +649,9 @@ gc_set_default_background(GooCanvasItem *parent)
 /*
  * Sugar requires properties to be set before the windows is realized
  */
-#ifndef WIN32
+#ifdef WIN32
+#elif NSBUNDLE
+#else
 static gboolean
 _realize_callback (GtkWidget *widget, GdkEventExpose *event, gpointer data)
 {
@@ -685,6 +700,17 @@ init_workspace()
 			 BOARDWIDTH,
 			 BOARDHEIGHT);
   g_object_set (G_OBJECT(canvas), "background-color", "#000", NULL);
+
+#ifdef MAC_INTEGRATION
+  GtkWidget *quit_item;
+  quit_item = gtk_menu_item_new();
+  ige_mac_menu_set_quit_menu_item(GTK_MENU_ITEM (quit_item));
+  gtk_signal_connect(GTK_OBJECT (quit_item),
+		     "activate", GTK_SIGNAL_FUNC (quit_cb), NULL);
+  gtk_widget_show (quit_item);
+
+#endif
+
 }
 
 static GcomprisBoard *get_board_to_start()
@@ -781,7 +807,7 @@ static void setup_window ()
                    GDK_HINT_BASE_SIZE;
   if (!popt_sugar_look)
       geom_mask |= GDK_HINT_ASPECT;
-  gtk_window_set_geometry_hints (GTK_WINDOW (window), NULL, &hints, geom_mask);
+  //  gtk_window_set_geometry_hints (GTK_WINDOW (window), NULL, &hints, geom_mask);
 
   /*
    * Set the main window
@@ -790,7 +816,9 @@ static void setup_window ()
 
   gtk_window_set_default_size(GTK_WINDOW(window), BOARDWIDTH, BOARDHEIGHT);
   gtk_window_set_wmclass(GTK_WINDOW(window), "gcompris", "GCompris");
-#ifndef WIN32
+#ifdef WIN32
+#elif NSBUNDLE
+#else WIN32
   g_signal_connect (GTK_OBJECT (window), "realize",
 		    G_CALLBACK (_realize_callback), NULL);
 #endif
@@ -1061,16 +1089,18 @@ void gc_fullscreen_set(gboolean state)
   static gint window_w = BOARDWIDTH;
   static gint window_h = BOARDHEIGHT;
 
+  printf("fullscreen_set %d\n", state);
   fullscreen = state;
   if(state)
     {
       gtk_window_get_position ( (GtkWindow*)( window ), &window_x, &window_y );
       gtk_window_get_size ( GTK_WINDOW ( window ), &window_w, &window_h );
-#ifdef WIN32
+#ifdef WIN32 || NSBUNDLE
       // WARNING: Doing this is required on Windows
       //          but keep the window hidden on GNU/Linux
       gtk_widget_hide ( window );
 #endif
+      gtk_widget_hide ( window );
       gtk_window_set_decorated ( GTK_WINDOW ( window ), FALSE );
       gtk_window_set_type_hint ( GTK_WINDOW ( window ),
 				 GDK_WINDOW_TYPE_HINT_DESKTOP );
@@ -1082,6 +1112,7 @@ void gc_fullscreen_set(gboolean state)
       gtk_window_move ( GTK_WINDOW ( window ), 0, 0 );
 
       GdkScreen *screen = gtk_window_get_screen ( GTK_WINDOW ( window ) );
+      printf("%d // %d\n", gdk_screen_get_width (screen), gdk_screen_get_height (screen) );
       gtk_window_resize ( GTK_WINDOW ( window ),
 			  gdk_screen_get_width (screen),
 			  gdk_screen_get_height (screen) );
@@ -1199,11 +1230,11 @@ static void load_properties ()
   /* usefull for OSX bundle app */
   /* FIXME exec_prefix should be put in properties */
   /* usefull for OSX bundle app */
-#ifdef NSBUNDLE
-  exec_prefix = gcompris_nsbundle_resource ();
-#else
+  //#ifdef NSBUNDLE
+  //  exec_prefix = gcompris_nsbundle_resource ();
+  //#else
   exec_prefix = gbr_find_exe_dir(NULL);
-#endif
+  //#endif
   g_warning("exec_prefix %s\n", (exec_prefix==NULL ? "NONE" : exec_prefix));
 
   {

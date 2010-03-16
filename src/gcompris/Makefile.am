@@ -23,13 +23,13 @@ no_undefined =
 shared =
 endif
 
-if WITH_NSBUNDLE
-gcompris_nsbundle_m = gcompris-nsbundle.m
-gcompris_nsbundle_h = gcompris-nsbundle.h
-else
+#if WITH_NSBUNDLE
+#gcompris_nsbundle_m = gcompris-nsbundle.m
+#gcompris_nsbundle_h = gcompris-nsbundle.h
+#else
 gcompris_nsbundle_m =
 gcompris_nsbundle_h =
-endif
+#endif
 
 bin_PROGRAMS = gcompris
 
@@ -47,7 +47,8 @@ INCLUDES = \
 	$(DBUS_CFLAGS) \
 	$(AUDIO_CFLAGS) \
 	$(cairo_cflags) \
-	$(NSBUNDLE_CPPFLAGS)
+	$(NSBUNDLE_CPPFLAGS) \
+	${IGE_MAC_CFLAGS}
 
 gcompris_SOURCES = \
 	$(cairo_c) \
@@ -126,7 +127,8 @@ gcompris_LDADD = \
 	$(GCOMPRIS_LIBS) $(sqlite_ldadd) $(XML_LIBS) $(GNET_LIBS) \
 	$(DBUS_LIBS) \
 	$(AUDIO_LIBS) \
-        $(INTLLIBS) $(NSBUNDLE_LDFLAGS)
+        $(INTLLIBS) $(NSBUNDLE_LDFLAGS) \
+	${IGE_MAC_LIBS}
 
 marshal_sources =				\
 	gc-marshal.c				\

@@ -12,9 +12,9 @@ endif
 
 SUBDIRS = po src boards $(DOCS_SUBDIR) autopackage
 
-if OS_MACOSX
-SUBDIRS += macosx
-endif
+# if OS_MACOSX
+# SUBDIRS += macosx
+# endif
 
 
 icondir=$(datadir)/pixmaps

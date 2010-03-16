@@ -46,7 +46,7 @@ AM_GLIB_GNU_GETTEXT
 
 GTK_REQUIRED=2.12.0
 LIBRSVG_REQUIRED=2.26.0
-LIBXML_REQUIRED=2.7.3
+LIBXML_REQUIRED=2.6.13
 
 dnl
 dnl Start of pkg-config checks
@@ -54,9 +54,9 @@ dnl
 
 PKG_CHECK_MODULES(GCOMPRIS, \
   gtk+-2.0 >= $GTK_REQUIRED \
-  gstreamer-0.10 \
   librsvg-2.0 >= $LIBRSVG_REQUIRED \
-  libxml-2.0 >= $LIBXML_REQUIRED)
+  libxml-2.0 >= $LIBXML_REQUIRED \
+  gthread-2.0)
 
 AC_SUBST(GCOMPRIS_CFLAGS)
 AC_SUBST(GCOMPRIS_LIBS)
@@ -66,7 +66,7 @@ AC_MSG_CHECKING([for OSX])
 case "$host" in
   *-apple-darwin*)
     native_osx=yes
-    OSX_CFLAGS="$CFLAGS -arch i386 -arch ppc "
+    OSX_CFLAGS="$CFLAGS -arch i386 "
     ;;
   *)
     AC_CHECK_LIB(X11, XOpenDisplay)
@@ -77,6 +77,17 @@ esac
 AC_MSG_RESULT([$native_osx])
 
 AM_CONDITIONAL(OS_MACOSX, test "$native_osx" = yes)
+
+### --------------------------------------------------------------------------
+### Check to see if GDK uses the quartz backend and if we can use
+### MacOSX integration
+_gdk_tgt=`$PKG_CONFIG --variable=target gdk-2.0`
+AM_CONDITIONAL([GDK_TARGET_QUARTZ], [test x$_gdk_tgt = xquartz])
+if test "x$_gdk_tgt" = xquartz; then
+   PKG_CHECK_MODULES(IGE_MAC, ige-mac-integration)
+   AC_SUBST(IGE_MAC_LIBS)
+   AC_SUBST(IGE_MAC_CFLAGS)
+fi
 
 # nsbundle default is no even for osx
 nsbundle="no"
@@ -432,19 +443,18 @@ AM_CONDITIONAL([SUGAR], [test x$with_sugar = xyes])
 dnl check for python
 AC_ARG_WITH(python,AC_HELP_STRING(
     [--with-python=path],
-    [set the path for python]), python_path=$withval, python_path=not)
+    [set the path for python]), python_path=$withval, python_path=no)
 if test x$python_path = xno ; then
 build_python_plugin="no"
 else
 
 
-if test x$python_path != xnot ; then
+if test x$python_path != xno ; then
 PYTHON=$python_path
 fi
 
 AM_PATH_PYTHON
 AM_CHECK_PYTHON_HEADERS( [build_python_plugin="yes"], [build_python_plugin="no"] )
-
 fi
 
 dnl Finally output the required python variables and automake defines.
@@ -498,10 +508,10 @@ else
     dnl     AM_CHECK_PYMOD(gnomecanvas,,,AC_MSG_ERROR([*** gnome.canvas or gnomecanvas installed but not visible from python ]))
     dnl   fi
 
-    if test x$with_sqlite = xyes; then
-	AM_CHECK_PYMOD(pysqlite2,,,AC_MSG_ERROR([*** pysqlite2 missing ]))
-	REQUIRE_PYTHON="$REQUIRE_PYTHON python-sqlite2"
-    fi
+dnl    if test x$with_sqlite = xyes; then
+dnl	AM_CHECK_PYMOD(pysqlite2,,,AC_MSG_ERROR([*** pysqlite2 missing ]))
+dnl	REQUIRE_PYTHON="$REQUIRE_PYTHON python-sqlite2"
+dnl    fi
 
   else
     AC_MSG_WARN([py-build-only: Skipping python modules dependancies])
@@ -553,7 +563,6 @@ docs/Makefile
 docs/eu/Makefile
 docs/fr/Makefile
 gcompris-installer.nsi
-macosx/Makefile
 po/Makefile.in
 src/Makefile
 src/administration-activity/Makefile
