@@ -46,7 +46,7 @@ AM_GLIB_GNU_GETTEXT
 
 GTK_REQUIRED=2.12.0
 LIBRSVG_REQUIRED=2.26.0
-LIBXML_REQUIRED=2.6.13
+LIBXML_REQUIRED=2.6.16
 
 dnl
 dnl Start of pkg-config checks
@@ -56,7 +56,7 @@ PKG_CHECK_MODULES(GCOMPRIS, \
   gtk+-2.0 >= $GTK_REQUIRED \
   librsvg-2.0 >= $LIBRSVG_REQUIRED \
   libxml-2.0 >= $LIBXML_REQUIRED \
-  gthread-2.0)
+  gthread-2.0 )
 
 AC_SUBST(GCOMPRIS_CFLAGS)
 AC_SUBST(GCOMPRIS_LIBS)
@@ -77,17 +77,6 @@ esac
 AC_MSG_RESULT([$native_osx])
 
 AM_CONDITIONAL(OS_MACOSX, test "$native_osx" = yes)
-
-### --------------------------------------------------------------------------
-### Check to see if GDK uses the quartz backend and if we can use
-### MacOSX integration
-_gdk_tgt=`$PKG_CONFIG --variable=target gdk-2.0`
-AM_CONDITIONAL([GDK_TARGET_QUARTZ], [test x$_gdk_tgt = xquartz])
-if test "x$_gdk_tgt" = xquartz; then
-   PKG_CHECK_MODULES(IGE_MAC, ige-mac-integration)
-   AC_SUBST(IGE_MAC_LIBS)
-   AC_SUBST(IGE_MAC_CFLAGS)
-fi
 
 # nsbundle default is no even for osx
 nsbundle="no"
@@ -117,6 +106,7 @@ if test "x$nsbundle" = "xyes"; then
       NSBUNDLE_LDFLAGS="-framework Cocoa "
       OBJCFLAGS="$OBJCFLAGS $CFLAGS"
       AC_LANG_POP([Objective C])
+
    else
       AC_LANG_PUSH([Objective C])
       saved_CPPFLAGS="$CPPFLAGS"
@@ -158,6 +148,17 @@ AC_SUBST(BUNDLE_NAME)
 
 AM_CONDITIONAL(WITH_NSBUNDLE, test "$nsbundle" = yes)
 
+### --------------------------------------------------------------------------
+### Check to see if GDK uses the quartz backend and if we can use
+### MacOSX integration
+_gdk_tgt=`$PKG_CONFIG --variable=target gdk-2.0`
+AM_CONDITIONAL([GDK_TARGET_QUARTZ], [test x$_gdk_tgt = xquartz])
+if test "x$_gdk_tgt" = xquartz; then
+   PKG_CHECK_MODULES(IGE_MAC, ige-mac-integration)
+   AC_SUBST(IGE_MAC_LIBS)
+   AC_SUBST(IGE_MAC_CFLAGS)
+   AC_DEFINE_UNQUOTED(MAC_INTEGRATION, 1, [Integrate in the OSX Menu])
+fi
 
 # Provide relocatable API from autopackage
 # From http://autopackage.org/docs/binreloc/
@@ -292,8 +293,59 @@ dnl
 dnl === DIRECTORY DEFINITIONS ===
 dnl
 
-if test "x$platform_win32" = "xno" ; then
+if test "x$platform_win32" = "xyes" ; then
+  DATADIRNAME="share"
 
+  dnl Set PACKAGE_LOCALE_DIR in config.h for WINDOWS
+  AC_DEFINE_UNQUOTED(PACKAGE_LOCALE_DIR, "../${DATADIRNAME}/locale", [GCompris locale directory])
+
+  dnl Set PACKAGE_DATA_DIR
+  PACKAGE_DATA_DIR="boards"
+  AC_SUBST(PACKAGE_DATA_DIR)
+  AC_DEFINE_UNQUOTED(PACKAGE_DATA_DIR, "../${DATADIRNAME}", [GCompris data directory])
+
+  dnl Plugin Directory
+  AC_DEFINE_UNQUOTED(PACKAGE_CLIB_DIR, "../${DATADIRNAME}", [Gcompris plugins directory])
+  plugindir=${myprefix}/${DATADIRNAME}/gcompris
+  AC_SUBST(plugindir)
+
+  dnl Python plugin Directory
+  PYTHON_PLUGIN_DIR="${myprefix}/${DATADIRNAME}/gcompris/python"
+  AC_SUBST(PYTHON_PLUGIN_DIR)
+
+  dnl System GCompris config directory
+  AC_DEFINE_UNQUOTED(SYSTEM_CONFIG_DIR, "etc", [System GCompris config directory])
+
+  dnl Test for gnuchess
+  AC_DEFINE_UNQUOTED(GNUCHESS, "gnuchess.exe", Defines where GNU Chess resides on the system)
+
+elif test "x$nsbundle" = "xyes" ; then
+  DATADIRNAME="share"
+
+  dnl Set PACKAGE_LOCALE_DIR in config.h for WINDOWS
+  AC_DEFINE_UNQUOTED(PACKAGE_LOCALE_DIR, "../Resources/${DATADIRNAME}/locale", [GCompris locale directory])
+
+  dnl Set PACKAGE_DATA_DIR
+  PACKAGE_DATA_DIR="boards"
+  AC_SUBST(PACKAGE_DATA_DIR)
+  AC_DEFINE_UNQUOTED(PACKAGE_DATA_DIR, "../Resources/${DATADIRNAME}", [GCompris data directory])
+
+  dnl Plugin Directory
+  AC_DEFINE_UNQUOTED(PACKAGE_CLIB_DIR, "../Resources/${DATADIRNAME}", [Gcompris plugins directory])
+  plugindir=${myprefix}/${DATADIRNAME}/gcompris
+  AC_SUBST(plugindir)
+
+  dnl Python plugin Directory
+  PYTHON_PLUGIN_DIR="../Resources/${DATADIRNAME}/gcompris/python"
+  AC_SUBST(PYTHON_PLUGIN_DIR)
+
+  dnl System GCompris config directory
+  AC_DEFINE_UNQUOTED(SYSTEM_CONFIG_DIR, "../Resources/etc", [System GCompris config directory])
+
+  dnl Test for gnuchess
+  AC_DEFINE_UNQUOTED(GNUCHESS, "../Resources/bin/gnuchess", Defines where GNU Chess resides on the system)
+
+else
   dnl Set PACKAGE_LOCALE_DIR in config.h.
   AC_DEFINE_UNQUOTED(PACKAGE_LOCALE_DIR, "${myprefix}/${DATADIRNAME}/locale", [GCompris locale directory])
 
@@ -301,10 +353,6 @@ if test "x$platform_win32" = "xno" ; then
   PACKAGE_DATA_DIR="boards"
   AC_SUBST(PACKAGE_DATA_DIR)
   AC_DEFINE_UNQUOTED(PACKAGE_DATA_DIR, "${myprefix}/${DATADIRNAME}", [GCompris data directory])
-
-  dnl Set PACKAGE_HELP_DIR
-  PACKAGE_HELP_DIR="${myprefix}/${DATADIRNAME}/${PACKAGE}/help"
-  AC_SUBST(PACKAGE_HELP_DIR)
 
   dnl Plugin Directory
   my_libdir=`eval echo "${libdir}"`
@@ -319,39 +367,14 @@ if test "x$platform_win32" = "xno" ; then
   dnl System GCompris config directory
   AC_DEFINE_UNQUOTED(SYSTEM_CONFIG_DIR, "/etc", [System GCompris config directory])
 
-else
-  DATADIRNAME="share"
-
-  dnl Set PACKAGE_LOCALE_DIR in config.h for WINDOWS
-  AC_DEFINE_UNQUOTED(PACKAGE_LOCALE_DIR, "../${DATADIRNAME}/locale", [GCompris locale directory])
-
-  dnl Set PACKAGE_DATA_DIR
-  PACKAGE_DATA_DIR="boards"
-  AC_SUBST(PACKAGE_DATA_DIR)
-  AC_DEFINE_UNQUOTED(PACKAGE_DATA_DIR, "../${DATADIRNAME}", [GCompris data directory])
-
-  dnl Set PACKAGE_HELP_DIR
-  PACKAGE_HELP_DIR="${myprefix}/${DATADIRNAME}/gnome/help/gcompris"
-  AC_SUBST(PACKAGE_HELP_DIR)
-
-  dnl Plugin Directory
-  AC_DEFINE_UNQUOTED(PACKAGE_CLIB_DIR, "../${DATADIRNAME}", [Gcompris plugins directory])
-  plugindir=${myprefix}/${DATADIRNAME}/gcompris
-  AC_SUBST(plugindir)
-
-  dnl Python plugin Directory
-  PYTHON_PLUGIN_DIR="${myprefix}/${DATADIRNAME}/gcompris/python"
-  AC_SUBST(PYTHON_PLUGIN_DIR)
+  dnl Test for gnuchess
+  AC_PATH_PROGS(GNUCHESS, gnuchess gnome-gnuchess, no, [/usr/bin:/usr/games:/usr/local/bin:$PATH])
+  if test x$GNUCHESS = xno; then
+    AC_MSG_ERROR(Couldn't find gnuchess, please install the gnuchess package version 5 or above)
+  fi
+  AC_DEFINE_UNQUOTED(GNUCHESS, "$GNUCHESS", Defines where GNU Chess resides on the system)
 
 fi
-
-dnl Test for gnuchess
-AC_PATH_PROGS(GNUCHESS, gnuchess gnome-gnuchess, no, [/usr/bin:/usr/games:/usr/local/bin:$PATH])
-
-if test x$GNUCHESS = xno; then
-  AC_MSG_ERROR(Couldn't find gnuchess, please install the gnuchess package version 5 or above)
-fi
-AC_DEFINE_UNQUOTED(GNUCHESS, "$GNUCHESS", Defines where GNU Chess resides on the system)
 
 AC_PATH_PROG(TEXINFO, makeinfo,no)
 if test x$TEXINFO = xno; then
@@ -443,18 +466,19 @@ AM_CONDITIONAL([SUGAR], [test x$with_sugar = xyes])
 dnl check for python
 AC_ARG_WITH(python,AC_HELP_STRING(
     [--with-python=path],
-    [set the path for python]), python_path=$withval, python_path=no)
+    [set the path for python]), python_path=$withval, python_path=not)
 if test x$python_path = xno ; then
 build_python_plugin="no"
 else
 
 
-if test x$python_path != xno ; then
+if test x$python_path != xnot ; then
 PYTHON=$python_path
 fi
 
 AM_PATH_PYTHON
 AM_CHECK_PYTHON_HEADERS( [build_python_plugin="yes"], [build_python_plugin="no"] )
+
 fi
 
 dnl Finally output the required python variables and automake defines.
@@ -508,10 +532,10 @@ else
     dnl     AM_CHECK_PYMOD(gnomecanvas,,,AC_MSG_ERROR([*** gnome.canvas or gnomecanvas installed but not visible from python ]))
     dnl   fi
 
-dnl    if test x$with_sqlite = xyes; then
-dnl	AM_CHECK_PYMOD(pysqlite2,,,AC_MSG_ERROR([*** pysqlite2 missing ]))
-dnl	REQUIRE_PYTHON="$REQUIRE_PYTHON python-sqlite2"
-dnl    fi
+    if test x$with_sqlite = xyes; then
+	AM_CHECK_PYMOD(pysqlite2,,,AC_MSG_ERROR([*** pysqlite2 missing ]))
+	REQUIRE_PYTHON="$REQUIRE_PYTHON python-sqlite2"
+    fi
 
   else
     AC_MSG_WARN([py-build-only: Skipping python modules dependancies])
