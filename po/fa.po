@@ -3940,8 +3940,8 @@ msgstr "موضوع صفحه"
 
 #: ../src/boards/python/admin/board_list.py:418
 #, python-format
-msgid "Filter Boards difficulty for profile %s"
-msgstr "صفحات صافی ( صفحات فیلتر شده برای کاربران مختلف متفاوت است .)"
+#msgid "Filter Boards difficulty for profile %s"
+#msgstr "صفحات صافی ( صفحات فیلتر شده برای کاربران مختلف متفاوت است .)"
 
 #: ../src/boards/python/admin/board_list.py:449
 #, python-format
@@ -4244,10 +4244,10 @@ msgstr "برای ورود  یک لیست  کاربر از یک فایل،اول 
 
 #: ../src/boards/python/admin/user_list.py:369
 #, python-format
-msgid ""
-"One or more logins are not unique !\n"
-"You need to change them: %s !"
-msgstr "رمزهای ورود به سیستم با هم هماهنگ نیستند لطفا آنها را تغییر دهید"
+#msgid ""
+#"One or more logins are not unique !\n"
+#"You need to change them: %s !"
+#msgstr "رمزهای ورود به سیستم با هم هماهنگ نیستند لطفا آنها را تغییر دهید"
 
 #: ../src/boards/python/anim.py:2224
 msgid "SVG is disabled. Install python xml module to enable it"
@@ -4300,18 +4300,18 @@ msgstr ""
 
 #: ../src/boards/python/gnumch.py:95
 #, python-format
-msgid ", %d"
-msgstr "d% ,"
+#msgid ", %d"
+#msgstr "d% ,"
 
 #: ../src/boards/python/gnumch.py:96
 #, python-format
-msgid " and %d"
-msgstr "و d%"
+#msgid " and %d"
+#msgstr "و d%"
 
 #: ../src/boards/python/gnumch.py:116
 #, python-format
-msgid "%d is divisible by %s."
-msgstr "d% بخشپذیر است بر s%"
+#msgid "%d is divisible by %s."
+#msgstr "d% بخشپذیر است بر s%"
 
 #: ../src/boards/python/gnumch.py:120
 msgid "1 is not a prime number."
@@ -4319,66 +4319,66 @@ msgstr "1 عدد اول نيست"
 
 #: ../src/boards/python/gnumch.py:130
 #, python-format
-msgid "Primes less than %d"
-msgstr "اعداد اول کوچکتر از d%"
+#msgid "Primes less than %d"
+#msgstr "اعداد اول کوچکتر از d%"
 
 #. Translators: You can swap %(x)y elements in the string.
 #: ../src/boards/python/gnumch.py:152
 #, python-format
-msgid ""
-"Multiples of %(d1)d include %(s)s,\n"
-"but %(d2)d is not a multiple of %(d3)d."
-msgstr "مضرب (d1) %شامل   s (s)% اما   (d2)%مضرب  %(d3)نیست."
+#msgid ""
+#"Multiples of %(d1)d include %(s)s,\n"
+#"but %(d2)d is not a multiple of %(d3)d."
+#msgstr "مضرب (d1) %شامل   s (s)% اما   (d2)%مضرب  %(d3)نیست."
 
 #: ../src/boards/python/gnumch.py:163
 #, python-format
-msgid "Factors of %d"
-msgstr "فاکتورهای d%"
+#msgid "Factors of %d"
+#msgstr "فاکتورهای d%"
 
 #: ../src/boards/python/gnumch.py:196
 #, python-format
-msgid "%s are the factors of %d."
-msgstr "s%مضربهای d% هستند"
+#msgid "%s are the factors of %d."
+#msgstr "s%مضربهای d% هستند"
 
 #: ../src/boards/python/gnumch.py:208
 #, python-format
-msgid "Multiples of %d"
-msgstr "مضرب d%"
+#msgid "Multiples of %d"
+#msgstr "مضرب d%"
 
 #: ../src/boards/python/gnumch.py:242
 #, python-format
-msgid "%s = %d"
-msgstr "s = %d%"
+#msgid "%s = %d"
+#msgstr "s = %d%"
 
 #: ../src/boards/python/gnumch.py:253
 #, python-format
-msgid "%d + %d"
-msgstr "d + %d%"
+#msgid "%d + %d"
+#msgstr "d + %d%"
 
 #: ../src/boards/python/gnumch.py:258
 #, python-format
-msgid "%d − %d"
-msgstr "d − %d%"
+#msgid "%d − %d"
+#msgstr "d − %d%"
 
 #: ../src/boards/python/gnumch.py:263
 #, python-format
-msgid "%d × %d"
-msgstr "d × %d%"
+#msgid "%d × %d"
+#msgstr "d × %d%"
 
 #: ../src/boards/python/gnumch.py:267
 #, python-format
-msgid "%d ÷ %d"
-msgstr "d ÷ %d%"
+#msgid "%d ÷ %d"
+#msgstr "d ÷ %d%"
 
 #: ../src/boards/python/gnumch.py:275
 #, python-format
-msgid "Equal to %d"
-msgstr "برابر است  با  d%"
+#msgid "Equal to %d"
+#msgstr "برابر است  با  d%"
 
 #: ../src/boards/python/gnumch.py:296
 #, python-format
-msgid "Not equal to %d"
-msgstr "برابر نيست با d%"
+#msgid "Not equal to %d"
+#msgstr "برابر نيست با d%"
 
 #: ../src/boards/python/gnumch.py:440
 msgid ""
@@ -4415,8 +4415,8 @@ msgstr "بین %d و %d  یک عدد را حدس بزنید"
 #: ../src/boards/python/guessnumber.py:317
 #: ../src/boards/python/guessnumber.py:318
 #, python-format
-msgid "Please enter a number between %d and %d"
-msgstr "لطفا بین d%و d% یک عدد وارد کن"
+#msgid "Please enter a number between %d and %d"
+#msgstr "لطفا بین d%و d% یک عدد وارد کن"
 
 #: ../src/boards/python/guessnumber.py:323
 #: ../src/boards/python/guessnumber.py:324
@@ -4653,8 +4653,8 @@ msgstr "خیر، آن آنجا نیست"
 #. Report what was wrong in the log
 #: ../src/boards/reading.c:682
 #, c-format
-msgid "The word to find was '%s'"
-msgstr "کلمه ای که پیدا شده s% است"
+#msgid "The word to find was '%s'"
+#msgstr "کلمه ای که پیدا شده s% است"
 
 #: ../src/boards/reading.c:685
 #, c-format
@@ -4668,8 +4668,8 @@ msgstr "و آن نمایش داده شده"
 
 #: ../src/boards/scale.c:264
 #, c-format
-msgid "Weight = %s"
-msgstr "وزن = s%"
+#msgid "Weight = %s"
+#msgstr "وزن = s%"
 
 #: ../src/boards/scale.c:713
 msgid "Take care, you can drop masses on both sides of the scale."
@@ -4678,20 +4678,20 @@ msgstr "دقت کن ، می تونی وزنه ها رو از دو طرف کفه 
 #: ../src/boards/target.c:280
 #: ../src/boards/target.c:545
 #, c-format
-msgid "Points = %s"
-msgstr "امتياز بازي = s %"
+#msgid "Points = %s"
+#msgstr "امتياز بازي = s %"
 
 #: ../src/boards/target.c:402
 #, c-format
-msgid ""
-"Wind speed = %d\n"
-"kilometers/hour"
-msgstr "سرعت باد= d% کیلومتر در ساعت"
+#msgid ""
+#"Wind speed = %d\n"
+#"kilometers/hour"
+#msgstr "سرعت باد= d% کیلومتر در ساعت"
 
 #: ../src/boards/target.c:469
 #, c-format
-msgid "Distance to target = %d meters"
-msgstr "مقدار فاصله تا هدف = d% متر"
+#msgid "Distance to target = %d meters"
+#msgstr "مقدار فاصله تا هدف = d% متر"
 
 #: ../src/boards/wordprocessor.c:54
 msgid "Research"
@@ -5111,15 +5111,15 @@ msgstr "نتیجه"
 
 #: ../src/gcompris/config.c:386
 #, c-format
-msgid "Couldn't open skin dir: %s"
-msgstr "غیر قابل باز کردن پوشه : s%"
+#msgid "Couldn't open skin dir: %s"
+#msgstr "غیر قابل باز کردن پوشه : s%"
 
 #: ../src/gcompris/config.c:417
 #: ../src/gcompris/config.c:867
 #: ../src/gcompris/config.c:881
 #, c-format
-msgid "Skin : %s"
-msgstr "پوشه : s%"
+#msgid "Skin : %s"
+#msgstr "پوشه : s%"
 
 #: ../src/gcompris/config.c:419
 msgid "SKINS NOT FOUND"
@@ -5277,34 +5277,34 @@ msgstr "از اجرای نمونه های چند گانه در جی کامپری
 
 #: ../src/gcompris/gcompris.c:848
 #, c-format
-msgid ""
-"GCompris is free software released under the GPL License. In order to support its development, the Windows version provides only %d of the %d activities. You can get the full version for a small fee at\n"
-"<http://gcompris.net>\n"
-"The GNU/Linux version does not have this restriction. Note that GCompris is being developed to free schools from monopolistic software vendors. If you also believe that we should teach freedom to children, please consider using GNU/Linux. Get more information at FSF:\n"
-"<http://www.fsf.org/philosophy>"
-msgstr ""
-"جی کامپریز یک نرم افزار رایگان است که تحت لیسانسGPL قرار داشته است .برای پشتیبانی این محصول ،نسخه ویندوز فقط این فعالیت ها را فراهم میکند.شما می توانید برای اخذ نسخه کامل به آدرس زیر مراجعه نمایید.<http://gcompris.net>\n"
-"  این نسخه  GNU/Linuxچنین محدودیتی ندارد.با توجه به اینکه جی کامپریز طراحی شده  برای مدارس نمایندگی انحصاری نرم افزارهای مدارس را داراست .اگر شما اعتقاد دارید که این نرم افزار صلاحیت آموزش به کودکان را داراد ،لطفاٌ از GNU/Linux استفاده نمایید. برای اخذ اطلاعات بیشتر مراجعه نمایید به:<http://www.fsf.org/philosophy>"
+#msgid ""
+#"GCompris is free software released under the GPL License. In order to support its development, the Windows version provides only %d of the %d activities. You can get the full version for a small fee at\n"
+#"<http://gcompris.net>\n"
+#"The GNU/Linux version does not have this restriction. Note that GCompris is being developed to free schools from monopolistic software vendors. If you also believe that we should teach freedom to children, please consider using GNU/Linux. Get more information at FSF:\n"
+#"<http://www.fsf.org/philosophy>"
+#msgstr ""
+#"جی کامپریز یک نرم افزار رایگان است که تحت لیسانسGPL قرار داشته است .برای پشتیبانی این محصول ،نسخه ویندوز فقط این فعالیت ها را فراهم میکند.شما می توانید برای اخذ نسخه کامل به آدرس زیر مراجعه نمایید.<http://gcompris.net>\n"
+#"  این نسخه  GNU/Linuxچنین محدودیتی ندارد.با توجه به اینکه جی کامپریز طراحی شده  برای مدارس نمایندگی انحصاری نرم افزارهای مدارس را داراست .اگر شما اعتقاد دارید که این نرم افزار صلاحیت آموزش به کودکان را داراد ،لطفاٌ از GNU/Linux استفاده نمایید. برای اخذ اطلاعات بیشتر مراجعه نمایید به:<http://www.fsf.org/philosophy>"
 
 #: ../src/gcompris/gcompris.c:1446
 #, c-format
-msgid "GCompris won't start because the lock file is less than %d seconds old.\n"
-msgstr "جی کامپریز شروع نخواهد شد زیرا فایل قفل شده d% کمتر از فایل قدیمی است.\n"
+#msgid "GCompris won't start because the lock file is less than %d seconds old.\n"
+#msgstr "جی کامپریز شروع نخواهد شد زیرا فایل قفل شده d% کمتر از فایل قدیمی است.\n"
 
 #: ../src/gcompris/gcompris.c:1448
 #, c-format
-msgid "The lock file is: %s\n"
-msgstr "قفل پرونده s%است \n"
+#msgid "The lock file is: %s\n"
+#msgstr "قفل پرونده s%است \n"
 
 #: ../src/gcompris/gcompris.c:1576
 #, c-format
-msgid ""
-"GCompris\n"
-"Version: %s\n"
-"Licence: GPL\n"
-"More info at http://gcompris.net\n"
-msgstr "جی کامپریزمتن : s%مجوز:GPL برای اطلاعات بیشتر به http://gcompris.net"
-" مراجعه کنید\n"
+#msgid ""
+#"GCompris\n"
+#"Version: %s\n"
+#"Licence: GPL\n"
+#"More info at http://gcompris.net\n"
+#msgstr "جی کامپریزمتن : s%مجوز:GPL برای اطلاعات بیشتر به http://gcompris.net"
+#" مراجعه کنید\n"
 
 #. check the list of possible values for -l, then exit
 #: ../src/gcompris/gcompris.c:1660
@@ -5368,6 +5368,6 @@ msgstr "زمان سپری شده"
 
 #: ../src/gcompris/timer.c:338
 #, c-format
-msgid "Remaining Time = %d"
-msgstr "زمان باقی مانده=d%"
+#msgid "Remaining Time = %d"
+#msgstr "زمان باقی مانده=d%"
 
