@@ -20,21 +20,20 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug."
-"cgi?product=gcompris&component=general\n"
-"POT-Creation-Date: 2010-02-21 20:21+0000\n"
-"PO-Revision-Date: 2010-03-06 16:27+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-03-21 23:41+0200\n"
+"PO-Revision-Date: 2010-03-21 22:24+0200\n"
 "Last-Translator: Yannis Kaskamanidis <kiolalis@gmail.com>\n"
-"Language-Team: Ελληνικά <i18ngr@lists.hellug.gr"
-">\n"
-">\n"
-">\n"
-">\n"
-">\n"
-">\n"
+"Language-Team: Ελληνικά <i18ngr@lists.hellug.gr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+">\n"
+">\n"
+">\n"
+">\n"
+">\n"
+">\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.0\n"
 "X-Poedit-Language: Greek\n"
@@ -320,7 +319,6 @@ msgstr ""
 "προσπαθήστε πάλι."
 
 #: ../nsis_translations.desktop.in.h:2
-#| msgid "The race is already being run"
 msgid "The installer is already running."
 msgstr "Ο εγκαταστάτης εκτελείται ήδη."
 
@@ -338,19 +336,17 @@ msgid ""
 "continue?$\\r$\\rNote: Any non-standard plugins that you may have installed "
 "will be deleted.$\\rGCompris user settings will not be affected."
 msgstr ""
-"Ο παλιός κατάλογος του GCompris πρόκειται να διαγραφεί. Θέλετε να "
-"συνεχίσετε;$\\r$\\rΣημείωση: όλα τα μη επίσημα πρόσθετα που πιθανόν "
-"έχετε εγκαταστήσει θα διαγραφούν.$\\rΟι ρυθμίσεις χρήστη του "
-"GCompris δεν θα επηρεαστούν."
+"Ο παλιός κατάλογος του GCompris πρόκειται να διαγραφεί. Θέλετε να συνεχίσετε;"
+"$\\r$\\rΣημείωση: όλα τα μη επίσημα πρόσθετα που πιθανόν έχετε εγκαταστήσει "
+"θα διαγραφούν.$\\rΟι ρυθμίσεις χρήστη του GCompris δεν θα επηρεαστούν."
 
 #: ../nsis_translations.desktop.in.h:6
 msgid ""
 "the uninstaller could not find registry entries for GCompris.$\\rIt is "
 "likely that another user installed this application."
 msgstr ""
-"Ο απεγκαταστάτης δεν μπόρεσε να βρει καταχωρήσεις μητρώου "
-"για το GCompris.$\\rΦαίνεται πως κάποιος άλλος χρήστης έχει "
-"εγκαταστήσει αυτή την εφαρμογή."
+"Ο απεγκαταστάτης δεν μπόρεσε να βρει καταχωρήσεις μητρώου για το GCompris.$"
+"\\rΦαίνεται πως κάποιος άλλος χρήστης έχει εγκαταστήσει αυτή την εφαρμογή."
 
 #: ../src/administration-activity/admin/board_list.py:88
 msgid "Select a profile:"
@@ -2746,7 +2742,7 @@ msgid ""
 msgstr ""
 "Το GCompris είναι ένα πακέτο GNU και διέπεται από τους όρους της GNU/GPL"
 
-#: ../src/gcompris/about.c:220 ../src/gcompris/config.c:447
+#: ../src/gcompris/about.c:220 ../src/gcompris/config.c:448
 #: ../src/gcompris/dialog.c:103 ../src/gcompris/help.c:359
 #: ../src/gcompris/images_selector.c:307
 msgid "OK"
@@ -2846,267 +2842,271 @@ msgid "Arabic"
 msgstr "Αραβικά"
 
 #: ../src/gcompris/config.c:63
+msgid "Asturian"
+msgstr "Αστουρική"
+
+#: ../src/gcompris/config.c:64
 msgid "Turkish (Azerbaijan)"
 msgstr "Τουρκικά (Αζερμπαϊτζάν)"
 
-#: ../src/gcompris/config.c:64
+#: ../src/gcompris/config.c:65
 msgid "Bulgarian"
 msgstr "Βουλγαρικά"
 
-#: ../src/gcompris/config.c:65
+#: ../src/gcompris/config.c:66
 msgid "Breton"
 msgstr "Βρετονικά"
 
-#: ../src/gcompris/config.c:66
+#: ../src/gcompris/config.c:67
 msgid "Catalan"
 msgstr "Καταλανικά"
 
-#: ../src/gcompris/config.c:67
+#: ../src/gcompris/config.c:68
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:7
 msgid "Czech Republic"
 msgstr "Τσεχία"
 
-#: ../src/gcompris/config.c:68
+#: ../src/gcompris/config.c:69
 msgid "Danish"
 msgstr "Δανέζικα"
 
-#: ../src/gcompris/config.c:69
+#: ../src/gcompris/config.c:70
 msgid "German"
 msgstr "Γερμανικά"
 
-#: ../src/gcompris/config.c:70
+#: ../src/gcompris/config.c:71
 msgid "Dzongkha"
 msgstr "Ντζόγκα (Μπουτάν)"
 
-#: ../src/gcompris/config.c:71
+#: ../src/gcompris/config.c:72
 msgid "Greek"
 msgstr "Ελληνικά"
 
-#: ../src/gcompris/config.c:72
+#: ../src/gcompris/config.c:73
 msgid "English (Canada)"
 msgstr "Αγγλικά (Καναδάς)"
 
-#: ../src/gcompris/config.c:73
+#: ../src/gcompris/config.c:74
 msgid "English (Great Britain)"
 msgstr "Αγγλικά (Μεγάλη Βρετανία)"
 
-#: ../src/gcompris/config.c:74
+#: ../src/gcompris/config.c:75
 msgid "English (United States)"
 msgstr "Αγγλικά (Ηνωμένων Πολιτειών)"
 
-#: ../src/gcompris/config.c:75
+#: ../src/gcompris/config.c:76
 msgid "Spanish"
 msgstr "Ισπανικά"
 
-#: ../src/gcompris/config.c:76
+#: ../src/gcompris/config.c:77
 msgid "Basque"
 msgstr "Βασκικά"
 
-#: ../src/gcompris/config.c:77
+#: ../src/gcompris/config.c:78
 msgid "Persian"
 msgstr "Περσικά"
 
-#: ../src/gcompris/config.c:78
+#: ../src/gcompris/config.c:79
 msgid "Finnish"
 msgstr "Φινλανδικό"
 
-#: ../src/gcompris/config.c:79
+#: ../src/gcompris/config.c:80
 msgid "French"
 msgstr "Γαλλικά"
 
-#: ../src/gcompris/config.c:80
+#: ../src/gcompris/config.c:81
 msgid "Irish (Gaelic)"
 msgstr "Ιρλανδική (Γαελική)"
 
-#: ../src/gcompris/config.c:81
+#: ../src/gcompris/config.c:82
 msgid "Gujarati"
 msgstr "Γκουτζαράτι"
 
-#: ../src/gcompris/config.c:82
+#: ../src/gcompris/config.c:83
 msgid "Hebrew"
 msgstr "Εβραϊκά"
 
-#: ../src/gcompris/config.c:83
+#: ../src/gcompris/config.c:84
 msgid "Hindi"
 msgstr "Χίντι"
 
-#: ../src/gcompris/config.c:84
+#: ../src/gcompris/config.c:85
 msgid "Croatian"
 msgstr "Κροατικά"
 
-#: ../src/gcompris/config.c:85
+#: ../src/gcompris/config.c:86
 msgid "Hungarian"
 msgstr "Ουγγρικό"
 
-#: ../src/gcompris/config.c:86
+#: ../src/gcompris/config.c:87
 msgid "Indonesian"
 msgstr "Ινδονησιακή"
 
-#: ../src/gcompris/config.c:87
+#: ../src/gcompris/config.c:88
 msgid "Italian"
 msgstr "Italian"
 
-#: ../src/gcompris/config.c:88
+#: ../src/gcompris/config.c:89
 msgid "Japanese"
 msgstr "Ιαπωνικά"
 
-#: ../src/gcompris/config.c:89
+#: ../src/gcompris/config.c:90
 msgid "Georgian"
 msgstr "Γεωργιανικά"
 
-#: ../src/gcompris/config.c:90
+#: ../src/gcompris/config.c:91
 msgid "Korean"
 msgstr "Κορεάτικα"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:92
 msgid "Lithuanian"
 msgstr "Λιθουανική"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:93
 msgid "Macedonian"
 msgstr "ΠΓΔΜ"
 
-#: ../src/gcompris/config.c:93
+#: ../src/gcompris/config.c:94
 msgid "Malayalam"
 msgstr "Μαλαγιάλαμ"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:95
 msgid "Marathi"
 msgstr "Μαράθι"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:96
 msgid "Malay"
 msgstr "Μαλαισιακή"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:97
 msgid "Norwegian Bokmal"
 msgstr "Norwegian Bokmal"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:98
 msgid "Nepal"
 msgstr "Νεπάλ"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:99
 msgid "Dutch"
 msgstr "Dutch"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:100
 msgid "Norwegian Nynorsk"
 msgstr "Norwegian Nynorsk"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:101
 msgid "Occitan (languedocien)"
 msgstr "Οξιτανικά (Νότια Γαλλία)"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:102
 msgid "Punjabi"
 msgstr "Πουντζάμπι"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:103
 msgid "Polish"
 msgstr "Polish"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:104
 msgid "Portuguese (Brazil)"
 msgstr "Πορτογαλικά (Βραζιλίας)"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:105
 msgid "Portuguese"
 msgstr "Πορτογαλικό"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:106
 msgid "Romanian"
 msgstr "Ρουμάνικα"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:107
 msgid "Russian"
 msgstr "Ρωσικά"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:108
 msgid "Kinyarwanda"
 msgstr "Kinyarwanda"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:109
 msgid "Slovak"
 msgstr "Σλοβακική"
 
-#: ../src/gcompris/config.c:109
+#: ../src/gcompris/config.c:110
 msgid "Slovenian"
 msgstr "Σλοβενικό"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:111
 msgid "Somali"
 msgstr "Σομαλικά"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:112
 msgid "Albanian"
 msgstr "Αλβανικά"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:113
 msgid "Serbian (Latin)"
 msgstr "Σερβικά/Λατινικά"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:114
 msgid "Serbian"
 msgstr "Σερβική"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:115
 msgid "Swedish"
 msgstr "Σουηδικά"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:116
 msgid "Tamil"
 msgstr "Ταμίλ"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:117
 msgid "Thai"
 msgstr "Τάι"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:118
 msgid "Turkish"
 msgstr "Τουρκικά"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:119
 msgid "Ukrainian"
 msgstr "Ουκρανικά"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:120
 msgid "Urdu"
 msgstr "Ούρντου"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:121
 msgid "Vietnamese"
 msgstr "Βιετναμέζικα"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:122
 msgid "Walloon"
 msgstr "Walloon"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:123
 msgid "Chinese (Simplified)"
 msgstr "Κινέζικα (απλουστευμένα)"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:124
 msgid "Chinese (Traditional)"
 msgstr "Κινέζικα (Παραδοσιακά)"
 
-#: ../src/gcompris/config.c:128
+#: ../src/gcompris/config.c:129
 msgid "No time limit"
 msgstr "Χωρίς όριο χρόνου"
 
-#: ../src/gcompris/config.c:129
+#: ../src/gcompris/config.c:130
 msgid "Slow timer"
 msgstr "Αργό χρονόμετρο"
 
-#: ../src/gcompris/config.c:130
+#: ../src/gcompris/config.c:131
 msgid "Normal timer"
 msgstr "Κανονικό χρονόμετρο"
 
-#: ../src/gcompris/config.c:131
+#: ../src/gcompris/config.c:132
 msgid "Fast timer"
 msgstr "Γρήγορο χρονόμετρο"
 
-#: ../src/gcompris/config.c:135
+#: ../src/gcompris/config.c:136
 msgid ""
 "<i>Use Gcompris administration module\n"
 "to filter boards</i>"
@@ -3115,42 +3115,42 @@ msgstr ""
 "GCompris για να καθορίσετε το\n"
 "επίπεδο δυσκολίας για κάθε προφίλ</i>"
 
-#: ../src/gcompris/config.c:187
+#: ../src/gcompris/config.c:188
 msgid "GCompris Configuration"
 msgstr "Ρύθμιση GCompris"
 
-#: ../src/gcompris/config.c:258
+#: ../src/gcompris/config.c:259
 msgid "Fullscreen"
 msgstr "Πλήρης οθόνη"
 
-#: ../src/gcompris/config.c:284
+#: ../src/gcompris/config.c:285
 msgid "Music"
 msgstr "Μουσική"
 
-#: ../src/gcompris/config.c:310
+#: ../src/gcompris/config.c:311
 msgid "Effect"
 msgstr "Εφέ"
 
-#: ../src/gcompris/config.c:335 ../src/gcompris/sugar.c:82
+#: ../src/gcompris/config.c:336 ../src/gcompris/sugar.c:82
 msgid "Zoom"
 msgstr "Εστίαση"
 
-#: ../src/gcompris/config.c:372
+#: ../src/gcompris/config.c:373
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Αδυναμία ανοίγματος καταλόγου skin: %s"
 
-#: ../src/gcompris/config.c:403 ../src/gcompris/config.c:807
-#: ../src/gcompris/config.c:821
+#: ../src/gcompris/config.c:404 ../src/gcompris/config.c:813
+#: ../src/gcompris/config.c:827
 #, c-format
 msgid "Skin : %s"
 msgstr "Θέμα: %s"
 
-#: ../src/gcompris/config.c:405
+#: ../src/gcompris/config.c:406
 msgid "SKINS NOT FOUND"
 msgstr "ΔΕΝ ΒΡΕΘΗΚΑΝ ΤΑ ΘΕΜΑΤΑ"
 
-#: ../src/gcompris/config.c:487
+#: ../src/gcompris/config.c:488
 msgid "English (United State)"
 msgstr "Αγγλικά (Ηνωμένων Πολιτειών)"
 
@@ -3491,7 +3491,6 @@ msgid "Help"
 msgstr "Βοήθεια"
 
 #: ../src/gcompris/sugar.c:71
-#| msgid "boat"
 msgid "About"
 msgstr "Σχετικά"
 
@@ -3500,7 +3499,6 @@ msgid "Previous level"
 msgstr "Προηγούμενο επίπεδο"
 
 #: ../src/gcompris/sugar.c:75
-#| msgid "%d (New level)"
 msgid "Next level"
 msgstr "Επόμενο επίπεδο"
 
@@ -3513,7 +3511,6 @@ msgid "Settings"
 msgstr "Ρυθμίσεις"
 
 #: ../src/gcompris/sugar.c:84
-#| msgid "back"
 msgid "Back"
 msgstr "Πίσω"
 
@@ -4976,7 +4973,7 @@ msgstr ""
 "Εμφανίζεται ένα χέρι. Είναι το αριστερό ή το δεξί; Κάνε κλικ στο κόκκινο "
 "κουμπί για το αριστερό ή στο πράσινο κουμπί για το δεξί χέρι."
 
-#: ../src/lightsoff-activity/lightsoff.py:417
+#: ../src/lightsoff-activity/lightsoff.py:442
 msgid ""
 "Switch off all the lights, I have to go to sleep.\n"
 "If you need help, click on me."
@@ -5003,11 +5000,11 @@ msgid ""
 "of the sky depend on the number of clicks needed to solve the puzzle. If you "
 "click on Tux, the solution is shown."
 msgstr ""
-"Η επίπτωση που έχει το πάτημα ενός πλήκτρο είναι η εναλλαγή της "
-"κατάστασής του, καθώς και των άμεσων γειτονικών, κάθετων και "
-"οριζόντιων, πλήκτρων. Ο ήλιος και το χρώμα τ' ουρανού εξαρτώνται "
-"από τον αριθμό των κλικ που χρειάζονται για τη λύση του παζλ. "
-"Εάν κάνεις κλικ στον Tux, θα εμφανιστεί η λύση."
+"Η επίπτωση που έχει το πάτημα ενός πλήκτρο είναι η εναλλαγή της κατάστασής "
+"του, καθώς και των άμεσων γειτονικών, κάθετων και οριζόντιων, πλήκτρων. Ο "
+"ήλιος και το χρώμα τ' ουρανού εξαρτώνται από τον αριθμό των κλικ που "
+"χρειάζονται για τη λύση του παζλ. Εάν κάνεις κλικ στον Tux, θα εμφανιστεί η "
+"λύση."
 
 #: ../src/lightsoff-activity/lightsoff.xml.in.h:5
 msgid ""
@@ -5015,9 +5012,9 @@ msgid ""
 "resource to know more about the Lights Off game: &lt;http://www.haar.clara."
 "co.uk/Lights/solving.html&gt;"
 msgstr ""
-"Ο αλγόριθμος επίλυσης που περιγράφεται στο haar.clara.co.uk είναι "
-"μια αξιόλογη πηγή για να μάθεις περισσότερα σχετικά με το παιχνίδι "
-"Κλείσε τα φώτα: &lt;http://www.haar.clara.co.uk/Lights/solving.html&gt;"
+"Ο αλγόριθμος επίλυσης που περιγράφεται στο haar.clara.co.uk είναι μια "
+"αξιόλογη πηγή για να μάθεις περισσότερα σχετικά με το παιχνίδι Κλείσε τα "
+"φώτα: &lt;http://www.haar.clara.co.uk/Lights/solving.html&gt;"
 
 #: ../src/login-activity/login.py:101
 msgid "Profile: "
@@ -6173,11 +6170,11 @@ msgstr "Κάνε διπλό κλι με το ποντίκι πάνω στη μπ
 msgid "Penalty kick"
 msgstr "Κτύπημα πέναλτι"
 
-#: ../src/photohunter-activity/photohunter.c:511
+#: ../src/photohunter-activity/photohunter.c:512
 msgid "Error: Absolutely no photo found in the data directory"
 msgstr "ΣΦΑΛΜΑ: Δεν βρέθηκε καμία φωτογραφία στον κατάλογο δεδομένων."
 
-#: ../src/photohunter-activity/photohunter.c:574
+#: ../src/photohunter-activity/photohunter.c:575
 msgid "Click on the differences between the two images."
 msgstr "Βρείτε τις διαφορές μεταξύ των δύο εικόνων."
 
