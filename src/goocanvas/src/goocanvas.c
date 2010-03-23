@@ -16,43 +16,43 @@
  *
  * <informalexample><programlisting>
  *  &num;include &lt;goocanvas.h&gt;
- *  
+ *
  *  static gboolean on_rect_button_press (GooCanvasItem  *view,
  *                                        GooCanvasItem  *target,
  *                                        GdkEventButton *event,
  *                                        gpointer        data);
- *  
+ *
  *  int
  *  main (int argc, char *argv[])
  *  {
  *    GtkWidget *window, *scrolled_win, *canvas;
  *    GooCanvasItem *root, *rect_item, *text_item;
- *  
+ *
  *    /&ast; Initialize GTK+. &ast;/
  *    gtk_set_locale&nbsp;();
  *    gtk_init (&amp;argc, &amp;argv);
- *  
+ *
  *    /&ast; Create the window and widgets. &ast;/
  *    window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
  *    gtk_window_set_default_size (GTK_WINDOW (window), 640, 600);
  *    gtk_widget_show (window);
  *    g_signal_connect (window, "delete_event", (GtkSignalFunc) on_delete_event,
  *                      NULL);
- *  
+ *
  *    scrolled_win = gtk_scrolled_window_new (NULL, NULL);
  *    gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrolled_win),
  *                                         GTK_SHADOW_IN);
  *    gtk_widget_show (scrolled_win);
  *    gtk_container_add (GTK_CONTAINER (window), scrolled_win);
- *  
+ *
  *    canvas = goo_canvas_new&nbsp;();
  *    gtk_widget_set_size_request (canvas, 600, 450);
  *    goo_canvas_set_bounds (GOO_CANVAS (canvas), 0, 0, 1000, 1000);
  *    gtk_widget_show (canvas);
  *    gtk_container_add (GTK_CONTAINER (scrolled_win), canvas);
- *  
+ *
  *    root = goo_canvas_get_root_item (GOO_CANVAS (canvas));
- *  
+ *
  *    /&ast; Add a few simple items. &ast;/
  *    rect_item = goo_canvas_rect_new (root, 100, 100, 400, 400,
  *                                     "line-width", 10.0,
@@ -61,24 +61,24 @@
  *                                     "stroke-color", "yellow",
  *                                     "fill-color", "red",
  *                                     NULL);
- *  
+ *
  *    text_item = goo_canvas_text_new (root, "Hello World", 300, 300, -1,
  *                                     GTK_ANCHOR_CENTER,
  *                                     "font", "Sans 24",
  *                                     NULL);
  *    goo_canvas_item_rotate (text_item, 45, 300, 300);
- *  
+ *
  *    /&ast; Connect a signal handler for the rectangle item. &ast;/
  *    g_signal_connect (rect_item, "button_press_event",
  *                      (GtkSignalFunc) on_rect_button_press, NULL);
- *  
+ *
  *    /&ast; Pass control to the GTK+ main event loop. &ast;/
  *    gtk_main&nbsp;();
- *  
+ *
  *    return 0;
  *  }
- *  
- *  
+ *
+ *
  *  /&ast; This handles button presses in item views. We simply output a message to
  *     the console. &ast;/
  *  static gboolean
@@ -90,7 +90,7 @@
  *    g_print ("rect item received button press event\n");
  *    return TRUE;
  *  }
- *  
+ *
  * </programlisting></informalexample>
  */
 #include <config.h>
@@ -135,7 +135,7 @@ enum {
   PROP_RESOLUTION_Y,
   PROP_BACKGROUND_COLOR,
   PROP_BACKGROUND_COLOR_RGB,
-  PROP_INTEGER_LAYOUT, 
+  PROP_INTEGER_LAYOUT,
   PROP_CLEAR_BACKGROUND,
   PROP_REDRAW_WHEN_SCROLLED
 };
@@ -410,14 +410,14 @@ goo_canvas_class_init (GooCanvasClass *klass)
 							 FALSE,
 							 G_PARAM_READWRITE));
 
-  g_object_class_install_property (gobject_class, PROP_CLEAR_BACKGROUND, 
+  g_object_class_install_property (gobject_class, PROP_CLEAR_BACKGROUND,
                                    g_param_spec_boolean ("clear-background",
 							 _("Clear Background"),
 							 _("If the background is cleared before the canvas is painted"),
 							 TRUE,
 							 G_PARAM_READWRITE));
 
-  g_object_class_install_property (gobject_class, PROP_REDRAW_WHEN_SCROLLED, 
+  g_object_class_install_property (gobject_class, PROP_REDRAW_WHEN_SCROLLED,
                                    g_param_spec_boolean ("redraw-when-scrolled",
 							 _("Redraw When Scrolled"),
 							 _("If the canvas is completely redrawn when scrolled, to reduce the flicker of static items"),
@@ -532,13 +532,13 @@ goo_canvas_init (GooCanvas *canvas)
 
 /**
  * goo_canvas_new:
- * 
+ *
  * Creates a new #GooCanvas widget.
  *
  * A #GooCanvasGroup is created automatically as the root item of the canvas,
  * though this can be overriden with goo_canvas_set_root_item() or
  * goo_canvas_set_root_item_model().
- * 
+ *
  * Returns: a new #GooCanvas widget.
  **/
 GtkWidget*
@@ -624,9 +624,9 @@ goo_canvas_finalize (GObject *object)
 /**
  * goo_canvas_get_default_line_width:
  * @canvas: a #GooCanvas.
- * 
+ *
  * Gets the default line width, which depends on the current units setting.
- * 
+ *
  * Returns: the default line width of the canvas.
  **/
 gdouble
@@ -662,9 +662,9 @@ goo_canvas_get_default_line_width (GooCanvas *canvas)
 /**
  * goo_canvas_create_cairo_context:
  * @canvas: a #GooCanvas.
- * 
+ *
  * Creates a cairo context, initialized with the default canvas settings.
- * 
+ *
  * Returns: a new cairo context. It should be freed with cairo_destroy().
  **/
 cairo_t*
@@ -889,9 +889,9 @@ goo_canvas_set_property    (GObject            *object,
 /**
  * goo_canvas_get_root_item_model:
  * @canvas: a #GooCanvas.
- * 
+ *
  * Gets the root item model of the canvas.
- * 
+ *
  * Returns: the root item model, or %NULL if there is no root item model.
  **/
 GooCanvasItemModel*
@@ -907,7 +907,7 @@ goo_canvas_get_root_item_model (GooCanvas	*canvas)
  * goo_canvas_set_root_item_model:
  * @canvas: a #GooCanvas.
  * @model: a #GooCanvasItemModel.
- * 
+ *
  * Sets the root item model of the canvas.
  *
  * A hierarchy of canvas items will be created, corresponding to the hierarchy
@@ -951,7 +951,11 @@ goo_canvas_set_root_item_model (GooCanvas          *canvas,
   goo_canvas_item_set_canvas (canvas->root_item, canvas);
   canvas->need_update = TRUE;
 
+#if GTK_CHECK_VERSION(2, 19, 0)
+  if (gtk_widget_get_realized (GTK_WIDGET(canvas)))
+#else
   if (GTK_WIDGET_REALIZED (canvas))
+#endif
     goo_canvas_update (canvas);
 
   gtk_widget_queue_draw (GTK_WIDGET (canvas));
@@ -961,9 +965,9 @@ goo_canvas_set_root_item_model (GooCanvas          *canvas,
 /**
  * goo_canvas_get_root_item:
  * @canvas: a #GooCanvas.
- * 
+ *
  * Gets the root item of the canvas, usually a #GooCanvasGroup.
- * 
+ *
  * Returns: the root item, or %NULL if there is no root item.
  **/
 GooCanvasItem*
@@ -979,7 +983,7 @@ goo_canvas_get_root_item (GooCanvas     *canvas)
  * goo_canvas_set_root_item:
  * @canvas: a #GooCanvas.
  * @item: the root canvas item.
- * 
+ *
  * Sets the root item of the canvas. Any existing canvas items are removed.
  **/
 void
@@ -1007,7 +1011,11 @@ goo_canvas_set_root_item    (GooCanvas		*canvas,
 
   canvas->need_update = TRUE;
 
+#if GTK_CHECK_VERSION(2, 19, 0)
+  if (gtk_widget_get_realized (GTK_WIDGET(canvas)))
+#else
   if (GTK_WIDGET_REALIZED (canvas))
+#endif
     goo_canvas_update (canvas);
 
   gtk_widget_queue_draw (GTK_WIDGET (canvas));
@@ -1082,7 +1090,11 @@ goo_canvas_set_static_root_item    (GooCanvas		*canvas,
 
   canvas->need_update = TRUE;
 
+#if GTK_CHECK_VERSION(2, 19, 0)
+  if (gtk_widget_get_realized (GTK_WIDGET(canvas)))
+#else
   if (GTK_WIDGET_REALIZED (canvas))
+#endif
     goo_canvas_update (canvas);
 
   gtk_widget_queue_draw (GTK_WIDGET (canvas));
@@ -1171,7 +1183,11 @@ goo_canvas_set_static_root_item_model (GooCanvas	  *canvas,
   goo_canvas_item_set_is_static (priv->static_root_item, TRUE);
   canvas->need_update = TRUE;
 
+#if GTK_CHECK_VERSION(2, 19, 0)
+  if (gtk_widget_get_realized (GTK_WIDGET(canvas)))
+#else
   if (GTK_WIDGET_REALIZED (canvas))
+#endif
     goo_canvas_update (canvas);
 
   gtk_widget_queue_draw (GTK_WIDGET (canvas));
@@ -1182,7 +1198,7 @@ goo_canvas_set_static_root_item_model (GooCanvas	  *canvas,
  * goo_canvas_get_item:
  * @canvas: a #GooCanvas.
  * @model: a #GooCanvasItemModel.
- * 
+ *
  * Gets the canvas item associated with the given #GooCanvasItemModel.
  * This is only useful when goo_canvas_set_root_item_model() has been used to
  * set a model for the canvas.
@@ -1228,9 +1244,9 @@ goo_canvas_get_item (GooCanvas          *canvas,
  * @y: the y coordinate of the point
  * @is_pointer_event: %TRUE if the "pointer-events" property of
  *  items should be used to determine which parts of the item are tested.
- * 
+ *
  * Gets the item at the given point.
- * 
+ *
  * Returns: the item found at the given point, or %NULL if no item was found.
  **/
 GooCanvasItem*
@@ -1282,9 +1298,9 @@ goo_canvas_get_item_at (GooCanvas     *canvas,
  * @y: the y coordinate of the point
  * @is_pointer_event: %TRUE if the "pointer-events" property of
  *  items should be used to determine which parts of the item are tested.
- * 
+ *
  * Gets all items at the given point.
- * 
+ *
  * Returns: a list of items found at the given point, with the top item at
  *  the start of the list, or %NULL if no items were found. The list must be
  *  freed with g_list_free().
@@ -1398,9 +1414,9 @@ goo_canvas_get_items_in_area_recurse (GooCanvas		    *canvas,
  *  should be returned.
  * @include_containers: %TRUE if containers should be checked as well as
  *  normal items.
- * 
+ *
  * Gets a list of items inside or outside a given area.
- * 
+ *
  * Returns: a list of items in the given area, or %NULL if no items are found.
  *  The list should be freed with g_list_free().
  **/
@@ -1518,7 +1534,7 @@ goo_canvas_realize (GtkWidget *widget)
 }
 
 
-static void 
+static void
 goo_canvas_unrealize (GtkWidget *widget)
 {
   GooCanvas *canvas;
@@ -1540,7 +1556,7 @@ goo_canvas_unrealize (GtkWidget *widget)
 }
 
 
-static void 
+static void
 goo_canvas_map (GtkWidget *widget)
 {
   GooCanvas *canvas;
@@ -1558,9 +1574,17 @@ goo_canvas_map (GtkWidget *widget)
       GooCanvasWidget *witem = tmp_list->data;
       tmp_list = tmp_list->next;
 
+#if GTK_CHECK_VERSION(2, 19, 0)
+      if (witem->widget && gtk_widget_get_visible ((GTK_WIDGET(witem->widget))))
+#else
       if (witem->widget && GTK_WIDGET_VISIBLE (witem->widget))
+#endif
 	{
+#if GTK_CHECK_VERSION(2, 19, 0)
+	  if (!gtk_widget_get_mapped (GTK_WIDGET(witem->widget)))
+#else
 	  if (!GTK_WIDGET_MAPPED (witem->widget))
+#endif
 	    gtk_widget_map (witem->widget);
 	}
     }
@@ -1577,7 +1601,11 @@ goo_canvas_style_set (GtkWidget *widget,
   if (GTK_WIDGET_CLASS (goo_canvas_parent_class)->style_set)
     GTK_WIDGET_CLASS (goo_canvas_parent_class)->style_set (widget, old_style);
 
+#if GTK_CHECK_VERSION(2, 19, 0)
+  if (gtk_widget_get_realized (GTK_WIDGET(widget)))
+#else
   if (GTK_WIDGET_REALIZED (widget))
+#endif
     {
       /* Make sure the window backgrounds aren't set, to avoid flicker when
 	 scrolling (due to the delay between X clearing the background and
@@ -1611,14 +1639,14 @@ goo_canvas_configure_hadjustment (GooCanvas *canvas,
       adj->step_increment = adj->page_size * 0.1;
       changed = TRUE;
     }
-      
+
   max_value = MAX (0.0, adj->upper - adj->page_size);
   if (adj->value > max_value)
     {
       adj->value = max_value;
       value_changed = TRUE;
     }
-  
+
   if (changed)
     gtk_adjustment_changed (adj);
 
@@ -1650,14 +1678,14 @@ goo_canvas_configure_vadjustment (GooCanvas *canvas,
       adj->step_increment = adj->page_size * 0.1;
       changed = TRUE;
     }
-      
+
   max_value = MAX (0.0, adj->upper - adj->page_size);
   if (adj->value > max_value)
     {
       adj->value = max_value;
       value_changed = TRUE;
     }
-  
+
   if (changed)
     gtk_adjustment_changed (adj);
 
@@ -1699,7 +1727,11 @@ request_static_redraw (GooCanvas             *canvas,
   GooCanvasPrivate *priv = GOO_CANVAS_GET_PRIVATE (canvas);
   GdkRectangle rect;
 
+#if GTK_CHECK_VERSION(2, 18, 0)
+  if (!gtk_widget_is_drawable (GTK_WIDGET(canvas)) || (bounds->x1 == bounds->x2))
+#else
   if (!GTK_WIDGET_DRAWABLE (canvas) || (bounds->x1 == bounds->x2))
+#endif
     return;
 
   /* We subtract one from the left & top edges, in case anti-aliasing makes
@@ -1854,7 +1886,11 @@ reconfigure_canvas (GooCanvas *canvas,
 
   canvas->freeze_count--;
 
+#if GTK_CHECK_VERSION(2, 19, 0)
+  if (gtk_widget_get_realized (GTK_WIDGET(canvas)))
+#else
   if (GTK_WIDGET_REALIZED (canvas))
+#endif
     {
       gdk_window_move_resize (canvas->canvas_window, window_x, window_y,
 			      window_width, window_height);
@@ -1873,7 +1909,7 @@ reconfigure_canvas (GooCanvas *canvas,
 }
 
 
-static void     
+static void
 goo_canvas_size_request (GtkWidget      *widget,
 			 GtkRequisition *requisition)
 {
@@ -1893,7 +1929,7 @@ goo_canvas_size_request (GtkWidget      *widget,
     {
       GooCanvasWidget *witem = tmp_list->data;
       GtkRequisition child_requisition;
-      
+
       tmp_list = tmp_list->next;
 
       if (witem->widget)
@@ -1920,12 +1956,12 @@ goo_canvas_allocate_child_widget (GooCanvas       *canvas,
   allocation.y = bounds.y1;
   allocation.width = bounds.x2 - allocation.x;
   allocation.height = bounds.y2 - allocation.y;
-  
+
   gtk_widget_size_allocate (witem->widget, &allocation);
 }
 
 
-static void     
+static void
 goo_canvas_size_allocate (GtkWidget     *widget,
 			  GtkAllocation *allocation)
 {
@@ -1938,7 +1974,11 @@ goo_canvas_size_allocate (GtkWidget     *widget,
 
   widget->allocation = *allocation;
 
+#if GTK_CHECK_VERSION(2, 19, 0)
+  if (gtk_widget_get_realized (GTK_WIDGET(widget)))
+#else
   if (GTK_WIDGET_REALIZED (widget))
+#endif
     {
       /* We can only allocate our children when we are realized, since we
 	 need a window to create a cairo_t which we use for layout. */
@@ -1971,13 +2011,21 @@ goo_canvas_adjustment_value_changed (GtkAdjustment *adjustment,
   GooCanvasPrivate *priv = GOO_CANVAS_GET_PRIVATE (canvas);
   AtkObject *accessible;
 
+#if GTK_CHECK_VERSION(2, 19, 0)
+  if (!canvas->freeze_count && gtk_widget_get_realized (GTK_WIDGET(canvas)))
+#else
   if (!canvas->freeze_count && GTK_WIDGET_REALIZED (canvas))
+#endif
     {
       if (canvas->redraw_when_scrolled)
 	{
 	  /* Map the temporary window to stop the canvas window being scrolled.
 	     When it is unmapped the entire canvas will be redrawn. */
+#if GTK_CHECK_VERSION(2, 19, 0)
+	  if (gtk_widget_get_mapped (GTK_WIDGET(canvas)))
+#else
 	  if (GTK_WIDGET_MAPPED (canvas))
+#endif
 	    gdk_window_show (canvas->tmp_window);
 	}
       else
@@ -2002,7 +2050,11 @@ goo_canvas_adjustment_value_changed (GtkAdjustment *adjustment,
 	{
 	  /* Unmap the temporary window, causing the entire canvas to be
 	     redrawn. */
+#if GTK_CHECK_VERSION(2, 19, 0)
+	  if (gtk_widget_get_mapped (GTK_WIDGET(canvas)))
+#else
 	  if (GTK_WIDGET_MAPPED (canvas))
+#endif
 	    gdk_window_hide (canvas->tmp_window);
 	}
       else
@@ -2024,7 +2076,7 @@ goo_canvas_adjustment_value_changed (GtkAdjustment *adjustment,
 
 /* Sets either or both adjustments, If hadj or vadj is NULL a new adjustment
    is created. */
-static void           
+static void
 goo_canvas_set_adjustments (GooCanvas     *canvas,
 			    GtkAdjustment *hadj,
 			    GtkAdjustment *vadj)
@@ -2042,7 +2094,7 @@ goo_canvas_set_adjustments (GooCanvas     *canvas,
     g_return_if_fail (GTK_IS_ADJUSTMENT (vadj));
   else if (canvas->vadjustment)
     vadj = GTK_ADJUSTMENT (gtk_adjustment_new (0.0, 0.0, 0.0, 0.0, 0.0, 0.0));
-  
+
   if (canvas->hadjustment && (canvas->hadjustment != hadj))
     {
       g_signal_handlers_disconnect_by_func (canvas->hadjustment,
@@ -2050,7 +2102,7 @@ goo_canvas_set_adjustments (GooCanvas     *canvas,
 					    canvas);
       g_object_unref (canvas->hadjustment);
     }
-  
+
   if (canvas->vadjustment && (canvas->vadjustment != vadj))
     {
       g_signal_handlers_disconnect_by_func (canvas->vadjustment,
@@ -2058,7 +2110,7 @@ goo_canvas_set_adjustments (GooCanvas     *canvas,
 					    canvas);
       g_object_unref (canvas->vadjustment);
     }
-  
+
   if (canvas->hadjustment != hadj)
     {
       canvas->hadjustment = hadj;
@@ -2069,7 +2121,7 @@ goo_canvas_set_adjustments (GooCanvas     *canvas,
 			canvas);
       need_reconfigure = TRUE;
     }
-  
+
   if (canvas->vadjustment != vadj)
     {
       canvas->vadjustment = vadj;
@@ -2116,7 +2168,7 @@ set_item_pointer (GooCanvasItem **item,
  * @top: a pointer to a #gdouble to return the top edge, or %NULL.
  * @right: a pointer to a #gdouble to return the right edge, or %NULL.
  * @bottom: a pointer to a #gdouble to return the bottom edge, or %NULL.
- * 
+ *
  * Gets the bounds of the canvas, in canvas units.
  *
  * By default, canvas units are pixels, though the #GooCanvas:units property
@@ -2149,7 +2201,7 @@ goo_canvas_get_bounds	(GooCanvas *canvas,
  * @top: the top edge.
  * @right: the right edge.
  * @bottom: the bottom edge.
- * 
+ *
  * Sets the bounds of the #GooCanvas, in canvas units.
  *
  * By default, canvas units are pixels, though the #GooCanvas:units property
@@ -2179,7 +2231,7 @@ goo_canvas_set_bounds	(GooCanvas *canvas,
  * @canvas: a #GooCanvas.
  * @left: the x coordinate to scroll to.
  * @top: the y coordinate to scroll to.
- * 
+ *
  * Scrolls the canvas, placing the given point as close to the top-left of
  * the view as possible.
  **/
@@ -2250,7 +2302,7 @@ goo_canvas_scroll_to_item (GooCanvas     *canvas,
 /**
  * goo_canvas_get_scale:
  * @canvas: a #GooCanvas.
- * 
+ *
  * Gets the current scale of the canvas.
  *
  * The scale specifies the magnification factor of the canvas, e.g. if an item
@@ -2290,7 +2342,11 @@ goo_canvas_set_scale_internal	(GooCanvas *canvas,
      scrolling is unnecessary and really ugly.
      FIXME: There is a possible issue with keyboard focus/input methods here,
      since hidden windows can't have the keyboard focus. */
+#if GTK_CHECK_VERSION(2, 19, 0)
+  if (gtk_widget_get_mapped (GTK_WIDGET(canvas)))
+#else
   if (GTK_WIDGET_MAPPED (canvas))
+#endif
     gdk_window_show (canvas->tmp_window);
 
   canvas->freeze_count++;
@@ -2312,7 +2368,11 @@ goo_canvas_set_scale_internal	(GooCanvas *canvas,
 
   /* Now hide the temporary window, so the canvas window will get an expose
      event. */
+#if GTK_CHECK_VERSION(2, 19, 0)
+  if (gtk_widget_get_mapped (GTK_WIDGET(canvas)))
+#else
   if (GTK_WIDGET_MAPPED (canvas))
+#endif
     gdk_window_hide (canvas->tmp_window);
 }
 
@@ -2321,7 +2381,7 @@ goo_canvas_set_scale_internal	(GooCanvas *canvas,
  * goo_canvas_set_scale:
  * @canvas: a #GooCanvas.
  * @scale: the new scale setting.
- * 
+ *
  * Sets the scale of the canvas.
  *
  * The scale specifies the magnification factor of the canvas, e.g. if an item
@@ -2342,7 +2402,7 @@ goo_canvas_set_scale	(GooCanvas *canvas,
  * goo_canvas_unregister_item:
  * @canvas: a #GooCanvas.
  * @model: the item model whose canvas item is being finalized.
- * 
+ *
  * This function is only intended to be used when implementing new canvas
  * items.
  *
@@ -2362,7 +2422,7 @@ goo_canvas_unregister_item (GooCanvas          *canvas,
  * goo_canvas_create_item:
  * @canvas: a #GooCanvas.
  * @model: the item model to create a canvas item for.
- * 
+ *
  * This function is only intended to be used when implementing new canvas
  * items, typically container items such as #GooCanvasGroup.
  *
@@ -2375,7 +2435,7 @@ goo_canvas_unregister_item (GooCanvas          *canvas,
  *
  * It emits the #GooCanvas::item-created signal after creating the view, so
  * application code can connect signal handlers to the new view if desired.
- * 
+ *
  * Returns: a new canvas item.
  **/
 GooCanvasItem*
@@ -2485,7 +2545,7 @@ goo_canvas_update_internal (GooCanvas *canvas,
 /**
  * goo_canvas_update:
  * @canvas: a #GooCanvas.
- * 
+ *
  * This function is only intended to be used by subclasses of #GooCanvas or
  * #GooCanvasItem implementations.
  *
@@ -2524,7 +2584,7 @@ goo_canvas_idle_handler (GooCanvas *canvas)
 /**
  * goo_canvas_request_update:
  * @canvas: a #GooCanvas.
- * 
+ *
  * This function is only intended to be used by subclasses of #GooCanvas or
  * #GooCanvasItem implementations.
  *
@@ -2538,7 +2598,11 @@ goo_canvas_request_update (GooCanvas   *canvas)
   canvas->need_update = TRUE;
 
   /* We have to wait until we are realized. We'll do a full update then. */
+#if GTK_CHECK_VERSION(2, 19, 0)
+  if (!gtk_widget_get_realized (GTK_WIDGET(canvas)))
+#else
   if (!GTK_WIDGET_REALIZED (canvas))
+#endif
     return;
 
   /* We use a higher priority than the normal GTK+ resize/redraw idle handlers
@@ -2553,7 +2617,7 @@ goo_canvas_request_update (GooCanvas   *canvas)
  * goo_canvas_request_redraw:
  * @canvas: a #GooCanvas.
  * @bounds: the bounds to redraw, in device space.
- * 
+ *
  * This function is only intended to be used by subclasses of #GooCanvas or
  * #GooCanvasItem implementations.
  *
@@ -2566,7 +2630,11 @@ goo_canvas_request_redraw (GooCanvas             *canvas,
 {
   GdkRectangle rect;
 
+#if GTK_CHECK_VERSION(2, 18, 0)
+  if (!gtk_widget_is_drawable (GTK_WIDGET(canvas)) || (bounds->x1 == bounds->x2))
+#else
   if (!GTK_WIDGET_DRAWABLE (canvas) || (bounds->x1 == bounds->x2))
+#endif
     return;
 
   /* We subtract one from the left & top edges, in case anti-aliasing makes
@@ -2593,7 +2661,7 @@ goo_canvas_request_redraw (GooCanvas             *canvas,
  * @canvas: a #GooCanvas.
  * @bounds: the bounds of the item to redraw.
  * @is_static: if the item is static.
- * 
+ *
  * This function is only intended to be used by subclasses of #GooCanvas or
  * #GooCanvasItem implementations.
  *
@@ -2735,7 +2803,7 @@ goo_canvas_expose_event (GtkWidget      *widget,
  * @scale: the scale to compare with each item's visibility
  * threshold to see if they should be rendered. This only affects items that
  * have their visibility set to %GOO_CANVAS_ITEM_VISIBLE_ABOVE_THRESHOLD.
- * 
+ *
  * Renders all or part of a canvas to the given cairo context.
  **/
 void
@@ -2846,7 +2914,11 @@ propagate_event (GooCanvas     *canvas,
   gboolean stop_emission = FALSE, valid;
 
   /* Don't emit any events if the canvas is not realized. */
+#if GTK_CHECK_VERSION(2, 19, 0)
+  if (!gtk_widget_get_realized (GTK_WIDGET(canvas)))
+#else
   if (!GTK_WIDGET_REALIZED (canvas))
+#endif
     return FALSE;
 
   if (item)
@@ -3173,7 +3245,7 @@ goo_canvas_scroll	(GtkWidget      *widget,
 
   new_value = CLAMP (adj->value + delta, adj->lower,
 		     adj->upper - adj->page_size);
-      
+
   gtk_adjustment_set_value (adj, new_value);
 
   return TRUE;
@@ -3217,8 +3289,12 @@ goo_canvas_key_press       (GtkWidget      *widget,
 			    GdkEventKey    *event)
 {
   GooCanvas *canvas = GOO_CANVAS (widget);
-	
+
+#if GTK_CHECK_VERSION(2, 18, 0)
+  if (gtk_widget_has_focus (GTK_WIDGET(canvas)) && canvas->focused_item)
+#else
   if (GTK_WIDGET_HAS_FOCUS (canvas) && canvas->focused_item)
+#endif
     if (propagate_event (canvas, canvas->focused_item, "key_press_event",
 			 (GdkEvent*) event))
     return TRUE;
@@ -3232,8 +3308,12 @@ goo_canvas_key_release     (GtkWidget      *widget,
 			    GdkEventKey    *event)
 {
   GooCanvas *canvas = GOO_CANVAS (widget);
-	
+
+#if GTK_CHECK_VERSION(2, 18, 0)
+  if (gtk_widget_has_focus (GTK_WIDGET(canvas)) && canvas->focused_item)
+#else
   if (GTK_WIDGET_HAS_FOCUS (canvas) && canvas->focused_item)
+#endif
     if (propagate_event (canvas, canvas->focused_item, "key_release_event",
 			 (GdkEvent*) event))
     return TRUE;
@@ -3250,7 +3330,7 @@ generate_grab_broken (GooCanvas     *canvas,
 
 {
   GdkEventGrabBroken event;
-  
+
   if (!ITEM_IS_VALID (item))
     return;
 
@@ -3303,7 +3383,7 @@ goo_canvas_grab_broken     (GtkWidget          *widget,
  * goo_canvas_grab_focus:
  * @canvas: a #GooCanvas.
  * @item: the item to grab the focus.
- * 
+ *
  * Grabs the keyboard focus for the given item.
  **/
 void
@@ -3335,14 +3415,14 @@ goo_canvas_grab_focus (GooCanvas     *canvas,
   gtk_widget_grab_focus (GTK_WIDGET (canvas));
 
   if (canvas->focused_item) {
-    event.type = GDK_FOCUS_CHANGE;                        
+    event.type = GDK_FOCUS_CHANGE;
     event.window = canvas->canvas_window;
-    event.send_event = FALSE;                             
-    event.in = TRUE;                                      
+    event.send_event = FALSE;
+    event.in = TRUE;
 
     propagate_event (canvas, canvas->focused_item,
 		     "focus_in_event", (GdkEvent*) &event);
-  }                               
+  }
 }
 
 
@@ -3358,9 +3438,9 @@ goo_canvas_grab_focus (GooCanvas     *canvas,
  * @cursor: the cursor to display during the grab, or NULL.
  * @time: the time of the event that lead to the pointer grab. This should
  *  come from the relevant #GdkEvent.
- * 
+ *
  * Attempts to grab the pointer for the given item.
- * 
+ *
  * Returns: %GDK_GRAB_SUCCESS if the grab succeeded.
  **/
 GdkGrabStatus
@@ -3407,7 +3487,7 @@ goo_canvas_pointer_grab (GooCanvas     *canvas,
  * @item: the item that has the grab.
  * @time: the time of the event that lead to the pointer ungrab. This should
  *  come from the relevant #GdkEvent.
- * 
+ *
  * Ungrabs the pointer, if the given item has the pointer grab.
  **/
 void
@@ -3454,9 +3534,9 @@ goo_canvas_pointer_ungrab (GooCanvas     *canvas,
  *  respect to the grab item.
  * @time: the time of the event that lead to the keyboard grab. This should
  *  come from the relevant #GdkEvent.
- * 
+ *
  * Attempts to grab the keyboard for the given item.
- * 
+ *
  * Returns: %GDK_GRAB_SUCCESS if the grab succeeded.
  **/
 GdkGrabStatus
@@ -3499,7 +3579,7 @@ goo_canvas_keyboard_grab (GooCanvas     *canvas,
  * @item: the item that has the keyboard grab.
  * @time: the time of the event that lead to the keyboard ungrab. This should
  *  come from the relevant #GdkEvent.
- * 
+ *
  * Ungrabs the keyboard, if the given item has the keyboard grab.
  **/
 void
@@ -3532,7 +3612,7 @@ goo_canvas_keyboard_ungrab (GooCanvas     *canvas,
  * @canvas: a #GooCanvas.
  * @x: a pointer to the x coordinate to convert.
  * @y: a pointer to the y coordinate to convert.
- * 
+ *
  * Converts a coordinate from the canvas coordinate space to pixels.
  *
  * The canvas coordinate space is specified in the call to
@@ -3557,7 +3637,7 @@ goo_canvas_convert_to_pixels (GooCanvas     *canvas,
  * @canvas: a #GooCanvas.
  * @x: a pointer to the x coordinate to convert.
  * @y: a pointer to the y coordinate to convert.
- * 
+ *
  * Converts a coordinate from pixels to the canvas coordinate space.
  *
  * The pixel coordinate space specifies pixels from the top-left of the entire
@@ -3644,7 +3724,7 @@ get_transform_to_item_space (GooCanvasItem  *item,
  * @item: a #GooCanvasItem.
  * @x: a pointer to the x coordinate to convert.
  * @y: a pointer to the y coordinate to convert.
- * 
+ *
  * Converts a coordinate from the canvas coordinate space to the given
  * item's coordinate space, applying all transformation matrices including the
  * item's own transformation matrix, if it has one.
@@ -3668,7 +3748,7 @@ goo_canvas_convert_to_item_space (GooCanvas     *canvas,
  * @item: a #GooCanvasItem.
  * @x: a pointer to the x coordinate to convert.
  * @y: a pointer to the y coordinate to convert.
- * 
+ *
  * Converts a coordinate from the given item's coordinate space to the canvas
  * coordinate space, applying all transformation matrices including the
  * item's own transformation matrix, if it has one.
@@ -3715,7 +3795,7 @@ goo_canvas_convert_from_item_space (GooCanvas     *canvas,
  * @canvas: a #GooCanvas.
  * @item: a #GooCanvasItem.
  * @bounds: the bounds in canvas coordinate space, to be converted.
- * 
+ *
  * Converts the given bounds in the canvas coordinate space to a bounding box
  * in item space. This is useful in the item paint() methods to convert the
  * bounds to be painted to the item's coordinate space.
@@ -4165,7 +4245,11 @@ goo_canvas_focus (GtkWidget        *widget,
   data.text_direction = gtk_widget_get_direction (widget);
   data.start_item = NULL;
 
+#if GTK_CHECK_VERSION(2, 18, 0)
+  if (gtk_widget_has_focus (GTK_WIDGET(canvas)))
+#else
   if (GTK_WIDGET_HAS_FOCUS (canvas))
+#endif
     data.start_item = canvas->focused_item;
   else if (old_focus_child && GOO_IS_CANVAS_WIDGET (old_focus_child))
     data.start_item = g_object_get_data (G_OBJECT (old_focus_child),
@@ -4197,7 +4281,7 @@ goo_canvas_focus (GtkWidget        *widget,
 	  found_item = TRUE;
 	  goo_canvas_grab_focus (canvas, data.best_item);
 	}
-      
+
       if (found_item)
 	{
 	  goo_canvas_scroll_to_item (canvas, data.best_item);
@@ -4216,7 +4300,7 @@ goo_canvas_focus (GtkWidget        *widget,
  * goo_canvas_register_widget_item:
  * @canvas: a #GooCanvas.
  * @witem: a #GooCanvasWidget item.
- * 
+ *
  * This function should only be used by #GooCanvasWidget and subclass
  * implementations.
  *
@@ -4238,7 +4322,7 @@ goo_canvas_register_widget_item   (GooCanvas          *canvas,
  * goo_canvas_unregister_widget_item:
  * @canvas: a #GooCanvas.
  * @witem: a #GooCanvasWidget item.
- * 
+ *
  * This function should only be used by #GooCanvasWidget and subclass
  * implementations.
  *
@@ -4301,7 +4385,7 @@ goo_canvas_forall (GtkContainer *container,
 
 
 static void
-goo_canvas_remove (GtkContainer *container, 
+goo_canvas_remove (GtkContainer *container,
 		   GtkWidget    *widget)
 {
   GooCanvas *canvas;
@@ -4309,9 +4393,9 @@ goo_canvas_remove (GtkContainer *container,
   GooCanvasWidget *witem;
   GooCanvasItem *parent;
   gint child_num;
-  
+
   g_return_if_fail (GOO_IS_CANVAS (container));
-  
+
   canvas = GOO_CANVAS (container);
 
   tmp_list = canvas->widget_items;

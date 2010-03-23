@@ -425,8 +425,11 @@ goo_canvas_item_accessible_ref_state_set (AtkObject *accessible)
 #endif
     {
       atk_state_set_add_state (state_set, ATK_STATE_FOCUSABLE);
-
+#if GTK_CHECK_VERSION(2, 18, 0)
+      if (gtk_widget_has_focus (GTK_WIDGET (canvas))
+#else
       if (GTK_WIDGET_HAS_FOCUS (canvas)
+#endif
 	  && canvas->focused_item == item)
 	atk_state_set_add_state (state_set, ATK_STATE_FOCUSED);
     }
@@ -518,7 +521,7 @@ goo_canvas_widget_accessible_initialize (AtkObject *object,
 }
 
 
-static gint 
+static gint
 goo_canvas_widget_accessible_get_n_children (AtkObject *accessible)
 {
   GooCanvasWidget *witem;
@@ -629,10 +632,10 @@ static gpointer accessible_parent_class = NULL;
 
 
 static void
-goo_canvas_accessible_initialize (AtkObject *object, 
+goo_canvas_accessible_initialize (AtkObject *object,
 				  gpointer   data)
 {
-  if (ATK_OBJECT_CLASS (accessible_parent_class)->initialize) 
+  if (ATK_OBJECT_CLASS (accessible_parent_class)->initialize)
     ATK_OBJECT_CLASS (accessible_parent_class)->initialize (object, data);
 
   /* FIXME: Maybe this should be ATK_ROLE_CANVAS. */
