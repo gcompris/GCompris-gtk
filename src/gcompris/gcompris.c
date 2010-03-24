@@ -30,7 +30,7 @@
 // WIN32
 #elif NSBUNDLE
 // MACOSX
-#else WIN32
+#else
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
 #include <X11/Xatom.h>
@@ -78,7 +78,7 @@ static void quit_cb (GtkWidget *widget, gpointer data);
 static void map_cb  (GtkWidget *widget, gpointer data);
 #ifdef WIN32
 #elif NSBUNDLE
-#else WIN32
+#else
 static gboolean _realize_callback (GtkWidget *widget, GdkEventExpose *event,
 				   gpointer data);
 #endif
@@ -818,7 +818,7 @@ static void setup_window ()
   gtk_window_set_wmclass(GTK_WINDOW(window), "gcompris", "GCompris");
 #ifdef WIN32
 #elif NSBUNDLE
-#else WIN32
+#else
   g_signal_connect (GTK_OBJECT (window), "realize",
 		    G_CALLBACK (_realize_callback), NULL);
 #endif
@@ -1095,12 +1095,16 @@ void gc_fullscreen_set(gboolean state)
     {
       gtk_window_get_position ( (GtkWindow*)( window ), &window_x, &window_y );
       gtk_window_get_size ( GTK_WINDOW ( window ), &window_w, &window_h );
-#ifdef WIN32 || NSBUNDLE
+#ifdef WIN32
       // WARNING: Doing this is required on Windows
       //          but keep the window hidden on GNU/Linux
       gtk_widget_hide ( window );
-#endif
+#elif NSBUNDLE
+      // WARNING: Doing this is required on Windows
+      //          but keep the window hidden on GNU/Linux
       gtk_widget_hide ( window );
+#else
+#endif
       gtk_window_set_decorated ( GTK_WINDOW ( window ), FALSE );
       gtk_window_set_type_hint ( GTK_WINDOW ( window ),
 				 GDK_WINDOW_TYPE_HINT_DESKTOP );
