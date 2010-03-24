@@ -37,9 +37,6 @@ static gboolean button_event (GooCanvasItem  *item,
 			      GdkEventButton *event,
 			      gchar *answer);
 
-static void              set_content(GooCanvasText *item_content,
-				     gchar *text);
-
 static gboolean		 confirm_displayed = FALSE;
 
 static GooCanvasItem	*rootitem = NULL;
@@ -209,14 +206,14 @@ display_confirm(gchar *title,
 		       NULL);
 
   text = goo_canvas_text_new (rootitem,
-			      "",
+			      question_text,
 			      text_zone_x,
 			      text_zone_y,
-			      text_zone_w,
-			      GTK_JUSTIFY_CENTER);
-
-  set_content (GOO_CANVAS_TEXT(text), question_text);
-
+			      500,
+			      GTK_JUSTIFY_CENTER,
+			      "font", gc_skin_font_title,
+			      "fill-color-rgba",  gc_skin_color_title,
+			      NULL);
 
   /*
    * Buttons
@@ -309,21 +306,6 @@ display_confirm(gchar *title,
 		       NULL);
 
   confirm_displayed = TRUE;
-
-}
-
-/* Apply the style to the given Text item  */
-static void
-set_content(GooCanvasText *item_content,
-	    gchar *text) {
-
-
-  /*
-   * Set the new text in the 2 items
-   */
-  g_object_set(GOO_CANVAS_ITEM(item_content),
-	       "text", text,
-	       NULL);
 
 }
 
