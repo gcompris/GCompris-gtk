@@ -303,7 +303,7 @@ _gc_size_allocate_event_callback (GtkWidget   *widget,
 {
   double xratio, yratio;
   double canvas_width, canvas_height;
-  printf("gc_size_allocate\n");
+
   yratio=allocation->height/(float)(BOARDHEIGHT);
   xratio=allocation->width/(float)BOARDWIDTH;
   zoom_factor = MIN(xratio, yratio);
@@ -794,10 +794,10 @@ static void setup_window ()
   gtk_window_set_title(GTK_WINDOW (window), "GCompris");
 
   GdkGeometry hints;
-  hints.base_width = 174;
-  hints.base_height = 144;
-  hints.min_width = 174;
-  hints.min_height = 144;
+  hints.base_width = 615;
+  hints.base_height = 400;
+  hints.min_width = hints.base_width;
+  hints.min_height = hints.base_height;
   hints.width_inc = 1;
   hints.height_inc = 1;
   hints.min_aspect = (float)BOARDWIDTH/BOARDHEIGHT;
@@ -807,7 +807,7 @@ static void setup_window ()
                    GDK_HINT_BASE_SIZE;
   if (!popt_sugar_look)
       geom_mask |= GDK_HINT_ASPECT;
-  //  gtk_window_set_geometry_hints (GTK_WINDOW (window), NULL, &hints, geom_mask);
+  gtk_window_set_geometry_hints (GTK_WINDOW (window), NULL, &hints, geom_mask);
 
   /*
    * Set the main window
@@ -1089,7 +1089,6 @@ void gc_fullscreen_set(gboolean state)
   static gint window_w = BOARDWIDTH;
   static gint window_h = BOARDHEIGHT;
 
-  printf("fullscreen_set %d\n", state);
   fullscreen = state;
   if(state)
     {
