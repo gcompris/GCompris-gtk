@@ -486,6 +486,40 @@ static void update_exit_button()
     }
 }
 
+static gchar *bar_flags_to_name(GComprisBarFlags flag)
+{
+  gchar *result = "";
+
+  switch (flag)
+    {
+    case GC_BAR_LEVEL:
+      result = "level";
+      break;
+    case GC_BAR_REPEAT:
+      break;
+    case GC_BAR_CONFIG:
+      result = "configuration";
+      break;
+    case GC_BAR_ABOUT:
+      result = "about";
+      break;
+    case GC_BAR_REPEAT_ICON:
+      break;
+    case GC_BAR_HOME:
+      result = "back";
+      break;
+    case GC_BAR_EXIT:
+      result = "quit";
+      break;
+    case GC_BAR_LEVEL_DOWN:
+      break;
+    case GC_BAR_HELP:
+      result = "help";
+      break;
+    }
+  return result;
+}
+
 /*
  * This is called to play sound
  *
@@ -498,7 +532,8 @@ static gint bar_play_sound (GooCanvasItem *item)
 
   GComprisBarFlags flag =
     GPOINTER_TO_UINT(g_object_get_data(G_OBJECT (item), "flag"));
-  str = g_strdup_printf("voices/$LOCALE/misc/%d.ogg", flag);
+  str = g_strdup_printf("voices/$LOCALE/misc/%s.ogg",
+			bar_flags_to_name(flag));
 
   gc_sound_play_ogg(str, NULL);
 
