@@ -66,6 +66,11 @@
     ${prefix}/bin/gnucap
   </binary>
 
+  <!-- SDL -->
+  <binary>
+    ${prefix}/lib/libvorbisfile.dylib
+  </binary>
+
   <!-- Copy in GTK+ theme engines. Dunno why this is a dupe of
   modules, but that's why it's commented out. >
   <binary>
