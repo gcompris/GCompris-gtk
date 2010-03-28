@@ -567,7 +567,7 @@ dnl disable activation code
 AC_ARG_ENABLE(activation-code,
           AC_HELP_STRING(
           [--disable-activation-code],
-          [For Windows version, disable the activation code]),
+          [For Windows or MacOSX version, disable the activation code]),
           activation_code="$enableval", activation_code="yes")
 
 if test x$activation_code = xno; then
