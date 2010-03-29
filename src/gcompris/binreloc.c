@@ -25,6 +25,11 @@
 #include <string.h>
 #include "binreloc.h"
 
+#ifdef MAC_INTEGRATION
+#include <igemacintegration/ige-mac-bundle.h>
+static IgeMacBundle *bundle = NULL;
+#endif
+
 G_BEGIN_DECLS
 
 
@@ -46,7 +51,7 @@ _br_find_exe (GbrInitError *error)
 	   relocation code for windows. Unfortunately this is not
 	   the case and we have to add this manually. This is only
 	   one possibility; other ways of looking up the full path
-	   of gnucash-bin.exe probably exist.*/
+	   of gcompris-bin.exe probably exist.*/
 	gchar *prefix;
 	gchar *result;
 
@@ -55,7 +60,7 @@ _br_find_exe (GbrInitError *error)
 	   the current process */
 	prefix = g_win32_get_package_installation_directory_of_module (NULL);
 	result = g_build_filename (prefix,
-				   "bin", "gnucash-bin.exe",
+				   "bin", "gcompris.exe",
 				   (char*)NULL);
 	g_free (prefix);
 	return result;
@@ -76,7 +81,7 @@ _br_find_exe (GbrInitError *error)
 	ige_mac_bundle_setup_environment(bundle);
 	prefix = g_strdup(ige_mac_bundle_get_path(bundle));
 	result = g_build_filename(prefix, "Contents/MacOS",
-				  "gnucash-bin", NULL);
+				  "GCompris-bin", NULL);
 	g_free(prefix);
 	return result;
 #else
@@ -595,7 +600,11 @@ gbr_find_data_dir (const gchar *default_data_dir)
 			return NULL;
 	}
 
+#ifdef MAC_INTEGRATION
+	dir = g_strdup(ige_mac_bundle_get_datadir(bundle));
+#else
 	dir = g_build_filename (prefix, "share", NULL);
+#endif
 	g_free (prefix);
 	return dir;
 }
@@ -628,7 +637,11 @@ gbr_find_locale_dir (const gchar *default_locale_dir)
 			return NULL;
 	}
 
+#ifdef MAC_INTEGRATION
+	dir = g_strdup(ige_mac_bundle_get_localedir(bundle));
+#else
 	dir = g_build_filename (data_dir, "locale", NULL);
+#endif
 	g_free (data_dir);
 	return dir;
 }
@@ -661,10 +674,15 @@ gbr_find_lib_dir (const gchar *default_lib_dir)
 			return NULL;
 	}
 
+#ifdef MAC_INTEGRATION
+	dir = g_build_filename(ige_mac_bundle_get_datadir(bundle),
+			       "..", "lib", NULL);
+#else
 	if (default_lib_dir && strstr(default_lib_dir, "lib64"))
 		dir = g_build_filename (prefix, "lib64", NULL);
 	else
 		dir = g_build_filename (prefix, "lib", NULL);
+#endif
 	g_free (prefix);
 	return dir;
 }

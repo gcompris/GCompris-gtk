@@ -23,14 +23,6 @@ no_undefined =
 shared =
 endif
 
-#if WITH_NSBUNDLE
-#gcompris_nsbundle_m = gcompris-nsbundle.m
-#gcompris_nsbundle_h = gcompris-nsbundle.h
-#else
-gcompris_nsbundle_m =
-gcompris_nsbundle_h =
-#endif
-
 bin_PROGRAMS = gcompris
 
 INCLUDES = \
@@ -47,14 +39,11 @@ INCLUDES = \
 	$(DBUS_CFLAGS) \
 	$(AUDIO_CFLAGS) \
 	$(cairo_cflags) \
-	$(NSBUNDLE_CPPFLAGS) \
 	${IGE_MAC_CFLAGS}
 
 gcompris_SOURCES = \
 	$(cairo_c) \
 	$(cairo_h) \
-	$(gcompris_nsbundle_h) \
-	$(gcompris_nsbundle_m) \
 	about.c \
 	about.h \
 	anim.c \
@@ -127,7 +116,7 @@ gcompris_LDADD = \
 	$(GCOMPRIS_LIBS) $(sqlite_ldadd) $(XML_LIBS) $(GNET_LIBS) \
 	$(DBUS_LIBS) \
 	$(AUDIO_LIBS) \
-        $(INTLLIBS) $(NSBUNDLE_LDFLAGS) \
+        $(INTLLIBS) \
 	${IGE_MAC_LIBS}
 
 marshal_sources =				\
@@ -148,8 +137,6 @@ EXTRA_DIST = \
 	gc-marshal.list
 
 DONT_DIST_SOURCE = $(marshal_sources)
-
-gcompris_nsbundle_CPPFLAGS = -fconstant-string-class=NSConstantString
 
 if SUGAR
 INCLUDES += $(SUGAR_CFLAGS)

@@ -1220,15 +1220,19 @@ void gc_terminate(int signum)
 
 static void load_properties ()
 {
+  GError *error = NULL;
   properties = gc_prop_new ();
 
   /* Initialize the binary relocation API
    *  http://autopackage.org/docs/binreloc/
    */
-  if(gbr_init (NULL))
+  if(gbr_init (&error))
     g_message("Binary relocation enabled");
   else
-    g_message("Binary relocation disabled");
+    {
+      g_message("Binary relocation disabled code = %d", error->code);
+      g_error_free (error);
+    }
 
   /* usefull for OSX bundle app */
   /* FIXME exec_prefix should be put in properties */

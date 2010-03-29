@@ -164,8 +164,8 @@ fi
 # From http://autopackage.org/docs/binreloc/
 enable_binreloc=auto
 if test x"$nsbundle" = "xyes" ; then
-enable_binreloc=no
-AC_MSG_NOTICE([binreloc disabled by nsbundle])
+enable_binreloc=yes
+AC_MSG_NOTICE([binreloc enabled by nsbundle])
 fi
 
 AM_BINRELOC
@@ -331,12 +331,12 @@ elif test "x$nsbundle" = "xyes" ; then
   AC_DEFINE_UNQUOTED(PACKAGE_DATA_DIR, "../Resources/${DATADIRNAME}", [GCompris data directory])
 
   dnl Plugin Directory
-  AC_DEFINE_UNQUOTED(PACKAGE_CLIB_DIR, "../Resources/${DATADIRNAME}", [Gcompris plugins directory])
-  plugindir=${myprefix}/${DATADIRNAME}/gcompris
+  AC_DEFINE_UNQUOTED(PACKAGE_CLIB_DIR, "../Resources/lib", [Gcompris plugins directory])
+  plugindir=${myprefix}/lib/gcompris
   AC_SUBST(plugindir)
 
   dnl Python plugin Directory
-  PYTHON_PLUGIN_DIR="../Resources/${DATADIRNAME}/gcompris/python"
+  PYTHON_PLUGIN_DIR=${myprefix}/${DATADIRNAME}/gcompris/python
   AC_SUBST(PYTHON_PLUGIN_DIR)
 
   dnl System GCompris config directory

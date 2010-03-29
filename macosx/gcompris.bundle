@@ -71,6 +71,11 @@
     ${prefix}/lib/libvorbisfile.dylib
   </binary>
 
+  <!-- GCompris plugins -->
+  <binary>
+    ${prefix}/lib/gcompris/*.so
+  </binary>
+
   <!-- Copy in GTK+ theme engines. Dunno why this is a dupe of
   modules, but that's why it's commented out. >
   <binary>

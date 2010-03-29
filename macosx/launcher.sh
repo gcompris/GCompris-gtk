@@ -15,7 +15,7 @@ tmp="`pwd`/$0"
 tmp=`dirname "$tmp"`
 tmp=`dirname "$tmp"`
 bundle=`dirname "$tmp"`
-bundle_contents="$bundle"
+bundle_contents="$bundle"/Contents
 bundle_res="$bundle_contents"/Resources
 bundle_lib="$bundle_res"/lib
 bundle_bin="$bundle_res"/bin
@@ -107,7 +107,7 @@ if test "$APPLELANGUAGES"; then
             export LC_MESSAGES=`echo ${LC} | awk '{print $1}' | awk -F/ '{print $5}'`
             break
         fi
-    done  
+    done
 fi
 unset APPLELANGUAGES POS LC L
 
