@@ -1,3 +1,6 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # Asturian translation for gcompris
 # Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
 # This file is distributed under the same license as the gcompris package.
@@ -13,10 +16,10 @@ msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: "
 "http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&component=general\n"
-"POT-Creation-Date: 2010-03-09 06:26+0000\n"
-"PO-Revision-Date: 2010-03-09 14:28+0200\n"
-"Last-Translator: Xandru <xandru@softastur.org>\n"
-"Language-Team: Softastur <alministradores@softastur.org>\n"
+"POT-Creation-Date: 2010-03-29 23:45+0000\n"
+"PO-Revision-Date: 2010-03-30 05:37+0200\n"
+"Last-Translator: Xandru Armesto <xandru@softastur.org>\n"
+"Language-Team: Asturian Team alministradores@softastur.org\n"
 "Language: ast\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -161,10 +164,12 @@ msgstr "Dir a les xeres de memoria matemática escontra Tux"
 
 #: ../boards/menu.xml.in.h:1
 msgid ""
-"A simple click on an icon brings you to an activity or a menu of activities.\n"
+"A simple click on an icon brings you to an activity or a menu of "
+"activities.\n"
 "At the bottom of the screen is the GCompris control bar.\n"
 "The following icons are displayed from right to left.\n"
-"(note that each icon is displayed only if available in the current activity)\n"
+"(note that each icon is displayed only if available in the current "
+"activity)\n"
 "    Home - Exit an activity, go back to menu\n"
 "    Thumb - OK. Confirm your answer\n"
 "    Dice - Display the current level. Click to select another level\n"
@@ -298,7 +303,6 @@ msgstr ""
 "vuelta."
 
 #: ../nsis_translations.desktop.in.h:2
-#| msgid "The race is already being run"
 msgid "The installer is already running."
 msgstr "L'instalador yá ta corriendo."
 
@@ -322,8 +326,8 @@ msgstr ""
 
 #: ../nsis_translations.desktop.in.h:6
 msgid ""
-"the uninstaller could not find registry entries for GCompris.$\\rIt is likely "
-"that another user installed this application."
+"the uninstaller could not find registry entries for GCompris.$\\rIt is "
+"likely that another user installed this application."
 msgstr ""
 "el desinstalador nun pudo atopar les entraes del rexistru pa GCompris.$\\rYe "
 "como si otru usuariu instalare l'aplicación."
@@ -1157,7 +1161,8 @@ msgstr "Alcuentra les series d'operaciones que concasen cola rempuesta "
 #: ../src/algebra_guesscount-activity/algebra_guesscount.xml.in.h:5
 msgid "The four arithmetic operations. Combine several arithmetic operations."
 msgstr ""
-"Les cuatro operaciones aritmétiques. Combina delles operaciones aritmétiques."
+"Les cuatro operaciones aritmétiques. Combina delles operaciones "
+"aritmétiques."
 
 #: ../src/algebra_guesscount-activity/algebra_guesscount.xml.in.h:6
 msgid ""
@@ -1175,8 +1180,8 @@ msgid ""
 msgstr ""
 "Amuésase un problema de restes de dos númberos. Alluga la rempuesta la "
 "drecha del signu igual. Utiliza les fleches izquierda y drecha pa camudar la "
-"rempuesta y calca la tecla Intro pa comprobar si ties razón. Si non, téntalo "
-"otra vuelta."
+"rempuesta y calca la tecla Intro pa comprobar si ties razón. Si non, "
+"téntalo otra vuelta."
 
 #: ../src/algebra_minus-activity/algebra_minus.xml.in.h:3
 msgid "In a limited time, find the difference between two numbers"
@@ -1257,37 +1262,30 @@ msgid "Load..."
 msgstr "Cargar..."
 
 #: ../src/anim-activity/anim.py:115
-#| msgid "Mouse manipulation"
 msgid "Run the animation"
 msgstr "Executar l'animación"
 
 #: ../src/anim-activity/anim.py:121
-#| msgid "Select all"
 msgid "Select"
 msgstr "Seleicionar"
 
 #: ../src/anim-activity/anim.py:127
-#| msgid "Use rectangles"
 msgid "Rectangle"
 msgstr "Rectángulu"
 
 #: ../src/anim-activity/anim.py:133
-#| msgid "Use rectangles"
 msgid "Filled rectangle"
 msgstr "Rectángulu rellenu"
 
 #: ../src/anim-activity/anim.py:139
-#| msgid "Chile"
 msgid "Circle"
 msgstr "Círculu"
 
 #: ../src/anim-activity/anim.py:145
-#| msgid "Use circles"
 msgid "Filled circle"
 msgstr "Círculu rellenu"
 
 #: ../src/anim-activity/anim.py:151
-#| msgid "wine"
 msgid "Line"
 msgstr "Llinia"
 
@@ -1302,12 +1300,10 @@ msgid "Image..."
 msgstr "Imaxe..."
 
 #: ../src/anim-activity/anim.py:169
-#| msgid "Filter"
 msgid "Fill"
 msgstr "Rellenar"
 
 #: ../src/anim-activity/anim.py:175
-#| msgid "Default"
 msgid "Delete"
 msgstr "Esborrar"
 
@@ -1316,12 +1312,10 @@ msgid "Flip"
 msgstr "Voltiar"
 
 #: ../src/anim-activity/anim.py:187
-#| msgid "anise"
 msgid "Raise"
 msgstr "llevantar"
 
 #: ../src/anim-activity/anim.py:193
-#| msgid "flower"
 msgid "Lower"
 msgstr "baxar"
 
@@ -1441,8 +1435,8 @@ msgstr ""
 "qu'escoyer una de les sos cases, sacar toles semientes d'ella y dir "
 "espardiéndoles una per una peles cases contigües, tean éstes na so ringlera "
 "o na del alversariu, faciendo un recorríu contrariu a les aguyes del reló. A "
-"esti procesu vamos nomalu \"semar\". Les semientes nun s'esparden na casa "
-"que fai d'almacén nin tampoco na casa d'onde salieron. Si nuna casa hai "
+"esti procesu vamos nomalu \"semar\". Les semientes nun s'esparden na casa que "
+"fai d'almacén nin tampoco na casa d'onde salieron. Si nuna casa hai "
 "amontonaes doce semientes hai que la saltar y la doceava semiente hai "
 "qu'asitiala na siguiente casa. Si al semar el caberu granu ésti queda nuna "
 "casa del campu contrariu y nella hai (dempués de semar) dos o tres "
@@ -1453,13 +1447,13 @@ msgstr ""
 "o llegue a campu propiu. Si con un movimientu completu se prinden tolos "
 "granos del alversariu, la collecha piérdese y los granos hai que los dexar "
 "nel tableru pa que pueda continuar el xuegu. La prohibición escontra'l coyer "
-"toles semientes de golpe tien que ver cola idega más xeneral de permitir que "
-"l'alversariu puea facer un movimientu pa continuar col xuegu. Tamién ye "
+"toles semientes de golpe tien que ver cola idega más xeneral de permitir "
+"que l'alversariu puea facer un movimientu pa continuar col xuegu. Tamién ye "
 "obligatorio, cuando un contrariu nun tien grana (les sos cases tán vacíes), "
 "facer un movimientu pa proporcioná-yla y siguir xugando. Si nun ye posible, "
 "la partida párase y el xugador que tien la mano recueye tola grana que-y "
-"queda por semar y acaba'l xuegu. (Fonte Uiquipedia &lt;http://en.wikipedia."
-"org/wiki/Oware&gt;)"
+"queda por semar y acaba'l xuegu. (Fonte Uiquipedia "
+"&lt;http://en.wikipedia.org/wiki/Oware&gt;)"
 
 #: ../src/awele-activity/awele.xml.in.h:2
 msgid "Oware"
@@ -1682,15 +1676,15 @@ msgstr "Segunda versión del menú principal"
 msgid "Select a Board"
 msgstr "Escueyi un tableru"
 
-#: ../src/boards/python.c:63 ../src/boards/python.c:87
+#: ../src/boards/python.c:64 ../src/boards/python.c:88
 msgid "Python Board"
 msgstr "Tableru de Python"
 
-#: ../src/boards/python.c:64
+#: ../src/boards/python.c:65
 msgid "Special board that embeds python into GCompris."
 msgstr "Tableru especial qu'inxerta python dientro de GCompris."
 
-#: ../src/boards/python.c:88
+#: ../src/boards/python.c:89
 msgid "Special board that embeds python into gcompris."
 msgstr "Tableru especial qu'inxerta python dientro de gcompris."
 
@@ -1770,8 +1764,8 @@ msgid ""
 "display your message."
 msgstr ""
 "Esta xera de chat namás furrula con otru usuariu de GCompris en rede llocal, "
-"non en internet. Pa usalu, escribi los mensaxes y calca intro. El to mensaxe "
-"espárdese na rede llocal y cualquier programa de GCompris que tenga "
+"non en internet. Pa usalu, escribi los mensaxes y calca intro. El to "
+"mensaxe espárdese na rede llocal y cualquier programa de GCompris que tenga "
 "furrulando la xera de chat recibirá y amosará'l to mensaxe."
 
 #: ../src/chess_computer-activity/chess.c:222
@@ -1860,7 +1854,8 @@ msgstr ""
 "La semeya de la lluna tien copyright de la NASA. Los soníos del espaciu son "
 "de Tuxpaint y Vegastrike, que s'espublizaron embaxo llicencia GPL. Les "
 "imáxenes del tresporte tienen copyright de Franck Doucet. Les Dómines del "
-"Tresporte básense nes que se puen atopar en &lt;http://www.wikipedia.org&gt;."
+"Tresporte básense nes que se puen atopar en "
+"&lt;http://www.wikipedia.org&gt;."
 
 #: ../src/chronos-activity/chronos.xml.in.h:4
 msgid "Pick from the pictures on the left and put them on the red dots"
@@ -2467,8 +2462,8 @@ msgstr ""
 "componente calca cola ferramienta d'esborrar enriba del esbillador del "
 "componente. Pues calcar nel interruptor p'abrilu o zarralu. Pues camudar el "
 "valor del reóstatu arrastrando la so baniella. Pa simular lo que pasa cuando "
-"s'enciende una bombiella, pues encendela calcando col botón drechu nella. La "
-"simulación anóvase en tiempu real por cualquier aición del usuariu."
+"s'enciende una bombiella, pues encendela calcando col botón drechu nella. "
+"La simulación anóvase en tiempu real por cualquier aición del usuariu."
 
 #: ../src/electric-activity/electric.xml.in.h:3
 msgid "Electricity"
@@ -2656,32 +2651,31 @@ msgstr ""
 "Esti software ye un paquete GNU y distribúise embaxo los términos de la "
 "Llicencia Pública Xeneral GNU"
 
-#: ../src/gcompris/about.c:220 ../src/gcompris/config.c:447
+#: ../src/gcompris/about.c:220 ../src/gcompris/config.c:448
 #: ../src/gcompris/dialog.c:103 ../src/gcompris/help.c:359
 #: ../src/gcompris/images_selector.c:307
 msgid "OK"
 msgstr "Aceutar"
 
-#: ../src/gcompris/bar.c:653
+#: ../src/gcompris/bar.c:688
 msgid "GCompris confirmation"
 msgstr "Confirmación de GCompris"
 
-#: ../src/gcompris/bar.c:654
+#: ../src/gcompris/bar.c:689
 msgid "Are you sure you want to quit?"
 msgstr "¿Tas seguru que quies colar?"
 
-#: ../src/gcompris/bar.c:655
+#: ../src/gcompris/bar.c:690
 msgid "Yes, I am sure!"
 msgstr "Sí, toi seguru."
 
-#: ../src/gcompris/bar.c:656
+#: ../src/gcompris/bar.c:691
 msgid "No, I want to keep going"
 msgstr "Non, quiero siguir"
 
 #: ../src/gcompris/board.c:194
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
-msgstr ""
-"La carga dinámica de módulos nun se soporta. GCompris nun ye a cargar.\n"
+msgstr "La carga dinámica de módulos nun se soporta. GCompris nun ye a cargar.\n"
 
 #: ../src/gcompris/board_config_combo.c:157
 msgid ""
@@ -2755,267 +2749,271 @@ msgid "Arabic"
 msgstr "Árabe"
 
 #: ../src/gcompris/config.c:63
+msgid "Asturian"
+msgstr "Asturianu"
+
+#: ../src/gcompris/config.c:64
 msgid "Turkish (Azerbaijan)"
 msgstr "Turcu (Azerbaiyaní)"
 
-#: ../src/gcompris/config.c:64
+#: ../src/gcompris/config.c:65
 msgid "Bulgarian"
 msgstr "Búlgaru"
 
-#: ../src/gcompris/config.c:65
+#: ../src/gcompris/config.c:66
 msgid "Breton"
 msgstr "Bretón"
 
-#: ../src/gcompris/config.c:66
+#: ../src/gcompris/config.c:67
 msgid "Catalan"
 msgstr "Catalán"
 
-#: ../src/gcompris/config.c:67
+#: ../src/gcompris/config.c:68
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:7
 msgid "Czech Republic"
 msgstr "República Checa"
 
-#: ../src/gcompris/config.c:68
+#: ../src/gcompris/config.c:69
 msgid "Danish"
 msgstr "Danés"
 
-#: ../src/gcompris/config.c:69
+#: ../src/gcompris/config.c:70
 msgid "German"
 msgstr "Alemán"
 
-#: ../src/gcompris/config.c:70
+#: ../src/gcompris/config.c:71
 msgid "Dzongkha"
 msgstr "Dzongkha"
 
-#: ../src/gcompris/config.c:71
+#: ../src/gcompris/config.c:72
 msgid "Greek"
 msgstr "Griegu"
 
-#: ../src/gcompris/config.c:72
+#: ../src/gcompris/config.c:73
 msgid "English (Canada)"
 msgstr "Inglés (Canadiense)"
 
-#: ../src/gcompris/config.c:73
+#: ../src/gcompris/config.c:74
 msgid "English (Great Britain)"
 msgstr "Inglés (Gran Bretaña)"
 
-#: ../src/gcompris/config.c:74
+#: ../src/gcompris/config.c:75
 msgid "English (United States)"
 msgstr "Inglés (Estaos Xuníos)"
 
-#: ../src/gcompris/config.c:75
+#: ../src/gcompris/config.c:76
 msgid "Spanish"
 msgstr "Español"
 
-#: ../src/gcompris/config.c:76
+#: ../src/gcompris/config.c:77
 msgid "Basque"
 msgstr "Euskara"
 
-#: ../src/gcompris/config.c:77
+#: ../src/gcompris/config.c:78
 msgid "Persian"
 msgstr "Persa"
 
-#: ../src/gcompris/config.c:78
+#: ../src/gcompris/config.c:79
 msgid "Finnish"
 msgstr "Finlandés"
 
-#: ../src/gcompris/config.c:79
+#: ../src/gcompris/config.c:80
 msgid "French"
 msgstr "Francés"
 
-#: ../src/gcompris/config.c:80
+#: ../src/gcompris/config.c:81
 msgid "Irish (Gaelic)"
 msgstr "Irlandés (Galés)"
 
-#: ../src/gcompris/config.c:81
+#: ../src/gcompris/config.c:82
 msgid "Gujarati"
 msgstr "Guyarati"
 
-#: ../src/gcompris/config.c:82
+#: ../src/gcompris/config.c:83
 msgid "Hebrew"
 msgstr "Hebréu"
 
-#: ../src/gcompris/config.c:83
+#: ../src/gcompris/config.c:84
 msgid "Hindi"
 msgstr "Hindi"
 
-#: ../src/gcompris/config.c:84
+#: ../src/gcompris/config.c:85
 msgid "Croatian"
 msgstr "Croata"
 
-#: ../src/gcompris/config.c:85
+#: ../src/gcompris/config.c:86
 msgid "Hungarian"
 msgstr "Húngaru"
 
-#: ../src/gcompris/config.c:86
+#: ../src/gcompris/config.c:87
 msgid "Indonesian"
 msgstr "Indonesiu"
 
-#: ../src/gcompris/config.c:87
+#: ../src/gcompris/config.c:88
 msgid "Italian"
 msgstr "Italianu"
 
-#: ../src/gcompris/config.c:88
+#: ../src/gcompris/config.c:89
 msgid "Japanese"
 msgstr "Xaponés"
 
-#: ../src/gcompris/config.c:89
+#: ../src/gcompris/config.c:90
 msgid "Georgian"
 msgstr "Xeorxanu"
 
-#: ../src/gcompris/config.c:90
+#: ../src/gcompris/config.c:91
 msgid "Korean"
 msgstr "Coreanu"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:92
 msgid "Lithuanian"
 msgstr "Lituanu"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:93
 msgid "Macedonian"
 msgstr "Macedoniu"
 
-#: ../src/gcompris/config.c:93
+#: ../src/gcompris/config.c:94
 msgid "Malayalam"
 msgstr "Malayu"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:95
 msgid "Marathi"
 msgstr "Marathi"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:96
 msgid "Malay"
 msgstr "Malayu"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:97
 msgid "Norwegian Bokmal"
 msgstr "Noruegu Bokmal"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:98
 msgid "Nepal"
 msgstr "Nepal"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:99
 msgid "Dutch"
 msgstr "Holandés"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:100
 msgid "Norwegian Nynorsk"
 msgstr "Noruegu Nynorsk"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:101
 msgid "Occitan (languedocien)"
 msgstr "Occitanu (languedocianu)"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:102
 msgid "Punjabi"
 msgstr "Punyabi"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:103
 msgid "Polish"
 msgstr "Polacu"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:104
 msgid "Portuguese (Brazil)"
 msgstr "Portugués (Brasil)"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:105
 msgid "Portuguese"
 msgstr "Portugués"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:106
 msgid "Romanian"
 msgstr "Rumanu"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:107
 msgid "Russian"
 msgstr "Rusu"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:108
 msgid "Kinyarwanda"
 msgstr "Kinyarwanda"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:109
 msgid "Slovak"
 msgstr "Eslovacu"
 
-#: ../src/gcompris/config.c:109
+#: ../src/gcompris/config.c:110
 msgid "Slovenian"
 msgstr "Eslovenu"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:111
 msgid "Somali"
 msgstr "Somalí"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:112
 msgid "Albanian"
 msgstr "Albanés"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:113
 msgid "Serbian (Latin)"
 msgstr "Serviu (llatinu)"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:114
 msgid "Serbian"
 msgstr "Serbiu"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:115
 msgid "Swedish"
 msgstr "Suecu"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:116
 msgid "Tamil"
 msgstr "Tamil"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:117
 msgid "Thai"
 msgstr "Thailandés"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:118
 msgid "Turkish"
 msgstr "Turcu"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:119
 msgid "Ukrainian"
 msgstr "Ucranianu"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:120
 msgid "Urdu"
 msgstr "Urdu"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:121
 msgid "Vietnamese"
 msgstr "Vietnamita"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:122
 msgid "Walloon"
 msgstr "Valón"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:123
 msgid "Chinese (Simplified)"
 msgstr "Chinu (Simplificado)"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:124
 msgid "Chinese (Traditional)"
 msgstr "Chinu (tradicional)"
 
-#: ../src/gcompris/config.c:128
+#: ../src/gcompris/config.c:129
 msgid "No time limit"
 msgstr "Ensin llímite de tiempu"
 
-#: ../src/gcompris/config.c:129
+#: ../src/gcompris/config.c:130
 msgid "Slow timer"
 msgstr "Temporizador lentu"
 
-#: ../src/gcompris/config.c:130
+#: ../src/gcompris/config.c:131
 msgid "Normal timer"
 msgstr "Temporizador normal"
 
-#: ../src/gcompris/config.c:131
+#: ../src/gcompris/config.c:132
 msgid "Fast timer"
 msgstr "Temporizador rápidu"
 
-#: ../src/gcompris/config.c:135
+#: ../src/gcompris/config.c:136
 msgid ""
 "<i>Use Gcompris administration module\n"
 "to filter boards</i>"
@@ -3023,42 +3021,42 @@ msgstr ""
 "<i>Usa'l módulu d'alministración de\n"
 "GCompris pa filtrar tableros</i>"
 
-#: ../src/gcompris/config.c:187
+#: ../src/gcompris/config.c:188
 msgid "GCompris Configuration"
 msgstr "Configuración de GCompris"
 
-#: ../src/gcompris/config.c:258
+#: ../src/gcompris/config.c:259
 msgid "Fullscreen"
 msgstr "Pantalla completa"
 
-#: ../src/gcompris/config.c:284
+#: ../src/gcompris/config.c:285
 msgid "Music"
 msgstr "Música"
 
-#: ../src/gcompris/config.c:310
+#: ../src/gcompris/config.c:311
 msgid "Effect"
 msgstr "Efeutu"
 
-#: ../src/gcompris/config.c:335 ../src/gcompris/sugar.c:82
+#: ../src/gcompris/config.c:336 ../src/gcompris/sugar.c:82
 msgid "Zoom"
 msgstr "Zoom"
 
-#: ../src/gcompris/config.c:372
+#: ../src/gcompris/config.c:373
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Nun se puede abrir el direutoriu d'apariencies: %s"
 
-#: ../src/gcompris/config.c:403 ../src/gcompris/config.c:807
-#: ../src/gcompris/config.c:821
+#: ../src/gcompris/config.c:404 ../src/gcompris/config.c:813
+#: ../src/gcompris/config.c:827
 #, c-format
 msgid "Skin : %s"
 msgstr "Apariencia : %s"
 
-#: ../src/gcompris/config.c:405
+#: ../src/gcompris/config.c:406
 msgid "SKINS NOT FOUND"
 msgstr "APARIENCIES NON ATOPAES"
 
-#: ../src/gcompris/config.c:487
+#: ../src/gcompris/config.c:488
 msgid "English (United State)"
 msgstr "Inglés (Estados Xuníos)"
 
@@ -3090,39 +3088,39 @@ msgstr ""
 "Sal ya infórmanos\n"
 "del problema."
 
-#: ../src/gcompris/gcompris.c:152
+#: ../src/gcompris/gcompris.c:165
 msgid "run GCompris in fullscreen mode."
 msgstr "executar GCompris a pantalla completa."
 
-#: ../src/gcompris/gcompris.c:155
+#: ../src/gcompris/gcompris.c:168
 msgid "run GCompris in window mode."
 msgstr "executar GCompris nun ventanu."
 
-#: ../src/gcompris/gcompris.c:158
+#: ../src/gcompris/gcompris.c:171
 msgid "run GCompris with sound enabled."
 msgstr "executar GCompris col soníu activáu."
 
-#: ../src/gcompris/gcompris.c:161
+#: ../src/gcompris/gcompris.c:174
 msgid "run GCompris without sound."
 msgstr "executar GCompris ensin soníu."
 
-#: ../src/gcompris/gcompris.c:164
+#: ../src/gcompris/gcompris.c:177
 msgid "run GCompris with the default gnome cursor."
 msgstr "executar GCompris col cursor predetermináu de GNOME."
 
-#: ../src/gcompris/gcompris.c:167
+#: ../src/gcompris/gcompris.c:180
 msgid "display only activities with this difficulty level."
 msgstr "amosar namás xeres con esti nivel de dificultá."
 
-#: ../src/gcompris/gcompris.c:170
+#: ../src/gcompris/gcompris.c:183
 msgid "display debug informations on the console."
 msgstr "amosar información de depuración na consola."
 
-#: ../src/gcompris/gcompris.c:173
+#: ../src/gcompris/gcompris.c:186
 msgid "Print the version of "
 msgstr "Imprentar la versión de "
 
-#: ../src/gcompris/gcompris.c:176
+#: ../src/gcompris/gcompris.c:189
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
@@ -3134,59 +3132,59 @@ msgstr ""
 "coneuta4). Usa «-l list» pa llistar toles xeres disponibles y les sos "
 "descripciones."
 
-#: ../src/gcompris/gcompris.c:181
+#: ../src/gcompris/gcompris.c:194
 msgid "GCompris will find the data dir in this directory"
 msgstr "GCompris va atopar los datos nesti direutoriu"
 
-#: ../src/gcompris/gcompris.c:184
+#: ../src/gcompris/gcompris.c:197
 msgid "GCompris will find the skins in this directory"
 msgstr "GCompris va atopar los pelleyos nesti direutoriu"
 
-#: ../src/gcompris/gcompris.c:187
+#: ../src/gcompris/gcompris.c:200
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "GCompris va atopar los plugins de la xera nesti direutoriu"
 
-#: ../src/gcompris/gcompris.c:190
+#: ../src/gcompris/gcompris.c:203
 msgid "GCompris will find the python activity in this directory"
 msgstr "GCompris va atopar la xera en python nesti direutoriu"
 
-#: ../src/gcompris/gcompris.c:193
+#: ../src/gcompris/gcompris.c:206
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr "GCompris va atopar el ficheru llocal (traducción .mo) nesti direutoriu"
 
-#: ../src/gcompris/gcompris.c:196
+#: ../src/gcompris/gcompris.c:209
 msgid "GCompris will find the activities menu in this directory"
 msgstr "GCompris va atopar el menú de xeres nesti direutoriu"
 
-#: ../src/gcompris/gcompris.c:199
+#: ../src/gcompris/gcompris.c:212
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Executar GCompris en mou alministración y xestión d'usuarios"
 
-#: ../src/gcompris/gcompris.c:202
+#: ../src/gcompris/gcompris.c:215
 msgid ""
 "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
 msgstr ""
-"Usa una base de datos alternativa pa los perfiles [$HOME/.config/gcompris/"
-"gcompris_sqlite.db]"
+"Usa una base de datos alternativa pa los perfiles "
+"[$HOME/.config/gcompris/gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:205
+#: ../src/gcompris/gcompris.c:218
 msgid "Create the alternate database for profiles"
 msgstr "Cria la base de datos alternativa pa los perfiles"
 
-#: ../src/gcompris/gcompris.c:208
+#: ../src/gcompris/gcompris.c:221
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Volver a lleer los menús XML y almacenalos na base de datos"
 
-#: ../src/gcompris/gcompris.c:211
+#: ../src/gcompris/gcompris.c:224
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Establez el perfil a usar. Usa «gcompris -a» pa criar perfiles"
 
-#: ../src/gcompris/gcompris.c:214
+#: ../src/gcompris/gcompris.c:227
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr "Llista tolos perfiles disponibles. Usa «gcompris -a» pa criar perfiles"
 
-#: ../src/gcompris/gcompris.c:217
+#: ../src/gcompris/gcompris.c:230
 msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
@@ -3194,23 +3192,23 @@ msgstr ""
 "Ubicación del direutoriu de configuración: [$HOME/.config/gcompris]. Lo "
 "alternativo ye afitar $XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:220
+#: ../src/gcompris/gcompris.c:233
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "Llocalización de los direutorios d'usuariu: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:223
+#: ../src/gcompris/gcompris.c:236
 msgid "Run the experimental activities"
 msgstr "Executar les xeres esperimentales"
 
-#: ../src/gcompris/gcompris.c:226
+#: ../src/gcompris/gcompris.c:239
 msgid "Disable the quit button"
 msgstr "Desautivar el botón de salida"
 
-#: ../src/gcompris/gcompris.c:229
+#: ../src/gcompris/gcompris.c:242
 msgid "Disable the config button"
 msgstr "Desautivar el botón de configuración"
 
-#: ../src/gcompris/gcompris.c:232
+#: ../src/gcompris/gcompris.c:245
 msgid ""
 "GCompris will get images, sounds and activity data from this server if not "
 "found locally."
@@ -3218,7 +3216,7 @@ msgstr ""
 "GCompris coyerá imáxenes, soníos y datos de les xeres d'esti sirvidor si nun "
 "s'alcuentren llocalmente."
 
-#: ../src/gcompris/gcompris.c:235
+#: ../src/gcompris/gcompris.c:248
 msgid ""
 "Only when --server is provided, disable check for local resource first. Data "
 "are always taken from the web server."
@@ -3226,25 +3224,25 @@ msgstr ""
 "Namás cuando s'especifica --server, desactivar la comprobación de recursos "
 "llocales en primer llugar. Los datos siempres s'obtienen del sirvidor web."
 
-#: ../src/gcompris/gcompris.c:239
+#: ../src/gcompris/gcompris.c:252
 msgid ""
 "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr ""
 "En mou sirvidor, especifica ú ta'l direutoriu caché pa evitar descargues "
 "innecesaries."
 
-#: ../src/gcompris/gcompris.c:242
+#: ../src/gcompris/gcompris.c:255
 msgid ""
 "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr ""
 "Mou global d'arrastrar y soltar: normal, calcar 2 veces, dambos. Lo "
 "predeterminao ye normal."
 
-#: ../src/gcompris/gcompris.c:245
+#: ../src/gcompris/gcompris.c:258
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Permitir la execución d'instancies múltiples de GCompris"
 
-#: ../src/gcompris/gcompris.c:915
+#: ../src/gcompris/gcompris.c:943
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -3265,20 +3263,19 @@ msgstr ""
 "FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1393
+#: ../src/gcompris/gcompris.c:1431
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
-msgstr ""
-"GCompris nun se va aniciar porque'l ficheru de bloquéu ye menos antiguu de %"
+msgstr "GCompris nun se va aniciar porque'l ficheru de bloquéu ye menos antiguu de %"
 "d segundos.\n"
 
-#: ../src/gcompris/gcompris.c:1395
+#: ../src/gcompris/gcompris.c:1433
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "El ficheru de bloqueu ye: %s\n"
 
-#: ../src/gcompris/gcompris.c:1509
+#: ../src/gcompris/gcompris.c:1547
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3292,27 +3289,27 @@ msgstr ""
 "Más información en http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1612
+#: ../src/gcompris/gcompris.c:1650
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Usa -l xera p'acceder direutamente a una xera.\n"
 
-#: ../src/gcompris/gcompris.c:1613
+#: ../src/gcompris/gcompris.c:1651
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "La llista de xeres disponibles ye:\n"
 
-#: ../src/gcompris/gcompris.c:1644
+#: ../src/gcompris/gcompris.c:1682
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Númberu de xeres: %d\n"
 
-#: ../src/gcompris/gcompris.c:1680
+#: ../src/gcompris/gcompris.c:1718
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s esiste pero nun puede lleese o escribir"
 
-#: ../src/gcompris/gcompris.c:1743
+#: ../src/gcompris/gcompris.c:1781
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
@@ -3321,16 +3318,15 @@ msgstr ""
 "La opción --server nun se puede usar porque GCompris compilóse ensin sofitu "
 "de rede"
 
-#: ../src/gcompris/gcompris.c:1797
+#: ../src/gcompris/gcompris.c:1835
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
 "available ones\n"
-msgstr ""
-"FALLU: Nun s'alcontró el perfil «%s». Execute «gcompris --profile list» pa "
+msgstr "FALLU: Nun s'alcontró el perfil «%s». Execute «gcompris --profile list» pa "
 "llistar los disponibles\n"
 
-#: ../src/gcompris/gcompris.c:1811
+#: ../src/gcompris/gcompris.c:1849
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "La llista de perfiles disponibles ye:\n"
@@ -3367,8 +3363,7 @@ msgstr "lléeme"
 msgid ""
 "This directory contains the files you create with the GCompris educational "
 "suite\n"
-msgstr ""
-"Esti direutoriu caltien los ficheros que crió cola suite educativa GCompris\n"
+msgstr "Esti direutoriu caltien los ficheros que crió cola suite educativa GCompris\n"
 
 #: ../src/gcompris/properties.c:506
 msgid ""
@@ -3385,7 +3380,6 @@ msgid "Help"
 msgstr "Aida"
 
 #: ../src/gcompris/sugar.c:71
-#| msgid "boat"
 msgid "About"
 msgstr "Tocante a"
 
@@ -3394,7 +3388,6 @@ msgid "Previous level"
 msgstr "Nivel anterior"
 
 #: ../src/gcompris/sugar.c:75
-#| msgid "%d (New level)"
 msgid "Next level"
 msgstr "Siguiente nivel"
 
@@ -3407,7 +3400,6 @@ msgid "Settings"
 msgstr "Preferencies"
 
 #: ../src/gcompris/sugar.c:84
-#| msgid "back"
 msgid "Back"
 msgstr "Tornar"
 
@@ -4495,8 +4487,8 @@ msgstr ""
 "rompecabeces de la Torre de Ḥanoi. Según cunta la lleenda, el mundu diba "
 "acabase'l día que los monxos terminaren la so xera. Tamién se conoz como'l  "
 "rompecabeces de la Torre de Brahma. Nun ta esclariao si Lucas se basó na "
-"lleenda o la inventó. (Fonte Uiquipedia &lt;http://en.wikipedia.org/wiki/"
-"Tower_of_hanoi&gt;)"
+"lleenda o la inventó. (Fonte Uiquipedia "
+"&lt;http://en.wikipedia.org/wiki/Tower_of_hanoi&gt;)"
 
 #: ../src/hexagon-activity/hexagon.xml.in.h:1
 msgid "Find the strawberry by clicking on the blue fields"
@@ -4881,8 +4873,8 @@ msgstr ""
 #: ../src/lightsoff-activity/lightsoff.xml.in.h:5
 msgid ""
 "The solver algorithm described on the haar.clara.co.uk is a valuable "
-"resource to know more about the Lights Off game: "
-"&lt;http://www.haar.clara.co.uk/Lights/solving.html&gt;"
+"resource to know more about the Lights Off game: &lt;http://www.haar.clara."
+"co.uk/Lights/solving.html&gt;"
 msgstr ""
 "L'algoritmu de solución descritu en haar.clara.co.uk ye un recurso "
 "pervaloratible pa saber más no que cinca al xuegu de les Lluces Apages: "
@@ -5051,8 +5043,8 @@ msgid ""
 "let you turn Tux in another direction."
 msgstr ""
 "Usa les fleches del tecláu pa mover a Tux hasta la puerta. Nesti llaberintu, "
-"el movimientu ye relativu (en primer persona). Usa la flecha d'arriba pa dir "
-"p'alantre. Les otres fleches orienten a Tux n'otra direición."
+"el movimientu ye relativu (en primer persona). Usa la flecha d'arriba pa "
+"dir p'alantre. Les otres fleches orienten a Tux n'otra direición."
 
 #: ../src/maze3D-activity/maze3D.xml.in.h:1
 msgid "3D Maze"
@@ -5310,12 +5302,12 @@ msgstr ""
 "Necesites alcontrar les dos partes de la operación y xuntales otra vuelta. "
 "Calca nuna carta pa ver el númberu qu'escuende, llueu tenta alcontrar la "
 "otra carta que va con ella pa completar la operación. Namás pues voltiar dos "
-"cartes de cada vez, polo que tienes de remembrar ú s'escuenden los númberos, "
-"dempués pues empareyalos cuando alcuentres la otra metada. Tas faciendo'l "
-"trabayu del signu igual, y los númberos necesiten que los xuntes pa facer "
-"una igualdá correuta. Cuando lo faigas, ¡les cartes desapaecerán! Cuando les "
-"faigas desapaecer toes, y alcuentres toles operaciones, ¡tendrás ganáu'l "
-"xuegu! :)"
+"cartes de cada vez, polo que tienes de remembrar ú s'escuenden los "
+"númberos, dempués pues empareyalos cuando alcuentres la otra metada. Tas "
+"faciendo'l trabayu del signu igual, y los númberos necesiten que los xuntes "
+"pa facer una igualdá correuta. Cuando lo faigas, ¡les cartes desapaecerán! "
+"Cuando les faigas desapaecer toes, y alcuentres toles operaciones, ¡tendrás "
+"ganáu'l xuegu! :)"
 
 #: ../src/memory_add_minus_mult_div-activity/memory_add_minus_mult_div.xml.in.h:1
 #: ../src/memory_add_minus_mult_div_tux-activity/memory_add_minus_mult_div_tux.xml.in.h:1
@@ -5587,8 +5579,8 @@ msgstr ""
 "conxuntu. Namás pues voltiar dos cartes de cada vez, asina que vas tener que "
 "remembrar ú ta cada dibuxu, mentantu andes a la gueta del so ximielgu. "
 "Cuandu-yos deas la vuelta a dos cartes ximielgues, desapaecerán dambes. Pues "
-"turnate con Tux, y pa ganar tienes d'alcontrar más pares de ximielgos de los "
-"qu'elli alcuentre."
+"turnate con Tux, y pa ganar tienes d'alcontrar más pares de ximielgos de "
+"los qu'elli alcuentre."
 
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:2
 msgid "Reading numbers, memory."
@@ -5596,8 +5588,7 @@ msgstr "Llectura de númberos, memoria."
 
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:3
 msgid "Turn the cards over to match the number with the word matching it."
-msgstr ""
-"Da-y la vuelta a les cartes p'atopar el númberu que casa cola pallabra."
+msgstr "Da-y la vuelta a les cartes p'atopar el númberu que casa cola pallabra."
 
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:4
 msgid "Wordnumber memory game"
@@ -5617,7 +5608,8 @@ msgid ""
 "under the picture. Select the missing letter to complete the word."
 msgstr ""
 "Amuésase un oxetu na estaya principal. Debaxo de la imaxe, amuésase una "
-"pallabra incompleta. Seleiciona la lletra que falta pa completar la pallabra."
+"pallabra incompleta. Seleiciona la lletra que falta pa completar la "
+"pallabra."
 
 #: ../src/missing_letter-activity/missing_letter.xml.in.h:2
 msgid "Fill in the missing letter"
@@ -6089,7 +6081,8 @@ msgstr "Plantilla de Python"
 msgid ""
 "Thanks to Guido van Rossum and the python team for this powerful language!"
 msgstr ""
-"¡Gracies a Guido van Rossum y al equipu de python por esti potente llinguaxe!"
+"¡Gracies a Guido van Rossum y al equipu de python por esti potente "
+"llinguaxe!"
 
 #: ../src/pythontest-activity/pythontest.py:184
 msgid ""
@@ -6430,9 +6423,9 @@ msgid ""
 "moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is "
 "released under the GPL licence."
 msgstr ""
-"La pintura ye trabayu orixinal criáu por Virginie MOREAU (virginie."
-"moreau@free.fr) en 2001. El so nome ye «Vendedor d'Especies n'Exiptu». Ta "
-"asoleyada embaxo la llicencia GPL."
+"La pintura ye trabayu orixinal criáu por Virginie MOREAU "
+"(virginie.moreau@free.fr) en 2001. El so nome ye «Vendedor d'Especies "
+"n'Exiptu». Ta asoleyada embaxo la llicencia GPL."
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:5
 msgid ""
@@ -6710,8 +6703,8 @@ msgstr ""
 "subtableros de 3x3 (denomaos «rexones»), entamando con dellos númberos yá "
 "allugaos en dalgunes caxelles (los «amosaos»). Cada filera, columna y rexón "
 "tienen de contener namás un exemplar de cada númberu. Completar el "
-"rompecabeces requier paciencia y habilidá llóxica (Fonte &lt;http://es."
-"wikipedia.org/wiki/Sudoku&gt;)."
+"rompecabeces requier paciencia y habilidá llóxica (Fonte "
+"&lt;http://es.wikipedia.org/wiki/Sudoku&gt;)."
 
 #: ../src/superbrain-activity/superbrain.c:110
 #: ../src/superbrain-activity/superbrain.xml.in.h:2
@@ -7002,8 +6995,7 @@ msgstr ""
 
 #: ../src/wordprocessor-activity/wordprocessor.xml.in.h:4
 msgid "The children can type their own text or copy one given by the teacher."
-msgstr ""
-"El neñu puede teclear el so propiu testu o copiar el que da'l mayestru."
+msgstr "El neñu puede teclear el so propiu testu o copiar el que da'l mayestru."
 
 #: ../src/wordprocessor-activity/wordprocessor.xml.in.h:5
 msgid "Your word processor"
@@ -7025,90 +7017,91 @@ msgstr "Entrenamientu col tecláu"
 
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:4
 msgid "Type the complete word as it falls, before it reachs the ground"
-msgstr ""
-"Teclea la pallabra completa mientres cai, enantes de qu'aporte al suelu"
+msgstr "Teclea la pallabra completa mientres cai, enantes de qu'aporte al suelu"
 
 #~ msgid ""
-#~ "Select a drawing tool on the left, and a color down the bottom. Then click "
-#~ "and drag in the white area to create a new shape. Once you've completed a "
-#~ "drawing, you can take a snapshot of it with the 'camera' button. This "
-#~ "creates a new image with the same content, a copy of your image. You can "
-#~ "then edit it by moving objects a little bit or adding/deleting objects. When "
-#~ "you create several drawings and then click on the 'film' button, you will "
-#~ "see all your images in a continuous slide-show (an infinite loop pattern). "
-#~ "You can also change the viewing speed in this mode. In viewing mode, click "
-#~ "on the 'drawing' button to return to drawing mode. You can then edit each "
-#~ "image in your animation, by using the image selector in the bottom-left "
-#~ "corner of the screen. You can also save and reload your animations with the "
-#~ "'floppy disk' and 'folder' buttons."
+#~ "Select a drawing tool on the left, and a color down the bottom. Then "
+#~ "click and drag in the white area to create a new shape. Once you've "
+#~ "completed a drawing, you can take a snapshot of it with the 'camera' "
+#~ "button. This creates a new image with the same content, a copy of your "
+#~ "image. You can then edit it by moving objects a little bit or adding/"
+#~ "deleting objects. When you create several drawings and then click on the "
+#~ "'film' button, you will see all your images in a continuous slide-show "
+#~ "(an infinite loop pattern). You can also change the viewing speed in this "
+#~ "mode. In viewing mode, click on the 'drawing' button to return to drawing "
+#~ "mode. You can then edit each image in your animation, by using the image "
+#~ "selector in the bottom-left corner of the screen. You can also save and "
+#~ "reload your animations with the 'floppy disk' and 'folder' buttons."
 #~ msgstr ""
 #~ "Seleiciona una ferramienta de dibuxu a la izquierda escueyi y abaxo un "
-#~ "color. Darréu calca y arrastra na estaya en blancu pa crear una forma nueva. "
-#~ "En terminando'l dibuxu pues tomar un pantallazu col botón de la cámara. Esto "
-#~ "va crear una imaxe nueva col mesmu conteníu, una copia de la to imaxe. Pues "
-#~ "editala moviéndola un poco o amestando o esborrando oxetos. Cuando tengas "
-#~ "creaos dellos dibuxos y calques nel botón 'película' vas ver toles imáxenes "
-#~ "nuna reproducción continua (nun bucle infinitu). Tamién pues camudar la "
-#~ "velocidá de pasu d'una semeya a otra. Calca nel botón 'dibuxar' pa tornar al "
-#~ "mou de dibuxu. Tamién pues editar cada imaxe na animación usando'l seleutor "
-#~ "na esquina inferior izquierda de la pantalla. Tamién pues guardar y recargar "
-#~ "les animaciones colos botones 'disquín' y direutoriu'."
+#~ "color. Darréu calca y arrastra na estaya en blancu pa crear una forma "
+#~ "nueva. En terminando'l dibuxu pues tomar un pantallazu col botón de la "
+#~ "cámara. Esto va crear una imaxe nueva col mesmu conteníu, una copia de la "
+#~ "to imaxe. Pues editala moviéndola un poco o amestando o esborrando "
+#~ "oxetos. Cuando tengas creaos dellos dibuxos y calques nel botón "
+#~ "'película' vas ver toles imáxenes nuna reproducción continua (nun bucle "
+#~ "infinitu). Tamién pues camudar la velocidá de pasu d'una semeya a otra. "
+#~ "Calca nel botón 'dibuxar' pa tornar al mou de dibuxu. Tamién pues editar "
+#~ "cada imaxe na animación usando'l seleutor na esquina inferior izquierda "
+#~ "de la pantalla. Tamién pues guardar y recargar les animaciones colos "
+#~ "botones 'disquín' y direutoriu'."
 
 #~ msgid ""
 #~ "The dog is provided by Andre Connes and released under the GPL.\n"
 #~ "Artist: Gauguin, Paul. Title Arearea. Licence: Public Domain. Source: "
 #~ "http://commons.wikimedia.org/wiki/Image:Paul_Gauguin_006.jpg\n"
 #~ "Artist: Pieter Bruegel the Elder. Title: The peasants wedding. Licence: "
-#~ "Public Domain. Source: "
-#~ "http://commons.wikimedia.org/wiki/Image:Pieter_Bruegel_d._Ä._011.jpg\n"
-#~ "Description: The Lady and the Unicorn (tapestries). Author: Pierre-Emmanuel "
-#~ "Malissin and Frédéric Valdes. Licence: Free but requires the site and "
-#~ "author. Source: http://www.galerie.roi-president.com\n"
-#~ "Artist: Vincent van Gogh. Title: Bedroom in Arles. Licence: Public Domain. "
-#~ "Source: http://commons.wikimedia.org/wiki/Image:Vincent_Van_Gogh_0011.jpg\n"
-#~ "Artist: Ambrosius Bosschaert the Elder. Title: Flower Still Life. Licence: "
-#~ "Public Domain. Source: http://commons.wikimedia.org/wiki/Image:Ambrosius_Bos"
-#~ "schaert,_the_Elder_04.jpg"
+#~ "Public Domain. Source: http://commons.wikimedia.org/wiki/Image:"
+#~ "Pieter_Bruegel_d._Ä._011.jpg\n"
+#~ "Description: The Lady and the Unicorn (tapestries). Author: Pierre-"
+#~ "Emmanuel Malissin and Frédéric Valdes. Licence: Free but requires the "
+#~ "site and author. Source: http://www.galerie.roi-president.com\n"
+#~ "Artist: Vincent van Gogh. Title: Bedroom in Arles. Licence: Public "
+#~ "Domain. Source: http://commons.wikimedia.org/wiki/Image:"
+#~ "Vincent_Van_Gogh_0011.jpg\n"
+#~ "Artist: Ambrosius Bosschaert the Elder. Title: Flower Still Life. "
+#~ "Licence: Public Domain. Source: http://commons.wikimedia.org/wiki/Image:"
+#~ "Ambrosius_Bosschaert,_the_Elder_04.jpg"
 #~ msgstr ""
 #~ "El perru proporciónalu Andre Connes y ta lliberáu baxo la GPL.\n"
-#~ "Artista: Gauguin, Paul. Título Arearea. Llicencia: Dominiu Públicu. Fonte:  "
-#~ "http://commons.wikimedia.org/wiki/Image:Paul_Gauguin_006.jpg\n"
-#~ "Artista: Pieter Bruegel el Vieyu. Títulu: Bauernhochzeit. Llicencia: Dominiu "
-#~ "Públicu. Fonte: "
-#~ "http://commons.wikimedia.org/wiki/Image:Pieter_Bruegel_d._Ä._011.jpg\n"
+#~ "Artista: Gauguin, Paul. Título Arearea. Llicencia: Dominiu Públicu. "
+#~ "Fonte:  http://commons.wikimedia.org/wiki/Image:Paul_Gauguin_006.jpg\n"
+#~ "Artista: Pieter Bruegel el Vieyu. Títulu: Bauernhochzeit. Llicencia: "
+#~ "Dominiu Públicu. Fonte: http://commons.wikimedia.org/wiki/Image:"
+#~ "Pieter_Bruegel_d._Ä._011.jpg\n"
 #~ "Descripción: La Dama y l'Unicorniu (tapestries). Autor: Pierre-Emmanuel "
 #~ "Malissin y Frédéric Valdes. Llicencia: Llibre pero requier sitiu y autor. "
 #~ "Fonte: http://www.galerie.roi-president.com\n"
-#~ "Artista: Vincent van Gogh. Títulu: Habitación en Arles. Llicencia: Dominiu "
-#~ "Públicu. Fonte: "
-#~ "http://commons.wikimedia.org/wiki/Image:Vincent_Van_Gogh_0011.jpg\n"
+#~ "Artista: Vincent van Gogh. Títulu: Habitación en Arles. Llicencia: "
+#~ "Dominiu Públicu. Fonte: http://commons.wikimedia.org/wiki/Image:"
+#~ "Vincent_Van_Gogh_0011.jpg\n"
 #~ "Artista: Ambrosius Bosschaert. Título: El más mayor. Llicencia: Dominiu "
-#~ "Públicu. Fonte: http://commons.wikimedia.org/wiki/Image:Ambrosius_Bosschaert"
-#~ ",_the_Elder_04.jpg"
+#~ "Públicu. Fonte: http://commons.wikimedia.org/wiki/Image:"
+#~ "Ambrosius_Bosschaert,_the_Elder_04.jpg"
 
 #~ msgid ""
 #~ "At the start, each player (one controlling the white pieces, the other "
-#~ "controlling the black pieces) controls sixteen pieces: one king, one queen, "
-#~ "two rooks, two knights, two bishops, and eight pawns. The object of the game "
-#~ "is to checkmate the opponent's king, whereby the king is under immediate "
-#~ "attack (in \"check\") and there is no way to remove it from attack on the next "
-#~ "move."
+#~ "controlling the black pieces) controls sixteen pieces: one king, one "
+#~ "queen, two rooks, two knights, two bishops, and eight pawns. The object "
+#~ "of the game is to checkmate the opponent's king, whereby the king is "
+#~ "under immediate attack (in \"check\") and there is no way to remove it "
+#~ "from attack on the next move."
 #~ msgstr ""
 #~ "Al entamu, cada xugador (uno remanando les pieces blanques y l'otru les "
-#~ "prietes) tien dieciséis pieces: un rei, una reina, dos torres, dos caballos, "
-#~ "dos alfiles y ocho peones. L'oxetivu del xuegu ye facer xaque mate al rei "
-#~ "del oponente, u'l rei tea baxo arrebexu direutu (en «xaque») y nun hai mou "
-#~ "de refugar l'arrebexu na siguiente xugada."
+#~ "prietes) tien dieciséis pieces: un rei, una reina, dos torres, dos "
+#~ "caballos, dos alfiles y ocho peones. L'oxetivu del xuegu ye facer xaque "
+#~ "mate al rei del oponente, u'l rei tea baxo arrebexu direutu (en «xaque») y "
+#~ "nun hai mou de refugar l'arrebexu na siguiente xugada."
 
 #~ msgid ""
 #~ "Move the items in the bottom left frame to copy their position in the top "
-#~ "right model. Below the crane itself, you will find four arrows that let you "
-#~ "move items. To select the item to move, just click on it."
+#~ "right model. Below the crane itself, you will find four arrows that let "
+#~ "you move items. To select the item to move, just click on it."
 #~ msgstr ""
-#~ "Muevi los elementos nel cuadru baxeru izquierdu pa copialos a la so posición "
-#~ "nel modelu de la parte cimera drecha. Baxo la grúa puedes atopar cuatro "
-#~ "fleches que te dexen mover elementos. Pa escoyer l'elementu a mover, calca "
-#~ "nél."
+#~ "Muevi los elementos nel cuadru baxeru izquierdu pa copialos a la so "
+#~ "posición nel modelu de la parte cimera drecha. Baxo la grúa puedes atopar "
+#~ "cuatro fleches que te dexen mover elementos. Pa escoyer l'elementu a "
+#~ "mover, calca nél."
 
 #~ msgid "gcompris animation"
 #~ msgstr "animación de GCompris"
@@ -7210,8 +7203,8 @@ msgstr ""
 #~ msgstr "cartera/ca_tera/r/s/l"
 
 #~ msgid ""
-#~ "Rebuild the left mosaic on the right area. Select a color in the bottom area "
-#~ "and click on grey boxes to paint them."
+#~ "Rebuild the left mosaic on the right area. Select a color in the bottom "
+#~ "area and click on grey boxes to paint them."
 #~ msgstr ""
 #~ "Reconstrúi'l mosaicu de a manzorga. Esbilla un color na estaya inferior y "
 #~ "calca nes caxelles buxes pa pintales."
@@ -7220,7 +7213,8 @@ msgstr ""
 #~ msgstr "Desautivóse SVG. Instale'l módulo python xml p'activalu"
 
 #~ msgid "Warning: the following images cannot be accessed on your system.\n"
-#~ msgstr "Atención: les siguientes imáxenes nun son accesibles nel to sistema.\n"
+#~ msgstr ""
+#~ "Atención: les siguientes imáxenes nun son accesibles nel to sistema.\n"
 
 #~ msgid "The corresponding items have been skipped."
 #~ msgstr "Saltáronse los elementos correspondientes."
@@ -7252,30 +7246,31 @@ msgstr ""
 
 #~ msgid "Display the resources on stdout based on the selected activities"
 #~ msgstr ""
-#~ "Amosar los recursos na salida standard basándose nes actividaes seleicionaes"
+#~ "Amosar los recursos na salida standard basándose nes actividaes "
+#~ "seleicionaes"
 
 #~ msgid "Do not display the background images of activities."
 #~ msgstr "Non amosar les imáxenes de fondu de les actividaes."
 
-#, c-format
 #~ msgid ""
 #~ "GCompris is free software released under the GPL License. In order to "
 #~ "support its development, the Windows version provides only %d of the %d "
 #~ "activities. You can get the full version for a small fee at\n"
 #~ "<http://gcompris.net>\n"
-#~ "The GNU/Linux version does not have this restriction. Note that GCompris is "
-#~ "being developed to free schools from monopolistic software vendors. If you "
-#~ "also believe that we should teach freedom to children, please consider using "
-#~ "GNU/Linux. Get more information at FSF:\n"
+#~ "The GNU/Linux version does not have this restriction. Note that GCompris "
+#~ "is being developed to free schools from monopolistic software vendors. If "
+#~ "you also believe that we should teach freedom to children, please "
+#~ "consider using GNU/Linux. Get more information at FSF:\n"
 #~ "<http://www.fsf.org/philosophy>"
 #~ msgstr ""
-#~ "GCompris ye software llibre lliberáu embaxo la llicencia GPL. Pa sofitar el "
-#~ "so desarrollu, la versión de Windows apurri namás %d de les %d xeres. Pues "
-#~ "algamar la versión completa por una pequeña contribución en\n"
+#~ "GCompris ye software llibre lliberáu embaxo la llicencia GPL. Pa sofitar "
+#~ "el so desarrollu, la versión de Windows apurri namás %d de les %d xeres. "
+#~ "Pues algamar la versión completa por una pequeña contribución en\n"
 #~ "http://gcompris.net\n"
-#~ "La versión de GNU/Linux nun tien esta restricción. GCompris ta desendolcáu "
-#~ "pa escueles llibres de monopolios de software. Si crees que deberíes enseñar "
-#~ "llibertá a los neños, piensa n'usar GNU/Linux. Más información en FSF:\n"
+#~ "La versión de GNU/Linux nun tien esta restricción. GCompris ta "
+#~ "desendolcáu pa escueles llibres de monopolios de software. Si crees que "
+#~ "deberíes enseñar llibertá a los neños, piensa n'usar GNU/Linux. Más "
+#~ "información en FSF:\n"
 #~ "<http://www.fsf.org/philosophy>"
 
 #~ msgid "Error: Abnormally failed to load a data file"
