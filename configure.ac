@@ -87,10 +87,6 @@ AC_ARG_ENABLE(nsbundle,
           [Turn on nsbundle packaging (needs Cocoa/GNUstep)]),
           nsbundle="$enableval", nsbundle="no")
 
-NSBUNDLE_CPPFLAGS=
-NSBUNDLE_LDFLAGS=
-NSBUNDLE_GTK_DIR=
-
 #check header for nsbundle
 if test "x$nsbundle" = "xyes"; then
    AC_PROG_OBJC([gcc])
@@ -102,8 +98,6 @@ if test "x$nsbundle" = "xyes"; then
       if test "x$NSFoundation" = "x$no"; then
 	 AC_MSG_ERROR([You need development tools to use nsbundle. Make sure XCode is installed." ])
       fi
-      NSBUNDLE_GTK_DIR="/../GTK"
-      NSBUNDLE_LDFLAGS="-framework Cocoa "
       OBJCFLAGS="$OBJCFLAGS $CFLAGS"
       AC_LANG_POP([Objective C])
 
@@ -119,34 +113,21 @@ if test "x$nsbundle" = "xyes"; then
       fi
       CPPFLAGS="$saved_CPPFLAGS"
       OBJCFLAGS="$OBJCFLAGS $CFLAGS -DGNUSTEP -DGNUSTEP_BASE_LIBRARY=1 -DGNU_GUI_LIBRARY=1 -DGNU_RUNTIME=1 -DGNUSTEP_BASE_LIBRARY=1 -fconstant-string-class=NSConstantString -I$GNUSTEP_SYSTEM_ROOT/Library/Headers "
-      NSBUNDLE_GTK_DIR="/GTK"
-      NSBUNDLE_LDFLAGS="-rdynamic -fgnu-runtime -L$GNUSTEP_SYSTEM_ROOT/Library/Libraries -lgnustep-base -lgnustep-gui -Wl,-rpath=\\\$\$ORIGIN/$NSBUNDLE_GTK_DIR/lib "
       AC_LANG_POP([Objective C])
    fi
-   AC_DEFINE_UNQUOTED(NSBUNDLE, 1, [ Define to 1 to use NSBundle for relocation (OSX/GNUstep) ])
-   AC_DEFINE_UNQUOTED(NSBUNDLE_GTK_DIR, "$NSBUNDLE_GTK_DIR", [ Define to 1 to use NSBundle for relocation (OSX/GNUstep) ])
 else
-OBJC=$CC
-AC_SUBST(OBJC)
+  OBJC=$CC
+  AC_SUBST(OBJC)
 fi
 
 _AM_DEPENDENCIES([OBJC])
 
-AC_SUBST(NSBUNDLE_CPPFLAGS)
-AC_SUBST(NSBUNDLE_LDFLAGS)
-AC_SUBST(NSBUNDLE_GTK_DIR)
-
-# Todo: add a AC_ARG_WITH to allow change.
 bundlename=GCompris
-
-
 nsbundledir=$(pwd)"/$bundlename.app"
 BUNDLE_APPDIR="$nsbundledir"
 BUNDLE_NAME="$bundlename"
 AC_SUBST(BUNDLE_APPDIR)
 AC_SUBST(BUNDLE_NAME)
-
-AM_CONDITIONAL(WITH_NSBUNDLE, test "$nsbundle" = yes)
 
 ### --------------------------------------------------------------------------
 ### Check to see if GDK uses the quartz backend and if we can use

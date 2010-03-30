@@ -28,7 +28,7 @@
 
 #ifdef WIN32
 // WIN32
-#elif NSBUNDLE
+#elif MAC_INTEGRATION
 // MACOSX
 #else
 #include <X11/Xlib.h>
@@ -53,11 +53,6 @@
 
 #include "binreloc.h"
 
-/* for NSBUNDLE */
-#ifdef NSBUNDLE
-//#include "gcompris-nsbundle.h"
-#endif
-
 /* get the default database name */
 #define DEFAULT_DATABASE "gcompris_sqlite.db"
 
@@ -77,7 +72,7 @@ gchar * exec_prefix = NULL;
 static void quit_cb (GtkWidget *widget, gpointer data);
 static void map_cb  (GtkWidget *widget, gpointer data);
 #ifdef WIN32
-#elif NSBUNDLE
+#elif MAC_INTEGRATION
 #else
 static gboolean _realize_callback (GtkWidget *widget, GdkEventExpose *event,
 				   gpointer data);
@@ -650,7 +645,7 @@ gc_set_default_background(GooCanvasItem *parent)
  * Sugar requires properties to be set before the windows is realized
  */
 #ifdef WIN32
-#elif NSBUNDLE
+#elif MAC_INTEGRATION
 #else
 static gboolean
 _realize_callback (GtkWidget *widget, GdkEventExpose *event, gpointer data)
@@ -817,7 +812,7 @@ static void setup_window ()
   gtk_window_set_default_size(GTK_WINDOW(window), BOARDWIDTH, BOARDHEIGHT);
   gtk_window_set_wmclass(GTK_WINDOW(window), "gcompris", "GCompris");
 #ifdef WIN32
-#elif NSBUNDLE
+#elif MAC_INTEGRATION
 #else
   g_signal_connect (GTK_OBJECT (window), "realize",
 		    G_CALLBACK (_realize_callback), NULL);
@@ -1098,8 +1093,8 @@ void gc_fullscreen_set(gboolean state)
       // WARNING: Doing this is required on Windows
       //          but keep the window hidden on GNU/Linux
       gtk_widget_hide ( window );
-#elif NSBUNDLE
-      // WARNING: Doing this is required on Windows
+#elif MAC_INTEGRATION
+      // WARNING: Doing this is required on MacOSX
       //          but keep the window hidden on GNU/Linux
       gtk_widget_hide ( window );
 #else
@@ -1115,7 +1110,6 @@ void gc_fullscreen_set(gboolean state)
       gtk_window_move ( GTK_WINDOW ( window ), 0, 0 );
 
       GdkScreen *screen = gtk_window_get_screen ( GTK_WINDOW ( window ) );
-      printf("%d // %d\n", gdk_screen_get_width (screen), gdk_screen_get_height (screen) );
       gtk_window_resize ( GTK_WINDOW ( window ),
 			  gdk_screen_get_width (screen),
 			  gdk_screen_get_height (screen) );
@@ -1234,14 +1228,7 @@ static void load_properties ()
       g_error_free (error);
     }
 
-  /* usefull for OSX bundle app */
-  /* FIXME exec_prefix should be put in properties */
-  /* usefull for OSX bundle app */
-  //#ifdef NSBUNDLE
-  //  exec_prefix = gcompris_nsbundle_resource ();
-  //#else
   exec_prefix = gbr_find_exe_dir(NULL);
-  //#endif
   g_warning("exec_prefix %s\n", (exec_prefix==NULL ? "NONE" : exec_prefix));
 
   {
