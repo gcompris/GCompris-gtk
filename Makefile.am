@@ -82,7 +82,6 @@ CONFIG_CLEAN_FILES = gcompris.desktop gcompris-edit.desktop config.h.mingw
 
 clean-local:
 	rm -f intltool-extract intltool-merge intltool-update
-	-rm -fr $(BUNDLE_APPDIR)
 
 update-voices:
 	@if test -d $(PACKAGE_DATA_DIR)/voices; then \

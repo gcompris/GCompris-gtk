@@ -71,9 +71,24 @@
     ${prefix}/lib/libvorbisfile.dylib
   </binary>
 
+  <!-- Python
+  <binary>
+    ${prefix}/../local/lib/libpython2.6.dylib
+  </binary>
+  <binary>
+    ${prefix}/../local/lib/libpyglib-2.0-python.dylib
+  </binary>
+  <binary>
+    ${prefix}/../local/lib/python2.6
+  </binary>
+ -->
+
   <!-- GCompris plugins -->
   <binary>
     ${prefix}/lib/gcompris/*.so
+  </binary>
+  <binary>
+    ${prefix}/lib/gcompris/*.dylib
   </binary>
 
   <!-- Copy in GTK+ theme engines. Dunno why this is a dupe of
@@ -103,6 +118,10 @@
   -->
   <data>
     ${prefix}/share/gcompris
+  </data>
+
+  <data>
+    ${prefix}/lib/python2.6
   </data>
 
   <!-- Copy in the themes data. You may want to trim this to save space

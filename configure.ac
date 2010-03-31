@@ -122,13 +122,6 @@ fi
 
 _AM_DEPENDENCIES([OBJC])
 
-bundlename=GCompris
-nsbundledir=$(pwd)"/$bundlename.app"
-BUNDLE_APPDIR="$nsbundledir"
-BUNDLE_NAME="$bundlename"
-AC_SUBST(BUNDLE_APPDIR)
-AC_SUBST(BUNDLE_NAME)
-
 ### --------------------------------------------------------------------------
 ### Check to see if GDK uses the quartz backend and if we can use
 ### MacOSX integration

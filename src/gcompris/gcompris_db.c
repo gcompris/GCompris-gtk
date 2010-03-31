@@ -50,7 +50,7 @@ static sqlite3 *gcompris_db=NULL;
 #define CREATE_TABLE_BOARDS_PROFILES_CONF				\
   "CREATE TABLE board_profile_conf (profile_id INT, board_id INT, conf_key TEXT, conf_value TEXT ); "
 #define CREATE_TABLE_BOARDS						\
-  "CREATE TABLE boards (board_id INT UNIQUE, name TEXT, section_id INT, section TEXT, author TEXT, type TEXT, mode TEXT, difficulty INT, icon TEXT, boarddir TEXT, mandatory_sound_file TEXT, mandatory_sound_dataset TEXT, filename TEXT, title TEXT, description TEXT, prerequisite TEXT, goal TEXT, manual TEXT, credit TEXT);"
+  "CREATE TABLE boards (board_id INT UNIQUE, name TEXT, section_id INT, section TEXT, author TEXT, type TEXT, mode TEXT, difficulty INT, icon TEXT, boarddir TEXT, mandatory_sound_file TEXT, mandatory_sound_dataset TEXT, filename TEXT, title TEXT, description TEXT, prerequisite TEXT, goal TEXT, manual TEXT, credit TEXT, demo_only INT);"
 #define CREATE_TABLE_LOGS						\
   "CREATE TABLE logs (date TEXT, duration INT, user_id INT, board_id INT, level INT, sublevel INT, status INT, comment TEXT);"
 
@@ -383,6 +383,14 @@ gboolean gc_db_init(gboolean disable_database_)
 	  g_error("SQL error: %s\n", zErrMsg);
 	}
       }
+    if(version <= 17)
+      {
+	g_message("Upgrading from <17 schema version\n");
+	rc = sqlite3_exec(gcompris_db,CREATE_TABLE_BOARDS, NULL,  0, &zErrMsg);
+	if( rc!=SQLITE_OK ) {
+	  g_error("SQL error: %s\n", zErrMsg);
+	}
+      }
   }
 
   return TRUE;
@@ -540,7 +548,8 @@ gc_db_board_update(guint *board_id,
 		   gchar *prerequisite,
 		   gchar *goal,
 		   gchar *manual,
-		   gchar *credit
+		   gchar *credit,
+		   int demo_only
 		   )
 {
   SUPPORT_OR_RETURN(FALSE);
@@ -670,7 +679,8 @@ gc_db_board_update(guint *board_id,
 			     prerequisite,
 			     goal,
 			     manual,
-			     credit
+			     credit,
+			     demo_only
 			     );
 
   rc = sqlite3_get_table(gcompris_db,
@@ -695,7 +705,7 @@ gc_db_board_update(guint *board_id,
 
 
 #define BOARDS_READ							\
-  "SELECT board_id ,name, section_id, section, author, type, mode, difficulty, icon, boarddir, mandatory_sound_file, mandatory_sound_dataset, filename, title, description, prerequisite, goal, manual, credit FROM boards;"
+  "SELECT board_id ,name, section_id, section, author, type, mode, difficulty, icon, boarddir, mandatory_sound_file, mandatory_sound_dataset, filename, title, description, prerequisite, goal, manual, credit, demo_only FROM boards;"
 
 GList *gc_menu_load_db(GList *boards_list)
 {
@@ -764,6 +774,7 @@ GList *gc_menu_load_db(GList *boards_list)
     gcomprisBoard->goal = reactivate_newline(gettext(result[i++]));
     gcomprisBoard->manual = reactivate_newline(gettext(result[i++]));
     gcomprisBoard->credit = reactivate_newline(gettext(result[i++]));
+    gcomprisBoard->demo_only = atoi(result[i++]);
 
     boards = g_list_append(boards, gcomprisBoard);
   }
@@ -1813,6 +1824,7 @@ GcomprisBoard *gc_db_get_board_from_id(int board_id)
   gcomprisBoard->goal = reactivate_newline(gettext(result[i++]));
   gcomprisBoard->manual = reactivate_newline(gettext(result[i++]));
   gcomprisBoard->credit = reactivate_newline(gettext(result[i++]));
+  gcomprisBoard->demo_only = atoi(result[i++]);
 
   sqlite3_free_table(result);
 

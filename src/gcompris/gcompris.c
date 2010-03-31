@@ -1224,7 +1224,10 @@ static void load_properties ()
     g_message("Binary relocation enabled");
   else
     {
-      g_message("Binary relocation disabled code = %d", error->code);
+      if (error->code == GBR_INIT_ERROR_DISABLED)
+	g_message("Binary relocation disabled");
+      else
+	g_message("Binary relocation start failed with error %d", error->code);
       g_error_free (error);
     }
 
