@@ -383,9 +383,9 @@ gboolean gc_db_init(gboolean disable_database_)
 	  g_error("SQL error: %s\n", zErrMsg);
 	}
       }
-    if(version <= 17)
+    if(version <= 18)
       {
-	g_message("Upgrading from <17 schema version\n");
+	g_message("Upgrading from <18 schema version\n");
 	rc = sqlite3_exec(gcompris_db,"DROP TABLE boards;", NULL,  0, &zErrMsg);
 	if( rc!=SQLITE_OK ) {
 	  g_error("SQL error: %s\n", zErrMsg);
