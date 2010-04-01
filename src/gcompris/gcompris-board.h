@@ -84,8 +84,8 @@ struct _GcomprisBoard
   /* IM_context control */
   gboolean             disable_im_context;
 
-  /* This activity is available only in the demo version */
-  gboolean	       demo_only;
+  /* This activity is a demo one */
+  gboolean	       demo;
 };
 
 

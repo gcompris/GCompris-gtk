@@ -52,7 +52,8 @@ gboolean gc_db_board_update(guint *board_id,
 			      gchar *prerequisite,
 			      gchar *goal,
 			      gchar *manual,
-			      gchar *credit
+			      gchar *credit,
+			      int demo
 			      );
 
 gboolean gc_db_save_user(int *user_id,

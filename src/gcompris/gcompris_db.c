@@ -50,7 +50,7 @@ static sqlite3 *gcompris_db=NULL;
 #define CREATE_TABLE_BOARDS_PROFILES_CONF				\
   "CREATE TABLE board_profile_conf (profile_id INT, board_id INT, conf_key TEXT, conf_value TEXT ); "
 #define CREATE_TABLE_BOARDS						\
-  "CREATE TABLE boards (board_id INT UNIQUE, name TEXT, section_id INT, section TEXT, author TEXT, type TEXT, mode TEXT, difficulty INT, icon TEXT, boarddir TEXT, mandatory_sound_file TEXT, mandatory_sound_dataset TEXT, filename TEXT, title TEXT, description TEXT, prerequisite TEXT, goal TEXT, manual TEXT, credit TEXT, demo_only INT);"
+  "CREATE TABLE boards (board_id INT UNIQUE, name TEXT, section_id INT, section TEXT, author TEXT, type TEXT, mode TEXT, difficulty INT, icon TEXT, boarddir TEXT, mandatory_sound_file TEXT, mandatory_sound_dataset TEXT, filename TEXT, title TEXT, description TEXT, prerequisite TEXT, goal TEXT, manual TEXT, credit TEXT, demo INT);"
 #define CREATE_TABLE_LOGS						\
   "CREATE TABLE logs (date TEXT, duration INT, user_id INT, board_id INT, level INT, sublevel INT, status INT, comment TEXT);"
 
@@ -386,6 +386,10 @@ gboolean gc_db_init(gboolean disable_database_)
     if(version <= 17)
       {
 	g_message("Upgrading from <17 schema version\n");
+	rc = sqlite3_exec(gcompris_db,"DROP TABLE boards;", NULL,  0, &zErrMsg);
+	if( rc!=SQLITE_OK ) {
+	  g_error("SQL error: %s\n", zErrMsg);
+	}
 	rc = sqlite3_exec(gcompris_db,CREATE_TABLE_BOARDS, NULL,  0, &zErrMsg);
 	if( rc!=SQLITE_OK ) {
 	  g_error("SQL error: %s\n", zErrMsg);
@@ -514,7 +518,7 @@ gboolean gc_db_check_boards()
 
 
 #define GC_BOARD_INSERT							\
-  "INSERT OR REPLACE INTO boards VALUES (%d, %Q, %d, %Q, %Q, %Q, %Q, %d, %Q, %Q, %Q, %Q, %Q, %Q, %Q, %Q, %Q, %Q, %Q);"
+  "INSERT OR REPLACE INTO boards VALUES (%d, %Q, %d, %Q, %Q, %Q, %Q, %d, %Q, %Q, %Q, %Q, %Q, %Q, %Q, %Q, %Q, %Q, %Q, %d);"
 
 #define MAX_GC_BOARD_ID				\
   "SELECT MAX(board_id) FROM boards;"
@@ -549,7 +553,7 @@ gc_db_board_update(guint *board_id,
 		   gchar *goal,
 		   gchar *manual,
 		   gchar *credit,
-		   int demo_only
+		   int demo
 		   )
 {
   SUPPORT_OR_RETURN(FALSE);
@@ -680,7 +684,7 @@ gc_db_board_update(guint *board_id,
 			     goal,
 			     manual,
 			     credit,
-			     demo_only
+			     demo
 			     );
 
   rc = sqlite3_get_table(gcompris_db,
@@ -705,7 +709,7 @@ gc_db_board_update(guint *board_id,
 
 
 #define BOARDS_READ							\
-  "SELECT board_id ,name, section_id, section, author, type, mode, difficulty, icon, boarddir, mandatory_sound_file, mandatory_sound_dataset, filename, title, description, prerequisite, goal, manual, credit, demo_only FROM boards;"
+  "SELECT board_id ,name, section_id, section, author, type, mode, difficulty, icon, boarddir, mandatory_sound_file, mandatory_sound_dataset, filename, title, description, prerequisite, goal, manual, credit, demo FROM boards;"
 
 GList *gc_menu_load_db(GList *boards_list)
 {
@@ -774,7 +778,7 @@ GList *gc_menu_load_db(GList *boards_list)
     gcomprisBoard->goal = reactivate_newline(gettext(result[i++]));
     gcomprisBoard->manual = reactivate_newline(gettext(result[i++]));
     gcomprisBoard->credit = reactivate_newline(gettext(result[i++]));
-    gcomprisBoard->demo_only = atoi(result[i++]);
+    gcomprisBoard->demo = atoi(result[i++]);
 
     boards = g_list_append(boards, gcomprisBoard);
   }
@@ -1752,7 +1756,7 @@ GList *gc_db_get_groups_list()
 
 
 #define BOARDS_READ_FROM_ID(n)						\
-  "SELECT name, section_id, section, author, type, mode, difficulty, icon, boarddir, mandatory_sound_file, mandatory_sound_dataset, filename, title, description, prerequisite, goal, manual, credit FROM boards WHERE board_id=%d;",n
+  "SELECT name, section_id, section, author, type, mode, difficulty, icon, boarddir, mandatory_sound_file, mandatory_sound_dataset, filename, title, description, prerequisite, goal, manual, credit, demo FROM boards WHERE board_id=%d;",n
 
 GcomprisBoard *gc_db_get_board_from_id(int board_id)
 {
@@ -1824,7 +1828,7 @@ GcomprisBoard *gc_db_get_board_from_id(int board_id)
   gcomprisBoard->goal = reactivate_newline(gettext(result[i++]));
   gcomprisBoard->manual = reactivate_newline(gettext(result[i++]));
   gcomprisBoard->credit = reactivate_newline(gettext(result[i++]));
-  gcomprisBoard->demo_only = atoi(result[i++]);
+  gcomprisBoard->demo = atoi(result[i++]);
 
   sqlite3_free_table(result);
 

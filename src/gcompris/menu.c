@@ -99,6 +99,11 @@ _add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child,
   if(gcomprisBoard->difficulty == NULL)
     gcomprisBoard->difficulty		= g_strdup("0");
 
+  gcomprisBoard->demo = FALSE;
+  char *demo		= (char *)xmlGetProp(xmlnode, BAD_CAST "demo");
+  if(demo && strcmp(demo, "1"))
+    gcomprisBoard->demo = TRUE;
+
   /* Update the difficulty max */
   if(properties->difficulty_max < atoi(gcomprisBoard->difficulty))
     properties->difficulty_max = atoi(gcomprisBoard->difficulty);
@@ -206,7 +211,8 @@ _add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child,
 			prerequisite,
 			goal,
 			manual,
-			credit
+			credit,
+			gcomprisBoard->demo
 			);
 
     g_message("db board written %d in %d  %s/%s",
