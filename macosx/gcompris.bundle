@@ -59,6 +59,26 @@
   </binary>
 
   <binary>
+    ${prefix}/lib/python2.6/site-packages/cairo/*.so
+  </binary>
+
+  <binary>
+    ${prefix}/lib/python2.6/site-packages/gtk-2.0/gtk/*.so
+  </binary>
+
+  <binary>
+    ${prefix}/lib/python2.6/site-packages/gtk-2.0/gio/*.so
+  </binary>
+
+  <binary>
+    ${prefix}/lib/python2.6/site-packages/gtk-2.0/glib/*.so
+  </binary>
+
+  <binary>
+    ${prefix}/lib/python2.6/site-packages/gtk-2.0/gobject/*.so
+  </binary>
+
+  <binary>
     ${prefix}/bin/gnuchess
   </binary>
 
