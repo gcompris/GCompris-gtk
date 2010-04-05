@@ -19,6 +19,7 @@
 #include <string.h>
 
 #include "gcompris.h"
+#include "status.h"
 #include <glib/gstdio.h>
 
 #ifdef USE_SQLITE
@@ -889,6 +890,10 @@ GList *gc_menu_load_db(GList *boards_list)
     gcomprisBoard->demo = atoi(result[i++]);
 
     boards = g_list_append(boards, gcomprisBoard);
+    gchar *msg = g_strdup_printf("Loading activity from database:\n%s",
+				 gettext(gcomprisBoard->title));
+    gc_status_set_msg(msg);
+    g_free(msg);
   }
 
   sqlite3_free_table(result);

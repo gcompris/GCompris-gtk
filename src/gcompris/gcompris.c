@@ -24,8 +24,6 @@
 #include <time.h>
 #include <string.h>
 
-#include "gcompris.h"
-
 #ifdef WIN32
 // WIN32
 #elif MAC_INTEGRATION
@@ -49,6 +47,7 @@
 #include "gcompris_config.h"
 #include "about.h"
 #include "bar.h"
+#include "status.h"
 #include <locale.h>
 
 #include "binreloc.h"
@@ -750,8 +749,6 @@ static GcomprisBoard *get_board_to_start()
 
 static void setup_window ()
 {
-  GcomprisBoard *board_to_start;
-
   window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
 
   /*
@@ -836,38 +833,10 @@ static void setup_window ()
 
   gc_im_init(window);
 
-  gc_board_init();
-
-  /* Load all the menu once */
-  gc_menu_load();
-
-  /* Save the root_menu */
-  properties->menu_board = gc_menu_section_get(properties->root_menu);
-
   init_workspace();
 
   GTK_WIDGET_SET_FLAGS (canvas, GTK_CAN_FOCUS);
   gtk_widget_grab_focus (canvas);
-
-  /* Run the bar */
-  gc_bar_start(GTK_CONTAINER(workspace), GOO_CANVAS(canvas));
-
-  board_to_start = get_board_to_start();
-
-  if(!board_to_start) {
-    gchar *tmpstr= g_strdup_printf("Couldn't find the board menu %s, or plugin execution error", properties->root_menu);
-    gc_dialog(tmpstr, NULL);
-    g_free(tmpstr);
-  } else if(!gc_board_check_file(board_to_start)) {
-    gchar *tmpstr= g_strdup_printf("Couldn't find the board menu, or plugin execution error");
-    gc_dialog(tmpstr, NULL);
-    g_free(tmpstr);
-  } else {
-    g_message("Fine, we got the gcomprisBoardMenu, xml boards parsing went fine");
-    if(!display_activation_dialog())
-      gc_board_play(board_to_start);
-  }
-
 
 }
 
@@ -1182,8 +1151,40 @@ static void map_cb (GtkWidget *widget, gpointer data)
 {
   if(is_mapped == FALSE)
     {
-      gc_fullscreen_set(properties->fullscreen);
       is_mapped = TRUE;
+      GcomprisBoard *board_to_start;
+
+      gc_set_default_background (goo_canvas_get_root_item (GOO_CANVAS(canvas)));
+
+      gc_fullscreen_set(properties->fullscreen);
+
+      gc_status_init("");
+      gc_board_init();
+      /* Load all the menu once */
+      gc_menu_load();
+      /* Save the root_menu */
+      properties->menu_board = gc_menu_section_get(properties->root_menu);
+
+      gc_bar_start(GTK_CONTAINER(workspace), GOO_CANVAS(canvas));
+
+      gc_status_close();
+
+      board_to_start = get_board_to_start();
+
+      if(!board_to_start) {
+	gchar *tmpstr= g_strdup_printf("Couldn't find the board menu %s, or plugin execution error", properties->root_menu);
+	gc_dialog(tmpstr, NULL);
+	g_free(tmpstr);
+      } else if(!gc_board_check_file(board_to_start)) {
+	gchar *tmpstr= g_strdup_printf("Couldn't find the board menu, or plugin execution error");
+	gc_dialog(tmpstr, NULL);
+	g_free(tmpstr);
+      } else {
+	g_message("Fine, we got the gcomprisBoardMenu, xml boards parsing went fine");
+	if(!display_activation_dialog())
+	  gc_board_play(board_to_start);
+      }
+
     }
   g_message("gcompris window is now mapped");
 }

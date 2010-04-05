@@ -98,6 +98,8 @@ gcompris_SOURCES = \
 	skin.h \
 	soundutil.c \
 	soundutil.h \
+	status.c \
+	status.h \
 	gstreamer.c \
 	soundutil_sdl.c \
 	soundutil_sdl.h \

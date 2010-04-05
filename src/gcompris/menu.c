@@ -26,6 +26,7 @@
 #include <libxml/parserInternals.h>
 
 #include "gcompris.h"
+#include "status.h"
 
 GcomprisBoard	*_read_xml_file(GcomprisBoard *gcomprisBoard, char *fname, gboolean db);
 
@@ -560,7 +561,7 @@ void gc_menu_load_dir(char *dirname, gboolean db){
 	gcomprisBoard->previous_board=NULL;
 
 	GcomprisBoard *board_read = _read_xml_file(gcomprisBoard, filename, db);
-	if (board_read){
+	if (board_read) {
 	  list_old_boards_id = suppress_int_from_list(list_old_boards_id, board_read->board_id);
 	  if (properties->administration)
 	    boards_list = g_list_append(boards_list, board_read);
@@ -568,12 +569,21 @@ void gc_menu_load_dir(char *dirname, gboolean db){
 	    if ((strncmp(board_read->section,
 			 "/administration",
 			 strlen("/administration"))!=0)) {
-		boards_list = g_list_append(boards_list, board_read);
-	      }
-      else
-          gc_menu_board_free(board_read);
+	      boards_list = g_list_append(boards_list, board_read);
 	    }
+	    else
+	      {
+		gc_menu_board_free(board_read);
+		board_read = NULL;
+	      }
 	  }
+	  if (board_read) {
+	    gchar *msg = g_strdup_printf("Loading activity from file:\n%s",
+					 gettext(board_read->title));
+	    gc_status_set_msg(msg);
+	    g_free(msg);
+	  }
+	}
     else
         gc_menu_board_free(gcomprisBoard);
 	}
