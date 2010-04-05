@@ -71,12 +71,8 @@ gchar * exec_prefix = NULL;
 //static gint pause_board_cb (GtkWidget *widget, gpointer data);
 static void quit_cb (GtkWidget *widget, gpointer data);
 static void map_cb  (GtkWidget *widget, gpointer data);
-#ifdef WIN32
-#elif MAC_INTEGRATION
-#else
 static gboolean _realize_callback (GtkWidget *widget, GdkEventExpose *event,
 				   gpointer data);
-#endif
 static gint board_widget_key_press_callback (GtkWidget   *widget,
 					    GdkEventKey *event,
 					    gpointer     client_data);
@@ -641,17 +637,14 @@ gc_set_default_background(GooCanvasItem *parent)
 			  "#BACKGROUND");
 }
 
-/*
- * Sugar requires properties to be set before the windows is realized
- */
-#ifdef WIN32
-#elif MAC_INTEGRATION
-#else
 static gboolean
 _realize_callback (GtkWidget *widget, GdkEventExpose *event, gpointer data)
 {
+#ifdef USE_SUGAR
   Window xwindow = GDK_WINDOW_XWINDOW(window->window);
-
+  /*
+   * Sugar requires properties to be set before the windows is realized
+   */
   if (sugarBundleId)
     XChangeProperty(GDK_DISPLAY(),
 		    xwindow,
@@ -667,10 +660,10 @@ _realize_callback (GtkWidget *widget, GdkEventExpose *event, gpointer data)
 		    XInternAtom(GDK_DISPLAY(), "STRING", 0), 8,
 		    PropModeReplace,
 		    (unsigned char *) sugarActivityId, strlen(sugarActivityId));
+#endif
 
   return FALSE;
 }
-#endif
 
 static void
 init_workspace()
@@ -811,12 +804,8 @@ static void setup_window ()
 
   gtk_window_set_default_size(GTK_WINDOW(window), BOARDWIDTH, BOARDHEIGHT);
   gtk_window_set_wmclass(GTK_WINDOW(window), "gcompris", "GCompris");
-#ifdef WIN32
-#elif MAC_INTEGRATION
-#else
   g_signal_connect (GTK_OBJECT (window), "realize",
 		    G_CALLBACK (_realize_callback), NULL);
-#endif
   gtk_widget_realize (window);
 
   gtk_signal_connect (GTK_OBJECT (window), "delete_event",
