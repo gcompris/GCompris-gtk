@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GCompris>
-  <Board 
+  <Board
 	 name="gletters"
-	 type="gletters" 
+	 type="gletters"
 	 section="/computer/keyboard"
-	 icon="gletters.svg" 
+	 icon="gletters.svg"
 	 difficulty="1"
 	 author="Bruno Coudoin (bruno.coudoin@free.fr)"
-	 boarddir="">
+	 boarddir=""
+	 demo="1">
 	 <_title>Simple Letters</_title>
 	 <_description>Type the falling letters before they reach the ground</_description>
 	<_goal>Letter association between the screen and the keyboard</_goal>

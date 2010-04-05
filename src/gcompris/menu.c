@@ -102,7 +102,9 @@ _add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child,
 
   gcomprisBoard->demo = FALSE;
   char *demo		= (char *)xmlGetProp(xmlnode, BAD_CAST "demo");
-  if(demo && strcmp(demo, "1"))
+  // All menus are in the demo anyway
+  if( (demo && strcmp(demo, "1") == 0) ||
+      (strcmp(gcomprisBoard->type, "menu") == 0) )
     gcomprisBoard->demo = TRUE;
 
   /* Update the difficulty max */

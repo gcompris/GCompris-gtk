@@ -81,7 +81,7 @@ static void single_instance_release();
 /*
  * For the Activation dialog
  */
-#ifdef STATIC_MODULE
+#ifdef ACTIVATION_CODE
 int gc_activation_check(const char *code);
 static void activation_enter_callback(GtkWidget *widget,
 				      GtkWidget *entry );
@@ -840,7 +840,7 @@ static void setup_window ()
 
 }
 
-#ifdef STATIC_MODULE
+#ifdef ACTIVATION_CODE
 /** Display the activation dialog for the windows version
  *
  * return TRUE is the dialog is display, FALSE instead.
@@ -871,8 +871,7 @@ display_activation_dialog()
 	  strncmp(board->section, "/experimental", 13) != 0)
 	{
 	  board_count++;
-	  gc_board_check_file(board);
-	  if(board->plugin)
+	  if(board->demo)
 	      gc_board_number_in_demo++;
 	}
     }

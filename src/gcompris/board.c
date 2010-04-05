@@ -27,8 +27,11 @@ static struct BoardPluginData *bp_data;
 
 static gboolean	 get_board_playing(void);
 
-#ifdef STATIC_MODULE
+#ifdef ACTIVATION_CODE
 int gc_activation_check(char *code);
+#endif
+
+#ifdef STATIC_MODULE
 extern BoardPlugin * get_advanced_colors_bplugin_info();
 extern BoardPlugin * get_algebra_bplugin_info();
 extern BoardPlugin * get_algebra_guesscount_bplugin_info();
@@ -301,6 +304,11 @@ gc_board_check_file(GcomprisBoard *gcomprisBoard)
   gchar *type;
 
   g_assert(gcomprisBoard!=NULL);
+
+#ifdef ACTIVATION_CODE
+  if ( !gcomprisBoard->demo && gc_activation_check(properties->key) <= 0 )
+    return FALSE;
+#endif
 
   /* Check Already loaded */
   if(gcomprisBoard->plugin!=NULL) {

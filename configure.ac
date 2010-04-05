@@ -208,6 +208,13 @@ else
     CFLAGS="$CFLAGS $OSX_CFLAGS -Wall -Werror"
 fi
 
+dnl disable activation code
+AC_ARG_ENABLE(disable-activation-code,
+          AC_HELP_STRING(
+          [--disable-activation-code],
+          [For Windows or MacOSX version, disable the activation code]),
+          disable_activation_code="$enableval", disable_activation_code="no")
+
 dnl WIN32 Specifics
 AC_MSG_CHECKING([for Win32 platform in general])
 case "$host" in
@@ -293,10 +300,14 @@ if test "x$platform_win32" = "xyes" ; then
   dnl Test for gnuchess
   AC_DEFINE_UNQUOTED(GNUCHESS, "gnuchess.exe", Defines where GNU Chess resides on the system)
 
+  if test x$disable_activation_code = xno; then
+    AC_DEFINE([ACTIVATION_CODE], 1,[Activation code is enabled])
+  fi
+
 elif test "x$nsbundle" = "xyes" ; then
   DATADIRNAME="share"
 
-  dnl Set PACKAGE_LOCALE_DIR in config.h for WINDOWS
+  dnl Set PACKAGE_LOCALE_DIR in config.h for MacOSX
   AC_DEFINE_UNQUOTED(PACKAGE_LOCALE_DIR, "../Resources/${DATADIRNAME}/locale", [GCompris locale directory])
 
   dnl Set PACKAGE_DATA_DIR
@@ -319,6 +330,9 @@ elif test "x$nsbundle" = "xyes" ; then
   dnl Test for gnuchess
   AC_DEFINE_UNQUOTED(GNUCHESS, "../Resources/bin/gnuchess", Defines where GNU Chess resides on the system)
 
+  if test x$disable_activation_code = xno; then
+    AC_DEFINE([ACTIVATION_CODE], 1,[Activation code is enabled])
+  fi
 else
   dnl Set PACKAGE_LOCALE_DIR in config.h.
   AC_DEFINE_UNQUOTED(PACKAGE_LOCALE_DIR, "${myprefix}/${DATADIRNAME}/locale", [GCompris locale directory])
@@ -536,17 +550,6 @@ dnl define __GW32__ and WIN32
 # Check platform - see if WinMain needed:
 AC_SUBST(CFLAGS)
 AC_SUBST(LIBS)
-
-dnl disable activation code
-AC_ARG_ENABLE(activation-code,
-          AC_HELP_STRING(
-          [--disable-activation-code],
-          [For Windows or MacOSX version, disable the activation code]),
-          activation_code="$enableval", activation_code="yes")
-
-if test x$activation_code = xno; then
-  AC_DEFINE([DISABLE_ACTIVATION_CODE], 1,[Activation code is disabled])
-fi
 
 dnl Autoconf output
 AC_OUTPUT([
