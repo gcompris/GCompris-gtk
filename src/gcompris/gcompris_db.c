@@ -33,6 +33,10 @@ static char *escape_quote(const char *input);
 static sqlite3 *gcompris_db=NULL;
 #endif
 
+// Increase this when the database schema changes
+// but does not change the PRAGMA SCHEMA VERSION
+#define SCHEMA_USER_VERSION 1
+
 #define CREATE_TABLE_USERS						\
   "CREATE TABLE users (user_id INT UNIQUE, login TEXT, lastname TEXT, firstname TEXT, birthdate TEXT, class_id INT ); "
 #define CREATE_TABLE_CLASS						\
@@ -62,6 +66,12 @@ static sqlite3 *gcompris_db=NULL;
 
 #define PRAGMA_SCHEMA_VERSION			\
   "PRAGMA schema_version; "
+
+#define PRAGMA_USER_VERSION			\
+  "PRAGMA user_version; "
+
+#define PRAGMA_USER_VERSION_SET(v)		\
+  "PRAGMA user_version=\'%d\';", v
 
 /* WARNING: template for g_strdup_printf */
 #define SET_VERSION(v)							\
@@ -122,6 +132,70 @@ static sqlite3 *gcompris_db=NULL;
        UPDATE list_users_in_groups SET group_id=(SELECT wholegroup_id FROM class WHERE class_id=new.class_id) WHERE user_id=new.user_id; \
      END;"
 
+
+/* Return the user version of the database
+ * or -1 if failed. The user version is an sqlite
+ * specific information stored in the pragma
+ * user_version
+ */
+static gint
+_get_user_version()
+{
+  char **result;
+  int nrow;
+  int ncolumn;
+  char *zErrMsg;
+  int rc;
+
+  /* Check the db integrity */
+  rc = sqlite3_get_table(gcompris_db,
+			 PRAGMA_USER_VERSION,
+			 &result,
+			 &nrow,
+			 &ncolumn,
+			 &zErrMsg
+			 );
+  if( rc!=SQLITE_OK )
+    {
+      g_message("SQL error: %s\n", zErrMsg);
+      return -1;
+    }
+
+  gint user_version = atoi(result[1]);
+  sqlite3_free_table(result);
+
+  return user_version;
+}
+
+/* Set the user version of the database.
+ * The user version is an sqlite
+ * specific information stored in the pragma
+ * user_version
+ */
+static void
+_set_user_version(gint version)
+{
+  char **result;
+  int nrow;
+  int ncolumn;
+  char *zErrMsg;
+  int rc;
+  gchar *request;
+
+  request = g_strdup_printf(PRAGMA_USER_VERSION_SET(version));
+
+  rc = sqlite3_get_table(gcompris_db,
+			 request,
+			 &result,
+			 &nrow,
+			 &ncolumn,
+			 &zErrMsg
+			 );
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+  g_free(request);
+}
 
 static void _create_db()
 {
@@ -249,6 +323,7 @@ static void _create_db()
 
   g_free(request);
 
+  _set_user_version(SCHEMA_USER_VERSION);
 }
 
 static gboolean
@@ -285,6 +360,35 @@ _check_db_integrity()
     return TRUE;
 }
 
+/* Return the number of boards in the boards table
+ */
+gint _gc_boards_count()
+{
+  char **result;
+  int nrow;
+  int ncolumn;
+  char *zErrMsg;
+  int rc;
+
+  /* Check the db integrity */
+  rc = sqlite3_get_table(gcompris_db,
+			 "SELECT COUNT(*) FROM boards;",
+			 &result,
+			 &nrow,
+			 &ncolumn,
+			 &zErrMsg
+			 );
+  if( rc!=SQLITE_OK )
+    {
+      g_message("SQL error: %s\n", zErrMsg);
+      return FALSE;
+    }
+
+  gint count = atoi(result[1]);
+  sqlite3_free_table(result);
+  return count;
+}
+
 gboolean gc_db_init(gboolean disable_database_)
 {
 
@@ -317,7 +421,8 @@ gboolean gc_db_init(gboolean disable_database_)
   if (creation){
     _create_db();
   } else {
-    if ( ! _check_db_integrity() )
+    if ( ! _check_db_integrity() ||
+	 _gc_boards_count() == 0 )
       {
 	// We failed to load the database, let's
 	// backup it and re create it.
@@ -383,9 +488,9 @@ gboolean gc_db_init(gboolean disable_database_)
 	  g_error("SQL error: %s\n", zErrMsg);
 	}
       }
-    if(version <= 18)
+    if ( _get_user_version() == 0)
       {
-	g_message("Upgrading from <18 schema version\n");
+	g_message("Upgrading schema based on user version = 0\n");
 	rc = sqlite3_exec(gcompris_db,"DROP TABLE boards;", NULL,  0, &zErrMsg);
 	if( rc!=SQLITE_OK ) {
 	  g_error("SQL error: %s\n", zErrMsg);
@@ -394,6 +499,9 @@ gboolean gc_db_init(gboolean disable_database_)
 	if( rc!=SQLITE_OK ) {
 	  g_error("SQL error: %s\n", zErrMsg);
 	}
+	// We just dropped the boards table, force a reread
+	properties->reread_menu = TRUE;
+	_set_user_version(1);
       }
   }
 
