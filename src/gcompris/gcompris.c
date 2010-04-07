@@ -97,6 +97,7 @@ static GtkWidget *widget_activation_entry;
 static GcomprisProperties *properties = NULL;
 static gboolean		   is_mapped = FALSE;
 static gboolean		   fullscreen;
+static gboolean		   mute;
 static guint		   gc_cursor_current;
 
 /****************************************************************************/
@@ -345,6 +346,16 @@ board_widget_key_press_callback (GtkWidget   *widget,
       gc_fullscreen_set(FALSE);
     else
       gc_fullscreen_set(TRUE);
+    return TRUE;
+  }
+  else if(event->state & GDK_CONTROL_MASK && ((event->keyval == GDK_m)
+					 || (event->keyval == GDK_M))) {
+    /* Toggle Mute */
+    if (mute)
+	gc_sound_bg_resume();
+    else
+	gc_sound_bg_pause();
+    mute = ! mute;
     return TRUE;
   }
 
@@ -778,22 +789,6 @@ static void setup_window ()
 
   gtk_window_set_title(GTK_WINDOW (window), "GCompris");
 
-  GdkGeometry hints;
-  hints.base_width = 615;
-  hints.base_height = 400;
-  hints.min_width = hints.base_width;
-  hints.min_height = hints.base_height;
-  hints.width_inc = 1;
-  hints.height_inc = 1;
-  hints.min_aspect = (float)BOARDWIDTH/BOARDHEIGHT;
-  hints.max_aspect = (float)BOARDWIDTH/BOARDHEIGHT;
-  gint geom_mask = GDK_HINT_RESIZE_INC |
-                   GDK_HINT_MIN_SIZE |
-                   GDK_HINT_BASE_SIZE;
-  if (!popt_sugar_look)
-      geom_mask |= GDK_HINT_ASPECT;
-  gtk_window_set_geometry_hints (GTK_WINDOW (window), NULL, &hints, geom_mask);
-
   /*
    * Set the main window
    * -------------------
@@ -1030,6 +1025,29 @@ void gc_board_end()
   }
 }
 
+void _set_geometry_hints(gboolean state)
+{
+  GdkGeometry hints;
+  hints.base_width = 615;
+  hints.base_height = 400;
+  hints.min_width = hints.base_width;
+  hints.min_height = hints.base_height;
+  hints.width_inc = 1;
+  hints.height_inc = 1;
+  hints.min_aspect = (float)BOARDWIDTH/BOARDHEIGHT;
+  if (state)
+    /* Warning: this is a workaround for GTK-OSX */
+    hints.max_aspect = (float)10; /* Fullscreen case */
+  else
+    hints.max_aspect = (float)BOARDWIDTH/BOARDHEIGHT;
+  gint geom_mask = GDK_HINT_RESIZE_INC |
+                   GDK_HINT_MIN_SIZE |
+                   GDK_HINT_BASE_SIZE;
+  if (!popt_sugar_look)
+      geom_mask |= GDK_HINT_ASPECT;
+  gtk_window_set_geometry_hints (GTK_WINDOW (window), NULL, &hints, geom_mask);
+}
+
 /** \brief toggle full screen mode
  *
  *
@@ -1042,6 +1060,7 @@ void gc_fullscreen_set(gboolean state)
   static gint window_h = BOARDHEIGHT;
 
   fullscreen = state;
+  _set_geometry_hints(state);
   if(state)
     {
       gtk_window_get_position ( (GtkWindow*)( window ), &window_x, &window_y );
@@ -1876,6 +1895,12 @@ main (int argc, char *argv[])
   setup_window ();
 
   gtk_widget_show_all (window);
+
+
+  if(properties->music || properties->fx)
+    mute = FALSE;
+  else
+    mute = TRUE;
 
   /* If a specific activity is selected, skeep the intro music */
   if(!popt_root_menu)

@@ -735,8 +735,6 @@ item_event_ok(GooCanvasItem *item,
   else if(!strcmp((char *)data, "music"))
     {
       properties->music = (properties->music ? 0 : 1);
-      if (properties->music)
-	gc_sound_init();
       g_object_set (item,
 		    "svg-id", (properties->music ? pixmap_checked : pixmap_unchecked),
 		    NULL);
@@ -746,6 +744,7 @@ item_event_ok(GooCanvasItem *item,
 	}
       else
 	{
+	  gc_sound_init();
 	  gc_sound_bg_reopen();
 	}
       gc_item_focus_init(item, NULL);
