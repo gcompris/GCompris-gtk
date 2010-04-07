@@ -310,6 +310,12 @@ gc_board_check_file(GcomprisBoard *gcomprisBoard)
     return FALSE;
 #endif
 
+#if defined WIN32 || defined MAC_INTEGRATION
+  /* Some activities are not relevant on some platform */
+  if (strcmp("tuxpaint", gcomprisBoard->name) == 0)
+    return FALSE;
+#endif
+
   /* Check Already loaded */
   if(gcomprisBoard->plugin!=NULL) {
     return TRUE;
