@@ -656,7 +656,7 @@ ask_yes_no()
 
   item2 =
     goo_canvas_text_new (boardRootItem,
-			 ("Yes, I saw it"),
+			 _("Yes, I saw it"),
 			 x_offset,
 			 y_offset,
 			 -1,
