@@ -132,9 +132,8 @@ static gchar *timername[] = {
   N_("Fast timer")
 };
 
-static gchar *filtername[] = {
-  N_("<i>Use Gcompris administration module\nto filter boards</i>")
-};
+static gchar *filtername =
+  N_("Use Gcompris administration module to filter boards");
 
 static void set_locale_flag(gchar *locale);
 static gchar *get_next_locale(gchar *locale);
@@ -423,21 +422,20 @@ gc_config_start ()
   // Difficulty Filter
   y_start += Y_GAP;
 
-  //  display_previous_next(x_start, y_start, "filter_style_previous", "filter_style_next");
-
   stars_group_x = x_start + 45;
   stars_group_y = y_start - 25;
-
+  gchar *text = g_strdup_printf("<i>%s</i>", gettext(filtername));
   item_filter_text = goo_canvas_text_new (rootitem,
-					  gettext(filtername[0]),
+					  text,
 					  x_text_start,
 					  y_start,
-					  -1,
+					  400,
 					  GTK_ANCHOR_WEST,
 					  "use-markup", TRUE,
 					  "font", gc_skin_font_subtitle,
 					  "fill-color-rgba", gc_skin_color_content,
 					  NULL);
+  g_free(text);
 
 
   // OK

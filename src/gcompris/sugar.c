@@ -81,7 +81,9 @@ static Button buttons[] = {
   { NULL, NULL, expander_new, NULL },
   { "view-fullscreen", N_("Zoom"), zoom_clicked_cb, NULL },
   { NULL, NULL, separator_new, NULL },
-  { "go-previous", N_("Back"), back_clicked_cb, NULL },
+  { "go-previous",
+    /* TRANSLATORS: Back as in previous */
+    N_("Back"), back_clicked_cb, NULL },
   { "activity-stop", N_("Stop"), stop_clicked_cb, NULL }
 };
 
@@ -240,7 +242,7 @@ level_clicked_cb(GtkToolButton *button, gpointer user_data)
   GcomprisBoard *board = gc_board_get_current();
   if (board == NULL)
       return;
-          
+
   gint delta = GPOINTER_TO_INT(user_data);
   current_level += delta;
 
