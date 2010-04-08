@@ -888,7 +888,7 @@ display_activation_dialog()
 
   char *msg = g_strdup_printf( \
       _("GCompris is free software released under the GPL License. "
-	"In order to support its development, the Windows version "
+	"In order to support its development, this version "
 	"provides only %d of the %d activities. You can get the "
 	"full version for a small fee at\n<http://gcompris.net>\n"
 	"The GNU/Linux version does not have this restriction. "
