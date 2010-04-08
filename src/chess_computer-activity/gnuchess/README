@@ -1,0 +1,512 @@
+README
+GNU CHESS 5
+by Stuart Cracraft <cracraft@gnu.org>
+copyright (c) 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993
+1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001
+Modified Simon Waters <simon@wretched.demon.co.uk> 2001
+Modified Simon Waters <simon@wretched.demon.co.uk> 2003
+
+IMPORTANT: Please send all updates to Simon at the above address.
+
+Table of Contents
+
+  Introduction
+  Who We Are
+  Data Structures
+  Move Generator
+  Search
+  Evaluation
+  Book
+  Hash Table
+  Auxillary File Formats (PGN, EPD)
+  Universal Board
+  Caveats
+  Compilers
+  Internet
+  Xboard/Winboard
+  Command List
+
+
+INTRODUCTION
+
+Welcome to the GNU CHESS 5 README. This is somewhat different than 
+a normal readme. You might consider this a manual. We've always found
+multiple documents confusing, overlapping and sometimes contradictory
+as far as software documentation goes. By putting it all together in
+one place we hope to avoid these traditional inadequacies and be able
+to maintain a single document. If you add documentation, add it to
+this document only.
+
+GNU Chess 5 is the new version of GNU Chess. The goal of creating this
+new version was to eliminate perceived problems with past versions, the
+major one being spaghetti-code that was extremely poorly documented, but
+another being antiquated data structures and especially the ignominous
+linked list. Another good reason was to have more standard file formats
+for game positions and game listings.
+
+
+WHO WE ARE
+
+We are the GNU Chess developers and you may reach us at 
+
+	bug-gnu-chess@gnu.org
+
+We are indebted to our sponsor, the Free Software Foundation
+whose web page is:
+
+	http://www.gnu.org
+
+and which also serves as our software depository for new versions of
+GNU and GNU Chess.
+
+We also have a Usenet bulletin board, gnu.chess. Feel free to post and
+support. Please become a developer and contribute your time and coding skill
+to GNU Chess. Make a donation of your time and money.
+
+But, as developers we like to develop our own ideas. Thus, if you have
+an idea check to see that no one else is working on it (posting on the
+above bulletin board or sending an email should be sufficient to find
+if someone is working on the idea and if you can collaborate with
+them.)
+
+We don't like messages asking us to implement features. Everybody
+has a list a mile long. Instead, contribute by writing code or pointing
+out very clearly a bug. To report a bug, tell us the version number
+of the program ("./gnuchess --version").
+
+The code is provided for the purpose of encouraging you to do the
+programming.  If you lack the programming skills to do so, try
+dabbling in it. You might surprise yourself.
+
+
+DATA STRUCTURES
+
+The primary data structure of GNU Chess is the bitboard. A bitboard
+is a 64-bit GNU C long long. It represents characteristics of a position.
+For example, 12 bitboards are sufficient to describe the whereabouts
+of all the pieces for both sides, i.e.
+
+	BitBoard board.b[2][6];
+
+So for example with a knight equal to 2 and white equal to 0 all the
+knights are located by the reference
+
+	#define white 0
+	#define knight 2
+
+	... board.b[white][knight] ...
+
+Testing whether a particular square has a knight on it could be done
+with 
+
+	if (BitBoard[B1] & board.b[white][knight]) { ... }
+
+Another set of move arrays is helpful for calculating the simple moves
+of a knight or a king
+
+	MoveArray[knight or king][sq]
+
+This returns a bitmap of the squares from which a knight or king
+could move from the square sq. Squares are based at 0 for a1 (White's
+queen's rook 1) and numbered left to right up until 63 for h8 (Black's
+king's rook 1).
+
+Another basic data structure is the board. It is defined in common.h
+as the Board typedef:
+
+  typedef struct 
+  {
+     BitBoard b[2][7];		/* Pieces by side (0 - white, 1 black
+				   by piece (1 - pawn ... 6 - king */
+     BitBoard friend[2];	/* Friendly (this side's) pieces */
+     BitBoard blocker;		/* Enemy pieces */
+     BitBoard blockerr90;
+     BitBoard blockerr45;
+     BitBoard blockerr315;
+     short ep;			/* Location of en passant square */
+     short flag;		/* Relevant flags relating to castle privs */
+     short side;		/* Color of side on move 0 - white 1 - black */
+     short material[2];		/* Total material by side not inc. king */
+     short pmaterial[2];	/* Total pawn material by side not inc. king */
+     short castled[2];		/* True (1) if side is castled */
+     short king[2];		/* Location of king 0 - a1 .. 63 - h8 */
+  } Board; 
+
+Basic data structure typedefs are defined in common.h and allocated in
+main.c for the most part. Please read and understand those files. The
+best way to understand data structures is to add new evaluation terms.
+
+MOVE GENERATOR
+
+This is a rotated bit-board method which is considered state-of-the-art
+currently.
+
+SEARCH
+
+Based on Professor Tony Marsland's modification to alpha-beta minimax,
+called Principal Variation Search (PVS), this algorithm performs credibly.
+
+EVALUATION
+
+Evaluation in this version is quite a bit different than before.
+Earlier versions used piece/square tables with some end-leaf
+evaluation (but primary pc/sq tables). These are tables filled with
+values regarding the importance of having pieces on particular squares.
+It was filled once, at the beginning of the search.
+
+The drawback of pc/sq tables is that the information is typically of
+less and less importance the deeper a program searches because the
+board changes so much. With computers getting faster and faster, deeper
+and deeper searches are possible and so the pc/sq tables can provide
+misleading direction to the program, resulting in anti-positional moves.
+
+More recently there has been a return by some to what we espouse here:
+full end-leaf evaluation. Further, we use bitboards (64-bit quantities)
+to represents characteristics of the board. This harkens back, ironically
+to the early days of computer chess when giant number-crunching machines
+back in the 60's used bitmaps to describe positions.
+
+Bitboards in this version of GNU are defined using the "BitBoard" typedef
+defined in common.h. main.c contains most of the bitboards and these
+are accessed and used throughout the program and particularly by
+the move generator and the evaluator.
+
+The evaluator in eval.c consists of a series of scoring routines like
+ScoreP (), ScoreN (), ScoreB (), corresponding to the piece being
+scored. The routine evaluates all pieces of that type (P - pawn,
+N - knight, B - bishop, etc.) on the current board and returns a
+score.
+
+Typically a loop is used of the form
+
+    short sq;	/* Location of the piece of this type */
+    short s;	/* Score value for all pieces
+    BitBoard b;	/* Stores the bitboard representing location of the piece */
+    s = 0;	/* Score starts out as zero */
+    b = board.b[side][knight];
+    while (b) {
+      sq = leadz(b);
+      CLEARBIT (b, sq);
+      if (piece on sq has some property)
+	s += SOME_BONUS_OR_PENALTY;    /* defined in eval.h */
+    }
+    return(s);
+
+As you can see, this routine locates each piece in the 64-bit map
+where the corresponding square of the 64 is set to 1 meaning a piece
+is there. Hence for example in the opening position, board.b[white][bishop]
+would have the 3rd and 7th low-order bits set corresponding to the original
+locations of bishops in a game on C1 and F1. Likewise the values
+BitPosArray[C1] and BitPosArray[F1] can be used to return 64-bit
+quantities for checking specific matches as in
+
+   if (BitPosArray[A1] & board.b[side][bishop])
+	s += SOME_VERY_NEGATIVE_PENALTY_FOR_BISHOP_IN_A1_CORNER
+
+Writing evaluation code comes very naturally using these methods. Try
+to avoid too many specific square checks as those are expensive. Ideas
+as shown in the CTL() routine can be used to check for piece placement
+on specific squares being advantageous or disadvantageous.
+
+Primary evaluation is done with Evaluate(). Certain specifics are
+calculated which are deemed very important such as king evaluation
+and pawn evaluation. Then a "lazy evaluation" scenario is checked
+for which can save time. Otherwise other pieces are also evaluated.
+
+Very important for evaluation is the ability to see what board you
+are evaluating. Typically this should be sufficient when you add
+the new term:
+
+	/* ... new logic ... */
+	{
+	  s += SOME_NEW_BONUS (define in eval.h)
+	  printf("The condition is triggered:\n");
+	  ShowBoard ();
+	  getchar();
+	}
+
+This lets you see the board at the point the condition is triggered
+which adds the bonus or penalty to the evaluation score.
+
+
+BOOK
+
+The opening book is implemented as a simple binary file consisting of
+a set of sequential records of struct hashtype as defined in the module
+book.c. This data structure is simply two part, a 64-bit HashType (see
+common.h) and a 32-bit score. 
+
+The binary book stored in book.dat is compiled from the file book.pgn
+using the command "book add book.pgn" into a sequential set of binary 
+records in the format as described above. book.pgn is simply a set of 
+game records in portable game notation format.  A set of master games 
+may be used or specific openings programmed this way for a user-changeable
+opening book.
+
+HASH TABLE
+
+The hash table is simply an area of memory where information about
+positions is stored. In this version of the program there are two
+types of hash tables: general and pawn. 
+
+The general hash table size is controlled by the variable HASHSLOTS
+as defined in common.h. Likewise the pawn hash table size is controlled
+by the variable PAWNSLOTS in common.h.
+
+The number of hashtable slots can be controlled from the command
+line (Type "gnuchess -help" for details), or via the interactive
+hashsize command.
+
+Typically middle-game searches are sped up by 25%-50% by the general
+hash table and by much more in endgames where there are few pieces
+(because so many of the positions turn out to be cached already in
+the hash table.)
+
+Pawn evaluation is traditionally expensive because there are so many 
+things to evaluate. The pawn hash table remembers all the different
+pawn structures in the search. Typically pawn structure evaluation
+(without reference to pieces) may be calculated by simple table
+lookup this way 90-99% of the time. Hence, any amount of pawn logic
+that is pure-pawn and not related to pieces may be added without guilt.
+On the other hand, pawn structure that relates to pieces must be
+recalculated for every position. See ScoreP() in eval.c
+
+
+AUXILLARY FILE FORMATS
+
+.dat - binary book format, simply a 64-bit position hash and a 32-bit score
+.pgn - game listing like 1. e4 e5 2. Nf3 etc.
+.epd - epd-style format using FEN notation. See tests subdirectory for example.
+log.nnn - record of an entire game from computer's viewpoint (thinking, etc.)
+game.nnn - record of an entire game, similar to .pgn but auto-generated
+
+The .dat file format is a simple binary format for the compiled book
+which is read by the program when it is using book. See the section BOOK
+for more detail.
+
+EPD and PGN require little introduction. These are the uniformly accepted
+standards for position recording and game recording.
+
+Note that log.nnn and game.nnn files are written at the end of a game
+when you use the "name" command to give the computer your name. It is
+highly recommended to do this since the resulting two files that match
+in a monotonically-increasing extension numbered suffix may be used for
+reporting bugs and keeping track of your games.
+
+
+COMPILERS
+
+  We like GNU C in all its various forms. For Unix and Linux, use GNU C.
+
+  For Microsoft Windows platforms we compile and test using Cygwin,
+  which is a port of many GNU packages, including GCC.
+
+  Cygwin may require specific run time DLL's to provide the interface, 
+  these should be provided with any executable you receive.
+
+  Whilst GCC is the supported compiler, a key goal is portability. If
+  you experience problems compiling GNU Chess with a modern C compiler
+  please let the developers know.
+
+INTERNET
+
+  GNU CHESS 5 has been tested substantially on the Free Internet Chess
+  Servers (freechess.org) with Xboard (See Zippy documentation in the
+  Xboard/Winboard distribution http://www.tim-mann.org/).
+
+  GNU Chess 5.06 and later should also operate with icsDrone. Testing
+  5.06 with icsDrone 1.5.0 showed no immediate issues.
+
+XBOARD/WINBOARD
+
+  Running the program with the "--xboard" command line parameter sets it
+  to produce output acceptable to and accept input suitable for xboard
+  and winboard, the graphical display front-ends with mouse interface.
+
+  For historical reasons the option "xboard" does not need to be 
+  preceeded by "--", however we would encourage the new syntax.
+
+COMMAND LIST
+
+  ^C
+	Typically the interrupt key stops a search in progress,
+	makes the move last considered best and returns to the
+	command prompt
+
+  quit
+	Quit the program.
+  exit
+	In analysis mode this stops analysis, otherwise it quits the program.
+
+  help
+	Produces a help blurb corresponding to this list of commands.
+
+  usage
+	Produce blurb on command line options.
+	(Same as "gnuchess --help")
+
+  book
+	add - compiles book.dat from book.pgn
+	on - enables use of book
+	off - disables use of book
+	best - play best move from book
+	worst - play worst move from book
+	random - play any move from book
+	
+	prefer (default) - choose a good move from book
+	(Method subject to variation)
+
+  version
+	prints out the version of this program
+	(Same as "gnuchess --version")
+
+  pgnsave FILENAME
+	saves the game so far to the file from memory
+
+  pgnload FILENAME
+	loads the game in the file into memory
+
+  force
+  manual
+	Makes the program stop moving. You may now enter moves
+	to reach some position in the future.
+	(Same as "gnuchess --manual")
+   
+  white
+	Program plays black, set white to move.
+
+  black
+	Program plays white, set black to move.
+
+	(White and black commands are mainly for icsDrone
+	 and will cause the current en-passant capture
+	 square to be forgotten).
+
+  go
+	Computer takes whichever side is on move and begins its
+	thinking immediately
+
+  easy 
+	Disables thinking on opponent's time
+	(Same as "gnuchess --easy").
+
+  hard
+	Enables thinking on opponent's time
+
+  post
+	Arranges for verbose thinking output showing variation, score,
+	time, depth, etc.
+
+	If pondering (see hard) is on, the program will output
+	it's thinking whilst the opponent is thinking.
+
+	(Also "gnuchess --post")
+
+  nopost
+	Turns off verbose thinking output
+
+  name NAME
+	Lets you input your name. Also writes the log.nnn and a
+	corresponding game.nnn file. For details please see
+	auxillary file format sections.
+
+  result
+	Mostly used by Internet Chess server.
+
+  activate
+
+	This command reactivates a game that has been terminated automatically
+	due to checkmate or no more time on the clock. However, it does not
+	alter those conditions. You would have to undo a move or two or
+	add time to the clock with level or time in that case.
+
+  rating COMPUTERRATING OPPONENTRATING
+	Inputs the estimated rating for computer and for its opponent
+
+  new
+	Sets up new game (i.e. positions in original positions)
+
+  time
+	Inputs time left in game for computer in hundredths of a second.
+	Mostly used by Internet Chess server.
+
+  otim (NOT IMPLEMENTED)
+	Mostly used by Internet Chess server.
+
+  random (NOT IMPLEMENTED)
+	Randomizes play by perturbing the evaluation score slightly.
+	The degree of perturbation is adjustable.
+
+  hash
+	on - enables using the memory hash table to speed search
+	off - disables the memory hash table
+
+  hashsize N
+	Sets the hash table to permit storage of N positions
+	N is rounded down to nearest power of 2.
+	(Also "gnuchess --hashsize=N")
+
+  null
+	on - enables using the null move heuristic to speed search
+	off - disables using the null move heuristic
+
+  xboard
+	on - enables use of xboard/winboard
+	off - disables use of xboard/winboard
+	(Also "gnuchess --xboard")
+
+  depth N
+	Sets the program to look N ply (half-moves) deep for every
+	search it performs. If there is a checkmate or other condition
+	that does not allow that depth, then it will not be 
+
+  level MOVES MINUTES INCREMENT
+	Sets time control to be MOVES in MINUTES with each move giving
+	an INCREMENT (in seconds, i.e. Fischer-style clock).
+
+  load
+  epdload
+	Loads a position in EPD format from disk into memory.
+
+  save
+  epdsave
+	Saves game position into EPD format from memory to disk.
+
+  switch
+	Switches side to move
+
+  solve FILENAME
+  solveepd FILENAME
+	Solves the positions in FILENAME
+
+  remove
+	Backs up two moves in game history
+
+  undo
+	Backs up one move in game history
+
+  show
+	board - displays the current board
+	time - displays the time settings
+	moves - shows all moves using one call to routine
+	escape - shows moves that escape from check using one call to routine
+	noncapture - shows non-capture moves
+	capture - shows capture moves
+	eval [or score] - shows the evaluation per piece and overall
+	game - shows moves in game history
+	pin - shows pinned pieces
+
+  test
+	movelist - reads in an epd file and shows legal moves for its entries
+	capture - reads in an epd file and shows legal captures for its entries
+	movegenspeed - tests speed of move generator
+	capturespeed - tests speed of capture move generator
+	eval - reads in an epd file and shows evaluation for its entries
+	evalspeed tests speed of the evaluator
+
+  analyze
+	Switches program into analysis mode, this is primarily intended for
+	communicating analysis to an external interface using the Xboard 
+	chess engine protocol. It enables "force", "post", and
+	"hard", at the same time, whilst altering the
+	output format of post to conform with the engine protocol.	

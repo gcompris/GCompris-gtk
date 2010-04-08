@@ -299,6 +299,7 @@ if test "x$platform_win32" = "xyes" ; then
 
   dnl Test for gnuchess
   AC_DEFINE_UNQUOTED(GNUCHESS, "gnuchess.exe", Defines where GNU Chess resides on the system)
+  build_gnuchess=yes
 
   if test x$disable_activation_code = xno; then
     AC_DEFINE([ACTIVATION_CODE], 1,[Activation code is enabled])
@@ -328,7 +329,8 @@ elif test "x$nsbundle" = "xyes" ; then
   AC_DEFINE_UNQUOTED(SYSTEM_CONFIG_DIR, "../Resources/etc", [System GCompris config directory])
 
   dnl Test for gnuchess
-  AC_DEFINE_UNQUOTED(GNUCHESS, "../Resources/bin/gnuchess", Defines where GNU Chess resides on the system)
+  AC_DEFINE_UNQUOTED(GNUCHESS, "../Resources/bin/gcompris-gnuchess", Defines where GNU Chess resides on the system)
+  build_gnuchess=yes
 
   if test x$disable_activation_code = xno; then
     AC_DEFINE([ACTIVATION_CODE], 1,[Activation code is enabled])
@@ -361,8 +363,9 @@ else
     AC_MSG_ERROR(Couldn't find gnuchess, please install the gnuchess package version 5 or above)
   fi
   AC_DEFINE_UNQUOTED(GNUCHESS, "$GNUCHESS", Defines where GNU Chess resides on the system)
-
+  build_gnuchess=no
 fi
+AM_CONDITIONAL(BUILD_GNUCHESS, test x$build_gnuchess != xno)
 
 AC_PATH_PROG(TEXINFO, makeinfo,no)
 if test x$TEXINFO = xno; then
@@ -628,6 +631,7 @@ src/chat-activity/Makefile
 src/chess_computer-activity/Makefile
 src/chess_computer-activity/resources/Makefile
 src/chess_computer-activity/resources/chess/Makefile
+src/chess_computer-activity/gnuchess/Makefile
 src/chess_movelearn-activity/Makefile
 src/chess_partyend-activity/Makefile
 src/chronos-activity/Makefile

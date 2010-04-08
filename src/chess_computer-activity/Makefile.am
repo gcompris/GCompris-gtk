@@ -1,4 +1,8 @@
+if BUILD_GNUCHESS
+SUBDIRS = resources gnuchess
+else
 SUBDIRS = resources
+endif
 
 if PLATFORM_WIN32
 shared = -shared
