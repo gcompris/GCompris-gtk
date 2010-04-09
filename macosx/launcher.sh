@@ -34,6 +34,8 @@ export GTK_IM_MODULE_FILE="$bundle_etc/gtk-2.0/gtk.immodules"
 export GDK_PIXBUF_MODULE_FILE="$bundle_etc/gtk-2.0/gdk-pixbuf.loaders"
 export PANGO_RC_FILE="$bundle_etc/pango/pangorc"
 
+export PYTHONPATH=$bundle_lib/python2.6/site-packages:$bundle_lib/python2.6/site-packages/gtk-2.0/:$bundle_lib/python2.6:$bundle_lib/python2.6/plat-darwin:$bundle_lib/python2.6/plat-mac:$bundle_lib/python2.6/lib-dynload
+
 # Set the locale-related variables appropriately:
 unset LANG LC_MESSAGES LC_MONETARY
 
