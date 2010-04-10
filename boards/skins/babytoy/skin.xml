@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GCompris>
+  <Skin>
+    <!-- Defines the gcompris colors -->
+    <color  id="gcompris/title"          rgba="0X000000ff"/>
+    <color  id="gcompris/text button"    rgba="0XFFFFFFFF"/>
+    <color  id="gcompris/content"        rgba="0X0C0C0Cff"/>
+    <color  id="gcompris/subtitle"       rgba="0X0F0F0Fff"/>
+    <color  id="gcompris/shadow"         rgba="0X51515180"/>
+    <color  id="gcompris/imageselectbg_left"   rgba="0X000000FF"/>
+    <color  id="gcompris/imageselectbg_right"  rgba="0XB4B4B4FF"/>
+
+    <color  id="gcompris/helpbg"         rgba="0XA1A0A0FF"/>
+    <color  id="gcompris/helpfg"         rgba="0X000000FF"/>
+    <color  id="gcompris/helpselect"     rgba="0X34682aFF"/>
+    <color  id="gcompris/helpunselect"   rgba="0X4252ffFF"/>
+
+    <color  id="gcompris/fileselectbg"   rgba="0xF8F8AEFF"/>
+    <color  id="gcompris/fileselectcol"  rgba="0X000000FF"/>
+    <number id="gcompris/fileselectx"    value="63"/>
+    <number id="gcompris/fileselecty"    value="35"/>
+    <number id="gcompris/fileselectdiry" value="80"/>
+
+    <!-- Defines the main gcompris fonts -->
+    <font id="gcompris/title"    name="sans 20"/>
+    <font id="gcompris/subtitle" name="sans 16"/>
+    <font id="gcompris/content"  name="sans 12"/>
+    <font id="gcompris/tiny"     name="sans 10"/>
+
+    <!-- Defines the gcompris boards fonts -->
+    <font id="gcompris/board/tiny"       name="sans 10"/>
+    <font id="gcompris/board/small"      name="sans 12"/>
+    <font id="gcompris/board/medium"     name="sans 14" />
+    <font id="gcompris/board/big"        name="sans 18" />
+    <font id="gcompris/board/big bold"   name="sans bold 17"/>
+    <font id="gcompris/board/fixed"      name="sans 12"/>
+    <font id="gcompris/board/title"      name="sans 20"/>
+    <font id="gcompris/board/title bold" name="sans bold 21"/>
+    <font id="gcompris/board/huge"       name="sans 28"/>
+    <font id="gcompris/board/huge bold"  name="sans bold 29"/>
+
+    <color id="menu/text"             rgba="0x000000FF"/>
+    <color id="menu/description_bg_color" rgba="0xe8e7e2CCL"/>
+
+  </Skin>
+</GCompris>
+
