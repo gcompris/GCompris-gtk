@@ -13,8 +13,8 @@ msgstr ""
 "Project-Id-Version: gcompris master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&component=general\n"
-"POT-Creation-Date: 2010-03-09 23:29+0000\n"
-"PO-Revision-Date: 2010-03-11 12:16+0100\n"
+"POT-Creation-Date: 2010-04-08 22:47+0000\n"
+"PO-Revision-Date: 2010-04-10 13:04+0100\n"
 "Last-Translator: Mario Blättermann <mariobl@gnome.org>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -1669,15 +1669,15 @@ msgstr "Hauptmenü Version 2"
 msgid "Select a Board"
 msgstr "Wähle eine Tafel"
 
-#: ../src/boards/python.c:63 ../src/boards/python.c:87
+#: ../src/boards/python.c:64 ../src/boards/python.c:88
 msgid "Python Board"
 msgstr "Python Tafel"
 
-#: ../src/boards/python.c:64
+#: ../src/boards/python.c:65
 msgid "Special board that embeds python into GCompris."
 msgstr "Spezial-Tafel, die Python in GCompris einbettet."
 
-#: ../src/boards/python.c:88
+#: ../src/boards/python.c:89
 msgid "Special board that embeds python into gcompris."
 msgstr "Spezial-Tafel, die Python in GCompris einbettet."
 
@@ -2663,29 +2663,29 @@ msgstr ""
 "Dieses Programm ist ein GNU-Paket und wird unter der GNU General Public "
 "License veröffentlicht"
 
-#: ../src/gcompris/about.c:220 ../src/gcompris/config.c:448
+#: ../src/gcompris/about.c:220 ../src/gcompris/config.c:446
 #: ../src/gcompris/dialog.c:103 ../src/gcompris/help.c:359
 #: ../src/gcompris/images_selector.c:307
 msgid "OK"
 msgstr "OK"
 
-#: ../src/gcompris/bar.c:653
+#: ../src/gcompris/bar.c:688
 msgid "GCompris confirmation"
 msgstr "GCompris Bestätigung"
 
-#: ../src/gcompris/bar.c:654
+#: ../src/gcompris/bar.c:689
 msgid "Are you sure you want to quit?"
 msgstr "Willst du wirklich aufhören?"
 
-#: ../src/gcompris/bar.c:655
+#: ../src/gcompris/bar.c:690
 msgid "Yes, I am sure!"
 msgstr "Ja, wirklich!"
 
-#: ../src/gcompris/bar.c:656
+#: ../src/gcompris/bar.c:691
 msgid "No, I want to keep going"
 msgstr "Nein, ich will weitermachen."
 
-#: ../src/gcompris/board.c:194
+#: ../src/gcompris/board.c:197
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr ""
 "Dynamisches Laden von Modulen wird nicht unterstützt. GCompris kann nicht "
@@ -2763,7 +2763,6 @@ msgid "Arabic"
 msgstr "Arabisch"
 
 #: ../src/gcompris/config.c:63
-#| msgid "Austria"
 msgid "Asturian"
 msgstr "Asturisch"
 
@@ -3029,49 +3028,48 @@ msgid "Fast timer"
 msgstr "Schnelle Stoppuhr"
 
 #: ../src/gcompris/config.c:136
-msgid ""
-"<i>Use Gcompris administration module\n"
-"to filter boards</i>"
-msgstr ""
-"<i>Benutzen Sie die Gcompris-Administration,\n"
-"um Tafeln zu filtern</i>"
+#| msgid ""
+#| "<i>Use Gcompris administration module\n"
+#| "to filter boards</i>"
+msgid "Use Gcompris administration module to filter boards"
+msgstr "Benutzen Sie die Gcompris-Administration, um Tafeln zu filtern"
 
-#: ../src/gcompris/config.c:188
+#: ../src/gcompris/config.c:187
 msgid "GCompris Configuration"
 msgstr "GCompris Konfiguration"
 
-#: ../src/gcompris/config.c:259
+#: ../src/gcompris/config.c:258
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: ../src/gcompris/config.c:285
+#: ../src/gcompris/config.c:284
 msgid "Music"
 msgstr "Musik"
 
-#: ../src/gcompris/config.c:311
+#: ../src/gcompris/config.c:310
 msgid "Effect"
 msgstr "Effekt"
 
-#: ../src/gcompris/config.c:336 ../src/gcompris/sugar.c:82
+#: ../src/gcompris/config.c:335 ../src/gcompris/sugar.c:82
 msgid "Zoom"
 msgstr "Vergrößerung"
 
-#: ../src/gcompris/config.c:373
+#: ../src/gcompris/config.c:372
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Themen-Ordner %s kann nicht geöffnet werden"
 
-#: ../src/gcompris/config.c:404 ../src/gcompris/config.c:813
-#: ../src/gcompris/config.c:827
+#: ../src/gcompris/config.c:403 ../src/gcompris/config.c:810
+#: ../src/gcompris/config.c:824
 #, c-format
 msgid "Skin : %s"
 msgstr "Thema: %s"
 
-#: ../src/gcompris/config.c:406
+#: ../src/gcompris/config.c:405
 msgid "SKINS NOT FOUND"
 msgstr "THEMEN NICHT GEFUNDEN"
 
-#: ../src/gcompris/config.c:488
+#: ../src/gcompris/config.c:486
 msgid "English (United State)"
 msgstr "Englisch (Vereinigte Staaten)"
 
@@ -3103,39 +3101,39 @@ msgstr ""
 "Beende und berichte\n"
 "den Autoren über das Problem."
 
-#: ../src/gcompris/gcompris.c:152
+#: ../src/gcompris/gcompris.c:156
 msgid "run GCompris in fullscreen mode."
 msgstr "GCompris im Vollbildmodus ausführen"
 
-#: ../src/gcompris/gcompris.c:155
+#: ../src/gcompris/gcompris.c:159
 msgid "run GCompris in window mode."
 msgstr "GCompris im Fenstermodus ausführen"
 
-#: ../src/gcompris/gcompris.c:158
+#: ../src/gcompris/gcompris.c:162
 msgid "run GCompris with sound enabled."
 msgstr "GCompris mit Klängen ausführen"
 
-#: ../src/gcompris/gcompris.c:161
+#: ../src/gcompris/gcompris.c:165
 msgid "run GCompris without sound."
 msgstr "GCompris ohne Klänge ausführen"
 
-#: ../src/gcompris/gcompris.c:164
+#: ../src/gcompris/gcompris.c:168
 msgid "run GCompris with the default gnome cursor."
 msgstr "GCompris mit dem voreingestellten Gnome-Mauszeiger ausführen"
 
-#: ../src/gcompris/gcompris.c:167
+#: ../src/gcompris/gcompris.c:171
 msgid "display only activities with this difficulty level."
 msgstr "zeige nur Aktivitäten mit dieser Schwierigkeitsstufe an"
 
-#: ../src/gcompris/gcompris.c:170
+#: ../src/gcompris/gcompris.c:174
 msgid "display debug informations on the console."
 msgstr "gib Debug-Informationen auf der Konsole aus"
 
-#: ../src/gcompris/gcompris.c:173
+#: ../src/gcompris/gcompris.c:177
 msgid "Print the version of "
 msgstr "Ausgabe der Version von "
 
-#: ../src/gcompris/gcompris.c:176
+#: ../src/gcompris/gcompris.c:180
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
@@ -3147,37 +3145,37 @@ msgstr ""
 "Sie -l list, um alle verfügbaren Aktivitäten und ihre Beschreibungen "
 "aufzulisten."
 
-#: ../src/gcompris/gcompris.c:181
+#: ../src/gcompris/gcompris.c:185
 msgid "GCompris will find the data dir in this directory"
 msgstr "GCompris wird den Datenordner in diesem Ordner suchen"
 
-#: ../src/gcompris/gcompris.c:184
+#: ../src/gcompris/gcompris.c:188
 msgid "GCompris will find the skins in this directory"
 msgstr "GCompris wird die Themen in diesem Ordner suchen"
 
-#: ../src/gcompris/gcompris.c:187
+#: ../src/gcompris/gcompris.c:191
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "GCompris wird die Aktivitäts-Plugins in diesem Ordner suchen"
 
-#: ../src/gcompris/gcompris.c:190
+#: ../src/gcompris/gcompris.c:194
 msgid "GCompris will find the python activity in this directory"
 msgstr "GCompris wird die Python-Aktivitäten in diesem Ordner suchen"
 
-#: ../src/gcompris/gcompris.c:193
+#: ../src/gcompris/gcompris.c:197
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr ""
 "GCompris wird die Lokalisierungsdatei (.mo-Übersetzung) in diesem Ordner "
 "suchen"
 
-#: ../src/gcompris/gcompris.c:196
+#: ../src/gcompris/gcompris.c:200
 msgid "GCompris will find the activities menu in this directory"
 msgstr "GCompris wird das Aktivitätsmenü in diesem Ordner suchen"
 
-#: ../src/gcompris/gcompris.c:199
+#: ../src/gcompris/gcompris.c:203
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Starte GCompris im Administrator/Nutzerverwaltungs-Modus"
 
-#: ../src/gcompris/gcompris.c:202
+#: ../src/gcompris/gcompris.c:206
 msgid ""
 "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
@@ -3185,27 +3183,27 @@ msgstr ""
 "Andere Datenbank für Profile verwenden [$HOME/.config/gcompris/"
 "gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:205
+#: ../src/gcompris/gcompris.c:209
 msgid "Create the alternate database for profiles"
 msgstr "Erzeuge andere Datenbank für Profile"
 
-#: ../src/gcompris/gcompris.c:208
+#: ../src/gcompris/gcompris.c:212
 msgid "Re-read XML Menus and store them in the database"
 msgstr "XML-Menüs erneut einlesen und in der Datenbank abspeichern"
 
-#: ../src/gcompris/gcompris.c:211
+#: ../src/gcompris/gcompris.c:215
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Wählen Sie das zu verwendende Profil aus. Verwenden Sie 'gcompris -a', um "
 "Profile anzulegen."
 
-#: ../src/gcompris/gcompris.c:214
+#: ../src/gcompris/gcompris.c:218
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Zeige alle verfügbaren Profile an. Verwenden Sie 'gcompris -a', um Profile "
 "anzulegen."
 
-#: ../src/gcompris/gcompris.c:217
+#: ../src/gcompris/gcompris.c:221
 msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
@@ -3213,23 +3211,23 @@ msgstr ""
 "Ort des Konfigurationsordners: [$HOME/.config/gcompris]. Alternative ist "
 "Setzen von $XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:220
+#: ../src/gcompris/gcompris.c:224
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "Ort der Benutzerordner: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:223
+#: ../src/gcompris/gcompris.c:227
 msgid "Run the experimental activities"
 msgstr "Gehe zu den experimentellen Aktivitäten"
 
-#: ../src/gcompris/gcompris.c:226
+#: ../src/gcompris/gcompris.c:230
 msgid "Disable the quit button"
 msgstr "Ende-Knopf deaktivieren"
 
-#: ../src/gcompris/gcompris.c:229
+#: ../src/gcompris/gcompris.c:233
 msgid "Disable the config button"
 msgstr "Konfigurationsknopf deaktivieren"
 
-#: ../src/gcompris/gcompris.c:232
+#: ../src/gcompris/gcompris.c:236
 msgid ""
 "GCompris will get images, sounds and activity data from this server if not "
 "found locally."
@@ -3237,7 +3235,7 @@ msgstr ""
 "GCompris holt Bilder, Töne und Aktivitäten von diesem Server, wenn sie lokal "
 "nicht gefunden werden."
 
-#: ../src/gcompris/gcompris.c:235
+#: ../src/gcompris/gcompris.c:239
 msgid ""
 "Only when --server is provided, disable check for local resource first. Data "
 "are always taken from the web server."
@@ -3245,30 +3243,39 @@ msgstr ""
 "Nur wenn --server angegeben ist, wird nicht zuerst nach lokalen Ressourcen "
 "gesucht. Die Daten werden dann immer vom Webserver geladen."
 
-#: ../src/gcompris/gcompris.c:239
+#: ../src/gcompris/gcompris.c:243
 msgid ""
 "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr ""
 "Im Servermodus gibt dies den Ordner zum Zwischenspeichern an, damit nicht "
 "wiederholt heruntergeladen werden muss."
 
-#: ../src/gcompris/gcompris.c:242
+#: ../src/gcompris/gcompris.c:246
 msgid ""
 "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr ""
 "Globaler Modus für Ziehen und Fallenlassen: normal, 2 Klicks, beide. "
 "Voreinstellung ist normal."
 
-#: ../src/gcompris/gcompris.c:245
+#: ../src/gcompris/gcompris.c:249
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Das mehrfache, parallele Starten von GCompris nicht verhindern"
 
-#: ../src/gcompris/gcompris.c:915
+#: ../src/gcompris/gcompris.c:890
 #, c-format
+#| msgid ""
+#| "GCompris is free software released under the GPL License. In order to "
+#| "support its development, the Windows version provides only %d of the %d "
+#| "activities. You can get the full version for a small fee at\n"
+#| "<http://gcompris.net>\n"
+#| "The GNU/Linux version does not have this restriction. If you also believe "
+#| "that we should teach freedom to children, please consider using GNU/Linux. "
+#| "Get more information at FSF:\n"
+#| "<http://www.fsf.org/philosophy>"
 msgid ""
 "GCompris is free software released under the GPL License. In order to support "
-"its development, the Windows version provides only %d of the %d activities. "
-"You can get the full version for a small fee at\n"
+"its development, this version provides only %d of the %d activities. You can "
+"get the full version for a small fee at\n"
 "<http://gcompris.net>\n"
 "The GNU/Linux version does not have this restriction. If you also believe "
 "that we should teach freedom to children, please consider using GNU/Linux. "
@@ -3276,8 +3283,8 @@ msgid ""
 "<http://www.fsf.org/philosophy>"
 msgstr ""
 "GCompris ist unter der GPL veröffentlichte freie Software. Um die Entwicklung "
-"zu unterstützen, bietet die Windows-Version nur %d der %d Aktivitäten. Sie "
-"können die Vollversion für eine kleine Gebühr unter\n"
+"zu unterstützen, bietet diese Version nur %d der %d Aktivitäten. Sie können "
+"die Vollversion für eine kleine Gebühr unter\n"
 "<http://gcompris.net> erhalten.\n"
 "Die GNU/Linux-Version hat diese Einschränkung nicht. Wenn Sie auch glauben, "
 "dass wir Kindern Freiheit lehren sollen, ziehen Sie bitte die Benutzung von "
@@ -3285,7 +3292,7 @@ msgstr ""
 "der FSF unter\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1393
+#: ../src/gcompris/gcompris.c:1429
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
@@ -3293,12 +3300,12 @@ msgstr ""
 "GCompris wird nicht starten, da die Sperrdatei weniger als %d Sekunden alt "
 "ist.\n"
 
-#: ../src/gcompris/gcompris.c:1395
+#: ../src/gcompris/gcompris.c:1431
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Die Sperrdatei ist : %s\n"
 
-#: ../src/gcompris/gcompris.c:1509
+#: ../src/gcompris/gcompris.c:1545
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3312,27 +3319,27 @@ msgstr ""
 "Mehr Informationen unter http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1612
+#: ../src/gcompris/gcompris.c:1648
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Verwende -l, um direkt auf eine Aktivität zuzugreifen.\n"
 
-#: ../src/gcompris/gcompris.c:1613
+#: ../src/gcompris/gcompris.c:1649
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Liste der verfügbaren Aktivitäten:\n"
 
-#: ../src/gcompris/gcompris.c:1644
+#: ../src/gcompris/gcompris.c:1680
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Anzahl Aktivitäten: %d\n"
 
-#: ../src/gcompris/gcompris.c:1680
+#: ../src/gcompris/gcompris.c:1716
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s existiert aber ist weder lesbar noch beschreibbar"
 
-#: ../src/gcompris/gcompris.c:1743
+#: ../src/gcompris/gcompris.c:1779
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled without "
@@ -3341,7 +3348,7 @@ msgstr ""
 "Die Option »--server« kann nicht verwendet werden, weil GCompris ohne "
 "Netzwerkunterstützung kompiliert wurde!"
 
-#: ../src/gcompris/gcompris.c:1797
+#: ../src/gcompris/gcompris.c:1833
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3350,18 +3357,27 @@ msgstr ""
 "FEHLER: Profil »%s« kann nicht gefunden werden. Führen Sie zur Auflistung der "
 "vorhandenen »gcompris --profile-list« aus\n"
 
-#: ../src/gcompris/gcompris.c:1811
+#: ../src/gcompris/gcompris.c:1847
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Liste der verfügbaren Profile:\n"
 
-#: ../src/gcompris/gcompris_db.c:234
+#: ../src/gcompris/gcompris_db.c:309
 msgid "Unaffected"
 msgstr "Nicht betroffen"
 
-#: ../src/gcompris/gcompris_db.c:235
+#: ../src/gcompris/gcompris_db.c:310
 msgid "Users without a class"
 msgstr "Benutzer ohne eine Klasse"
+
+#: ../src/gcompris/gcompris_db.c:893
+#, c-format
+msgid ""
+"Loading activity from database:\n"
+"%s"
+msgstr ""
+"Aktivitäten werden aus der Datenbank geladen:\n"
+"%s"
 
 #: ../src/gcompris/help.c:181
 msgid "Prerequisite"
@@ -3378,6 +3394,16 @@ msgstr "Handbuch"
 #: ../src/gcompris/help.c:274
 msgid "Credit"
 msgstr "Dank"
+
+#: ../src/gcompris/menu.c:583
+#, c-format
+#| msgid "Reading activities."
+msgid ""
+"Loading activity from file:\n"
+"%s"
+msgstr ""
+"Aktivitäten werden aus einer Datei geladen:\n"
+"%s"
 
 #: ../src/gcompris/properties.c:497 ../src/gcompris/properties.c:504
 msgid "readme"
@@ -3423,11 +3449,12 @@ msgstr "Aktualisieren"
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: ../src/gcompris/sugar.c:84
+#. TRANSLATORS: Back as in previous
+#: ../src/gcompris/sugar.c:86
 msgid "Back"
 msgstr "Zurück"
 
-#: ../src/gcompris/sugar.c:85
+#: ../src/gcompris/sugar.c:87
 msgid "Stop"
 msgstr "Stopp"
 
@@ -4878,14 +4905,10 @@ msgid "Lights Off"
 msgstr "Lichter aus"
 
 #: ../src/lightsoff-activity/lightsoff.xml.in.h:2
-msgid "The aim is to switch off all the lights"
-msgstr "Ziel ist es, alle Lichter auszuschalten"
-
-#: ../src/lightsoff-activity/lightsoff.xml.in.h:3
 msgid "The aim is to switch off all the lights."
 msgstr "Ziel ist es, alle Lichter auszuschalten."
 
-#: ../src/lightsoff-activity/lightsoff.xml.in.h:4
+#: ../src/lightsoff-activity/lightsoff.xml.in.h:3
 msgid ""
 "The effect of pressing a button is to toggle the state of that button, and of "
 "its immediate vertical and horizontal neighbours. The sun and the color of "
@@ -4897,7 +4920,7 @@ msgstr ""
 "des Himmels hängen von der Anzahl der Mausklicks ab, die zum Lösen des "
 "Puzzles benötigt werden. Die Lösung wird gezeigt, wenn du auf Tux klickst."
 
-#: ../src/lightsoff-activity/lightsoff.xml.in.h:5
+#: ../src/lightsoff-activity/lightsoff.xml.in.h:4
 msgid ""
 "The solver algorithm described on the haar.clara.co.uk is a valuable resource "
 "to know more about the Lights Off game: &lt;http://www.haar.clara.co.uk/"
@@ -5615,7 +5638,6 @@ msgstr ""
 "Drehe die Karten um, so dass die Zahl mit dem passenden Wort übereinstimmt."
 
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:4
-#| msgid "Addition memory game"
 msgid "Wordnumber memory game"
 msgstr "Zahlwort-Gedächtnistraining"
 
@@ -6283,6 +6305,10 @@ msgstr "wird angezeigt"
 msgid "We skip this level because there are not enough words in the list!"
 msgstr ""
 "Diese Stufe wird übersprungen, weil es nicht genug Wörter in der Liste gibt!"
+
+#: ../src/readingh-activity/reading.c:659
+msgid "Yes, I saw it"
+msgstr "Ja, ich hab's gesehen"
 
 #: ../src/readingh-activity/reading.c:686
 msgid "No, it was not there"
@@ -7077,6 +7103,9 @@ msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr ""
 "Gib das vollständige Wort ein während es fäll, bevor es den Boden erreicht."
 
+#~ msgid "The aim is to switch off all the lights"
+#~ msgstr "Ziel ist es, alle Lichter auszuschalten"
+
 #~ msgid ""
 #~ "The dog is provided by Andre Connes and released under the GPL.\n"
 #~ "Artist: Gauguin, Paul. Title Arearea. Licence: Public Domain. Source: "
@@ -7159,9 +7188,6 @@ msgstr ""
 
 #~ msgid "The corresponding items have been skipped."
 #~ msgstr "Die entsprechenden Elemente wurden übersprungen."
-
-#~ msgid "Yes, I saw it"
-#~ msgstr "Ja, ich hab's gesehen"
 
 #~ msgid "Language:"
 #~ msgstr "Sprache:"
