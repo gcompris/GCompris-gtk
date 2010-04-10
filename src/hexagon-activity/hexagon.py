@@ -47,6 +47,7 @@ class Gcompris_hexagon:
     gcompris.bar_set(gcompris.BAR_LEVEL)
     gcompris.set_default_background(self.gcomprisBoard.canvas.get_root_item())
     gcompris.bar_set_level(self.gcomprisBoard)
+    gcompris.bar_location(-1, -1, 0.8)
     self.set_level(1)
     self.game_start()
 
