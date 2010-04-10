@@ -67,13 +67,13 @@ class Gcompris_connect4:
             gcompris.bar_set_level(self.gcomprisBoard)
         else:
             board_bar = 0
-        gcompris.bar_location(gcompris.BOARD_WIDTH - 170, -1, 0.7)
         # Create our rootitem. We put each canvas item in it so at the end we
         # only have to kill it. The canvas deletes all the items it contains automaticaly.
         self.rootitem = goocanvas.Group(parent =  self.gcomprisBoard.canvas.get_root_item())
 
         board_bar = board_bar | gcompris.BAR_REPEAT
         gcompris.bar_set(board_bar)
+        gcompris.bar_location(gcompris.BOARD_WIDTH - 230, -1, 0.7)
 
         selector = \
             goocanvas.Image(
