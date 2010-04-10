@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: gcompris.gcomprixogoo\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&component=general\n"
-"POT-Creation-Date: 2010-03-13 21:12+0000\n"
-"PO-Revision-Date: 2010-03-17 07:23+0100\n"
+"POT-Creation-Date: 2010-03-17 06:55+0000\n"
+"PO-Revision-Date: 2010-04-10 19:46+0200\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -304,7 +304,6 @@ msgstr ""
 "inténtelo de nuevo."
 
 #: ../nsis_translations.desktop.in.h:2
-#| msgid "The race is already being run"
 msgid "The installer is already running."
 msgstr "El instalador ya se está ejecutando."
 
@@ -1257,7 +1256,7 @@ msgstr "Color de relleno…"
 
 #: ../src/anim-activity/Color.py:98
 msgid "Stroke color..."
-msgstr ""
+msgstr "Golpe de color…"
 
 #: ../src/anim-activity/anim.py:103
 msgid "Save..."
@@ -1268,37 +1267,30 @@ msgid "Load..."
 msgstr "Cargar…"
 
 #: ../src/anim-activity/anim.py:115
-#| msgid "Mouse manipulation"
 msgid "Run the animation"
 msgstr "Ejecutar la animación"
 
 #: ../src/anim-activity/anim.py:121
-#| msgid "Select all"
 msgid "Select"
 msgstr "Seleccionar"
 
 #: ../src/anim-activity/anim.py:127
-#| msgid "Use rectangles"
 msgid "Rectangle"
 msgstr "Rectángulo"
 
 #: ../src/anim-activity/anim.py:133
-#| msgid "Use rectangles"
 msgid "Filled rectangle"
 msgstr "Rectángulo relleno"
 
 #: ../src/anim-activity/anim.py:139
-#| msgid "Chile"
 msgid "Circle"
 msgstr "Círculo"
 
 #: ../src/anim-activity/anim.py:145
-#| msgid "Use circles"
 msgid "Filled circle"
 msgstr "Círculo relleno"
 
 #: ../src/anim-activity/anim.py:151
-#| msgid "wine"
 msgid "Line"
 msgstr "Línea"
 
@@ -1313,12 +1305,10 @@ msgid "Image..."
 msgstr "Imagen…"
 
 #: ../src/anim-activity/anim.py:169
-#| msgid "Filter"
 msgid "Fill"
 msgstr "Rellenar"
 
 #: ../src/anim-activity/anim.py:175
-#| msgid "Default"
 msgid "Delete"
 msgstr "Eliminar"
 
@@ -1327,18 +1317,16 @@ msgid "Flip"
 msgstr "Voltear"
 
 #: ../src/anim-activity/anim.py:187
-#| msgid "anise"
 msgid "Raise"
 msgstr "Subir"
 
 #: ../src/anim-activity/anim.py:193
-#| msgid "flower"
 msgid "Lower"
 msgstr "Bajar"
 
 #: ../src/anim-activity/anim.py:753
 msgid "Current frame"
-msgstr "Marco actual"
+msgstr "Cuadro actual"
 
 #: ../src/anim-activity/anim.xml.in.h:1
 msgid "Create a drawing or an animation"
@@ -1365,7 +1353,6 @@ msgid "Needs to be capable of moving and clicking the mouse easily"
 msgstr "Necesita ser capaz de mover y pulsar el ratón fácilmente"
 
 #: ../src/anim-activity/anim.xml.in.h:5
-#, fuzzy
 #| msgid ""
 #| "Select a drawing tool on the left, and a color down the bottom. Then "
 #| "click and drag in the white area to create a new shape. Once you've "
@@ -1393,11 +1380,12 @@ msgid ""
 "mode. You can also save and reload your animations with the 'floppy disk' "
 "and 'folder' buttons."
 msgstr ""
-"A la izquierda selecciona una herramienta de dibujo, y abajo selecciona un "
-"color. Después pulsa y arrastra en el área en blanco para crear una forma "
-"nueva. Una vez hayas terminado un dibujo, puedes tomar una foto de éste con "
-"el botón «cámara». Se creará una nueva imagen con el mismo contenido. "
-"Entonces puedes mover los objetos un poco o añadir/eliminar objetos. Crea "
+"Selecciona a la izquierda una herramienta de dibujo, y abajo un color. "
+"Después pulsa y arrastra en el área en blanco para crear una forma nueva. "
+"Una vez que hayas terminado un dibujo, puedes seleccionar un cuadro nuevo "
+"para trabajara en él seleccionando uno de los pequeños rectángulos de abajo. "
+"Cada cuadro contiene el mismo contenido que el anterior. Después puedes "
+"editarlos moviendo los objetos un poco o añadir/eliminar objetos. Crea "
 "varios dibujos y después pulsa el botón «película». Verás todas tus imágenes "
 "en un bucle infinito. Puedes cambiar la velocidad de visualización en este "
 "modo. En el modo de visualización, pulsa el botón «dibujar» para volver a "
@@ -2373,10 +2361,6 @@ msgid "Mouse manipulation"
 msgstr "Manipulación del ratón"
 
 #: ../src/crane-activity/crane.xml.in.h:5
-#| msgid ""
-#| "Move the items in the bottom left frame to copy their position in the top "
-#| "right model. Below the crane itself, you will find four arrows that let "
-#| "you move items. To select the item to move, just click on it."
 msgid ""
 "Move the items in the bottom left frame to copy their position in the top "
 "right model. Below the crane itself, you will find four arrows that let you "
@@ -2795,7 +2779,6 @@ msgid "Arabic"
 msgstr "Árabe"
 
 #: ../src/gcompris/config.c:63
-#| msgid "Austria"
 msgid "Asturian"
 msgstr "Asturiano"
 
@@ -4928,6 +4911,10 @@ msgid ""
 "of the sky depend on the number of clicks needed to solve the puzzle. If you "
 "click on Tux, the solution is shown."
 msgstr ""
+"El efecto de pulsar un botón es conmutar el estado de ese botón y sus "
+"vecinos horizontales y verticales inmediatos. El sol y el color del cielo "
+"dependen del número de pulsaciones necesarias para resolver el puzle. Se "
+"muestra la solución si pulsas en Tux."
 
 #: ../src/lightsoff-activity/lightsoff.xml.in.h:5
 msgid ""
@@ -4935,6 +4922,9 @@ msgid ""
 "resource to know more about the Lights Off game: &lt;http://www.haar.clara."
 "co.uk/Lights/solving.html&gt;"
 msgstr ""
+"El algoritmo resolutor descrito en haar.clara.co.uk está disponible para "
+"saber más acerca del juego Luces fuera: &lt;http://www.haar.clara.co.uk/"
+"Lights/solving.html&gt;"
 
 #: ../src/login-activity/login.py:101
 msgid "Profile: "
@@ -5174,7 +5164,6 @@ msgid "zero"
 msgstr "cero"
 
 #: ../src/memory-activity/memory.c:281
-#| msgid "None"
 msgid "one"
 msgstr "uno"
 
@@ -5183,17 +5172,14 @@ msgid "two"
 msgstr "dos"
 
 #: ../src/memory-activity/memory.c:283
-#| msgid "tree"
 msgid "three"
 msgstr "tres"
 
 #: ../src/memory-activity/memory.c:284
-#| msgid "flower"
 msgid "four"
 msgstr "cuatro"
 
 #: ../src/memory-activity/memory.c:285
-#| msgid "olive"
 msgid "five"
 msgstr "cinco"
 
@@ -5202,17 +5188,14 @@ msgid "six"
 msgstr "seis"
 
 #: ../src/memory-activity/memory.c:287
-#| msgid "green"
 msgid "seven"
 msgstr "siete"
 
 #: ../src/memory-activity/memory.c:288
-#| msgid "right"
 msgid "eight"
 msgstr "ocho"
 
 #: ../src/memory-activity/memory.c:289
-#| msgid "wine"
 msgid "nine"
 msgstr "nueve"
 
@@ -5459,6 +5442,8 @@ msgid ""
 "You can see some cards, but you can't see what's on the other side of them. "
 "Each card is hiding a number of pictures, or the written number."
 msgstr ""
+"Puedes ver algunas cartas pero no puedes ver lo que está en el otro lado de "
+"las mismas. Cada carta oculta un número de imágenes o el número escrito."
 
 #: ../src/memory_minus-activity/memory_minus.xml.in.h:1
 #: ../src/memory_minus_tux-activity/memory_minus_tux.xml.in.h:1
@@ -5652,26 +5637,26 @@ msgid "Reading numbers, memory."
 msgstr "Leer números, memoria."
 
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:3
-#, fuzzy
 #| msgid ""
 #| "Turn the cards over to find two numbers which add up the same, until all "
 #| "the cards are gone."
 msgid "Turn the cards over to match the number with the word matching it."
 msgstr ""
-"Dale la vuelta las cartas para encontrar dos números que sumen lo mismo "
-"hasta que todas las cartas desaparezcan."
+"Dále la vuelta las cartas para encontrar el número con la palabra que "
+"coincida."
 
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:4
-#, fuzzy
 #| msgid "Addition memory game"
 msgid "Wordnumber memory game"
-msgstr "Juego de memoria de la suma"
+msgstr "Juego de memoria de palabra-número"
 
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:5
 msgid ""
 "You can see some cards, but you can't see what's on the other side of them. "
 "Each card is hiding a number of number, or the word of the number."
 msgstr ""
+"Puedes ver algunas cartas pero no puedes ver lo que está en el otro lado de "
+"las mismas. Cada carta oculta la imagen de un número o la palabra del número."
 
 #: ../src/missing_letter-activity/missing_letter.xml.in.h:1
 msgid ""
@@ -5769,46 +5754,39 @@ msgid "satchel/s_tchel/a/o/i"
 msgstr "cartera/c_rtera/a/o/i"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board3.xml.in.h:1
-#, fuzzy
 #| msgid "ball/_all/b/p/d"
 msgid "ball/_all/b/p/d/m"
-msgstr "pelota/_elota/p/c/b"
+msgstr "pelota/_elota/p/c/b/v"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board3.xml.in.h:2
-#, fuzzy
 #| msgid "bed/_ed/b/l/f"
 msgid "bed/_ed/b/l/f/t"
-msgstr "cama/ca_a/m/t/l"
+msgstr "cama/ca_a/m/t/l/v"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board3.xml.in.h:3
-#, fuzzy
 #| msgid "bottle/_ottle/b/t/p"
 msgid "bottle/_ottle/b/t/p/l"
-msgstr "botella/bo_ella/t/b/d"
+msgstr "botella/bo_ella/t/b/d/n"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board3.xml.in.h:4
-#, fuzzy
 #| msgid "cake/_ake/c/p/d"
 msgid "cake/_ake/c/p/d/k"
-msgstr "torta/to_ta/r/l/s"
+msgstr "pastel/_astel/g/m/p/t"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:1
-#, fuzzy
 #| msgid "apple/appl_/e/h/a"
 msgid "apple/appl_/e/h/a/i/o/u"
-msgstr "manzana/manz_na/a/i/o"
+msgstr "manzana/manz_na/a/i/o/u"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:2
-#, fuzzy
 #| msgid "banana/_anana/b/p/d"
 msgid "banana/_anana/b/p/d/m"
-msgstr "plátano/_látano/p/b/d"
+msgstr "plátano/_látano/p/b/d/f"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:3
-#, fuzzy
 #| msgid "car/_ar/c/k/b"
 msgid "car/_ar/c/k/b/u"
-msgstr "automóvil/a_tomóvil/u/i/e"
+msgstr "coche/_oche/c/b/r/l"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:4
 #, fuzzy
