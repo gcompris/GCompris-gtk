@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-09 00:21+0200\n"
-"PO-Revision-Date: 2010-04-09 00:24+0100\n"
+"POT-Creation-Date: 2010-04-10 21:42+0200\n"
+"PO-Revision-Date: 2010-04-10 21:43+0100\n"
 "Last-Translator: Bruno Coudoin <bruno.coudoin@free.fr>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
@@ -281,28 +281,27 @@ msgstr "Jeu éducatif multi-activités"
 
 #: ../nsis_translations.desktop.in.h:1
 msgid "An instance of GCompris is currently running. Exit GCompris and then try again."
-msgstr ""
+msgstr "Une instance de GCompris est déjà en cours d'exécution. Quittez GCompris et essayez à nouveau."
 
 #: ../nsis_translations.desktop.in.h:2
-#, fuzzy
 msgid "The installer is already running."
-msgstr "La course a déjà commencé"
+msgstr "L'installation a déjà commencé"
 
 #: ../nsis_translations.desktop.in.h:3
 msgid "Visit the GCompris Web Site"
-msgstr ""
+msgstr "Visitez le site de GCompris"
 
 #: ../nsis_translations.desktop.in.h:4
 msgid "You do not have permission to uninstall this application."
-msgstr ""
+msgstr "Vous n'avez pas l'autorisation de désinstaller cette application"
 
 #: ../nsis_translations.desktop.in.h:5
 msgid "Your old GCompris directory is about to be deleted. Would you like to continue?$\\r$\\rNote: Any non-standard plugins that you may have installed will be deleted.$\\rGCompris user settings will not be affected."
-msgstr ""
+msgstr "Votre ancienne version de GCompris va être supprimée. Souhaitez vous continuer ?$\\r$\\rRemarque: Tout greffon non standard que vous pourriez avoir installé sera supprimé.$\\rLa configuration utilisateur de GCompris ne sera pas affectée."
 
 #: ../nsis_translations.desktop.in.h:6
 msgid "the uninstaller could not find registry entries for GCompris.$\\rIt is likely that another user installed this application."
-msgstr ""
+msgstr "Le processus de désinstallation peut ne pas trouver les entrées du répertoire de GCompris.$\\rIl est possible qu'un autre utilisateur ait installé cette application."
 
 #: ../src/administration-activity/admin/board_list.py:88
 msgid "Select a profile:"
@@ -2367,9 +2366,8 @@ msgid "Arabic"
 msgstr "Arabe"
 
 #: ../src/gcompris/config.c:63
-#, fuzzy
 msgid "Asturian"
-msgstr "Autriche"
+msgstr "Asturien"
 
 #: ../src/gcompris/config.c:64
 msgid "Turkish (Azerbaijan)"
@@ -2966,7 +2964,7 @@ msgstr ""
 
 #: ../src/gcompris/sugar.c:70
 msgid "Help"
-msgstr ""
+msgstr "Aide"
 
 #: ../src/gcompris/sugar.c:71
 msgid "About"
@@ -2974,7 +2972,7 @@ msgstr "À propos"
 
 #: ../src/gcompris/sugar.c:72
 msgid "Previous level"
-msgstr ""
+msgstr "Niveau précédent"
 
 #: ../src/gcompris/sugar.c:75
 msgid "Next level"
@@ -2982,11 +2980,11 @@ msgstr "Niveau suivant"
 
 #: ../src/gcompris/sugar.c:77
 msgid "Refresh"
-msgstr ""
+msgstr "Rafraîchir"
 
 #: ../src/gcompris/sugar.c:78
 msgid "Settings"
-msgstr ""
+msgstr "Configuration"
 
 #. TRANSLATORS: Back as in previous
 #: ../src/gcompris/sugar.c:86
@@ -2995,7 +2993,7 @@ msgstr "Précédant"
 
 #: ../src/gcompris/sugar.c:87
 msgid "Stop"
-msgstr ""
+msgstr "Arrêter"
 
 #: ../src/gcompris/timer.c:244
 msgid "Time Elapsed"
@@ -4306,22 +4304,24 @@ msgid ""
 "Switch off all the lights, I have to go to sleep.\n"
 "If you need help, click on me."
 msgstr ""
+"Éteignez les lumières, il est l'heure d'aller se coucher.\n"
+"Si vous avez besoin d'aide, cliquez sur moi."
 
 #: ../src/lightsoff-activity/lightsoff.xml.in.h:1
 msgid "Lights Off"
-msgstr ""
+msgstr "Lumières éteintes."
 
 #: ../src/lightsoff-activity/lightsoff.xml.in.h:2
 msgid "The aim is to switch off all the lights."
-msgstr ""
+msgstr "Le but est d'éteindre toutes les lumières."
 
 #: ../src/lightsoff-activity/lightsoff.xml.in.h:3
 msgid "The effect of pressing a button is to toggle the state of that button, and of its immediate vertical and horizontal neighbours. The sun and the color of the sky depend on the number of clicks needed to solve the puzzle. If you click on Tux, the solution is shown."
-msgstr ""
+msgstr "L'effet de la pression d'un bouton est d'alterner son état, ainsi que celui de ses voisins immédiats verticaux et horizontaux. Le soleil et la couleur du ciel dépendent du nombre de clics nécessaires pour résoudre le puzzle. Si vous cliquez sur Tux, la solution est affichée."
 
 #: ../src/lightsoff-activity/lightsoff.xml.in.h:4
-msgid "The solver algorithm described on the haar.clara.co.uk is a valuable resource to know more about the Lights Off game: &lt;http://www.haar.clara.co.uk/Lights/solving.html&gt;"
-msgstr ""
+msgid "The solver algorithm described on haar.clara.co.uk is a valuable resource to know more about the Lights Off game: &lt;http://www.haar.clara.co.uk/Lights/solving.html&gt;"
+msgstr "L'algorithme du solveur est décrit sur haar.clara.co.uk est une ressource précieuse pour en savoir plus sur le jeu Lumières éteintes : <http://www.haar.clara.co.uk/Lights/solving.html>"
 
 #: ../src/login-activity/login.py:101
 msgid "Profile: "
