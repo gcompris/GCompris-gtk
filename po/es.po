@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: gcompris.gcomprixogoo\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&component=general\n"
-"POT-Creation-Date: 2010-03-17 06:55+0000\n"
-"PO-Revision-Date: 2010-04-10 19:46+0200\n"
+"POT-Creation-Date: 2010-04-10 20:23+0000\n"
+"PO-Revision-Date: 2010-04-11 14:11+0200\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -1353,19 +1353,6 @@ msgid "Needs to be capable of moving and clicking the mouse easily"
 msgstr "Necesita ser capaz de mover y pulsar el ratón fácilmente"
 
 #: ../src/anim-activity/anim.xml.in.h:5
-#| msgid ""
-#| "Select a drawing tool on the left, and a color down the bottom. Then "
-#| "click and drag in the white area to create a new shape. Once you've "
-#| "completed a drawing, you can take a snapshot of it with the 'camera' "
-#| "button. This creates a new image with the same content, a copy of your "
-#| "image. You can then edit it by moving objects a little bit or adding/"
-#| "deleting objects. When you create several drawings and then click on the "
-#| "'film' button, you will see all your images in a continuous slide-show "
-#| "(an infinite loop pattern). You can also change the viewing speed in this "
-#| "mode. In viewing mode, click on the 'drawing' button to return to drawing "
-#| "mode. You can then edit each image in your animation, by using the image "
-#| "selector in the bottom-left corner of the screen. You can also save and "
-#| "reload your animations with the 'floppy disk' and 'folder' buttons."
 msgid ""
 "Select a drawing tool on the left, and a color down the bottom. Then click "
 "and drag in the white area to create a new shape. Once you've completed a "
@@ -1697,15 +1684,15 @@ msgstr "Segunda versión del menú principal"
 msgid "Select a Board"
 msgstr "Selecciona un tablero"
 
-#: ../src/boards/python.c:63 ../src/boards/python.c:87
+#: ../src/boards/python.c:64 ../src/boards/python.c:88
 msgid "Python Board"
 msgstr "Tablero de Python"
 
-#: ../src/boards/python.c:64
+#: ../src/boards/python.c:65
 msgid "Special board that embeds python into GCompris."
 msgstr "Tablero especial que incrusta python dentro de GCompris."
 
-#: ../src/boards/python.c:88
+#: ../src/boards/python.c:89
 msgid "Special board that embeds python into gcompris."
 msgstr "Tablero especial que incrusta Python dentro de GCompris."
 
@@ -2680,29 +2667,29 @@ msgstr ""
 "Este software es un paquete GNU y se distribuye bajo los términos de la "
 "Licencia Pública General GNU "
 
-#: ../src/gcompris/about.c:220 ../src/gcompris/config.c:448
+#: ../src/gcompris/about.c:220 ../src/gcompris/config.c:446
 #: ../src/gcompris/dialog.c:103 ../src/gcompris/help.c:359
 #: ../src/gcompris/images_selector.c:307
 msgid "OK"
 msgstr "Aceptar"
 
-#: ../src/gcompris/bar.c:653
+#: ../src/gcompris/bar.c:688
 msgid "GCompris confirmation"
 msgstr "Confirmación de GCompris"
 
-#: ../src/gcompris/bar.c:654
+#: ../src/gcompris/bar.c:689
 msgid "Are you sure you want to quit?"
 msgstr "¿Seguro que deseas salir?"
 
-#: ../src/gcompris/bar.c:655
+#: ../src/gcompris/bar.c:690
 msgid "Yes, I am sure!"
 msgstr "Sí, estoy seguro."
 
-#: ../src/gcompris/bar.c:656
+#: ../src/gcompris/bar.c:691
 msgid "No, I want to keep going"
 msgstr "No, quiero continuar"
 
-#: ../src/gcompris/board.c:194
+#: ../src/gcompris/board.c:197
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr ""
 "La carga dinámica de módulos no está soportada. GCompris no puede cargar.\n"
@@ -3044,49 +3031,48 @@ msgid "Fast timer"
 msgstr "Temporizador rápido"
 
 #: ../src/gcompris/config.c:136
-msgid ""
-"<i>Use Gcompris administration module\n"
-"to filter boards</i>"
-msgstr ""
-"<i>Usa el módulo de administración de GCompris\n"
-"para filtrar tableros</i>"
+#| msgid ""
+#| "<i>Use Gcompris administration module\n"
+#| "to filter boards</i>"
+msgid "Use Gcompris administration module to filter boards"
+msgstr "Usa el módulo de administración de GCompris para filtrar tableros"
 
-#: ../src/gcompris/config.c:188
+#: ../src/gcompris/config.c:187
 msgid "GCompris Configuration"
 msgstr "Configuración de GCompris"
 
-#: ../src/gcompris/config.c:259
+#: ../src/gcompris/config.c:258
 msgid "Fullscreen"
 msgstr "Pantalla completa"
 
-#: ../src/gcompris/config.c:285
+#: ../src/gcompris/config.c:284
 msgid "Music"
 msgstr "Música"
 
-#: ../src/gcompris/config.c:311
+#: ../src/gcompris/config.c:310
 msgid "Effect"
 msgstr "Efecto"
 
-#: ../src/gcompris/config.c:336 ../src/gcompris/sugar.c:82
+#: ../src/gcompris/config.c:335 ../src/gcompris/sugar.c:82
 msgid "Zoom"
 msgstr "Ampliación"
 
-#: ../src/gcompris/config.c:373
+#: ../src/gcompris/config.c:372
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "No se puede abrir el directorio de apariencias: %s"
 
-#: ../src/gcompris/config.c:404 ../src/gcompris/config.c:813
-#: ../src/gcompris/config.c:827
+#: ../src/gcompris/config.c:403 ../src/gcompris/config.c:810
+#: ../src/gcompris/config.c:824
 #, c-format
 msgid "Skin : %s"
 msgstr "Apariencia : %s"
 
-#: ../src/gcompris/config.c:406
+#: ../src/gcompris/config.c:405
 msgid "SKINS NOT FOUND"
 msgstr "APARIENCIAS NO ENCONTRADAS"
 
-#: ../src/gcompris/config.c:488
+#: ../src/gcompris/config.c:486
 msgid "English (United State)"
 msgstr "Inglés (Estados Unidos)"
 
@@ -3118,39 +3104,39 @@ msgstr ""
 "Salga e infórmanos\n"
 "del problema."
 
-#: ../src/gcompris/gcompris.c:152
+#: ../src/gcompris/gcompris.c:156
 msgid "run GCompris in fullscreen mode."
 msgstr "ejecutar GCompris a pantalla completa."
 
-#: ../src/gcompris/gcompris.c:155
+#: ../src/gcompris/gcompris.c:159
 msgid "run GCompris in window mode."
 msgstr "ejecutar GCompris en una ventana."
 
-#: ../src/gcompris/gcompris.c:158
+#: ../src/gcompris/gcompris.c:162
 msgid "run GCompris with sound enabled."
 msgstr "ejecutar GCompris con el sonido activado."
 
-#: ../src/gcompris/gcompris.c:161
+#: ../src/gcompris/gcompris.c:165
 msgid "run GCompris without sound."
 msgstr "ejecutar GCompris sin sonido."
 
-#: ../src/gcompris/gcompris.c:164
+#: ../src/gcompris/gcompris.c:168
 msgid "run GCompris with the default gnome cursor."
 msgstr "ejecutar GCompris con el cursor predeterminado de GNOME."
 
-#: ../src/gcompris/gcompris.c:167
+#: ../src/gcompris/gcompris.c:171
 msgid "display only activities with this difficulty level."
 msgstr "mostrar sólo actividades con este nivel de dificultad."
 
-#: ../src/gcompris/gcompris.c:170
+#: ../src/gcompris/gcompris.c:174
 msgid "display debug informations on the console."
 msgstr "mostrar información de depuración en la consola."
 
-#: ../src/gcompris/gcompris.c:173
+#: ../src/gcompris/gcompris.c:177
 msgid "Print the version of "
 msgstr "Imprime la versión de "
 
-#: ../src/gcompris/gcompris.c:176
+#: ../src/gcompris/gcompris.c:180
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
@@ -3162,37 +3148,37 @@ msgstr ""
 "actividad conecta4). Use «-l list» para listar todas las actividades "
 "disponibles y sus descripciones."
 
-#: ../src/gcompris/gcompris.c:181
+#: ../src/gcompris/gcompris.c:185
 msgid "GCompris will find the data dir in this directory"
 msgstr "GCompris buscará el directorio de datos en este directorio"
 
-#: ../src/gcompris/gcompris.c:184
+#: ../src/gcompris/gcompris.c:188
 msgid "GCompris will find the skins in this directory"
 msgstr "GCompris buscará las apariencias en este directorio"
 
-#: ../src/gcompris/gcompris.c:187
+#: ../src/gcompris/gcompris.c:191
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "GCompris buscará los complementos de actividad en este directorio"
 
-#: ../src/gcompris/gcompris.c:190
+#: ../src/gcompris/gcompris.c:194
 msgid "GCompris will find the python activity in this directory"
 msgstr "GCompris buscará la actividad Python en este directorio"
 
-#: ../src/gcompris/gcompris.c:193
+#: ../src/gcompris/gcompris.c:197
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr ""
 "GCompros buscará el archivo de localización (traducción .mo) en este "
 "directorio"
 
-#: ../src/gcompris/gcompris.c:196
+#: ../src/gcompris/gcompris.c:200
 msgid "GCompris will find the activities menu in this directory"
 msgstr "GCompris buscará el menú de actividades en este directorio"
 
-#: ../src/gcompris/gcompris.c:199
+#: ../src/gcompris/gcompris.c:203
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Ejecutar GCompris en modo administración y gestión de usuarios"
 
-#: ../src/gcompris/gcompris.c:202
+#: ../src/gcompris/gcompris.c:206
 msgid ""
 "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
@@ -3200,24 +3186,24 @@ msgstr ""
 "Usa una base de datos alternativa para los perfiles [$HOME/.config/gcompris/"
 "gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:205
+#: ../src/gcompris/gcompris.c:209
 msgid "Create the alternate database for profiles"
 msgstr "Crea la base de datos alternativa para los perfiles"
 
-#: ../src/gcompris/gcompris.c:208
+#: ../src/gcompris/gcompris.c:212
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Volver a leer los menús XML y almacenarlos en la base de datos"
 
-#: ../src/gcompris/gcompris.c:211
+#: ../src/gcompris/gcompris.c:215
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Establece el perfil a usar. Usa «gcompris -a» para crear perfiles"
 
-#: ../src/gcompris/gcompris.c:214
+#: ../src/gcompris/gcompris.c:218
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Lista todos los perfiles disponibles. Usa «gcompris -a» para crear perfiles"
 
-#: ../src/gcompris/gcompris.c:217
+#: ../src/gcompris/gcompris.c:221
 msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
@@ -3225,23 +3211,23 @@ msgstr ""
 "Ubicación del directorio de configuración: [$HOME/.config/gcompris]. Lo "
 "alternativo es establecer $XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:220
+#: ../src/gcompris/gcompris.c:224
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "La ubicación de los directorios de usuario: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:223
+#: ../src/gcompris/gcompris.c:227
 msgid "Run the experimental activities"
 msgstr "Ejecutar las actividades experimentales"
 
-#: ../src/gcompris/gcompris.c:226
+#: ../src/gcompris/gcompris.c:230
 msgid "Disable the quit button"
 msgstr "Desactivar el botón de salida"
 
-#: ../src/gcompris/gcompris.c:229
+#: ../src/gcompris/gcompris.c:233
 msgid "Disable the config button"
 msgstr "Desactivar el botón de configuración"
 
-#: ../src/gcompris/gcompris.c:232
+#: ../src/gcompris/gcompris.c:236
 msgid ""
 "GCompris will get images, sounds and activity data from this server if not "
 "found locally."
@@ -3249,7 +3235,7 @@ msgstr ""
 "GCompris cogerá imágenes, sonidos y datos de las actividades de este "
 "servidor si no se encuentran localmente."
 
-#: ../src/gcompris/gcompris.c:235
+#: ../src/gcompris/gcompris.c:239
 msgid ""
 "Only when --server is provided, disable check for local resource first. Data "
 "are always taken from the web server."
@@ -3257,30 +3243,39 @@ msgstr ""
 "Sólo cuando se especifica --server, desactivar la comprobación de recursos "
 "locales en primer lugar. Los datos siempre se obtienen del servidor web."
 
-#: ../src/gcompris/gcompris.c:239
+#: ../src/gcompris/gcompris.c:243
 msgid ""
 "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr ""
 "En modo servidor, especifica donde está el directorio caché para evitar "
 "descargas innecesarias."
 
-#: ../src/gcompris/gcompris.c:242
+#: ../src/gcompris/gcompris.c:246
 msgid ""
 "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr ""
 "Modo global de arrastrar y soltar: normal, 2 pulsaciones, ambos. Lo "
 "predeterminado es normal."
 
-#: ../src/gcompris/gcompris.c:245
+#: ../src/gcompris/gcompris.c:249
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Permitir la ejecución de instancias múltiples de GCompris."
 
-#: ../src/gcompris/gcompris.c:915
+#: ../src/gcompris/gcompris.c:890
 #, c-format
+#| msgid ""
+#| "GCompris is free software released under the GPL License. In order to "
+#| "support its development, the Windows version provides only %d of the %d "
+#| "activities. You can get the full version for a small fee at\n"
+#| "<http://gcompris.net>\n"
+#| "The GNU/Linux version does not have this restriction. If you also believe "
+#| "that we should teach freedom to children, please consider using GNU/"
+#| "Linux. Get more information at FSF:\n"
+#| "<http://www.fsf.org/philosophy>"
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
-"support its development, the Windows version provides only %d of the %d "
-"activities. You can get the full version for a small fee at\n"
+"support its development, this version provides only %d of the %d activities. "
+"You can get the full version for a small fee at\n"
 "<http://gcompris.net>\n"
 "The GNU/Linux version does not have this restriction. If you also believe "
 "that we should teach freedom to children, please consider using GNU/Linux. "
@@ -3288,8 +3283,8 @@ msgid ""
 "<http://www.fsf.org/philosophy>"
 msgstr ""
 "GCompris es software libre liberado bajo la licencia GPL. Para apoyar su "
-"desarrollo, la versión de Windows proporciona sólo %d de las %d actividades. "
-"Puedes obtener la versión completa por una pequeña contribución en\n"
+"desarrollo, esta versión proporciona sólo %d de las %d actividades. Puedes "
+"obtener la versión completa por una pequeña contribución en\n"
 "<http://gcompris.net>\n"
 "La versión de GNU/Linux no tiene esta restricción. Nota que GCompris se está "
 "desarrollando para liberar las escuelas de los monopolios de fabricantes de "
@@ -3297,7 +3292,7 @@ msgstr ""
 "considera usar GNU/Linux. Obtén más información acerca de esto en la FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1393
+#: ../src/gcompris/gcompris.c:1429
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
@@ -3305,12 +3300,12 @@ msgstr ""
 "No se iniciará GCompris porque el archivo de bloqueo es menos antiguo de %d "
 "segundos.\n"
 
-#: ../src/gcompris/gcompris.c:1395
+#: ../src/gcompris/gcompris.c:1431
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "El archivo de bloqueo es: %s\n"
 
-#: ../src/gcompris/gcompris.c:1509
+#: ../src/gcompris/gcompris.c:1545
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3324,27 +3319,27 @@ msgstr ""
 "Más información en http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1612
+#: ../src/gcompris/gcompris.c:1648
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Usa -l actividad para acceder directamente a una actividad.\n"
 
-#: ../src/gcompris/gcompris.c:1613
+#: ../src/gcompris/gcompris.c:1649
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Lista de actividades disponibles es:\n"
 
-#: ../src/gcompris/gcompris.c:1644
+#: ../src/gcompris/gcompris.c:1680
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Número de actividades: %d\n"
 
-#: ../src/gcompris/gcompris.c:1680
+#: ../src/gcompris/gcompris.c:1716
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s existe pero no se puede leer o escribir"
 
-#: ../src/gcompris/gcompris.c:1743
+#: ../src/gcompris/gcompris.c:1779
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
@@ -3353,7 +3348,7 @@ msgstr ""
 "La opción --server no se puede usar porque GCompris se ha compilado sin "
 "soporte de red"
 
-#: ../src/gcompris/gcompris.c:1797
+#: ../src/gcompris/gcompris.c:1833
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3362,18 +3357,27 @@ msgstr ""
 "ERROR: No se encontró el perfil «%s». Ejecute «gcompris --profile list» para "
 "listar los disponibles\n"
 
-#: ../src/gcompris/gcompris.c:1811
+#: ../src/gcompris/gcompris.c:1847
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "La lista de perfiles disponibles es:\n"
 
-#: ../src/gcompris/gcompris_db.c:234
+#: ../src/gcompris/gcompris_db.c:309
 msgid "Unaffected"
 msgstr "No afectado"
 
-#: ../src/gcompris/gcompris_db.c:235
+#: ../src/gcompris/gcompris_db.c:310
 msgid "Users without a class"
 msgstr "Usuarios sin una clase"
+
+#: ../src/gcompris/gcompris_db.c:893
+#, c-format
+msgid ""
+"Loading activity from database:\n"
+"%s"
+msgstr ""
+"Cargando actividad desde la base de datos:\n"
+"%s"
 
 #: ../src/gcompris/help.c:181
 msgid "Prerequisite"
@@ -3390,6 +3394,16 @@ msgstr "Manual"
 #: ../src/gcompris/help.c:274
 msgid "Credit"
 msgstr "Crédito"
+
+#: ../src/gcompris/menu.c:583
+#, c-format
+#| msgid "Reading activities."
+msgid ""
+"Loading activity from file:\n"
+"%s"
+msgstr ""
+"Cargando actividad desde archivo:\n"
+"%s"
 
 #: ../src/gcompris/properties.c:497 ../src/gcompris/properties.c:504
 msgid "readme"
@@ -3437,11 +3451,12 @@ msgstr "Actualizar"
 msgid "Settings"
 msgstr "Configuración"
 
-#: ../src/gcompris/sugar.c:84
+#. TRANSLATORS: Back as in previous
+#: ../src/gcompris/sugar.c:86
 msgid "Back"
 msgstr "Atrás"
 
-#: ../src/gcompris/sugar.c:85
+#: ../src/gcompris/sugar.c:87
 msgid "Stop"
 msgstr "Parar"
 
@@ -4689,7 +4704,6 @@ msgid "plane"
 msgstr "avión"
 
 #: ../src/imagename-activity/imagename.xml.in.h:1
-#, fuzzy
 #| msgid "Drag and Drop each item onto its name"
 msgid "Drag and Drop each item above its name"
 msgstr "Arrastra y suelta cada elemento sobre su nombre"
@@ -4897,14 +4911,10 @@ msgid "Lights Off"
 msgstr "Luces fuera"
 
 #: ../src/lightsoff-activity/lightsoff.xml.in.h:2
-msgid "The aim is to switch off all the lights"
-msgstr "El objetivo es apagar todas las luces"
-
-#: ../src/lightsoff-activity/lightsoff.xml.in.h:3
 msgid "The aim is to switch off all the lights."
 msgstr "El objetivo es apagar todas las luces."
 
-#: ../src/lightsoff-activity/lightsoff.xml.in.h:4
+#: ../src/lightsoff-activity/lightsoff.xml.in.h:3
 msgid ""
 "The effect of pressing a button is to toggle the state of that button, and "
 "of its immediate vertical and horizontal neighbours. The sun and the color "
@@ -4916,11 +4926,15 @@ msgstr ""
 "dependen del número de pulsaciones necesarias para resolver el puzle. Se "
 "muestra la solución si pulsas en Tux."
 
-#: ../src/lightsoff-activity/lightsoff.xml.in.h:5
+#: ../src/lightsoff-activity/lightsoff.xml.in.h:4
+#| msgid ""
+#| "The solver algorithm described on the haar.clara.co.uk is a valuable "
+#| "resource to know more about the Lights Off game: &lt;http://www.haar."
+#| "clara.co.uk/Lights/solving.html&gt;"
 msgid ""
-"The solver algorithm described on the haar.clara.co.uk is a valuable "
-"resource to know more about the Lights Off game: &lt;http://www.haar.clara."
-"co.uk/Lights/solving.html&gt;"
+"The solver algorithm described on haar.clara.co.uk is a valuable resource to "
+"know more about the Lights Off game: &lt;http://www.haar.clara.co.uk/Lights/"
+"solving.html&gt;"
 msgstr ""
 "El algoritmo resolutor descrito en haar.clara.co.uk está disponible para "
 "saber más acerca del juego Luces fuera: &lt;http://www.haar.clara.co.uk/"
@@ -5637,16 +5651,12 @@ msgid "Reading numbers, memory."
 msgstr "Leer números, memoria."
 
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:3
-#| msgid ""
-#| "Turn the cards over to find two numbers which add up the same, until all "
-#| "the cards are gone."
 msgid "Turn the cards over to match the number with the word matching it."
 msgstr ""
 "Dále la vuelta las cartas para encontrar el número con la palabra que "
 "coincida."
 
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:4
-#| msgid "Addition memory game"
 msgid "Wordnumber memory game"
 msgstr "Juego de memoria de palabra-número"
 
@@ -5754,165 +5764,137 @@ msgid "satchel/s_tchel/a/o/i"
 msgstr "cartera/c_rtera/a/o/i"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board3.xml.in.h:1
-#| msgid "ball/_all/b/p/d"
 msgid "ball/_all/b/p/d/m"
 msgstr "pelota/_elota/p/c/b/v"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board3.xml.in.h:2
-#| msgid "bed/_ed/b/l/f"
 msgid "bed/_ed/b/l/f/t"
 msgstr "cama/ca_a/m/t/l/v"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board3.xml.in.h:3
-#| msgid "bottle/_ottle/b/t/p"
 msgid "bottle/_ottle/b/t/p/l"
 msgstr "botella/bo_ella/t/b/d/n"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board3.xml.in.h:4
-#| msgid "cake/_ake/c/p/d"
 msgid "cake/_ake/c/p/d/k"
 msgstr "pastel/_astel/g/m/p/t"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:1
-#| msgid "apple/appl_/e/h/a"
 msgid "apple/appl_/e/h/a/i/o/u"
 msgstr "manzana/manz_na/a/i/o/u"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:2
-#| msgid "banana/_anana/b/p/d"
 msgid "banana/_anana/b/p/d/m"
 msgstr "plátano/_látano/p/b/d/f"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:3
-#| msgid "car/_ar/c/k/b"
 msgid "car/_ar/c/k/b/u"
 msgstr "coche/_oche/c/b/r/l"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:4
-#, fuzzy
 #| msgid "dog/d_g/o/g/a"
 msgid "dog/d_g/o/g/a/u"
-msgstr "perro/p_rro/e/i/u"
+msgstr "perro/p_rro/e/a/i/u"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:5
-#, fuzzy
 #| msgid "fish/_ish/f/h/l"
 msgid "fish/_ish/f/h/l/j"
-msgstr "pez/_ez/p/h/l"
+msgstr "pez/_ez/p/h/l/f"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:6
-#, fuzzy
 #| msgid "house/h_use/o/f/u"
 msgid "house/h_use/o/f/u/i"
-msgstr "casa/c_sa/a/e/i"
+msgstr "casa/c_sa/a/e/i/u"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:7
-#, fuzzy
 #| msgid "plane/p_ane/l/j/i"
 msgid "plane/p_ane/l/j/i/t"
-msgstr "avión/av_ón/i/e/u"
+msgstr "avión/av_ón/i/e/u/a"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:8
-#, fuzzy
 #| msgid "satchel/_atchel/s/c/l"
 msgid "satchel/_atchel/s/c/l/z"
-msgstr "cartera/c_rtera/a/e/o"
+msgstr "cartera/c_rtera/a/e/o/u"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:1
-#, fuzzy
 #| msgid "apple/app_e/l/h/n"
 msgid "apple/app_e/l/h/n/i/t"
-msgstr "manzana/ma_zana/m/n/s"
+msgstr "manzana/ma_zana/n/m/s/r/y"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:2
-#, fuzzy
 #| msgid "ball/b_ll/a/u/o"
 msgid "ball/b_ll/a/u/o/e/i/y"
-msgstr "pelota/_elota/p/u/o"
+msgstr "pelota/_elota/p/u/o/b/v/g"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:3
-#, fuzzy
 #| msgid "ball/bal_/l/h/s"
 msgid "ball/bal_/l/h/s/z/t"
-msgstr "pelota/pe_ota/l/t/z"
+msgstr "pelota/pe_ota/l/t/z/c/p"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:4
-#, fuzzy
 #| msgid "banana/ba_ana/n/m/b"
 msgid "banana/ba_ana/n/m/b/z/q"
-msgstr "plátano/pláta_o/n/m/b"
+msgstr "plátano/pláta_o/n/m/b/v/s"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:5
-#, fuzzy
 #| msgid "bed/b_d/e/a/i"
 msgid "bed/b_d/e/a/i/o/u/s"
-msgstr "cama/ca_a/m/t/l"
+msgstr "cama/ca_a/m/t/l/s/b/v"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:6
-#, fuzzy
 #| msgid "bed/be_/d/p/b"
 msgid "bed/be_/d/p/b/c/v/n"
-msgstr "cama/cam_/a/i/u"
+msgstr "cama/_ama/c/q/k/m/b/v"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:7
-#, fuzzy
 #| msgid "bottle/b_ttle/o/u/d"
 msgid "bottle/b_ttle/o/u/d/a/t/i"
-msgstr "botella/bo_ella/t/b/d"
+msgstr "botella/bo_ella/t/b/d/n/l/s"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:8
-#, fuzzy
 #| msgid "bottle/bott_e/l/y/r"
 msgid "bottle/bott_e/l/y/r/s/g"
-msgstr "botella/bo_ella/t/b/d"
+msgstr "botella/bo_ella/t/b/d/n/s"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:9
-#, fuzzy
 #| msgid "cake/c_ke/a/o/e"
 msgid "cake/c_ke/a/o/e/i/u/y"
-msgstr "torta/to_ta/r/s/l"
+msgstr "torta/to_ta/r/s/l/n/h/u"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:10
-#, fuzzy
 #| msgid "cake/ca_e/k/q/c"
 msgid "cake/ca_e/k/q/c/r/z"
-msgstr "torta/t_rta/o/e/a"
+msgstr "torta/t_rta/o/e/a/ó/é"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:11
-#, fuzzy
 #| msgid "car/ca_/r/w/k"
 msgid "car/ca_/r/w/k/c/a"
-msgstr "automóvil/automó_il/v/b/s"
+msgstr "automóvil/automó_il/v/b/s/c/y"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:12
-#, fuzzy
 #| msgid "dog/do_/g/p/q"
 msgid "dog/do_/g/p/q/q/k"
-msgstr "perro/perr_/o/e/i"
+msgstr "perro/perr_/o/e/i/ó/é"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:13
-#, fuzzy
 #| msgid "fish/fis_/h/o/i"
 msgid "fish/fis_/h/o/i/y/z"
-msgstr "pez/pe_/z/o/i"
+msgstr "pez/pe_/z/o/i/c/s"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:14
-#, fuzzy
 #| msgid "house/_ouse/h/e/j"
 msgid "house/_ouse/h/e/j/z/p/s"
-msgstr "casa/ca_a/s/z/r"
+msgstr "casa/ca_a/s/z/r/n/p/l"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:15
-#, fuzzy
 #| msgid "plane/pl_ne/a/o/s"
 msgid "plane/pl_ne/a/o/s/e/i/u/y"
-msgstr "avión/avi_n/ó/é/ú"
+msgstr "avión/avi_n/ó/é/ú/á/o/e/u"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:16
-#, fuzzy
 #| msgid "satchel/sa_chel/t/p/c"
 msgid "satchel/sa_chel/t/p/c/z/s/l"
-msgstr "cartera/ca_tera/r/s/l"
+msgstr "cartera/ca_tera/r/s/l/n/p/c"
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
 #: ../src/money-activity/money.c:496
@@ -6360,6 +6342,11 @@ msgstr "está siendo mostrada"
 msgid "We skip this level because there are not enough words in the list!"
 msgstr "Se salta este nivel porque no hay suficientes palabras en la lista."
 
+#: ../src/readingh-activity/reading.c:659
+#| msgid "Yes, I am sure!"
+msgid "Yes, I saw it"
+msgstr "Sí, lo ví"
+
 #: ../src/readingh-activity/reading.c:686
 msgid "No, it was not there"
 msgstr "No, no estaba allí"
@@ -6659,19 +6646,17 @@ msgid "Sea race (2 Players)"
 msgstr "Carrera en el mar (2 jugadores)"
 
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:2
-#, fuzzy
 #| msgid "Drag and Drop masses to balance the scales"
 msgid "Drag and Drop masses to balance the scales and calculate the weight"
-msgstr "Arrastra y suelta los pesos para equilibrar las balanzas"
+msgstr ""
+"Arrastra y suelta los pesos para equilibrar los platillos y calcular el peso"
 
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:3
-#, fuzzy
 #| msgid "Mental calculation, arithmetic equality"
 msgid "Mental calculation, arithmetic equality, unit conversion"
-msgstr "Cálculo mental, igualdad aritmética"
+msgstr "Cálculo mental, igualdad aritmética, conversión de unidades"
 
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:5
-#, fuzzy
 #| msgid ""
 #| "To balance the scales, move the masses on the left or the right side. The "
 #| "masses can be arranged in any order."
@@ -6680,8 +6665,9 @@ msgid ""
 "care of the weight and the unit of the masses, remember that a kilogram (kg) "
 "is 1000 grams (g). They can be arranged in any order."
 msgstr ""
-"Para equilibrar los platillos mueve las masas en su plato izquierdo. Las "
-"masas pueden colocarse en cualquier orden."
+"Para equilibrar los platillos mueve las masas a la izquierda o derecha. Ten "
+"cuidado con los pesos y la unidad de las masas, recuerda que un kilogramo "
+"(kg) son 1 000 gramos (g). Las masas pueden colocarse en cualquier orden."
 
 #: ../src/searace1player-activity/searace1player.xml.in.h:1
 msgid "Give good instructions to your ship in order to be first in the race."
@@ -7142,6 +7128,9 @@ msgstr "Entrenamiento con el teclado"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:4
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Teclea la palabra completa mientras cae, antes de que llegue al suelo"
+
+#~ msgid "The aim is to switch off all the lights"
+#~ msgstr "El objetivo es apagar todas las luces"
 
 #~ msgid "Error: Abnormally failed to load a data file"
 #~ msgstr "Error: falló anormal al cargar un archivo de datos"
