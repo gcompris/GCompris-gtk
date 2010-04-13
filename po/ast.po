@@ -1,6 +1,9 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # Asturian translation for gcompris
 # Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
 # This file is distributed under the same license as the gcompris package.
@@ -16,10 +19,10 @@ msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: "
 "http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&component=general\n"
-"POT-Creation-Date: 2010-03-29 23:45+0000\n"
-"PO-Revision-Date: 2010-03-30 05:37+0200\n"
-"Last-Translator: Xandru Armesto <xandru@softastur.org>\n"
-"Language-Team: Asturian Team alministradores@softastur.org\n"
+"POT-Creation-Date: 2010-04-12 21:30+0000\n"
+"PO-Revision-Date: 2010-04-13 12:37+0200\n"
+"Last-Translator: Xandru <xandru@softastur.org>\n"
+"Language-Team: Softastur <alministradores@softastur.org>\n"
 "Language: ast\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2651,7 +2654,7 @@ msgstr ""
 "Esti software ye un paquete GNU y distribúise embaxo los términos de la "
 "Llicencia Pública Xeneral GNU"
 
-#: ../src/gcompris/about.c:220 ../src/gcompris/config.c:448
+#: ../src/gcompris/about.c:220 ../src/gcompris/config.c:446
 #: ../src/gcompris/dialog.c:103 ../src/gcompris/help.c:359
 #: ../src/gcompris/images_selector.c:307
 msgid "OK"
@@ -2673,7 +2676,7 @@ msgstr "Sí, toi seguru."
 msgid "No, I want to keep going"
 msgstr "Non, quiero siguir"
 
-#: ../src/gcompris/board.c:194
+#: ../src/gcompris/board.c:197
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr "La carga dinámica de módulos nun se soporta. GCompris nun ye a cargar.\n"
 
@@ -3014,49 +3017,45 @@ msgid "Fast timer"
 msgstr "Temporizador rápidu"
 
 #: ../src/gcompris/config.c:136
-msgid ""
-"<i>Use Gcompris administration module\n"
-"to filter boards</i>"
-msgstr ""
-"<i>Usa'l módulu d'alministración de\n"
-"GCompris pa filtrar tableros</i>"
+msgid "Use Gcompris administration module to filter boards"
+msgstr "<i>Usa'l módulu d'alministración de GCompris pa peñerar tableros</i>"
 
-#: ../src/gcompris/config.c:188
+#: ../src/gcompris/config.c:187
 msgid "GCompris Configuration"
 msgstr "Configuración de GCompris"
 
-#: ../src/gcompris/config.c:259
+#: ../src/gcompris/config.c:258
 msgid "Fullscreen"
 msgstr "Pantalla completa"
 
-#: ../src/gcompris/config.c:285
+#: ../src/gcompris/config.c:284
 msgid "Music"
 msgstr "Música"
 
-#: ../src/gcompris/config.c:311
+#: ../src/gcompris/config.c:310
 msgid "Effect"
 msgstr "Efeutu"
 
-#: ../src/gcompris/config.c:336 ../src/gcompris/sugar.c:82
+#: ../src/gcompris/config.c:335 ../src/gcompris/sugar.c:82
 msgid "Zoom"
 msgstr "Zoom"
 
-#: ../src/gcompris/config.c:373
+#: ../src/gcompris/config.c:372
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Nun se puede abrir el direutoriu d'apariencies: %s"
 
-#: ../src/gcompris/config.c:404 ../src/gcompris/config.c:813
-#: ../src/gcompris/config.c:827
+#: ../src/gcompris/config.c:403 ../src/gcompris/config.c:810
+#: ../src/gcompris/config.c:824
 #, c-format
 msgid "Skin : %s"
 msgstr "Apariencia : %s"
 
-#: ../src/gcompris/config.c:406
+#: ../src/gcompris/config.c:405
 msgid "SKINS NOT FOUND"
 msgstr "APARIENCIES NON ATOPAES"
 
-#: ../src/gcompris/config.c:488
+#: ../src/gcompris/config.c:486
 msgid "English (United State)"
 msgstr "Inglés (Estados Xuníos)"
 
@@ -3088,39 +3087,39 @@ msgstr ""
 "Sal ya infórmanos\n"
 "del problema."
 
-#: ../src/gcompris/gcompris.c:165
+#: ../src/gcompris/gcompris.c:156
 msgid "run GCompris in fullscreen mode."
 msgstr "executar GCompris a pantalla completa."
 
-#: ../src/gcompris/gcompris.c:168
+#: ../src/gcompris/gcompris.c:159
 msgid "run GCompris in window mode."
 msgstr "executar GCompris nun ventanu."
 
-#: ../src/gcompris/gcompris.c:171
+#: ../src/gcompris/gcompris.c:162
 msgid "run GCompris with sound enabled."
 msgstr "executar GCompris col soníu activáu."
 
-#: ../src/gcompris/gcompris.c:174
+#: ../src/gcompris/gcompris.c:165
 msgid "run GCompris without sound."
 msgstr "executar GCompris ensin soníu."
 
-#: ../src/gcompris/gcompris.c:177
+#: ../src/gcompris/gcompris.c:168
 msgid "run GCompris with the default gnome cursor."
 msgstr "executar GCompris col cursor predetermináu de GNOME."
 
-#: ../src/gcompris/gcompris.c:180
+#: ../src/gcompris/gcompris.c:171
 msgid "display only activities with this difficulty level."
 msgstr "amosar namás xeres con esti nivel de dificultá."
 
-#: ../src/gcompris/gcompris.c:183
+#: ../src/gcompris/gcompris.c:174
 msgid "display debug informations on the console."
 msgstr "amosar información de depuración na consola."
 
-#: ../src/gcompris/gcompris.c:186
+#: ../src/gcompris/gcompris.c:177
 msgid "Print the version of "
 msgstr "Imprentar la versión de "
 
-#: ../src/gcompris/gcompris.c:189
+#: ../src/gcompris/gcompris.c:180
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
@@ -3132,35 +3131,35 @@ msgstr ""
 "coneuta4). Usa «-l list» pa llistar toles xeres disponibles y les sos "
 "descripciones."
 
-#: ../src/gcompris/gcompris.c:194
+#: ../src/gcompris/gcompris.c:185
 msgid "GCompris will find the data dir in this directory"
 msgstr "GCompris va atopar los datos nesti direutoriu"
 
-#: ../src/gcompris/gcompris.c:197
+#: ../src/gcompris/gcompris.c:188
 msgid "GCompris will find the skins in this directory"
 msgstr "GCompris va atopar los pelleyos nesti direutoriu"
 
-#: ../src/gcompris/gcompris.c:200
+#: ../src/gcompris/gcompris.c:191
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "GCompris va atopar los plugins de la xera nesti direutoriu"
 
-#: ../src/gcompris/gcompris.c:203
+#: ../src/gcompris/gcompris.c:194
 msgid "GCompris will find the python activity in this directory"
 msgstr "GCompris va atopar la xera en python nesti direutoriu"
 
-#: ../src/gcompris/gcompris.c:206
+#: ../src/gcompris/gcompris.c:197
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr "GCompris va atopar el ficheru llocal (traducción .mo) nesti direutoriu"
 
-#: ../src/gcompris/gcompris.c:209
+#: ../src/gcompris/gcompris.c:200
 msgid "GCompris will find the activities menu in this directory"
 msgstr "GCompris va atopar el menú de xeres nesti direutoriu"
 
-#: ../src/gcompris/gcompris.c:212
+#: ../src/gcompris/gcompris.c:203
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Executar GCompris en mou alministración y xestión d'usuarios"
 
-#: ../src/gcompris/gcompris.c:215
+#: ../src/gcompris/gcompris.c:206
 msgid ""
 "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
@@ -3168,23 +3167,23 @@ msgstr ""
 "Usa una base de datos alternativa pa los perfiles "
 "[$HOME/.config/gcompris/gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:218
+#: ../src/gcompris/gcompris.c:209
 msgid "Create the alternate database for profiles"
 msgstr "Cria la base de datos alternativa pa los perfiles"
 
-#: ../src/gcompris/gcompris.c:221
+#: ../src/gcompris/gcompris.c:212
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Volver a lleer los menús XML y almacenalos na base de datos"
 
-#: ../src/gcompris/gcompris.c:224
+#: ../src/gcompris/gcompris.c:215
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Establez el perfil a usar. Usa «gcompris -a» pa criar perfiles"
 
-#: ../src/gcompris/gcompris.c:227
+#: ../src/gcompris/gcompris.c:218
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr "Llista tolos perfiles disponibles. Usa «gcompris -a» pa criar perfiles"
 
-#: ../src/gcompris/gcompris.c:230
+#: ../src/gcompris/gcompris.c:221
 msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
@@ -3192,23 +3191,23 @@ msgstr ""
 "Ubicación del direutoriu de configuración: [$HOME/.config/gcompris]. Lo "
 "alternativo ye afitar $XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:233
+#: ../src/gcompris/gcompris.c:224
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "Llocalización de los direutorios d'usuariu: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:236
+#: ../src/gcompris/gcompris.c:227
 msgid "Run the experimental activities"
 msgstr "Executar les xeres esperimentales"
 
-#: ../src/gcompris/gcompris.c:239
+#: ../src/gcompris/gcompris.c:230
 msgid "Disable the quit button"
 msgstr "Desautivar el botón de salida"
 
-#: ../src/gcompris/gcompris.c:242
+#: ../src/gcompris/gcompris.c:233
 msgid "Disable the config button"
 msgstr "Desautivar el botón de configuración"
 
-#: ../src/gcompris/gcompris.c:245
+#: ../src/gcompris/gcompris.c:236
 msgid ""
 "GCompris will get images, sounds and activity data from this server if not "
 "found locally."
@@ -3216,7 +3215,7 @@ msgstr ""
 "GCompris coyerá imáxenes, soníos y datos de les xeres d'esti sirvidor si nun "
 "s'alcuentren llocalmente."
 
-#: ../src/gcompris/gcompris.c:248
+#: ../src/gcompris/gcompris.c:239
 msgid ""
 "Only when --server is provided, disable check for local resource first. Data "
 "are always taken from the web server."
@@ -3224,30 +3223,31 @@ msgstr ""
 "Namás cuando s'especifica --server, desactivar la comprobación de recursos "
 "llocales en primer llugar. Los datos siempres s'obtienen del sirvidor web."
 
-#: ../src/gcompris/gcompris.c:252
+#: ../src/gcompris/gcompris.c:243
 msgid ""
 "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr ""
 "En mou sirvidor, especifica ú ta'l direutoriu caché pa evitar descargues "
 "innecesaries."
 
-#: ../src/gcompris/gcompris.c:255
+#: ../src/gcompris/gcompris.c:246
 msgid ""
 "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr ""
 "Mou global d'arrastrar y soltar: normal, calcar 2 veces, dambos. Lo "
 "predeterminao ye normal."
 
-#: ../src/gcompris/gcompris.c:258
+#: ../src/gcompris/gcompris.c:249
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Permitir la execución d'instancies múltiples de GCompris"
 
-#: ../src/gcompris/gcompris.c:943
+#: ../src/gcompris/gcompris.c:890
+#, c-format
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
-"support its development, the Windows version provides only %d of the %d "
-"activities. You can get the full version for a small fee at\n"
+"support its development, this version provides only %d of the %d activities. "
+"You can get the full version for a small fee at\n"
 "<http://gcompris.net>\n"
 "The GNU/Linux version does not have this restriction. If you also believe "
 "that we should teach freedom to children, please consider using GNU/Linux. "
@@ -3255,27 +3255,27 @@ msgid ""
 "<http://www.fsf.org/philosophy>"
 msgstr ""
 "GCompris ye software llibre lliberáu embaxo la llicencia GPL. Pa sofitar el "
-"so desarrollu, la versión de Windows apurri namás %d de les %d xeres. Pues "
-"algamar la versión completa por una pequeña contribución en\n"
-"http://gcompris.net\n"
+"so desarrollu, esta versión namás apurri %d de les %d xeres. Pues algamar la "
+"versión completa por una pequeña contribución en\n"
+"<http://gcompris.net>\n"
 "La versión de GNU/Linux nun tien esta restricción. Si crees que deberíes "
 "enseñar llibertá a los neños, piensa n'usar GNU/Linux. Más información en "
 "FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1431
+#: ../src/gcompris/gcompris.c:1429
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
 msgstr "GCompris nun se va aniciar porque'l ficheru de bloquéu ye menos antiguu de %"
 "d segundos.\n"
 
-#: ../src/gcompris/gcompris.c:1433
+#: ../src/gcompris/gcompris.c:1431
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "El ficheru de bloqueu ye: %s\n"
 
-#: ../src/gcompris/gcompris.c:1547
+#: ../src/gcompris/gcompris.c:1545
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3289,27 +3289,27 @@ msgstr ""
 "Más información en http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1650
+#: ../src/gcompris/gcompris.c:1648
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Usa -l xera p'acceder direutamente a una xera.\n"
 
-#: ../src/gcompris/gcompris.c:1651
+#: ../src/gcompris/gcompris.c:1649
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "La llista de xeres disponibles ye:\n"
 
-#: ../src/gcompris/gcompris.c:1682
+#: ../src/gcompris/gcompris.c:1680
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Númberu de xeres: %d\n"
 
-#: ../src/gcompris/gcompris.c:1718
+#: ../src/gcompris/gcompris.c:1716
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s esiste pero nun puede lleese o escribir"
 
-#: ../src/gcompris/gcompris.c:1781
+#: ../src/gcompris/gcompris.c:1779
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
@@ -3318,7 +3318,7 @@ msgstr ""
 "La opción --server nun se puede usar porque GCompris compilóse ensin sofitu "
 "de rede"
 
-#: ../src/gcompris/gcompris.c:1835
+#: ../src/gcompris/gcompris.c:1833
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3326,18 +3326,27 @@ msgid ""
 msgstr "FALLU: Nun s'alcontró el perfil «%s». Execute «gcompris --profile list» pa "
 "llistar los disponibles\n"
 
-#: ../src/gcompris/gcompris.c:1849
+#: ../src/gcompris/gcompris.c:1847
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "La llista de perfiles disponibles ye:\n"
 
-#: ../src/gcompris/gcompris_db.c:234
+#: ../src/gcompris/gcompris_db.c:309
 msgid "Unaffected"
 msgstr "Nun afectáu"
 
-#: ../src/gcompris/gcompris_db.c:235
+#: ../src/gcompris/gcompris_db.c:310
 msgid "Users without a class"
 msgstr "Usuarios ensin una clase"
+
+#: ../src/gcompris/gcompris_db.c:893
+#, c-format
+msgid ""
+"Loading activity from database:\n"
+"%s"
+msgstr ""
+"Cargando xera dende la base de datos:\n"
+"%s"
 
 #: ../src/gcompris/help.c:181
 msgid "Prerequisite"
@@ -3354,6 +3363,16 @@ msgstr "Manual"
 #: ../src/gcompris/help.c:274
 msgid "Credit"
 msgstr "Créitos"
+
+#: ../src/gcompris/menu.c:583
+#, c-format
+#, c-format
+msgid ""
+"Loading activity from file:\n"
+"%s"
+msgstr ""
+"Cargando xera dende'l ficheru:\n"
+"%s"
 
 #: ../src/gcompris/properties.c:497 ../src/gcompris/properties.c:504
 msgid "readme"
@@ -3399,11 +3418,12 @@ msgstr "Recargar"
 msgid "Settings"
 msgstr "Preferencies"
 
-#: ../src/gcompris/sugar.c:84
+#. TRANSLATORS: Back as in previous
+#: ../src/gcompris/sugar.c:86
 msgid "Back"
 msgstr "Tornar"
 
-#: ../src/gcompris/sugar.c:85
+#: ../src/gcompris/sugar.c:87
 msgid "Stop"
 msgstr "Parar"
 
@@ -4851,14 +4871,10 @@ msgid "Lights Off"
 msgstr "Lluces apagaes"
 
 #: ../src/lightsoff-activity/lightsoff.xml.in.h:2
-msgid "The aim is to switch off all the lights"
-msgstr "L'oxetivu ye apagar toles lluces"
-
-#: ../src/lightsoff-activity/lightsoff.xml.in.h:3
 msgid "The aim is to switch off all the lights."
 msgstr "L'oxetivu ye apagar toles lluces."
 
-#: ../src/lightsoff-activity/lightsoff.xml.in.h:4
+#: ../src/lightsoff-activity/lightsoff.xml.in.h:3
 msgid ""
 "The effect of pressing a button is to toggle the state of that button, and "
 "of its immediate vertical and horizontal neighbours. The sun and the color "
@@ -4870,13 +4886,13 @@ msgstr ""
 "vegaes que calques pa solucionar el rompecabeces. Si calques en Tux, ésti va "
 "amosate la solución."
 
-#: ../src/lightsoff-activity/lightsoff.xml.in.h:5
+#: ../src/lightsoff-activity/lightsoff.xml.in.h:4
 msgid ""
-"The solver algorithm described on the haar.clara.co.uk is a valuable "
-"resource to know more about the Lights Off game: &lt;http://www.haar.clara."
-"co.uk/Lights/solving.html&gt;"
+"The solver algorithm described on haar.clara.co.uk is a valuable resource to "
+"know more about the Lights Off game: "
+"&lt;http://www.haar.clara.co.uk/Lights/solving.html&gt;"
 msgstr ""
-"L'algoritmu de solución descritu en haar.clara.co.uk ye un recurso "
+"L'algoritmu de solución descritu en haar.clara.co.uk ye un recursu "
 "pervaloratible pa saber más no que cinca al xuegu de les Lluces Apages: "
 "&lt;http://www.haar.clara.co.uk/Lights/solving.html&gt;"
 
@@ -6254,6 +6270,10 @@ msgstr "s'amuesa"
 msgid "We skip this level because there are not enough words in the list!"
 msgstr "Sáltase esti nivel darréu que nun hai abondes pallabres na llista."
 
+#: ../src/readingh-activity/reading.c:659
+msgid "Yes, I saw it"
+msgstr "Sí, vila"
+
 #: ../src/readingh-activity/reading.c:686
 msgid "No, it was not there"
 msgstr "Non, nun taba ellí"
@@ -6668,15 +6688,15 @@ msgstr "Completar el rompecabeces requier paciencia y habilidá llóxica"
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:2
 msgid ""
-"For the first level with colored symbols, drag symbols on the left to their "
-"target position. For the higher levels, click on an empty square to give it "
-"the keyboard focus. Then enter a possible letter or number. GCompris will "
-"not let you enter invalid data."
+"For the first level with colored symbols, select a symbol on the left and "
+"click on its target position. For the higher levels, click on an empty "
+"square to give it the keyboard focus. Then enter a possible letter or "
+"number. GCompris will not let you enter invalid data."
 msgstr ""
-"Pal primer nivel con símbolos de colores, arrastra símbolos de la izquierda "
-"a la so posición correspondiente. Pa los niveles más altos, calca nuna "
-"caxella erma pa da-y el focu de tecláu. Dempués introduz un númberu o lletra "
-"dable. GCompris nun te dexará introducir datos inválidos."
+"Pal primer nivel con símbolos de colores, seleiciona un símbolu de la "
+"izquierda y calca na so posición correspondiente. Pa los niveles más altos, "
+"calca nuna caxella erma pa da-y el focu de tecláu. Dempués introduz un "
+"númberu o lletra dable. GCompris nun te dexará introducir datos inválidos."
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:3
 msgid "Sudoku, place unique symbols in a square."
@@ -7019,6 +7039,9 @@ msgstr "Entrenamientu col tecláu"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Teclea la pallabra completa mientres cai, enantes de qu'aporte al suelu"
 
+#~ msgid "The aim is to switch off all the lights"
+#~ msgstr "L'oxetivu ye apagar toles lluces"
+
 #~ msgid ""
 #~ "Select a drawing tool on the left, and a color down the bottom. Then "
 #~ "click and drag in the white area to create a new shape. Once you've "
@@ -7218,9 +7241,6 @@ msgstr "Teclea la pallabra completa mientres cai, enantes de qu'aporte al suelu"
 
 #~ msgid "The corresponding items have been skipped."
 #~ msgstr "Saltáronse los elementos correspondientes."
-
-#~ msgid "Yes, I saw it"
-#~ msgstr "Sí, vila"
 
 #~ msgid ""
 #~ "GCompris Home Page\n"
