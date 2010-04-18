@@ -45,6 +45,7 @@ my %sections = (
 		"am", 0,
 		"af", 0,
 		"ar", 176,
+		"ast", 0,
 		"az", 0,
 		"bg", 0,
 		"br", 195,
@@ -55,8 +56,6 @@ my %sections = (
 		"dz", 0,
 		"el", 222,
 		"en", 2,
-		"en_CA", 0,
-		"en_GB", 0,
 		"eo", 0,
 		"es", 40,
 		"et", 0,
@@ -115,6 +114,7 @@ my %rubriques = (
 		 "am", 0,
 		 "af", 0,
 		 "ar", 177,
+		 "ast", 0,
 		 "az", 0,
 		 "bg", 0,
 		 "br", 199,
@@ -125,8 +125,6 @@ my %rubriques = (
 		 "dz", 0,
 		 "el", 223,
 		 "en", 12,
-		 "en_CA", 0,
-		 "en_GB", 0,
 		 "eo", 0,
 		 "es", 47,
 		 "et", 0,
@@ -186,6 +184,7 @@ my %rubriques_all = (
 		 "am", 0,
 		 "af", 0,
 		 "ar", 178,
+		 "ast", 0,
 		 "az", 0,
 		 "bg", 0,
 		 "br", 200,
@@ -196,8 +195,6 @@ my %rubriques_all = (
 		 "dz", 0,
 		 "el", 224,
 		 "en", 68,
-		 "en_CA", 0,
-		 "en_GB", 0,
 		 "eo", 0,
 		 "es", 71,
 		 "et", 0,
@@ -287,10 +284,11 @@ my $date = "".($year+1900)."-".($month+1)."-"."$day $hours:$min:$sec";
 
 my $gcompris_root_dir = "..";
 my $boards_dir        = "$gcompris_root_dir/docs/boards";
-my $ALL_LINGUAS_STR   = `grep "ALL_LINGUAS=" $gcompris_root_dir/configure.ac | cut -d= -f2`;
+my $ALL_LINGUAS_STR   = `grep "ALL_LINGUAS=" $gcompris_root_dir/configure.ac | sed s/en_[A-Z][A-Z]//g | cut -d= -f2`;
 $ALL_LINGUAS_STR      =~ s/\"//g;
 my @ALL_LINGUAS       = split(' ', $ALL_LINGUAS_STR);
 push @ALL_LINGUAS, "en";	# Add english, it's not in the po list
+
 # Debug
 #@ALL_LINGUAS = qw/fr en/;
 
