@@ -1,4 +1,4 @@
-# Traditional Chinese Messages for gcompris
+# Chinese (Hong Kong) Messages for gcompris
 # Copyright (C) 2006 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gcompris package.
 # Wei-Lun Chao <william.chao@ossii.com.tw>, 2005, 2006.
@@ -10,9 +10,9 @@ msgstr ""
 "Project-Id-Version: gcompris 9.3BETA2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-04-19 20:45+0800\n"
-"PO-Revision-Date: 2010-04-17 22:10+0800\n"
+"PO-Revision-Date: 2010-04-19 20:52+0800\n"
 "Last-Translator: Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>\n"
-"Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
+"Language-Team: Chinese (Hong Kong) <community@linuxhall.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -37,11 +37,11 @@ msgstr "各種不同的計算遊戲。"
 #: ../boards/chess.xml.in.h:1
 #: ../src/chess_computer-activity/chess_computer.xml.in.h:3
 msgid "Play chess against the computer in a learning mode"
-msgstr "以學習模式和電腦下西洋棋"
+msgstr "以學習模式和電腦下國際象棋"
 
 #: ../boards/chess.xml.in.h:2
 msgid "Practice chess"
-msgstr "練習西洋棋"
+msgstr "練習國際象棋"
 
 #: ../boards/colors_group.xml.in.h:1
 msgid "Colors based activities."
@@ -183,7 +183,7 @@ msgstr ""
 " 工具 - 設定選單\n"
 " 小企鵝飛機 - 關於 GCompris\n"
 " 夜晚 - 結束 GCompris\n"
-"星星表示每個遊戲所適合的年齡群：\n"
+"星星表示每個遊戲所適合的年齡羣：\n"
 "    1﹑2 或 3 個簡單星星  - 2 到 6 歲\n"
 "    1﹑2 或 3 個複雜星星  - 從 7 歲起"
 
@@ -201,8 +201,7 @@ msgstr "GCompris 是教育遊戲的集合，它提供兩歲起兒童各種不同
 msgid ""
 "The goal of GCompris is to provide a free alternative to popular proprietary "
 "edutainment software"
-msgstr ""
-"GCompris 的目的是在常見的專屬寓教於樂軟體之外，提供另一個自由免費的選擇"
+msgstr "GCompris 的目的是在常見的專屬寓教於樂軟件之外，提供另一個自由免費的選擇"
 
 #: ../boards/miscelaneous.xml.in.h:1
 msgid "Miscellaneous activities"
@@ -258,7 +257,7 @@ msgstr "策略遊戲"
 
 #: ../boards/strategy.xml.in.h:2
 msgid "Strategy games like chess, connect4, ..."
-msgstr "策略遊戲像是「西洋棋」﹑「連接四」…"
+msgstr "策略遊戲像是「國際象棋」﹑「連接四」…"
 
 #: ../gcompris-edit.desktop.in.h:1
 msgid "Administration for gcompris"
@@ -274,7 +273,7 @@ msgstr "適合二到十歲的教育遊戲"
 
 #: ../gcompris.desktop.in.h:2
 msgid "Educational suite GCompris"
-msgstr "教育類套裝軟體 GCompris"
+msgstr "教育類套裝軟件 GCompris"
 
 #: ../gcompris.desktop.in.h:3
 msgid "Multi-activity educational game"
@@ -303,17 +302,13 @@ msgid ""
 "Your old GCompris directory is about to be deleted. Would you like to "
 "continue?$\\r$\\rNote: Any non-standard plugins that you may have installed "
 "will be deleted.$\\rGCompris user settings will not be affected."
-msgstr ""
-"你的舊 GCompris 目錄即將被刪除。是否要繼續？$\\r$\\r注意：任何你安裝的非標準"
-"外掛程式都會被刪除。$\\rGCompris 使用者設定值不會被影響。"
+msgstr "你的舊 GCompris 目錄即將被刪除。是否要繼續？$\\r$\\r注意：任何你安裝的非標準外掛程式都會被刪除。$\\rGCompris 使用者設定值不會被影響。"
 
 #: ../nsis_translations.desktop.in.h:6
 msgid ""
 "the uninstaller could not find registry entries for GCompris.$\\rIt is "
 "likely that another user installed this application."
-msgstr ""
-"解除安裝程式找不到 GCompris 的註冊項目。$\\r可能是其他使用者安裝了這個應用程"
-"式。"
+msgstr "解除安裝程式找不到 GCompris 的註冊項目。$\\r可能是其他使用者安裝了這個應用程式。"
 
 #: ../src/administration-activity/admin/board_list.py:88
 msgid "Select a profile:"
@@ -452,11 +447,11 @@ msgstr "老師"
 
 #: ../src/administration-activity/admin/group_edit.py:56
 msgid "Editing a Group"
-msgstr "正在編輯一個群組"
+msgstr "正在編輯一個羣組"
 
 #: ../src/administration-activity/admin/group_edit.py:62
 msgid "Editing group: "
-msgstr "正在編輯群組："
+msgstr "正在編輯羣組："
 
 #: ../src/administration-activity/admin/group_edit.py:63
 msgid " for class: "
@@ -464,11 +459,11 @@ msgstr " 對於班級："
 
 #: ../src/administration-activity/admin/group_edit.py:66
 msgid "Editing a new group"
-msgstr "正在編輯新群組"
+msgstr "正在編輯新羣組"
 
 #: ../src/administration-activity/admin/group_edit.py:86
 msgid "Group:"
-msgstr "群組："
+msgstr "羣組："
 
 #. FIXME: How to remove the selection
 #. Label and Entry for the first name
@@ -480,15 +475,15 @@ msgstr "說明："
 #. Top message gives instructions
 #: ../src/administration-activity/admin/group_edit.py:109
 msgid "Assign all the users belonging to this group"
-msgstr "指定所有使用者屬於這個群組"
+msgstr "指定所有使用者屬於這個羣組"
 
 #: ../src/administration-activity/admin/group_edit.py:355
 msgid "You need to provide at least a name for your group"
-msgstr "你至少要提供群組名稱"
+msgstr "你至少要提供羣組名稱"
 
 #: ../src/administration-activity/admin/group_edit.py:369
 msgid "There is already a group with this name"
-msgstr "已經存在一個相同名稱的群組"
+msgstr "已經存在一個相同名稱的羣組"
 
 #: ../src/administration-activity/admin/group_list.py:82
 msgid "Select a class:"
@@ -498,7 +493,7 @@ msgstr "選擇一個班級："
 #: ../src/administration-activity/admin/profile_edit.py:276
 #: ../src/administration-activity/admin/profile_group_list.py:150
 msgid "Group"
-msgstr "群組"
+msgstr "羣組"
 
 #: ../src/administration-activity/admin/group_list.py:221
 #: ../src/administration-activity/admin/profile_edit.py:286
@@ -509,7 +504,7 @@ msgstr "描述"
 
 #: ../src/administration-activity/admin/group_list.py:318
 msgid "You must first select a group in the list"
-msgstr "你必須先在列表中選取一個群組"
+msgstr "你必須先在列表中選取一個羣組"
 
 #: ../src/administration-activity/admin/group_user_list.py:170
 #: ../src/administration-activity/admin/user_list.py:211
@@ -575,7 +570,7 @@ msgstr "園地"
 #: ../src/administration-activity/admin/module_groups.py:46
 #: ../src/administration-activity/admin/module_groups.py:69
 msgid "Groups"
-msgstr "群組"
+msgstr "羣組"
 
 #: ../src/administration-activity/admin/module_profiles.py:47
 #: ../src/administration-activity/admin/module_profiles.py:68
@@ -617,7 +612,7 @@ msgstr "簡介檔案："
 #. Top message gives instructions
 #: ../src/administration-activity/admin/profile_edit.py:106
 msgid "Assign all the groups belonging to this profile"
-msgstr "指定所有群組屬於這個簡介檔"
+msgstr "指定所有羣組屬於這個簡介檔"
 
 #: ../src/administration-activity/admin/profile_edit.py:374
 msgid "You need to provide at least a name for your profile"
@@ -717,15 +712,9 @@ msgid ""
 "children as individuals; they can learn to type in and recognize their own "
 "usernames (login is configurable)."
 msgstr ""
-"- 在「園地」段落中，你可以修改遊戲的列表。只要在樹狀圖中切換選擇就可以。你可"
-"以改變讀取所用的語言，例如用來表示顏色名稱的語言。\n"
-"- 你可以儲存多份設定，並且輕鬆地切換。先在「簡介檔案」段落中增加一個簡介檔，"
-"然後在「園地」段落中的下拉式選單中選取該檔，再選擇你想要啟用的園地。你可以加"
-"入很多有著不同園地列表以及不同語言的簡介檔。藉著選取想要的簡介檔並按下「預"
-"設」鈕，就可以在「簡介檔案」段落中設定預設的簡介檔。也可以從命令列來選擇一個"
-"簡介檔。\n"
-"- 你可以加入使用者﹑班級，而對於每一班級則可以建立使用者群組。請注意，你可以"
-"從一個內容欄位由逗號分隔的檔案中"
+"- 在「園地」段落中，你可以修改遊戲的列表。只要在樹狀圖中切換選擇就可以。你可以改變讀取所用的語言，例如用來表示顏色名稱的語言。\n"
+"- 你可以儲存多份設定，並且輕鬆地切換。先在「簡介檔案」段落中增加一個簡介檔，然後在「園地」段落中的下拉式選單中選取該檔，再選擇你想要啟用的園地。你可以加入很多有着不同園地列表以及不同語言的簡介檔。藉着選取想要的簡介檔並按下「預設」鈕，就可以在「簡介檔案」段落中設定預設的簡介檔。也可以從命令列來選擇一個簡介檔。\n"
+"- 你可以加入使用者﹑班級，而對於每一班級則可以建立使用者羣組。請注意，你可以從一個內容欄位由逗號分隔的檔案中"
 
 #: ../src/administration-activity/administration.xml.in.h:4
 msgid "GCompris Administration Menu"
@@ -737,9 +726,7 @@ msgid ""
 "administration module here. The ultimate goal is to provide child-specific "
 "reporting for parents and teacher who want to monitor the progress, "
 "strengths and needs of their children."
-msgstr ""
-"如果想要依你的需要精細調整 GCompris，你可以利用這裡的管理模組。最終的目標是提"
-"供個別兒童的報告給父母和老師，用來監督他們孩子的進度﹑優勢與需求。"
+msgstr "如果想要根據你的需要精細調整 GCompris，你可以利用這裏的管理模組。最終的目標是提供個別兒童的報告給父母和老師，用來監督他們孩子的進度﹑優勢與需求。"
 
 #: ../src/administration-activity/administration.xml.in.h:6
 msgid "Left-Click with the mouse to select an activity"
@@ -1014,7 +1001,7 @@ msgstr "紫"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:7
 msgid "ultramarine"
-msgstr "群青"
+msgstr "羣青"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:1
 msgid "dark purple"
@@ -1065,10 +1052,7 @@ msgid ""
 "sign, give the answer, the product. Use the left and right arrows to modify "
 "your answer and press the Enter key to check if you've got it right. If not, "
 "just try again."
-msgstr ""
-"所顯示的是兩個數字的相乘。在等號右邊請給它答案，也就是乘積。利用向左與向右鍵"
-"來修改你的答案，並且按下 Enter 鍵來檢查你的所得是否正確。如果不正確的話，就再"
-"試一次。"
+msgstr "所顯示的是兩個數字的相乘。在等號右邊請給它答案，也就是乘積。利用向左與向右鍵來修改你的答案，並且按下 Enter 鍵來檢查你的所得是否正確。如果不正確的話，就再試一次。"
 
 #: ../src/algebra_by-activity/algebra_by.xml.in.h:2
 #: ../src/algebra_minus-activity/algebra_minus.xml.in.h:2
@@ -1095,18 +1079,14 @@ msgid ""
 "Animal pictures come from the Animal Photography Page of Ralf Schmode "
 "(http://schmode.net/). Ralf has kindly permitted Gcompris to include his "
 "pictures. Thanks a lot, Ralf."
-msgstr ""
-"動物圖片來自於 Ralf Schmode 的「動物攝影頁」(http://schmode.net/)。Ralf 很好"
-"心地允許 Gcompris 包含他的圖片。非常謝謝你，Ralf。"
+msgstr "動物圖片來自於 Ralf Schmode 的「動物攝影頁」(http://schmode.net/)。Ralf 很好心地允許 Gcompris 包含他的圖片。非常謝謝你，Ralf。"
 
 #: ../src/algebra_guesscount-activity/algebra_guesscount.xml.in.h:2
 msgid ""
 "At the top of the board area, choose the numbers and arithmetic operators "
 "that give the specified result. You can deselect a number or operator by "
 "clicking on it again."
-msgstr ""
-"在園地區域的頂端，選擇會得出指定答案的數字和算術運算子。如果選錯了，只要再按"
-"一次數字或符號就可以取消它。"
+msgstr "在園地區域的頂端，選擇會得出指定答案的數字和算術運算子。如果選錯了，只要再按一次數字或符號就可以取消它。"
 
 #: ../src/algebra_guesscount-activity/algebra_guesscount.xml.in.h:3
 msgid ""
@@ -1134,9 +1114,7 @@ msgid ""
 "equals sign, give the answer, the difference. Use the left and right arrows "
 "to modify your answer and press the Enter key to check if you've got it "
 "right. If not, just try again."
-msgstr ""
-"所顯示的是兩個數字的減法問題。差值的答案寫在等號右邊。利用左右箭號來修改你的"
-"答案，並且按下輸入鍵來檢查是否答對了。假如不對，就再試一次。"
+msgstr "所顯示的是兩個數字的減法問題。差值的答案寫在等號右邊。利用左右箭號來修改你的答案，並且按下輸入鍵來檢查是否答對了。假如不對，就再試一次。"
 
 #: ../src/algebra_minus-activity/algebra_minus.xml.in.h:3
 msgid "In a limited time, find the difference between two numbers"
@@ -1156,9 +1134,7 @@ msgid ""
 "equals sign, give the answer, the sum. Use the left and right arrows to "
 "modify your answer and press the Enter key to check if you've got it right. "
 "If not, just try again."
-msgstr ""
-"所顯示的是兩個數字的加法問題。和值的答案寫在等號右邊。利用左右箭號來修改你的"
-"答案，並且按下輸入鍵來檢查是否答對了。假如不對，就再試一次。"
+msgstr "所顯示的是兩個數字的加法問題。和值的答案寫在等號右邊。利用左右箭號來修改你的答案，並且按下輸入鍵來檢查是否答對了。假如不對，就再試一次。"
 
 #: ../src/algebra_plus-activity/algebra_plus.xml.in.h:3
 msgid ""
@@ -1288,10 +1264,7 @@ msgid ""
 "create attractive drawings based on basic shapes: rectangles, ellipses and "
 "lines. To give children a wider range of choices, a set of images can also "
 "be used."
-msgstr ""
-"在這個遊戲中，兒童可以自由地畫圖。目標是要去探索如何根據基礎形狀：長方形﹑橢"
-"圓形與線段，來創造漂亮的圖畫。為了要提供兒童廣泛的選擇，也可以利用一系列的圖"
-"案。"
+msgstr "在這個遊戲中，兒童可以自由地畫圖。目標是要去探索如何根據基礎形狀：長方形﹑橢圓形與線段，來創造漂亮的圖畫。為了要提供兒童廣泛的選擇，也可以利用一系列的圖案。"
 
 #: ../src/anim-activity/anim.xml.in.h:4 ../src/draw-activity/draw.xml.in.h:4
 msgid "Needs to be capable of moving and clicking the mouse easily"
@@ -1311,14 +1284,7 @@ msgid ""
 "mode. In viewing mode, click on the 'drawing' button to return to drawing "
 "mode. You can also save and reload your animations with the 'floppy disk' "
 "and 'folder' buttons."
-msgstr ""
-"在左邊選擇一種畫圖工具，並在下方選擇一種顏色。然後在白色區域按下並且拖拉以創"
-"造一個新的形狀。一旦已經完成一張圖，你可以選擇底部的一個小方塊來選擇要畫畫的"
-"新圖畫。每張圖畫的內容都會和前一個相同。接著可以藉由稍微移動或是增減物品來編"
-"輯它。當你建立多個圖畫然後按下「電影」鈕，你將會以連續的投影片放映 (無窮循環"
-"模式) 來觀看你的圖畫。你可以在時間圖畫上按右鍵來改變影片中的最後一個圖片。你"
-"也可以修改這個模式的觀賞速度。在觀賞模式中，按下「畫圖」鈕以回到畫圖模式。也"
-"可以藉由「軟碟」與「資料夾」按鈕來儲存與重新載入你的動畫。"
+msgstr "在左邊選擇一種畫圖工具，並在下方選擇一種顏色。然後在白色區域按下並且拖拉以創造一個新的形狀。一旦已經完成一張圖，你可以選擇底部的一個小方塊來選擇要畫畫的新圖畫。每張圖畫的內容都會和前一個相同。接着可以藉由稍微移動或是增減物品來編輯它。當你建立多個圖畫然後按下「電影」鈕，你將會以連續的投影片放映 (無窮循環模式) 來觀看你的圖畫。你可以在時間圖畫上按右鍵來改變影片中的最後一個圖片。你也可以修改這個模式的觀賞速度。在觀賞模式中，按下「畫圖」鈕以回到畫圖模式。也可以藉由「軟碟」與「資料夾」按鈕來儲存與重新載入你的動畫。"
 
 #: ../src/awele-activity/awele.c:158
 #, c-format
@@ -1373,21 +1339,7 @@ msgid ""
 "seeds. If no such move is possible, the current player captures all seeds in "
 "his/her own territory, ending the game. (Source Wikipedia &lt;http://en."
 "wikipedia.org/wiki/Oware&gt;)"
-msgstr ""
-"遊戲開始時，每一格中放置四顆種子，而玩家輪流移動種子。在每一回合中，玩家要選"
-"擇控制六格中的一格。玩家先移除這一格中所有的種子，然後從原來的格子開以逆時鐘"
-"方向在每一格中丟下一顆種子，這個程序稱之為「播種」。種子不可散布到分數最低的"
-"格子，也不可發回取出它們的格子。也就是說，啟始的格子就讓它保持空的；如果它包"
-"括了 12 顆種子，就會被跳過，而第十二顆種子就被放在下一格中。一回合之後，如果"
-"最後一顆種子被放在對手的格子中，而且使它的數目成為 2 或 3，那麼該格中的所有種"
-"子就被抓住，並且被放在玩家的得分格中（若是該遊戲沒有得分格，就放在旁邊）。如"
-"果從開始到剛剛的種子，也使得某個對手的格子中的總數成為 2 或 3，它們也算被抓住"
-"了。然而，假如一次移動就會抓取對手所有的種子，這次抓取就是有優勢的，而種子們"
-"將不會被留在遊戲中，因為這樣可以避免對手繼續再玩這個遊戲。此一不可抓取對手所"
-"有種子的禁令，和一個更一般化的想法有關，也就是玩家應該採取的移動，是為了讓對"
-"方能夠繼續玩。如果對方的格子都已經空了，那麼目前的玩家必須執行一個可以提供對"
-"方所需的移動。如果沒有可能的移動，目前的玩家就可以抓取所有種子到他/她的領地，"
-"結束遊戲。(Source Wikipedia &lt;http://en.wikipedia.org/wiki/Oware&gt;)"
+msgstr "遊戲開始時，每一格中放置四顆種子，而玩家輪流移動種子。在每一回合中，玩家要選擇控制六格中的一格。玩家先移除這一格中所有的種子，然後從原來的格子開以逆時鐘方向在每一格中丟下一顆種子，這個程序稱之為「播種」。種子不可散布到分數最低的格子，也不可發回取出它們的格子。也就是說，啟始的格子就讓它保持空的；如果它包括了 12 顆種子，就會被跳過，而第十二顆種子就被放在下一格中。一回合之後，如果最後一顆種子被放在對手的格子中，而且使它的數目成為 2 或 3，那麼該格中的所有種子就被抓住，並且被放在玩家的得分格中（若是該遊戲沒有得分格，就放在旁邊）。如果從開始到剛剛的種子，也使得某個對手的格子中的總數成為 2 或 3，它們也算被抓住了。然而，假如一次移動就會抓取對手所有的種子，這次抓取就是有優勢的，而種子們將不會被留在遊戲中，因為這樣可以避免對手繼續再玩這個遊戲。此一不可抓取對手所有種子的禁令，和一個更一般化的想法有關，也就是玩家應該採取的移動，是為了讓對方能夠繼續玩。如果對方的格子都已經空了，那麼目前的玩家必須執行一個可以提供對方所需的移動。如果沒有可能的移動，目前的玩家就可以抓取所有種子到他/她的領地，結束遊戲。(Source Wikipedia &lt;http://en.wikipedia.org/wiki/Oware&gt;)"
 
 #: ../src/awele-activity/awele.xml.in.h:2
 msgid "Oware"
@@ -1406,12 +1358,7 @@ msgid ""
 "player has captured 25 or more stones, or both players have taken 24 stones "
 "each (draw). If both players agree that the game has been reduced to an "
 "endless cycle, each player captures the stones on their side of the board."
-msgstr ""
-"這個遊戲的目標是要比對手抓住更多種子。由於遊戲中只有 48 顆種子，抓住了 25 顆"
-"就足夠達到。由於種子的數目是偶數，遊戲的結局有可能是平手，此時每位玩家都抓住"
-"了 24 顆種子。當某位玩家抓住超過 25 顆種子，或是雙方都抓到了 24 顆(平手)。如"
-"果雙方都認為，遊戲已經演變成一個無窮盡的迴圈，那麼每位玩家就抓取位於自己端的"
-"種子。"
+msgstr "這個遊戲的目標是要比對手抓住更多種子。由於遊戲中只有 48 顆種子，抓住了 25 顆就足夠達到。由於種子的數目是偶數，遊戲的結局有可能是平手，此時每位玩家都抓住了 24 顆種子。當某位玩家抓住超過 25 顆種子，或是雙方都抓到了 24 顆(平手)。如果雙方都認為，遊戲已經演變成一個無窮盡的迴圈，那麼每位玩家就抓取位於自己端的種子。"
 
 #: ../src/babymatch-activity/babymatch.xml.in.h:1
 #: ../src/babymatch-activity/resources/babymatch/board1_0.xml.in.h:1
@@ -1432,11 +1379,7 @@ msgid ""
 "This game challenges you to find the logical link between these objects. How "
 "do they fit together? Drag each object to the correct red space in the main "
 "area."
-msgstr ""
-"在主要園地區域中，會顯示一組物品。在垂直方框(位於主要園地左邊)中，會顯示另一"
-"組物品，其中每一個都剛好跟一個主要園地區域中的物品相符。這個遊戲要挑戰你的是"
-"找出這些物品之間的邏輯關連。它們要如何配在一起？拖拉每個物品到主區域的正確紅"
-"色位置。"
+msgstr "在主要園地區域中，會顯示一組物品。在垂直方框(位於主要園地左邊)中，會顯示另一組物品，其中每一個都剛好跟一個主要園地區域中的物品相符。這個遊戲要挑戰你的是找出這些物品之間的邏輯關連。它們要如何配在一起？拖拉每個物品到主區域的正確紅色位置。"
 
 #: ../src/babymatch-activity/babymatch.xml.in.h:3
 msgid "Matching Items"
@@ -1481,7 +1424,7 @@ msgstr "良好的滑鼠控制"
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:5
 msgid "The dog is provided by Andre Connes and released under the GPL"
-msgstr "這隻狗是由 Andre Connes 提供，以 GPL 釋出"
+msgstr "這隻狗是由 Andre Connes 提供，以 GPL 推出"
 
 #: ../src/babyshapes-activity/resources/babyshapes/board5_0.xml.in.h:1
 msgid "Hello ! My name is Lock."
@@ -1501,8 +1444,7 @@ msgstr "Paul Gauguin(高更)，Arearea(快樂的人) - 1892"
 
 #: ../src/babyshapes-activity/resources/babyshapes/board8_1.xml.in.h:1
 msgid "Pieter Bruegel the Elder, The peasants wedding - 1568"
-msgstr ""
-"Pieter Bruegel the Elder(老布勒哲爾)，The peasants wedding(農民婚禮) - 1568"
+msgstr "Pieter Bruegel the Elder(老布勒哲爾)，The peasants wedding(農民婚禮) - 1568"
 
 #: ../src/babyshapes-activity/resources/babyshapes/board8_2.xml.in.h:1
 msgid "The Lady and the Unicorn - XVe century"
@@ -1514,7 +1456,7 @@ msgstr "Vincent Van Gogh(梵谷)，鄉村小路 - 1888"
 
 #: ../src/babyshapes-activity/resources/babyshapes/board8_4.xml.in.h:1
 msgid "Ambrosius Bosschaert the Elder, Flower Still Life - 1614"
-msgstr "Ambrosius Bosschaert the Elder，Flower Still Life(仍然活著的花) - 1614"
+msgstr "Ambrosius Bosschaert the Elder，Flower Still Life(仍然活着的花) - 1614"
 
 #: ../src/ballcatch-activity/ballcatch.py:75
 #: ../src/ballcatch-activity/ballcatch.xml.in.h:2
@@ -1544,9 +1486,7 @@ msgstr "邏輯訓練遊戲"
 msgid ""
 "Place balls in the holes. You win if the computer has to place the last "
 "ball. If you want Tux to begin, just click on him."
-msgstr ""
-"把球放進洞裡。如果電腦必須放進最後一顆球的話，就算你贏。如果你想讓小企鵝先開"
-"始，只需要按他一下。"
+msgstr "把球放進洞裏。如果電腦必須放進最後一顆球的話，就算你贏。如果你想讓小企鵝先開始，只需要按他一下。"
 
 #: ../src/bargame-activity/bargame.xml.in.h:5
 msgid "bar game"
@@ -1587,9 +1527,7 @@ msgstr "滑鼠操控"
 msgid ""
 "Point the mouse and click on the ball, to set the speed and direction of the "
 "ball. The closer you click to the centre, the slower the ball moves."
-msgstr ""
-"將滑鼠對準球並且按一下，來設定球的速度和方向。按得愈接近中心，球就移動得愈"
-"慢。"
+msgstr "將滑鼠對準球並且按一下，來設定球的速度和方向。按得愈接近中心，球就移動得愈慢。"
 
 #: ../src/billard-activity/billard.xml.in.h:5
 msgid "The football game"
@@ -1628,21 +1566,17 @@ msgstr "操作運河閘門"
 msgid ""
 "Tux is in trouble, and needs to take his boat through a lock. Help Tux and "
 "find out how a canal lock works."
-msgstr ""
-"小企鵝有麻煩了，需要搭船通過閘門。請幫助小企鵝並且去了解運河閘門是如何運作"
-"的。"
+msgstr "小企鵝有麻煩了，需要搭船通過閘門。請幫助小企鵝並且去了解運河閘門是如何運作的。"
 
 #: ../src/canal_lock-activity/canal_lock.xml.in.h:4
 msgid ""
 "You are in charge of the canal lock. Open the gates and the locks in the "
 "right order, so Tux can travel through the gates in both directions."
-msgstr ""
-"你是負責運河閘門的人。請以正確的順序開啟大門與閘道，好讓小企鵝雙向都能通過大"
-"門。"
+msgstr "你是負責運河閘門的人。請以正確的順序開啟大門與閘道，好讓小企鵝雙向都能通過大門。"
 
 #: ../src/chat-activity/chat.py:77
 msgid "All messages will be displayed here.\n"
-msgstr "所有的訊息都會顯示在這裡。\n"
+msgstr "所有的訊息都會顯示在這裏。\n"
 
 #: ../src/chat-activity/chat.py:128
 msgid "Your Friends"
@@ -1656,12 +1590,12 @@ msgstr "你的頻道"
 msgid ""
 "Type your message here, to send to other GCompris users on your local "
 "network."
-msgstr "在這裡輸入你的訊息，它會被送到同一個區域網路下其他的 GCompris 使用者"
+msgstr "在這裏輸入你的訊息，它會被送到同一個區域網絡下其他的 GCompris 使用者"
 
 #: ../src/chat-activity/chat.py:202
 msgid ""
 "ERROR: Failed to initialize the network interface. You cannot communicate."
-msgstr "錯誤：初始化網路介面失敗。你不能和別人談話。"
+msgstr "錯誤：初始化網絡介面失敗。你不能和別人談話。"
 
 #: ../src/chat-activity/chat.py:326
 msgid "You must set a channel in your channel entry box first.\n"
@@ -1669,7 +1603,7 @@ msgstr "你必須先在你的頻道方塊中設定一個頻道。\n"
 
 #: ../src/chat-activity/chat.py:327
 msgid "Your friends must set the same channel in order to communicate with you"
-msgstr "你的朋友必須設定同樣的頻道才能跟你連絡"
+msgstr "你的朋友必須設定同樣的頻道才能跟你聯絡"
 
 #: ../src/chat-activity/chat.xml.in.h:1
 msgid "Chat with your friends"
@@ -1677,7 +1611,7 @@ msgstr "和你的朋友聊天"
 
 #: ../src/chat-activity/chat.xml.in.h:2
 msgid "This chat activity only works on the local network"
-msgstr "這個聊天室只開放給內部網路使用者"
+msgstr "這個聊天室只開放給內部網絡使用者"
 
 #: ../src/chat-activity/chat.xml.in.h:3
 msgid ""
@@ -1686,10 +1620,7 @@ msgid ""
 "Enter. Your message is then broadcast on the local network, and any GCompris "
 "program running the chat activity on that local network will receive and "
 "display your message."
-msgstr ""
-"這個聊天室只有在同一個區域網路的 GCompris 使用者才可以使用，而不是整個網際網"
-"路的使用者。輸入你要發布的訊息，按 Enter。在這個聊天室的使用者將會收到你所發"
-"布的訊息。"
+msgstr "這個聊天室只有在同一個區域網絡的 GCompris 使用者才可以使用，而不是整個互聯網的使用者。輸入你要發布的訊息，按 Enter。在這個聊天室的使用者將會收到你所發布的訊息。"
 
 #: ../src/chess_computer-activity/chess.c:222
 msgid "Error: The external program gnuchess died unexpectedly"
@@ -1702,7 +1633,7 @@ msgid ""
 "to play chess in gcompris.\n"
 "First install it, and check it is in "
 msgstr ""
-"錯誤：在 gcompris 中玩西洋棋需要\n"
+"錯誤：在 gcompris 中玩國際象棋需要\n"
 "外部程式 gnuchess。\n"
 "請先安裝這個程式，並檢查它是否在："
 
@@ -1743,21 +1674,21 @@ msgstr "錯誤：外部程式 gnuchess 意外中止了"
 #: ../src/chess_movelearn-activity/chess_movelearn.xml.in.h:2
 #: ../src/chess_partyend-activity/chess_partyend.xml.in.h:1
 msgid "Learning chess"
-msgstr "學習西洋棋"
+msgstr "學習國際象棋"
 
 #: ../src/chess_computer-activity/chess_computer.xml.in.h:4
 #: ../src/chess_movelearn-activity/chess_movelearn.xml.in.h:4
 #: ../src/chess_partyend-activity/chess_partyend.xml.in.h:4
 msgid "The chess engine is from gnuchess."
-msgstr "西洋棋程式引擎來自於 gnuchess。"
+msgstr "國際象棋程式引擎來自於 gnuchess。"
 
 #: ../src/chess_movelearn-activity/chess_movelearn.xml.in.h:1
 msgid "Chess training. Catch the computer's pawns."
-msgstr "西洋棋訓練。抓住電腦的棋子。"
+msgstr "國際象棋訓練。抓住電腦的棋子。"
 
 #: ../src/chess_partyend-activity/chess_partyend.xml.in.h:3
 msgid "Play the end of the chess game against the computer"
-msgstr "跟電腦玩西洋棋殘局"
+msgstr "跟電腦玩國際象棋殘局"
 
 #: ../src/chronos-activity/chronos.xml.in.h:1
 msgid "Chronos"
@@ -1773,10 +1704,7 @@ msgid ""
 "Vegastrike which are released under the GPL license. The transportation "
 "images are copyright Franck Doucet. Dates of Transportation are based on "
 "those found in &lt;http://www.wikipedia.org&gt;."
-msgstr ""
-"月球照片的版權屬於「NASA」。太空的音效來自「小企鵝畫家」與「Vegastrike」，兩"
-"者都是根據 GPL 授權所釋出。變換的圖片版權屬於 Frank Doucet。變換的日期是根據 "
-"&lt;http://www.wikipedia.org&gt; 中所找到的資料。"
+msgstr "月球照片的版權屬於「NASA」。太空的音效來自「小企鵝畫家」與「Vegastrike」，兩者都是根據 GPL 授權所推出。變換的圖片版權屬於 Frank Doucet。變換的日期是根據 &lt;http://www.wikipedia.org&gt; 中所找到的資料。"
 
 #: ../src/chronos-activity/chronos.xml.in.h:4
 msgid "Pick from the pictures on the left and put them on the red dots"
@@ -1784,7 +1712,7 @@ msgstr "從左側的圖片中選取，並將它們放在紅點上"
 
 #: ../src/chronos-activity/chronos.xml.in.h:5
 msgid "Sort the pictures into the order that tells the story"
-msgstr "將圖片依順序排列來說故事"
+msgstr "將圖片根據順序排列來說故事"
 
 #: ../src/chronos-activity/chronos.xml.in.h:6
 msgid "Tell a short story"
@@ -1851,7 +1779,7 @@ msgid ""
 "http://www.wikipedia.org"
 msgstr ""
 "按順序放置每一張圖片於它被發明的日期之上。\n"
-"如果不確定，就在線上的「維基百科全書」：\n"
+"如果不確定，就在網上的「維基百科全書」：\n"
 "&lt;http://www.wikipedia.org&gt; 研究一下。"
 
 #: ../src/chronos-activity/resources/chronos/board3_0.xml.in.h:8
@@ -2018,9 +1946,7 @@ msgstr "只允許大寫字母"
 msgid ""
 "A letter is spoken. Click on the matching letter in the main area. You can "
 "listen to the letter again, by clicking on the mouth icon in the bottom box."
-msgstr ""
-"首先一個字母被唸出來，然後在主區域中按下符合的字母。藉由按一下底部方格中的嘴"
-"巴圖示，可以再重聽字母一次。"
+msgstr "首先一個字母被唸出來，然後在主區域中按下符合的字母。藉由按一下底部方格中的嘴巴圖示，可以再重聽字母一次。"
 
 #: ../src/click_on_letter-activity/click_on_letter.xml.in.h:2
 msgid "Click on a letter"
@@ -2058,8 +1984,7 @@ msgstr "按我一下"
 msgid ""
 "Fish are taken from the Unix utility xfishtank. All image credits belong to "
 "Guillaume Rousse."
-msgstr ""
-"Fish 取自 Unix 公用程式 xfishtank。所有的圖片版權屬於 Guillaume Rousse。"
+msgstr "Fish 取自 Unix 公用程式 xfishtank。所有的圖片版權屬於 Guillaume Rousse。"
 
 #: ../src/clickgame-activity/clickgame.xml.in.h:3
 msgid ""
@@ -2098,9 +2023,7 @@ msgid ""
 "Set the clock to the time given, in the time-units shown (hours:minutes or "
 "hours:minutes:seconds). Click on the different arrows, and move the mouse, "
 "to make the numbers go up or down."
-msgstr ""
-"設定時鐘為指定的時間，依照所顯示的時間單位(時:分 或 時:分:秒)。按下不同的箭頭"
-"並且移動滑鼠，讓數字往上或往下。"
+msgstr "設定時鐘為指定的時間，根據所顯示的時間單位(時:分 或 時:分:秒)。按下不同的箭頭並且移動滑鼠，讓數字往上或往下。"
 
 #: ../src/clockgame-activity/clockgame.xml.in.h:5
 msgid "The concept of time. Reading the time."
@@ -2166,8 +2089,7 @@ msgstr "注意聽並按一下符合顏色的鴨子。"
 msgid ""
 "This board teaches you to recognize different colors. When you hear the name "
 "of the color, click on the duck wearing it."
-msgstr ""
-"這塊園地教你辨認不同的顏色。當你聽到顏色的名稱，就按一下這種顏色的鴨子。"
+msgstr "這塊園地教你辨認不同的顏色。當你聽到顏色的名稱，就按一下這種顏色的鴨子。"
 
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:1
 #: ../src/connect4-activity/connect4.xml.in.h:1
@@ -2180,9 +2102,7 @@ msgid ""
 "Click the position in the line where you want to drop a piece. You can also "
 "use the arrow keys to move the piece left or right, and the down or space "
 "key to drop a piece."
-msgstr ""
-"在你想要投下一片的地方點一下。你也可以使用方向鍵來向左或向右移動，然後按向下"
-"的方向鍵或空白鍵來投下一片。"
+msgstr "在你想要投下一片的地方點一下。你也可以使用方向鍵來向左或向右移動，然後按向下的方向鍵或空白鍵來投下一片。"
 
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:3
 msgid "Connect 4 (2 Players)"
@@ -2192,7 +2112,7 @@ msgstr "連接四（2 人玩）"
 msgid ""
 "Create a line of 4 pieces either horizontally (lying down) or vertically "
 "(standing up) or diagonally."
-msgstr "建立一條由四片組成的線段，可以是水平(躺著)或是垂直(站著)。"
+msgstr "建立一條由四片組成的線段，可以是水平(躺着)或是垂直(站着)。"
 
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:6
 msgid ""
@@ -2200,10 +2120,7 @@ msgid ""
 "Izarra made the two players game. Images and Artificial Intelligence taken "
 "from project 4stattack by Jeroen Vloothuis. The original project can be "
 "found on &lt;http://forcedattack.sourceforge.net&gt;"
-msgstr ""
-"原始程式碼由 Laurent Lacheny 在 2005 年完成。2006 年時，Miguel de Izarra 完成"
-"了兩人版的遊戲。圖片和人工智慧取自 Jeroen Vloothuis 的 4stattack 計劃。原始計"
-"劃可以在 &lt;http://forcedattack.sourceforge.net&gt; 找到"
+msgstr "原始程式碼由 Laurent Lacheny 在 2005 年完成。2006 年時，Miguel de Izarra 完成了兩人版的遊戲。圖片和人工智能取自 Jeroen Vloothuis 的 4stattack 計劃。原始計劃可以在 &lt;http://forcedattack.sourceforge.net&gt; 找到"
 
 #: ../src/connect4-activity/connect4.xml.in.h:3
 msgid "Connect 4"
@@ -2213,20 +2130,18 @@ msgstr "連接四"
 msgid ""
 "Create a line of 4 pieces either horizontally (lying down), vertically "
 "(standing up) or diagonally."
-msgstr "建立一條由四片組成的線段，可以是水平(躺著)或是垂直(站著)或是斜的。"
+msgstr "建立一條由四片組成的線段，可以是水平(躺着)或是垂直(站着)或是斜的。"
 
 #: ../src/connect4-activity/connect4.xml.in.h:5
 msgid ""
 "Laurent Lacheny. Images and Artificial Intelligence taken from project "
 "4stattack by Jeroen Vloothuis. The original project can be found on &lt;"
 "http://forcedattack.sourceforge.net&gt;"
-msgstr ""
-"Laurent Lacheny。圖片和人工智慧取自 Jeroen Vloothuis 的 4stattack 計劃。原始"
-"計劃可以在 &lt;http://forcedattack.sourceforge.net&gt; 找到"
+msgstr "Laurent Lacheny。圖片和人工智能取自 Jeroen Vloothuis 的 4stattack 計劃。原始計劃可以在 &lt;http://forcedattack.sourceforge.net&gt; 找到"
 
 #: ../src/crane-activity/crane.xml.in.h:1
 msgid "Build the same model"
-msgstr "建構相同的模型"
+msgstr "建立相同的模型"
 
 #: ../src/crane-activity/crane.xml.in.h:2
 msgid "Drive the crane and copy the model"
@@ -2251,10 +2166,7 @@ msgid ""
 "right model. Below the crane itself, you will find four arrows that let you "
 "move items. To select the item to move, just click on it. If you prefer, you "
 "can use the arrow keys and the space or tab key instead."
-msgstr ""
-"將左下窗格中的項目複製到它們在右上模型中的位置。在起重機自身下方，會發現四個"
-"方向鍵，它們可以讓你移動項目。要選擇移動的項目，只需要在它上方按一下。如果你"
-"比較喜歡，也可以使用方向鍵和空白鍵或跳位鍵來代替。"
+msgstr "將左下窗格中的項目複製到它們在右上模型中的位置。在起重機自身下方，會發現四個方向鍵，它們可以讓你移動項目。要選擇移動的項目，只需要在它上方按一下。如果你比較喜歡，也可以使用方向鍵和空白鍵或跳位鍵來代替。"
 
 #: ../src/doubleentry-activity/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
@@ -2295,18 +2207,14 @@ msgid ""
 "In this game, children can draw freely. The goal is to discover how to "
 "create attractive drawings based on basic shapes: rectangles, ellipses and "
 "lines."
-msgstr ""
-"在這個遊戲中，兒童可以自由地畫圖。目標是要去探索如何根據基礎形狀：長方形﹑橢"
-"圓形與線段，來創造漂亮的圖畫。"
+msgstr "在這個遊戲中，兒童可以自由地畫圖。目標是要去探索如何根據基礎形狀：長方形﹑橢圓形與線段，來創造漂亮的圖畫。"
 
 #: ../src/draw-activity/draw.xml.in.h:5
 msgid ""
 "Select a drawing tool on the left, and a color down the bottom, then click "
 "and drag in the white area to create a new shape. To save time, you can "
 "click with the middle mouse button to delete an object."
-msgstr ""
-"在左邊選擇一種畫圖工具，並在下方選擇一種顏色。然後在白色區域按下並且拖拉來創"
-"造一個新的形狀。為了節省時間，你可以按下滑鼠中鍵來刪除一個物品。"
+msgstr "在左邊選擇一種畫圖工具，並在下方選擇一種顏色。然後在白色區域按下並且拖拉來創造一個新的形狀。為了節省時間，你可以按下滑鼠中鍵來刪除一個物品。"
 
 #: ../src/drawnumber-activity/drawnumber.xml.in.h:1
 msgid "Can count from 1 to 50."
@@ -2322,7 +2230,7 @@ msgstr "以正確的順序按下每一個數字，就可以畫出圖片。"
 
 #: ../src/drawnumber-activity/drawnumber.xml.in.h:4
 msgid "Draw the picture by following numbers"
-msgstr "依照接下來的數字畫圖"
+msgstr "根據接下來的數字畫圖"
 
 #: ../src/electric-activity/electric.py:98
 msgid ""
@@ -2356,13 +2264,7 @@ msgid ""
 "value by dragging its wiper. In order to simulate what happens when a bulb "
 "is blown, you can blown it by right-clicking on it. The simulation is "
 "updated in real time by any user action."
-msgstr ""
-"從選擇器中拖拉電子零件，並將其放在工作區中。利用按下連接點，再把滑鼠拖拉至下"
-"一個連接點後釋放來建立管線。藉由拖拉零件，你也可以移動它們。在管線上按一下就"
-"可以刪除它們。要刪除零件時，在零件選擇器的頂端，選取刪除工具。你可以在開關上"
-"按一下以打開和關閉它。你可以拉動它的桿子來改變電阻值。為了要模擬電燈泡燒壞時"
-"會發生什麼事，你可以利用滑鼠右鍵按它一下。隨著使用者的任何動作，模擬都會即時"
-"更新。"
+msgstr "從選擇器中拖拉電子零件，並將其放在工作區中。利用按下連接點，再把滑鼠拖拉至下一個連接點後釋放來建立管線。藉由拖拉零件，你也可以移動它們。在管網上按一下就可以刪除它們。要刪除零件時，在零件選擇器的頂端，選取刪除工具。你可以在開關上按一下以打開和關閉它。你可以拉動它的桿子來改變電阻值。為了要模擬電燈泡燒壞時會發生什麼事，你可以利用滑鼠右鍵按它一下。隨着使用者的任何動作，模擬都會即時更新。"
 
 #: ../src/electric-activity/electric.xml.in.h:3
 msgid "Electricity"
@@ -2376,9 +2278,7 @@ msgstr "自由建立一個電子圖版，並且用它進行即時模擬。"
 msgid ""
 "GCompris uses the Gnucap electric simulator as a backend. You can get more "
 "information on gnucap at &lt;http://geda.seul.org/tools/gnucap/&gt;."
-msgstr ""
-"GCompris 使用 Gnucap 電子模擬器做為後台。你可以在 &lt;http://geda.seul.org/"
-"tools/gnucap/&gt; 獲得更多關於 gnucap 的資訊。"
+msgstr "GCompris 使用 Gnucap 電子模擬器做為後台。你可以在 &lt;http://geda.seul.org/tools/gnucap/&gt; 獲得更多關於 gnucap 的資訊。"
 
 #: ../src/electric-activity/electric.xml.in.h:6
 msgid "Requires some basic understanding of the concept of electricity."
@@ -2408,9 +2308,7 @@ msgid ""
 "First, properly organize the items so that you can count them. Then, select "
 "the item you want to answer in the bottom right area. Enter the answer with "
 "the keyboard and press the OK button or the 'Enter' key."
-msgstr ""
-"首先，適當地安排物品，好讓你能數它們。然後，在右下區域中選擇你想要回答的物"
-"品。用鍵盤輸入答案，並且按下「OK」鈕或是「Enter」鍵。"
+msgstr "首先，適當地安排物品，好讓你能數它們。然後，在右下區域中選擇你想要回答的物品。用鍵盤輸入答案，並且按下「OK」鈕或是「Enter」鍵。"
 
 #: ../src/erase-activity/erase.c:125 ../src/erase-activity/erase.xml.in.h:5
 msgid "Move the mouse to erase the area and discover the background"
@@ -2422,10 +2320,7 @@ msgid ""
 "(&lt;http://schmode.net/&gt;) and from LE BERRE Daniel. These people kindly "
 "gave GCompris the authorization to include their pictures. Thanks a lot, "
 "both of you."
-msgstr ""
-"動物圖片取自 Ralf Schmode 的「動物攝影頁」(&lt;http://schmode.net/&gt;) 以及"
-"來自 LE BERRE Daniel。這些作者好心地授權 GCompris 包含他們的照片。非常感謝兩"
-"位。"
+msgstr "動物圖片取自 Ralf Schmode 的「動物攝影頁」(&lt;http://schmode.net/&gt;) 以及來自 LE BERRE Daniel。這些作者好心地授權 GCompris 包含他們的照片。非常感謝兩位。"
 
 #: ../src/erase-activity/erase.xml.in.h:6
 msgid "Move the mouse until all the blocks disappear."
@@ -2487,9 +2382,7 @@ msgid ""
 "Move the mouse over the red part of the hose-pipe. This will move it, "
 "bringing it, part by part, up to the flowers. Be careful, if you move off "
 "the hose, the red part will go back down."
-msgstr ""
-"移動滑鼠到水管的紅色部份上方。這將會一段一段地移動它﹑帶著它到花上面。請小"
-"心，如果你把水龍頭移掉了，紅色部份又會落下回去。"
+msgstr "移動滑鼠到水管的紅色部份上方。這將會一段一段地移動它﹑帶着它到花上面。請小心，如果你把水龍頭移掉了，紅色部份又會落下回去。"
 
 #: ../src/followline-activity/followline.xml.in.h:4
 msgid "Tux needs to water the flowers, but the hose is blocked."
@@ -2513,7 +2406,7 @@ msgstr ""
 #: ../src/gcompris/about.c:58
 msgid "translator_credits"
 msgstr ""
-"Tryneeds 翻譯團隊 http://tryneeds.westart.tw/tryneeds\n"
+"Tryneeds 翻譯隊伍 http://tryneeds.westart.tw/tryneeds\n"
 "趙惟倫 <william.chao@ossii.com.tw>, 2005"
 
 #: ../src/gcompris/about.c:85
@@ -2532,7 +2425,7 @@ msgstr "翻譯者："
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
-msgstr "這個軟體是個 GNU 套件，並且根據 GNU 一般公共授權來釋出"
+msgstr "這個軟件是個 GNU 套件，並且根據 GNU 一般公共授權來推出"
 
 #: ../src/gcompris/about.c:220 ../src/gcompris/config.c:446
 #: ../src/gcompris/dialog.c:103 ../src/gcompris/help.c:359
@@ -2812,7 +2705,7 @@ msgstr "俄文"
 
 #: ../src/gcompris/config.c:108
 msgid "Kinyarwanda"
-msgstr "金亞盧安達文"
+msgstr "金亞盧旺達文"
 
 #: ../src/gcompris/config.c:109
 msgid "Slovak"
@@ -2820,11 +2713,11 @@ msgstr "斯洛伐克文"
 
 #: ../src/gcompris/config.c:110
 msgid "Slovenian"
-msgstr "斯洛維尼亞文"
+msgstr "斯洛文尼亞文"
 
 #: ../src/gcompris/config.c:111
 msgid "Somali"
-msgstr "索馬利語"
+msgstr "索馬里語"
 
 #: ../src/gcompris/config.c:112
 msgid "Albanian"
@@ -2844,7 +2737,7 @@ msgstr "瑞典文"
 
 #: ../src/gcompris/config.c:116
 msgid "Tamil"
-msgstr "塔米爾文"
+msgstr "泰米爾文"
 
 #: ../src/gcompris/config.c:117
 msgid "Thai"
@@ -3003,10 +2896,7 @@ msgid ""
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
 "activity). Use '-l list' to list all the availaible activities and their "
 "descriptions."
-msgstr ""
-"以本機選單來執行 GCompris (例如：-l /reading 將會讓你只能玩位於閱讀目錄的遊"
-"戲，-l /strategy/connect4 將會只允許與連接四有關的遊戲。)使用「-l list」可以"
-"列出所有可玩的遊戲和它們的相關描述。"
+msgstr "以本機選單來執行 GCompris (例如：-l /reading 將會讓你只能玩位於閱讀目錄的遊戲，-l /strategy/connect4 將會只允許與連接四有關的遊戲。)使用「-l list」可以列出所有可玩的遊戲和它們的相關描述。"
 
 #: ../src/gcompris/gcompris.c:185
 msgid "GCompris will find the data dir in this directory"
@@ -3040,8 +2930,7 @@ msgstr "以系統與使用者管理模式來執行 GCompris。"
 msgid ""
 "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
-msgstr ""
-"使用另外的資料庫來處理簡介檔案 [$HOME/.config/gcompris/gcompris_sqlite.db]"
+msgstr "使用另外的資料庫來處理簡介檔案 [$HOME/.config/gcompris/gcompris_sqlite.db]"
 
 #: ../src/gcompris/gcompris.c:209
 msgid "Create the alternate database for profiles"
@@ -3063,8 +2952,7 @@ msgstr "列出所有可用的簡介檔案。利用「gcompris -a」來建立簡�
 msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
-msgstr ""
-"設定目錄位置：[$HOME/.config/gcompris]。替代的方式是設定 $XDG_CONFIG_HOME。"
+msgstr "設定目錄位置：[$HOME/.config/gcompris]。替代的方式是設定 $XDG_CONFIG_HOME。"
 
 #: ../src/gcompris/gcompris.c:224
 msgid "The location of user directories: [$HOME/My GCompris]"
@@ -3092,9 +2980,7 @@ msgstr "Gompris 會在無法從本地端取得時由這個伺服器下載圖片�
 msgid ""
 "Only when --server is provided, disable check for local resource first. Data "
 "are always taken from the web server."
-msgstr ""
-"只有在使用 --server 的時候，會先停用檢查本地端資源。資料將從網頁伺服器中取"
-"得。"
+msgstr "只有在使用 --server 的時候，會先停用檢查本地端資源。資料將從網頁伺服器中取得。"
 
 #: ../src/gcompris/gcompris.c:243
 msgid ""
@@ -3122,11 +3008,9 @@ msgid ""
 "Get more information at FSF:\n"
 "<http://www.fsf.org/philosophy>"
 msgstr ""
-"GCompris 是以 GPL 授權釋出的自由軟體。為了支援開發，這個版本只提供 %2$d 個活"
-"動中的 %1$d 個。你可以在下列網站以少量付費取得完整版本\n"
+"GCompris 是以 GPL 授權推出的自由軟件。為了支援開發，這個版本只提供 %2$d 個活動中的 %1$d 個。你可以在下列網站以少量付費取得完整版本\n"
 "<http://gcompris.net>\n"
-"GNU/Linux 版沒有這個限制。如果你也相信我們應該教導孩子自由，請考慮使用 GNU/"
-"Linux。需要更多資訊請至 FSF：\n"
+"GNU/Linux 版沒有這個限制。如果你也相信我們應該教導孩子自由，請考慮使用 GNU/Linux。需要更多資訊請至 FSF：\n"
 "<http://www.fsf.org/philosophy>"
 
 #: ../src/gcompris/gcompris.c:1429
@@ -3179,15 +3063,14 @@ msgstr "%s 存在，但是無法讀取或寫入"
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
 "without network support!"
-msgstr "不能使用 --server 選項，因為 GCompris 沒有編譯網路支援的功能！"
+msgstr "不能使用 --server 選項，因為 GCompris 沒有編譯網絡支援的功能！"
 
 #: ../src/gcompris/gcompris.c:1833
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
 "available ones\n"
-msgstr ""
-"錯誤：找不到簡介檔案「%s」。執行「gcompris --profile-list」來列出可用的\n"
+msgstr "錯誤：找不到簡介檔案「%s」。執行「gcompris --profile-list」來列出可用的\n"
 
 #: ../src/gcompris/gcompris.c:1847
 #, c-format
@@ -3244,7 +3127,7 @@ msgstr "讀我檔案"
 msgid ""
 "This directory contains the files you create with the GCompris educational "
 "suite\n"
-msgstr "這個目錄包含你以 GCompris 教育套裝軟體建立的檔案\n"
+msgstr "這個目錄包含你以 GCompris 教育套裝軟件建立的檔案\n"
 
 #: ../src/gcompris/properties.c:506
 msgid ""
@@ -3316,9 +3199,7 @@ msgid ""
 "The map of Germany comes from Wikipedia and is released under the GNU Free "
 "Documentation License. Olaf Ronneberger and his children Lina and Julia "
 "Ronneberger created the German level."
-msgstr ""
-"德國地圖取自維基百科，是以 GNU 自由文件授權釋出。Olaf Ronneberger 和他的小孩 "
-"Lina 與 Julia Ronneberger 製作了德國階段。"
+msgstr "德國地圖取自維基百科，是以 GNU 自由文件授權推出。Olaf Ronneberger 和他的小孩 Lina 與 Julia Ronneberger 製作了德國階段。"
 
 #: ../src/geo_country-activity/resources/geo_country/board1_0.xml.in.h:1
 msgid "Regions of France"
@@ -3396,7 +3277,7 @@ msgstr "阿拉斯加"
 
 #: ../src/geography-activity/resources/geography/board2_0.xml.in.h:2
 msgid "Bahamas"
-msgstr "巴哈馬群島"
+msgstr "巴哈馬羣島"
 
 #: ../src/geography-activity/resources/geography/board2_0.xml.in.h:3
 msgid "Canada"
@@ -3461,7 +3342,7 @@ msgstr "哥倫比亞"
 
 #: ../src/geography-activity/resources/geography/board2_1.xml.in.h:6
 msgid "Ecuador"
-msgstr "厄瓜多"
+msgstr "厄瓜多爾"
 
 #: ../src/geography-activity/resources/geography/board2_1.xml.in.h:7
 msgid "French Guiana"
@@ -3469,7 +3350,7 @@ msgstr "法屬圭亞那"
 
 #: ../src/geography-activity/resources/geography/board2_1.xml.in.h:8
 msgid "Guyana"
-msgstr "蓋亞那"
+msgstr "圭亞那"
 
 #: ../src/geography-activity/resources/geography/board2_1.xml.in.h:9
 msgid "Panama"
@@ -3489,7 +3370,7 @@ msgstr "南美洲"
 
 #: ../src/geography-activity/resources/geography/board2_1.xml.in.h:13
 msgid "Suriname"
-msgstr "蘇利南"
+msgstr "蘇里南"
 
 #: ../src/geography-activity/resources/geography/board2_1.xml.in.h:14
 msgid "Uruguay"
@@ -3577,7 +3458,7 @@ msgstr "白俄"
 
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:3
 msgid "Bosnia Herzegovina"
-msgstr "波士尼亞及赫塞哥維那"
+msgstr "波斯尼亞和黑塞哥维那"
 
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:4
 msgid "Bulgaria"
@@ -3585,11 +3466,11 @@ msgstr "保加利亞"
 
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:5
 msgid "Croatia"
-msgstr "克羅埃西亞"
+msgstr "克羅地亞"
 
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:6
 msgid "Cyprus"
-msgstr "賽普勒斯"
+msgstr "賽浦路斯"
 
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:8
 msgid "Eastern Europe"
@@ -3645,7 +3526,7 @@ msgstr "斯洛伐克共和國"
 
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:21
 msgid "Slovenia"
-msgstr "斯洛凡尼亞"
+msgstr "斯洛文尼亞"
 
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:22
 msgid "Turkey"
@@ -3663,12 +3544,12 @@ msgstr "阿爾及利亞"
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:2
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:4
 msgid "Benin"
-msgstr "貝南"
+msgstr "貝寧"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:3
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:6
 msgid "Burkina Faso"
-msgstr "布吉納法索"
+msgstr "布基納法索"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:4
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:7
@@ -3683,11 +3564,11 @@ msgstr "中非共和國"
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:6
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:9
 msgid "Chad"
-msgstr "查德"
+msgstr "乍得"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:7
 msgid "Djibouti"
-msgstr "吉布地"
+msgstr "吉布提"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:8
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:11
@@ -3697,41 +3578,41 @@ msgstr "埃及"
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:9
 #: ../src/geography-activity/resources/geography/board4_1.xml.in.h:5
 msgid "Equatorial Guinea"
-msgstr "赤道幾內亞"
+msgstr "赤道畿內亞"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:10
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:12
 msgid "Eritrea"
-msgstr "厄利垂亞"
+msgstr "厄立特里亞"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:11
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:13
 msgid "Ethiopia"
-msgstr "衣索比亞"
+msgstr "埃塞俄比亞"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:12
 #: ../src/geography-activity/resources/geography/board4_1.xml.in.h:6
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:14
 msgid "Gabon"
-msgstr "加彭"
+msgstr "加蓬"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:13
 msgid "Gambia"
-msgstr "甘比亞"
+msgstr "岡比亞"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:14
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:15
 msgid "Ghana"
-msgstr "迦納"
+msgstr "加納"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:15
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:16
 msgid "Guinea"
-msgstr "幾內亞"
+msgstr "畿內亞"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:16
 msgid "Guinea Bissau"
-msgstr "幾內亞比索"
+msgstr "畿內亞比紹"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:17
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:17
@@ -3741,7 +3622,7 @@ msgstr "象牙海岸"
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:18
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:19
 msgid "Liberia"
-msgstr "賴比瑞亞"
+msgstr "利比里亞"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:19
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:20
@@ -3751,12 +3632,12 @@ msgstr "利比亞"
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:20
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:23
 msgid "Mali"
-msgstr "馬利"
+msgstr "馬里"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:21
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:24
 msgid "Mauritania"
-msgstr "茅利塔尼亞"
+msgstr "毛里塔尼亞"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:22
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:25
@@ -3766,12 +3647,12 @@ msgstr "摩洛哥"
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:23
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:28
 msgid "Niger"
-msgstr "尼日"
+msgstr "尼日爾"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:24
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:29
 msgid "Nigeria"
-msgstr "奈及利亞"
+msgstr "尼日利亞"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:25
 msgid "Northern Africa"
@@ -3780,7 +3661,7 @@ msgstr "非洲北部"
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:26
 #: ../src/geography-activity/resources/geography/board4_1.xml.in.h:14
 msgid "Rwanda"
-msgstr "盧安達"
+msgstr "盧旺達"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:27
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:30
@@ -3789,12 +3670,12 @@ msgstr "塞內加爾"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:28
 msgid "Sierra Leone"
-msgstr "獅子山"
+msgstr "塞拉利昂"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:29
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:31
 msgid "Somalia"
-msgstr "索馬利亞"
+msgstr "索馬里"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:30
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:33
@@ -3809,7 +3690,7 @@ msgstr "多哥"
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:32
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:36
 msgid "Tunisia"
-msgstr "突尼西亞"
+msgstr "突尼斯"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:33
 #: ../src/geography-activity/resources/geography/board4_1.xml.in.h:19
@@ -3829,11 +3710,11 @@ msgstr "安哥拉"
 #: ../src/geography-activity/resources/geography/board4_1.xml.in.h:2
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:5
 msgid "Botswana"
-msgstr "波札那"
+msgstr "博茨瓦納"
 
 #: ../src/geography-activity/resources/geography/board4_1.xml.in.h:3
 msgid "Burundi"
-msgstr "浦隆地"
+msgstr "布隆迪"
 
 #: ../src/geography-activity/resources/geography/board4_1.xml.in.h:4
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:10
@@ -3843,11 +3724,11 @@ msgstr "剛果民主共和國"
 #: ../src/geography-activity/resources/geography/board4_1.xml.in.h:7
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:18
 msgid "Kenya"
-msgstr "肯亞"
+msgstr "肯雅"
 
 #: ../src/geography-activity/resources/geography/board4_1.xml.in.h:8
 msgid "Lesotho"
-msgstr "賴索托"
+msgstr "萊索托"
 
 #: ../src/geography-activity/resources/geography/board4_1.xml.in.h:9
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:21
@@ -3857,12 +3738,12 @@ msgstr "馬達加斯加"
 #: ../src/geography-activity/resources/geography/board4_1.xml.in.h:10
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:22
 msgid "Malawi"
-msgstr "馬拉威"
+msgstr "馬拉維"
 
 #: ../src/geography-activity/resources/geography/board4_1.xml.in.h:11
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:26
 msgid "Mozambique"
-msgstr "莫三比克"
+msgstr "莫桑比克"
 
 #: ../src/geography-activity/resources/geography/board4_1.xml.in.h:12
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:27
@@ -3884,22 +3765,22 @@ msgstr "非洲南部"
 
 #: ../src/geography-activity/resources/geography/board4_1.xml.in.h:17
 msgid "Swaziland"
-msgstr "史瓦濟蘭"
+msgstr "斯威士蘭"
 
 #: ../src/geography-activity/resources/geography/board4_1.xml.in.h:18
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:34
 msgid "Tanzania"
-msgstr "坦尚尼亞"
+msgstr "坦桑尼亞"
 
 #: ../src/geography-activity/resources/geography/board4_1.xml.in.h:20
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:38
 msgid "Zambia"
-msgstr "尚比亞"
+msgstr "贊比亞"
 
 #: ../src/geography-activity/resources/geography/board4_1.xml.in.h:21
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:39
 msgid "Zimbabwe"
-msgstr "辛巴威"
+msgstr "津巴布韋"
 
 #: ../src/gletters-activity/gletters.c:132
 #: ../src/gletters-activity/gletters.xml.in.h:3
@@ -4120,12 +4001,7 @@ msgid ""
 "families. So 1, 2, 3 and 6 all fit into the 6 family, but 4 belongs to "
 "another family. Use the arrow keys to navigate around the board and to avoid "
 "the Troggles. Press the spacebar to eat a number."
-msgstr ""
-"一個數字的因數就是可以整除該數的所有數字。例如，6 的因數是 1﹑2﹑3 和 6。4 不"
-"是 6 的因數，因為 6 無法分為完整的 4 等分。如果某數是另一數的倍數，那麼另一數"
-"就是某數的因數。你可以把倍數想像成家庭，而因數則是家中的成員。因此 1﹑2﹑3 "
-"和 6 全部歸入 6 的家庭，但是 4 屬於另一個家庭。使用方向鍵在園地四周引導來閃避"
-"野人。按下空白鍵來吃掉數字。"
+msgstr "一個數字的因數就是可以整除該數的所有數字。例如，6 的因數是 1﹑2﹑3 和 6。4 不是 6 的因數，因為 6 無法分為完整的 4 等分。如果某數是另一數的倍數，那麼另一數就是某數的因數。你可以把倍數想像成家庭，而因數則是家中的成員。因此 1﹑2﹑3 和 6 全部歸入 6 的家庭，但是 4 屬於另一個家庭。使用方向鍵在園地四周引導來閃避野人。按下空白鍵來吃掉數字。"
 
 #: ../src/gnumch-inequality-activity/gnumch-inequality.xml.in.h:1
 msgid ""
@@ -4170,15 +4046,7 @@ msgid ""
 "over. So '8 isn't a multiple of 5, nor is 23. Only 5, 10, 15, 20, 25 ... are "
 "multiples (or families or steps) of 5. Use the arrow keys to navigate around "
 "the board and to avoid the Troggles. Press the spacebar to eat a number."
-msgstr ""
-"一個數字的倍數就是等於原數乘以另一數的所有數字。例如，24﹑36﹑48 和 60 都是 "
-"12 的倍數。25 不是 12 的倍數，因為沒有任何整數乘以 12 會得到 25。如果某數是另"
-"一數的因數，那麼另一數就是某數的倍數。同樣地，你可以把倍數想像成家庭，而因數"
-"則是家中的成員。因數 5 的親代是 10﹑祖代是 15﹑曾祖代是 20﹑曾曾祖代是 25，而"
-"每多一次 5 就在前方加上另一個「曾」！但是數字 5 並不屬於 8 或 23 的家庭。你無"
-"法在 8 或 23 中填入任何數量的 5 而不會有所剩餘。因此 8 並不是 5﹑也不是 23 的"
-"倍數。只有 5﹑10﹑15﹑20﹑25…才是 5 的倍數(或家人或前代)。使用方向鍵在園地四"
-"周引導來閃避野人。按下空白鍵來吃掉數字。"
+msgstr "一個數字的倍數就是等於原數乘以另一數的所有數字。例如，24﹑36﹑48 和 60 都是 12 的倍數。25 不是 12 的倍數，因為沒有任何整數乘以 12 會得到 25。如果某數是另一數的因數，那麼另一數就是某數的倍數。同樣地，你可以把倍數想像成家庭，而因數則是家中的成員。因數 5 的親代是 10﹑祖代是 15﹑曾祖代是 20﹑曾曾祖代是 25，而每多一次 5 就在前方加上另一個「曾」！但是數字 5 並不屬於 8 或 23 的家庭。你無法在 8 或 23 中填入任何數量的 5 而不會有所剩餘。因此 8 並不是 5﹑也不是 23 的倍數。只有 5﹑10﹑15﹑20﹑25…才是 5 的倍數(或家人或前代)。使用方向鍵在園地四周引導來閃避野人。按下空白鍵來吃掉數字。"
 
 #: ../src/gnumch-primes-activity/gnumch-primes.xml.in.h:1
 msgid "Guide the Number Muncher to all the prime numbers."
@@ -4202,12 +4070,7 @@ msgid ""
 "5), but you can see that 6 has 2 and 3 in its family as well (6 × 1 = 6, 2 × "
 "3 = 6). So 6 is not a prime number. Use the arrow keys to navigate around "
 "the board and to avoid the Troggles. Press the spacebar to eat a number."
-msgstr ""
-"質數就是只能被它們自己和 1 整除的數字。例如，3 是質數而 4 不是(因為 4 可以被 "
-"2 整除)。你可以把質數想像成很小的家庭：它們每家只有兩個人(它自己和 1)！你無法"
-"用任何其他的數字將它填滿而不留空隙。5 是這些孤獨數字之一(只有 5 × 1 = 5)，你"
-"卻可以看到 6 的家庭中有 2 也有 3(6 × 1 = 6, 2 × 3 = 6)。因此 6 不是一個質數。"
-"使用方向鍵在園地四周引導來閃避野人。按下空白鍵來吃掉數字。"
+msgstr "質數就是只能被它們自己和 1 整除的數字。例如，3 是質數而 4 不是(因為 4 可以被 2 整除)。你可以把質數想像成很小的家庭：它們每家只有兩個人(它自己和 1)！你無法用任何其他的數字將它填滿而不留空隙。5 是這些孤獨數字之一(只有 5 × 1 = 5)，你卻可以看到 6 的家庭中有 2 也有 3(6 × 1 = 6, 2 × 3 = 6)。因此 6 不是一個質數。使用方向鍵在園地四周引導來閃避野人。按下空白鍵來吃掉數字。"
 
 #: ../src/guessnumber-activity/guessnumber.py:199
 #, python-format
@@ -4251,11 +4114,7 @@ msgid ""
 "escape area on the right represents how far you are from the correct number. "
 "If Tux is over or under the escape area, it means your number is over or "
 "under the correct number."
-msgstr ""
-"看一下所提供給你要找的數字範圍。在右上角藍色方格中輸入一個數字，小企鵝會告訴"
-"你是否所猜的數字太高或太低，然後再輸入另一個數字。在小企鵝和右邊脫離區域之間"
-"的距離代表著你距離正確的數字有多遠。如果小企鵝是在脫離區域的上方或下方，那就"
-"表示你的數字是高於或低於正確的數字。"
+msgstr "看一下所提供給你要找的數字範圍。在右上角藍色方格中輸入一個數字，小企鵝會告訴你是否所猜的數字太高或太低，然後再輸入另一個數字。在小企鵝和右邊脫離區域之間的距離代表着你距離正確的數字有多遠。如果小企鵝是在脫離區域的上方或下方，那就表示你的數字是高於或低於正確的數字。"
 
 #: ../src/hanoi-activity/hanoi.c:112 ../src/hanoi-activity/hanoi.xml.in.h:6
 msgid "Simplified Tower of Hanoi"
@@ -4279,9 +4138,7 @@ msgstr "概念取自 EPI 遊戲。"
 msgid ""
 "Drag and Drop one top piece at a time, from one peg to another, to reproduce "
 "the tower on the right in the empty space on the left."
-msgstr ""
-"一次只能拖放頂端的一片，從某根柱子到另一根柱子，目的是把右側的塔重新建立在左"
-"側的空地上。"
+msgstr "一次只能拖放頂端的一片，從某根柱子到另一根柱子，目的是把右側的塔重新建立在左側的空地上。"
 
 #: ../src/hanoi-activity/hanoi.xml.in.h:5
 msgid "Reproduce the tower on the right in the empty space on the left"
@@ -4299,9 +4156,7 @@ msgstr "將整疊移到右邊的柱子，一次一片"
 msgid ""
 "Drag and Drop the top pieces only from one peg to another, to reproduce the "
 "tower on the right in the empty space on the left."
-msgstr ""
-"只能從某根柱子拖放頂端的一片到另一根柱子，目的是把右側的塔重新建立在空白的左"
-"側。"
+msgstr "只能從某根柱子拖放頂端的一片到另一根柱子，目的是把右側的塔重新建立在空白的左側。"
 
 #: ../src/hanoi_real-activity/hanoi_real.xml.in.h:3
 msgid "Reproduce the tower on the right side"
@@ -4332,22 +4187,17 @@ msgid ""
 "Brahma puzzle. It is not clear whether Lucas invented this legend or was "
 "inspired by it. (source Wikipedia &lt;http://en.wikipedia.org/wiki/"
 "Tower_of_hanoi&gt;)"
-msgstr ""
-"這個謎題是由法國數學家 Edouard Lucas 於 1883 年所發明。有一個關於印度教寺廟的"
-"傳說，其中的僧人持續努力地根據「河內塔」謎題的規則在搬動一組 64 塊碟子。根據"
-"傳說，當僧人完成他們的工作時，世界將會終結。這個謎題因而又名為「梵天塔」。並"
-"不清楚的是，究竟 Lucas 發明了這個謎題，還是從它得到靈感。(來源為 Wikipedia "
-"&lt;http://en.wikipedia.org/wiki/Tower_of_hanoi&gt;)"
+msgstr "這個謎題是由法國數學家 Edouard Lucas 於 1883 年所發明。有一個關於印度教寺廟的傳說，其中的僧人持續努力地根據「河內塔」謎題的規則在搬動一組 64 塊碟子。根據傳說，當僧人完成他們的工作時，世界將會終結。這個謎題因而又名為「梵天塔」。並不清楚的是，究竟 Lucas 發明了這個謎題，還是從它得到靈感。(來源為 Wikipedia &lt;http://en.wikipedia.org/wiki/Tower_of_hanoi&gt;)"
 
 #: ../src/hexagon-activity/hexagon.xml.in.h:1
 msgid "Find the strawberry by clicking on the blue fields"
-msgstr "在藍色田地裡按下滑鼠以找出草莓"
+msgstr "在藍色田地裏按下滑鼠以找出士多啤梨"
 
 #: ../src/hexagon-activity/hexagon.xml.in.h:4
 msgid ""
 "Try to find the strawberry under the blue fields. The fields become redder "
 "as you get closer."
-msgstr "試著在藍色田地下面找出草莓。當你接近草莓時，田地會變得比較紅。"
+msgstr "嘗試在藍色田地下面找出士多啤梨。當你接近士多啤梨時，田地會變得比較紅。"
 
 #: ../src/hexagon-activity/hexagon.xml.in.h:5
 msgid "hexagon"
@@ -4498,9 +4348,7 @@ msgstr "拖放每個物品到它的名稱上面"
 msgid ""
 "Drag each image from the (vertical) box on the left to its (corresponding) "
 "name on the right. Click the OK button to check your answer."
-msgstr ""
-"從左邊的(垂直)方格中拖拉每一個圖案到右邊它的(相關)名稱上。按下「OK」鈕來檢查"
-"你的答案。"
+msgstr "從左邊的(垂直)方格中拖拉每一個圖案到右邊它的(相關)名稱上。按下「OK」鈕來檢查你的答案。"
 
 #: ../src/imagename-activity/imagename.xml.in.h:3
 msgid "Image Name"
@@ -4590,7 +4438,7 @@ msgstr "星星"
 
 #: ../src/imagename-activity/resources/imagename/board4_0.xml.in.h:3
 msgid "bicycle"
-msgstr "腳踏車"
+msgstr "單車"
 
 #: ../src/imagename-activity/resources/imagename/board4_0.xml.in.h:5
 msgid "carrot"
@@ -4677,8 +4525,7 @@ msgstr "無"
 msgid ""
 "You can see a hand: is it a left hand or a right hand? Click on the red "
 "button on the left, or the green button on the right."
-msgstr ""
-"你可以看到一隻手：它是左手還是右手？按下左邊的紅色按鈕，或是右邊的綠色按鈕。"
+msgstr "你可以看到一隻手：它是左手還是右手？按下左邊的紅色按鈕，或是右邊的綠色按鈕。"
 
 #: ../src/lightsoff-activity/lightsoff.py:442
 msgid ""
@@ -4702,19 +4549,14 @@ msgid ""
 "of its immediate vertical and horizontal neighbours. The sun and the color "
 "of the sky depend on the number of clicks needed to solve the puzzle. If you "
 "click on Tux, the solution is shown."
-msgstr ""
-"按下按鈕會改變按鈕的狀態，同時也會改變和這個按鈕相隣的直排和橫排按鈕的狀態。"
-"太陽和天空的顏色會依解開謎底還需要按幾下而改變。如果你按一下小企鵝，就會告訴"
-"你解答。"
+msgstr "按下按鈕會改變按鈕的狀態，同時也會改變和這個按鈕相隣的直排和橫排按鈕的狀態。太陽和天空的顏色會根據解開謎底還需要按幾下而改變。如果你按一下小企鵝，就會告訴你解答。"
 
 #: ../src/lightsoff-activity/lightsoff.xml.in.h:4
 msgid ""
 "The solver algorithm described on haar.clara.co.uk is a valuable resource to "
 "know more about the Lights Off game: &lt;http://www.haar.clara.co.uk/Lights/"
 "solving.html&gt;"
-msgstr ""
-"計算解答的演算法在 haar.clara.co.uk 中有說明，這是一個學習關燈(Lights Off)遊"
-"戲的寶貴資源：&lt;http://www.haar.clara.co.uk/Lights/solving.html&gt;"
+msgstr "計算解答的演算法在 haar.clara.co.uk 中有說明，這是一個學習關燈(Lights Off)遊戲的寶貴資源：&lt;http://www.haar.clara.co.uk/Lights/solving.html&gt;"
 
 #: ../src/login-activity/login.py:101
 msgid "Profile: "
@@ -4774,10 +4616,7 @@ msgid ""
 "hat. Then, click on the hat to open it. A few stars escape. Click again on "
 "the hat to close it. You have to count how many are still under the hat. "
 "Click on the bottom right area to answer."
-msgstr ""
-"看一下這位魔術師，他會告訴你在魔法帽底下有多少顆星星。接著按一下魔法帽將它打"
-"開。有幾顆星星會趁機逃走。再按一下帽子把它蓋起來。你必須算一算帽子裡還剩多少"
-"星星。按右下角的區域就可以作答。"
+msgstr "看一下這位魔術師，他會告訴你在魔法帽底下有多少顆星星。接着按一下魔法帽將它打開。有幾顆星星會趁機逃走。再按一下帽子把它蓋起來。你必須算一算帽子裏還剩多少星星。按右下角的區域就可以作答。"
 
 #: ../src/magic_hat_minus-activity/magic_hat_minus.xml.in.h:4
 #: ../src/memory_add_minus-activity/memory_add_minus.xml.in.h:3
@@ -4803,9 +4642,7 @@ msgid ""
 "Click on the hat to open or close it. Under the hat, how many stars can you "
 "see moving around? Count carefully. :) Click in the bottom-right area to "
 "input your answer."
-msgstr ""
-"按一下帽子可以把它打開或蓋上。在帽子底下你可以看到多少顆星星？請小心的計"
-"算 :) 按一下右下角就可以輸入你的答案。"
+msgstr "按一下帽子可以把它打開或蓋上。在帽子底下你可以看到多少顆星星？請小心的計算 :) 按一下右下角就可以輸入你的答案。"
 
 #: ../src/magic_hat_plus-activity/magic_hat_plus.xml.in.h:3
 msgid "Count how many items are under the magic hat"
@@ -4863,9 +4700,7 @@ msgid ""
 "Use the keyboard arrows to move Tux up to the door. In this maze, the move "
 "is relative (first person). Use the up arrow to go forward. The other arrow "
 "let you turn Tux in another direction."
-msgstr ""
-"利用鍵盤的方向鍵來移動小企鵝往上到門口。在迷宮中，移動是相對的(第一人稱)。利"
-"用向上鍵來前進，而其他方向鍵則讓你將小企鵝轉向至其他方向。"
+msgstr "利用鍵盤的方向鍵來移動小企鵝往上到門口。在迷宮中，移動是相對的(第一人稱)。利用向上鍵來前進，而其他方向鍵則讓你將小企鵝轉向至其他方向。"
 
 #: ../src/maze3D-activity/maze3D.xml.in.h:1
 msgid "3D Maze"
@@ -4880,9 +4715,7 @@ msgid ""
 "Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
 "switch between 2D and 3D modes. 2D mode just gives you an indication of your "
 "position, like a map. You cannot move Tux in 2D mode."
-msgstr ""
-"利用鍵盤的方向鍵來移動小企鵝往上到門口。利用空白鍵在 2D 與 3D 模式之間切換。"
-"2D 模式就只會提供你位置的指示，像是一張地圖。在 2D 模式中無法移動小企鵝。"
+msgstr "利用鍵盤的方向鍵來移動小企鵝往上到門口。利用空白鍵在 2D 與 3D 模式之間切換。2D 模式就只會提供你位置的指示，像是一張地圖。在 2D 模式中無法移動小企鵝。"
 
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:2
 msgid "Find your way out of the invisible maze"
@@ -4893,10 +4726,7 @@ msgid ""
 "Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
 "switch between invisible and visible modes. Visible mode just gives you an "
 "indication of your position, like a map. You cannot move Tux in visible mode."
-msgstr ""
-"利用鍵盤的方向鍵來移動小企鵝往上到門口。利用空白鍵在可見與不可見模式之間切"
-"換。可見模式就只會提供你位置的指示，像是一張地圖。在可見模式中無法移動小企"
-"鵝。"
+msgstr "利用鍵盤的方向鍵來移動小企鵝往上到門口。利用空白鍵在可見與不可見模式之間切換。可見模式就只會提供你位置的指示，像是一張地圖。在可見模式中無法移動小企鵝。"
 
 #: ../src/melody-activity/melody.py:107
 msgid ""
@@ -4916,9 +4746,7 @@ msgstr "耳朵訓練遊戲"
 msgid ""
 "Listen to the sound sequence played, and repeat it by clicking on the "
 "elements. You can listen again by clicking on the repeat button."
-msgstr ""
-"注意聽播放的聲音序列，利用按下各組件來重覆這個動作。藉由按下重播按鈕，可以重"
-"聽一次。"
+msgstr "注意聽播放的聲音序列，利用按下各組件來重覆這個動作。藉由按下重播按鈕，可以重聽一次。"
 
 #: ../src/melody-activity/melody.xml.in.h:3
 msgid "Melody"
@@ -4983,11 +4811,7 @@ msgid ""
 "its hidden picture, and try to match the twins. You can only turn over two "
 "cards at once, so you need to remember where a picture is, while you look "
 "for its twin. When you turn over the twins, they both disappear."
-msgstr ""
-"這裡顯示一組空白卡片。每張卡片的另一面都有一個圖案，而每個圖案都有一張完全相"
-"同的孿生圖案。按下一張卡片來看它隱藏的圖案，並且試著配對孿生圖案。一次只可以"
-"翻轉兩張卡片，因此在你尋找它的孿生圖案時，需要記得圖案的位置。當你翻轉出兩張"
-"孿生圖案時，它們兩者都會消失。"
+msgstr "這裏顯示一組空白卡片。每張卡片的另一面都有一個圖案，而每個圖案都有一張完全相同的孿生圖案。按下一張卡片來看它隱藏的圖案，並且嘗試配對孿生圖案。一次只可以翻轉兩張卡片，因此在你尋找它的孿生圖案時，需要記得圖案的位置。當你翻轉出兩張孿生圖案時，它們兩者都會消失。"
 
 #: ../src/memory-activity/memory.xml.in.h:2
 msgid "Flip the cards to find the matching pairs"
@@ -5044,21 +4868,11 @@ msgid ""
 "disappear! When you've made them all disappear, found all the sums, you've "
 "won the game! :)"
 msgstr ""
-"你可以看到部份的卡片，但是你無法看到卡片的另一面。每張卡片藏有數字的總和，或"
-"者該總和的答案。\n"
+"你可以看到部份的卡片，但是你無法看到卡片的另一面。每張卡片藏有數字的總和，或者該總和的答案。\n"
 "總和看起來像是: 2 + 2 = 4\n"
-" 這些數字在等號 (=) 的一側必須與另一側相同。所以 2 加上 2 得到 4。當你計算時"
-"請大聲念出來，也可以數手指頭，因為用越多種的方法計算，你就越容易記得。你可以"
-"使用積木、鈕扣或是任何可以用來算術的東西。如果你有很多的兄弟姊妹，你也可以數"
-"他們用來算術。或是你學校班級的小朋友。唱算術的歌。數很多的東西來練習，如此一"
-"來你的加法就會很棒！\n"
+" 這些數字在等號 (=) 的一側必須與另一側相同。所以 2 加上 2 得到 4。當你計算時請大聲念出來，也可以數手指頭，因為用越多種的方法計算，你就越容易記得。你可以使用積木、鈕扣或是任何可以用來算術的東西。如果你有很多的兄弟姊妹，你也可以數他們用來算術。或是你學校班級的小朋友。唱算術的歌。數很多的東西來練習，如此一來你的加法就會很棒！\n"
 "\n"
-"在這遊戲，這些卡片藏有可以加總的兩部份 (也叫做和)你需要找到構成總和的兩個部"
-"份，將它們再次放在一起。用滑鼠鼠標點選卡片，看看背後是什麼數字，然後試著找出"
-"另一張卡片，以完成數字的加法。你一次最多只能翻開兩張卡片，所以你必須記得這些"
-"卡片與數字的位置，然後你可以在找到另一張卡片時將它們配對。你正在進行等號的任"
-"務，你需要把這些數字放在一起以得到適當的總和。當你進行時，在配對正確時兩張卡"
-"片會同時消失！當你讓所有的卡片消失，找出所有的總和，你就贏得這場遊戲！ :)"
+"在這遊戲，這些卡片藏有可以加總的兩部份 (也叫做和)你需要找到構成總和的兩個部份，將它們再次放在一起。用滑鼠鼠標點選卡片，看看背後是什麼數字，然後嘗試找出另一張卡片，以完成數字的加法。你一次最多只能翻開兩張卡片，所以你必須記得這些卡片與數字的位置，然後你可以在找到另一張卡片時將它們配對。你正在進行等號的任務，你需要把這些數字放在一起以得到適當的總和。當你進行時，在配對正確時兩張卡片會同時消失！當你讓所有的卡片消失，找出所有的總和，你就贏得這場遊戲！ :)"
 
 #: ../src/memory_add_minus-activity/memory_add_minus.xml.in.h:1
 msgid "Addition and subtraction memory game"
@@ -5100,15 +4914,9 @@ msgid ""
 "proper equality. When you do that, both those cards disappear! When you've "
 "made them all disappear, found all the operations, you've won the game! :)"
 msgstr ""
-"你可以看到部份的卡片，但是你無法看到卡片的另一面。每張卡片藏一個算法，或者該"
-"算法的答案\n"
+"你可以看到部份的卡片，但是你無法看到卡片的另一面。每張卡片藏一個算法，或者該算法的答案\n"
 "\n"
-"在這遊戲，這些卡片藏有可以運算的兩部份。你需要找到這兩個部份，將它們再次放在"
-"一起。用滑鼠鼠標點選卡片，看看背後是哪個數字，然後試著找出另一張卡片，以完成"
-"數字的運算。你一次最多只能翻開兩張卡片，所以你必須記得這些卡片與數字的位置，"
-"然後你可以在找到另一張卡片時將它們配對。你正在進行等號的任務，你需要把這些數"
-"字放在一起以得到適當的計算結果。當你進行時，在配對正確時兩張卡片會同時消失！"
-"當你讓所有的卡片消失，找出所有運算結果，你就贏得這場遊戲！ :)"
+"在這遊戲，這些卡片藏有可以運算的兩部份。你需要找到這兩個部份，將它們再次放在一起。用滑鼠鼠標點選卡片，看看背後是哪個數字，然後嘗試找出另一張卡片，以完成數字的運算。你一次最多只能翻開兩張卡片，所以你必須記得這些卡片與數字的位置，然後你可以在找到另一張卡片時將它們配對。你正在進行等號的任務，你需要把這些數字放在一起以得到適當的計算結果。當你進行時，在配對正確時兩張卡片會同時消失！當你讓所有的卡片消失，找出所有運算結果，你就贏得這場遊戲！ :)"
 
 #: ../src/memory_add_minus_mult_div-activity/memory_add_minus_mult_div.xml.in.h:1
 #: ../src/memory_add_minus_mult_div_tux-activity/memory_add_minus_mult_div_tux.xml.in.h:1
@@ -5189,9 +4997,7 @@ msgstr "翻開卡片，找出卡片上數字和圖畫相符的兩張。"
 msgid ""
 "You can see some cards, but you can't see what's on the other side of them. "
 "Each card is hiding a number of pictures, or the written number."
-msgstr ""
-"你可以看到部份的卡片，但是你無法看到卡片的另一面。每張卡片藏有特定數目的圖"
-"案，或是一個數字。"
+msgstr "你可以看到部份的卡片，但是你無法看到卡片的另一面。每張卡片藏有特定數目的圖案，或是一個數字。"
 
 #: ../src/memory_minus-activity/memory_minus.xml.in.h:1
 #: ../src/memory_minus_tux-activity/memory_minus_tux.xml.in.h:1
@@ -5234,20 +5040,10 @@ msgid ""
 "proper sum. When you do that, both those cards disappear! When you've made "
 "them all disappear, found all the subtracts, you've won the game! :)"
 msgstr ""
-"你可以看到部份的卡片，但是你無法看到卡片的另一面。每張卡片藏有數字的減法，或"
-"者該減法的答案。減法看起來像是: 3 - 1 = 2\n"
-" 這些數字在等號 (=) 的一側必須與另一側相同。所以 3 剪掉 1 得到 2。當你計算時"
-"請大聲念出來，也可以數手指頭，因為用越多種的方法計算，你就越容易記得。你可以"
-"使用積木、鈕扣或是任何可以用來算術的東西。如果你有很多的兄弟姊妹，你也可以數"
-"他們用來算術。或是你學校班級的小朋友。唱算術的歌。數很多的東西來練習，如此一"
-"來你的算術就會很棒！\n"
+"你可以看到部份的卡片，但是你無法看到卡片的另一面。每張卡片藏有數字的減法，或者該減法的答案。減法看起來像是: 3 - 1 = 2\n"
+" 這些數字在等號 (=) 的一側必須與另一側相同。所以 3 剪掉 1 得到 2。當你計算時請大聲念出來，也可以數手指頭，因為用越多種的方法計算，你就越容易記得。你可以使用積木、鈕扣或是任何可以用來算術的東西。如果你有很多的兄弟姊妹，你也可以數他們用來算術。或是你學校班級的小朋友。唱算術的歌。數很多的東西來練習，如此一來你的算術就會很棒！\n"
 "\n"
-"在這遊戲，這些卡片藏有可以進行減法的兩部份。你需要找到構成總和的兩個部份，將"
-"它們再次放在一起。用滑鼠鼠標點選卡片，看看藏在後面的數字，然後試著找出另一張"
-"卡片，以完成數字的減法。你一次最多只能翻開兩張卡片，所以你必須記得這些卡片與"
-"數字的位置，然後你可以在找到另一張卡片時將它們配對。你正在進行等號的任務，你"
-"需要把這些數字放在一起以得到適當的差。當你進行時，在配對正確時兩張卡片會同時"
-"消失！當你讓所有的卡片消失，找出所有的總和，你就贏得這場遊戲！ :)"
+"在這遊戲，這些卡片藏有可以進行減法的兩部份。你需要找到構成總和的兩個部份，將它們再次放在一起。用滑鼠鼠標點選卡片，看看藏在後面的數字，然後嘗試找出另一張卡片，以完成數字的減法。你一次最多只能翻開兩張卡片，所以你必須記得這些卡片與數字的位置，然後你可以在找到另一張卡片時將它們配對。你正在進行等號的任務，你需要把這些數字放在一起以得到適當的差。當你進行時，在配對正確時兩張卡片會同時消失！當你讓所有的卡片消失，找出所有的總和，你就贏得這場遊戲！ :)"
 
 #: ../src/memory_minus_tux-activity/memory_minus_tux.xml.in.h:3
 msgid "Subtraction memory game against Tux"
@@ -5305,11 +5101,7 @@ msgid ""
 "and try to match the twins. You can only activate two Tux at once, so you "
 "need to remember where a sound is, while you listen to its twin. When you "
 "turn over the twins, they both disappear."
-msgstr ""
-"這裡顯示一組小企鵝提琴手。每隻小企鵝都有個相關連的聲音，而每個聲音都有一個完"
-"全相同的孿生聲音。按下一隻小企鵝來聽它隱藏的聲音，並且試著配對孿生聲音。一次"
-"只可以翻轉兩隻小企鵝，因此在你尋找它的孿生聲音時，需要記得聲音的位置。當你翻"
-"轉出兩隻孿生聲音時，它們兩者都會消失。"
+msgstr "這裏顯示一組小企鵝提琴手。每隻小企鵝都有個相關連的聲音，而每個聲音都有一個完全相同的孿生聲音。按下一隻小企鵝來聽它隱藏的聲音，並且嘗試配對孿生聲音。一次只可以翻轉兩隻小企鵝，因此在你尋找它的孿生聲音時，需要記得聲音的位置。當你翻轉出兩隻孿生聲音時，它們兩者都會消失。"
 
 #: ../src/memory_sound-activity/memory_sound.xml.in.h:2
 msgid "Audio memory game"
@@ -5354,12 +5146,7 @@ msgid ""
 "are until you can find the twin. When you turn over twins, they disappear! "
 "You take turns with Tux, and to win the game, you have to find more pairs of "
 "twins than he does."
-msgstr ""
-"這裡會顯示一組看起來相同的卡片。每張卡片的另一面都有一個圖案，而每個圖案都有"
-"一張完全相同的孿生圖案。按下一張卡片來看它隱藏的圖案，並且試著配對孿生圖案。"
-"一次只可以翻轉兩張卡片，因此在你尋找它的孿生圖案時，需要記得圖案的位置。當你"
-"翻轉出兩張孿生圖案時，它們兩者都會消失！你跟小企鵝輪流玩，必須比小企鵝找到更"
-"多對孿生圖案才能贏得遊戲。"
+msgstr "這裏會顯示一組看起來相同的卡片。每張卡片的另一面都有一個圖案，而每個圖案都有一張完全相同的孿生圖案。按下一張卡片來看它隱藏的圖案，並且嘗試配對孿生圖案。一次只可以翻轉兩張卡片，因此在你尋找它的孿生圖案時，需要記得圖案的位置。當你翻轉出兩張孿生圖案時，它們兩者都會消失！你跟小企鵝輪流玩，必須比小企鵝找到更多對孿生圖案才能贏得遊戲。"
 
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:2
 msgid "Reading numbers, memory."
@@ -5377,17 +5164,13 @@ msgstr "字與數的記憶遊戲"
 msgid ""
 "You can see some cards, but you can't see what's on the other side of them. "
 "Each card is hiding a number of number, or the word of the number."
-msgstr ""
-"你可以看到部份的卡片，但是你無法看到卡片的另一面。每張卡片藏有特定數目的數"
-"字，或是該數字。"
+msgstr "你可以看到部份的卡片，但是你無法看到卡片的另一面。每張卡片藏有特定數目的數字，或是該數字。"
 
 #: ../src/missing_letter-activity/missing_letter.xml.in.h:1
 msgid ""
 "An object is displayed in the main area, and an incomplete word is printed "
 "under the picture. Select the missing letter to complete the word."
-msgstr ""
-"在主要區域中會顯示一個物品，而在圖片下方會印出一個不完整的字。請選擇缺少的字"
-"母來完成這個字。"
+msgstr "在主要區域中會顯示一個物品，而在圖片下方會印出一個不完整的字。請選擇缺少的字母來完成這個字。"
 
 #: ../src/missing_letter-activity/missing_letter.xml.in.h:2
 msgid "Fill in the missing letter"
@@ -5608,9 +5391,7 @@ msgstr "能夠計數"
 msgid ""
 "Click on the coins or paper money at the bottom of the screen to pay. If you "
 "want to remove a coin or note, click on it on the upper screen area."
-msgstr ""
-"利用按下螢幕底部的硬幣或紙鈔來付錢。如果你想要移除某個硬幣或紙鈔，就在螢幕頂"
-"端區域它們的上方按一下。"
+msgstr "利用按下螢幕底部的硬幣或紙鈔來付錢。如果你想要移除某個硬幣或紙鈔，就在螢幕頂端區域它們的上方按一下。"
 
 #: ../src/money-activity/money.xml.in.h:3
 #: ../src/money_cents-activity/money_cents.xml.in.h:3
@@ -5626,9 +5407,7 @@ msgstr "練習金錢使用"
 msgid ""
 "You must buy the different items and give the exact price. At higher levels, "
 "several items are displayed, and you must first calculate the total price."
-msgstr ""
-"你必須購買不同的物品並且付出剛好的價錢。在較高的階段中，多個物品會被顯示，而"
-"你必須先計算總價。"
+msgstr "你必須購買不同的物品並且付出剛好的價錢。在較高的階段中，多個物品會被顯示，而你必須先計算總價。"
 
 #: ../src/money_cents-activity/money_cents.xml.in.h:4
 msgid "Practice money usage including cents"
@@ -5654,7 +5433,7 @@ msgstr "拖放碎片來重新製作原本的圖畫"
 msgid ""
 "Drag the image parts from the box on the left to create a painting on the "
 "main board."
-msgstr "從左側盒子裡拖出部份的圖案，在主要園地上製作圖畫。"
+msgstr "從左側盒子裏拖出部份的圖案，在主要園地上製作圖畫。"
 
 #: ../src/paintings-activity/paintings.xml.in.h:4
 msgid "Mouse-manipulation: movement, drag and drop"
@@ -5682,7 +5461,7 @@ msgstr "Giuseppe Arcimboldo(阿奇姆博多)，The Librarian - 1566)"
 
 #: ../src/paintings-activity/resources/paintings/board1_5.xml.in.h:1
 msgid "Woman holding a fan"
-msgstr "拿著扇子的婦人"
+msgstr "拿着扇子的婦人"
 
 #: ../src/paintings-activity/resources/paintings/board2_1.xml.in.h:1
 msgid "Botticelli, Primavera - 1482"
@@ -5732,17 +5511,13 @@ msgstr "幫助小企鵝傘兵安全降落"
 msgid ""
 "Hit any key or click on the plane to make Tux jump. Hit another key or click "
 "on Tux to open the parachute."
-msgstr ""
-"敲下任何鍵或在飛機上按一下滑鼠讓小企鵝跳出。敲下其他鍵或在小企鵝上按一下來打"
-"開降落傘。"
+msgstr "敲下任何鍵或在飛機上按一下滑鼠讓小企鵝跳出。敲下其他鍵或在小企鵝上按一下來打開降落傘。"
 
 #: ../src/paratrooper-activity/paratrooper.xml.in.h:3
 msgid ""
 "In this game, Tux the parachutist needs help to land safely on the fishing "
 "boat. He needs to allow for the wind direction and speed."
-msgstr ""
-"在這個遊戲中，小企鵝傘兵需要幫助以安全降落在漁船之上。他需要風向與速度的允"
-"許。"
+msgstr "在這個遊戲中，小企鵝傘兵需要幫助以安全降落在漁船之上。他需要風向與速度的允許。"
 
 #: ../src/paratrooper-activity/paratrooper.xml.in.h:4
 msgid "Parachutist"
@@ -5765,9 +5540,7 @@ msgid ""
 "Double click the mouse on the ball to kick it. You can double click the left "
 "right or middle mouse button. If you lose, Tux catches the ball. You must "
 "click on it to bring it back to its former position"
-msgstr ""
-"在球上按兩下滑鼠就可以把它踢出去。你可以按兩下滑鼠的左鍵、右鍵或中鍵。如果你"
-"輸了，小企鵝就會抓到這顆球。你必須點一下球才能把它帶回前一個位置"
+msgstr "在球上按兩下滑鼠就可以把它踢出去。你可以按兩下滑鼠的左鍵、右鍵或中鍵。如果你輸了，小企鵝就會抓到這顆球。你必須點一下球才能把它帶回前一個位置"
 
 #: ../src/penalty-activity/penalty.xml.in.h:2
 msgid "Double click the mouse on the ball to score a goal."
@@ -5793,9 +5566,7 @@ msgstr "找出兩張圖片之間的不同"
 msgid ""
 "Observe the two pictures carefully. There are some slight differences. When "
 "you find a difference you must click on it."
-msgstr ""
-"仔細觀察這兩幅圖畫。其中有一些細微的不同。當你找到一個不同的地方時就要按一下"
-"它。"
+msgstr "仔細觀察這兩幅圖畫。其中有一些細微的不同。當你找到一個不同的地方時就要按一下它。"
 
 #: ../src/photohunter-activity/photohunter.xml.in.h:3
 msgid "Photo hunter"
@@ -5808,7 +5579,7 @@ msgstr "視覺辨別力。"
 #: ../src/planegame-activity/planegame.c:61
 #: ../src/planegame-activity/planegame.xml.in.h:4
 msgid "Numbers in Order"
-msgstr "依照順序的數字"
+msgstr "根據順序的數字"
 
 #: ../src/planegame-activity/planegame.c:62
 msgid "Move the plane to catch the clouds in the correct order"
@@ -5818,8 +5589,7 @@ msgstr "移動飛機並以正確的順序來抓住雲朵"
 msgid ""
 "Catch the numbers in increasing order, using the up, down, right and left "
 "arrows on the keyboard to move the helicopter."
-msgstr ""
-"按照由小到大的順序抓住數字，利用鍵盤的上﹑下﹑左﹑右方向鍵來移動直升機。"
+msgstr "按照由小到大的順序抓住數字，利用鍵盤的上﹑下﹑左﹑右方向鍵來移動直升機。"
 
 #: ../src/planegame-activity/planegame.xml.in.h:2
 msgid "Move the helicopter to catch the clouds in the correct order"
@@ -5927,10 +5697,7 @@ msgid ""
 "area for a few seconds. Rebuild it at the top of the screen by selecting the "
 "appropriate carriages and locomotive. Deselect an item by clicking on it "
 "again. Check your construction by clicking on the hand at the bottom."
-msgstr ""
-"一列火車 - 火車頭和多節車廂 - 會在主要區域頂端顯示幾秒鐘。利用選擇適當的車廂"
-"和火車頭，在螢幕頂端重新建造它。在物品上再按一次就會取消選取。利用按下底部的"
-"手形圖案來檢查你的建造圖。"
+msgstr "一列火車 - 火車頭和多節車廂 - 會在主要區域頂端顯示幾秒鐘。利用選擇適當的車廂和火車頭，在螢幕頂端重新建造它。在物品上再按一次就會取消選取。利用按下底部的手形圖案來檢查你的建造圖。"
 
 #: ../src/railroad-activity/railroad.xml.in.h:3
 msgid "Memory-training"
@@ -5986,7 +5753,7 @@ msgstr "粉紅色"
 
 #: ../src/read_colors-activity/read_colors.xml.in.h:2
 msgid "Click on the correct colored object."
-msgstr "按下正確著色的物品。"
+msgstr "按下正確着色的物品。"
 
 #: ../src/read_colors-activity/read_colors.xml.in.h:3
 msgid "Click on the matching color"
@@ -6050,9 +5817,7 @@ msgstr "而它已經顯示"
 msgid ""
 "A word is shown at the top right of the board. A list of words will appear "
 "and disappear on the left. Does the given word belong to the list?"
-msgstr ""
-"在園地右上方會顯示一個詞，左側則有一組詞會出現與消失。右側的詞是屬於左側的詞"
-"組嗎？"
+msgstr "在園地右上方會顯示一個詞，左側則有一組詞會出現與消失。右側的詞是屬於左側的詞組嗎？"
 
 #: ../src/readingh-activity/readingh.xml.in.h:2
 msgid "Horizontal reading practice"
@@ -6092,10 +5857,7 @@ msgid ""
 "create objects. When you are done, click on the OK button. Errors will be "
 "marked with a little red cross. The order of objects (above/under) is not "
 "important but be careful not to end up with unwanted objects under others."
-msgstr ""
-"首先，從工具列中選擇適當的工具。然後拖拉滑鼠來建立物品。當你完成後，按下"
-"「OK」鈕。錯誤會用一個小紅叉來標示。物品的層次(之上/之下)並不重要，但是小心不"
-"要在結束時，還有不想要的物品躲在其他物品下面。"
+msgstr "首先，從工具列中選擇適當的工具。然後拖拉滑鼠來建立物品。當你完成後，按下「OK」鈕。錯誤會用一個小紅叉來標示。物品的層次(之上/之下)並不重要，但是小心不要在結束時，還有不想要的物品躲在其他物品下面。"
 
 #: ../src/redraw-activity/redraw.xml.in.h:3
 msgid "Redraw the given item"
@@ -6114,10 +5876,7 @@ msgid ""
 "cross will show you where something isn't right yet. The order of objects "
 "(above/under) is not important but be careful not to end up with unwanted "
 "objects under others."
-msgstr ""
-"首先，從工具列中選擇適當的工具。然後拖拉滑鼠來建立物品。當你完成後，按下「確"
-"定」鈕。錯誤的地方會用一個小紅叉來標示。物品的層次(之上/之下)並不重要，但是小"
-"心不要在結束時，還有不想要的物品躲在其他物品下面。"
+msgstr "首先，從工具列中選擇適當的工具。然後拖拉滑鼠來建立物品。當你完成後，按下「確定」鈕。錯誤的地方會用一個小紅叉來標示。物品的層次(之上/之下)並不重要，但是小心不要在結束時，還有不想要的物品躲在其他物品下面。"
 
 #: ../src/redraw_symmetrical-activity/redraw_symmetrical.xml.in.h:3
 msgid "Mirror the given item"
@@ -6134,9 +5893,7 @@ msgid ""
 "Click on the dice to show how many ice spots there are between Tux and the "
 "fish. Click the dice with the right mouse button to count backwards. When "
 "done, click on the OK button or hit the Enter key."
-msgstr ""
-"按一下骰子來顯示在小企鵝和魚之間有多少塊浮冰。用滑鼠右鍵按骰子會往後計數。完"
-"成時，按一下「OK」按鈕或是壓一下「Enter」鍵。"
+msgstr "按一下骰子來顯示在小企鵝和魚之間有多少塊浮冰。用滑鼠右鍵按骰子會往後計數。完成時，按一下「OK」按鈕或是壓一下「Enter」鍵。"
 
 #: ../src/reversecount-activity/reversecount.xml.in.h:3
 msgid "Practice subtraction with a fun game"
@@ -6179,9 +5936,7 @@ msgid ""
 "The painting is an original painting created by Virginie MOREAU (virginie."
 "moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is "
 "released under the GPL licence."
-msgstr ""
-"這張畫是由 Virginie MOREAU (virginie.moreau@free.fr) 在 2001 年原創的畫作。它"
-"的名稱是「埃及的辣椒商人」。它是依據 GPL 使用授權而釋出。"
+msgstr "這張畫是由 Virginie MOREAU (virginie.moreau@free.fr) 在 2001 年原創的畫作。它的名稱是「埃及的辣椒商人」。它是根據據 GPL 使用授權而推出。"
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:5
 msgid ""
@@ -6270,15 +6025,11 @@ msgid ""
 "next level will give you more complex weather conditions."
 msgstr ""
 "在文字輸入欄中每列輸入一個命令來控制你的船。\n"
-"支援的命令顯示於兩個輸入區域之間。命令「左轉」與「右轉」必須加上角度。角度值"
-"也被稱為這兩個命令的「參數」，預設會使用 45 度。命令「前進」接受一個距離的參"
-"數，預設會使用 1。\n"
+"支援的命令顯示於兩個輸入區域之間。命令「左轉」與「右轉」必須加上角度。角度值也被稱為這兩個命令的「參數」，預設會使用 45 度。命令「前進」接受一個距離的參數，預設會使用 1。\n"
 "舉例來說：\n"
 "- 左轉 90 ：直角左轉\n"
-"- 前進 10：向前 10 單位(依尺上所標)。\n"
-"目標是要到達螢幕右邊(紅線)。完成之後，可以試著去加強你的程式，並且利用重試按"
-"鈕在相同的天氣條件下，去啟動一次新的競速。你可以在地圖的任何地點按下並拖拉滑"
-"鼠，來取得距離與角度的測量值。往下一層階段將會給予你更加複雜的天氣條件。"
+"- 前進 10：向前 10 單位(根據尺上所標)。\n"
+"目標是要到達螢幕右邊(紅線)。完成之後，可以嘗試去加強你的程式，並且利用重試按鈕在相同的天氣條件下，去啟動一次新的競速。你可以在地圖的任何地點按下並拖拉滑鼠，來取得距離與角度的測量值。往下一層階段將會給予你更加複雜的天氣條件。"
 
 #: ../src/searace-activity/searace.xml.in.h:8
 #: ../src/searace1player-activity/searace1player.xml.in.h:7
@@ -6287,10 +6038,7 @@ msgid ""
 "if the language is extremely basic, you learn here how to think ahead and "
 "construct a program. This activity can be used to introduce the programming "
 "concept to children."
-msgstr ""
-"在這個遊戲中，你將會學到如何給電腦輸入命令。即使所用的語言是極度的基本，這裡"
-"你會學到如何超前思考與建立一個程式。這個遊戲可以用來向兒童介紹寫電腦程式的概"
-"念。"
+msgstr "在這個遊戲中，你將會學到如何給電腦輸入命令。即使所用的語言是極度的基本，這裏你會學到如何超前思考與建立一個程式。這個遊戲可以用來向兒童介紹寫電腦程式的概念。"
 
 #: ../src/searace-activity/searace.xml.in.h:9
 msgid "Sea race (2 Players)"
@@ -6309,9 +6057,7 @@ msgid ""
 "To balance the scales, move the masses on the left or the right side. Take "
 "care of the weight and the unit of the masses, remember that a kilogram (kg) "
 "is 1000 grams (g). They can be arranged in any order."
-msgstr ""
-"為了讓天秤保持平衡，要把砝碼從左邊或右邊移到另一邊。要注意砝碼的重量單位，記"
-"得 1 公斤 (kg) 是 1000 公克 (g)。這些砝碼的順序可以任意改變。"
+msgstr "為了讓天秤保持平衡，要把砝碼從左邊或右邊移到另一邊。要注意砝碼的重量單位，記得 1 公斤 (kg) 是 1000 公克 (g)。這些砝碼的順序可以任意改變。"
 
 #: ../src/searace1player-activity/searace1player.xml.in.h:1
 msgid "Give good instructions to your ship in order to be first in the race."
@@ -6335,15 +6081,11 @@ msgid ""
 "next level will give you more complex weather conditions."
 msgstr ""
 "在文字輸入欄中每列輸入一個命令來控制你的船。\n"
-"支援的命令顯示於兩個輸入區域之間。命令「左轉」與「右轉」必須加上角度。角度值"
-"也被稱為這兩個命令的「參數」，預設會使用 45 度。命令「前進」接受一個距離的參"
-"數，預設會使用 1。\n"
+"支援的命令顯示於兩個輸入區域之間。命令「左轉」與「右轉」必須加上角度。角度值也被稱為這兩個命令的「參數」，預設會使用 45 度。命令「前進」接受一個距離的參數，預設會使用 1。\n"
 "舉例來說：\n"
 "- 左轉 90 ：直角左轉\n"
-"- 前進 10：向前 10 單位(依尺上所標)。\n"
-"目標是要到達螢幕右邊(紅線)。完成之後，可以試著去加強你的程式，並且利用重試按"
-"鈕在相同的天氣條件下，去啟動一次新的競速。你可以在地圖的任何地點按下並拖拉滑"
-"鼠，來取得距離與角度的測量值。往下一層階段將會給予你更加複雜的天氣條件。"
+"- 前進 10：向前 10 單位(根據尺上所標)。\n"
+"目標是要到達螢幕右邊(紅線)。完成之後，可以嘗試去加強你的程式，並且利用重試按鈕在相同的天氣條件下，去啟動一次新的競速。你可以在地圖的任何地點按下並拖拉滑鼠，來取得距離與角度的測量值。往下一層階段將會給予你更加複雜的天氣條件。"
 
 #: ../src/searace1player-activity/searace1player.xml.in.h:8
 msgid "Sea race (Single Player)"
@@ -6382,10 +6124,7 @@ msgid ""
 "Click on different active elements : engine, rudders and air tanks, in order "
 "to navigate to the required depth. There is a close gate on the right. Catch "
 "the jewel to open it, then pass through it to reach the next level."
-msgstr ""
-"按一下不同的運轉零件：引擎﹑方向舵與空氣艙，以便能夠操縱它到達需要的深度。在"
-"右邊有一個關閉的閘門。找到珠寶的話就可以開啟它，通過閘門之後就會進到下一個階"
-"段。"
+msgstr "按一下不同的運轉零件：引擎﹑方向舵與空氣艙，以便能夠操縱它到達需要的深度。在右邊有一個關閉的閘門。找到珠寶的話就可以開啟它，通過閘門之後就會進到下一個階段。"
 
 #: ../src/submarine-activity/submarine.xml.in.h:2
 msgid "Learn how a submarine works"
@@ -6413,10 +6152,7 @@ msgid ""
 "click on its target position. For the higher levels, click on an empty "
 "square to give it the keyboard focus. Then enter a possible letter or "
 "number. GCompris will not let you enter invalid data."
-msgstr ""
-"在用到顏色符號的第一階段，拖拉左邊符號到它們的目標位置。對於較高的階段，在空"
-"的方格上按一下則可得到鍵盤的輸入焦點。然後輸入有可能的字母或數字。GCompris 將"
-"不會讓你輸入無效的資料。"
+msgstr "在用到顏色符號的第一階段，拖拉左邊符號到它們的目標位置。對於較高的階段，在空的方格上按一下則可得到鍵盤的輸入焦點。然後輸入有可能的字母或數字。GCompris 將不會讓你輸入無效的資料。"
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:3
 msgid "Sudoku, place unique symbols in a square."
@@ -6435,11 +6171,7 @@ msgid ""
 "cells (the 'givens'). Each row, column and region must contain only one "
 "instance of each symbol or numeral (Source &lt;http://en.wikipedia.org/wiki/"
 "Sudoku&gt;)."
-msgstr ""
-"謎題的目標是在網格的每個單元中，輸入一個符號或從 1 到 9 的數字，最常見的是由 "
-"3x3 次網格(稱之為「區域」)所組成的 9x9 網格，而在某些格子(「已知」)中已經給定"
-"多種的符號或數字。每一列﹑欄與區域都必須只包含每種符號與數字的一個實體(來源 "
-"&lt;http://en.wikipedia.org/wiki/Sudoku&gt;)。"
+msgstr "謎題的目標是在網格的每個單元中，輸入一個符號或從 1 到 9 的數字，最常見的是由 3x3 次網格(稱之為「區域」)所組成的 9x9 網格，而在某些格子(「已知」)中已經給定多種的符號或數字。每一列﹑欄與區域都必須只包含每種符號與數字的一個實體(來源 &lt;http://en.wikipedia.org/wiki/Sudoku&gt;)。"
 
 #: ../src/superbrain-activity/superbrain.c:110
 #: ../src/superbrain-activity/superbrain.xml.in.h:2
@@ -6458,10 +6190,7 @@ msgid ""
 "gives you an indication if you found a hiding place by marking the item with "
 "a black box. You can use the right mouse button to flip the colors in the "
 "opposite order."
-msgstr ""
-"在物品上按一下直到你找到所認為的正確回答。然後，按一下控制列中的「確定」鈕。"
-"在較低的階段中，小企鵝會藉著黑色方格標示物品，來指示你是否找到了隱藏的地方。"
-"你可以利用滑鼠右鍵以相反的順序來翻轉顏色。"
+msgstr "在物品上按一下直到你找到所認為的正確回答。然後，按一下控制列中的「確定」鈕。在較低的階段中，小企鵝會藉着黑色方格標示物品，來指示你是否找到了隱藏的地方。你可以利用滑鼠右鍵以相反的順序來翻轉顏色。"
 
 #: ../src/tangram-activity/tangram.xml.in.h:1
 msgid ""
@@ -6477,9 +6206,7 @@ msgid ""
 "\t* 1 square (side of 1)\n"
 "\t* 1 parallelogram (sides of 1 and square root of 2)"
 msgstr ""
-"根據 Wikipedia(自由的維基百科全書)，「七巧板」是一個中式拼圖。雖然七巧板常常"
-"被認為是古老的，它的存在最遠只能追溯到公元 1800 年。它由七片所謂的 tans 組"
-"成，合起來會形成一個正方形；如果以其中的小正方形為一平方單位，則：\n"
+"根據 Wikipedia(自由的維基百科全書)，「七巧板」是一個中式拼圖。雖然七巧板常常被認為是古老的，它的存在最遠只能追溯到公元 1800 年。它由七片所謂的 tans 組成，合起來會形成一個正方形；如果以其中的小正方形為一平方單位，則：\n"
 "\t* 五片直角等腰三角形，包括\n"
 "\t\t兩小(腰長為 1)\n"
 "\t\t一中(腰長為根號二)\n"
@@ -6494,10 +6221,7 @@ msgid ""
 "rotation you want. Once you've shown what shape you want, the computer will "
 "create it. If you need help, click on the shape button, and the border of "
 "the shape will be drawn."
-msgstr ""
-"選擇七巧板來拼圖。利用滑鼠拖拉來移動它。在上面按右鍵來造出一個對稱的物品。選"
-"擇一片並在它周圍拖拉來旋轉它。你所要的形狀一旦成形，它就會被電腦建立出來。如"
-"果你需要幫助，就在形狀鈕上按一下，形狀的邊緣將會被畫出來。"
+msgstr "選擇七巧板來拼圖。利用滑鼠拖拉來移動它。在上面按右鍵來造出一個對稱的物品。選擇一片並在它周圍拖拉來旋轉它。你所要的形狀一旦成形，它就會被電腦建立出來。如果你需要幫助，就在形狀鈕上按一下，形狀的邊緣將會被畫出來。"
 
 #: ../src/tangram-activity/tangram.xml.in.h:10
 msgid "The objective is to form a given shape with seven pieces"
@@ -6507,9 +6231,7 @@ msgstr "目的是要用七塊板子拼成所給的形狀"
 msgid ""
 "The original code was written by Philippe Banwarth in 1999. It was ported to "
 "GCompris by Yves Combe in 2005."
-msgstr ""
-"原本的程式碼是由 Philippe Banwarth 在 1999 年所寫的。2005 年已由 Yves Combe "
-"移植到 GCompris。"
+msgstr "原本的程式碼是由 Philippe Banwarth 在 1999 年所寫的。2005 年已由 Yves Combe 移植到 GCompris。"
 
 #: ../src/tangram-activity/tangram.xml.in.h:12
 msgid "The tangram puzzle game"
@@ -6535,7 +6257,7 @@ msgstr ""
 #: ../src/target-activity/target.c:481
 #, c-format
 msgid "Distance to target = %d meters"
-msgstr "目標距離 = %d 公尺"
+msgstr "目標距離 = %d 米"
 
 #: ../src/target-activity/target.xml.in.h:1
 msgid ""
@@ -6548,9 +6270,7 @@ msgid ""
 "dart. When you all your darts are thrown, a window appears asking you to "
 "count your score. Enter the score with the keyboard then press the Enter key "
 "or the OK button."
-msgstr ""
-"檢查風速和風向，然後在目標上按一下來射出飛鏢。當你射完所有飛鏢，會出現一個視"
-"窗要求你去計算分數。用鍵盤輸入分數之後，按下「Enter」鍵或「OK」鈕。"
+msgstr "檢查風速和風向，然後在目標上按一下來射出飛鏢。當你射完所有飛鏢，會出現一個視窗要求你去計算分數。用鍵盤輸入分數之後，按下「Enter」鍵或「OK」鈕。"
 
 #: ../src/target-activity/target.xml.in.h:3
 msgid "Hit the target and count your points"
@@ -6572,8 +6292,7 @@ msgstr "滑動方塊解謎遊戲"
 msgid ""
 "Each car can only move either horizontally or vertically. You must make some "
 "room in order to let the red car move through the gate on the right."
-msgstr ""
-"每輛車只能以橫向或直向移動。你必須挪出一些空間才能讓紅色的車子通過右邊的門。"
+msgstr "每輛車只能以橫向或直向移動。你必須挪出一些空間才能讓紅色的車子通過右邊的門。"
 
 #: ../src/traffic-activity/traffic.xml.in.h:3
 msgid "Remove the red car from the parking lot through the gate on the right"
@@ -6637,9 +6356,7 @@ msgid ""
 "water cleanup station, in order to reactivate the entire water system. When "
 "the system is back up and Tux is in the shower, push the shower button for "
 "him."
-msgstr ""
-"在不同的動作元素上按一下：太陽﹑雲﹑抽水站和淨水站，為了要重新啟動整個水系"
-"統。當這個系統回復而且小企鵝進入淋浴間之後，幫他壓一下淋浴按鈕。"
+msgstr "在不同的動作元素上按一下：太陽﹑雲﹑抽水站和淨水站，為了要重新啟動整個水系統。當這個系統回復而且小企鵝進入淋浴間之後，幫他壓一下淋浴按鈕。"
 
 #: ../src/watercycle-activity/watercycle.xml.in.h:3
 msgid "Learn about the water cycle"
@@ -6653,8 +6370,7 @@ msgstr "學習水的循環"
 msgid ""
 "Tux has come back from a long fishing party on his boat. Bring the water "
 "system back up so he can take a shower."
-msgstr ""
-"小企鵝已經從一個長時間的船上捕漁派對回來。請回復水循環系統，好讓他能沖個澡。"
+msgstr "小企鵝已經從一個長時間的船上捕漁派對回來。請回復水循環系統，好讓他能沖個澡。"
 
 #: ../src/wordprocessor-activity/wordprocessor.c:54
 msgid "Research"
@@ -6695,10 +6411,7 @@ msgid ""
 "The first 4 buttons let you select the style of the line on which your "
 "insert cursor is. The 2 others buttons with multiple choices let you select "
 "from a predefined document and color theme."
-msgstr ""
-"在這個文字處理機中你可以輸入文字，把它儲存起來以後再使用。你可以使用左邊的按"
-"鈕為你的文字加入一些樣式。前 4 個按鈕讓你選擇輸入游標那一行的樣式。其他 2 個"
-"按鈕有多個選擇讓你從設定好的文件和顏色佈景中挑選。"
+msgstr "在這個文字處理機中你可以輸入文字，把它儲存起來以後再使用。你可以使用左邊的按鈕為你的文字加入一些樣式。前 4 個按鈕讓你選擇輸入游標那一行的樣式。其他 2 個按鈕有多個選擇讓你從設定好的文件和顏色佈景中挑選。"
 
 #: ../src/wordprocessor-activity/wordprocessor.xml.in.h:3
 msgid ""
@@ -6706,10 +6419,7 @@ msgid ""
 "that it enforces the use of styles. This way, the children will understand "
 "their benefit when moving to more feature full wordprocessor like OpenOffice."
 "org."
-msgstr ""
-"學習如何在文書處理程式中輸入文字。這個文字處理機的特點在於它強迫使用樣式。這"
-"樣子，孩子們就會了解樣式帶來的好處，尤其是在將來轉換到全功能型的文書處理處程"
-"如 OpenOffice.org 的時候會更容易上手。"
+msgstr "學習如何在文書處理程式中輸入文字。這個文字處理機的特點在於它強迫使用樣式。這樣子，孩子們就會了解樣式帶來的好處，尤其是在將來轉換到全功能型的文書處理處程如 OpenOffice.org 的時候會更容易上手。"
 
 #: ../src/wordprocessor-activity/wordprocessor.xml.in.h:4
 msgid "The children can type their own text or copy one given by the teacher."
