@@ -47,6 +47,7 @@ INCLUDE_PATHS +=	-I$(INCLUDE_DIR) \
 			-I$(GTK_TOP)/lib/gtk-2.0/include \
 			-I$(GTK_TOP)/include/freetype2 \
 			-I$(SDL_TOP)/include/SDL \
+			-I$(SDLMIXER_TOP)/include \
 			-I$(LIBXML2_TOP)/include \
 			-I$(CAIRO_TOP)/include/cairo \
 			-I$(RSVG_TOP)/include/librsvg-2 \
@@ -61,6 +62,7 @@ LIB_PATHS =		-L$(GTK_TOP)/lib \
 	  		-L$(GLIB_TOP)/lib \
 			-L$(LIBXML2_TOP)/lib \
 			-L$(SDL_TOP)/lib \
+			-L$(SDLMIXER_TOP)/bin \
 			-L$(CANVAS_TOP) \
 			-L$(PYTHON_TOP)/libs \
 			-L$(SQLITE_TOP) \

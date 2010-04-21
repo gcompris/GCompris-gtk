@@ -88,10 +88,10 @@ NEEDED_DLLS =		$(GNUCHESS_TOP)/bin/pthreadGC2.dll \
 			$(LIBXML2_TOP)/bin/libxml2.dll \
 			$(MSVCR90_DLL) \
 			$(SDL_TOP)/bin/SDL.dll \
-			$(SDL_TOP)/bin/SDL_mixer.dll \
-			$(SDL_TOP)/bin/libogg-0.dll \
-			$(SDL_TOP)/bin/libvorbis-0.dll \
-			$(SDL_TOP)/bin/libvorbisfile-3.dll \
+			$(SDLMIXER_TOP)/bin/SDL_mixer.dll \
+			$(SDLMIXER_TOP)/bin/libogg-0.dll \
+			$(SDLMIXER_TOP)/bin/libvorbis-0.dll \
+			$(SDLMIXER_TOP)/bin/libvorbisfile-3.dll \
 			$(SQLITE_TOP)/sqlite3.dll \
 			$(RSVG_TOP)/bin/librsvg-2-2.dll \
 			$(CROCO_TOP)/bin/libcroco-0.6-3.dll \
