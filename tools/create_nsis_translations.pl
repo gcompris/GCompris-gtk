@@ -93,7 +93,7 @@ my %localeNames = (
   "bg" =>	["Bulgarian", "WINDOWS-1251"],
   "br" =>	["Breton", "WINDOWS-1252"],
   "ca" =>	["Catalan", "WINDOWS-1252"],
-  "cs" =>	["Czech", "WINDOWS-1252"],
+  "cs" =>	["Czech", "WINDOWS-1250"],
   "da" =>	["Danish", "WINDOWS-1252"],
   "de" =>	["German", "WINDOWS-1252"],
 #  "dz" =>	["Dzongkha", "UTF-8"],
@@ -342,6 +342,6 @@ foreach my $lang (@localeKeys) {
     {
 	print("ERROR: Failed to run: iconv -f UTF-8 -t $localeNames{$lang}[1] $lang.nsh.utf8 -o $lang.nsh\n");
     }
-    `rm $tmp_dir/$lang.nsh.utf8`;
+    #`rm $tmp_dir/$lang.nsh.utf8`;
 
 }
