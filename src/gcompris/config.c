@@ -29,7 +29,6 @@
 
 static GooCanvasItem	*rootitem		= NULL;
 static GooCanvasItem	*item_locale_text	= NULL;
-static GooCanvasItem	*item_locale_flag	= NULL;
 static GooCanvasItem	*item_bad_flag		= NULL;
 static GooCanvasItem	*item_timer_text	= NULL;
 static GooCanvasItem	*item_skin_text		= NULL;
@@ -207,9 +206,6 @@ gc_config_start ()
 
   display_previous_next(x_start, y_start, "locale_previous", "locale_next");
 
-  item_locale_flag = goo_canvas_svg_new (rootitem,
-					 rsvg_handle_new(),
-					 NULL);
   y_flag_start = y_start - pixmap_width/2;
 
   /* Display a bad icon if this locale is not available */
@@ -540,7 +536,6 @@ display_previous_next(guint x_start, guint y_start,
 static void
 set_locale_flag(gchar *locale)
 {
-  gchar *filename;
 
   if(locale == NULL)
     return;
@@ -550,53 +545,6 @@ set_locale_flag(gchar *locale)
     locale = gc_locale_get_user_default();
     g_message("gc_locale_get_user_default = %s\n", locale);
   }
-
-  /* First try to find a flag for the long locale name */
-  filename = gc_file_find_absolute("flags/%.5s.svgz", locale);
-
-  /* Not found, Try now with the short locale name */
-  if(!filename) {
-    filename = gc_file_find_absolute("flags/%.2s.svgz", locale);
-  }
-
-  /* Not found, Try now with the short long locale name */
-  if(!filename) {
-    filename = gc_file_find_absolute("flags/%.3s.svgz", locale);
-  }
-
-  if(filename)
-    {
-      RsvgHandle *svg_handle;
-      RsvgDimensionData dimension;
-
-      svg_handle = gc_rsvg_load(filename);
-      rsvg_handle_get_dimensions(svg_handle, &dimension);
-
-      /* Calc the ratio to display it */
-      double xratio =  210.0  / dimension.width;
-      double yratio =  160.0  / dimension.height;
-      xratio = MIN(xratio, yratio);
-      goo_canvas_item_set_transform(item_locale_flag, NULL);
-      goo_canvas_item_scale(item_locale_flag,
-			    xratio, xratio);
-      goo_canvas_item_translate(item_locale_flag,
-				(x_flag_start + 260) / xratio,
-				(y_flag_start + 40) / xratio);
-
-      g_object_set (item_locale_flag,
-		    "svg-handle", svg_handle,
-		    NULL);
-
-      g_object_unref(svg_handle);
-      g_free(filename);
-    }
-  else
-    {
-      /* No flags */
-      g_object_set (item_locale_flag,
-		    "svg-handle", rsvg_handle_new(),
-		    NULL);
-    }
 
   /* Check wether or not the locale is available */
 #ifdef WIN32
@@ -626,7 +574,6 @@ static gchar *
 get_next_locale(gchar *locale)
 {
   guint i = 0;
-
   while(linguas[i] != NULL)
     {
       if(!strcmp(locale, linguas[i]))
