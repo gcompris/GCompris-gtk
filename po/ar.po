@@ -9,17 +9,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-06 07:22+0200\n"
-"PO-Revision-Date: 2010-02-06 07:29+0300\n"
+"POT-Creation-Date: 2010-04-25 13:28+0200\n"
+"PO-Revision-Date: 2010-04-25 13:21+0300\n"
 "Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
-"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
-"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
-"X-Generator: Virtaal 0.5.2\n"
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Virtaal 0.6.0\n"
 
 #: ../boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
@@ -201,8 +201,8 @@ msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
 msgstr ""
-"«فهمت» (GCompris) لعبة مجموعة من الألعاب التعليمية التي توفر طفا من الأنشطة للأطفال من سن "
-"سنتان فما فوق "
+"«فهمت» (GCompris) لعبة مجموعة من الألعاب التعليمية التي توفر طفا من الأنشطة "
+"للأطفال من سن سنتان فما فوق "
 
 #: ../boards/menu.xml.in.h:19
 msgid ""
@@ -315,8 +315,8 @@ msgstr ""
 
 #: ../nsis_translations.desktop.in.h:6
 msgid ""
-"the uninstaller could not find registry entries for GCompris.$\\rIt is likely "
-"that another user installed this application."
+"the uninstaller could not find registry entries for GCompris.$\\rIt is "
+"likely that another user installed this application."
 msgstr ""
 "تعذّر العثور على مدخلات «فهمت» في مضبطة وندوز.$\\rغالبا ثبت مستخدم آخر هذا "
 "التطبيق."
@@ -394,7 +394,7 @@ msgstr ""
 
 #. self.main_vbox.pack_start (label, False, False, 8)
 #: ../src/administration-activity/admin/board_list.py:660
-#: ../src/colors-activity/colors.c:181
+#: ../src/colors-activity/colors.c:180
 #: ../src/pythontest-activity/pythontest.py:518
 #: ../src/smallnumbers-activity/smallnumbers.c:616
 msgid "Select sound locale"
@@ -559,7 +559,7 @@ msgid "Board"
 msgstr "اللوحة"
 
 #: ../src/administration-activity/admin/log_list.py:246
-#: ../src/redraw-activity/redraw.py:328
+#: ../src/redraw-activity/redraw.py:339
 msgid "Level"
 msgstr "المستوى"
 
@@ -575,34 +575,34 @@ msgstr "المدة"
 msgid "Status"
 msgstr "الحالة"
 
-#: ../src/administration-activity/admin/module_boards.py:41
-#: ../src/administration-activity/admin/module_boards.py:69
+#: ../src/administration-activity/admin/module_boards.py:49
+#: ../src/administration-activity/admin/module_boards.py:77
 msgid "Boards"
 msgstr "اللوحات"
 
-#: ../src/administration-activity/admin/module_groups.py:38
-#: ../src/administration-activity/admin/module_groups.py:61
+#: ../src/administration-activity/admin/module_groups.py:46
+#: ../src/administration-activity/admin/module_groups.py:69
 msgid "Groups"
 msgstr "المجموعات"
 
-#: ../src/administration-activity/admin/module_profiles.py:39
-#: ../src/administration-activity/admin/module_profiles.py:60
+#: ../src/administration-activity/admin/module_profiles.py:47
+#: ../src/administration-activity/admin/module_profiles.py:68
 msgid "Profiles"
 msgstr "الملفات الشخصية"
 
-#: ../src/administration-activity/admin/module_reports.py:40
-#: ../src/administration-activity/admin/module_reports.py:69
+#: ../src/administration-activity/admin/module_reports.py:48
+#: ../src/administration-activity/admin/module_reports.py:77
 msgid "Reports"
 msgstr "التقارير"
 
-#: ../src/administration-activity/admin/module_reports.py:69
-#: ../src/administration-activity/admin/module_users.py:39
-#: ../src/administration-activity/admin/module_users.py:61
+#: ../src/administration-activity/admin/module_reports.py:77
+#: ../src/administration-activity/admin/module_users.py:47
+#: ../src/administration-activity/admin/module_users.py:69
 msgid "Users"
 msgstr "المستخدمون"
 
-#: ../src/administration-activity/admin/module_users.py:39
-#: ../src/administration-activity/admin/module_users.py:61
+#: ../src/administration-activity/admin/module_users.py:47
+#: ../src/administration-activity/admin/module_users.py:69
 msgid "Classes"
 msgstr "الصفوف"
 
@@ -1476,9 +1476,9 @@ msgstr "معاونة العقل. الوصل المنطقي."
 msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "استعمال الفأرة: تحرك، أمسك واسحب. مراجع ثقافية"
 
-#: ../src/babymatch-activity/shapegame.c:1827
-#: ../src/click_on_letter-activity/click_on_letter.c:625
-#: ../src/colors-activity/colors.c:169
+#: ../src/babymatch-activity/shapegame.c:1835
+#: ../src/click_on_letter-activity/click_on_letter.c:624
+#: ../src/colors-activity/colors.c:168
 #, c-format
 msgid ""
 "<b>%1$s</b> configuration\n"
@@ -1579,7 +1579,7 @@ msgstr ""
 msgid "bar game"
 msgstr "لعبة الخط المستقيم"
 
-#: ../src/billard-activity/billard.c:89 ../src/erase-activity/erase.c:123
+#: ../src/billard-activity/billard.c:89 ../src/erase-activity/erase.c:124
 #: ../src/erase-activity/erase.xml.in.h:4
 msgid "Move the mouse"
 msgstr "حرك الفأرة"
@@ -1630,15 +1630,15 @@ msgstr "القائمة الرئيسية الإصدار الثاني"
 msgid "Select a Board"
 msgstr "اختر لوحة"
 
-#: ../src/boards/python.c:63 ../src/boards/python.c:87
+#: ../src/boards/python.c:64 ../src/boards/python.c:88
 msgid "Python Board"
 msgstr "لوحة بايثون"
 
-#: ../src/boards/python.c:64
+#: ../src/boards/python.c:65
 msgid "Special board that embeds python into GCompris."
 msgstr "لوحة خاصة تدمج بايثون في «فهمت»."
 
-#: ../src/boards/python.c:88
+#: ../src/boards/python.c:89
 msgid "Special board that embeds python into gcompris."
 msgstr "لوحة خاصة تدمج بايثون في «فهمت»."
 
@@ -1750,20 +1750,20 @@ msgstr "كش ملك للأبيض"
 msgid "Black checks"
 msgstr "كش ملك للأسود"
 
-#: ../src/chess_computer-activity/chess.c:1199
+#: ../src/chess_computer-activity/chess.c:1193
 msgid "Black mates"
 msgstr "موت ملك الأسود"
 
-#: ../src/chess_computer-activity/chess.c:1204
+#: ../src/chess_computer-activity/chess.c:1198
 msgid "White mates"
 msgstr "موت ملك الأبيض"
 
-#: ../src/chess_computer-activity/chess.c:1209 ../src/gcompris/bonus.c:191
+#: ../src/chess_computer-activity/chess.c:1203 ../src/gcompris/bonus.c:191
 #: ../src/gcompris/bonus.c:200
 msgid "Drawn game"
 msgstr "تعادل"
 
-#: ../src/chess_computer-activity/chess.c:1236
+#: ../src/chess_computer-activity/chess.c:1229
 msgid "Error: The external program gnuchess died unexpectingly"
 msgstr "خطأ: البرنامج الخارجي gnuchess انتهى بشكل غير متوقع"
 
@@ -2034,8 +2034,8 @@ msgstr ""
 "تأتي بأصوات «فهمت» للغة '%s' ! سأعود إلى اللغة الإنجليزية، عذرًا!"
 
 #. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:648
-#: ../src/gletters-activity/gletters.c:885 ../src/login-activity/login.py:481
+#: ../src/click_on_letter-activity/click_on_letter.c:647
+#: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:484
 msgid "Uppercase only text"
 msgstr "نص بحروف كبيرة فقط"
 
@@ -2445,7 +2445,7 @@ msgstr ""
 "عنه في المساحة السفلية اليمنى. أدخل الإجابة بواسطة لوحة المفاتيح ثم انقر على "
 "'موافق' أو اضغط زر الإدخال."
 
-#: ../src/erase-activity/erase.c:124 ../src/erase-activity/erase.xml.in.h:5
+#: ../src/erase-activity/erase.c:125 ../src/erase-activity/erase.xml.in.h:5
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "حرك الفأرة لمحو الشاشة واكتشاف الخلفية"
 
@@ -2570,29 +2570,29 @@ msgid ""
 "License"
 msgstr "هذا البرنامج حزمة من حزم جنو وقد أُصدِر وفقًا لرخصة جنو العمومية"
 
-#: ../src/gcompris/about.c:220 ../src/gcompris/config.c:447
-#: ../src/gcompris/dialog.c:103 ../src/gcompris/help.c:354
+#: ../src/gcompris/about.c:220 ../src/gcompris/config.c:442
+#: ../src/gcompris/dialog.c:103 ../src/gcompris/help.c:359
 #: ../src/gcompris/images_selector.c:307
 msgid "OK"
 msgstr "موافق"
 
-#: ../src/gcompris/bar.c:653
+#: ../src/gcompris/bar.c:688
 msgid "GCompris confirmation"
 msgstr "تأكيد «فهمت»"
 
-#: ../src/gcompris/bar.c:654
+#: ../src/gcompris/bar.c:689
 msgid "Are you sure you want to quit?"
 msgstr "أمتأكد أنك تريد الخروج؟"
 
-#: ../src/gcompris/bar.c:655
+#: ../src/gcompris/bar.c:690
 msgid "Yes, I am sure!"
 msgstr "نعم، متأكد!"
 
-#: ../src/gcompris/bar.c:656
+#: ../src/gcompris/bar.c:691
 msgid "No, I want to keep going"
 msgstr "لا أريد المغادرة"
 
-#: ../src/gcompris/board.c:194
+#: ../src/gcompris/board.c:197
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr "التحميل الديناميكي للوحدات غير مدعوم. «فهمت» لا يمكنه التحميل.\n"
 
@@ -2651,21 +2651,25 @@ msgstr "اختيار المستوى"
 msgid "Back to default"
 msgstr "عد إلى المبدئية"
 
-#: ../src/gcompris/config.c:59
+#: ../src/gcompris/config.c:58
 msgid "Your system default"
 msgstr "الافتراضي في نظامك"
 
-#: ../src/gcompris/config.c:60
+#: ../src/gcompris/config.c:59
 msgid "Afrikaans"
 msgstr "أفريكاني"
 
-#: ../src/gcompris/config.c:61
+#: ../src/gcompris/config.c:60
 msgid "Amharic"
 msgstr "أثيوبي"
 
-#: ../src/gcompris/config.c:62
+#: ../src/gcompris/config.c:61
 msgid "Arabic"
 msgstr "عربي"
+
+#: ../src/gcompris/config.c:62
+msgid "Asturian"
+msgstr "أستوري"
 
 #: ../src/gcompris/config.c:63
 msgid "Turkish (Azerbaijan)"
@@ -2929,49 +2933,45 @@ msgid "Fast timer"
 msgstr "مؤقت سريع"
 
 #: ../src/gcompris/config.c:135
-msgid ""
-"<i>Use Gcompris administration module\n"
-"to filter boards</i>"
-msgstr ""
-"<i>استخدم وحدة إدارة «فهمت»\n"
-"لتصفية اللوحات</i>"
+msgid "Use Gcompris administration module to filter boards"
+msgstr "استخدم وحدة إدارة «فهمت» لتصفية اللوحات"
 
-#: ../src/gcompris/config.c:187
+#: ../src/gcompris/config.c:186
 msgid "GCompris Configuration"
 msgstr "إعدادات «فهمت»"
 
-#: ../src/gcompris/config.c:258
+#: ../src/gcompris/config.c:254
 msgid "Fullscreen"
 msgstr "ملء الشاشة"
 
-#: ../src/gcompris/config.c:284
+#: ../src/gcompris/config.c:280
 msgid "Music"
 msgstr "موسيقى"
 
-#: ../src/gcompris/config.c:310
+#: ../src/gcompris/config.c:306
 msgid "Effect"
 msgstr "التأثير"
 
-#: ../src/gcompris/config.c:335 ../src/gcompris/sugar.c:82
+#: ../src/gcompris/config.c:331 ../src/gcompris/sugar.c:82
 msgid "Zoom"
 msgstr "التقريب"
 
-#: ../src/gcompris/config.c:372
+#: ../src/gcompris/config.c:368
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "تعذر فتح مجلد المظاهر : %s"
 
-#: ../src/gcompris/config.c:403 ../src/gcompris/config.c:807
-#: ../src/gcompris/config.c:821
+#: ../src/gcompris/config.c:399 ../src/gcompris/config.c:757
+#: ../src/gcompris/config.c:771
 #, c-format
 msgid "Skin : %s"
 msgstr "المظهر : %s"
 
-#: ../src/gcompris/config.c:405
+#: ../src/gcompris/config.c:401
 msgid "SKINS NOT FOUND"
 msgstr "المظهر غير موجود"
 
-#: ../src/gcompris/config.c:487
+#: ../src/gcompris/config.c:482
 msgid "English (United State)"
 msgstr "إنجليزي (الولايات المتحدة)"
 
@@ -3003,39 +3003,39 @@ msgstr ""
 "الخروج وإرسال تقرير\n"
 "بالمشكلة إلى المبرمجين."
 
-#: ../src/gcompris/gcompris.c:151
+#: ../src/gcompris/gcompris.c:156
 msgid "run GCompris in fullscreen mode."
 msgstr "شغل «فهمت» في وضع ملء الشاشة."
 
-#: ../src/gcompris/gcompris.c:154
+#: ../src/gcompris/gcompris.c:159
 msgid "run GCompris in window mode."
 msgstr "شغل «فهمت» في وضع النافذة."
 
-#: ../src/gcompris/gcompris.c:157
+#: ../src/gcompris/gcompris.c:162
 msgid "run GCompris with sound enabled."
 msgstr "شغل «فهمت» مع تفعيل الصوت."
 
-#: ../src/gcompris/gcompris.c:160
+#: ../src/gcompris/gcompris.c:165
 msgid "run GCompris without sound."
 msgstr "شغل «فهمت» بدون صوت."
 
-#: ../src/gcompris/gcompris.c:163
+#: ../src/gcompris/gcompris.c:168
 msgid "run GCompris with the default gnome cursor."
 msgstr "شغل «فهمت» باستعمال مؤشر جنوم الافتراضي."
 
-#: ../src/gcompris/gcompris.c:166
+#: ../src/gcompris/gcompris.c:171
 msgid "display only activities with this difficulty level."
 msgstr "اعرض الأنشطة التي تتناسب فقط مع هذا المستوى الصعب."
 
-#: ../src/gcompris/gcompris.c:169
+#: ../src/gcompris/gcompris.c:174
 msgid "display debug informations on the console."
 msgstr "اعرض معلومات التنقيح في سطر الأوامر."
 
-#: ../src/gcompris/gcompris.c:172
+#: ../src/gcompris/gcompris.c:177
 msgid "Print the version of "
 msgstr "اطبع رقم إصدار "
 
-#: ../src/gcompris/gcompris.c:175
+#: ../src/gcompris/gcompris.c:180
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
@@ -3046,35 +3046,35 @@ msgstr ""
 "الموجودة فقط في المجلد reading، و l /strategy/connect4- سيمكنك من اللعب ب‍ "
 "'وصّل 4' فقط). استخدم '-l list' لسرد جميع النشاطات المتوفرة مع وصف لها."
 
-#: ../src/gcompris/gcompris.c:180
+#: ../src/gcompris/gcompris.c:185
 msgid "GCompris will find the data dir in this directory"
 msgstr "سيبحث «فهمت» عن دليل البيانات في هذا المجلد"
 
-#: ../src/gcompris/gcompris.c:183
+#: ../src/gcompris/gcompris.c:188
 msgid "GCompris will find the skins in this directory"
 msgstr "سيبحث «فهمت» عن المظاهر في هذا المجلد"
 
-#: ../src/gcompris/gcompris.c:186
+#: ../src/gcompris/gcompris.c:191
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "سيبحث «فهمت» عن ملحقات الأنشطة في هذا المجلد"
 
-#: ../src/gcompris/gcompris.c:189
+#: ../src/gcompris/gcompris.c:194
 msgid "GCompris will find the python activity in this directory"
 msgstr "سيبحث «فهمت» عن أنشطة بيثون في هذا المجلد"
 
-#: ../src/gcompris/gcompris.c:192
+#: ../src/gcompris/gcompris.c:197
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr "سيبحث «فهمت» عن ملفات الترجمة في هذا المجلد"
 
-#: ../src/gcompris/gcompris.c:195
+#: ../src/gcompris/gcompris.c:200
 msgid "GCompris will find the activities menu in this directory"
 msgstr "سيبحث «فهمت» عن قائمة الأنشطة في هذا المجلد"
 
-#: ../src/gcompris/gcompris.c:198
+#: ../src/gcompris/gcompris.c:203
 msgid "Run GCompris in administration and user-management mode"
 msgstr "شغل «فهمت» في نمط الإدارة"
 
-#: ../src/gcompris/gcompris.c:201
+#: ../src/gcompris/gcompris.c:206
 msgid ""
 "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
@@ -3082,26 +3082,26 @@ msgstr ""
 "استخدم قاعدة بيانات بديلة للملفات الشخصية [$HOME/.config/gcompris/"
 "gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:204
+#: ../src/gcompris/gcompris.c:209
 msgid "Create the alternate database for profiles"
 msgstr "أنشيء قاعدة بيانات بديلة للملفات الشخصية"
 
-#: ../src/gcompris/gcompris.c:207
+#: ../src/gcompris/gcompris.c:212
 msgid "Re-read XML Menus and store them in the database"
 msgstr "أعِد قراءة قوائم إكس إم إل وحفظها في قاعدة البيانات"
 
-#: ../src/gcompris/gcompris.c:210
+#: ../src/gcompris/gcompris.c:215
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr ""
 "حدد الملف الشخصي الذي تريد استخدامه. استخدم 'gompris -a' لإنشاء الملفات "
 "الشخصية"
 
-#: ../src/gcompris/gcompris.c:213
+#: ../src/gcompris/gcompris.c:218
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
 "اسرد كل الملفات الشخصية المتاحة. استخدم 'gcompris -a' لإنشاء الملفات الشخصية"
 
-#: ../src/gcompris/gcompris.c:216
+#: ../src/gcompris/gcompris.c:221
 msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
@@ -3109,23 +3109,23 @@ msgstr ""
 "مكان مجلد الإعدادات: [$HOME/.config/gcompris]. البديل هو تحديد "
 "$XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:219
+#: ../src/gcompris/gcompris.c:224
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "مكان مجلدات المستخدمين: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:222
+#: ../src/gcompris/gcompris.c:227
 msgid "Run the experimental activities"
 msgstr "شغل الأنشطة التجريبية"
 
-#: ../src/gcompris/gcompris.c:225
+#: ../src/gcompris/gcompris.c:230
 msgid "Disable the quit button"
 msgstr "عطِّل زر الخروج"
 
-#: ../src/gcompris/gcompris.c:228
+#: ../src/gcompris/gcompris.c:233
 msgid "Disable the config button"
 msgstr "عطِّل زر الإعدادات"
 
-#: ../src/gcompris/gcompris.c:231
+#: ../src/gcompris/gcompris.c:236
 msgid ""
 "GCompris will get images, sounds and activity data from this server if not "
 "found locally."
@@ -3133,7 +3133,7 @@ msgstr ""
 "«فهمت» سوف يستورد الصور والأصوات وبيانات الأنشطة من هذا الخادم إن لم تتواجد "
 "محليًا."
 
-#: ../src/gcompris/gcompris.c:234
+#: ../src/gcompris/gcompris.c:239
 msgid ""
 "Only when --server is provided, disable check for local resource first. Data "
 "are always taken from the web server."
@@ -3141,54 +3141,55 @@ msgstr ""
 "فقط عندما يتم تزويد server--، يُلغى التحقق من الموارد المحلية. ستُستورد "
 "البيانات دائمًا من خادم الوِب."
 
-#: ../src/gcompris/gcompris.c:238
+#: ../src/gcompris/gcompris.c:243
 msgid ""
 "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr ""
 "في نمط الخادم، حدد مجلد الذاكرة المخبأة المستخدم لتلافي التحميل المكرر."
 
-#: ../src/gcompris/gcompris.c:241
+#: ../src/gcompris/gcompris.c:246
 msgid ""
 "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr ""
 "نمط السحب والإفلات العام: عادي، نقرتان، كلاهما. النمط الافتراضي هو عادي."
 
-#: ../src/gcompris/gcompris.c:244
+#: ../src/gcompris/gcompris.c:249
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "لا تتجنب تشغيل عدة نسخ من «فهمت» في وقت واحد."
 
-#: ../src/gcompris/gcompris.c:906
+#: ../src/gcompris/gcompris.c:890
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
-"support its development, the Windows version provides only %d of the %d "
-"activities. You can get the full version for a small fee at\n"
+"support its development, this version provides only %d of the %d activities. "
+"You can get the full version for a small fee at\n"
 "<http://gcompris.net>\n"
 "The GNU/Linux version does not have this restriction. If you also believe "
 "that we should teach freedom to children, please consider using GNU/Linux. "
 "Get more information at FSF:\n"
 "<http://www.fsf.org/philosophy>"
 msgstr ""
-"«فهمت» برنامج حر موزع تحت رخصة جنو العمومية. من أجل دعم تطويره، توفر نسخة "
-"ويندوز %d من أصل %d نشاطًا فقط. للحصول على النسخة الكاملة، ينبغي دفع مبلغ "
-"زهيد في <http://gcompris.net>\n"
+"«فهمت» برنامج حر موزع تحت رخصة جنو العمومية. من أجل دعم تطويره، توفر هذه "
+"النسخة %d من أصل %d نشاطًا فقط. للحصول على النسخة الكاملة، ينبغي دفع مبلغ "
+"زهيد في\n"
+"<http://gcompris.net>\n"
 "نسخة جنو/لينكس لا تتضمن هذا الاستثناء. إن كنت تؤمن بأننا نستطيع تعليم الحرية "
 "إلى أبنائنا، استخدم جنو/لينكس. يمكنك الحصول على مزيد من المعلومات لدى مؤسسة "
 "البرمجيات الحرة:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1376
+#: ../src/gcompris/gcompris.c:1429
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
 msgstr "لن يبدأ «فهمت» لأن ملف القفل أحدث من %d ثوانِ.\n"
 
-#: ../src/gcompris/gcompris.c:1378
+#: ../src/gcompris/gcompris.c:1431
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "ملف القفل: %s\n"
 
-#: ../src/gcompris/gcompris.c:1492
+#: ../src/gcompris/gcompris.c:1545
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3202,34 +3203,34 @@ msgstr ""
 "لمزيد من المعلومات زر الصفحة http://gcompris.net \n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1595
+#: ../src/gcompris/gcompris.c:1648
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "استخدم l- للوصول إلى نشاط معين مباشرة.\n"
 
-#: ../src/gcompris/gcompris.c:1596
+#: ../src/gcompris/gcompris.c:1649
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "قائمة الأنشطة المتاحة: \n"
 
-#: ../src/gcompris/gcompris.c:1627
+#: ../src/gcompris/gcompris.c:1680
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "عدد الأنشطة: %d\n"
 
-#: ../src/gcompris/gcompris.c:1663
+#: ../src/gcompris/gcompris.c:1716
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "‏%s موجود لكن لا يمكن قراءته أو الكتابة به"
 
-#: ../src/gcompris/gcompris.c:1726
+#: ../src/gcompris/gcompris.c:1779
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
 "without network support!"
 msgstr "لا يمكن استخدام خيار ‪--server‬ لأن \"فهمت\" لم يُصرَّف مع دعم الشبكة"
 
-#: ../src/gcompris/gcompris.c:1780
+#: ../src/gcompris/gcompris.c:1833
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3238,34 +3239,52 @@ msgstr ""
 "خطأ: اللاحة '%s' غير موجودة. شغل 'gcompris --profile-list' لترى اللاحات "
 "المتاحة\n"
 
-#: ../src/gcompris/gcompris.c:1794
+#: ../src/gcompris/gcompris.c:1847
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "قائمة الملفات الشخصية المتاحة: \n"
 
-#: ../src/gcompris/gcompris_db.c:234
+#: ../src/gcompris/gcompris_db.c:309
 msgid "Unaffected"
 msgstr "غير متأثر"
 
-#: ../src/gcompris/gcompris_db.c:235
+#: ../src/gcompris/gcompris_db.c:310
 msgid "Users without a class"
 msgstr "مستخدمون لا ينتمون إلى أي صف"
 
-#: ../src/gcompris/help.c:176
+#: ../src/gcompris/gcompris_db.c:893
+#, c-format
+msgid ""
+"Loading activity from database:\n"
+"%s"
+msgstr ""
+"يحمل الأنشطة من قاعدة البيانات:\n"
+"%s"
+
+#: ../src/gcompris/help.c:181
 msgid "Prerequisite"
 msgstr "المتطلبات"
 
-#: ../src/gcompris/help.c:207
+#: ../src/gcompris/help.c:212
 msgid "Goal"
 msgstr "الهدف"
 
-#: ../src/gcompris/help.c:238
+#: ../src/gcompris/help.c:243
 msgid "Manual"
 msgstr "دليل المستخدم"
 
-#: ../src/gcompris/help.c:269
+#: ../src/gcompris/help.c:274
 msgid "Credit"
 msgstr "شكر وتقدير"
+
+#: ../src/gcompris/menu.c:583
+#, c-format
+msgid ""
+"Loading activity from file:\n"
+"%s"
+msgstr ""
+"يحمل الأنشطة من ملف:\n"
+"%s"
 
 #: ../src/gcompris/properties.c:497 ../src/gcompris/properties.c:504
 msgid "readme"
@@ -3311,11 +3330,12 @@ msgstr "أعِد التحميل"
 msgid "Settings"
 msgstr "الإعدادات"
 
-#: ../src/gcompris/sugar.c:84
+#. TRANSLATORS: Back as in previous
+#: ../src/gcompris/sugar.c:86
 msgid "Back"
 msgstr "السابق"
 
-#: ../src/gcompris/sugar.c:85
+#: ../src/gcompris/sugar.c:87
 msgid "Stop"
 msgstr "أوقِف"
 
@@ -3957,15 +3977,15 @@ msgstr "ابتثجحخدذرزسشصضطظعغفقكلمنهوي"
 #. the dict passed to the apply_callback
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
-#: ../src/gletters-activity/gletters.c:852
-#: ../src/imageid-activity/imageid.c:714 ../src/login-activity/login.py:476
-#: ../src/missing_letter-activity/missingletter.c:750
+#: ../src/gletters-activity/gletters.c:850
+#: ../src/imageid-activity/imageid.c:712 ../src/login-activity/login.py:479
+#: ../src/missing_letter-activity/missingletter.c:748
 #: ../src/pythontest-activity/pythontest.py:454
-#: ../src/readingh-activity/reading.c:880
+#: ../src/readingh-activity/reading.c:878
 #: ../src/scalesboard-activity/scale.c:1161
 #: ../src/smallnumbers-activity/smallnumbers.c:595
 #: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:768
+#: ../src/wordsgame-activity/wordsgame.c:827
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -3974,7 +3994,7 @@ msgstr ""
 "إعدادات <b>%s</b>\n"
 "للملف الشخصي <b>%s</b>"
 
-#: ../src/gletters-activity/gletters.c:881
+#: ../src/gletters-activity/gletters.c:879
 #: ../src/smallnumbers-activity/smallnumbers.c:614
 msgid "Enable sounds"
 msgstr "تفعيل الأصوات"
@@ -4247,25 +4267,25 @@ msgstr ""
 "فهو يملك 2 و 3 ضمن عائلته (2 × 3 = 6)، لذا 6 ليس عددًا أوليًا. استخدم مفاتيح "
 "الأسهم للتنقل في أرجاء اللوحة وتجنب العوائق. اضغط زر المسافة لالتهام العدد."
 
-#: ../src/guessnumber-activity/guessnumber.py:201
+#: ../src/guessnumber-activity/guessnumber.py:199
 #, python-format
 msgid "Guess a number between %d and %d"
 msgstr "خمن عددًا بين %d و %d"
 
-#: ../src/guessnumber-activity/guessnumber.py:301
+#: ../src/guessnumber-activity/guessnumber.py:299
 #, python-format
 msgid "Please enter a number between %d and %d"
 msgstr "أدخل رقمًا بين %d و %d"
 
-#: ../src/guessnumber-activity/guessnumber.py:306
+#: ../src/guessnumber-activity/guessnumber.py:304
 msgid "Out of range"
 msgstr "خارج الحدود"
 
-#: ../src/guessnumber-activity/guessnumber.py:312
+#: ../src/guessnumber-activity/guessnumber.py:310
 msgid "Too high"
 msgstr "كبير جدًا"
 
-#: ../src/guessnumber-activity/guessnumber.py:314
+#: ../src/guessnumber-activity/guessnumber.py:312
 msgid "Too low"
 msgstr "صغير جدًا"
 
@@ -4723,16 +4743,51 @@ msgstr ""
 "أنت ترى يدًا: هل هي يد يمنى أو يسرى؟ اضغط على الزر الأحمر على اليسار إن كانت "
 "يسرى، أو الأخضر على اليمين إن كانت يمنى."
 
-#: ../src/login-activity/login.py:98
+#: ../src/lightsoff-activity/lightsoff.py:442
+msgid ""
+"Switch off all the lights, I have to go to sleep.\n"
+"If you need help, click on me."
+msgstr ""
+"أطفئ كل الأنوار، علي أن أنام.\n"
+"إن أردت المساعدة فانقر علي."
+
+#: ../src/lightsoff-activity/lightsoff.xml.in.h:1
+msgid "Lights Off"
+msgstr "الأنوار مطفئة"
+
+#: ../src/lightsoff-activity/lightsoff.xml.in.h:2
+msgid "The aim is to switch off all the lights."
+msgstr "الهدف هو إطفاء كل الأنوار"
+
+#: ../src/lightsoff-activity/lightsoff.xml.in.h:3
+msgid ""
+"The effect of pressing a button is to toggle the state of that button, and "
+"of its immediate vertical and horizontal neighbours. The sun and the color "
+"of the sky depend on the number of clicks needed to solve the puzzle. If you "
+"click on Tux, the solution is shown."
+msgstr ""
+"النقر على زر يبدل حالته وحالة ما يليه رأسيا وأفقيا. تعتمد الشمس ولون السماء "
+"على عدد نقرات حل الأحجية. إذا نقرت على تكس فسيعرض الحل."
+
+#: ../src/lightsoff-activity/lightsoff.xml.in.h:4
+msgid ""
+"The solver algorithm described on haar.clara.co.uk is a valuable resource to "
+"know more about the Lights Off game: &lt;http://www.haar.clara.co.uk/Lights/"
+"solving.html&gt;"
+msgstr ""
+"خوازمية الحل الموصوفة في haar.clara.co.uk تعد مصدرا مهما لمعرفة المزيد عن "
+"لعبة الأنوار مطفئة: &lt;http://www.haar.clara.co.uk/Lights/solving.html&gt;"
+
+#: ../src/login-activity/login.py:101
 msgid "Profile: "
 msgstr "الملف الشخصي: "
 
-#: ../src/login-activity/login.py:231
+#: ../src/login-activity/login.py:234
 msgid "Login: "
 msgstr "اسم الولوج: "
 
 #. toggle box
-#: ../src/login-activity/login.py:491
+#: ../src/login-activity/login.py:494
 msgid "Enter login to log in"
 msgstr "أدخل اسم الولوم لتلِج"
 
@@ -5648,7 +5703,7 @@ msgstr ""
 msgid "Practice money usage including cents"
 msgstr "تعلم استعمال النقود بما في ذلك القطع المعدنية"
 
-#: ../src/mosaic-activity/mosaic.py:188
+#: ../src/mosaic-activity/mosaic.py:186
 msgid "Rebuild the same mosaic on the right area"
 msgstr "أعد بناء نفس الفسيفساء في المساحة اليمنى"
 
@@ -5766,11 +5821,11 @@ msgstr "المظلي"
 msgid "This board is game-oriented. No specific skills are needed to play."
 msgstr "هذه اللعبة من أجل المرح فقط. ليس هناك مهارات محددة مطلوبة للعب بها."
 
-#: ../src/penalty-activity/penalty.py:291
+#: ../src/penalty-activity/penalty.py:294
 msgid "Click on the balloon to place it again."
 msgstr "انقر على الكرة لتعيدها."
 
-#: ../src/penalty-activity/penalty.py:293
+#: ../src/penalty-activity/penalty.py:296
 msgid "Click twice on the balloon to shoot it."
 msgstr "انقر مرتين على الكرة لتسدد."
 
@@ -5792,11 +5847,11 @@ msgstr "انقر مرتين بالفأرة على الكرة لتسجل هدفا
 msgid "Penalty kick"
 msgstr "ضربة جزاء"
 
-#: ../src/photohunter-activity/photohunter.c:511
+#: ../src/photohunter-activity/photohunter.c:512
 msgid "Error: Absolutely no photo found in the data directory"
 msgstr "خطأ: لم يُعثر على أي صور في مجلد البيانات"
 
-#: ../src/photohunter-activity/photohunter.c:574
+#: ../src/photohunter-activity/photohunter.c:575
 msgid "Click on the differences between the two images."
 msgstr "انقر على الفرق بين الصورتين."
 
@@ -6018,7 +6073,7 @@ msgid "This board teaches basic colors."
 msgstr "هذه اللوحة مخصصة لتعلم الألوان البسيطة"
 
 #: ../src/readingh-activity/reading.c:220
-#: ../src/wordsgame-activity/wordsgame.c:207
+#: ../src/wordsgame-activity/wordsgame.c:211
 msgid ""
 "Error: We can't find\n"
 "a list of words to play this game.\n"
@@ -6037,6 +6092,10 @@ msgstr "معروضة على الشاشة"
 #: ../src/readingh-activity/reading.c:456
 msgid "We skip this level because there are not enough words in the list!"
 msgstr "تخطينا هذا المستوى لعدم وجود كلمات كافية في القائمة!"
+
+#: ../src/readingh-activity/reading.c:659
+msgid "Yes, I saw it"
+msgstr "نعم رأيتها"
 
 #: ../src/readingh-activity/reading.c:686
 msgid "No, it was not there"
@@ -6091,7 +6150,7 @@ msgstr "تدرب على القراءة في وقت محدود"
 msgid "Vertical-reading practice"
 msgstr "ممارسة القراءة العمودية"
 
-#: ../src/redraw-activity/redraw.py:875
+#: ../src/redraw-activity/redraw.py:881
 msgid "Coordinate"
 msgstr "إحداثية"
 
@@ -6432,14 +6491,14 @@ msgstr "إكمال اللغز يتطلب صبرًا ومقدرة ذهنية"
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:2
 msgid ""
-"For the first level with colored symbols, drag symbols on the left to their "
-"target position. For the higher levels, click on an empty square to give it "
-"the keyboard focus. Then enter a possible letter or number. GCompris will "
-"not let you enter invalid data."
+"For the first level with colored symbols, select a symbol on the left and "
+"click on its target position. For the higher levels, click on an empty "
+"square to give it the keyboard focus. Then enter a possible letter or "
+"number. GCompris will not let you enter invalid data."
 msgstr ""
-"في المرحلة الأولى مرحلة الرموز الملونة، اسحب الرموز من اليسار إلى مكانهم "
-"الهدف. للمراحل الأعلى، اضغط على مربع فارغ للكتابة فيه، ثم اكتب الرقم أو "
-"الحرف المطلوب. «فهمت» لن يسمح لك بكتابة بيانات غير صالحة."
+"في المرحلة الأولى من الرموز الملونة، اختر الرموز من اليسار ثم انقر على "
+"مكانهم الهدف. للمراحل الأعلى، اضغط على مربع فارغ للكتابة فيه، ثم اكتب الرقم "
+"أو الحرف المطلوب. «فهمت» لن يسمح لك بكتابة بيانات غير صالحة."
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:3
 msgid "Sudoku, place unique symbols in a square."
@@ -6845,9 +6904,6 @@ msgstr "أدخل الكلمات المتساقطة قبل أن تصل إلى ا�
 
 #~ msgid "The corresponding items have been skipped."
 #~ msgstr "العناصر التالية تم تجاوزها."
-
-#~ msgid "Yes, I saw it"
-#~ msgstr "نعم رأيتها"
 
 #~ msgid "Language:"
 #~ msgstr "اللغة:"
