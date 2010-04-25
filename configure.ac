@@ -568,6 +568,7 @@ docs/eu/Makefile
 docs/fr/Makefile
 gcompris-installer.nsi
 macosx/Info.plist
+macosx/InfoAdmin.plist
 po/Makefile.in
 src/Makefile
 src/administration-activity/Makefile
