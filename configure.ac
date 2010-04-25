@@ -1,6 +1,6 @@
 dnl Process this file with autoconf to produce a configure script.
 
-AC_INIT(gcompris, 9.3BETA2, http://gcompris.net)
+AC_INIT(gcompris, 9.3, http://gcompris.net)
 
 AM_INIT_AUTOMAKE(AC_PACKAGE_NAME, AC_PACKAGE_VERSION)
 AM_CONFIG_HEADER(config.h)
@@ -567,6 +567,7 @@ docs/Makefile
 docs/eu/Makefile
 docs/fr/Makefile
 gcompris-installer.nsi
+macosx/Info.plist
 po/Makefile.in
 src/Makefile
 src/administration-activity/Makefile
