@@ -558,7 +558,7 @@ static void mark_pieces()
 	      g_object_set (piece->misplaced, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
 	    done = TRUE;
 	  }
-      } while (!done && j++!=number_of_piece);
+      } while (!done && ++j!=number_of_piece);
     }
 
   /* Display the matermind information to the user */
