@@ -1,15 +1,16 @@
 # Bulgarian translation of gcompris po-file.
-# Copyright (C) 2005, 2006, 2007, 2008, 2009 Free Software Foundation, Inc
+# Copyright (C) 2005, 2006, 2007, 2008, 2009 Free Software Foundation, Inc.
+# Copyright (C) 2010 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gcompris package.
-# Yavor Doganov <yavor@gnu.org>, 2005, 2006, 2007, 2008, 2009.
-# Alexander Shopov <ash@kambanaria.org>, 2009.
+# Yavor Doganov <yavor@gnu.org>, 2005, 2006, 2007, 2008, 2009, 2010.
+# Alexander Shopov <ash@kambanaria.org>, 2009, 2010.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris gcomprixogoo\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-16 19:54+0200\n"
-"PO-Revision-Date: 2010-01-16 19:54+0200\n"
+"POT-Creation-Date: 2010-04-28 07:39+0300\n"
+"PO-Revision-Date: 2010-04-28 07:37+0300\n"
 "Last-Translator: Yavor Doganov <yavor@gnu.org>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
@@ -286,37 +287,73 @@ msgstr "Образователна серия GCompris"
 msgid "Multi-activity educational game"
 msgstr "Игра с много занимания с образователна цел"
 
-#: ../src/administration-activity/admin/board_list.py:91
+#: ../nsis_translations.desktop.in.h:1
+msgid ""
+"An instance of GCompris is currently running. Exit GCompris and then try "
+"again."
+msgstr "В момента GCompris е пуснат. Спрете го и пробвайте отново."
+
+#: ../nsis_translations.desktop.in.h:2
+msgid "The installer is already running."
+msgstr "Инсталаторът вече е пуснат."
+
+#: ../nsis_translations.desktop.in.h:3
+msgid "Visit the GCompris Web Site"
+msgstr "Посетете уеб сайта на GCompris"
+
+#: ../nsis_translations.desktop.in.h:4
+msgid "You do not have permission to uninstall this application."
+msgstr "Нямате права да деинсталирате тази програма."
+
+#: ../nsis_translations.desktop.in.h:5
+msgid ""
+"Your old GCompris directory is about to be deleted. Would you like to "
+"continue?$\\r$\\rNote: Any non-standard plugins that you may have installed "
+"will be deleted.$\\rGCompris user settings will not be affected."
+msgstr ""
+"Старата папка на GCompris ще бъде изтрита. Да се продължи ли?$\\r$"
+"\\rБележка: Ако сте инсталирали нестандартни приставки, те ще бъдат изтрити.$"
+"\\rПотребителските настройки на GCompris няма да бъдат засегнати."
+
+#: ../nsis_translations.desktop.in.h:6
+msgid ""
+"the uninstaller could not find registry entries for GCompris.$\\rIt is "
+"likely that another user installed this application."
+msgstr ""
+"Деинсталаторът не успя да намери записи в регистъра за GCompris.$\\rВероятно "
+"програмата е инсталирана от друг потребител."
+
+#: ../src/administration-activity/admin/board_list.py:88
 msgid "Select a profile:"
 msgstr "Изберете профил:"
 
-#: ../src/administration-activity/admin/board_list.py:148
+#: ../src/administration-activity/admin/board_list.py:145
 msgid "Filter"
 msgstr "Филтър"
 
-#: ../src/administration-activity/admin/board_list.py:153
+#: ../src/administration-activity/admin/board_list.py:150
 msgid "Select all"
 msgstr "Избор на всичко"
 
-#: ../src/administration-activity/admin/board_list.py:158
+#: ../src/administration-activity/admin/board_list.py:155
 msgid "Unselect all"
 msgstr "Премахване на избора"
 
-#: ../src/administration-activity/admin/board_list.py:163
+#: ../src/administration-activity/admin/board_list.py:160
 msgid "Locales"
 msgstr "Локали"
 
-#: ../src/administration-activity/admin/board_list.py:168
+#: ../src/administration-activity/admin/board_list.py:165
 msgid "Locales sound"
 msgstr "Локализирани звуци"
 
-#: ../src/administration-activity/admin/board_list.py:173
-#: ../src/administration-activity/admin/group_user_list.py:143
-#: ../src/administration-activity/admin/user_list.py:184
+#: ../src/administration-activity/admin/board_list.py:170
+#: ../src/administration-activity/admin/group_user_list.py:140
+#: ../src/administration-activity/admin/user_list.py:181
 msgid "Login"
 msgstr "Влизане"
 
-#: ../src/administration-activity/admin/board_list.py:245
+#: ../src/administration-activity/admin/board_list.py:242
 msgid "Main menu"
 msgstr "Главно меню"
 
@@ -325,20 +362,20 @@ msgstr "Главно меню"
 #. image = gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, gtk.ICON_SIZE_MENU)
 #. image.show()
 #. column_pref.set_widget(image)
-#: ../src/administration-activity/admin/board_list.py:311
+#: ../src/administration-activity/admin/board_list.py:308
 msgid "Active"
 msgstr "Активно"
 
-#: ../src/administration-activity/admin/board_list.py:312
+#: ../src/administration-activity/admin/board_list.py:309
 msgid "Board title"
 msgstr "Заглавие на заниманието"
 
-#: ../src/administration-activity/admin/board_list.py:425
+#: ../src/administration-activity/admin/board_list.py:422
 #, python-format
 msgid "Filter Boards difficulty for profile %s"
 msgstr "Филтриране на нива на трудност на заниманията за профил „%s“"
 
-#: ../src/administration-activity/admin/board_list.py:456
+#: ../src/administration-activity/admin/board_list.py:453
 #, python-format
 msgid ""
 "<span size='x-large'> Select the difficulty range \n"
@@ -347,8 +384,8 @@ msgstr ""
 "<span size='x-large'> Изберете ниво на трудност\n"
 "за профил <b>%s</b></span>"
 
-#: ../src/administration-activity/admin/board_list.py:645
-#: ../src/administration-activity/admin/board_list.py:657
+#: ../src/administration-activity/admin/board_list.py:642
+#: ../src/administration-activity/admin/board_list.py:654
 #: ../src/administration-activity/admin/wordlist.py:45
 msgid ""
 "<b>{config}</b> configuration\n"
@@ -358,299 +395,299 @@ msgstr ""
 " за профил <b>{profile}</b>"
 
 #. self.main_vbox.pack_start (label, False, False, 8)
-#: ../src/administration-activity/admin/board_list.py:663
-#: ../src/colors-activity/colors.c:181
+#: ../src/administration-activity/admin/board_list.py:660
+#: ../src/colors-activity/colors.c:180
 #: ../src/pythontest-activity/pythontest.py:518
-#: ../src/smallnumbers-activity/smallnumbers.c:598
+#: ../src/smallnumbers-activity/smallnumbers.c:616
 msgid "Select sound locale"
 msgstr "Изберете локал за звука"
 
-#: ../src/administration-activity/admin/class_edit.py:59
+#: ../src/administration-activity/admin/class_edit.py:56
 msgid "Editing a Class"
 msgstr "Редактиране на клас"
 
-#: ../src/administration-activity/admin/class_edit.py:64
+#: ../src/administration-activity/admin/class_edit.py:61
 msgid "Editing class: "
 msgstr "Редактиране на клас: "
 
-#: ../src/administration-activity/admin/class_edit.py:67
+#: ../src/administration-activity/admin/class_edit.py:64
 msgid "Editing a new class"
 msgstr "Редактиране на нов клас"
 
-#: ../src/administration-activity/admin/class_edit.py:89
+#: ../src/administration-activity/admin/class_edit.py:86
 msgid "Class:"
 msgstr "Клас:"
 
 #. FIXME: How to remove the default selection
 #. Label and Entry for the teacher name
-#: ../src/administration-activity/admin/class_edit.py:102
+#: ../src/administration-activity/admin/class_edit.py:99
 msgid "Teacher:"
 msgstr "Учител:"
 
-#: ../src/administration-activity/admin/class_edit.py:112
+#: ../src/administration-activity/admin/class_edit.py:109
 msgid "Assign all the users belonging to this class"
 msgstr "Избиране на всички потребители, принадлежащи към този клас"
 
-#: ../src/administration-activity/admin/class_edit.py:252
-#: ../src/administration-activity/admin/group_edit.py:264
-#: ../src/administration-activity/admin/group_user_list.py:153
-#: ../src/administration-activity/admin/user_list.py:194
+#: ../src/administration-activity/admin/class_edit.py:249
+#: ../src/administration-activity/admin/group_edit.py:261
+#: ../src/administration-activity/admin/group_user_list.py:150
+#: ../src/administration-activity/admin/user_list.py:191
 msgid "First Name"
 msgstr "Име"
 
-#: ../src/administration-activity/admin/class_edit.py:263
-#: ../src/administration-activity/admin/group_edit.py:275
-#: ../src/administration-activity/admin/group_user_list.py:163
-#: ../src/administration-activity/admin/user_list.py:204
+#: ../src/administration-activity/admin/class_edit.py:260
+#: ../src/administration-activity/admin/group_edit.py:272
+#: ../src/administration-activity/admin/group_user_list.py:160
+#: ../src/administration-activity/admin/user_list.py:201
 msgid "Last Name"
 msgstr "Фамилия"
 
-#: ../src/administration-activity/admin/class_edit.py:338
+#: ../src/administration-activity/admin/class_edit.py:335
 msgid "You need to provide at least a name for your class"
 msgstr "Необходимо е поне едно име на класа"
 
-#: ../src/administration-activity/admin/class_edit.py:383
+#: ../src/administration-activity/admin/class_edit.py:380
 msgid "There is already a class with this name"
 msgstr "Вече има клас с това име"
 
-#: ../src/administration-activity/admin/class_list.py:168
-#: ../src/administration-activity/admin/profile_edit.py:269
-#: ../src/administration-activity/admin/profile_group_list.py:143
+#: ../src/administration-activity/admin/class_list.py:165
+#: ../src/administration-activity/admin/profile_edit.py:266
+#: ../src/administration-activity/admin/profile_group_list.py:140
 msgid "Class"
 msgstr "Клас"
 
-#: ../src/administration-activity/admin/class_list.py:178
+#: ../src/administration-activity/admin/class_list.py:175
 msgid "Teacher"
 msgstr "Учител"
 
-#: ../src/administration-activity/admin/group_edit.py:59
+#: ../src/administration-activity/admin/group_edit.py:56
 msgid "Editing a Group"
 msgstr "Редактиране на група"
 
-#: ../src/administration-activity/admin/group_edit.py:65
+#: ../src/administration-activity/admin/group_edit.py:62
 msgid "Editing group: "
 msgstr "Редактиране на група: "
 
-#: ../src/administration-activity/admin/group_edit.py:66
+#: ../src/administration-activity/admin/group_edit.py:63
 msgid " for class: "
 msgstr " за клас: "
 
-#: ../src/administration-activity/admin/group_edit.py:69
+#: ../src/administration-activity/admin/group_edit.py:66
 msgid "Editing a new group"
 msgstr "Редактиране на нова група"
 
-#: ../src/administration-activity/admin/group_edit.py:89
+#: ../src/administration-activity/admin/group_edit.py:86
 msgid "Group:"
 msgstr "Група:"
 
 #. FIXME: How to remove the selection
 #. Label and Entry for the first name
-#: ../src/administration-activity/admin/group_edit.py:101
-#: ../src/administration-activity/admin/profile_edit.py:98
+#: ../src/administration-activity/admin/group_edit.py:98
+#: ../src/administration-activity/admin/profile_edit.py:95
 msgid "Description:"
 msgstr "Описание:"
 
 #. Top message gives instructions
-#: ../src/administration-activity/admin/group_edit.py:112
+#: ../src/administration-activity/admin/group_edit.py:109
 msgid "Assign all the users belonging to this group"
 msgstr "Избиране на всички потребители, принадлежащи към тази група"
 
-#: ../src/administration-activity/admin/group_edit.py:358
+#: ../src/administration-activity/admin/group_edit.py:355
 msgid "You need to provide at least a name for your group"
 msgstr "Необходимо е поне едно име на групата"
 
-#: ../src/administration-activity/admin/group_edit.py:372
+#: ../src/administration-activity/admin/group_edit.py:369
 msgid "There is already a group with this name"
 msgstr "Вече има група с това име"
 
-#: ../src/administration-activity/admin/group_list.py:85
+#: ../src/administration-activity/admin/group_list.py:82
 msgid "Select a class:"
 msgstr "Изберете клас:"
 
-#: ../src/administration-activity/admin/group_list.py:213
-#: ../src/administration-activity/admin/profile_edit.py:279
-#: ../src/administration-activity/admin/profile_group_list.py:153
+#: ../src/administration-activity/admin/group_list.py:210
+#: ../src/administration-activity/admin/profile_edit.py:276
+#: ../src/administration-activity/admin/profile_group_list.py:150
 msgid "Group"
 msgstr "Група"
 
-#: ../src/administration-activity/admin/group_list.py:224
-#: ../src/administration-activity/admin/profile_edit.py:289
-#: ../src/administration-activity/admin/profile_group_list.py:163
-#: ../src/administration-activity/admin/profile_list.py:197
+#: ../src/administration-activity/admin/group_list.py:221
+#: ../src/administration-activity/admin/profile_edit.py:286
+#: ../src/administration-activity/admin/profile_group_list.py:160
+#: ../src/administration-activity/admin/profile_list.py:194
 msgid "Description"
 msgstr "Описание"
 
-#: ../src/administration-activity/admin/group_list.py:321
+#: ../src/administration-activity/admin/group_list.py:318
 msgid "You must first select a group in the list"
 msgstr "Трябва да изберете група от списъка"
 
-#: ../src/administration-activity/admin/group_user_list.py:173
-#: ../src/administration-activity/admin/user_list.py:214
+#: ../src/administration-activity/admin/group_user_list.py:170
+#: ../src/administration-activity/admin/user_list.py:211
 msgid "Birth Date"
 msgstr "Дата на раждане"
 
-#: ../src/administration-activity/admin/log_list.py:94
+#: ../src/administration-activity/admin/log_list.py:91
 msgid "Select a user:"
 msgstr "Изберете потребител:"
 
 #. Insert the ALL option (HACK, use the user_id -2 to indicate ALL)
-#: ../src/administration-activity/admin/log_list.py:105
+#: ../src/administration-activity/admin/log_list.py:102
 msgid "All users"
 msgstr "Всички потребители"
 
-#: ../src/administration-activity/admin/log_list.py:111
-#: ../src/administration-activity/admin/log_list.py:298
-#: ../src/administration-activity/admin/profile_list.py:120
+#: ../src/administration-activity/admin/log_list.py:108
+#: ../src/administration-activity/admin/log_list.py:295
+#: ../src/administration-activity/admin/profile_list.py:117
 #: ../src/gcompris/board_config_combo.c:125
 #: ../src/gcompris/board_config_combo.c:398
 msgid "Default"
 msgstr "По подразбиране"
 
 #. Reset buttons
-#: ../src/administration-activity/admin/log_list.py:165
+#: ../src/administration-activity/admin/log_list.py:162
 msgid "Reset"
 msgstr "Анулиране"
 
-#: ../src/administration-activity/admin/log_list.py:219
+#: ../src/administration-activity/admin/log_list.py:216
 msgid "Date"
 msgstr "Дата"
 
-#: ../src/administration-activity/admin/log_list.py:229
+#: ../src/administration-activity/admin/log_list.py:226
 msgid "User"
 msgstr "Потребител"
 
-#: ../src/administration-activity/admin/log_list.py:239
+#: ../src/administration-activity/admin/log_list.py:236
 msgid "Board"
 msgstr "Занимание"
 
-#: ../src/administration-activity/admin/log_list.py:249
-#: ../src/redraw-activity/redraw.py:328
+#: ../src/administration-activity/admin/log_list.py:246
+#: ../src/redraw-activity/redraw.py:339
 msgid "Level"
 msgstr "Ниво"
 
-#: ../src/administration-activity/admin/log_list.py:259
+#: ../src/administration-activity/admin/log_list.py:256
 msgid "Sublevel"
 msgstr "Под-ниво"
 
-#: ../src/administration-activity/admin/log_list.py:269
+#: ../src/administration-activity/admin/log_list.py:266
 msgid "Duration"
 msgstr "Времетраене"
 
-#: ../src/administration-activity/admin/log_list.py:279
+#: ../src/administration-activity/admin/log_list.py:276
 msgid "Status"
 msgstr "Състояние"
 
-#: ../src/administration-activity/admin/module_boards.py:41
-#: ../src/administration-activity/admin/module_boards.py:69
+#: ../src/administration-activity/admin/module_boards.py:49
+#: ../src/administration-activity/admin/module_boards.py:77
 msgid "Boards"
 msgstr "Занимания"
 
-#: ../src/administration-activity/admin/module_groups.py:38
-#: ../src/administration-activity/admin/module_groups.py:61
+#: ../src/administration-activity/admin/module_groups.py:46
+#: ../src/administration-activity/admin/module_groups.py:69
 msgid "Groups"
 msgstr "Групи"
 
-#: ../src/administration-activity/admin/module_profiles.py:39
-#: ../src/administration-activity/admin/module_profiles.py:60
+#: ../src/administration-activity/admin/module_profiles.py:47
+#: ../src/administration-activity/admin/module_profiles.py:68
 msgid "Profiles"
 msgstr "Профили"
 
-#: ../src/administration-activity/admin/module_reports.py:40
-#: ../src/administration-activity/admin/module_reports.py:69
+#: ../src/administration-activity/admin/module_reports.py:48
+#: ../src/administration-activity/admin/module_reports.py:77
 msgid "Reports"
 msgstr "Доклади"
 
-#: ../src/administration-activity/admin/module_reports.py:69
-#: ../src/administration-activity/admin/module_users.py:39
-#: ../src/administration-activity/admin/module_users.py:61
+#: ../src/administration-activity/admin/module_reports.py:77
+#: ../src/administration-activity/admin/module_users.py:47
+#: ../src/administration-activity/admin/module_users.py:69
 msgid "Users"
 msgstr "Потребители"
 
-#: ../src/administration-activity/admin/module_users.py:39
-#: ../src/administration-activity/admin/module_users.py:61
+#: ../src/administration-activity/admin/module_users.py:47
+#: ../src/administration-activity/admin/module_users.py:69
 msgid "Classes"
 msgstr "Класове"
 
-#: ../src/administration-activity/admin/profile_edit.py:59
+#: ../src/administration-activity/admin/profile_edit.py:56
 msgid "Editing a Profile"
 msgstr "Редактиране на профил"
 
-#: ../src/administration-activity/admin/profile_edit.py:64
+#: ../src/administration-activity/admin/profile_edit.py:61
 msgid "Editing profile: "
 msgstr "Редактиране на профил: "
 
-#: ../src/administration-activity/admin/profile_edit.py:67
+#: ../src/administration-activity/admin/profile_edit.py:64
 msgid "Editing a new profile"
 msgstr "Редактиране на нов профил"
 
-#: ../src/administration-activity/admin/profile_edit.py:86
+#: ../src/administration-activity/admin/profile_edit.py:83
 msgid "Profile:"
 msgstr "Профил:"
 
 #. Top message gives instructions
-#: ../src/administration-activity/admin/profile_edit.py:109
+#: ../src/administration-activity/admin/profile_edit.py:106
 msgid "Assign all the groups belonging to this profile"
 msgstr "Избиране на всички групи, принадлежащи към този профил"
 
-#: ../src/administration-activity/admin/profile_edit.py:377
+#: ../src/administration-activity/admin/profile_edit.py:374
 msgid "You need to provide at least a name for your profile"
 msgstr "Трябва да укажете име на профила"
 
-#: ../src/administration-activity/admin/profile_edit.py:399
+#: ../src/administration-activity/admin/profile_edit.py:396
 msgid "There is already a profile with this name"
 msgstr "Вече има профил с това име"
 
-#: ../src/administration-activity/admin/profile_list.py:187
+#: ../src/administration-activity/admin/profile_list.py:184
 msgid "Profile"
 msgstr "Профил"
 
-#: ../src/administration-activity/admin/profile_list.py:314
+#: ../src/administration-activity/admin/profile_list.py:311
 msgid "[Default]"
 msgstr "[По подразбиране]"
 
-#: ../src/administration-activity/admin/user_edit.py:50
+#: ../src/administration-activity/admin/user_edit.py:47
 msgid "Editing a User"
 msgstr "Редактиране на потребител"
 
-#: ../src/administration-activity/admin/user_edit.py:55
+#: ../src/administration-activity/admin/user_edit.py:52
 msgid "Editing a User "
 msgstr "Редактиране на потребител "
 
-#: ../src/administration-activity/admin/user_edit.py:61
+#: ../src/administration-activity/admin/user_edit.py:58
 msgid "Editing a new user"
 msgstr "Редактиране на нов потребител"
 
-#: ../src/administration-activity/admin/user_edit.py:78
+#: ../src/administration-activity/admin/user_edit.py:75
 msgid "Login:"
 msgstr "Влизане:"
 
 #. FIXME: How to remove the selection
 #. Label and Entry for the first name
-#: ../src/administration-activity/admin/user_edit.py:89
+#: ../src/administration-activity/admin/user_edit.py:86
 msgid "First name:"
 msgstr "Име:"
 
 #. Label and Entry for the last name
-#: ../src/administration-activity/admin/user_edit.py:98
+#: ../src/administration-activity/admin/user_edit.py:95
 msgid "Last name:"
 msgstr "Фамилия:"
 
 #. Label and Entry for the birth date
-#: ../src/administration-activity/admin/user_edit.py:107
+#: ../src/administration-activity/admin/user_edit.py:104
 msgid "Birth date:"
 msgstr "Дата на раждане:"
 
-#: ../src/administration-activity/admin/user_edit.py:159
+#: ../src/administration-activity/admin/user_edit.py:156
 msgid ""
 "You need to provide at least a login, first name and last name for your users"
 msgstr ""
 "Трябва да укажете поне едно потребителско име, име и фамилия за потребителите"
 
-#: ../src/administration-activity/admin/user_edit.py:176
+#: ../src/administration-activity/admin/user_edit.py:173
 msgid "There is already a user with this login"
 msgstr "Вече има потребител с такова потребителско име"
 
-#: ../src/administration-activity/admin/user_list.py:288
+#: ../src/administration-activity/admin/user_list.py:285
 msgid ""
 "To import a user list from a file, first select a class.\n"
 "FILE FORMAT: Your file must be formatted like this:\n"
@@ -662,7 +699,7 @@ msgstr ""
 "Потребителско име;Име;Фамилия;Дата на раждане\n"
 "Сепараторът се открива автоматично и трябва да е „,“, „;“ или „:“"
 
-#: ../src/administration-activity/admin/user_list.py:366
+#: ../src/administration-activity/admin/user_list.py:363
 #, python-format
 msgid ""
 "One or more logins are not unique !\n"
@@ -752,6 +789,7 @@ msgstr "Натиснете върху правилно оцветената ку
 msgid "Learn to recognize unusual colors."
 msgstr "Научете се да разпознавате необичайни цветове."
 
+# FIXME, TODO: Цветовете никак не са наред.
 #: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:1
 msgid "almond"
 msgstr "бадемово"
@@ -1036,11 +1074,11 @@ msgstr "веронез"
 
 #. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
 #: ../src/algebra_by-activity/algebra.c:186
-#: ../src/memory-activity/memory.c:945
+#: ../src/memory-activity/memory.c:946
 msgid "+-×÷"
 msgstr "+-.:"
 
-#: ../src/algebra_by-activity/algebra.c:408
+#: ../src/algebra_by-activity/algebra.c:411
 #: ../src/readingh-activity/reading.c:621
 msgid "I am Ready"
 msgstr "Готов(а) съм"
@@ -1076,6 +1114,7 @@ msgstr "Упражнения по умножение"
 
 #: ../src/algebra_guesscount-activity/algebra_guesscount.xml.in.h:1
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:1
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:1
 msgid ""
 "Animal pictures come from the Animal Photography Page of Ralf Schmode "
 "(http://schmode.net/). Ralf has kindly permitted Gcompris to include his "
@@ -1188,6 +1227,84 @@ msgstr "Движение и натискане с мишката"
 #: ../src/algorithm-activity/algorithm.xml.in.h:5
 msgid "algorithm"
 msgstr "Алгоритъм"
+
+#: ../src/anim-activity/Color.py:86
+msgid "Fill color..."
+msgstr "Запълване с цвят…"
+
+#: ../src/anim-activity/Color.py:98
+msgid "Stroke color..."
+msgstr "Цвят на рамката…"
+
+#: ../src/anim-activity/anim.py:103
+msgid "Save..."
+msgstr "Запазване…"
+
+#: ../src/anim-activity/anim.py:109
+msgid "Load..."
+msgstr "Зареждане…"
+
+#: ../src/anim-activity/anim.py:115
+msgid "Run the animation"
+msgstr "Показване на анимацията"
+
+#: ../src/anim-activity/anim.py:121
+msgid "Select"
+msgstr "Избор"
+
+#: ../src/anim-activity/anim.py:127
+msgid "Rectangle"
+msgstr "Правоъгълник"
+
+#: ../src/anim-activity/anim.py:133
+msgid "Filled rectangle"
+msgstr "Запълнен правоъгълник"
+
+#: ../src/anim-activity/anim.py:139
+msgid "Circle"
+msgstr "Кръг"
+
+#: ../src/anim-activity/anim.py:145
+msgid "Filled circle"
+msgstr "Запълнен кръг"
+
+#: ../src/anim-activity/anim.py:151
+msgid "Line"
+msgstr "Линия"
+
+#: ../src/anim-activity/anim.py:157
+#: ../src/wordprocessor-activity/wordprocessor.c:87
+#: ../src/wordprocessor-activity/wordprocessor.c:426
+msgid "Text"
+msgstr "Текст"
+
+#: ../src/anim-activity/anim.py:163
+msgid "Image..."
+msgstr "Изображение…"
+
+#: ../src/anim-activity/anim.py:169
+msgid "Fill"
+msgstr "Запълване"
+
+#: ../src/anim-activity/anim.py:175
+msgid "Delete"
+msgstr "Изтриване"
+
+#: ../src/anim-activity/anim.py:181
+msgid "Flip"
+msgstr "Преобръщане"
+
+#: ../src/anim-activity/anim.py:187
+msgid "Raise"
+msgstr "Повдигане"
+
+#: ../src/anim-activity/anim.py:193
+msgid "Lower"
+msgstr "Снижаване"
+
+#: ../src/anim-activity/anim.py:753
+msgid "Current frame"
+msgstr "Текуща рамка"
 
 #: ../src/anim-activity/anim.xml.in.h:1
 msgid "Create a drawing or an animation"
@@ -1382,9 +1499,9 @@ msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr ""
 "Управление на мишката: движение, изтегляне и пускане. Обработване на връзки."
 
-#: ../src/babymatch-activity/shapegame.c:1849
-#: ../src/click_on_letter-activity/click_on_letter.c:625
-#: ../src/colors-activity/colors.c:169
+#: ../src/babymatch-activity/shapegame.c:1835
+#: ../src/click_on_letter-activity/click_on_letter.c:624
+#: ../src/colors-activity/colors.c:168
 #, c-format
 msgid ""
 "<b>%1$s</b> configuration\n"
@@ -1450,15 +1567,16 @@ msgstr "Винсент ван Гог, „Спалня в Арл“ — 1888 г."
 msgid "Ambrosius Bosschaert the Elder, Flower Still Life - 1614"
 msgstr "Амброзий Бошар Стари, „Натюрморт с цветя“ — 1614 г."
 
-#: ../src/ballcatch-activity/ballcatch.xml.in.h:1
-msgid "Make the ball go to Tux"
-msgstr "Ритнете топката към Тъкс"
-
+#: ../src/ballcatch-activity/ballcatch.py:75
 #: ../src/ballcatch-activity/ballcatch.xml.in.h:2
 msgid ""
 "Press the two shift keys at the same time, to make the ball go in a straight "
 "line."
 msgstr "За да хвърлите топката, натиснете заедно двата клавиша „Shift“."
+
+#: ../src/ballcatch-activity/ballcatch.xml.in.h:1
+msgid "Make the ball go to Tux"
+msgstr "Ритнете топката към Тъкс"
 
 #: ../src/bargame-activity/bargame.xml.in.h:1
 msgid "Brain"
@@ -1485,7 +1603,7 @@ msgstr ""
 msgid "bar game"
 msgstr "Игра с изключване"
 
-#: ../src/billard-activity/billard.c:89 ../src/erase-activity/erase.c:122
+#: ../src/billard-activity/billard.c:89 ../src/erase-activity/erase.c:124
 #: ../src/erase-activity/erase.xml.in.h:4
 msgid "Move the mouse"
 msgstr "Движете мишката"
@@ -1507,6 +1625,7 @@ msgstr "Вкарайте топката в целта"
 #: ../src/connect4-activity/connect4.xml.in.h:6
 #: ../src/erase-activity/erase.xml.in.h:3
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:6
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:6
 #: ../src/fifteen-activity/fifteen.xml.in.h:2
 #: ../src/hanoi-activity/hanoi.xml.in.h:3
 #: ../src/memory-activity/memory.xml.in.h:4
@@ -1535,15 +1654,15 @@ msgstr "Втора версия на главното меню"
 msgid "Select a Board"
 msgstr "Изберете игра"
 
-#: ../src/boards/python.c:63 ../src/boards/python.c:87
+#: ../src/boards/python.c:64 ../src/boards/python.c:88
 msgid "Python Board"
 msgstr "Дъска Питон"
 
-#: ../src/boards/python.c:64
+#: ../src/boards/python.c:65
 msgid "Special board that embeds python into GCompris."
 msgstr "Специална дъска, която вгражда Питон в GCompris."
 
-#: ../src/boards/python.c:88
+#: ../src/boards/python.c:89
 msgid "Special board that embeds python into gcompris."
 msgstr "Специална дъска, която вгражда Питон в GCompris."
 
@@ -1630,7 +1749,7 @@ msgstr ""
 "и всяка програма GCompris, която изпълнява това занимание на друга машина, "
 "ще получи и покаже вашето съобщение."
 
-#: ../src/chess_computer-activity/chess.c:223
+#: ../src/chess_computer-activity/chess.c:222
 msgid "Error: The external program gnuchess died unexpectedly"
 msgstr "Грешка: Външната програма „gnuchess“ загина неочаквано"
 
@@ -1661,20 +1780,20 @@ msgstr "Шах на белите"
 msgid "Black checks"
 msgstr "Шах на черните"
 
-#: ../src/chess_computer-activity/chess.c:1184
+#: ../src/chess_computer-activity/chess.c:1193
 msgid "Black mates"
 msgstr "Мат на черните"
 
-#: ../src/chess_computer-activity/chess.c:1189
+#: ../src/chess_computer-activity/chess.c:1198
 msgid "White mates"
 msgstr "Мат на белите"
 
-#: ../src/chess_computer-activity/chess.c:1194 ../src/gcompris/bonus.c:195
-#: ../src/gcompris/bonus.c:204
+#: ../src/chess_computer-activity/chess.c:1203 ../src/gcompris/bonus.c:191
+#: ../src/gcompris/bonus.c:200
 msgid "Drawn game"
 msgstr "Равна игра"
 
-#: ../src/chess_computer-activity/chess.c:1222
+#: ../src/chess_computer-activity/chess.c:1229
 msgid "Error: The external program gnuchess died unexpectingly"
 msgstr "Грешка: Външната програма „gnuchess“ загина неочаквано"
 
@@ -1910,7 +2029,7 @@ msgid "Cars"
 msgstr "Автомобили"
 
 #: ../src/click_on_letter-activity/click_on_letter.c:271
-#: ../src/memory-activity/memory.c:905
+#: ../src/memory-activity/memory.c:906
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -1926,7 +2045,7 @@ msgstr ""
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
 #: ../src/click_on_letter-activity/click_on_letter.c:276
-#: ../src/gletters-activity/gletters.c:229 ../src/memory-activity/memory.c:934
+#: ../src/gletters-activity/gletters.c:229 ../src/memory-activity/memory.c:935
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "абвгдежзийклмнопрстуфхцчшщъьюя"
 
@@ -1951,8 +2070,8 @@ msgstr ""
 "съжаление."
 
 #. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:648
-#: ../src/gletters-activity/gletters.c:885 ../src/login-activity/login.py:481
+#: ../src/click_on_letter-activity/click_on_letter.c:647
+#: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:484
 msgid "Uppercase only text"
 msgstr "Само текст с главни букви"
 
@@ -2192,6 +2311,7 @@ msgstr "Карайте крана и копирайте образеца"
 #: ../src/crane-activity/crane.xml.in.h:3
 #: ../src/erase-activity/erase.xml.in.h:2
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:5
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:5
 #: ../src/penalty-activity/penalty.xml.in.h:3
 msgid "Motor-coordination"
 msgstr "Двигателна координация"
@@ -2377,7 +2497,7 @@ msgstr ""
 "обекта, за който искате да отговорите, в долната дясна зона. Въведете "
 "отговора с клавиатурата и натиснете бутона „Да“ или клавиша „Enter“."
 
-#: ../src/erase-activity/erase.c:123 ../src/erase-activity/erase.xml.in.h:5
+#: ../src/erase-activity/erase.c:125 ../src/erase-activity/erase.xml.in.h:5
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Движете мишката, за да изтриете зоната и разкриете фона"
 
@@ -2408,6 +2528,20 @@ msgstr ""
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:4
 msgid "Click the mouse to erase the area and discover the background"
 msgstr "Натиснете с мишката, за да изтриете зоната и разкриете фона"
+
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
+msgid "Double click the mouse"
+msgstr "Двойно натискане с мишката"
+
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:3
+msgid "Double click the mouse on rectangles until all the blocks disappear."
+msgstr ""
+"Натискайте два пъти с мишката по правоъгълниците, докато всички плочки "
+"изчезнат."
+
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:4
+msgid "Double click the mouse to erase the area and discover the background"
+msgstr "Натиснете два пъти с мишката, за да изтриете зоната и разкриете фона"
 
 #: ../src/fifteen-activity/fifteen.xml.in.h:1
 msgid ""
@@ -2493,29 +2627,29 @@ msgstr ""
 "Този софтуер е пакет на GNU и се разпространява под условията на Общия "
 "публичен лиценз на GNU (GNU GPL)"
 
-#: ../src/gcompris/about.c:220 ../src/gcompris/config.c:447
-#: ../src/gcompris/dialog.c:103 ../src/gcompris/help.c:354
+#: ../src/gcompris/about.c:220 ../src/gcompris/config.c:442
+#: ../src/gcompris/dialog.c:103 ../src/gcompris/help.c:359
 #: ../src/gcompris/images_selector.c:307
 msgid "OK"
 msgstr "Да"
 
-#: ../src/gcompris/bar.c:653
+#: ../src/gcompris/bar.c:688
 msgid "GCompris confirmation"
 msgstr "Потвърждение на GCompris"
 
-#: ../src/gcompris/bar.c:654
+#: ../src/gcompris/bar.c:689
 msgid "Are you sure you want to quit?"
 msgstr "Сигурни ли сте, че искате да спрете програмата?"
 
-#: ../src/gcompris/bar.c:655
+#: ../src/gcompris/bar.c:690
 msgid "Yes, I am sure!"
 msgstr "Да, сигурен/сигурна съм!"
 
-#: ../src/gcompris/bar.c:656
+#: ../src/gcompris/bar.c:691
 msgid "No, I want to keep going"
 msgstr "Не, искам да продължа да се занимавам"
 
-#: ../src/gcompris/board.c:194
+#: ../src/gcompris/board.c:197
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr ""
 "Не се поддържа динамично зареждане на модули, GCompris не може да се "
@@ -2576,21 +2710,25 @@ msgstr "Избор на ниво"
 msgid "Back to default"
 msgstr "Връщане по подразбиране"
 
-#: ../src/gcompris/config.c:59
+#: ../src/gcompris/config.c:58
 msgid "Your system default"
 msgstr "По подразбиране за системата"
 
-#: ../src/gcompris/config.c:60
+#: ../src/gcompris/config.c:59
 msgid "Afrikaans"
 msgstr "африкаанс"
 
-#: ../src/gcompris/config.c:61
+#: ../src/gcompris/config.c:60
 msgid "Amharic"
 msgstr "амхарски"
 
-#: ../src/gcompris/config.c:62
+#: ../src/gcompris/config.c:61
 msgid "Arabic"
 msgstr "арабски"
+
+#: ../src/gcompris/config.c:62
+msgid "Asturian"
+msgstr "астурски"
 
 #: ../src/gcompris/config.c:63
 msgid "Turkish (Azerbaijan)"
@@ -2854,49 +2992,46 @@ msgid "Fast timer"
 msgstr "Бърз хронометър"
 
 #: ../src/gcompris/config.c:135
-msgid ""
-"<i>Use Gcompris administration module\n"
-"to filter boards</i>"
+msgid "Use Gcompris administration module to filter boards"
 msgstr ""
-"<i>Използвайте административния модул на GCompris\n"
-"за да филтрирате занимания</i>"
+"Използвайте административния модул на GCompris, за да филтрирате занимания"
 
-#: ../src/gcompris/config.c:187
+#: ../src/gcompris/config.c:186
 msgid "GCompris Configuration"
 msgstr "Настройки на GCompris"
 
-#: ../src/gcompris/config.c:258
+#: ../src/gcompris/config.c:254
 msgid "Fullscreen"
 msgstr "На цял екран"
 
-#: ../src/gcompris/config.c:284
+#: ../src/gcompris/config.c:280
 msgid "Music"
 msgstr "Музика"
 
-#: ../src/gcompris/config.c:310
+#: ../src/gcompris/config.c:306
 msgid "Effect"
 msgstr "Ефекти"
 
-#: ../src/gcompris/config.c:335
+#: ../src/gcompris/config.c:331 ../src/gcompris/sugar.c:82
 msgid "Zoom"
 msgstr "Мащаб"
 
-#: ../src/gcompris/config.c:372
+#: ../src/gcompris/config.c:368
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Не може да бъде отворена папка с тема: %s"
 
-#: ../src/gcompris/config.c:403 ../src/gcompris/config.c:807
-#: ../src/gcompris/config.c:821
+#: ../src/gcompris/config.c:399 ../src/gcompris/config.c:757
+#: ../src/gcompris/config.c:771
 #, c-format
 msgid "Skin : %s"
 msgstr "Тема : %s"
 
-#: ../src/gcompris/config.c:405
+#: ../src/gcompris/config.c:401
 msgid "SKINS NOT FOUND"
 msgstr "ТЕМИТЕ НЕ СА ОТКРИТИ"
 
-#: ../src/gcompris/config.c:487
+#: ../src/gcompris/config.c:482
 msgid "English (United State)"
 msgstr "американски английски"
 
@@ -2928,41 +3063,41 @@ msgstr ""
 "Изход и докладване на\n"
 "проблема на авторите."
 
-#: ../src/gcompris/gcompris.c:151
+#: ../src/gcompris/gcompris.c:156
 msgid "run GCompris in fullscreen mode."
 msgstr "стартиране на GCompris на цял екран."
 
-#: ../src/gcompris/gcompris.c:154
+#: ../src/gcompris/gcompris.c:159
 msgid "run GCompris in window mode."
 msgstr "стартиране на GCompris в прозорец."
 
-#: ../src/gcompris/gcompris.c:157
+#: ../src/gcompris/gcompris.c:162
 msgid "run GCompris with sound enabled."
 msgstr "стартиране на GCompris с включен звук."
 
-#: ../src/gcompris/gcompris.c:160
+#: ../src/gcompris/gcompris.c:165
 msgid "run GCompris without sound."
 msgstr "стартиране на GCompris без звук."
 
-#: ../src/gcompris/gcompris.c:163
+#: ../src/gcompris/gcompris.c:168
 msgid "run GCompris with the default gnome cursor."
 msgstr ""
 "стартиране на GCompris със стандартния курсор на\n"
 "                           GNOME."
 
-#: ../src/gcompris/gcompris.c:166
+#: ../src/gcompris/gcompris.c:171
 msgid "display only activities with this difficulty level."
 msgstr "показване на занимания само от това ниво на трудност."
 
-#: ../src/gcompris/gcompris.c:169
+#: ../src/gcompris/gcompris.c:174
 msgid "display debug informations on the console."
 msgstr "показване на информация за грешки в конзолата."
 
-#: ../src/gcompris/gcompris.c:172
+#: ../src/gcompris/gcompris.c:177
 msgid "Print the version of "
 msgstr "Отпечатване на версията на "
 
-#: ../src/gcompris/gcompris.c:175
+#: ../src/gcompris/gcompris.c:180
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
@@ -2977,36 +3112,36 @@ msgstr ""
 "списък\n"
 "                           с всички налични занимания и техните описания."
 
-#: ../src/gcompris/gcompris.c:180
+#: ../src/gcompris/gcompris.c:185
 msgid "GCompris will find the data dir in this directory"
 msgstr "GCompris ще търси папката с данни в тази папка"
 
-#: ../src/gcompris/gcompris.c:183
+#: ../src/gcompris/gcompris.c:188
 msgid "GCompris will find the skins in this directory"
 msgstr "GCompris ще търси темите в тази папка"
 
-#: ../src/gcompris/gcompris.c:186
+#: ../src/gcompris/gcompris.c:191
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "GCompris ще търси приставките за дейности в тази папка"
 
-#: ../src/gcompris/gcompris.c:189
+#: ../src/gcompris/gcompris.c:194
 msgid "GCompris will find the python activity in this directory"
 msgstr "GCompris ще търси заниманието с Питон в тази папка"
 
-#: ../src/gcompris/gcompris.c:192
+#: ../src/gcompris/gcompris.c:197
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr ""
 "GCompris ще търси файла за локала (превод във формат „.mo“) в тази папка"
 
-#: ../src/gcompris/gcompris.c:195
+#: ../src/gcompris/gcompris.c:200
 msgid "GCompris will find the activities menu in this directory"
 msgstr "GCompris ще търси менюто за заниманията в тази папка"
 
-#: ../src/gcompris/gcompris.c:198
+#: ../src/gcompris/gcompris.c:203
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Стартиране на GCompris в административен режим"
 
-#: ../src/gcompris/gcompris.c:201
+#: ../src/gcompris/gcompris.c:206
 msgid ""
 "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
@@ -3014,29 +3149,29 @@ msgstr ""
 "Използване на алтернативна база от данни за профилите\n"
 "                           [$HOME/.config/gcompris/gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:204
+#: ../src/gcompris/gcompris.c:209
 msgid "Create the alternate database for profiles"
 msgstr "Създаване на алтернативна база от данни за профили"
 
-#: ../src/gcompris/gcompris.c:207
+#: ../src/gcompris/gcompris.c:212
 msgid "Re-read XML Menus and store them in the database"
 msgstr ""
 "Препрочитане на менютата в XML и запазване в базата\n"
 "                           от данни"
 
-#: ../src/gcompris/gcompris.c:210
+#: ../src/gcompris/gcompris.c:215
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Задаване на профила. Използвайте „gcompris -a“,\n"
 "                           за да създадете профили"
 
-#: ../src/gcompris/gcompris.c:213
+#: ../src/gcompris/gcompris.c:218
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Списък с всички налични профили. Използвайте\n"
 "                           „gcompris -a“, за да създадете профили"
 
-#: ../src/gcompris/gcompris.c:216
+#: ../src/gcompris/gcompris.c:221
 msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
@@ -3044,25 +3179,25 @@ msgstr ""
 "Папка с конфигурацията: [$HOME/.config/gcompris]\n"
 "                           Алтернативно може да се зададе $XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:219
+#: ../src/gcompris/gcompris.c:224
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr ""
 "Местоположение на потребителските папки:\n"
 "                           [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:222
+#: ../src/gcompris/gcompris.c:227
 msgid "Run the experimental activities"
 msgstr "Експериментални занимания"
 
-#: ../src/gcompris/gcompris.c:225
+#: ../src/gcompris/gcompris.c:230
 msgid "Disable the quit button"
 msgstr "Изключване на бутона за спиране на програмата"
 
-#: ../src/gcompris/gcompris.c:228
+#: ../src/gcompris/gcompris.c:233
 msgid "Disable the config button"
 msgstr "Изключване на бутона за настройване на програмата"
 
-#: ../src/gcompris/gcompris.c:231
+#: ../src/gcompris/gcompris.c:236
 msgid ""
 "GCompris will get images, sounds and activity data from this server if not "
 "found locally."
@@ -3072,7 +3207,7 @@ msgstr ""
 "могат\n"
 "                           да бъдат намерени локално."
 
-#: ../src/gcompris/gcompris.c:234
+#: ../src/gcompris/gcompris.c:239
 msgid ""
 "Only when --server is provided, disable check for local resource first. Data "
 "are always taken from the web server."
@@ -3081,14 +3216,14 @@ msgstr ""
 "                           проверката за локални ресурси. Данните винаги се\n"
 "                           вземат от уеб-сървъра."
 
-#: ../src/gcompris/gcompris.c:238
+#: ../src/gcompris/gcompris.c:243
 msgid ""
 "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr ""
 "В сървърен режим, указва папката за кеш,\n"
 "                           използвана за избягване на излишните изтегляния."
 
-#: ../src/gcompris/gcompris.c:241
+#: ../src/gcompris/gcompris.c:246
 msgid ""
 "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr ""
@@ -3096,18 +3231,18 @@ msgstr ""
 "                           натискания, и двете. Стандартният режим е "
 "нормален."
 
-#: ../src/gcompris/gcompris.c:244
+#: ../src/gcompris/gcompris.c:249
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr ""
 "Да не се избягва изпълнението на множество инстанции\n"
 "                           на GCompris."
 
-#: ../src/gcompris/gcompris.c:902
+#: ../src/gcompris/gcompris.c:890
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
-"support its development, the Windows version provides only %d of the %d "
-"activities. You can get the full version for a small fee at\n"
+"support its development, this version provides only %d of the %d activities. "
+"You can get the full version for a small fee at\n"
 "<http://gcompris.net>\n"
 "The GNU/Linux version does not have this restriction. If you also believe "
 "that we should teach freedom to children, please consider using GNU/Linux. "
@@ -3115,15 +3250,15 @@ msgid ""
 "<http://www.fsf.org/philosophy>"
 msgstr ""
 "GCompris е свободен софтуер, разпространяван под лиценза GPL. За да "
-"подкрепите разработката му, версията за „Уиндоус“ осигурява само %d от %d-те "
+"подкрепите разработката му, тази версия осигурява само %d от %d-те "
 "занимания. Може да се сдобиете с пълната версия срещу малка такса на\n"
 "<http://gcompris.net>\n"
 "Версията за GNU/Линукс няма такива ограничения. Ако вие също вярвате, че "
 "трябва да учим децата на свобода, обмислете възможността да използвате GNU/"
 "Линукс. Може да намерите повече информация на страниците на FSF:\n"
-"<http://www.fsf.org/philosophy.bg.html>"
+"<http://www.gnu.org/philosophy/philosophy.bg.html>"
 
-#: ../src/gcompris/gcompris.c:1349
+#: ../src/gcompris/gcompris.c:1429
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
@@ -3131,12 +3266,12 @@ msgstr ""
 "GCompris няма да се стартира, защото заключващият файл е по-нов от %d "
 "секунди.\n"
 
-#: ../src/gcompris/gcompris.c:1351
+#: ../src/gcompris/gcompris.c:1431
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Заключващият файл е: %s\n"
 
-#: ../src/gcompris/gcompris.c:1465
+#: ../src/gcompris/gcompris.c:1545
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3150,27 +3285,27 @@ msgstr ""
 "Повече информация на http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1571
+#: ../src/gcompris/gcompris.c:1648
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Използвайте „-l“ за директен достъп до заниманието.\n"
 
-#: ../src/gcompris/gcompris.c:1572
+#: ../src/gcompris/gcompris.c:1649
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Списъкът с наличните занимания е :\n"
 
-#: ../src/gcompris/gcompris.c:1603
+#: ../src/gcompris/gcompris.c:1680
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Брой занимания: %d\n"
 
-#: ../src/gcompris/gcompris.c:1639
+#: ../src/gcompris/gcompris.c:1716
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s съществува, но няма права за четене или запис"
 
-#: ../src/gcompris/gcompris.c:1702
+#: ../src/gcompris/gcompris.c:1779
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
@@ -3179,7 +3314,7 @@ msgstr ""
 "Опцията „--server“ не може да се използва, защото GCompris е компилиран без "
 "мрежова поддръжка."
 
-#: ../src/gcompris/gcompris.c:1756
+#: ../src/gcompris/gcompris.c:1833
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3188,34 +3323,52 @@ msgstr ""
 "ГРЕШКА: Профилът „%s“ не е открит. За списък с наличните профили изпълнете "
 "„gcompris --profile-list“\n"
 
-#: ../src/gcompris/gcompris.c:1770
+#: ../src/gcompris/gcompris.c:1847
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Списъкът с наличните профили е:\n"
 
-#: ../src/gcompris/gcompris_db.c:274
+#: ../src/gcompris/gcompris_db.c:309
 msgid "Unaffected"
 msgstr "Не се влияе"
 
-#: ../src/gcompris/gcompris_db.c:275
+#: ../src/gcompris/gcompris_db.c:310
 msgid "Users without a class"
 msgstr "Потребители без клас"
 
-#: ../src/gcompris/help.c:176
+#: ../src/gcompris/gcompris_db.c:893
+#, c-format
+msgid ""
+"Loading activity from database:\n"
+"%s"
+msgstr ""
+"Зареждане на занимание от база от данни:\n"
+"%s"
+
+#: ../src/gcompris/help.c:181
 msgid "Prerequisite"
 msgstr "Предпоставка"
 
-#: ../src/gcompris/help.c:207
+#: ../src/gcompris/help.c:212
 msgid "Goal"
 msgstr "Цел"
 
-#: ../src/gcompris/help.c:238
+#: ../src/gcompris/help.c:243
 msgid "Manual"
 msgstr "Ръководство"
 
-#: ../src/gcompris/help.c:269
+#: ../src/gcompris/help.c:274
 msgid "Credit"
 msgstr "Заслуги"
+
+#: ../src/gcompris/menu.c:583
+#, c-format
+msgid ""
+"Loading activity from file:\n"
+"%s"
+msgstr ""
+"Зареждане на занимание от файл:\n"
+"%s"
 
 #: ../src/gcompris/properties.c:497 ../src/gcompris/properties.c:504
 msgid "readme"
@@ -3238,6 +3391,39 @@ msgstr ""
 "Записвайте всякакъв вид изображения в тази папка.\n"
 "Може да ги включвате във вашите рисунки и анимации.\n"
 "Поддържаните формати за изображения са JPEG, PNG и SVG.\n"
+
+#: ../src/gcompris/sugar.c:70
+msgid "Help"
+msgstr "Помощ"
+
+#: ../src/gcompris/sugar.c:71
+msgid "About"
+msgstr "Относно"
+
+#: ../src/gcompris/sugar.c:72
+msgid "Previous level"
+msgstr "Предишно ниво"
+
+#: ../src/gcompris/sugar.c:75
+msgid "Next level"
+msgstr "Следващо ниво"
+
+#: ../src/gcompris/sugar.c:77
+msgid "Refresh"
+msgstr "Обновяване"
+
+#: ../src/gcompris/sugar.c:78
+msgid "Settings"
+msgstr "Настройки"
+
+#. TRANSLATORS: Back as in previous
+#: ../src/gcompris/sugar.c:86
+msgid "Back"
+msgstr "Назад"
+
+#: ../src/gcompris/sugar.c:87
+msgid "Stop"
+msgstr "Спиране"
 
 #: ../src/gcompris/timer.c:244
 msgid "Time Elapsed"
@@ -3863,12 +4049,12 @@ msgid "Type the falling letters before they reach the ground"
 msgstr "Напишете падащите букви, преди да са достигнали земята"
 
 #. TRANSLATORS: Put here the numbers in your language
-#: ../src/gletters-activity/gletters.c:225 ../src/memory-activity/memory.c:930
+#: ../src/gletters-activity/gletters.c:225 ../src/memory-activity/memory.c:931
 msgid "0123456789"
 msgstr "0123456789"
 
 #. TRANSLATORS: Put here the alphabet uppercase in your language
-#: ../src/gletters-activity/gletters.c:235 ../src/memory-activity/memory.c:940
+#: ../src/gletters-activity/gletters.c:235 ../src/memory-activity/memory.c:941
 msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 msgstr "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЬЮЯ"
 
@@ -3878,15 +4064,15 @@ msgstr "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЬЮЯ"
 #. the dict passed to the apply_callback
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
-#: ../src/gletters-activity/gletters.c:852
-#: ../src/imageid-activity/imageid.c:714 ../src/login-activity/login.py:476
-#: ../src/missing_letter-activity/missingletter.c:749
+#: ../src/gletters-activity/gletters.c:850
+#: ../src/imageid-activity/imageid.c:712 ../src/login-activity/login.py:479
+#: ../src/missing_letter-activity/missingletter.c:748
 #: ../src/pythontest-activity/pythontest.py:454
-#: ../src/readingh-activity/reading.c:880
+#: ../src/readingh-activity/reading.c:878
 #: ../src/scalesboard-activity/scale.c:1161
-#: ../src/smallnumbers-activity/smallnumbers.c:577
+#: ../src/smallnumbers-activity/smallnumbers.c:595
 #: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:768
+#: ../src/wordsgame-activity/wordsgame.c:827
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -3895,8 +4081,8 @@ msgstr ""
 "Настройки на <b>%s</b>\n"
 " за профил <b>%s</b>"
 
-#: ../src/gletters-activity/gletters.c:881
-#: ../src/smallnumbers-activity/smallnumbers.c:596
+#: ../src/gletters-activity/gletters.c:879
+#: ../src/smallnumbers-activity/smallnumbers.c:614
 msgid "Enable sounds"
 msgstr "Активиране на звуците"
 
@@ -4184,25 +4370,25 @@ msgstr ""
 "Използвайте стрелките, за да се придвижвате и избягвайте Трогъл-четата. "
 "Натиснете интервала, за да изядете число."
 
-#: ../src/guessnumber-activity/guessnumber.py:201
+#: ../src/guessnumber-activity/guessnumber.py:199
 #, python-format
 msgid "Guess a number between %d and %d"
 msgstr "Познайте число между %d и %d"
 
-#: ../src/guessnumber-activity/guessnumber.py:301
+#: ../src/guessnumber-activity/guessnumber.py:299
 #, python-format
 msgid "Please enter a number between %d and %d"
 msgstr "Въведете число между %d и %d"
 
-#: ../src/guessnumber-activity/guessnumber.py:306
+#: ../src/guessnumber-activity/guessnumber.py:304
 msgid "Out of range"
 msgstr "Извън диапазона"
 
-#: ../src/guessnumber-activity/guessnumber.py:312
+#: ../src/guessnumber-activity/guessnumber.py:310
 msgid "Too high"
 msgstr "Твърде голямо"
 
-#: ../src/guessnumber-activity/guessnumber.py:314
+#: ../src/guessnumber-activity/guessnumber.py:312
 msgid "Too low"
 msgstr "Твърде малко"
 
@@ -4361,7 +4547,7 @@ msgstr ""
 "прекалено много възможности за избор."
 
 #: ../src/imageid-activity/imageid.c:534
-#: ../src/missing_letter-activity/missingletter.c:570
+#: ../src/missing_letter-activity/missingletter.c:568
 msgid "Data file for this level is not properly formatted."
 msgstr "Файлът с данни за това ниво не е форматиран правилно."
 
@@ -4671,16 +4857,53 @@ msgstr ""
 "Показана е ръка. Определете дали е дясна или лява. Натиснете червения бутон "
 "вляво или зеления вдясно."
 
-#: ../src/login-activity/login.py:98
+#: ../src/lightsoff-activity/lightsoff.py:442
+msgid ""
+"Switch off all the lights, I have to go to sleep.\n"
+"If you need help, click on me."
+msgstr ""
+"Загаси лампите, трябва да спинкам.\n"
+"Ако имаш нужда от помощ, натисни ме."
+
+#: ../src/lightsoff-activity/lightsoff.xml.in.h:1
+msgid "Lights Off"
+msgstr "Гаси лампи"
+
+#: ../src/lightsoff-activity/lightsoff.xml.in.h:2
+msgid "The aim is to switch off all the lights."
+msgstr "Целта е да се загасят всички лампи."
+
+#: ../src/lightsoff-activity/lightsoff.xml.in.h:3
+msgid ""
+"The effect of pressing a button is to toggle the state of that button, and "
+"of its immediate vertical and horizontal neighbours. The sun and the color "
+"of the sky depend on the number of clicks needed to solve the puzzle. If you "
+"click on Tux, the solution is shown."
+msgstr ""
+"Ефектът от натискането на бутона е превключване на състоянието му, както и "
+"на непосредствените му „съседи“ водоравно и отвесно. Слънцето и цветът на "
+"небето завсят от броя натискания, необходими за решаването на загадката. "
+"Отговорът ще се покаже, ако натиснете върху Тъкс."
+
+#: ../src/lightsoff-activity/lightsoff.xml.in.h:4
+msgid ""
+"The solver algorithm described on haar.clara.co.uk is a valuable resource to "
+"know more about the Lights Off game: &lt;http://www.haar.clara.co.uk/Lights/"
+"solving.html&gt;"
+msgstr ""
+"Алгоритъмът, разяснен на haar.clara.co.uk, е ценен ресурс за опознаване на "
+"играта „Гаси лампи“: &lt;http://www.haar.clara.co.uk/Lights/solving.html&gt;"
+
+#: ../src/login-activity/login.py:101
 msgid "Profile: "
 msgstr "Профил: "
 
-#: ../src/login-activity/login.py:231
+#: ../src/login-activity/login.py:234
 msgid "Login: "
 msgstr "Потребителски име: "
 
 #. toggle box
-#: ../src/login-activity/login.py:491
+#: ../src/login-activity/login.py:494
 msgid "Enter login to log in"
 msgstr "Въведете потребителско име"
 
@@ -4871,7 +5094,7 @@ msgstr ""
 "само показва местоположението като на карта. Не можете да движите Тъкс във "
 "видим режим."
 
-#: ../src/melody-activity/melody.py:111
+#: ../src/melody-activity/melody.py:107
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -5643,7 +5866,7 @@ msgstr ""
 msgid "Practice money usage including cents"
 msgstr "Упражнения за боравене с пари, включително стотинки"
 
-#: ../src/mosaic-activity/mosaic.py:188
+#: ../src/mosaic-activity/mosaic.py:186
 msgid "Rebuild the same mosaic on the right area"
 msgstr "Постройте наново цялата мозайка в дясната част"
 
@@ -5767,11 +5990,11 @@ msgstr ""
 "Това занимание е направено като игра. Няма нужда от специални умения, за да "
 "играете."
 
-#: ../src/penalty-activity/penalty.py:292
+#: ../src/penalty-activity/penalty.py:294
 msgid "Click on the balloon to place it again."
 msgstr "Натиснете балона, за да го поставите отново."
 
-#: ../src/penalty-activity/penalty.py:294
+#: ../src/penalty-activity/penalty.py:296
 msgid "Click twice on the balloon to shoot it."
 msgstr "Натиснете два пъти балона, за да го спукате."
 
@@ -5793,17 +6016,13 @@ msgstr "Натиснете два пъти топката, за да отбел�
 msgid "Penalty kick"
 msgstr "Дузпа"
 
-#: ../src/photohunter-activity/photohunter.c:137
+#: ../src/photohunter-activity/photohunter.c:512
 msgid "Error: Absolutely no photo found in the data directory"
 msgstr "Грешка: липсват всички изображения в папката за данни"
 
-#: ../src/photohunter-activity/photohunter.c:394
+#: ../src/photohunter-activity/photohunter.c:575
 msgid "Click on the differences between the two images."
 msgstr "Натиснете разликите между двете изображения"
-
-#: ../src/photohunter-activity/photohunter.c:590
-msgid "Error: Abnormally failed to load a data file"
-msgstr "Грешка: файл с данни не може да бъде зареден"
 
 #: ../src/photohunter-activity/photohunter.xml.in.h:1
 msgid "Find the differences between two pictures"
@@ -6026,7 +6245,7 @@ msgid "This board teaches basic colors."
 msgstr "Това занимание учи на основните цветове."
 
 #: ../src/readingh-activity/reading.c:220
-#: ../src/wordsgame-activity/wordsgame.c:207
+#: ../src/wordsgame-activity/wordsgame.c:211
 msgid ""
 "Error: We can't find\n"
 "a list of words to play this game.\n"
@@ -6045,6 +6264,10 @@ msgstr "е показана"
 #: ../src/readingh-activity/reading.c:456
 msgid "We skip this level because there are not enough words in the list!"
 msgstr "Това ниво се пропуска, защото няма достатъчно думи в списъка!"
+
+#: ../src/readingh-activity/reading.c:659
+msgid "Yes, I saw it"
+msgstr "Да, видях я"
 
 #: ../src/readingh-activity/reading.c:686
 msgid "No, it was not there"
@@ -6100,7 +6323,7 @@ msgstr "Упражнения по четене в ограничено врем�
 msgid "Vertical-reading practice"
 msgstr "Упражнения по вертикално четене"
 
-#: ../src/redraw-activity/redraw.py:875
+#: ../src/redraw-activity/redraw.py:881
 msgid "Coordinate"
 msgstr "Координати"
 
@@ -6458,14 +6681,14 @@ msgstr "Завършването на играта изисква търпени
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:2
 msgid ""
-"For the first level with colored symbols, drag symbols on the left to their "
-"target position. For the higher levels, click on an empty square to give it "
-"the keyboard focus. Then enter a possible letter or number. GCompris will "
-"not let you enter invalid data."
+"For the first level with colored symbols, select a symbol on the left and "
+"click on its target position. For the higher levels, click on an empty "
+"square to give it the keyboard focus. Then enter a possible letter or "
+"number. GCompris will not let you enter invalid data."
 msgstr ""
-"За първото ниво с цветни символи, провлачвайте ги отляво към тяхната крайна "
-"позиция. За по-горните нива, натиснете празно квадратче, за да бъде на "
-"фокус. След това въведете буква или цифра. Играта няма да ви позволи "
+"За първото ниво с цветни символи, изберете символ вляво и натиснете върху "
+"крайната му позиция. За по-горните нива, натиснете празно квадратче, за да "
+"бъде на фокус. След това въведете буква или цифра. Играта няма да ви позволи "
 "въвеждането на неправилни данни."
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:3
@@ -6740,11 +6963,6 @@ msgstr "Сантиментално"
 msgid "Official"
 msgstr "Официално"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:87
-#: ../src/wordprocessor-activity/wordprocessor.c:426
-msgid "Text"
-msgstr "Текст"
-
 #: ../src/wordprocessor-activity/wordprocessor.c:98
 msgid "Flyer"
 msgstr "Летящ"
@@ -6819,3 +7037,64 @@ msgstr "Упражнения с клавиатурата"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:4
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Напишете пълната дума докато пада, преди да е достигнала земята"
+
+#: ../src/chess_computer-activity/gnuchess/getopt.c:693
+#, c-format
+msgid "%s: option `%s' is ambiguous\n"
+msgstr "%s: опцията „%s“ е двусмислена\n"
+
+#: ../src/chess_computer-activity/gnuchess/getopt.c:718
+#, c-format
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr "%s: опцията „--%s“ не приема аргумент\n"
+
+#: ../src/chess_computer-activity/gnuchess/getopt.c:723
+#, c-format
+msgid "%s: option `%c%s' doesn't allow an argument\n"
+msgstr "%s: опцията „%c%s“ не приема аргумент\n"
+
+#: ../src/chess_computer-activity/gnuchess/getopt.c:741
+#: ../src/chess_computer-activity/gnuchess/getopt.c:914
+#, c-format
+msgid "%s: option `%s' requires an argument\n"
+msgstr "%s: опцията „%s“ изисква аргумент\n"
+
+#. --option
+#: ../src/chess_computer-activity/gnuchess/getopt.c:770
+#, c-format
+msgid "%s: unrecognized option `--%s'\n"
+msgstr "%s: непозната опция „--%s“\n"
+
+#. +option or -option
+#: ../src/chess_computer-activity/gnuchess/getopt.c:774
+#, c-format
+msgid "%s: unrecognized option `%c%s'\n"
+msgstr "%s: непозната опция „%c%s“\n"
+
+#. 1003.2 specifies the format of this message.
+#: ../src/chess_computer-activity/gnuchess/getopt.c:800
+#, c-format
+msgid "%s: illegal option -- %c\n"
+msgstr "%s: непозволена опция — %c\n"
+
+#: ../src/chess_computer-activity/gnuchess/getopt.c:803
+#, c-format
+msgid "%s: invalid option -- %c\n"
+msgstr "%s: неправилна опция — %c\n"
+
+#. 1003.2 specifies the format of this message.
+#: ../src/chess_computer-activity/gnuchess/getopt.c:833
+#: ../src/chess_computer-activity/gnuchess/getopt.c:963
+#, c-format
+msgid "%s: option requires an argument -- %c\n"
+msgstr "%s: опцията изисква аргумент — %c\n"
+
+#: ../src/chess_computer-activity/gnuchess/getopt.c:880
+#, c-format
+msgid "%s: option `-W %s' is ambiguous\n"
+msgstr "%s: опцията „-W %s“ е двусмислена\n"
+
+#: ../src/chess_computer-activity/gnuchess/getopt.c:898
+#, c-format
+msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr "%s: опцията „-W %s“ не приема аргумент\n"
