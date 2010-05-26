@@ -133,7 +133,7 @@ static sqlite3 *gcompris_db=NULL;
        UPDATE list_users_in_groups SET group_id=(SELECT wholegroup_id FROM class WHERE class_id=new.class_id) WHERE user_id=new.user_id; \
      END;"
 
-
+#ifdef USE_SQLITE
 /* Return the user version of the database
  * or -1 if failed. The user version is an sqlite
  * specific information stored in the pragma
@@ -389,6 +389,7 @@ gint _gc_boards_count()
   sqlite3_free_table(result);
   return count;
 }
+#endif // USE_SQLITE
 
 gboolean gc_db_init(gboolean disable_database_)
 {
