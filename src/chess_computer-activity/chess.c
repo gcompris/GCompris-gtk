@@ -229,12 +229,15 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 {
 
   gchar **gnuchess_pathptr = gnuchess_path;
-  gchar *gnuchess_bin = NULL;
+  gchar *gnuchess_bin = g_strdup(getenv("GNUCHESS"));
 
 
   do
     {
-      if(*gnuchess_pathptr[0] == '/')
+      if(gnuchess_bin != NULL)
+	{
+	}
+      else if(*gnuchess_pathptr[0] == '/')
 	{
 	  gnuchess_bin = strdup(*gnuchess_pathptr);
 	}
@@ -251,6 +254,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       gnuchess_pathptr++;
       g_free(gnuchess_bin);
+      gnuchess_bin = NULL;
     } while(*gnuchess_pathptr != NULL);
 
   if(*gnuchess_pathptr == NULL)
