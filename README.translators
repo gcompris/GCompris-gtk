@@ -24,14 +24,14 @@ So here is the format description:
                letter                   confuse the kid
    apple       appl_                    / e / h / a
 
-A set of file in boards/wordsgame/default-yy.xml
+A set of file in ./src/readingh-activity/resources/wordsgame/default-yy.xml
 Where yy is your target locale.
 Note that these words must be choosen to be simple in your language, don't
 necessary translate the English.
 
 A complete voice translation in boards/voices/yy
-The voices are in a separate svn branch. If you got the source from the
-svn, you can get the voices simply by running 'make update-voices'. 
+The voices are in a separate git branch. If you got the source from the
+git, you can get the voices simply by running 'make update-voices'.
 It is best to choose somebody that speaks and articulate well your language.
 What is great with GCompris is that you can use it to practice a foreign
 language.
