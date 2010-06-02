@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&component=general\n"
-"POT-Creation-Date: 2010-02-17 22:48+0000\n"
-"PO-Revision-Date: 2010-02-18 15:49+0100\n"
-"Last-Translator: Andrej Žnidaršič <andrej.znidarsic@gmail.com>\n"
+"POT-Creation-Date: 2010-05-24 09:38+0000\n"
+"PO-Revision-Date: 2010-06-02 20:55+0100\n"
+"Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,9 +36,8 @@ msgid "Go to calculation activities"
 msgstr "Pojdi na računanje"
 
 #: ../boards/algebramenu.xml.in.h:2
-#, fuzzy
 msgid "Various calculation activities."
-msgstr "Urejanje različnih nastavitev"
+msgstr "Različne računske dejavnosti"
 
 #: ../boards/chess.xml.in.h:1
 #: ../src/chess_computer-activity/chess_computer.xml.in.h:3
@@ -62,9 +61,8 @@ msgid "Discover the Computer"
 msgstr "Razišči računalnik"
 
 #: ../boards/computer.xml.in.h:2
-#, fuzzy
 msgid "Play with computer peripherals."
-msgstr "računalniških nasprotnikov"
+msgstr "Igraj se s tipkovnico in miško."
 
 #: ../boards/discovery.xml.in.h:1
 msgid "Colors, sounds, memory..."
@@ -80,7 +78,7 @@ msgstr "Pojdi na poskusne dejavnosti"
 
 #: ../boards/experience.xml.in.h:2
 msgid "Various activities based on physical movement."
-msgstr ""
+msgstr "Različne dejavnosti osnovane na premikanju."
 
 #: ../boards/experimental.xml.in.h:1
 msgid "Go to Experimental activities"
@@ -88,7 +86,7 @@ msgstr "Pojdi na poskusne dejavnosti"
 
 #: ../boards/experimental.xml.in.h:2
 msgid "Run gcompris --experimental to see this menu."
-msgstr ""
+msgstr "Za ogled tega menija poženite gcompris --experimental."
 
 #: ../boards/fun.xml.in.h:1
 msgid "Go to Amusement activities"
@@ -109,11 +107,11 @@ msgstr "Geometrija"
 # To je "pošast", ki je številke
 #: ../boards/gnumchmenu.xml.in.h:1
 msgid "Go to Number Munchers activities"
-msgstr "Pojdi na "
+msgstr "Pojdi na dejavnosti žerkov"
 
 #: ../boards/gnumchmenu.xml.in.h:2
 msgid "Number Munchers are games to play with arithmetic."
-msgstr ""
+msgstr "Žerki števil so igre z računanjem."
 
 #: ../boards/keyboard.xml.in.h:1
 msgid "Discover the keyboard."
@@ -145,7 +143,7 @@ msgstr "Pojdi na spominske igre"
 
 #: ../boards/memory_group.xml.in.h:2
 msgid "Various memory activities (images, letters, sounds)."
-msgstr ""
+msgstr "Različne spominske dejavnosti (slike, črke, zvoki)"
 
 #: ../boards/memory_op_group.xml.in.h:1
 msgid "Go to mathematics memory activities"
@@ -158,7 +156,7 @@ msgstr "Spominske dejavnosti osnovane na operacijah"
 
 #: ../boards/memory_op_group_tux.xml.in.h:1
 msgid "Go to mathematics memory activities against Tux"
-msgstr ""
+msgstr "Tekmuj v matematičnemu spominu proti Pingu"
 
 #: ../boards/menu.xml.in.h:1
 msgid ""
@@ -201,7 +199,7 @@ msgstr "Glavni meni GCompris"
 #: ../boards/menu.xml.in.h:17
 #: ../src/boards/menu2.c:859
 msgid "GCompris is a collection of educational games that provides different activities for children aged 2 and up."
-msgstr "GCompris je zbirka izobraževalnih iger, z različnimi dejavnosti namenjena otrokom od 2. leta naprej."
+msgstr "GCompris je zbirka izobraževalnih iger z različnimi dejavnosti namenjena otrokom od 2. leta naprej."
 
 #: ../boards/menu.xml.in.h:19
 msgid "The goal of GCompris is to provide a free alternative to popular proprietary edutainment software"
@@ -221,7 +219,7 @@ msgstr "Dejanja upravljanja miške."
 
 #: ../boards/mouse.xml.in.h:2
 msgid "Various mouse-based activities (clicking, moving)"
-msgstr ""
+msgstr "Različne dejavnosti z miško (klikanje, premikanje)"
 
 #: ../boards/numeration.xml.in.h:1
 msgid "Numeration"
@@ -232,14 +230,12 @@ msgid "Numeration activities."
 msgstr "Dejavnosti učenja štetja."
 
 #: ../boards/puzzle.xml.in.h:1
-#, fuzzy
 msgid "Puzzles"
-msgstr "<i><u>Število iger</u></i>"
+msgstr "Igre"
 
 #: ../boards/puzzle.xml.in.h:2
-#, fuzzy
 msgid "Various puzzles."
-msgstr "<i><u>Število iger</u></i>"
+msgstr "Različne igre"
 
 #: ../boards/reading.xml.in.h:1
 msgid "Go to the Reading activities"
@@ -373,11 +369,12 @@ msgstr ""
 #: ../src/administration-activity/admin/board_list.py:642
 #: ../src/administration-activity/admin/board_list.py:654
 #: ../src/administration-activity/admin/wordlist.py:45
-#, fuzzy
 msgid ""
 "<b>{config}</b> configuration\n"
 " for profile <b>{profile}</b>"
-msgstr "Barvni profil za zaslon:"
+msgstr ""
+"<b>{config}</b> nastavitev\n"
+" za profil <b>{profile}</b>"
 
 #. self.main_vbox.pack_start (label, False, False, 8)
 #: ../src/administration-activity/admin/board_list.py:660
@@ -429,7 +426,7 @@ msgstr "Priimek"
 
 #: ../src/administration-activity/admin/class_edit.py:335
 msgid "You need to provide at least a name for your class"
-msgstr "Za razred je potrebno navesti vsaj ime"
+msgstr "Za razred je treba navesti vsaj ime"
 
 #: ../src/administration-activity/admin/class_edit.py:380
 msgid "There is already a class with this name"
@@ -504,7 +501,7 @@ msgstr "Opis"
 
 #: ../src/administration-activity/admin/group_list.py:318
 msgid "You must first select a group in the list"
-msgstr "Najprej je potrebno izbrati skupino s seznama"
+msgstr "Najprej je treba izbrati skupino s seznama"
 
 #: ../src/administration-activity/admin/group_user_list.py:170
 #: ../src/administration-activity/admin/user_list.py:211
@@ -616,7 +613,7 @@ msgstr "Dodeli vsem skupinam, ki spadajo v ta profila"
 
 #: ../src/administration-activity/admin/profile_edit.py:374
 msgid "You need to provide at least a name for your profile"
-msgstr "Za profil je potrebno navesti vsaj ime"
+msgstr "Za profil je treba navesti vsaj ime"
 
 #: ../src/administration-activity/admin/profile_edit.py:396
 msgid "There is already a profile with this name"
@@ -664,7 +661,7 @@ msgstr "Rojstni datum:"
 
 #: ../src/administration-activity/admin/user_edit.py:156
 msgid "You need to provide at least a login, first name and last name for your users"
-msgstr "Za uporabnike je potrebno navesti vsaj prijavo, ime in priimek"
+msgstr "Za uporabnike je treba navesti vsaj prijavo, ime in priimek"
 
 #: ../src/administration-activity/admin/user_edit.py:173
 msgid "There is already a user with this login"
@@ -709,6 +706,9 @@ msgid ""
 "- You can save multiple configurations, and switch between them easily. In the 'Profile' section add a profile, then in the 'Board' section select the profile in the combobox, then select the boards you want to be active. You can add multiple profiles, with different lists of boards, and different languages. You set the default profile in the 'Profile' section, by choosing the profile you want, then clicking on the 'Default' button. You can also choose a profile from the command line.\n"
 "- You can add users, classes and for each class, you can create groups of users. Note that you can import users from a comma-separated file. Assign one or more groups to a profile, after which those new logins will appear after restarting GCompris. Being able to identify individual children in GCompris means we can provide individual reports. It also recognizes the children as individuals; they can learn to type in and recognize their own usernames (login is configurable)."
 msgstr ""
+"- V odseku 'table' lahko spremenite seznam dejavnosti. Samo odstranite izbiro v drevesnemu pogledu. Spremenite lahko jezik uporabljen za branje, na primer, jezik uporabljen za pisanje imen barv.\n"
+"- Shranite lahko več nastavitev med katerimi lahko enostavno menjate. V odseku 'Profil' dodajte profil ter nato v odseku 'Tabla' v spustnemu polju izberite profil, ter izberite table, ki naj bodo dejavne. Dodate lahko več profilov z različnimi seznami tabel in različnimi jeziki. Privzeti profil lahko nastavite v odseku 'profil' z izbiro profila ter klikom na gumb 'Privzeto'. Profil lahko izberete tudi iz ukazne vrstice.\n"
+"- Dodate lahko uporabnike, razrede in za vsak razred lahko ustvarite skupino uporabnikov. Uporabnike lahko uvozite iz datoteke ločene z vejico. Profilu lahko dodelite eno ali več skupin, ki se bodo pojavile kot nove prijave po ponovnemu zagonu GCompris. Možnost identifikacije posameznih otrok v GCompris pomeni da lahko zagotavljamo poročila za vsakega otroka. Poleg tega prepozna otroke kot posameznike; naučijo se lahko tipkati in prepoznati svoja lastna uporabniška imena (prijava je nastavljiva). "
 
 #: ../src/administration-activity/administration.xml.in.h:4
 msgid "GCompris Administration Menu"
@@ -716,7 +716,7 @@ msgstr "Skrbniški meni GCompris"
 
 #: ../src/administration-activity/administration.xml.in.h:5
 msgid "If you want to fine tune GCompris to your needs, you can use the administration module here. The ultimate goal is to provide child-specific reporting for parents and teacher who want to monitor the progress, strengths and needs of their children."
-msgstr ""
+msgstr "Če želite GCompris fino prilagoditi za svoje potrebe, lahko uporabite skrbniški meni tukaj. Končni cilj je zagotavljanje poročanje za vsakega otroka njegovim staršem in učiteljem, ki želijo nadzirati napredek, moči in slabosti njihovega otroka."
 
 #: ../src/administration-activity/administration.xml.in.h:6
 msgid "Left-Click with the mouse to select an activity"
@@ -729,7 +729,7 @@ msgstr "Napredne barve"
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:2
 #: ../src/read_colors-activity/read_colors.xml.in.h:1
 msgid "Can read"
-msgstr "Lahko berem"
+msgstr "Branje"
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:3
 msgid "Click on the correct color"
@@ -779,9 +779,10 @@ msgstr "rjavo rdeča"
 msgid "lime"
 msgstr "apnena"
 
+# v bistvu je to tale barva - http://www.google.si/imgres?imgurl=http://www.ssmrocks.com/kimnovak/mt/pictures/archives/sage_flower_01.jpg&imgrefurl=http://www.ssmrocks.com/kimnovak/mt/pictures/archives/pages/001625.php&h=609&w=510&sz=75&tbnid=gDgikufRx0WDPM:&tbnh=245&tbnw=205&prev=/images%3Fq%3Dsage%2Bflower&hl=sl&usg=__LIOcOXfE6etaDkPKcAqG15xgt74=&ei=NhwCTP3JK4OCOIC1wNYE&sa=X&oi=image_result&resnum=1&ct=image&ved=0CBoQ9QEwAA
 #: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:2
 msgid "sage"
-msgstr "moder"
+msgstr "zelena"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:3
 msgid "salmon"
@@ -1038,13 +1039,13 @@ msgstr "Pripravljen sem"
 
 #: ../src/algebra_by-activity/algebra_by.xml.in.h:1
 msgid "A multiplication of two numbers is displayed. At the right of the equals sign, give the answer, the product. Use the left and right arrows to modify your answer and press the Enter key to check if you've got it right. If not, just try again."
-msgstr "Na zaslonu imaš množenje dveh števil. Na desni strani znaka je enako vnesi odgovor. Uporabljaj desno in levo puščico za pisanje odgovora, s tipko 'enter' preveriš, če si imel prav. Če nisi, poskusi še enkrat."
+msgstr "Prikazano je račun množenja dveh števil. Na desni strani znaka je enako vnesi odgovor. Uporabljaj desno in levo puščico za pisanje odgovora, z vnosno tipko preveriš, če si imel/a prav. Če nisi, poskusi še enkrat."
 
 #: ../src/algebra_by-activity/algebra_by.xml.in.h:2
 #: ../src/algebra_minus-activity/algebra_minus.xml.in.h:2
 #: ../src/algebra_plus-activity/algebra_plus.xml.in.h:2
 msgid "Answer some algebra questions"
-msgstr "Odgovori nekaj računskih vprašanj"
+msgstr "Odgovori na nekaj računskih vprašanj"
 
 #: ../src/algebra_by-activity/algebra_by.xml.in.h:3
 msgid "In a limited time, give the product of two numbers"
@@ -1062,7 +1063,7 @@ msgstr "Vadi množenje"
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:1
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:1
 msgid "Animal pictures come from the Animal Photography Page of Ralf Schmode (http://schmode.net/). Ralf has kindly permitted Gcompris to include his pictures. Thanks a lot, Ralf."
-msgstr "Slike živali so vzete iz strani Fotografije živali od Ralfa Schmode (http://schmode.net/). Ralf je dovolil uporabo njegovih slik v GCompris. Hvala ti, Ralf."
+msgstr "Slike živali so vzete iz strani Fotografije živali Ralfa Schmode (http://schmode.net/). Ralf je dovolil uporabo njegovih slik v GCompris. Hvala ti, Ralf."
 
 #: ../src/algebra_guesscount-activity/algebra_guesscount.xml.in.h:2
 msgid "At the top of the board area, choose the numbers and arithmetic operators that give the specified result. You can deselect a number or operator by clicking on it again."
@@ -1074,7 +1075,7 @@ msgstr "Najdi strategijo kako razvrstiti matematične operacije, tako da se bodo
 
 #: ../src/algebra_guesscount-activity/algebra_guesscount.xml.in.h:4
 msgid "Find the series of correct operations that matches the given answer"
-msgstr "Najdi pravo zaporedje operacij, ki se ujema s podanim rezultatom"
+msgstr "Najdi pravo zaporedje operacij, ki se ujema z rezultatom"
 
 #: ../src/algebra_guesscount-activity/algebra_guesscount.xml.in.h:5
 msgid "The four arithmetic operations. Combine several arithmetic operations."
@@ -1082,15 +1083,15 @@ msgstr "Štiri aritmetične operacije. Združi več aritmetičnih operacij."
 
 #: ../src/algebra_guesscount-activity/algebra_guesscount.xml.in.h:6
 msgid "Work out the right combination of numbers and operations to match the given value"
-msgstr ""
+msgstr "Ugotovi pravo kombinacijo operatorjev in števil za ujemanje z dano vrednostjo"
 
 #: ../src/algebra_minus-activity/algebra_minus.xml.in.h:1
 msgid "A subtraction problem with two numbers is displayed. At the right of the equals sign, give the answer, the difference. Use the left and right arrows to modify your answer and press the Enter key to check if you've got it right. If not, just try again."
-msgstr "Prikazan je račun razlike dveh števil. Na desno strano znaka je enako, napiši odgovor. Z desno in levo puščico lahko spremeniš odgovor, s tipko Enter preveriš, če si imel prav. Če si se zmotil, poskusi še enkrat."
+msgstr "Prikazan je račun razlike dveh števil. Na desno strano znaka je enako, napiši odgovor. Z desno in levo puščico lahko spremeniš odgovor, z vnosno tipko preveriš, če si imel/a prav. Če nisi, poskusi še enkrat."
 
 #: ../src/algebra_minus-activity/algebra_minus.xml.in.h:3
 msgid "In a limited time, find the difference between two numbers"
-msgstr "V omejenem času, najdi razliko dveh števil"
+msgstr "V omejenem času izračunaj razliko dveh števil"
 
 #: ../src/algebra_minus-activity/algebra_minus.xml.in.h:4
 msgid "Practice the subtraction operation"
@@ -1098,15 +1099,15 @@ msgstr "Vadi seštevanje"
 
 #: ../src/algebra_minus-activity/algebra_minus.xml.in.h:5
 msgid "Simple subtraction"
-msgstr "Preprosto seštevanje"
+msgstr "Preprosto odštevanje"
 
 #: ../src/algebra_plus-activity/algebra_plus.xml.in.h:1
 msgid "An addition problem with two numbers is displayed. At the right of the equals sign, give the answer, the sum. Use the left and right arrows to modify your answer and press the Enter key to check if you've got it right. If not, just try again."
-msgstr "Prikazan je račun seštevanja dveh števil. Na desno stran znaka je enako napiši vsoto. Z desno in levo puščico lahko spremeniš odgovor, s tipko 'Enter' preveriš, če si imel prav. Če si se zmotil, poskusi še enkrat."
+msgstr "Prikazan je račun seštevanja dveh števil. Na desno stran znaka je enako napiši vsoto. Z desno in levo puščico lahko spremeniš odgovor, z vnosno tipko preveriš, če si imel/a prav. Če si se zmotil/a, poskusi še enkrat."
 
 #: ../src/algebra_plus-activity/algebra_plus.xml.in.h:3
 msgid "In a limited time, find the sum of of two numbers. Introduction to simple in-line addition."
-msgstr "V omejenem času najdi vsoto dveh števil. Uvod v preprosto seštevanje.  "
+msgstr "V omejenem času izračunaj vsoto dveh števil. Uvod v preprosto seštevanje.  "
 
 #: ../src/algebra_plus-activity/algebra_plus.xml.in.h:4
 msgid "Practice the addition operation"
@@ -1114,16 +1115,15 @@ msgstr "Vadi seštevanje"
 
 #: ../src/algebra_plus-activity/algebra_plus.xml.in.h:5
 msgid "Simple addition. Can recognize written numbers"
-msgstr "Preprost dodatek. Lahko prepoznam zapisana števila"
+msgstr "Preprosto seštevanje. Prepoznavanje zapisanih števil"
 
 #: ../src/algorithm-activity/algorithm.xml.in.h:1
 msgid "Complete a list of symbols"
 msgstr "Celoten seznam simbolov"
 
 #: ../src/algorithm-activity/algorithm.xml.in.h:2
-#, fuzzy
 msgid "Find the next symbol in a list."
-msgstr "Izpiši zadetke na pladnju iskanja"
+msgstr "Najdi naslednji simbol na seznamu."
 
 #: ../src/algorithm-activity/algorithm.xml.in.h:3
 msgid "Logic training activity"
@@ -1133,66 +1133,55 @@ msgstr "Dejavnosti logičnega treninga"
 #: ../src/hexagon-activity/hexagon.xml.in.h:3
 #: ../src/melody-activity/melody.xml.in.h:4
 msgid "Move and click the mouse"
-msgstr "Premakni in klikni miško"
+msgstr "Premikanje in klikanje miške"
 
 #: ../src/algorithm-activity/algorithm.xml.in.h:5
 msgid "algorithm"
 msgstr "algoritem"
 
 #: ../src/anim-activity/Color.py:86
-#, fuzzy
 msgid "Fill color..."
-msgstr "Barva polnila:"
+msgstr "Barva polnila ..."
 
 #: ../src/anim-activity/Color.py:98
-#, fuzzy
 msgid "Stroke color..."
-msgstr "Izberite barvo"
+msgstr "Barva poteze ..."
 
 #: ../src/anim-activity/anim.py:103
-#, fuzzy
 msgid "Save..."
 msgstr "Shrani ..."
 
 #: ../src/anim-activity/anim.py:109
-#, fuzzy
 msgid "Load..."
-msgstr "Naloži"
+msgstr "Naloži ..."
 
 #: ../src/anim-activity/anim.py:115
-#, fuzzy
 msgid "Run the animation"
-msgstr "Omogoči _animacijo"
+msgstr "Poženi animacijo"
 
 #: ../src/anim-activity/anim.py:121
-#, fuzzy
 msgid "Select"
 msgstr "Izberi"
 
 #: ../src/anim-activity/anim.py:127
-#, fuzzy
 msgid "Rectangle"
 msgstr "Pravokotnik"
 
 #: ../src/anim-activity/anim.py:133
-#, fuzzy
 msgid "Filled rectangle"
-msgstr "Pravokotnik izbire"
+msgstr "Zapolnjen pravokotnik"
 
 #: ../src/anim-activity/anim.py:139
-#, fuzzy
 msgid "Circle"
 msgstr "Krog"
 
 #: ../src/anim-activity/anim.py:145
-#, fuzzy
 msgid "Filled circle"
-msgstr "Središčni krog"
+msgstr "Zapolnjen krog"
 
 #: ../src/anim-activity/anim.py:151
-#, fuzzy
 msgid "Line"
-msgstr "Vrstica"
+msgstr "Črta"
 
 #: ../src/anim-activity/anim.py:157
 #: ../src/wordprocessor-activity/wordprocessor.c:87
@@ -1201,48 +1190,40 @@ msgid "Text"
 msgstr "Besedilo"
 
 #: ../src/anim-activity/anim.py:163
-#, fuzzy
 msgid "Image..."
 msgstr "Slika ..."
 
 #: ../src/anim-activity/anim.py:169
-#, fuzzy
 msgid "Fill"
-msgstr "Polni"
+msgstr "Zapolni"
 
 #: ../src/anim-activity/anim.py:175
-#, fuzzy
 msgid "Delete"
 msgstr "Izbriši"
 
 #: ../src/anim-activity/anim.py:181
-#, fuzzy
 msgid "Flip"
-msgstr "_Obrni"
+msgstr "Obrni"
 
 #: ../src/anim-activity/anim.py:187
-#, fuzzy
 msgid "Raise"
-msgstr "Spusti/Znižaj"
+msgstr "Dvigni"
 
 #: ../src/anim-activity/anim.py:193
-#, fuzzy
 msgid "Lower"
-msgstr "nizka"
+msgstr "Spusti"
 
 #: ../src/anim-activity/anim.py:753
-#, fuzzy
 msgid "Current frame"
-msgstr "Podrobnosti _trenutnega okvirja"
+msgstr "Trenutna sličica"
 
 #: ../src/anim-activity/anim.xml.in.h:1
-#, fuzzy
 msgid "Create a drawing or an animation"
-msgstr "Ustvari ali uredi pogled"
+msgstr "Ustvari risbo ali animacijo"
 
 #: ../src/anim-activity/anim.xml.in.h:2
 msgid "Free drawing and animation tool."
-msgstr ""
+msgstr "Orodje prostega risanja in animacije."
 
 #: ../src/anim-activity/anim.xml.in.h:3
 msgid "In this game, children can draw freely. The goal is to discover how to create attractive drawings based on basic shapes: rectangles, ellipses and lines. To give children a wider range of choices, a set of images can also be used."
@@ -1251,11 +1232,11 @@ msgstr "V tej igri lahko otroci prosto rišejo. Cilj je odkriti načine risanja 
 #: ../src/anim-activity/anim.xml.in.h:4
 #: ../src/draw-activity/draw.xml.in.h:4
 msgid "Needs to be capable of moving and clicking the mouse easily"
-msgstr ""
+msgstr "Otrok mora znati z lahkoto premikati in klikati na miško."
 
 #: ../src/anim-activity/anim.xml.in.h:5
 msgid "Select a drawing tool on the left, and a color down the bottom. Then click and drag in the white area to create a new shape. Once you've completed a drawing, you can select a new frame to work on by selecting one of the small rectangles on the bottom. Each frame contains the same content as its previous one. You can then edit it by moving objects a little bit or adding/deleting objects. When you create several frames and then click on the 'film' button, you will see all your images in a continuous slide-show (an infinite loop pattern). You can change the last image in your film by right clicking on a time frame. You can also change the viewing speed in this mode. In viewing mode, click on the 'drawing' button to return to drawing mode. You can also save and reload your animations with the 'floppy disk' and 'folder' buttons."
-msgstr ""
+msgstr "Izberi orodje za risanje na levi in barvo na dnu. Nato klikni in povleci v belemu področju za ustvarjanje nove oblike. Ko si dokončal/a sliko, lahko z izbiro enega od majhnih kvadratkov na dnu izbereš novo sličico za delo. Vsaka sličica vsebuje enako vsebino kot predhodna. Nato jo lahko urejaš z majhnim premikom predmetov ali dodajanjem/brisanjem predmetov. Ko ustvariš več sličic in nato klikneš gumb 'film', boš videl vse svoje slike v stalni diapredstavitvi (vzorec neskončne zanke). Zadnjo sličico v svojemu filmu lahko spremeniš z desnim klikom na sličico časa. V temu načinu lahko spremeniš tudi hitrost ogleda. V načinu ogleda za vrnitev na način risanja klikni na gumb 'risanje'. Svoje animacije lahko shraniš in ponovno naložiš z gumboma 'disketa' in 'mapa'."
 
 #: ../src/awele-activity/awele.c:158
 #, c-format
@@ -1263,6 +1244,8 @@ msgid ""
 "File '%s' is not found.\n"
 "You cannot play this activity."
 msgstr ""
+"Datoteke '%s' ni mogoče najti.\n"
+"Te dejavnosti ne moreš igrati."
 
 #: ../src/awele-activity/awele.c:349
 msgid "NORTH"
@@ -1286,19 +1269,19 @@ msgstr "Ni dovoljeno! Poskusi še enkrat!"
 
 #: ../src/awele-activity/awele.xml.in.h:1
 msgid "At the beginning of the game four seeds are placed in each house. Players take turns moving the seeds. In each turn, a player chooses one of the six houses under his or her control. The player removes all seeds from this house, and distributes them, dropping one in each house counter-clockwise from the original house, in a process called sowing. Seeds are not distributed into the end scoring houses, nor into the house drawn from. That is, the starting house is left empty; if it contained 12 seeds, it is skipped, and the twelfth seed is placed in the next house. After a turn, if the last seed was placed into an opponent's house and brought its total to two or three, all the seeds in that house are captured and placed in the player's scoring house (or set aside if the board has no scoring houses). If the previous-to-last seed also brought the total seeds in an opponent's house to two or three, these are captured as well, and so on. However, if a move would capture all an opponent's seeds, the capture is forfeited, and the seeds are instead left on the board, since this would prevent the opponent from continuing the game. The proscription against capturing all an opponent's seeds is related to a more general idea, that one ought to make a move that allows the opponent to continue playing. If an opponent's houses are all empty, the current player must make a move that gives the opponent seeds. If no such move is possible, the current player captures all seeds in his/her own territory, ending the game. (Source Wikipedia &lt;http://en.wikipedia.org/wiki/Oware&gt;)"
-msgstr ""
+msgstr "Na začetku igre so v vsaki hiši štiri semena. Igralca se izmenjujeta in premikata semena. V vsakem krogu igralec izbere eno od šestih hiš pod njegovim nadzorom. Igralec odstrani vse semena iz te hiše in jih razdeli, ter spusti enega v vsako hišo v nasprotni smeri urinega kazalca od izvorne hiše v opravilu, ki se imenuje sejanje. Semen ni mogoče spustiti v hiše točk ali v hišo iz katere so bila povlečena. Začetna hiša je prazna, če bi vsebovala 12 semen, bi bila preskočena in dvanajsto seme bi bilo postavljeno v naslednjo hišo. Po koncu kroga so v primeru, da je bilo zadnje seme postavljeno v nasprotnikovo hišo in je sedaj skupno število semen dva ali tri, vsa semena ujeta in postavljena v igralčevo hišo točk (ali postavljena ob rob, če tabla nima hiš točk). V primeru da je tudi predzadnje seme povečalo skupno število semen v nasprotnikovi hiši na dva ali tri, so ujeta tudi ta, in tako naprej. Toda če bi poteza ujela vsa nasprotnikova semena, do ujema ne pride. Namesto tega so semena puščena na tabli, saj bi zajem semen nasprotniku preprečil nadaljevanje igre. Če so vse nasprotnikove hiše prazne, mora igralec narediti takšno potezo, ki nasprotniku da semena. Če takšna poteza ni mogoča, trenutni igralec ujame vsa semena v svojemu področju in konča igro. (Vir Wikipedija: &lt;http://en.wikipedia.org/wiki/Oware&gt;)"
 
 #: ../src/awele-activity/awele.xml.in.h:2
 msgid "Oware"
-msgstr ""
+msgstr "Oware"
 
 #: ../src/awele-activity/awele.xml.in.h:3
 msgid "Play the Oware strategy game against Tux"
-msgstr ""
+msgstr "Igraj strateško igro Oware proti Pingu"
 
 #: ../src/awele-activity/awele.xml.in.h:4
 msgid "The object of the game is to capture more seeds than one's opponent. Since the game has only 48 seeds, capturing 25 is sufficient to accomplish this. Since there are an even number of seeds, it is possible for the game to end in a draw, where each player has captured 24. The game is over when one player has captured 25 or more stones, or both players have taken 24 stones each (draw). If both players agree that the game has been reduced to an endless cycle, each player captures the stones on their side of the board."
-msgstr ""
+msgstr "Cilj igre je dobiti več semen kot nasprotnik. Ker ima igra samo 48 semen, je za zmago dovolj 25 semen. Ker je število semen sodo, se igra lahko konča neodločeno. V tem primeru vsak igralec dobi 24 semen. Igra se konča, ko ima en igralec 25 semen ali ko imata vsak tekmovalec 24 semen (neodločeno). V primeru da se oba igralca strinjata za igro neskončnega kroga, vsak igralec ujame semena na svoji strani table."
 
 #: ../src/babymatch-activity/babymatch.xml.in.h:1
 #: ../src/babymatch-activity/resources/babymatch/board1_0.xml.in.h:1
@@ -1309,7 +1292,7 @@ msgstr ""
 #: ../src/babymatch-activity/resources/babymatch/board6_0.xml.in.h:1
 #: ../src/babymatch-activity/resources/babymatch/board7_0.xml.in.h:1
 msgid "Drag and Drop the items to make them match"
-msgstr "Povleci in spusti predmete za ujemanje"
+msgstr "Povleci in spusti predmete tako, da se bodo ujemali"
 
 #: ../src/babymatch-activity/babymatch.xml.in.h:2
 msgid "In the main board area, a set of objects is displayed. In the vertical box (at the left of the main board) another set of objects is shown, each object in the group on the left matching exactly one object in the main board area. This game challenges you to find the logical link between these objects. How do they fit together? Drag each object to the correct red space in the main area."
@@ -1331,11 +1314,13 @@ msgstr "Igre z miško: premakni, povleci in spusti."
 #: ../src/babymatch-activity/shapegame.c:1835
 #: ../src/click_on_letter-activity/click_on_letter.c:624
 #: ../src/colors-activity/colors.c:168
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "<b>%1$s</b> configuration\n"
 " for profile <b>%2$s</b>"
-msgstr "Skupine profila %s"
+msgstr ""
+"<b>%1$s</b> nastavitev\n"
+" za profil <b>%2$s</b>"
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:1
 msgid "Complete the puzzle"
@@ -1343,11 +1328,11 @@ msgstr "Dokončaj sestavljanko"
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:2
 msgid "Complete the puzzle by dragging each piece from the set of pieces on the left, to the matching space in the puzzle."
-msgstr ""
+msgstr "Dokončaj sestavljanko z vlečenjem predmetov iz stolpca na levi na pravilni prostor na desni."
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:3
 msgid "Drag and Drop the shapes on their respective targets"
-msgstr "Povleci in spusti oblike na njihove cilje."
+msgstr "Povleci in spusti oblike na pravo mesto"
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:4
 msgid "Good mouse-control"
@@ -1355,7 +1340,7 @@ msgstr "Dobro nadziranje miške"
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:5
 msgid "The dog is provided by Andre Connes and released under the GPL"
-msgstr "Psa je priskrbel Andre Connes in je bil narejen znotraj GPL-ja"
+msgstr "Sliko psa je priskrbel in izdal pod GPL Andre Connes"
 
 #: ../src/babyshapes-activity/resources/babyshapes/board5_0.xml.in.h:1
 msgid "Hello ! My name is Lock."
@@ -1371,15 +1356,15 @@ msgstr "Zakleni s pobarvanimi oblikami"
 
 #: ../src/babyshapes-activity/resources/babyshapes/board8_0.xml.in.h:1
 msgid "Paul Gauguin, Arearea - 1892"
-msgstr ""
+msgstr "Paul Gauguin, Arearea - 1892"
 
 #: ../src/babyshapes-activity/resources/babyshapes/board8_1.xml.in.h:1
 msgid "Pieter Bruegel the Elder, The peasants wedding - 1568"
-msgstr ""
+msgstr "Pieter Bruegel the Elder, Poroka kmetov - 1568"
 
 #: ../src/babyshapes-activity/resources/babyshapes/board8_2.xml.in.h:1
 msgid "The Lady and the Unicorn - XVe century"
-msgstr ""
+msgstr "Dama in samorog - XV stoletje"
 
 #: ../src/babyshapes-activity/resources/babyshapes/board8_3.xml.in.h:1
 msgid "Vincent van Gogh, Bedroom in Arles - 1888"
@@ -1387,25 +1372,24 @@ msgstr "Vincent Van Gogh, Spalnica v Arlesu - 1888"
 
 #: ../src/babyshapes-activity/resources/babyshapes/board8_4.xml.in.h:1
 msgid "Ambrosius Bosschaert the Elder, Flower Still Life - 1614"
-msgstr ""
+msgstr "Ambrosius Bosschaert the Elder, Tihožitje rož - 1614"
 
 #: ../src/ballcatch-activity/ballcatch.py:75
 #: ../src/ballcatch-activity/ballcatch.xml.in.h:2
 msgid "Press the two shift keys at the same time, to make the ball go in a straight line."
-msgstr ""
+msgstr "Hkrati pritisni dve tipki dvigalka, da gre žoga v ravni smeri."
 
 #: ../src/ballcatch-activity/ballcatch.xml.in.h:1
 msgid "Make the ball go to Tux"
-msgstr ""
+msgstr "Potisni žogo k Pingu"
 
 #: ../src/bargame-activity/bargame.xml.in.h:1
 msgid "Brain"
 msgstr "Možgani"
 
 #: ../src/bargame-activity/bargame.xml.in.h:2
-#, fuzzy
 msgid "Don't use the last ball"
-msgstr "Zadnja frekvenca (v MHz) v uporabi"
+msgstr "Ne uporabi zadnje žoge"
 
 #: ../src/bargame-activity/bargame.xml.in.h:3
 #: ../src/hexagon-activity/hexagon.xml.in.h:2
@@ -1414,7 +1398,7 @@ msgstr "Dejavnost treninga logike"
 
 #: ../src/bargame-activity/bargame.xml.in.h:4
 msgid "Place balls in the holes. You win if the computer has to place the last ball. If you want Tux to begin, just click on him."
-msgstr ""
+msgstr "Postavi žoge v luknje. Zmagaš, če mora računalnik postaviti zadnjo žogo. Če želiš da začne Pigno, klikni nanj."
 
 #: ../src/bargame-activity/bargame.xml.in.h:5
 msgid "bar game"
@@ -1428,7 +1412,7 @@ msgstr "Premakni miško"
 
 #: ../src/billard-activity/billard.xml.in.h:1
 msgid "Kick the ball into the black hole on the right"
-msgstr "Brcni žogo v črno luknjo n desni"
+msgstr "Brcni žogo v črno luknjo na desni"
 
 #: ../src/billard-activity/billard.xml.in.h:2
 msgid "Kick the ball into the goal"
@@ -1468,24 +1452,23 @@ msgstr "Druga različica glavnega menija"
 msgid "Select a Board"
 msgstr "Izberi tablo"
 
-#: ../src/boards/python.c:63
-#: ../src/boards/python.c:87
+#: ../src/boards/python.c:64
+#: ../src/boards/python.c:88
 msgid "Python Board"
 msgstr "Python tabla"
 
-#: ../src/boards/python.c:64
+#: ../src/boards/python.c:65
 msgid "Special board that embeds python into GCompris."
 msgstr "Posebna tabla, ki vključi pyton v GCompris."
 
-#: ../src/boards/python.c:88
-#, fuzzy
+#: ../src/boards/python.c:89
 msgid "Special board that embeds python into gcompris."
-msgstr "Posebna tabla, ki vključi pyton v GCompris."
+msgstr "Posebna tabla, ki vključi v gcompris vključi pyton."
 
 #: ../src/canal_lock-activity/canal_lock.xml.in.h:1
 #: ../src/watercycle-activity/watercycle.xml.in.h:2
 msgid "Drawing by Stephane Cabaraux."
-msgstr ""
+msgstr "Risba Stephana Cabarauxa."
 
 #: ../src/canal_lock-activity/canal_lock.xml.in.h:2
 msgid "Operate a canal lock"
@@ -1493,7 +1476,7 @@ msgstr "Upravljaj z zapornico kanala"
 
 #: ../src/canal_lock-activity/canal_lock.xml.in.h:3
 msgid "Tux is in trouble, and needs to take his boat through a lock. Help Tux and find out how a canal lock works."
-msgstr "Pingo je v težavah, ker ne ve kako priti skozi zapornice. Pomagaj mu in ugotovi kako jih odpreti."
+msgstr "Pingo je v težavah, ker ne ve, kako priti skozi zapornice. Ugotovi kako jih odpreti in mu pomagaj."
 
 #: ../src/canal_lock-activity/canal_lock.xml.in.h:4
 msgid "You are in charge of the canal lock. Open the gates and the locks in the right order, so Tux can travel through the gates in both directions."
@@ -1517,7 +1500,7 @@ msgstr "Tukaj napiši sporočilo, ki ga želiš poslati drugim uporabnikom progr
 
 #: ../src/chat-activity/chat.py:202
 msgid "ERROR: Failed to initialize the network interface. You cannot communicate."
-msgstr ""
+msgstr "NAPAKA: Zaganjanje omrežnega vmesnika je spodletelo. Ne moreš se sporazumevati."
 
 #: ../src/chat-activity/chat.py:326
 msgid "You must set a channel in your channel entry box first.\n"
@@ -1528,17 +1511,16 @@ msgid "Your friends must set the same channel in order to communicate with you"
 msgstr "Če se tvoji prijatelji želijo pogovarjati s tabo, morajo uporabljati isti kanal"
 
 #: ../src/chat-activity/chat.xml.in.h:1
-#, fuzzy
 msgid "Chat with your friends"
-msgstr "Sporočanje s prijatelji"
+msgstr "Klepetaj s svojimi prijatelji"
 
 #: ../src/chat-activity/chat.xml.in.h:2
 msgid "This chat activity only works on the local network"
-msgstr ""
+msgstr "Ta dejavnost klepeta deluje le na krajevnemu omrežju"
 
 #: ../src/chat-activity/chat.xml.in.h:3
 msgid "This chat activity will only work with other GCompris users on your local network, not on the Internet. To use it, just type in your message and hit Enter. Your message is then broadcast on the local network, and any GCompris program running the chat activity on that local network will receive and display your message."
-msgstr ""
+msgstr "Dejavnost klepetanja bo delovala samo z drugimi uporabniki GCompris na tvojemu krajevnemu omrežju in ne na medmrežju. Za uporabo napiši svoje sporočilo in pritisni vnosno tipko. Tvoje sporočilo je vsesmerno oddano na tvojemu krajevnemu omrežju in katerikoli program GCompris, ki poganja dejavnost klepeta, bo prejel in prikazal tvoje sporočilo."
 
 #: ../src/chess_computer-activity/chess.c:222
 msgid "Error: The external program gnuchess died unexpectedly"
@@ -1600,7 +1582,7 @@ msgstr "Učenje šaha"
 #: ../src/chess_movelearn-activity/chess_movelearn.xml.in.h:4
 #: ../src/chess_partyend-activity/chess_partyend.xml.in.h:4
 msgid "The chess engine is from gnuchess."
-msgstr "Pogon šaha ja gnuchess."
+msgstr "Pogon šaha je iz programa gnuchess."
 
 #: ../src/chess_movelearn-activity/chess_movelearn.xml.in.h:1
 msgid "Chess training. Catch the computer's pawns."
@@ -1616,11 +1598,11 @@ msgstr "Časovno zaporedje"
 
 #: ../src/chronos-activity/chronos.xml.in.h:2
 msgid "Drag and Drop the items to organize the story"
-msgstr "Povleci in spusti slikice tako da boš sestavil zgodbo"
+msgstr "Povleci in spusti slikice tako, da boš sestavil zgodbo"
 
 #: ../src/chronos-activity/chronos.xml.in.h:3
 msgid "Moon photo is copyright NASA. The space sounds come from Tuxpaint and Vegastrike which are released under the GPL license. The transportation images are copyright Franck Doucet. Dates of Transportation are based on those found in &lt;http://www.wikipedia.org&gt;."
-msgstr ""
+msgstr "Fotografija lune je last agencije NASA. Zvoki vesolja so iz Tuxpaint in Vegastrike, ki sta izdana pod licenco GPL. Lastnik avtorskih pravic slik transporta je Franck Doucet. Datumi transporta so osnovani na datumih najdenih na &lt;http://www.wikipedia.org&gt;."
 
 #: ../src/chronos-activity/chronos.xml.in.h:4
 msgid "Pick from the pictures on the left and put them on the red dots"
@@ -1632,11 +1614,11 @@ msgstr "Sestavi slikice tako, da bodo povedale zgodbo"
 
 #: ../src/chronos-activity/chronos.xml.in.h:6
 msgid "Tell a short story"
-msgstr "Povej kratko zgodbo"
+msgstr "Pripoved kratke zgodbe"
 
 #: ../src/chronos-activity/resources/chronos/board1_0.xml.in.h:1
 msgid "Moonwalker"
-msgstr ""
+msgstr "Hoja po luni"
 
 #: ../src/chronos-activity/resources/chronos/board1_1.xml.in.h:1
 #: ../src/wordprocessor-activity/wordprocessor.c:117
@@ -1667,16 +1649,16 @@ msgid "Gardening"
 msgstr "Vrtnarjenje"
 
 #: ../src/chronos-activity/resources/chronos/board2_0.xml.in.h:1
-#, fuzzy
 msgid "Tux and the apple tree"
-msgstr "Preklopi prikaz drevesa predalov in map"
+msgstr "Pingo in jablana"
 
+# http://t1.gstatic.com/images?q=tbn:N6wB1ryOJrOtRM:http://flatruck.fladby.com/pictures/fardier.jpg
 #: ../src/chronos-activity/resources/chronos/board3_0.xml.in.h:1
 #: ../src/chronos-activity/resources/chronos/board3_2.xml.in.h:1
 #: ../src/chronos-activity/resources/chronos/board3_4.xml.in.h:1
 #: ../src/chronos-activity/resources/chronos/board4_2.xml.in.h:1
 msgid "1769 Cugnot's fardier"
-msgstr ""
+msgstr "1769 Cugnotjev parni stroj"
 
 #: ../src/chronos-activity/resources/chronos/board3_0.xml.in.h:2
 #: ../src/chronos-activity/resources/chronos/board3_3.xml.in.h:5
@@ -1685,6 +1667,8 @@ msgid ""
 "1829 Stephenson's Rocket\n"
 "Steam locomotive"
 msgstr ""
+"1829 Stephensonova\n"
+"parna lokomotiva Raketa"
 
 #: ../src/chronos-activity/resources/chronos/board3_0.xml.in.h:4
 msgid ""
@@ -1693,6 +1677,10 @@ msgid ""
 "If not sure, research online at wikipedia:\n"
 "http://www.wikipedia.org"
 msgstr ""
+"Postavi slike in vrsti red\n"
+"in na datum iznajde.\n"
+"Če nisi prepričan, raziskuj na wikipediji:\n"
+"http://www.wikipedia.org"
 
 #: ../src/chronos-activity/resources/chronos/board3_0.xml.in.h:8
 #: ../src/chronos-activity/resources/chronos/board3_1.xml.in.h:6
@@ -1708,19 +1696,23 @@ msgid ""
 "1783 Montgolfier brothers'\n"
 "hot air balloon"
 msgstr ""
+"1783 balon na vroči zrak\n"
+"bratov Montgolfier"
 
 #: ../src/chronos-activity/resources/chronos/board3_1.xml.in.h:3
 #: ../src/chronos-activity/resources/chronos/board3_2.xml.in.h:4
 #: ../src/chronos-activity/resources/chronos/board3_4.xml.in.h:4
 #: ../src/chronos-activity/resources/chronos/board4_0.xml.in.h:1
 msgid "1880 Clement Ader's Eole"
-msgstr ""
+msgstr "1880 Eole Clementa Aderja"
 
 #: ../src/chronos-activity/resources/chronos/board3_1.xml.in.h:4
 msgid ""
 "1906 Paul Cornu\n"
 "First helicopter flight"
 msgstr ""
+"1906 Paul Cornu\n"
+"Prvi let s helikopterjem"
 
 #: ../src/chronos-activity/resources/chronos/board3_2.xml.in.h:2
 #: ../src/chronos-activity/resources/chronos/board3_3.xml.in.h:3
@@ -1728,49 +1720,61 @@ msgid ""
 "1791 Comte de Sivrac's\n"
 "Celerifere"
 msgstr ""
+"1791 Celerifere\n"
+"Comte de Sivraca"
 
 #: ../src/chronos-activity/resources/chronos/board4_0.xml.in.h:2
 msgid "1903 The Wright brothers' Flyer III"
-msgstr ""
+msgstr "1903 Brata Wright ustvarita Flyer III"
 
 #: ../src/chronos-activity/resources/chronos/board4_0.xml.in.h:3
 msgid ""
 "1909 Louis Bleriot crosses\n"
 "the English Channel"
 msgstr ""
+"1909 Louis Bleriot\n"
+"prečka Angleški kanal"
 
 #: ../src/chronos-activity/resources/chronos/board4_0.xml.in.h:5
 #: ../src/chronos-activity/resources/chronos/board4_1.xml.in.h:7
 msgid "Aviation"
-msgstr ""
+msgstr "Letenje"
 
 #: ../src/chronos-activity/resources/chronos/board4_1.xml.in.h:1
 msgid ""
 "1927 Charles Lindbergh\n"
 "crosses the Atlantic Ocean"
 msgstr ""
+"1927 Charles Lindbergh\n"
+"prečka Atlantski ocean"
 
 #: ../src/chronos-activity/resources/chronos/board4_1.xml.in.h:3
 msgid ""
 "1934 Hélène Boucher's\n"
 "speed record of 444km/h"
 msgstr ""
+"1934 Hitrostni rekord 444km/h\n"
+"Hélène Boucher "
 
 #: ../src/chronos-activity/resources/chronos/board4_1.xml.in.h:5
 msgid ""
 "1947 Chuck Yeager\n"
 "breaks the sound-barrier"
 msgstr ""
+"1947 Chuck Yeager\n"
+"prebije zvočni zid"
 
 #: ../src/chronos-activity/resources/chronos/board4_2.xml.in.h:2
 msgid "1878 Léon Bollé's \"La Mancelle\""
-msgstr ""
+msgstr "1878 Léon Bolléova \"La Mancelle\""
 
 #: ../src/chronos-activity/resources/chronos/board4_2.xml.in.h:3
 msgid ""
 "1885 The first petrol\n"
 "car by Benz"
 msgstr ""
+"1885 Prvi avto na bencin\n"
+"naredil ga je Benz"
 
 #: ../src/chronos-activity/resources/chronos/board4_2.xml.in.h:5
 msgid "The car"
@@ -1778,7 +1782,7 @@ msgstr "Avtomobil"
 
 #: ../src/chronos-activity/resources/chronos/board4_3.xml.in.h:1
 msgid "1899 Renault \"voiturette\""
-msgstr ""
+msgstr "1899 Renault \"voiturette\""
 
 #: ../src/chronos-activity/resources/chronos/board4_3.xml.in.h:2
 msgid "1923 Lancia Lambda"
@@ -1789,7 +1793,6 @@ msgid "1955 Citroën ds 19"
 msgstr "1955 Citroën ds 19"
 
 #: ../src/chronos-activity/resources/chronos/board4_3.xml.in.h:4
-#, fuzzy
 msgid "Cars"
 msgstr "Avtomobili"
 
@@ -1858,7 +1861,7 @@ msgstr "Prisluhni črki in klikni na pravo"
 
 #: ../src/click_on_letter-activity/click_on_letter.xml.in.h:5
 msgid "Visual letter-recognition. Can move the mouse."
-msgstr "Vidno prepoznavanje črk. Znam premakniti miško."
+msgstr "Vidno prepoznavanje črk. Premikanje miške."
 
 #: ../src/clickanddraw-activity/clickanddraw.xml.in.h:1
 msgid "Click and draw"
@@ -1866,7 +1869,7 @@ msgstr "Klikni in riši"
 
 #: ../src/clickanddraw-activity/clickanddraw.xml.in.h:2
 msgid "Draw the picture by clicking on each blue point in sequence."
-msgstr ""
+msgstr "Nariši sliko s klikanjem na modre točke v zaporedju."
 
 #: ../src/clickanddraw-activity/clickanddraw.xml.in.h:3
 msgid "Draw the picture by clicking on the blue points."
@@ -1878,7 +1881,7 @@ msgstr "Klikni me"
 
 #: ../src/clickgame-activity/clickgame.xml.in.h:2
 msgid "Fish are taken from the Unix utility xfishtank. All image credits belong to Guillaume Rousse."
-msgstr ""
+msgstr "Ribe izvirajo iz Unix pripomočka xfishtank. Zasluge pripadajo Guillaume Rousse. "
 
 #: ../src/clickgame-activity/clickgame.xml.in.h:3
 msgid "Left-Click with the mouse on all the swimming fish before they leave the fishtank"
@@ -1910,7 +1913,7 @@ msgstr "Učenje ure"
 
 #: ../src/clockgame-activity/clockgame.xml.in.h:4
 msgid "Set the clock to the time given, in the time-units shown (hours:minutes or hours:minutes:seconds). Click on the different arrows, and move the mouse, to make the numbers go up or down."
-msgstr ""
+msgstr "Nastavi uro na dani čas v prikazanih časovnih enotah (ure:minute ali ure:minute:sekunde). Klikni na različne puščice in premakni miško za povečanje ali zmanjšanje števil."
 
 #: ../src/clockgame-activity/clockgame.xml.in.h:5
 msgid "The concept of time. Reading the time."
@@ -1958,7 +1961,7 @@ msgstr "Klikni na belo račko"
 
 #: ../src/colors-activity/colors.xml.in.h:1
 msgid "Can move the mouse."
-msgstr "Lahko premaknem miško."
+msgstr "Premikanje miške."
 
 #: ../src/colors-activity/colors.xml.in.h:2
 msgid "Click on the right color"
@@ -1974,17 +1977,18 @@ msgstr "Poslušaj barve in klikni na pravo račko."
 
 #: ../src/colors-activity/colors.xml.in.h:5
 msgid "This board teaches you to recognize different colors. When you hear the name of the color, click on the duck wearing it."
-msgstr ""
+msgstr "Ta tabla te nauči kako prepoznati različne barve. Ko slišiš ime barve, klikni na račko, ki je oblečena v to barvo."
 
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:1
 #: ../src/connect4-activity/connect4.xml.in.h:1
 msgid "Arrange four coins in a row"
-msgstr ""
+msgstr "Uredi štiri kovance v vrsto"
 
+# to so kovanci, ker je naslov uredi kovance v vrsto ...
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:2
 #: ../src/connect4-activity/connect4.xml.in.h:2
 msgid "Click the position in the line where you want to drop a piece. You can also use the arrow keys to move the piece left or right, and the down or space key to drop a piece."
-msgstr ""
+msgstr "Klikni na položaj v vrsti, kjer želiš spustiti kovance. Za premikanje kovancev levo in desno lahko uporabiš tudi tipke s puščicami, za spuščanje kovancev pritisni preslednico ali tipko navzdol."
 
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:3
 msgid "Connect 4 (2 Players)"
@@ -1992,11 +1996,11 @@ msgstr "4 v vrsto (2 igralca)"
 
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:4
 msgid "Create a line of 4 pieces either horizontally (lying down) or vertically (standing up) or diagonally."
-msgstr ""
+msgstr "Ustvari vrsto 4 kovancev vodoravno, navpično ali diagonalno."
 
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:6
 msgid "The original code was written in 2005 by Laurent Lacheny. In 2006, Miguel de Izarra made the two players game. Images and Artificial Intelligence taken from project 4stattack by Jeroen Vloothuis. The original project can be found on &lt;http://forcedattack.sourceforge.net&gt;"
-msgstr ""
+msgstr "Izbirno kodo je v letu 2005 napisal Laurent Lacheny. V 2006 je Miguel de Izarra naredil igro za dva igralca. Slike in umetna inteligenca izvirata iz projekta 4sattack, ki ga je napisal Jeroen Vloothius. Izvirni projekt je mogoče najti na &lt;http://forcedattack.sourceforge.net&gt;"
 
 #: ../src/connect4-activity/connect4.xml.in.h:3
 msgid "Connect 4"
@@ -2004,11 +2008,11 @@ msgstr "4 v vrsto"
 
 #: ../src/connect4-activity/connect4.xml.in.h:4
 msgid "Create a line of 4 pieces either horizontally (lying down), vertically (standing up) or diagonally."
-msgstr ""
+msgstr "Ustvari vrsto 4 delčkov vodoravno, navpično ali diagonalno."
 
 #: ../src/connect4-activity/connect4.xml.in.h:5
 msgid "Laurent Lacheny. Images and Artificial Intelligence taken from project 4stattack by Jeroen Vloothuis. The original project can be found on &lt;http://forcedattack.sourceforge.net&gt;"
-msgstr ""
+msgstr "Laurent Lacheny. Slike in umetna inteligenca izvirata iz projekta 4stattack, ki ga je napisal Jeroen Vloothuis. Izvirni projekt je mogoče najti na &lt;http://forcedattack.sourceforge.net&gt;"
 
 #: ../src/crane-activity/crane.xml.in.h:1
 msgid "Build the same model"
@@ -2016,7 +2020,7 @@ msgstr "Naredi enak model"
 
 #: ../src/crane-activity/crane.xml.in.h:2
 msgid "Drive the crane and copy the model"
-msgstr ""
+msgstr "Upravljaj žerjav in skopiraj model"
 
 #: ../src/crane-activity/crane.xml.in.h:3
 #: ../src/erase-activity/erase.xml.in.h:2
@@ -2033,7 +2037,7 @@ msgstr "Upravljanje z miško"
 
 #: ../src/crane-activity/crane.xml.in.h:5
 msgid "Move the items in the bottom left frame to copy their position in the top right model. Below the crane itself, you will find four arrows that let you move items. To select the item to move, just click on it. If you prefer, you can use the arrow keys and the space or tab key instead."
-msgstr ""
+msgstr "Premakni predmete v spodnjemu levemu okvirju za kopiranje njihovega položaja v zgornji desni model. Pod žerjavom boš našel štiri puščice s katerimi lahko premikaš predmete. Predmet izbereš tako, da nanj klikneš. Če želiš, lahko namesto klika uporabljaš preslednico ali tabulator."
 
 #: ../src/doubleentry-activity/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
@@ -2045,7 +2049,7 @@ msgstr "Razpredelnica"
 
 #: ../src/doubleentry-activity/doubleentry.xml.in.h:3
 msgid "Drag and Drop each proposed item on its destination"
-msgstr "Povleci in spusti predlagane predmete na njihov cilj"
+msgstr "Povleci in spusti predlagane predmete na pravo mesto"
 
 #: ../src/doubleentry-activity/doubleentry.xml.in.h:4
 msgid "Drag and Drop the items in the double-entry table"
@@ -2054,11 +2058,11 @@ msgstr "Povleci in spusti predmete v razpredelnico"
 # double entry tukaj ni potreben
 #: ../src/doubleentry-activity/doubleentry.xml.in.h:5
 msgid "Move the items on the left to their proper position in the double-entry table."
-msgstr "Premakni predmete na levi na pravo mesto cilj v razpredelnici."
+msgstr "Premakni predmete na levi na pravo mesto v razpredelnici."
 
 #: ../src/doubleentry-activity/resources/doubleentry/board3_0.xml.in.h:1
 msgid "Click on an item and listen to its target position"
-msgstr ""
+msgstr "Klikni na predmet in poslušaj njegov ciljni položaj"
 
 #: ../src/draw-activity/draw.xml.in.h:1
 msgid "A creative board where you can draw freely"
@@ -2078,7 +2082,7 @@ msgstr "Na levi strani izberi orodje za risanje v spodnjem delu pa izberi barvo.
 
 #: ../src/drawnumber-activity/drawnumber.xml.in.h:1
 msgid "Can count from 1 to 50."
-msgstr ""
+msgstr "Znanje štetja od 1 do 50."
 
 #: ../src/drawnumber-activity/drawnumber.xml.in.h:2
 msgid "Draw Number"
@@ -2086,11 +2090,11 @@ msgstr "Nariši število"
 
 #: ../src/drawnumber-activity/drawnumber.xml.in.h:3
 msgid "Draw the picture by clicking on each numbers in the right order."
-msgstr ""
+msgstr "Nariši sliko s klikom na številke v pravilnem vrstnem redu."
 
 #: ../src/drawnumber-activity/drawnumber.xml.in.h:4
 msgid "Draw the picture by following numbers"
-msgstr ""
+msgstr "Nariši sliko s sledenjem številkam"
 
 #: ../src/electric-activity/electric.py:98
 msgid ""
@@ -2110,11 +2114,12 @@ msgstr ""
 
 #: ../src/electric-activity/electric.xml.in.h:1
 msgid "Create and simulate an electric schema"
-msgstr ""
+msgstr "Ustvari in simuliraj električno shemo"
 
+# tukaj je lahko levi stolpec, ker je povsod levi stolpec, samo tukaj so mu angleško rekli selector namesto left box
 #: ../src/electric-activity/electric.xml.in.h:2
 msgid "Drag electrical components from the selector and drop them in the working area. Create wires by clicking on a connection spot, dragging the mouse to the next connection spot, and letting go. You can also move components by dragging them. You can delete wires by clicking on them. To delete a component, select the deletion tool on top of the component selector. You can click on the switch to open and close it. You can change the rheostat value by dragging its wiper. In order to simulate what happens when a bulb is blown, you can blown it by right-clicking on it. The simulation is updated in real time by any user action."
-msgstr ""
+msgstr "Povleci električne sestavne dele iz levega stolpca in jih spusti na delovno področje. Žice ustvariš tako, da klikneš na točko povezave, miško povlečeš do naslednje točke povezave in jo spustiš. Sestavne dele lahko premikaš z vlečenjem. Žice izbrišeš tako, da klikneš nanje. Za izbris sestavnega dela izberi orodje izbrisa na vrhu stolpca s sestavnimi deli. Za odprtje in zaprtje stikala klikni nanj. Vrednost spremenljivega upora lahko spremeniš z vleko drsnika. Za simulacijo pregorele žarnice klikni nanjo z desnim miškinim gumbom. Simulacija se takoj samodejno posodablja. "
 
 #: ../src/electric-activity/electric.xml.in.h:3
 msgid "Electricity"
@@ -2122,15 +2127,15 @@ msgstr "Elektrika"
 
 #: ../src/electric-activity/electric.xml.in.h:4
 msgid "Freely create an electric schema with a real time simulation of it."
-msgstr ""
+msgstr "Ustvari električno shemo s pravo časovno simulacijo."
 
 #: ../src/electric-activity/electric.xml.in.h:5
 msgid "GCompris uses the Gnucap electric simulator as a backend. You can get more information on gnucap at &lt;http://geda.seul.org/tools/gnucap/&gt;."
-msgstr ""
+msgstr "GCompris kot zaledje uporablja Gnucap električni simulator. Več podrobnosti o gnucap lahko dobiš na &lt;http://geda.seul.org/tools/gnucap/&gt;."
 
 #: ../src/electric-activity/electric.xml.in.h:6
 msgid "Requires some basic understanding of the concept of electricity."
-msgstr ""
+msgstr "Zahteva nekaj osnovnega razumevanja koncepta elektrike."
 
 #: ../src/enumerate-activity/enumerate.c:110
 #: ../src/enumerate-activity/enumerate.xml.in.h:4
@@ -2141,7 +2146,7 @@ msgstr "Učenje štetja"
 #: ../src/enumerate-activity/enumerate.c:111
 #: ../src/enumerate-activity/enumerate.xml.in.h:5
 msgid "Place the items in the best way to count them"
-msgstr "Postavi predmete tako, da jih boš lažje štel"
+msgstr "Postavi predmete tako, da jih boš lažje štel/a"
 
 #: ../src/enumerate-activity/enumerate.xml.in.h:1
 msgid "Basic enumeration"
@@ -2153,16 +2158,16 @@ msgstr "Štetje predmetov"
 
 #: ../src/enumerate-activity/enumerate.xml.in.h:3
 msgid "First, properly organize the items so that you can count them. Then, select the item you want to answer in the bottom right area. Enter the answer with the keyboard and press the OK button or the 'Enter' key."
-msgstr "Uredi predmete tako, da jih boš znal prešteti. Nato spodaj desno izberi predmet na katerega želiš odgovoriti. Natipkaj odgovor s tipkovnico nato pritisni gumb v redu ali tipko 'Enter'."
+msgstr "Uredi predmete tako, da jih boš znal/a prešteti. Nato spodaj desno izberi predmet na katerega želiš odgovoriti. Natipkaj odgovor s tipkovnico nato pritisni gumb v redu ali vnosno tipko."
 
 #: ../src/erase-activity/erase.c:125
 #: ../src/erase-activity/erase.xml.in.h:5
 msgid "Move the mouse to erase the area and discover the background"
-msgstr "Premakni miško, da boš izbrisal polje in odkril ozadje."
+msgstr "Premakni miško, izbriši polje in odkrij ozadje."
 
 #: ../src/erase-activity/erase.xml.in.h:1
 msgid "Animal pictures are taken from the Animal Photography Page of Ralf Schmode (&lt;http://schmode.net/&gt;) and from LE BERRE Daniel. These people kindly gave GCompris the authorization to include their pictures. Thanks a lot, both of you."
-msgstr "Slike živali so vzete s spletne strani Fotografije živali od Ralfa Schmode(&lthttp://schmode.net/&lt) in Daniela Le Berre. Oba sta dovolila dovolil uporabo njegovih slik v GCompris. Hvala vama obema."
+msgstr "Slike živali so vzete s spletne strani Fotografije živali Ralfa Schmode(&lt;http://schmode.net/&gt;) in Daniela Le Berre. Oba sta dovolila dovolil uporabo njunih slik v GCompris. Hvala vama obema."
 
 #: ../src/erase-activity/erase.xml.in.h:6
 msgid "Move the mouse until all the blocks disappear."
@@ -2178,7 +2183,7 @@ msgstr "Klikni miško na kvadratkih dokler vsa polja ne izginejo."
 
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:4
 msgid "Click the mouse to erase the area and discover the background"
-msgstr "Klikni na miško, da boš izbrisal polje in raziskal ozadje"
+msgstr "Klikni na miško, izbriši polje in odkrij ozadje"
 
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
 msgid "Double click the mouse"
@@ -2198,7 +2203,7 @@ msgstr "Klikni na katerikoli predmet, poleg katerega je prazen prostor. Predmet 
 
 #: ../src/fifteen-activity/fifteen.xml.in.h:3
 msgid "Move each item to make an increasing series: from the smallest to the largest"
-msgstr ""
+msgstr "Premakni vsak predmet za ustvarjanje povečujočega zaporedja: od najmanjšega do največjega"
 
 #: ../src/fifteen-activity/fifteen.xml.in.h:4
 msgid "Original code taken from the libgnomecanvas demo"
@@ -2218,11 +2223,11 @@ msgstr "Fina motorična koordinacija"
 
 #: ../src/followline-activity/followline.xml.in.h:3
 msgid "Move the mouse over the red part of the hose-pipe. This will move it, bringing it, part by part, up to the flowers. Be careful, if you move off the hose, the red part will go back down."
-msgstr ""
+msgstr "Premakni miško nad rdeči del cevi. To jo bo premaknilo in jo del za delom premaknilo k rožam. Bodi pozor-en/na. Če miško premakneš s cevi, se bo rdeči del premaknil nazaj."
 
 #: ../src/followline-activity/followline.xml.in.h:4
 msgid "Tux needs to water the flowers, but the hose is blocked."
-msgstr ""
+msgstr "Pingo potrebuje vodo za zalivanje rož, toda cev je zamašena."
 
 #: ../src/gcompris/about.c:50
 msgid ""
@@ -2251,11 +2256,8 @@ msgid "About GCompris"
 msgstr "O programu"
 
 #: ../src/gcompris/about.c:95
-#, fuzzy
 msgid "GCompris Home Page: http://gcompris.net"
-msgstr ""
-"Domača stran GCompris\n"
-"http://gcompris.net"
+msgstr "Domača stran GCompris: http://gcompris.net"
 
 #: ../src/gcompris/about.c:106
 msgid "Translators:"
@@ -2266,30 +2268,30 @@ msgid "This software is a GNU Package and is released under the GNU General Publ
 msgstr "Ta program je GNU paket in je izdan pod GNU splošno javno licenco"
 
 #: ../src/gcompris/about.c:220
-#: ../src/gcompris/config.c:447
+#: ../src/gcompris/config.c:442
 #: ../src/gcompris/dialog.c:103
 #: ../src/gcompris/help.c:359
 #: ../src/gcompris/images_selector.c:307
 msgid "OK"
 msgstr "V redu"
 
-#: ../src/gcompris/bar.c:653
+#: ../src/gcompris/bar.c:688
 msgid "GCompris confirmation"
 msgstr "Potrditev GCompris"
 
-#: ../src/gcompris/bar.c:654
+#: ../src/gcompris/bar.c:689
 msgid "Are you sure you want to quit?"
 msgstr "Ali si prepričan, da želiš končati?"
 
-#: ../src/gcompris/bar.c:655
+#: ../src/gcompris/bar.c:690
 msgid "Yes, I am sure!"
-msgstr "Da, prepričan sem!"
+msgstr "Da, prepričan sem"
 
-#: ../src/gcompris/bar.c:656
+#: ../src/gcompris/bar.c:691
 msgid "No, I want to keep going"
 msgstr "Ne, želim nadaljevati"
 
-#: ../src/gcompris/board.c:194
+#: ../src/gcompris/board.c:197
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr "Dinamično nalaganje modulov ni podprto. GCompris se ne more naložiti.\n"
 
@@ -2337,34 +2339,36 @@ msgid "Configure the list of words"
 msgstr "Nastavi seznam besed"
 
 #: ../src/gcompris/board_config_wordlist.c:209
-#, fuzzy
 msgid "Choice of the language"
-msgstr "Privzeti jezik"
+msgstr "Izberi jezik"
 
 #: ../src/gcompris/board_config_wordlist.c:221
-#, fuzzy
 msgid "Choice of the level"
-msgstr "Raven paranoje"
+msgstr "Izberi raven"
 
 #: ../src/gcompris/board_config_wordlist.c:246
 msgid "Back to default"
 msgstr "Nazaj na privzeto"
 
-#: ../src/gcompris/config.c:59
+#: ../src/gcompris/config.c:58
 msgid "Your system default"
 msgstr "Privzete sistemske nastavitve"
 
-#: ../src/gcompris/config.c:60
+#: ../src/gcompris/config.c:59
 msgid "Afrikaans"
 msgstr "afriški"
 
-#: ../src/gcompris/config.c:61
+#: ../src/gcompris/config.c:60
 msgid "Amharic"
 msgstr "amhajski"
 
-#: ../src/gcompris/config.c:62
+#: ../src/gcompris/config.c:61
 msgid "Arabic"
 msgstr "arabski"
+
+#: ../src/gcompris/config.c:62
+msgid "Asturian"
+msgstr "Asturščina"
 
 #: ../src/gcompris/config.c:63
 msgid "Turkish (Azerbaijan)"
@@ -2628,52 +2632,47 @@ msgid "Fast timer"
 msgstr "Hitreje"
 
 #: ../src/gcompris/config.c:135
-msgid ""
-"<i>Use Gcompris administration module\n"
-"to filter boards</i>"
-msgstr ""
-"<i>Uporaba skrbniškega modula Gcompris\n"
-"za filtriranje tabel</i>"
+msgid "Use Gcompris administration module to filter boards"
+msgstr "Za filtriranje tabel uporabite skrbniški modul Gcompris "
 
-#: ../src/gcompris/config.c:187
+#: ../src/gcompris/config.c:186
 msgid "GCompris Configuration"
 msgstr "GCompris nastavitve"
 
-#: ../src/gcompris/config.c:258
+#: ../src/gcompris/config.c:254
 msgid "Fullscreen"
 msgstr "Celozaslonski način"
 
-#: ../src/gcompris/config.c:284
+#: ../src/gcompris/config.c:280
 msgid "Music"
 msgstr "Glasba"
 
-#: ../src/gcompris/config.c:310
+#: ../src/gcompris/config.c:306
 msgid "Effect"
-msgstr "Učinek"
+msgstr "Učinki"
 
-#: ../src/gcompris/config.c:335
+#: ../src/gcompris/config.c:331
 #: ../src/gcompris/sugar.c:82
-#, fuzzy
 msgid "Zoom"
-msgstr "Povečava"
+msgstr "Približanje"
 
-#: ../src/gcompris/config.c:372
+#: ../src/gcompris/config.c:368
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Ni mogoče odpreti mape preoblek: %s"
 
-#: ../src/gcompris/config.c:403
-#: ../src/gcompris/config.c:807
-#: ../src/gcompris/config.c:821
+#: ../src/gcompris/config.c:399
+#: ../src/gcompris/config.c:757
+#: ../src/gcompris/config.c:771
 #, c-format
 msgid "Skin : %s"
 msgstr "Preobleka : %s"
 
-#: ../src/gcompris/config.c:405
+#: ../src/gcompris/config.c:401
 msgid "SKINS NOT FOUND"
 msgstr "PREOBLEKE NI MOGOČE NAJTI"
 
-#: ../src/gcompris/config.c:487
+#: ../src/gcompris/config.c:482
 msgid "English (United State)"
 msgstr "Angleško (Združene države)"
 
@@ -2708,155 +2707,154 @@ msgstr ""
 "Končajte program in poročajte\n"
 "napako avtorjem."
 
-#: ../src/gcompris/gcompris.c:152
+#: ../src/gcompris/gcompris.c:156
 msgid "run GCompris in fullscreen mode."
 msgstr "Zagon GCompris v celozaslonskem načinu."
 
-#: ../src/gcompris/gcompris.c:155
+#: ../src/gcompris/gcompris.c:159
 msgid "run GCompris in window mode."
 msgstr "Zagon GCompris v okenskem načinu."
 
-#: ../src/gcompris/gcompris.c:158
+#: ../src/gcompris/gcompris.c:162
 msgid "run GCompris with sound enabled."
 msgstr "Zagon GCompris z omogočenim zvokom."
 
-#: ../src/gcompris/gcompris.c:161
+#: ../src/gcompris/gcompris.c:165
 msgid "run GCompris without sound."
 msgstr "Zagon Gcompris brez zvoka."
 
-#: ../src/gcompris/gcompris.c:164
+#: ../src/gcompris/gcompris.c:168
 msgid "run GCompris with the default gnome cursor."
 msgstr "Zagon GCompris s privzetim gnome kazalcem."
 
-#: ../src/gcompris/gcompris.c:167
+#: ../src/gcompris/gcompris.c:171
 msgid "display only activities with this difficulty level."
 msgstr "Pokaži le dejavnosti te težavnostne ravni."
 
-#: ../src/gcompris/gcompris.c:170
+#: ../src/gcompris/gcompris.c:174
 msgid "display debug informations on the console."
 msgstr "Prikaži podrobnosti razhroščevanja na konzoli."
 
-#: ../src/gcompris/gcompris.c:173
+#: ../src/gcompris/gcompris.c:177
 msgid "Print the version of "
 msgstr "Natisni različico "
 
-#: ../src/gcompris/gcompris.c:176
+#: ../src/gcompris/gcompris.c:180
 msgid "Run GCompris with local menu (e.g -l /reading will let you play only activities in the reading directory, -l /strategy/connect4 only the connect4 activity). Use '-l list' to list all the availaible activities and their descriptions."
 msgstr "Poženi GCompris s krajevnim menijem (na primer -l /reading dovoli le igranje delavnosti v mapi branje, -l /strategy/connect4 le dejavnost 4 v vrsto). Uporabi '-l list' za seznam vseh dostopnih dejavnosti in njihovih opisov."
 
-#: ../src/gcompris/gcompris.c:181
+#: ../src/gcompris/gcompris.c:185
 msgid "GCompris will find the data dir in this directory"
-msgstr ""
+msgstr "GCompris bo v tej mapi našel mapo podatkov"
 
-#: ../src/gcompris/gcompris.c:184
+#: ../src/gcompris/gcompris.c:188
 msgid "GCompris will find the skins in this directory"
-msgstr ""
+msgstr "GCompris bo v tej mapi našel preobleke"
 
-#: ../src/gcompris/gcompris.c:187
+#: ../src/gcompris/gcompris.c:191
 msgid "GCompris will find the activity plugins in this directory"
-msgstr ""
+msgstr "GCompris bo v tej mapi našel vstavke dejavnosti"
 
-#: ../src/gcompris/gcompris.c:190
-#, fuzzy
+#: ../src/gcompris/gcompris.c:194
 msgid "GCompris will find the python activity in this directory"
-msgstr "Zaženi GCompris z mapo krajevnih dejavnosti dodano v meni"
+msgstr "GCompris bo našel dejavnost python v tej mapi"
 
-#: ../src/gcompris/gcompris.c:193
+#: ../src/gcompris/gcompris.c:197
 msgid "GCompris will find the locale file (.mo translation) in this directory"
-msgstr ""
+msgstr "GCompris bo v tej mapi našel datoteko jezikovne oznake (prevod .mo)"
 
-#: ../src/gcompris/gcompris.c:196
+#: ../src/gcompris/gcompris.c:200
 msgid "GCompris will find the activities menu in this directory"
-msgstr ""
+msgstr "GCompris bo v tej mapi našel meni dejavnosti"
 
-#: ../src/gcompris/gcompris.c:199
+#: ../src/gcompris/gcompris.c:203
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Zaženi GCompris v načinu skrbništva in upravljanja uporabnikov "
 
-#: ../src/gcompris/gcompris.c:202
+#: ../src/gcompris/gcompris.c:206
 msgid "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite.db]"
 msgstr "Uporabi dodatno podatkovno zbirko za profile [$HOME/.config/gcompris/gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:205
+#: ../src/gcompris/gcompris.c:209
 msgid "Create the alternate database for profiles"
 msgstr "Ustvari dodatno podatkovno zbirko za profile"
 
-#: ../src/gcompris/gcompris.c:208
+#: ../src/gcompris/gcompris.c:212
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Ponovno preberi menije XML in jih shrani v podatkovni zbirki"
 
-#: ../src/gcompris/gcompris.c:211
+#: ../src/gcompris/gcompris.c:215
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Nastavi profil za uporabo. Uporabi 'gcompris -a' za ustvarjanje profilov"
 
-#: ../src/gcompris/gcompris.c:214
+#: ../src/gcompris/gcompris.c:218
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr "Naštej vse razpoložljive profile. Za ustvarjanje profilov uporabi 'gcompris -a'"
 
-#: ../src/gcompris/gcompris.c:217
+#: ../src/gcompris/gcompris.c:221
 msgid "Config directory location: [$HOME/.config/gcompris]. Alternate is to set $XDG_CONFIG_HOME."
 msgstr "Mesto nastavitvene mape: [$HOME/.config/gcompris] Dodatna možnost je nastviti $XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:220
+#: ../src/gcompris/gcompris.c:224
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "Mesto uporabniških map: [$HOME/Moj GCompris]"
 
-#: ../src/gcompris/gcompris.c:223
+#: ../src/gcompris/gcompris.c:227
 msgid "Run the experimental activities"
 msgstr "Zagon preizkusnih dejavnosti"
 
-#: ../src/gcompris/gcompris.c:226
+#: ../src/gcompris/gcompris.c:230
 msgid "Disable the quit button"
 msgstr "Onemogoči gumb končaj"
 
-#: ../src/gcompris/gcompris.c:229
+#: ../src/gcompris/gcompris.c:233
 msgid "Disable the config button"
 msgstr "Onemogoči gumb nastavitve"
 
-#: ../src/gcompris/gcompris.c:232
+#: ../src/gcompris/gcompris.c:236
 msgid "GCompris will get images, sounds and activity data from this server if not found locally."
 msgstr "GCompris bo dobil slike, zvoke in podatke dejavnost s tega strežnika, če podatkov ne bo mogoče najti krajevno."
 
-#: ../src/gcompris/gcompris.c:235
+#: ../src/gcompris/gcompris.c:239
 msgid "Only when --server is provided, disable check for local resource first. Data are always taken from the web server."
 msgstr "Ko je izbran --server, onemogoči preverjanje za krajevna sredstva. Podatki so vedno preneseni s strežnik."
 
-#: ../src/gcompris/gcompris.c:239
+#: ../src/gcompris/gcompris.c:243
 msgid "In server mode, specify the cache directory used to avoid useless downloads."
-msgstr "V strežniškem načinu je potrebno določiti mapo predpomnilnika za izogibanje nepotrebnim prejemom."
+msgstr "V strežniškem načinu je treba določiti mapo predpomnilnika za izogibanje nepotrebnim prejemom."
 
-#: ../src/gcompris/gcompris.c:242
+#: ../src/gcompris/gcompris.c:246
 msgid "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr "Splošni način povleci in spusti: običajen, 2klika, oboje. Privzeti način je običajen."
 
-#: ../src/gcompris/gcompris.c:245
+#: ../src/gcompris/gcompris.c:249
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Ne izogni se izvajanju več primerkov GCompris."
 
-#: ../src/gcompris/gcompris.c:915
-#, fuzzy, c-format
+#: ../src/gcompris/gcompris.c:890
+#, c-format
 msgid ""
-"GCompris is free software released under the GPL License. In order to support its development, the Windows version provides only %d of the %d activities. You can get the full version for a small fee at\n"
+"GCompris is free software released under the GPL License. In order to support its development, this version provides only %d of the %d activities. You can get the full version for a small fee at\n"
 "<http://gcompris.net>\n"
 "The GNU/Linux version does not have this restriction. If you also believe that we should teach freedom to children, please consider using GNU/Linux. Get more information at FSF:\n"
 "<http://www.fsf.org/philosophy>"
 msgstr ""
-"GCompris je prosto programje izdano pod licenco GPL. Za podpiranje njegovega razvoja različica Windows vsebuje le %d od %d dejavnosti. Polno različico lahko dobite za majhen prispevek na\n"
+"GCompris je prosto programje izdano pod licenco GPL. Za podpiranje njegovega razvoja ta različica vsebuje le %d od %d dejavnosti. Polno različico lahko dobite za majhen prispevek na\n"
 "<http://gcompris.net>\n"
-"Različica GNU/Linux nima teh omejitev. Vedite da razvoj GCompris poteka, da bi osvobodili šole od monopolističnih programskih izdajateljev. Če verjamete, da je otroke treba naučiti svobodo, razmislite o uporabi GNU/Linux. Več podrobnosti o FSF:\n"
+"Različica GNU/Linux nima teh omejitev. Če verjamete, da je otroke treba naučiti svobodo, razmislite o uporabi GNU/Linux. Več podrobnosti na strani FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1393
+#: ../src/gcompris/gcompris.c:1429
 #, c-format
 msgid "GCompris won't start because the lock file is less than %d seconds old.\n"
 msgstr "GCompris se ne bo zagnal, ker je datoteka ključavnice stara manj kot %d sekund.\n"
 
-#: ../src/gcompris/gcompris.c:1395
+#: ../src/gcompris/gcompris.c:1431
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Datoteka ključa je: %s\n"
 
-#: ../src/gcompris/gcompris.c:1509
+#: ../src/gcompris/gcompris.c:1545
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2870,48 +2868,57 @@ msgstr ""
 "Več podrobnosti je mogoče najti na http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1612
+#: ../src/gcompris/gcompris.c:1648
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Uporabi -l za neposreden dostop do dejavnosti.\n"
 
-#: ../src/gcompris/gcompris.c:1613
+#: ../src/gcompris/gcompris.c:1649
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Seznam dostopnih dejavnosti je:\n"
 
-#: ../src/gcompris/gcompris.c:1644
+#: ../src/gcompris/gcompris.c:1680
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Število dejavnosti: %d\n"
 
-#: ../src/gcompris/gcompris.c:1680
+#: ../src/gcompris/gcompris.c:1716
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s obstaja toda ni berljiv ali zapisljiv"
 
-#: ../src/gcompris/gcompris.c:1743
+#: ../src/gcompris/gcompris.c:1779
 #, c-format
 msgid "The --server option cannot be used because GCompris has been compiled without network support!"
 msgstr "Možnosti --server ni mogoče uporabiti, ker GCompris ni bil preveden z omrežno podporo!"
 
-#: ../src/gcompris/gcompris.c:1797
+#: ../src/gcompris/gcompris.c:1833
 #, c-format
 msgid "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list available ones\n"
 msgstr "NAPAKA: Profila '%s' ni mogoče najti. Poženi 'gcompris --profile-list' za seznam razpoložljivih profilov\n"
 
-#: ../src/gcompris/gcompris.c:1811
+#: ../src/gcompris/gcompris.c:1847
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Seznam dostopnih profilov je:\n"
 
-#: ../src/gcompris/gcompris_db.c:234
+#: ../src/gcompris/gcompris_db.c:309
 msgid "Unaffected"
 msgstr "Ne vpliva"
 
-#: ../src/gcompris/gcompris_db.c:235
+#: ../src/gcompris/gcompris_db.c:310
 msgid "Users without a class"
 msgstr "Uporabniki brez razreda"
+
+#: ../src/gcompris/gcompris_db.c:893
+#, c-format
+msgid ""
+"Loading activity from database:\n"
+"%s"
+msgstr ""
+"Nalaganje dejavnosti iz podatkovne zbirke:\n"
+"%s"
 
 #: ../src/gcompris/help.c:181
 msgid "Prerequisite"
@@ -2923,11 +2930,20 @@ msgstr "Cilj"
 
 #: ../src/gcompris/help.c:243
 msgid "Manual"
-msgstr "Priročnik"
+msgstr "Navodila"
 
 #: ../src/gcompris/help.c:274
 msgid "Credit"
 msgstr "Zasluge"
+
+#: ../src/gcompris/menu.c:583
+#, c-format
+msgid ""
+"Loading activity from file:\n"
+"%s"
+msgstr ""
+"Nalaganje dejavnosti iz datoteke:\n"
+"%s"
 
 #: ../src/gcompris/properties.c:497
 #: ../src/gcompris/properties.c:504
@@ -2953,37 +2969,31 @@ msgid "Help"
 msgstr "POMOČ"
 
 #: ../src/gcompris/sugar.c:71
-#, fuzzy
 msgid "About"
-msgstr "O programu"
+msgstr "O programi"
 
 #: ../src/gcompris/sugar.c:72
-#, fuzzy
 msgid "Previous level"
-msgstr "Raven paranoje"
+msgstr "Prednodna raven"
 
 #: ../src/gcompris/sugar.c:75
-#, fuzzy
 msgid "Next level"
-msgstr "Raven paranoje"
+msgstr "Naslednja raven"
 
 #: ../src/gcompris/sugar.c:77
-#, fuzzy
 msgid "Refresh"
 msgstr "Osveži"
 
 #: ../src/gcompris/sugar.c:78
-#, fuzzy
 msgid "Settings"
 msgstr "Nastavitve"
 
-#: ../src/gcompris/sugar.c:84
-#, fuzzy
+#. TRANSLATORS: Back as in previous
+#: ../src/gcompris/sugar.c:86
 msgid "Back"
 msgstr "Nazaj"
 
-#: ../src/gcompris/sugar.c:85
-#, fuzzy
+#: ../src/gcompris/sugar.c:87
 msgid "Stop"
 msgstr "Zaustavi"
 
@@ -3011,7 +3021,7 @@ msgstr "Upravljanje z miško: premikanje, povleci in spusti"
 
 #: ../src/geo_country-activity/geo_country.xml.in.h:4
 msgid "The map of Germany comes from Wikipedia and is released under the GNU Free Documentation License. Olaf Ronneberger and his children Lina and Julia Ronneberger created the German level."
-msgstr ""
+msgstr "Zemljevid Nemčije je iz Wikipedije in je izdan pod GNU Free Documentation Licence. Raven za Nemčijo je ustvaril Olaf Ronneberger in njegova otroka Lina in Julia Ronneberger."
 
 #: ../src/geo_country-activity/resources/geo_country/board1_0.xml.in.h:1
 msgid "Regions of France"
@@ -3019,11 +3029,11 @@ msgstr "Francoske regije"
 
 #: ../src/geo_country-activity/resources/geo_country/board2_0.xml.in.h:1
 msgid "Deutschland Bundesländer"
-msgstr ""
+msgstr "Nemške province"
 
 #: ../src/geo_country-activity/resources/geo_country/board3_0.xml.in.h:1
 msgid "Provincias Argentinas"
-msgstr ""
+msgstr "Argentinske province"
 
 #: ../src/geo_country-activity/resources/geo_country/board4_0.xml.in.h:1
 msgid "Polish Voivodship"
@@ -3048,7 +3058,7 @@ msgstr "Brazilske regije"
 
 #: ../src/geography-activity/geography.xml.in.h:1
 msgid "Drag and Drop the items to redraw the whole map"
-msgstr "Povleci in spusti predmeti, da boš narisal cel zemljevid"
+msgstr "Povleci in spusti predmete tako, da narišeš cel zemljevid"
 
 #: ../src/geography-activity/geography.xml.in.h:2
 msgid "Locate the countries"
@@ -3073,7 +3083,7 @@ msgstr "Azija"
 
 #: ../src/geography-activity/resources/geography/board1_0.xml.in.h:5
 msgid "Continents"
-msgstr ""
+msgstr "Celine"
 
 #: ../src/geography-activity/resources/geography/board1_0.xml.in.h:6
 msgid "Europe"
@@ -3656,11 +3666,11 @@ msgstr "Asociacija črk med zaslonom in tipkovnico"
 
 #: ../src/gnumch-equality-activity/gnumch-equality.xml.in.h:1
 msgid "Equality Number Munchers"
-msgstr "Žerkoti enakih števil"
+msgstr "Žerki enakih števil"
 
 #: ../src/gnumch-equality-activity/gnumch-equality.xml.in.h:2
 msgid "Guide the Number Muncher to the expressions that equal the number at the top of the screen."
-msgstr ""
+msgstr "Vodi žerke števil na vse izraze, ki so enaki številu na vrhu zaslona."
 
 #: ../src/gnumch-equality-activity/gnumch-equality.xml.in.h:3
 msgid "Practice addition, multiplication, division and subtraction."
@@ -3669,7 +3679,7 @@ msgstr "Vadi seštevanje, množenje, deljenje in odštevanje"
 #: ../src/gnumch-equality-activity/gnumch-equality.xml.in.h:4
 #: ../src/gnumch-inequality-activity/gnumch-inequality.xml.in.h:4
 msgid "Use the arrow keys to navigate around the board and to avoid the Troggles. Press the spacebar to eat a number."
-msgstr ""
+msgstr "Uporabi tipke s puščicami za premikanje po tabli in izogibanje poškam. Pritisni preslednico in pojej število."
 
 #: ../src/gnumch-equality-activity/gnumch.py:94
 #, python-format
@@ -3762,11 +3772,11 @@ msgid ""
 "Press <Return> to continue."
 msgstr ""
 "Poška te je pojedla.\n"
-"Pritisni <enter> za nadaljevanje."
+"Pritisni vnosno tipko (enter) za nadaljevanje."
 
 #: ../src/gnumch-equality-activity/gnumch.py:488
 msgid "You ate a wrong number.\n"
-msgstr "Pojedel si napačno število.\n"
+msgstr "Pojed-el/la si napačno število.\n"
 
 #: ../src/gnumch-equality-activity/gnumch.py:489
 msgid ""
@@ -3774,7 +3784,7 @@ msgid ""
 "Press <Return> to continue."
 msgstr ""
 "\n"
-"Pritisni tipko <enter> za nadaljevanje."
+"Pritisni vnosno tipko (enter) za nadaljevanje."
 
 #: ../src/gnumch-equality-activity/gnumch.py:783
 msgid ""
@@ -3793,29 +3803,28 @@ msgstr ""
 "A"
 
 #: ../src/gnumch-factors-activity/gnumch-factors.xml.in.h:1
-#, fuzzy
 msgid "Factor Number Munchers"
-msgstr "`%s' neznana oznaka razlicice"
+msgstr "Žerki večkratnikov"
 
 #: ../src/gnumch-factors-activity/gnumch-factors.xml.in.h:2
 msgid "Guide the Number Muncher to all the factors of the number at the top of the screen."
-msgstr ""
+msgstr "Vodi žerke števil na vse faktorje števila na vrhu zaslona."
 
 #: ../src/gnumch-factors-activity/gnumch-factors.xml.in.h:3
 msgid "Learn about factors and multiples."
-msgstr ""
+msgstr "Nauči se o faktorjih in večkratnikih."
 
 #: ../src/gnumch-factors-activity/gnumch-factors.xml.in.h:4
 msgid "The factors of a number are all the numbers that divide that number evenly. For example, the factors of 6 are 1, 2, 3 and 6. 4 is not a factor of 6 because 6 cannot be divided into 4 equal pieces. If one number is a multiple of a second number, then the second number is a factor of the first number. You can think of multiples as families, and factors are the people in those families. So 1, 2, 3 and 6 all fit into the 6 family, but 4 belongs to another family. Use the arrow keys to navigate around the board and to avoid the Troggles. Press the spacebar to eat a number."
-msgstr ""
+msgstr "Faktorji števila so vsa števila, ki to število delijo. Na primer, faktorji števila 6 so 1, 2, 3 in 6. 4 ni faktor števila 6, ker 6 ni mogoče razdeliti na 4 enake dele. Če je prvo število večkratnik drugega, potem je drugo število faktor prvega. O večkratnikih lahko razmišljate kot o družinah, kjer so faktorji družinski člani. Tako so 1, 2, 3 in 6 člani družine 6, toda 4 spada v drugo družino. Uporabi tipke s puščicami za premikanje naokoli in izogibanje poškam. Pritisni preslednico in pojej število."
 
 #: ../src/gnumch-inequality-activity/gnumch-inequality.xml.in.h:1
 msgid "Guide the Number Muncher to the all the expressions that do not equal the number at the top of the screen."
-msgstr ""
+msgstr "Vodi žerka števil na vse izraze, ki niso enaki številu na vrhu zaslona."
 
 #: ../src/gnumch-inequality-activity/gnumch-inequality.xml.in.h:2
 msgid "Inequality Number Munchers"
-msgstr "Žerkoti neenakih števil"
+msgstr "Žerki neenakih števil"
 
 #: ../src/gnumch-inequality-activity/gnumch-inequality.xml.in.h:3
 msgid "Practice addition, subtraction, multiplication and division."
@@ -3823,36 +3832,35 @@ msgstr "Vadi seštevanje, odštevanje, množenje in deljenje"
 
 #: ../src/gnumch-multiples-activity/gnumch-multiples.xml.in.h:1
 msgid "Guide the Number Muncher to all the multiples of the number at the top of the screen."
-msgstr ""
+msgstr "Vodi žerka števil na vse večkratnike števila na vrhu zaslona."
 
 #: ../src/gnumch-multiples-activity/gnumch-multiples.xml.in.h:2
 msgid "Learn about multiples and factors."
-msgstr ""
+msgstr "Nauči se o večkratnikih in faktorjih."
 
 #: ../src/gnumch-multiples-activity/gnumch-multiples.xml.in.h:3
 msgid "Multiple Number Munchers"
-msgstr "Žerkoti večkratnikov"
+msgstr "Žerki večkratnikov"
 
 #: ../src/gnumch-multiples-activity/gnumch-multiples.xml.in.h:4
 msgid "The multiples of a number are all the numbers that are equal to the original number times another number. For example, 24, 36, 48 and 60 are all multiples of 12. 25 is not a multiple of 12 because there isn't any number that can be multiplied by 12 to get 25. If one number is a factor of a second number, then the second number is a multiple of the first number. Again, you can think of multiples as families, and factors are the people who belong to those families. The factor 5, has parents 10, grandparents 15, great-grandparents 20, great-great-grandparents 25, and every extra step of 5 is another great- in front! But the number 5 does not belong in the 8 or 23 families. You can't fit any number of 5s into 8 or 23 with nothing left over. So '8 isn't a multiple of 5, nor is 23. Only 5, 10, 15, 20, 25 ... are multiples (or families or steps) of 5. Use the arrow keys to navigate around the board and to avoid the Troggles. Press the spacebar to eat a number."
-msgstr ""
+msgstr "Večkratniki števila so števila, ki so enaka izvorni številki krat drugo število. Na primer, 24, 36, 48 in 60 so večkratniki števila 12. 25 ni večkratnik števila 12, ker ni števila s katerim lahko pomnožiš 12 in dobiš 25. Če je prvo število faktor drugega števila, je drugo število večkratnik prvega števila. O večkratnikih lahko razmišljaš kot o družinah. Faktorji so ljudje, ki živijo v teh družinah. Faktor 5 ima starše 10, stare starše 15, stare stare starše 20, stare stare starše 25 in za vsak korak 5 je spredaj še en stare! Toda število 5 ne spada v družini 8 ali 23. V število 8 ali 23 ne moreš spraviti nobenega števila petic brez ostanka. Zato 8 ni večkratnik števila 5, tako kot ni 23. Samo 5, 10, 15, 20, 25 ... so večkratniki (ali družine ali koraki) števila 5. Uporabi tipke s puščicami za premikanje po tabli in za izogibanje poškam. Pritisni preslednico in pojej število.  "
 
 #: ../src/gnumch-primes-activity/gnumch-primes.xml.in.h:1
 msgid "Guide the Number Muncher to all the prime numbers."
-msgstr ""
+msgstr "Vodi žerka števil na vsa praštevila."
 
 #: ../src/gnumch-primes-activity/gnumch-primes.xml.in.h:2
-#, fuzzy
 msgid "Learn about prime numbers"
-msgstr "Več podrobnosti o namizju GNOME"
+msgstr "Nauči se kaj o praštevilih"
 
 #: ../src/gnumch-primes-activity/gnumch-primes.xml.in.h:3
 msgid "Prime Number Munchers"
-msgstr "Žerkoti praštevil"
+msgstr "Žerki praštevil"
 
 #: ../src/gnumch-primes-activity/gnumch-primes.xml.in.h:4
 msgid "Prime numbers are numbers that are only divisible by themselves and 1. For example, 3 is a prime number, but 4 isn't (because 4 is divisible by 2). You can think of prime numbers as very small families: they only ever have two people in them! Only themselves and 1. You can't fit any other numbers into them with nothing left over. 5 is one of these lonely numbers (only 5 × 1 = 5), but you can see that 6 has 2 and 3 in its family as well (6 × 1 = 6, 2 × 3 = 6). So 6 is not a prime number. Use the arrow keys to navigate around the board and to avoid the Troggles. Press the spacebar to eat a number."
-msgstr ""
+msgstr "Praštevila so števila, ki so deljiva le sama s sabo in 1. Na primer, 3 je praštevilo, toda 4 ni (ker je 4 deljivo z 2). O praštevilih lahko razmišljaš kot o zelo majhnih družinah: vedno imajo samo dva člana! Samo same sebe in 1. V to družino ne moreš spraviti nobenih drugih števil. 5 je eno od teh osamljenih števil (samo 5 x 1 = 5), toda 6 ima v svoji družini tudi 2 in 3 (6 x 1 = 6, 2 x 3 = 6). Zato 6 ni praštevilo. Uporabi tipke s puščicami za premikanje po tabli in za izogibanje Poškam. Pritisni preslednico in pojej število."
 
 #: ../src/guessnumber-activity/guessnumber.py:199
 #, python-format
@@ -3882,15 +3890,15 @@ msgstr "Ugani število"
 
 #: ../src/guessnumber-activity/guessnumber.xml.in.h:2
 msgid "Help Tux escape the cave. Tux hides a number for you to find."
-msgstr ""
+msgstr "Pomagaj Pingu pobegniti iz jame. Pingo skriva število, ki ga moraš najti."
 
 #: ../src/guessnumber-activity/guessnumber.xml.in.h:3
 msgid "Numbers from 1 to 1000 for the last level."
-msgstr ""
+msgstr "Za zadnjo raven števila od 1 do 1000."
 
 #: ../src/guessnumber-activity/guessnumber.xml.in.h:4
 msgid "Read the instructions that give you the range of the number to find. Enter a number in the top right blue entry box. Tux will tell you if your number is higher or lower. Then enter another number. The distance between Tux and the escape area on the right represents how far you are from the correct number. If Tux is over or under the escape area, it means your number is over or under the correct number."
-msgstr ""
+msgstr "Preberi navodila, ki ti dajo obseg v kateremu se nahaja iskano število. Vnesi število v modro polje zgoraj desno. Pingo ti bo povedal, če je tvoje število preveliko ali premajhno. Nato vnesi drugo število. Razdalja med Pingom in izhodom na desni ti pove kako daleč si od pravega števila. Če je Pingo nad ali pod izhodom, to pomeni da je tvoje število preveliko ali premajhno. "
 
 #: ../src/hanoi-activity/hanoi.c:112
 #: ../src/hanoi-activity/hanoi.xml.in.h:6
@@ -3900,11 +3908,11 @@ msgstr "Poenostavljen stolp Hanoi"
 #: ../src/hanoi-activity/hanoi.c:113
 #: ../src/hanoi-activity/hanoi.xml.in.h:4
 msgid "Reproduce the given tower"
-msgstr "Nariši podan stolp"
+msgstr "Naredi enak stolp"
 
 #: ../src/hanoi-activity/hanoi.c:348
 msgid "Build the same tower in the empty area as the one you see on the right-hand side."
-msgstr "Na prazen prostoru izgradi enak stolp kot ga vidiš na desni strani."
+msgstr "Na praznemu prostoru izgradi enak stolp kot ga vidiš na desni strani."
 
 #: ../src/hanoi-activity/hanoi.xml.in.h:1
 msgid "Concept taken from EPI games."
@@ -3912,11 +3920,11 @@ msgstr "Koncept vzet iz EPI iger."
 
 #: ../src/hanoi-activity/hanoi.xml.in.h:2
 msgid "Drag and Drop one top piece at a time, from one peg to another, to reproduce the tower on the right in the empty space on the left."
-msgstr ""
+msgstr "Povleci in spusti en kos naenkrat iz ene palice na drugo tako, da na praznemu prostoru na levi izgradiš enak stolp kot ga vidiš na desni."
 
 #: ../src/hanoi-activity/hanoi.xml.in.h:5
 msgid "Reproduce the tower on the right in the empty space on the left"
-msgstr ""
+msgstr "Na praznemu prostoru na levi izgradi enak stolp kot ga vidiš na desni"
 
 #: ../src/hanoi_real-activity/hanoi_real.c:74
 msgid "Tower of Hanoi"
@@ -3924,11 +3932,11 @@ msgstr "Stolp Hanoi"
 
 #: ../src/hanoi_real-activity/hanoi_real.c:267
 msgid "Move the entire stack to the right peg, one disc at a time"
-msgstr "Premakni celo skladovnico na desni klin, en disk na enkrat"
+msgstr "Premakni celo skladovnico na desno palico, en disk na enkrat"
 
 #: ../src/hanoi_real-activity/hanoi_real.xml.in.h:1
 msgid "Drag and Drop the top pieces only from one peg to another, to reproduce the tower on the right in the empty space on the left."
-msgstr ""
+msgstr "Povleci in spusti zgornje koščke iz ene palice na drugo in prestavi stolp na desni na prazen prostor na levi."
 
 #: ../src/hanoi_real-activity/hanoi_real.xml.in.h:3
 msgid "Reproduce the tower on the right side"
@@ -3944,22 +3952,25 @@ msgid ""
 "* only one disc may be moved at a time\n"
 "* no disc may be placed atop a smaller disc"
 msgstr ""
+"Cilj igre je premakniti celotni sklad na drugo palico in ubogati naslednja pravila:\n"
+"* hkrati je mogoče premakniti samo en disk\n"
+"* na manjši disk ni mogoče postaviti večjega diska"
 
 #: ../src/hanoi_real-activity/hanoi_real.xml.in.h:8
 msgid "The puzzle was invented by the French mathematician Edouard Lucas in 1883. There is a legend about a Hindu temple whose priests were constantly engaged in moving a set of 64 discs according to the rules of the Tower of Hanoi puzzle. According to the legend, the world would end when the priests finished their work. The puzzle is therefore also known as the Tower of Brahma puzzle. It is not clear whether Lucas invented this legend or was inspired by it. (source Wikipedia &lt;http://en.wikipedia.org/wiki/Tower_of_hanoi&gt;)"
-msgstr ""
+msgstr "Uganka je izumil francoski matematik Edouard Lucas v letu 1883. Obstaja legenda, ki govori o hindujskemu templju v kateremu so duhovniki stalno premikani niz 64 diskov po pravilih igre Stolp v Hanoiu. Legenda pravi, da se bo svet končal, ko menihi končajo svoje delo. Uganka je zato poznana tudi pod imenom uganka Stolpi Brahme. Ni jasno ali je Lucas uganko izumil, ali pa ga je uganka navdihnila. (vir Wikipedia &lt;http://en.wikipedia.org/wiki/Tower_of_hanoi&gt;) "
 
 #: ../src/hexagon-activity/hexagon.xml.in.h:1
 msgid "Find the strawberry by clicking on the blue fields"
-msgstr ""
+msgstr "Najdi jagodo s klikom na modra polja"
 
 #: ../src/hexagon-activity/hexagon.xml.in.h:4
 msgid "Try to find the strawberry under the blue fields. The fields become redder as you get closer."
-msgstr ""
+msgstr "Poskusi najti jagodo pod modrimi polji. Ko se približuješ, polja postajajo bolj rdeča."
 
 #: ../src/hexagon-activity/hexagon.xml.in.h:5
 msgid "hexagon"
-msgstr ""
+msgstr "Šesterokotnik"
 
 #: ../src/imageid-activity/imageid.c:94
 #: ../src/imageid-activity/imageid.xml.in.h:3
@@ -3978,12 +3989,12 @@ msgstr "Nauči se brati"
 
 #: ../src/imageid-activity/imageid.c:522
 msgid "Data file for this level is not properly formatted. Too many choices are proposed."
-msgstr ""
+msgstr "Podatkovna datoteka za to raven ni pravilno oblikovana. Predlaganih je preveč izbir."
 
 #: ../src/imageid-activity/imageid.c:534
 #: ../src/missing_letter-activity/missingletter.c:568
 msgid "Data file for this level is not properly formatted."
-msgstr ""
+msgstr "Podatkovna datoteka za to raven ni pravilno oblikovana."
 
 #: ../src/imageid-activity/imageid.xml.in.h:1
 msgid "Click on the word corresponding to the printed image."
@@ -3991,11 +4002,11 @@ msgstr "Klkni na besedo, ki predstavlja narisano sliko."
 
 #: ../src/imageid-activity/imageid.xml.in.h:2
 msgid "Practice reading by finding the word matching an image"
-msgstr "Vaja branja z iskanjem besede, ki se nanaša na sliko"
+msgstr "Vadi branje z iskanjem besede, ki se nanaša na sliko"
 
 #: ../src/imageid-activity/imageid.xml.in.h:4
 msgid "Reading practice"
-msgstr "Vaje iz branja"
+msgstr "Bralna vaja"
 
 #: ../src/imageid-activity/resources/imageid/board1.xml.in.h:1
 #: ../src/imagename-activity/resources/imagename/board4_0.xml.in.h:2
@@ -4097,13 +4108,12 @@ msgid "plane"
 msgstr "letalo"
 
 #: ../src/imagename-activity/imagename.xml.in.h:1
-#, fuzzy
 msgid "Drag and Drop each item above its name"
 msgstr "Povleci in spusti predmet nad njegovo ime"
 
 #: ../src/imagename-activity/imagename.xml.in.h:2
 msgid "Drag each image from the (vertical) box on the left to its (corresponding) name on the right. Click the OK button to check your answer."
-msgstr ""
+msgstr "Spusti vsako sliko iz (navpičnega) stolpca na levi na (pravilno) ime na desni. Klikni gumb v redu in preveri svoj odgovor."
 
 #: ../src/imagename-activity/imagename.xml.in.h:3
 msgid "Image Name"
@@ -4259,11 +4269,11 @@ msgstr "desna"
 
 #: ../src/leftright-activity/leftright.xml.in.h:1
 msgid "Determine if a hand is a right or a left hand"
-msgstr ""
+msgstr "Določi ali je roka desna ali leva"
 
 #: ../src/leftright-activity/leftright.xml.in.h:2
 msgid "Distinguish right and left hands from different points of view. Spatial representation"
-msgstr "Razlikuj levo in desno dlanjo iz različnih pogledov. Prostorska predstavitev."
+msgstr "Razlikovanje leve in desne dlani iz različnih pogledov. Prostorska predstava"
 
 #: ../src/leftright-activity/leftright.xml.in.h:3
 msgid "Find your left and right hands"
@@ -4277,6 +4287,30 @@ msgstr "Nič"
 #: ../src/leftright-activity/leftright.xml.in.h:5
 msgid "You can see a hand: is it a left hand or a right hand? Click on the red button on the left, or the green button on the right."
 msgstr "Vidiš lahko dlan: je to desna ali leva dlan?. Če je leva klikni rdeč, če je desna klikni zelen gumb."
+
+#: ../src/lightsoff-activity/lightsoff.py:442
+msgid ""
+"Switch off all the lights, I have to go to sleep.\n"
+"If you need help, click on me."
+msgstr ""
+"Izklopi vse luči, iti moram spat.\n"
+"Če me potrebuješ, klikni name."
+
+#: ../src/lightsoff-activity/lightsoff.xml.in.h:1
+msgid "Lights Off"
+msgstr "Ugasni luči"
+
+#: ../src/lightsoff-activity/lightsoff.xml.in.h:2
+msgid "The aim is to switch off all the lights."
+msgstr "Cilj igre je izklopiti vse luči."
+
+#: ../src/lightsoff-activity/lightsoff.xml.in.h:3
+msgid "The effect of pressing a button is to toggle the state of that button, and of its immediate vertical and horizontal neighbours. The sun and the color of the sky depend on the number of clicks needed to solve the puzzle. If you click on Tux, the solution is shown."
+msgstr "Pritisk na gumb spremeni stanje gumba in vseh njegovih vodoravnih in navpičnih sosedov. Sonce in barva neba sta odvisna od števila klikov, ki jih potrebuješ za rešitev uganke. Če klikneš na Pinga, ti pokaže rešitev."
+
+#: ../src/lightsoff-activity/lightsoff.xml.in.h:4
+msgid "The solver algorithm described on haar.clara.co.uk is a valuable resource to know more about the Lights Off game: &lt;http://www.haar.clara.co.uk/Lights/solving.html&gt;"
+msgstr "Reševalni algoritem opisan na haar.clara.co.uk je pomemben vir za več podrobnosti o igri izklopi luči: &lt;http://www.haar.clara.co.uk/Lights/solving.html&gt;"
 
 #: ../src/login-activity/login.py:101
 msgid "Profile: "
@@ -4293,7 +4327,7 @@ msgstr "Vnesi geslo za prijavo"
 
 #: ../src/login-activity/login.xml.in.h:1
 msgid "GCompris identifies each child, so we can provide child-specific reports."
-msgstr ""
+msgstr "GCompris identificira vsakega otroka tako da je mogoče zagotoviti poročila za vsakega otroka."
 
 #: ../src/login-activity/login.xml.in.h:2
 msgid "GCompris login screen"
@@ -4309,14 +4343,21 @@ msgid ""
 "To run GCompris for a specific profile, you use 'gcompris -p profile' where 'profile'\n"
 "is the name of a profile as you created it in Administration."
 msgstr ""
+"Za omogočitev prijavnega zaslona morate \n"
+"najprej dodati uporabnike v skrbniškemu delu GCompris. \n"
+"Do skrbništva lahko dostopate z ukazom 'grompris -a'.\n"
+"V skrbništvu lahko ustvarite različne profile. V vsakemu profilu\n"
+"imate lahko različen niz uporabnikov z različnimi razpoložljivimi dejavnostmi.\n"
+"Za zagon programa GCompris za določen profil uporabite 'gcompris -p profil', kjer je 'profil\n"
+"ime profila, ki ste ga ustvarili v skrbništvu."
 
 #: ../src/login-activity/login.xml.in.h:10
 msgid "Select or enter your name to log in to GCompris"
-msgstr ""
+msgstr "Izberi ali napiši svoje ime za prijavo v GCompris"
 
 #: ../src/magic_hat_minus-activity/magic_hat_minus.xml.in.h:1
 msgid "Count how many items are under the magic hat after some have got away"
-msgstr ""
+msgstr "Preštej koliko predmetov je pod čarovnikovim klobukom potem ko jih je nekaj ušlo"
 
 #: ../src/magic_hat_minus-activity/magic_hat_minus.xml.in.h:2
 msgid "Learn subtraction"
@@ -4324,7 +4365,7 @@ msgstr "Nauči se odštevati"
 
 #: ../src/magic_hat_minus-activity/magic_hat_minus.xml.in.h:3
 msgid "Look at the magician, he tells the number of stars that are under his magic hat. Then, click on the hat to open it. A few stars escape. Click again on the hat to close it. You have to count how many are still under the hat. Click on the bottom right area to answer."
-msgstr ""
+msgstr "Poglej čarovnika. Povedal ti bo, koliko zvezd je pod magičnim klobukom. Nato klikni na klobuk za odprtje. Nekaj zvezd pobegne. Ponovno klikni na klobuk in ga zapri. Prešteti moraš koliko zvezd je ostalo pod klobukom. Za odgovor klikni na področje spodaj desno."
 
 #: ../src/magic_hat_minus-activity/magic_hat_minus.xml.in.h:4
 #: ../src/memory_add_minus-activity/memory_add_minus.xml.in.h:3
@@ -4336,9 +4377,8 @@ msgstr "Odštevanje"
 
 #: ../src/magic_hat_minus-activity/magic_hat_minus.xml.in.h:5
 #: ../src/magic_hat_plus-activity/magic_hat_plus.xml.in.h:5
-#, fuzzy
 msgid "The magician hat"
-msgstr "Medicine Hat"
+msgstr "Čarovnikov klobuk"
 
 #: ../src/magic_hat_plus-activity/magic_hat_plus.xml.in.h:1
 #: ../src/memory_add-activity/memory_add.xml.in.h:1
@@ -4348,11 +4388,11 @@ msgstr "Seštevanje"
 
 #: ../src/magic_hat_plus-activity/magic_hat_plus.xml.in.h:2
 msgid "Click on the hat to open or close it. Under the hat, how many stars can you see moving around? Count carefully. :) Click in the bottom-right area to input your answer."
-msgstr ""
+msgstr "Klikni na klobuk za odprtje ali zaprtje klobuka. Koliko zvezdic se premika pod klobukom? Preštej previdno. :) Za odgovor klikni na področje spodaj desno."
 
 #: ../src/magic_hat_plus-activity/magic_hat_plus.xml.in.h:3
 msgid "Count how many items are under the magic hat"
-msgstr ""
+msgstr "Preštej koliko predmetom je pod čarobnim klobukom"
 
 #: ../src/magic_hat_plus-activity/magic_hat_plus.xml.in.h:4
 msgid "Learn addition"
@@ -4383,18 +4423,18 @@ msgstr "Poglej si kje se nahajaš in nato preklopi v 3D pogled za nadaljevanje p
 #: ../src/maze3D-activity/maze3D.xml.in.h:2
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:1
 msgid "Can use the keyboard arrow to move an object."
-msgstr "Lahko uporabljam tipkovnico za premikanje predmetov."
+msgstr "Znanje uporabe tipkovnice za premikanje predmetov."
 
 #: ../src/maze-activity/maze.xml.in.h:3
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:3
 #: ../src/maze3D-activity/maze3D.xml.in.h:4
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:3
 msgid "Help Tux get out of this maze."
-msgstr "Pomagaj pingvinčku ven iz labirinta."
+msgstr "Pomagaj Pingu ven iz labirinta."
 
 #: ../src/maze-activity/maze.xml.in.h:5
 msgid "Use the keyboard arrows to move Tux up to the door."
-msgstr "Uporabi smerne tipke na tipkovnici in premakni Pinga k vratom."
+msgstr "Uporabi tipke s puščicami na tipkovnici in premakni Pinga k vratom."
 
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:2
 msgid "Find your way out of the maze (Move is relative)"
@@ -4402,7 +4442,7 @@ msgstr "Poišči pot iz labirinta (premiki so relativni)"
 
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:5
 msgid "Use the keyboard arrows to move Tux up to the door. In this maze, the move is relative (first person). Use the up arrow to go forward. The other arrow let you turn Tux in another direction."
-msgstr ""
+msgstr "Uporabi tipkovnico za premikanje Pinga k vratom. V tem labirintu so premiki relativni (prvo osebni). Uporabi puščico naprej za premik naprej. Z drugimi puščicami lahko obrneš Pinga v drugo smer."
 
 #: ../src/maze3D-activity/maze3D.xml.in.h:1
 msgid "3D Maze"
@@ -4414,7 +4454,7 @@ msgstr "Poišči izhod iz 3D labirinta"
 
 #: ../src/maze3D-activity/maze3D.xml.in.h:5
 msgid "Use the keyboard arrows to move Tux up to the door. Use the spacebar to switch between 2D and 3D modes. 2D mode just gives you an indication of your position, like a map. You cannot move Tux in 2D mode."
-msgstr "Uporabi puščice na tipkovnici in pripelji Pinga do vrat. S pritiskom na preslednico preklopiš med 2D in 3D pogledom. 2D pogled ti pove kjer si, tako kot zemljevid. Pinga v 2D pogledu ne moreš premikati."
+msgstr "Uporabi puščice na tipkovnici in pripelji Pinga do vrat. S pritiskom na preslednico preklopiš med 2D in 3D pogledom. 2D pogled ti pove kje si, tako kot zemljevid. Pinga v 2D pogledu ne moreš premikati."
 
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:2
 msgid "Find your way out of the invisible maze"
@@ -4442,7 +4482,7 @@ msgstr "Slušne vaje"
 
 #: ../src/melody-activity/melody.xml.in.h:2
 msgid "Listen to the sound sequence played, and repeat it by clicking on the elements. You can listen again by clicking on the repeat button."
-msgstr ""
+msgstr "Poslušaj predvajano zaporedje zvokov in ga ponovi s klikanjem na elemente. Če želiš ponovno poslušati zvoke, pritisni gumb ponovi."
 
 #: ../src/melody-activity/melody.xml.in.h:3
 msgid "Melody"
@@ -4453,52 +4493,42 @@ msgid "Repeat a melody"
 msgstr "Ponovi melodijo"
 
 #: ../src/memory-activity/memory.c:280
-#, fuzzy
 msgid "zero"
-msgstr "Doutor Zero"
+msgstr "nič"
 
 #: ../src/memory-activity/memory.c:281
-#, fuzzy
 msgid "one"
-msgstr "_Brez"
+msgstr "ena"
 
 #: ../src/memory-activity/memory.c:282
-#, fuzzy
 msgid "two"
-msgstr "dvojka"
+msgstr "dva"
 
 #: ../src/memory-activity/memory.c:283
-#, fuzzy
 msgid "three"
-msgstr "trojka"
+msgstr "tri"
 
 #: ../src/memory-activity/memory.c:284
-#, fuzzy
 msgid "four"
 msgstr "štiri"
 
 #: ../src/memory-activity/memory.c:285
-#, fuzzy
 msgid "five"
 msgstr "pet"
 
 #: ../src/memory-activity/memory.c:286
-#, fuzzy
 msgid "six"
 msgstr "šest"
 
 #: ../src/memory-activity/memory.c:287
-#, fuzzy
 msgid "seven"
 msgstr "sedem"
 
 #: ../src/memory-activity/memory.c:288
-#, fuzzy
 msgid "eight"
 msgstr "osem"
 
 #: ../src/memory-activity/memory.c:289
-#, fuzzy
 msgid "nine"
 msgstr "devet"
 
@@ -4512,7 +4542,7 @@ msgstr "Poišči ujemajoči se par"
 
 #: ../src/memory-activity/memory.xml.in.h:1
 msgid "A set of blank cards is shown. Each card has a picture on the other side, and each picture card has a twin exactly the same. Click on a card to see its hidden picture, and try to match the twins. You can only turn over two cards at once, so you need to remember where a picture is, while you look for its twin. When you turn over the twins, they both disappear."
-msgstr ""
+msgstr "Prikazan je niz enakih kart. Vsaka karta ima na eni strani sliko in vsaka slika ima enega popolnoma enakega dvojnika. Klikni na karto, da vidiš skrito sliko in poskusi najti dvojnika. Hkrati lahko obrneš le dve karti, zato si moraš med iskanjem dvojnika zapomniti, kje so slike. Ko hkrati obrneš oba dvojnika, dvojnika izgineta. "
 
 #: ../src/memory-activity/memory.xml.in.h:2
 msgid "Flip the cards to find the matching pairs"
@@ -4534,12 +4564,12 @@ msgstr "Spominska igra seštevanja"
 #: ../src/memory_add-activity/memory_add.xml.in.h:3
 #: ../src/memory_add_tux-activity/memory_add_tux.xml.in.h:3
 msgid "Practise adding up, until all the cards are gone."
-msgstr ""
+msgstr "Vadi seštevanje dokler ne zmanjka kart."
 
 #: ../src/memory_add-activity/memory_add.xml.in.h:4
 #: ../src/memory_add_tux-activity/memory_add_tux.xml.in.h:4
 msgid "Turn the cards over to find two numbers which add up the same, until all the cards are gone."
-msgstr ""
+msgstr "Obračaj karte tako, da najdeš dve števili, ki imata enako vsoto, dokler ne zmanjka kart."
 
 #: ../src/memory_add-activity/memory_add.xml.in.h:5
 #: ../src/memory_add_tux-activity/memory_add_tux.xml.in.h:5
@@ -4550,20 +4580,25 @@ msgid ""
 "\n"
 "In this game, these cards are hiding the two parts of an adding-up sum (also called an addition sum). You need to find the two parts of the sum, and bring them together again. Click on a card to see what number it's hiding, then try to find the other card that goes with it, to make a whole sum. You can only turn over two cards in one go, so you need to remember where the numbers are hiding, then you can match them when you find their other half. You're doing the job of the equals sign, and the numbers need you to put them together and make a proper sum. When you do that, both those cards disappear! When you've made them all disappear, found all the sums, you've won the game! :)"
 msgstr ""
+"Vidiš lahko nekaj kart, toda ne moreš videt kaj je na drugi strani. Vsaka karta skriva vsoto ali odgovor na vsoto.\n"
+"Seštevanje je videti takole: 2 + 2 =4\n"
+"Števila na levi strani znaka je enako (=) morajo biti enaka kot število na drugi strani. Tako je 2 (1, 2) in 2 (3, 4) enako 4. Med računanjem štej naglas in štej na prste, ker si boš potem lažje zapomnil/a števila. Uporabiš lahko tudi kocke, gumbe ali karkoli drugega, kar lahko šteješ. Če imaš veliko bratov ali sester, lahko šteješ njih! Ali tvoje sošolce v šoli. Poj seštevanke. Za vajo štej veliko stvari in kmalu boš zelo dobro sešteval/a!\n"
+"\n"
+"V tej igri karte skrivajo dva para seštevanja. Moral/a boš najti dva dela seštevanja in ju ponovno pripeljati skupaj. Klikni na karto, da vidiš katera številka se skriva in nato poskusi najti drugo karto, ki spada zraven. Naenkrat lahko obrneš le dve karti, zato si moraš zapomniti kje se številke skrivajo. Ko hkrati odkriješ pravi karti, obe karti izgineta. Ko vse karte izginejo, si zmagal/a! :)"
 
 #: ../src/memory_add_minus-activity/memory_add_minus.xml.in.h:1
 msgid "Addition and subtraction memory game"
-msgstr ""
+msgstr "Spominska igra seštevanja in odštevanja"
 
 #: ../src/memory_add_minus-activity/memory_add_minus.xml.in.h:2
 #: ../src/memory_add_minus_tux-activity/memory_add_minus_tux.xml.in.h:2
 msgid "Practise addition, subtraction, until all the cards are gone."
-msgstr ""
+msgstr "Vadi seštevanje in odštevanje dokler ne zmanjka kart."
 
 #: ../src/memory_add_minus-activity/memory_add_minus.xml.in.h:4
 #: ../src/memory_add_minus_tux-activity/memory_add_minus_tux.xml.in.h:4
 msgid "Turn the cards over to find two numbers which add or subtract the same, until all the cards are gone."
-msgstr ""
+msgstr "Obračaj karte tako, da najdeš dve števili, ki imata enako vsoto ali razliko, dokler ne zmanjka kart."
 
 #: ../src/memory_add_minus-activity/memory_add_minus.xml.in.h:5
 #: ../src/memory_add_minus_mult_div-activity/memory_add_minus_mult_div.xml.in.h:5
@@ -4580,21 +4615,23 @@ msgid ""
 "\n"
 "In this game, these cards are hiding the two parts of an operation. You need to find the two parts of the operation, and bring them together again. Click on a card to see what number it's hiding, then try to find the other card that goes with it, to make a whole operation. You can only turn over two cards in one go, so you need to remember where the numbers are hiding, then you can match them when you find their other half. You're doing the job of the equals sign, and the numbers need you to put them together and make a proper equality. When you do that, both those cards disappear! When you've made them all disappear, found all the operations, you've won the game! :)"
 msgstr ""
+"Vidiš lahko nekaj kart, toda ne moreš videti kaj je na drugi strani. Vsaka karta skriva računsko operacijo ali odgovor nanjo.\n"
+"\n"
+"V tej igri karte skrivajo dva dela računske operacije. Najti moraš oba dela računske operacije in ju pripeljati skupaj. Klikni na karto, da vidiš katera številka se skriva. Nato poskusi najti drugo karto, ki spada zraven in dopolni računsko operacijo. Hkrati lahko obrneš le dve karti, zato si moraš zapomniti kje se karte skrivajo. Pretvarjaj se da si enačaj in moraš najti oba dela za pravo enačbo. Ko najdeš pravi karti, karti izgineta. Ko vse karte izginejo, si zmagal/a! :)"
 
 #: ../src/memory_add_minus_mult_div-activity/memory_add_minus_mult_div.xml.in.h:1
 #: ../src/memory_add_minus_mult_div_tux-activity/memory_add_minus_mult_div_tux.xml.in.h:1
 msgid "Addition, subtraction, multiplication, division"
-msgstr ""
+msgstr "Seštevanje, odštevanje, množenje, deljenje"
 
 #: ../src/memory_add_minus_mult_div-activity/memory_add_minus_mult_div.xml.in.h:2
-#, fuzzy
 msgid "All operations memory game"
-msgstr "Vsa opravila so uspešno končana"
+msgstr "Spominska igra vseh opravil"
 
 #: ../src/memory_add_minus_mult_div-activity/memory_add_minus_mult_div.xml.in.h:3
 #: ../src/memory_add_minus_mult_div_tux-activity/memory_add_minus_mult_div_tux.xml.in.h:3
 msgid "Practise addition, subtraction, multiplication, division, until all the cards are gone."
-msgstr ""
+msgstr "Vadi seštevanje, odštevanje, množenje in deljenje dokler ne zmanjka kart"
 
 #: ../src/memory_add_minus_mult_div-activity/memory_add_minus_mult_div.xml.in.h:4
 #: ../src/memory_add_minus_mult_div_tux-activity/memory_add_minus_mult_div_tux.xml.in.h:4
@@ -4604,15 +4641,15 @@ msgstr ""
 #: ../src/memory_mult_div_tux-activity/memory_mult_div_tux.xml.in.h:4
 #: ../src/memory_mult_tux-activity/memory_mult_tux.xml.in.h:4
 msgid "Turn the cards over to find a matching operation, until all the cards are gone."
-msgstr ""
+msgstr "Obračaj karte tako, da najdeš ujemajočo računsko operacijo, dokler ne zmanjka kart."
 
 #: ../src/memory_add_minus_mult_div_tux-activity/memory_add_minus_mult_div_tux.xml.in.h:2
 msgid "All operations memory game against Tux"
-msgstr ""
+msgstr "Spominska igra vseh računskih operacij proti Pingu"
 
 #: ../src/memory_add_minus_tux-activity/memory_add_minus_tux.xml.in.h:1
 msgid "Addition and subtraction memory game against Tux"
-msgstr ""
+msgstr "Spominska igra seštevanja in odštevanja proti Pingu"
 
 #: ../src/memory_add_tux-activity/memory_add_tux.xml.in.h:1
 msgid "Addition memory game against Tux"
@@ -4620,14 +4657,13 @@ msgstr "Spominska igra seštevanja proti Pingu"
 
 #: ../src/memory_add_tux-activity/memory_add_tux.xml.in.h:2
 #: ../src/memory_mult_tux-activity/memory_mult_tux.xml.in.h:1
-#, fuzzy
 msgid "Additions"
-msgstr "_Sledi spremembam"
+msgstr "Seštevanje"
 
 #: ../src/memory_div-activity/memory_div.xml.in.h:1
 #: ../src/memory_div_tux-activity/memory_div_tux.xml.in.h:1
 msgid "Division"
-msgstr ""
+msgstr "Deljenje"
 
 #: ../src/memory_div-activity/memory_div.xml.in.h:2
 msgid "Division memory game"
@@ -4636,29 +4672,27 @@ msgstr "Spominska igra deljenja"
 #: ../src/memory_div-activity/memory_div.xml.in.h:3
 #: ../src/memory_div_tux-activity/memory_div_tux.xml.in.h:3
 msgid "Practise division, until all the cards are gone."
-msgstr ""
+msgstr "Vadi deljenje dokler ne zmanjka kart."
 
 #: ../src/memory_div_tux-activity/memory_div_tux.xml.in.h:2
 msgid "Division memory game against Tux"
-msgstr ""
+msgstr "Igra spomina deljenja proti Pingu"
 
 #: ../src/memory_enumerate-activity/memory_enumerate.xml.in.h:2
-#, fuzzy
 msgid "Enumeration memory game"
-msgstr "Nadaljuj z igro"
+msgstr "Spominska igra štetja"
 
 #: ../src/memory_enumerate-activity/memory_enumerate.xml.in.h:3
-#, fuzzy
 msgid "Numeration training, memory."
-msgstr "Enota kopiranja spomina"
+msgstr "Trening štetja, spomin"
 
 #: ../src/memory_enumerate-activity/memory_enumerate.xml.in.h:4
 msgid "Turn the cards over to match the number with the drawn picture."
-msgstr ""
+msgstr "Obrni karte tako, da se bo številka ujemala z narisano sliko. "
 
 #: ../src/memory_enumerate-activity/memory_enumerate.xml.in.h:5
 msgid "You can see some cards, but you can't see what's on the other side of them. Each card is hiding a number of pictures, or the written number."
-msgstr ""
+msgstr "Vidiš lahko nekaj kart, toda na moreš videti kaj je na drugi strani. Vsaka karta skriva število slik ali napisano številko."
 
 #: ../src/memory_minus-activity/memory_minus.xml.in.h:1
 #: ../src/memory_minus_tux-activity/memory_minus_tux.xml.in.h:1
@@ -4672,7 +4706,7 @@ msgstr "Spominska igra odštevanja"
 #: ../src/memory_minus-activity/memory_minus.xml.in.h:4
 #: ../src/memory_minus_tux-activity/memory_minus_tux.xml.in.h:4
 msgid "Turn the cards over to find two numbers which subtract the same, until all the cards are gone."
-msgstr ""
+msgstr "Obračaj karte tako, da najdeš dve števili, ki imata enaki razliki, dokler ne zmanjka kart."
 
 #: ../src/memory_minus-activity/memory_minus.xml.in.h:5
 #: ../src/memory_minus_tux-activity/memory_minus_tux.xml.in.h:5
@@ -4683,10 +4717,15 @@ msgid ""
 "\n"
 "In this game, these cards are hiding the two parts of a subtraction. You need to find the two parts of the subraction, and bring them together again. Click on a card to see what number it's hiding, then try to find the other card that goes with it, to make a whole sum. You can only turn over two cards in one go, so you need to remember where the numbers are hiding, then you can match them when you find their other half. You're doing the job of the equals sign, and the numbers need you to put them together and make a proper sum. When you do that, both those cards disappear! When you've made them all disappear, found all the subtracts, you've won the game! :)"
 msgstr ""
+"Vidiš lahko nekaj kart, toda na moreš videti kaj je na drugi strani. Vsaka karta skriva odštevanje ali odgovor nanj.\n"
+"Odštevanje je videti takole: 3 - 1 = 2\n"
+"Števila na eni strani znaka je enako (=) morajo biti enaka številu na drugi strani. Tako je 3 (1,2,3) minus 1 (1) enako 2. Med računanjem štej naglas in štej na prste, ker si boš potem lažje zapomnil/a števila. Uporabiš lahko tudi kocke, gumbe ali karkoli drugega, kar lahko šteješ. Če imaš veliko bratov ali sester, lahko šteješ njih! Ali tvoje sošolce v šoli. Poj seštevanke. Za vajo štej veliko stvari in kmalu boš zelo dobro sešteval/a!\n"
+"\n"
+"V tej igri karte skrivajo dva para odštevanja. Moral/a boš najti dva dela odštevanja in ju ponovno pripeljati skupaj. Klikni na karto, da vidiš katera številka se skriva in nato poskusi najti drugo karto, ki spada zraven. Naenkrat lahko obrneš le dve karti, zato si moraš zapomniti kje se številke skrivajo. Ko hkrati odkriješ pravi karti, obe karti izgineta. Ko vse karte izginejo, si zmagal/a! :)"
 
 #: ../src/memory_minus_tux-activity/memory_minus_tux.xml.in.h:3
 msgid "Subtraction memory game against Tux"
-msgstr ""
+msgstr "Spominska igra odštevanja proti Pingu"
 
 #: ../src/memory_mult-activity/memory_mult.xml.in.h:1
 msgid "Multiplication"
@@ -4702,11 +4741,11 @@ msgstr "Vadi množenje dokler vse karte ne izginejo."
 
 #: ../src/memory_mult-activity/memory_mult.xml.in.h:4
 msgid "Turn the cards over to find two numbers which multiply the same, until all the cards are gone."
-msgstr ""
+msgstr "Obrni karte in najdi dve števili, ki imata enak produkt, dokler ne zmanjka kart."
 
 #: ../src/memory_mult_div-activity/memory_mult_div.xml.in.h:1
 msgid "Multiplication and division memory game"
-msgstr ""
+msgstr "Igra spomina množenja in deljenja"
 
 #: ../src/memory_mult_div-activity/memory_mult_div.xml.in.h:2
 #: ../src/memory_mult_div_tux-activity/memory_mult_div_tux.xml.in.h:2
@@ -4716,15 +4755,15 @@ msgstr "Množenje, deljenje"
 #: ../src/memory_mult_div-activity/memory_mult_div.xml.in.h:3
 #: ../src/memory_mult_div_tux-activity/memory_mult_div_tux.xml.in.h:3
 msgid "Practise multiplication, division, until all the cards are gone."
-msgstr ""
+msgstr "Vadi množenje in deljenje, dokler ne izginejo vse karte."
 
 #: ../src/memory_mult_div_tux-activity/memory_mult_div_tux.xml.in.h:1
 msgid "Multiplication and division memory game against Tux"
-msgstr ""
+msgstr "Spominska igra množenja in deljenja proti Pingu"
 
 #: ../src/memory_mult_tux-activity/memory_mult_tux.xml.in.h:2
 msgid "Multiplication memory game against Tux"
-msgstr ""
+msgstr "Spominska igra množenja proti Pingu"
 
 #: ../src/memory_mult_tux-activity/memory_mult_tux.xml.in.h:3
 msgid "Practise multiplication until all the cards are gone."
@@ -4733,7 +4772,7 @@ msgstr "Vadi množenje dokler vse karte ne izginejo."
 #: ../src/memory_sound-activity/memory_sound.xml.in.h:1
 #: ../src/memory_sound_tux-activity/memory_sound_tux.xml.in.h:1
 msgid "A set of violinist Tux is shown. Each Tux has an associated sound, and each sound has a twin exactly the same. Click on a Tux to see its hidden sound, and try to match the twins. You can only activate two Tux at once, so you need to remember where a sound is, while you listen to its twin. When you turn over the twins, they both disappear."
-msgstr ""
+msgstr "Prikazan je niz violinistov Pingov. Vsak Pingo igra en zvok in vsak zvok ima svojega dvojnika. Klikni na Pinga za poslušanje njegovega skritega zvoka in poskušaj najti njegovega dvojnika. Hkrati lahko izbereš samo dva Pinga, zato si moraš zapomniti njegov zvok. Ko vklopiš oba dvojnika, oba izgineta."
 
 #: ../src/memory_sound-activity/memory_sound.xml.in.h:2
 msgid "Audio memory game"
@@ -4741,13 +4780,13 @@ msgstr "Zvočna igra spomina"
 
 #: ../src/memory_sound-activity/memory_sound.xml.in.h:3
 msgid "Click on Tux the violinist and listen to find the matching sounds"
-msgstr ""
+msgstr "Klikni na Pinga violinista in poslušaj za iskanje ujemajočih zvokov"
 
 #: ../src/memory_sound-activity/memory_sound.xml.in.h:4
 #: ../src/memory_sound_tux-activity/memory_sound_tux.xml.in.h:3
 #: ../src/memory_tux-activity/memory_tux.xml.in.h:3
 msgid "Mouse manipulation, Brain."
-msgstr "Upravljanje z miško, možgani."
+msgstr "lUpravljanje z miško, možgani."
 
 #: ../src/memory_sound-activity/memory_sound.xml.in.h:5
 #: ../src/memory_sound_tux-activity/memory_sound_tux.xml.in.h:5
@@ -4763,35 +4802,32 @@ msgid "Play the audio memory game against Tux"
 msgstr "Igraj zvočno spominsko igro proti Pingu"
 
 #: ../src/memory_tux-activity/memory_tux.xml.in.h:1
-#, fuzzy
 msgid "Have a memory competition with Tux."
-msgstr "Napolni malloc'd pomnilnik z:"
+msgstr "Tekmuj v spominu s Pingom."
 
 #: ../src/memory_tux-activity/memory_tux.xml.in.h:2
 msgid "Memory Game with images, against Tux"
-msgstr "Spominska igra s slikami, proti Pingu"
+msgstr "Spominska igra s slikami proti Pingu"
 
 #: ../src/memory_tux-activity/memory_tux.xml.in.h:5
 msgid "You can see a set of cards that all look the same. Each card has a picture on the other side, and each picture has a twin somewhere in the set. You can only turn over two cards at once, so you need to remember where the pictures are until you can find the twin. When you turn over twins, they disappear! You take turns with Tux, and to win the game, you have to find more pairs of twins than he does."
-msgstr ""
+msgstr "Vidiš lahko niz kart, ki so vse videti enako. Vsaka karta ima na drugi strani sliko in vsaka slika ima nekje v nizu dvojnika. Naenkrat lahko obrneš samo dve karti, zato si boš moral zapomniti kje so slike, dokler ne najdeš dvojnika. Ko dvojnika obrneš hkrati, dvojnika izgineta! Pri obračanju slik se izmenjuješ s Pingom. Za zmago moraš najti več parov dvojnikov kot on."
 
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:2
-#, fuzzy
 msgid "Reading numbers, memory."
-msgstr "Enota kopiranja spomina"
+msgstr "Branje števil, spomin."
 
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:3
 msgid "Turn the cards over to match the number with the word matching it."
-msgstr ""
+msgstr "Obrni karte tako, da se bodo števila in besede ujemala."
 
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:4
-#, fuzzy
 msgid "Wordnumber memory game"
-msgstr "Nadaljuj z igro"
+msgstr "Spominska igra števil in besed"
 
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:5
 msgid "You can see some cards, but you can't see what's on the other side of them. Each card is hiding a number of number, or the word of the number."
-msgstr ""
+msgstr "Vidiš lahko nekaj kart, toda ne moreš videti kaj je na drugi strani. Vsaka karta skriva število zapisano s številko ali besedo."
 
 #: ../src/missing_letter-activity/missing_letter.xml.in.h:1
 msgid "An object is displayed in the main area, and an incomplete word is printed under the picture. Select the missing letter to complete the word."
@@ -4853,11 +4889,11 @@ msgstr "Ime datoteke:"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:1
 msgid "car/c_r/a/k/o"
-msgstr "avto/a_to/u/v/h"
+msgstr "avto/a_to/v/u/h"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:2
 msgid "dog/_og/d/p/q"
-msgstr "pes/_es/c/s/p"
+msgstr "pes/_es/p/c/s"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:3
 msgid "fish/f_sh/i/u/l"
@@ -4869,7 +4905,7 @@ msgstr "letalo/_etalo/l/e/a"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board2.xml.in.h:1
 msgid "apple/_pple/a/i/o"
-msgstr "jabolko/_abolko/h/b/j"
+msgstr "jabolko/_abolko/j/b/h"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board2.xml.in.h:2
 msgid "banana/b_nana/a/o/i"
@@ -4881,147 +4917,119 @@ msgstr "hiša/hiš_/e/a/i"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board2.xml.in.h:4
 msgid "satchel/s_tchel/a/o/i"
-msgstr "torba/t_rba/t/r/b"
+msgstr "torba/t_rba/o/r/b"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board3.xml.in.h:1
-#, fuzzy
 msgid "ball/_all/b/p/d/m"
-msgstr "Vse datoteke"
+msgstr "žoga/_oga/ž/r/č/š"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board3.xml.in.h:2
-#, fuzzy
 msgid "bed/_ed/b/l/f/t"
-msgstr "Ure_di"
+msgstr "postelja/_ostelja/p/b/t/f"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board3.xml.in.h:3
-#, fuzzy
 msgid "bottle/_ottle/b/t/p/l"
-msgstr "Plinska jeklenka"
+msgstr "steklenica/_teklenica/s/p/b/c"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board3.xml.in.h:4
-#, fuzzy
 msgid "cake/_ake/c/p/d/k"
-msgstr "_Prevzemi lastništvo datotečnega sistema"
+msgstr "torta/_orta/t/i/e/f"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:1
-#, fuzzy
 msgid "apple/appl_/e/h/a/i/o/u"
-msgstr "Applov AIFF"
+msgstr "jabolko/jabolk_/o/a/i/u/h"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:2
-#, fuzzy
 msgid "banana/_anana/b/p/d/m"
-msgstr "banana/_anana/b/p/d"
+msgstr "banana/_anana/b/p/d/m"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:3
-#, fuzzy
 msgid "car/_ar/c/k/b/u"
-msgstr "_Počisti"
+msgstr "avtomobil/_vtomobil/a/c/t/d"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:4
-#, fuzzy
 msgid "dog/d_g/o/g/a/u"
-msgstr "pes/p_s/a/e/i"
+msgstr "pes/p_s/e/a/u/s"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:5
-#, fuzzy
 msgid "fish/_ish/f/h/l/j"
-msgstr "Riba %s reče:"
+msgstr "riba/_iba/r/l/b/h"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:6
-#, fuzzy
 msgid "house/h_use/o/f/u/i"
-msgstr "_Uporabi proxy"
+msgstr "hiša/h_ša/i/š/o/f"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:7
-#, fuzzy
 msgid "plane/p_ane/l/j/i/t"
-msgstr "Barva V koordinate"
+msgstr "letalo/l_talo/e/a/i/k/u"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:8
-#, fuzzy
 msgid "satchel/_atchel/s/c/l/z"
-msgstr "torba/_orba/t/r/b"
+msgstr "torba/_orba/t/r/b/č"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:1
-#, fuzzy
 msgid "apple/app_e/l/h/n/i/t"
-msgstr "GNOME Program"
+msgstr "jabolko/jabol_o/k/t/p/h"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:2
-#, fuzzy
 msgid "ball/b_ll/a/u/o/e/i/y"
-msgstr "Shrani _vse"
+msgstr "žoga/ž_ga/o/i/a/u"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:3
-#, fuzzy
 msgid "ball/bal_/l/h/s/z/t"
-msgstr "Slog kroglice"
+msgstr "žoga/žog_/a/e/i/u"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:4
-#, fuzzy
 msgid "banana/ba_ana/n/m/b/z/q"
-msgstr "Santa Ana de Yacuma"
+msgstr "banana/ba_ana/n/m/b/z"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:5
-#, fuzzy
 msgid "bed/b_d/e/a/i/o/u/s"
-msgstr "postelja/p_stelja/a/i/e"
+msgstr "postelja/p_stelja/o/a/i/e"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:6
-#, fuzzy
 msgid "bed/be_/d/p/b/c/v/n"
-msgstr "Ne sporočaj"
+msgstr "postelja/pos_elja/t/d/p/b"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:7
-#, fuzzy
 msgid "bottle/b_ttle/o/u/d/a/t/i"
-msgstr "Plinska jeklenka"
+msgstr "steklenica/s_eklenica/t/o/u/f/p"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:8
-#, fuzzy
 msgid "bottle/bott_e/l/y/r/s/g"
-msgstr "Plinska jeklenka"
+msgstr "steklenica/steklen_ca/i/a/e/v"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:9
-#, fuzzy
 msgid "cake/c_ke/a/o/e/i/u/y"
-msgstr "_Naredi povezave"
+msgstr "torta/t_rta/o/a/e/i/u"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:10
-#, fuzzy
 msgid "cake/ca_e/k/q/c/r/z"
-msgstr "_Kaskadno"
+msgstr "torta/to_ta/r/b/t/c"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:11
-#, fuzzy
 msgid "car/ca_/r/w/k/c/a"
-msgstr "_Kaskadno"
+msgstr "avtomobil/avto_obil/m/n/p/c"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:12
-#, fuzzy
 msgid "dog/do_/g/p/q/q/k"
-msgstr "_Dol"
+msgstr "pes/pe_/s/p/r/k/l"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:13
-#, fuzzy
 msgid "fish/fis_/h/o/i/y/z"
-msgstr "Riba %s reče:"
+msgstr "riba/r_ba/i/a/j/z"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:14
-#, fuzzy
 msgid "house/_ouse/h/e/j/z/p/s"
-msgstr "Hiša, modra"
+msgstr "hiša/_iša/h/e/j/z/p"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:15
-#, fuzzy
 msgid "plane/pl_ne/a/o/s/e/i/u/y"
-msgstr "Poišči naslednje"
+msgstr "letalo/let_lo/a/o/s/e/i/u"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:16
-#, fuzzy
 msgid "satchel/sa_chel/t/p/c/z/s/l"
-msgstr "_Shrani nastavitve"
+msgstr "torba/to_ba/r/c/p/s/l"
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
 #: ../src/money-activity/money.c:496
@@ -5037,12 +5045,12 @@ msgstr "$ %.0f"
 #: ../src/money-activity/money.xml.in.h:1
 #: ../src/money_cents-activity/money_cents.xml.in.h:1
 msgid "Can count"
-msgstr "Znam šteti"
+msgstr "Znanje štetja"
 
 #: ../src/money-activity/money.xml.in.h:2
 #: ../src/money_cents-activity/money_cents.xml.in.h:2
 msgid "Click on the coins or paper money at the bottom of the screen to pay. If you want to remove a coin or note, click on it on the upper screen area."
-msgstr "Za plačilo klikni na denar ali kovanec na dnu zaslona. Če želiš odstraniti kovanec, klikni nanj v zgornjem delu zaslona."
+msgstr "Za plačilo klikni na bankovec ali kovanec na dnu zaslona. Če želiš kovanec ali bankovec odstraniti, klikni nanj v zgornjem delu zaslona."
 
 #: ../src/money-activity/money.xml.in.h:3
 #: ../src/money_cents-activity/money_cents.xml.in.h:3
@@ -5076,11 +5084,11 @@ msgstr "Sestavi sestavljanko"
 
 #: ../src/paintings-activity/paintings.xml.in.h:2
 msgid "Drag and Drop the items to rebuild the original paintings"
-msgstr "Povleci in spusti tako, da dobiš izvirne slike"
+msgstr "Povleci in spusti koščke tako, da sestaviš slike"
 
 #: ../src/paintings-activity/paintings.xml.in.h:3
 msgid "Drag the image parts from the box on the left to create a painting on the main board."
-msgstr ""
+msgstr "Povleci dele slike iz polja na levi in ustvari sliko na glavni tabli."
 
 #: ../src/paintings-activity/paintings.xml.in.h:4
 msgid "Mouse-manipulation: movement, drag and drop"
@@ -5088,41 +5096,39 @@ msgstr "Igre z miško, premakni, povleci in spusti"
 
 #: ../src/paintings-activity/paintings.xml.in.h:5
 msgid "Spatial representation"
-msgstr "Prostorna predstava"
+msgstr "Prostorska predstava"
 
 #: ../src/paintings-activity/resources/paintings/board1_0.xml.in.h:1
 msgid "Edgar Degas, The Dancing Class - 1873-75"
 msgstr "Edgar Degas, Plešoči razred - 1873-75"
 
 #: ../src/paintings-activity/resources/paintings/board1_1.xml.in.h:1
-#, fuzzy
 msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
 msgstr "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
 
 #: ../src/paintings-activity/resources/paintings/board1_2.xml.in.h:1
 msgid "Giuseppe Arcimboldo, Spring - 1573"
-msgstr ""
+msgstr "Giuseppe Arcimboldo, Pomlad - 1573"
 
 #: ../src/paintings-activity/resources/paintings/board1_3.xml.in.h:1
 msgid "Giuseppe Arcimboldo, The Librarian - 1566)"
-msgstr ""
+msgstr "Giuseppe Arcimboldo, Knjižničar - 1566)"
 
 #: ../src/paintings-activity/resources/paintings/board1_5.xml.in.h:1
-#, fuzzy
 msgid "Woman holding a fan"
-msgstr "Ventilator z osnim pretokom"
+msgstr "Ženska, ki drži torbico"
 
 #: ../src/paintings-activity/resources/paintings/board2_1.xml.in.h:1
 msgid "Botticelli, Primavera - 1482"
-msgstr ""
+msgstr "Botticelli, Primavera - 1482"
 
 #: ../src/paintings-activity/resources/paintings/board2_2.xml.in.h:1
 msgid "Caravage, Rest on the Flight into Egypt - 1597"
-msgstr ""
+msgstr "Caravage, Počitek na letu v Egipt - 1597"
 
 #: ../src/paintings-activity/resources/paintings/board2_3.xml.in.h:1
 msgid "Botticelli, The Birth of Venus - 1482–1486"
-msgstr ""
+msgstr "Botticelli, Rojstvo Venere - 1482–1486"
 
 #: ../src/paintings-activity/resources/paintings/board3_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
@@ -5154,11 +5160,11 @@ msgstr "Hitrost padanja lahko spremeniš s puščicama gor in dol."
 
 #: ../src/paratrooper-activity/paratrooper.xml.in.h:1
 msgid "Help Tux the parachutist land safely"
-msgstr ""
+msgstr "Pomagaj padalcu Pingu varno pristati"
 
 #: ../src/paratrooper-activity/paratrooper.xml.in.h:2
 msgid "Hit any key or click on the plane to make Tux jump. Hit another key or click on Tux to open the parachute."
-msgstr ""
+msgstr "Če želiš, da Pingo skoči, pritisni katerokoli tipko ali klikni na letalo. Za odprtje padala pritisni katerokoli tipko ali klikni na Pinga."
 
 #: ../src/paratrooper-activity/paratrooper.xml.in.h:3
 msgid "In this game, Tux the parachutist needs help to land safely on the fishing boat. He needs to allow for the wind direction and speed."
@@ -5166,7 +5172,7 @@ msgstr "V tej igri, otroci pomagajo pingu s padalom varno pristati na ribiškem 
 
 #: ../src/paratrooper-activity/paratrooper.xml.in.h:4
 msgid "Parachutist"
-msgstr ""
+msgstr "Padalec"
 
 #: ../src/paratrooper-activity/paratrooper.xml.in.h:5
 msgid "This board is game-oriented. No specific skills are needed to play."
@@ -5182,44 +5188,39 @@ msgstr "Dvakrat klikni na balon in ga ustreli."
 
 #: ../src/penalty-activity/penalty.xml.in.h:1
 msgid "Double click the mouse on the ball to kick it. You can double click the left right or middle mouse button. If you lose, Tux catches the ball. You must click on it to bring it back to its former position"
-msgstr ""
+msgstr "Za brcanje žoge z miško dvakrat klikni nanjo. Dvakrat lahko klikneš z levim, desnim ali srednjim miškinim gumbom. Če izgubiš, Pingo ujame žogo. Če želiš, da se žoga vrne na začetno mesto, klikni nanjo."
 
 #: ../src/penalty-activity/penalty.xml.in.h:2
 msgid "Double click the mouse on the ball to score a goal."
-msgstr "Dvakrat klikni miško na žogi in zadel boš gol."
+msgstr "Dvakrat klikni na žogo in zadeni gol."
 
 #: ../src/penalty-activity/penalty.xml.in.h:5
-#, fuzzy
 msgid "Penalty kick"
-msgstr "Brcni/Izobči"
+msgstr "Kazenski strel"
 
-#: ../src/photohunter-activity/photohunter.c:511
+#: ../src/photohunter-activity/photohunter.c:512
 msgid "Error: Absolutely no photo found in the data directory"
-msgstr ""
+msgstr "Napaka: V mapi podatkov ni mogoče najti fotografij"
 
-#: ../src/photohunter-activity/photohunter.c:574
-#, fuzzy
+#: ../src/photohunter-activity/photohunter.c:575
 msgid "Click on the differences between the two images."
-msgstr "V omejenem času, najdi razliko dveh števil"
+msgstr "Klikni na razlike med dvema slikama."
 
 #: ../src/photohunter-activity/photohunter.xml.in.h:1
-#, fuzzy
 msgid "Find the differences between two pictures"
-msgstr "V omejenem času, najdi razliko dveh števil"
+msgstr "Najdi razliki med dvema slikama"
 
 #: ../src/photohunter-activity/photohunter.xml.in.h:2
 msgid "Observe the two pictures carefully. There are some slight differences. When you find a difference you must click on it."
-msgstr ""
+msgstr "Pozorno opazuj dve sliki. Obstaja nekaj majhnih razlik. Ko najdeš razliko, klikni nanjo."
 
 #: ../src/photohunter-activity/photohunter.xml.in.h:3
-#, fuzzy
 msgid "Photo hunter"
-msgstr "Uvoz fotografij"
+msgstr "Lovec fotografij"
 
 #: ../src/photohunter-activity/photohunter.xml.in.h:4
-#, fuzzy
 msgid "Visual discrimination."
-msgstr "hebrejsko predočeno"
+msgstr "Iskanje razlik"
 
 #: ../src/planegame-activity/planegame.c:61
 #: ../src/planegame-activity/planegame.xml.in.h:4
@@ -5232,7 +5233,7 @@ msgstr "Premakni letalo, da uloviš oblake v pravem vrstnem redu"
 
 #: ../src/planegame-activity/planegame.xml.in.h:1
 msgid "Catch the numbers in increasing order, using the up, down, right and left arrows on the keyboard to move the helicopter."
-msgstr ""
+msgstr "Ujemi številke v povečujočem vrstnem redu. Uporabi tipke gor, dol, levo in desno za premikanje helikopterja."
 
 #: ../src/planegame-activity/planegame.xml.in.h:2
 msgid "Move the helicopter to catch the clouds in the correct order"
@@ -5240,7 +5241,7 @@ msgstr "Pomagaj helikopterju ujeti oblake v pravilnem vrstnem redu"
 
 #: ../src/planegame-activity/planegame.xml.in.h:3
 msgid "Number"
-msgstr "Številka"
+msgstr "Poznavanje števil"
 
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:1
 #: ../src/pythontest-activity/pythontest.xml.in.h:1
@@ -5254,7 +5255,7 @@ msgstr "Napredni programer v jeziku Python  :)"
 
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:3
 msgid "An empty python activity to use as a starting point"
-msgstr ""
+msgstr "Prazna dejavnost python za uporabo kot začetna točka"
 
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:4
 msgid "Python Template"
@@ -5417,15 +5418,19 @@ msgstr ""
 
 #: ../src/readingh-activity/reading.c:380
 msgid "Please, check if the word"
-msgstr "Preveri besedo"
+msgstr "Preveri, če je beseda"
 
 #: ../src/readingh-activity/reading.c:400
 msgid "is being displayed"
-msgstr "je prikazana"
+msgstr "prikazana"
 
 #: ../src/readingh-activity/reading.c:456
 msgid "We skip this level because there are not enough words in the list!"
 msgstr "To raven bomo preskočili, ker na seznamu ni dovolj besed!"
+
+#: ../src/readingh-activity/reading.c:659
+msgid "Yes, I saw it"
+msgstr "Da, videl sem jo"
 
 #: ../src/readingh-activity/reading.c:686
 msgid "No, it was not there"
@@ -5450,7 +5455,7 @@ msgstr "In je bila prikazana"
 #: ../src/readingh-activity/readingh.xml.in.h:1
 #: ../src/readingv-activity/readingv.xml.in.h:1
 msgid "A word is shown at the top right of the board. A list of words will appear and disappear on the left. Does the given word belong to the list?"
-msgstr ""
+msgstr "Beseda je prikazana v desnem zgornjem delu table. Na levi se bo pojavil in izginil seznam besed. Ali se je beseda z desnega dela table prikazala na seznamu?  "
 
 #: ../src/readingh-activity/readingh.xml.in.h:2
 msgid "Horizontal reading practice"
@@ -5466,7 +5471,7 @@ msgstr "Vaja branja v omejenem času"
 
 #: ../src/readingv-activity/readingv.xml.in.h:2
 msgid "Read a vertical list of words and work out if a given word is in it"
-msgstr "Preberi stolpec besed, in povej ali je izbrana beseda med njimi "
+msgstr "Preberi stolpec besed in povej ali je izbrana beseda med njimi "
 
 #: ../src/readingv-activity/readingv.xml.in.h:3
 msgid "Read training in a limited time"
@@ -5482,11 +5487,11 @@ msgstr "koordinata"
 
 #: ../src/redraw-activity/redraw.xml.in.h:1
 msgid "Copy a drawing from the box on the right into the box on the left."
-msgstr ""
+msgstr "Kopiraj risbo iz polja na desni v polje na levi."
 
 #: ../src/redraw-activity/redraw.xml.in.h:2
 msgid "First, select the proper tool from the toolbar. Then drag the mouse to create objects. When you are done, click on the OK button. Errors will be marked with a little red cross. The order of objects (above/under) is not important but be careful not to end up with unwanted objects under others."
-msgstr "Na začetku moraš izbrati pravilno orodje v orodni vrstici. Nato povleci miško in ustvari predmet. Ko končaš, klikni na gumb v redu. Napake bodo označene z majhnim rdečim križčkom. Vrstmi red predmetov (zgoraj/spodaj) ni pomemben, toda pazi da napačni predmeti ne ostanejo skriti pod pravilnimi. "
+msgstr "Na začetku moraš izbrati pravilno orodje v orodni vrstici. Nato povleci miško in ustvari predmet. Ko končaš, klikni na gumb v redu. Napake bodo označene z majhnim rdečim križcem. Vrstni red predmetov (zgoraj/spodaj) ni pomemben, toda pazi, da napačni predmeti ne ostanejo skriti pod pravilnimi. "
 
 #: ../src/redraw-activity/redraw.xml.in.h:3
 msgid "Redraw the given item"
@@ -5494,7 +5499,7 @@ msgstr "Ponovno nariši predmet"
 
 #: ../src/redraw_symmetrical-activity/redraw_symmetrical.xml.in.h:1
 msgid "Copy the mirror image of an object from the box on the right into the box on the left."
-msgstr ""
+msgstr "Kopiraj zrcalno sliko predmeta iz polja na desni v polje na levi."
 
 #: ../src/redraw_symmetrical-activity/redraw_symmetrical.xml.in.h:2
 msgid "First, select the proper tool from the toolbar. Then drag the mouse to create objects. When you are done, click on the OK button. A little red cross will show you where something isn't right yet. The order of objects (above/under) is not important but be careful not to end up with unwanted objects under others."
@@ -5506,24 +5511,25 @@ msgstr "Nariši zrcalno sliko predmeta"
 
 #: ../src/reversecount-activity/reversecount.xml.in.h:1
 msgid "Can move the mouse, can read numbers and subtract numbers up to 10 for the first level"
-msgstr "Lahko premikaš miško, bereš števila in odštevaš števila do 10 za prvo raven"
+msgstr "Otrok lahko premika miško, bere števila in odšteva števila do 10 za prvo raven"
 
 #: ../src/reversecount-activity/reversecount.xml.in.h:2
 msgid "Click on the dice to show how many ice spots there are between Tux and the fish. Click the dice with the right mouse button to count backwards. When done, click on the OK button or hit the Enter key."
-msgstr "Najprej preštej koliko ledenik točk je med Pingom in ribo. Nato klikni na kocko, da izbereš pravo številko. Za štetje nazaj uporabi desno miškino tipko. Ko končaš, pritisni gumb v redu ali tipko enter."
+msgstr "Najprej preštej koliko ledenik točk je med Pingom in ribo. Nato klikni na kocko, da izbereš pravo številko. Za štetje nazaj uporabi desno miškino tipko. Ko končaš, pritisni gumb v redu ali vnosno tipko."
 
 #: ../src/reversecount-activity/reversecount.xml.in.h:3
 msgid "Practice subtraction with a fun game"
 msgstr "Vadi odštevanje z zabavno igro"
 
+# Ledena plošča je boljše kot ledena točka ..
 #: ../src/reversecount-activity/reversecount.xml.in.h:4
 msgid "Tux is hungry. Help him find fish by counting to the correct ice spot."
-msgstr "Pingo je lačen. Pomagaj mu najti ribe s štetjem do prave ledene točke."
+msgstr "Pingo je lačen. Pomagaj mu najti ribe s štetjem do prave ledene plošče."
 
 #: ../src/scalesboard-activity/scale.c:294
-#, fuzzy, c-format
+#, c-format
 msgid "Weight in g = %s"
-msgstr "Prijavljam se"
+msgstr "Teža v g = %s"
 
 #: ../src/scalesboard-activity/scale.c:296
 #, c-format
@@ -5550,11 +5556,11 @@ msgstr "Računaj na pamet, enakost"
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:4
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:4
 msgid "The painting is an original painting created by Virginie MOREAU (virginie.moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is released under the GPL licence."
-msgstr "Slika je izvirno delo Virginie MOREAU (virginie.moreau@free.fr) leta 2001. Ime ji je 'Prodajalec začimb v Egiptu'. Objavljena je pod licenco GPL."
+msgstr "Slika je izvirno delo Virginie MOREAU (virginie.moreau@free.fr), ki je nastalo leta 2001. Ime ji je 'Prodajalec začimb v Egiptu'. Objavljena je pod licenco GPL."
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:5
 msgid "To balance the scales, move the masses on the left or the right side. The masses can be arranged in any order."
-msgstr "Premakni uteži na levo ali desno stran tako da bo tehtnica uravnotežena.  Uteži lahko urediš kakor želiš."
+msgstr "Premakni uteži na levo ali desno stran tako, da bo tehtnica uravnotežena. Uteži lahko urediš kakor želiš."
 
 #: ../src/searace-activity/searace.py:174
 msgid "The race is already being run"
@@ -5580,7 +5586,7 @@ msgstr "UKAZI SO"
 #. The two boat arrived in a close time frame (1s), it's a draw
 #: ../src/searace-activity/searace.py:735
 msgid "This is a draw"
-msgstr "To je slika"
+msgstr "Izid je neodločen"
 
 #: ../src/searace-activity/searace.py:742
 msgid "The Red boat has won"
@@ -5617,7 +5623,7 @@ msgstr "Razdalja:"
 
 #: ../src/searace-activity/searace.xml.in.h:1
 msgid "Direct your boat accurately to win the race."
-msgstr ""
+msgstr "Natančno usmerjaj svoj čoln in zmagaj na dirki."
 
 #: ../src/searace-activity/searace.xml.in.h:2
 msgid ""
@@ -5628,34 +5634,37 @@ msgid ""
 "- forward 10: Go forward for 10 units (as displayed on the ruler).\n"
 "The goal is to reach the right of the screen (the red line). When done, you can try to improve your program and start a new race with the same weather conditions by using the retry button. You can click and drag your mouse anywhere on the map to get a measurement in distance and angle. Going to the next level will give you more complex weather conditions."
 msgstr ""
+"V polje za nadzor besedila vnesi en ukaz na vrstico za nadziranje svoje ladje.\n"
+"Podprti ukazi so prikazani med dvema področjema vnosov. Ukazoma 'levo' in 'desno' mora slediti kot v stopinjah. Vrednost kota se imenuje tudi 'parameter' ukaza levo ali desno. Privzeto je uporabljen kot 45 stopinj. Ukaz 'naprej' sprejme parameter razdalje. Privzeto je uporabljena 1.\n"
+"Na primer:\n"
+"- levo 90: Zavij pravokotno levo\n"
+"- naprej 10: Pojdi naprej 10 enot (kot je prikazano na ravnilu).\n"
+"Cilj je doseči desni del zaslona (rdeča črta). Ko si končal/a, lahko poskusiš izboljšati svoj program in začneš novo dirko z enakimi vremenskimi pogoji s pritiskom na gumb poskusi ponovno. Z miško lahko klikneš in jo premakneš kamorkoli na zaslonu in s tem izmeriš razdaljo in kot. Na višjih ravneh te čakajo bolj zapleteni vremenski pogoji. "
 
 #: ../src/searace-activity/searace.xml.in.h:8
 #: ../src/searace1player-activity/searace1player.xml.in.h:7
 msgid "In this activity, you will learn how to enter commands into a computer. Even if the language is extremely basic, you learn here how to think ahead and construct a program. This activity can be used to introduce the programming concept to children."
-msgstr ""
+msgstr "V tej dejavnosti se boš naučil/a, kako v računalnik vnašati ukaze. Čeprav je jezik zelo enostaven, se boš tukaj naučil/a kako razmišljati vnaprej in sestaviti program. To dejavnost je mogoče uporabiti za predstavitev koncepta programiranja otrokom."
 
 #: ../src/searace-activity/searace.xml.in.h:9
 msgid "Sea race (2 Players)"
 msgstr "Morska dirka (2 igralca)"
 
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:2
-#, fuzzy
 msgid "Drag and Drop masses to balance the scales and calculate the weight"
-msgstr "Povleci in spusti uteži in uravnoteži tehtnico."
+msgstr "Povleci in spusti uteži, uravnoteži tehtnico in izračunaj težo."
 
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:3
-#, fuzzy
 msgid "Mental calculation, arithmetic equality, unit conversion"
-msgstr "Računaj na pamet, enakost"
+msgstr "Računanje na pamet, enakost, pretvarjanje enot"
 
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:5
-#, fuzzy
 msgid "To balance the scales, move the masses on the left or the right side. Take care of the weight and the unit of the masses, remember that a kilogram (kg) is 1000 grams (g). They can be arranged in any order."
-msgstr "Premakni uteži na levo ali desno stran tako da bo tehtnica uravnotežena.  Uteži lahko urediš kakor želiš."
+msgstr "Premakni uteži na levo ali desno stran tako, da bo tehtnica uravnotežena. Pazi na težo in enoto uteži. Zapomni si da je kilogram (kg) enako 1000 gramov (g). Uteži so lahko urejene v kateremukoli vrstnemu redu."
 
 #: ../src/searace1player-activity/searace1player.xml.in.h:1
 msgid "Give good instructions to your ship in order to be first in the race."
-msgstr ""
+msgstr "Natančno usmerjaj svoj čoln in zmagaj na dirki."
 
 # Treba je preveriti kaj se dejansko vtipka v polje 'left' ali 'levo'..
 #: ../src/searace1player-activity/searace1player.xml.in.h:2
@@ -5678,7 +5687,7 @@ msgstr "Morska dirka (En igralec)"
 #: ../src/smallnumbers-activity/smallnumbers.xml.in.h:1
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:1
 msgid "Count the number of dots on dice before they reach the ground"
-msgstr "Preštej število pik na kocki preden padejo na zemljo"
+msgstr "Preštej pike na kockah preden dosežeta zemljo"
 
 #: ../src/smallnumbers-activity/smallnumbers.xml.in.h:2
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:2
@@ -5688,7 +5697,7 @@ msgstr "Štetje"
 #: ../src/smallnumbers-activity/smallnumbers.xml.in.h:3
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:3
 msgid "In a limited time, count the number of dots"
-msgstr "V omejenem času, preštej pike na kocki."
+msgstr "V omejenem času preštej pike na kockah."
 
 #: ../src/smallnumbers-activity/smallnumbers.xml.in.h:4
 msgid "Numbers With Dice"
@@ -5697,7 +5706,7 @@ msgstr "Števila na kocki"
 #: ../src/smallnumbers-activity/smallnumbers.xml.in.h:5
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:5
 msgid "With the keyboard, type the number of dots you see on the falling dice."
-msgstr "S tipkovnico stisni tipko, ki odgovarja padajoči kocki."
+msgstr "Na tipkovnici pritisni število, ki je enako številu pik na padajočih kockah."
 
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:4
 msgid "Numbers with pairs of dice"
@@ -5717,7 +5726,7 @@ msgstr "Osnove fizike"
 
 #: ../src/submarine-activity/submarine.xml.in.h:4
 msgid "Pilot a submarine"
-msgstr "Krmari podmornico"
+msgstr "Vozi podmornico"
 
 #: ../src/submarine-activity/submarine.xml.in.h:5
 msgid "Pilot a submarine using air tanks and dive rudders"
@@ -5728,8 +5737,8 @@ msgid "Completing the puzzle requires patience and logical ability"
 msgstr "Dokončanje igre zahteva potrpežljivost in logično razmišljanje"
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:2
-msgid "For the first level with colored symbols, drag symbols on the left to their target position. For the higher levels, click on an empty square to give it the keyboard focus. Then enter a possible letter or number. GCompris will not let you enter invalid data."
-msgstr "Za prvo raven z obarvanimi simboli povleci simbole na levi na njihov ciljni položaj. Za višje ravni klikni na prazen kvadratek ter nato napiši možno črko ali številko. Program ti ne bo pustil napisati napačne vrednosti."
+msgid "For the first level with colored symbols, select a symbol on the left and click on its target position. For the higher levels, click on an empty square to give it the keyboard focus. Then enter a possible letter or number. GCompris will not let you enter invalid data."
+msgstr "Za prvo raven z obarvanimi simboli izberi simbol na levi in klikni tja, kamor ga želiš postaviti. Za višje ravni klikni na prazen kvadratek ter nato napiši možno črko ali številko. Program ti ne bo pustil napisati napačne vrednosti."
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:3
 msgid "Sudoku, place unique symbols in a square."
@@ -5737,11 +5746,11 @@ msgstr "Sudoku, postavi edinstvene simbole v kvadrat."
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:4
 msgid "Symbols must be unique in a row, in a column, and (if defined) each region."
-msgstr "Simboli morajo biti edinstveni v vrstici, stolpcu (in če je določeno) vsakemu območju."
+msgstr "Simboli morajo biti edinstveni v vrstici, stolpcu in (če je določeno) v vsakemu območju."
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:5
 msgid "The aim of the puzzle is to enter a symbol or numeral from 1 through 9 in each cell of a grid, most frequently a 9x9 grid made up of 3x3 subgrids (called 'regions'), starting with various symbols or numerals given in some cells (the 'givens'). Each row, column and region must contain only one instance of each symbol or numeral (Source &lt;http://en.wikipedia.org/wiki/Sudoku&gt;)."
-msgstr "Cilj igre je napisati simbole ali številke od 1 do 9 v vsako polje mreže, ki je najbolj pogosto velikosti 9x9 iz 3x3 podmrež (te se imenujejo 'območja'). Začni s simboli ali številkami, ki so podane v nekaterih polji ('znane številke'). Vsaka vrstica, stolpec in območje mora vsebovati samo en primer vsakega simbola ali številke (Vir: &lt;http://en.wikipedia.org/wiki/Sudoku&gt;). "
+msgstr "Cilj igre je postaviti simbole ali številke od 1 do 9 v vsako polje mreže, ki je najbolj pogosto velikosti 9x9 iz 3x3 podmrež (te se imenujejo 'območja'). Začni s simboli ali številkami, ki so podane v nekaterih poljih ('znane številke'). Vsaka vrstica, stolpec in območje mora vsebovati natanko en primer vsakega simbola ali številke (Vir: &lt;http://en.wikipedia.org/wiki/Sudoku&gt;). "
 
 #: ../src/superbrain-activity/superbrain.c:110
 #: ../src/superbrain-activity/superbrain.xml.in.h:2
@@ -5755,7 +5764,7 @@ msgstr "Pingo je skril nekaj stvari. Najdi jih v pravilnem vrstnem redu"
 
 #: ../src/superbrain-activity/superbrain.xml.in.h:1
 msgid "Click on the items until you find what you think is the correct answer. Then, click on the OK button in the control bar. In the lower levels, Tux gives you an indication if you found a hiding place by marking the item with a black box. You can use the right mouse button to flip the colors in the opposite order."
-msgstr "Klikaj na predmete tako dolgo, da ne dobiš tistega kar misliš, da je pravilen odgovor. Nato klikni gumb v redu. Na nižji ravni Pingo pove ali si našel skrivališče na pravilnem položaju s črno škatlico. Lahko uporabljaš desni miški klik za nasprotni vrstni red barv."
+msgstr "Klikaj na predmete tako dolgo, da ne dobiš tistega kar misliš, da je pravilen odgovor. Nato klikni gumb v redu. Na nižji ravni Pingo namigne ali si našel skrivališče na pravilnem položaju tako, da predmet označi s črno škatlico. Lahko uporabljaš desni miški klik za obrnjeni vrstni red barv."
 
 #: ../src/tangram-activity/tangram.xml.in.h:1
 msgid ""
@@ -5767,21 +5776,21 @@ msgid ""
 "\t* 1 square (side of 1)\n"
 "\t* 1 parallelogram (sides of 1 and square root of 2)"
 msgstr ""
-"Iz Wikipedije, proste enciklopedije. Tangram (Kitajsko: dobesedno \"sedem tablic pretkanosti\") je kitajska sestavljanka. Čeprav za Tangram trdijo da je starodaven, je bil njegov obstoj potrjen le do leta 1800. Sestavljen je iz 7 kosov, tanov, ki se prilegajo skupaj tako da tvorijo kvadrat; če je kvadrat enota dolžine:\n"
+"Iz Wikipedije, proste enciklopedije. Tangram (Kitajsko: dobesedno \"sedem tablic pretkanosti\") je kitajska sestavljanka. Čeprav za Tangram trdijo da je starodaven, je bil njegov obstoj potrjen le do leta 1800. Sestavljen je iz 7 kosov, tanov, ki se prilegajo skupaj tako, da tvorijo kvadrat; če je kvadrat enota dolžine:\n"
 "\t* 5 pravokotnih enakostraničnih trikotnikov\n"
-"\t\v 2 majhna (kraka dolžine 1)\n"
-"\t\v 1 srednje velikosti (kraka dolžine kvadratni koren z 2)\n"
-"\t\v 2 velika (kraka dolžine 2) \n"
+"\t\to 2 majhna (kraka dolžine 1)\n"
+"\t\to 1 srednje velikosti (kraka dolžine kvadratni koren z 2)\n"
+"\t\to 2 velika (kraka dolžine 2) \n"
 "\t* 1 kvadrat (stranica dolžine 1)\n"
 "\t* 1 paralelogram (stranici dolžine 1 in koren z 2)"
 
 #: ../src/tangram-activity/tangram.xml.in.h:9
 msgid "Select the tangram to form. Move a piece by dragging it. Right-click on it to create a symmetrical item. Select an item and drag around it to show the rotation you want. Once you've shown what shape you want, the computer will create it. If you need help, click on the shape button, and the border of the shape will be drawn."
-msgstr "Izberi tangram, ki ga želiš oblikovati. Košček premakneš tako da ga povlečeš. Če na košček klikneš z desno miškino tipko ustvariš simetričen predmet. Izberi predmet in ga vleci naokoli da je zavrten tako kot hočeš. Ko si pokazal, kakšno obliko želiš, jo bo računalnik ustvaril. Če potrebuješ pomoč, klikni na gumb oblika in narisana bo meja oblike."
+msgstr "Izberi tangram, ki ga želiš oblikovati. Košček premakneš tako da ga povlečeš. Če na košček klikneš z desno miškino tipko, ustvariš simetričen predmet. Izberi predmet in ga vleci naokoli tako, da je zavrten tako kot hočeš. Ko si pokazal/a, kakšno obliko želiš, jo bo računalnik ustvaril. Če potrebuješ pomoč, klikni na gumb oblika in narisana bo meja oblike."
 
 #: ../src/tangram-activity/tangram.xml.in.h:10
 msgid "The objective is to form a given shape with seven pieces"
-msgstr "Cilj je oblikovati dano obliko s sedmimi kosi"
+msgstr "Oblikuj dano obliko s sedmimi kosi"
 
 #: ../src/tangram-activity/tangram.xml.in.h:11
 msgid "The original code was written by Philippe Banwarth in 1999. It was ported to GCompris by Yves Combe in 2005."
@@ -5816,11 +5825,11 @@ msgstr "Razdalja do tarče = %d metrov"
 
 #: ../src/target-activity/target.xml.in.h:1
 msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
-msgstr "Lahko premakneš miško, lahko šteješ do 15 za prvo raven."
+msgstr "Premikanje miške, štetje do 15 za prvo raven"
 
 #: ../src/target-activity/target.xml.in.h:2
 msgid "Check the wind speed and direction, and then click on the target to launch a dart. When you all your darts are thrown, a window appears asking you to count your score. Enter the score with the keyboard then press the Enter key or the OK button."
-msgstr "Najprej preveri hitrost in smer vetra, nato klikni na tarčo in vrzi puščico. Ko porabiš vse puščice, se pojavi okno, kjer sešteješ zbrane točke. Vnesi rezultat s tipkovnico in nato pritisni enter ali gumb v redu."
+msgstr "Najprej preveri hitrost in smer vetra, nato klikni na tarčo in vrzi puščico. Ko porabiš vse puščice, se pojavi okno, kjer sešteješ zbrane točke. Vnesi rezultat s tipkovnico in nato pritisni vnosno tipko ali gumb v redu."
 
 #: ../src/target-activity/target.xml.in.h:3
 msgid "Hit the target and count your points"
@@ -5832,7 +5841,7 @@ msgstr "Vadi seštevanje z igro tarč"
 
 #: ../src/target-activity/target.xml.in.h:5
 msgid "Throw darts at a target and count your score."
-msgstr "Vrzi puščico v tarčo in preštej točke."
+msgstr "Vrzi puščice v tarčo in preštej svoje točke."
 
 #: ../src/traffic-activity/traffic.xml.in.h:1
 msgid "A sliding-block puzzle game"
@@ -5840,11 +5849,11 @@ msgstr "Sestavljanka z drsečimi bloki"
 
 #: ../src/traffic-activity/traffic.xml.in.h:2
 msgid "Each car can only move either horizontally or vertically. You must make some room in order to let the red car move through the gate on the right."
-msgstr "Vsak avto se lahko premakne le vodoravno ali navpično. Narediti moraš nekaj prostora da se lahko rdeči avto premakne skozi vrata na desni."
+msgstr "Vsak avto se lahko premakne le vodoravno ali navpično. Narediti moraš nekaj prostora, da se lahko rdeči avto premakne skozi vrata na desni."
 
 #: ../src/traffic-activity/traffic.xml.in.h:3
 msgid "Remove the red car from the parking lot through the gate on the right"
-msgstr "Odmakni rdeč avto iz parkirišča skozi vrata na desni"
+msgstr "Odpelji rdeči avto iz parkirišča skozi vrata na desni"
 
 #: ../src/tuxpaint-activity/tuxpaint.py:123
 msgid ""
@@ -5900,7 +5909,7 @@ msgstr "upravljanje s tipkovnico in miško"
 
 #: ../src/watercycle-activity/watercycle.xml.in.h:1
 msgid "Click on different active elements : sun, cloud, water pump station, and water cleanup station, in order to reactivate the entire water system. When the system is back up and Tux is in the shower, push the shower button for him."
-msgstr "Klikni na različne dejavne elemente: sonce, oblak, postaja za črpanje vode in postaja za čiščenje vode, za ponovno zaganjanje celotnega vodnega sistema. Ko sistem ponovno deluje in je Pingo pod prho pritisni gumb za tuširanje."
+msgstr "Za ponovno zaganjanje celotnega vodnega sistema klikni na različne dejavne elemente: sonce, oblak, postaja za črpanje vode in postaja za čiščenje vode. Ko sistem ponovno deluje in je Pingo pod prho, pritisni gumb za tuširanje."
 
 #: ../src/watercycle-activity/watercycle.xml.in.h:3
 msgid "Learn about the water cycle"
@@ -5908,7 +5917,7 @@ msgstr "Spoznaj vodni krog"
 
 #: ../src/watercycle-activity/watercycle.xml.in.h:4
 msgid "Learn the water cycle"
-msgstr "Spoznaj kroženje vode"
+msgstr "Spoznaj vodni krog"
 
 #: ../src/watercycle-activity/watercycle.xml.in.h:5
 msgid "Tux has come back from a long fishing party on his boat. Bring the water system back up so he can take a shower."
@@ -5948,7 +5957,7 @@ msgstr "Preprost urejevalnik besedila za pisanje in shranjevanje kateregakoli be
 
 #: ../src/wordprocessor-activity/wordprocessor.xml.in.h:2
 msgid "In this wordprocessor you can type the text you want, save and get it back later. You can add some style to your text by using the buttons on the left. The first 4 buttons let you select the style of the line on which your insert cursor is. The 2 others buttons with multiple choices let you select from a predefined document and color theme."
-msgstr "V tem urejevalniku besedila lahko napišeš besedilo, ki ga želiš, ga shraniš in ponovno uporabiš kasneje. Z gumbi na levi lahko svojemu besedilu dodaš slog. Prvi štirje gumbi ti omogočijo izbiro sloga vrstice na kateri je kazalec. Z Dvema drugima gumboma z več izbirami lahko izbereš vnaprej določen dokument ali barvno temo."
+msgstr "V tem urejevalniku besedila lahko napišeš besedilo, ki ga želiš, ga shraniš in ponovno uporabiš kasneje. Z gumbi na levi lahko svojemu besedilu dodaš slog. Prvi štirje gumbi ti omogočijo izbiro sloga vrstice na kateri je kazalec. Z dvema drugima izbirnima gumboma lahko izbereš vnaprej določen dokument ali barvno temo."
 
 #: ../src/wordprocessor-activity/wordprocessor.xml.in.h:3
 msgid "Learn how to enter text in a wordprocessor. This wordprocessor is special in that it enforces the use of styles. This way, the children will understand their benefit when moving to more feature full wordprocessor like OpenOffice.org."
@@ -5980,6 +5989,67 @@ msgstr "Učenje tipkanja"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Natipkaj celo besedo, preden doseže zemljo"
 
+#: ../src/chess_computer-activity/gnuchess/getopt.c:693
+#, c-format
+msgid "%s: option `%s' is ambiguous\n"
+msgstr "%s: možnost `%s' je dvoumna\n"
+
+#: ../src/chess_computer-activity/gnuchess/getopt.c:718
+#, c-format
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr "%s: možnost `--%s' ne dovoli argumenta\n"
+
+#: ../src/chess_computer-activity/gnuchess/getopt.c:723
+#, c-format
+msgid "%s: option `%c%s' doesn't allow an argument\n"
+msgstr "%s: možnost `%c%s' ne dovoli argumenta\n"
+
+#: ../src/chess_computer-activity/gnuchess/getopt.c:741
+#: ../src/chess_computer-activity/gnuchess/getopt.c:914
+#, c-format
+msgid "%s: option `%s' requires an argument\n"
+msgstr "%s: možnost `%s' zahteva argument\n"
+
+#. --option
+#: ../src/chess_computer-activity/gnuchess/getopt.c:770
+#, c-format
+msgid "%s: unrecognized option `--%s'\n"
+msgstr "%s: nepoznana možnost `--%s'\n"
+
+#. +option or -option
+#: ../src/chess_computer-activity/gnuchess/getopt.c:774
+#, c-format
+msgid "%s: unrecognized option `%c%s'\n"
+msgstr "%s: nepoznana možnost `%c%s'\n"
+
+#. 1003.2 specifies the format of this message.
+#: ../src/chess_computer-activity/gnuchess/getopt.c:800
+#, c-format
+msgid "%s: illegal option -- %c\n"
+msgstr "%s: neveljavna možnost -- %c\n"
+
+#: ../src/chess_computer-activity/gnuchess/getopt.c:803
+#, c-format
+msgid "%s: invalid option -- %c\n"
+msgstr "%s: neveljavna možnost -- %c\n"
+
+#. 1003.2 specifies the format of this message.
+#: ../src/chess_computer-activity/gnuchess/getopt.c:833
+#: ../src/chess_computer-activity/gnuchess/getopt.c:963
+#, c-format
+msgid "%s: option requires an argument -- %c\n"
+msgstr "%s: možnost zahteva argument -- %c\n"
+
+#: ../src/chess_computer-activity/gnuchess/getopt.c:880
+#, c-format
+msgid "%s: option `-W %s' is ambiguous\n"
+msgstr "%s: možnost `-W %s' je dvoumna\n"
+
+#: ../src/chess_computer-activity/gnuchess/getopt.c:898
+#, c-format
+msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr "%s: možnost `-W %s' ne dovoli argumentov\n"
+
 #~ msgid "gcompris animation"
 #~ msgstr "gcompris animacija"
 #~ msgid "gcompris drawing"
@@ -5997,8 +6067,6 @@ msgstr "Natipkaj celo besedo, preden doseže zemljo"
 #~ "Opozorilo: Do sledečih slik na tvojem sistemu ni mogoče dostopati.\n"
 #~ msgid "The corresponding items have been skipped."
 #~ msgstr "Ustrezni predmeti so bili izpuščeni."
-#~ msgid "Yes, I saw it"
-#~ msgstr "Da, videl sem jo"
 #~ msgid "Language:"
 #~ msgstr "Jezik:"
 #~ msgid "800x600 (Default for GCompris)"
