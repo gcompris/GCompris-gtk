@@ -98,7 +98,9 @@ void gc_status_init(gchar *msg)
  */
 void gc_status_set_msg(gchar *msg)
 {
-  g_assert(itemStatusMsg);
+  // No status bar means we are still at command line level.
+  if (!itemStatusMsg)
+    return;
   g_assert(rootStatusItem);
 
   g_object_set (itemStatusMsg,
