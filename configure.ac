@@ -510,22 +510,15 @@ else
 
   if test x$py_build_only = xno; then
     AM_CHECK_PYMOD(gtk,,,AC_MSG_ERROR([*** pygtk installed but not visible from python ]))
-    dnl AM_CHECK_PYMOD(xml.dom.DOMImplementation,,,AC_MSG_WARN([*** pyxml missing ]))
 
     dnl Set this variable for the .spec.in file
     REQUIRE_PYTHON="python pygtk2.0"
 
-    dnl with gnome-python >= 2.10 gnome.canvas is obsolete. use gnomecanvas
-    dnl gnomecanvas not supported yet in gcompris
-    dnl
-    dnl   AM_CHECK_PYMOD(gnome.canvas,,test_gnomecanvas="no",test_gnomevanvas="yes")
-    dnl  if test x$test_gnomecanvas = xyes ; then
-    dnl     AM_CHECK_PYMOD(gnomecanvas,,,AC_MSG_ERROR([*** gnome.canvas or gnomecanvas installed but not visible from python ]))
-    dnl   fi
-
     if test x$with_sqlite = xyes; then
-	AM_CHECK_PYMOD(pysqlite2,,,AC_MSG_ERROR([*** pysqlite2 missing ]))
-	REQUIRE_PYTHON="$REQUIRE_PYTHON python-sqlite2"
+        if test x$PYTHON_VERSION = x2.4; then
+	    AM_CHECK_PYMOD(pysqlite2,,,AC_MSG_ERROR([*** pysqlite2 missing ]))
+	    REQUIRE_PYTHON="$REQUIRE_PYTHON python-sqlite2"
+        fi
     fi
 
   else
