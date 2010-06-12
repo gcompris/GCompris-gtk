@@ -19,6 +19,7 @@ xml_in_files = \
 	board2_1.xml.in \
 	board2_2.xml.in \
 	board2_3.xml.in \
+	board2_4.xml.in \
 	board3_0.xml.in \
 	board3_1.xml.in \
 	board4_0.xml.in \
@@ -37,6 +38,22 @@ $(xml_DATA): %.xml: %.xml.in
 
 imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/paintings
 img_DATA = \
+	AlbrechtDurer_a1.png \
+	AlbrechtDurer_a2.png \
+	AlbrechtDurer_a3.png \
+	AlbrechtDurer_a4.png \
+	AlbrechtDurer_b1.png \
+	AlbrechtDurer_b2.png \
+	AlbrechtDurer_b3.png \
+	AlbrechtDurer_b4.png \
+	AlbrechtDurer_c1.png \
+	AlbrechtDurer_c2.png \
+	AlbrechtDurer_c3.png \
+	AlbrechtDurer_c4.png \
+	AlbrechtDurer_d1.png \
+	AlbrechtDurer_d2.png \
+	AlbrechtDurer_d3.png \
+	AlbrechtDurer_d4.png \
 	Arcimboldo_Librarian_a1.png \
 	Arcimboldo_Librarian_a2.png \
 	Arcimboldo_Librarian_a3.png \
@@ -52,38 +69,6 @@ img_DATA = \
 	Arcimboldo_Spring_b1.png \
 	Arcimboldo_Spring_b2.png \
 	Arcimboldo_Spring_b3.png \
-	Botticelli_Primaver_a1.png \
-	Botticelli_Primaver_a2.png \
-	Botticelli_Primaver_a3.png \
-	Botticelli_Primaver_a4.png \
-	Botticelli_Primaver_b1.png \
-	Botticelli_Primaver_b2.png \
-	Botticelli_Primaver_b3.png \
-	Botticelli_Primaver_b4.png \
-	Botticelli_Primaver_c1.png \
-	Botticelli_Primaver_c2.png \
-	Botticelli_Primaver_c3.png \
-	Botticelli_Primaver_c4.png \
-	Botticelli_Primaver_d1.png \
-	Botticelli_Primaver_d2.png \
-	Botticelli_Primaver_d3.png \
-	Botticelli_Primaver_d4.png \
-	Botticelli_Venus_a1.png \
-	Botticelli_Venus_a2.png \
-	Botticelli_Venus_a3.png \
-	Botticelli_Venus_a4.png \
-	Botticelli_Venus_b1.png \
-	Botticelli_Venus_b2.png \
-	Botticelli_Venus_b3.png \
-	Botticelli_Venus_b4.png \
-	Botticelli_Venus_c1.png \
-	Botticelli_Venus_c2.png \
-	Botticelli_Venus_c3.png \
-	Botticelli_Venus_c4.png \
-	Botticelli_Venus_d1.png \
-	Botticelli_Venus_d2.png \
-	Botticelli_Venus_d3.png \
-	Botticelli_Venus_d4.png \
 	EjiriSuruga_a1.png \
 	EjiriSuruga_a2.png \
 	EjiriSuruga_a3.png \
@@ -225,18 +210,6 @@ img_DATA = \
 	KazusaSeaRoute_e3.png \
 	KazusaSeaRoute_e4.png \
 	KazusaSeaRoute_e5.png \
-	Le_Caravage_Egypte_a1.png \
-	Le_Caravage_Egypte_a2.png \
-	Le_Caravage_Egypte_a3.png \
-	Le_Caravage_Egypte_a4.png \
-	Le_Caravage_Egypte_b1.png \
-	Le_Caravage_Egypte_b2.png \
-	Le_Caravage_Egypte_b3.png \
-	Le_Caravage_Egypte_b4.png \
-	Le_Caravage_Egypte_c1.png \
-	Le_Caravage_Egypte_c2.png \
-	Le_Caravage_Egypte_c3.png \
-	Le_Caravage_Egypte_c4.png \
 	Michelangelo_Pieta_a1.png \
 	Michelangelo_Pieta_a2.png \
 	Michelangelo_Pieta_a3.png \
@@ -249,6 +222,43 @@ img_DATA = \
 	Michelangelo_Pieta_c2.png \
 	Michelangelo_Pieta_c3.png \
 	Michelangelo_Pieta_c4.png \
+	MonaLisa_a1.png \
+	MonaLisa_a2.png \
+	MonaLisa_a3.png \
+	MonaLisa_b1.png \
+	MonaLisa_b2.png \
+	MonaLisa_b3.png \
+	MonaLisa_c1.png \
+	MonaLisa_c2.png \
+	MonaLisa_c3.png \
+	MonaLisa_d1.png \
+	MonaLisa_d2.png \
+	MonaLisa_d3.png \
+	PalaDiPesaro_a1.png \
+	PalaDiPesaro_a2.png \
+	PalaDiPesaro_a3.png \
+	PalaDiPesaro_b1.png \
+	PalaDiPesaro_b2.png \
+	PalaDiPesaro_b3.png \
+	PalaDiPesaro_c1.png \
+	PalaDiPesaro_c2.png \
+	PalaDiPesaro_c3.png \
+	PieterBruegel_a1.png \
+	PieterBruegel_a2.png \
+	PieterBruegel_a3.png \
+	PieterBruegel_a4.png \
+	PieterBruegel_b1.png \
+	PieterBruegel_b2.png \
+	PieterBruegel_b3.png \
+	PieterBruegel_b4.png \
+	PieterBruegel_c1.png \
+	PieterBruegel_c2.png \
+	PieterBruegel_c3.png \
+	PieterBruegel_c4.png \
+	PieterBruegel_d1.png \
+	PieterBruegel_d2.png \
+	PieterBruegel_d3.png \
+	PieterBruegel_d4.png \
 	bazille_rampart_1.jpg \
 	bazille_rampart_2.jpg \
 	bazille_rampart_3.jpg \
