@@ -481,3 +481,29 @@ void gc_board_run_next(GcomprisBoard *board)
 					  NULL);
 
 }
+
+guint gc_board_get_number_of_activity()
+{
+  GList *list;
+  guint board_count = 0;
+#ifdef ACTIVATION_CODE
+  GcomprisProperties	*properties = gc_prop_get();
+#endif
+
+  /* Count non menu boards */
+  for (list = gc_menu_get_boards(); list != NULL; list = list->next)
+    {
+      GcomprisBoard *board = list->data;
+      if (strcmp(board->type, "menu") != 0 &&
+	  strncmp(board->section, "/experimental", 13) != 0)
+	{
+#ifdef ACTIVATION_CODE
+	  if ( !board->demo && gc_activation_check(properties->key) <= 0 )
+	    continue;
+#endif
+
+	  board_count++;
+	}
+    }
+  return board_count;
+}
