@@ -917,7 +917,7 @@ item_event_drag(GooCanvasItem *item,
 	{
 	case SHAPE_TARGET:
 	  /* unplace this shape */
-	  if (shape->placed)
+	  if (shape->placed && shape->placed->target_point)
 	    g_object_set (shape->placed->target_point, "visibility",
 			  GOO_CANVAS_ITEM_VISIBLE, NULL);
 	  shape->placed->shape_place = NULL;
@@ -1050,11 +1050,15 @@ item_event_drag(GooCanvasItem *item,
 				+ BOARDWIDTH/SHAPE_BOX_WIDTH_RATIO,
 				found_shape->y - (bounds.y2 - bounds.y1) / 2);
 
-	  g_object_set (found_shape->target_point, "visibility",
-			GOO_CANVAS_ITEM_INVISIBLE, NULL);
-	  g_object_set (target_item, "visibility",
-			GOO_CANVAS_ITEM_VISIBLE, NULL);
-	  goo_canvas_item_raise(target_item, NULL);
+	  if(found_shape->target_point)
+	    g_object_set (found_shape->target_point, "visibility",
+			  GOO_CANVAS_ITEM_INVISIBLE, NULL);
+	  if(target_item)
+	    {
+	      g_object_set (target_item, "visibility",
+			    GOO_CANVAS_ITEM_VISIBLE, NULL);
+	      goo_canvas_item_raise(target_item, NULL);
+	    }
 
 	  if(shape->type == SHAPE_ICON)
 	    g_object_set (shape->item, "visibility",
@@ -1290,22 +1294,26 @@ add_shape_to_canvas(Shape *shape)
     {
       if(shape->targetfile)
 	{
-	  targetpixmap = gc_pixmap_load(shape->targetfile);
-	  shape->w = (double)gdk_pixbuf_get_width(targetpixmap);
-	  shape->h = (double)gdk_pixbuf_get_height(targetpixmap);
+	  if(shape->targetfile[0] != '\0')
+	    {
+	      targetpixmap = gc_pixmap_load(shape->targetfile);
+	      shape->w = (double)gdk_pixbuf_get_width(targetpixmap);
+	      shape->h = (double)gdk_pixbuf_get_height(targetpixmap);
 
-	  item = goo_canvas_image_new (shape_root_item,
-				       targetpixmap,
-				       0, 0,
-				       NULL);
-	  goo_canvas_item_translate(item,
-				    shape->x - shape->w / 2,
-				    shape->y - shape->h / 2);
-	  goo_canvas_item_scale(item,
-				shape->zoomx, shape->zoomy);
+	      item = goo_canvas_image_new (shape_root_item,
+					   targetpixmap,
+					   0, 0,
+					   NULL);
+	      goo_canvas_item_translate(item,
+					shape->x - shape->w / 2,
+					shape->y - shape->h / 2);
+	      goo_canvas_item_scale(item,
+				    shape->zoomx, shape->zoomy);
 
-	  shape->targetitem = item;
-	  gdk_pixbuf_unref(targetpixmap);
+	      shape->targetitem = item;
+	      gdk_pixbuf_unref(targetpixmap);
+	    }
+	  // An empty targetfile means no target and no point
 	}
       else
 	{
@@ -1322,7 +1330,8 @@ add_shape_to_canvas(Shape *shape)
 					 NULL);
 	  shape->target_point = item;
 	}
-      goo_canvas_item_lower(item, NULL);
+      if (item)
+	goo_canvas_item_lower(item, NULL);
     }
 
   if(shape->pixmapfile)
