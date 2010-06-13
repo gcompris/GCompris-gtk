@@ -10,11 +10,11 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gcompris master\n"
+"Project-Id-Version: gcompris gcomprixogoo\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&component=general\n"
-"POT-Creation-Date: 2010-04-26 20:49+0000\n"
-"PO-Revision-Date: 2010-04-29 14:51+0100\n"
+"POT-Creation-Date: 2010-06-12 20:41+0000\n"
+"PO-Revision-Date: 2010-06-13 14:09+0100\n"
 "Last-Translator: Mario Blättermann <mariobl@gnome.org>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -197,7 +197,7 @@ msgstr ""
 msgid "GCompris Main Menu"
 msgstr "GCompris Hauptmenü"
 
-#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:859
+#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:875
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -1668,6 +1668,12 @@ msgstr "Hauptmenü Version 2"
 #: ../src/boards/menu2.c:136
 msgid "Select a Board"
 msgstr "Wähle eine Tafel"
+
+#: ../src/boards/menu2.c:266
+#, c-format
+#| msgid "Number of activities: %d\n"
+msgid "Number of activities: %d"
+msgstr "Anzahl Aktivitäten: %d"
 
 #: ../src/boards/python.c:64 ../src/boards/python.c:88
 msgid "Python Board"
@@ -4908,10 +4914,6 @@ msgstr ""
 "Puzzles benötigt werden. Die Lösung wird gezeigt, wenn du auf Tux klickst."
 
 #: ../src/lightsoff-activity/lightsoff.xml.in.h:4
-#| msgid ""
-#| "The solver algorithm described on the haar.clara.co.uk is a valuable "
-#| "resource to know more about the Lights Off game: &lt;http://www.haar.clara."
-#| "co.uk/Lights/solving.html&gt;"
 msgid ""
 "The solver algorithm described on haar.clara.co.uk is a valuable resource to "
 "know more about the Lights Off game: &lt;http://www.haar.clara.co.uk/Lights/"
@@ -5947,16 +5949,16 @@ msgid "Woman holding a fan"
 msgstr "Frau, die einen Fächer hält"
 
 #: ../src/paintings-activity/resources/paintings/board2_1.xml.in.h:1
-msgid "Botticelli, Primavera - 1482"
-msgstr "Botticelli, Frühling - 1482"
+msgid "Mona Lisa"
+msgstr "Mona Lisa"
 
 #: ../src/paintings-activity/resources/paintings/board2_2.xml.in.h:1
-msgid "Caravage, Rest on the Flight into Egypt - 1597"
-msgstr "Caravaggio, Ruhe auf der Flucht nach Ägypten - 1597"
+msgid "Bellini : Pala di pesaro"
+msgstr "Bellini: Pala di pesaro"
 
 #: ../src/paintings-activity/resources/paintings/board2_3.xml.in.h:1
-msgid "Botticelli, The Birth of Venus - 1482–1486"
-msgstr "Botticelli, Die Geburt der Venus - 1482–1486"
+msgid "Dürer : Lion"
+msgstr "Dürer: Löwe"
 
 #: ../src/paintings-activity/resources/paintings/board3_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
@@ -6722,11 +6724,6 @@ msgid "Completing the puzzle requires patience and logical ability"
 msgstr "Um das Puzzle zu lösen, benötigt man Geduld und logisches Denken."
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:2
-#| msgid ""
-#| "For the first level with colored symbols, drag symbols on the left to "
-#| "their target position. For the higher levels, click on an empty square to "
-#| "give it the keyboard focus. Then enter a possible letter or number. "
-#| "GCompris will not let you enter invalid data."
 msgid ""
 "For the first level with colored symbols, select a symbol on the left and "
 "click on its target position. For the higher levels, click on an empty square "
@@ -7160,6 +7157,15 @@ msgstr "%s: Option »-W %s« ist mehrdeutig.\n"
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: Option »-W %s« erlaubt kein Argument.\n"
+
+#~ msgid "Botticelli, Primavera - 1482"
+#~ msgstr "Botticelli, Frühling - 1482"
+
+#~ msgid "Caravage, Rest on the Flight into Egypt - 1597"
+#~ msgstr "Caravaggio, Ruhe auf der Flucht nach Ägypten - 1597"
+
+#~ msgid "Botticelli, The Birth of Venus - 1482–1486"
+#~ msgstr "Botticelli, Die Geburt der Venus - 1482–1486"
 
 #~ msgid "The aim is to switch off all the lights"
 #~ msgstr "Ziel ist es, alle Lichter auszuschalten"
