@@ -44,7 +44,7 @@ void gc_status_close() {
  */
 void gc_status_init(gchar *msg)
 {
-  g_warning("Status=%s\n", msg);
+  g_message("Status=%s\n", msg);
 
   /* If we are already running do nothing */
   if(rootStatusItem) {
