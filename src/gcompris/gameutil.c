@@ -609,7 +609,10 @@ gc_file_find_absolute(const gchar *format, ...)
 
 	  locale = g_strsplit_set(gc_locale_get(), ".", 2);
 	  if(g_strv_length(locale) <= 1)
-	    goto NOT_FOUND;
+	    {
+	      absolute_filename = g_strdup("");
+	      goto NOT_FOUND;
+	    }
 
 	  /* First try with the long locale */
 	  filename2 = g_strjoinv(locale[0], tmp);

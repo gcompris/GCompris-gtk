@@ -347,7 +347,7 @@ gc_locale_gets_asset_list(const gchar *filename)
       /* Check there is a $LOCALE to replace */
       if((tmp = g_strsplit(filename, "$LOCALE", -1)))
 	{
-	  gchar locale[6];
+	  gchar locale[16];
 	  gchar *filename2;
 
 	  /* try with the locale */

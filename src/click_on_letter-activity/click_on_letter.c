@@ -70,7 +70,7 @@ static void click_on_letter_destroy_all_items(void);
 static void click_on_letter_next_level(void);
 static gint item_event(GooCanvasItem *item, GooCanvasItem *target,
 		       GdkEvent *event, gpointer data);
-static gboolean sounds_are_fine();
+static guint sounds_are_fine();
 
 static int right_position;
 static int number_of_letters=MAX_NUMBER_OF_LETTERS;
@@ -260,7 +260,7 @@ static void repeat ()
     }
 }
 
-static gboolean sounds_are_fine()
+static guint sounds_are_fine()
 {
   char *letter_str;
   char *str2;
@@ -285,13 +285,19 @@ static gboolean sounds_are_fine()
 
   if (!str2)
     {
-      gchar *locale = NULL;
+      gchar *locale;
+      gchar **localsearch;
 
-      locale = g_strndup(gc_locale_get(), 2);
+      localsearch = g_strsplit_set(gc_locale_get(), "_", 2);
+      if(g_strv_length(localsearch) <= 1)
+	return NOT_OK; /* Should not happens */
+      locale = g_strdup(localsearch[0]);
+      g_strfreev(localsearch);
+
       gc_locale_reset();
-      gc_locale_set("en_US");
+      gc_locale_set(GC_DEFAULT_LOCALE);
 
-      str2 = gc_file_find_absolute("voices/en/alphabet/%s", letter_str);
+      str2 = gc_file_find_absolute("voices/$LOCALE/alphabet/%s", letter_str);
 
       if (!str2)
 	{
@@ -299,6 +305,8 @@ static gboolean sounds_are_fine()
 					locale, "en");
 	  gc_dialog(msg, gc_board_stop);
 	  g_free(msg);
+	  g_free(locale);
+	  g_free(letter_str);
 	  return (NOT_OK);
 	}
       else
@@ -307,12 +315,15 @@ static gboolean sounds_are_fine()
 	  gc_dialog(msg, click_on_letter_next_level);
 	  g_free(msg);
 	  g_free(str2);
+	  g_free(locale);
+	  g_free(letter_str);
 	  return(OK_NO_INIT);
 	}
     }
   else
     {
       g_free(str2);
+      g_free(letter_str);
     }
 
   return(OK);

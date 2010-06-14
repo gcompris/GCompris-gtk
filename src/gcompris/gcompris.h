@@ -77,6 +77,8 @@
 #define N_(String) gettext_noop (String)
 #endif
 
+#define GC_DEFAULT_LOCALE "en_US.UTF-8"
+
 /*****************************************************************************/
 /* Method usefull for boards provided by gcompris */
 
