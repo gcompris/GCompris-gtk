@@ -4,15 +4,15 @@
 # Ignacio Casal Quinteiro <icq@cvs.gnome.org>, 2007.
 # (mantéñense os comentarios orixinais de Ignacio)
 # Paula Iglesias <localizacion@tagenata.com>, 2009.
-# Gonçalo Cordeiro <localizacion@tagenata.com>, 2009.
-# Gonçalo Cordeiro <gzcordeiro@gmail.com>, 2010.
+# Gonçalo Cordeiro <gzcordeiro@gmail.com>, 2009, 2010.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: GCompris 9.3 - gcomprixogoo\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-24 11:37+0200\n"
-"PO-Revision-Date: 2010-05-07 17:15+0200\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=gcompris&component=general\n"
+"POT-Creation-Date: 2010-06-19 06:44+0000\n"
+"PO-Revision-Date: 2010-06-20 17:15+0200\n"
 "Last-Translator: Gonçalo Cordeiro <gzcordeiro@gmail.com>\n"
 "Language-Team: Galician <g11n@gnome.net>\n"
 "MIME-Version: 1.0\n"
@@ -197,7 +197,7 @@ msgstr ""
 msgid "GCompris Main Menu"
 msgstr "Menú principal do GCompris"
 
-#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:859
+#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:875
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -1526,8 +1526,8 @@ msgstr "Coordinación motriz. Coincidencia conceptual."
 msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "Manexo do rato: movemento, arrastrar e soltar. Referencias culturais."
 
-#: ../src/babymatch-activity/shapegame.c:1835
-#: ../src/click_on_letter-activity/click_on_letter.c:624
+#: ../src/babymatch-activity/shapegame.c:1844
+#: ../src/click_on_letter-activity/click_on_letter.c:635
 #: ../src/colors-activity/colors.c:168
 #, c-format
 msgid ""
@@ -1682,6 +1682,11 @@ msgstr "Segunda versión do menú principal"
 #: ../src/boards/menu2.c:136
 msgid "Select a Board"
 msgstr "Escolle un taboleiro"
+
+#: ../src/boards/menu2.c:266
+#, c-format
+msgid "Number of activities: %d"
+msgstr "Número de actividades: %d"
 
 #: ../src/boards/python.c:64 ../src/boards/python.c:88
 msgid "Python Board"
@@ -2087,7 +2092,7 @@ msgstr ""
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcdefghilmnñopqrstuvxz"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:298
+#: ../src/click_on_letter-activity/click_on_letter.c:304
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -2096,7 +2101,7 @@ msgstr ""
 "Erro: esta actividade require que instale primeiro\n"
 "os paquetes coas voces do GCompris para configuración rexional '%s' ou '%s'"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:306
+#: ../src/click_on_letter-activity/click_on_letter.c:314
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -2108,7 +2113,7 @@ msgstr ""
 "quedámonos no inglés!"
 
 #. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:647
+#: ../src/click_on_letter-activity/click_on_letter.c:658
 #: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:484
 msgid "Uppercase only text"
 msgstr "Só texto en maiúsculas"
@@ -5976,16 +5981,16 @@ msgid "Woman holding a fan"
 msgstr "Frans Hals, Muller sostendo un abano - 1640"
 
 #: ../src/paintings-activity/resources/paintings/board2_1.xml.in.h:1
-msgid "Botticelli, Primavera - 1482"
-msgstr "Botticelli, Primavera - 1482"
+msgid "Mona Lisa"
+msgstr "Mona Lisa"
 
 #: ../src/paintings-activity/resources/paintings/board2_2.xml.in.h:1
-msgid "Caravage, Rest on the Flight into Egypt - 1597"
-msgstr "Caravaggio, Descanso na fuxida a Exipto - 1597"
+msgid "Bellini : Pala di pesaro"
+msgstr "Bellini: Retablo de Pesaro"
 
 #: ../src/paintings-activity/resources/paintings/board2_3.xml.in.h:1
-msgid "Botticelli, The Birth of Venus - 1482–1486"
-msgstr "Botticelli, O nacemento de Venus - 1482–1486"
+msgid "Dürer : Lion"
+msgstr "Durero: León"
 
 #: ../src/paintings-activity/resources/paintings/board3_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
@@ -7159,6 +7164,15 @@ msgstr "%s: a opción -W %s é ambigua\n"
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: a opción -W %s non permite un argumento\n"
+
+#~ msgid "Botticelli, Primavera - 1482"
+#~ msgstr "Botticelli, Primavera - 1482"
+
+#~ msgid "Caravage, Rest on the Flight into Egypt - 1597"
+#~ msgstr "Caravaggio, Descanso na fuxida a Exipto - 1597"
+
+#~ msgid "Botticelli, The Birth of Venus - 1482–1486"
+#~ msgstr "Botticelli, O nacemento de Venus - 1482–1486"
 
 #~ msgid "The aim is to switch off all the lights"
 #~ msgstr "O obxectivo é apagar todas as luces"
