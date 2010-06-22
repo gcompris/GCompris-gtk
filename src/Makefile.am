@@ -20,6 +20,7 @@ SUBDIRS = goocanvas gcompris boards \
 	clockgame-activity \
 	colors-activity \
 	crane-activity \
+	details-activity \
 	doubleentry-activity \
 	enumerate-activity \
 	erase-activity \

@@ -653,6 +653,9 @@ src/connect4-activity/resources/connect4/Makefile
 src/crane-activity/Makefile
 src/crane-activity/resources/Makefile
 src/crane-activity/resources/crane/Makefile
+src/details-activity/Makefile
+src/details-activity/resources/Makefile
+src/details-activity/resources/details/Makefile
 src/doubleentry-activity/Makefile
 src/doubleentry-activity/resources/Makefile
 src/doubleentry-activity/resources/doubleentry/Makefile
