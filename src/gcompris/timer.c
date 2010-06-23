@@ -87,7 +87,8 @@ gc_timer_display(int ax, int ay,
 	gc_timer_item = goo_canvas_image_new (boardRootItem,
 					      pixmap,
 					      x,
-					      y);
+					      y,
+                          NULL);
 
 	gdk_pixbuf_unref(pixmap);
 	g_free(filename);

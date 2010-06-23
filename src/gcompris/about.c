@@ -164,7 +164,8 @@ void gc_about_start ()
       item = goo_canvas_image_new (rootitem,
 				   pixmap,
 				   (gdouble) (BOARDWIDTH*0.75) - gdk_pixbuf_get_width(pixmap)/2,
-				   (gdouble) y_start - gdk_pixbuf_get_height(pixmap) + 15);
+				   (gdouble) y_start - gdk_pixbuf_get_height(pixmap) + 15,
+                   NULL);
 
       gdk_pixbuf_unref(pixmap);
       g_free(sponsor_image);
@@ -176,7 +177,8 @@ void gc_about_start ()
       item = goo_canvas_image_new (rootitem,
 				   pixmap,
 				   (gdouble) (BOARDWIDTH*0.8) - gdk_pixbuf_get_width(pixmap)/2,
-				   (gdouble) y_start - gdk_pixbuf_get_height(pixmap)/2);
+				   (gdouble) y_start - gdk_pixbuf_get_height(pixmap)/2,
+                   NULL);
       gdk_pixbuf_unref(pixmap);
 
       item = goo_canvas_text_new (rootitem,
