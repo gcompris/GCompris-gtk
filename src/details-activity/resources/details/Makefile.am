@@ -40,7 +40,7 @@ img_DATA = \
 	Chenonceau_0.png \
 	Chenonceau_1.png \
 	Chenonceau_2.png \
-	Chenonceau_background.png \
+	Chenonceau_background.jpg \
 	EgeskovSlotSpejling_0.png \
 	EgeskovSlotSpejling_1.png \
 	EgeskovSlotSpejling_2.png \
@@ -49,24 +49,24 @@ img_DATA = \
 	EgeskovSlotSpejling_5.png \
 	EgeskovSlotSpejling_6.png \
 	EgeskovSlotSpejling_7.png \
-	EgeskovSlotSpejling_background.png \
+	EgeskovSlotSpejling_background.jpg \
 	Eglise_dAuvers-sur-Oise_0.png \
 	Eglise_dAuvers-sur-Oise_1.png \
 	Eglise_dAuvers-sur-Oise_2.png \
-	Eglise_dAuvers-sur-Oise_background.png \
+	Eglise_dAuvers-sur-Oise_background.jpg \
 	EilanDonanCastle_0.png \
 	EilanDonanCastle_1.png \
-	EilanDonanCastle_background.png \
+	EilanDonanCastle_background.jpg \
 	FanoeWindmill_0.png \
 	FanoeWindmill_1.png \
 	FanoeWindmill_2.png \
 	FanoeWindmill_3.png \
-	FanoeWindmill_background.png \
+	FanoeWindmill_background.jpg \
 	GizahPyramids_0.png \
 	GizahPyramids_1.png \
 	GizahPyramids_2.png \
 	GizahPyramids_3.png \
-	GizahPyramids_background.png \
+	GizahPyramids_background.jpg \
 	Gogh4_0.png \
 	Gogh4_1.png \
 	Gogh4_2.png \
@@ -76,21 +76,21 @@ img_DATA = \
 	Gogh4_6.png \
 	Gogh4_7.png \
 	Gogh4_8.png \
-	Gogh4_background.png \
+	Gogh4_background.jpg \
 	Louvre_2007_02_24_c_0.png \
 	Louvre_2007_02_24_c_1.png \
 	Louvre_2007_02_24_c_2.png \
-	Louvre_2007_02_24_c_background.png \
+	Louvre_2007_02_24_c_background.jpg \
 	Nagoya_0.png \
 	Nagoya_1.png \
 	Nagoya_2.png \
 	Nagoya_3.png \
 	Nagoya_4.png \
-	Nagoya_background.png \
+	Nagoya_background.jpg \
 	NDP_0.png \
 	NDP_1.png \
 	NDP_2.png \
-	NDP_background.png \
+	NDP_background.jpg \
 	Neuschwanstein_0.png \
 	Neuschwanstein_1.png \
 	Neuschwanstein_2.png \
@@ -101,12 +101,12 @@ img_DATA = \
 	Neuschwanstein_7.png \
 	Neuschwanstein_8.png \
 	Neuschwanstein_9.png \
-	Neuschwanstein_background.png \
+	Neuschwanstein_background.jpg \
 	OperaSidney_0.png \
 	OperaSidney_1.png \
 	OperaSidney_2.png \
 	OperaSidney_3.png \
-	OperaSidney_background.png \
+	OperaSidney_background.jpg \
 	PortraitOfPereTanguy_0.png \
 	PortraitOfPereTanguy_1.png \
 	PortraitOfPereTanguy_2.png \
@@ -116,23 +116,23 @@ img_DATA = \
 	PortraitOfPereTanguy_6.png \
 	PortraitOfPereTanguy_7.png \
 	PortraitOfPereTanguy_8.png \
-	PortraitOfPereTanguy_background.png \
+	PortraitOfPereTanguy_background.jpg \
 	TajMahal_0.png \
 	TajMahal_1.png \
 	TajMahal_2.png \
 	TajMahal_3.png \
 	TajMahal_4.png \
 	TajMahal_5.png \
-	TajMahal_background.png \
+	TajMahal_background.jpg \
 	TourEiffel_0.png \
 	TourEiffel_1.png \
-	TourEiffel_background.png \
+	TourEiffel_background.jpg \
 	TowerBridgeLondon_0.png \
 	TowerBridgeLondon_1.png \
 	TowerBridgeLondon_2.png \
 	TowerBridgeLondon_3.png \
 	TowerBridgeLondon_4.png \
-	TowerBridgeLondon_background.png \
+	TowerBridgeLondon_background.jpg \
 	Van_Gogh_The_Night_Cafe_0.png \
 	Van_Gogh_The_Night_Cafe_1.png \
 	Van_Gogh_The_Night_Cafe_2.png \
@@ -141,16 +141,16 @@ img_DATA = \
 	Van_Gogh_The_Night_Cafe_5.png \
 	Van_Gogh_The_Night_Cafe_6.png \
 	Van_Gogh_The_Night_Cafe_7.png \
-	Van_Gogh_The_Night_Cafe_background.png \
+	Van_Gogh_The_Night_Cafe_background.jpg \
 	VincentVanGogh0012_0.png \
 	VincentVanGogh0012_1.png \
-	VincentVanGogh0012_background.png \
+	VincentVanGogh0012_background.jpg \
 	VincentVanGogh0013_0.png \
 	VincentVanGogh0013_1.png \
 	VincentVanGogh0013_2.png \
 	VincentVanGogh0013_3.png \
 	VincentVanGogh0013_4.png \
-	VincentVanGogh0013_background.png \
+	VincentVanGogh0013_background.jpg \
 	VincentVanGogh0019_0.png \
 	VincentVanGogh0019_1.png \
 	VincentVanGogh0019_2.png \
@@ -160,10 +160,10 @@ img_DATA = \
 	VincentVanGogh0019_6.png \
 	VincentVanGogh0019_7.png \
 	VincentVanGogh0019_8.png \
-	VincentVanGogh0019_background.png \
+	VincentVanGogh0019_background.jpg \
 	VincentVanGoghBridge_0.png \
 	VincentVanGoghBridge_1.png \
-	VincentVanGoghBridge_background.png
+	VincentVanGoghBridge_background.jpg
 
 
 EXTRA_DIST = $(img_DATA) ${xml_in_files}
