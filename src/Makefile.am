@@ -1,6 +1,7 @@
 ## Process this file with automake to produce Makefile.in
 
-SUBDIRS = goocanvas gcompris boards \
+SUBDIRS = \
+	goocanvas gcompris boards \
 	advanced_colors-activity \
 	algebra_by-activity \
 	algebra_guesscount-activity \

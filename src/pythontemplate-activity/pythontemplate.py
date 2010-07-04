@@ -28,7 +28,7 @@ class Gcompris_pythontemplate:
 
 
   def __init__(self, gcomprisBoard):
-    print "template init"
+    print "pythontemplate init"
 
     # Save the gcomprisBoard, it defines everything we need
     # to know from the core
@@ -38,7 +38,7 @@ class Gcompris_pythontemplate:
     gcomprisBoard.disable_im_context = True
 
   def start(self):
-    print "template start"
+    print "pythontemplate start"
 
     # Set the buttons we want in the bar
     gcompris.bar_set(gcompris.BAR_LEVEL)
@@ -48,19 +48,19 @@ class Gcompris_pythontemplate:
 
 
   def end(self):
-    print "template end"
+    print "pythontemplate end"
 
 
   def ok(self):
-    print("template ok.")
+    print("pythontemplate ok.")
 
 
   def repeat(self):
-    print("template repeat.")
+    print("pythontemplate repeat.")
 
 
   def config(self):
-    print("template config.")
+    print("pythontemplate config.")
 
 
   def key_press(self, keyval, commit_str, preedit_str):
@@ -70,9 +70,9 @@ class Gcompris_pythontemplate:
     print("Gcompris_pythontemplate key press keyval=%i %s" % (keyval, strn))
 
   def pause(self, pause):
-    print("template pause. %i" % pause)
+    print("pythontemplate pause. %i" % pause)
 
 
   def set_level(self, level):
-    print("template set level. %i" % level)
+    print("pythontemplate set level. %i" % level)
 
