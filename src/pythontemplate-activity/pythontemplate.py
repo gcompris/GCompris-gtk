@@ -22,6 +22,9 @@ import gcompris
 import gcompris.utils
 import gcompris.skin
 import goocanvas
+import pango
+
+from gcompris import gcompris_gettext as _
 
 class Gcompris_pythontemplate:
   """Empty gcompris python class"""
@@ -46,9 +49,24 @@ class Gcompris_pythontemplate:
     # Set a background image
     gcompris.set_default_background(self.gcomprisBoard.canvas.get_root_item())
 
+    # Create our rootitem. We put each canvas item in it so at the end we
+    # only have to kill it. The canvas deletes all the items it contains automaticaly.
+    self.rootitem = goocanvas.Group(parent = self.gcomprisBoard.canvas.get_root_item())
+
+    goocanvas.Text(
+      parent = self.rootitem,
+      x=400.0,
+      y=100.0,
+      text=_("This is the first plugin in GCompris coded in the Python\nProgramming language."),
+      fill_color="black",
+      anchor = gtk.ANCHOR_CENTER,
+      alignment = pango.ALIGN_CENTER
+      )
 
   def end(self):
     print "pythontemplate end"
+    # Remove the root item removes all the others inside it
+    self.rootitem.remove()
 
 
   def ok(self):
