@@ -1,6 +1,6 @@
 ## Process this file with automake to produce Makefile.in
 
-SUBDIRS = \
+SUBDIRS = rmll-activity \
 	goocanvas gcompris boards \
 	advanced_colors-activity \
 	algebra_by-activity \

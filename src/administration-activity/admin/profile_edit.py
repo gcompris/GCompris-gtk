@@ -182,9 +182,6 @@ class ProfileEdit(gtk.Window):
 
         bbox = gtk.HBox(homogeneous=False, spacing=8)
 
-        button = gtk.Button(stock='gtk-help')
-        bbox.pack_start(button, expand=False, fill=False, padding=0)
-
         button = gtk.Button(stock='gtk-ok')
         bbox.pack_end(button, expand=False, fill=False, padding=0)
         button.connect("clicked", self.ok)
