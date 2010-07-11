@@ -2,18 +2,20 @@
 # Copyright (C) 2003, 2004, 2005, 2008, 2010 the author(s) of gcompris.
 # Copyright (C) 2004, 2005 Miloslav Trmac <mitr@volny.cz>.
 # This file is distributed under the same license as the gcompris package.
+#
 # Miloslav Trmac <mitr@volny.cz>, 2003, 2004, 2005, 2006.
 # Jakub Friedl <jfriedl@suse.cz>, 2006.
 # Kamil Páral <ripper42@gmail.com>, 2008.
 # Petr Kovar <pknbe@volny.cz>, 2008.
+# Vladimír Burian <vladimir.burian@email.cz>, 2010.
 # Marek Černocký <marek@manet.cz>, 2009, 2010.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris gnome-master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-02 18:08+0200\n"
-"PO-Revision-Date: 2010-04-29 22:31+0200\n"
+"POT-Creation-Date: 2010-07-11 17:20+0200\n"
+"PO-Revision-Date: 2010-07-08 12:13+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -198,7 +200,7 @@ msgstr ""
 msgid "GCompris Main Menu"
 msgstr "Hlavní nabídka GCompris"
 
-#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:859
+#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:875
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -1497,8 +1499,8 @@ msgstr "Koordinace pohybu. Párování pojmů."
 msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "Manipulace s myší: pohyb, tažení a puštění."
 
-#: ../src/babymatch-activity/shapegame.c:1835
-#: ../src/click_on_letter-activity/click_on_letter.c:624
+#: ../src/babymatch-activity/shapegame.c:1871
+#: ../src/click_on_letter-activity/click_on_letter.c:635
 #: ../src/colors-activity/colors.c:168
 #, c-format
 msgid ""
@@ -1651,6 +1653,11 @@ msgstr "Hlavní nabídka druhé verze"
 #: ../src/boards/menu2.c:136
 msgid "Select a Board"
 msgstr "Vyber si desku"
+
+#: ../src/boards/menu2.c:266
+#, c-format
+msgid "Number of activities: %d"
+msgstr "Počet aktivit: %d"
 
 #: ../src/boards/python.c:64 ../src/boards/python.c:88
 msgid "Python Board"
@@ -2046,7 +2053,7 @@ msgstr ""
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "aábcčdďeéěfghiíjklmnňoópqrřsštťuúůvwxyýzž"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:298
+#: ../src/click_on_letter-activity/click_on_letter.c:304
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -2055,7 +2062,7 @@ msgstr ""
 "Chyba: tato aktivita vyžaduje, abys nejdříve nainstaloval\n"
 "balíčky s hlasovým doprovodem GCompris pro jazyk „%s“ nebo „%s“"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:306
+#: ../src/click_on_letter-activity/click_on_letter.c:314
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -2067,7 +2074,7 @@ msgstr ""
 "angličtiny, je mi líto!"
 
 #. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:647
+#: ../src/click_on_letter-activity/click_on_letter.c:658
 #: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:484
 msgid "Uppercase only text"
 msgstr "Text pouze velkými písmeny"
@@ -2616,7 +2623,7 @@ msgstr "Domovská stránka GCompris http://gcompris.net"
 msgid "Translators:"
 msgstr "Překladatelé:"
 
-#: ../src/gcompris/about.c:206
+#: ../src/gcompris/about.c:208
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
@@ -2624,7 +2631,7 @@ msgstr ""
 "Tento software je balíček GNU a je uvolněn za podmínek GNU General Public "
 "Licence"
 
-#: ../src/gcompris/about.c:220 ../src/gcompris/config.c:442
+#: ../src/gcompris/about.c:222 ../src/gcompris/config.c:442
 #: ../src/gcompris/dialog.c:103 ../src/gcompris/help.c:359
 #: ../src/gcompris/images_selector.c:307
 msgid "OK"
@@ -3398,11 +3405,11 @@ msgstr "Zpět"
 msgid "Stop"
 msgstr "Zastavit"
 
-#: ../src/gcompris/timer.c:244
+#: ../src/gcompris/timer.c:245
 msgid "Time Elapsed"
 msgstr "Čas vypršel"
 
-#: ../src/gcompris/timer.c:322
+#: ../src/gcompris/timer.c:323
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Zbývající čas = %d"
@@ -3668,11 +3675,11 @@ msgstr "Švýcarsko"
 
 #: ../src/geography-activity/resources/geography/board3_0.xml.in.h:16
 msgid "The Netherlands"
-msgstr "Nizozemí"
+msgstr "Nizozemsko"
 
 #: ../src/geography-activity/resources/geography/board3_0.xml.in.h:17
 msgid "United Kingdom"
-msgstr "Velká Británie"
+msgstr "Spojené království"
 
 #: ../src/geography-activity/resources/geography/board3_0.xml.in.h:18
 msgid "Western Europe"
@@ -3867,7 +3874,7 @@ msgstr "Mali"
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:21
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:24
 msgid "Mauritania"
-msgstr "Mauretánie"
+msgstr "Mauritánie"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:22
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:25
@@ -3920,7 +3927,7 @@ msgstr "Togo"
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:32
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:36
 msgid "Tunisia"
-msgstr "Tunis"
+msgstr "Tunisko"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:33
 #: ../src/geography-activity/resources/geography/board4_1.xml.in.h:19
@@ -5866,17 +5873,16 @@ msgid "Woman holding a fan"
 msgstr "Žena držící vějíř (Woman holding a fan)"
 
 #: ../src/paintings-activity/resources/paintings/board2_1.xml.in.h:1
-msgid "Botticelli, Primavera - 1482"
-msgstr "Botticelli, Vesna (Primavera) - 1482"
+msgid "Mona Lisa"
+msgstr "Mona Lisa"
 
 #: ../src/paintings-activity/resources/paintings/board2_2.xml.in.h:1
-msgid "Caravage, Rest on the Flight into Egypt - 1597"
-msgstr ""
-"Caravage, Odpočinek na útěku do Egypta (Rest on the Flight into Egypt) - 1597"
+msgid "Bellini : Pala di pesaro"
+msgstr "Bellini: Pala z Pesara (Pala di Pesaro)"
 
 #: ../src/paintings-activity/resources/paintings/board2_3.xml.in.h:1
-msgid "Botticelli, The Birth of Venus - 1482–1486"
-msgstr "Botticelli, Zrození venuše (The Birth of Venus) - 1482–1486"
+msgid "Dürer : Lion"
+msgstr "Dürer: Lev (Lion)"
 
 #: ../src/paintings-activity/resources/paintings/board3_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
@@ -6013,6 +6019,15 @@ msgstr "Hýbej s vrtulníkem, abys chytil mraky ve správném pořadí"
 msgid "Number"
 msgstr "Číslo"
 
+#: ../src/pythontemplate-activity/pythontemplate.py:60
+#: ../src/pythontest-activity/pythontest.py:184
+msgid ""
+"This is the first plugin in GCompris coded in the Python\n"
+"Programming language."
+msgstr ""
+"Toto je první zásuvný modul pro GCompris napsaný\n"
+"v programovacím jazyce Python."
+
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:1
 #: ../src/pythontest-activity/pythontest.xml.in.h:1
 msgid "Add a language-binding to GCompris."
@@ -6036,14 +6051,6 @@ msgstr "Pythonovská šablona"
 msgid ""
 "Thanks to Guido van Rossum and the python team for this powerful language!"
 msgstr "Díky Guido van Rossum a python týmu za tento mocný jazyk!"
-
-#: ../src/pythontest-activity/pythontest.py:184
-msgid ""
-"This is the first plugin in GCompris coded in the Python\n"
-"Programming language."
-msgstr ""
-"Toto je první zásuvný modul pro GCompris napsaný\n"
-"v programovacím jazyce Python."
 
 #: ../src/pythontest-activity/pythontest.py:194
 msgid ""
@@ -7016,6 +7023,17 @@ msgstr "%s: přepínač „-W %s“ není jednoznačný\n"
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: přepínač „-W %s“ nedovoluje žádný argument\n"
+
+#~ msgid "Botticelli, Primavera - 1482"
+#~ msgstr "Botticelli, Vesna (Primavera) - 1482"
+
+#~ msgid "Caravage, Rest on the Flight into Egypt - 1597"
+#~ msgstr ""
+#~ "Caravage, Odpočinek na útěku do Egypta (Rest on the Flight into Egypt) - "
+#~ "1597"
+
+#~ msgid "Botticelli, The Birth of Venus - 1482–1486"
+#~ msgstr "Botticelli, Zrození venuše (The Birth of Venus) - 1482–1486"
 
 #~ msgid "The aim is to switch off all the lights"
 #~ msgstr "Cílem je vypnout všechna světla"
