@@ -106,6 +106,7 @@ static GHashTable *shapelist_table = NULL;
 static gint SHAPE_BOX_WIDTH_RATIO = 18;
 
 static GooCanvasItem	*shape_root_item;
+static GooCanvasItem	*title_root_item;
 static GooCanvasItem	*shape_list_root_item;
 
 /* The tooltip */
@@ -504,6 +505,9 @@ static void shapegame_destroy_all_items()
       goo_canvas_item_remove(shape_root_item);
       shape_root_item = NULL;
 
+      goo_canvas_item_remove(title_root_item);
+      title_root_item = NULL;
+
       goo_canvas_item_remove(tooltip_root_item);
       tooltip_root_item = NULL;
 
@@ -528,10 +532,11 @@ static void shapegame_init_canvas(GooCanvasItem *parent)
 			    BOARDWIDTH/SHAPE_BOX_WIDTH_RATIO,
 			    0);
 
+  title_root_item = goo_canvas_group_new (shape_root_item, NULL);
   shape_list_root_item = goo_canvas_group_new (parent, NULL);
 
   /* Create the tooltip area */
-  tooltip_root_item = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+  tooltip_root_item = goo_canvas_group_new (parent,
 					    NULL);
   goo_canvas_item_translate(tooltip_root_item, 10, BOARDHEIGHT-70);
 
@@ -582,6 +587,16 @@ static void shapegame_init_canvas(GooCanvasItem *parent)
 		   "button_press_event",
 		   (GtkSignalFunc) item_event_ok,
 		   "continue_click");
+
+  g_signal_connect(continue_root_item,
+		   "enter_notify_event",
+		   (GtkSignalFunc) item_event_ok,
+		   "title_raise");
+
+  g_signal_connect(continue_root_item,
+		   "leave_notify_event",
+		   (GtkSignalFunc) item_event_ok,
+		   "title_lower");
 
   /* Hide the continue */
   g_object_set (continue_root_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
@@ -1250,6 +1265,18 @@ item_event_ok(GooCanvasItem *item, GooCanvasItem *target,
 
       root_item = g_list_nth_data(shape_list_group, current_shapelistgroup_index);
       g_object_set (root_item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+      break;
+
+    case GDK_ENTER_NOTIFY:
+      if(!strcmp(data, "title_raise"))
+	{
+	  goo_canvas_item_raise(title_root_item, NULL);
+	}
+    case GDK_LEAVE_NOTIFY:
+      if(!strcmp(data, "title_lower"))
+	{
+	  goo_canvas_item_lower(title_root_item, NULL);
+	}
 
     default:
       break;
@@ -1384,7 +1411,7 @@ create_title(char *name, double x, double y,
   GooCanvasItem *item;
 
   item = \
-    goo_canvas_text_new (shape_root_item,
+    goo_canvas_text_new (title_root_item,
 			 gettext(name),
 			 x,
 			 y,
@@ -1401,7 +1428,7 @@ create_title(char *name, double x, double y,
     int gap = 8;
 
     goo_canvas_item_get_bounds (item, &bounds);
-    goo_canvas_rect_new (shape_root_item,
+    goo_canvas_rect_new (title_root_item,
 			 x - (bounds.x2 - bounds.x1)/2 - gap,
 			 y - (bounds.y2 - bounds.y1)/2 - gap,
 			 bounds.x2 - bounds.x1 + gap*2,
