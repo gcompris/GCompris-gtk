@@ -1191,16 +1191,22 @@ engine_local_cb (GIOChannel *source,
     if (!strncmp ("0-1",pbuf,3))
       {
 	display_info(_("Black mates"));
+	g_object_set(turn_item, "text", "",
+		     NULL);
       }
 
     if (!strncmp ("1-0",pbuf,3))
       {
 	display_info(_("White mates"));
+	g_object_set(turn_item, "text", "",
+		     NULL);
       }
 
     if (!strncmp ("1/2-1/2",pbuf,7))
       {
 	display_info(_("Drawn game"));
+	g_object_set(turn_item, "text", "",
+		     NULL);
       }
 
     /* parse for feature */
