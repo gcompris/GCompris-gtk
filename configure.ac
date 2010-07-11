@@ -548,7 +548,7 @@ AC_SUBST(CFLAGS)
 AC_SUBST(LIBS)
 
 dnl Autoconf output
-AC_OUTPUT([ src/rmll-activity/Makefile
+AC_OUTPUT([ 
 Makefile.mingw
 Makefile
 autopackage/Makefile
