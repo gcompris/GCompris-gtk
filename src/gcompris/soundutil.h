@@ -26,9 +26,9 @@
 
 typedef enum
 {
-  PLAY_ONLY_IF_IDLE		= 0,
-  PLAY_AFTER_CURRENT		= 1,
-  PLAY_AND_INTERRUPT		= 2,
+  PLAY_ONLY_IF_IDLE		= 0, /* Discard play request if busy */
+  PLAY_AFTER_CURRENT		= 1, /* Default value, queue mode */
+  PLAY_AND_INTERRUPT		= 2, /* Interrupt current play with the new one */
 } SoundPolicy;
 
 typedef void (*GcomprisSoundCallback) (gchar *);

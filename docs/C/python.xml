@@ -21,24 +21,9 @@ xsltproc -o python.html http://docbook.sourceforge.net/release/xsl/current/html/
       <date>February 2003</date>
       <revhistory>
 	<revision>
-	  <revnumber>0.1</revnumber>
-	  <date>February 2003</date>
-	</revision>
-	<revision>
-	  <revnumber>0.2</revnumber>
-	  <date>April 2003</date>
-	</revision>
-	<revision>
-	  <revnumber>0.3</revnumber>
-	  <date>January 2004</date>
-	</revision>
-	<revision>
-	  <revnumber>0.4</revnumber>
-	  <date>January 2005</date>
-	</revision>
-	<revision>
-	  <revnumber>0.5</revnumber>
-	  <date>December 2006</date>
+	  <revnumber>0.7</revnumber>
+	  <date>July 2010</date>
+	  <revremark>Updated documentation of the sound API.</revremark>
 	</revision>
       </revhistory>
     </articleinfo>
@@ -715,7 +700,7 @@ attribute is readeable and/or writable.</para>
     </sect1>
 
     <sect1>
-      <title>sound.h functions and constants Mapping</title>
+      <title>soundutil.h functions and constants Mapping</title>
       <sect2>
 	<title>Functions mapping</title>
 	<informaltable>
@@ -731,18 +716,115 @@ attribute is readeable and/or writable.</para>
 	      <row>
 		<entry>gcompris.sound.play_ogg_list(list)</entry>
 		<entry>void gc_sound_play_ogg_list( GList* files )</entry>
-		<entry>The list argument is a GList</entry>
+		<entry>The list argument is a python list
+		       <programlisting>
+import gcompris.sound
+
+sounds=["sounds/Harbor1.wav", "sounds/Harbor3.ogg"]
+gcompris.sound.play_ogg(sounds)
+		       </programlisting>
+		</entry>
 	      </row>
 	      <row>
-		<entry>gcompris.sound.play_ogg(list)</entry>
+		<entry>gcompris.sound.play_ogg(file1, ...)</entry>
 		<entry>void gc_sound_play_ogg(char *, ...)</entry>
-		<entry>The list argument is a python list containing strings</entry>
+		<entry>Play all the given files.
+		       <programlisting>
+import gcompris.sound
+
+gcompris.sound.play_ogg("sounds/Harbor1.wav", "sounds/Harbor3.ogg")
+		       </programlisting>
+		</entry>
 	      </row>
+
 	      <row>
-		<entry>gcompris.sound.play_ogg_cb(list)</entry>
+		<entry>gcompris.sound.play_ogg_cb(list, callback)</entry>
 		<entry>void gc_sound_play_ogg_cb((const gchar *file, GcomprisSoundCallback cb)</entry>
-		<entry>The list argument is a python string and a function callback. It will be called once the sound has been played.</entry>
+		<entry>The list argument is a python string and a function callback. It will be called once the sound has been played.
+		       <programlisting>
+import gcompris.sound
+
+gcompris.sound.play_ogg_cb("melody/into.ogg", self.intro_cb)
+
+def intro_cb(self, file):
+  print "intro passed. go play"
+  self.pause(False)
+		       </programlisting>
+		</entry>
 	      </row>
+
+	      <row>
+		<entry>gcompris.sound.policy_get()</entry>
+		<entry>int gc_sound_policy_get()</entry>
+		<entry>Returns the current sound policy.
+		       <programlisting>
+import gcompris.sound
+
+self.saved_policy = gcompris.sound.policy_get()
+		       </programlisting>
+		</entry>
+	      </row>
+
+	      <row>
+		<entry>gcompris.sound.policy_set(policy)</entry>
+		<entry>void gc_sound_policy_set(int)</entry>
+		<entry>Set the sound policy.
+		       <programlisting>
+import gcompris.sound
+
+gcompris.sound.policy_set(gcompris.sound.PLAY_AND_INTERRUPT)
+		       </programlisting>
+		</entry>
+	      </row>
+
+	      <row>
+		<entry>gcompris.sound.pause()</entry>
+		<entry>void gc_sound_bg_pause()</entry>
+		<entry>Pause the background music.
+		       <programlisting>
+import gcompris.sound
+
+gcompris.sound.pause()
+		       </programlisting>
+		</entry>
+	      </row>
+
+	      <row>
+		<entry>gcompris.sound.resume()</entry>
+		<entry>void gc_sound_bg_resume()</entry>
+		<entry>Resume the background music.
+		       <programlisting>
+import gcompris.sound
+
+gcompris.sound.resume()
+		       </programlisting>
+		</entry>
+	      </row>
+
+	      <row>
+		<entry>gcompris.sound.close()</entry>
+		<entry>void gc_sound_close()</entry>
+		<entry>Close the audio channel. This is usefull to start an external programm which may then access the audio device on the system.
+		       <programlisting>
+import gcompris.sound
+
+gcompris.sound.close()
+		       </programlisting>
+		</entry>
+	      </row>
+
+	      <row>
+		<entry>gcompris.sound.reopen()</entry>
+		<entry>void gc_sound_reopen()</entry>
+		<entry>Reopen the audio channel to be used by GCompris.
+		       <programlisting>
+import gcompris.sound
+
+gcompris.sound.reopen()
+		       </programlisting>
+		</entry>
+	      </row>
+
 	    </tbody>
 	  </tgroup>
 	</informaltable>
@@ -751,9 +833,24 @@ attribute is readeable and/or writable.</para>
 
       <sect2>
 	<title>Constants mapping</title>
-	<para>
-          There is no constants in this package.
-        </para>
+	<informaltable>
+	  <tgroup cols="2">
+	    <thead>
+	      <row>
+		<entry>Python constant</entry>
+		<entry>C equivalent</entry>
+	      </row>
+	    </thead>
+	    <tbody>
+	      <row><entry>gcompris.sound.PLAY_ONLY_IF_IDLE</entry>
+		<entry>PLAY_ONLY_IF_IDLE (Discard play request if busy)</entry></row>
+	      <row><entry>gcompris.sound.PLAY_AFTER_CURRENT</entry>
+		<entry>PLAY_AFTER_CURRENT Default value, queue mode()</entry></row>
+	      <row><entry>gcompris.sound.PLAY_AND_INTERRUPT</entry>
+		<entry>PLAY_AND_INTERRUPT (Interrupt current play with the new one)</entry></row>
+	    </tbody>
+	  </tgroup>
+	</informaltable>
       </sect2>
     </sect1>
 
