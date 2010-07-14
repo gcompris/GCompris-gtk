@@ -107,6 +107,9 @@ static gint SHAPE_BOX_WIDTH_RATIO = 18;
 
 static GooCanvasItem	*shape_root_item;
 static GooCanvasItem	*title_root_item;
+/* info is like title but only displayed when the puzzle
+   is completed */
+static GooCanvasItem	*info_root_item;
 static GooCanvasItem	*shape_list_root_item;
 
 /* The tooltip */
@@ -142,7 +145,8 @@ static Shape 		*create_shape(ShapeType type, char *name, char *tooltip,
 				      double w, double h, double zoomx,
 				      double zoomy, guint position, char *soundfile);
 static gboolean 	 increment_sublevel(void);
-static void 		 create_title(char *name, double x, double y,
+static void 		 create_title(GooCanvasItem *parent,
+				      char *name, double x, double y,
 				      GtkAnchorType anchor,
 				      guint32 color_rgba,
 				      gchar *color_background);
@@ -504,9 +508,8 @@ static void shapegame_destroy_all_items()
 
       goo_canvas_item_remove(shape_root_item);
       shape_root_item = NULL;
-
-      goo_canvas_item_remove(title_root_item);
       title_root_item = NULL;
+      info_root_item = NULL;
 
       goo_canvas_item_remove(tooltip_root_item);
       tooltip_root_item = NULL;
@@ -533,6 +536,10 @@ static void shapegame_init_canvas(GooCanvasItem *parent)
 			    0);
 
   title_root_item = goo_canvas_group_new (shape_root_item, NULL);
+  info_root_item = goo_canvas_group_new (shape_root_item, NULL);
+  g_object_set (info_root_item, "visibility",
+		GOO_CANVAS_ITEM_INVISIBLE, NULL);
+
   shape_list_root_item = goo_canvas_group_new (parent, NULL);
 
   /* Create the tooltip area */
@@ -1271,11 +1278,16 @@ item_event_ok(GooCanvasItem *item, GooCanvasItem *target,
       if(!strcmp(data, "title_raise"))
 	{
 	  goo_canvas_item_raise(title_root_item, NULL);
+	  g_object_set (info_root_item, "visibility",
+			GOO_CANVAS_ITEM_VISIBLE, NULL);
+	  goo_canvas_item_raise(info_root_item, NULL);
 	}
     case GDK_LEAVE_NOTIFY:
       if(!strcmp(data, "title_lower"))
 	{
 	  goo_canvas_item_lower(title_root_item, NULL);
+	  g_object_set (info_root_item, "visibility",
+			GOO_CANVAS_ITEM_INVISIBLE, NULL);
 	}
 
     default:
@@ -1403,7 +1415,8 @@ add_shape_to_canvas(Shape *shape)
 }
 
 static void
-create_title(char *name, double x, double y,
+create_title(GooCanvasItem *parent,
+	     char *name, double x, double y,
 	     GtkAnchorType anchor,
 	     guint32 color_rgba,
 	     gchar *color_background)
@@ -1411,7 +1424,7 @@ create_title(char *name, double x, double y,
   GooCanvasItem *item;
 
   item = \
-    goo_canvas_text_new (title_root_item,
+    goo_canvas_text_new (parent,
 			 gettext(name),
 			 x,
 			 y,
@@ -1428,7 +1441,7 @@ create_title(char *name, double x, double y,
     int gap = 8;
 
     goo_canvas_item_get_bounds (item, &bounds);
-    goo_canvas_rect_new (title_root_item,
+    goo_canvas_rect_new (parent,
 			 x - (bounds.x2 - bounds.x1)/2 - gap,
 			 y - (bounds.y2 - bounds.y1)/2 - gap,
 			 bounds.x2 - bounds.x1 + gap*2,
@@ -1534,6 +1547,8 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, GList **
      ((g_strcasecmp((const char *)xmlnode->name,"Shape")!=0) &&
       /* or if the name is not "Title" */
       (g_strcasecmp((const char *)xmlnode->name,"Title")!=0) &&
+      /* or if the name is not "Title" */
+      (g_strcasecmp((const char *)xmlnode->name,"Info")!=0) &&
       /* or if the name is not "Option" */
       (g_strcasecmp((const char *)xmlnode->name,"Option")!=0) )
      )
@@ -1670,7 +1685,22 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, GList **
       if(name != NULL) {
 	newname = g_strcompress(name);
 
-	create_title(newname, x, y, anchor_gtk,
+	create_title(title_root_item,
+		     newname, x, y, anchor_gtk,
+		     color_rgba, color_background);
+	g_free(newname);
+      }
+    }
+  else if (g_strcasecmp((char *)xmlnode->name, "Info")==0)
+    {
+      /* Read \n is needed */
+      gchar *newname;
+
+      if(name != NULL) {
+	newname = g_strcompress(name);
+
+	create_title(info_root_item,
+		     newname, x, y, anchor_gtk,
 		     color_rgba, color_background);
 	g_free(newname);
       }
