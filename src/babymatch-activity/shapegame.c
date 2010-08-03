@@ -1281,6 +1281,7 @@ item_event_ok(GooCanvasItem *item, GooCanvasItem *target,
 	  g_object_set (info_root_item, "visibility",
 			GOO_CANVAS_ITEM_VISIBLE, NULL);
 	  goo_canvas_item_raise(info_root_item, NULL);
+	  gc_bar_hide(TRUE);
 	}
     case GDK_LEAVE_NOTIFY:
       if(!strcmp(data, "title_lower"))
@@ -1288,6 +1289,7 @@ item_event_ok(GooCanvasItem *item, GooCanvasItem *target,
 	  goo_canvas_item_lower(title_root_item, NULL);
 	  g_object_set (info_root_item, "visibility",
 			GOO_CANVAS_ITEM_INVISIBLE, NULL);
+	  gc_bar_hide(FALSE);
 	}
 
     default:
