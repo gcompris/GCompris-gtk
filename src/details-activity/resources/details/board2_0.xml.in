@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ShapeGame><!-- Created with GComprisShapegame gimp script -->
-<title justification="GTK_JUSTIFY_CENTER" x="600" y="495">
-<name>EilanDonanCastle</name></title>
+<!--image: http://commons.wikimedia.org/wiki/File:Eilean_Donan_castle_-_95mm.jpg
+
+Eilean Donan (Scottish Gaelic Eilean Donnáin) is a small island in Loch Duich in the western Highlands of Scotland. It is connected to the mainland by a footbridge and lies about half a mile from the village of Dornie. Eilean Donan (which means simply "island of Donnán") is named after Donnán of Eigg, a Celtic saint martyred in the Dark Ages. The island is dominated by a picturesque castle.
+http://en.wikipedia.org/wiki/Eilean_Donan
+
+
+-->
+<Info x="394" y="495" justification="GTK_JUSTIFY_CENTER" color_skin="gcompris/text button" color_background_skin="gcompris/shadow">
+    <_name>Eilean Donan castle</_name>
+  </Info>
 <shape name="1" targetfile="" pixmapfile="details/EilanDonanCastle_1.png" position="0" x="621.0" y="112.0"/>
 <shape name="0" targetfile="" pixmapfile="details/EilanDonanCastle_0.png" position="0" x="445.0" y="181.0"/>
 <shape name="background" pixmapfile="details/EilanDonanCastle_background.jpg" position="0" type="SHAPE_BACKGROUND" x="400.0" y="259.5"/>
