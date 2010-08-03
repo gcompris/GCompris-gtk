@@ -13,8 +13,8 @@ cd GCompris
 ln -s /Applications .
 cd -
 
-# Create the bundle of the complete application
-echo "Create the bundle of the complete application"
+# Create the bundle of the whole application
+echo "Create the bundle of the whole application"
 ige-mac-bundler gcompris.bundle
 
 # Create the distributable .dmg

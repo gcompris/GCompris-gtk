@@ -1,0 +1,24 @@
+These are the instructions to build GCompris on MacOSX.
+
+Requirements:
+MacOSX 10.4 or above.
+
+First, create your compilation environment following the instructions here:
+http://gtk-osx.sourceforge.net/
+
+Configure step:
+  cd macosx
+  ./configure_mac.sh
+
+At this point, you will have missing dependencies that you must download
+and install manually following the rules defined by gtk-osx.
+
+Compilation step:
+  make
+
+Bundle step:
+  make install
+  ./createBundle.sh
+
+The resulting file is GCompris.dmg
+
