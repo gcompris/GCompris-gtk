@@ -20,29 +20,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug."
-"cgi?product=gcompris&component=general\n"
-"POT-Creation-Date: 2010-06-12 20:41+0000\n"
-"PO-Revision-Date: 2010-06-15 13:46+0300\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-08-16 11:00+0300\n"
+"PO-Revision-Date: 2010-08-12 10:32+0200\n"
 "Last-Translator: Yannis Kaskamanidis <kiolalis@gmail.com>\n"
-"Language-Team: Ελληνικά <i18ngr@lists.hellug.gr"
-">\n"
-">\n"
+"Language-Team: Ελληνικά <i18ngr@lists.hellug.gr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-">\n"
-">\n"
-">\n"
-">\n"
-">\n"
-">\n"
-">\n"
-">\n"
-">\n"
-">\n"
-">\n"
-">\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.0\n"
 "X-Poedit-Language: Greek\n"
@@ -462,30 +447,30 @@ msgstr "Δάσκαλος:"
 msgid "Assign all the users belonging to this class"
 msgstr "Ορίστε τους χρήστες που ανήκουν σε αυτή την τάξη"
 
-#: ../src/administration-activity/admin/class_edit.py:249
-#: ../src/administration-activity/admin/group_edit.py:261
+#: ../src/administration-activity/admin/class_edit.py:246
+#: ../src/administration-activity/admin/group_edit.py:258
 #: ../src/administration-activity/admin/group_user_list.py:150
 #: ../src/administration-activity/admin/user_list.py:191
 msgid "First Name"
 msgstr "Όνομα"
 
-#: ../src/administration-activity/admin/class_edit.py:260
-#: ../src/administration-activity/admin/group_edit.py:272
+#: ../src/administration-activity/admin/class_edit.py:257
+#: ../src/administration-activity/admin/group_edit.py:269
 #: ../src/administration-activity/admin/group_user_list.py:160
 #: ../src/administration-activity/admin/user_list.py:201
 msgid "Last Name"
 msgstr "Επώνυμο"
 
-#: ../src/administration-activity/admin/class_edit.py:335
+#: ../src/administration-activity/admin/class_edit.py:332
 msgid "You need to provide at least a name for your class"
 msgstr "Χρειάζεται να δώσεις ένα όνομα τουλάχιστον για την τάξη σου"
 
-#: ../src/administration-activity/admin/class_edit.py:380
+#: ../src/administration-activity/admin/class_edit.py:377
 msgid "There is already a class with this name"
 msgstr "Υπάρχει ήδη μια τάξη με αυτό το όνομα"
 
 #: ../src/administration-activity/admin/class_list.py:165
-#: ../src/administration-activity/admin/profile_edit.py:266
+#: ../src/administration-activity/admin/profile_edit.py:263
 #: ../src/administration-activity/admin/profile_group_list.py:140
 msgid "Class"
 msgstr "Τάξη"
@@ -526,11 +511,11 @@ msgstr "Περιγραφή:"
 msgid "Assign all the users belonging to this group"
 msgstr "Ορίστε όλους τους χρήστες που ανήκουν σε αυτή την ομάδα"
 
-#: ../src/administration-activity/admin/group_edit.py:355
+#: ../src/administration-activity/admin/group_edit.py:352
 msgid "You need to provide at least a name for your group"
 msgstr "Πρέπει να βάλεις ένα όνομα για την ομάδα σου"
 
-#: ../src/administration-activity/admin/group_edit.py:369
+#: ../src/administration-activity/admin/group_edit.py:366
 msgid "There is already a group with this name"
 msgstr "Υπάρχει ήδη μια ομάδα με αυτό το όνομα"
 
@@ -539,13 +524,13 @@ msgid "Select a class:"
 msgstr "Διάλεξε τάξη:"
 
 #: ../src/administration-activity/admin/group_list.py:210
-#: ../src/administration-activity/admin/profile_edit.py:276
+#: ../src/administration-activity/admin/profile_edit.py:273
 #: ../src/administration-activity/admin/profile_group_list.py:150
 msgid "Group"
 msgstr "Ομάδα"
 
 #: ../src/administration-activity/admin/group_list.py:221
-#: ../src/administration-activity/admin/profile_edit.py:286
+#: ../src/administration-activity/admin/profile_edit.py:283
 #: ../src/administration-activity/admin/profile_group_list.py:160
 #: ../src/administration-activity/admin/profile_list.py:194
 msgid "Description"
@@ -663,11 +648,11 @@ msgstr "Προφίλ:"
 msgid "Assign all the groups belonging to this profile"
 msgstr "Προσδιορίστε όλες τις ομάδες που ανήκουν σε αυτό το προφίλ"
 
-#: ../src/administration-activity/admin/profile_edit.py:374
+#: ../src/administration-activity/admin/profile_edit.py:371
 msgid "You need to provide at least a name for your profile"
 msgstr "Πρέπει να βάλεις ένα όνομα για το προφίλ σου"
 
-#: ../src/administration-activity/admin/profile_edit.py:396
+#: ../src/administration-activity/admin/profile_edit.py:393
 msgid "There is already a profile with this name"
 msgstr "Υπάρχει ήδη ένα προφίλ με αυτό το όνομα"
 
@@ -711,14 +696,14 @@ msgstr "Επώνυμο:"
 msgid "Birth date:"
 msgstr "Ημερομηνία γέννησης:"
 
-#: ../src/administration-activity/admin/user_edit.py:156
+#: ../src/administration-activity/admin/user_edit.py:153
 msgid ""
 "You need to provide at least a login, first name and last name for your users"
 msgstr ""
 "Για τη σύνδεση, πρέπει να δώσεις το λιγότερο ένα όνομα και ένα επώνυμο για "
 "τους χρήστες"
 
-#: ../src/administration-activity/admin/user_edit.py:173
+#: ../src/administration-activity/admin/user_edit.py:170
 msgid "There is already a user with this login"
 msgstr "Υπάρχει ήδη ένας χρήστης με αυτό το όνομα"
 
@@ -1152,8 +1137,8 @@ msgid "Practice the multiplication operation"
 msgstr "Εξάσκηση στον πολλαπλασιασμό"
 
 #: ../src/algebra_guesscount-activity/algebra_guesscount.xml.in.h:1
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:1
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:1
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:1
 msgid ""
 "Animal pictures come from the Animal Photography Page of Ralf Schmode "
 "(http://schmode.net/). Ralf has kindly permitted Gcompris to include his "
@@ -1558,8 +1543,8 @@ msgstr ""
 "Χειρισμός ποντικιού: κίνηση, μετακίνηση και τοποθέτηση. Πολιτιστικές "
 "αναφορές."
 
-#: ../src/babymatch-activity/shapegame.c:1835
-#: ../src/click_on_letter-activity/click_on_letter.c:624
+#: ../src/babymatch-activity/shapegame.c:1903
+#: ../src/click_on_letter-activity/click_on_letter.c:635
 #: ../src/colors-activity/colors.c:168
 #, c-format
 msgid ""
@@ -1574,6 +1559,7 @@ msgid "Complete the puzzle"
 msgstr "Αντικείμενα και περιγράμματα"
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:2
+#: ../src/details-activity/details.xml.in.h:1
 msgid ""
 "Complete the puzzle by dragging each piece from the set of pieces on the "
 "left, to the matching space in the puzzle."
@@ -1582,10 +1568,12 @@ msgstr ""
 "σχήματα που δείχνουν το περίγραμμα του καθενός."
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:3
+#: ../src/details-activity/details.xml.in.h:2
 msgid "Drag and Drop the shapes on their respective targets"
 msgstr "Μετακίνησε και τοποθέτησε κάθε αντικείμενο επάνω στο περίγραμμά του"
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:4
+#: ../src/details-activity/details.xml.in.h:4
 msgid "Good mouse-control"
 msgstr "Καλός χειρισμός ποντικιού"
 
@@ -1688,8 +1676,8 @@ msgstr "Κλώτσησε τη μπάλα για να μπει στο τέρμα"
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:5
 #: ../src/connect4-activity/connect4.xml.in.h:6
 #: ../src/erase-activity/erase.xml.in.h:3
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:6
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:6
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:6
 #: ../src/fifteen-activity/fifteen.xml.in.h:2
 #: ../src/hanoi-activity/hanoi.xml.in.h:3
 #: ../src/memory-activity/memory.xml.in.h:4
@@ -1721,7 +1709,6 @@ msgstr "Διάλεξε πίνακα"
 
 #: ../src/boards/menu2.c:266
 #, c-format
-#| msgid "Number of activities: %d\n"
 msgid "Number of activities: %d"
 msgstr "Αριθμός δραστηριοτήτων: %d"
 
@@ -1831,8 +1818,8 @@ msgstr ""
 msgid "Error: The external program gnuchess died unexpectedly"
 msgstr "Σφάλμα: Η εξωτερική εφαρμογή gnuchess τερματίστηκε απροσδόκητα"
 
-#: ../src/chess_computer-activity/chess.c:258
-#: ../src/chess_computer-activity/chess.c:304
+#: ../src/chess_computer-activity/chess.c:262
+#: ../src/chess_computer-activity/chess.c:308
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -1842,48 +1829,48 @@ msgstr ""
 "για να παίξεις σκάκι στο Gcompris.\n"
 "Εγκατέστησές την πρώτα και έλεγξε ότι υπάρχει"
 
-#: ../src/chess_computer-activity/chess.c:644
+#: ../src/chess_computer-activity/chess.c:648
 msgid "White's Turn"
 msgstr ""
 "Σειρά του παίκτη\n"
 "με τα άσπρα πιόνια"
 
-#: ../src/chess_computer-activity/chess.c:644
+#: ../src/chess_computer-activity/chess.c:648
 msgid "Black's Turn"
 msgstr ""
 "Σειρά του παίκτη\n"
 "με τα μαύρα πιόνια"
 
-#: ../src/chess_computer-activity/chess.c:785
+#: ../src/chess_computer-activity/chess.c:789
 msgid "White checks"
 msgstr ""
 "Ο παίκτης με τα άσπρα απειλεί\n"
 "το βασιλιά του αντιπάλου"
 
-#: ../src/chess_computer-activity/chess.c:787
+#: ../src/chess_computer-activity/chess.c:791
 msgid "Black checks"
 msgstr ""
 "Ο παίκτης με τα μαύρα απειλεί\n"
 "το βασιλιά του αντιπάλου"
 
-#: ../src/chess_computer-activity/chess.c:1193
+#: ../src/chess_computer-activity/chess.c:1197
 msgid "Black mates"
 msgstr ""
 "Κίνηση ματ του παίκτη\n"
 "με τα μαύρα πιόνια"
 
-#: ../src/chess_computer-activity/chess.c:1198
+#: ../src/chess_computer-activity/chess.c:1204
 msgid "White mates"
 msgstr ""
 "Κίνηση ματ του παίκτη\n"
 "με τα άσπρα πιόνια"
 
-#: ../src/chess_computer-activity/chess.c:1203 ../src/gcompris/bonus.c:191
+#: ../src/chess_computer-activity/chess.c:1211 ../src/gcompris/bonus.c:191
 #: ../src/gcompris/bonus.c:200
 msgid "Drawn game"
 msgstr "Ισόπαλο παιχνίδι"
 
-#: ../src/chess_computer-activity/chess.c:1229
+#: ../src/chess_computer-activity/chess.c:1239
 msgid "Error: The external program gnuchess died unexpectingly"
 msgstr "Σφάλμα: Η εξωτερική εφαρμογή gnuchess τερματίστηκε απροσδόκητα"
 
@@ -1898,6 +1885,67 @@ msgstr "Μαθαίνοντας σκάκι"
 #: ../src/chess_partyend-activity/chess_partyend.xml.in.h:4
 msgid "The chess engine is from gnuchess."
 msgstr "Η μηχανή σκακιού είναι από το gnuchess."
+
+#: ../src/chess_computer-activity/gnuchess/getopt.c:693
+#, c-format
+msgid "%s: option `%s' is ambiguous\n"
+msgstr "%s: επιλογή `%s' είναι διφορούμενη\n"
+
+#: ../src/chess_computer-activity/gnuchess/getopt.c:718
+#, c-format
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr "%s: επιλογή `--%s' δεν επιτρέπει μια παράμετρο\n"
+
+#: ../src/chess_computer-activity/gnuchess/getopt.c:723
+#, c-format
+msgid "%s: option `%c%s' doesn't allow an argument\n"
+msgstr "%s: επιλογή `%c%s' δεν επιτρέπει μια παράμετρο\n"
+
+#: ../src/chess_computer-activity/gnuchess/getopt.c:741
+#: ../src/chess_computer-activity/gnuchess/getopt.c:914
+#, c-format
+msgid "%s: option `%s' requires an argument\n"
+msgstr "%s: επιλογή `%s' απαιτεί μια παράμετρο\n"
+
+#. --option
+#: ../src/chess_computer-activity/gnuchess/getopt.c:770
+#, c-format
+msgid "%s: unrecognized option `--%s'\n"
+msgstr "%s: μη αναγνωρίσιμη επιλογή `--%s'\n"
+
+#. +option or -option
+#: ../src/chess_computer-activity/gnuchess/getopt.c:774
+#, c-format
+msgid "%s: unrecognized option `%c%s'\n"
+msgstr "%s: μη αναγνωρίσιμη επιλογή `%c%s'\n"
+
+#. 1003.2 specifies the format of this message.
+#: ../src/chess_computer-activity/gnuchess/getopt.c:800
+#, c-format
+msgid "%s: illegal option -- %c\n"
+msgstr "%s: μη επιθυμητή επιλογή -- %c\n"
+
+#: ../src/chess_computer-activity/gnuchess/getopt.c:803
+#, c-format
+msgid "%s: invalid option -- %c\n"
+msgstr "%s: μη έγκυρη επιλογή -- %c\n"
+
+#. 1003.2 specifies the format of this message.
+#: ../src/chess_computer-activity/gnuchess/getopt.c:833
+#: ../src/chess_computer-activity/gnuchess/getopt.c:963
+#, c-format
+msgid "%s: option requires an argument -- %c\n"
+msgstr "%s: η επιλογή απαιτεί μία παράμετρο -- %c\n"
+
+#: ../src/chess_computer-activity/gnuchess/getopt.c:880
+#, c-format
+msgid "%s: option `-W %s' is ambiguous\n"
+msgstr "%s: επιλογή `-W %s' είναι διφορούμενη\n"
+
+#: ../src/chess_computer-activity/gnuchess/getopt.c:898
+#, c-format
+msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr "%s: επιλογή `-W %s' δεν επιτρέπει μία παράμετρο\n"
 
 #: ../src/chess_movelearn-activity/chess_movelearn.xml.in.h:1
 msgid "Chess training. Catch the computer's pawns."
@@ -2148,7 +2196,7 @@ msgstr ""
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "αβγδεζηθικλμνξοπρστυφχψω"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:298
+#: ../src/click_on_letter-activity/click_on_letter.c:304
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -2157,7 +2205,7 @@ msgstr ""
 "Σφάλμα: αυτή η δραστηριότητα απαιτεί την εγκατάσταση\n"
 "των ελληνικών ήχων του Gcompris '%s' ή '%s'"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:306
+#: ../src/click_on_letter-activity/click_on_letter.c:314
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -2169,7 +2217,7 @@ msgstr ""
 "συγγνώμη!"
 
 #. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:647
+#: ../src/click_on_letter-activity/click_on_letter.c:658
 #: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:484
 msgid "Uppercase only text"
 msgstr "Κείμενο μόνο με κεφαλαία γράμματα"
@@ -2415,8 +2463,8 @@ msgstr "Οδήγησε το γερανό και αντέγραψε το μοντ
 
 #: ../src/crane-activity/crane.xml.in.h:3
 #: ../src/erase-activity/erase.xml.in.h:2
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:5
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:5
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:5
 #: ../src/penalty-activity/penalty.xml.in.h:3
 msgid "Motor-coordination"
 msgstr "Συγχρονισμός κίνησης"
@@ -2439,6 +2487,100 @@ msgstr ""
 "ένα αντικείμενο κάντε κλικ επάνω του. Εάν προτιμάτε, μπορείτε να "
 "χρησιμοποιήσετε τα πλήκτρα με τα βελάκια και το πλήκτρο διαστήματος ή το "
 "πλήκτρο tab."
+
+#: ../src/details-activity/details.xml.in.h:3
+msgid "Find the details"
+msgstr "Βρες τις λεπτομέρειες"
+
+#: ../src/details-activity/details.xml.in.h:5
+msgid "The images are from wiki commons"
+msgstr "Οι εικόνες προέρχονται από τα κοινόχρηστα wiki"
+
+#: ../src/details-activity/resources/details/board1_0.xml.in.h:1
+msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1889"
+msgstr "Vincent Van Gogh, Είσοδος του νοσοκομείου Σέντ Πολ - 1889"
+
+#: ../src/details-activity/resources/details/board1_1.xml.in.h:1
+msgid ""
+"Vincent van Gogh, The Bridge of Langlois at Arles with a lady with umbrella "
+"- 1888"
+msgstr ""
+"Vincent van Gogh, Η γέφυρα των Λαγκλουά και Αρλέ με τη γυναίκα που κρατά "
+"ομπρέλα - 1888"
+
+#: ../src/details-activity/resources/details/board1_2.xml.in.h:1
+msgid "Vincent van Gogh, The Church at Auvers-sur-Oise - 1890"
+msgstr "Vincent Van Gogh, Η εκκλησία Auvers-sur-Oise - 1890"
+
+#: ../src/details-activity/resources/details/board1_3.xml.in.h:1
+msgid "Vincent van Gogh, Painter on His Way to Work - 1888"
+msgstr "Vincent Van Gogh, Ο ζωγράφος στη δουλειά του - 1888"
+
+#: ../src/details-activity/resources/details/board1_4.xml.in.h:1
+msgid "Vincent van Gogh, The Harvest - 1888"
+msgstr "Vincent Van Gogh, Η σοδειά - 1888"
+
+#: ../src/details-activity/resources/details/board1_5.xml.in.h:1
+msgid "Vincent van Gogh, Cafe Terrace at Night - 1888"
+msgstr "Vincent Van Gogh, Καφέ Τεράς τη νύχτα - 1888"
+
+#: ../src/details-activity/resources/details/board1_6.xml.in.h:1
+msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1888"
+msgstr "Vincent Van Gogh, Είσοδος του νοσοκομείου του Σέντ Πολ - 1888"
+
+#: ../src/details-activity/resources/details/board1_7.xml.in.h:1
+msgid "Vincent van Gogh, Portrait of Pere Tanguy 1887-8"
+msgstr "Vincent Van Gogh, Πορτρέτο του Περέ Τανγκί - 1887-8"
+
+#: ../src/details-activity/resources/details/board2_0.xml.in.h:1
+msgid "Eilean Donan castle"
+msgstr "Κάστρο του Eilean Donan"
+
+#: ../src/details-activity/resources/details/board2_1.xml.in.h:1
+msgid "Eiffel Tower, seen from the champ de Mars, Paris, France"
+msgstr ""
+"Ο Πύργος του Άιφελ όπως φαίνεται από το Πεδίον του Άρεως, Παρίσι, Γαλλία"
+
+#: ../src/details-activity/resources/details/board2_10.xml.in.h:1
+msgid "Gizah Pyramids, Egypt"
+msgstr "Πυραμίδες της Γκίζας, Αίγυπτος"
+
+#: ../src/details-activity/resources/details/board2_11.xml.in.h:1
+msgid "Sydney Opera House, Austriala"
+msgstr "Η Όπερα του Σίδνεϊ, Αυστραλία"
+
+#: ../src/details-activity/resources/details/board2_2.xml.in.h:1
+msgid "Courtyard of the Museum of Louvre, and its pyramid"
+msgstr "Η αυλή του Μουσείου του Λούβρου και η πυραμίδα του"
+
+#: ../src/details-activity/resources/details/board2_3.xml.in.h:1
+msgid "Panorama of Château de Chenonceau, Indre-et-Loire, France."
+msgstr "Πανόραμα από το Κάστρο του Σενονσό, Γαλλία."
+
+#: ../src/details-activity/resources/details/board2_4.xml.in.h:1
+msgid ""
+"Notre Dame de Paris cathedral on the Île de la Cité island in Paris, France."
+msgstr "Καθεδρικός ναός Νότρ Νταμ του Παρισιού στο νησί Σιτέ, Γαλλία."
+
+#: ../src/details-activity/resources/details/board2_5.xml.in.h:1
+msgid "Nagoya Castle, Aichi Prefecture, Japan."
+msgstr "Κάστρο Ναγκόγια, περιφέρεια Αϊσί, Ιαπωνία."
+
+#: ../src/details-activity/resources/details/board2_6.xml.in.h:1
+msgid "Taj Mahal, Agra, India"
+msgstr "Ταζ Μαχάλ, Άγκρα, Ινδία."
+
+#: ../src/details-activity/resources/details/board2_7.xml.in.h:1
+msgid "Castle Neuschwanstein at Schwangau, Bavaria, Germany"
+msgstr "Κάστρο Νόιεσβανσταϊν στο Σβάνγκαου, Βαυαρία, Γερμανία"
+
+#: ../src/details-activity/resources/details/board2_8.xml.in.h:1
+msgid "Egeskov Castle, Denmark"
+msgstr "Κάστρο Έγκεσκοβ, Δανία"
+
+#: ../src/details-activity/resources/details/board2_9.xml.in.h:1
+msgid "Windmill in Sønderho, Fanø, Denmark"
+msgstr "Ανεμόμυλος στο Σεντέρχο, Φάνο, Δανία"
 
 #: ../src/doubleentry-activity/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
@@ -2516,7 +2658,7 @@ msgstr "Σχημάτισε την εικόνα κάνοντας κλικ σε κ
 msgid "Draw the picture by following numbers"
 msgstr "Ζωγράφισε την εικόνα με την αύξουσα σειρά των αριθμών"
 
-#: ../src/electric-activity/electric.py:98
+#: ../src/electric-activity/electric.py:99
 msgid ""
 "Cannot find the 'gnucap' electric simulator.\n"
 "You can download and install it from:\n"
@@ -2640,19 +2782,6 @@ msgstr ""
 "Κίνησε το ποντίκι, χωρίς να κάνεις κλικ, μέχρι να εξαφανιστούν όλα τα "
 "τετράγωνα."
 
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:2
-msgid "Click the mouse"
-msgstr "Μετακίνησε και κάνε κλικ στο ποντίκι"
-
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:3
-msgid "Click the mouse on rectangles until all the blocks disappear."
-msgstr "Κάνε κλικ με το ποντίκι μέχρι να εξαφανιστούν όλα τα τετράγωνα."
-
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:4
-msgid "Click the mouse to erase the area and discover the background"
-msgstr ""
-"Κίνησε το ποντίκι για να σβήσεις την επιφάνεια και να αποκαλύψεις το φόντο"
-
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
 msgid "Double click the mouse"
 msgstr "Κάνε διπλό κλικ με το ποντίκι"
@@ -2668,6 +2797,19 @@ msgid "Double click the mouse to erase the area and discover the background"
 msgstr ""
 "Κάνε διπλό κλικ με το ποντίκι για να διαγράψεις την επιφάνεια και να "
 "ανακαλύψεις τι υπάρχει στο παρασκήνιο."
+
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:2
+msgid "Click the mouse"
+msgstr "Μετακίνησε και κάνε κλικ στο ποντίκι"
+
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:3
+msgid "Click the mouse on rectangles until all the blocks disappear."
+msgstr "Κάνε κλικ με το ποντίκι μέχρι να εξαφανιστούν όλα τα τετράγωνα."
+
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:4
+msgid "Click the mouse to erase the area and discover the background"
+msgstr ""
+"Κίνησε το ποντίκι για να σβήσεις την επιφάνεια και να αποκαλύψεις το φόντο"
 
 #: ../src/fifteen-activity/fifteen.xml.in.h:1
 msgid ""
@@ -2750,14 +2892,14 @@ msgstr "Αρχική σελίδα του GCompris: http://gcompris.net"
 msgid "Translators:"
 msgstr "Μεταφραστές:"
 
-#: ../src/gcompris/about.c:206
+#: ../src/gcompris/about.c:208
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
 msgstr ""
 "Το GCompris είναι ένα πακέτο GNU και διέπεται από τους όρους της GNU/GPL"
 
-#: ../src/gcompris/about.c:220 ../src/gcompris/config.c:442
+#: ../src/gcompris/about.c:222 ../src/gcompris/config.c:442
 #: ../src/gcompris/dialog.c:103 ../src/gcompris/help.c:359
 #: ../src/gcompris/images_selector.c:307
 msgid "OK"
@@ -3458,7 +3600,7 @@ msgstr "Άθικτο"
 msgid "Users without a class"
 msgstr "Χρήστες που δεν ανήκουν σε κάποια τάξη"
 
-#: ../src/gcompris/gcompris_db.c:893
+#: ../src/gcompris/gcompris_db.c:894
 #, c-format
 msgid ""
 "Loading activity from database:\n"
@@ -3548,11 +3690,11 @@ msgstr "Πίσω"
 msgid "Stop"
 msgstr "Διακοπή"
 
-#: ../src/gcompris/timer.c:244
+#: ../src/gcompris/timer.c:245
 msgid "Time Elapsed"
 msgstr "Χρόνος που πέρασε"
 
-#: ../src/gcompris/timer.c:322
+#: ../src/gcompris/timer.c:323
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Χρόνος που απομένει = %d"
@@ -6107,6 +6249,10 @@ msgstr "Μπελίνι: Pala di pesaro"
 msgid "Dürer : Lion"
 msgstr "Ντυρέρ: Λιοντάρι"
 
+#: ../src/paintings-activity/resources/paintings/board2_4.xml.in.h:1
+msgid "Pieter Brugel : Harvest"
+msgstr "Pieter Brugel: Σοδειά"
+
 #: ../src/paintings-activity/resources/paintings/board3_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
 msgstr "Pierre-Auguste Renoir, Κορίτσια στο πιάνο - 1892"
@@ -6250,6 +6396,15 @@ msgstr "Κίνησε το ελικόπτερο για να πιάσει τα σ�
 msgid "Number"
 msgstr "Αριθμοί κατά αύξουσα σειρά"
 
+#: ../src/pythontemplate-activity/pythontemplate.py:60
+#: ../src/pythontest-activity/pythontest.py:184
+msgid ""
+"This is the first plugin in GCompris coded in the Python\n"
+"Programming language."
+msgstr ""
+"Αυτή είναι η πρώτη πρόσθετη λειτουργία του gcompris που φτιάχθηκε στην\n"
+"γλώσσα προγραμματισμού Python."
+
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:1
 #: ../src/pythontest-activity/pythontest.xml.in.h:1
 msgid "Add a language-binding to GCompris."
@@ -6276,14 +6431,6 @@ msgid ""
 msgstr ""
 "Ευχαριστίες προς τον Guido van Rossum και την ομάδα της Python γι' αυτή την "
 "ισχυρή γλώσσα προγραμματισμού!"
-
-#: ../src/pythontest-activity/pythontest.py:184
-msgid ""
-"This is the first plugin in GCompris coded in the Python\n"
-"Programming language."
-msgstr ""
-"Αυτή είναι η πρώτη πρόσθετη λειτουργία του gcompris που φτιάχθηκε στην\n"
-"γλώσσα προγραμματισμού Python."
 
 #: ../src/pythontest-activity/pythontest.py:194
 msgid ""
@@ -6638,6 +6785,27 @@ msgstr ""
 "Για να ισορροπήσεις τη ζυγαριά, μετακίνησε τα σταθμά στην αριστερά ή τη "
 "δεξιά πλευρά της. Τα σταθμά μπορείς να τα διευθετήσεις με όποια σειρά θέλεις."
 
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:2
+msgid "Drag and Drop masses to balance the scales and calculate the weight"
+msgstr ""
+"Μετακίνησε και τοποθέτησε τα βαράκια για να ισορροπήσει η ζυγαριά και να "
+"υπολογίσεις το βάρος."
+
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:3
+msgid "Mental calculation, arithmetic equality, unit conversion"
+msgstr "Νοεροί υπολογισμοί, αριθμητικές ισότητες, μετατροπές μονάδων."
+
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:5
+msgid ""
+"To balance the scales, move the masses on the left or the right side. Take "
+"care of the weight and the unit of the masses, remember that a kilogram (kg) "
+"is 1000 grams (g). They can be arranged in any order."
+msgstr ""
+"Για να ισορροπήσεις τη ζυγαριά, μετακίνησε τα σταθμά στην αριστερά ή τη "
+"δεξιά πλευρά της. Προσέξτε το βάρος και τις μονάδες των σταθμών και "
+"θυμηθείτε ότι ένα κιλό (κ.) έχει 1000 γραμμάρια (γρ.). Τα σταθμά μπορείς να "
+"τα διευθετήσεις με όποια σειρά θέλεις."
+
 #: ../src/searace-activity/searace.py:174
 msgid "The race is already being run"
 msgstr "Ο αγώνας είναι ήδη έτοιμος να αρχίσει"
@@ -6754,27 +6922,6 @@ msgstr ""
 #: ../src/searace-activity/searace.xml.in.h:9
 msgid "Sea race (2 Players)"
 msgstr "Θαλάσσιος αγώνας (2 παίκτες)"
-
-#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:2
-msgid "Drag and Drop masses to balance the scales and calculate the weight"
-msgstr ""
-"Μετακίνησε και τοποθέτησε τα βαράκια για να ισορροπήσει η ζυγαριά και να "
-"υπολογίσεις το βάρος."
-
-#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:3
-msgid "Mental calculation, arithmetic equality, unit conversion"
-msgstr "Νοεροί υπολογισμοί, αριθμητικές ισότητες, μετατροπές μονάδων."
-
-#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:5
-msgid ""
-"To balance the scales, move the masses on the left or the right side. Take "
-"care of the weight and the unit of the masses, remember that a kilogram (kg) "
-"is 1000 grams (g). They can be arranged in any order."
-msgstr ""
-"Για να ισορροπήσεις τη ζυγαριά, μετακίνησε τα σταθμά στην αριστερά ή τη "
-"δεξιά πλευρά της. Προσέξτε το βάρος και τις μονάδες των σταθμών και "
-"θυμηθείτε ότι ένα κιλό (κ.) έχει 1000 γραμμάρια (γρ.). Τα σταθμά μπορείς να "
-"τα διευθετήσεις με όποια σειρά θέλεις."
 
 #: ../src/searace1player-activity/searace1player.xml.in.h:1
 msgid "Give good instructions to your ship in order to be first in the race."
@@ -7255,67 +7402,6 @@ msgstr "Εξάσκηση στο πληκτρολόγιο"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:4
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Πληκτρολόγησε την λέξη πριν αυτή πέσει στο έδαφος"
-
-#: ../src/chess_computer-activity/gnuchess/getopt.c:693
-#, c-format
-msgid "%s: option `%s' is ambiguous\n"
-msgstr "%s: επιλογή `%s' είναι διφορούμενη\n"
-
-#: ../src/chess_computer-activity/gnuchess/getopt.c:718
-#, c-format
-msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s: επιλογή `--%s' δεν επιτρέπει μια παράμετρο\n"
-
-#: ../src/chess_computer-activity/gnuchess/getopt.c:723
-#, c-format
-msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: επιλογή `%c%s' δεν επιτρέπει μια παράμετρο\n"
-
-#: ../src/chess_computer-activity/gnuchess/getopt.c:741
-#: ../src/chess_computer-activity/gnuchess/getopt.c:914
-#, c-format
-msgid "%s: option `%s' requires an argument\n"
-msgstr "%s: επιλογή `%s' απαιτεί μια παράμετρο\n"
-
-#. --option
-#: ../src/chess_computer-activity/gnuchess/getopt.c:770
-#, c-format
-msgid "%s: unrecognized option `--%s'\n"
-msgstr "%s: μη αναγνωρίσιμη επιλογή `--%s'\n"
-
-#. +option or -option
-#: ../src/chess_computer-activity/gnuchess/getopt.c:774
-#, c-format
-msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s: μη αναγνωρίσιμη επιλογή `%c%s'\n"
-
-#. 1003.2 specifies the format of this message.
-#: ../src/chess_computer-activity/gnuchess/getopt.c:800
-#, c-format
-msgid "%s: illegal option -- %c\n"
-msgstr "%s: μη επιθυμητή επιλογή -- %c\n"
-
-#: ../src/chess_computer-activity/gnuchess/getopt.c:803
-#, c-format
-msgid "%s: invalid option -- %c\n"
-msgstr "%s: μη έγκυρη επιλογή -- %c\n"
-
-#. 1003.2 specifies the format of this message.
-#: ../src/chess_computer-activity/gnuchess/getopt.c:833
-#: ../src/chess_computer-activity/gnuchess/getopt.c:963
-#, c-format
-msgid "%s: option requires an argument -- %c\n"
-msgstr "%s: η επιλογή απαιτεί μία παράμετρο -- %c\n"
-
-#: ../src/chess_computer-activity/gnuchess/getopt.c:880
-#, c-format
-msgid "%s: option `-W %s' is ambiguous\n"
-msgstr "%s: επιλογή `-W %s' είναι διφορούμενη\n"
-
-#: ../src/chess_computer-activity/gnuchess/getopt.c:898
-#, c-format
-msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s: επιλογή `-W %s' δεν επιτρέπει μία παράμετρο\n"
 
 #~ msgid "Botticelli, Primavera - 1482"
 #~ msgstr "Sandro Botticelli, Πριμαβέρα - 1482"
