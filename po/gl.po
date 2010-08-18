@@ -9,10 +9,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GCompris 9.3 - gcomprixogoo\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=gcompris&component=general\n"
-"POT-Creation-Date: 2010-06-19 06:44+0000\n"
-"PO-Revision-Date: 2010-06-20 17:15+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-08-19 00:06+0200\n"
+"PO-Revision-Date: 2010-08-16 20:15+0200\n"
 "Last-Translator: Gonçalo Cordeiro <gzcordeiro@gmail.com>\n"
 "Language-Team: Galician <g11n@gnome.net>\n"
 "MIME-Version: 1.0\n"
@@ -433,30 +432,30 @@ msgstr "Profesor/a:"
 msgid "Assign all the users belonging to this class"
 msgstr "Atribuír a todas as persoas usuarias que pertencen a esta clase"
 
-#: ../src/administration-activity/admin/class_edit.py:249
-#: ../src/administration-activity/admin/group_edit.py:261
+#: ../src/administration-activity/admin/class_edit.py:246
+#: ../src/administration-activity/admin/group_edit.py:258
 #: ../src/administration-activity/admin/group_user_list.py:150
 #: ../src/administration-activity/admin/user_list.py:191
 msgid "First Name"
 msgstr "Nome"
 
-#: ../src/administration-activity/admin/class_edit.py:260
-#: ../src/administration-activity/admin/group_edit.py:272
+#: ../src/administration-activity/admin/class_edit.py:257
+#: ../src/administration-activity/admin/group_edit.py:269
 #: ../src/administration-activity/admin/group_user_list.py:160
 #: ../src/administration-activity/admin/user_list.py:201
 msgid "Last Name"
 msgstr "Apelidos"
 
-#: ../src/administration-activity/admin/class_edit.py:335
+#: ../src/administration-activity/admin/class_edit.py:332
 msgid "You need to provide at least a name for your class"
 msgstr "É necesario indicar, cando menos, un nome para a túa clase"
 
-#: ../src/administration-activity/admin/class_edit.py:380
+#: ../src/administration-activity/admin/class_edit.py:377
 msgid "There is already a class with this name"
 msgstr "Xa existe unha clase con este nome"
 
 #: ../src/administration-activity/admin/class_list.py:165
-#: ../src/administration-activity/admin/profile_edit.py:266
+#: ../src/administration-activity/admin/profile_edit.py:263
 #: ../src/administration-activity/admin/profile_group_list.py:140
 msgid "Class"
 msgstr "Clase"
@@ -497,11 +496,11 @@ msgstr "Descrición:"
 msgid "Assign all the users belonging to this group"
 msgstr "Atribuír a todas as persoas usuarias que pertenzan a este grupo"
 
-#: ../src/administration-activity/admin/group_edit.py:355
+#: ../src/administration-activity/admin/group_edit.py:352
 msgid "You need to provide at least a name for your group"
 msgstr "Precisa proporcionar, cando menos, un nome para o seu grupo"
 
-#: ../src/administration-activity/admin/group_edit.py:369
+#: ../src/administration-activity/admin/group_edit.py:366
 msgid "There is already a group with this name"
 msgstr "Xa existe un grupo con ese nome"
 
@@ -510,13 +509,13 @@ msgid "Select a class:"
 msgstr "Seleccione unha clase:"
 
 #: ../src/administration-activity/admin/group_list.py:210
-#: ../src/administration-activity/admin/profile_edit.py:276
+#: ../src/administration-activity/admin/profile_edit.py:273
 #: ../src/administration-activity/admin/profile_group_list.py:150
 msgid "Group"
 msgstr "Grupo"
 
 #: ../src/administration-activity/admin/group_list.py:221
-#: ../src/administration-activity/admin/profile_edit.py:286
+#: ../src/administration-activity/admin/profile_edit.py:283
 #: ../src/administration-activity/admin/profile_group_list.py:160
 #: ../src/administration-activity/admin/profile_list.py:194
 msgid "Description"
@@ -634,11 +633,11 @@ msgstr "Perfil:"
 msgid "Assign all the groups belonging to this profile"
 msgstr "Atribuír a todos os grupos que pertenzan a este perfil"
 
-#: ../src/administration-activity/admin/profile_edit.py:374
+#: ../src/administration-activity/admin/profile_edit.py:371
 msgid "You need to provide at least a name for your profile"
 msgstr "Debe proporcionar, cando menos, un nome para o seu perfil"
 
-#: ../src/administration-activity/admin/profile_edit.py:396
+#: ../src/administration-activity/admin/profile_edit.py:393
 msgid "There is already a profile with this name"
 msgstr "Xa existe un perfil con este nome"
 
@@ -682,14 +681,14 @@ msgstr "Apelidos:"
 msgid "Birth date:"
 msgstr "Data de nacemento:"
 
-#: ../src/administration-activity/admin/user_edit.py:156
+#: ../src/administration-activity/admin/user_edit.py:153
 msgid ""
 "You need to provide at least a login, first name and last name for your users"
 msgstr ""
 "Debe proporcionar, cando menos, un nome de inicio de sesión, o nome e os "
 "apelidos das súas persoas usuarias"
 
-#: ../src/administration-activity/admin/user_edit.py:173
+#: ../src/administration-activity/admin/user_edit.py:170
 msgid "There is already a user with this login"
 msgstr ""
 "Xa hai unha persoa usuaria rexistrada con este nome de inicio de sesión"
@@ -1526,7 +1525,7 @@ msgstr "Coordinación motriz. Coincidencia conceptual."
 msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "Manexo do rato: movemento, arrastrar e soltar. Referencias culturais."
 
-#: ../src/babymatch-activity/shapegame.c:1844
+#: ../src/babymatch-activity/shapegame.c:1901
 #: ../src/click_on_letter-activity/click_on_letter.c:635
 #: ../src/colors-activity/colors.c:168
 #, c-format
@@ -1788,8 +1787,8 @@ msgstr ""
 msgid "Error: The external program gnuchess died unexpectedly"
 msgstr "Erro: o programa externo gnuchess fallou inesperadamente"
 
-#: ../src/chess_computer-activity/chess.c:258
-#: ../src/chess_computer-activity/chess.c:304
+#: ../src/chess_computer-activity/chess.c:262
+#: ../src/chess_computer-activity/chess.c:308
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -1799,39 +1798,39 @@ msgstr ""
 "para xogar ao xadrez en gcompris.\n"
 "Instálao primeiro e verifica despois que está se encontre en "
 
-#: ../src/chess_computer-activity/chess.c:644
+#: ../src/chess_computer-activity/chess.c:648
 msgid "White's Turn"
 msgstr "Xogan as brancas"
 
-#: ../src/chess_computer-activity/chess.c:644
+#: ../src/chess_computer-activity/chess.c:648
 msgid "Black's Turn"
 msgstr "Xogan as negras"
 
 #  'xeque' �'jaque' en castel�. Ver galipedia: http://gl.wikipedia.org/wiki/Xadrez
-#: ../src/chess_computer-activity/chess.c:785
+#: ../src/chess_computer-activity/chess.c:789
 msgid "White checks"
 msgstr "Xeque das brancas"
 
-#: ../src/chess_computer-activity/chess.c:787
+#: ../src/chess_computer-activity/chess.c:791
 msgid "Black checks"
 msgstr "Xeque das negras"
 
-#: ../src/chess_computer-activity/chess.c:1193
+#: ../src/chess_computer-activity/chess.c:1197
 msgid "Black mates"
 msgstr "Xeque mate das negras"
 
 #  'xeque mate' �'jaque mate' en espa�l. Ver galipedia: http://gl.wikipedia.org/wiki/Xadrez
-#: ../src/chess_computer-activity/chess.c:1198
+#: ../src/chess_computer-activity/chess.c:1204
 msgid "White mates"
 msgstr "Xeque mate das brancas"
 
 #  Acabar empatados ao xadrez �acabar en 't�oas'
-#: ../src/chess_computer-activity/chess.c:1203 ../src/gcompris/bonus.c:191
+#: ../src/chess_computer-activity/chess.c:1211 ../src/gcompris/bonus.c:191
 #: ../src/gcompris/bonus.c:200
 msgid "Drawn game"
 msgstr "Táboas"
 
-#: ../src/chess_computer-activity/chess.c:1229
+#: ../src/chess_computer-activity/chess.c:1239
 msgid "Error: The external program gnuchess died unexpectingly"
 msgstr "Erro: o programa externo gnuchess pechouse inesperadamente"
 
@@ -2451,7 +2450,7 @@ msgstr "Arrastrar unha imaxe premendo cada número na orde correcta."
 msgid "Draw the picture by following numbers"
 msgstr "Arrastrar a imaxe seguindo os números"
 
-#: ../src/electric-activity/electric.py:98
+#: ../src/electric-activity/electric.py:99
 msgid ""
 "Cannot find the 'gnucap' electric simulator.\n"
 "You can download and install it from:\n"
@@ -2647,7 +2646,7 @@ msgid ""
 "Background Music: Rico Da Halvarez\n"
 msgstr ""
 "Autor: Bruno Coudoin\n"
-"Contribuidores: Pascal Georges, Jose Jorge, Yves Combe\n"
+"Contribucións: Pascal Georges, Jose Jorge, Yves Combe\n"
 "Gráficos: Renaud Blanchard, Franck Doucet\n"
 "Música de introdución: Djilali Sebihi\n"
 "Música de fondo: Rico Da Halvarez\n"
@@ -2655,7 +2654,7 @@ msgstr ""
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/gcompris/about.c:58
 msgid "translator_credits"
-msgstr "Traducido no Entrans de mancomun.org, 2007...."
+msgstr "Ignacio Casal QuinteiroPaula IglesiasGonçalo Cordeiro"
 
 #: ../src/gcompris/about.c:85
 msgid "About GCompris"
@@ -2663,13 +2662,13 @@ msgstr "Acerca de GCompris"
 
 #: ../src/gcompris/about.c:95
 msgid "GCompris Home Page: http://gcompris.net"
-msgstr "Páxina principal do GCompris: http://gcompris.net"
+msgstr "Páxina principal de GCompris: http://gcompris.net"
 
 #: ../src/gcompris/about.c:106
 msgid "Translators:"
-msgstr "Tradutores:"
+msgstr "Tradutores/as:"
 
-#: ../src/gcompris/about.c:206
+#: ../src/gcompris/about.c:208
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
@@ -2677,7 +2676,7 @@ msgstr ""
 "Este software é un paquete GNU e está publicado baixo a licenza pública "
 "xeral de GNU"
 
-#: ../src/gcompris/about.c:220 ../src/gcompris/config.c:442
+#: ../src/gcompris/about.c:222 ../src/gcompris/config.c:442
 #: ../src/gcompris/dialog.c:103 ../src/gcompris/help.c:359
 #: ../src/gcompris/images_selector.c:307
 msgid "OK"
@@ -3377,7 +3376,7 @@ msgstr "Non está afectado"
 msgid "Users without a class"
 msgstr "Persoas usuarias sen unha clase"
 
-#: ../src/gcompris/gcompris_db.c:893
+#: ../src/gcompris/gcompris_db.c:894
 #, c-format
 msgid ""
 "Loading activity from database:\n"
@@ -3466,11 +3465,11 @@ msgstr "Volver"
 msgid "Stop"
 msgstr "Deter"
 
-#: ../src/gcompris/timer.c:244
+#: ../src/gcompris/timer.c:245
 msgid "Time Elapsed"
 msgstr "Tempo transcorrido"
 
-#: ../src/gcompris/timer.c:322
+#: ../src/gcompris/timer.c:323
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Tempo restante = %d"
@@ -6132,6 +6131,15 @@ msgstr "Move o helicóptero para capturar nubes na orde correcta"
 msgid "Number"
 msgstr "Número"
 
+#: ../src/pythontemplate-activity/pythontemplate.py:60
+#: ../src/pythontest-activity/pythontest.py:184
+msgid ""
+"This is the first plugin in GCompris coded in the Python\n"
+"Programming language."
+msgstr ""
+"Este é o primeiro plugin do GCompris codificado na linguaxe\n"
+"de programación Python."
+
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:1
 #: ../src/pythontest-activity/pythontest.xml.in.h:1
 msgid "Add a language-binding to GCompris."
@@ -6157,14 +6165,6 @@ msgid ""
 msgstr ""
 "Grazas a Guido van Rossum e ao equipo de desenvolvedores de Python por esta "
 "potente linguaxe!"
-
-#: ../src/pythontest-activity/pythontest.py:184
-msgid ""
-"This is the first plugin in GCompris coded in the Python\n"
-"Programming language."
-msgstr ""
-"Este é o primeiro plugin do GCompris codificado na linguaxe\n"
-"de programación Python."
 
 #: ../src/pythontest-activity/pythontest.py:194
 msgid ""
@@ -7164,6 +7164,84 @@ msgstr "%s: a opción -W %s é ambigua\n"
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: a opción -W %s non permite un argumento\n"
+
+#~ msgid "Find the details"
+#~ msgstr "Atopa os detalles"
+
+#~ msgid "The images are from wiki commons"
+#~ msgstr "As imaxes proveñen de Wikimedia Commons"
+
+#~ msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1889"
+#~ msgstr "Vincent Van Gogh, Vestíbulo do Hospital de Saint-Paul - 1889"
+
+#~ msgid ""
+#~ "Vincent van Gogh, The Bridge of Langlois at Arles with a lady with "
+#~ "umbrella - 1888"
+#~ msgstr ""
+#~ "Vincent van Gogh, A ponte de Langlois en Arlés cunha muller con paraugas "
+#~ "- 1888"
+
+#~ msgid "Vincent van Gogh, The Church at Auvers-sur-Oise - 1890"
+#~ msgstr "Vincent Van Gogh, A igrexa de Auvers-sur-Oise - 1890"
+
+#~ msgid "Vincent van Gogh, Painter on His Way to Work - 1888"
+#~ msgstr "Vincent Van Gogh, O pintor de camiño ao traballo - 1888"
+
+#~ msgid "Vincent van Gogh, The Harvest - 1888"
+#~ msgstr "Vincent Van Gogh, A colleita - 1888"
+
+#~ msgid "Vincent van Gogh, Cafe Terrace at Night - 1888"
+#~ msgstr "Vincent Van Gogh, A terraza do café pola noite - 1888"
+
+#~ msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1888"
+#~ msgstr "Vincent Van Gogh, Vestíbulo do Hospital de Saint-Paul - 1888"
+
+#~ msgid "Vincent van Gogh, Portrait of Pere Tanguy 1887-8"
+#~ msgstr "Vincent Van Gogh, Retrato de Père Tanguy 1887-8"
+
+#~ msgid "Eilean Donan castle"
+#~ msgstr "Castelo de Eilean Donan"
+
+#~ msgid "Eiffel Tower, seen from the champ de Mars, Paris, France"
+#~ msgstr "A Torre Eiffel, vista desde o Campo de Marte, París, Francia"
+
+#~ msgid "Gizah Pyramids, Egypt"
+#~ msgstr "Pirámides de Gizah, Exipto"
+
+#~ msgid "Sydney Opera House, Austriala"
+#~ msgstr "Casa da Ópera de Sydney, Australia"
+
+#~ msgid "Courtyard of the Museum of Louvre, and its pyramid"
+#~ msgstr "Patio do museo do Louvre e a súa pirámide"
+
+#~ msgid "Panorama of Château de Chenonceau, Indre-et-Loire, France."
+#~ msgstr "Panorama do castelo de Chenonceau, Indre-et-Loire, Francia."
+
+#~ msgid ""
+#~ "Notre Dame de Paris cathedral on the Île de la Cité island in Paris, "
+#~ "France."
+#~ msgstr ""
+#~ "Catedral de Notre-Dame de París na Île de la Cité (illa da Cité) en "
+#~ "París, Francia."
+
+#~ msgid "Nagoya Castle, Aichi Prefecture, Japan."
+#~ msgstr "Castelo de Nagoya, prefectura de Aichi, Xapón."
+
+#~ msgid "Taj Mahal, Agra, India"
+#~ msgstr "Taj Mahal, Agra, India"
+
+#~ msgid "Castle Neuschwanstein at Schwangau, Bavaria, Germany"
+#~ msgstr "Castelo Neuschwanstein en Schwangau, Bavaria, Alemaña"
+
+#~ msgid "Egeskov Castle, Denmark"
+#~ msgstr "Castelo de Egeskov, Dinamarca"
+
+#~ msgid "Windmill in Sønderho, Fanø, Denmark"
+#~ msgstr "Muíño en Sønderho, Fanø, Dinamarca"
+
+# verificar nome e obra!
+#~ msgid "Pieter Brugel : Harvest"
+#~ msgstr "Pieter Brugel: Colleita"
 
 #~ msgid "Botticelli, Primavera - 1482"
 #~ msgstr "Botticelli, Primavera - 1482"
