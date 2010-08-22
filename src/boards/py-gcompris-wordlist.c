@@ -1,4 +1,4 @@
-/* gcompris - py-mod-gcompris.c
+/* gcompris
  *
  * Copyright (C) 2003, 2008 Olivier Samyn <osamyn@ulb.ac.be>
  *
@@ -63,28 +63,31 @@ static PyObject *
 pyGcomprisWordlistType_getattr(pyGcomprisWordlistObject *self, char *name)
 {
   if (self->cdata != NULL) {
+    GcomprisWordlist *wl = self->cdata;
     /* Wordlist filename */
-    if(strcmp(name,"filename")==0) return Py_BuildValue("s", self->cdata->filename);
-    if(strcmp(name,"locale")==0) return Py_BuildValue("z", self->cdata->locale);
-    if(strcmp(name,"description")==0) return Py_BuildValue("z", self->cdata->description);
+    if(strcmp(name,"filename")==0) return Py_BuildValue("s", wl->filename);
+    if(strcmp(name,"locale")==0) return Py_BuildValue("z", wl->locale);
+    if(strcmp(name,"description")==0) return Py_BuildValue("z", wl->description);
+    if(strcmp(name,"number_of_level")==0) return Py_BuildValue("i", wl->number_of_level);
 
     /* list */
     if(strcmp(name,"words")==0){
       PyObject *pydict;
       PyObject *pylist;
-      gint level;
-      GSList *words;
-      GSList *list, *list_words;
+      GSList *levelList, *list_words;
 
       pydict = PyDict_New();
 
-      for (list = self->cdata->levels_words; list !=NULL; list = list->next){
-	level =  ((LevelWordlist *)  list)->level;
-	words = ((LevelWordlist *)  list)->words;
+      // Fixme does not work, I get only the level 2 no idea why
+      for (levelList = wl->levels_words; levelList;
+	   levelList = levelList->next){
+	LevelWordlist *lw = levelList->data;
+	gint level = lw->level;
 
 	pylist = PyList_New(0);
-	for (list_words = words; list_words !=NULL; list_words = list_words->next){
-	  PyList_Append(pylist, Py_BuildValue("s", (gchar *)list->data));
+	for (list_words = lw->words; list_words !=NULL;
+	     list_words = list_words->next){
+	  PyList_Append(pylist, Py_BuildValue("s", (gchar *)list_words->data));
 	}
 
 	PyDict_SetItem( pydict, PyInt_FromLong(	(long) level), pylist);

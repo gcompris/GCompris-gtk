@@ -1576,6 +1576,32 @@ py_gcompris_wordlist_get_from_file (PyObject* self, PyObject* args)
 }
 
 static PyObject*
+py_gcompris_wordlist_get_random_word (PyObject* self, PyObject* args)
+{
+  PyObject* pyGcWordList;
+  GcomprisWordlist *gcWordList;
+  gint level;
+  gchar *result;
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, "Oi:get_random_word", &pyGcWordList, &level))
+    return NULL;
+  gcWordList = (GcomprisWordlist*) pygobject_get(pyGcWordList);
+
+  printf("level=%d\n", level);
+  printf("worldlist nol=%d\n", gcWordList->number_of_level);
+  printf("worldlist locale name=%s\n", gcWordList->name);
+  /* Call the corresponding C function */
+  result = gc_wordlist_random_word_get (gcWordList, level);
+
+  if (result)
+    return PyString_FromString(result);
+  else {
+    Py_INCREF(Py_None);
+    return Py_None;
+  }
+}
+
+static PyObject*
 py_gc_im_reset (PyObject* self, PyObject* args)
 {
 
@@ -1647,7 +1673,8 @@ static PyMethodDef PythonGcomprisModule[] = {
   { "combo_locales_asset",  py_gc_board_config_combo_locales_asset, METH_VARARGS, "gc_board_config_combo_locales_asset" },
   { "get_locales_asset_list",  py_gc_locale_gets_asset_list, METH_VARARGS, "gc_locale_gets_asset_list" },
   { "textview",  py_gc_board_config_textview, METH_VARARGS, "gc_board_config_textview" },
-  { "get_wordlist",  py_gcompris_wordlist_get_from_file, METH_VARARGS, "gcompris_wordlist_get_from_file" },
+  { "get_wordlist",  py_gcompris_wordlist_get_from_file, METH_VARARGS, "gc_wordlist_get_from_file" },
+  { "get_random_word",  py_gcompris_wordlist_get_random_word, METH_VARARGS, "gc_wordlist_random_word_get" },
   { "im_reset",  py_gc_im_reset, METH_VARARGS, "gc_im_reset" },
   { NULL, NULL, 0, NULL}
 };

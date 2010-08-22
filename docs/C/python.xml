@@ -278,6 +278,16 @@ attribute is readeable and/or writable.</para>
 		<entry>gchar* gc_db_get_filename(void)</entry>
 		<entry>return the filename (string) of the database (fullpath)</entry>
 	      </row>
+	      <row>
+		<entry>gcompris.get_wordlist()</entry>
+		<entry>GcomprisWordlist* gc_wordlist_get_from_file(const gchar *fileformat, ...)</entry>
+		<entry>Return a WordList object loaded from the given file. It can be loaded with "wordsgame/default-$LOCALE.xml"</entry>
+	      </row>
+	      <row>
+		<entry>gcompris.get_random_word(wordlist, level)</entry>
+		<entry>gchar* gc_wordlist_random_word_get(GcomprisWordlist *wordlist, guint level)</entry>
+		<entry>Return a random word from the previously loaded wordlist object and the specified level.</entry>
+	      </row>
 	    </tbody>
 	  </tgroup>
 	</informaltable>
