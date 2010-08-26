@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-26 22:02+0200\n"
-"PO-Revision-Date: 2010-04-26 22:12+0100\n"
-"Last-Translator: Bruno Coudoin <bruno.coudoin@free.fr>\n"
+"POT-Creation-Date: 2010-08-27 00:31+0200\n"
+"PO-Revision-Date: 2010-08-27 00:32+0100\n"
+"Last-Translator: Bruno Coudoin <bruno.coudoin@gcompris.net>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -195,7 +195,7 @@ msgid "GCompris Main Menu"
 msgstr "Menu principal de GCompris"
 
 #: ../boards/menu.xml.in.h:17
-#: ../src/boards/menu2.c:859
+#: ../src/boards/menu2.c:875
 msgid "GCompris is a collection of educational games that provides different activities for children aged 2 and up."
 msgstr "GCompris est une collection d'activités et jeux éducatifs destinés aux enfants de 2 ans et plus."
 
@@ -408,30 +408,30 @@ msgstr "Professeur :"
 msgid "Assign all the users belonging to this class"
 msgstr "Sélectionne tous les utilisateurs appartenant à cette classe"
 
-#: ../src/administration-activity/admin/class_edit.py:249
-#: ../src/administration-activity/admin/group_edit.py:261
+#: ../src/administration-activity/admin/class_edit.py:246
+#: ../src/administration-activity/admin/group_edit.py:258
 #: ../src/administration-activity/admin/group_user_list.py:150
 #: ../src/administration-activity/admin/user_list.py:191
 msgid "First Name"
 msgstr "Prénom"
 
-#: ../src/administration-activity/admin/class_edit.py:260
-#: ../src/administration-activity/admin/group_edit.py:272
+#: ../src/administration-activity/admin/class_edit.py:257
+#: ../src/administration-activity/admin/group_edit.py:269
 #: ../src/administration-activity/admin/group_user_list.py:160
 #: ../src/administration-activity/admin/user_list.py:201
 msgid "Last Name"
 msgstr "Nom"
 
-#: ../src/administration-activity/admin/class_edit.py:335
+#: ../src/administration-activity/admin/class_edit.py:332
 msgid "You need to provide at least a name for your class"
 msgstr "Vous devez spécifier au moins un nom pour votre classe"
 
-#: ../src/administration-activity/admin/class_edit.py:380
+#: ../src/administration-activity/admin/class_edit.py:377
 msgid "There is already a class with this name"
 msgstr "Il existe déjà une classe qui porte ce nom"
 
 #: ../src/administration-activity/admin/class_list.py:165
-#: ../src/administration-activity/admin/profile_edit.py:266
+#: ../src/administration-activity/admin/profile_edit.py:263
 #: ../src/administration-activity/admin/profile_group_list.py:140
 msgid "Class"
 msgstr "Classe"
@@ -472,11 +472,11 @@ msgstr "Description :"
 msgid "Assign all the users belonging to this group"
 msgstr "Sélectionne tous les utilisateurs appartenant à ce groupe"
 
-#: ../src/administration-activity/admin/group_edit.py:355
+#: ../src/administration-activity/admin/group_edit.py:352
 msgid "You need to provide at least a name for your group"
 msgstr "Vous devez fournir au moins un nom pour votre groupe"
 
-#: ../src/administration-activity/admin/group_edit.py:369
+#: ../src/administration-activity/admin/group_edit.py:366
 msgid "There is already a group with this name"
 msgstr "Il existe déjà un groupe avec ce nom"
 
@@ -485,13 +485,13 @@ msgid "Select a class:"
 msgstr "Sélectionne une classe :"
 
 #: ../src/administration-activity/admin/group_list.py:210
-#: ../src/administration-activity/admin/profile_edit.py:276
+#: ../src/administration-activity/admin/profile_edit.py:273
 #: ../src/administration-activity/admin/profile_group_list.py:150
 msgid "Group"
 msgstr "Groupe"
 
 #: ../src/administration-activity/admin/group_list.py:221
-#: ../src/administration-activity/admin/profile_edit.py:286
+#: ../src/administration-activity/admin/profile_edit.py:283
 #: ../src/administration-activity/admin/profile_group_list.py:160
 #: ../src/administration-activity/admin/profile_list.py:194
 msgid "Description"
@@ -609,11 +609,11 @@ msgstr "Profil :"
 msgid "Assign all the groups belonging to this profile"
 msgstr "Sélectionne tous les groupes appartenant à ce profil"
 
-#: ../src/administration-activity/admin/profile_edit.py:374
+#: ../src/administration-activity/admin/profile_edit.py:371
 msgid "You need to provide at least a name for your profile"
 msgstr "Vous devez fournir au moins un nom pour votre profil"
 
-#: ../src/administration-activity/admin/profile_edit.py:396
+#: ../src/administration-activity/admin/profile_edit.py:393
 msgid "There is already a profile with this name"
 msgstr "Il y a déjà un profil qui porte ce nom"
 
@@ -657,11 +657,11 @@ msgstr "Nom :"
 msgid "Birth date:"
 msgstr "Date de naissance :"
 
-#: ../src/administration-activity/admin/user_edit.py:156
+#: ../src/administration-activity/admin/user_edit.py:153
 msgid "You need to provide at least a login, first name and last name for your users"
 msgstr "Vous devez fournir au moins un identifiant, un prénom et un nom pour vos utilisateurs"
 
-#: ../src/administration-activity/admin/user_edit.py:173
+#: ../src/administration-activity/admin/user_edit.py:170
 msgid "There is already a user with this login"
 msgstr "Il y a déjà un utilisateur pour cet identifiant"
 
@@ -1044,8 +1044,8 @@ msgid "Practice the multiplication operation"
 msgstr "Entraînement à la multiplication"
 
 #: ../src/algebra_guesscount-activity/algebra_guesscount.xml.in.h:1
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:1
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:1
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:1
 msgid "Animal pictures come from the Animal Photography Page of Ralf Schmode (http://schmode.net/). Ralf has kindly permitted Gcompris to include his pictures. Thanks a lot, Ralf."
 msgstr "Les photos d'animaux proviennent d'une page consacrée aux photographies d'animaux de Ralf Schmode (http://schmode.net). Ralf a gentiment autorisé GCompris à les inclure. Nous remercions beaucoup Ralf."
 
@@ -1302,8 +1302,8 @@ msgstr "Coordination moteur. Concept d'association."
 msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "Manipulation de la souris : mouvement, attraper et faire glisser. Références culturelles."
 
-#: ../src/babymatch-activity/shapegame.c:1835
-#: ../src/click_on_letter-activity/click_on_letter.c:624
+#: ../src/babymatch-activity/shapegame.c:1903
+#: ../src/click_on_letter-activity/click_on_letter.c:635
 #: ../src/colors-activity/colors.c:168
 #, c-format
 msgid ""
@@ -1318,14 +1318,17 @@ msgid "Complete the puzzle"
 msgstr "Associations géométriques"
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:2
+#: ../src/details-activity/details.xml.in.h:1
 msgid "Complete the puzzle by dragging each piece from the set of pieces on the left, to the matching space in the puzzle."
 msgstr "Complète l'activité en faisant glisser les objets depuis le présentoir situé sur la gauche vers leur ombre."
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:3
+#: ../src/details-activity/details.xml.in.h:2
 msgid "Drag and Drop the shapes on their respective targets"
 msgstr "Retrouve le lien géométrique entre des objets graphiques."
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:4
+#: ../src/details-activity/details.xml.in.h:4
 msgid "Good mouse-control"
 msgstr "Bien savoir manipuler la souris"
 
@@ -1419,8 +1422,8 @@ msgstr "Envoie le ballon dans les buts."
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:5
 #: ../src/connect4-activity/connect4.xml.in.h:6
 #: ../src/erase-activity/erase.xml.in.h:3
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:6
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:6
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:6
 #: ../src/fifteen-activity/fifteen.xml.in.h:2
 #: ../src/hanoi-activity/hanoi.xml.in.h:3
 #: ../src/memory-activity/memory.xml.in.h:4
@@ -1446,6 +1449,11 @@ msgstr "Menu principal deuxième version"
 #: ../src/boards/menu2.c:136
 msgid "Select a Board"
 msgstr "Sélectionne un tableau."
+
+#: ../src/boards/menu2.c:266
+#, c-format
+msgid "Number of activities: %d"
+msgstr "Nombre d'activités : %d"
 
 #: ../src/boards/python.c:64
 #: ../src/boards/python.c:88
@@ -1521,8 +1529,8 @@ msgstr "Cette activité de discussion ne fonctionne qu'avec d'autres utilisateur
 msgid "Error: The external program gnuchess died unexpectedly"
 msgstr "Erreur : le programme externe Gnuchess a quitté de façon inattendue."
 
-#: ../src/chess_computer-activity/chess.c:258
-#: ../src/chess_computer-activity/chess.c:304
+#: ../src/chess_computer-activity/chess.c:262
+#: ../src/chess_computer-activity/chess.c:308
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -1532,41 +1540,41 @@ msgstr ""
 "pour jouer aux échecs dans GCompris.\n"
 "Commencez par l'installer, puis vérifiez qu'il est dans "
 
-#: ../src/chess_computer-activity/chess.c:644
+#: ../src/chess_computer-activity/chess.c:648
 msgid "White's Turn"
 msgstr "Les blancs jouent"
 
-#: ../src/chess_computer-activity/chess.c:644
+#: ../src/chess_computer-activity/chess.c:648
 msgid "Black's Turn"
 msgstr "Les noirs jouent"
 
-#: ../src/chess_computer-activity/chess.c:785
+#: ../src/chess_computer-activity/chess.c:789
 msgid "White checks"
 msgstr "Échec aux blancs"
 
-#: ../src/chess_computer-activity/chess.c:787
+#: ../src/chess_computer-activity/chess.c:791
 msgid "Black checks"
 msgstr "Échec aux noirs"
 
-#: ../src/chess_computer-activity/chess.c:1193
+#: ../src/chess_computer-activity/chess.c:1197
 msgid "Black mates"
 msgstr ""
 "Échec et mat\n"
 "aux blancs"
 
-#: ../src/chess_computer-activity/chess.c:1198
+#: ../src/chess_computer-activity/chess.c:1204
 msgid "White mates"
 msgstr ""
 "Échec et mat\n"
 "aux noirs"
 
-#: ../src/chess_computer-activity/chess.c:1203
+#: ../src/chess_computer-activity/chess.c:1211
 #: ../src/gcompris/bonus.c:191
 #: ../src/gcompris/bonus.c:200
 msgid "Drawn game"
 msgstr "Match nul"
 
-#: ../src/chess_computer-activity/chess.c:1229
+#: ../src/chess_computer-activity/chess.c:1239
 msgid "Error: The external program gnuchess died unexpectingly"
 msgstr "Erreur : le programme externe Gnuchess a quitté subitement"
 
@@ -1816,7 +1824,7 @@ msgstr ""
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcdefghijklmnopqrstuvwxyz"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:298
+#: ../src/click_on_letter-activity/click_on_letter.c:304
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -1825,7 +1833,7 @@ msgstr ""
 "Erreur : cette activité nécessite d'abord l'installation\n"
 "des paquets contenant les voix de GCompris pour la langue « %s » ou « %s »"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:306
+#: ../src/click_on_letter-activity/click_on_letter.c:314
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -1835,7 +1843,7 @@ msgstr ""
 "des paquets avec les voix de GCompris pour la locale « %s ». Retour à l'anglais, désolé !"
 
 #. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:647
+#: ../src/click_on_letter-activity/click_on_letter.c:658
 #: ../src/gletters-activity/gletters.c:883
 #: ../src/login-activity/login.py:484
 msgid "Uppercase only text"
@@ -2021,8 +2029,8 @@ msgstr "Pilote le bras de la grue pour déplacer des éléments suivant un modè
 
 #: ../src/crane-activity/crane.xml.in.h:3
 #: ../src/erase-activity/erase.xml.in.h:2
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:5
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:5
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:5
 #: ../src/penalty-activity/penalty.xml.in.h:3
 msgid "Motor-coordination"
 msgstr "Coordination moteur"
@@ -2035,6 +2043,101 @@ msgstr "Manipulation de la souris"
 #: ../src/crane-activity/crane.xml.in.h:5
 msgid "Move the items in the bottom left frame to copy their position in the top right model. Below the crane itself, you will find four arrows that let you move items. To select the item to move, just click on it. If you prefer, you can use the arrow keys and the space or tab key instead."
 msgstr "La zone quadrillée de droite te montre la position des objets que tu dois reproduire dans la zone quadrillée de gauche. Clique sur un des objets à déplacer (dans la zone de gauche), puis utilise les commandes de la grue (les 4 flèches) pour piloter son déplacement. Si tu préfères, tu peux utiliser les flèches du clavier à la place."
+
+#: ../src/details-activity/details.xml.in.h:3
+msgid "Find the details"
+msgstr "Trouve les détails"
+
+#: ../src/details-activity/details.xml.in.h:5
+msgid "The images are from wiki commons"
+msgstr ""
+
+#: ../src/details-activity/resources/details/board1_0.xml.in.h:1
+#, fuzzy
+msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1889"
+msgstr "Vincent Van Gogh, Chambre à Coucher à Arles - 1888"
+
+#: ../src/details-activity/resources/details/board1_1.xml.in.h:1
+msgid "Vincent van Gogh, The Bridge of Langlois at Arles with a lady with umbrella - 1888"
+msgstr ""
+
+#: ../src/details-activity/resources/details/board1_2.xml.in.h:1
+#, fuzzy
+msgid "Vincent van Gogh, The Church at Auvers-sur-Oise - 1890"
+msgstr "Vincent Van Gogh, Rue de village à Auvers - 1890"
+
+#: ../src/details-activity/resources/details/board1_3.xml.in.h:1
+#, fuzzy
+msgid "Vincent van Gogh, Painter on His Way to Work - 1888"
+msgstr "Vincent Van Gogh, Chambre à Coucher à Arles - 1888"
+
+#: ../src/details-activity/resources/details/board1_4.xml.in.h:1
+#, fuzzy
+msgid "Vincent van Gogh, The Harvest - 1888"
+msgstr "Vincent Van Gogh, Chambre à Coucher à Arles - 1888"
+
+#: ../src/details-activity/resources/details/board1_5.xml.in.h:1
+#, fuzzy
+msgid "Vincent van Gogh, Cafe Terrace at Night - 1888"
+msgstr "Vincent Van Gogh, Chambre à Coucher à Arles - 1888"
+
+#: ../src/details-activity/resources/details/board1_6.xml.in.h:1
+#, fuzzy
+msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1888"
+msgstr "Vincent Van Gogh, Chambre à Coucher à Arles - 1888"
+
+#: ../src/details-activity/resources/details/board1_7.xml.in.h:1
+#, fuzzy
+msgid "Vincent van Gogh, Portrait of Pere Tanguy 1887-8"
+msgstr "Vincent Van Gogh, Chambre à Coucher à Arles - 1888"
+
+#: ../src/details-activity/resources/details/board2_0.xml.in.h:1
+msgid "Eilean Donan castle"
+msgstr ""
+
+#: ../src/details-activity/resources/details/board2_1.xml.in.h:1
+msgid "Eiffel Tower, seen from the champ de Mars, Paris, France"
+msgstr ""
+
+#: ../src/details-activity/resources/details/board2_10.xml.in.h:1
+msgid "Gizah Pyramids, Egypt"
+msgstr ""
+
+#: ../src/details-activity/resources/details/board2_11.xml.in.h:1
+msgid "Sydney Opera House, Austriala"
+msgstr ""
+
+#: ../src/details-activity/resources/details/board2_2.xml.in.h:1
+msgid "Courtyard of the Museum of Louvre, and its pyramid"
+msgstr ""
+
+#: ../src/details-activity/resources/details/board2_3.xml.in.h:1
+msgid "Panorama of Château de Chenonceau, Indre-et-Loire, France."
+msgstr ""
+
+#: ../src/details-activity/resources/details/board2_4.xml.in.h:1
+msgid "Notre Dame de Paris cathedral on the Île de la Cité island in Paris, France."
+msgstr ""
+
+#: ../src/details-activity/resources/details/board2_5.xml.in.h:1
+msgid "Nagoya Castle, Aichi Prefecture, Japan."
+msgstr ""
+
+#: ../src/details-activity/resources/details/board2_6.xml.in.h:1
+msgid "Taj Mahal, Agra, India"
+msgstr ""
+
+#: ../src/details-activity/resources/details/board2_7.xml.in.h:1
+msgid "Castle Neuschwanstein at Schwangau, Bavaria, Germany"
+msgstr ""
+
+#: ../src/details-activity/resources/details/board2_8.xml.in.h:1
+msgid "Egeskov Castle, Denmark"
+msgstr ""
+
+#: ../src/details-activity/resources/details/board2_9.xml.in.h:1
+msgid "Windmill in Sønderho, Fanø, Denmark"
+msgstr ""
 
 #: ../src/doubleentry-activity/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
@@ -2094,7 +2197,7 @@ msgstr "Dessine l'image en cliquant sur tous les nombres dans le bon ordre."
 msgid "Draw the picture by following numbers"
 msgstr "Dessine l'image en suivant les nombres"
 
-#: ../src/electric-activity/electric.py:98
+#: ../src/electric-activity/electric.py:99
 msgid ""
 "Cannot find the 'gnucap' electric simulator.\n"
 "You can download and install it from:\n"
@@ -2169,18 +2272,6 @@ msgstr "Les photos d'animaux proviennent de la page consacrée aux photographies
 msgid "Move the mouse until all the blocks disappear."
 msgstr "Déplace la souris sur les blocs pour les faire disparaître."
 
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:2
-msgid "Click the mouse"
-msgstr "Cliquer avec la souris"
-
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:3
-msgid "Click the mouse on rectangles until all the blocks disappear."
-msgstr "Clique avec la souris sur les rectangles pour les faire disparaître."
-
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:4
-msgid "Click the mouse to erase the area and discover the background"
-msgstr "Clique avec la souris pour tout effacer dans la zone et découvrir l'image de fond"
-
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
 msgid "Double click the mouse"
 msgstr "Double clic de la souris"
@@ -2192,6 +2283,18 @@ msgstr "Double clique avec la souris sur les rectangles pour les faire disparaî
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:4
 msgid "Double click the mouse to erase the area and discover the background"
 msgstr "Double clique avec la souris pour tout effacer dans la zone et découvrir l'image de fond"
+
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:2
+msgid "Click the mouse"
+msgstr "Cliquer avec la souris"
+
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:3
+msgid "Click the mouse on rectangles until all the blocks disappear."
+msgstr "Clique avec la souris sur les rectangles pour les faire disparaître."
+
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:4
+msgid "Click the mouse to erase the area and discover the background"
+msgstr "Clique avec la souris pour tout effacer dans la zone et découvrir l'image de fond"
 
 #: ../src/fifteen-activity/fifteen.xml.in.h:1
 msgid "Click on any item that has a free block beside it, and it will be swapped with the empty block."
@@ -2262,11 +2365,11 @@ msgstr "Page d'accueil de GCompris : http://gcompris.net"
 msgid "Translators:"
 msgstr "Traducteurs :"
 
-#: ../src/gcompris/about.c:206
+#: ../src/gcompris/about.c:208
 msgid "This software is a GNU Package and is released under the GNU General Public License"
 msgstr "Ce logiciel est un paquet GNU et est soumis à la Licence Publique Générale GNU (GPL)."
 
-#: ../src/gcompris/about.c:220
+#: ../src/gcompris/about.c:222
 #: ../src/gcompris/config.c:442
 #: ../src/gcompris/dialog.c:103
 #: ../src/gcompris/help.c:359
@@ -2909,7 +3012,7 @@ msgstr "Non affecté"
 msgid "Users without a class"
 msgstr "Utilisateurs sans classe"
 
-#: ../src/gcompris/gcompris_db.c:893
+#: ../src/gcompris/gcompris_db.c:894
 #, c-format
 msgid ""
 "Loading activity from database:\n"
@@ -2995,11 +3098,11 @@ msgstr "Précédant"
 msgid "Stop"
 msgstr "Arrêter"
 
-#: ../src/gcompris/timer.c:244
+#: ../src/gcompris/timer.c:245
 msgid "Time Elapsed"
 msgstr "Temps écoulé"
 
-#: ../src/gcompris/timer.c:322
+#: ../src/gcompris/timer.c:323
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Temps restant = %d"
@@ -5134,16 +5237,20 @@ msgid "Woman holding a fan"
 msgstr "Femme tenant un éventail"
 
 #: ../src/paintings-activity/resources/paintings/board2_1.xml.in.h:1
-msgid "Botticelli, Primavera - 1482"
-msgstr "Botticelli, Le Printemps - 1482"
+msgid "Mona Lisa"
+msgstr ""
 
 #: ../src/paintings-activity/resources/paintings/board2_2.xml.in.h:1
-msgid "Caravage, Rest on the Flight into Egypt - 1597"
-msgstr "Caravage, Le repos pendant la fuite en Egypte - 1597"
+msgid "Bellini : Pala di pesaro"
+msgstr ""
 
 #: ../src/paintings-activity/resources/paintings/board2_3.xml.in.h:1
-msgid "Botticelli, The Birth of Venus - 1482–1486"
-msgstr "Botticelli, La Naissance de Vénus - 1482-1486"
+msgid "Dürer : Lion"
+msgstr ""
+
+#: ../src/paintings-activity/resources/paintings/board2_4.xml.in.h:1
+msgid "Pieter Brugel : Harvest"
+msgstr ""
 
 #: ../src/paintings-activity/resources/paintings/board3_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
@@ -5258,6 +5365,13 @@ msgstr "Déplace l'hélicoptère pour attraper les nuages dans l'ordre croissant
 msgid "Number"
 msgstr "Nombre"
 
+#: ../src/pythontemplate-activity/pythontemplate.py:60
+#: ../src/pythontest-activity/pythontest.py:184
+msgid ""
+"This is the first plugin in GCompris coded in the Python\n"
+"Programming language."
+msgstr "C'est le premier greffon de GCompris programmé en langage Python."
+
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:1
 #: ../src/pythontest-activity/pythontest.xml.in.h:1
 msgid "Add a language-binding to GCompris."
@@ -5280,12 +5394,6 @@ msgstr "Modèle Python"
 #: ../src/pythontest-activity/pythontest.xml.in.h:5
 msgid "Thanks to Guido van Rossum and the python team for this powerful language!"
 msgstr "Merci à Guido van Rossum et à l'équipe python pour ce langage puissant !"
-
-#: ../src/pythontest-activity/pythontest.py:184
-msgid ""
-"This is the first plugin in GCompris coded in the Python\n"
-"Programming language."
-msgstr "C'est le premier greffon de GCompris programmé en langage Python."
 
 #: ../src/pythontest-activity/pythontest.py:194
 msgid ""
@@ -5580,6 +5688,18 @@ msgstr ""
 msgid "To balance the scales, move the masses on the left or the right side. The masses can be arranged in any order."
 msgstr "Pour équilibrer la balance, déplace les masses sur le plateau de gauche. Les masses peuvent être placées dans n'importe quel ordre."
 
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:2
+msgid "Drag and Drop masses to balance the scales and calculate the weight"
+msgstr "Attrape et fais glisser les poids pour équilibrer la balance et calculer la masse."
+
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:3
+msgid "Mental calculation, arithmetic equality, unit conversion"
+msgstr "Calcul mental, égalité arithmétique, conversion d'unité"
+
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:5
+msgid "To balance the scales, move the masses on the left or the right side. Take care of the weight and the unit of the masses, remember that a kilogram (kg) is 1000 grams (g). They can be arranged in any order."
+msgstr "Pour équilibrer la balance, déplace les masses sur le plateau de gauche.  Attention aux masses et à leurs unités, rappelle toi que un kilogramme (kg) représente 1000 grammes (g). Les masses peuvent être placées dans n'importe quel ordre."
+
 #: ../src/searace-activity/searace.py:174
 msgid "The race is already being run"
 msgstr "La course a déjà commencé"
@@ -5674,18 +5794,6 @@ msgstr ""
 #: ../src/searace-activity/searace.xml.in.h:9
 msgid "Sea race (2 Players)"
 msgstr "Course de bateaux (2 joueurs)"
-
-#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:2
-msgid "Drag and Drop masses to balance the scales and calculate the weight"
-msgstr "Attrape et fais glisser les poids pour équilibrer la balance et calculer la masse."
-
-#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:3
-msgid "Mental calculation, arithmetic equality, unit conversion"
-msgstr "Calcul mental, égalité arithmétique, conversion d'unité"
-
-#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:5
-msgid "To balance the scales, move the masses on the left or the right side. Take care of the weight and the unit of the masses, remember that a kilogram (kg) is 1000 grams (g). They can be arranged in any order."
-msgstr "Pour équilibrer la balance, déplace les masses sur le plateau de gauche.  Attention aux masses et à leurs unités, rappelle toi que un kilogramme (kg) représente 1000 grammes (g). Les masses peuvent être placées dans n'importe quel ordre."
 
 #: ../src/searace1player-activity/searace1player.xml.in.h:1
 msgid "Give good instructions to your ship in order to be first in the race."
@@ -6038,6 +6146,53 @@ msgstr "Entraînement au clavier"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Entre au clavier les mots complets pendant qu'ils tombent, et avant qu'ils ne touchent le sol."
 
+#: ../src/hangman-activity/hangman.xml.in.h:1
+msgid "A word is hidden, you must discover it letter by letter"
+msgstr "Un mot est caché, tu dois le retrouver lettre après lettre"
+
+#: ../src/hangman-activity/hangman.xml.in.h:2
+msgid "Reading skill"
+msgstr "Savoir lire"
+
+#: ../src/hangman-activity/hangman.xml.in.h:3
+msgid "The classic hangman game"
+msgstr "Le classique jeu du pendu"
+
+#: ../src/hangman-activity/hangman.xml.in.h:4
+msgid "This is a good exercise to improve reading and spelling skills."
+msgstr "Un bon exercice pour améliorer ses compétence en lecture et pour épeler les mots."
+
+#: ../src/hangman-activity/hangman.xml.in.h:5
+msgid "You can enter the letters using the virtual keyboard on the screen or with the real keyboard."
+msgstr "Tu peux entrer les lettres en utilisant le clavier virtuel ou ton vrai clavier."
+
+#. All the vowel of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:61
+msgid "aeiouy"
+msgstr "aeiouy"
+
+#. All the consonants of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:63
+msgid "bcdfghjklmnpqrstvwxz"
+msgstr "bcdfghjklmnpqrstvwxz"
+
+#. Letters equivallence for the hangman activity. It has the
+#. form of a space separated list like: "e=éè a=àâ"
+#. Keep the word NONE if not available in your language
+#: ../src/hangman-activity/hangman.py:67
+msgid "NONE"
+msgstr "a=àâ c=ç e=éèêë i=îï o=ô u=ùûü y=ÿ"
+
+#: ../src/hangman-activity/hangman.py:90
+msgid "Could not find the list of words."
+msgstr "Impossible de trouver une liste de mots."
+
+#~ msgid "Botticelli, Primavera - 1482"
+#~ msgstr "Botticelli, Le Printemps - 1482"
+#~ msgid "Caravage, Rest on the Flight into Egypt - 1597"
+#~ msgstr "Caravage, Le repos pendant la fuite en Egypte - 1597"
+#~ msgid "Botticelli, The Birth of Venus - 1482–1486"
+#~ msgstr "Botticelli, La Naissance de Vénus - 1482-1486"
 #~ msgid ""
 #~ "The dog is provided by Andre Connes and released under the GPL.\n"
 #~ "Artist: Gauguin, Paul. Title Arearea. Licence: Public Domain. Source: "
