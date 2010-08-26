@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GCompris>
+  <Board
+        name="hangman"
+        type="python:hangman"
+        section="/reading"
+        icon="hangman.svg"
+        difficulty="5"
+        author="Bruno Coudoin"
+        boarddir=""
+        demo="1">
+        <title>The classic hangman game</title>
+        <description>A word is hidden, you must discover it letter by letter</description>
+        <prerequisite>Reading skill</prerequisite>
+        <goal>This is a good exercise to improve reading and spelling skills.</goal>
+        <manual>You can enter the letters using the virtual keyboard on the screen or with the real keaboard.</manual>
+  </Board>
+  <Data directory=""/>
+</GCompris>

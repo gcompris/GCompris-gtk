@@ -548,7 +548,7 @@ AC_SUBST(CFLAGS)
 AC_SUBST(LIBS)
 
 dnl Autoconf output
-AC_OUTPUT([ 
+AC_OUTPUT([  src/hangman-activity/Makefile
 Makefile.mingw
 Makefile
 autopackage/Makefile
