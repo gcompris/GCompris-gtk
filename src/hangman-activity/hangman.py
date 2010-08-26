@@ -72,8 +72,11 @@ class Gcompris_hangman:
     # Create equivs list
     self.equivList = []
     for equiv in self.equivs.split(' '):
-      (k, v) = equiv.split('=')
-      self.equivList.append(k + v)
+      try:
+        (k, v) = equiv.split('=')
+        self.equivList.append(k + v)
+      except:
+        print ("ERROR: Bad equivalence liste '%s'" %(self.equivs, ))
 
   def start(self):
     # Create our rootitem. We put each canvas item in it so at the end we

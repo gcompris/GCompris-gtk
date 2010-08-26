@@ -1587,9 +1587,6 @@ py_gcompris_wordlist_get_random_word (PyObject* self, PyObject* args)
     return NULL;
   gcWordList = (GcomprisWordlist*) pygobject_get(pyGcWordList);
 
-  printf("level=%d\n", level);
-  printf("worldlist nol=%d\n", gcWordList->number_of_level);
-  printf("worldlist locale name=%s\n", gcWordList->name);
   /* Call the corresponding C function */
   result = gc_wordlist_random_word_get (gcWordList, level);
 
