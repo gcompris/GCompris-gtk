@@ -61,9 +61,13 @@ class Gcompris_hangman:
     self.vowels = unicode(_("aeiouy"), encoding="utf8")
     # All the consonants of your language (keep empty if non applicable)
     self.consonants = unicode(_("bcdfghjklmnpqrstvwxz"), encoding="utf8")
-    # Letters equivallence for the hangman activity. It is a list of the
+    # Letters equivallence for the hangman activity. It has the
     # form of a space separated list like: "e=éè a=àâ"
-    self.equivs = unicode(_(""), encoding="utf8")
+    # Keep the word NONE if not available in your language
+    self.equivs = unicode(_("NONE"), encoding="utf8")
+
+    if self.equivs == "NONE":
+      self.equivs = ""
 
     # Create equivs list
     self.equivList = []
