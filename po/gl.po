@@ -8,12 +8,12 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: GCompris 9.3 - gcomprixogoo\n"
+"Project-Id-Version: GCompris - gcomprixogoo\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-19 00:06+0200\n"
-"PO-Revision-Date: 2010-08-16 20:15+0200\n"
+"POT-Creation-Date: 2010-08-28 18:00+0200\n"
+"PO-Revision-Date: 2010-08-27 10:40+0200\n"
 "Last-Translator: Gonçalo Cordeiro <gzcordeiro@gmail.com>\n"
-"Language-Team: Galician <g11n@gnome.net>\n"
+"Language-Team: Galician <proxecto@trasno.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1124,8 +1124,8 @@ msgid "Practice the multiplication operation"
 msgstr "Practicar a operación de multiplicar"
 
 #: ../src/algebra_guesscount-activity/algebra_guesscount.xml.in.h:1
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:1
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:1
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:1
 msgid ""
 "Animal pictures come from the Animal Photography Page of Ralf Schmode "
 "(http://schmode.net/). Ralf has kindly permitted Gcompris to include his "
@@ -1525,7 +1525,7 @@ msgstr "Coordinación motriz. Coincidencia conceptual."
 msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "Manexo do rato: movemento, arrastrar e soltar. Referencias culturais."
 
-#: ../src/babymatch-activity/shapegame.c:1901
+#: ../src/babymatch-activity/shapegame.c:1903
 #: ../src/click_on_letter-activity/click_on_letter.c:635
 #: ../src/colors-activity/colors.c:168
 #, c-format
@@ -1541,6 +1541,7 @@ msgid "Complete the puzzle"
 msgstr "Completa o quebracabezas"
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:2
+#: ../src/details-activity/details.xml.in.h:1
 msgid ""
 "Complete the puzzle by dragging each piece from the set of pieces on the "
 "left, to the matching space in the puzzle."
@@ -1549,10 +1550,12 @@ msgstr ""
 "ao espazo que lle corresponde no quebracabezas."
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:3
+#: ../src/details-activity/details.xml.in.h:2
 msgid "Drag and Drop the shapes on their respective targets"
 msgstr "Arrastrar e soltar as formas nos seus respectivos destinos"
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:4
+#: ../src/details-activity/details.xml.in.h:4
 msgid "Good mouse-control"
 msgstr "Bo control do rato"
 
@@ -1652,8 +1655,8 @@ msgstr "Mete a pelota na portería"
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:5
 #: ../src/connect4-activity/connect4.xml.in.h:6
 #: ../src/erase-activity/erase.xml.in.h:3
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:6
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:6
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:6
 #: ../src/fifteen-activity/fifteen.xml.in.h:2
 #: ../src/hanoi-activity/hanoi.xml.in.h:3
 #: ../src/memory-activity/memory.xml.in.h:4
@@ -2353,8 +2356,8 @@ msgstr "Conduce o guindastre e copia o modelo"
 
 #: ../src/crane-activity/crane.xml.in.h:3
 #: ../src/erase-activity/erase.xml.in.h:2
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:5
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:5
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:5
 #: ../src/penalty-activity/penalty.xml.in.h:3
 msgid "Motor-coordination"
 msgstr "Coordinación motora"
@@ -2377,6 +2380,101 @@ msgstr ""
 "seleccionar o elemento que hai que mover só tes que premer sobre el. Se o "
 "prefires, en vez diso podes usar as teclas de dirección e a barra de espazos "
 "ou a tecla de tabulación."
+
+#: ../src/details-activity/details.xml.in.h:3
+msgid "Find the details"
+msgstr "Atopa os detalles"
+
+#: ../src/details-activity/details.xml.in.h:5
+msgid "The images are from wiki commons"
+msgstr "As imaxes proveñen de Wikimedia Commons"
+
+#: ../src/details-activity/resources/details/board1_0.xml.in.h:1
+msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1889"
+msgstr "Vincent Van Gogh, Vestíbulo do Hospital de Saint-Paul - 1889"
+
+#: ../src/details-activity/resources/details/board1_1.xml.in.h:1
+msgid ""
+"Vincent van Gogh, The Bridge of Langlois at Arles with a lady with umbrella "
+"- 1888"
+msgstr ""
+"Vincent van Gogh, A ponte de Langlois en Arlés cunha muller con paraugas - "
+"1888"
+
+#: ../src/details-activity/resources/details/board1_2.xml.in.h:1
+msgid "Vincent van Gogh, The Church at Auvers-sur-Oise - 1890"
+msgstr "Vincent Van Gogh, A igrexa de Auvers-sur-Oise - 1890"
+
+#: ../src/details-activity/resources/details/board1_3.xml.in.h:1
+msgid "Vincent van Gogh, Painter on His Way to Work - 1888"
+msgstr "Vincent Van Gogh, O pintor de camiño ao traballo - 1888"
+
+#: ../src/details-activity/resources/details/board1_4.xml.in.h:1
+msgid "Vincent van Gogh, The Harvest - 1888"
+msgstr "Vincent Van Gogh, A colleita - 1888"
+
+#: ../src/details-activity/resources/details/board1_5.xml.in.h:1
+msgid "Vincent van Gogh, Cafe Terrace at Night - 1888"
+msgstr "Vincent Van Gogh, A terraza do café pola noite - 1888"
+
+#: ../src/details-activity/resources/details/board1_6.xml.in.h:1
+msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1888"
+msgstr "Vincent Van Gogh, Vestíbulo do Hospital de Saint-Paul - 1888"
+
+#: ../src/details-activity/resources/details/board1_7.xml.in.h:1
+msgid "Vincent van Gogh, Portrait of Pere Tanguy 1887-8"
+msgstr "Vincent Van Gogh, Retrato de Père Tanguy 1887-8"
+
+#: ../src/details-activity/resources/details/board2_0.xml.in.h:1
+msgid "Eilean Donan castle"
+msgstr "Castelo de Eilean Donan"
+
+#: ../src/details-activity/resources/details/board2_1.xml.in.h:1
+msgid "Eiffel Tower, seen from the champ de Mars, Paris, France"
+msgstr "A Torre Eiffel, vista desde o Campo de Marte, París, Francia"
+
+#: ../src/details-activity/resources/details/board2_10.xml.in.h:1
+msgid "Gizah Pyramids, Egypt"
+msgstr "Pirámides de Gizah, Exipto"
+
+#: ../src/details-activity/resources/details/board2_11.xml.in.h:1
+msgid "Sydney Opera House, Austriala"
+msgstr "Casa da Ópera de Sydney, Australia"
+
+#: ../src/details-activity/resources/details/board2_2.xml.in.h:1
+msgid "Courtyard of the Museum of Louvre, and its pyramid"
+msgstr "Patio do museo do Louvre e a súa pirámide"
+
+#: ../src/details-activity/resources/details/board2_3.xml.in.h:1
+msgid "Panorama of Château de Chenonceau, Indre-et-Loire, France."
+msgstr "Panorama do castelo de Chenonceau, Indre-et-Loire, Francia."
+
+#: ../src/details-activity/resources/details/board2_4.xml.in.h:1
+msgid ""
+"Notre Dame de Paris cathedral on the Île de la Cité island in Paris, France."
+msgstr ""
+"Catedral de Notre-Dame de París na Île de la Cité (illa da Cité) en París, "
+"Francia."
+
+#: ../src/details-activity/resources/details/board2_5.xml.in.h:1
+msgid "Nagoya Castle, Aichi Prefecture, Japan."
+msgstr "Castelo de Nagoya, prefectura de Aichi, Xapón."
+
+#: ../src/details-activity/resources/details/board2_6.xml.in.h:1
+msgid "Taj Mahal, Agra, India"
+msgstr "Taj Mahal, Agra, India"
+
+#: ../src/details-activity/resources/details/board2_7.xml.in.h:1
+msgid "Castle Neuschwanstein at Schwangau, Bavaria, Germany"
+msgstr "Castelo Neuschwanstein en Schwangau, Bavaria, Alemaña"
+
+#: ../src/details-activity/resources/details/board2_8.xml.in.h:1
+msgid "Egeskov Castle, Denmark"
+msgstr "Castelo de Egeskov, Dinamarca"
+
+#: ../src/details-activity/resources/details/board2_9.xml.in.h:1
+msgid "Windmill in Sønderho, Fanø, Denmark"
+msgstr "Muíño en Sønderho, Fanø, Dinamarca"
 
 #: ../src/doubleentry-activity/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
@@ -2566,18 +2664,6 @@ msgstr ""
 msgid "Move the mouse until all the blocks disappear."
 msgstr "Move o rato até que desaparezan todos os bloques."
 
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:2
-msgid "Click the mouse"
-msgstr "Premer o rato"
-
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:3
-msgid "Click the mouse on rectangles until all the blocks disappear."
-msgstr "Preme co rato sobre os rectángulos até que desaparezan os bloques."
-
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:4
-msgid "Click the mouse to erase the area and discover the background"
-msgstr "Preme co rato para borrar a zona e descubrir o fondo"
-
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
 msgid "Double click the mouse"
 msgstr "Premer dúas veces co rato"
@@ -2591,6 +2677,18 @@ msgstr ""
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:4
 msgid "Double click the mouse to erase the area and discover the background"
 msgstr "Premer dúas veces co rato para borrar a área e descubrir o fondo"
+
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:2
+msgid "Click the mouse"
+msgstr "Premer o rato"
+
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:3
+msgid "Click the mouse on rectangles until all the blocks disappear."
+msgstr "Preme co rato sobre os rectángulos até que desaparezan os bloques."
+
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:4
+msgid "Click the mouse to erase the area and discover the background"
+msgstr "Preme co rato para borrar a zona e descubrir o fondo"
 
 #: ../src/fifteen-activity/fifteen.xml.in.h:1
 msgid ""
@@ -5991,6 +6089,11 @@ msgstr "Bellini: Retablo de Pesaro"
 msgid "Dürer : Lion"
 msgstr "Durero: León"
 
+# verificar nome e obra!
+#: ../src/paintings-activity/resources/paintings/board2_4.xml.in.h:1
+msgid "Pieter Brugel : Harvest"
+msgstr "Pieter Brugel: Colleita"
+
 #: ../src/paintings-activity/resources/paintings/board3_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
 msgstr "Pierre-Auguste Renoir, Rapazas ao piano - 1892"
@@ -6513,6 +6616,25 @@ msgstr ""
 "Para equilibrar a balanza move os pesos á dereita ou á esquerda. Os pesos "
 "poden colocarse en calquera orde."
 
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:2
+msgid "Drag and Drop masses to balance the scales and calculate the weight"
+msgstr ""
+"Arrastra e solta as pesos para que equilibren as balanzas e calcular o peso"
+
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:3
+msgid "Mental calculation, arithmetic equality, unit conversion"
+msgstr "Cálculo mental, igualdade aritmética, conversión de unidades"
+
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:5
+msgid ""
+"To balance the scales, move the masses on the left or the right side. Take "
+"care of the weight and the unit of the masses, remember that a kilogram (kg) "
+"is 1000 grams (g). They can be arranged in any order."
+msgstr ""
+"Para equilibrar a balanza move os pesos á dereita ou á esquerda. Ten coidado "
+"co peso e a unidade dos pesos, lembra que un quilogramo (kg) ten 1000 gramos "
+"(g). Os pesos pódense colocar en calquera orde."
+
 #: ../src/searace-activity/searace.py:174
 msgid "The race is already being run"
 msgstr "A carreira xa está en marcha"
@@ -6625,25 +6747,6 @@ msgstr ""
 #: ../src/searace-activity/searace.xml.in.h:9
 msgid "Sea race (2 Players)"
 msgstr "Carreira no mar (2 xogadores)"
-
-#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:2
-msgid "Drag and Drop masses to balance the scales and calculate the weight"
-msgstr ""
-"Arrastra e solta as pesos para que equilibren as balanzas e calcular o peso"
-
-#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:3
-msgid "Mental calculation, arithmetic equality, unit conversion"
-msgstr "Cálculo mental, igualdade aritmética, conversión de unidades"
-
-#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:5
-msgid ""
-"To balance the scales, move the masses on the left or the right side. Take "
-"care of the weight and the unit of the masses, remember that a kilogram (kg) "
-"is 1000 grams (g). They can be arranged in any order."
-msgstr ""
-"Para equilibrar a balanza move os pesos á dereita ou á esquerda. Ten coidado "
-"co peso e a unidade dos pesos, lembra que un quilogramo (kg) ten 1000 gramos "
-"(g). Os pesos pódense colocar en calquera orde."
 
 #: ../src/searace1player-activity/searace1player.xml.in.h:1
 msgid "Give good instructions to your ship in order to be first in the race."
@@ -7104,144 +7207,84 @@ msgstr "Adestramento co teclado"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Escribe a palabra completa mentres cae e antes de que chegue ao chan"
 
-#: ../src/chess_computer-activity/gnuchess/getopt.c:693
-#, c-format
-msgid "%s: option `%s' is ambiguous\n"
-msgstr "%s: a opción %s é ambigua\n"
+#: ../src/hangman-activity/hangman.xml.in.h:1
+msgid "A word is hidden, you must discover it letter by letter"
+msgstr "Hai unha palabra oculta. Tes que descubrila letra a letra"
 
-#: ../src/chess_computer-activity/gnuchess/getopt.c:718
-#, c-format
-msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s: a opción --%s non permite un argumento\n"
+#: ../src/hangman-activity/hangman.xml.in.h:2
+msgid "Reading skill"
+msgstr "Habilidade de lectura"
 
-#: ../src/chess_computer-activity/gnuchess/getopt.c:723
-#, c-format
-msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: a opción %c%s non permite un argumento\n"
+#: ../src/hangman-activity/hangman.xml.in.h:3
+msgid "The classic hangman game"
+msgstr "O clásico xogo do aforcado"
 
-#: ../src/chess_computer-activity/gnuchess/getopt.c:741
-#: ../src/chess_computer-activity/gnuchess/getopt.c:914
-#, c-format
-msgid "%s: option `%s' requires an argument\n"
-msgstr "%s: a opción %s require un argumento\n"
+#: ../src/hangman-activity/hangman.xml.in.h:4
+msgid "This is a good exercise to improve reading and spelling skills."
+msgstr ""
+"Este é un bo exercicio para mellorar as habilidades de lectura e ortografía."
 
-#. --option
-#: ../src/chess_computer-activity/gnuchess/getopt.c:770
-#, c-format
-msgid "%s: unrecognized option `--%s'\n"
-msgstr "%s: non se recoñece a opción --%s\n"
+#: ../src/hangman-activity/hangman.xml.in.h:5
+msgid ""
+"You can enter the letters using the virtual keyboard on the screen or with "
+"the real keyboard."
+msgstr ""
+"Podes escribir as letras usando o teclado virtual en pantalla ou o teclado "
+"real."
 
-#. +option or -option
-#: ../src/chess_computer-activity/gnuchess/getopt.c:774
-#, c-format
-msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s: non se recoñece a opción %c%s\n"
+#. All the vowel of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:61
+msgid "aeiouy"
+msgstr "aeiou"
 
-#. 1003.2 specifies the format of this message.
-#: ../src/chess_computer-activity/gnuchess/getopt.c:800
-#, c-format
-msgid "%s: illegal option -- %c\n"
-msgstr "%s: opción ilegal --%c\n"
+#. All the consonants of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:63
+msgid "bcdfghjklmnpqrstvwxz"
+msgstr "bcdfghjklmnñopqrstuvwxyz"
 
-#: ../src/chess_computer-activity/gnuchess/getopt.c:803
-#, c-format
-msgid "%s: invalid option -- %c\n"
-msgstr "%s: opción non válida --%c\n"
+#. Letters equivallence for the hangman activity. It has the
+#. form of a space separated list like: "e=éè a=àâ"
+#. Keep the word NONE if not available in your language
+#: ../src/hangman-activity/hangman.py:67
+msgid "NONE"
+msgstr "a=á e=é i=í o=ó u=ú i=ï u=ü"
 
-#. 1003.2 specifies the format of this message.
-#: ../src/chess_computer-activity/gnuchess/getopt.c:833
-#: ../src/chess_computer-activity/gnuchess/getopt.c:963
-#, c-format
-msgid "%s: option requires an argument -- %c\n"
-msgstr "%s: a opción require un argumento --%c\n"
+#: ../src/hangman-activity/hangman.py:93
+msgid "Could not find the list of words."
+msgstr "Non se puido encontrar a lista de palabras."
 
-#: ../src/chess_computer-activity/gnuchess/getopt.c:880
-#, c-format
-msgid "%s: option `-W %s' is ambiguous\n"
-msgstr "%s: a opción -W %s é ambigua\n"
+#~ msgid "%s: option `%s' is ambiguous\n"
+#~ msgstr "%s: a opción %s é ambigua\n"
 
-#: ../src/chess_computer-activity/gnuchess/getopt.c:898
-#, c-format
-msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s: a opción -W %s non permite un argumento\n"
+#~ msgid "%s: option `--%s' doesn't allow an argument\n"
+#~ msgstr "%s: a opción --%s non permite un argumento\n"
 
-#~ msgid "Find the details"
-#~ msgstr "Atopa os detalles"
+#~ msgid "%s: option `%c%s' doesn't allow an argument\n"
+#~ msgstr "%s: a opción %c%s non permite un argumento\n"
 
-#~ msgid "The images are from wiki commons"
-#~ msgstr "As imaxes proveñen de Wikimedia Commons"
+#~ msgid "%s: option `%s' requires an argument\n"
+#~ msgstr "%s: a opción %s require un argumento\n"
 
-#~ msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1889"
-#~ msgstr "Vincent Van Gogh, Vestíbulo do Hospital de Saint-Paul - 1889"
+#~ msgid "%s: unrecognized option `--%s'\n"
+#~ msgstr "%s: non se recoñece a opción --%s\n"
 
-#~ msgid ""
-#~ "Vincent van Gogh, The Bridge of Langlois at Arles with a lady with "
-#~ "umbrella - 1888"
-#~ msgstr ""
-#~ "Vincent van Gogh, A ponte de Langlois en Arlés cunha muller con paraugas "
-#~ "- 1888"
+#~ msgid "%s: unrecognized option `%c%s'\n"
+#~ msgstr "%s: non se recoñece a opción %c%s\n"
 
-#~ msgid "Vincent van Gogh, The Church at Auvers-sur-Oise - 1890"
-#~ msgstr "Vincent Van Gogh, A igrexa de Auvers-sur-Oise - 1890"
+#~ msgid "%s: illegal option -- %c\n"
+#~ msgstr "%s: opción ilegal --%c\n"
 
-#~ msgid "Vincent van Gogh, Painter on His Way to Work - 1888"
-#~ msgstr "Vincent Van Gogh, O pintor de camiño ao traballo - 1888"
+#~ msgid "%s: invalid option -- %c\n"
+#~ msgstr "%s: opción non válida --%c\n"
 
-#~ msgid "Vincent van Gogh, The Harvest - 1888"
-#~ msgstr "Vincent Van Gogh, A colleita - 1888"
+#~ msgid "%s: option requires an argument -- %c\n"
+#~ msgstr "%s: a opción require un argumento --%c\n"
 
-#~ msgid "Vincent van Gogh, Cafe Terrace at Night - 1888"
-#~ msgstr "Vincent Van Gogh, A terraza do café pola noite - 1888"
+#~ msgid "%s: option `-W %s' is ambiguous\n"
+#~ msgstr "%s: a opción -W %s é ambigua\n"
 
-#~ msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1888"
-#~ msgstr "Vincent Van Gogh, Vestíbulo do Hospital de Saint-Paul - 1888"
-
-#~ msgid "Vincent van Gogh, Portrait of Pere Tanguy 1887-8"
-#~ msgstr "Vincent Van Gogh, Retrato de Père Tanguy 1887-8"
-
-#~ msgid "Eilean Donan castle"
-#~ msgstr "Castelo de Eilean Donan"
-
-#~ msgid "Eiffel Tower, seen from the champ de Mars, Paris, France"
-#~ msgstr "A Torre Eiffel, vista desde o Campo de Marte, París, Francia"
-
-#~ msgid "Gizah Pyramids, Egypt"
-#~ msgstr "Pirámides de Gizah, Exipto"
-
-#~ msgid "Sydney Opera House, Austriala"
-#~ msgstr "Casa da Ópera de Sydney, Australia"
-
-#~ msgid "Courtyard of the Museum of Louvre, and its pyramid"
-#~ msgstr "Patio do museo do Louvre e a súa pirámide"
-
-#~ msgid "Panorama of Château de Chenonceau, Indre-et-Loire, France."
-#~ msgstr "Panorama do castelo de Chenonceau, Indre-et-Loire, Francia."
-
-#~ msgid ""
-#~ "Notre Dame de Paris cathedral on the Île de la Cité island in Paris, "
-#~ "France."
-#~ msgstr ""
-#~ "Catedral de Notre-Dame de París na Île de la Cité (illa da Cité) en "
-#~ "París, Francia."
-
-#~ msgid "Nagoya Castle, Aichi Prefecture, Japan."
-#~ msgstr "Castelo de Nagoya, prefectura de Aichi, Xapón."
-
-#~ msgid "Taj Mahal, Agra, India"
-#~ msgstr "Taj Mahal, Agra, India"
-
-#~ msgid "Castle Neuschwanstein at Schwangau, Bavaria, Germany"
-#~ msgstr "Castelo Neuschwanstein en Schwangau, Bavaria, Alemaña"
-
-#~ msgid "Egeskov Castle, Denmark"
-#~ msgstr "Castelo de Egeskov, Dinamarca"
-
-#~ msgid "Windmill in Sønderho, Fanø, Denmark"
-#~ msgstr "Muíño en Sønderho, Fanø, Dinamarca"
-
-# verificar nome e obra!
-#~ msgid "Pieter Brugel : Harvest"
-#~ msgstr "Pieter Brugel: Colleita"
+#~ msgid "%s: option `-W %s' doesn't allow an argument\n"
+#~ msgstr "%s: a opción -W %s non permite un argumento\n"
 
 #~ msgid "Botticelli, Primavera - 1482"
 #~ msgstr "Botticelli, Primavera - 1482"
