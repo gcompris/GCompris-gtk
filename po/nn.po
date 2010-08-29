@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-03-31 17:59+0200\n"
-"PO-Revision-Date: 2010-03-31 18:28+0200\n"
+"POT-Creation-Date: 2010-08-29 14:31+0200\n"
+"PO-Revision-Date: 2010-08-29 16:14+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.0\n"
+"X-Generator: Lokalize 1.1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: ../boards/algebra_group.xml.in.h:1
@@ -194,7 +194,7 @@ msgstr ""
 msgid "GCompris Main Menu"
 msgstr "Hovudmeny for GCompris"
 
-#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:859
+#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:875
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -294,7 +294,6 @@ msgstr ""
 "Ein GCompris-instans køyrer allereie. Avslutt GCompris, og prøv så på nytt."
 
 #: ../nsis_translations.desktop.in.h:2
-#| msgid "The race is already being run"
 msgid "The installer is already running."
 msgstr "Installeringsprogrammet køyrer alt."
 
@@ -313,16 +312,16 @@ msgid ""
 "will be deleted.$\\rGCompris user settings will not be affected."
 msgstr ""
 "Den gamle GCompris-mappa vert no sletta. Vil du halda fram?$\\r$\\rMerk: "
-"Eventuelle ikkje-standard programtillegg du har installert vert òg sletta."
-"$\\rMen brukarinnstillingane for GCompris vert ikkje påverka."
+"Eventuelle ikkje-standard programtillegg du har installert vert òg sletta.$"
+"\\rMen brukarinnstillingane for GCompris vert ikkje påverka."
 
 #: ../nsis_translations.desktop.in.h:6
 msgid ""
 "the uninstaller could not find registry entries for GCompris.$\\rIt is "
 "likely that another user installed this application."
 msgstr ""
-"Avinstalleringsprogrammet fann ikkje registeroppføringane for GCompris."
-"$\\rTruleg er det ein annan brukar som har installert programmet."
+"Avinstalleringsprogrammet fann ikkje registeroppføringane for GCompris.$"
+"\\rTruleg er det ein annan brukar som har installert programmet."
 
 #: ../src/administration-activity/admin/board_list.py:88
 msgid "Select a profile:"
@@ -429,30 +428,30 @@ msgstr "Lærar:"
 msgid "Assign all the users belonging to this class"
 msgstr "Tildel brukarar til denne klassen"
 
-#: ../src/administration-activity/admin/class_edit.py:249
-#: ../src/administration-activity/admin/group_edit.py:261
+#: ../src/administration-activity/admin/class_edit.py:246
+#: ../src/administration-activity/admin/group_edit.py:258
 #: ../src/administration-activity/admin/group_user_list.py:150
 #: ../src/administration-activity/admin/user_list.py:191
 msgid "First Name"
 msgstr "Fornamn"
 
-#: ../src/administration-activity/admin/class_edit.py:260
-#: ../src/administration-activity/admin/group_edit.py:272
+#: ../src/administration-activity/admin/class_edit.py:257
+#: ../src/administration-activity/admin/group_edit.py:269
 #: ../src/administration-activity/admin/group_user_list.py:160
 #: ../src/administration-activity/admin/user_list.py:201
 msgid "Last Name"
 msgstr "Etternamn"
 
-#: ../src/administration-activity/admin/class_edit.py:335
+#: ../src/administration-activity/admin/class_edit.py:332
 msgid "You need to provide at least a name for your class"
 msgstr "Du må gje klassen eit namn."
 
-#: ../src/administration-activity/admin/class_edit.py:380
+#: ../src/administration-activity/admin/class_edit.py:377
 msgid "There is already a class with this name"
 msgstr "Det finst allereie ein klasse med dette namnet."
 
 #: ../src/administration-activity/admin/class_list.py:165
-#: ../src/administration-activity/admin/profile_edit.py:266
+#: ../src/administration-activity/admin/profile_edit.py:263
 #: ../src/administration-activity/admin/profile_group_list.py:140
 msgid "Class"
 msgstr "Klasse"
@@ -493,11 +492,11 @@ msgstr "Skildring:"
 msgid "Assign all the users belonging to this group"
 msgstr "Tildel brukarar til denne gruppa"
 
-#: ../src/administration-activity/admin/group_edit.py:355
+#: ../src/administration-activity/admin/group_edit.py:352
 msgid "You need to provide at least a name for your group"
 msgstr "Du må i det minste gje gruppa eit namn."
 
-#: ../src/administration-activity/admin/group_edit.py:369
+#: ../src/administration-activity/admin/group_edit.py:366
 msgid "There is already a group with this name"
 msgstr "Det finst allereie ei gruppe med dette namnet."
 
@@ -506,13 +505,13 @@ msgid "Select a class:"
 msgstr "Vel klasse:"
 
 #: ../src/administration-activity/admin/group_list.py:210
-#: ../src/administration-activity/admin/profile_edit.py:276
+#: ../src/administration-activity/admin/profile_edit.py:273
 #: ../src/administration-activity/admin/profile_group_list.py:150
 msgid "Group"
 msgstr "Gruppe"
 
 #: ../src/administration-activity/admin/group_list.py:221
-#: ../src/administration-activity/admin/profile_edit.py:286
+#: ../src/administration-activity/admin/profile_edit.py:283
 #: ../src/administration-activity/admin/profile_group_list.py:160
 #: ../src/administration-activity/admin/profile_list.py:194
 msgid "Description"
@@ -630,11 +629,11 @@ msgstr "Profil:"
 msgid "Assign all the groups belonging to this profile"
 msgstr "Tildel grupper til denne profilen"
 
-#: ../src/administration-activity/admin/profile_edit.py:374
+#: ../src/administration-activity/admin/profile_edit.py:371
 msgid "You need to provide at least a name for your profile"
 msgstr "Du må i det minste gje profilen eit namn."
 
-#: ../src/administration-activity/admin/profile_edit.py:396
+#: ../src/administration-activity/admin/profile_edit.py:393
 msgid "There is already a profile with this name"
 msgstr "Det finst allereie ein profil med dette namnet."
 
@@ -678,12 +677,12 @@ msgstr "Etternamn:"
 msgid "Birth date:"
 msgstr "Fødselsdato:"
 
-#: ../src/administration-activity/admin/user_edit.py:156
+#: ../src/administration-activity/admin/user_edit.py:153
 msgid ""
 "You need to provide at least a login, first name and last name for your users"
 msgstr "Du må skriva inn brukarnamn, fornamn og etternamn for alle brukarane."
 
-#: ../src/administration-activity/admin/user_edit.py:173
+#: ../src/administration-activity/admin/user_edit.py:170
 msgid "There is already a user with this login"
 msgstr "Det finst allereie ein brukar med dette brukarnamnet."
 
@@ -1105,8 +1104,8 @@ msgid "Practice the multiplication operation"
 msgstr "Øv på gongetabellen"
 
 #: ../src/algebra_guesscount-activity/algebra_guesscount.xml.in.h:1
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:1
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:1
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:1
 msgid ""
 "Animal pictures come from the Animal Photography Page of Ralf Schmode "
 "(http://schmode.net/). Ralf has kindly permitted Gcompris to include his "
@@ -1237,37 +1236,30 @@ msgid "Load..."
 msgstr "Opna …"
 
 #: ../src/anim-activity/anim.py:115
-#| msgid "Mouse manipulation"
 msgid "Run the animation"
 msgstr "Køyr teiknefilmen"
 
 #: ../src/anim-activity/anim.py:121
-#| msgid "Select all"
 msgid "Select"
 msgstr "Vel"
 
 #: ../src/anim-activity/anim.py:127
-#| msgid "Use rectangles"
 msgid "Rectangle"
 msgstr "Rektangel"
 
 #: ../src/anim-activity/anim.py:133
-#| msgid "Use rectangles"
 msgid "Filled rectangle"
 msgstr "Fylt rektangel"
 
 #: ../src/anim-activity/anim.py:139
-#| msgid "Chile"
 msgid "Circle"
 msgstr "Sirkel"
 
 #: ../src/anim-activity/anim.py:145
-#| msgid "Use circles"
 msgid "Filled circle"
 msgstr "Fylt sirkel"
 
 #: ../src/anim-activity/anim.py:151
-#| msgid "wine"
 msgid "Line"
 msgstr "Linje"
 
@@ -1282,12 +1274,10 @@ msgid "Image..."
 msgstr "Bilete …"
 
 #: ../src/anim-activity/anim.py:169
-#| msgid "Filter"
 msgid "Fill"
 msgstr "Fyll"
 
 #: ../src/anim-activity/anim.py:175
-#| msgid "Default"
 msgid "Delete"
 msgstr "Slett"
 
@@ -1296,12 +1286,10 @@ msgid "Flip"
 msgstr "Vend"
 
 #: ../src/anim-activity/anim.py:187
-#| msgid "anise"
 msgid "Raise"
 msgstr "Hev"
 
 #: ../src/anim-activity/anim.py:193
-#| msgid "flower"
 msgid "Lower"
 msgstr "Senk"
 
@@ -1495,8 +1483,8 @@ msgstr ""
 "Du må kunna bruka musa, òg dra og slepp-teknikken, samt kjenna til "
 "gjenstandar som passar saman."
 
-#: ../src/babymatch-activity/shapegame.c:1835
-#: ../src/click_on_letter-activity/click_on_letter.c:624
+#: ../src/babymatch-activity/shapegame.c:1903
+#: ../src/click_on_letter-activity/click_on_letter.c:635
 #: ../src/colors-activity/colors.c:168
 #, c-format
 msgid ""
@@ -1511,16 +1499,19 @@ msgid "Complete the puzzle"
 msgstr "Biletbitar"
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:2
+#: ../src/details-activity/details.xml.in.h:1
 msgid ""
 "Complete the puzzle by dragging each piece from the set of pieces on the "
 "left, to the matching space in the puzzle."
 msgstr "Flytt biletbitane frå feltet til venstre og til rett plass."
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:3
+#: ../src/details-activity/details.xml.in.h:2
 msgid "Drag and Drop the shapes on their respective targets"
 msgstr "Flytt biletbitane til rett plass."
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:4
+#: ../src/details-activity/details.xml.in.h:4
 msgid "Good mouse-control"
 msgstr "Du må kunna bruka musa."
 
@@ -1619,8 +1610,8 @@ msgstr "Skyt fotballen i målet."
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:5
 #: ../src/connect4-activity/connect4.xml.in.h:6
 #: ../src/erase-activity/erase.xml.in.h:3
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:6
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:6
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:6
 #: ../src/fifteen-activity/fifteen.xml.in.h:2
 #: ../src/hanoi-activity/hanoi.xml.in.h:3
 #: ../src/memory-activity/memory.xml.in.h:4
@@ -1648,6 +1639,12 @@ msgstr "Hovudmeny – andreutgåve"
 #: ../src/boards/menu2.c:136
 msgid "Select a Board"
 msgstr "Vel brett"
+
+#: ../src/boards/menu2.c:266
+#, c-format
+#| msgid "Number of activities: %d\n"
+msgid "Number of activities: %d"
+msgstr "Talet på aktivitetar: %d"
 
 #: ../src/boards/python.c:64 ../src/boards/python.c:88
 msgid "Python Board"
@@ -1746,8 +1743,8 @@ msgstr ""
 msgid "Error: The external program gnuchess died unexpectedly"
 msgstr "Feil: Det eksterne programmet gnuchess døydde uventa."
 
-#: ../src/chess_computer-activity/chess.c:258
-#: ../src/chess_computer-activity/chess.c:304
+#: ../src/chess_computer-activity/chess.c:262
+#: ../src/chess_computer-activity/chess.c:308
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -1757,36 +1754,36 @@ msgstr ""
 "for å kunna spela sjakk i GCompris.\n"
 "Sjå til at det er installert i "
 
-#: ../src/chess_computer-activity/chess.c:644
+#: ../src/chess_computer-activity/chess.c:648
 msgid "White's Turn"
 msgstr "Kvit sin tur"
 
-#: ../src/chess_computer-activity/chess.c:644
+#: ../src/chess_computer-activity/chess.c:648
 msgid "Black's Turn"
 msgstr "Svart sin tur"
 
-#: ../src/chess_computer-activity/chess.c:785
+#: ../src/chess_computer-activity/chess.c:789
 msgid "White checks"
 msgstr "Kvit seier sjakk"
 
-#: ../src/chess_computer-activity/chess.c:787
+#: ../src/chess_computer-activity/chess.c:791
 msgid "Black checks"
 msgstr "Svart seier sjakk"
 
-#: ../src/chess_computer-activity/chess.c:1193
+#: ../src/chess_computer-activity/chess.c:1197
 msgid "Black mates"
 msgstr "Svart set matt"
 
-#: ../src/chess_computer-activity/chess.c:1198
+#: ../src/chess_computer-activity/chess.c:1204
 msgid "White mates"
 msgstr "Kvit set matt"
 
-#: ../src/chess_computer-activity/chess.c:1203 ../src/gcompris/bonus.c:191
+#: ../src/chess_computer-activity/chess.c:1211 ../src/gcompris/bonus.c:191
 #: ../src/gcompris/bonus.c:200
 msgid "Drawn game"
 msgstr "Remis"
 
-#: ../src/chess_computer-activity/chess.c:1229
+#: ../src/chess_computer-activity/chess.c:1239
 msgid "Error: The external program gnuchess died unexpectingly"
 msgstr "Feil: Det eksterne programmet gnuchess døydde uventa."
 
@@ -2044,7 +2041,7 @@ msgstr ""
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcdefghijklmnopqrstuvwxyzæøå"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:298
+#: ../src/click_on_letter-activity/click_on_letter.c:304
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -2053,7 +2050,7 @@ msgstr ""
 "Feil: Du må først installera pakken med\n"
 "GCompris-stemmer for lokalet «%s» eller «%s»."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:306
+#: ../src/click_on_letter-activity/click_on_letter.c:314
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -2065,7 +2062,7 @@ msgstr ""
 "No vert derfor dei engelske stemmene brukt."
 
 #. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:647
+#: ../src/click_on_letter-activity/click_on_letter.c:658
 #: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:484
 msgid "Uppercase only text"
 msgstr "Berre store bokstavar"
@@ -2301,8 +2298,8 @@ msgstr "Køyr heisekranen og lag ein kopi av modellen."
 
 #: ../src/crane-activity/crane.xml.in.h:3
 #: ../src/erase-activity/erase.xml.in.h:2
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:5
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:5
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:5
 #: ../src/penalty-activity/penalty.xml.in.h:3
 msgid "Motor-coordination"
 msgstr "Auge–hand-koordinering."
@@ -2324,6 +2321,113 @@ msgstr ""
 "kranen, og du kan trykkja på gjenstandane for å velja dei. Du kan òg bruka "
 "piltastane på tastaturet, samt mellomroms- eller tabulatortasten, om du "
 "føreretrekkjer det."
+
+#: ../src/details-activity/details.xml.in.h:3
+#| msgid "Find the matching pair"
+msgid "Find the details"
+msgstr "Finn detaljane"
+
+#: ../src/details-activity/details.xml.in.h:5
+msgid "The images are from wiki commons"
+msgstr "Bilete er henta frå Wikimedia Commons."
+
+# Merk: Uoffisiell omsetting! Prøv å finna offisielt namn i kunstleksikon e.l.
+#: ../src/details-activity/resources/details/board1_0.xml.in.h:1
+#| msgid "Vincent van Gogh, Bedroom in Arles - 1888"
+msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1889"
+msgstr "Vincent van Gogh: Entré i Saint-Paul-asylet (1889)"
+
+#: ../src/details-activity/resources/details/board1_1.xml.in.h:1
+msgid ""
+"Vincent van Gogh, The Bridge of Langlois at Arles with a lady with umbrella "
+"- 1888"
+msgstr ""
+"Vincent van Gogh: Langlois-brua ved Arles, med ei kvinne med paraply (1888)"
+
+# Merk: Uoffisiell omsetting! Prøv å finna offisielt namn i kunstleksikon e.l.
+#: ../src/details-activity/resources/details/board1_2.xml.in.h:1
+#| msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
+msgid "Vincent van Gogh, The Church at Auvers-sur-Oise - 1890"
+msgstr "Vincent van Gogh: Kyrkja i Auvers-sur-Oise (1890)"
+
+# Merk: Uoffisiell omsetting! Prøv å finna offisielt namn i kunstleksikon e.l.
+#: ../src/details-activity/resources/details/board1_3.xml.in.h:1
+#| msgid "Vincent van Gogh, Bedroom in Arles - 1888"
+msgid "Vincent van Gogh, Painter on His Way to Work - 1888"
+msgstr "Vincent van Gogh: Målar på veg til arbeid (1888)"
+
+# Merk: Uoffisiell omsetting! Prøv å finna offisielt namn i kunstleksikon e.l.
+#: ../src/details-activity/resources/details/board1_4.xml.in.h:1
+#| msgid "Vincent van Gogh, Bedroom in Arles - 1888"
+msgid "Vincent van Gogh, The Harvest - 1888"
+msgstr "Vincent van Gogh: Innhaustinga (1888)"
+
+# Merk: Uoffisiell omsetting! Prøv å finna offisielt namn i kunstleksikon e.l.
+#: ../src/details-activity/resources/details/board1_5.xml.in.h:1
+#| msgid "Vincent van Gogh, Bedroom in Arles - 1888"
+msgid "Vincent van Gogh, Cafe Terrace at Night - 1888"
+msgstr "Vincent van Gogh: Terrasse du café le soir (1888)"
+
+# Merk: Uoffisiell omsetting! Prøv å finna offisielt namn i kunstleksikon e.l.
+#: ../src/details-activity/resources/details/board1_6.xml.in.h:1
+#| msgid "Vincent van Gogh, Bedroom in Arles - 1888"
+msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1888"
+msgstr "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1889"
+
+# Merk: Uoffisiell omsetting! Prøv å finna offisielt namn i kunstleksikon e.l.
+#: ../src/details-activity/resources/details/board1_7.xml.in.h:1
+#| msgid "Vincent van Gogh, Bedroom in Arles - 1888"
+msgid "Vincent van Gogh, Portrait of Pere Tanguy 1887-8"
+msgstr "Vincent van Gogh: Portrett av Père Tanguy (1887–1888)"
+
+#: ../src/details-activity/resources/details/board2_0.xml.in.h:1
+msgid "Eilean Donan castle"
+msgstr "Eilean Donan-slottet"
+
+#: ../src/details-activity/resources/details/board2_1.xml.in.h:1
+msgid "Eiffel Tower, seen from the champ de Mars, Paris, France"
+msgstr "Eiffeltårnet – sett frå Champ de Mars, Paris, Frankrike"
+
+#: ../src/details-activity/resources/details/board2_10.xml.in.h:1
+msgid "Gizah Pyramids, Egypt"
+msgstr "Giza-pyramidene i Egypt"
+
+#: ../src/details-activity/resources/details/board2_11.xml.in.h:1
+msgid "Sydney Opera House, Austriala"
+msgstr "Operahuset i Sydney, Australia"
+
+#: ../src/details-activity/resources/details/board2_2.xml.in.h:1
+msgid "Courtyard of the Museum of Louvre, and its pyramid"
+msgstr "Pyramide-inngangen til Louvre-museet i Paris, Frankrike"
+
+#: ../src/details-activity/resources/details/board2_3.xml.in.h:1
+msgid "Panorama of Château de Chenonceau, Indre-et-Loire, France."
+msgstr "Panorama av Château de Chenonceau, Indre-et-Loire, Frankrike"
+
+#: ../src/details-activity/resources/details/board2_4.xml.in.h:1
+msgid ""
+"Notre Dame de Paris cathedral on the Île de la Cité island in Paris, France."
+msgstr "Notre-Dame-katedralen på øya Île de la Cité i Paris, Frankrike"
+
+#: ../src/details-activity/resources/details/board2_5.xml.in.h:1
+msgid "Nagoya Castle, Aichi Prefecture, Japan."
+msgstr "Nagoya-slottet i Aichi-prefekturet i Japan"
+
+#: ../src/details-activity/resources/details/board2_6.xml.in.h:1
+msgid "Taj Mahal, Agra, India"
+msgstr "Taj Mahal-mausoleet i Agra i India"
+
+#: ../src/details-activity/resources/details/board2_7.xml.in.h:1
+msgid "Castle Neuschwanstein at Schwangau, Bavaria, Germany"
+msgstr "Neuschwanstein-slottet i Schwangau i Bavaria i Tyskland"
+
+#: ../src/details-activity/resources/details/board2_8.xml.in.h:1
+msgid "Egeskov Castle, Denmark"
+msgstr "Egeskov-slottet i Danmark"
+
+#: ../src/details-activity/resources/details/board2_9.xml.in.h:1
+msgid "Windmill in Sønderho, Fanø, Denmark"
+msgstr "Vindmølle ved Sønderho på Fanø, Danmark"
 
 #: ../src/doubleentry-activity/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
@@ -2394,7 +2498,7 @@ msgstr "Lag ei teikning ved å trykkja på kvart tal i rett rekkjefølgje."
 msgid "Draw the picture by following numbers"
 msgstr "Lag ei teikning ved følgja tala."
 
-#: ../src/electric-activity/electric.py:98
+#: ../src/electric-activity/electric.py:99
 msgid ""
 "Cannot find the 'gnucap' electric simulator.\n"
 "You can download and install it from:\n"
@@ -2508,18 +2612,6 @@ msgstr ""
 msgid "Move the mouse until all the blocks disappear."
 msgstr "Flytt på musa til heile biletet bak er synleg."
 
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:2
-msgid "Click the mouse"
-msgstr "Klikk med musa"
-
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:3
-msgid "Click the mouse on rectangles until all the blocks disappear."
-msgstr "Trykk på felta med musa, slik at heile biletet bak vert synleg."
-
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:4
-msgid "Click the mouse to erase the area and discover the background"
-msgstr "Trykk på felta med musa, slik at heile biletet bak vert synleg."
-
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
 msgid "Double click the mouse"
 msgstr "Dobbeltklikk med musa"
@@ -2531,6 +2623,18 @@ msgstr "Dobbeltklikk på felta med musa, slik at heile biletet bak vert synleg."
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:4
 msgid "Double click the mouse to erase the area and discover the background"
 msgstr "Dobbeltklikk på felta med musa, slik at heile biletet bak vert synleg."
+
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:2
+msgid "Click the mouse"
+msgstr "Klikk med musa"
+
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:3
+msgid "Click the mouse on rectangles until all the blocks disappear."
+msgstr "Trykk på felta med musa, slik at heile biletet bak vert synleg."
+
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:4
+msgid "Click the mouse to erase the area and discover the background"
+msgstr "Trykk på felta med musa, slik at heile biletet bak vert synleg."
 
 #: ../src/fifteen-activity/fifteen.xml.in.h:1
 msgid ""
@@ -2605,14 +2709,14 @@ msgstr "Heimesida til GCompris: http://gcompris.net/"
 msgid "Translators:"
 msgstr "Omsett av:"
 
-#: ../src/gcompris/about.c:206
+#: ../src/gcompris/about.c:208
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
 msgstr ""
 "GCompris er ein GNU-pakke og tilgjengeleg under GNU General Public License."
 
-#: ../src/gcompris/about.c:220 ../src/gcompris/config.c:448
+#: ../src/gcompris/about.c:222 ../src/gcompris/config.c:442
 #: ../src/gcompris/dialog.c:103 ../src/gcompris/help.c:359
 #: ../src/gcompris/images_selector.c:307
 msgid "OK"
@@ -2634,7 +2738,7 @@ msgstr "Ja, eg er sikker."
 msgid "No, I want to keep going"
 msgstr "Nei, eg vil halda fram."
 
-#: ../src/gcompris/board.c:194
+#: ../src/gcompris/board.c:197
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr "Dynamisk modullasting er ikkje støtta. Kan ikkje starta GCompris.\n"
 
@@ -2693,332 +2797,330 @@ msgstr "Val av nivå"
 msgid "Back to default"
 msgstr "Tilbakestill til standard"
 
-#: ../src/gcompris/config.c:59
+#: ../src/gcompris/config.c:58
 msgid "Your system default"
 msgstr "Systemstandard"
 
-#: ../src/gcompris/config.c:60
+#: ../src/gcompris/config.c:59
 msgid "Afrikaans"
 msgstr "Afrikaans"
 
-#: ../src/gcompris/config.c:61
+#: ../src/gcompris/config.c:60
 msgid "Amharic"
 msgstr "Amharisk"
 
-#: ../src/gcompris/config.c:62
+#: ../src/gcompris/config.c:61
 msgid "Arabic"
 msgstr "Arabisk"
 
-#: ../src/gcompris/config.c:63
-#| msgid "Austria"
+#: ../src/gcompris/config.c:62
 msgid "Asturian"
 msgstr "Asturleonesisk"
 
-#: ../src/gcompris/config.c:64
+#: ../src/gcompris/config.c:63
 msgid "Turkish (Azerbaijan)"
 msgstr "Tyrkisk (aserbajdsjansk)"
 
-#: ../src/gcompris/config.c:65
+#: ../src/gcompris/config.c:64
 msgid "Bulgarian"
 msgstr "Bulgarsk"
 
-#: ../src/gcompris/config.c:66
+#: ../src/gcompris/config.c:65
 msgid "Breton"
 msgstr "Bretonsk"
 
-#: ../src/gcompris/config.c:67
+#: ../src/gcompris/config.c:66
 msgid "Catalan"
 msgstr "Katalansk"
 
-#: ../src/gcompris/config.c:68
+#: ../src/gcompris/config.c:67
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:7
 msgid "Czech Republic"
 msgstr "Tsjekkia"
 
-#: ../src/gcompris/config.c:69
+#: ../src/gcompris/config.c:68
 msgid "Danish"
 msgstr "Dansk"
 
-#: ../src/gcompris/config.c:70
+#: ../src/gcompris/config.c:69
 msgid "German"
 msgstr "Tysk"
 
-#: ../src/gcompris/config.c:71
+#: ../src/gcompris/config.c:70
 msgid "Dzongkha"
 msgstr "Dzongkha"
 
-#: ../src/gcompris/config.c:72
+#: ../src/gcompris/config.c:71
 msgid "Greek"
 msgstr "Gresk"
 
-#: ../src/gcompris/config.c:73
+#: ../src/gcompris/config.c:72
 msgid "English (Canada)"
 msgstr "Engelsk (Canada)"
 
-#: ../src/gcompris/config.c:74
+#: ../src/gcompris/config.c:73
 msgid "English (Great Britain)"
 msgstr "Engelsk (Storbritannia)"
 
-#: ../src/gcompris/config.c:75
+#: ../src/gcompris/config.c:74
 msgid "English (United States)"
 msgstr "Engelsk (USA)"
 
-#: ../src/gcompris/config.c:76
+#: ../src/gcompris/config.c:75
 msgid "Spanish"
 msgstr "Spansk"
 
-#: ../src/gcompris/config.c:77
+#: ../src/gcompris/config.c:76
 msgid "Basque"
 msgstr "Baskisk"
 
-#: ../src/gcompris/config.c:78
+#: ../src/gcompris/config.c:77
 msgid "Persian"
 msgstr "Persisk"
 
-#: ../src/gcompris/config.c:79
+#: ../src/gcompris/config.c:78
 msgid "Finnish"
 msgstr "Finsk"
 
-#: ../src/gcompris/config.c:80
+#: ../src/gcompris/config.c:79
 msgid "French"
 msgstr "Fransk"
 
-#: ../src/gcompris/config.c:81
+#: ../src/gcompris/config.c:80
 msgid "Irish (Gaelic)"
 msgstr "Irsk"
 
-#: ../src/gcompris/config.c:82
+#: ../src/gcompris/config.c:81
 msgid "Gujarati"
 msgstr "Gujarati"
 
-#: ../src/gcompris/config.c:83
+#: ../src/gcompris/config.c:82
 msgid "Hebrew"
 msgstr "Hebraisk"
 
-#: ../src/gcompris/config.c:84
+#: ../src/gcompris/config.c:83
 msgid "Hindi"
 msgstr "Hindi"
 
-#: ../src/gcompris/config.c:85
+#: ../src/gcompris/config.c:84
 msgid "Croatian"
 msgstr "Kroatisk"
 
-#: ../src/gcompris/config.c:86
+#: ../src/gcompris/config.c:85
 msgid "Hungarian"
 msgstr "Ungarsk"
 
-#: ../src/gcompris/config.c:87
+#: ../src/gcompris/config.c:86
 msgid "Indonesian"
 msgstr "Indonesisk"
 
-#: ../src/gcompris/config.c:88
+#: ../src/gcompris/config.c:87
 msgid "Italian"
 msgstr "Italiensk"
 
-#: ../src/gcompris/config.c:89
+#: ../src/gcompris/config.c:88
 msgid "Japanese"
 msgstr "Japansk"
 
-#: ../src/gcompris/config.c:90
+#: ../src/gcompris/config.c:89
 msgid "Georgian"
 msgstr "Georgisk"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:90
 msgid "Korean"
 msgstr "Koreansk"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:91
 msgid "Lithuanian"
 msgstr "Litauisk"
 
-#: ../src/gcompris/config.c:93
+#: ../src/gcompris/config.c:92
 msgid "Macedonian"
 msgstr "Makedonsk"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:93
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:94
 msgid "Marathi"
 msgstr "Marathi"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:95
 msgid "Malay"
 msgstr "Malayisk"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:96
 msgid "Norwegian Bokmal"
 msgstr "Norsk (bokmål)"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:97
 msgid "Nepal"
 msgstr "Nepal"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:98
 msgid "Dutch"
 msgstr "Nederlandsk"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:99
 msgid "Norwegian Nynorsk"
 msgstr "Norsk (nynorsk)"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:100
 msgid "Occitan (languedocien)"
 msgstr "Oksitansk (languedocien)"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:101
 msgid "Punjabi"
 msgstr "Panjabi"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:102
 msgid "Polish"
 msgstr "Polsk"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:103
 msgid "Portuguese (Brazil)"
 msgstr "Portugisisk (Brasil)"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:104
 msgid "Portuguese"
 msgstr "Portugisisk (Portugal)"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:105
 msgid "Romanian"
 msgstr "Rumensk"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:106
 msgid "Russian"
 msgstr "Russisk"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:107
 msgid "Kinyarwanda"
 msgstr "Kinyarwanda"
 
-#: ../src/gcompris/config.c:109
+#: ../src/gcompris/config.c:108
 msgid "Slovak"
 msgstr "Slovakisk"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:109
 msgid "Slovenian"
 msgstr "Slovensk"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:110
 msgid "Somali"
 msgstr "Somali"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:111
 msgid "Albanian"
 msgstr "Albansk"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:112
 msgid "Serbian (Latin)"
 msgstr "Serbisk (latinsk alfabet)"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:113
 msgid "Serbian"
 msgstr "Serbisk"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:114
 msgid "Swedish"
 msgstr "Svensk"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:115
 msgid "Tamil"
 msgstr "Tamil"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:116
 msgid "Thai"
 msgstr "Thai"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:117
 msgid "Turkish"
 msgstr "Tyrkisk"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:118
 msgid "Ukrainian"
 msgstr "Ukrainsk"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:119
 msgid "Urdu"
 msgstr "Urdu"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:120
 msgid "Vietnamese"
 msgstr "Vietnamesisk"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:121
 msgid "Walloon"
 msgstr "Vallonsk"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:122
 msgid "Chinese (Simplified)"
 msgstr "Kinesisk – forenkla"
 
-#: ../src/gcompris/config.c:124
+#: ../src/gcompris/config.c:123
 msgid "Chinese (Traditional)"
 msgstr "Kinesisk – tradisjonell"
 
-#: ../src/gcompris/config.c:129
+#: ../src/gcompris/config.c:128
 msgid "No time limit"
 msgstr "Inga tidsgrense"
 
-#: ../src/gcompris/config.c:130
+#: ../src/gcompris/config.c:129
 msgid "Slow timer"
 msgstr "Sakte tid"
 
-#: ../src/gcompris/config.c:131
+#: ../src/gcompris/config.c:130
 msgid "Normal timer"
 msgstr "Vanleg tid"
 
-#: ../src/gcompris/config.c:132
+#: ../src/gcompris/config.c:131
 msgid "Fast timer"
 msgstr "Rask tid"
 
-#: ../src/gcompris/config.c:136
-msgid ""
-"<i>Use Gcompris administration module\n"
-"to filter boards</i>"
-msgstr ""
-"<i>Bruk administreringsmodulen\n"
-"for å filtrera bretta.</i>"
+#: ../src/gcompris/config.c:135
+#| msgid ""
+#| "<i>Use Gcompris administration module\n"
+#| "to filter boards</i>"
+msgid "Use Gcompris administration module to filter boards"
+msgstr "Bruk administreringsmodulen for å filtrera bretta."
 
-#: ../src/gcompris/config.c:188
+#: ../src/gcompris/config.c:186
 msgid "GCompris Configuration"
 msgstr "GCompris-oppsett"
 
-#: ../src/gcompris/config.c:259
+#: ../src/gcompris/config.c:254
 msgid "Fullscreen"
 msgstr "Fullskjerm"
 
-#: ../src/gcompris/config.c:285
+#: ../src/gcompris/config.c:280
 msgid "Music"
 msgstr "Musikk"
 
-#: ../src/gcompris/config.c:311
+#: ../src/gcompris/config.c:306
 msgid "Effect"
 msgstr "Lydeffektar"
 
-#: ../src/gcompris/config.c:336 ../src/gcompris/sugar.c:82
+#: ../src/gcompris/config.c:331 ../src/gcompris/sugar.c:82
 msgid "Zoom"
 msgstr "Forstørr"
 
-#: ../src/gcompris/config.c:373
+#: ../src/gcompris/config.c:368
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Klarte ikkje opna draktmappa «%s»"
 
-#: ../src/gcompris/config.c:404 ../src/gcompris/config.c:813
-#: ../src/gcompris/config.c:827
+#: ../src/gcompris/config.c:399 ../src/gcompris/config.c:757
+#: ../src/gcompris/config.c:771
 #, c-format
 msgid "Skin : %s"
 msgstr "Drakt: %s"
 
-#: ../src/gcompris/config.c:406
+#: ../src/gcompris/config.c:401
 msgid "SKINS NOT FOUND"
 msgstr "FANN IKKJE TEMA"
 
-#: ../src/gcompris/config.c:488
+#: ../src/gcompris/config.c:482
 msgid "English (United State)"
 msgstr "Engelsk (USA)"
 
@@ -3050,39 +3152,39 @@ msgstr ""
 "Avslutt programmet og meld\n"
 "frå om problemet til forfattarane."
 
-#: ../src/gcompris/gcompris.c:165
+#: ../src/gcompris/gcompris.c:156
 msgid "run GCompris in fullscreen mode."
 msgstr "Køyr GCompris i fullskjermmodus."
 
-#: ../src/gcompris/gcompris.c:168
+#: ../src/gcompris/gcompris.c:159
 msgid "run GCompris in window mode."
 msgstr "Køyr GCompris i vindaugemodus."
 
-#: ../src/gcompris/gcompris.c:171
+#: ../src/gcompris/gcompris.c:162
 msgid "run GCompris with sound enabled."
 msgstr "Køyr GCompris med lyd."
 
-#: ../src/gcompris/gcompris.c:174
+#: ../src/gcompris/gcompris.c:165
 msgid "run GCompris without sound."
 msgstr "Køyr GCompris utan lyd."
 
-#: ../src/gcompris/gcompris.c:177
+#: ../src/gcompris/gcompris.c:168
 msgid "run GCompris with the default gnome cursor."
 msgstr "Køyr GCompris med standard musepeikarar."
 
-#: ../src/gcompris/gcompris.c:180
+#: ../src/gcompris/gcompris.c:171
 msgid "display only activities with this difficulty level."
 msgstr "Vis berre aktivitetar med denne vanskegraden."
 
-#: ../src/gcompris/gcompris.c:183
+#: ../src/gcompris/gcompris.c:174
 msgid "display debug informations on the console."
 msgstr "Vis feilsøkingsinformasjon på konsollen."
 
-#: ../src/gcompris/gcompris.c:186
+#: ../src/gcompris/gcompris.c:177
 msgid "Print the version of "
 msgstr "Skriv ut versjonsnummeret til "
 
-#: ../src/gcompris/gcompris.c:189
+#: ../src/gcompris/gcompris.c:180
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
@@ -3094,35 +3196,35 @@ msgstr ""
 "for å visa ei oversikt over alle tilgjengelege aktivitetar og tilhøyrande "
 "skildringar."
 
-#: ../src/gcompris/gcompris.c:194
+#: ../src/gcompris/gcompris.c:185
 msgid "GCompris will find the data dir in this directory"
 msgstr "GCompris ser etter speldataa i denne mappa."
 
-#: ../src/gcompris/gcompris.c:197
+#: ../src/gcompris/gcompris.c:188
 msgid "GCompris will find the skins in this directory"
 msgstr "GCompris ser etter drakter i denne mappa."
 
-#: ../src/gcompris/gcompris.c:200
+#: ../src/gcompris/gcompris.c:191
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "GCompris ser etter aktivitetstillegga i denne mappa."
 
-#: ../src/gcompris/gcompris.c:203
+#: ../src/gcompris/gcompris.c:194
 msgid "GCompris will find the python activity in this directory"
 msgstr "GCompris ser etter Python-aktivitetar i denne mappa."
 
-#: ../src/gcompris/gcompris.c:206
+#: ../src/gcompris/gcompris.c:197
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr "GCompris ser etter omsetjingsfiler i denne mappa."
 
-#: ../src/gcompris/gcompris.c:209
+#: ../src/gcompris/gcompris.c:200
 msgid "GCompris will find the activities menu in this directory"
 msgstr "GCompris ser etter aktivitetsmenyen i denne mappa."
 
-#: ../src/gcompris/gcompris.c:212
+#: ../src/gcompris/gcompris.c:203
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Køyr GCompris med administrator- og brukarhandsamingsmodus."
 
-#: ../src/gcompris/gcompris.c:215
+#: ../src/gcompris/gcompris.c:206
 msgid ""
 "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
@@ -3130,23 +3232,23 @@ msgstr ""
 "Bruk alternativ database for profilar  [$HOME/.config/gcompris/"
 "gcompris_sqlite.db]."
 
-#: ../src/gcompris/gcompris.c:218
+#: ../src/gcompris/gcompris.c:209
 msgid "Create the alternate database for profiles"
 msgstr "Opprett alternativ database for profilar."
 
-#: ../src/gcompris/gcompris.c:221
+#: ../src/gcompris/gcompris.c:212
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Les XML-menyar på nytt, og lagra dei i databasen."
 
-#: ../src/gcompris/gcompris.c:224
+#: ../src/gcompris/gcompris.c:215
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Vel profilen du vil bruka. Bruk «gcompris -a» for å laga profilar."
 
-#: ../src/gcompris/gcompris.c:227
+#: ../src/gcompris/gcompris.c:218
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr "Oversikt over profilar. Bruk «gcompris -a» for å laga profilar."
 
-#: ../src/gcompris/gcompris.c:230
+#: ../src/gcompris/gcompris.c:221
 msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
@@ -3154,23 +3256,23 @@ msgstr ""
 "Oppsettmappe: [$HOME/.config/gcompris]. Som alternativ kan du setja "
 "miljøvariabelen $XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:233
+#: ../src/gcompris/gcompris.c:224
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "Plassering av brukarmapper: [$HOME/My GCompris]."
 
-#: ../src/gcompris/gcompris.c:236
+#: ../src/gcompris/gcompris.c:227
 msgid "Run the experimental activities"
 msgstr "Køyr eksperimentelle aktivitetar"
 
-#: ../src/gcompris/gcompris.c:239
+#: ../src/gcompris/gcompris.c:230
 msgid "Disable the quit button"
 msgstr "Fjern avsluttknappen."
 
-#: ../src/gcompris/gcompris.c:242
+#: ../src/gcompris/gcompris.c:233
 msgid "Disable the config button"
 msgstr "Fjern oppsettknappen."
 
-#: ../src/gcompris/gcompris.c:245
+#: ../src/gcompris/gcompris.c:236
 msgid ""
 "GCompris will get images, sounds and activity data from this server if not "
 "found locally."
@@ -3179,7 +3281,7 @@ msgstr ""
 "ikkje vert funne lokalt."
 
 # skip-rule: server
-#: ../src/gcompris/gcompris.c:248
+#: ../src/gcompris/gcompris.c:239
 msgid ""
 "Only when --server is provided, disable check for local resource first. Data "
 "are always taken from the web server."
@@ -3187,29 +3289,38 @@ msgstr ""
 "Berre når «--server» vert brukt. Slå av leiting er lokale ressursar først. "
 "Alle data vert henta frå vevtenaren."
 
-#: ../src/gcompris/gcompris.c:252
+#: ../src/gcompris/gcompris.c:243
 msgid ""
 "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr ""
 "For tenarmodus, mellomlagermappa som vert brukt til å unngå unødvendige "
 "nedlastingar."
 
-#: ../src/gcompris/gcompris.c:255
+#: ../src/gcompris/gcompris.c:246
 msgid "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr ""
 "Global dra- og slepp-modus: eitt klikk, to klikk eller begge. Standard er "
 "eitt klikk."
 
-#: ../src/gcompris/gcompris.c:258
+#: ../src/gcompris/gcompris.c:249
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Ikkje hindra køyring av GCompris fleire gonger samtidig."
 
-#: ../src/gcompris/gcompris.c:943
+#: ../src/gcompris/gcompris.c:890
 #, c-format
+#| msgid ""
+#| "GCompris is free software released under the GPL License. In order to "
+#| "support its development, the Windows version provides only %d of the %d "
+#| "activities. You can get the full version for a small fee at\n"
+#| "<http://gcompris.net>\n"
+#| "The GNU/Linux version does not have this restriction. If you also believe "
+#| "that we should teach freedom to children, please consider using GNU/"
+#| "Linux. Get more information at FSF:\n"
+#| "<http://www.fsf.org/philosophy>"
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
-"support its development, the Windows version provides only %d of the %d "
-"activities. You can get the full version for a small fee at\n"
+"support its development, this version provides only %d of the %d activities. "
+"You can get the full version for a small fee at\n"
 "<http://gcompris.net>\n"
 "The GNU/Linux version does not have this restriction. If you also believe "
 "that we should teach freedom to children, please consider using GNU/Linux. "
@@ -3217,7 +3328,7 @@ msgid ""
 "<http://www.fsf.org/philosophy>"
 msgstr ""
 "GCompris er fri programvare tilgjengeleg under GNU GPL-lisensen. For å "
-"støtta utviklinga er berre %d av %d aktivitetar tilgjengelege i Windows-"
+"støtta utviklinga er berre %d av %d aktivitetar tilgjengelege i denne Windows-"
 "versjonen. Du kan få heile versjonen for eit lite vederlag på\n"
 "<http://gcompris.net/>.\n"
 "Linux-utgåva har ikkje denne avgrensinga. Om du meiner me bør læra ungane om "
@@ -3225,17 +3336,17 @@ msgstr ""
 "informasjon på nettsida til FSF, på\n"
 "<http://www.fsf.org/philosophy/>."
 
-#: ../src/gcompris/gcompris.c:1431
+#: ../src/gcompris/gcompris.c:1429
 #, c-format
 msgid "GCompris won't start because the lock file is less than %d seconds old.\n"
 msgstr "GCompris kan ikkje starta, då låsefila er mindre enn %d sekund gammal.\n"
 
-#: ../src/gcompris/gcompris.c:1433
+#: ../src/gcompris/gcompris.c:1431
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Låsefila er «%s».\n"
 
-#: ../src/gcompris/gcompris.c:1547
+#: ../src/gcompris/gcompris.c:1545
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3249,28 +3360,28 @@ msgstr ""
 "Meir informasjon på http://gcompris.net/\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1650
+#: ../src/gcompris/gcompris.c:1648
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Bruk «-l aktivitet» for direkte tilgang til aktiviteten.\n"
 
-#: ../src/gcompris/gcompris.c:1651
+#: ../src/gcompris/gcompris.c:1649
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Lista over tilgjengeleg aktivitetar er:\n"
 
-#: ../src/gcompris/gcompris.c:1682
+#: ../src/gcompris/gcompris.c:1680
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Talet på aktivitetar: %d\n"
 
-#: ../src/gcompris/gcompris.c:1718
+#: ../src/gcompris/gcompris.c:1716
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "«%s» finst, men kan ikkje lesast eller skrivast til."
 
 # skip-rule: server
-#: ../src/gcompris/gcompris.c:1781
+#: ../src/gcompris/gcompris.c:1779
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
@@ -3279,7 +3390,7 @@ msgstr ""
 "Du kan ikkje bruka valet «--server», då GCompris er kompilert utan "
 "nettverksstøtte."
 
-#: ../src/gcompris/gcompris.c:1835
+#: ../src/gcompris/gcompris.c:1833
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3288,18 +3399,27 @@ msgstr ""
 "Feil: Fann ikkje profilen «%s». Køyr «gcompris --profile-list» for å sjå ei "
 "oversikt over tilgjengelege profilar.\n"
 
-#: ../src/gcompris/gcompris.c:1849
+#: ../src/gcompris/gcompris.c:1847
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Liste over tilgjengeleg profilar er:\n"
 
-#: ../src/gcompris/gcompris_db.c:234
+#: ../src/gcompris/gcompris_db.c:309
 msgid "Unaffected"
 msgstr "Ikkje påverka"
 
-#: ../src/gcompris/gcompris_db.c:235
+#: ../src/gcompris/gcompris_db.c:310
 msgid "Users without a class"
 msgstr "Klasselause brukarar"
+
+#: ../src/gcompris/gcompris_db.c:894
+#, c-format
+msgid ""
+"Loading activity from database:\n"
+"%s"
+msgstr ""
+"Hentar aktivitetar frå databasen:\n"
+"%s"
 
 #: ../src/gcompris/help.c:181
 msgid "Prerequisite"
@@ -3316,6 +3436,16 @@ msgstr "Bruksrettleiing"
 #: ../src/gcompris/help.c:274
 msgid "Credit"
 msgstr "Bidragsytarar"
+
+#: ../src/gcompris/menu.c:583
+#, c-format
+#| msgid "Reading activities."
+msgid ""
+"Loading activity from file:\n"
+"%s"
+msgstr ""
+"Hentar aktivetetar frå fil:\n"
+"%s"
 
 #: ../src/gcompris/properties.c:497 ../src/gcompris/properties.c:504
 msgid "readme"
@@ -3342,7 +3472,6 @@ msgid "Help"
 msgstr "Hjelp"
 
 #: ../src/gcompris/sugar.c:71
-#| msgid "boat"
 msgid "About"
 msgstr "Om"
 
@@ -3351,7 +3480,6 @@ msgid "Previous level"
 msgstr "Førre nivå"
 
 #: ../src/gcompris/sugar.c:75
-#| msgid "%d (New level)"
 msgid "Next level"
 msgstr "Neste nivå"
 
@@ -3363,20 +3491,20 @@ msgstr "Oppdater"
 msgid "Settings"
 msgstr "Innstillingar"
 
-#: ../src/gcompris/sugar.c:84
-#| msgid "back"
+#. TRANSLATORS: Back as in previous
+#: ../src/gcompris/sugar.c:86
 msgid "Back"
 msgstr "Tilbake"
 
-#: ../src/gcompris/sugar.c:85
+#: ../src/gcompris/sugar.c:87
 msgid "Stop"
 msgstr "Stopp"
 
-#: ../src/gcompris/timer.c:244
+#: ../src/gcompris/timer.c:245
 msgid "Time Elapsed"
 msgstr "Tid gått"
 
-#: ../src/gcompris/timer.c:322
+#: ../src/gcompris/timer.c:323
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Tid igjen: %d"
@@ -4432,8 +4560,8 @@ msgstr ""
 "Anatole Lucas i 1883. Det finst ei gammal legende om eit hindutempel der "
 "prestane held på å flytta 64 skiver etter reglane i dette spelet. Legenda "
 "seier at verda går under når dei er ferdig. Men dette ville ta veldig lang "
-"tid (mykje lengre tid enn universet vårt har vore til), sjølv om dei "
-"klarte flytta så mykje som éi skive i sekundet, og brukte den optimale "
+"tid (mykje lengre tid enn universet vårt har vore til), sjølv om dei klarte "
+"flytta så mykje som éi skive i sekundet, og brukte den optimale "
 "flyttestrategien. Det er ikkje klart om Lucas fann på legenda sjølv, eller "
 "berre vart inspirert av ho. (Kjelde: &lt;http://en.wikipedia.org/wiki/"
 "Tower_of_Hanoi&gt;)"
@@ -4799,34 +4927,34 @@ msgid "Lights Off"
 msgstr "Av med lysa"
 
 #: ../src/lightsoff-activity/lightsoff.xml.in.h:2
-msgid "The aim is to switch off all the lights"
-msgstr "Slå av alle lysa, så Tux får lagt seg."
-
-#: ../src/lightsoff-activity/lightsoff.xml.in.h:3
 msgid "The aim is to switch off all the lights."
 msgstr "Målet er å slå av alle lysa."
 
-#: ../src/lightsoff-activity/lightsoff.xml.in.h:4
+#: ../src/lightsoff-activity/lightsoff.xml.in.h:3
 msgid ""
 "The effect of pressing a button is to toggle the state of that button, and "
 "of its immediate vertical and horizontal neighbours. The sun and the color "
 "of the sky depend on the number of clicks needed to solve the puzzle. If you "
 "click on Tux, the solution is shown."
 msgstr ""
-"Når du trykkjer på ein knapp, slår han både den knappen på/av, men òg knappane "
-"over, under og ved sida av. Sola og fargen på himmelen avheng av kor mange "
-"brytarar du måtte trykkja på for å få av alle lysa. Viss du trykkjer på Tux, "
-"får du sjå løysinga."
+"Når du trykkjer på ein knapp, slår han både den knappen på/av, men òg "
+"knappane over, under og ved sida av. Sola og fargen på himmelen avheng av "
+"kor mange brytarar du måtte trykkja på for å få av alle lysa. Viss du "
+"trykkjer på Tux, får du sjå løysinga."
 
-#: ../src/lightsoff-activity/lightsoff.xml.in.h:5
+#: ../src/lightsoff-activity/lightsoff.xml.in.h:4
+#| msgid ""
+#| "The solver algorithm described on the haar.clara.co.uk is a valuable "
+#| "resource to know more about the Lights Off game: &lt;http://www.haar."
+#| "clara.co.uk/Lights/solving.html&gt;"
 msgid ""
-"The solver algorithm described on the haar.clara.co.uk is a valuable "
-"resource to know more about the Lights Off game: &lt;http://www.haar.clara."
-"co.uk/Lights/solving.html&gt;"
+"The solver algorithm described on haar.clara.co.uk is a valuable resource to "
+"know more about the Lights Off game: &lt;http://www.haar.clara.co.uk/Lights/"
+"solving.html&gt;"
 msgstr ""
 "Løysealgoritmen som du finn på nettsida www.haar.clara.co.uk er nyttig om du "
-"ønskjer å veta meir om «Av med lysa»-spelet: &lt;http://www.haar.clara."
-"co.uk/Lights/solving.html&gt;"
+"ønskjer å veta meir om «Av med lysa»-spelet: &lt;http://www.haar.clara.co.uk/"
+"Lights/solving.html&gt;"
 
 #: ../src/login-activity/login.py:101
 msgid "Profile: "
@@ -5798,16 +5926,20 @@ msgid "Woman holding a fan"
 msgstr "Kvinne som held ei vifte"
 
 #: ../src/paintings-activity/resources/paintings/board2_1.xml.in.h:1
-msgid "Botticelli, Primavera - 1482"
-msgstr "Sandro Botticelli: Våren (1482)"
+msgid "Mona Lisa"
+msgstr "Mona Lisa"
 
 #: ../src/paintings-activity/resources/paintings/board2_2.xml.in.h:1
-msgid "Caravage, Rest on the Flight into Egypt - 1597"
-msgstr "Caravage: Kvil under flukta tilEgypt (1597)"
+msgid "Bellini : Pala di pesaro"
+msgstr "Giovanni Bellini: Pala di Pesaro (1475–1485)"
 
 #: ../src/paintings-activity/resources/paintings/board2_3.xml.in.h:1
-msgid "Botticelli, The Birth of Venus - 1482–1486"
-msgstr "Sandro Botticelli: Venus’ fødsel (1482–1486)"
+msgid "Dürer : Lion"
+msgstr "Albrecht Dürer: Løve"
+
+#: ../src/paintings-activity/resources/paintings/board2_4.xml.in.h:1
+msgid "Pieter Brugel : Harvest"
+msgstr "Pieter Bruegel den eldre: Innhausting"
 
 #: ../src/paintings-activity/resources/paintings/board3_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
@@ -5952,6 +6084,15 @@ msgstr "Fly med helikopter for å fanga skyer i rett rekkjefølgje."
 msgid "Number"
 msgstr "Du må kunna telja."
 
+#: ../src/pythontemplate-activity/pythontemplate.py:60
+#: ../src/pythontest-activity/pythontest.py:184
+msgid ""
+"This is the first plugin in GCompris coded in the Python\n"
+"Programming language."
+msgstr ""
+"Dette er det første programtillegget i GCompris som\n"
+"er programmert i programmeringsspråket Python."
+
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:1
 #: ../src/pythontest-activity/pythontest.xml.in.h:1
 msgid "Add a language-binding to GCompris."
@@ -5974,14 +6115,6 @@ msgstr "Python-mal"
 #: ../src/pythontest-activity/pythontest.xml.in.h:5
 msgid "Thanks to Guido van Rossum and the python team for this powerful language!"
 msgstr "Takk til Guido van Rossum og Python-laget for dette kraftige språket!"
-
-#: ../src/pythontest-activity/pythontest.py:184
-msgid ""
-"This is the first plugin in GCompris coded in the Python\n"
-"Programming language."
-msgstr ""
-"Dette er det første programtillegget i GCompris som\n"
-"er programmert i programmeringsspråket Python."
 
 #: ../src/pythontest-activity/pythontest.py:194
 msgid ""
@@ -6144,6 +6277,10 @@ msgstr "vert vist no"
 #: ../src/readingh-activity/reading.c:456
 msgid "We skip this level because there are not enough words in the list!"
 msgstr "Me hoppar over dette nivået sidan det ikkje finst nok ord i lista."
+
+#: ../src/readingh-activity/reading.c:659
+msgid "Yes, I saw it"
+msgstr "Ja, eg såg det"
 
 #: ../src/readingh-activity/reading.c:686
 msgid "No, it was not there"
@@ -6322,6 +6459,26 @@ msgstr ""
 "Legg lodd på venstre eller høgre side av vekta, slik at ho kjem i likevekt. "
 "Rekkjefølgja på lodda spelar inga rolle."
 
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:2
+msgid "Drag and Drop masses to balance the scales and calculate the weight"
+msgstr "Legg lodd på vekta slik at ho kjem i likevekt, og rekn ut vekta."
+
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:3
+msgid "Mental calculation, arithmetic equality, unit conversion"
+msgstr ""
+"Du må kunna hovudrekning, kjenna til aritmetisk likheit og kunna rekna "
+"mellom ulike einingar."
+
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:5
+msgid ""
+"To balance the scales, move the masses on the left or the right side. Take "
+"care of the weight and the unit of the masses, remember that a kilogram (kg) "
+"is 1000 grams (g). They can be arranged in any order."
+msgstr ""
+"Legg lodd på venstre eller høgre side av vekta, slik at ho kjem i likevekt. "
+"Legg merke til både verdiane og vekteiningane, og hugs at 1 kilo (kg) er det "
+"same som 1000 gram (g). Rekkjefølgja på lodda spelar inga rolle."
+
 #: ../src/searace-activity/searace.py:174
 msgid "The race is already being run"
 msgstr "Sjøkappløpet er allereie i gang."
@@ -6431,26 +6588,6 @@ msgstr ""
 msgid "Sea race (2 Players)"
 msgstr "Sjøkappløp (for to spelarar)"
 
-#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:2
-msgid "Drag and Drop masses to balance the scales and calculate the weight"
-msgstr "Legg lodd på vekta slik at ho kjem i likevekt, og rekn ut vekta."
-
-#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:3
-msgid "Mental calculation, arithmetic equality, unit conversion"
-msgstr ""
-"Du må kunna hovudrekning, kjenna til aritmetisk likheit og kunna rekna "
-"mellom ulike einingar."
-
-#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:5
-msgid ""
-"To balance the scales, move the masses on the left or the right side. Take "
-"care of the weight and the unit of the masses, remember that a kilogram (kg) "
-"is 1000 grams (g). They can be arranged in any order."
-msgstr ""
-"Legg lodd på venstre eller høgre side av vekta, slik at ho kjem i likevekt. "
-"Legg merke til både verdiane og vekteiningane, og hugs at 1 kilo (kg) er det "
-"same som 1000 gram (g). Rekkjefølgja på lodda spelar inga rolle."
-
 #: ../src/searace1player-activity/searace1player.xml.in.h:1
 msgid "Give good instructions to your ship in order to be first in the race."
 msgstr "Gje gode instruksar til skipet ditt, slik at du vinn sjøkappløpet."
@@ -6550,11 +6687,16 @@ msgid "Completing the puzzle requires patience and logical ability"
 msgstr "Å fullføra bretta krev tålmod og logisk tankeevne."
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:2
+#| msgid ""
+#| "For the first level with colored symbols, drag symbols on the left to "
+#| "their target position. For the higher levels, click on an empty square to "
+#| "give it the keyboard focus. Then enter a possible letter or number. "
+#| "GCompris will not let you enter invalid data."
 msgid ""
-"For the first level with colored symbols, drag symbols on the left to their "
-"target position. For the higher levels, click on an empty square to give it "
-"the keyboard focus. Then enter a possible letter or number. GCompris will "
-"not let you enter invalid data."
+"For the first level with colored symbols, select a symbol on the left and "
+"click on its target position. For the higher levels, click on an empty "
+"square to give it the keyboard focus. Then enter a possible letter or "
+"number. GCompris will not let you enter invalid data."
 msgstr ""
 "På dei første bretta skal du dra figurane over til ledige ruter. På "
 "sifferbretta må du trykkja på ei ledig rute, og så skriva inn sifferet."
@@ -6890,6 +7032,65 @@ msgstr "Tastaturtrening."
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Skriv inn dei dalande orda før dei når bakken."
 
+#: ../src/hangman-activity/hangman.xml.in.h:1
+msgid "A word is hidden, you must discover it letter by letter"
+msgstr "Gjett deg fram til rett ord – bokstav for bokstav."
+
+#: ../src/hangman-activity/hangman.xml.in.h:2
+#| msgid "Reading"
+msgid "Reading skill"
+msgstr "Du må kunna lesa."
+
+#: ../src/hangman-activity/hangman.xml.in.h:3
+msgid "The classic hangman game"
+msgstr "Hengtmann"
+
+#: ../src/hangman-activity/hangman.xml.in.h:4
+msgid "This is a good exercise to improve reading and spelling skills."
+msgstr "Gjev god øving i lesing og staving."
+
+#: ../src/hangman-activity/hangman.xml.in.h:5
+msgid ""
+"You can enter the letters using the virtual keyboard on the screen or with "
+"the real keyboard."
+msgstr ""
+"Du kan skriva inn bokstavar med skjermtastaturet eller det vanlege tastaturet."
+
+#. All the vowel of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:61
+msgid "aeiouy"
+msgstr "aeiouyæøå"
+
+#. All the consonants of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:63
+#| msgid "abcdefghijklmnopqrstuvwxyz"
+msgid "bcdfghjklmnpqrstvwxz"
+msgstr "bcdfghjklmnpqrstvwxz"
+
+#. Letters equivallence for the hangman activity. It has the
+#. form of a space separated list like: "e=éè a=àâ"
+#. Keep the word NONE if not available in your language
+#: ../src/hangman-activity/hangman.py:67
+msgid "NONE"
+msgstr "e=éè"
+
+#: ../src/hangman-activity/hangman.py:93
+#| msgid "Configure the list of words"
+msgid "Could not find the list of words."
+msgstr "Fann ikkje ordlista."
+
+#~ msgid "The aim is to switch off all the lights"
+#~ msgstr "Slå av alle lysa, så Tux får lagt seg."
+
+#~ msgid "Botticelli, Primavera - 1482"
+#~ msgstr "Sandro Botticelli: Våren (1482)"
+
+#~ msgid "Caravage, Rest on the Flight into Egypt - 1597"
+#~ msgstr "Caravage: Kvil under flukta tilEgypt (1597)"
+
+#~ msgid "Botticelli, The Birth of Venus - 1482–1486"
+#~ msgstr "Sandro Botticelli: Venus’ fødsel (1482–1486)"
+
 #~ msgid "Error: Abnormally failed to load a data file"
 #~ msgstr "Feil: Klarte ikkje lasta datafila"
 
@@ -6972,9 +7173,6 @@ msgstr "Skriv inn dei dalande orda før dei når bakken."
 
 #~ msgid "The corresponding items have been skipped."
 #~ msgstr "Tilhøyrande element vert ikkje tekne i bruk."
-
-#~ msgid "Yes, I saw it"
-#~ msgstr "Ja, eg såg det"
 
 #~ msgid "Language:"
 #~ msgstr "Språk:"
