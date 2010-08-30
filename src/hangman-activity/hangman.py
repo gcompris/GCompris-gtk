@@ -231,7 +231,6 @@ class Gcompris_hangman:
 
     # Display the word to find
     self.word = self.get_next_word()
-    print self.word
     self.letters = []
     self.keys= []
 
