@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&component=general\n"
-"POT-Creation-Date: 2010-08-10 22:30+0000\n"
-"PO-Revision-Date: 2010-08-12 10:45+0100\n"
+"POT-Creation-Date: 2010-08-30 20:52+0000\n"
+"PO-Revision-Date: 2010-08-31 18:23+0100\n"
 "Last-Translator: Andrej Žnidaršič <andrej.znidarsic@gmail.com>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -1053,7 +1053,7 @@ msgstr "V omejenem času izračunaj produkt dveh števil"
 
 #: ../src/algebra_by-activity/algebra_by.xml.in.h:4
 msgid "Multiplication table"
-msgstr "Razpredelnica množenja"
+msgstr "Preglednica množenja"
 
 #: ../src/algebra_by-activity/algebra_by.xml.in.h:5
 msgid "Practice the multiplication operation"
@@ -1591,67 +1591,6 @@ msgstr "Učenje šaha"
 #: ../src/chess_partyend-activity/chess_partyend.xml.in.h:4
 msgid "The chess engine is from gnuchess."
 msgstr "Pogon šaha je iz programa gnuchess."
-
-#: ../src/chess_computer-activity/gnuchess/getopt.c:693
-#, c-format
-msgid "%s: option `%s' is ambiguous\n"
-msgstr "%s: možnost `%s' je dvoumna\n"
-
-#: ../src/chess_computer-activity/gnuchess/getopt.c:718
-#, c-format
-msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s: možnost `--%s' ne dovoli argumenta\n"
-
-#: ../src/chess_computer-activity/gnuchess/getopt.c:723
-#, c-format
-msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: možnost `%c%s' ne dovoli argumenta\n"
-
-#: ../src/chess_computer-activity/gnuchess/getopt.c:741
-#: ../src/chess_computer-activity/gnuchess/getopt.c:914
-#, c-format
-msgid "%s: option `%s' requires an argument\n"
-msgstr "%s: možnost `%s' zahteva argument\n"
-
-#. --option
-#: ../src/chess_computer-activity/gnuchess/getopt.c:770
-#, c-format
-msgid "%s: unrecognized option `--%s'\n"
-msgstr "%s: nepoznana možnost `--%s'\n"
-
-#. +option or -option
-#: ../src/chess_computer-activity/gnuchess/getopt.c:774
-#, c-format
-msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s: nepoznana možnost `%c%s'\n"
-
-#. 1003.2 specifies the format of this message.
-#: ../src/chess_computer-activity/gnuchess/getopt.c:800
-#, c-format
-msgid "%s: illegal option -- %c\n"
-msgstr "%s: neveljavna možnost -- %c\n"
-
-#: ../src/chess_computer-activity/gnuchess/getopt.c:803
-#, c-format
-msgid "%s: invalid option -- %c\n"
-msgstr "%s: neveljavna možnost -- %c\n"
-
-#. 1003.2 specifies the format of this message.
-#: ../src/chess_computer-activity/gnuchess/getopt.c:833
-#: ../src/chess_computer-activity/gnuchess/getopt.c:963
-#, c-format
-msgid "%s: option requires an argument -- %c\n"
-msgstr "%s: možnost zahteva argument -- %c\n"
-
-#: ../src/chess_computer-activity/gnuchess/getopt.c:880
-#, c-format
-msgid "%s: option `-W %s' is ambiguous\n"
-msgstr "%s: možnost `-W %s' je dvoumna\n"
-
-#: ../src/chess_computer-activity/gnuchess/getopt.c:898
-#, c-format
-msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s: možnost `-W %s' ne dovoli argumentov\n"
 
 #: ../src/chess_movelearn-activity/chess_movelearn.xml.in.h:1
 msgid "Chess training. Catch the computer's pawns."
@@ -2202,7 +2141,7 @@ msgstr "Osnove štetja"
 
 #: ../src/doubleentry-activity/doubleentry.xml.in.h:2
 msgid "Double-entry table"
-msgstr "Razpredelnica"
+msgstr "Vnosna preglednica"
 
 #: ../src/doubleentry-activity/doubleentry.xml.in.h:3
 msgid "Drag and Drop each proposed item on its destination"
@@ -2210,12 +2149,12 @@ msgstr "Povleci in spusti predlagane predmete na pravo mesto"
 
 #: ../src/doubleentry-activity/doubleentry.xml.in.h:4
 msgid "Drag and Drop the items in the double-entry table"
-msgstr "Povleci in spusti predmete v razpredelnico"
+msgstr "Povleci in spusti predmete v preglednico"
 
 # double entry tukaj ni potreben
 #: ../src/doubleentry-activity/doubleentry.xml.in.h:5
 msgid "Move the items on the left to their proper position in the double-entry table."
-msgstr "Premakni predmete na levi na pravo mesto v razpredelnici."
+msgstr "Premakni predmete na levi na pravo mesto v preglednici."
 
 #: ../src/doubleentry-activity/resources/doubleentry/board3_0.xml.in.h:1
 msgid "Click on an item and listen to its target position"
@@ -6151,6 +6090,69 @@ msgstr "Učenje tipkanja"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Natipkaj celo besedo, preden doseže zemljo"
 
+#: ../src/hangman-activity/hangman.xml.in.h:1
+msgid "A word is hidden, you must discover it letter by letter"
+msgstr "Beseda je skrita, odkriti jo moraš črko za črko"
+
+#: ../src/hangman-activity/hangman.xml.in.h:2
+msgid "Reading skill"
+msgstr "Bralne sposobnosti"
+
+#: ../src/hangman-activity/hangman.xml.in.h:3
+msgid "The classic hangman game"
+msgstr "Običajna igra vislic"
+
+#: ../src/hangman-activity/hangman.xml.in.h:4
+msgid "This is a good exercise to improve reading and spelling skills."
+msgstr "To je dobra vaja za izboljšanje sposobnosti branja in črkovanja."
+
+#: ../src/hangman-activity/hangman.xml.in.h:5
+msgid "You can enter the letters using the virtual keyboard on the screen or with the real keyboard."
+msgstr "Črke lahko napišeš z navidezno tipkovnico na zaslonu ali s pravo tipkovnico"
+
+#. All the vowel of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:61
+msgid "aeiouy"
+msgstr "aeiou"
+
+#. All the consonants of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:63
+msgid "bcdfghjklmnpqrstvwxz"
+msgstr "bcčdfghjklmnprsštvzž"
+
+#. Letters equivallence for the hangman activity. It has the
+#. form of a space separated list like: "e=éè a=àâ"
+#. Keep the word NONE if not available in your language
+#: ../src/hangman-activity/hangman.py:67
+msgid "NONE"
+msgstr "BREZ"
+
+#: ../src/hangman-activity/hangman.py:93
+msgid "Could not find the list of words."
+msgstr "Ni mogoče najti seznama besed."
+
+#~ msgid "%s: option `%s' is ambiguous\n"
+#~ msgstr "%s: možnost `%s' je dvoumna\n"
+#~ msgid "%s: option `--%s' doesn't allow an argument\n"
+#~ msgstr "%s: možnost `--%s' ne dovoli argumenta\n"
+#~ msgid "%s: option `%c%s' doesn't allow an argument\n"
+#~ msgstr "%s: možnost `%c%s' ne dovoli argumenta\n"
+#~ msgid "%s: option `%s' requires an argument\n"
+#~ msgstr "%s: možnost `%s' zahteva argument\n"
+#~ msgid "%s: unrecognized option `--%s'\n"
+#~ msgstr "%s: nepoznana možnost `--%s'\n"
+#~ msgid "%s: unrecognized option `%c%s'\n"
+#~ msgstr "%s: nepoznana možnost `%c%s'\n"
+#~ msgid "%s: illegal option -- %c\n"
+#~ msgstr "%s: neveljavna možnost -- %c\n"
+#~ msgid "%s: invalid option -- %c\n"
+#~ msgstr "%s: neveljavna možnost -- %c\n"
+#~ msgid "%s: option requires an argument -- %c\n"
+#~ msgstr "%s: možnost zahteva argument -- %c\n"
+#~ msgid "%s: option `-W %s' is ambiguous\n"
+#~ msgstr "%s: možnost `-W %s' je dvoumna\n"
+#~ msgid "%s: option `-W %s' doesn't allow an argument\n"
+#~ msgstr "%s: možnost `-W %s' ne dovoli argumentov\n"
 #~ msgid "Botticelli, Primavera - 1482"
 #~ msgstr "Botticelli, Primavera - 1482"
 #~ msgid "Caravage, Rest on the Flight into Egypt - 1597"
