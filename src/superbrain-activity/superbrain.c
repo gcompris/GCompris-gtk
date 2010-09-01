@@ -400,6 +400,7 @@ static GooCanvasItem *superbrain_create_item(GooCanvasItem *parent)
 					 "fill_color_rgba", COLOR_GOOD,
 					 "stroke-color", "white",
 					 "line-width", 1.0,
+					 "tooltip", _("This item is well placed"),
 					 NULL);
       g_object_set (piece->good, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 
@@ -412,6 +413,7 @@ static GooCanvasItem *superbrain_create_item(GooCanvasItem *parent)
 					      "fill_color_rgba", COLOR_MISPLACED,
 					      "stroke-color", "black",
 					      "line-width", 1.0,
+					      "tooltip", _("This item is misplaced"),
 					      NULL);
       g_object_set (piece->misplaced, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 
@@ -497,7 +499,7 @@ static gboolean item_event (GooCanvasItem  *item,
 		    "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
     }
 
-	  newitem = g_list_nth_data(piece->listitem,
+  newitem = g_list_nth_data(piece->listitem,
 			    piece->selecteditem);
   g_object_set (newitem, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
 
@@ -524,12 +526,18 @@ static void mark_pieces()
   for(i=0; i<g_list_length(listPieces);  i++)
     {
       piece = g_list_nth_data(listPieces, i);
+      GooCanvasItem *item = g_list_nth_data(piece->listitem,
+					    piece->selecteditem);
       if(piece->selecteditem == solution_tmp[i])
 	{
 	  if(gcomprisBoard->level<LEVEL_MAX_FOR_HELP)
 	    g_object_set (piece->good, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
 	  nbgood++;
 	  solution_tmp[i] = G_MAXINT;
+
+	  g_object_set(item,
+		       "tooltip", _("This item is well placed"), NULL);
+
 	}
       else
 	{
@@ -544,6 +552,8 @@ static void mark_pieces()
       gboolean done;
 
       piece = g_list_nth_data(listPieces, i);
+      GooCanvasItem *item = g_list_nth_data(piece->listitem,
+					    piece->selecteditem);
 
       /* Search if this color is elsewhere */
       j = 0;
@@ -556,6 +566,7 @@ static void mark_pieces()
 	    solution_tmp[j] = G_MAXINT;
 	    if(gcomprisBoard->level<LEVEL_MAX_FOR_HELP)
 	      g_object_set (piece->misplaced, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+	    g_object_set (item, "tooltip", _("This item is misplaced"), NULL);
 	    done = TRUE;
 	  }
       } while (!done && ++j!=number_of_piece);
@@ -573,6 +584,7 @@ static void mark_pieces()
 			      "fill-color", "black",
 			      "stroke-color", "white",
 			      "line-width", (double)1,
+			      "tooltip", _("One item is well placed"),
 			      NULL);
     }
 
@@ -586,6 +598,7 @@ static void mark_pieces()
 			      "fill-color", "white",
 			      "stroke-color", "black",
 			      "line-width", (double)1,
+			      "tooltip", _("One item is misplaced"),
 			      NULL);
     }
 
