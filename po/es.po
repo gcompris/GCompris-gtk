@@ -13,8 +13,8 @@ msgstr ""
 "Project-Id-Version: gcompris.gcomprixogoo\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&component=general\n"
-"POT-Creation-Date: 2010-08-26 23:49+0000\n"
-"PO-Revision-Date: 2010-08-28 10:16+0200\n"
+"POT-Creation-Date: 2010-09-01 21:55+0000\n"
+"PO-Revision-Date: 2010-09-04 09:43+0200\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -6881,6 +6881,26 @@ msgstr "Super cerebro"
 msgid "Tux has hidden several items. Find them again in the correct order"
 msgstr "Tux ha ocultado varios elementos. Encuéntralos en el orden correcto"
 
+#: ../src/superbrain-activity/superbrain.c:403
+#: ../src/superbrain-activity/superbrain.c:539
+msgid "This item is well placed"
+msgstr "Este elemento está bien puesto"
+
+#: ../src/superbrain-activity/superbrain.c:416
+#: ../src/superbrain-activity/superbrain.c:569
+#| msgid "is being displayed"
+msgid "This item is misplaced"
+msgstr "Este elemento está mal puesto"
+
+#: ../src/superbrain-activity/superbrain.c:587
+msgid "One item is well placed"
+msgstr "Un elemento está bien puesto"
+
+#: ../src/superbrain-activity/superbrain.c:601
+#| msgid "And it was displayed"
+msgid "One item is misplaced"
+msgstr "Un elemento está mal puesto"
+
 #: ../src/superbrain-activity/superbrain.xml.in.h:1
 msgid ""
 "Click on the items until you find what you think is the correct answer. "
@@ -7195,7 +7215,6 @@ msgid "A word is hidden, you must discover it letter by letter"
 msgstr "Hay una palabra oculta, tienes que descubrirla letra por letra"
 
 #: ../src/hangman-activity/hangman.xml.in.h:2
-#| msgid "Reading"
 msgid "Reading skill"
 msgstr "Capacidad lectora"
 
@@ -7222,7 +7241,6 @@ msgstr "aeiou"
 
 #. All the consonants of your language (keep empty if non applicable)
 #: ../src/hangman-activity/hangman.py:63
-#| msgid "abcdefghijklmnopqrstuvwxyz"
 msgid "bcdfghjklmnpqrstvwxz"
 msgstr "bcdfghjklmnñpqrstvwxyz"
 
@@ -7234,7 +7252,6 @@ msgid "NONE"
 msgstr "a=á e=é i=Í o=ó u=ú"
 
 #: ../src/hangman-activity/hangman.py:93
-#| msgid "Configure the list of words"
 msgid "Could not find the list of words."
 msgstr "No se pudo encontrar la lista de palabras."
 
