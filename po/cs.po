@@ -13,12 +13,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris gnome-master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=gcompris&component=general\n"
-"POT-Creation-Date: 2010-08-08 11:19+0000\n"
-"PO-Revision-Date: 2010-08-10 16:59+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-09-10 20:44+0200\n"
+"PO-Revision-Date: 2010-09-05 21:00+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1816,67 +1816,6 @@ msgstr "Učení šachů"
 #: ../src/chess_partyend-activity/chess_partyend.xml.in.h:4
 msgid "The chess engine is from gnuchess."
 msgstr "Šachový počítač je z gnuchess."
-
-#: ../src/chess_computer-activity/gnuchess/getopt.c:693
-#, c-format
-msgid "%s: option `%s' is ambiguous\n"
-msgstr "%s: přepínač „%s“ není jednoznačný\n"
-
-#: ../src/chess_computer-activity/gnuchess/getopt.c:718
-#, c-format
-msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s: přepínač „--%s“ nedovoluje žádný argument\n"
-
-#: ../src/chess_computer-activity/gnuchess/getopt.c:723
-#, c-format
-msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: přepínač „%c%s“ nedovoluje žádný argument\n"
-
-#: ../src/chess_computer-activity/gnuchess/getopt.c:741
-#: ../src/chess_computer-activity/gnuchess/getopt.c:914
-#, c-format
-msgid "%s: option `%s' requires an argument\n"
-msgstr "%s: přepínač „%s“ vyžaduje argument\n"
-
-#. --option
-#: ../src/chess_computer-activity/gnuchess/getopt.c:770
-#, c-format
-msgid "%s: unrecognized option `--%s'\n"
-msgstr "%s: nerozpoznaný přepínač „--%s“\n"
-
-#. +option or -option
-#: ../src/chess_computer-activity/gnuchess/getopt.c:774
-#, c-format
-msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s: nerozpoznaný přepínač „%c%s“\n"
-
-#. 1003.2 specifies the format of this message.
-#: ../src/chess_computer-activity/gnuchess/getopt.c:800
-#, c-format
-msgid "%s: illegal option -- %c\n"
-msgstr "%s: nedovolený přepínač -- %c\n"
-
-#: ../src/chess_computer-activity/gnuchess/getopt.c:803
-#, c-format
-msgid "%s: invalid option -- %c\n"
-msgstr "%s: neplatný přepínač -- %c\n"
-
-#. 1003.2 specifies the format of this message.
-#: ../src/chess_computer-activity/gnuchess/getopt.c:833
-#: ../src/chess_computer-activity/gnuchess/getopt.c:963
-#, c-format
-msgid "%s: option requires an argument -- %c\n"
-msgstr "%s: přepínač vyžaduje argument -- %c\n"
-
-#: ../src/chess_computer-activity/gnuchess/getopt.c:880
-#, c-format
-msgid "%s: option `-W %s' is ambiguous\n"
-msgstr "%s: přepínač „-W %s“ není jednoznačný\n"
-
-#: ../src/chess_computer-activity/gnuchess/getopt.c:898
-#, c-format
-msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s: přepínač „-W %s“ nedovoluje žádný argument\n"
 
 #: ../src/chess_movelearn-activity/chess_movelearn.xml.in.h:1
 msgid "Chess training. Catch the computer's pawns."
@@ -6831,6 +6770,24 @@ msgstr "Super mozek"
 msgid "Tux has hidden several items. Find them again in the correct order"
 msgstr "Tux skryl několik položek. Najdi je ve správném pořadí"
 
+#: ../src/superbrain-activity/superbrain.c:403
+#: ../src/superbrain-activity/superbrain.c:539
+msgid "This item is well placed"
+msgstr "Tato položka je správně umístěna"
+
+#: ../src/superbrain-activity/superbrain.c:416
+#: ../src/superbrain-activity/superbrain.c:569
+msgid "This item is misplaced"
+msgstr "Tato položka je nesprávně umístěna"
+
+#: ../src/superbrain-activity/superbrain.c:587
+msgid "One item is well placed"
+msgstr "Jedna položka je správně umístěna"
+
+#: ../src/superbrain-activity/superbrain.c:601
+msgid "One item is misplaced"
+msgstr "Jedna položka je nesprávně umístěna"
+
 #: ../src/superbrain-activity/superbrain.xml.in.h:1
 msgid ""
 "Click on the items until you find what you think is the correct answer. "
@@ -7134,3 +7091,80 @@ msgstr "Procvičení klávesnice"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Napiš celé padající slovo, než spadnou na zem"
 
+#: ../src/hangman-activity/hangman.xml.in.h:1
+msgid "A word is hidden, you must discover it letter by letter"
+msgstr "Slovo je skryté a ty jej musíš objevit písmeno po písmenu"
+
+#: ../src/hangman-activity/hangman.xml.in.h:2
+msgid "Reading skill"
+msgstr "Dovednost čtení"
+
+#: ../src/hangman-activity/hangman.xml.in.h:3
+msgid "The classic hangman game"
+msgstr "Klasická hra Šibenice"
+
+#: ../src/hangman-activity/hangman.xml.in.h:4
+msgid "This is a good exercise to improve reading and spelling skills."
+msgstr "Toto je dobré cvičení ke zdokonalení dovednosti čtení a hláskování."
+
+#: ../src/hangman-activity/hangman.xml.in.h:5
+msgid ""
+"You can enter the letters using the virtual keyboard on the screen or with "
+"the real keyboard."
+msgstr ""
+"Písmena můžeš zadávat pomocí virtuální klávesnice na obrazovce nebo na "
+"skutečné klávesnici."
+
+#. All the vowel of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:61
+msgid "aeiouy"
+msgstr "aeiouy"
+
+#. All the consonants of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:63
+msgid "bcdfghjklmnpqrstvwxz"
+msgstr "bcdfghjklmnpqrstvwxz"
+
+#. Letters equivallence for the hangman activity. It has the
+#. form of a space separated list like: "e=éè a=àâ"
+#. Keep the word NONE if not available in your language
+#: ../src/hangman-activity/hangman.py:67
+msgid "NONE"
+msgstr "a=á c=č d=ď e=éě i=í n=ň o=ó r=ř s=š t=ť u=úů y=ý z=ž"
+
+#: ../src/hangman-activity/hangman.py:93
+msgid "Could not find the list of words."
+msgstr "Nelze najít seznam slov."
+
+#~ msgid "%s: option `%s' is ambiguous\n"
+#~ msgstr "%s: přepínač „%s“ není jednoznačný\n"
+
+#~ msgid "%s: option `--%s' doesn't allow an argument\n"
+#~ msgstr "%s: přepínač „--%s“ nedovoluje žádný argument\n"
+
+#~ msgid "%s: option `%c%s' doesn't allow an argument\n"
+#~ msgstr "%s: přepínač „%c%s“ nedovoluje žádný argument\n"
+
+#~ msgid "%s: option `%s' requires an argument\n"
+#~ msgstr "%s: přepínač „%s“ vyžaduje argument\n"
+
+#~ msgid "%s: unrecognized option `--%s'\n"
+#~ msgstr "%s: nerozpoznaný přepínač „--%s“\n"
+
+#~ msgid "%s: unrecognized option `%c%s'\n"
+#~ msgstr "%s: nerozpoznaný přepínač „%c%s“\n"
+
+#~ msgid "%s: illegal option -- %c\n"
+#~ msgstr "%s: nedovolený přepínač -- %c\n"
+
+#~ msgid "%s: invalid option -- %c\n"
+#~ msgstr "%s: neplatný přepínač -- %c\n"
+
+#~ msgid "%s: option requires an argument -- %c\n"
+#~ msgstr "%s: přepínač vyžaduje argument -- %c\n"
+
+#~ msgid "%s: option `-W %s' is ambiguous\n"
+#~ msgstr "%s: přepínač „-W %s“ není jednoznačný\n"
+
+#~ msgid "%s: option `-W %s' doesn't allow an argument\n"
+#~ msgstr "%s: přepínač „-W %s“ nedovoluje žádný argument\n"
