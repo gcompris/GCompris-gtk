@@ -34,6 +34,27 @@ class WikiHandler(ContentHandler):
             self.isTextElement = True
             self.textContent = ""
 
+        self.wordTypes = {
+            "{{-nom-.*}}": "noun",
+            "{{-nom-pr.*}}": "proper noun",
+            "{{-verb.*}}": "proper noun",
+            "{-pronom-.*}": "pronoun",
+            "{-verb-.*}}": "verb",
+            "{-adj-.*}}": "adjective",
+            "{-adv-.*}}": "adverb",
+            "{-art-.*}}": "article",
+            "{-conj-.*}}": "conjunction",
+            "{-prèp-.*}}": "preposition",
+            "{-post-.*}}": "postposition"
+            }
+
+        self.wordSubTypes = {
+            "{{1ergroupe}}": "1er groupe",
+            "{{2egroupe}}": "2eme groupe",
+            "{{3egroupe}}": "3eme groupe",
+            }
+
+
     def endElement(self, name):
 
         if name == 'page':
@@ -126,7 +147,7 @@ class WikiHandler(ContentHandler):
         text = re.sub(r"{{w\|([^}]+)}}", r"<i>\1</i>", text)
         text = re.sub(r"{{source\|([^}]+)}}", r"- (\1)", text)
 
-        # Remove all recognized wiki tags
+        # Remove all unrecognized wiki tags
         text = re.sub(r"{{[^}]+}}", "", text)
 
         # italic
@@ -160,6 +181,11 @@ class WikiHandler(ContentHandler):
         inSynonym = False
         inAntonym = False
         inPron = False
+        wordType = ""
+        wordSubType = ""
+
+        # Append and end of text marker, it makes my life easier
+        self.textContent += "\n{{-EndOfTest-}}"
 
         for l in self.textContent.splitlines():
 
@@ -169,29 +195,37 @@ class WikiHandler(ContentHandler):
             if lang and lang.group(1) != None and lang.group(1) != self.locale:
                 return
 
+            for wt in self.wordTypes.keys():
+                if re.search(wt, l):
+                    wordType = self.wordTypes[wt]
+
+            for wt in self.wordSubTypes.keys():
+                if re.search(wt, l):
+                    wordSubType = self.wordSubTypes[wt]
+
             if inDefinition:
-                if l != "":
+                if not re.search(r"{{-.*-}}", l):
                     print self.wiki2xml(l)
                 else:
                     inDefinition = False
                     print self.wiki2xml("</definition>")
 
             if inAnagram:
-                if l != "":
+                if not re.search(r"{{-.*-}}", l):
                     print self.wiki2xml(l)
                 else:
                     inAnagram = False
                     print self.wiki2xml("</anagram>")
 
             if inSynonym:
-                if l != "":
+                if not re.search(r"{{-.*-}}", l):
                     print self.wiki2xml(l)
                 else:
                     inSynonym = False
                     print self.wiki2xml("</synonym>")
 
             if inAntonym:
-                if l != "":
+                if not re.search(r"{{-.*-}}", l):
                     print self.wiki2xml(l)
                 else:
                     inAntonym = False
@@ -210,7 +244,12 @@ class WikiHandler(ContentHandler):
 
             if l.startswith("'''" + self.titleContent + "'''"):
                 inDefinition = True
-                print("<definition name='" + self.titleContent + "'>")
+                print("<definition name='" + self.titleContent + "'" +
+                      " type='" + wordType + "'" +
+                      " subtype='" + wordSubType + "'" + ">")
+                print("<h3>" + wordType + " " + wordSubType + "</h3>")
+                wordType = ""
+                wordSubType = ""
             elif l == "{{-anagr-}}":
                 inAnagram = True
                 print "<h2>Anagram</h2>"
@@ -227,6 +266,7 @@ class WikiHandler(ContentHandler):
                 inPron = True
                 print "<h2>Prononciation</h2>"
                 print("<prononciation>")
+
 
 
 def printHtmlHeader():
