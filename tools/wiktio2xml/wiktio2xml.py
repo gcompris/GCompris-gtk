@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# -*- coding: UTF-8 -*-
+# -*- coding: utf-8 -*-
 
 from xml.sax import parse
 from xml.sax.handler import ContentHandler
@@ -39,7 +39,7 @@ class WikiHandler(ContentHandler):
         if name == 'page':
             self.isPageElement= False
             if self.titleContent in self.searchWords:
-                print "<h1>" + self.titleContent + "</h1>"
+                print "<hr></hr><h1>" + self.titleContent + "</h1>"
                 self.parseText()
 
             self.titleContent = ""
@@ -118,14 +118,13 @@ class WikiHandler(ContentHandler):
             return ""
 
         text = self.indents2xml(text)
-
-        text = re.sub(r"{{par ext[^}]+}}", "(Par extension)", text)
-        text = re.sub(r"{{litt[^}]+}}", "(Littéraire)", text)
-        text = re.sub(r"{{figuré[^}]+}}", "(Figuré)", text)
-        text = re.sub(r"{{dés|fr[^}]+}}", "(Désuet)", text)
-        text = re.sub(r"{{vx[^}]+}}", "(Vieilli)", text)
-        text = re.sub(r"{{w\|([^}]+)", "<i>\1</i>", text)
-        text = re.sub(r"{{source\|([^}]+)", "- (\1)", text)
+        text = re.sub(r"{{par ext[^}]+}}", r"(Par extension)", text)
+        text = re.sub(r"{{litt[^}]+}}", r"(Littéraire)", text)
+        text = re.sub(r"{{figuré[^}]+}}", r"(Figuré)", text)
+        text = re.sub(r"{{dés[^}]+}}", r"(Désuet)", text)
+        text = re.sub(r"{{vx[^}]+}}", r"(Vieilli)", text)
+        text = re.sub(r"{{w\|([^}]+)}}", r"<i>\1</i>", text)
+        text = re.sub(r"{{source\|([^}]+)}}", r"- (\1)", text)
 
         # Remove all recognized wiki tags
         text = re.sub(r"{{[^}]+}}", "", text)
