@@ -54,6 +54,13 @@ class WikiHandler(ContentHandler):
             "{{3egroupe}}": "3eme groupe",
             }
 
+        # Some content in wiktionary is obvioulsy not appropriate
+        # for children. This contains a list of regexp.
+        self.filterContent = [ r"de sade",
+                               r"pénis",
+                               r"homosexuel",
+                               r"vagin"]
+
 
     def endElement(self, name):
 
@@ -100,7 +107,7 @@ class WikiHandler(ContentHandler):
     # self.lilevel
     #
     def indents2xml(self, text):
-        result = re.search("[*#:;]+[ ]*", text)
+        result = re.search(r"^[ ]*[*#:;]+[ ]*", text)
         if not result:
             close = ""
             while self.lilevel:
@@ -129,10 +136,27 @@ class WikiHandler(ContentHandler):
 
         return result + "<li>" + text + "</li>"
 
+    def quote2xml(self, quote, openXml, closeXml, text):
+        index = 0
+        while index >= 0:
+            index = text.find(quote)
+            if index >= 0:
+                text = text.replace(quote, openXml, 1)
+            else:
+                return text
+
+            index = text.find(quote)
+            if index >= 0:
+                text = text.replace(quote, closeXml, 1)
+            else:
+                # Malformed statement, should fix wiktionary
+                text += closeXml
+        return text
+
     # Replace standard Wiki tags to XML
     def wiki2xml(self, text):
 
-        text = re.sub(r"{{[-\)]}}", "", text)
+        text = re.sub(r"{{[-\)\(]}}", "", text)
         text = re.sub(r"\[\[\w+:\w+\]\]", "", text)
         text = re.sub(r"{{\(\|(.*)}}", r"\1", text)
         if text == "":
@@ -150,15 +174,10 @@ class WikiHandler(ContentHandler):
         # Remove all unrecognized wiki tags
         text = re.sub(r"{{[^}]+}}", "", text)
 
-        # italic
-        while text.find("'''") != -1:
-            text = text.replace("'''", "<b>", 1)
-            text = text.replace("'''", "</b>", 1)
-
         # bold
-        while text.find("''") != -1:
-            text = text.replace("''", "<i>", 1)
-            text = text.replace("''", "</i>", 1)
+        text = self.quote2xml("'''", "<b>", "</b>", text)
+        # italic
+        text = self.quote2xml("''", "<i>", "</i>", text)
 
         # Get rid of hyperlinks
         while text.find("[[") != -1:
@@ -187,7 +206,15 @@ class WikiHandler(ContentHandler):
         # Append and end of text marker, it makes my life easier
         self.textContent += "\n{{-EndOfTest-}}"
 
+        # Remove html comment (multilines)
+        self.textContent = re.sub(r"<!--[^>]*-->", "",
+                                  self.textContent, re.M)
+
         for l in self.textContent.splitlines():
+
+            for filter in self.filterContent:
+                if re.search(filter, l, re.I):
+                    return
 
             # Are we still in the correct language section
             # We assume the correct language is ahead
@@ -204,28 +231,28 @@ class WikiHandler(ContentHandler):
                     wordSubType = self.wordSubTypes[wt]
 
             if inDefinition:
-                if not re.search(r"{{-.*-}}", l):
+                if not re.search(r"{{-.*-.*}}", l):
                     print self.wiki2xml(l)
                 else:
                     inDefinition = False
                     print self.wiki2xml("</definition>")
 
             if inAnagram:
-                if not re.search(r"{{-.*-}}", l):
+                if not re.search(r"{{-.*-.*}}", l):
                     print self.wiki2xml(l)
                 else:
                     inAnagram = False
                     print self.wiki2xml("</anagram>")
 
             if inSynonym:
-                if not re.search(r"{{-.*-}}", l):
+                if not re.search(r"{{-.*-.*}}", l):
                     print self.wiki2xml(l)
                 else:
                     inSynonym = False
                     print self.wiki2xml("</synonym>")
 
             if inAntonym:
-                if not re.search(r"{{-.*-}}", l):
+                if not re.search(r"{{-.*-.*}}", l):
                     print self.wiki2xml(l)
                 else:
                     inAntonym = False
@@ -236,14 +263,16 @@ class WikiHandler(ContentHandler):
                     # Search the .ogg file
                     file = l.split("=")
                     if len(file) >= 2:
-                        file = file[1]
-                        print "voices/fr/words/" + file.replace("}}", "")
+                        file = file[1].replace("}}", "")
+                        print "<a href=http://fr.wiktionary.org/wiki/Fichier:" \
+                            + file + ">" + file  + "</a>"
                 else:
                     inPron = False
                     print self.wiki2xml("</prononciation>")
 
             if l.startswith("'''" + self.titleContent + "'''"):
                 inDefinition = True
+                print "<h2>Definition " + self.titleContent + "</h2>"
                 print("<definition name='" + self.titleContent + "'" +
                       " type='" + wordType + "'" +
                       " subtype='" + wordSubType + "'" + ">")
