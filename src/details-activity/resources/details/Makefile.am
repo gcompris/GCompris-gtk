@@ -12,6 +12,7 @@ xml_in_files = \
 	board2_0.xml.in \
 	board2_10.xml.in \
 	board2_11.xml.in \
+	board2_12.xml.in \
 	board2_1.xml.in \
 	board2_2.xml.in \
 	board2_3.xml.in \
