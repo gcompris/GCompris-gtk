@@ -6,12 +6,15 @@ from xml.sax.handler import ContentHandler
 import sys
 import re
 
+import wiktio
+
 class WikiHandler(ContentHandler):
 
-    def __init__ (self, searchWords, locale):
+    def __init__ (self, searchWords, locale, _wiktio):
 
         self.searchWords= searchWords;
         self.locale = locale
+        self.wiktio = _wiktio
 
         self.isPageElement = False
 
@@ -67,8 +70,9 @@ class WikiHandler(ContentHandler):
         if name == 'page':
             self.isPageElement= False
             if self.titleContent in self.searchWords:
-                print "<hr></hr><h1>" + self.titleContent + "</h1>"
-                self.parseText()
+                word = self.parseText()
+                if word:
+                    self.wiktio.addWord(word)
 
             self.titleContent = ""
             self.textContent = ""
@@ -106,7 +110,7 @@ class WikiHandler(ContentHandler):
     # We keep the level of indentation to close in the stack:
     # self.lilevel
     #
-    def indents2xml(self, text):
+    def indents2xml(self, text, asText):
         result = re.search(r"^[ ]*[*#:;]+[ ]*", text)
         if not result:
             close = ""
@@ -134,7 +138,10 @@ class WikiHandler(ContentHandler):
                 result += "<ol>"
                 self.lilevel.append("</ol>")
 
-        return result + "<li>" + text + "</li>"
+        if asText:
+            return text
+        else:
+            return result + "<li>" + text + "</li>"
 
     def quote2xml(self, quote, openXml, closeXml, text):
         index = 0
@@ -154,7 +161,7 @@ class WikiHandler(ContentHandler):
         return text
 
     # Replace standard Wiki tags to XML
-    def wiki2xml(self, text):
+    def wiki2xml(self, text, asText):
 
         text = re.sub(r"{{[-\)\(]}}", "", text)
         text = re.sub(r"\[\[\w+:\w+\]\]", "", text)
@@ -162,7 +169,7 @@ class WikiHandler(ContentHandler):
         if text == "":
             return ""
 
-        text = self.indents2xml(text)
+        text = self.indents2xml(text, asText)
         text = re.sub(r"{{par ext[^}]+}}", r"(Par extension)", text)
         text = re.sub(r"{{litt[^}]+}}", r"(Littéraire)", text)
         text = re.sub(r"{{figuré[^}]+}}", r"(Figuré)", text)
@@ -195,7 +202,8 @@ class WikiHandler(ContentHandler):
 
     # Wikipedia text content is interpreted and transformed in XML
     def parseText(self):
-        inDefinition = False
+        inWord = None
+        inDefinition = None
         inAnagram = False
         inSynonym = False
         inAntonym = False
@@ -214,13 +222,21 @@ class WikiHandler(ContentHandler):
 
             for filter in self.filterContent:
                 if re.search(filter, l, re.I):
-                    return
+                    return inWord
+
+            # Categories
+            # print "1>" + l
+            # if re.search(r"^\[\[Cat\Sgorie:", l, re.U):
+            #     text = re.sub(r"\[\[Cat\Sgorie:(\S\s)+\]\]", r"\1", l)
+            #     print "ICI" + text
+            #     print "<category>" + text + "</category>"
+            #     continue
 
             # Are we still in the correct language section
             # We assume the correct language is ahead
             lang = re.match(r"== {{=([a-z]+)=}} ==", l)
             if lang and lang.group(1) != None and lang.group(1) != self.locale:
-                return
+                return inWord
 
             for wt in self.wordTypes.keys():
                 if re.search(wt, l):
@@ -232,82 +248,57 @@ class WikiHandler(ContentHandler):
 
             if inDefinition:
                 if not re.search(r"{{-.*-.*}}", l):
-                    print self.wiki2xml(l)
+                    inDefinition.addText(self.wiki2xml(l, False))
                 else:
-                    inDefinition = False
-                    print self.wiki2xml("</definition>")
+                    inWord.addDefinition(inDefinition)
+                    inDefinition = None
 
             if inAnagram:
-                if not re.search(r"{{-.*-.*}}", l):
-                    print self.wiki2xml(l)
+                if not re.search(r"{{-.*-.*}}", l) and len(l) > 0:
+                    inWord.addAnagram(self.wiki2xml(l, True))
                 else:
                     inAnagram = False
-                    print self.wiki2xml("</anagram>")
 
             if inSynonym:
                 if not re.search(r"{{-.*-.*}}", l):
-                    print self.wiki2xml(l)
+                    inWord.addSynonym(self.wiki2xml(l, True))
                 else:
                     inSynonym = False
-                    print self.wiki2xml("</synonym>")
 
             if inAntonym:
                 if not re.search(r"{{-.*-.*}}", l):
-                    print self.wiki2xml(l)
+                    inWord.addAntonym(self.wiki2xml(l, True))
                 else:
                     inAntonym = False
-                    print self.wiki2xml("</antonym>")
 
             if inPron:
-                if l != "" and l.find(".ogg") != -1:
-                    # Search the .ogg file
-                    file = l.split("=")
-                    if len(file) >= 2:
-                        file = file[1].replace("}}", "")
-                        print "<a href=http://fr.wiktionary.org/wiki/Fichier:" \
-                            + file + ">" + file  + "</a>"
+                if not re.search(r"{{-.*-.*}}", l):
+                    if l.find(".ogg") != -1:
+                        # Search the .ogg file
+                        file = l.split("=")
+                        if len(file) >= 2:
+                            file = file[1].replace("}}", "")
+                            inWord.addPronociation(file)
                 else:
                     inPron = False
-                    print self.wiki2xml("</prononciation>")
 
             if l.startswith("'''" + self.titleContent + "'''"):
-                inDefinition = True
-                print "<h2>Definition " + self.titleContent + "</h2>"
-                print("<definition name='" + self.titleContent + "'" +
-                      " type='" + wordType + "'" +
-                      " subtype='" + wordSubType + "'" + ">")
-                print("<h3>" + wordType + " " + wordSubType + "</h3>")
+                inWord = wiktio.Word(self.titleContent)
+                inDefinition = wiktio.Definition()
+                inDefinition.setType(wordType)
+                inDefinition.setSubType(wordSubType)
                 wordType = ""
                 wordSubType = ""
             elif l == "{{-anagr-}}":
                 inAnagram = True
-                print "<h2>Anagram</h2>"
-                print("<anagram>")
             elif l == "{{-syn-}}":
                 inSynonym= True
-                print "<h2>Synonym</h2>"
-                print("<synonym>")
             elif l == "{{-ant-}}":
                 inAntonym = True
-                print "<h2>Antonym</h2>"
-                print("<antonym>")
             elif l == "{{-pron-}}":
                 inPron = True
-                print "<h2>Prononciation</h2>"
-                print("<prononciation>")
 
-
-
-def printHtmlHeader():
-    print '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'
-    print '<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" dir="ltr">'
-    print '<head>'
-    print '<title>accueil - Wiktionnaire</title>'
-    print '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />'
-
-def printHtmlFooter():
-    print '</head>'
-    print '</html>'
+        return inWord
 
 def usage():
     print "wiki2xml.py <wiki file> <word list file>"
@@ -329,7 +320,9 @@ words = []
 words = [w.rstrip() for w in f.readlines()]
 f.close()
 
-printHtmlHeader()
-parse(wikiFile, WikiHandler(words, 'fr'))
-printHtmlFooter()
+_wiktio = wiktio.Wiktio()
 
+parse(wikiFile, WikiHandler(words, 'fr', _wiktio))
+
+
+_wiktio.dump2html()
