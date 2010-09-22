@@ -27,13 +27,17 @@ class Definition:
 
 class Word:
 
-    def __init__ (self, word):
-        self.word = word
+    def __init__ (self):
+        self.name = None
         self.definition = []
         self.synonym = []
         self.antonym = []
         self.anagram = []
         self.prononciation = []
+        self.category = []
+
+    def setName(self, name):
+        self.name = name
 
     def addDefinition(self, definition):
         self.definition.append(definition)
@@ -50,9 +54,13 @@ class Word:
         if len(anagram):
             self.anagram.append(anagram)
 
-    def addPronociation(self, prononciation):
+    def addPrononciation(self, prononciation):
         if len(prononciation):
             self.prononciation.append(prononciation)
+
+    def addCategory(self, category):
+        if len(category):
+            self.category.append(category)
 
     def dump2htmlItem(self, title, liste):
         if len(liste):
@@ -62,16 +70,27 @@ class Word:
                 print "<li>" + s + "</li>"
             print "</ul>"
 
+    def dump2htmlPrononciation(self, title, liste):
+        prefix = "http://commons.wikimedia.org/wiki/File:"
+        if len(liste):
+            print "<h2>" + title + "</h2>"
+            print "<ul>"
+            for s in liste:
+                print "<li><a href=" + prefix + s + ">" \
+                    + s + "</a></li>"
+            print "</ul>"
+
     def dump2html(self):
         print "<hr></hr>"
-        print "<h1>" + self.word + "</h1>"
+        print "<h1>" + self.name + "</h1>"
         for d in self.definition:
             d.dump2html()
 
         self.dump2htmlItem("Synonym", self.synonym)
         self.dump2htmlItem("Antonym", self.antonym)
         self.dump2htmlItem("Anagram", self.anagram)
-        self.dump2htmlItem("Prononciation", self.prononciation)
+        self.dump2htmlPrononciation("Prononciation", self.prononciation)
+        self.dump2htmlItem("Category", self.category)
 
 class Wiktio:
 
@@ -83,6 +102,9 @@ class Wiktio:
 
     def getWords(self):
         return self.words
+
+    def sort(self):
+        self.words.sort(key=lambda word: word.name)
 
     def dumpHtmlHeader(self):
         print """
@@ -98,6 +120,7 @@ class Wiktio:
 """
     def dump2html(self):
         self.dumpHtmlHeader()
+        self.sort()
         for w in self.words:
             w.dump2html()
         self.dumpHtmlFooter()

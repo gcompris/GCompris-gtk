@@ -64,6 +64,8 @@ class WikiHandler(ContentHandler):
                                r"homosexuel",
                                r"vagin"]
 
+        self.filterDefinitionType = [ r"{{vulg[^}]+}}",
+                                      r"{{injur[^}]+}}" ]
 
     def endElement(self, name):
 
@@ -71,7 +73,7 @@ class WikiHandler(ContentHandler):
             self.isPageElement= False
             if self.titleContent in self.searchWords:
                 word = self.parseText()
-                if word:
+                if word and word.name:
                     self.wiktio.addWord(word)
 
             self.titleContent = ""
@@ -116,7 +118,8 @@ class WikiHandler(ContentHandler):
             close = ""
             while self.lilevel:
                 close += self.lilevel.pop()
-            text = close + text
+            if not asText:
+                text = close + text
             return text
 
         indent = result.group(0).rstrip()
@@ -167,7 +170,7 @@ class WikiHandler(ContentHandler):
         text = re.sub(r"\[\[\w+:\w+\]\]", "", text)
         text = re.sub(r"{{\(\|(.*)}}", r"\1", text)
         if text == "":
-            return ""
+            return self.indents2xml(text, asText)
 
         text = self.indents2xml(text, asText)
         text = re.sub(r"{{par ext[^}]+}}", r"(Par extension)", text)
@@ -202,7 +205,7 @@ class WikiHandler(ContentHandler):
 
     # Wikipedia text content is interpreted and transformed in XML
     def parseText(self):
-        inWord = None
+        inWord = wiktio.Word()
         inDefinition = None
         inAnagram = False
         inSynonym = False
@@ -211,7 +214,7 @@ class WikiHandler(ContentHandler):
         wordType = ""
         wordSubType = ""
 
-        # Append and end of text marker, it makes my life easier
+        # Append an end of text marker, it makes my life easier
         self.textContent += "\n{{-EndOfTest-}}"
 
         # Remove html comment (multilines)
@@ -220,17 +223,24 @@ class WikiHandler(ContentHandler):
 
         for l in self.textContent.splitlines():
 
+            next = False
+
             for filter in self.filterContent:
                 if re.search(filter, l, re.I):
-                    return inWord
+                    return None
+
+            for filter in self.filterDefinitionType:
+                if re.search(filter, l, re.I):
+                    next = True
+
+            if next:
+                continue
 
             # Categories
-            # print "1>" + l
-            # if re.search(r"^\[\[Cat\Sgorie:", l, re.U):
-            #     text = re.sub(r"\[\[Cat\Sgorie:(\S\s)+\]\]", r"\1", l)
-            #     print "ICI" + text
-            #     print "<category>" + text + "</category>"
-            #     continue
+            if re.match(ur"\[\[Catégorie:", l):
+                text = re.sub(ur"\[\[Catégorie:(.*)\]\]", r"\1", l)
+                inWord.addCategory(text)
+                continue
 
             # Are we still in the correct language section
             # We assume the correct language is ahead
@@ -250,6 +260,8 @@ class WikiHandler(ContentHandler):
                 if not re.search(r"{{-.*-.*}}", l):
                     inDefinition.addText(self.wiki2xml(l, False))
                 else:
+                    # Force a <ul> close if needed
+                    inDefinition.addText(self.wiki2xml("", False))
                     inWord.addDefinition(inDefinition)
                     inDefinition = None
 
@@ -278,12 +290,12 @@ class WikiHandler(ContentHandler):
                         file = l.split("=")
                         if len(file) >= 2:
                             file = file[1].replace("}}", "")
-                            inWord.addPronociation(file)
+                            inWord.addPrononciation(file)
                 else:
                     inPron = False
 
             if l.startswith("'''" + self.titleContent + "'''"):
-                inWord = wiktio.Word(self.titleContent)
+                inWord.setName(self.titleContent)
                 inDefinition = wiktio.Definition()
                 inDefinition.setType(wordType)
                 inDefinition.setSubType(wordSubType)
