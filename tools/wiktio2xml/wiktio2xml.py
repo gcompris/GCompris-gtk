@@ -37,18 +37,23 @@ class WikiHandler(ContentHandler):
             self.isTextElement = True
             self.textContent = ""
 
+        self.genders = {
+            "{{m}}": u"masculin",
+            "{{f}}": u"féminin",
+            "{{mf}}": u"masculin et féminin"
+            }
+
         self.wordTypes = {
-            "{{-nom-.*}}": "noun",
-            "{{-nom-pr.*}}": "proper noun",
-            "{{-verb.*}}": "proper noun",
-            "{-pronom-.*}": "pronoun",
-            "{-verb-.*}}": "verb",
-            "{-adj-.*}}": "adjective",
-            "{-adv-.*}}": "adverb",
-            "{-art-.*}}": "article",
-            "{-conj-.*}}": "conjunction",
-            "{-prèp-.*}}": "preposition",
-            "{-post-.*}}": "postposition"
+            u"{{-nom-.*}}": u"nom",
+            u"{{-nom-pr.*}}": u"nom propre",
+            u"{{-verb.*}}": u"verbe",
+            u"{-pronom-.*}": u"pronom",
+            u"{-adj-.*}}": u"adjectif",
+            u"{-adv-.*}}": u"adverbe",
+            u"{-art-.*}}": u"article",
+            u"{-conj-.*}}": u"conjunction",
+            u"{-prèp-.*}}": u"préposition",
+            u"{-post-.*}}": u"postposition"
             }
 
         self.wordSubTypes = {
@@ -59,13 +64,19 @@ class WikiHandler(ContentHandler):
 
         # Some content in wiktionary is obvioulsy not appropriate
         # for children. This contains a list of regexp.
-        self.filterContent = [ r"de sade",
-                               r"pénis",
-                               r"homosexuel",
-                               r"vagin"]
+        self.filterContent = [ ur"de sade",
+                               ur"pénis",
+                               ur"homosexuel",
+                               ur"vagin"]
 
-        self.filterDefinitionType = [ r"{{vulg[^}]+}}",
-                                      r"{{injur[^}]+}}" ]
+        self.filterDefinitionType = [ ur"{{vulg[^}]*}}",
+                                      ur"{{injur[^}]*}}",
+                                      ur"{{dés[^}]*}}",
+                                      ur"{{vx[^}]*}}",
+                                      ur"{{métonymie[^}]*}}",
+                                      ur"{{familier[^}]*}}",
+                                      ur"coït",
+                                      ur"argot"]
 
     def endElement(self, name):
 
@@ -146,6 +157,8 @@ class WikiHandler(ContentHandler):
         else:
             return result + "<li>" + text + "</li>"
 
+    # Replaces '''xx''' and ''xx'' from the given text
+    # with openXml xx closeXml
     def quote2xml(self, quote, openXml, closeXml, text):
         index = 0
         while index >= 0:
@@ -168,18 +181,16 @@ class WikiHandler(ContentHandler):
 
         text = re.sub(r"{{[-\)\(]}}", "", text)
         text = re.sub(r"\[\[\w+:\w+\]\]", "", text)
-        text = re.sub(r"{{\(\|(.*)}}", r"\1", text)
+        text = re.sub(r"{{\(\|(.*)}}", r"", text)
         if text == "":
             return self.indents2xml(text, asText)
 
         text = self.indents2xml(text, asText)
-        text = re.sub(r"{{par ext[^}]+}}", r"(Par extension)", text)
-        text = re.sub(r"{{litt[^}]+}}", r"(Littéraire)", text)
-        text = re.sub(r"{{figuré[^}]+}}", r"(Figuré)", text)
-        text = re.sub(r"{{dés[^}]+}}", r"(Désuet)", text)
-        text = re.sub(r"{{vx[^}]+}}", r"(Vieilli)", text)
-        text = re.sub(r"{{w\|([^}]+)}}", r"<i>\1</i>", text)
-        text = re.sub(r"{{source\|([^}]+)}}", r"- (\1)", text)
+        text = re.sub(ur"{{par ext[^}]*}}", ur"(Par extension)", text)
+        text = re.sub(ur"{{litt[^}]*}}", ur"(Littéraire)", text)
+        text = re.sub(ur"{{figuré[^}]*}}", ur"(Figuré)", text)
+        text = re.sub(ur"{{w\|([^}]+)}}", ur"<i>\1</i>", text)
+        text = re.sub(ur"{{source\|([^}]+)}}", ur"- (\1)", text)
 
         # Remove all unrecognized wiki tags
         text = re.sub(r"{{[^}]+}}", "", text)
@@ -213,6 +224,8 @@ class WikiHandler(ContentHandler):
         inPron = False
         wordType = ""
         wordSubType = ""
+        filterIndent = ""
+        gender = ""
 
         # Append an end of text marker, it makes my life easier
         self.textContent += "\n{{-EndOfTest-}}"
@@ -227,10 +240,28 @@ class WikiHandler(ContentHandler):
 
             for filter in self.filterContent:
                 if re.search(filter, l, re.I):
-                    return None
+                    if inDefinition:
+                        inDefinition.filtered = True
+
+            if filterIndent != "":
+                # We are filtering, check this line is
+                # at a lower indentation level
+                result = re.search(r"^[ ]*[*#:;]+[ ]*", l)
+                if result:
+                    if len(result.group(0).rstrip()) > len(filterIndent):
+                        next = True
+                    else:
+                        filterIndent = ""
+                else:
+                    filterIndent = ""
+
 
             for filter in self.filterDefinitionType:
                 if re.search(filter, l, re.I):
+                    result = re.search(r"^[ ]*[*#:;]+[ ]*", l)
+                    if result:
+                        # Keep the indent level for which we filter
+                        filterIndent = result.group(0).rstrip()
                     next = True
 
             if next:
@@ -251,6 +282,10 @@ class WikiHandler(ContentHandler):
             for wt in self.wordTypes.keys():
                 if re.search(wt, l):
                     wordType = self.wordTypes[wt]
+
+            for wt in self.genders.keys():
+                if re.search(wt, l):
+                    gender = self.genders[wt]
 
             for wt in self.wordSubTypes.keys():
                 if re.search(wt, l):
@@ -285,12 +320,9 @@ class WikiHandler(ContentHandler):
 
             if inPron:
                 if not re.search(r"{{-.*-.*}}", l):
-                    if l.find(".ogg") != -1:
-                        # Search the .ogg file
-                        file = l.split("=")
-                        if len(file) >= 2:
-                            file = file[1].replace("}}", "")
-                            inWord.addPrononciation(file)
+                    file = re.subn(r".*audio=([^|}]+).*", r"\1", l)
+                    if file[1] == 1:
+                        inWord.addPrononciation(file[0])
                 else:
                     inPron = False
 
@@ -299,8 +331,10 @@ class WikiHandler(ContentHandler):
                 inDefinition = wiktio.Definition()
                 inDefinition.setType(wordType)
                 inDefinition.setSubType(wordSubType)
+                inDefinition.setGender(gender)
                 wordType = ""
                 wordSubType = ""
+                gender = ""
             elif l == "{{-anagr-}}":
                 inAnagram = True
             elif l == "{{-syn-}}":

@@ -10,6 +10,8 @@ class Definition:
         self.text = ""
         self.type = ""
         self.subType = ""
+        self.filtered = False
+        self.gender = ""
 
     def addText(self, text):
         self.text += text
@@ -20,15 +22,21 @@ class Definition:
     def setSubType(self, subType):
         self.subType = subType
 
+    def setGender(self, gender):
+        self.gender = gender
+
     def dump2html(self):
-        print "<definition type='" + self.type \
-            + "' subType='" + self.subType + "'>" \
-            + self.text + "</definition>"
+        if self.filtered:
+            return
+        print "<h3>" + self.type + \
+            " " + self.subType + \
+            " " + self.gender + "</h3>"
+        print self.text
 
 class Word:
 
-    def __init__ (self):
-        self.name = None
+    def __init__ (self, name = None):
+        self.name = name
         self.definition = []
         self.synonym = []
         self.antonym = []
@@ -65,10 +73,11 @@ class Word:
     def dump2htmlItem(self, title, liste):
         if len(liste):
             print "<h2>" + title + "</h2>"
-            print "<ul>"
             for s in liste:
-                print "<li>" + s + "</li>"
-            print "</ul>"
+                if s.find(":") >= 0:
+                    print "<br></br>" + s
+                else:
+                    print s
 
     def dump2htmlPrononciation(self, title, liste):
         prefix = "http://commons.wikimedia.org/wiki/File:"
@@ -104,7 +113,7 @@ class Wiktio:
         return self.words
 
     def sort(self):
-        self.words.sort(key=lambda word: word.name)
+        self.words.sort(key=lambda word: word.name.lower())
 
     def dumpHtmlHeader(self):
         print """
