@@ -250,9 +250,17 @@ class WikiHandler(ContentHandler):
         self.textContent = re.sub(r"<!--[^>]*-->", "",
                                   self.textContent, re.M)
 
+        concat = ""
         for l in self.textContent.splitlines():
-
+            l = concat + l
             next = False
+
+            if re.search(r"<[^>]+$", l):
+                # Wiki uses a trick to format text area by endind in uncomplete
+                # html tags. In this case, we concat this line with the next one
+                # before processing it
+                concat = l
+                continue
 
             for filter in self.filterContent:
                 if re.search(filter, l, re.I):
