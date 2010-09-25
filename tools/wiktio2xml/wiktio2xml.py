@@ -72,6 +72,11 @@ class WikiHandler(ContentHandler):
             u"{-post-.*}}": u"postposition"
             }
 
+        # This is the list of word types we don't want to keep
+        self.wordSkipTypes = [
+            "{{-flex-verb-"
+            ]
+
         self.wordSubTypes = {
             "{{1ergroupe}}": "1er groupe",
             "{{2egroupe}}": "2eme groupe",
@@ -314,6 +319,10 @@ class WikiHandler(ContentHandler):
                 if re.search(wt, l):
                     wordType = self.wordTypes[wt]
                     definition.setType(wordType)
+
+            for wt in self.wordSkipTypes:
+                if re.search(wt, l):
+                    definition.filtered = True
 
             for wt in self.genders.keys():
                 if re.search(wt, l):
