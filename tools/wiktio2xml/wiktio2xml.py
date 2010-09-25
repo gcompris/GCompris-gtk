@@ -233,11 +233,19 @@ class WikiHandler(ContentHandler):
     # Wikipedia text content is interpreted and transformed in XML
     def parseText(self):
         inWord = wiktio.Word()
-        inDefinition = None
-        inAnagram = False
-        inSynonym = False
-        inAntonym = False
-        inPron = False
+        definition = None
+
+        (DEFINITION,
+         ANAGRAM,
+         SYNONYM,
+         ANTONYM,
+         HYPERONYM,
+         HYPONYM,
+         PRON,
+         SKIP) = range(0, 8)
+
+        state = SKIP
+
         wordType = ""
         wordSubType = ""
         filterIndent = ""
@@ -250,22 +258,80 @@ class WikiHandler(ContentHandler):
         self.textContent = re.sub(r"<!--[^>]*-->", "",
                                   self.textContent, re.M)
 
+        definition = wiktio.Definition()
         concat = ""
         for l in self.textContent.splitlines():
             l = concat + l
             next = False
 
             if re.search(r"<[^>]+$", l):
-                # Wiki uses a trick to format text area by endind in uncomplete
+                # Wiki uses a trick to format text area by ending in uncomplete
                 # html tags. In this case, we concat this line with the next one
                 # before processing it
                 concat = l
                 continue
 
+            # Determine the section of the document we are in
+            if l.startswith("'''" + self.titleContent + "'''"):
+                inWord.setName(self.titleContent)
+                # Get rid of the word, we don't want it in the definition
+                l = re.sub(r"'''.*'''(.*)", r"\1", l)
+                state = DEFINITION
+            elif l == "{{-anagr-}}":
+                state = ANAGRAM
+            elif l == "{{-syn-}}":
+                state = SYNONYM
+            elif l == "{{-ant-}}":
+                state = ANTONYM
+            elif l == "{{-hyper-}}":
+                state = HYPERONYM
+            elif l == "{{-hypo-}}":
+                state = HYPONYM
+            elif l == "{{-pron-}}":
+                state = PRON
+            elif re.search(r"{{-.*-.*}}", l):
+                if definition.text != "":
+                    # Force a <ul> close if needed
+                    definition.addText(self.wiki2xml("", False))
+                    inWord.addDefinition(definition)
+                    # Next definition
+                    definition = wiktio.Definition()
+                state = SKIP
+
+            # Are we still in the correct language section
+            # We assume the correct language is ahead
+            lang = re.match(r"== {{=([a-z]+)=}} ==", l)
+            if lang and lang.group(1) != None and lang.group(1) != self.locale:
+                return inWord
+
+            # Image
+            if definition and re.match(ur"\[\[Image:", l):
+                text = re.sub(ur"\[\[Image:([^|}\]]+).*", r"\1", l)
+                definition.addImage(text)
+                continue
+
+            for wt in self.wordTypes.keys():
+                if re.search(wt, l):
+                    wordType = self.wordTypes[wt]
+                    definition.setType(wordType)
+
+            for wt in self.genders.keys():
+                if re.search(wt, l):
+                    gender = self.genders[wt]
+                    definition.setGender(gender)
+
+            for wt in self.wordSubTypes.keys():
+                if re.search(wt, l):
+                    wordSubType = self.wordSubTypes[wt]
+                    definition.setSubType(wordSubType)
+
+            if state == SKIP:
+                continue
+
             for filter in self.filterContent:
                 if re.search(filter, l, re.I):
-                    if inDefinition:
-                        inDefinition.filtered = True
+                    if definition:
+                        definition.filtered = True
 
             if filterIndent != "":
                 # We are filtering, check this line is
@@ -292,81 +358,28 @@ class WikiHandler(ContentHandler):
                 continue
 
             # Categories
-            if re.match(ur"\[\[Catégorie:", l):
-                text = re.sub(ur"\[\[Catégorie:(.*)\]\]", r"\1", l)
-                inWord.addCategory(text)
+            if definition and re.match(ur"\[\[Catégorie:", l):
+                text = re.sub(ur"\[\[Catégorie:([^|}\]]+).*", r"\1", l)
+                definition.addCategory(text)
                 continue
 
-            # Are we still in the correct language section
-            # We assume the correct language is ahead
-            lang = re.match(r"== {{=([a-z]+)=}} ==", l)
-            if lang and lang.group(1) != None and lang.group(1) != self.locale:
-                return inWord
-
-            for wt in self.wordTypes.keys():
-                if re.search(wt, l):
-                    wordType = self.wordTypes[wt]
-
-            for wt in self.genders.keys():
-                if re.search(wt, l):
-                    gender = self.genders[wt]
-
-            for wt in self.wordSubTypes.keys():
-                if re.search(wt, l):
-                    wordSubType = self.wordSubTypes[wt]
-
-            if inDefinition:
-                if not re.search(r"{{-.*-.*}}", l):
-                    inDefinition.addText(self.wiki2xml(l, False))
-                else:
-                    # Force a <ul> close if needed
-                    inDefinition.addText(self.wiki2xml("", False))
-                    inWord.addDefinition(inDefinition)
-                    inDefinition = None
-
-            if inAnagram:
-                if not re.search(r"{{-.*-.*}}", l) and len(l) > 0:
-                    inWord.addAnagram(self.wiki2xml(l, True))
-                else:
-                    inAnagram = False
-
-            if inSynonym:
-                if not re.search(r"{{-.*-.*}}", l):
-                    inWord.addSynonym(self.wiki2xml(l, True))
-                else:
-                    inSynonym = False
-
-            if inAntonym:
-                if not re.search(r"{{-.*-.*}}", l):
-                    inWord.addAntonym(self.wiki2xml(l, True))
-                else:
-                    inAntonym = False
-
-            if inPron:
-                if not re.search(r"{{-.*-.*}}", l):
-                    file = re.subn(r".*audio=([^|}]+).*", r"\1", l)
-                    if file[1] == 1:
-                        inWord.addPrononciation(file[0])
-                else:
-                    inPron = False
-
-            if l.startswith("'''" + self.titleContent + "'''"):
-                inWord.setName(self.titleContent)
-                inDefinition = wiktio.Definition()
-                inDefinition.setType(wordType)
-                inDefinition.setSubType(wordSubType)
-                inDefinition.setGender(gender)
-                wordType = ""
-                wordSubType = ""
-                gender = ""
-            elif l == "{{-anagr-}}":
-                inAnagram = True
-            elif l == "{{-syn-}}":
-                inSynonym= True
-            elif l == "{{-ant-}}":
-                inAntonym = True
-            elif l == "{{-pron-}}":
-                inPron = True
+            if state == DEFINITION:
+                definition.addText(self.wiki2xml(l, False))
+            elif state == ANAGRAM:
+                if len(l) > 0:
+                    definition.addAnagram(self.wiki2xml(l, True))
+            elif state == SYNONYM:
+                definition.addSynonym(self.wiki2xml(l, True))
+            elif state == ANTONYM:
+                definition.addAntonym(self.wiki2xml(l, True))
+            elif state == HYPERONYM:
+                definition.addHyperonym(self.wiki2xml(l, True))
+            elif state == HYPONYM:
+                definition.addHyponym(self.wiki2xml(l, True))
+            elif state == PRON:
+                file = re.subn(r".*audio=([^|}]+).*", r"\1", l)
+                if file[1] == 1:
+                    definition.addPrononciation(file[0])
 
         return inWord
 

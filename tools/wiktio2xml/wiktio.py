@@ -28,6 +28,14 @@ class Definition:
         self.subType = ""
         self.filtered = False
         self.gender = ""
+        self.synonym = []
+        self.antonym = []
+        self.anagram = []
+        self.hyperonym = []
+        self.hyponym = []
+        self.prononciation = []
+        self.category = []
+        self.image = []
 
     def addText(self, text):
         self.text += text
@@ -41,31 +49,6 @@ class Definition:
     def setGender(self, gender):
         self.gender = gender
 
-    def dump2html(self):
-        if self.filtered:
-            return
-        print "<h3>" + self.type + \
-            " " + self.subType + \
-            " " + self.gender + "</h3>"
-        print self.text
-
-class Word:
-
-    def __init__ (self, name = None):
-        self.name = name
-        self.definition = []
-        self.synonym = []
-        self.antonym = []
-        self.anagram = []
-        self.prononciation = []
-        self.category = []
-
-    def setName(self, name):
-        self.name = name
-
-    def addDefinition(self, definition):
-        self.definition.append(definition)
-
     def addSynonym(self, synonym):
         if len(synonym):
             self.synonym.append(synonym)
@@ -78,6 +61,14 @@ class Word:
         if len(anagram):
             self.anagram.append(anagram)
 
+    def addHyperonym(self, hyperonym):
+        if len(hyperonym):
+            self.hyperonym.append(hyperonym)
+
+    def addHyponym(self, hyponym):
+        if len(hyponym):
+            self.hyponym.append(hyponym)
+
     def addPrononciation(self, prononciation):
         if len(prononciation):
             self.prononciation.append(prononciation)
@@ -86,14 +77,16 @@ class Word:
         if len(category):
             self.category.append(category)
 
-    def dump2htmlItem(self, title, liste):
-        if len(liste):
-            print "<h2>" + title + "</h2>"
-            for s in liste:
-                if s.find(":") >= 0:
-                    print "<br></br>" + s
-                else:
-                    print s
+    def addImage(self, image):
+        if len(image):
+            self.image.append(image)
+
+    def dump2htmlImage(self):
+        if self.image:
+            prefix = "http://fr.wiktionary.org/wiki/Fichier:"
+            for img in self.image:
+                print "<a href='" + prefix + img + "'>" + \
+                    img + '</a><br/>'
 
     def dump2htmlPrononciation(self, title, liste):
         prefix = "http://commons.wikimedia.org/wiki/File:"
@@ -105,17 +98,51 @@ class Word:
                     + s + "</a></li>"
             print "</ul>"
 
+    def dump2htmlItem(self, title, liste):
+
+        if len(liste):
+            print "<h2>" + title + "</h2>"
+            for s in liste:
+                if s.find(":") >= 0:
+                    print "<br/>" + s
+                else:
+                    print s + ", "
+
+    def dump2html(self):
+        if self.filtered:
+            return
+        print "<h3>" + self.type + \
+            " " + self.subType + \
+            " " + self.gender + "</h3>"
+        self.dump2htmlImage()
+        print self.text
+
+        self.dump2htmlItem("Synonymes", self.synonym)
+        self.dump2htmlItem("Antonymes", self.antonym)
+        self.dump2htmlItem("Anagrammes", self.anagram)
+        self.dump2htmlItem("Hyperonymes", self.hyperonym)
+        self.dump2htmlItem("Hyponymes", self.hyponym)
+        self.dump2htmlPrononciation("Prononciation", self.prononciation)
+        self.dump2htmlItem(u"Catégories", self.category)
+
+class Word:
+
+    def __init__ (self, name = None):
+        self.name = name
+        self.definition = []
+
+    def setName(self, name):
+        self.name = name
+
+    def addDefinition(self, definition):
+        self.definition.append(definition)
+
     def dump2html(self):
         print "<hr></hr>"
         print "<h1>" + self.name + "</h1>"
         for d in self.definition:
             d.dump2html()
 
-        self.dump2htmlItem("Synonym", self.synonym)
-        self.dump2htmlItem("Antonym", self.antonym)
-        self.dump2htmlItem("Anagram", self.anagram)
-        self.dump2htmlPrononciation("Prononciation", self.prononciation)
-        self.dump2htmlItem("Category", self.category)
 
 class Wiktio:
 
