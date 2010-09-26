@@ -94,7 +94,7 @@ class Definition:
             print "<h2>" + title + "</h2>"
             print "<ul>"
             for s in liste:
-                print "<li><a href=" + prefix + s + ">" \
+                print "<li><a href='" + prefix + s + "'>" \
                     + s + "</a></li>"
             print "</ul>"
 
@@ -109,7 +109,7 @@ class Definition:
                     print s + ", "
 
     def dump2html(self):
-        if self.filtered:
+        if self.filtered or self.text == "":
             return
         print "<h3>" + self.type + \
             " " + self.subType + \
@@ -138,8 +138,11 @@ class Word:
         self.definition.append(definition)
 
     def dump2html(self):
-        print "<hr></hr>"
+        print "<hr/>"
         print "<h1>" + self.name + "</h1>"
+        if not self.definition:
+            print "<h2>ERROR: NO DEFINITION</h2>"
+            return
         for d in self.definition:
             d.dump2html()
 

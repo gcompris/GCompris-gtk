@@ -24,6 +24,8 @@ import re
 
 import wiktio
 
+debug = False
+
 class WikiHandler(ContentHandler):
 
     def __init__ (self, searchWords, locale, _wiktio):
@@ -90,14 +92,29 @@ class WikiHandler(ContentHandler):
                                ur"homosexuel",
                                ur"vagin"]
 
+        # These definitions will always be skipped
         self.filterDefinitionType = [ ur"{{vulg[^}]*}}",
                                       ur"{{injur[^}]*}}",
+                                      ur"coït",
+                                      ur"argot"]
+
+        # These definitions will be skipped only if not in the first
+        # sense found
+        self.filterSecondDefinitionType = [
                                       ur"{{dés[^}]*}}",
                                       ur"{{vx[^}]*}}",
                                       ur"{{métonymie[^}]*}}",
                                       ur"{{familier[^}]*}}",
-                                      ur"coït",
-                                      ur"argot"]
+                                      ur"{{hérald[^}]*}}",
+                                      ur"{{botan[^}]*}}",
+                                      ur"{{zool[^}]*}}",
+                                      ur"{{polit[^}]*}",
+                                      ur"{{péj[^}]*}}",
+                                      ur"{{oeno[^}]*}}",
+                                      ur"{{litt[^}]*}}",
+#                                      ur"{{par ext[^}]*}}",
+                                      ur"{{figuré[^}]*}}"
+                                      ]
 
     def endElement(self, name):
 
@@ -157,6 +174,9 @@ class WikiHandler(ContentHandler):
         indent = result.group(0).rstrip()
         text = text[result.end():]
 
+        if asText:
+            return text
+
         result = ""
         # Close indents if needed
         while len(self.lilevel) > len(indent):
@@ -173,10 +193,7 @@ class WikiHandler(ContentHandler):
                 result += "<ol>"
                 self.lilevel.append("</ol>")
 
-        if asText:
-            return text
-        else:
-            return result + "<li>" + text + "</li>"
+        return result + "<li>" + text + "</li>"
 
     # Replaces '''xx''' and ''xx'' from the given text
     # with openXml xx closeXml
@@ -208,7 +225,6 @@ class WikiHandler(ContentHandler):
 
         text = self.indents2xml(text, asText)
         text = re.sub(ur"{{par ext[^}]*}}", ur"(Par extension)", text)
-        text = re.sub(ur"{{litt[^}]*}}", ur"(Littéraire)", text)
         text = re.sub(ur"{{figuré[^}]*}}", ur"(Figuré)", text)
         text = re.sub(ur"{{w\|([^}]+)}}", ur"<i>\1</i>", text)
         text = re.sub(ur"{{source\|([^}]+)}}", ur"- (\1)", text)
@@ -238,7 +254,6 @@ class WikiHandler(ContentHandler):
     # Wikipedia text content is interpreted and transformed in XML
     def parseText(self):
         inWord = wiktio.Word()
-        definition = None
 
         (DEFINITION,
          ANAGRAM,
@@ -256,7 +271,7 @@ class WikiHandler(ContentHandler):
         filterIndent = ""
         gender = ""
 
-        # Append an end of text marker, it makes my life easier
+        # Append an end of text marker, it forces the end of the definition
         self.textContent += "\n{{-EndOfTest-}}"
 
         # Remove html comment (multilines)
@@ -264,11 +279,14 @@ class WikiHandler(ContentHandler):
                                   self.textContent, re.M)
 
         definition = wiktio.Definition()
+        inWord.addDefinition(definition)
         concat = ""
         for l in self.textContent.splitlines():
             l = concat + l
+            concat = ""
             next = False
 
+            if debug: print "<br/>l:" + l + ":"
             if re.search(r"<[^>]+$", l):
                 # Wiki uses a trick to format text area by ending in uncomplete
                 # html tags. In this case, we concat this line with the next one
@@ -280,27 +298,51 @@ class WikiHandler(ContentHandler):
             if l.startswith("'''" + self.titleContent + "'''"):
                 inWord.setName(self.titleContent)
                 # Get rid of the word, we don't want it in the definition
-                l = re.sub(r"'''.*'''(.*)", r"\1", l)
+                l = re.sub(r"'''.*'''[ ]*(.*)", r"\1", l)
                 state = DEFINITION
             elif l == "{{-anagr-}}":
+                definition.addText(self.wiki2xml("", False))
                 state = ANAGRAM
             elif l == "{{-syn-}}":
+                definition.addText(self.wiki2xml("", False))
                 state = SYNONYM
             elif l == "{{-ant-}}":
+                definition.addText(self.wiki2xml("", False))
                 state = ANTONYM
             elif l == "{{-hyper-}}":
+                definition.addText(self.wiki2xml("", False))
                 state = HYPERONYM
             elif l == "{{-hypo-}}":
+                definition.addText(self.wiki2xml("", False))
                 state = HYPONYM
             elif l == "{{-pron-}}":
+                definition.addText(self.wiki2xml("", False))
                 state = PRON
+            elif l == "{{-note-}}":
+                state = SKIP
+            elif l == "{{-apr-}}":
+                state = SKIP
+            elif l == "{{-drv-}}":
+                state = SKIP
+            elif l == "{{-exp-}}":
+                state = SKIP
+            elif l == "{{-trad-}}":
+                state = SKIP
+            elif l == "{{-voc-}}":
+                state = SKIP
+            elif l == "{{-voir-}}":
+                state = SKIP
+            elif l == u"{{-réf-}}":
+                state = SKIP
             elif re.search(r"{{-.*-.*}}", l):
                 if definition.text != "":
+                    if debug: print "<br/>new definition:" + l + ":"
                     # Force a <ul> close if needed
                     definition.addText(self.wiki2xml("", False))
-                    inWord.addDefinition(definition)
                     # Next definition
+                    filterIndent = ""
                     definition = wiktio.Definition()
+                    inWord.addDefinition(definition)
                 state = SKIP
 
             # Are we still in the correct language section
@@ -319,28 +361,32 @@ class WikiHandler(ContentHandler):
                 if re.search(wt, l):
                     wordType = self.wordTypes[wt]
                     definition.setType(wordType)
+                    break
 
             for wt in self.wordSkipTypes:
                 if re.search(wt, l):
                     definition.filtered = True
+                    break
 
             for wt in self.genders.keys():
                 if re.search(wt, l):
                     gender = self.genders[wt]
                     definition.setGender(gender)
+                    break
 
             for wt in self.wordSubTypes.keys():
                 if re.search(wt, l):
                     wordSubType = self.wordSubTypes[wt]
                     definition.setSubType(wordSubType)
+                    break
 
             if state == SKIP:
                 continue
 
             for filter in self.filterContent:
                 if re.search(filter, l, re.I):
-                    if definition:
-                        definition.filtered = True
+                    definition.filtered = True
+                    break
 
             if filterIndent != "":
                 # We are filtering, check this line is
@@ -355,6 +401,7 @@ class WikiHandler(ContentHandler):
                     filterIndent = ""
 
 
+            # Filter meanings having really bad words in them
             for filter in self.filterDefinitionType:
                 if re.search(filter, l, re.I):
                     result = re.search(r"^[ ]*[*#:;]+[ ]*", l)
@@ -362,12 +409,25 @@ class WikiHandler(ContentHandler):
                         # Keep the indent level for which we filter
                         filterIndent = result.group(0).rstrip()
                     next = True
+                    break
+
+            # We already found a meaning for this word, we pick
+            # other senses restrictively
+            if definition.text != "":
+                for filter in self.filterSecondDefinitionType:
+                    if re.search(filter, l, re.I):
+                        result = re.search(r"^[ ]*[*#:;]+[ ]*", l)
+                        if result:
+                            # Keep the indent level for which we filter
+                            filterIndent = result.group(0).rstrip()
+                        next = True
+                        break
 
             if next:
                 continue
 
             # Categories
-            if definition and re.match(ur"\[\[Catégorie:", l):
+            if re.match(ur"\[\[Catégorie:", l):
                 text = re.sub(ur"\[\[Catégorie:([^|}\]]+).*", r"\1", l)
                 definition.addCategory(text)
                 continue
