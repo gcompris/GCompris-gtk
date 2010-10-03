@@ -22,17 +22,21 @@ from xml.sax.handler import ContentHandler
 import sys
 import re
 
+from optparse import OptionParser
+
 import wiktio
+from wiktio import Wiktio
 
 debug = False
 
 class WikiHandler(ContentHandler):
 
-    def __init__ (self, searchWords, locale, _wiktio):
+    def __init__ (self, searchWords, locale, _wiktio, verbose):
 
         self.searchWords= searchWords;
         self.locale = locale
         self.wiktio = _wiktio
+        self.verbose = verbose
 
         self.isPageElement = False
 
@@ -95,6 +99,8 @@ class WikiHandler(ContentHandler):
         # These definitions will always be skipped
         self.filterDefinitionType = [ ur"{{vulg[^}]*}}",
                                       ur"{{injur[^}]*}}",
+                                      ur"{{sexe[^}]*}}",
+                                      ur"{{sexua[^}]*}}",
                                       ur"coït",
                                       ur"argot"]
 
@@ -201,17 +207,12 @@ class WikiHandler(ContentHandler):
         index = 0
         while index >= 0:
             index = text.find(quote)
-            if index >= 0:
+            index2 = text.find(quote, index)
+            if index >= 0 and index2 >=0:
                 text = text.replace(quote, openXml, 1)
-            else:
-                return text
-
-            index = text.find(quote)
-            if index >= 0:
                 text = text.replace(quote, closeXml, 1)
             else:
-                # Malformed statement, should fix wiktionary
-                text += closeXml
+                return text
         return text
 
     # Replace standard Wiki tags to XML
@@ -253,18 +254,11 @@ class WikiHandler(ContentHandler):
 
     # Wikipedia text content is interpreted and transformed in XML
     def parseText(self):
+        if self.verbose:
+            print "Processing " + self.titleContent
         inWord = wiktio.Word()
 
-        (DEFINITION,
-         ANAGRAM,
-         SYNONYM,
-         ANTONYM,
-         HYPERONYM,
-         HYPONYM,
-         PRON,
-         SKIP) = range(0, 8)
-
-        state = SKIP
+        state = Wiktio.SKIP
 
         wordType = ""
         wordSubType = ""
@@ -299,41 +293,43 @@ class WikiHandler(ContentHandler):
                 inWord.setName(self.titleContent)
                 # Get rid of the word, we don't want it in the definition
                 l = re.sub(r"'''.*'''[ ]*(.*)", r"\1", l)
-                state = DEFINITION
+                # Get rid of non wiki tags
+                l = re.sub(r'}}[^}]+{{', r'}} {{', l)
+                state = Wiktio.DEFINITION
             elif l == "{{-anagr-}}":
                 definition.addText(self.wiki2xml("", False))
-                state = ANAGRAM
+                state = Wiktio.ANAGRAM
             elif l == "{{-syn-}}":
                 definition.addText(self.wiki2xml("", False))
-                state = SYNONYM
+                state = Wiktio.SYNONYM
             elif l == "{{-ant-}}":
                 definition.addText(self.wiki2xml("", False))
-                state = ANTONYM
+                state = Wiktio.ANTONYM
             elif l == "{{-hyper-}}":
                 definition.addText(self.wiki2xml("", False))
-                state = HYPERONYM
+                state = Wiktio.HYPERONYM
             elif l == "{{-hypo-}}":
                 definition.addText(self.wiki2xml("", False))
-                state = HYPONYM
+                state = Wiktio.HYPONYM
             elif l == "{{-pron-}}":
                 definition.addText(self.wiki2xml("", False))
-                state = PRON
+                state = Wiktio.PRON
             elif l == "{{-note-}}":
-                state = SKIP
+                state = Wiktio.SKIP
             elif l == "{{-apr-}}":
-                state = SKIP
+                state = Wiktio.SKIP
             elif l == "{{-drv-}}":
-                state = SKIP
+                state = Wiktio.SKIP
             elif l == "{{-exp-}}":
-                state = SKIP
+                state = Wiktio.SKIP
             elif l == "{{-trad-}}":
-                state = SKIP
+                state = Wiktio.SKIP
             elif l == "{{-voc-}}":
-                state = SKIP
+                state = Wiktio.SKIP
             elif l == "{{-voir-}}":
-                state = SKIP
+                state = Wiktio.SKIP
             elif l == u"{{-réf-}}":
-                state = SKIP
+                state = Wiktio.SKIP
             elif re.search(r"{{-.*-.*}}", l):
                 if definition.text != "":
                     if debug: print "<br/>new definition:" + l + ":"
@@ -343,7 +339,7 @@ class WikiHandler(ContentHandler):
                     filterIndent = ""
                     definition = wiktio.Definition()
                     inWord.addDefinition(definition)
-                state = SKIP
+                state = Wiktio.SKIP
 
             # Are we still in the correct language section
             # We assume the correct language is ahead
@@ -354,7 +350,7 @@ class WikiHandler(ContentHandler):
             # Image
             if definition and re.match(ur"\[\[Image:", l):
                 text = re.sub(ur"\[\[Image:([^|}\]]+).*", r"\1", l)
-                definition.addImage(text)
+                definition.add(Wiktio.IMAGE, text)
                 continue
 
             for wt in self.wordTypes.keys():
@@ -380,7 +376,7 @@ class WikiHandler(ContentHandler):
                     definition.setSubType(wordSubType)
                     break
 
-            if state == SKIP:
+            if state == Wiktio.SKIP:
                 continue
 
             for filter in self.filterContent:
@@ -429,26 +425,18 @@ class WikiHandler(ContentHandler):
             # Categories
             if re.match(ur"\[\[Catégorie:", l):
                 text = re.sub(ur"\[\[Catégorie:([^|}\]]+).*", r"\1", l)
-                definition.addCategory(text)
+                definition.add(Wiktio.CATEGORY, text)
                 continue
 
-            if state == DEFINITION:
+            if state == Wiktio.DEFINITION:
                 definition.addText(self.wiki2xml(l, False))
-            elif state == ANAGRAM:
-                if len(l) > 0:
-                    definition.addAnagram(self.wiki2xml(l, True))
-            elif state == SYNONYM:
-                definition.addSynonym(self.wiki2xml(l, True))
-            elif state == ANTONYM:
-                definition.addAntonym(self.wiki2xml(l, True))
-            elif state == HYPERONYM:
-                definition.addHyperonym(self.wiki2xml(l, True))
-            elif state == HYPONYM:
-                definition.addHyponym(self.wiki2xml(l, True))
-            elif state == PRON:
+            elif state == Wiktio.PRON:
                 file = re.subn(r".*audio=([^|}]+).*", r"\1", l)
                 if file[1] == 1:
-                    definition.addPrononciation(file[0])
+                    definition.add(state, file[0])
+            else:
+                if len(l) > 0:
+                    definition.add(state, self.wiki2xml(l, True))
 
         return inWord
 
@@ -459,7 +447,18 @@ def usage():
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-if len(sys.argv) != 3:
+parser = OptionParser()
+parser.add_option("-o", "--output", dest="output",
+                  help="write result to file or directory")
+parser.add_option("-q", "--quiet",
+                  action="store_false", dest="verbose", default=True,
+                  help="don't print status messages to stdout")
+parser.add_option("-s", "--site",
+                  action="store_false", dest="site", default=False,
+                  help="Creates a web site")
+(options, args) = parser.parse_args()
+
+if len(sys.argv) < 3:
     usage()
     sys.exit()
 
@@ -474,7 +473,9 @@ f.close()
 
 _wiktio = wiktio.Wiktio()
 
-parse(wikiFile, WikiHandler(words, 'fr', _wiktio))
+parse(wikiFile, WikiHandler(words, 'fr', _wiktio, options.verbose))
 
-
-_wiktio.dump2html()
+if options.site:
+    _wiktio.dump2htmlSite(options.output)
+else:
+    _wiktio.dump2html(options.output)

@@ -20,6 +20,8 @@
 # Implementation of the wiktionary model
 # used
 
+import os.path
+
 class Definition:
 
     def __init__ (self):
@@ -49,81 +51,72 @@ class Definition:
     def setGender(self, gender):
         self.gender = gender
 
-    def addSynonym(self, synonym):
-        if len(synonym):
-            self.synonym.append(synonym)
+    def add(self, atype, text):
+        if len(text) == 0:
+            return
 
-    def addAntonym(self, antonym):
-        if len(antonym):
-            self.antonym.append(antonym)
+        if atype == Wiktio.ANAGRAM:
+            self.anagram.append(text)
+        elif atype == Wiktio.SYNONYM:
+            self.synonym.append(text)
+        elif atype == Wiktio.ANTONYM:
+            self.antonym.append(text)
+        elif atype == Wiktio.HYPERONYM:
+            self.hyperonym.append(text)
+        elif atype == Wiktio.HYPONYM:
+            self.hyponym.append(text)
+        elif atype == Wiktio.PRON:
+            self.prononciation.append(text)
+        elif atype == Wiktio.IMAGE:
+            self.image.append(text)
+        elif atype == Wiktio.CATEGORY:
+            self.category.append(text)
+        else:
+            print "!!ERROR!!: Type not supported"
 
-    def addAnagram(self, anagram):
-        if len(anagram):
-            self.anagram.append(anagram)
-
-    def addHyperonym(self, hyperonym):
-        if len(hyperonym):
-            self.hyperonym.append(hyperonym)
-
-    def addHyponym(self, hyponym):
-        if len(hyponym):
-            self.hyponym.append(hyponym)
-
-    def addPrononciation(self, prononciation):
-        if len(prononciation):
-            self.prononciation.append(prononciation)
-
-    def addCategory(self, category):
-        if len(category):
-            self.category.append(category)
-
-    def addImage(self, image):
-        if len(image):
-            self.image.append(image)
-
-    def dump2htmlImage(self):
+    def dump2htmlImage(self, f):
         if self.image:
             prefix = "http://fr.wiktionary.org/wiki/Fichier:"
             for img in self.image:
-                print "<a href='" + prefix + img + "'>" + \
-                    img + '</a><br/>'
+                f.write ( "<a href='" + prefix + img + "'>" + \
+                    img + '</a><br/>' )
 
-    def dump2htmlPrononciation(self, title, liste):
+    def dump2htmlPrononciation(self, f, title, liste):
         prefix = "http://commons.wikimedia.org/wiki/File:"
         if len(liste):
-            print "<h2>" + title + "</h2>"
-            print "<ul>"
+            f.write ( "<h2>" + title + "</h2>" )
+            f.write ( "<ul>" )
             for s in liste:
-                print "<li><a href='" + prefix + s + "'>" \
-                    + s + "</a></li>"
-            print "</ul>"
+                f.write ( "<li><a href='" + prefix + s + "'>" \
+                    + s + "</a></li>" )
+            f.write ( "</ul>" )
 
-    def dump2htmlItem(self, title, liste):
+    def dump2htmlItem(self, f, title, liste):
 
         if len(liste):
-            print "<h2>" + title + "</h2>"
+            f.write ( "<h2>" + title + "</h2>" )
             for s in liste:
                 if s.find(":") >= 0:
-                    print "<br/>" + s
+                    f.write ( "<br/>" + s )
                 else:
-                    print s + ", "
+                    f.write ( s + ", " )
 
-    def dump2html(self):
+    def dump2html(self, f):
         if self.filtered or self.text == "":
             return
-        print "<h3>" + self.type + \
+        f.write ( "<h3>" + self.type + \
             " " + self.subType + \
-            " " + self.gender + "</h3>"
-        self.dump2htmlImage()
-        print self.text
+            " " + self.gender + "</h3>" )
+        self.dump2htmlImage(f)
+        f.write ( self.text )
 
-        self.dump2htmlItem("Synonymes", self.synonym)
-        self.dump2htmlItem("Antonymes", self.antonym)
-        self.dump2htmlItem("Anagrammes", self.anagram)
-        self.dump2htmlItem("Hyperonymes", self.hyperonym)
-        self.dump2htmlItem("Hyponymes", self.hyponym)
-        self.dump2htmlPrononciation("Prononciation", self.prononciation)
-        self.dump2htmlItem(u"Catégories", self.category)
+        self.dump2htmlItem(f, "Synonymes", self.synonym)
+        self.dump2htmlItem(f, "Antonymes", self.antonym)
+        self.dump2htmlItem(f, "Anagrammes", self.anagram)
+        self.dump2htmlItem(f, "Hyperonymes", self.hyperonym)
+        self.dump2htmlItem(f, "Hyponymes", self.hyponym)
+        self.dump2htmlPrononciation(f, "Prononciation", self.prononciation)
+        self.dump2htmlItem(f, u"Catégories", self.category)
 
 class Word:
 
@@ -137,17 +130,28 @@ class Word:
     def addDefinition(self, definition):
         self.definition.append(definition)
 
-    def dump2html(self):
-        print "<hr/>"
-        print "<h1>" + self.name + "</h1>"
+    def dump2html(self, f):
+        f.write ( "<hr/>" )
+        f.write ( "<h1>" + self.name + "</h1>" )
         if not self.definition:
-            print "<h2>ERROR: NO DEFINITION</h2>"
+            f.write ( "<h2>ERROR: NO DEFINITION</h2>" )
             return
         for d in self.definition:
-            d.dump2html()
+            d.dump2html(f)
 
 
 class Wiktio:
+
+    (DEFINITION,
+     ANAGRAM,
+     SYNONYM,
+     ANTONYM,
+     HYPERONYM,
+     HYPONYM,
+     PRON,
+     IMAGE,
+     CATEGORY,
+     SKIP) = range(0, 10)
 
     def __init__ (self):
         self.words = []
@@ -161,21 +165,48 @@ class Wiktio:
     def sort(self):
         self.words.sort(key=lambda word: word.name.lower())
 
-    def dumpHtmlHeader(self):
-        print """
+    def dumpHtmlHeader(self, f):
+        f.write ( """
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" dir="ltr">
 <head>
 <title>Mini - Wiktionnaire</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-"""
-    def dumpHtmlFooter(self):
-        print """
+""")
+
+    def dumpHtmlFooter(self, f):
+        f.write ("""
 </head>
-"""
-    def dump2html(self):
-        self.dumpHtmlHeader()
+""")
+
+    # Creates a big HTML file, useful to debug
+    def dump2html(self, file):
+        with open(file, 'w') as f:
+            self.dumpHtmlHeader(f)
+            self.sort()
+            for w in self.words:
+                w.dump2html(f)
+            self.dumpHtmlFooter(f)
+
+    # Creates a static HTML site in the given directory
+    def dump2htmlSite(self, baseDir):
+        if not os.path.isdir(baseDir):
+            print "ERROR: Directory '" + baseDir + "' does not exists."
+            return
+
+        letter = "/"
         self.sort()
-        for w in self.words:
-            w.dump2html()
-        self.dumpHtmlFooter()
+        with open(baseDir + '/index.html', 'w') as f_index:
+            self.dumpHtmlHeader(f_index)
+            for w in self.words:
+                if letter[0] != w.name[0].upper():
+                    letter = w.name[0].upper()
+                    f_index.write ( "<hr/><h1>" + letter[0] + "</h1>" )
+                f_index.write ( "<a href='" + w.name + ".html'>" + w.name + "</a> " )
+                with open(baseDir + '/' + w.name + '.html', 'w') as f:
+                    self.dumpHtmlHeader(f)
+                    w.dump2html(f)
+                    self.dumpHtmlFooter(f)
+
+            self.dumpHtmlFooter(f_index)
+
