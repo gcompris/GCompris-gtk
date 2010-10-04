@@ -6,10 +6,12 @@ img_DATA = \
 	default-de.xml \
 	default-el.xml \
 	default-en.xml \
+	default-eo.xml \
 	default-es.xml \
 	default-eu.xml \
 	default-fi.xml \
 	default-fr.xml \
+	default-he.xml \
 	default-hu.xml \
 	default-id.xml \
 	default-it.xml \
@@ -25,6 +27,7 @@ img_DATA = \
 	default-sl.xml \
 	default-sv.xml \
 	default-tr.xml \
+	default-uk.xml \
 	scenery_background.png \
 	README
 
