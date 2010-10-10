@@ -46,7 +46,7 @@ class WikiHandler(ContentHandler):
         self.isTextElement = False
         self.textContent = u""
 
-        self.lilevel = []
+        self.lilevel = 0
 
     def startElement(self, name, attrs):
 
@@ -164,42 +164,30 @@ class WikiHandler(ContentHandler):
     # Notes:
     # These may be nested.
     #
-    # We keep the level of indentation to close in the stack:
+    # We keep the level of indentation to close in:
     # self.lilevel
     #
+    # Returns a list [text, level, numbered]
+    # numbered = True if this is a numbered list
+    #
     def indents2xml(self, text, asText):
+        numbered = False
         result = re.search(r"^[ ]*[*#:;]+[ ]*", text)
         if not result:
-            close = ""
-            while self.lilevel:
-                close += self.lilevel.pop()
-            if not asText:
-                text = close + text
-            return text
+            self.lilevel = 0
+            return [text, self.lilevel, numbered]
 
         indent = result.group(0).rstrip()
+        self.lilevel = len(indent)
         text = text[result.end():]
 
         if asText:
-            return text
+            return [text, self.lilevel, numbered]
 
-        result = ""
-        # Close indents if needed
-        while len(self.lilevel) > len(indent):
-            result += self.lilevel.pop()
+        if indent[-1:] == "#":
+            numbered = True
 
-        # Open new indents
-        # Remove the current level from it
-        indent = indent[len(self.lilevel):]
-        for char in list(indent):
-            if char in "*:;":
-                result += "<ul>"
-                self.lilevel.append("</ul>")
-            elif char == "#":
-                result += "<ol>"
-                self.lilevel.append("</ol>")
-
-        return result + "<li>" + text + "</li>"
+        return [text, self.lilevel, numbered]
 
     # Replaces '''xx''' and ''xx'' from the given text
     # with openXml xx closeXml
@@ -216,6 +204,8 @@ class WikiHandler(ContentHandler):
         return text
 
     # Replace standard Wiki tags to XML
+    # Returns a list [text, level, numbered]
+    # numbered = True if this is a numbered list
     def wiki2xml(self, text, asText):
 
         text = re.sub(r"{{[-\)\(]}}", "", text)
@@ -224,7 +214,7 @@ class WikiHandler(ContentHandler):
         if text == "":
             return self.indents2xml(text, asText)
 
-        text = self.indents2xml(text, asText)
+        [text, level, numbered] = self.indents2xml(text, asText)
         text = re.sub(ur"{{par ext[^}]*}}", ur"(Par extension)", text)
         text = re.sub(ur"{{figuré[^}]*}}", ur"(Figuré)", text)
         text = re.sub(ur"{{w\|([^}]+)}}", ur"<i>\1</i>", text)
@@ -250,7 +240,7 @@ class WikiHandler(ContentHandler):
                 text = text[:start] + text[pipe+1:]
                 text = text.replace("]]", "", 1)
 
-        return text
+        return [text, level, numbered]
 
     # Wikipedia text content is interpreted and transformed in XML
     def parseText(self):
@@ -280,7 +270,7 @@ class WikiHandler(ContentHandler):
             concat = ""
             next = False
 
-            if debug: print "<br/>l:" + l + ":"
+            if debug: print "   l:" + l + ":"
             if re.search(r"<[^>]+$", l):
                 # Wiki uses a trick to format text area by ending in uncomplete
                 # html tags. In this case, we concat this line with the next one
@@ -296,23 +286,33 @@ class WikiHandler(ContentHandler):
                 # Get rid of non wiki tags
                 l = re.sub(r'}}[^}]+{{', r'}} {{', l)
                 state = Wiktio.DEFINITION
+
+                for wt in self.genders.keys():
+                    if re.search(wt, l):
+                        gender = self.genders[wt]
+                        definition.setGender(gender)
+                        break
+
+                for wt in self.wordSubTypes.keys():
+                    if re.search(wt, l):
+                        wordSubType = self.wordSubTypes[wt]
+                        definition.setSubType(wordSubType)
+                        break
+
+                definition.addDescription("", 0, False)
+                continue
+
             elif l == "{{-anagr-}}":
-                definition.addText(self.wiki2xml("", False))
                 state = Wiktio.ANAGRAM
             elif l == "{{-syn-}}":
-                definition.addText(self.wiki2xml("", False))
                 state = Wiktio.SYNONYM
             elif l == "{{-ant-}}":
-                definition.addText(self.wiki2xml("", False))
                 state = Wiktio.ANTONYM
             elif l == "{{-hyper-}}":
-                definition.addText(self.wiki2xml("", False))
                 state = Wiktio.HYPERONYM
             elif l == "{{-hypo-}}":
-                definition.addText(self.wiki2xml("", False))
                 state = Wiktio.HYPONYM
             elif l == "{{-pron-}}":
-                definition.addText(self.wiki2xml("", False))
                 state = Wiktio.PRON
             elif l == "{{-note-}}":
                 state = Wiktio.SKIP
@@ -331,10 +331,8 @@ class WikiHandler(ContentHandler):
             elif l == u"{{-réf-}}":
                 state = Wiktio.SKIP
             elif re.search(r"{{-.*-.*}}", l):
-                if definition.text != "":
-                    if debug: print "<br/>new definition:" + l + ":"
-                    # Force a <ul> close if needed
-                    definition.addText(self.wiki2xml("", False))
+                if not definition.rootDescription.isEmpty():
+                    if debug: print "  new definition:" + l + ":"
                     # Next definition
                     filterIndent = ""
                     definition = wiktio.Definition()
@@ -362,18 +360,6 @@ class WikiHandler(ContentHandler):
             for wt in self.wordSkipTypes:
                 if re.search(wt, l):
                     definition.filtered = True
-                    break
-
-            for wt in self.genders.keys():
-                if re.search(wt, l):
-                    gender = self.genders[wt]
-                    definition.setGender(gender)
-                    break
-
-            for wt in self.wordSubTypes.keys():
-                if re.search(wt, l):
-                    wordSubType = self.wordSubTypes[wt]
-                    definition.setSubType(wordSubType)
                     break
 
             if state == Wiktio.SKIP:
@@ -409,7 +395,7 @@ class WikiHandler(ContentHandler):
 
             # We already found a meaning for this word, we pick
             # other senses restrictively
-            if definition.text != "":
+            if not definition.rootDescription.isEmpty():
                 for filter in self.filterSecondDefinitionType:
                     if re.search(filter, l, re.I):
                         result = re.search(r"^[ ]*[*#:;]+[ ]*", l)
@@ -429,14 +415,15 @@ class WikiHandler(ContentHandler):
                 continue
 
             if state == Wiktio.DEFINITION:
-                definition.addText(self.wiki2xml(l, False))
+                [text, level, numbered] = self.wiki2xml(l, False)
+                definition.addDescription(text, level, numbered)
             elif state == Wiktio.PRON:
                 file = re.subn(r".*audio=([^|}]+).*", r"\1", l)
                 if file[1] == 1:
                     definition.add(state, file[0])
             else:
                 if len(l) > 0:
-                    definition.add(state, self.wiki2xml(l, True))
+                    definition.add(state, self.wiki2xml(l, True)[0])
 
         return inWord
 

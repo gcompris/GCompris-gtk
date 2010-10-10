@@ -22,14 +22,82 @@
 
 import os.path
 
+id = 0
+# Represent the description of a definition
+# This is recursive, a description can hold an
+# unlimited number of subdescription
+class Description:
+
+    def __init__ (self, parent, text, level, numbered = False):
+        global id
+        self.id = id
+        id += 1
+        self.parent = parent
+        self.level = level
+        self.text = text
+        self.numbered = numbered
+        self.descriptions = []
+
+    def isEmpty(self):
+        if len(self.descriptions) > 0:
+            return False
+        return True
+
+    # Return True if this node's text field of one of its
+    # children is not empty
+    def hasContent(self):
+        if len(self.text) > 0:
+            return True
+        else:
+            for d in self.descriptions:
+                if d.hasContent():
+                    return True
+        return False
+
+    # Recursively find the node at the given level
+    def getNodeAtLevel(self, level):
+        if level == self.level:
+            return self
+        elif level < self.level:
+            return self.parent.getNodeAtLevel(level)
+        else:
+            return None
+
+    def addDescription(self, text, level, numbered):
+        node = self.getNodeAtLevel(level - 1)
+        if node:
+            description = Description(node, text, level, numbered)
+            node.descriptions.append( description )
+            return description
+        return None
+
+    def dump2html(self, f):
+        if len(self.text) > 0:
+            f.write ( "<li>" + self.text + "</li>" )
+        if len(self.descriptions) > 0:
+            if self.level >= 0:
+                if self.numbered:
+                    f.write ( "<ul>" )
+                else:
+                    f.write ( "<ol>" )
+            for d in self.descriptions:
+                d.dump2html(f)
+            if self.level >= 0:
+                if self.numbered:
+                    f.write ( "</ul>" )
+                else:
+                    f.write ( "</ol>" )
+
+
 class Definition:
 
     def __init__ (self):
-        self.text = ""
         self.type = ""
         self.subType = ""
         self.filtered = False
         self.gender = ""
+        self.rootDescription = Description(None, "", -1)
+        self.currentDescription = self.rootDescription
         self.synonym = []
         self.antonym = []
         self.anagram = []
@@ -39,9 +107,6 @@ class Definition:
         self.category = []
         self.image = []
 
-    def addText(self, text):
-        self.text += text
-
     def setType(self, type):
         self.type = type
 
@@ -50,6 +115,12 @@ class Definition:
 
     def setGender(self, gender):
         self.gender = gender
+
+    # A definition may hold several descriptions, each one can
+    # have several sub descriptions.
+    def addDescription(self, text, level, numbered):
+        self.currentDescription = \
+            self.currentDescription.addDescription(text, level, numbered)
 
     def add(self, atype, text):
         if len(text) == 0:
@@ -102,13 +173,13 @@ class Definition:
                     f.write ( s + ", " )
 
     def dump2html(self, f):
-        if self.filtered or self.text == "":
+        if self.filtered or not self.rootDescription.hasContent():
             return
         f.write ( "<h3>" + self.type + \
             " " + self.subType + \
             " " + self.gender + "</h3>" )
         self.dump2htmlImage(f)
-        f.write ( self.text )
+        self.rootDescription.dump2html(f)
 
         self.dump2htmlItem(f, "Synonymes", self.synonym)
         self.dump2htmlItem(f, "Antonymes", self.antonym)
