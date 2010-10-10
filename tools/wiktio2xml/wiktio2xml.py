@@ -21,6 +21,7 @@ from xml.sax import parse
 from xml.sax.handler import ContentHandler
 import sys
 import re
+import os
 
 from optparse import OptionParser
 
@@ -439,9 +440,12 @@ parser.add_option("-o", "--output", dest="output",
                   help="write result to file or directory")
 parser.add_option("-q", "--quiet",
                   action="store_false", dest="verbose", default=True,
-                  help="don't print status messages to stdout")
+                  help="don't print in progress messages to stdout")
+parser.add_option("-d", "--debug",
+                  action="store_true", dest="debug", default=False,
+                  help="print debug traces to stdout")
 parser.add_option("-s", "--site",
-                  action="store_false", dest="site", default=False,
+                  action="store_true", dest="site", default=False,
                   help="Creates a web site")
 (options, args) = parser.parse_args()
 
@@ -452,6 +456,15 @@ if len(sys.argv) < 3:
 wikiFile = sys.argv[1]
 wordsFile = sys.argv[2]
 
+if options.site:
+    if not os.path.isdir(options.output):
+        print "ERROR: There must me a directory named " + options.output
+        sys.exit(1)
+else:
+    if os.path.exists(options.output):
+        print "ERROR: There is already a file named " + options.output
+        sys.exit(1)
+
 # Import the list of words
 f = open(wordsFile, "r")
 words = []
@@ -461,6 +474,8 @@ f.close()
 _wiktio = wiktio.Wiktio()
 
 parse(wikiFile, WikiHandler(words, 'fr', _wiktio, options.verbose))
+
+debug = options.debug
 
 if options.site:
     _wiktio.dump2htmlSite(options.output)

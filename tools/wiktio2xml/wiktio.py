@@ -56,12 +56,10 @@ class Description:
 
     # Recursively find the node at the given level
     def getNodeAtLevel(self, level):
-        if level == self.level:
+        if level >= self.level:
             return self
         elif level < self.level:
             return self.parent.getNodeAtLevel(level)
-        else:
-            return None
 
     def addDescription(self, text, level, numbered):
         node = self.getNodeAtLevel(level - 1)
