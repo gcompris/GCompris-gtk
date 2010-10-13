@@ -196,7 +196,7 @@ class WikiHandler(ContentHandler):
         index = 0
         while index >= 0:
             index = text.find(quote)
-            index2 = text.find(quote, index)
+            index2 = text.find(quote, index + len(quote))
             if index >= 0 and index2 >=0:
                 text = text.replace(quote, openXml, 1)
                 text = text.replace(quote, closeXml, 1)
