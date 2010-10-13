@@ -342,7 +342,7 @@ class WikiHandler(ContentHandler):
 
             # Are we still in the correct language section
             # We assume the correct language is ahead
-            lang = re.match(r"== {{=([a-z]+)=}} ==", l)
+            lang = re.match(r"==[ ]+{{=([a-z]+)=}}[ ]+==", l)
             if lang and lang.group(1) != None and lang.group(1) != self.locale:
                 return inWord
 
