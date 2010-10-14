@@ -623,6 +623,8 @@ src/canal_lock-activity/Makefile
 src/canal_lock-activity/resources/Makefile
 src/canal_lock-activity/resources/canal_lock/Makefile
 src/chat-activity/Makefile
+src/chat-activity/resources/Makefile
+src/chat-activity/resources/chat/Makefile
 src/chess_computer-activity/Makefile
 src/chess_computer-activity/resources/Makefile
 src/chess_computer-activity/resources/chess/Makefile
