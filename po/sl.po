@@ -10,10 +10,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&component=general\n"
-"POT-Creation-Date: 2010-09-01 21:55+0000\n"
-"PO-Revision-Date: 2010-09-03 17:04+0100\n"
+"POT-Creation-Date: 2010-10-15 09:45+0000\n"
+"PO-Revision-Date: 2010-10-15 19:01+0100\n"
 "Last-Translator: Andrej Žnidaršič <andrej.znidarsic@gmail.com>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1490,45 +1491,53 @@ msgstr "Pingo je v težavah, ker ne ve, kako priti skozi zapornice. Ugotovi kako
 msgid "You are in charge of the canal lock. Open the gates and the locks in the right order, so Tux can travel through the gates in both directions."
 msgstr "Si vodja zapornice kanala. Odpri vrata in ključavnice v pravilnem vrstnem redu, da gre Pingo lahko skozi vrata v obse smeri."
 
-#: ../src/chat-activity/chat.py:77
+#: ../src/chat-activity/chat.py:87
 msgid "All messages will be displayed here.\n"
 msgstr "Vsa sporočila bodo prikazana tukaj.\n"
 
-#: ../src/chat-activity/chat.py:128
+#: ../src/chat-activity/chat.py:139
 msgid "Your Friends"
 msgstr "Tvoji prijatelji"
 
-#: ../src/chat-activity/chat.py:161
+#: ../src/chat-activity/chat.py:172
 msgid "Your Channel"
 msgstr "Tvoj kanala"
 
-#: ../src/chat-activity/chat.py:187
+#: ../src/chat-activity/chat.py:198
 msgid "Type your message here, to send to other GCompris users on your local network."
 msgstr "Tukaj napiši sporočilo, ki ga želiš poslati drugim uporabnikom programa na tvojem krajevnem omrežju."
 
-#: ../src/chat-activity/chat.py:202
+#: ../src/chat-activity/chat.py:244
+msgid "color"
+msgstr " barva"
+
+#: ../src/chat-activity/chat.py:323
 msgid "ERROR: Failed to initialize the network interface. You cannot communicate."
 msgstr "NAPAKA: Zaganjanje omrežnega vmesnika je spodletelo. Ne moreš se sporazumevati."
 
-#: ../src/chat-activity/chat.py:326
+#: ../src/chat-activity/chat.py:433
+msgid "Has left the chat."
+msgstr "Je zapustil klepetalnico."
+
+#: ../src/chat-activity/chat.py:512
 msgid "You must set a channel in your channel entry box first.\n"
 msgstr "Najprej moraš v polju vnosa kanala nastaviti kanal.\n"
 
-#: ../src/chat-activity/chat.py:327
+#: ../src/chat-activity/chat.py:513
 msgid "Your friends must set the same channel in order to communicate with you"
 msgstr "Če se tvoji prijatelji želijo pogovarjati s tabo, morajo uporabljati isti kanal"
 
 #: ../src/chat-activity/chat.xml.in.h:1
-msgid "Chat with your friends"
-msgstr "Klepetaj s svojimi prijatelji"
+msgid "Chat and draw with your friends"
+msgstr "Klepetaj in riši s svojimi prijatelji"
 
 #: ../src/chat-activity/chat.xml.in.h:2
 msgid "This chat activity only works on the local network"
 msgstr "Ta dejavnost klepeta deluje le na krajevnemu omrežju"
 
 #: ../src/chat-activity/chat.xml.in.h:3
-msgid "This chat activity will only work with other GCompris users on your local network, not on the Internet. To use it, just type in your message and hit Enter. Your message is then broadcast on the local network, and any GCompris program running the chat activity on that local network will receive and display your message."
-msgstr "Dejavnost klepetanja bo delovala samo z drugimi uporabniki GCompris na tvojemu krajevnemu omrežju in ne na medmrežju. Za uporabo napiši svoje sporočilo in pritisni vnosno tipko. Tvoje sporočilo je vsesmerno oddano na tvojemu krajevnemu omrežju in katerikoli program GCompris, ki poganja dejavnost klepeta, bo prejel in prikazal tvoje sporočilo."
+msgid "This chat activity will only work with other GCompris users on your local network, not on the Internet. To use it, just type in your message and hit Enter. Your message is then broadcasted on the local network, and any GCompris program running the chat activity on that local network will receive and display your message."
+msgstr "Dejavnost klepetanja bo delovala samo z drugimi uporabniki GCompris na tvojemu krajevnemu omrežju in ne na medmrežju. Za uporabo napiši svoje sporočilo in pritisni vnosno tipko. Tvoje sporočilo je oddano na tvojem krajevnem omrežju in katerikoli program GCompris, ki poganja dejavnost klepeta, bo prejel in prikazal tvoje sporočilo."
 
 #: ../src/chess_computer-activity/chess.c:222
 msgid "Error: The external program gnuchess died unexpectedly"
