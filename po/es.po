@@ -13,8 +13,8 @@ msgstr ""
 "Project-Id-Version: gcompris.gcomprixogoo\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&component=general\n"
-"POT-Creation-Date: 2010-09-01 21:55+0000\n"
-"PO-Revision-Date: 2010-09-04 09:43+0200\n"
+"POT-Creation-Date: 2010-10-14 23:05+0000\n"
+"PO-Revision-Date: 2010-10-15 11:42+0200\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -747,13 +747,13 @@ msgstr ""
 "usado para leerlas, por ejemplo, y después el idioma usado para decir los "
 "nombres de los colores. \n"
 "- Puedes guardar configuraciones múltiples, y cambiar fácilmente entre "
-"ellas. En la sección «Perfil» añade un perfil, después en la sección «Tablero» "
-"selecciona el perfil en la lista desplegable, y después elige los tableros "
-"que quieres que estén activos. Puedes añadir un montón de perfiles, con "
-"diferentes listas de tableros, y diferentes idiomas. Puedes establecer el "
-"perfil por omisión en la sección «Perfil», eligiendo el perfil que quieras, y "
-"después pulsando el botón «Predeterminado». También puedes elegir un perfil "
-"desde la línea de comandos.\n"
+"ellas. En la sección «Perfil» añade un perfil, después en la sección "
+"«Tablero» selecciona el perfil en la lista desplegable, y después elige los "
+"tableros que quieres que estén activos. Puedes añadir un montón de perfiles, "
+"con diferentes listas de tableros, y diferentes idiomas. Puedes establecer "
+"el perfil por omisión en la sección «Perfil», eligiendo el perfil que "
+"quieras, y después pulsando el botón «Predeterminado». También puedes elegir "
+"un perfil desde la línea de comandos.\n"
 "- Puedes añadir usuarios, clases y para cada clase, puedes crear grupos de "
 "usuarios. Ten en cuenta que puedes importar usuarios de un archivo separado "
 "por comas. Asigna uno o más grupos a un perfil, y los nuevos identificadores "
@@ -1730,56 +1730,72 @@ msgstr ""
 "Estás a cargo de la esclusa. Abre las compuertas y los cierres en el orden "
 "correcto, para que Tux viaje a través de las compuertas en los dos sentidos."
 
-#: ../src/chat-activity/chat.py:77
+#: ../src/chat-activity/chat.py:87
 msgid "All messages will be displayed here.\n"
 msgstr "Todos los mensajes se mostrarán aquí.\n"
 
-#: ../src/chat-activity/chat.py:128
+#: ../src/chat-activity/chat.py:139
 msgid "Your Friends"
 msgstr "Tus Amigos"
 
-#: ../src/chat-activity/chat.py:161
+#: ../src/chat-activity/chat.py:172
 msgid "Your Channel"
 msgstr "Tu canal"
 
-#: ../src/chat-activity/chat.py:187
+#: ../src/chat-activity/chat.py:198
 msgid ""
 "Type your message here, to send to other GCompris users on your local "
 "network."
 msgstr "Escribe aquí tu mensaje a los usuarios de GCompris en tu red local."
 
-#: ../src/chat-activity/chat.py:202
+#: ../src/chat-activity/chat.py:244
+#| msgid "Colors"
+msgid "color"
+msgstr "color"
+
+#: ../src/chat-activity/chat.py:323
 msgid ""
 "ERROR: Failed to initialize the network interface. You cannot communicate."
 msgstr "ERROR: falló al inicializar la interfaz de red. No puede comunicarse."
 
-#: ../src/chat-activity/chat.py:326
+#: ../src/chat-activity/chat.py:433
+msgid "Has left the chat."
+msgstr "Abandonó el chat."
+
+#: ../src/chat-activity/chat.py:512
 msgid "You must set a channel in your channel entry box first.\n"
 msgstr "Primero debes establecer un canal en la entrada de canal.\n"
 
-#: ../src/chat-activity/chat.py:327
+#: ../src/chat-activity/chat.py:513
 msgid "Your friends must set the same channel in order to communicate with you"
 msgstr ""
 "Tus amigos deben establecer el mismo canal para poder comunicarse contigo"
 
 #: ../src/chat-activity/chat.xml.in.h:1
-msgid "Chat with your friends"
-msgstr "Habla con tus amigos"
+#| msgid "Chat with your friends"
+msgid "Chat and draw with your friends"
+msgstr "Habla y dibuja con tus amigos"
 
 #: ../src/chat-activity/chat.xml.in.h:2
 msgid "This chat activity only works on the local network"
 msgstr "Este chat sólo funciona en la red local"
 
 #: ../src/chat-activity/chat.xml.in.h:3
+#| msgid ""
+#| "This chat activity will only work with other GCompris users on your local "
+#| "network, not on the Internet. To use it, just type in your message and "
+#| "hit Enter. Your message is then broadcast on the local network, and any "
+#| "GCompris program running the chat activity on that local network will "
+#| "receive and display your message."
 msgid ""
 "This chat activity will only work with other GCompris users on your local "
 "network, not on the Internet. To use it, just type in your message and hit "
-"Enter. Your message is then broadcast on the local network, and any GCompris "
-"program running the chat activity on that local network will receive and "
-"display your message."
+"Enter. Your message is then broadcasted on the local network, and any "
+"GCompris program running the chat activity on that local network will "
+"receive and display your message."
 msgstr ""
 "Esta actividad de chat sólo funciona con otro usuario de GCompris en red "
-"local, no en Internet. Para usarlo, simplemente escribe los mensajes y pulsa "
+"local, no en Internet. Para usarlo, simplemente escribe tu mensaje y pulsa "
 "intro. Tu mensaje se distribuye en la red local y cualquier programa "
 "GCompris que esté ejecutando la actividad de chat recibirá y mostrará tu "
 "mensaje."
@@ -6697,11 +6713,11 @@ msgstr ""
 "En el campo de texto, introduce una orden por línea para controlar tu "
 "bote. \n"
 "Las órdenes válidas se muestran entre las dos áreas de entrada. Las órdenes "
-"«izquierda» y «derecha» deben llevar como sufijo el ángulo en grados. Al valor "
-"del ángulo también se le llama «parámetro» de la orden izquierda o derecha. "
-"De forma predeterminada, se usan 45 grados. La orden «hacia adelante» acepta "
-"un parámetro con la distancia. De forma predeterminada se usa un valor de "
-"1.\n"
+"«izquierda» y «derecha» deben llevar como sufijo el ángulo en grados. Al "
+"valor del ángulo también se le llama «parámetro» de la orden izquierda o "
+"derecha. De forma predeterminada, se usan 45 grados. La orden «hacia "
+"adelante» acepta un parámetro con la distancia. De forma predeterminada se "
+"usa un valor de 1.\n"
 "Por ejemplo:\n"
 "- izquierda 90 => Hacer un giro perpendicular a la izquierda\n"
 "- hacia delante 10 => Ir hacia delante 10 unidades (como se muestran en la "
@@ -6753,11 +6769,11 @@ msgid ""
 msgstr ""
 "En el campo de texto, introduce una orden por línea para controlar tu bote."
 "Las órdenes válidas se muestran entre las dos áreas de entrada. Las órdenes "
-"«izquierda» y «derecha» deben llevar como sufijo el ángulo en grados. Al valor "
-"del ángulo también se le llama «parámetro» de la orden izquierda o derecha. "
-"De forma predeterminada, se usan 45 grados. La orden «hacia adelante» acepta "
-"un parámetro con la distancia. De forma predeterminada se usa un valor de "
-"1.\n"
+"«izquierda» y «derecha» deben llevar como sufijo el ángulo en grados. Al "
+"valor del ángulo también se le llama «parámetro» de la orden izquierda o "
+"derecha. De forma predeterminada, se usan 45 grados. La orden «hacia "
+"adelante» acepta un parámetro con la distancia. De forma predeterminada se "
+"usa un valor de 1.\n"
 "Por ejemplo:\n"
 "- izquierda 90 => Hacer un giro perpendicular a la izquierda\n"
 "- hacia delante 10 => Ir hacia delante 10 unidades (como se muestran en la "
@@ -6888,7 +6904,6 @@ msgstr "Este elemento está bien puesto"
 
 #: ../src/superbrain-activity/superbrain.c:416
 #: ../src/superbrain-activity/superbrain.c:569
-#| msgid "is being displayed"
 msgid "This item is misplaced"
 msgstr "Este elemento está mal puesto"
 
@@ -6897,7 +6912,6 @@ msgid "One item is well placed"
 msgstr "Un elemento está bien puesto"
 
 #: ../src/superbrain-activity/superbrain.c:601
-#| msgid "And it was displayed"
 msgid "One item is misplaced"
 msgstr "Un elemento está mal puesto"
 
