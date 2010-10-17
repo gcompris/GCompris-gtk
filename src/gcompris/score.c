@@ -96,7 +96,6 @@ score_set(guint value)
 	goo_canvas_svg_new (boardRootItem,
 			    gc_skin_rsvg_get(),
 			    "svg-id", "#BUTTON_TEXT",
-			    "autocrop", TRUE,
 			    NULL);
       goo_canvas_item_get_bounds(item, &bounds);
 

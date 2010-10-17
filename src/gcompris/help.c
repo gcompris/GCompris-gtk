@@ -165,7 +165,6 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
       item_prerequisite = goo_canvas_svg_new (rootitem,
 					      gc_skin_rsvg_get(),
 					      "svg-id", item_id,
-					      "autocrop", TRUE,
 					      NULL);
       SET_ITEM_LOCATION(item_prerequisite,
 			(BOARDWIDTH*0.2) - pixmap_width/2,
@@ -197,7 +196,6 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
       item_goal = goo_canvas_svg_new (rootitem,
 				      gc_skin_rsvg_get(),
 				      "svg-id", item_id,
-				      "autocrop", TRUE,
 				      NULL);
       SET_ITEM_LOCATION(item_goal,
 			(BOARDWIDTH*0.4) - pixmap_width/2,
@@ -228,7 +226,6 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
       item_manual = goo_canvas_svg_new (rootitem,
 					gc_skin_rsvg_get(),
 					"svg-id", item_id,
-					"autocrop", TRUE,
 					NULL);
       SET_ITEM_LOCATION(item_manual,
 			(BOARDWIDTH*0.6) - pixmap_width/2,
@@ -259,7 +256,6 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
       item_credit = goo_canvas_svg_new (rootitem,
 					gc_skin_rsvg_get(),
 					"svg-id", item_id,
-					"autocrop", TRUE,
 					NULL);
       SET_ITEM_LOCATION(item_credit,
 			(BOARDWIDTH*0.8) - pixmap_width/2,

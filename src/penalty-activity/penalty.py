@@ -98,7 +98,6 @@ class Gcompris_penalty:
       parent = self.rootitem,
       svg_handle = svghandle,
       svg_id = "#HELP",
-      autocrop = True
       )
     item.connect("button_press_event", self.help)
     # This item is clickeable and it must be seen

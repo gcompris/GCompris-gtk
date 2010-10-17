@@ -816,7 +816,6 @@ gc_util_button_text_svg(GooCanvasItem *rootitem,
   item = goo_canvas_svg_new (rootitem,
 			     gc_skin_rsvg_get(),
 			     "svg-id", button_id,
-			     "autocrop", TRUE,
 			     NULL);
   SET_ITEM_LOCATION_CENTER(item, x, y);
 

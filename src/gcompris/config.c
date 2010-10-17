@@ -240,7 +240,6 @@ gc_config_start ()
   item = goo_canvas_svg_new (rootitem,
 			     gc_skin_rsvg_get(),
 			     "svg-id", (properties->fullscreen ? pixmap_checked : pixmap_unchecked),
-			     "autocrop", TRUE,
 			     NULL);
   SET_ITEM_LOCATION(item, x_start, y_start - pixmap_width/2);
 
@@ -266,7 +265,6 @@ gc_config_start ()
   item = goo_canvas_svg_new (rootitem,
 			     gc_skin_rsvg_get(),
 			     "svg-id", (properties->music ? pixmap_checked : pixmap_unchecked),
-			     "autocrop", TRUE,
 			     NULL);
   SET_ITEM_LOCATION(item, x_start, y_start - pixmap_width/2);
 
@@ -292,7 +290,6 @@ gc_config_start ()
   item = goo_canvas_svg_new (rootitem,
 			     gc_skin_rsvg_get(),
 			     "svg-id", (properties->fx ? pixmap_checked : pixmap_unchecked),
-			     "autocrop", TRUE,
 			     NULL);
   SET_ITEM_LOCATION(item, x_start, y_start - pixmap_width/2);
 
@@ -318,7 +315,6 @@ gc_config_start ()
   item = goo_canvas_svg_new (rootitem,
 			     gc_skin_rsvg_get(),
 			     "svg-id", (properties->zoom ? pixmap_checked : pixmap_unchecked),
-			     "autocrop", TRUE,
 			     NULL);
   SET_ITEM_LOCATION(item, x_start, y_start - pixmap_width/2);
 

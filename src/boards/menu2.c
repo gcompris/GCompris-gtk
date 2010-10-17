@@ -297,6 +297,7 @@ create_panel(GooCanvasItem *parent)
   gdouble x, y;
   gint int_y;
   GcomprisProperties *properties = gc_prop_get();
+  g_assert(properties);
 
   /* In normal mode, we show all the sections in panel */
   /* in direct submenu access, we show the icon of the submenu */
