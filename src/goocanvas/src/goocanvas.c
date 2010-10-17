@@ -478,7 +478,7 @@ goo_canvas_init (GooCanvas *canvas)
 
   /* We set GTK_CAN_FOCUS by default, so it works as people expect.
      Though developers can turn this off if not needed for efficiency. */
-  GTK_WIDGET_SET_FLAGS (canvas, GTK_CAN_FOCUS);
+  gtk_widget_set_can_focus (GTK_WIDGET (canvas), TRUE);
 
   canvas->scale_x = 1.0;
   canvas->scale_y = 1.0;
@@ -1454,7 +1454,7 @@ goo_canvas_realize (GtkWidget *widget)
 
   canvas = GOO_CANVAS (widget);
   priv = GOO_CANVAS_GET_PRIVATE (canvas);
-  GTK_WIDGET_SET_FLAGS (canvas, GTK_REALIZED);
+  gtk_widget_set_realized (GTK_WIDGET (canvas), TRUE);
 
   attributes.window_type = GDK_WINDOW_CHILD;
   attributes.x = widget->allocation.x;
@@ -1566,7 +1566,7 @@ goo_canvas_map (GtkWidget *widget)
 
   canvas = GOO_CANVAS (widget);
 
-  GTK_WIDGET_SET_FLAGS (widget, GTK_MAPPED);
+  gtk_widget_set_mapped (widget, TRUE);
 
   tmp_list = canvas->widget_items;
   while (tmp_list)
@@ -2722,7 +2722,7 @@ goo_canvas_expose_event (GtkWidget      *widget,
 
   if (event->window != canvas->canvas_window)
     return FALSE;
-
+#if 0
   /* Clear the background. */
   if (canvas->clear_background)
     {
@@ -2731,7 +2731,7 @@ goo_canvas_expose_event (GtkWidget      *widget,
 			  event->area.x, event->area.y,
 			  event->area.width, event->area.height);
     }
-
+#endif
   cr = goo_canvas_create_cairo_context (canvas);
 
   if (canvas->need_update)
@@ -3258,8 +3258,6 @@ goo_canvas_focus_in        (GtkWidget      *widget,
 {
   GooCanvas *canvas = GOO_CANVAS (widget);
 
-  GTK_WIDGET_SET_FLAGS (widget, GTK_HAS_FOCUS);
-
   if (canvas->focused_item)
     return propagate_event (canvas, canvas->focused_item,
 			    "focus_in_event", (GdkEvent*) event);
@@ -3273,8 +3271,6 @@ goo_canvas_focus_out       (GtkWidget      *widget,
 			    GdkEventFocus  *event)
 {
   GooCanvas *canvas = GOO_CANVAS (widget);
-
-  GTK_WIDGET_UNSET_FLAGS (widget, GTK_HAS_FOCUS);
 
   if (canvas->focused_item)
     return propagate_event (canvas, canvas->focused_item,

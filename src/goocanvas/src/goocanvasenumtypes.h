@@ -1,5 +1,5 @@
 
-/* Generated data (by glib-mkenums) */
+
 
 #ifndef __GOO_CANVAS_ENUM_TYPES_H__
 #define __GOO_CANVAS_ENUM_TYPES_H__
@@ -29,5 +29,5 @@ G_END_DECLS
 
 #endif /* __GOO_CANVAS_ENUM_TYPES_H__ */
 
-/* Generated data ends here */
+
 
