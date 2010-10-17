@@ -184,7 +184,7 @@ class Gcompris_hangman:
     gcompris.score.end()
     self.rootitem.remove()
     self.rootitem = goocanvas.Group(parent =
-                                    self.gcomprisBoard.canvas.get_root_item())
+                                    self.backitem)
     self.display_level()
 
   def display_letter_set(self, letter_set, y,
