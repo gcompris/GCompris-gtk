@@ -32,6 +32,7 @@ typedef struct {
   gint		fx;
   gint		fullscreen;
   gint		defaultcursor;
+  gint		nocursor;
   gint		timer;
   gint		filter_style;
   gint		difficulty_filter;

@@ -118,6 +118,7 @@ static gint popt_window		   = FALSE;
 static gint popt_sound		   = FALSE;
 static gint popt_mute		   = FALSE;
 static gint popt_cursor		   = FALSE;
+static gint popt_nocursor	   = FALSE;
 static gint popt_version	   = FALSE;
 static gint popt_difficulty_filter = FALSE;
 static gint popt_debug		   = FALSE;
@@ -165,7 +166,10 @@ static GOptionEntry options[] = {
    N_("run GCompris without sound."), NULL},
 
   {"cursor", 'c', 0, G_OPTION_ARG_NONE, &popt_cursor,
-   N_("run GCompris with the default gnome cursor."), NULL},
+   N_("run GCompris with the default system cursor."), NULL},
+
+  {"nocursor", 'C', 0, G_OPTION_ARG_NONE, &popt_nocursor,
+   N_("run GCompris without cursor (touch screen mode)."), NULL},
 
   {"difficulty", 'd', 0, G_OPTION_ARG_INT, &popt_difficulty_filter,
    N_("display only activities with this difficulty level."), NULL},
@@ -458,9 +462,30 @@ guint gc_cursor_get()
   return gc_cursor_current;
 }
 
+/* Set the cursor to be invisible
+ * (Useful for touch screens)
+ */
+void gc_cursor_hide()
+{
+  char in_cursor[] = {0x0};
+  GdkCursor *cursor;
+  GdkBitmap *bp;
+  GdkColor color = {0, 0, 0, 0};
+
+  bp = gdk_bitmap_create_from_data(NULL , in_cursor , 1, 1);
+  cursor = gdk_cursor_new_from_pixmap(bp , bp ,
+				      &color , &color ,
+				      1 , 1);
+  gdk_window_set_cursor(window->window , cursor);
+  gdk_cursor_unref(cursor);
+}
+
 void gc_cursor_set(guint gdk_cursor_type)
 {
   GdkCursor *cursor = NULL;
+
+  if (properties->nocursor)
+    return;
 
   // Little hack to force gcompris to use the default cursor
   if(gdk_cursor_type==GCOMPRIS_DEFAULT_CURSOR)
@@ -807,7 +832,10 @@ static void setup_window ()
 		      GTK_SIGNAL_FUNC (map_cb), NULL);
 
   // Set the cursor
-  gc_cursor_set(GCOMPRIS_DEFAULT_CURSOR);
+  if (properties->nocursor)
+    gc_cursor_hide();
+  else
+    gc_cursor_set(GCOMPRIS_DEFAULT_CURSOR);
 
   canvas     = goo_canvas_new();
 
@@ -1574,8 +1602,14 @@ main (int argc, char *argv[])
 
   if (popt_cursor)
     {
-      g_message("Default gnome cursor enabled");
+      g_message("Default system cursor enabled");
       properties->defaultcursor = GDK_LEFT_PTR;
+    }
+
+  if (popt_nocursor)
+    {
+      g_message("No cursors");
+      properties->nocursor = TRUE;
     }
 
   if (popt_experimental)
