@@ -1,5 +1,5 @@
 
-
+/* Generated data (by glib-mkenums) */
 
 #include <glib-object.h>
 #include "goocanvas.h"
@@ -91,5 +91,5 @@ goo_canvas_path_command_type_get_type (void)
   return etype;
 }
 
-
+/* Generated data ends here */
 

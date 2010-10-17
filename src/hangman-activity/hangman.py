@@ -210,7 +210,7 @@ class Gcompris_hangman:
   def display_level(self):
     w = 40
     # Less trial when the level increases
-    self.trial = 9 - (self.gcomprisBoard.level - 1) / self.wordlist.number_of_level
+    self.trial = 12 - (self.gcomprisBoard.level - 1) / self.wordlist.number_of_level
     gcompris.bar_set_level(self.gcomprisBoard);
     gcompris.score.start(gcompris.score.STYLE_NOTE,
                          gcompris.BOARD_WIDTH / 2 - 100, 170, self.trial)
