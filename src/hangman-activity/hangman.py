@@ -268,6 +268,28 @@ class Gcompris_hangman:
         letters += v
     return letters
 
+  def ok_event(self, widget, target, event=None):
+    if self.gamewon == 2:
+      gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.TUX)
+    else:
+      gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.TUX)
+
+  def display_ok(self):
+    # The OK Button
+    item = goocanvas.Svg(parent = self.rootitem,
+                         svg_handle = gcompris.skin.svg_get(),
+                         svg_id = "#OK"
+                         )
+    zoom = 0.8
+    item.translate( (item.get_bounds().x1 * -1)
+                     + ( gcompris.BOARD_WIDTH - 300 ) / zoom,
+                    (item.get_bounds().y1 * -1) + 190.0 / zoom)
+    item.scale(zoom, zoom)
+    item.connect("button_press_event", self.ok_event)
+    gcompris.utils.item_focus_init(item, None)
+
+
+
 # A letter to find displayed on the screen
 class Letter:
     def __init__(self, hangman, x, y,
@@ -383,10 +405,10 @@ class Key:
         if self.hangman.trial == 0:
           self.hangman.gamewon = 2
           self.hangman.hide_letters(False)
-          gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.TUX)
+          self.hangman.display_ok()
       elif self.hangman.found_all_letters():
         self.hangman.gamewon = 1
-        gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.TUX)
+        self.hangman.display_ok()
 
       return True
     #
