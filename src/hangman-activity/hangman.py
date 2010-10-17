@@ -81,8 +81,20 @@ class Gcompris_hangman:
   def start(self):
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains automaticaly.
-    self.rootitem = goocanvas.Group(parent =
+    self.backitem = goocanvas.Group(parent =
                                     self.gcomprisBoard.canvas.get_root_item())
+
+    svghandle = gcompris.utils.load_svg("hangman/back.svgz")
+    goocanvas.Svg(
+      parent = self.backitem,
+      svg_handle = svghandle,
+      pointer_events = goocanvas.EVENTS_NONE
+      )
+
+    # Create our rootitem. We put each canvas item in it so at the end we
+    # only have to kill it. The canvas deletes all the items it contains automaticaly.
+    self.rootitem = goocanvas.Group(parent =
+                                    self.backitem)
 
     self.wordlist = gcompris.get_wordlist("wordsgame/default-$LOCALE.xml")
     if not self.wordlist:
@@ -110,7 +122,7 @@ class Gcompris_hangman:
 
   def end(self):
     # Remove the root item removes all the others inside it
-    self.rootitem.remove()
+    self.backitem.remove()
     gcompris.score.end()
 
 
@@ -175,31 +187,6 @@ class Gcompris_hangman:
                                     self.gcomprisBoard.canvas.get_root_item())
     self.display_level()
 
-  def display_letter(self, parent, letter, x, y,
-                     fill_color, stroke_color, goal):
-    w = 30
-    h = 30
-
-    rect = goocanvas.Rect(
-      parent = parent,
-      x = x,
-      y = y,
-      width = w,
-      height = h,
-      fill_color_rgba = fill_color,
-      stroke_color_rgba = stroke_color,
-      line_width = 1.0)
-
-    text = goocanvas.Text(
-      parent = parent,
-      x = x + w/2,
-      y = y + h/2,
-      text= letter,
-      fill_color="black",
-      anchor = gtk.ANCHOR_CENTER,
-      alignment = pango.ALIGN_CENTER
-      )
-
   def display_letter_set(self, letter_set, y,
                          fill_color, stroke_color):
     group = goocanvas.Group(parent = self.rootitem)
@@ -236,15 +223,15 @@ class Gcompris_hangman:
 
     x = (gcompris.BOARD_WIDTH - (len(self.word) * w)) / 2
     for i in range(0, len(self.word)):
-      self.letters.append(Letter(self, x + i*w, 40,
+      self.letters.append(Letter(self, x + i*w, 70,
                                  self.word[i],
                                  self.get_equiv(self.word[i])))
 
     # Display the virtual keyboard
     (group_vowels, y_vowels) = self.display_letter_set(self.vowels, 0,
-                                                       0xFF663333L, 0xFF33CCAAL)
+                                                       0xFF6633AAL, 0xFF33CCBBL)
     (group_cons, y_cons) = self.display_letter_set(self.consonants, y_vowels + 20,
-                                                   0x66FF3333L, 0xFF33CCAAL)
+                                                   0x66FF33AAL, 0xFF33CCBBL)
 
     group_vowels.translate(0, gcompris.BOARD_HEIGHT - y_cons - 40)
     group_cons.translate(0, gcompris.BOARD_HEIGHT - y_cons - 40)
@@ -288,7 +275,7 @@ class Letter:
       self.found = False
       parent = hangman.rootitem
 
-      fill_color = 0xFF336633L
+      fill_color = 0xFF3366AAL
       stroke_color = 0xFF33CCAAL
       w = 30
       h = 30
@@ -325,7 +312,7 @@ class Letter:
 
     def check(self, targetLetter):
       if (self.letters.count(targetLetter) > 0):
-        self.rect.set_properties(fill_color_rgba = 0x66CC3333L)
+        self.rect.set_properties(fill_color_rgba = 0x66CC33AAL)
         self.letterItem.props.visibility = goocanvas.ITEM_VISIBLE
         self.found = True
         return True
@@ -384,7 +371,7 @@ class Key:
 
       # disable this key, mark it as used
       self.disabled = True
-      self.rect.set_properties(fill_color_rgba = 0xCCCCCC33L,
+      self.rect.set_properties(fill_color_rgba = 0xCCCCCCCCL,
                                line_width = 3.0)
       self.rect.disconnect_by_func(self.letter_event)
       self.letterItem.disconnect_by_func(self.letter_event)

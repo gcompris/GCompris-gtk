@@ -548,7 +548,7 @@ AC_SUBST(CFLAGS)
 AC_SUBST(LIBS)
 
 dnl Autoconf output
-AC_OUTPUT([  src/hangman-activity/Makefile
+AC_OUTPUT([
 Makefile.mingw
 Makefile
 autopackage/Makefile
@@ -720,6 +720,9 @@ src/goocanvas/src/Makefile
 src/guessnumber-activity/Makefile
 src/guessnumber-activity/resources/Makefile
 src/guessnumber-activity/resources/guessnumber/Makefile
+src/hangman-activity/Makefile
+src/hangman-activity/resources/Makefile
+src/hangman-activity/resources/hangman/Makefile
 src/hanoi-activity/Makefile
 src/hanoi_real-activity/Makefile
 src/hanoi_real-activity/resources/Makefile
