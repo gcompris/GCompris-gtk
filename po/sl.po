@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&component=general\n"
-"POT-Creation-Date: 2010-10-15 09:45+0000\n"
-"PO-Revision-Date: 2010-10-15 19:01+0100\n"
+"POT-Creation-Date: 2010-10-18 08:13+0000\n"
+"PO-Revision-Date: 2010-10-22 14:52+0100\n"
 "Last-Translator: Andrej Žnidaršič <andrej.znidarsic@gmail.com>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
@@ -198,7 +198,7 @@ msgid "GCompris Main Menu"
 msgstr "Glavni meni GCompris"
 
 #: ../boards/menu.xml.in.h:17
-#: ../src/boards/menu2.c:875
+#: ../src/boards/menu2.c:876
 msgid "GCompris is a collection of educational games that provides different activities for children aged 2 and up."
 msgstr "GCompris je zbirka izobraževalnih iger z različnimi dejavnosti namenjena otrokom od 2. leta naprej."
 
@@ -2373,9 +2373,9 @@ msgid "This software is a GNU Package and is released under the GNU General Publ
 msgstr "Ta program je GNU paket in je izdan pod GNU splošno javno licenco"
 
 #: ../src/gcompris/about.c:222
-#: ../src/gcompris/config.c:442
+#: ../src/gcompris/config.c:438
 #: ../src/gcompris/dialog.c:103
-#: ../src/gcompris/help.c:359
+#: ../src/gcompris/help.c:355
 #: ../src/gcompris/images_selector.c:307
 msgid "OK"
 msgstr "V redu"
@@ -2744,40 +2744,40 @@ msgstr "Za filtriranje tabel uporabite skrbniški modul Gcompris "
 msgid "GCompris Configuration"
 msgstr "GCompris nastavitve"
 
-#: ../src/gcompris/config.c:254
+#: ../src/gcompris/config.c:253
 msgid "Fullscreen"
 msgstr "Celozaslonski način"
 
-#: ../src/gcompris/config.c:280
+#: ../src/gcompris/config.c:278
 msgid "Music"
 msgstr "Glasba"
 
-#: ../src/gcompris/config.c:306
+#: ../src/gcompris/config.c:303
 msgid "Effect"
 msgstr "Učinki"
 
-#: ../src/gcompris/config.c:331
+#: ../src/gcompris/config.c:327
 #: ../src/gcompris/sugar.c:82
 msgid "Zoom"
 msgstr "Približanje"
 
-#: ../src/gcompris/config.c:368
+#: ../src/gcompris/config.c:364
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Ni mogoče odpreti mape preoblek: %s"
 
-#: ../src/gcompris/config.c:399
-#: ../src/gcompris/config.c:757
-#: ../src/gcompris/config.c:771
+#: ../src/gcompris/config.c:395
+#: ../src/gcompris/config.c:753
+#: ../src/gcompris/config.c:767
 #, c-format
 msgid "Skin : %s"
 msgstr "Preobleka : %s"
 
-#: ../src/gcompris/config.c:401
+#: ../src/gcompris/config.c:397
 msgid "SKINS NOT FOUND"
 msgstr "PREOBLEKE NI MOGOČE NAJTI"
 
-#: ../src/gcompris/config.c:482
+#: ../src/gcompris/config.c:478
 msgid "English (United State)"
 msgstr "Angleško (Združene države)"
 
@@ -2812,131 +2812,135 @@ msgstr ""
 "Končajte program in poročajte\n"
 "napako avtorjem."
 
-#: ../src/gcompris/gcompris.c:156
+#: ../src/gcompris/gcompris.c:157
 msgid "run GCompris in fullscreen mode."
 msgstr "Zagon GCompris v celozaslonskem načinu."
 
-#: ../src/gcompris/gcompris.c:159
+#: ../src/gcompris/gcompris.c:160
 msgid "run GCompris in window mode."
 msgstr "Zagon GCompris v okenskem načinu."
 
-#: ../src/gcompris/gcompris.c:162
+#: ../src/gcompris/gcompris.c:163
 msgid "run GCompris with sound enabled."
 msgstr "Zagon GCompris z omogočenim zvokom."
 
-#: ../src/gcompris/gcompris.c:165
+#: ../src/gcompris/gcompris.c:166
 msgid "run GCompris without sound."
 msgstr "Zagon Gcompris brez zvoka."
 
-#: ../src/gcompris/gcompris.c:168
-msgid "run GCompris with the default gnome cursor."
-msgstr "Zagon GCompris s privzetim gnome kazalcem."
+#: ../src/gcompris/gcompris.c:169
+msgid "run GCompris with the default system cursor."
+msgstr "zaženi GCompris s privzeto sistemsko kazalko."
 
-#: ../src/gcompris/gcompris.c:171
+#: ../src/gcompris/gcompris.c:172
+msgid "run GCompris without cursor (touch screen mode)."
+msgstr "zaženi GCompris brez kazalke (način zaslona na dotik)."
+
+#: ../src/gcompris/gcompris.c:175
 msgid "display only activities with this difficulty level."
 msgstr "Pokaži le dejavnosti te težavnostne ravni."
 
-#: ../src/gcompris/gcompris.c:174
+#: ../src/gcompris/gcompris.c:178
 msgid "display debug informations on the console."
 msgstr "Prikaži podrobnosti razhroščevanja na konzoli."
 
-#: ../src/gcompris/gcompris.c:177
+#: ../src/gcompris/gcompris.c:181
 msgid "Print the version of "
 msgstr "Natisni različico "
 
-#: ../src/gcompris/gcompris.c:180
+#: ../src/gcompris/gcompris.c:184
 msgid "Run GCompris with local menu (e.g -l /reading will let you play only activities in the reading directory, -l /strategy/connect4 only the connect4 activity). Use '-l list' to list all the availaible activities and their descriptions."
 msgstr "Poženi GCompris s krajevnim menijem (na primer -l /reading dovoli le igranje delavnosti v mapi branje, -l /strategy/connect4 le dejavnost 4 v vrsto). Uporabi '-l list' za seznam vseh dostopnih dejavnosti in njihovih opisov."
 
-#: ../src/gcompris/gcompris.c:185
+#: ../src/gcompris/gcompris.c:189
 msgid "GCompris will find the data dir in this directory"
 msgstr "GCompris bo v tej mapi našel mapo podatkov"
 
-#: ../src/gcompris/gcompris.c:188
+#: ../src/gcompris/gcompris.c:192
 msgid "GCompris will find the skins in this directory"
 msgstr "GCompris bo v tej mapi našel preobleke"
 
-#: ../src/gcompris/gcompris.c:191
+#: ../src/gcompris/gcompris.c:195
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "GCompris bo v tej mapi našel vstavke dejavnosti"
 
-#: ../src/gcompris/gcompris.c:194
+#: ../src/gcompris/gcompris.c:198
 msgid "GCompris will find the python activity in this directory"
 msgstr "GCompris bo našel dejavnost python v tej mapi"
 
-#: ../src/gcompris/gcompris.c:197
+#: ../src/gcompris/gcompris.c:201
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr "GCompris bo v tej mapi našel datoteko jezikovne oznake (prevod .mo)"
 
-#: ../src/gcompris/gcompris.c:200
+#: ../src/gcompris/gcompris.c:204
 msgid "GCompris will find the activities menu in this directory"
 msgstr "GCompris bo v tej mapi našel meni dejavnosti"
 
-#: ../src/gcompris/gcompris.c:203
+#: ../src/gcompris/gcompris.c:207
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Zaženi GCompris v načinu skrbništva in upravljanja uporabnikov "
 
-#: ../src/gcompris/gcompris.c:206
+#: ../src/gcompris/gcompris.c:210
 msgid "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite.db]"
 msgstr "Uporabi dodatno podatkovno zbirko za profile [$HOME/.config/gcompris/gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:209
+#: ../src/gcompris/gcompris.c:213
 msgid "Create the alternate database for profiles"
 msgstr "Ustvari dodatno podatkovno zbirko za profile"
 
-#: ../src/gcompris/gcompris.c:212
+#: ../src/gcompris/gcompris.c:216
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Ponovno preberi menije XML in jih shrani v podatkovni zbirki"
 
-#: ../src/gcompris/gcompris.c:215
+#: ../src/gcompris/gcompris.c:219
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Nastavi profil za uporabo. Uporabi 'gcompris -a' za ustvarjanje profilov"
 
-#: ../src/gcompris/gcompris.c:218
+#: ../src/gcompris/gcompris.c:222
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr "Naštej vse razpoložljive profile. Za ustvarjanje profilov uporabi 'gcompris -a'"
 
-#: ../src/gcompris/gcompris.c:221
+#: ../src/gcompris/gcompris.c:225
 msgid "Config directory location: [$HOME/.config/gcompris]. Alternate is to set $XDG_CONFIG_HOME."
 msgstr "Mesto nastavitvene mape: [$HOME/.config/gcompris] Dodatna možnost je nastviti $XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:224
+#: ../src/gcompris/gcompris.c:228
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "Mesto uporabniških map: [$HOME/Moj GCompris]"
 
-#: ../src/gcompris/gcompris.c:227
+#: ../src/gcompris/gcompris.c:231
 msgid "Run the experimental activities"
 msgstr "Zagon preizkusnih dejavnosti"
 
-#: ../src/gcompris/gcompris.c:230
+#: ../src/gcompris/gcompris.c:234
 msgid "Disable the quit button"
 msgstr "Onemogoči gumb končaj"
 
-#: ../src/gcompris/gcompris.c:233
+#: ../src/gcompris/gcompris.c:237
 msgid "Disable the config button"
 msgstr "Onemogoči gumb nastavitve"
 
-#: ../src/gcompris/gcompris.c:236
+#: ../src/gcompris/gcompris.c:240
 msgid "GCompris will get images, sounds and activity data from this server if not found locally."
 msgstr "GCompris bo dobil slike, zvoke in podatke dejavnost s tega strežnika, če podatkov ne bo mogoče najti krajevno."
 
-#: ../src/gcompris/gcompris.c:239
+#: ../src/gcompris/gcompris.c:243
 msgid "Only when --server is provided, disable check for local resource first. Data are always taken from the web server."
 msgstr "Ko je izbran --server, onemogoči preverjanje za krajevna sredstva. Podatki so vedno preneseni s strežnik."
 
-#: ../src/gcompris/gcompris.c:243
+#: ../src/gcompris/gcompris.c:247
 msgid "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr "V strežniškem načinu je treba določiti mapo predpomnilnika za izogibanje nepotrebnim prejemom."
 
-#: ../src/gcompris/gcompris.c:246
+#: ../src/gcompris/gcompris.c:250
 msgid "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr "Splošni način povleci in spusti: običajen, 2klika, oboje. Privzeti način je običajen."
 
-#: ../src/gcompris/gcompris.c:249
+#: ../src/gcompris/gcompris.c:253
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Ne izogni se izvajanju več primerkov GCompris."
 
-#: ../src/gcompris/gcompris.c:890
+#: ../src/gcompris/gcompris.c:918
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to support its development, this version provides only %d of the %d activities. You can get the full version for a small fee at\n"
@@ -2949,17 +2953,17 @@ msgstr ""
 "Različica GNU/Linux nima teh omejitev. Če verjamete, da je otroke treba naučiti svobodo, razmislite o uporabi GNU/Linux. Več podrobnosti na strani FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1429
+#: ../src/gcompris/gcompris.c:1457
 #, c-format
 msgid "GCompris won't start because the lock file is less than %d seconds old.\n"
 msgstr "GCompris se ne bo zagnal, ker je datoteka ključavnice stara manj kot %d sekund.\n"
 
-#: ../src/gcompris/gcompris.c:1431
+#: ../src/gcompris/gcompris.c:1459
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Datoteka ključa je: %s\n"
 
-#: ../src/gcompris/gcompris.c:1545
+#: ../src/gcompris/gcompris.c:1573
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2973,37 +2977,37 @@ msgstr ""
 "Več podrobnosti je mogoče najti na http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1648
+#: ../src/gcompris/gcompris.c:1682
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Uporabi -l za neposreden dostop do dejavnosti.\n"
 
-#: ../src/gcompris/gcompris.c:1649
+#: ../src/gcompris/gcompris.c:1683
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Seznam dostopnih dejavnosti je:\n"
 
-#: ../src/gcompris/gcompris.c:1680
+#: ../src/gcompris/gcompris.c:1714
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Število dejavnosti: %d\n"
 
-#: ../src/gcompris/gcompris.c:1716
+#: ../src/gcompris/gcompris.c:1750
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s obstaja toda ni berljiv ali zapisljiv"
 
-#: ../src/gcompris/gcompris.c:1779
+#: ../src/gcompris/gcompris.c:1813
 #, c-format
 msgid "The --server option cannot be used because GCompris has been compiled without network support!"
 msgstr "Možnosti --server ni mogoče uporabiti, ker GCompris ni bil preveden z omrežno podporo!"
 
-#: ../src/gcompris/gcompris.c:1833
+#: ../src/gcompris/gcompris.c:1867
 #, c-format
 msgid "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list available ones\n"
 msgstr "NAPAKA: Profila '%s' ni mogoče najti. Poženi 'gcompris --profile-list' za seznam razpoložljivih profilov\n"
 
-#: ../src/gcompris/gcompris.c:1847
+#: ../src/gcompris/gcompris.c:1881
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Seznam dostopnih profilov je:\n"
@@ -3025,19 +3029,19 @@ msgstr ""
 "Nalaganje dejavnosti iz podatkovne zbirke:\n"
 "%s"
 
-#: ../src/gcompris/help.c:181
+#: ../src/gcompris/help.c:180
 msgid "Prerequisite"
 msgstr "Predpogoj"
 
-#: ../src/gcompris/help.c:212
+#: ../src/gcompris/help.c:210
 msgid "Goal"
 msgstr "Cilj"
 
-#: ../src/gcompris/help.c:243
+#: ../src/gcompris/help.c:240
 msgid "Manual"
 msgstr "Navodila"
 
-#: ../src/gcompris/help.c:274
+#: ../src/gcompris/help.c:270
 msgid "Credit"
 msgstr "Zasluge"
 
@@ -5287,11 +5291,11 @@ msgstr "Padalec"
 msgid "This board is game-oriented. No specific skills are needed to play."
 msgstr "To je igralna deska. Ne potrebuješ posebne spretnosti za igranje."
 
-#: ../src/penalty-activity/penalty.py:294
+#: ../src/penalty-activity/penalty.py:293
 msgid "Click on the balloon to place it again."
 msgstr "Klikni na balon za ponovno postavljanje."
 
-#: ../src/penalty-activity/penalty.py:296
+#: ../src/penalty-activity/penalty.py:295
 msgid "Click twice on the balloon to shoot it."
 msgstr "Dvakrat klikni na balon in ga ustreli."
 
@@ -6154,7 +6158,7 @@ msgstr "bcčdfghjklmnprsštvzž"
 msgid "NONE"
 msgstr "BREZ"
 
-#: ../src/hangman-activity/hangman.py:93
+#: ../src/hangman-activity/hangman.py:105
 msgid "Could not find the list of words."
 msgstr "Ni mogoče najti seznama besed."
 
