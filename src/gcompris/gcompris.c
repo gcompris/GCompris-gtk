@@ -1181,6 +1181,7 @@ static void quit_cb (GtkWidget *widget, gpointer data)
 #endif
   cleanup();
   gtk_main_quit();
+  gc_sound_close();
 
   /*
    * Very important or GCompris crashes on exit when closed from the dialog
