@@ -78,7 +78,6 @@ extern BoardPlugin * get_python_bplugin_info();
 extern BoardPlugin * get_wordprocessor_bplugin_info();
 
 #define MAX_NUMBER_OF_BOARDS 200
-static BoardPlugin *static_boards_demo[MAX_NUMBER_OF_BOARDS];
 static BoardPlugin *static_boards[MAX_NUMBER_OF_BOARDS];
 
 static char *board_nodemo[] = /* Some boards excluded from the demo version */
@@ -99,34 +98,6 @@ void gc_board_init(void)
   guint i=0;
 
   bp_data = g_malloc0(sizeof (struct BoardPluginData));
-
-  static_boards_demo[i++] = get_awele_bplugin_info();
-  static_boards_demo[i++] = get_canal_lock_bplugin_info();
-  static_boards_demo[i++] = get_click_on_letter_bplugin_info();
-  static_boards_demo[i++] = get_clickgame_bplugin_info();
-  static_boards_demo[i++] = get_clockgame_bplugin_info();
-  static_boards_demo[i++] = get_colors_bplugin_info();
-  static_boards_demo[i++] = get_crane_bplugin_info();
-  static_boards_demo[i++] = get_enumerate_bplugin_info();
-  static_boards_demo[i++] = get_erase_bplugin_info();
-  static_boards_demo[i++] = get_gletters_bplugin_info();
-  static_boards_demo[i++] = get_gtans_bplugin_info();
-  static_boards_demo[i++] = get_hanoi_bplugin_info();
-  static_boards_demo[i++] = get_leftright_bplugin_info();
-  static_boards_demo[i++] = get_magic_hat_bplugin_info();
-  static_boards_demo[i++] = get_menu_bplugin_info();
-  static_boards_demo[i++] = get_money_bplugin_info();
-  static_boards_demo[i++] = get_reading_bplugin_info();
-  static_boards_demo[i++] = get_photohunter_bplugin_info();
-  static_boards_demo[i++] = get_python_bplugin_info();
-  static_boards_demo[i++] = get_scale_bplugin_info();
-  static_boards_demo[i++] = get_submarine_bplugin_info();
-  static_boards_demo[i++] = get_superbrain_bplugin_info();
-  static_boards_demo[i++] = get_target_bplugin_info();
-  static_boards_demo[i++] = get_wordprocessor_bplugin_info();
-  static_boards_demo[i++] = NULL;
-
-  i=0;
 
   static_boards[i++] = get_advanced_colors_bplugin_info();
   static_boards[i++] = get_algebra_bplugin_info();
@@ -226,7 +197,6 @@ gc_board_check_file(GcomprisBoard *gcomprisBoard)
   GcomprisProperties	*properties = gc_prop_get();
   BoardPlugin *bp;
   guint        i=0;
-  guint        key_is_valid = 0;
 
   g_assert(gcomprisBoard!=NULL);
   g_assert(properties->key!=NULL);
@@ -236,60 +206,22 @@ gc_board_check_file(GcomprisBoard *gcomprisBoard)
     return TRUE;
   }
 
-  key_is_valid = gc_activation_check(properties->key);
+  if ( !gcomprisBoard->demo && gc_activation_check(properties->key) <= 0 )
+    return FALSE;
 
-  i = 0;
-  if(key_is_valid >= 1)
-    {
-      while(static_boards[i++] != NULL) {
+  while(static_boards[i++] != NULL) {
 
-	/* Get the BoardPlugin Info */
-	bp = (BoardPlugin *) static_boards[i-1];
+    /* Get the BoardPlugin Info */
+    bp = (BoardPlugin *) static_boards[i-1];
 
-	if(bp->is_our_board(gcomprisBoard)) {
-	  /* Great, we found our plugin */
-	  g_message("We found the correct plugin for board %s (type=%s)\n",
-		    gcomprisBoard->name, gcomprisBoard->type);
+    if(bp->is_our_board(gcomprisBoard)) {
+      /* Great, we found our plugin */
+      g_message("We found the correct plugin for board %s (type=%s)\n",
+		gcomprisBoard->name, gcomprisBoard->type);
 
-	  return TRUE;
-	}
-      }
+      return TRUE;
     }
-  else
-    {
-      while(static_boards_demo[i++] != NULL) {
-
-	/* Get the BoardPlugin Info */
-	bp = (BoardPlugin *) static_boards_demo[i-1];
-
-	if(bp->is_our_board(gcomprisBoard)) {
-	  /* Great, we found our plugin */
-
-	  /* check for excluded one */
-	  char **ptr = board_nodemo;
-	  do
-	    {
-	      if(strcmp(*ptr, gcomprisBoard->type) == 0)
-		break;
-	    }
-	  while(*++ptr);
-
-	  if(*ptr)
-	    goto notfound;
-
-	  g_warning("We found the correct plugin for board %s (type=%s)\n",
-		  gcomprisBoard->name, gcomprisBoard->type);
-
-	  return TRUE;
-	}
-      }
-    }
-
- notfound:
-  gcomprisBoard->plugin = NULL;
-  g_warning("No plugin library found for board type '%s', requested by '%s'",
-	    gcomprisBoard->type,  gcomprisBoard->filename);
-
+  }
   return FALSE;
 }
 #else
