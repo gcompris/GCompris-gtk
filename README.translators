@@ -24,10 +24,25 @@ So here is the format description:
                letter                   confuse the kid
    apple       appl_                    / e / h / a
 
-A set of file in ./src/readingh-activity/resources/wordsgame/default-yy.xml
-Where yy is your target locale.
-Note that these words must be choosen to be simple in your language, don't
-necessary translate the English.
+A single word list file for your locale named:
+src/readingh-activity/resources/wordsgame/default-XX.xml
+Where XX is your target locale.
+
+Note that these words must be choosen to be simple in your language,
+don't necessary translate the english. Also, it is important to make sure
+that these words can be written with your keyboard in one key
+(no alt gr stuff or compose key).
+
+In order to be useful, this list must contains about 1000 words.
+If you can, pick the words from a school children book or wiktionary.
+
+The files are XML formatted. There are 5 levels section which contains:
+Level   Word length
+  1     < 4 and very easy to type
+  2     = 4 or < 4 not so easy
+  3     = 5
+  4     = 6
+  5     > 6
 
 A complete voice translation in boards/voices/yy
 The voices are in a separate git branch. If you got the source from the

@@ -1,17 +1,24 @@
 Important: These files must be UTF-8 formated.
----------  To do this, you can use gedit, oowrite or any text editor that supports UTF-8
 
-To complete the translation, you must also provide a set of file in 
-boards/wordsgame/wordslevelx.yy
-Where x is the level or max and yy your target locale.
-note that these words must be choosen to be simple in your language,
+To edit them, you can use gedit, oowrite or any text editor that supports UTF-8
+
+To complete the translation, you must provide a single word list file for
+your locale named: src/readingh-activity/resources/wordsgame/default-XX.xml
+Where XX is your target locale.
+
+Note that these words must be choosen to be simple in your language,
 don't necessary translate the english. Also, it is important to make sure
-that these words can be written with your keyboard in one key 
+that these words can be written with your keyboard in one key
 (no alt gr stuff or compose key).
 
-GCompris will pick a file named wordslevelX.my where X is the current
-level in GCompris and 'my' your locale. If X is not found, it will take
-wordslevelmax.my.
-It's flexible enough. The minimum number of words is around 30. No upper
-limit. 
+In order to be useful, this list must contains about 1000 words.
 If you can, pick the words from a school children book.
+
+The files are XML formatted. There are 5 levels section which contains
+words in size order:
+Level   Word length
+  1     < 4 and very easy to type
+  2     = 4 or < 4 not so easy
+  3     = 5
+  4     = 6
+  5     > 6
