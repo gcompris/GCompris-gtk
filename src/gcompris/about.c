@@ -44,7 +44,6 @@ void gc_about_start ()
   gdouble x_start = 0;
   gint y = 0;
   GooCanvasItem *item;
-  gint plane_y;
 
   static gchar *content =
     N_("Author: Bruno Coudoin\n"
@@ -225,27 +224,6 @@ void gc_about_start ()
 			  _("OK"),
 			  (GtkSignalFunc) item_event_ok,
 			  "ok");
-
-  // The animation
-  pixmap = gc_skin_pixmap_load("gcompris-about.png");
-
-  plane_y = BOARDHEIGHT - gdk_pixbuf_get_height(pixmap);
-  item = goo_canvas_image_new (rootitem,
-			       pixmap,
-			       -1 * gdk_pixbuf_get_width(pixmap),
-			       plane_y,
-			       NULL);
-
-  goo_canvas_item_animate (item,
-			   BOARDWIDTH + gdk_pixbuf_get_width(pixmap),
-			   -1 * gdk_pixbuf_get_height(pixmap),
-			   0.4,
-			   -30,
-			   TRUE,
-			   40 * BOARDWIDTH, 40,
-			   GOO_CANVAS_ANIMATE_RESTART);
-
-  gdk_pixbuf_unref(pixmap);
 
   is_displayed = TRUE;
 
