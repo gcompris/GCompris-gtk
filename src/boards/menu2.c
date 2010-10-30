@@ -886,8 +886,8 @@ display_welcome_event (GooCanvasItem  *item,
 static void
 display_welcome (MenuItems *menuitems)
 {
-  GdkPixbuf *pixmap;
   GooCanvasItem *item;
+  RsvgHandle  *svg_handle;
 
   if (actualSectionItem)
     g_error("actualSectionItem exists in display_section !");
@@ -896,17 +896,15 @@ display_welcome (MenuItems *menuitems)
   actualSectionItem = goo_canvas_group_new(boardRootItem,
 					   NULL);
 
-  pixmap = gc_skin_pixmap_load("gcompris-about.png");
+  svg_handle = gc_skin_rsvg_get();
+  item = goo_canvas_svg_new (actualSectionItem,
+			     svg_handle,
+			     "svg-id", "#LOGO",
+			     NULL);
+  SET_ITEM_LOCATION_CENTER(item,
+			   display_x + display_w/2.0,
+			   display_y + display_h/3.0)
 
-  item = goo_canvas_image_new (actualSectionItem,
-			       pixmap,
-			       display_x + display_w/2.0 -
-			       gdk_pixbuf_get_width(pixmap)/2,
-			       display_y + display_h/2.0 -
-			       gdk_pixbuf_get_height(pixmap)/2,
-			       NULL);
-
-  gdk_pixbuf_unref(pixmap);
 
   g_signal_connect (item, "enter_notify_event",
 		    (GtkSignalFunc) display_welcome_event, menuitems);

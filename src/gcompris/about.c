@@ -173,13 +173,16 @@ void gc_about_start ()
   else
     {
       // Default sponsor is the FSF
-      pixmap = gc_skin_pixmap_load("fsflogo.png");
-      item = goo_canvas_image_new (rootitem,
-				   pixmap,
-				   (gdouble) (BOARDWIDTH*0.8) - gdk_pixbuf_get_width(pixmap)/2,
-				   (gdouble) y_start - gdk_pixbuf_get_height(pixmap)/2,
-                   NULL);
-      gdk_pixbuf_unref(pixmap);
+      RsvgHandle  *svg_handle;
+      svg_handle = gc_skin_rsvg_get();
+      item = goo_canvas_svg_new (rootitem,
+				     svg_handle,
+				     "svg-id", "#FSF_LOGO",
+				     "pointer-events", GOO_CANVAS_EVENTS_NONE,
+				     NULL);
+      goo_canvas_item_get_bounds(item, &bounds);
+      SET_ITEM_LOCATION_CENTER(item, (BOARDWIDTH*0.75),
+			       y_start + 50 - (bounds.y2 - bounds.y1) / 2);
 
       item = goo_canvas_text_new (rootitem,
 				  "Free Software Foundation\nhttp://www.fsf.org",
