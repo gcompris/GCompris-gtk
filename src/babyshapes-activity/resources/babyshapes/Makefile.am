@@ -31,6 +31,28 @@ $(xml_DATA): %.xml: %.xml.in
 
 imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/babyshapes
 img_DATA = \
+	Bosschaert_04_1.png \
+	Bosschaert_04_2.png \
+	Bosschaert_04_3.png \
+	Bosschaert_04_4.png \
+	Bosschaert_04_5.png \
+	Bosschaert_04_6.png \
+	Bosschaert_04_background.png \
+	lady_unicorn_1.png \
+	lady_unicorn_2.png \
+	lady_unicorn_3.png \
+	lady_unicorn_4.png \
+	lady_unicorn_5.png \
+	lady_unicorn_background.png \
+	Paul_Gauguin_006_background.png \
+	Paul_Gauguin_006_chien.png \
+	Paul_Gauguin_006_jeunes_filles.png \
+	Paul_Gauguin_006_statue.png \
+	Pieter_Bruegel_background.png \
+	Pieter_Bruegel_fillette.png \
+	Pieter_Bruegel_mur.png \
+	Pieter_Bruegel_musicien.png \
+	Pieter_Bruegel_service.png \
 	T_baby_bottle.png \
 	T_banana.png \
 	T_bread_slice.png \
@@ -47,7 +69,13 @@ img_DATA = \
 	T_pear.png \
 	T_round_cookie.png \
 	T_suggar_box.png \
-	T_yahourt.png
+	T_yahourt.png \
+	Van_Gogh_0011_1.png \
+	Van_Gogh_0011_2.png \
+	Van_Gogh_0011_3.png \
+	Van_Gogh_0011_4.png \
+	Van_Gogh_0011_5.png \
+	Van_Gogh_0011_background.png
 
 EXTRA_DIST = $(img_DATA) ${xml_in_files}
 CLEANFILES = $(xml_DATA)
