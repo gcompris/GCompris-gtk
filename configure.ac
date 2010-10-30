@@ -205,7 +205,7 @@ if test "x$USE_DEBUG" == "xyes" ; then
     AC_DEFINE_UNQUOTED(DEBUG, 1, "Enable debug messages.")
     CFLAGS="$CFLAGS $OSX_CFLAGS -Wall -Werror -g"
 else
-    CFLAGS="$CFLAGS $OSX_CFLAGS -Wall -Werror"
+    CFLAGS="$CFLAGS $OSX_CFLAGS -Wall -Werror -O2"
 fi
 
 dnl disable activation code
