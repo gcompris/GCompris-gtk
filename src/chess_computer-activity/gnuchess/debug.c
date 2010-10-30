@@ -13,6 +13,7 @@
 #include <sys/time.h>
 #include <fcntl.h>
 #include <stdarg.h>
+#include <string.h>
 
 #define MAX_DEBUG 1000
 #define DEBUG_FILENAME "gnuchess.debug"
@@ -24,7 +25,7 @@ int dbg_open(const char *name)
 {
    int flags = O_WRONLY | O_CREAT | O_APPEND;
    int mode = 0777;
-   
+
    if (name == NULL) {
       debug_fd = open(DEBUG_FILENAME, flags, mode);
    } else {
@@ -53,9 +54,9 @@ int dbg_printf(const char *fmt, ...)
    va_list ap;
    char buf[MAX_DEBUG];
    struct timeval tv;
-   
+
    gettimeofday(&tv, NULL);
-   sprintf(buf, "%010ld.%06ld: ", tv.tv_sec, tv.tv_usec);
+   sprintf(buf, "%010ld.%06ld: ", (long int)tv.tv_sec, (long int)tv.tv_usec);
    write(debug_fd, buf, strlen(buf));
 
    va_start(ap, fmt);
