@@ -599,21 +599,24 @@ gc_file_find_absolute(const gchar *format, ...)
   while (dir_to_search[i])
     {
       gchar **tmp;
+      gchar **locale;
+      gchar *filename2;
       g_free(absolute_filename);
 
-      /* Check there is a $LOCALE to replace */
-      if((tmp = g_strsplit(filename, "$LOCALE", -1)))
+      /* Maybe there is a $LOCALE to replace */
+      tmp = g_strsplit(filename, "$LOCALE", -1);
+
+      locale = g_strsplit_set(gc_locale_get(), ".", 2);
+      if(g_strv_length(locale) == 1)
 	{
-	  gchar **locale;
-	  gchar *filename2;
+	  absolute_filename = \
+	    g_strdup_printf("%s/%s", dir_to_search[i], filename);
 
-	  locale = g_strsplit_set(gc_locale_get(), ".", 2);
-	  if(g_strv_length(locale) < 1)
-	    {
-	      absolute_filename = g_strdup("");
-	      goto NOT_FOUND;
-	    }
-
+	  if(g_file_test (absolute_filename, G_FILE_TEST_EXISTS))
+	    goto FOUND;
+	}
+      else
+	{
 	  /* First try with the long locale */
 	  filename2 = g_strjoinv(locale[0], tmp);
 	  absolute_filename = g_strdup_printf("%s/%s", dir_to_search[i],
@@ -648,13 +651,6 @@ gc_file_find_absolute(const gchar *format, ...)
 	    }
 	  else
 	    g_strfreev(tmp);
-	}
-      else
-	{
-	  absolute_filename = g_strdup_printf("%s/%s", dir_to_search[i], filename);
-
-	  if(g_file_test (absolute_filename, G_FILE_TEST_EXISTS))
-	    goto FOUND;
 	}
 
       i++;
