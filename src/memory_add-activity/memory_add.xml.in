@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GCompris>
-  <Board 
+  <Board
 	 name="memory_add"
-	 type="memory" 
+	 type="memory"
 	 section="/math/algebramenu/memory_op_group"
-	 mode="add" 
+	 mode="add"
 	 difficulty="1"
-	 icon="mem_solo_plus.svg" 
+	 icon="mem_solo_plus.svg"
 	 author="Yves Combe (yves@ycombe.net)"
-	 boarddir="">
+	 boarddir=""
+	 demo="1">
 	 <_title>Addition memory game</_title>
  	 <_description>Turn the cards over to find two numbers which add up the same, until all the cards are gone.</_description>
 	<_prerequisite>Addition</_prerequisite>

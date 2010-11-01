@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GCompris>
-  <Board 
+  <Board
 	 name="memory_add_minus_tux"
-	 type="memory" 
+	 type="memory"
 	 section="/math/algebramenu/memory_op_group_tux"
-	 mode="add_minus_tux" 
+	 mode="add_minus_tux"
 	 difficulty="1"
-	 icon="mem_tux_plus_minus.svg" 
+	 icon="mem_tux_plus_minus.svg"
 	 author="Yves Combe (yves@ycombe.net)"
-	 boarddir="">
+	 boarddir=""
+	 demo="1">
 	 <_title>Addition and subtraction memory game against Tux</_title>
  	 <_description>Turn the cards over to find two numbers which add or subtract the same, until all the cards are gone.</_description>
 	<_prerequisite>Subtraction</_prerequisite>

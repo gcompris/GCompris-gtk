@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GCompris>
-  <Board 
+  <Board
 	 name="memory_minus"
-	 type="memory" 
+	 type="memory"
 	 section="/math/algebramenu/memory_op_group"
-	 mode="minus" 
+	 mode="minus"
 	 difficulty="1"
-	 icon="mem_solo_minus.svg" 
+	 icon="mem_solo_minus.svg"
 	 author="Yves Combe (yves@ycombe.net)"
-	 boarddir="">
+	 boarddir=""
+	 demo="1">
 	 <_title>Subtraction memory game</_title>
  	 <_description>Turn the cards over to find two numbers which subtract the same, until all the cards are gone.</_description>
 	<_prerequisite>Subtraction</_prerequisite>

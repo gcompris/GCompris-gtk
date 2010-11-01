@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GCompris>
-  <Board 
+  <Board
 	 name="login"
 	 type="python:login"
 	 section="/login"
 	 icon=""
-	 author="">
+	 author=""
+	 demo="1">
 	 <_title>GCompris login screen</_title>
 	 <_description>Select or enter your name to log in to GCompris</_description>
 	 <_prerequisite></_prerequisite>
 	 <_goal>GCompris identifies each child, so we can provide child-specific reports.</_goal>
-	 <_manual xml:space="preserve">In order to activate the login screen, you must 
-first add users in the administration part of GCompris. 
+	 <_manual xml:space="preserve">In order to activate the login screen, you must
+first add users in the administration part of GCompris.
 You access Administration by running 'gcompris -a'.
 In Administration, you can create different profiles. In each profile,
 you can have a different set of users and select which activities are available to them.

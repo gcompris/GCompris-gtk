@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GCompris>
-  <Board 
+  <Board
 	 name="memory_sound"
-	 type="memory" 
+	 type="memory"
 	 section="/discovery/memory_group"
-	 mode="sound" 
+	 mode="sound"
 	 difficulty="1"
-	 icon="memory_sound.svg" 
+	 icon="memory_sound.svg"
 	 mandatory_sound_file="sounds/memory/plick.ogg"
 	 author="Yves Combe (yves@ycombe.net)"
-	 boarddir="">
+	 boarddir=""
+	 demo="1">
 	 <_title>Audio memory game</_title>
  	 <_description>Click on Tux the violinist and listen to find the matching sounds</_description>
 	<_prerequisite>Mouse manipulation, Brain.</_prerequisite>

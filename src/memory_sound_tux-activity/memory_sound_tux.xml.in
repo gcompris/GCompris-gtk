@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GCompris>
-  <Board 
+  <Board
 	 name="memory_sound_tux"
-	 type="memory" 
+	 type="memory"
 	 section="/discovery/memory_group"
-	 mode="sound_tux" 
+	 mode="sound_tux"
 	 difficulty="2"
-	 icon="memory_sound_tux.svg" 
+	 icon="memory_sound_tux.svg"
 	 mandatory_sound_file="sounds/memory/plick.ogg"
 	 author="Yves Combe (yves@ycombe.net)"
-	 boarddir="">
+	 boarddir=""
+	 demo="1">
 	 <_title>Audio memory game against Tux</_title>
  	 <_description>Play the audio memory game against Tux</_description>
 	<_prerequisite>Mouse manipulation, Brain.</_prerequisite>

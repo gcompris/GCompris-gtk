@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GCompris>
-  <Board 
+  <Board
 	 name="memory_mult_div"
-	 type="memory" 
+	 type="memory"
 	 section="/math/algebramenu/memory_op_group"
-	 mode="mult_div" 
+	 mode="mult_div"
 	 difficulty="1"
-	 icon="mem_solo_mult_div.svg" 
+	 icon="mem_solo_mult_div.svg"
 	 author="Yves Combe (yves@ycombe.net)"
-	 boarddir="">
+	 boarddir=""
+	 demo="1">
 	 <_title>Multiplication and division memory game</_title>
  	 <_description>Turn the cards over to find a matching operation, until all the cards are gone.</_description>
 	<_prerequisite>Multiplication, division</_prerequisite>

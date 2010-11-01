@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GCompris>
-  <Board 
+  <Board
 	 name="memory_tux"
-	 type="memory" 
+	 type="memory"
 	 section="/discovery/memory_group"
-	 mode="tux" 
+	 mode="tux"
 	 difficulty="2"
-	 icon="memory_tux.svg" 
+	 icon="memory_tux.svg"
 	 author="Yves Combe (yves@ycombe.net)"
-	 boarddir="">
+	 boarddir=""
+	 demo="1">
 	 <_title>Memory Game with images, against Tux</_title>
  	 <_description>Have a memory competition with Tux.</_description>
 	<_prerequisite>Mouse manipulation, Brain.</_prerequisite>

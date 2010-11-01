@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GCompris>
-  <Board 
+  <Board
 	 name="memory_enumerate"
-	 type="memory" 
+	 type="memory"
 	 section="/math/numeration"
-	 mode="enumerate" 
+	 mode="enumerate"
 	 difficulty="1"
-	 icon="memo_enumerate.svg" 
+	 icon="memo_enumerate.svg"
 	 author="Yves Combe (yves@ycombe.net)"
-	 boarddir="">
+	 boarddir=""
+	 demo="1">
 	 <_title>Enumeration memory game</_title>
  	 <_description>Turn the cards over to match the number with the drawn picture.</_description>
 	<_prerequisite>Addition</_prerequisite>
