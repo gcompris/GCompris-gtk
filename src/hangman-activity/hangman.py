@@ -65,7 +65,6 @@ class Gcompris_hangman:
     # form of a space separated list like: "e=éè a=àâ"
     # Keep the word NONE if not available in your language
     self.equivs = unicode(_("NONE"), encoding="utf8")
-    print self.equivs
     if self.equivs == "NONE":
       self.equivs = ""
 
