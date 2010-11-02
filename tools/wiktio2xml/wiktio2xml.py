@@ -428,14 +428,12 @@ class WikiHandler(ContentHandler):
 
         return inWord
 
-def usage():
-    print "wiki2xml.py <wiki file> <word list file>"
-
 # Set UTF-8 stdout in case of the user piping our output
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-parser = OptionParser()
+usage = "usage: %prog [options] wiktionary_dump.xml word_list.txt"
+parser = OptionParser(usage=usage)
 parser.add_option("-o", "--output", dest="output",
                   help="write result to file or directory")
 parser.add_option("-q", "--quiet",
@@ -450,7 +448,7 @@ parser.add_option("-s", "--site",
 (options, args) = parser.parse_args()
 
 if len(sys.argv) < 3:
-    usage()
+    parser.print_help()
     sys.exit()
 
 wikiFile = sys.argv[1]
