@@ -7,15 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&component=general\n"
-"POT-Creation-Date: 2010-08-29 14:16+0000\n"
-"PO-Revision-Date: 2010-08-30 13:01+0100\n"
-"Last-Translator: Denis Arnaud <denisarnuad@yahoo.fr>\n"
+"POT-Creation-Date: 2010-10-14 23:05+0000\n"
+"PO-Revision-Date: 2010-10-15 11:23+0100\n"
+"Last-Translator: Alan Monfort <alan.monfort@free.fr>\n"
 "Language-Team: An Drouizig <drouizig@drouizig.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Country: FRANCE\n"
 "X-Poedit-Language: Breton\n"
+"X-Poedit-SourceCharset: utf-8\n"
 
 #: ../boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
@@ -1530,52 +1531,61 @@ msgstr "Diaes eo da dTuks tremen dre ar skluz gant e vag. Ro un tamm skoazell de
 msgid "You are in charge of the canal lock. Open the gates and the locks in the right order, so Tux can travel through the gates in both directions."
 msgstr "Te a ren ar skluz. Ret eo dit digeriñ an dorioù hag ar reñvell en urzh mat a-benn lakaat Tuks da dremen dre ar skluz d'un tu ha d'an tu all."
 
-#: ../src/chat-activity/chat.py:77
+#: ../src/chat-activity/chat.py:87
 msgid "All messages will be displayed here.\n"
 msgstr "Skrammet e vo an holl gemennadennoù amañ.\n"
 
-#: ../src/chat-activity/chat.py:128
+#: ../src/chat-activity/chat.py:139
 msgid "Your Friends"
 msgstr "Da vignoned"
 
-#: ../src/chat-activity/chat.py:161
+#: ../src/chat-activity/chat.py:172
 msgid "Your Channel"
 msgstr "Da sanell"
 
-#: ../src/chat-activity/chat.py:187
+#: ../src/chat-activity/chat.py:198
 msgid "Type your message here, to send to other GCompris users on your local network."
 msgstr "Skriv da gemennadenn amañ evit he c'has da arveriaded GCompris all war da rouedad lec'hel."
 
-#: ../src/chat-activity/chat.py:202
+#: ../src/chat-activity/chat.py:244
+#| msgid "Colors"
+msgid "color"
+msgstr "liv"
+
+#: ../src/chat-activity/chat.py:323
 msgid "ERROR: Failed to initialize the network interface. You cannot communicate."
 msgstr "FAZI : C'hwitadenn war deraouekaat ketal ar rouedad. N'hallez ket kehentiñ."
 
-#: ../src/chat-activity/chat.py:326
+#: ../src/chat-activity/chat.py:433
+msgid "Has left the chat."
+msgstr "En/He deus dilezet ar flapiñ."
+
+#: ../src/chat-activity/chat.py:512
 msgid "You must set a channel in your channel entry box first.\n"
 msgstr "Da gentañ, dibab da sanell e boestad enankañ ar sanelloù.\n"
 
-#: ../src/chat-activity/chat.py:327
+#: ../src/chat-activity/chat.py:513
 msgid "Your friends must set the same channel in order to communicate with you"
 msgstr "Ret eo da vignoned dibab an hevelep sanell egedout evit kehentiñ ganit."
 
 #: ../src/chat-activity/chat.xml.in.h:1
-msgid "Chat with your friends"
-msgstr "Komz gant da vignoned"
+#| msgid "Chat with your friends"
+msgid "Chat and draw with your friends"
+msgstr "Komz ha tres gant da vignoned"
 
 #: ../src/chat-activity/chat.xml.in.h:2
 msgid "This chat activity only works on the local network"
 msgstr "Gant ur rouedad lec'hel hepken ez a en-dro an obererezh komz"
 
 #: ../src/chat-activity/chat.xml.in.h:3
-msgid "This chat activity will only work with other GCompris users on your local network, not on the Internet. To use it, just type in your message and hit Enter. Your message is then broadcast on the local network, and any GCompris program running the chat activity on that local network will receive and display your message."
-msgstr ""
-"Mont a ra en-dro gant arveriaded all GCompris war da rouedad lec'hel.\n"
-"\n"
-"Ned a ket en-dro war internet avat.\n"
-"\n"
-"Skriv da gemennadenn ha pouez war « Enankañ ».\n"
-"\n"
-"Kaset e vo da gemennadenn dre da rouedad ha mar bez un arveriad all oc'h ober gant obererezh komz GCompris en hevelep mare e vo degemeret da gemennadenn gantañ."
+#| msgid ""
+#| "This chat activity will only work with other GCompris users on your local "
+#| "network, not on the Internet. To use it, just type in your message and "
+#| "hit Enter. Your message is then broadcast on the local network, and any "
+#| "GCompris program running the chat activity on that local network will "
+#| "receive and display your message."
+msgid "This chat activity will only work with other GCompris users on your local network, not on the Internet. To use it, just type in your message and hit Enter. Your message is then broadcasted on the local network, and any GCompris program running the chat activity on that local network will receive and display your message."
+msgstr "Mont a ra en-dro gant arveriaded all GCompris war da rouedad lec'hel. Ned a ket en-dro war internet avat. Skriv da gemennadenn ha pouez war « Enankañ ». Kaset e vo da gemennadenn dre da rouedad ha mar bez un arveriad all oc'h ober gant obererezh flapiñ GCompris en hevelep mare e vo degemeret da gemennadenn gantañ."
 
 #: ../src/chess_computer-activity/chess.c:222
 msgid "Error: The external program gnuchess died unexpectedly"
@@ -6123,6 +6133,26 @@ msgstr "Mastermind"
 msgid "Tux has hidden several items. Find them again in the correct order"
 msgstr "Kuzhet ez eus bet un heuliad livioù, adkav an heuliad en urzh mat."
 
+#: ../src/superbrain-activity/superbrain.c:403
+#: ../src/superbrain-activity/superbrain.c:539
+msgid "This item is well placed"
+msgstr "Lec'hiet mat eo an elfenn-mañ"
+
+#: ../src/superbrain-activity/superbrain.c:416
+#: ../src/superbrain-activity/superbrain.c:569
+#| msgid "is being displayed"
+msgid "This item is misplaced"
+msgstr "N'eo ket lec'hiet mat an elfenn-mañ"
+
+#: ../src/superbrain-activity/superbrain.c:587
+msgid "One item is well placed"
+msgstr "Un elfenn zo lec'hiet mat"
+
+#: ../src/superbrain-activity/superbrain.c:601
+#| msgid "And it was displayed"
+msgid "One item is misplaced"
+msgstr "Un elfenn n'eo ket lec'hiet mat "
+
 #: ../src/superbrain-activity/superbrain.xml.in.h:1
 msgid "Click on the items until you find what you think is the correct answer. Then, click on the OK button in the control bar. In the lower levels, Tux gives you an indication if you found a hiding place by marking the item with a black box. You can use the right mouse button to flip the colors in the opposite order."
 msgstr ""
@@ -6389,33 +6419,31 @@ msgstr "Skriv gant da glavier ar gerioù klok e-pad m'emaint o kouezhañ a-raok 
 
 #: ../src/hangman-activity/hangman.xml.in.h:1
 msgid "A word is hidden, you must discover it letter by letter"
-msgstr ""
+msgstr "Kuzhet eo bet ur ger, ret eo dit e zizoleiñ ul lizherenn goude eben"
 
 #: ../src/hangman-activity/hangman.xml.in.h:2
 msgid "Reading skill"
-msgstr ""
+msgstr "Barregezh lenn"
 
 #: ../src/hangman-activity/hangman.xml.in.h:3
 msgid "The classic hangman game"
-msgstr ""
+msgstr "C'hoari klasel an den krouget"
 
 #: ../src/hangman-activity/hangman.xml.in.h:4
 msgid "This is a good exercise to improve reading and spelling skills."
-msgstr ""
+msgstr "Ur pleustradenn vat eo da wellaatar  barregezhioù lenn ha skrivañ."
 
 #: ../src/hangman-activity/hangman.xml.in.h:5
 msgid "You can enter the letters using the virtual keyboard on the screen or with the real keyboard."
-msgstr ""
+msgstr "Biziataet e vez al lizherennoù dre ar c'hlavier galloudel war ar skramm pe gant ar c'hlavier gwir."
 
 #. All the vowel of your language (keep empty if non applicable)
 #: ../src/hangman-activity/hangman.py:61
-#, fuzzy
 msgid "aeiouy"
-msgstr "aeiouy"
+msgstr "aeiouùy"
 
 #. All the consonants of your language (keep empty if non applicable)
 #: ../src/hangman-activity/hangman.py:63
-#, fuzzy
 msgid "bcdfghjklmnpqrstvwxz"
 msgstr "bcdfghjklmnrstvwyz"
 
@@ -6427,7 +6455,6 @@ msgid "NONE"
 msgstr "Tra ebet"
 
 #: ../src/hangman-activity/hangman.py:93
-#, fuzzy
 msgid "Could not find the list of words."
 msgstr "N'hall ket kavout roll ar gerioù."
 
