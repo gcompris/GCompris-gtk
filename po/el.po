@@ -21,14 +21,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-09-28 18:39+0300\n"
-"PO-Revision-Date: 2010-09-06 19:11-0000\n"
+"POT-Creation-Date: 2010-11-03 21:24+0200\n"
+"PO-Revision-Date: 2010-10-20 18:43+0300\n"
 "Last-Translator: Yannis Kaskamanidis <kiolalis@gmail.com>\n"
-"Language-Team: Ελληνικά <i18ngr@lists.hellug.gr>\n"
-"Language: \n"
+"Language-Team: Ελληνικά <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.0\n"
 "X-Poedit-Language: Greek\n"
@@ -213,7 +213,7 @@ msgstr ""
 msgid "GCompris Main Menu"
 msgstr "Κύριο μενού του GCompris "
 
-#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:875
+#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:876
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -1755,19 +1755,19 @@ msgstr ""
 "πλοιάριο στο επίπεδο του σπιτιού, κάνε κλικ στις πράσινες και κίτρινες "
 "μπάρες."
 
-#: ../src/chat-activity/chat.py:77
+#: ../src/chat-activity/chat.py:87
 msgid "All messages will be displayed here.\n"
 msgstr "Όλα τα μηνύματα θα εμφανιστούν εδώ.\n"
 
-#: ../src/chat-activity/chat.py:128
+#: ../src/chat-activity/chat.py:139
 msgid "Your Friends"
 msgstr "Οι φίλοι σου"
 
-#: ../src/chat-activity/chat.py:161
+#: ../src/chat-activity/chat.py:172
 msgid "Your Channel"
 msgstr "Το κανάλι σου"
 
-#: ../src/chat-activity/chat.py:187
+#: ../src/chat-activity/chat.py:198
 msgid ""
 "Type your message here, to send to other GCompris users on your local "
 "network."
@@ -1775,26 +1775,34 @@ msgstr ""
 "Πληκτρολόγησε εδώ το μήνυμά σου για να το στείλεις σε άλλους χρήστες του "
 "GCompris που είναι συνδεδεμένοι στο τοπικό δίκτυο."
 
-#: ../src/chat-activity/chat.py:202
+#: ../src/chat-activity/chat.py:244
+msgid "color"
+msgstr "χρώμα"
+
+#: ../src/chat-activity/chat.py:323
 msgid ""
 "ERROR: Failed to initialize the network interface. You cannot communicate."
 msgstr ""
 "ΣΦΑΛΜΑ: Αδυναμία αρχικοποίησης της διεπαφής δικτύου. Δεν μπορείτε να "
 "επικοινωνήσετε."
 
-#: ../src/chat-activity/chat.py:326
+#: ../src/chat-activity/chat.py:433
+msgid "Has left the chat."
+msgstr "Έχει φύγει από τη συνομιλία."
+
+#: ../src/chat-activity/chat.py:512
 msgid "You must set a channel in your channel entry box first.\n"
 msgstr "Πρέπει πρώτα να ορίσεις το κανάλι σου στο αντίστοιχο πλαίσιο.\n"
 
-#: ../src/chat-activity/chat.py:327
+#: ../src/chat-activity/chat.py:513
 msgid "Your friends must set the same channel in order to communicate with you"
 msgstr ""
 "Οι φίλοι σου πρέπει να ορίσουν το ίδιο κανάλι, ώστε να μπορέσουν να "
 "επικοινωνήσουν μαζί σου"
 
 #: ../src/chat-activity/chat.xml.in.h:1
-msgid "Chat with your friends"
-msgstr "Συνομίλησε με τους φίλους σου"
+msgid "Chat and draw with your friends"
+msgstr "Συνομίλησε και σχεδίασε με τους φίλους σου"
 
 #: ../src/chat-activity/chat.xml.in.h:2
 msgid "This chat activity only works on the local network"
@@ -1804,9 +1812,9 @@ msgstr "Αυτή η δραστηριότητα συνομιλίας λειτου
 msgid ""
 "This chat activity will only work with other GCompris users on your local "
 "network, not on the Internet. To use it, just type in your message and hit "
-"Enter. Your message is then broadcast on the local network, and any GCompris "
-"program running the chat activity on that local network will receive and "
-"display your message."
+"Enter. Your message is then broadcasted on the local network, and any "
+"GCompris program running the chat activity on that local network will "
+"receive and display your message."
 msgstr ""
 "Αυτή η δραστηριότητα συνομιλίας μπορεί να λειτουργήσει μόνο με άλλους "
 "χρήστες του GCompris στο τοπικό δίκτυό σας, όχι όμως και στο διαδίκτυο. Για "
@@ -2797,7 +2805,7 @@ msgstr ""
 msgid "Tux needs to water the flowers, but the hose is blocked."
 msgstr "Ο Tux πρέπει να ποτίσει τα λουλούδια, αλλά το λάστιχο είναι βουλωμένο."
 
-#: ../src/gcompris/about.c:50
+#: ../src/gcompris/about.c:49
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge, Yves Combe\n"
@@ -2813,34 +2821,34 @@ msgstr ""
 
 #  TRANSLATORS: Replace this string with your names, one name per line.
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:58
+#: ../src/gcompris/about.c:57
 msgid "translator_credits"
 msgstr ""
 "Κώστας Παπαδήμας <pkst@gnome.org>\n"
 "Άννα Κωνσταντινίδου <annkonst@yahoo.com>\n"
 "Γιάννης Κασκαμανίδης <ttnfy17@yahoo.gr>"
 
-#: ../src/gcompris/about.c:85
+#: ../src/gcompris/about.c:84
 msgid "About GCompris"
 msgstr "Σχετικά με το GCompris"
 
-#: ../src/gcompris/about.c:95
+#: ../src/gcompris/about.c:94
 msgid "GCompris Home Page: http://gcompris.net"
 msgstr "Αρχική σελίδα του GCompris: http://gcompris.net"
 
-#: ../src/gcompris/about.c:106
+#: ../src/gcompris/about.c:105
 msgid "Translators:"
 msgstr "Μεταφραστές:"
 
-#: ../src/gcompris/about.c:208
+#: ../src/gcompris/about.c:210
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
 msgstr ""
 "Το GCompris είναι ένα πακέτο GNU και διέπεται από τους όρους της GNU/GPL"
 
-#: ../src/gcompris/about.c:222 ../src/gcompris/config.c:442
-#: ../src/gcompris/dialog.c:103 ../src/gcompris/help.c:359
+#: ../src/gcompris/about.c:224 ../src/gcompris/config.c:438
+#: ../src/gcompris/dialog.c:103 ../src/gcompris/help.c:355
 #: ../src/gcompris/images_selector.c:307
 msgid "OK"
 msgstr "Εντάξει"
@@ -2861,7 +2869,7 @@ msgstr "Ναι, θέλω να το κλείσω!"
 msgid "No, I want to keep going"
 msgstr "Όχι, θέλω να συνεχίσω"
 
-#: ../src/gcompris/board.c:197
+#: ../src/gcompris/board.c:168
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr ""
 "Δεν υποστηρίζεται η φόρτωση δυναμικών αρθρωμάτων. Το GCompris δεν μπορεί να "
@@ -3212,38 +3220,38 @@ msgstr ""
 msgid "GCompris Configuration"
 msgstr "Ρύθμιση GCompris"
 
-#: ../src/gcompris/config.c:254
+#: ../src/gcompris/config.c:253
 msgid "Fullscreen"
 msgstr "Πλήρης οθόνη"
 
-#: ../src/gcompris/config.c:280
+#: ../src/gcompris/config.c:278
 msgid "Music"
 msgstr "Μουσική"
 
-#: ../src/gcompris/config.c:306
+#: ../src/gcompris/config.c:303
 msgid "Effect"
 msgstr "Εφέ"
 
-#: ../src/gcompris/config.c:331 ../src/gcompris/sugar.c:82
+#: ../src/gcompris/config.c:327 ../src/gcompris/sugar.c:82
 msgid "Zoom"
 msgstr "Εστίαση"
 
-#: ../src/gcompris/config.c:368
+#: ../src/gcompris/config.c:364
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Αδυναμία ανοίγματος καταλόγου skin: %s"
 
-#: ../src/gcompris/config.c:399 ../src/gcompris/config.c:757
-#: ../src/gcompris/config.c:771
+#: ../src/gcompris/config.c:395 ../src/gcompris/config.c:753
+#: ../src/gcompris/config.c:767
 #, c-format
 msgid "Skin : %s"
 msgstr "Θέμα: %s"
 
-#: ../src/gcompris/config.c:401
+#: ../src/gcompris/config.c:397
 msgid "SKINS NOT FOUND"
 msgstr "ΔΕΝ ΒΡΕΘΗΚΑΝ ΤΑ ΘΕΜΑΤΑ"
 
-#: ../src/gcompris/config.c:482
+#: ../src/gcompris/config.c:478
 msgid "English (United State)"
 msgstr "Αγγλικά (Ηνωμένων Πολιτειών)"
 
@@ -3275,39 +3283,43 @@ msgstr ""
 "Έξοδος και αναφορά\n"
 "του προβλήματος στους συγγραφείς."
 
-#: ../src/gcompris/gcompris.c:156
+#: ../src/gcompris/gcompris.c:157
 msgid "run GCompris in fullscreen mode."
 msgstr "εκτέλεση gcompris σε λειτουργία πλήρους οθόνης."
 
-#: ../src/gcompris/gcompris.c:159
+#: ../src/gcompris/gcompris.c:160
 msgid "run GCompris in window mode."
 msgstr "εκτέλεση gcompris σε λειτουργία παραθύρου "
 
-#: ../src/gcompris/gcompris.c:162
+#: ../src/gcompris/gcompris.c:163
 msgid "run GCompris with sound enabled."
 msgstr "εκτέλεση gcompris με ενεργοποιημένο τον ήχο. "
 
-#: ../src/gcompris/gcompris.c:165
+#: ../src/gcompris/gcompris.c:166
 msgid "run GCompris without sound."
 msgstr "εκτέλεση gcompris χωρίς ήχο."
 
-#: ../src/gcompris/gcompris.c:168
-msgid "run GCompris with the default gnome cursor."
-msgstr "εκτέλεση gcompris με τον προεπιλεγμένο δρομέα του gnome."
+#: ../src/gcompris/gcompris.c:169
+msgid "run GCompris with the default system cursor."
+msgstr "Εκτέλεση του Gcompris με τον προεπιλεγμένο δρομέα του συστήματος."
 
-#: ../src/gcompris/gcompris.c:171
+#: ../src/gcompris/gcompris.c:172
+msgid "run GCompris without cursor (touch screen mode)."
+msgstr "Εκτέλεση του Gcompris χωρίς τον δρομέα (λειτουργία οθόνης αφής)."
+
+#: ../src/gcompris/gcompris.c:175
 msgid "display only activities with this difficulty level."
 msgstr "εμφάνιση των δραστηριοτήτων με αυτό το επίπεδο δυσκολίας μόνο."
 
-#: ../src/gcompris/gcompris.c:174
+#: ../src/gcompris/gcompris.c:178
 msgid "display debug informations on the console."
 msgstr "εμφάνιση πληροφοριών αποσφαλμάτωσης στην κονσόλα."
 
-#: ../src/gcompris/gcompris.c:177
+#: ../src/gcompris/gcompris.c:181
 msgid "Print the version of "
 msgstr "Εκτύπωση της έκδοσης του"
 
-#: ../src/gcompris/gcompris.c:180
+#: ../src/gcompris/gcompris.c:184
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
@@ -3318,38 +3330,38 @@ msgstr ""
 "επιτρέπει να παίξεις μόνο με τις δραστηριότητες του καταλόγου reading, -l/"
 "strategy/connect4 σου επιτρέπει να παίξεις με το παιχνίδι connect 4)"
 
-#: ../src/gcompris/gcompris.c:185
+#: ../src/gcompris/gcompris.c:189
 msgid "GCompris will find the data dir in this directory"
 msgstr "Το GCompris θα βρει τα δεδομένα σε αυτόν τον κατάλογο."
 
-#: ../src/gcompris/gcompris.c:188
+#: ../src/gcompris/gcompris.c:192
 msgid "GCompris will find the skins in this directory"
 msgstr "Το GCompris θα βρει τα θέματα σε αυτόν τον κατάλογο."
 
-#: ../src/gcompris/gcompris.c:191
+#: ../src/gcompris/gcompris.c:195
 msgid "GCompris will find the activity plugins in this directory"
 msgstr ""
 "Το GCompris θα βρει τα πρόσθετα των δραστηριοτήτων σε αυτόν τον κατάλογο."
 
-#: ../src/gcompris/gcompris.c:194
+#: ../src/gcompris/gcompris.c:198
 msgid "GCompris will find the python activity in this directory"
 msgstr "Το GCompris θα βρει τη δραστηριότητα σε αυτόν τον κατάλογο."
 
-#: ../src/gcompris/gcompris.c:197
+#: ../src/gcompris/gcompris.c:201
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr "plugins "
 
-#: ../src/gcompris/gcompris.c:200
+#: ../src/gcompris/gcompris.c:204
 msgid "GCompris will find the activities menu in this directory"
 msgstr "Το GCompris θα βρει το μενού των δραστηριοτήτων σε αυτόν τον κατάλογο."
 
-#: ../src/gcompris/gcompris.c:203
+#: ../src/gcompris/gcompris.c:207
 msgid "Run GCompris in administration and user-management mode"
 msgstr ""
 "Άνοιξε το GCompris σε κατάσταση λειτουργίας διαχειριστή και διαχείρισης "
 "χρηστών"
 
-#: ../src/gcompris/gcompris.c:206
+#: ../src/gcompris/gcompris.c:210
 msgid ""
 "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
@@ -3357,27 +3369,27 @@ msgstr ""
 "Χρησιμοποίησε εναλλακτική βάση δεδομένων για τα προφίλ [$HOME/.config/"
 "gcompris/gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:209
+#: ../src/gcompris/gcompris.c:213
 msgid "Create the alternate database for profiles"
 msgstr "Κατασκεύασε εναλλακτική βάση δεδομένων για τα προφίλ"
 
-#: ../src/gcompris/gcompris.c:212
+#: ../src/gcompris/gcompris.c:216
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Ξαναδιάβασε τα μενού XML και αποθήκευσέ τα στη βάση δεδομένων"
 
-#: ../src/gcompris/gcompris.c:215
+#: ../src/gcompris/gcompris.c:219
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Καθόρισε το προφίλ που θα χρησιμοποιηθεί. Χρησιμοποίησε την εντολή 'gcompris "
 "-a' για να φτιάξεις καινούρια προφίλ"
 
-#: ../src/gcompris/gcompris.c:218
+#: ../src/gcompris/gcompris.c:222
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Κατάλογος όλων των διαθέσιμων προφιλ. Χρησιμοποίησε την εντολή 'gcompris -a' "
 "για να φτιάξεις καινούρια προφίλ"
 
-#: ../src/gcompris/gcompris.c:221
+#: ../src/gcompris/gcompris.c:225
 msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
@@ -3385,23 +3397,23 @@ msgstr ""
 "Τοποθεσία καταλόγου Config [$HOME/.config/gcompris]. Εναλλακτικά μπορεί να "
 "καθοριστεί στο $XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:224
+#: ../src/gcompris/gcompris.c:228
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "Τοποθεσία των καταλόγων του χρήστη: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:227
+#: ../src/gcompris/gcompris.c:231
 msgid "Run the experimental activities"
 msgstr "Εκτέλεσε τις δραστηριότητες πειραματισμού"
 
-#: ../src/gcompris/gcompris.c:230
+#: ../src/gcompris/gcompris.c:234
 msgid "Disable the quit button"
 msgstr "Απενεργοποίησε το κουμπί της εξόδου"
 
-#: ../src/gcompris/gcompris.c:233
+#: ../src/gcompris/gcompris.c:237
 msgid "Disable the config button"
 msgstr "Απενεργοποίηση του κουμπιού config"
 
-#: ../src/gcompris/gcompris.c:236
+#: ../src/gcompris/gcompris.c:240
 msgid ""
 "GCompris will get images, sounds and activity data from this server if not "
 "found locally."
@@ -3409,7 +3421,7 @@ msgstr ""
 "Το GCompris θα φορτώσει εικόνες, ήχους και δεδομένα δραστηριοτήτων από τον "
 "εξυπηρετητή αν αυτά δεν βρεθούν τοπικά."
 
-#: ../src/gcompris/gcompris.c:239
+#: ../src/gcompris/gcompris.c:243
 msgid ""
 "Only when --server is provided, disable check for local resource first. Data "
 "are always taken from the web server."
@@ -3417,7 +3429,7 @@ msgstr ""
 "Απενεργοποίησε πρώτα τους τοπικούς πόρους, μόνον όταν ο εξυπηρετητής είναι "
 "διαθέσιμος. Τα δεδομένα λαμβάνονται μόνο από τον διαδικτυακό εξυπηρετητή."
 
-#: ../src/gcompris/gcompris.c:243
+#: ../src/gcompris/gcompris.c:247
 msgid ""
 "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr ""
@@ -3425,18 +3437,18 @@ msgstr ""
 "(cache) που χρησιμοποιείται για να αποφύγεις ανώφελες μεταφορτώσεις "
 "(downloads)."
 
-#: ../src/gcompris/gcompris.c:246
+#: ../src/gcompris/gcompris.c:250
 msgid ""
 "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr ""
 "Καθολική λειτουργία μετακίνησης και απόθεσης: κανονικά, 2 κλικ, αμφότερα. Η "
 "προκαθορισμένη λειτουργία είναι ομαλή."
 
-#: ../src/gcompris/gcompris.c:249
+#: ../src/gcompris/gcompris.c:253
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Να αποφεύγετε την εκτέλεση πολλαπλών στιγμιότυπων του GCompris."
 
-#: ../src/gcompris/gcompris.c:890
+#: ../src/gcompris/gcompris.c:918
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -3461,7 +3473,7 @@ msgstr ""
 "Περισσότερες πληροφορίες στο FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1429
+#: ../src/gcompris/gcompris.c:1458
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
@@ -3469,12 +3481,12 @@ msgstr ""
 "Δεν είναι δυνατή η εκκίνηση του gcompris επειδή το αρχείο κλειδώματος είναι "
 "ενεργό για λιγότερο από %d δευτερόλεπτα.\n"
 
-#: ../src/gcompris/gcompris.c:1431
+#: ../src/gcompris/gcompris.c:1460
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Το αρχείο κλειδώματος είναι: %s\n"
 
-#: ../src/gcompris/gcompris.c:1545
+#: ../src/gcompris/gcompris.c:1574
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3488,28 +3500,28 @@ msgstr ""
 "Πληροφορίες στο http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1648
+#: ../src/gcompris/gcompris.c:1683
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr ""
 "Χρησιμοποίησε το -l για να αποκτήσεις άμεση πρόσβαση σε μια δραστηριότητα.\n"
 
-#: ../src/gcompris/gcompris.c:1649
+#: ../src/gcompris/gcompris.c:1684
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Ο κατάλογος των διαθέσιμων δραστηριοτήτων είναι:\n"
 
-#: ../src/gcompris/gcompris.c:1680
+#: ../src/gcompris/gcompris.c:1715
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Αριθμός δραστηριοτήτων: %d\n"
 
-#: ../src/gcompris/gcompris.c:1716
+#: ../src/gcompris/gcompris.c:1751
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s υπάρχει αλλά δεν είναι αναγνώσιμο ή εγγράψιμο"
 
-#: ../src/gcompris/gcompris.c:1779
+#: ../src/gcompris/gcompris.c:1814
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
@@ -3518,7 +3530,7 @@ msgstr ""
 "Η επιλογή --διακομιστή δεν μπορεί να χρησιμοποιηθεί, επειδή το GCompris έχει "
 "μεταγλωττιστεί χωρίς υποστήριξη δικτύου!"
 
-#: ../src/gcompris/gcompris.c:1833
+#: ../src/gcompris/gcompris.c:1868
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3527,7 +3539,7 @@ msgstr ""
 "ΣΦΑΛΜΑ: Το προφίλ '%s' δεν βρέθηκε. Εκτελέστε την εντολή  'gcompris --"
 "profile-list' για να δείτε τα διαθέσιμα προφίλ\n"
 
-#: ../src/gcompris/gcompris.c:1847
+#: ../src/gcompris/gcompris.c:1882
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Ο κατάλογος των διαθέσιμων προφίλ είναι:\n"
@@ -3549,19 +3561,19 @@ msgstr ""
 "Φόρτωση δραστηριότητας από τη βάση δεδομένων:\n"
 "%s"
 
-#: ../src/gcompris/help.c:181
+#: ../src/gcompris/help.c:180
 msgid "Prerequisite"
 msgstr "Προαπαιτούμενα"
 
-#: ../src/gcompris/help.c:212
+#: ../src/gcompris/help.c:210
 msgid "Goal"
 msgstr "Στόχος"
 
-#: ../src/gcompris/help.c:243
+#: ../src/gcompris/help.c:240
 msgid "Manual"
 msgstr "Οδηγός"
 
-#: ../src/gcompris/help.c:274
+#: ../src/gcompris/help.c:270
 msgid "Credit"
 msgstr "Μνεία"
 
@@ -5150,8 +5162,8 @@ msgstr "Οθόνη σύνδεσης στο GCompris"
 
 #: ../src/login-activity/login.xml.in.h:3
 msgid ""
-"In order to activate the login screen, you must \n"
-"first add users in the administration part of GCompris. \n"
+"In order to activate the login screen, you must\n"
+"first add users in the administration part of GCompris.\n"
 "You access Administration by running 'gcompris -a'.\n"
 "In Administration, you can create different profiles. In each profile,\n"
 "you can have a different set of users and select which activities are "
@@ -5162,12 +5174,12 @@ msgid ""
 msgstr ""
 "Για να ενεργοποιήσεις την οθόνη σύνδεσης, πρέπει\n"
 "πρώτα να προσθέσεις χρήστες στο τμήμα Διαχείρισης του GCompris\n"
-"Πρόσβαση στη Διαχείριση μπορείς να αποκτήσεις με την εντολή gcompris -a\n"
-"στη Διαχείριση μπορείς να δημιουργήσεις διαφορετικά προφίλ. Σε κάθε προφίλ\n"
+"Πρόσβαση στη Διαχείριση μπορείς να αποκτήσεις με την εντολή «gcompris -a».\n"
+"Στη Διαχείριση μπορείς να δημιουργήσεις διαφορετικά προφίλ. Σε κάθε προφίλ\n"
 "μπορείς να έχεις διαφορετικά σύνολα χρηστών καθώς και να επιλέξεις ποιες "
 "δραστηριότητες θα είναι διαθέσιμες για κάθε σύνολο.\n"
 "Για να τρέξεις το GCompris για ένα συγκεκριμένο προφίλ, χρησιμοποίησε την "
-"εντολή 'gcompris -p profile', όπου profile είναι το όνομα του προφίλ όπως\n"
+"εντολή «gcompris -p profile», όπου profile είναι το όνομα του προφίλ όπως\n"
 "το δημιούργησες στη Διαχείριση."
 
 #: ../src/login-activity/login.xml.in.h:10
@@ -6254,11 +6266,11 @@ msgstr ""
 "Αυτός ο πίνακας έχει παιγνιώδη χαρακτήρα. Δεν απαιτούνται ιδιαίτερες "
 "δεξιότητες για να παίξει κανείς."
 
-#: ../src/penalty-activity/penalty.py:294
+#: ../src/penalty-activity/penalty.py:293
 msgid "Click on the balloon to place it again."
 msgstr "Κάνε κλικ στο μπαλόνι για να το ξαναβάλεις στη θέση του."
 
-#: ../src/penalty-activity/penalty.py:296
+#: ../src/penalty-activity/penalty.py:295
 msgid "Click twice on the balloon to shoot it."
 msgstr "Χτύπα δυο φορές το μπαλόνι για να σουτάρεις."
 
@@ -7404,7 +7416,7 @@ msgstr "βγδζθκλμνξπρστφχψ"
 msgid "NONE"
 msgstr "ΚΑΝΕΝΑ"
 
-#: ../src/hangman-activity/hangman.py:93
+#: ../src/hangman-activity/hangman.py:104
 msgid "Could not find the list of words."
 msgstr "Αδύνατη η εύρεση του καταλόγου των λέξεων."
 
