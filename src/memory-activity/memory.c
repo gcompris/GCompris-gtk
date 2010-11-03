@@ -1464,7 +1464,7 @@ static void create_item(GooCanvasItem *parent)
 				     -1,
 				     GTK_ANCHOR_CENTER,
 				     "font", font,
-				     "fill_color_rgba", 0xFFFFFFFF,
+				     "fill_color_rgba", 0x000000FF,
 				     NULL);
 
 	      if(memoryItem->type == TYPE_WORDNUMBER){
