@@ -60,7 +60,9 @@ be provided and where.
 
 3: BUILDING GCOMPRIS.EXE
 ========================
-* On GNU/Linux run make install to install the translations then:
+* On GNU/Linux build GCompris as usually with a /usr/local prefix
+  and run make install to install the translations and the data there.
+  Then recompile for Windows with:
   make -f Makefile.mingw prep - create the win32-install-dir
   make -f Makefile.mingw  - compilation step
   make -f Makefile.mingw  prepack - include all necessary libraries in the installer directory
