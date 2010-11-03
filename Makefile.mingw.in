@@ -112,7 +112,7 @@ all: Makefile.mingw config.h
 	for actdir in $(activity_dir); do $(MAKE) -C src/$$actdir -f Makefile.mingw; done
 	$(MAKE) -C $(GCOMPRIS_SRC) -f Makefile.mingw
 
-Makefile.mingw: Makefile.mingw.in
+Makefile.mingw: Makefile.mingw.in config.h
 	./config.status Makefile.mingw
 
 config.h: config.h.mingw.in
