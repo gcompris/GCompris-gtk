@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-09 13:56+0200\n"
-"PO-Revision-Date: 2010-06-09 13:54+0200\n"
+"POT-Creation-Date: 2010-11-04 02:06+0100\n"
+"PO-Revision-Date: 2010-11-04 02:05+0100\n"
 "Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
 "Language-Team: Hungarian <gnome at fsf dot hu>\n"
 "MIME-Version: 1.0\n"
@@ -197,7 +197,7 @@ msgstr ""
 msgid "GCompris Main Menu"
 msgstr "GCompris főmenü"
 
-#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:859
+#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:876
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -432,30 +432,30 @@ msgstr "Tanár:"
 msgid "Assign all the users belonging to this class"
 msgstr "Ezen osztályhoz tartozó összes felhasználó hozzárendelése"
 
-#: ../src/administration-activity/admin/class_edit.py:249
-#: ../src/administration-activity/admin/group_edit.py:261
+#: ../src/administration-activity/admin/class_edit.py:246
+#: ../src/administration-activity/admin/group_edit.py:258
 #: ../src/administration-activity/admin/group_user_list.py:150
 #: ../src/administration-activity/admin/user_list.py:191
 msgid "First Name"
 msgstr "Utónév"
 
-#: ../src/administration-activity/admin/class_edit.py:260
-#: ../src/administration-activity/admin/group_edit.py:272
+#: ../src/administration-activity/admin/class_edit.py:257
+#: ../src/administration-activity/admin/group_edit.py:269
 #: ../src/administration-activity/admin/group_user_list.py:160
 #: ../src/administration-activity/admin/user_list.py:201
 msgid "Last Name"
 msgstr "Vezetéknév"
 
-#: ../src/administration-activity/admin/class_edit.py:335
+#: ../src/administration-activity/admin/class_edit.py:332
 msgid "You need to provide at least a name for your class"
 msgstr "Legalább egy nevet meg kell adnia az osztálynak"
 
-#: ../src/administration-activity/admin/class_edit.py:380
+#: ../src/administration-activity/admin/class_edit.py:377
 msgid "There is already a class with this name"
 msgstr "Már létezik ilyen nevű osztály"
 
 #: ../src/administration-activity/admin/class_list.py:165
-#: ../src/administration-activity/admin/profile_edit.py:266
+#: ../src/administration-activity/admin/profile_edit.py:263
 #: ../src/administration-activity/admin/profile_group_list.py:140
 msgid "Class"
 msgstr "Osztály"
@@ -496,11 +496,11 @@ msgstr "Leírás:"
 msgid "Assign all the users belonging to this group"
 msgstr "Ezen csoporthoz tartozó összes felhasználó hozzárendelése"
 
-#: ../src/administration-activity/admin/group_edit.py:355
+#: ../src/administration-activity/admin/group_edit.py:352
 msgid "You need to provide at least a name for your group"
 msgstr "Legalább egy nevet meg kell adnia a csoportnak"
 
-#: ../src/administration-activity/admin/group_edit.py:369
+#: ../src/administration-activity/admin/group_edit.py:366
 msgid "There is already a group with this name"
 msgstr "Már van ilyen nevű csoport"
 
@@ -509,13 +509,13 @@ msgid "Select a class:"
 msgstr "Válasszon egy osztályt:"
 
 #: ../src/administration-activity/admin/group_list.py:210
-#: ../src/administration-activity/admin/profile_edit.py:276
+#: ../src/administration-activity/admin/profile_edit.py:273
 #: ../src/administration-activity/admin/profile_group_list.py:150
 msgid "Group"
 msgstr "Csoport"
 
 #: ../src/administration-activity/admin/group_list.py:221
-#: ../src/administration-activity/admin/profile_edit.py:286
+#: ../src/administration-activity/admin/profile_edit.py:283
 #: ../src/administration-activity/admin/profile_group_list.py:160
 #: ../src/administration-activity/admin/profile_list.py:194
 msgid "Description"
@@ -633,11 +633,11 @@ msgstr "Profil:"
 msgid "Assign all the groups belonging to this profile"
 msgstr "Ezen csoporthoz tartozó összes csoport hozzárendelése"
 
-#: ../src/administration-activity/admin/profile_edit.py:374
+#: ../src/administration-activity/admin/profile_edit.py:371
 msgid "You need to provide at least a name for your profile"
 msgstr "Legalább egy nevet meg kell adnia a profilhoz"
 
-#: ../src/administration-activity/admin/profile_edit.py:396
+#: ../src/administration-activity/admin/profile_edit.py:393
 msgid "There is already a profile with this name"
 msgstr "Már létezik ilyen nevű profil"
 
@@ -681,14 +681,14 @@ msgstr "Vezetéknév:"
 msgid "Birth date:"
 msgstr "Születési dátum:"
 
-#: ../src/administration-activity/admin/user_edit.py:156
+#: ../src/administration-activity/admin/user_edit.py:153
 msgid ""
 "You need to provide at least a login, first name and last name for your users"
 msgstr ""
 "Legalább egy bejelentkezési nevet, valamint egy utó- és vezetéknevet meg "
 "kell adnia a felhasználóinak"
 
-#: ../src/administration-activity/admin/user_edit.py:173
+#: ../src/administration-activity/admin/user_edit.py:170
 msgid "There is already a user with this login"
 msgstr "Már létezik ilyen bejelentkezési nevű felhasználó"
 
@@ -1118,8 +1118,8 @@ msgid "Practice the multiplication operation"
 msgstr "Gyakorold a szorzást"
 
 #: ../src/algebra_guesscount-activity/algebra_guesscount.xml.in.h:1
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:1
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:1
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:1
 msgid ""
 "Animal pictures come from the Animal Photography Page of Ralf Schmode "
 "(http://schmode.net/). Ralf has kindly permitted Gcompris to include his "
@@ -1509,8 +1509,8 @@ msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr ""
 "Egérkezelés: mozgatás, húzd és ejtsd ismerete. Kulturális vonatkozások."
 
-#: ../src/babymatch-activity/shapegame.c:1835
-#: ../src/click_on_letter-activity/click_on_letter.c:624
+#: ../src/babymatch-activity/shapegame.c:1903
+#: ../src/click_on_letter-activity/click_on_letter.c:635
 #: ../src/colors-activity/colors.c:168
 #, c-format
 msgid ""
@@ -1525,6 +1525,7 @@ msgid "Complete the puzzle"
 msgstr "Rakd ki a kirakót"
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:2
+#: ../src/details-activity/details.xml.in.h:1
 msgid ""
 "Complete the puzzle by dragging each piece from the set of pieces on the "
 "left, to the matching space in the puzzle."
@@ -1533,10 +1534,12 @@ msgstr ""
 "területére."
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:3
+#: ../src/details-activity/details.xml.in.h:2
 msgid "Drag and Drop the shapes on their respective targets"
 msgstr "Fogd meg az alakzatokat és húzd őket a megfelelő formára"
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:4
+#: ../src/details-activity/details.xml.in.h:4
 msgid "Good mouse-control"
 msgstr "Jó egérkezelés"
 
@@ -1636,8 +1639,8 @@ msgstr "Lődd a labdát a célba"
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:5
 #: ../src/connect4-activity/connect4.xml.in.h:6
 #: ../src/erase-activity/erase.xml.in.h:3
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:6
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:6
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:6
 #: ../src/fifteen-activity/fifteen.xml.in.h:2
 #: ../src/hanoi-activity/hanoi.xml.in.h:3
 #: ../src/memory-activity/memory.xml.in.h:4
@@ -1665,6 +1668,11 @@ msgstr "Főmenü második verziója"
 #: ../src/boards/menu2.c:136
 msgid "Select a Board"
 msgstr "Válassz egy játékot"
+
+#: ../src/boards/menu2.c:266
+#, c-format
+msgid "Number of activities: %d"
+msgstr "Tevékenységek száma: %d"
 
 #: ../src/boards/python.c:64 ../src/boards/python.c:88
 msgid "Python Board"
@@ -1704,19 +1712,19 @@ msgstr ""
 "jó\n"
 "sorrendben. Utaztasd Tuxot a zsilipen keresztül mindkét irányban."
 
-#: ../src/chat-activity/chat.py:77
+#: ../src/chat-activity/chat.py:87
 msgid "All messages will be displayed here.\n"
 msgstr "Itt jelenik meg minden üzenet.\n"
 
-#: ../src/chat-activity/chat.py:128
+#: ../src/chat-activity/chat.py:139
 msgid "Your Friends"
 msgstr "Barátaid"
 
-#: ../src/chat-activity/chat.py:161
+#: ../src/chat-activity/chat.py:172
 msgid "Your Channel"
 msgstr "Csatorna neve"
 
-#: ../src/chat-activity/chat.py:187
+#: ../src/chat-activity/chat.py:198
 msgid ""
 "Type your message here, to send to other GCompris users on your local "
 "network."
@@ -1724,26 +1732,34 @@ msgstr ""
 "Ide gépelheted az üzenetedet, amit a többi GCompris-használónak szeretnél "
 "elküldeni."
 
-#: ../src/chat-activity/chat.py:202
+#: ../src/chat-activity/chat.py:244
+msgid "color"
+msgstr "szín"
+
+#: ../src/chat-activity/chat.py:323
 msgid ""
 "ERROR: Failed to initialize the network interface. You cannot communicate."
 msgstr ""
 "HIBA: a hálózati csatoló előkészítése meghiúsult. Nem fogsz tudni "
 "beszélgetni."
 
-#: ../src/chat-activity/chat.py:326
+#: ../src/chat-activity/chat.py:433
+msgid "Has left the chat."
+msgstr "Elhagyta a csevegést."
+
+#: ../src/chat-activity/chat.py:512
 msgid "You must set a channel in your channel entry box first.\n"
 msgstr "Először be kell állítanod a csatorna nevét.\n"
 
-#: ../src/chat-activity/chat.py:327
+#: ../src/chat-activity/chat.py:513
 msgid "Your friends must set the same channel in order to communicate with you"
 msgstr ""
 "A barátaidnak, akikkel üzenetet akarsz váltani, ugyanazt a csatornanevet "
 "kell beállítaniuk."
 
 #: ../src/chat-activity/chat.xml.in.h:1
-msgid "Chat with your friends"
-msgstr "Beszélgess a barátaiddal"
+msgid "Chat and draw with your friends"
+msgstr "Beszélgess és rajzolj a barátaiddal"
 
 #: ../src/chat-activity/chat.xml.in.h:2
 msgid "This chat activity only works on the local network"
@@ -1753,22 +1769,22 @@ msgstr "A beszélgetés funkció csak a helyi hálózaton belül működik"
 msgid ""
 "This chat activity will only work with other GCompris users on your local "
 "network, not on the Internet. To use it, just type in your message and hit "
-"Enter. Your message is then broadcast on the local network, and any GCompris "
-"program running the chat activity on that local network will receive and "
-"display your message."
+"Enter. Your message is then broadcasted on the local network, and any "
+"GCompris program running the chat activity on that local network will "
+"receive and display your message."
 msgstr ""
 "Üzeneteket küldeni csak az azonos helyi hálózaton (például egy iskola "
-"hálózatán) levő GCompris felhasználók tudnak egymásnak. Egyszerűen gépeld be "
-"az üzenetedet és nyomd meg az Enter-t: a helyi hálózaton az összes, a "
-"GCompris programban az üzenetküldés funkciót futtató felhasználó meg fogja "
-"kapni az üzenetet."
+"hálózatán) levő GCompris felhasználók tudnak egymásnak. Csak gépeld be az "
+"üzenetedet, és nyomd meg az Entert: a helyi hálózaton az összes, a GCompris "
+"programban az üzenetküldés funkciót futtató felhasználó meg fogja kapni az "
+"üzenetet."
 
 #: ../src/chess_computer-activity/chess.c:222
 msgid "Error: The external program gnuchess died unexpectedly"
 msgstr "Hiba: a külső „gnuchess” program váratlanul leállt."
 
-#: ../src/chess_computer-activity/chess.c:258
-#: ../src/chess_computer-activity/chess.c:304
+#: ../src/chess_computer-activity/chess.c:262
+#: ../src/chess_computer-activity/chess.c:308
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -1778,36 +1794,36 @@ msgstr ""
 "belüli sakkozáshoz.\n"
 "Telepítés után ellenőrizze, hogy megtalálható-e itt:"
 
-#: ../src/chess_computer-activity/chess.c:644
+#: ../src/chess_computer-activity/chess.c:648
 msgid "White's Turn"
 msgstr "Fehér lép"
 
-#: ../src/chess_computer-activity/chess.c:644
+#: ../src/chess_computer-activity/chess.c:648
 msgid "Black's Turn"
 msgstr "Fekete lép"
 
-#: ../src/chess_computer-activity/chess.c:785
+#: ../src/chess_computer-activity/chess.c:789
 msgid "White checks"
 msgstr "Fehér sakk"
 
-#: ../src/chess_computer-activity/chess.c:787
+#: ../src/chess_computer-activity/chess.c:791
 msgid "Black checks"
 msgstr "Fekete sakk"
 
-#: ../src/chess_computer-activity/chess.c:1193
+#: ../src/chess_computer-activity/chess.c:1197
 msgid "Black mates"
 msgstr "Fekete matt"
 
-#: ../src/chess_computer-activity/chess.c:1198
+#: ../src/chess_computer-activity/chess.c:1204
 msgid "White mates"
 msgstr "Fehér matt"
 
-#: ../src/chess_computer-activity/chess.c:1203 ../src/gcompris/bonus.c:191
+#: ../src/chess_computer-activity/chess.c:1211 ../src/gcompris/bonus.c:191
 #: ../src/gcompris/bonus.c:200
 msgid "Drawn game"
 msgstr "Döntetlen"
 
-#: ../src/chess_computer-activity/chess.c:1229
+#: ../src/chess_computer-activity/chess.c:1239
 msgid "Error: The external program gnuchess died unexpectingly"
 msgstr "Hiba: a külső „gnuchess” program váratlanul leállt."
 
@@ -2065,7 +2081,7 @@ msgstr ""
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "aábcdeéfghiíjklmnoóöőpqrstuúüűvwxyz"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:298
+#: ../src/click_on_letter-activity/click_on_letter.c:304
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -2074,7 +2090,7 @@ msgstr ""
 "Hiba: Ehhez a tevékenységhez telepítve kell \n"
 "lennie GCompris hangoknak a(z) „%s” vagy a(z) „%s” nyelvhez."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:306
+#: ../src/click_on_letter-activity/click_on_letter.c:314
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -2086,7 +2102,7 @@ msgstr ""
 "angolt fogom használni, elnézést."
 
 #. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:647
+#: ../src/click_on_letter-activity/click_on_letter.c:658
 #: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:484
 msgid "Uppercase only text"
 msgstr "Csak nagybetűs szöveg"
@@ -2325,8 +2341,8 @@ msgstr "Irányítsd a darut és másold le a modellt"
 
 #: ../src/crane-activity/crane.xml.in.h:3
 #: ../src/erase-activity/erase.xml.in.h:2
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:5
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:5
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:5
 #: ../src/penalty-activity/penalty.xml.in.h:3
 msgid "Motor-coordination"
 msgstr "Mozgáskoordináció"
@@ -2348,6 +2364,100 @@ msgstr ""
 "mozgathatod. A mozgatandó elem kiválasztásához csak kattints rá. Ha jobban "
 "szeretnéd, használhatod a nyílbillentyűket és a szóköz vagy tab billentyűt "
 "is."
+
+#: ../src/details-activity/details.xml.in.h:3
+msgid "Find the details"
+msgstr "Találd meg a részleteket"
+
+#: ../src/details-activity/details.xml.in.h:5
+msgid "The images are from wiki commons"
+msgstr "A képek a wiki commonsból származnak"
+
+#: ../src/details-activity/resources/details/board1_0.xml.in.h:1
+msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1889"
+msgstr "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1889"
+
+#: ../src/details-activity/resources/details/board1_1.xml.in.h:1
+msgid ""
+"Vincent van Gogh, The Bridge of Langlois at Arles with a lady with umbrella "
+"- 1888"
+msgstr ""
+"Vincent van Gogh, The Bridge of Langlois at Arles with a lady with umbrella "
+"- 1888"
+
+#: ../src/details-activity/resources/details/board1_2.xml.in.h:1
+msgid "Vincent van Gogh, The Church at Auvers-sur-Oise - 1890"
+msgstr "Vincent van Gogh, The Church at Auvers-sur-Oise - 1890"
+
+#: ../src/details-activity/resources/details/board1_3.xml.in.h:1
+msgid "Vincent van Gogh, Painter on His Way to Work - 1888"
+msgstr "Vincent van Gogh, Painter on His Way to Work - 1888"
+
+#: ../src/details-activity/resources/details/board1_4.xml.in.h:1
+msgid "Vincent van Gogh, The Harvest - 1888"
+msgstr "Vincent van Gogh, The Harvest - 1888"
+
+#: ../src/details-activity/resources/details/board1_5.xml.in.h:1
+msgid "Vincent van Gogh, Cafe Terrace at Night - 1888"
+msgstr "Vincent van Gogh, Cafe Terrace at Night - 1888"
+
+#: ../src/details-activity/resources/details/board1_6.xml.in.h:1
+msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1888"
+msgstr "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1888"
+
+#: ../src/details-activity/resources/details/board1_7.xml.in.h:1
+msgid "Vincent van Gogh, Portrait of Pere Tanguy 1887-8"
+msgstr "Vincent van Gogh, Portrait of Pere Tanguy 1887-8"
+
+#: ../src/details-activity/resources/details/board2_0.xml.in.h:1
+msgid "Eilean Donan castle"
+msgstr "Eilean Donan kastély"
+
+#: ../src/details-activity/resources/details/board2_1.xml.in.h:1
+msgid "Eiffel Tower, seen from the champ de Mars, Paris, France"
+msgstr "Eiffel torony a Mars térről, Párizs, Franciaország"
+
+#: ../src/details-activity/resources/details/board2_10.xml.in.h:1
+msgid "Gizah Pyramids, Egypt"
+msgstr "Gízai piramisok, Egyiptom"
+
+#: ../src/details-activity/resources/details/board2_11.xml.in.h:1
+msgid "Sydney Opera House, Australia"
+msgstr "Sydney-i operaház, Ausztrália"
+
+#: ../src/details-activity/resources/details/board2_2.xml.in.h:1
+msgid "Courtyard of the Museum of Louvre, and its pyramid"
+msgstr "A Louvre múzeum udvara és piramisa"
+
+#: ../src/details-activity/resources/details/board2_3.xml.in.h:1
+msgid "Panorama of Château de Chenonceau, Indre-et-Loire, France."
+msgstr "A Château de Chenonceau panorámája, Indre-et-Loire, Franciaország"
+
+#: ../src/details-activity/resources/details/board2_4.xml.in.h:1
+msgid ""
+"Notre Dame de Paris cathedral on the Île de la Cité island in Paris, France."
+msgstr ""
+"A Notre Dame katedrális az Île de la Cité szigeten, Párizs, Franciaország"
+
+#: ../src/details-activity/resources/details/board2_5.xml.in.h:1
+msgid "Nagoya Castle, Aichi Prefecture, Japan."
+msgstr "Nagoya kastély, Aichi prefektúra, Japán."
+
+#: ../src/details-activity/resources/details/board2_6.xml.in.h:1
+msgid "Taj Mahal, Agra, India"
+msgstr "Taj Mahal, Agra, India"
+
+#: ../src/details-activity/resources/details/board2_7.xml.in.h:1
+msgid "Castle Neuschwanstein at Schwangau, Bavaria, Germany"
+msgstr "Neuschwanstein kastély Schwangauban, Bajorország, Németország"
+
+#: ../src/details-activity/resources/details/board2_8.xml.in.h:1
+msgid "Egeskov Castle, Denmark"
+msgstr "Egeskov kastély, Dánia"
+
+#: ../src/details-activity/resources/details/board2_9.xml.in.h:1
+msgid "Windmill in Sønderho, Fanø, Denmark"
+msgstr "Szélmalom Sønderho-ban, Fanø, Dánia"
 
 #: ../src/doubleentry-activity/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
@@ -2421,7 +2531,7 @@ msgstr "A számokra sorrendben kattintva rajzold meg a képet!"
 msgid "Draw the picture by following numbers"
 msgstr "Rajzold meg a képet a számokat követve!"
 
-#: ../src/electric-activity/electric.py:98
+#: ../src/electric-activity/electric.py:99
 msgid ""
 "Cannot find the 'gnucap' electric simulator.\n"
 "You can download and install it from:\n"
@@ -2533,18 +2643,6 @@ msgstr ""
 msgid "Move the mouse until all the blocks disappear."
 msgstr "Mozgasd az egeret, amíg minden téglalap el nem tűnik."
 
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:2
-msgid "Click the mouse"
-msgstr "Kattints az egérrel"
-
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:3
-msgid "Click the mouse on rectangles until all the blocks disappear."
-msgstr "Kattints a téglalapokra az egérrel, amíg mind el nem tűnik."
-
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:4
-msgid "Click the mouse to erase the area and discover the background"
-msgstr "Kattints az egérrel, hogy kitöröld a területet és felfedezd a hátteret"
-
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
 msgid "Double click the mouse"
 msgstr "Kattints duplán az egérrel"
@@ -2557,6 +2655,18 @@ msgstr "Kattints duplán a téglalapokra az egérrel, amíg mind el nem tűnik."
 msgid "Double click the mouse to erase the area and discover the background"
 msgstr ""
 "Kattints duplán az egérrel, hogy kitöröld a területet és felfedezd a hátteret"
+
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:2
+msgid "Click the mouse"
+msgstr "Kattints az egérrel"
+
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:3
+msgid "Click the mouse on rectangles until all the blocks disappear."
+msgstr "Kattints a téglalapokra az egérrel, amíg mind el nem tűnik."
+
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:4
+msgid "Click the mouse to erase the area and discover the background"
+msgstr "Kattints az egérrel, hogy kitöröld a területet és felfedezd a hátteret"
 
 #: ../src/fifteen-activity/fifteen.xml.in.h:1
 msgid ""
@@ -2603,7 +2713,7 @@ msgstr ""
 msgid "Tux needs to water the flowers, but the hose is blocked."
 msgstr "Tuxnak meg kell öntöznie a virágokat, de a cső eldugult"
 
-#: ../src/gcompris/about.c:50
+#: ../src/gcompris/about.c:49
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge, Yves Combe\n"
@@ -2618,34 +2728,34 @@ msgstr ""
 "Háttérzene: Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:58
+#: ../src/gcompris/about.c:57
 msgid "translator_credits"
 msgstr ""
 "Hilzinger Marcel <hili@suselinux.hu>\n"
 "Kelemen Gábor <kelemeng@gnome.hu>\n"
 "Miklós Merényi <mermik@freemail.hu>"
 
-#: ../src/gcompris/about.c:85
+#: ../src/gcompris/about.c:84
 msgid "About GCompris"
 msgstr "A GCompris névjegye"
 
-#: ../src/gcompris/about.c:95
+#: ../src/gcompris/about.c:94
 msgid "GCompris Home Page: http://gcompris.net"
 msgstr "A GCompris honlapja: http://gcompris.net"
 
-#: ../src/gcompris/about.c:106
+#: ../src/gcompris/about.c:105
 msgid "Translators:"
 msgstr "Fordítók:"
 
-#: ../src/gcompris/about.c:206
+#: ../src/gcompris/about.c:210
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
 msgstr ""
 "Ez a program GNU szoftver és a GNU General Public License alatt van kiadva"
 
-#: ../src/gcompris/about.c:220 ../src/gcompris/config.c:442
-#: ../src/gcompris/dialog.c:103 ../src/gcompris/help.c:359
+#: ../src/gcompris/about.c:224 ../src/gcompris/config.c:438
+#: ../src/gcompris/dialog.c:103 ../src/gcompris/help.c:355
 #: ../src/gcompris/images_selector.c:307
 msgid "OK"
 msgstr "OK"
@@ -2666,7 +2776,7 @@ msgstr "Igen, biztos vagyok benne!"
 msgid "No, I want to keep going"
 msgstr "Nem, folytatni szeretném!"
 
-#: ../src/gcompris/board.c:197
+#: ../src/gcompris/board.c:168
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr ""
 "Modulok dinamikus betöltése nem támogatott. A GCompris nem tölthető be.\n"
@@ -3015,38 +3125,38 @@ msgstr "Táblák szűréséhez használja a Gcompris adminisztrációs modulját
 msgid "GCompris Configuration"
 msgstr "A GCompris beállítása"
 
-#: ../src/gcompris/config.c:254
+#: ../src/gcompris/config.c:253
 msgid "Fullscreen"
 msgstr "Teljes képernyő"
 
-#: ../src/gcompris/config.c:280
+#: ../src/gcompris/config.c:278
 msgid "Music"
 msgstr "Zene"
 
-#: ../src/gcompris/config.c:306
+#: ../src/gcompris/config.c:303
 msgid "Effect"
 msgstr "Effektusok"
 
-#: ../src/gcompris/config.c:331 ../src/gcompris/sugar.c:82
+#: ../src/gcompris/config.c:327 ../src/gcompris/sugar.c:82
 msgid "Zoom"
 msgstr "Nagyítás"
 
-#: ../src/gcompris/config.c:368
+#: ../src/gcompris/config.c:364
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Nem sikerült megnyitni a(z) %s témakönyvtárat"
 
-#: ../src/gcompris/config.c:399 ../src/gcompris/config.c:757
-#: ../src/gcompris/config.c:771
+#: ../src/gcompris/config.c:395 ../src/gcompris/config.c:753
+#: ../src/gcompris/config.c:767
 #, c-format
 msgid "Skin : %s"
 msgstr "Téma: %s"
 
-#: ../src/gcompris/config.c:401
+#: ../src/gcompris/config.c:397
 msgid "SKINS NOT FOUND"
 msgstr "Nem találhatók témák!"
 
-#: ../src/gcompris/config.c:482
+#: ../src/gcompris/config.c:478
 msgid "English (United State)"
 msgstr "Angol (Egyesült Államok)"
 
@@ -3078,39 +3188,43 @@ msgstr ""
 "Lépj ki és jelentsd a \n"
 "hibát a szerzőknek."
 
-#: ../src/gcompris/gcompris.c:156
+#: ../src/gcompris/gcompris.c:157
 msgid "run GCompris in fullscreen mode."
 msgstr "a GCompris indítása teljes képernyőn."
 
-#: ../src/gcompris/gcompris.c:159
+#: ../src/gcompris/gcompris.c:160
 msgid "run GCompris in window mode."
 msgstr "a GCompris indítása ablakban."
 
-#: ../src/gcompris/gcompris.c:162
+#: ../src/gcompris/gcompris.c:163
 msgid "run GCompris with sound enabled."
 msgstr "a GCompris indítása a hangok engedélyezésével."
 
-#: ../src/gcompris/gcompris.c:165
+#: ../src/gcompris/gcompris.c:166
 msgid "run GCompris without sound."
 msgstr "a GCompris indítása hangok nélkül."
 
-#: ../src/gcompris/gcompris.c:168
-msgid "run GCompris with the default gnome cursor."
-msgstr "A GCompris az alapértelmezett egérmutatóval fusson."
+#: ../src/gcompris/gcompris.c:169
+msgid "run GCompris with the default system cursor."
+msgstr "a GCompris az alapértelmezett egérmutatóval fusson."
 
-#: ../src/gcompris/gcompris.c:171
+#: ../src/gcompris/gcompris.c:172
+msgid "run GCompris without cursor (touch screen mode)."
+msgstr "a GCompris indítása kurzor nélkül (érintőképernyős mód)."
+
+#: ../src/gcompris/gcompris.c:175
 msgid "display only activities with this difficulty level."
 msgstr "Csak az ilyen nehézségi szintű tevékenységek mutatása."
 
-#: ../src/gcompris/gcompris.c:174
+#: ../src/gcompris/gcompris.c:178
 msgid "display debug informations on the console."
 msgstr "hibakereső információk megjelenítése a konzolon."
 
-#: ../src/gcompris/gcompris.c:177
+#: ../src/gcompris/gcompris.c:181
 msgid "Print the version of "
 msgstr "Verziószám megtekintése: "
 
-#: ../src/gcompris/gcompris.c:180
+#: ../src/gcompris/gcompris.c:184
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
@@ -3121,36 +3235,36 @@ msgstr ""
 "táblákat indítja, a -l /boards/connect4 csak a connect4 tevékenységet). A „-"
 "l list” kapcsolóval kiíratható az elérhető tevékenységek listája és leírásuk."
 
-#: ../src/gcompris/gcompris.c:185
+#: ../src/gcompris/gcompris.c:189
 msgid "GCompris will find the data dir in this directory"
 msgstr "A GCompris ebben a könyvtárban keresi az adatkönyvtárat"
 
-#: ../src/gcompris/gcompris.c:188
+#: ../src/gcompris/gcompris.c:192
 msgid "GCompris will find the skins in this directory"
 msgstr "A GCompris ebben a könyvtárban keresi a sminkeket"
 
-#: ../src/gcompris/gcompris.c:191
+#: ../src/gcompris/gcompris.c:195
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "A GCompris ebben a könyvtárban keresi a tevékenységbővítményeket"
 
-#: ../src/gcompris/gcompris.c:194
+#: ../src/gcompris/gcompris.c:198
 msgid "GCompris will find the python activity in this directory"
 msgstr "A GCompris ebben a könyvtárban keresi a python tevékenységeket"
 
-#: ../src/gcompris/gcompris.c:197
+#: ../src/gcompris/gcompris.c:201
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr ""
 "A GCompris ebben a könyvtárban keresi a lokalizációs fájlt (.mo fordítás)"
 
-#: ../src/gcompris/gcompris.c:200
+#: ../src/gcompris/gcompris.c:204
 msgid "GCompris will find the activities menu in this directory"
 msgstr "A GCompris ebben a könyvtárban keresi a tevékenységmenüt"
 
-#: ../src/gcompris/gcompris.c:203
+#: ../src/gcompris/gcompris.c:207
 msgid "Run GCompris in administration and user-management mode"
 msgstr "A GCompris futtatása adminisztrációs és felhasználókezelési módban"
 
-#: ../src/gcompris/gcompris.c:206
+#: ../src/gcompris/gcompris.c:210
 msgid ""
 "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
@@ -3158,27 +3272,27 @@ msgstr ""
 "Alternatív profiladatbázis [$HOME/.config/gcompris/gcompris_sqlite.db] "
 "használata"
 
-#: ../src/gcompris/gcompris.c:209
+#: ../src/gcompris/gcompris.c:213
 msgid "Create the alternate database for profiles"
 msgstr "Az alternatív profiladatbázis létrehozása"
 
-#: ../src/gcompris/gcompris.c:212
+#: ../src/gcompris/gcompris.c:216
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Az XML menük újraolvasása és tárolása az adatbázisban"
 
-#: ../src/gcompris/gcompris.c:215
+#: ../src/gcompris/gcompris.c:219
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr ""
 "A használandó profil beállítása. Használja a „gcompris -a” parancsot "
 "profilok létrehozásához."
 
-#: ../src/gcompris/gcompris.c:218
+#: ../src/gcompris/gcompris.c:222
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Az összes elérhető profil listázása. Használja a „gcompris -a” parancsot "
 "profilok létrehozásához."
 
-#: ../src/gcompris/gcompris.c:221
+#: ../src/gcompris/gcompris.c:225
 msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
@@ -3186,23 +3300,23 @@ msgstr ""
 "Konfigurációs könyvtár: [$HOME/.config/gcompris]. Másik lehetőség az "
 "$XDG_CONFIG_HOME beállítása."
 
-#: ../src/gcompris/gcompris.c:224
+#: ../src/gcompris/gcompris.c:228
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "A felhasználók könyvtárának helye: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:227
+#: ../src/gcompris/gcompris.c:231
 msgid "Run the experimental activities"
 msgstr "A kísérletező játékokhoz"
 
-#: ../src/gcompris/gcompris.c:230
+#: ../src/gcompris/gcompris.c:234
 msgid "Disable the quit button"
 msgstr "A „Kilépés” gomb letiltása"
 
-#: ../src/gcompris/gcompris.c:233
+#: ../src/gcompris/gcompris.c:237
 msgid "Disable the config button"
 msgstr "A „Beállítások” gomb letiltása"
 
-#: ../src/gcompris/gcompris.c:236
+#: ../src/gcompris/gcompris.c:240
 msgid ""
 "GCompris will get images, sounds and activity data from this server if not "
 "found locally."
@@ -3210,7 +3324,7 @@ msgstr ""
 "A GCompris erről a kiszolgálóról próbálja meg letölteni a helyben nem "
 "található képeket, hangokat és egyéb adatokat."
 
-#: ../src/gcompris/gcompris.c:239
+#: ../src/gcompris/gcompris.c:243
 msgid ""
 "Only when --server is provided, disable check for local resource first. Data "
 "are always taken from the web server."
@@ -3218,25 +3332,25 @@ msgstr ""
 "A --server kapcsoló használatakor letiltja a helyi kép, hang stb. fájlok "
 "használatát - minden adat a webkiszolgálóról töltődik le. "
 
-#: ../src/gcompris/gcompris.c:243
+#: ../src/gcompris/gcompris.c:247
 msgid ""
 "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr ""
 "Kiszolgáló módban adja meg a gyorsítótár-könyvtárat a felesleges letöltések "
 "kiküszöböléséhez."
 
-#: ../src/gcompris/gcompris.c:246
+#: ../src/gcompris/gcompris.c:250
 msgid ""
 "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr ""
 "Globális fogd-és-ejtsd mód: normál, dupla kattintás, mindkettő. Az "
 "alapértelmezett a normál mód."
 
-#: ../src/gcompris/gcompris.c:249
+#: ../src/gcompris/gcompris.c:253
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Ne akadályozza meg a GCompris több példányban való elindítását."
 
-#: ../src/gcompris/gcompris.c:890
+#: ../src/gcompris/gcompris.c:918
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -3258,7 +3372,7 @@ msgstr ""
 "oldalt:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1429
+#: ../src/gcompris/gcompris.c:1458
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
@@ -3266,12 +3380,12 @@ msgstr ""
 "A GCompris nem indul el, mert a zárolási fájl kevesebb, mint %d másodperc "
 "korú.\n"
 
-#: ../src/gcompris/gcompris.c:1431
+#: ../src/gcompris/gcompris.c:1460
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "A zárolási fájl: %s\n"
 
-#: ../src/gcompris/gcompris.c:1545
+#: ../src/gcompris/gcompris.c:1574
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3285,27 +3399,27 @@ msgstr ""
 "További információ: http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1648
+#: ../src/gcompris/gcompris.c:1683
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Használja a -l kapcsolót egy tevékenység közvetlen eléréséhez.\n"
 
-#: ../src/gcompris/gcompris.c:1649
+#: ../src/gcompris/gcompris.c:1684
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Az elérhető tevékenységek listája:\n"
 
-#: ../src/gcompris/gcompris.c:1680
+#: ../src/gcompris/gcompris.c:1715
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Tevékenységek száma: %d\n"
 
-#: ../src/gcompris/gcompris.c:1716
+#: ../src/gcompris/gcompris.c:1751
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s létezik, de nem olvasható vagy írható"
 
-#: ../src/gcompris/gcompris.c:1779
+#: ../src/gcompris/gcompris.c:1814
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
@@ -3314,7 +3428,7 @@ msgstr ""
 "A --server kapcsoló nem használható, mert a GCompris hálózati támogatás "
 "nélkül lett fordítva!"
 
-#: ../src/gcompris/gcompris.c:1833
+#: ../src/gcompris/gcompris.c:1868
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3323,7 +3437,7 @@ msgstr ""
 "HIBA: A profil („%s”) nem található. Futtassa a „gcompris --profile-list” "
 "parancsot az elérhető profilok felsorolásához\n"
 
-#: ../src/gcompris/gcompris.c:1847
+#: ../src/gcompris/gcompris.c:1882
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "A rendelkezésre álló profilok listája:\n"
@@ -3336,7 +3450,7 @@ msgstr "Nem befolyásolt"
 msgid "Users without a class"
 msgstr "Osztályhoz nem tartozó felhasználók"
 
-#: ../src/gcompris/gcompris_db.c:893
+#: ../src/gcompris/gcompris_db.c:894
 #, c-format
 msgid ""
 "Loading activity from database:\n"
@@ -3345,19 +3459,19 @@ msgstr ""
 "Tevékenység betöltése az adatbázisból:\n"
 "%s"
 
-#: ../src/gcompris/help.c:181
+#: ../src/gcompris/help.c:180
 msgid "Prerequisite"
 msgstr "Előfeltétel"
 
-#: ../src/gcompris/help.c:212
+#: ../src/gcompris/help.c:210
 msgid "Goal"
 msgstr "Cél"
 
-#: ../src/gcompris/help.c:243
+#: ../src/gcompris/help.c:240
 msgid "Manual"
 msgstr "Kézikönyv"
 
-#: ../src/gcompris/help.c:274
+#: ../src/gcompris/help.c:270
 msgid "Credit"
 msgstr "Köszönet"
 
@@ -3425,11 +3539,11 @@ msgstr "Vissza"
 msgid "Stop"
 msgstr "Leállítás"
 
-#: ../src/gcompris/timer.c:244
+#: ../src/gcompris/timer.c:245
 msgid "Time Elapsed"
 msgstr "Eltelt idő"
 
-#: ../src/gcompris/timer.c:322
+#: ../src/gcompris/timer.c:323
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Hátralévő idő = %d"
@@ -4920,8 +5034,8 @@ msgstr "GCompris bejelentkező képernyő"
 
 #: ../src/login-activity/login.xml.in.h:3
 msgid ""
-"In order to activate the login screen, you must \n"
-"first add users in the administration part of GCompris. \n"
+"In order to activate the login screen, you must\n"
+"first add users in the administration part of GCompris.\n"
 "You access Administration by running 'gcompris -a'.\n"
 "In Administration, you can create different profiles. In each profile,\n"
 "you can have a different set of users and select which activities are "
@@ -4932,9 +5046,9 @@ msgid ""
 msgstr ""
 "A bejelentkező képernyő megfelelő aktiválásához először\n"
 "felhasználókat kell felvennie a GCompris adminisztrációs részében.\n"
-"Ehhez a „gcompris -a” parancs futtatásával férhet hozzá. \n"
+"Ehhez a „gcompris -a” parancs futtatásával férhet hozzá.\n"
 "Az adminisztrációs felületen különböző profilokat hozhat létre. Minden\n"
-"profilhoz felhasználók különböző halmazait veheti fel és kiválaszthatja, "
+"profilhoz felhasználók különböző halmazait veheti fel és kiválaszthatja,\n"
 "mely tevékenységek érhetőek el számukra.\n"
 "A Gcompris indításához egy megadott profillal használja a „gcompris -p "
 "profil” parancsot,\n"
@@ -5905,16 +6019,20 @@ msgid "Woman holding a fan"
 msgstr "Woman holding a fan"
 
 #: ../src/paintings-activity/resources/paintings/board2_1.xml.in.h:1
-msgid "Botticelli, Primavera - 1482"
-msgstr "Botticelli, Primavera - 1482"
+msgid "Mona Lisa"
+msgstr "Mona Lisa"
 
 #: ../src/paintings-activity/resources/paintings/board2_2.xml.in.h:1
-msgid "Caravage, Rest on the Flight into Egypt - 1597"
-msgstr "Caravage, Rest on the Flight into Egypt - 1597"
+msgid "Bellini : Pala di pesaro"
+msgstr "Bellini : Pala di pesaro"
 
 #: ../src/paintings-activity/resources/paintings/board2_3.xml.in.h:1
-msgid "Botticelli, The Birth of Venus - 1482–1486"
-msgstr "Botticelli, The Birth of Venus - 1482–1486"
+msgid "Dürer : Lion"
+msgstr "Dürer : Lion"
+
+#: ../src/paintings-activity/resources/paintings/board2_4.xml.in.h:1
+msgid "Pieter Brugel : Harvest"
+msgstr "Pieter Brugel : Harvest"
 
 #: ../src/paintings-activity/resources/paintings/board3_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
@@ -5975,11 +6093,11 @@ msgid "This board is game-oriented. No specific skills are needed to play."
 msgstr ""
 "Ez a tábla játékközpontú. A játékhoz nem szükségesek megadott képességek."
 
-#: ../src/penalty-activity/penalty.py:294
+#: ../src/penalty-activity/penalty.py:293
 msgid "Click on the balloon to place it again."
 msgstr "Kattints a léggömbre az ismételt elhelyezéséhez."
 
-#: ../src/penalty-activity/penalty.py:296
+#: ../src/penalty-activity/penalty.py:295
 msgid "Click twice on the balloon to shoot it."
 msgstr "Kattints kétszer a léggömbre a lelövéséhez."
 
@@ -6055,6 +6173,13 @@ msgstr ""
 msgid "Number"
 msgstr "Számok"
 
+#: ../src/pythontemplate-activity/pythontemplate.py:60
+#: ../src/pythontest-activity/pythontest.py:184
+msgid ""
+"This is the first plugin in GCompris coded in the Python\n"
+"Programming language."
+msgstr "Ez az első Python programnyelven írott GCompris bővítmény."
+
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:1
 #: ../src/pythontest-activity/pythontest.xml.in.h:1
 msgid "Add a language-binding to GCompris."
@@ -6079,12 +6204,6 @@ msgid ""
 "Thanks to Guido van Rossum and the python team for this powerful language!"
 msgstr ""
 "Köszönet Guido van Rossumnak és a Python csapatnak ezért a hatékony nyelvért!"
-
-#: ../src/pythontest-activity/pythontest.py:184
-msgid ""
-"This is the first plugin in GCompris coded in the Python\n"
-"Programming language."
-msgstr "Ez az első Python programnyelven írott GCompris bővítmény."
 
 #: ../src/pythontest-activity/pythontest.py:194
 msgid ""
@@ -6428,6 +6547,27 @@ msgstr ""
 "serpenyőbe.\n"
 "A súlyokat tetszőleges sorrendben helyezheted el."
 
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:2
+msgid "Drag and Drop masses to balance the scales and calculate the weight"
+msgstr ""
+"Találd meg a megfelelő súlyokat a mérleg kiegyensúlyozásához, és a súly "
+"kiszámításához"
+
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:3
+msgid "Mental calculation, arithmetic equality, unit conversion"
+msgstr "Fejszámolás, aritmetikai egyenlőség, mértékegység-átváltás"
+
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:5
+msgid ""
+"To balance the scales, move the masses on the left or the right side. Take "
+"care of the weight and the unit of the masses, remember that a kilogram (kg) "
+"is 1000 grams (g). They can be arranged in any order."
+msgstr ""
+"Egyensúlyozd ki a mérleget, tedd a súlyokat a bal vagy jobb oldali "
+"serpenyőbe. Vedd figyelembe a tömeget és a súlyok mértékegységét, ne feledd "
+"hogy egy kilogramm (kg) = 1000 gramm (g). A súlyokat tetszőleges sorrendben "
+"helyezheted el."
+
 #: ../src/searace-activity/searace.py:174
 msgid "The race is already being run"
 msgstr "A verseny már tart"
@@ -6538,27 +6678,6 @@ msgstr ""
 #: ../src/searace-activity/searace.xml.in.h:9
 msgid "Sea race (2 Players)"
 msgstr "Tengeri verseny (2 játékos)"
-
-#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:2
-msgid "Drag and Drop masses to balance the scales and calculate the weight"
-msgstr ""
-"Találd meg a megfelelő súlyokat a mérleg kiegyensúlyozásához, és a súly "
-"kiszámításához"
-
-#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:3
-msgid "Mental calculation, arithmetic equality, unit conversion"
-msgstr "Fejszámolás, aritmetikai egyenlőség, mértékegység-átváltás"
-
-#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:5
-msgid ""
-"To balance the scales, move the masses on the left or the right side. Take "
-"care of the weight and the unit of the masses, remember that a kilogram (kg) "
-"is 1000 grams (g). They can be arranged in any order."
-msgstr ""
-"Egyensúlyozd ki a mérleget, tedd a súlyokat a bal vagy jobb oldali "
-"serpenyőbe. Vedd figyelembe a tömeget és a súlyok mértékegységét, ne feledd "
-"hogy egy kilogramm (kg) = 1000 gramm (g). A súlyokat tetszőleges sorrendben "
-"helyezheted el."
 
 #: ../src/searace1player-activity/searace1player.xml.in.h:1
 msgid "Give good instructions to your ship in order to be first in the race."
@@ -6708,6 +6827,24 @@ msgid "Tux has hidden several items. Find them again in the correct order"
 msgstr ""
 "Tux elrejtett egy titkos színkombinációt. Találd meg a színeket a helyes "
 "sorrendben"
+
+#: ../src/superbrain-activity/superbrain.c:403
+#: ../src/superbrain-activity/superbrain.c:539
+msgid "This item is well placed"
+msgstr "Ez az elem a helyén van"
+
+#: ../src/superbrain-activity/superbrain.c:416
+#: ../src/superbrain-activity/superbrain.c:569
+msgid "This item is misplaced"
+msgstr "Ez az elem nincs a helyén"
+
+#: ../src/superbrain-activity/superbrain.c:587
+msgid "One item is well placed"
+msgstr "Egy elem a helyén van"
+
+#: ../src/superbrain-activity/superbrain.c:601
+msgid "One item is misplaced"
+msgstr "Egy elem nincs a helyén"
 
 #: ../src/superbrain-activity/superbrain.xml.in.h:1
 msgid ""
@@ -7023,63 +7160,48 @@ msgstr "Billentyűzetkezelés gyakorlása"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Gépeld be a teljes szót amíg esik, mielőtt leérne a földre"
 
-#: ../src/chess_computer-activity/gnuchess/getopt.c:693
-#, c-format
-msgid "%s: option `%s' is ambiguous\n"
-msgstr "%s: a(z) „%s” kapcsoló nem egyértelmű\n"
+#: ../src/hangman-activity/hangman.xml.in.h:1
+msgid "A word is hidden, you must discover it letter by letter"
+msgstr "Egy szó el van rejtve, fedezd fel betűről betűre"
 
-#: ../src/chess_computer-activity/gnuchess/getopt.c:718
-#, c-format
-msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s: a(z) „--%s” kapcsoló nem enged meg argumentumot\n"
+#: ../src/hangman-activity/hangman.xml.in.h:2
+msgid "Reading skill"
+msgstr "Olvasási képesség"
 
-#: ../src/chess_computer-activity/gnuchess/getopt.c:723
-#, c-format
-msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: a(z) „%c%s” kapcsoló nem enged meg argumentumot\n"
+#: ../src/hangman-activity/hangman.xml.in.h:3
+msgid "The classic hangman game"
+msgstr "A klasszikus akasztófás játék"
 
-#: ../src/chess_computer-activity/gnuchess/getopt.c:741
-#: ../src/chess_computer-activity/gnuchess/getopt.c:914
-#, c-format
-msgid "%s: option `%s' requires an argument\n"
-msgstr "%s: a(z) „%s” kapcsolóhoz argumentum szükséges\n"
+#: ../src/hangman-activity/hangman.xml.in.h:4
+msgid "This is a good exercise to improve reading and spelling skills."
+msgstr ""
+"Ez egy remek gyakorlat az olvasási és betűzési képességek fejlesztésére."
 
-#. --option
-#: ../src/chess_computer-activity/gnuchess/getopt.c:770
-#, c-format
-msgid "%s: unrecognized option `--%s'\n"
-msgstr "%s: a(z) „--%s” kapcsoló ismeretlen\n"
+#: ../src/hangman-activity/hangman.xml.in.h:5
+msgid ""
+"You can enter the letters using the virtual keyboard on the screen or with "
+"the real keyboard."
+msgstr ""
+"Megadhatod a betűket a képernyőn levő virtuális billentyűzettel, vagy a "
+"valódival."
 
-#. +option or -option
-#: ../src/chess_computer-activity/gnuchess/getopt.c:774
-#, c-format
-msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s: a(z) „%c%s” kapcsoló ismeretlen\n"
+#. All the vowel of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:61
+msgid "aeiouy"
+msgstr "aáeéiíoóöőuúüű"
 
-#. 1003.2 specifies the format of this message.
-#: ../src/chess_computer-activity/gnuchess/getopt.c:800
-#, c-format
-msgid "%s: illegal option -- %c\n"
-msgstr "%s: illegális kapcsoló -- %c\n"
+#. All the consonants of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:63
+msgid "bcdfghjklmnpqrstvwxz"
+msgstr "bcdfghjklmnpqrstvwxz"
 
-#: ../src/chess_computer-activity/gnuchess/getopt.c:803
-#, c-format
-msgid "%s: invalid option -- %c\n"
-msgstr "%s: érvénytelen kapcsoló -- %c\n"
+#. Letters equivallence for the hangman activity. It has the
+#. form of a space separated list like: "e=éè a=àâ"
+#. Keep the word NONE if not available in your language
+#: ../src/hangman-activity/hangman.py:67
+msgid "NONE"
+msgstr "NONE"
 
-#. 1003.2 specifies the format of this message.
-#: ../src/chess_computer-activity/gnuchess/getopt.c:833
-#: ../src/chess_computer-activity/gnuchess/getopt.c:963
-#, c-format
-msgid "%s: option requires an argument -- %c\n"
-msgstr "%s: a kapcsoló egy argumentumot igényel -- %c\n"
-
-#: ../src/chess_computer-activity/gnuchess/getopt.c:880
-#, c-format
-msgid "%s: option `-W %s' is ambiguous\n"
-msgstr "%s: a „-W %s” kapcsoló nem egyértelmű\n"
-
-#: ../src/chess_computer-activity/gnuchess/getopt.c:898
-#, c-format
-msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s: a „-W %s” kapcsoló nem enged meg argumentumot\n"
+#: ../src/hangman-activity/hangman.py:104
+msgid "Could not find the list of words."
+msgstr "A szavak listája nem található."
