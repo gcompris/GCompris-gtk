@@ -284,13 +284,12 @@ static void level_changed(GtkComboBox *combo, gpointer data)
 	gdk_pixbuf_new_from_file_at_size(pixfile, ICON_SIZE, ICON_SIZE,
 					 NULL);
 
+      tmp[0] = '\0';
       while(b->text[i])
 	{
-	  tmp[i] = b->text[i][0];
+	  g_strlcat(tmp, b->text[i], MAX_PROPOSAL);
 	  i++;
 	}
-      tmp[i] = '\0';
-
       gtk_list_store_append(ls, &iter);
       gtk_list_store_set(ls, &iter,
                          QUESTION_COLUMN, b->question,

@@ -24,7 +24,7 @@ extern GcomprisBoard *gcomprisBoard_missing;
 gboolean              missing_read_xml_file(char *fname, GList**);
 void                  missing_destroy_board_list(GList *);
 
-#define MAX_PROPOSAL 6
+#define MAX_PROPOSAL 6 * 2 /* Counting UTF-8 char */
 typedef struct _Board {
   gchar *pixmapfile;
   gchar *question;
