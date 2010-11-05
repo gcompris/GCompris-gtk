@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&component=general\n"
-"POT-Creation-Date: 2010-10-18 08:13+0000\n"
-"PO-Revision-Date: 2010-10-22 14:52+0100\n"
+"POT-Creation-Date: 2010-11-04 21:10+0000\n"
+"PO-Revision-Date: 2010-11-05 09:50+0100\n"
 "Last-Translator: Andrej Žnidaršič <andrej.znidarsic@gmail.com>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
@@ -2334,7 +2334,7 @@ msgstr "Premakni miško nad rdeči del cevi. To jo bo premaknilo in jo del za de
 msgid "Tux needs to water the flowers, but the hose is blocked."
 msgstr "Pingo potrebuje vodo za zalivanje rož, toda cev je zamašena."
 
-#: ../src/gcompris/about.c:50
+#: ../src/gcompris/about.c:49
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge, Yves Combe\n"
@@ -2349,30 +2349,30 @@ msgstr ""
 "Glasba v ozadju: Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:58
+#: ../src/gcompris/about.c:57
 msgid "translator_credits"
 msgstr ""
 "Damjan Kovač\n"
 "Matej Urbančič\n"
 "Andrej Žnidaršič"
 
-#: ../src/gcompris/about.c:85
+#: ../src/gcompris/about.c:84
 msgid "About GCompris"
 msgstr "O programu"
 
-#: ../src/gcompris/about.c:95
+#: ../src/gcompris/about.c:94
 msgid "GCompris Home Page: http://gcompris.net"
 msgstr "Domača stran GCompris: http://gcompris.net"
 
-#: ../src/gcompris/about.c:106
+#: ../src/gcompris/about.c:105
 msgid "Translators:"
 msgstr "Prevajalci:"
 
-#: ../src/gcompris/about.c:208
+#: ../src/gcompris/about.c:210
 msgid "This software is a GNU Package and is released under the GNU General Public License"
 msgstr "Ta program je GNU paket in je izdan pod GNU splošno javno licenco"
 
-#: ../src/gcompris/about.c:222
+#: ../src/gcompris/about.c:224
 #: ../src/gcompris/config.c:438
 #: ../src/gcompris/dialog.c:103
 #: ../src/gcompris/help.c:355
@@ -2396,7 +2396,7 @@ msgstr "Da, prepričan sem"
 msgid "No, I want to keep going"
 msgstr "Ne, želim nadaljevati"
 
-#: ../src/gcompris/board.c:197
+#: ../src/gcompris/board.c:168
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr "Dinamično nalaganje modulov ni podprto. GCompris se ne more naložiti.\n"
 
@@ -2953,17 +2953,17 @@ msgstr ""
 "Različica GNU/Linux nima teh omejitev. Če verjamete, da je otroke treba naučiti svobodo, razmislite o uporabi GNU/Linux. Več podrobnosti na strani FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1457
+#: ../src/gcompris/gcompris.c:1458
 #, c-format
 msgid "GCompris won't start because the lock file is less than %d seconds old.\n"
 msgstr "GCompris se ne bo zagnal, ker je datoteka ključavnice stara manj kot %d sekund.\n"
 
-#: ../src/gcompris/gcompris.c:1459
+#: ../src/gcompris/gcompris.c:1460
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Datoteka ključa je: %s\n"
 
-#: ../src/gcompris/gcompris.c:1573
+#: ../src/gcompris/gcompris.c:1574
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2977,37 +2977,37 @@ msgstr ""
 "Več podrobnosti je mogoče najti na http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1682
+#: ../src/gcompris/gcompris.c:1683
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Uporabi -l za neposreden dostop do dejavnosti.\n"
 
-#: ../src/gcompris/gcompris.c:1683
+#: ../src/gcompris/gcompris.c:1684
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Seznam dostopnih dejavnosti je:\n"
 
-#: ../src/gcompris/gcompris.c:1714
+#: ../src/gcompris/gcompris.c:1715
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Število dejavnosti: %d\n"
 
-#: ../src/gcompris/gcompris.c:1750
+#: ../src/gcompris/gcompris.c:1751
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s obstaja toda ni berljiv ali zapisljiv"
 
-#: ../src/gcompris/gcompris.c:1813
+#: ../src/gcompris/gcompris.c:1814
 #, c-format
 msgid "The --server option cannot be used because GCompris has been compiled without network support!"
 msgstr "Možnosti --server ni mogoče uporabiti, ker GCompris ni bil preveden z omrežno podporo!"
 
-#: ../src/gcompris/gcompris.c:1867
+#: ../src/gcompris/gcompris.c:1868
 #, c-format
 msgid "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list available ones\n"
 msgstr "NAPAKA: Profila '%s' ni mogoče najti. Poženi 'gcompris --profile-list' za seznam razpoložljivih profilov\n"
 
-#: ../src/gcompris/gcompris.c:1881
+#: ../src/gcompris/gcompris.c:1882
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Seznam dostopnih profilov je:\n"
@@ -4444,8 +4444,8 @@ msgstr "GCompris prijavni zaslon"
 
 #: ../src/login-activity/login.xml.in.h:3
 msgid ""
-"In order to activate the login screen, you must \n"
-"first add users in the administration part of GCompris. \n"
+"In order to activate the login screen, you must\n"
+"first add users in the administration part of GCompris.\n"
 "You access Administration by running 'gcompris -a'.\n"
 "In Administration, you can create different profiles. In each profile,\n"
 "you can have a different set of users and select which activities are available to them.\n"
@@ -4453,11 +4453,11 @@ msgid ""
 "is the name of a profile as you created it in Administration."
 msgstr ""
 "Za omogočitev prijavnega zaslona morate \n"
-"najprej dodati uporabnike v skrbniškemu delu GCompris. \n"
+"najprej dodati uporabnike v skrbniški del GCompris. \n"
 "Do skrbništva lahko dostopate z ukazom 'grompris -a'.\n"
 "V skrbništvu lahko ustvarite različne profile. V vsakemu profilu\n"
 "imate lahko različen niz uporabnikov z različnimi razpoložljivimi dejavnostmi.\n"
-"Za zagon programa GCompris za določen profil uporabite 'gcompris -p profil', kjer je 'profil\n"
+"Za zagon programa GCompris z določenim profilom uporabite 'gcompris -p profil', kjer je 'profil\n"
 "ime profila, ki ste ga ustvarili v skrbništvu."
 
 #: ../src/login-activity/login.xml.in.h:10
@@ -4959,40 +4959,40 @@ msgid "Word reading"
 msgstr "Branje besed"
 
 #. pixmap
-#: ../src/missing_letter-activity/missingletter_config.c:384
-#: ../src/missing_letter-activity/missingletter_config.c:534
+#: ../src/missing_letter-activity/missingletter_config.c:383
+#: ../src/missing_letter-activity/missingletter_config.c:533
 msgid "Picture"
 msgstr "Slika"
 
 #. answer
-#: ../src/missing_letter-activity/missingletter_config.c:390
-#: ../src/missing_letter-activity/missingletter_config.c:525
+#: ../src/missing_letter-activity/missingletter_config.c:389
+#: ../src/missing_letter-activity/missingletter_config.c:524
 msgid "Answer"
 msgstr "Odgovor"
 
 #. question
-#: ../src/missing_letter-activity/missingletter_config.c:396
-#: ../src/missing_letter-activity/missingletter_config.c:548
+#: ../src/missing_letter-activity/missingletter_config.c:395
+#: ../src/missing_letter-activity/missingletter_config.c:547
 msgid "Question"
 msgstr "Vprašanje"
 
 #. choice
-#: ../src/missing_letter-activity/missingletter_config.c:402
-#: ../src/missing_letter-activity/missingletter_config.c:557
+#: ../src/missing_letter-activity/missingletter_config.c:401
+#: ../src/missing_letter-activity/missingletter_config.c:556
 msgid "Choice"
 msgstr "Izbira"
 
 #. combo level
-#: ../src/missing_letter-activity/missingletter_config.c:440
+#: ../src/missing_letter-activity/missingletter_config.c:439
 msgid "Level:"
 msgstr "Raven:"
 
-#: ../src/missing_letter-activity/missingletter_config.c:448
+#: ../src/missing_letter-activity/missingletter_config.c:447
 #, c-format
 msgid "Level %d"
 msgstr "Raven %d"
 
-#: ../src/missing_letter-activity/missingletter_config.c:538
+#: ../src/missing_letter-activity/missingletter_config.c:537
 msgid "Filename:"
 msgstr "Ime datoteke:"
 
@@ -6158,7 +6158,7 @@ msgstr "bcčdfghjklmnprsštvzž"
 msgid "NONE"
 msgstr "BREZ"
 
-#: ../src/hangman-activity/hangman.py:105
+#: ../src/hangman-activity/hangman.py:104
 msgid "Could not find the list of words."
 msgstr "Ni mogoče najti seznama besed."
 
