@@ -66,13 +66,13 @@ static gboolean valid_entry(gchar *question, gchar *answer,
   gchar **split;
 
   if(choice && question && answer && pixmap &&
-     strlen(choice)==3 && strlen(question) && strlen(answer)
+     strlen(choice) >= 3 && strlen(question) && strlen(answer)
      && strchr(question, '_'))
     {
       split = g_strsplit(question, "_", 2);
-      if(g_str_has_prefix(answer, split[0]) &&
-         g_str_has_suffix(answer, split[1]) &&
-         answer[strlen(split[0])] == choice[0])
+      if ( g_str_has_prefix(answer, split[0]) &&
+	   g_str_has_suffix(answer, split[1]) &&
+	   strchr(choice, answer[strlen(split[0])]) )
         result = TRUE;
       g_strfreev(split);
     }
@@ -117,58 +117,6 @@ static void apply_clicked(GtkButton *b, gpointer data)
   g_free(pixmap);
 }
 
-static void up_clicked(GtkButton *b, gpointer data)
-{
-  _config_missing *u = (_config_missing*)data;
-  GtkTreeSelection *selection = gtk_tree_view_get_selection(u->view);
-  GtkTreeIter itera, iterb;
-  GtkTreeModel *model;
-  GtkTreePath *tpa, *tpb;
-  gchar *pa, *pb;
-
-  if (gtk_tree_selection_get_selected (selection, &model, &itera))
-    {
-      pa = gtk_tree_model_get_string_from_iter(model, &itera);
-      tpa = gtk_tree_path_new_from_string(pa);
-      tpb = gtk_tree_path_copy(tpa);
-      gtk_tree_path_prev(tpb);
-      pb = gtk_tree_path_to_string(tpb);
-      gtk_tree_model_get_iter_from_string(model, &iterb, pb);
-      gtk_list_store_swap(GTK_LIST_STORE(model), &itera, &iterb);
-      gtk_tree_path_free(tpa);
-      gtk_tree_path_free(tpb);
-      g_free(pa);
-      g_free(pb);
-      u->changed = TRUE;
-    }
-}
-
-static void down_clicked(GtkButton *b, gpointer data)
-{
-  _config_missing *u = (_config_missing*)data;
-  GtkTreeSelection *selection = gtk_tree_view_get_selection(u->view);
-  GtkTreeIter itera, iterb;
-  GtkTreeModel *model;
-  GtkTreePath *tpa, *tpb;
-  gchar *pa, *pb;
-
-  if (gtk_tree_selection_get_selected (selection, &model, &itera))
-    {
-      pa = gtk_tree_model_get_string_from_iter(model, &itera);
-      tpa = gtk_tree_path_new_from_string(pa);
-      tpb = gtk_tree_path_copy(tpa);
-      gtk_tree_path_next(tpb);
-      pb = gtk_tree_path_to_string(tpb);
-      if(gtk_tree_model_get_iter_from_string(model, &iterb, pb))
-        gtk_list_store_swap(GTK_LIST_STORE(model), &itera, &iterb);
-      gtk_tree_path_free(tpa);
-      gtk_tree_path_free(tpb);
-      g_free(pa);
-      g_free(pb);
-      u->changed = TRUE;
-    }
-}
-
 static gboolean _save(GtkTreeModel *model, GtkTreePath *path,
                       GtkTreeIter *iter, gpointer data)
 {
@@ -184,10 +132,20 @@ static gboolean _save(GtkTreeModel *model, GtkTreePath *path,
                       -1);
   if(valid_entry(question, answer, choice, pixmap))
     {
-      tmp = g_strdup_printf("%s/%s/%c/%c/%c",
-			    answer, question,
-			    choice[0], choice[1], choice[2]);
-
+      gchar *str = choice;
+      gchar choices[(MAX_PROPOSAL * 2)+1];
+      int i;
+      choices[0] = '\0';
+      for (i = 0; i < g_utf8_strlen(choice, -1); i++) {
+	gunichar unichar_letter = g_utf8_get_char(str);
+	gchar outbuf[6];
+	outbuf[g_unichar_to_utf8 ( unichar_letter, outbuf)] = '\0';
+	str = g_utf8_next_char(str);
+	g_strlcat(choices, outbuf, MAX_PROPOSAL * 2);
+	g_strlcat(choices, "/", MAX_PROPOSAL * 2);
+      }
+      tmp = g_strdup_printf("%s/%s/%s",
+			    answer, question, choices);
       root =(xmlNodePtr)data;
       node = xmlNewChild(root, NULL, BAD_CAST "Board", NULL);
       xmlNewChild(node, NULL,BAD_CAST "pixmapfile", BAD_CAST pixmap);
@@ -313,30 +271,15 @@ static void text_changed(GtkWidget *widget, gpointer data)
   question = gtk_entry_get_text(u->question);
   answer = gtk_entry_get_text(u->answer);
   choice = gtk_entry_get_text(u->choice);
-
+  u->changed = TRUE;
   if(widget == (GtkWidget*)u->answer)
     {
       if(g_str_has_prefix(answer,question))
         {
-          gtk_entry_set_text(u->question,answer);
+          gtk_entry_set_text(u->question, answer);
         }
     }
-  else if(widget ==(GtkWidget*) u->question)
-    {
-      if(strchr(question, '_'))
-        {
-          gchar ** split = g_strsplit(question,"_",2);
-          if(answer[strlen(split[0])]!= choice[0])
-            {
-              gchar *tmp;
-              tmp = g_new0(gchar, 4);
-              tmp[0]= answer[strlen(split[0])];
-              gtk_entry_set_text(u->choice, tmp);
-              g_free(tmp);
-            }
-          g_strfreev(split);
-        }
-    }
+  apply_clicked(NULL, data);
 }
 
 void selection_changed (GtkTreeSelection *selection,gpointer data)
@@ -410,8 +353,8 @@ static void configure_colummns(GtkTreeView *treeview)
 #endif
 }
 
-  void config_missing_letter(GcomprisBoardConf *config)
-  {
+void config_missing_letter(GcomprisBoardConf *config)
+{
     GtkWidget *frame, *view, *pixmap, *question, *answer, *choice;
     GtkWidget *level, *vbox, *hbox, *label;
     GtkWidget *bbox, *button, *table;
@@ -491,24 +434,6 @@ static void configure_colummns(GtkTreeView *treeview)
     g_signal_connect(G_OBJECT(button), "clicked",
                      G_CALLBACK(delete_clicked), (gpointer) conf_data);
 
-    button = gtk_button_new_from_stock(GTK_STOCK_APPLY);
-    gtk_widget_show(button);
-    gtk_container_add(GTK_CONTAINER(bbox), button);
-    g_signal_connect(G_OBJECT(button), "clicked",
-                     G_CALLBACK(apply_clicked), (gpointer) conf_data);
-
-    button = gtk_button_new_from_stock(GTK_STOCK_GO_UP);
-    gtk_widget_show(button);
-    gtk_container_add(GTK_CONTAINER(bbox), button);
-    g_signal_connect(G_OBJECT(button), "clicked",
-                     G_CALLBACK(up_clicked), (gpointer) conf_data);
-
-    button = gtk_button_new_from_stock(GTK_STOCK_GO_DOWN);
-    gtk_widget_show(button);
-    gtk_container_add(GTK_CONTAINER(bbox), button);
-    g_signal_connect(G_OBJECT(button), "clicked",
-                     G_CALLBACK(down_clicked), (gpointer) conf_data);
-
     button = gtk_button_new_from_stock(GTK_STOCK_SAVE);
     gtk_widget_show(button);
     gtk_container_add(GTK_CONTAINER(bbox), button);
@@ -558,7 +483,7 @@ static void configure_colummns(GtkTreeView *treeview)
     gtk_table_attach_defaults(GTK_TABLE(table), label, 2, 3, 1, 2);
 
     choice = gtk_entry_new();
-    gtk_entry_set_max_length(GTK_ENTRY(choice), 3);
+    gtk_entry_set_max_length(GTK_ENTRY(choice), MAX_PROPOSAL);
     gtk_widget_show(choice);
     gtk_table_attach_defaults(GTK_TABLE(table), choice, 3, 4, 1, 2);
 
@@ -585,7 +510,9 @@ static void configure_colummns(GtkTreeView *treeview)
                      G_CALLBACK(text_changed), (gpointer) conf_data);
     g_signal_connect(G_OBJECT(answer), "changed",
                      G_CALLBACK(text_changed), (gpointer) conf_data);
+    g_signal_connect(G_OBJECT(choice), "changed",
+                     G_CALLBACK(text_changed), (gpointer) conf_data);
 
     gtk_combo_box_set_active(GTK_COMBO_BOX(level), 0);
-  }
+}
 
