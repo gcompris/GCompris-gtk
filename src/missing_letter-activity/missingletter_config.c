@@ -141,10 +141,10 @@ static gboolean _save(GtkTreeModel *model, GtkTreePath *path,
 	gchar outbuf[6];
 	outbuf[g_unichar_to_utf8 ( unichar_letter, outbuf)] = '\0';
 	str = g_utf8_next_char(str);
-	g_strlcat(choices, outbuf, MAX_PROPOSAL * 2);
 	g_strlcat(choices, "/", MAX_PROPOSAL * 2);
+	g_strlcat(choices, outbuf, MAX_PROPOSAL * 2);
       }
-      tmp = g_strdup_printf("%s/%s/%s",
+      tmp = g_strdup_printf("%s/%s%s",
 			    answer, question, choices);
       root =(xmlNodePtr)data;
       node = xmlNewChild(root, NULL, BAD_CAST "Board", NULL);
@@ -243,9 +243,9 @@ static void level_changed(GtkComboBox *combo, gpointer data)
 					 NULL);
 
       tmp[0] = '\0';
-      while(b->text[i])
+      while(b->choices[i])
 	{
-	  g_strlcat(tmp, b->text[i], MAX_PROPOSAL);
+	  g_strlcat(tmp, b->choices[i], MAX_PROPOSAL);
 	  i++;
 	}
       gtk_list_store_append(ls, &iter);

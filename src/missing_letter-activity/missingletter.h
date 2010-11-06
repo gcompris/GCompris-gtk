@@ -24,12 +24,13 @@ extern GcomprisBoard *gcomprisBoard_missing;
 gboolean              missing_read_xml_file(char *fname, GList**);
 void                  missing_destroy_board_list(GList *);
 
-#define MAX_PROPOSAL 6 * 2 /* Counting UTF-8 char */
+#define MAX_PROPOSAL (6 * 2) /* Counting UTF-8 char */
 typedef struct _Board {
   gchar *pixmapfile;
   gchar *question;
   gchar *answer;
-  gchar *text[MAX_PROPOSAL + 1];
+  gchar *choices[MAX_PROPOSAL + 1];
+  gchar *text[MAX_PROPOSAL + 1]; /* Same as choices but randomized */
   guint solution;
 } Board;
 

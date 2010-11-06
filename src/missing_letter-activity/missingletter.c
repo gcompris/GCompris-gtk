@@ -549,9 +549,11 @@ add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GList **list)
 	board->question = g_strdup(all_answer[i++]);
 	board->solution = 0;
 
-	while(all_answer[i] && text_index < MAX_PROPOSAL)
+	printf("%s %s\n", board->answer, board->question);
+	while(all_answer[i] && text_index < MAX_PROPOSAL + 2)
 	  {
 	    board->text[text_index++] = g_strdup(all_answer[i++]);
+	    board->choices[text_index++] = g_strdup(all_answer[i++]);
 	  }
 
 	g_strfreev(all_answer);
@@ -662,7 +664,10 @@ destroy_board(Board * board)
   g_free(board->answer);
   g_free(board->question);
   while(board->text[i])
-    g_free(board->text[i++]);
+    {
+      g_free(board->text[i++]);
+      g_free(board->choices[i++]);
+    }
 
   g_free(board);
 }
