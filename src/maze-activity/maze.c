@@ -190,7 +190,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     gc_set_default_background(goo_canvas_get_root_item(gcomprisBoard->canvas));
 
     gcomprisBoard->level=1;
-    gcomprisBoard->maxlevel=9;
+    gcomprisBoard->maxlevel=20;
 
     /* The mode defines if we run 2D or 3D */
     /* Default mode is 2D */
@@ -317,7 +317,7 @@ static void maze_next_level() {
   threeDactive=FALSE;
 
   if (gcomprisBoard->level==1) run_fast=FALSE;
-  if (gcomprisBoard->level==4) run_fast=TRUE;
+  if (gcomprisBoard->level==14) run_fast=TRUE;
 
   update_tux(viewing_direction);
 
@@ -329,80 +329,179 @@ static void maze_next_level() {
 static void setlevelproperties(){
   if (gcomprisBoard->level==1)
     {
-      breedte=5;
+      breedte=4;
       hoogte=4;
-      cellsize=70;
+      cellsize=90;
       buffer=8;
-
       board_border_x=(int) (BASE_X2-breedte*cellsize)/2;
       board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;
     }
   else if (gcomprisBoard->level==2)
     {
-
-      breedte=9;
-      hoogte=6;
-      cellsize=70;
-      buffer=7;
+      breedte=5;
+      hoogte=4;
+      cellsize=88;
+      buffer=8;
       board_border_x=(int) (BASE_X2-breedte*cellsize)/2;
       board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;
     }
   else if (gcomprisBoard->level==3)
     {
-      breedte=13;
-      hoogte=8;
-      cellsize=55;
-      buffer=6;
+      breedte=5;
+      hoogte=5;
+      cellsize=85;
+      buffer=8;
       board_border_x=(int) (BASE_X2-breedte*cellsize)/2;
       board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;
     }
   else if (gcomprisBoard->level==4)
     {
-      breedte=17;
-      hoogte=10;
-      cellsize=45;
-      buffer=5;
+      breedte=6;
+      hoogte=5;
+      cellsize=80;
+      buffer=8;
       board_border_x=(int) (BASE_X2-breedte*cellsize)/2;
       board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;
     }
   else if (gcomprisBoard->level==5)
     {
-      breedte=21;
-      hoogte=12;
-      cellsize=35;
-      buffer=4;
+      breedte=6;
+      hoogte=6;
+      cellsize=70;
+      buffer=8;
       board_border_x=(int) (BASE_X2-breedte*cellsize)/2;
       board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;
     }
   else if (gcomprisBoard->level==6)
     {
-      breedte=25;
-      hoogte=14;
-      cellsize=30;
+      breedte=6;
+      hoogte=7;
+      cellsize=65;
+      buffer=8;
       board_border_x=(int) (BASE_X2-breedte*cellsize)/2;
       board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;
     }
   else if (gcomprisBoard->level==7)
     {
-      breedte=29;
-      hoogte=16;
-      cellsize=25;
+      breedte=7;
+      hoogte=7;
+      cellsize=65;
+      buffer=2;
       board_border_x=(int) (BASE_X2-breedte*cellsize)/2;
       board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;
     }
   else if (gcomprisBoard->level==8)
     {
-      breedte=33;
-      hoogte=18;
-      cellsize=23;
+      breedte=8;
+      hoogte=7;
+      cellsize=65;
+      buffer=5;
       board_border_x=(int) (BASE_X2-breedte*cellsize)/2;
       board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;
     }
   else if (gcomprisBoard->level==9)
     {
-      breedte=37;
-      hoogte=20;
-      cellsize=20;
+      breedte=8;
+      hoogte=8;
+      cellsize=55;
+      buffer=5;
+      board_border_x=(int) (BASE_X2-breedte*cellsize)/2;
+      board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;
+    }
+  else if (gcomprisBoard->level==10)
+    {
+      breedte=9;
+      hoogte=8;
+      cellsize=55;
+      buffer=4;
+      board_border_x=(int) (BASE_X2-breedte*cellsize)/2;
+      board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;
+    }
+  else if (gcomprisBoard->level==11)
+    {
+      breedte=9;
+      hoogte=9;
+      cellsize=50;
+      buffer=8;
+      board_border_x=(int) (BASE_X2-breedte*cellsize)/2;
+      board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;
+    }
+  else if (gcomprisBoard->level==12)
+    {
+      breedte=10;
+      hoogte=9;
+      cellsize=50;
+      buffer=8;
+      board_border_x=(int) (BASE_X2-breedte*cellsize)/2;
+      board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;
+    }
+  else if (gcomprisBoard->level==13)
+    {
+      breedte=10;
+      hoogte=10;
+      cellsize=45;
+      buffer=8;
+      board_border_x=(int) (BASE_X2-breedte*cellsize)/2;
+      board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;
+    }
+  else if (gcomprisBoard->level==14)
+    {
+      breedte=8;
+      hoogte=16;
+      cellsize=28;
+      buffer=2;
+      board_border_x=(int) (BASE_X2-breedte*cellsize)/2;
+      board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;
+    }
+  else if (gcomprisBoard->level==15)
+    {
+      breedte=14;
+      hoogte=14;
+      cellsize=30;
+      buffer=4;
+      board_border_x=(int) (BASE_X2-breedte*cellsize)/2;
+      board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;
+    }
+  else if (gcomprisBoard->level==16)
+    {
+      breedte=16;
+      hoogte=15;
+      cellsize=28;
+      buffer=3;
+      board_border_x=(int) (BASE_X2-breedte*cellsize)/2;
+      board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;
+    }
+  else if (gcomprisBoard->level==17)
+    {
+      breedte=17;
+      hoogte=16;
+      cellsize=28;
+      board_border_x=(int) (BASE_X2-breedte*cellsize)/2;
+      board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;
+    }
+  else if (gcomprisBoard->level==18)
+    {
+      breedte=18;
+      hoogte=17;
+      cellsize=25;
+      board_border_x=(int) (BASE_X2-breedte*cellsize)/2;
+      board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;
+    }
+  else if (gcomprisBoard->level==19)
+    {
+      breedte=19;
+      hoogte=18;
+      cellsize=24;
+      buffer=8;
+      board_border_x=(int) (BASE_X2-breedte*cellsize)/2;
+      board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;
+    }
+  else if (gcomprisBoard->level==20)
+    {
+      breedte=19;
+      hoogte=19;
+      cellsize=24;
+      buffer=8;
       board_border_x=(int) (BASE_X2-breedte*cellsize)/2;
       board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;
     }
