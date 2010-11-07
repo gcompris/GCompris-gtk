@@ -71,36 +71,41 @@ static gboolean valid_entry(const gchar *question, const gchar *answer,
   g_assert(question);
   g_assert(answer);
   g_assert(choice);
-  g_assert(pixmap);
+
+  if(pixmap == NULL)
+    {
+      error = _("Please select an image.");
+      goto error;
+    }
 
   if ( strlen(choice) == 0 )
     {
-      error = "Choice cannot be empty";
+      error = _("Choice cannot be empty.");
       goto error;
     }
 
   if ( strlen(question) == 0 )
     {
-      error = "Question cannot be empty";
+      error = _("Question cannot be empty.");
       goto error;
     }
 
   if ( strchr(question, '_') == NULL )
     {
-      error = "Question must include the character '_'. "
-	"It represent the letter to search";
+      error = _("Question must include the character '_'. "
+		"It represent the letter to search.");
       goto error;
     }
 
   if ( strlen(pixmap) == 0 )
     {
-      error = "Pixmap cannot be empty";
+      error = _("Pixmap cannot be empty");
       goto error;
     }
 
   if ( g_utf8_strlen(choice, -1) < 2 )
     {
-      error = "There must be at least 2 choices";
+      error = _("There must be at least 2 choices.");
       goto error;
     }
 
@@ -108,8 +113,8 @@ static gboolean valid_entry(const gchar *question, const gchar *answer,
   if ( ! g_str_has_prefix(answer, split[0]) ||
        ! g_str_has_suffix(answer, split[1]) )
     {
-      error = "The answer and question must be the same "
-	"except for the character '_'";
+      error = _("The answer and question must be the same "
+		"except for the character '_'.");
       g_strfreev(split);
       goto error;
     }
@@ -117,8 +122,8 @@ static gboolean valid_entry(const gchar *question, const gchar *answer,
   /* FIXME: Should manage UTF8 here */
   if ( choice[0] != answer[strlen(split[0])] )
     {
-      error = "The first choice must be the solution "
-	"that replaces the character '_'";
+      error = _("The first choice must be the solution "
+		"that replaces the character '_'.");
       g_strfreev(split);
       goto error;
     }
@@ -132,8 +137,8 @@ static gboolean valid_entry(const gchar *question, const gchar *answer,
 			    GTK_DIALOG_DESTROY_WITH_PARENT,
 			    GTK_MESSAGE_ERROR,
 			    GTK_BUTTONS_CLOSE,
-			    "Invalid entry:\n"
-			    "Question '%s' / Answer '%s'\n%s",
+			    _("Invalid entry:\n"
+			      "Question '%s' / Answer '%s'\n%s"),
 			    question, answer,
 			    error);
   gtk_dialog_run (GTK_DIALOG (dialog));
