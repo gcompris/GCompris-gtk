@@ -274,7 +274,6 @@ void gc_cache_add(gchar *filename)
 
 gchar* gc_cache_import_pixmap(gchar *filename, gchar *boarddir, gint width, gint height)
 {
-#ifdef USE_GNET
   GdkPixbuf *pixmap;
   gchar *basename, *file, *ext, *name, *abs;
 
@@ -309,9 +308,6 @@ gchar* gc_cache_import_pixmap(gchar *filename, gchar *boarddir, gint width, gint
   g_free(basename);
   g_free(file);
   return name;
-#else
-  return NULL;
-#endif
 }
 
 void gc_cache_remove(gchar *filename)
