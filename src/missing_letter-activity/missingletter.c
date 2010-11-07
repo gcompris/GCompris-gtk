@@ -549,7 +549,6 @@ add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GList **list)
 	board->question = g_strdup(all_answer[i++]);
 	board->solution = 0;
 
-	printf("%s %s\n", board->answer, board->question);
 	while(all_answer[i] && text_index < MAX_PROPOSAL + 2)
 	  {
 	    board->text[text_index] = g_strdup(all_answer[i]);

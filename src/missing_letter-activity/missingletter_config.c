@@ -66,6 +66,7 @@ static gboolean valid_entry(const gchar *question, const gchar *answer,
   gboolean result=FALSE;
   gchar **split;
   gchar *error;
+  GtkWidget *dialog;
 
   g_assert(question);
   g_assert(answer);
@@ -97,7 +98,7 @@ static gboolean valid_entry(const gchar *question, const gchar *answer,
       goto error;
     }
 
-  if ( strlen(choice) < 3 )
+  if ( g_utf8_strlen(choice, -1) < 2 )
     {
       error = "There must be at least 2 choices";
       goto error;
@@ -113,14 +114,30 @@ static gboolean valid_entry(const gchar *question, const gchar *answer,
       goto error;
     }
 
-  //  if ( strchr(choice, answer[strlen(split[0])]) )
+  /* FIXME: Should manage UTF8 here */
+  if ( choice[0] != answer[strlen(split[0])] )
+    {
+      error = "The first choice must be the solution "
+	"that replaces the character '_'";
+      g_strfreev(split);
+      goto error;
+    }
   g_strfreev(split);
 
   return TRUE;
 
  error:
-    printf("Invalid entry: %s %s: %s\n", question, answer,
-	   error);
+  dialog = \
+    gtk_message_dialog_new (NULL,
+			    GTK_DIALOG_DESTROY_WITH_PARENT,
+			    GTK_MESSAGE_ERROR,
+			    GTK_BUTTONS_CLOSE,
+			    "Invalid entry:\n"
+			    "Question '%s' / Answer '%s'\n%s",
+			    question, answer,
+			    error);
+  gtk_dialog_run (GTK_DIALOG (dialog));
+  gtk_widget_destroy (dialog);
 
   return result;
 }
@@ -138,30 +155,49 @@ static void apply_clicked(gpointer data)
   answer = gtk_entry_get_text(u->answer);
   choice = gtk_entry_get_text(u->choice);
   pixmap = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(u->pixmap));
-  printf("pixmap=%s\n", pixmap);
-  if(valid_entry(question, answer, choice, pixmap))
-    {
-      if (gtk_tree_selection_get_selected (selection, &model, &iter))
-        {
-          pixfile = gc_cache_import_pixmap(pixmap, "missingletter", 300, 300);
-	  printf("pixmap cache=%s\n", pixfile);
-          GdkPixbuf *pixbuf =
-	    gdk_pixbuf_new_from_file_at_size(pixmap, ICON_SIZE,
-					     ICON_SIZE, NULL);
 
-          gtk_list_store_set(GTK_LIST_STORE(model),&iter,
-                             QUESTION_COLUMN, question,
-                             ANSWER_COLUMN, answer,
-                             CHOICE_COLUMN, choice,
-                             PIXMAP_COLUMN, pixmap,
-                             PIXBUF_COLUMN, pixbuf,
-                             -1);
-          u->changed = TRUE;
-          g_free(pixfile);
-          g_object_unref(pixbuf);
-        }
+  if (gtk_tree_selection_get_selected (selection, &model, &iter))
+    {
+      pixfile = gc_cache_import_pixmap(pixmap, "missingletter", 300, 300);
+      GdkPixbuf *pixbuf =
+	gdk_pixbuf_new_from_file_at_size(pixmap, ICON_SIZE,
+					 ICON_SIZE, NULL);
+
+      gtk_list_store_set(GTK_LIST_STORE(model),&iter,
+			 QUESTION_COLUMN, question,
+			 ANSWER_COLUMN, answer,
+			 CHOICE_COLUMN, choice,
+			 PIXMAP_COLUMN, pixfile,
+			 PIXBUF_COLUMN, pixbuf,
+			 -1);
+      u->changed = TRUE;
+      g_free(pixfile);
+      g_object_unref(pixbuf);
     }
   g_free(pixmap);
+}
+
+static gboolean _check_errors(GtkTreeModel *model, GtkTreePath *path,
+			      GtkTreeIter *iter, gpointer data)
+{
+  gchar *question, *answer, *choice, *pixmap;
+  gboolean *has_error = (gboolean*)data;
+
+  gtk_tree_model_get (model, iter,
+                      QUESTION_COLUMN, &question,
+                      ANSWER_COLUMN, &answer,
+                      CHOICE_COLUMN, &choice,
+                      PIXMAP_COLUMN, &pixmap,
+                      -1);
+
+  if( ! valid_entry(question, answer, choice, pixmap))
+    {
+      *has_error = TRUE;
+      /* Don't check more errors */
+      return TRUE;
+    }
+
+  return FALSE;
 }
 
 static gboolean _save(GtkTreeModel *model, GtkTreePath *path,
@@ -177,10 +213,9 @@ static gboolean _save(GtkTreeModel *model, GtkTreePath *path,
                       CHOICE_COLUMN, &choice,
                       PIXMAP_COLUMN, &pixmap,
                       -1);
-  printf("saving %s/%s/%s/%s\n", question, answer, choice, pixmap);
+
   if(valid_entry(question, answer, choice, pixmap))
     {
-      printf("saving2 %s\n", question);
       gchar *str = choice;
       gchar choices[(MAX_PROPOSAL * 2)+1];
       int i;
@@ -225,6 +260,12 @@ static void save_clicked(GtkButton *b, gpointer data)
   doc = xmlNewDoc(BAD_CAST XML_DEFAULT_VERSION);
   root = xmlNewNode(NULL, BAD_CAST "missing_letter");
   xmlDocSetRootElement(doc,root);
+
+  gboolean has_error = FALSE;
+  gtk_tree_model_foreach(model, _check_errors, &has_error);
+
+  if (has_error)
+    return;
 
   gtk_tree_model_foreach(model, _save, root);
 
@@ -386,7 +427,7 @@ static void configure_colummns(GtkTreeView *treeview)
   column = gtk_tree_view_column_new_with_attributes(_("Choice"),
                                                     renderer, "text", CHOICE_COLUMN, NULL);
   gtk_tree_view_append_column(treeview, column);
-#if 1
+#if 0
   /* pixmap column (debug only)*/
   renderer = gtk_cell_renderer_text_new();
   column = gtk_tree_view_column_new_with_attributes("File",
