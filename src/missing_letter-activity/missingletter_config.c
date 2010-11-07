@@ -12,6 +12,7 @@ typedef struct
     GtkFileChooserButton *pixmap;
     GtkEntry *question, *answer, *choice;
     gboolean changed;
+    gboolean inprocess;
   } _config_missing;
 
 enum
@@ -59,27 +60,72 @@ static void delete_clicked(GtkButton *b, gpointer data)
     }
 }
 
-static gboolean valid_entry(gchar *question, gchar *answer,
-			    gchar *choice, gchar *pixmap)
+static gboolean valid_entry(const gchar *question, const gchar *answer,
+			    const gchar *choice, const gchar *pixmap)
 {
   gboolean result=FALSE;
   gchar **split;
+  gchar *error;
 
-  if(choice && question && answer && pixmap &&
-     strlen(choice) >= 3 && strlen(question) && strlen(answer)
-     && strchr(question, '_'))
+  g_assert(question);
+  g_assert(answer);
+  g_assert(choice);
+  g_assert(pixmap);
+
+  if ( strlen(choice) == 0 )
     {
-      split = g_strsplit(question, "_", 2);
-      if ( g_str_has_prefix(answer, split[0]) &&
-	   g_str_has_suffix(answer, split[1]) &&
-	   strchr(choice, answer[strlen(split[0])]) )
-        result = TRUE;
-      g_strfreev(split);
+      error = "Choice cannot be empty";
+      goto error;
     }
+
+  if ( strlen(question) == 0 )
+    {
+      error = "Question cannot be empty";
+      goto error;
+    }
+
+  if ( strchr(question, '_') == NULL )
+    {
+      error = "Question must include the character '_'. "
+	"It represent the letter to search";
+      goto error;
+    }
+
+  if ( strlen(pixmap) == 0 )
+    {
+      error = "Pixmap cannot be empty";
+      goto error;
+    }
+
+  if ( strlen(choice) < 3 )
+    {
+      error = "There must be at least 2 choices";
+      goto error;
+    }
+
+  split = g_strsplit(question, "_", 2);
+  if ( ! g_str_has_prefix(answer, split[0]) ||
+       ! g_str_has_suffix(answer, split[1]) )
+    {
+      error = "The answer and question must be the same "
+	"except for the character '_'";
+      g_strfreev(split);
+      goto error;
+    }
+
+  //  if ( strchr(choice, answer[strlen(split[0])]) )
+  g_strfreev(split);
+
+  return TRUE;
+
+ error:
+    printf("Invalid entry: %s %s: %s\n", question, answer,
+	   error);
+
   return result;
 }
 
-static void apply_clicked(GtkButton *b, gpointer data)
+static void apply_clicked(gpointer data)
 {
   _config_missing *u = (_config_missing*)data;
   const gchar *question, *answer, *choice;
@@ -92,12 +138,13 @@ static void apply_clicked(GtkButton *b, gpointer data)
   answer = gtk_entry_get_text(u->answer);
   choice = gtk_entry_get_text(u->choice);
   pixmap = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(u->pixmap));
-
-  if(valid_entry((gchar*)question, (gchar*) answer, (gchar*)choice, pixmap))
+  printf("pixmap=%s\n", pixmap);
+  if(valid_entry(question, answer, choice, pixmap))
     {
       if (gtk_tree_selection_get_selected (selection, &model, &iter))
         {
           pixfile = gc_cache_import_pixmap(pixmap, "missingletter", 300, 300);
+	  printf("pixmap cache=%s\n", pixfile);
           GdkPixbuf *pixbuf =
 	    gdk_pixbuf_new_from_file_at_size(pixmap, ICON_SIZE,
 					     ICON_SIZE, NULL);
@@ -106,7 +153,7 @@ static void apply_clicked(GtkButton *b, gpointer data)
                              QUESTION_COLUMN, question,
                              ANSWER_COLUMN, answer,
                              CHOICE_COLUMN, choice,
-                             PIXMAP_COLUMN, pixfile,
+                             PIXMAP_COLUMN, pixmap,
                              PIXBUF_COLUMN, pixbuf,
                              -1);
           u->changed = TRUE;
@@ -130,8 +177,10 @@ static gboolean _save(GtkTreeModel *model, GtkTreePath *path,
                       CHOICE_COLUMN, &choice,
                       PIXMAP_COLUMN, &pixmap,
                       -1);
+  printf("saving %s/%s/%s/%s\n", question, answer, choice, pixmap);
   if(valid_entry(question, answer, choice, pixmap))
     {
+      printf("saving2 %s\n", question);
       gchar *str = choice;
       gchar choices[(MAX_PROPOSAL * 2)+1];
       int i;
@@ -266,20 +315,11 @@ static void text_changed(GtkWidget *widget, gpointer data)
 {
   _config_missing *u = (_config_missing*)data;
 
-  const gchar *question, *answer, *choice;
+  if (u->inprocess)
+    return;
 
-  question = gtk_entry_get_text(u->question);
-  answer = gtk_entry_get_text(u->answer);
-  choice = gtk_entry_get_text(u->choice);
   u->changed = TRUE;
-  if(widget == (GtkWidget*)u->answer)
-    {
-      if(g_str_has_prefix(answer,question))
-        {
-          gtk_entry_set_text(u->question, answer);
-        }
-    }
-  apply_clicked(NULL, data);
+  apply_clicked(data);
 }
 
 void selection_changed (GtkTreeSelection *selection,gpointer data)
@@ -297,11 +337,13 @@ void selection_changed (GtkTreeSelection *selection,gpointer data)
                           CHOICE_COLUMN, &choice,
                           PIXMAP_COLUMN, &pixmap,
                           -1);
+      u->inprocess = TRUE;
       gtk_entry_set_text(u->question, question);
       gtk_entry_set_text(u->answer, answer);
       gtk_entry_set_text(u->choice, choice);
       pixfile = gc_file_find_absolute(pixmap);
       gtk_file_chooser_set_filename(GTK_FILE_CHOOSER(u->pixmap), pixfile);
+      u->inprocess = FALSE;
 
       g_free(question);
       g_free(answer);
@@ -344,10 +386,10 @@ static void configure_colummns(GtkTreeView *treeview)
   column = gtk_tree_view_column_new_with_attributes(_("Choice"),
                                                     renderer, "text", CHOICE_COLUMN, NULL);
   gtk_tree_view_append_column(treeview, column);
-#if 0
+#if 1
   /* pixmap column (debug only)*/
   renderer = gtk_cell_renderer_text_new();
-  column = gtk_tree_view_column_new_with_attributes("File"),
+  column = gtk_tree_view_column_new_with_attributes("File",
                                                     renderer, "text", PIXMAP_COLUMN, NULL);
   gtk_tree_view_append_column(treeview, column);
 #endif
@@ -511,6 +553,8 @@ void config_missing_letter(GcomprisBoardConf *config)
     g_signal_connect(G_OBJECT(answer), "changed",
                      G_CALLBACK(text_changed), (gpointer) conf_data);
     g_signal_connect(G_OBJECT(choice), "changed",
+                     G_CALLBACK(text_changed), (gpointer) conf_data);
+    g_signal_connect(G_OBJECT(pixmap), "file-set",
                      G_CALLBACK(text_changed), (gpointer) conf_data);
 
     gtk_combo_box_set_active(GTK_COMBO_BOX(level), 0);
