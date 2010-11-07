@@ -564,6 +564,9 @@ void config_missing_letter(GcomprisBoardConf *config)
     question = gtk_entry_new();
     gtk_widget_show(question);
     gtk_table_attach_defaults(GTK_TABLE(table), question, 1, 2, 1, 2);
+    gtk_widget_set_tooltip_text(question,
+				_("Replace the letter to guess "
+				  "by the character '_'.") );
 
     /* choice */
     label = gtk_label_new(_("Choice"));
@@ -574,6 +577,8 @@ void config_missing_letter(GcomprisBoardConf *config)
     gtk_entry_set_max_length(GTK_ENTRY(choice), MAX_PROPOSAL);
     gtk_widget_show(choice);
     gtk_table_attach_defaults(GTK_TABLE(table), choice, 3, 4, 1, 2);
+    gtk_widget_set_tooltip_text(choice, _("Enter here the letter that will be proposed. "
+					  "The first letter here must be the solution"));
 
     conf_data -> combo_level = GTK_COMBO_BOX(level);
     conf_data -> view = GTK_TREE_VIEW(view);
