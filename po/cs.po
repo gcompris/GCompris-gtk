@@ -13,15 +13,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris gnome-master\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-31 12:41+0100\n"
-"PO-Revision-Date: 2010-10-29 13:06+0200\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=gcompris&component=general\n"
+"POT-Creation-Date: 2010-11-07 16:37+0000\n"
+"PO-Revision-Date: 2010-11-02 09:55+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
-"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Poedit-Language: Czech\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -2411,6 +2412,8 @@ msgid "Gizah Pyramids, Egypt"
 msgstr "Pyramidy v Gíze, Egypt"
 
 #: ../src/details-activity/resources/details/board2_11.xml.in.h:1
+#, fuzzy
+#| msgid "Sydney Opera House, Austriala"
 msgid "Sydney Opera House, Australia"
 msgstr "Budova opery v Sydney, Austrálie"
 
@@ -4163,7 +4166,7 @@ msgstr "AÁBCČDĎEÉĚFGHIÍJKLMNŇOÓPQRŘSŠTŤUÚŮVWXYÝZŽ"
 #. we can add what you want in it.
 #: ../src/gletters-activity/gletters.c:850
 #: ../src/imageid-activity/imageid.c:712 ../src/login-activity/login.py:479
-#: ../src/missing_letter-activity/missingletter.c:748
+#: ../src/missing_letter-activity/missingletter.c:752
 #: ../src/pythontest-activity/pythontest.py:454
 #: ../src/readingh-activity/reading.c:878
 #: ../src/scalesboard-activity/scale.c:1161
@@ -4635,7 +4638,7 @@ msgstr ""
 "příliš mnoho voleb."
 
 #: ../src/imageid-activity/imageid.c:534
-#: ../src/missing_letter-activity/missingletter.c:568
+#: ../src/missing_letter-activity/missingletter.c:569
 msgid "Data file for this level is not properly formatted."
 msgstr "Datový soubor pro tuto úroveň není správně naformátovaný."
 
@@ -5006,8 +5009,8 @@ msgstr "Přihlašovací obrazovka GCompris"
 
 #: ../src/login-activity/login.xml.in.h:3
 msgid ""
-"In order to activate the login screen, you must \n"
-"first add users in the administration part of GCompris. \n"
+"In order to activate the login screen, you must\n"
+"first add users in the administration part of GCompris.\n"
 "You access Administration by running 'gcompris -a'.\n"
 "In Administration, you can create different profiles. In each profile,\n"
 "you can have a different set of users and select which activities are "
@@ -5016,14 +5019,15 @@ msgid ""
 "'profile'\n"
 "is the name of a profile as you created it in Administration."
 msgstr ""
-"Pokud si přejete aktivovat přihlašovací obrazovku,\n"
-"musíte nejprve přidat uživatele v administrační části GComprisu.\n"
+"Pokud si přejete aktivovat přihlašovací obrazovku, musíte\n"
+"nejprve přidat uživatele v administrační části aplikace GCompris.\n"
 "Do administrace se dostanete spuštěním „gcompris -a“.\n"
-"Zde můžete vytvořit rozdílné profily. Každý profil může obsahovat\n"
-"různé skupiny uživatelů a pro ně pak můžete vybírat různé aktivity.\n"
-"Pro spuštění GComprisu v určitém profilu, použijte „gcompris -p profil“, kde "
-"„profil“\n"
-"je jméno profilu, který jste vytvořili v administraci."
+"Zde můžete vytvořit rozdílné profily. Každý profil může obsahovat různé\n"
+"skupiny uživatelů a pro ně pak můžete vybírat, které aktivity budou mít "
+"přístupné.\n"
+"Pro spuštění aplikace GCompris v určitém profilu, použijte „gcompris -p "
+"profil“,\n"
+"kde „profil“ je název profilu, který jste vytvořili v administraci."
 
 #: ../src/login-activity/login.xml.in.h:10
 msgid "Select or enter your name to log in to GCompris"
@@ -5098,14 +5102,14 @@ msgstr "Bludiště"
 msgid "Find your way out of the maze"
 msgstr "Najdi cestu z bludiště"
 
-#: ../src/maze-activity/maze.c:500
+#: ../src/maze-activity/maze.c:599
 msgid ""
 "Look at your position, then switch back to invisible mode to continue your "
 "moves"
 msgstr ""
 "Podívej se na svou pozici a pro pohyb se přepni zpět do neviditelného režimu"
 
-#: ../src/maze-activity/maze.c:502
+#: ../src/maze-activity/maze.c:601
 msgid ""
 "Look at your position, then switch back to 3D mode to continue your moves"
 msgstr "Podívej se na svou pozici a pro pohyb se přepni zpět do režimu 3D"
@@ -5708,43 +5712,94 @@ msgstr "Procvičení čtecích schopností"
 msgid "Word reading"
 msgstr "Čtení slov"
 
+#: ../src/missing_letter-activity/missingletter_config.c:77
+msgid "Please select an image."
+msgstr ""
+
+#: ../src/missing_letter-activity/missingletter_config.c:83
+msgid "Choice cannot be empty."
+msgstr ""
+
+#: ../src/missing_letter-activity/missingletter_config.c:89
+msgid "Question cannot be empty."
+msgstr ""
+
+#: ../src/missing_letter-activity/missingletter_config.c:95
+msgid ""
+"Question must include the character '_'. It represent the letter to search."
+msgstr ""
+
+#: ../src/missing_letter-activity/missingletter_config.c:102
+msgid "Pixmap cannot be empty"
+msgstr ""
+
+#: ../src/missing_letter-activity/missingletter_config.c:108
+msgid "There must be at least 2 choices."
+msgstr ""
+
+#: ../src/missing_letter-activity/missingletter_config.c:116
+msgid "The answer and question must be the same except for the character '_'."
+msgstr ""
+
+#: ../src/missing_letter-activity/missingletter_config.c:125
+msgid "The first choice must be the solution that replaces the character '_'."
+msgstr ""
+
+#: ../src/missing_letter-activity/missingletter_config.c:140
+#, c-format
+msgid ""
+"Invalid entry:\n"
+"Question '%s' / Answer '%s'\n"
+"%s"
+msgstr ""
+
 #. pixmap
-#: ../src/missing_letter-activity/missingletter_config.c:384
-#: ../src/missing_letter-activity/missingletter_config.c:534
+#: ../src/missing_letter-activity/missingletter_config.c:414
+#: ../src/missing_letter-activity/missingletter_config.c:546
 msgid "Picture"
 msgstr "Obrázek"
 
 #. answer
-#: ../src/missing_letter-activity/missingletter_config.c:390
-#: ../src/missing_letter-activity/missingletter_config.c:525
+#: ../src/missing_letter-activity/missingletter_config.c:420
+#: ../src/missing_letter-activity/missingletter_config.c:537
 msgid "Answer"
 msgstr "Odpověď"
 
 #. question
-#: ../src/missing_letter-activity/missingletter_config.c:396
-#: ../src/missing_letter-activity/missingletter_config.c:548
+#: ../src/missing_letter-activity/missingletter_config.c:426
+#: ../src/missing_letter-activity/missingletter_config.c:560
 msgid "Question"
 msgstr "Otázka"
 
 #. choice
-#: ../src/missing_letter-activity/missingletter_config.c:402
-#: ../src/missing_letter-activity/missingletter_config.c:557
+#: ../src/missing_letter-activity/missingletter_config.c:432
+#: ../src/missing_letter-activity/missingletter_config.c:572
 msgid "Choice"
 msgstr "Na výběr"
 
 #. combo level
-#: ../src/missing_letter-activity/missingletter_config.c:440
+#: ../src/missing_letter-activity/missingletter_config.c:470
 msgid "Level:"
 msgstr "Úroveň:"
 
-#: ../src/missing_letter-activity/missingletter_config.c:448
+#: ../src/missing_letter-activity/missingletter_config.c:478
 #, c-format
 msgid "Level %d"
 msgstr "Úroveň %d"
 
-#: ../src/missing_letter-activity/missingletter_config.c:538
+#: ../src/missing_letter-activity/missingletter_config.c:550
 msgid "Filename:"
 msgstr "Název souboru:"
+
+#: ../src/missing_letter-activity/missingletter_config.c:568
+msgid "Replace the letter to guess by the character '_'."
+msgstr ""
+
+#: ../src/missing_letter-activity/missingletter_config.c:580
+msgid ""
+"Enter here the letter that will be proposed. The first letter here must be "
+"the solution"
+msgstr ""
 
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:1
 msgid "car/c_r/a/k/o"
@@ -7144,39 +7199,7 @@ msgstr "bcdfghjklmnpqrstvwxz"
 msgid "NONE"
 msgstr "a=á c=č d=ď e=éě i=í n=ň o=ó r=ř s=š t=ť u=úů y=ý z=ž"
 
-#: ../src/hangman-activity/hangman.py:105
+#: ../src/hangman-activity/hangman.py:104
 msgid "Could not find the list of words."
 msgstr "Nelze najít seznam slov."
 
-#~ msgid "%s: option `%s' is ambiguous\n"
-#~ msgstr "%s: přepínač „%s“ není jednoznačný\n"
-
-#~ msgid "%s: option `--%s' doesn't allow an argument\n"
-#~ msgstr "%s: přepínač „--%s“ nedovoluje žádný argument\n"
-
-#~ msgid "%s: option `%c%s' doesn't allow an argument\n"
-#~ msgstr "%s: přepínač „%c%s“ nedovoluje žádný argument\n"
-
-#~ msgid "%s: option `%s' requires an argument\n"
-#~ msgstr "%s: přepínač „%s“ vyžaduje argument\n"
-
-#~ msgid "%s: unrecognized option `--%s'\n"
-#~ msgstr "%s: nerozpoznaný přepínač „--%s“\n"
-
-#~ msgid "%s: unrecognized option `%c%s'\n"
-#~ msgstr "%s: nerozpoznaný přepínač „%c%s“\n"
-
-#~ msgid "%s: illegal option -- %c\n"
-#~ msgstr "%s: nedovolený přepínač -- %c\n"
-
-#~ msgid "%s: invalid option -- %c\n"
-#~ msgstr "%s: neplatný přepínač -- %c\n"
-
-#~ msgid "%s: option requires an argument -- %c\n"
-#~ msgstr "%s: přepínač vyžaduje argument -- %c\n"
-
-#~ msgid "%s: option `-W %s' is ambiguous\n"
-#~ msgstr "%s: přepínač „-W %s“ není jednoznačný\n"
-
-#~ msgid "%s: option `-W %s' doesn't allow an argument\n"
-#~ msgstr "%s: přepínač „-W %s“ nedovoluje žádný argument\n"
