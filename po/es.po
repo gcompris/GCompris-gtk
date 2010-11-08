@@ -14,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&component=general\n"
 "POT-Creation-Date: 2010-11-07 16:37+0000\n"
-"PO-Revision-Date: 2010-11-08 09:48+0100\n"
+"PO-Revision-Date: 2010-11-08 15:29+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -5827,10 +5827,11 @@ msgstr "Deben existir al menos dos opciones."
 #: ../src/missing_letter-activity/missingletter_config.c:116
 msgid "The answer and question must be the same except for the character '_'."
 msgstr ""
+"La respuesta y la pregunta deben ser iguales excepto por el carácter «_»."
 
 #: ../src/missing_letter-activity/missingletter_config.c:125
 msgid "The first choice must be the solution that replaces the character '_'."
-msgstr ""
+msgstr "La primera opción debe ser la solución que reemplaza el carácter «_»."
 
 #: ../src/missing_letter-activity/missingletter_config.c:140
 #, c-format
@@ -5839,6 +5840,9 @@ msgid ""
 "Question '%s' / Answer '%s'\n"
 "%s"
 msgstr ""
+"Entrada no válida:\n"
+"Pregunta «%s» / Respuesta «%s»\n"
+"%s"
 
 #. pixmap
 #: ../src/missing_letter-activity/missingletter_config.c:414
@@ -5880,13 +5884,15 @@ msgstr "Nombre del archivo:"
 
 #: ../src/missing_letter-activity/missingletter_config.c:568
 msgid "Replace the letter to guess by the character '_'."
-msgstr ""
+msgstr "Reemplazar la letra para adivinar por el carácter «_»."
 
 #: ../src/missing_letter-activity/missingletter_config.c:580
 msgid ""
 "Enter here the letter that will be proposed. The first letter here must be "
 "the solution"
 msgstr ""
+"Introducir aquí la letra que se propondrá. La primera letra debe ser la "
+"solución."
 
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:1
 msgid "car/c_r/a/k/o"
