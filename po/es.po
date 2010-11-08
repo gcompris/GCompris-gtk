@@ -13,8 +13,8 @@ msgstr ""
 "Project-Id-Version: gcompris.gcomprixogoo\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&component=general\n"
-"POT-Creation-Date: 2010-10-17 13:15+0000\n"
-"PO-Revision-Date: 2010-10-18 10:11+0200\n"
+"POT-Creation-Date: 2010-11-07 16:37+0000\n"
+"PO-Revision-Date: 2010-11-08 09:48+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -204,7 +204,7 @@ msgstr ""
 msgid "GCompris Main Menu"
 msgstr "Menú principal de GCompris"
 
-#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:875
+#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:876
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -2732,7 +2732,7 @@ msgstr ""
 msgid "Tux needs to water the flowers, but the hose is blocked."
 msgstr "Tux necesita regar las flores, pero la tubería está bloqueada."
 
-#: ../src/gcompris/about.c:50
+#: ../src/gcompris/about.c:49
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge, Yves Combe\n"
@@ -2747,7 +2747,7 @@ msgstr ""
 "Música de fondo: Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:58
+#: ../src/gcompris/about.c:57
 msgid "translator_credits"
 msgstr ""
 "Jorge González <jorgegonz@svn.gnome.org>, 2007-2010\n"
@@ -2756,19 +2756,19 @@ msgstr ""
 "Francisco Javier F- Serrador <serrador@cvs.gnome.org>, 2004-2005\n"
 "Pablo G. del Campo <pablodc@bigfoot.com>, 2003"
 
-#: ../src/gcompris/about.c:85
+#: ../src/gcompris/about.c:84
 msgid "About GCompris"
 msgstr "Acerca de GCompris"
 
-#: ../src/gcompris/about.c:95
+#: ../src/gcompris/about.c:94
 msgid "GCompris Home Page: http://gcompris.net"
 msgstr "Página de GCompris: http://gcompris.net"
 
-#: ../src/gcompris/about.c:106
+#: ../src/gcompris/about.c:105
 msgid "Translators:"
 msgstr "Traductores:"
 
-#: ../src/gcompris/about.c:208
+#: ../src/gcompris/about.c:210
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
@@ -2776,8 +2776,8 @@ msgstr ""
 "Este software es un paquete GNU y se distribuye bajo los términos de la "
 "Licencia Pública General GNU "
 
-#: ../src/gcompris/about.c:222 ../src/gcompris/config.c:442
-#: ../src/gcompris/dialog.c:103 ../src/gcompris/help.c:359
+#: ../src/gcompris/about.c:224 ../src/gcompris/config.c:438
+#: ../src/gcompris/dialog.c:103 ../src/gcompris/help.c:355
 #: ../src/gcompris/images_selector.c:307
 msgid "OK"
 msgstr "Aceptar"
@@ -2798,7 +2798,7 @@ msgstr "Sí, estoy seguro."
 msgid "No, I want to keep going"
 msgstr "No, quiero continuar"
 
-#: ../src/gcompris/board.c:197
+#: ../src/gcompris/board.c:168
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr ""
 "La carga dinámica de módulos no está soportada. GCompris no puede cargar.\n"
@@ -3147,38 +3147,38 @@ msgstr "Usa el módulo de administración de GCompris para filtrar tableros"
 msgid "GCompris Configuration"
 msgstr "Configuración de GCompris"
 
-#: ../src/gcompris/config.c:254
+#: ../src/gcompris/config.c:253
 msgid "Fullscreen"
 msgstr "Pantalla completa"
 
-#: ../src/gcompris/config.c:280
+#: ../src/gcompris/config.c:278
 msgid "Music"
 msgstr "Música"
 
-#: ../src/gcompris/config.c:306
+#: ../src/gcompris/config.c:303
 msgid "Effect"
 msgstr "Efecto"
 
-#: ../src/gcompris/config.c:331 ../src/gcompris/sugar.c:82
+#: ../src/gcompris/config.c:327 ../src/gcompris/sugar.c:82
 msgid "Zoom"
 msgstr "Ampliación"
 
-#: ../src/gcompris/config.c:368
+#: ../src/gcompris/config.c:364
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "No se puede abrir el directorio de apariencias: %s"
 
-#: ../src/gcompris/config.c:399 ../src/gcompris/config.c:757
-#: ../src/gcompris/config.c:771
+#: ../src/gcompris/config.c:395 ../src/gcompris/config.c:753
+#: ../src/gcompris/config.c:767
 #, c-format
 msgid "Skin : %s"
 msgstr "Apariencia : %s"
 
-#: ../src/gcompris/config.c:401
+#: ../src/gcompris/config.c:397
 msgid "SKINS NOT FOUND"
 msgstr "APARIENCIAS NO ENCONTRADAS"
 
-#: ../src/gcompris/config.c:482
+#: ../src/gcompris/config.c:478
 msgid "English (United State)"
 msgstr "Inglés (Estados Unidos)"
 
@@ -3227,12 +3227,10 @@ msgid "run GCompris without sound."
 msgstr "ejecutar GCompris sin sonido."
 
 #: ../src/gcompris/gcompris.c:169
-#| msgid "run GCompris with the default gnome cursor."
 msgid "run GCompris with the default system cursor."
 msgstr "ejecutar GCompris con el cursor predeterminado del sistema."
 
 #: ../src/gcompris/gcompris.c:172
-#| msgid "run GCompris without sound."
 msgid "run GCompris without cursor (touch screen mode)."
 msgstr "ejecutar GCompris sin cursor (modo pantalla táctil)."
 
@@ -3395,7 +3393,7 @@ msgstr ""
 "considera usar GNU/Linux. Obtén más información acerca de esto en la FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1457
+#: ../src/gcompris/gcompris.c:1458
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
@@ -3403,12 +3401,12 @@ msgstr ""
 "No se iniciará GCompris porque el archivo de bloqueo es menos antiguo de %d "
 "segundos.\n"
 
-#: ../src/gcompris/gcompris.c:1459
+#: ../src/gcompris/gcompris.c:1460
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "El archivo de bloqueo es: %s\n"
 
-#: ../src/gcompris/gcompris.c:1573
+#: ../src/gcompris/gcompris.c:1574
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3422,27 +3420,27 @@ msgstr ""
 "Más información en http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1682
+#: ../src/gcompris/gcompris.c:1683
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Usa -l actividad para acceder directamente a una actividad.\n"
 
-#: ../src/gcompris/gcompris.c:1683
+#: ../src/gcompris/gcompris.c:1684
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Lista de actividades disponibles es:\n"
 
-#: ../src/gcompris/gcompris.c:1714
+#: ../src/gcompris/gcompris.c:1715
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Número de actividades: %d\n"
 
-#: ../src/gcompris/gcompris.c:1750
+#: ../src/gcompris/gcompris.c:1751
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s existe pero no se puede leer o escribir"
 
-#: ../src/gcompris/gcompris.c:1813
+#: ../src/gcompris/gcompris.c:1814
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
@@ -3451,7 +3449,7 @@ msgstr ""
 "La opción --server no se puede usar porque GCompris se ha compilado sin "
 "soporte de red"
 
-#: ../src/gcompris/gcompris.c:1867
+#: ../src/gcompris/gcompris.c:1868
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3460,7 +3458,7 @@ msgstr ""
 "ERROR: No se encontró el perfil «%s». Ejecute «gcompris --profile list» para "
 "listar los disponibles\n"
 
-#: ../src/gcompris/gcompris.c:1881
+#: ../src/gcompris/gcompris.c:1882
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "La lista de perfiles disponibles es:\n"
@@ -3482,19 +3480,19 @@ msgstr ""
 "Cargando actividad desde la base de datos:\n"
 "%s"
 
-#: ../src/gcompris/help.c:181
+#: ../src/gcompris/help.c:180
 msgid "Prerequisite"
 msgstr "Prerequisito"
 
-#: ../src/gcompris/help.c:212
+#: ../src/gcompris/help.c:210
 msgid "Goal"
 msgstr "Objetivo"
 
-#: ../src/gcompris/help.c:243
+#: ../src/gcompris/help.c:240
 msgid "Manual"
 msgstr "Manual"
 
-#: ../src/gcompris/help.c:274
+#: ../src/gcompris/help.c:270
 msgid "Credit"
 msgstr "Crédito"
 
@@ -4203,7 +4201,7 @@ msgstr "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
 #. we can add what you want in it.
 #: ../src/gletters-activity/gletters.c:850
 #: ../src/imageid-activity/imageid.c:712 ../src/login-activity/login.py:479
-#: ../src/missing_letter-activity/missingletter.c:748
+#: ../src/missing_letter-activity/missingletter.c:752
 #: ../src/pythontest-activity/pythontest.py:454
 #: ../src/readingh-activity/reading.c:878
 #: ../src/scalesboard-activity/scale.c:1161
@@ -4690,7 +4688,7 @@ msgstr ""
 "proponen demasiadas opciones."
 
 #: ../src/imageid-activity/imageid.c:534
-#: ../src/missing_letter-activity/missingletter.c:568
+#: ../src/missing_letter-activity/missingletter.c:569
 msgid "Data file for this level is not properly formatted."
 msgstr "El archivo de datos para este nivel no está formateado correctamente."
 
@@ -5062,9 +5060,19 @@ msgid "GCompris login screen"
 msgstr "Menú de identificación en GCompris"
 
 #: ../src/login-activity/login.xml.in.h:3
+#| msgid ""
+#| "In order to activate the login screen, you must \n"
+#| "first add users in the administration part of GCompris. \n"
+#| "You access Administration by running 'gcompris -a'.\n"
+#| "In Administration, you can create different profiles. In each profile,\n"
+#| "you can have a different set of users and select which activities are "
+#| "available to them.\n"
+#| "To run GCompris for a specific profile, you use 'gcompris -p profile' "
+#| "where 'profile'\n"
+#| "is the name of a profile as you created it in Administration."
 msgid ""
-"In order to activate the login screen, you must \n"
-"first add users in the administration part of GCompris. \n"
+"In order to activate the login screen, you must\n"
+"first add users in the administration part of GCompris.\n"
 "You access Administration by running 'gcompris -a'.\n"
 "In Administration, you can create different profiles. In each profile,\n"
 "you can have a different set of users and select which activities are "
@@ -5073,16 +5081,16 @@ msgid ""
 "'profile'\n"
 "is the name of a profile as you created it in Administration."
 msgstr ""
-"Para activar la pantalla de identificación, primero debes \n"
-"añadir a los usuarios en el apartado de administración de GCompris. \n"
-"Se accede al apartado de administración ejecutando «gcompris -a».\n"
-"En la administración, puedes crear diferentes perfiles. En cada uno de los "
+"Para activar la pantalla de identificación, primero debes \n"
+"añadir a los usuarios en el apartado de administración de GCompris. \n"
+"Se accede al apartado de administración ejecutando «gcompris -a».\n"
+"En la administración, puedes crear diferentes perfiles. En cada uno de los "
 "perfiles\n"
 "puedes tener un conjunto de usuarios diferente y seleccionar las actividades "
 "que tiene disponible cada uno de ellos.\n"
-"Para iniciar GCompris con un perfil específico, puede ejecutar «gcompris -p "
+"Para iniciar GCompris con un perfil específico, puede ejecutar «gcompris -p "
 "perfil» donde «perfil»\n"
-"es el nombre de un perfil que has creado previamente en la administración."
+"es el nombre de un perfil que has creado previamente en la administración."
 
 #: ../src/login-activity/login.xml.in.h:10
 msgid "Select or enter your name to log in to GCompris"
@@ -5158,7 +5166,7 @@ msgstr "Laberinto"
 msgid "Find your way out of the maze"
 msgstr "Encuentra tu salida del laberinto"
 
-#: ../src/maze-activity/maze.c:500
+#: ../src/maze-activity/maze.c:599
 msgid ""
 "Look at your position, then switch back to invisible mode to continue your "
 "moves"
@@ -5166,7 +5174,7 @@ msgstr ""
 "Mira tu posición, después vuelve a modo invisible para continuar tus "
 "movimientos"
 
-#: ../src/maze-activity/maze.c:502
+#: ../src/maze-activity/maze.c:601
 msgid ""
 "Look at your position, then switch back to 3D mode to continue your moves"
 msgstr ""
@@ -5790,43 +5798,95 @@ msgstr "Entrenamiento de la habilidad de lectura"
 msgid "Word reading"
 msgstr "Lectura de palabras"
 
+#: ../src/missing_letter-activity/missingletter_config.c:77
+msgid "Please select an image."
+msgstr "Selecciona una imagen."
+
+#: ../src/missing_letter-activity/missingletter_config.c:83
+msgid "Choice cannot be empty."
+msgstr "La elección no puede estar vacía."
+
+#: ../src/missing_letter-activity/missingletter_config.c:89
+msgid "Question cannot be empty."
+msgstr "La pregunta no puede estar vacía."
+
+#: ../src/missing_letter-activity/missingletter_config.c:95
+msgid ""
+"Question must include the character '_'. It represent the letter to search."
+msgstr ""
+"La pregunta debe incluir el carácter «_». Representa la letra para buscar."
+
+#: ../src/missing_letter-activity/missingletter_config.c:102
+msgid "Pixmap cannot be empty"
+msgstr "El pixmap no puede estar vacío"
+
+#: ../src/missing_letter-activity/missingletter_config.c:108
+msgid "There must be at least 2 choices."
+msgstr "Deben existir al menos dos opciones."
+
+#: ../src/missing_letter-activity/missingletter_config.c:116
+msgid "The answer and question must be the same except for the character '_'."
+msgstr ""
+
+#: ../src/missing_letter-activity/missingletter_config.c:125
+msgid "The first choice must be the solution that replaces the character '_'."
+msgstr ""
+
+#: ../src/missing_letter-activity/missingletter_config.c:140
+#, c-format
+msgid ""
+"Invalid entry:\n"
+"Question '%s' / Answer '%s'\n"
+"%s"
+msgstr ""
+
 #. pixmap
-#: ../src/missing_letter-activity/missingletter_config.c:384
-#: ../src/missing_letter-activity/missingletter_config.c:534
+#: ../src/missing_letter-activity/missingletter_config.c:414
+#: ../src/missing_letter-activity/missingletter_config.c:546
 msgid "Picture"
 msgstr "Imagen"
 
 #. answer
-#: ../src/missing_letter-activity/missingletter_config.c:390
-#: ../src/missing_letter-activity/missingletter_config.c:525
+#: ../src/missing_letter-activity/missingletter_config.c:420
+#: ../src/missing_letter-activity/missingletter_config.c:537
 msgid "Answer"
 msgstr "Respuesta"
 
 #. question
-#: ../src/missing_letter-activity/missingletter_config.c:396
-#: ../src/missing_letter-activity/missingletter_config.c:548
+#: ../src/missing_letter-activity/missingletter_config.c:426
+#: ../src/missing_letter-activity/missingletter_config.c:560
 msgid "Question"
 msgstr "Pregunta"
 
 #. choice
-#: ../src/missing_letter-activity/missingletter_config.c:402
-#: ../src/missing_letter-activity/missingletter_config.c:557
+#: ../src/missing_letter-activity/missingletter_config.c:432
+#: ../src/missing_letter-activity/missingletter_config.c:572
 msgid "Choice"
 msgstr "Elección"
 
 #. combo level
-#: ../src/missing_letter-activity/missingletter_config.c:440
+#: ../src/missing_letter-activity/missingletter_config.c:470
 msgid "Level:"
 msgstr "Nivel:"
 
-#: ../src/missing_letter-activity/missingletter_config.c:448
+#: ../src/missing_letter-activity/missingletter_config.c:478
 #, c-format
 msgid "Level %d"
 msgstr "Nivel %d"
 
-#: ../src/missing_letter-activity/missingletter_config.c:538
+#: ../src/missing_letter-activity/missingletter_config.c:550
 msgid "Filename:"
 msgstr "Nombre del archivo:"
+
+#: ../src/missing_letter-activity/missingletter_config.c:568
+msgid "Replace the letter to guess by the character '_'."
+msgstr ""
+
+#: ../src/missing_letter-activity/missingletter_config.c:580
+msgid ""
+"Enter here the letter that will be proposed. The first letter here must be "
+"the solution"
+msgstr ""
 
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:1
 msgid "car/c_r/a/k/o"
@@ -6148,11 +6208,11 @@ msgstr ""
 "Este tablero está orientado al juego. No se necesitan habilidades "
 "específicas para jugar."
 
-#: ../src/penalty-activity/penalty.py:294
+#: ../src/penalty-activity/penalty.py:293
 msgid "Click on the balloon to place it again."
 msgstr "Pulsa sobre el globo para volverlo a posicionar."
 
-#: ../src/penalty-activity/penalty.py:296
+#: ../src/penalty-activity/penalty.py:295
 msgid "Click twice on the balloon to shoot it."
 msgstr "Pulsa dos veces sobre el globo para dispararlo."
 
@@ -7263,7 +7323,7 @@ msgstr "bcdfghjklmnñpqrstvwxyz"
 msgid "NONE"
 msgstr "a=á e=é i=Í o=ó u=ú"
 
-#: ../src/hangman-activity/hangman.py:105
+#: ../src/hangman-activity/hangman.py:104
 msgid "Could not find the list of words."
 msgstr "No se pudo encontrar la lista de palabras."
 
