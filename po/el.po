@@ -21,8 +21,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-03 21:24+0200\n"
-"PO-Revision-Date: 2010-10-20 18:43+0300\n"
+"POT-Creation-Date: 2010-11-08 22:19+0200\n"
+"PO-Revision-Date: 2010-11-08 18:44+0200\n"
 "Last-Translator: Yannis Kaskamanidis <kiolalis@gmail.com>\n"
 "Language-Team: Ελληνικά <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
@@ -4287,7 +4287,7 @@ msgstr "ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ"
 #. we can add what you want in it.
 #: ../src/gletters-activity/gletters.c:850
 #: ../src/imageid-activity/imageid.c:712 ../src/login-activity/login.py:479
-#: ../src/missing_letter-activity/missingletter.c:748
+#: ../src/missing_letter-activity/missingletter.c:752
 #: ../src/pythontest-activity/pythontest.py:454
 #: ../src/readingh-activity/reading.c:878
 #: ../src/scalesboard-activity/scale.c:1161
@@ -4787,7 +4787,7 @@ msgstr ""
 "προταθεί πολλές επιλογές."
 
 #: ../src/imageid-activity/imageid.c:534
-#: ../src/missing_letter-activity/missingletter.c:568
+#: ../src/missing_letter-activity/missingletter.c:569
 msgid "Data file for this level is not properly formatted."
 msgstr "Το αρχείο δεδομένων γι' αυτό το επίπεδο δεν έχει μορφοποιηθεί σωστά."
 
@@ -5258,7 +5258,7 @@ msgstr "Λαβύρινθος"
 msgid "Find your way out of the maze"
 msgstr "Βρες το δρόμο που θα σε οδηγήσει έξω από το λαβύρινθο"
 
-#: ../src/maze-activity/maze.c:500
+#: ../src/maze-activity/maze.c:599
 msgid ""
 "Look at your position, then switch back to invisible mode to continue your "
 "moves"
@@ -5266,7 +5266,7 @@ msgstr ""
 "Κοίταξε σε ποια θέση βρίσκεσαι αυτή τη στιγμή  και ξαναγύρνα\n"
 "στην τρισδιάστατη λειτουργία για να συνεχίσεις τις κινήσεις σου"
 
-#: ../src/maze-activity/maze.c:502
+#: ../src/maze-activity/maze.c:601
 msgid ""
 "Look at your position, then switch back to 3D mode to continue your moves"
 msgstr ""
@@ -5903,43 +5903,104 @@ msgstr "Εξάσκηση αναγνωστικών δεξιοτήτων"
 msgid "Word reading"
 msgstr "Ανάγνωση λέξης"
 
+#: ../src/missing_letter-activity/missingletter_config.c:77
+msgid "Please select an image."
+msgstr "Παρακαλώ επίλεξε μια εικόνα."
+
+#: ../src/missing_letter-activity/missingletter_config.c:83
+msgid "Choice cannot be empty."
+msgstr "Η επιλογή δεν μπορεί να είναι κενή."
+
+#: ../src/missing_letter-activity/missingletter_config.c:89
+msgid "Question cannot be empty."
+msgstr "Η ερώτηση δεν μπορεί να είναι κενή."
+
+#: ../src/missing_letter-activity/missingletter_config.c:95
+msgid ""
+"Question must include the character '_'. It represent the letter to search."
+msgstr ""
+"Η ερώτηση πρέπει να περιλαμβάνει τον χαρακτήρα '_'. Αναπαριστά το προς "
+"αναζήτηση γράμμα."
+
+#: ../src/missing_letter-activity/missingletter_config.c:102
+msgid "Pixmap cannot be empty"
+msgstr "Το Pixmap δεν μπορεί να είναι κενό."
+
+#: ../src/missing_letter-activity/missingletter_config.c:108
+msgid "There must be at least 2 choices."
+msgstr "Πρέπει να υπάρχουν το λιγότερο δύο επιλογές."
+
+#: ../src/missing_letter-activity/missingletter_config.c:116
+msgid "The answer and question must be the same except for the character '_'."
+msgstr ""
+"Η απάντηση και η ερώτηση πρέπει να είναι ίδιες, εκτός αν πρόκειται για τον "
+"χαρακτήρα '_'."
+
+#: ../src/missing_letter-activity/missingletter_config.c:125
+msgid "The first choice must be the solution that replaces the character '_'."
+msgstr ""
+"Η πρώτη επιλογή πρέπει να είναι η λύση που αντικαθιστά τον χαρακτήρα '_'."
+
+#: ../src/missing_letter-activity/missingletter_config.c:140
+#, c-format
+msgid ""
+"Invalid entry:\n"
+"Question '%s' / Answer '%s'\n"
+"%s"
+msgstr ""
+"Μη έγκυρη καταχώρηση:\n"
+"Ερώτηση '%s' / Απάντηση '%s'\n"
+"%s"
+
 #. pixmap
-#: ../src/missing_letter-activity/missingletter_config.c:384
-#: ../src/missing_letter-activity/missingletter_config.c:534
+#: ../src/missing_letter-activity/missingletter_config.c:414
+#: ../src/missing_letter-activity/missingletter_config.c:546
 msgid "Picture"
 msgstr "Εικόνα"
 
 #. answer
-#: ../src/missing_letter-activity/missingletter_config.c:390
-#: ../src/missing_letter-activity/missingletter_config.c:525
+#: ../src/missing_letter-activity/missingletter_config.c:420
+#: ../src/missing_letter-activity/missingletter_config.c:537
 msgid "Answer"
 msgstr "Απάντηση"
 
 #. question
-#: ../src/missing_letter-activity/missingletter_config.c:396
-#: ../src/missing_letter-activity/missingletter_config.c:548
+#: ../src/missing_letter-activity/missingletter_config.c:426
+#: ../src/missing_letter-activity/missingletter_config.c:560
 msgid "Question"
 msgstr "Ερώτηση"
 
 #. choice
-#: ../src/missing_letter-activity/missingletter_config.c:402
-#: ../src/missing_letter-activity/missingletter_config.c:557
+#: ../src/missing_letter-activity/missingletter_config.c:432
+#: ../src/missing_letter-activity/missingletter_config.c:572
 msgid "Choice"
 msgstr "Επιλογή"
 
 #. combo level
-#: ../src/missing_letter-activity/missingletter_config.c:440
+#: ../src/missing_letter-activity/missingletter_config.c:470
 msgid "Level:"
 msgstr "Επίπεδο:"
 
-#: ../src/missing_letter-activity/missingletter_config.c:448
+#: ../src/missing_letter-activity/missingletter_config.c:478
 #, c-format
 msgid "Level %d"
 msgstr "Επίπεδο %d"
 
-#: ../src/missing_letter-activity/missingletter_config.c:538
+#: ../src/missing_letter-activity/missingletter_config.c:550
 msgid "Filename:"
 msgstr "Όνομα αρχείου:"
+
+#: ../src/missing_letter-activity/missingletter_config.c:568
+msgid "Replace the letter to guess by the character '_'."
+msgstr "Αντικαταστήστε το γράμμα για να μαντέψετε με τον χαρακτήρα '_'."
+
+#: ../src/missing_letter-activity/missingletter_config.c:580
+msgid ""
+"Enter here the letter that will be proposed. The first letter here must be "
+"the solution"
+msgstr ""
+"Γράψε εδώ το γράμμα που θα προτείνενις. Το πρώτο γράμμα εδώ θα πρέπει να "
+"είναι η λύση."
 
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:1
 msgid "car/c_r/a/k/o"
