@@ -92,6 +92,7 @@ void gc_dialog(gchar *str, DialogBoxCallBack dbcb)
 		       BOARDWIDTH / 2,
 		       GTK_ANCHOR_CENTER,
 		       "alignment", PANGO_ALIGN_CENTER,
+		       "font", gc_skin_font_content,
 		       NULL);
 
 
