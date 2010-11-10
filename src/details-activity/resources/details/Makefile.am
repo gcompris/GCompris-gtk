@@ -1,4 +1,4 @@
-xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/babyshapes
+xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/details
 
 xml_in_files = \
 	board1_0.xml.in \
