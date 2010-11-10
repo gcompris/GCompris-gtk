@@ -156,6 +156,7 @@ gc_prop_new ()
   tmp->difficulty_filter = 1;				/* No difficulty filter by default */
   tmp->disable_quit      = 0;				/* Used to remove the quit button from the bar. Use it for kiosk mode */
   tmp->disable_config    = 0;				/* Used to remove the config button from the bar. Use it for kiosk mode */
+  tmp->disable_level     = 0;				/* Used to remove the level button from the bar */
   tmp->display_resource  = 0;
   tmp->root_menu         = g_strdup("/");
   tmp->profile           = NULL;
@@ -398,6 +399,9 @@ gc_prop_load (GcomprisProperties *props, GCPropSourceConf source_conf)
 	    g_warning("Config file parsing error on token %s", token);
 	} else if(!strcmp(value.v_identifier, "disable_config")) {
 	  if(!scan_get_int(scanner, &props->disable_config))
+	    g_warning("Config file parsing error on token %s", token);
+	} else if(!strcmp(value.v_identifier, "disable_level")) {
+	  if(!scan_get_int(scanner, &props->disable_level))
 	    g_warning("Config file parsing error on token %s", token);
 	} else if(!strcmp(value.v_identifier, "filter_style")) {
 	  if(!scan_get_int(scanner, &props->filter_style))

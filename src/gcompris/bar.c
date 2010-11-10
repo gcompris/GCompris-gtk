@@ -216,8 +216,8 @@ bar_start (GooCanvas *theCanvas)
   // LEVEL (Multiple buttons for this one)
   GooCanvasItem *rootitem_level = goo_canvas_group_new (rootitem, NULL);
   g_object_set (rootitem_level,
-                "visibility", GOO_CANVAS_ITEM_INVISIBLE,
-                NULL);
+		"visibility", GOO_CANVAS_ITEM_VISIBLE,
+		NULL);
   g_object_set_data (G_OBJECT(rootitem_level), "flag",
 		     GUINT_TO_POINTER(GC_BAR_LEVEL));
   buttons = g_slist_append(buttons, rootitem_level);
@@ -228,30 +228,34 @@ bar_start (GooCanvas *theCanvas)
 				   "#LEVEL_DOWN");
 
   g_object_set (item,
-                "visibility", GOO_CANVAS_ITEM_VISIBLE,
-                NULL);
+		"visibility", (properties->disable_level ?
+			       GOO_CANVAS_ITEM_INVISIBLE :
+			       GOO_CANVAS_ITEM_VISIBLE),
+		NULL);
 
   item = new_button(rootitem_level,
 		    svg_handle,
-                    GC_BAR_LEVEL,
-                    "#LEVEL_UP");
+		    GC_BAR_LEVEL,
+		    "#LEVEL_UP");
   goo_canvas_item_translate(item, 50, 0);
   g_object_set (item,
-                "visibility", GOO_CANVAS_ITEM_VISIBLE,
-                NULL);
+		"visibility", (properties->disable_level ?
+			       GOO_CANVAS_ITEM_INVISIBLE :
+			       GOO_CANVAS_ITEM_VISIBLE),
+		NULL);
 
   goo_canvas_item_get_bounds(item, &bounds);
 
   level_item =
     goo_canvas_text_new (rootitem_level,
-                         "",
-                         bounds.x1 - 10,
-                         (bounds.y2 - bounds.y1) / 2 + 8,
-                         -1,
-                         GTK_ANCHOR_CENTER,
-                         "font", gc_skin_font_board_title_bold,
-                         "fill-color-rgba", gc_skin_color_text_button,
-                         NULL);
+			 "",
+			 bounds.x1 - 10,
+			 (bounds.y2 - bounds.y1) / 2 + 8,
+			 -1,
+			 GTK_ANCHOR_CENTER,
+			 "font", gc_skin_font_board_title_bold,
+			 "fill-color-rgba", gc_skin_color_text_button,
+			 NULL);
   current_level = 1;
 
   // REPEAT (Default)

@@ -141,6 +141,7 @@ static gchar *popt_user_dir	   = NULL;
 static gint  popt_experimental     = FALSE;
 static gint  popt_no_quit	   = FALSE;
 static gint  popt_no_config        = FALSE;
+static gint  popt_no_level         = FALSE;
 static gchar *popt_server          = NULL;
 static gint  *popt_web_only        = NULL;
 static gchar *popt_cache_dir       = NULL;
@@ -235,6 +236,9 @@ static GOptionEntry options[] = {
 
   {"disable-config",'\0', 0, G_OPTION_ARG_NONE, &popt_no_config,
    N_("Disable the config button"), NULL},
+
+  {"disable-level",'\0', 0, G_OPTION_ARG_NONE, &popt_no_level,
+   N_("Disable the level button"), NULL},
 
   {"server", '\0', 0, G_OPTION_ARG_STRING, &popt_server,
    N_("GCompris will get images, sounds and activity data from this server if not found locally."), NULL},
@@ -1629,6 +1633,12 @@ main (int argc, char *argv[])
     {
       g_message("Disable config button");
       properties->disable_config = TRUE;
+    }
+
+  if (popt_no_level)
+    {
+      g_message("Disable level button");
+      properties->disable_level = TRUE;
     }
 
   if (popt_difficulty_filter>=0)

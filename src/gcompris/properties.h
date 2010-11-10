@@ -39,6 +39,7 @@ typedef struct {
   gint		difficulty_max;
   gint		disable_quit;
   gint		disable_config;
+  gint		disable_level;
   gint		display_resource;
   gchar        *root_menu;
   gchar        *package_data_dir;
