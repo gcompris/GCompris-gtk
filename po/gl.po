@@ -5,19 +5,20 @@
 # (mantéñense os comentarios orixinais de Ignacio)
 # Paula Iglesias <localizacion@tagenata.com>, 2009.
 # Gonçalo Cordeiro <gzcordeiro@gmail.com>, 2009, 2010.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: GCompris - gcomprixogoo\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-09-11 15:07+0200\n"
-"PO-Revision-Date: 2010-09-10 10:40+0200\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=gcompris&component=general\n"
+"POT-Creation-Date: 2010-11-10 15:59+0000\n"
+"PO-Revision-Date: 2010-09-18 10:40+0200\n"
 "Last-Translator: Gonçalo Cordeiro <gzcordeiro@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Wordforge 0.8 RC1\n"
+"X-Language: gl_ES\n"
 
 #: ../boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
@@ -196,7 +197,7 @@ msgstr ""
 msgid "GCompris Main Menu"
 msgstr "Menú principal do GCompris"
 
-#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:875
+#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:876
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -1727,20 +1728,20 @@ msgstr ""
 "Estás a cargo da esclusa. Abre as comportas e as esclusas na orde correcta "
 "para que Tux poida atravesalas nas dúas direccións."
 
-#: ../src/chat-activity/chat.py:77
+#: ../src/chat-activity/chat.py:87
 msgid "All messages will be displayed here.\n"
 msgstr "Todas as mensaxes se mostrarán aquí.\n"
 
-#: ../src/chat-activity/chat.py:128
+#: ../src/chat-activity/chat.py:139
 msgid "Your Friends"
 msgstr "Os teus amigos"
 
 #  Canle �feminino en galego
-#: ../src/chat-activity/chat.py:161
+#: ../src/chat-activity/chat.py:172
 msgid "Your Channel"
 msgstr "A túa canle"
 
-#: ../src/chat-activity/chat.py:187
+#: ../src/chat-activity/chat.py:198
 msgid ""
 "Type your message here, to send to other GCompris users on your local "
 "network."
@@ -1748,25 +1749,33 @@ msgstr ""
 "Escribe a túa mensaxe aquí para enviárllela a outras persoas usuarias de "
 "GCompris da túa rede local."
 
-#: ../src/chat-activity/chat.py:202
+#: ../src/chat-activity/chat.py:244
+msgid "color"
+msgstr "cor"
+
+#: ../src/chat-activity/chat.py:323
 msgid ""
 "ERROR: Failed to initialize the network interface. You cannot communicate."
 msgstr ""
 "ERRO: Fallou a inicialización da interface de rede. Non se pode comunicar."
 
-#: ../src/chat-activity/chat.py:326
+#: ../src/chat-activity/chat.py:433
+msgid "Has left the chat."
+msgstr "Deixou a conversa."
+
+#: ../src/chat-activity/chat.py:512
 msgid "You must set a channel in your channel entry box first.\n"
 msgstr "Debes estabelecer primeiro unha canle na caixa de entrada de canles.\n"
 
-#: ../src/chat-activity/chat.py:327
+#: ../src/chat-activity/chat.py:513
 msgid "Your friends must set the same channel in order to communicate with you"
 msgstr ""
 "Os teus amigos teñen que estabelecer a mesma canle para poder comunicarse "
 "contigo"
 
 #: ../src/chat-activity/chat.xml.in.h:1
-msgid "Chat with your friends"
-msgstr "Conversa cos teus amigos"
+msgid "Chat and draw with your friends"
+msgstr "Conversa e debuxa cos teus amigos e amigas"
 
 #: ../src/chat-activity/chat.xml.in.h:2
 msgid "This chat activity only works on the local network"
@@ -1776,15 +1785,15 @@ msgstr "Esta actividade de conversa só funciona na rede local"
 msgid ""
 "This chat activity will only work with other GCompris users on your local "
 "network, not on the Internet. To use it, just type in your message and hit "
-"Enter. Your message is then broadcast on the local network, and any GCompris "
-"program running the chat activity on that local network will receive and "
-"display your message."
+"Enter. Your message is then broadcasted on the local network, and any "
+"GCompris program running the chat activity on that local network will "
+"receive and display your message."
 msgstr ""
 "Esta actividade de conversa só funciona con outras persoas usuarias do "
 "GCompris na túa rede local, non na Internet. Para usala, escribe simplemente "
-"a túa mensaxe e preme Intro. A túa mensaxe difundirase en toda a rede local; "
-"calquera programa do GCompris que estea a executar a actividade de conversa "
-"nesa rede local recibirá e mostrará a túa mensaxe."
+"a túa mensaxe e preme Intro. A túa mensaxe difundirase en toda a rede local "
+"e calquera programa do GCompris que estea a executar a actividade de "
+"conversa nesa rede local recibirá e mostrará a túa mensaxe."
 
 #: ../src/chess_computer-activity/chess.c:222
 msgid "Error: The external program gnuchess died unexpectedly"
@@ -2438,6 +2447,8 @@ msgid "Gizah Pyramids, Egypt"
 msgstr "Pirámides de Gizah, Exipto"
 
 #: ../src/details-activity/resources/details/board2_11.xml.in.h:1
+#, fuzzy
+#| msgid "Sydney Opera House, Austriala"
 msgid "Sydney Opera House, Australia"
 msgstr "Casa da Ópera de Sydney, Australia"
 
@@ -2735,7 +2746,7 @@ msgstr ""
 msgid "Tux needs to water the flowers, but the hose is blocked."
 msgstr "Tux precisa botarlle auga ás flores, mais a mangueira está atoada."
 
-#: ../src/gcompris/about.c:50
+#: ../src/gcompris/about.c:49
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge, Yves Combe\n"
@@ -2750,23 +2761,23 @@ msgstr ""
 "Música de fondo: Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:58
+#: ../src/gcompris/about.c:57
 msgid "translator_credits"
 msgstr "Ignacio Casal QuinteiroPaula IglesiasGonçalo Cordeiro"
 
-#: ../src/gcompris/about.c:85
+#: ../src/gcompris/about.c:84
 msgid "About GCompris"
 msgstr "Acerca de GCompris"
 
-#: ../src/gcompris/about.c:95
+#: ../src/gcompris/about.c:94
 msgid "GCompris Home Page: http://gcompris.net"
 msgstr "Páxina principal de GCompris: http://gcompris.net"
 
-#: ../src/gcompris/about.c:106
+#: ../src/gcompris/about.c:105
 msgid "Translators:"
 msgstr "Tradutores/as:"
 
-#: ../src/gcompris/about.c:208
+#: ../src/gcompris/about.c:210
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
@@ -2774,29 +2785,29 @@ msgstr ""
 "Este software é un paquete GNU e está publicado baixo a licenza pública "
 "xeral de GNU"
 
-#: ../src/gcompris/about.c:222 ../src/gcompris/config.c:442
-#: ../src/gcompris/dialog.c:103 ../src/gcompris/help.c:359
+#: ../src/gcompris/about.c:224 ../src/gcompris/config.c:438
+#: ../src/gcompris/dialog.c:104 ../src/gcompris/help.c:355
 #: ../src/gcompris/images_selector.c:307
 msgid "OK"
 msgstr "Aceptar"
 
-#: ../src/gcompris/bar.c:688
+#: ../src/gcompris/bar.c:692
 msgid "GCompris confirmation"
 msgstr "Confirmación de GCompris"
 
-#: ../src/gcompris/bar.c:689
+#: ../src/gcompris/bar.c:693
 msgid "Are you sure you want to quit?"
 msgstr "Estás seguro de que queres saír?"
 
-#: ../src/gcompris/bar.c:690
+#: ../src/gcompris/bar.c:694
 msgid "Yes, I am sure!"
 msgstr "Si, estou seguro!"
 
-#: ../src/gcompris/bar.c:691
+#: ../src/gcompris/bar.c:695
 msgid "No, I want to keep going"
 msgstr "Non, quero seguir adiante"
 
-#: ../src/gcompris/board.c:197
+#: ../src/gcompris/board.c:168
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr ""
 "O módulo dinámico que se está cargando noné compatíbel. O GCompris non o "
@@ -3153,38 +3164,38 @@ msgstr "Use o módulo de administración de Gcompris para filtrar taboleiros"
 msgid "GCompris Configuration"
 msgstr "Configuración de GCompris"
 
-#: ../src/gcompris/config.c:254
+#: ../src/gcompris/config.c:253
 msgid "Fullscreen"
 msgstr "Pantalla completa"
 
-#: ../src/gcompris/config.c:280
+#: ../src/gcompris/config.c:278
 msgid "Music"
 msgstr "Música"
 
-#: ../src/gcompris/config.c:306
+#: ../src/gcompris/config.c:303
 msgid "Effect"
 msgstr "Efecto"
 
-#: ../src/gcompris/config.c:331 ../src/gcompris/sugar.c:82
+#: ../src/gcompris/config.c:327 ../src/gcompris/sugar.c:82
 msgid "Zoom"
 msgstr "Zoom"
 
-#: ../src/gcompris/config.c:368
+#: ../src/gcompris/config.c:364
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Non se puido abrir o directorio de ficheiro de aparencia: %s"
 
-#: ../src/gcompris/config.c:399 ../src/gcompris/config.c:757
-#: ../src/gcompris/config.c:771
+#: ../src/gcompris/config.c:395 ../src/gcompris/config.c:753
+#: ../src/gcompris/config.c:767
 #, c-format
 msgid "Skin : %s"
 msgstr "Máscara: %s"
 
-#: ../src/gcompris/config.c:401
+#: ../src/gcompris/config.c:397
 msgid "SKINS NOT FOUND"
 msgstr "NON SE ATOPARON MÁSCARAS"
 
-#: ../src/gcompris/config.c:482
+#: ../src/gcompris/config.c:478
 msgid "English (United State)"
 msgstr "Inglés (Estados Unidos)"
 
@@ -3216,39 +3227,47 @@ msgstr ""
 "Saia do aplicativo e informe\n"
 "do problema aos/às autores/as."
 
-#: ../src/gcompris/gcompris.c:156
+#: ../src/gcompris/gcompris.c:158
 msgid "run GCompris in fullscreen mode."
 msgstr "executar GCompris no modo pantalla completa."
 
-#: ../src/gcompris/gcompris.c:159
+#: ../src/gcompris/gcompris.c:161
 msgid "run GCompris in window mode."
 msgstr "executar o GCompris en modo xanela."
 
-#: ../src/gcompris/gcompris.c:162
+#: ../src/gcompris/gcompris.c:164
 msgid "run GCompris with sound enabled."
 msgstr "executar o GCompris co son activado."
 
-#: ../src/gcompris/gcompris.c:165
+#: ../src/gcompris/gcompris.c:167
 msgid "run GCompris without sound."
 msgstr "executar o GCompris sen son."
 
-#: ../src/gcompris/gcompris.c:168
-msgid "run GCompris with the default gnome cursor."
+#: ../src/gcompris/gcompris.c:170
+#, fuzzy
+#| msgid "run GCompris with the default gnome cursor."
+msgid "run GCompris with the default system cursor."
 msgstr "executar o GCompris co cursor predeterminado do Gnome."
 
-#: ../src/gcompris/gcompris.c:171
+#: ../src/gcompris/gcompris.c:173
+#, fuzzy
+#| msgid "run GCompris without sound."
+msgid "run GCompris without cursor (touch screen mode)."
+msgstr "executar o GCompris sen son."
+
+#: ../src/gcompris/gcompris.c:176
 msgid "display only activities with this difficulty level."
 msgstr "mostrar só as actividades con este nivel de dificultade."
 
-#: ../src/gcompris/gcompris.c:174
+#: ../src/gcompris/gcompris.c:179
 msgid "display debug informations on the console."
 msgstr "mostra información de depuración de erros na consola."
 
-#: ../src/gcompris/gcompris.c:177
+#: ../src/gcompris/gcompris.c:182
 msgid "Print the version of "
 msgstr "Imprime a versión de "
 
-#: ../src/gcompris/gcompris.c:180
+#: ../src/gcompris/gcompris.c:185
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
@@ -3260,38 +3279,38 @@ msgstr ""
 "conecta4). Use '-l list' para listar todas as actividades dispoñíbeis e as "
 "súas descricións."
 
-#: ../src/gcompris/gcompris.c:185
+#: ../src/gcompris/gcompris.c:190
 msgid "GCompris will find the data dir in this directory"
 msgstr "O GCompris encontrará os datos neste directorio"
 
-#: ../src/gcompris/gcompris.c:188
+#: ../src/gcompris/gcompris.c:193
 msgid "GCompris will find the skins in this directory"
 msgstr "O GCompris encontrará os ficheiros de aparencia neste directorio"
 
-#: ../src/gcompris/gcompris.c:191
+#: ../src/gcompris/gcompris.c:196
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "O GCompris encontrará os plugins de actividade neste directorio"
 
-#: ../src/gcompris/gcompris.c:194
+#: ../src/gcompris/gcompris.c:199
 msgid "GCompris will find the python activity in this directory"
 msgstr "O GCompris encontrará a actividade de Python neste directorio"
 
-#: ../src/gcompris/gcompris.c:197
+#: ../src/gcompris/gcompris.c:202
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr ""
 "O GCompris encontrará o ficheiro de configuración rexional (tradución .mo) "
 "neste directorio"
 
-#: ../src/gcompris/gcompris.c:200
+#: ../src/gcompris/gcompris.c:205
 msgid "GCompris will find the activities menu in this directory"
 msgstr "O GCompris encontrará o menú de actividades neste directorio"
 
-#: ../src/gcompris/gcompris.c:203
+#: ../src/gcompris/gcompris.c:208
 msgid "Run GCompris in administration and user-management mode"
 msgstr ""
 "Executar o GCompris no modo de administración e xestión de persoas usuarias"
 
-#: ../src/gcompris/gcompris.c:206
+#: ../src/gcompris/gcompris.c:211
 msgid ""
 "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
@@ -3299,24 +3318,24 @@ msgstr ""
 "Usa unha base de datos para os ficheiros [$HOME/.config/gcompris/"
 "gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:209
+#: ../src/gcompris/gcompris.c:214
 msgid "Create the alternate database for profiles"
 msgstr "Crear a base de datos alternativa para os perfís"
 
-#: ../src/gcompris/gcompris.c:212
+#: ../src/gcompris/gcompris.c:217
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Reler os menús XML e almacenalos na base de datos"
 
-#: ../src/gcompris/gcompris.c:215
+#: ../src/gcompris/gcompris.c:220
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Define o perfil que se vai usar. Usa o 'gcompris-a' para crear perfís"
 
-#: ../src/gcompris/gcompris.c:218
+#: ../src/gcompris/gcompris.c:223
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Lista de todos os perfís dispoñíbeis. Use 'gcompris -a' para crear perfís"
 
-#: ../src/gcompris/gcompris.c:221
+#: ../src/gcompris/gcompris.c:226
 msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
@@ -3324,23 +3343,29 @@ msgstr ""
 "Configurar directorio de localización: [$HOME/.config/gcompris]. Unha opción "
 "alternativa é estabelecer $XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:224
+#: ../src/gcompris/gcompris.c:229
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "A localización dos directorios de usuario: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:227
+#: ../src/gcompris/gcompris.c:232
 msgid "Run the experimental activities"
 msgstr "Executar as actividades experimentais"
 
-#: ../src/gcompris/gcompris.c:230
+#: ../src/gcompris/gcompris.c:235
 msgid "Disable the quit button"
 msgstr "Desactivar o botón de saída"
 
-#: ../src/gcompris/gcompris.c:233
+#: ../src/gcompris/gcompris.c:238
 msgid "Disable the config button"
 msgstr "Desactivar o botón de configuración"
 
-#: ../src/gcompris/gcompris.c:236
+#: ../src/gcompris/gcompris.c:241
+#, fuzzy
+#| msgid "Disable the quit button"
+msgid "Disable the level button"
+msgstr "Desactivar o botón de saída"
+
+#: ../src/gcompris/gcompris.c:244
 msgid ""
 "GCompris will get images, sounds and activity data from this server if not "
 "found locally."
@@ -3348,7 +3373,7 @@ msgstr ""
 "GCompris collerá deste servidor imaxes, son e os datos de actividades se non "
 "se atoparen localmente. "
 
-#: ../src/gcompris/gcompris.c:239
+#: ../src/gcompris/gcompris.c:247
 msgid ""
 "Only when --server is provided, disable check for local resource first. Data "
 "are always taken from the web server."
@@ -3356,25 +3381,25 @@ msgstr ""
 "Só cando se especifica --server, desactívase a comprobación de recursos "
 "locais en primeiro lugar. Os datos sempre se obteñen do servidor web."
 
-#: ../src/gcompris/gcompris.c:243
+#: ../src/gcompris/gcompris.c:251
 msgid ""
 "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr ""
 "No modo servidor, especifica onde está o directorio de caché para evitar "
 "descargas  innecesarias."
 
-#: ../src/gcompris/gcompris.c:246
+#: ../src/gcompris/gcompris.c:254
 msgid ""
 "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr ""
 "Modo global de arrastrar e soltar: normal, premer 2 veces, ambos. O modo por "
 "defecto é normal."
 
-#: ../src/gcompris/gcompris.c:249
+#: ../src/gcompris/gcompris.c:257
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Non evitar a execución de varias instancias do GCompris."
 
-#: ../src/gcompris/gcompris.c:890
+#: ../src/gcompris/gcompris.c:922
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -3396,7 +3421,7 @@ msgstr ""
 "usar GNU/Linux. Encontrará máis información na FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1429
+#: ../src/gcompris/gcompris.c:1462
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
@@ -3404,12 +3429,12 @@ msgstr ""
 "O GCompris non vai comezar porque o ficheiro de bloqueo non é anterior a %d "
 "segundos.\n"
 
-#: ../src/gcompris/gcompris.c:1431
+#: ../src/gcompris/gcompris.c:1464
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "O ficheiro de bloqueo é: %s\n"
 
-#: ../src/gcompris/gcompris.c:1545
+#: ../src/gcompris/gcompris.c:1578
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3423,27 +3448,27 @@ msgstr ""
 "Máis información en http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1648
+#: ../src/gcompris/gcompris.c:1693
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Usa -l para acceder a unha actividade directamente.\n"
 
-#: ../src/gcompris/gcompris.c:1649
+#: ../src/gcompris/gcompris.c:1694
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "A lista de actividades dispoñíbeis é:\n"
 
-#: ../src/gcompris/gcompris.c:1680
+#: ../src/gcompris/gcompris.c:1725
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Número de actividades: %d\n"
 
-#: ../src/gcompris/gcompris.c:1716
+#: ../src/gcompris/gcompris.c:1761
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s existe, pero non é un ficheiro lexíbel nin escribíbel"
 
-#: ../src/gcompris/gcompris.c:1779
+#: ../src/gcompris/gcompris.c:1824
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
@@ -3452,7 +3477,7 @@ msgstr ""
 "A opción --server non se pode usar porque o GCompris compilouse sen soporte "
 "de rede!"
 
-#: ../src/gcompris/gcompris.c:1833
+#: ../src/gcompris/gcompris.c:1878
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3461,7 +3486,7 @@ msgstr ""
 "ERRO: O perfil '%s' non se encontrou. Execute 'gcompris --profile-list' para "
 "listar os dispoñíbeis\n"
 
-#: ../src/gcompris/gcompris.c:1847
+#: ../src/gcompris/gcompris.c:1892
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "A lista de perfís dispoñíbeis é:\n"
@@ -3483,19 +3508,19 @@ msgstr ""
 "Cargando a actividade desde a base de datos:\n"
 "%s"
 
-#: ../src/gcompris/help.c:181
+#: ../src/gcompris/help.c:180
 msgid "Prerequisite"
 msgstr "Prerrequisito"
 
-#: ../src/gcompris/help.c:212
+#: ../src/gcompris/help.c:210
 msgid "Goal"
 msgstr "Obxectivo"
 
-#: ../src/gcompris/help.c:243
+#: ../src/gcompris/help.c:240
 msgid "Manual"
 msgstr "Manual"
 
-#: ../src/gcompris/help.c:274
+#: ../src/gcompris/help.c:270
 msgid "Credit"
 msgstr "Créditos"
 
@@ -3508,11 +3533,11 @@ msgstr ""
 "Cargando a actividade desde o ficheiro:\n"
 "%s"
 
-#: ../src/gcompris/properties.c:497 ../src/gcompris/properties.c:504
+#: ../src/gcompris/properties.c:501 ../src/gcompris/properties.c:508
 msgid "readme"
 msgstr "leme"
 
-#: ../src/gcompris/properties.c:499
+#: ../src/gcompris/properties.c:503
 msgid ""
 "This directory contains the files you create with the GCompris educational "
 "suite\n"
@@ -3520,7 +3545,7 @@ msgstr ""
 "Este directorio contén os ficheiros que vostede creou coa suite educativa "
 "GCompris\n"
 
-#: ../src/gcompris/properties.c:506
+#: ../src/gcompris/properties.c:510
 msgid ""
 "Put any number of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
@@ -4204,7 +4229,7 @@ msgstr "ABCDEFGHIKLMNÑOPQRSTUVWXYZ"
 #. we can add what you want in it.
 #: ../src/gletters-activity/gletters.c:850
 #: ../src/imageid-activity/imageid.c:712 ../src/login-activity/login.py:479
-#: ../src/missing_letter-activity/missingletter.c:748
+#: ../src/missing_letter-activity/missingletter.c:752
 #: ../src/pythontest-activity/pythontest.py:454
 #: ../src/readingh-activity/reading.c:878
 #: ../src/scalesboard-activity/scale.c:1161
@@ -4694,7 +4719,7 @@ msgstr ""
 "demasiadas opcións dispoñíbeis."
 
 #: ../src/imageid-activity/imageid.c:534
-#: ../src/missing_letter-activity/missingletter.c:568
+#: ../src/missing_letter-activity/missingletter.c:569
 msgid "Data file for this level is not properly formatted."
 msgstr "O ficheiro de datos para este nivel non está formatado adecuadamente."
 
@@ -5066,9 +5091,20 @@ msgid "GCompris login screen"
 msgstr "Pantalla de inicio de sesión de GCompris"
 
 #: ../src/login-activity/login.xml.in.h:3
+#, fuzzy
+#| msgid ""
+#| "In order to activate the login screen, you must \n"
+#| "first add users in the administration part of GCompris. \n"
+#| "You access Administration by running 'gcompris -a'.\n"
+#| "In Administration, you can create different profiles. In each profile,\n"
+#| "you can have a different set of users and select which activities are "
+#| "available to them.\n"
+#| "To run GCompris for a specific profile, you use 'gcompris -p profile' "
+#| "where 'profile'\n"
+#| "is the name of a profile as you created it in Administration."
 msgid ""
-"In order to activate the login screen, you must \n"
-"first add users in the administration part of GCompris. \n"
+"In order to activate the login screen, you must\n"
+"first add users in the administration part of GCompris.\n"
 "You access Administration by running 'gcompris -a'.\n"
 "In Administration, you can create different profiles. In each profile,\n"
 "you can have a different set of users and select which activities are "
@@ -5161,7 +5197,7 @@ msgstr "Labirinto"
 msgid "Find your way out of the maze"
 msgstr "Busca o camiño para saír do labirinto"
 
-#: ../src/maze-activity/maze.c:500
+#: ../src/maze-activity/maze.c:599
 msgid ""
 "Look at your position, then switch back to invisible mode to continue your "
 "moves"
@@ -5169,7 +5205,7 @@ msgstr ""
 "Mira a túa posición, despois cambia ao modo invisíbel para continuar os teus "
 "movementos."
 
-#: ../src/maze-activity/maze.c:502
+#: ../src/maze-activity/maze.c:601
 msgid ""
 "Look at your position, then switch back to 3D mode to continue your moves"
 msgstr ""
@@ -5793,43 +5829,94 @@ msgstr "Practica as habilidades de lectura"
 msgid "Word reading"
 msgstr "Lectura de palabras"
 
+#: ../src/missing_letter-activity/missingletter_config.c:77
+msgid "Please select an image."
+msgstr ""
+
+#: ../src/missing_letter-activity/missingletter_config.c:83
+msgid "Choice cannot be empty."
+msgstr ""
+
+#: ../src/missing_letter-activity/missingletter_config.c:89
+msgid "Question cannot be empty."
+msgstr ""
+
+#: ../src/missing_letter-activity/missingletter_config.c:95
+msgid ""
+"Question must include the character '_'. It represent the letter to search."
+msgstr ""
+
+#: ../src/missing_letter-activity/missingletter_config.c:102
+msgid "Pixmap cannot be empty"
+msgstr ""
+
+#: ../src/missing_letter-activity/missingletter_config.c:108
+msgid "There must be at least 2 choices."
+msgstr ""
+
+#: ../src/missing_letter-activity/missingletter_config.c:116
+msgid "The answer and question must be the same except for the character '_'."
+msgstr ""
+
+#: ../src/missing_letter-activity/missingletter_config.c:125
+msgid "The first choice must be the solution that replaces the character '_'."
+msgstr ""
+
+#: ../src/missing_letter-activity/missingletter_config.c:140
+#, c-format
+msgid ""
+"Invalid entry:\n"
+"Question '%s' / Answer '%s'\n"
+"%s"
+msgstr ""
+
 #. pixmap
-#: ../src/missing_letter-activity/missingletter_config.c:384
-#: ../src/missing_letter-activity/missingletter_config.c:534
+#: ../src/missing_letter-activity/missingletter_config.c:414
+#: ../src/missing_letter-activity/missingletter_config.c:546
 msgid "Picture"
 msgstr "Cadro"
 
 #. answer
-#: ../src/missing_letter-activity/missingletter_config.c:390
-#: ../src/missing_letter-activity/missingletter_config.c:525
+#: ../src/missing_letter-activity/missingletter_config.c:420
+#: ../src/missing_letter-activity/missingletter_config.c:537
 msgid "Answer"
 msgstr "Resposta"
 
 #. question
-#: ../src/missing_letter-activity/missingletter_config.c:396
-#: ../src/missing_letter-activity/missingletter_config.c:548
+#: ../src/missing_letter-activity/missingletter_config.c:426
+#: ../src/missing_letter-activity/missingletter_config.c:560
 msgid "Question"
 msgstr "Pregunta"
 
 #. choice
-#: ../src/missing_letter-activity/missingletter_config.c:402
-#: ../src/missing_letter-activity/missingletter_config.c:557
+#: ../src/missing_letter-activity/missingletter_config.c:432
+#: ../src/missing_letter-activity/missingletter_config.c:572
 msgid "Choice"
 msgstr "Opción"
 
 #. combo level
-#: ../src/missing_letter-activity/missingletter_config.c:440
+#: ../src/missing_letter-activity/missingletter_config.c:470
 msgid "Level:"
 msgstr "Nivel:"
 
-#: ../src/missing_letter-activity/missingletter_config.c:448
+#: ../src/missing_letter-activity/missingletter_config.c:478
 #, c-format
 msgid "Level %d"
 msgstr "Nivel %d"
 
-#: ../src/missing_letter-activity/missingletter_config.c:538
+#: ../src/missing_letter-activity/missingletter_config.c:550
 msgid "Filename:"
 msgstr "Nome de ficheiro:"
+
+#: ../src/missing_letter-activity/missingletter_config.c:568
+msgid "Replace the letter to guess by the character '_'."
+msgstr ""
+
+#: ../src/missing_letter-activity/missingletter_config.c:580
+msgid ""
+"Enter here the letter that will be proposed. The first letter here must be "
+"the solution"
+msgstr ""
 
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:1
 msgid "car/c_r/a/k/o"
@@ -6155,11 +6242,11 @@ msgstr ""
 "Este taboleiro está orientado para xogar. Non se precisan destrezas "
 "especiais para xogar."
 
-#: ../src/penalty-activity/penalty.py:294
+#: ../src/penalty-activity/penalty.py:293
 msgid "Click on the balloon to place it again."
 msgstr "Preme no balón para colocalo de novo."
 
-#: ../src/penalty-activity/penalty.py:296
+#: ../src/penalty-activity/penalty.py:295
 msgid "Click twice on the balloon to shoot it."
 msgstr "Preme dúas veces no valón para lanzalo."
 
@@ -7267,7 +7354,7 @@ msgstr "bcdfghjklmnñopqrstuvwxyz"
 msgid "NONE"
 msgstr "a=á e=é i=í o=ó u=ú i=ï u=ü"
 
-#: ../src/hangman-activity/hangman.py:93
+#: ../src/hangman-activity/hangman.py:104
 msgid "Could not find the list of words."
 msgstr "Non se puido encontrar a lista de palabras."
 
