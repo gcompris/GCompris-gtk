@@ -15,6 +15,16 @@ img_DATA = \
 	board1_6a.png \
 	board1_6b.png \
 	board2_0a.png \
-	board2_0b.png
+	board2_0b.png \
+	board3_0a.png \
+	board3_0b.png \
+	board3_1a.png \
+	board3_1b.png \
+	board3_2a.png \
+	board3_2b.png \
+	board3_3a.png \
+	board3_3b.png \
+	board3_4a.png \
+	board3_4b.png
 
 EXTRA_DIST = $(img_DATA)
