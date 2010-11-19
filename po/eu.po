@@ -1,4 +1,4 @@
-# translation of eu.po to Basque
+# translation of eu_to_be_translate.po to Basque
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
 #
@@ -7,10 +7,10 @@
 # Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: eu\n"
+"Project-Id-Version: eu_to_be_translate\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-03-18 11:51+0100\n"
-"PO-Revision-Date: 2010-03-18 13:12+0100\n"
+"POT-Creation-Date: 2010-11-19 19:57+0100\n"
+"PO-Revision-Date: 2010-11-19 20:15+0100\n"
 "Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
 "MIME-Version: 1.0\n"
@@ -197,7 +197,7 @@ msgstr ""
 msgid "GCompris Main Menu"
 msgstr "GCompris-en menu nagusia"
 
-#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:859
+#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:876
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -384,7 +384,8 @@ msgstr "Iragazi arbelen zailtasuna %s profilarentzat"
 msgid ""
 "<span size='x-large'> Select the difficulty range \n"
 "for profile <b>%s</b></span>"
-msgstr "<span size='x-large'>Hautatu <b>%s</b> profilaren zailtasun barrutia</span>"
+msgstr ""
+"<span size='x-large'>Hautatu <b>%s</b> profilaren zailtasun barrutia</span>"
 
 #: ../src/administration-activity/admin/board_list.py:642
 #: ../src/administration-activity/admin/board_list.py:654
@@ -430,30 +431,30 @@ msgstr "Irakaslea:"
 msgid "Assign all the users belonging to this class"
 msgstr "Esleitu klase honi dagozkion erabiltzaile guztiak"
 
-#: ../src/administration-activity/admin/class_edit.py:249
-#: ../src/administration-activity/admin/group_edit.py:261
+#: ../src/administration-activity/admin/class_edit.py:246
+#: ../src/administration-activity/admin/group_edit.py:258
 #: ../src/administration-activity/admin/group_user_list.py:150
 #: ../src/administration-activity/admin/user_list.py:191
 msgid "First Name"
 msgstr "Izena"
 
-#: ../src/administration-activity/admin/class_edit.py:260
-#: ../src/administration-activity/admin/group_edit.py:272
+#: ../src/administration-activity/admin/class_edit.py:257
+#: ../src/administration-activity/admin/group_edit.py:269
 #: ../src/administration-activity/admin/group_user_list.py:160
 #: ../src/administration-activity/admin/user_list.py:201
 msgid "Last Name"
 msgstr "Abizena"
 
-#: ../src/administration-activity/admin/class_edit.py:335
+#: ../src/administration-activity/admin/class_edit.py:332
 msgid "You need to provide at least a name for your class"
 msgstr "Klasearen izena eman behar duzu gutxienez"
 
-#: ../src/administration-activity/admin/class_edit.py:380
+#: ../src/administration-activity/admin/class_edit.py:377
 msgid "There is already a class with this name"
 msgstr "Izen berdineko klasea badago lehendik ere"
 
 #: ../src/administration-activity/admin/class_list.py:165
-#: ../src/administration-activity/admin/profile_edit.py:266
+#: ../src/administration-activity/admin/profile_edit.py:263
 #: ../src/administration-activity/admin/profile_group_list.py:140
 msgid "Class"
 msgstr "Klasea"
@@ -494,11 +495,11 @@ msgstr "Azalpena:"
 msgid "Assign all the users belonging to this group"
 msgstr "Esleitu taldeari dagozkion erabiltzaile guztiak"
 
-#: ../src/administration-activity/admin/group_edit.py:355
+#: ../src/administration-activity/admin/group_edit.py:352
 msgid "You need to provide at least a name for your group"
 msgstr "Taldearen izena eman behar duzu gutxienez"
 
-#: ../src/administration-activity/admin/group_edit.py:369
+#: ../src/administration-activity/admin/group_edit.py:366
 msgid "There is already a group with this name"
 msgstr "Izen berdineko talde bat badago lehendik ere"
 
@@ -507,13 +508,13 @@ msgid "Select a class:"
 msgstr "Hautatu klasea:"
 
 #: ../src/administration-activity/admin/group_list.py:210
-#: ../src/administration-activity/admin/profile_edit.py:276
+#: ../src/administration-activity/admin/profile_edit.py:273
 #: ../src/administration-activity/admin/profile_group_list.py:150
 msgid "Group"
 msgstr "Taldea"
 
 #: ../src/administration-activity/admin/group_list.py:221
-#: ../src/administration-activity/admin/profile_edit.py:286
+#: ../src/administration-activity/admin/profile_edit.py:283
 #: ../src/administration-activity/admin/profile_group_list.py:160
 #: ../src/administration-activity/admin/profile_list.py:194
 msgid "Description"
@@ -631,11 +632,11 @@ msgstr "Profila:"
 msgid "Assign all the groups belonging to this profile"
 msgstr "Esleitu profilari dagozkion talde guztiak"
 
-#: ../src/administration-activity/admin/profile_edit.py:374
+#: ../src/administration-activity/admin/profile_edit.py:371
 msgid "You need to provide at least a name for your profile"
 msgstr "Profilaren izena eman behar duzu gutxienez"
 
-#: ../src/administration-activity/admin/profile_edit.py:396
+#: ../src/administration-activity/admin/profile_edit.py:393
 msgid "There is already a profile with this name"
 msgstr "Izen berdineko profila bat badago lehendik ere"
 
@@ -679,13 +680,14 @@ msgstr "Deitura:"
 msgid "Birth date:"
 msgstr "Jaioteguna:"
 
-#: ../src/administration-activity/admin/user_edit.py:156
-msgid "You need to provide at least a login, first name and last name for your users"
+#: ../src/administration-activity/admin/user_edit.py:153
+msgid ""
+"You need to provide at least a login, first name and last name for your users"
 msgstr ""
 "Zure erabiltzaileen izena, deitura eta erabiltzaile-izena eman behar dituzu "
 "gutxienez"
 
-#: ../src/administration-activity/admin/user_edit.py:173
+#: ../src/administration-activity/admin/user_edit.py:170
 msgid "There is already a user with this login"
 msgstr "Erabiltzaile-izen hau badago lehendik ere"
 
@@ -1115,8 +1117,8 @@ msgid "Practice the multiplication operation"
 msgstr "Praktikatu biderketak"
 
 #: ../src/algebra_guesscount-activity/algebra_guesscount.xml.in.h:1
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:1
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:1
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:1
 msgid ""
 "Animal pictures come from the Animal Photography Page of Ralf Schmode "
 "(http://schmode.net/). Ralf has kindly permitted Gcompris to include his "
@@ -1146,7 +1148,8 @@ msgstr ""
 
 #: ../src/algebra_guesscount-activity/algebra_guesscount.xml.in.h:4
 msgid "Find the series of correct operations that matches the given answer"
-msgstr "Aurkitu eragiketa zuzenen serieak emandako erantzunarekin bat etortzeko"
+msgstr ""
+"Aurkitu eragiketa zuzenen serieak emandako erantzunarekin bat etortzeko"
 
 #: ../src/algebra_guesscount-activity/algebra_guesscount.xml.in.h:5
 msgid "The four arithmetic operations. Combine several arithmetic operations."
@@ -1156,7 +1159,8 @@ msgstr "Lau eragiketa aritmetikoak. Konbinatu hainbat eragiketa aritmetiko."
 msgid ""
 "Work out the right combination of numbers and operations to match the given "
 "value"
-msgstr "Aurkitu zenbakien eta eragileen konbinazio egokia emaitza jakin bat lortzeko"
+msgstr ""
+"Aurkitu zenbakien eta eragileen konbinazio egokia emaitza jakin bat lortzeko"
 
 #: ../src/algebra_minus-activity/algebra_minus.xml.in.h:1
 msgid ""
@@ -1350,16 +1354,16 @@ msgid ""
 msgstr ""
 "Hautatu marrazketa-tresna ezkerrean eta kolore bat beheran. Gero egin klik "
 "eta arrastatu area zurian forma berria sortzeko. Behin marrazkia osatuta "
-"dagoela koadro berri bat hauta dezakezu hor lan egiteko, eta "
-"horretarako hautatu azpiko laukizuzen txikietariko bat. Koadro bakoitzak "
-"aurrekoaren eduki berdina dauka. Koadroa edita ditzakezu piska bat lekuz aldatuz "
-"edo objektuak gehituz/ezabatuz. Sortu hainbat koadro eta egin klik 'filma' "
-"botoian. Sortutako koadroak diapositiba-aurkezpen jarraian (begizta infinitu batean) "
-" ikus ditzakezu. Filmako azken irudia alda dezakezu fotogramaren gainean "
-"saguaren eskuineko botoiarekin klik eginez. Modu honetan ere, "
+"dagoela koadro berri bat hauta dezakezu hor lan egiteko, eta horretarako "
+"hautatu azpiko laukizuzen txikietariko bat. Koadro bakoitzak aurrekoaren "
+"eduki berdina dauka. Koadroa edita ditzakezu piska bat lekuz aldatuz edo "
+"objektuak gehituz/ezabatuz. Sortu hainbat koadro eta egin klik 'filma' "
+"botoian. Sortutako koadroak diapositiba-aurkezpen jarraian (begizta infinitu "
+"batean)  ikus ditzakezu. Filmako azken irudia alda dezakezu fotogramaren "
+"gainean saguaren eskuineko botoiarekin klik eginez. Modu honetan ere, "
 "aurkezpenaren abiadura alda dezakezu. Aurkezpenaren moduan, egin klik "
-"'marrazketa' botoiaren gainean marrazketa modura aldatzeko. Animazioak "
-"gorde eta berreskura ditzakezu 'diskete' eta 'karpeta' botoiekin."
+"'marrazketa' botoiaren gainean marrazketa modura aldatzeko. Animazioak gorde "
+"eta berreskura ditzakezu 'diskete' eta 'karpeta' botoiekin."
 
 #: ../src/awele-activity/awele.c:158
 #, c-format
@@ -1510,8 +1514,8 @@ msgstr ""
 "Sagua erabiltzen jakitea: mugitzea, arrastatzea eta jaregitea. Kultur "
 "erreferentziak."
 
-#: ../src/babymatch-activity/shapegame.c:1835
-#: ../src/click_on_letter-activity/click_on_letter.c:624
+#: ../src/babymatch-activity/shapegame.c:1903
+#: ../src/click_on_letter-activity/click_on_letter.c:635
 #: ../src/colors-activity/colors.c:168
 #, c-format
 msgid ""
@@ -1526,22 +1530,27 @@ msgid "Complete the puzzle"
 msgstr "Osatu puzzlea"
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:2
+#: ../src/details-activity/details.xml.in.h:1
 msgid ""
 "Complete the puzzle by dragging each piece from the set of pieces on the "
 "left, to the matching space in the puzzle."
-msgstr "Osatu puzzlea ezkerreko pieza-multzoko piezak puzzleko hutsunera arrastatuz."
+msgstr ""
+"Osatu puzzlea ezkerreko pieza-multzoko piezak puzzleko hutsunera arrastatuz."
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:3
+#: ../src/details-activity/details.xml.in.h:2
 msgid "Drag and Drop the shapes on their respective targets"
 msgstr "Arrastatu eta jaregin formak dagokien helburura"
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:4
+#: ../src/details-activity/details.xml.in.h:4
 msgid "Good mouse-control"
 msgstr "Saguaren kontrol ona"
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:5
 msgid "The dog is provided by Andre Connes and released under the GPL"
-msgstr "Zakurra Andre Connes-ek eskaini du, eta GPL lizentzia pean argitaratuta dago"
+msgstr ""
+"Zakurra Andre Connes-ek eskaini du, eta GPL lizentzia pean argitaratuta dago"
 
 #: ../src/babyshapes-activity/resources/babyshapes/board5_0.xml.in.h:1
 msgid "Hello ! My name is Lock."
@@ -1632,8 +1641,8 @@ msgstr "Sartu baloia atean"
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:5
 #: ../src/connect4-activity/connect4.xml.in.h:6
 #: ../src/erase-activity/erase.xml.in.h:3
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:6
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:6
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:6
 #: ../src/fifteen-activity/fifteen.xml.in.h:2
 #: ../src/hanoi-activity/hanoi.xml.in.h:3
 #: ../src/memory-activity/memory.xml.in.h:4
@@ -1662,15 +1671,20 @@ msgstr "Menu nagusiaren bigarren bertsioa"
 msgid "Select a Board"
 msgstr "Hautatu arbel bat"
 
-#: ../src/boards/python.c:63 ../src/boards/python.c:87
+#: ../src/boards/menu2.c:266
+#, fuzzy, c-format
+msgid "Number of activities: %d"
+msgstr "Ekintza kopurua: %d\n"
+
+#: ../src/boards/python.c:64 ../src/boards/python.c:88
 msgid "Python Board"
 msgstr "Python taula"
 
-#: ../src/boards/python.c:64
+#: ../src/boards/python.c:65
 msgid "Special board that embeds python into GCompris."
 msgstr "Python GCompris-en kapsulatzen duen mahai-joko berezia."
 
-#: ../src/boards/python.c:88
+#: ../src/boards/python.c:89
 msgid "Special board that embeds python into gcompris."
 msgstr "Python GCompris-en kapsulatzen duen mahai-joko berezia."
 
@@ -1699,19 +1713,19 @@ msgstr ""
 "Esklusaren arduraduna zara. Ireki konportak eta esklusa ordena egokian, Tux "
 "pasa ahal izan dadin konportetatik bi noranzkoetan."
 
-#: ../src/chat-activity/chat.py:77
+#: ../src/chat-activity/chat.py:87
 msgid "All messages will be displayed here.\n"
 msgstr "Mezu guztiak hemen bistaratuko dira.\n"
 
-#: ../src/chat-activity/chat.py:128
+#: ../src/chat-activity/chat.py:139
 msgid "Your Friends"
 msgstr "Zure lagunak"
 
-#: ../src/chat-activity/chat.py:161
+#: ../src/chat-activity/chat.py:172
 msgid "Your Channel"
 msgstr "Zure kanala"
 
-#: ../src/chat-activity/chat.py:187
+#: ../src/chat-activity/chat.py:198
 msgid ""
 "Type your message here, to send to other GCompris users on your local "
 "network."
@@ -1719,22 +1733,34 @@ msgstr ""
 "Idatzi zure mezua hemen, sare lokaleko GCompris-eko beste erabiltzaileei "
 "bidaltzeko."
 
-#: ../src/chat-activity/chat.py:202
-msgid "ERROR: Failed to initialize the network interface. You cannot communicate."
-msgstr "Errorea: huts egin du sareko interfazea hasieratzean. Ezin duzu komunikatu."
+#: ../src/chat-activity/chat.py:244
+#, fuzzy
+msgid "color"
+msgstr "Koloreak"
 
-#: ../src/chat-activity/chat.py:326
+#: ../src/chat-activity/chat.py:323
+msgid ""
+"ERROR: Failed to initialize the network interface. You cannot communicate."
+msgstr ""
+"Errorea: huts egin du sareko interfazea hasieratzean. Ezin duzu komunikatu."
+
+#: ../src/chat-activity/chat.py:433
+msgid "Has left the chat."
+msgstr "Berriketa utzi du."
+
+#: ../src/chat-activity/chat.py:512
 msgid "You must set a channel in your channel entry box first.\n"
 msgstr "Kanal bat ezarri behar duzu kanalen sarrerako koadroan aurrenik.\n"
 
-#: ../src/chat-activity/chat.py:327
+#: ../src/chat-activity/chat.py:513
 msgid "Your friends must set the same channel in order to communicate with you"
 msgstr ""
 "Zure lagunek kanal berdinean ezarri behar dira zurekin berriketan egin ahal "
 "izateko"
 
 #: ../src/chat-activity/chat.xml.in.h:1
-msgid "Chat with your friends"
+#, fuzzy
+msgid "Chat and draw with your friends"
 msgstr "Egin berriketan zure lagunekin"
 
 #: ../src/chat-activity/chat.xml.in.h:2
@@ -1742,12 +1768,13 @@ msgid "This chat activity only works on the local network"
 msgstr "Berriketaren ekitaldi honek sare lokalean soilik funtzionatzen du"
 
 #: ../src/chat-activity/chat.xml.in.h:3
+#, fuzzy
 msgid ""
 "This chat activity will only work with other GCompris users on your local "
 "network, not on the Internet. To use it, just type in your message and hit "
-"Enter. Your message is then broadcast on the local network, and any GCompris "
-"program running the chat activity on that local network will receive and "
-"display your message."
+"Enter. Your message is then broadcasted on the local network, and any "
+"GCompris program running the chat activity on that local network will "
+"receive and display your message."
 msgstr ""
 "Berriketaren ekitaldi honek sare lokaleko GCompris-eko beste "
 "erabiltzaileekin soilik funtzionatzen du, ez du Interneten funtzionatzen. "
@@ -1759,8 +1786,8 @@ msgstr ""
 msgid "Error: The external program gnuchess died unexpectedly"
 msgstr "Errorea: kanpoko 'gnuchess' programa ustegabean hil da"
 
-#: ../src/chess_computer-activity/chess.c:258
-#: ../src/chess_computer-activity/chess.c:304
+#: ../src/chess_computer-activity/chess.c:262
+#: ../src/chess_computer-activity/chess.c:308
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -1770,36 +1797,36 @@ msgstr ""
 "GCompris-en xakean jokatzeko.\n"
 "Aurrenik instalatu, eta begiratu hemen dagoen: "
 
-#: ../src/chess_computer-activity/chess.c:644
+#: ../src/chess_computer-activity/chess.c:648
 msgid "White's Turn"
 msgstr "Zurien txanda"
 
-#: ../src/chess_computer-activity/chess.c:644
+#: ../src/chess_computer-activity/chess.c:648
 msgid "Black's Turn"
 msgstr "Beltzen txanda"
 
-#: ../src/chess_computer-activity/chess.c:785
+#: ../src/chess_computer-activity/chess.c:789
 msgid "White checks"
 msgstr "Zurien xakea"
 
-#: ../src/chess_computer-activity/chess.c:787
+#: ../src/chess_computer-activity/chess.c:791
 msgid "Black checks"
 msgstr "Beltzen xakea"
 
-#: ../src/chess_computer-activity/chess.c:1193
+#: ../src/chess_computer-activity/chess.c:1197
 msgid "Black mates"
 msgstr "Beltzen xake-matea"
 
-#: ../src/chess_computer-activity/chess.c:1198
+#: ../src/chess_computer-activity/chess.c:1204
 msgid "White mates"
 msgstr "Zurien xake-matea"
 
-#: ../src/chess_computer-activity/chess.c:1203 ../src/gcompris/bonus.c:191
+#: ../src/chess_computer-activity/chess.c:1211 ../src/gcompris/bonus.c:191
 #: ../src/gcompris/bonus.c:200
 msgid "Drawn game"
 msgstr "Berdinketa"
 
-#: ../src/chess_computer-activity/chess.c:1229
+#: ../src/chess_computer-activity/chess.c:1239
 msgid "Error: The external program gnuchess died unexpectingly"
 msgstr "Errorea: kanpoko 'gnuchess' programa ustekabean hil da"
 
@@ -2052,7 +2079,7 @@ msgstr ""
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcdefghijklmnopqrstuvwxyz"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:298
+#: ../src/click_on_letter-activity/click_on_letter.c:304
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -2061,7 +2088,7 @@ msgstr ""
 "Errorea: ariketa hau egiteko '%s' edo '%s' hizkuntzeko\n"
 "GCompris-en ahotsen paketeak instalatu behar dituzu"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:306
+#: ../src/click_on_letter-activity/click_on_letter.c:314
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -2073,7 +2100,7 @@ msgstr ""
 "sentitzen da!"
 
 #. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:647
+#: ../src/click_on_letter-activity/click_on_letter.c:658
 #: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:484
 msgid "Uppercase only text"
 msgstr "Testua maiuskuletan soilik"
@@ -2140,7 +2167,8 @@ msgstr "Mugimendu-koordinazioa: sagua mugitzea eta saguarekin klik egitea."
 
 #: ../src/clickgame-activity/clickgame.xml.in.h:6
 msgid "Use the left mouse button to click on the moving fish."
-msgstr "Erabili saguaren ezkerreko botoia mugitzen ari den arrainean klik egiteko."
+msgstr ""
+"Erabili saguaren ezkerreko botoia mugitzen ari den arrainean klik egiteko."
 
 #: ../src/clockgame-activity/clockgame.c:525
 msgid "Set the watch to:"
@@ -2313,8 +2341,8 @@ msgstr "Gidatu garabia eta kopiatu modeloa"
 
 #: ../src/crane-activity/crane.xml.in.h:3
 #: ../src/erase-activity/erase.xml.in.h:2
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:5
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:5
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:5
 #: ../src/penalty-activity/penalty.xml.in.h:3
 msgid "Motor-coordination"
 msgstr "Mugimendu-koordinazioa"
@@ -2332,10 +2360,109 @@ msgid ""
 "can use the arrow keys and the space or tab key instead."
 msgstr ""
 "Mugitu elementuak beheko ezkerro markoan beraien posizioa gaineko eskuineko "
-"modeloan kopiatzeko. Garabia beraren azpian lau gezi daude elementuak mugitzen "
-"lagunduko dizutenak. Mugitu nahi den elementua hautatzeko egin klik bertan. "
-"Nahiago baduzu, teklatuko geziak eta zuriunea edo tabuladorea teklak "
+"modeloan kopiatzeko. Garabia beraren azpian lau gezi daude elementuak "
+"mugitzen lagunduko dizutenak. Mugitu nahi den elementua hautatzeko egin klik "
+"bertan. Nahiago baduzu, teklatuko geziak eta zuriunea edo tabuladorea teklak "
 "erabil ditzakezu horren ordez."
+
+#: ../src/details-activity/details.xml.in.h:3
+#, fuzzy
+msgid "Find the details"
+msgstr "Aurkitu dagokion bikotea"
+
+#: ../src/details-activity/details.xml.in.h:5
+msgid "The images are from wiki commons"
+msgstr "Irudiak Wikipedia Commons-etik hartutakoak dira"
+
+#: ../src/details-activity/resources/details/board1_0.xml.in.h:1
+#, fuzzy
+msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1889"
+msgstr "Vincent van Gogh, Logela Arlesen - 1888"
+
+#: ../src/details-activity/resources/details/board1_1.xml.in.h:1
+msgid ""
+"Vincent van Gogh, The Bridge of Langlois at Arles with a lady with umbrella "
+"- 1888"
+msgstr "Vincent van Gogh, Langlois-eko zubia eta Emakumea aterkiarekin - 1888"
+
+#: ../src/details-activity/resources/details/board1_2.xml.in.h:1
+#, fuzzy
+msgid "Vincent van Gogh, The Church at Auvers-sur-Oise - 1890"
+msgstr "Vincent Van Gogh, Auvers herriko kalea - 1890"
+
+#: ../src/details-activity/resources/details/board1_3.xml.in.h:1
+#, fuzzy
+msgid "Vincent van Gogh, Painter on His Way to Work - 1888"
+msgstr "Vincent van Gogh, Logela Arlesen - 1888"
+
+#: ../src/details-activity/resources/details/board1_4.xml.in.h:1
+#, fuzzy
+msgid "Vincent van Gogh, The Harvest - 1888"
+msgstr "Vincent van Gogh, Logela Arlesen - 1888"
+
+#: ../src/details-activity/resources/details/board1_5.xml.in.h:1
+#, fuzzy
+msgid "Vincent van Gogh, Cafe Terrace at Night - 1888"
+msgstr "Vincent van Gogh, Logela Arlesen - 1888"
+
+#: ../src/details-activity/resources/details/board1_6.xml.in.h:1
+#, fuzzy
+msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1888"
+msgstr "Vincent van Gogh, Logela Arlesen - 1888"
+
+#: ../src/details-activity/resources/details/board1_7.xml.in.h:1
+#, fuzzy
+msgid "Vincent van Gogh, Portrait of Pere Tanguy 1887-8"
+msgstr "Vincent van Gogh, Logela Arlesen - 1888"
+
+#: ../src/details-activity/resources/details/board2_0.xml.in.h:1
+msgid "Eilean Donan castle"
+msgstr "Eilean Donan gaztelua"
+
+#: ../src/details-activity/resources/details/board2_1.xml.in.h:1
+msgid "Eiffel Tower, seen from the champ de Mars, Paris, France"
+msgstr "Eiffel dorrea, Marteko zelaietatik ikusita, Paris, Frantzia"
+
+#: ../src/details-activity/resources/details/board2_10.xml.in.h:1
+msgid "Gizah Pyramids, Egypt"
+msgstr "Gizah piramideak, Egipto"
+
+#: ../src/details-activity/resources/details/board2_11.xml.in.h:1
+msgid "Sydney Opera House, Australia"
+msgstr "Sydney Opera House, Australia"
+
+#: ../src/details-activity/resources/details/board2_2.xml.in.h:1
+msgid "Courtyard of the Museum of Louvre, and its pyramid"
+msgstr "Louvre museoaren ataria, and its pyramid"
+
+#: ../src/details-activity/resources/details/board2_3.xml.in.h:1
+msgid "Panorama of Château de Chenonceau, Indre-et-Loire, France."
+msgstr ""
+
+#: ../src/details-activity/resources/details/board2_4.xml.in.h:1
+msgid ""
+"Notre Dame de Paris cathedral on the Île de la Cité island in Paris, France."
+msgstr ""
+
+#: ../src/details-activity/resources/details/board2_5.xml.in.h:1
+msgid "Nagoya Castle, Aichi Prefecture, Japan."
+msgstr ""
+
+#: ../src/details-activity/resources/details/board2_6.xml.in.h:1
+msgid "Taj Mahal, Agra, India"
+msgstr ""
+
+#: ../src/details-activity/resources/details/board2_7.xml.in.h:1
+msgid "Castle Neuschwanstein at Schwangau, Bavaria, Germany"
+msgstr ""
+
+#: ../src/details-activity/resources/details/board2_8.xml.in.h:1
+msgid "Egeskov Castle, Denmark"
+msgstr ""
+
+#: ../src/details-activity/resources/details/board2_9.xml.in.h:1
+msgid "Windmill in Sønderho, Fanø, Denmark"
+msgstr ""
 
 #: ../src/doubleentry-activity/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
@@ -2407,7 +2534,7 @@ msgstr "Marraztu irudia klik eginez zenbaki bakoitzean ordena egokian."
 msgid "Draw the picture by following numbers"
 msgstr "Marraztu irudia klik zenbakiak jarraituz"
 
-#: ../src/electric-activity/electric.py:98
+#: ../src/electric-activity/electric.py:99
 msgid ""
 "Cannot find the 'gnucap' electric simulator.\n"
 "You can download and install it from:\n"
@@ -2457,7 +2584,8 @@ msgstr "Elektrizitatea"
 
 #: ../src/electric-activity/electric.xml.in.h:4
 msgid "Freely create an electric schema with a real time simulation of it."
-msgstr "Sortu eskema elektriko bat denbora errealeko simuladore batekin bertan."
+msgstr ""
+"Sortu eskema elektriko bat denbora errealeko simuladore batekin bertan."
 
 #: ../src/electric-activity/electric.xml.in.h:5
 msgid ""
@@ -2520,6 +2648,21 @@ msgstr ""
 msgid "Move the mouse until all the blocks disappear."
 msgstr "Mugitu sagua bloke guztiak desagertu arte."
 
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
+msgid "Double click the mouse"
+msgstr "Egin klik bikoitza saguarekin"
+
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:3
+msgid "Double click the mouse on rectangles until all the blocks disappear."
+msgstr ""
+"Egin klik bikoitza laukizuzenetan saguarekin bloke guztiak desagertu arte."
+
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:4
+msgid "Double click the mouse to erase the area and discover the background"
+msgstr ""
+"Egin klik bikoitza saguarekin area garbitzeko eta atzeko planoko irudia "
+"ikusteko"
+
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:2
 msgid "Click the mouse"
 msgstr "Egin klik saguarekin"
@@ -2530,21 +2673,8 @@ msgstr "Egin klik laukizuzenetan saguarekin bloke guztiak desagertu arte."
 
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:4
 msgid "Click the mouse to erase the area and discover the background"
-msgstr "Egin klik saguarekin area garbitzeko eta atzeko planoko irudia ikusteko"
-
-#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
-msgid "Double click the mouse"
-msgstr "Egin klik bikoitza saguarekin"
-
-#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:3
-msgid "Double click the mouse on rectangles until all the blocks disappear."
-msgstr "Egin klik bikoitza laukizuzenetan saguarekin bloke guztiak desagertu arte."
-
-#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:4
-msgid "Double click the mouse to erase the area and discover the background"
 msgstr ""
-"Egin klik bikoitza saguarekin area garbitzeko eta atzeko planoko irudia "
-"ikusteko"
+"Egin klik saguarekin area garbitzeko eta atzeko planoko irudia ikusteko"
 
 #: ../src/fifteen-activity/fifteen.xml.in.h:1
 msgid ""
@@ -2555,8 +2685,10 @@ msgstr ""
 "trukatuko da."
 
 #: ../src/fifteen-activity/fifteen.xml.in.h:3
-msgid "Move each item to make an increasing series: from the smallest to the largest"
-msgstr "Aldatu elementu bakoitza lekuz serieak handitzeko: txikienetik handienera"
+msgid ""
+"Move each item to make an increasing series: from the smallest to the largest"
+msgstr ""
+"Aldatu elementu bakoitza lekuz serieak handitzeko: txikienetik handienera"
 
 #: ../src/fifteen-activity/fifteen.xml.in.h:4
 msgid "Original code taken from the libgnomecanvas demo"
@@ -2587,7 +2719,7 @@ msgstr ""
 msgid "Tux needs to water the flowers, but the hose is blocked."
 msgstr "Tuxek loreak ureztatu behar ditu baina hodia itxita dago."
 
-#: ../src/gcompris/about.c:50
+#: ../src/gcompris/about.c:49
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge, Yves Combe\n"
@@ -2602,25 +2734,25 @@ msgstr ""
 "Hondo-musika: Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:58
+#: ../src/gcompris/about.c:57
 msgid "translator_credits"
 msgstr ""
 "Hizkuntza Politikarako Sailburuordetza <hizkpol@ej-gv.es>\n"
 "Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>"
 
-#: ../src/gcompris/about.c:85
+#: ../src/gcompris/about.c:84
 msgid "About GCompris"
 msgstr "GCompris-i buruz"
 
-#: ../src/gcompris/about.c:95
+#: ../src/gcompris/about.c:94
 msgid "GCompris Home Page: http://gcompris.net"
 msgstr "GCompris-en webgunea: http://gcompris.net"
 
-#: ../src/gcompris/about.c:106
+#: ../src/gcompris/about.c:105
 msgid "Translators:"
 msgstr "Itzultzaileak:"
 
-#: ../src/gcompris/about.c:206
+#: ../src/gcompris/about.c:210
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
@@ -2628,29 +2760,29 @@ msgstr ""
 "Software hau GNU pakete bat da, eta GNU Lizentzia Publikoaren pean "
 "argitaratu da"
 
-#: ../src/gcompris/about.c:220 ../src/gcompris/config.c:448
-#: ../src/gcompris/dialog.c:103 ../src/gcompris/help.c:359
+#: ../src/gcompris/about.c:224 ../src/gcompris/config.c:438
+#: ../src/gcompris/dialog.c:104 ../src/gcompris/help.c:355
 #: ../src/gcompris/images_selector.c:307
 msgid "OK"
 msgstr "Ados"
 
-#: ../src/gcompris/bar.c:653
+#: ../src/gcompris/bar.c:692
 msgid "GCompris confirmation"
 msgstr "GCompris-en berrespena"
 
-#: ../src/gcompris/bar.c:654
+#: ../src/gcompris/bar.c:693
 msgid "Are you sure you want to quit?"
 msgstr "Ziur zaude irtetzea nahi duzula?"
 
-#: ../src/gcompris/bar.c:655
+#: ../src/gcompris/bar.c:694
 msgid "Yes, I am sure!"
 msgstr "Bai, ziur nago!"
 
-#: ../src/gcompris/bar.c:656
+#: ../src/gcompris/bar.c:695
 msgid "No, I want to keep going"
 msgstr "Ez, jarraitzea nahi dut"
 
-#: ../src/gcompris/board.c:194
+#: ../src/gcompris/board.c:168
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr "Ez da onartzen modulu dinamikoa. GCompris-ek ezin du kargatu.\n"
 
@@ -2709,331 +2841,330 @@ msgstr "Mailaren aukera"
 msgid "Back to default"
 msgstr "Itzuli lehenetsira"
 
-#: ../src/gcompris/config.c:59
+#: ../src/gcompris/config.c:58
 msgid "Your system default"
 msgstr "Sistemaren lehenespenak"
 
-#: ../src/gcompris/config.c:60
+#: ../src/gcompris/config.c:59
 msgid "Afrikaans"
 msgstr "Afrikaansa"
 
-#: ../src/gcompris/config.c:61
+#: ../src/gcompris/config.c:60
 msgid "Amharic"
 msgstr "Amharic"
 
-#: ../src/gcompris/config.c:62
+#: ../src/gcompris/config.c:61
 msgid "Arabic"
 msgstr "Arabiera"
 
-#: ../src/gcompris/config.c:63
+#: ../src/gcompris/config.c:62
 msgid "Asturian"
 msgstr "Asturiera"
 
-#: ../src/gcompris/config.c:64
+#: ../src/gcompris/config.c:63
 msgid "Turkish (Azerbaijan)"
 msgstr "Turkiera (Azerbaijan)"
 
-#: ../src/gcompris/config.c:65
+#: ../src/gcompris/config.c:64
 msgid "Bulgarian"
 msgstr "Bulgariera"
 
-#: ../src/gcompris/config.c:66
+#: ../src/gcompris/config.c:65
 msgid "Breton"
 msgstr "Bretoiera"
 
-#: ../src/gcompris/config.c:67
+#: ../src/gcompris/config.c:66
 msgid "Catalan"
 msgstr "Katalana"
 
-#: ../src/gcompris/config.c:68
+#: ../src/gcompris/config.c:67
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:7
 msgid "Czech Republic"
 msgstr "Txekiar Errepublika"
 
-#: ../src/gcompris/config.c:69
+#: ../src/gcompris/config.c:68
 msgid "Danish"
 msgstr "Daniera"
 
-#: ../src/gcompris/config.c:70
+#: ../src/gcompris/config.c:69
 msgid "German"
 msgstr "Alemana"
 
-#: ../src/gcompris/config.c:71
+#: ../src/gcompris/config.c:70
 msgid "Dzongkha"
 msgstr "Dzongkha"
 
-#: ../src/gcompris/config.c:72
+#: ../src/gcompris/config.c:71
 msgid "Greek"
 msgstr "Grekoa"
 
-#: ../src/gcompris/config.c:73
+#: ../src/gcompris/config.c:72
 msgid "English (Canada)"
 msgstr "Ingelesa (Kanada)"
 
-#: ../src/gcompris/config.c:74
+#: ../src/gcompris/config.c:73
 msgid "English (Great Britain)"
 msgstr "Ingelesa (Britainia Handia)"
 
-#: ../src/gcompris/config.c:75
+#: ../src/gcompris/config.c:74
 msgid "English (United States)"
 msgstr "Ingelesa (Ameriketako Estatu Batuak)"
 
-#: ../src/gcompris/config.c:76
+#: ../src/gcompris/config.c:75
 msgid "Spanish"
 msgstr "Gaztelania"
 
-#: ../src/gcompris/config.c:77
+#: ../src/gcompris/config.c:76
 msgid "Basque"
 msgstr "Euskara"
 
-#: ../src/gcompris/config.c:78
+#: ../src/gcompris/config.c:77
 msgid "Persian"
 msgstr "Persiera"
 
-#: ../src/gcompris/config.c:79
+#: ../src/gcompris/config.c:78
 msgid "Finnish"
 msgstr "Finlandiera"
 
-#: ../src/gcompris/config.c:80
+#: ../src/gcompris/config.c:79
 msgid "French"
 msgstr "Frantsesa"
 
-#: ../src/gcompris/config.c:81
+#: ../src/gcompris/config.c:80
 msgid "Irish (Gaelic)"
 msgstr "Gaelikoa (Irlandakoa)"
 
-#: ../src/gcompris/config.c:82
+#: ../src/gcompris/config.c:81
 msgid "Gujarati"
 msgstr "Gujaratera"
 
-#: ../src/gcompris/config.c:83
+#: ../src/gcompris/config.c:82
 msgid "Hebrew"
 msgstr "Hebreera"
 
-#: ../src/gcompris/config.c:84
+#: ../src/gcompris/config.c:83
 msgid "Hindi"
 msgstr "Hindia"
 
-#: ../src/gcompris/config.c:85
+#: ../src/gcompris/config.c:84
 msgid "Croatian"
 msgstr "Kroaziera"
 
-#: ../src/gcompris/config.c:86
+#: ../src/gcompris/config.c:85
 msgid "Hungarian"
 msgstr "Hungariera"
 
-#: ../src/gcompris/config.c:87
+#: ../src/gcompris/config.c:86
 msgid "Indonesian"
 msgstr "Indonesiera"
 
-#: ../src/gcompris/config.c:88
+#: ../src/gcompris/config.c:87
 msgid "Italian"
 msgstr "Italiera"
 
-#: ../src/gcompris/config.c:89
+#: ../src/gcompris/config.c:88
 msgid "Japanese"
 msgstr "Japoniera"
 
-#: ../src/gcompris/config.c:90
+#: ../src/gcompris/config.c:89
 msgid "Georgian"
 msgstr "Georgiera"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:90
 msgid "Korean"
 msgstr "Koreera"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:91
 msgid "Lithuanian"
 msgstr "Lituaniera"
 
-#: ../src/gcompris/config.c:93
+#: ../src/gcompris/config.c:92
 msgid "Macedonian"
 msgstr "Mazedoniera"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:93
 msgid "Malayalam"
 msgstr "Malayalama"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:94
 msgid "Marathi"
 msgstr "Marathiera"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:95
 msgid "Malay"
 msgstr "Malaysiera"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:96
 msgid "Norwegian Bokmal"
 msgstr "Norvegiako Bokmal"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:97
 msgid "Nepal"
 msgstr "Nepal"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:98
 msgid "Dutch"
 msgstr "Nederlandera"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:99
 msgid "Norwegian Nynorsk"
 msgstr "Norvegiako Nynorsk"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:100
 msgid "Occitan (languedocien)"
 msgstr "Okzitaniera (languedocien)"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:101
 msgid "Punjabi"
 msgstr "Punjabera"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:102
 msgid "Polish"
 msgstr "Poloniera"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:103
 msgid "Portuguese (Brazil)"
 msgstr "Portugesa (Brasil)"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:104
 msgid "Portuguese"
 msgstr "Portugesa"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:105
 msgid "Romanian"
 msgstr "Errumaniera"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:106
 msgid "Russian"
 msgstr "Errusiera"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:107
 msgid "Kinyarwanda"
 msgstr "Kinyaruanda"
 
-#: ../src/gcompris/config.c:109
+#: ../src/gcompris/config.c:108
 msgid "Slovak"
 msgstr "Eslovakiera"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:109
 msgid "Slovenian"
 msgstr "Esloveniera"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:110
 msgid "Somali"
 msgstr "Somaliera"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:111
 msgid "Albanian"
 msgstr "Albaniera"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:112
 msgid "Serbian (Latin)"
 msgstr "Serbiera (latinoa)"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:113
 msgid "Serbian"
 msgstr "Serbiera"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:114
 msgid "Swedish"
 msgstr "Suediera"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:115
 msgid "Tamil"
 msgstr "Tamilera"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:116
 msgid "Thai"
 msgstr "Thailandiera"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:117
 msgid "Turkish"
 msgstr "Turkiera"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:118
 msgid "Ukrainian"
 msgstr "Ukraniera"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:119
 msgid "Urdu"
 msgstr "Urdu"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:120
 msgid "Vietnamese"
 msgstr "Vietnamera"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:121
 msgid "Walloon"
 msgstr "Waloiera"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:122
 msgid "Chinese (Simplified)"
 msgstr "Txinera (erraztua)"
 
-#: ../src/gcompris/config.c:124
+#: ../src/gcompris/config.c:123
 msgid "Chinese (Traditional)"
 msgstr "Txinatar tradizionala"
 
-#: ../src/gcompris/config.c:129
+#: ../src/gcompris/config.c:128
 msgid "No time limit"
 msgstr "Denbora-mugarik ez"
 
-#: ../src/gcompris/config.c:130
+#: ../src/gcompris/config.c:129
 msgid "Slow timer"
 msgstr "Kronometro motela"
 
-#: ../src/gcompris/config.c:131
+#: ../src/gcompris/config.c:130
 msgid "Normal timer"
 msgstr "Kronometro normala"
 
-#: ../src/gcompris/config.c:132
+#: ../src/gcompris/config.c:131
 msgid "Fast timer"
 msgstr "Kronometro bizkorra"
 
-#: ../src/gcompris/config.c:136
-msgid ""
-"<i>Use Gcompris administration module\n"
-"to filter boards</i>"
+#: ../src/gcompris/config.c:135
+#, fuzzy
+msgid "Use Gcompris administration module to filter boards"
 msgstr ""
 "<i>Erabili GCompris-en administrazio-modulua\n"
 "arbelak iragazteko</i>"
 
-#: ../src/gcompris/config.c:188
+#: ../src/gcompris/config.c:186
 msgid "GCompris Configuration"
 msgstr "GCompris-en konfigurazioa"
 
-#: ../src/gcompris/config.c:259
+#: ../src/gcompris/config.c:253
 msgid "Fullscreen"
 msgstr "Pantaila osoa"
 
-#: ../src/gcompris/config.c:285
+#: ../src/gcompris/config.c:278
 msgid "Music"
 msgstr "Musika"
 
-#: ../src/gcompris/config.c:311
+#: ../src/gcompris/config.c:303
 msgid "Effect"
 msgstr "Efektua"
 
-#: ../src/gcompris/config.c:336 ../src/gcompris/sugar.c:82
+#: ../src/gcompris/config.c:327 ../src/gcompris/sugar.c:82
 msgid "Zoom"
 msgstr "Zooma"
 
-#: ../src/gcompris/config.c:373
+#: ../src/gcompris/config.c:364
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Ezin izan da direktorioa ireki: %s"
 
-#: ../src/gcompris/config.c:404 ../src/gcompris/config.c:813
-#: ../src/gcompris/config.c:827
+#: ../src/gcompris/config.c:395 ../src/gcompris/config.c:753
+#: ../src/gcompris/config.c:767
 #, c-format
 msgid "Skin : %s"
 msgstr "Azala: %s"
 
-#: ../src/gcompris/config.c:406
+#: ../src/gcompris/config.c:397
 msgid "SKINS NOT FOUND"
 msgstr "AZALIK EZ DA AURKITU"
 
-#: ../src/gcompris/config.c:488
+#: ../src/gcompris/config.c:478
 msgid "English (United State)"
 msgstr "Ingelesa (Ameriketako Estatu Batuak)"
 
@@ -3065,39 +3196,45 @@ msgstr ""
 "Irten, eta eman\n"
 "arazoaren berri egileei."
 
-#: ../src/gcompris/gcompris.c:152
+#: ../src/gcompris/gcompris.c:158
 msgid "run GCompris in fullscreen mode."
 msgstr "exekutatu GCompris pantaila osoko moduan."
 
-#: ../src/gcompris/gcompris.c:155
+#: ../src/gcompris/gcompris.c:161
 msgid "run GCompris in window mode."
 msgstr "exekutatu GCompris leiho-moduan."
 
-#: ../src/gcompris/gcompris.c:158
+#: ../src/gcompris/gcompris.c:164
 msgid "run GCompris with sound enabled."
 msgstr "exekutatu GCompris soinua gaituta dagoela."
 
-#: ../src/gcompris/gcompris.c:161
+#: ../src/gcompris/gcompris.c:167
 msgid "run GCompris without sound."
 msgstr "exekutatu GCompris soinurik gabe."
 
-#: ../src/gcompris/gcompris.c:164
-msgid "run GCompris with the default gnome cursor."
+#: ../src/gcompris/gcompris.c:170
+#, fuzzy
+msgid "run GCompris with the default system cursor."
 msgstr "exekutatu GCompris gnome-ren kurtsore lehenetsiarekin."
 
-#: ../src/gcompris/gcompris.c:167
+#: ../src/gcompris/gcompris.c:173
+#, fuzzy
+msgid "run GCompris without cursor (touch screen mode)."
+msgstr "exekutatu GCompris soinurik gabe."
+
+#: ../src/gcompris/gcompris.c:176
 msgid "display only activities with this difficulty level."
 msgstr "erakutsi zailtasun-maila honetako ariketak bakarrik."
 
-#: ../src/gcompris/gcompris.c:170
+#: ../src/gcompris/gcompris.c:179
 msgid "display debug informations on the console."
 msgstr "bistaratu arazketaren informazioa kontsolan."
 
-#: ../src/gcompris/gcompris.c:173
+#: ../src/gcompris/gcompris.c:182
 msgid "Print the version of "
 msgstr "Erakutsi bertsioa: "
 
-#: ../src/gcompris/gcompris.c:176
+#: ../src/gcompris/gcompris.c:185
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
@@ -3109,35 +3246,38 @@ msgstr ""
 "artzain jokoa' jarduerarekin bakarrik). Erabili '-l list' jarduera "
 "erabilgarri guztiak eta beraien azalpenak zerrendatzeko."
 
-#: ../src/gcompris/gcompris.c:181
+#: ../src/gcompris/gcompris.c:190
 msgid "GCompris will find the data dir in this directory"
 msgstr "GCompris-ek datuak direktorio honetan bilatuko ditu"
 
-#: ../src/gcompris/gcompris.c:184
+#: ../src/gcompris/gcompris.c:193
 msgid "GCompris will find the skins in this directory"
 msgstr "GCompris-ek azalak direktorio honetan bilatuko ditu"
 
-#: ../src/gcompris/gcompris.c:187
+#: ../src/gcompris/gcompris.c:196
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "GCompris-ek jardueren pluginak direktorio honetan bilatuko ditu"
 
-#: ../src/gcompris/gcompris.c:190
+#: ../src/gcompris/gcompris.c:199
 msgid "GCompris will find the python activity in this directory"
-msgstr "GCompris-ek python-en garatutako jarduerak direktorio honetan bilatuko ditu"
+msgstr ""
+"GCompris-ek python-en garatutako jarduerak direktorio honetan bilatuko ditu"
 
-#: ../src/gcompris/gcompris.c:193
+#: ../src/gcompris/gcompris.c:202
 msgid "GCompris will find the locale file (.mo translation) in this directory"
-msgstr "GCompris-ek itzulpeneko fitxategiak (.mo) direktorio honetan bilatuko ditu"
+msgstr ""
+"GCompris-ek itzulpeneko fitxategiak (.mo) direktorio honetan bilatuko ditu"
 
-#: ../src/gcompris/gcompris.c:196
+#: ../src/gcompris/gcompris.c:205
 msgid "GCompris will find the activities menu in this directory"
 msgstr "GCompris-ek jardueren menuak direktorio honetan bilatuko ditu"
 
-#: ../src/gcompris/gcompris.c:199
+#: ../src/gcompris/gcompris.c:208
 msgid "Run GCompris in administration and user-management mode"
-msgstr "Exekutatu GCompris administratzeko eta erabiltzaileak kudeatzeko moduan"
+msgstr ""
+"Exekutatu GCompris administratzeko eta erabiltzaileak kudeatzeko moduan"
 
-#: ../src/gcompris/gcompris.c:202
+#: ../src/gcompris/gcompris.c:211
 msgid ""
 "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
@@ -3145,25 +3285,25 @@ msgstr ""
 "Erabili profilen bestelako datu-basea [$HOME/.config/gcompris/"
 "gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:205
+#: ../src/gcompris/gcompris.c:214
 msgid "Create the alternate database for profiles"
 msgstr "Sortu profilen bestelako datu-basea"
 
-#: ../src/gcompris/gcompris.c:208
+#: ../src/gcompris/gcompris.c:217
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Irakurri berriro XML menuak eta gorde datu-basean"
 
-#: ../src/gcompris/gcompris.c:211
+#: ../src/gcompris/gcompris.c:220
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Ezarri profila erabiltzeko. Erabili 'gcompris -a' profilak sortzeko"
 
-#: ../src/gcompris/gcompris.c:214
+#: ../src/gcompris/gcompris.c:223
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Zerrendatu erabilgarri dauden profila guztiak. Erabili 'gcompris -a' "
 "profilak sortzeko"
 
-#: ../src/gcompris/gcompris.c:217
+#: ../src/gcompris/gcompris.c:226
 msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
@@ -3171,23 +3311,28 @@ msgstr ""
 "Konfigurazioko direktorioaren kokalekua: [$HOME/.config/gcompris]. Bestelako "
 "metodoa $XDG_CONFIG_HOME definitzea da."
 
-#: ../src/gcompris/gcompris.c:220
+#: ../src/gcompris/gcompris.c:229
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "Erabiltzaileen direktorioen kokalekua: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:223
+#: ../src/gcompris/gcompris.c:232
 msgid "Run the experimental activities"
 msgstr "Exekutatu ariketa esperimentalak."
 
-#: ../src/gcompris/gcompris.c:226
+#: ../src/gcompris/gcompris.c:235
 msgid "Disable the quit button"
 msgstr "Desgaitu irteerako botoia"
 
-#: ../src/gcompris/gcompris.c:229
+#: ../src/gcompris/gcompris.c:238
 msgid "Disable the config button"
 msgstr "Desgaitu konfigurazioko botoia"
 
-#: ../src/gcompris/gcompris.c:232
+#: ../src/gcompris/gcompris.c:241
+#, fuzzy
+msgid "Disable the level button"
+msgstr "Desgaitu irteerako botoia"
+
+#: ../src/gcompris/gcompris.c:244
 msgid ""
 "GCompris will get images, sounds and activity data from this server if not "
 "found locally."
@@ -3195,7 +3340,7 @@ msgstr ""
 "GCompris-ek zerbitzari honetatik irudiak, soinuak eta jardueren datuak "
 "eskura ditzake lokalean ezin baditu aurkitu."
 
-#: ../src/gcompris/gcompris.c:235
+#: ../src/gcompris/gcompris.c:247
 msgid ""
 "Only when --server is provided, disable check for local resource first. Data "
 "are always taken from the web server."
@@ -3203,28 +3348,30 @@ msgstr ""
 "Soilik '--server' ematean, desgaitu lokaleko baliabideak egiaztatzea "
 "aurrenik. Datuak beti web zerbitzaritik hartuko dira."
 
-#: ../src/gcompris/gcompris.c:239
-msgid "In server mode, specify the cache directory used to avoid useless downloads."
+#: ../src/gcompris/gcompris.c:251
+msgid ""
+"In server mode, specify the cache directory used to avoid useless downloads."
 msgstr ""
 "Zerbitzari moduan, zehaztu cache-aren direktorioa deskarga erabilkaitzak "
 "saihesteko."
 
-#: ../src/gcompris/gcompris.c:242
-msgid "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
+#: ../src/gcompris/gcompris.c:254
+msgid ""
+"Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr ""
 "Arrastatu eta jaregiteko modu globala: arrunta, 2 klik, biak. Lehenetsia "
 "modu arrunta da."
 
-#: ../src/gcompris/gcompris.c:245
+#: ../src/gcompris/gcompris.c:257
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Ez saihestu GCompris-en hainbat instantzia exekutatzea."
 
-#: ../src/gcompris/gcompris.c:915
-#, c-format
+#: ../src/gcompris/gcompris.c:922
+#, fuzzy, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
-"support its development, the Windows version provides only %d of the %d "
-"activities. You can get the full version for a small fee at\n"
+"support its development, this version provides only %d of the %d activities. "
+"You can get the full version for a small fee at\n"
 "<http://gcompris.net>\n"
 "The GNU/Linux version does not have this restriction. If you also believe "
 "that we should teach freedom to children, please consider using GNU/Linux. "
@@ -3236,23 +3383,24 @@ msgstr ""
 "Bertsio osoa eskuratzeko diru gutxiren truke hemen lor dezakezu: \n"
 "<http://gcompris.net>\n"
 "GNU/Linux-eko bertsioak ez du murriztapen hau. Haurrei askatasuna irakatsi "
-"behar zaielakoan bazaude, GNU/Linux sistema erabiltzea gomendatzen "
-"dizugu. Xehetasun gehiago FSFren gunean:\n"
+"behar zaielakoan bazaude, GNU/Linux sistema erabiltzea gomendatzen dizugu. "
+"Xehetasun gehiago FSFren gunean:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1393
+#: ../src/gcompris/gcompris.c:1462
 #, c-format
-msgid "GCompris won't start because the lock file is less than %d seconds old.\n"
+msgid ""
+"GCompris won't start because the lock file is less than %d seconds old.\n"
 msgstr ""
 "GCompris ez da abiatuko blokeoko fitxategia %d segundo baino gutxiagokoa "
 "delako.\n"
 
-#: ../src/gcompris/gcompris.c:1395
+#: ../src/gcompris/gcompris.c:1464
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Blokeoko fitxategia: %s\n"
 
-#: ../src/gcompris/gcompris.c:1509
+#: ../src/gcompris/gcompris.c:1578
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3266,27 +3414,27 @@ msgstr ""
 "Informazio gehiago: http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1612
+#: ../src/gcompris/gcompris.c:1693
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Erabili -l ariketetara zuzenean sartzeko.\n"
 
-#: ../src/gcompris/gcompris.c:1613
+#: ../src/gcompris/gcompris.c:1694
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Ariketa erabilgarrien zerrenda: \n"
 
-#: ../src/gcompris/gcompris.c:1644
+#: ../src/gcompris/gcompris.c:1725
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Ekintza kopurua: %d\n"
 
-#: ../src/gcompris/gcompris.c:1680
+#: ../src/gcompris/gcompris.c:1761
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s existitzen da baina ez da irakurgarria edo idazgarria"
 
-#: ../src/gcompris/gcompris.c:1743
+#: ../src/gcompris/gcompris.c:1824
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
@@ -3295,7 +3443,7 @@ msgstr ""
 "--server aukera ezin da erabili GCompris sareko euskarririk gabe konpilatu "
 "delako."
 
-#: ../src/gcompris/gcompris.c:1797
+#: ../src/gcompris/gcompris.c:1878
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3304,46 +3452,61 @@ msgstr ""
 "ERROREA: ez da '%s' profila aurkitu. Exekutatu 'gcompris --profile-list' "
 "dauden profilak zerrendatzeko\n"
 
-#: ../src/gcompris/gcompris.c:1811
+#: ../src/gcompris/gcompris.c:1892
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Profila erabilgarrien zerrenda: \n"
 
-#: ../src/gcompris/gcompris_db.c:234
+#: ../src/gcompris/gcompris_db.c:309
 msgid "Unaffected"
 msgstr "Efekturik gabe"
 
-#: ../src/gcompris/gcompris_db.c:235
+#: ../src/gcompris/gcompris_db.c:310
 msgid "Users without a class"
 msgstr "Klaserik gabeko erabiltzeak"
 
-#: ../src/gcompris/help.c:181
+#: ../src/gcompris/gcompris_db.c:894
+#, c-format
+msgid ""
+"Loading activity from database:\n"
+"%s"
+msgstr ""
+
+#: ../src/gcompris/help.c:180
 msgid "Prerequisite"
 msgstr "Aurrebaldintzak"
 
-#: ../src/gcompris/help.c:212
+#: ../src/gcompris/help.c:210
 msgid "Goal"
 msgstr "Helburua"
 
-#: ../src/gcompris/help.c:243
+#: ../src/gcompris/help.c:240
 msgid "Manual"
 msgstr "Jarraibideak"
 
-#: ../src/gcompris/help.c:274
+#: ../src/gcompris/help.c:270
 msgid "Credit"
 msgstr "Kreditua"
 
-#: ../src/gcompris/properties.c:497 ../src/gcompris/properties.c:504
+#: ../src/gcompris/menu.c:583
+#, fuzzy, c-format
+msgid ""
+"Loading activity from file:\n"
+"%s"
+msgstr "Irakurtzeko ariketak."
+
+#: ../src/gcompris/properties.c:501 ../src/gcompris/properties.c:508
 msgid "readme"
 msgstr "irakhau"
 
-#: ../src/gcompris/properties.c:499
+#: ../src/gcompris/properties.c:503
 msgid ""
 "This directory contains the files you create with the GCompris educational "
 "suite\n"
-msgstr "Direktorio honek GCompris suite hezigarriarekin sortutako fitxategiak ditu.\n"
+msgstr ""
+"Direktorio honek GCompris suite hezigarriarekin sortutako fitxategiak ditu.\n"
 
-#: ../src/gcompris/properties.c:506
+#: ../src/gcompris/properties.c:510
 msgid ""
 "Put any number of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
@@ -3377,19 +3540,20 @@ msgstr "Freskatu"
 msgid "Settings"
 msgstr "Ezarpenak"
 
-#: ../src/gcompris/sugar.c:84
+#. TRANSLATORS: Back as in previous
+#: ../src/gcompris/sugar.c:86
 msgid "Back"
 msgstr "Itzuli"
 
-#: ../src/gcompris/sugar.c:85
+#: ../src/gcompris/sugar.c:87
 msgid "Stop"
 msgstr "Gelditu"
 
-#: ../src/gcompris/timer.c:244
+#: ../src/gcompris/timer.c:245
 msgid "Time Elapsed"
 msgstr "Igarotako denbora"
 
-#: ../src/gcompris/timer.c:322
+#: ../src/gcompris/timer.c:323
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Geratzen den denbora = %d"
@@ -4026,7 +4190,7 @@ msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 #. we can add what you want in it.
 #: ../src/gletters-activity/gletters.c:850
 #: ../src/imageid-activity/imageid.c:712 ../src/login-activity/login.py:479
-#: ../src/missing_letter-activity/missingletter.c:748
+#: ../src/missing_letter-activity/missingletter.c:752
 #: ../src/pythontest-activity/pythontest.py:454
 #: ../src/readingh-activity/reading.c:878
 #: ../src/scalesboard-activity/scale.c:1161
@@ -4509,11 +4673,10 @@ msgid ""
 "Data file for this level is not properly formatted. Too many choices are "
 "proposed."
 msgstr ""
-"Maila honetako datuak ez dute formatu egokia. Aukera gehiegi "
-"proposatu dira."
+"Maila honetako datuak ez dute formatu egokia. Aukera gehiegi proposatu dira."
 
 #: ../src/imageid-activity/imageid.c:534
-#: ../src/missing_letter-activity/missingletter.c:568
+#: ../src/missing_letter-activity/missingletter.c:569
 msgid "Data file for this level is not properly formatted."
 msgstr "Maila honetako datuak ez dute formatu egokia."
 
@@ -4834,14 +4997,10 @@ msgid "Lights Off"
 msgstr "Itzali argiak"
 
 #: ../src/lightsoff-activity/lightsoff.xml.in.h:2
-msgid "The aim is to switch off all the lights"
-msgstr "Helburua argi guztiak itzaltzea da"
-
-#: ../src/lightsoff-activity/lightsoff.xml.in.h:3
 msgid "The aim is to switch off all the lights."
 msgstr "Helburua argi guztiak itzaltzea da."
 
-#: ../src/lightsoff-activity/lightsoff.xml.in.h:4
+#: ../src/lightsoff-activity/lightsoff.xml.in.h:3
 msgid ""
 "The effect of pressing a button is to toggle the state of that button, and "
 "of its immediate vertical and horizontal neighbours. The sun and the color "
@@ -4850,18 +5009,19 @@ msgid ""
 msgstr ""
 "Botoi bat sakatzearen eragina botoi horren, eta aldameneko bizilagun "
 "bertikalak eta horizontalen, egoera aldatzea da. Eguzkiaren eta zeruaren "
-"koloreak puzlea ebazteko behar den klik kopuruaren araberakoak dira. "
-"Tux-en gainean klik egiten baduzu, ebazpena erakutsiko da."
+"koloreak puzlea ebazteko behar den klik kopuruaren araberakoak dira. Tux-en "
+"gainean klik egiten baduzu, ebazpena erakutsiko da."
 
-#: ../src/lightsoff-activity/lightsoff.xml.in.h:5
+#: ../src/lightsoff-activity/lightsoff.xml.in.h:4
+#, fuzzy
 msgid ""
-"The solver algorithm described on the haar.clara.co.uk is a valuable "
-"resource to know more about the Lights Off game: &lt;http://www.haar.clara."
-"co.uk/Lights/solving.html&gt;"
+"The solver algorithm described on haar.clara.co.uk is a valuable resource to "
+"know more about the Lights Off game: &lt;http://www.haar.clara.co.uk/Lights/"
+"solving.html&gt;"
 msgstr ""
-"haar.clara.co.uk gunean deskribatzen den algoritmo ebazlea "
-"baliabide interesgarria da 'Itzali argiak' jokuari buruz gehiago jakiteko. "
-"&lt;http://www.haar.clara.co.uk/Lights/solving.html&gt;"
+"haar.clara.co.uk gunean deskribatzen den algoritmo ebazlea baliabide "
+"interesgarria da 'Itzali argiak' jokuari buruz gehiago jakiteko. &lt;http://"
+"www.haar.clara.co.uk/Lights/solving.html&gt;"
 
 #: ../src/login-activity/login.py:101
 msgid "Profile: "
@@ -4877,7 +5037,8 @@ msgid "Enter login to log in"
 msgstr "Sartu erabiltzaile-izena saioa hasteko"
 
 #: ../src/login-activity/login.xml.in.h:1
-msgid "GCompris identifies each child, so we can provide child-specific reports."
+msgid ""
+"GCompris identifies each child, so we can provide child-specific reports."
 msgstr ""
 "GCompris-ek haur bakoitza identifikatzen du, eta haur bakoitzeko txosten "
 "zehatza eman diezazuke."
@@ -4887,9 +5048,10 @@ msgid "GCompris login screen"
 msgstr "GCompris-en saio-hasierako pantaila"
 
 #: ../src/login-activity/login.xml.in.h:3
+#, fuzzy
 msgid ""
-"In order to activate the login screen, you must \n"
-"first add users in the administration part of GCompris. \n"
+"In order to activate the login screen, you must\n"
+"first add users in the administration part of GCompris.\n"
 "You access Administration by running 'gcompris -a'.\n"
 "In Administration, you can create different profiles. In each profile,\n"
 "you can have a different set of users and select which activities are "
@@ -4980,14 +5142,15 @@ msgstr "Labirintoa"
 msgid "Find your way out of the maze"
 msgstr "Lortu labirintotik irtetea"
 
-#: ../src/maze-activity/maze.c:500
+#: ../src/maze-activity/maze.c:599
 msgid ""
 "Look at your position, then switch back to invisible mode to continue your "
 "moves"
 msgstr "Begiratu ondo non zauden eta itzuli ikusezin modura mugitzeko"
 
-#: ../src/maze-activity/maze.c:502
-msgid "Look at your position, then switch back to 3D mode to continue your moves"
+#: ../src/maze-activity/maze.c:601
+msgid ""
+"Look at your position, then switch back to 3D mode to continue your moves"
 msgstr "Begiratu ondo non zauden eta itzuli 3D modura mugitzeko"
 
 #: ../src/maze-activity/maze.xml.in.h:1
@@ -5361,15 +5524,17 @@ msgstr "Enumerazioa trebatzea, memoria."
 
 #: ../src/memory_enumerate-activity/memory_enumerate.xml.in.h:4
 msgid "Turn the cards over to match the number with the drawn picture."
-msgstr "Ipini kartak buruz gora zenbakia marraztutako irudiarekin bat etortzeko."
+msgstr ""
+"Ipini kartak buruz gora zenbakia marraztutako irudiarekin bat etortzeko."
 
 #: ../src/memory_enumerate-activity/memory_enumerate.xml.in.h:5
 msgid ""
 "You can see some cards, but you can't see what's on the other side of them. "
 "Each card is hiding a number of pictures, or the written number."
 msgstr ""
-"Karta batzuk ikus ditzakezun arren, ezin duzu haien bestaldean zer dagoen ikusi. "
-"Karta bakoitzak irudi kopuru bat ezkutatzen du, edo idatzitako zenbaki bat."
+"Karta batzuk ikus ditzakezun arren, ezin duzu haien bestaldean zer dagoen "
+"ikusi. Karta bakoitzak irudi kopuru bat ezkutatzen du, edo idatzitako "
+"zenbaki bat."
 
 #: ../src/memory_minus-activity/memory_minus.xml.in.h:1
 #: ../src/memory_minus_tux-activity/memory_minus_tux.xml.in.h:1
@@ -5598,43 +5763,94 @@ msgstr "Irakurmena trebatzea"
 msgid "Word reading"
 msgstr "Irakurtzen jakitea"
 
+#: ../src/missing_letter-activity/missingletter_config.c:77
+msgid "Please select an image."
+msgstr ""
+
+#: ../src/missing_letter-activity/missingletter_config.c:83
+msgid "Choice cannot be empty."
+msgstr ""
+
+#: ../src/missing_letter-activity/missingletter_config.c:89
+msgid "Question cannot be empty."
+msgstr ""
+
+#: ../src/missing_letter-activity/missingletter_config.c:95
+msgid ""
+"Question must include the character '_'. It represent the letter to search."
+msgstr ""
+
+#: ../src/missing_letter-activity/missingletter_config.c:102
+msgid "Pixmap cannot be empty"
+msgstr ""
+
+#: ../src/missing_letter-activity/missingletter_config.c:108
+msgid "There must be at least 2 choices."
+msgstr ""
+
+#: ../src/missing_letter-activity/missingletter_config.c:116
+msgid "The answer and question must be the same except for the character '_'."
+msgstr ""
+
+#: ../src/missing_letter-activity/missingletter_config.c:125
+msgid "The first choice must be the solution that replaces the character '_'."
+msgstr ""
+
+#: ../src/missing_letter-activity/missingletter_config.c:140
+#, c-format
+msgid ""
+"Invalid entry:\n"
+"Question '%s' / Answer '%s'\n"
+"%s"
+msgstr ""
+
 #. pixmap
-#: ../src/missing_letter-activity/missingletter_config.c:384
-#: ../src/missing_letter-activity/missingletter_config.c:534
+#: ../src/missing_letter-activity/missingletter_config.c:414
+#: ../src/missing_letter-activity/missingletter_config.c:546
 msgid "Picture"
 msgstr "Irudia"
 
 #. answer
-#: ../src/missing_letter-activity/missingletter_config.c:390
-#: ../src/missing_letter-activity/missingletter_config.c:525
+#: ../src/missing_letter-activity/missingletter_config.c:420
+#: ../src/missing_letter-activity/missingletter_config.c:537
 msgid "Answer"
 msgstr "Erantzuna"
 
 #. question
-#: ../src/missing_letter-activity/missingletter_config.c:396
-#: ../src/missing_letter-activity/missingletter_config.c:548
+#: ../src/missing_letter-activity/missingletter_config.c:426
+#: ../src/missing_letter-activity/missingletter_config.c:560
 msgid "Question"
 msgstr "Galdera"
 
 #. choice
-#: ../src/missing_letter-activity/missingletter_config.c:402
-#: ../src/missing_letter-activity/missingletter_config.c:557
+#: ../src/missing_letter-activity/missingletter_config.c:432
+#: ../src/missing_letter-activity/missingletter_config.c:572
 msgid "Choice"
 msgstr "Aukeratu"
 
 #. combo level
-#: ../src/missing_letter-activity/missingletter_config.c:440
+#: ../src/missing_letter-activity/missingletter_config.c:470
 msgid "Level:"
 msgstr "Maila:"
 
-#: ../src/missing_letter-activity/missingletter_config.c:448
+#: ../src/missing_letter-activity/missingletter_config.c:478
 #, c-format
 msgid "Level %d"
 msgstr "%d. maila"
 
-#: ../src/missing_letter-activity/missingletter_config.c:538
+#: ../src/missing_letter-activity/missingletter_config.c:550
 msgid "Filename:"
 msgstr "Fitxategi-izena:"
+
+#: ../src/missing_letter-activity/missingletter_config.c:568
+msgid "Replace the letter to guess by the character '_'."
+msgstr ""
+
+#: ../src/missing_letter-activity/missingletter_config.c:580
+msgid ""
+"Enter here the letter that will be proposed. The first letter here must be "
+"the solution"
+msgstr ""
 
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:1
 msgid "car/c_r/a/k/o"
@@ -5848,7 +6064,8 @@ msgstr "Arrastatu eta jaregin piezak jatorrizko koadroak osatzeko"
 msgid ""
 "Drag the image parts from the box on the left to create a painting on the "
 "main board."
-msgstr "Arrastatu ezkerrean dauden irudien piezak arbel nagusian koadroa osatzeko."
+msgstr ""
+"Arrastatu ezkerrean dauden irudien piezak arbel nagusian koadroa osatzeko."
 
 #: ../src/paintings-activity/paintings.xml.in.h:4
 msgid "Mouse-manipulation: movement, drag and drop"
@@ -5879,16 +6096,20 @@ msgid "Woman holding a fan"
 msgstr "Emakumea abanikoa eusten"
 
 #: ../src/paintings-activity/resources/paintings/board2_1.xml.in.h:1
-msgid "Botticelli, Primavera - 1482"
-msgstr "Botticelli, Udaberria - 1482"
+msgid "Mona Lisa"
+msgstr ""
 
 #: ../src/paintings-activity/resources/paintings/board2_2.xml.in.h:1
-msgid "Caravage, Rest on the Flight into Egypt - 1597"
-msgstr "Caravage, Atsedenaldia Egiptoruntzko hiesaldian - 1597"
+msgid "Bellini : Pala di pesaro"
+msgstr ""
 
 #: ../src/paintings-activity/resources/paintings/board2_3.xml.in.h:1
-msgid "Botticelli, The Birth of Venus - 1482–1486"
-msgstr "Botticelli, Venus-en jaiotza - 1482–1486"
+msgid "Dürer : Lion"
+msgstr ""
+
+#: ../src/paintings-activity/resources/paintings/board2_4.xml.in.h:1
+msgid "Pieter Brugel : Harvest"
+msgstr ""
 
 #: ../src/paintings-activity/resources/paintings/board3_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
@@ -5951,11 +6172,11 @@ msgstr ""
 "Joko honen helburua ondo pasaraztea da, eta ez da gaitasun berezirik behar "
 "jolastu ahal izateko."
 
-#: ../src/penalty-activity/penalty.py:294
+#: ../src/penalty-activity/penalty.py:293
 msgid "Click on the balloon to place it again."
 msgstr "Egin klik baloian hau berriro kokatzeko."
 
-#: ../src/penalty-activity/penalty.py:296
+#: ../src/penalty-activity/penalty.py:295
 msgid "Click twice on the balloon to shoot it."
 msgstr "Egin klik bikoitza baloian hau jaurtitzeko."
 
@@ -5995,8 +6216,8 @@ msgid ""
 "Observe the two pictures carefully. There are some slight differences. When "
 "you find a difference you must click on it."
 msgstr ""
-"Aztertu bi argazkiak arretaz. Desberdintasun txiki batzuk daude. Desberdintasun "
-"bat aurkitutakoan egin klik haren gaineran."
+"Aztertu bi argazkiak arretaz. Desberdintasun txiki batzuk daude. "
+"Desberdintasun bat aurkitutakoan egin klik haren gaineran."
 
 #: ../src/photohunter-activity/photohunter.xml.in.h:3
 msgid "Photo hunter"
@@ -6031,6 +6252,15 @@ msgstr "Mugitu helikopteroa hodeiak behar den ordenan harrapatzeko"
 msgid "Number"
 msgstr "Zenbatzen jakitea"
 
+#: ../src/pythontemplate-activity/pythontemplate.py:60
+#: ../src/pythontest-activity/pythontest.py:184
+msgid ""
+"This is the first plugin in GCompris coded in the Python\n"
+"Programming language."
+msgstr ""
+"Hau da Python programazio-lengoaian kodetutako lehenengo \n"
+"GCompris plugin-a."
+
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:1
 #: ../src/pythontest-activity/pythontest.xml.in.h:1
 msgid "Add a language-binding to GCompris."
@@ -6051,16 +6281,10 @@ msgstr "Python-en txantiloia"
 
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:5
 #: ../src/pythontest-activity/pythontest.xml.in.h:5
-msgid "Thanks to Guido van Rossum and the python team for this powerful language!"
-msgstr "Mila esker Guido van Rossum eta python taldeari lengoaia ahaltsu honengatik!"
-
-#: ../src/pythontest-activity/pythontest.py:184
 msgid ""
-"This is the first plugin in GCompris coded in the Python\n"
-"Programming language."
+"Thanks to Guido van Rossum and the python team for this powerful language!"
 msgstr ""
-"Hau da Python programazio-lengoaian kodetutako lehenengo \n"
-"GCompris plugin-a."
+"Mila esker Guido van Rossum eta python taldeari lengoaia ahaltsu honengatik!"
 
 #: ../src/pythontest-activity/pythontest.py:194
 msgid ""
@@ -6222,6 +6446,11 @@ msgstr "den ala ez"
 #: ../src/readingh-activity/reading.c:456
 msgid "We skip this level because there are not enough words in the list!"
 msgstr "Maila hau saltatuko dugu ez dagoelako nahikoa hitz zerrendan."
+
+#: ../src/readingh-activity/reading.c:659
+#, fuzzy
+msgid "Yes, I saw it"
+msgstr "Bai, ziur nago!"
 
 #: ../src/readingh-activity/reading.c:686
 msgid "No, it was not there"
@@ -6407,6 +6636,24 @@ msgstr ""
 "Balantzak orekatzeko, eraman ezkerreko edo eskuineko aldean. Pisuak edozein "
 "ordenatan jar daitezke."
 
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:2
+msgid "Drag and Drop masses to balance the scales and calculate the weight"
+msgstr "Arrastatu eta jaregin masak balantza orekatzeko eta pisua kalkulatzeko"
+
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:3
+msgid "Mental calculation, arithmetic equality, unit conversion"
+msgstr "Adimen-kalkulua, berdintasun aritmetikoa, bihurketa unitarioa"
+
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:5
+msgid ""
+"To balance the scales, move the masses on the left or the right side. Take "
+"care of the weight and the unit of the masses, remember that a kilogram (kg) "
+"is 1000 grams (g). They can be arranged in any order."
+msgstr ""
+"Balantzak orekatzeko, eraman masak ezkerreko edo eskuineko aldera. Masen "
+"pisu eta unitateak kontutan hartu behar dituzu, eta gogoratu kilogramo bat "
+"(kg) 1000 gramo (g) direla. Masak edozein ordenatan jar daitezke."
+
 #: ../src/searace-activity/searace.py:174
 msgid "The race is already being run"
 msgstr "Lasterketa exekutatzen dago lehendik"
@@ -6520,25 +6767,6 @@ msgstr ""
 msgid "Sea race (2 Players)"
 msgstr "Itsasoko lasterketa (2 jokalari)"
 
-#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:2
-msgid "Drag and Drop masses to balance the scales and calculate the weight"
-msgstr "Arrastatu eta jaregin masak balantza orekatzeko eta pisua kalkulatzeko"
-
-#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:3
-msgid "Mental calculation, arithmetic equality, unit conversion"
-msgstr "Adimen-kalkulua, berdintasun aritmetikoa, bihurketa unitarioa"
-
-#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:5
-msgid ""
-"To balance the scales, move the masses on the left or the right side. Take "
-"care of the weight and the unit of the masses, remember that a kilogram (kg) "
-"is 1000 grams (g). They can be arranged in any order."
-msgstr ""
-"Balantzak orekatzeko, eraman masak ezkerreko edo eskuineko aldera. "
-"Masen pisu eta unitateak kontutan hartu behar dituzu, eta gogoratu "
-"kilogramo bat (kg) 1000 gramo (g) direla. Masak edozein "
-"ordenatan jar daitezke."
-
 #: ../src/searace1player-activity/searace1player.xml.in.h:1
 msgid "Give good instructions to your ship in order to be first in the race."
 msgstr "Eman agindu egokiak ontziari lasterketako lehena izateko."
@@ -6640,11 +6868,12 @@ msgid "Completing the puzzle requires patience and logical ability"
 msgstr "Puzzlea osatzeak pazientzia eta logikaren trebetasuna eskatzen du"
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:2
+#, fuzzy
 msgid ""
-"For the first level with colored symbols, drag symbols on the left to their "
-"target position. For the higher levels, click on an empty square to give it "
-"the keyboard focus. Then enter a possible letter or number. GCompris will "
-"not let you enter invalid data."
+"For the first level with colored symbols, select a symbol on the left and "
+"click on its target position. For the higher levels, click on an empty "
+"square to give it the keyboard focus. Then enter a possible letter or "
+"number. GCompris will not let you enter invalid data."
 msgstr ""
 "Koloredun ikurrak lehen mailan: arrastatu ikurrak ezkerretik helburuko "
 "posiziora. Maila altuagoetan, egin klik karratu huts batean teklatuaren "
@@ -6656,7 +6885,8 @@ msgid "Sudoku, place unique symbols in a square."
 msgstr "Sudoku, jarri ikur bakarrak karratuan."
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:4
-msgid "Symbols must be unique in a row, in a column, and (if defined) each region."
+msgid ""
+"Symbols must be unique in a row, in a column, and (if defined) each region."
 msgstr ""
 "Ikurrak bakarrak izan behar dute lerroko, zutabeko, eta (definituta balego) "
 "eskualde bakoitzean."
@@ -6685,7 +6915,28 @@ msgstr "Super Garuna"
 #: ../src/superbrain-activity/superbrain.c:111
 #: ../src/superbrain-activity/superbrain.xml.in.h:3
 msgid "Tux has hidden several items. Find them again in the correct order"
-msgstr "Tux-ek gauza batzuk ezkutatu ditu. Aurki itzazu, eta jarri dagokien ordenan"
+msgstr ""
+"Tux-ek gauza batzuk ezkutatu ditu. Aurki itzazu, eta jarri dagokien ordenan"
+
+#: ../src/superbrain-activity/superbrain.c:403
+#: ../src/superbrain-activity/superbrain.c:539
+msgid "This item is well placed"
+msgstr ""
+
+#: ../src/superbrain-activity/superbrain.c:416
+#: ../src/superbrain-activity/superbrain.c:569
+#, fuzzy
+msgid "This item is misplaced"
+msgstr "den ala ez"
+
+#: ../src/superbrain-activity/superbrain.c:587
+msgid "One item is well placed"
+msgstr ""
+
+#: ../src/superbrain-activity/superbrain.c:601
+#, fuzzy
+msgid "One item is misplaced"
+msgstr "Eta azaldu da"
 
 #: ../src/superbrain-activity/superbrain.xml.in.h:1
 msgid ""
@@ -6779,7 +7030,8 @@ msgid "Distance to target = %d meters"
 msgstr "Helburuarekiko distantzia = %d metro"
 
 #: ../src/target-activity/target.xml.in.h:1
-msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
+msgid ""
+"Can move the mouse, can read numbers and count up to 15 for the first level"
 msgstr ""
 "Sagua mugitu ahal izatea, eta zenbatzen eta 15era arte kontatzen jakitea "
 "lehenengo mailan"
@@ -6991,3 +7243,60 @@ msgstr "Teklatuarekin trebatzea"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Idatzi hitzak erori ahala, lurrera iritsi aurretik"
 
+#: ../src/hangman-activity/hangman.xml.in.h:1
+msgid "A word is hidden, you must discover it letter by letter"
+msgstr ""
+
+#: ../src/hangman-activity/hangman.xml.in.h:2
+#, fuzzy
+msgid "Reading skill"
+msgstr "Irakurketa"
+
+#: ../src/hangman-activity/hangman.xml.in.h:3
+msgid "The classic hangman game"
+msgstr ""
+
+#: ../src/hangman-activity/hangman.xml.in.h:4
+msgid "This is a good exercise to improve reading and spelling skills."
+msgstr ""
+
+#: ../src/hangman-activity/hangman.xml.in.h:5
+msgid ""
+"You can enter the letters using the virtual keyboard on the screen or with "
+"the real keyboard."
+msgstr ""
+
+#. All the vowel of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:61
+msgid "aeiouy"
+msgstr ""
+
+#. All the consonants of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:63
+#, fuzzy
+msgid "bcdfghjklmnpqrstvwxz"
+msgstr "abcdefghijklmnopqrstuvwxyz"
+
+#. Letters equivallence for the hangman activity. It has the
+#. form of a space separated list like: "e=éè a=àâ"
+#. Keep the word NONE if not available in your language
+#: ../src/hangman-activity/hangman.py:67
+msgid "NONE"
+msgstr ""
+
+#: ../src/hangman-activity/hangman.py:104
+#, fuzzy
+msgid "Could not find the list of words."
+msgstr "Konfiguratu hitzen zerrenda"
+
+#~ msgid "The aim is to switch off all the lights"
+#~ msgstr "Helburua argi guztiak itzaltzea da"
+
+#~ msgid "Botticelli, Primavera - 1482"
+#~ msgstr "Botticelli, Udaberria - 1482"
+
+#~ msgid "Caravage, Rest on the Flight into Egypt - 1597"
+#~ msgstr "Caravage, Atsedenaldia Egiptoruntzko hiesaldian - 1597"
+
+#~ msgid "Botticelli, The Birth of Venus - 1482–1486"
+#~ msgstr "Botticelli, Venus-en jaiotza - 1482–1486"
