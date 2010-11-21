@@ -13,16 +13,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris gnome-master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=gcompris&component=general\n"
-"POT-Creation-Date: 2010-11-07 16:37+0000\n"
-"PO-Revision-Date: 2010-11-02 09:55+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-11-21 22:06+0100\n"
+"PO-Revision-Date: 2010-11-09 06:25+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Poedit-Language: Czech\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -2412,8 +2411,6 @@ msgid "Gizah Pyramids, Egypt"
 msgstr "Pyramidy v Gíze, Egypt"
 
 #: ../src/details-activity/resources/details/board2_11.xml.in.h:1
-#, fuzzy
-#| msgid "Sydney Opera House, Austriala"
 msgid "Sydney Opera House, Australia"
 msgstr "Budova opery v Sydney, Austrálie"
 
@@ -2747,24 +2744,24 @@ msgstr ""
 "Licence"
 
 #: ../src/gcompris/about.c:224 ../src/gcompris/config.c:438
-#: ../src/gcompris/dialog.c:103 ../src/gcompris/help.c:355
+#: ../src/gcompris/dialog.c:104 ../src/gcompris/help.c:355
 #: ../src/gcompris/images_selector.c:307
 msgid "OK"
 msgstr "Budiž"
 
-#: ../src/gcompris/bar.c:688
+#: ../src/gcompris/bar.c:692
 msgid "GCompris confirmation"
 msgstr "Potvrzení GCompris"
 
-#: ../src/gcompris/bar.c:689
+#: ../src/gcompris/bar.c:693
 msgid "Are you sure you want to quit?"
 msgstr "Opravdu chceš skončit?"
 
-#: ../src/gcompris/bar.c:690
+#: ../src/gcompris/bar.c:694
 msgid "Yes, I am sure!"
 msgstr "Ano, chci!"
 
-#: ../src/gcompris/bar.c:691
+#: ../src/gcompris/bar.c:695
 msgid "No, I want to keep going"
 msgstr "Ne, zůstanu"
 
@@ -3180,43 +3177,43 @@ msgstr ""
 "Ukonči ji a nahlas\n"
 "problém autorům"
 
-#: ../src/gcompris/gcompris.c:157
+#: ../src/gcompris/gcompris.c:158
 msgid "run GCompris in fullscreen mode."
 msgstr "spustit GCompris v režimu celé obrazovky."
 
-#: ../src/gcompris/gcompris.c:160
+#: ../src/gcompris/gcompris.c:161
 msgid "run GCompris in window mode."
 msgstr "spustit GCompris v režimu okna."
 
-#: ../src/gcompris/gcompris.c:163
+#: ../src/gcompris/gcompris.c:164
 msgid "run GCompris with sound enabled."
 msgstr "spustit GCompris se zapnutými zvuky."
 
-#: ../src/gcompris/gcompris.c:166
+#: ../src/gcompris/gcompris.c:167
 msgid "run GCompris without sound."
 msgstr "spustit GCompris bez zvuku."
 
-#: ../src/gcompris/gcompris.c:169
+#: ../src/gcompris/gcompris.c:170
 msgid "run GCompris with the default system cursor."
 msgstr "spustit GCompris s výchozím systémovým kurzorem."
 
-#: ../src/gcompris/gcompris.c:172
+#: ../src/gcompris/gcompris.c:173
 msgid "run GCompris without cursor (touch screen mode)."
 msgstr "spustit GCompris bez kurzoru (režim dotykových obrazovek)."
 
-#: ../src/gcompris/gcompris.c:175
+#: ../src/gcompris/gcompris.c:176
 msgid "display only activities with this difficulty level."
 msgstr "zobrazovat jen aktivity s touto úrovní obtížnosti."
 
-#: ../src/gcompris/gcompris.c:178
+#: ../src/gcompris/gcompris.c:179
 msgid "display debug informations on the console."
 msgstr "zobrazovat ladicí informace na konzoli."
 
-#: ../src/gcompris/gcompris.c:181
+#: ../src/gcompris/gcompris.c:182
 msgid "Print the version of "
 msgstr "Vytiskne verzi "
 
-#: ../src/gcompris/gcompris.c:184
+#: ../src/gcompris/gcompris.c:185
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
@@ -3228,59 +3225,59 @@ msgstr ""
 "connect4). Použij „-l list“ pro seznam všech dostupných aktivit a jejich "
 "popisů."
 
-#: ../src/gcompris/gcompris.c:189
+#: ../src/gcompris/gcompris.c:190
 msgid "GCompris will find the data dir in this directory"
 msgstr "Aplikace GCompris bude hledat datovou složku v této složce"
 
-#: ../src/gcompris/gcompris.c:192
+#: ../src/gcompris/gcompris.c:193
 msgid "GCompris will find the skins in this directory"
 msgstr "Aplikace GCompris bude hledat masky vzhledu v této složce"
 
-#: ../src/gcompris/gcompris.c:195
+#: ../src/gcompris/gcompris.c:196
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "Aplikace GCompris bude hledat zásuvné moduly aktivit v této složce"
 
-#: ../src/gcompris/gcompris.c:198
+#: ../src/gcompris/gcompris.c:199
 msgid "GCompris will find the python activity in this directory"
 msgstr "Aplikace GCompris bude hledat aktivity python v této složce"
 
-#: ../src/gcompris/gcompris.c:201
+#: ../src/gcompris/gcompris.c:202
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr "Aplikace GCompris bude hledat soubory s překlady (.mo) v této složce"
 
-#: ../src/gcompris/gcompris.c:204
+#: ../src/gcompris/gcompris.c:205
 msgid "GCompris will find the activities menu in this directory"
 msgstr "Aplikace GCompris bude hledat nabídku aktivit v této složce"
 
-#: ../src/gcompris/gcompris.c:207
+#: ../src/gcompris/gcompris.c:208
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Spustit GCompris v administračním a řídícím módu"
 
-#: ../src/gcompris/gcompris.c:210
+#: ../src/gcompris/gcompris.c:211
 msgid ""
 "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
 msgstr ""
 "Použít náhradní databázi profilů [$HOME/.config/gcompris/gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:213
+#: ../src/gcompris/gcompris.c:214
 msgid "Create the alternate database for profiles"
 msgstr "Vytvořit alternativní databázi pro profily"
 
-#: ../src/gcompris/gcompris.c:216
+#: ../src/gcompris/gcompris.c:217
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Znovu načíst nabídku XML a uložit ji do databáze"
 
-#: ../src/gcompris/gcompris.c:219
+#: ../src/gcompris/gcompris.c:220
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Vybrat profil. Pro vytvoření profilu použijte „gcompris -a“"
 
-#: ../src/gcompris/gcompris.c:222
+#: ../src/gcompris/gcompris.c:223
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Seznam všech dostupných profilů. Pro vytvoření profilu použijte „gcompris -a“"
 
-#: ../src/gcompris/gcompris.c:225
+#: ../src/gcompris/gcompris.c:226
 msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
@@ -3288,23 +3285,27 @@ msgstr ""
 "Adresář s nastavením: [$HOME/.config/gcompris]. Alternativou je nastavení "
 "$XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:228
+#: ../src/gcompris/gcompris.c:229
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "Adresář uživatele: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:231
+#: ../src/gcompris/gcompris.c:232
 msgid "Run the experimental activities"
 msgstr "Jít na pokusné aktivity"
 
-#: ../src/gcompris/gcompris.c:234
+#: ../src/gcompris/gcompris.c:235
 msgid "Disable the quit button"
 msgstr "Vypnout tlačítko konec"
 
-#: ../src/gcompris/gcompris.c:237
+#: ../src/gcompris/gcompris.c:238
 msgid "Disable the config button"
 msgstr "Vypnout tlačítko nastavení"
 
-#: ../src/gcompris/gcompris.c:240
+#: ../src/gcompris/gcompris.c:241
+msgid "Disable the level button"
+msgstr "Vypnout tlačítko úroveň"
+
+#: ../src/gcompris/gcompris.c:244
 msgid ""
 "GCompris will get images, sounds and activity data from this server if not "
 "found locally."
@@ -3312,7 +3313,7 @@ msgstr ""
 "Z tohoto serveru GCompris získá obrázky, zvuky a data aktivit, pokud nejsou "
 "k dispozici místní."
 
-#: ../src/gcompris/gcompris.c:243
+#: ../src/gcompris/gcompris.c:247
 msgid ""
 "Only when --server is provided, disable check for local resource first. Data "
 "are always taken from the web server."
@@ -3320,25 +3321,25 @@ msgstr ""
 "Pouze když je zadáno --server, vypne úvodní kontrolu pro místní zdroje. Data "
 "jsou vždy brána z webového serveru."
 
-#: ../src/gcompris/gcompris.c:247
+#: ../src/gcompris/gcompris.c:251
 msgid ""
 "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr ""
 "U serverového režimu určete adresář mezipaměti pro omezení zbytečných "
 "stahování."
 
-#: ../src/gcompris/gcompris.c:250
+#: ../src/gcompris/gcompris.c:254
 msgid ""
 "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr ""
 "Obecný režim táhni a pusť: normální, dvojklik, oboje. Výchozí režim je "
 "normální."
 
-#: ../src/gcompris/gcompris.c:253
+#: ../src/gcompris/gcompris.c:257
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Povolit spuštění více GComprisů najednou."
 
-#: ../src/gcompris/gcompris.c:918
+#: ../src/gcompris/gcompris.c:922
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -3359,7 +3360,7 @@ msgstr ""
 "na FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1458
+#: ../src/gcompris/gcompris.c:1462
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
@@ -3367,12 +3368,12 @@ msgstr ""
 "GCompris se nemůže spustit, protože soubor zámku je méně než %d sekund "
 "starý.\n"
 
-#: ../src/gcompris/gcompris.c:1460
+#: ../src/gcompris/gcompris.c:1464
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Soubor zámku je: %s\n"
 
-#: ../src/gcompris/gcompris.c:1574
+#: ../src/gcompris/gcompris.c:1578
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3386,27 +3387,27 @@ msgstr ""
 "Více informací na http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1683
+#: ../src/gcompris/gcompris.c:1693
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Pro přímý přístup k aktivitě použijte -l.\n"
 
-#: ../src/gcompris/gcompris.c:1684
+#: ../src/gcompris/gcompris.c:1694
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Seznam dostupných aktivit:\n"
 
-#: ../src/gcompris/gcompris.c:1715
+#: ../src/gcompris/gcompris.c:1725
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Počet aktivit: %d\n"
 
-#: ../src/gcompris/gcompris.c:1751
+#: ../src/gcompris/gcompris.c:1761
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s existuje, ale nelze jej číst nebo do něj zapisovat"
 
-#: ../src/gcompris/gcompris.c:1814
+#: ../src/gcompris/gcompris.c:1824
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
@@ -3415,7 +3416,7 @@ msgstr ""
 "Přepínač --server nelze použít, protože GCompris byl přeložen bez podpory "
 "sítě."
 
-#: ../src/gcompris/gcompris.c:1868
+#: ../src/gcompris/gcompris.c:1878
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3424,7 +3425,7 @@ msgstr ""
 "CHYBA: Profil „%s“ nebyl nalezen. Dostupné profily si vypíšete spuštěním "
 "„gcompris --profile-list“\n"
 
-#: ../src/gcompris/gcompris.c:1882
+#: ../src/gcompris/gcompris.c:1892
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Seznam dostupných profilů:\n"
@@ -3471,17 +3472,17 @@ msgstr ""
 "Načítání aktivity ze souboru:\n"
 "%s"
 
-#: ../src/gcompris/properties.c:497 ../src/gcompris/properties.c:504
+#: ../src/gcompris/properties.c:501 ../src/gcompris/properties.c:508
 msgid "readme"
 msgstr "čtěte"
 
-#: ../src/gcompris/properties.c:499
+#: ../src/gcompris/properties.c:503
 msgid ""
 "This directory contains the files you create with the GCompris educational "
 "suite\n"
 msgstr "Tento adresář obsahuje soubory, které jsi vytvořil v sadě GCompris\n"
 
-#: ../src/gcompris/properties.c:506
+#: ../src/gcompris/properties.c:510
 msgid ""
 "Put any number of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
@@ -5714,36 +5715,37 @@ msgstr "Čtení slov"
 
 #: ../src/missing_letter-activity/missingletter_config.c:77
 msgid "Please select an image."
-msgstr ""
+msgstr "Vyberte prosím obrázek."
 
 #: ../src/missing_letter-activity/missingletter_config.c:83
 msgid "Choice cannot be empty."
-msgstr ""
+msgstr "Volba nemůže být prázdná."
 
 #: ../src/missing_letter-activity/missingletter_config.c:89
 msgid "Question cannot be empty."
-msgstr ""
+msgstr "Otázka nemůže být prázdná."
 
 #: ../src/missing_letter-activity/missingletter_config.c:95
 msgid ""
 "Question must include the character '_'. It represent the letter to search."
 msgstr ""
+"Otázka musí obsahovat znak „_“. Ten představuje písmeno, který se má hledat."
 
 #: ../src/missing_letter-activity/missingletter_config.c:102
 msgid "Pixmap cannot be empty"
-msgstr ""
+msgstr "Pixelová mapa nemůže být prázdná"
 
 #: ../src/missing_letter-activity/missingletter_config.c:108
 msgid "There must be at least 2 choices."
-msgstr ""
+msgstr "Volby musí být nejméně dvě."
 
 #: ../src/missing_letter-activity/missingletter_config.c:116
 msgid "The answer and question must be the same except for the character '_'."
-msgstr ""
+msgstr "Odpověď a otázka musí být stejné, až na znak „_“."
 
 #: ../src/missing_letter-activity/missingletter_config.c:125
 msgid "The first choice must be the solution that replaces the character '_'."
-msgstr ""
+msgstr "První volba musí být řešením, které nahradí znak „_“."
 
 #: ../src/missing_letter-activity/missingletter_config.c:140
 #, c-format
@@ -5752,6 +5754,9 @@ msgid ""
 "Question '%s' / Answer '%s'\n"
 "%s"
 msgstr ""
+"Neplatné údaje:\n"
+"Otázka „%s“ / odpověď „%s“\n"
+"%s"
 
 #. pixmap
 #: ../src/missing_letter-activity/missingletter_config.c:414
@@ -5793,13 +5798,14 @@ msgstr "Název souboru:"
 
 #: ../src/missing_letter-activity/missingletter_config.c:568
 msgid "Replace the letter to guess by the character '_'."
-msgstr ""
+msgstr "Písmeno, které se má uhádnout, nahraďte znakem „_“."
 
 #: ../src/missing_letter-activity/missingletter_config.c:580
 msgid ""
 "Enter here the letter that will be proposed. The first letter here must be "
 "the solution"
 msgstr ""
+"Zde zadejte písmena, která budou nabízena. První písmeno musí být řešením"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:1
 msgid "car/c_r/a/k/o"
@@ -7202,4 +7208,3 @@ msgstr "a=á c=č d=ď e=éě i=í n=ň o=ó r=ř s=š t=ť u=úů y=ý z=ž"
 #: ../src/hangman-activity/hangman.py:104
 msgid "Could not find the list of words."
 msgstr "Nelze najít seznam slov."
-
