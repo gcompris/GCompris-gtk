@@ -320,6 +320,7 @@ Section Uninstall
     Delete "$INSTDIR\SDL_mixer.dll"
     Delete "$INSTDIR\_cairo.pyd"
     Delete "$INSTDIR\_gtk.pyd"
+    Delete "$INSTDIR\_hashlib.pyd"
     Delete "$INSTDIR\_socket.pyd"
     Delete "$INSTDIR\_ssl.pyd"
     Delete "$INSTDIR\_sqlite.pyd"
