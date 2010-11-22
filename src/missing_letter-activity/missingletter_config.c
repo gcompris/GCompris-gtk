@@ -441,7 +441,7 @@ static void configure_colummns(GtkTreeView *treeview)
 #endif
 }
 
-void config_missing_letter(GcomprisBoardConf *config)
+void config_missing_letter(GcomprisBoardConf *bconf, GHashTable *config)
 {
     GtkWidget *frame, *view, *pixmap, *question, *answer, *choice;
     GtkWidget *level, *vbox, *hbox, *label;
@@ -455,7 +455,7 @@ void config_missing_letter(GcomprisBoardConf *config)
     /* frame */
     frame = gtk_frame_new("");
     gtk_widget_show(frame);
-    gtk_box_pack_start(GTK_BOX(config->main_conf_box), frame, TRUE, TRUE, 8);
+    gtk_box_pack_start(GTK_BOX(bconf->main_conf_box), frame, TRUE, TRUE, 8);
 
     vbox = gtk_vbox_new(FALSE, 8);
     gtk_widget_show(vbox);
@@ -481,6 +481,17 @@ void config_missing_letter(GcomprisBoardConf *config)
       }
     gtk_widget_show(level);
     gtk_box_pack_start(GTK_BOX(hbox), level, FALSE, FALSE, 8);
+
+    /* upper case */
+    gboolean up_init = FALSE;
+    gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
+
+    if (up_init_str && (strcmp(up_init_str, "True")==0))
+      up_init = TRUE;
+
+    gc_board_config_boolean_box(bconf, _("Uppercase only text"),
+				"uppercase_only",
+				up_init);
 
     /* list view */
     GtkListStore *list = gtk_list_store_new(N_COLUMNS,

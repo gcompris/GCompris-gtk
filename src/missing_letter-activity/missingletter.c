@@ -45,7 +45,7 @@ static void		 config_start(GcomprisBoard *agcomprisBoard,
 static void		 config_stop(void);
 
 /* from missingletter_config.c */
-void config_missing_letter(GcomprisBoardConf *config);
+void config_missing_letter(GcomprisBoardConf *bconf, GHashTable *config);
 
 /* XML */
 static void		 init_xml(guint level);
@@ -66,6 +66,7 @@ static GooCanvasItem *boardRootItem = NULL;
 
 static GooCanvasItem *text    = NULL;
 static GooCanvasItem *selected_button = NULL;
+static gboolean uppercase_only;
 
 static void missing_letter_create_item(GooCanvasItem *parent);
 static void missing_letter_destroy_all_items(void);
@@ -154,6 +155,13 @@ start_board (GcomprisBoard *agcomprisBoard)
   GHashTable *config = gc_db_get_board_conf();
 
   gc_locale_change(g_hash_table_lookup( config, "locale"));
+
+  gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
+
+  if (up_init_str && (strcmp(up_init_str, "True")==0))
+    uppercase_only = TRUE;
+  else
+    uppercase_only = FALSE;
 
   g_hash_table_destroy(config);
 
@@ -545,14 +553,29 @@ add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GList **list)
 	guint i = 0;
 	/* Dont free data, it's a gettext static message */
 
-	board->answer = g_strdup(all_answer[i++]);
-	board->question = g_strdup(all_answer[i++]);
+	if (uppercase_only)
+	  board->answer = g_utf8_strup(all_answer[i++], -1);
+	else
+	  board->answer = g_strdup(all_answer[i++]);
+
+	if (uppercase_only)
+	  board->question = g_utf8_strup(all_answer[i++], -1);
+	else
+	  board->question = g_strdup(all_answer[i++]);
+
 	board->solution = 0;
 
 	while(all_answer[i] && text_index < MAX_PROPOSAL + 2)
 	  {
-	    board->text[text_index] = g_strdup(all_answer[i]);
-	    board->choices[text_index++] = g_strdup(all_answer[i++]);
+	    if (uppercase_only)
+	      board->text[text_index] = g_utf8_strup(all_answer[i], -1);
+	    else
+	      board->text[text_index] = g_strdup(all_answer[i]);
+
+	    if (uppercase_only)
+	      board->choices[text_index++] = g_utf8_strup(all_answer[i++], -1);
+	    else
+	      board->choices[text_index++] = g_strdup(all_answer[i++]);
 	  }
 
 	g_strfreev(all_answer);
@@ -715,6 +738,15 @@ conf_ok(GHashTable *table)
 
     gc_locale_set(g_hash_table_lookup( config, "locale"));
 
+    gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
+    if (up_init_str)
+      {
+	if(strcmp(up_init_str, "True")==0)
+	  uppercase_only = TRUE;
+	else
+	  uppercase_only = FALSE;
+      }
+
     if (profile_conf)
       g_hash_table_destroy(config);
 
@@ -764,7 +796,8 @@ config_start(GcomprisBoard *agcomprisBoard,
   gchar *locale = g_hash_table_lookup( config, "locale");
 
   gc_board_config_combo_locales(bconf, locale);
-  config_missing_letter(bconf);
+  config_missing_letter(bconf, config);
+
 }
 
 
