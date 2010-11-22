@@ -189,11 +189,11 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       if(svg_handle) {
 	gc_bar_set_repeat_icon(svg_handle);
 	g_object_unref(svg_handle);
-	gc_bar_set(GC_BAR_LEVEL|GC_BAR_REPEAT_ICON);
+	gc_bar_set(GC_BAR_CONFIG|GC_BAR_LEVEL|GC_BAR_REPEAT_ICON);
       } else {
-	gc_bar_set(GC_BAR_LEVEL|GC_BAR_REPEAT);
+	gc_bar_set(GC_BAR_CONFIG|GC_BAR_LEVEL|GC_BAR_REPEAT);
       }
-      gc_bar_location(BOARDWIDTH-270, 5, 0.7);
+      gc_bar_location(BOARDWIDTH-300, 5, 0.7);
 
     }
 
