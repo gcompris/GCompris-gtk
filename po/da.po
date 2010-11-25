@@ -2,24 +2,36 @@
 # Copyright (C) 2005, 2006, 2007, 2009 Free Software Foundation, Inc.
 # This file is distributed under the same license as the GCompris package.
 #
-# Mogens Jaeger <mogens@jaeger.tf>, 2004, 2006, 2007.
-# Frederik Dannemare <frederik@dannemare.net>, 2005.
+# Mogens Jaeger <mogensjaeger@gmail.com>, 2004, 2006, 2007.
 # Joe Hansen <joedalton2@yahoo.dk>, 2009, 2010.
 # Korrektulæsning Torben Grøn Helligsø <torben-dansk@thel.dk>, 2009, 2010.
 #
+# Konventioner:
+# board -> bræt (skal det være tavle)
+# Gizah -> Giza
+# item -> genstand (Mon ikke det er en genstand man udpege blandt nogle 
+#                   andre genstande? Jeg kan huske nogle tænkeopgaver hvor
+#                   man skulle udpege hvilken af en række afbildede 
+#                   genstande, der ikke passede ind, f.eks.: banan, appelsin,
+#                   æble, vindruer, motorsav, kokosnød, ...
+# hør udviklerne om hvordan item skal oversættes de enkelte steder
+# (del, element, punkt, genstand).
+# Vincent Van Gogh -> Vincent van Gogh
+#       http://sproget.dk/raad-og-regler/ordlister/sproglige-ordlister/store-
+#       eller-sma-begyndelsesbogstaver-i-proprier-tiltalepronomener-og-titulaturer
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: GCompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-16 23:58+0100\n"
-"PO-Revision-Date: 2010-11-16 21:20+0200\n"
+"POT-Creation-Date: 2010-11-26 00:26+0100\n"
+"PO-Revision-Date: 2010-11-24 19:00+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: KBabel 1.11.4\n"
 
 #: ../boards/algebra_group.xml.in.h:1
@@ -293,19 +305,19 @@ msgid ""
 "An instance of GCompris is currently running. Exit GCompris and then try "
 "again."
 msgstr ""
+"Der kører allerede en instans af GCompris. Afslut GCompris og forsøg igen."
 
 #: ../nsis_translations.desktop.in.h:2
-#, fuzzy
 msgid "The installer is already running."
-msgstr "Kapsejladsen kører allerede"
+msgstr "Installationsprogrammet kører allerede."
 
 #: ../nsis_translations.desktop.in.h:3
 msgid "Visit the GCompris Web Site"
-msgstr ""
+msgstr "Besøg GCompris' internetside"
 
 #: ../nsis_translations.desktop.in.h:4
 msgid "You do not have permission to uninstall this application."
-msgstr ""
+msgstr "Du har ikke rettigheder til at afinstallere dette program."
 
 #: ../nsis_translations.desktop.in.h:5
 msgid ""
@@ -313,12 +325,18 @@ msgid ""
 "continue?$\\r$\\rNote: Any non-standard plugins that you may have installed "
 "will be deleted.$\\rGCompris user settings will not be affected."
 msgstr ""
+"Din gamle GCompris-mappe er ved at blive slettet. Ønsker du at fortsætte?$\\r"
+"$\\rBemærk: Alle udvidelsesmoduler, som ikke er standard, og som du har "
+"installeret, vil blive slettet.$\\rGCompris' brugeropsætning vil ikke blive "
+"påvirket."
 
 #: ../nsis_translations.desktop.in.h:6
 msgid ""
 "the uninstaller could not find registry entries for GCompris.$\\rIt is "
 "likely that another user installed this application."
 msgstr ""
+"afinstallationsprogrammet kunne ikke finde registreringspunkter for GCompris."
+"$\\rDet er sandsynligt, at en anden bruger installerede dette program."
 
 #: ../src/administration-activity/admin/board_list.py:88
 msgid "Select a profile:"
@@ -365,12 +383,12 @@ msgstr "Aktiv"
 
 #: ../src/administration-activity/admin/board_list.py:309
 msgid "Board title"
-msgstr "Bræt titel"
+msgstr "Brættitel"
 
 #: ../src/administration-activity/admin/board_list.py:422
 #, python-format
 msgid "Filter Boards difficulty for profile %s"
-msgstr "Filtrer Brætter sværhedsgrad for profil %s"
+msgstr "Filtrer brætsværhedsgrad for profil %s"
 
 #: ../src/administration-activity/admin/board_list.py:453
 #, python-format
@@ -1224,56 +1242,51 @@ msgstr "Flyt og klik med musen"
 msgid "algorithm"
 msgstr "Regning"
 
+# Tror snarere det er 'udfyldningsfarve', men afh. af konteksten kan den
+# nuværende måske også fungere
 #: ../src/anim-activity/Color.py:86
 msgid "Fill color..."
-msgstr ""
+msgstr "Udfyld farve..."
 
 #: ../src/anim-activity/Color.py:98
 msgid "Stroke color..."
-msgstr ""
+msgstr "Penselfarve..."
 
 #: ../src/anim-activity/anim.py:103
 msgid "Save..."
-msgstr ""
+msgstr "Gem..."
 
 #: ../src/anim-activity/anim.py:109
 msgid "Load..."
-msgstr ""
+msgstr "Indlæs..."
 
 #: ../src/anim-activity/anim.py:115
-#, fuzzy
 msgid "Run the animation"
-msgstr "Brug af mus"
+msgstr "Kør animationen"
 
 #: ../src/anim-activity/anim.py:121
-#, fuzzy
 msgid "Select"
-msgstr "Vælg alt"
+msgstr "Vælg"
 
 #: ../src/anim-activity/anim.py:127
-#, fuzzy
 msgid "Rectangle"
-msgstr "Brug rektangler"
+msgstr "Rektangel"
 
 #: ../src/anim-activity/anim.py:133
-#, fuzzy
 msgid "Filled rectangle"
-msgstr "Brug rektangler"
+msgstr "Udfyldt rektangel"
 
 #: ../src/anim-activity/anim.py:139
-#, fuzzy
 msgid "Circle"
-msgstr "Chile"
+msgstr "Cirkel"
 
 #: ../src/anim-activity/anim.py:145
-#, fuzzy
 msgid "Filled circle"
-msgstr "Brug cirkler"
+msgstr "Udfyldt cirkel"
 
 #: ../src/anim-activity/anim.py:151
-#, fuzzy
 msgid "Line"
-msgstr "vinrød"
+msgstr "Linje"
 
 #: ../src/anim-activity/anim.py:157
 #: ../src/wordprocessor-activity/wordprocessor.c:87
@@ -1283,35 +1296,34 @@ msgstr "Tekst"
 
 #: ../src/anim-activity/anim.py:163
 msgid "Image..."
-msgstr ""
+msgstr "Billede..."
 
 #: ../src/anim-activity/anim.py:169
-#, fuzzy
 msgid "Fill"
-msgstr "Filter"
+msgstr "Udfyld"
 
 #: ../src/anim-activity/anim.py:175
-#, fuzzy
 msgid "Delete"
-msgstr "Standard"
+msgstr "Slet"
 
 #: ../src/anim-activity/anim.py:181
 msgid "Flip"
-msgstr ""
+msgstr "Vend"
 
+# Det lader til at være en animation, evt. med nogle geometriske former
+# indblandet.  Jeg gætter på at raise hæver figuren over de andre, og
+# derfor bør være 'hæv'
 #: ../src/anim-activity/anim.py:187
-#, fuzzy
 msgid "Raise"
-msgstr "anis"
+msgstr "Hæv"
 
 #: ../src/anim-activity/anim.py:193
-#, fuzzy
 msgid "Lower"
-msgstr "Blomst"
+msgstr "Sænk"
 
 #: ../src/anim-activity/anim.py:753
 msgid "Current frame"
-msgstr ""
+msgstr "Aktuelt billede"
 
 #: ../src/anim-activity/anim.xml.in.h:1
 msgid "Create a drawing or an animation"
@@ -1565,7 +1577,7 @@ msgstr "Kvinden og enhjørningen - 15. århundrede"
 # SDE: "Soveværelset i Arles"
 #: ../src/babyshapes-activity/resources/babyshapes/board8_3.xml.in.h:1
 msgid "Vincent van Gogh, Bedroom in Arles - 1888"
-msgstr "Vincent Van Gogh, Soveværelset i Arles - 1898"
+msgstr "Vincent van Gogh, Soveværelset i Arles - 1898"
 
 #: ../src/babyshapes-activity/resources/babyshapes/board8_4.xml.in.h:1
 msgid "Ambrosius Bosschaert the Elder, Flower Still Life - 1614"
@@ -1659,9 +1671,9 @@ msgid "Select a Board"
 msgstr "Vælg et bræt."
 
 #: ../src/boards/menu2.c:266
-#, fuzzy, c-format
+#, c-format
 msgid "Number of activities: %d"
-msgstr "Antal aktiviteter: %d\n"
+msgstr "Antal aktiviteter: %d"
 
 #: ../src/boards/python.c:64 ../src/boards/python.c:88
 msgid "Python Board"
@@ -1721,9 +1733,8 @@ msgstr ""
 "lokale net."
 
 #: ../src/chat-activity/chat.py:244
-#, fuzzy
 msgid "color"
-msgstr "Farver"
+msgstr "farve"
 
 #: ../src/chat-activity/chat.py:323
 msgid ""
@@ -1731,9 +1742,11 @@ msgid ""
 msgstr ""
 "FEJL: Kunne ikke initialisere netværksgrænsefladen. Du kan ikke kommunikere."
 
+# Tror ikke (chat) er nødvendig.  Ville enten sige 'samtalen' eller
+# måske 'chatten' i daglig tale (nok 'samtalen' her)
 #: ../src/chat-activity/chat.py:433
 msgid "Has left the chat."
-msgstr ""
+msgstr "Har forladt snakken (chat)."
 
 #: ../src/chat-activity/chat.py:512
 msgid "You must set a channel in your channel entry box first.\n"
@@ -1745,16 +1758,15 @@ msgstr ""
 "Dinne venner skal vælge den samme kanal for at kunne kommunikere med dig"
 
 #: ../src/chat-activity/chat.xml.in.h:1
-#, fuzzy
 msgid "Chat and draw with your friends"
-msgstr "Chat med dine venner"
+msgstr "Snak og tegn med dine venner"
 
 #: ../src/chat-activity/chat.xml.in.h:2
 msgid "This chat activity only works on the local network"
 msgstr "Denne chat-aktivitet virker kun på det lokale net"
 
+# Evt. Denne samtaleaktivitet virker...
 #: ../src/chat-activity/chat.xml.in.h:3
-#, fuzzy
 msgid ""
 "This chat activity will only work with other GCompris users on your local "
 "network, not on the Internet. To use it, just type in your message and hit "
@@ -1762,11 +1774,11 @@ msgid ""
 "GCompris program running the chat activity on that local network will "
 "receive and display your message."
 msgstr ""
-"Denne chat-aktivitet virker kun med andre CGompris-brugere på det lokale "
-"net, og ikke på internettet. Bruges ved at skrive en besked, og sende ved at "
-"taste Enter. Din besked bliver sendt ud på det lokale net, og enhvert "
-"GCompris program, der har chat-aktiviteten kørende på lokalt net, vil "
-"modtage og vise beskeden."
+"Denne snakkeaktivitet (chat) virker kun med andre CGompris-brugere på det "
+"lokale netværk, og ikke på internettet. Bruges ved at skrive en besked, og "
+"sende ved at taste Enter. Din besked bliver sendt ud på det lokale net, og "
+"ethvert GCompris-program, der har snakkeaktiviteten kørende på det lokale "
+"netværk, vil modtage og vise beskeden."
 
 #: ../src/chess_computer-activity/chess.c:222
 msgid "Error: The external program gnuchess died unexpectedly"
@@ -2089,6 +2101,7 @@ msgstr ""
 #. toggle box
 #: ../src/click_on_letter-activity/click_on_letter.c:658
 #: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:484
+#: ../src/missing_letter-activity/missingletter_config.c:492
 msgid "Uppercase only text"
 msgstr "Tekst kun i store bogstaver"
 
@@ -2336,7 +2349,6 @@ msgstr "Brug af mus"
 
 # engelsk fejl
 #: ../src/crane-activity/crane.xml.in.h:5
-#, fuzzy
 msgid ""
 "Move the items in the bottom left frame to copy their position in the top "
 "right model. Below the crane itself, you will find four arrows that let you "
@@ -2350,109 +2362,103 @@ msgstr ""
 "i steden for."
 
 #: ../src/details-activity/details.xml.in.h:3
-#, fuzzy
 msgid "Find the details"
-msgstr "Find de ens par"
+msgstr "Find detaljerne"
 
 #: ../src/details-activity/details.xml.in.h:5
 msgid "The images are from wiki commons"
-msgstr ""
+msgstr "Billederne er fra wiki commons"
 
 # SDE: "Soveværelset i Arles"
 #: ../src/details-activity/resources/details/board1_0.xml.in.h:1
-#, fuzzy
 msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1889"
-msgstr "Vincent Van Gogh, Soveværelset i Arles - 1898"
+msgstr "Vincent van Gogh, Indgangsparti på Saint-Paul Hospital - 1889"
 
 #: ../src/details-activity/resources/details/board1_1.xml.in.h:1
 msgid ""
 "Vincent van Gogh, The Bridge of Langlois at Arles with a lady with umbrella "
 "- 1888"
 msgstr ""
+"Vincent van Gogh, Broen i Langlois ved Arles samt en kvinde med paraply - "
+"1888"
 
 #: ../src/details-activity/resources/details/board1_2.xml.in.h:1
-#, fuzzy
 msgid "Vincent van Gogh, The Church at Auvers-sur-Oise - 1890"
-msgstr "Vincent Van Gogh, Village Street in Auvers - 1890"
+msgstr "Vincent van Gogh, Kirken i Auvers-sur-Oise - 1890"
 
 # SDE: "Soveværelset i Arles"
 #: ../src/details-activity/resources/details/board1_3.xml.in.h:1
-#, fuzzy
 msgid "Vincent van Gogh, Painter on His Way to Work - 1888"
-msgstr "Vincent Van Gogh, Soveværelset i Arles - 1898"
+msgstr "Vincent van Gogh, Maler på vej på arbejde - 1888"
 
 # SDE: "Soveværelset i Arles"
 #: ../src/details-activity/resources/details/board1_4.xml.in.h:1
-#, fuzzy
 msgid "Vincent van Gogh, The Harvest - 1888"
-msgstr "Vincent Van Gogh, Soveværelset i Arles - 1898"
+msgstr "Vincent van Gogh, Høsten - 1888"
 
 # SDE: "Soveværelset i Arles"
 #: ../src/details-activity/resources/details/board1_5.xml.in.h:1
-#, fuzzy
 msgid "Vincent van Gogh, Cafe Terrace at Night - 1888"
-msgstr "Vincent Van Gogh, Soveværelset i Arles - 1898"
+msgstr "Vincent van Gogh, Cafeterrasse om natten - 1888"
 
 # SDE: "Soveværelset i Arles"
 #: ../src/details-activity/resources/details/board1_6.xml.in.h:1
-#, fuzzy
 msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1888"
-msgstr "Vincent Van Gogh, Soveværelset i Arles - 1898"
+msgstr "Vincent van Gogh, Indgangsparti på Saint-Paul Hospital - 1888"
 
 # SDE: "Soveværelset i Arles"
 #: ../src/details-activity/resources/details/board1_7.xml.in.h:1
-#, fuzzy
 msgid "Vincent van Gogh, Portrait of Pere Tanguy 1887-8"
-msgstr "Vincent Van Gogh, Soveværelset i Arles - 1898"
+msgstr "Vincent van Gogh, Portræt af Pere Tanguy 1887-8"
 
 #: ../src/details-activity/resources/details/board2_0.xml.in.h:1
 msgid "Eilean Donan castle"
-msgstr ""
+msgstr "Eilean Donan Borg"
 
 #: ../src/details-activity/resources/details/board2_1.xml.in.h:1
 msgid "Eiffel Tower, seen from the champ de Mars, Paris, France"
-msgstr ""
+msgstr "Eiffeltårnet, set fra Champ de Mars, Paris, Frankrig"
 
 #: ../src/details-activity/resources/details/board2_10.xml.in.h:1
 msgid "Gizah Pyramids, Egypt"
-msgstr ""
+msgstr "Gizapyramiderne, Ægypten"
 
 #: ../src/details-activity/resources/details/board2_11.xml.in.h:1
 msgid "Sydney Opera House, Australia"
-msgstr ""
+msgstr "Sydneys operahus, Australien"
 
 #: ../src/details-activity/resources/details/board2_2.xml.in.h:1
 msgid "Courtyard of the Museum of Louvre, and its pyramid"
-msgstr ""
+msgstr "Gården i Louvremuseet, og dens pyramide"
 
 #: ../src/details-activity/resources/details/board2_3.xml.in.h:1
 msgid "Panorama of Château de Chenonceau, Indre-et-Loire, France."
-msgstr ""
+msgstr "Panorama over Château de Chenonceau, Indre-et-Loire, Frankrig."
 
 #: ../src/details-activity/resources/details/board2_4.xml.in.h:1
 msgid ""
 "Notre Dame de Paris cathedral on the Île de la Cité island in Paris, France."
-msgstr ""
+msgstr "Notre Dame-katedralen i Paris på Île de la Cité-øen, Frankrig."
 
 #: ../src/details-activity/resources/details/board2_5.xml.in.h:1
 msgid "Nagoya Castle, Aichi Prefecture, Japan."
-msgstr ""
+msgstr "Nagoya Borg, Aichipræfekturet, Japan."
 
 #: ../src/details-activity/resources/details/board2_6.xml.in.h:1
 msgid "Taj Mahal, Agra, India"
-msgstr ""
+msgstr "Taj Mahal, Agra, Indien"
 
 #: ../src/details-activity/resources/details/board2_7.xml.in.h:1
 msgid "Castle Neuschwanstein at Schwangau, Bavaria, Germany"
-msgstr ""
+msgstr "Borgen Neuschwanstein i Schwangau, Bayern, Tyskland"
 
 #: ../src/details-activity/resources/details/board2_8.xml.in.h:1
 msgid "Egeskov Castle, Denmark"
-msgstr ""
+msgstr "Egeskov Slot, Danmark"
 
 #: ../src/details-activity/resources/details/board2_9.xml.in.h:1
 msgid "Windmill in Sønderho, Fanø, Denmark"
-msgstr ""
+msgstr "Vindmølle i Sønderho, Fanø, Danmark"
 
 #: ../src/doubleentry-activity/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
@@ -2485,7 +2491,7 @@ msgstr "Klik på en del og hør, hvor den skal placeres"
 
 #: ../src/draw-activity/draw.xml.in.h:1
 msgid "A creative board where you can draw freely"
-msgstr "Kreativt bræt hvor du kan tegne frit"
+msgstr "Kreativ bræt hvor du kan tegne frit"
 
 #: ../src/draw-activity/draw.xml.in.h:2
 msgid "A simple vector-drawing tool"
@@ -2623,7 +2629,7 @@ msgstr ""
 
 #: ../src/erase-activity/erase.c:125 ../src/erase-activity/erase.xml.in.h:5
 msgid "Move the mouse to erase the area and discover the background"
-msgstr "Bevæg musen for at slette dækfelter og opdag baggrunden."
+msgstr "Bevæg musen for at slette dækfelter og opdage baggrunden."
 
 #: ../src/erase-activity/erase.xml.in.h:1
 msgid ""
@@ -2641,19 +2647,16 @@ msgid "Move the mouse until all the blocks disappear."
 msgstr "Bevæg musen, indtil alle dækfelter er væk."
 
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
-#, fuzzy
 msgid "Double click the mouse"
-msgstr "Flyt og klik med musen"
+msgstr "Dobbeltklik på musen"
 
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:3
-#, fuzzy
 msgid "Double click the mouse on rectangles until all the blocks disappear."
-msgstr "Klik med musen på kasserne, indtil alle dækfelter er væk."
+msgstr "Dobbeltklik med musen på rektanglerne indtil alle blokkene er væk."
 
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:4
-#, fuzzy
 msgid "Double click the mouse to erase the area and discover the background"
-msgstr "Klik med musen for at slette dækfelter og opdag baggrunden"
+msgstr "Dobbeltklik med musen for at slette området og opdag baggrunden"
 
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:2
 msgid "Click the mouse"
@@ -2856,9 +2859,8 @@ msgid "Arabic"
 msgstr "Arabisk"
 
 #: ../src/gcompris/config.c:62
-#, fuzzy
 msgid "Asturian"
-msgstr "Østrig"
+msgstr "Asturiansk"
 
 #: ../src/gcompris/config.c:63
 msgid "Turkish (Azerbaijan)"
@@ -3122,11 +3124,8 @@ msgid "Fast timer"
 msgstr "Hurtigt tidsforløb"
 
 #: ../src/gcompris/config.c:135
-#, fuzzy
 msgid "Use Gcompris administration module to filter boards"
-msgstr ""
-"<i>Brug GCompris administrationsmodul\n"
-"til at filtrere brætter</i>"
+msgstr "Brug GCompris' administrationsmodul til at filtrere brætter"
 
 #: ../src/gcompris/config.c:186
 msgid "GCompris Configuration"
@@ -3146,7 +3145,7 @@ msgstr "Lydeffekter"
 
 #: ../src/gcompris/config.c:327 ../src/gcompris/sugar.c:82
 msgid "Zoom"
-msgstr ""
+msgstr "Zoom"
 
 #: ../src/gcompris/config.c:364
 #, c-format
@@ -3212,14 +3211,12 @@ msgid "run GCompris without sound."
 msgstr "kør GCompris uden lyd."
 
 #: ../src/gcompris/gcompris.c:170
-#, fuzzy
 msgid "run GCompris with the default system cursor."
-msgstr "kør GCompris med standard gnome markør."
+msgstr "kør GCompris med systemets standardmarkør."
 
 #: ../src/gcompris/gcompris.c:173
-#, fuzzy
 msgid "run GCompris without cursor (touch screen mode)."
-msgstr "kør GCompris uden lyd."
+msgstr "kør GCompris uden markør (trykskærmstilstand)."
 
 #: ../src/gcompris/gcompris.c:176
 msgid "display only activities with this difficulty level."
@@ -3326,9 +3323,8 @@ msgid "Disable the config button"
 msgstr "Fravælg konfigurationsknap"
 
 #: ../src/gcompris/gcompris.c:241
-#, fuzzy
 msgid "Disable the level button"
-msgstr "Fravælg afslutningsknap"
+msgstr "Deaktiver niveauknappen"
 
 #: ../src/gcompris/gcompris.c:244
 msgid ""
@@ -3364,7 +3360,7 @@ msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Tillad flere kørsler af GCompris samtidigt."
 
 #: ../src/gcompris/gcompris.c:922
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support its development, this version provides only %d of the %d activities. "
@@ -3376,8 +3372,8 @@ msgid ""
 "<http://www.fsf.org/philosophy>"
 msgstr ""
 "GCompris er fri software frigivet under GPL-licensen. For at understøtte "
-"udviklingen, indeholder Windows versionen kun %d af %d aktiviteter. Du kan "
-"få den fulde version for et mindre vederlag på\n"
+"udviklingen, indeholder denne version kun %d af %d aktiviteter. Du kan få "
+"den fulde version for et mindre vederlag på\n"
 "<http://gcompris.net>\n"
 "GNU/Linux-versionen har ikke denne begrænsning. Hvis du også har den "
 "opfattelse, at vi bør lære vores børn om frihed, så overvej at bruge GNU/"
@@ -3468,6 +3464,8 @@ msgid ""
 "Loading activity from database:\n"
 "%s"
 msgstr ""
+"Indlæser aktivitet fra database:\n"
+"%s"
 
 #: ../src/gcompris/help.c:180
 msgid "Prerequisite"
@@ -3486,11 +3484,13 @@ msgid "Credit"
 msgstr "Anerkendelse"
 
 #: ../src/gcompris/menu.c:583
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Loading activity from file:\n"
 "%s"
-msgstr "Læseaktiviteter."
+msgstr ""
+"Indlæser aktivet fra fil:\n"
+"%s"
 
 #: ../src/gcompris/properties.c:501 ../src/gcompris/properties.c:508
 msgid "readme"
@@ -3516,39 +3516,36 @@ msgstr ""
 
 #: ../src/gcompris/sugar.c:70
 msgid "Help"
-msgstr ""
+msgstr "Hjælp"
 
 #: ../src/gcompris/sugar.c:71
-#, fuzzy
 msgid "About"
-msgstr "Skib"
+msgstr "Om"
 
 #: ../src/gcompris/sugar.c:72
 msgid "Previous level"
-msgstr ""
+msgstr "Forrige niveau"
 
 #: ../src/gcompris/sugar.c:75
-#, fuzzy
 msgid "Next level"
-msgstr "%d (nyt niveau)"
+msgstr "Næste niveau"
 
 #: ../src/gcompris/sugar.c:77
 msgid "Refresh"
-msgstr ""
+msgstr "Opdater"
 
 #: ../src/gcompris/sugar.c:78
 msgid "Settings"
-msgstr ""
+msgstr "Opsætning"
 
 #. TRANSLATORS: Back as in previous
 #: ../src/gcompris/sugar.c:86
-#, fuzzy
 msgid "Back"
 msgstr "Tilbage"
 
 #: ../src/gcompris/sugar.c:87
 msgid "Stop"
-msgstr ""
+msgstr "Stop"
 
 #: ../src/gcompris/timer.c:245
 msgid "Time Elapsed"
@@ -4191,7 +4188,7 @@ msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ"
 #. we can add what you want in it.
 #: ../src/gletters-activity/gletters.c:850
 #: ../src/imageid-activity/imageid.c:712 ../src/login-activity/login.py:479
-#: ../src/missing_letter-activity/missingletter.c:752
+#: ../src/missing_letter-activity/missingletter.c:784
 #: ../src/pythontest-activity/pythontest.py:454
 #: ../src/readingh-activity/reading.c:878
 #: ../src/scalesboard-activity/scale.c:1161
@@ -4636,14 +4633,14 @@ msgstr "Sekskant"
 #: ../src/imageid-activity/imageid.xml.in.h:3
 #: ../src/imagename-activity/imagename.xml.in.h:4
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:1
-#: ../src/missing_letter-activity/missingletter.c:83
+#: ../src/missing_letter-activity/missingletter.c:84
 #: ../src/readingh-activity/readingh.xml.in.h:4
 #: ../src/readingv-activity/readingv.xml.in.h:4
 msgid "Reading"
 msgstr "Læsning"
 
 #: ../src/imageid-activity/imageid.c:95
-#: ../src/missing_letter-activity/missingletter.c:84
+#: ../src/missing_letter-activity/missingletter.c:85
 msgid "Learn how to read"
 msgstr "Lær at læse"
 
@@ -4656,7 +4653,7 @@ msgstr ""
 "valgmuligheder er til stede."
 
 #: ../src/imageid-activity/imageid.c:534
-#: ../src/missing_letter-activity/missingletter.c:569
+#: ../src/missing_letter-activity/missingletter.c:592
 msgid "Data file for this level is not properly formatted."
 msgstr "Datafil for dette niveau er ikke korrekt formateret."
 
@@ -4970,14 +4967,18 @@ msgid ""
 "Switch off all the lights, I have to go to sleep.\n"
 "If you need help, click on me."
 msgstr ""
+"Sluk alle lysene, jeg er på vej i seng.\n"
+"Hvis du har brug for hjælp, så klik på mig."
 
+# Virker jf. de omkringstående strenge og kildefilreferencen som en
+# titel på en spilagtig aktivitet, så jeg vil foreslå 'Sluk lyset'
 #: ../src/lightsoff-activity/lightsoff.xml.in.h:1
 msgid "Lights Off"
-msgstr ""
+msgstr "Sluk lyset"
 
 #: ../src/lightsoff-activity/lightsoff.xml.in.h:2
 msgid "The aim is to switch off all the lights."
-msgstr ""
+msgstr "Formålet er at slukke alle lysene."
 
 #: ../src/lightsoff-activity/lightsoff.xml.in.h:3
 msgid ""
@@ -4986,6 +4987,10 @@ msgid ""
 "of the sky depend on the number of clicks needed to solve the puzzle. If you "
 "click on Tux, the solution is shown."
 msgstr ""
+"Effekten af at trykke på en knap er at skifte tilstanden for den knap, og "
+"dennes umiddelbare lodrette og vandrette naboer. Solen og skyens farve "
+"afhænger af antallet af klik, der skal bruges til at løse puslespillet. Hvis "
+"du klikker på Tux, vises løsningen."
 
 #: ../src/lightsoff-activity/lightsoff.xml.in.h:4
 msgid ""
@@ -4993,6 +4998,9 @@ msgid ""
 "know more about the Lights Off game: &lt;http://www.haar.clara.co.uk/Lights/"
 "solving.html&gt;"
 msgstr ""
+"Løsningsalgoritmen beskrevet på haar.clara.co.uk er en værdifuld ressource, "
+"hvis du ønsker at vide mere om spillet Sluk lyset: &lt;http://www.haar.clara."
+"co.uk/Lights/solving.html&gt;"
 
 #: ../src/login-activity/login.py:101
 msgid "Profile: "
@@ -5019,7 +5027,6 @@ msgid "GCompris login screen"
 msgstr "GCompris' logindskærm"
 
 #: ../src/login-activity/login.xml.in.h:3
-#, fuzzy
 msgid ""
 "In order to activate the login screen, you must\n"
 "first add users in the administration part of GCompris.\n"
@@ -5034,12 +5041,13 @@ msgstr ""
 "For at aktivere logindskærmen, skal du først\n"
 "oprette brugere i administrationsdelen af GCompris.\n"
 "Du kommer ind i administrationsdelen ved at køre: 'gcompris -a'.\n"
-"I administrationsdelen kan du oprette forskellige profiler.\n"
-"I hver profil kan du have et sæt af forskellige brugere, og vælge\n"
-"hvilke aktiviteter der skal være tilgængelige for dem.\n"
-"For at køre GCompris med en specifik profil, skal du køre:\n"
-"'gcompris -p profil', hvor 'profil' er navnet på en profil\n"
-"du har dannet i administrationsdelen."
+"I administrationsdelen kan du oprette forskellige profiler. I hver profil\n"
+"kan du have et sæt af forskellige brugere, og vælge hvilke aktiviteter der "
+"skal være\n"
+"tilgængelige for dem. For at køre GCompris med en specifik profil, skal du "
+"køre \n"
+"'gcompris -p profil', hvor 'profil' er navnet på en profil, du har dannet i "
+"administrationsdelen."
 
 #: ../src/login-activity/login.xml.in.h:10
 msgid "Select or enter your name to log in to GCompris"
@@ -5242,9 +5250,7 @@ msgstr "to"
 msgid "three"
 msgstr "tre"
 
-# engelsk fejl four?
 #: ../src/memory-activity/memory.c:284
-#, fuzzy
 msgid "four"
 msgstr "fire"
 
@@ -5695,36 +5701,38 @@ msgstr "Ordlæsning"
 
 #: ../src/missing_letter-activity/missingletter_config.c:77
 msgid "Please select an image."
-msgstr ""
+msgstr "Vælg venligst et billede."
 
 #: ../src/missing_letter-activity/missingletter_config.c:83
 msgid "Choice cannot be empty."
-msgstr ""
+msgstr "Valg kan ikke udelades (være tom)."
 
 #: ../src/missing_letter-activity/missingletter_config.c:89
 msgid "Question cannot be empty."
-msgstr ""
+msgstr "Spørgsmål kan ikke udelades (være tom)."
 
 #: ../src/missing_letter-activity/missingletter_config.c:95
 msgid ""
 "Question must include the character '_'. It represent the letter to search."
 msgstr ""
+"Spørgsmål skal inkludere tegnet '_'. Tegnet repræsenterer bogstavet, der "
+"skal søges efter."
 
 #: ../src/missing_letter-activity/missingletter_config.c:102
 msgid "Pixmap cannot be empty"
-msgstr ""
+msgstr "Pixmap kan ikke udelades (være tom)"
 
 #: ../src/missing_letter-activity/missingletter_config.c:108
 msgid "There must be at least 2 choices."
-msgstr ""
+msgstr "Der skal være mindst 2 valg."
 
 #: ../src/missing_letter-activity/missingletter_config.c:116
 msgid "The answer and question must be the same except for the character '_'."
-msgstr ""
+msgstr "Svaret og spørgsmålet skal være ens med undtagelse af tegnet '_'."
 
 #: ../src/missing_letter-activity/missingletter_config.c:125
 msgid "The first choice must be the solution that replaces the character '_'."
-msgstr ""
+msgstr "Det første valg skal være løsningen som erstatter tegnet '_'."
 
 #: ../src/missing_letter-activity/missingletter_config.c:140
 #, c-format
@@ -5733,28 +5741,31 @@ msgid ""
 "Question '%s' / Answer '%s'\n"
 "%s"
 msgstr ""
+"Ugyldigt punkt:\n"
+"Spørgsmål '%s' / Svar '%s'\n"
+"%s"
 
 #. pixmap
 #: ../src/missing_letter-activity/missingletter_config.c:414
-#: ../src/missing_letter-activity/missingletter_config.c:546
+#: ../src/missing_letter-activity/missingletter_config.c:557
 msgid "Picture"
 msgstr "Billede"
 
 #. answer
 #: ../src/missing_letter-activity/missingletter_config.c:420
-#: ../src/missing_letter-activity/missingletter_config.c:537
+#: ../src/missing_letter-activity/missingletter_config.c:548
 msgid "Answer"
 msgstr "Svar"
 
 #. question
 #: ../src/missing_letter-activity/missingletter_config.c:426
-#: ../src/missing_letter-activity/missingletter_config.c:560
+#: ../src/missing_letter-activity/missingletter_config.c:571
 msgid "Question"
 msgstr "Spørgsmål"
 
 #. choice
 #: ../src/missing_letter-activity/missingletter_config.c:432
-#: ../src/missing_letter-activity/missingletter_config.c:572
+#: ../src/missing_letter-activity/missingletter_config.c:583
 msgid "Choice"
 msgstr "Valgmulighed"
 
@@ -5768,19 +5779,21 @@ msgstr "Niveau:"
 msgid "Level %d"
 msgstr "Niveau %d"
 
-#: ../src/missing_letter-activity/missingletter_config.c:550
+#: ../src/missing_letter-activity/missingletter_config.c:561
 msgid "Filename:"
 msgstr "Filnavn:"
 
-#: ../src/missing_letter-activity/missingletter_config.c:568
+#: ../src/missing_letter-activity/missingletter_config.c:579
 msgid "Replace the letter to guess by the character '_'."
-msgstr ""
+msgstr "Erstat bogstavet der skal gættes med tegnet '_'."
 
-#: ../src/missing_letter-activity/missingletter_config.c:580
+#: ../src/missing_letter-activity/missingletter_config.c:591
 msgid ""
 "Enter here the letter that will be proposed. The first letter here must be "
 "the solution"
 msgstr ""
+"Indtast her det bogstav som vil blive foreslået. Det første bogstav her skal "
+"være løsningen"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:1
 msgid "car/c_r/a/k/o"
@@ -6026,19 +6039,22 @@ msgstr "Kvinde med vifte"
 
 #: ../src/paintings-activity/resources/paintings/board2_1.xml.in.h:1
 msgid "Mona Lisa"
-msgstr ""
+msgstr "Mona Lisa"
 
 #: ../src/paintings-activity/resources/paintings/board2_2.xml.in.h:1
 msgid "Bellini : Pala di pesaro"
-msgstr ""
+msgstr "Bellini : Pala di pesaro"
 
 #: ../src/paintings-activity/resources/paintings/board2_3.xml.in.h:1
 msgid "Dürer : Lion"
-msgstr ""
+msgstr "Dürer : Løve"
 
+# http://www.denstoredanske.dk/Kunst_og_kultur/Billedkunst/Billedkunst
+# ,_%C3%B8vrig_ren%C3%A6ssance/Kunstnere,_nederlandske/
+# Pieter,_d.%C3%A6._Bruegel
 #: ../src/paintings-activity/resources/paintings/board2_4.xml.in.h:1
 msgid "Pieter Brugel : Harvest"
-msgstr ""
+msgstr "Pieter Bruegel : Høst"
 
 #: ../src/paintings-activity/resources/paintings/board3_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
@@ -6062,7 +6078,7 @@ msgstr "Cassatt, Mary - Summertime - 1894"
 
 #: ../src/paintings-activity/resources/paintings/board6_0.xml.in.h:1
 msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
-msgstr "Vincent Van Gogh, Village Street in Auvers - 1890"
+msgstr "Vincent van Gogh, Village Street in Auvers - 1890"
 
 #: ../src/paratrooper-activity/paratrooper.c:408
 msgid "Control fall speed with up and down arrow keys."
@@ -6127,9 +6143,8 @@ msgid "Error: Absolutely no photo found in the data directory"
 msgstr "Fejl: Absolut ingen foto fundet i datamappen"
 
 #: ../src/photohunter-activity/photohunter.c:575
-#, fuzzy
 msgid "Click on the differences between the two images."
-msgstr "Find forskellene mellem to billeder"
+msgstr "Klik på forskellene mellem to billeder."
 
 #: ../src/photohunter-activity/photohunter.xml.in.h:1
 msgid "Find the differences between two pictures"
@@ -6367,16 +6382,13 @@ msgstr "Se efter om ordet"
 msgid "is being displayed"
 msgstr "vises."
 
-# Er der ikke indført en engelsk fejl her? word skal vel være i flertal.
 #: ../src/readingh-activity/reading.c:456
-#, fuzzy
 msgid "We skip this level because there are not enough words in the list!"
 msgstr "Vi springer dette niveau over, da der ikke er nok ord i listen!"
 
 #: ../src/readingh-activity/reading.c:659
-#, fuzzy
 msgid "Yes, I saw it"
-msgstr "Ja, jeg er!"
+msgstr "Ja, jeg så det"
 
 #: ../src/readingh-activity/reading.c:686
 msgid "No, it was not there"
@@ -6788,17 +6800,16 @@ msgid "Completing the puzzle requires patience and logical ability"
 msgstr "Puslespillet kræver tålmodighed og logisk tænkning"
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:2
-#, fuzzy
 msgid ""
 "For the first level with colored symbols, select a symbol on the left and "
 "click on its target position. For the higher levels, click on an empty "
 "square to give it the keyboard focus. Then enter a possible letter or "
 "number. GCompris will not let you enter invalid data."
 msgstr ""
-"I første niveau med farvede symboler, trækkes symbolerne i venstre side til "
-"deres mål-position. I højere niveauer, klikkes på et felt for at kunne "
-"skrive i det med tastaturet. Derefter skrives ønsket bogstav eller tal. "
-"GCompris lader dig ikke skrive ugyldige tegn."
+"I første niveau med farvede symboler, skal du vælge et symbol i venstre side "
+"og klikke på symbolets målposition. På niveauer klikkes på et tomt felt for "
+"at kunne skrive i det med tastaturet. Derefter skrives ønsket bogstav eller "
+"tal. GCompris lader dig ikke skrive ugyldige tegn."
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:3
 msgid "Sudoku, place unique symbols in a square."
@@ -6839,22 +6850,20 @@ msgstr "Tux har gemt adskillige emner. Find dem igen i den rigtige rækkefølge.
 #: ../src/superbrain-activity/superbrain.c:403
 #: ../src/superbrain-activity/superbrain.c:539
 msgid "This item is well placed"
-msgstr ""
+msgstr "Denne genstand er godt placeret"
 
 #: ../src/superbrain-activity/superbrain.c:416
 #: ../src/superbrain-activity/superbrain.c:569
-#, fuzzy
 msgid "This item is misplaced"
-msgstr "vises."
+msgstr "Denne genstand er fejlplaceret"
 
 #: ../src/superbrain-activity/superbrain.c:587
 msgid "One item is well placed"
-msgstr ""
+msgstr "En genstand er godt placeret"
 
 #: ../src/superbrain-activity/superbrain.c:601
-#, fuzzy
 msgid "One item is misplaced"
-msgstr "Og det blev vist"
+msgstr "En genstand er fejlplaceret"
 
 #: ../src/superbrain-activity/superbrain.xml.in.h:1
 msgid ""
@@ -7160,59 +7169,46 @@ msgstr "Skriv hele ordet mens det falder, og før det når bunden"
 
 #: ../src/hangman-activity/hangman.xml.in.h:1
 msgid "A word is hidden, you must discover it letter by letter"
-msgstr ""
+msgstr "Et ord er skjult, og du skal finde frem til det bogstav for bogstav"
 
 #: ../src/hangman-activity/hangman.xml.in.h:2
-#, fuzzy
 msgid "Reading skill"
-msgstr "Læsning"
+msgstr "Læseevne"
 
+# http://en.wikipedia.org/wiki/Hangman_%28game%29
 #: ../src/hangman-activity/hangman.xml.in.h:3
 msgid "The classic hangman game"
-msgstr ""
+msgstr "Det klassiske papir og blyantspil Den hængte mand"
 
 #: ../src/hangman-activity/hangman.xml.in.h:4
 msgid "This is a good exercise to improve reading and spelling skills."
-msgstr ""
+msgstr "Dette er en god øvelse til at forbedre læsning og stavning."
 
 #: ../src/hangman-activity/hangman.xml.in.h:5
 msgid ""
 "You can enter the letters using the virtual keyboard on the screen or with "
 "the real keyboard."
 msgstr ""
+"Du kan indtaste bogstaverne med brug af det virtuelle tastatur på skærmen "
+"eller med tastaturet."
 
 #. All the vowel of your language (keep empty if non applicable)
 #: ../src/hangman-activity/hangman.py:61
 msgid "aeiouy"
-msgstr ""
+msgstr "aeiouyæøå"
 
 #. All the consonants of your language (keep empty if non applicable)
 #: ../src/hangman-activity/hangman.py:63
-#, fuzzy
 msgid "bcdfghjklmnpqrstvwxz"
-msgstr "abcdefghijklmnopqrstuvwxyzæøå"
+msgstr "bcdfghjklmnpqrstvwxz"
 
 #. Letters equivallence for the hangman activity. It has the
 #. form of a space separated list like: "e=éè a=àâ"
 #. Keep the word NONE if not available in your language
 #: ../src/hangman-activity/hangman.py:67
 msgid "NONE"
-msgstr ""
+msgstr "NONE"
 
 #: ../src/hangman-activity/hangman.py:104
-#, fuzzy
 msgid "Could not find the list of words."
-msgstr "Konfigurer ordlisten"
-
-# Primavera er et navn.
-#~ msgid "Botticelli, Primavera - 1482"
-#~ msgstr "Botticelli, Primavera - 1482"
-
-#~ msgid "Caravage, Rest on the Flight into Egypt - 1597"
-#~ msgstr "Caravage, Hvil på rejsen til Ægypten - 1597"
-
-#~ msgid "Botticelli, The Birth of Venus - 1482–1486"
-#~ msgstr "Botticelli, Venus' fødsel - 1482–1486"
-
-#~ msgid "Error: Abnormally failed to load a data file"
-#~ msgstr "Fejl: Kunne ikke indlæse en datafil"
+msgstr "Kunne ikke finde ordlisten."
