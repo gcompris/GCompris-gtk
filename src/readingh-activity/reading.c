@@ -39,6 +39,8 @@ static gint textToFindIndex = 0;
 
 static GooCanvasItem *boardRootItem = NULL;
 
+static gboolean uppercase_only;
+
 typedef enum
 {
   MODE_HORIZONTAL		= 0,
@@ -170,6 +172,13 @@ static void start_board (GcomprisBoard *agcomprisBoard)
   GHashTable *config = gc_db_get_board_conf();
 
   gc_locale_change(g_hash_table_lookup( config, "locale"));
+
+  gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
+
+  if (up_init_str && (strcmp(up_init_str, "True")==0))
+    uppercase_only = TRUE;
+  else
+    uppercase_only = FALSE;
 
   g_hash_table_destroy(config);
 
@@ -805,6 +814,14 @@ get_random_word(const gchar* except)
 	word = gc_wordlist_random_word_get(gc_wordlist, gcomprisBoard->level);
       }
 
+  if (word && uppercase_only)
+    {
+      gchar *old = word;
+      word = g_utf8_strup(old, -1);
+      g_free(old);
+    }
+
+
   return(word);
 }
 
@@ -851,6 +868,15 @@ static void conf_ok(GHashTable *table)
 
     gc_locale_set(g_hash_table_lookup( config, "locale"));
 
+    gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
+    if (up_init_str)
+      {
+	if(strcmp(up_init_str, "True")==0)
+	  uppercase_only = TRUE;
+	else
+	  uppercase_only = FALSE;
+      }
+
     if (profile_conf)
       g_hash_table_destroy(config);
 
@@ -891,6 +917,18 @@ reading_config_start(GcomprisBoard *agcomprisBoard,
 
   gc_board_config_combo_locales(conf, locale);
   gc_board_config_wordlist(conf, "wordsgame/default-$LOCALE.xml");
+
+  /* upper case */
+  gboolean up_init = FALSE;
+  gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
+
+  if (up_init_str && (strcmp(up_init_str, "True")==0))
+    up_init = TRUE;
+
+  gc_board_config_boolean_box(conf, _("Uppercase only text"),
+			      "uppercase_only",
+			      up_init);
+
 }
 
 
