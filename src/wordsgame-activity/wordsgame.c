@@ -61,6 +61,7 @@ static GcomprisBoard *gcomprisBoard = NULL;
 
 static gint dummy_id = 0;
 static gint drop_items_id = 0;
+static gboolean uppercase_only;
 
 
 static void		 start_board (GcomprisBoard *agcomprisBoard);
@@ -180,6 +181,13 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       GHashTable *config = gc_db_get_board_conf();
       gc_locale_change(g_hash_table_lookup( config, "locale"));
+
+      gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
+      if (up_init_str && (strcmp(up_init_str, "True")==0))
+	uppercase_only = TRUE;
+      else
+	uppercase_only = FALSE;
+
       g_hash_table_destroy(config);
 
       /* disable im_context */
@@ -320,6 +328,21 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 
     letter = g_new0(gchar,6);
     g_unichar_to_utf8 (unichar_letter, letter);
+    /* Force entered letter to the casing we expect
+     * Children is to small to manage the caps lock key for now
+     */
+    if (uppercase_only)
+      {
+	gchar *old = letter;
+	letter = g_utf8_strup(old, -1);
+	g_free(old);
+      }
+    else
+      {
+	gchar *old = letter;
+	letter = g_utf8_strdown(old, -1);
+	g_free(old);
+      }
 
     if(item_on_focus==NULL)
       {
@@ -599,6 +622,13 @@ static GooCanvasItem *wordsgame_create_item(GooCanvasItem *parent)
     /* Should display the dialog box here */
     return NULL;
 
+  if (uppercase_only)
+    {
+      gchar *old = word;
+      word = g_utf8_strup(old, -1);
+      g_free(old);
+    }
+
   // create and init item
   item = g_new(LettersItem,1);
   item->word = word;
@@ -635,7 +665,7 @@ static GooCanvasItem *wordsgame_create_item(GooCanvasItem *parent)
 			 -1,
 			 direction_anchor,
 			 "font", gc_skin_font_board_huge_bold,
-			 "fill-color", "blue",
+			 "fill-color_rgba", 0x33c033ff,
 			 NULL);
 
   /*set right x position */
@@ -801,6 +831,15 @@ static void conf_ok(GHashTable *table)
 
     gc_locale_set(g_hash_table_lookup( config, "locale"));
 
+    gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
+    if (up_init_str)
+      {
+	if(strcmp(up_init_str, "True")==0)
+	  uppercase_only = TRUE;
+	else
+	  uppercase_only = FALSE;
+      }
+
     if (profile_conf)
       g_hash_table_destroy(config);
 
@@ -840,6 +879,16 @@ wordsgame_config_start(GcomprisBoard *agcomprisBoard,
 
   gc_board_config_combo_locales(conf, locale);
   gc_board_config_wordlist(conf, "wordsgame/default-$LOCALE.xml");
+  /* upper case */
+  gboolean up_init = FALSE;
+  gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
+
+  if (up_init_str && (strcmp(up_init_str, "True")==0))
+    up_init = TRUE;
+
+  gc_board_config_boolean_box(conf, _("Uppercase only text"),
+			      "uppercase_only",
+			      up_init);
 }
 
 static void wordsgame_config_stop(void)
