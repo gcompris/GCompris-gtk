@@ -33,6 +33,8 @@ static void		 pause_board (gboolean pause);
 static void		 end_board (void);
 static gboolean		 is_our_board (GcomprisBoard *gcomprisBoard);
 static void		 set_level (guint level);
+static gint		 key_press(guint keyval, gchar *commit_str,
+				   gchar *preedit_str);
 
 static int gamewon;
 
@@ -98,7 +100,7 @@ static BoardPlugin menu_bp =
     pause_board,
     end_board,
     is_our_board,
-    NULL,
+    key_press,
     NULL,
     set_level,
     NULL,
@@ -198,6 +200,44 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     }
 
 }
+
+static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str) {
+  gint length_passed, i;
+
+  if(!gcomprisBoard)
+    return FALSE;
+
+  /* i suppose even numbers are passed through IM_context */
+  if ((commit_str == NULL) && (preedit_str == NULL))
+    return FALSE;
+
+  gchar *string_passed;
+  if (commit_str)
+    string_passed = commit_str;
+  else
+    string_passed = preedit_str;
+
+  length_passed = g_utf8_strlen(string_passed, -1);
+
+  for (i=0; i < length_passed; i++){
+    gunichar ckey = \
+      g_unichar_tolower( g_utf8_get_char (string_passed) );
+    gunichar cright = \
+      g_unichar_tolower( g_utf8_get_char (right_letter) );
+
+    if (ckey == cright){
+      gamewon = TRUE;
+      process_ok();
+      gc_im_reset();
+      return TRUE;
+    }
+
+    string_passed = g_utf8_next_char (string_passed);
+  }
+
+  return TRUE;
+}
+
 /* ======================================= */
 static void end_board ()
 {
