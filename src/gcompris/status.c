@@ -95,17 +95,27 @@ void gc_status_init(gchar *msg)
 
 /*
  * Update the message in the status box
+ * \param format: printf formating.
+ * \param ...:    additional params for the format (printf like)
  */
-void gc_status_set_msg(gchar *msg)
+void gc_status_set_msg(const gchar *format, ...)
 {
+  va_list args;
+  gchar *msg;
+
   // No status bar means we are still at command line level.
-  if (!itemStatusMsg)
+  if (!itemStatusMsg || !format)
     return;
   g_assert(rootStatusItem);
+
+  va_start (args, format);
+  msg = g_strdup_vprintf (format, args);
+  va_end (args);
 
   g_object_set (itemStatusMsg,
 		"text", msg,
 		NULL);
+  g_free(msg);
   while (gtk_events_pending())
     gtk_main_iteration();
 }

@@ -1212,11 +1212,27 @@ static void map_cb (GtkWidget *widget, gpointer data)
       is_mapped = TRUE;
       GcomprisBoard *board_to_start;
 
+      if (! gc_skin_load(properties->skin) )
+	{
+	  gc_status_init("");
+	  gchar *filename = \
+	    g_strdup_printf("%s/%s/skin.xml",
+			    properties->package_skin_dir,
+			    properties->skin);
+
+	  gc_status_set_msg(_("Failed to load the skin '%s'"
+			      " (Check the file exists and is readable)"),
+			    filename);
+	  g_free(filename);
+	  return;
+	}
+
       gc_set_default_background (goo_canvas_get_root_item (GOO_CANVAS(canvas)));
 
       gc_fullscreen_set(properties->fullscreen);
 
       gc_status_init("");
+
       gc_board_init();
       /* Load all the menu once */
       gc_menu_load();
@@ -1931,8 +1947,6 @@ main (int argc, char *argv[])
   /* networking init */
   gc_net_init();
   gc_cache_init();
-
-  gc_skin_load(properties->skin);
 
   gc_sound_build_music_list();
 

@@ -174,6 +174,9 @@ void gc_board_init(void)
 
 BoardPlugin *gc_board_get_current_board_plugin(void)
 {
+  if (! bp_data)
+    return NULL;
+
   if(bp_data->current_gcompris_board)
     return bp_data->current_gcompris_board->plugin;
 
@@ -182,6 +185,9 @@ BoardPlugin *gc_board_get_current_board_plugin(void)
 
 GcomprisBoard *gc_board_get_current(void)
 {
+  if (! bp_data)
+    return NULL;
+
   return bp_data->current_gcompris_board;
 }
 
@@ -361,6 +367,9 @@ gc_board_pause(int pause)
 void
 gc_board_stop(void)
 {
+  if (! bp_data)
+    return;
+
   if (bp_data->playing && gc_board_get_current_board_plugin())
     {
       bp_data->playing = FALSE;

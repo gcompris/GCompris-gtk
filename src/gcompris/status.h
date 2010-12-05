@@ -24,7 +24,7 @@
 /* Status box */
 void		 gc_status_init(gchar *str);
 void		 gc_status_close();
-void		 gc_status_set_msg(gchar *str);
+void		 gc_status_set_msg(const gchar *format, ...);
 
 
 #endif

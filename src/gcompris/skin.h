@@ -50,7 +50,7 @@ GdkPixbuf	*gc_skin_pixmap_load(char *pixmapfile);
 RsvgHandle	*gc_skin_rsvg_get();
 RsvgHandle	*gc_skin_rsvg_load(char *pixmapfile);
 
-void            gc_skin_load (gchar* skin);
+gboolean        gc_skin_load (gchar* skin);
 void            gc_skin_free (void);
 
 guint32         gc_skin_get_color_default(gchar* id, guint32 def);

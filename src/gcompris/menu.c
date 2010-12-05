@@ -580,10 +580,8 @@ void gc_menu_load_dir(char *dirname, gboolean db){
 	      }
 	  }
 	  if (board_read) {
-	    gchar *msg = g_strdup_printf(_("Loading activity from file:\n%s"),
-					 gettext(board_read->title));
-	    gc_status_set_msg(msg);
-	    g_free(msg);
+	    gc_status_set_msg( _("Loading activity from file:\n%s"),
+			       gettext(board_read->title) );
 	  }
 	}
     else

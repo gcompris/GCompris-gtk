@@ -302,8 +302,9 @@ gboolean gc_skin_str_to_color(gchar* data, guint32* color){
 /*
  * Parse a skin.xml file located in the skin directory
  * and load the skin properties into memory
+ * @return TRUE if load suceeded
  */
-static void
+static gboolean
 skin_xml_load (gchar* skin)
 {
   gchar* xmlfilename;
@@ -314,7 +315,7 @@ skin_xml_load (gchar* skin)
   gchar* data;
   guint32 color;
 
-  g_return_if_fail(skin!=NULL);
+  g_return_val_if_fail(skin!=NULL, FALSE);
 
   xmlfilename = \
     gc_file_find_absolute("%s/skin.xml",
@@ -325,14 +326,17 @@ skin_xml_load (gchar* skin)
   if(!xmlfilename)
     {
       g_warning("Couldn't find skin file %s !", skin);
-      return;
+      return FALSE;
     }
 
   xmldoc = xmlParseFile(xmlfilename);
   g_free(xmlfilename);
 
   if(!xmldoc)
-    return;
+    {
+      g_warning("Parsing of skin file failed '%s' !", skin);
+      return FALSE;
+    }
 
   if(/* if there is no root element */
      !xmldoc->children ||
@@ -340,9 +344,10 @@ skin_xml_load (gchar* skin)
      !xmldoc->children->name ||
      /* if it isn't a GCompris node */
      g_strcasecmp((gchar *)xmldoc->children->name, "GCompris")!=0) {
-    g_warning("No Gcompris node");
     xmlFreeDoc(xmldoc);
-    return;
+    g_warning("Skin file is not properly formatted (no GCompris node) '%s' !",
+	      skin);
+    return FALSE;
   }
 
   skinNode = xmldoc->children->children;
@@ -351,9 +356,10 @@ skin_xml_load (gchar* skin)
 
   if((skinNode==NULL)||
      g_strcasecmp((gchar *)skinNode->name, "Skin")!=0) {
-    g_warning("No Skin node %s", xmldoc->children->children->name);
+    g_warning("In skin file '%s' there are no Skin node %s", skin,
+	      xmldoc->children->children->name);
     xmlFreeDoc(xmldoc);
-    return;
+    return FALSE;
   }
 
   node = skinNode->children;
@@ -397,18 +403,20 @@ skin_xml_load (gchar* skin)
     }
 
   xmlFreeDoc(xmldoc);
+  return TRUE;
 }
 
 /*
  * Parse the default skin.xml file and the one located in the skin
  * directory then load all skins properties into memory
+ * @return TRUE if load suceeded
  */
-void
+gboolean
 gc_skin_load (gchar* skin)
 {
 
   if(skin==NULL)
-    return;
+    return FALSE;
 
   gc_skin_free();
 
@@ -421,11 +429,14 @@ gc_skin_load (gchar* skin)
   gc_skin_numbers = g_hash_table_new_full(g_str_hash, g_str_equal,
 					      gc_skin_free_string,
 					      NULL);
-  skin_xml_load(DEFAULT_SKIN);
+  if (! skin_xml_load(DEFAULT_SKIN) )
+    return FALSE;
   if(strcmp(skin,DEFAULT_SKIN)!=0)
-    skin_xml_load(skin);
+    if (! skin_xml_load(skin) )
+      return FALSE;
 
   gc_skin_setup_vars();
+  return TRUE;
 }
 
 /*
