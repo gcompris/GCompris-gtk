@@ -4,7 +4,7 @@ img_DATA = \
 	fishingboat.svgz \
 	minitux.svgz \
 	parachute.svgz \
-	scenery3_background.png \
+	background.svgz \
 	tuxplane.svgz
 
 EXTRA_DIST = $(img_DATA)

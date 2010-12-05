@@ -161,14 +161,14 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->disable_im_context = TRUE;
 
       gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
-			"paratrooper/scenery3_background.png");
+			"paratrooper/background.svgz");
 
 
       /* set initial values for this level */
       gcomprisBoard->level = 1;
       gcomprisBoard->maxlevel = 6;
       gc_bar_set(GC_BAR_LEVEL);
-      gc_bar_location(BOARDWIDTH-200, -1, 0.9);
+      gc_bar_location(BOARDWIDTH-200, -1, 0.7);
 
       /* Init of paratrooper struct */
       paratrooperItem.rootitem = NULL;
