@@ -48,6 +48,7 @@ static gint planegame_drop_items (GtkWidget *widget, gpointer data);
 static gint planegame_move_items (GtkWidget *widget, gpointer data);
 static void planegame_destroy_all_items(void);
 static void planegame_next_level(void);
+static void planegame_speak_number(int number);
 
 static  guint32              fallSpeed = 0;
 static  double               speed = 0.0;
@@ -141,6 +142,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->level = 1;
       gcomprisBoard->maxlevel = 2;
       gc_bar_set(GC_BAR_LEVEL);
+      gc_bar_location(10, -1, 0.6);
 
       planegame_next_level();
 
@@ -341,7 +343,7 @@ static void planegame_cloud_colision(GooCanvasItem *item)
 
       if(plane_target == number)
 	{
-	  gc_sound_play_ogg ("sounds/gobble.wav", NULL);
+	  planegame_speak_number(number);
 	  plane_target++;
 
 	  goo_canvas_item_remove(item);
@@ -454,7 +456,7 @@ static GooCanvasItem *planegame_create_item(GooCanvasItem *parent)
   svg_handle = gc_rsvg_load("planegame/cloud.svgz");
   rsvg_handle_get_dimensions(svg_handle, &dimension);
 
-  y = (g_random_int()%(BOARDHEIGHT -
+  y = (g_random_int()%(BOARDHEIGHT - 40 -
 		       (guint)(dimension.height * imageZoom)));
 
   goo_canvas_item_translate(itemgroup,
@@ -519,5 +521,29 @@ static gint planegame_drop_items (GtkWidget *widget, gpointer data)
   drop_items_id = g_timeout_add (fallSpeed,
 				 (GtkFunction) planegame_drop_items, NULL);
   return (FALSE);
+}
+
+/** Play the audio number given in @number
+ */
+static void
+planegame_speak_number(int number)
+{
+  /* Play the audio level number */
+  gchar *number_str = g_strdup_printf("%d", number);
+
+  if ( number < 10 )
+    {
+      /* Set the number as unicode */
+      gchar *level_str = gc_sound_alphabet(number_str);
+      g_free(number_str);
+      number_str = level_str;
+    }
+
+  gchar *audio_str = g_strdup_printf("voices/$LOCALE/alphabet/%s", number_str);
+
+  gc_sound_play_ogg(audio_str, NULL);
+
+  g_free(number_str);
+  g_free(audio_str);
 }
 
