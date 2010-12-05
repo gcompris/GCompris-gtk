@@ -135,7 +135,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->disable_im_context = TRUE;
 
       gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
-			"planegame/scenery3_background.png");
+			"planegame/background.svgz");
 
 
       /* set initial values for this level */
