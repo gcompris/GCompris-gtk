@@ -448,7 +448,8 @@ static void
 bar_hide (gboolean hide)
 {
   /* Non yet initialized : Something Wrong */
-  g_assert(rootitem);
+  if ( ! rootitem )
+    return;
 
   _hidden = hide;
 

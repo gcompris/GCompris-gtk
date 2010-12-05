@@ -505,31 +505,31 @@ void gc_cursor_set(guint gdk_cursor_type)
 
     switch (gdk_cursor_type) {
     case GCOMPRIS_DEFAULT_CURSOR :
-      cursor_pixbuf = gc_skin_pixmap_load("cursors/default.png");
+      cursor_pixbuf = gc_skin_pixmap_load_or_null("cursors/default.png");
       break;
     case GCOMPRIS_LINE_CURSOR :
-      cursor_pixbuf = gc_skin_pixmap_load("cursors/line.png");
+      cursor_pixbuf = gc_skin_pixmap_load_or_null("cursors/line.png");
       break;
     case GCOMPRIS_RECT_CURSOR :
-      cursor_pixbuf = gc_skin_pixmap_load("cursors/rect.png");
+      cursor_pixbuf = gc_skin_pixmap_load_or_null("cursors/rect.png");
       break;
     case GCOMPRIS_FILLRECT_CURSOR :
-      cursor_pixbuf = gc_skin_pixmap_load("cursors/fillrect.png");
+      cursor_pixbuf = gc_skin_pixmap_load_or_null("cursors/fillrect.png");
       break;
     case GCOMPRIS_CIRCLE_CURSOR :
-      cursor_pixbuf = gc_skin_pixmap_load("cursors/circle.png");
+      cursor_pixbuf = gc_skin_pixmap_load_or_null("cursors/circle.png");
       break;
     case GCOMPRIS_FILLCIRCLE_CURSOR :
-      cursor_pixbuf = gc_skin_pixmap_load("cursors/fillcircle.png");
+      cursor_pixbuf = gc_skin_pixmap_load_or_null("cursors/fillcircle.png");
       break;
     case GCOMPRIS_FILL_CURSOR :
-      cursor_pixbuf = gc_skin_pixmap_load("cursors/fill.png");
+      cursor_pixbuf = gc_skin_pixmap_load_or_null("cursors/fill.png");
       break;
     case GCOMPRIS_DEL_CURSOR :
-      cursor_pixbuf = gc_skin_pixmap_load("cursors/del.png");
+      cursor_pixbuf = gc_skin_pixmap_load_or_null("cursors/del.png");
       break;
     case GCOMPRIS_SELECT_CURSOR :
-      cursor_pixbuf = gc_skin_pixmap_load("cursors/select.png");
+      cursor_pixbuf = gc_skin_pixmap_load_or_null("cursors/select.png");
       break;
     default :
       return;
@@ -543,6 +543,13 @@ void gc_cursor_set(guint gdk_cursor_type)
 	gdk_window_set_cursor(window->window, cursor);
 	gdk_cursor_unref(cursor);
 	gdk_pixbuf_unref(cursor_pixbuf);
+      }
+    else
+      {
+	/* The cursor image was not found, falback to default one */
+	properties->defaultcursor = GDK_LEFT_PTR;
+	gc_cursor_set(GCOMPRIS_DEFAULT_CURSOR);
+	return;
       }
   }
   gc_cursor_current = gdk_cursor_type;

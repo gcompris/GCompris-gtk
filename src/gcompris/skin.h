@@ -45,6 +45,7 @@ extern gchar* gc_skin_font_board_huge_bold;
 
 
 gchar		*gc_skin_image_get(gchar *imagename);
+GdkPixbuf	*gc_skin_pixmap_load_or_null(char *pixmapfile);
 GdkPixbuf	*gc_skin_pixmap_load(char *pixmapfile);
 RsvgHandle	*gc_skin_rsvg_get();
 RsvgHandle	*gc_skin_rsvg_load(char *pixmapfile);

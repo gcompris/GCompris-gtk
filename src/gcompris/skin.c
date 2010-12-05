@@ -84,7 +84,27 @@ gc_skin_image_get(gchar *pixmapfile)
 /*
  * Load a pixmap from the current skin directory
  * If not found, try in the default skin directory
- * If not found abort gcompris
+ * If not found returns NULL
+ */
+GdkPixbuf *
+gc_skin_pixmap_load_or_null(char *pixmapfile)
+{
+  gchar *filename;
+  GdkPixbuf *result_pixbuf;
+
+  filename = gc_skin_image_get(pixmapfile);
+
+  result_pixbuf = gc_pixmap_load_or_null (filename);
+
+  g_free(filename);
+
+  return (result_pixbuf);
+}
+
+/*
+ * Load a pixmap from the current skin directory
+ * If not found, try in the default skin directory
+ * If not found returns a small 1x1 pixmap
  */
 GdkPixbuf *
 gc_skin_pixmap_load(char *pixmapfile)
