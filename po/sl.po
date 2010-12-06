@@ -10,14 +10,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&component=general\n"
-"POT-Creation-Date: 2010-11-10 15:59+0000\n"
-"PO-Revision-Date: 2010-12-05 11:18+0100\n"
+"POT-Creation-Date: 2010-12-05 23:08+0000\n"
+"PO-Revision-Date: 2010-12-06 14:26+0100\n"
 "Last-Translator: Andrej Žnidaršič <andrej.znidarsic@gmail.com>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n%100==4 ? 3 : 0);\n"
 "X-Poedit-Country: SLOVENIA\n"
 "X-Poedit-Language: Slovenian\n"
@@ -1034,7 +1034,7 @@ msgid "+-×÷"
 msgstr "+-×÷"
 
 #: ../src/algebra_by-activity/algebra.c:411
-#: ../src/readingh-activity/reading.c:621
+#: ../src/readingh-activity/reading.c:630
 msgid "I am Ready"
 msgstr "Pripravljen sem"
 
@@ -1313,7 +1313,7 @@ msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "Igre z miško: premakni, povleci in spusti."
 
 #: ../src/babymatch-activity/shapegame.c:1903
-#: ../src/click_on_letter-activity/click_on_letter.c:635
+#: ../src/click_on_letter-activity/click_on_letter.c:675
 #: ../src/colors-activity/colors.c:168
 #, c-format
 msgid ""
@@ -1813,7 +1813,7 @@ msgstr "1955 Citroën ds 19"
 msgid "Cars"
 msgstr "Avtomobili"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:271
+#: ../src/click_on_letter-activity/click_on_letter.c:311
 #: ../src/memory-activity/memory.c:906
 msgid ""
 "Error: this activity cannot be played with the\n"
@@ -1829,13 +1829,13 @@ msgstr ""
 #. TRANSLATORS: Put here the alphabet in your language
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
-#: ../src/click_on_letter-activity/click_on_letter.c:276
+#: ../src/click_on_letter-activity/click_on_letter.c:316
 #: ../src/gletters-activity/gletters.c:229
 #: ../src/memory-activity/memory.c:935
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcčdefghijklmnoprsštuvzž"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:304
+#: ../src/click_on_letter-activity/click_on_letter.c:344
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -1844,7 +1844,7 @@ msgstr ""
 "Napaka: ta dejavnost zahteva namestitev\n"
 "paketov z GCompris glasovi za jezikovno določilo '%s' ali '%s'"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:314
+#: ../src/click_on_letter-activity/click_on_letter.c:354
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -1854,9 +1854,12 @@ msgstr ""
 "z glasovi GCompris za jezikovno določilo '%s' ! Uporabljena bo angleščina, oprosti!"
 
 #. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:658
+#: ../src/click_on_letter-activity/click_on_letter.c:698
 #: ../src/gletters-activity/gletters.c:883
 #: ../src/login-activity/login.py:484
+#: ../src/missing_letter-activity/missingletter_config.c:492
+#: ../src/readingh-activity/reading.c:928
+#: ../src/wordsgame-activity/wordsgame.c:889
 msgid "Uppercase only text"
 msgstr "Le besedilo z velikimi črkami"
 
@@ -2111,6 +2114,10 @@ msgstr "Priamide v Gazi, Egipt"
 #: ../src/details-activity/resources/details/board2_11.xml.in.h:1
 msgid "Sydney Opera House, Australia"
 msgstr "Sydneyska opera, Avstralija"
+
+#: ../src/details-activity/resources/details/board2_12.xml.in.h:1
+msgid "Tower Bridge in London"
+msgstr "Most Tower v Londonu"
 
 #: ../src/details-activity/resources/details/board2_2.xml.in.h:1
 msgid "Courtyard of the Museum of Louvre, and its pyramid"
@@ -2380,19 +2387,19 @@ msgstr "Ta program je GNU paket in je izdan pod GNU splošno javno licenco"
 msgid "OK"
 msgstr "V redu"
 
-#: ../src/gcompris/bar.c:692
+#: ../src/gcompris/bar.c:693
 msgid "GCompris confirmation"
 msgstr "Potrditev GCompris"
 
-#: ../src/gcompris/bar.c:693
+#: ../src/gcompris/bar.c:694
 msgid "Are you sure you want to quit?"
 msgstr "Ali si prepričan, da želiš končati?"
 
-#: ../src/gcompris/bar.c:694
+#: ../src/gcompris/bar.c:695
 msgid "Yes, I am sure!"
 msgstr "Da, prepričan sem"
 
-#: ../src/gcompris/bar.c:695
+#: ../src/gcompris/bar.c:696
 msgid "No, I want to keep going"
 msgstr "Ne, želim nadaljevati"
 
@@ -2921,7 +2928,6 @@ msgid "Disable the config button"
 msgstr "Onemogoči gumb nastavitve"
 
 #: ../src/gcompris/gcompris.c:241
-#| msgid "Disable the quit button"
 msgid "Disable the level button"
 msgstr "Onemogoči gumb ravni"
 
@@ -2945,7 +2951,7 @@ msgstr "Splošni način povleci in spusti: običajen, 2klika, oboje. Privzeti na
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Ne izogni se izvajanju več primerkov GCompris."
 
-#: ../src/gcompris/gcompris.c:922
+#: ../src/gcompris/gcompris.c:929
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to support its development, this version provides only %d of the %d activities. You can get the full version for a small fee at\n"
@@ -2958,17 +2964,22 @@ msgstr ""
 "Različica GNU/Linux nima teh omejitev. Če verjamete, da je otroke treba naučiti svobodo, razmislite o uporabi GNU/Linux. Več podrobnosti na strani FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1462
+#: ../src/gcompris/gcompris.c:1223
+#, c-format
+msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
+msgstr "Nalaganje preobleke '%s' je spodletelo (Preverite, če datoteka obstaja in je berljiva)"
+
+#: ../src/gcompris/gcompris.c:1485
 #, c-format
 msgid "GCompris won't start because the lock file is less than %d seconds old.\n"
 msgstr "GCompris se ne bo zagnal, ker je datoteka ključavnice stara manj kot %d sekund.\n"
 
-#: ../src/gcompris/gcompris.c:1464
+#: ../src/gcompris/gcompris.c:1487
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Datoteka ključa je: %s\n"
 
-#: ../src/gcompris/gcompris.c:1578
+#: ../src/gcompris/gcompris.c:1601
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2982,37 +2993,37 @@ msgstr ""
 "Več podrobnosti je mogoče najti na http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1693
+#: ../src/gcompris/gcompris.c:1716
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Uporabi -l za neposreden dostop do dejavnosti.\n"
 
-#: ../src/gcompris/gcompris.c:1694
+#: ../src/gcompris/gcompris.c:1717
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Seznam dostopnih dejavnosti je:\n"
 
-#: ../src/gcompris/gcompris.c:1725
+#: ../src/gcompris/gcompris.c:1748
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Število dejavnosti: %d\n"
 
-#: ../src/gcompris/gcompris.c:1761
+#: ../src/gcompris/gcompris.c:1784
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s obstaja toda ni berljiv ali zapisljiv"
 
-#: ../src/gcompris/gcompris.c:1824
+#: ../src/gcompris/gcompris.c:1847
 #, c-format
 msgid "The --server option cannot be used because GCompris has been compiled without network support!"
 msgstr "Možnosti --server ni mogoče uporabiti, ker GCompris ni bil preveden z omrežno podporo!"
 
-#: ../src/gcompris/gcompris.c:1878
+#: ../src/gcompris/gcompris.c:1901
 #, c-format
 msgid "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list available ones\n"
 msgstr "NAPAKA: Profila '%s' ni mogoče najti. Poženi 'gcompris --profile-list' za seznam razpoložljivih profilov\n"
 
-#: ../src/gcompris/gcompris.c:1892
+#: ../src/gcompris/gcompris.c:1915
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Seznam dostopnih profilov je:\n"
@@ -3749,13 +3760,13 @@ msgstr "ABCČDEFGHIJKLMNOPRSŠTUVZŽ"
 #: ../src/gletters-activity/gletters.c:850
 #: ../src/imageid-activity/imageid.c:712
 #: ../src/login-activity/login.py:479
-#: ../src/missing_letter-activity/missingletter.c:752
+#: ../src/missing_letter-activity/missingletter.c:784
 #: ../src/pythontest-activity/pythontest.py:454
-#: ../src/readingh-activity/reading.c:878
+#: ../src/readingh-activity/reading.c:904
 #: ../src/scalesboard-activity/scale.c:1161
 #: ../src/smallnumbers-activity/smallnumbers.c:595
 #: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:827
+#: ../src/wordsgame-activity/wordsgame.c:866
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -4090,14 +4101,14 @@ msgstr "Šesterokotnik"
 #: ../src/imageid-activity/imageid.xml.in.h:3
 #: ../src/imagename-activity/imagename.xml.in.h:4
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:1
-#: ../src/missing_letter-activity/missingletter.c:83
+#: ../src/missing_letter-activity/missingletter.c:84
 #: ../src/readingh-activity/readingh.xml.in.h:4
 #: ../src/readingv-activity/readingv.xml.in.h:4
 msgid "Reading"
 msgstr "Branje"
 
 #: ../src/imageid-activity/imageid.c:95
-#: ../src/missing_letter-activity/missingletter.c:84
+#: ../src/missing_letter-activity/missingletter.c:85
 msgid "Learn how to read"
 msgstr "Nauči se brati"
 
@@ -4106,7 +4117,7 @@ msgid "Data file for this level is not properly formatted. Too many choices are 
 msgstr "Podatkovna datoteka za to raven ni pravilno oblikovana. Predlaganih je preveč izbir."
 
 #: ../src/imageid-activity/imageid.c:534
-#: ../src/missing_letter-activity/missingletter.c:569
+#: ../src/missing_letter-activity/missingletter.c:592
 msgid "Data file for this level is not properly formatted."
 msgstr "Podatkovna datoteka za to raven ni pravilno oblikovana."
 
@@ -5008,25 +5019,25 @@ msgstr ""
 
 #. pixmap
 #: ../src/missing_letter-activity/missingletter_config.c:414
-#: ../src/missing_letter-activity/missingletter_config.c:546
+#: ../src/missing_letter-activity/missingletter_config.c:557
 msgid "Picture"
 msgstr "Slika"
 
 #. answer
 #: ../src/missing_letter-activity/missingletter_config.c:420
-#: ../src/missing_letter-activity/missingletter_config.c:537
+#: ../src/missing_letter-activity/missingletter_config.c:548
 msgid "Answer"
 msgstr "Odgovor"
 
 #. question
 #: ../src/missing_letter-activity/missingletter_config.c:426
-#: ../src/missing_letter-activity/missingletter_config.c:560
+#: ../src/missing_letter-activity/missingletter_config.c:571
 msgid "Question"
 msgstr "Vprašanje"
 
 #. choice
 #: ../src/missing_letter-activity/missingletter_config.c:432
-#: ../src/missing_letter-activity/missingletter_config.c:572
+#: ../src/missing_letter-activity/missingletter_config.c:583
 msgid "Choice"
 msgstr "Izbira"
 
@@ -5040,15 +5051,15 @@ msgstr "Raven:"
 msgid "Level %d"
 msgstr "Raven %d"
 
-#: ../src/missing_letter-activity/missingletter_config.c:550
+#: ../src/missing_letter-activity/missingletter_config.c:561
 msgid "Filename:"
 msgstr "Ime datoteke:"
 
-#: ../src/missing_letter-activity/missingletter_config.c:568
+#: ../src/missing_letter-activity/missingletter_config.c:579
 msgid "Replace the letter to guess by the character '_'."
 msgstr "Zamenjaj črtko za ugibanje z znakom '_'."
 
-#: ../src/missing_letter-activity/missingletter_config.c:580
+#: ../src/missing_letter-activity/missingletter_config.c:591
 msgid "Enter here the letter that will be proposed. The first letter here must be the solution"
 msgstr "Napiši črko, ki bo predlagana. Prva črka tukaj mora biti rešitev"
 
@@ -5391,12 +5402,12 @@ msgstr "Lovec fotografij"
 msgid "Visual discrimination."
 msgstr "Iskanje razlik"
 
-#: ../src/planegame-activity/planegame.c:61
+#: ../src/planegame-activity/planegame.c:62
 #: ../src/planegame-activity/planegame.xml.in.h:4
 msgid "Numbers in Order"
 msgstr "Urejena števila"
 
-#: ../src/planegame-activity/planegame.c:62
+#: ../src/planegame-activity/planegame.c:63
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "Premakni letalo, da uloviš oblake v pravem vrstnem redu"
 
@@ -5577,8 +5588,8 @@ msgstr "Preberi imena barv"
 msgid "This board teaches basic colors."
 msgstr "Ta tabla te bo naučila osnovnih barv."
 
-#: ../src/readingh-activity/reading.c:220
-#: ../src/wordsgame-activity/wordsgame.c:211
+#: ../src/readingh-activity/reading.c:229
+#: ../src/wordsgame-activity/wordsgame.c:219
 msgid ""
 "Error: We can't find\n"
 "a list of words to play this game.\n"
@@ -5586,38 +5597,38 @@ msgstr ""
 "Napaka: Ni mogoče najti\n"
 "seznama besed za igranje te igre.\n"
 
-#: ../src/readingh-activity/reading.c:380
+#: ../src/readingh-activity/reading.c:389
 msgid "Please, check if the word"
 msgstr "Preveri, če je beseda"
 
-#: ../src/readingh-activity/reading.c:400
+#: ../src/readingh-activity/reading.c:409
 msgid "is being displayed"
 msgstr "prikazana"
 
-#: ../src/readingh-activity/reading.c:456
+#: ../src/readingh-activity/reading.c:465
 msgid "We skip this level because there are not enough words in the list!"
 msgstr "To raven bomo preskočili, ker na seznamu ni dovolj besed!"
 
-#: ../src/readingh-activity/reading.c:659
+#: ../src/readingh-activity/reading.c:668
 msgid "Yes, I saw it"
 msgstr "Da, videl sem jo"
 
-#: ../src/readingh-activity/reading.c:686
+#: ../src/readingh-activity/reading.c:695
 msgid "No, it was not there"
 msgstr "Ne, ni je bilo tam"
 
 #. Report what was wrong in the log
-#: ../src/readingh-activity/reading.c:733
+#: ../src/readingh-activity/reading.c:742
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "Beseda za iskanje je bila '%s'"
 
-#: ../src/readingh-activity/reading.c:736
+#: ../src/readingh-activity/reading.c:745
 #, c-format
 msgid "But it was not displayed"
 msgstr "Vendar ni bila prikazana"
 
-#: ../src/readingh-activity/reading.c:738
+#: ../src/readingh-activity/reading.c:747
 #, c-format
 msgid "And it was displayed"
 msgstr "In je bila prikazana"
@@ -6159,12 +6170,12 @@ msgstr "Otroci lahko napišejo svoje besedilo ali prekopirajo tistega, ki jim ga
 msgid "Your word processor"
 msgstr "Tvoj urejevalnik besedila"
 
-#: ../src/wordsgame-activity/wordsgame.c:111
+#: ../src/wordsgame-activity/wordsgame.c:112
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:1
 msgid "Falling Words"
 msgstr "Padajoče besede"
 
-#: ../src/wordsgame-activity/wordsgame.c:112
+#: ../src/wordsgame-activity/wordsgame.c:113
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the falling words before they reach the ground"
 msgstr "Natipkaj padajoče besede preden se dotaknejo zemlje"
