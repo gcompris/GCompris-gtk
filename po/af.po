@@ -7,18 +7,19 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GCompris 8.4\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=gcompris&component=general\n"
-"POT-Creation-Date: 2010-01-18 23:57+0000\n"
-"PO-Revision-Date: 2010-01-19 15:11+0200\n"
+"Report-Msgid-Bugs-To: "
+"http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&component=general\n"
+"POT-Creation-Date: 2010-12-05 18:09+0000\n"
+"PO-Revision-Date: 2010-12-09 17:49+0200\n"
 "Last-Translator: F Wolff <friedel@translate.org.za>\n"
 "Language-Team: translate-discuss-af@lists.sourceforge.net\n"
+"Language: af\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: af\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.5.1\n"
+"X-Generator: Virtaal 0.7.0-beta1\n"
+"X-Project-Style: gnome\n"
 
 #: ../boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
@@ -188,14 +189,14 @@ msgstr ""
 "    Tux-vliegtuig - Meer oor GCompris\n"
 "    Nag - Verlaat GCompris\n"
 "Die sterre wys elke spel se ouderdomsgroep:\n"
-"    1, 2 of 3 eenvoudige sterre - van 2 tot 6 jaar oud\n"
+"    1, 2 of 3 eenvoudige sterre   - van 2 tot 6 jaar oud\n"
 "    1, 2 of 3 ingewikkelde sterre - 7 jaar en ouer"
 
 #: ../boards/menu.xml.in.h:16
 msgid "GCompris Main Menu"
 msgstr "Hoofkieslys van GCompris"
 
-#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:859
+#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:876
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -288,37 +289,75 @@ msgstr "Opvoedkundige suite GCompris"
 msgid "Multi-activity educational game"
 msgstr "Opvoedkundige speletjie met klomp aktiwiteite"
 
-#: ../src/administration-activity/admin/board_list.py:91
+#: ../nsis_translations.desktop.in.h:1
+msgid ""
+"An instance of GCompris is currently running. Exit GCompris and then try "
+"again."
+msgstr ""
+"'n Voorkoms van GCompris loop reeds. Verlaat GCompris en probeer dan weer."
+
+#: ../nsis_translations.desktop.in.h:2
+#| msgid "The race is already being run"
+msgid "The installer is already running."
+msgstr "Die installeerder loop reeds."
+
+#: ../nsis_translations.desktop.in.h:3
+msgid "Visit the GCompris Web Site"
+msgstr "Besoek die GCompris-webwerf"
+
+#: ../nsis_translations.desktop.in.h:4
+msgid "You do not have permission to uninstall this application."
+msgstr "Jy het nie toestemming om hierdie toepassing te oninstalleer nie."
+
+#: ../nsis_translations.desktop.in.h:5
+msgid ""
+"Your old GCompris directory is about to be deleted. Would you like to "
+"continue?$\\r$\\rNote: Any non-standard plugins that you may have installed "
+"will be deleted.$\\rGCompris user settings will not be affected."
+msgstr ""
+"Die ou GCompris-gids gaan nou geskrap word. Wil u voortgaan?$\\r$\\rLet wel: "
+"Enige niestandaard inproppe wat dalk geïnstalleer is, sal geskrap "
+"word.$\\rGCompris se gebruikerinstellings sal nie geaffekteer word nie."
+
+#: ../nsis_translations.desktop.in.h:6
+msgid ""
+"the uninstaller could not find registry entries for GCompris.$\\rIt is "
+"likely that another user installed this application."
+msgstr ""
+"Die oninstalleerder kon nie registerinskrywings kry vir GCompris nie.$\\r'n "
+"Ander gebruiker het waarskynlik die program geoninstalleer."
+
+#: ../src/administration-activity/admin/board_list.py:88
 msgid "Select a profile:"
 msgstr "Kies 'n profiel:"
 
-#: ../src/administration-activity/admin/board_list.py:148
+#: ../src/administration-activity/admin/board_list.py:145
 msgid "Filter"
 msgstr "Filter"
 
-#: ../src/administration-activity/admin/board_list.py:153
+#: ../src/administration-activity/admin/board_list.py:150
 msgid "Select all"
 msgstr "Kies almal"
 
-#: ../src/administration-activity/admin/board_list.py:158
+#: ../src/administration-activity/admin/board_list.py:155
 msgid "Unselect all"
 msgstr "Ontkies almal"
 
-#: ../src/administration-activity/admin/board_list.py:163
+#: ../src/administration-activity/admin/board_list.py:160
 msgid "Locales"
 msgstr "Lokaliteite"
 
-#: ../src/administration-activity/admin/board_list.py:168
+#: ../src/administration-activity/admin/board_list.py:165
 msgid "Locales sound"
 msgstr "Lokaliteite se klank"
 
-#: ../src/administration-activity/admin/board_list.py:173
-#: ../src/administration-activity/admin/group_user_list.py:143
-#: ../src/administration-activity/admin/user_list.py:184
+#: ../src/administration-activity/admin/board_list.py:170
+#: ../src/administration-activity/admin/group_user_list.py:140
+#: ../src/administration-activity/admin/user_list.py:181
 msgid "Login"
 msgstr "Meld aan"
 
-#: ../src/administration-activity/admin/board_list.py:245
+#: ../src/administration-activity/admin/board_list.py:242
 msgid "Main menu"
 msgstr "Hoofkieslys"
 
@@ -327,20 +366,20 @@ msgstr "Hoofkieslys"
 #. image = gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, gtk.ICON_SIZE_MENU)
 #. image.show()
 #. column_pref.set_widget(image)
-#: ../src/administration-activity/admin/board_list.py:311
+#: ../src/administration-activity/admin/board_list.py:308
 msgid "Active"
 msgstr "Aktief"
 
-#: ../src/administration-activity/admin/board_list.py:312
+#: ../src/administration-activity/admin/board_list.py:309
 msgid "Board title"
 msgstr "Bordnaam"
 
-#: ../src/administration-activity/admin/board_list.py:425
+#: ../src/administration-activity/admin/board_list.py:422
 #, python-format
 msgid "Filter Boards difficulty for profile %s"
 msgstr "Filter borde se moeilikheid vir profiel %s"
 
-#: ../src/administration-activity/admin/board_list.py:456
+#: ../src/administration-activity/admin/board_list.py:453
 #, python-format
 msgid ""
 "<span size='x-large'> Select the difficulty range \n"
@@ -349,8 +388,8 @@ msgstr ""
 "<span size='x-large'> Kies die bestek van moeilikheid \n"
 "vir profiel <b>%s</b></span>"
 
-#: ../src/administration-activity/admin/board_list.py:645
-#: ../src/administration-activity/admin/board_list.py:657
+#: ../src/administration-activity/admin/board_list.py:642
+#: ../src/administration-activity/admin/board_list.py:654
 #: ../src/administration-activity/admin/wordlist.py:45
 msgid ""
 "<b>{config}</b> configuration\n"
@@ -360,299 +399,299 @@ msgstr ""
 " vir profiel <b>{profile}</b>"
 
 #. self.main_vbox.pack_start (label, False, False, 8)
-#: ../src/administration-activity/admin/board_list.py:663
-#: ../src/colors-activity/colors.c:181
+#: ../src/administration-activity/admin/board_list.py:660
+#: ../src/colors-activity/colors.c:180
 #: ../src/pythontest-activity/pythontest.py:518
-#: ../src/smallnumbers-activity/smallnumbers.c:617
+#: ../src/smallnumbers-activity/smallnumbers.c:616
 msgid "Select sound locale"
 msgstr "Kies klank-lokaliteit"
 
-#: ../src/administration-activity/admin/class_edit.py:59
+#: ../src/administration-activity/admin/class_edit.py:56
 msgid "Editing a Class"
 msgstr "Redigeer 'n klas"
 
-#: ../src/administration-activity/admin/class_edit.py:64
+#: ../src/administration-activity/admin/class_edit.py:61
 msgid "Editing class: "
 msgstr "Redigeer klas: "
 
-#: ../src/administration-activity/admin/class_edit.py:67
+#: ../src/administration-activity/admin/class_edit.py:64
 msgid "Editing a new class"
 msgstr "Redigeer 'n nuwe klas"
 
-#: ../src/administration-activity/admin/class_edit.py:89
+#: ../src/administration-activity/admin/class_edit.py:86
 msgid "Class:"
 msgstr "Klass:"
 
 #. FIXME: How to remove the default selection
 #. Label and Entry for the teacher name
-#: ../src/administration-activity/admin/class_edit.py:102
+#: ../src/administration-activity/admin/class_edit.py:99
 msgid "Teacher:"
 msgstr "Onderwyser:"
 
-#: ../src/administration-activity/admin/class_edit.py:112
+#: ../src/administration-activity/admin/class_edit.py:109
 msgid "Assign all the users belonging to this class"
 msgstr "Wys al die gebruikers toe wat aan hierdie klas behoort"
 
-#: ../src/administration-activity/admin/class_edit.py:252
-#: ../src/administration-activity/admin/group_edit.py:264
-#: ../src/administration-activity/admin/group_user_list.py:153
-#: ../src/administration-activity/admin/user_list.py:194
+#: ../src/administration-activity/admin/class_edit.py:246
+#: ../src/administration-activity/admin/group_edit.py:258
+#: ../src/administration-activity/admin/group_user_list.py:150
+#: ../src/administration-activity/admin/user_list.py:191
 msgid "First Name"
 msgstr "Naam"
 
-#: ../src/administration-activity/admin/class_edit.py:263
-#: ../src/administration-activity/admin/group_edit.py:275
-#: ../src/administration-activity/admin/group_user_list.py:163
-#: ../src/administration-activity/admin/user_list.py:204
+#: ../src/administration-activity/admin/class_edit.py:257
+#: ../src/administration-activity/admin/group_edit.py:269
+#: ../src/administration-activity/admin/group_user_list.py:160
+#: ../src/administration-activity/admin/user_list.py:201
 msgid "Last Name"
 msgstr "Van"
 
-#: ../src/administration-activity/admin/class_edit.py:338
+#: ../src/administration-activity/admin/class_edit.py:332
 msgid "You need to provide at least a name for your class"
 msgstr "Jy moet ten minste 'n naam vir jou klas verskaf"
 
-#: ../src/administration-activity/admin/class_edit.py:383
+#: ../src/administration-activity/admin/class_edit.py:377
 msgid "There is already a class with this name"
 msgstr "Daar is reeds 'n klas met hierdie naam"
 
-#: ../src/administration-activity/admin/class_list.py:168
-#: ../src/administration-activity/admin/profile_edit.py:269
-#: ../src/administration-activity/admin/profile_group_list.py:143
+#: ../src/administration-activity/admin/class_list.py:165
+#: ../src/administration-activity/admin/profile_edit.py:263
+#: ../src/administration-activity/admin/profile_group_list.py:140
 msgid "Class"
 msgstr "Klas"
 
-#: ../src/administration-activity/admin/class_list.py:178
+#: ../src/administration-activity/admin/class_list.py:175
 msgid "Teacher"
 msgstr "Onderwyser"
 
-#: ../src/administration-activity/admin/group_edit.py:59
+#: ../src/administration-activity/admin/group_edit.py:56
 msgid "Editing a Group"
 msgstr "Redigeer 'n groep"
 
-#: ../src/administration-activity/admin/group_edit.py:65
+#: ../src/administration-activity/admin/group_edit.py:62
 msgid "Editing group: "
 msgstr "Redigeer groep: "
 
-#: ../src/administration-activity/admin/group_edit.py:66
+#: ../src/administration-activity/admin/group_edit.py:63
 msgid " for class: "
 msgstr " vir klas: "
 
-#: ../src/administration-activity/admin/group_edit.py:69
+#: ../src/administration-activity/admin/group_edit.py:66
 msgid "Editing a new group"
 msgstr "Redigeer 'n nuwe groep"
 
-#: ../src/administration-activity/admin/group_edit.py:89
+#: ../src/administration-activity/admin/group_edit.py:86
 msgid "Group:"
 msgstr "Groep:"
 
 #. FIXME: How to remove the selection
 #. Label and Entry for the first name
-#: ../src/administration-activity/admin/group_edit.py:101
-#: ../src/administration-activity/admin/profile_edit.py:98
+#: ../src/administration-activity/admin/group_edit.py:98
+#: ../src/administration-activity/admin/profile_edit.py:95
 msgid "Description:"
 msgstr "Beskrywing:"
 
 #. Top message gives instructions
-#: ../src/administration-activity/admin/group_edit.py:112
+#: ../src/administration-activity/admin/group_edit.py:109
 msgid "Assign all the users belonging to this group"
 msgstr "Wys al die gebruikers toe wat aan hierdie groep behoort"
 
-#: ../src/administration-activity/admin/group_edit.py:358
+#: ../src/administration-activity/admin/group_edit.py:352
 msgid "You need to provide at least a name for your group"
 msgstr "Jy moet ten minste 'n naam vir jou groep verskaf"
 
-#: ../src/administration-activity/admin/group_edit.py:372
+#: ../src/administration-activity/admin/group_edit.py:366
 msgid "There is already a group with this name"
 msgstr "Daar is reeds 'n groep met hierdie naam"
 
-#: ../src/administration-activity/admin/group_list.py:85
+#: ../src/administration-activity/admin/group_list.py:82
 msgid "Select a class:"
 msgstr "Kies 'n klas:"
 
-#: ../src/administration-activity/admin/group_list.py:213
-#: ../src/administration-activity/admin/profile_edit.py:279
-#: ../src/administration-activity/admin/profile_group_list.py:153
+#: ../src/administration-activity/admin/group_list.py:210
+#: ../src/administration-activity/admin/profile_edit.py:273
+#: ../src/administration-activity/admin/profile_group_list.py:150
 msgid "Group"
 msgstr "Groep"
 
-#: ../src/administration-activity/admin/group_list.py:224
-#: ../src/administration-activity/admin/profile_edit.py:289
-#: ../src/administration-activity/admin/profile_group_list.py:163
-#: ../src/administration-activity/admin/profile_list.py:197
+#: ../src/administration-activity/admin/group_list.py:221
+#: ../src/administration-activity/admin/profile_edit.py:283
+#: ../src/administration-activity/admin/profile_group_list.py:160
+#: ../src/administration-activity/admin/profile_list.py:194
 msgid "Description"
 msgstr "Beskrywing"
 
-#: ../src/administration-activity/admin/group_list.py:321
+#: ../src/administration-activity/admin/group_list.py:318
 msgid "You must first select a group in the list"
 msgstr "Jy moet eers 'n groep in die lys kies"
 
-#: ../src/administration-activity/admin/group_user_list.py:173
-#: ../src/administration-activity/admin/user_list.py:214
+#: ../src/administration-activity/admin/group_user_list.py:170
+#: ../src/administration-activity/admin/user_list.py:211
 msgid "Birth Date"
 msgstr "Geboortedatum"
 
-#: ../src/administration-activity/admin/log_list.py:94
+#: ../src/administration-activity/admin/log_list.py:91
 msgid "Select a user:"
 msgstr "Kies 'n gebruiker:"
 
 #. Insert the ALL option (HACK, use the user_id -2 to indicate ALL)
-#: ../src/administration-activity/admin/log_list.py:105
+#: ../src/administration-activity/admin/log_list.py:102
 msgid "All users"
 msgstr "Alle gebruikers"
 
-#: ../src/administration-activity/admin/log_list.py:111
-#: ../src/administration-activity/admin/log_list.py:298
-#: ../src/administration-activity/admin/profile_list.py:120
+#: ../src/administration-activity/admin/log_list.py:108
+#: ../src/administration-activity/admin/log_list.py:295
+#: ../src/administration-activity/admin/profile_list.py:117
 #: ../src/gcompris/board_config_combo.c:125
 #: ../src/gcompris/board_config_combo.c:398
 msgid "Default"
 msgstr "Verstek"
 
 #. Reset buttons
-#: ../src/administration-activity/admin/log_list.py:165
+#: ../src/administration-activity/admin/log_list.py:162
 msgid "Reset"
 msgstr "Stel terug"
 
-#: ../src/administration-activity/admin/log_list.py:219
+#: ../src/administration-activity/admin/log_list.py:216
 msgid "Date"
 msgstr "Datum"
 
-#: ../src/administration-activity/admin/log_list.py:229
+#: ../src/administration-activity/admin/log_list.py:226
 msgid "User"
 msgstr "Gebruiker"
 
-#: ../src/administration-activity/admin/log_list.py:239
+#: ../src/administration-activity/admin/log_list.py:236
 msgid "Board"
 msgstr "Bord"
 
-#: ../src/administration-activity/admin/log_list.py:249
-#: ../src/redraw-activity/redraw.py:328
+#: ../src/administration-activity/admin/log_list.py:246
+#: ../src/redraw-activity/redraw.py:339
 msgid "Level"
 msgstr "Vlak"
 
-#: ../src/administration-activity/admin/log_list.py:259
+#: ../src/administration-activity/admin/log_list.py:256
 msgid "Sublevel"
 msgstr "Subvlak"
 
-#: ../src/administration-activity/admin/log_list.py:269
+#: ../src/administration-activity/admin/log_list.py:266
 msgid "Duration"
 msgstr "Duur"
 
-#: ../src/administration-activity/admin/log_list.py:279
+#: ../src/administration-activity/admin/log_list.py:276
 msgid "Status"
 msgstr "Status"
 
-#: ../src/administration-activity/admin/module_boards.py:41
-#: ../src/administration-activity/admin/module_boards.py:69
+#: ../src/administration-activity/admin/module_boards.py:49
+#: ../src/administration-activity/admin/module_boards.py:77
 msgid "Boards"
 msgstr "Borde"
 
-#: ../src/administration-activity/admin/module_groups.py:38
-#: ../src/administration-activity/admin/module_groups.py:61
+#: ../src/administration-activity/admin/module_groups.py:46
+#: ../src/administration-activity/admin/module_groups.py:69
 msgid "Groups"
 msgstr "Groepe"
 
-#: ../src/administration-activity/admin/module_profiles.py:39
-#: ../src/administration-activity/admin/module_profiles.py:60
+#: ../src/administration-activity/admin/module_profiles.py:47
+#: ../src/administration-activity/admin/module_profiles.py:68
 msgid "Profiles"
 msgstr "Profiele"
 
-#: ../src/administration-activity/admin/module_reports.py:40
-#: ../src/administration-activity/admin/module_reports.py:69
+#: ../src/administration-activity/admin/module_reports.py:48
+#: ../src/administration-activity/admin/module_reports.py:77
 msgid "Reports"
 msgstr "Verslae"
 
-#: ../src/administration-activity/admin/module_reports.py:69
-#: ../src/administration-activity/admin/module_users.py:39
-#: ../src/administration-activity/admin/module_users.py:61
+#: ../src/administration-activity/admin/module_reports.py:77
+#: ../src/administration-activity/admin/module_users.py:47
+#: ../src/administration-activity/admin/module_users.py:69
 msgid "Users"
 msgstr "Gebruikers"
 
-#: ../src/administration-activity/admin/module_users.py:39
-#: ../src/administration-activity/admin/module_users.py:61
+#: ../src/administration-activity/admin/module_users.py:47
+#: ../src/administration-activity/admin/module_users.py:69
 msgid "Classes"
 msgstr "Klasse"
 
-#: ../src/administration-activity/admin/profile_edit.py:59
+#: ../src/administration-activity/admin/profile_edit.py:56
 msgid "Editing a Profile"
 msgstr "Redigeer 'n profiel"
 
-#: ../src/administration-activity/admin/profile_edit.py:64
+#: ../src/administration-activity/admin/profile_edit.py:61
 msgid "Editing profile: "
 msgstr "Redigeer profiel: "
 
-#: ../src/administration-activity/admin/profile_edit.py:67
+#: ../src/administration-activity/admin/profile_edit.py:64
 msgid "Editing a new profile"
 msgstr "Redigeer 'n nuwe profiel"
 
-#: ../src/administration-activity/admin/profile_edit.py:86
+#: ../src/administration-activity/admin/profile_edit.py:83
 msgid "Profile:"
 msgstr "Profiel:"
 
 #. Top message gives instructions
-#: ../src/administration-activity/admin/profile_edit.py:109
+#: ../src/administration-activity/admin/profile_edit.py:106
 msgid "Assign all the groups belonging to this profile"
 msgstr "Wys al die groepe toe wat aan hierdie profiel behoort"
 
-#: ../src/administration-activity/admin/profile_edit.py:377
+#: ../src/administration-activity/admin/profile_edit.py:371
 msgid "You need to provide at least a name for your profile"
 msgstr "Jy moet ten minste 'n naam vir jou profiel verskaf"
 
-#: ../src/administration-activity/admin/profile_edit.py:399
+#: ../src/administration-activity/admin/profile_edit.py:393
 msgid "There is already a profile with this name"
 msgstr "Daar is reeds 'n profiel met hierdie naam"
 
-#: ../src/administration-activity/admin/profile_list.py:187
+#: ../src/administration-activity/admin/profile_list.py:184
 msgid "Profile"
 msgstr "Profiel"
 
-#: ../src/administration-activity/admin/profile_list.py:314
+#: ../src/administration-activity/admin/profile_list.py:311
 msgid "[Default]"
 msgstr "[Verstek]"
 
-#: ../src/administration-activity/admin/user_edit.py:50
+#: ../src/administration-activity/admin/user_edit.py:47
 msgid "Editing a User"
 msgstr "Redigeer 'n gebruiker"
 
-#: ../src/administration-activity/admin/user_edit.py:55
+#: ../src/administration-activity/admin/user_edit.py:52
 msgid "Editing a User "
 msgstr "Redigeer 'n gebruiker "
 
-#: ../src/administration-activity/admin/user_edit.py:61
+#: ../src/administration-activity/admin/user_edit.py:58
 msgid "Editing a new user"
 msgstr "Redigeer 'n nuwe gebruiker"
 
-#: ../src/administration-activity/admin/user_edit.py:78
+#: ../src/administration-activity/admin/user_edit.py:75
 msgid "Login:"
 msgstr "Meld aan:"
 
 #. FIXME: How to remove the selection
 #. Label and Entry for the first name
-#: ../src/administration-activity/admin/user_edit.py:89
+#: ../src/administration-activity/admin/user_edit.py:86
 msgid "First name:"
 msgstr "Naam:"
 
 #. Label and Entry for the last name
-#: ../src/administration-activity/admin/user_edit.py:98
+#: ../src/administration-activity/admin/user_edit.py:95
 msgid "Last name:"
 msgstr "Van:"
 
 #. Label and Entry for the birth date
-#: ../src/administration-activity/admin/user_edit.py:107
+#: ../src/administration-activity/admin/user_edit.py:104
 msgid "Birth date:"
 msgstr "Geboortedatum:"
 
-#: ../src/administration-activity/admin/user_edit.py:159
+#: ../src/administration-activity/admin/user_edit.py:153
 msgid ""
 "You need to provide at least a login, first name and last name for your users"
 msgstr ""
 "Jy moet ten minste 'n aanmeldnaam, voornaam en van vir jou gebruikers verskaf"
 
-#: ../src/administration-activity/admin/user_edit.py:176
+#: ../src/administration-activity/admin/user_edit.py:170
 msgid "There is already a user with this login"
 msgstr "Daar is reeds 'n gebruiker met hierdie gebruikernaam"
 
-#: ../src/administration-activity/admin/user_list.py:288
+#: ../src/administration-activity/admin/user_list.py:285
 msgid ""
 "To import a user list from a file, first select a class.\n"
 "FILE FORMAT: Your file must be formatted like this:\n"
@@ -664,7 +703,7 @@ msgstr ""
 "aanmeld;Voornaam;Van;geboorte\n"
 "Die skeier word outobespeur, en kan ',', ';' of ':' wees"
 
-#: ../src/administration-activity/admin/user_list.py:366
+#: ../src/administration-activity/admin/user_list.py:363
 #, python-format
 msgid ""
 "One or more logins are not unique !\n"
@@ -1036,12 +1075,12 @@ msgstr "Veronees"
 
 #. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
 #: ../src/algebra_by-activity/algebra.c:186
-#: ../src/memory-activity/memory.c:945
+#: ../src/memory-activity/memory.c:946
 msgid "+-×÷"
 msgstr "+-×÷"
 
-#: ../src/algebra_by-activity/algebra.c:408
-#: ../src/readingh-activity/reading.c:621
+#: ../src/algebra_by-activity/algebra.c:411
+#: ../src/readingh-activity/reading.c:630
 msgid "I am Ready"
 msgstr "Ek is gereed"
 
@@ -1076,6 +1115,7 @@ msgid "Practice the multiplication operation"
 msgstr "Oefen om te maal"
 
 #: ../src/algebra_guesscount-activity/algebra_guesscount.xml.in.h:1
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:1
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:1
 msgid ""
 "Animal pictures come from the Animal Photography Page of Ralf Schmode "
@@ -1461,9 +1501,9 @@ msgstr "Motoriese koördinasie. Konsepsuele passing."
 msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "Muisbeheer: beweging, sleep en los. Kulturele verwysings."
 
-#: ../src/babymatch-activity/shapegame.c:1849
-#: ../src/click_on_letter-activity/click_on_letter.c:625
-#: ../src/colors-activity/colors.c:169
+#: ../src/babymatch-activity/shapegame.c:1903
+#: ../src/click_on_letter-activity/click_on_letter.c:675
+#: ../src/colors-activity/colors.c:168
 #, c-format
 msgid ""
 "<b>%1$s</b> configuration\n"
@@ -1477,6 +1517,7 @@ msgid "Complete the puzzle"
 msgstr "Voltooi die legkaart"
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:2
+#: ../src/details-activity/details.xml.in.h:1
 msgid ""
 "Complete the puzzle by dragging each piece from the set of pieces on the "
 "left, to the matching space in the puzzle."
@@ -1485,10 +1526,12 @@ msgstr ""
 "die passende ruimte in die legkaart."
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:3
+#: ../src/details-activity/details.xml.in.h:2
 msgid "Drag and Drop the shapes on their respective targets"
 msgstr "Sleep en los die vorms op die regte teikens"
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:4
+#: ../src/details-activity/details.xml.in.h:4
 msgid "Good mouse-control"
 msgstr "Goeie muisbeheer"
 
@@ -1528,16 +1571,17 @@ msgstr "Vincent van Gogh, Slaapkamer in Arles - 1888"
 msgid "Ambrosius Bosschaert the Elder, Flower Still Life - 1614"
 msgstr "Ambrosius Bosschaert die ouer, Blomstillewe - 1614"
 
-#: ../src/ballcatch-activity/ballcatch.xml.in.h:1
-msgid "Make the ball go to Tux"
-msgstr "Laat die bal na Tux gaan"
-
+#: ../src/ballcatch-activity/ballcatch.py:75
 #: ../src/ballcatch-activity/ballcatch.xml.in.h:2
 msgid ""
 "Press the two shift keys at the same time, to make the ball go in a straight "
 "line."
 msgstr ""
 "Druk die twee Shift-knoppies gelyk om die bal in 'n reguit lyn te laat gaan."
+
+#: ../src/ballcatch-activity/ballcatch.xml.in.h:1
+msgid "Make the ball go to Tux"
+msgstr "Laat die bal na Tux gaan"
 
 #: ../src/bargame-activity/bargame.xml.in.h:1
 msgid "Brain"
@@ -1564,7 +1608,7 @@ msgstr ""
 msgid "bar game"
 msgstr "staafspel"
 
-#: ../src/billard-activity/billard.c:89 ../src/erase-activity/erase.c:123
+#: ../src/billard-activity/billard.c:89 ../src/erase-activity/erase.c:124
 #: ../src/erase-activity/erase.xml.in.h:4
 msgid "Move the mouse"
 msgstr "Beweeg die muis"
@@ -1585,6 +1629,7 @@ msgstr "Skop die bal in die doelhok in"
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:5
 #: ../src/connect4-activity/connect4.xml.in.h:6
 #: ../src/erase-activity/erase.xml.in.h:3
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:6
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:6
 #: ../src/fifteen-activity/fifteen.xml.in.h:2
 #: ../src/hanoi-activity/hanoi.xml.in.h:3
@@ -1614,15 +1659,21 @@ msgstr "Hoofkieslys, tweede weergawe"
 msgid "Select a Board"
 msgstr "Kies 'n bord"
 
-#: ../src/boards/python.c:63 ../src/boards/python.c:87
+#: ../src/boards/menu2.c:266
+#, c-format
+#| msgid "Number of activities: %d\n"
+msgid "Number of activities: %d"
+msgstr "Aantal aktiwiteite: %d"
+
+#: ../src/boards/python.c:64 ../src/boards/python.c:88
 msgid "Python Board"
 msgstr "Python-bord"
 
-#: ../src/boards/python.c:64
+#: ../src/boards/python.c:65
 msgid "Special board that embeds python into GCompris."
 msgstr "Spesiale bord wat Python in GCompris inbou."
 
-#: ../src/boards/python.c:88
+#: ../src/boards/python.c:89
 msgid "Special board that embeds python into gcompris."
 msgstr "Spesiale bord wat Python in GCompris inbou."
 
@@ -1651,19 +1702,19 @@ msgstr ""
 "Jy is in beheer van die sluis. Maak die hekke in die regte volgorde oop "
 "sodat Tux in al twee rigtings deur die sluis kan gaan."
 
-#: ../src/chat-activity/chat.py:77
+#: ../src/chat-activity/chat.py:87
 msgid "All messages will be displayed here.\n"
 msgstr "Alle boodskappe sal hier gewys word.\n"
 
-#: ../src/chat-activity/chat.py:128
+#: ../src/chat-activity/chat.py:139
 msgid "Your Friends"
 msgstr "Jou vriende"
 
-#: ../src/chat-activity/chat.py:161
+#: ../src/chat-activity/chat.py:172
 msgid "Your Channel"
 msgstr "Jou kanaal"
 
-#: ../src/chat-activity/chat.py:187
+#: ../src/chat-activity/chat.py:198
 msgid ""
 "Type your message here, to send to other GCompris users on your local "
 "network."
@@ -1671,49 +1722,65 @@ msgstr ""
 "Tik jou boodskap hier om na ander GCompris-gebruikers op jou plaaslike "
 "netwerk te stuur."
 
-#: ../src/chat-activity/chat.py:202
+#: ../src/chat-activity/chat.py:244
+#| msgid "Colors"
+msgid "color"
+msgstr "kleur"
+
+#: ../src/chat-activity/chat.py:323
 msgid ""
 "ERROR: Failed to initialize the network interface. You cannot communicate."
 msgstr ""
-"FOUT: Kon nie die netwerkkoppelvlak inisialiseer nie.  Jy kan nie "
-"kommunikeer nie."
+"FOUT: Kon nie die netwerkkoppelvlak inisialiseer nie. Jy kan nie kommunikeer "
+"nie."
 
-#: ../src/chat-activity/chat.py:326
+#: ../src/chat-activity/chat.py:433
+msgid "Has left the chat."
+msgstr "Het die geselskap verlaat."
+
+#: ../src/chat-activity/chat.py:512
 msgid "You must set a channel in your channel entry box first.\n"
 msgstr "Tik eers 'n kanaal in die kanaalboksie.\n"
 
-#: ../src/chat-activity/chat.py:327
+#: ../src/chat-activity/chat.py:513
 msgid "Your friends must set the same channel in order to communicate with you"
 msgstr "Jou vriende moet dieselfde kanaal stel om met jou te kommunikeer"
 
 #: ../src/chat-activity/chat.xml.in.h:1
-msgid "Chat with your friends"
-msgstr "Gesels met jou vriende"
+#| msgid "Chat with your friends"
+msgid "Chat and draw with your friends"
+msgstr "Gesels en teken saam met vriende"
 
 #: ../src/chat-activity/chat.xml.in.h:2
 msgid "This chat activity only works on the local network"
 msgstr "Hierdie geselsaktiwiteit werk net op die plaaslike netwerk"
 
 #: ../src/chat-activity/chat.xml.in.h:3
+#| msgid ""
+#| "This chat activity will only work with other GCompris users on your local "
+#| "network, not on the Internet. To use it, just type in your message and "
+#| "hit Enter. Your message is then broadcast on the local network, and any "
+#| "GCompris program running the chat activity on that local network will "
+#| "receive and display your message."
 msgid ""
 "This chat activity will only work with other GCompris users on your local "
 "network, not on the Internet. To use it, just type in your message and hit "
-"Enter. Your message is then broadcast on the local network, and any GCompris "
-"program running the chat activity on that local network will receive and "
-"display your message."
+"Enter. Your message is then broadcasted on the local network, and any "
+"GCompris program running the chat activity on that local network will "
+"receive and display your message."
 msgstr ""
-"Hierdie kletsaktiwiteit werk net met ander gebruikers van GCompris op die "
+"Hierdie geselsaktiwiteit werk net met ander gebruikers van GCompris op die "
 "plaaslike netwerk, en nie op die internet nie. Tik bloot jou boodskap in en "
-"druk Enter. Jou boodskap word dan oor die plaaslike netwerk gestuur, en "
-"enige GCompris-program waarin die kletsaktiwiteit tans oop is, sal jou "
+"druk Enter. Die boodskap word dan oor die plaaslike netwerk gestuur, en "
+"enige GCompris-program waarin die geselsaktiwiteit tans oop is, sal die "
 "boodskap ontvang en dit wys."
 
-#: ../src/chess_computer-activity/chess.c:223
+#: ../src/chess_computer-activity/chess.c:222
 msgid "Error: The external program gnuchess died unexpectedly"
 msgstr "Fout: Die eksterne program Gnuchess het onverwags omgeval"
 
-#: ../src/chess_computer-activity/chess.c:258
-#: ../src/chess_computer-activity/chess.c:304
+#: ../src/chess_computer-activity/chess.c:262
+#: ../src/chess_computer-activity/chess.c:308
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -1723,36 +1790,36 @@ msgstr ""
 "om skaak in GCompris te speel.\n"
 "Installeer dit eers, en maak seker dit is in "
 
-#: ../src/chess_computer-activity/chess.c:644
+#: ../src/chess_computer-activity/chess.c:648
 msgid "White's Turn"
 msgstr "Wit se beurt"
 
-#: ../src/chess_computer-activity/chess.c:644
+#: ../src/chess_computer-activity/chess.c:648
 msgid "Black's Turn"
 msgstr "Swart se beurt"
 
-#: ../src/chess_computer-activity/chess.c:785
+#: ../src/chess_computer-activity/chess.c:789
 msgid "White checks"
 msgstr "Swart in skaak"
 
-#: ../src/chess_computer-activity/chess.c:787
+#: ../src/chess_computer-activity/chess.c:791
 msgid "Black checks"
 msgstr "Wit in skaak"
 
-#: ../src/chess_computer-activity/chess.c:1184
+#: ../src/chess_computer-activity/chess.c:1197
 msgid "Black mates"
 msgstr "Wit in skaakmat"
 
-#: ../src/chess_computer-activity/chess.c:1189
+#: ../src/chess_computer-activity/chess.c:1204
 msgid "White mates"
 msgstr "Swart in skaakmat"
 
-#: ../src/chess_computer-activity/chess.c:1194 ../src/gcompris/bonus.c:195
-#: ../src/gcompris/bonus.c:204
+#: ../src/chess_computer-activity/chess.c:1211 ../src/gcompris/bonus.c:191
+#: ../src/gcompris/bonus.c:200
 msgid "Drawn game"
 msgstr "Gelykop"
 
-#: ../src/chess_computer-activity/chess.c:1222
+#: ../src/chess_computer-activity/chess.c:1239
 msgid "Error: The external program gnuchess died unexpectingly"
 msgstr "Fout: Die eksterne program Gnuchess het onverwags omgeval"
 
@@ -1987,8 +2054,8 @@ msgstr "1955 Citroën ds 19"
 msgid "Cars"
 msgstr "Karre"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:271
-#: ../src/memory-activity/memory.c:905
+#: ../src/click_on_letter-activity/click_on_letter.c:311
+#: ../src/memory-activity/memory.c:906
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -2003,12 +2070,12 @@ msgstr ""
 #. TRANSLATORS: Put here the alphabet in your language
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
-#: ../src/click_on_letter-activity/click_on_letter.c:276
-#: ../src/gletters-activity/gletters.c:229 ../src/memory-activity/memory.c:934
+#: ../src/click_on_letter-activity/click_on_letter.c:316
+#: ../src/gletters-activity/gletters.c:229 ../src/memory-activity/memory.c:935
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcdefghijklmnopqrstuvwxyz"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:298
+#: ../src/click_on_letter-activity/click_on_letter.c:344
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -2017,7 +2084,7 @@ msgstr ""
 "Fout: hierdie aktiwiteit vereis dat jy eers die pakkette\n"
 "met GCompris-stemme installeer vir die lokaliteit '%s' of '%s'"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:306
+#: ../src/click_on_letter-activity/click_on_letter.c:354
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -2029,8 +2096,11 @@ msgstr ""
 "na Engels!"
 
 #. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:648
-#: ../src/gletters-activity/gletters.c:885 ../src/login-activity/login.py:481
+#: ../src/click_on_letter-activity/click_on_letter.c:698
+#: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:484
+#: ../src/missing_letter-activity/missingletter_config.c:492
+#: ../src/readingh-activity/reading.c:928
+#: ../src/wordsgame-activity/wordsgame.c:889
 msgid "Uppercase only text"
 msgstr "Net hoofletters"
 
@@ -2268,6 +2338,7 @@ msgstr "Bestuur die hyskraan en kopieer die model"
 
 #: ../src/crane-activity/crane.xml.in.h:3
 #: ../src/erase-activity/erase.xml.in.h:2
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:5
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:5
 #: ../src/penalty-activity/penalty.xml.in.h:3
 msgid "Motor-coordination"
@@ -2289,6 +2360,114 @@ msgstr ""
 "as bo regs. Onder die hyskraan sélf is daar vier pyle waarmee jy die stukke "
 "kan skuif. Om 'n item te kies, kliek daarop. As mens so verkies, kan mens "
 "eerder die pyltjieknoppies en spasie of Tab gebruik."
+
+#: ../src/details-activity/details.xml.in.h:3
+#| msgid "Find the matching pair"
+msgid "Find the details"
+msgstr "Kry die detail"
+
+#: ../src/details-activity/details.xml.in.h:5
+msgid "The images are from wiki commons"
+msgstr "Die prentjies is vanaf Mediawiki Commons"
+
+#: ../src/details-activity/resources/details/board1_0.xml.in.h:1
+#, fuzzy
+#| msgid "Vincent van Gogh, Bedroom in Arles - 1888"
+msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1889"
+msgstr "Vincent van Gogh, Ingangsaal van die Sint Paulus Hospitaal - 1889"
+
+#: ../src/details-activity/resources/details/board1_1.xml.in.h:1
+msgid ""
+"Vincent van Gogh, The Bridge of Langlois at Arles with a lady with umbrella "
+"- 1888"
+msgstr ""
+
+#: ../src/details-activity/resources/details/board1_2.xml.in.h:1
+#| msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
+msgid "Vincent van Gogh, The Church at Auvers-sur-Oise - 1890"
+msgstr "Vincent Van Gogh, Die kerk van Auvers - 1890"
+
+#: ../src/details-activity/resources/details/board1_3.xml.in.h:1
+#, fuzzy
+#| msgid "Vincent van Gogh, Bedroom in Arles - 1888"
+msgid "Vincent van Gogh, Painter on His Way to Work - 1888"
+msgstr "Vincent van Gogh, Slaapkamer in Arles - 1888"
+
+#: ../src/details-activity/resources/details/board1_4.xml.in.h:1
+#| msgid "Vincent van Gogh, Bedroom in Arles - 1888"
+msgid "Vincent van Gogh, The Harvest - 1888"
+msgstr "Vincent van Gogh, Die oes - 1888"
+
+#: ../src/details-activity/resources/details/board1_5.xml.in.h:1
+#| msgid "Vincent van Gogh, Bedroom in Arles - 1888"
+msgid "Vincent van Gogh, Cafe Terrace at Night - 1888"
+msgstr "Vincent van Gogh, Kafeeterras snags - 1888"
+
+#: ../src/details-activity/resources/details/board1_6.xml.in.h:1
+#, fuzzy
+#| msgid "Vincent van Gogh, Bedroom in Arles - 1888"
+msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1888"
+msgstr "Vincent van Gogh, Slaapkamer in Arles - 1888"
+
+#: ../src/details-activity/resources/details/board1_7.xml.in.h:1
+#| msgid "Vincent van Gogh, Bedroom in Arles - 1888"
+msgid "Vincent van Gogh, Portrait of Pere Tanguy 1887-8"
+msgstr "Vincent van Gogh, Portret van \"père\" Tanguy - 1887-8"
+
+#: ../src/details-activity/resources/details/board2_0.xml.in.h:1
+msgid "Eilean Donan castle"
+msgstr "Eilean Donan kasteel"
+
+#: ../src/details-activity/resources/details/board2_1.xml.in.h:1
+msgid "Eiffel Tower, seen from the champ de Mars, Paris, France"
+msgstr "Eiffeltoring, gesien vanaf die champ de Mars, Parys, Frankryk"
+
+#: ../src/details-activity/resources/details/board2_10.xml.in.h:1
+msgid "Gizah Pyramids, Egypt"
+msgstr "Piramides by Giza, Egipte"
+
+#: ../src/details-activity/resources/details/board2_11.xml.in.h:1
+msgid "Sydney Opera House, Australia"
+msgstr "Sydney-operahuis, Australië"
+
+#: ../src/details-activity/resources/details/board2_12.xml.in.h:1
+msgid "Tower Bridge in London"
+msgstr "Tower Bridge in Londen"
+
+#: ../src/details-activity/resources/details/board2_2.xml.in.h:1
+msgid "Courtyard of the Museum of Louvre, and its pyramid"
+msgstr "Binnehof van die Louvre-museum met sy piramide"
+
+#: ../src/details-activity/resources/details/board2_3.xml.in.h:1
+msgid "Panorama of Château de Chenonceau, Indre-et-Loire, France."
+msgstr "Panorama van die Chenonceau-kasteel, Indre-et-Loire, Frankryk."
+
+#: ../src/details-activity/resources/details/board2_4.xml.in.h:1
+msgid ""
+"Notre Dame de Paris cathedral on the Île de la Cité island in Paris, France."
+msgstr ""
+"Die katedraal Notre Dame de Paris op die Île de la Cité eiland in Parys, "
+"Frankryk."
+
+#: ../src/details-activity/resources/details/board2_5.xml.in.h:1
+msgid "Nagoya Castle, Aichi Prefecture, Japan."
+msgstr "Nagoya-kasteel, Aichi-prefektuur, Japan."
+
+#: ../src/details-activity/resources/details/board2_6.xml.in.h:1
+msgid "Taj Mahal, Agra, India"
+msgstr "Taj Mahal, Agra, India"
+
+#: ../src/details-activity/resources/details/board2_7.xml.in.h:1
+msgid "Castle Neuschwanstein at Schwangau, Bavaria, Germany"
+msgstr "Neuschanstein-kasteel in Schwangau, Bavaria, Duitsland"
+
+#: ../src/details-activity/resources/details/board2_8.xml.in.h:1
+msgid "Egeskov Castle, Denmark"
+msgstr "Egeskov-kasteel, Denemarke"
+
+#: ../src/details-activity/resources/details/board2_9.xml.in.h:1
+msgid "Windmill in Sønderho, Fanø, Denmark"
+msgstr "Windmeul in Sønderho, Fanø, Denemarke"
 
 #: ../src/doubleentry-activity/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
@@ -2361,7 +2540,7 @@ msgstr "Teken die prent deur op elke getal in volgorde te kliek."
 msgid "Draw the picture by following numbers"
 msgstr "Teken 'n prentjie deur die getalle te volg"
 
-#: ../src/electric-activity/electric.py:98
+#: ../src/electric-activity/electric.py:99
 msgid ""
 "Cannot find the 'gnucap' electric simulator.\n"
 "You can download and install it from:\n"
@@ -2454,7 +2633,7 @@ msgstr ""
 "item wat jy wil beantwoord, regs onder. Tik die antwoord met die sleutelbord "
 "in, en druk die Regso-knoppie of die 'Enter'-knoppie."
 
-#: ../src/erase-activity/erase.c:124 ../src/erase-activity/erase.xml.in.h:5
+#: ../src/erase-activity/erase.c:125 ../src/erase-activity/erase.xml.in.h:5
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Beweeg die muis om die area uit te vee en die agtergrond te wys"
 
@@ -2473,6 +2652,18 @@ msgstr ""
 #: ../src/erase-activity/erase.xml.in.h:6
 msgid "Move the mouse until all the blocks disappear."
 msgstr "Beweeg die muis totdat al die blokke verdwyn."
+
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
+msgid "Double click the mouse"
+msgstr "Dubbelkliek met die muis"
+
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:3
+msgid "Double click the mouse on rectangles until all the blocks disappear."
+msgstr "Dubbelkliek die muis op reghoeke totdat al die blokke verdwyn."
+
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:4
+msgid "Double click the mouse to erase the area and discover the background"
+msgstr "Dubbelkliek die muis om die area uit te vee en die agtergrond te wys"
 
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:2
 msgid "Click the mouse"
@@ -2531,7 +2722,7 @@ msgstr ""
 msgid "Tux needs to water the flowers, but the hose is blocked."
 msgstr "Tux moet die blomme water gee, maar die tuinslang is verstop."
 
-#: ../src/gcompris/about.c:50
+#: ../src/gcompris/about.c:49
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge, Yves Combe\n"
@@ -2546,25 +2737,25 @@ msgstr ""
 "Agtergrondmusiek: Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:58
+#: ../src/gcompris/about.c:57
 msgid "translator_credits"
 msgstr ""
 "Friedel Wolff\n"
 "Samuel Murray"
 
-#: ../src/gcompris/about.c:85
+#: ../src/gcompris/about.c:84
 msgid "About GCompris"
 msgstr "Omtrent GCompris"
 
-#: ../src/gcompris/about.c:95
+#: ../src/gcompris/about.c:94
 msgid "GCompris Home Page: http://gcompris.net"
 msgstr "GCompris-tuisblad: http://gcompris.net"
 
-#: ../src/gcompris/about.c:106
+#: ../src/gcompris/about.c:105
 msgid "Translators:"
 msgstr "Vertalers:"
 
-#: ../src/gcompris/about.c:206
+#: ../src/gcompris/about.c:210
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
@@ -2572,29 +2763,29 @@ msgstr ""
 "Hierdie sagteware is 'n GNU-pakket en word vrygestel ingevolge die GNU "
 "Algemene Publieke Lisensie"
 
-#: ../src/gcompris/about.c:220 ../src/gcompris/config.c:447
-#: ../src/gcompris/dialog.c:103 ../src/gcompris/help.c:354
+#: ../src/gcompris/about.c:224 ../src/gcompris/config.c:438
+#: ../src/gcompris/dialog.c:104 ../src/gcompris/help.c:355
 #: ../src/gcompris/images_selector.c:307
 msgid "OK"
 msgstr "Regso"
 
-#: ../src/gcompris/bar.c:653
+#: ../src/gcompris/bar.c:693
 msgid "GCompris confirmation"
 msgstr "GCompris-bevestiging"
 
-#: ../src/gcompris/bar.c:654
+#: ../src/gcompris/bar.c:694
 msgid "Are you sure you want to quit?"
 msgstr "Wil jy beslis afsluit?"
 
-#: ../src/gcompris/bar.c:655
+#: ../src/gcompris/bar.c:695
 msgid "Yes, I am sure!"
 msgstr "Ja, ek is seker!"
 
-#: ../src/gcompris/bar.c:656
+#: ../src/gcompris/bar.c:696
 msgid "No, I want to keep going"
 msgstr "Nee, ek wil nog aangaan"
 
-#: ../src/gcompris/board.c:194
+#: ../src/gcompris/board.c:168
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr ""
 "Dinamiese modulelaaiing word nie ondersteun nie. GCompris kan nie laai nie.\n"
@@ -2654,21 +2845,26 @@ msgstr "Vlakkeuse"
 msgid "Back to default"
 msgstr "Terug na verstek"
 
-#: ../src/gcompris/config.c:59
+#: ../src/gcompris/config.c:58
 msgid "Your system default"
 msgstr "Stelselverstek"
 
-#: ../src/gcompris/config.c:60
+#: ../src/gcompris/config.c:59
 msgid "Afrikaans"
 msgstr "Afrikaans"
 
-#: ../src/gcompris/config.c:61
+#: ../src/gcompris/config.c:60
 msgid "Amharic"
 msgstr "Amharies"
 
-#: ../src/gcompris/config.c:62
+#: ../src/gcompris/config.c:61
 msgid "Arabic"
 msgstr "Arabies"
+
+#: ../src/gcompris/config.c:62
+#| msgid "Austria"
+msgid "Asturian"
+msgstr "Asturies"
 
 #: ../src/gcompris/config.c:63
 msgid "Turkish (Azerbaijan)"
@@ -2932,49 +3128,48 @@ msgid "Fast timer"
 msgstr "Vinnige stophorlosie"
 
 #: ../src/gcompris/config.c:135
-msgid ""
-"<i>Use Gcompris administration module\n"
-"to filter boards</i>"
-msgstr ""
-"<i>Gebruik GCompris se administrasie-\n"
-"module om borde te filter</i>"
+#| msgid ""
+#| "<i>Use Gcompris administration module\n"
+#| "to filter boards</i>"
+msgid "Use Gcompris administration module to filter boards"
+msgstr "Gebruik GCompris se administrasie-module om borde te filter"
 
-#: ../src/gcompris/config.c:187
+#: ../src/gcompris/config.c:186
 msgid "GCompris Configuration"
 msgstr "GCompris-opstelling"
 
-#: ../src/gcompris/config.c:258
+#: ../src/gcompris/config.c:253
 msgid "Fullscreen"
 msgstr "Volskerm"
 
-#: ../src/gcompris/config.c:284
+#: ../src/gcompris/config.c:278
 msgid "Music"
 msgstr "Musiek"
 
-#: ../src/gcompris/config.c:310
+#: ../src/gcompris/config.c:303
 msgid "Effect"
 msgstr "Effek"
 
-#: ../src/gcompris/config.c:335
+#: ../src/gcompris/config.c:327 ../src/gcompris/sugar.c:82
 msgid "Zoom"
 msgstr "Zoem"
 
-#: ../src/gcompris/config.c:372
+#: ../src/gcompris/config.c:364
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kon nie die velgids open nie: %s"
 
-#: ../src/gcompris/config.c:403 ../src/gcompris/config.c:807
-#: ../src/gcompris/config.c:821
+#: ../src/gcompris/config.c:395 ../src/gcompris/config.c:753
+#: ../src/gcompris/config.c:767
 #, c-format
 msgid "Skin : %s"
 msgstr "Vel: %s"
 
-#: ../src/gcompris/config.c:405
+#: ../src/gcompris/config.c:397
 msgid "SKINS NOT FOUND"
 msgstr "VELLE NIE GEVIND NIE"
 
-#: ../src/gcompris/config.c:487
+#: ../src/gcompris/config.c:478
 msgid "English (United State)"
 msgstr "Engels (VSA)"
 
@@ -3006,39 +3201,45 @@ msgstr ""
 "Sluit dit af en rapporteer\n"
 "die probleem aan die skrywers."
 
-#: ../src/gcompris/gcompris.c:151
+#: ../src/gcompris/gcompris.c:158
 msgid "run GCompris in fullscreen mode."
 msgstr "laat loop GCompris in die volle skerm."
 
-#: ../src/gcompris/gcompris.c:154
+#: ../src/gcompris/gcompris.c:161
 msgid "run GCompris in window mode."
 msgstr "laat loop GCompris in 'n venster."
 
-#: ../src/gcompris/gcompris.c:157
+#: ../src/gcompris/gcompris.c:164
 msgid "run GCompris with sound enabled."
 msgstr "laat loop GCompris met klank geaktiveer."
 
-#: ../src/gcompris/gcompris.c:160
+#: ../src/gcompris/gcompris.c:167
 msgid "run GCompris without sound."
 msgstr "laat loop GCompris sonder klank."
 
-#: ../src/gcompris/gcompris.c:163
-msgid "run GCompris with the default gnome cursor."
-msgstr "laat loop GCompris met gnome se verstekwyser."
+#: ../src/gcompris/gcompris.c:170
+#| msgid "run GCompris with the default gnome cursor."
+msgid "run GCompris with the default system cursor."
+msgstr "laat loop GCompris met die stelsel se verstekwyser."
 
-#: ../src/gcompris/gcompris.c:166
+#: ../src/gcompris/gcompris.c:173
+#| msgid "run GCompris without sound."
+msgid "run GCompris without cursor (touch screen mode)."
+msgstr "laat loop GCompris sonder 'n wyser (raakskermmodus)."
+
+#: ../src/gcompris/gcompris.c:176
 msgid "display only activities with this difficulty level."
 msgstr "wys net aktiwiteite met hierdie moeilikheidsvlak."
 
-#: ../src/gcompris/gcompris.c:169
+#: ../src/gcompris/gcompris.c:179
 msgid "display debug informations on the console."
 msgstr "wys ontfout-inligting op die konsole."
 
-#: ../src/gcompris/gcompris.c:172
+#: ../src/gcompris/gcompris.c:182
 msgid "Print the version of "
 msgstr "Druk die weergawe van "
 
-#: ../src/gcompris/gcompris.c:175
+#: ../src/gcompris/gcompris.c:185
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
@@ -3050,35 +3251,35 @@ msgstr ""
 "net die 'vier bymekaar'-aktiwiteit speel). Gebruik '-l list' om al die "
 "beskikbare aktiwiteite en hul beskrywings te kyk."
 
-#: ../src/gcompris/gcompris.c:180
+#: ../src/gcompris/gcompris.c:190
 msgid "GCompris will find the data dir in this directory"
 msgstr "GCompris sal die datagids in hierdie gids kry"
 
-#: ../src/gcompris/gcompris.c:183
+#: ../src/gcompris/gcompris.c:193
 msgid "GCompris will find the skins in this directory"
 msgstr "GCompris sal die veltemas in hierdie gids kry"
 
-#: ../src/gcompris/gcompris.c:186
+#: ../src/gcompris/gcompris.c:196
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "GCompris sal die aktiwiteit-inproppe in hierdie gids kry"
 
-#: ../src/gcompris/gcompris.c:189
+#: ../src/gcompris/gcompris.c:199
 msgid "GCompris will find the python activity in this directory"
 msgstr "GCompris sal die python-aktiwiteit in hierdie gids kry"
 
-#: ../src/gcompris/gcompris.c:192
+#: ../src/gcompris/gcompris.c:202
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr "GCompris sal die lokaliteitslêer (.mo-vertaling) in hierdie gids kry"
 
-#: ../src/gcompris/gcompris.c:195
+#: ../src/gcompris/gcompris.c:205
 msgid "GCompris will find the activities menu in this directory"
 msgstr "GCompris sal die aktiwiteitskieslys in hierdie gids kry"
 
-#: ../src/gcompris/gcompris.c:198
+#: ../src/gcompris/gcompris.c:208
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Laat loop GCompris in administrasie- en gebruikerbestuur-modus"
 
-#: ../src/gcompris/gcompris.c:201
+#: ../src/gcompris/gcompris.c:211
 msgid ""
 "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
@@ -3086,25 +3287,25 @@ msgstr ""
 "Gebruik alternatiewe databasis vir profiele [$HOME/.config/gcompris/"
 "gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:204
+#: ../src/gcompris/gcompris.c:214
 msgid "Create the alternate database for profiles"
 msgstr "Skep die alternatiewe databasis vir profiele"
 
-#: ../src/gcompris/gcompris.c:207
+#: ../src/gcompris/gcompris.c:217
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Herlees XML-kieslyste en stoor hulle in die databasis"
 
-#: ../src/gcompris/gcompris.c:210
+#: ../src/gcompris/gcompris.c:220
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Stel die profiel om te gebruik. Gebruik 'gcompris -a' om profiele te skep"
 
-#: ../src/gcompris/gcompris.c:213
+#: ../src/gcompris/gcompris.c:223
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Wys alle beskikbare profiele. Gebruik 'gcompris -a' om profiele te skep"
 
-#: ../src/gcompris/gcompris.c:216
+#: ../src/gcompris/gcompris.c:226
 msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
@@ -3112,23 +3313,28 @@ msgstr ""
 "Ligging van konfigurasie-gids: [$HOME/.config/gcompris]. Alternatief is "
 "gestel op XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:219
+#: ../src/gcompris/gcompris.c:229
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "Die ligging van gebruikergidse: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:222
+#: ../src/gcompris/gcompris.c:232
 msgid "Run the experimental activities"
 msgstr "Laat loop eksperimentele aktiwiteite"
 
-#: ../src/gcompris/gcompris.c:225
+#: ../src/gcompris/gcompris.c:235
 msgid "Disable the quit button"
 msgstr "Deaktiveer die afsluit-knoppie"
 
-#: ../src/gcompris/gcompris.c:228
+#: ../src/gcompris/gcompris.c:238
 msgid "Disable the config button"
 msgstr "Deaktiveer die konfigurasie-knoppie"
 
-#: ../src/gcompris/gcompris.c:231
+#: ../src/gcompris/gcompris.c:241
+#| msgid "Disable the quit button"
+msgid "Disable the level button"
+msgstr "Deaktiveer die vlak-knoppie"
+
+#: ../src/gcompris/gcompris.c:244
 msgid ""
 "GCompris will get images, sounds and activity data from this server if not "
 "found locally."
@@ -3136,7 +3342,7 @@ msgstr ""
 "GCompris sal prentjies, klanke en aktiwiteitdata van hierdie bediener kry as "
 "dit nie plaaslik beskikbaar is nie."
 
-#: ../src/gcompris/gcompris.c:234
+#: ../src/gcompris/gcompris.c:247
 msgid ""
 "Only when --server is provided, disable check for local resource first. Data "
 "are always taken from the web server."
@@ -3144,29 +3350,38 @@ msgstr ""
 "Deaktiveer kontrole vir plaaslike hulpbron net as --server verskaf word. "
 "Data word altyd van die webbediener geneem."
 
-#: ../src/gcompris/gcompris.c:238
+#: ../src/gcompris/gcompris.c:251
 msgid ""
 "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr ""
 "In bedienermodus, spesifiseer die kasgids om te veel aflaaie te beperk."
 
-#: ../src/gcompris/gcompris.c:241
+#: ../src/gcompris/gcompris.c:254
 msgid ""
 "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr ""
 "Algehele sleep-en-los-modus: normaal, 2kliek, beide. Die verstekmodus is "
 "normaal."
 
-#: ../src/gcompris/gcompris.c:244
+#: ../src/gcompris/gcompris.c:257
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Moenie die uitvoer van meervoudige GCompris'e vermy nie."
 
-#: ../src/gcompris/gcompris.c:906
+#: ../src/gcompris/gcompris.c:929
 #, c-format
+#| msgid ""
+#| "GCompris is free software released under the GPL License. In order to "
+#| "support its development, the Windows version provides only %d of the %d "
+#| "activities. You can get the full version for a small fee at\n"
+#| "<http://gcompris.net>\n"
+#| "The GNU/Linux version does not have this restriction. If you also believe "
+#| "that we should teach freedom to children, please consider using GNU/"
+#| "Linux. Get more information at FSF:\n"
+#| "<http://www.fsf.org/philosophy>"
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
-"support its development, the Windows version provides only %d of the %d "
-"activities. You can get the full version for a small fee at\n"
+"support its development, this version provides only %d of the %d activities. "
+"You can get the full version for a small fee at\n"
 "<http://gcompris.net>\n"
 "The GNU/Linux version does not have this restriction. If you also believe "
 "that we should teach freedom to children, please consider using GNU/Linux. "
@@ -3174,27 +3389,32 @@ msgid ""
 "<http://www.fsf.org/philosophy>"
 msgstr ""
 "GCompris is vrye sagteware vrygestel ingevolge die GPL. Om die ontwikkeling "
-"daarvan te bekostig, bied die Windows-weergawe net %d van die %d "
-"aktiwiteite. Jy kan die volle weergawe vir 'n klein bedraggie kry by\n"
+"daarvan te bekostig, bied dié weergawe net %d van die %d aktiwiteite. Jy kan "
+"die volle weergawe vir 'n klein bedraggie kry by\n"
 "<http://gcompris.net>\n"
 "Die GNU/Linux-weergawe het nie dié beperking nie. As jy ook glo dat ons "
 "vryheid aan ons kinders moet leer, oorweeg dit om GNU/Linux te gebruik. Kry "
 "meer inligting by FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1353
+#: ../src/gcompris/gcompris.c:1223
+#, c-format
+msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:1485
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
 msgstr ""
 "GCompris sal nie begin nie omdat die slotlêer minder as %d sekondes oud is.\n"
 
-#: ../src/gcompris/gcompris.c:1355
+#: ../src/gcompris/gcompris.c:1487
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Die slotlêer is: %s\n"
 
-#: ../src/gcompris/gcompris.c:1469
+#: ../src/gcompris/gcompris.c:1601
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3208,27 +3428,27 @@ msgstr ""
 "Meer inligting by http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1575
+#: ../src/gcompris/gcompris.c:1716
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Gebruik -l om direk toegang tot 'n aktiwiteit te kry.\n"
 
-#: ../src/gcompris/gcompris.c:1576
+#: ../src/gcompris/gcompris.c:1717
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Die lys beskikbare aktiwiteite is:\n"
 
-#: ../src/gcompris/gcompris.c:1607
+#: ../src/gcompris/gcompris.c:1748
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Aantal aktiwiteite: %d\n"
 
-#: ../src/gcompris/gcompris.c:1643
+#: ../src/gcompris/gcompris.c:1784
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s bestaan maar is nie leesbaar of skryfbaar nie"
 
-#: ../src/gcompris/gcompris.c:1706
+#: ../src/gcompris/gcompris.c:1847
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
@@ -3237,7 +3457,7 @@ msgstr ""
 "Die --server-opsie kan nie gebruik word nie want GCompris is sonder "
 "netwerksteun gebou!"
 
-#: ../src/gcompris/gcompris.c:1760
+#: ../src/gcompris/gcompris.c:1901
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3246,40 +3466,59 @@ msgstr ""
 "FOUT: Die profiel '%s' is nie gevind nie. Gebruik 'gcompris --profile-list' "
 "om die beskikbare profiele te sien\n"
 
-#: ../src/gcompris/gcompris.c:1774
+#: ../src/gcompris/gcompris.c:1915
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Die lys beskikbare profiele is:\n"
 
-#: ../src/gcompris/gcompris_db.c:274
+#: ../src/gcompris/gcompris_db.c:309
 msgid "Unaffected"
 msgstr "Onaangeraak"
 
-#: ../src/gcompris/gcompris_db.c:275
+#: ../src/gcompris/gcompris_db.c:310
 msgid "Users without a class"
 msgstr "Gebruikers sonder 'n klas"
 
-#: ../src/gcompris/help.c:176
+#: ../src/gcompris/gcompris_db.c:894
+#, c-format
+msgid ""
+"Loading activity from database:\n"
+"%s"
+msgstr ""
+"Laai tans aktiwiteit vanaf databasis:\n"
+"%s"
+
+#: ../src/gcompris/help.c:180
 msgid "Prerequisite"
 msgstr "Voorvereiste"
 
-#: ../src/gcompris/help.c:207
+#: ../src/gcompris/help.c:210
 msgid "Goal"
 msgstr "Doel"
 
-#: ../src/gcompris/help.c:238
+#: ../src/gcompris/help.c:240
 msgid "Manual"
 msgstr "Handleiding"
 
-#: ../src/gcompris/help.c:269
+#: ../src/gcompris/help.c:270
 msgid "Credit"
 msgstr "Erkenning"
 
-#: ../src/gcompris/properties.c:497 ../src/gcompris/properties.c:504
+#: ../src/gcompris/menu.c:583
+#, c-format
+#| msgid "Reading activities."
+msgid ""
+"Loading activity from file:\n"
+"%s"
+msgstr ""
+"Laai tans aktiwiteit vanaf lêer:\n"
+"%s"
+
+#: ../src/gcompris/properties.c:501 ../src/gcompris/properties.c:508
 msgid "readme"
 msgstr "leesmy"
 
-#: ../src/gcompris/properties.c:499
+#: ../src/gcompris/properties.c:503
 msgid ""
 "This directory contains the files you create with the GCompris educational "
 "suite\n"
@@ -3287,7 +3526,7 @@ msgstr ""
 "Hierdie gids bevat die lêers wat jy skep met die GCompris- opvoedkundige "
 "suite\n"
 
-#: ../src/gcompris/properties.c:506
+#: ../src/gcompris/properties.c:510
 msgid ""
 "Put any number of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
@@ -3297,11 +3536,47 @@ msgstr ""
 "Jy kan hierdie prentjies insluit by jou tekeninge en animasies.\n"
 "Die prentjieformate is jpeg, png en svg.\n"
 
-#: ../src/gcompris/timer.c:244
+#: ../src/gcompris/sugar.c:70
+msgid "Help"
+msgstr "Hulp"
+
+#: ../src/gcompris/sugar.c:71
+#| msgid "boat"
+msgid "About"
+msgstr "Aangaande"
+
+#: ../src/gcompris/sugar.c:72
+msgid "Previous level"
+msgstr "Vorige vlak"
+
+#: ../src/gcompris/sugar.c:75
+#| msgid "%d (New level)"
+msgid "Next level"
+msgstr "Volgende vlak"
+
+#: ../src/gcompris/sugar.c:77
+msgid "Refresh"
+msgstr "Verfris"
+
+#: ../src/gcompris/sugar.c:78
+msgid "Settings"
+msgstr "Instellings"
+
+#. TRANSLATORS: Back as in previous
+#: ../src/gcompris/sugar.c:86
+#| msgid "back"
+msgid "Back"
+msgstr "Terug"
+
+#: ../src/gcompris/sugar.c:87
+msgid "Stop"
+msgstr "Stop"
+
+#: ../src/gcompris/timer.c:245
 msgid "Time Elapsed"
 msgstr "Tydverloop"
 
-#: ../src/gcompris/timer.c:322
+#: ../src/gcompris/timer.c:323
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Tyd oor = %d"
@@ -3921,12 +4196,12 @@ msgid "Type the falling letters before they reach the ground"
 msgstr "Tik die vallende letters voor hulle die grond tref"
 
 #. TRANSLATORS: Put here the numbers in your language
-#: ../src/gletters-activity/gletters.c:225 ../src/memory-activity/memory.c:930
+#: ../src/gletters-activity/gletters.c:225 ../src/memory-activity/memory.c:931
 msgid "0123456789"
 msgstr "0123456789"
 
 #. TRANSLATORS: Put here the alphabet uppercase in your language
-#: ../src/gletters-activity/gletters.c:235 ../src/memory-activity/memory.c:940
+#: ../src/gletters-activity/gletters.c:235 ../src/memory-activity/memory.c:941
 msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
@@ -3936,15 +4211,15 @@ msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 #. the dict passed to the apply_callback
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
-#: ../src/gletters-activity/gletters.c:852
-#: ../src/imageid-activity/imageid.c:714 ../src/login-activity/login.py:476
-#: ../src/missing_letter-activity/missingletter.c:750
+#: ../src/gletters-activity/gletters.c:850
+#: ../src/imageid-activity/imageid.c:712 ../src/login-activity/login.py:479
+#: ../src/missing_letter-activity/missingletter.c:784
 #: ../src/pythontest-activity/pythontest.py:454
-#: ../src/readingh-activity/reading.c:880
+#: ../src/readingh-activity/reading.c:904
 #: ../src/scalesboard-activity/scale.c:1161
-#: ../src/smallnumbers-activity/smallnumbers.c:596
+#: ../src/smallnumbers-activity/smallnumbers.c:595
 #: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:768
+#: ../src/wordsgame-activity/wordsgame.c:866
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -3953,8 +4228,8 @@ msgstr ""
 "<b>%s</b> konfigurasie\n"
 " vir profiel <b>%s</b>"
 
-#: ../src/gletters-activity/gletters.c:881
-#: ../src/smallnumbers-activity/smallnumbers.c:615
+#: ../src/gletters-activity/gletters.c:879
+#: ../src/smallnumbers-activity/smallnumbers.c:614
 msgid "Enable sounds"
 msgstr "Aktiveer klanke"
 
@@ -4144,11 +4419,11 @@ msgstr ""
 "Die faktore van 'n getal is al die getalle wat gelyk in daardie getal deel. "
 "Die faktore van 6 is byvoorbeeld 1, 2, 3 en 6. 4 is nie 'n faktor van 6 nie "
 "omdat 6 nie in 4 ewe groot dele gedeel kan word nie. As een getal 'n "
-"veelvoud van 'n tweede getal is, dan is die tweede getal 'n faktore van die "
-"eerste getal. Dink aan veelvoude aan families, en faktore as lede van "
-"daardie families. Die getalle 1, 2, 3 en 6 pas in die 6-familie, maar 4 "
-"behoort aan 'n ander familie. Gebruik die pyl-knoppies om om die bord te "
-"beweeg en die troggels te vermy. Druk die spasiebalk om 'n getal te vreet."
+"veelvoud van 'n tweede getal is, dan is die tweede getal 'n faktor van die "
+"eerste getal. Dink aan veelvoude as families, en faktore as lede van daardie "
+"families. Die getalle 1, 2, 3 en 6 pas in die 6-familie, maar 4 behoort aan "
+"'n ander familie. Gebruik die pyl-knoppies om om die bord te beweeg en die "
+"troggels te vermy. Druk die spasiebalk om 'n getal te vreet."
 
 #: ../src/gnumch-inequality-activity/gnumch-inequality.xml.in.h:1
 msgid ""
@@ -4199,13 +4474,13 @@ msgid ""
 "the board and to avoid the Troggles. Press the spacebar to eat a number."
 msgstr ""
 "Die veelvoude van 'n getal is al die getalle wat gelyk aan die oorspronklike "
-"getal gemaal met 'n ander getal is. So byvoorbeeld is 24, 36, 48 en 60 almal "
-"veelvoude van 12. 25 is nie 'n veelvoud van 12 nie omdat daar geen getal is "
-"wat met 12 gemaal kan word om 25 te kry nie. As een getal 'n faktor van 'n "
-"tweede getal is, dan is die tweede getal 'n veelvoud van die eerste getal. "
-"Dink weer aan veelvoude aan families, en faktore as lede van daardie "
+"getal gemaal met 'n ander getal is. So byvoorbeeld is 24, 36, 48 en 60 "
+"almal veelvoude van 12. 25 is nie 'n veelvoud van 12 nie omdat daar geen "
+"getal is wat met 12 gemaal kan word om 25 te kry nie. As een getal 'n faktor "
+"van 'n tweede getal is, dan is die tweede getal 'n veelvoud van die eerste "
+"getal. Dink weer aan veelvoude as families, en faktore as lede van daardie "
 "families. Die faktor 5 se ma is 10, sy ouma is 15, sy ouma-grootjie is 20, "
-"sy ouma-oorgrootjie is 25, en voeg 'n 'oor' by elke 5 by! Die getal 5 "
+"sy oer-oumagrootjie is 25, en voeg 'n 'oer-' vir by elke 5 by! Die getal 5 "
 "behoort egter nie in die 8- of 23-familie nie. Jy kan nie enige 5'e in 8 of "
 "23 presies laat pas nie. Net so is 8 nie 'n veelvoud van 5 nie, en 23 is ook "
 "nie. Net 5, 10, 15, 20, 25 ... is veelvoude (of familielede of stappe) van "
@@ -4240,30 +4515,30 @@ msgstr ""
 "word). Dink so daaraan: die priemgetal-families is baie klein, want daar is "
 "net twee familielede! Dis net die getal sélf, en 1. Jy kan nie enige ander "
 "getalle daar inpas sonder dat iets oorbly nie. 5 is so 'n eensame getal (net "
-"5 × 1 = 5), maar jy kan sien dat 6 ook vir 2 en 3 in sy familie het (6 × 1 = "
-"6, 2 × 3 = 6). Die getal 6 is dus nie 'n priemgetal nie. Gebruik die pyl-"
+"5 × 1 = 5), maar jy kan sien dat 6 ook vir 2 en 3 in sy familie het (6 × 1 "
+"= 6, 2 × 3 = 6). Die getal 6 is dus nie 'n priemgetal nie. Gebruik die pyl-"
 "knoppies om om die bord te beweeg en die troggels te vermy. Druk die "
 "spasiebalk om 'n getal te vreet."
 
-#: ../src/guessnumber-activity/guessnumber.py:201
+#: ../src/guessnumber-activity/guessnumber.py:199
 #, python-format
 msgid "Guess a number between %d and %d"
 msgstr "Raai 'n getal tussen %d en %d"
 
-#: ../src/guessnumber-activity/guessnumber.py:301
+#: ../src/guessnumber-activity/guessnumber.py:299
 #, python-format
 msgid "Please enter a number between %d and %d"
 msgstr "Gee seblief 'n getal tussen %d en %d"
 
-#: ../src/guessnumber-activity/guessnumber.py:306
+#: ../src/guessnumber-activity/guessnumber.py:304
 msgid "Out of range"
 msgstr "Buite die omvang"
 
-#: ../src/guessnumber-activity/guessnumber.py:312
+#: ../src/guessnumber-activity/guessnumber.py:310
 msgid "Too high"
 msgstr "Te groot"
 
-#: ../src/guessnumber-activity/guessnumber.py:314
+#: ../src/guessnumber-activity/guessnumber.py:312
 msgid "Too low"
 msgstr "Te klein"
 
@@ -4400,14 +4675,14 @@ msgstr "seshoek"
 #: ../src/imageid-activity/imageid.xml.in.h:3
 #: ../src/imagename-activity/imagename.xml.in.h:4
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:1
-#: ../src/missing_letter-activity/missingletter.c:83
+#: ../src/missing_letter-activity/missingletter.c:84
 #: ../src/readingh-activity/readingh.xml.in.h:4
 #: ../src/readingv-activity/readingv.xml.in.h:4
 msgid "Reading"
 msgstr "Moet kan lees"
 
 #: ../src/imageid-activity/imageid.c:95
-#: ../src/missing_letter-activity/missingletter.c:84
+#: ../src/missing_letter-activity/missingletter.c:85
 msgid "Learn how to read"
 msgstr "Leer hoe om te lees"
 
@@ -4420,7 +4695,7 @@ msgstr ""
 "word voorgestel."
 
 #: ../src/imageid-activity/imageid.c:534
-#: ../src/missing_letter-activity/missingletter.c:568
+#: ../src/missing_letter-activity/missingletter.c:592
 msgid "Data file for this level is not properly formatted."
 msgstr "Die datalêer vir hierdie vlak is nie reg geformateer nie."
 
@@ -4728,16 +5003,54 @@ msgstr ""
 "Hier is 'n hand. Is dit 'n linkerhand of 'n regterhand? Kliek op die rooi "
 "knoppie links, of die groen knoppie regs."
 
-#: ../src/login-activity/login.py:98
+#: ../src/lightsoff-activity/lightsoff.py:442
+msgid ""
+"Switch off all the lights, I have to go to sleep.\n"
+"If you need help, click on me."
+msgstr ""
+"Skakel al die ligte af. Ek moet gaan slaap.\n"
+"As jy hulp nodig het, klik op my."
+
+#: ../src/lightsoff-activity/lightsoff.xml.in.h:1
+msgid "Lights Off"
+msgstr "Ligte af"
+
+#: ../src/lightsoff-activity/lightsoff.xml.in.h:2
+msgid "The aim is to switch off all the lights."
+msgstr "Die doel is om al die ligte af te skakel."
+
+#: ../src/lightsoff-activity/lightsoff.xml.in.h:3
+msgid ""
+"The effect of pressing a button is to toggle the state of that button, and "
+"of its immediate vertical and horizontal neighbours. The sun and the color "
+"of the sky depend on the number of clicks needed to solve the puzzle. If you "
+"click on Tux, the solution is shown."
+msgstr ""
+"Deur op 'n knoppie te druk, wissel die toestand van daardie knoppie en van "
+"sy onmiddellike vertikale en horisontale bure. Die son en die kleur van die "
+"lug hang af van die aantal klikke wat nodig is om die probleem op te los. As "
+"jy op Tux klik, word die oplossing gewys."
+
+#: ../src/lightsoff-activity/lightsoff.xml.in.h:4
+msgid ""
+"The solver algorithm described on haar.clara.co.uk is a valuable resource to "
+"know more about the Lights Off game: &lt;http://www.haar.clara.co.uk/Lights/"
+"solving.html&gt;"
+msgstr ""
+"Die oplosalgoritme beskryf by haar.clara.co.uk is 'n waardevolle hulpbron om "
+"meer te weet oor die Ligte af-speletjie: "
+"&lt;http://www.haar.clara.co.uk/Lights/solving.html&gt;"
+
+#: ../src/login-activity/login.py:101
 msgid "Profile: "
 msgstr "Profiel:"
 
-#: ../src/login-activity/login.py:231
+#: ../src/login-activity/login.py:234
 msgid "Login: "
 msgstr "Meld aan: "
 
 #. toggle box
-#: ../src/login-activity/login.py:491
+#: ../src/login-activity/login.py:494
 msgid "Enter login to log in"
 msgstr "Gee gebruikernaam om aan te meld"
 
@@ -4751,9 +5064,19 @@ msgid "GCompris login screen"
 msgstr "Aanmeldskerm vir GCompris"
 
 #: ../src/login-activity/login.xml.in.h:3
+#| msgid ""
+#| "In order to activate the login screen, you must \n"
+#| "first add users in the administration part of GCompris. \n"
+#| "You access Administration by running 'gcompris -a'.\n"
+#| "In Administration, you can create different profiles. In each profile,\n"
+#| "you can have a different set of users and select which activities are "
+#| "available to them.\n"
+#| "To run GCompris for a specific profile, you use 'gcompris -p profile' "
+#| "where 'profile'\n"
+#| "is the name of a profile as you created it in Administration."
 msgid ""
-"In order to activate the login screen, you must \n"
-"first add users in the administration part of GCompris. \n"
+"In order to activate the login screen, you must\n"
+"first add users in the administration part of GCompris.\n"
 "You access Administration by running 'gcompris -a'.\n"
 "In Administration, you can create different profiles. In each profile,\n"
 "you can have a different set of users and select which activities are "
@@ -4762,8 +5085,8 @@ msgid ""
 "'profile'\n"
 "is the name of a profile as you created it in Administration."
 msgstr ""
-"Om die aanmeldskerm te aktiveer, moet jy eers \n"
-"gebruikers in die administrasiedeel van GCompris byvoeg. \n"
+"Om die aanmeldskerm te aktiveer, moet jy eers\n"
+"gebruikers in die administrasiedeel van GCompris byvoeg.\n"
 "Jy kan die administrasiedeel laat loop met 'gcompris -a'.\n"
 "In die administrasiedeel kan jy verskillende profiele skep. In elke profiel\n"
 "kan jy verskillende stelle gebruikers skep en kies watter aktiwiteite hulle "
@@ -4844,14 +5167,14 @@ msgstr "Doolhof"
 msgid "Find your way out of the maze"
 msgstr "Kry die pad deur die doolhof"
 
-#: ../src/maze-activity/maze.c:500
+#: ../src/maze-activity/maze.c:599
 msgid ""
 "Look at your position, then switch back to invisible mode to continue your "
 "moves"
 msgstr ""
 "Kyk na jou posisie, en skakel terug na onsigbare modus om voort te gaan"
 
-#: ../src/maze-activity/maze.c:502
+#: ../src/maze-activity/maze.c:601
 msgid ""
 "Look at your position, then switch back to 3D mode to continue your moves"
 msgstr "Kyk na jou posisie, en skakel terug na 3D-modus om voort te gaan"
@@ -4922,7 +5245,7 @@ msgstr ""
 "modus wys jou net jou plek, soos op 'n kaart. Jy kan nie Tux in sigbare "
 "modus beweeg nie."
 
-#: ../src/melody-activity/melody.py:111
+#: ../src/melody-activity/melody.py:107
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -5463,44 +5786,102 @@ msgstr "Oefen leesvaardighede"
 msgid "Word reading"
 msgstr "Kan 'n woord lees"
 
+#: ../src/missing_letter-activity/missingletter_config.c:77
+msgid "Please select an image."
+msgstr "Kies asb. 'n prent."
+
+#: ../src/missing_letter-activity/missingletter_config.c:83
+msgid "Choice cannot be empty."
+msgstr "Keuse mag nie leeg wees nie."
+
+#: ../src/missing_letter-activity/missingletter_config.c:89
+msgid "Question cannot be empty."
+msgstr "Vraag mag nie leeg wees nie."
+
+#: ../src/missing_letter-activity/missingletter_config.c:95
+msgid ""
+"Question must include the character '_'. It represent the letter to search."
+msgstr ""
+"Die vraag moet die karakter '_' insluit. Dit verteenwoordig die letter om "
+"voor te soek."
+
+#: ../src/missing_letter-activity/missingletter_config.c:102
+msgid "Pixmap cannot be empty"
+msgstr ""
+
+#: ../src/missing_letter-activity/missingletter_config.c:108
+msgid "There must be at least 2 choices."
+msgstr "Daar moet ten minste 2 keuses wees."
+
+#: ../src/missing_letter-activity/missingletter_config.c:116
+msgid "The answer and question must be the same except for the character '_'."
+msgstr "Die vraag en vraag moet die selfde wees, behalwe vir die karakter '_'."
+
+#: ../src/missing_letter-activity/missingletter_config.c:125
+msgid "The first choice must be the solution that replaces the character '_'."
+msgstr "Die eerste keuse moet die oplossing wees, wat die karakter '_' vervang."
+
+#: ../src/missing_letter-activity/missingletter_config.c:140
+#, c-format
+msgid ""
+"Invalid entry:\n"
+"Question '%s' / Answer '%s'\n"
+"%s"
+msgstr ""
+"Ongeldige inskrywing::\n"
+"Vraag '%s' / Antwoord '%s'\n"
+"%s"
+
 #. pixmap
-#: ../src/missing_letter-activity/missingletter_config.c:384
-#: ../src/missing_letter-activity/missingletter_config.c:534
+#: ../src/missing_letter-activity/missingletter_config.c:414
+#: ../src/missing_letter-activity/missingletter_config.c:557
 msgid "Picture"
 msgstr "Prent"
 
 #. answer
-#: ../src/missing_letter-activity/missingletter_config.c:390
-#: ../src/missing_letter-activity/missingletter_config.c:525
+#: ../src/missing_letter-activity/missingletter_config.c:420
+#: ../src/missing_letter-activity/missingletter_config.c:548
 msgid "Answer"
 msgstr "Antwoord"
 
 #
 #. question
-#: ../src/missing_letter-activity/missingletter_config.c:396
-#: ../src/missing_letter-activity/missingletter_config.c:548
+#: ../src/missing_letter-activity/missingletter_config.c:426
+#: ../src/missing_letter-activity/missingletter_config.c:571
 msgid "Question"
 msgstr "Vraag"
 
 #. choice
-#: ../src/missing_letter-activity/missingletter_config.c:402
-#: ../src/missing_letter-activity/missingletter_config.c:557
+#: ../src/missing_letter-activity/missingletter_config.c:432
+#: ../src/missing_letter-activity/missingletter_config.c:583
 msgid "Choice"
 msgstr "Keuse"
 
 #. combo level
-#: ../src/missing_letter-activity/missingletter_config.c:440
+#: ../src/missing_letter-activity/missingletter_config.c:470
 msgid "Level:"
 msgstr "Vlak:"
 
-#: ../src/missing_letter-activity/missingletter_config.c:448
+#: ../src/missing_letter-activity/missingletter_config.c:478
 #, c-format
 msgid "Level %d"
 msgstr "Vlak %d"
 
-#: ../src/missing_letter-activity/missingletter_config.c:538
+#: ../src/missing_letter-activity/missingletter_config.c:561
 msgid "Filename:"
 msgstr "Lêernaam:"
+
+#: ../src/missing_letter-activity/missingletter_config.c:579
+msgid "Replace the letter to guess by the character '_'."
+msgstr "Vervang die letter wat geraai moet word met dei karakter '_'."
+
+#: ../src/missing_letter-activity/missingletter_config.c:591
+msgid ""
+"Enter here the letter that will be proposed. The first letter here must be "
+"the solution"
+msgstr ""
+"Tik hierdie voorgestelde letter in. Die eerste letter hier moet die "
+"oplossing wees."
 
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:1
 msgid "car/c_r/a/k/o"
@@ -5693,7 +6074,7 @@ msgstr ""
 msgid "Practice money usage including cents"
 msgstr "Oefen geldgebruik met sente"
 
-#: ../src/mosaic-activity/mosaic.py:188
+#: ../src/mosaic-activity/mosaic.py:186
 msgid "Rebuild the same mosaic on the right area"
 msgstr "Bou dieselfde mosaïek aan die regterkant"
 
@@ -5746,16 +6127,20 @@ msgid "Woman holding a fan"
 msgstr "Vrou wat 'n waaier hou"
 
 #: ../src/paintings-activity/resources/paintings/board2_1.xml.in.h:1
-msgid "Botticelli, Primavera - 1482"
-msgstr "Botticelli, Lente - 1482"
+msgid "Mona Lisa"
+msgstr "Mona Lisa"
 
 #: ../src/paintings-activity/resources/paintings/board2_2.xml.in.h:1
-msgid "Caravage, Rest on the Flight into Egypt - 1597"
-msgstr "Caravaggio, Rus tydens die vlug na Egipte - 1597"
+msgid "Bellini : Pala di pesaro"
+msgstr "Bellini: Pala di Pesaro"
 
 #: ../src/paintings-activity/resources/paintings/board2_3.xml.in.h:1
-msgid "Botticelli, The Birth of Venus - 1482–1486"
-msgstr "Botticelli, Die geboorte van Venus - 1482–1486"
+msgid "Dürer : Lion"
+msgstr "Dürer: Lion"
+
+#: ../src/paintings-activity/resources/paintings/board2_4.xml.in.h:1
+msgid "Pieter Brugel : Harvest"
+msgstr "Pieter Brugel: Harvest"
 
 #: ../src/paintings-activity/resources/paintings/board3_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
@@ -5815,11 +6200,11 @@ msgstr ""
 "Hierdie bord is spelgerig. Geen spesifieke vaardighede is nodig om te speel "
 "nie."
 
-#: ../src/penalty-activity/penalty.py:292
+#: ../src/penalty-activity/penalty.py:293
 msgid "Click on the balloon to place it again."
 msgstr "Kliek op die ballon om dit weer te plaas."
 
-#: ../src/penalty-activity/penalty.py:294
+#: ../src/penalty-activity/penalty.py:295
 msgid "Click twice on the balloon to shoot it."
 msgstr "Kliek die ballon twee keer om dit te skop."
 
@@ -5829,9 +6214,9 @@ msgid ""
 "right or middle mouse button. If you lose, Tux catches the ball. You must "
 "click on it to bring it back to its former position"
 msgstr ""
-"Dubbelkliek die muis op die bal om dit te skop.  Jy kan die linker-, regter- "
-"of middelste muisknoppie kliek.  As jy verloor, vang Tux die bal.  Kliek "
-"weer daarop om dit na die oorspronklike posisie te laat terugkeer."
+"Dubbelkliek die muis op die bal om dit te skop. Jy kan die linker-, regter- "
+"of middelste muisknoppie kliek. As jy verloor, vang Tux die bal. Kliek weer "
+"daarop om dit na die oorspronklike posisie te laat terugkeer."
 
 #: ../src/penalty-activity/penalty.xml.in.h:2
 msgid "Double click the mouse on the ball to score a goal."
@@ -5841,17 +6226,13 @@ msgstr "Dubbelkliek die muis op die bal om 'n doel te skop."
 msgid "Penalty kick"
 msgstr "Strafskop"
 
-#: ../src/photohunter-activity/photohunter.c:137
+#: ../src/photohunter-activity/photohunter.c:512
 msgid "Error: Absolutely no photo found in the data directory"
 msgstr "Fout: Geen foto's in datagids gevind nie"
 
-#: ../src/photohunter-activity/photohunter.c:394
+#: ../src/photohunter-activity/photohunter.c:575
 msgid "Click on the differences between the two images."
 msgstr "Klik op die verskille tussen die twee beelde."
-
-#: ../src/photohunter-activity/photohunter.c:590
-msgid "Error: Abnormally failed to load a data file"
-msgstr "Fout: Abnormale mislukking met laai van datalêer"
 
 #: ../src/photohunter-activity/photohunter.xml.in.h:1
 msgid "Find the differences between two pictures"
@@ -5873,12 +6254,12 @@ msgstr "Fotojagter"
 msgid "Visual discrimination."
 msgstr "Visuele diskriminasie."
 
-#: ../src/planegame-activity/planegame.c:61
+#: ../src/planegame-activity/planegame.c:62
 #: ../src/planegame-activity/planegame.xml.in.h:4
 msgid "Numbers in Order"
 msgstr "Syfers in volgorde"
 
-#: ../src/planegame-activity/planegame.c:62
+#: ../src/planegame-activity/planegame.c:63
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "Beweeg die vliegtuig om die wolke in die regte volgorde te vang"
 
@@ -5897,6 +6278,15 @@ msgstr "Skuif die helikopter om die wolke in die korrekte volgorde te vang"
 #: ../src/planegame-activity/planegame.xml.in.h:3
 msgid "Number"
 msgstr "Getalle"
+
+#: ../src/pythontemplate-activity/pythontemplate.py:60
+#: ../src/pythontest-activity/pythontest.py:184
+msgid ""
+"This is the first plugin in GCompris coded in the Python\n"
+"Programming language."
+msgstr ""
+"Hierdie is die eerste inprop in GCompris wat in Python geskryf is\n"
+"(programmeertaal)."
 
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:1
 #: ../src/pythontest-activity/pythontest.xml.in.h:1
@@ -5922,14 +6312,6 @@ msgid ""
 "Thanks to Guido van Rossum and the python team for this powerful language!"
 msgstr ""
 "Dankie aan Guido van Rossum en die Python-span vir hierdie kragtige taal!"
-
-#: ../src/pythontest-activity/pythontest.py:184
-msgid ""
-"This is the first plugin in GCompris coded in the Python\n"
-"Programming language."
-msgstr ""
-"Hierdie is die eerste inprop in GCompris wat in Python geskryf is\n"
-"(programmeertaal)."
 
 #: ../src/pythontest-activity/pythontest.py:194
 msgid ""
@@ -6071,8 +6453,8 @@ msgstr "Lees die kleure se name"
 msgid "This board teaches basic colors."
 msgstr "Hierdie bord leer eenvoudige kleure."
 
-#: ../src/readingh-activity/reading.c:220
-#: ../src/wordsgame-activity/wordsgame.c:207
+#: ../src/readingh-activity/reading.c:229
+#: ../src/wordsgame-activity/wordsgame.c:219
 msgid ""
 "Error: We can't find\n"
 "a list of words to play this game.\n"
@@ -6080,35 +6462,39 @@ msgstr ""
 "Fout: Ons kan nie 'n\n"
 "lys woorde vind om hierdie spel te speel nie.\n"
 
-#: ../src/readingh-activity/reading.c:380
+#: ../src/readingh-activity/reading.c:389
 msgid "Please, check if the word"
 msgstr "Kyk seblief of die woord"
 
-#: ../src/readingh-activity/reading.c:400
+#: ../src/readingh-activity/reading.c:409
 msgid "is being displayed"
 msgstr "gewys word"
 
-#: ../src/readingh-activity/reading.c:456
+#: ../src/readingh-activity/reading.c:465
 msgid "We skip this level because there are not enough words in the list!"
 msgstr ""
 "Ons slaan hierdie vlak oor omdat daar nie genoeg woorde in die lys is nie!"
 
-#: ../src/readingh-activity/reading.c:686
+#: ../src/readingh-activity/reading.c:668
+msgid "Yes, I saw it"
+msgstr "Ja, ek het dit gesien"
+
+#: ../src/readingh-activity/reading.c:695
 msgid "No, it was not there"
 msgstr "Nee, dit was nie daar nie"
 
 #. Report what was wrong in the log
-#: ../src/readingh-activity/reading.c:733
+#: ../src/readingh-activity/reading.c:742
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "Die woord wat gesoek is, was '%s'"
 
-#: ../src/readingh-activity/reading.c:736
+#: ../src/readingh-activity/reading.c:745
 #, c-format
 msgid "But it was not displayed"
 msgstr "maar dit is nie gewys nie"
 
-#: ../src/readingh-activity/reading.c:738
+#: ../src/readingh-activity/reading.c:747
 #, c-format
 msgid "And it was displayed"
 msgstr "en dit is gewys"
@@ -6146,7 +6532,7 @@ msgstr "Leesoefening in 'n beperkte tyd"
 msgid "Vertical-reading practice"
 msgstr "Vertikale leesoefening"
 
-#: ../src/redraw-activity/redraw.py:875
+#: ../src/redraw-activity/redraw.py:881
 msgid "Coordinate"
 msgstr "Koördinaat"
 
@@ -6270,6 +6656,26 @@ msgstr ""
 "Om die skaal te laat balanseer, skuif die gewigte aan die linkerkant of die "
 "regterkant. Die gewigte kan in enige volgorde gerangskik word."
 
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:2
+msgid "Drag and Drop masses to balance the scales and calculate the weight"
+msgstr ""
+"Sleep en los gewigte om 'n skaal te laat balanseer en bereken die gewig"
+
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:3
+msgid "Mental calculation, arithmetic equality, unit conversion"
+msgstr "Hoofrekene, wiskundige gelykheid, eenheidomskakeling"
+
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:5
+msgid ""
+"To balance the scales, move the masses on the left or the right side. Take "
+"care of the weight and the unit of the masses, remember that a kilogram (kg) "
+"is 1000 grams (g). They can be arranged in any order."
+msgstr ""
+"Om die skaal te laat balanseer, skuif die gewigte aan die linkerkant of die "
+"regterkant. Let op na die gewig en meeteenhede van die gewigte. Onthou dat "
+"'n kilogram (kg) 1000 gram (g) is. Hulle kan in enige volgorde gerangskik "
+"word."
+
 #: ../src/searace-activity/searace.py:174
 msgid "The race is already being run"
 msgstr "Die wedren het reeds begin"
@@ -6381,26 +6787,6 @@ msgstr ""
 msgid "Sea race (2 Players)"
 msgstr "Seeresies (2 spelers)"
 
-#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:2
-msgid "Drag and Drop masses to balance the scales and calculate the weight"
-msgstr ""
-"Sleep en los gewigte om 'n skaal te laat balanseer en bereken die gewig"
-
-#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:3
-msgid "Mental calculation, arithmetic equality, unit conversion"
-msgstr "Hoofrekene, wiskundige gelykheid, eenheidomskakeling"
-
-#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:5
-msgid ""
-"To balance the scales, move the masses on the left or the right side. Take "
-"care of the weight and the unit of the masses, remember that a kilogram (kg) "
-"is 1000 grams (g). They can be arranged in any order."
-msgstr ""
-"Om die skaal te laat balanseer, skuif die gewigte aan die linkerkant of die "
-"regterkant. Let op na die gewig en meeteenhede van die gewigte. Onthou dat "
-"'n kilogram (kg) 1000 gram (g) is. Hulle kan in enige volgorde gerangskik "
-"word."
-
 #: ../src/searace1player-activity/searace1player.xml.in.h:1
 msgid "Give good instructions to your ship in order to be first in the race."
 msgstr "Gee goeie instruksies aan die skip om eerste te kom in die reisies."
@@ -6501,16 +6887,22 @@ msgid "Completing the puzzle requires patience and logical ability"
 msgstr "Om die legkaart klaar te maak vereis geduld en logikavaardigheid"
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:2
+#| msgid ""
+#| "For the first level with colored symbols, drag symbols on the left to "
+#| "their target position. For the higher levels, click on an empty square to "
+#| "give it the keyboard focus. Then enter a possible letter or number. "
+#| "GCompris will not let you enter invalid data."
 msgid ""
-"For the first level with colored symbols, drag symbols on the left to their "
-"target position. For the higher levels, click on an empty square to give it "
-"the keyboard focus. Then enter a possible letter or number. GCompris will "
-"not let you enter invalid data."
+"For the first level with colored symbols, select a symbol on the left and "
+"click on its target position. For the higher levels, click on an empty "
+"square to give it the keyboard focus. Then enter a possible letter or "
+"number. GCompris will not let you enter invalid data."
 msgstr ""
-"Vir die eerste vlak met gekleurde simbole moet jy simbole aan die linkerkant "
-"na hul teikenposisie sleep. Vir hoër vlakke moet jy 'n leë vierkant kliek om "
-"die sleutelbord die fokus te gee. Tik dan nog 'n moontlik letter of getal "
-"in. GCompris sal jou nie toelaat om ongeldige data in te tik nie."
+"Vir die eerste vlak met gekleurde simbole moet jy 'n simbool aan die "
+"linkerkant kies en klik op sy teikenposisie. Vir hoër vlakke moet jy 'n leë "
+"vierkant klik om die sleutelbord die fokus te gee. Tik dan nog 'n moontlike "
+"letter of getal in. GCompris sal jou nie toelaat om ongeldige data in te tik "
+"nie."
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:3
 msgid "Sudoku, place unique symbols in a square."
@@ -6545,6 +6937,26 @@ msgstr "Superbrein"
 #: ../src/superbrain-activity/superbrain.xml.in.h:3
 msgid "Tux has hidden several items. Find them again in the correct order"
 msgstr "Tux het pennetjies versteek. Werk die kleure en volgorde uit"
+
+#: ../src/superbrain-activity/superbrain.c:403
+#: ../src/superbrain-activity/superbrain.c:539
+msgid "This item is well placed"
+msgstr "Hierdie item is op die regte plek"
+
+#: ../src/superbrain-activity/superbrain.c:416
+#: ../src/superbrain-activity/superbrain.c:569
+#| msgid "is being displayed"
+msgid "This item is misplaced"
+msgstr "Hierdie item is nie op die regte plek nie"
+
+#: ../src/superbrain-activity/superbrain.c:587
+msgid "One item is well placed"
+msgstr "Een item is op die regte plek"
+
+#: ../src/superbrain-activity/superbrain.c:601
+#| msgid "And it was displayed"
+msgid "One item is misplaced"
+msgstr "Een item is nie op die regte plek nie"
 
 #: ../src/superbrain-activity/superbrain.xml.in.h:1
 msgid ""
@@ -6834,12 +7246,12 @@ msgstr ""
 msgid "Your word processor"
 msgstr "Jou woordverwerker"
 
-#: ../src/wordsgame-activity/wordsgame.c:111
+#: ../src/wordsgame-activity/wordsgame.c:112
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:1
 msgid "Falling Words"
 msgstr "Vallende woorde"
 
-#: ../src/wordsgame-activity/wordsgame.c:112
+#: ../src/wordsgame-activity/wordsgame.c:113
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the falling words before they reach the ground"
 msgstr "Tik die vallende woorde voordat hulle die grond tref"
@@ -6851,6 +7263,68 @@ msgstr "Tikoefening"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:4
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Tik die volledige woord terwyl dit val, voordat dit die grond tref"
+
+#: ../src/hangman-activity/hangman.xml.in.h:1
+msgid "A word is hidden, you must discover it letter by letter"
+msgstr "'n Woord is versteek. Ontdek dit een letter op 'n slag."
+
+#: ../src/hangman-activity/hangman.xml.in.h:2
+#| msgid "Reading"
+msgid "Reading skill"
+msgstr "Leesvaardigheid"
+
+#: ../src/hangman-activity/hangman.xml.in.h:3
+msgid "The classic hangman game"
+msgstr "Die klassieke Hangman-speletjie"
+
+#: ../src/hangman-activity/hangman.xml.in.h:4
+msgid "This is a good exercise to improve reading and spelling skills."
+msgstr ""
+"Hierdie is 'n goeie oefening vir die verbetering van lees- en "
+"spelvaardighede."
+
+#: ../src/hangman-activity/hangman.xml.in.h:5
+msgid ""
+"You can enter the letters using the virtual keyboard on the screen or with "
+"the real keyboard."
+msgstr ""
+"Jy kan die letters gee met die virtuele sleutelbord op die skerm, of met 'n "
+"regte sleutelbord."
+
+#. All the vowel of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:61
+msgid "aeiouy"
+msgstr "aeiouy"
+
+#. All the consonants of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:63
+#| msgid "abcdefghijklmnopqrstuvwxyz"
+msgid "bcdfghjklmnpqrstvwxz"
+msgstr "bdfghjklmnpqrstvw"
+
+#. Letters equivallence for the hangman activity. It has the
+#. form of a space separated list like: "e=éè a=àâ"
+#. Keep the word NONE if not available in your language
+#: ../src/hangman-activity/hangman.py:67
+msgid "NONE"
+msgstr "e=éèëê a=á i=íï o=óö u=úü y=ý"
+
+#: ../src/hangman-activity/hangman.py:104
+#| msgid "Configure the list of words"
+msgid "Could not find the list of words."
+msgstr "Kon nie die woordelys kry nie."
+
+#~ msgid "Botticelli, Primavera - 1482"
+#~ msgstr "Botticelli, Lente - 1482"
+
+#~ msgid "Caravage, Rest on the Flight into Egypt - 1597"
+#~ msgstr "Caravaggio, Rus tydens die vlug na Egipte - 1597"
+
+#~ msgid "Botticelli, The Birth of Venus - 1482–1486"
+#~ msgstr "Botticelli, Die geboorte van Venus - 1482–1486"
+
+#~ msgid "Error: Abnormally failed to load a data file"
+#~ msgstr "Fout: Abnormale mislukking met laai van datalêer"
 
 #~ msgid ""
 #~ "At the start, each player (one controlling the white pieces, the other "
@@ -6867,16 +7341,6 @@ msgstr "Tik die volledige woord terwyl dit val, voordat dit die grond tref"
 #~ "koning onder onmiddellike aanval is (in \"skaak\") en dat daar geen "
 #~ "manier is om met die volgende skuif die koning onder aanval uit te skuif "
 #~ "nie."
-
-#~ msgid "Double click the mouse"
-#~ msgstr "Dubbelkliek met die muis"
-
-#~ msgid "Double click the mouse on rectangles until all the blocks disappear."
-#~ msgstr "Dubbelkliek die muis op reghoeke totdat al die blokke verdwyn."
-
-#~ msgid "Double click the mouse to erase the area and discover the background"
-#~ msgstr ""
-#~ "Dubbelkliek die muis om die area uit te vee en die agtergrond te wys"
 
 #~ msgid "gcompris animation"
 #~ msgstr "gcompris-animasie"
@@ -6914,9 +7378,6 @@ msgstr "Tik die volledige woord terwyl dit val, voordat dit die grond tref"
 
 #~ msgid "The corresponding items have been skipped."
 #~ msgstr "Die ooreenstemmende items is oorgeslaan."
-
-#~ msgid "Yes, I saw it"
-#~ msgstr "Ja, ek het dit gesien"
 
 #~ msgid "Arabic (Tunisia)"
 #~ msgstr "Arabies (Tunisië)"
