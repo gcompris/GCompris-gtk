@@ -554,7 +554,6 @@ void gc_menu_load_dir(char *dirname, gboolean db){
 
       if(file_end_with_xml(one_dirent)) {
 	gcomprisBoard = g_malloc0 (sizeof (GcomprisBoard));
-	gcomprisBoard->board_dir = g_strdup(dirname);
 
 	/* Need to be initialized here because _read_xml_file is used also to reread 	*/
 	/* the locale data									*/
@@ -670,7 +669,6 @@ void gc_menu_load()
 void gc_menu_board_free(GcomprisBoard *board)
 {
     g_free(board->type);
-    g_free(board->board_dir);
     g_free(board->mode);
 
     g_free(board->name);

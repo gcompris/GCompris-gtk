@@ -827,8 +827,6 @@ GList *gc_menu_load_db(GList *boards_list)
 
 #ifdef USE_SQLITE
 
-  GcomprisProperties	*properties = gc_prop_get();
-
   GList *boards = boards_list;
 
   char *zErrMsg;
@@ -865,9 +863,6 @@ GList *gc_menu_load_db(GList *boards_list)
 
     gcomprisBoard->gmodule      = NULL;
     gcomprisBoard->gmodule_file = NULL;
-
-    /* From DB we have only package_data_dir. */
-    gcomprisBoard->board_dir = g_strdup(properties->package_data_dir);
 
     gcomprisBoard->board_id = atoi(result[i++]);
     gcomprisBoard->name = g_strdup(result[i++]);
@@ -1878,8 +1873,6 @@ GcomprisBoard *gc_db_get_board_from_id(int board_id)
 
 #ifdef USE_SQLITE
 
-  GcomprisProperties	*properties = gc_prop_get();
-
   char *zErrMsg;
   char **result;
   int rc;
@@ -1919,9 +1912,6 @@ GcomprisBoard *gc_db_get_board_from_id(int board_id)
 
   gcomprisBoard->gmodule      = NULL;
   gcomprisBoard->gmodule_file = NULL;
-
-  /* From DB we have only package_data_dir. */
-  gcomprisBoard->board_dir = g_strdup(properties->package_data_dir);
 
   gcomprisBoard->board_id = board_id;
   gcomprisBoard->name = g_strdup(result[i++]);

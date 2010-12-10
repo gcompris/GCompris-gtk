@@ -29,9 +29,6 @@ struct _GcomprisBoard
   gchar               *type;
   gboolean	       board_ready;
 
-  /* The directory from which it was started */
-  gchar		      *board_dir;
-
   /* Board specific mode */
   gchar		      *mode;
 

@@ -208,8 +208,7 @@ init_config_boards()
 
     /* Test if board come with --python_plugin_dir option */
 
-    g_message("board_dir: '%s' python_plugin_dir '%s' file_name '%s'",
-	      board->board_dir,
+    g_message("python_plugin_dir '%s' file_name '%s'",
 	      properties->package_python_plugin_dir,
 	      board_file_name);
 
@@ -355,15 +354,6 @@ pythonboard_start (GcomprisBoard *agcomprisBoard){
 
     PyRun_SimpleString(boarddir);
     g_free(boarddir);
-
-
-    /* Test if board come with -L option */
-    if (strcmp(gcomprisBoard->board_dir, properties->package_data_dir)!=0){
-      boarddir = g_strdup_printf("sys.path.append('%s/../python/')", gcomprisBoard->board_dir);
-
-      PyRun_SimpleString(boarddir);
-      g_free(boarddir);
-    }
 
 
     /* Load the gcompris modules */

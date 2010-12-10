@@ -474,19 +474,9 @@ static void menu_create_item(GooCanvasItem *parent, MenuItems *menuitems, Gcompr
   GdkPixbuf *menu_pixmap = NULL;
   GooCanvasItem *menu_button;
   int difficulty;
-  gchar *tmp_board_dir;
   gdouble ratio, pixmap_w, pixmap_h;
 
-  /*
-   * Take care to load the board->icon_name from the dir specified
-   * in the board->board_dir
-   * To make it simple and reuse the gc_pixmap_load, we overwrite temporarily
-   * the gcomprisBoard->board_dir and board->board_dir
-   */
-  tmp_board_dir = gcomprisBoard->board_dir;
-  gcomprisBoard->board_dir = board->board_dir;
   menu_pixmap = gc_pixmap_load(board->icon_name);
-  gcomprisBoard->board_dir = tmp_board_dir;
 
   ratio = get_ratio (menu_pixmap, icon_size);
 
