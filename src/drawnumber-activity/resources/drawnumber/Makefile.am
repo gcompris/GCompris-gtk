@@ -8,7 +8,6 @@ img_DATA = \
 	dn_epouvantail1.jpg \
 	dn_epouvantail2.jpg \
 	dn_fond1.jpg \
-	dn_fond2.jpg \
 	dn_fou1.jpg \
 	dn_fou2.jpg \
 	dn_hibou1.jpg \
