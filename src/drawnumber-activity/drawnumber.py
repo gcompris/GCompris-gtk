@@ -122,7 +122,6 @@ class Gcompris_drawnumber :
                          self.gcomprisBoard.number_of_sublevel)
     gcompris.score.set(self.gcomprisBoard.sublevel)
 
-    self.data[sublevel-1].dump()
     # Set point number 0 from which the draw start. This point is equal to first one.
     self.POINT.append( self.point(self.data[sublevel-1].points[0][0],
                                   self.data[sublevel-1].points[0][1]) )
