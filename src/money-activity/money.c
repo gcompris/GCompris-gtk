@@ -50,25 +50,40 @@ typedef struct {
   GooCanvasItem *item;
 } MoneyItem;
 
-// List of images to use in the game
-static gchar *imageList[] =
+// We create 3 prices categories to make the game more realistic.
+// List of images to use in the game (cheap items)
+static gchar *imageList1[] =
 {
   "money/apple.svgz",
-  "money/bicycle.svgz",
-  "money/bottle.svgz",
-  "money/carot.svgz",
-  "money/eggpot.svgz",
-  "money/lamp.svgz",
-  "money/light.svgz",
+  "money/orange.svgz",
+  "money/banane.svgz",
   "money/pamplemousse.svgz",
-  "money/crown.svgz",
+  "money/carot.svgz",
   "money/cerise.svgz",
   "money/cake.svgz",
-  "money/football.svgz",
-  "money/banane.svgz",
-  "money/orange.svgz",
 };
-#define NUMBER_OF_IMAGES G_N_ELEMENTS(imageList)
+#define NUMBER_OF_IMAGES1 G_N_ELEMENTS(imageList1)
+
+// List of images to use in the game (middle price items)
+static gchar *imageList2[] =
+{
+  "money/umbrella.svgz",
+  "money/pencil.svgz",
+  "money/bottle.svgz",
+  "money/light.svgz",
+  "money/eggpot.svgz",
+};
+#define NUMBER_OF_IMAGES2 G_N_ELEMENTS(imageList2)
+
+// List of images to use in the game (expensive items)
+static gchar *imageList3[] =
+{
+  "money/lamp.svgz",
+  "money/football.svgz",
+  "money/bicycle.svgz",
+  "money/crown.svgz",
+};
+#define NUMBER_OF_IMAGES3 G_N_ELEMENTS(imageList3)
 
 #define WITHOUT_CENTS	1
 #define WITH_CENTS	2
@@ -477,15 +492,39 @@ static void money_next_level()
     RsvgDimensionData dimension;
     double xratio, yratio;
 
-    svg_handle = \
-      gc_rsvg_load(imageList[g_random_int_range(0, NUMBER_OF_IMAGES-1)]);
+    /* Display the price */
+    object_price  = (double) g_random_int_range(min_price/number_of_item,
+						max_price/number_of_item);
 
-    rsvg_handle_get_dimensions(svg_handle, &dimension);
+    {
+      /* Select an image list depending on the price */
+      gchar **imageList;
+      guint number_of_images;
+      if ( object_price < 5 )
+	{
+	  imageList = imageList1;
+	  number_of_images = NUMBER_OF_IMAGES1;
+	}
+      else if ( object_price < 10 )
+	{
+	  imageList = imageList2;
+	  number_of_images = NUMBER_OF_IMAGES2;
+	}
+      else
+	{
+	  imageList = imageList3;
+	  number_of_images = NUMBER_OF_IMAGES3;
+	}
 
-    item = goo_canvas_svg_new ( boardRootItem,
-			      svg_handle,
-			      NULL);
+      svg_handle =							\
+	gc_rsvg_load(imageList[g_random_int_range(0, number_of_images - 1)]);
 
+      rsvg_handle_get_dimensions(svg_handle, &dimension);
+
+      item = goo_canvas_svg_new ( boardRootItem,
+				  svg_handle,
+				  NULL);
+    }
     xratio =  (gdouble)(BOARDWIDTH/(number_of_item+1)) / dimension.width;
     yratio =  100.0 / dimension.height;
 
@@ -496,10 +535,6 @@ static void money_next_level()
     			      200);
 
     goo_canvas_item_scale(item, xratio, xratio);
-
-    /* Display the price */
-    object_price  = (double) g_random_int_range(min_price/number_of_item,
-						max_price/number_of_item);
 
     if(currentMode == WITH_CENTS)
       {
