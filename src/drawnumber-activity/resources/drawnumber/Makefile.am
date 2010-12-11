@@ -1,5 +1,6 @@
 imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/drawnumber
 img_DATA = \
+	activity.txt \
 	dn_bear1.png \
 	dn_bear2.png \
 	dn_de1.png \
@@ -7,6 +8,7 @@ img_DATA = \
 	dn_epouvantail1.png \
 	dn_epouvantail2.png \
 	dn_fond1.png \
+	dn_fond2.png \
 	dn_fou1.png \
 	dn_fou2.png \
 	dn_hibou1.png \

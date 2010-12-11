@@ -1,6 +1,7 @@
 #  gcompris - drawnumber
 #
 # Copyright (C) 2007, 2008 Olivier Ponchaut
+# Copyright (C) 2010 Bruno Coudoin
 #
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
@@ -28,6 +29,8 @@ import gtk.gdk
 import gobject
 import cairo
 
+from gcompris import gcompris_gettext as _
+
 class Gcompris_drawnumber :
 
   def __init__(self, gcomprisBoard):
@@ -37,12 +40,14 @@ class Gcompris_drawnumber :
     self.board_paused  = 0;
     self.gamewon       = 0;
     self.timeout       = 0;
+    self.data_activity = {};
 
   def start(self):
     #definition of attributs
     self.MAX=0
     self.gcomprisBoard.level=1
-    self.gcomprisBoard.maxlevel=3    #self.data[0]
+    self.load_activity()
+    self.gcomprisBoard.maxlevel = len(self.data_activity)
 
     #Display and configuration of menu bar
     gcompris.bar_set(gcompris.BAR_LEVEL)
@@ -84,10 +89,9 @@ class Gcompris_drawnumber :
   def set_level(self,level=1):
     """Start of the game at level number level"""
     self.gcomprisBoard.level=level
-    self.data=self.load_data(level)
+    self.data = self.load_data( level )
     gcompris.bar_set_level(self.gcomprisBoard)
 
-    #Start sublevel 1 of selected level
     self.set_sublevel(1)
 
   def set_sublevel(self,sublevel=1) :
@@ -97,7 +101,7 @@ class Gcompris_drawnumber :
 
     # Setting of the first background image of the sublevel
     gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
-                            self.data[sublevel][0][0])
+                            self.data[sublevel-1].img1)
 
     # Creation of canvas group use by the activity
     self.ROOT = \
@@ -106,52 +110,52 @@ class Gcompris_drawnumber :
       )
 
     #Initialisation of sub-elements in list
-    self.POINT=[0]
-    self.TEXT=[0]
+    self.POINT=[]
+    self.TEXT=[]
     self.actu=0
 
     #Display actual sublevel and number of sublevel of this level
-    self.gcomprisBoard.sublevel=sublevel
-    self.gcomprisBoard.number_of_sublevel=len(self.data)
+    self.gcomprisBoard.sublevel = sublevel
+    self.gcomprisBoard.number_of_sublevel = len(self.data)
     #Display of score
     gcompris.score.start(gcompris.score.STYLE_NOTE, 10, 485,
                          self.gcomprisBoard.number_of_sublevel)
     gcompris.score.set(self.gcomprisBoard.sublevel)
 
-    #Set point number 0 from which the draw start. This point is equal to first one.
-    self.POINT[0]=self.point(0,
-                             self.data[sublevel][1][0],
-                             self.data[sublevel][1][1],30)
+    self.data[sublevel-1].dump()
+    # Set point number 0 from which the draw start. This point is equal to first one.
+    self.POINT.append( self.point(self.data[sublevel-1].points[0][0],
+                                  self.data[sublevel-1].points[0][1]) )
     self.POINT[0].props.visibility = goocanvas.ITEM_INVISIBLE
-    self.MAX=len(self.data[sublevel])-1
+    self.TEXT.append(None)
+    self.MAX = len( self.data[sublevel-1].points )
 
-    #Data loading from global data and display of points and numbers
-    i=1
+    # Data loading from global data and display of points and numbers
     prev_text = None
     prev_point = None
-    while(i <= self.MAX):
-      self.POINT.append(self.point(i,self.data[sublevel][i][0],
-                                   self.data[sublevel][i][1],30))
-      self.POINT[i].connect('button_press_event', self.action, i)
+    for i in range(0, self.MAX):
+      point = self.point(self.data[sublevel-1].points[i][0],
+                         self.data[sublevel-1].points[i][1])
+      self.POINT.append( point )
+      self.POINT[i+1].connect('button_press_event', self.action, i+1)
 
-      self.TEXT.append(self.text(i,
-                                 self.data[sublevel][i][0],
-                                 self.data[sublevel][i][1]))
-      self.TEXT[i].connect('button_press_event', self.action, i)
+      text = self.text(i + 1,
+                       self.data[sublevel-1].points[i][0],
+                       self.data[sublevel-1].points[i][1])
+      self.TEXT.append( text )
+      self.TEXT[i+1].connect('button_press_event', self.action, i+1)
 
       # Setting of display level to prevent covering a point with another point which
       # cause an impossibility to select it.
-      self.TEXT[i].lower(prev_point)
-      prev_text = self.TEXT[i]
-      self.POINT[i].lower(prev_text)
-      prev_point = self.POINT[i]
-
-      i=i+1
+      self.TEXT[i+1].lower(prev_point)
+      prev_text = self.TEXT[i+1]
+      self.POINT[i+1].lower(prev_text)
+      prev_point = self.POINT[i+1]
 
     #Setting color of the first point to blue instead of green
     self.POINT[1].set_properties(fill_color_rgba=0x003DF5D0)
 
-  def point(self, idpt, x, y, d=30):
+  def point(self, x, y, d=30):
     """Setting point from his x and y location"""
     rond = goocanvas.Ellipse(
       parent = self.ROOT,
@@ -202,7 +206,7 @@ class Gcompris_drawnumber :
         self.TEXT[idpt].props.visibility = goocanvas.ITEM_INVISIBLE
         if idpt == self.MAX : #Action to execute if all points have been selected in good way
           gcompris.set_background(self.ROOT,
-                                  self.data[self.gcomprisBoard.sublevel][0][1])
+                                  self.data[self.gcomprisBoard.sublevel-1].img2)
           self.gamewon = 1
           gcompris.bar_hide(True)
           self.timeout = gobject.timeout_add(1500, self.lauch_bonus) # The level is complete -> Bonus display
@@ -216,60 +220,62 @@ class Gcompris_drawnumber :
     pass
 
   def next_level(self) :
-    if self.gcomprisBoard.sublevel==self.gcomprisBoard.number_of_sublevel :
-      if (self.gcomprisBoard.level+1)>self.gcomprisBoard.maxlevel :
+    if self.gcomprisBoard.sublevel == self.gcomprisBoard.number_of_sublevel :
+      if (self.gcomprisBoard.level+1) > self.gcomprisBoard.maxlevel :
         self.set_level((self.gcomprisBoard.level))
       else :
         self.set_level((self.gcomprisBoard.level+1))
     else :
       self.set_sublevel((self.gcomprisBoard.sublevel+1))
 
-  def load_data(self,level): #Data of this game
+  # Grab the data for this activity from the file activity.txt
+  def load_activity(self):
+    filename = gcompris.DATA_DIR + '/drawnumber/activity.txt'
+    try:
+      f = open( filename, 'r')
+    except:
+      gcompris.utils.dialog(_("Cannot find the file '{filename}'").format(filename=filename),
+                            None)
+      return
 
-    #Game data of drawnumber board
-    #How to add level to this board ? ->
-    #data[x] = Data of level x : [ [ nbr of points in level x,
-    #                                "First background image of level x",
-    #                                "Last background image of level x"
-    #                              ],
-    #                              [x1,y1],...,[xn,yn]
-    #                            ]
-    # (with xn,yn the locations x and y of point number n of the image)
+    level = 1
+    for line in f:
+      line = line.strip()
+      if line.startswith('#'): continue
+      if line == 'NEXT_LEVEL':
+        level += 1
+        continue
 
-    if level==1 : #Picture with 1 to 20 points
-      data={}
-      data[1]=[["drawnumber/dn_fond1.png", "drawnumber/dn_fond1.png"],
-               [407,121],[489,369],[279,216],[537,214],[330,369],[407,121]]
+      linesplit = line.split(';')
+      linesplit = [line.strip() for line in linesplit]
+      if len(linesplit) < 4: continue
+      img1 = linesplit[0]
+      img2 = linesplit[1]
+      points = []
+      for coord in linesplit[2:]:
+        # coord is a python list [x, y]
+        points.append( eval(coord) )
 
-      data[2]=[["drawnumber/dn_de1.png", "drawnumber/dn_de2.png"],
-               [404,375],[406,271],[503,233],[588,278],[588,337],[611,311],[727,320],[728,424],[682,486],[560,474],[560,397],[495,423],[404,375]]
+      if not self.data_activity.has_key(level):
+         self.data_activity[level] = []
+      self.data_activity[level].append( Dataset(img1, img2, points) )
 
-      data[3]=[["drawnumber/dn_house1.png", "drawnumber/dn_house2.png"],
-               [406,360],[512,360],[513,175],[456,120],[455,70],[430,70],[430,96],[372,40],[219,177],[220,361],[353,361],[352,276],[406,276],[406,360]]
+    f.close()
 
-      data[4]=[["drawnumber/dn_sapin1.png", "drawnumber/dn_sapin2.png"],
-               [244,463],[341,361],[267,373],[361,238],[300,251],[377,127],[329,146],[399,52],[464,144],[416,128],[492,251],[435,239],[527,371],[458,362],[557,466],[422,453],[422,504],[374,504],[374,453],[244,463]]
 
-    elif level==2 : #Picture with 21 to 50 points
-      data={}
-      data[1]=[["drawnumber/dn_epouvantail1.png", "drawnumber/dn_epouvantail2.png"],
-               [255,449],[340,340],[340,224],[212,233],[208,168],[395,160],[368,135],[367,77],[340,79],[339,68],[363,65],[359,18],[460,9],[464,56],[488,54],[489,66],[463,68],[462,135],[434,161],[612,163],[607,223],[477,221],[477,337],[561,457],[507,487],[413,377],[309,491],[255,449]]
+  # Data for this level
+  def load_data(self, level):
+    return self.data_activity[level]
 
-      data[2]=[["drawnumber/dn_plane1.png", "drawnumber/dn_plane2.png"],
-               [342,312],[163,317],[141,309],[128,285],[141,256],[165,236],[246,212],[170,127],[149,86],[165,70],[190,69],[234,92],[369,200],[500,198],[577,188],[534,161],[533,147],[545,141],[567,144],[604,163],[631,116],[649,105],[664,117],[671,197],[708,212],[718,227],[712,238],[688,238],[652,224],[576,263],[459,288],[533,334],[575,380],[573,398],[551,407],[404,343],[342,312]]
 
-      data[3]=[["drawnumber/dn_poisson1.png", "drawnumber/dn_poisson2.png"],
-               [33,338],[78,238],[152,172],[320,158],[378,84],[423,70],[450,83],[463,117],[448,154],[453,164],[478,174],[526,144],[552,158],[555,168],[545,188],[557,215],[623,241],[685,222],[712,188],[739,176],[761,194],[766,274],[740,380],[721,422],[678,408],[654,362],[558,349],[488,367],[498,394],[495,427],[461,448],[414,443],[350,389],[312,387],[320,404],[315,431],[291,433],[267,400],[78,400],[55,384],[47,340],[33,338]]
+# The data for a given sublevel
+class Dataset:
 
-    elif level==3 : #Picture with 51 to ... points
-      data={}
-      data[1]=[["drawnumber/dn_fou1.png", "drawnumber/dn_fou2.png"],
-               [285,204],[342,143],[374,180],[396,118],[415,188],[419,120],[427,179],[462,154],[514,203],[465,188],[436,224],[436,236],[434,296],[429,315],[470,306],[514,262],[534,184],[554,186],[536,279],[463,366],[454,473],[462,518],[358,518],[370,473],[352,365],[327,402],[350,468],[330,483],[298,407],[330,333],[377,317],[369,295],[364,235],[363,223],[333,189],[285,204]]
+  def __init__(self, img1, img2, points):
+    self.img1 = img1
+    self.img2 = img2
+    self.points = points
 
-      data[2]=[["drawnumber/dn_bear1.png", "drawnumber/dn_bear2.png"],
-               [304,256],[262,240],[216,206],[192,174],[195,159],[216,154],[257,167],[300,188],[334,220],[352,206],[370,200],[342,185],[321,154],[319,117],[337,90],[320,76],[315,55],[335,38],[360,40],[376,52],[377,66],[400,59],[431,60],[450,66],[451,48],[468,37],[490,36],[507,48],[510,70],[501,82],[486,86],[502,110],[506,136],[499,164],[479,189],[458,200],[480,212],[522,180],[578,158],[611,154],[622,164],[618,184],[592,213],[550,236],[515,251],[529,286],[532,329],[526,364],[548,354],[566,360],[576,384],[571,417],[548,455],[520,470],[493,456],[490,419],[461,440],[414,453],[360,441],[330,422],[331,450],[317,471],[284,467],[255,434],[242,402],[248,366],[271,354],[296,364],[288,326],[292,282],[304,256]]
-
-      data[3]=[["drawnumber/dn_hibou1.png", "drawnumber/dn_hibou2.png"],
-               [443,133],[423,11],[434,10],[472,56],[458,20],[467,19],[495,71],[491,30],[501,33],[522,116],[519,72],[529,75],[537,153],[539,119],[546,125],[547,159],[555,154],[556,208],[583,169],[724,98],[739,99],[703,137],[743,109],[742,121],[691,165],[742,143],[741,155],[654,200],[716,182],[713,195],[650,215],[689,212],[680,219],[615,235],[661,229],[653,238],[604,250],[622,250],[615,255],[582,260],[600,263],[590,268],[577,268],[606,300],[644,294],[643,302],[599,314],[625,311],[623,318],[593,323],[615,323],[611,327],[586,329],[599,332],[591,336],[553,335],[535,357],[534,377],[527,368],[511,367],[493,375],[501,366],[485,371],[493,363],[482,365],[492,355],[514,354],[532,332],[520,331],[505,317],[500,291],[501,303],[490,289],[486,297],[479,282],[473,287],[466,269],[448,252],[446,224],[460,201],[456,191],[459,182],[467,197],[479,196],[443,133]]
-
-    return data
+  def dump(self):
+    print self.img1
+    print self.points
