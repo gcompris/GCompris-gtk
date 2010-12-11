@@ -373,7 +373,6 @@ item_event (GooCanvasItem  *item,
 	    money_widget_add(moneyItem->moneyWidget->priv->targetWidget,
 			     moneyItem->value);
 
-	  moneyactivity_process_ok();
 	  break;
 	default:
 	  break;

@@ -36,6 +36,7 @@ static GooCanvasItem *boardRootItem = NULL;
 
 static void	 money_destroy_all_items(void);
 static void	 money_next_level(void);
+void		 moneyactivity_process_ok(void);
 
 Money_Widget    *tux_money    = NULL;
 Money_Widget    *seller_money = NULL;
@@ -79,7 +80,7 @@ static BoardPlugin menu_bp =
     NULL,
     NULL,
     "Money",
-    "Pratise money usage",
+    "Practise money usage",
     "Bruno Coudoin <bruno.coudoin@free.fr>",
     NULL,
     NULL,
@@ -213,6 +214,16 @@ static void money_next_level()
   boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
 					NULL);
 
+
+  /* The OK Button */
+  GooCanvasItem *item = goo_canvas_svg_new( boardRootItem,
+					    gc_skin_rsvg_get(),
+					    "svg-id", "#OK",
+					    NULL);
+  SET_ITEM_LOCATION(item, 725, 230);
+  g_signal_connect(item, "button_press_event",
+		   (GtkSignalFunc) moneyactivity_process_ok, NULL);
+  gc_item_focus_init(item, NULL);
 
   tux_money = MONEY_WIDGET(money_widget_new());
   money_widget_set_position(tux_money,
