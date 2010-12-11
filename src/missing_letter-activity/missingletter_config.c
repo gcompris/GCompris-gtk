@@ -93,7 +93,7 @@ static gboolean valid_entry(const gchar *question, const gchar *answer,
   if ( strchr(question, '_') == NULL )
     {
       error = _("Question must include the character '_'. "
-		"It represent the letter to search.");
+		"It represents the letter to search.");
       goto error;
     }
 
@@ -589,7 +589,7 @@ void config_missing_letter(GcomprisBoardConf *bconf, GHashTable *config)
     gtk_widget_show(choice);
     gtk_table_attach_defaults(GTK_TABLE(table), choice, 3, 4, 1, 2);
     gtk_widget_set_tooltip_text(choice, _("Enter here the letter that will be proposed. "
-					  "The first letter here must be the solution"));
+					  "The first letter here must be the solution."));
 
     conf_data -> combo_level = GTK_COMBO_BOX(level);
     conf_data -> view = GTK_TREE_VIEW(view);
