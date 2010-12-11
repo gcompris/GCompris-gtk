@@ -13,8 +13,8 @@ msgstr ""
 "Project-Id-Version: gcompris.gcomprixogoo\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&component=general\n"
-"POT-Creation-Date: 2010-12-04 11:00+0000\n"
-"PO-Revision-Date: 2010-12-05 19:00+0100\n"
+"POT-Creation-Date: 2010-12-11 00:47+0000\n"
+"PO-Revision-Date: 2010-12-11 18:18+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -204,7 +204,7 @@ msgstr ""
 msgid "GCompris Main Menu"
 msgstr "Menú principal de GCompris"
 
-#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:876
+#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:866
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -2533,6 +2533,10 @@ msgstr ""
 "Para ahorrar tiempo, puedes pulsar con el botón central del ratón para "
 "borrar un objeto."
 
+#: ../src/drawnumber-activity/drawnumber.py:237
+msgid "Cannot find the file '{filename}'"
+msgstr "No se puede encontrar el archivo «{filename}»"
+
 #: ../src/drawnumber-activity/drawnumber.xml.in.h:1
 msgid "Can count from 1 to 50."
 msgstr "Puedes contar de 1 a 50."
@@ -2789,19 +2793,19 @@ msgstr ""
 msgid "OK"
 msgstr "Aceptar"
 
-#: ../src/gcompris/bar.c:692
+#: ../src/gcompris/bar.c:693
 msgid "GCompris confirmation"
 msgstr "Confirmación de GCompris"
 
-#: ../src/gcompris/bar.c:693
+#: ../src/gcompris/bar.c:694
 msgid "Are you sure you want to quit?"
 msgstr "¿Seguro que deseas salir?"
 
-#: ../src/gcompris/bar.c:694
+#: ../src/gcompris/bar.c:695
 msgid "Yes, I am sure!"
 msgstr "Sí, estoy seguro."
 
-#: ../src/gcompris/bar.c:695
+#: ../src/gcompris/bar.c:696
 msgid "No, I want to keep going"
 msgstr "No, quiero continuar"
 
@@ -3382,7 +3386,7 @@ msgstr ""
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Permitir la ejecución de instancias múltiples de GCompris."
 
-#: ../src/gcompris/gcompris.c:922
+#: ../src/gcompris/gcompris.c:929
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -3404,7 +3408,14 @@ msgstr ""
 "considera usar GNU/Linux. Obtén más información acerca de esto en la FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1462
+#: ../src/gcompris/gcompris.c:1223
+#, c-format
+msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
+msgstr ""
+"Falló al cargar la apariencia «%s» (comprueba que el archivo existe y se "
+"puede leer)"
+
+#: ../src/gcompris/gcompris.c:1485
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
@@ -3412,12 +3423,12 @@ msgstr ""
 "No se iniciará GCompris porque el archivo de bloqueo es menos antiguo de %d "
 "segundos.\n"
 
-#: ../src/gcompris/gcompris.c:1464
+#: ../src/gcompris/gcompris.c:1487
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "El archivo de bloqueo es: %s\n"
 
-#: ../src/gcompris/gcompris.c:1578
+#: ../src/gcompris/gcompris.c:1601
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3431,27 +3442,27 @@ msgstr ""
 "Más información en http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1693
+#: ../src/gcompris/gcompris.c:1716
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Usa -l actividad para acceder directamente a una actividad.\n"
 
-#: ../src/gcompris/gcompris.c:1694
+#: ../src/gcompris/gcompris.c:1717
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Lista de actividades disponibles es:\n"
 
-#: ../src/gcompris/gcompris.c:1725
+#: ../src/gcompris/gcompris.c:1748
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Número de actividades: %d\n"
 
-#: ../src/gcompris/gcompris.c:1761
+#: ../src/gcompris/gcompris.c:1784
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s existe pero no se puede leer o escribir"
 
-#: ../src/gcompris/gcompris.c:1824
+#: ../src/gcompris/gcompris.c:1847
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
@@ -3460,7 +3471,7 @@ msgstr ""
 "La opción --server no se puede usar porque GCompris se ha compilado sin "
 "soporte de red"
 
-#: ../src/gcompris/gcompris.c:1878
+#: ../src/gcompris/gcompris.c:1901
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3469,7 +3480,7 @@ msgstr ""
 "ERROR: No se encontró el perfil «%s». Ejecute «gcompris --profile list» para "
 "listar los disponibles\n"
 
-#: ../src/gcompris/gcompris.c:1892
+#: ../src/gcompris/gcompris.c:1915
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "La lista de perfiles disponibles es:\n"
@@ -3482,7 +3493,7 @@ msgstr "No afectado"
 msgid "Users without a class"
 msgstr "Usuarios sin una clase"
 
-#: ../src/gcompris/gcompris_db.c:894
+#: ../src/gcompris/gcompris_db.c:889
 #, c-format
 msgid ""
 "Loading activity from database:\n"
@@ -3507,7 +3518,7 @@ msgstr "Manual"
 msgid "Credit"
 msgstr "Crédito"
 
-#: ../src/gcompris/menu.c:583
+#: ../src/gcompris/menu.c:582
 #, c-format
 msgid ""
 "Loading activity from file:\n"
@@ -6269,12 +6280,12 @@ msgstr "Cazador de fotos"
 msgid "Visual discrimination."
 msgstr "Discriminación visual."
 
-#: ../src/planegame-activity/planegame.c:61
+#: ../src/planegame-activity/planegame.c:62
 #: ../src/planegame-activity/planegame.xml.in.h:4
 msgid "Numbers in Order"
 msgstr "Números en orden"
 
-#: ../src/planegame-activity/planegame.c:62
+#: ../src/planegame-activity/planegame.c:63
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "Mueve el avión para capturar las nubes en el orden correcto"
 
