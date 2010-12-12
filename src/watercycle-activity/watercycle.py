@@ -22,6 +22,7 @@ import gcompris.utils
 import gcompris.anim
 import gcompris.skin
 import gcompris.sound
+import gcompris.bonus
 import gtk
 import gtk.gdk
 
@@ -46,6 +47,9 @@ class Gcompris_watercycle:
 
     # Need to manage the timers to quit properly
     self.waterlevel_timer = 0
+
+    # Used to display the bonus a single time
+    self.you_won = False
 
     gcompris.sound.play_ogg("sounds/Harbor1.wav", "sounds/Harbor3.wav")
 
@@ -476,6 +480,9 @@ class Gcompris_watercycle:
 
     if (self.waterlevel > self.waterlevel_min) and self.showerbutton:
       self.tuxshowerwateritem.props.visibility = goocanvas.ITEM_VISIBLE
+      if not self.you_won:
+        gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.FLOWER)
+        self.you_won = True
     else:
       self.tuxshowerwateritem.props.visibility = goocanvas.ITEM_INVISIBLE
 
