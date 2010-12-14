@@ -1,24 +1,29 @@
-# translation of gcompris.HEAD.eo.po to Esperanto
-# This file is distributed under the same license as the PACKAGE package.
-# Copyright (C) YEAR THE PACKAGES COPYRIGHT HOLDER.
+# Esperanto translation for gcompris
+# This file is distributed under the same license as the gcompris package.
+# Copyright (C) 2009, 2010 Free Software Foundation, Inc.
 #
 # Navaraj Budha <navaraj_esp@yahoo.com>, 2009.
-# Jacob Nordfalk <jacob.nordfalk@gmail.com>, 2009.
+# Jacob NORDFALK <jacob.nordfalk@gmail.com>, 2009.
+# Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>, 2010.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD.eo\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-16 23:02+0100\n"
-"PO-Revision-Date: 2009-04-21 14:13+0545\n"
-"Last-Translator: Navaraj Budha <navaraj_esp@yahoo.com>\n"
-"Language-Team: None\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=gcompris&component=general\n"
+"POT-Creation-Date: 2010-12-12 11:49+0000\n"
+"PO-Revision-Date: 2010-12-14 17:39+0100\n"
+"Last-Translator: Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>\n"
+"Language-Team: Esperanto <ubuntu-l10n-eo@lists.launchpad.net>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
-msgstr "Iru al algebraj aktivecoj"
+msgstr "Iri al algebraj aktivecoj"
 
 #: ../boards/algebra_group.xml.in.h:2 ../boards/menu.xml.in.h:18
 msgid "Left-click the mouse on an activity to select it."
@@ -26,7 +31,7 @@ msgstr "Maldekstre-klaku la muson sur aktiveco por elekti ĝin."
 
 #: ../boards/algebramenu.xml.in.h:1
 msgid "Go to calculation activities"
-msgstr "Iru al kalkuladaj aktivecoj"
+msgstr "Iri al kalkuladaj aktivecoj"
 
 #: ../boards/algebramenu.xml.in.h:2
 msgid "Various calculation activities."
@@ -35,11 +40,11 @@ msgstr "Diversaj kalkuladaj aktivecoj."
 #: ../boards/chess.xml.in.h:1
 #: ../src/chess_computer-activity/chess_computer.xml.in.h:3
 msgid "Play chess against the computer in a learning mode"
-msgstr "Ludu ŝakon kontraŭ la komputilo en lerno-modalo"
+msgstr "Ludi ŝakon kontraŭ la komputilo en lernreĝimo"
 
 #: ../boards/chess.xml.in.h:2
 msgid "Practice chess"
-msgstr "Praktiku ŝako-ludon "
+msgstr "Praktiki ŝakon"
 
 #: ../boards/colors_group.xml.in.h:1
 msgid "Colors based activities."
@@ -47,15 +52,15 @@ msgstr "Kolor-bazitaj aktivecoj."
 
 #: ../boards/colors_group.xml.in.h:2
 msgid "Go to Color activities"
-msgstr "Iru al koloraj aktivecoj"
+msgstr "Iri al koloraj aktivecoj"
 
 #: ../boards/computer.xml.in.h:1
 msgid "Discover the Computer"
-msgstr "Eltrovu la komputilon"
+msgstr "Eltrovi la komputilon"
 
 #: ../boards/computer.xml.in.h:2
 msgid "Play with computer peripherals."
-msgstr "Ludu kun la komputilaj partoj"
+msgstr "Ludi kun la komputilaj partoj"
 
 #: ../boards/discovery.xml.in.h:1
 msgid "Colors, sounds, memory..."
@@ -63,27 +68,27 @@ msgstr "Koloroj, sonoj, memoro..."
 
 #: ../boards/discovery.xml.in.h:2
 msgid "Go to discovery activities"
-msgstr "Iru al esploraj aktivecoj"
+msgstr "Iri al esploraj aktivecoj"
 
 #: ../boards/experience.xml.in.h:1
 msgid "Go to experiential activities"
-msgstr "Iru al eksperimentaj aktivecoj"
+msgstr "Iri al eksperimentaj aktivecoj"
 
 #: ../boards/experience.xml.in.h:2
 msgid "Various activities based on physical movement."
-msgstr "Diversaj aktivecoj bazitaj sur fizika movado"
+msgstr "Diversaj aktivecoj bazitaj sur fizika movado."
 
 #: ../boards/experimental.xml.in.h:1
 msgid "Go to Experimental activities"
-msgstr "Iru al eksperimentaj aktivecoj"
+msgstr "Iri al eksperimentaj aktivecoj"
 
 #: ../boards/experimental.xml.in.h:2
 msgid "Run gcompris --experimental to see this menu."
-msgstr "Ruligu gcompris --experimental por vidi tiun ĉi menuon."
+msgstr "Lanĉi gcompris --experimental por vidi tiun ĉi menuon."
 
 #: ../boards/fun.xml.in.h:1
 msgid "Go to Amusement activities"
-msgstr "Iru al amuziĝaj aktivecoj"
+msgstr "Iri al amuziĝaj aktivecoj"
 
 #: ../boards/fun.xml.in.h:2
 msgid "Various fun activities."
@@ -99,7 +104,7 @@ msgstr "Geometriaj aktivecoj."
 
 #: ../boards/gnumchmenu.xml.in.h:1
 msgid "Go to Number Munchers activities"
-msgstr "Iru al numer-maĉantaj aktivecoj"
+msgstr "Iri al numer-maĉantaj aktivecoj"
 
 #: ../boards/gnumchmenu.xml.in.h:2
 msgid "Number Munchers are games to play with arithmetic."
@@ -107,7 +112,7 @@ msgstr "Numer-maĉantoj estas ludoj por ludi kun aritmetiko."
 
 #: ../boards/keyboard.xml.in.h:1
 msgid "Discover the keyboard."
-msgstr "Eltrovu la klavaro "
+msgstr "Eltrovi la klavaron."
 
 #: ../boards/keyboard.xml.in.h:2
 msgid "Keyboard-manipulation boards"
@@ -123,15 +128,15 @@ msgstr "Matematikoj"
 
 #: ../boards/mazeMenu.xml.in.h:1
 msgid "Find your way out of different types of mazes"
-msgstr "Trovu vian vojon eliri de la diversaj enigmoj"
+msgstr "Trovi vian vojon eliri de la diversaj labirintoj"
 
 #: ../boards/mazeMenu.xml.in.h:2
 msgid "Go to Maze activities"
-msgstr "Iru al enigmaj aktivecoj"
+msgstr "Iri al labirintaj aktivecoj"
 
 #: ../boards/memory_group.xml.in.h:1
 msgid "Go to Memory activities"
-msgstr "Iru al memoraj aktivecoj"
+msgstr "Iri al memoraj aktivecoj"
 
 #: ../boards/memory_group.xml.in.h:2
 msgid "Various memory activities (images, letters, sounds)."
@@ -139,7 +144,7 @@ msgstr "Diversaj memoraj aktivecoj(bildoj, literoj, sonoj)."
 
 #: ../boards/memory_op_group.xml.in.h:1
 msgid "Go to mathematics memory activities"
-msgstr "Iru al matematikaj memor-aktivecoj"
+msgstr "Iri al matematikaj memor-aktivecoj"
 
 #: ../boards/memory_op_group.xml.in.h:2
 #: ../boards/memory_op_group_tux.xml.in.h:2
@@ -148,7 +153,7 @@ msgstr "Memoraj aktivecoj laŭ la kalkuladoj"
 
 #: ../boards/memory_op_group_tux.xml.in.h:1
 msgid "Go to mathematics memory activities against Tux"
-msgstr "Iru al matematikaj memoraj ativecoj kontraŭ Tux"
+msgstr "Iri al matematikaj memoraj ativecoj kontraŭ Tux"
 
 #: ../boards/menu.xml.in.h:1
 msgid ""
@@ -170,11 +175,11 @@ msgid ""
 "    1, 2 or 3 simple stars  - from 2 to 6 years old\n"
 "    1, 2 or 3 complex stars - 7 years and up"
 msgstr ""
-"Unu simpla klako sur ikono enirigas vin en aktiveco aŭ menuo de aktivecoj.\n"
+"Simpla klako sur ikono enirigas vin en aktiveco aŭ menuo de aktivecoj.\n"
 "Je la malsupra parto de ekrano estas la GCompris kontrolo baro.\n"
 "La subaj ikonoj estas montritaj de la dekstre al maldekstre.\n"
 "(memoru ke ĉiuj ikonoj aperas nur se ili estas haveblaj dume)\n"
-"    Domo – Eliru de aktiveco, reiru al la menuo\n"
+"    Domo – Ĉesi aktivecon, reiri al la menuo\n"
 "    Dikfingro – Jes. Konfirmu vian respondon\n"
 "    Ĵetkubo – Montru la nunan nivelon. Klaku por elekti alian nivelon\n"
 "    Lipoj – Ripetu la demandon\n"
@@ -188,15 +193,15 @@ msgstr ""
 
 #: ../boards/menu.xml.in.h:16
 msgid "GCompris Main Menu"
-msgstr "GCompris Ĉefa Menuo"
+msgstr "Ĉefa menuo de GCompris"
 
-#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:856
+#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:866
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
 msgstr ""
-"GCompris estas kolekto de edukaj ludoj kiu provizas diversajn aktivecojn por "
-"pli ol 2 jaraj infanoj "
+"GCompris estas kolekto de edukadaj ludoj kiu provizas diversajn aktivecojn "
+"por pli ol 2 jaraj infanoj."
 
 #: ../boards/menu.xml.in.h:19
 msgid ""
@@ -204,11 +209,11 @@ msgid ""
 "edutainment software"
 msgstr ""
 "GCompris celas provizi senpagan eblecon al populara proprieta edukluda-"
-"softvaro "
+"softvaro"
 
 #: ../boards/miscelaneous.xml.in.h:1
 msgid "Miscellaneous activities"
-msgstr "Miksitaj aktivecoj"
+msgstr "Diversaj aktivecoj"
 
 #: ../boards/miscelaneous.xml.in.h:2
 msgid "Time, Geography, ..."
@@ -240,7 +245,7 @@ msgstr "Diversaj puzloj."
 
 #: ../boards/reading.xml.in.h:1
 msgid "Go to the Reading activities"
-msgstr "Iru al la leg-praktikaj aktivecoj"
+msgstr "Iri al la leg-praktikaj aktivecoj"
 
 #: ../boards/reading.xml.in.h:2
 msgid "Reading activities."
@@ -248,423 +253,437 @@ msgstr "Legeblaj aktivecoj."
 
 #: ../boards/sound_group.xml.in.h:1
 msgid "Go to Sound activities"
-msgstr "Iru al Sono aktivecoj"
+msgstr "Iri al son-aktivecoj"
 
 #: ../boards/sound_group.xml.in.h:2
 msgid "Sound based activities."
-msgstr "Sono rilataj aktivecoj."
+msgstr "Son-rilataj aktivecoj."
 
 #: ../boards/strategy.xml.in.h:1
 msgid "Strategy games"
-msgstr "Delikataj ludoj"
+msgstr "Strategi-ludoj"
 
 #: ../boards/strategy.xml.in.h:2
 msgid "Strategy games like chess, connect4, ..."
-msgstr "Delikataj ludoj kiel ŝako, konekt4,..."
+msgstr "Strategi-ludoj kiel ŝako, konekt4,..."
 
 #: ../gcompris-edit.desktop.in.h:1
 msgid "Administration for gcompris"
 msgstr "Administrado por GCompris"
 
 #: ../gcompris-edit.desktop.in.h:2
-#, fuzzy
 msgid "GCompris Administration"
-msgstr "GCompris Administrada Menuo"
+msgstr "GCompris-administrado"
 
 #: ../gcompris.desktop.in.h:1
 msgid "Educational game for ages 2 to 10"
-msgstr "Eduka ludo por 2 ĝis 10 jaruloj"
+msgstr "Edukada ludo por 2 ĝis 10 jaruloj"
 
 #: ../gcompris.desktop.in.h:2
 msgid "Educational suite GCompris"
-msgstr "Eduka aro GCompris"
+msgstr "Edukadaĵaro GCompris"
 
 #: ../gcompris.desktop.in.h:3
 msgid "Multi-activity educational game"
-msgstr "Plur-aktiveca eduka ludo"
+msgstr "Plur-aktiveca edukada ludo"
 
-#: ../src/administration-activity/admin/board_list.py:89
+#: ../nsis_translations.desktop.in.h:1
+msgid ""
+"An instance of GCompris is currently running. Exit GCompris and then try "
+"again."
+msgstr "Instanco de GCompris jam rulas. Ĉesu GCompris kaj provu denove."
+
+#: ../nsis_translations.desktop.in.h:2
+msgid "The installer is already running."
+msgstr "La instalilo jam rulas."
+
+#: ../nsis_translations.desktop.in.h:3
+msgid "Visit the GCompris Web Site"
+msgstr "Viziti la retpaĝaron de GCompris"
+
+#: ../nsis_translations.desktop.in.h:4
+msgid "You do not have permission to uninstall this application."
+msgstr "Vi ne havas la permeson por malinstali tiun aplikaĵon."
+
+#: ../nsis_translations.desktop.in.h:5
+msgid ""
+"Your old GCompris directory is about to be deleted. Would you like to "
+"continue?$\\r$\\rNote: Any non-standard plugins that you may have installed "
+"will be deleted.$\\rGCompris user settings will not be affected."
+msgstr ""
+
+#: ../nsis_translations.desktop.in.h:6
+msgid ""
+"the uninstaller could not find registry entries for GCompris.$\\rIt is "
+"likely that another user installed this application."
+msgstr ""
+
+#: ../src/administration-activity/admin/board_list.py:88
 msgid "Select a profile:"
-msgstr "Elektu profilon:"
+msgstr "Elekti profilon:"
 
-#: ../src/administration-activity/admin/board_list.py:143
+#: ../src/administration-activity/admin/board_list.py:145
 msgid "Filter"
 msgstr "Filtrilo"
 
-#: ../src/administration-activity/admin/board_list.py:148
+#: ../src/administration-activity/admin/board_list.py:150
 msgid "Select all"
-msgstr "Elektu ĉiujn"
+msgstr "Elekti ĉiujn"
 
-#: ../src/administration-activity/admin/board_list.py:153
+#: ../src/administration-activity/admin/board_list.py:155
 msgid "Unselect all"
-msgstr "Malelektu ĉiujn"
+msgstr "Malelekti ĉiujn"
 
-#: ../src/administration-activity/admin/board_list.py:158
+#: ../src/administration-activity/admin/board_list.py:160
 msgid "Locales"
 msgstr "Lokaĵaro"
 
-#: ../src/administration-activity/admin/board_list.py:163
+#: ../src/administration-activity/admin/board_list.py:165
 msgid "Locales sound"
 msgstr "Lokaĵara sono"
 
-#: ../src/administration-activity/admin/board_list.py:168
-#: ../src/administration-activity/admin/group_user_list.py:143
-#: ../src/administration-activity/admin/user_list.py:184
+#: ../src/administration-activity/admin/board_list.py:170
+#: ../src/administration-activity/admin/group_user_list.py:140
+#: ../src/administration-activity/admin/user_list.py:181
 msgid "Login"
-msgstr "Uzanto"
+msgstr "Ensaluti"
 
-#: ../src/administration-activity/admin/board_list.py:226
+#: ../src/administration-activity/admin/board_list.py:242
 msgid "Main menu"
-msgstr "Ĉefa-menuo"
+msgstr "Ĉefa menuo"
 
 #. columns for Board name
 #. column_pref = gtk.TreeViewColumn(_('Conf'))
 #. image = gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, gtk.ICON_SIZE_MENU)
 #. image.show()
 #. column_pref.set_widget(image)
-#: ../src/administration-activity/admin/board_list.py:292
+#: ../src/administration-activity/admin/board_list.py:308
 msgid "Active"
-msgstr "Aktivigu"
+msgstr "Aktivigi"
 
-#: ../src/administration-activity/admin/board_list.py:293
+#: ../src/administration-activity/admin/board_list.py:309
 msgid "Board title"
-msgstr "Titolo de Tabulo"
+msgstr "Titolo de tabulo"
 
-#: ../src/administration-activity/admin/board_list.py:406
+#: ../src/administration-activity/admin/board_list.py:422
 #, python-format
 msgid "Filter Boards difficulty for profile %s"
-msgstr "Filtru tabulan malfacilecon por profilo %s"
+msgstr "Filtri tabulan malfacilecon por profilo %s"
 
-#: ../src/administration-activity/admin/board_list.py:437
+#: ../src/administration-activity/admin/board_list.py:453
 #, python-format
 msgid ""
 "<span size='x-large'> Select the difficulty range \n"
 "for profile <b>%s</b></span>"
 msgstr ""
-"<spano grandeco='x-larĝa'> Elekt la malfacilecan distancon\n"
-"Por profilo <b>%s</b></spano>"
+"<spano grando='x-larĝa'> Elekti la malfacilecan distancon\n"
+"por profilo <b>%s</b></spano>"
 
-#. Init configuration window:
-#. all the configuration functions will use it
-#. all the configuration functions returns values for their key in
-#. the dict passed to the apply_callback
-#. the returned value is the main GtkVBox of the window,
-#. we can add what you want in it.
-#: ../src/administration-activity/admin/board_list.py:626
-#: ../src/administration-activity/admin/board_list.py:644
+#: ../src/administration-activity/admin/board_list.py:642
+#: ../src/administration-activity/admin/board_list.py:654
 #: ../src/administration-activity/admin/wordlist.py:45
-#: ../src/babymatch-activity/shapegame.c:1847
-#: ../src/click_on_letter-activity/click_on_letter.c:625
-#: ../src/colors-activity/colors.c:169 ../src/gletters-activity/gletters.c:847
-#: ../src/imageid-activity/imageid.c:714 ../src/login-activity/login.py:476
-#: ../src/missing_letter-activity/missingletter.c:761
-#: ../src/pythontest-activity/pythontest.py:454
-#: ../src/readingh-activity/reading.c:880
-#: ../src/scalesboard-activity/scale.c:948
-#: ../src/smallnumbers-activity/smallnumbers.c:576
-#: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:767
-#, c-format, python-format
 msgid ""
-"<b>%s</b> configuration\n"
-" for profile <b>%s</b>"
+"<b>{config}</b> configuration\n"
+" for profile <b>{profile}</b>"
 msgstr ""
-"<b>%s</b> agordo\n"
-" Por profilo <b>%s</b>"
+"<b>{config}</b> agordo\n"
+" por profilo <b>{profile}</b>"
 
 #. self.main_vbox.pack_start (label, False, False, 8)
-#: ../src/administration-activity/admin/board_list.py:656
-#: ../src/colors-activity/colors.c:181
+#: ../src/administration-activity/admin/board_list.py:660
+#: ../src/colors-activity/colors.c:180
 #: ../src/pythontest-activity/pythontest.py:518
-#: ../src/smallnumbers-activity/smallnumbers.c:597
+#: ../src/smallnumbers-activity/smallnumbers.c:616
 msgid "Select sound locale"
 msgstr "Elektu sonan lokaĵaro"
 
-#: ../src/administration-activity/admin/class_edit.py:59
+#: ../src/administration-activity/admin/class_edit.py:56
 msgid "Editing a Class"
 msgstr "Redakti klason"
 
-#: ../src/administration-activity/admin/class_edit.py:64
+#: ../src/administration-activity/admin/class_edit.py:61
 msgid "Editing class: "
 msgstr "Redakti klason: "
 
-#: ../src/administration-activity/admin/class_edit.py:67
+#: ../src/administration-activity/admin/class_edit.py:64
 msgid "Editing a new class"
 msgstr "Redakti novan klason"
 
-#: ../src/administration-activity/admin/class_edit.py:89
+#: ../src/administration-activity/admin/class_edit.py:86
 msgid "Class:"
 msgstr "Klaso:"
 
 #. FIXME: How to remove the default selection
 #. Label and Entry for the teacher name
-#: ../src/administration-activity/admin/class_edit.py:102
+#: ../src/administration-activity/admin/class_edit.py:99
 msgid "Teacher:"
 msgstr "Instruisto:"
 
-#: ../src/administration-activity/admin/class_edit.py:112
+#: ../src/administration-activity/admin/class_edit.py:109
 msgid "Assign all the users belonging to this class"
 msgstr "Asignu ĉiujn uzantojn apartenanta al ĉi klaso"
 
-#: ../src/administration-activity/admin/class_edit.py:252
-#: ../src/administration-activity/admin/group_edit.py:264
-#: ../src/administration-activity/admin/group_user_list.py:153
-#: ../src/administration-activity/admin/user_list.py:194
+#: ../src/administration-activity/admin/class_edit.py:246
+#: ../src/administration-activity/admin/group_edit.py:258
+#: ../src/administration-activity/admin/group_user_list.py:150
+#: ../src/administration-activity/admin/user_list.py:191
 msgid "First Name"
-msgstr "Persona Nomo"
+msgstr "Persona nomo"
 
-#: ../src/administration-activity/admin/class_edit.py:263
-#: ../src/administration-activity/admin/group_edit.py:275
-#: ../src/administration-activity/admin/group_user_list.py:163
-#: ../src/administration-activity/admin/user_list.py:204
+#: ../src/administration-activity/admin/class_edit.py:257
+#: ../src/administration-activity/admin/group_edit.py:269
+#: ../src/administration-activity/admin/group_user_list.py:160
+#: ../src/administration-activity/admin/user_list.py:201
 msgid "Last Name"
-msgstr "Familia Nomo"
+msgstr "Familia nomo"
 
-#: ../src/administration-activity/admin/class_edit.py:338
+#: ../src/administration-activity/admin/class_edit.py:332
 msgid "You need to provide at least a name for your class"
 msgstr "Vi devas provizi almenaŭ nomon por via klaso"
 
-#: ../src/administration-activity/admin/class_edit.py:383
+#: ../src/administration-activity/admin/class_edit.py:377
 msgid "There is already a class with this name"
 msgstr "jam ekzistas klason per ĉi nomo"
 
-#: ../src/administration-activity/admin/class_list.py:168
-#: ../src/administration-activity/admin/profile_edit.py:269
-#: ../src/administration-activity/admin/profile_group_list.py:143
+#: ../src/administration-activity/admin/class_list.py:165
+#: ../src/administration-activity/admin/profile_edit.py:263
+#: ../src/administration-activity/admin/profile_group_list.py:140
 msgid "Class"
 msgstr "Klaso"
 
-#: ../src/administration-activity/admin/class_list.py:178
+#: ../src/administration-activity/admin/class_list.py:175
 msgid "Teacher"
 msgstr "Instruisto"
 
-#: ../src/administration-activity/admin/group_edit.py:59
+#: ../src/administration-activity/admin/group_edit.py:56
 msgid "Editing a Group"
 msgstr "Redakti grupon"
 
-#: ../src/administration-activity/admin/group_edit.py:65
+#: ../src/administration-activity/admin/group_edit.py:62
 msgid "Editing group: "
 msgstr "Redakti grupon: "
 
-#: ../src/administration-activity/admin/group_edit.py:66
+#: ../src/administration-activity/admin/group_edit.py:63
 msgid " for class: "
-msgstr "Por klaso: "
+msgstr " por klaso: "
 
-#: ../src/administration-activity/admin/group_edit.py:69
+#: ../src/administration-activity/admin/group_edit.py:66
 msgid "Editing a new group"
 msgstr "Redakti novan grupon"
 
-#: ../src/administration-activity/admin/group_edit.py:89
+#: ../src/administration-activity/admin/group_edit.py:86
 msgid "Group:"
-msgstr "grupo:"
+msgstr "Grupo:"
 
 #. FIXME: How to remove the selection
 #. Label and Entry for the first name
-#: ../src/administration-activity/admin/group_edit.py:101
-#: ../src/administration-activity/admin/profile_edit.py:98
+#: ../src/administration-activity/admin/group_edit.py:98
+#: ../src/administration-activity/admin/profile_edit.py:95
 msgid "Description:"
-msgstr "Detalo:"
+msgstr "Priskribo:"
 
 #. Top message gives instructions
-#: ../src/administration-activity/admin/group_edit.py:112
+#: ../src/administration-activity/admin/group_edit.py:109
 msgid "Assign all the users belonging to this group"
 msgstr "Asignu ĉiujn uzantoj apartenanta al ĉi grupo"
 
-#: ../src/administration-activity/admin/group_edit.py:358
+#: ../src/administration-activity/admin/group_edit.py:352
 msgid "You need to provide at least a name for your group"
 msgstr "Vi devas provizi almenaŭ nomon por via grupo"
 
-#: ../src/administration-activity/admin/group_edit.py:372
+#: ../src/administration-activity/admin/group_edit.py:366
 msgid "There is already a group with this name"
-msgstr "jam ekzistas grupon per ĉi nomo"
+msgstr "Jam ekzistas grupo kun tiu nomo"
 
-#: ../src/administration-activity/admin/group_list.py:85
+#: ../src/administration-activity/admin/group_list.py:82
 msgid "Select a class:"
-msgstr "Elektu klason:"
+msgstr "Elekti klason:"
 
-#: ../src/administration-activity/admin/group_list.py:213
-#: ../src/administration-activity/admin/profile_edit.py:279
-#: ../src/administration-activity/admin/profile_group_list.py:153
+#: ../src/administration-activity/admin/group_list.py:210
+#: ../src/administration-activity/admin/profile_edit.py:273
+#: ../src/administration-activity/admin/profile_group_list.py:150
 msgid "Group"
 msgstr "Grupon"
 
-#: ../src/administration-activity/admin/group_list.py:224
-#: ../src/administration-activity/admin/profile_edit.py:289
-#: ../src/administration-activity/admin/profile_group_list.py:163
-#: ../src/administration-activity/admin/profile_list.py:197
+#: ../src/administration-activity/admin/group_list.py:221
+#: ../src/administration-activity/admin/profile_edit.py:283
+#: ../src/administration-activity/admin/profile_group_list.py:160
+#: ../src/administration-activity/admin/profile_list.py:194
 msgid "Description"
-msgstr "Detalo"
+msgstr "Priskribo"
 
-#: ../src/administration-activity/admin/group_list.py:321
+#: ../src/administration-activity/admin/group_list.py:318
 msgid "You must first select a group in the list"
 msgstr "Une vi devas elekti grupon en la listo"
 
-#: ../src/administration-activity/admin/group_user_list.py:173
-#: ../src/administration-activity/admin/user_list.py:214
+#: ../src/administration-activity/admin/group_user_list.py:170
+#: ../src/administration-activity/admin/user_list.py:211
 msgid "Birth Date"
 msgstr "Naskiĝdato"
 
-#: ../src/administration-activity/admin/log_list.py:90
+#: ../src/administration-activity/admin/log_list.py:91
 msgid "Select a user:"
-msgstr "Elektu uzanton:"
+msgstr "Elekti uzanton:"
 
 #. Insert the ALL option (HACK, use the user_id -2 to indicate ALL)
-#: ../src/administration-activity/admin/log_list.py:101
+#: ../src/administration-activity/admin/log_list.py:102
 msgid "All users"
 msgstr "Ĉiuj uzantoj"
 
-#: ../src/administration-activity/admin/log_list.py:107
-#: ../src/administration-activity/admin/log_list.py:286
-#: ../src/administration-activity/admin/profile_list.py:120
+#: ../src/administration-activity/admin/log_list.py:108
+#: ../src/administration-activity/admin/log_list.py:295
+#: ../src/administration-activity/admin/profile_list.py:117
+#: ../src/gcompris/board_config_combo.c:125
+#: ../src/gcompris/board_config_combo.c:398
 msgid "Default"
 msgstr "Defaŭlto"
 
 #. Reset buttons
-#: ../src/administration-activity/admin/log_list.py:161
+#: ../src/administration-activity/admin/log_list.py:162
 msgid "Reset"
-msgstr "Re-fiksu"
+msgstr "Reagordi"
 
-#: ../src/administration-activity/admin/log_list.py:207
+#: ../src/administration-activity/admin/log_list.py:216
 msgid "Date"
 msgstr "Dato"
 
-#: ../src/administration-activity/admin/log_list.py:217
+#: ../src/administration-activity/admin/log_list.py:226
 msgid "User"
 msgstr "Uzanto"
 
-#: ../src/administration-activity/admin/log_list.py:227
+#: ../src/administration-activity/admin/log_list.py:236
 msgid "Board"
 msgstr "Tabulo"
 
-#: ../src/administration-activity/admin/log_list.py:237
-#: ../src/redraw-activity/redraw.py:328
+#: ../src/administration-activity/admin/log_list.py:246
+#: ../src/redraw-activity/redraw.py:339
 msgid "Level"
 msgstr "Nivelo"
 
-#: ../src/administration-activity/admin/log_list.py:247
+#: ../src/administration-activity/admin/log_list.py:256
 msgid "Sublevel"
 msgstr "Subnivelo"
 
-#: ../src/administration-activity/admin/log_list.py:257
+#: ../src/administration-activity/admin/log_list.py:266
 msgid "Duration"
 msgstr "Periodo"
 
-#: ../src/administration-activity/admin/log_list.py:267
+#: ../src/administration-activity/admin/log_list.py:276
 msgid "Status"
 msgstr "Rango"
 
-#: ../src/administration-activity/admin/module_boards.py:40
-#: ../src/administration-activity/admin/module_boards.py:62
+#: ../src/administration-activity/admin/module_boards.py:49
+#: ../src/administration-activity/admin/module_boards.py:77
 msgid "Boards"
 msgstr "Tabulo"
 
-#: ../src/administration-activity/admin/module_groups.py:38
-#: ../src/administration-activity/admin/module_groups.py:61
+#: ../src/administration-activity/admin/module_groups.py:46
+#: ../src/administration-activity/admin/module_groups.py:69
 msgid "Groups"
 msgstr "Grupoj"
 
-#: ../src/administration-activity/admin/module_profiles.py:39
-#: ../src/administration-activity/admin/module_profiles.py:60
+#: ../src/administration-activity/admin/module_profiles.py:47
+#: ../src/administration-activity/admin/module_profiles.py:68
 msgid "Profiles"
 msgstr "Profiloj"
 
-#: ../src/administration-activity/admin/module_reports.py:39
-#: ../src/administration-activity/admin/module_reports.py:61
+#: ../src/administration-activity/admin/module_reports.py:48
+#: ../src/administration-activity/admin/module_reports.py:77
 msgid "Reports"
 msgstr "Raportoj"
 
-#: ../src/administration-activity/admin/module_reports.py:61
-#: ../src/administration-activity/admin/module_users.py:39
-#: ../src/administration-activity/admin/module_users.py:61
+#: ../src/administration-activity/admin/module_reports.py:77
+#: ../src/administration-activity/admin/module_users.py:47
+#: ../src/administration-activity/admin/module_users.py:69
 msgid "Users"
 msgstr "Uzantoj"
 
-#: ../src/administration-activity/admin/module_users.py:39
-#: ../src/administration-activity/admin/module_users.py:61
+#: ../src/administration-activity/admin/module_users.py:47
+#: ../src/administration-activity/admin/module_users.py:69
 msgid "Classes"
 msgstr "Klasoj"
 
-#: ../src/administration-activity/admin/profile_edit.py:59
+#: ../src/administration-activity/admin/profile_edit.py:56
 msgid "Editing a Profile"
 msgstr "Redakti profilon"
 
-#: ../src/administration-activity/admin/profile_edit.py:64
+#: ../src/administration-activity/admin/profile_edit.py:61
 msgid "Editing profile: "
 msgstr "Redakti profilon: "
 
-#: ../src/administration-activity/admin/profile_edit.py:67
+#: ../src/administration-activity/admin/profile_edit.py:64
 msgid "Editing a new profile"
 msgstr "Redakti novan profilon"
 
-#: ../src/administration-activity/admin/profile_edit.py:86
+#: ../src/administration-activity/admin/profile_edit.py:83
 msgid "Profile:"
 msgstr "Profilo:"
 
 #. Top message gives instructions
-#: ../src/administration-activity/admin/profile_edit.py:109
+#: ../src/administration-activity/admin/profile_edit.py:106
 msgid "Assign all the groups belonging to this profile"
 msgstr "Asignu ĉiujn grupojn apartenantaj al ĉi profilo"
 
-#: ../src/administration-activity/admin/profile_edit.py:377
+#: ../src/administration-activity/admin/profile_edit.py:371
 msgid "You need to provide at least a name for your profile"
 msgstr "Vi devas provizi almenaŭ nomon por via profilo"
 
-#: ../src/administration-activity/admin/profile_edit.py:399
+#: ../src/administration-activity/admin/profile_edit.py:393
 msgid "There is already a profile with this name"
 msgstr "Jam ekzistas profilon per ĉi nomo"
 
-#: ../src/administration-activity/admin/profile_list.py:187
+#: ../src/administration-activity/admin/profile_list.py:184
 msgid "Profile"
 msgstr "Profilo"
 
-#: ../src/administration-activity/admin/profile_list.py:314
+#: ../src/administration-activity/admin/profile_list.py:311
 msgid "[Default]"
 msgstr "[Defaŭlto]"
 
-#: ../src/administration-activity/admin/user_edit.py:50
+#: ../src/administration-activity/admin/user_edit.py:47
 msgid "Editing a User"
 msgstr "Redakti uzanton"
 
-#: ../src/administration-activity/admin/user_edit.py:55
+#: ../src/administration-activity/admin/user_edit.py:52
 msgid "Editing a User "
-msgstr "Redakti uzanton"
+msgstr "Redakti uzanton "
 
-#: ../src/administration-activity/admin/user_edit.py:61
+#: ../src/administration-activity/admin/user_edit.py:58
 msgid "Editing a new user"
 msgstr "Redakti novan uzanton"
 
-#: ../src/administration-activity/admin/user_edit.py:78
+#: ../src/administration-activity/admin/user_edit.py:75
 msgid "Login:"
-msgstr "Eniru:"
+msgstr "Ensaluti:"
 
 #. FIXME: How to remove the selection
 #. Label and Entry for the first name
-#: ../src/administration-activity/admin/user_edit.py:89
+#: ../src/administration-activity/admin/user_edit.py:86
 msgid "First name:"
 msgstr "Persona nomo:"
 
 #. Label and Entry for the last name
-#: ../src/administration-activity/admin/user_edit.py:98
+#: ../src/administration-activity/admin/user_edit.py:95
 msgid "Last name:"
 msgstr "Familia nomo:"
 
 #. Label and Entry for the birth date
-#: ../src/administration-activity/admin/user_edit.py:107
+#: ../src/administration-activity/admin/user_edit.py:104
 msgid "Birth date:"
 msgstr "Naskiĝdato:"
 
-#: ../src/administration-activity/admin/user_edit.py:159
+#: ../src/administration-activity/admin/user_edit.py:153
 msgid ""
 "You need to provide at least a login, first name and last name for your users"
 msgstr ""
 "Vi devas provizi almenaŭ eniran, personan nomon kaj familian nomon por viaj "
-"Uzantoj "
+"uzantoj "
 
-#: ../src/administration-activity/admin/user_edit.py:176
+#: ../src/administration-activity/admin/user_edit.py:170
 msgid "There is already a user with this login"
-msgstr "jam ekzistas uzanto kun la sama nomo"
+msgstr "Jam ekzistas uzanto kun tiu ensaluto"
 
-#: ../src/administration-activity/admin/user_list.py:288
+#: ../src/administration-activity/admin/user_list.py:285
 msgid ""
 "To import a user list from a file, first select a class.\n"
 "FILE FORMAT: Your file must be formatted like this:\n"
@@ -676,13 +695,13 @@ msgstr ""
 "Entajpu: Personan nomon; Familian nomon; Naskiĝdaton\n"
 "La apart-ilo mem troviĝas kaj povas esti ',', ';' aŭ ':'"
 
-#: ../src/administration-activity/admin/user_list.py:366
+#: ../src/administration-activity/admin/user_list.py:363
 #, python-format
 msgid ""
 "One or more logins are not unique !\n"
 "You need to change them: %s !"
 msgstr ""
-"unu aŭ pliaj uzantoj ne estas unikaj !\n"
+"Unu aŭ pliaj ensalutoj ne estas unikaj !\n"
 "Vi devas ŝanĝi ilin: %s !"
 
 #: ../src/administration-activity/administration.xml.in.h:1
@@ -759,7 +778,7 @@ msgstr "Klaku sur la ĝustan koloron "
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:4
 msgid "Click on the correct colored box."
-msgstr "Klaku sur la ĝusta kolor-skatolo. "
+msgstr "Klaku sur la ĝusta kolor-skatolo."
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:5
 msgid "Learn to recognize unusual colors."
@@ -1048,10 +1067,15 @@ msgid "veronese"
 msgstr "veroneca"
 
 #. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
-#: ../src/algebra_by-activity/algebra.c:181
-#: ../src/memory-activity/memory.c:945
+#: ../src/algebra_by-activity/algebra.c:186
+#: ../src/memory-activity/memory.c:946
 msgid "+-×÷"
 msgstr "+-×÷"
+
+#: ../src/algebra_by-activity/algebra.c:411
+#: ../src/readingh-activity/reading.c:630
+msgid "I am Ready"
+msgstr "Mi pretas"
 
 #: ../src/algebra_by-activity/algebra_by.xml.in.h:1
 msgid ""
@@ -1084,6 +1108,7 @@ msgid "Practice the multiplication operation"
 msgstr "Praktiku la multoblig-operacion"
 
 #: ../src/algebra_guesscount-activity/algebra_guesscount.xml.in.h:1
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:1
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:1
 msgid ""
 "Animal pictures come from the Animal Photography Page of Ralf Schmode "
@@ -1202,6 +1227,84 @@ msgstr "Movi kaj klaki per la muso"
 msgid "algorithm"
 msgstr "algoritmo"
 
+#: ../src/anim-activity/Color.py:86
+msgid "Fill color..."
+msgstr "Plinig-koloro..."
+
+#: ../src/anim-activity/Color.py:98
+msgid "Stroke color..."
+msgstr "Strek-kokoro..."
+
+#: ../src/anim-activity/anim.py:103
+msgid "Save..."
+msgstr "Konservi..."
+
+#: ../src/anim-activity/anim.py:109
+msgid "Load..."
+msgstr "Ŝargi..."
+
+#: ../src/anim-activity/anim.py:115
+msgid "Run the animation"
+msgstr "Ruli la movbildon"
+
+#: ../src/anim-activity/anim.py:121
+msgid "Select"
+msgstr "Elekti"
+
+#: ../src/anim-activity/anim.py:127
+msgid "Rectangle"
+msgstr "Rektangulo:"
+
+#: ../src/anim-activity/anim.py:133
+msgid "Filled rectangle"
+msgstr "Plenigita rektanglo"
+
+#: ../src/anim-activity/anim.py:139
+msgid "Circle"
+msgstr "Cirklo"
+
+#: ../src/anim-activity/anim.py:145
+msgid "Filled circle"
+msgstr "Plenigita cirklo"
+
+#: ../src/anim-activity/anim.py:151
+msgid "Line"
+msgstr "Linio"
+
+#: ../src/anim-activity/anim.py:157
+#: ../src/wordprocessor-activity/wordprocessor.c:87
+#: ../src/wordprocessor-activity/wordprocessor.c:426
+msgid "Text"
+msgstr "Teksto"
+
+#: ../src/anim-activity/anim.py:163
+msgid "Image..."
+msgstr "Bildo..."
+
+#: ../src/anim-activity/anim.py:169
+msgid "Fill"
+msgstr "Plenigi"
+
+#: ../src/anim-activity/anim.py:175
+msgid "Delete"
+msgstr "Forigi"
+
+#: ../src/anim-activity/anim.py:181
+msgid "Flip"
+msgstr "Renversi"
+
+#: ../src/anim-activity/anim.py:187
+msgid "Raise"
+msgstr "Altigi"
+
+#: ../src/anim-activity/anim.py:193
+msgid "Lower"
+msgstr "Malaltigi"
+
+#: ../src/anim-activity/anim.py:753
+msgid "Current frame"
+msgstr "Aktuala katro"
+
 #: ../src/anim-activity/anim.xml.in.h:1
 msgid "Create a drawing or an animation"
 msgstr "Kreu unu desegnaĵon aŭ animacion"
@@ -1219,7 +1322,7 @@ msgid ""
 msgstr ""
 "En tiu ĉi ludo, infanoj povas desegni libere. La celo estas eltrovi kiel "
 "krei belajn desegnaĵojn per bazaj formoj: rektanguloj, elipsoj kaj linioj. "
-"Por doni al la infanoj pli da eblecoj oni povas ankaŭ selekti bildojn."
+"Por doni al la infanoj pli da eblecoj oni povas ankaŭ elekti bildojn."
 
 #: ../src/anim-activity/anim.xml.in.h:4 ../src/draw-activity/draw.xml.in.h:4
 msgid "Needs to be capable of moving and clicking the mouse easily"
@@ -1260,6 +1363,8 @@ msgid ""
 "File '%s' is not found.\n"
 "You cannot play this activity."
 msgstr ""
+"Ne trovis dosieron '%s'.\n"
+"Vi ne povas ludi tiun aktivecon."
 
 #: ../src/awele-activity/awele.c:349
 msgid "NORTH"
@@ -1392,11 +1497,23 @@ msgstr "Motora kunordigado. Ideala parigado."
 msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "Mus-manipulado: movi, tiri kaj lasi. Kultura kompreno."
 
+#: ../src/babymatch-activity/shapegame.c:1903
+#: ../src/click_on_letter-activity/click_on_letter.c:675
+#: ../src/colors-activity/colors.c:168
+#, c-format
+msgid ""
+"<b>%1$s</b> configuration\n"
+" for profile <b>%2$s</b>"
+msgstr ""
+"<b>%1$s</b> agordo\n"
+" Por profilo <b>%2$s</b>"
+
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:1
 msgid "Complete the puzzle"
 msgstr "Kompletigu la puzlon"
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:2
+#: ../src/details-activity/details.xml.in.h:1
 msgid ""
 "Complete the puzzle by dragging each piece from the set of pieces on the "
 "left, to the matching space in the puzzle."
@@ -1405,10 +1522,12 @@ msgstr ""
 "en la dekstra parto."
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:3
+#: ../src/details-activity/details.xml.in.h:2
 msgid "Drag and Drop the shapes on their respective targets"
 msgstr "Tiru kaj faligu la formojn sur iliaj propraj celoj"
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:4
+#: ../src/details-activity/details.xml.in.h:4
 msgid "Good mouse-control"
 msgstr "Vi devas bone kontroli la muson"
 
@@ -1428,15 +1547,36 @@ msgstr "Lock sur la herbo."
 msgid "Lock with colored shapes."
 msgstr "Lock kun koloraj formoj."
 
-#: ../src/ballcatch-activity/ballcatch.xml.in.h:1
-msgid "Make the ball go to Tux"
-msgstr "Ĵetu la pilkon al Tux"
+#: ../src/babyshapes-activity/resources/babyshapes/board8_0.xml.in.h:1
+msgid "Paul Gauguin, Arearea - 1892"
+msgstr ""
 
+#: ../src/babyshapes-activity/resources/babyshapes/board8_1.xml.in.h:1
+msgid "Pieter Bruegel the Elder, The peasants wedding - 1568"
+msgstr ""
+
+#: ../src/babyshapes-activity/resources/babyshapes/board8_2.xml.in.h:1
+msgid "The Lady and the Unicorn - XVe century"
+msgstr ""
+
+#: ../src/babyshapes-activity/resources/babyshapes/board8_3.xml.in.h:1
+msgid "Vincent van Gogh, Bedroom in Arles - 1888"
+msgstr "Vincent van GOGH, La dormoĉambro en Arles - 1888"
+
+#: ../src/babyshapes-activity/resources/babyshapes/board8_4.xml.in.h:1
+msgid "Ambrosius Bosschaert the Elder, Flower Still Life - 1614"
+msgstr ""
+
+#: ../src/ballcatch-activity/ballcatch.py:75
 #: ../src/ballcatch-activity/ballcatch.xml.in.h:2
 msgid ""
 "Press the two shift keys at the same time, to make the ball go in a straight "
 "line."
 msgstr "Premu du majuskligajn klavojn samtempe, por fari la pilkon iri rekte."
+
+#: ../src/ballcatch-activity/ballcatch.xml.in.h:1
+msgid "Make the ball go to Tux"
+msgstr "Ĵetu la pilkon al Tux"
 
 #: ../src/bargame-activity/bargame.xml.in.h:1
 msgid "Brain"
@@ -1463,7 +1603,7 @@ msgstr ""
 msgid "bar game"
 msgstr "Stanga ludo"
 
-#: ../src/billard-activity/billard.c:89 ../src/erase-activity/erase.c:122
+#: ../src/billard-activity/billard.c:89 ../src/erase-activity/erase.c:124
 #: ../src/erase-activity/erase.xml.in.h:4
 msgid "Move the mouse"
 msgstr "Movu la muson"
@@ -1484,6 +1624,7 @@ msgstr "Batu la pilkon en la nigran cirklon."
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:5
 #: ../src/connect4-activity/connect4.xml.in.h:6
 #: ../src/erase-activity/erase.xml.in.h:3
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:6
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:6
 #: ../src/fifteen-activity/fifteen.xml.in.h:2
 #: ../src/hanoi-activity/hanoi.xml.in.h:3
@@ -1514,15 +1655,22 @@ msgstr "Dua versio de ĉefa-menuo"
 msgid "Select a Board"
 msgstr "Elektu tabulon"
 
-#: ../src/boards/python.c:63 ../src/boards/python.c:87
+#: ../src/boards/menu2.c:266
+#, c-format
+msgid "Number of activities: %d"
+msgstr ""
+
+#: ../src/boards/python.c:64 ../src/boards/python.c:88
+#, fuzzy
 msgid "Python Board"
 msgstr "Python Tabulo"
 
-#: ../src/boards/python.c:64
+#: ../src/boards/python.c:65
+#, fuzzy
 msgid "Special board that embeds python into GCompris."
 msgstr "Speciala tabulo kiu inkludas (xx python) en GCompris."
 
-#: ../src/boards/python.c:88
+#: ../src/boards/python.c:89
 #, fuzzy
 msgid "Special board that embeds python into gcompris."
 msgstr "Speciala tabulo kiu inkludas (xx python) en GCompris."
@@ -1552,19 +1700,19 @@ msgstr ""
 "Vi estas la estro de la kluzo. Malfermu la pordegojn en la ĝusta sinsekvo, "
 "tiel ke Tux povas vojaĝi tra la pordegoj en ambaŭ direktoj."
 
-#: ../src/chat-activity/chat.py:77
+#: ../src/chat-activity/chat.py:87
 msgid "All messages will be displayed here.\n"
 msgstr "Ĉiuj mesaĝoj estos montritaj ĉi tie.\n"
 
-#: ../src/chat-activity/chat.py:128
+#: ../src/chat-activity/chat.py:139
 msgid "Your Friends"
-msgstr "Viaj Amikoj"
+msgstr "Viaj amikoj"
 
-#: ../src/chat-activity/chat.py:161
+#: ../src/chat-activity/chat.py:172
 msgid "Your Channel"
-msgstr "Via kanelo"
+msgstr "Via kanalo"
 
-#: ../src/chat-activity/chat.py:187
+#: ../src/chat-activity/chat.py:198
 msgid ""
 "Type your message here, to send to other GCompris users on your local "
 "network."
@@ -1572,47 +1720,55 @@ msgstr ""
 "Entajpu vian mesaĝon ĉi tie, por sendi al aliaj GCompris uzantoj en via loka-"
 "reto"
 
-#: ../src/chat-activity/chat.py:202
+#: ../src/chat-activity/chat.py:244
+msgid "color"
+msgstr "koloro"
+
+#: ../src/chat-activity/chat.py:323
 msgid ""
 "ERROR: Failed to initialize the network interface. You cannot communicate."
 msgstr ""
 
-#: ../src/chat-activity/chat.py:326
+#: ../src/chat-activity/chat.py:433
+msgid "Has left the chat."
+msgstr "Forlasis la babilejon."
+
+#: ../src/chat-activity/chat.py:512
 msgid "You must set a channel in your channel entry box first.\n"
 msgstr "Unue vi devas fiksi kanalon en via kanal-enir skatolo.\n"
 
-#: ../src/chat-activity/chat.py:327
+#: ../src/chat-activity/chat.py:513
 msgid "Your friends must set the same channel in order to communicate with you"
-msgstr "Via amiko devas fiksi la saman kanalon por ke vi povu interkomuniki"
+msgstr "Viaj amikoj devas fiksi la saman kanalon por ke vi povu interkomuniki"
 
 #: ../src/chat-activity/chat.xml.in.h:1
-msgid "Chat with your friends"
-msgstr "Interparolu kun viaj amikoj"
+msgid "Chat and draw with your friends"
+msgstr "Babili kaj desegni kun viaj amikoj"
 
 #: ../src/chat-activity/chat.xml.in.h:2
 msgid "This chat activity only works on the local network"
-msgstr "Ĉi tiu interparola aktiveco nur funkcias en la loka reto"
+msgstr "Ĉi tiu babil-aktiveco nur funkcias en la loka reto"
 
 #: ../src/chat-activity/chat.xml.in.h:3
 msgid ""
 "This chat activity will only work with other GCompris users on your local "
 "network, not on the Internet. To use it, just type in your message and hit "
-"Enter. Your message is then broadcast on the local network, and any GCompris "
-"program running the chat activity on that local network will receive and "
-"display your message."
+"Enter. Your message is then broadcasted on the local network, and any "
+"GCompris program running the chat activity on that local network will "
+"receive and display your message."
 msgstr ""
-"Ĉi tiu interparola aktiveco nur funkcios kun aliaj uzantoj de GCompris en "
-"via loka reto, ne en la Interreto. Por uzi ĝin, simple entajpu vian mesaĝon "
-"kaj premu la Enter-klavon. Via mesaĝo estas dissendita en la loka reto, kaj "
-"aliaj GCompris-programoj rulantaj la interparolan aktivecon en tiu loka reto "
-"ricevos kaj montros vian mesaĝon. "
+"Ĉi tiu babil-aktiveco nur funkcios kun aliaj uzantoj de GCompris en via loka "
+"reto, ne en la Interreto. Por uzi ĝin, simple entajpu vian mesaĝon kaj premu "
+"la Enter-klavon. Via mesaĝo estas dissendita en la loka reto, kaj aliaj "
+"GCompris-programoj rulantaj la babil-aktivecon en tiu loka reto ricevos kaj "
+"montros vian mesaĝon. "
 
-#: ../src/chess_computer-activity/chess.c:215
+#: ../src/chess_computer-activity/chess.c:222
 msgid "Error: The external program gnuchess died unexpectedly"
 msgstr "Eraro: La ekstera programo gnuchess mortis ne atendite"
 
-#: ../src/chess_computer-activity/chess.c:250
-#: ../src/chess_computer-activity/chess.c:296
+#: ../src/chess_computer-activity/chess.c:262
+#: ../src/chess_computer-activity/chess.c:308
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -1622,36 +1778,36 @@ msgstr ""
 "por ludi ŝakon en gcompris.\n"
 "unue instalu ĝin, kaj provu ĝin"
 
-#: ../src/chess_computer-activity/chess.c:636
+#: ../src/chess_computer-activity/chess.c:648
 msgid "White's Turn"
 msgstr "Vico de Blanka"
 
-#: ../src/chess_computer-activity/chess.c:636
+#: ../src/chess_computer-activity/chess.c:648
 msgid "Black's Turn"
-msgstr "Vico de nigra"
+msgstr "Vico de Nigra"
 
-#: ../src/chess_computer-activity/chess.c:777
+#: ../src/chess_computer-activity/chess.c:789
 msgid "White checks"
 msgstr "Blanka kontrolas"
 
-#: ../src/chess_computer-activity/chess.c:779
+#: ../src/chess_computer-activity/chess.c:791
 msgid "Black checks"
 msgstr "Nigra kontrolas"
 
-#: ../src/chess_computer-activity/chess.c:1176
+#: ../src/chess_computer-activity/chess.c:1197
 msgid "Black mates"
 msgstr "Nigra egalas"
 
-#: ../src/chess_computer-activity/chess.c:1181
+#: ../src/chess_computer-activity/chess.c:1204
 msgid "White mates"
 msgstr "Blanka egalas"
 
-#: ../src/chess_computer-activity/chess.c:1186 ../src/gcompris/bonus.c:195
-#: ../src/gcompris/bonus.c:204
+#: ../src/chess_computer-activity/chess.c:1211 ../src/gcompris/bonus.c:191
+#: ../src/gcompris/bonus.c:200
 msgid "Drawn game"
 msgstr "Ne decidita ludo"
 
-#: ../src/chess_computer-activity/chess.c:1214
+#: ../src/chess_computer-activity/chess.c:1239
 msgid "Error: The external program gnuchess died unexpectingly"
 msgstr "Eraro: La ekstera programo gnuchess mortis ne atendite"
 
@@ -1659,7 +1815,7 @@ msgstr "Eraro: La ekstera programo gnuchess mortis ne atendite"
 #: ../src/chess_movelearn-activity/chess_movelearn.xml.in.h:2
 #: ../src/chess_partyend-activity/chess_partyend.xml.in.h:1
 msgid "Learning chess"
-msgstr "Lernu ŝakon"
+msgstr "Lerni ŝakon"
 
 #: ../src/chess_computer-activity/chess_computer.xml.in.h:4
 #: ../src/chess_movelearn-activity/chess_movelearn.xml.in.h:4
@@ -1677,7 +1833,7 @@ msgstr "Finludu la ŝako-ludon kontraŭ la komputilo."
 
 #: ../src/chronos-activity/chronos.xml.in.h:1
 msgid "Chronos"
-msgstr "Chronos"
+msgstr ""
 
 #: ../src/chronos-activity/chronos.xml.in.h:2
 msgid "Drag and Drop the items to organize the story"
@@ -1709,7 +1865,7 @@ msgstr "Diru mallongan rakonton"
 
 #: ../src/chronos-activity/resources/chronos/board1_0.xml.in.h:1
 msgid "Moonwalker"
-msgstr "Moonwalker"
+msgstr "Lunpaŝanto"
 
 #: ../src/chronos-activity/resources/chronos/board1_1.xml.in.h:1
 #: ../src/wordprocessor-activity/wordprocessor.c:117
@@ -1728,7 +1884,7 @@ msgstr "Somero"
 
 #: ../src/chronos-activity/resources/chronos/board1_1.xml.in.h:4
 msgid "The 4 Seasons"
-msgstr "La kvar sezonoj"
+msgstr "La 4 sezonoj"
 
 #: ../src/chronos-activity/resources/chronos/board1_1.xml.in.h:5
 #: ../src/wordprocessor-activity/wordprocessor.c:118
@@ -1737,7 +1893,7 @@ msgstr "Vintro"
 
 #: ../src/chronos-activity/resources/chronos/board1_2.xml.in.h:1
 msgid "Gardening"
-msgstr "Farante la ĝardenon"
+msgstr "Ĝardenumi"
 
 #: ../src/chronos-activity/resources/chronos/board2_0.xml.in.h:1
 msgid "Tux and the apple tree"
@@ -1886,8 +2042,8 @@ msgstr "1955 Citroën ds 19"
 msgid "Cars"
 msgstr "Aŭtoj"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:271
-#: ../src/memory-activity/memory.c:905
+#: ../src/click_on_letter-activity/click_on_letter.c:311
+#: ../src/memory-activity/memory.c:906
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -1895,19 +2051,19 @@ msgid ""
 "enable the sound"
 msgstr ""
 "Eraro: oni ne povas ludi ĉi aktivecon per la\n"
-"sono efiko malkapabligita.\n"
+"elŝaltita son-efiko.\n"
 "Iru al la agorda dialogo por\n"
-"funkciigi la sonon"
+"enŝalti la sonon"
 
 #. TRANSLATORS: Put here the alphabet in your language
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
-#: ../src/click_on_letter-activity/click_on_letter.c:276
-#: ../src/gletters-activity/gletters.c:228 ../src/memory-activity/memory.c:934
+#: ../src/click_on_letter-activity/click_on_letter.c:316
+#: ../src/gletters-activity/gletters.c:229 ../src/memory-activity/memory.c:935
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcdefghijklmnopqrstuvwxyz"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:298
+#: ../src/click_on_letter-activity/click_on_letter.c:344
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -1916,7 +2072,7 @@ msgstr ""
 "Eraro: unue instalu ĉi aktivecon\n"
 "la pakaĵo kun GCompris voĉoj por la locale '%s' or '%s'"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:306
+#: ../src/click_on_letter-activity/click_on_letter.c:354
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -1924,12 +2080,14 @@ msgid ""
 "sorry!"
 msgstr ""
 "Eraro: unue instalu ĉi aktivecon\n"
-"la pakaĵo kun GCompris voĉoj por la locale '%s' ! reiru alangla, "
-"pardonu!"
+"la pakaĵo kun GCompris voĉoj por la locale '%s' ! reiru alangla, pardonu!"
 
 #. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:648
-#: ../src/gletters-activity/gletters.c:880 ../src/login-activity/login.py:481
+#: ../src/click_on_letter-activity/click_on_letter.c:698
+#: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:484
+#: ../src/missing_letter-activity/missingletter_config.c:492
+#: ../src/readingh-activity/reading.c:928
+#: ../src/wordsgame-activity/wordsgame.c:889
 msgid "Uppercase only text"
 msgstr "Nur majuskula teksto"
 
@@ -1956,7 +2114,7 @@ msgstr "Aŭdu literon kaj klaku sur la ĝusta"
 
 #: ../src/click_on_letter-activity/click_on_letter.xml.in.h:5
 msgid "Visual letter-recognition. Can move the mouse."
-msgstr "Devas kapabli rekoni la literojn. Estu kapabla movi la muson. "
+msgstr "Devas kapabli rekoni la literojn. Povas movi la muson. "
 
 #: ../src/clickanddraw-activity/clickanddraw.xml.in.h:1
 msgid "Click and draw"
@@ -1972,7 +2130,7 @@ msgstr "Desegnu la bildon klakante sur la bluaj punktoj."
 
 #: ../src/clickgame-activity/clickgame.xml.in.h:1
 msgid "Click On Me"
-msgstr "Klaku Sur Mi"
+msgstr "Klaku sur mi"
 
 #: ../src/clickgame-activity/clickgame.xml.in.h:2
 msgid ""
@@ -1998,7 +2156,7 @@ msgstr "Motora kunordiga: movi kaj klaki la muson."
 msgid "Use the left mouse button to click on the moving fish."
 msgstr "Uzu la maldekstran mus-butonon por klaki sur la moviĝanta fiŝo. "
 
-#: ../src/clockgame-activity/clockgame.c:528
+#: ../src/clockgame-activity/clockgame.c:525
 msgid "Set the watch to:"
 msgstr "Fiksu la horloĝo ankaŭ"
 
@@ -2168,6 +2326,7 @@ msgstr "Stiru la arganon (levmaŝino) kaj kopiu la modelon"
 
 #: ../src/crane-activity/crane.xml.in.h:3
 #: ../src/erase-activity/erase.xml.in.h:2
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:5
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:5
 #: ../src/penalty-activity/penalty.xml.in.h:3
 msgid "Motor-coordination"
@@ -2184,11 +2343,105 @@ msgid ""
 "Move the items in the bottom left frame to copy their position in the top "
 "right model. Below the crane itself, you will find four arrows that let you "
 "move items. To select the item to move, just click on it. If you prefer, you "
-"can the arrow keys and the space or tab key instead."
+"can use the arrow keys and the space or tab key instead."
 msgstr ""
-"Aranĝu la aferojn kiel en la dekstra framo. Sub la argano mem, vi trovos "
-"kvar sagojn kiu ebligas vin movi aferojn. Por movi la aferon simple klaku "
-"sur ĝi."
+"Movu la aferojn kiel en la dekstra kadro. Sub la argano mem, vi trovos kvar "
+"sagojn kiu ebligas vin movi aferojn. Por movi la aferon simple klaku sur ĝi."
+
+#: ../src/details-activity/details.xml.in.h:3
+msgid "Find the details"
+msgstr "Trovu la detalojn"
+
+#: ../src/details-activity/details.xml.in.h:5
+msgid "The images are from Wikimedia Commons."
+msgstr "La bildo estas de Wikimedia Commons."
+
+#: ../src/details-activity/resources/details/board1_0.xml.in.h:1
+msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1889"
+msgstr ""
+
+#: ../src/details-activity/resources/details/board1_1.xml.in.h:1
+msgid ""
+"Vincent van Gogh, The Bridge of Langlois at Arles with a lady with umbrella "
+"- 1888"
+msgstr ""
+
+#: ../src/details-activity/resources/details/board1_2.xml.in.h:1
+msgid "Vincent van Gogh, The Church at Auvers-sur-Oise - 1890"
+msgstr ""
+
+#: ../src/details-activity/resources/details/board1_3.xml.in.h:1
+msgid "Vincent van Gogh, Painter on His Way to Work - 1888"
+msgstr ""
+
+#: ../src/details-activity/resources/details/board1_4.xml.in.h:1
+msgid "Vincent van Gogh, The Harvest - 1888"
+msgstr ""
+
+#: ../src/details-activity/resources/details/board1_5.xml.in.h:1
+msgid "Vincent van Gogh, Cafe Terrace at Night - 1888"
+msgstr ""
+
+#: ../src/details-activity/resources/details/board1_6.xml.in.h:1
+msgid "Vincent van Gogh, The Night Café - 1888"
+msgstr "Vincent van GOGH, La nokta kafejo - 1888"
+
+#: ../src/details-activity/resources/details/board1_7.xml.in.h:1
+msgid "Vincent van Gogh, Portrait of Pere Tanguy 1887-8"
+msgstr ""
+
+#: ../src/details-activity/resources/details/board2_0.xml.in.h:1
+msgid "Eilean Donan castle"
+msgstr ""
+
+#: ../src/details-activity/resources/details/board2_1.xml.in.h:1
+msgid "Eiffel Tower, seen from the champ de Mars, Paris, France"
+msgstr ""
+
+#: ../src/details-activity/resources/details/board2_10.xml.in.h:1
+msgid "Gizah Pyramids, Egypt"
+msgstr ""
+
+#: ../src/details-activity/resources/details/board2_11.xml.in.h:1
+msgid "Sydney Opera House, Australia"
+msgstr ""
+
+#: ../src/details-activity/resources/details/board2_12.xml.in.h:1
+msgid "Tower Bridge in London"
+msgstr ""
+
+#: ../src/details-activity/resources/details/board2_2.xml.in.h:1
+msgid "Courtyard of the Museum of Louvre, and its pyramid"
+msgstr ""
+
+#: ../src/details-activity/resources/details/board2_3.xml.in.h:1
+msgid "Panorama of Château de Chenonceau, Indre-et-Loire, France."
+msgstr ""
+
+#: ../src/details-activity/resources/details/board2_4.xml.in.h:1
+msgid ""
+"Notre Dame de Paris cathedral on the Île de la Cité island in Paris, France."
+msgstr ""
+
+#: ../src/details-activity/resources/details/board2_5.xml.in.h:1
+msgid "Nagoya Castle, Aichi Prefecture, Japan."
+msgstr ""
+
+#: ../src/details-activity/resources/details/board2_6.xml.in.h:1
+msgid "Taj Mahal, Agra, India"
+msgstr ""
+
+#: ../src/details-activity/resources/details/board2_7.xml.in.h:1
+msgid "Castle Neuschwanstein at Schwangau, Bavaria, Germany"
+msgstr ""
+
+#: ../src/details-activity/resources/details/board2_8.xml.in.h:1
+msgid "Egeskov Castle, Denmark"
+msgstr ""
+
+#: ../src/details-activity/resources/details/board2_9.xml.in.h:1
+msgid "Windmill in Sønderho, Fanø, Denmark"
+msgstr ""
 
 #: ../src/doubleentry-activity/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
@@ -2244,6 +2497,10 @@ msgstr ""
 "la blanka areo por krei novan formon. Por ŝpari tempon vi povas klaki per la "
 "meza mus-butono por forigi objekton. "
 
+#: ../src/drawnumber-activity/drawnumber.py:236
+msgid "Cannot find the file '{filename}'"
+msgstr "Ne eblis trovi la dosieron '{filename}'"
+
 #: ../src/drawnumber-activity/drawnumber.xml.in.h:1
 msgid "Can count from 1 to 50."
 msgstr "Povas nobri de 1 ĝis 50."
@@ -2260,7 +2517,7 @@ msgstr "Desegnu la bildon klakante sur ĉiu nombro en la ĝusta sinsekvo."
 msgid "Draw the picture by following numbers"
 msgstr "Desegnu la bildon sekvante nombrojn"
 
-#: ../src/electric-activity/electric.py:98
+#: ../src/electric-activity/electric.py:99
 msgid ""
 "Cannot find the 'gnucap' electric simulator.\n"
 "You can download and install it from:\n"
@@ -2338,7 +2595,7 @@ msgstr "Metu la aferojn en la plej bona maniero por nobri ilin"
 
 #: ../src/enumerate-activity/enumerate.xml.in.h:1
 msgid "Basic enumeration"
-msgstr "Vi devas kapabli nobri"
+msgstr ""
 
 #: ../src/enumerate-activity/enumerate.xml.in.h:2
 msgid "Count the items"
@@ -2355,7 +2612,7 @@ msgstr ""
 "nombron de la afero per la klavaro kaj premu la butonon 'Bone' aŭ la 'Enter'-"
 "klavo"
 
-#: ../src/erase-activity/erase.c:123 ../src/erase-activity/erase.xml.in.h:5
+#: ../src/erase-activity/erase.c:125 ../src/erase-activity/erase.xml.in.h:5
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Movu la muson por forigi la areon kaj eltrovi la fonon"
 
@@ -2374,6 +2631,18 @@ msgstr ""
 #: ../src/erase-activity/erase.xml.in.h:6
 msgid "Move the mouse until all the blocks disappear."
 msgstr "Movu la muson ĝis ĉiuj blokoj malaperas."
+
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
+msgid "Double click the mouse"
+msgstr "Klaku la muson duoble"
+
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:3
+msgid "Double click the mouse on rectangles until all the blocks disappear."
+msgstr "Klaku la muson duoble sur rektangloj ĝis ĉiuj blokoj malaperas."
+
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:4
+msgid "Double click the mouse to erase the area and discover the background"
+msgstr ""
 
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:2
 msgid "Click the mouse"
@@ -2432,7 +2701,7 @@ msgstr ""
 msgid "Tux needs to water the flowers, but the hose is blocked."
 msgstr "Tux devas akvumi la florojn, sed la tubo estas blokita. "
 
-#: ../src/gcompris/about.c:50
+#: ../src/gcompris/about.c:49
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge, Yves Combe\n"
@@ -2447,320 +2716,377 @@ msgstr ""
 "Fona muziko: Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:58
+#: ../src/gcompris/about.c:57
 msgid "translator_credits"
-msgstr "Tradukaj kreditoj"
+msgstr ""
+"Navaraj Budha <navaraj_esp@yahoo.com>\n"
+"Jacob NORDFALK <jacob.nordfalk@gmail.com>\n"
+"Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>"
 
-#: ../src/gcompris/about.c:85
+#: ../src/gcompris/about.c:84
 msgid "About GCompris"
 msgstr "Pri GCompris"
 
-#: ../src/gcompris/about.c:95
-#, fuzzy
+#: ../src/gcompris/about.c:94
 msgid "GCompris Home Page: http://gcompris.net"
-msgstr ""
-"Hejmpaĝo de GCompris\n"
-"http://gcompris.net"
+msgstr "Retpaĝaro de GCompris: http://gcompris.net"
 
 #: ../src/gcompris/about.c:105
 msgid "Translators:"
 msgstr "Tradukantoj:"
 
-#: ../src/gcompris/about.c:214
+#: ../src/gcompris/about.c:210
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
 msgstr ""
 "Tiu ĉi softvaro estas GNU Pakaĵo kaj eldonita sub la publika licenso de GNU "
 
-#: ../src/gcompris/about.c:228 ../src/gcompris/config.c:422
-#: ../src/gcompris/dialog.c:103 ../src/gcompris/help.c:354
+#: ../src/gcompris/about.c:224 ../src/gcompris/config.c:438
+#: ../src/gcompris/dialog.c:104 ../src/gcompris/help.c:355
 #: ../src/gcompris/images_selector.c:307
 msgid "OK"
 msgstr "Bone"
 
-#: ../src/gcompris/bar.c:650
+#: ../src/gcompris/bar.c:693
 msgid "GCompris confirmation"
 msgstr "Konfirmo de GCompris"
 
-#: ../src/gcompris/bar.c:651
+#: ../src/gcompris/bar.c:694
 msgid "Are you sure you want to quit?"
 msgstr "Ĉu vi vere volas eliri?"
 
-#: ../src/gcompris/bar.c:652
+#: ../src/gcompris/bar.c:695
 msgid "Yes, I am sure!"
 msgstr "Jes, mi certas!"
 
-#: ../src/gcompris/bar.c:653
+#: ../src/gcompris/bar.c:696
 msgid "No, I want to keep going"
 msgstr "Ne, mi volas daŭrigi"
 
-#: ../src/gcompris/board.c:191
+#: ../src/gcompris/board.c:168
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr "Dinamika modul-ŝargado ne funkcias. GCompris ne povas funkciigi ĝin.\n"
 
-#: ../src/gcompris/config.c:59
+#: ../src/gcompris/board_config_combo.c:157
+msgid ""
+"Select the language\n"
+" to use in the board"
+msgstr ""
+"Elektu la lingvon\n"
+"por uzi en la tabulo"
+
+#: ../src/gcompris/board_config_combo.c:227
+msgid "Global GCompris mode"
+msgstr "Universala GCompris modo"
+
+#: ../src/gcompris/board_config_combo.c:228
+msgid "Normal"
+msgstr "Normala"
+
+#: ../src/gcompris/board_config_combo.c:229
+msgid "2 clicks"
+msgstr "2 alklakoj"
+
+#: ../src/gcompris/board_config_combo.c:230
+msgid "both modes"
+msgstr "ambaŭ reĝimoj"
+
+#: ../src/gcompris/board_config_combo.c:258
+msgid ""
+"Select the drag and drop mode\n"
+" to use in the board"
+msgstr ""
+"Elektu la mus-tiran modon\n"
+"por uzi en la tabulo"
+
+#. add a new level
+#: ../src/gcompris/board_config_wordlist.c:106
+#, c-format
+msgid "%d (New level)"
+msgstr "%d (Nova nivelo)"
+
+#. frame
+#: ../src/gcompris/board_config_wordlist.c:180
+msgid "Configure the list of words"
+msgstr "Agordi la liston de vortoj"
+
+#: ../src/gcompris/board_config_wordlist.c:209
+msgid "Choice of the language"
+msgstr "Lingvo-elekto"
+
+#: ../src/gcompris/board_config_wordlist.c:221
+msgid "Choice of the level"
+msgstr "Nivel-elekto"
+
+#: ../src/gcompris/board_config_wordlist.c:246
+msgid "Back to default"
+msgstr "Reen al defaŭlto"
+
+#: ../src/gcompris/config.c:58
 msgid "Your system default"
 msgstr "Via sistema defaŭlto"
 
-#: ../src/gcompris/config.c:60
+#: ../src/gcompris/config.c:59
 msgid "Afrikaans"
-msgstr "afrikansa"
+msgstr "Afrikansa"
+
+#: ../src/gcompris/config.c:60
+msgid "Amharic"
+msgstr "Amhara"
 
 #: ../src/gcompris/config.c:61
-msgid "Amharic"
-msgstr "amhara"
+msgid "Arabic"
+msgstr "Araba"
 
 #: ../src/gcompris/config.c:62
-msgid "Arabic"
-msgstr "araba"
+msgid "Asturian"
+msgstr "Asturia"
 
 #: ../src/gcompris/config.c:63
 msgid "Turkish (Azerbaijan)"
-msgstr "turka (Azerio)"
+msgstr "Turka (Azera)"
 
 #: ../src/gcompris/config.c:64
 msgid "Bulgarian"
-msgstr "bulgara"
+msgstr "Bulgara"
 
 #: ../src/gcompris/config.c:65
 msgid "Breton"
-msgstr "bretona"
+msgstr "Bretona"
 
 #: ../src/gcompris/config.c:66
 msgid "Catalan"
-msgstr "kataluna"
+msgstr "Kataluna"
 
 #: ../src/gcompris/config.c:67
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:7
 msgid "Czech Republic"
-msgstr "Ĉeĥa Respubliko"
+msgstr "Ĉeĥa Respubliko"
 
 #: ../src/gcompris/config.c:68
 msgid "Danish"
-msgstr "dana"
+msgstr "Dana"
 
 #: ../src/gcompris/config.c:69
 msgid "German"
-msgstr "germana"
+msgstr "Germana"
 
 #: ../src/gcompris/config.c:70
 msgid "Dzongkha"
-msgstr "dzonka"
+msgstr "Dzonka"
 
 #: ../src/gcompris/config.c:71
 msgid "Greek"
-msgstr "greka"
+msgstr "Greka"
 
 #: ../src/gcompris/config.c:72
 msgid "English (Canada)"
-msgstr "angla (Kanado)"
+msgstr "Angla (Kanado)"
 
 #: ../src/gcompris/config.c:73
 msgid "English (Great Britain)"
-msgstr "angla (Britio)"
+msgstr "Angla (Britio)"
 
 #: ../src/gcompris/config.c:74
 msgid "English (United States)"
-msgstr "angla (Usono)"
+msgstr "Angla (Usono)"
 
 #: ../src/gcompris/config.c:75
 msgid "Spanish"
-msgstr "hispana"
+msgstr "Hispana"
 
 #: ../src/gcompris/config.c:76
 msgid "Basque"
-msgstr "vaska"
+msgstr "Eŭska"
 
 #: ../src/gcompris/config.c:77
-#, fuzzy
 msgid "Persian"
-msgstr "persa"
+msgstr "Persa"
 
 #: ../src/gcompris/config.c:78
 msgid "Finnish"
-msgstr "finna"
+msgstr "Finna"
 
 #: ../src/gcompris/config.c:79
 msgid "French"
-msgstr "franca"
+msgstr "Franca"
 
 #: ../src/gcompris/config.c:80
 msgid "Irish (Gaelic)"
-msgstr "irlanda (gaela)"
+msgstr "Irlanda (gaela)"
 
 #: ../src/gcompris/config.c:81
 msgid "Gujarati"
-msgstr "guĝarata"
+msgstr "Guĝarata"
 
 #: ../src/gcompris/config.c:82
 msgid "Hebrew"
-msgstr "hebrea"
+msgstr "Hebrea"
 
 #: ../src/gcompris/config.c:83
 msgid "Hindi"
-msgstr "hindia"
+msgstr "Hindia"
 
 #: ../src/gcompris/config.c:84
 msgid "Croatian"
-msgstr "kroata"
+msgstr "Kroata"
 
 #: ../src/gcompris/config.c:85
 msgid "Hungarian"
-msgstr "hungara"
+msgstr "Hungara"
 
 #: ../src/gcompris/config.c:86
 msgid "Indonesian"
-msgstr "indonezia"
+msgstr "Indonezia"
 
 #: ../src/gcompris/config.c:87
 msgid "Italian"
-msgstr "itala"
+msgstr "Itala"
 
 #: ../src/gcompris/config.c:88
 msgid "Japanese"
-msgstr "japana"
+msgstr "Japana"
 
 #: ../src/gcompris/config.c:89
 msgid "Georgian"
-msgstr "kartveluja"
+msgstr "Kartvela"
 
 #: ../src/gcompris/config.c:90
 msgid "Korean"
-msgstr "korea"
+msgstr "Korea"
 
 #: ../src/gcompris/config.c:91
 msgid "Lithuanian"
-msgstr "litova"
+msgstr "Litova"
 
 #: ../src/gcompris/config.c:92
 msgid "Macedonian"
-msgstr "makedona"
+msgstr "Makedona"
 
 #: ../src/gcompris/config.c:93
 msgid "Malayalam"
-msgstr "malajala"
+msgstr "Malajala"
 
 #: ../src/gcompris/config.c:94
 msgid "Marathi"
-msgstr "marata"
+msgstr "Marata"
 
 #: ../src/gcompris/config.c:95
 msgid "Malay"
-msgstr "malaja"
+msgstr "Malaja"
 
 #: ../src/gcompris/config.c:96
 msgid "Norwegian Bokmal"
-msgstr "norvega (bokmål)"
+msgstr "Norvega (bokmål)"
 
 #: ../src/gcompris/config.c:97
 msgid "Nepal"
-msgstr "nepala"
+msgstr "Nepala"
 
 #: ../src/gcompris/config.c:98
 msgid "Dutch"
-msgstr "nederlanda"
+msgstr "Nederlanda"
 
 #: ../src/gcompris/config.c:99
 msgid "Norwegian Nynorsk"
-msgstr "norvega (nynorsk)"
+msgstr "Norvega (nynorsk)"
 
 #: ../src/gcompris/config.c:100
 msgid "Occitan (languedocien)"
-msgstr "okcitana"
+msgstr "Okcitana (languedocien)"
 
 #: ../src/gcompris/config.c:101
 msgid "Punjabi"
-msgstr "panĝaba"
+msgstr "Panĝaba"
 
 #: ../src/gcompris/config.c:102
 msgid "Polish"
-msgstr "pola"
+msgstr "Pola"
 
 #: ../src/gcompris/config.c:103
 msgid "Portuguese (Brazil)"
-msgstr "portugala (brazila)"
+msgstr "Portugala (brazila)"
 
 #: ../src/gcompris/config.c:104
 msgid "Portuguese"
-msgstr "portugala"
+msgstr "Portugala"
 
 #: ../src/gcompris/config.c:105
 msgid "Romanian"
-msgstr "rumana"
+msgstr "Rumana"
 
 #: ../src/gcompris/config.c:106
 msgid "Russian"
-msgstr "rusa"
+msgstr "Rusa"
 
 #: ../src/gcompris/config.c:107
 msgid "Kinyarwanda"
-msgstr "kinjarvanda"
+msgstr "Ruanda"
 
 #: ../src/gcompris/config.c:108
 msgid "Slovak"
-msgstr "slovaka"
+msgstr "Slovaka"
 
 #: ../src/gcompris/config.c:109
 msgid "Slovenian"
-msgstr "slovena"
+msgstr "Slovena"
 
 #: ../src/gcompris/config.c:110
 msgid "Somali"
-msgstr "somala"
+msgstr "Somala"
 
 #: ../src/gcompris/config.c:111
 msgid "Albanian"
-msgstr "albana"
+msgstr "Albana"
 
 #: ../src/gcompris/config.c:112
 msgid "Serbian (Latin)"
-msgstr "serba (latina)"
+msgstr "Serba (latina)"
 
 #: ../src/gcompris/config.c:113
 msgid "Serbian"
-msgstr "serba"
+msgstr "Serba"
 
 #: ../src/gcompris/config.c:114
 msgid "Swedish"
-msgstr "sveda"
+msgstr "Sveda"
 
 #: ../src/gcompris/config.c:115
 msgid "Tamil"
-msgstr "tamila"
+msgstr "Tamila"
 
 #: ../src/gcompris/config.c:116
 msgid "Thai"
-msgstr "taja"
+msgstr "Taja"
 
 #: ../src/gcompris/config.c:117
 msgid "Turkish"
-msgstr "turka"
+msgstr "Turka"
 
 #: ../src/gcompris/config.c:118
-#, fuzzy
 msgid "Ukrainian"
-msgstr "Ukrajnio"
+msgstr "Ukraina"
 
 #: ../src/gcompris/config.c:119
 msgid "Urdu"
-msgstr "urdua"
+msgstr "Urdua"
 
 #: ../src/gcompris/config.c:120
 msgid "Vietnamese"
-msgstr "vjetnama"
+msgstr "Vjetnama"
 
 #: ../src/gcompris/config.c:121
 msgid "Walloon"
-msgstr "valona"
+msgstr "Valona"
 
 #: ../src/gcompris/config.c:122
 msgid "Chinese (Simplified)"
-msgstr "ĉina (simpligita)"
+msgstr "Ĉina (simpligite)"
 
 #: ../src/gcompris/config.c:123
 msgid "Chinese (Traditional)"
-msgstr "ĉina (tradicia)"
+msgstr "Ĉina (tradicie)"
 
 #: ../src/gcompris/config.c:128
 msgid "No time limit"
@@ -2779,236 +3105,244 @@ msgid "Fast timer"
 msgstr "Rapida tempo montrilo"
 
 #: ../src/gcompris/config.c:135
-msgid ""
-"<i>Use Gcompris administration module\n"
-"to filter boards</i>"
-msgstr ""
-"<i>Uzu GCompris administrada modulo\n"
-"por filtri tabuloj</i>"
+msgid "Use Gcompris administration module to filter boards"
+msgstr "Uzi GCompris administrada modulo por filtri tabuloj"
 
-#: ../src/gcompris/config.c:187
+#: ../src/gcompris/config.c:186
 msgid "GCompris Configuration"
 msgstr "Agordo de GCompris"
 
-#: ../src/gcompris/config.c:258
+#: ../src/gcompris/config.c:253
 msgid "Fullscreen"
 msgstr "Tutekranumo"
 
-#: ../src/gcompris/config.c:284
+#: ../src/gcompris/config.c:278
 msgid "Music"
 msgstr "Muziko"
 
-#: ../src/gcompris/config.c:310
+#: ../src/gcompris/config.c:303
 msgid "Effect"
 msgstr "Efiko"
 
-#: ../src/gcompris/config.c:347
+#: ../src/gcompris/config.c:327 ../src/gcompris/sugar.c:82
+msgid "Zoom"
+msgstr "Zomi"
+
+#: ../src/gcompris/config.c:364
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Malsukcesis malfermi skin dir: %s"
 
-#: ../src/gcompris/config.c:378 ../src/gcompris/config.c:767
-#: ../src/gcompris/config.c:781
+#: ../src/gcompris/config.c:395 ../src/gcompris/config.c:753
+#: ../src/gcompris/config.c:767
 #, c-format
 msgid "Skin : %s"
-msgstr "Skin : %s"
+msgstr "Haŭto : %s"
 
-#: ../src/gcompris/config.c:380
+#: ../src/gcompris/config.c:397
 msgid "SKINS NOT FOUND"
 msgstr "NE TROVIS SKINS"
 
-#: ../src/gcompris/config.c:462
+#: ../src/gcompris/config.c:478
 msgid "English (United State)"
 msgstr "Angla (Usono)"
 
 #: ../src/gcompris/file_selector.c:254
 msgid "CANCEL"
-msgstr "Nuligu"
+msgstr "NULIGI"
 
 #: ../src/gcompris/file_selector.c:262
 msgid "LOAD"
-msgstr "Ŝarĝu"
+msgstr "ŜARGI"
 
 #: ../src/gcompris/file_selector.c:262
 msgid "SAVE"
-msgstr "SAVU"
+msgstr "KONSERVI"
 
-#: ../src/gcompris/gameutil.c:138 ../src/gcompris/gameutil.c:196
+#: ../src/gcompris/gameutil.c:142 ../src/gcompris/gameutil.c:200
 msgid "Couldn't find or load the file"
-msgstr "Ne povis trovi aŭ legi la dosieron"
+msgstr "Ne eblis trovi aŭ legi la dosieron"
 
-#: ../src/gcompris/gameutil.c:140 ../src/gcompris/gameutil.c:198
+#: ../src/gcompris/gameutil.c:144 ../src/gcompris/gameutil.c:202
 msgid "This activity is incomplete."
 msgstr "Ĉi aktiveco estas nekomplita."
 
-#: ../src/gcompris/gameutil.c:141 ../src/gcompris/gameutil.c:199
+#: ../src/gcompris/gameutil.c:145 ../src/gcompris/gameutil.c:203
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
 msgstr ""
-"Nuligu ĝin kaj raportu\n"
-"problemoj al la aŭtoroj"
+"Ĉesu ĝin kaj raportu\n"
+"problemojn al la aŭtoroj."
 
-#: ../src/gcompris/gcompris.c:148
+#: ../src/gcompris/gcompris.c:158
 msgid "run GCompris in fullscreen mode."
-msgstr "uzu GCompris en tutekrana maniero."
+msgstr "lanĉi GCompris en tutekrana maniero."
 
-#: ../src/gcompris/gcompris.c:151
+#: ../src/gcompris/gcompris.c:161
 msgid "run GCompris in window mode."
-msgstr "uzu GCompris en fenestra maniero."
+msgstr "lanĉi GCompris en fenestra maniero."
 
-#: ../src/gcompris/gcompris.c:154
+#: ../src/gcompris/gcompris.c:164
 msgid "run GCompris with sound enabled."
-msgstr "funkciigu GCompris kun sono."
+msgstr "lanĉi GCompris kun sono."
 
-#: ../src/gcompris/gcompris.c:157
+#: ../src/gcompris/gcompris.c:167
 msgid "run GCompris without sound."
-msgstr "uzu GCompris sen sono."
+msgstr "lanĉi GCompris sen sono."
 
-#: ../src/gcompris/gcompris.c:160
-msgid "run GCompris with the default gnome cursor."
-msgstr "uzu GCompris per la defaŭlta gnome kursoro."
+#: ../src/gcompris/gcompris.c:170
+msgid "run GCompris with the default system cursor."
+msgstr ""
 
-#: ../src/gcompris/gcompris.c:163
+#: ../src/gcompris/gcompris.c:173
+msgid "run GCompris without cursor (touch screen mode)."
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:176
 msgid "display only activities with this difficulty level."
-msgstr "eldonu nur aktivecojn kun ĉi tiu malfacila nivelo."
+msgstr "montri nur aktivecojn kun ĉi tiu malfacila nivelo."
 
-#: ../src/gcompris/gcompris.c:166
+#: ../src/gcompris/gcompris.c:179
 msgid "display debug informations on the console."
-msgstr "montru senerarigajn informojn sur la konzolo."
+msgstr "montri sencimigajn informojn sur la konzolo."
 
-#: ../src/gcompris/gcompris.c:169
+#: ../src/gcompris/gcompris.c:182
 msgid "Print the version of "
-msgstr "Presu la version de "
+msgstr "Presi la version de "
 
-#: ../src/gcompris/gcompris.c:172
+#: ../src/gcompris/gcompris.c:185
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
 "activity). Use '-l list' to list all the availaible activities and their "
 "descriptions."
 msgstr ""
-"Uzu GCompris per loka menuo (ekzemple -l /reading permesos vin ludi nur "
+"Lanĉi GCompris per loka menuo (ekzemple -l /reading permesos vin ludi nur "
 "aktivecojn en la /reading dosierujo, -l /strategy/connect4 nur la connect4 "
 "aktivecon). Uzu '-l list' por listigi ĉiujn aktivecojn kaj iliajn detalojn. "
 
-#: ../src/gcompris/gcompris.c:177
+#: ../src/gcompris/gcompris.c:190
 msgid "GCompris will find the data dir in this directory"
 msgstr ""
 
-#: ../src/gcompris/gcompris.c:180
+#: ../src/gcompris/gcompris.c:193
 msgid "GCompris will find the skins in this directory"
 msgstr ""
 
-#: ../src/gcompris/gcompris.c:183
+#: ../src/gcompris/gcompris.c:196
 msgid "GCompris will find the activity plugins in this directory"
 msgstr ""
 
-#: ../src/gcompris/gcompris.c:186
-#, fuzzy
+#: ../src/gcompris/gcompris.c:199
 msgid "GCompris will find the python activity in this directory"
-msgstr "Uzu GCompris per loka aktiveca dosierujo en menuo "
+msgstr ""
 
-#: ../src/gcompris/gcompris.c:189
+#: ../src/gcompris/gcompris.c:202
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr ""
 
-#: ../src/gcompris/gcompris.c:192
+#: ../src/gcompris/gcompris.c:205
 msgid "GCompris will find the activities menu in this directory"
 msgstr ""
 
-#: ../src/gcompris/gcompris.c:195
+#: ../src/gcompris/gcompris.c:208
 msgid "Run GCompris in administration and user-management mode"
-msgstr "Uzu GCompris en administrado kaj uzanto-administrada modalo"
+msgstr "Lanĉi GCompris en administrado kaj uzanto-administrada modalo"
 
-#: ../src/gcompris/gcompris.c:198
+#: ../src/gcompris/gcompris.c:211
 msgid ""
 "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
 msgstr ""
-"Uzu alternan datumbazon por profiloj [$HOME/.config/gcompris/gcompris_sqlite."
-"db]"
+"Lanĉi alternan datumbazon por profiloj [$HOME/.config/gcompris/"
+"gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:201
+#: ../src/gcompris/gcompris.c:214
 msgid "Create the alternate database for profiles"
-msgstr "Kreu la alternan datumbazon por profiloj"
+msgstr "Krei la alternan datumbazon por profiloj"
 
-#: ../src/gcompris/gcompris.c:204
+#: ../src/gcompris/gcompris.c:217
 msgid "Re-read XML Menus and store them in the database"
-msgstr "Relegu XML Menuo kaj savu ilin en la datumbazo"
+msgstr "Relegi XML-menuon kaj konservi ilin en la datumbazo"
 
-#: ../src/gcompris/gcompris.c:207
+#: ../src/gcompris/gcompris.c:220
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
-msgstr "Fiksu la profilon por uzi. Uzi 'gcompris -a' por krei profilojn"
+msgstr "Agordi la profilon por uzi. Uzi 'gcompris -a' por krei profilojn"
 
-#: ../src/gcompris/gcompris.c:210
+#: ../src/gcompris/gcompris.c:223
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
-msgstr "Listigu ĉiujn profilojn. Uzu 'gcompris -a' por krei profilojn "
+msgstr "Listigi ĉiujn profilojn. Uzi 'gcompris -a' por krei profilojn"
 
-#: ../src/gcompris/gcompris.c:213
+#: ../src/gcompris/gcompris.c:226
+#, fuzzy
 msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
 msgstr ""
-"(xx config directory) lolo: [$HOME/.config/gcompris]. Alterno ests por fiksi "
-"$XDG_CONFIG_HOME. $XDG_CONFIG_HOME."
+"(xx config directory) lolo: [$HOME/.config/gcompris]. Alterno ests por "
+"agordi $XDG_CONFIG_HOME. $XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:216
+#: ../src/gcompris/gcompris.c:229
 msgid "The location of user directories: [$HOME/My GCompris]"
-msgstr "La loko de uzanto xx directories: [$HOME/My GCompris]"
+msgstr "La loko de uzantodosierujo: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:219
+#: ../src/gcompris/gcompris.c:232
 msgid "Run the experimental activities"
-msgstr "Uzu la eksperimentajn aktivecojn"
+msgstr "Uzi la eksperimentajn aktivecojn"
 
-#: ../src/gcompris/gcompris.c:222
+#: ../src/gcompris/gcompris.c:235
 msgid "Disable the quit button"
-msgstr "Malkapabligu la elirbutonon"
+msgstr "Elŝalti la elirbutonon"
 
-#: ../src/gcompris/gcompris.c:225
+#: ../src/gcompris/gcompris.c:238
 msgid "Disable the config button"
-msgstr "Malkapabligu la agordan butonon"
+msgstr "Elŝalti la agordan butonon"
 
-#: ../src/gcompris/gcompris.c:228
+#: ../src/gcompris/gcompris.c:241
+msgid "Disable the level button"
+msgstr "Elŝalti la nivelbutonon"
+
+#: ../src/gcompris/gcompris.c:244
 msgid ""
 "GCompris will get images, sounds and activity data from this server if not "
 "found locally."
 msgstr ""
-"GCompris ricevos bildojn, sonojn kaj aktiveco-informojn de ĉi (xx server) se "
-"ne loke troviĝas."
+"GCompris ricevos bildojn, sonojn kaj aktiveco-informojn de tiu servilo se ne "
+"loke troviĝas."
 
-#: ../src/gcompris/gcompris.c:231
+#: ../src/gcompris/gcompris.c:247
 msgid ""
 "Only when --server is provided, disable check for local resource first. Data "
 "are always taken from the web server."
 msgstr ""
-"Nur kiam vi havas –-server, malkapabligu loka fontokontrolo unue. Informoj "
-"ĉiam estas prenitaj de retservilo."
+"Nur kiam vi havas –-server, elŝalti loka fontokontrolo unue. Informoj ĉiam "
+"estas prenitaj de retservilo."
 
-#: ../src/gcompris/gcompris.c:235
+#: ../src/gcompris/gcompris.c:251
 msgid ""
 "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr ""
 "En servila modalo, specifigu la kaŝmemoran dosierujon uzita por eviti ne "
 "necesajn elŝutadojn."
 
-#: ../src/gcompris/gcompris.c:238
+#: ../src/gcompris/gcompris.c:254
 msgid ""
 "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr ""
 "Mond tira kaj fala modalo: normala, 2alklakoj, ambaŭ. Defaŭlta modalo eastas "
 "normala."
 
-#: ../src/gcompris/gcompris.c:241
+#: ../src/gcompris/gcompris.c:257
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Ne evitu la ruligon de pluraj ekzemploj de GCompris."
 
-#: ../src/gcompris/gcompris.c:908
+#: ../src/gcompris/gcompris.c:929
 #, fuzzy, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
-"support its development, the Windows version provides only %d of the %d "
-"activities. You can get the full version for a small fee at\n"
+"support its development, this version provides only %d of the %d activities. "
+"You can get the full version for a small fee at\n"
 "<http://gcompris.net>\n"
 "The GNU/Linux version does not have this restriction. If you also believe "
 "that we should teach freedom to children, please consider using GNU/Linux. "
@@ -3025,7 +3359,12 @@ msgstr ""
 "informojn ĉe FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1345
+#: ../src/gcompris/gcompris.c:1223
+#, c-format
+msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:1485
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
@@ -3033,12 +3372,12 @@ msgstr ""
 "GCompris ne startos ĉar la ŝlos-dosiero estas malpli ol %d sekundoj "
 "malnova.\n"
 
-#: ../src/gcompris/gcompris.c:1347
+#: ../src/gcompris/gcompris.c:1487
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "La ŝlosdosiero estas: %s.\n"
 
-#: ../src/gcompris/gcompris.c:1461
+#: ../src/gcompris/gcompris.c:1601
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3052,81 +3391,99 @@ msgstr ""
 "Pliaj informoj je http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1567
+#: ../src/gcompris/gcompris.c:1716
 #, c-format
 msgid "Use -l to access an activity directly.\n"
-msgstr "Uzu -1 por aliri aktivecon rekte.\n"
+msgstr "Uzu -l por aliri aktivecon rekte.\n"
 
-#: ../src/gcompris/gcompris.c:1568
+#: ../src/gcompris/gcompris.c:1717
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "La listo de aktivecoj estas :\n"
 
-#: ../src/gcompris/gcompris.c:1599
-#, fuzzy, c-format
+#: ../src/gcompris/gcompris.c:1748
+#, c-format
 msgid "Number of activities: %d\n"
-msgstr "Aktivecoj por kalkuli."
+msgstr "Nombro da aktivecoj: %d\n"
 
-#: ../src/gcompris/gcompris.c:1635
+#: ../src/gcompris/gcompris.c:1784
 #, c-format
 msgid "%s exists but is not readable or writable"
-msgstr ""
+msgstr "%s ekzistas sed nelegebla aŭ skribebla"
 
-#: ../src/gcompris/gcompris.c:1698
+#: ../src/gcompris/gcompris.c:1847
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
 "without network support!"
 msgstr ""
 
-#: ../src/gcompris/gcompris.c:1752
+#: ../src/gcompris/gcompris.c:1901
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
 "available ones\n"
 msgstr ""
 
-#: ../src/gcompris/gcompris.c:1766
+#: ../src/gcompris/gcompris.c:1915
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "La listo de profiloj estas:\n"
 
-#: ../src/gcompris/gcompris_db.c:274
+#: ../src/gcompris/gcompris_db.c:309
 msgid "Unaffected"
 msgstr "Ne-afekta"
 
-#: ../src/gcompris/gcompris_db.c:275
+#: ../src/gcompris/gcompris_db.c:310
 msgid "Users without a class"
 msgstr "Uzantoj se klaso"
 
-#: ../src/gcompris/help.c:176
+#: ../src/gcompris/gcompris_db.c:889
+#, c-format
+msgid ""
+"Loading activity from database:\n"
+"%s"
+msgstr ""
+"Ŝargi aktivecon de datumbazo:\n"
+"%s"
+
+#: ../src/gcompris/help.c:180
 msgid "Prerequisite"
 msgstr "Antaŭkondiĉoj"
 
-#: ../src/gcompris/help.c:207
+#: ../src/gcompris/help.c:210
 msgid "Goal"
 msgstr "Celo"
 
-#: ../src/gcompris/help.c:238
+#: ../src/gcompris/help.c:240
 msgid "Manual"
 msgstr "Instrukcioj"
 
-#: ../src/gcompris/help.c:269
+#: ../src/gcompris/help.c:270
 msgid "Credit"
 msgstr "Kredito"
 
-#: ../src/gcompris/properties.c:491 ../src/gcompris/properties.c:498
+#: ../src/gcompris/menu.c:582
+#, c-format
+msgid ""
+"Loading activity from file:\n"
+"%s"
+msgstr ""
+"Ŝargi aktivecon de dosiero:\n"
+"%s"
+
+#: ../src/gcompris/properties.c:501 ../src/gcompris/properties.c:508
 msgid "readme"
 msgstr "Legu min"
 
-#: ../src/gcompris/properties.c:493
+#: ../src/gcompris/properties.c:503
 msgid ""
 "This directory contains the files you create with the GCompris educational "
 "suite\n"
 msgstr ""
 "Ĉi dosierujo enhavas la dosierojn kiujn vi kreis per la GCompris eduka aro\n"
 
-#: ../src/gcompris/properties.c:500
+#: ../src/gcompris/properties.c:510
 msgid ""
 "Put any number of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
@@ -3136,11 +3493,44 @@ msgstr ""
 "Vi povas inkludi ĉi bildojn en viaj desegnaĵoj kaj animacioj.\n"
 "La taŭgaj bildo formatoj estas jpeg, png and svg.\n"
 
-#: ../src/gcompris/timer.c:244
+#: ../src/gcompris/sugar.c:70
+msgid "Help"
+msgstr "Helpo"
+
+#: ../src/gcompris/sugar.c:71
+msgid "About"
+msgstr "Pri"
+
+#: ../src/gcompris/sugar.c:72
+msgid "Previous level"
+msgstr "Antaŭa nivelo"
+
+#: ../src/gcompris/sugar.c:75
+msgid "Next level"
+msgstr "Sekva nivelo"
+
+#: ../src/gcompris/sugar.c:77
+msgid "Refresh"
+msgstr "Aktualigi"
+
+#: ../src/gcompris/sugar.c:78
+msgid "Settings"
+msgstr "Agordoj"
+
+#. TRANSLATORS: Back as in previous
+#: ../src/gcompris/sugar.c:86
+msgid "Back"
+msgstr "Reen"
+
+#: ../src/gcompris/sugar.c:87
+msgid "Stop"
+msgstr "Ĉesi"
+
+#: ../src/gcompris/timer.c:245
 msgid "Time Elapsed"
 msgstr "Tempo pasita"
 
-#: ../src/gcompris/timer.c:322
+#: ../src/gcompris/timer.c:323
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Restanta tempo = %d"
@@ -3749,30 +4139,53 @@ msgstr "Zambio"
 msgid "Zimbabwe"
 msgstr "Zimbabvo"
 
-#: ../src/gletters-activity/gletters.c:131
+#: ../src/gletters-activity/gletters.c:132
 #: ../src/gletters-activity/gletters.xml.in.h:3
 msgid "Simple Letters"
 msgstr "Simplaj literoj"
 
-#: ../src/gletters-activity/gletters.c:132
+#: ../src/gletters-activity/gletters.c:133
 #: ../src/gletters-activity/gletters.xml.in.h:4
 msgid "Type the falling letters before they reach the ground"
 msgstr "Tajpu la falantajn literojn antaŭ ol ili atingis la teron"
 
 #. TRANSLATORS: Put here the numbers in your language
-#: ../src/gletters-activity/gletters.c:224 ../src/memory-activity/memory.c:930
+#: ../src/gletters-activity/gletters.c:225 ../src/memory-activity/memory.c:931
 msgid "0123456789"
 msgstr "0123456789"
 
 #. TRANSLATORS: Put here the alphabet uppercase in your language
-#: ../src/gletters-activity/gletters.c:234 ../src/memory-activity/memory.c:940
+#: ../src/gletters-activity/gletters.c:235 ../src/memory-activity/memory.c:941
 msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-#: ../src/gletters-activity/gletters.c:876
+#. Init configuration window:
+#. all the configuration functions will use it
+#. all the configuration functions returns values for their key in
+#. the dict passed to the apply_callback
+#. the returned value is the main GtkVBox of the window,
+#. we can add what you want in it.
+#: ../src/gletters-activity/gletters.c:850
+#: ../src/imageid-activity/imageid.c:712 ../src/login-activity/login.py:479
+#: ../src/missing_letter-activity/missingletter.c:784
+#: ../src/pythontest-activity/pythontest.py:454
+#: ../src/readingh-activity/reading.c:904
+#: ../src/scalesboard-activity/scale.c:1161
 #: ../src/smallnumbers-activity/smallnumbers.c:595
+#: ../src/tuxpaint-activity/tuxpaint.py:185
+#: ../src/wordsgame-activity/wordsgame.c:866
+#, c-format, python-format
+msgid ""
+"<b>%s</b> configuration\n"
+" for profile <b>%s</b>"
+msgstr ""
+"<b>%s</b> agordo\n"
+" Por profilo <b>%s</b>"
+
+#: ../src/gletters-activity/gletters.c:879
+#: ../src/smallnumbers-activity/smallnumbers.c:614
 msgid "Enable sounds"
-msgstr "funkciigu sonojn"
+msgstr "Enŝalti sonojn"
 
 #: ../src/gletters-activity/gletters.xml.in.h:1
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:2
@@ -4058,27 +4471,27 @@ msgstr ""
 "estas prima numero. Uzu la sagajn klavojn por navigi ĉirkaŭ la tabulo kaj "
 "por eviti la Troglojn. Premu la spaco-klavon por manĝi numeron. "
 
-#: ../src/guessnumber-activity/guessnumber.py:201
+#: ../src/guessnumber-activity/guessnumber.py:199
 #, python-format
 msgid "Guess a number between %d and %d"
 msgstr "Divenu numeron inter %d kaj %d"
 
-#: ../src/guessnumber-activity/guessnumber.py:301
+#: ../src/guessnumber-activity/guessnumber.py:299
 #, python-format
 msgid "Please enter a number between %d and %d"
 msgstr "Bonvolu entajpi numeron inter %d kaj %d"
 
-#: ../src/guessnumber-activity/guessnumber.py:306
+#: ../src/guessnumber-activity/guessnumber.py:304
 msgid "Out of range"
 msgstr "Tio estas ekstere la limo"
 
-#: ../src/guessnumber-activity/guessnumber.py:312
+#: ../src/guessnumber-activity/guessnumber.py:310
 msgid "Too high"
-msgstr "Tio estas tro alta"
+msgstr "Tro alta"
 
-#: ../src/guessnumber-activity/guessnumber.py:314
+#: ../src/guessnumber-activity/guessnumber.py:312
 msgid "Too low"
-msgstr "Tio estas tro malalta"
+msgstr "Tro malalta"
 
 #: ../src/guessnumber-activity/guessnumber.xml.in.h:1
 msgid "Guess a number"
@@ -4217,12 +4630,12 @@ msgstr "ses-angulo"
 #: ../src/readingh-activity/readingh.xml.in.h:4
 #: ../src/readingv-activity/readingv.xml.in.h:4
 msgid "Reading"
-msgstr "Devas kapabli legi"
+msgstr "Legante"
 
 #: ../src/imageid-activity/imageid.c:95
 #: ../src/missing_letter-activity/missingletter.c:85
 msgid "Learn how to read"
-msgstr "Lernu kiel legi"
+msgstr "Lerni kiel legi"
 
 #: ../src/imageid-activity/imageid.c:522
 msgid ""
@@ -4231,7 +4644,7 @@ msgid ""
 msgstr ""
 
 #: ../src/imageid-activity/imageid.c:534
-#: ../src/missing_letter-activity/missingletter.c:582
+#: ../src/missing_letter-activity/missingletter.c:592
 msgid "Data file for this level is not properly formatted."
 msgstr ""
 
@@ -4250,20 +4663,20 @@ msgstr "Praktiko de legado"
 #: ../src/imageid-activity/resources/imageid/board1.xml.in.h:1
 #: ../src/imagename-activity/resources/imagename/board4_0.xml.in.h:2
 msgid "apple"
-msgstr "Pomo"
+msgstr "pomo"
 
 #: ../src/imageid-activity/resources/imageid/board1.xml.in.h:2
 msgid "bag"
-msgstr "Sako"
+msgstr "sako"
 
 #: ../src/imageid-activity/resources/imageid/board1.xml.in.h:3
 msgid "banana"
-msgstr "Banano"
+msgstr "banano"
 
 #: ../src/imageid-activity/resources/imageid/board1.xml.in.h:4
 #: ../src/imageid-activity/resources/imageid/board2.xml.in.h:5
 msgid "book"
-msgstr "Libro"
+msgstr "libro"
 
 #: ../src/imageid-activity/resources/imageid/board1.xml.in.h:5
 msgid "cheese"
@@ -4288,30 +4701,30 @@ msgstr "tornistro"
 
 #: ../src/imageid-activity/resources/imageid/board2.xml.in.h:1
 msgid "back"
-msgstr "Malantaŭ"
+msgstr "reen"
 
 #: ../src/imageid-activity/resources/imageid/board2.xml.in.h:2
 #: ../src/imagename-activity/resources/imagename/board6_0.xml.in.h:2
 msgid "ball"
-msgstr "Pilko"
+msgstr "pilko"
 
 #: ../src/imageid-activity/resources/imageid/board2.xml.in.h:3
 msgid "bed"
-msgstr "Lito"
+msgstr "lito"
 
 #: ../src/imageid-activity/resources/imageid/board2.xml.in.h:4
 msgid "boat"
-msgstr "Boato"
+msgstr "boato"
 
 #: ../src/imageid-activity/resources/imageid/board2.xml.in.h:6
 #: ../src/imagename-activity/resources/imagename/board2_0.xml.in.h:2
 #: ../src/imagename-activity/resources/imagename/board7_0.xml.in.h:2
 msgid "bottle"
-msgstr "Botelo"
+msgstr "botelo"
 
 #: ../src/imageid-activity/resources/imageid/board2.xml.in.h:7
 msgid "cake"
-msgstr "Kuko"
+msgstr "kuko"
 
 #: ../src/imageid-activity/resources/imageid/board2.xml.in.h:8
 msgid "camel"
@@ -4320,7 +4733,7 @@ msgstr "kamelo"
 #: ../src/imageid-activity/resources/imageid/board2.xml.in.h:9
 #: ../src/imagename-activity/resources/imagename/board4_0.xml.in.h:4
 msgid "car"
-msgstr "Aŭto"
+msgstr "aŭto"
 
 #: ../src/imageid-activity/resources/imageid/board2.xml.in.h:10
 msgid "cat"
@@ -4332,7 +4745,7 @@ msgstr "kaptas"
 
 #: ../src/imageid-activity/resources/imageid/board2.xml.in.h:12
 msgid "dog"
-msgstr "Hundo"
+msgstr "hundo"
 
 #: ../src/imageid-activity/resources/imageid/board2.xml.in.h:13
 msgid "finish"
@@ -4344,7 +4757,7 @@ msgstr "fiŝo"
 
 #: ../src/imageid-activity/resources/imageid/board2.xml.in.h:15
 msgid "plane"
-msgstr "aeroplano"
+msgstr "aviadilo"
 
 #: ../src/imagename-activity/imagename.xml.in.h:1
 #, fuzzy
@@ -4361,7 +4774,7 @@ msgstr ""
 
 #: ../src/imagename-activity/imagename.xml.in.h:3
 msgid "Image Name"
-msgstr "Bilda nomo"
+msgstr "Bildnomo"
 
 #: ../src/imagename-activity/imagename.xml.in.h:5
 msgid "Vocabulary and reading"
@@ -4499,7 +4912,7 @@ msgstr "rakedo"
 #: ../src/searace-activity/searace.py:872
 #: ../src/searace-activity/searace.py:964
 msgid "left"
-msgstr "Maldekstra"
+msgstr "maldekstra"
 
 #: ../src/leftright-activity/leftright.c:236
 #: ../src/searace-activity/searace.py:415
@@ -4509,7 +4922,7 @@ msgstr "Maldekstra"
 #: ../src/searace-activity/searace.py:874
 #: ../src/searace-activity/searace.py:958
 msgid "right"
-msgstr "Dekstra"
+msgstr "dekstra"
 
 #: ../src/leftright-activity/leftright.xml.in.h:1
 msgid "Determine if a hand is a right or a left hand"
@@ -4523,12 +4936,12 @@ msgstr "Distingu inter dekstra kaj maldekstra manoj de diversaj vid-anguloj. "
 
 #: ../src/leftright-activity/leftright.xml.in.h:3
 msgid "Find your left and right hands"
-msgstr "Trovu vian maldekstra kaj dekstra manoj"
+msgstr "Trovu vian maldekstran kaj dekstran manojn"
 
 #: ../src/leftright-activity/leftright.xml.in.h:4
 #: ../src/railroad-activity/railroad.xml.in.h:4
 msgid "None"
-msgstr "Vi devas kapabli distingi inter dekstra kaj maldekstra manoj"
+msgstr "Nenio"
 
 #: ../src/leftright-activity/leftright.xml.in.h:5
 msgid ""
@@ -4538,16 +4951,45 @@ msgstr ""
 "Vi povas vidi manon: ĉu estas maldekstra aŭ dekstra? Klaku sur la ruĝabutono "
 "maldekstre, aŭ la verda butono sur dekstra"
 
-#: ../src/login-activity/login.py:98
+#: ../src/lightsoff-activity/lightsoff.py:442
+msgid ""
+"Switch off all the lights, I have to go to sleep.\n"
+"If you need help, click on me."
+msgstr ""
+
+#: ../src/lightsoff-activity/lightsoff.xml.in.h:1
+msgid "Lights Off"
+msgstr "Lumoj elŝaltitaj"
+
+#: ../src/lightsoff-activity/lightsoff.xml.in.h:2
+msgid "The aim is to switch off all the lights."
+msgstr ""
+
+#: ../src/lightsoff-activity/lightsoff.xml.in.h:3
+msgid ""
+"The effect of pressing a button is to toggle the state of that button, and "
+"of its immediate vertical and horizontal neighbours. The sun and the color "
+"of the sky depend on the number of clicks needed to solve the puzzle. If you "
+"click on Tux, the solution is shown."
+msgstr ""
+
+#: ../src/lightsoff-activity/lightsoff.xml.in.h:4
+msgid ""
+"The solver algorithm described on haar.clara.co.uk is a valuable resource to "
+"know more about the Lights Off game: &lt;http://www.haar.clara.co.uk/Lights/"
+"solving.html&gt;"
+msgstr ""
+
+#: ../src/login-activity/login.py:101
 msgid "Profile: "
 msgstr "Profilo: "
 
-#: ../src/login-activity/login.py:231
+#: ../src/login-activity/login.py:234
 msgid "Login: "
-msgstr "Uzanto: "
+msgstr "Ensaluti: "
 
 #. toggle box
-#: ../src/login-activity/login.py:491
+#: ../src/login-activity/login.py:494
 msgid "Enter login to log in"
 msgstr "Entajpu uzantnomon por eniri"
 
@@ -4560,12 +5002,13 @@ msgstr ""
 
 #: ../src/login-activity/login.xml.in.h:2
 msgid "GCompris login screen"
-msgstr "GCompris uzanto ekrano"
+msgstr "GCompris ensalut-ekrano"
 
 #: ../src/login-activity/login.xml.in.h:3
+#, fuzzy
 msgid ""
-"In order to activate the login screen, you must \n"
-"first add users in the administration part of GCompris. \n"
+"In order to activate the login screen, you must\n"
+"first add users in the administration part of GCompris.\n"
 "You access Administration by running 'gcompris -a'.\n"
 "In Administration, you can create different profiles. In each profile,\n"
 "you can have a different set of users and select which activities are "
@@ -4574,7 +5017,7 @@ msgid ""
 "'profile'\n"
 "is the name of a profile as you created it in Administration."
 msgstr ""
-"Por aktivigi la sinanoncan ekranon, vi devas \n"
+"Por aktivigi la ensalut-ekranon, vi devas \n"
 "unue aldoni uzantojn en la administrada parto de GCompris. \n"
 "Vi alirigas Administrado rulante 'GCompris -a'.\n"
 "En administrado, vi povas krei diversaj profiloj. En ĉiu profilo,\n"
@@ -4594,7 +5037,7 @@ msgstr "Nombru kiom da aferoj estas sub la magia ĉapo post kelkaj estas for"
 
 #: ../src/magic_hat_minus-activity/magic_hat_minus.xml.in.h:2
 msgid "Learn subtraction"
-msgstr "Instrui kiel minusi la aferojn"
+msgstr "Lerni subtrahon"
 
 #: ../src/magic_hat_minus-activity/magic_hat_minus.xml.in.h:3
 msgid ""
@@ -4606,7 +5049,7 @@ msgstr ""
 "Rigardu je la magianto, li diras la steloj kiuj estas sub sia magia ĉapo."
 "Tiam, klaku sur la ĉapo malfermi ĝin. Malmultaj steloj eskapas. klaku denove "
 "sur ĉapo por fermi ĝin. Vi devas kalkuli kiom da steloj ankoraŭ restas sub "
-"ĉapo. klaku sur la man-signo por scii la rezulton."
+"ĉapo. Klaku sur la man-signo por scii la rezulton."
 
 #: ../src/magic_hat_minus-activity/magic_hat_minus.xml.in.h:4
 #: ../src/memory_add_minus-activity/memory_add_minus.xml.in.h:3
@@ -4614,7 +5057,7 @@ msgstr ""
 #: ../src/memory_minus-activity/memory_minus.xml.in.h:2
 #: ../src/memory_minus_tux-activity/memory_minus_tux.xml.in.h:2
 msgid "Subtraction"
-msgstr "Vi devas kapabli kiel minudi la aferojn"
+msgstr "Subtraho"
 
 #: ../src/magic_hat_minus-activity/magic_hat_minus.xml.in.h:5
 #: ../src/magic_hat_plus-activity/magic_hat_plus.xml.in.h:5
@@ -4625,7 +5068,7 @@ msgstr "La ĉapo de magianto"
 #: ../src/memory_add-activity/memory_add.xml.in.h:1
 #: ../src/memory_enumerate-activity/memory_enumerate.xml.in.h:1
 msgid "Addition"
-msgstr "Oni devas kapabli plusi aferojn"
+msgstr "Adicio"
 
 #: ../src/magic_hat_plus-activity/magic_hat_plus.xml.in.h:2
 msgid ""
@@ -4645,24 +5088,24 @@ msgstr "Nombru kiom da aferoj estas sub la magia ĉapo"
 msgid "Learn addition"
 msgstr "Instrui kiel plusi la aferojn"
 
-#: ../src/maze-activity/maze.c:131 ../src/maze-activity/maze.xml.in.h:4
+#: ../src/maze-activity/maze.c:132 ../src/maze-activity/maze.xml.in.h:4
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:4
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:4
 msgid "Maze"
-msgstr "Puzlo"
+msgstr "Labirinto"
 
-#: ../src/maze-activity/maze.c:132 ../src/maze-activity/maze.xml.in.h:2
+#: ../src/maze-activity/maze.c:133 ../src/maze-activity/maze.xml.in.h:2
 msgid "Find your way out of the maze"
-msgstr "Trovu vian eliran vojon"
+msgstr "Trovu vian vojon el la labirinto"
 
-#: ../src/maze-activity/maze.c:499
+#: ../src/maze-activity/maze.c:599
 msgid ""
 "Look at your position, then switch back to invisible mode to continue your "
 "moves"
 msgstr ""
 "Rigardu vian pozicion, kaj reiru al nevidebla modo por daŭrigi vian moviĝon "
 
-#: ../src/maze-activity/maze.c:501
+#: ../src/maze-activity/maze.c:601
 msgid ""
 "Look at your position, then switch back to 3D mode to continue your moves"
 msgstr "Rigardu vian pozicion, kaj reiru al 3D modo por daŭrigi vian moviĝon"
@@ -4679,7 +5122,7 @@ msgstr "Uzu la sago-klavarojn por movi la objekton."
 #: ../src/maze3D-activity/maze3D.xml.in.h:4
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:3
 msgid "Help Tux get out of this maze."
-msgstr "Helpi al Tux eliri de ĉi puzlo."
+msgstr "Helpi al Tux iri el tiu labirinto."
 
 #: ../src/maze-activity/maze.xml.in.h:5
 msgid "Use the keyboard arrows to move Tux up to the door."
@@ -4687,7 +5130,7 @@ msgstr "Uzu la sago- klavaron por movi al Tux ĝis la pordo."
 
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:2
 msgid "Find your way out of the maze (Move is relative)"
-msgstr "Trovu vian vojon eliri de la enigmo (Movo estas relativa)"
+msgstr "Trovu vian vojon eliri de la labirinto (Movo estas relativa)"
 
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:5
 msgid ""
@@ -4695,17 +5138,17 @@ msgid ""
 "is relative (first person). Use the up arrow to go forward. The other arrow "
 "let you turn Tux in another direction."
 msgstr ""
-"Uzu la klavarajn sagojn movi al Tux ĝis la pordo. En ĉi enigmo, la movo "
+"Uzu la klavarajn sagojn movi al Tux ĝis la pordo. En ĉi labirinto, la movo "
 "rilatas (unua persono). Uzu la supra sago iri antaŭen. la alia sago ebligos "
 "vin turni al Tux en alia direkto. "
 
 #: ../src/maze3D-activity/maze3D.xml.in.h:1
 msgid "3D Maze"
-msgstr "3D enigmo"
+msgstr "3D-labirinto"
 
 #: ../src/maze3D-activity/maze3D.xml.in.h:3
 msgid "Find your way out of the 3D maze"
-msgstr "Trovi vian vojon eliri de la 3D enigmo"
+msgstr "Trovi vian vojon eliri de la 3D-labirinto"
 
 #: ../src/maze3D-activity/maze3D.xml.in.h:5
 msgid ""
@@ -4719,7 +5162,7 @@ msgstr ""
 
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:2
 msgid "Find your way out of the invisible maze"
-msgstr "Trovu vian vojon eliri de la nevidebla enigmo"
+msgstr "Trovu vian vojon eliri de la nevidebla labirinto"
 
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:5
 msgid ""
@@ -4731,7 +5174,7 @@ msgstr ""
 "ŝalti inter nevidebla kaj videblaj modoj. Videbla modo nur donas al vi "
 "indikon de via pozicio, kiel mapo. Vi ne povas movi Tux en videbla modo. "
 
-#: ../src/melody-activity/melody.py:111
+#: ../src/melody-activity/melody.py:107
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -4739,13 +5182,13 @@ msgid ""
 "enable the sound"
 msgstr ""
 "Eraro: ĉi aktiveco ne funkcios per la\n"
-"Sono efikoj malkapabligitaj.\n"
+"Sono efikoj elŝaltitaj.\n"
 "Iru al la agorda dialogo por\n"
-"funkciigi la sonon"
+"enŝalti la sonon"
 
 #: ../src/melody-activity/melody.xml.in.h:1
 msgid "Ear-training activity"
-msgstr "sono-trejna aktiveco"
+msgstr "Orel-trejna aktiveco"
 
 #: ../src/melody-activity/melody.xml.in.h:2
 msgid ""
@@ -4761,54 +5204,47 @@ msgstr "Melodio"
 
 #: ../src/melody-activity/melody.xml.in.h:5
 msgid "Repeat a melody"
-msgstr "Ripetu melodion"
+msgstr "Ripeti melodion"
 
 #: ../src/memory-activity/memory.c:280
 msgid "zero"
-msgstr ""
+msgstr "nulo"
 
 #: ../src/memory-activity/memory.c:281
-#, fuzzy
 msgid "one"
-msgstr "Vi devas kapabli distingi inter dekstra kaj maldekstra manoj"
+msgstr "unu"
 
 #: ../src/memory-activity/memory.c:282
 msgid "two"
-msgstr ""
+msgstr "du"
 
 #: ../src/memory-activity/memory.c:283
-#, fuzzy
 msgid "three"
-msgstr "arbo"
+msgstr "tri"
 
 #: ../src/memory-activity/memory.c:284
-#, fuzzy
-msgid "for"
-msgstr "floro"
+msgid "four"
+msgstr "kvar"
 
 #: ../src/memory-activity/memory.c:285
-#, fuzzy
 msgid "five"
-msgstr "olivo"
+msgstr "kvin"
 
 #: ../src/memory-activity/memory.c:286
 msgid "six"
-msgstr ""
+msgstr "ses"
 
 #: ../src/memory-activity/memory.c:287
-#, fuzzy
 msgid "seven"
-msgstr "Verda"
+msgstr "sep"
 
 #: ../src/memory-activity/memory.c:288
-#, fuzzy
 msgid "eight"
-msgstr "Dekstra"
+msgstr "ok"
 
 #: ../src/memory-activity/memory.c:289
-#, fuzzy
 msgid "nine"
-msgstr "vino"
+msgstr "naŭ"
 
 #: ../src/memory-activity/memory.c:301
 msgid "Memory"
@@ -5015,7 +5451,7 @@ msgstr "Pluso-memorludo kontraŭ Tux"
 #: ../src/memory_add_tux-activity/memory_add_tux.xml.in.h:2
 #: ../src/memory_mult_tux-activity/memory_mult_tux.xml.in.h:1
 msgid "Additions"
-msgstr "pluso"
+msgstr "Plusoj"
 
 #: ../src/memory_div-activity/memory_div.xml.in.h:1
 #: ../src/memory_div_tux-activity/memory_div_tux.xml.in.h:1
@@ -5036,14 +5472,12 @@ msgid "Division memory game against Tux"
 msgstr "Divida memorludo kontraŭ Tux"
 
 #: ../src/memory_enumerate-activity/memory_enumerate.xml.in.h:2
-#, fuzzy
 msgid "Enumeration memory game"
-msgstr "Minuso memorr-ludo"
+msgstr ""
 
 #: ../src/memory_enumerate-activity/memory_enumerate.xml.in.h:3
-#, fuzzy
 msgid "Numeration training, memory."
-msgstr "Instrui kiel nobri"
+msgstr ""
 
 #: ../src/memory_enumerate-activity/memory_enumerate.xml.in.h:4
 #, fuzzy
@@ -5285,185 +5719,246 @@ msgstr "Kapabligo por legi"
 msgid "Word reading"
 msgstr "Legi la Vorton"
 
+#: ../src/missing_letter-activity/missingletter_config.c:77
+msgid "Please select an image."
+msgstr "Bonvole elektu bildon."
+
+#: ../src/missing_letter-activity/missingletter_config.c:83
+msgid "Choice cannot be empty."
+msgstr "Elekto ne povas esti malplene."
+
+#: ../src/missing_letter-activity/missingletter_config.c:89
+msgid "Question cannot be empty."
+msgstr "Demando ne povas esti malplene."
+
+#: ../src/missing_letter-activity/missingletter_config.c:95
+msgid ""
+"Question must include the character '_'. It represents the letter to search."
+msgstr ""
+
+#: ../src/missing_letter-activity/missingletter_config.c:102
+msgid "Pixmap cannot be empty"
+msgstr ""
+
+#: ../src/missing_letter-activity/missingletter_config.c:108
+msgid "There must be at least 2 choices."
+msgstr ""
+
+#: ../src/missing_letter-activity/missingletter_config.c:116
+msgid "The answer and question must be the same except for the character '_'."
+msgstr ""
+
+#: ../src/missing_letter-activity/missingletter_config.c:125
+msgid "The first choice must be the solution that replaces the character '_'."
+msgstr ""
+
+#: ../src/missing_letter-activity/missingletter_config.c:140
+#, c-format
+msgid ""
+"Invalid entry:\n"
+"Question '%s' / Answer '%s'\n"
+"%s"
+msgstr ""
+
+#. pixmap
+#: ../src/missing_letter-activity/missingletter_config.c:414
+#: ../src/missing_letter-activity/missingletter_config.c:557
+msgid "Picture"
+msgstr "Bildo"
+
+#. answer
+#: ../src/missing_letter-activity/missingletter_config.c:420
+#: ../src/missing_letter-activity/missingletter_config.c:548
+msgid "Answer"
+msgstr "Respondo"
+
+#. question
+#: ../src/missing_letter-activity/missingletter_config.c:426
+#: ../src/missing_letter-activity/missingletter_config.c:571
+msgid "Question"
+msgstr "Demando"
+
+#. choice
+#: ../src/missing_letter-activity/missingletter_config.c:432
+#: ../src/missing_letter-activity/missingletter_config.c:583
+msgid "Choice"
+msgstr "Elekto"
+
+#. combo level
+#: ../src/missing_letter-activity/missingletter_config.c:470
+msgid "Level:"
+msgstr "Nivelo:"
+
+#: ../src/missing_letter-activity/missingletter_config.c:478
+#, c-format
+msgid "Level %d"
+msgstr "Nivelo %d"
+
+#: ../src/missing_letter-activity/missingletter_config.c:561
+msgid "Filename:"
+msgstr "Dosiernomo:"
+
+#: ../src/missing_letter-activity/missingletter_config.c:579
+msgid "Replace the letter to guess by the character '_'."
+msgstr ""
+
+#: ../src/missing_letter-activity/missingletter_config.c:591
+msgid ""
+"Enter here the letter that will be proposed. The first letter here must be "
+"the solution."
+msgstr ""
+
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:1
 msgid "car/c_r/a/k/o"
-msgstr "car/c_r/a/k/o"
+msgstr "aŭto/aŭ_o/a/t/o"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:2
 msgid "dog/_og/d/p/q"
-msgstr "dog/_og/d/p/q"
+msgstr "hundo/hun_o/d/p/r"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:3
 msgid "fish/f_sh/i/u/l"
-msgstr "fish/f_sh/i/u/l"
+msgstr "fiŝo/f_ŝo/i/u/l"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:4
 msgid "plane/_lane/p/g/d"
-msgstr "plane/_lane/p/g/d"
+msgstr "aviadilo/_viadilo/a/g/d"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board2.xml.in.h:1
 msgid "apple/_pple/a/i/o"
-msgstr "apple/_pple/a/i/o"
+msgstr "pomo/p_mo/a/i/o"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board2.xml.in.h:2
 msgid "banana/b_nana/a/o/i"
-msgstr "banana/b_nana/a/o/i"
+msgstr "banano/b_nano/a/o/i"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board2.xml.in.h:3
 msgid "house/hous_/e/a/i"
-msgstr "house/hous_/e/a/i"
+msgstr "domo/dom_/e/i/o"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board2.xml.in.h:4
 msgid "satchel/s_tchel/a/o/i"
-msgstr "satchel/s_tchel/a/o/i"
+msgstr ""
 
 #: ../src/missing_letter-activity/resources/missing_letter/board3.xml.in.h:1
-#, fuzzy
 msgid "ball/_all/b/p/d/m"
-msgstr "ball/_all/b/p/d"
+msgstr ""
 
 #: ../src/missing_letter-activity/resources/missing_letter/board3.xml.in.h:2
-#, fuzzy
 msgid "bed/_ed/b/l/f/t"
-msgstr "bed/_ed/b/l/f"
+msgstr ""
 
 #: ../src/missing_letter-activity/resources/missing_letter/board3.xml.in.h:3
-#, fuzzy
 msgid "bottle/_ottle/b/t/p/l"
-msgstr "bottle/_ottle/b/t/p"
+msgstr ""
 
 #: ../src/missing_letter-activity/resources/missing_letter/board3.xml.in.h:4
-#, fuzzy
 msgid "cake/_ake/c/p/d/k"
-msgstr "cake/_ake/c/p/d"
+msgstr ""
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:1
-#, fuzzy
 msgid "apple/appl_/e/h/a/i/o/u"
-msgstr "apple/appl_/e/h/a"
+msgstr ""
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:2
-#, fuzzy
 msgid "banana/_anana/b/p/d/m"
-msgstr "banana/_anana/b/p/d"
+msgstr "banano/_anano/b/p/d/m"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:3
-#, fuzzy
 msgid "car/_ar/c/k/b/u"
-msgstr "car/_ar/c/k/b"
+msgstr ""
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:4
-#, fuzzy
 msgid "dog/d_g/o/g/a/u"
-msgstr "dog/d_g/o/g/a"
+msgstr ""
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:5
-#, fuzzy
 msgid "fish/_ish/f/h/l/j"
-msgstr "fish/_ish/f/h/l"
+msgstr ""
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:6
-#, fuzzy
 msgid "house/h_use/o/f/u/i"
-msgstr "house/h_use/o/f/u"
+msgstr ""
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:7
-#, fuzzy
 msgid "plane/p_ane/l/j/i/t"
-msgstr "plane/p_ane/l/j/i"
+msgstr ""
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:8
-#, fuzzy
 msgid "satchel/_atchel/s/c/l/z"
-msgstr "satchel/_atchel/s/c/l"
+msgstr ""
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:1
-#, fuzzy
 msgid "apple/app_e/l/h/n/i/t"
-msgstr "apple/app_e/l/h/n"
+msgstr ""
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:2
-#, fuzzy
 msgid "ball/b_ll/a/u/o/e/i/y"
-msgstr "ball/b_ll/a/u/o"
+msgstr ""
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:3
-#, fuzzy
 msgid "ball/bal_/l/h/s/z/t"
-msgstr "ball/bal_/l/h/s"
+msgstr ""
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:4
-#, fuzzy
 msgid "banana/ba_ana/n/m/b/z/q"
-msgstr "banana/ba_ana/n/m/b"
+msgstr "banano/ba_ano/n/m/b/z/g"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:5
-#, fuzzy
 msgid "bed/b_d/e/a/i/o/u/s"
-msgstr "bed/b_d/e/a/i"
+msgstr ""
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:6
-#, fuzzy
 msgid "bed/be_/d/p/b/c/v/n"
-msgstr "bed/be_/d/p/b"
+msgstr ""
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:7
-#, fuzzy
 msgid "bottle/b_ttle/o/u/d/a/t/i"
-msgstr "bottle/b_ttle/o/u/d"
+msgstr ""
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:8
-#, fuzzy
 msgid "bottle/bott_e/l/y/r/s/g"
-msgstr "bottle/bott_e/l/y/r"
+msgstr ""
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:9
-#, fuzzy
 msgid "cake/c_ke/a/o/e/i/u/y"
-msgstr "cake/c_ke/a/o/e"
+msgstr ""
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:10
-#, fuzzy
 msgid "cake/ca_e/k/q/c/r/z"
-msgstr "cake/ca_e/k/q/c"
+msgstr ""
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:11
-#, fuzzy
 msgid "car/ca_/r/w/k/c/a"
-msgstr "car/ca_/r/w/k"
+msgstr ""
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:12
-#, fuzzy
 msgid "dog/do_/g/p/q/q/k"
-msgstr "dog/do_/g/p/q"
+msgstr ""
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:13
-#, fuzzy
 msgid "fish/fis_/h/o/i/y/z"
-msgstr "fish/fis_/h/o/i"
+msgstr ""
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:14
-#, fuzzy
 msgid "house/_ouse/h/e/j/z/p/s"
-msgstr "house/_ouse/h/e/j"
+msgstr ""
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:15
-#, fuzzy
 msgid "plane/pl_ne/a/o/s/e/i/u/y"
-msgstr "plane/pl_ne/a/o/s"
+msgstr ""
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:16
-#, fuzzy
 msgid "satchel/sa_chel/t/p/c/z/s/l"
-msgstr "satchel/sa_chel/t/p/c"
+msgstr ""
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
-#: ../src/money-activity/money.c:496
+#: ../src/money-activity/money.c:542
 #, c-format
 msgid "$ %.2f"
 msgstr "$ %.2f"
 
-#: ../src/money-activity/money.c:509
+#: ../src/money-activity/money.c:555
 #, c-format
 msgid "$ %.0f"
 msgstr "$ %.0f"
@@ -5471,7 +5966,7 @@ msgstr "$ %.0f"
 #: ../src/money-activity/money.xml.in.h:1
 #: ../src/money_cents-activity/money_cents.xml.in.h:1
 msgid "Can count"
-msgstr "Oni devas kapabli por scii la mono-numerojn"
+msgstr "Povas nombri"
 
 #: ../src/money-activity/money.xml.in.h:2
 #: ../src/money_cents-activity/money_cents.xml.in.h:2
@@ -5504,7 +5999,7 @@ msgstr ""
 msgid "Practice money usage including cents"
 msgstr "Praktiku mono-uzo inkludante cendoj"
 
-#: ../src/mosaic-activity/mosaic.py:188
+#: ../src/mosaic-activity/mosaic.py:186
 msgid "Rebuild the same mosaic on the right area"
 msgstr "Rekonstruu la saman mozaikon dekstre"
 
@@ -5544,28 +6039,71 @@ msgstr "Edgar Degas, La Dancanta Klaso – 1873-75"
 msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
 msgstr "Pierre-Auguste Renoir, Le Moulin de la Galette – 1876"
 
+#: ../src/paintings-activity/resources/paintings/board1_10.xml.in.h:1
+msgid ""
+"Katsushika Hokusai,\\nViewing Sunset over the Ryogoku Bridge from the Ommaya "
+"Embankment - 1830"
+msgstr ""
+
+#: ../src/paintings-activity/resources/paintings/board1_11.xml.in.h:1
+msgid "Katsushika Hokusa, Poppies - 1833-1834"
+msgstr ""
+
+#: ../src/paintings-activity/resources/paintings/board1_12.xml.in.h:1
+msgid "Katsushika Hokusai, Kazusa sea Route - 1830."
+msgstr ""
+
 #: ../src/paintings-activity/resources/paintings/board1_2.xml.in.h:1
 msgid "Giuseppe Arcimboldo, Spring - 1573"
 msgstr ""
 
 #: ../src/paintings-activity/resources/paintings/board1_3.xml.in.h:1
-msgid "Giuseppe Arcimboldo, The Librarian - 1566)"
+msgid "Giuseppe Arcimboldo, The Librarian - 1566"
+msgstr ""
+
+#: ../src/paintings-activity/resources/paintings/board1_4.xml.in.h:1
+msgid "Katsushika Hokusai, Oiran and Kamuro"
 msgstr ""
 
 #: ../src/paintings-activity/resources/paintings/board1_5.xml.in.h:1
-msgid "Woman holding a fan"
+msgid "Katsushika Hokusai, Woman holding a fan"
 msgstr ""
+
+#: ../src/paintings-activity/resources/paintings/board1_6.xml.in.h:1
+msgid "Katsushika Hokusai, Ejiri in Suruga Province - 1830-1833"
+msgstr ""
+
+#: ../src/paintings-activity/resources/paintings/board1_7.xml.in.h:1
+msgid "Katsushika Hokusai, The Great Wave off Kanagawa - 1823-1829"
+msgstr ""
+
+#: ../src/paintings-activity/resources/paintings/board1_8.xml.in.h:1
+msgid ""
+"Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
+msgstr ""
+
+#: ../src/paintings-activity/resources/paintings/board1_9.xml.in.h:1
+msgid "Utagawa Hiroshige, Horse-mackerel and Prawn - 1840"
+msgstr ""
+
+#: ../src/paintings-activity/resources/paintings/board2_0.xml.in.h:1
+msgid "Michelangelo, Pieta - 1499"
+msgstr "Michelangelo, Pieta - 1499"
 
 #: ../src/paintings-activity/resources/paintings/board2_1.xml.in.h:1
-msgid "Botticelli, Primavera - 1482"
-msgstr ""
+msgid "Leonardo da Vinci, Mona Lisa - 1503-19"
+msgstr "Leonardo da Vinci, La Gioconda - 1503-19"
 
 #: ../src/paintings-activity/resources/paintings/board2_2.xml.in.h:1
-msgid "Caravage, Rest on the Flight into Egypt - 1597"
+msgid "Giovanni Bellini, La Pala di Pesaro - 1475-85"
 msgstr ""
 
 #: ../src/paintings-activity/resources/paintings/board2_3.xml.in.h:1
-msgid "Botticelli, The Birth of Venus - 1482–1486"
+msgid "Albrecht Dürer, Lion - 1494"
+msgstr "Albrecht DÜRER, Leono - 1494"
+
+#: ../src/paintings-activity/resources/paintings/board2_4.xml.in.h:1
+msgid "Pieter Brugel, The Harvesters - 1565"
 msgstr ""
 
 #: ../src/paintings-activity/resources/paintings/board3_0.xml.in.h:1
@@ -5573,25 +6111,26 @@ msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
 msgstr "Pierre-Auguste Renoir, Knabinoj Je La Piano – 1892"
 
 #: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:1
-msgid "Kandinsky, Wassily, Composition VIII - 1923"
-msgstr "Kandinsky, Wassily, Konsisto VIII – 1923"
-
-#: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:2
 msgid "Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
 msgstr ""
 "Oleo sur kanvaso, 140 x 201 cm; Solomon R. Guggenheim Muzeo, Nova Jorko "
+
+#: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:2
+#, fuzzy
+msgid "Wassily Kandinsky, Composition VIII - 1923"
+msgstr "Vasilij KANDINSKIJ, Kompozicio VIII – 1923"
 
 #: ../src/paintings-activity/resources/paintings/board4_0.xml.in.h:1
 msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
 msgstr "Bazille, La remparoj je Aigues-Mortes – 1867"
 
 #: ../src/paintings-activity/resources/paintings/board5_0.xml.in.h:1
-msgid "Cassatt, Mary - Summertime - 1894"
-msgstr "Cassatt, Mary - Somera Tempo – 1894"
+msgid "Mary Cassatt, Summertime - 1894"
+msgstr "Mary CASSATT - Somera tempo – 1894"
 
 #: ../src/paintings-activity/resources/paintings/board6_0.xml.in.h:1
 msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
-msgstr "Vincent Van Gogh, Vilaĝa Strato en Auvers – 1890"
+msgstr "Vincent van GOGH, Vilaĝa Strato en Auvers – 1890"
 
 #: ../src/paratrooper-activity/paratrooper.c:408
 msgid "Control fall speed with up and down arrow keys."
@@ -5626,12 +6165,12 @@ msgid "This board is game-oriented. No specific skills are needed to play."
 msgstr ""
 "Tiu ĉi tabulo rilatas al ludoj. Oni ne bezonas specifikan lertecon por ludi."
 
-#: ../src/penalty-activity/penalty.py:292
+#: ../src/penalty-activity/penalty.py:293
 #, fuzzy
 msgid "Click on the balloon to place it again."
 msgstr "Alklaku sur la nom-vorto de la bildo."
 
-#: ../src/penalty-activity/penalty.py:294
+#: ../src/penalty-activity/penalty.py:295
 msgid "Click twice on the balloon to shoot it."
 msgstr ""
 
@@ -5649,14 +6188,40 @@ msgstr "Maldekstre-klaku la muson sur aktiveco por elekti ĝin."
 
 #: ../src/penalty-activity/penalty.xml.in.h:5
 msgid "Penalty kick"
+msgstr "Penalo"
+
+#: ../src/photohunter-activity/photohunter.c:512
+msgid "Error: Absolutely no photo found in the data directory"
 msgstr ""
 
-#: ../src/planegame-activity/planegame.c:61
+#: ../src/photohunter-activity/photohunter.c:575
+msgid "Click on the differences between the two images."
+msgstr ""
+
+#: ../src/photohunter-activity/photohunter.xml.in.h:1
+msgid "Find the differences between two pictures"
+msgstr ""
+
+#: ../src/photohunter-activity/photohunter.xml.in.h:2
+msgid ""
+"Observe the two pictures carefully. There are some slight differences. When "
+"you find a difference you must click on it."
+msgstr ""
+
+#: ../src/photohunter-activity/photohunter.xml.in.h:3
+msgid "Photo hunter"
+msgstr ""
+
+#: ../src/photohunter-activity/photohunter.xml.in.h:4
+msgid "Visual discrimination."
+msgstr ""
+
+#: ../src/planegame-activity/planegame.c:62
 #: ../src/planegame-activity/planegame.xml.in.h:4
 msgid "Numbers in Order"
 msgstr "Nombroj en ĝusta ordo"
 
-#: ../src/planegame-activity/planegame.c:62
+#: ../src/planegame-activity/planegame.c:63
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "Movu la aviadilon por kapti la nubon en la ĝusta ordo"
 
@@ -5675,6 +6240,15 @@ msgstr "Movu la helikoptero por kapti la nombrojn en la ĝusta maniero"
 #: ../src/planegame-activity/planegame.xml.in.h:3
 msgid "Number"
 msgstr "Nombroj"
+
+#: ../src/pythontemplate-activity/pythontemplate.py:60
+#: ../src/pythontest-activity/pythontest.py:184
+msgid ""
+"This is the first plugin in GCompris coded in the Python\n"
+"Programming language."
+msgstr ""
+"Ĉi tiu estas la unua kromaĵo en GCompris kodita en la Python\n"
+"Programada lingvo"
 
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:1
 #: ../src/pythontest-activity/pythontest.xml.in.h:1
@@ -5701,14 +6275,6 @@ msgid ""
 msgstr ""
 "Dank al Guideo van Rossum kaj la python teamo por tiu ĉi forta lingvo! "
 
-#: ../src/pythontest-activity/pythontest.py:184
-msgid ""
-"This is the first plugin in GCompris coded in the Python\n"
-"Programming language."
-msgstr ""
-"Ĉi tiu estas la unua kromaĵo en GCompris kodita en la Python\n"
-"Programada lingvo"
-
 #: ../src/pythontest-activity/pythontest.py:194
 msgid ""
 "It is now possible to develop GCompris activities in C or in Python.\n"
@@ -5724,7 +6290,7 @@ msgstr "Tiu ĉi aktiveco ne estas ludebla, nur eksperimento"
 #. toggle box
 #: ../src/pythontest-activity/pythontest.py:459
 msgid "Disable line drawing in circle"
-msgstr "Malkapabligu desegni linion en cirklo"
+msgstr "Elŝalti desegni linion en cirklo"
 
 #. combo box
 #: ../src/pythontest-activity/pythontest.py:468
@@ -5739,11 +6305,11 @@ msgstr "Distanco inter cirkloj"
 #. radio buttons for circle or rectangle
 #: ../src/pythontest-activity/pythontest.py:490
 msgid "Use circles"
-msgstr "Uzu cirklojn"
+msgstr "Uzi cirklojn"
 
 #: ../src/pythontest-activity/pythontest.py:491
 msgid "Use rectangles"
-msgstr "Uzu rektanglojn"
+msgstr "Uzi rektanglojn"
 
 #: ../src/pythontest-activity/pythontest.py:494
 msgid "Choice of pattern"
@@ -5791,47 +6357,47 @@ msgstr "Fervojo"
 
 #: ../src/read_colors-activity/read_colors.c:57
 msgid "blue"
-msgstr "Blua"
+msgstr "blua"
 
 #: ../src/read_colors-activity/read_colors.c:58
 msgid "brown"
-msgstr "Bruna"
+msgstr "bruna"
 
 #: ../src/read_colors-activity/read_colors.c:59
 msgid "green"
-msgstr "Verda"
+msgstr "verda"
 
 #: ../src/read_colors-activity/read_colors.c:60
 msgid "grey"
-msgstr "Griza"
+msgstr "griza"
 
 #: ../src/read_colors-activity/read_colors.c:61
 msgid "orange"
-msgstr "Oranĝa"
+msgstr "oranĝa"
 
 #: ../src/read_colors-activity/read_colors.c:62
 msgid "violet"
-msgstr "Violkolora"
+msgstr "violkolora"
 
 #: ../src/read_colors-activity/read_colors.c:63
 msgid "red"
-msgstr "Ruĝa"
+msgstr "ruĝa"
 
 #: ../src/read_colors-activity/read_colors.c:64
 msgid "yellow"
-msgstr "Flava"
+msgstr "flava"
 
 #: ../src/read_colors-activity/read_colors.c:65
 msgid "black"
-msgstr "Nigra"
+msgstr "nigra"
 
 #: ../src/read_colors-activity/read_colors.c:66
 msgid "white"
-msgstr "Blanka"
+msgstr "blanka"
 
 #: ../src/read_colors-activity/read_colors.c:67
 msgid "pink"
-msgstr "Rozkolora"
+msgstr "rozkolora"
 
 #: ../src/read_colors-activity/read_colors.xml.in.h:2
 msgid "Click on the correct colored object."
@@ -5849,8 +6415,8 @@ msgstr "Legu la nomojn de kolorojn"
 msgid "This board teaches basic colors."
 msgstr "Ĉi tiu tabulo instruas la bazajn kolorojn"
 
-#: ../src/readingh-activity/reading.c:220
-#: ../src/wordsgame-activity/wordsgame.c:207
+#: ../src/readingh-activity/reading.c:229
+#: ../src/wordsgame-activity/wordsgame.c:219
 msgid ""
 "Error: We can't find\n"
 "a list of words to play this game.\n"
@@ -5858,38 +6424,38 @@ msgstr ""
 "Eraro: Ni ni povas trovi\n"
 "listo de vortoj ludi ĉi ludon.\n"
 
-#: ../src/readingh-activity/reading.c:380
+#: ../src/readingh-activity/reading.c:389
 msgid "Please, check if the word"
 msgstr "Bonvolu, kontroli se la vorto"
 
-#: ../src/readingh-activity/reading.c:400
+#: ../src/readingh-activity/reading.c:409
 msgid "is being displayed"
 msgstr "aperas"
 
-#: ../src/readingh-activity/reading.c:456
-msgid "We skip this level because there are not enough word in the list!"
+#: ../src/readingh-activity/reading.c:465
+msgid "We skip this level because there are not enough words in the list!"
 msgstr ""
 
-#: ../src/readingh-activity/reading.c:621
-msgid "I am Ready"
-msgstr "Mi pretas"
+#: ../src/readingh-activity/reading.c:668
+msgid "Yes, I saw it"
+msgstr "Jes, mi vidis ĝin"
 
-#: ../src/readingh-activity/reading.c:686
+#: ../src/readingh-activity/reading.c:695
 msgid "No, it was not there"
 msgstr "Ne, ĝi ne estis tie"
 
 #. Report what was wrong in the log
-#: ../src/readingh-activity/reading.c:733
+#: ../src/readingh-activity/reading.c:742
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "La vorto por trovi estis '%s'"
 
-#: ../src/readingh-activity/reading.c:736
+#: ../src/readingh-activity/reading.c:745
 #, c-format
 msgid "But it was not displayed"
 msgstr "Sed ĝi ne estis montrita"
 
-#: ../src/readingh-activity/reading.c:738
+#: ../src/readingh-activity/reading.c:747
 #, c-format
 msgid "And it was displayed"
 msgstr "Kaj estis montrita"
@@ -5926,9 +6492,9 @@ msgstr "Praktikado por legi en limigita tempo"
 
 #: ../src/readingv-activity/readingv.xml.in.h:5
 msgid "Vertical-reading practice"
-msgstr "Vertikala – lego praktikado"
+msgstr "Vertikala lego praktikado"
 
-#: ../src/redraw-activity/redraw.py:875
+#: ../src/redraw-activity/redraw.py:881
 msgid "Coordinate"
 msgstr "Kunordigo"
 
@@ -6007,16 +6573,22 @@ msgstr ""
 "Tux estas malsata. Helpu lin trovi fiŝon nombrante glaciajn punktojn inter "
 "Tux kaj la fiŝo. "
 
-#: ../src/scalesboard-activity/scale.c:276
+#: ../src/scalesboard-activity/scale.c:294
+#, c-format
+msgid "Weight in g = %s"
+msgstr "Pezo en g = %s"
+
+#: ../src/scalesboard-activity/scale.c:296
 #, c-format
 msgid "Weight = %s"
-msgstr "Pezeco = %s"
+msgstr "Pezo = %s"
 
-#: ../src/scalesboard-activity/scale.c:799
+#: ../src/scalesboard-activity/scale.c:1008
 msgid "Take care, you can drop masses on both sides of the scale."
-msgstr "Estu zorgema, Vi povas meti amason sur ambaŭ flankoj de la skalo."
+msgstr "Estu zorgema, vi povas meti amason sur ambaŭ flankoj de la skalo."
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:1
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:1
 msgid "Balance the scales properly"
 msgstr "Bilancu la skalon ĝuste"
 
@@ -6029,6 +6601,7 @@ msgid "Mental calculation, arithmetic equality"
 msgstr "Mensa kalkuladon, aritmetika egalaĵo"
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:4
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:4
 msgid ""
 "The painting is an original painting created by Virginie MOREAU (virginie."
 "moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is "
@@ -6042,6 +6615,25 @@ msgstr ""
 msgid ""
 "To balance the scales, move the masses on the left or the right side. The "
 "masses can be arranged in any order."
+msgstr ""
+"Por bilanci la skalojn, movu la pezilojn sur la maldekstre aŭ la dekstra "
+"flanko. La peziloj povas esti aranĝita en iu ajn ordo."
+
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:2
+msgid "Drag and Drop masses to balance the scales and calculate the weight"
+msgstr ""
+
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:3
+#, fuzzy
+msgid "Mental calculation, arithmetic equality, unit conversion"
+msgstr "Mensa kalkuladon, aritmetika egalaĵo"
+
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:5
+#, fuzzy
+msgid ""
+"To balance the scales, move the masses on the left or the right side. Take "
+"care of the weight and the unit of the masses, remember that a kilogram (kg) "
+"is 1000 grams (g). They can be arranged in any order."
 msgstr ""
 "Por bilanci la skalojn, movu la pezilojn sur la maldekstre aŭ la dekstra "
 "flanko. La peziloj povas esti aranĝita en iu ajn ordo."
@@ -6207,7 +6799,7 @@ msgstr ""
 #: ../src/smallnumbers-activity/smallnumbers.xml.in.h:2
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:2
 msgid "Counting skills"
-msgstr "Oni devas kapabli nombri"
+msgstr "Kapabli nombri"
 
 #: ../src/smallnumbers-activity/smallnumbers.xml.in.h:3
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:3
@@ -6216,7 +6808,7 @@ msgstr "Dum limigita tempo, nombru kiom da punktoj estas sur Ĵetkubo"
 
 #: ../src/smallnumbers-activity/smallnumbers.xml.in.h:4
 msgid "Numbers With Dice"
-msgstr "Nombroj Per Ĵetkuboj"
+msgstr "Nombroj per ĵetkuboj"
 
 #: ../src/smallnumbers-activity/smallnumbers.xml.in.h:5
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:5
@@ -6262,15 +6854,15 @@ msgstr "Vi bezonas paciencon kaj logikan kapablon por fini la enigmon"
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:2
 msgid ""
-"For the first level with colored symbols, drag symbols on the left to their "
-"target position. For the higher levels, click on an empty square to give it "
-"the keyboard focus. Then enter a possible letter or number. GCompris will "
-"not let you enter invalid data."
+"For the first level with colored symbols, select a symbol on the left and "
+"click on its target position. For the higher levels, click on an empty "
+"square to give it the keyboard focus. Then enter a possible letter or "
+"number. GCompris will not let you enter invalid data."
 msgstr ""
-"Por la unua nivelo kun koloraj simboloj, tiru simbolojn maldekstren al sia "
-"celita pozicio. Por pli altaj niveloj, klaku sur iu malplena kvadrato por "
-"doni ĝin la klavaran fokuson. Poste entajpu eblan literon aŭ nombron. "
-"GCompris ne permesos entajpi ne-validajn informojn"
+"Por la unua nivelo kun koloraj simboloj, elektu simbolon maldekstre kaj "
+"klaku al sia celita pozicio. Por pli altaj niveloj, klaku sur iu malplena "
+"kvadrato por doni ĝin la klavaran fokuson. Poste entajpu eblan literon aŭ "
+"nombron. GCompris ne permesos entajpi ne-validan informon."
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:3
 msgid "Sudoku, place unique symbols in a square."
@@ -6307,6 +6899,24 @@ msgstr "Bonega cerbo"
 #: ../src/superbrain-activity/superbrain.xml.in.h:3
 msgid "Tux has hidden several items. Find them again in the correct order"
 msgstr "Tux kaŝas plurajn aferojn. Trovu ilin denove en la ĝusta ordo"
+
+#: ../src/superbrain-activity/superbrain.c:403
+#: ../src/superbrain-activity/superbrain.c:539
+msgid "This item is well placed"
+msgstr "Tiu ero estas bone lokita"
+
+#: ../src/superbrain-activity/superbrain.c:416
+#: ../src/superbrain-activity/superbrain.c:569
+msgid "This item is misplaced"
+msgstr "Tiu ero estas mislokita"
+
+#: ../src/superbrain-activity/superbrain.c:587
+msgid "One item is well placed"
+msgstr "Unu ero estas bone lokita"
+
+#: ../src/superbrain-activity/superbrain.c:601
+msgid "One item is misplaced"
+msgstr "Unu ero estas mislokita"
 
 #: ../src/superbrain-activity/superbrain.xml.in.h:1
 msgid ""
@@ -6444,7 +7054,7 @@ msgstr ""
 
 #: ../src/traffic-activity/traffic.xml.in.h:3
 msgid "Remove the red car from the parking lot through the gate on the right"
-msgstr "forigu la ruĝan aŭton de la parko trans la pordego sur la dekstre "
+msgstr "Forigi la ruĝan aŭton de la parko trans la pordego sur la dekstre "
 
 #: ../src/tuxpaint-activity/tuxpaint.py:123
 msgid ""
@@ -6460,31 +7070,32 @@ msgstr "Atendu ĝis Tuxpaint finiĝas"
 
 #: ../src/tuxpaint-activity/tuxpaint.py:189
 msgid "Inherit fullscreen setting from GCompris"
-msgstr "Heredu tutekranuma fiksado de GCompris"
+msgstr "Heredi tutekranuma fiksado de GCompris"
 
 #: ../src/tuxpaint-activity/tuxpaint.py:193
 msgid "Inherit size setting from GCompris (800x600, 640x480)"
-msgstr "Heredu grandeco fiksado de GCompris (800x600, 640x480)"
+msgstr "Heredi grando fiksado de GCompris (800x600, 640x480)"
 
 #: ../src/tuxpaint-activity/tuxpaint.py:197
 msgid "Disable shape rotation"
-msgstr "Malkapabligu formo rondado"
+msgstr "Elŝalti formo rondado"
 
 #: ../src/tuxpaint-activity/tuxpaint.py:201
 msgid "Show Uppercase text only"
-msgstr "Montru nur grandan literon en la teksto"
+msgstr "Montri nur grandan literon en la teksto"
 
 #: ../src/tuxpaint-activity/tuxpaint.py:205
 msgid "Disable stamps"
-msgstr "Malfunkicigu stampojn"
+msgstr "Elŝalti stampojn"
 
 #: ../src/tuxpaint-activity/tuxpaint.xml.in.h:1
+#, fuzzy
 msgid "Drawing activity (pixmap)"
-msgstr "Desegnu aktivecon (xxx pixmap)"
+msgstr "Desegni aktivecon (xx pixmap)"
 
 #: ../src/tuxpaint-activity/tuxpaint.xml.in.h:2
 msgid "Launch Tuxpaint"
-msgstr "Lanĉu Tuxpaint"
+msgstr "Lanĉi Tuxpaint"
 
 #: ../src/tuxpaint-activity/tuxpaint.xml.in.h:3
 msgid "Tuxpaint"
@@ -6492,11 +7103,11 @@ msgstr "Tuxpaint"
 
 #: ../src/tuxpaint-activity/tuxpaint.xml.in.h:4
 msgid "Use Tuxpaint to draw. When Tuxpaint is finished this board will end."
-msgstr "Uzu Tuxpaint por desegni. Kiam Tuxpaint finiĝas tiu ĉi tabulo finos."
+msgstr "Uzi Tuxpaint por desegni. Kiam Tuxpaint finiĝas tiu ĉi tabulo finos."
 
 #: ../src/tuxpaint-activity/tuxpaint.xml.in.h:5
 msgid "mouse and keyboard manipulation"
-msgstr "Manipulado de klavaro kaj muso"
+msgstr "manipulado de klavaro kaj muso"
 
 #: ../src/watercycle-activity/watercycle.xml.in.h:1
 msgid ""
@@ -6511,11 +7122,11 @@ msgstr ""
 
 #: ../src/watercycle-activity/watercycle.xml.in.h:3
 msgid "Learn about the water cycle"
-msgstr "Lernu pri la akvociklo"
+msgstr "Lerni pri la akvociklo"
 
 #: ../src/watercycle-activity/watercycle.xml.in.h:4
 msgid "Learn the water cycle"
-msgstr "Lernu la akvociklo"
+msgstr "Lerni la akvociklo"
 
 #: ../src/watercycle-activity/watercycle.xml.in.h:5
 msgid ""
@@ -6527,24 +7138,19 @@ msgstr ""
 
 #: ../src/wordprocessor-activity/wordprocessor.c:54
 msgid "Research"
-msgstr "Esploru"
+msgstr "Esplori"
 
 #: ../src/wordprocessor-activity/wordprocessor.c:65
 msgid "Sentimental"
-msgstr "Sentimenta"
+msgstr "Sentimentala"
 
 #: ../src/wordprocessor-activity/wordprocessor.c:76
 msgid "Official"
 msgstr "Oficiala"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:87
-#: ../src/wordprocessor-activity/wordprocessor.c:426
-msgid "Text"
-msgstr "Teksto"
-
 #: ../src/wordprocessor-activity/wordprocessor.c:98
 msgid "Flyer"
-msgstr "Fluganto"
+msgstr "Flugilo"
 
 #: ../src/wordprocessor-activity/wordprocessor.c:423
 msgid "Title"
@@ -6598,23 +7204,67 @@ msgstr ""
 msgid "Your word processor"
 msgstr "Via dokumentoredaktilo"
 
-#: ../src/wordsgame-activity/wordsgame.c:111
+#: ../src/wordsgame-activity/wordsgame.c:112
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:1
 msgid "Falling Words"
 msgstr "Falantaj vortoj"
 
-#: ../src/wordsgame-activity/wordsgame.c:112
+#: ../src/wordsgame-activity/wordsgame.c:113
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the falling words before they reach the ground"
 msgstr "Tajpu la falantajn vortojn antaŭ ili tuŝas la teron "
 
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:3
 msgid "Keyboard training"
-msgstr "Instrui kiel bone uzi la klavaron"
+msgstr "Klavar-ekzercado"
 
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:4
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Tajpu la ĝustan vorton antaŭ ol ke ĝi atingas la teron "
+
+#: ../src/hangman-activity/hangman.xml.in.h:1
+#, fuzzy
+msgid "A word is hidden, you must discover it letter by letter"
+msgstr "Vorto estas kaŝita, vi eltrovu ĝin per literon post litero"
+
+#: ../src/hangman-activity/hangman.xml.in.h:2
+msgid "Reading skill"
+msgstr "Leg-kapabloj"
+
+#: ../src/hangman-activity/hangman.xml.in.h:3
+msgid "The classic hangman game"
+msgstr ""
+
+#: ../src/hangman-activity/hangman.xml.in.h:4
+msgid "This is a good exercise to improve reading and spelling skills."
+msgstr ""
+
+#: ../src/hangman-activity/hangman.xml.in.h:5
+msgid ""
+"You can enter the letters using the virtual keyboard on the screen or with "
+"the real keyboard."
+msgstr ""
+
+#. All the vowel of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:61
+msgid "aeiouy"
+msgstr "aeiou"
+
+#. All the consonants of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:63
+msgid "bcdfghjklmnpqrstvwxz"
+msgstr "bcĉdgĝhĥjĵlmnprstŭvz"
+
+#. Letters equivallence for the hangman activity. It has the
+#. form of a space separated list like: "e=éè a=àâ"
+#. Keep the word NONE if not available in your language
+#: ../src/hangman-activity/hangman.py:67
+msgid "NONE"
+msgstr "NENIO"
+
+#: ../src/hangman-activity/hangman.py:104
+msgid "Could not find the list of words."
+msgstr "Ne eblis trovi la vortliston."
 
 #~ msgid "gcompris animation"
 #~ msgstr "gcompris animacio"
@@ -6648,8 +7298,7 @@ msgstr "Tajpu la ĝustan vorton antaŭ ol ke ĝi atingas la teron "
 
 #~ msgid "SVG is disabled. Install python xml module to enable it"
 #~ msgstr ""
-#~ "SVG estas malkapabligita. Instalu (xx Python) xml modulon por funkciigi "
-#~ "ĝin "
+#~ "SVG estas elŝaltite. Instalu (xx Python) xml modulon por funkciigi ĝin "
 
 #~ msgid "Warning: the following images cannot be accessed on your system.\n"
 #~ msgstr ""
@@ -6677,35 +7326,6 @@ msgstr "Tajpu la ĝustan vorton antaŭ ol ke ĝi atingas la teron "
 #~ msgid "Oscar's best friends were Charlie the crab and Sandy the sea-star."
 #~ msgstr ""
 #~ "La plej bona amiko de Oscar estis Karlo la krabo kaj Sandy la mar-stelo. "
-
-#~ msgid "Yes, I saw it"
-#~ msgstr "Jes, mi vidis ĝin"
-
-#~ msgid ""
-#~ "Select the language\n"
-#~ " to use in the board"
-#~ msgstr ""
-#~ "Elektu la lingvon\n"
-#~ "por uzi en la tabulo"
-
-#~ msgid "Global GCompris mode"
-#~ msgstr "Universala GCompris modo"
-
-#~ msgid "Normal"
-#~ msgstr "Normala"
-
-#~ msgid "2 clicks"
-#~ msgstr "2 alklakoj"
-
-#~ msgid "both modes"
-#~ msgstr "ambaŭ modoj"
-
-#~ msgid ""
-#~ "Select the drag and drop mode\n"
-#~ " to use in the board"
-#~ msgstr ""
-#~ "Elektu la mus-tiran modon\n"
-#~ "por uzi en la tabulo"
 
 #~ msgid "Arabic (Tunisia)"
 #~ msgstr "araba (Tunisio)"
