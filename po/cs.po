@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris gnome-master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-21 22:06+0100\n"
-"PO-Revision-Date: 2010-11-09 06:25+0100\n"
+"POT-Creation-Date: 2010-12-14 21:23+0100\n"
+"PO-Revision-Date: 2010-12-05 14:14+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -201,7 +201,7 @@ msgstr ""
 msgid "GCompris Main Menu"
 msgstr "Hlavní nabídka GCompris"
 
-#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:876
+#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:866
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -1086,7 +1086,7 @@ msgid "+-×÷"
 msgstr "+-.:"
 
 #: ../src/algebra_by-activity/algebra.c:411
-#: ../src/readingh-activity/reading.c:621
+#: ../src/readingh-activity/reading.c:630
 msgid "I am Ready"
 msgstr "Jsem připraven"
 
@@ -1501,7 +1501,7 @@ msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "Manipulace s myší: pohyb, tažení a puštění."
 
 #: ../src/babymatch-activity/shapegame.c:1903
-#: ../src/click_on_letter-activity/click_on_letter.c:635
+#: ../src/click_on_letter-activity/click_on_letter.c:675
 #: ../src/colors-activity/colors.c:168
 #, c-format
 msgid ""
@@ -2044,7 +2044,7 @@ msgstr "1955 Citroën ds 19"
 msgid "Cars"
 msgstr "Auta"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:271
+#: ../src/click_on_letter-activity/click_on_letter.c:311
 #: ../src/memory-activity/memory.c:906
 msgid ""
 "Error: this activity cannot be played with the\n"
@@ -2060,12 +2060,12 @@ msgstr ""
 #. TRANSLATORS: Put here the alphabet in your language
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
-#: ../src/click_on_letter-activity/click_on_letter.c:276
+#: ../src/click_on_letter-activity/click_on_letter.c:316
 #: ../src/gletters-activity/gletters.c:229 ../src/memory-activity/memory.c:935
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "aábcčdďeéěfghiíjklmnňoópqrřsštťuúůvwxyýzž"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:304
+#: ../src/click_on_letter-activity/click_on_letter.c:344
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -2074,7 +2074,7 @@ msgstr ""
 "Chyba: tato aktivita vyžaduje, abys nejdříve nainstaloval\n"
 "balíčky s hlasovým doprovodem GCompris pro jazyk „%s“ nebo „%s“"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:314
+#: ../src/click_on_letter-activity/click_on_letter.c:354
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -2086,8 +2086,11 @@ msgstr ""
 "angličtiny, je mi líto!"
 
 #. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:658
+#: ../src/click_on_letter-activity/click_on_letter.c:698
 #: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:484
+#: ../src/missing_letter-activity/missingletter_config.c:492
+#: ../src/readingh-activity/reading.c:928
+#: ../src/wordsgame-activity/wordsgame.c:889
 msgid "Uppercase only text"
 msgstr "Text pouze velkými písmeny"
 
@@ -2353,7 +2356,8 @@ msgid "Find the details"
 msgstr "Najdi podrobnosti"
 
 #: ../src/details-activity/details.xml.in.h:5
-msgid "The images are from wiki commons"
+#, fuzzy
+msgid "The images are from Wikimedia Commons."
 msgstr "Obrázky pocházejí z wiki commons"
 
 #: ../src/details-activity/resources/details/board1_0.xml.in.h:1
@@ -2389,10 +2393,9 @@ msgid "Vincent van Gogh, Cafe Terrace at Night - 1888"
 msgstr "Vincent van Gogh, Terasa kavárny v noci (Cafe Terrace at Night) – 1888"
 
 #: ../src/details-activity/resources/details/board1_6.xml.in.h:1
-msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1888"
-msgstr ""
-"Vincent van Gogh, Vstupní hala nemocnice svatého Pavla (Entrance Hall of "
-"Saint-Paul Hospital) – 1888"
+#, fuzzy
+msgid "Vincent van Gogh, The Night Café - 1888"
+msgstr "Vincent van Gogh, Sklizeň (The Harvest) – 1888"
 
 #: ../src/details-activity/resources/details/board1_7.xml.in.h:1
 msgid "Vincent van Gogh, Portrait of Pere Tanguy 1887-8"
@@ -2413,6 +2416,10 @@ msgstr "Pyramidy v Gíze, Egypt"
 #: ../src/details-activity/resources/details/board2_11.xml.in.h:1
 msgid "Sydney Opera House, Australia"
 msgstr "Budova opery v Sydney, Austrálie"
+
+#: ../src/details-activity/resources/details/board2_12.xml.in.h:1
+msgid "Tower Bridge in London"
+msgstr "Most Tower Bridge v Londýně"
 
 #: ../src/details-activity/resources/details/board2_2.xml.in.h:1
 msgid "Courtyard of the Museum of Louvre, and its pyramid"
@@ -2501,6 +2508,10 @@ msgstr ""
 "Nalevo vyber kreslicí nástroj, dole barvu a pak klikni na bílou oblast a "
 "táhni myší pro vytvoření nového tvaru. Pro úsporu času můžeš použít "
 "prostřední tlačítko myši – odstraní objekt."
+
+#: ../src/drawnumber-activity/drawnumber.py:236
+msgid "Cannot find the file '{filename}'"
+msgstr ""
 
 #: ../src/drawnumber-activity/drawnumber.xml.in.h:1
 msgid "Can count from 1 to 50."
@@ -2749,19 +2760,19 @@ msgstr ""
 msgid "OK"
 msgstr "Budiž"
 
-#: ../src/gcompris/bar.c:692
+#: ../src/gcompris/bar.c:693
 msgid "GCompris confirmation"
 msgstr "Potvrzení GCompris"
 
-#: ../src/gcompris/bar.c:693
+#: ../src/gcompris/bar.c:694
 msgid "Are you sure you want to quit?"
 msgstr "Opravdu chceš skončit?"
 
-#: ../src/gcompris/bar.c:694
+#: ../src/gcompris/bar.c:695
 msgid "Yes, I am sure!"
 msgstr "Ano, chci!"
 
-#: ../src/gcompris/bar.c:695
+#: ../src/gcompris/bar.c:696
 msgid "No, I want to keep going"
 msgstr "Ne, zůstanu"
 
@@ -3339,7 +3350,7 @@ msgstr ""
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Povolit spuštění více GComprisů najednou."
 
-#: ../src/gcompris/gcompris.c:922
+#: ../src/gcompris/gcompris.c:929
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -3360,7 +3371,12 @@ msgstr ""
 "na FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1462
+#: ../src/gcompris/gcompris.c:1223
+#, c-format
+msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:1485
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
@@ -3368,12 +3384,12 @@ msgstr ""
 "GCompris se nemůže spustit, protože soubor zámku je méně než %d sekund "
 "starý.\n"
 
-#: ../src/gcompris/gcompris.c:1464
+#: ../src/gcompris/gcompris.c:1487
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Soubor zámku je: %s\n"
 
-#: ../src/gcompris/gcompris.c:1578
+#: ../src/gcompris/gcompris.c:1601
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3387,27 +3403,27 @@ msgstr ""
 "Více informací na http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1693
+#: ../src/gcompris/gcompris.c:1716
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Pro přímý přístup k aktivitě použijte -l.\n"
 
-#: ../src/gcompris/gcompris.c:1694
+#: ../src/gcompris/gcompris.c:1717
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Seznam dostupných aktivit:\n"
 
-#: ../src/gcompris/gcompris.c:1725
+#: ../src/gcompris/gcompris.c:1748
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Počet aktivit: %d\n"
 
-#: ../src/gcompris/gcompris.c:1761
+#: ../src/gcompris/gcompris.c:1784
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s existuje, ale nelze jej číst nebo do něj zapisovat"
 
-#: ../src/gcompris/gcompris.c:1824
+#: ../src/gcompris/gcompris.c:1847
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
@@ -3416,7 +3432,7 @@ msgstr ""
 "Přepínač --server nelze použít, protože GCompris byl přeložen bez podpory "
 "sítě."
 
-#: ../src/gcompris/gcompris.c:1878
+#: ../src/gcompris/gcompris.c:1901
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3425,7 +3441,7 @@ msgstr ""
 "CHYBA: Profil „%s“ nebyl nalezen. Dostupné profily si vypíšete spuštěním "
 "„gcompris --profile-list“\n"
 
-#: ../src/gcompris/gcompris.c:1892
+#: ../src/gcompris/gcompris.c:1915
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Seznam dostupných profilů:\n"
@@ -3438,7 +3454,7 @@ msgstr "Neovlivněný"
 msgid "Users without a class"
 msgstr "Uživatelé bez třídy"
 
-#: ../src/gcompris/gcompris_db.c:894
+#: ../src/gcompris/gcompris_db.c:889
 #, c-format
 msgid ""
 "Loading activity from database:\n"
@@ -3463,7 +3479,7 @@ msgstr "Příručka"
 msgid "Credit"
 msgstr "Zásluhy"
 
-#: ../src/gcompris/menu.c:583
+#: ../src/gcompris/menu.c:582
 #, c-format
 msgid ""
 "Loading activity from file:\n"
@@ -4167,13 +4183,13 @@ msgstr "AÁBCČDĎEÉĚFGHIÍJKLMNŇOÓPQRŘSŠTŤUÚŮVWXYÝZŽ"
 #. we can add what you want in it.
 #: ../src/gletters-activity/gletters.c:850
 #: ../src/imageid-activity/imageid.c:712 ../src/login-activity/login.py:479
-#: ../src/missing_letter-activity/missingletter.c:752
+#: ../src/missing_letter-activity/missingletter.c:784
 #: ../src/pythontest-activity/pythontest.py:454
-#: ../src/readingh-activity/reading.c:878
+#: ../src/readingh-activity/reading.c:904
 #: ../src/scalesboard-activity/scale.c:1161
 #: ../src/smallnumbers-activity/smallnumbers.c:595
 #: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:827
+#: ../src/wordsgame-activity/wordsgame.c:866
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -4619,14 +4635,14 @@ msgstr "Šestiúhelník"
 #: ../src/imageid-activity/imageid.xml.in.h:3
 #: ../src/imagename-activity/imagename.xml.in.h:4
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:1
-#: ../src/missing_letter-activity/missingletter.c:83
+#: ../src/missing_letter-activity/missingletter.c:84
 #: ../src/readingh-activity/readingh.xml.in.h:4
 #: ../src/readingv-activity/readingv.xml.in.h:4
 msgid "Reading"
 msgstr "Čtení"
 
 #: ../src/imageid-activity/imageid.c:95
-#: ../src/missing_letter-activity/missingletter.c:84
+#: ../src/missing_letter-activity/missingletter.c:85
 msgid "Learn how to read"
 msgstr "Nauč se číst"
 
@@ -4639,7 +4655,7 @@ msgstr ""
 "příliš mnoho voleb."
 
 #: ../src/imageid-activity/imageid.c:534
-#: ../src/missing_letter-activity/missingletter.c:569
+#: ../src/missing_letter-activity/missingletter.c:592
 msgid "Data file for this level is not properly formatted."
 msgstr "Datový soubor pro tuto úroveň není správně naformátovaný."
 
@@ -5726,8 +5742,9 @@ msgid "Question cannot be empty."
 msgstr "Otázka nemůže být prázdná."
 
 #: ../src/missing_letter-activity/missingletter_config.c:95
+#, fuzzy
 msgid ""
-"Question must include the character '_'. It represent the letter to search."
+"Question must include the character '_'. It represents the letter to search."
 msgstr ""
 "Otázka musí obsahovat znak „_“. Ten představuje písmeno, který se má hledat."
 
@@ -5760,25 +5777,25 @@ msgstr ""
 
 #. pixmap
 #: ../src/missing_letter-activity/missingletter_config.c:414
-#: ../src/missing_letter-activity/missingletter_config.c:546
+#: ../src/missing_letter-activity/missingletter_config.c:557
 msgid "Picture"
 msgstr "Obrázek"
 
 #. answer
 #: ../src/missing_letter-activity/missingletter_config.c:420
-#: ../src/missing_letter-activity/missingletter_config.c:537
+#: ../src/missing_letter-activity/missingletter_config.c:548
 msgid "Answer"
 msgstr "Odpověď"
 
 #. question
 #: ../src/missing_letter-activity/missingletter_config.c:426
-#: ../src/missing_letter-activity/missingletter_config.c:560
+#: ../src/missing_letter-activity/missingletter_config.c:571
 msgid "Question"
 msgstr "Otázka"
 
 #. choice
 #: ../src/missing_letter-activity/missingletter_config.c:432
-#: ../src/missing_letter-activity/missingletter_config.c:572
+#: ../src/missing_letter-activity/missingletter_config.c:583
 msgid "Choice"
 msgstr "Na výběr"
 
@@ -5792,18 +5809,19 @@ msgstr "Úroveň:"
 msgid "Level %d"
 msgstr "Úroveň %d"
 
-#: ../src/missing_letter-activity/missingletter_config.c:550
+#: ../src/missing_letter-activity/missingletter_config.c:561
 msgid "Filename:"
 msgstr "Název souboru:"
 
-#: ../src/missing_letter-activity/missingletter_config.c:568
+#: ../src/missing_letter-activity/missingletter_config.c:579
 msgid "Replace the letter to guess by the character '_'."
 msgstr "Písmeno, které se má uhádnout, nahraďte znakem „_“."
 
-#: ../src/missing_letter-activity/missingletter_config.c:580
+#: ../src/missing_letter-activity/missingletter_config.c:591
+#, fuzzy
 msgid ""
 "Enter here the letter that will be proposed. The first letter here must be "
-"the solution"
+"the solution."
 msgstr ""
 "Zde zadejte písmena, která budou nabízena. První písmeno musí být řešením"
 
@@ -5952,12 +5970,12 @@ msgid "satchel/sa_chel/t/p/c/z/s/l"
 msgstr "aktovka/akt_vka/o/a/u/e"
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
-#: ../src/money-activity/money.c:496
+#: ../src/money-activity/money.c:542
 #, c-format
 msgid "$ %.2f"
 msgstr "%.2f Kč"
 
-#: ../src/money-activity/money.c:509
+#: ../src/money-activity/money.c:555
 #, c-format
 msgid "$ %.0f"
 msgstr "%.0f Kč"
@@ -6039,32 +6057,75 @@ msgstr ""
 "Pierre-Auguste Renoir, Tanec u Lea Moulin de la Galette (Le Bal au Moulin de "
 "la Galette) – 1876"
 
+#: ../src/paintings-activity/resources/paintings/board1_10.xml.in.h:1
+msgid ""
+"Katsushika Hokusai,\\nViewing Sunset over the Ryogoku Bridge from the Ommaya "
+"Embankment - 1830"
+msgstr ""
+
+#: ../src/paintings-activity/resources/paintings/board1_11.xml.in.h:1
+msgid "Katsushika Hokusa, Poppies - 1833-1834"
+msgstr ""
+
+#: ../src/paintings-activity/resources/paintings/board1_12.xml.in.h:1
+msgid "Katsushika Hokusai, Kazusa sea Route - 1830."
+msgstr ""
+
 #: ../src/paintings-activity/resources/paintings/board1_2.xml.in.h:1
 msgid "Giuseppe Arcimboldo, Spring - 1573"
 msgstr "Giuseppe Arcimboldo, Jaro (Spring) – 1573"
 
 #: ../src/paintings-activity/resources/paintings/board1_3.xml.in.h:1
-msgid "Giuseppe Arcimboldo, The Librarian - 1566)"
+#, fuzzy
+msgid "Giuseppe Arcimboldo, The Librarian - 1566"
 msgstr "Giuseppe Arcimboldo, Knihovník (The Librarian) – 1566"
 
+#: ../src/paintings-activity/resources/paintings/board1_4.xml.in.h:1
+msgid "Katsushika Hokusai, Oiran and Kamuro"
+msgstr ""
+
 #: ../src/paintings-activity/resources/paintings/board1_5.xml.in.h:1
-msgid "Woman holding a fan"
+#, fuzzy
+msgid "Katsushika Hokusai, Woman holding a fan"
 msgstr "Žena držící vějíř (Woman holding a fan)"
 
+#: ../src/paintings-activity/resources/paintings/board1_6.xml.in.h:1
+msgid "Katsushika Hokusai, Ejiri in Suruga Province - 1830-1833"
+msgstr ""
+
+#: ../src/paintings-activity/resources/paintings/board1_7.xml.in.h:1
+msgid "Katsushika Hokusai, The Great Wave off Kanagawa - 1823-1829"
+msgstr ""
+
+#: ../src/paintings-activity/resources/paintings/board1_8.xml.in.h:1
+msgid ""
+"Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
+msgstr ""
+
+#: ../src/paintings-activity/resources/paintings/board1_9.xml.in.h:1
+msgid "Utagawa Hiroshige, Horse-mackerel and Prawn - 1840"
+msgstr ""
+
+#: ../src/paintings-activity/resources/paintings/board2_0.xml.in.h:1
+msgid "Michelangelo, Pieta - 1499"
+msgstr ""
+
 #: ../src/paintings-activity/resources/paintings/board2_1.xml.in.h:1
-msgid "Mona Lisa"
-msgstr "Mona Lisa"
+msgid "Leonardo da Vinci, Mona Lisa - 1503-19"
+msgstr ""
 
 #: ../src/paintings-activity/resources/paintings/board2_2.xml.in.h:1
-msgid "Bellini : Pala di pesaro"
+#, fuzzy
+msgid "Giovanni Bellini, La Pala di Pesaro - 1475-85"
 msgstr "Bellini: Pala z Pesara (Pala di Pesaro)"
 
 #: ../src/paintings-activity/resources/paintings/board2_3.xml.in.h:1
-msgid "Dürer : Lion"
-msgstr "Dürer: Lev (Lion)"
+msgid "Albrecht Dürer, Lion - 1494"
+msgstr ""
 
 #: ../src/paintings-activity/resources/paintings/board2_4.xml.in.h:1
-msgid "Pieter Brugel : Harvest"
+#, fuzzy
+msgid "Pieter Brugel, The Harvesters - 1565"
 msgstr "Pieter Brugel: Sklizeň (The Corn Harvest)"
 
 #: ../src/paintings-activity/resources/paintings/board3_0.xml.in.h:1
@@ -6072,19 +6133,21 @@ msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
 msgstr "Pierre-Auguste Renoir, Dívka u piána (Girls At The Piano) – 1892"
 
 #: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:1
-msgid "Kandinsky, Wassily, Composition VIII - 1923"
-msgstr "Kandinsky, Wassily, Composition VIII – 1923"
-
-#: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:2
 msgid "Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
 msgstr "Olej na plátně, 140 × 201 cm; Solomon R. Guggenheim Museum, New York"
+
+#: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:2
+#, fuzzy
+msgid "Wassily Kandinsky, Composition VIII - 1923"
+msgstr "Kandinsky, Wassily, Composition VIII – 1923"
 
 #: ../src/paintings-activity/resources/paintings/board4_0.xml.in.h:1
 msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
 msgstr "Bazille, The Ramparts at Aigues-Mortes – 1867"
 
 #: ../src/paintings-activity/resources/paintings/board5_0.xml.in.h:1
-msgid "Cassatt, Mary - Summertime - 1894"
+#, fuzzy
+msgid "Mary Cassatt, Summertime - 1894"
 msgstr "Cassatt, Mary – Letní den (Summertime) – 1894"
 
 #: ../src/paintings-activity/resources/paintings/board6_0.xml.in.h:1
@@ -6177,12 +6240,12 @@ msgstr "Lovec fotografií"
 msgid "Visual discrimination."
 msgstr "Zrakové rozlišování."
 
-#: ../src/planegame-activity/planegame.c:61
+#: ../src/planegame-activity/planegame.c:62
 #: ../src/planegame-activity/planegame.xml.in.h:4
 msgid "Numbers in Order"
 msgstr "Čísla v pořadí"
 
-#: ../src/planegame-activity/planegame.c:62
+#: ../src/planegame-activity/planegame.c:63
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "Hýbej letadlem, abys chytil mraky ve správném pořadí"
 
@@ -6375,8 +6438,8 @@ msgstr "Čtení názvů barev"
 msgid "This board teaches basic colors."
 msgstr "Tato hrací deska učí základní barvy."
 
-#: ../src/readingh-activity/reading.c:220
-#: ../src/wordsgame-activity/wordsgame.c:211
+#: ../src/readingh-activity/reading.c:229
+#: ../src/wordsgame-activity/wordsgame.c:219
 msgid ""
 "Error: We can't find\n"
 "a list of words to play this game.\n"
@@ -6384,38 +6447,38 @@ msgstr ""
 "Chyba: Nelze najít\n"
 "seznam slov potřebných k této hře.\n"
 
-#: ../src/readingh-activity/reading.c:380
+#: ../src/readingh-activity/reading.c:389
 msgid "Please, check if the word"
 msgstr "Zkontroluj prosím, jestli je slovo"
 
-#: ../src/readingh-activity/reading.c:400
+#: ../src/readingh-activity/reading.c:409
 msgid "is being displayed"
 msgstr "zobrazeno"
 
-#: ../src/readingh-activity/reading.c:456
+#: ../src/readingh-activity/reading.c:465
 msgid "We skip this level because there are not enough words in the list!"
 msgstr "Tato úroveň se přeskočí, protože v seznamu není dostatek slov!"
 
-#: ../src/readingh-activity/reading.c:659
+#: ../src/readingh-activity/reading.c:668
 msgid "Yes, I saw it"
 msgstr "Ano, chci"
 
-#: ../src/readingh-activity/reading.c:686
+#: ../src/readingh-activity/reading.c:695
 msgid "No, it was not there"
 msgstr "Ne, nebylo tam"
 
 #. Report what was wrong in the log
-#: ../src/readingh-activity/reading.c:733
+#: ../src/readingh-activity/reading.c:742
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "Hledané slovo bylo „%s“"
 
-#: ../src/readingh-activity/reading.c:736
+#: ../src/readingh-activity/reading.c:745
 #, c-format
 msgid "But it was not displayed"
 msgstr "Ale nebylo zobrazeno"
 
-#: ../src/readingh-activity/reading.c:738
+#: ../src/readingh-activity/reading.c:747
 #, c-format
 msgid "And it was displayed"
 msgstr "A bylo zobrazeno"
@@ -7146,12 +7209,12 @@ msgstr ""
 msgid "Your word processor"
 msgstr "Tvů textový editor"
 
-#: ../src/wordsgame-activity/wordsgame.c:111
+#: ../src/wordsgame-activity/wordsgame.c:112
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:1
 msgid "Falling Words"
 msgstr "Padající slova"
 
-#: ../src/wordsgame-activity/wordsgame.c:112
+#: ../src/wordsgame-activity/wordsgame.c:113
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the falling words before they reach the ground"
 msgstr "Napiš padající slova, než se spadnou na zem"
@@ -7208,3 +7271,14 @@ msgstr "a=á c=č d=ď e=éě i=í n=ň o=ó r=ř s=š t=ť u=úů y=ý z=ž"
 #: ../src/hangman-activity/hangman.py:104
 msgid "Could not find the list of words."
 msgstr "Nelze najít seznam slov."
+
+#~ msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1888"
+#~ msgstr ""
+#~ "Vincent van Gogh, Vstupní hala nemocnice svatého Pavla (Entrance Hall of "
+#~ "Saint-Paul Hospital) – 1888"
+
+#~ msgid "Mona Lisa"
+#~ msgstr "Mona Lisa"
+
+#~ msgid "Dürer : Lion"
+#~ msgstr "Dürer: Lev (Lion)"
