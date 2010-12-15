@@ -13,8 +13,8 @@ msgstr ""
 "Project-Id-Version: gcompris.gcomprixogoo\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&component=general\n"
-"POT-Creation-Date: 2010-12-11 00:47+0000\n"
-"PO-Revision-Date: 2010-12-11 18:18+0100\n"
+"POT-Creation-Date: 2010-12-11 18:20+0000\n"
+"PO-Revision-Date: 2010-12-15 21:58+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -2385,8 +2385,9 @@ msgid "Find the details"
 msgstr "Encuentra los detalles"
 
 #: ../src/details-activity/details.xml.in.h:5
-msgid "The images are from wiki commons"
-msgstr "Las imágenes son de Wikimedia Commons"
+#| msgid "The images are from wiki commons"
+msgid "The images are from Wikimedia Commons."
+msgstr "Las imágenes son de Wikimedia Commons."
 
 #: ../src/details-activity/resources/details/board1_0.xml.in.h:1
 msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1889"
@@ -2415,8 +2416,9 @@ msgid "Vincent van Gogh, Cafe Terrace at Night - 1888"
 msgstr "Vincent van Gogh, Terraza de café por la noche (1888)"
 
 #: ../src/details-activity/resources/details/board1_6.xml.in.h:1
-msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1888"
-msgstr "Vincent van Gogh, entrada al hospital Saint-Paul (1888)"
+#| msgid "Vincent van Gogh, The Harvest - 1888"
+msgid "Vincent van Gogh, The Night Café - 1888"
+msgstr "Vincent van Gogh, El café de noche (1888)"
 
 #: ../src/details-activity/resources/details/board1_7.xml.in.h:1
 msgid "Vincent van Gogh, Portrait of Pere Tanguy 1887-8"
@@ -2533,7 +2535,7 @@ msgstr ""
 "Para ahorrar tiempo, puedes pulsar con el botón central del ratón para "
 "borrar un objeto."
 
-#: ../src/drawnumber-activity/drawnumber.py:237
+#: ../src/drawnumber-activity/drawnumber.py:236
 msgid "Cannot find the file '{filename}'"
 msgstr "No se puede encontrar el archivo «{filename}»"
 
@@ -5823,8 +5825,11 @@ msgid "Question cannot be empty."
 msgstr "La pregunta no puede estar vacía."
 
 #: ../src/missing_letter-activity/missingletter_config.c:95
+#| msgid ""
+#| "Question must include the character '_'. It represent the letter to "
+#| "search."
 msgid ""
-"Question must include the character '_'. It represent the letter to search."
+"Question must include the character '_'. It represents the letter to search."
 msgstr ""
 "La pregunta debe incluir el carácter «_». Representa la letra para buscar."
 
@@ -5899,9 +5904,12 @@ msgid "Replace the letter to guess by the character '_'."
 msgstr "Reemplazar la letra para adivinar por el carácter «_»."
 
 #: ../src/missing_letter-activity/missingletter_config.c:591
+#| msgid ""
+#| "Enter here the letter that will be proposed. The first letter here must "
+#| "be the solution"
 msgid ""
 "Enter here the letter that will be proposed. The first letter here must be "
-"the solution"
+"the solution."
 msgstr ""
 "Introducir aquí la letra que se propondrá. La primera letra debe ser la "
 "solución."
@@ -6051,12 +6059,12 @@ msgid "satchel/sa_chel/t/p/c/z/s/l"
 msgstr "cartera/ca_tera/r/s/l/n/p/c"
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
-#: ../src/money-activity/money.c:496
+#: ../src/money-activity/money.c:542
 #, c-format
 msgid "$ %.2f"
 msgstr "$ %.2f"
 
-#: ../src/money-activity/money.c:509
+#: ../src/money-activity/money.c:555
 #, c-format
 msgid "$ %.0f"
 msgstr "$ %.0f"
@@ -6138,57 +6146,106 @@ msgstr "Edgar Degas, La clase de danza - 1873-75"
 msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
 msgstr "Pierre-Auguste Renoir, El molino de La Galette - 1876"
 
+#: ../src/paintings-activity/resources/paintings/board1_10.xml.in.h:1
+msgid ""
+"Katsushika Hokusai,\\nViewing Sunset over the Ryogoku Bridge from the Ommaya "
+"Embankment - 1830"
+msgstr ""
+"Katsushika Hokusai, Viendo la puesta de sol sobre el puente Ryogoku desde el "
+"dique de Ommaya (1830)"
+
+#: ../src/paintings-activity/resources/paintings/board1_11.xml.in.h:1
+msgid "Katsushika Hokusa, Poppies - 1833-1834"
+msgstr "Katsushika Hokusai, Amapolas (1833-1834)"
+
+#: ../src/paintings-activity/resources/paintings/board1_12.xml.in.h:1
+msgid "Katsushika Hokusai, Kazusa sea Route - 1830."
+msgstr "Katsushika Hokusai, Ruta marítica de Kazusa (1830)"
+
 #: ../src/paintings-activity/resources/paintings/board1_2.xml.in.h:1
 msgid "Giuseppe Arcimboldo, Spring - 1573"
 msgstr "Giuseppe Arcimboldo, Primavera - 1573"
 
 #: ../src/paintings-activity/resources/paintings/board1_3.xml.in.h:1
-msgid "Giuseppe Arcimboldo, The Librarian - 1566)"
+#| msgid "Giuseppe Arcimboldo, The Librarian - 1566)"
+msgid "Giuseppe Arcimboldo, The Librarian - 1566"
 msgstr "Giuseppe Arcimboldo, El librero - 1566"
 
+#: ../src/paintings-activity/resources/paintings/board1_4.xml.in.h:1
+msgid "Katsushika Hokusai, Oiran and Kamuro"
+msgstr "Katsushika Hokusai, Oiran y Kamuro"
+
 #: ../src/paintings-activity/resources/paintings/board1_5.xml.in.h:1
-msgid "Woman holding a fan"
-msgstr "Mujer sosteniendo un abanico"
+#| msgid "Woman holding a fan"
+msgid "Katsushika Hokusai, Woman holding a fan"
+msgstr "Katsushika Hokusai, Mujer sosteniendo un abanico"
+
+#: ../src/paintings-activity/resources/paintings/board1_6.xml.in.h:1
+msgid "Katsushika Hokusai, Ejiri in Suruga Province - 1830-1833"
+msgstr "Katsushika Hokusai, Ejiri en la provincia de Suruga (1830-33)"
+
+#: ../src/paintings-activity/resources/paintings/board1_7.xml.in.h:1
+msgid "Katsushika Hokusai, The Great Wave off Kanagawa - 1823-1829"
+msgstr "Katsushika Hokusai, La gran ola de Kanagawa (1823-29)"
+
+#: ../src/paintings-activity/resources/paintings/board1_8.xml.in.h:1
+msgid ""
+"Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
+msgstr ""
+"Utagawa Hiroshige, El santuario de Benzaiten en Inokashira con nieve "
+"(1760-70)"
+
+#: ../src/paintings-activity/resources/paintings/board1_9.xml.in.h:1
+msgid "Utagawa Hiroshige, Horse-mackerel and Prawn - 1840"
+msgstr "Utagawa Hiroshige, El jurel y la gamba (1840)"
+
+#: ../src/paintings-activity/resources/paintings/board2_0.xml.in.h:1
+msgid "Michelangelo, Pieta - 1499"
+msgstr "Miguel Ángel, La Piedad (1499)"
 
 #: ../src/paintings-activity/resources/paintings/board2_1.xml.in.h:1
-msgid "Mona Lisa"
-msgstr "Mona Lisa"
+msgid "Leonardo da Vinci, Mona Lisa - 1503-19"
+msgstr "Leonardo da Vinci, La Mona Lisa (1503-19)"
 
 #: ../src/paintings-activity/resources/paintings/board2_2.xml.in.h:1
-msgid "Bellini : Pala di pesaro"
-msgstr "Bellini: Pala Pesaro"
+#| msgid "Bellini : Pala di pesaro"
+msgid "Giovanni Bellini, La Pala di Pesaro - 1475-85"
+msgstr "Giovanni Bellini, Pala Pesaro (1475-85)"
 
 #: ../src/paintings-activity/resources/paintings/board2_3.xml.in.h:1
-msgid "Dürer : Lion"
-msgstr "Durero: León"
+msgid "Albrecht Dürer, Lion - 1494"
+msgstr "Alberto Durero, León (1494)"
 
 #: ../src/paintings-activity/resources/paintings/board2_4.xml.in.h:1
-msgid "Pieter Brugel : Harvest"
-msgstr "Pieter Brueghel: Cosecha"
+#| msgid "Pieter Brugel : Harvest"
+msgid "Pieter Brugel, The Harvesters - 1565"
+msgstr "Pieter Brueghel, La Cosecha (1565)"
 
 #: ../src/paintings-activity/resources/paintings/board3_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
-msgstr "Pierre-Auguste Renoir, Niñas en el piano - 1892"
+msgstr "Pierre-Auguste Renoir, Niñas en el piano (1892)"
 
 #: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:1
-msgid "Kandinsky, Wassily, Composition VIII - 1923"
-msgstr "Kandinsky, Wassily, Composition VIII - 1923"
-
-#: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:2
 msgid "Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
 msgstr "Óleo en tela, 140 x 201 cm; Museo Solomon R. Guggenheim, Nueva York"
 
+#: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:2
+#| msgid "Kandinsky, Wassily, Composition VIII - 1923"
+msgid "Wassily Kandinsky, Composition VIII - 1923"
+msgstr "Wassily Kandinsky, Composición VIII (1923)"
+
 #: ../src/paintings-activity/resources/paintings/board4_0.xml.in.h:1
 msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
-msgstr "Bazille, Los terraplenes en Aigues-Mortes - 1867"
+msgstr "Bazille, Los terraplenes en Aigues-Mortes (1867)"
 
 #: ../src/paintings-activity/resources/paintings/board5_0.xml.in.h:1
-msgid "Cassatt, Mary - Summertime - 1894"
-msgstr "Cassatt, Mary - Summertime - 1894"
+#| msgid "Cassatt, Mary - Summertime - 1894"
+msgid "Mary Cassatt, Summertime - 1894"
+msgstr "Mary Cassatt, Verano (1894)"
 
 #: ../src/paintings-activity/resources/paintings/board6_0.xml.in.h:1
 msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
-msgstr "Vincent Van Gogh, Calle de un pueblo en Auvers - 1890"
+msgstr "Vincent Van Gogh, Calle de un pueblo en Auvers (1890)"
 
 #: ../src/paratrooper-activity/paratrooper.c:408
 msgid "Control fall speed with up and down arrow keys."
@@ -7344,6 +7401,15 @@ msgstr "a=á e=é i=Í o=ó u=ú"
 #: ../src/hangman-activity/hangman.py:104
 msgid "Could not find the list of words."
 msgstr "No se pudo encontrar la lista de palabras."
+
+#~ msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1888"
+#~ msgstr "Vincent van Gogh, entrada al hospital Saint-Paul (1888)"
+
+#~ msgid "Mona Lisa"
+#~ msgstr "Mona Lisa"
+
+#~ msgid "Dürer : Lion"
+#~ msgstr "Durero: León"
 
 #~ msgid "%s: option `%s' is ambiguous\n"
 #~ msgstr "%s: la opción «%s» es ambigua\n"
