@@ -50,14 +50,17 @@ class Gcompris_pythontemplate:
     gcompris.set_default_background(self.gcomprisBoard.canvas.get_root_item())
 
     # Create our rootitem. We put each canvas item in it so at the end we
-    # only have to kill it. The canvas deletes all the items it contains automaticaly.
-    self.rootitem = goocanvas.Group(parent = self.gcomprisBoard.canvas.get_root_item())
+    # only have to kill it. The canvas deletes all the items it contains
+    # automaticaly.
+    self.rootitem = goocanvas.Group(parent =
+                                    self.gcomprisBoard.canvas.get_root_item())
 
     goocanvas.Text(
       parent = self.rootitem,
       x=400.0,
       y=100.0,
-      text=_("This is the first plugin in GCompris coded in the Python\nProgramming language."),
+      text=_("This is the first plugin in GCompris coded in the Python\n"
+             "Programming language."),
       fill_color="black",
       anchor = gtk.ANCHOR_CENTER,
       alignment = pango.ALIGN_CENTER
