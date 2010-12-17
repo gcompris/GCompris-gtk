@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&component=general\n"
-"POT-Creation-Date: 2010-12-05 23:08+0000\n"
-"PO-Revision-Date: 2010-12-06 14:26+0100\n"
-"Last-Translator: Andrej Žnidaršič <andrej.znidarsic@gmail.com>\n"
+"POT-Creation-Date: 2010-12-15 21:01+0000\n"
+"PO-Revision-Date: 2010-12-17 16:16+0100\n"
+"Last-Translator: Sasa Batistic <sasa.batistic@gmail.com>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -198,7 +198,7 @@ msgid "GCompris Main Menu"
 msgstr "Glavni meni GCompris"
 
 #: ../boards/menu.xml.in.h:17
-#: ../src/boards/menu2.c:876
+#: ../src/boards/menu2.c:866
 msgid "GCompris is a collection of educational games that provides different activities for children aged 2 and up."
 msgstr "GCompris je zbirka izobraževalnih iger z različnimi dejavnosti namenjena otrokom od 2. leta naprej."
 
@@ -2064,8 +2064,8 @@ msgid "Find the details"
 msgstr "Najdi podrobnosti"
 
 #: ../src/details-activity/details.xml.in.h:5
-msgid "The images are from wiki commons"
-msgstr "Slike so iz spletne strani wikipedia commons"
+msgid "The images are from Wikimedia Commons."
+msgstr "Slike so iz spletne strani Wikipedia Commons."
 
 #: ../src/details-activity/resources/details/board1_0.xml.in.h:1
 msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1889"
@@ -2092,8 +2092,8 @@ msgid "Vincent van Gogh, Cafe Terrace at Night - 1888"
 msgstr "Vincent Van Gogh, Terasa kavarne ponoči - 1888"
 
 #: ../src/details-activity/resources/details/board1_6.xml.in.h:1
-msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1888"
-msgstr "Vincent Van Gogh, Vstopna dvorana bolnišnice Saint-Paul - 1888"
+msgid "Vincent van Gogh, The Night Café - 1888"
+msgstr "Vincent Van Gogh, Nočna kavarna - 1888"
 
 #: ../src/details-activity/resources/details/board1_7.xml.in.h:1
 msgid "Vincent van Gogh, Portrait of Pere Tanguy 1887-8"
@@ -2191,6 +2191,10 @@ msgstr "V tej igri lahko otroci prosto rišejo. Cilj je raziskati načine risanj
 #: ../src/draw-activity/draw.xml.in.h:5
 msgid "Select a drawing tool on the left, and a color down the bottom, then click and drag in the white area to create a new shape. To save time, you can click with the middle mouse button to delete an object."
 msgstr "Na levi strani izberi orodje za risanje v spodnjem delu pa izberi barvo. Klikni na belo polje ter nariši novo obliko. Za hitrejše delo lahko uporabiš srednjo tipko na miški. Z njo predmet izbrišeš."
+
+#: ../src/drawnumber-activity/drawnumber.py:236
+msgid "Cannot find the file '{filename}'"
+msgstr "Datoteke '{filename}' ni mogoče najti"
 
 #: ../src/drawnumber-activity/drawnumber.xml.in.h:1
 msgid "Can count from 1 to 50."
@@ -3036,7 +3040,7 @@ msgstr "Ne vpliva"
 msgid "Users without a class"
 msgstr "Uporabniki brez razreda"
 
-#: ../src/gcompris/gcompris_db.c:894
+#: ../src/gcompris/gcompris_db.c:889
 #, c-format
 msgid ""
 "Loading activity from database:\n"
@@ -3061,7 +3065,7 @@ msgstr "Navodila"
 msgid "Credit"
 msgstr "Zasluge"
 
-#: ../src/gcompris/menu.c:583
+#: ../src/gcompris/menu.c:582
 #, c-format
 msgid ""
 "Loading activity from file:\n"
@@ -4987,7 +4991,7 @@ msgid "Question cannot be empty."
 msgstr "Vprašanje ne sme biti prazno."
 
 #: ../src/missing_letter-activity/missingletter_config.c:95
-msgid "Question must include the character '_'. It represent the letter to search."
+msgid "Question must include the character '_'. It represents the letter to search."
 msgstr "Vprašanje mora vključevati znak '_'. Predstavlja črko za iskanje."
 
 #: ../src/missing_letter-activity/missingletter_config.c:102
@@ -5060,8 +5064,8 @@ msgid "Replace the letter to guess by the character '_'."
 msgstr "Zamenjaj črtko za ugibanje z znakom '_'."
 
 #: ../src/missing_letter-activity/missingletter_config.c:591
-msgid "Enter here the letter that will be proposed. The first letter here must be the solution"
-msgstr "Napiši črko, ki bo predlagana. Prva črka tukaj mora biti rešitev"
+msgid "Enter here the letter that will be proposed. The first letter here must be the solution."
+msgstr "Napiši črko, ki bo predlagana. Prva črka tukaj mora biti rešitev."
 
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:1
 msgid "car/c_r/a/k/o"
@@ -5208,12 +5212,12 @@ msgid "satchel/sa_chel/t/p/c/z/s/l"
 msgstr "torba/to_ba/r/c/p/s/l"
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
-#: ../src/money-activity/money.c:496
+#: ../src/money-activity/money.c:542
 #, c-format
 msgid "$ %.2f"
 msgstr "$ %.2f"
 
-#: ../src/money-activity/money.c:509
+#: ../src/money-activity/money.c:555
 #, c-format
 msgid "$ %.0f"
 msgstr "$ %.0f"
@@ -5282,52 +5286,96 @@ msgstr "Edgar Degas, Plešoči razred - 1873-75"
 msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
 msgstr "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
 
+#: ../src/paintings-activity/resources/paintings/board1_10.xml.in.h:1
+msgid ""
+"Katsushika Hokusai,\\n"
+"Viewing Sunset over the Ryogoku Bridge from the Ommaya Embankment - 1830"
+msgstr ""
+"Katsushika Hokusai,\\n"
+"Sončni zahod nad mostom Ryogoku iz nabrežja reke Sumida v Onmayagashi - 1830Gledanje sončnega zahoda čez most Ryogoku iz obrežja Ommaya - 1830"
+
+#: ../src/paintings-activity/resources/paintings/board1_11.xml.in.h:1
+msgid "Katsushika Hokusa, Poppies - 1833-1834"
+msgstr "Katsushika Hokusai, Maki - 1833-1834"
+
+#: ../src/paintings-activity/resources/paintings/board1_12.xml.in.h:1
+msgid "Katsushika Hokusai, Kazusa sea Route - 1830."
+msgstr "Katsushika Hokusai, Morska pot province Kazusa - 1830."
+
 #: ../src/paintings-activity/resources/paintings/board1_2.xml.in.h:1
 msgid "Giuseppe Arcimboldo, Spring - 1573"
 msgstr "Giuseppe Arcimboldo, Pomlad - 1573"
 
 #: ../src/paintings-activity/resources/paintings/board1_3.xml.in.h:1
-msgid "Giuseppe Arcimboldo, The Librarian - 1566)"
-msgstr "Giuseppe Arcimboldo, Knjižničar - 1566)"
+msgid "Giuseppe Arcimboldo, The Librarian - 1566"
+msgstr "Giuseppe Arcimboldo, Knjižničar - 1566"
+
+#: ../src/paintings-activity/resources/paintings/board1_4.xml.in.h:1
+msgid "Katsushika Hokusai, Oiran and Kamuro"
+msgstr "Katsushika Hokusai, Oiran in Kamuro"
 
 #: ../src/paintings-activity/resources/paintings/board1_5.xml.in.h:1
-msgid "Woman holding a fan"
-msgstr "Ženska, ki drži torbico"
+msgid "Katsushika Hokusai, Woman holding a fan"
+msgstr "Katsushika Hokusai, Ženska, ki drži pahljačo"
+
+#: ../src/paintings-activity/resources/paintings/board1_6.xml.in.h:1
+msgid "Katsushika Hokusai, Ejiri in Suruga Province - 1830-1833"
+msgstr "Katsushika Hokusai, Ejiri v pokrajini Suruga  - 1830-1833"
+
+#: ../src/paintings-activity/resources/paintings/board1_7.xml.in.h:1
+msgid "Katsushika Hokusai, The Great Wave off Kanagawa - 1823-1829"
+msgstr "Katsushika Hokusai, Veliki val Kanagawe - 1823-1829"
+
+#: ../src/paintings-activity/resources/paintings/board1_8.xml.in.h:1
+msgid ""
+"Utagawa Hiroshige,\\n"
+"The Benzaiten Shrine at Inokashira in Snow - 1760-70"
+msgstr ""
+"Utagawa Hiroshige,\\n"
+"Tempelj Benten pri ribniku Inokashira v snegu - 1760-70"
+
+#: ../src/paintings-activity/resources/paintings/board1_9.xml.in.h:1
+msgid "Utagawa Hiroshige, Horse-mackerel and Prawn - 1840"
+msgstr "Utagawa Hiroshige, Konj-skuša in kozica - 1840"
+
+#: ../src/paintings-activity/resources/paintings/board2_0.xml.in.h:1
+msgid "Michelangelo, Pieta - 1499"
+msgstr "Michelangelo, Pieta - 1499"
 
 #: ../src/paintings-activity/resources/paintings/board2_1.xml.in.h:1
-msgid "Mona Lisa"
-msgstr "Mona Lisa"
+msgid "Leonardo da Vinci, Mona Lisa - 1503-19"
+msgstr "Leonardo da Vinci, Mona Lisa - 1503-19"
 
 #: ../src/paintings-activity/resources/paintings/board2_2.xml.in.h:1
-msgid "Bellini : Pala di pesaro"
-msgstr "Bellini : Pala di pesaro"
+msgid "Giovanni Bellini, La Pala di Pesaro - 1475-85"
+msgstr "Giovanni Bellini : Oltarna podoba v Pesari - 1475-85"
 
 #: ../src/paintings-activity/resources/paintings/board2_3.xml.in.h:1
-msgid "Dürer : Lion"
-msgstr "Dürer : Lion"
+msgid "Albrecht Dürer, Lion - 1494"
+msgstr "Albrecht Dürer, Lev - 1494"
 
 #: ../src/paintings-activity/resources/paintings/board2_4.xml.in.h:1
-msgid "Pieter Brugel : Harvest"
-msgstr "Pieter Brugel : Žetev"
+msgid "Pieter Brugel, The Harvesters - 1565"
+msgstr "Pieter Brugel, Žanjci - 1565"
 
 #: ../src/paintings-activity/resources/paintings/board3_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
 msgstr "Pierre-Auguste Renoir, Deklice za klavirjem - 1892"
 
 #: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:1
-msgid "Kandinsky, Wassily, Composition VIII - 1923"
-msgstr "Kandinsky, Wassily, Sestava VIII - 1923"
-
-#: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:2
 msgid "Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
 msgstr "Olje na platnu, 140 x 201 cm; Solomon R. Guggenheim muzej, New York"
+
+#: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:2
+msgid "Wassily Kandinsky, Composition VIII - 1923"
+msgstr "Kandinsky, Wassily, Sestava VIII - 1923"
 
 #: ../src/paintings-activity/resources/paintings/board4_0.xml.in.h:1
 msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
 msgstr "Bazille, Ramparti v Aigues-Mortes - 1867"
 
 #: ../src/paintings-activity/resources/paintings/board5_0.xml.in.h:1
-msgid "Cassatt, Mary - Summertime - 1894"
+msgid "Mary Cassatt, Summertime - 1894"
 msgstr "Cassat, Mary, Poletni čas - 1894"
 
 #: ../src/paintings-activity/resources/paintings/board6_0.xml.in.h:1
@@ -5423,7 +5471,7 @@ msgstr "Pomagaj helikopterju ujeti oblake v pravilnem vrstnem redu"
 msgid "Number"
 msgstr "Poznavanje števil"
 
-#: ../src/pythontemplate-activity/pythontemplate.py:60
+#: ../src/pythontemplate-activity/pythontemplate.py:62
 #: ../src/pythontest-activity/pythontest.py:184
 msgid ""
 "This is the first plugin in GCompris coded in the Python\n"
@@ -6229,6 +6277,12 @@ msgstr "BREZ"
 msgid "Could not find the list of words."
 msgstr "Ni mogoče najti seznama besed."
 
+#~ msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1888"
+#~ msgstr "Vincent Van Gogh, Vstopna dvorana bolnišnice Saint-Paul - 1888"
+#~ msgid "Mona Lisa"
+#~ msgstr "Mona Lisa"
+#~ msgid "Dürer : Lion"
+#~ msgstr "Dürer : Lion"
 #~ msgid "%s: option `%s' is ambiguous\n"
 #~ msgstr "%s: možnost `%s' je dvoumna\n"
 #~ msgid "%s: option `--%s' doesn't allow an argument\n"
