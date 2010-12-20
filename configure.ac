@@ -730,6 +730,9 @@ src/hanoi_real-activity/resources/hanoi_real/Makefile
 src/hexagon-activity/Makefile
 src/hexagon-activity/resources/Makefile
 src/hexagon-activity/resources/hexagon/Makefile
+src/hydroelectric-activity/Makefile
+src/hydroelectric-activity/resources/Makefile
+src/hydroelectric-activity/resources/hydroelectric/Makefile
 src/imageid-activity/Makefile
 src/imageid-activity/resources/Makefile
 src/imageid-activity/resources/imageid/Makefile
