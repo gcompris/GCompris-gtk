@@ -13,8 +13,8 @@ msgstr ""
 "Project-Id-Version: gcompris gcomprixogoo\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&component=general\n"
-"POT-Creation-Date: 2010-10-17 13:15+0000\n"
-"PO-Revision-Date: 2010-10-25 21:02+0100\n"
+"POT-Creation-Date: 2010-12-20 01:23+0000\n"
+"PO-Revision-Date: 2010-12-20 14:18+0100\n"
 "Last-Translator: Mario Blättermann <mariobl@gnome.org>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -197,7 +197,7 @@ msgstr ""
 msgid "GCompris Main Menu"
 msgstr "GCompris Hauptmenü"
 
-#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:875
+#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:866
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -1084,7 +1084,7 @@ msgid "+-×÷"
 msgstr "+-·:"
 
 #: ../src/algebra_by-activity/algebra.c:411
-#: ../src/readingh-activity/reading.c:621
+#: ../src/readingh-activity/reading.c:630
 msgid "I am Ready"
 msgstr "Los geht's!"
 
@@ -1513,7 +1513,7 @@ msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "Maus-Handhabung: Bewegung, Ziehen und Fallenlassen. Kulturelle Bezüge"
 
 #: ../src/babymatch-activity/shapegame.c:1903
-#: ../src/click_on_letter-activity/click_on_letter.c:635
+#: ../src/click_on_letter-activity/click_on_letter.c:675
 #: ../src/colors-activity/colors.c:168
 #, c-format
 msgid ""
@@ -1691,6 +1691,7 @@ msgstr "Spezial-Tafel, die Python in GCompris einbettet."
 
 #: ../src/canal_lock-activity/canal_lock.xml.in.h:1
 #: ../src/watercycle-activity/watercycle.xml.in.h:2
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:2
 msgid "Drawing by Stephane Cabaraux."
 msgstr "Zeichnung von Stephane Cabaraux."
 
@@ -2061,7 +2062,7 @@ msgstr "1955 Citroën ds 19"
 msgid "Cars"
 msgstr "Autos"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:271
+#: ../src/click_on_letter-activity/click_on_letter.c:311
 #: ../src/memory-activity/memory.c:906
 msgid ""
 "Error: this activity cannot be played with the\n"
@@ -2077,12 +2078,12 @@ msgstr ""
 #. TRANSLATORS: Put here the alphabet in your language
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
-#: ../src/click_on_letter-activity/click_on_letter.c:276
+#: ../src/click_on_letter-activity/click_on_letter.c:316
 #: ../src/gletters-activity/gletters.c:229 ../src/memory-activity/memory.c:935
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcdefghijklmnopqrstuvwxyz"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:304
+#: ../src/click_on_letter-activity/click_on_letter.c:344
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -2091,7 +2092,7 @@ msgstr ""
 "Fehler: Diese Aktivität erfordert die Installation\n"
 "der Pakete mit den GCompris-Stimmen für das Gebiet '%s' oder '%s'"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:314
+#: ../src/click_on_letter-activity/click_on_letter.c:354
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -2103,8 +2104,11 @@ msgstr ""
 "aus!"
 
 #. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:658
+#: ../src/click_on_letter-activity/click_on_letter.c:698
 #: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:484
+#: ../src/missing_letter-activity/missingletter_config.c:492
+#: ../src/readingh-activity/reading.c:928
+#: ../src/wordsgame-activity/wordsgame.c:889
 msgid "Uppercase only text"
 msgstr "Nur Großbuchstaben"
 
@@ -2376,8 +2380,8 @@ msgid "Find the details"
 msgstr "Finde die Details"
 
 #: ../src/details-activity/details.xml.in.h:5
-msgid "The images are from wiki commons"
-msgstr "Die Bilder stammen aus Wiki-Commons"
+msgid "The images are from Wikimedia Commons."
+msgstr "Die Bilder stammen aus Wikimedia-Commons."
 
 #: ../src/details-activity/resources/details/board1_0.xml.in.h:1
 msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1889"
@@ -2409,8 +2413,8 @@ msgstr ""
 "Vincent van Gogh, Nachts vor dem Café an der Place du Forum in Arles - 1888"
 
 #: ../src/details-activity/resources/details/board1_6.xml.in.h:1
-msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1888"
-msgstr "Vincent van Gogh, Eingangshalle des Saint-Paul-Hospitals - 1889"
+msgid "Vincent van Gogh, The Night Café - 1888"
+msgstr "Vincent van Gogh, Nachtcafé - 1888"
 
 #: ../src/details-activity/resources/details/board1_7.xml.in.h:1
 msgid "Vincent van Gogh, Portrait of Pere Tanguy 1887-8"
@@ -2431,6 +2435,10 @@ msgstr "Pyramiden von Gizeh, Ägypten"
 #: ../src/details-activity/resources/details/board2_11.xml.in.h:1
 msgid "Sydney Opera House, Australia"
 msgstr "Opernhaus von Sydney, Australien"
+
+#: ../src/details-activity/resources/details/board2_12.xml.in.h:1
+msgid "Tower Bridge in London"
+msgstr "Tower-Brücke in London"
 
 #: ../src/details-activity/resources/details/board2_2.xml.in.h:1
 msgid "Courtyard of the Museum of Louvre, and its pyramid"
@@ -2521,6 +2529,10 @@ msgstr ""
 "Farbe. Klicke danach auf das weiße Zeichenfeld und bewege die Maus bei "
 "gedrückter linker Maustaste, um eine neue Form zu erzeugen. Um Zeit zu "
 "sparen, kannst Du die mittlere Maustaste verwenden, um ein Objekt zu löschen."
+
+#: ../src/drawnumber-activity/drawnumber.py:236
+msgid "Cannot find the file '{filename}'"
+msgstr "Datei »{filename}« kann nicht gefunden werden"
 
 #: ../src/drawnumber-activity/drawnumber.xml.in.h:1
 msgid "Can count from 1 to 50."
@@ -2730,7 +2742,7 @@ msgstr ""
 msgid "Tux needs to water the flowers, but the hose is blocked."
 msgstr "Tux muss die Blumen gießen, aber die Leitung ist verstopft."
 
-#: ../src/gcompris/about.c:50
+#: ../src/gcompris/about.c:49
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge, Yves Combe\n"
@@ -2745,7 +2757,7 @@ msgstr ""
 "Hintergrund-Musik: Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:58
+#: ../src/gcompris/about.c:57
 msgid "translator_credits"
 msgstr ""
 "Gerhard Dieringer <GDieringer@compuserve.com>, 2000.\n"
@@ -2755,19 +2767,19 @@ msgstr ""
 "Mario Blättermann <mariobl@gnome.org>, 2009.\n"
 "Christian Kirbach <Christian.Kirbach@googlemail.com>, 2009, 2010."
 
-#: ../src/gcompris/about.c:85
+#: ../src/gcompris/about.c:84
 msgid "About GCompris"
 msgstr "Über GCompris"
 
-#: ../src/gcompris/about.c:95
+#: ../src/gcompris/about.c:94
 msgid "GCompris Home Page: http://gcompris.net"
 msgstr "GCompris-Webseite: http://gcompris.net"
 
-#: ../src/gcompris/about.c:106
+#: ../src/gcompris/about.c:105
 msgid "Translators:"
 msgstr "Übersetzer:"
 
-#: ../src/gcompris/about.c:208
+#: ../src/gcompris/about.c:210
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
@@ -2775,29 +2787,29 @@ msgstr ""
 "Dieses Programm ist ein GNU-Paket und wird unter der GNU General Public "
 "License veröffentlicht"
 
-#: ../src/gcompris/about.c:222 ../src/gcompris/config.c:442
-#: ../src/gcompris/dialog.c:103 ../src/gcompris/help.c:359
+#: ../src/gcompris/about.c:224 ../src/gcompris/config.c:438
+#: ../src/gcompris/dialog.c:104 ../src/gcompris/help.c:355
 #: ../src/gcompris/images_selector.c:307
 msgid "OK"
 msgstr "OK"
 
-#: ../src/gcompris/bar.c:688
+#: ../src/gcompris/bar.c:693
 msgid "GCompris confirmation"
 msgstr "GCompris Bestätigung"
 
-#: ../src/gcompris/bar.c:689
+#: ../src/gcompris/bar.c:694
 msgid "Are you sure you want to quit?"
 msgstr "Willst du wirklich aufhören?"
 
-#: ../src/gcompris/bar.c:690
+#: ../src/gcompris/bar.c:695
 msgid "Yes, I am sure!"
 msgstr "Ja, wirklich!"
 
-#: ../src/gcompris/bar.c:691
+#: ../src/gcompris/bar.c:696
 msgid "No, I want to keep going"
 msgstr "Nein, ich will weitermachen."
 
-#: ../src/gcompris/board.c:197
+#: ../src/gcompris/board.c:168
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr ""
 "Dynamisches Laden von Modulen wird nicht unterstützt. GCompris kann nicht "
@@ -3147,38 +3159,38 @@ msgstr "Benutzen Sie die Gcompris-Administration, um Tafeln zu filtern"
 msgid "GCompris Configuration"
 msgstr "GCompris Konfiguration"
 
-#: ../src/gcompris/config.c:254
+#: ../src/gcompris/config.c:253
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: ../src/gcompris/config.c:280
+#: ../src/gcompris/config.c:278
 msgid "Music"
 msgstr "Musik"
 
-#: ../src/gcompris/config.c:306
+#: ../src/gcompris/config.c:303
 msgid "Effect"
 msgstr "Effekt"
 
-#: ../src/gcompris/config.c:331 ../src/gcompris/sugar.c:82
+#: ../src/gcompris/config.c:327 ../src/gcompris/sugar.c:82
 msgid "Zoom"
 msgstr "Vergrößerung"
 
-#: ../src/gcompris/config.c:368
+#: ../src/gcompris/config.c:364
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Themen-Ordner %s kann nicht geöffnet werden"
 
-#: ../src/gcompris/config.c:399 ../src/gcompris/config.c:757
-#: ../src/gcompris/config.c:771
+#: ../src/gcompris/config.c:395 ../src/gcompris/config.c:753
+#: ../src/gcompris/config.c:767
 #, c-format
 msgid "Skin : %s"
 msgstr "Thema: %s"
 
-#: ../src/gcompris/config.c:401
+#: ../src/gcompris/config.c:397
 msgid "SKINS NOT FOUND"
 msgstr "THEMEN NICHT GEFUNDEN"
 
-#: ../src/gcompris/config.c:482
+#: ../src/gcompris/config.c:478
 msgid "English (United State)"
 msgstr "Englisch (Vereinigte Staaten)"
 
@@ -3210,43 +3222,43 @@ msgstr ""
 "Beende und berichte\n"
 "den Autoren über das Problem."
 
-#: ../src/gcompris/gcompris.c:157
+#: ../src/gcompris/gcompris.c:158
 msgid "run GCompris in fullscreen mode."
 msgstr "GCompris im Vollbildmodus ausführen"
 
-#: ../src/gcompris/gcompris.c:160
+#: ../src/gcompris/gcompris.c:161
 msgid "run GCompris in window mode."
 msgstr "GCompris im Fenstermodus ausführen"
 
-#: ../src/gcompris/gcompris.c:163
+#: ../src/gcompris/gcompris.c:164
 msgid "run GCompris with sound enabled."
 msgstr "GCompris mit Klängen ausführen"
 
-#: ../src/gcompris/gcompris.c:166
+#: ../src/gcompris/gcompris.c:167
 msgid "run GCompris without sound."
 msgstr "GCompris ohne Klänge ausführen"
 
-#: ../src/gcompris/gcompris.c:169
+#: ../src/gcompris/gcompris.c:170
 msgid "run GCompris with the default system cursor."
 msgstr "GCompris mit dem voreingestellten System-Mauszeiger ausführen"
 
-#: ../src/gcompris/gcompris.c:172
+#: ../src/gcompris/gcompris.c:173
 msgid "run GCompris without cursor (touch screen mode)."
 msgstr "GCompris ohne Cursor ausführen (Berührungsbildschirm)"
 
-#: ../src/gcompris/gcompris.c:175
+#: ../src/gcompris/gcompris.c:176
 msgid "display only activities with this difficulty level."
 msgstr "zeige nur Aktivitäten mit dieser Schwierigkeitsstufe an"
 
-#: ../src/gcompris/gcompris.c:178
+#: ../src/gcompris/gcompris.c:179
 msgid "display debug informations on the console."
 msgstr "gib Debug-Informationen auf der Konsole aus"
 
-#: ../src/gcompris/gcompris.c:181
+#: ../src/gcompris/gcompris.c:182
 msgid "Print the version of "
 msgstr "Ausgabe der Version von "
 
-#: ../src/gcompris/gcompris.c:184
+#: ../src/gcompris/gcompris.c:185
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
@@ -3258,37 +3270,37 @@ msgstr ""
 "Sie -l list, um alle verfügbaren Aktivitäten und ihre Beschreibungen "
 "aufzulisten."
 
-#: ../src/gcompris/gcompris.c:189
+#: ../src/gcompris/gcompris.c:190
 msgid "GCompris will find the data dir in this directory"
 msgstr "GCompris wird den Datenordner in diesem Ordner suchen"
 
-#: ../src/gcompris/gcompris.c:192
+#: ../src/gcompris/gcompris.c:193
 msgid "GCompris will find the skins in this directory"
 msgstr "GCompris wird die Themen in diesem Ordner suchen"
 
-#: ../src/gcompris/gcompris.c:195
+#: ../src/gcompris/gcompris.c:196
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "GCompris wird die Aktivitäts-Plugins in diesem Ordner suchen"
 
-#: ../src/gcompris/gcompris.c:198
+#: ../src/gcompris/gcompris.c:199
 msgid "GCompris will find the python activity in this directory"
 msgstr "GCompris wird die Python-Aktivitäten in diesem Ordner suchen"
 
-#: ../src/gcompris/gcompris.c:201
+#: ../src/gcompris/gcompris.c:202
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr ""
 "GCompris wird die Lokalisierungsdatei (.mo-Übersetzung) in diesem Ordner "
 "suchen"
 
-#: ../src/gcompris/gcompris.c:204
+#: ../src/gcompris/gcompris.c:205
 msgid "GCompris will find the activities menu in this directory"
 msgstr "GCompris wird das Aktivitätsmenü in diesem Ordner suchen"
 
-#: ../src/gcompris/gcompris.c:207
+#: ../src/gcompris/gcompris.c:208
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Starte GCompris im Administrator/Nutzerverwaltungs-Modus"
 
-#: ../src/gcompris/gcompris.c:210
+#: ../src/gcompris/gcompris.c:211
 msgid ""
 "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
@@ -3296,27 +3308,27 @@ msgstr ""
 "Andere Datenbank für Profile verwenden [$HOME/.config/gcompris/"
 "gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:213
+#: ../src/gcompris/gcompris.c:214
 msgid "Create the alternate database for profiles"
 msgstr "Erzeuge andere Datenbank für Profile"
 
-#: ../src/gcompris/gcompris.c:216
+#: ../src/gcompris/gcompris.c:217
 msgid "Re-read XML Menus and store them in the database"
 msgstr "XML-Menüs erneut einlesen und in der Datenbank abspeichern"
 
-#: ../src/gcompris/gcompris.c:219
+#: ../src/gcompris/gcompris.c:220
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Wählen Sie das zu verwendende Profil aus. Verwenden Sie 'gcompris -a', um "
 "Profile anzulegen."
 
-#: ../src/gcompris/gcompris.c:222
+#: ../src/gcompris/gcompris.c:223
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Zeige alle verfügbaren Profile an. Verwenden Sie 'gcompris -a', um Profile "
 "anzulegen."
 
-#: ../src/gcompris/gcompris.c:225
+#: ../src/gcompris/gcompris.c:226
 msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
@@ -3324,23 +3336,27 @@ msgstr ""
 "Ort des Konfigurationsordners: [$HOME/.config/gcompris]. Alternative ist "
 "Setzen von $XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:228
+#: ../src/gcompris/gcompris.c:229
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "Ort der Benutzerordner: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:231
+#: ../src/gcompris/gcompris.c:232
 msgid "Run the experimental activities"
 msgstr "Gehe zu den experimentellen Aktivitäten"
 
-#: ../src/gcompris/gcompris.c:234
+#: ../src/gcompris/gcompris.c:235
 msgid "Disable the quit button"
 msgstr "Ende-Knopf deaktivieren"
 
-#: ../src/gcompris/gcompris.c:237
+#: ../src/gcompris/gcompris.c:238
 msgid "Disable the config button"
 msgstr "Konfigurationsknopf deaktivieren"
 
-#: ../src/gcompris/gcompris.c:240
+#: ../src/gcompris/gcompris.c:241
+msgid "Disable the level button"
+msgstr "Stufe-Knopf deaktivieren"
+
+#: ../src/gcompris/gcompris.c:244
 msgid ""
 "GCompris will get images, sounds and activity data from this server if not "
 "found locally."
@@ -3348,7 +3364,7 @@ msgstr ""
 "GCompris holt Bilder, Töne und Aktivitäten von diesem Server, wenn sie lokal "
 "nicht gefunden werden."
 
-#: ../src/gcompris/gcompris.c:243
+#: ../src/gcompris/gcompris.c:247
 msgid ""
 "Only when --server is provided, disable check for local resource first. Data "
 "are always taken from the web server."
@@ -3356,25 +3372,25 @@ msgstr ""
 "Nur wenn --server angegeben ist, wird nicht zuerst nach lokalen Ressourcen "
 "gesucht. Die Daten werden dann immer vom Webserver geladen."
 
-#: ../src/gcompris/gcompris.c:247
+#: ../src/gcompris/gcompris.c:251
 msgid ""
 "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr ""
 "Im Servermodus gibt dies den Ordner zum Zwischenspeichern an, damit nicht "
 "wiederholt heruntergeladen werden muss."
 
-#: ../src/gcompris/gcompris.c:250
+#: ../src/gcompris/gcompris.c:254
 msgid ""
 "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr ""
 "Globaler Modus für Ziehen und Fallenlassen: normal, 2 Klicks, beide. "
 "Voreinstellung ist normal."
 
-#: ../src/gcompris/gcompris.c:253
+#: ../src/gcompris/gcompris.c:257
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Das mehrfache, parallele Starten von GCompris nicht verhindern"
 
-#: ../src/gcompris/gcompris.c:918
+#: ../src/gcompris/gcompris.c:929
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to support "
@@ -3396,7 +3412,14 @@ msgstr ""
 "der FSF unter\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1457
+#: ../src/gcompris/gcompris.c:1223
+#, c-format
+msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
+msgstr ""
+"Thema »%s« konnte nicht geladen werden. Überprüfen Sie, ob die Datei "
+"existiert und lesbar ist."
+
+#: ../src/gcompris/gcompris.c:1485
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
@@ -3404,12 +3427,12 @@ msgstr ""
 "GCompris wird nicht starten, da die Sperrdatei weniger als %d Sekunden alt "
 "ist.\n"
 
-#: ../src/gcompris/gcompris.c:1459
+#: ../src/gcompris/gcompris.c:1487
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Die Sperrdatei ist : %s\n"
 
-#: ../src/gcompris/gcompris.c:1573
+#: ../src/gcompris/gcompris.c:1601
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3423,27 +3446,27 @@ msgstr ""
 "Mehr Informationen unter http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1682
+#: ../src/gcompris/gcompris.c:1716
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Verwende -l, um direkt auf eine Aktivität zuzugreifen.\n"
 
-#: ../src/gcompris/gcompris.c:1683
+#: ../src/gcompris/gcompris.c:1717
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Liste der verfügbaren Aktivitäten:\n"
 
-#: ../src/gcompris/gcompris.c:1714
+#: ../src/gcompris/gcompris.c:1748
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Anzahl Aktivitäten: %d\n"
 
-#: ../src/gcompris/gcompris.c:1750
+#: ../src/gcompris/gcompris.c:1784
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s existiert aber ist weder lesbar noch beschreibbar"
 
-#: ../src/gcompris/gcompris.c:1813
+#: ../src/gcompris/gcompris.c:1847
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled without "
@@ -3452,7 +3475,7 @@ msgstr ""
 "Die Option »--server« kann nicht verwendet werden, weil GCompris ohne "
 "Netzwerkunterstützung kompiliert wurde!"
 
-#: ../src/gcompris/gcompris.c:1867
+#: ../src/gcompris/gcompris.c:1901
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3461,7 +3484,7 @@ msgstr ""
 "FEHLER: Profil »%s« kann nicht gefunden werden. Führen Sie zur Auflistung der "
 "vorhandenen »gcompris --profile-list« aus\n"
 
-#: ../src/gcompris/gcompris.c:1881
+#: ../src/gcompris/gcompris.c:1915
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Liste der verfügbaren Profile:\n"
@@ -3474,7 +3497,7 @@ msgstr "Nicht betroffen"
 msgid "Users without a class"
 msgstr "Benutzer ohne eine Klasse"
 
-#: ../src/gcompris/gcompris_db.c:894
+#: ../src/gcompris/gcompris_db.c:889
 #, c-format
 msgid ""
 "Loading activity from database:\n"
@@ -3483,23 +3506,23 @@ msgstr ""
 "Aktivitäten werden aus der Datenbank geladen:\n"
 "%s"
 
-#: ../src/gcompris/help.c:181
+#: ../src/gcompris/help.c:180
 msgid "Prerequisite"
 msgstr "Voraussetzung"
 
-#: ../src/gcompris/help.c:212
+#: ../src/gcompris/help.c:210
 msgid "Goal"
 msgstr "Ziel"
 
-#: ../src/gcompris/help.c:243
+#: ../src/gcompris/help.c:240
 msgid "Manual"
 msgstr "Handbuch"
 
-#: ../src/gcompris/help.c:274
+#: ../src/gcompris/help.c:270
 msgid "Credit"
 msgstr "Dank"
 
-#: ../src/gcompris/menu.c:583
+#: ../src/gcompris/menu.c:582
 #, c-format
 msgid ""
 "Loading activity from file:\n"
@@ -3508,17 +3531,17 @@ msgstr ""
 "Aktivitäten werden aus einer Datei geladen:\n"
 "%s"
 
-#: ../src/gcompris/properties.c:497 ../src/gcompris/properties.c:504
+#: ../src/gcompris/properties.c:501 ../src/gcompris/properties.c:508
 msgid "readme"
 msgstr "Lies mich"
 
-#: ../src/gcompris/properties.c:499
+#: ../src/gcompris/properties.c:503
 msgid ""
 "This directory contains the files you create with the GCompris educational "
 "suite\n"
 msgstr "Dieser Ordner enthält die Dateien, die Du mit GCompris erstellst\n"
 
-#: ../src/gcompris/properties.c:506
+#: ../src/gcompris/properties.c:510
 msgid ""
 "Put any number of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
@@ -4202,13 +4225,13 @@ msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 #. we can add what you want in it.
 #: ../src/gletters-activity/gletters.c:850
 #: ../src/imageid-activity/imageid.c:712 ../src/login-activity/login.py:479
-#: ../src/missing_letter-activity/missingletter.c:748
+#: ../src/missing_letter-activity/missingletter.c:784
 #: ../src/pythontest-activity/pythontest.py:454
-#: ../src/readingh-activity/reading.c:878
+#: ../src/readingh-activity/reading.c:904
 #: ../src/scalesboard-activity/scale.c:1161
 #: ../src/smallnumbers-activity/smallnumbers.c:595
 #: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:827
+#: ../src/wordsgame-activity/wordsgame.c:866
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -4666,14 +4689,14 @@ msgstr "Hexagon"
 #: ../src/imageid-activity/imageid.xml.in.h:3
 #: ../src/imagename-activity/imagename.xml.in.h:4
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:1
-#: ../src/missing_letter-activity/missingletter.c:83
+#: ../src/missing_letter-activity/missingletter.c:84
 #: ../src/readingh-activity/readingh.xml.in.h:4
 #: ../src/readingv-activity/readingv.xml.in.h:4
 msgid "Reading"
 msgstr "Lesen"
 
 #: ../src/imageid-activity/imageid.c:95
-#: ../src/missing_letter-activity/missingletter.c:84
+#: ../src/missing_letter-activity/missingletter.c:85
 msgid "Learn how to read"
 msgstr "Lerne lesen"
 
@@ -4686,7 +4709,7 @@ msgstr ""
 "Möglichkeiten vorgeschlagen."
 
 #: ../src/imageid-activity/imageid.c:534
-#: ../src/missing_letter-activity/missingletter.c:568
+#: ../src/missing_letter-activity/missingletter.c:592
 msgid "Data file for this level is not properly formatted."
 msgstr "Die Daten für diese Stufe sind nicht richtig formatiert."
 
@@ -5059,8 +5082,8 @@ msgstr "GCompris-Anmeldung"
 
 #: ../src/login-activity/login.xml.in.h:3
 msgid ""
-"In order to activate the login screen, you must \n"
-"first add users in the administration part of GCompris. \n"
+"In order to activate the login screen, you must\n"
+"first add users in the administration part of GCompris.\n"
 "You access Administration by running 'gcompris -a'.\n"
 "In Administration, you can create different profiles. In each profile,\n"
 "you can have a different set of users and select which activities are "
@@ -5069,9 +5092,9 @@ msgid ""
 "'profile'\n"
 "is the name of a profile as you created it in Administration."
 msgstr ""
-"Um den Anmelde-Bildschirm zu aktivieren, müssen Sie zuerst Benutzer in der "
-"GCompris-Administration hinzufügen. Sie können die Administration durch "
-"Aufruf von \"gcompris -a\" starten. Dort können Sie verschiedene Profile "
+"Um den Anmelde-Bildschirm zu aktivieren, müssen Sie zuerst Benutzer\n"
+"in der GCompris-Administration hinzufügen. Sie können die Administration\n"
+"durch Aufruf von »gcompris -a« starten. Dort können Sie verschiedene Profile "
 "anlegen. Zu jedem Profil können Sie Benutzer hinzufügen und festlegen, welche "
 "Aktivitäten ihnen zur Verfügung stehen. Um GCompris mit einem bestimmten "
 "Profil zu starten, rufen Sie \"gcompris -p Profil\" auf, wobei \"Profil\" der "
@@ -5151,13 +5174,13 @@ msgstr "Labyrinth"
 msgid "Find your way out of the maze"
 msgstr "Finde deinen Weg aus dem Labyrinth."
 
-#: ../src/maze-activity/maze.c:500
+#: ../src/maze-activity/maze.c:599
 msgid ""
 "Look at your position, then switch back to invisible mode to continue your "
 "moves"
 msgstr "Betrachte deine Position und schalte zum Weiterlaufen wieder zurück"
 
-#: ../src/maze-activity/maze.c:502
+#: ../src/maze-activity/maze.c:601
 msgid ""
 "Look at your position, then switch back to 3D mode to continue your moves"
 msgstr ""
@@ -5777,43 +5800,101 @@ msgstr "Übe Lese"
 msgid "Word reading"
 msgstr "Wörter lesen"
 
+#: ../src/missing_letter-activity/missingletter_config.c:77
+msgid "Please select an image."
+msgstr "Bitte wählen Sie ein Bild."
+
+#: ../src/missing_letter-activity/missingletter_config.c:83
+msgid "Choice cannot be empty."
+msgstr "Die Auswahl darf nicht leer sein."
+
+#: ../src/missing_letter-activity/missingletter_config.c:89
+msgid "Question cannot be empty."
+msgstr "Die Frage darf nicht leer sein."
+
+#: ../src/missing_letter-activity/missingletter_config.c:95
+msgid ""
+"Question must include the character '_'. It represents the letter to search."
+msgstr ""
+"Die Frage muss das Zeichen »_« enthalten, welches den zu suchenden Buchstaben "
+"kennzeichnet."
+
+#: ../src/missing_letter-activity/missingletter_config.c:102
+msgid "Pixmap cannot be empty"
+msgstr "Pixmap darf nicht leer sein."
+
+#: ../src/missing_letter-activity/missingletter_config.c:108
+msgid "There must be at least 2 choices."
+msgstr "Es muss mindestens zwei Auswahlmöglichkeiten geben."
+
+#: ../src/missing_letter-activity/missingletter_config.c:116
+msgid "The answer and question must be the same except for the character '_'."
+msgstr "Frage und Antwort müssen gleich sein, mit Ausnahme des Zeichens »_«."
+
+#: ../src/missing_letter-activity/missingletter_config.c:125
+msgid "The first choice must be the solution that replaces the character '_'."
+msgstr "Die erste Auswahl muss die Lösung sein, die das Zeichen »_« ersetzt."
+
+#: ../src/missing_letter-activity/missingletter_config.c:140
+#, c-format
+msgid ""
+"Invalid entry:\n"
+"Question '%s' / Answer '%s'\n"
+"%s"
+msgstr ""
+"Ungültiger Eintrag:\n"
+"Frage »%s« / Antwort »%s«\n"
+"%s"
+
 #. pixmap
-#: ../src/missing_letter-activity/missingletter_config.c:384
-#: ../src/missing_letter-activity/missingletter_config.c:534
+#: ../src/missing_letter-activity/missingletter_config.c:414
+#: ../src/missing_letter-activity/missingletter_config.c:557
 msgid "Picture"
 msgstr "Bild"
 
 #. answer
-#: ../src/missing_letter-activity/missingletter_config.c:390
-#: ../src/missing_letter-activity/missingletter_config.c:525
+#: ../src/missing_letter-activity/missingletter_config.c:420
+#: ../src/missing_letter-activity/missingletter_config.c:548
 msgid "Answer"
 msgstr "Antwort"
 
 #. question
-#: ../src/missing_letter-activity/missingletter_config.c:396
-#: ../src/missing_letter-activity/missingletter_config.c:548
+#: ../src/missing_letter-activity/missingletter_config.c:426
+#: ../src/missing_letter-activity/missingletter_config.c:571
 msgid "Question"
 msgstr "Frage"
 
 #. choice
-#: ../src/missing_letter-activity/missingletter_config.c:402
-#: ../src/missing_letter-activity/missingletter_config.c:557
+#: ../src/missing_letter-activity/missingletter_config.c:432
+#: ../src/missing_letter-activity/missingletter_config.c:583
 msgid "Choice"
 msgstr "Wahl"
 
 #. combo level
-#: ../src/missing_letter-activity/missingletter_config.c:440
+#: ../src/missing_letter-activity/missingletter_config.c:470
 msgid "Level:"
 msgstr "Stufe:"
 
-#: ../src/missing_letter-activity/missingletter_config.c:448
+#: ../src/missing_letter-activity/missingletter_config.c:478
 #, c-format
 msgid "Level %d"
 msgstr "Stufe %d"
 
-#: ../src/missing_letter-activity/missingletter_config.c:538
+#: ../src/missing_letter-activity/missingletter_config.c:561
 msgid "Filename:"
 msgstr "Dateiname:"
+
+#: ../src/missing_letter-activity/missingletter_config.c:579
+msgid "Replace the letter to guess by the character '_'."
+msgstr "Ersetzen Sie den zu erratenden Buchstaben durch »_«."
+
+#: ../src/missing_letter-activity/missingletter_config.c:591
+msgid ""
+"Enter here the letter that will be proposed. The first letter here must be "
+"the solution."
+msgstr ""
+"Geben Sie hier den vorzuschlagenden Buchstaben ein. Die erste Buchstabe muss "
+"die Lösung sein."
 
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:1
 msgid "car/c_r/a/k/o"
@@ -5960,12 +6041,12 @@ msgid "satchel/sa_chel/t/p/c/z/s/l"
 msgstr "Schultasche/Schul_asche/t/m/l/p/c/l"
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
-#: ../src/money-activity/money.c:496
+#: ../src/money-activity/money.c:542
 #, c-format
 msgid "$ %.2f"
 msgstr "€ %.2f"
 
-#: ../src/money-activity/money.c:509
+#: ../src/money-activity/money.c:555
 #, c-format
 msgid "$ %.0f"
 msgstr "€ %.0f"
@@ -6046,53 +6127,95 @@ msgstr "Edgar Degas, Die Tanzschule - 1873-75"
 msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
 msgstr "Pierre-Auguste Renoir, Tanz im Moulin de la Galette - 1876"
 
+#: ../src/paintings-activity/resources/paintings/board1_10.xml.in.h:1
+msgid ""
+"Katsushika Hokusai,\\nViewing Sunset over the Ryogoku Bridge from the Ommaya "
+"Embankment - 1830"
+msgstr ""
+"Katsushika Hokusai,\\nSonnenuntergang über der Ryogoku-Brücke vom Ommaya-Damm "
+"gesehen - 1830"
+
+#: ../src/paintings-activity/resources/paintings/board1_11.xml.in.h:1
+msgid "Katsushika Hokusa, Poppies - 1833-1834"
+msgstr "Katsushika Hokusa, Mohn - 1833-1834"
+
+#: ../src/paintings-activity/resources/paintings/board1_12.xml.in.h:1
+msgid "Katsushika Hokusai, Kazusa sea Route - 1830."
+msgstr "Katsushika Hokusai, Kazusa-Seeweg - 1830."
+
 #: ../src/paintings-activity/resources/paintings/board1_2.xml.in.h:1
 msgid "Giuseppe Arcimboldo, Spring - 1573"
 msgstr "Giuseppe Arcimboldo, Frühling - 1573"
 
 #: ../src/paintings-activity/resources/paintings/board1_3.xml.in.h:1
-msgid "Giuseppe Arcimboldo, The Librarian - 1566)"
-msgstr "Giuseppe Arcimboldo, Der Bibliothekar - 1566)"
+msgid "Giuseppe Arcimboldo, The Librarian - 1566"
+msgstr "Giuseppe Arcimboldo, Der Bibliothekar - 1566"
+
+#: ../src/paintings-activity/resources/paintings/board1_4.xml.in.h:1
+msgid "Katsushika Hokusai, Oiran and Kamuro"
+msgstr "Katsushika Hokusai, Oiran und Kamuro"
 
 #: ../src/paintings-activity/resources/paintings/board1_5.xml.in.h:1
-msgid "Woman holding a fan"
-msgstr "Frau, die einen Fächer hält"
+msgid "Katsushika Hokusai, Woman holding a fan"
+msgstr "Katsushika Hokusai, Frau, die einen Fächer hält"
+
+#: ../src/paintings-activity/resources/paintings/board1_6.xml.in.h:1
+msgid "Katsushika Hokusai, Ejiri in Suruga Province - 1830-1833"
+msgstr "Katsushika Hokusai, Ejiri in der Provinz Suruga - 1830-1833"
+
+#: ../src/paintings-activity/resources/paintings/board1_7.xml.in.h:1
+msgid "Katsushika Hokusai, The Great Wave off Kanagawa - 1823-1829"
+msgstr "Katsushika Hokusai, Die große Welle vor Kanagawa - 1823-1829"
+
+#: ../src/paintings-activity/resources/paintings/board1_8.xml.in.h:1
+msgid ""
+"Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
+msgstr ""
+"Utagawa Hiroshige,\\nDer Benzaiten-Schrein in Inokashira im Schnee - 1760-70"
+
+#: ../src/paintings-activity/resources/paintings/board1_9.xml.in.h:1
+msgid "Utagawa Hiroshige, Horse-mackerel and Prawn - 1840"
+msgstr "Utagawa Hiroshige, Stöcker und Garnele - 1840"
+
+#: ../src/paintings-activity/resources/paintings/board2_0.xml.in.h:1
+msgid "Michelangelo, Pieta - 1499"
+msgstr "Michelangelo, Pieta - 1499"
 
 #: ../src/paintings-activity/resources/paintings/board2_1.xml.in.h:1
-msgid "Mona Lisa"
-msgstr "Mona Lisa"
+msgid "Leonardo da Vinci, Mona Lisa - 1503-19"
+msgstr "Leonardo da Vinci, Mona Lisa - 1503-19"
 
 #: ../src/paintings-activity/resources/paintings/board2_2.xml.in.h:1
-msgid "Bellini : Pala di pesaro"
-msgstr "Bellini: Pala di pesaro"
+msgid "Giovanni Bellini, La Pala di Pesaro - 1475-85"
+msgstr "Bellini: Pala di pesaro - 1475-85"
 
 #: ../src/paintings-activity/resources/paintings/board2_3.xml.in.h:1
-msgid "Dürer : Lion"
-msgstr "Dürer: Löwe"
+msgid "Albrecht Dürer, Lion - 1494"
+msgstr "Albrecht Dürer, Löwe - 1494"
 
 #: ../src/paintings-activity/resources/paintings/board2_4.xml.in.h:1
-msgid "Pieter Brugel : Harvest"
-msgstr "Pieter Brueghel: Ernte"
+msgid "Pieter Brugel, The Harvesters - 1565"
+msgstr "Pieter Brueghel: Ernte - 1565"
 
 #: ../src/paintings-activity/resources/paintings/board3_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
 msgstr "Pierre-Auguste Renoir, Junge Mädchen am Klavier - 1892"
 
 #: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:1
-msgid "Kandinsky, Wassily, Composition VIII - 1923"
-msgstr "Wassily Kandinsky, Composition VIII - 1923"
-
-#: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:2
 msgid "Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
 msgstr "Öl auf Leinwand, 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
+
+#: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:2
+msgid "Wassily Kandinsky, Composition VIII - 1923"
+msgstr "Wassily Kandinsky, Composition VIII - 1923"
 
 #: ../src/paintings-activity/resources/paintings/board4_0.xml.in.h:1
 msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
 msgstr "Frédéric Bazille, Die Festung Aigues-Mortes - 1867"
 
 #: ../src/paintings-activity/resources/paintings/board5_0.xml.in.h:1
-msgid "Cassatt, Mary - Summertime - 1894"
-msgstr "Mary Cassatt - Sommer - 1894"
+msgid "Mary Cassatt, Summertime - 1894"
+msgstr "Mary Cassatt, Sommer - 1894"
 
 #: ../src/paintings-activity/resources/paintings/board6_0.xml.in.h:1
 msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
@@ -6132,11 +6255,11 @@ msgstr ""
 "Diese Tafel ist spielorientiert. Zum Spielen sind keine besonderen Kenntnisse "
 "erforderlich."
 
-#: ../src/penalty-activity/penalty.py:294
+#: ../src/penalty-activity/penalty.py:293
 msgid "Click on the balloon to place it again."
 msgstr "Klicke auf den Ballon, um ihn zurückzusetzen."
 
-#: ../src/penalty-activity/penalty.py:296
+#: ../src/penalty-activity/penalty.py:295
 msgid "Click twice on the balloon to shoot it."
 msgstr "Klicke zweimal auf den Ballon, um ihn zum Platzen zu bringen."
 
@@ -6188,12 +6311,12 @@ msgstr "Foto-Jagd"
 msgid "Visual discrimination."
 msgstr "Visuelle Unterscheidung."
 
-#: ../src/planegame-activity/planegame.c:61
+#: ../src/planegame-activity/planegame.c:62
 #: ../src/planegame-activity/planegame.xml.in.h:4
 msgid "Numbers in Order"
 msgstr "Zahlen in Reihenfolge"
 
-#: ../src/planegame-activity/planegame.c:62
+#: ../src/planegame-activity/planegame.c:63
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr ""
 "Bewege den Hubschrauber um die Wolken in der richtigen Reihenfolge zu treffen"
@@ -6216,7 +6339,7 @@ msgstr ""
 msgid "Number"
 msgstr "Zahl"
 
-#: ../src/pythontemplate-activity/pythontemplate.py:60
+#: ../src/pythontemplate-activity/pythontemplate.py:62
 #: ../src/pythontest-activity/pythontest.py:184
 msgid ""
 "This is the first plugin in GCompris coded in the Python\n"
@@ -6392,8 +6515,8 @@ msgstr "Farben lesen"
 msgid "This board teaches basic colors."
 msgstr "Diese Tafel lehrt einfache Farben."
 
-#: ../src/readingh-activity/reading.c:220
-#: ../src/wordsgame-activity/wordsgame.c:211
+#: ../src/readingh-activity/reading.c:229
+#: ../src/wordsgame-activity/wordsgame.c:219
 msgid ""
 "Error: We can't find\n"
 "a list of words to play this game.\n"
@@ -6401,39 +6524,39 @@ msgstr ""
 "Fehler: Keine Wortliste\n"
 "für dieses Spiel gefunden!\n"
 
-#: ../src/readingh-activity/reading.c:380
+#: ../src/readingh-activity/reading.c:389
 msgid "Please, check if the word"
 msgstr "Gib bitte an, ob das Wort"
 
-#: ../src/readingh-activity/reading.c:400
+#: ../src/readingh-activity/reading.c:409
 msgid "is being displayed"
 msgstr "wird angezeigt"
 
-#: ../src/readingh-activity/reading.c:456
+#: ../src/readingh-activity/reading.c:465
 msgid "We skip this level because there are not enough words in the list!"
 msgstr ""
 "Diese Stufe wird übersprungen, weil es nicht genug Wörter in der Liste gibt!"
 
-#: ../src/readingh-activity/reading.c:659
+#: ../src/readingh-activity/reading.c:668
 msgid "Yes, I saw it"
 msgstr "Ja, ich hab's gesehen"
 
-#: ../src/readingh-activity/reading.c:686
+#: ../src/readingh-activity/reading.c:695
 msgid "No, it was not there"
 msgstr "Nein, es kam nicht vor"
 
 #. Report what was wrong in the log
-#: ../src/readingh-activity/reading.c:733
+#: ../src/readingh-activity/reading.c:742
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "Das gesuchte Wort war '%s'"
 
-#: ../src/readingh-activity/reading.c:736
+#: ../src/readingh-activity/reading.c:745
 #, c-format
 msgid "But it was not displayed"
 msgstr "aber es wurde nicht angezeigt"
 
-#: ../src/readingh-activity/reading.c:738
+#: ../src/readingh-activity/reading.c:747
 #, c-format
 msgid "And it was displayed"
 msgstr "und es wurde angezeigt"
@@ -7211,12 +7334,12 @@ msgstr ""
 msgid "Your word processor"
 msgstr "Dein Textverarbeitungsprogramm"
 
-#: ../src/wordsgame-activity/wordsgame.c:111
+#: ../src/wordsgame-activity/wordsgame.c:112
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:1
 msgid "Falling Words"
 msgstr "Fallende Wörter"
 
-#: ../src/wordsgame-activity/wordsgame.c:112
+#: ../src/wordsgame-activity/wordsgame.c:113
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the falling words before they reach the ground"
 msgstr "Gib die fallenden Wörter ein, bevor sie den Boden erreichen."
@@ -7275,9 +7398,120 @@ msgstr "bcdfghjklmnpqrsßtvwxz"
 msgid "NONE"
 msgstr "NONE"
 
-#: ../src/hangman-activity/hangman.py:105
+#: ../src/hangman-activity/hangman.py:104
 msgid "Could not find the list of words."
 msgstr "Die Wortliste konnte nicht gefunden werden."
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:1
+msgid ""
+"Click on different active elements : sun, cloud, dam, transformer, in order "
+"to reactivate the entire electrical system. When the system is back up and "
+"Tux is in his home, push the light button for him."
+msgstr ""
+"Klicke auf verschiedene aktive Elemente (Sonne, Wolke, Staudamm, "
+"Transformator), um den gesamten Stromkreis wieder zu aktivieren. Wenn das "
+"System wieder läuft und Tux zu Hause ist, kannst du den Lichtschalter für ihn "
+"drücken."
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:3
+msgid "Learn about an hydroelectric dam"
+msgstr "Lerne wie ein Staudamm funktioniert"
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:4
+msgid ""
+"Tux has come back from a long fishing party on his boat. Bring the electrical "
+"system back up so he can have light in his home."
+msgstr ""
+"Tux ist mit seinem Boot von einem langen Fischfang zurückgekommen. Stelle den "
+"Stromkreis wieder her, so dass er Licht in seiner Wohnung hat."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:91
+msgid ""
+"The sun heats the water and creates water vapor. Water vapor combines into "
+"small water droplets which becomes clouds."
+msgstr ""
+"Die Sonne erwärmt Wasser und lässt es zu Wasserdampf verdunsten. Wasserdampf "
+"bildet kleine Wassertröpfchen, aus denen Wolken entstehen."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:128
+msgid ""
+"As a cloud matures, the dense water droplets may combine to produce larger "
+"droplets, which may combine to form droplets large enough to fall as rain"
+msgstr ""
+"Wenn die Wolke größer wird, werden aus den kleinen Wassertröpfchen größere "
+"Trößfchen, die dann so groß werden können, dass es zu regnen beginnt."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:171
+msgid ""
+"Flowing water is directed on to the blades of a turbine runner, creating a "
+"force on the blades. In this way, energy is transferred from the water flow "
+"to the turbine"
+msgstr ""
+"Das fließende Wasser wird auf die Schaufeln der Turbine geleitet, wo es eine "
+"Kraft auf die Schaufeln ausübt. Auf diese Weise wird Energie aus dem "
+"fließenden Wasser auf die Turbine übertragen."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:228
+msgid ""
+"This is a step up transformer. Electricity is transmitted at high voltages "
+"(110 kV or above) to reduce the energy lost in long distance transmission."
+msgstr ""
+"Dies ist ein Aufwärtstransformator. Elektrizität wird mit hohen Spannungen "
+"übertragen (110 kV oder mehr), um Energieverluste bei großen Entfernungen zu "
+"vermindern."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:243
+msgid ""
+"This is a step down transformer. Electricity is transformed in low voltage, "
+"ready to be used by the customers."
+msgstr ""
+"Dies ist ein Abwärtstransformator. Elektrizität wird in eine niedrige "
+"Spannung umgewandelt, die vom Verbraucher direkt genutzt werden kann."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:293
+msgid ""
+"This is the meter for electricity produced by the turbine. The electricity "
+"power is measured in Watt (W)."
+msgstr ""
+"Dies ist die Einheit für die von der Turbine erzeugte Elektrizität. Die "
+"elektrische Leistung wird in Watt (W) gemessen."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:312
+msgid ""
+"This is the meter for electricity consumed by the users. The electricity "
+"power is measured in Watt (W)."
+msgstr ""
+"Dies ist die Einheit für die von den Kunden verbrauchte Elektrizität. Die "
+"elektrische Leistung wird in Watt (W) gemessen."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:594
+msgid ""
+"It is not possible to consume more electricity than what is produced. This is "
+"a key limitation in the distribution of electricity, with minor exceptions, "
+"electrical energy cannot be stored, and therefore it must be generated as it "
+"is needed. A sophisticated system of control is therefore required to ensure "
+"electric generation very closely matches the demand. If supply and demand are "
+"not in balance, generation plants and transmission equipment can shut down "
+"which, in the worst cases, can lead to a major regional blackout."
+msgstr ""
+"Es ist nicht möglich, mehr elektrische Energie zu verbrauchen, als zuor "
+"erzeugt wurde. Dies ist die grundlegende Einschränkung bei der Verteilung von "
+"Elektrizität. Mit wenigen Ausnahmen kann elektrische Energie nicht "
+"gespeichert werden und muss deshalb zu dem Zeitpunkt erzeugt werden, an dem "
+"sie benötigt wird. Ein ausgeklügeltes Steuersystem ist daher notwendig, um "
+"sicher zu stellen, dass die Energieerzeugung nahe dem Verbrauch bleibt. Wenn "
+"Erzeugung und Verbrauch nicht im Gleichgewicht sind, können Kraftwerke und "
+"Übertragungswege erheblich beeinträchtigt werden, was schlimmstenfalls zu "
+"einem größeren regionalen Systemausfall führen kann."
+
+#~ msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1888"
+#~ msgstr "Vincent van Gogh, Eingangshalle des Saint-Paul-Hospitals - 1889"
+
+#~ msgid "Mona Lisa"
+#~ msgstr "Mona Lisa"
+
+#~ msgid "Dürer : Lion"
+#~ msgstr "Dürer: Löwe"
 
 #~ msgid "%s: option `%s' is ambiguous\n"
 #~ msgstr "%s: Die Option »%s« ist nicht eindeutig\n"
