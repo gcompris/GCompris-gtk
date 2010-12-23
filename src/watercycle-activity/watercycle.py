@@ -432,7 +432,7 @@ class Gcompris_watercycle:
   def sun_item_event(self, widget, target, event=None):
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
-        if not self.sun_on :
+        if not self.sun_on and not self.cloud_on:
           gcompris.utils.item_focus_remove(self.sunitem, None)
           gcompris.sound.play_ogg("sounds/bleep.wav")
           trip_y = self.sunitem_target_y1 - self.sunitem_orig_y1
