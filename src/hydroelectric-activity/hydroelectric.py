@@ -162,45 +162,23 @@ class Gcompris_hydroelectric:
       pointer_events = goocanvas.EVENTS_NONE,
       )
 
-    # The TURBINE
-    self.turbineitem = goocanvas.Svg(
-      parent = self.rootitem,
-      svg_handle = svghandle,
-      svg_id = "#TURBINE",
-      tooltip = "\n\n" + \
-        _("Flowing water is directed on to the blades of a turbine runner, "
-          "creating a force on the blades. In this way, energy is transferred "
-          "from the water flow to the turbine")
-      )
-    self.turbineitem.connect("button_press_event", self.turbine_item_event)
-    # This item is clickeable and it must be seen
-    gcompris.utils.item_focus_init(self.turbineitem, None)
-    self.turbine_on = False
-
-    # The Cable from turbine to transformer 1
-    self.turbine_cable_on = goocanvas.Svg(
-      parent = self.rootitem,
-      svg_handle = svghandle,
-      svg_id = "#TURBINE_CABLE_ON",
-      pointer_events = goocanvas.EVENTS_NONE,
-      visibility = goocanvas.ITEM_INVISIBLE
-      )
-
-    # The Cables from transformer 1 to transformer 2
-    self.cable1_cv1_to_cv2_on = goocanvas.Svg(
-      parent = self.rootitem,
-      svg_handle = svghandle,
-      svg_id = "#CABLE1_CV1_TO_CV2_ON",
-      pointer_events = goocanvas.EVENTS_NONE,
-      visibility = goocanvas.ITEM_INVISIBLE
-      )
-    self.cable2_cv1_to_cv2_on = goocanvas.Svg(
-      parent = self.rootitem,
-      svg_handle = svghandle,
-      svg_id = "#CABLE2_CV1_TO_CV2_ON",
-      pointer_events = goocanvas.EVENTS_NONE,
-      visibility = goocanvas.ITEM_INVISIBLE
-      )
+    # The DAM'S TURBINE
+    self.dam_turbine = \
+      Producer(self.rootitem, svghandle,
+               Counter( self.rootitem, svghandle,
+                        "#DAM_PROD_COUNT",
+                        _("This is the meter for electricity produced by the turbine. ") + \
+                        _("The electricity power is measured in Watt (W)."),
+                        303, 224 ),
+               self.update_prod_count,
+               [ "#TURBINE" ],
+               _("Flowing water is directed on to the blades of a turbine runner, "
+                 "creating a force on the blades. In this way, energy is transferred "
+                 "from the water flow to the turbine"),
+               "#TURBINE_CABLE_ON",
+               "#TRANSFORMER_DAM",
+               "#TRANSFORMER_DAM_TO_USERS",
+               1000)
 
     # The Cable from transformer 2 to Town
     self.cable_to_town_on = goocanvas.Svg(
@@ -218,21 +196,6 @@ class Gcompris_hydroelectric:
       pointer_events = goocanvas.EVENTS_NONE,
       visibility = goocanvas.ITEM_INVISIBLE
       )
-
-    # TRANSFORMER1
-    self.transformer1item = goocanvas.Svg(
-      parent = self.rootitem,
-      svg_handle = svghandle,
-      svg_id = "#TRANSFORMER1",
-      tooltip = "\n\n" + \
-        _("This is a step up transformer. Electricity is transmitted "
-          "at high voltages (110 kV or above) "
-          "to reduce the energy lost in long distance transmission.")
-      )
-    self.transformer1item.connect("button_press_event", self.transformer1_item_event)
-    # This item is clickeable and it must be seen
-    gcompris.utils.item_focus_init(self.transformer1item, None)
-    self.transformer1_on = 0
 
     # TRANSFORMER2
     self.transformer2item = goocanvas.Svg(
@@ -287,44 +250,21 @@ class Gcompris_hydroelectric:
     # The children have to make sure there is no more consumption
     # than production.
     self.prod_count = 0
+    self.conso_count = 0
 
-    x = 303
-    y = 224
-    tooltip =_("This is the meter for electricity produced by the turbine. "
-               "The electricity power is measured in Watt (W).")
-    goocanvas.Svg(
-      parent = self.rootitem,
-      svg_handle = svghandle,
-      svg_id = "#PROD_COUNT",
-      tooltip = "\n\n" + tooltip
-      )
-    self.prod_count_item = goocanvas.Text(
-      parent = self.rootitem,
-      x = x,
-      y = y,
-      font = "Sans 8",
-      text = str(self.prod_count) + "W",
-      tooltip = "\n\n" + tooltip
-      )
+    self.production_counter = \
+        Counter( self.rootitem, svghandle,
+                 "#PROD_COUNT",
+                 _("This is the meter for all the electricity produced. ") + \
+                 _("The electricity power is measured in Watt (W)."),
+                 525, 230 )
 
-    x = 590
-    y = 203
-    tooltip =_("This is the meter for electricity consumed by the users. "
-               "The electricity power is measured in Watt (W).")
-    goocanvas.Svg(
-      parent = self.rootitem,
-      svg_handle = svghandle,
-      svg_id = "#CONSO_COUNT",
-      tooltip = "\n\n" + tooltip
-      )
-    self.conso_count_item = goocanvas.Text(
-      parent = self.rootitem,
-      x = x,
-      y = y,
-      font = "Sans 8",
-      text = "0W",
-      tooltip = "\n\n" + tooltip
-      )
+    self.consumers_counter = \
+        Counter( self.rootitem, svghandle,
+                 "#CONSO_COUNT",
+                 _("This is the meter for electricity consumed by the users. ") + \
+                 _("The electricity power is measured in Watt (W)."),
+                 590, 203 )
 
     self.consumers = []
     self.consumers.append( Consumer(self.rootitem, svghandle,
@@ -346,6 +286,47 @@ class Gcompris_hydroelectric:
                                     "#TUX_ON",
                                     "#TUX_OFF",
                                     100) )
+
+    # The solar panel
+    self.solar_array = \
+      Producer(self.rootitem, svghandle,
+               Counter( self.rootitem, svghandle,
+                        "#SOLAR_PANEL_COUNT",
+                        _("This is the meter for electricity produced by the solar panels. ") + \
+                        _("The electricity power is measured in Watt (W)."),
+                        680, 170 ),
+               self.update_prod_count,
+               [ "#SOLAR_PANEL" ],
+               _("Solar panels use light energy (photons) from the sun to "
+                 "generate electricity through the photovoltaic effect."),
+               "#SOLAR_PANEL_CABLE_ON",
+               "#TRANSFORMER_SOLAR_PANEL",
+               "#TRANSFORMER_SOLAR_PANEL_TO_USERS",
+               400)
+
+    # The Wind farm
+    self.windfarmitems = []
+    for i in range(1,4):
+      self.windfarmitems.append("#WIND_FARM_" + str(i))
+
+    self.wind_farm = \
+      Producer(self.rootitem, svghandle,
+               Counter( self.rootitem, svghandle,
+                        "#WIND_FARM_COUNT",
+                        _("This is the meter for electricity produced by the wind turbines. ") + \
+                        _("The electricity power is measured in Watt (W)."),
+                        650, 137 ),
+               self.update_prod_count,
+               self.windfarmitems,
+               _("A wind turbine is a device that converts wind motion energy "
+                 "into electricity generation. It is called a wind generator or "
+                 "wind charger. "),
+               "#WINDFARM_CABLE_ON",
+               "#TRANSFORMER_WINDFARM",
+               "#TRANSFORMER_WINDFARM_TO_USERS",
+               600)
+
+    self.producers = [self.dam_turbine, self.wind_farm, self.solar_array]
 
     # Some item ordering
     self.rainitem.raise_(None)
@@ -406,7 +387,6 @@ class Gcompris_hydroelectric:
        and self.tick % 200 == 0:
       # Simulate a miss of water
       self.waterlevel -= 1
-      self.set_turbine_state(False)
 
     # Redisplay the level of water if needed
     if old_waterlevel != self.waterlevel :
@@ -418,6 +398,22 @@ class Gcompris_hydroelectric:
     if self.waterlevel == self.waterlevel_max \
        and self.tick % 20 == 0:
       self.cloud_reset()
+
+    # Manage the consumers ability to produce energy
+    if self.cloud_on:
+      self.wind_farm.set_energy(True)
+    else:
+      self.wind_farm.set_energy(False)
+
+    if self.sun_on:
+      self.solar_array.set_energy(True)
+    else:
+      self.solar_array.set_energy(False)
+
+    if self.waterlevel == self.waterlevel_max:
+      self.dam_turbine.set_energy(True)
+    else:
+      self.dam_turbine.set_energy(False)
 
     self.waterlevel_timer = gobject.timeout_add(1000, self.update_waterlevel)
 
@@ -524,7 +520,7 @@ class Gcompris_hydroelectric:
   def sun_item_event(self, widget, target, event=None):
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
-        if not self.sun_on :
+        if not self.sun_on and not self.cloud_on:
           gcompris.utils.item_focus_remove(self.sunitem, None)
           gcompris.sound.play_ogg("sounds/bleep.wav")
           trip_y = self.sunitem_target_y1 - self.sunitem_orig_y1
@@ -555,40 +551,26 @@ class Gcompris_hydroelectric:
     gcompris.utils.item_focus_remove(self.clouditem, None)
     return True
 
-  def turbine_item_event(self, widget, target, event=None):
-    if self.turbine_on:
-      self.set_turbine_state(False)
-    else:
-      self.set_turbine_state(True)
-    return True
+  def update_prod_count(self):
+    self.prod_count = 0
+    self.prod_count = reduce(lambda x, y: x + y,
+                             map(lambda x: x.production, self.producers) )
 
-  def set_turbine_state(self, state):
-    if state and self.waterlevel == self.waterlevel_max \
-          and not self.turbine_on:
-      gcompris.sound.play_ogg("sounds/bubble.wav")
-      self.turbine_on = True
-      self.add_prod_count(1000)
-      self.turbine_cable_on.props.visibility = goocanvas.ITEM_VISIBLE
-    elif self.turbine_on:
-      self.turbine_on = False
-      self.turbine_cable_on.props.visibility = goocanvas.ITEM_INVISIBLE
-      self.set_transformer1_state(False)
-      self.add_prod_count(-1000)
-
-  def add_prod_count(self, value):
-    self.prod_count += value
-    self.prod_count_item.set_properties(text = str(self.prod_count) + "W")
+    self.production_counter.set(self.prod_count)
+    self.check_balance()
 
   def update_conso_count(self):
-    conso_count = 0
+    self.conso_count = 0
     if self.transformer2_on:
-      conso_count = reduce(lambda x, y: x + y,
+      self.conso_count = reduce(lambda x, y: x + y,
                            map(lambda x: x.consumption, self.consumers) )
 
-    self.conso_count_item.set_properties(text = str(conso_count) + "W")
+    self.consumers_counter.set(self.conso_count)
+    self.check_balance()
 
-    # Simulate a miss of power
-    if conso_count > self.prod_count:
+  def check_balance(self):
+    # If there a miss of power
+    if self.conso_count > self.prod_count:
       self.set_transformer2_state(False)
       gcompris.utils.dialog( \
         _("It is not possible to consume more electricity "
@@ -602,25 +584,6 @@ class Gcompris_hydroelectric:
           "can shut down which, in the worst cases, can lead to a major "
           "regional blackout."), None)
 
-  def transformer1_item_event(self, widget, target, event=None):
-    if self.transformer1_on:
-      self.set_transformer1_state(False)
-    else:
-      self.set_transformer1_state(True)
-    return True
-
-  def set_transformer1_state(self, state):
-    if state and self.turbine_on:
-      gcompris.sound.play_ogg("sounds/bubble.wav")
-      self.transformer1_on = True
-      self.cable1_cv1_to_cv2_on.props.visibility = goocanvas.ITEM_VISIBLE
-      self.cable2_cv1_to_cv2_on.props.visibility = goocanvas.ITEM_VISIBLE
-    else:
-      self.transformer1_on = False
-      self.cable1_cv1_to_cv2_on.props.visibility = goocanvas.ITEM_INVISIBLE
-      self.cable2_cv1_to_cv2_on.props.visibility = goocanvas.ITEM_INVISIBLE
-      self.set_transformer2_state(False)
-
   def transformer2_item_event(self, widget, target, event=None):
     if self.transformer2_on:
       self.set_transformer2_state(False)
@@ -629,7 +592,7 @@ class Gcompris_hydroelectric:
     return True
 
   def set_transformer2_state(self, state):
-    if state and self.transformer1_on:
+    if state and self.prod_count > 0:
       gcompris.sound.play_ogg("sounds/bubble.wav")
       self.transformer2_on = True
       self.cable_to_town_on.props.visibility = goocanvas.ITEM_VISIBLE
@@ -642,6 +605,7 @@ class Gcompris_hydroelectric:
       map(lambda s: s.power_off(), self.consumers)
 
     self.update_conso_count()
+
 
 #
 class Consumer:
@@ -719,9 +683,11 @@ class Consumer:
     self.update_light()
 
   def lightbutton_item_event_on(self, widget, target, event):
+    gcompris.sound.play_ogg("sounds/bleep.wav")
     self.off()
 
   def lightbutton_item_event_off(self, widget, target, event):
+    gcompris.sound.play_ogg("sounds/bleep.wav")
     self.on()
 
   def power_off(self):
@@ -731,3 +697,147 @@ class Consumer:
   def power_on(self):
     self.power = True
     self.update_light()
+
+#
+class Producer:
+  # Pass the SVG IDs of the stuff to act on
+  def __init__(self, rootitem, svghandle, counter,
+               update_prod_count, prod_items, tooltip,
+               prod_item_on,
+               transformer, transformer_on, power):
+    self.power_count = power
+    self.counter = counter
+    self.production = 0
+    self.update_prod_count = update_prod_count
+
+    # Is there enough upfront energy to run this producer
+    self.energy = False
+
+    done = False
+    self.current_prod_item = 0
+    self.prod_items = []
+    for svg_id in prod_items:
+      item = goocanvas.Svg(
+        parent = rootitem,
+        svg_handle = svghandle,
+        svg_id = svg_id,
+        visibility = \
+          goocanvas.ITEM_VISIBLE if not done else goocanvas.ITEM_INVISIBLE,
+        tooltip = "\n\n" + tooltip
+      )
+      done = True
+      item.connect("button_press_event",
+                   self.runbutton_item_event)
+      gcompris.utils.item_focus_init(item, None)
+      self.prod_items.append(item)
+
+    self.prod_item_on = goocanvas.Svg(
+      parent = rootitem,
+      svg_handle = svghandle,
+      svg_id = prod_item_on,
+      visibility = goocanvas.ITEM_INVISIBLE
+      )
+
+    self.transformer = goocanvas.Svg(
+      parent = rootitem,
+      svg_handle = svghandle,
+      svg_id = transformer,
+      tooltip = _("This is a step up transformer. Electricity is transmitted "
+                  "at high voltages (110 kV or above) "
+                  "to reduce the energy lost in long distance transmission.")
+      )
+    self.transformer.connect("button_press_event",
+                 self.powerbutton_item_event)
+    gcompris.utils.item_focus_init(self.transformer, None)
+
+    self.transformer_on = goocanvas.Svg(
+      parent = rootitem,
+      svg_handle = svghandle,
+      svg_id = transformer_on,
+      visibility = goocanvas.ITEM_INVISIBLE
+      )
+
+    # Is the power on
+    self.power = False
+    # Is the run is switched on
+    self.is_on = False
+
+  def update_run(self):
+    if self.is_on and self.power:
+      self.production = self.power_count
+    else:
+      self.production = 0
+    self.counter.set(self.power_count)
+
+    self.update_prod_count()
+
+  def on(self):
+    if not self.energy:
+      return
+    self.prod_item_on.props.visibility = goocanvas.ITEM_VISIBLE
+    self.is_on = True
+    self.update_run()
+
+  def off(self):
+    self.prod_item_on.props.visibility = goocanvas.ITEM_INVISIBLE
+    self.is_on = False
+    self.power_off()
+    self.update_run()
+
+  def runbutton_item_event(self, widget, target, event):
+    gcompris.sound.play_ogg("sounds/bleep.wav")
+    self.off() if self.is_on else self.on()
+
+  def power_off(self):
+    self.transformer_on.props.visibility = goocanvas.ITEM_INVISIBLE
+    self.power = False
+    self.update_run()
+
+  def power_on(self):
+    if not self.is_on:
+      return
+    self.transformer_on.props.visibility = goocanvas.ITEM_VISIBLE
+    self.power = True
+    self.update_run()
+
+  def powerbutton_item_event(self, widget, target, event):
+    gcompris.sound.play_ogg("sounds/bleep.wav")
+    if not self.energy:
+      return
+    self.power_off() if self.power else self.power_on()
+
+  def set_energy(self, state):
+    self.energy = state
+    if not self.energy:
+      self.off()
+
+  # Simulate an animation
+  def rotate_item(self):
+    self.prod_items[self.current_prod_item].props.visibility = \
+        goocanvas.ITEM_INVISIBLE
+    self.current_prod_item += 1
+    if self.current_prod_item == len(self.prod_items):
+      self.current_prod_item = 0
+    self.prod_items[self.current_prod_item].props.visibility = \
+        goocanvas.ITEM_VISIBLE
+
+class Counter:
+  # Pass the SVG IDs of the stuff to act on
+  def __init__(self, rootitem, svghandle, svg_id, tooltip, x, y):
+    goocanvas.Svg(
+      parent = rootitem,
+      svg_handle = svghandle,
+      svg_id = svg_id,
+      tooltip = "\n\n" + tooltip
+      )
+    self.item = goocanvas.Text(
+      parent = rootitem,
+      x = x,
+      y = y,
+      font = "Sans 8",
+      text = "0W",
+      tooltip = "\n\n" + tooltip
+      )
+
+  def set(self, value):
+    self.item.set_properties(text = str(value) + "W")
