@@ -774,8 +774,18 @@ class Producer:
     self.power = False
     # Is the run is switched on
     self.is_on = False
+    # The animation timer
+    self.timer = 0
+
+  def __del__(self):
+    if self.timer:
+      gobject.source_remove(self.timer)
 
   def update_run(self):
+    if self.is_on and self.energy \
+          and len(self.prod_items) > 2 \
+          and self.timer == 0:
+      self.rotate_item()
     if self.is_on and self.power:
       self.production = self.power_count
     else:
@@ -833,6 +843,10 @@ class Producer:
       self.current_prod_item = 0
     self.prod_items[self.current_prod_item].props.visibility = \
         goocanvas.ITEM_VISIBLE
+    if self.is_on and self.energy:
+      self.timer = gobject.timeout_add(150, self.rotate_item)
+    else:
+      self.timer = 0
 
 class Counter:
   # Pass the SVG IDs of the stuff to act on
