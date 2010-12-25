@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&component=general\n"
-"POT-Creation-Date: 2010-12-15 21:01+0000\n"
-"PO-Revision-Date: 2010-12-23 15:53+0100\n"
+"POT-Creation-Date: 2010-12-24 13:31+0000\n"
+"PO-Revision-Date: 2010-12-25 15:18+0100\n"
 "Last-Translator: Andrej Žnidaršič <andrej.znidarsic@gmail.com>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
@@ -1476,6 +1476,7 @@ msgstr "Posebna tabla, ki vključi v gcompris vključi pyton."
 
 #: ../src/canal_lock-activity/canal_lock.xml.in.h:1
 #: ../src/watercycle-activity/watercycle.xml.in.h:2
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:2
 msgid "Drawing by Stephane Cabaraux."
 msgstr "Risba Stephana Cabarauxa."
 
@@ -6276,6 +6277,78 @@ msgstr "BREZ"
 #: ../src/hangman-activity/hangman.py:104
 msgid "Could not find the list of words."
 msgstr "Ni mogoče najti seznama besed."
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:1
+msgid "Click on different active elements : sun, cloud, dam, solar array, wind farm and transformers, in order to reactivate the entire electrical system. When the system is back up and Tux is in his home, push the light button for him. To win you must switch on all the consumers while all the producers are up."
+msgstr "Za ponovno zaganjanje celotnega električnega sistema klikni na različne dejavne elemente: sonce, oblak, jez, sončne celice, vetrnice in transfomatorje. Ko sistem ponovno deluje in je Pingo doma, zanj pritisni na stikalo za luč. Za zmago moraš priklopiti vse porabnike medtem ko delujejo vsi proizvajalci elektrike."
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:3
+msgid "Learn about an hydroelectric dam"
+msgstr "Nauči se o jezu hidroelektrarne"
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:4
+msgid "Tux has come back from a long fishing party on his boat. Bring the electrical system back up so he can have light in his home."
+msgstr "Pingo je prišel domov z dolgega ribolova. Popravi električni sistem, da se bo lahko prižgal luč v svojem domu."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:91
+msgid "The sun heats the water and creates water vapor. Water vapor combines into small water droplets which becomes clouds."
+msgstr "Sonce segreje vodo in ustvari vodno paro. Vodna para se združuje v majhne vode kapljice, ki postanejo oblaki."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:128
+msgid "As a cloud matures, the dense water droplets may combine to produce larger droplets, which may combine to form droplets large enough to fall as rain"
+msgstr "Ko oblak odraste, se goste vodne kapljice lahko združijo tako da proizvedejo večje kapljice, ki se lahko združijo in tvorijo dovolj velike vodne kapljice, ki padajo kot dež"
+
+#: ../src/hydroelectric-activity/hydroelectric.py:170
+msgid "This is the meter for electricity produced by the turbine. "
+msgstr "To je merilo za elektriko, ki jo je proizvedla turbina."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:171
+#: ../src/hydroelectric-activity/hydroelectric.py:259
+#: ../src/hydroelectric-activity/hydroelectric.py:266
+#: ../src/hydroelectric-activity/hydroelectric.py:296
+#: ../src/hydroelectric-activity/hydroelectric.py:317
+msgid "The electricity power is measured in Watt (W)."
+msgstr "Električna moč se meri v Wattih (W)."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:175
+msgid "Flowing water is directed on to the blades of a turbine runner, creating a force on the blades. In this way, energy is transferred from the water flow to the turbine"
+msgstr "Tekoča voda se usmeri na lopatice turbine, kar na njih ustvari silo. Na ta način se energija iz toka vode prenese na turbino"
+
+#: ../src/hydroelectric-activity/hydroelectric.py:206
+msgid "This is a step down transformer. Electricity is transformed in low voltage, ready to be used by the customers."
+msgstr "To je transformator za znižanje napetosti. Elektrika se pretvori na nizko napetost in je pripravljena na uporabo strank."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:258
+msgid "This is the meter for all the electricity produced. "
+msgstr "To je merilo za vso proizvedeno elektriko."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:265
+msgid "This is the meter for electricity consumed by the users. "
+msgstr "To je merilo za elektriko, ki jo porabljajo uporabniki."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:295
+msgid "This is the meter for electricity produced by the solar panels. "
+msgstr "To je merilo za elektriko, ki so jo proizvedle sončne celice."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:300
+msgid "Solar panels use light energy (photons) from the sun to generate electricity through the photovoltaic effect."
+msgstr "Sončne celice uporabljajo svetlobno energijo (fotone) s sonca za ustvarjanje električne energije s fotovoltaičnim učinkom."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:316
+msgid "This is the meter for electricity produced by the wind turbines. "
+msgstr "To je merilo za elektriko, ki jo proizvedejo vetrne turbine."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:321
+msgid "A wind turbine is a device that converts wind motion energy into electricity generation. It is called a wind generator or wind charger. "
+msgstr "Vetrna turbina je naprava, ki pretvori gibalno energijo vetra v električno naprava. Imenuje se tudi električni generator"
+
+#: ../src/hydroelectric-activity/hydroelectric.py:576
+msgid "It is not possible to consume more electricity than what is produced. This is a key limitation in the distribution of electricity, with minor exceptions, electrical energy cannot be stored, and therefore it must be generated as it is needed. A sophisticated system of control is therefore required to ensure electric generation very closely matches the demand. If supply and demand are not in balance, generation plants and transmission equipment can shut down which, in the worst cases, can lead to a major regional blackout."
+msgstr "Porabi se lahko samo toliko električne energije kot se je proizvede. To je ključna omejitev pri distribuciji elektrike, saj je razen majhnih izjem elektrike ni mogoče shraniti in jo je treba zato proizvesti ob potrebi. Zato je zahtevan dovršen sistem nadzora, ki zagotovi da se ustvarjanje elektrike zelo dobro ujema s porabo. V primeru, da ustvarjanje in poraba nista v ravnotežju, se lahko elektrarne in oprema za njen prenos izklopita, kar lahko v najhujših primerih vodi do območnega izpada elektrike."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:745
+msgid "This is a step up transformer. Electricity is transmitted at high voltages (110 kV or above) to reduce the energy lost in long distance transmission."
+msgstr "To je transformator za zvišanje napetosti. Elektrika se prenaša pri visokih napetostih (110 kV ali več), kar zmanjša izgubo energije pri prenosu na dolge razdalje."
 
 #~ msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1888"
 #~ msgstr "Vincent Van Gogh, Vstopna dvorana bolnišnice Saint-Paul - 1888"
