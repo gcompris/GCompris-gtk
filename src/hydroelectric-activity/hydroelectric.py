@@ -87,7 +87,7 @@ class Gcompris_hydroelectric:
       parent = self.rootitem,
       svg_handle = svghandle,
       svg_id = "#SUN",
-      tooltip = "\n\n" + \
+      tooltip = "\n\n\n" + \
         _("The sun heats the water and creates water vapor. "
           "Water vapor combines into small water droplets which "
           "becomes clouds.")
@@ -124,7 +124,7 @@ class Gcompris_hydroelectric:
       svg_handle = svghandle,
       svg_id = "#CLOUD",
       visibility = goocanvas.ITEM_INVISIBLE,
-      tooltip = "\n\n" + \
+      tooltip = "\n\n\n" + \
         _("As a cloud matures, the dense water droplets may combine "
           "to produce larger droplets, which may combine to form "
           "droplets large enough to fall as rain")
@@ -202,7 +202,7 @@ class Gcompris_hydroelectric:
       parent = self.rootitem,
       svg_handle = svghandle,
       svg_id = "#TRANSFORMER2",
-      tooltip = "\n\n" + \
+      tooltip = "\n\n\n" + \
         _("This is a step down transformer. Electricity is transformed "
           "in low voltage, ready to be used by the customers.")
       )
@@ -257,7 +257,7 @@ class Gcompris_hydroelectric:
                  "#PROD_COUNT",
                  _("This is the meter for all the electricity produced. ") + \
                  _("The electricity power is measured in Watt (W)."),
-                 525, 230 )
+                 525, 226 )
 
     self.consumers_counter = \
         Counter( self.rootitem, svghandle,
@@ -396,7 +396,7 @@ class Gcompris_hydroelectric:
         visibility = goocanvas.ITEM_VISIBLE)
 
     if self.waterlevel == self.waterlevel_max \
-       and self.tick % 20 == 0:
+       and self.tick % 40 == 0:
       self.cloud_reset()
 
     # Manage the consumers ability to produce energy
@@ -442,7 +442,7 @@ class Gcompris_hydroelectric:
                          1,
                          1,
                          True,
-                         int(self.timerinc*abs(trip_y)),
+                         int(self.timerinc*abs(trip_y)) * 10,
                          self.step_time,
                          goocanvas.ANIMATE_FREEZE)
     return False
@@ -533,7 +533,7 @@ class Gcompris_hydroelectric:
                                1,
                                1,
                                True,
-                               int(self.timerinc*abs(trip_y)),
+                               int(self.timerinc*abs(trip_y)) * 3,
                                self.step_time,
                                goocanvas.ANIMATE_FREEZE)
 
@@ -564,6 +564,7 @@ class Gcompris_hydroelectric:
     if self.transformer2_on:
       self.conso_count = reduce(lambda x, y: x + y,
                            map(lambda x: x.consumption, self.consumers) )
+      self.check_win()
 
     self.consumers_counter.set(self.conso_count)
     self.check_balance()
@@ -583,6 +584,17 @@ class Gcompris_hydroelectric:
           "are not in balance, generation plants and transmission equipment "
           "can shut down which, in the worst cases, can lead to a major "
           "regional blackout."), None)
+
+  def check_win(self):
+    if self.you_won:
+      return
+
+    values = map(lambda x: x.consumption, self.consumers)
+    values += map(lambda x: x.production, self.producers)
+
+    if not 0 in values:
+      gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.FLOWER)
+      self.you_won = True
 
   def transformer2_item_event(self, widget, target, event=None):
     if self.transformer2_on:
@@ -723,7 +735,7 @@ class Producer:
         svg_id = svg_id,
         visibility = \
           goocanvas.ITEM_VISIBLE if not done else goocanvas.ITEM_INVISIBLE,
-        tooltip = "\n\n" + tooltip
+        tooltip = "\n\n\n" + tooltip
       )
       done = True
       item.connect("button_press_event",
@@ -742,9 +754,10 @@ class Producer:
       parent = rootitem,
       svg_handle = svghandle,
       svg_id = transformer,
-      tooltip = _("This is a step up transformer. Electricity is transmitted "
-                  "at high voltages (110 kV or above) "
-                  "to reduce the energy lost in long distance transmission.")
+      tooltip = "\n\n\n" + \
+        _("This is a step up transformer. Electricity is transmitted "
+          "at high voltages (110 kV or above) "
+          "to reduce the energy lost in long distance transmission.")
       )
     self.transformer.connect("button_press_event",
                  self.powerbutton_item_event)
@@ -767,7 +780,7 @@ class Producer:
       self.production = self.power_count
     else:
       self.production = 0
-    self.counter.set(self.power_count)
+    self.counter.set(self.production)
 
     self.update_prod_count()
 
@@ -828,7 +841,7 @@ class Counter:
       parent = rootitem,
       svg_handle = svghandle,
       svg_id = svg_id,
-      tooltip = "\n\n" + tooltip
+      tooltip = "\n\n\n" + tooltip
       )
     self.item = goocanvas.Text(
       parent = rootitem,
@@ -836,7 +849,7 @@ class Counter:
       y = y,
       font = "Sans 8",
       text = "0W",
-      tooltip = "\n\n" + tooltip
+      tooltip = "\n\n\n" + tooltip
       )
 
   def set(self, value):
