@@ -180,6 +180,27 @@ class Gcompris_hydroelectric:
                "#TRANSFORMER_DAM_TO_USERS",
                1000)
 
+    # The Wind
+    self.winditem_off = goocanvas.Svg(
+      parent = self.rootitem,
+      svg_handle = svghandle,
+      svg_id = "#WIND_OFF",
+      tooltip = "\n\n\n" + \
+        _("This cloud simulates the wind, click on it to have wind.")
+      )
+    self.winditem_off.connect("button_press_event", self.wind_item_event)
+    # This item is clickable and it must be seen
+    gcompris.utils.item_focus_init(self.winditem_off, None)
+
+    self.winditem_on = goocanvas.Svg(
+      parent = self.rootitem,
+      svg_handle = svghandle,
+      svg_id = "#WIND_ON",
+      visibility = goocanvas.ITEM_INVISIBLE,
+      pointer_events = goocanvas.EVENTS_NONE,
+      )
+    self.wind = False
+
     # The Cable from transformer 2 to Town
     self.cable_to_town_on = goocanvas.Svg(
       parent = self.rootitem,
@@ -294,9 +315,9 @@ class Gcompris_hydroelectric:
                         "#SOLAR_PANEL_COUNT",
                         _("This is the meter for electricity produced by the solar panels. ") + \
                         _("The electricity power is measured in Watt (W)."),
-                        680, 170 ),
+                        697, 177 ),
                self.update_prod_count,
-               [ "#SOLAR_PANEL" ],
+               [ "#SOLAR_PANEL_OFF", "#SOLAR_PANEL_ON" ],
                _("Solar panels use light energy (photons) from the sun to "
                  "generate electricity through the photovoltaic effect."),
                "#SOLAR_PANEL_CABLE_ON",
@@ -399,8 +420,14 @@ class Gcompris_hydroelectric:
        and self.tick % 40 == 0:
       self.cloud_reset()
 
+    if self.wind:
+      self.wind += 1
+      if self.wind % 60 == 0:
+        self.set_wind_state(0)
+
+
     # Manage the consumers ability to produce energy
-    if self.cloud_on:
+    if self.wind:
       self.wind_farm.set_energy(True)
     else:
       self.wind_farm.set_energy(False)
@@ -517,6 +544,20 @@ class Gcompris_hydroelectric:
   def set_level(self, level):
     pass
 
+  def set_wind_state(self, status):
+    if status:
+      self.winditem_on.props.visibility = goocanvas.ITEM_VISIBLE
+      self.winditem_off.props.visibility = goocanvas.ITEM_INVISIBLE
+    else:
+      self.winditem_on.props.visibility = goocanvas.ITEM_INVISIBLE
+      self.winditem_off.props.visibility = goocanvas.ITEM_VISIBLE
+    self.wind = status
+
+  def wind_item_event(self, widget, target, event=None):
+    if event.type == gtk.gdk.BUTTON_PRESS:
+      if event.button == 1:
+        self.set_wind_state(1)
+
   def sun_item_event(self, widget, target, event=None):
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
@@ -604,13 +645,15 @@ class Gcompris_hydroelectric:
     return True
 
   def set_transformer2_state(self, state):
+    if not self.boat_is_arrived:
+      return
     if state and self.prod_count > 0:
       gcompris.sound.play_ogg("sounds/bubble.wav")
       self.transformer2_on = True
       self.cable_to_town_on.props.visibility = goocanvas.ITEM_VISIBLE
       self.cable_to_tux_on.props.visibility = goocanvas.ITEM_VISIBLE
       map(lambda s: s.power_on(), self.consumers)
-    else:
+    elif self.transformer2_on:
       self.transformer2_on = False
       self.cable_to_town_on.props.visibility = goocanvas.ITEM_INVISIBLE
       self.cable_to_tux_on.props.visibility = goocanvas.ITEM_INVISIBLE
@@ -722,7 +765,7 @@ class Producer:
     self.production = 0
     self.update_prod_count = update_prod_count
 
-    # Is there enough upfront energy to run this producer
+    # Is there enough renewable energy to run this producer
     self.energy = False
 
     done = False
@@ -799,11 +842,18 @@ class Producer:
       return
     self.prod_item_on.props.visibility = goocanvas.ITEM_VISIBLE
     self.is_on = True
+    if len(self.prod_items) == 2:
+      self.prod_items[0].props.visibility = goocanvas.ITEM_INVISIBLE
+      self.prod_items[1].props.visibility = goocanvas.ITEM_VISIBLE
+
     self.update_run()
 
   def off(self):
     self.prod_item_on.props.visibility = goocanvas.ITEM_INVISIBLE
     self.is_on = False
+    if len(self.prod_items) == 2:
+      self.prod_items[0].props.visibility = goocanvas.ITEM_VISIBLE
+      self.prod_items[1].props.visibility = goocanvas.ITEM_INVISIBLE
     self.power_off()
     self.update_run()
 
