@@ -34,24 +34,21 @@ class Gcompris_hydroelectric:
 
   def __init__(self, gcomprisBoard):
     self.gcomprisBoard = gcomprisBoard
-    self.boat_is_arrived = False
 
   def start(self):
     self.gcomprisBoard.level=1
-    self.gcomprisBoard.maxlevel=1
-    self.gcomprisBoard.sublevel=1
-    self.gcomprisBoard.number_of_sublevel=1
+    self.gcomprisBoard.maxlevel=3
 
     # Just a tick counter
     self.tick = 0
 
+    self.boat_is_arrived = False
+    self.reset_state = True
+    self.gamewon = False
     # The basic duration factor for object animations
     # Higher is longer animation (slower)
     self.timerinc = 20
     self.step_time = 100
-
-    # Used to display the bonus a single time
-    self.you_won = False
 
     # Need to manage the timers to quit properly
     self.waterlevel_timer = 0
@@ -62,10 +59,10 @@ class Gcompris_hydroelectric:
     # only have to kill it. The canvas deletes all the items it contains automaticaly.
     self.rootitem = goocanvas.Group(parent =  self.gcomprisBoard.canvas.get_root_item())
 
-    svghandle = gcompris.utils.load_svg("hydroelectric/hydroelectric.svgz")
+    self.svghandle = gcompris.utils.load_svg("hydroelectric/hydroelectric.svgz")
     goocanvas.Svg(
       parent = self.rootitem,
-      svg_handle = svghandle,
+      svg_handle = self.svghandle,
       svg_id = "#BACKGROUND",
       pointer_events = goocanvas.EVENTS_NONE
       )
@@ -76,7 +73,7 @@ class Gcompris_hydroelectric:
     # The River
     self.riveritem = goocanvas.Svg(
       parent = self.rootitem,
-      svg_handle = svghandle,
+      svg_handle = self.svghandle,
       svg_id = "#RIVERWATER",
       pointer_events = goocanvas.EVENTS_NONE,
       visibility = goocanvas.ITEM_INVISIBLE
@@ -85,7 +82,7 @@ class Gcompris_hydroelectric:
     # The Sun
     self.sunitem = goocanvas.Svg(
       parent = self.rootitem,
-      svg_handle = svghandle,
+      svg_handle = self.svghandle,
       svg_id = "#SUN",
       tooltip = "\n\n\n" + \
         _("The sun heats the water and creates water vapor. "
@@ -97,13 +94,14 @@ class Gcompris_hydroelectric:
     gcompris.utils.item_focus_init(self.sunitem, None)
     self.sun_on = 0
     self.sunitem_orig_y1 = self.sunitem.get_bounds().y1
+    self.sunitem_bounds = self.sunitem.get_bounds()
     self.sunitem_target_y1 = 10
     self.sun_connect_handler = 0
 
     # The Snow
     self.snowitem = goocanvas.Svg(
       parent = self.rootitem,
-      svg_handle = svghandle,
+      svg_handle = self.svghandle,
       svg_id = "#SNOW",
       pointer_events = goocanvas.EVENTS_NONE,
       visibility = goocanvas.ITEM_INVISIBLE
@@ -112,7 +110,7 @@ class Gcompris_hydroelectric:
     # The rain
     self.rainitem = goocanvas.Svg(
       parent = self.rootitem,
-      svg_handle = svghandle,
+      svg_handle = self.svghandle,
       svg_id = "#RAIN",
       pointer_events = goocanvas.EVENTS_NONE,
       visibility = goocanvas.ITEM_INVISIBLE
@@ -121,7 +119,7 @@ class Gcompris_hydroelectric:
     # The cloud
     self.clouditem = goocanvas.Svg(
       parent = self.rootitem,
-      svg_handle = svghandle,
+      svg_handle = self.svghandle,
       svg_id = "#CLOUD",
       visibility = goocanvas.ITEM_INVISIBLE,
       tooltip = "\n\n\n" + \
@@ -139,17 +137,18 @@ class Gcompris_hydroelectric:
     # The vapor
     self.vaporitem = goocanvas.Svg(
       parent = self.rootitem,
-      svg_handle = svghandle,
+      svg_handle = self.svghandle,
       svg_id = "#VAPOR",
       pointer_events = goocanvas.EVENTS_NONE,
       visibility = goocanvas.ITEM_INVISIBLE
       )
     self.vaporitem.connect("animation-finished", self.vapor_arrived)
+    self.vaporitem_bounds = self.vaporitem.get_bounds()
 
     # The reservoir level
     self.reservoirlevel = goocanvas.Svg(
       parent = self.rootitem,
-      svg_handle = svghandle,
+      svg_handle = self.svghandle,
       svg_id = "#RESERVOIR1",
       visibility = goocanvas.ITEM_INVISIBLE
       )
@@ -157,20 +156,21 @@ class Gcompris_hydroelectric:
     # The Dam
     goocanvas.Svg(
       parent = self.rootitem,
-      svg_handle = svghandle,
+      svg_handle = self.svghandle,
       svg_id = "#DAM",
       pointer_events = goocanvas.EVENTS_NONE,
       )
 
     # The DAM'S TURBINE
     self.dam_turbine = \
-      Producer(self.rootitem, svghandle,
-               Counter( self.rootitem, svghandle,
+      Producer(self.rootitem, self.svghandle,
+               Counter( self.rootitem, self.svghandle,
                         "#DAM_PROD_COUNT",
                         _("This is the meter for electricity produced by the turbine. ") + \
                         _("The electricity power is measured in Watt (W)."),
                         303, 224 ),
                self.update_prod_count,
+               None,
                [ "#TURBINE" ],
                _("Flowing water is directed on to the blades of a turbine runner, "
                  "creating a force on the blades. In this way, energy is transferred "
@@ -183,7 +183,7 @@ class Gcompris_hydroelectric:
     # The Wind
     self.winditem_off = goocanvas.Svg(
       parent = self.rootitem,
-      svg_handle = svghandle,
+      svg_handle = self.svghandle,
       svg_id = "#WIND_OFF",
       tooltip = "\n\n\n" + \
         _("This cloud simulates the wind, click on it to have wind.")
@@ -194,7 +194,7 @@ class Gcompris_hydroelectric:
 
     self.winditem_on = goocanvas.Svg(
       parent = self.rootitem,
-      svg_handle = svghandle,
+      svg_handle = self.svghandle,
       svg_id = "#WIND_ON",
       visibility = goocanvas.ITEM_INVISIBLE,
       pointer_events = goocanvas.EVENTS_NONE,
@@ -204,7 +204,7 @@ class Gcompris_hydroelectric:
     # The Cable from transformer 2 to Town
     self.cable_to_town_on = goocanvas.Svg(
       parent = self.rootitem,
-      svg_handle = svghandle,
+      svg_handle = self.svghandle,
       svg_id = "#CABLE_TO_TOWN_ON",
       pointer_events = goocanvas.EVENTS_NONE,
       visibility = goocanvas.ITEM_INVISIBLE
@@ -212,7 +212,7 @@ class Gcompris_hydroelectric:
     # The Cable from transformer 2 to Tux
     self.cable_to_tux_on = goocanvas.Svg(
       parent = self.rootitem,
-      svg_handle = svghandle,
+      svg_handle = self.svghandle,
       svg_id = "#CABLE_TO_TUX_ON",
       pointer_events = goocanvas.EVENTS_NONE,
       visibility = goocanvas.ITEM_INVISIBLE
@@ -221,7 +221,7 @@ class Gcompris_hydroelectric:
     # TRANSFORMER2
     self.transformer2item = goocanvas.Svg(
       parent = self.rootitem,
-      svg_handle = svghandle,
+      svg_handle = self.svghandle,
       svg_id = "#TRANSFORMER2",
       tooltip = "\n\n\n" + \
         _("This is a step down transformer. Electricity is transformed "
@@ -235,13 +235,15 @@ class Gcompris_hydroelectric:
     # The tuxboat
     self.boatitem = goocanvas.Svg(
       parent = self.rootitem,
-      svg_handle = svghandle,
+      svg_handle = self.svghandle,
       svg_id = "#BOAT"
       )
     self.boatitem.translate(-100, 0);
+    self.boatitem_bounds = self.boatitem.get_bounds()
+    self.boatitem.connect("animation-finished", self.boat_arrived)
     self.boatitem_parked = goocanvas.Svg(
       parent = self.rootitem,
-      svg_handle = svghandle,
+      svg_handle = self.svghandle,
       svg_id = "#BOAT_PARKED",
       visibility = goocanvas.ITEM_INVISIBLE
       )
@@ -249,14 +251,14 @@ class Gcompris_hydroelectric:
     # Tux in his saloon
     self.tuxsaloonitem = goocanvas.Svg(
       parent = self.rootitem,
-      svg_handle = svghandle,
+      svg_handle = self.svghandle,
       svg_id = "#SALOON",
       visibility = goocanvas.ITEM_INVISIBLE
       )
 
     goocanvas.Svg(
       parent = self.rootitem,
-      svg_handle = svghandle,
+      svg_handle = self.svghandle,
       svg_id = "#FOREGROUND",
       pointer_events = goocanvas.EVENTS_NONE
       )
@@ -265,7 +267,7 @@ class Gcompris_hydroelectric:
     self.waterlevel_max = 5
     self.waterlevel_min = 1
     self.waterlevel = 0
-    self.waterlevel_timer = gobject.timeout_add(1000, self.update_waterlevel)
+    self.waterlevel_timer = gobject.timeout_add(1000, self.update)
 
     # We have 2 counters, the production one and the consumption
     # The children have to make sure there is no more consumption
@@ -274,49 +276,50 @@ class Gcompris_hydroelectric:
     self.conso_count = 0
 
     self.production_counter = \
-        Counter( self.rootitem, svghandle,
+        Counter( self.rootitem, self.svghandle,
                  "#PROD_COUNT",
                  _("This is the meter for all the electricity produced. ") + \
                  _("The electricity power is measured in Watt (W)."),
                  525, 226 )
 
     self.consumers_counter = \
-        Counter( self.rootitem, svghandle,
+        Counter( self.rootitem, self.svghandle,
                  "#CONSO_COUNT",
                  _("This is the meter for electricity consumed by the users. ") + \
                  _("The electricity power is measured in Watt (W)."),
                  590, 203 )
 
     self.consumers = []
-    self.consumers.append( Consumer(self.rootitem, svghandle,
-                                    self.update_conso_count,
-                                    "#LIGHT_BUILDING_ON",
-                                    "#LIGHT_BUILDING_OFF",
-                                    "#BUILDING_LIGHTS_ON",
-                                    None, 800) )
-    self.consumers.append( Consumer(self.rootitem, svghandle,
-                                    self.update_conso_count,
-                                    "#LIGHT_HOUSE_ON",
-                                    "#LIGHT_HOUSE_OFF",
-                                    "#HOUSE_LIGHTS_ON",
-                                    None, 400) )
-    self.consumers.append( Consumer(self.rootitem, svghandle,
-                                    self.update_conso_count,
-                                    "#LIGHT_BUTTON_ON",
-                                    "#LIGHT_BUTTON_OFF",
-                                    "#TUX_ON",
-                                    "#TUX_OFF",
-                                    100) )
+    self.conso_tux = Consumer(self.rootitem, self.svghandle,
+                              self.update_conso_count,
+                              "#LIGHT_BUTTON_ON",
+                              "#LIGHT_BUTTON_OFF",
+                              "#TUX_ON",
+                              "#TUX_OFF",
+                              100)
+    self.conso_house = Consumer(self.rootitem, self.svghandle,
+                                self.update_conso_count,
+                                "#LIGHT_HOUSE_ON",
+                                "#LIGHT_HOUSE_OFF",
+                                "#HOUSE_LIGHTS_ON",
+                                None, 400)
+    self.conso_building = Consumer(self.rootitem, self.svghandle,
+                                   self.update_conso_count,
+                                   "#LIGHT_BUILDING_ON",
+                                   "#LIGHT_BUILDING_OFF",
+                                   "#BUILDING_LIGHTS_ON",
+                                   None, 800)
 
     # The solar panel
     self.solar_array = \
-      Producer(self.rootitem, svghandle,
-               Counter( self.rootitem, svghandle,
+      Producer(self.rootitem, self.svghandle,
+               Counter( self.rootitem, self.svghandle,
                         "#SOLAR_PANEL_COUNT",
                         _("This is the meter for electricity produced by the solar panels. ") + \
                         _("The electricity power is measured in Watt (W)."),
                         697, 177 ),
                self.update_prod_count,
+               "#SOLAR_PANEL_BG",
                [ "#SOLAR_PANEL_OFF", "#SOLAR_PANEL_ON" ],
                _("Solar panels use light energy (photons) from the sun to "
                  "generate electricity through the photovoltaic effect."),
@@ -331,13 +334,14 @@ class Gcompris_hydroelectric:
       self.windfarmitems.append("#WIND_FARM_" + str(i))
 
     self.wind_farm = \
-      Producer(self.rootitem, svghandle,
-               Counter( self.rootitem, svghandle,
+      Producer(self.rootitem, self.svghandle,
+               Counter( self.rootitem, self.svghandle,
                         "#WIND_FARM_COUNT",
                         _("This is the meter for electricity produced by the wind turbines. ") + \
                         _("The electricity power is measured in Watt (W)."),
                         650, 137 ),
                self.update_prod_count,
+               "#WIND_FARM_BG",
                self.windfarmitems,
                _("A wind turbine is a device that converts wind motion energy "
                  "into electricity generation. It is called a wind generator or "
@@ -347,30 +351,15 @@ class Gcompris_hydroelectric:
                "#TRANSFORMER_WINDFARM_TO_USERS",
                600)
 
-    self.producers = [self.dam_turbine, self.wind_farm, self.solar_array]
-
     # Some item ordering
     self.rainitem.raise_(None)
     self.clouditem.raise_(None)
     self.vaporitem.raise_(None)
 
-    # Ready GO
-    target_x = 700
-    trip_x = int(target_x - self.boatitem.get_bounds().x1)
-    self.boatitem.connect("animation-finished", self.boat_arrived)
-    self.boatitem.animate(target_x,
-                          0,
-                          1,
-                          1,
-                          True,
-                          self.timerinc*trip_x,
-                          self.step_time,
-                          goocanvas.ANIMATE_FREEZE)
-
-    gcompris.bar_set(0)
+    gcompris.bar_set(gcompris.BAR_LEVEL)
     gcompris.bar_location(5, -1, 0.6)
     gcompris.bar_set_level(self.gcomprisBoard)
-
+    self.next_level()
 
   def end(self):
     # Remove all the timer first
@@ -395,8 +384,8 @@ class Gcompris_hydroelectric:
   def key_press(self, keyval, commit_str, preedit_str):
     return False
 
-  # This is called each second to update the reservoir water level
-  def update_waterlevel(self):
+  # This is called each second to update the whole activity
+  def update(self):
     old_waterlevel = self.waterlevel
     self.tick += 1
 
@@ -417,7 +406,8 @@ class Gcompris_hydroelectric:
         visibility = goocanvas.ITEM_VISIBLE)
 
     if self.waterlevel == self.waterlevel_max \
-       and self.tick % 40 == 0:
+       and self.tick % 40 == 0 \
+       and self.cloud_is_arrived:
       self.cloud_reset()
 
     if self.wind:
@@ -427,24 +417,45 @@ class Gcompris_hydroelectric:
 
 
     # Manage the consumers ability to produce energy
-    if self.wind:
-      self.wind_farm.set_energy(True)
-    else:
-      self.wind_farm.set_energy(False)
+    if self.wind_farm.enabled:
+      if self.wind:
+        self.wind_farm.set_energy(True)
+      else:
+        self.wind_farm.set_energy(False)
 
-    if self.sun_on:
-      self.solar_array.set_energy(True)
-    else:
-      self.solar_array.set_energy(False)
+    if self.solar_array.enabled:
+      if self.sun_on:
+        self.solar_array.set_energy(True)
+      else:
+        self.solar_array.set_energy(False)
 
     if self.waterlevel == self.waterlevel_max:
       self.dam_turbine.set_energy(True)
     else:
       self.dam_turbine.set_energy(False)
 
-    self.waterlevel_timer = gobject.timeout_add(1000, self.update_waterlevel)
+    self.waterlevel_timer = gobject.timeout_add(1000, self.update)
+
+  def waterlevel_reset(self):
+    self.waterlevel = 0
+    self.reservoirlevel.props.visibility = goocanvas.ITEM_INVISIBLE
+    self.riveritem.props.visibility = goocanvas.ITEM_INVISIBLE
+
+  def boat_start(self):
+    target_x = 700
+    trip_x = int(target_x - self.boatitem.get_bounds().x1)
+    self.boatitem.animate(target_x,
+                          0,
+                          1,
+                          1,
+                          True,
+                          self.timerinc*trip_x,
+                          self.step_time,
+                          goocanvas.ANIMATE_FREEZE)
+
 
   def boat_arrived(self, item, status):
+    if self.reset_state: return
     # park the boat, change the boat to remove tux
     self.boat_is_arrived = True
     self.boatitem_parked.props.visibility = goocanvas.ITEM_VISIBLE
@@ -456,6 +467,17 @@ class Gcompris_hydroelectric:
 
     # Display all consumers
     map(lambda s: s.off(), self.consumers)
+
+  def boat_reset(self):
+    self.boat_is_arrived = False
+    self.boatitem.stop_animation()
+    self.boatitem_parked.props.visibility = goocanvas.ITEM_INVISIBLE
+    self.boatitem.props.visibility = goocanvas.ITEM_VISIBLE
+    self.tuxsaloonitem.props.visibility = goocanvas.ITEM_INVISIBLE
+    self.boatitem.translate( \
+      self.boatitem_bounds.x1 - self.boatitem.get_bounds().x1,
+      0)
+
 
   def sun_down(self):
     # Move the sun down
@@ -475,6 +497,7 @@ class Gcompris_hydroelectric:
     return False
 
   def sun_up_arrived(self, item, status):
+    if self.reset_state: return
     # Start the vapor
     self.init_vapor()
 
@@ -483,12 +506,17 @@ class Gcompris_hydroelectric:
     # Stop the sun
     self.sun_on = 0
 
-  def cloud_reset(self):
-    if (not self.cloud_is_arrived or self.waterlevel != self.waterlevel_max):
-      return
+  def sun_reset(self):
+    self.sunitem.stop_animation()
+    self.sunitem.translate( 0,
+      self.sunitem_bounds.y1 - self.sunitem.get_bounds().y1 )
+    self.sun_down_arrived(None, None)
 
-    self.clouditem.translate(self.clouditem_bounds.x1 - self.clouditem.get_bounds().x1,
-                             0)
+  def cloud_reset(self):
+    self.clouditem.stop_animation()
+    self.clouditem.translate( \
+      self.clouditem_bounds.x1 - self.clouditem.get_bounds().x1,
+      0)
     self.clouditem.props.visibility = goocanvas.ITEM_INVISIBLE
     self.rainitem.props.visibility = goocanvas.ITEM_INVISIBLE
     self.snowitem.props.visibility = goocanvas.ITEM_INVISIBLE
@@ -497,6 +525,7 @@ class Gcompris_hydroelectric:
     self.its_raining = False
 
   def cloud_arrived(self, item, status):
+    if self.reset_state: return
     self.sun_down()
     self.clouditem.connect("button_press_event", self.cloud_item_event)
     gcompris.utils.item_focus_init(self.clouditem, None)
@@ -518,6 +547,7 @@ class Gcompris_hydroelectric:
                            goocanvas.ANIMATE_FREEZE)
 
   def vapor_arrived(self, item, state):
+    if self.reset_state: return
     self.vapor_on = 0
     self.vaporitem.props.visibility = goocanvas.ITEM_INVISIBLE
     # Start the cloud
@@ -537,12 +567,93 @@ class Gcompris_hydroelectric:
                            goocanvas.ANIMATE_RESET)
 
 
+  def vapor_reset(self):
+    self.vaporitem.stop_animation()
+    self.vaporitem.translate( \
+      self.vaporitem_bounds.x1 - self.vaporitem.get_bounds().x1,
+      0)
+    self.vapor_on = 0
+    self.vaporitem.props.visibility = goocanvas.ITEM_INVISIBLE
 
   def pause(self, pause):
-    pass
+    self.board_paused = pause
+
+    # When the bonus is displayed, it call us first
+    # with pause(1) and then with pause(0)
+    # the game is won
+    if(self.gamewon and pause == 0):
+      self.gamewon = False
+      self.increment_level()
+      self.next_level()
+
+    return
+
 
   def set_level(self, level):
-    pass
+    self.gcomprisBoard.level = level;
+    gcompris.bar_set_level(self.gcomprisBoard)
+    self.next_level()
+
+  def next_level(self):
+    self.producers = None
+    self.reset()
+    if self.gcomprisBoard.level == 1:
+      self.producers = [self.dam_turbine]
+      self.wind_farm.disable()
+      self.solar_array.disable()
+      self.winditem_on.props.visibility = goocanvas.ITEM_INVISIBLE
+      self.winditem_off.props.visibility = goocanvas.ITEM_INVISIBLE
+      self.consumers = [self.conso_tux]
+      self.conso_tux.disable()
+      self.conso_house.disable()
+      self.conso_building.disable()
+    if self.gcomprisBoard.level == 2:
+      self.producers = [self.dam_turbine, self.wind_farm]
+      self.wind_farm.enable()
+      self.winditem_on.props.visibility = goocanvas.ITEM_INVISIBLE
+      self.winditem_off.props.visibility = goocanvas.ITEM_VISIBLE
+      self.solar_array.disable()
+      self.consumers = [self.conso_tux, self.conso_house]
+      self.conso_tux.disable()
+      self.conso_house.disable()
+      self.conso_building.disable()
+    elif self.gcomprisBoard.level == 3:
+      self.producers = [self.dam_turbine, self.wind_farm,
+                        self.solar_array]
+      self.wind_farm.enable()
+      self.solar_array.enable()
+      self.consumers = [self.conso_tux, self.conso_house,
+                        self.conso_building]
+      self.conso_tux.disable()
+      self.conso_house.disable()
+      self.conso_building.disable()
+    self.boat_start()
+
+  def reset(self):
+    self.reset_state = True
+    self.sun_reset()
+    self.cloud_reset()
+    self.vapor_reset()
+    self.boat_reset()
+    self.wind_reset()
+    self.waterlevel_reset()
+    self.transformer2_disable()
+    self.prod_count = 0
+    self.production_counter.set(self.prod_count)
+    self.conso_count = 0
+    self.consumers_counter.set(self.conso_count)
+    self.reset_state = False
+
+  # Code that increments the level
+  # And bail out if no more levels are available
+  def increment_level(self):
+    # Try the next level
+    self.gcomprisBoard.level += 1
+    # Set the level in the control bar
+    if(self.gcomprisBoard.level > self.gcomprisBoard.maxlevel):
+      self.gcomprisBoard.level = self.gcomprisBoard.maxlevel
+
+    gcompris.bar_set_level(self.gcomprisBoard);
 
   def set_wind_state(self, status):
     if status:
@@ -557,6 +668,9 @@ class Gcompris_hydroelectric:
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
         self.set_wind_state(1)
+
+  def wind_reset(self):
+    self.set_wind_state(False)
 
   def sun_item_event(self, widget, target, event=None):
     if event.type == gtk.gdk.BUTTON_PRESS:
@@ -627,15 +741,15 @@ class Gcompris_hydroelectric:
           "regional blackout."), None)
 
   def check_win(self):
-    if self.you_won:
+    if self.gamewon or self.gcomprisBoard.level == 3:
       return
 
     values = map(lambda x: x.consumption, self.consumers)
     values += map(lambda x: x.production, self.producers)
 
     if not 0 in values:
+      self.gamewon = True
       gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.FLOWER)
-      self.you_won = True
 
   def transformer2_item_event(self, widget, target, event=None):
     if self.transformer2_on:
@@ -644,19 +758,25 @@ class Gcompris_hydroelectric:
       self.set_transformer2_state(True)
     return True
 
+  def transformer2_enable(self):
+    self.transformer2_on = True
+    self.cable_to_town_on.props.visibility = goocanvas.ITEM_VISIBLE
+    self.cable_to_tux_on.props.visibility = goocanvas.ITEM_VISIBLE
+
+  def transformer2_disable(self):
+    self.transformer2_on = False
+    self.cable_to_town_on.props.visibility = goocanvas.ITEM_INVISIBLE
+    self.cable_to_tux_on.props.visibility = goocanvas.ITEM_INVISIBLE
+
   def set_transformer2_state(self, state):
     if not self.boat_is_arrived:
       return
     if state and self.prod_count > 0:
       gcompris.sound.play_ogg("sounds/bubble.wav")
-      self.transformer2_on = True
-      self.cable_to_town_on.props.visibility = goocanvas.ITEM_VISIBLE
-      self.cable_to_tux_on.props.visibility = goocanvas.ITEM_VISIBLE
+      self.transformer2_enable()
       map(lambda s: s.power_on(), self.consumers)
     elif self.transformer2_on:
-      self.transformer2_on = False
-      self.cable_to_town_on.props.visibility = goocanvas.ITEM_INVISIBLE
-      self.cable_to_tux_on.props.visibility = goocanvas.ITEM_INVISIBLE
+      self.transformer2_disable()
       map(lambda s: s.power_off(), self.consumers)
 
     self.update_conso_count()
@@ -710,6 +830,20 @@ class Consumer:
     # Is the light is switched on
     self.is_on = False
 
+  def enable(self):
+    self.power_off()
+    self.off()
+
+  def disable(self):
+    if self.target_off:
+      self.target_off.props.visibility = goocanvas.ITEM_INVISIBLE
+    self.target_on.props.visibility = goocanvas.ITEM_INVISIBLE
+    self.switch_on.props.visibility = goocanvas.ITEM_INVISIBLE
+    self.switch_off.props.visibility = goocanvas.ITEM_INVISIBLE
+    self.power = False
+    # Is the light is switched on
+    self.is_on = False
+
   def update_light(self):
     if self.power and self.is_on:
       self.target_on.props.visibility = goocanvas.ITEM_VISIBLE
@@ -757,7 +891,9 @@ class Consumer:
 class Producer:
   # Pass the SVG IDs of the stuff to act on
   def __init__(self, rootitem, svghandle, counter,
-               update_prod_count, prod_items, tooltip,
+               update_prod_count,
+               background_id,
+               prod_items, tooltip,
                prod_item_on,
                transformer, transformer_on, power):
     self.power_count = power
@@ -767,6 +903,15 @@ class Producer:
 
     # Is there enough renewable energy to run this producer
     self.energy = False
+
+    self.background_item = None
+    if background_id:
+      self.background_item = goocanvas.Svg(
+        parent = rootitem,
+        svg_handle = svghandle,
+        svg_id = background_id,
+        pointer_events = goocanvas.EVENTS_NONE
+        )
 
     done = False
     self.current_prod_item = 0
@@ -819,16 +964,47 @@ class Producer:
     self.is_on = False
     # The animation timer
     self.timer = 0
+    self.enabled = True
 
   def __del__(self):
     if self.timer:
       gobject.source_remove(self.timer)
 
+  def enable(self):
+    if self.background_item:
+      self.background_item.props.visibility = goocanvas.ITEM_VISIBLE
+    self.transformer_on.props.visibility = goocanvas.ITEM_INVISIBLE
+    self.transformer.props.visibility = goocanvas.ITEM_VISIBLE
+    self.prod_item_on.props.visibility = goocanvas.ITEM_INVISIBLE
+    done = False
+    self.current_prod_item = 0
+    for item in self.prod_items:
+      item.props.visibility = \
+          goocanvas.ITEM_VISIBLE if not done else goocanvas.ITEM_INVISIBLE
+      done = True
+    self.counter.enable()
+    # Is the power on
+    self.power = False
+    # Is the run is switched on
+    self.is_on = False
+    self.enabled = True
+
+  def disable(self):
+    if self.background_item:
+      self.background_item.props.visibility = goocanvas.ITEM_INVISIBLE
+    self.transformer_on.props.visibility = goocanvas.ITEM_INVISIBLE
+    self.transformer.props.visibility = goocanvas.ITEM_INVISIBLE
+    self.prod_item_on.props.visibility = goocanvas.ITEM_INVISIBLE
+    for item in self.prod_items:
+      item.props.visibility = goocanvas.ITEM_INVISIBLE
+    self.counter.disable()
+    self.enabled = False
+
   def update_run(self):
     if self.is_on and self.energy \
           and len(self.prod_items) > 2 \
           and self.timer == 0:
-      self.rotate_item()
+      self.anim_item()
     if self.is_on and self.power:
       self.production = self.power_count
     else:
@@ -885,7 +1061,7 @@ class Producer:
       self.off()
 
   # Simulate an animation
-  def rotate_item(self):
+  def anim_item(self):
     self.prod_items[self.current_prod_item].props.visibility = \
         goocanvas.ITEM_INVISIBLE
     self.current_prod_item += 1
@@ -894,20 +1070,20 @@ class Producer:
     self.prod_items[self.current_prod_item].props.visibility = \
         goocanvas.ITEM_VISIBLE
     if self.is_on and self.energy:
-      self.timer = gobject.timeout_add(150, self.rotate_item)
+      self.timer = gobject.timeout_add(150, self.anim_item)
     else:
       self.timer = 0
 
 class Counter:
   # Pass the SVG IDs of the stuff to act on
   def __init__(self, rootitem, svghandle, svg_id, tooltip, x, y):
-    goocanvas.Svg(
+    self.item = goocanvas.Svg(
       parent = rootitem,
       svg_handle = svghandle,
       svg_id = svg_id,
       tooltip = "\n\n\n" + tooltip
       )
-    self.item = goocanvas.Text(
+    self.text = goocanvas.Text(
       parent = rootitem,
       x = x,
       y = y,
@@ -917,4 +1093,13 @@ class Counter:
       )
 
   def set(self, value):
-    self.item.set_properties(text = str(value) + "W")
+    self.text.set_properties(text = str(value) + "W")
+
+  def enable(self):
+    self.item.props.visibility = goocanvas.ITEM_VISIBLE
+    self.text.props.visibility = goocanvas.ITEM_VISIBLE
+
+  def disable(self):
+    self.item.props.visibility = goocanvas.ITEM_INVISIBLE
+    self.text.props.visibility = goocanvas.ITEM_INVISIBLE
+
