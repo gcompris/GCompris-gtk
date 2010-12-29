@@ -8,12 +8,13 @@
 # Petr Kovar <pknbe@volny.cz>, 2008.
 # Vladimír Burian <vladimir.burian@email.cz>, 2010.
 # Marek Černocký <marek@manet.cz>, 2009, 2010.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-27 20:51+0100\n"
-"PO-Revision-Date: 2010-12-22 19:48+0100\n"
+"POT-Creation-Date: 2010-12-29 23:47+0100\n"
+"PO-Revision-Date: 2010-12-28 08:52+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -7274,16 +7275,17 @@ msgid "Could not find the list of words."
 msgstr "Nelze najít seznam slov."
 
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:1
-#, fuzzy
 msgid ""
 "Click on different active elements : sun, cloud, dam, solar array, wind farm "
 "and transformers, in order to reactivate the entire electrical system. When "
 "the system is back up and Tux is in his home, push the light button for him. "
 "To win you must switch on all the consumers while all the producers are up."
 msgstr ""
-"Klikej na různé aktivní prvky: slunce, mrak, přehradu, transformátor, ve "
-"správném pořadí a reaktivuj celý elektrický systém. Až to bude hotovo a Tux "
-"bude doma, stiskni pro něj vypínač světla."
+"Klikej na různé aktivní prvky: slunce, mrak, přehradu, solární farmu a "
+"transformátory, ve správném pořadí a reaktivuj celý elektrický systém. Až "
+"bude systém opraven a Tux bude doma, stiskni pro něj vypínač světla. Abyste "
+"vyhráli, musíte zapnout všechny odběratele, přičemž musí být v provozu "
+"všichni výrobci."
 
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:3
 msgid "Learn about an hydroelectric dam"
@@ -7314,22 +7316,16 @@ msgstr ""
 "se mohou spojit až do tak velkých kapek, že začnou padat v podobě deště."
 
 #: ../src/hydroelectric-activity/hydroelectric.py:169
-#, fuzzy
 msgid "This is the meter for electricity produced by the turbine. "
-msgstr ""
-"Toto je elektroměr pro elektřinu produkovanou turbínou. Elektrický výkon se "
-"měří ve wattech (W)."
+msgstr "Toto je elektroměr pro elektřinu produkovanou turbínou."
 
 #: ../src/hydroelectric-activity/hydroelectric.py:170
 #: ../src/hydroelectric-activity/hydroelectric.py:282
 #: ../src/hydroelectric-activity/hydroelectric.py:289
 #: ../src/hydroelectric-activity/hydroelectric.py:319
 #: ../src/hydroelectric-activity/hydroelectric.py:341
-#, fuzzy
 msgid "The electricity power is measured in Watt (W)."
-msgstr ""
-"Toto je elektroměr pro elektřinu spotřebovanou uživateli. Elektrický výkon "
-"se měří ve wattech (W)."
+msgstr "Elektrický výkon se měří ve wattech (W)."
 
 #: ../src/hydroelectric-activity/hydroelectric.py:175
 msgid ""
@@ -7342,7 +7338,7 @@ msgstr ""
 
 #: ../src/hydroelectric-activity/hydroelectric.py:189
 msgid "This cloud simulates the wind, click on it to have wind."
-msgstr ""
+msgstr "Tento mrak simuluje vítr. Kliknutím na něj uděláte větrno."
 
 #: ../src/hydroelectric-activity/hydroelectric.py:227
 msgid ""
@@ -7354,40 +7350,35 @@ msgstr ""
 
 #: ../src/hydroelectric-activity/hydroelectric.py:281
 msgid "This is the meter for all the electricity produced. "
-msgstr ""
+msgstr "Toto je elektroměr pro veškerou vyprodukovanou elektřinu."
 
 #: ../src/hydroelectric-activity/hydroelectric.py:288
-#, fuzzy
 msgid "This is the meter for electricity consumed by the users. "
-msgstr ""
-"Toto je elektroměr pro elektřinu spotřebovanou uživateli. Elektrický výkon "
-"se měří ve wattech (W)."
+msgstr "Toto je elektroměr pro elektřinu spotřebovanou uživateli."
 
 #: ../src/hydroelectric-activity/hydroelectric.py:318
-#, fuzzy
 msgid "This is the meter for electricity produced by the solar panels. "
-msgstr ""
-"Toto je elektroměr pro elektřinu produkovanou turbínou. Elektrický výkon se "
-"měří ve wattech (W)."
+msgstr "Toto je elektroměr pro elektřinu produkovanou solárním panelem."
 
 #: ../src/hydroelectric-activity/hydroelectric.py:324
 msgid ""
 "Solar panels use light energy (photons) from the sun to generate electricity "
 "through the photovoltaic effect."
 msgstr ""
+"Solární panely používají světelnou energii (fotony) ze slunce ke generování "
+"elektřiny pomocí fotovoltaického efektu."
 
 #: ../src/hydroelectric-activity/hydroelectric.py:340
-#, fuzzy
 msgid "This is the meter for electricity produced by the wind turbines. "
-msgstr ""
-"Toto je elektroměr pro elektřinu produkovanou turbínou. Elektrický výkon se "
-"měří ve wattech (W)."
+msgstr "Toto je elektroměr pro elektřinu produkovanou větrnou turbínou."
 
 #: ../src/hydroelectric-activity/hydroelectric.py:346
 msgid ""
 "A wind turbine is a device that converts wind motion energy into electricity "
 "generation. It is called a wind generator or wind charger. "
 msgstr ""
+"Větrná turbína (větrná vrtule) je zařízení, které převádí pohybovou energii "
+"větru do elektrického generátoru."
 
 #: ../src/hydroelectric-activity/hydroelectric.py:732
 msgid ""
