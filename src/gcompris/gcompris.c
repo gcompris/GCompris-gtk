@@ -1321,6 +1321,7 @@ static void load_properties ()
   printf("package_locale_dir       = %s\n", properties->package_locale_dir);
   printf("package_plugin_dir       = %s\n", properties->package_plugin_dir);
   printf("package_python_plugin_dir= %s\n", properties->package_python_plugin_dir);
+  printf("user_dir                 = %s\n", properties->user_dir);
 }
 
 GcomprisProperties *gc_prop_get ()
