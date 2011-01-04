@@ -45,7 +45,6 @@ static GooCanvasItem *boardRootItem = NULL;
 static GooCanvasItem	*erase_create_item();
 static void		 erase_destroy_all_items(void);
 static void		 erase_next_level(void);
-static void		 shuffle_image_list(char *list[], int size);
 static gboolean		 item_event (GooCanvasItem  *item,
 				     GooCanvasItem  *target,
 				     GdkEventCrossing *event,
@@ -54,6 +53,9 @@ static gboolean		 canvas_event (GooCanvasItem  *item,
 				       GooCanvasItem  *target,
 				       GdkEventButton *event,
 				       gpointer data);
+static void		 init_user_dir();
+static void		 load_image_from_dir(char *image_dir,
+					     GSList **image_list);
 
 static int number_of_items = 0;
 static int number_of_item_x = 0;
@@ -70,48 +72,7 @@ static gint timer_id = 0;
 static gint board_mode =  NORMAL;
 
 // List of images to use in the game
-static gchar *imageList[] =
-  {
-    "erase/bear001.jpg",
-    "erase/black-headed-gull.jpg",
-    "erase/butterfly.jpg",
-    "erase/cat1.jpg",
-    "erase/cat2.jpg",
-    "erase/donkey.jpg",
-    "erase/elephanteauxgc.jpg",
-    "erase/flamentrosegc.jpg",
-    "erase/girafegc.jpg",
-    "erase/hypogc.jpg",
-    "erase/joybear001.jpg",
-    "erase/joybear002.jpg",
-    "erase/jumentmulassieregc.jpg",
-    "erase/malaybear002.jpg",
-    "erase/pigeon.jpg",
-    "erase/polabear011.jpg",
-    "erase/polarbear001.jpg",
-    "erase/poolbears001.jpg",
-    "erase/rhinogc.jpg",
-    "erase/singegc.jpg",
-    "erase/spectbear001.jpg",
-    "erase/tetegorillegc.jpg",
-    "erase/tiger1_by_Ralf_Schmode.jpg",
-    "erase/tigercub003.jpg",
-    "erase/tigerdrink001.jpg",
-    "erase/tigerplay001.jpg",
-    "erase/horses.jpg",
-    "erase/horses2.jpg",
-    "erase/squirrel.jpg",
-    "erase/sheep_irish.jpg",
-    "erase/sheep_irish2.jpg",
-    "erase/cow.jpg",
-    "erase/maki1.jpg",
-    "erase/maki2.jpg",
-    "erase/maki3.jpg",
-    "erase/maki4.jpg",
-    "erase/maki5.jpg",
-    "erase/maki6.jpg",
-  };
-#define NUMBER_OF_IMAGES G_N_ELEMENTS(imageList)
+static GSList *image_list = NULL;
 
 /* Store the image index to use */
 static int current_image;
@@ -181,6 +142,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
   if(agcomprisBoard!=NULL)
     {
+      GcomprisProperties *properties = gc_prop_get ();
+
       gcomprisBoard=agcomprisBoard;
       gcomprisBoard->level=1;
       gcomprisBoard->maxlevel=6;
@@ -207,13 +170,23 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	gcomprisBoard->maxlevel=8;
       }
 
+      init_user_dir();
+      load_image_from_dir(properties->package_data_dir, &image_list);
+      load_image_from_dir(properties->user_dir, &image_list);
       current_image = 0;
-      shuffle_image_list(imageList, NUMBER_OF_IMAGES);
 
-      erase_next_level();
+      if ( g_slist_length(image_list) == 0)
+	{
+	  gc_dialog(_("Error: No images found\n"), gc_board_stop);
+	}
+      else
+	{
 
-      gamewon = FALSE;
-      pause_board(FALSE);
+	  erase_next_level();
+
+	  gamewon = FALSE;
+	  pause_board(FALSE);
+	}
     }
 }
 
@@ -235,6 +208,12 @@ static void end_board ()
       pause_board(TRUE);
       erase_destroy_all_items();
     }
+
+  for ( i=0; i < g_slist_length(image_list); i++)
+    g_free( g_slist_nth_data(image_list, i) );
+  g_slist_free (image_list);
+  image_list = NULL;
+
   gcomprisBoard = NULL;
 }
 
@@ -307,11 +286,11 @@ static int get_num_layers()
 /* set initial values for the next level */
 static void erase_next_level()
 {
-  gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
-			  imageList[current_image++]);
+  gc_set_background( goo_canvas_get_root_item(gcomprisBoard->canvas),
+		     g_slist_nth_data (image_list, current_image++) );
 
-  if(current_image>=NUMBER_OF_IMAGES)
-    current_image=0;
+  if( current_image >= g_slist_length(image_list) )
+     current_image = 0;
 
   gc_bar_set_level(gcomprisBoard);
 
@@ -587,26 +566,56 @@ canvas_event (GooCanvasItem  *item,
 }
 
 
-/** \brief shuffle_image_list, takes a char* array and it's length.
- *         it swaps a random number of items in it in order to provide
- *         the same list but in a random order.
- *
- * \param list: the array to shuffle
- * \param size: the size of the array
- *
- */
-void shuffle_image_list(char *list[], int size)
+static
+void init_user_dir()
 {
-  int i;
-  char *olditem;
+  GcomprisProperties *props = gc_prop_get();
+  gchar *tmp = g_strconcat(props->user_dir, "/erase", NULL);
+  if (!g_file_test(tmp, G_FILE_TEST_IS_DIR))
+    gc_util_create_rootdir(tmp);
+  g_free(tmp);
 
-  for(i=0; i < size - 1; i++)
+  tmp = g_strconcat(props->user_dir, "/erase/", _("readme"), ".txt", NULL);
+  g_file_set_contents(tmp,
+		      _("Put any number of images in this directory.\n"
+			"They will be used as background in the 'erase' activity.\n"
+			"The image must be in the 'jpeg' format and be suffixed with"
+			" '.jpg' or '.jpeg'.\n"
+			"For best results, they must have a size of 800x520 pixels.\n"),
+		      -1,
+		      NULL);
+  g_free(tmp);
+}
+
+static
+void load_image_from_dir(char *base_dir, GSList **image_list)
+{
+  GDir *dir;
+  const gchar *one_dirent;
+
+  gchar *image_dir = g_strconcat(base_dir, "/", "erase", NULL);
+
+  dir = g_dir_open(image_dir, 0, NULL);
+
+  if (!dir) {
+    g_warning ("Couldn't open image dir: %s", image_dir);
+    g_free(image_dir);
+    return;
+  }
+
+  /* Fill up the music list */
+  while((one_dirent = g_dir_read_name(dir)) != NULL)
     {
-      int random1 = g_random_int_range(i, size-1);
-      if (i == random1) continue;
-
-      olditem = list[i];
-      list[i] = list[random1];
-      list[random1] = olditem;
+      if ( (g_str_has_suffix(one_dirent, ".jpg")) ||
+	   (g_str_has_suffix(one_dirent, ".JPG")) ||
+	   (g_str_has_suffix(one_dirent, ".jpeg")) ||
+	   (g_str_has_suffix(one_dirent, ".JPEG")) )
+	{
+	  gchar *str = g_strdup_printf("%s/%s", image_dir, one_dirent);
+	  *image_list = g_slist_insert (*image_list, str,
+				       RAND(0, g_slist_length(*image_list)));
+	}
     }
+  g_free(image_dir);
+  g_dir_close(dir);
 }

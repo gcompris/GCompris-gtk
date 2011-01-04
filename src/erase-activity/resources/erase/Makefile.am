@@ -1,5 +1,6 @@
 imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/erase
 img_DATA = \
+	README.txt \
 	bear001.jpg \
 	black-headed-gull.jpg \
 	butterfly.jpg \
