@@ -7,20 +7,21 @@
 # Kamil Páral <ripper42@gmail.com>, 2008.
 # Petr Kovar <pknbe@volny.cz>, 2008.
 # Vladimír Burian <vladimir.burian@email.cz>, 2010.
-# Marek Černocký <marek@manet.cz>, 2009, 2010.
+# Marek Černocký <marek@manet.cz>, 2009, 2010, 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-29 23:47+0100\n"
-"PO-Revision-Date: 2010-12-28 08:52+0100\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=gcompris&component=general\n"
+"POT-Creation-Date: 2011-01-05 22:25+0000\n"
+"PO-Revision-Date: 2011-01-06 00:37+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
-"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Poedit-Language: Czech\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -1606,7 +1607,7 @@ msgstr ""
 msgid "bar game"
 msgstr "Poslední prohrává"
 
-#: ../src/billard-activity/billard.c:89 ../src/erase-activity/erase.c:124
+#: ../src/billard-activity/billard.c:89 ../src/erase-activity/erase.c:85
 #: ../src/erase-activity/erase.xml.in.h:4
 msgid "Move the mouse"
 msgstr "Hýbej myší"
@@ -2619,9 +2620,31 @@ msgstr ""
 "vyber položku, na kterou chceš odpovídat. Zadej odpověď pomocí klávesnice a "
 "stiskni tlačítko Budiž nebo klávesu „Enter“."
 
-#: ../src/erase-activity/erase.c:125 ../src/erase-activity/erase.xml.in.h:5
+#: ../src/erase-activity/erase.c:86 ../src/erase-activity/erase.xml.in.h:5
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Hýbáním myší vymažeš oblast a objeví se pozadí"
+
+#: ../src/erase-activity/erase.c:180
+msgid "Error: No images found\n"
+msgstr "Chyba: nenalezen žádný obrázek\n"
+
+#: ../src/erase-activity/erase.c:578 ../src/gcompris/properties.c:501
+#: ../src/gcompris/properties.c:508
+msgid "readme"
+msgstr "čtěte"
+
+#: ../src/erase-activity/erase.c:580
+msgid ""
+"Put any number of images in this directory.\n"
+"They will be used as background in the 'erase' activity.\n"
+"The image must be in the 'jpeg' format and be suffixed with '.jpg' or '."
+"jpeg'.\n"
+"For best results, they must have a size of 800x520 pixels.\n"
+msgstr ""
+"Vlož libovolný počet obrázku do této složky.\n"
+"Budou použity jako pozadí v aktivitě „mazání“.\n"
+"Obrázky musí být ve formátu „jpeg“ a s příponou „.jpg“ nebo „.jpeg“.\n"
+"Pro nejlepší výsledky by měly mít rozměr 800×520 pixelů.\n"
 
 #: ../src/erase-activity/erase.xml.in.h:1
 msgid ""
@@ -2635,8 +2658,12 @@ msgstr ""
 "svolili zahrnut své obrázky do GCompris. Díky moc."
 
 #: ../src/erase-activity/erase.xml.in.h:6
-msgid "Move the mouse until all the blocks disappear."
-msgstr "Hýbej myší, dokud všechny bloky nezmizí."
+msgid ""
+"Move the mouse until all the blocks disappear. You can add you own images "
+"under the directory '~/My GCompris/erase'."
+msgstr ""
+"Hýbej myší dokud nezmizí všechny bloky. Můžeš přidat i své vlastní obrázky a "
+"to do složky „~/My GCompris/erase“."
 
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
 msgid "Double click the mouse"
@@ -3291,12 +3318,12 @@ msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
 msgstr ""
-"Adresář s nastavením: [$HOME/.config/gcompris]. Alternativou je nastavení "
+"Složka s nastavením: [$HOME/.config/gcompris]. Alternativou je nastavení "
 "$XDG_CONFIG_HOME."
 
 #: ../src/gcompris/gcompris.c:229
 msgid "The location of user directories: [$HOME/My GCompris]"
-msgstr "Adresář uživatele: [$HOME/My GCompris]"
+msgstr "Složka uživatele: [$HOME/My GCompris]"
 
 #: ../src/gcompris/gcompris.c:232
 msgid "Run the experimental activities"
@@ -3334,7 +3361,7 @@ msgstr ""
 msgid ""
 "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr ""
-"U serverového režimu určete adresář mezipaměti pro omezení zbytečných "
+"U serverového režimu určete složku mezipaměti pro omezení zbytečných "
 "stahování."
 
 #: ../src/gcompris/gcompris.c:254
@@ -3376,7 +3403,7 @@ msgstr ""
 "Nelze načíst vzhled „%s“ (Zkontrolujte, zda soubor existuje a zda jej lze "
 "číst)"
 
-#: ../src/gcompris/gcompris.c:1485
+#: ../src/gcompris/gcompris.c:1486
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
@@ -3384,12 +3411,12 @@ msgstr ""
 "GCompris se nemůže spustit, protože soubor zámku je méně než %d sekund "
 "starý.\n"
 
-#: ../src/gcompris/gcompris.c:1487
+#: ../src/gcompris/gcompris.c:1488
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Soubor zámku je: %s\n"
 
-#: ../src/gcompris/gcompris.c:1601
+#: ../src/gcompris/gcompris.c:1602
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3403,27 +3430,27 @@ msgstr ""
 "Více informací na http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1716
+#: ../src/gcompris/gcompris.c:1717
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Pro přímý přístup k aktivitě použijte -l.\n"
 
-#: ../src/gcompris/gcompris.c:1717
+#: ../src/gcompris/gcompris.c:1718
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Seznam dostupných aktivit:\n"
 
-#: ../src/gcompris/gcompris.c:1748
+#: ../src/gcompris/gcompris.c:1749
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Počet aktivit: %d\n"
 
-#: ../src/gcompris/gcompris.c:1784
+#: ../src/gcompris/gcompris.c:1785
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s existuje, ale nelze jej číst nebo do něj zapisovat"
 
-#: ../src/gcompris/gcompris.c:1847
+#: ../src/gcompris/gcompris.c:1848
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
@@ -3432,7 +3459,7 @@ msgstr ""
 "Přepínač --server nelze použít, protože GCompris byl přeložen bez podpory "
 "sítě."
 
-#: ../src/gcompris/gcompris.c:1901
+#: ../src/gcompris/gcompris.c:1902
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3441,7 +3468,7 @@ msgstr ""
 "CHYBA: Profil „%s“ nebyl nalezen. Dostupné profily si vypíšete spuštěním "
 "„gcompris --profile-list“\n"
 
-#: ../src/gcompris/gcompris.c:1915
+#: ../src/gcompris/gcompris.c:1916
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Seznam dostupných profilů:\n"
@@ -3488,15 +3515,11 @@ msgstr ""
 "Načítání aktivity ze souboru:\n"
 "%s"
 
-#: ../src/gcompris/properties.c:501 ../src/gcompris/properties.c:508
-msgid "readme"
-msgstr "čtěte"
-
 #: ../src/gcompris/properties.c:503
 msgid ""
 "This directory contains the files you create with the GCompris educational "
 "suite\n"
-msgstr "Tento adresář obsahuje soubory, které jsi vytvořil v sadě GCompris\n"
+msgstr "Tato složka obsahuje soubory, které jsi vytvořil v sadě GCompris\n"
 
 #: ../src/gcompris/properties.c:510
 msgid ""
@@ -3504,7 +3527,7 @@ msgid ""
 "You can include these images in your drawings and animations.\n"
 "The image formats supported are jpeg, png and svg.\n"
 msgstr ""
-"Do tohoto adresáře vložte libovolný počet obrazů.\n"
+"Do této složky vložte libovolný počet obrazů.\n"
 "Tyto obrazy pak můžete vkládat do svých kreseb a animací.\n"
 "Podporované formáty jsou jpeg, png a svg.\n"
 
@@ -7407,3 +7430,6 @@ msgid ""
 msgstr ""
 "Toto je zvyšující transformátor. Elektřina je přenášena za použití vysokého "
 "napětí (110 kV a více) kvůli snížení ztrát energie na dlouhém vedení."
+
+#~ msgid "Move the mouse until all the blocks disappear."
+#~ msgstr "Hýbej myší, dokud všechny bloky nezmizí."
