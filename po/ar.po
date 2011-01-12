@@ -1,16 +1,17 @@
-# translation of gcompris.HEAD.po to Arabic
+# translation of gcompris to Arabic
 # Copyright (C) 2005, 2006, 2007, 2008 Free Software Foundation, Inc.
 # This file is distributed under the same license as the GCompris package.
+#
 # Nabil Ben Khalifa <nabil_benkhalifa@yahoo.fr>, 2005, 2006.
 # Djihed Afifi <djihed@gmail.com>, 2006.
 # Anas Husseini <anas_h_34@hotmail.com>, 2007.
-# Khaled Hosny <khaledhosny@eglug.org>, 2007, 2008, 2009, 2010.
+# Khaled Hosny <khaledhosny@eglug.org>, 2007, 2008, 2009, 2010, 2011.
 msgid ""
 msgstr ""
-"Project-Id-Version: gcompris.HEAD\n"
+"Project-Id-Version: gcompris master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-25 13:28+0200\n"
-"PO-Revision-Date: 2010-04-25 13:21+0300\n"
+"POT-Creation-Date: 2011-01-12 07:51+0200\n"
+"PO-Revision-Date: 2011-01-12 07:50+0300\n"
 "Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Language: ar\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Virtaal 0.6.0\n"
+"X-Generator: Virtaal 0.6.1\n"
 
 #: ../boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
@@ -196,7 +197,7 @@ msgstr ""
 msgid "GCompris Main Menu"
 msgstr "قائمة «فهمت» الرئيسية"
 
-#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:859
+#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:866
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -426,30 +427,30 @@ msgstr "المعلم:"
 msgid "Assign all the users belonging to this class"
 msgstr "تعليم جميع المستخدمين المنتمين إلى هذا الصف"
 
-#: ../src/administration-activity/admin/class_edit.py:249
-#: ../src/administration-activity/admin/group_edit.py:261
+#: ../src/administration-activity/admin/class_edit.py:246
+#: ../src/administration-activity/admin/group_edit.py:258
 #: ../src/administration-activity/admin/group_user_list.py:150
 #: ../src/administration-activity/admin/user_list.py:191
 msgid "First Name"
 msgstr "الاسم"
 
-#: ../src/administration-activity/admin/class_edit.py:260
-#: ../src/administration-activity/admin/group_edit.py:272
+#: ../src/administration-activity/admin/class_edit.py:257
+#: ../src/administration-activity/admin/group_edit.py:269
 #: ../src/administration-activity/admin/group_user_list.py:160
 #: ../src/administration-activity/admin/user_list.py:201
 msgid "Last Name"
 msgstr "الكنية"
 
-#: ../src/administration-activity/admin/class_edit.py:335
+#: ../src/administration-activity/admin/class_edit.py:332
 msgid "You need to provide at least a name for your class"
 msgstr "تحتاج أن تزود صفك باسم على الأقل"
 
-#: ../src/administration-activity/admin/class_edit.py:380
+#: ../src/administration-activity/admin/class_edit.py:377
 msgid "There is already a class with this name"
 msgstr "هناك صف يحمل نفس الاسم"
 
 #: ../src/administration-activity/admin/class_list.py:165
-#: ../src/administration-activity/admin/profile_edit.py:266
+#: ../src/administration-activity/admin/profile_edit.py:263
 #: ../src/administration-activity/admin/profile_group_list.py:140
 msgid "Class"
 msgstr "الصف"
@@ -490,11 +491,11 @@ msgstr "الوصف:"
 msgid "Assign all the users belonging to this group"
 msgstr "تعليم جميع المستخدمين المنتمين إلى هذه المجموعة"
 
-#: ../src/administration-activity/admin/group_edit.py:355
+#: ../src/administration-activity/admin/group_edit.py:352
 msgid "You need to provide at least a name for your group"
 msgstr "تحتاج أن تعطي المجموعة اسمًا على الأقل"
 
-#: ../src/administration-activity/admin/group_edit.py:369
+#: ../src/administration-activity/admin/group_edit.py:366
 msgid "There is already a group with this name"
 msgstr "هناك مجموعة تحمل هذا الاسم"
 
@@ -503,13 +504,13 @@ msgid "Select a class:"
 msgstr "اختر صفًا:"
 
 #: ../src/administration-activity/admin/group_list.py:210
-#: ../src/administration-activity/admin/profile_edit.py:276
+#: ../src/administration-activity/admin/profile_edit.py:273
 #: ../src/administration-activity/admin/profile_group_list.py:150
 msgid "Group"
 msgstr "المجموعة"
 
 #: ../src/administration-activity/admin/group_list.py:221
-#: ../src/administration-activity/admin/profile_edit.py:286
+#: ../src/administration-activity/admin/profile_edit.py:283
 #: ../src/administration-activity/admin/profile_group_list.py:160
 #: ../src/administration-activity/admin/profile_list.py:194
 msgid "Description"
@@ -627,11 +628,11 @@ msgstr "الملف الشخصي: "
 msgid "Assign all the groups belonging to this profile"
 msgstr "تعليم جميع المجموعات المنتمية لهذا الملف الشخصي"
 
-#: ../src/administration-activity/admin/profile_edit.py:374
+#: ../src/administration-activity/admin/profile_edit.py:371
 msgid "You need to provide at least a name for your profile"
 msgstr "عليك أن تعطي اسمًا لملفك الشخصي على الأقل"
 
-#: ../src/administration-activity/admin/profile_edit.py:396
+#: ../src/administration-activity/admin/profile_edit.py:393
 msgid "There is already a profile with this name"
 msgstr "هناك ملف شخصي يحمل هذا الاسم"
 
@@ -675,12 +676,12 @@ msgstr "الكنية:"
 msgid "Birth date:"
 msgstr "تاريخ الولادة:"
 
-#: ../src/administration-activity/admin/user_edit.py:156
+#: ../src/administration-activity/admin/user_edit.py:153
 msgid ""
 "You need to provide at least a login, first name and last name for your users"
 msgstr "عليك أن تعطي على الأقل اسم ولوج، اسم وكنية كل مستخدم"
 
-#: ../src/administration-activity/admin/user_edit.py:173
+#: ../src/administration-activity/admin/user_edit.py:170
 msgid "There is already a user with this login"
 msgstr "هناك مستخدم يحمل اسم الولوج هذا"
 
@@ -1070,7 +1071,7 @@ msgid "+-×÷"
 msgstr "+-×÷"
 
 #: ../src/algebra_by-activity/algebra.c:411
-#: ../src/readingh-activity/reading.c:621
+#: ../src/readingh-activity/reading.c:630
 msgid "I am Ready"
 msgstr "أنا مستعد"
 
@@ -1104,8 +1105,8 @@ msgid "Practice the multiplication operation"
 msgstr "تدرب على عملية الضرب"
 
 #: ../src/algebra_guesscount-activity/algebra_guesscount.xml.in.h:1
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:1
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:1
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:1
 msgid ""
 "Animal pictures come from the Animal Photography Page of Ralf Schmode "
 "(http://schmode.net/). Ralf has kindly permitted Gcompris to include his "
@@ -1476,8 +1477,8 @@ msgstr "معاونة العقل. الوصل المنطقي."
 msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "استعمال الفأرة: تحرك، أمسك واسحب. مراجع ثقافية"
 
-#: ../src/babymatch-activity/shapegame.c:1835
-#: ../src/click_on_letter-activity/click_on_letter.c:624
+#: ../src/babymatch-activity/shapegame.c:1903
+#: ../src/click_on_letter-activity/click_on_letter.c:675
 #: ../src/colors-activity/colors.c:168
 #, c-format
 msgid ""
@@ -1492,6 +1493,7 @@ msgid "Complete the puzzle"
 msgstr "رتب أجزاء الصورة"
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:2
+#: ../src/details-activity/details.xml.in.h:1
 msgid ""
 "Complete the puzzle by dragging each piece from the set of pieces on the "
 "left, to the matching space in the puzzle."
@@ -1500,10 +1502,12 @@ msgstr ""
 "الملائم له."
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:3
+#: ../src/details-activity/details.xml.in.h:2
 msgid "Drag and Drop the shapes on their respective targets"
 msgstr "أمسك واسحب القطع إلى أمكنتها المناسبة"
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:4
+#: ../src/details-activity/details.xml.in.h:4
 msgid "Good mouse-control"
 msgstr "تحكم جيد بالفأرة"
 
@@ -1579,7 +1583,7 @@ msgstr ""
 msgid "bar game"
 msgstr "لعبة الخط المستقيم"
 
-#: ../src/billard-activity/billard.c:89 ../src/erase-activity/erase.c:124
+#: ../src/billard-activity/billard.c:89 ../src/erase-activity/erase.c:85
 #: ../src/erase-activity/erase.xml.in.h:4
 msgid "Move the mouse"
 msgstr "حرك الفأرة"
@@ -1600,8 +1604,8 @@ msgstr "اركل الكرة إلى الهدف"
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:5
 #: ../src/connect4-activity/connect4.xml.in.h:6
 #: ../src/erase-activity/erase.xml.in.h:3
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:6
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:6
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:6
 #: ../src/fifteen-activity/fifteen.xml.in.h:2
 #: ../src/hanoi-activity/hanoi.xml.in.h:3
 #: ../src/memory-activity/memory.xml.in.h:4
@@ -1630,6 +1634,11 @@ msgstr "القائمة الرئيسية الإصدار الثاني"
 msgid "Select a Board"
 msgstr "اختر لوحة"
 
+#: ../src/boards/menu2.c:266
+#, c-format
+msgid "Number of activities: %d"
+msgstr "عدد الأنشطة: %d"
+
 #: ../src/boards/python.c:64 ../src/boards/python.c:88
 msgid "Python Board"
 msgstr "لوحة بايثون"
@@ -1644,6 +1653,7 @@ msgstr "لوحة خاصة تدمج بايثون في «فهمت»."
 
 #: ../src/canal_lock-activity/canal_lock.xml.in.h:1
 #: ../src/watercycle-activity/watercycle.xml.in.h:2
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:2
 msgid "Drawing by Stephane Cabaraux."
 msgstr "رسوم ستيفان كاباروكس."
 
@@ -1667,40 +1677,48 @@ msgstr ""
 "أنت في مواجهة قفل القناة. افتح البوابات والأقفال بالترتيب الصحيح ليتمكن تُكس "
 "من عبور البوابات في الاتجاهين."
 
-#: ../src/chat-activity/chat.py:77
+#: ../src/chat-activity/chat.py:87
 msgid "All messages will be displayed here.\n"
 msgstr "جميع الرسائل ستُعرض هنا.\n"
 
-#: ../src/chat-activity/chat.py:128
+#: ../src/chat-activity/chat.py:139
 msgid "Your Friends"
 msgstr "أصدقاؤك"
 
-#: ../src/chat-activity/chat.py:161
+#: ../src/chat-activity/chat.py:172
 msgid "Your Channel"
 msgstr "قناتك"
 
-#: ../src/chat-activity/chat.py:187
+#: ../src/chat-activity/chat.py:198
 msgid ""
 "Type your message here, to send to other GCompris users on your local "
 "network."
 msgstr "اكتب رسالتك هنا، لتُرسل إلى جميع مستخدمي «فهمت» على شبكتك المحلية."
 
-#: ../src/chat-activity/chat.py:202
+#: ../src/chat-activity/chat.py:244
+msgid "color"
+msgstr "اللّون"
+
+#: ../src/chat-activity/chat.py:323
 msgid ""
 "ERROR: Failed to initialize the network interface. You cannot communicate."
 msgstr "عطل: تعذّر بدء واجهة الشبكة. لا يمكنك التواصل."
 
-#: ../src/chat-activity/chat.py:326
+#: ../src/chat-activity/chat.py:433
+msgid "Has left the chat."
+msgstr "غادر الدردشة."
+
+#: ../src/chat-activity/chat.py:512
 msgid "You must set a channel in your channel entry box first.\n"
 msgstr "عليك أن تحدد قناة في صندوق تحديد القناة أولًا.\n"
 
-#: ../src/chat-activity/chat.py:327
+#: ../src/chat-activity/chat.py:513
 msgid "Your friends must set the same channel in order to communicate with you"
 msgstr "أصدقاؤك يجب أن يحدوا نفس اسم القناة للتواصل معك"
 
 #: ../src/chat-activity/chat.xml.in.h:1
-msgid "Chat with your friends"
-msgstr "دردش مع أصدقائك"
+msgid "Chat and draw with your friends"
+msgstr "دردش وارسم مع أصدقائك"
 
 #: ../src/chat-activity/chat.xml.in.h:2
 msgid "This chat activity only works on the local network"
@@ -1710,9 +1728,9 @@ msgstr "نشاط الدردشة هذا يعمل فقط ضمن الشبكة ال�
 msgid ""
 "This chat activity will only work with other GCompris users on your local "
 "network, not on the Internet. To use it, just type in your message and hit "
-"Enter. Your message is then broadcast on the local network, and any GCompris "
-"program running the chat activity on that local network will receive and "
-"display your message."
+"Enter. Your message is then broadcasted on the local network, and any "
+"GCompris program running the chat activity on that local network will "
+"receive and display your message."
 msgstr ""
 "نشاط الدردشة هذا سوف يعمل فقط مع مستخدمي «فهمت» الآخرين في شبكتك المحلية، "
 "وليس على الإنترنت. لاستخدامه، اكتب رسالتك ثم اضغط زر الإدخال. ستُبث رسالتك "
@@ -1723,8 +1741,8 @@ msgstr ""
 msgid "Error: The external program gnuchess died unexpectedly"
 msgstr "خطأ: البرنامج الخارجي gnuchess انتهى بشكل غير متوقع"
 
-#: ../src/chess_computer-activity/chess.c:258
-#: ../src/chess_computer-activity/chess.c:304
+#: ../src/chess_computer-activity/chess.c:262
+#: ../src/chess_computer-activity/chess.c:308
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -1734,36 +1752,36 @@ msgstr ""
 "الشطرنج في «فهمت».\n"
 "أولًا، قم بتثبيته، ثم تحقق من وجوده في: "
 
-#: ../src/chess_computer-activity/chess.c:644
+#: ../src/chess_computer-activity/chess.c:648
 msgid "White's Turn"
 msgstr "دور الأبيض"
 
-#: ../src/chess_computer-activity/chess.c:644
+#: ../src/chess_computer-activity/chess.c:648
 msgid "Black's Turn"
 msgstr "دور الأسود"
 
-#: ../src/chess_computer-activity/chess.c:785
+#: ../src/chess_computer-activity/chess.c:789
 msgid "White checks"
 msgstr "كش ملك للأبيض"
 
-#: ../src/chess_computer-activity/chess.c:787
+#: ../src/chess_computer-activity/chess.c:791
 msgid "Black checks"
 msgstr "كش ملك للأسود"
 
-#: ../src/chess_computer-activity/chess.c:1193
+#: ../src/chess_computer-activity/chess.c:1197
 msgid "Black mates"
 msgstr "موت ملك الأسود"
 
-#: ../src/chess_computer-activity/chess.c:1198
+#: ../src/chess_computer-activity/chess.c:1204
 msgid "White mates"
 msgstr "موت ملك الأبيض"
 
-#: ../src/chess_computer-activity/chess.c:1203 ../src/gcompris/bonus.c:191
+#: ../src/chess_computer-activity/chess.c:1211 ../src/gcompris/bonus.c:191
 #: ../src/gcompris/bonus.c:200
 msgid "Drawn game"
 msgstr "تعادل"
 
-#: ../src/chess_computer-activity/chess.c:1229
+#: ../src/chess_computer-activity/chess.c:1239
 msgid "Error: The external program gnuchess died unexpectingly"
 msgstr "خطأ: البرنامج الخارجي gnuchess انتهى بشكل غير متوقع"
 
@@ -1995,7 +2013,7 @@ msgstr "1955 سيتروين دس 19"
 msgid "Cars"
 msgstr "سيارات"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:271
+#: ../src/click_on_letter-activity/click_on_letter.c:311
 #: ../src/memory-activity/memory.c:906
 msgid ""
 "Error: this activity cannot be played with the\n"
@@ -2009,12 +2027,12 @@ msgstr ""
 #. TRANSLATORS: Put here the alphabet in your language
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
-#: ../src/click_on_letter-activity/click_on_letter.c:276
+#: ../src/click_on_letter-activity/click_on_letter.c:316
 #: ../src/gletters-activity/gletters.c:229 ../src/memory-activity/memory.c:935
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "ابتثجحخدذرزسشصضطظعغفقكلمنهوي"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:298
+#: ../src/click_on_letter-activity/click_on_letter.c:344
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -2023,7 +2041,7 @@ msgstr ""
 "خطأ: يتطلب هذا النشاط منك أولًا أن تثبت الحزم التي\n"
 "تأتي بأصوات «فهمت» للغة '%s' أو '%s'"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:306
+#: ../src/click_on_letter-activity/click_on_letter.c:354
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -2034,8 +2052,11 @@ msgstr ""
 "تأتي بأصوات «فهمت» للغة '%s' ! سأعود إلى اللغة الإنجليزية، عذرًا!"
 
 #. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:647
+#: ../src/click_on_letter-activity/click_on_letter.c:698
 #: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:484
+#: ../src/missing_letter-activity/missingletter_config.c:492
+#: ../src/readingh-activity/reading.c:928
+#: ../src/wordsgame-activity/wordsgame.c:889
 msgid "Uppercase only text"
 msgstr "نص بحروف كبيرة فقط"
 
@@ -2264,8 +2285,8 @@ msgstr "قم بقيادة الرافعة وانسخ النموذج"
 
 #: ../src/crane-activity/crane.xml.in.h:3
 #: ../src/erase-activity/erase.xml.in.h:2
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:5
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:5
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:5
 #: ../src/penalty-activity/penalty.xml.in.h:3
 msgid "Motor-coordination"
 msgstr "معاونة العقل"
@@ -2286,6 +2307,107 @@ msgstr ""
 "الأيمن. تحت الرافعة نفسها، ستجد الأسهم التي تسمح لك بتحريك العناصر. لاختيار "
 "عنصر لتحريكه، اضغط عليه فحسب. أو يمكنك استخدام مفاتيح الأسهم ومسطرة المسافات "
 "أو علامة الجدولة إذا كنت تفضل هذا."
+
+#: ../src/details-activity/details.xml.in.h:3
+msgid "Find the details"
+msgstr "اعثر على التفاصيل"
+
+#: ../src/details-activity/details.xml.in.h:5
+msgid "The images are from Wikimedia Commons."
+msgstr "الصور مأخوذة من ويكيميديا كومنز."
+
+#: ../src/details-activity/resources/details/board1_0.xml.in.h:1
+#, fuzzy
+msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1889"
+msgstr "فنسنت فان جوخ، غرفة النوم في أرلِس - ١٨٨٨"
+
+#: ../src/details-activity/resources/details/board1_1.xml.in.h:1
+msgid ""
+"Vincent van Gogh, The Bridge of Langlois at Arles with a lady with umbrella "
+"- 1888"
+msgstr ""
+
+#: ../src/details-activity/resources/details/board1_2.xml.in.h:1
+#, fuzzy
+msgid "Vincent van Gogh, The Church at Auvers-sur-Oise - 1890"
+msgstr "فينسنت فان جوخ، شارع القرية في أوفرز - 1890"
+
+#: ../src/details-activity/resources/details/board1_3.xml.in.h:1
+#, fuzzy
+msgid "Vincent van Gogh, Painter on His Way to Work - 1888"
+msgstr "فنسنت فان جوخ، غرفة النوم في أرلِس - ١٨٨٨"
+
+#: ../src/details-activity/resources/details/board1_4.xml.in.h:1
+msgid "Vincent van Gogh, The Harvest - 1888"
+msgstr "فنسنت فان جوخ، الحصاد - ١٨٨٨"
+
+#: ../src/details-activity/resources/details/board1_5.xml.in.h:1
+#, fuzzy
+msgid "Vincent van Gogh, Cafe Terrace at Night - 1888"
+msgstr "فنسنت فان جوخ، غرفة النوم في أرلِس - ١٨٨٨"
+
+#: ../src/details-activity/resources/details/board1_6.xml.in.h:1
+#, fuzzy
+msgid "Vincent van Gogh, The Night Café - 1888"
+msgstr "فنسنت فان جوخ، غرفة النوم في أرلِس - ١٨٨٨"
+
+#: ../src/details-activity/resources/details/board1_7.xml.in.h:1
+#, fuzzy
+msgid "Vincent van Gogh, Portrait of Pere Tanguy 1887-8"
+msgstr "فنسنت فان جوخ، غرفة النوم في أرلِس - ١٨٨٨"
+
+#: ../src/details-activity/resources/details/board2_0.xml.in.h:1
+msgid "Eilean Donan castle"
+msgstr ""
+
+#: ../src/details-activity/resources/details/board2_1.xml.in.h:1
+msgid "Eiffel Tower, seen from the champ de Mars, Paris, France"
+msgstr ""
+
+#: ../src/details-activity/resources/details/board2_10.xml.in.h:1
+msgid "Gizah Pyramids, Egypt"
+msgstr "أهرامات الجيزة، مصر"
+
+#: ../src/details-activity/resources/details/board2_11.xml.in.h:1
+msgid "Sydney Opera House, Australia"
+msgstr "دار أوبرا سيدني، استراليا"
+
+#: ../src/details-activity/resources/details/board2_12.xml.in.h:1
+msgid "Tower Bridge in London"
+msgstr "جسر البرج في لندن"
+
+#: ../src/details-activity/resources/details/board2_2.xml.in.h:1
+msgid "Courtyard of the Museum of Louvre, and its pyramid"
+msgstr "ساحة متحف اللوڤر وهرمها"
+
+#: ../src/details-activity/resources/details/board2_3.xml.in.h:1
+msgid "Panorama of Château de Chenonceau, Indre-et-Loire, France."
+msgstr ""
+
+#: ../src/details-activity/resources/details/board2_4.xml.in.h:1
+msgid ""
+"Notre Dame de Paris cathedral on the Île de la Cité island in Paris, France."
+msgstr ""
+
+#: ../src/details-activity/resources/details/board2_5.xml.in.h:1
+msgid "Nagoya Castle, Aichi Prefecture, Japan."
+msgstr ""
+
+#: ../src/details-activity/resources/details/board2_6.xml.in.h:1
+msgid "Taj Mahal, Agra, India"
+msgstr "تاج محل، أكرا، الهند"
+
+#: ../src/details-activity/resources/details/board2_7.xml.in.h:1
+msgid "Castle Neuschwanstein at Schwangau, Bavaria, Germany"
+msgstr ""
+
+#: ../src/details-activity/resources/details/board2_8.xml.in.h:1
+msgid "Egeskov Castle, Denmark"
+msgstr ""
+
+#: ../src/details-activity/resources/details/board2_9.xml.in.h:1
+msgid "Windmill in Sønderho, Fanø, Denmark"
+msgstr ""
 
 #: ../src/doubleentry-activity/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
@@ -2339,6 +2461,10 @@ msgstr ""
 "اختر أداة رسم من اليسار، واللون من الأسفل، ثم انقر واسحب في المساحة البيضاء "
 "لإنشاوء شكل جديد. لاختصار الوقت، يمكنك النقر بزر الفأرة الأوسط لحذف عنصر."
 
+#: ../src/drawnumber-activity/drawnumber.py:236
+msgid "Cannot find the file '{filename}'"
+msgstr "تعذّر العثور على الملف '{filename}'"
+
 #: ../src/drawnumber-activity/drawnumber.xml.in.h:1
 msgid "Can count from 1 to 50."
 msgstr "العد من 1 إلى 50."
@@ -2355,7 +2481,7 @@ msgstr "ارسم الصورة من خلال النقر على الأرقام ب�
 msgid "Draw the picture by following numbers"
 msgstr "ارسم الصورة بتتبع الأرقام"
 
-#: ../src/electric-activity/electric.py:98
+#: ../src/electric-activity/electric.py:99
 msgid ""
 "Cannot find the 'gnucap' electric simulator.\n"
 "You can download and install it from:\n"
@@ -2445,9 +2571,31 @@ msgstr ""
 "عنه في المساحة السفلية اليمنى. أدخل الإجابة بواسطة لوحة المفاتيح ثم انقر على "
 "'موافق' أو اضغط زر الإدخال."
 
-#: ../src/erase-activity/erase.c:125 ../src/erase-activity/erase.xml.in.h:5
+#: ../src/erase-activity/erase.c:86 ../src/erase-activity/erase.xml.in.h:5
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "حرك الفأرة لمحو الشاشة واكتشاف الخلفية"
+
+#: ../src/erase-activity/erase.c:180
+msgid "Error: No images found\n"
+msgstr "خطأ: لم يُعثر على أي صور\n"
+
+#: ../src/erase-activity/erase.c:578 ../src/gcompris/properties.c:501
+#: ../src/gcompris/properties.c:508
+msgid "readme"
+msgstr "اقرأني"
+
+#: ../src/erase-activity/erase.c:580
+msgid ""
+"Put any number of images in this directory.\n"
+"They will be used as background in the 'erase' activity.\n"
+"The image must be in the 'jpeg' format and be suffixed with '.jpg' or '."
+"jpeg'.\n"
+"For best results, they must have a size of 800x520 pixels.\n"
+msgstr ""
+"ضع أي عدد من الصور في هذا الدليل\n"
+"وستُستخدم خلفيات لنشاط 'المحو'.\n"
+"يجب أن تكون الصور بنسث 'jpeg' وتحمل الامتداد '.jpg' أو '.jpeg'.\n"
+"ويحسن أن يكون مقاسها 800×520 بكسل للحصول على أفضل نتائج.\n"
 
 #: ../src/erase-activity/erase.xml.in.h:1
 msgid ""
@@ -2461,20 +2609,12 @@ msgstr ""
 "الصور"
 
 #: ../src/erase-activity/erase.xml.in.h:6
-msgid "Move the mouse until all the blocks disappear."
-msgstr "حرك الفأرة حتى تختفي جميع الكتل"
-
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:2
-msgid "Click the mouse"
-msgstr "انقر على الفأرة"
-
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:3
-msgid "Click the mouse on rectangles until all the blocks disappear."
-msgstr "انقر بالفأرة على المربعات حتى تختفي جميع الكتل"
-
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:4
-msgid "Click the mouse to erase the area and discover the background"
-msgstr "حرك الفأرة لمحو الشاشة واكتشاف الخلفية"
+msgid ""
+"Move the mouse until all the blocks disappear. You can add you own images "
+"under the directory '~/My GCompris/erase'."
+msgstr ""
+"حرك الفأرة حتى تختفي كل المربعات. يمكنك إضافة صور في المجلد '‪~/My GCompris/"
+"erase‬'."
 
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
 msgid "Double click the mouse"
@@ -2487,6 +2627,18 @@ msgstr "انقر مرتين بالفأرة على المربعات حتى تخت
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:4
 msgid "Double click the mouse to erase the area and discover the background"
 msgstr "انقر مرتين بالفأرة لمحو المنطقة واكتشاف الخلفية"
+
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:2
+msgid "Click the mouse"
+msgstr "انقر على الفأرة"
+
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:3
+msgid "Click the mouse on rectangles until all the blocks disappear."
+msgstr "انقر بالفأرة على المربعات حتى تختفي جميع الكتل"
+
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:4
+msgid "Click the mouse to erase the area and discover the background"
+msgstr "حرك الفأرة لمحو الشاشة واكتشاف الخلفية"
 
 #: ../src/fifteen-activity/fifteen.xml.in.h:1
 msgid ""
@@ -2528,7 +2680,7 @@ msgstr ""
 msgid "Tux needs to water the flowers, but the hose is blocked."
 msgstr "تُكس يريد أن يسقي الزهور، ولكن الخرطوم مغلق."
 
-#: ../src/gcompris/about.c:50
+#: ../src/gcompris/about.c:49
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge, Yves Combe\n"
@@ -2543,7 +2695,7 @@ msgstr ""
 "موسيقى خلفية: ريكو دا هلفاريز \n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:58
+#: ../src/gcompris/about.c:57
 msgid "translator_credits"
 msgstr ""
 "فريق عربآيز للترجمة:\n"
@@ -2552,47 +2704,47 @@ msgstr ""
 "أنس الحسيني\n"
 "خالد حسني"
 
-#: ../src/gcompris/about.c:85
+#: ../src/gcompris/about.c:84
 msgid "About GCompris"
 msgstr "حوْل «فهمت»"
 
-#: ../src/gcompris/about.c:95
+#: ../src/gcompris/about.c:94
 msgid "GCompris Home Page: http://gcompris.net"
 msgstr "صفحة «فهمت» الرئيسية http://gcompris.net"
 
-#: ../src/gcompris/about.c:106
+#: ../src/gcompris/about.c:105
 msgid "Translators:"
 msgstr "المترجمون:"
 
-#: ../src/gcompris/about.c:206
+#: ../src/gcompris/about.c:210
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
 msgstr "هذا البرنامج حزمة من حزم جنو وقد أُصدِر وفقًا لرخصة جنو العمومية"
 
-#: ../src/gcompris/about.c:220 ../src/gcompris/config.c:442
-#: ../src/gcompris/dialog.c:103 ../src/gcompris/help.c:359
+#: ../src/gcompris/about.c:224 ../src/gcompris/config.c:438
+#: ../src/gcompris/dialog.c:104 ../src/gcompris/help.c:355
 #: ../src/gcompris/images_selector.c:307
 msgid "OK"
 msgstr "موافق"
 
-#: ../src/gcompris/bar.c:688
+#: ../src/gcompris/bar.c:693
 msgid "GCompris confirmation"
 msgstr "تأكيد «فهمت»"
 
-#: ../src/gcompris/bar.c:689
+#: ../src/gcompris/bar.c:694
 msgid "Are you sure you want to quit?"
 msgstr "أمتأكد أنك تريد الخروج؟"
 
-#: ../src/gcompris/bar.c:690
+#: ../src/gcompris/bar.c:695
 msgid "Yes, I am sure!"
 msgstr "نعم، متأكد!"
 
-#: ../src/gcompris/bar.c:691
+#: ../src/gcompris/bar.c:696
 msgid "No, I want to keep going"
 msgstr "لا أريد المغادرة"
 
-#: ../src/gcompris/board.c:197
+#: ../src/gcompris/board.c:168
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr "التحميل الديناميكي للوحدات غير مدعوم. «فهمت» لا يمكنه التحميل.\n"
 
@@ -2940,38 +3092,38 @@ msgstr "استخدم وحدة إدارة «فهمت» لتصفية اللوحا�
 msgid "GCompris Configuration"
 msgstr "إعدادات «فهمت»"
 
-#: ../src/gcompris/config.c:254
+#: ../src/gcompris/config.c:253
 msgid "Fullscreen"
 msgstr "ملء الشاشة"
 
-#: ../src/gcompris/config.c:280
+#: ../src/gcompris/config.c:278
 msgid "Music"
 msgstr "موسيقى"
 
-#: ../src/gcompris/config.c:306
+#: ../src/gcompris/config.c:303
 msgid "Effect"
 msgstr "التأثير"
 
-#: ../src/gcompris/config.c:331 ../src/gcompris/sugar.c:82
+#: ../src/gcompris/config.c:327 ../src/gcompris/sugar.c:82
 msgid "Zoom"
 msgstr "التقريب"
 
-#: ../src/gcompris/config.c:368
+#: ../src/gcompris/config.c:364
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "تعذر فتح مجلد المظاهر : %s"
 
-#: ../src/gcompris/config.c:399 ../src/gcompris/config.c:757
-#: ../src/gcompris/config.c:771
+#: ../src/gcompris/config.c:395 ../src/gcompris/config.c:753
+#: ../src/gcompris/config.c:767
 #, c-format
 msgid "Skin : %s"
 msgstr "المظهر : %s"
 
-#: ../src/gcompris/config.c:401
+#: ../src/gcompris/config.c:397
 msgid "SKINS NOT FOUND"
 msgstr "المظهر غير موجود"
 
-#: ../src/gcompris/config.c:482
+#: ../src/gcompris/config.c:478
 msgid "English (United State)"
 msgstr "إنجليزي (الولايات المتحدة)"
 
@@ -3003,39 +3155,43 @@ msgstr ""
 "الخروج وإرسال تقرير\n"
 "بالمشكلة إلى المبرمجين."
 
-#: ../src/gcompris/gcompris.c:156
+#: ../src/gcompris/gcompris.c:158
 msgid "run GCompris in fullscreen mode."
 msgstr "شغل «فهمت» في وضع ملء الشاشة."
 
-#: ../src/gcompris/gcompris.c:159
+#: ../src/gcompris/gcompris.c:161
 msgid "run GCompris in window mode."
 msgstr "شغل «فهمت» في وضع النافذة."
 
-#: ../src/gcompris/gcompris.c:162
+#: ../src/gcompris/gcompris.c:164
 msgid "run GCompris with sound enabled."
 msgstr "شغل «فهمت» مع تفعيل الصوت."
 
-#: ../src/gcompris/gcompris.c:165
+#: ../src/gcompris/gcompris.c:167
 msgid "run GCompris without sound."
 msgstr "شغل «فهمت» بدون صوت."
 
-#: ../src/gcompris/gcompris.c:168
-msgid "run GCompris with the default gnome cursor."
-msgstr "شغل «فهمت» باستعمال مؤشر جنوم الافتراضي."
+#: ../src/gcompris/gcompris.c:170
+msgid "run GCompris with the default system cursor."
+msgstr "شغل «فهمت» باستعمال مؤشر النظام الافتراضي."
 
-#: ../src/gcompris/gcompris.c:171
+#: ../src/gcompris/gcompris.c:173
+msgid "run GCompris without cursor (touch screen mode)."
+msgstr "شغل «فهمت» بدون مؤشر (وضع شاشة اللمس)."
+
+#: ../src/gcompris/gcompris.c:176
 msgid "display only activities with this difficulty level."
 msgstr "اعرض الأنشطة التي تتناسب فقط مع هذا المستوى الصعب."
 
-#: ../src/gcompris/gcompris.c:174
+#: ../src/gcompris/gcompris.c:179
 msgid "display debug informations on the console."
 msgstr "اعرض معلومات التنقيح في سطر الأوامر."
 
-#: ../src/gcompris/gcompris.c:177
+#: ../src/gcompris/gcompris.c:182
 msgid "Print the version of "
 msgstr "اطبع رقم إصدار "
 
-#: ../src/gcompris/gcompris.c:180
+#: ../src/gcompris/gcompris.c:185
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
@@ -3046,35 +3202,35 @@ msgstr ""
 "الموجودة فقط في المجلد reading، و l /strategy/connect4- سيمكنك من اللعب ب‍ "
 "'وصّل 4' فقط). استخدم '-l list' لسرد جميع النشاطات المتوفرة مع وصف لها."
 
-#: ../src/gcompris/gcompris.c:185
+#: ../src/gcompris/gcompris.c:190
 msgid "GCompris will find the data dir in this directory"
 msgstr "سيبحث «فهمت» عن دليل البيانات في هذا المجلد"
 
-#: ../src/gcompris/gcompris.c:188
+#: ../src/gcompris/gcompris.c:193
 msgid "GCompris will find the skins in this directory"
 msgstr "سيبحث «فهمت» عن المظاهر في هذا المجلد"
 
-#: ../src/gcompris/gcompris.c:191
+#: ../src/gcompris/gcompris.c:196
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "سيبحث «فهمت» عن ملحقات الأنشطة في هذا المجلد"
 
-#: ../src/gcompris/gcompris.c:194
+#: ../src/gcompris/gcompris.c:199
 msgid "GCompris will find the python activity in this directory"
 msgstr "سيبحث «فهمت» عن أنشطة بيثون في هذا المجلد"
 
-#: ../src/gcompris/gcompris.c:197
+#: ../src/gcompris/gcompris.c:202
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr "سيبحث «فهمت» عن ملفات الترجمة في هذا المجلد"
 
-#: ../src/gcompris/gcompris.c:200
+#: ../src/gcompris/gcompris.c:205
 msgid "GCompris will find the activities menu in this directory"
 msgstr "سيبحث «فهمت» عن قائمة الأنشطة في هذا المجلد"
 
-#: ../src/gcompris/gcompris.c:203
+#: ../src/gcompris/gcompris.c:208
 msgid "Run GCompris in administration and user-management mode"
 msgstr "شغل «فهمت» في نمط الإدارة"
 
-#: ../src/gcompris/gcompris.c:206
+#: ../src/gcompris/gcompris.c:211
 msgid ""
 "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
@@ -3082,26 +3238,26 @@ msgstr ""
 "استخدم قاعدة بيانات بديلة للملفات الشخصية [$HOME/.config/gcompris/"
 "gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:209
+#: ../src/gcompris/gcompris.c:214
 msgid "Create the alternate database for profiles"
 msgstr "أنشيء قاعدة بيانات بديلة للملفات الشخصية"
 
-#: ../src/gcompris/gcompris.c:212
+#: ../src/gcompris/gcompris.c:217
 msgid "Re-read XML Menus and store them in the database"
 msgstr "أعِد قراءة قوائم إكس إم إل وحفظها في قاعدة البيانات"
 
-#: ../src/gcompris/gcompris.c:215
+#: ../src/gcompris/gcompris.c:220
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr ""
 "حدد الملف الشخصي الذي تريد استخدامه. استخدم 'gompris -a' لإنشاء الملفات "
 "الشخصية"
 
-#: ../src/gcompris/gcompris.c:218
+#: ../src/gcompris/gcompris.c:223
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
 "اسرد كل الملفات الشخصية المتاحة. استخدم 'gcompris -a' لإنشاء الملفات الشخصية"
 
-#: ../src/gcompris/gcompris.c:221
+#: ../src/gcompris/gcompris.c:226
 msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
@@ -3109,23 +3265,27 @@ msgstr ""
 "مكان مجلد الإعدادات: [$HOME/.config/gcompris]. البديل هو تحديد "
 "$XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:224
+#: ../src/gcompris/gcompris.c:229
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "مكان مجلدات المستخدمين: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:227
+#: ../src/gcompris/gcompris.c:232
 msgid "Run the experimental activities"
 msgstr "شغل الأنشطة التجريبية"
 
-#: ../src/gcompris/gcompris.c:230
+#: ../src/gcompris/gcompris.c:235
 msgid "Disable the quit button"
 msgstr "عطِّل زر الخروج"
 
-#: ../src/gcompris/gcompris.c:233
+#: ../src/gcompris/gcompris.c:238
 msgid "Disable the config button"
 msgstr "عطِّل زر الإعدادات"
 
-#: ../src/gcompris/gcompris.c:236
+#: ../src/gcompris/gcompris.c:241
+msgid "Disable the level button"
+msgstr "عطِّل زر المغادرة"
+
+#: ../src/gcompris/gcompris.c:244
 msgid ""
 "GCompris will get images, sounds and activity data from this server if not "
 "found locally."
@@ -3133,7 +3293,7 @@ msgstr ""
 "«فهمت» سوف يستورد الصور والأصوات وبيانات الأنشطة من هذا الخادم إن لم تتواجد "
 "محليًا."
 
-#: ../src/gcompris/gcompris.c:239
+#: ../src/gcompris/gcompris.c:247
 msgid ""
 "Only when --server is provided, disable check for local resource first. Data "
 "are always taken from the web server."
@@ -3141,23 +3301,23 @@ msgstr ""
 "فقط عندما يتم تزويد server--، يُلغى التحقق من الموارد المحلية. ستُستورد "
 "البيانات دائمًا من خادم الوِب."
 
-#: ../src/gcompris/gcompris.c:243
+#: ../src/gcompris/gcompris.c:251
 msgid ""
 "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr ""
 "في نمط الخادم، حدد مجلد الذاكرة المخبأة المستخدم لتلافي التحميل المكرر."
 
-#: ../src/gcompris/gcompris.c:246
+#: ../src/gcompris/gcompris.c:254
 msgid ""
 "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr ""
 "نمط السحب والإفلات العام: عادي، نقرتان، كلاهما. النمط الافتراضي هو عادي."
 
-#: ../src/gcompris/gcompris.c:249
+#: ../src/gcompris/gcompris.c:257
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "لا تتجنب تشغيل عدة نسخ من «فهمت» في وقت واحد."
 
-#: ../src/gcompris/gcompris.c:890
+#: ../src/gcompris/gcompris.c:929
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -3178,18 +3338,23 @@ msgstr ""
 "البرمجيات الحرة:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1429
+#: ../src/gcompris/gcompris.c:1223
+#, c-format
+msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
+msgstr "فشل تحميل المظهر '%s' (تأكد من أن الملف موجود ويمكن قراءته) "
+
+#: ../src/gcompris/gcompris.c:1486
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
 msgstr "لن يبدأ «فهمت» لأن ملف القفل أحدث من %d ثوانِ.\n"
 
-#: ../src/gcompris/gcompris.c:1431
+#: ../src/gcompris/gcompris.c:1488
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "ملف القفل: %s\n"
 
-#: ../src/gcompris/gcompris.c:1545
+#: ../src/gcompris/gcompris.c:1602
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3203,34 +3368,34 @@ msgstr ""
 "لمزيد من المعلومات زر الصفحة http://gcompris.net \n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1648
+#: ../src/gcompris/gcompris.c:1717
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "استخدم l- للوصول إلى نشاط معين مباشرة.\n"
 
-#: ../src/gcompris/gcompris.c:1649
+#: ../src/gcompris/gcompris.c:1718
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "قائمة الأنشطة المتاحة: \n"
 
-#: ../src/gcompris/gcompris.c:1680
+#: ../src/gcompris/gcompris.c:1749
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "عدد الأنشطة: %d\n"
 
-#: ../src/gcompris/gcompris.c:1716
+#: ../src/gcompris/gcompris.c:1785
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "‏%s موجود لكن لا يمكن قراءته أو الكتابة به"
 
-#: ../src/gcompris/gcompris.c:1779
+#: ../src/gcompris/gcompris.c:1848
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
 "without network support!"
 msgstr "لا يمكن استخدام خيار ‪--server‬ لأن \"فهمت\" لم يُصرَّف مع دعم الشبكة"
 
-#: ../src/gcompris/gcompris.c:1833
+#: ../src/gcompris/gcompris.c:1902
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3239,7 +3404,7 @@ msgstr ""
 "خطأ: اللاحة '%s' غير موجودة. شغل 'gcompris --profile-list' لترى اللاحات "
 "المتاحة\n"
 
-#: ../src/gcompris/gcompris.c:1847
+#: ../src/gcompris/gcompris.c:1916
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "قائمة الملفات الشخصية المتاحة: \n"
@@ -3252,7 +3417,7 @@ msgstr "غير متأثر"
 msgid "Users without a class"
 msgstr "مستخدمون لا ينتمون إلى أي صف"
 
-#: ../src/gcompris/gcompris_db.c:893
+#: ../src/gcompris/gcompris_db.c:889
 #, c-format
 msgid ""
 "Loading activity from database:\n"
@@ -3261,23 +3426,23 @@ msgstr ""
 "يحمل الأنشطة من قاعدة البيانات:\n"
 "%s"
 
-#: ../src/gcompris/help.c:181
+#: ../src/gcompris/help.c:180
 msgid "Prerequisite"
 msgstr "المتطلبات"
 
-#: ../src/gcompris/help.c:212
+#: ../src/gcompris/help.c:210
 msgid "Goal"
 msgstr "الهدف"
 
-#: ../src/gcompris/help.c:243
+#: ../src/gcompris/help.c:240
 msgid "Manual"
 msgstr "دليل المستخدم"
 
-#: ../src/gcompris/help.c:274
+#: ../src/gcompris/help.c:270
 msgid "Credit"
 msgstr "شكر وتقدير"
 
-#: ../src/gcompris/menu.c:583
+#: ../src/gcompris/menu.c:582
 #, c-format
 msgid ""
 "Loading activity from file:\n"
@@ -3286,17 +3451,13 @@ msgstr ""
 "يحمل الأنشطة من ملف:\n"
 "%s"
 
-#: ../src/gcompris/properties.c:497 ../src/gcompris/properties.c:504
-msgid "readme"
-msgstr "اقرأني"
-
-#: ../src/gcompris/properties.c:499
+#: ../src/gcompris/properties.c:503
 msgid ""
 "This directory contains the files you create with the GCompris educational "
 "suite\n"
 msgstr "هذا المجلد يحتوي الملفات التي أنشأتها بواسطة مجموعة «فهمت» التعليمية\n"
 
-#: ../src/gcompris/properties.c:506
+#: ../src/gcompris/properties.c:510
 msgid ""
 "Put any number of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
@@ -3339,11 +3500,11 @@ msgstr "السابق"
 msgid "Stop"
 msgstr "أوقِف"
 
-#: ../src/gcompris/timer.c:244
+#: ../src/gcompris/timer.c:245
 msgid "Time Elapsed"
 msgstr "انتهى الوقت"
 
-#: ../src/gcompris/timer.c:322
+#: ../src/gcompris/timer.c:323
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "الوقت المتبقي = %d"
@@ -3979,13 +4140,13 @@ msgstr "ابتثجحخدذرزسشصضطظعغفقكلمنهوي"
 #. we can add what you want in it.
 #: ../src/gletters-activity/gletters.c:850
 #: ../src/imageid-activity/imageid.c:712 ../src/login-activity/login.py:479
-#: ../src/missing_letter-activity/missingletter.c:748
+#: ../src/missing_letter-activity/missingletter.c:784
 #: ../src/pythontest-activity/pythontest.py:454
-#: ../src/readingh-activity/reading.c:878
+#: ../src/readingh-activity/reading.c:904
 #: ../src/scalesboard-activity/scale.c:1161
 #: ../src/smallnumbers-activity/smallnumbers.c:595
 #: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:827
+#: ../src/wordsgame-activity/wordsgame.c:866
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -4419,14 +4580,14 @@ msgstr "مسدس"
 #: ../src/imageid-activity/imageid.xml.in.h:3
 #: ../src/imagename-activity/imagename.xml.in.h:4
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:1
-#: ../src/missing_letter-activity/missingletter.c:83
+#: ../src/missing_letter-activity/missingletter.c:84
 #: ../src/readingh-activity/readingh.xml.in.h:4
 #: ../src/readingv-activity/readingv.xml.in.h:4
 msgid "Reading"
 msgstr "القراءة"
 
 #: ../src/imageid-activity/imageid.c:95
-#: ../src/missing_letter-activity/missingletter.c:84
+#: ../src/missing_letter-activity/missingletter.c:85
 msgid "Learn how to read"
 msgstr "تعلم القراءة"
 
@@ -4437,7 +4598,7 @@ msgid ""
 msgstr "ملف بيانات هذا المستوى ليس منسقا جيدا. تقترح خيارات كثيرة جدا."
 
 #: ../src/imageid-activity/imageid.c:534
-#: ../src/missing_letter-activity/missingletter.c:568
+#: ../src/missing_letter-activity/missingletter.c:592
 msgid "Data file for this level is not properly formatted."
 msgstr "ملف بيانات هذا المستوى ليس منسقا جيدا."
 
@@ -4802,8 +4963,8 @@ msgstr "شاشة ولوج «فهمت»"
 
 #: ../src/login-activity/login.xml.in.h:3
 msgid ""
-"In order to activate the login screen, you must \n"
-"first add users in the administration part of GCompris. \n"
+"In order to activate the login screen, you must\n"
+"first add users in the administration part of GCompris.\n"
 "You access Administration by running 'gcompris -a'.\n"
 "In Administration, you can create different profiles. In each profile,\n"
 "you can have a different set of users and select which activities are "
@@ -4889,13 +5050,13 @@ msgstr "المتاهة"
 msgid "Find your way out of the maze"
 msgstr "اعثر على الطريق للخروج من المتاهة"
 
-#: ../src/maze-activity/maze.c:500
+#: ../src/maze-activity/maze.c:599
 msgid ""
 "Look at your position, then switch back to invisible mode to continue your "
 "moves"
 msgstr "انظر إلى موقعك، ثم حول إلى النمط غير المرئي لمتابعة تحركك"
 
-#: ../src/maze-activity/maze.c:502
+#: ../src/maze-activity/maze.c:601
 msgid ""
 "Look at your position, then switch back to 3D mode to continue your moves"
 msgstr "انظر إلى موقعك، ثم حول إلى النمط الثلاثي الأبعاد لمتابعة تحركك"
@@ -5473,43 +5634,97 @@ msgstr "تنمية مهارات القراءة"
 msgid "Word reading"
 msgstr "قراءة الكلمات"
 
+#: ../src/missing_letter-activity/missingletter_config.c:77
+msgid "Please select an image."
+msgstr "اختر صورة من فضلك."
+
+#: ../src/missing_letter-activity/missingletter_config.c:83
+msgid "Choice cannot be empty."
+msgstr "لا يُسمح باختيار خال."
+
+#: ../src/missing_letter-activity/missingletter_config.c:89
+msgid "Question cannot be empty."
+msgstr "لا يُسمح بسؤال خال."
+
+#: ../src/missing_letter-activity/missingletter_config.c:95
+msgid ""
+"Question must include the character '_'. It represents the letter to search."
+msgstr "يجب أن يحتوي السؤال على '_' لأنها تمثل الحرف الناقص."
+
+#: ../src/missing_letter-activity/missingletter_config.c:102
+msgid "Pixmap cannot be empty"
+msgstr "لا يُسمح بصورة خالية."
+
+#: ../src/missing_letter-activity/missingletter_config.c:108
+msgid "There must be at least 2 choices."
+msgstr "يجب وجود اختيارين على الأقل."
+
+#: ../src/missing_letter-activity/missingletter_config.c:116
+msgid "The answer and question must be the same except for the character '_'."
+msgstr "يجب أن يتطابق السؤال والإجابة في ماعدا علامة '_'."
+
+#: ../src/missing_letter-activity/missingletter_config.c:125
+msgid "The first choice must be the solution that replaces the character '_'."
+msgstr "يجب أن يكون الاختيار الأول الإجابة التي تستبدل علامة '_'."
+
+#: ../src/missing_letter-activity/missingletter_config.c:140
+#, c-format
+msgid ""
+"Invalid entry:\n"
+"Question '%s' / Answer '%s'\n"
+"%s"
+msgstr ""
+"مُدخل غير سليم:\n"
+"السؤال '%s' \\ الإجابة '%s'\n"
+"%s"
+
 #. pixmap
-#: ../src/missing_letter-activity/missingletter_config.c:384
-#: ../src/missing_letter-activity/missingletter_config.c:534
+#: ../src/missing_letter-activity/missingletter_config.c:414
+#: ../src/missing_letter-activity/missingletter_config.c:557
 msgid "Picture"
 msgstr "صورة"
 
 #. answer
-#: ../src/missing_letter-activity/missingletter_config.c:390
-#: ../src/missing_letter-activity/missingletter_config.c:525
+#: ../src/missing_letter-activity/missingletter_config.c:420
+#: ../src/missing_letter-activity/missingletter_config.c:548
 msgid "Answer"
 msgstr "جواب"
 
 #. question
-#: ../src/missing_letter-activity/missingletter_config.c:396
-#: ../src/missing_letter-activity/missingletter_config.c:548
+#: ../src/missing_letter-activity/missingletter_config.c:426
+#: ../src/missing_letter-activity/missingletter_config.c:571
 msgid "Question"
 msgstr "سؤال"
 
 #. choice
-#: ../src/missing_letter-activity/missingletter_config.c:402
-#: ../src/missing_letter-activity/missingletter_config.c:557
+#: ../src/missing_letter-activity/missingletter_config.c:432
+#: ../src/missing_letter-activity/missingletter_config.c:583
 msgid "Choice"
 msgstr "اختيار"
 
 #. combo level
-#: ../src/missing_letter-activity/missingletter_config.c:440
+#: ../src/missing_letter-activity/missingletter_config.c:470
 msgid "Level:"
 msgstr "المستوى:"
 
-#: ../src/missing_letter-activity/missingletter_config.c:448
+#: ../src/missing_letter-activity/missingletter_config.c:478
 #, c-format
 msgid "Level %d"
 msgstr "المستوى %d"
 
-#: ../src/missing_letter-activity/missingletter_config.c:538
+#: ../src/missing_letter-activity/missingletter_config.c:561
 msgid "Filename:"
 msgstr "اسم الملف:"
+
+#: ../src/missing_letter-activity/missingletter_config.c:579
+msgid "Replace the letter to guess by the character '_'."
+msgstr "خمن الحرف الناقص مكان علامة '_'."
+
+#: ../src/missing_letter-activity/missingletter_config.c:591
+msgid ""
+"Enter here the letter that will be proposed. The first letter here must be "
+"the solution."
+msgstr "أدخل هنا الحرف الذي سيُقترح، أول حرف يجب أن يكون الحل الصحيح."
 
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:1
 msgid "car/c_r/a/k/o"
@@ -5656,12 +5871,12 @@ msgid "satchel/sa_chel/t/p/c/z/s/l"
 msgstr "حقيبة/حقي_ة/ب/ن/ت"
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
-#: ../src/money-activity/money.c:496
+#: ../src/money-activity/money.c:542
 #, c-format
 msgid "$ %.2f"
 msgstr "$ %.2f"
 
-#: ../src/money-activity/money.c:509
+#: ../src/money-activity/money.c:555
 #, c-format
 msgid "$ %.0f"
 msgstr "$ %.0f"
@@ -5741,49 +5956,93 @@ msgstr "إدغار ديغاس، الصف الراقص - 1873-1875"
 msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
 msgstr "بيار-أوغست رينوار، طواحين الهواء 1876"
 
+#: ../src/paintings-activity/resources/paintings/board1_10.xml.in.h:1
+msgid ""
+"Katsushika Hokusai,\\nViewing Sunset over the Ryogoku Bridge from the Ommaya "
+"Embankment - 1830"
+msgstr ""
+
+#: ../src/paintings-activity/resources/paintings/board1_11.xml.in.h:1
+msgid "Katsushika Hokusa, Poppies - 1833-1834"
+msgstr ""
+
+#: ../src/paintings-activity/resources/paintings/board1_12.xml.in.h:1
+msgid "Katsushika Hokusai, Kazusa sea Route - 1830."
+msgstr ""
+
 #: ../src/paintings-activity/resources/paintings/board1_2.xml.in.h:1
 msgid "Giuseppe Arcimboldo, Spring - 1573"
 msgstr "جوزيبي أرتشمبولدو، الربيع - 1573"
 
 #: ../src/paintings-activity/resources/paintings/board1_3.xml.in.h:1
-msgid "Giuseppe Arcimboldo, The Librarian - 1566)"
+msgid "Giuseppe Arcimboldo, The Librarian - 1566"
 msgstr "جوزيبي أرتشمبولدو، أمين المكتبة - 1566"
 
+#: ../src/paintings-activity/resources/paintings/board1_4.xml.in.h:1
+msgid "Katsushika Hokusai, Oiran and Kamuro"
+msgstr ""
+
 #: ../src/paintings-activity/resources/paintings/board1_5.xml.in.h:1
-msgid "Woman holding a fan"
-msgstr "امرأة تمسك مروحة"
+msgid "Katsushika Hokusai, Woman holding a fan"
+msgstr "كاتسوشيكا هوكوساي، امرأة تمسك مروحة"
+
+#: ../src/paintings-activity/resources/paintings/board1_6.xml.in.h:1
+msgid "Katsushika Hokusai, Ejiri in Suruga Province - 1830-1833"
+msgstr ""
+
+#: ../src/paintings-activity/resources/paintings/board1_7.xml.in.h:1
+msgid "Katsushika Hokusai, The Great Wave off Kanagawa - 1823-1829"
+msgstr ""
+
+#: ../src/paintings-activity/resources/paintings/board1_8.xml.in.h:1
+msgid ""
+"Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
+msgstr ""
+
+#: ../src/paintings-activity/resources/paintings/board1_9.xml.in.h:1
+msgid "Utagawa Hiroshige, Horse-mackerel and Prawn - 1840"
+msgstr ""
+
+#: ../src/paintings-activity/resources/paintings/board2_0.xml.in.h:1
+msgid "Michelangelo, Pieta - 1499"
+msgstr ""
 
 #: ../src/paintings-activity/resources/paintings/board2_1.xml.in.h:1
-msgid "Botticelli, Primavera - 1482"
-msgstr "بوتيتشيلي، الربيع - 1482"
+msgid "Leonardo da Vinci, Mona Lisa - 1503-19"
+msgstr "ليوناردو داڤينشي، موناليزا - 1503-19"
 
 #: ../src/paintings-activity/resources/paintings/board2_2.xml.in.h:1
-msgid "Caravage, Rest on the Flight into Egypt - 1597"
-msgstr "كارافاج، استراحة في الرحلة إلى مصر- 1597"
+msgid "Giovanni Bellini, La Pala di Pesaro - 1475-85"
+msgstr ""
 
 #: ../src/paintings-activity/resources/paintings/board2_3.xml.in.h:1
-msgid "Botticelli, The Birth of Venus - 1482–1486"
-msgstr "بوتيتشيلي، ميلاد الزهرة - 1482–1486"
+msgid "Albrecht Dürer, Lion - 1494"
+msgstr ""
+
+#: ../src/paintings-activity/resources/paintings/board2_4.xml.in.h:1
+#, fuzzy
+msgid "Pieter Brugel, The Harvesters - 1565"
+msgstr "بيتر برويغيل، الحاصدين - 1565"
 
 #: ../src/paintings-activity/resources/paintings/board3_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
 msgstr "بيار-أوغست رينوار، فتيات عند البيانو - 1892"
 
 #: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:1
-msgid "Kandinsky, Wassily, Composition VIII - 1923"
-msgstr "كاندينسكي، واسيلي، التكوين الثامن - 1923"
-
-#: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:2
 msgid "Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
 msgstr "زيت فوق النسيج، 140 × 201 سم؛ متحف سليمان ر. غوغنهيم، نيويورك"
+
+#: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:2
+msgid "Wassily Kandinsky, Composition VIII - 1923"
+msgstr "واسيلي كاندينسكي، التكوين الثامن - 1923"
 
 #: ../src/paintings-activity/resources/paintings/board4_0.xml.in.h:1
 msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
 msgstr "سجن البازيل، 1867"
 
 #: ../src/paintings-activity/resources/paintings/board5_0.xml.in.h:1
-msgid "Cassatt, Mary - Summertime - 1894"
-msgstr "كاسات، ماري - فصل الصيف - 1894"
+msgid "Mary Cassatt, Summertime - 1894"
+msgstr "ماري كاسات، فصل الصيف - 1894"
 
 #: ../src/paintings-activity/resources/paintings/board6_0.xml.in.h:1
 msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
@@ -5821,11 +6080,11 @@ msgstr "المظلي"
 msgid "This board is game-oriented. No specific skills are needed to play."
 msgstr "هذه اللعبة من أجل المرح فقط. ليس هناك مهارات محددة مطلوبة للعب بها."
 
-#: ../src/penalty-activity/penalty.py:294
+#: ../src/penalty-activity/penalty.py:293
 msgid "Click on the balloon to place it again."
 msgstr "انقر على الكرة لتعيدها."
 
-#: ../src/penalty-activity/penalty.py:296
+#: ../src/penalty-activity/penalty.py:295
 msgid "Click twice on the balloon to shoot it."
 msgstr "انقر مرتين على الكرة لتسدد."
 
@@ -5875,12 +6134,12 @@ msgstr "صائد الصور"
 msgid "Visual discrimination."
 msgstr "التمييز البصري."
 
-#: ../src/planegame-activity/planegame.c:61
+#: ../src/planegame-activity/planegame.c:62
 #: ../src/planegame-activity/planegame.xml.in.h:4
 msgid "Numbers in Order"
 msgstr "الأعداد مرتبة"
 
-#: ../src/planegame-activity/planegame.c:62
+#: ../src/planegame-activity/planegame.c:63
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "حرك الطائرة لتمسك بالغيوم حسب الترتيب الصحيح"
 
@@ -5899,6 +6158,15 @@ msgstr "حرك الحوامة لتمسك الغيوم حسب الترتيب ال
 #: ../src/planegame-activity/planegame.xml.in.h:3
 msgid "Number"
 msgstr "أعداد"
+
+#: ../src/pythontemplate-activity/pythontemplate.py:62
+#: ../src/pythontest-activity/pythontest.py:184
+msgid ""
+"This is the first plugin in GCompris coded in the Python\n"
+"Programming language."
+msgstr ""
+"هذا أول ملحق في «فهمت» مكتوب\n"
+"باللغة البرمجية بايثون."
 
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:1
 #: ../src/pythontest-activity/pythontest.xml.in.h:1
@@ -5923,14 +6191,6 @@ msgstr "قالب بايثون"
 msgid ""
 "Thanks to Guido van Rossum and the python team for this powerful language!"
 msgstr "شكرًا ل‍ غيدو فان روسوم وفريق بايثون على هذه اللغة القوية والجميلة!"
-
-#: ../src/pythontest-activity/pythontest.py:184
-msgid ""
-"This is the first plugin in GCompris coded in the Python\n"
-"Programming language."
-msgstr ""
-"هذا أول ملحق في «فهمت» مكتوب\n"
-"باللغة البرمجية بايثون."
 
 #: ../src/pythontest-activity/pythontest.py:194
 msgid ""
@@ -6072,8 +6332,8 @@ msgstr "اقرأ أسماء الألوان"
 msgid "This board teaches basic colors."
 msgstr "هذه اللوحة مخصصة لتعلم الألوان البسيطة"
 
-#: ../src/readingh-activity/reading.c:220
-#: ../src/wordsgame-activity/wordsgame.c:211
+#: ../src/readingh-activity/reading.c:229
+#: ../src/wordsgame-activity/wordsgame.c:219
 msgid ""
 "Error: We can't find\n"
 "a list of words to play this game.\n"
@@ -6081,38 +6341,38 @@ msgstr ""
 "خطأ: لم يمكن إيجاد قائمة كلمات\n"
 "للعب بهذه اللعبة.\n"
 
-#: ../src/readingh-activity/reading.c:380
+#: ../src/readingh-activity/reading.c:389
 msgid "Please, check if the word"
 msgstr "تحقق من فضلك أن الكلمة "
 
-#: ../src/readingh-activity/reading.c:400
+#: ../src/readingh-activity/reading.c:409
 msgid "is being displayed"
 msgstr "معروضة على الشاشة"
 
-#: ../src/readingh-activity/reading.c:456
+#: ../src/readingh-activity/reading.c:465
 msgid "We skip this level because there are not enough words in the list!"
 msgstr "تخطينا هذا المستوى لعدم وجود كلمات كافية في القائمة!"
 
-#: ../src/readingh-activity/reading.c:659
+#: ../src/readingh-activity/reading.c:668
 msgid "Yes, I saw it"
 msgstr "نعم رأيتها"
 
-#: ../src/readingh-activity/reading.c:686
+#: ../src/readingh-activity/reading.c:695
 msgid "No, it was not there"
 msgstr "لا لم أرها"
 
 #. Report what was wrong in the log
-#: ../src/readingh-activity/reading.c:733
+#: ../src/readingh-activity/reading.c:742
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "الكلمة التي نبحث عنها هي : '%s'"
 
-#: ../src/readingh-activity/reading.c:736
+#: ../src/readingh-activity/reading.c:745
 #, c-format
 msgid "But it was not displayed"
 msgstr "لكن لم يكن معروضًا"
 
-#: ../src/readingh-activity/reading.c:738
+#: ../src/readingh-activity/reading.c:747
 #, c-format
 msgid "And it was displayed"
 msgstr "وكان معروضًا"
@@ -6266,6 +6526,23 @@ msgstr ""
 "للتوصل إلى توازن بين كفتي الميزان، انقل الكتل الموجودة على الكفة اليمنى أو "
 "اليسرى. تستطيع أن ترتب الكتل كما تشاء."
 
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:2
+msgid "Drag and Drop masses to balance the scales and calculate the weight"
+msgstr "أمسك واسحب الكتل لتوازن بين كفتي الميزان وقياس الوزن"
+
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:3
+msgid "Mental calculation, arithmetic equality, unit conversion"
+msgstr "الحساب الذهني و المساواة الحسابية وتحويل الوحدات"
+
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:5
+msgid ""
+"To balance the scales, move the masses on the left or the right side. Take "
+"care of the weight and the unit of the masses, remember that a kilogram (kg) "
+"is 1000 grams (g). They can be arranged in any order."
+msgstr ""
+"لموازنة كفتي الميزان، انقل الكتل بين الجانبين. تأكد من أوزان ووحدات الكتل، "
+"وتذكر أن الكيلو جرام (كج) يساوي 1000 جرام (ج). تستطيع أن ترتب الكتل كما تشاء."
+
 #: ../src/searace-activity/searace.py:174
 msgid "The race is already being run"
 msgstr "السباق قد بدأ"
@@ -6374,23 +6651,6 @@ msgstr ""
 #: ../src/searace-activity/searace.xml.in.h:9
 msgid "Sea race (2 Players)"
 msgstr "السباق البحري (لاعبان)"
-
-#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:2
-msgid "Drag and Drop masses to balance the scales and calculate the weight"
-msgstr "أمسك واسحب الكتل لتوازن بين كفتي الميزان وقياس الوزن"
-
-#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:3
-msgid "Mental calculation, arithmetic equality, unit conversion"
-msgstr "الحساب الذهني و المساواة الحسابية وتحويل الوحدات"
-
-#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:5
-msgid ""
-"To balance the scales, move the masses on the left or the right side. Take "
-"care of the weight and the unit of the masses, remember that a kilogram (kg) "
-"is 1000 grams (g). They can be arranged in any order."
-msgstr ""
-"لموازنة كفتي الميزان، انقل الكتل بين الجانبين. تأكد من أوزان ووحدات الكتل، "
-"وتذكر أن الكيلو جرام (كج) يساوي 1000 جرام (ج). تستطيع أن ترتب الكتل كما تشاء."
 
 #: ../src/searace1player-activity/searace1player.xml.in.h:1
 msgid "Give good instructions to your ship in order to be first in the race."
@@ -6533,6 +6793,24 @@ msgstr "العقل الخارق"
 #: ../src/superbrain-activity/superbrain.xml.in.h:3
 msgid "Tux has hidden several items. Find them again in the correct order"
 msgstr "تُكس أخفى أشياء متعددة. جدها مجددًا في الترتيب الصحيح"
+
+#: ../src/superbrain-activity/superbrain.c:403
+#: ../src/superbrain-activity/superbrain.c:539
+msgid "This item is well placed"
+msgstr "سيُوضع هذا العنصر"
+
+#: ../src/superbrain-activity/superbrain.c:416
+#: ../src/superbrain-activity/superbrain.c:569
+msgid "This item is misplaced"
+msgstr "هذا العنصر في غير موضعه"
+
+#: ../src/superbrain-activity/superbrain.c:587
+msgid "One item is well placed"
+msgstr "سيُوضع عنصر واحد"
+
+#: ../src/superbrain-activity/superbrain.c:601
+msgid "One item is misplaced"
+msgstr "عنصر واحد في غير موضعه"
 
 #: ../src/superbrain-activity/superbrain.xml.in.h:1
 msgid ""
@@ -6807,12 +7085,12 @@ msgstr "يمكن للطفل أن يكتب ما يريد أو يكتب النص �
 msgid "Your word processor"
 msgstr "معالج نصوصك"
 
-#: ../src/wordsgame-activity/wordsgame.c:111
+#: ../src/wordsgame-activity/wordsgame.c:112
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:1
 msgid "Falling Words"
 msgstr "الكلمات المتساقطة"
 
-#: ../src/wordsgame-activity/wordsgame.c:112
+#: ../src/wordsgame-activity/wordsgame.c:113
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the falling words before they reach the ground"
 msgstr "أدخل الكلمات المتساقطة قبل أن تصل إلى الأرض"
@@ -6824,6 +7102,177 @@ msgstr "التدرب على لوحة المفاتيح"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:4
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "أدخل الكلمات المتساقطة قبل أن تصل إلى الأرض"
+
+#: ../src/hangman-activity/hangman.xml.in.h:1
+msgid "A word is hidden, you must discover it letter by letter"
+msgstr ""
+
+#: ../src/hangman-activity/hangman.xml.in.h:2
+msgid "Reading skill"
+msgstr "مهارة القراءة"
+
+#: ../src/hangman-activity/hangman.xml.in.h:3
+msgid "The classic hangman game"
+msgstr ""
+
+#: ../src/hangman-activity/hangman.xml.in.h:4
+msgid "This is a good exercise to improve reading and spelling skills."
+msgstr ""
+
+#: ../src/hangman-activity/hangman.xml.in.h:5
+msgid ""
+"You can enter the letters using the virtual keyboard on the screen or with "
+"the real keyboard."
+msgstr ""
+
+#. All the vowel of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:61
+msgid "aeiouy"
+msgstr ""
+
+#. All the consonants of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:63
+msgid "bcdfghjklmnpqrstvwxz"
+msgstr "أبجدهوزحطيكلمنسعفصقرشتثخذضظغ"
+
+#. Letters equivallence for the hangman activity. It has the
+#. form of a space separated list like: "e=éè a=àâ"
+#. Keep the word NONE if not available in your language
+#: ../src/hangman-activity/hangman.py:67
+msgid "NONE"
+msgstr "أ=اإآ و=ؤ ي=ىئ "
+
+#: ../src/hangman-activity/hangman.py:104
+msgid "Could not find the list of words."
+msgstr "تعذّر العثور على قائمة الكلمات."
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:1
+msgid ""
+"Click on different active elements : sun, cloud, dam, solar array, wind farm "
+"and transformers, in order to reactivate the entire electrical system. When "
+"the system is back up and Tux is in his home, push the light button for him. "
+"To win you must switch on all the consumers while all the producers are up."
+msgstr ""
+"انقر على عناصر نشطة مختلفة: الشمس، الغيوم، محطة ضخ المياه ومحطة تعقيم المياه "
+"من أجل إعادة تنشيط النظام الكهربائي كاملًا. عندما يعود النظام إلى العمل ويصل "
+"تُكس إلى منزله، اضغط زر الضوء من أجله. لتكسب عليك تشغيل كل المستهلكين بينما "
+"يعمل المنتجين."
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:3
+msgid "Learn about an electrical system based on renewable energy"
+msgstr "تعرف على نظام كهربائي مبني على الطاقة المتجددة"
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:4
+msgid ""
+"Tux has come back from a long fishing party on his boat. Bring the "
+"electrical system back up so he can have light in his home."
+msgstr ""
+"تُكس عائد من رحلة صيد طويلة على قاربه. أعد تنشيط النظام الكهربائي لتعود "
+"الإضاءة إلى منزله."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:88
+msgid ""
+"The sun heats the water and creates water vapor. Water vapor combines into "
+"small water droplets which becomes clouds."
+msgstr ""
+"تُسخن الشمس الماء وتحوله إلى بخار، ويتجمع البخار في قطراتصغيرة تتحول إلى سُحُب."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:126
+msgid ""
+"As a cloud matures, the dense water droplets may combine to produce larger "
+"droplets, which may combine to form droplets large enough to fall as rain"
+msgstr "تنمو السحب وتتكثف قطرات الماء وتتجمع في قطرات أكبر وتسقط الأمطار."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:169
+msgid "This is the meter for electricity produced by the turbine. "
+msgstr "هذا مقياس الكهرباء التي يولدها المُوَلِّد."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:170
+#: ../src/hydroelectric-activity/hydroelectric.py:282
+#: ../src/hydroelectric-activity/hydroelectric.py:289
+#: ../src/hydroelectric-activity/hydroelectric.py:319
+#: ../src/hydroelectric-activity/hydroelectric.py:341
+msgid "The electricity power is measured in Watt (W)."
+msgstr "تقاس الكهرباء بالواط (و)."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:175
+msgid ""
+"Flowing water is directed on to the blades of a turbine runner, creating a "
+"force on the blades. In this way, energy is transferred from the water flow "
+"to the turbine"
+msgstr ""
+"يُوجه الماء الجاري إلى مراوح المُوَلِّد لتوليد قوة فيها، وهكذا تنقل طاقة جريان "
+"الماء إلى المُوَلِّد."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:189
+msgid "This cloud simulates the wind, click on it to have wind."
+msgstr "تحاكي هذه السحابة الريح، انقر عليها لتحصل على رياح."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:227
+msgid ""
+"This is a step down transformer. Electricity is transformed in low voltage, "
+"ready to be used by the customers."
+msgstr "هذا مُحوّل خافض. تُحوّل الكهرباء إلى جهد أقل يناسب استخدام المستهلكين."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:281
+msgid "This is the meter for all the electricity produced. "
+msgstr "هذا مقياس كل الكهرباء المُولّدة."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:288
+msgid "This is the meter for electricity consumed by the users. "
+msgstr "هذا مقياس الكهرباء التي يستهلكها المستخدمين."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:318
+msgid "This is the meter for electricity produced by the solar panels. "
+msgstr "هذا مقياس الكهرباء التي تُولدها الألواح الشمسية."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:324
+msgid ""
+"Solar panels use light energy (photons) from the sun to generate electricity "
+"through the photovoltaic effect."
+msgstr ""
+"تستخدم الألواح الشمسية طاقة الضوء (فوتونات) من الشمس لتوليد الكهرباء عبر "
+"التأثير الفوتوفولتي."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:340
+msgid "This is the meter for electricity produced by the wind turbines. "
+msgstr "هذا مقياس الكهرباء التي تُولدها مُوَلِّدات الرياح."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:346
+msgid ""
+"A wind turbine is a device that converts wind motion energy into electricity "
+"generation. It is called a wind generator or wind charger. "
+msgstr "تُحول هذه المُوَلِّدات طاقة حركة الرياح إلى كهرباء."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:732
+msgid ""
+"It is not possible to consume more electricity than what is produced. This "
+"is a key limitation in the distribution of electricity, with minor "
+"exceptions, electrical energy cannot be stored, and therefore it must be "
+"generated as it is needed. A sophisticated system of control is therefore "
+"required to ensure electric generation very closely matches the demand. If "
+"supply and demand are not in balance, generation plants and transmission "
+"equipment can shut down which, in the worst cases, can lead to a major "
+"regional blackout."
+msgstr ""
+
+#: ../src/hydroelectric-activity/hydroelectric.py:946
+msgid ""
+"This is a step up transformer. Electricity is transmitted at high voltages "
+"(110 kV or above) to reduce the energy lost in long distance transmission."
+msgstr ""
+
+#~ msgid "Move the mouse until all the blocks disappear."
+#~ msgstr "حرك الفأرة حتى تختفي جميع الكتل"
+
+#~ msgid "Botticelli, Primavera - 1482"
+#~ msgstr "بوتيتشيلي، الربيع - 1482"
+
+#~ msgid "Caravage, Rest on the Flight into Egypt - 1597"
+#~ msgstr "كارافاج، استراحة في الرحلة إلى مصر- 1597"
+
+#~ msgid "Botticelli, The Birth of Venus - 1482–1486"
+#~ msgstr "بوتيتشيلي، ميلاد الزهرة - 1482–1486"
 
 #~ msgid "Error: Abnormally failed to load a data file"
 #~ msgstr "خطأ: فشل تحميل ملف البيانات"
