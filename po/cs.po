@@ -2,20 +2,21 @@
 # Copyright (C) 2003, 2004, 2005, 2008, 2010 the author(s) of gcompris.
 # Copyright (C) 2004, 2005 Miloslav Trmac <mitr@volny.cz>.
 # This file is distributed under the same license as the gcompris package.
+#
 # Miloslav Trmac <mitr@volny.cz>, 2003, 2004, 2005, 2006.
 # Jakub Friedl <jfriedl@suse.cz>, 2006.
 # Kamil Páral <ripper42@gmail.com>, 2008.
 # Petr Kovar <pknbe@volny.cz>, 2008.
 # Vladimír Burian <vladimir.burian@email.cz>, 2010.
-# Marek Černocký <marek@manet.cz>, 2009, 2010, 2011.
+# Marek Černocký <marek@manet.cz>, 2009 – 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&component=general\n"
-"POT-Creation-Date: 2011-01-05 22:25+0000\n"
-"PO-Revision-Date: 2011-01-06 00:37+0100\n"
+"POT-Creation-Date: 2011-01-12 05:53+0000\n"
+"PO-Revision-Date: 2011-01-13 11:01+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -23,8 +24,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Poedit-Language: Czech\n"
-"X-Poedit-SourceCharset: utf-8\n"
 
 #: ../boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
@@ -7311,8 +7310,8 @@ msgstr ""
 "všichni výrobci."
 
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:3
-msgid "Learn about an hydroelectric dam"
-msgstr "Poučení o vodní elektrárně"
+msgid "Learn about an electrical system based on renewable energy"
+msgstr "Poučit se o elektrických systémech založených na obnovitelné energii"
 
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:4
 msgid ""
@@ -7430,6 +7429,9 @@ msgid ""
 msgstr ""
 "Toto je zvyšující transformátor. Elektřina je přenášena za použití vysokého "
 "napětí (110 kV a více) kvůli snížení ztrát energie na dlouhém vedení."
+
+#~ msgid "Learn about an hydroelectric dam"
+#~ msgstr "Poučení o vodní elektrárně"
 
 #~ msgid "Move the mouse until all the blocks disappear."
 #~ msgstr "Hýbej myší, dokud všechny bloky nezmizí."
