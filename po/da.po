@@ -1,9 +1,9 @@
 # Translation of GCompris into danish.
-# Copyright (C) 2005, 2006, 2007, 2009 Free Software Foundation, Inc.
+# Copyright (C) 2011 Free Software Foundation, Inc.
 # This file is distributed under the same license as the GCompris package.
 #
 # Mogens Jaeger <mogensjaeger@gmail.com>, 2004, 2006, 2007.
-# Joe Hansen <joedalton2@yahoo.dk>, 2009, 2010.
+# Joe Hansen <joedalton2@yahoo.dk>, 2009, 2010, 2011.
 # Korrektulæsning Torben Grøn Helligsø <torben-dansk@thel.dk>, 2009, 2010.
 #
 # Konventioner:
@@ -24,10 +24,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GCompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-26 00:26+0100\n"
-"PO-Revision-Date: 2010-11-24 19:00+0100\n"
+"POT-Creation-Date: 2011-01-16 13:41+0100\n"
+"PO-Revision-Date: 2011-01-02 19:00+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
+"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -208,7 +209,7 @@ msgstr ""
 msgid "GCompris Main Menu"
 msgstr "GCompris' hovedmenu"
 
-#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:876
+#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:866
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -1091,7 +1092,7 @@ msgid "+-×÷"
 msgstr "+-×:"
 
 #: ../src/algebra_by-activity/algebra.c:411
-#: ../src/readingh-activity/reading.c:621
+#: ../src/readingh-activity/reading.c:630
 msgid "I am Ready"
 msgstr "Jeg er parat."
 
@@ -1513,7 +1514,7 @@ msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "Brug af mus: flyt, træk og slip."
 
 #: ../src/babymatch-activity/shapegame.c:1903
-#: ../src/click_on_letter-activity/click_on_letter.c:635
+#: ../src/click_on_letter-activity/click_on_letter.c:675
 #: ../src/colors-activity/colors.c:168
 #, c-format
 msgid ""
@@ -1619,7 +1620,7 @@ msgstr ""
 msgid "bar game"
 msgstr "rækkespil"
 
-#: ../src/billard-activity/billard.c:89 ../src/erase-activity/erase.c:124
+#: ../src/billard-activity/billard.c:89 ../src/erase-activity/erase.c:85
 #: ../src/erase-activity/erase.xml.in.h:4
 msgid "Move the mouse"
 msgstr "Bevæg musen"
@@ -1689,6 +1690,7 @@ msgstr "Specielt bræt der indlejrer python i gcompris."
 
 #: ../src/canal_lock-activity/canal_lock.xml.in.h:1
 #: ../src/watercycle-activity/watercycle.xml.in.h:2
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:2
 msgid "Drawing by Stephane Cabaraux."
 msgstr "Tegning af Stephane Cabaraux."
 
@@ -2058,7 +2060,7 @@ msgstr "1955 Citroën ds 19"
 msgid "Cars"
 msgstr "Biler"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:271
+#: ../src/click_on_letter-activity/click_on_letter.c:311
 #: ../src/memory-activity/memory.c:906
 msgid ""
 "Error: this activity cannot be played with the\n"
@@ -2074,12 +2076,12 @@ msgstr ""
 #. TRANSLATORS: Put here the alphabet in your language
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
-#: ../src/click_on_letter-activity/click_on_letter.c:276
+#: ../src/click_on_letter-activity/click_on_letter.c:316
 #: ../src/gletters-activity/gletters.c:229 ../src/memory-activity/memory.c:935
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcdefghijklmnopqrstuvwxyzæøå"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:304
+#: ../src/click_on_letter-activity/click_on_letter.c:344
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -2088,7 +2090,7 @@ msgstr ""
 "Fejl: denne aktivitet kræver, at du først installerer\n"
 "pakkerne med GCompris lyde for landeområdet '%s' eller '%s'"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:314
+#: ../src/click_on_letter-activity/click_on_letter.c:354
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -2099,9 +2101,11 @@ msgstr ""
 "lyde for landeområdet '%s' ! Skifter tilbage til engelsk, beklager!"
 
 #. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:658
+#: ../src/click_on_letter-activity/click_on_letter.c:698
 #: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:484
 #: ../src/missing_letter-activity/missingletter_config.c:492
+#: ../src/readingh-activity/reading.c:928
+#: ../src/wordsgame-activity/wordsgame.c:889
 msgid "Uppercase only text"
 msgstr "Tekst kun i store bogstaver"
 
@@ -2366,8 +2370,8 @@ msgid "Find the details"
 msgstr "Find detaljerne"
 
 #: ../src/details-activity/details.xml.in.h:5
-msgid "The images are from wiki commons"
-msgstr "Billederne er fra wiki commons"
+msgid "The images are from Wikimedia Commons."
+msgstr "Billederne er fra Wikimedia Commons."
 
 # SDE: "Soveværelset i Arles"
 #: ../src/details-activity/resources/details/board1_0.xml.in.h:1
@@ -2401,15 +2405,15 @@ msgstr "Vincent van Gogh, Høsten - 1888"
 msgid "Vincent van Gogh, Cafe Terrace at Night - 1888"
 msgstr "Vincent van Gogh, Cafeterrasse om natten - 1888"
 
-# SDE: "Soveværelset i Arles"
+# den store danske: Natcaféen (Yale University Art Gallery, New Haven) 
 #: ../src/details-activity/resources/details/board1_6.xml.in.h:1
-msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1888"
-msgstr "Vincent van Gogh, Indgangsparti på Saint-Paul Hospital - 1888"
+msgid "Vincent van Gogh, The Night Café - 1888"
+msgstr "Vincent van Gogh, Natcaféen - 1888"
 
-# SDE: "Soveværelset i Arles"
+# SDE: "Vincent van Gogh, Portræt af Père Tanguy; maleri, 1887.
 #: ../src/details-activity/resources/details/board1_7.xml.in.h:1
 msgid "Vincent van Gogh, Portrait of Pere Tanguy 1887-8"
-msgstr "Vincent van Gogh, Portræt af Pere Tanguy 1887-8"
+msgstr "Vincent van Gogh, Portræt af Père Tanguy 1887-8"
 
 #: ../src/details-activity/resources/details/board2_0.xml.in.h:1
 msgid "Eilean Donan castle"
@@ -2426,6 +2430,10 @@ msgstr "Gizapyramiderne, Ægypten"
 #: ../src/details-activity/resources/details/board2_11.xml.in.h:1
 msgid "Sydney Opera House, Australia"
 msgstr "Sydneys operahus, Australien"
+
+#: ../src/details-activity/resources/details/board2_12.xml.in.h:1
+msgid "Tower Bridge in London"
+msgstr "Tower Bridge i London"
 
 #: ../src/details-activity/resources/details/board2_2.xml.in.h:1
 msgid "Courtyard of the Museum of Louvre, and its pyramid"
@@ -2516,6 +2524,10 @@ msgstr ""
 "Vælg et tegneværktøj i venstre side, og en farve i bunden. Klik og træk i "
 "det hvide område for at skabe en ny form. For at spare tid kan du bruge "
 "musens midtertaste til at slette et objekt med."
+
+#: ../src/drawnumber-activity/drawnumber.py:236
+msgid "Cannot find the file '{filename}'"
+msgstr "Kan ikke finde filen '{filename}'"
 
 #: ../src/drawnumber-activity/drawnumber.xml.in.h:1
 msgid "Can count from 1 to 50."
@@ -2627,9 +2639,27 @@ msgstr ""
 "klikke på delens boks i højre side. Indtast svaret og tryk på Retur eller på "
 "O.k.-knappen."
 
-#: ../src/erase-activity/erase.c:125 ../src/erase-activity/erase.xml.in.h:5
+#: ../src/erase-activity/erase.c:86 ../src/erase-activity/erase.xml.in.h:5
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Bevæg musen for at slette dækfelter og opdage baggrunden."
+
+#: ../src/erase-activity/erase.c:180
+msgid "Error: No images found\n"
+msgstr ""
+
+#: ../src/erase-activity/erase.c:578 ../src/gcompris/properties.c:501
+#: ../src/gcompris/properties.c:508
+msgid "readme"
+msgstr "læsmig"
+
+#: ../src/erase-activity/erase.c:580
+msgid ""
+"Put any number of images in this directory.\n"
+"They will be used as background in the 'erase' activity.\n"
+"The image must be in the 'jpeg' format and be suffixed with '.jpg' or '."
+"jpeg'.\n"
+"For best results, they must have a size of 800x520 pixels.\n"
+msgstr ""
 
 #: ../src/erase-activity/erase.xml.in.h:1
 msgid ""
@@ -2643,8 +2673,10 @@ msgstr ""
 "til at bruge billederne. Mange tak til begge."
 
 #: ../src/erase-activity/erase.xml.in.h:6
-msgid "Move the mouse until all the blocks disappear."
-msgstr "Bevæg musen, indtil alle dækfelter er væk."
+msgid ""
+"Move the mouse until all the blocks disappear. You can add you own images "
+"under the directory '~/My GCompris/erase'."
+msgstr ""
 
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
 msgid "Double click the mouse"
@@ -2765,19 +2797,19 @@ msgstr "Dette program er en GNU-pakke, der er frigivet under GNU GPL."
 msgid "OK"
 msgstr "O.k."
 
-#: ../src/gcompris/bar.c:692
+#: ../src/gcompris/bar.c:693
 msgid "GCompris confirmation"
 msgstr "GCompris bekræftelse"
 
-#: ../src/gcompris/bar.c:693
+#: ../src/gcompris/bar.c:694
 msgid "Are you sure you want to quit?"
 msgstr "Er du sikker på at du vil slutte?"
 
-#: ../src/gcompris/bar.c:694
+#: ../src/gcompris/bar.c:695
 msgid "Yes, I am sure!"
 msgstr "Ja, jeg er!"
 
-#: ../src/gcompris/bar.c:695
+#: ../src/gcompris/bar.c:696
 msgid "No, I want to keep going"
 msgstr "Nej, jeg vil fortsætte"
 
@@ -3359,7 +3391,7 @@ msgstr ""
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Tillad flere kørsler af GCompris samtidigt."
 
-#: ../src/gcompris/gcompris.c:922
+#: ../src/gcompris/gcompris.c:929
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -3380,7 +3412,12 @@ msgstr ""
 "Linux. Hent flere informationer på FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1462
+#: ../src/gcompris/gcompris.c:1223
+#, c-format
+msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
+msgstr "Kunne ikke indlæse temaet '%s' (Undersøg om filen findes og er læsbar)"
+
+#: ../src/gcompris/gcompris.c:1486
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
@@ -3388,12 +3425,12 @@ msgstr ""
 "GCompris vil ikke starte, fordi lock-filen er mindre ens %d sekunder "
 "gammel.\n"
 
-#: ../src/gcompris/gcompris.c:1464
+#: ../src/gcompris/gcompris.c:1488
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Lock-filen er: %s\n"
 
-#: ../src/gcompris/gcompris.c:1578
+#: ../src/gcompris/gcompris.c:1602
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3407,45 +3444,45 @@ msgstr ""
 "Mere information på http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1693
+#: ../src/gcompris/gcompris.c:1717
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Brug -l for at starte en aktivitet direkte.\n"
 
-#: ../src/gcompris/gcompris.c:1694
+#: ../src/gcompris/gcompris.c:1718
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Listen af tilgængelige aktiviteter er :\n"
 
-#: ../src/gcompris/gcompris.c:1725
+#: ../src/gcompris/gcompris.c:1749
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Antal aktiviteter: %d\n"
 
-#: ../src/gcompris/gcompris.c:1761
+#: ../src/gcompris/gcompris.c:1785
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s eksisterer men kan ikke læses eller er skrivebeskyttet"
 
-#: ../src/gcompris/gcompris.c:1824
+#: ../src/gcompris/gcompris.c:1848
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
 "without network support!"
 msgstr ""
-"Tilvalget --server kan ikke bruges da GCompris er blevet kompileret uden "
+"Tilvalget --server kan ikke bruges, da GCompris er blevet kompileret uden "
 "netværksunderstøttelse!"
 
-#: ../src/gcompris/gcompris.c:1878
+#: ../src/gcompris/gcompris.c:1902
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
 "available ones\n"
 msgstr ""
-"FEJL: Profilem '%s' er ikke fundet. Kør 'gcompris --profile-list' for at "
+"FEJL: Profilen '%s' er ikke fundet. Kør 'gcompris --profile-list' for at "
 "vise en oversigt over de tilgængelige profiler.\n"
 
-#: ../src/gcompris/gcompris.c:1892
+#: ../src/gcompris/gcompris.c:1916
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Listen af tilgængelige profiler er:\n"
@@ -3458,7 +3495,7 @@ msgstr "Oprindelig"
 msgid "Users without a class"
 msgstr "Brugere uden en klasse"
 
-#: ../src/gcompris/gcompris_db.c:894
+#: ../src/gcompris/gcompris_db.c:889
 #, c-format
 msgid ""
 "Loading activity from database:\n"
@@ -3483,7 +3520,7 @@ msgstr "Vejledning"
 msgid "Credit"
 msgstr "Anerkendelse"
 
-#: ../src/gcompris/menu.c:583
+#: ../src/gcompris/menu.c:582
 #, c-format
 msgid ""
 "Loading activity from file:\n"
@@ -3492,17 +3529,13 @@ msgstr ""
 "Indlæser aktivet fra fil:\n"
 "%s"
 
-#: ../src/gcompris/properties.c:501 ../src/gcompris/properties.c:508
-msgid "readme"
-msgstr "læsmig"
-
 #: ../src/gcompris/properties.c:503
 msgid ""
 "This directory contains the files you create with the GCompris educational "
 "suite\n"
 msgstr ""
-"Dette bibliotek indeholde de filer du dannede med GCompris "
-"undervisningssuiten\n"
+"Dette bibliotek indeholder de filer, du dannede med GCompris' "
+"undervisningspakke\n"
 
 #: ../src/gcompris/properties.c:510
 msgid ""
@@ -3834,9 +3867,10 @@ msgstr "Albanien"
 msgid "Belarus"
 msgstr "Hviderusland"
 
+# http://da.wikipedia.org/wiki/Bosnien-Herzegovina
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:3
 msgid "Bosnia Herzegovina"
-msgstr "Bosnien - Herzegovina"
+msgstr "Bosnien-Hercegovina"
 
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:4
 msgid "Bulgaria"
@@ -3896,7 +3930,7 @@ msgstr "Rusland"
 
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:19
 msgid "Serbia Montenegro"
-msgstr "Serbien - Montenegro"
+msgstr "Serbien-Montenegro"
 
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:20
 msgid "Slovak Republic"
@@ -3929,10 +3963,11 @@ msgstr "Benin"
 msgid "Burkina Faso"
 msgstr "Burkina Faso"
 
+# http://da.wikipedia.org/wiki/Cameroun
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:4
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:7
 msgid "Cameroon"
-msgstr "Cameroon"
+msgstr "Cameroun"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:5
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:8
@@ -3953,10 +3988,11 @@ msgstr "Djibouti"
 msgid "Egypt"
 msgstr "Ægypten"
 
+# http://da.wikipedia.org/wiki/%C3%86kvatorialguinea
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:9
 #: ../src/geography-activity/resources/geography/board4_1.xml.in.h:5
 msgid "Equatorial Guinea"
-msgstr "Equatorial Guinea"
+msgstr "Ækvatorialguinea"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:10
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:12
@@ -4190,11 +4226,11 @@ msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ"
 #: ../src/imageid-activity/imageid.c:712 ../src/login-activity/login.py:479
 #: ../src/missing_letter-activity/missingletter.c:784
 #: ../src/pythontest-activity/pythontest.py:454
-#: ../src/readingh-activity/reading.c:878
+#: ../src/readingh-activity/reading.c:904
 #: ../src/scalesboard-activity/scale.c:1161
 #: ../src/smallnumbers-activity/smallnumbers.c:595
 #: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:827
+#: ../src/wordsgame-activity/wordsgame.c:866
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -4414,8 +4450,8 @@ msgid ""
 "Guide the Number Muncher to all the multiples of the number at the top of "
 "the screen."
 msgstr ""
-"Hjælp talgnaskeren hen til alle de tal der er et multiplum af tallet øverst "
-"på siden."
+"Hjælp talgnaskeren hen til alle de tal, der er et multiplum af tallet øverst "
+"på vinduet."
 
 #: ../src/gnumch-multiples-activity/gnumch-multiples.xml.in.h:2
 msgid "Learn about multiples and factors."
@@ -5713,7 +5749,7 @@ msgstr "Spørgsmål kan ikke udelades (være tom)."
 
 #: ../src/missing_letter-activity/missingletter_config.c:95
 msgid ""
-"Question must include the character '_'. It represent the letter to search."
+"Question must include the character '_'. It represents the letter to search."
 msgstr ""
 "Spørgsmål skal inkludere tegnet '_'. Tegnet repræsenterer bogstavet, der "
 "skal søges efter."
@@ -5790,10 +5826,10 @@ msgstr "Erstat bogstavet der skal gættes med tegnet '_'."
 #: ../src/missing_letter-activity/missingletter_config.c:591
 msgid ""
 "Enter here the letter that will be proposed. The first letter here must be "
-"the solution"
+"the solution."
 msgstr ""
 "Indtast her det bogstav som vil blive foreslået. Det første bogstav her skal "
-"være løsningen"
+"være løsningen."
 
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:1
 msgid "car/c_r/a/k/o"
@@ -5940,12 +5976,12 @@ msgid "satchel/sa_chel/t/p/c/z/s/l"
 msgstr "taske/ta_ke/s/k/n/z/c/l"
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
-#: ../src/money-activity/money.c:496
+#: ../src/money-activity/money.c:542
 #, c-format
 msgid "$ %.2f"
 msgstr "$ %.2f"
 
-#: ../src/money-activity/money.c:509
+#: ../src/money-activity/money.c:555
 #, c-format
 msgid "$ %.0f"
 msgstr "$ %.0f"
@@ -6024,57 +6060,104 @@ msgstr "Edgar Degas, The Dancing Class - 1873-75"
 msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
 msgstr "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
 
+#: ../src/paintings-activity/resources/paintings/board1_10.xml.in.h:1
+msgid ""
+"Katsushika Hokusai,\\nViewing Sunset over the Ryogoku Bridge from the Ommaya "
+"Embankment - 1830"
+msgstr ""
+"Katsushika Hokusai,\\Solnedgang over Ryogokubroen fra Ommayadiget - 1830"
+
+# i tvivl her, er det http://en.wikipedia.org/wiki/Poppy
+#: ../src/paintings-activity/resources/paintings/board1_11.xml.in.h:1
+msgid "Katsushika Hokusa, Poppies - 1833-1834"
+msgstr "Katsushika Hokusa, Valmuer - 1833-1834"
+
+# må være det her billede 
+# http://en.wikipedia.org/wiki/File:The_Kazusa_sea_route.jpg
+#: ../src/paintings-activity/resources/paintings/board1_12.xml.in.h:1
+msgid "Katsushika Hokusai, Kazusa sea Route - 1830."
+msgstr "Katsushika Hokusai, Kazusapassagen - 1830."
+
 #: ../src/paintings-activity/resources/paintings/board1_2.xml.in.h:1
 msgid "Giuseppe Arcimboldo, Spring - 1573"
 msgstr "Giuseppe Arcimboldo, Forår - 1573"
 
 #: ../src/paintings-activity/resources/paintings/board1_3.xml.in.h:1
-msgid "Giuseppe Arcimboldo, The Librarian - 1566)"
-msgstr "Giuseppe Arcimboldo, Bibliotekaren - 1566)"
+msgid "Giuseppe Arcimboldo, The Librarian - 1566"
+msgstr "Giuseppe Arcimboldo, Bibliotekaren - 1566"
 
-# måske den her Author : FRANS HALS Date :c. 1640
+#: ../src/paintings-activity/resources/paintings/board1_4.xml.in.h:1
+msgid "Katsushika Hokusai, Oiran and Kamuro"
+msgstr "Katsushika Hokusai, Oiran og Kamuro"
+
 #: ../src/paintings-activity/resources/paintings/board1_5.xml.in.h:1
-msgid "Woman holding a fan"
-msgstr "Kvinde med vifte"
+msgid "Katsushika Hokusai, Woman holding a fan"
+msgstr "Katsushika Hokusai, Kvinde med vifte"
+
+#: ../src/paintings-activity/resources/paintings/board1_6.xml.in.h:1
+msgid "Katsushika Hokusai, Ejiri in Suruga Province - 1830-1833"
+msgstr "Katsushika Hokusai, Ejiri i Surugaprovinsen - 1830-1833"
+
+#: ../src/paintings-activity/resources/paintings/board1_7.xml.in.h:1
+msgid "Katsushika Hokusai, The Great Wave off Kanagawa - 1823-1829"
+msgstr "Katsushika Hokusai, Kanagawas store bølge - 1823-1829"
+
+#: ../src/paintings-activity/resources/paintings/board1_8.xml.in.h:1
+msgid ""
+"Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
+msgstr ""
+"Utagawa Hiroshige,\\nBenzaitentemplet ved Inokashira klædt i sne - 1760-70"
+
+#: ../src/paintings-activity/resources/paintings/board1_9.xml.in.h:1
+msgid "Utagawa Hiroshige, Horse-mackerel and Prawn - 1840"
+msgstr "Utagawa Hiroshige, Hestemakrel og reje - 1840"
+
+#: ../src/paintings-activity/resources/paintings/board2_0.xml.in.h:1
+msgid "Michelangelo, Pieta - 1499"
+msgstr "Michelangelo, Pietà - 1499"
 
 #: ../src/paintings-activity/resources/paintings/board2_1.xml.in.h:1
-msgid "Mona Lisa"
-msgstr "Mona Lisa"
+msgid "Leonardo da Vinci, Mona Lisa - 1503-19"
+msgstr "Leonardo da Vinci, Mona Lisa - 1503-19"
 
 #: ../src/paintings-activity/resources/paintings/board2_2.xml.in.h:1
-msgid "Bellini : Pala di pesaro"
-msgstr "Bellini : Pala di pesaro"
+msgid "Giovanni Bellini, La Pala di Pesaro - 1475-85"
+msgstr "Giovanni Bellini, La Pala di Pesaro - 1475-85"
 
 #: ../src/paintings-activity/resources/paintings/board2_3.xml.in.h:1
-msgid "Dürer : Lion"
-msgstr "Dürer : Løve"
+msgid "Albrecht Dürer, Lion - 1494"
+msgstr "Albrecht Dürer, Løve - 1494"
 
 # http://www.denstoredanske.dk/Kunst_og_kultur/Billedkunst/Billedkunst
 # ,_%C3%B8vrig_ren%C3%A6ssance/Kunstnere,_nederlandske/
 # Pieter,_d.%C3%A6._Bruegel
+# http://da.wikipedia.org/wiki/Landskabsmaleri
 #: ../src/paintings-activity/resources/paintings/board2_4.xml.in.h:1
-msgid "Pieter Brugel : Harvest"
-msgstr "Pieter Bruegel : Høst"
+msgid "Pieter Brugel, The Harvesters - 1565"
+msgstr "Pieter Bruegel, Kornhøsten - 1565"
 
 #: ../src/paintings-activity/resources/paintings/board3_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
 msgstr "Pierre-Auguste Renoir, Girls At The Piano - 1892"
 
 #: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:1
-msgid "Kandinsky, Wassily, Composition VIII - 1923"
-msgstr "Kandinsky, Wassily, Composition VIII - 1923"
-
-#: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:2
 msgid "Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
 msgstr "Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
+
+# da.wikipedia har "Vasilij Kandinskij" og "Komposition IV", men SDE
+# bruger Wassily Kandinsky, så mit forslag er 
+# "Wassily Kandinsky, Komposition VIII - 1923"
+#: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:2
+msgid "Wassily Kandinsky, Composition VIII - 1923"
+msgstr "Wassily Kandinsky, Komposition VIII - 1923"
 
 #: ../src/paintings-activity/resources/paintings/board4_0.xml.in.h:1
 msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
 msgstr "Bazille, The Ramparts at Aigues-Mortes - 1867"
 
 #: ../src/paintings-activity/resources/paintings/board5_0.xml.in.h:1
-msgid "Cassatt, Mary - Summertime - 1894"
-msgstr "Cassatt, Mary - Summertime - 1894"
+msgid "Mary Cassatt, Summertime - 1894"
+msgstr "Mary Cassatt, Summertime - 1894"
 
 #: ../src/paintings-activity/resources/paintings/board6_0.xml.in.h:1
 msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
@@ -6167,12 +6250,12 @@ msgstr "Fotojæger"
 msgid "Visual discrimination."
 msgstr "Visuel skelnen."
 
-#: ../src/planegame-activity/planegame.c:61
+#: ../src/planegame-activity/planegame.c:62
 #: ../src/planegame-activity/planegame.xml.in.h:4
 msgid "Numbers in Order"
 msgstr "Tal i rækkefølge."
 
-#: ../src/planegame-activity/planegame.c:62
+#: ../src/planegame-activity/planegame.c:63
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "Flyv rundt og fang skyerne i den rigtige rækkefølge."
 
@@ -6192,7 +6275,7 @@ msgstr "Bevæg helikopteren for at fange skyerne i rigtig rækkefølge."
 msgid "Number"
 msgstr "Tal."
 
-#: ../src/pythontemplate-activity/pythontemplate.py:60
+#: ../src/pythontemplate-activity/pythontemplate.py:62
 #: ../src/pythontest-activity/pythontest.py:184
 msgid ""
 "This is the first plugin in GCompris coded in the Python\n"
@@ -6365,8 +6448,8 @@ msgstr "Læs farvenavne"
 msgid "This board teaches basic colors."
 msgstr "Dette bræt træner grundlæggende farver."
 
-#: ../src/readingh-activity/reading.c:220
-#: ../src/wordsgame-activity/wordsgame.c:211
+#: ../src/readingh-activity/reading.c:229
+#: ../src/wordsgame-activity/wordsgame.c:219
 msgid ""
 "Error: We can't find\n"
 "a list of words to play this game.\n"
@@ -6374,38 +6457,38 @@ msgstr ""
 "Fejl: Vi kan ikke finde en\n"
 "ordliste til at spille dette spil med.\n"
 
-#: ../src/readingh-activity/reading.c:380
+#: ../src/readingh-activity/reading.c:389
 msgid "Please, check if the word"
 msgstr "Se efter om ordet"
 
-#: ../src/readingh-activity/reading.c:400
+#: ../src/readingh-activity/reading.c:409
 msgid "is being displayed"
 msgstr "vises."
 
-#: ../src/readingh-activity/reading.c:456
+#: ../src/readingh-activity/reading.c:465
 msgid "We skip this level because there are not enough words in the list!"
 msgstr "Vi springer dette niveau over, da der ikke er nok ord i listen!"
 
-#: ../src/readingh-activity/reading.c:659
+#: ../src/readingh-activity/reading.c:668
 msgid "Yes, I saw it"
 msgstr "Ja, jeg så det"
 
-#: ../src/readingh-activity/reading.c:686
+#: ../src/readingh-activity/reading.c:695
 msgid "No, it was not there"
 msgstr "Nej, det var ikke imellem."
 
 #. Report what was wrong in the log
-#: ../src/readingh-activity/reading.c:733
+#: ../src/readingh-activity/reading.c:742
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "Ordet der skulle findes var '%s'"
 
-#: ../src/readingh-activity/reading.c:736
+#: ../src/readingh-activity/reading.c:745
 #, c-format
 msgid "But it was not displayed"
 msgstr "Men det blev ikke vist."
 
-#: ../src/readingh-activity/reading.c:738
+#: ../src/readingh-activity/reading.c:747
 #, c-format
 msgid "And it was displayed"
 msgstr "Og det blev vist"
@@ -7149,12 +7232,12 @@ msgstr ""
 msgid "Your word processor"
 msgstr "Din tekstbehandler"
 
-#: ../src/wordsgame-activity/wordsgame.c:111
+#: ../src/wordsgame-activity/wordsgame.c:112
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:1
 msgid "Falling Words"
 msgstr "Faldende ord"
 
-#: ../src/wordsgame-activity/wordsgame.c:112
+#: ../src/wordsgame-activity/wordsgame.c:113
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the falling words before they reach the ground"
 msgstr "Skriv de nedfaldende ord, før de når bunden"
@@ -7212,3 +7295,129 @@ msgstr "NONE"
 #: ../src/hangman-activity/hangman.py:104
 msgid "Could not find the list of words."
 msgstr "Kunne ikke finde ordlisten."
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:1
+#, fuzzy
+msgid ""
+"Click on different active elements : sun, cloud, dam, solar array, wind farm "
+"and transformers, in order to reactivate the entire electrical system. When "
+"the system is back up and Tux is in his home, push the light button for him. "
+"To win you must switch on all the consumers while all the producers are up."
+msgstr ""
+"Klik på de forskellige aktive dele: sol, skyer, vand, vandpumpestation og "
+"renseanlæg for at genoprette hele vandballancen. Når systemet er i orden "
+"igen (vandtårnet er fuldt), og Tux er i bruseren, trykkes på bruserventilen."
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:3
+msgid "Learn about an electrical system based on renewable energy"
+msgstr ""
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:4
+#, fuzzy
+msgid ""
+"Tux has come back from a long fishing party on his boat. Bring the "
+"electrical system back up so he can have light in his home."
+msgstr ""
+"Tux er kommet hjem efter en lang tur på fiskebåden. Skab orden i "
+"vandsystemet, så Tux kan få sig et brusebad."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:88
+msgid ""
+"The sun heats the water and creates water vapor. Water vapor combines into "
+"small water droplets which becomes clouds."
+msgstr ""
+
+#: ../src/hydroelectric-activity/hydroelectric.py:126
+msgid ""
+"As a cloud matures, the dense water droplets may combine to produce larger "
+"droplets, which may combine to form droplets large enough to fall as rain"
+msgstr ""
+
+#: ../src/hydroelectric-activity/hydroelectric.py:169
+msgid "This is the meter for electricity produced by the turbine. "
+msgstr ""
+
+#: ../src/hydroelectric-activity/hydroelectric.py:170
+#: ../src/hydroelectric-activity/hydroelectric.py:282
+#: ../src/hydroelectric-activity/hydroelectric.py:289
+#: ../src/hydroelectric-activity/hydroelectric.py:319
+#: ../src/hydroelectric-activity/hydroelectric.py:341
+msgid "The electricity power is measured in Watt (W)."
+msgstr ""
+
+#: ../src/hydroelectric-activity/hydroelectric.py:175
+msgid ""
+"Flowing water is directed on to the blades of a turbine runner, creating a "
+"force on the blades. In this way, energy is transferred from the water flow "
+"to the turbine"
+msgstr ""
+
+#: ../src/hydroelectric-activity/hydroelectric.py:189
+msgid "This cloud simulates the wind, click on it to have wind."
+msgstr ""
+
+#: ../src/hydroelectric-activity/hydroelectric.py:227
+msgid ""
+"This is a step down transformer. Electricity is transformed in low voltage, "
+"ready to be used by the customers."
+msgstr ""
+
+#: ../src/hydroelectric-activity/hydroelectric.py:281
+msgid "This is the meter for all the electricity produced. "
+msgstr ""
+
+#: ../src/hydroelectric-activity/hydroelectric.py:288
+msgid "This is the meter for electricity consumed by the users. "
+msgstr ""
+
+#: ../src/hydroelectric-activity/hydroelectric.py:318
+msgid "This is the meter for electricity produced by the solar panels. "
+msgstr ""
+
+#: ../src/hydroelectric-activity/hydroelectric.py:324
+msgid ""
+"Solar panels use light energy (photons) from the sun to generate electricity "
+"through the photovoltaic effect."
+msgstr ""
+
+#: ../src/hydroelectric-activity/hydroelectric.py:340
+msgid "This is the meter for electricity produced by the wind turbines. "
+msgstr ""
+
+#: ../src/hydroelectric-activity/hydroelectric.py:346
+msgid ""
+"A wind turbine is a device that converts wind motion energy into electricity "
+"generation. It is called a wind generator or wind charger. "
+msgstr ""
+
+#: ../src/hydroelectric-activity/hydroelectric.py:732
+msgid ""
+"It is not possible to consume more electricity than what is produced. This "
+"is a key limitation in the distribution of electricity, with minor "
+"exceptions, electrical energy cannot be stored, and therefore it must be "
+"generated as it is needed. A sophisticated system of control is therefore "
+"required to ensure electric generation very closely matches the demand. If "
+"supply and demand are not in balance, generation plants and transmission "
+"equipment can shut down which, in the worst cases, can lead to a major "
+"regional blackout."
+msgstr ""
+
+#: ../src/hydroelectric-activity/hydroelectric.py:946
+msgid ""
+"This is a step up transformer. Electricity is transmitted at high voltages "
+"(110 kV or above) to reduce the energy lost in long distance transmission."
+msgstr ""
+
+#~ msgid "Mona Lisa"
+#~ msgstr "Mona Lisa"
+
+#~ msgid "Dürer : Lion"
+#~ msgstr "Dürer : Løve"
+
+# SDE: "Soveværelset i Arles"
+#, fuzzy
+#~ msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1888"
+#~ msgstr "Vincent van Gogh, Indgangsparti på Saint-Paul Hospital - 1889"
+
+#~ msgid "Move the mouse until all the blocks disappear."
+#~ msgstr "Bevæg musen, indtil alle dækfelter er væk."
