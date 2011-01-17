@@ -1,6 +1,6 @@
 /* gcompris - money.c
  *
- * Copyright (C) 2001, 2008 Bruno Coudoin
+ * Copyright (C) 2001, 2010 Bruno Coudoin
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -37,6 +37,7 @@ static GooCanvasItem *boardRootItem = NULL;
 static void	 money_destroy_all_items(void);
 static void	 money_next_level(void);
 void		 moneyactivity_process_ok(void);
+static void	 display_paying_tux(guint note);
 
 Money_Widget    *tux_money    = NULL;
 Money_Widget    *seller_money = NULL;
@@ -85,8 +86,14 @@ static gchar *imageList3[] =
 };
 #define NUMBER_OF_IMAGES3 G_N_ELEMENTS(imageList3)
 
-#define WITHOUT_CENTS	1
-#define WITH_CENTS	2
+typedef enum
+{
+  WITHOUT_CENTS,
+  WITH_CENTS,
+  BACK_WITHOUT_CENTS,
+  BACK_WITH_CENTS
+} type;
+
 static char currentMode = WITHOUT_CENTS;
 
 /* Description of this plugin */
@@ -159,10 +166,20 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	  gcomprisBoard->maxlevel=9;
 	  currentMode=WITHOUT_CENTS;
 	}
-      else if(g_strncasecmp(gcomprisBoard->mode, "WITH_CENTS", 1)==0)
+      else if(g_strcmp0(gcomprisBoard->mode, "WITH_CENTS")==0)
 	{
 	  gcomprisBoard->maxlevel=5;
 	  currentMode=WITH_CENTS;
+	}
+      else if(g_strcmp0(gcomprisBoard->mode, "BACK_WITHOUT_CENTS")==0)
+	{
+	  gcomprisBoard->maxlevel=9;
+	  currentMode=BACK_WITHOUT_CENTS;
+	}
+      else if(g_strcmp0(gcomprisBoard->mode, "BACK_WITH_CENTS")==0)
+	{
+	  gcomprisBoard->maxlevel=5;
+	  currentMode=BACK_WITH_CENTS;
 	}
       money_next_level();
 
@@ -214,6 +231,7 @@ gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 static void money_next_level()
 {
   guint		   min_price = 0, max_price = 0;
+  guint		   paid = 0;
   guint		   number_of_item = 0;
   guint		   i;
   gchar		  *display_format;
@@ -468,6 +486,237 @@ static void money_next_level()
 	  break;
 	}
       break;
+    case BACK_WITHOUT_CENTS:
+      switch(gcomprisBoard->level)
+	{
+	case 1:
+	  number_of_item = 1;
+	  min_price      = 3;
+	  max_price      = 9;
+	  paid		 = 10;
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_5E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_2E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_2E);
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_5E);
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_5E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1E);
+	  break;
+	case 2:
+	  number_of_item = 1;
+	  min_price      = 11;
+	  max_price      = 19;
+	  paid		 = 20;
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_10E);
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_5E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_2E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_2E);
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_5E);
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_5E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1E);
+	  break;
+	case 3:
+	  number_of_item = 2;
+	  min_price      = 21;
+	  max_price      = 29;
+	  paid		 = 30;
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_10E);
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_10E);
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_5E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_2E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_2E);
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_5E);
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_5E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1E);
+	  break;
+	case 4:
+	  number_of_item = 2;
+	  min_price      = 30;
+	  max_price      = 39;
+	  paid		 = 40;
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_10E);
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_10E);
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_5E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_2E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_2E);
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_10E);
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_5E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1E);
+	  break;
+	case 5:
+	  number_of_item = 3;
+	  min_price      = 40;
+	  max_price      = 49;
+	  paid		 = 50;
+	  money_widget_add(tux_money, MONEY_EURO_COIN_2E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1E);
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_10E);
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_10E);
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_5E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1E);
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_5E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_2E);
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_20E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1E);
+	  break;
+	case 6:
+	  number_of_item = 3;
+	  min_price      = 50;
+	  max_price      = 60;
+	  paid		 = 100;
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_10E);
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_20E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_2E);
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_20E);
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_5E);
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_5E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_2E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1E);
+	  break;
+	case 7:
+	  number_of_item = 4;
+	  min_price      = 60;
+	  max_price      = 70;
+	  paid		 = 100;
+	  money_widget_add(tux_money, MONEY_EURO_COIN_2E);
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_50E);
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_5E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1E);
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_10E);
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_20E);
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_5E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_2E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1E);
+	  break;
+	case 8:
+	  number_of_item = 4;
+	  min_price      = 70;
+	  max_price      = 80;
+	  paid		 = 100;
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_50E);
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_20E);
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_5E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_2E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_2E);
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_10E);
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_5E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1E);
+	  break;
+	case 9:
+	  number_of_item = 4;
+	  min_price      = 50;
+	  max_price      = 99;
+	  paid		 = 100;
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_10E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_2E);
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_5E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_2E);
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_50E);
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_20E);
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_5E);
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_5E);
+	  break;
+	}
+      break;
+    case BACK_WITH_CENTS:
+      switch(gcomprisBoard->level)
+	{
+	case 1:
+	  number_of_item = 1;
+	  min_price      = 1;
+	  max_price      = 3;
+	  paid		 = 5;
+	  money_widget_add(tux_money, MONEY_EURO_COIN_2E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_5C);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_2C);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_20C);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_50C);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_20C);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_10C);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1C);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1C);
+	  break;
+	case 2:
+	  number_of_item = 1;
+	  min_price      = 1;
+	  max_price      = 3;
+	  paid		 = 5;
+	  money_widget_add(tux_money, MONEY_EURO_COIN_2E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_5C);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_2C);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_20C);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_50C);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_20C);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_10C);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1C);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1C);
+	  break;
+	case 3:
+	  number_of_item = 2;
+	  min_price      = 1;
+	  max_price      = 3;
+	  paid		 = 5;
+	  money_widget_add(tux_money, MONEY_EURO_COIN_2E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_5C);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_2C);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_20C);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_50C);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_20C);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_10C);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1C);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1C);
+	  break;
+	case 4:
+	  number_of_item = 3;
+	  min_price      = 1;
+	  max_price      = 3;
+	  paid		 = 5;
+	  money_widget_add(tux_money, MONEY_EURO_COIN_2E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_5C);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_2C);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_20C);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_50C);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_20C);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_10C);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1C);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1C);
+	  break;
+	case 5:
+	  number_of_item = 4;
+	  min_price      = 0;
+	  max_price      = 4;
+	  paid		 = 5;
+	  money_widget_add(tux_money, MONEY_EURO_COIN_2E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1E);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_5C);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_2C);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_20C);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_50C);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_20C);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_10C);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1C);
+	  money_widget_add(tux_money, MONEY_EURO_COIN_1C);
+	  break;
+	}
+      break;
     }
 
   seller_money = MONEY_WIDGET(money_widget_new());
@@ -491,6 +740,8 @@ static void money_next_level()
     RsvgHandle *svg_handle;
     RsvgDimensionData dimension;
     double xratio, yratio;
+    guint offset_x = 50;
+    guint boardwidth = BOARDWIDTH - offset_x * 2;
 
     /* Display the price */
     object_price  = (double) g_random_int_range(min_price/number_of_item,
@@ -525,18 +776,20 @@ static void money_next_level()
 				  svg_handle,
 				  NULL);
     }
-    xratio =  (gdouble)(BOARDWIDTH/(number_of_item+1)) / dimension.width;
+    xratio =  (gdouble)(boardwidth/(number_of_item+1)) / dimension.width;
     yratio =  100.0 / dimension.height;
 
     xratio = yratio = MIN(xratio, yratio);
     goo_canvas_item_translate(item,
-			      (i*BOARDWIDTH)/(number_of_item+1)
+			      offset_x +
+			      (i*boardwidth)/(number_of_item+1)
     			      - dimension.width*xratio/2,
     			      200);
 
     goo_canvas_item_scale(item, xratio, xratio);
 
-    if(currentMode == WITH_CENTS)
+    if( (currentMode == WITH_CENTS) ||
+	(currentMode == BACK_WITH_CENTS) )
       {
 	/* Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale */
 	display_format = _("$ %.2f");
@@ -552,6 +805,7 @@ static void money_next_level()
       }
     else
       {
+	/* Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale */
 	display_format = _("$ %.0f");
       }
 
@@ -559,7 +813,7 @@ static void money_next_level()
     text = g_strdup_printf(display_format, object_price);
     goo_canvas_text_new(boardRootItem,
 			text,
-			(i*BOARDWIDTH)/(number_of_item+1),
+			offset_x + (i*boardwidth)/(number_of_item+1),
 			185,
 			-1,
 			GTK_ANCHOR_CENTER,
@@ -570,6 +824,13 @@ static void money_next_level()
     g_object_unref(svg_handle);
   }
 
+  if (paid)
+    {
+      // Calc the money back instead of the objects price
+      price_target = paid - price_target;
+      // Display Tux and his money
+      display_paying_tux(paid);
+    }
 }
 /* ==================================== */
 /* Destroy all the items */
@@ -619,4 +880,68 @@ void moneyactivity_process_ok()
       gamewon = TRUE;
       gc_bonus_display(gamewon, GC_BONUS_SMILEY);
     }
+}
+
+static void display_paying_note(guint note, guint x, guint y)
+{
+  gchar *note_str = g_strdup_printf("money/n%de.svgz", note);
+  RsvgHandle *svg_handle;
+  svg_handle = gc_rsvg_load(note_str);
+  GooCanvasItem *item = goo_canvas_svg_new(boardRootItem,
+					   svg_handle,
+					   NULL);
+  goo_canvas_item_translate(item, x, y);
+  goo_canvas_item_scale(item, 0.25, 0.25);
+  g_object_unref(svg_handle);
+  g_free(note_str);
+}
+
+static void display_paying_tux(guint note)
+{
+  GdkPixbuf *pixmap = NULL;
+
+  g_assert(boardRootItem);
+
+  pixmap = gc_pixmap_load("money/tux_graduate.png");
+  goo_canvas_image_new (boardRootItem,
+			pixmap,
+			20,
+			130,
+			NULL);
+  gdk_pixbuf_unref(pixmap);
+
+  if (note == 30)
+    {
+      display_paying_note(20, 20, 200);
+      display_paying_note(10, 30, 250);
+    }
+  else if (note == 40)
+    {
+      display_paying_note(20, 20, 200);
+      display_paying_note(20, 30, 250);
+    }
+  else if (note == 100)
+    {
+      display_paying_note(50, 20, 200);
+      display_paying_note(50, 30, 250);
+    }
+  else
+    display_paying_note(note, 20, 200);
+
+  /* Set here the way to display money. Change only the money sign, and it's place, always keep %d */
+  gchar *text = g_strdup_printf(_("Tux just bought some items in your shop.\n"
+				  "He gives you $ %d, please give back his change."),
+				note);
+  goo_canvas_text_new(boardRootItem,
+		      text,
+		      BOARDWIDTH / 2,
+		      320,
+		      -1,
+		      GTK_ANCHOR_CENTER,
+		      "font", gc_skin_font_board_medium,
+		      "fill-color", "white",
+		      "alignment", PANGO_ALIGN_CENTER,
+		      NULL);
+  g_free(text);
+
 }

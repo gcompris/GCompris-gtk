@@ -21,6 +21,7 @@ icon_DATA = algebra_group.svg \
 	mem_solo_calc.svg \
 	mem_tux_calc.svg \
 	miscelaneous.svg \
+	money_group.svg \
 	mouse.svg \
 	numeration.svg \
 	puzzles.svg \
@@ -50,6 +51,7 @@ xml_in_files = \
 	memory_op_group.xml.in \
 	menu.xml.in \
 	miscelaneous.xml.in \
+	money_group.xml.in \
 	mouse.xml.in \
 	numeration.xml.in \
 	puzzle.xml.in \

@@ -1,6 +1,6 @@
 ## Process this file with automake to produce Makefile.in
 
-SUBDIRS = hydroelectric-activity hangman-activity \
+SUBDIRS = money_back_cents-activity money_back-activity hydroelectric-activity hangman-activity \
 	goocanvas gcompris boards \
 	advanced_colors-activity \
 	algebra_by-activity \

@@ -790,6 +790,8 @@ src/money-activity/Makefile
 src/money-activity/resources/Makefile
 src/money-activity/resources/money/Makefile
 src/money_cents-activity/Makefile
+src/money_back-activity/Makefile
+src/money_back_cents-activity/Makefile
 src/mosaic-activity/Makefile
 src/mosaic-activity/resources/Makefile
 src/mosaic-activity/resources/mosaic/Makefile
