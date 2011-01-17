@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&component=general\n"
-"POT-Creation-Date: 2011-01-06 19:56+0000\n"
-"PO-Revision-Date: 2011-01-07 19:01+0100\n"
-"Last-Translator: Andrej Žnidaršič <andrej.znidarsic@gmail.com>\n"
+"POT-Creation-Date: 2011-01-13 12:32+0000\n"
+"PO-Revision-Date: 2011-01-17 20:24+0100\n"
+"Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -30,7 +30,7 @@ msgstr "Pojdi k matematičnim nalogam"
 #: ../boards/algebra_group.xml.in.h:2
 #: ../boards/menu.xml.in.h:18
 msgid "Left-click the mouse on an activity to select it."
-msgstr "Z levim miškinim klikom izberi igro, ki jo želiš igrati."
+msgstr "Z levim klikom miške izberi igro, ki jo želiš igrati."
 
 #: ../boards/algebramenu.xml.in.h:1
 msgid "Go to calculation activities"
@@ -721,7 +721,7 @@ msgstr "Če želite GCompris fino prilagoditi za svoje potrebe, lahko uporabite 
 
 #: ../src/administration-activity/administration.xml.in.h:6
 msgid "Left-Click with the mouse to select an activity"
-msgstr "Z levim miškinim klikom izberi željeno igro"
+msgstr "Z levim klikom miške izberi želeno igro"
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:1
 msgid "Advanced colors"
@@ -1906,7 +1906,7 @@ msgstr "Ribe izvirajo iz Unix pripomočka xfishtank. Zasluge pripadajo Guillaume
 
 #: ../src/clickgame-activity/clickgame.xml.in.h:3
 msgid "Left-Click with the mouse on all the swimming fish before they leave the fishtank"
-msgstr "Z levo miškino tipko klikni na vse ribe preden zapustijo bazen."
+msgstr "Z levim gumbom miške klikni na vse ribe preden zapustijo bazen."
 
 #: ../src/clickgame-activity/clickgame.xml.in.h:4
 msgid "Motor coordination: moving and clicking the mouse."
@@ -1914,7 +1914,7 @@ msgstr "Motorična koordinacija: premikanje in klikanje miške"
 
 #: ../src/clickgame-activity/clickgame.xml.in.h:6
 msgid "Use the left mouse button to click on the moving fish."
-msgstr "Klikni z levo miškino tipko na premikajočo se ribo."
+msgstr "Klikni z levim gumbom miške na premikajočo se ribo."
 
 #: ../src/clockgame-activity/clockgame.c:525
 msgid "Set the watch to:"
@@ -2191,7 +2191,7 @@ msgstr "V tej igri lahko otroci prosto rišejo. Cilj je raziskati načine risanj
 
 #: ../src/draw-activity/draw.xml.in.h:5
 msgid "Select a drawing tool on the left, and a color down the bottom, then click and drag in the white area to create a new shape. To save time, you can click with the middle mouse button to delete an object."
-msgstr "Na levi strani izberi orodje za risanje v spodnjem delu pa izberi barvo. Klikni na belo polje ter nariši novo obliko. Za hitrejše delo lahko uporabiš srednjo tipko na miški. Z njo predmet izbrišeš."
+msgstr "Na levi strani izberi orodje za risanje v spodnjem delu pa izberi barvo. Klikni na belo polje ter nariši novo obliko. Za hitrejše delo lahko uporabiš srednjim gumbom na miški. Z njo predmet izbrišeš."
 
 #: ../src/drawnumber-activity/drawnumber.py:236
 msgid "Cannot find the file '{filename}'"
@@ -2236,7 +2236,7 @@ msgstr "Ustvari in simuliraj električno shemo"
 # tukaj je lahko levi stolpec, ker je povsod levi stolpec, samo tukaj so mu angleško rekli selector namesto left box
 #: ../src/electric-activity/electric.xml.in.h:2
 msgid "Drag electrical components from the selector and drop them in the working area. Create wires by clicking on a connection spot, dragging the mouse to the next connection spot, and letting go. You can also move components by dragging them. You can delete wires by clicking on them. To delete a component, select the deletion tool on top of the component selector. You can click on the switch to open and close it. You can change the rheostat value by dragging its wiper. In order to simulate what happens when a bulb is blown, you can blown it by right-clicking on it. The simulation is updated in real time by any user action."
-msgstr "Povleci električne sestavne dele iz levega stolpca in jih spusti na delovno področje. Žice ustvariš tako, da klikneš na točko povezave, miško povlečeš do naslednje točke povezave in jo spustiš. Sestavne dele lahko premikaš z vlečenjem. Žice izbrišeš tako, da klikneš nanje. Za izbris sestavnega dela izberi orodje izbrisa na vrhu stolpca s sestavnimi deli. Za odprtje in zaprtje stikala klikni nanj. Vrednost spremenljivega upora lahko spremeniš z vleko drsnika. Za simulacijo pregorele žarnice klikni nanjo z desnim miškinim gumbom. Simulacija se takoj samodejno posodablja. "
+msgstr "Povleci električne sestavne dele iz levega stolpca in jih spusti na delovno področje. Žice ustvariš tako, da klikneš na točko povezave, miško povlečeš do naslednje točke povezave in jo spustiš. Sestavne dele lahko premikaš z vlečenjem. Žice izbrišeš tako, da klikneš nanje. Za izbris sestavnega dela izberi orodje izbrisa na vrhu stolpca s sestavnimi deli. Za odprtje in zaprtje stikala klikni nanj. Vrednost spremenljivega upora lahko spremeniš z vleko drsnika. Za simulacijo pregorele žarnice klikni nanjo z desnim gumbom miške. Simulacija se takoj samodejno posodablja. "
 
 #: ../src/electric-activity/electric.xml.in.h:3
 msgid "Electricity"
@@ -5434,7 +5434,7 @@ msgstr "Dvakrat klikni na balon in ga ustreli."
 
 #: ../src/penalty-activity/penalty.xml.in.h:1
 msgid "Double click the mouse on the ball to kick it. You can double click the left right or middle mouse button. If you lose, Tux catches the ball. You must click on it to bring it back to its former position"
-msgstr "Za brcanje žoge z miško dvakrat klikni nanjo. Dvakrat lahko klikneš z levim, desnim ali srednjim miškinim gumbom. Če izgubiš, Pingo ujame žogo. Če želiš, da se žoga vrne na začetno mesto, klikni nanjo."
+msgstr "Za brcanje žoge z miško dvakrat klikni nanjo. Dvakrat lahko klikneš z levim, desnim ali srednjim gumbom miške. Če izgubiš, Pingo ujame žogo. Če želiš, da se žoga vrne na začetno mesto, klikni nanjo."
 
 #: ../src/penalty-activity/penalty.xml.in.h:2
 msgid "Double click the mouse on the ball to score a goal."
@@ -5762,7 +5762,7 @@ msgstr "Otrok lahko premika miško, bere števila in odšteva števila do 10 za 
 
 #: ../src/reversecount-activity/reversecount.xml.in.h:2
 msgid "Click on the dice to show how many ice spots there are between Tux and the fish. Click the dice with the right mouse button to count backwards. When done, click on the OK button or hit the Enter key."
-msgstr "Najprej preštej koliko ledenik točk je med Pingom in ribo. Nato klikni na kocko, da izbereš pravo številko. Za štetje nazaj uporabi desno miškino tipko. Ko končaš, pritisni gumb v redu ali vnosno tipko."
+msgstr "Najprej preštej koliko ledenik točk je med Pingom in ribo. Nato klikni na kocko, da izbereš pravo številko. Za štetje nazaj uporabi desnim gumbom miške. Ko končaš, pritisni gumb v redu ali vnosno tipko."
 
 #: ../src/reversecount-activity/reversecount.xml.in.h:3
 msgid "Practice subtraction with a fun game"
@@ -6029,7 +6029,7 @@ msgstr "En predmet je postavljen narobe"
 
 #: ../src/superbrain-activity/superbrain.xml.in.h:1
 msgid "Click on the items until you find what you think is the correct answer. Then, click on the OK button in the control bar. In the lower levels, Tux gives you an indication if you found a hiding place by marking the item with a black box. You can use the right mouse button to flip the colors in the opposite order."
-msgstr "Klikaj na predmete tako dolgo, da ne dobiš tistega kar misliš, da je pravilen odgovor. Nato klikni gumb v redu. Na nižji ravni Pingo namigne ali si našel skrivališče na pravilnem položaju tako, da predmet označi s črno škatlico. Lahko uporabljaš desni miški klik za obrnjeni vrstni red barv."
+msgstr "Klikaj na predmete tako dolgo, da ne dobiš tistega kar misliš, da je pravilen odgovor. Nato klikni gumb v redu. Na nižji ravni Pingo namigne ali si našel skrivališče na pravilnem položaju tako, da predmet označi s črno škatlico. Lahko uporabljaš desni klik miške za obrnjeni vrstni red barv."
 
 #: ../src/tangram-activity/tangram.xml.in.h:1
 msgid ""
@@ -6051,7 +6051,7 @@ msgstr ""
 
 #: ../src/tangram-activity/tangram.xml.in.h:9
 msgid "Select the tangram to form. Move a piece by dragging it. Right-click on it to create a symmetrical item. Select an item and drag around it to show the rotation you want. Once you've shown what shape you want, the computer will create it. If you need help, click on the shape button, and the border of the shape will be drawn."
-msgstr "Izberi tangram, ki ga želiš oblikovati. Košček premakneš tako da ga povlečeš. Če na košček klikneš z desno miškino tipko, ustvariš simetričen predmet. Izberi predmet in ga vleci naokoli tako, da je zavrten tako kot hočeš. Ko si pokazal/a, kakšno obliko želiš, jo bo računalnik ustvaril. Če potrebuješ pomoč, klikni na gumb oblika in narisana bo meja oblike."
+msgstr "Izberi tangram, ki ga želiš oblikovati. Košček premakneš tako da ga povlečeš. Če na košček klikneš z desnim gumbom miške, ustvariš simetričen predmet. Izberi predmet in ga vleci naokoli tako, da je zavrten tako kot hočeš. Ko si pokazal/a, kakšno obliko želiš, jo bo računalnik ustvaril. Če potrebuješ pomoč, klikni na gumb oblika in narisana bo meja oblike."
 
 #: ../src/tangram-activity/tangram.xml.in.h:10
 msgid "The objective is to form a given shape with seven pieces"
@@ -6300,8 +6300,8 @@ msgid "Click on different active elements : sun, cloud, dam, solar array, wind f
 msgstr "Za ponovno zaganjanje celotnega električnega sistema klikni na različne dejavne elemente: sonce, oblak, jez, sončne celice, vetrnice in transfomatorje. Ko sistem ponovno deluje in je Pingo doma, zanj pritisni na stikalo za luč. Za zmago moraš priklopiti vse porabnike medtem ko delujejo vsi proizvajalci elektrike."
 
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:3
-msgid "Learn about an hydroelectric dam"
-msgstr "Nauči se o jezu hidroelektrarne"
+msgid "Learn about an electrical system based on renewable energy"
+msgstr "Nauči se o električnem sistemu, ki je osnovan na obnovljivi energiji"
 
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:4
 msgid "Tux has come back from a long fishing party on his boat. Bring the electrical system back up so he can have light in his home."
@@ -6371,6 +6371,8 @@ msgstr "Porabi se lahko samo toliko električne energije kot se je proizvede. To
 msgid "This is a step up transformer. Electricity is transmitted at high voltages (110 kV or above) to reduce the energy lost in long distance transmission."
 msgstr "To je transformator za zvišanje napetosti. Elektrika se prenaša pri visokih napetostih (110 kV ali več), kar zmanjša izgubo energije pri prenosu na dolge razdalje."
 
+#~ msgid "Learn about an hydroelectric dam"
+#~ msgstr "Nauči se o jezu hidroelektrarne"
 #~ msgid "Move the mouse until all the blocks disappear."
 #~ msgstr "Premikaj miško dokler vsa polja ne izginejo."
 #~ msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1888"
