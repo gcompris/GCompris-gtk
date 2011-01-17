@@ -505,7 +505,7 @@ static void money_next_level()
 	  break;
 	case 2:
 	  number_of_item = 1;
-	  min_price      = 11;
+	  min_price      = 1;
 	  max_price      = 19;
 	  paid		 = 20;
 	  money_widget_add(tux_money, MONEY_EURO_PAPER_10E);
@@ -520,7 +520,7 @@ static void money_next_level()
 	  break;
 	case 3:
 	  number_of_item = 2;
-	  min_price      = 21;
+	  min_price      = 2;
 	  max_price      = 29;
 	  paid		 = 30;
 	  money_widget_add(tux_money, MONEY_EURO_PAPER_10E);
@@ -536,7 +536,7 @@ static void money_next_level()
 	  break;
 	case 4:
 	  number_of_item = 2;
-	  min_price      = 30;
+	  min_price      = 2;
 	  max_price      = 39;
 	  paid		 = 40;
 	  money_widget_add(tux_money, MONEY_EURO_PAPER_10E);
@@ -552,7 +552,7 @@ static void money_next_level()
 	  break;
 	case 5:
 	  number_of_item = 3;
-	  min_price      = 40;
+	  min_price      = 3;
 	  max_price      = 49;
 	  paid		 = 50;
 	  money_widget_add(tux_money, MONEY_EURO_COIN_2E);
@@ -568,14 +568,14 @@ static void money_next_level()
 	  break;
 	case 6:
 	  number_of_item = 3;
-	  min_price      = 50;
+	  min_price      = 3;
 	  max_price      = 60;
 	  paid		 = 100;
 	  money_widget_add(tux_money, MONEY_EURO_PAPER_10E);
-	  money_widget_add(tux_money, MONEY_EURO_PAPER_20E);
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_50E);
 	  money_widget_add(tux_money, MONEY_EURO_COIN_2E);
 	  money_widget_add(tux_money, MONEY_EURO_PAPER_20E);
-	  money_widget_add(tux_money, MONEY_EURO_PAPER_5E);
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_20E);
 	  money_widget_add(tux_money, MONEY_EURO_PAPER_5E);
 	  money_widget_add(tux_money, MONEY_EURO_COIN_2E);
 	  money_widget_add(tux_money, MONEY_EURO_COIN_1E);
@@ -584,10 +584,10 @@ static void money_next_level()
 	  break;
 	case 7:
 	  number_of_item = 4;
-	  min_price      = 60;
+	  min_price      = 4;
 	  max_price      = 70;
 	  paid		 = 100;
-	  money_widget_add(tux_money, MONEY_EURO_COIN_2E);
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_10E);
 	  money_widget_add(tux_money, MONEY_EURO_PAPER_50E);
 	  money_widget_add(tux_money, MONEY_EURO_PAPER_5E);
 	  money_widget_add(tux_money, MONEY_EURO_COIN_1E);
@@ -600,12 +600,12 @@ static void money_next_level()
 	  break;
 	case 8:
 	  number_of_item = 4;
-	  min_price      = 70;
+	  min_price      = 4;
 	  max_price      = 80;
 	  paid		 = 100;
 	  money_widget_add(tux_money, MONEY_EURO_PAPER_50E);
 	  money_widget_add(tux_money, MONEY_EURO_PAPER_20E);
-	  money_widget_add(tux_money, MONEY_EURO_PAPER_5E);
+	  money_widget_add(tux_money, MONEY_EURO_PAPER_10E);
 	  money_widget_add(tux_money, MONEY_EURO_COIN_2E);
 	  money_widget_add(tux_money, MONEY_EURO_COIN_1E);
 	  money_widget_add(tux_money, MONEY_EURO_COIN_2E);
@@ -616,7 +616,7 @@ static void money_next_level()
 	  break;
 	case 9:
 	  number_of_item = 4;
-	  min_price      = 50;
+	  min_price      = 4;
 	  max_price      = 99;
 	  paid		 = 100;
 	  money_widget_add(tux_money, MONEY_EURO_PAPER_10E);
