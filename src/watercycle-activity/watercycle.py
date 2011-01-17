@@ -26,6 +26,8 @@ import gcompris.bonus
 import gtk
 import gtk.gdk
 
+from gcompris import gcompris_gettext as _
+
 class Gcompris_watercycle:
   """The Water Cycle activity"""
 
@@ -101,6 +103,10 @@ class Gcompris_watercycle:
       parent = self.rootitem,
       svg_handle = svghandle,
       svg_id = "#SUN",
+      tooltip = "\n\n\n" + \
+        _("The sun heats the water and creates water vapor. "
+          "Water vapor combines into small water droplets which "
+          "becomes clouds.")
       )
     self.sunitem.connect("button_press_event", self.sun_item_event)
     # This item is clickeable and it must be seen
@@ -133,7 +139,11 @@ class Gcompris_watercycle:
       parent = self.rootitem,
       svg_handle = svghandle,
       svg_id = "#CLOUD",
-      visibility = goocanvas.ITEM_INVISIBLE
+      visibility = goocanvas.ITEM_INVISIBLE,
+      tooltip = "\n\n\n" + \
+        _("As a cloud matures, the dense water droplets may combine "
+          "to produce larger droplets, which may combine to form "
+          "droplets large enough to fall as rain")
       )
     self.clouditem.props.visibility = goocanvas.ITEM_INVISIBLE
     self.clouditem.connect("animation-finished", self.cloud_arrived)
@@ -155,7 +165,9 @@ class Gcompris_watercycle:
     self.waterpumpitem = goocanvas.Svg(
       parent = self.rootitem,
       svg_handle = svghandle,
-      svg_id = "#PUMPSTATION"
+      svg_id = "#PUMPSTATION",
+      tooltip = "\n\n\n" + \
+        _("This is a water pump station.")
       )
     self.waterpumpitem.connect("button_press_event", self.waterpump_item_event)
     # This item is clickeable and it must be seen
@@ -166,7 +178,9 @@ class Gcompris_watercycle:
     self.watercleaningitem = goocanvas.Svg(
       parent = self.rootitem,
       svg_handle = svghandle,
-      svg_id = "#CLEANSTATION"
+      svg_id = "#CLEANSTATION",
+      tooltip = "\n\n\n" + \
+        _("This is a water cleanup station.")
       )
     self.watercleaningitem.connect("button_press_event", self.watercleaning_item_event)
     # This item is clickeable and it must be seen
@@ -241,7 +255,15 @@ class Gcompris_watercycle:
       pointer_events = goocanvas.EVENTS_NONE
       )
 
-    # The level of water in the castle
+    goocanvas.Svg(
+      parent = self.rootitem,
+      svg_handle = svghandle,
+      svg_id = "#WATER_TOWER",
+      tooltip = "\n\n\n" + \
+        _("A water tower or elevated water tower is a large elevated water storage container constructed to hold a water supply at a height sufficient to pressurize a water distribution system.")
+      )
+
+    # The level of water in the tower
     self.waterlevel_max = 12
     self.waterlevel_min = 1
     self.waterlevel_x_ratio = 1.3
