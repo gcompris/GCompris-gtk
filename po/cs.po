@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&component=general\n"
-"POT-Creation-Date: 2011-01-12 05:53+0000\n"
-"PO-Revision-Date: 2011-01-13 11:01+0100\n"
+"POT-Creation-Date: 2011-01-17 23:09+0000\n"
+"PO-Revision-Date: 2011-01-18 20:34+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -30,6 +30,7 @@ msgid "Go to Algebra activities"
 msgstr "Jít na algebraické aktivity"
 
 #: ../boards/algebra_group.xml.in.h:2 ../boards/menu.xml.in.h:18
+#: ../boards/money_group.xml.in.h:2
 msgid "Left-click the mouse on an activity to select it."
 msgstr "Vyber aktivitu levým tlačítkem myši."
 
@@ -223,6 +224,10 @@ msgstr "Rozmanité aktivity"
 #: ../boards/miscelaneous.xml.in.h:2
 msgid "Time, Geography, ..."
 msgstr "Čas, zeměpis, …"
+
+#: ../boards/money_group.xml.in.h:1
+msgid "Go to money activities"
+msgstr "Jít na peněžní aktivity"
 
 #: ../boards/mouse.xml.in.h:1
 msgid "Mouse-manipulation activities."
@@ -1675,8 +1680,8 @@ msgid "Special board that embeds python into gcompris."
 msgstr "Speciální deska, která vkládá python do gcompris."
 
 #: ../src/canal_lock-activity/canal_lock.xml.in.h:1
-#: ../src/watercycle-activity/watercycle.xml.in.h:2
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:2
+#: ../src/watercycle-activity/watercycle.xml.in.h:2
 msgid "Drawing by Stephane Cabaraux."
 msgstr "Kresba od Stephany Cabarauxové."
 
@@ -4553,6 +4558,51 @@ msgstr ""
 "čísla. Pokud se Tux nachází nad nebo pod východem, tak to znamená, že číslo "
 "je vyšší nebo nižší než to hledané."
 
+#. All the vowel of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:61
+msgid "aeiouy"
+msgstr "aeiouy"
+
+#. All the consonants of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:63
+msgid "bcdfghjklmnpqrstvwxz"
+msgstr "bcdfghjklmnpqrstvwxz"
+
+#. Letters equivallence for the hangman activity. It has the
+#. form of a space separated list like: "e=éè a=àâ"
+#. Keep the word NONE if not available in your language
+#: ../src/hangman-activity/hangman.py:67
+msgid "NONE"
+msgstr "a=á c=č d=ď e=éě i=í n=ň o=ó r=ř s=š t=ť u=úů y=ý z=ž"
+
+#: ../src/hangman-activity/hangman.py:104
+msgid "Could not find the list of words."
+msgstr "Nelze najít seznam slov."
+
+#: ../src/hangman-activity/hangman.xml.in.h:1
+msgid "A word is hidden, you must discover it letter by letter"
+msgstr "Slovo je skryté a ty jej musíš objevit písmeno po písmenu"
+
+#: ../src/hangman-activity/hangman.xml.in.h:2
+msgid "Reading skill"
+msgstr "Dovednost čtení"
+
+#: ../src/hangman-activity/hangman.xml.in.h:3
+msgid "The classic hangman game"
+msgstr "Klasická hra Šibenice"
+
+#: ../src/hangman-activity/hangman.xml.in.h:4
+msgid "This is a good exercise to improve reading and spelling skills."
+msgstr "Toto je dobré cvičení ke zdokonalení dovednosti čtení a hláskování."
+
+#: ../src/hangman-activity/hangman.xml.in.h:5
+msgid ""
+"You can enter the letters using the virtual keyboard on the screen or with "
+"the real keyboard."
+msgstr ""
+"Písmena můžeš zadávat pomocí virtuální klávesnice na obrazovce nebo na "
+"skutečné klávesnici."
+
 #: ../src/hanoi-activity/hanoi.c:112 ../src/hanoi-activity/hanoi.xml.in.h:6
 msgid "Simplified Tower of Hanoi"
 msgstr "Zjednodušené Hanojské věže"
@@ -4652,6 +4702,142 @@ msgstr ""
 #: ../src/hexagon-activity/hexagon.xml.in.h:5
 msgid "hexagon"
 msgstr "Šestiúhelník"
+
+#: ../src/hydroelectric-activity/hydroelectric.py:88
+#: ../src/watercycle-activity/watercycle.py:107
+msgid ""
+"The sun heats the water and creates water vapor. Water vapor combines into "
+"small water droplets which becomes clouds."
+msgstr ""
+"Slunce ohřívá vodu a vytváří vodní páru. Vodní pára se shlukuje do malých "
+"vodních kapiček, které vytváří mraky."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:126
+#: ../src/watercycle-activity/watercycle.py:144
+msgid ""
+"As a cloud matures, the dense water droplets may combine to produce larger "
+"droplets, which may combine to form droplets large enough to fall as rain"
+msgstr ""
+"Jak mrak roste, vodní kapičky houstnou a spojují se do větších kapek, které "
+"se mohou spojit až do tak velkých kapek, že začnou padat v podobě deště."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:169
+msgid "This is the meter for electricity produced by the turbine. "
+msgstr "Toto je elektroměr pro elektřinu produkovanou turbínou."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:170
+#: ../src/hydroelectric-activity/hydroelectric.py:282
+#: ../src/hydroelectric-activity/hydroelectric.py:289
+#: ../src/hydroelectric-activity/hydroelectric.py:319
+#: ../src/hydroelectric-activity/hydroelectric.py:341
+msgid "The electricity power is measured in Watt (W)."
+msgstr "Elektrický výkon se měří ve wattech (W)."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:175
+msgid ""
+"Flowing water is directed on to the blades of a turbine runner, creating a "
+"force on the blades. In this way, energy is transferred from the water flow "
+"to the turbine"
+msgstr ""
+"Tekoucí voda je směrována na lopatky běžící turbíny a vytváří na lopatky "
+"tlak. Tímto způsobem se přenáší energie z tekoucí vody do turbíny."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:189
+msgid "This cloud simulates the wind, click on it to have wind."
+msgstr "Tento mrak simuluje vítr. Kliknutím na něj uděláte větrno."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:227
+msgid ""
+"This is a step down transformer. Electricity is transformed in low voltage, "
+"ready to be used by the customers."
+msgstr ""
+"Toto je snižující transformátor. Elektřina je měněna na nízké napětí, "
+"připravené k použití spotřebiteli."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:281
+msgid "This is the meter for all the electricity produced. "
+msgstr "Toto je elektroměr pro veškerou vyprodukovanou elektřinu."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:288
+msgid "This is the meter for electricity consumed by the users. "
+msgstr "Toto je elektroměr pro elektřinu spotřebovanou uživateli."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:318
+msgid "This is the meter for electricity produced by the solar panels. "
+msgstr "Toto je elektroměr pro elektřinu produkovanou solárním panelem."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:324
+msgid ""
+"Solar panels use light energy (photons) from the sun to generate electricity "
+"through the photovoltaic effect."
+msgstr ""
+"Solární panely používají světelnou energii (fotony) ze slunce ke generování "
+"elektřiny pomocí fotovoltaického efektu."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:340
+msgid "This is the meter for electricity produced by the wind turbines. "
+msgstr "Toto je elektroměr pro elektřinu produkovanou větrnou turbínou."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:346
+msgid ""
+"A wind turbine is a device that converts wind motion energy into electricity "
+"generation. It is called a wind generator or wind charger. "
+msgstr ""
+"Větrná turbína (větrná vrtule) je zařízení, které převádí pohybovou energii "
+"větru do elektrického generátoru."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:732
+msgid ""
+"It is not possible to consume more electricity than what is produced. This "
+"is a key limitation in the distribution of electricity, with minor "
+"exceptions, electrical energy cannot be stored, and therefore it must be "
+"generated as it is needed. A sophisticated system of control is therefore "
+"required to ensure electric generation very closely matches the demand. If "
+"supply and demand are not in balance, generation plants and transmission "
+"equipment can shut down which, in the worst cases, can lead to a major "
+"regional blackout."
+msgstr ""
+"Není možné spotřebovat více elektřiny než je vyprodukováno. To je klíčové "
+"omezení při distribuci elektřiny. Až na nějaké malé výjimky ji nelze ukládat "
+"a tak se ji musí generovat právě tolik, kolik je jí zapotřebí. Z toho důvodu "
+"jsou zapotřebí sofistikované řídící systémy, které zajistí generování "
+"elektřiny, aby to přesně odpovídalo požadavkům. Pokud dodávky a požadavky "
+"nejsou vyvážené, mohou se generátory elektrárny a přenosová soustava "
+"zhroutit, což může v nejčernějších scénářích vést v celých regionech k "
+"totálnímu výpadku (tzv. blackout)."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:946
+msgid ""
+"This is a step up transformer. Electricity is transmitted at high voltages "
+"(110 kV or above) to reduce the energy lost in long distance transmission."
+msgstr ""
+"Toto je zvyšující transformátor. Elektřina je přenášena za použití vysokého "
+"napětí (110 kV a více) kvůli snížení ztrát energie na dlouhém vedení."
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:1
+msgid ""
+"Click on different active elements : sun, cloud, dam, solar array, wind farm "
+"and transformers, in order to reactivate the entire electrical system. When "
+"the system is back up and Tux is in his home, push the light button for him. "
+"To win you must switch on all the consumers while all the producers are up."
+msgstr ""
+"Klikej na různé aktivní prvky: slunce, mrak, přehradu, solární farmu a "
+"transformátory, ve správném pořadí a reaktivuj celý elektrický systém. Až "
+"bude systém opraven a Tux bude doma, stiskni pro něj vypínač světla. Abyste "
+"vyhráli, musíte zapnout všechny odběratele, přičemž musí být v provozu "
+"všichni výrobci."
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:3
+msgid "Learn about an electrical system based on renewable energy"
+msgstr "Poučit se o elektrických systémech založených na obnovitelné energii"
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:4
+msgid ""
+"Tux has come back from a long fishing party on his boat. Bring the "
+"electrical system back up so he can have light in his home."
+msgstr ""
+"Tux se vrátil z dlouhého rybaření na své lodi. Oprav elektrické rozvody, aby "
+"si mohl doma rozsvítit."
 
 #: ../src/imageid-activity/imageid.c:94
 #: ../src/imageid-activity/imageid.xml.in.h:3
@@ -5990,22 +6176,37 @@ msgid "satchel/sa_chel/t/p/c/z/s/l"
 msgstr "aktovka/akt_vka/o/a/u/e"
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
-#: ../src/money-activity/money.c:542
+#: ../src/money-activity/money.c:795
 #, c-format
 msgid "$ %.2f"
 msgstr "%.2f Kč"
 
-#: ../src/money-activity/money.c:555
+#. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
+#: ../src/money-activity/money.c:809
 #, c-format
 msgid "$ %.0f"
 msgstr "%.0f Kč"
 
+#. Set here the way to display money. Change only the money sign, and it's place, always keep %d
+#: ../src/money-activity/money.c:932
+#, c-format
+msgid ""
+"Tux just bought some items in your shop.\n"
+"He gives you $ %d, please give back his change."
+msgstr ""
+"Tux si právě ve tvém obchodě nakoupil nějaké věci.\n"
+"Dal ti %d Kč, vrať mu prosím zpátky drobné."
+
 #: ../src/money-activity/money.xml.in.h:1
+#: ../src/money_back-activity/money_back.xml.in.h:1
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:1
 #: ../src/money_cents-activity/money_cents.xml.in.h:1
 msgid "Can count"
 msgstr "Umí počítat"
 
 #: ../src/money-activity/money.xml.in.h:2
+#: ../src/money_back-activity/money_back.xml.in.h:2
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:2
 #: ../src/money_cents-activity/money_cents.xml.in.h:2
 msgid ""
 "Click on the coins or paper money at the bottom of the screen to pay. If you "
@@ -6032,6 +6233,30 @@ msgid ""
 msgstr ""
 "Musíš kupovat různé věci a platit přesnou sumou. Ve vyšších úrovních je "
 "zobrazeno několik věcí a musíš nejdříve spočítat celkovou cenu."
+
+#: ../src/money_back-activity/money_back.xml.in.h:3
+msgid "Give tux his change"
+msgstr "Dej Tuxovi jeho drobné"
+
+#: ../src/money_back-activity/money_back.xml.in.h:4
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:4
+msgid "Practice money usage by giving Tux his change"
+msgstr "Procvič si používání peněz vracením drobných Tuxovi"
+
+#: ../src/money_back-activity/money_back.xml.in.h:5
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:5
+msgid ""
+"Tux bought you different items and shows you his money. You must give him "
+"back his change. At higher levels, several items are displayed, and you must "
+"first calculate the total price."
+msgstr ""
+"Tux u tebe nakoupil různé věci a dává ti peníze. Ty mu musíš vrátit zpátky "
+"drobné. Ve vyšších úrovních je zobrazeno několik položek a ty musíš nejdříve "
+"spočítat celkovou cenu."
+
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:3
+msgid "Give tux his change, including cents"
+msgstr "Dej Tuxovi jeho drobné, včetně haléřů"
 
 #: ../src/money_cents-activity/money_cents.xml.in.h:4
 msgid "Practice money usage including cents"
@@ -7139,6 +7364,24 @@ msgstr ""
 msgid "mouse and keyboard manipulation"
 msgstr "manipulace s myší a klávesnicí"
 
+#: ../src/watercycle-activity/watercycle.py:170
+msgid "This is a water pump station."
+msgstr "Toto je stanice na čerpání vody."
+
+#: ../src/watercycle-activity/watercycle.py:183
+msgid "This is a water cleanup station."
+msgstr "Toto je čistička vody."
+
+#: ../src/watercycle-activity/watercycle.py:263
+msgid ""
+"A water tower or elevated water tower is a large elevated water storage "
+"container constructed to hold a water supply at a height sufficient to "
+"pressurize a water distribution system."
+msgstr ""
+"Vodojem nebo věžový vodojem je velký, ve výšce umístěný, kontejner k "
+"uchování vody. Je konstruovaný tak, aby zadržoval zásobu vody ve výšce, "
+"která vytvoří dostatečný tlak pro rozvodný systém vody."
+
 #: ../src/watercycle-activity/watercycle.xml.in.h:1
 msgid ""
 "Click on different active elements : sun, cloud, water pump station, and "
@@ -7250,185 +7493,6 @@ msgstr "Procvičení klávesnice"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:4
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Napiš celé padající slovo, než spadnou na zem"
-
-#: ../src/hangman-activity/hangman.xml.in.h:1
-msgid "A word is hidden, you must discover it letter by letter"
-msgstr "Slovo je skryté a ty jej musíš objevit písmeno po písmenu"
-
-#: ../src/hangman-activity/hangman.xml.in.h:2
-msgid "Reading skill"
-msgstr "Dovednost čtení"
-
-#: ../src/hangman-activity/hangman.xml.in.h:3
-msgid "The classic hangman game"
-msgstr "Klasická hra Šibenice"
-
-#: ../src/hangman-activity/hangman.xml.in.h:4
-msgid "This is a good exercise to improve reading and spelling skills."
-msgstr "Toto je dobré cvičení ke zdokonalení dovednosti čtení a hláskování."
-
-#: ../src/hangman-activity/hangman.xml.in.h:5
-msgid ""
-"You can enter the letters using the virtual keyboard on the screen or with "
-"the real keyboard."
-msgstr ""
-"Písmena můžeš zadávat pomocí virtuální klávesnice na obrazovce nebo na "
-"skutečné klávesnici."
-
-#. All the vowel of your language (keep empty if non applicable)
-#: ../src/hangman-activity/hangman.py:61
-msgid "aeiouy"
-msgstr "aeiouy"
-
-#. All the consonants of your language (keep empty if non applicable)
-#: ../src/hangman-activity/hangman.py:63
-msgid "bcdfghjklmnpqrstvwxz"
-msgstr "bcdfghjklmnpqrstvwxz"
-
-#. Letters equivallence for the hangman activity. It has the
-#. form of a space separated list like: "e=éè a=àâ"
-#. Keep the word NONE if not available in your language
-#: ../src/hangman-activity/hangman.py:67
-msgid "NONE"
-msgstr "a=á c=č d=ď e=éě i=í n=ň o=ó r=ř s=š t=ť u=úů y=ý z=ž"
-
-#: ../src/hangman-activity/hangman.py:104
-msgid "Could not find the list of words."
-msgstr "Nelze najít seznam slov."
-
-#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:1
-msgid ""
-"Click on different active elements : sun, cloud, dam, solar array, wind farm "
-"and transformers, in order to reactivate the entire electrical system. When "
-"the system is back up and Tux is in his home, push the light button for him. "
-"To win you must switch on all the consumers while all the producers are up."
-msgstr ""
-"Klikej na různé aktivní prvky: slunce, mrak, přehradu, solární farmu a "
-"transformátory, ve správném pořadí a reaktivuj celý elektrický systém. Až "
-"bude systém opraven a Tux bude doma, stiskni pro něj vypínač světla. Abyste "
-"vyhráli, musíte zapnout všechny odběratele, přičemž musí být v provozu "
-"všichni výrobci."
-
-#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:3
-msgid "Learn about an electrical system based on renewable energy"
-msgstr "Poučit se o elektrických systémech založených na obnovitelné energii"
-
-#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:4
-msgid ""
-"Tux has come back from a long fishing party on his boat. Bring the "
-"electrical system back up so he can have light in his home."
-msgstr ""
-"Tux se vrátil z dlouhého rybaření na své lodi. Oprav elektrické rozvody, aby "
-"si mohl doma rozsvítit."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:88
-msgid ""
-"The sun heats the water and creates water vapor. Water vapor combines into "
-"small water droplets which becomes clouds."
-msgstr ""
-"Slunce ohřívá vodu a vytváří vodní páru. Vodní pára se shlukuje do malých "
-"vodních kapiček, které vytváří mraky."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:126
-msgid ""
-"As a cloud matures, the dense water droplets may combine to produce larger "
-"droplets, which may combine to form droplets large enough to fall as rain"
-msgstr ""
-"Jak mrak roste, vodní kapičky houstnou a spojují se do větších kapek, které "
-"se mohou spojit až do tak velkých kapek, že začnou padat v podobě deště."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:169
-msgid "This is the meter for electricity produced by the turbine. "
-msgstr "Toto je elektroměr pro elektřinu produkovanou turbínou."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:170
-#: ../src/hydroelectric-activity/hydroelectric.py:282
-#: ../src/hydroelectric-activity/hydroelectric.py:289
-#: ../src/hydroelectric-activity/hydroelectric.py:319
-#: ../src/hydroelectric-activity/hydroelectric.py:341
-msgid "The electricity power is measured in Watt (W)."
-msgstr "Elektrický výkon se měří ve wattech (W)."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:175
-msgid ""
-"Flowing water is directed on to the blades of a turbine runner, creating a "
-"force on the blades. In this way, energy is transferred from the water flow "
-"to the turbine"
-msgstr ""
-"Tekoucí voda je směrována na lopatky běžící turbíny a vytváří na lopatky "
-"tlak. Tímto způsobem se přenáší energie z tekoucí vody do turbíny."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:189
-msgid "This cloud simulates the wind, click on it to have wind."
-msgstr "Tento mrak simuluje vítr. Kliknutím na něj uděláte větrno."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:227
-msgid ""
-"This is a step down transformer. Electricity is transformed in low voltage, "
-"ready to be used by the customers."
-msgstr ""
-"Toto je snižující transformátor. Elektřina je měněna na nízké napětí, "
-"připravené k použití spotřebiteli."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:281
-msgid "This is the meter for all the electricity produced. "
-msgstr "Toto je elektroměr pro veškerou vyprodukovanou elektřinu."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:288
-msgid "This is the meter for electricity consumed by the users. "
-msgstr "Toto je elektroměr pro elektřinu spotřebovanou uživateli."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:318
-msgid "This is the meter for electricity produced by the solar panels. "
-msgstr "Toto je elektroměr pro elektřinu produkovanou solárním panelem."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:324
-msgid ""
-"Solar panels use light energy (photons) from the sun to generate electricity "
-"through the photovoltaic effect."
-msgstr ""
-"Solární panely používají světelnou energii (fotony) ze slunce ke generování "
-"elektřiny pomocí fotovoltaického efektu."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:340
-msgid "This is the meter for electricity produced by the wind turbines. "
-msgstr "Toto je elektroměr pro elektřinu produkovanou větrnou turbínou."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:346
-msgid ""
-"A wind turbine is a device that converts wind motion energy into electricity "
-"generation. It is called a wind generator or wind charger. "
-msgstr ""
-"Větrná turbína (větrná vrtule) je zařízení, které převádí pohybovou energii "
-"větru do elektrického generátoru."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:732
-msgid ""
-"It is not possible to consume more electricity than what is produced. This "
-"is a key limitation in the distribution of electricity, with minor "
-"exceptions, electrical energy cannot be stored, and therefore it must be "
-"generated as it is needed. A sophisticated system of control is therefore "
-"required to ensure electric generation very closely matches the demand. If "
-"supply and demand are not in balance, generation plants and transmission "
-"equipment can shut down which, in the worst cases, can lead to a major "
-"regional blackout."
-msgstr ""
-"Není možné spotřebovat více elektřiny než je vyprodukováno. To je klíčové "
-"omezení při distribuci elektřiny. Až na nějaké malé výjimky ji nelze ukládat "
-"a tak se ji musí generovat právě tolik, kolik je jí zapotřebí. Z toho důvodu "
-"jsou zapotřebí sofistikované řídící systémy, které zajistí generování "
-"elektřiny, aby to přesně odpovídalo požadavkům. Pokud dodávky a požadavky "
-"nejsou vyvážené, mohou se generátory elektrárny a přenosová soustava "
-"zhroutit, což může v nejčernějších scénářích vést v celých regionech k "
-"totálnímu výpadku (tzv. blackout)."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:946
-msgid ""
-"This is a step up transformer. Electricity is transmitted at high voltages "
-"(110 kV or above) to reduce the energy lost in long distance transmission."
-msgstr ""
-"Toto je zvyšující transformátor. Elektřina je přenášena za použití vysokého "
-"napětí (110 kV a více) kvůli snížení ztrát energie na dlouhém vedení."
 
 #~ msgid "Learn about an hydroelectric dam"
 #~ msgstr "Poučení o vodní elektrárně"
