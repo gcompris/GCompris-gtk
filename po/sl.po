@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&component=general\n"
-"POT-Creation-Date: 2011-01-13 12:32+0000\n"
-"PO-Revision-Date: 2011-01-17 20:24+0100\n"
-"Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
+"POT-Creation-Date: 2011-01-20 06:13+0000\n"
+"PO-Revision-Date: 2011-01-21 09:15+0100\n"
+"Last-Translator: Andrej Žnidaršič <andrej.znidarsic@gmail.com>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -29,6 +29,7 @@ msgstr "Pojdi k matematičnim nalogam"
 
 #: ../boards/algebra_group.xml.in.h:2
 #: ../boards/menu.xml.in.h:18
+#: ../boards/money_group.xml.in.h:2
 msgid "Left-click the mouse on an activity to select it."
 msgstr "Z levim klikom miške izberi igro, ki jo želiš igrati."
 
@@ -213,6 +214,10 @@ msgstr "Različne dejavnosti"
 #: ../boards/miscelaneous.xml.in.h:2
 msgid "Time, Geography, ..."
 msgstr "Čas, geografija, ..."
+
+#: ../boards/money_group.xml.in.h:1
+msgid "Go to money activities"
+msgstr "Pojdi na denarne dejavnosti"
 
 #: ../boards/mouse.xml.in.h:1
 msgid "Mouse-manipulation activities."
@@ -1475,8 +1480,8 @@ msgid "Special board that embeds python into gcompris."
 msgstr "Posebna tabla, ki vključi v gcompris vključi pyton."
 
 #: ../src/canal_lock-activity/canal_lock.xml.in.h:1
-#: ../src/watercycle-activity/watercycle.xml.in.h:2
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:2
+#: ../src/watercycle-activity/watercycle.xml.in.h:2
 msgid "Drawing by Stephane Cabaraux."
 msgstr "Risba Stephana Cabarauxa."
 
@@ -4047,6 +4052,47 @@ msgstr "Za zadnjo raven števila od 1 do 1000."
 msgid "Read the instructions that give you the range of the number to find. Enter a number in the top right blue entry box. Tux will tell you if your number is higher or lower. Then enter another number. The distance between Tux and the escape area on the right represents how far you are from the correct number. If Tux is over or under the escape area, it means your number is over or under the correct number."
 msgstr "Preberi navodila, ki ti dajo obseg v kateremu se nahaja iskano število. Vnesi število v modro polje zgoraj desno. Pingo ti bo povedal, če je tvoje število preveliko ali premajhno. Nato vnesi drugo število. Razdalja med Pingom in izhodom na desni ti pove kako daleč si od pravega števila. Če je Pingo nad ali pod izhodom, to pomeni da je tvoje število preveliko ali premajhno. "
 
+#. All the vowel of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:61
+msgid "aeiouy"
+msgstr "aeiou"
+
+#. All the consonants of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:63
+msgid "bcdfghjklmnpqrstvwxz"
+msgstr "bcčdfghjklmnprsštvzž"
+
+#. Letters equivallence for the hangman activity. It has the
+#. form of a space separated list like: "e=éè a=àâ"
+#. Keep the word NONE if not available in your language
+#: ../src/hangman-activity/hangman.py:67
+msgid "NONE"
+msgstr "BREZ"
+
+#: ../src/hangman-activity/hangman.py:104
+msgid "Could not find the list of words."
+msgstr "Ni mogoče najti seznama besed."
+
+#: ../src/hangman-activity/hangman.xml.in.h:1
+msgid "A word is hidden, you must discover it letter by letter"
+msgstr "Beseda je skrita, odkriti jo moraš črko za črko"
+
+#: ../src/hangman-activity/hangman.xml.in.h:2
+msgid "Reading skill"
+msgstr "Bralne sposobnosti"
+
+#: ../src/hangman-activity/hangman.xml.in.h:3
+msgid "The classic hangman game"
+msgstr "Običajna igra vislic"
+
+#: ../src/hangman-activity/hangman.xml.in.h:4
+msgid "This is a good exercise to improve reading and spelling skills."
+msgstr "To je dobra vaja za izboljšanje sposobnosti branja in črkovanja."
+
+#: ../src/hangman-activity/hangman.xml.in.h:5
+msgid "You can enter the letters using the virtual keyboard on the screen or with the real keyboard."
+msgstr "Črke lahko napišeš z navidezno tipkovnico na zaslonu ali s pravo tipkovnico"
+
 #: ../src/hanoi-activity/hanoi.c:112
 #: ../src/hanoi-activity/hanoi.xml.in.h:6
 msgid "Simplified Tower of Hanoi"
@@ -4118,6 +4164,84 @@ msgstr "Poskusi najti jagodo pod modrimi polji. Ko se približuješ, polja posta
 #: ../src/hexagon-activity/hexagon.xml.in.h:5
 msgid "hexagon"
 msgstr "Šesterokotnik"
+
+#: ../src/hydroelectric-activity/hydroelectric.py:88
+#: ../src/watercycle-activity/watercycle.py:107
+msgid "The sun heats the water and creates water vapor. Water vapor combines into small water droplets which becomes clouds."
+msgstr "Sonce segreje vodo in ustvari vodno paro. Vodna para se združuje v majhne vode kapljice, ki postanejo oblaki."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:126
+#: ../src/watercycle-activity/watercycle.py:144
+msgid "As a cloud matures, the dense water droplets may combine to produce larger droplets, which may combine to form droplets large enough to fall as rain"
+msgstr "Ko oblak odraste, se goste vodne kapljice lahko združijo tako da proizvedejo večje kapljice, ki se lahko združijo in tvorijo dovolj velike vodne kapljice, ki padajo kot dež"
+
+#: ../src/hydroelectric-activity/hydroelectric.py:169
+msgid "This is the meter for electricity produced by the turbine. "
+msgstr "To je merilo za elektriko, ki jo je proizvedla turbina."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:170
+#: ../src/hydroelectric-activity/hydroelectric.py:282
+#: ../src/hydroelectric-activity/hydroelectric.py:289
+#: ../src/hydroelectric-activity/hydroelectric.py:319
+#: ../src/hydroelectric-activity/hydroelectric.py:341
+msgid "The electricity power is measured in Watt (W)."
+msgstr "Električna moč se meri v Wattih (W)."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:175
+msgid "Flowing water is directed on to the blades of a turbine runner, creating a force on the blades. In this way, energy is transferred from the water flow to the turbine"
+msgstr "Tekoča voda se usmeri na lopatice turbine, kar na njih ustvari silo. Na ta način se energija iz toka vode prenese na turbino"
+
+#: ../src/hydroelectric-activity/hydroelectric.py:189
+msgid "This cloud simulates the wind, click on it to have wind."
+msgstr "Ta oblak simulira veter. Klikni nanj, če želiš imeti veter."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:227
+msgid "This is a step down transformer. Electricity is transformed in low voltage, ready to be used by the customers."
+msgstr "To je transformator za znižanje napetosti. Elektrika se pretvori na nizko napetost in je pripravljena na uporabo strank."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:281
+msgid "This is the meter for all the electricity produced. "
+msgstr "To je merilo za vso proizvedeno elektriko."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:288
+msgid "This is the meter for electricity consumed by the users. "
+msgstr "To je merilo za elektriko, ki jo porabljajo uporabniki."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:318
+msgid "This is the meter for electricity produced by the solar panels. "
+msgstr "To je merilo za elektriko, ki so jo proizvedle sončne celice."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:324
+msgid "Solar panels use light energy (photons) from the sun to generate electricity through the photovoltaic effect."
+msgstr "Sončne celice uporabljajo svetlobno energijo (fotone) s sonca za ustvarjanje električne energije s fotovoltaičnim učinkom."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:340
+msgid "This is the meter for electricity produced by the wind turbines. "
+msgstr "To je merilo za elektriko, ki jo proizvedejo vetrne turbine."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:346
+msgid "A wind turbine is a device that converts wind motion energy into electricity generation. It is called a wind generator or wind charger. "
+msgstr "Vetrna turbina je naprava, ki pretvori gibalno energijo vetra v električno naprava. Imenuje se tudi električni generator"
+
+#: ../src/hydroelectric-activity/hydroelectric.py:732
+msgid "It is not possible to consume more electricity than what is produced. This is a key limitation in the distribution of electricity, with minor exceptions, electrical energy cannot be stored, and therefore it must be generated as it is needed. A sophisticated system of control is therefore required to ensure electric generation very closely matches the demand. If supply and demand are not in balance, generation plants and transmission equipment can shut down which, in the worst cases, can lead to a major regional blackout."
+msgstr "Porabi se lahko samo toliko električne energije kot se je proizvede. To je ključna omejitev pri distribuciji elektrike, saj je razen majhnih izjem elektrike ni mogoče shraniti in jo je treba zato proizvesti ob potrebi. Zato je zahtevan dovršen sistem nadzora, ki zagotovi da se ustvarjanje elektrike zelo dobro ujema s porabo. V primeru, da ustvarjanje in poraba nista v ravnotežju, se lahko elektrarne in oprema za njen prenos izklopita, kar lahko v najhujših primerih vodi do območnega izpada elektrike."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:946
+msgid "This is a step up transformer. Electricity is transmitted at high voltages (110 kV or above) to reduce the energy lost in long distance transmission."
+msgstr "To je transformator za zvišanje napetosti. Elektrika se prenaša pri visokih napetostih (110 kV ali več), kar zmanjša izgubo energije pri prenosu na dolge razdalje."
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:1
+msgid "Click on different active elements : sun, cloud, dam, solar array, wind farm and transformers, in order to reactivate the entire electrical system. When the system is back up and Tux is in his home, push the light button for him. To win you must switch on all the consumers while all the producers are up."
+msgstr "Za ponovno zaganjanje celotnega električnega sistema klikni na različne dejavne elemente: sonce, oblak, jez, sončne celice, vetrnice in transfomatorje. Ko sistem ponovno deluje in je Pingo doma, zanj pritisni na stikalo za luč. Za zmago moraš priklopiti vse porabnike medtem ko delujejo vsi proizvajalci elektrike."
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:3
+msgid "Learn about an electrical system based on renewable energy"
+msgstr "Nauči se o električnem sistemu, ki je osnovan na obnovljivi energiji"
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:4
+msgid "Tux has come back from a long fishing party on his boat. Bring the electrical system back up so he can have light in his home."
+msgstr "Pingo je prišel domov z dolgega ribolova. Popravi električni sistem, da se bo lahko prižgal luč v svojem domu."
 
 #: ../src/imageid-activity/imageid.c:94
 #: ../src/imageid-activity/imageid.xml.in.h:3
@@ -5230,22 +5354,37 @@ msgid "satchel/sa_chel/t/p/c/z/s/l"
 msgstr "torba/to_ba/r/c/p/s/l"
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
-#: ../src/money-activity/money.c:542
+#: ../src/money-activity/money.c:795
 #, c-format
 msgid "$ %.2f"
 msgstr "$ %.2f"
 
-#: ../src/money-activity/money.c:555
+#. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
+#: ../src/money-activity/money.c:809
 #, c-format
 msgid "$ %.0f"
 msgstr "$ %.0f"
 
+#. Set here the way to display money. Change only the money sign, and it's place, always keep %d
+#: ../src/money-activity/money.c:932
+#, c-format
+msgid ""
+"Tux just bought some items in your shop.\n"
+"He gives you $ %d, please give back his change."
+msgstr ""
+"Pingo je v tvoji trgovini pravkar kupil nekaj predmetov.\n"
+"Dal ti je %d €, vrni mu njegov drobiž."
+
 #: ../src/money-activity/money.xml.in.h:1
+#: ../src/money_back-activity/money_back.xml.in.h:1
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:1
 #: ../src/money_cents-activity/money_cents.xml.in.h:1
 msgid "Can count"
 msgstr "Znanje štetja"
 
 #: ../src/money-activity/money.xml.in.h:2
+#: ../src/money_back-activity/money_back.xml.in.h:2
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:2
 #: ../src/money_cents-activity/money_cents.xml.in.h:2
 msgid "Click on the coins or paper money at the bottom of the screen to pay. If you want to remove a coin or note, click on it on the upper screen area."
 msgstr "Za plačilo klikni na bankovec ali kovanec na dnu zaslona. Če želiš kovanec ali bankovec odstraniti, klikni nanj v zgornjem delu zaslona."
@@ -5263,6 +5402,24 @@ msgstr "Praktična uporaba denarja"
 #: ../src/money_cents-activity/money_cents.xml.in.h:5
 msgid "You must buy the different items and give the exact price. At higher levels, several items are displayed, and you must first calculate the total price."
 msgstr "Kupiti moraš različne stvari in dati pravilno vsoto denarja. Na višji ravneh je prikazanih več stvari, zato najprej izračunaj skupno ceno."
+
+#: ../src/money_back-activity/money_back.xml.in.h:3
+msgid "Give tux his change"
+msgstr "Daj Pingu njegov drobiž"
+
+#: ../src/money_back-activity/money_back.xml.in.h:4
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:4
+msgid "Practice money usage by giving Tux his change"
+msgstr "Vadi uporabo denarja z vračanjem drobiža Pingu"
+
+#: ../src/money_back-activity/money_back.xml.in.h:5
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:5
+msgid "Tux bought you different items and shows you his money. You must give him back his change. At higher levels, several items are displayed, and you must first calculate the total price."
+msgstr "Pingo je kupil različne stvari in ti dal denar. Vrniti mu moraš drobiž. Na višji ravneh je prikazanih več stvari, zato najprej izračunaj skupno ceno."
+
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:3
+msgid "Give tux his change, including cents"
+msgstr "Daj Pingu njegov drobižm vključno s centi"
 
 #: ../src/money_cents-activity/money_cents.xml.in.h:4
 msgid "Practice money usage including cents"
@@ -6172,6 +6329,18 @@ msgstr "Uporabi Tux slikarja za risanje. Ko je Tux slikar končan, se bo ta tabl
 msgid "mouse and keyboard manipulation"
 msgstr "upravljanje s tipkovnico in miško"
 
+#: ../src/watercycle-activity/watercycle.py:170
+msgid "This is a water pump station."
+msgstr "Na tej postaji je vodna črpalka."
+
+#: ../src/watercycle-activity/watercycle.py:183
+msgid "This is a water cleanup station."
+msgstr "To je čistilna postaja."
+
+#: ../src/watercycle-activity/watercycle.py:263
+msgid "A water tower or elevated water tower is a large elevated water storage container constructed to hold a water supply at a height sufficient to pressurize a water distribution system."
+msgstr "Vodni stolp je velik zabojnik shrambe vode, izgrajen tako, da drži zalogo vodo dovolj visoko, da vodovodni sistem drži pod prisitkom."
+
 #: ../src/watercycle-activity/watercycle.xml.in.h:1
 msgid "Click on different active elements : sun, cloud, water pump station, and water cleanup station, in order to reactivate the entire water system. When the system is back up and Tux is in the shower, push the shower button for him."
 msgstr "Za ponovno zaganjanje celotnega vodnega sistema klikni na različne dejavne elemente: sonce, oblak, postaja za črpanje vode in postaja za čiščenje vode. Ko sistem ponovno deluje in je Pingo pod prho, pritisni gumb za tuširanje."
@@ -6253,123 +6422,6 @@ msgstr "Učenje tipkanja"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:4
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Natipkaj celo besedo, preden doseže zemljo"
-
-#: ../src/hangman-activity/hangman.xml.in.h:1
-msgid "A word is hidden, you must discover it letter by letter"
-msgstr "Beseda je skrita, odkriti jo moraš črko za črko"
-
-#: ../src/hangman-activity/hangman.xml.in.h:2
-msgid "Reading skill"
-msgstr "Bralne sposobnosti"
-
-#: ../src/hangman-activity/hangman.xml.in.h:3
-msgid "The classic hangman game"
-msgstr "Običajna igra vislic"
-
-#: ../src/hangman-activity/hangman.xml.in.h:4
-msgid "This is a good exercise to improve reading and spelling skills."
-msgstr "To je dobra vaja za izboljšanje sposobnosti branja in črkovanja."
-
-#: ../src/hangman-activity/hangman.xml.in.h:5
-msgid "You can enter the letters using the virtual keyboard on the screen or with the real keyboard."
-msgstr "Črke lahko napišeš z navidezno tipkovnico na zaslonu ali s pravo tipkovnico"
-
-#. All the vowel of your language (keep empty if non applicable)
-#: ../src/hangman-activity/hangman.py:61
-msgid "aeiouy"
-msgstr "aeiou"
-
-#. All the consonants of your language (keep empty if non applicable)
-#: ../src/hangman-activity/hangman.py:63
-msgid "bcdfghjklmnpqrstvwxz"
-msgstr "bcčdfghjklmnprsštvzž"
-
-#. Letters equivallence for the hangman activity. It has the
-#. form of a space separated list like: "e=éè a=àâ"
-#. Keep the word NONE if not available in your language
-#: ../src/hangman-activity/hangman.py:67
-msgid "NONE"
-msgstr "BREZ"
-
-#: ../src/hangman-activity/hangman.py:104
-msgid "Could not find the list of words."
-msgstr "Ni mogoče najti seznama besed."
-
-#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:1
-msgid "Click on different active elements : sun, cloud, dam, solar array, wind farm and transformers, in order to reactivate the entire electrical system. When the system is back up and Tux is in his home, push the light button for him. To win you must switch on all the consumers while all the producers are up."
-msgstr "Za ponovno zaganjanje celotnega električnega sistema klikni na različne dejavne elemente: sonce, oblak, jez, sončne celice, vetrnice in transfomatorje. Ko sistem ponovno deluje in je Pingo doma, zanj pritisni na stikalo za luč. Za zmago moraš priklopiti vse porabnike medtem ko delujejo vsi proizvajalci elektrike."
-
-#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:3
-msgid "Learn about an electrical system based on renewable energy"
-msgstr "Nauči se o električnem sistemu, ki je osnovan na obnovljivi energiji"
-
-#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:4
-msgid "Tux has come back from a long fishing party on his boat. Bring the electrical system back up so he can have light in his home."
-msgstr "Pingo je prišel domov z dolgega ribolova. Popravi električni sistem, da se bo lahko prižgal luč v svojem domu."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:88
-msgid "The sun heats the water and creates water vapor. Water vapor combines into small water droplets which becomes clouds."
-msgstr "Sonce segreje vodo in ustvari vodno paro. Vodna para se združuje v majhne vode kapljice, ki postanejo oblaki."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:126
-msgid "As a cloud matures, the dense water droplets may combine to produce larger droplets, which may combine to form droplets large enough to fall as rain"
-msgstr "Ko oblak odraste, se goste vodne kapljice lahko združijo tako da proizvedejo večje kapljice, ki se lahko združijo in tvorijo dovolj velike vodne kapljice, ki padajo kot dež"
-
-#: ../src/hydroelectric-activity/hydroelectric.py:169
-msgid "This is the meter for electricity produced by the turbine. "
-msgstr "To je merilo za elektriko, ki jo je proizvedla turbina."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:170
-#: ../src/hydroelectric-activity/hydroelectric.py:282
-#: ../src/hydroelectric-activity/hydroelectric.py:289
-#: ../src/hydroelectric-activity/hydroelectric.py:319
-#: ../src/hydroelectric-activity/hydroelectric.py:341
-msgid "The electricity power is measured in Watt (W)."
-msgstr "Električna moč se meri v Wattih (W)."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:175
-msgid "Flowing water is directed on to the blades of a turbine runner, creating a force on the blades. In this way, energy is transferred from the water flow to the turbine"
-msgstr "Tekoča voda se usmeri na lopatice turbine, kar na njih ustvari silo. Na ta način se energija iz toka vode prenese na turbino"
-
-#: ../src/hydroelectric-activity/hydroelectric.py:189
-msgid "This cloud simulates the wind, click on it to have wind."
-msgstr "Ta oblak simulira veter. Klikni nanj, če želiš imeti veter."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:227
-msgid "This is a step down transformer. Electricity is transformed in low voltage, ready to be used by the customers."
-msgstr "To je transformator za znižanje napetosti. Elektrika se pretvori na nizko napetost in je pripravljena na uporabo strank."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:281
-msgid "This is the meter for all the electricity produced. "
-msgstr "To je merilo za vso proizvedeno elektriko."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:288
-msgid "This is the meter for electricity consumed by the users. "
-msgstr "To je merilo za elektriko, ki jo porabljajo uporabniki."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:318
-msgid "This is the meter for electricity produced by the solar panels. "
-msgstr "To je merilo za elektriko, ki so jo proizvedle sončne celice."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:324
-msgid "Solar panels use light energy (photons) from the sun to generate electricity through the photovoltaic effect."
-msgstr "Sončne celice uporabljajo svetlobno energijo (fotone) s sonca za ustvarjanje električne energije s fotovoltaičnim učinkom."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:340
-msgid "This is the meter for electricity produced by the wind turbines. "
-msgstr "To je merilo za elektriko, ki jo proizvedejo vetrne turbine."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:346
-msgid "A wind turbine is a device that converts wind motion energy into electricity generation. It is called a wind generator or wind charger. "
-msgstr "Vetrna turbina je naprava, ki pretvori gibalno energijo vetra v električno naprava. Imenuje se tudi električni generator"
-
-#: ../src/hydroelectric-activity/hydroelectric.py:732
-msgid "It is not possible to consume more electricity than what is produced. This is a key limitation in the distribution of electricity, with minor exceptions, electrical energy cannot be stored, and therefore it must be generated as it is needed. A sophisticated system of control is therefore required to ensure electric generation very closely matches the demand. If supply and demand are not in balance, generation plants and transmission equipment can shut down which, in the worst cases, can lead to a major regional blackout."
-msgstr "Porabi se lahko samo toliko električne energije kot se je proizvede. To je ključna omejitev pri distribuciji elektrike, saj je razen majhnih izjem elektrike ni mogoče shraniti in jo je treba zato proizvesti ob potrebi. Zato je zahtevan dovršen sistem nadzora, ki zagotovi da se ustvarjanje elektrike zelo dobro ujema s porabo. V primeru, da ustvarjanje in poraba nista v ravnotežju, se lahko elektrarne in oprema za njen prenos izklopita, kar lahko v najhujših primerih vodi do območnega izpada elektrike."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:946
-msgid "This is a step up transformer. Electricity is transmitted at high voltages (110 kV or above) to reduce the energy lost in long distance transmission."
-msgstr "To je transformator za zvišanje napetosti. Elektrika se prenaša pri visokih napetostih (110 kV ali več), kar zmanjša izgubo energije pri prenosu na dolge razdalje."
 
 #~ msgid "Learn about an hydroelectric dam"
 #~ msgstr "Nauči se o jezu hidroelektrarne"
