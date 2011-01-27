@@ -1541,9 +1541,6 @@ main (int argc, char *argv[])
   g_option_context_parse (context, &argc, &argv, &error);
   g_option_context_free(context);
 
-  // Set the default gcompris cursor
-  properties->defaultcursor = GCOMPRIS_DEFAULT_CURSOR;
-
   /* Set the default message handler, it avoids message with option -D */
   g_log_set_handler (NULL, G_LOG_LEVEL_MESSAGE | G_LOG_LEVEL_WARNING | G_LOG_LEVEL_DEBUG | G_LOG_FLAG_FATAL
 		     | G_LOG_FLAG_RECURSION, gc_log_handler, NULL);

@@ -143,10 +143,13 @@ gc_prop_new ()
 {
   GcomprisProperties *tmp;
 
-  tmp = (GcomprisProperties *) malloc (sizeof (GcomprisProperties));
+  tmp = (GcomprisProperties *) calloc (1, sizeof (GcomprisProperties));
   tmp->music		 = 1;
   tmp->fx		 = 1;
   tmp->fullscreen	 = 1;
+  // Set the default gcompris cursor
+  tmp->defaultcursor	 = GCOMPRIS_DEFAULT_CURSOR;
+  tmp->nocursor		 = 0;
   tmp->timer		 = 1;
   tmp->skin		 = g_strdup("babytoy");
   tmp->key		 = g_strdup("default");
