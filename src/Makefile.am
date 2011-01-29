@@ -120,4 +120,5 @@ SUBDIRS = money_back_cents-activity money_back-activity hydroelectric-activity h
 	tuxpaint-activity \
 	watercycle-activity
 
-EXTRA_DIST = runit.sh
+EXTRA_DIST = runit.sh \
+	createit.sh
