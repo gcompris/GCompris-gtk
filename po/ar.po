@@ -1,7 +1,6 @@
 # translation of gcompris to Arabic
 # Copyright (C) 2005, 2006, 2007, 2008 Free Software Foundation, Inc.
 # This file is distributed under the same license as the GCompris package.
-#
 # Nabil Ben Khalifa <nabil_benkhalifa@yahoo.fr>, 2005, 2006.
 # Djihed Afifi <djihed@gmail.com>, 2006.
 # Anas Husseini <anas_h_34@hotmail.com>, 2007.
@@ -10,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-12 07:51+0200\n"
-"PO-Revision-Date: 2011-01-12 07:50+0300\n"
+"POT-Creation-Date: 2011-02-07 15:35+0200\n"
+"PO-Revision-Date: 2011-02-07 15:34+0300\n"
 "Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
 "MIME-Version: 1.0\n"
@@ -27,6 +26,7 @@ msgid "Go to Algebra activities"
 msgstr "أنشطة العمليات الحسابية"
 
 #: ../boards/algebra_group.xml.in.h:2 ../boards/menu.xml.in.h:18
+#: ../boards/money_group.xml.in.h:2
 msgid "Left-click the mouse on an activity to select it."
 msgstr "انقر بزر الفأرة الأيسر لاختيار النشاط الذي تريده."
 
@@ -218,6 +218,10 @@ msgstr "أنشطة مختلفة"
 #: ../boards/miscelaneous.xml.in.h:2
 msgid "Time, Geography, ..."
 msgstr "الوقت، الجغرافيا ..."
+
+#: ../boards/money_group.xml.in.h:1
+msgid "Go to money activities"
+msgstr "اذهب إلى أنشطة النقود"
 
 #: ../boards/mouse.xml.in.h:1
 msgid "Mouse-manipulation activities."
@@ -1652,8 +1656,8 @@ msgid "Special board that embeds python into gcompris."
 msgstr "لوحة خاصة تدمج بايثون في «فهمت»."
 
 #: ../src/canal_lock-activity/canal_lock.xml.in.h:1
-#: ../src/watercycle-activity/watercycle.xml.in.h:2
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:2
+#: ../src/watercycle-activity/watercycle.xml.in.h:2
 msgid "Drawing by Stephane Cabaraux."
 msgstr "رسوم ستيفان كاباروكس."
 
@@ -2317,52 +2321,46 @@ msgid "The images are from Wikimedia Commons."
 msgstr "الصور مأخوذة من ويكيميديا كومنز."
 
 #: ../src/details-activity/resources/details/board1_0.xml.in.h:1
-#, fuzzy
 msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1889"
-msgstr "فنسنت فان جوخ، غرفة النوم في أرلِس - ١٨٨٨"
+msgstr "فنسنت فان جوخ، ردهة مستشفى القديس بولس - 1889"
 
 #: ../src/details-activity/resources/details/board1_1.xml.in.h:1
 msgid ""
 "Vincent van Gogh, The Bridge of Langlois at Arles with a lady with umbrella "
 "- 1888"
-msgstr ""
+msgstr "فنسنت فان جوخ، جسر لانجوليس في أرلى مع سيدة تحمل مظلة - 1888"
 
 #: ../src/details-activity/resources/details/board1_2.xml.in.h:1
-#, fuzzy
 msgid "Vincent van Gogh, The Church at Auvers-sur-Oise - 1890"
-msgstr "فينسنت فان جوخ، شارع القرية في أوفرز - 1890"
+msgstr "فنسنت فان جوخ، الكنيسة في أوفرز - 1890"
 
 #: ../src/details-activity/resources/details/board1_3.xml.in.h:1
-#, fuzzy
 msgid "Vincent van Gogh, Painter on His Way to Work - 1888"
-msgstr "فنسنت فان جوخ، غرفة النوم في أرلِس - ١٨٨٨"
+msgstr "فنسنت فان جوخ، رسام في طريقه للعمل - 1888"
 
 #: ../src/details-activity/resources/details/board1_4.xml.in.h:1
 msgid "Vincent van Gogh, The Harvest - 1888"
-msgstr "فنسنت فان جوخ، الحصاد - ١٨٨٨"
+msgstr "فنسنت فان جوخ، الحصاد - 1888"
 
 #: ../src/details-activity/resources/details/board1_5.xml.in.h:1
-#, fuzzy
 msgid "Vincent van Gogh, Cafe Terrace at Night - 1888"
-msgstr "فنسنت فان جوخ، غرفة النوم في أرلِس - ١٨٨٨"
+msgstr "فنسنت فان جوخ، مقهى تِرّاس في الليل - 1888"
 
 #: ../src/details-activity/resources/details/board1_6.xml.in.h:1
-#, fuzzy
 msgid "Vincent van Gogh, The Night Café - 1888"
-msgstr "فنسنت فان جوخ، غرفة النوم في أرلِس - ١٨٨٨"
+msgstr "فنسنت فان جوخ، المقهى الليلي - 1888"
 
 #: ../src/details-activity/resources/details/board1_7.xml.in.h:1
-#, fuzzy
 msgid "Vincent van Gogh, Portrait of Pere Tanguy 1887-8"
-msgstr "فنسنت فان جوخ، غرفة النوم في أرلِس - ١٨٨٨"
+msgstr "فنسنت فان جوخ، بورتريه لبيري تانجاي 1887-1888"
 
 #: ../src/details-activity/resources/details/board2_0.xml.in.h:1
 msgid "Eilean Donan castle"
-msgstr ""
+msgstr "قلعة إليان دونَنْ"
 
 #: ../src/details-activity/resources/details/board2_1.xml.in.h:1
 msgid "Eiffel Tower, seen from the champ de Mars, Paris, France"
-msgstr ""
+msgstr "برج إيفل، كما يرى من شان دي مارس، باريس، فرنسا"
 
 #: ../src/details-activity/resources/details/board2_10.xml.in.h:1
 msgid "Gizah Pyramids, Egypt"
@@ -2382,7 +2380,7 @@ msgstr "ساحة متحف اللوڤر وهرمها"
 
 #: ../src/details-activity/resources/details/board2_3.xml.in.h:1
 msgid "Panorama of Château de Chenonceau, Indre-et-Loire, France."
-msgstr ""
+msgstr "قلعة شامبورد، أندر و لوار، فرنسا"
 
 #: ../src/details-activity/resources/details/board2_4.xml.in.h:1
 msgid ""
@@ -2391,7 +2389,7 @@ msgstr ""
 
 #: ../src/details-activity/resources/details/board2_5.xml.in.h:1
 msgid "Nagoya Castle, Aichi Prefecture, Japan."
-msgstr ""
+msgstr "قلعة ناغويا، ولاية آيتشي، اليابان"
 
 #: ../src/details-activity/resources/details/board2_6.xml.in.h:1
 msgid "Taj Mahal, Agra, India"
@@ -2399,11 +2397,11 @@ msgstr "تاج محل، أكرا، الهند"
 
 #: ../src/details-activity/resources/details/board2_7.xml.in.h:1
 msgid "Castle Neuschwanstein at Schwangau, Bavaria, Germany"
-msgstr ""
+msgstr "قلعة نويشفانشتاين في شوانجو، بافاريا، ألمانيا"
 
 #: ../src/details-activity/resources/details/board2_8.xml.in.h:1
 msgid "Egeskov Castle, Denmark"
-msgstr ""
+msgstr "قلعة إجيسكوڤ، الدنمارك"
 
 #: ../src/details-activity/resources/details/board2_9.xml.in.h:1
 msgid "Windmill in Sønderho, Fanø, Denmark"
@@ -2579,8 +2577,8 @@ msgstr "حرك الفأرة لمحو الشاشة واكتشاف الخلفية"
 msgid "Error: No images found\n"
 msgstr "خطأ: لم يُعثر على أي صور\n"
 
-#: ../src/erase-activity/erase.c:578 ../src/gcompris/properties.c:501
-#: ../src/gcompris/properties.c:508
+#: ../src/erase-activity/erase.c:578 ../src/gcompris/properties.c:504
+#: ../src/gcompris/properties.c:511
 msgid "readme"
 msgstr "اقرأني"
 
@@ -3354,7 +3352,7 @@ msgstr "لن يبدأ «فهمت» لأن ملف القفل أحدث من %d ث�
 msgid "The lock file is: %s\n"
 msgstr "ملف القفل: %s\n"
 
-#: ../src/gcompris/gcompris.c:1602
+#: ../src/gcompris/gcompris.c:1599
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3368,34 +3366,34 @@ msgstr ""
 "لمزيد من المعلومات زر الصفحة http://gcompris.net \n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1717
+#: ../src/gcompris/gcompris.c:1714
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "استخدم l- للوصول إلى نشاط معين مباشرة.\n"
 
-#: ../src/gcompris/gcompris.c:1718
+#: ../src/gcompris/gcompris.c:1715
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "قائمة الأنشطة المتاحة: \n"
 
-#: ../src/gcompris/gcompris.c:1749
+#: ../src/gcompris/gcompris.c:1746
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "عدد الأنشطة: %d\n"
 
-#: ../src/gcompris/gcompris.c:1785
+#: ../src/gcompris/gcompris.c:1782
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "‏%s موجود لكن لا يمكن قراءته أو الكتابة به"
 
-#: ../src/gcompris/gcompris.c:1848
+#: ../src/gcompris/gcompris.c:1845
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
 "without network support!"
 msgstr "لا يمكن استخدام خيار ‪--server‬ لأن \"فهمت\" لم يُصرَّف مع دعم الشبكة"
 
-#: ../src/gcompris/gcompris.c:1902
+#: ../src/gcompris/gcompris.c:1899
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3404,7 +3402,7 @@ msgstr ""
 "خطأ: اللاحة '%s' غير موجودة. شغل 'gcompris --profile-list' لترى اللاحات "
 "المتاحة\n"
 
-#: ../src/gcompris/gcompris.c:1916
+#: ../src/gcompris/gcompris.c:1913
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "قائمة الملفات الشخصية المتاحة: \n"
@@ -3451,13 +3449,13 @@ msgstr ""
 "يحمل الأنشطة من ملف:\n"
 "%s"
 
-#: ../src/gcompris/properties.c:503
+#: ../src/gcompris/properties.c:506
 msgid ""
 "This directory contains the files you create with the GCompris educational "
 "suite\n"
 msgstr "هذا المجلد يحتوي الملفات التي أنشأتها بواسطة مجموعة «فهمت» التعليمية\n"
 
-#: ../src/gcompris/properties.c:510
+#: ../src/gcompris/properties.c:513
 msgid ""
 "Put any number of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
@@ -4477,6 +4475,51 @@ msgstr ""
 "الصحيح. إن كان تُكس فوق المخرج فهذا يعني أن عددك أكبر من العدد المطلوب، "
 "وبالعكس."
 
+#. All the vowel of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:61
+msgid "aeiouy"
+msgstr "اويى"
+
+#. All the consonants of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:63
+msgid "bcdfghjklmnpqrstvwxz"
+msgstr "أبجدهوزحطيكلمنسعفصقرشتثخذضظغ"
+
+#. Letters equivallence for the hangman activity. It has the
+#. form of a space separated list like: "e=éè a=àâ"
+#. Keep the word NONE if not available in your language
+#: ../src/hangman-activity/hangman.py:67
+msgid "NONE"
+msgstr "أ=اإآ و=ؤ ي=ىئ "
+
+#: ../src/hangman-activity/hangman.py:104
+msgid "Could not find the list of words."
+msgstr "تعذّر العثور على قائمة الكلمات."
+
+#: ../src/hangman-activity/hangman.xml.in.h:1
+msgid "A word is hidden, you must discover it letter by letter"
+msgstr "هناك كلمة مخفية وعليك كشفها حرفا حرفا"
+
+#: ../src/hangman-activity/hangman.xml.in.h:2
+msgid "Reading skill"
+msgstr "مهارة القراءة"
+
+#: ../src/hangman-activity/hangman.xml.in.h:3
+msgid "The classic hangman game"
+msgstr "لعبة الرجل المشنوق التقليدية"
+
+#: ../src/hangman-activity/hangman.xml.in.h:4
+msgid "This is a good exercise to improve reading and spelling skills."
+msgstr "تمرين جيد لتنمية مهارات القراءة والتهجي."
+
+#: ../src/hangman-activity/hangman.xml.in.h:5
+msgid ""
+"You can enter the letters using the virtual keyboard on the screen or with "
+"the real keyboard."
+msgstr ""
+"يمكن إدخال الحروف من لوحة المفاتيح الافتراضية على الشاشة أو من لوحة المفاتيح "
+"الحقيقية."
+
 #: ../src/hanoi-activity/hanoi.c:112 ../src/hanoi-activity/hanoi.xml.in.h:6
 msgid "Simplified Tower of Hanoi"
 msgstr "أبراج هانوي مبسطة"
@@ -4575,6 +4618,124 @@ msgstr ""
 #: ../src/hexagon-activity/hexagon.xml.in.h:5
 msgid "hexagon"
 msgstr "مسدس"
+
+#: ../src/hydroelectric-activity/hydroelectric.py:88
+#: ../src/watercycle-activity/watercycle.py:107
+msgid ""
+"The sun heats the water and creates water vapor. Water vapor combines into "
+"small water droplets which becomes clouds."
+msgstr ""
+"تُسخن الشمس الماء وتحوله إلى بخار، ويتجمع البخار في قطراتصغيرة تتحول إلى سُحُب."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:126
+#: ../src/watercycle-activity/watercycle.py:144
+msgid ""
+"As a cloud matures, the dense water droplets may combine to produce larger "
+"droplets, which may combine to form droplets large enough to fall as rain"
+msgstr "تنمو السحب وتتكثف قطرات الماء وتتجمع في قطرات أكبر وتسقط الأمطار."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:169
+msgid "This is the meter for electricity produced by the turbine. "
+msgstr "هذا مقياس الكهرباء التي يولدها المُوَلِّد."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:170
+#: ../src/hydroelectric-activity/hydroelectric.py:282
+#: ../src/hydroelectric-activity/hydroelectric.py:289
+#: ../src/hydroelectric-activity/hydroelectric.py:319
+#: ../src/hydroelectric-activity/hydroelectric.py:341
+msgid "The electricity power is measured in Watt (W)."
+msgstr "تقاس الكهرباء بالواط (و)."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:175
+msgid ""
+"Flowing water is directed on to the blades of a turbine runner, creating a "
+"force on the blades. In this way, energy is transferred from the water flow "
+"to the turbine"
+msgstr ""
+"يُوجه الماء الجاري إلى مراوح المُوَلِّد لتوليد قوة فيها، وهكذا تنقل طاقة جريان "
+"الماء إلى المُوَلِّد."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:189
+msgid "This cloud simulates the wind, click on it to have wind."
+msgstr "تحاكي هذه السحابة الريح، انقر عليها لتحصل على رياح."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:227
+msgid ""
+"This is a step down transformer. Electricity is transformed in low voltage, "
+"ready to be used by the customers."
+msgstr "هذا مُحوّل خافض. تُحوّل الكهرباء إلى جهد أقل يناسب استخدام المستهلكين."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:281
+msgid "This is the meter for all the electricity produced. "
+msgstr "هذا مقياس كل الكهرباء المُولّدة."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:288
+msgid "This is the meter for electricity consumed by the users. "
+msgstr "هذا مقياس الكهرباء التي يستهلكها المستخدمين."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:318
+msgid "This is the meter for electricity produced by the solar panels. "
+msgstr "هذا مقياس الكهرباء التي تُولدها الألواح الشمسية."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:324
+msgid ""
+"Solar panels use light energy (photons) from the sun to generate electricity "
+"through the photovoltaic effect."
+msgstr ""
+"تستخدم الألواح الشمسية طاقة الضوء (فوتونات) من الشمس لتوليد الكهرباء عبر "
+"التأثير الفوتوفولتي."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:340
+msgid "This is the meter for electricity produced by the wind turbines. "
+msgstr "هذا مقياس الكهرباء التي تُولدها مُوَلِّدات الرياح."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:346
+msgid ""
+"A wind turbine is a device that converts wind motion energy into electricity "
+"generation. It is called a wind generator or wind charger. "
+msgstr "تُحول هذه المُوَلِّدات طاقة حركة الرياح إلى كهرباء."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:732
+msgid ""
+"It is not possible to consume more electricity than what is produced. This "
+"is a key limitation in the distribution of electricity, with minor "
+"exceptions, electrical energy cannot be stored, and therefore it must be "
+"generated as it is needed. A sophisticated system of control is therefore "
+"required to ensure electric generation very closely matches the demand. If "
+"supply and demand are not in balance, generation plants and transmission "
+"equipment can shut down which, in the worst cases, can lead to a major "
+"regional blackout."
+msgstr ""
+
+#: ../src/hydroelectric-activity/hydroelectric.py:946
+msgid ""
+"This is a step up transformer. Electricity is transmitted at high voltages "
+"(110 kV or above) to reduce the energy lost in long distance transmission."
+msgstr ""
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:1
+msgid ""
+"Click on different active elements : sun, cloud, dam, solar array, wind farm "
+"and transformers, in order to reactivate the entire electrical system. When "
+"the system is back up and Tux is in his home, push the light button for him. "
+"To win you must switch on all the consumers while all the producers are up."
+msgstr ""
+"انقر على عناصر نشطة مختلفة: الشمس، الغيوم، محطة ضخ المياه ومحطة تعقيم المياه "
+"من أجل إعادة تنشيط النظام الكهربائي كاملًا. عندما يعود النظام إلى العمل ويصل "
+"تُكس إلى منزله، اضغط زر الضوء من أجله. لتكسب عليك تشغيل كل المستهلكين بينما "
+"يعمل المنتجين."
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:3
+msgid "Learn about an electrical system based on renewable energy"
+msgstr "تعرف على نظام كهربائي مبني على الطاقة المتجددة"
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:4
+msgid ""
+"Tux has come back from a long fishing party on his boat. Bring the "
+"electrical system back up so he can have light in his home."
+msgstr ""
+"تُكس عائد من رحلة صيد طويلة على قاربه. أعد تنشيط النظام الكهربائي لتعود "
+"الإضاءة إلى منزله."
 
 #: ../src/imageid-activity/imageid.c:94
 #: ../src/imageid-activity/imageid.xml.in.h:3
@@ -5871,22 +6032,37 @@ msgid "satchel/sa_chel/t/p/c/z/s/l"
 msgstr "حقيبة/حقي_ة/ب/ن/ت"
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
-#: ../src/money-activity/money.c:542
+#: ../src/money-activity/money.c:795
 #, c-format
 msgid "$ %.2f"
 msgstr "$ %.2f"
 
-#: ../src/money-activity/money.c:555
+#. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
+#: ../src/money-activity/money.c:809
 #, c-format
 msgid "$ %.0f"
 msgstr "$ %.0f"
 
+#. Set here the way to display money. Change only the money sign, and it's place, always keep %d
+#: ../src/money-activity/money.c:932
+#, c-format
+msgid ""
+"Tux just bought some items in your shop.\n"
+"He gives you $ %d, please give back his change."
+msgstr ""
+"اشترى تُكس بعض الأشياء من متجرك\n"
+"وأعطاك %d ج، أعطه الباقي."
+
 #: ../src/money-activity/money.xml.in.h:1
+#: ../src/money_back-activity/money_back.xml.in.h:1
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:1
 #: ../src/money_cents-activity/money_cents.xml.in.h:1
 msgid "Can count"
 msgstr "تعلم الحساب"
 
 #: ../src/money-activity/money.xml.in.h:2
+#: ../src/money_back-activity/money_back.xml.in.h:2
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:2
 #: ../src/money_cents-activity/money_cents.xml.in.h:2
 msgid ""
 "Click on the coins or paper money at the bottom of the screen to pay. If you "
@@ -5913,6 +6089,30 @@ msgstr ""
 "عليك أن تشتري السلع المعروضة وأن تدفع الثمن الصحيح كاملًا. في المستويات "
 "المتقدمة، تُعرض مجموعة من السلع في نفس الوقت وعليك أن تحسب الثمن الإجمالي "
 "لتدفعه."
+
+#: ../src/money_back-activity/money_back.xml.in.h:3
+msgid "Give tux his change"
+msgstr "أعط تُكس باقي نقوده"
+
+#: ../src/money_back-activity/money_back.xml.in.h:4
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:4
+msgid "Practice money usage by giving Tux his change"
+msgstr "تعلم استعمال النقود بإعطاء تُكس باقي الثمن"
+
+#: ../src/money_back-activity/money_back.xml.in.h:5
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:5
+msgid ""
+"Tux bought you different items and shows you his money. You must give him "
+"back his change. At higher levels, several items are displayed, and you must "
+"first calculate the total price."
+msgstr ""
+"اشترى تُكس بعض الأشياء ويعرض عليك المال وعليك أن تعيد إليه باقي الثمن. في "
+"المستويات المتقدمة، تُعرض مجموعة من السلع في نفس الوقت وعليك أن تحسب الثمن "
+"الإجمالي أولا."
+
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:3
+msgid "Give tux his change, including cents"
+msgstr "اعط تُكس باقي نقوده بما فيها القروش"
 
 #: ../src/money_cents-activity/money_cents.xml.in.h:4
 msgid "Practice money usage including cents"
@@ -6020,7 +6220,6 @@ msgid "Albrecht Dürer, Lion - 1494"
 msgstr ""
 
 #: ../src/paintings-activity/resources/paintings/board2_4.xml.in.h:1
-#, fuzzy
 msgid "Pieter Brugel, The Harvesters - 1565"
 msgstr "بيتر برويغيل، الحاصدين - 1565"
 
@@ -6994,6 +7193,23 @@ msgstr "استخدم برنامج رسم تُكس للرسم. عندما ينت�
 msgid "mouse and keyboard manipulation"
 msgstr "استخدام لوحة المفاتيح والفأرة"
 
+#: ../src/watercycle-activity/watercycle.py:170
+msgid "This is a water pump station."
+msgstr "هذه محطة لضخ المياه."
+
+#: ../src/watercycle-activity/watercycle.py:183
+msgid "This is a water cleanup station."
+msgstr "هذه محطة لتنقية المياه."
+
+#: ../src/watercycle-activity/watercycle.py:263
+msgid ""
+"A water tower or elevated water tower is a large elevated water storage "
+"container constructed to hold a water supply at a height sufficient to "
+"pressurize a water distribution system."
+msgstr ""
+"برج المياه هو مخزن مياه كبير مرتفع يُبنى ليحفظ إمدادات المياه على مستوى مرتفع "
+"كفاية لرفع ضغط ضخ الماء في نظام التوزيع."
+
 #: ../src/watercycle-activity/watercycle.xml.in.h:1
 msgid ""
 "Click on different active elements : sun, cloud, water pump station, and "
@@ -7102,165 +7318,6 @@ msgstr "التدرب على لوحة المفاتيح"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:4
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "أدخل الكلمات المتساقطة قبل أن تصل إلى الأرض"
-
-#: ../src/hangman-activity/hangman.xml.in.h:1
-msgid "A word is hidden, you must discover it letter by letter"
-msgstr ""
-
-#: ../src/hangman-activity/hangman.xml.in.h:2
-msgid "Reading skill"
-msgstr "مهارة القراءة"
-
-#: ../src/hangman-activity/hangman.xml.in.h:3
-msgid "The classic hangman game"
-msgstr ""
-
-#: ../src/hangman-activity/hangman.xml.in.h:4
-msgid "This is a good exercise to improve reading and spelling skills."
-msgstr ""
-
-#: ../src/hangman-activity/hangman.xml.in.h:5
-msgid ""
-"You can enter the letters using the virtual keyboard on the screen or with "
-"the real keyboard."
-msgstr ""
-
-#. All the vowel of your language (keep empty if non applicable)
-#: ../src/hangman-activity/hangman.py:61
-msgid "aeiouy"
-msgstr ""
-
-#. All the consonants of your language (keep empty if non applicable)
-#: ../src/hangman-activity/hangman.py:63
-msgid "bcdfghjklmnpqrstvwxz"
-msgstr "أبجدهوزحطيكلمنسعفصقرشتثخذضظغ"
-
-#. Letters equivallence for the hangman activity. It has the
-#. form of a space separated list like: "e=éè a=àâ"
-#. Keep the word NONE if not available in your language
-#: ../src/hangman-activity/hangman.py:67
-msgid "NONE"
-msgstr "أ=اإآ و=ؤ ي=ىئ "
-
-#: ../src/hangman-activity/hangman.py:104
-msgid "Could not find the list of words."
-msgstr "تعذّر العثور على قائمة الكلمات."
-
-#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:1
-msgid ""
-"Click on different active elements : sun, cloud, dam, solar array, wind farm "
-"and transformers, in order to reactivate the entire electrical system. When "
-"the system is back up and Tux is in his home, push the light button for him. "
-"To win you must switch on all the consumers while all the producers are up."
-msgstr ""
-"انقر على عناصر نشطة مختلفة: الشمس، الغيوم، محطة ضخ المياه ومحطة تعقيم المياه "
-"من أجل إعادة تنشيط النظام الكهربائي كاملًا. عندما يعود النظام إلى العمل ويصل "
-"تُكس إلى منزله، اضغط زر الضوء من أجله. لتكسب عليك تشغيل كل المستهلكين بينما "
-"يعمل المنتجين."
-
-#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:3
-msgid "Learn about an electrical system based on renewable energy"
-msgstr "تعرف على نظام كهربائي مبني على الطاقة المتجددة"
-
-#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:4
-msgid ""
-"Tux has come back from a long fishing party on his boat. Bring the "
-"electrical system back up so he can have light in his home."
-msgstr ""
-"تُكس عائد من رحلة صيد طويلة على قاربه. أعد تنشيط النظام الكهربائي لتعود "
-"الإضاءة إلى منزله."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:88
-msgid ""
-"The sun heats the water and creates water vapor. Water vapor combines into "
-"small water droplets which becomes clouds."
-msgstr ""
-"تُسخن الشمس الماء وتحوله إلى بخار، ويتجمع البخار في قطراتصغيرة تتحول إلى سُحُب."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:126
-msgid ""
-"As a cloud matures, the dense water droplets may combine to produce larger "
-"droplets, which may combine to form droplets large enough to fall as rain"
-msgstr "تنمو السحب وتتكثف قطرات الماء وتتجمع في قطرات أكبر وتسقط الأمطار."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:169
-msgid "This is the meter for electricity produced by the turbine. "
-msgstr "هذا مقياس الكهرباء التي يولدها المُوَلِّد."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:170
-#: ../src/hydroelectric-activity/hydroelectric.py:282
-#: ../src/hydroelectric-activity/hydroelectric.py:289
-#: ../src/hydroelectric-activity/hydroelectric.py:319
-#: ../src/hydroelectric-activity/hydroelectric.py:341
-msgid "The electricity power is measured in Watt (W)."
-msgstr "تقاس الكهرباء بالواط (و)."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:175
-msgid ""
-"Flowing water is directed on to the blades of a turbine runner, creating a "
-"force on the blades. In this way, energy is transferred from the water flow "
-"to the turbine"
-msgstr ""
-"يُوجه الماء الجاري إلى مراوح المُوَلِّد لتوليد قوة فيها، وهكذا تنقل طاقة جريان "
-"الماء إلى المُوَلِّد."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:189
-msgid "This cloud simulates the wind, click on it to have wind."
-msgstr "تحاكي هذه السحابة الريح، انقر عليها لتحصل على رياح."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:227
-msgid ""
-"This is a step down transformer. Electricity is transformed in low voltage, "
-"ready to be used by the customers."
-msgstr "هذا مُحوّل خافض. تُحوّل الكهرباء إلى جهد أقل يناسب استخدام المستهلكين."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:281
-msgid "This is the meter for all the electricity produced. "
-msgstr "هذا مقياس كل الكهرباء المُولّدة."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:288
-msgid "This is the meter for electricity consumed by the users. "
-msgstr "هذا مقياس الكهرباء التي يستهلكها المستخدمين."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:318
-msgid "This is the meter for electricity produced by the solar panels. "
-msgstr "هذا مقياس الكهرباء التي تُولدها الألواح الشمسية."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:324
-msgid ""
-"Solar panels use light energy (photons) from the sun to generate electricity "
-"through the photovoltaic effect."
-msgstr ""
-"تستخدم الألواح الشمسية طاقة الضوء (فوتونات) من الشمس لتوليد الكهرباء عبر "
-"التأثير الفوتوفولتي."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:340
-msgid "This is the meter for electricity produced by the wind turbines. "
-msgstr "هذا مقياس الكهرباء التي تُولدها مُوَلِّدات الرياح."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:346
-msgid ""
-"A wind turbine is a device that converts wind motion energy into electricity "
-"generation. It is called a wind generator or wind charger. "
-msgstr "تُحول هذه المُوَلِّدات طاقة حركة الرياح إلى كهرباء."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:732
-msgid ""
-"It is not possible to consume more electricity than what is produced. This "
-"is a key limitation in the distribution of electricity, with minor "
-"exceptions, electrical energy cannot be stored, and therefore it must be "
-"generated as it is needed. A sophisticated system of control is therefore "
-"required to ensure electric generation very closely matches the demand. If "
-"supply and demand are not in balance, generation plants and transmission "
-"equipment can shut down which, in the worst cases, can lead to a major "
-"regional blackout."
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:946
-msgid ""
-"This is a step up transformer. Electricity is transmitted at high voltages "
-"(110 kV or above) to reduce the energy lost in long distance transmission."
-msgstr ""
 
 #~ msgid "Move the mouse until all the blocks disappear."
 #~ msgstr "حرك الفأرة حتى تختفي جميع الكتل"
