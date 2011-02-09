@@ -33,7 +33,7 @@ mv $template.xml $activity.xml
 # is not mandatory to run the activity.
 for menu in $activity.xml.in $activity.xml
 do
-  sed -i s/$template/$activity/g init_path.sh $menu
+  sed -i s/$template/$activity/g init_path.sh $menu .gitignore
   sed -i s/python.svg/$activity.svg/ $menu
 
   sed -i "s:Bruno Coudoin:your name here:" $menu
