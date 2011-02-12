@@ -1,16 +1,16 @@
 # Swedish messages for GCompris.
-# Copyright (C) 2001-2010 Free Software Foundation, Inc.
+# Copyright (C) 2001-2011 Free Software Foundation, Inc.
 # Christian Rose <menthos@menthos.com>, 2001, 2002, 2003, 2005.
 # Bengt Thuree <bengt@thuree.com>, 2005.
 # Göran Uddeborg <goeran@uddeborg.se>, 2005
-# Daniel Nylander <po@danielnylander.se>, 2006, 2007, 2008, 2009, 2010.
+# Daniel Nylander <po@danielnylander.se>, 2006, 2007, 2008, 2009, 2010, 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-30 11:47+0100\n"
-"PO-Revision-Date: 2010-12-30 12:07+0100\n"
+"POT-Creation-Date: 2011-02-12 13:28+0100\n"
+"PO-Revision-Date: 2011-02-12 14:16+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -24,6 +24,7 @@ msgstr "Gå till algebraaktiviteterna"
 
 #: ../boards/algebra_group.xml.in.h:2
 #: ../boards/menu.xml.in.h:18
+#: ../boards/money_group.xml.in.h:2
 msgid "Left-click the mouse on an activity to select it."
 msgstr "Vänsterklicka med musen för att välja en aktivitet."
 
@@ -207,6 +208,10 @@ msgstr "Diverse aktiviteter"
 #: ../boards/miscelaneous.xml.in.h:2
 msgid "Time, Geography, ..."
 msgstr "Tid, geografi, ..."
+
+#: ../boards/money_group.xml.in.h:1
+msgid "Go to money activities"
+msgstr "Gå till finansaktiviteterna"
 
 #: ../boards/mouse.xml.in.h:1
 msgid "Mouse-manipulation activities."
@@ -1391,7 +1396,7 @@ msgid "bar game"
 msgstr "kulspel"
 
 #: ../src/billard-activity/billard.c:89
-#: ../src/erase-activity/erase.c:124
+#: ../src/erase-activity/erase.c:85
 #: ../src/erase-activity/erase.xml.in.h:4
 msgid "Move the mouse"
 msgstr "Flytta musen"
@@ -1457,8 +1462,8 @@ msgid "Special board that embeds python into gcompris."
 msgstr "Specialbräde som bäddar in python i gcompris."
 
 #: ../src/canal_lock-activity/canal_lock.xml.in.h:1
-#: ../src/watercycle-activity/watercycle.xml.in.h:2
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:2
+#: ../src/watercycle-activity/watercycle.xml.in.h:2
 msgid "Drawing by Stephane Cabaraux."
 msgstr "Målning av Stephane Cabaraux."
 
@@ -2054,7 +2059,7 @@ msgstr "Vincent van Gogh, Entrén till Saint-Paul-sjukhuset - 1889"
 
 #: ../src/details-activity/resources/details/board1_1.xml.in.h:1
 msgid "Vincent van Gogh, The Bridge of Langlois at Arles with a lady with umbrella - 1888"
-msgstr ""
+msgstr "Vincent van Gogh, The Bridge of Langlois at Arles with a lady with umbrella - 1888"
 
 #: ../src/details-activity/resources/details/board1_2.xml.in.h:1
 msgid "Vincent van Gogh, The Church at Auvers-sur-Oise - 1890"
@@ -2082,15 +2087,15 @@ msgstr "Vincent van Gogh, Porträtt av Pere Tanguy 1887-8"
 
 #: ../src/details-activity/resources/details/board2_0.xml.in.h:1
 msgid "Eilean Donan castle"
-msgstr ""
+msgstr "Slottet på Eilean Donan"
 
 #: ../src/details-activity/resources/details/board2_1.xml.in.h:1
 msgid "Eiffel Tower, seen from the champ de Mars, Paris, France"
-msgstr ""
+msgstr "Eiffeltornet, sett från Marsfältet i Paris, Frankrike"
 
 #: ../src/details-activity/resources/details/board2_10.xml.in.h:1
 msgid "Gizah Pyramids, Egypt"
-msgstr ""
+msgstr "Gizah-pyramiderna, Egypten"
 
 #: ../src/details-activity/resources/details/board2_11.xml.in.h:1
 msgid "Sydney Opera House, Australia"
@@ -2102,15 +2107,15 @@ msgstr "Tower Bridge i London"
 
 #: ../src/details-activity/resources/details/board2_2.xml.in.h:1
 msgid "Courtyard of the Museum of Louvre, and its pyramid"
-msgstr ""
+msgstr "Gårdsplanen utanför museumet i Louvre och dess pyramid"
 
 #: ../src/details-activity/resources/details/board2_3.xml.in.h:1
 msgid "Panorama of Château de Chenonceau, Indre-et-Loire, France."
-msgstr ""
+msgstr "Panorama av Château de Chenonceau, Indre-et-Loire, Frankrike."
 
 #: ../src/details-activity/resources/details/board2_4.xml.in.h:1
 msgid "Notre Dame de Paris cathedral on the Île de la Cité island in Paris, France."
-msgstr ""
+msgstr "Notre Dame de Paris-katedralen på ön Île de la Cité i Paris, Frankrike."
 
 #: ../src/details-activity/resources/details/board2_5.xml.in.h:1
 msgid "Nagoya Castle, Aichi Prefecture, Japan."
@@ -2258,18 +2263,36 @@ msgstr "Räkna objekten"
 msgid "First, properly organize the items so that you can count them. Then, select the item you want to answer in the bottom right area. Enter the answer with the keyboard and press the OK button or the 'Enter' key."
 msgstr "Först, organisera objekten så att du kan räkna dem. Sedan, välj den saken som du vill svara på i den nedre högra området. Mata in svaret med tangentbordet och tryck på OK-knappen eller \"Retur\"-tangenten."
 
-#: ../src/erase-activity/erase.c:125
+#: ../src/erase-activity/erase.c:86
 #: ../src/erase-activity/erase.xml.in.h:5
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Flytta musen för att radera området och upptäck bakgrunden"
+
+#: ../src/erase-activity/erase.c:180
+msgid "Error: No images found\n"
+msgstr "Fel: Inga bilder hittades\n"
+
+#: ../src/erase-activity/erase.c:578
+#: ../src/gcompris/properties.c:504
+#: ../src/gcompris/properties.c:511
+msgid "readme"
+msgstr "readme"
+
+#: ../src/erase-activity/erase.c:580
+msgid ""
+"Put any number of images in this directory.\n"
+"They will be used as background in the 'erase' activity.\n"
+"The image must be in the 'jpeg' format and be suffixed with '.jpg' or '.jpeg'.\n"
+"For best results, they must have a size of 800x520 pixels.\n"
+msgstr ""
 
 #: ../src/erase-activity/erase.xml.in.h:1
 msgid "Animal pictures are taken from the Animal Photography Page of Ralf Schmode (&lt;http://schmode.net/&gt;) and from LE BERRE Daniel. These people kindly gave GCompris the authorization to include their pictures. Thanks a lot, both of you."
 msgstr "Djurbilderna har tagits från Ralf Schmodes djurfotografisida (&lt;http://schmode.net/&gt;) och från LE BERRE Daniel. De har gett GCompris tillstånd att inkludera deras bilder. Tack så mycket."
 
 #: ../src/erase-activity/erase.xml.in.h:6
-msgid "Move the mouse until all the blocks disappear."
-msgstr "Flytta musen till alla block försvinner."
+msgid "Move the mouse until all the blocks disappear. You can add you own images under the directory '~/My GCompris/erase'."
+msgstr ""
 
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
 msgid "Double click the mouse"
@@ -2734,11 +2757,8 @@ msgid "Fast timer"
 msgstr "Snabb tidtagare"
 
 #: ../src/gcompris/config.c:135
-#, fuzzy
 msgid "Use Gcompris administration module to filter boards"
-msgstr ""
-"<i>Använd Gcompris administrationsmodul\n"
-"för att filtrera bräden</i>"
+msgstr "Använd Gcompris administrationsmodul för att filtrera bräden"
 
 #: ../src/gcompris/config.c:186
 msgid "GCompris Configuration"
@@ -2829,14 +2849,12 @@ msgid "run GCompris without sound."
 msgstr "kör GCompris utan ljud."
 
 #: ../src/gcompris/gcompris.c:170
-#, fuzzy
 msgid "run GCompris with the default system cursor."
-msgstr "kör GCompris med gnomes standardmuspekare."
+msgstr "kör GCompris med systemets standardmuspekare."
 
 #: ../src/gcompris/gcompris.c:173
-#, fuzzy
 msgid "run GCompris without cursor (touch screen mode)."
-msgstr "kör GCompris utan ljud."
+msgstr "kör GCompris utan muspekare (pekskärmsläge)."
 
 #: ../src/gcompris/gcompris.c:176
 msgid "display only activities with this difficulty level."
@@ -2962,19 +2980,19 @@ msgstr ""
 #: ../src/gcompris/gcompris.c:1223
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
-msgstr ""
+msgstr "Misslyckades med att läsa in skalet \"%s\" (Kontrollera om filen finns och är läsbar)"
 
-#: ../src/gcompris/gcompris.c:1485
+#: ../src/gcompris/gcompris.c:1486
 #, c-format
 msgid "GCompris won't start because the lock file is less than %d seconds old.\n"
 msgstr "GCompris kommer inte att starta därför att låsningsfilen är mindre än %d sekunder gammal.\n"
 
-#: ../src/gcompris/gcompris.c:1487
+#: ../src/gcompris/gcompris.c:1488
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Låsningsfilen är: %s\n"
 
-#: ../src/gcompris/gcompris.c:1601
+#: ../src/gcompris/gcompris.c:1599
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2988,37 +3006,37 @@ msgstr ""
 "Mer information på http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1716
+#: ../src/gcompris/gcompris.c:1714
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Använd -l för att komma åt en aktivitet direkt.\n"
 
-#: ../src/gcompris/gcompris.c:1717
+#: ../src/gcompris/gcompris.c:1715
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Listan på tillgängliga aktiviteter är :\n"
 
-#: ../src/gcompris/gcompris.c:1748
+#: ../src/gcompris/gcompris.c:1746
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Antal aktiviteter: %d\n"
 
-#: ../src/gcompris/gcompris.c:1784
+#: ../src/gcompris/gcompris.c:1782
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s finns men är inte läs- eller skrivbar"
 
-#: ../src/gcompris/gcompris.c:1847
+#: ../src/gcompris/gcompris.c:1845
 #, c-format
 msgid "The --server option cannot be used because GCompris has been compiled without network support!"
 msgstr "Flaggan --server kan inte användas därför att GCompris har byggts utan nätverksstöd!"
 
-#: ../src/gcompris/gcompris.c:1901
+#: ../src/gcompris/gcompris.c:1899
 #, c-format
 msgid "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list available ones\n"
 msgstr "FEL: Profilen \"%s\" hittades inte. Kör \"gcompris --profile-list\" för att lista tillgängliga profiler\n"
 
-#: ../src/gcompris/gcompris.c:1915
+#: ../src/gcompris/gcompris.c:1913
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Listan på tillgängliga profiler är:\n"
@@ -3065,16 +3083,11 @@ msgstr ""
 "Läser in aktivitet från filen:\n"
 "%s"
 
-#: ../src/gcompris/properties.c:501
-#: ../src/gcompris/properties.c:508
-msgid "readme"
-msgstr "readme"
-
-#: ../src/gcompris/properties.c:503
+#: ../src/gcompris/properties.c:506
 msgid "This directory contains the files you create with the GCompris educational suite\n"
 msgstr "Den här katalogen innehåller filerna som du skapar med pedagogiksviten GCompris\n"
 
-#: ../src/gcompris/properties.c:510
+#: ../src/gcompris/properties.c:513
 msgid ""
 "Put any number of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
@@ -4021,6 +4034,47 @@ msgstr "Tal från 1 till 1000 för sista nivån."
 msgid "Read the instructions that give you the range of the number to find. Enter a number in the top right blue entry box. Tux will tell you if your number is higher or lower. Then enter another number. The distance between Tux and the escape area on the right represents how far you are from the correct number. If Tux is over or under the escape area, it means your number is over or under the correct number."
 msgstr "Läs instruktionerna som ger dig talintervallet att hitta. Ange ett tal i övre högra blåa inmatningsrutan. Tux kommer att säga om ditt tal är högre eller lägre. Ange sedan ett annat tal. Avståndet mellan Tux och rymningsområdet till höger representerar hur långt från du är det korrekta talet. Om Tux är över eller under rymningsområdet betyder det att ditt svar är över eller under det korrekta talet."
 
+#. All the vowel of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:61
+msgid "aeiouy"
+msgstr "aeiouyåäö"
+
+#. All the consonants of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:63
+msgid "bcdfghjklmnpqrstvwxz"
+msgstr "bcdfghjklmnpqrstvwxz"
+
+#. Letters equivallence for the hangman activity. It has the
+#. form of a space separated list like: "e=éè a=àâ"
+#. Keep the word NONE if not available in your language
+#: ../src/hangman-activity/hangman.py:67
+msgid "NONE"
+msgstr "INGET"
+
+#: ../src/hangman-activity/hangman.py:104
+msgid "Could not find the list of words."
+msgstr "Kunde inte hitta ordlistan."
+
+#: ../src/hangman-activity/hangman.xml.in.h:1
+msgid "A word is hidden, you must discover it letter by letter"
+msgstr "Ett ord har dolts och du måste hitta det, bokstav efter bokstav"
+
+#: ../src/hangman-activity/hangman.xml.in.h:2
+msgid "Reading skill"
+msgstr "Läskunskap"
+
+#: ../src/hangman-activity/hangman.xml.in.h:3
+msgid "The classic hangman game"
+msgstr "Det klassiska spelet Hänga gubbe"
+
+#: ../src/hangman-activity/hangman.xml.in.h:4
+msgid "This is a good exercise to improve reading and spelling skills."
+msgstr "Detta är en bra övning för att förbättra sin läsning och stavning."
+
+#: ../src/hangman-activity/hangman.xml.in.h:5
+msgid "You can enter the letters using the virtual keyboard on the screen or with the real keyboard."
+msgstr "Du kan ange bokstäver med det virtuella tangentbordet på skärmen eller med det vanliga tangentbordet."
+
 #: ../src/hanoi-activity/hanoi.c:112
 #: ../src/hanoi-activity/hanoi.xml.in.h:6
 msgid "Simplified Tower of Hanoi"
@@ -4098,6 +4152,84 @@ msgstr "Försök att hitta jordgubben under de blåa fälten. Fälten blir röda
 #: ../src/hexagon-activity/hexagon.xml.in.h:5
 msgid "hexagon"
 msgstr "hexagon"
+
+#: ../src/hydroelectric-activity/hydroelectric.py:88
+#: ../src/watercycle-activity/watercycle.py:107
+msgid "The sun heats the water and creates water vapor. Water vapor combines into small water droplets which becomes clouds."
+msgstr "Solen värmer upp vattnet och skapa vattenångor. Vattenångorna blir till små vattendroppar som blir moln."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:126
+#: ../src/watercycle-activity/watercycle.py:144
+msgid "As a cloud matures, the dense water droplets may combine to produce larger droplets, which may combine to form droplets large enough to fall as rain"
+msgstr ""
+
+#: ../src/hydroelectric-activity/hydroelectric.py:169
+msgid "This is the meter for electricity produced by the turbine. "
+msgstr "Detta är mätare för den elektricitet som produceras av turbinen. "
+
+#: ../src/hydroelectric-activity/hydroelectric.py:170
+#: ../src/hydroelectric-activity/hydroelectric.py:282
+#: ../src/hydroelectric-activity/hydroelectric.py:289
+#: ../src/hydroelectric-activity/hydroelectric.py:319
+#: ../src/hydroelectric-activity/hydroelectric.py:341
+msgid "The electricity power is measured in Watt (W)."
+msgstr "Elkraften mäts i watt (W)."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:175
+msgid "Flowing water is directed on to the blades of a turbine runner, creating a force on the blades. In this way, energy is transferred from the water flow to the turbine"
+msgstr ""
+
+#: ../src/hydroelectric-activity/hydroelectric.py:189
+msgid "This cloud simulates the wind, click on it to have wind."
+msgstr "Detta moln simulerar vinden. Klicka på det för att blåsa."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:227
+msgid "This is a step down transformer. Electricity is transformed in low voltage, ready to be used by the customers."
+msgstr ""
+
+#: ../src/hydroelectric-activity/hydroelectric.py:281
+msgid "This is the meter for all the electricity produced. "
+msgstr "Detta är mätaren för all elektricitet som produceras."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:288
+msgid "This is the meter for electricity consumed by the users. "
+msgstr "Detta är mätaren för elektricitet som används av användarna."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:318
+msgid "This is the meter for electricity produced by the solar panels. "
+msgstr "Detta är mätaren för elektricitet som produceras av solpanelerna."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:324
+msgid "Solar panels use light energy (photons) from the sun to generate electricity through the photovoltaic effect."
+msgstr "Solpaneler använd ljusenergi (fotoner) från solen för att generera elektricitet genom en fotovoltaisk effekt."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:340
+msgid "This is the meter for electricity produced by the wind turbines. "
+msgstr "Detta är mätaren för elektricitet som produceras av vindturbinerna."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:346
+msgid "A wind turbine is a device that converts wind motion energy into electricity generation. It is called a wind generator or wind charger. "
+msgstr "En vindturbin är en enhet som gör om vindenergi till elektricitet. Det kallas för en vindgenerator eller vindladdare."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:732
+msgid "It is not possible to consume more electricity than what is produced. This is a key limitation in the distribution of electricity, with minor exceptions, electrical energy cannot be stored, and therefore it must be generated as it is needed. A sophisticated system of control is therefore required to ensure electric generation very closely matches the demand. If supply and demand are not in balance, generation plants and transmission equipment can shut down which, in the worst cases, can lead to a major regional blackout."
+msgstr ""
+
+#: ../src/hydroelectric-activity/hydroelectric.py:946
+msgid "This is a step up transformer. Electricity is transmitted at high voltages (110 kV or above) to reduce the energy lost in long distance transmission."
+msgstr ""
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:1
+msgid "Click on different active elements : sun, cloud, dam, solar array, wind farm and transformers, in order to reactivate the entire electrical system. When the system is back up and Tux is in his home, push the light button for him. To win you must switch on all the consumers while all the producers are up."
+msgstr "Klicka på olika aktiva element: sol, moln, damm, solfångare, vindkraftverk och transformatorer för att att återaktivera hela det elektriska systemet. När systemet är återställt och Tux är hemma så kan du trycka på strömbrytaren åt honom. För att vinna så måste du slå på allt som använder ström när alla strömgeneratorer är igång."
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:3
+msgid "Learn about an electrical system based on renewable energy"
+msgstr "Lär dig mer om elektriska system baserade på förnybar energi"
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:4
+msgid "Tux has come back from a long fishing party on his boat. Bring the electrical system back up so he can have light in his home."
+msgstr "Tux kommer hem från en lång fisketur med båten. Du måste få igång det elektriska systemet igen så att han kan tända lyset hemma."
 
 #: ../src/imageid-activity/imageid.c:94
 #: ../src/imageid-activity/imageid.xml.in.h:3
@@ -4436,7 +4568,6 @@ msgid "The effect of pressing a button is to toggle the state of that button, an
 msgstr "Effekten av att trycka på en knapp är att växla tillståndet för den knappen och dess direkta vertikala och horisontella grannar. Solen och färgerna på himlen beror på antalet klick som behövs för att lösa pusslet. Om du klickar på Tux så visas lösningen."
 
 #: ../src/lightsoff-activity/lightsoff.xml.in.h:4
-#, fuzzy
 msgid "The solver algorithm described on haar.clara.co.uk is a valuable resource to know more about the Lights Off game: &lt;http://www.haar.clara.co.uk/Lights/solving.html&gt;"
 msgstr "Lösningsalgoritmen som beskrivs på haar.clara.co.uk är en värdefull resurs för att lära sig mer om spelet Släck lyset: &lt;http://www.haar.clara.co.uk/Lights/solving.html&gt;"
 
@@ -4984,7 +5115,7 @@ msgstr "Välj en bild."
 
 #: ../src/missing_letter-activity/missingletter_config.c:83
 msgid "Choice cannot be empty."
-msgstr ""
+msgstr "Valet får inte vara tomt."
 
 #: ../src/missing_letter-activity/missingletter_config.c:89
 msgid "Question cannot be empty."
@@ -4992,11 +5123,11 @@ msgstr "Frågan får inte vara tom."
 
 #: ../src/missing_letter-activity/missingletter_config.c:95
 msgid "Question must include the character '_'. It represents the letter to search."
-msgstr ""
+msgstr "Frågan måste inkludera tecknet \"_\". Det representerar bokstaven att söka efter."
 
 #: ../src/missing_letter-activity/missingletter_config.c:102
 msgid "Pixmap cannot be empty"
-msgstr ""
+msgstr "Pixmap får inte vara tom"
 
 #: ../src/missing_letter-activity/missingletter_config.c:108
 msgid "There must be at least 2 choices."
@@ -5004,11 +5135,11 @@ msgstr "Det måste finnas minst två val."
 
 #: ../src/missing_letter-activity/missingletter_config.c:116
 msgid "The answer and question must be the same except for the character '_'."
-msgstr ""
+msgstr "Svaret och frågan måste vara samma förutom tecknet \"_\"."
 
 #: ../src/missing_letter-activity/missingletter_config.c:125
 msgid "The first choice must be the solution that replaces the character '_'."
-msgstr ""
+msgstr "Första valet måste vara lösningen som ersätter tecknet \"_\"."
 
 #: ../src/missing_letter-activity/missingletter_config.c:140
 #, c-format
@@ -5061,11 +5192,11 @@ msgstr "Filnamn:"
 
 #: ../src/missing_letter-activity/missingletter_config.c:579
 msgid "Replace the letter to guess by the character '_'."
-msgstr ""
+msgstr "Ersätt bokstaven för att gissa på tecknet \"_\"."
 
 #: ../src/missing_letter-activity/missingletter_config.c:591
 msgid "Enter here the letter that will be proposed. The first letter here must be the solution."
-msgstr ""
+msgstr "Ange bokstaven som ska föreslås. Den första bokstaven här måste vara lösningen."
 
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:1
 msgid "car/c_r/a/k/o"
@@ -5212,22 +5343,37 @@ msgid "satchel/sa_chel/t/p/c/z/s/l"
 msgstr "skolväska/sko_väska/l/p/t"
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
-#: ../src/money-activity/money.c:542
+#: ../src/money-activity/money.c:795
 #, c-format
 msgid "$ %.2f"
 msgstr "%.2f kr"
 
-#: ../src/money-activity/money.c:555
+#. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
+#: ../src/money-activity/money.c:809
 #, c-format
 msgid "$ %.0f"
 msgstr "%.0f kr"
 
+#. Set here the way to display money. Change only the money sign, and it's place, always keep %d
+#: ../src/money-activity/money.c:932
+#, c-format
+msgid ""
+"Tux just bought some items in your shop.\n"
+"He gives you $ %d, please give back his change."
+msgstr ""
+"Tux har precis köpt några saker i din affär.\n"
+"Han ger dig € %d. Ge honom hans växelpengar."
+
 #: ../src/money-activity/money.xml.in.h:1
+#: ../src/money_back-activity/money_back.xml.in.h:1
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:1
 #: ../src/money_cents-activity/money_cents.xml.in.h:1
 msgid "Can count"
 msgstr "Kan räkna"
 
 #: ../src/money-activity/money.xml.in.h:2
+#: ../src/money_back-activity/money_back.xml.in.h:2
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:2
 #: ../src/money_cents-activity/money_cents.xml.in.h:2
 msgid "Click on the coins or paper money at the bottom of the screen to pay. If you want to remove a coin or note, click on it on the upper screen area."
 msgstr "Klicka på mynten eller sedlarna i nederkanten på skärmen för att betala. Om du vill ta bort ett mynt eller en sedel klickar du på det i överkanten på skärmen."
@@ -5245,6 +5391,24 @@ msgstr "Träna att använda pengar"
 #: ../src/money_cents-activity/money_cents.xml.in.h:5
 msgid "You must buy the different items and give the exact price. At higher levels, several items are displayed, and you must first calculate the total price."
 msgstr "Du måste köpa olika objekt och betala jämt. Vid högre nivåer visas flera objekt och du måste först beräkna totalsumman."
+
+#: ../src/money_back-activity/money_back.xml.in.h:3
+msgid "Give tux his change"
+msgstr "Ge Tux hans växelpengar"
+
+#: ../src/money_back-activity/money_back.xml.in.h:4
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:4
+msgid "Practice money usage by giving Tux his change"
+msgstr "Öva att använda pengar genom att ge Tux hans växelpengar"
+
+#: ../src/money_back-activity/money_back.xml.in.h:5
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:5
+msgid "Tux bought you different items and shows you his money. You must give him back his change. At higher levels, several items are displayed, and you must first calculate the total price."
+msgstr "Tux har köpt olika saker och visar dig hans pengar. Du måste ge tillbaka hans växelpengar. Vid högre nivåer visas flera objekt och du måste först beräkna totalsumman."
+
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:3
+msgid "Give tux his change, including cents"
+msgstr "Ge Tux hans växelpengar, inklusive eurocent"
 
 #: ../src/money_cents-activity/money_cents.xml.in.h:4
 msgid "Practice money usage including cents"
@@ -5291,14 +5455,16 @@ msgid ""
 "Katsushika Hokusai,\\n"
 "Viewing Sunset over the Ryogoku Bridge from the Ommaya Embankment - 1830"
 msgstr ""
+"Katsushika Hokusai,\\n"
+"Viewing Sunset over the Ryogoku Bridge from the Ommaya Embankment - 1830"
 
 #: ../src/paintings-activity/resources/paintings/board1_11.xml.in.h:1
 msgid "Katsushika Hokusa, Poppies - 1833-1834"
-msgstr ""
+msgstr "Katsushika Hokusa, Poppies - 1833-1834"
 
 #: ../src/paintings-activity/resources/paintings/board1_12.xml.in.h:1
 msgid "Katsushika Hokusai, Kazusa sea Route - 1830."
-msgstr ""
+msgstr "Katsushika Hokusai, Kazusa sea Route - 1830."
 
 #: ../src/paintings-activity/resources/paintings/board1_2.xml.in.h:1
 msgid "Giuseppe Arcimboldo, Spring - 1573"
@@ -5310,7 +5476,7 @@ msgstr "Giuseppe Arcimboldo, Bibliotekarien - 1566"
 
 #: ../src/paintings-activity/resources/paintings/board1_4.xml.in.h:1
 msgid "Katsushika Hokusai, Oiran and Kamuro"
-msgstr ""
+msgstr "Katsushika Hokusai, Oiran och Kamuro"
 
 #: ../src/paintings-activity/resources/paintings/board1_5.xml.in.h:1
 msgid "Katsushika Hokusai, Woman holding a fan"
@@ -5318,21 +5484,23 @@ msgstr "Katsushika Hokusai, Kvinna som håller en fläkt"
 
 #: ../src/paintings-activity/resources/paintings/board1_6.xml.in.h:1
 msgid "Katsushika Hokusai, Ejiri in Suruga Province - 1830-1833"
-msgstr ""
+msgstr "Katsushika Hokusai, Ejiri in Suruga Province - 1830-1833"
 
 #: ../src/paintings-activity/resources/paintings/board1_7.xml.in.h:1
 msgid "Katsushika Hokusai, The Great Wave off Kanagawa - 1823-1829"
-msgstr ""
+msgstr "Katsushika Hokusai, Den stora vågen vid Kanagawa - 1823-1829"
 
 #: ../src/paintings-activity/resources/paintings/board1_8.xml.in.h:1
 msgid ""
 "Utagawa Hiroshige,\\n"
 "The Benzaiten Shrine at Inokashira in Snow - 1760-70"
 msgstr ""
+"Utagawa Hiroshige,\\n"
+"The Benzaiten Shrine at Inokashira in Snow - 1760-70"
 
 #: ../src/paintings-activity/resources/paintings/board1_9.xml.in.h:1
 msgid "Utagawa Hiroshige, Horse-mackerel and Prawn - 1840"
-msgstr ""
+msgstr "Utagawa Hiroshige, Horse-mackerel and Prawn - 1840"
 
 #: ../src/paintings-activity/resources/paintings/board2_0.xml.in.h:1
 msgid "Michelangelo, Pieta - 1499"
@@ -6151,6 +6319,18 @@ msgstr "Använd Tuxpaint till att rita. När Tuxpaint är färdigt kommer detta 
 msgid "mouse and keyboard manipulation"
 msgstr "mus- och tangentbordshantering"
 
+#: ../src/watercycle-activity/watercycle.py:170
+msgid "This is a water pump station."
+msgstr "Detta är en vattenpumpsstation."
+
+#: ../src/watercycle-activity/watercycle.py:183
+msgid "This is a water cleanup station."
+msgstr "Detta är en vattenrensningsstation."
+
+#: ../src/watercycle-activity/watercycle.py:263
+msgid "A water tower or elevated water tower is a large elevated water storage container constructed to hold a water supply at a height sufficient to pressurize a water distribution system."
+msgstr ""
+
 #: ../src/watercycle-activity/watercycle.xml.in.h:1
 msgid "Click on different active elements : sun, cloud, water pump station, and water cleanup station, in order to reactivate the entire water system. When the system is back up and Tux is in the shower, push the shower button for him."
 msgstr "Klicka på olika aktiva element: sol, moln, vattenpumpstation, vattenreningsverk för att att återaktivera hela vattensystemet. När allting fungerar och Tux är i duschen trycker du på duschknappen åt honom."
@@ -6233,126 +6413,8 @@ msgstr "Tangentbordsträning"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Skriv hela ordet innan det når marken"
 
-#: ../src/hangman-activity/hangman.xml.in.h:1
-msgid "A word is hidden, you must discover it letter by letter"
-msgstr ""
-
-#: ../src/hangman-activity/hangman.xml.in.h:2
-#, fuzzy
-msgid "Reading skill"
-msgstr "Läsning"
-
-#: ../src/hangman-activity/hangman.xml.in.h:3
-msgid "The classic hangman game"
-msgstr "Det klassiska spelet Hänga gubbe"
-
-#: ../src/hangman-activity/hangman.xml.in.h:4
-msgid "This is a good exercise to improve reading and spelling skills."
-msgstr ""
-
-#: ../src/hangman-activity/hangman.xml.in.h:5
-msgid "You can enter the letters using the virtual keyboard on the screen or with the real keyboard."
-msgstr ""
-
-#. All the vowel of your language (keep empty if non applicable)
-#: ../src/hangman-activity/hangman.py:61
-msgid "aeiouy"
-msgstr "aeiouyåäö"
-
-#. All the consonants of your language (keep empty if non applicable)
-#: ../src/hangman-activity/hangman.py:63
-msgid "bcdfghjklmnpqrstvwxz"
-msgstr "bcdfghjklmnpqrstvwxz"
-
-#. Letters equivallence for the hangman activity. It has the
-#. form of a space separated list like: "e=éè a=àâ"
-#. Keep the word NONE if not available in your language
-#: ../src/hangman-activity/hangman.py:67
-msgid "NONE"
-msgstr "INGET"
-
-#: ../src/hangman-activity/hangman.py:104
-msgid "Could not find the list of words."
-msgstr "Kunde inte hitta ordlistan."
-
-#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:1
-#, fuzzy
-msgid "Click on different active elements : sun, cloud, dam, solar array, wind farm and transformers, in order to reactivate the entire electrical system. When the system is back up and Tux is in his home, push the light button for him. To win you must switch on all the consumers while all the producers are up."
-msgstr "Klicka på olika aktiva element: sol, moln, vattenpumpstation, vattenreningsverk för att att återaktivera hela vattensystemet. När allting fungerar och Tux är i duschen trycker du på duschknappen åt honom."
-
-#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:3
-msgid "Learn about an hydroelectric dam"
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:4
-#, fuzzy
-msgid "Tux has come back from a long fishing party on his boat. Bring the electrical system back up so he can have light in his home."
-msgstr "Tux kommer från en lång fisketur med båten. Du måste få igång vattensystemet igen så att han kan duscha"
-
-#: ../src/hydroelectric-activity/hydroelectric.py:88
-msgid "The sun heats the water and creates water vapor. Water vapor combines into small water droplets which becomes clouds."
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:126
-msgid "As a cloud matures, the dense water droplets may combine to produce larger droplets, which may combine to form droplets large enough to fall as rain"
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:169
-msgid "This is the meter for electricity produced by the turbine. "
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:170
-#: ../src/hydroelectric-activity/hydroelectric.py:282
-#: ../src/hydroelectric-activity/hydroelectric.py:289
-#: ../src/hydroelectric-activity/hydroelectric.py:319
-#: ../src/hydroelectric-activity/hydroelectric.py:341
-msgid "The electricity power is measured in Watt (W)."
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:175
-msgid "Flowing water is directed on to the blades of a turbine runner, creating a force on the blades. In this way, energy is transferred from the water flow to the turbine"
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:189
-msgid "This cloud simulates the wind, click on it to have wind."
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:227
-msgid "This is a step down transformer. Electricity is transformed in low voltage, ready to be used by the customers."
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:281
-msgid "This is the meter for all the electricity produced. "
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:288
-msgid "This is the meter for electricity consumed by the users. "
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:318
-msgid "This is the meter for electricity produced by the solar panels. "
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:324
-msgid "Solar panels use light energy (photons) from the sun to generate electricity through the photovoltaic effect."
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:340
-msgid "This is the meter for electricity produced by the wind turbines. "
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:346
-msgid "A wind turbine is a device that converts wind motion energy into electricity generation. It is called a wind generator or wind charger. "
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:732
-msgid "It is not possible to consume more electricity than what is produced. This is a key limitation in the distribution of electricity, with minor exceptions, electrical energy cannot be stored, and therefore it must be generated as it is needed. A sophisticated system of control is therefore required to ensure electric generation very closely matches the demand. If supply and demand are not in balance, generation plants and transmission equipment can shut down which, in the worst cases, can lead to a major regional blackout."
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:946
-msgid "This is a step up transformer. Electricity is transmitted at high voltages (110 kV or above) to reduce the energy lost in long distance transmission."
-msgstr ""
-
+#~ msgid "Move the mouse until all the blocks disappear."
+#~ msgstr "Flytta musen till alla block försvinner."
 #~ msgid "The aim is to switch off all the lights"
 #~ msgstr "Målet är att släcka alla lampor"
 #~ msgid "Botticelli, Primavera - 1482"
