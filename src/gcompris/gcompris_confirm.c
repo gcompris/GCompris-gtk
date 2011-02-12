@@ -153,8 +153,6 @@ display_confirm(gchar *title,
 		gchar *no_text,
 		ConfirmCallBack iscb) {
 
-  GooCanvasItem  *item;
-
   if(rootitem)
     return;
 
@@ -188,7 +186,7 @@ display_confirm(gchar *title,
   rootitem = goo_canvas_group_new (goo_canvas_get_root_item(gc_get_canvas()),
 				   NULL);
 
-  item = goo_canvas_svg_new (rootitem,
+  goo_canvas_svg_new (rootitem,
 			     gc_skin_rsvg_get(),
 			     "svg-id", "#DIALOG",
 			     "pointer-events", GOO_CANVAS_EVENTS_NONE,

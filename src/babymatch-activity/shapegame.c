@@ -1928,7 +1928,7 @@ config_start(GcomprisBoard *agcomprisBoard,
   else
     drag_previous = 0;
 
-  gc_board_config_combo_drag(bconf, drag_mode);
+  gc_board_config_combo_drag(bconf, drag_previous);
 
 }
 

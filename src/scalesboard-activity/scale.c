@@ -921,7 +921,6 @@ static void
 scale_next_level()
 {
   GdkPixbuf *pixmap, *pixmap2;
-  GooCanvasItem *item, *balance;
   gdouble balance_x;
 
   gc_bar_set_level(gcomprisBoard);
@@ -949,7 +948,7 @@ scale_next_level()
 			      NULL);
   gdk_pixbuf_unref(pixmap2);
 
-  balance = goo_canvas_image_new(boardRootItem,
+  goo_canvas_image_new(boardRootItem,
 				 pixmap,
 				 balance_x,
 				 balance_left_y,
@@ -978,7 +977,7 @@ scale_next_level()
 
 
   pixmap = gc_pixmap_load("scale/plateau.png");
-  item = goo_canvas_image_new(group_g,
+  goo_canvas_image_new(group_g,
 			      pixmap,
 			      0,
 			      PLATE_Y,
@@ -994,7 +993,7 @@ scale_next_level()
 
   pixmap = gc_pixmap_load("scale/plateau.png");
   pixmap2 = gdk_pixbuf_flip(pixmap, TRUE);
-  item = goo_canvas_image_new(group_d,
+  goo_canvas_image_new(group_d,
 			      pixmap2,
 			      0,
 			      PLATE_Y,
@@ -1179,7 +1178,7 @@ config_start(GcomprisBoard *agcomprisBoard,
   else
     drag_previous = 0;
 
-  gc_board_config_combo_drag(bconf, drag_mode);
+  gc_board_config_combo_drag(bconf, drag_previous);
 
 }
 

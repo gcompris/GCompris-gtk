@@ -1770,7 +1770,6 @@ void spesavefig (void){
 void taninitstart(void){
 
   int i;
-  char* accurstr;
 
   for (i = PXSTART; i<PXNBR+PXSTART; i++){
     tabpxnam[i] = NULL;
@@ -1796,22 +1795,6 @@ void taninitstart(void){
 
 
   create_mainwindow(boardRootItem);
-
-  switch (accuracy){
-  case 0:
-    accurstr = "maccuracy1";
-    break;
-  case 2:
-    accurstr = "maccuracy3";
-    break;
-  default :
-    accurstr = "maccuracy2";
-  }
-
-  if (rotstepnbr==TOUR/256)
-    accurstr = "mrotcont";
-  else
-    accurstr = "mrotstp";
 
   tanloadfigtab(figfilename);
 

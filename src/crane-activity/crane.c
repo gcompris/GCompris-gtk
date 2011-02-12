@@ -581,7 +581,6 @@ static void draw_redhands() {
 // Draw the drak frame (horizontal and vertical lines) that helps positionning elements
 static void draw_frame(int x, int y) {
 
-  GooCanvasItem *item_frame = NULL;
   int i;
   GooCanvasPoints *track;
 
@@ -594,7 +593,7 @@ static void draw_frame(int x, int y) {
 	track->coords[2] = x + i * CRANE_FRAME_CELL;
 	track->coords[3] = y + (CRANE_FRAME_LINE * CRANE_FRAME_CELL) - CRANE_FRAME_BORDER;
 
-	item_frame = goo_canvas_polyline_new (boardRootItem, FALSE, 0,
+	goo_canvas_polyline_new (boardRootItem, FALSE, 0,
 					"points", track,
 					"fill-color", "black",
 					NULL);
@@ -607,7 +606,7 @@ static void draw_frame(int x, int y) {
 	track->coords[2] = x + (CRANE_FRAME_COLUMN * CRANE_FRAME_CELL) - CRANE_FRAME_BORDER;
 	track->coords[3] = y + (i * CRANE_FRAME_CELL);
 
-	item_frame = goo_canvas_polyline_new (boardRootItem, FALSE, 0,
+	goo_canvas_polyline_new (boardRootItem, FALSE, 0,
 					"points", track,
 					"fill-color", "black",
 					NULL);

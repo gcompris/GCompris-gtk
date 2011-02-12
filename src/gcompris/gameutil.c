@@ -289,7 +289,6 @@ void gc_item_focus_init(GooCanvasItem *source_item,
 {
   GooCanvasItem *highlight_item;
   GooCanvasBounds bounds;
-  gboolean already_created = FALSE;
 
   if(!target_item)
     target_item = source_item;
@@ -306,7 +305,6 @@ void gc_item_focus_init(GooCanvasItem *source_item,
 
   if(highlight_item)
     {
-      already_created = TRUE;
       goo_canvas_item_remove(highlight_item);
     }
 
@@ -440,7 +438,6 @@ gc_item_rotate_relative(GooCanvasItem *item, double angle)
 {
   double x1, x2, y1, y2;
   double tx1, tx2, ty1, ty2;
-  double cx, cy;
 
   //  goo_canvas_item_get_bounds( item, &x1, &y1, &x2, &y2 );
   /* WARNING: Do not use goo_canvas_item_get_bounds which gives unpredictable results */
@@ -477,10 +474,6 @@ gc_item_rotate_relative(GooCanvasItem *item, double angle)
   y1 = MIN(ty1,ty2);
   x2 = MAX(tx1,tx2);
   y2 = MAX(ty1,ty2);
-
-
-  cx = (x2+x1)/2;
-  cy = (y2+y1)/2;
 
   goo_canvas_item_rotate(item, angle,
 			 x1+(x2-x1)/2,

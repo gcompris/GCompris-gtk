@@ -342,13 +342,12 @@ piece_event (GooCanvasItem  *item,
 {
   GooCanvasItem **board;
   GooCanvasItem *text;
-  int num, pos, newpos;
+  int pos, newpos;
   int x, y;
   double dx = 0.0, dy = 0.0;
   int move;
 
   board = g_object_get_data (G_OBJECT (goo_canvas_item_get_parent(item)), "board");
-  num = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (item), "piece_num"));
   pos = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (item), "piece_pos"));
   text = g_object_get_data (G_OBJECT (item), "text");
 

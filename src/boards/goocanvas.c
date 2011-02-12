@@ -4452,7 +4452,6 @@ _wrap_goo_canvas_item_get_requested_area(PyGObject *self,
                                          PyObject *kwargs)
 {
     static char     *kwlist[] = { "cr", NULL };
-    int             ret;
     GooCanvasBounds bounds;
     PycairoContext  *cr;
 
@@ -4461,7 +4460,7 @@ _wrap_goo_canvas_item_get_requested_area(PyGObject *self,
                                      kwlist, &PycairoContext_Type, &cr))
         return NULL;
 
-    ret = goo_canvas_item_get_requested_area(GOO_CANVAS_ITEM(self->obj),
+    goo_canvas_item_get_requested_area(GOO_CANVAS_ITEM(self->obj),
                                              cr->ctx, &bounds);
 
     return pygoo_canvas_bounds_new(&bounds);

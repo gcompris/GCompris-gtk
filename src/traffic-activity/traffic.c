@@ -610,11 +610,8 @@ on_button_release (GooCanvasItem *item,
 		  GdkEventButton *event,
 		  car *thiscar)
 {
-  GooCanvas *canvas;
   double item_x, item_y;
   GdkCursor *cursor;
-
-  canvas = goo_canvas_item_get_canvas (item);
 
   item_x = event->x;
   item_y = event->y;

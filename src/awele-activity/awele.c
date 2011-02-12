@@ -715,7 +715,7 @@ updateNbBeans (int alpha)
 {
 
   char buffer[3];		//Manipulation chaines de caracteres
-  int i, j, k, idxTabBeans = 0;	//Compteur Boucle Manipulation Elements graphiques
+  int i, j, idxTabBeans = 0;	//Compteur Boucle Manipulation Elements graphiques
   static short int nbActiveBean = NBTOTALBEAN;	//nbre graine restant sur plateau
   static short int nbOldActiveBean;	//nbre graine restant sur plateau au tour precedent
   BEANHOLE_LINK *ptBeansHoleLink = NULL;	//pointeur sur structures stockant les item graines et la case dans laquelle elles se trouvent.
@@ -774,9 +774,6 @@ updateNbBeans (int alpha)
 	   j < staticAwale->board[i] && idxTabBeans < nbActiveBean;
 	   j++, idxTabBeans++)
 	{
-
-	  k = 0 + g_random_int() % 4;
-
 	  g_object_set (ptBeansHoleLink[idxTabBeans].beanPixbuf,
 			"x", (double) caseCoord[i] +
 			g_random_int() % 50,

@@ -41,7 +41,6 @@ void gc_about_start ()
 {
   GdkPixbuf   *pixmap = NULL;
   gdouble y_start = 0;
-  gdouble x_start = 0;
   gint y = 0;
   GooCanvasItem *item;
 
@@ -75,7 +74,6 @@ void gc_about_start ()
 
   GooCanvasBounds bounds;
   goo_canvas_item_get_bounds(item, &bounds);
-  x_start = bounds.x1;
   y_start = bounds.y1;
 
   y = bounds.y2 - 26;

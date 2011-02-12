@@ -108,7 +108,6 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
 			  void *user_context)
 {
 
-  GooCanvasItem *item;
   gint		 y_start = 0;
   gchar		*dataseturl = NULL;
 
@@ -129,7 +128,7 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
 
   images_selector_displayed = TRUE;
 
-  item = goo_canvas_svg_new (rootitem,
+  goo_canvas_svg_new (rootitem,
 			     gc_skin_rsvg_get(),
 			     "svg-id", "#IMAGE_SELECTOR",
 			     "pointer-events", GOO_CANVAS_EVENTS_NONE,

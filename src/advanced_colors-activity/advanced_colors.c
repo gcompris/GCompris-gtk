@@ -280,7 +280,6 @@ static GooCanvasItem *colors_create_item(GooCanvasItem *parent)
 {
   GdkPixbuf *pixmap;
   char *str = NULL;
-  int i;
 
   boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
 					NULL);
@@ -303,7 +302,6 @@ static GooCanvasItem *colors_create_item(GooCanvasItem *parent)
   g_object_set (highlight_image_item,
 		"visibility", GOO_CANVAS_ITEM_INVISIBLE,
 		NULL);
-  i = g_random_int_range(0,LAST_COLOR);
 
   gdk_pixbuf_unref(pixmap);
 

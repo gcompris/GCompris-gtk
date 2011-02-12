@@ -379,7 +379,6 @@ static void display_second(guint second)
 static void
 clockgame_create_item(GooCanvasItem *parent)
 {
-  GooCanvasItem *item;
   double needle_size = clock_size;
   double min_point_size = clock_size*0.05;
   double hour_point_size = clock_size*0.1;
@@ -421,7 +420,7 @@ clockgame_create_item(GooCanvasItem *parent)
 
       canvasPoints->coords[2]=cx + needle_size * sin(ang);
       canvasPoints->coords[3]=cy - needle_size * cos(ang);
-      item = goo_canvas_polyline_new (boardRootItem, FALSE, 2,
+      goo_canvas_polyline_new (boardRootItem, FALSE, 2,
 				      canvasPoints->coords[0],
 				      canvasPoints->coords[1],
 				      canvasPoints->coords[2],
@@ -434,7 +433,7 @@ clockgame_create_item(GooCanvasItem *parent)
       if(gcomprisBoard->level<5)
 	{
 	  mtext = g_strdup_printf("%d", min);
-	  item = goo_canvas_text_new (boardRootItem,
+	  goo_canvas_text_new (boardRootItem,
 				      mtext,
 				      (double) cx + (needle_size+10) * sin(ang),
 				      (double) cy - (needle_size+10) * cos(ang),
@@ -451,7 +450,7 @@ clockgame_create_item(GooCanvasItem *parent)
 	if(min%5==0)
 	  {
 	    mtext = g_strdup_printf( "%d", min/5);
-	    item = goo_canvas_text_new (boardRootItem,
+	    goo_canvas_text_new (boardRootItem,
 					mtext,
 					(double) cx + (needle_size-30) * sin(ang),
 					(double) cy - (needle_size-30) * cos(ang),

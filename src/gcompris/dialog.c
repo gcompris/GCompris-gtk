@@ -47,9 +47,6 @@ void gc_dialog_close() {
  */
 void gc_dialog(gchar *str, DialogBoxCallBack dbcb)
 {
-  gint y_start;
-  gint x_start;
-
   g_warning("Dialog=%s\n", str);
 
   /* If we are already running do nothing */
@@ -82,8 +79,6 @@ void gc_dialog(gchar *str, DialogBoxCallBack dbcb)
 
   GooCanvasBounds bounds;
   goo_canvas_item_get_bounds(itemDialogText, &bounds);
-  x_start = bounds.x1;
-  y_start = bounds.y1;
 
   goo_canvas_text_new (rootDialogItem,
 		       str,

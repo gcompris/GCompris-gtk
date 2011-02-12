@@ -151,13 +151,8 @@ static void
 bar_start (GooCanvas *theCanvas)
 {
   GcomprisProperties *properties = gc_prop_get();
-  gint16       height;
-  gint16       buttony;
-  double       zoom;
   RsvgHandle  *svg_handle;
   GooCanvasBounds bounds;
-
-  height = BARHEIGHT-2;
 
   _default_y = BOARDHEIGHT - BARHEIGHT;
   _default_zoom = 1.0;
@@ -173,10 +168,6 @@ bar_start (GooCanvas *theCanvas)
 				 "pointer-events", GOO_CANVAS_EVENTS_NONE,
 				 NULL);
   SET_ITEM_LOCATION(bar_item, 0, 0);
-
-  goo_canvas_item_get_bounds(bar_item, &bounds);
-  zoom = (double)(height-BAR_GAP)/(bounds.y2 - bounds.y1);
-  buttony = (height-(bounds.y2 - bounds.y1)*zoom)/2 - 20;
 
   /*
    * The Order in which buttons are created represents

@@ -477,9 +477,6 @@ void
 gc_skin_get_gdkcolor_default(gchar* id, guint32 def, GdkColor *gdkcolor)
 {
   gchar *tmp;
-  guint32 color;
-
-  color = gc_skin_get_color_default(id, def);
 
   tmp = g_strdup_printf("#%06X", gc_skin_get_color(id) >> 8);
   gdk_color_parse(tmp, gdkcolor);

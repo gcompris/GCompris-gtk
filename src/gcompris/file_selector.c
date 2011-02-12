@@ -161,8 +161,6 @@ display_file_selector(int the_mode,
 		      FileSelectorCallBack iscb,
 		      void *user_context)
 {
-  GooCanvasItem    *item;
-  gchar		   *name = NULL;
   gchar            *full_rootdir;
 
   mode = the_mode;
@@ -179,13 +177,12 @@ display_file_selector(int the_mode,
 
   gc_board_pause(TRUE);
 
-  name = gcomprisBoard->name;
   fileSelectorCallBack=iscb;
 
   rootitem = goo_canvas_group_new (goo_canvas_get_root_item(gc_get_canvas()),
 				   NULL);
 
-  item = goo_canvas_svg_new (rootitem,
+  goo_canvas_svg_new (rootitem,
 			     gc_skin_rsvg_get(),
 			     "svg-id", "#FILE_SELECTOR",
 			     "pointer-events", GOO_CANVAS_EVENTS_NONE,
@@ -197,7 +194,7 @@ display_file_selector(int the_mode,
   if(mode==MODE_SAVE)
     gtk_entry_set_max_length(GTK_ENTRY(widget_entry), 30);
 
-  item = goo_canvas_widget_new (rootitem,
+  goo_canvas_widget_new (rootitem,
 				GTK_WIDGET(widget_entry),
 				control_area_x1,
 				control_area_y1,
@@ -281,7 +278,6 @@ static void
 display_files(GooCanvasItem *root_item, gchar *rootdir)
 {
   GooCanvasItem *item;
-  double iw, ih;
   const gchar *one_dirent;
   GDir  *dir;
 
@@ -382,10 +378,6 @@ display_files(GooCanvasItem *root_item, gchar *rootdir)
 			      "fill-color-rgba",
 			      gc_skin_get_color("gcompris/fileselectcol"),
 			      NULL);
-
-
-  iw = IMAGE_WIDTH;
-  ih = IMAGE_HEIGHT;
 
   /* Insert all files in a sorted list */
 
@@ -673,11 +665,5 @@ item_event_file_selector (GooCanvasItem  *item,
 static void entry_enter_callback( GtkWidget *widget,
 				  GtkWidget *entry )
 {
-  gchar *entry_text;
-
-  if(!rootitem)
-    return;
-
-  entry_text = (char *)gtk_entry_get_text(GTK_ENTRY(entry));
 }
 

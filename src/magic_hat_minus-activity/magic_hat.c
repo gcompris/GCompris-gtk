@@ -437,7 +437,6 @@ static void game_won() {
 // Draw a frame with empty small squares
 static void draw_frame(frame *my_frame) {
 
-  GooCanvasItem *item_frame = NULL;
   int i, j;
   double x = my_frame->coord_x;
   double y = my_frame->coord_y;
@@ -460,7 +459,7 @@ static void draw_frame(frame *my_frame) {
 		track->coords[8] = x + (j * (ITEM_SIZE + SPACE_BETWEEN_ITEMS));
 		track->coords[9] = y + (i * (ITEM_SIZE + SPACE_BETWEEN_ITEMS));
 
-		item_frame = goo_canvas_polyline_new (boardRootItem, FALSE, 0,
+		goo_canvas_polyline_new (boardRootItem, FALSE, 0,
 						      "points", track,
 						      "line-width", 1.0,
 						      "fill-color", "#948d85",
@@ -476,7 +475,6 @@ static void draw_frame(frame *my_frame) {
 // Draw the table (line)
 static void draw_table() {
 
-  GooCanvasItem *item_frame = NULL;
   GooCanvasPoints *track;
 
   track = goo_canvas_points_new(2);
@@ -486,7 +484,7 @@ static void draw_table() {
   track->coords[2] = MH_HAT_X + MH_HAT_WIDTH;
   track->coords[3] = MH_HAT_Y + MH_HAT_HEIGHT + 5;
 
-  item_frame = goo_canvas_polyline_new (boardRootItem, FALSE, 0,
+  goo_canvas_polyline_new (boardRootItem, FALSE, 0,
 					"points", track,
 					"line-width", 1.0,
 					"fill-color", "black",

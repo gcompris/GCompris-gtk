@@ -613,7 +613,6 @@ static void wordsgame_destroy_all_items()
 static GooCanvasItem *wordsgame_create_item(GooCanvasItem *parent)
 {
 
-  GooCanvasItem *item2;
   LettersItem *item;
   gchar *word = gc_wordlist_random_word_get(gc_wordlist, gcomprisBoard->level);
   GtkAnchorType direction_anchor = GTK_ANCHOR_NW;
@@ -646,8 +645,7 @@ static GooCanvasItem *wordsgame_create_item(GooCanvasItem *parent)
 
   /* To 'erase' words, I create 2 times the text item. One is empty now */
   /* It will be filled each time the user enters the right key         */
-  item2 = \
-    goo_canvas_text_new (item->rootitem,
+  goo_canvas_text_new (item->rootitem,
 			 item->word,
 			 (double) 0,
 			 (double) 0,

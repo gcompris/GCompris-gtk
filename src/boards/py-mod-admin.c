@@ -384,8 +384,7 @@ static PyMethodDef PythonGcomprisAdminModule[] = {
 
 void python_gcompris_admin_module_init(void)
 {
-  PyObject* module;
-  module = Py_InitModule("_gcompris_admin", PythonGcomprisAdminModule);
+  Py_InitModule("_gcompris_admin", PythonGcomprisAdminModule);
 }
 
 /* Some usefull code parts ... */

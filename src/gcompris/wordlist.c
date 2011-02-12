@@ -69,8 +69,6 @@ GcomprisWordlist
   GcomprisWordlist     *wordlist;
   xmlChar              *text;
 
-  GSList                *words = NULL;
-
   if (!format)
     return NULL;
 
@@ -161,7 +159,6 @@ GcomprisWordlist
 
   node = wlNode->children;
   while((node!=NULL)) {
-    words = NULL;
     if (node->type!=XML_ELEMENT_NODE){
       node = node->next;
       continue;

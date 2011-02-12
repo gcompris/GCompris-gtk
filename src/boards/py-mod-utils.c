@@ -440,8 +440,7 @@ static PyMethodDef PythonGcomprisUtilsModule[] = {
 
 void python_gcompris_utils_module_init(void)
 {
-  PyObject* module;
-  module = Py_InitModule("_gcompris_utils", PythonGcomprisUtilsModule);
+  Py_InitModule("_gcompris_utils", PythonGcomprisUtilsModule);
 }
 
 /* Some usefull code parts ... */

@@ -712,13 +712,10 @@ static void set_focus_item(ToBeFoundItem *toBeFoundItem, gboolean status)
 static gboolean solution_found()
 {
   ToBeFoundItem *firstToBeFoundItem = currentToBeFoundItem;
-  ToBeFoundItem *toBeFoundItem;
 
   /* Go to the leftmost digit */
   while(firstToBeFoundItem->previous!=NULL)
     firstToBeFoundItem = firstToBeFoundItem->previous;
-
-  toBeFoundItem = firstToBeFoundItem;
 
   /* Check the numbers one by one */
   while(firstToBeFoundItem != NULL)

@@ -194,8 +194,7 @@ static PyMethodDef PythonGcomprisSkinModule[] = {
 
 void python_gc_skin_module_init(void)
 {
-  PyObject* module;
-  module = Py_InitModule("_gcompris_skin", PythonGcomprisSkinModule);
+  Py_InitModule("_gcompris_skin", PythonGcomprisSkinModule);
 }
 
 /* Some usefull code parts ... */

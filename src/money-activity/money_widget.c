@@ -139,11 +139,13 @@ finalize (GtkObject *object)
 static void
 class_init (Money_WidgetClass *class)
 {
+#if 0
   GtkObjectClass *object_class;
 
   object_class = (GtkObjectClass*) class;
 
-  //2  object_class->destroy = finalize;
+  object_class->destroy = finalize;
+#endif
 }
 
 static void

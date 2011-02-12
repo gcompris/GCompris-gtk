@@ -172,12 +172,10 @@ goo_canvas_group_new (GooCanvasItem *parent,
 		      ...)
 {
   GooCanvasItem *item;
-  GooCanvasGroup *group;
   va_list var_args;
   const char *first_property;
 
   item = g_object_new (GOO_TYPE_CANVAS_GROUP, NULL);
-  group = (GooCanvasGroup*) item;
 
   va_start (var_args, parent);
   first_property = va_arg (var_args, char*);
@@ -894,12 +892,10 @@ goo_canvas_group_model_new (GooCanvasItemModel *parent,
 			    ...)
 {
   GooCanvasItemModel *model;
-  GooCanvasGroupModel *gmodel;
   va_list var_args;
   const char *first_property;
 
   model = g_object_new (GOO_TYPE_CANVAS_GROUP_MODEL, NULL);
-  gmodel = (GooCanvasGroupModel*) model;
 
   va_start (var_args, parent);
   first_property = va_arg (var_args, char*);
