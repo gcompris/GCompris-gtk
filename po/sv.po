@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-02-12 13:28+0100\n"
-"PO-Revision-Date: 2011-02-12 14:16+0100\n"
+"PO-Revision-Date: 2011-02-13 13:11+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -34,7 +34,7 @@ msgstr "Gå till beräkningsaktiviteter"
 
 #: ../boards/algebramenu.xml.in.h:2
 msgid "Various calculation activities."
-msgstr "Olika beräkningsaktiviteter."
+msgstr "Diverse beräkningsaktiviteter."
 
 #: ../boards/chess.xml.in.h:1
 #: ../src/chess_computer-activity/chess_computer.xml.in.h:3
@@ -1524,7 +1524,6 @@ msgid "This chat activity only works on the local network"
 msgstr "Den här chattaktiviteten fungerar endast på det lokala nätverket."
 
 #: ../src/chat-activity/chat.xml.in.h:3
-#, fuzzy
 msgid "This chat activity will only work with other GCompris users on your local network, not on the Internet. To use it, just type in your message and hit Enter. Your message is then broadcasted on the local network, and any GCompris program running the chat activity on that local network will receive and display your message."
 msgstr "Den här chattaktiviteten fungerar endast med andra GCompris-användare på ditt lokala nätverk och inte på Internet. För att använda det är det bara att skriva in ditt meddelande och trycka på Enter. Ditt meddelande kommer då att sändas ut på det lokala nätverket och andra GCompris-program som kör chattaktiviteten kommer att ta bort och visa upp ditt meddelande."
 
@@ -2285,6 +2284,10 @@ msgid ""
 "The image must be in the 'jpeg' format and be suffixed with '.jpg' or '.jpeg'.\n"
 "For best results, they must have a size of 800x520 pixels.\n"
 msgstr ""
+"Lägg valfritt antal bilder i denna katalog.\n"
+"De kommer att användas som bakgrund i  \"radera\"-aktiviteten.\n"
+"Bilden måste vara i \"jpeg\"-formatet och ha filändelsen \".jpg\" eller \".jpeg\".\n"
+"De bör ha en storlek på 800x520 bildpunkter för bästa resultat.\n"
 
 #: ../src/erase-activity/erase.xml.in.h:1
 msgid "Animal pictures are taken from the Animal Photography Page of Ralf Schmode (&lt;http://schmode.net/&gt;) and from LE BERRE Daniel. These people kindly gave GCompris the authorization to include their pictures. Thanks a lot, both of you."
@@ -2292,7 +2295,7 @@ msgstr "Djurbilderna har tagits från Ralf Schmodes djurfotografisida (&lt;http:
 
 #: ../src/erase-activity/erase.xml.in.h:6
 msgid "Move the mouse until all the blocks disappear. You can add you own images under the directory '~/My GCompris/erase'."
-msgstr ""
+msgstr "Flytta muspekaren tills alla block har försvunnit. Du kan lägga till egna bilder under katalogen \"~/My GCompris/erase\"."
 
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
 msgid "Double click the mouse"
@@ -4161,7 +4164,7 @@ msgstr "Solen värmer upp vattnet och skapa vattenångor. Vattenångorna blir ti
 #: ../src/hydroelectric-activity/hydroelectric.py:126
 #: ../src/watercycle-activity/watercycle.py:144
 msgid "As a cloud matures, the dense water droplets may combine to produce larger droplets, which may combine to form droplets large enough to fall as rain"
-msgstr ""
+msgstr "När ett moln åldras kan kompakta vattendroppar kombineras och skapa större droppar, som kan forma droppar stora nog att falla ner som regn"
 
 #: ../src/hydroelectric-activity/hydroelectric.py:169
 msgid "This is the meter for electricity produced by the turbine. "
@@ -4177,7 +4180,7 @@ msgstr "Elkraften mäts i watt (W)."
 
 #: ../src/hydroelectric-activity/hydroelectric.py:175
 msgid "Flowing water is directed on to the blades of a turbine runner, creating a force on the blades. In this way, energy is transferred from the water flow to the turbine"
-msgstr ""
+msgstr "Rinnande vatten dirigeras till bladen i turbinen vilket skapar en kraft mot bladen. På detta sätt kan energi överföras från vattenkraften till turbinen"
 
 #: ../src/hydroelectric-activity/hydroelectric.py:189
 msgid "This cloud simulates the wind, click on it to have wind."
@@ -4185,7 +4188,7 @@ msgstr "Detta moln simulerar vinden. Klicka på det för att blåsa."
 
 #: ../src/hydroelectric-activity/hydroelectric.py:227
 msgid "This is a step down transformer. Electricity is transformed in low voltage, ready to be used by the customers."
-msgstr ""
+msgstr "Detta är en lågspänningstransformator. Elektricitet omvandlas till ett lägre volttag som kan användas av kunderna."
 
 #: ../src/hydroelectric-activity/hydroelectric.py:281
 msgid "This is the meter for all the electricity produced. "
@@ -4213,11 +4216,11 @@ msgstr "En vindturbin är en enhet som gör om vindenergi till elektricitet. Det
 
 #: ../src/hydroelectric-activity/hydroelectric.py:732
 msgid "It is not possible to consume more electricity than what is produced. This is a key limitation in the distribution of electricity, with minor exceptions, electrical energy cannot be stored, and therefore it must be generated as it is needed. A sophisticated system of control is therefore required to ensure electric generation very closely matches the demand. If supply and demand are not in balance, generation plants and transmission equipment can shut down which, in the worst cases, can lead to a major regional blackout."
-msgstr ""
+msgstr "Det är inte möjligt att använda mer elektricitet än vad som produceras. Detta är en huvudsaklig begränsning i distributionen av elektrictet, med mindre undantag, elektrisk energi kan inte lagras och därför måste den genereras efter behov. Ett sofistikerat system av kontroll behövs därför för att försäkra sig att lika mycket elektricitet genereras som det behövs. Om produktion och behov inte balanseras kan kraftverk och överföringsutrustning stängas av, vilket i värsta fall, kan leda till stora  regionala elavbrott."
 
 #: ../src/hydroelectric-activity/hydroelectric.py:946
 msgid "This is a step up transformer. Electricity is transmitted at high voltages (110 kV or above) to reduce the energy lost in long distance transmission."
-msgstr ""
+msgstr "Detta är en högspänningstransformator. Electricitet överförs i högre volttal (110 kV eller högre) för att minska den energi som förloras vid överföringar över långa avstånd."
 
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:1
 msgid "Click on different active elements : sun, cloud, dam, solar array, wind farm and transformers, in order to reactivate the entire electrical system. When the system is back up and Tux is in his home, push the light button for him. To win you must switch on all the consumers while all the producers are up."
@@ -4593,7 +4596,6 @@ msgid "GCompris login screen"
 msgstr "Inloggningsskärm för GCompris"
 
 #: ../src/login-activity/login.xml.in.h:3
-#, fuzzy
 msgid ""
 "In order to activate the login screen, you must\n"
 "first add users in the administration part of GCompris.\n"
@@ -4603,13 +4605,13 @@ msgid ""
 "To run GCompris for a specific profile, you use 'gcompris -p profile' where 'profile'\n"
 "is the name of a profile as you created it in Administration."
 msgstr ""
-"För att aktivera inloggningsskärmen måste du först \n"
-"lägga till användare i administrationsdelen för GCompris. \n"
+"För att aktivera inloggningsskärmen måste du först\n"
+"lägga till användare i administrationsdelen för GCompris.\n"
 "Du kommer åt Administration genom att köra \"gcompris -a\".\n"
 "I Administration kan du skapa olika profiler. I varje profil kan du\n"
-"ha olika uppsättningar användare och välja vilka aktiviteter som finns tillgängliga i dem.\n"
-"För att köra GCompris för en specifik profil använder du \"gcompris -p profil\" där \"profil\"\n"
-"är namnet på en profil som du har skapat i Administration."
+"ha olika uppsättningar användare och välja vilka aktiviteter som finns tillgängliga\n"
+"i dem. För att köra GCompris för en specifik profil använder du \"gcompris -p profil\"\n"
+"där \"profil\" är namnet på en profil som du har skapat i Administration."
 
 #: ../src/login-activity/login.xml.in.h:10
 msgid "Select or enter your name to log in to GCompris"
@@ -6128,9 +6130,8 @@ msgid "Completing the puzzle requires patience and logical ability"
 msgstr "Färdigställandet av pusslet kräver tålamod och logiskt tänkande"
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:2
-#, fuzzy
 msgid "For the first level with colored symbols, select a symbol on the left and click on its target position. For the higher levels, click on an empty square to give it the keyboard focus. Then enter a possible letter or number. GCompris will not let you enter invalid data."
-msgstr "På första nivån med färgade symboler ska du dra symbolerna till vänster till sina målpositioner. På högre nivåer ska du klick på en tom fyrkant för att ge den tangentbordsfokus. Skriv sedan in en möjlig bokstav eller siffra. GCompris låter dig inte skriva in ogiltigt data."
+msgstr "På första nivån med färgade symboler ska du markera en av de vänstra symbolerna och klicka på dess målposition. På högre nivåer ska du klicka på en tom fyrkant för att ge den tangentbordsfokus. Skriv sedan in en möjlig bokstav eller siffra. GCompris låter dig inte skriva in ogiltigt data."
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:3
 msgid "Sudoku, place unique symbols in a square."
@@ -6157,22 +6158,20 @@ msgstr "Tux har gömt flera objekt. Hitta dem i rätt ordning"
 #: ../src/superbrain-activity/superbrain.c:403
 #: ../src/superbrain-activity/superbrain.c:539
 msgid "This item is well placed"
-msgstr ""
+msgstr "Detta objekt är korrekt placerat"
 
 #: ../src/superbrain-activity/superbrain.c:416
 #: ../src/superbrain-activity/superbrain.c:569
-#, fuzzy
 msgid "This item is misplaced"
-msgstr "visas"
+msgstr "Detta objekt är felplacerat"
 
 #: ../src/superbrain-activity/superbrain.c:587
 msgid "One item is well placed"
-msgstr ""
+msgstr "Ett objekt är korrekt placerat"
 
 #: ../src/superbrain-activity/superbrain.c:601
-#, fuzzy
 msgid "One item is misplaced"
-msgstr "Och det visades"
+msgstr "Ett objekt är felplacerat"
 
 #: ../src/superbrain-activity/superbrain.xml.in.h:1
 msgid "Click on the items until you find what you think is the correct answer. Then, click on the OK button in the control bar. In the lower levels, Tux gives you an indication if you found a hiding place by marking the item with a black box. You can use the right mouse button to flip the colors in the opposite order."
@@ -6329,7 +6328,7 @@ msgstr "Detta är en vattenrensningsstation."
 
 #: ../src/watercycle-activity/watercycle.py:263
 msgid "A water tower or elevated water tower is a large elevated water storage container constructed to hold a water supply at a height sufficient to pressurize a water distribution system."
-msgstr ""
+msgstr "Ett vattentorn eller högreservoar är en större förhöjd vattenlagringscistern byggd för att hålla vattenreserven på en höjd som är tillräcklig för att få tryck i ett vattendistributionssystem."
 
 #: ../src/watercycle-activity/watercycle.xml.in.h:1
 msgid "Click on different active elements : sun, cloud, water pump station, and water cleanup station, in order to reactivate the entire water system. When the system is back up and Tux is in the shower, push the shower button for him."
