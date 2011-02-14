@@ -679,6 +679,7 @@ src/erase_2clic-activity/Makefile
 src/fifteen-activity/Makefile
 src/fifteen-activity/resources/Makefile
 src/fifteen-activity/resources/fifteen/Makefile
+src/findit-activity/Makefile
 src/followline-activity/Makefile
 src/followline-activity/resources/Makefile
 src/followline-activity/resources/followline/Makefile
