@@ -92,7 +92,7 @@ py_gc_skin_rsvg_get(PyObject* self, PyObject* args)
   /* Create and return the result */
   pyresult = (PyObject*) pygobject_new((GObject*) result);
 
-  g_object_unref(result);
+  // 'result' must not be freed, it is managed by gc_skin_rsvg_get()
 
   return(pyresult);
 }
