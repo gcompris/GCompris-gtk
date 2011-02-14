@@ -15,7 +15,7 @@
 #   You should have received a copy of the GNU General Public License
 #   along with this program; if not, see <http://www.gnu.org/licenses/>.
 #
-# PythonTemplate Board module
+# pythontemplate activity.
 import gtk
 import gtk.gdk
 import gcompris
