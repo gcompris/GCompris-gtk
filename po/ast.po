@@ -8,19 +8,19 @@
 # Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
 # This file is distributed under the same license as the gcompris package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
-# Xandru Armesto <xandru@softastur.org>, 2010
+# Xandru Armesto <xandru@softastur.org>, 2010, 2011.
 # Asturian translation for gcompris
 # Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
 # This file is distributed under the same license as the gcompris package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
-# Xandru Armesto <xandru@softastur.org>, 2010
+# Xandru Armesto <xandru@softastur.org>, 2010, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: "
 "http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&component=general\n"
-"POT-Creation-Date: 2010-11-13 17:40+0000\n"
-"PO-Revision-Date: 2010-11-14 13:43+0200\n"
+"POT-Creation-Date: 2011-02-14 07:53+0000\n"
+"PO-Revision-Date: 2011-02-14 18:59+0200\n"
 "Last-Translator: Xandru Armesto <xandru@softastur.org>\n"
 "Language-Team: Softastur alministradores@softastur.org\n"
 "Language: ast\n"
@@ -36,6 +36,7 @@ msgid "Go to Algebra activities"
 msgstr "Dir a les xeres d'Álxebra"
 
 #: ../boards/algebra_group.xml.in.h:2 ../boards/menu.xml.in.h:18
+#: ../boards/money_group.xml.in.h:2
 msgid "Left-click the mouse on an activity to select it."
 msgstr "Calca col botón izquierdu del mur nuna xera pa seleicionala."
 
@@ -205,7 +206,7 @@ msgstr ""
 msgid "GCompris Main Menu"
 msgstr "Menú principal de GCompris"
 
-#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:876
+#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:866
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -228,6 +229,10 @@ msgstr "Xeres varies"
 #: ../boards/miscelaneous.xml.in.h:2
 msgid "Time, Geography, ..."
 msgstr "Tiempu, xeografía, ..."
+
+#: ../boards/money_group.xml.in.h:1
+msgid "Go to money activities"
+msgstr "Dir a les xeres de dineru"
 
 #: ../boards/mouse.xml.in.h:1
 msgid "Mouse-manipulation activities."
@@ -1093,7 +1098,7 @@ msgid "+-×÷"
 msgstr "+-×÷"
 
 #: ../src/algebra_by-activity/algebra.c:411
-#: ../src/readingh-activity/reading.c:621
+#: ../src/readingh-activity/reading.c:630
 msgid "I am Ready"
 msgstr "Toi preparáu"
 
@@ -1523,7 +1528,7 @@ msgstr ""
 "Remanéu del mur: movimientu, arrastrar y soltar. Referencies culturales."
 
 #: ../src/babymatch-activity/shapegame.c:1903
-#: ../src/click_on_letter-activity/click_on_letter.c:635
+#: ../src/click_on_letter-activity/click_on_letter.c:675
 #: ../src/colors-activity/colors.c:168
 #, c-format
 msgid ""
@@ -1630,7 +1635,7 @@ msgstr ""
 msgid "bar game"
 msgstr "Xuegu de barres"
 
-#: ../src/billard-activity/billard.c:89 ../src/erase-activity/erase.c:124
+#: ../src/billard-activity/billard.c:89 ../src/erase-activity/erase.c:85
 #: ../src/erase-activity/erase.xml.in.h:4
 msgid "Move the mouse"
 msgstr "Muevi'l mur"
@@ -1700,6 +1705,7 @@ msgid "Special board that embeds python into gcompris."
 msgstr "Tableru especial qu'inxerta python dientro de gcompris."
 
 #: ../src/canal_lock-activity/canal_lock.xml.in.h:1
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:2
 #: ../src/watercycle-activity/watercycle.xml.in.h:2
 msgid "Drawing by Stephane Cabaraux."
 msgstr "Dibuxao por Stephane Cabaraux."
@@ -2063,7 +2069,7 @@ msgstr "1955 Citroën ds 19"
 msgid "Cars"
 msgstr "Coches"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:271
+#: ../src/click_on_letter-activity/click_on_letter.c:311
 #: ../src/memory-activity/memory.c:906
 msgid ""
 "Error: this activity cannot be played with the\n"
@@ -2079,12 +2085,12 @@ msgstr ""
 #. TRANSLATORS: Put here the alphabet in your language
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
-#: ../src/click_on_letter-activity/click_on_letter.c:276
+#: ../src/click_on_letter-activity/click_on_letter.c:316
 #: ../src/gletters-activity/gletters.c:229 ../src/memory-activity/memory.c:935
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcdefghijklmnopqrstuvwxyz"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:304
+#: ../src/click_on_letter-activity/click_on_letter.c:344
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -2093,7 +2099,7 @@ msgstr ""
 "Fallu: esta xera requier qu'instale primero\n"
 "los paquetes coles voces de GCompris pa la llingua «%s» o «%s»"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:314
+#: ../src/click_on_letter-activity/click_on_letter.c:354
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -2105,8 +2111,11 @@ msgstr ""
 "sentímoslo."
 
 #. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:658
+#: ../src/click_on_letter-activity/click_on_letter.c:698
 #: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:484
+#: ../src/missing_letter-activity/missingletter_config.c:492
+#: ../src/readingh-activity/reading.c:928
+#: ../src/wordsgame-activity/wordsgame.c:889
 msgid "Uppercase only text"
 msgstr "Testu namás en mayúscules"
 
@@ -2373,8 +2382,8 @@ msgid "Find the details"
 msgstr "Atopa los detalles"
 
 #: ../src/details-activity/details.xml.in.h:5
-msgid "The images are from wiki commons"
-msgstr "Les imáxenes son de wiki commons"
+msgid "The images are from Wikimedia Commons."
+msgstr "Les imáxenes son de Wikimedia Commons."
 
 #: ../src/details-activity/resources/details/board1_0.xml.in.h:1
 msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1889"
@@ -2405,8 +2414,8 @@ msgid "Vincent van Gogh, Cafe Terrace at Night - 1888"
 msgstr "Vincent van Gogh, Cafe Terrace at Night - 1888"
 
 #: ../src/details-activity/resources/details/board1_6.xml.in.h:1
-msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1888"
-msgstr "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1888"
+msgid "Vincent van Gogh, The Night Café - 1888"
+msgstr "Vincent van Gogh, The Night Café - 1888"
 
 #: ../src/details-activity/resources/details/board1_7.xml.in.h:1
 msgid "Vincent van Gogh, Portrait of Pere Tanguy 1887-8"
@@ -2427,6 +2436,10 @@ msgstr "Pirámides de Gizah, Exiptu"
 #: ../src/details-activity/resources/details/board2_11.xml.in.h:1
 msgid "Sydney Opera House, Australia"
 msgstr "Casa de la Ópera de Sydney, Australia"
+
+#: ../src/details-activity/resources/details/board2_12.xml.in.h:1
+msgid "Tower Bridge in London"
+msgstr "La Torre del Reló en Londres"
 
 #: ../src/details-activity/resources/details/board2_2.xml.in.h:1
 msgid "Courtyard of the Museum of Louvre, and its pyramid"
@@ -2516,6 +2529,10 @@ msgstr ""
 "Escueyi una ferramienta de dibuxu de la izquierda y un color abaxo, darréu "
 "calca y arrastra sobre l'área blanca pa crear una forma nueva. P'aforrar "
 "tiempu, pues calcar col botón central del mur pa esborrar un oxetu."
+
+#: ../src/drawnumber-activity/drawnumber.py:236
+msgid "Cannot find the file '{filename}'"
+msgstr "Nun se pue atopar el ficheru '{filename}'"
 
 #: ../src/drawnumber-activity/drawnumber.xml.in.h:1
 msgid "Can count from 1 to 50."
@@ -2628,9 +2645,32 @@ msgstr ""
 "l'elementu que quieras contestar na estaya drecha d'abaxo. Pon la rempuesta "
 "col tecláu y calca Aceutar o la tecla 'Intro'."
 
-#: ../src/erase-activity/erase.c:125 ../src/erase-activity/erase.xml.in.h:5
+#: ../src/erase-activity/erase.c:86 ../src/erase-activity/erase.xml.in.h:5
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Muevi'l mur pa esborrar l'área y descubri'l dibuxu escondíu"
+
+#: ../src/erase-activity/erase.c:180
+msgid "Error: No images found\n"
+msgstr "Fallu: Nun s'atoparon imáxenes\n"
+
+#: ../src/erase-activity/erase.c:578 ../src/gcompris/properties.c:504
+#: ../src/gcompris/properties.c:511
+msgid "readme"
+msgstr "lléeme"
+
+#: ../src/erase-activity/erase.c:580
+msgid ""
+"Put any number of images in this directory.\n"
+"They will be used as background in the 'erase' activity.\n"
+"The image must be in the 'jpeg' format and be suffixed with '.jpg' or "
+"'.jpeg'.\n"
+"For best results, they must have a size of 800x520 pixels.\n"
+msgstr ""
+"Pon les imáxenes que quieras nesti directoriu.\n"
+"Usaránse como fondu na actividá 'esborrar'.\n"
+"La imaxe tien que tar en formatu 'jpeg' y tien que tener d'estensión '.jpg' "
+"o '.jpeg'.\n"
+"Pa resultaos óptimos, tienen de tener un tamañu de 800x520 píxeles.\n"
 
 #: ../src/erase-activity/erase.xml.in.h:1
 msgid ""
@@ -2645,8 +2685,12 @@ msgstr ""
 "los dos."
 
 #: ../src/erase-activity/erase.xml.in.h:6
-msgid "Move the mouse until all the blocks disappear."
-msgstr "Muevi'l mur hasta que tolos bloques desapaezan."
+msgid ""
+"Move the mouse until all the blocks disappear. You can add you own images "
+"under the directory '~/My GCompris/erase'."
+msgstr ""
+"Muevi'l mur hasta que tolos bloques desapaezan. Pues amestar les tos propies "
+"imáxenes nel directoriu '~/My GCompris/erase'."
 
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
 msgid "Double click the mouse"
@@ -2769,19 +2813,19 @@ msgstr ""
 msgid "OK"
 msgstr "Aceutar"
 
-#: ../src/gcompris/bar.c:692
+#: ../src/gcompris/bar.c:693
 msgid "GCompris confirmation"
 msgstr "Confirmación de GCompris"
 
-#: ../src/gcompris/bar.c:693
+#: ../src/gcompris/bar.c:694
 msgid "Are you sure you want to quit?"
 msgstr "¿Tas seguru que quies colar?"
 
-#: ../src/gcompris/bar.c:694
+#: ../src/gcompris/bar.c:695
 msgid "Yes, I am sure!"
 msgstr "Sí, toi seguru."
 
-#: ../src/gcompris/bar.c:695
+#: ../src/gcompris/bar.c:696
 msgid "No, I want to keep going"
 msgstr "Non, quiero siguir"
 
@@ -3358,7 +3402,7 @@ msgstr ""
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Permitir la execución d'instancies múltiples de GCompris"
 
-#: ../src/gcompris/gcompris.c:922
+#: ../src/gcompris/gcompris.c:929
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -3379,19 +3423,26 @@ msgstr ""
 "FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1462
+#: ../src/gcompris/gcompris.c:1223
+#, c-format
+msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
+msgstr ""
+"Fallu al cargar la piel '%s' (Comprueba que'l ficheru esista y que seya "
+"lleible)"
+
+#: ../src/gcompris/gcompris.c:1486
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
 msgstr "GCompris nun se va aniciar porque'l ficheru de bloquéu ye menos antiguu de %"
 "d segundos.\n"
 
-#: ../src/gcompris/gcompris.c:1464
+#: ../src/gcompris/gcompris.c:1488
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "El ficheru de bloqueu ye: %s\n"
 
-#: ../src/gcompris/gcompris.c:1578
+#: ../src/gcompris/gcompris.c:1599
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3405,27 +3456,27 @@ msgstr ""
 "Más información en http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1693
+#: ../src/gcompris/gcompris.c:1714
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Usa -l xera p'acceder direutamente a una xera.\n"
 
-#: ../src/gcompris/gcompris.c:1694
+#: ../src/gcompris/gcompris.c:1715
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "La llista de xeres disponibles ye:\n"
 
-#: ../src/gcompris/gcompris.c:1725
+#: ../src/gcompris/gcompris.c:1746
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Númberu de xeres: %d\n"
 
-#: ../src/gcompris/gcompris.c:1761
+#: ../src/gcompris/gcompris.c:1782
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s esiste pero nun puede lleese o escribir"
 
-#: ../src/gcompris/gcompris.c:1824
+#: ../src/gcompris/gcompris.c:1845
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
@@ -3434,7 +3485,7 @@ msgstr ""
 "La opción --server nun se puede usar porque GCompris compilóse ensin sofitu "
 "de rede"
 
-#: ../src/gcompris/gcompris.c:1878
+#: ../src/gcompris/gcompris.c:1899
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3442,7 +3493,7 @@ msgid ""
 msgstr "FALLU: Nun s'alcontró el perfil «%s». Execute «gcompris --profile list» pa "
 "llistar los disponibles\n"
 
-#: ../src/gcompris/gcompris.c:1892
+#: ../src/gcompris/gcompris.c:1913
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "La llista de perfiles disponibles ye:\n"
@@ -3455,7 +3506,7 @@ msgstr "Nun afectáu"
 msgid "Users without a class"
 msgstr "Usuarios ensin una clase"
 
-#: ../src/gcompris/gcompris_db.c:894
+#: ../src/gcompris/gcompris_db.c:889
 #, c-format
 msgid ""
 "Loading activity from database:\n"
@@ -3480,7 +3531,7 @@ msgstr "Manual"
 msgid "Credit"
 msgstr "Créitos"
 
-#: ../src/gcompris/menu.c:583
+#: ../src/gcompris/menu.c:582
 #, c-format
 msgid ""
 "Loading activity from file:\n"
@@ -3489,17 +3540,13 @@ msgstr ""
 "Cargando xera dende'l ficheru:\n"
 "%s"
 
-#: ../src/gcompris/properties.c:501 ../src/gcompris/properties.c:508
-msgid "readme"
-msgstr "lléeme"
-
-#: ../src/gcompris/properties.c:503
+#: ../src/gcompris/properties.c:506
 msgid ""
 "This directory contains the files you create with the GCompris educational "
 "suite\n"
 msgstr "Esti direutoriu caltien los ficheros que crió cola suite educativa GCompris\n"
 
-#: ../src/gcompris/properties.c:510
+#: ../src/gcompris/properties.c:513
 msgid ""
 "Put any number of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
@@ -4183,13 +4230,13 @@ msgstr "ABCDEFGHILMNOPQRSTUVXYZ"
 #. we can add what you want in it.
 #: ../src/gletters-activity/gletters.c:850
 #: ../src/imageid-activity/imageid.c:712 ../src/login-activity/login.py:479
-#: ../src/missing_letter-activity/missingletter.c:752
+#: ../src/missing_letter-activity/missingletter.c:784
 #: ../src/pythontest-activity/pythontest.py:454
-#: ../src/readingh-activity/reading.c:878
+#: ../src/readingh-activity/reading.c:904
 #: ../src/scalesboard-activity/scale.c:1161
 #: ../src/smallnumbers-activity/smallnumbers.c:595
 #: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:827
+#: ../src/wordsgame-activity/wordsgame.c:866
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -4536,6 +4583,51 @@ msgstr ""
 "Tux ta per enriba o per embaxo de l'área de fuxida significa que'l to "
 "númberu ye más grande o más pequeñu respeutivamente que'l númberu correutu."
 
+#. All the vowel of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:61
+msgid "aeiouy"
+msgstr "aeiou"
+
+#. All the consonants of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:63
+msgid "bcdfghjklmnpqrstvwxz"
+msgstr "bcdfghlmnñpqrstvxyz"
+
+#. Letters equivallence for the hangman activity. It has the
+#. form of a space separated list like: "e=éè a=àâ"
+#. Keep the word NONE if not available in your language
+#: ../src/hangman-activity/hangman.py:67
+msgid "NONE"
+msgstr "a=á e=é i=í o=ó u=ú"
+
+#: ../src/hangman-activity/hangman.py:104
+msgid "Could not find the list of words."
+msgstr "Nun se pudo atopar la llista de pallabres."
+
+#: ../src/hangman-activity/hangman.xml.in.h:1
+msgid "A word is hidden, you must discover it letter by letter"
+msgstr "Hai una pallabra tapecida, tienes que descubrila lletra a lletra"
+
+#: ../src/hangman-activity/hangman.xml.in.h:2
+msgid "Reading skill"
+msgstr "Habilidá de llectura"
+
+#: ../src/hangman-activity/hangman.xml.in.h:3
+msgid "The classic hangman game"
+msgstr "El xuegu clásicu hangman"
+
+#: ../src/hangman-activity/hangman.xml.in.h:4
+msgid "This is a good exercise to improve reading and spelling skills."
+msgstr ""
+"Esta ye una bona xera p'ameyorar les habilidaes de llectura y delletréu."
+
+#: ../src/hangman-activity/hangman.xml.in.h:5
+msgid ""
+"You can enter the letters using the virtual keyboard on the screen or with "
+"the real keyboard."
+msgstr ""
+"Pues poner lletres col tecláu virtual de la pantalla o col tecláu auténticu."
+
 #: ../src/hanoi-activity/hanoi.c:112 ../src/hanoi-activity/hanoi.xml.in.h:6
 msgid "Simplified Tower of Hanoi"
 msgstr "Torre de Hanoi simplificada"
@@ -4641,18 +4733,156 @@ msgstr ""
 msgid "hexagon"
 msgstr "hexágonu"
 
+#: ../src/hydroelectric-activity/hydroelectric.py:88
+#: ../src/watercycle-activity/watercycle.py:107
+msgid ""
+"The sun heats the water and creates water vapor. Water vapor combines into "
+"small water droplets which becomes clouds."
+msgstr ""
+"El sol calez l'agua y crea vapor d'agua. El vapor d'agua combínase en "
+"pequeñes gotines d'agua que se convierten en ñubes."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:126
+#: ../src/watercycle-activity/watercycle.py:144
+msgid ""
+"As a cloud matures, the dense water droplets may combine to produce larger "
+"droplets, which may combine to form droplets large enough to fall as rain"
+msgstr ""
+"En cuantes les ñubes de desenrrollen, les denses gotines puen combinase pa "
+"producir unes mayores, que se puen combinar pa formar les suficientes como "
+"pa que llueva."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:169
+msgid "This is the meter for electricity produced by the turbine. "
+msgstr "Esti ye'l contador de la lletricidá producida pola turbina."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:170
+#: ../src/hydroelectric-activity/hydroelectric.py:282
+#: ../src/hydroelectric-activity/hydroelectric.py:289
+#: ../src/hydroelectric-activity/hydroelectric.py:319
+#: ../src/hydroelectric-activity/hydroelectric.py:341
+msgid "The electricity power is measured in Watt (W)."
+msgstr "La enerxía llétrica mídese en Watios (W)."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:175
+msgid ""
+"Flowing water is directed on to the blades of a turbine runner, creating a "
+"force on the blades. In this way, energy is transferred from the water flow "
+"to the turbine"
+msgstr ""
+"La corriente d'agua empobínase a les aspes d'una turbina creando una fuerza "
+"sobre elles. D'esti mou, la enerxía tresfiérese dende la corriente d'agua a "
+"la turbina."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:189
+msgid "This cloud simulates the wind, click on it to have wind."
+msgstr "Esta ñube simula'l vientu, calca nella pa tener vientu."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:227
+msgid ""
+"This is a step down transformer. Electricity is transformed in low voltage, "
+"ready to be used by the customers."
+msgstr ""
+"Esti ye un tresformador reductor. La lletricidá reduzse a baxa tensión pa "
+"poder ser emplegada polos clientes."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:281
+msgid "This is the meter for all the electricity produced. "
+msgstr "Esti ye'l contador pa tola lletricidá producida."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:288
+msgid "This is the meter for electricity consumed by the users. "
+msgstr "Esti ye'l contador pa tola lletricidá consumida polos usuarios."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:318
+msgid "This is the meter for electricity produced by the solar panels. "
+msgstr "Esti ye'l contador pa tola lletricidá producida polos paneles solares."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:324
+msgid ""
+"Solar panels use light energy (photons) from the sun to generate electricity "
+"through the photovoltaic effect."
+msgstr ""
+"Los paneles solares usen la enerxía de la lluz (fotones) del sol pa xenerar "
+"lletricidá gracies al efeutu fotovoltaicu."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:340
+msgid "This is the meter for electricity produced by the wind turbines. "
+msgstr "Esti ye'l contador de la lletricidá producida poles turbines de vientu."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:346
+msgid ""
+"A wind turbine is a device that converts wind motion energy into electricity "
+"generation. It is called a wind generator or wind charger. "
+msgstr ""
+"Una turbina de vientu ye un preséu que convierte la enerxía eólica en "
+"lletricidá. Llámase xenerador de vientu o aeroxenerador."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:732
+msgid ""
+"It is not possible to consume more electricity than what is produced. This "
+"is a key limitation in the distribution of electricity, with minor "
+"exceptions, electrical energy cannot be stored, and therefore it must be "
+"generated as it is needed. A sophisticated system of control is therefore "
+"required to ensure electric generation very closely matches the demand. If "
+"supply and demand are not in balance, generation plants and transmission "
+"equipment can shut down which, in the worst cases, can lead to a major "
+"regional blackout."
+msgstr ""
+"Nun se pue consumir más lletricidá de la que se produz. Esto ye clave na "
+"distribución de lletricidá que, con pequeñes escepciones, nun se pue "
+"almacenar, polo que se tien que producir lo que se necesite. Necesítase un "
+"sofisticáu sistema de control p'asegurar que la enerxía llétrica que se "
+"xenera ta mui averada a la que se consume. Si la ufierta y la demanda nun "
+"tán n'equilibriu, les plantes xeneradores y los equipos de tresmisión "
+"podríen apagase y, nel peor de los casos, provocar un apagón rexonal "
+"importante."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:946
+msgid ""
+"This is a step up transformer. Electricity is transmitted at high voltages "
+"(110 kV or above) to reduce the energy lost in long distance transmission."
+msgstr ""
+"Esti ye un tresformador ellevador. La lletricidá tresmítese n'alta tensión "
+"(110 kV o más) pa reducir la enerxía perdío na tresmisión de llarga "
+"distancia."
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:1
+msgid ""
+"Click on different active elements : sun, cloud, dam, solar array, wind farm "
+"and transformers, in order to reactivate the entire electrical system. When "
+"the system is back up and Tux is in his home, push the light button for him. "
+"To win you must switch on all the consumers while all the producers are up."
+msgstr ""
+"Calca nos elementos activos: sol, ñubes, presa, paneles solares, parques "
+"eólicos y tresformadores pa reactivar tol sistema llétricu. Cuando'l sistema "
+"tea aseguráu y Tux en casa, prendi la lluz. Pa ganar tienes que prender "
+"tolos consumidores mientres los productores tán prendíos."
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:3
+msgid "Learn about an electrical system based on renewable energy"
+msgstr "Aprendi sobre los sistemes llétricos basaos n'enerxía renovable"
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:4
+msgid ""
+"Tux has come back from a long fishing party on his boat. Bring the "
+"electrical system back up so he can have light in his home."
+msgstr ""
+"Tux ta acabante llegar d'un llargu día de pesca nel so barcu. Pon en "
+"marcha'l sistema llétricu pa que tenga lluz en casa."
+
 #: ../src/imageid-activity/imageid.c:94
 #: ../src/imageid-activity/imageid.xml.in.h:3
 #: ../src/imagename-activity/imagename.xml.in.h:4
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:1
-#: ../src/missing_letter-activity/missingletter.c:83
+#: ../src/missing_letter-activity/missingletter.c:84
 #: ../src/readingh-activity/readingh.xml.in.h:4
 #: ../src/readingv-activity/readingv.xml.in.h:4
 msgid "Reading"
 msgstr "Llectura"
 
 #: ../src/imageid-activity/imageid.c:95
-#: ../src/missing_letter-activity/missingletter.c:84
+#: ../src/missing_letter-activity/missingletter.c:85
 msgid "Learn how to read"
 msgstr "Deprendi a lleer"
 
@@ -4665,7 +4895,7 @@ msgstr ""
 "cambios queden pospuestos."
 
 #: ../src/imageid-activity/imageid.c:534
-#: ../src/missing_letter-activity/missingletter.c:569
+#: ../src/missing_letter-activity/missingletter.c:592
 msgid "Data file for this level is not properly formatted."
 msgstr "El ficheru de datos pa esti nivel nun tien un formatu amañosu."
 
@@ -5772,9 +6002,10 @@ msgstr "La entruga nun pue tar erma."
 
 #: ../src/missing_letter-activity/missingletter_config.c:95
 msgid ""
-"Question must include the character '_'. It represent the letter to search."
+"Question must include the character '_'. It represents the letter to search."
 msgstr ""
-"La entruga tien que tener el caráuter '_' que representa la lletra a buscar."
+"La entruga tien d'incluyir el caráuter '_' que representa la lletra a "
+"buscar."
 
 #: ../src/missing_letter-activity/missingletter_config.c:102
 msgid "Pixmap cannot be empty"
@@ -5806,25 +6037,25 @@ msgstr ""
 
 #. pixmap
 #: ../src/missing_letter-activity/missingletter_config.c:414
-#: ../src/missing_letter-activity/missingletter_config.c:546
+#: ../src/missing_letter-activity/missingletter_config.c:557
 msgid "Picture"
 msgstr "Semeya"
 
 #. answer
 #: ../src/missing_letter-activity/missingletter_config.c:420
-#: ../src/missing_letter-activity/missingletter_config.c:537
+#: ../src/missing_letter-activity/missingletter_config.c:548
 msgid "Answer"
 msgstr "Rempuesta"
 
 #. question
 #: ../src/missing_letter-activity/missingletter_config.c:426
-#: ../src/missing_letter-activity/missingletter_config.c:560
+#: ../src/missing_letter-activity/missingletter_config.c:571
 msgid "Question"
 msgstr "Entruga"
 
 #. choice
 #: ../src/missing_letter-activity/missingletter_config.c:432
-#: ../src/missing_letter-activity/missingletter_config.c:572
+#: ../src/missing_letter-activity/missingletter_config.c:583
 msgid "Choice"
 msgstr "Eleición"
 
@@ -5838,21 +6069,21 @@ msgstr "Nivel:"
 msgid "Level %d"
 msgstr "Nivel %d"
 
-#: ../src/missing_letter-activity/missingletter_config.c:550
+#: ../src/missing_letter-activity/missingletter_config.c:561
 msgid "Filename:"
 msgstr "Nome del ficheru:"
 
-#: ../src/missing_letter-activity/missingletter_config.c:568
+#: ../src/missing_letter-activity/missingletter_config.c:579
 msgid "Replace the letter to guess by the character '_'."
 msgstr "Sustitúi la lletra a averiguar pol caráuter '_'."
 
-#: ../src/missing_letter-activity/missingletter_config.c:580
+#: ../src/missing_letter-activity/missingletter_config.c:591
 msgid ""
 "Enter here the letter that will be proposed. The first letter here must be "
-"the solution"
+"the solution."
 msgstr ""
 "Escribi equí la lletra que se va proponer. La primer lletra tien que ser la "
-"solución"
+"solución."
 
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:1
 msgid "car/c_r/a/k/o"
@@ -5864,7 +6095,7 @@ msgstr "perru/_erru/p/c/s"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:3
 msgid "fish/f_sh/i/u/l"
-msgstr "pese/p_xe/e/u/i"
+msgstr "pexe/p_xe/e/u/i"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:4
 msgid "plane/_lane/p/g/d"
@@ -5876,7 +6107,7 @@ msgstr "mazana/maz_na/a/i/o"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board2.xml.in.h:2
 msgid "banana/b_nana/a/o/i"
-msgstr "plátanu/plátan_/o/e/a"
+msgstr "plátanu/plátan_/u/e/a"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board2.xml.in.h:3
 msgid "house/hous_/e/a/i"
@@ -5900,7 +6131,7 @@ msgstr "botella/bo_ella/t/b/d"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board3.xml.in.h:4
 msgid "cake/_ake/c/p/d/k"
-msgstr "tarta/to_ta/r/l/s"
+msgstr "tarta/ta_ta/r/l/s"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:1
 msgid "apple/appl_/e/h/a/i/o/u"
@@ -5936,7 +6167,7 @@ msgstr "cartera/c_rtera/a/e/o"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:1
 msgid "apple/app_e/l/h/n/i/t"
-msgstr "mazana/ma_zana/m/n/l"
+msgstr "mazana/ma_ana/z/n/l"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:2
 msgid "ball/b_ll/a/u/o/e/i/y"
@@ -5964,15 +6195,15 @@ msgstr "botella/bo_ella/t/b/d"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:8
 msgid "bottle/bott_e/l/y/r/s/g"
-msgstr "botella/bo_ella/t/b/d"
+msgstr "botella/_otella/b/v/d"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:9
 msgid "cake/c_ke/a/o/e/i/u/y"
-msgstr "tarta/to_ta/r/s/l"
+msgstr "tarta/ta_ta/r/s/l"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:10
 msgid "cake/ca_e/k/q/c/r/z"
-msgstr "tarta/t_rta/o/e/a"
+msgstr "tarta/t_rta/a/e/o"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:11
 msgid "car/ca_/r/w/k/c/a"
@@ -5984,7 +6215,7 @@ msgstr "perru/perr_/u/e/i"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:13
 msgid "fish/fis_/h/o/i/y/z"
-msgstr "pexe/pe_e/z/s/c"
+msgstr "pexe/pe_e/x/s/c"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:14
 msgid "house/_ouse/h/e/j/z/p/s"
@@ -5999,22 +6230,37 @@ msgid "satchel/sa_chel/t/p/c/z/s/l"
 msgstr "cartera/ca_tera/r/s/l"
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
-#: ../src/money-activity/money.c:496
+#: ../src/money-activity/money.c:795
 #, c-format
 msgid "$ %.2f"
 msgstr "%.2f €"
 
-#: ../src/money-activity/money.c:509
+#. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
+#: ../src/money-activity/money.c:809
 #, c-format
 msgid "$ %.0f"
 msgstr "%.0f €"
 
+#. Set here the way to display money. Change only the money sign, and it's place, always keep %d
+#: ../src/money-activity/money.c:932
+#, c-format
+msgid ""
+"Tux just bought some items in your shop.\n"
+"He gives you $ %d, please give back his change."
+msgstr ""
+"Tux ta acabante comprar dalgunes coses na to tienda.\n"
+"Él date $ %d, da-y el vueltu."
+
 #: ../src/money-activity/money.xml.in.h:1
+#: ../src/money_back-activity/money_back.xml.in.h:1
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:1
 #: ../src/money_cents-activity/money_cents.xml.in.h:1
 msgid "Can count"
 msgstr "Poder cuntar"
 
 #: ../src/money-activity/money.xml.in.h:2
+#: ../src/money_back-activity/money_back.xml.in.h:2
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:2
 #: ../src/money_cents-activity/money_cents.xml.in.h:2
 msgid ""
 "Click on the coins or paper money at the bottom of the screen to pay. If you "
@@ -6041,6 +6287,30 @@ msgid ""
 msgstr ""
 "Tienes de mercar los elementos diferentes y dar el preciu xustu. Nos niveles "
 "más altos amuésense dellos elementos, tienes de calcular el preciu total."
+
+#: ../src/money_back-activity/money_back.xml.in.h:3
+msgid "Give tux his change"
+msgstr "Da-y el vueltu"
+
+#: ../src/money_back-activity/money_back.xml.in.h:4
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:4
+msgid "Practice money usage by giving Tux his change"
+msgstr "Prautica l'usu del dineru dándo-y el vueltu a Tux."
+
+#: ../src/money_back-activity/money_back.xml.in.h:5
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:5
+msgid ""
+"Tux bought you different items and shows you his money. You must give him "
+"back his change. At higher levels, several items are displayed, and you must "
+"first calculate the total price."
+msgstr ""
+"Tux mercó dalgunes coses y enséñate'l dineru. Tienes que da-y el vueltu. Nos "
+"nieveles más altos, enséñate distintes coses y tienes que calcular "
+"primero'l preciu total."
+
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:3
+msgid "Give tux his change, including cents"
+msgstr "Da-y el vueltu a Tux, incluyendo céntimos"
 
 #: ../src/money_cents-activity/money_cents.xml.in.h:4
 msgid "Practice money usage including cents"
@@ -6086,53 +6356,95 @@ msgstr "Edgar Degas, La clas de danza - 1873-75"
 msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
 msgstr "Pierre-Auguste Renoir, El molín de La Galette - 1876"
 
+#: ../src/paintings-activity/resources/paintings/board1_10.xml.in.h:1
+msgid ""
+"Katsushika Hokusai,\\nViewing Sunset over the Ryogoku Bridge from the Ommaya "
+"Embankment - 1830"
+msgstr ""
+"Katsushika Hokusai,\\nViewing Atapecer sobre'l Puente Ryogoku de Ommaya "
+"Embankment - 1830"
+
+#: ../src/paintings-activity/resources/paintings/board1_11.xml.in.h:1
+msgid "Katsushika Hokusa, Poppies - 1833-1834"
+msgstr "Katsushika Hokusa, Poppies - 1833-1834"
+
+#: ../src/paintings-activity/resources/paintings/board1_12.xml.in.h:1
+msgid "Katsushika Hokusai, Kazusa sea Route - 1830."
+msgstr "Katsushika Hokusai, Kazusa sea Route - 1830."
+
 #: ../src/paintings-activity/resources/paintings/board1_2.xml.in.h:1
 msgid "Giuseppe Arcimboldo, Spring - 1573"
 msgstr "Giuseppe Arcimboldo, Primavera - 1573"
 
 #: ../src/paintings-activity/resources/paintings/board1_3.xml.in.h:1
-msgid "Giuseppe Arcimboldo, The Librarian - 1566)"
-msgstr "Giuseppe Arcimboldo, El Llibreru - 1566)"
+msgid "Giuseppe Arcimboldo, The Librarian - 1566"
+msgstr "Giuseppe Arcimboldo, El Llibreru - 1566"
+
+#: ../src/paintings-activity/resources/paintings/board1_4.xml.in.h:1
+msgid "Katsushika Hokusai, Oiran and Kamuro"
+msgstr "Katsushika Hokusai, Oiran and Kamuro"
 
 #: ../src/paintings-activity/resources/paintings/board1_5.xml.in.h:1
-msgid "Woman holding a fan"
-msgstr "Muyer con un abanicu"
+msgid "Katsushika Hokusai, Woman holding a fan"
+msgstr "Katsushika Hokusai, Woman holding a fan"
+
+#: ../src/paintings-activity/resources/paintings/board1_6.xml.in.h:1
+msgid "Katsushika Hokusai, Ejiri in Suruga Province - 1830-1833"
+msgstr "Katsushika Hokusai, Ejiri in Suruga Province - 1830-1833"
+
+#: ../src/paintings-activity/resources/paintings/board1_7.xml.in.h:1
+msgid "Katsushika Hokusai, The Great Wave off Kanagawa - 1823-1829"
+msgstr "Katsushika Hokusai, The Great Wave off Kanagawa - 1823-1829"
+
+#: ../src/paintings-activity/resources/paintings/board1_8.xml.in.h:1
+msgid ""
+"Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
+msgstr ""
+"Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
+
+#: ../src/paintings-activity/resources/paintings/board1_9.xml.in.h:1
+msgid "Utagawa Hiroshige, Horse-mackerel and Prawn - 1840"
+msgstr "Utagawa Hiroshige, Horse-mackerel and Prawn - 1840"
+
+#: ../src/paintings-activity/resources/paintings/board2_0.xml.in.h:1
+msgid "Michelangelo, Pieta - 1499"
+msgstr "Michelangelo, Pieta - 1499"
 
 #: ../src/paintings-activity/resources/paintings/board2_1.xml.in.h:1
-msgid "Mona Lisa"
-msgstr "Mona Lisa"
+msgid "Leonardo da Vinci, Mona Lisa - 1503-19"
+msgstr "Leonardo da Vinci, Mona Lisa - 1503-19"
 
 #: ../src/paintings-activity/resources/paintings/board2_2.xml.in.h:1
-msgid "Bellini : Pala di pesaro"
-msgstr "Bellini : Pala di pesaro"
+msgid "Giovanni Bellini, La Pala di Pesaro - 1475-85"
+msgstr "Giovanni Bellini, La Pala di Pesaro - 1475-85"
 
 #: ../src/paintings-activity/resources/paintings/board2_3.xml.in.h:1
-msgid "Dürer : Lion"
-msgstr "Dürer : Lion"
+msgid "Albrecht Dürer, Lion - 1494"
+msgstr "Albrecht Dürer, Lion - 1494"
 
 #: ../src/paintings-activity/resources/paintings/board2_4.xml.in.h:1
-msgid "Pieter Brugel : Harvest"
-msgstr "Pieter Brugel : Harvest"
+msgid "Pieter Brugel, The Harvesters - 1565"
+msgstr "Pieter Brugel, The Harvesters - 1565"
 
 #: ../src/paintings-activity/resources/paintings/board3_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
 msgstr "Pierre-Auguste Renoir, Neñes nel pianu - 1892"
 
 #: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:1
-msgid "Kandinsky, Wassily, Composition VIII - 1923"
-msgstr "Kandinsky, Wassily, Composition VIII - 1923"
-
-#: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:2
 msgid "Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
 msgstr "Óleu en tela, 140 x 201 cm; Muséu Solomon R. Guggenheim, Nueva York"
+
+#: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:2
+msgid "Wassily Kandinsky, Composition VIII - 1923"
+msgstr "Wassily Kandinsky, Composition VIII - 1923"
 
 #: ../src/paintings-activity/resources/paintings/board4_0.xml.in.h:1
 msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
 msgstr "Bazille, Los terraplenes n'Aigues-Mortes - 1867"
 
 #: ../src/paintings-activity/resources/paintings/board5_0.xml.in.h:1
-msgid "Cassatt, Mary - Summertime - 1894"
-msgstr "Cassatt, Mary - Summertime - 1894"
+msgid "Mary Cassatt, Summertime - 1894"
+msgstr "Mary Cassatt, Summertime - 1894"
 
 #: ../src/paintings-activity/resources/paintings/board6_0.xml.in.h:1
 msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
@@ -6226,12 +6538,12 @@ msgstr "Cazador de fotos"
 msgid "Visual discrimination."
 msgstr "Discriminación visual."
 
-#: ../src/planegame-activity/planegame.c:61
+#: ../src/planegame-activity/planegame.c:62
 #: ../src/planegame-activity/planegame.xml.in.h:4
 msgid "Numbers in Order"
 msgstr "Númberos n'orde"
 
-#: ../src/planegame-activity/planegame.c:62
+#: ../src/planegame-activity/planegame.c:63
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "Muevi l'avión pa capturar les ñubes nel orde correutu"
 
@@ -6251,7 +6563,7 @@ msgstr "Muevi l'helicópteru pa capturar les ñubes nel orde correutu"
 msgid "Number"
 msgstr "Númberu"
 
-#: ../src/pythontemplate-activity/pythontemplate.py:60
+#: ../src/pythontemplate-activity/pythontemplate.py:62
 #: ../src/pythontest-activity/pythontest.py:184
 msgid ""
 "This is the first plugin in GCompris coded in the Python\n"
@@ -6427,8 +6739,8 @@ msgstr "Llei los nomes de los colores"
 msgid "This board teaches basic colors."
 msgstr "Esti tableru depréndete los colores básicos."
 
-#: ../src/readingh-activity/reading.c:220
-#: ../src/wordsgame-activity/wordsgame.c:211
+#: ../src/readingh-activity/reading.c:229
+#: ../src/wordsgame-activity/wordsgame.c:219
 msgid ""
 "Error: We can't find\n"
 "a list of words to play this game.\n"
@@ -6436,38 +6748,38 @@ msgstr ""
 "Fallu: Nun puede alcontrase\n"
 "una llista de pallabres pa xugar a esti xuegu.\n"
 
-#: ../src/readingh-activity/reading.c:380
+#: ../src/readingh-activity/reading.c:389
 msgid "Please, check if the word"
 msgstr "Por favor, comprueba si la pallabra"
 
-#: ../src/readingh-activity/reading.c:400
+#: ../src/readingh-activity/reading.c:409
 msgid "is being displayed"
 msgstr "s'amuesa"
 
-#: ../src/readingh-activity/reading.c:456
+#: ../src/readingh-activity/reading.c:465
 msgid "We skip this level because there are not enough words in the list!"
 msgstr "Sáltase esti nivel darréu que nun hai abondes pallabres na llista."
 
-#: ../src/readingh-activity/reading.c:659
+#: ../src/readingh-activity/reading.c:668
 msgid "Yes, I saw it"
 msgstr "Sí, vila"
 
-#: ../src/readingh-activity/reading.c:686
+#: ../src/readingh-activity/reading.c:695
 msgid "No, it was not there"
 msgstr "Non, nun taba ellí"
 
 #. Report what was wrong in the log
-#: ../src/readingh-activity/reading.c:733
+#: ../src/readingh-activity/reading.c:742
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "La pallabra que se busca yera «%s»"
 
-#: ../src/readingh-activity/reading.c:736
+#: ../src/readingh-activity/reading.c:745
 #, c-format
 msgid "But it was not displayed"
 msgstr "Pero nun s'enseña"
 
-#: ../src/readingh-activity/reading.c:738
+#: ../src/readingh-activity/reading.c:747
 #, c-format
 msgid "And it was displayed"
 msgstr "Y enséñase"
@@ -7124,6 +7436,24 @@ msgstr "Usa Tuxpaint pa dibuxar. Cuando Tuxpaint acabe esti tableru finará."
 msgid "mouse and keyboard manipulation"
 msgstr "Remanamientu del tecláu y el mur"
 
+#: ../src/watercycle-activity/watercycle.py:170
+msgid "This is a water pump station."
+msgstr "Esta ye una estación de bombéu d'agua."
+
+#: ../src/watercycle-activity/watercycle.py:183
+msgid "This is a water cleanup station."
+msgstr "Esta ye una depuradora d'agua."
+
+#: ../src/watercycle-activity/watercycle.py:263
+msgid ""
+"A water tower or elevated water tower is a large elevated water storage "
+"container constructed to hold a water supply at a height sufficient to "
+"pressurize a water distribution system."
+msgstr ""
+"Una torre d'agua o depósitu d'agua ye un gran contenedor d'almacenamientu "
+"construyíu pa caltener un suministru d'agua a una abonda altura como pa "
+"xenerar presión sobre un sistema de distribución d'agua."
+
 #: ../src/watercycle-activity/watercycle.xml.in.h:1
 msgid ""
 "Click on different active elements : sun, cloud, water pump station, and "
@@ -7217,12 +7547,12 @@ msgstr "El neñu puede teclear el so propiu testu o copiar el que da'l mayestru.
 msgid "Your word processor"
 msgstr "El to procesador de testos"
 
-#: ../src/wordsgame-activity/wordsgame.c:111
+#: ../src/wordsgame-activity/wordsgame.c:112
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:1
 msgid "Falling Words"
 msgstr "Pallabres que caen"
 
-#: ../src/wordsgame-activity/wordsgame.c:112
+#: ../src/wordsgame-activity/wordsgame.c:113
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the falling words before they reach the ground"
 msgstr "Teclea les pallabres que caen enantes de qu'aporten al suelu"
@@ -7235,50 +7565,50 @@ msgstr "Entrenamientu col tecláu"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Teclea la pallabra completa mientres cai, enantes de qu'aporte al suelu"
 
-#: ../src/hangman-activity/hangman.xml.in.h:1
-msgid "A word is hidden, you must discover it letter by letter"
-msgstr "Hai una pallabra tapecida, tienes que descubrila lletra a lletra"
+#~ msgid "The images are from wiki commons"
+#~ msgstr "Les imáxenes son de wiki commons"
 
-#: ../src/hangman-activity/hangman.xml.in.h:2
-msgid "Reading skill"
-msgstr "Habilidá de llectura"
+#~ msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1888"
+#~ msgstr "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1888"
 
-#: ../src/hangman-activity/hangman.xml.in.h:3
-msgid "The classic hangman game"
-msgstr "El xuegu clásicu hangman"
+#~ msgid "Move the mouse until all the blocks disappear."
+#~ msgstr "Muevi'l mur hasta que tolos bloques desapaezan."
 
-#: ../src/hangman-activity/hangman.xml.in.h:4
-msgid "This is a good exercise to improve reading and spelling skills."
-msgstr ""
-"Esta ye una bona xera p'ameyorar les habilidaes de llectura y delletréu."
+#~ msgid ""
+#~ "Question must include the character '_'. It represent the letter to search."
+#~ msgstr ""
+#~ "La entruga tien que tener el caráuter '_' que representa la lletra a buscar."
 
-#: ../src/hangman-activity/hangman.xml.in.h:5
-msgid ""
-"You can enter the letters using the virtual keyboard on the screen or with "
-"the real keyboard."
-msgstr ""
-"Pues poner lletres col tecláu virtual de la pantalla o col tecláu auténticu."
+#~ msgid ""
+#~ "Enter here the letter that will be proposed. The first letter here must be "
+#~ "the solution"
+#~ msgstr ""
+#~ "Escribi equí la lletra que se va proponer. La primer lletra tien que ser la "
+#~ "solución"
 
-#. All the vowel of your language (keep empty if non applicable)
-#: ../src/hangman-activity/hangman.py:61
-msgid "aeiouy"
-msgstr "aeiou"
+#~ msgid "Giuseppe Arcimboldo, The Librarian - 1566)"
+#~ msgstr "Giuseppe Arcimboldo, El Llibreru - 1566)"
 
-#. All the consonants of your language (keep empty if non applicable)
-#: ../src/hangman-activity/hangman.py:63
-msgid "bcdfghjklmnpqrstvwxz"
-msgstr "bcdfghlmnñpqrstvxyz"
+#~ msgid "Woman holding a fan"
+#~ msgstr "Muyer con un abanicu"
 
-#. Letters equivallence for the hangman activity. It has the
-#. form of a space separated list like: "e=éè a=àâ"
-#. Keep the word NONE if not available in your language
-#: ../src/hangman-activity/hangman.py:67
-msgid "NONE"
-msgstr "a=á e=é i=í o=ó u=ú"
+#~ msgid "Mona Lisa"
+#~ msgstr "Mona Lisa"
 
-#: ../src/hangman-activity/hangman.py:104
-msgid "Could not find the list of words."
-msgstr "Nun se pudo atopar la llista de pallabres."
+#~ msgid "Bellini : Pala di pesaro"
+#~ msgstr "Bellini : Pala di pesaro"
+
+#~ msgid "Dürer : Lion"
+#~ msgstr "Dürer : Lion"
+
+#~ msgid "Pieter Brugel : Harvest"
+#~ msgstr "Pieter Brugel : Harvest"
+
+#~ msgid "Kandinsky, Wassily, Composition VIII - 1923"
+#~ msgstr "Kandinsky, Wassily, Composition VIII - 1923"
+
+#~ msgid "Cassatt, Mary - Summertime - 1894"
+#~ msgstr "Cassatt, Mary - Summertime - 1894"
 
 #~ msgid "Botticelli, Primavera - 1482"
 #~ msgstr "Botticelli, Primavera - 1482"
