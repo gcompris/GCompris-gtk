@@ -9,12 +9,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GCompris - master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=gcompris&component=general\n"
-"POT-Creation-Date: 2011-01-08 16:29+0000\n"
-"PO-Revision-Date: 2011-01-09 12:44+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-02-17 14:37+0100\n"
+"PO-Revision-Date: 2011-02-17 13:44+0200\n"
 "Last-Translator: Gonçalo Cordeiro <gzcordeiro@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
+"Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -26,6 +26,7 @@ msgid "Go to Algebra activities"
 msgstr "Ir ás actividades de álxebra"
 
 #: ../boards/algebra_group.xml.in.h:2 ../boards/menu.xml.in.h:18
+#: ../boards/money_group.xml.in.h:2
 msgid "Left-click the mouse on an activity to select it."
 msgstr ""
 "Preme o botón esquerdo do rato sobre unha actividade para seleccionala."
@@ -221,6 +222,10 @@ msgstr "Diferentes actividades"
 #: ../boards/miscelaneous.xml.in.h:2
 msgid "Time, Geography, ..."
 msgstr "Tempo, xeografía,...."
+
+#: ../boards/money_group.xml.in.h:1
+msgid "Go to money activities"
+msgstr "Ir ás actividades de diñeiro"
 
 #: ../boards/mouse.xml.in.h:1
 msgid "Mouse-manipulation activities."
@@ -1528,7 +1533,7 @@ msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "Manexo do rato: movemento, arrastrar e soltar. Referencias culturais."
 
 #: ../src/babymatch-activity/shapegame.c:1903
-#: ../src/click_on_letter-activity/click_on_letter.c:675
+#: ../src/click_on_letter-activity/click_on_letter.c:671
 #: ../src/colors-activity/colors.c:168
 #, c-format
 msgid ""
@@ -1705,8 +1710,8 @@ msgid "Special board that embeds python into gcompris."
 msgstr "Un taboleiro especial que incorpora python en gcompris."
 
 #: ../src/canal_lock-activity/canal_lock.xml.in.h:1
-#: ../src/watercycle-activity/watercycle.xml.in.h:2
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:2
+#: ../src/watercycle-activity/watercycle.xml.in.h:2
 msgid "Drawing by Stephane Cabaraux."
 msgstr "Debuxo de Stephane Cabaraux."
 
@@ -2126,11 +2131,11 @@ msgstr ""
 "quedámonos no inglés!"
 
 #. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:698
+#: ../src/click_on_letter-activity/click_on_letter.c:694
 #: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:484
 #: ../src/missing_letter-activity/missingletter_config.c:492
 #: ../src/readingh-activity/reading.c:928
-#: ../src/wordsgame-activity/wordsgame.c:889
+#: ../src/wordsgame-activity/wordsgame.c:887
 msgid "Uppercase only text"
 msgstr "Só texto en maiúsculas"
 
@@ -2200,7 +2205,7 @@ msgstr "Coordinación motriz: mover e premer co rato."
 msgid "Use the left mouse button to click on the moving fish."
 msgstr "Usa o botón esquerdo do rato e preme sobre os peixes que se moven."
 
-#: ../src/clockgame-activity/clockgame.c:525
+#: ../src/clockgame-activity/clockgame.c:524
 msgid "Set the watch to:"
 msgstr "Definir o reloxo:"
 
@@ -2674,8 +2679,8 @@ msgstr "Move o rato para borrar a zona e descubrir o fondo"
 msgid "Error: No images found\n"
 msgstr "Erro: non se encontrou ningunha imaxe\n"
 
-#: ../src/erase-activity/erase.c:578 ../src/gcompris/properties.c:501
-#: ../src/gcompris/properties.c:508
+#: ../src/erase-activity/erase.c:578 ../src/gcompris/properties.c:504
+#: ../src/gcompris/properties.c:511
 msgid "readme"
 msgstr "leme"
 
@@ -2785,7 +2790,7 @@ msgstr ""
 msgid "Tux needs to water the flowers, but the hose is blocked."
 msgstr "Tux precisa botarlle auga ás flores, mais a mangueira está atoada."
 
-#: ../src/gcompris/about.c:49
+#: ../src/gcompris/about.c:48
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge, Yves Combe\n"
@@ -2800,23 +2805,23 @@ msgstr ""
 "Música de fondo: Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:57
+#: ../src/gcompris/about.c:56
 msgid "translator_credits"
 msgstr "Ignacio Casal QuinteiroPaula IglesiasGonçalo Cordeiro"
 
-#: ../src/gcompris/about.c:84
+#: ../src/gcompris/about.c:82
 msgid "About GCompris"
 msgstr "Acerca de GCompris"
 
-#: ../src/gcompris/about.c:94
+#: ../src/gcompris/about.c:92
 msgid "GCompris Home Page: http://gcompris.net"
 msgstr "Páxina principal de GCompris: http://gcompris.net"
 
-#: ../src/gcompris/about.c:105
+#: ../src/gcompris/about.c:103
 msgid "Translators:"
 msgstr "Tradutores/as:"
 
-#: ../src/gcompris/about.c:210
+#: ../src/gcompris/about.c:208
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
@@ -2824,25 +2829,25 @@ msgstr ""
 "Este software é un paquete GNU e está publicado baixo a licenza pública "
 "xeral de GNU"
 
-#: ../src/gcompris/about.c:224 ../src/gcompris/config.c:438
-#: ../src/gcompris/dialog.c:104 ../src/gcompris/help.c:355
-#: ../src/gcompris/images_selector.c:307
+#: ../src/gcompris/about.c:222 ../src/gcompris/config.c:438
+#: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:355
+#: ../src/gcompris/images_selector.c:306
 msgid "OK"
 msgstr "Aceptar"
 
-#: ../src/gcompris/bar.c:693
+#: ../src/gcompris/bar.c:684
 msgid "GCompris confirmation"
 msgstr "Confirmación de GCompris"
 
-#: ../src/gcompris/bar.c:694
+#: ../src/gcompris/bar.c:685
 msgid "Are you sure you want to quit?"
 msgstr "Estás seguro de que queres saír?"
 
-#: ../src/gcompris/bar.c:695
+#: ../src/gcompris/bar.c:686
 msgid "Yes, I am sure!"
 msgstr "Si, estou seguro!"
 
-#: ../src/gcompris/bar.c:696
+#: ../src/gcompris/bar.c:687
 msgid "No, I want to keep going"
 msgstr "Non, quero seguir adiante"
 
@@ -3238,15 +3243,15 @@ msgstr "NON SE ATOPARON MÁSCARAS"
 msgid "English (United State)"
 msgstr "Inglés (Estados Unidos)"
 
-#: ../src/gcompris/file_selector.c:254
+#: ../src/gcompris/file_selector.c:251
 msgid "CANCEL"
 msgstr "CANCELAR"
 
-#: ../src/gcompris/file_selector.c:262
+#: ../src/gcompris/file_selector.c:259
 msgid "LOAD"
 msgstr "CARGAR"
 
-#: ../src/gcompris/file_selector.c:262
+#: ../src/gcompris/file_selector.c:259
 msgid "SAVE"
 msgstr "GARDAR"
 
@@ -3474,7 +3479,7 @@ msgstr ""
 msgid "The lock file is: %s\n"
 msgstr "O ficheiro de bloqueo é: %s\n"
 
-#: ../src/gcompris/gcompris.c:1602
+#: ../src/gcompris/gcompris.c:1599
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3488,27 +3493,27 @@ msgstr ""
 "Máis información en http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1717
+#: ../src/gcompris/gcompris.c:1714
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Usa -l para acceder a unha actividade directamente.\n"
 
-#: ../src/gcompris/gcompris.c:1718
+#: ../src/gcompris/gcompris.c:1715
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "A lista de actividades dispoñíbeis é:\n"
 
-#: ../src/gcompris/gcompris.c:1749
+#: ../src/gcompris/gcompris.c:1746
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Número de actividades: %d\n"
 
-#: ../src/gcompris/gcompris.c:1785
+#: ../src/gcompris/gcompris.c:1782
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s existe, pero non é un ficheiro lexíbel nin escribíbel"
 
-#: ../src/gcompris/gcompris.c:1848
+#: ../src/gcompris/gcompris.c:1845
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
@@ -3517,7 +3522,7 @@ msgstr ""
 "A opción --server non se pode usar porque GCompris se compilou sen "
 "compatibilidade de rede!"
 
-#: ../src/gcompris/gcompris.c:1902
+#: ../src/gcompris/gcompris.c:1899
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3526,7 +3531,7 @@ msgstr ""
 "ERRO: O perfil '%s' non se encontrou. Execute 'gcompris --profile-list' para "
 "listar os dispoñíbeis\n"
 
-#: ../src/gcompris/gcompris.c:1916
+#: ../src/gcompris/gcompris.c:1913
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "A lista de perfís dispoñíbeis é:\n"
@@ -3573,7 +3578,7 @@ msgstr ""
 "Cargando a actividade desde o ficheiro:\n"
 "%s"
 
-#: ../src/gcompris/properties.c:503
+#: ../src/gcompris/properties.c:506
 msgid ""
 "This directory contains the files you create with the GCompris educational "
 "suite\n"
@@ -3581,7 +3586,7 @@ msgstr ""
 "Este directorio contén os ficheiros que vostede creou coa suite educativa "
 "GCompris\n"
 
-#: ../src/gcompris/properties.c:510
+#: ../src/gcompris/properties.c:513
 msgid ""
 "Put any number of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
@@ -4268,10 +4273,10 @@ msgstr "ABCDEFGHIKLMNÑOPQRSTUVWXYZ"
 #: ../src/missing_letter-activity/missingletter.c:784
 #: ../src/pythontest-activity/pythontest.py:454
 #: ../src/readingh-activity/reading.c:904
-#: ../src/scalesboard-activity/scale.c:1161
+#: ../src/scalesboard-activity/scale.c:1160
 #: ../src/smallnumbers-activity/smallnumbers.c:595
 #: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:866
+#: ../src/wordsgame-activity/wordsgame.c:864
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -4628,6 +4633,52 @@ msgstr ""
 "área de fuxida, significa que o teu número é maior ou menor que o número "
 "correcto."
 
+#. All the vowel of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:61
+msgid "aeiouy"
+msgstr "aeiou"
+
+#. All the consonants of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:63
+msgid "bcdfghjklmnpqrstvwxz"
+msgstr "bcdfghjklmnñpqrstuvwxyz"
+
+#. Letters equivallence for the hangman activity. It has the
+#. form of a space separated list like: "e=éè a=àâ"
+#. Keep the word NONE if not available in your language
+#: ../src/hangman-activity/hangman.py:67
+msgid "NONE"
+msgstr "a=á e=é i=í o=ó u=ú i=ï u=ü"
+
+#: ../src/hangman-activity/hangman.py:104
+msgid "Could not find the list of words."
+msgstr "Non se puido encontrar a lista de palabras."
+
+#: ../src/hangman-activity/hangman.xml.in.h:1
+msgid "A word is hidden, you must discover it letter by letter"
+msgstr "Hai unha palabra oculta. Tes que descubrila letra a letra"
+
+#: ../src/hangman-activity/hangman.xml.in.h:2
+msgid "Reading skill"
+msgstr "Habilidade de lectura"
+
+#: ../src/hangman-activity/hangman.xml.in.h:3
+msgid "The classic hangman game"
+msgstr "O clásico xogo do aforcado"
+
+#: ../src/hangman-activity/hangman.xml.in.h:4
+msgid "This is a good exercise to improve reading and spelling skills."
+msgstr ""
+"Este é un bo exercicio para mellorar as habilidades de lectura e ortografía."
+
+#: ../src/hangman-activity/hangman.xml.in.h:5
+msgid ""
+"You can enter the letters using the virtual keyboard on the screen or with "
+"the real keyboard."
+msgstr ""
+"Podes escribir as letras usando o teclado virtual en pantalla ou o teclado "
+"real."
+
 #: ../src/hanoi-activity/hanoi.c:112 ../src/hanoi-activity/hanoi.xml.in.h:6
 msgid "Simplified Tower of Hanoi"
 msgstr "Torre de Hanoi simplificada"
@@ -4730,6 +4781,150 @@ msgstr ""
 #: ../src/hexagon-activity/hexagon.xml.in.h:5
 msgid "hexagon"
 msgstr "hexágono"
+
+#: ../src/hydroelectric-activity/hydroelectric.py:88
+#: ../src/watercycle-activity/watercycle.py:107
+msgid ""
+"The sun heats the water and creates water vapor. Water vapor combines into "
+"small water droplets which becomes clouds."
+msgstr ""
+"O sol quenta a auga e xenera vapor de auga. O vapor de auga combínase en "
+"pequenas pingas de auga que se converten en nubes."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:126
+#: ../src/watercycle-activity/watercycle.py:144
+msgid ""
+"As a cloud matures, the dense water droplets may combine to produce larger "
+"droplets, which may combine to form droplets large enough to fall as rain"
+msgstr ""
+"Cando unha nube se desenvolve, as pingas densas de auga pódense combinar "
+"para producir pingas máis grandes, as cales, á súa vez, se poden combinar "
+"para formar pingas o suficientemente grandes como para caíren como chuvia"
+
+#: ../src/hydroelectric-activity/hydroelectric.py:169
+msgid "This is the meter for electricity produced by the turbine. "
+msgstr "Este é o medidor para a electricidade producida pola turbina. "
+
+# 'watt' é a forma recomendada no VOLGA
+# ('vatio' = sin. 'tolerado')
+#: ../src/hydroelectric-activity/hydroelectric.py:170
+#: ../src/hydroelectric-activity/hydroelectric.py:282
+#: ../src/hydroelectric-activity/hydroelectric.py:289
+#: ../src/hydroelectric-activity/hydroelectric.py:319
+#: ../src/hydroelectric-activity/hydroelectric.py:341
+msgid "The electricity power is measured in Watt (W)."
+msgstr "A enerxía eléctrica mídese en Watts (W)."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:175
+msgid ""
+"Flowing water is directed on to the blades of a turbine runner, creating a "
+"force on the blades. In this way, energy is transferred from the water flow "
+"to the turbine"
+msgstr ""
+"A corrente de auga diríxese ás aspas dunha turbina, o que xenera unha forza "
+"nas aspas. Deste modo, a enerxía transmítese desde a auga á turbina"
+
+#: ../src/hydroelectric-activity/hydroelectric.py:189
+msgid "This cloud simulates the wind, click on it to have wind."
+msgstr "Esta nube simula o vento; preme nela para ter vento."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:227
+msgid ""
+"This is a step down transformer. Electricity is transformed in low voltage, "
+"ready to be used by the customers."
+msgstr ""
+"Este é un transformador de baixa tensión. A electricidade transfórmase en "
+"baixa voltaxe, lista para ser usada polos consumidores e consumidoras."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:281
+msgid "This is the meter for all the electricity produced. "
+msgstr "Este é o medidor para toda a electricidade producida."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:288
+msgid "This is the meter for electricity consumed by the users. "
+msgstr ""
+"Este é o medidor para a electricidade consumida polos usuarios e usuarias. "
+
+#: ../src/hydroelectric-activity/hydroelectric.py:318
+msgid "This is the meter for electricity produced by the solar panels. "
+msgstr "Este é o medidor para a electricidade producida polos paneis solares. "
+
+#: ../src/hydroelectric-activity/hydroelectric.py:324
+msgid ""
+"Solar panels use light energy (photons) from the sun to generate electricity "
+"through the photovoltaic effect."
+msgstr ""
+"Os paneis solares usan a enerxía da luz (fotóns) do sol para xeraren "
+"electricidade mediante o fenómeno fotovoltaico."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:340
+msgid "This is the meter for electricity produced by the wind turbines. "
+msgstr ""
+"Este é o medidor para a electricidade producida polas turbinas eólicas. "
+
+#: ../src/hydroelectric-activity/hydroelectric.py:346
+msgid ""
+"A wind turbine is a device that converts wind motion energy into electricity "
+"generation. It is called a wind generator or wind charger. "
+msgstr ""
+"Unha turbina eólica é un dispositivo que converte a enerxía motriz do vento "
+"en xeración de electricidade. Chámaselle xerador eólico ou cargador eólico. "
+
+# ver en: http://www.realacademiagalega.org/volga/index.jsp "apagada"
+#: ../src/hydroelectric-activity/hydroelectric.py:732
+msgid ""
+"It is not possible to consume more electricity than what is produced. This "
+"is a key limitation in the distribution of electricity, with minor "
+"exceptions, electrical energy cannot be stored, and therefore it must be "
+"generated as it is needed. A sophisticated system of control is therefore "
+"required to ensure electric generation very closely matches the demand. If "
+"supply and demand are not in balance, generation plants and transmission "
+"equipment can shut down which, in the worst cases, can lead to a major "
+"regional blackout."
+msgstr ""
+"Non se pode comsumir máis electricidade da que se produce. Esta é unha "
+"limitacíon chave da distribución de enerxía; salvo pequenas excepcións, a "
+"enerxía eléctrica non se pode almacenar, así que se debe xerar cando é "
+"precisa. Por iso se necesita un sofisticado sistema de control que garanta "
+"que a xeración de enerxía coincida o máximo posíbel coa demanda. Se a "
+"subministración e a demanda non están equilibradas, as plantas de xeración e "
+"os equipos de transmisión poden virse abaixo, o que na maioría dos casos "
+"pode levar a unha apagada nunha zona."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:946
+msgid ""
+"This is a step up transformer. Electricity is transmitted at high voltages "
+"(110 kV or above) to reduce the energy lost in long distance transmission."
+msgstr ""
+"Este é un transformador de alta tensión. A electricidade transmítese a "
+"voltaxes altas (110 kV ou máis) para reducir a perda de enerxía na "
+"transmisión a longas distancias."
+
+# revisar: consumers/producers
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:1
+msgid ""
+"Click on different active elements : sun, cloud, dam, solar array, wind farm "
+"and transformers, in order to reactivate the entire electrical system. When "
+"the system is back up and Tux is in his home, push the light button for him. "
+"To win you must switch on all the consumers while all the producers are up."
+msgstr ""
+"Preme nos diferentes elementos activos: sol, nube, encoro, parque solar, "
+"parque eólico e transformadores; para así reactivar todo o sistema "
+"eléctrico. Cando o sistema estea xa funcionando de novo e Tux estea na súa "
+"casa, preme a chave da luz para el. Para gañares debes acender todos os "
+"consumidores mentres todos os produtores estean acendidos."
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:3
+msgid "Learn about an electrical system based on renewable energy"
+msgstr "Aprende sobre un sistema eléctrico baseado en enerxía renovábel"
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:4
+msgid ""
+"Tux has come back from a long fishing party on his boat. Bring the "
+"electrical system back up so he can have light in his home."
+msgstr ""
+"Tux acaba de volver dun longo día de pesca no seu barco. Pon a funcionar o "
+"sistema eléctrico de novo para que poida ter luz na súa casa."
 
 #: ../src/imageid-activity/imageid.c:94
 #: ../src/imageid-activity/imageid.xml.in.h:3
@@ -6095,22 +6290,37 @@ msgid "satchel/sa_chel/t/p/c/z/s/l"
 msgstr "bolso/bo_so/l/r/n/z/s/t"
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
-#: ../src/money-activity/money.c:542
+#: ../src/money-activity/money.c:795
 #, c-format
 msgid "$ %.2f"
 msgstr "$ %.2f"
 
-#: ../src/money-activity/money.c:555
+#. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
+#: ../src/money-activity/money.c:809
 #, c-format
 msgid "$ %.0f"
 msgstr "$%.0f"
 
+#. Set here the way to display money. Change only the money sign, and it's place, always keep %d
+#: ../src/money-activity/money.c:932
+#, c-format
+msgid ""
+"Tux just bought some items in your shop.\n"
+"He gives you $ %d, please give back his change."
+msgstr ""
+"Tux ven de mercar algúns artigos na túa tenda.\n"
+"El deuche %d€, devólvelle o cambio."
+
 #: ../src/money-activity/money.xml.in.h:1
+#: ../src/money_back-activity/money_back.xml.in.h:1
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:1
 #: ../src/money_cents-activity/money_cents.xml.in.h:1
 msgid "Can count"
 msgstr "Podes contar"
 
 #: ../src/money-activity/money.xml.in.h:2
+#: ../src/money_back-activity/money_back.xml.in.h:2
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:2
 #: ../src/money_cents-activity/money_cents.xml.in.h:2
 msgid ""
 "Click on the coins or paper money at the bottom of the screen to pay. If you "
@@ -6137,6 +6347,30 @@ msgid ""
 msgstr ""
 "Debes mercar cousas diferentes e dar o prezo exacto. Nos niveis superiores, "
 "mostrarase varias cousas e primeiro debes achar o prezo total."
+
+#: ../src/money_back-activity/money_back.xml.in.h:3
+msgid "Give tux his change"
+msgstr "Dálle a Tux o seu cambio"
+
+#: ../src/money_back-activity/money_back.xml.in.h:4
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:4
+msgid "Practice money usage by giving Tux his change"
+msgstr "Practica o uso do diñeiro dándolle a Tux o seu cambio"
+
+#: ../src/money_back-activity/money_back.xml.in.h:5
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:5
+msgid ""
+"Tux bought you different items and shows you his money. You must give him "
+"back his change. At higher levels, several items are displayed, and you must "
+"first calculate the total price."
+msgstr ""
+"Tux comprouche varios artigos e mostrouche o seu diñeiro. Débeslle dar o seu "
+"cambio. Nos niveis superiores mostraranse varios artigos e primeiro debes "
+"calcular o prezo total."
+
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:3
+msgid "Give tux his change, including cents"
+msgstr "Dálle a Tux o seu cambio, incluíndo os céntimos"
 
 #: ../src/money_cents-activity/money_cents.xml.in.h:4
 msgid "Practice money usage including cents"
@@ -6268,7 +6502,7 @@ msgstr ""
 
 #: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:2
 msgid "Wassily Kandinsky, Composition VIII - 1923"
-msgstr "Wassily Kandinsky, Composición VII - 1923"
+msgstr "Wassily Kandinsky, Composición VIII - 1923"
 
 #  Este cadro coñécese máis como 'Aigues-Mortes'
 #: ../src/paintings-activity/resources/paintings/board4_0.xml.in.h:1
@@ -6743,7 +6977,7 @@ msgstr "Peso en gramos = %s"
 msgid "Weight = %s"
 msgstr "Peso = %s"
 
-#: ../src/scalesboard-activity/scale.c:1008
+#: ../src/scalesboard-activity/scale.c:1007
 msgid "Take care, you can drop masses on both sides of the scale."
 msgstr "Coidado, podes botar as masas fóra da balanza."
 
@@ -7259,7 +7493,7 @@ msgstr "Actividade de debuxo (punto a punto)"
 msgid "Launch Tuxpaint"
 msgstr "Iniciar Tuxpaint"
 
-#  nome da aplicaci� GNU
+#  nome da aplicación GNU
 #: ../src/tuxpaint-activity/tuxpaint.xml.in.h:3
 msgid "Tuxpaint"
 msgstr "Tuxpaint"
@@ -7274,6 +7508,24 @@ msgstr ""
 msgid "mouse and keyboard manipulation"
 msgstr "manipulación do rato e do teclado"
 
+#: ../src/watercycle-activity/watercycle.py:170
+msgid "This is a water pump station."
+msgstr "Esta é unha estación de bombeo de auga."
+
+#: ../src/watercycle-activity/watercycle.py:183
+msgid "This is a water cleanup station."
+msgstr "Esta é unha depuradora de auga."
+
+#: ../src/watercycle-activity/watercycle.py:263
+msgid ""
+"A water tower or elevated water tower is a large elevated water storage "
+"container constructed to hold a water supply at a height sufficient to "
+"pressurize a water distribution system."
+msgstr ""
+"Unha torre de auga ou unha torre elevada de auga é un depósito de auga moi "
+"elevado construído para soster o subministro de auga a unha altura "
+"suficiente para presurizar un sistema de distribución de auga."
+
 #: ../src/watercycle-activity/watercycle.xml.in.h:1
 msgid ""
 "Click on different active elements : sun, cloud, water pump station, and "
@@ -7282,7 +7534,7 @@ msgid ""
 "him."
 msgstr ""
 "Preme nos diferentes elementos activos: sol, nube, estación de bombeo de "
-"auga, estación depuradora de auga, para así reactivar todo o sistema de "
+"auga, estación depuradora de auga; para así reactivar todo o sistema de "
 "augas. Cando o sistema estea xa funcionando de novo e Tux estea na ducha, "
 "preme o botón da ducha para el."
 
@@ -7388,190 +7640,5 @@ msgstr "Adestramento co teclado"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Escribe a palabra completa mentres cae e antes de que chegue ao chan"
 
-#: ../src/hangman-activity/hangman.xml.in.h:1
-msgid "A word is hidden, you must discover it letter by letter"
-msgstr "Hai unha palabra oculta. Tes que descubrila letra a letra"
-
-#: ../src/hangman-activity/hangman.xml.in.h:2
-msgid "Reading skill"
-msgstr "Habilidade de lectura"
-
-#: ../src/hangman-activity/hangman.xml.in.h:3
-msgid "The classic hangman game"
-msgstr "O clásico xogo do aforcado"
-
-#: ../src/hangman-activity/hangman.xml.in.h:4
-msgid "This is a good exercise to improve reading and spelling skills."
-msgstr ""
-"Este é un bo exercicio para mellorar as habilidades de lectura e ortografía."
-
-#: ../src/hangman-activity/hangman.xml.in.h:5
-msgid ""
-"You can enter the letters using the virtual keyboard on the screen or with "
-"the real keyboard."
-msgstr ""
-"Podes escribir as letras usando o teclado virtual en pantalla ou o teclado "
-"real."
-
-#. All the vowel of your language (keep empty if non applicable)
-#: ../src/hangman-activity/hangman.py:61
-msgid "aeiouy"
-msgstr "aeiou"
-
-#. All the consonants of your language (keep empty if non applicable)
-#: ../src/hangman-activity/hangman.py:63
-msgid "bcdfghjklmnpqrstvwxz"
-msgstr "bcdfghjklmnñpqrstuvwxyz"
-
-#. Letters equivallence for the hangman activity. It has the
-#. form of a space separated list like: "e=éè a=àâ"
-#. Keep the word NONE if not available in your language
-#: ../src/hangman-activity/hangman.py:67
-msgid "NONE"
-msgstr "a=á e=é i=í o=ó u=ú i=ï u=ü"
-
-#: ../src/hangman-activity/hangman.py:104
-msgid "Could not find the list of words."
-msgstr "Non se puido encontrar a lista de palabras."
-
-# revisar: consumers/producers
-#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:1
-msgid ""
-"Click on different active elements : sun, cloud, dam, solar array, wind farm "
-"and transformers, in order to reactivate the entire electrical system. When "
-"the system is back up and Tux is in his home, push the light button for him. "
-"To win you must switch on all the consumers while all the producers are up."
-msgstr ""
-"Preme nos diferentes elementos activos: sol, nube, encoro, parque solar, "
-"parque eólico e transformadores; para así reactivar todo o sistema "
-"eléctrico. Cando o sistema estea xa funcionando de novo e Tux estea na súa "
-"casa, preme a chave da luz para el. Para gañares debes acender todos os "
-"consumidores mentres todos os produtores estean acendidos."
-
-#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:3
-msgid "Learn about an hydroelectric dam"
-msgstr "Aprende sobre un encoro hidroeléctrico"
-
-#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:4
-msgid ""
-"Tux has come back from a long fishing party on his boat. Bring the "
-"electrical system back up so he can have light in his home."
-msgstr ""
-"Tux acaba de volver dun longo día de pesca no seu barco. Pon a funcionar o "
-"sistema eléctrico de novo para que poida ter luz na súa casa."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:88
-msgid ""
-"The sun heats the water and creates water vapor. Water vapor combines into "
-"small water droplets which becomes clouds."
-msgstr ""
-"O sol quenta a auga e xenera vapor de auga. O vapor de auga combínase en "
-"pequenas pingas de auga que se converten en nubes."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:126
-msgid ""
-"As a cloud matures, the dense water droplets may combine to produce larger "
-"droplets, which may combine to form droplets large enough to fall as rain"
-msgstr ""
-"Cando unha nube se desenvolve, as pingas densas de auga pódense combinar "
-"para producir pingas máis grandes, as cales, á súa vez, se poden combinar "
-"para formar pingas o suficientemente grandes como para caíren como chuvia"
-
-#: ../src/hydroelectric-activity/hydroelectric.py:169
-msgid "This is the meter for electricity produced by the turbine. "
-msgstr "Este é o medidor para a electricidade producida pola turbina. "
-
-# 'watt' é a forma recomendada no VOLGA
-# ('vatio' = sin. 'tolerado')
-#: ../src/hydroelectric-activity/hydroelectric.py:170
-#: ../src/hydroelectric-activity/hydroelectric.py:282
-#: ../src/hydroelectric-activity/hydroelectric.py:289
-#: ../src/hydroelectric-activity/hydroelectric.py:319
-#: ../src/hydroelectric-activity/hydroelectric.py:341
-msgid "The electricity power is measured in Watt (W)."
-msgstr "A enerxía eléctrica mídese en Watts (W)."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:175
-msgid ""
-"Flowing water is directed on to the blades of a turbine runner, creating a "
-"force on the blades. In this way, energy is transferred from the water flow "
-"to the turbine"
-msgstr ""
-"A corrente de auga diríxese ás aspas dunha turbina, o que xenera unha forza "
-"nas aspas. Deste modo, a enerxía transmítese desde a auga á turbina"
-
-#: ../src/hydroelectric-activity/hydroelectric.py:189
-msgid "This cloud simulates the wind, click on it to have wind."
-msgstr "Esta nube simula o vento; preme nela para ter vento."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:227
-msgid ""
-"This is a step down transformer. Electricity is transformed in low voltage, "
-"ready to be used by the customers."
-msgstr ""
-"Este é un transformador de baixa tensión. A electricidade transfórmase en "
-"baixa voltaxe, lista para ser usada polos consumidores e consumidoras."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:281
-msgid "This is the meter for all the electricity produced. "
-msgstr "Este é o medidor para toda a electricidade producida."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:288
-msgid "This is the meter for electricity consumed by the users. "
-msgstr ""
-"Este é o medidor para a electricidade consumida polos usuarios e usuarias. "
-
-#: ../src/hydroelectric-activity/hydroelectric.py:318
-msgid "This is the meter for electricity produced by the solar panels. "
-msgstr "Este é o medidor para a electricidade producida polos paneis solares. "
-
-#: ../src/hydroelectric-activity/hydroelectric.py:324
-msgid ""
-"Solar panels use light energy (photons) from the sun to generate electricity "
-"through the photovoltaic effect."
-msgstr ""
-"Os paneis solares usan a enerxía da luz (fotóns) do sol para xeraren "
-"electricidade mediante o fenómeno fotovoltaico."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:340
-msgid "This is the meter for electricity produced by the wind turbines. "
-msgstr ""
-"Este é o medidor para a electricidade producida polas turbinas eólicas. "
-
-#: ../src/hydroelectric-activity/hydroelectric.py:346
-msgid ""
-"A wind turbine is a device that converts wind motion energy into electricity "
-"generation. It is called a wind generator or wind charger. "
-msgstr ""
-"Unha turbina eólica é un dispositivo que converte a enerxía motriz do vento "
-"en xeración de electricidade. Chámaselle xerador eólico ou cargador eólico. "
-
-# ver en: http://www.realacademiagalega.org/volga/index.jsp "apagada"
-#: ../src/hydroelectric-activity/hydroelectric.py:732
-msgid ""
-"It is not possible to consume more electricity than what is produced. This "
-"is a key limitation in the distribution of electricity, with minor "
-"exceptions, electrical energy cannot be stored, and therefore it must be "
-"generated as it is needed. A sophisticated system of control is therefore "
-"required to ensure electric generation very closely matches the demand. If "
-"supply and demand are not in balance, generation plants and transmission "
-"equipment can shut down which, in the worst cases, can lead to a major "
-"regional blackout."
-msgstr ""
-"Non se pode comsumir máis electricidade da que se produce. Esta é unha "
-"limitacíon chave da distribución de enerxía; salvo pequenas excepcións, a "
-"enerxía eléctrica non se pode almacenar, así que se debe xerar cando é "
-"precisa. Por iso se necesita un sofisticado sistema de control que garanta "
-"que a xeración de enerxía coincida o máximo posíbel coa demanda. Se a "
-"subministración e a demanda non están equilibradas, as plantas de xeración e "
-"os equipos de transmisión poden virse abaixo, o que na maioría dos casos "
-"pode levar a unha apagada nunha zona."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:946
-msgid ""
-"This is a step up transformer. Electricity is transmitted at high voltages "
-"(110 kV or above) to reduce the energy lost in long distance transmission."
-msgstr ""
-"Este é un transformador de alta tensión. A electricidade transmítese a "
-"voltaxes altas (110 kV ou máis) para reducir a perda de enerxía na "
-"transmisión a longas distancias."
+#~ msgid "Learn about an hydroelectric dam"
+#~ msgstr "Aprende sobre un encoro hidroeléctrico"
