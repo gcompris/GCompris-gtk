@@ -110,6 +110,7 @@ static gchar *linguas[] = {
   "so_SO.UTF-8",	N_("Somali"),
   "sq_AL.UTF-8",	N_("Albanian"),
   "sr@Latn_YU.ISO-8859-2",	N_("Serbian (Latin)"),
+  "sr_ME.UTF-8",	N_("Montenegrin"),
   "sr_YU.UTF-8",	N_("Serbian"),
   "sv_FI.UTF-8",	N_("Swedish"),
   "ta_IN.UTF-8",	N_("Tamil"),
