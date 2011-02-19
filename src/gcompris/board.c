@@ -80,19 +80,6 @@ extern BoardPlugin * get_wordprocessor_bplugin_info();
 #define MAX_NUMBER_OF_BOARDS 200
 static BoardPlugin *static_boards[MAX_NUMBER_OF_BOARDS];
 
-static char *board_nodemo[] = /* Some boards excluded from the demo version */
-  {
-    "python:ballcatch",
-    "python:followline",
-    "python:guessnumber",
-    "python:mosaic",
-    "python:redraw",
-    "python:searace",
-    "python:sudoku",
-    "python:watercycle",
-    NULL
-  };
-
 void gc_board_init(void)
 {
   guint i=0;
