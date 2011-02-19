@@ -56,13 +56,13 @@ install-data-local:
 	@$(NORMAL_INSTALL)
 	if test -d $(srcdir)/$(PACKAGE_DATA_DIR); then \
 	  $(mkinstalldirs) $(DESTDIR)/$(pkgdatadir)/$(PACKAGE_DATA_DIR); \
-	  cd $(srcdir)/$(PACKAGE_DATA_DIR) ; tar cf -  --exclude "Makefile.in" --exclude "*.in" --exclude "*~" --exclude "Makefile" --exclude "Makefile.am" --exclude .git * | ( cd $(DESTDIR)/$(pkgdatadir)/$(PACKAGE_DATA_DIR) ; tar xf -) ; cd .. ; \
+	  cd $(srcdir)/$(PACKAGE_DATA_DIR) ; tar cf - --dereference --exclude "Makefile.in" --exclude "*.in" --exclude "*~" --exclude "Makefile" --exclude "Makefile.am" --exclude .git * | ( cd $(DESTDIR)/$(pkgdatadir)/$(PACKAGE_DATA_DIR) ; tar xf -) ; cd .. ; \
 	fi
 
 dist-hook:
 	if test -d $(PACKAGE_DATA_DIR); then \
 	  $(mkinstalldirs) $(distdir)/$(PACKAGE_DATA_DIR); \
-	  cd $(srcdir)/$(PACKAGE_DATA_DIR) ; tar cf -  --exclude "Makefile.in" --exclude "Makefile" --exclude "*~" --exclude ".*" --exclude .git * | ( cd ../$(distdir)/$(PACKAGE_DATA_DIR) ; tar xf -) ; cd .. ; \
+	  cd $(srcdir)/$(PACKAGE_DATA_DIR) ; tar cf - --dereference --exclude "Makefile.in" --exclude "Makefile" --exclude "*~" --exclude ".*" --exclude .git * | ( cd ../$(distdir)/$(PACKAGE_DATA_DIR) ; tar xf -) ; cd .. ; \
 	fi
 	@if test -d "$(srcdir)/.git"; \
 	then \
