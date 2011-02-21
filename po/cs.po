@@ -8,15 +8,15 @@
 # Kamil Páral <ripper42@gmail.com>, 2008.
 # Petr Kovar <pknbe@volny.cz>, 2008.
 # Vladimír Burian <vladimir.burian@email.cz>, 2010.
-# Marek Černocký <marek@manet.cz>, 2009 – 2011.
+# Marek Černocký <marek@manet.cz>, 2009, 2010, 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&component=general\n"
-"POT-Creation-Date: 2011-01-17 23:09+0000\n"
-"PO-Revision-Date: 2011-01-18 20:34+0100\n"
+"POT-Creation-Date: 2011-02-19 21:33+0000\n"
+"PO-Revision-Date: 2011-02-21 23:54+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -1505,7 +1505,7 @@ msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "Manipulace s myší: pohyb, tažení a puštění."
 
 #: ../src/babymatch-activity/shapegame.c:1903
-#: ../src/click_on_letter-activity/click_on_letter.c:675
+#: ../src/click_on_letter-activity/click_on_letter.c:671
 #: ../src/colors-activity/colors.c:168
 #, c-format
 msgid ""
@@ -2091,11 +2091,11 @@ msgstr ""
 "angličtiny, je mi líto!"
 
 #. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:698
+#: ../src/click_on_letter-activity/click_on_letter.c:694
 #: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:484
 #: ../src/missing_letter-activity/missingletter_config.c:492
 #: ../src/readingh-activity/reading.c:928
-#: ../src/wordsgame-activity/wordsgame.c:889
+#: ../src/wordsgame-activity/wordsgame.c:887
 msgid "Uppercase only text"
 msgstr "Text pouze velkými písmeny"
 
@@ -2163,7 +2163,7 @@ msgstr "Koordinace pohybů: pohyb a kliknutí myší."
 msgid "Use the left mouse button to click on the moving fish."
 msgstr "Klikni levým tlačítkem myši na plovoucí rybu."
 
-#: ../src/clockgame-activity/clockgame.c:525
+#: ../src/clockgame-activity/clockgame.c:524
 msgid "Set the watch to:"
 msgstr "Nastav hodiny na:"
 
@@ -2632,8 +2632,8 @@ msgstr "Hýbáním myší vymažeš oblast a objeví se pozadí"
 msgid "Error: No images found\n"
 msgstr "Chyba: nenalezen žádný obrázek\n"
 
-#: ../src/erase-activity/erase.c:578 ../src/gcompris/properties.c:501
-#: ../src/gcompris/properties.c:508
+#: ../src/erase-activity/erase.c:578 ../src/gcompris/properties.c:504
+#: ../src/gcompris/properties.c:511
 msgid "readme"
 msgstr "čtěte"
 
@@ -2737,7 +2737,7 @@ msgstr ""
 msgid "Tux needs to water the flowers, but the hose is blocked."
 msgstr "Tux potřebuje zalít květiny, ale hadice je blokovaná."
 
-#: ../src/gcompris/about.c:49
+#: ../src/gcompris/about.c:48
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge, Yves Combe\n"
@@ -2752,7 +2752,7 @@ msgstr ""
 "Hudba na pozadí: Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:57
+#: ../src/gcompris/about.c:56
 msgid "translator_credits"
 msgstr ""
 "Miloslav Trmač\n"
@@ -2763,19 +2763,19 @@ msgstr ""
 "Petr Kovář\n"
 "Marek Černocký"
 
-#: ../src/gcompris/about.c:84
+#: ../src/gcompris/about.c:82
 msgid "About GCompris"
 msgstr "O aplikaci GCompris"
 
-#: ../src/gcompris/about.c:94
+#: ../src/gcompris/about.c:92
 msgid "GCompris Home Page: http://gcompris.net"
 msgstr "Domovská stránka GCompris http://gcompris.net"
 
-#: ../src/gcompris/about.c:105
+#: ../src/gcompris/about.c:103
 msgid "Translators:"
 msgstr "Překladatelé:"
 
-#: ../src/gcompris/about.c:210
+#: ../src/gcompris/about.c:208
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
@@ -2783,29 +2783,29 @@ msgstr ""
 "Tento software je balíček GNU a je uvolněn za podmínek GNU General Public "
 "Licence"
 
-#: ../src/gcompris/about.c:224 ../src/gcompris/config.c:438
-#: ../src/gcompris/dialog.c:104 ../src/gcompris/help.c:355
-#: ../src/gcompris/images_selector.c:307
+#: ../src/gcompris/about.c:222 ../src/gcompris/config.c:439
+#: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:355
+#: ../src/gcompris/images_selector.c:306
 msgid "OK"
 msgstr "Budiž"
 
-#: ../src/gcompris/bar.c:693
+#: ../src/gcompris/bar.c:684
 msgid "GCompris confirmation"
 msgstr "Potvrzení GCompris"
 
-#: ../src/gcompris/bar.c:694
+#: ../src/gcompris/bar.c:685
 msgid "Are you sure you want to quit?"
 msgstr "Opravdu chceš skončit?"
 
-#: ../src/gcompris/bar.c:695
+#: ../src/gcompris/bar.c:686
 msgid "Yes, I am sure!"
 msgstr "Ano, chci!"
 
-#: ../src/gcompris/bar.c:696
+#: ../src/gcompris/bar.c:687
 msgid "No, I want to keep going"
 msgstr "Ne, zůstanu"
 
-#: ../src/gcompris/board.c:168
+#: ../src/gcompris/board.c:155
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr ""
 "Dynamické načítání modulů není podporováno. GCompris se nemůže spustit.\n"
@@ -3087,117 +3087,122 @@ msgid "Serbian (Latin)"
 msgstr "Srbština (latinka)"
 
 #: ../src/gcompris/config.c:113
+#| msgid "Serbia Montenegro"
+msgid "Montenegrin"
+msgstr "Černohorština"
+
+#: ../src/gcompris/config.c:114
 msgid "Serbian"
 msgstr "Srbština"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:115
 msgid "Swedish"
 msgstr "Švédština"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:116
 msgid "Tamil"
 msgstr "Tamilština"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:117
 msgid "Thai"
 msgstr "Thajština"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:118
 msgid "Turkish"
 msgstr "Turečtina"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:119
 msgid "Ukrainian"
 msgstr "Ukrajinština"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:120
 msgid "Urdu"
 msgstr "Urdština"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:121
 msgid "Vietnamese"
 msgstr "Vitnamština"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:122
 msgid "Walloon"
 msgstr "Valonština"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:123
 msgid "Chinese (Simplified)"
 msgstr "Čínština (zjednodušená)"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:124
 msgid "Chinese (Traditional)"
 msgstr "Čínština (klasická)"
 
-#: ../src/gcompris/config.c:128
+#: ../src/gcompris/config.c:129
 msgid "No time limit"
 msgstr "Žádný časový limit"
 
-#: ../src/gcompris/config.c:129
+#: ../src/gcompris/config.c:130
 msgid "Slow timer"
 msgstr "Pomalý časovač"
 
-#: ../src/gcompris/config.c:130
+#: ../src/gcompris/config.c:131
 msgid "Normal timer"
 msgstr "Normální časovač"
 
-#: ../src/gcompris/config.c:131
+#: ../src/gcompris/config.c:132
 msgid "Fast timer"
 msgstr "Rychlý časovač"
 
-#: ../src/gcompris/config.c:135
+#: ../src/gcompris/config.c:136
 msgid "Use Gcompris administration module to filter boards"
 msgstr "Použít modul správy Gcompris pro filtrování hracích desek"
 
-#: ../src/gcompris/config.c:186
+#: ../src/gcompris/config.c:187
 msgid "GCompris Configuration"
 msgstr "Nastavení GCompris"
 
-#: ../src/gcompris/config.c:253
+#: ../src/gcompris/config.c:254
 msgid "Fullscreen"
 msgstr "Přes celou obrazovku"
 
-#: ../src/gcompris/config.c:278
+#: ../src/gcompris/config.c:279
 msgid "Music"
 msgstr "Hudba"
 
-#: ../src/gcompris/config.c:303
+#: ../src/gcompris/config.c:304
 msgid "Effect"
 msgstr "Efekty"
 
-#: ../src/gcompris/config.c:327 ../src/gcompris/sugar.c:82
+#: ../src/gcompris/config.c:328 ../src/gcompris/sugar.c:82
 msgid "Zoom"
 msgstr "Přiblížení"
 
-#: ../src/gcompris/config.c:364
+#: ../src/gcompris/config.c:365
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Nelze otevřít složku s maskami vzhledu: %s"
 
-#: ../src/gcompris/config.c:395 ../src/gcompris/config.c:753
-#: ../src/gcompris/config.c:767
+#: ../src/gcompris/config.c:396 ../src/gcompris/config.c:754
+#: ../src/gcompris/config.c:768
 #, c-format
 msgid "Skin : %s"
 msgstr "Vzhled: %s"
 
-#: ../src/gcompris/config.c:397
+#: ../src/gcompris/config.c:398
 msgid "SKINS NOT FOUND"
 msgstr "MASKY VZHLEDU NENALEZENY"
 
-#: ../src/gcompris/config.c:478
+#: ../src/gcompris/config.c:479
 msgid "English (United State)"
 msgstr "Angličtina (americká)"
 
-#: ../src/gcompris/file_selector.c:254
+#: ../src/gcompris/file_selector.c:251
 msgid "CANCEL"
 msgstr "ZRUŠIT"
 
-#: ../src/gcompris/file_selector.c:262
+#: ../src/gcompris/file_selector.c:259
 msgid "LOAD"
 msgstr "NAČÍST"
 
-#: ../src/gcompris/file_selector.c:262
+#: ../src/gcompris/file_selector.c:259
 msgid "SAVE"
 msgstr "ULOŽIT"
 
@@ -3420,7 +3425,7 @@ msgstr ""
 msgid "The lock file is: %s\n"
 msgstr "Soubor zámku je: %s\n"
 
-#: ../src/gcompris/gcompris.c:1602
+#: ../src/gcompris/gcompris.c:1599
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3434,27 +3439,27 @@ msgstr ""
 "Více informací na http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1717
+#: ../src/gcompris/gcompris.c:1714
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Pro přímý přístup k aktivitě použijte -l.\n"
 
-#: ../src/gcompris/gcompris.c:1718
+#: ../src/gcompris/gcompris.c:1715
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Seznam dostupných aktivit:\n"
 
-#: ../src/gcompris/gcompris.c:1749
+#: ../src/gcompris/gcompris.c:1746
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Počet aktivit: %d\n"
 
-#: ../src/gcompris/gcompris.c:1785
+#: ../src/gcompris/gcompris.c:1782
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s existuje, ale nelze jej číst nebo do něj zapisovat"
 
-#: ../src/gcompris/gcompris.c:1848
+#: ../src/gcompris/gcompris.c:1845
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
@@ -3463,7 +3468,7 @@ msgstr ""
 "Přepínač --server nelze použít, protože GCompris byl přeložen bez podpory "
 "sítě."
 
-#: ../src/gcompris/gcompris.c:1902
+#: ../src/gcompris/gcompris.c:1899
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3472,7 +3477,7 @@ msgstr ""
 "CHYBA: Profil „%s“ nebyl nalezen. Dostupné profily si vypíšete spuštěním "
 "„gcompris --profile-list“\n"
 
-#: ../src/gcompris/gcompris.c:1916
+#: ../src/gcompris/gcompris.c:1913
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Seznam dostupných profilů:\n"
@@ -3519,13 +3524,13 @@ msgstr ""
 "Načítání aktivity ze souboru:\n"
 "%s"
 
-#: ../src/gcompris/properties.c:503
+#: ../src/gcompris/properties.c:506
 msgid ""
 "This directory contains the files you create with the GCompris educational "
 "suite\n"
 msgstr "Tato složka obsahuje soubory, které jsi vytvořil v sadě GCompris\n"
 
-#: ../src/gcompris/properties.c:510
+#: ../src/gcompris/properties.c:513
 msgid ""
 "Put any number of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
@@ -4213,10 +4218,10 @@ msgstr "AÁBCČDĎEÉĚFGHIÍJKLMNŇOÓPQRŘSŠTŤUÚŮVWXYÝZŽ"
 #: ../src/missing_letter-activity/missingletter.c:784
 #: ../src/pythontest-activity/pythontest.py:454
 #: ../src/readingh-activity/reading.c:904
-#: ../src/scalesboard-activity/scale.c:1161
+#: ../src/scalesboard-activity/scale.c:1160
 #: ../src/smallnumbers-activity/smallnumbers.c:595
 #: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:866
+#: ../src/wordsgame-activity/wordsgame.c:864
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -6846,7 +6851,7 @@ msgstr "Hmotnost v g = %s"
 msgid "Weight = %s"
 msgstr "Hmotnost = %s"
 
-#: ../src/scalesboard-activity/scale.c:1008
+#: ../src/scalesboard-activity/scale.c:1007
 msgid "Take care, you can drop masses on both sides of the scale."
 msgstr "Dej pozor, závaží můžeš pokládat na obě strany váhy."
 
