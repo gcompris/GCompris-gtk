@@ -57,6 +57,13 @@ gc_sound_init()
 }
 
 static gboolean
+run_sound_callback(gpointer data)
+{
+  gc_sound_callback((gchar *)data);
+  return FALSE; /* remove idle callback */
+}
+
+static gboolean
 fx_bus(GstBus* bus, GstMessage* msg, gpointer data)
 {
   switch( GST_MESSAGE_TYPE( msg ) )
@@ -64,7 +71,8 @@ fx_bus(GstBus* bus, GstMessage* msg, gpointer data)
     case GST_MESSAGE_EOS:
       g_warning("fx_bus: EOS START");
       gc_sound_fx_close();
-      gc_sound_callback((gchar *)data);
+      /* holds GStreamer locks */
+      g_idle_add(run_sound_callback, data);
       fx_play();
       g_warning("fx_bus: EOS END");
       break;
