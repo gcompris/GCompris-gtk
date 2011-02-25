@@ -7,12 +7,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gcompris 9.3BETA2\n"
+"Project-Id-Version: gcompris 9.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-19 20:45+0800\n"
+"POT-Creation-Date: 2011-02-26 06:34+0800\n"
 "PO-Revision-Date: 2010-04-17 22:10+0800\n"
 "Last-Translator: Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -23,6 +24,7 @@ msgid "Go to Algebra activities"
 msgstr "前往代數遊戲"
 
 #: ../boards/algebra_group.xml.in.h:2 ../boards/menu.xml.in.h:18
+#: ../boards/money_group.xml.in.h:2
 msgid "Left-click the mouse on an activity to select it."
 msgstr "在一個遊戲上按下滑鼠左鍵來選擇它。"
 
@@ -191,7 +193,7 @@ msgstr ""
 msgid "GCompris Main Menu"
 msgstr "GCompris 主選單"
 
-#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:859
+#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:866
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -211,6 +213,10 @@ msgstr "其他各種遊戲"
 #: ../boards/miscelaneous.xml.in.h:2
 msgid "Time, Geography, ..."
 msgstr "時間﹑地理﹑…"
+
+#: ../boards/money_group.xml.in.h:1
+msgid "Go to money activities"
+msgstr "前往金錢遊戲"
 
 #: ../boards/mouse.xml.in.h:1
 msgid "Mouse-manipulation activities."
@@ -418,30 +424,30 @@ msgstr "老師："
 msgid "Assign all the users belonging to this class"
 msgstr "指定所有使用者屬於這個班級"
 
-#: ../src/administration-activity/admin/class_edit.py:249
-#: ../src/administration-activity/admin/group_edit.py:261
+#: ../src/administration-activity/admin/class_edit.py:246
+#: ../src/administration-activity/admin/group_edit.py:258
 #: ../src/administration-activity/admin/group_user_list.py:150
 #: ../src/administration-activity/admin/user_list.py:191
 msgid "First Name"
 msgstr "名"
 
-#: ../src/administration-activity/admin/class_edit.py:260
-#: ../src/administration-activity/admin/group_edit.py:272
+#: ../src/administration-activity/admin/class_edit.py:257
+#: ../src/administration-activity/admin/group_edit.py:269
 #: ../src/administration-activity/admin/group_user_list.py:160
 #: ../src/administration-activity/admin/user_list.py:201
 msgid "Last Name"
 msgstr "姓"
 
-#: ../src/administration-activity/admin/class_edit.py:335
+#: ../src/administration-activity/admin/class_edit.py:332
 msgid "You need to provide at least a name for your class"
 msgstr "你至少要提供班級名稱"
 
-#: ../src/administration-activity/admin/class_edit.py:380
+#: ../src/administration-activity/admin/class_edit.py:377
 msgid "There is already a class with this name"
 msgstr "已經存在一個相同名稱的班級"
 
 #: ../src/administration-activity/admin/class_list.py:165
-#: ../src/administration-activity/admin/profile_edit.py:266
+#: ../src/administration-activity/admin/profile_edit.py:263
 #: ../src/administration-activity/admin/profile_group_list.py:140
 msgid "Class"
 msgstr "班級"
@@ -482,11 +488,11 @@ msgstr "說明："
 msgid "Assign all the users belonging to this group"
 msgstr "指定所有使用者屬於這個群組"
 
-#: ../src/administration-activity/admin/group_edit.py:355
+#: ../src/administration-activity/admin/group_edit.py:352
 msgid "You need to provide at least a name for your group"
 msgstr "你至少要提供群組名稱"
 
-#: ../src/administration-activity/admin/group_edit.py:369
+#: ../src/administration-activity/admin/group_edit.py:366
 msgid "There is already a group with this name"
 msgstr "已經存在一個相同名稱的群組"
 
@@ -495,13 +501,13 @@ msgid "Select a class:"
 msgstr "選擇一個班級："
 
 #: ../src/administration-activity/admin/group_list.py:210
-#: ../src/administration-activity/admin/profile_edit.py:276
+#: ../src/administration-activity/admin/profile_edit.py:273
 #: ../src/administration-activity/admin/profile_group_list.py:150
 msgid "Group"
 msgstr "群組"
 
 #: ../src/administration-activity/admin/group_list.py:221
-#: ../src/administration-activity/admin/profile_edit.py:286
+#: ../src/administration-activity/admin/profile_edit.py:283
 #: ../src/administration-activity/admin/profile_group_list.py:160
 #: ../src/administration-activity/admin/profile_list.py:194
 msgid "Description"
@@ -619,11 +625,11 @@ msgstr "簡介檔案："
 msgid "Assign all the groups belonging to this profile"
 msgstr "指定所有群組屬於這個簡介檔"
 
-#: ../src/administration-activity/admin/profile_edit.py:374
+#: ../src/administration-activity/admin/profile_edit.py:371
 msgid "You need to provide at least a name for your profile"
 msgstr "你至少需要提供簡介檔名稱"
 
-#: ../src/administration-activity/admin/profile_edit.py:396
+#: ../src/administration-activity/admin/profile_edit.py:393
 msgid "There is already a profile with this name"
 msgstr "已經存在一個相同名稱的簡介檔"
 
@@ -667,12 +673,12 @@ msgstr "姓："
 msgid "Birth date:"
 msgstr "出生日期："
 
-#: ../src/administration-activity/admin/user_edit.py:156
+#: ../src/administration-activity/admin/user_edit.py:153
 msgid ""
 "You need to provide at least a login, first name and last name for your users"
 msgstr "你至少需要提供使用者的帳號﹑姓與名"
 
-#: ../src/administration-activity/admin/user_edit.py:173
+#: ../src/administration-activity/admin/user_edit.py:170
 msgid "There is already a user with this login"
 msgstr "已經存在一個相同帳號的使用者"
 
@@ -800,7 +806,7 @@ msgstr "黃褐"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:1
 msgid "lime"
-msgstr "青檸"
+msgstr "萊姆"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:2
 msgid "sage"
@@ -1055,7 +1061,7 @@ msgid "+-×÷"
 msgstr "+-×÷"
 
 #: ../src/algebra_by-activity/algebra.c:411
-#: ../src/readingh-activity/reading.c:621
+#: ../src/readingh-activity/reading.c:630
 msgid "I am Ready"
 msgstr "我準備好了"
 
@@ -1089,8 +1095,8 @@ msgid "Practice the multiplication operation"
 msgstr "練習乘法運算"
 
 #: ../src/algebra_guesscount-activity/algebra_guesscount.xml.in.h:1
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:1
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:1
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:1
 msgid ""
 "Animal pictures come from the Animal Photography Page of Ralf Schmode "
 "(http://schmode.net/). Ralf has kindly permitted Gcompris to include his "
@@ -1450,8 +1456,8 @@ msgstr "運動統合。概念匹配。"
 msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "滑鼠操控：移動﹑拖放。文化的關聯。"
 
-#: ../src/babymatch-activity/shapegame.c:1835
-#: ../src/click_on_letter-activity/click_on_letter.c:624
+#: ../src/babymatch-activity/shapegame.c:1903
+#: ../src/click_on_letter-activity/click_on_letter.c:671
 #: ../src/colors-activity/colors.c:168
 #, c-format
 msgid ""
@@ -1466,16 +1472,19 @@ msgid "Complete the puzzle"
 msgstr "完成拼圖"
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:2
+#: ../src/details-activity/details.xml.in.h:1
 msgid ""
 "Complete the puzzle by dragging each piece from the set of pieces on the "
 "left, to the matching space in the puzzle."
 msgstr "藉由拖拉左側一組碎片中的每一片，到拼圖中相符的空間，來完成這個拼圖。"
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:3
+#: ../src/details-activity/details.xml.in.h:2
 msgid "Drag and Drop the shapes on their respective targets"
 msgstr "拖放形狀到各自的目標上"
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:4
+#: ../src/details-activity/details.xml.in.h:4
 msgid "Good mouse-control"
 msgstr "良好的滑鼠控制"
 
@@ -1552,7 +1561,7 @@ msgstr ""
 msgid "bar game"
 msgstr "障礙遊戲"
 
-#: ../src/billard-activity/billard.c:89 ../src/erase-activity/erase.c:124
+#: ../src/billard-activity/billard.c:89 ../src/erase-activity/erase.c:85
 #: ../src/erase-activity/erase.xml.in.h:4
 msgid "Move the mouse"
 msgstr "移動滑鼠"
@@ -1573,8 +1582,8 @@ msgstr "將球打進目標"
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:5
 #: ../src/connect4-activity/connect4.xml.in.h:6
 #: ../src/erase-activity/erase.xml.in.h:3
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:6
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:6
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:6
 #: ../src/fifteen-activity/fifteen.xml.in.h:2
 #: ../src/hanoi-activity/hanoi.xml.in.h:3
 #: ../src/memory-activity/memory.xml.in.h:4
@@ -1603,6 +1612,11 @@ msgstr "主選單第二版"
 msgid "Select a Board"
 msgstr "選擇一塊園地"
 
+#: ../src/boards/menu2.c:266
+#, c-format
+msgid "Number of activities: %d"
+msgstr "遊戲的數目：%d"
+
 #: ../src/boards/python.c:64 ../src/boards/python.c:88
 msgid "Python Board"
 msgstr "Python 園地"
@@ -1616,6 +1630,7 @@ msgid "Special board that embeds python into gcompris."
 msgstr "將 python 嵌入 gcompris 的特殊園地。"
 
 #: ../src/canal_lock-activity/canal_lock.xml.in.h:1
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:2
 #: ../src/watercycle-activity/watercycle.xml.in.h:2
 msgid "Drawing by Stephane Cabaraux."
 msgstr "由 Stephane Cabaraux 繪製。"
@@ -1640,40 +1655,48 @@ msgstr ""
 "你是負責運河閘門的人。請以正確的順序開啟大門與閘道，好讓小企鵝雙向都能通過大"
 "門。"
 
-#: ../src/chat-activity/chat.py:77
+#: ../src/chat-activity/chat.py:87
 msgid "All messages will be displayed here.\n"
 msgstr "所有的訊息都會顯示在這裡。\n"
 
-#: ../src/chat-activity/chat.py:128
+#: ../src/chat-activity/chat.py:139
 msgid "Your Friends"
 msgstr "你的朋友"
 
-#: ../src/chat-activity/chat.py:161
+#: ../src/chat-activity/chat.py:172
 msgid "Your Channel"
 msgstr "你的頻道"
 
-#: ../src/chat-activity/chat.py:187
+#: ../src/chat-activity/chat.py:198
 msgid ""
 "Type your message here, to send to other GCompris users on your local "
 "network."
 msgstr "在這裡輸入你的訊息，它會被送到同一個區域網路下其他的 GCompris 使用者"
 
-#: ../src/chat-activity/chat.py:202
+#: ../src/chat-activity/chat.py:244
+msgid "color"
+msgstr "顏色"
+
+#: ../src/chat-activity/chat.py:323
 msgid ""
 "ERROR: Failed to initialize the network interface. You cannot communicate."
 msgstr "錯誤：初始化網路介面失敗。你不能和別人談話。"
 
-#: ../src/chat-activity/chat.py:326
+#: ../src/chat-activity/chat.py:433
+msgid "Has left the chat."
+msgstr "已經離開對話。"
+
+#: ../src/chat-activity/chat.py:512
 msgid "You must set a channel in your channel entry box first.\n"
 msgstr "你必須先在你的頻道方塊中設定一個頻道。\n"
 
-#: ../src/chat-activity/chat.py:327
+#: ../src/chat-activity/chat.py:513
 msgid "Your friends must set the same channel in order to communicate with you"
 msgstr "你的朋友必須設定同樣的頻道才能跟你連絡"
 
 #: ../src/chat-activity/chat.xml.in.h:1
-msgid "Chat with your friends"
-msgstr "和你的朋友聊天"
+msgid "Chat and draw with your friends"
+msgstr "和你的朋友聊天與畫圖"
 
 #: ../src/chat-activity/chat.xml.in.h:2
 msgid "This chat activity only works on the local network"
@@ -1683,20 +1706,21 @@ msgstr "這個聊天室只開放給內部網路使用者"
 msgid ""
 "This chat activity will only work with other GCompris users on your local "
 "network, not on the Internet. To use it, just type in your message and hit "
-"Enter. Your message is then broadcast on the local network, and any GCompris "
-"program running the chat activity on that local network will receive and "
-"display your message."
+"Enter. Your message is then broadcasted on the local network, and any "
+"GCompris program running the chat activity on that local network will "
+"receive and display your message."
 msgstr ""
 "這個聊天室只有在同一個區域網路的 GCompris 使用者才可以使用，而不是整個網際網"
-"路的使用者。輸入你要發布的訊息，按 Enter。在這個聊天室的使用者將會收到你所發"
-"布的訊息。"
+"路的使用者。要使用它，只要輸入你要發布的訊息，按 Enter。你的訊息會廣播到區域"
+"網路中，在區域網路中任何執行聊天室的 GCompris 程式都會收到並顯示你所發布的訊"
+"息。"
 
 #: ../src/chess_computer-activity/chess.c:222
 msgid "Error: The external program gnuchess died unexpectedly"
 msgstr "錯誤：外部程式 gnuchess 意外中止了"
 
-#: ../src/chess_computer-activity/chess.c:258
-#: ../src/chess_computer-activity/chess.c:304
+#: ../src/chess_computer-activity/chess.c:262
+#: ../src/chess_computer-activity/chess.c:308
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -1706,36 +1730,36 @@ msgstr ""
 "外部程式 gnuchess。\n"
 "請先安裝這個程式，並檢查它是否在："
 
-#: ../src/chess_computer-activity/chess.c:644
+#: ../src/chess_computer-activity/chess.c:648
 msgid "White's Turn"
 msgstr "輪到白方"
 
-#: ../src/chess_computer-activity/chess.c:644
+#: ../src/chess_computer-activity/chess.c:648
 msgid "Black's Turn"
 msgstr "輪到黑方"
 
-#: ../src/chess_computer-activity/chess.c:785
+#: ../src/chess_computer-activity/chess.c:789
 msgid "White checks"
 msgstr "白方將軍"
 
-#: ../src/chess_computer-activity/chess.c:787
+#: ../src/chess_computer-activity/chess.c:791
 msgid "Black checks"
 msgstr "黑方將軍"
 
-#: ../src/chess_computer-activity/chess.c:1193
+#: ../src/chess_computer-activity/chess.c:1197
 msgid "Black mates"
 msgstr "黑方兵士"
 
-#: ../src/chess_computer-activity/chess.c:1198
+#: ../src/chess_computer-activity/chess.c:1204
 msgid "White mates"
 msgstr "白方兵士"
 
-#: ../src/chess_computer-activity/chess.c:1203 ../src/gcompris/bonus.c:191
+#: ../src/chess_computer-activity/chess.c:1211 ../src/gcompris/bonus.c:191
 #: ../src/gcompris/bonus.c:200
 msgid "Drawn game"
 msgstr "畫圖遊戲"
 
-#: ../src/chess_computer-activity/chess.c:1229
+#: ../src/chess_computer-activity/chess.c:1239
 msgid "Error: The external program gnuchess died unexpectingly"
 msgstr "錯誤：外部程式 gnuchess 意外中止了"
 
@@ -1968,7 +1992,7 @@ msgstr "1955 年 Citroën(雪鐵龍) ds 19"
 msgid "Cars"
 msgstr "汽車"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:271
+#: ../src/click_on_letter-activity/click_on_letter.c:311
 #: ../src/memory-activity/memory.c:906
 msgid ""
 "Error: this activity cannot be played with the\n"
@@ -1984,12 +2008,12 @@ msgstr ""
 #. TRANSLATORS: Put here the alphabet in your language
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
-#: ../src/click_on_letter-activity/click_on_letter.c:276
+#: ../src/click_on_letter-activity/click_on_letter.c:316
 #: ../src/gletters-activity/gletters.c:229 ../src/memory-activity/memory.c:935
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcdefghijklmnopqrstuvwxyz"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:298
+#: ../src/click_on_letter-activity/click_on_letter.c:344
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -1998,7 +2022,7 @@ msgstr ""
 "錯誤：這個遊戲需要先安裝套件\n"
 "GCompris 聲音套件中的地區「%s」或「%s」"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:306
+#: ../src/click_on_letter-activity/click_on_letter.c:354
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -2009,8 +2033,11 @@ msgstr ""
 "GCompris 聲音套件中的地區「%s」！回復到英文，抱歉！"
 
 #. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:647
+#: ../src/click_on_letter-activity/click_on_letter.c:694
 #: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:484
+#: ../src/missing_letter-activity/missingletter_config.c:492
+#: ../src/readingh-activity/reading.c:928
+#: ../src/wordsgame-activity/wordsgame.c:887
 msgid "Uppercase only text"
 msgstr "只允許大寫字母"
 
@@ -2075,7 +2102,7 @@ msgstr "動態座標：滑鼠的移動與點選。"
 msgid "Use the left mouse button to click on the moving fish."
 msgstr "使用滑鼠左鍵在移動的魚上按一下。"
 
-#: ../src/clockgame-activity/clockgame.c:525
+#: ../src/clockgame-activity/clockgame.c:524
 msgid "Set the watch to:"
 msgstr "將錶設定成："
 
@@ -2234,8 +2261,8 @@ msgstr "駕駛起重機來複製模型"
 
 #: ../src/crane-activity/crane.xml.in.h:3
 #: ../src/erase-activity/erase.xml.in.h:2
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:5
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:5
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:5
 #: ../src/penalty-activity/penalty.xml.in.h:3
 msgid "Motor-coordination"
 msgstr "運動統合"
@@ -2255,6 +2282,112 @@ msgstr ""
 "將左下窗格中的項目複製到它們在右上模型中的位置。在起重機自身下方，會發現四個"
 "方向鍵，它們可以讓你移動項目。要選擇移動的項目，只需要在它上方按一下。如果你"
 "比較喜歡，也可以使用方向鍵和空白鍵或跳位鍵來代替。"
+
+#: ../src/details-activity/details.xml.in.h:3
+msgid "Find the details"
+msgstr "找出詳細介紹"
+
+#: ../src/details-activity/details.xml.in.h:5
+msgid "The images are from Wikimedia Commons."
+msgstr "此圖片來自於  Wikimedia Commons。"
+
+#: ../src/details-activity/resources/details/board1_0.xml.in.h:1
+#, fuzzy
+msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1889"
+msgstr "Vincent Van Gogh(梵谷)，鄉村小路 - 1888"
+
+#: ../src/details-activity/resources/details/board1_1.xml.in.h:1
+msgid ""
+"Vincent van Gogh, The Bridge of Langlois at Arles with a lady with umbrella "
+"- 1888"
+msgstr ""
+"梵谷(Vincent van Gogh),有女士撐著傘阿爾吊橋(The Bridge of Langlois at Arles "
+"with a lady with umbrella) - 1888"
+
+#: ../src/details-activity/resources/details/board1_2.xml.in.h:1
+#, fuzzy
+msgid "Vincent van Gogh, The Church at Auvers-sur-Oise - 1890"
+msgstr "Vincent Van Gogh(梵谷)，鄉村小路 - 1890"
+
+#: ../src/details-activity/resources/details/board1_3.xml.in.h:1
+#, fuzzy
+msgid "Vincent van Gogh, Painter on His Way to Work - 1888"
+msgstr "Vincent Van Gogh(梵谷)，鄉村小路 - 1888"
+
+#: ../src/details-activity/resources/details/board1_4.xml.in.h:1
+#, fuzzy
+msgid "Vincent van Gogh, The Harvest - 1888"
+msgstr "Vincent Van Gogh(梵谷)，鄉村小路 - 1888"
+
+#: ../src/details-activity/resources/details/board1_5.xml.in.h:1
+#, fuzzy
+msgid "Vincent van Gogh, Cafe Terrace at Night - 1888"
+msgstr "Vincent Van Gogh(梵谷)，鄉村小路 - 1888"
+
+#: ../src/details-activity/resources/details/board1_6.xml.in.h:1
+#, fuzzy
+msgid "Vincent van Gogh, The Night Café - 1888"
+msgstr "Vincent Van Gogh(梵谷)，鄉村小路 - 1888"
+
+#: ../src/details-activity/resources/details/board1_7.xml.in.h:1
+#, fuzzy
+msgid "Vincent van Gogh, Portrait of Pere Tanguy 1887-8"
+msgstr "Vincent Van Gogh(梵谷)，鄉村小路 - 1888"
+
+#: ../src/details-activity/resources/details/board2_0.xml.in.h:1
+msgid "Eilean Donan castle"
+msgstr "愛蓮·朵娜城堡"
+
+#: ../src/details-activity/resources/details/board2_1.xml.in.h:1
+msgid "Eiffel Tower, seen from the champ de Mars, Paris, France"
+msgstr "艾菲爾鐵塔,自 champ de Mars,法國巴黎遠觀"
+
+#: ../src/details-activity/resources/details/board2_10.xml.in.h:1
+msgid "Gizah Pyramids, Egypt"
+msgstr "Gizah Pyramids,埃及"
+
+#: ../src/details-activity/resources/details/board2_11.xml.in.h:1
+#, fuzzy
+msgid "Sydney Opera House, Australia"
+msgstr "雪梨歌劇院，澳洲"
+
+#: ../src/details-activity/resources/details/board2_12.xml.in.h:1
+msgid "Tower Bridge in London"
+msgstr "倫敦的塔橋"
+
+#: ../src/details-activity/resources/details/board2_2.xml.in.h:1
+msgid "Courtyard of the Museum of Louvre, and its pyramid"
+msgstr "羅浮宮(Museum of Louvre)天井及其金字塔"
+
+#: ../src/details-activity/resources/details/board2_3.xml.in.h:1
+msgid "Panorama of Château de Chenonceau, Indre-et-Loire, France."
+msgstr ""
+"舍農索城堡(Château de Chenonceau)全景圖,安德爾-羅亞爾省(Indre-et-Loire),法國"
+
+#: ../src/details-activity/resources/details/board2_4.xml.in.h:1
+msgid ""
+"Notre Dame de Paris cathedral on the Île de la Cité island in Paris, France."
+msgstr "巴黎聖母院(Notre Dame de Paris),西提島(Île de la Cité island),法國"
+
+#: ../src/details-activity/resources/details/board2_5.xml.in.h:1
+msgid "Nagoya Castle, Aichi Prefecture, Japan."
+msgstr "名古屋城(Nagoya Castle),愛知縣(Aichi Prefecture),日本"
+
+#: ../src/details-activity/resources/details/board2_6.xml.in.h:1
+msgid "Taj Mahal, Agra, India"
+msgstr "泰姬瑪哈陵(Taj Mahal),阿格拉(Agra),印度"
+
+#: ../src/details-activity/resources/details/board2_7.xml.in.h:1
+msgid "Castle Neuschwanstein at Schwangau, Bavaria, Germany"
+msgstr "新天鵝堡(Castle Neuschwanstein),史旺高(Schwangau),巴伐利亞,德國"
+
+#: ../src/details-activity/resources/details/board2_8.xml.in.h:1
+msgid "Egeskov Castle, Denmark"
+msgstr "耶斯克城堡(Egeskov Castle),丹麥"
+
+#: ../src/details-activity/resources/details/board2_9.xml.in.h:1
+msgid "Windmill in Sønderho, Fanø, Denmark"
+msgstr "丹麥 Sønderho, Fanø 的風車"
 
 #: ../src/doubleentry-activity/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
@@ -2308,6 +2441,10 @@ msgstr ""
 "在左邊選擇一種畫圖工具，並在下方選擇一種顏色。然後在白色區域按下並且拖拉來創"
 "造一個新的形狀。為了節省時間，你可以按下滑鼠中鍵來刪除一個物品。"
 
+#: ../src/drawnumber-activity/drawnumber.py:236
+msgid "Cannot find the file '{filename}'"
+msgstr "找不到檔案「{filename}」"
+
 #: ../src/drawnumber-activity/drawnumber.xml.in.h:1
 msgid "Can count from 1 to 50."
 msgstr "從 1 計算到 50"
@@ -2324,7 +2461,7 @@ msgstr "以正確的順序按下每一個數字，就可以畫出圖片。"
 msgid "Draw the picture by following numbers"
 msgstr "依照接下來的數字畫圖"
 
-#: ../src/electric-activity/electric.py:98
+#: ../src/electric-activity/electric.py:99
 msgid ""
 "Cannot find the 'gnucap' electric simulator.\n"
 "You can download and install it from:\n"
@@ -2412,9 +2549,27 @@ msgstr ""
 "首先，適當地安排物品，好讓你能數它們。然後，在右下區域中選擇你想要回答的物"
 "品。用鍵盤輸入答案，並且按下「OK」鈕或是「Enter」鍵。"
 
-#: ../src/erase-activity/erase.c:125 ../src/erase-activity/erase.xml.in.h:5
+#: ../src/erase-activity/erase.c:86 ../src/erase-activity/erase.xml.in.h:5
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "移動滑鼠來擦去這個區域，並顯示出背景"
+
+#: ../src/erase-activity/erase.c:180
+msgid "Error: No images found\n"
+msgstr "錯誤：找不到圖片\n"
+
+#: ../src/erase-activity/erase.c:578 ../src/gcompris/properties.c:504
+#: ../src/gcompris/properties.c:511
+msgid "readme"
+msgstr "讀我檔案"
+
+#: ../src/erase-activity/erase.c:580
+msgid ""
+"Put any number of images in this directory.\n"
+"They will be used as background in the 'erase' activity.\n"
+"The image must be in the 'jpeg' format and be suffixed with '.jpg' or '."
+"jpeg'.\n"
+"For best results, they must have a size of 800x520 pixels.\n"
+msgstr ""
 
 #: ../src/erase-activity/erase.xml.in.h:1
 msgid ""
@@ -2428,20 +2583,12 @@ msgstr ""
 "位。"
 
 #: ../src/erase-activity/erase.xml.in.h:6
-msgid "Move the mouse until all the blocks disappear."
-msgstr "移動滑鼠直到所有的區塊都消失。"
-
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:2
-msgid "Click the mouse"
-msgstr "用滑鼠按一下"
-
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:3
-msgid "Click the mouse on rectangles until all the blocks disappear."
-msgstr "用滑鼠在長方形上按一下，直到所有的區塊都消失。"
-
-#: ../src/erase_clic-activity/erase_clic.xml.in.h:4
-msgid "Click the mouse to erase the area and discover the background"
-msgstr "按一下滑鼠來擦去這個區域，並顯示出背景"
+msgid ""
+"Move the mouse until all the blocks disappear. You can add you own images "
+"under the directory '~/My GCompris/erase'."
+msgstr ""
+"移動滑鼠直到所有區塊都消失掉。您可以把自己喜歡的圖片放在「~/My GCompris/"
+"erase」目錄下。"
 
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
 msgid "Double click the mouse"
@@ -2454,6 +2601,18 @@ msgstr "用滑鼠在長方形上連按兩下，直到所有的區塊都消失。
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:4
 msgid "Double click the mouse to erase the area and discover the background"
 msgstr "連按兩下滑鼠來擦去這個區域，並顯示出背景"
+
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:2
+msgid "Click the mouse"
+msgstr "用滑鼠按一下"
+
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:3
+msgid "Click the mouse on rectangles until all the blocks disappear."
+msgstr "用滑鼠在長方形上按一下，直到所有的區塊都消失。"
+
+#: ../src/erase_clic-activity/erase_clic.xml.in.h:4
+msgid "Click the mouse to erase the area and discover the background"
+msgstr "按一下滑鼠來擦去這個區域，並顯示出背景"
 
 #: ../src/fifteen-activity/fifteen.xml.in.h:1
 msgid ""
@@ -2495,7 +2654,7 @@ msgstr ""
 msgid "Tux needs to water the flowers, but the hose is blocked."
 msgstr "小企鵝需要去澆花，但是水管阻塞了。"
 
-#: ../src/gcompris/about.c:50
+#: ../src/gcompris/about.c:48
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge, Yves Combe\n"
@@ -2510,53 +2669,53 @@ msgstr ""
 "背景音樂: Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:58
+#: ../src/gcompris/about.c:56
 msgid "translator_credits"
 msgstr ""
 "Tryneeds 翻譯團隊 http://tryneeds.westart.tw/tryneeds\n"
 "趙惟倫 <william.chao@ossii.com.tw>, 2005"
 
-#: ../src/gcompris/about.c:85
+#: ../src/gcompris/about.c:82
 msgid "About GCompris"
 msgstr "關於 GCompris"
 
-#: ../src/gcompris/about.c:95
+#: ../src/gcompris/about.c:92
 msgid "GCompris Home Page: http://gcompris.net"
 msgstr "GCompris 首頁：http://gcompris.net"
 
-#: ../src/gcompris/about.c:106
+#: ../src/gcompris/about.c:103
 msgid "Translators:"
 msgstr "翻譯者："
 
-#: ../src/gcompris/about.c:206
+#: ../src/gcompris/about.c:208
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
 msgstr "這個軟體是個 GNU 套件，並且根據 GNU 一般公共授權來釋出"
 
-#: ../src/gcompris/about.c:220 ../src/gcompris/config.c:446
-#: ../src/gcompris/dialog.c:103 ../src/gcompris/help.c:359
-#: ../src/gcompris/images_selector.c:307
+#: ../src/gcompris/about.c:222 ../src/gcompris/config.c:439
+#: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:355
+#: ../src/gcompris/images_selector.c:306
 msgid "OK"
 msgstr "確定"
 
-#: ../src/gcompris/bar.c:688
+#: ../src/gcompris/bar.c:684
 msgid "GCompris confirmation"
 msgstr "GCompris 確認"
 
-#: ../src/gcompris/bar.c:689
+#: ../src/gcompris/bar.c:685
 msgid "Are you sure you want to quit?"
 msgstr "是否確定要結束？"
 
-#: ../src/gcompris/bar.c:690
+#: ../src/gcompris/bar.c:686
 msgid "Yes, I am sure!"
 msgstr "是，我確定！"
 
-#: ../src/gcompris/bar.c:691
+#: ../src/gcompris/bar.c:687
 msgid "No, I want to keep going"
 msgstr "不，我要繼續"
 
-#: ../src/gcompris/board.c:197
+#: ../src/gcompris/board.c:155
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr "不支援動態模組載入。無法載入 GCompris。\n"
 
@@ -2613,226 +2772,231 @@ msgstr "選擇階段"
 msgid "Back to default"
 msgstr "回到預設值"
 
-#: ../src/gcompris/config.c:59
+#: ../src/gcompris/config.c:58
 msgid "Your system default"
 msgstr "系統預設值"
 
-#: ../src/gcompris/config.c:60
+#: ../src/gcompris/config.c:59
 msgid "Afrikaans"
 msgstr "南非荷蘭語"
 
-#: ../src/gcompris/config.c:61
+#: ../src/gcompris/config.c:60
 msgid "Amharic"
 msgstr "阿姆哈拉文"
 
-#: ../src/gcompris/config.c:62
+#: ../src/gcompris/config.c:61
 msgid "Arabic"
 msgstr "阿拉伯文"
 
-#: ../src/gcompris/config.c:63
+#: ../src/gcompris/config.c:62
 msgid "Asturian"
 msgstr "阿斯圖里亞斯文"
 
-#: ../src/gcompris/config.c:64
+#: ../src/gcompris/config.c:63
 msgid "Turkish (Azerbaijan)"
 msgstr "土耳其文(亞塞拜然)"
 
-#: ../src/gcompris/config.c:65
+#: ../src/gcompris/config.c:64
 msgid "Bulgarian"
 msgstr "保加利亞文"
 
-#: ../src/gcompris/config.c:66
+#: ../src/gcompris/config.c:65
 msgid "Breton"
 msgstr "布列塔尼語"
 
-#: ../src/gcompris/config.c:67
+#: ../src/gcompris/config.c:66
 msgid "Catalan"
 msgstr "加泰隆文"
 
-#: ../src/gcompris/config.c:68
+#: ../src/gcompris/config.c:67
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:7
 msgid "Czech Republic"
 msgstr "捷克共和國"
 
-#: ../src/gcompris/config.c:69
+#: ../src/gcompris/config.c:68
 msgid "Danish"
 msgstr "丹麥文"
 
-#: ../src/gcompris/config.c:70
+#: ../src/gcompris/config.c:69
 msgid "German"
 msgstr "德文"
 
-#: ../src/gcompris/config.c:71
+#: ../src/gcompris/config.c:70
 msgid "Dzongkha"
 msgstr "Dzongkha"
 
-#: ../src/gcompris/config.c:72
+#: ../src/gcompris/config.c:71
 msgid "Greek"
 msgstr "希臘文"
 
-#: ../src/gcompris/config.c:73
+#: ../src/gcompris/config.c:72
 msgid "English (Canada)"
 msgstr "英文(加拿大)"
 
-#: ../src/gcompris/config.c:74
+#: ../src/gcompris/config.c:73
 msgid "English (Great Britain)"
 msgstr "英文(英國)"
 
-#: ../src/gcompris/config.c:75
+#: ../src/gcompris/config.c:74
 msgid "English (United States)"
 msgstr "英文（美國）"
 
-#: ../src/gcompris/config.c:76
+#: ../src/gcompris/config.c:75
 msgid "Spanish"
 msgstr "西班牙文"
 
-#: ../src/gcompris/config.c:77
+#: ../src/gcompris/config.c:76
 msgid "Basque"
 msgstr "巴斯克語"
 
-#: ../src/gcompris/config.c:78
+#: ../src/gcompris/config.c:77
 msgid "Persian"
 msgstr "波斯文"
 
-#: ../src/gcompris/config.c:79
+#: ../src/gcompris/config.c:78
 msgid "Finnish"
 msgstr "芬蘭文"
 
-#: ../src/gcompris/config.c:80
+#: ../src/gcompris/config.c:79
 msgid "French"
 msgstr "法文"
 
-#: ../src/gcompris/config.c:81
+#: ../src/gcompris/config.c:80
 msgid "Irish (Gaelic)"
 msgstr "愛爾蘭文(蓋爾)"
 
-#: ../src/gcompris/config.c:82
+#: ../src/gcompris/config.c:81
 msgid "Gujarati"
 msgstr "古吉拉特文(印度)"
 
-#: ../src/gcompris/config.c:83
+#: ../src/gcompris/config.c:82
 msgid "Hebrew"
 msgstr "希伯來文"
 
-#: ../src/gcompris/config.c:84
+#: ../src/gcompris/config.c:83
 msgid "Hindi"
 msgstr "北印度文"
 
-#: ../src/gcompris/config.c:85
+#: ../src/gcompris/config.c:84
 msgid "Croatian"
 msgstr "克羅地亞語"
 
-#: ../src/gcompris/config.c:86
+#: ../src/gcompris/config.c:85
 msgid "Hungarian"
 msgstr "匈牙利文"
 
-#: ../src/gcompris/config.c:87
+#: ../src/gcompris/config.c:86
 msgid "Indonesian"
 msgstr "印尼文"
 
-#: ../src/gcompris/config.c:88
+#: ../src/gcompris/config.c:87
 msgid "Italian"
 msgstr "意大利文"
 
-#: ../src/gcompris/config.c:89
+#: ../src/gcompris/config.c:88
 msgid "Japanese"
 msgstr "日文"
 
-#: ../src/gcompris/config.c:90
+#: ../src/gcompris/config.c:89
 msgid "Georgian"
 msgstr "喬吉亞文"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:90
 msgid "Korean"
 msgstr "韓文"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:91
 msgid "Lithuanian"
 msgstr "立陶宛文"
 
-#: ../src/gcompris/config.c:93
+#: ../src/gcompris/config.c:92
 msgid "Macedonian"
 msgstr "馬其頓文"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:93
 msgid "Malayalam"
 msgstr "(印度)馬來雅拉姆文字"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:94
 msgid "Marathi"
 msgstr "馬拉地語"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:95
 msgid "Malay"
 msgstr "馬來文"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:96
 msgid "Norwegian Bokmal"
 msgstr "挪威文(巴克摩)"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:97
 msgid "Nepal"
 msgstr "尼泊爾"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:98
 msgid "Dutch"
 msgstr "荷蘭文"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:99
 msgid "Norwegian Nynorsk"
 msgstr "挪威文(新挪威)"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:100
 msgid "Occitan (languedocien)"
 msgstr "奧克語 (languedocien)"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:101
 msgid "Punjabi"
 msgstr "旁遮普語"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:102
 msgid "Polish"
 msgstr "波蘭文"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:103
 msgid "Portuguese (Brazil)"
 msgstr "葡萄牙文(巴西)"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:104
 msgid "Portuguese"
 msgstr "葡萄牙文"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:105
 msgid "Romanian"
 msgstr "羅馬尼亞文"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:106
 msgid "Russian"
 msgstr "俄文"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:107
 msgid "Kinyarwanda"
 msgstr "金亞盧安達文"
 
-#: ../src/gcompris/config.c:109
+#: ../src/gcompris/config.c:108
 msgid "Slovak"
 msgstr "斯洛伐克文"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:109
 msgid "Slovenian"
 msgstr "斯洛維尼亞文"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:110
 msgid "Somali"
 msgstr "索馬利語"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:111
 msgid "Albanian"
 msgstr "阿爾巴尼亞文"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:112
 msgid "Serbian (Latin)"
 msgstr "塞爾維亞文(拉丁)"
+
+#: ../src/gcompris/config.c:113
+#, fuzzy
+msgid "Montenegrin"
+msgstr "塞爾維亞及芒特尼格羅"
 
 #: ../src/gcompris/config.c:114
 msgid "Serbian"
@@ -2902,50 +3066,50 @@ msgstr "使用 Gcompris 管理模組來過濾園地"
 msgid "GCompris Configuration"
 msgstr "GCompris 設定"
 
-#: ../src/gcompris/config.c:258
+#: ../src/gcompris/config.c:254
 msgid "Fullscreen"
 msgstr "全螢幕"
 
-#: ../src/gcompris/config.c:284
+#: ../src/gcompris/config.c:279
 msgid "Music"
 msgstr "音樂"
 
-#: ../src/gcompris/config.c:310
+#: ../src/gcompris/config.c:304
 msgid "Effect"
 msgstr "效果"
 
-#: ../src/gcompris/config.c:335 ../src/gcompris/sugar.c:82
+#: ../src/gcompris/config.c:328 ../src/gcompris/sugar.c:82
 msgid "Zoom"
 msgstr "縮放"
 
-#: ../src/gcompris/config.c:372
+#: ../src/gcompris/config.c:365
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "無法開啟外觀目錄: %s"
 
-#: ../src/gcompris/config.c:403 ../src/gcompris/config.c:810
-#: ../src/gcompris/config.c:824
+#: ../src/gcompris/config.c:396 ../src/gcompris/config.c:754
+#: ../src/gcompris/config.c:768
 #, c-format
 msgid "Skin : %s"
 msgstr "外觀：%s"
 
-#: ../src/gcompris/config.c:405
+#: ../src/gcompris/config.c:398
 msgid "SKINS NOT FOUND"
 msgstr "找不到外觀"
 
-#: ../src/gcompris/config.c:486
+#: ../src/gcompris/config.c:479
 msgid "English (United State)"
 msgstr "英文（美國）"
 
-#: ../src/gcompris/file_selector.c:254
+#: ../src/gcompris/file_selector.c:251
 msgid "CANCEL"
 msgstr "取消"
 
-#: ../src/gcompris/file_selector.c:262
+#: ../src/gcompris/file_selector.c:259
 msgid "LOAD"
 msgstr "載入"
 
-#: ../src/gcompris/file_selector.c:262
+#: ../src/gcompris/file_selector.c:259
 msgid "SAVE"
 msgstr "儲存"
 
@@ -2965,39 +3129,43 @@ msgstr ""
 "離開它並且回報\n"
 "問題給作者。"
 
-#: ../src/gcompris/gcompris.c:156
+#: ../src/gcompris/gcompris.c:158
 msgid "run GCompris in fullscreen mode."
 msgstr "以全螢幕模式執行 GCompris。"
 
-#: ../src/gcompris/gcompris.c:159
+#: ../src/gcompris/gcompris.c:161
 msgid "run GCompris in window mode."
 msgstr "以視窗模式執行 GCompris。"
 
-#: ../src/gcompris/gcompris.c:162
+#: ../src/gcompris/gcompris.c:164
 msgid "run GCompris with sound enabled."
 msgstr "執行 GCompris 時啟用音效。"
 
-#: ../src/gcompris/gcompris.c:165
+#: ../src/gcompris/gcompris.c:167
 msgid "run GCompris without sound."
 msgstr "執行靜音模式的 GCompris。"
 
-#: ../src/gcompris/gcompris.c:168
-msgid "run GCompris with the default gnome cursor."
-msgstr "執行 GCompris 時使用預設的 gnome 游標。"
+#: ../src/gcompris/gcompris.c:170
+msgid "run GCompris with the default system cursor."
+msgstr "執行 GCompris 時使用預設的系統游標。"
 
-#: ../src/gcompris/gcompris.c:171
+#: ../src/gcompris/gcompris.c:173
+msgid "run GCompris without cursor (touch screen mode)."
+msgstr "執行 GCompris 不使用游標（觸控螢幕模式）。"
+
+#: ../src/gcompris/gcompris.c:176
 msgid "display only activities with this difficulty level."
 msgstr "只顯示具有難度階段的遊戲。"
 
-#: ../src/gcompris/gcompris.c:174
+#: ../src/gcompris/gcompris.c:179
 msgid "display debug informations on the console."
 msgstr "在主控台上顯示除錯資訊。"
 
-#: ../src/gcompris/gcompris.c:177
+#: ../src/gcompris/gcompris.c:182
 msgid "Print the version of "
 msgstr "印出版本資訊"
 
-#: ../src/gcompris/gcompris.c:180
+#: ../src/gcompris/gcompris.c:185
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
@@ -3008,87 +3176,92 @@ msgstr ""
 "戲，-l /strategy/connect4 將會只允許與連接四有關的遊戲。)使用「-l list」可以"
 "列出所有可玩的遊戲和它們的相關描述。"
 
-#: ../src/gcompris/gcompris.c:185
+#: ../src/gcompris/gcompris.c:190
 msgid "GCompris will find the data dir in this directory"
 msgstr "GCompris 會在這個目錄中尋找資料目錄"
 
-#: ../src/gcompris/gcompris.c:188
+#: ../src/gcompris/gcompris.c:193
 msgid "GCompris will find the skins in this directory"
 msgstr "GCompris 會在這個目錄尋找外觀"
 
-#: ../src/gcompris/gcompris.c:191
+#: ../src/gcompris/gcompris.c:196
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "GCompris 會在這個目錄中尋找遊戲外掛程式"
 
-#: ../src/gcompris/gcompris.c:194
+#: ../src/gcompris/gcompris.c:199
 msgid "GCompris will find the python activity in this directory"
 msgstr "GCompris 會尋找在這個目錄中的 python 遊戲"
 
-#: ../src/gcompris/gcompris.c:197
+#: ../src/gcompris/gcompris.c:202
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr "GCompris 會在這個目錄中尋找地區語言檔（.mo 翻譯）"
 
-#: ../src/gcompris/gcompris.c:200
+#: ../src/gcompris/gcompris.c:205
 msgid "GCompris will find the activities menu in this directory"
 msgstr "GCompris 會在這個目錄中尋找遊戲選單"
 
-#: ../src/gcompris/gcompris.c:203
+#: ../src/gcompris/gcompris.c:208
 msgid "Run GCompris in administration and user-management mode"
 msgstr "以系統與使用者管理模式來執行 GCompris。"
 
-#: ../src/gcompris/gcompris.c:206
+#: ../src/gcompris/gcompris.c:211
 msgid ""
 "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
 msgstr ""
 "使用另外的資料庫來處理簡介檔案 [$HOME/.config/gcompris/gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:209
+#: ../src/gcompris/gcompris.c:214
 msgid "Create the alternate database for profiles"
 msgstr "建立另外的資料庫來處理簡介檔案"
 
-#: ../src/gcompris/gcompris.c:212
+#: ../src/gcompris/gcompris.c:217
 msgid "Re-read XML Menus and store them in the database"
 msgstr "重新讀取 XML 選單並且將它們儲存到資料庫之中"
 
-#: ../src/gcompris/gcompris.c:215
+#: ../src/gcompris/gcompris.c:220
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "設定要使用的簡介檔案。利用「gcompris -a」來建立簡介檔案"
 
-#: ../src/gcompris/gcompris.c:218
+#: ../src/gcompris/gcompris.c:223
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr "列出所有可用的簡介檔案。利用「gcompris -a」來建立簡介檔案"
 
-#: ../src/gcompris/gcompris.c:221
+#: ../src/gcompris/gcompris.c:226
 msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
 msgstr ""
 "設定目錄位置：[$HOME/.config/gcompris]。替代的方式是設定 $XDG_CONFIG_HOME。"
 
-#: ../src/gcompris/gcompris.c:224
+#: ../src/gcompris/gcompris.c:229
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "使用者目錄的位置：[$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:227
+#: ../src/gcompris/gcompris.c:232
 msgid "Run the experimental activities"
 msgstr "執行實驗遊戲"
 
-#: ../src/gcompris/gcompris.c:230
+#: ../src/gcompris/gcompris.c:235
 msgid "Disable the quit button"
 msgstr "停用結束按鈕"
 
-#: ../src/gcompris/gcompris.c:233
+#: ../src/gcompris/gcompris.c:238
 msgid "Disable the config button"
 msgstr "停用設定按鈕"
 
-#: ../src/gcompris/gcompris.c:236
+#: ../src/gcompris/gcompris.c:241
+#, fuzzy
+msgid "Disable the level button"
+msgstr "停用結束按鈕"
+
+#: ../src/gcompris/gcompris.c:244
 msgid ""
 "GCompris will get images, sounds and activity data from this server if not "
 "found locally."
 msgstr "Gompris 會在無法從本地端取得時由這個伺服器下載圖片、聲音和遊戲資料。"
 
-#: ../src/gcompris/gcompris.c:239
+#: ../src/gcompris/gcompris.c:247
 msgid ""
 "Only when --server is provided, disable check for local resource first. Data "
 "are always taken from the web server."
@@ -3096,21 +3269,21 @@ msgstr ""
 "只有在使用 --server 的時候，會先停用檢查本地端資源。資料將從網頁伺服器中取"
 "得。"
 
-#: ../src/gcompris/gcompris.c:243
+#: ../src/gcompris/gcompris.c:251
 msgid ""
 "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr "在伺服器模式中，指定快取目錄可以避免無用的下載。"
 
-#: ../src/gcompris/gcompris.c:246
+#: ../src/gcompris/gcompris.c:254
 msgid ""
 "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr "全域拖放模式：一般、按兩下、兩者。預設模式為一般。"
 
-#: ../src/gcompris/gcompris.c:249
+#: ../src/gcompris/gcompris.c:257
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "不避免執行多個 GCompris 實體。"
 
-#: ../src/gcompris/gcompris.c:890
+#: ../src/gcompris/gcompris.c:929
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -3129,18 +3302,23 @@ msgstr ""
 "Linux。需要更多資訊請至 FSF：\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1429
+#: ../src/gcompris/gcompris.c:1223
+#, c-format
+msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
+msgstr "無法載入外框「%s」（請檢查檔案是否存在及是否可讀取）"
+
+#: ../src/gcompris/gcompris.c:1486
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
 msgstr "將不啟動 GCompris，因為鎖定檔案的時間還沒超過 %d 秒。\n"
 
-#: ../src/gcompris/gcompris.c:1431
+#: ../src/gcompris/gcompris.c:1488
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "鎖定檔案為：%s\n"
 
-#: ../src/gcompris/gcompris.c:1545
+#: ../src/gcompris/gcompris.c:1599
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3154,34 +3332,34 @@ msgstr ""
 "更多的資訊在 http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1648
+#: ../src/gcompris/gcompris.c:1714
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "利用 -l 來直接存取遊戲。\n"
 
-#: ../src/gcompris/gcompris.c:1649
+#: ../src/gcompris/gcompris.c:1715
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "可用的遊戲列表是：\n"
 
-#: ../src/gcompris/gcompris.c:1680
+#: ../src/gcompris/gcompris.c:1746
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "遊戲的數目：%d\n"
 
-#: ../src/gcompris/gcompris.c:1716
+#: ../src/gcompris/gcompris.c:1782
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s 存在，但是無法讀取或寫入"
 
-#: ../src/gcompris/gcompris.c:1779
+#: ../src/gcompris/gcompris.c:1845
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
 "without network support!"
 msgstr "不能使用 --server 選項，因為 GCompris 沒有編譯網路支援的功能！"
 
-#: ../src/gcompris/gcompris.c:1833
+#: ../src/gcompris/gcompris.c:1899
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3189,7 +3367,7 @@ msgid ""
 msgstr ""
 "錯誤：找不到簡介檔案「%s」。執行「gcompris --profile-list」來列出可用的\n"
 
-#: ../src/gcompris/gcompris.c:1847
+#: ../src/gcompris/gcompris.c:1913
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "可用的簡介檔案列表是：\n"
@@ -3202,7 +3380,7 @@ msgstr "沒有影響"
 msgid "Users without a class"
 msgstr "沒設定班級的使用者"
 
-#: ../src/gcompris/gcompris_db.c:893
+#: ../src/gcompris/gcompris_db.c:889
 #, c-format
 msgid ""
 "Loading activity from database:\n"
@@ -3211,23 +3389,23 @@ msgstr ""
 "正在從資料庫中載入遊戲：\n"
 "%s"
 
-#: ../src/gcompris/help.c:181
+#: ../src/gcompris/help.c:180
 msgid "Prerequisite"
 msgstr "前提"
 
-#: ../src/gcompris/help.c:212
+#: ../src/gcompris/help.c:210
 msgid "Goal"
 msgstr "目標"
 
-#: ../src/gcompris/help.c:243
+#: ../src/gcompris/help.c:240
 msgid "Manual"
 msgstr "說明"
 
-#: ../src/gcompris/help.c:274
+#: ../src/gcompris/help.c:270
 msgid "Credit"
 msgstr "鳴謝"
 
-#: ../src/gcompris/menu.c:583
+#: ../src/gcompris/menu.c:582
 #, c-format
 msgid ""
 "Loading activity from file:\n"
@@ -3236,17 +3414,13 @@ msgstr ""
 "正在從檔案中載入遊戲：\n"
 "%s"
 
-#: ../src/gcompris/properties.c:497 ../src/gcompris/properties.c:504
-msgid "readme"
-msgstr "讀我檔案"
-
-#: ../src/gcompris/properties.c:499
+#: ../src/gcompris/properties.c:506
 msgid ""
 "This directory contains the files you create with the GCompris educational "
 "suite\n"
 msgstr "這個目錄包含你以 GCompris 教育套裝軟體建立的檔案\n"
 
-#: ../src/gcompris/properties.c:506
+#: ../src/gcompris/properties.c:513
 msgid ""
 "Put any number of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
@@ -3289,11 +3463,11 @@ msgstr "返回"
 msgid "Stop"
 msgstr "停止"
 
-#: ../src/gcompris/timer.c:244
+#: ../src/gcompris/timer.c:245
 msgid "Time Elapsed"
 msgstr "經過時間"
 
-#: ../src/gcompris/timer.c:322
+#: ../src/gcompris/timer.c:323
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "剩餘時間 = %d"
@@ -3929,13 +4103,13 @@ msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 #. we can add what you want in it.
 #: ../src/gletters-activity/gletters.c:850
 #: ../src/imageid-activity/imageid.c:712 ../src/login-activity/login.py:479
-#: ../src/missing_letter-activity/missingletter.c:748
+#: ../src/missing_letter-activity/missingletter.c:784
 #: ../src/pythontest-activity/pythontest.py:454
-#: ../src/readingh-activity/reading.c:878
-#: ../src/scalesboard-activity/scale.c:1161
+#: ../src/readingh-activity/reading.c:904
+#: ../src/scalesboard-activity/scale.c:1160
 #: ../src/smallnumbers-activity/smallnumbers.c:595
 #: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:827
+#: ../src/wordsgame-activity/wordsgame.c:864
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -4257,6 +4431,49 @@ msgstr ""
 "的距離代表著你距離正確的數字有多遠。如果小企鵝是在脫離區域的上方或下方，那就"
 "表示你的數字是高於或低於正確的數字。"
 
+#. All the vowel of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:61
+msgid "aeiouy"
+msgstr "aeiouy"
+
+#. All the consonants of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:63
+msgid "bcdfghjklmnpqrstvwxz"
+msgstr "bcdfghjklmnpqrstvwxz"
+
+#. Letters equivallence for the hangman activity. It has the
+#. form of a space separated list like: "e=éè a=àâ"
+#. Keep the word NONE if not available in your language
+#: ../src/hangman-activity/hangman.py:67
+msgid "NONE"
+msgstr "無"
+
+#: ../src/hangman-activity/hangman.py:104
+msgid "Could not find the list of words."
+msgstr "找不到字詞清單。"
+
+#: ../src/hangman-activity/hangman.xml.in.h:1
+msgid "A word is hidden, you must discover it letter by letter"
+msgstr "字被隱藏，您必須個別搜尋"
+
+#: ../src/hangman-activity/hangman.xml.in.h:2
+msgid "Reading skill"
+msgstr "閱讀技巧"
+
+#: ../src/hangman-activity/hangman.xml.in.h:3
+msgid "The classic hangman game"
+msgstr "典型的吊人（hangman）遊戲"
+
+#: ../src/hangman-activity/hangman.xml.in.h:4
+msgid "This is a good exercise to improve reading and spelling skills."
+msgstr "這是一個可以提升閱讀和拼字能力的好活動"
+
+#: ../src/hangman-activity/hangman.xml.in.h:5
+msgid ""
+"You can enter the letters using the virtual keyboard on the screen or with "
+"the real keyboard."
+msgstr "您可以用螢幕上的模擬鍵盤或真實的鍵盤輸入字母"
+
 #: ../src/hanoi-activity/hanoi.c:112 ../src/hanoi-activity/hanoi.xml.in.h:6
 msgid "Simplified Tower of Hanoi"
 msgstr "簡化的河內塔"
@@ -4353,18 +4570,132 @@ msgstr "試著在藍色田地下面找出草莓。當你接近草莓時，田地
 msgid "hexagon"
 msgstr "六角形"
 
+#: ../src/hydroelectric-activity/hydroelectric.py:88
+#: ../src/watercycle-activity/watercycle.py:107
+msgid ""
+"The sun heats the water and creates water vapor. Water vapor combines into "
+"small water droplets which becomes clouds."
+msgstr "太陽加熱水而變成水蒸氣。水蒸氣結合為小水滴而形成雲。"
+
+#: ../src/hydroelectric-activity/hydroelectric.py:126
+#: ../src/watercycle-activity/watercycle.py:144
+msgid ""
+"As a cloud matures, the dense water droplets may combine to produce larger "
+"droplets, which may combine to form droplets large enough to fall as rain"
+msgstr ""
+"當雲成熟後，密集的水滴合互相結合產生更大的水滴，最後形成的小滴就合下降而成為"
+"雨"
+
+#: ../src/hydroelectric-activity/hydroelectric.py:169
+msgid "This is the meter for electricity produced by the turbine. "
+msgstr ""
+
+#: ../src/hydroelectric-activity/hydroelectric.py:170
+#: ../src/hydroelectric-activity/hydroelectric.py:282
+#: ../src/hydroelectric-activity/hydroelectric.py:289
+#: ../src/hydroelectric-activity/hydroelectric.py:319
+#: ../src/hydroelectric-activity/hydroelectric.py:341
+msgid "The electricity power is measured in Watt (W)."
+msgstr "電力是以瓦特 (W) 計算的。"
+
+#: ../src/hydroelectric-activity/hydroelectric.py:175
+msgid ""
+"Flowing water is directed on to the blades of a turbine runner, creating a "
+"force on the blades. In this way, energy is transferred from the water flow "
+"to the turbine"
+msgstr ""
+
+#: ../src/hydroelectric-activity/hydroelectric.py:189
+msgid "This cloud simulates the wind, click on it to have wind."
+msgstr "這朵雲模擬風，按一下它就會有風。"
+
+#: ../src/hydroelectric-activity/hydroelectric.py:227
+msgid ""
+"This is a step down transformer. Electricity is transformed in low voltage, "
+"ready to be used by the customers."
+msgstr "這是降壓變壓器。電力會被降壓成低壓電，以便客戶使用。"
+
+#: ../src/hydroelectric-activity/hydroelectric.py:281
+msgid "This is the meter for all the electricity produced. "
+msgstr ""
+
+#: ../src/hydroelectric-activity/hydroelectric.py:288
+msgid "This is the meter for electricity consumed by the users. "
+msgstr ""
+
+#: ../src/hydroelectric-activity/hydroelectric.py:318
+msgid "This is the meter for electricity produced by the solar panels. "
+msgstr ""
+
+#: ../src/hydroelectric-activity/hydroelectric.py:324
+msgid ""
+"Solar panels use light energy (photons) from the sun to generate electricity "
+"through the photovoltaic effect."
+msgstr ""
+
+#: ../src/hydroelectric-activity/hydroelectric.py:340
+msgid "This is the meter for electricity produced by the wind turbines. "
+msgstr ""
+
+#: ../src/hydroelectric-activity/hydroelectric.py:346
+msgid ""
+"A wind turbine is a device that converts wind motion energy into electricity "
+"generation. It is called a wind generator or wind charger. "
+msgstr ""
+
+#: ../src/hydroelectric-activity/hydroelectric.py:732
+msgid ""
+"It is not possible to consume more electricity than what is produced. This "
+"is a key limitation in the distribution of electricity, with minor "
+"exceptions, electrical energy cannot be stored, and therefore it must be "
+"generated as it is needed. A sophisticated system of control is therefore "
+"required to ensure electric generation very closely matches the demand. If "
+"supply and demand are not in balance, generation plants and transmission "
+"equipment can shut down which, in the worst cases, can lead to a major "
+"regional blackout."
+msgstr ""
+
+#: ../src/hydroelectric-activity/hydroelectric.py:946
+msgid ""
+"This is a step up transformer. Electricity is transmitted at high voltages "
+"(110 kV or above) to reduce the energy lost in long distance transmission."
+msgstr ""
+"這是升壓變電所。電力以高壓（110 kV 以上）傳輸以減少在長距離傳輸時損失的電力。"
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:1
+#, fuzzy
+msgid ""
+"Click on different active elements : sun, cloud, dam, solar array, wind farm "
+"and transformers, in order to reactivate the entire electrical system. When "
+"the system is back up and Tux is in his home, push the light button for him. "
+"To win you must switch on all the consumers while all the producers are up."
+msgstr ""
+"在不同的動作元素上按一下：太陽﹑雲﹑抽水站和淨水站，為了要重新啟動整個水系"
+"統。當這個系統回復而且小企鵝進入淋浴間之後，幫他壓一下淋浴按鈕。"
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:3
+msgid "Learn about an electrical system based on renewable energy"
+msgstr ""
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:4
+msgid ""
+"Tux has come back from a long fishing party on his boat. Bring the "
+"electrical system back up so he can have light in his home."
+msgstr ""
+"小企鵝已經從一個長時間的船上捕漁派對回來。請回復電力系統，好讓他的家亮起來。"
+
 #: ../src/imageid-activity/imageid.c:94
 #: ../src/imageid-activity/imageid.xml.in.h:3
 #: ../src/imagename-activity/imagename.xml.in.h:4
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:1
-#: ../src/missing_letter-activity/missingletter.c:83
+#: ../src/missing_letter-activity/missingletter.c:84
 #: ../src/readingh-activity/readingh.xml.in.h:4
 #: ../src/readingv-activity/readingv.xml.in.h:4
 msgid "Reading"
 msgstr "閱讀"
 
 #: ../src/imageid-activity/imageid.c:95
-#: ../src/missing_letter-activity/missingletter.c:84
+#: ../src/missing_letter-activity/missingletter.c:85
 msgid "Learn how to read"
 msgstr "學習如何閱讀"
 
@@ -4375,7 +4706,7 @@ msgid ""
 msgstr "這個階段的資料檔案沒有正確的格式化。建議了太多選項。"
 
 #: ../src/imageid-activity/imageid.c:534
-#: ../src/missing_letter-activity/missingletter.c:568
+#: ../src/missing_letter-activity/missingletter.c:592
 msgid "Data file for this level is not properly formatted."
 msgstr "這個階段的資料檔案沒有正確的格式化。"
 
@@ -4739,9 +5070,10 @@ msgid "GCompris login screen"
 msgstr "GCompris 登入畫面"
 
 #: ../src/login-activity/login.xml.in.h:3
+#, fuzzy
 msgid ""
-"In order to activate the login screen, you must \n"
-"first add users in the administration part of GCompris. \n"
+"In order to activate the login screen, you must\n"
+"first add users in the administration part of GCompris.\n"
 "You access Administration by running 'gcompris -a'.\n"
 "In Administration, you can create different profiles. In each profile,\n"
 "you can have a different set of users and select which activities are "
@@ -4825,13 +5157,13 @@ msgstr "迷宮"
 msgid "Find your way out of the maze"
 msgstr "找出離開迷宮的路"
 
-#: ../src/maze-activity/maze.c:500
+#: ../src/maze-activity/maze.c:599
 msgid ""
 "Look at your position, then switch back to invisible mode to continue your "
 "moves"
 msgstr "看清楚你的位置，然後切換回看不見的模式來繼續移動"
 
-#: ../src/maze-activity/maze.c:502
+#: ../src/maze-activity/maze.c:601
 msgid ""
 "Look at your position, then switch back to 3D mode to continue your moves"
 msgstr "看清楚你的位置，然後切換回 3D 模式來繼續移動"
@@ -5405,43 +5737,97 @@ msgstr "訓練閱讀能力"
 msgid "Word reading"
 msgstr "單字閱讀"
 
+#: ../src/missing_letter-activity/missingletter_config.c:77
+msgid "Please select an image."
+msgstr "請選擇一張圖片。"
+
+#: ../src/missing_letter-activity/missingletter_config.c:83
+msgid "Choice cannot be empty."
+msgstr "選項不能為空白。"
+
+#: ../src/missing_letter-activity/missingletter_config.c:89
+msgid "Question cannot be empty."
+msgstr "問題不能為空白。"
+
+#: ../src/missing_letter-activity/missingletter_config.c:95
+msgid ""
+"Question must include the character '_'. It represents the letter to search."
+msgstr "問題必須包含字元 '_'。它代表要搜尋的字母。"
+
+#: ../src/missing_letter-activity/missingletter_config.c:102
+msgid "Pixmap cannot be empty"
+msgstr ""
+
+#: ../src/missing_letter-activity/missingletter_config.c:108
+msgid "There must be at least 2 choices."
+msgstr "最少要有 2 個選項。"
+
+#: ../src/missing_letter-activity/missingletter_config.c:116
+msgid "The answer and question must be the same except for the character '_'."
+msgstr "答案與問題必須相同，除了加上字元 '_'。"
+
+#: ../src/missing_letter-activity/missingletter_config.c:125
+msgid "The first choice must be the solution that replaces the character '_'."
+msgstr "做為解答的第一個選項必須以字元 '_' 取代。"
+
+#: ../src/missing_letter-activity/missingletter_config.c:140
+#, c-format
+msgid ""
+"Invalid entry:\n"
+"Question '%s' / Answer '%s'\n"
+"%s"
+msgstr ""
+"無效的項目：\n"
+"問題「%s」/ 答案「%s」\n"
+"%s"
+
 #. pixmap
-#: ../src/missing_letter-activity/missingletter_config.c:384
-#: ../src/missing_letter-activity/missingletter_config.c:534
+#: ../src/missing_letter-activity/missingletter_config.c:414
+#: ../src/missing_letter-activity/missingletter_config.c:557
 msgid "Picture"
 msgstr "照片"
 
 #. answer
-#: ../src/missing_letter-activity/missingletter_config.c:390
-#: ../src/missing_letter-activity/missingletter_config.c:525
+#: ../src/missing_letter-activity/missingletter_config.c:420
+#: ../src/missing_letter-activity/missingletter_config.c:548
 msgid "Answer"
 msgstr "答案"
 
 #. question
-#: ../src/missing_letter-activity/missingletter_config.c:396
-#: ../src/missing_letter-activity/missingletter_config.c:548
+#: ../src/missing_letter-activity/missingletter_config.c:426
+#: ../src/missing_letter-activity/missingletter_config.c:571
 msgid "Question"
 msgstr "問題"
 
 #. choice
-#: ../src/missing_letter-activity/missingletter_config.c:402
-#: ../src/missing_letter-activity/missingletter_config.c:557
+#: ../src/missing_letter-activity/missingletter_config.c:432
+#: ../src/missing_letter-activity/missingletter_config.c:583
 msgid "Choice"
 msgstr "選擇"
 
 #. combo level
-#: ../src/missing_letter-activity/missingletter_config.c:440
+#: ../src/missing_letter-activity/missingletter_config.c:470
 msgid "Level:"
 msgstr "階段："
 
-#: ../src/missing_letter-activity/missingletter_config.c:448
+#: ../src/missing_letter-activity/missingletter_config.c:478
 #, c-format
 msgid "Level %d"
 msgstr "階段 %d"
 
-#: ../src/missing_letter-activity/missingletter_config.c:538
+#: ../src/missing_letter-activity/missingletter_config.c:561
 msgid "Filename:"
 msgstr "檔案名稱："
+
+#: ../src/missing_letter-activity/missingletter_config.c:579
+msgid "Replace the letter to guess by the character '_'."
+msgstr "將要猜的字母以字元 '_' 取代。"
+
+#: ../src/missing_letter-activity/missingletter_config.c:591
+msgid ""
+"Enter here the letter that will be proposed. The first letter here must be "
+"the solution."
+msgstr "在這裡輸入的字母會被使用。這裡的第一個字母必須是答案。"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:1
 msgid "car/c_r/a/k/o"
@@ -5588,22 +5974,37 @@ msgid "satchel/sa_chel/t/p/c/z/s/l"
 msgstr "satchel/sa_chel/t/p/c/z/s/l"
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
-#: ../src/money-activity/money.c:496
+#: ../src/money-activity/money.c:795
 #, c-format
 msgid "$ %.2f"
 msgstr "$ %.2f"
 
-#: ../src/money-activity/money.c:509
+#. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
+#: ../src/money-activity/money.c:809
 #, c-format
 msgid "$ %.0f"
 msgstr "$ %.0f"
 
+#. Set here the way to display money. Change only the money sign, and it's place, always keep %d
+#: ../src/money-activity/money.c:932
+#, c-format
+msgid ""
+"Tux just bought some items in your shop.\n"
+"He gives you $ %d, please give back his change."
+msgstr ""
+"小企鵝剛剛在你的店裡買了一些東西。\n"
+"他付給你 %d 錢，請找錢給他。"
+
 #: ../src/money-activity/money.xml.in.h:1
+#: ../src/money_back-activity/money_back.xml.in.h:1
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:1
 #: ../src/money_cents-activity/money_cents.xml.in.h:1
 msgid "Can count"
 msgstr "能夠計數"
 
 #: ../src/money-activity/money.xml.in.h:2
+#: ../src/money_back-activity/money_back.xml.in.h:2
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:2
 #: ../src/money_cents-activity/money_cents.xml.in.h:2
 msgid ""
 "Click on the coins or paper money at the bottom of the screen to pay. If you "
@@ -5629,6 +6030,29 @@ msgid ""
 msgstr ""
 "你必須購買不同的物品並且付出剛好的價錢。在較高的階段中，多個物品會被顯示，而"
 "你必須先計算總價。"
+
+#: ../src/money_back-activity/money_back.xml.in.h:3
+msgid "Give tux his change"
+msgstr "找錢給小企鵝"
+
+#: ../src/money_back-activity/money_back.xml.in.h:4
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:4
+msgid "Practice money usage by giving Tux his change"
+msgstr "找零錢給小企鵝以練習包括角分的金錢使用"
+
+#: ../src/money_back-activity/money_back.xml.in.h:5
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:5
+msgid ""
+"Tux bought you different items and shows you his money. You must give him "
+"back his change. At higher levels, several items are displayed, and you must "
+"first calculate the total price."
+msgstr ""
+"小企鵝向你購買不同的物品並且付了錢。你必須找回零錢給他。在較高的階段中，多個"
+"物品會被顯示，而你必須先計算總價。"
+
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:3
+msgid "Give tux his change, including cents"
+msgstr "幫小企鵝找零錢，包括角、分"
 
 #: ../src/money_cents-activity/money_cents.xml.in.h:4
 msgid "Practice money usage including cents"
@@ -5672,48 +6096,97 @@ msgstr "Edgar Degas(竇加)，舞蹈教室 - 1873-75"
 msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
 msgstr "Pierre-Auguste Renoir(雷諾瓦)，煎餅磨坊 - 1876"
 
+#: ../src/paintings-activity/resources/paintings/board1_10.xml.in.h:1
+msgid ""
+"Katsushika Hokusai,\\nViewing Sunset over the Ryogoku Bridge from the Ommaya "
+"Embankment - 1830"
+msgstr ""
+
+#: ../src/paintings-activity/resources/paintings/board1_11.xml.in.h:1
+msgid "Katsushika Hokusa, Poppies - 1833-1834"
+msgstr ""
+
+#: ../src/paintings-activity/resources/paintings/board1_12.xml.in.h:1
+msgid "Katsushika Hokusai, Kazusa sea Route - 1830."
+msgstr ""
+
 #: ../src/paintings-activity/resources/paintings/board1_2.xml.in.h:1
 msgid "Giuseppe Arcimboldo, Spring - 1573"
 msgstr "Giuseppe Arcimboldo(朱塞佩·阿爾欽博托)，Spring《春季》 - 1573"
 
 #: ../src/paintings-activity/resources/paintings/board1_3.xml.in.h:1
-msgid "Giuseppe Arcimboldo, The Librarian - 1566)"
+#, fuzzy
+msgid "Giuseppe Arcimboldo, The Librarian - 1566"
 msgstr "Giuseppe Arcimboldo(阿奇姆博多)，The Librarian - 1566)"
 
+#: ../src/paintings-activity/resources/paintings/board1_4.xml.in.h:1
+msgid "Katsushika Hokusai, Oiran and Kamuro"
+msgstr ""
+
 #: ../src/paintings-activity/resources/paintings/board1_5.xml.in.h:1
-msgid "Woman holding a fan"
+#, fuzzy
+msgid "Katsushika Hokusai, Woman holding a fan"
 msgstr "拿著扇子的婦人"
 
+#: ../src/paintings-activity/resources/paintings/board1_6.xml.in.h:1
+msgid "Katsushika Hokusai, Ejiri in Suruga Province - 1830-1833"
+msgstr ""
+
+#: ../src/paintings-activity/resources/paintings/board1_7.xml.in.h:1
+msgid "Katsushika Hokusai, The Great Wave off Kanagawa - 1823-1829"
+msgstr ""
+
+#: ../src/paintings-activity/resources/paintings/board1_8.xml.in.h:1
+msgid ""
+"Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
+msgstr ""
+
+#: ../src/paintings-activity/resources/paintings/board1_9.xml.in.h:1
+msgid "Utagawa Hiroshige, Horse-mackerel and Prawn - 1840"
+msgstr ""
+
+#: ../src/paintings-activity/resources/paintings/board2_0.xml.in.h:1
+msgid "Michelangelo, Pieta - 1499"
+msgstr ""
+
 #: ../src/paintings-activity/resources/paintings/board2_1.xml.in.h:1
-msgid "Botticelli, Primavera - 1482"
-msgstr "Botticelli(波提切利)，Primavera - 1482"
+msgid "Leonardo da Vinci, Mona Lisa - 1503-19"
+msgstr ""
 
 #: ../src/paintings-activity/resources/paintings/board2_2.xml.in.h:1
-msgid "Caravage, Rest on the Flight into Egypt - 1597"
-msgstr "Caravage, Rest on the Flight into Egypt - 1597"
+#, fuzzy
+msgid "Giovanni Bellini, La Pala di Pesaro - 1475-85"
+msgstr "貝里尼:Pala di pesaro "
 
 #: ../src/paintings-activity/resources/paintings/board2_3.xml.in.h:1
-msgid "Botticelli, The Birth of Venus - 1482–1486"
-msgstr "Botticelli(波提切利)， The Birth of Venus《維納斯的誕生》 - 1482–1486"
+msgid "Albrecht Dürer, Lion - 1494"
+msgstr ""
+
+#: ../src/paintings-activity/resources/paintings/board2_4.xml.in.h:1
+#, fuzzy
+msgid "Pieter Brugel, The Harvesters - 1565"
+msgstr "Pieter Brugel:收獲(Harvest)"
 
 #: ../src/paintings-activity/resources/paintings/board3_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
 msgstr "Pierre-Auguste Renoir(雷諾瓦)，彈鋼琴的少女們 - 1892"
 
 #: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:1
-msgid "Kandinsky, Wassily, Composition VIII - 1923"
-msgstr "Kandinsky, Wassily(康丁斯基)，構成第八號 - 1923"
-
-#: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:2
 msgid "Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
 msgstr "油畫，140 x 201 cm；所羅門古根漢美術館，紐約"
+
+#: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:2
+#, fuzzy
+msgid "Wassily Kandinsky, Composition VIII - 1923"
+msgstr "Kandinsky, Wassily(康丁斯基)，構成第八號 - 1923"
 
 #: ../src/paintings-activity/resources/paintings/board4_0.xml.in.h:1
 msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
 msgstr "Bazille(巴吉爾)，艾格莫特城 - 1867"
 
 #: ../src/paintings-activity/resources/paintings/board5_0.xml.in.h:1
-msgid "Cassatt, Mary - Summertime - 1894"
+#, fuzzy
+msgid "Mary Cassatt, Summertime - 1894"
 msgstr "Cassatt, Mary(卡莎特) - 夏日時光 - 1894"
 
 #: ../src/paintings-activity/resources/paintings/board6_0.xml.in.h:1
@@ -5752,11 +6225,11 @@ msgstr "傘兵"
 msgid "This board is game-oriented. No specific skills are needed to play."
 msgstr "這園地是以遊戲為主的。不需要特別的技巧就可以玩。"
 
-#: ../src/penalty-activity/penalty.py:294
+#: ../src/penalty-activity/penalty.py:293
 msgid "Click on the balloon to place it again."
 msgstr "按一下氣球把它放回去。"
 
-#: ../src/penalty-activity/penalty.py:296
+#: ../src/penalty-activity/penalty.py:295
 msgid "Click twice on the balloon to shoot it."
 msgstr "按兩下氣球來把它發射出去。"
 
@@ -5805,12 +6278,12 @@ msgstr "大家來找碴"
 msgid "Visual discrimination."
 msgstr "視覺辨別力。"
 
-#: ../src/planegame-activity/planegame.c:61
+#: ../src/planegame-activity/planegame.c:62
 #: ../src/planegame-activity/planegame.xml.in.h:4
 msgid "Numbers in Order"
 msgstr "依照順序的數字"
 
-#: ../src/planegame-activity/planegame.c:62
+#: ../src/planegame-activity/planegame.c:63
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "移動飛機並以正確的順序來抓住雲朵"
 
@@ -5828,6 +6301,15 @@ msgstr "移動直升機以正確的順序來抓住雲朵"
 #: ../src/planegame-activity/planegame.xml.in.h:3
 msgid "Number"
 msgstr "數字"
+
+#: ../src/pythontemplate-activity/pythontemplate.py:62
+#: ../src/pythontest-activity/pythontest.py:184
+msgid ""
+"This is the first plugin in GCompris coded in the Python\n"
+"Programming language."
+msgstr ""
+"這是第一個在 GCompris 中用 Python \n"
+"程式語言編寫的外掛程式。"
 
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:1
 #: ../src/pythontest-activity/pythontest.xml.in.h:1
@@ -5852,14 +6334,6 @@ msgstr "Python 範本"
 msgid ""
 "Thanks to Guido van Rossum and the python team for this powerful language!"
 msgstr "對於這個強大的語言要感謝 Guido van Rossum 與 python 小組！"
-
-#: ../src/pythontest-activity/pythontest.py:184
-msgid ""
-"This is the first plugin in GCompris coded in the Python\n"
-"Programming language."
-msgstr ""
-"這是第一個在 GCompris 中用 Python \n"
-"程式語言編寫的外掛程式。"
 
 #: ../src/pythontest-activity/pythontest.py:194
 msgid ""
@@ -6000,8 +6474,8 @@ msgstr "閱讀顏色的名稱"
 msgid "This board teaches basic colors."
 msgstr "這個園地教導基本的顏色。"
 
-#: ../src/readingh-activity/reading.c:220
-#: ../src/wordsgame-activity/wordsgame.c:211
+#: ../src/readingh-activity/reading.c:229
+#: ../src/wordsgame-activity/wordsgame.c:219
 msgid ""
 "Error: We can't find\n"
 "a list of words to play this game.\n"
@@ -6009,38 +6483,38 @@ msgstr ""
 "錯誤：我們找不到\n"
 "用來玩這個遊戲的文字清單。\n"
 
-#: ../src/readingh-activity/reading.c:380
+#: ../src/readingh-activity/reading.c:389
 msgid "Please, check if the word"
 msgstr "請檢查看看是否這個單字"
 
-#: ../src/readingh-activity/reading.c:400
+#: ../src/readingh-activity/reading.c:409
 msgid "is being displayed"
 msgstr "已經被顯示了"
 
-#: ../src/readingh-activity/reading.c:456
+#: ../src/readingh-activity/reading.c:465
 msgid "We skip this level because there are not enough words in the list!"
 msgstr "我們略過這個階段，因為在清單中的字數不夠！"
 
-#: ../src/readingh-activity/reading.c:659
+#: ../src/readingh-activity/reading.c:668
 msgid "Yes, I saw it"
 msgstr "是，我看到它了"
 
-#: ../src/readingh-activity/reading.c:686
+#: ../src/readingh-activity/reading.c:695
 msgid "No, it was not there"
 msgstr "不，它不在那兒"
 
 #. Report what was wrong in the log
-#: ../src/readingh-activity/reading.c:733
+#: ../src/readingh-activity/reading.c:742
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "要找的單字是「%s」"
 
-#: ../src/readingh-activity/reading.c:736
+#: ../src/readingh-activity/reading.c:745
 #, c-format
 msgid "But it was not displayed"
 msgstr "但是它沒有顯示"
 
-#: ../src/readingh-activity/reading.c:738
+#: ../src/readingh-activity/reading.c:747
 #, c-format
 msgid "And it was displayed"
 msgstr "而它已經顯示"
@@ -6156,7 +6630,7 @@ msgstr "重量(公克) =%s"
 msgid "Weight = %s"
 msgstr "重量 = %s"
 
-#: ../src/scalesboard-activity/scale.c:1008
+#: ../src/scalesboard-activity/scale.c:1007
 msgid "Take care, you can drop masses on both sides of the scale."
 msgstr "小心，你可以把砝碼放在天平的兩側。"
 
@@ -6188,6 +6662,23 @@ msgid ""
 "To balance the scales, move the masses on the left or the right side. The "
 "masses can be arranged in any order."
 msgstr "要讓秤盤平衡，就移動左邊或右邊的砝碼。這些砝碼可以用任何順序排列。"
+
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:2
+msgid "Drag and Drop masses to balance the scales and calculate the weight"
+msgstr "拖放砝碼讓秤盤平衡並計算重量"
+
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:3
+msgid "Mental calculation, arithmetic equality, unit conversion"
+msgstr "心算、計算等值、單位換算能力"
+
+#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:5
+msgid ""
+"To balance the scales, move the masses on the left or the right side. Take "
+"care of the weight and the unit of the masses, remember that a kilogram (kg) "
+"is 1000 grams (g). They can be arranged in any order."
+msgstr ""
+"為了讓天秤保持平衡，要把砝碼從左邊或右邊移到另一邊。要注意砝碼的重量單位，記"
+"得 1 公斤 (kg) 是 1000 公克 (g)。這些砝碼的順序可以任意改變。"
 
 #: ../src/searace-activity/searace.py:174
 msgid "The race is already being run"
@@ -6295,23 +6786,6 @@ msgstr ""
 #: ../src/searace-activity/searace.xml.in.h:9
 msgid "Sea race (2 Players)"
 msgstr "海上競速 (雙人)"
-
-#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:2
-msgid "Drag and Drop masses to balance the scales and calculate the weight"
-msgstr "拖放砝碼讓秤盤平衡並計算重量"
-
-#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:3
-msgid "Mental calculation, arithmetic equality, unit conversion"
-msgstr "心算、計算等值、單位換算能力"
-
-#: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:5
-msgid ""
-"To balance the scales, move the masses on the left or the right side. Take "
-"care of the weight and the unit of the masses, remember that a kilogram (kg) "
-"is 1000 grams (g). They can be arranged in any order."
-msgstr ""
-"為了讓天秤保持平衡，要把砝碼從左邊或右邊移到另一邊。要注意砝碼的重量單位，記"
-"得 1 公斤 (kg) 是 1000 公克 (g)。這些砝碼的順序可以任意改變。"
 
 #: ../src/searace1player-activity/searace1player.xml.in.h:1
 msgid "Give good instructions to your ship in order to be first in the race."
@@ -6450,6 +6924,24 @@ msgstr "超級頭腦"
 #: ../src/superbrain-activity/superbrain.xml.in.h:3
 msgid "Tux has hidden several items. Find them again in the correct order"
 msgstr "小企鵝把許多物品藏起來了。以正確的順序將它們重新找出來"
+
+#: ../src/superbrain-activity/superbrain.c:403
+#: ../src/superbrain-activity/superbrain.c:539
+msgid "This item is well placed"
+msgstr "這個物件在正確的位置。"
+
+#: ../src/superbrain-activity/superbrain.c:416
+#: ../src/superbrain-activity/superbrain.c:569
+msgid "This item is misplaced"
+msgstr "這個項目被放錯了"
+
+#: ../src/superbrain-activity/superbrain.c:587
+msgid "One item is well placed"
+msgstr "有一個物件在正確的位置。"
+
+#: ../src/superbrain-activity/superbrain.c:601
+msgid "One item is misplaced"
+msgstr "有一個項目放錯了"
 
 #: ../src/superbrain-activity/superbrain.xml.in.h:1
 msgid ""
@@ -6631,6 +7123,21 @@ msgstr "利用「企鵝小畫家」來畫圖。當「企鵝小畫家」完畢時
 msgid "mouse and keyboard manipulation"
 msgstr "滑鼠和鍵盤操控"
 
+#: ../src/watercycle-activity/watercycle.py:170
+msgid "This is a water pump station."
+msgstr "這是抽水站。"
+
+#: ../src/watercycle-activity/watercycle.py:183
+msgid "This is a water cleanup station."
+msgstr "這是淨水廠。"
+
+#: ../src/watercycle-activity/watercycle.py:263
+msgid ""
+"A water tower or elevated water tower is a large elevated water storage "
+"container constructed to hold a water supply at a height sufficient to "
+"pressurize a water distribution system."
+msgstr ""
+
 #: ../src/watercycle-activity/watercycle.xml.in.h:1
 msgid ""
 "Click on different active elements : sun, cloud, water pump station, and "
@@ -6719,12 +7226,12 @@ msgstr "孩子們可以輸入他們自己的文字或複製老師指定的文字
 msgid "Your word processor"
 msgstr "你的文字處理機"
 
-#: ../src/wordsgame-activity/wordsgame.c:111
+#: ../src/wordsgame-activity/wordsgame.c:112
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:1
 msgid "Falling Words"
 msgstr "單字掉落"
 
-#: ../src/wordsgame-activity/wordsgame.c:112
+#: ../src/wordsgame-activity/wordsgame.c:113
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the falling words before they reach the ground"
 msgstr "在它們到達地面之前，輸入掉落中的單字"
