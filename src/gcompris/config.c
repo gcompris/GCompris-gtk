@@ -219,6 +219,22 @@ gc_config_start ()
 		    x_flag_start + 5,
 		    y_start - pixmap_width/2);
 
+  /* A repeat icon to reset the selection */
+  item = goo_canvas_svg_new (rootitem,
+			     gc_skin_rsvg_get(),
+			     "svg-id", "#REPEAT",
+			     NULL);
+    goo_canvas_item_get_bounds(item, &bounds);
+    double zoom = 0.65;
+    goo_canvas_item_scale(item, zoom, zoom);
+    goo_canvas_item_translate(item,
+			      (-1 * bounds.x1 + x_flag_start - 340) * zoom,
+			      (-1 * bounds.y1 + y_start - 120) * zoom);
+  g_signal_connect(item, "button_press_event",
+		   (GtkSignalFunc) item_event_ok,
+		   "locale_reset");
+  gc_item_focus_init(item, NULL);
+
   /*
    * The current locale is the one found in the config file
    */
@@ -721,6 +737,15 @@ item_event_ok(GooCanvasItem *item,
   else if(!strcmp((char *)data, "locale_next"))
     {
       current_locale = get_next_locale(current_locale);
+      g_object_set (G_OBJECT(item_locale_text),
+		    "text", gc_locale_get_name(current_locale),
+		    NULL);
+
+      set_locale_flag(current_locale);
+    }
+  else if(!strcmp((char *)data, "locale_reset"))
+    {
+      current_locale = linguas[0];
       g_object_set (G_OBJECT(item_locale_text),
 		    "text", gc_locale_get_name(current_locale),
 		    NULL);
