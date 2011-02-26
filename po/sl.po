@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&component=general\n"
-"POT-Creation-Date: 2011-01-20 06:13+0000\n"
-"PO-Revision-Date: 2011-01-21 09:15+0100\n"
+"POT-Creation-Date: 2011-02-26 12:16+0000\n"
+"PO-Revision-Date: 2011-02-26 15:00+0100\n"
 "Last-Translator: Andrej Žnidaršič <andrej.znidarsic@gmail.com>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
@@ -1318,7 +1318,7 @@ msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "Igre z miško: premakni, povleci in spusti."
 
 #: ../src/babymatch-activity/shapegame.c:1903
-#: ../src/click_on_letter-activity/click_on_letter.c:675
+#: ../src/click_on_letter-activity/click_on_letter.c:671
 #: ../src/colors-activity/colors.c:168
 #, c-format
 msgid ""
@@ -1860,12 +1860,12 @@ msgstr ""
 "z glasovi GCompris za jezikovno določilo '%s' ! Uporabljena bo angleščina, oprosti!"
 
 #. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:698
+#: ../src/click_on_letter-activity/click_on_letter.c:694
 #: ../src/gletters-activity/gletters.c:883
 #: ../src/login-activity/login.py:484
 #: ../src/missing_letter-activity/missingletter_config.c:492
 #: ../src/readingh-activity/reading.c:928
-#: ../src/wordsgame-activity/wordsgame.c:889
+#: ../src/wordsgame-activity/wordsgame.c:887
 msgid "Uppercase only text"
 msgstr "Le besedilo z velikimi črkami"
 
@@ -1921,7 +1921,7 @@ msgstr "Motorična koordinacija: premikanje in klikanje miške"
 msgid "Use the left mouse button to click on the moving fish."
 msgstr "Klikni z levim gumbom miške na premikajočo se ribo."
 
-#: ../src/clockgame-activity/clockgame.c:525
+#: ../src/clockgame-activity/clockgame.c:524
 msgid "Set the watch to:"
 msgstr "Nastavi uro na:"
 
@@ -2292,8 +2292,8 @@ msgid "Error: No images found\n"
 msgstr "Napaka: Ni najdenih slik\n"
 
 #: ../src/erase-activity/erase.c:578
-#: ../src/gcompris/properties.c:501
-#: ../src/gcompris/properties.c:508
+#: ../src/gcompris/properties.c:504
+#: ../src/gcompris/properties.c:511
 msgid "readme"
 msgstr "preberime"
 
@@ -2373,7 +2373,7 @@ msgstr "Premakni miško nad rdeči del cevi. To jo bo premaknilo in jo del za de
 msgid "Tux needs to water the flowers, but the hose is blocked."
 msgstr "Pingo potrebuje vodo za zalivanje rož, toda cev je zamašena."
 
-#: ../src/gcompris/about.c:49
+#: ../src/gcompris/about.c:48
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge, Yves Combe\n"
@@ -2388,54 +2388,54 @@ msgstr ""
 "Glasba v ozadju: Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:57
+#: ../src/gcompris/about.c:56
 msgid "translator_credits"
 msgstr ""
 "Damjan Kovač\n"
 "Matej Urbančič\n"
 "Andrej Žnidaršič"
 
-#: ../src/gcompris/about.c:84
+#: ../src/gcompris/about.c:82
 msgid "About GCompris"
 msgstr "O programu"
 
-#: ../src/gcompris/about.c:94
+#: ../src/gcompris/about.c:92
 msgid "GCompris Home Page: http://gcompris.net"
 msgstr "Domača stran GCompris: http://gcompris.net"
 
-#: ../src/gcompris/about.c:105
+#: ../src/gcompris/about.c:103
 msgid "Translators:"
 msgstr "Prevajalci:"
 
-#: ../src/gcompris/about.c:210
+#: ../src/gcompris/about.c:208
 msgid "This software is a GNU Package and is released under the GNU General Public License"
 msgstr "Ta program je GNU paket in je izdan pod GNU splošno javno licenco"
 
-#: ../src/gcompris/about.c:224
-#: ../src/gcompris/config.c:438
-#: ../src/gcompris/dialog.c:104
+#: ../src/gcompris/about.c:222
+#: ../src/gcompris/config.c:439
+#: ../src/gcompris/dialog.c:99
 #: ../src/gcompris/help.c:355
-#: ../src/gcompris/images_selector.c:307
+#: ../src/gcompris/images_selector.c:306
 msgid "OK"
 msgstr "V redu"
 
-#: ../src/gcompris/bar.c:693
+#: ../src/gcompris/bar.c:684
 msgid "GCompris confirmation"
 msgstr "Potrditev GCompris"
 
-#: ../src/gcompris/bar.c:694
+#: ../src/gcompris/bar.c:685
 msgid "Are you sure you want to quit?"
 msgstr "Ali si prepričan, da želiš končati?"
 
-#: ../src/gcompris/bar.c:695
+#: ../src/gcompris/bar.c:686
 msgid "Yes, I am sure!"
 msgstr "Da, prepričan sem"
 
-#: ../src/gcompris/bar.c:696
+#: ../src/gcompris/bar.c:687
 msgid "No, I want to keep going"
 msgstr "Ne, želim nadaljevati"
 
-#: ../src/gcompris/board.c:168
+#: ../src/gcompris/board.c:155
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr "Dinamično nalaganje modulov ni podprto. GCompris se ne more naložiti.\n"
 
@@ -2716,119 +2716,123 @@ msgid "Serbian (Latin)"
 msgstr "srbski (latinica)"
 
 #: ../src/gcompris/config.c:113
+msgid "Montenegrin"
+msgstr "Črna gora"
+
+#: ../src/gcompris/config.c:114
 msgid "Serbian"
 msgstr "srbski (cirilica)"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:115
 msgid "Swedish"
 msgstr "švedski"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:116
 msgid "Tamil"
 msgstr "tamilski"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:117
 msgid "Thai"
 msgstr "tajski"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:118
 msgid "Turkish"
 msgstr "turški"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:119
 msgid "Ukrainian"
 msgstr "ukrajinski"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:120
 msgid "Urdu"
 msgstr "urdujski"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:121
 msgid "Vietnamese"
 msgstr "vietnamski"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:122
 msgid "Walloon"
 msgstr "valonski"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:123
 msgid "Chinese (Simplified)"
 msgstr "poenostavljen kitajski"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:124
 msgid "Chinese (Traditional)"
 msgstr "tradicionalen kitajski"
 
-#: ../src/gcompris/config.c:128
+#: ../src/gcompris/config.c:129
 msgid "No time limit"
 msgstr "Časovno neomejeno"
 
-#: ../src/gcompris/config.c:129
+#: ../src/gcompris/config.c:130
 msgid "Slow timer"
 msgstr "Počasneje"
 
-#: ../src/gcompris/config.c:130
+#: ../src/gcompris/config.c:131
 msgid "Normal timer"
 msgstr "Običajna hitrost"
 
-#: ../src/gcompris/config.c:131
+#: ../src/gcompris/config.c:132
 msgid "Fast timer"
 msgstr "Hitreje"
 
-#: ../src/gcompris/config.c:135
+#: ../src/gcompris/config.c:136
 msgid "Use Gcompris administration module to filter boards"
 msgstr "Za filtriranje tabel uporabite skrbniški modul Gcompris "
 
-#: ../src/gcompris/config.c:186
+#: ../src/gcompris/config.c:187
 msgid "GCompris Configuration"
 msgstr "GCompris nastavitve"
 
-#: ../src/gcompris/config.c:253
+#: ../src/gcompris/config.c:254
 msgid "Fullscreen"
 msgstr "Celozaslonski način"
 
-#: ../src/gcompris/config.c:278
+#: ../src/gcompris/config.c:279
 msgid "Music"
 msgstr "Glasba"
 
-#: ../src/gcompris/config.c:303
+#: ../src/gcompris/config.c:304
 msgid "Effect"
 msgstr "Učinki"
 
-#: ../src/gcompris/config.c:327
+#: ../src/gcompris/config.c:328
 #: ../src/gcompris/sugar.c:82
 msgid "Zoom"
 msgstr "Približanje"
 
-#: ../src/gcompris/config.c:364
+#: ../src/gcompris/config.c:365
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Ni mogoče odpreti mape preoblek: %s"
 
-#: ../src/gcompris/config.c:395
-#: ../src/gcompris/config.c:753
-#: ../src/gcompris/config.c:767
+#: ../src/gcompris/config.c:396
+#: ../src/gcompris/config.c:754
+#: ../src/gcompris/config.c:768
 #, c-format
 msgid "Skin : %s"
 msgstr "Preobleka : %s"
 
-#: ../src/gcompris/config.c:397
+#: ../src/gcompris/config.c:398
 msgid "SKINS NOT FOUND"
 msgstr "PREOBLEKE NI MOGOČE NAJTI"
 
-#: ../src/gcompris/config.c:478
+#: ../src/gcompris/config.c:479
 msgid "English (United State)"
 msgstr "Angleško (Združene države)"
 
-#: ../src/gcompris/file_selector.c:254
+#: ../src/gcompris/file_selector.c:251
 msgid "CANCEL"
 msgstr "Prekliči"
 
-#: ../src/gcompris/file_selector.c:262
+#: ../src/gcompris/file_selector.c:259
 msgid "LOAD"
 msgstr "Naloži"
 
-#: ../src/gcompris/file_selector.c:262
+#: ../src/gcompris/file_selector.c:259
 msgid "SAVE"
 msgstr "Shrani"
 
@@ -3011,7 +3015,7 @@ msgstr "GCompris se ne bo zagnal, ker je datoteka ključavnice stara manj kot %d
 msgid "The lock file is: %s\n"
 msgstr "Datoteka ključa je: %s\n"
 
-#: ../src/gcompris/gcompris.c:1602
+#: ../src/gcompris/gcompris.c:1599
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3025,37 +3029,37 @@ msgstr ""
 "Več podrobnosti je mogoče najti na http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1717
+#: ../src/gcompris/gcompris.c:1714
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Uporabi -l za neposreden dostop do dejavnosti.\n"
 
-#: ../src/gcompris/gcompris.c:1718
+#: ../src/gcompris/gcompris.c:1715
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Seznam dostopnih dejavnosti je:\n"
 
-#: ../src/gcompris/gcompris.c:1749
+#: ../src/gcompris/gcompris.c:1746
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Število dejavnosti: %d\n"
 
-#: ../src/gcompris/gcompris.c:1785
+#: ../src/gcompris/gcompris.c:1782
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s obstaja toda ni berljiv ali zapisljiv"
 
-#: ../src/gcompris/gcompris.c:1848
+#: ../src/gcompris/gcompris.c:1845
 #, c-format
 msgid "The --server option cannot be used because GCompris has been compiled without network support!"
 msgstr "Možnosti --server ni mogoče uporabiti, ker GCompris ni bil preveden z omrežno podporo!"
 
-#: ../src/gcompris/gcompris.c:1902
+#: ../src/gcompris/gcompris.c:1899
 #, c-format
 msgid "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list available ones\n"
 msgstr "NAPAKA: Profila '%s' ni mogoče najti. Poženi 'gcompris --profile-list' za seznam razpoložljivih profilov\n"
 
-#: ../src/gcompris/gcompris.c:1916
+#: ../src/gcompris/gcompris.c:1913
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Seznam dostopnih profilov je:\n"
@@ -3102,11 +3106,11 @@ msgstr ""
 "Nalaganje dejavnosti iz datoteke:\n"
 "%s"
 
-#: ../src/gcompris/properties.c:503
+#: ../src/gcompris/properties.c:506
 msgid "This directory contains the files you create with the GCompris educational suite\n"
 msgstr "Ta mapa vsebuje datoteke, ki jih boš ustvaril s tem programom\n"
 
-#: ../src/gcompris/properties.c:510
+#: ../src/gcompris/properties.c:513
 msgid ""
 "Put any number of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
@@ -3790,10 +3794,10 @@ msgstr "ABCČDEFGHIJKLMNOPRSŠTUVZŽ"
 #: ../src/missing_letter-activity/missingletter.c:784
 #: ../src/pythontest-activity/pythontest.py:454
 #: ../src/readingh-activity/reading.c:904
-#: ../src/scalesboard-activity/scale.c:1161
+#: ../src/scalesboard-activity/scale.c:1160
 #: ../src/smallnumbers-activity/smallnumbers.c:595
 #: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:866
+#: ../src/wordsgame-activity/wordsgame.c:864
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -5940,7 +5944,7 @@ msgstr "Teža v g = %s"
 msgid "Weight = %s"
 msgstr "Teža = %s"
 
-#: ../src/scalesboard-activity/scale.c:1008
+#: ../src/scalesboard-activity/scale.c:1007
 msgid "Take care, you can drop masses on both sides of the scale."
 msgstr "Pazi, uteži lahko spustiš na obe strani tehtnice."
 
