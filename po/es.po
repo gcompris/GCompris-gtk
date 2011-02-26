@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: gcompris.gcomprixogoo\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&component=general\n"
-"POT-Creation-Date: 2011-02-14 22:25+0000\n"
-"PO-Revision-Date: 2011-02-17 15:51+0100\n"
+"POT-Creation-Date: 2011-02-19 21:33+0000\n"
+"PO-Revision-Date: 2011-02-26 12:08+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -754,13 +754,13 @@ msgstr ""
 "usado para leerlas, por ejemplo, y después el idioma usado para decir los "
 "nombres de los colores. \n"
 "- Puedes guardar configuraciones múltiples, y cambiar fácilmente entre "
-"ellas. En la sección «Perfil» añade un perfil, después en la sección «Tablero» "
-"selecciona el perfil en la lista desplegable, y después elige los tableros "
-"que quieres que estén activos. Puedes añadir un montón de perfiles, con "
-"diferentes listas de tableros, y diferentes idiomas. Puedes establecer el "
-"perfil por omisión en la sección «Perfil», eligiendo el perfil que quieras, y "
-"después pulsando el botón «Predeterminado». También puedes elegir un perfil "
-"desde la línea de comandos.\n"
+"ellas. En la sección «Perfil» añade un perfil, después en la sección "
+"«Tablero» selecciona el perfil en la lista desplegable, y después elige los "
+"tableros que quieres que estén activos. Puedes añadir un montón de perfiles, "
+"con diferentes listas de tableros, y diferentes idiomas. Puedes establecer "
+"el perfil por omisión en la sección «Perfil», eligiendo el perfil que "
+"quieras, y después pulsando el botón «Predeterminado». También puedes elegir "
+"un perfil desde la línea de comandos.\n"
 "- Puedes añadir usuarios, clases y para cada clase, puedes crear grupos de "
 "usuarios. Ten en cuenta que puedes importar usuarios de un archivo separado "
 "por comas. Asigna uno o más grupos a un perfil, y los nuevos identificadores "
@@ -2822,7 +2822,7 @@ msgstr ""
 "Este software es un paquete GNU y se distribuye bajo los términos de la "
 "Licencia Pública General GNU "
 
-#: ../src/gcompris/about.c:222 ../src/gcompris/config.c:438
+#: ../src/gcompris/about.c:222 ../src/gcompris/config.c:439
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:355
 #: ../src/gcompris/images_selector.c:306
 msgid "OK"
@@ -2844,7 +2844,7 @@ msgstr "Sí, estoy seguro."
 msgid "No, I want to keep going"
 msgstr "No, quiero continuar"
 
-#: ../src/gcompris/board.c:168
+#: ../src/gcompris/board.c:155
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr ""
 "La carga dinámica de módulos no está soportada. GCompris no puede cargar.\n"
@@ -3126,105 +3126,110 @@ msgid "Serbian (Latin)"
 msgstr "Servio (latino)"
 
 #: ../src/gcompris/config.c:113
+#| msgid "Serbia Montenegro"
+msgid "Montenegrin"
+msgstr "Montenegrin"
+
+#: ../src/gcompris/config.c:114
 msgid "Serbian"
 msgstr "Servio"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:115
 msgid "Swedish"
 msgstr "Sueco"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:116
 msgid "Tamil"
 msgstr "Tamil"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:117
 msgid "Thai"
 msgstr "Tailandés"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:118
 msgid "Turkish"
 msgstr "Turco"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:119
 msgid "Ukrainian"
 msgstr "Ucraniano"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:120
 msgid "Urdu"
 msgstr "Urdu"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:121
 msgid "Vietnamese"
 msgstr "Vietnamita"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:122
 msgid "Walloon"
 msgstr "Valón"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:123
 msgid "Chinese (Simplified)"
 msgstr "Chino (simplificado)"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:124
 msgid "Chinese (Traditional)"
 msgstr "Chino (tradicional)"
 
-#: ../src/gcompris/config.c:128
+#: ../src/gcompris/config.c:129
 msgid "No time limit"
 msgstr "Sin límite de tiempo"
 
-#: ../src/gcompris/config.c:129
+#: ../src/gcompris/config.c:130
 msgid "Slow timer"
 msgstr "Temporizador lento"
 
-#: ../src/gcompris/config.c:130
+#: ../src/gcompris/config.c:131
 msgid "Normal timer"
 msgstr "Temporizador normal"
 
-#: ../src/gcompris/config.c:131
+#: ../src/gcompris/config.c:132
 msgid "Fast timer"
 msgstr "Temporizador rápido"
 
-#: ../src/gcompris/config.c:135
+#: ../src/gcompris/config.c:136
 msgid "Use Gcompris administration module to filter boards"
 msgstr "Usa el módulo de administración de GCompris para filtrar tableros"
 
-#: ../src/gcompris/config.c:186
+#: ../src/gcompris/config.c:187
 msgid "GCompris Configuration"
 msgstr "Configuración de GCompris"
 
-#: ../src/gcompris/config.c:253
+#: ../src/gcompris/config.c:254
 msgid "Fullscreen"
 msgstr "Pantalla completa"
 
-#: ../src/gcompris/config.c:278
+#: ../src/gcompris/config.c:279
 msgid "Music"
 msgstr "Música"
 
-#: ../src/gcompris/config.c:303
+#: ../src/gcompris/config.c:304
 msgid "Effect"
 msgstr "Efecto"
 
-#: ../src/gcompris/config.c:327 ../src/gcompris/sugar.c:82
+#: ../src/gcompris/config.c:328 ../src/gcompris/sugar.c:82
 msgid "Zoom"
 msgstr "Ampliación"
 
-#: ../src/gcompris/config.c:364
+#: ../src/gcompris/config.c:365
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "No se puede abrir el directorio de apariencias: %s"
 
-#: ../src/gcompris/config.c:395 ../src/gcompris/config.c:753
-#: ../src/gcompris/config.c:767
+#: ../src/gcompris/config.c:396 ../src/gcompris/config.c:754
+#: ../src/gcompris/config.c:768
 #, c-format
 msgid "Skin : %s"
 msgstr "Apariencia : %s"
 
-#: ../src/gcompris/config.c:397
+#: ../src/gcompris/config.c:398
 msgid "SKINS NOT FOUND"
 msgstr "APARIENCIAS NO ENCONTRADAS"
 
-#: ../src/gcompris/config.c:478
+#: ../src/gcompris/config.c:479
 msgid "English (United State)"
 msgstr "Inglés (Estados Unidos)"
 
@@ -6443,8 +6448,8 @@ msgstr "Katsushika Hokusai, La gran ola de Kanagawa (1823-29)"
 msgid ""
 "Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
 msgstr ""
-"Utagawa Hiroshige, El santuario de Benzaiten en Inokashira con nieve (1760-"
-"70)"
+"Utagawa Hiroshige, El santuario de Benzaiten en Inokashira con nieve "
+"(1760-70)"
 
 #: ../src/paintings-activity/resources/paintings/board1_9.xml.in.h:1
 msgid "Utagawa Hiroshige, Horse-mackerel and Prawn - 1840"
@@ -7093,11 +7098,11 @@ msgstr ""
 "En el campo de texto, introduce una orden por línea para controlar tu "
 "bote. \n"
 "Las órdenes válidas se muestran entre las dos áreas de entrada. Las órdenes "
-"«izquierda» y «derecha» deben llevar como sufijo el ángulo en grados. Al valor "
-"del ángulo también se le llama «parámetro» de la orden izquierda o derecha. "
-"De forma predeterminada, se usan 45 grados. La orden «hacia adelante» acepta "
-"un parámetro con la distancia. De forma predeterminada se usa un valor de "
-"1.\n"
+"«izquierda» y «derecha» deben llevar como sufijo el ángulo en grados. Al "
+"valor del ángulo también se le llama «parámetro» de la orden izquierda o "
+"derecha. De forma predeterminada, se usan 45 grados. La orden «hacia "
+"adelante» acepta un parámetro con la distancia. De forma predeterminada se "
+"usa un valor de 1.\n"
 "Por ejemplo:\n"
 "- izquierda 90 => Hacer un giro perpendicular a la izquierda\n"
 "- hacia delante 10 => Ir hacia delante 10 unidades (como se muestran en la "
@@ -7149,11 +7154,11 @@ msgid ""
 msgstr ""
 "En el campo de texto, introduce una orden por línea para controlar tu bote."
 "Las órdenes válidas se muestran entre las dos áreas de entrada. Las órdenes "
-"«izquierda» y «derecha» deben llevar como sufijo el ángulo en grados. Al valor "
-"del ángulo también se le llama «parámetro» de la orden izquierda o derecha. "
-"De forma predeterminada, se usan 45 grados. La orden «hacia adelante» acepta "
-"un parámetro con la distancia. De forma predeterminada se usa un valor de "
-"1.\n"
+"«izquierda» y «derecha» deben llevar como sufijo el ángulo en grados. Al "
+"valor del ángulo también se le llama «parámetro» de la orden izquierda o "
+"derecha. De forma predeterminada, se usan 45 grados. La orden «hacia "
+"adelante» acepta un parámetro con la distancia. De forma predeterminada se "
+"usa un valor de 1.\n"
 "Por ejemplo:\n"
 "- izquierda 90 => Hacer un giro perpendicular a la izquierda\n"
 "- hacia delante 10 => Ir hacia delante 10 unidades (como se muestran en la "
