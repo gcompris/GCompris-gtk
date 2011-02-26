@@ -7,6 +7,7 @@
 # Korrektulæsning Torben Grøn Helligsø <torben-dansk@thel.dk>, 2009, 2010.
 #
 # Konventioner:
+# blades -> blader (rotorblader, blader, klinger)
 # board -> bræt (skal det være tavle)
 # Gizah -> Giza
 # item -> genstand (Mon ikke det er en genstand man udpege blandt nogle 
@@ -24,8 +25,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GCompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-16 13:41+0100\n"
-"PO-Revision-Date: 2011-01-02 19:00+0100\n"
+"POT-Creation-Date: 2011-02-26 13:15+0100\n"
+"PO-Revision-Date: 2011-02-25 19:00+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -33,13 +34,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: KBabel 1.11.4\n"
 
 #: ../boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
 msgstr "Gå til regneaktiviteter"
 
 #: ../boards/algebra_group.xml.in.h:2 ../boards/menu.xml.in.h:18
+#: ../boards/money_group.xml.in.h:2
 msgid "Left-click the mouse on an activity to select it."
 msgstr "Klik med musen for at vælge en aktivitet."
 
@@ -232,6 +233,10 @@ msgstr "Forskellige aktiviteter"
 #: ../boards/miscelaneous.xml.in.h:2
 msgid "Time, Geography, ..."
 msgstr "Tid, geografi, ..."
+
+#: ../boards/money_group.xml.in.h:1
+msgid "Go to money activities"
+msgstr "Gå til pengeaktiviteter"
 
 #: ../boards/mouse.xml.in.h:1
 msgid "Mouse-manipulation activities."
@@ -1514,7 +1519,7 @@ msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "Brug af mus: flyt, træk og slip."
 
 #: ../src/babymatch-activity/shapegame.c:1903
-#: ../src/click_on_letter-activity/click_on_letter.c:675
+#: ../src/click_on_letter-activity/click_on_letter.c:671
 #: ../src/colors-activity/colors.c:168
 #, c-format
 msgid ""
@@ -1689,8 +1694,8 @@ msgid "Special board that embeds python into gcompris."
 msgstr "Specielt bræt der indlejrer python i gcompris."
 
 #: ../src/canal_lock-activity/canal_lock.xml.in.h:1
-#: ../src/watercycle-activity/watercycle.xml.in.h:2
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:2
+#: ../src/watercycle-activity/watercycle.xml.in.h:2
 msgid "Drawing by Stephane Cabaraux."
 msgstr "Tegning af Stephane Cabaraux."
 
@@ -2101,11 +2106,11 @@ msgstr ""
 "lyde for landeområdet '%s' ! Skifter tilbage til engelsk, beklager!"
 
 #. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:698
+#: ../src/click_on_letter-activity/click_on_letter.c:694
 #: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:484
 #: ../src/missing_letter-activity/missingletter_config.c:492
 #: ../src/readingh-activity/reading.c:928
-#: ../src/wordsgame-activity/wordsgame.c:889
+#: ../src/wordsgame-activity/wordsgame.c:887
 msgid "Uppercase only text"
 msgstr "Tekst kun i store bogstaver"
 
@@ -2171,7 +2176,7 @@ msgstr "Motorisk koordination: bevæg musen og klik med den."
 msgid "Use the left mouse button to click on the moving fish."
 msgstr "Klik med musen på den svømmende fisk."
 
-#: ../src/clockgame-activity/clockgame.c:525
+#: ../src/clockgame-activity/clockgame.c:524
 msgid "Set the watch to:"
 msgstr "Indstil uret til:"
 
@@ -2645,10 +2650,10 @@ msgstr "Bevæg musen for at slette dækfelter og opdage baggrunden."
 
 #: ../src/erase-activity/erase.c:180
 msgid "Error: No images found\n"
-msgstr ""
+msgstr "Fejl: Ingen billeder fundet\n"
 
-#: ../src/erase-activity/erase.c:578 ../src/gcompris/properties.c:501
-#: ../src/gcompris/properties.c:508
+#: ../src/erase-activity/erase.c:578 ../src/gcompris/properties.c:504
+#: ../src/gcompris/properties.c:511
 msgid "readme"
 msgstr "læsmig"
 
@@ -2660,6 +2665,10 @@ msgid ""
 "jpeg'.\n"
 "For best results, they must have a size of 800x520 pixels.\n"
 msgstr ""
+"Placer et antal billeder i denne mappe.\n"
+"De vil blive brugt som baggrund for erase-aktiviteten.\n"
+"Billedet skal være i formatet jpeg og have filendelsen .jpg eller .jpeg.\n"
+"For det bedste resultat skal de være i størrelsen 800x520 billedpunkter.\n"
 
 #: ../src/erase-activity/erase.xml.in.h:1
 msgid ""
@@ -2677,6 +2686,8 @@ msgid ""
 "Move the mouse until all the blocks disappear. You can add you own images "
 "under the directory '~/My GCompris/erase'."
 msgstr ""
+"Flyt musen indtil alle blokke forsvinder. Du kan tilføje dine egne billeder "
+"i mappen ~/My GCompris/erase."
 
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
 msgid "Double click the mouse"
@@ -2747,7 +2758,7 @@ msgstr ""
 msgid "Tux needs to water the flowers, but the hose is blocked."
 msgstr "Tux skal have vandet blomsterne, men slangen er tilstoppet."
 
-#: ../src/gcompris/about.c:49
+#: ../src/gcompris/about.c:48
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge, Yves Combe\n"
@@ -2762,7 +2773,7 @@ msgstr ""
 "Baggrundsmusik: Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:57
+#: ../src/gcompris/about.c:56
 msgid "translator_credits"
 msgstr ""
 "Mogens Jæger\n"
@@ -2773,47 +2784,47 @@ msgstr ""
 "Dansk-gruppen <dansk@dansk-gruppen.dk>\n"
 "Mere info: http://www.dansk-gruppen.dk"
 
-#: ../src/gcompris/about.c:84
+#: ../src/gcompris/about.c:82
 msgid "About GCompris"
 msgstr "Om GCompris"
 
-#: ../src/gcompris/about.c:94
+#: ../src/gcompris/about.c:92
 msgid "GCompris Home Page: http://gcompris.net"
 msgstr "GCompris' hjemmeside: http://gcompris.net"
 
-#: ../src/gcompris/about.c:105
+#: ../src/gcompris/about.c:103
 msgid "Translators:"
 msgstr "Oversættere:"
 
-#: ../src/gcompris/about.c:210
+#: ../src/gcompris/about.c:208
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
 msgstr "Dette program er en GNU-pakke, der er frigivet under GNU GPL."
 
-#: ../src/gcompris/about.c:224 ../src/gcompris/config.c:438
-#: ../src/gcompris/dialog.c:104 ../src/gcompris/help.c:355
-#: ../src/gcompris/images_selector.c:307
+#: ../src/gcompris/about.c:222 ../src/gcompris/config.c:439
+#: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:355
+#: ../src/gcompris/images_selector.c:306
 msgid "OK"
 msgstr "O.k."
 
-#: ../src/gcompris/bar.c:693
+#: ../src/gcompris/bar.c:684
 msgid "GCompris confirmation"
 msgstr "GCompris bekræftelse"
 
-#: ../src/gcompris/bar.c:694
+#: ../src/gcompris/bar.c:685
 msgid "Are you sure you want to quit?"
 msgstr "Er du sikker på at du vil slutte?"
 
-#: ../src/gcompris/bar.c:695
+#: ../src/gcompris/bar.c:686
 msgid "Yes, I am sure!"
 msgstr "Ja, jeg er!"
 
-#: ../src/gcompris/bar.c:696
+#: ../src/gcompris/bar.c:687
 msgid "No, I want to keep going"
 msgstr "Nej, jeg vil fortsætte"
 
-#: ../src/gcompris/board.c:168
+#: ../src/gcompris/board.c:155
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr ""
 "Dynamisk modulindlæsning er ikke understøttet. GCompris kan ikke indlæses.\n"
@@ -3095,118 +3106,123 @@ msgstr "Albansk"
 msgid "Serbian (Latin)"
 msgstr "Serbisk (Latin)"
 
+# http://www.denstoredanske.dk/Samfund,_jura_og_politik/Sprog/Fremmedord/mi-mo/montenegrinsk
 #: ../src/gcompris/config.c:113
+msgid "Montenegrin"
+msgstr "Montenegrinsk"
+
+#: ../src/gcompris/config.c:114
 msgid "Serbian"
 msgstr "Serbisk"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:115
 msgid "Swedish"
 msgstr "Svensk"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:116
 msgid "Tamil"
 msgstr "Tamilsk"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:117
 msgid "Thai"
 msgstr "Thai"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:118
 msgid "Turkish"
 msgstr "Tyrkisk"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:119
 msgid "Ukrainian"
 msgstr "Ukrainsk"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:120
 msgid "Urdu"
 msgstr "Urdu"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:121
 msgid "Vietnamese"
 msgstr "Vietnamesisk"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:122
 msgid "Walloon"
 msgstr "Vallonsk"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:123
 msgid "Chinese (Simplified)"
 msgstr "Kinesisk (simplificeret)"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:124
 msgid "Chinese (Traditional)"
 msgstr "Kinesisk (traditionel)"
 
-#: ../src/gcompris/config.c:128
+#: ../src/gcompris/config.c:129
 msgid "No time limit"
 msgstr "Ingen tidsgrænse"
 
-#: ../src/gcompris/config.c:129
+#: ../src/gcompris/config.c:130
 msgid "Slow timer"
 msgstr "Langsomt tidsforløb"
 
-#: ../src/gcompris/config.c:130
+#: ../src/gcompris/config.c:131
 msgid "Normal timer"
 msgstr "Normalt tidsforløb"
 
-#: ../src/gcompris/config.c:131
+#: ../src/gcompris/config.c:132
 msgid "Fast timer"
 msgstr "Hurtigt tidsforløb"
 
-#: ../src/gcompris/config.c:135
+#: ../src/gcompris/config.c:136
 msgid "Use Gcompris administration module to filter boards"
 msgstr "Brug GCompris' administrationsmodul til at filtrere brætter"
 
-#: ../src/gcompris/config.c:186
+#: ../src/gcompris/config.c:187
 msgid "GCompris Configuration"
 msgstr "GCompris-konfiguration"
 
-#: ../src/gcompris/config.c:253
+#: ../src/gcompris/config.c:254
 msgid "Fullscreen"
 msgstr "Fuldskærm"
 
-#: ../src/gcompris/config.c:278
+#: ../src/gcompris/config.c:279
 msgid "Music"
 msgstr "Baggrundsmusik"
 
-#: ../src/gcompris/config.c:303
+#: ../src/gcompris/config.c:304
 msgid "Effect"
 msgstr "Lydeffekter"
 
-#: ../src/gcompris/config.c:327 ../src/gcompris/sugar.c:82
+#: ../src/gcompris/config.c:328 ../src/gcompris/sugar.c:82
 msgid "Zoom"
 msgstr "Zoom"
 
-#: ../src/gcompris/config.c:364
+#: ../src/gcompris/config.c:365
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kunne ikke åbne temabibliotek: %s"
 
-#: ../src/gcompris/config.c:395 ../src/gcompris/config.c:753
-#: ../src/gcompris/config.c:767
+#: ../src/gcompris/config.c:396 ../src/gcompris/config.c:754
+#: ../src/gcompris/config.c:768
 #, c-format
 msgid "Skin : %s"
 msgstr "Tema : %s"
 
-#: ../src/gcompris/config.c:397
+#: ../src/gcompris/config.c:398
 msgid "SKINS NOT FOUND"
 msgstr "SKINS IKKE FUNDET"
 
-#: ../src/gcompris/config.c:478
+#: ../src/gcompris/config.c:479
 msgid "English (United State)"
 msgstr "Engelsk (USA)"
 
-#: ../src/gcompris/file_selector.c:254
+#: ../src/gcompris/file_selector.c:251
 msgid "CANCEL"
 msgstr "AFBRYD"
 
-#: ../src/gcompris/file_selector.c:262
+#: ../src/gcompris/file_selector.c:259
 msgid "LOAD"
 msgstr "INDLÆS"
 
-#: ../src/gcompris/file_selector.c:262
+#: ../src/gcompris/file_selector.c:259
 msgid "SAVE"
 msgstr "GEM"
 
@@ -3430,7 +3446,7 @@ msgstr ""
 msgid "The lock file is: %s\n"
 msgstr "Lock-filen er: %s\n"
 
-#: ../src/gcompris/gcompris.c:1602
+#: ../src/gcompris/gcompris.c:1599
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3444,27 +3460,27 @@ msgstr ""
 "Mere information på http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1717
+#: ../src/gcompris/gcompris.c:1714
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Brug -l for at starte en aktivitet direkte.\n"
 
-#: ../src/gcompris/gcompris.c:1718
+#: ../src/gcompris/gcompris.c:1715
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Listen af tilgængelige aktiviteter er :\n"
 
-#: ../src/gcompris/gcompris.c:1749
+#: ../src/gcompris/gcompris.c:1746
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Antal aktiviteter: %d\n"
 
-#: ../src/gcompris/gcompris.c:1785
+#: ../src/gcompris/gcompris.c:1782
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s eksisterer men kan ikke læses eller er skrivebeskyttet"
 
-#: ../src/gcompris/gcompris.c:1848
+#: ../src/gcompris/gcompris.c:1845
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
@@ -3473,7 +3489,7 @@ msgstr ""
 "Tilvalget --server kan ikke bruges, da GCompris er blevet kompileret uden "
 "netværksunderstøttelse!"
 
-#: ../src/gcompris/gcompris.c:1902
+#: ../src/gcompris/gcompris.c:1899
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3482,7 +3498,7 @@ msgstr ""
 "FEJL: Profilen '%s' er ikke fundet. Kør 'gcompris --profile-list' for at "
 "vise en oversigt over de tilgængelige profiler.\n"
 
-#: ../src/gcompris/gcompris.c:1916
+#: ../src/gcompris/gcompris.c:1913
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Listen af tilgængelige profiler er:\n"
@@ -3529,7 +3545,7 @@ msgstr ""
 "Indlæser aktivet fra fil:\n"
 "%s"
 
-#: ../src/gcompris/properties.c:503
+#: ../src/gcompris/properties.c:506
 msgid ""
 "This directory contains the files you create with the GCompris educational "
 "suite\n"
@@ -3537,7 +3553,7 @@ msgstr ""
 "Dette bibliotek indeholder de filer, du dannede med GCompris' "
 "undervisningspakke\n"
 
-#: ../src/gcompris/properties.c:510
+#: ../src/gcompris/properties.c:513
 msgid ""
 "Put any number of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
@@ -4227,10 +4243,10 @@ msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ"
 #: ../src/missing_letter-activity/missingletter.c:784
 #: ../src/pythontest-activity/pythontest.py:454
 #: ../src/readingh-activity/reading.c:904
-#: ../src/scalesboard-activity/scale.c:1161
+#: ../src/scalesboard-activity/scale.c:1160
 #: ../src/smallnumbers-activity/smallnumbers.c:595
 #: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:866
+#: ../src/wordsgame-activity/wordsgame.c:864
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -4564,6 +4580,52 @@ msgstr ""
 "viser, hvor langt du er fra det rigtige svar. Ligeledes flyver Tux for højt/"
 "lavt, hvis dit tal er for højt/lavt."
 
+#. All the vowel of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:61
+msgid "aeiouy"
+msgstr "aeiouyæøå"
+
+#. All the consonants of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:63
+msgid "bcdfghjklmnpqrstvwxz"
+msgstr "bcdfghjklmnpqrstvwxz"
+
+#. Letters equivallence for the hangman activity. It has the
+#. form of a space separated list like: "e=éè a=àâ"
+#. Keep the word NONE if not available in your language
+#: ../src/hangman-activity/hangman.py:67
+msgid "NONE"
+msgstr "NONE"
+
+#: ../src/hangman-activity/hangman.py:104
+msgid "Could not find the list of words."
+msgstr "Kunne ikke finde ordlisten."
+
+#: ../src/hangman-activity/hangman.xml.in.h:1
+msgid "A word is hidden, you must discover it letter by letter"
+msgstr "Et ord er skjult, og du skal finde frem til det bogstav for bogstav"
+
+#: ../src/hangman-activity/hangman.xml.in.h:2
+msgid "Reading skill"
+msgstr "Læseevne"
+
+# http://en.wikipedia.org/wiki/Hangman_%28game%29
+#: ../src/hangman-activity/hangman.xml.in.h:3
+msgid "The classic hangman game"
+msgstr "Det klassiske papir og blyantspil Den hængte mand"
+
+#: ../src/hangman-activity/hangman.xml.in.h:4
+msgid "This is a good exercise to improve reading and spelling skills."
+msgstr "Dette er en god øvelse til at forbedre læsning og stavning."
+
+#: ../src/hangman-activity/hangman.xml.in.h:5
+msgid ""
+"You can enter the letters using the virtual keyboard on the screen or with "
+"the real keyboard."
+msgstr ""
+"Du kan indtaste bogstaverne med brug af det virtuelle tastatur på skærmen "
+"eller med tastaturet."
+
 #: ../src/hanoi-activity/hanoi.c:112 ../src/hanoi-activity/hanoi.xml.in.h:6
 msgid "Simplified Tower of Hanoi"
 msgstr "Forenklet udgave af \"Tower of Hanoi\""
@@ -4664,6 +4726,145 @@ msgstr ""
 #: ../src/hexagon-activity/hexagon.xml.in.h:5
 msgid "hexagon"
 msgstr "Sekskant"
+
+#: ../src/hydroelectric-activity/hydroelectric.py:88
+#: ../src/watercycle-activity/watercycle.py:107
+msgid ""
+"The sun heats the water and creates water vapor. Water vapor combines into "
+"small water droplets which becomes clouds."
+msgstr ""
+"Solen opvarmer vandet og skaber fordampning. Fordampningen bliver til små "
+"vanddråber der samler sig i skyer."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:126
+#: ../src/watercycle-activity/watercycle.py:144
+msgid ""
+"As a cloud matures, the dense water droplets may combine to produce larger "
+"droplets, which may combine to form droplets large enough to fall as rain"
+msgstr ""
+"Efterhånden som en sky modnes, kan de tætte vanddråber samles og blive til "
+"større dråber, der eventuelt kan blive store nok til at blive til regn"
+
+#: ../src/hydroelectric-activity/hydroelectric.py:169
+msgid "This is the meter for electricity produced by the turbine. "
+msgstr "Dette er måleren for elektricitet produceret af turbinen."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:170
+#: ../src/hydroelectric-activity/hydroelectric.py:282
+#: ../src/hydroelectric-activity/hydroelectric.py:289
+#: ../src/hydroelectric-activity/hydroelectric.py:319
+#: ../src/hydroelectric-activity/hydroelectric.py:341
+msgid "The electricity power is measured in Watt (W)."
+msgstr "Den elektriske kraft måles i watt (W)."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:175
+msgid ""
+"Flowing water is directed on to the blades of a turbine runner, creating a "
+"force on the blades. In this way, energy is transferred from the water flow "
+"to the turbine"
+msgstr ""
+"Strømmende vand rettes mod bladene i en turbinekanal og skaber dermed en "
+"kraft mod bladene. På denne måde bliver energi overført fra vandets strøm "
+"til turbinen"
+
+#: ../src/hydroelectric-activity/hydroelectric.py:189
+msgid "This cloud simulates the wind, click on it to have wind."
+msgstr "Denne sky simulerer vinden. Klik på den for at få vind."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:227
+msgid ""
+"This is a step down transformer. Electricity is transformed in low voltage, "
+"ready to be used by the customers."
+msgstr ""
+"Dette er en nedtransformator. Elektricitet transformeres til lav spænding, "
+"klar til brug af kunderne."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:281
+msgid "This is the meter for all the electricity produced. "
+msgstr "Dette er måleren for al elektricitet produceret. "
+
+#: ../src/hydroelectric-activity/hydroelectric.py:288
+msgid "This is the meter for electricity consumed by the users. "
+msgstr "Dette er måleren for elektricitet forbrugt af brugerne. "
+
+#: ../src/hydroelectric-activity/hydroelectric.py:318
+msgid "This is the meter for electricity produced by the solar panels. "
+msgstr "Dette er måleren for elektricitet produceret af solpanelerne. "
+
+# fotovoltaikske (fra svensk wikipedia. Et dansk navn?)
+#: ../src/hydroelectric-activity/hydroelectric.py:324
+msgid ""
+"Solar panels use light energy (photons) from the sun to generate electricity "
+"through the photovoltaic effect."
+msgstr ""
+"Solpanelerne bruger lysenerig (fotoner) fra solen til at skabe elektricitet "
+"via den fotovoltaikske effekt."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:340
+msgid "This is the meter for electricity produced by the wind turbines. "
+msgstr "Dette er måleren for elektricitet produceret af vindturbinerne. "
+
+#: ../src/hydroelectric-activity/hydroelectric.py:346
+msgid ""
+"A wind turbine is a device that converts wind motion energy into electricity "
+"generation. It is called a wind generator or wind charger. "
+msgstr ""
+"En vindturbine er en enhed som konverterer vindbevægelsesenergi over i "
+"elektricitet. Det kaldes en vindgenerator eller vindoplader. "
+
+#: ../src/hydroelectric-activity/hydroelectric.py:732
+msgid ""
+"It is not possible to consume more electricity than what is produced. This "
+"is a key limitation in the distribution of electricity, with minor "
+"exceptions, electrical energy cannot be stored, and therefore it must be "
+"generated as it is needed. A sophisticated system of control is therefore "
+"required to ensure electric generation very closely matches the demand. If "
+"supply and demand are not in balance, generation plants and transmission "
+"equipment can shut down which, in the worst cases, can lead to a major "
+"regional blackout."
+msgstr ""
+"Det er ikke muligt at forbruge mere elektricitet end der produceres. Dette "
+"er en væsentlig begrænsning i distributionen af elektricitet, med begrænsede "
+"undtagelser, kan elektrisk energi ikke gemmes, og derfor skal den produceres "
+"efterhånden som behovet opstår. Et sofistikeret kontrolsystem er derfor "
+"krævet for at sikre, at den producerede elektricitet svarer til "
+"efterspørgslen. Hvis udbud og efterspørgsel ikke er i balance, kan "
+"elektricitetsværker og transmissionsudstyr lukke ned. I de værste tilfælde "
+"kan det medføre et alvorligt regionalt udfald."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:946
+msgid ""
+"This is a step up transformer. Electricity is transmitted at high voltages "
+"(110 kV or above) to reduce the energy lost in long distance transmission."
+msgstr ""
+"Dette er en optransformator. Elektricitet transmitteres ved høj spænding "
+"(110 kV eller højere) for at reducere energitabet ved transmission over "
+"store afstande."
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:1
+msgid ""
+"Click on different active elements : sun, cloud, dam, solar array, wind farm "
+"and transformers, in order to reactivate the entire electrical system. When "
+"the system is back up and Tux is in his home, push the light button for him. "
+"To win you must switch on all the consumers while all the producers are up."
+msgstr ""
+"Klik på de forskellige aktive dele: sol, sky, dæmning, solanlæg, vindfarm og "
+"transformatorer for at genaktivere hele det elektriske system. Når systemet "
+"er i gang igen og Tux er i sit hjem, så tryk på lysknappen for ham. For at "
+"vinde skal du tænde hos alle forbrugerne, samtidig med at alle producenterne "
+"er i gang."
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:3
+msgid "Learn about an electrical system based on renewable energy"
+msgstr "Lær om et elektrisk system baseret på grøn energi"
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:4
+msgid ""
+"Tux has come back from a long fishing party on his boat. Bring the "
+"electrical system back up so he can have light in his home."
+msgstr ""
+"Tux er kommet hjem efter en lang tur på fiskebåden. Gendan det elektriske "
+"system, så han kan få lys i sit hjem."
 
 #: ../src/imageid-activity/imageid.c:94
 #: ../src/imageid-activity/imageid.xml.in.h:3
@@ -5976,22 +6177,37 @@ msgid "satchel/sa_chel/t/p/c/z/s/l"
 msgstr "taske/ta_ke/s/k/n/z/c/l"
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
-#: ../src/money-activity/money.c:542
+#: ../src/money-activity/money.c:795
 #, c-format
 msgid "$ %.2f"
-msgstr "$ %.2f"
+msgstr "kr. %.2f"
 
-#: ../src/money-activity/money.c:555
+#. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
+#: ../src/money-activity/money.c:809
 #, c-format
 msgid "$ %.0f"
-msgstr "$ %.0f"
+msgstr "kr. %.0f"
+
+#. Set here the way to display money. Change only the money sign, and it's place, always keep %d
+#: ../src/money-activity/money.c:932
+#, c-format
+msgid ""
+"Tux just bought some items in your shop.\n"
+"He gives you $ %d, please give back his change."
+msgstr ""
+"Tux har netop købt nogle ting i din butik.\n"
+"Han giver dig %d kr. Giv ham venligst byttepenge."
 
 #: ../src/money-activity/money.xml.in.h:1
+#: ../src/money_back-activity/money_back.xml.in.h:1
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:1
 #: ../src/money_cents-activity/money_cents.xml.in.h:1
 msgid "Can count"
 msgstr "Kan tælle."
 
 #: ../src/money-activity/money.xml.in.h:2
+#: ../src/money_back-activity/money_back.xml.in.h:2
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:2
 #: ../src/money_cents-activity/money_cents.xml.in.h:2
 msgid ""
 "Click on the coins or paper money at the bottom of the screen to pay. If you "
@@ -6018,9 +6234,33 @@ msgstr ""
 "Du skal købe de forskellige ting og betale den nøjagtige pris. Ved højere "
 "niveauer vises flere ting, og du skal først udregne den samlede pris."
 
+#: ../src/money_back-activity/money_back.xml.in.h:3
+msgid "Give tux his change"
+msgstr "Giv tux sine byttepenge"
+
+#: ../src/money_back-activity/money_back.xml.in.h:4
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:4
+msgid "Practice money usage by giving Tux his change"
+msgstr "Træn brug af penge ved at give Tux sine byttepenge"
+
+#: ../src/money_back-activity/money_back.xml.in.h:5
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:5
+msgid ""
+"Tux bought you different items and shows you his money. You must give him "
+"back his change. At higher levels, several items are displayed, and you must "
+"first calculate the total price."
+msgstr ""
+"Tux har købt forskellige ting og viser dig nu sin pengebeholdning. Du skal "
+"give ham byttepenge tilbage. På de højere niveauer vises flere ting, og du "
+"skal så først beregne den samlede pris."
+
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:3
+msgid "Give tux his change, including cents"
+msgstr "Giv tux sine byttepenge inklusiv ører."
+
 #: ../src/money_cents-activity/money_cents.xml.in.h:4
 msgid "Practice money usage including cents"
-msgstr "Træn brug af penge inklusiv cents."
+msgstr "Træn brug af penge inklusiv ører."
 
 #: ../src/mosaic-activity/mosaic.py:186
 msgid "Rebuild the same mosaic on the right area"
@@ -6614,7 +6854,7 @@ msgstr "Vægt i gram = %s"
 msgid "Weight = %s"
 msgstr "Vægt = %s"
 
-#: ../src/scalesboard-activity/scale.c:1008
+#: ../src/scalesboard-activity/scale.c:1007
 msgid "Take care, you can drop masses on both sides of the scale."
 msgstr "Husk, du kan lægge lodder på begge sider af vægten."
 
@@ -7137,6 +7377,24 @@ msgstr "Brug Tuxpaint til tegning. Når Tuxpaint afsluttes, slutter dette bræt.
 msgid "mouse and keyboard manipulation"
 msgstr "Brug af mus og tastatur"
 
+#: ../src/watercycle-activity/watercycle.py:170
+msgid "This is a water pump station."
+msgstr "Dette er en vandpumpestation."
+
+#: ../src/watercycle-activity/watercycle.py:183
+msgid "This is a water cleanup station."
+msgstr "Dette er et rensningsanlæg."
+
+#: ../src/watercycle-activity/watercycle.py:263
+msgid ""
+"A water tower or elevated water tower is a large elevated water storage "
+"container constructed to hold a water supply at a height sufficient to "
+"pressurize a water distribution system."
+msgstr ""
+"Et vandtårn eller hævet vandtårn er et stort hævet vandlager, der er "
+"konstrueret til at indeholde en vandforsyning i en højde, der er "
+"tilstrækkelig til at skabe et vanddistributionssystem baseret på tryk."
+
 #: ../src/watercycle-activity/watercycle.xml.in.h:1
 msgid ""
 "Click on different active elements : sun, cloud, water pump station, and "
@@ -7249,175 +7507,3 @@ msgstr "Tastaturtræning"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:4
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Skriv hele ordet mens det falder, og før det når bunden"
-
-#: ../src/hangman-activity/hangman.xml.in.h:1
-msgid "A word is hidden, you must discover it letter by letter"
-msgstr "Et ord er skjult, og du skal finde frem til det bogstav for bogstav"
-
-#: ../src/hangman-activity/hangman.xml.in.h:2
-msgid "Reading skill"
-msgstr "Læseevne"
-
-# http://en.wikipedia.org/wiki/Hangman_%28game%29
-#: ../src/hangman-activity/hangman.xml.in.h:3
-msgid "The classic hangman game"
-msgstr "Det klassiske papir og blyantspil Den hængte mand"
-
-#: ../src/hangman-activity/hangman.xml.in.h:4
-msgid "This is a good exercise to improve reading and spelling skills."
-msgstr "Dette er en god øvelse til at forbedre læsning og stavning."
-
-#: ../src/hangman-activity/hangman.xml.in.h:5
-msgid ""
-"You can enter the letters using the virtual keyboard on the screen or with "
-"the real keyboard."
-msgstr ""
-"Du kan indtaste bogstaverne med brug af det virtuelle tastatur på skærmen "
-"eller med tastaturet."
-
-#. All the vowel of your language (keep empty if non applicable)
-#: ../src/hangman-activity/hangman.py:61
-msgid "aeiouy"
-msgstr "aeiouyæøå"
-
-#. All the consonants of your language (keep empty if non applicable)
-#: ../src/hangman-activity/hangman.py:63
-msgid "bcdfghjklmnpqrstvwxz"
-msgstr "bcdfghjklmnpqrstvwxz"
-
-#. Letters equivallence for the hangman activity. It has the
-#. form of a space separated list like: "e=éè a=àâ"
-#. Keep the word NONE if not available in your language
-#: ../src/hangman-activity/hangman.py:67
-msgid "NONE"
-msgstr "NONE"
-
-#: ../src/hangman-activity/hangman.py:104
-msgid "Could not find the list of words."
-msgstr "Kunne ikke finde ordlisten."
-
-#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:1
-#, fuzzy
-msgid ""
-"Click on different active elements : sun, cloud, dam, solar array, wind farm "
-"and transformers, in order to reactivate the entire electrical system. When "
-"the system is back up and Tux is in his home, push the light button for him. "
-"To win you must switch on all the consumers while all the producers are up."
-msgstr ""
-"Klik på de forskellige aktive dele: sol, skyer, vand, vandpumpestation og "
-"renseanlæg for at genoprette hele vandballancen. Når systemet er i orden "
-"igen (vandtårnet er fuldt), og Tux er i bruseren, trykkes på bruserventilen."
-
-#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:3
-msgid "Learn about an electrical system based on renewable energy"
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:4
-#, fuzzy
-msgid ""
-"Tux has come back from a long fishing party on his boat. Bring the "
-"electrical system back up so he can have light in his home."
-msgstr ""
-"Tux er kommet hjem efter en lang tur på fiskebåden. Skab orden i "
-"vandsystemet, så Tux kan få sig et brusebad."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:88
-msgid ""
-"The sun heats the water and creates water vapor. Water vapor combines into "
-"small water droplets which becomes clouds."
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:126
-msgid ""
-"As a cloud matures, the dense water droplets may combine to produce larger "
-"droplets, which may combine to form droplets large enough to fall as rain"
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:169
-msgid "This is the meter for electricity produced by the turbine. "
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:170
-#: ../src/hydroelectric-activity/hydroelectric.py:282
-#: ../src/hydroelectric-activity/hydroelectric.py:289
-#: ../src/hydroelectric-activity/hydroelectric.py:319
-#: ../src/hydroelectric-activity/hydroelectric.py:341
-msgid "The electricity power is measured in Watt (W)."
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:175
-msgid ""
-"Flowing water is directed on to the blades of a turbine runner, creating a "
-"force on the blades. In this way, energy is transferred from the water flow "
-"to the turbine"
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:189
-msgid "This cloud simulates the wind, click on it to have wind."
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:227
-msgid ""
-"This is a step down transformer. Electricity is transformed in low voltage, "
-"ready to be used by the customers."
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:281
-msgid "This is the meter for all the electricity produced. "
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:288
-msgid "This is the meter for electricity consumed by the users. "
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:318
-msgid "This is the meter for electricity produced by the solar panels. "
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:324
-msgid ""
-"Solar panels use light energy (photons) from the sun to generate electricity "
-"through the photovoltaic effect."
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:340
-msgid "This is the meter for electricity produced by the wind turbines. "
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:346
-msgid ""
-"A wind turbine is a device that converts wind motion energy into electricity "
-"generation. It is called a wind generator or wind charger. "
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:732
-msgid ""
-"It is not possible to consume more electricity than what is produced. This "
-"is a key limitation in the distribution of electricity, with minor "
-"exceptions, electrical energy cannot be stored, and therefore it must be "
-"generated as it is needed. A sophisticated system of control is therefore "
-"required to ensure electric generation very closely matches the demand. If "
-"supply and demand are not in balance, generation plants and transmission "
-"equipment can shut down which, in the worst cases, can lead to a major "
-"regional blackout."
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:946
-msgid ""
-"This is a step up transformer. Electricity is transmitted at high voltages "
-"(110 kV or above) to reduce the energy lost in long distance transmission."
-msgstr ""
-
-#~ msgid "Mona Lisa"
-#~ msgstr "Mona Lisa"
-
-#~ msgid "Dürer : Lion"
-#~ msgstr "Dürer : Løve"
-
-# SDE: "Soveværelset i Arles"
-#, fuzzy
-#~ msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1888"
-#~ msgstr "Vincent van Gogh, Indgangsparti på Saint-Paul Hospital - 1889"
-
-#~ msgid "Move the mouse until all the blocks disappear."
-#~ msgstr "Bevæg musen, indtil alle dækfelter er væk."
