@@ -1,16 +1,16 @@
 # Afrikaans translation of GCompris.
-# Copyright (C) 2007
+# Copyright (C) 2007,2009-2011
 # This file is distributed under the same license as the GCompris package.
-# Friedel Wolff <friedel BY translate.org.za>, 2007
 # Samuel Murray <afrikaans BY gmail.com>, 2007
-# F Wolff <friedel@translate.org.za>, 2009, 2010.
+# F Wolff <friedel@translate.org.za>, 2007, 2009, 2010, 2011.
+# Hermien Bos <hermienbos@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: GCompris 8.4\n"
 "Report-Msgid-Bugs-To: "
 "http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&component=general\n"
-"POT-Creation-Date: 2010-12-05 18:09+0000\n"
-"PO-Revision-Date: 2010-12-09 17:49+0200\n"
+"POT-Creation-Date: 2011-02-19 21:33+0000\n"
+"PO-Revision-Date: 2011-02-26 13:49+0200\n"
 "Last-Translator: F Wolff <friedel@translate.org.za>\n"
 "Language-Team: translate-discuss-af@lists.sourceforge.net\n"
 "Language: af\n"
@@ -18,14 +18,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.7.0-beta1\n"
-"X-Project-Style: gnome\n"
+"X-Generator: Virtaal 0.7.0-beta4\n"
 
 #: ../boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
 msgstr "Gaan na algebra-aktiwiteite"
 
 #: ../boards/algebra_group.xml.in.h:2 ../boards/menu.xml.in.h:18
+#: ../boards/money_group.xml.in.h:2
 msgid "Left-click the mouse on an activity to select it."
 msgstr "Linkskliek op 'n aktiwiteit om dit te kies."
 
@@ -196,7 +196,7 @@ msgstr ""
 msgid "GCompris Main Menu"
 msgstr "Hoofkieslys van GCompris"
 
-#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:876
+#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:866
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -219,6 +219,11 @@ msgstr "Allerlei aktiwiteite"
 #: ../boards/miscelaneous.xml.in.h:2
 msgid "Time, Geography, ..."
 msgstr "Tyd, aardrykskunde, ..."
+
+#: ../boards/money_group.xml.in.h:1
+#| msgid "Go to Memory activities"
+msgid "Go to money activities"
+msgstr "Gaan na geld-aktiwiteite"
 
 #: ../boards/mouse.xml.in.h:1
 msgid "Mouse-manipulation activities."
@@ -297,7 +302,6 @@ msgstr ""
 "'n Voorkoms van GCompris loop reeds. Verlaat GCompris en probeer dan weer."
 
 #: ../nsis_translations.desktop.in.h:2
-#| msgid "The race is already being run"
 msgid "The installer is already running."
 msgstr "Die installeerder loop reeds."
 
@@ -316,8 +320,8 @@ msgid ""
 "will be deleted.$\\rGCompris user settings will not be affected."
 msgstr ""
 "Die ou GCompris-gids gaan nou geskrap word. Wil u voortgaan?$\\r$\\rLet wel: "
-"Enige niestandaard inproppe wat dalk geïnstalleer is, sal geskrap "
-"word.$\\rGCompris se gebruikerinstellings sal nie geaffekteer word nie."
+"Enige niestandaard inproppe wat dalk geïnstalleer is, sal geskrap word.$"
+"\\rGCompris se gebruikerinstellings sal nie geaffekteer word nie."
 
 #: ../nsis_translations.desktop.in.h:6
 msgid ""
@@ -1234,7 +1238,7 @@ msgstr "algoritme"
 
 #: ../src/anim-activity/Color.py:86
 msgid "Fill color..."
-msgstr "Invulkleur"
+msgstr "Invulkleur..."
 
 #: ../src/anim-activity/Color.py:98
 msgid "Stroke color..."
@@ -1415,11 +1419,11 @@ msgid ""
 "his/her own territory, ending the game. (Source Wikipedia &lt;http://en."
 "wikipedia.org/wiki/Oware&gt;)"
 msgstr ""
-"Aan die begin van die spel word vier sade in elke huisie geplaas. Spelers "
+"Aan die begin van die spelet word vier sade in elke huisie geplaas. Spelers "
 "neem beurte om die saadjies te skuif. Wanneer dit sy beurt is, kies 'n "
 "speler een van die ses huisies onder sy beheer. Hy haal al die sade uit die "
 "huisie, en laat val een saad in elke huisie regsom (antikloksgewys). Dit "
-"word genoem. Sade word nie in die tellinghuisies gesaai nie, en ook nie in "
+"word geenoem. Sade word nie in die tellinghuisies gesaai nie, en ook nie in "
 "die huisie waar die sade vandaan kom nie. Die begin-huisie word dus leeg "
 "gelaat. As daar byvoorbeeld 12 sade was, word die huisie oorgeslaan en die "
 "twaalfde saad word in die volgende huisie gesaai. As die laaste saad in een "
@@ -1434,8 +1438,8 @@ msgstr ""
 "persoon nog steeds toelaat om verder te speel. As die ander speler se "
 "huisies almal leeg is, moet die huidige speler 'n skuif maak wat die ander "
 "speler sade gee. As so 'n skuif nie moontlik is nie, wen die huidige speler "
-"al die sade in sy eie huisies, en die spel eindig. (Bron Wikipedia &lt;"
-"http://en.wikipedia.org/wiki/Oware&gt;)"
+"al die sade in sy eie huisies, en die spel eindig. (Bron Wikipedia "
+"&lt;http://en.wikipedia.org/wiki/Oware&gt;)"
 
 #: ../src/awele-activity/awele.xml.in.h:2
 msgid "Oware"
@@ -1455,13 +1459,13 @@ msgid ""
 "each (draw). If both players agree that the game has been reduced to an "
 "endless cycle, each player captures the stones on their side of the board."
 msgstr ""
-"Die doel van die spel is om meer sade as die ander speler te wen. Daar is 48 "
-"sade, dus hoef 'n mens net 25 sade te wen om die spel te wen. Omdat daar 'n "
-"ewe getal sade is, is dit moontlik dat die spel gelykop eindig (elke speler "
-"het dan 24 sade). Die speletjie is verby wanneer een speler 25 of meer sade "
-"gewen het, of as beide spelers 24 sade gewen het (gelykop). Die spel kan ook "
-"beëindig word as albei spelers van mening is dat die speletjie besig is om "
-"eindeloos voort te duur."
+"Die doel van die spele is om meer sade as die ander speler te wen. Daar is "
+"48 sade, dus hoef 'n mens net 25 sade te wen om die spel te wen. Omdat daar "
+"'n ewe getal sade is, is dit moontlik dat die spel gelykop eindig (elke "
+"speler het dan 24 sade). Die speletjie is verby wanneer een speler 25 of "
+"meer sade gewen het, of as beide spelers 24 sade gewen het (gelykop). Die "
+"spel kan ook beëindig word as albei spelers van mening is dat die speletjie "
+"besig is om eindeloos voort te duur."
 
 #: ../src/babymatch-activity/babymatch.xml.in.h:1
 #: ../src/babymatch-activity/resources/babymatch/board1_0.xml.in.h:1
@@ -1502,7 +1506,7 @@ msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "Muisbeheer: beweging, sleep en los. Kulturele verwysings."
 
 #: ../src/babymatch-activity/shapegame.c:1903
-#: ../src/click_on_letter-activity/click_on_letter.c:675
+#: ../src/click_on_letter-activity/click_on_letter.c:671
 #: ../src/colors-activity/colors.c:168
 #, c-format
 msgid ""
@@ -1606,9 +1610,9 @@ msgstr ""
 
 #: ../src/bargame-activity/bargame.xml.in.h:5
 msgid "bar game"
-msgstr "staafspel"
+msgstr "staafspeletjie"
 
-#: ../src/billard-activity/billard.c:89 ../src/erase-activity/erase.c:124
+#: ../src/billard-activity/billard.c:89 ../src/erase-activity/erase.c:85
 #: ../src/erase-activity/erase.xml.in.h:4
 msgid "Move the mouse"
 msgstr "Beweeg die muis"
@@ -1661,7 +1665,6 @@ msgstr "Kies 'n bord"
 
 #: ../src/boards/menu2.c:266
 #, c-format
-#| msgid "Number of activities: %d\n"
 msgid "Number of activities: %d"
 msgstr "Aantal aktiwiteite: %d"
 
@@ -1678,6 +1681,7 @@ msgid "Special board that embeds python into gcompris."
 msgstr "Spesiale bord wat Python in GCompris inbou."
 
 #: ../src/canal_lock-activity/canal_lock.xml.in.h:1
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:2
 #: ../src/watercycle-activity/watercycle.xml.in.h:2
 msgid "Drawing by Stephane Cabaraux."
 msgstr "Tekening deur Stephane Cabaraux."
@@ -1723,7 +1727,6 @@ msgstr ""
 "netwerk te stuur."
 
 #: ../src/chat-activity/chat.py:244
-#| msgid "Colors"
 msgid "color"
 msgstr "kleur"
 
@@ -1747,7 +1750,6 @@ msgid "Your friends must set the same channel in order to communicate with you"
 msgstr "Jou vriende moet dieselfde kanaal stel om met jou te kommunikeer"
 
 #: ../src/chat-activity/chat.xml.in.h:1
-#| msgid "Chat with your friends"
 msgid "Chat and draw with your friends"
 msgstr "Gesels en teken saam met vriende"
 
@@ -1756,12 +1758,6 @@ msgid "This chat activity only works on the local network"
 msgstr "Hierdie geselsaktiwiteit werk net op die plaaslike netwerk"
 
 #: ../src/chat-activity/chat.xml.in.h:3
-#| msgid ""
-#| "This chat activity will only work with other GCompris users on your local "
-#| "network, not on the Internet. To use it, just type in your message and "
-#| "hit Enter. Your message is then broadcast on the local network, and any "
-#| "GCompris program running the chat activity on that local network will "
-#| "receive and display your message."
 msgid ""
 "This chat activity will only work with other GCompris users on your local "
 "network, not on the Internet. To use it, just type in your message and hit "
@@ -1882,7 +1878,7 @@ msgstr "Maanwandeling"
 #: ../src/chronos-activity/resources/chronos/board1_1.xml.in.h:1
 #: ../src/wordprocessor-activity/wordprocessor.c:117
 msgid "Autumn"
-msgstr "Herfs "
+msgstr "Herfs"
 
 #: ../src/chronos-activity/resources/chronos/board1_1.xml.in.h:2
 #: ../src/wordprocessor-activity/wordprocessor.c:115
@@ -2096,11 +2092,11 @@ msgstr ""
 "na Engels!"
 
 #. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:698
+#: ../src/click_on_letter-activity/click_on_letter.c:694
 #: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:484
 #: ../src/missing_letter-activity/missingletter_config.c:492
 #: ../src/readingh-activity/reading.c:928
-#: ../src/wordsgame-activity/wordsgame.c:889
+#: ../src/wordsgame-activity/wordsgame.c:887
 msgid "Uppercase only text"
 msgstr "Net hoofletters"
 
@@ -2168,7 +2164,7 @@ msgstr "Motoriese koördinasie: beweeg en kliek die muis."
 msgid "Use the left mouse button to click on the moving fish."
 msgstr "Kliek met die muis se linkerknoppie op die bewegende vis."
 
-#: ../src/clockgame-activity/clockgame.c:525
+#: ../src/clockgame-activity/clockgame.c:524
 msgid "Set the watch to:"
 msgstr "Stel die horlosie na:"
 
@@ -2362,16 +2358,15 @@ msgstr ""
 "eerder die pyltjieknoppies en spasie of Tab gebruik."
 
 #: ../src/details-activity/details.xml.in.h:3
-#| msgid "Find the matching pair"
 msgid "Find the details"
 msgstr "Kry die detail"
 
 #: ../src/details-activity/details.xml.in.h:5
-msgid "The images are from wiki commons"
-msgstr "Die prentjies is vanaf Mediawiki Commons"
+#| msgid "The images are from wiki commons"
+msgid "The images are from Wikimedia Commons."
+msgstr "Die prentjies is vanaf Wikimedia Commons."
 
 #: ../src/details-activity/resources/details/board1_0.xml.in.h:1
-#, fuzzy
 #| msgid "Vincent van Gogh, Bedroom in Arles - 1888"
 msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1889"
 msgstr "Vincent van Gogh, Ingangsaal van die Sint Paulus Hospitaal - 1889"
@@ -2381,36 +2376,32 @@ msgid ""
 "Vincent van Gogh, The Bridge of Langlois at Arles with a lady with umbrella "
 "- 1888"
 msgstr ""
+"Vincent van Gogh, Die Brug van Langlois by Arles met 'n dame met 'n sambreel "
+"- 1888"
 
 #: ../src/details-activity/resources/details/board1_2.xml.in.h:1
-#| msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
 msgid "Vincent van Gogh, The Church at Auvers-sur-Oise - 1890"
 msgstr "Vincent Van Gogh, Die kerk van Auvers - 1890"
 
 #: ../src/details-activity/resources/details/board1_3.xml.in.h:1
-#, fuzzy
 #| msgid "Vincent van Gogh, Bedroom in Arles - 1888"
 msgid "Vincent van Gogh, Painter on His Way to Work - 1888"
-msgstr "Vincent van Gogh, Slaapkamer in Arles - 1888"
+msgstr "Vincent van Gogh, Skilder oppad werk toe - 1888"
 
 #: ../src/details-activity/resources/details/board1_4.xml.in.h:1
-#| msgid "Vincent van Gogh, Bedroom in Arles - 1888"
 msgid "Vincent van Gogh, The Harvest - 1888"
 msgstr "Vincent van Gogh, Die oes - 1888"
 
 #: ../src/details-activity/resources/details/board1_5.xml.in.h:1
-#| msgid "Vincent van Gogh, Bedroom in Arles - 1888"
 msgid "Vincent van Gogh, Cafe Terrace at Night - 1888"
 msgstr "Vincent van Gogh, Kafeeterras snags - 1888"
 
 #: ../src/details-activity/resources/details/board1_6.xml.in.h:1
-#, fuzzy
-#| msgid "Vincent van Gogh, Bedroom in Arles - 1888"
-msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1888"
-msgstr "Vincent van Gogh, Slaapkamer in Arles - 1888"
+#| msgid "Vincent van Gogh, The Harvest - 1888"
+msgid "Vincent van Gogh, The Night Café - 1888"
+msgstr "Vincent van Gogh, Die Nagkafee - 1888"
 
 #: ../src/details-activity/resources/details/board1_7.xml.in.h:1
-#| msgid "Vincent van Gogh, Bedroom in Arles - 1888"
 msgid "Vincent van Gogh, Portrait of Pere Tanguy 1887-8"
 msgstr "Vincent van Gogh, Portret van \"père\" Tanguy - 1887-8"
 
@@ -2524,6 +2515,10 @@ msgstr ""
 "in die wit area om 'n nuwe vorm te maak. Om tyd te bespaar kan jy die "
 "middelste muisknoppie kliek om 'n voorwerp te skrap."
 
+#: ../src/drawnumber-activity/drawnumber.py:236
+msgid "Cannot find the file '{filename}'"
+msgstr "Kan nie die lêer '{filename}' vind nie"
+
 #: ../src/drawnumber-activity/drawnumber.xml.in.h:1
 msgid "Can count from 1 to 50."
 msgstr "Kan tel van 1 tot 50."
@@ -2633,9 +2628,32 @@ msgstr ""
 "item wat jy wil beantwoord, regs onder. Tik die antwoord met die sleutelbord "
 "in, en druk die Regso-knoppie of die 'Enter'-knoppie."
 
-#: ../src/erase-activity/erase.c:125 ../src/erase-activity/erase.xml.in.h:5
+#: ../src/erase-activity/erase.c:86 ../src/erase-activity/erase.xml.in.h:5
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Beweeg die muis om die area uit te vee en die agtergrond te wys"
+
+#: ../src/erase-activity/erase.c:180
+msgid "Error: No images found\n"
+msgstr "Fout: geen beelde is gevind nie\n"
+
+#: ../src/erase-activity/erase.c:578 ../src/gcompris/properties.c:504
+#: ../src/gcompris/properties.c:511
+msgid "readme"
+msgstr "leesmy"
+
+#: ../src/erase-activity/erase.c:580
+msgid ""
+"Put any number of images in this directory.\n"
+"They will be used as background in the 'erase' activity.\n"
+"The image must be in the 'jpeg' format and be suffixed with '.jpg' or '."
+"jpeg'.\n"
+"For best results, they must have a size of 800x520 pixels.\n"
+msgstr ""
+"Plaas enige hoeveelheid prentjies in hierdie gids.\n"
+"Hulle sal as agtergronde gebruik word in die 'uitvee'-aktiwiteit.\n"
+"Die prentjie moet in die 'jpeg'-formaat wees met uitbreiding '.jpg' of "
+"'.jpeg'.\n"
+"Vir die beste resultate moet hulle 'n grootte van 800x520 hê.\n"
 
 #: ../src/erase-activity/erase.xml.in.h:1
 msgid ""
@@ -2644,14 +2662,18 @@ msgid ""
 "gave GCompris the authorization to include their pictures. Thanks a lot, "
 "both of you."
 msgstr ""
-"Diereprente kom van Ralf Schmode se dierefotografiebladsy (&lt;http://"
-"schmode.net/&gt;) en van LE BERRE Daniel. Hierdie mense het vriendelik vir "
-"GCompris magtiging verleen om hul prente in te sluit. Baie dankie, albei van "
-"julle."
+"Diereprente kom van Ralf Schmode se dierefotografiebladsy "
+"(&lt;http://schmode.net/&gt;) en van LE BERRE Daniel. Hierdie mense het "
+"vriendelik vir GCompris magtiging verleen om hul prente in te sluit. Baie "
+"dankie, albei van julle."
 
 #: ../src/erase-activity/erase.xml.in.h:6
-msgid "Move the mouse until all the blocks disappear."
-msgstr "Beweeg die muis totdat al die blokke verdwyn."
+msgid ""
+"Move the mouse until all the blocks disappear. You can add you own images "
+"under the directory '~/My GCompris/erase'."
+msgstr ""
+"Beweeg die muis totdat al die blokke verdwyn. Jy kan jou eie prentjies "
+"byvoeg in die gigs '~/My GCompris/erase'."
 
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
 msgid "Double click the mouse"
@@ -2722,7 +2744,7 @@ msgstr ""
 msgid "Tux needs to water the flowers, but the hose is blocked."
 msgstr "Tux moet die blomme water gee, maar die tuinslang is verstop."
 
-#: ../src/gcompris/about.c:49
+#: ../src/gcompris/about.c:48
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge, Yves Combe\n"
@@ -2737,25 +2759,25 @@ msgstr ""
 "Agtergrondmusiek: Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:57
+#: ../src/gcompris/about.c:56
 msgid "translator_credits"
 msgstr ""
 "Friedel Wolff\n"
 "Samuel Murray"
 
-#: ../src/gcompris/about.c:84
+#: ../src/gcompris/about.c:82
 msgid "About GCompris"
 msgstr "Omtrent GCompris"
 
-#: ../src/gcompris/about.c:94
+#: ../src/gcompris/about.c:92
 msgid "GCompris Home Page: http://gcompris.net"
 msgstr "GCompris-tuisblad: http://gcompris.net"
 
-#: ../src/gcompris/about.c:105
+#: ../src/gcompris/about.c:103
 msgid "Translators:"
 msgstr "Vertalers:"
 
-#: ../src/gcompris/about.c:210
+#: ../src/gcompris/about.c:208
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
@@ -2763,29 +2785,29 @@ msgstr ""
 "Hierdie sagteware is 'n GNU-pakket en word vrygestel ingevolge die GNU "
 "Algemene Publieke Lisensie"
 
-#: ../src/gcompris/about.c:224 ../src/gcompris/config.c:438
-#: ../src/gcompris/dialog.c:104 ../src/gcompris/help.c:355
-#: ../src/gcompris/images_selector.c:307
+#: ../src/gcompris/about.c:222 ../src/gcompris/config.c:439
+#: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:355
+#: ../src/gcompris/images_selector.c:306
 msgid "OK"
 msgstr "Regso"
 
-#: ../src/gcompris/bar.c:693
+#: ../src/gcompris/bar.c:684
 msgid "GCompris confirmation"
 msgstr "GCompris-bevestiging"
 
-#: ../src/gcompris/bar.c:694
+#: ../src/gcompris/bar.c:685
 msgid "Are you sure you want to quit?"
 msgstr "Wil jy beslis afsluit?"
 
-#: ../src/gcompris/bar.c:695
+#: ../src/gcompris/bar.c:686
 msgid "Yes, I am sure!"
 msgstr "Ja, ek is seker!"
 
-#: ../src/gcompris/bar.c:696
+#: ../src/gcompris/bar.c:687
 msgid "No, I want to keep going"
 msgstr "Nee, ek wil nog aangaan"
 
-#: ../src/gcompris/board.c:168
+#: ../src/gcompris/board.c:155
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr ""
 "Dinamiese modulelaaiing word nie ondersteun nie. GCompris kan nie laai nie.\n"
@@ -2862,7 +2884,6 @@ msgid "Arabic"
 msgstr "Arabies"
 
 #: ../src/gcompris/config.c:62
-#| msgid "Austria"
 msgid "Asturian"
 msgstr "Asturies"
 
@@ -3068,120 +3089,122 @@ msgid "Serbian (Latin)"
 msgstr "Serwies (Latyns)"
 
 #: ../src/gcompris/config.c:113
+#| msgid "Serbia Montenegro"
+msgid "Montenegrin"
+msgstr "Montenegro"
+
+#: ../src/gcompris/config.c:114
 msgid "Serbian"
 msgstr "Serwies"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:115
 msgid "Swedish"
 msgstr "Sweeds"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:116
 msgid "Tamil"
 msgstr "Tamil"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:117
 msgid "Thai"
 msgstr "Thai"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:118
 msgid "Turkish"
 msgstr "Turks"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:119
 msgid "Ukrainian"
 msgstr "Oekraïens"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:120
 msgid "Urdu"
 msgstr "Oerdoe"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:121
 msgid "Vietnamese"
 msgstr "Viëtnamees"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:122
 msgid "Walloon"
 msgstr "Walleens"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:123
 msgid "Chinese (Simplified)"
 msgstr "Sjinees (vereenvoudigd)"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:124
 msgid "Chinese (Traditional)"
 msgstr "Sjinees (tradisioneel)"
 
-#: ../src/gcompris/config.c:128
+#: ../src/gcompris/config.c:129
 msgid "No time limit"
 msgstr "Geen tydbeperking"
 
-#: ../src/gcompris/config.c:129
+#: ../src/gcompris/config.c:130
 msgid "Slow timer"
 msgstr "Stadige stophorlosie"
 
-#: ../src/gcompris/config.c:130
+#: ../src/gcompris/config.c:131
 msgid "Normal timer"
 msgstr "Normale stophorlosie"
 
-#: ../src/gcompris/config.c:131
+#: ../src/gcompris/config.c:132
 msgid "Fast timer"
 msgstr "Vinnige stophorlosie"
 
-#: ../src/gcompris/config.c:135
-#| msgid ""
-#| "<i>Use Gcompris administration module\n"
-#| "to filter boards</i>"
+#: ../src/gcompris/config.c:136
 msgid "Use Gcompris administration module to filter boards"
 msgstr "Gebruik GCompris se administrasie-module om borde te filter"
 
-#: ../src/gcompris/config.c:186
+#: ../src/gcompris/config.c:187
 msgid "GCompris Configuration"
 msgstr "GCompris-opstelling"
 
-#: ../src/gcompris/config.c:253
+#: ../src/gcompris/config.c:254
 msgid "Fullscreen"
 msgstr "Volskerm"
 
-#: ../src/gcompris/config.c:278
+#: ../src/gcompris/config.c:279
 msgid "Music"
 msgstr "Musiek"
 
-#: ../src/gcompris/config.c:303
+#: ../src/gcompris/config.c:304
 msgid "Effect"
 msgstr "Effek"
 
-#: ../src/gcompris/config.c:327 ../src/gcompris/sugar.c:82
+#: ../src/gcompris/config.c:328 ../src/gcompris/sugar.c:82
 msgid "Zoom"
 msgstr "Zoem"
 
-#: ../src/gcompris/config.c:364
+#: ../src/gcompris/config.c:365
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kon nie die velgids open nie: %s"
 
-#: ../src/gcompris/config.c:395 ../src/gcompris/config.c:753
-#: ../src/gcompris/config.c:767
+#: ../src/gcompris/config.c:396 ../src/gcompris/config.c:754
+#: ../src/gcompris/config.c:768
 #, c-format
 msgid "Skin : %s"
 msgstr "Vel: %s"
 
-#: ../src/gcompris/config.c:397
+#: ../src/gcompris/config.c:398
 msgid "SKINS NOT FOUND"
 msgstr "VELLE NIE GEVIND NIE"
 
-#: ../src/gcompris/config.c:478
+#: ../src/gcompris/config.c:479
 msgid "English (United State)"
 msgstr "Engels (VSA)"
 
-#: ../src/gcompris/file_selector.c:254
+#: ../src/gcompris/file_selector.c:251
 msgid "CANCEL"
 msgstr "KANSELLEER"
 
-#: ../src/gcompris/file_selector.c:262
+#: ../src/gcompris/file_selector.c:259
 msgid "LOAD"
 msgstr "LAAI"
 
-#: ../src/gcompris/file_selector.c:262
+#: ../src/gcompris/file_selector.c:259
 msgid "SAVE"
 msgstr "STOOR"
 
@@ -3218,12 +3241,10 @@ msgid "run GCompris without sound."
 msgstr "laat loop GCompris sonder klank."
 
 #: ../src/gcompris/gcompris.c:170
-#| msgid "run GCompris with the default gnome cursor."
 msgid "run GCompris with the default system cursor."
 msgstr "laat loop GCompris met die stelsel se verstekwyser."
 
 #: ../src/gcompris/gcompris.c:173
-#| msgid "run GCompris without sound."
 msgid "run GCompris without cursor (touch screen mode)."
 msgstr "laat loop GCompris sonder 'n wyser (raakskermmodus)."
 
@@ -3246,9 +3267,9 @@ msgid ""
 "activity). Use '-l list' to list all the availaible activities and their "
 "descriptions."
 msgstr ""
-"Laat loop GCompris met die plaaslike kieslys (bv -l /lees laat jou net die "
-"aktiwiteite speel in die 'lees'-gids, -l '/strategie/vier bymekaar' laat jou "
-"net die 'vier bymekaar'-aktiwiteit speel). Gebruik '-l list' om al die "
+"Laat loop GCompris met die plaaslike kieslys (bv -l /reading laat jou net "
+"die aktiwiteite speel in die 'lees'-gids, -l /strategy/connect4 laat jou net "
+"die 'vier bymekaar'-aktiwiteit speel). Gebruik '-l list' om al die "
 "beskikbare aktiwiteite en hul beskrywings te kyk."
 
 #: ../src/gcompris/gcompris.c:190
@@ -3330,7 +3351,6 @@ msgid "Disable the config button"
 msgstr "Deaktiveer die konfigurasie-knoppie"
 
 #: ../src/gcompris/gcompris.c:241
-#| msgid "Disable the quit button"
 msgid "Disable the level button"
 msgstr "Deaktiveer die vlak-knoppie"
 
@@ -3369,15 +3389,6 @@ msgstr "Moenie die uitvoer van meervoudige GCompris'e vermy nie."
 
 #: ../src/gcompris/gcompris.c:929
 #, c-format
-#| msgid ""
-#| "GCompris is free software released under the GPL License. In order to "
-#| "support its development, the Windows version provides only %d of the %d "
-#| "activities. You can get the full version for a small fee at\n"
-#| "<http://gcompris.net>\n"
-#| "The GNU/Linux version does not have this restriction. If you also believe "
-#| "that we should teach freedom to children, please consider using GNU/"
-#| "Linux. Get more information at FSF:\n"
-#| "<http://www.fsf.org/philosophy>"
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support its development, this version provides only %d of the %d activities. "
@@ -3400,21 +3411,20 @@ msgstr ""
 #: ../src/gcompris/gcompris.c:1223
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
-msgstr ""
+msgstr "Kon nie die vel '%s' laai nie (Kyk dat die lêer bestaan en leesbaar is)"
 
-#: ../src/gcompris/gcompris.c:1485
+#: ../src/gcompris/gcompris.c:1486
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
-msgstr ""
-"GCompris sal nie begin nie omdat die slotlêer minder as %d sekondes oud is.\n"
+msgstr "GCompris sal nie begin nie omdat die slotlêer minder as %d sekondes oud is.\n"
 
-#: ../src/gcompris/gcompris.c:1487
+#: ../src/gcompris/gcompris.c:1488
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Die slotlêer is: %s\n"
 
-#: ../src/gcompris/gcompris.c:1601
+#: ../src/gcompris/gcompris.c:1599
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3428,27 +3438,27 @@ msgstr ""
 "Meer inligting by http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1716
+#: ../src/gcompris/gcompris.c:1714
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Gebruik -l om direk toegang tot 'n aktiwiteit te kry.\n"
 
-#: ../src/gcompris/gcompris.c:1717
+#: ../src/gcompris/gcompris.c:1715
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Die lys beskikbare aktiwiteite is:\n"
 
-#: ../src/gcompris/gcompris.c:1748
+#: ../src/gcompris/gcompris.c:1746
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Aantal aktiwiteite: %d\n"
 
-#: ../src/gcompris/gcompris.c:1784
+#: ../src/gcompris/gcompris.c:1782
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s bestaan maar is nie leesbaar of skryfbaar nie"
 
-#: ../src/gcompris/gcompris.c:1847
+#: ../src/gcompris/gcompris.c:1845
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
@@ -3457,7 +3467,7 @@ msgstr ""
 "Die --server-opsie kan nie gebruik word nie want GCompris is sonder "
 "netwerksteun gebou!"
 
-#: ../src/gcompris/gcompris.c:1901
+#: ../src/gcompris/gcompris.c:1899
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3466,7 +3476,7 @@ msgstr ""
 "FOUT: Die profiel '%s' is nie gevind nie. Gebruik 'gcompris --profile-list' "
 "om die beskikbare profiele te sien\n"
 
-#: ../src/gcompris/gcompris.c:1915
+#: ../src/gcompris/gcompris.c:1913
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Die lys beskikbare profiele is:\n"
@@ -3479,7 +3489,7 @@ msgstr "Onaangeraak"
 msgid "Users without a class"
 msgstr "Gebruikers sonder 'n klas"
 
-#: ../src/gcompris/gcompris_db.c:894
+#: ../src/gcompris/gcompris_db.c:889
 #, c-format
 msgid ""
 "Loading activity from database:\n"
@@ -3504,9 +3514,8 @@ msgstr "Handleiding"
 msgid "Credit"
 msgstr "Erkenning"
 
-#: ../src/gcompris/menu.c:583
+#: ../src/gcompris/menu.c:582
 #, c-format
-#| msgid "Reading activities."
 msgid ""
 "Loading activity from file:\n"
 "%s"
@@ -3514,11 +3523,7 @@ msgstr ""
 "Laai tans aktiwiteit vanaf lêer:\n"
 "%s"
 
-#: ../src/gcompris/properties.c:501 ../src/gcompris/properties.c:508
-msgid "readme"
-msgstr "leesmy"
-
-#: ../src/gcompris/properties.c:503
+#: ../src/gcompris/properties.c:506
 msgid ""
 "This directory contains the files you create with the GCompris educational "
 "suite\n"
@@ -3526,7 +3531,7 @@ msgstr ""
 "Hierdie gids bevat die lêers wat jy skep met die GCompris- opvoedkundige "
 "suite\n"
 
-#: ../src/gcompris/properties.c:510
+#: ../src/gcompris/properties.c:513
 msgid ""
 "Put any number of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
@@ -3541,7 +3546,6 @@ msgid "Help"
 msgstr "Hulp"
 
 #: ../src/gcompris/sugar.c:71
-#| msgid "boat"
 msgid "About"
 msgstr "Aangaande"
 
@@ -3550,7 +3554,6 @@ msgid "Previous level"
 msgstr "Vorige vlak"
 
 #: ../src/gcompris/sugar.c:75
-#| msgid "%d (New level)"
 msgid "Next level"
 msgstr "Volgende vlak"
 
@@ -3564,7 +3567,6 @@ msgstr "Instellings"
 
 #. TRANSLATORS: Back as in previous
 #: ../src/gcompris/sugar.c:86
-#| msgid "back"
 msgid "Back"
 msgstr "Terug"
 
@@ -3729,7 +3731,7 @@ msgstr "Argentinië"
 
 #: ../src/geography-activity/resources/geography/board2_1.xml.in.h:2
 msgid "Bolivia"
-msgstr "Bolivia"
+msgstr "Bolivië"
 
 #: ../src/geography-activity/resources/geography/board2_1.xml.in.h:3
 msgid "Brazil"
@@ -3741,7 +3743,7 @@ msgstr "Chili"
 
 #: ../src/geography-activity/resources/geography/board2_1.xml.in.h:5
 msgid "Colombia"
-msgstr "Colombia"
+msgstr "Colombië"
 
 #: ../src/geography-activity/resources/geography/board2_1.xml.in.h:6
 msgid "Ecuador"
@@ -3905,7 +3907,7 @@ msgstr "Masedonië"
 
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:15
 msgid "Moldova"
-msgstr "Moldowia"
+msgstr "Moldawië"
 
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:16
 msgid "Poland"
@@ -4216,10 +4218,10 @@ msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 #: ../src/missing_letter-activity/missingletter.c:784
 #: ../src/pythontest-activity/pythontest.py:454
 #: ../src/readingh-activity/reading.c:904
-#: ../src/scalesboard-activity/scale.c:1161
+#: ../src/scalesboard-activity/scale.c:1160
 #: ../src/smallnumbers-activity/smallnumbers.c:595
 #: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:866
+#: ../src/wordsgame-activity/wordsgame.c:864
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -4570,6 +4572,53 @@ msgstr ""
 "regs wys hoe ver jy van die regte getal is. As Tux bo-oor of onder die "
 "ontsnaparea is, is jou getal meer of minder as die regte getal."
 
+#. All the vowel of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:61
+msgid "aeiouy"
+msgstr "aeiouy"
+
+#. All the consonants of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:63
+msgid "bcdfghjklmnpqrstvwxz"
+msgstr "bdfghjklmnpqrstvw"
+
+#. Letters equivallence for the hangman activity. It has the
+#. form of a space separated list like: "e=éè a=àâ"
+#. Keep the word NONE if not available in your language
+#: ../src/hangman-activity/hangman.py:67
+msgid "NONE"
+msgstr "e=éèëê a=á i=íï o=óöô u=úü y=ý"
+
+#: ../src/hangman-activity/hangman.py:104
+msgid "Could not find the list of words."
+msgstr "Kon nie die woordelys kry nie."
+
+#: ../src/hangman-activity/hangman.xml.in.h:1
+msgid "A word is hidden, you must discover it letter by letter"
+msgstr "'n Woord is versteek. Ontdek dit een letter op 'n slag."
+
+#: ../src/hangman-activity/hangman.xml.in.h:2
+msgid "Reading skill"
+msgstr "Leesvaardigheid"
+
+#: ../src/hangman-activity/hangman.xml.in.h:3
+msgid "The classic hangman game"
+msgstr "Die klassieke Hangman-speletjie"
+
+#: ../src/hangman-activity/hangman.xml.in.h:4
+msgid "This is a good exercise to improve reading and spelling skills."
+msgstr ""
+"Hierdie is 'n goeie oefening vir die verbetering van lees- en "
+"spelvaardighede."
+
+#: ../src/hangman-activity/hangman.xml.in.h:5
+msgid ""
+"You can enter the letters using the virtual keyboard on the screen or with "
+"the real keyboard."
+msgstr ""
+"Jy kan die letters gee met die virtuele sleutelbord op die skerm, of met 'n "
+"regte sleutelbord."
+
 #: ../src/hanoi-activity/hanoi.c:112 ../src/hanoi-activity/hanoi.xml.in.h:6
 msgid "Simplified Tower of Hanoi"
 msgstr "Eenvoudige toring van Hanoi"
@@ -4653,7 +4702,8 @@ msgstr ""
 "Volgens die legende sou die wêreld tot 'n einde kom wanneer die priesters "
 "dit regkry. Om dié rede staan die speletjie ook bekend as die Toring van "
 "Brahma. Dis nie duidelik om Lucas die legende uitgedink of daarvan gehoor "
-"het nie. (Bron Wikipedia &lt;http://en.wikipedia.org/wiki/Tower_of_hanoi&gt;)"
+"het nie. (Bron Wikipedia "
+"&lt;http://en.wikipedia.org/wiki/Tower_of_hanoi&gt;)"
 
 #: ../src/hexagon-activity/hexagon.xml.in.h:1
 msgid "Find the strawberry by clicking on the blue fields"
@@ -4670,6 +4720,156 @@ msgstr ""
 #: ../src/hexagon-activity/hexagon.xml.in.h:5
 msgid "hexagon"
 msgstr "seshoek"
+
+#: ../src/hydroelectric-activity/hydroelectric.py:88
+#: ../src/watercycle-activity/watercycle.py:107
+msgid ""
+"The sun heats the water and creates water vapor. Water vapor combines into "
+"small water droplets which becomes clouds."
+msgstr ""
+"Die son verhit die water en vorm waterdamp. Waterdamp smelt saam en vorm "
+"klein waterdruppels wat wolke word."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:126
+#: ../src/watercycle-activity/watercycle.py:144
+msgid ""
+"As a cloud matures, the dense water droplets may combine to produce larger "
+"droplets, which may combine to form droplets large enough to fall as rain"
+msgstr ""
+"Soos die wolk groter word, kan die kleiner druppels saamsmelt en groter "
+"druppels vorm, wat sal val as reën sodra hulle groot genoeg is"
+
+#: ../src/hydroelectric-activity/hydroelectric.py:169
+msgid "This is the meter for electricity produced by the turbine. "
+msgstr "Dit is die meter vir elektrisiteit wat deur die turbine opgewek is. "
+
+#: ../src/hydroelectric-activity/hydroelectric.py:170
+#: ../src/hydroelectric-activity/hydroelectric.py:282
+#: ../src/hydroelectric-activity/hydroelectric.py:289
+#: ../src/hydroelectric-activity/hydroelectric.py:319
+#: ../src/hydroelectric-activity/hydroelectric.py:341
+msgid "The electricity power is measured in Watt (W)."
+msgstr "Die elektrisiteit se krag word in Watt (W) gemeet."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:175
+msgid ""
+"Flowing water is directed on to the blades of a turbine runner, creating a "
+"force on the blades. In this way, energy is transferred from the water flow "
+"to the turbine"
+msgstr ""
+"Die vloeiende water val op die lemme van die turbine. Die lemme begin draai "
+"en krag word opgewek deurdat die turbine die energie van die vloeiende water "
+"omskakel na elektrisiteit"
+
+#: ../src/hydroelectric-activity/hydroelectric.py:189
+msgid "This cloud simulates the wind, click on it to have wind."
+msgstr "Hierdie wolk stel die wind voor. Kliek daarop om die wind te laat waai."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:227
+msgid ""
+"This is a step down transformer. Electricity is transformed in low voltage, "
+"ready to be used by the customers."
+msgstr ""
+"Hierdie is 'n verlagingstransformator. Elektrisiteit word verander na lae "
+"spanning, gereed om deur kliënte te gebruik."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:281
+msgid "This is the meter for all the electricity produced. "
+msgstr "Hierdie is die meter vir al die elektrisiteit wat geproduseer is."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:288
+msgid "This is the meter for electricity consumed by the users. "
+msgstr ""
+"Hierdie is die meter vir al die elektrisiteit wat deur die gebruikers "
+"gebruik is. "
+
+#: ../src/hydroelectric-activity/hydroelectric.py:318
+msgid "This is the meter for electricity produced by the solar panels. "
+msgstr ""
+"Hierdie is die meter vir elektrisiteit wat deur die sonpanele opgewek is. "
+
+#: ../src/hydroelectric-activity/hydroelectric.py:324
+msgid ""
+"Solar panels use light energy (photons) from the sun to generate electricity "
+"through the photovoltaic effect."
+msgstr ""
+"Sonpanele gebruik ligenergie (fotone) van die son om elektrisiteit deur die "
+"fotovoltiese effek te wek."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:340
+msgid "This is the meter for electricity produced by the wind turbines. "
+msgstr ""
+"Dit is die meter vir elektrisiteit wat deur die windturbine opgewek is. "
+
+#: ../src/hydroelectric-activity/hydroelectric.py:346
+msgid ""
+"A wind turbine is a device that converts wind motion energy into electricity "
+"generation. It is called a wind generator or wind charger. "
+msgstr ""
+"'n Windturbine is 'n toestel wat wind se bewegingsenergie omskakel na "
+"elektrisiteit. Dit word 'n windgenerator of windlaaier genoem. "
+
+#: ../src/hydroelectric-activity/hydroelectric.py:732
+msgid ""
+"It is not possible to consume more electricity than what is produced. This "
+"is a key limitation in the distribution of electricity, with minor "
+"exceptions, electrical energy cannot be stored, and therefore it must be "
+"generated as it is needed. A sophisticated system of control is therefore "
+"required to ensure electric generation very closely matches the demand. If "
+"supply and demand are not in balance, generation plants and transmission "
+"equipment can shut down which, in the worst cases, can lead to a major "
+"regional blackout."
+msgstr ""
+"Dit is nie moontlik om meer energie te gebruik as wat geskep is nie. Dit 'n "
+"sleutel beperking in die verspreiding van elektrisiteit. Met klein "
+"uitsonderings, kan elektrisiteit nie gestoor word nie, en moet dus gewek "
+"word soos dit benodig word. 'n Gesofistikeerde beheerstelsel word dus "
+"benodig om te verseker dat die elektrisiteitsvoorsiening gelyk is aan die "
+"aanvraag. As aanvraag en aanbod nie in balans is nie, kan kragstasies en "
+"verspreidingstoerusting breek en kan in erge gevalle lei tot groot "
+"kragonderbrekings."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:946
+msgid ""
+"This is a step up transformer. Electricity is transmitted at high voltages "
+"(110 kV or above) to reduce the energy lost in long distance transmission."
+msgstr ""
+"Hierdie is 'n verhogingstransformator. Elektrisiteit word met hoë spanning "
+"(110 kV of meer) versprei om energieverlies te beperk tydens verspreiding "
+"oor lang afstande."
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:1
+#| msgid ""
+#| "Click on different active elements : sun, cloud, water pump station, and "
+#| "water cleanup station, in order to reactivate the entire water system. "
+#| "When the system is back up and Tux is in the shower, push the shower "
+#| "button for him."
+msgid ""
+"Click on different active elements : sun, cloud, dam, solar array, wind farm "
+"and transformers, in order to reactivate the entire electrical system. When "
+"the system is back up and Tux is in his home, push the light button for him. "
+"To win you must switch on all the consumers while all the producers are up."
+msgstr ""
+"Kliek op verskillende aktiewe elemente soos son, wolk, dam, sonstraal, "
+"windplaas en transformators om die hele elektriese sisteem te aktiveer. "
+"Wanneer die sisteem reg is, en Tux in sy huis is, druk dan die ligskakelaar "
+"vir hom aan. Om te wen moet al die verbruikers se skakelaars aangeskakel "
+"wees terwyl al die genereerders aan is."
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:3
+msgid "Learn about an electrical system based on renewable energy"
+msgstr "Leer oor 'n elektriese sisteem gebaseer op herwinbare energie"
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:4
+#| msgid ""
+#| "Tux has come back from a long fishing party on his boat. Bring the water "
+#| "system back up so he can take a shower."
+msgid ""
+"Tux has come back from a long fishing party on his boat. Bring the "
+"electrical system back up so he can have light in his home."
+msgstr ""
+"Tux is terug na 'n lang uitstappie om vis te vang op sy boot. Herstel die "
+"elektriese sisteem sodat hy lig in sy huis kan hê."
 
 #: ../src/imageid-activity/imageid.c:94
 #: ../src/imageid-activity/imageid.xml.in.h:3
@@ -5043,7 +5243,7 @@ msgstr ""
 
 #: ../src/login-activity/login.py:101
 msgid "Profile: "
-msgstr "Profiel:"
+msgstr "Profiel: "
 
 #: ../src/login-activity/login.py:234
 msgid "Login: "
@@ -5064,16 +5264,6 @@ msgid "GCompris login screen"
 msgstr "Aanmeldskerm vir GCompris"
 
 #: ../src/login-activity/login.xml.in.h:3
-#| msgid ""
-#| "In order to activate the login screen, you must \n"
-#| "first add users in the administration part of GCompris. \n"
-#| "You access Administration by running 'gcompris -a'.\n"
-#| "In Administration, you can create different profiles. In each profile,\n"
-#| "you can have a different set of users and select which activities are "
-#| "available to them.\n"
-#| "To run GCompris for a specific profile, you use 'gcompris -p profile' "
-#| "where 'profile'\n"
-#| "is the name of a profile as you created it in Administration."
 msgid ""
 "In order to activate the login screen, you must\n"
 "first add users in the administration part of GCompris.\n"
@@ -5342,11 +5532,11 @@ msgstr ""
 
 #: ../src/memory-activity/memory.xml.in.h:2
 msgid "Flip the cards to find the matching pairs"
-msgstr "Draai die kaarte om om passende pare te kry"
+msgstr "Draai die kaarte om  passende pare te kry"
 
 #: ../src/memory-activity/memory.xml.in.h:3
 msgid "Memory Game with images"
-msgstr "Geheuespel met prentjies"
+msgstr "Geheuespeletjie met prentjies"
 
 #: ../src/memory-activity/memory.xml.in.h:5
 #: ../src/memory_tux-activity/memory_tux.xml.in.h:4
@@ -5355,7 +5545,7 @@ msgstr "Memoriseer alles en verwyder al die kaarte"
 
 #: ../src/memory_add-activity/memory_add.xml.in.h:2
 msgid "Addition memory game"
-msgstr "Geheuespel vir optel"
+msgstr "Geheuespele vir optel"
 
 #: ../src/memory_add-activity/memory_add.xml.in.h:3
 #: ../src/memory_add_tux-activity/memory_add_tux.xml.in.h:3
@@ -5368,7 +5558,7 @@ msgid ""
 "Turn the cards over to find two numbers which add up the same, until all the "
 "cards are gone."
 msgstr ""
-"Draai die kaarte om om twee getalle te kry wat dieselfde optel, totdat al "
+"Draai die kaarte om twee getalle te kry met dieselfde somtotaal, totdat al "
 "die kaarte weg is."
 
 #: ../src/memory_add-activity/memory_add.xml.in.h:5
@@ -5421,7 +5611,7 @@ msgstr ""
 
 #: ../src/memory_add_minus-activity/memory_add_minus.xml.in.h:1
 msgid "Addition and subtraction memory game"
-msgstr "Geheuespel vir optel en aftrek"
+msgstr "Geheuespele vir optel en aftrek"
 
 #: ../src/memory_add_minus-activity/memory_add_minus.xml.in.h:2
 #: ../src/memory_add_minus_tux-activity/memory_add_minus_tux.xml.in.h:2
@@ -5434,8 +5624,8 @@ msgid ""
 "Turn the cards over to find two numbers which add or subtract the same, "
 "until all the cards are gone."
 msgstr ""
-"Draai die kaarte om om twee getalle te kry wat dieselfde optel of aftrek, "
-"totdat al die kaarte weg is."
+"Draai die kaarte om om twee getalle te kry met dieselfde somtotaal of "
+"verskil, totdat al die kaarte weg is."
 
 #: ../src/memory_add_minus-activity/memory_add_minus.xml.in.h:5
 #: ../src/memory_add_minus_mult_div-activity/memory_add_minus_mult_div.xml.in.h:5
@@ -5481,7 +5671,7 @@ msgstr "Optel, aftrek, maal, deel"
 
 #: ../src/memory_add_minus_mult_div-activity/memory_add_minus_mult_div.xml.in.h:2
 msgid "All operations memory game"
-msgstr "Geheuespel met verskeie bewerkings"
+msgstr "Geheuespele met verskeie bewerkings"
 
 #: ../src/memory_add_minus_mult_div-activity/memory_add_minus_mult_div.xml.in.h:3
 #: ../src/memory_add_minus_mult_div_tux-activity/memory_add_minus_mult_div_tux.xml.in.h:3
@@ -5506,15 +5696,15 @@ msgstr ""
 
 #: ../src/memory_add_minus_mult_div_tux-activity/memory_add_minus_mult_div_tux.xml.in.h:2
 msgid "All operations memory game against Tux"
-msgstr "Geheuespel met alle bewerkings teen Tux"
+msgstr "Geheuespele met alle bewerkings teen Tux"
 
 #: ../src/memory_add_minus_tux-activity/memory_add_minus_tux.xml.in.h:1
 msgid "Addition and subtraction memory game against Tux"
-msgstr "Geheuespel met optel en aftrek teen Tux"
+msgstr "Geheuespele met optel en aftrek teen Tux"
 
 #: ../src/memory_add_tux-activity/memory_add_tux.xml.in.h:1
 msgid "Addition memory game against Tux"
-msgstr "Geheuespel vir optel teen Tux"
+msgstr "Geheuespele vir optel teen Tux"
 
 #: ../src/memory_add_tux-activity/memory_add_tux.xml.in.h:2
 #: ../src/memory_mult_tux-activity/memory_mult_tux.xml.in.h:1
@@ -5528,7 +5718,7 @@ msgstr "Deel"
 
 #: ../src/memory_div-activity/memory_div.xml.in.h:2
 msgid "Division memory game"
-msgstr "Geheuespel vir deling"
+msgstr "Geheuespele vir deling"
 
 #: ../src/memory_div-activity/memory_div.xml.in.h:3
 #: ../src/memory_div_tux-activity/memory_div_tux.xml.in.h:3
@@ -5537,11 +5727,11 @@ msgstr "Oefen deling totdat al die kaarte weg is."
 
 #: ../src/memory_div_tux-activity/memory_div_tux.xml.in.h:2
 msgid "Division memory game against Tux"
-msgstr "Geheuespel vir deling teen Tux"
+msgstr "Geheuespele vir deling teen Tux"
 
 #: ../src/memory_enumerate-activity/memory_enumerate.xml.in.h:2
 msgid "Enumeration memory game"
-msgstr "Geheuespel vir tel"
+msgstr "Geheuespelet vir tel"
 
 #: ../src/memory_enumerate-activity/memory_enumerate.xml.in.h:3
 msgid "Numeration training, memory."
@@ -5566,7 +5756,7 @@ msgstr "Oefen aftreksomme totdat al die kaarte weg is."
 
 #: ../src/memory_minus-activity/memory_minus.xml.in.h:3
 msgid "Subtraction memory game"
-msgstr "Geheuespel vir aftrek"
+msgstr "Geheuespelet vir aftrek"
 
 #: ../src/memory_minus-activity/memory_minus.xml.in.h:4
 #: ../src/memory_minus_tux-activity/memory_minus_tux.xml.in.h:4
@@ -5574,7 +5764,7 @@ msgid ""
 "Turn the cards over to find two numbers which subtract the same, until all "
 "the cards are gone."
 msgstr ""
-"Draai die kaarte om om twee getalle te kry wat dieselfde aftrek, totdat al "
+"Draai die kaarte om om twee getalle te kry met dieselfde verskil, totdat al "
 "die kaarte weg is."
 
 #: ../src/memory_minus-activity/memory_minus.xml.in.h:5
@@ -5606,9 +5796,9 @@ msgstr ""
 "nie. Elke kaart versteek 'n aftrekking, of die antwoord daarop.\n"
 "'n Aftrekking lyk so: 3 - 1 = 2\n"
 "Die getalle op die een kant van die gelykaan-teken (=) moet dieselfde as die "
-"getal op die ander kant wees. Met ander woorde, 3 (1, 2, 3) minus 1 (1) maak "
-"2. Tel hardop terwyl jy dit uitwerk, en tel met jou vingers, want hoe meer "
-"maniere jy gebruik om iets te doen, hoe beter onthou jy dit. Jy kan ook "
+"getal op die ander kant wees. Met ander woorde, 3 (1, 2, 3) minus 1 (1) "
+"maak 2. Tel hardop terwyl jy dit uitwerk, en tel met jou vingers, want hoe "
+"meer maniere jy gebruik om iets te doen, hoe beter onthou jy dit. Jy kan ook "
 "blokke of knope gebruik, of enige iets wat jou help tel. As jy baie boeties "
 "en sussies het, kan jy hulle ook tel! Of tel die kinders in jou klas op "
 "skool. Sing telliedjies. Tel baie dinge, om te oefen, en jy sal gou goed "
@@ -5626,7 +5816,7 @@ msgstr ""
 
 #: ../src/memory_minus_tux-activity/memory_minus_tux.xml.in.h:3
 msgid "Subtraction memory game against Tux"
-msgstr "Geheuespel vir aftrek teen Tux"
+msgstr "Geheuespelet vir aftrek teen Tux"
 
 #: ../src/memory_mult-activity/memory_mult.xml.in.h:1
 msgid "Multiplication"
@@ -5634,7 +5824,7 @@ msgstr "Maal"
 
 #: ../src/memory_mult-activity/memory_mult.xml.in.h:2
 msgid "Multiplication memory game"
-msgstr "Geheuespel vir maal"
+msgstr "Geheuespelet vir maal"
 
 #: ../src/memory_mult-activity/memory_mult.xml.in.h:3
 msgid "Practise multiplication, until all the cards are gone."
@@ -5650,7 +5840,7 @@ msgstr ""
 
 #: ../src/memory_mult_div-activity/memory_mult_div.xml.in.h:1
 msgid "Multiplication and division memory game"
-msgstr "Geheuespel vir maal en deel"
+msgstr "Geheuespelet vir maal en deel"
 
 #: ../src/memory_mult_div-activity/memory_mult_div.xml.in.h:2
 #: ../src/memory_mult_div_tux-activity/memory_mult_div_tux.xml.in.h:2
@@ -5664,11 +5854,11 @@ msgstr "Oefen maal en deel totdat al die kaarte weg is."
 
 #: ../src/memory_mult_div_tux-activity/memory_mult_div_tux.xml.in.h:1
 msgid "Multiplication and division memory game against Tux"
-msgstr "Geheuespel vir maal en deel teen Tux"
+msgstr "Geheuespelet vir maal en deel teen Tux"
 
 #: ../src/memory_mult_tux-activity/memory_mult_tux.xml.in.h:2
 msgid "Multiplication memory game against Tux"
-msgstr "Geheuespel vir maal teen Tux"
+msgstr "Geheuespelet vir maal teen Tux"
 
 #: ../src/memory_mult_tux-activity/memory_mult_tux.xml.in.h:3
 msgid "Practise multiplication until all the cards are gone."
@@ -5692,7 +5882,7 @@ msgstr ""
 
 #: ../src/memory_sound-activity/memory_sound.xml.in.h:2
 msgid "Audio memory game"
-msgstr "Geheuespel met klank"
+msgstr "Geheuespeletj met klank"
 
 #: ../src/memory_sound-activity/memory_sound.xml.in.h:3
 msgid "Click on Tux the violinist and listen to find the matching sounds"
@@ -5711,11 +5901,11 @@ msgstr "Oefen jou klankgeheue en verwyder al die Tux-vioolspelers."
 
 #: ../src/memory_sound_tux-activity/memory_sound_tux.xml.in.h:2
 msgid "Audio memory game against Tux"
-msgstr "Geheuespel met klank teen Tux"
+msgstr "Geheuespeletj met klank teen Tux"
 
 #: ../src/memory_sound_tux-activity/memory_sound_tux.xml.in.h:4
 msgid "Play the audio memory game against Tux"
-msgstr "Speel die geheuespel met klank teen Tux"
+msgstr "Speel die geheuespeletjie met klank teen Tux"
 
 #: ../src/memory_tux-activity/memory_tux.xml.in.h:1
 msgid "Have a memory competition with Tux."
@@ -5723,7 +5913,7 @@ msgstr "Ding mee teen Tux met geheue."
 
 #: ../src/memory_tux-activity/memory_tux.xml.in.h:2
 msgid "Memory Game with images, against Tux"
-msgstr "Geheuespel met prentjies teen Tux"
+msgstr "Geheuespeletjie met prentjies teen, Tux"
 
 #: ../src/memory_tux-activity/memory_tux.xml.in.h:5
 msgid ""
@@ -5738,8 +5928,8 @@ msgstr ""
 "die ander kaart, en vir elke prentkaart is daar nog een wat net so lyk. Jy "
 "kan net twee kaarte op 'n slag omdraai. Daarom moet jy probeer onthou waar "
 "die prent is terwyl jy vir die ander een soek. Wanneer jy twee van dieselfde "
-"omdraai, verdwyn albei van hulle. Jy kan beurte met Tux maak, en om die spel "
-"te wen, moet jy meer pare kry as wat hy kan."
+"omdraai, verdwyn albei van hulle. Jy kan beurte met Tux maak, en om die "
+"speletj te wen, moet jy meer pare kry as wat hy kan."
 
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:2
 msgid "Reading numbers, memory."
@@ -5752,7 +5942,7 @@ msgstr ""
 
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:4
 msgid "Wordnumber memory game"
-msgstr "Geheuespel vir geskrewe getalle"
+msgstr "Geheuespeletjie vir geskrewe getalle"
 
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:5
 msgid ""
@@ -5799,15 +5989,18 @@ msgid "Question cannot be empty."
 msgstr "Vraag mag nie leeg wees nie."
 
 #: ../src/missing_letter-activity/missingletter_config.c:95
+#| msgid ""
+#| "Question must include the character '_'. It represent the letter to "
+#| "search."
 msgid ""
-"Question must include the character '_'. It represent the letter to search."
+"Question must include the character '_'. It represents the letter to search."
 msgstr ""
-"Die vraag moet die karakter '_' insluit. Dit verteenwoordig die letter om "
-"voor te soek."
+"Die vraag moet die karakter '_' insluit. Dit verteenwoordig die letter "
+"waarvoor jy moet soek."
 
 #: ../src/missing_letter-activity/missingletter_config.c:102
 msgid "Pixmap cannot be empty"
-msgstr ""
+msgstr "Pixmap mag nie leeg wees nie"
 
 #: ../src/missing_letter-activity/missingletter_config.c:108
 msgid "There must be at least 2 choices."
@@ -5819,7 +6012,8 @@ msgstr "Die vraag en vraag moet die selfde wees, behalwe vir die karakter '_'."
 
 #: ../src/missing_letter-activity/missingletter_config.c:125
 msgid "The first choice must be the solution that replaces the character '_'."
-msgstr "Die eerste keuse moet die oplossing wees, wat die karakter '_' vervang."
+msgstr ""
+"Die eerste keuse moet die oplossing wees, wat die karakter '_' vervang."
 
 #: ../src/missing_letter-activity/missingletter_config.c:140
 #, c-format
@@ -5873,15 +6067,18 @@ msgstr "Lêernaam:"
 
 #: ../src/missing_letter-activity/missingletter_config.c:579
 msgid "Replace the letter to guess by the character '_'."
-msgstr "Vervang die letter wat geraai moet word met dei karakter '_'."
+msgstr "Vervang die letter wat geraai moet word met die karakter '_'."
 
 #: ../src/missing_letter-activity/missingletter_config.c:591
+#| msgid ""
+#| "Enter here the letter that will be proposed. The first letter here must "
+#| "be the solution"
 msgid ""
 "Enter here the letter that will be proposed. The first letter here must be "
-"the solution"
+"the solution."
 msgstr ""
-"Tik hierdie voorgestelde letter in. Die eerste letter hier moet die "
-"oplossing wees."
+"Tik die letters wat voorgestel gaan word hier in. Die eerste letter hier "
+"moet die oplossing wees."
 
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:1
 msgid "car/c_r/a/k/o"
@@ -6028,22 +6225,37 @@ msgid "satchel/sa_chel/t/p/c/z/s/l"
 msgstr "handsak/ha_dsak/n/m/w/k/l/j"
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
-#: ../src/money-activity/money.c:496
+#: ../src/money-activity/money.c:795
 #, c-format
 msgid "$ %.2f"
 msgstr "R %.2f"
 
-#: ../src/money-activity/money.c:509
+#. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
+#: ../src/money-activity/money.c:809
 #, c-format
 msgid "$ %.0f"
 msgstr "R %.0f"
 
+#. Set here the way to display money. Change only the money sign, and it's place, always keep %d
+#: ../src/money-activity/money.c:932
+#, c-format
+msgid ""
+"Tux just bought some items in your shop.\n"
+"He gives you $ %d, please give back his change."
+msgstr ""
+"Tux het sopas 'n paar goed in jou winkel gekoop.\n"
+"Hy gee jou R%d, gee asseblief vir hom sy kleingeld."
+
 #: ../src/money-activity/money.xml.in.h:1
+#: ../src/money_back-activity/money_back.xml.in.h:1
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:1
 #: ../src/money_cents-activity/money_cents.xml.in.h:1
 msgid "Can count"
 msgstr "Kan tel"
 
 #: ../src/money-activity/money.xml.in.h:2
+#: ../src/money_back-activity/money_back.xml.in.h:2
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:2
 #: ../src/money_cents-activity/money_cents.xml.in.h:2
 msgid ""
 "Click on the coins or paper money at the bottom of the screen to pay. If you "
@@ -6069,6 +6281,36 @@ msgid ""
 msgstr ""
 "Jy moet die verskillende items koop en die presiese prys gee. Op hoër vlakke "
 "word verskeie items gewys, en jy moet dan eers die totale prys bereken."
+
+#: ../src/money_back-activity/money_back.xml.in.h:3
+msgid "Give tux his change"
+msgstr "Gee Tux se kleingeld vir hom"
+
+#: ../src/money_back-activity/money_back.xml.in.h:4
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:4
+#| msgid "Practice money usage including cents"
+msgid "Practice money usage by giving Tux his change"
+msgstr "Oefen geldgebruik deur vir Tux sy kleingeld te gee"
+
+#: ../src/money_back-activity/money_back.xml.in.h:5
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:5
+#| msgid ""
+#| "You must buy the different items and give the exact price. At higher "
+#| "levels, several items are displayed, and you must first calculate the "
+#| "total price."
+msgid ""
+"Tux bought you different items and shows you his money. You must give him "
+"back his change. At higher levels, several items are displayed, and you must "
+"first calculate the total price."
+msgstr ""
+"Tux het verskillende dinge gekoop en wys vir jou sy geld. Jy moet sy "
+"kleingeld vir hom teruggee. Op hoër vlakke word verskeie items vertoon en "
+"moet die totale prys eers bereken word."
+
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:3
+#| msgid "Practice money usage including cents"
+msgid "Give tux his change, including cents"
+msgstr "Gee Tux se kleingeld, insluitend die sente, vir hom"
 
 #: ../src/money_cents-activity/money_cents.xml.in.h:4
 msgid "Practice money usage including cents"
@@ -6114,53 +6356,100 @@ msgstr "Edgar Degas, Die dansklas - 1873-75"
 msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
 msgstr "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
 
+#: ../src/paintings-activity/resources/paintings/board1_10.xml.in.h:1
+msgid ""
+"Katsushika Hokusai,\\nViewing Sunset over the Ryogoku Bridge from the Ommaya "
+"Embankment - 1830"
+msgstr ""
+"Katsushika Hokusai, \\nBlik oor die Ryogoku brug vanaf die Ommaya-oewer "
+"tydens sonsondergang - 1830"
+
+#: ../src/paintings-activity/resources/paintings/board1_11.xml.in.h:1
+msgid "Katsushika Hokusa, Poppies - 1833-1834"
+msgstr "Katsushika Hokusai, Papawers - 1833-1834"
+
+#: ../src/paintings-activity/resources/paintings/board1_12.xml.in.h:1
+msgid "Katsushika Hokusai, Kazusa sea Route - 1830."
+msgstr "Katsushika Hokusai, Kazusa seeroete - 1830."
+
 #: ../src/paintings-activity/resources/paintings/board1_2.xml.in.h:1
 msgid "Giuseppe Arcimboldo, Spring - 1573"
 msgstr "Giuseppe Arcimboldo, Lente - 1573"
 
 #: ../src/paintings-activity/resources/paintings/board1_3.xml.in.h:1
-msgid "Giuseppe Arcimboldo, The Librarian - 1566)"
+#| msgid "Giuseppe Arcimboldo, The Librarian - 1566)"
+msgid "Giuseppe Arcimboldo, The Librarian - 1566"
 msgstr "Giuseppe Arcimboldo, Die bibliotekaris - 1566"
 
+#: ../src/paintings-activity/resources/paintings/board1_4.xml.in.h:1
+msgid "Katsushika Hokusai, Oiran and Kamuro"
+msgstr "Katsushika Hokusai, Oiran en Kamuro"
+
 #: ../src/paintings-activity/resources/paintings/board1_5.xml.in.h:1
-msgid "Woman holding a fan"
-msgstr "Vrou wat 'n waaier hou"
+#| msgid "Woman holding a fan"
+msgid "Katsushika Hokusai, Woman holding a fan"
+msgstr "Katsushika Hokusai, Vrou met waaier"
+
+#: ../src/paintings-activity/resources/paintings/board1_6.xml.in.h:1
+msgid "Katsushika Hokusai, Ejiri in Suruga Province - 1830-1833"
+msgstr "Katsushika Hokusai, Ejiri in Suruga-provinsie - 1830-1833"
+
+#: ../src/paintings-activity/resources/paintings/board1_7.xml.in.h:1
+msgid "Katsushika Hokusai, The Great Wave off Kanagawa - 1823-1829"
+msgstr "Katsushika Hokusai, Die groot golf van Kanagawa - 1823-1829"
+
+#: ../src/paintings-activity/resources/paintings/board1_8.xml.in.h:1
+msgid ""
+"Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
+msgstr ""
+
+#: ../src/paintings-activity/resources/paintings/board1_9.xml.in.h:1
+msgid "Utagawa Hiroshige, Horse-mackerel and Prawn - 1840"
+msgstr ""
+
+#: ../src/paintings-activity/resources/paintings/board2_0.xml.in.h:1
+msgid "Michelangelo, Pieta - 1499"
+msgstr "Michelangelo, Pietà - 1499"
 
 #: ../src/paintings-activity/resources/paintings/board2_1.xml.in.h:1
-msgid "Mona Lisa"
-msgstr "Mona Lisa"
+msgid "Leonardo da Vinci, Mona Lisa - 1503-19"
+msgstr "Leonardo da Vinci, Mona Lisa - 1503-1519"
 
 #: ../src/paintings-activity/resources/paintings/board2_2.xml.in.h:1
-msgid "Bellini : Pala di pesaro"
-msgstr "Bellini: Pala di Pesaro"
+#| msgid "Bellini : Pala di pesaro"
+msgid "Giovanni Bellini, La Pala di Pesaro - 1475-85"
+msgstr "Giovanni Bellini, La Pala di Pesaro - 1475-1485"
 
 #: ../src/paintings-activity/resources/paintings/board2_3.xml.in.h:1
-msgid "Dürer : Lion"
-msgstr "Dürer: Lion"
+msgid "Albrecht Dürer, Lion - 1494"
+msgstr "Albrecht Dürer, Leeu - 1494"
 
 #: ../src/paintings-activity/resources/paintings/board2_4.xml.in.h:1
-msgid "Pieter Brugel : Harvest"
-msgstr "Pieter Brugel: Harvest"
+#| msgid "Pieter Brugel : Harvest"
+msgid "Pieter Brugel, The Harvesters - 1565"
+msgstr "Pieter Brugel, Die oes - 1565"
 
 #: ../src/paintings-activity/resources/paintings/board3_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
 msgstr "Pierre-Auguste Renoir, Meisies by die klavier - 1892"
 
 #: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:1
-msgid "Kandinsky, Wassily, Composition VIII - 1923"
-msgstr "Kandinsky, Wassily, Komposisie VIII - 1923"
-
-#: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:2
 msgid "Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
 msgstr "Olie op doek, 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
+
+#: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:2
+#| msgid "Kandinsky, Wassily, Composition VIII - 1923"
+msgid "Wassily Kandinsky, Composition VIII - 1923"
+msgstr "Wassily Kandinsky, Komposisie VIII - 1923"
 
 #: ../src/paintings-activity/resources/paintings/board4_0.xml.in.h:1
 msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
 msgstr "Bazille, Die bolwerk by Aigues-Mortes - 1867"
 
 #: ../src/paintings-activity/resources/paintings/board5_0.xml.in.h:1
-msgid "Cassatt, Mary - Summertime - 1894"
-msgstr "Cassatt, Mary - Somertyd - 1894"
+#| msgid "Cassatt, Mary - Summertime - 1894"
+msgid "Mary Cassatt, Summertime - 1894"
+msgstr "Mary Cassatt, - Somertyd - 1894"
 
 #: ../src/paintings-activity/resources/paintings/board6_0.xml.in.h:1
 msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
@@ -6187,8 +6476,8 @@ msgid ""
 "In this game, Tux the parachutist needs help to land safely on the fishing "
 "boat. He needs to allow for the wind direction and speed."
 msgstr ""
-"In hierdie spel het Tux die valskermspringer jou hulp nodig om veilig op die "
-"vissersboot te land. Hy moet windrigting en spoed in ag neem."
+"In hierdie speletj het Tux die valskermspringer jou hulp nodig om veilig op "
+"die vissersboot te land. Hy moet windrigting en spoed in ag neem."
 
 #: ../src/paratrooper-activity/paratrooper.xml.in.h:4
 msgid "Parachutist"
@@ -6279,7 +6568,7 @@ msgstr "Skuif die helikopter om die wolke in die korrekte volgorde te vang"
 msgid "Number"
 msgstr "Getalle"
 
-#: ../src/pythontemplate-activity/pythontemplate.py:60
+#: ../src/pythontemplate-activity/pythontemplate.py:62
 #: ../src/pythontest-activity/pythontest.py:184
 msgid ""
 "This is the first plugin in GCompris coded in the Python\n"
@@ -6363,7 +6652,7 @@ msgstr "Toetsbord vir die Python-inprop"
 
 #: ../src/railroad-activity/railroad.c:97
 msgid "Memory game"
-msgstr "Geheuespel"
+msgstr "Geheuespeletjie"
 
 #: ../src/railroad-activity/railroad.c:98
 msgid "Build a train according to the model"
@@ -6371,7 +6660,7 @@ msgstr "Bou 'n trein volgens die model"
 
 #: ../src/railroad-activity/railroad.xml.in.h:1
 msgid "A memory game based on trains"
-msgstr "'n Geheuespel gebaseer op treine"
+msgstr "'n Geheuespele gebaseer op treine"
 
 #: ../src/railroad-activity/railroad.xml.in.h:2
 msgid ""
@@ -6620,7 +6909,7 @@ msgstr "Gewig in g = %s"
 msgid "Weight = %s"
 msgstr "Gewig = %s"
 
-#: ../src/scalesboard-activity/scale.c:1008
+#: ../src/scalesboard-activity/scale.c:1007
 msgid "Take care, you can drop masses on both sides of the scale."
 msgstr "Let wel, jy kan gewigte op al twee kante van die skaal neersit."
 
@@ -6887,11 +7176,6 @@ msgid "Completing the puzzle requires patience and logical ability"
 msgstr "Om die legkaart klaar te maak vereis geduld en logikavaardigheid"
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:2
-#| msgid ""
-#| "For the first level with colored symbols, drag symbols on the left to "
-#| "their target position. For the higher levels, click on an empty square to "
-#| "give it the keyboard focus. Then enter a possible letter or number. "
-#| "GCompris will not let you enter invalid data."
 msgid ""
 "For the first level with colored symbols, select a symbol on the left and "
 "click on its target position. For the higher levels, click on an empty "
@@ -6945,7 +7229,6 @@ msgstr "Hierdie item is op die regte plek"
 
 #: ../src/superbrain-activity/superbrain.c:416
 #: ../src/superbrain-activity/superbrain.c:569
-#| msgid "is being displayed"
 msgid "This item is misplaced"
 msgstr "Hierdie item is nie op die regte plek nie"
 
@@ -6954,7 +7237,6 @@ msgid "One item is well placed"
 msgstr "Een item is op die regte plek"
 
 #: ../src/superbrain-activity/superbrain.c:601
-#| msgid "And it was displayed"
 msgid "One item is misplaced"
 msgstr "Een item is nie op die regte plek nie"
 
@@ -7151,6 +7433,23 @@ msgstr ""
 msgid "mouse and keyboard manipulation"
 msgstr "Muis- en sleutelbordbeheer"
 
+#: ../src/watercycle-activity/watercycle.py:170
+msgid "This is a water pump station."
+msgstr "Hierdie is 'n waterpompstasie."
+
+#: ../src/watercycle-activity/watercycle.py:183
+msgid "This is a water cleanup station."
+msgstr "Hierdie is 'n skoonmaakstasie."
+
+#: ../src/watercycle-activity/watercycle.py:263
+msgid ""
+"A water tower or elevated water tower is a large elevated water storage "
+"container constructed to hold a water supply at a height sufficient to "
+"pressurize a water distribution system."
+msgstr ""
+"'n Watertoring word gebou sodat water gestoor kan word. Dis gewoonlik op 'n "
+"hoogte sodat daar genoeg druk is om die water te kan versprei."
+
 #: ../src/watercycle-activity/watercycle.xml.in.h:1
 msgid ""
 "Click on different active elements : sun, cloud, water pump station, and "
@@ -7264,55 +7563,19 @@ msgstr "Tikoefening"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Tik die volledige woord terwyl dit val, voordat dit die grond tref"
 
-#: ../src/hangman-activity/hangman.xml.in.h:1
-msgid "A word is hidden, you must discover it letter by letter"
-msgstr "'n Woord is versteek. Ontdek dit een letter op 'n slag."
+#, fuzzy
+#~| msgid "Vincent van Gogh, Bedroom in Arles - 1888"
+#~ msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1888"
+#~ msgstr "Vincent van Gogh, Slaapkamer in Arles - 1888"
 
-#: ../src/hangman-activity/hangman.xml.in.h:2
-#| msgid "Reading"
-msgid "Reading skill"
-msgstr "Leesvaardigheid"
+#~ msgid "Move the mouse until all the blocks disappear."
+#~ msgstr "Beweeg die muis totdat al die blokke verdwyn."
 
-#: ../src/hangman-activity/hangman.xml.in.h:3
-msgid "The classic hangman game"
-msgstr "Die klassieke Hangman-speletjie"
+#~ msgid "Mona Lisa"
+#~ msgstr "Mona Lisa"
 
-#: ../src/hangman-activity/hangman.xml.in.h:4
-msgid "This is a good exercise to improve reading and spelling skills."
-msgstr ""
-"Hierdie is 'n goeie oefening vir die verbetering van lees- en "
-"spelvaardighede."
-
-#: ../src/hangman-activity/hangman.xml.in.h:5
-msgid ""
-"You can enter the letters using the virtual keyboard on the screen or with "
-"the real keyboard."
-msgstr ""
-"Jy kan die letters gee met die virtuele sleutelbord op die skerm, of met 'n "
-"regte sleutelbord."
-
-#. All the vowel of your language (keep empty if non applicable)
-#: ../src/hangman-activity/hangman.py:61
-msgid "aeiouy"
-msgstr "aeiouy"
-
-#. All the consonants of your language (keep empty if non applicable)
-#: ../src/hangman-activity/hangman.py:63
-#| msgid "abcdefghijklmnopqrstuvwxyz"
-msgid "bcdfghjklmnpqrstvwxz"
-msgstr "bdfghjklmnpqrstvw"
-
-#. Letters equivallence for the hangman activity. It has the
-#. form of a space separated list like: "e=éè a=àâ"
-#. Keep the word NONE if not available in your language
-#: ../src/hangman-activity/hangman.py:67
-msgid "NONE"
-msgstr "e=éèëê a=á i=íï o=óö u=úü y=ý"
-
-#: ../src/hangman-activity/hangman.py:104
-#| msgid "Configure the list of words"
-msgid "Could not find the list of words."
-msgstr "Kon nie die woordelys kry nie."
+#~ msgid "Dürer : Lion"
+#~ msgstr "Dürer: Lion"
 
 #~ msgid "Botticelli, Primavera - 1482"
 #~ msgstr "Botticelli, Lente - 1482"
@@ -7363,10 +7626,6 @@ msgstr "Kon nie die woordelys kry nie."
 #~ msgstr ""
 #~ "Herbou die linkerkantse mosaïek aan die regterkant. Kies 'n kleur onder "
 #~ "en kliek op grys boksies om hulle te kleur."
-
-#, fuzzy
-#~ msgid "Choice of the filename"
-#~ msgstr "Kleur van die lyn"
 
 #~ msgid "SVG is disabled. Install python xml module to enable it"
 #~ msgstr ""
