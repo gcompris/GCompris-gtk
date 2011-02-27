@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-12 13:28+0100\n"
-"PO-Revision-Date: 2011-02-13 13:11+0100\n"
+"POT-Creation-Date: 2011-02-27 10:58+0100\n"
+"PO-Revision-Date: 2011-02-27 10:59+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -1300,7 +1300,7 @@ msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "Mushantering: flytta, dra och släpp. Kulturella referenser."
 
 #: ../src/babymatch-activity/shapegame.c:1903
-#: ../src/click_on_letter-activity/click_on_letter.c:675
+#: ../src/click_on_letter-activity/click_on_letter.c:671
 #: ../src/colors-activity/colors.c:168
 #, c-format
 msgid ""
@@ -1840,12 +1840,12 @@ msgstr ""
 "paketen med GCompris-röster för lokalen \"%s\"! Faller tillbaka på engelska, ursäkta!"
 
 #. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:698
+#: ../src/click_on_letter-activity/click_on_letter.c:694
 #: ../src/gletters-activity/gletters.c:883
 #: ../src/login-activity/login.py:484
 #: ../src/missing_letter-activity/missingletter_config.c:492
 #: ../src/readingh-activity/reading.c:928
-#: ../src/wordsgame-activity/wordsgame.c:889
+#: ../src/wordsgame-activity/wordsgame.c:887
 msgid "Uppercase only text"
 msgstr "Endast stora bokstäver"
 
@@ -1901,7 +1901,7 @@ msgstr "Motorik: flytta och klicka med musen."
 msgid "Use the left mouse button to click on the moving fish."
 msgstr "Använd vänstra musknappen för att klicka på den rörliga fisken."
 
-#: ../src/clockgame-activity/clockgame.c:525
+#: ../src/clockgame-activity/clockgame.c:524
 msgid "Set the watch to:"
 msgstr "Ställ klockan till:"
 
@@ -2353,7 +2353,7 @@ msgstr "Dra muspekaren över den röda delen av slangen. Detta kommer att få fr
 msgid "Tux needs to water the flowers, but the hose is blocked."
 msgstr "Tux behöver vattna blommorna men slangen är blockerad."
 
-#: ../src/gcompris/about.c:49
+#: ../src/gcompris/about.c:48
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge, Yves Combe\n"
@@ -2368,7 +2368,7 @@ msgstr ""
 "Bakgrundsmusik: Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:57
+#: ../src/gcompris/about.c:56
 msgid "translator_credits"
 msgstr ""
 "Daniel Nylander\n"
@@ -2379,47 +2379,47 @@ msgstr ""
 "Skicka synpunkter på översättningen\n"
 "<till tp-sv@listor.tp-sv.se>"
 
-#: ../src/gcompris/about.c:84
+#: ../src/gcompris/about.c:82
 msgid "About GCompris"
 msgstr "Om GCompris"
 
-#: ../src/gcompris/about.c:94
+#: ../src/gcompris/about.c:92
 msgid "GCompris Home Page: http://gcompris.net"
 msgstr "Webbplats för GCompris: http://gcompris.net"
 
-#: ../src/gcompris/about.c:105
+#: ../src/gcompris/about.c:103
 msgid "Translators:"
 msgstr "Översättare:"
 
-#: ../src/gcompris/about.c:210
+#: ../src/gcompris/about.c:208
 msgid "This software is a GNU Package and is released under the GNU General Public License"
 msgstr "Detta program är ett GNU-paket och är släppt under Gnu Public License"
 
-#: ../src/gcompris/about.c:224
-#: ../src/gcompris/config.c:438
-#: ../src/gcompris/dialog.c:104
+#: ../src/gcompris/about.c:222
+#: ../src/gcompris/config.c:455
+#: ../src/gcompris/dialog.c:99
 #: ../src/gcompris/help.c:355
-#: ../src/gcompris/images_selector.c:307
+#: ../src/gcompris/images_selector.c:306
 msgid "OK"
 msgstr "OK"
 
-#: ../src/gcompris/bar.c:693
+#: ../src/gcompris/bar.c:684
 msgid "GCompris confirmation"
 msgstr "Bekräfta"
 
-#: ../src/gcompris/bar.c:694
+#: ../src/gcompris/bar.c:685
 msgid "Are you sure you want to quit?"
 msgstr "Är du säker på att du vill avsluta?"
 
-#: ../src/gcompris/bar.c:695
+#: ../src/gcompris/bar.c:686
 msgid "Yes, I am sure!"
 msgstr "Ja, jag är säker!"
 
-#: ../src/gcompris/bar.c:696
+#: ../src/gcompris/bar.c:687
 msgid "No, I want to keep going"
 msgstr "Nej, jag vill fortsätta"
 
-#: ../src/gcompris/board.c:168
+#: ../src/gcompris/board.c:155
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr "Dynamisk inläsning av moduler stöds inte. GCompris kan inte läsa in.\n"
 
@@ -2487,77 +2487,77 @@ msgid "Afrikaans"
 msgstr "Afrikaans"
 
 #: ../src/gcompris/config.c:60
+msgid "Albanian"
+msgstr "Albaniska"
+
+#: ../src/gcompris/config.c:61
 msgid "Amharic"
 msgstr "Amhariska"
 
-#: ../src/gcompris/config.c:61
+#: ../src/gcompris/config.c:62
 msgid "Arabic"
 msgstr "Arabiska"
 
-#: ../src/gcompris/config.c:62
+#: ../src/gcompris/config.c:63
 msgid "Asturian"
 msgstr "Asturiska"
 
-#: ../src/gcompris/config.c:63
-msgid "Turkish (Azerbaijan)"
-msgstr "Turkiska (Azerbadjan)"
-
 #: ../src/gcompris/config.c:64
-msgid "Bulgarian"
-msgstr "Bulgarien"
+msgid "Basque"
+msgstr "Baskiska"
 
 #: ../src/gcompris/config.c:65
 msgid "Breton"
 msgstr "Breton"
 
 #: ../src/gcompris/config.c:66
+msgid "Bulgarian"
+msgstr "Bulgarien"
+
+#: ../src/gcompris/config.c:67
 msgid "Catalan"
 msgstr "Katalanska"
 
-#: ../src/gcompris/config.c:67
+#: ../src/gcompris/config.c:68
+msgid "Chinese (Simplified)"
+msgstr "Kinesiska (förenklad)"
+
+#: ../src/gcompris/config.c:69
+msgid "Chinese (Traditional)"
+msgstr "Kinesiska (traditionell)"
+
+#: ../src/gcompris/config.c:70
+msgid "Croatian"
+msgstr "Kroatiska"
+
+#: ../src/gcompris/config.c:71
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:7
 msgid "Czech Republic"
 msgstr "Tjeckien"
 
-#: ../src/gcompris/config.c:68
+#: ../src/gcompris/config.c:72
 msgid "Danish"
 msgstr "Danska"
 
-#: ../src/gcompris/config.c:69
-msgid "German"
-msgstr "Tyska"
+#: ../src/gcompris/config.c:73
+msgid "Dutch"
+msgstr "Holländska"
 
-#: ../src/gcompris/config.c:70
+#: ../src/gcompris/config.c:74
 msgid "Dzongkha"
 msgstr "Dzongkha"
 
-#: ../src/gcompris/config.c:71
-msgid "Greek"
-msgstr "Grekiska"
-
-#: ../src/gcompris/config.c:72
+#: ../src/gcompris/config.c:75
 msgid "English (Canada)"
 msgstr "Engelska (Kanada)"
 
-#: ../src/gcompris/config.c:73
+#: ../src/gcompris/config.c:76
 msgid "English (Great Britain)"
 msgstr "Engelska (Storbritannien)"
 
-#: ../src/gcompris/config.c:74
+#: ../src/gcompris/config.c:77
 msgid "English (United States)"
 msgstr "Engelska (USA)"
-
-#: ../src/gcompris/config.c:75
-msgid "Spanish"
-msgstr "Spanska"
-
-#: ../src/gcompris/config.c:76
-msgid "Basque"
-msgstr "Baskiska"
-
-#: ../src/gcompris/config.c:77
-msgid "Persian"
-msgstr "Persiska"
 
 #: ../src/gcompris/config.c:78
 msgid "Finnish"
@@ -2568,251 +2568,255 @@ msgid "French"
 msgstr "Franska"
 
 #: ../src/gcompris/config.c:80
-msgid "Irish (Gaelic)"
-msgstr "Irländska (Gaeliska)"
-
-#: ../src/gcompris/config.c:81
-msgid "Gujarati"
-msgstr "Gujarati"
-
-#: ../src/gcompris/config.c:82
-msgid "Hebrew"
-msgstr "Hebreiska"
-
-#: ../src/gcompris/config.c:83
-msgid "Hindi"
-msgstr "Hindi"
-
-#: ../src/gcompris/config.c:84
-msgid "Croatian"
-msgstr "Kroatiska"
-
-#: ../src/gcompris/config.c:85
-msgid "Hungarian"
-msgstr "Ungerska"
-
-#: ../src/gcompris/config.c:86
-msgid "Indonesian"
-msgstr "Indonesiska"
-
-#: ../src/gcompris/config.c:87
-msgid "Italian"
-msgstr "Italienska"
-
-#: ../src/gcompris/config.c:88
-msgid "Japanese"
-msgstr "Japanska"
-
-#: ../src/gcompris/config.c:89
 msgid "Georgian"
 msgstr "Georgiska"
 
+#: ../src/gcompris/config.c:81
+msgid "German"
+msgstr "Tyska"
+
+#: ../src/gcompris/config.c:82
+msgid "Greek"
+msgstr "Grekiska"
+
+#: ../src/gcompris/config.c:83
+msgid "Gujarati"
+msgstr "Gujarati"
+
+#: ../src/gcompris/config.c:84
+msgid "Hebrew"
+msgstr "Hebreiska"
+
+#: ../src/gcompris/config.c:85
+msgid "Hindi"
+msgstr "Hindi"
+
+#: ../src/gcompris/config.c:86
+msgid "Hungarian"
+msgstr "Ungerska"
+
+#: ../src/gcompris/config.c:87
+msgid "Indonesian"
+msgstr "Indonesiska"
+
+#: ../src/gcompris/config.c:88
+msgid "Irish (Gaelic)"
+msgstr "Irländska (Gaeliska)"
+
+#: ../src/gcompris/config.c:89
+msgid "Italian"
+msgstr "Italienska"
+
 #: ../src/gcompris/config.c:90
+msgid "Japanese"
+msgstr "Japanska"
+
+#: ../src/gcompris/config.c:91
+msgid "Kinyarwanda"
+msgstr "Kinyarwanda"
+
+#: ../src/gcompris/config.c:92
 msgid "Korean"
 msgstr "Koreanska"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:93
 msgid "Lithuanian"
 msgstr "Litauiska"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:94
 msgid "Macedonian"
 msgstr "Makedonska"
-
-#: ../src/gcompris/config.c:93
-msgid "Malayalam"
-msgstr "Malayalam"
-
-#: ../src/gcompris/config.c:94
-msgid "Marathi"
-msgstr "Marathi"
 
 #: ../src/gcompris/config.c:95
 msgid "Malay"
 msgstr "Malajiska"
 
 #: ../src/gcompris/config.c:96
-msgid "Norwegian Bokmal"
-msgstr "Norska (bokmål)"
+msgid "Malayalam"
+msgstr "Malayalam"
 
 #: ../src/gcompris/config.c:97
+msgid "Marathi"
+msgstr "Marathi"
+
+#: ../src/gcompris/config.c:98
+msgid "Montenegrin"
+msgstr "Montenegrinska"
+
+#: ../src/gcompris/config.c:99
 msgid "Nepal"
 msgstr "Nepali"
 
-#: ../src/gcompris/config.c:98
-msgid "Dutch"
-msgstr "Holländska"
+#: ../src/gcompris/config.c:100
+msgid "Norwegian Bokmal"
+msgstr "Norska (bokmål)"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:101
 msgid "Norwegian Nynorsk"
 msgstr "Norska (nynorsk)"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:102
 msgid "Occitan (languedocien)"
 msgstr "Occitan (languedocien)"
 
-#: ../src/gcompris/config.c:101
-msgid "Punjabi"
-msgstr "Punjabi"
+#: ../src/gcompris/config.c:103
+msgid "Persian"
+msgstr "Persiska"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:104
 msgid "Polish"
 msgstr "Polska"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:105
 msgid "Portuguese (Brazil)"
 msgstr "Portugisiska (brasiliansk)"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:106
 msgid "Portuguese"
 msgstr "Portugisiska"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:107
+msgid "Punjabi"
+msgstr "Punjabi"
+
+#: ../src/gcompris/config.c:108
 msgid "Romanian"
 msgstr "Rumänska"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:109
 msgid "Russian"
 msgstr "Ryska"
 
-#: ../src/gcompris/config.c:107
-msgid "Kinyarwanda"
-msgstr "Kinyarwanda"
-
-#: ../src/gcompris/config.c:108
-msgid "Slovak"
-msgstr "Slovakiska"
-
-#: ../src/gcompris/config.c:109
-msgid "Slovenian"
-msgstr "Slovenska"
-
 #: ../src/gcompris/config.c:110
-msgid "Somali"
-msgstr "Somaliska"
-
-#: ../src/gcompris/config.c:111
-msgid "Albanian"
-msgstr "Albaniska"
-
-#: ../src/gcompris/config.c:112
 msgid "Serbian (Latin)"
 msgstr "Serbiska (Latinsk)"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:111
 msgid "Serbian"
 msgstr "Serbiska"
 
+#: ../src/gcompris/config.c:112
+msgid "Slovak"
+msgstr "Slovakiska"
+
+#: ../src/gcompris/config.c:113
+msgid "Slovenian"
+msgstr "Slovenska"
+
 #: ../src/gcompris/config.c:114
+msgid "Somali"
+msgstr "Somaliska"
+
+#: ../src/gcompris/config.c:115
+msgid "Spanish"
+msgstr "Spanska"
+
+#: ../src/gcompris/config.c:116
 msgid "Swedish"
 msgstr "Svenska"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:117
 msgid "Tamil"
 msgstr "Tamilska"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:118
 msgid "Thai"
 msgstr "Thai"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:119
+msgid "Turkish (Azerbaijan)"
+msgstr "Turkiska (Azerbadjan)"
+
+#: ../src/gcompris/config.c:120
 msgid "Turkish"
 msgstr "Turkiska"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:121
 msgid "Ukrainian"
 msgstr "Ukrainska"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:122
 msgid "Urdu"
 msgstr "Urdu"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:123
 msgid "Vietnamese"
 msgstr "Vietnamesiska"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:124
 msgid "Walloon"
 msgstr "Vallonska"
 
-#: ../src/gcompris/config.c:122
-msgid "Chinese (Simplified)"
-msgstr "Kinesiska (förenklad)"
-
-#: ../src/gcompris/config.c:123
-msgid "Chinese (Traditional)"
-msgstr "Kinesiska (traditionell)"
-
-#: ../src/gcompris/config.c:128
+#: ../src/gcompris/config.c:129
 msgid "No time limit"
 msgstr "Ingen tidsbegränsning"
 
-#: ../src/gcompris/config.c:129
+#: ../src/gcompris/config.c:130
 msgid "Slow timer"
 msgstr "Långsam tidtagare"
 
-#: ../src/gcompris/config.c:130
+#: ../src/gcompris/config.c:131
 msgid "Normal timer"
 msgstr "Normal tidtagare"
 
-#: ../src/gcompris/config.c:131
+#: ../src/gcompris/config.c:132
 msgid "Fast timer"
 msgstr "Snabb tidtagare"
 
-#: ../src/gcompris/config.c:135
+#: ../src/gcompris/config.c:136
 msgid "Use Gcompris administration module to filter boards"
 msgstr "Använd Gcompris administrationsmodul för att filtrera bräden"
 
-#: ../src/gcompris/config.c:186
+#: ../src/gcompris/config.c:187
 msgid "GCompris Configuration"
 msgstr "Konfiguration av GCompris"
 
-#: ../src/gcompris/config.c:253
+#: ../src/gcompris/config.c:270
 msgid "Fullscreen"
 msgstr "Helskärmsläge"
 
-#: ../src/gcompris/config.c:278
+#: ../src/gcompris/config.c:295
 msgid "Music"
 msgstr "Musik"
 
-#: ../src/gcompris/config.c:303
+#: ../src/gcompris/config.c:320
 msgid "Effect"
 msgstr "Effekt"
 
-#: ../src/gcompris/config.c:327
+#: ../src/gcompris/config.c:344
 #: ../src/gcompris/sugar.c:82
 msgid "Zoom"
 msgstr "Zoom"
 
-#: ../src/gcompris/config.c:364
+#: ../src/gcompris/config.c:381
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kunde inte öppna skalkatalogen: %s"
 
-#: ../src/gcompris/config.c:395
-#: ../src/gcompris/config.c:753
-#: ../src/gcompris/config.c:767
+#: ../src/gcompris/config.c:412
+#: ../src/gcompris/config.c:779
+#: ../src/gcompris/config.c:793
 #, c-format
 msgid "Skin : %s"
 msgstr "Skal: %s"
 
-#: ../src/gcompris/config.c:397
+#: ../src/gcompris/config.c:414
 msgid "SKINS NOT FOUND"
 msgstr "SKALEN HITTADES INTE"
 
-#: ../src/gcompris/config.c:478
+#: ../src/gcompris/config.c:495
 msgid "English (United State)"
 msgstr "Engelska (USA)"
 
-#: ../src/gcompris/file_selector.c:254
+#: ../src/gcompris/file_selector.c:251
 msgid "CANCEL"
 msgstr "AVBRYT"
 
-#: ../src/gcompris/file_selector.c:262
+#: ../src/gcompris/file_selector.c:259
 msgid "LOAD"
 msgstr "LÄS IN"
 
-#: ../src/gcompris/file_selector.c:262
+#: ../src/gcompris/file_selector.c:259
 msgid "SAVE"
 msgstr "SPARA"
 
@@ -3774,10 +3778,10 @@ msgstr "ABCDEFGHIJKLMNOPQRSTUVXYZÅÄÖ"
 #: ../src/missing_letter-activity/missingletter.c:784
 #: ../src/pythontest-activity/pythontest.py:454
 #: ../src/readingh-activity/reading.c:904
-#: ../src/scalesboard-activity/scale.c:1161
+#: ../src/scalesboard-activity/scale.c:1160
 #: ../src/smallnumbers-activity/smallnumbers.c:595
 #: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:866
+#: ../src/wordsgame-activity/wordsgame.c:864
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -5929,7 +5933,7 @@ msgstr "Vikt i gram = %s"
 msgid "Weight = %s"
 msgstr "Vikt = %s"
 
-#: ../src/scalesboard-activity/scale.c:1008
+#: ../src/scalesboard-activity/scale.c:1007
 msgid "Take care, you can drop masses on both sides of the scale."
 msgstr "Var försiktig, du kan släppa vikter på båda sidor av vågen."
 
