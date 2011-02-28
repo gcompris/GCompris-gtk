@@ -122,6 +122,7 @@ static gchar *linguas[] = {
   "ur_PK.UTF-8",	N_("Urdu"),
   "vi_VN.UTF-8",	N_("Vietnamese"),
   "wa_BE.UTF-8",	N_("Walloon"),
+  "zu_ZA.UTF-8",	N_("Zulu"),
   NULL, NULL
 };
 
