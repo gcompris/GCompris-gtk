@@ -148,8 +148,9 @@ static GooCanvasItem *barre_av_item, *barre_ar_item,
   *ballast_ar_air_item_back, *ballast_ar_air_item_front,
   *ballast_av_air_item_rect, *ballast_ar_air_item_rect,
   *air_compressor_item, *battery_charger_item, *alert_submarine,
-  *bubbling[3], *frigate_item, *big_explosion, *whale, *treasure, *top_gate_item;
+  *bubbling[3], *big_explosion, *whale, *treasure, *top_gate_item;
 
+static GooCanvasItem *frigate_item = NULL;
 /* submarine parameters */
 static gdouble barre_av_angle, barre_ar_angle, depth, weight, resulting_weight;
 static gdouble submarine_x, air, battery, regleur;
@@ -196,6 +197,8 @@ static gboolean air_compressor_event(GooCanvasItem *item, GooCanvas *target,
 static gboolean battery_charger_event(GooCanvasItem *item, GooCanvas *target,
 				  GdkEventButton *event, gpointer data);
 
+static void start_frigate_anim(void);
+static void stop_frigate_anim(void);
 static void setSpeed(gdouble value);
 static void setBattery(gdouble value);
 static void setAir(gdouble value);
@@ -251,6 +254,13 @@ static void pause_board (gboolean pause)
 
   if(gamewon == TRUE && pause == FALSE) /* the game is won */
     game_won();
+  else
+    {
+      if(pause == TRUE)
+	stop_frigate_anim();
+      else
+	start_frigate_anim();
+    }
 
   board_paused = pause;
 }
@@ -774,27 +784,6 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
   g_signal_connect(battery_charger_item, "button-press-event",
 		   (GtkSignalFunc) battery_charger_event, NULL);
 
-  // the antisubmarine warfare frigate
-  pixmap = gc_pixmap_load("submarine/asw_frigate.png");
-  w = gdk_pixbuf_get_width(pixmap);
-  frigate_item = goo_canvas_image_new (boardRootItem,
-				       pixmap,
-				       0,
-				       0,
-				       NULL);
-  goo_canvas_item_translate(frigate_item, BOARDWIDTH, 2);
-  goo_canvas_item_animate(frigate_item,
-			  -w,
-			  2.0,
-			  1,
-			  0,
-			  TRUE,
-			  30*1000,
-			  40,
-			  GOO_CANVAS_ANIMATE_RESTART);
-  gdk_pixbuf_unref(pixmap);
-
-
   /*
    * Set the right wall
    * ------------------
@@ -845,6 +834,44 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 
   return NULL;
 }
+
+static void start_frigate_anim()
+{
+  GdkPixbuf *pixmap;
+  int w;
+
+  // the antisubmarine warfare frigate
+  pixmap = gc_pixmap_load("submarine/asw_frigate.png");
+  w = gdk_pixbuf_get_width(pixmap);
+
+  frigate_item = goo_canvas_image_new (boardRootItem,
+				       pixmap,
+				       0,
+				       0,
+				       NULL);
+  goo_canvas_item_translate(frigate_item, BOARDWIDTH, 2);
+  goo_canvas_item_animate(frigate_item,
+			  -w,
+			  2.0,
+			  1,
+			  0,
+			  TRUE,
+			  30*1000,
+			  40,
+			  GOO_CANVAS_ANIMATE_RESTART);
+  gdk_pixbuf_unref(pixmap);
+}
+
+static void stop_frigate_anim()
+{
+  if (frigate_item)
+    {
+      goo_canvas_item_stop_animation (frigate_item);
+      goo_canvas_item_remove(frigate_item);
+    }
+  frigate_item = NULL;
+}
+
 /* =====================================================================
  * Periodically recalculate the submarine parameters
  * =====================================================================*/
