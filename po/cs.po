@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&component=general\n"
-"POT-Creation-Date: 2011-02-19 21:33+0000\n"
-"PO-Revision-Date: 2011-02-21 23:54+0100\n"
+"POT-Creation-Date: 2011-02-28 22:06+0000\n"
+"PO-Revision-Date: 2011-03-01 09:40+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -2783,7 +2783,7 @@ msgstr ""
 "Tento software je balíček GNU a je uvolněn za podmínek GNU General Public "
 "Licence"
 
-#: ../src/gcompris/about.c:222 ../src/gcompris/config.c:439
+#: ../src/gcompris/about.c:222 ../src/gcompris/config.c:456
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:355
 #: ../src/gcompris/images_selector.c:306
 msgid "OK"
@@ -2874,77 +2874,77 @@ msgid "Afrikaans"
 msgstr "Afrikánština"
 
 #: ../src/gcompris/config.c:60
+msgid "Albanian"
+msgstr "Albánština"
+
+#: ../src/gcompris/config.c:61
 msgid "Amharic"
 msgstr "Amharština"
 
-#: ../src/gcompris/config.c:61
+#: ../src/gcompris/config.c:62
 msgid "Arabic"
 msgstr "Arabština"
 
-#: ../src/gcompris/config.c:62
+#: ../src/gcompris/config.c:63
 msgid "Asturian"
 msgstr "Asturština"
 
-#: ../src/gcompris/config.c:63
-msgid "Turkish (Azerbaijan)"
-msgstr "Turečtina (Ázerbájdžán)"
-
 #: ../src/gcompris/config.c:64
-msgid "Bulgarian"
-msgstr "Bulharština"
+msgid "Basque"
+msgstr "Baskičtina"
 
 #: ../src/gcompris/config.c:65
 msgid "Breton"
 msgstr "Bretonština"
 
 #: ../src/gcompris/config.c:66
+msgid "Bulgarian"
+msgstr "Bulharština"
+
+#: ../src/gcompris/config.c:67
 msgid "Catalan"
 msgstr "Katalánština"
 
-#: ../src/gcompris/config.c:67
+#: ../src/gcompris/config.c:68
+msgid "Chinese (Simplified)"
+msgstr "Čínština (zjednodušená)"
+
+#: ../src/gcompris/config.c:69
+msgid "Chinese (Traditional)"
+msgstr "Čínština (klasická)"
+
+#: ../src/gcompris/config.c:70
+msgid "Croatian"
+msgstr "Chorvatština"
+
+#: ../src/gcompris/config.c:71
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:7
 msgid "Czech Republic"
 msgstr "Česká republika"
 
-#: ../src/gcompris/config.c:68
+#: ../src/gcompris/config.c:72
 msgid "Danish"
 msgstr "Dánština"
 
-#: ../src/gcompris/config.c:69
-msgid "German"
-msgstr "Němčina"
+#: ../src/gcompris/config.c:73
+msgid "Dutch"
+msgstr "Holandština"
 
-#: ../src/gcompris/config.c:70
+#: ../src/gcompris/config.c:74
 msgid "Dzongkha"
 msgstr "Bhútánština"
 
-#: ../src/gcompris/config.c:71
-msgid "Greek"
-msgstr "Řečtina"
-
-#: ../src/gcompris/config.c:72
+#: ../src/gcompris/config.c:75
 msgid "English (Canada)"
 msgstr "Angličtina (kanadská)"
 
-#: ../src/gcompris/config.c:73
+#: ../src/gcompris/config.c:76
 msgid "English (Great Britain)"
 msgstr "Angličtina (Velká Británie)"
 
-#: ../src/gcompris/config.c:74
+#: ../src/gcompris/config.c:77
 msgid "English (United States)"
 msgstr "Angličtina (USA)"
-
-#: ../src/gcompris/config.c:75
-msgid "Spanish"
-msgstr "Španělština"
-
-#: ../src/gcompris/config.c:76
-msgid "Basque"
-msgstr "Baskičtina"
-
-#: ../src/gcompris/config.c:77
-msgid "Persian"
-msgstr "Perština"
 
 #: ../src/gcompris/config.c:78
 msgid "Finnish"
@@ -2955,242 +2955,245 @@ msgid "French"
 msgstr "Francouzština"
 
 #: ../src/gcompris/config.c:80
-msgid "Irish (Gaelic)"
-msgstr "Irština (gaelská)"
-
-#: ../src/gcompris/config.c:81
-msgid "Gujarati"
-msgstr "Gudžarátština"
-
-#: ../src/gcompris/config.c:82
-msgid "Hebrew"
-msgstr "Hebrejština"
-
-#: ../src/gcompris/config.c:83
-msgid "Hindi"
-msgstr "Hindština"
-
-#: ../src/gcompris/config.c:84
-msgid "Croatian"
-msgstr "Chorvatština"
-
-#: ../src/gcompris/config.c:85
-msgid "Hungarian"
-msgstr "Maďarština"
-
-#: ../src/gcompris/config.c:86
-msgid "Indonesian"
-msgstr "Indonéština"
-
-#: ../src/gcompris/config.c:87
-msgid "Italian"
-msgstr "Italština"
-
-#: ../src/gcompris/config.c:88
-msgid "Japanese"
-msgstr "Japonština"
-
-#: ../src/gcompris/config.c:89
 msgid "Georgian"
 msgstr "Gruzínština"
 
+#: ../src/gcompris/config.c:81
+msgid "German"
+msgstr "Němčina"
+
+#: ../src/gcompris/config.c:82
+msgid "Greek"
+msgstr "Řečtina"
+
+#: ../src/gcompris/config.c:83
+msgid "Gujarati"
+msgstr "Gudžarátština"
+
+#: ../src/gcompris/config.c:84
+msgid "Hebrew"
+msgstr "Hebrejština"
+
+#: ../src/gcompris/config.c:85
+msgid "Hindi"
+msgstr "Hindština"
+
+#: ../src/gcompris/config.c:86
+msgid "Hungarian"
+msgstr "Maďarština"
+
+#: ../src/gcompris/config.c:87
+msgid "Indonesian"
+msgstr "Indonéština"
+
+#: ../src/gcompris/config.c:88
+msgid "Irish (Gaelic)"
+msgstr "Irština (gaelská)"
+
+#: ../src/gcompris/config.c:89
+msgid "Italian"
+msgstr "Italština"
+
 #: ../src/gcompris/config.c:90
+msgid "Japanese"
+msgstr "Japonština"
+
+#: ../src/gcompris/config.c:91
+msgid "Kinyarwanda"
+msgstr "Rwandština"
+
+#: ../src/gcompris/config.c:92
 msgid "Korean"
 msgstr "Korejština"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:93
 msgid "Lithuanian"
 msgstr "Litevština"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:94
 msgid "Macedonian"
 msgstr "Makedonština"
-
-#: ../src/gcompris/config.c:93
-msgid "Malayalam"
-msgstr "Malajálamština"
-
-#: ../src/gcompris/config.c:94
-msgid "Marathi"
-msgstr "Marathi"
 
 #: ../src/gcompris/config.c:95
 msgid "Malay"
 msgstr "Malajština"
 
 #: ../src/gcompris/config.c:96
-msgid "Norwegian Bokmal"
-msgstr "Norština Bokmal"
+msgid "Malayalam"
+msgstr "Malajálamština"
 
 #: ../src/gcompris/config.c:97
-msgid "Nepal"
-msgstr "Nepálština"
+msgid "Marathi"
+msgstr "Marathi"
 
 #: ../src/gcompris/config.c:98
-msgid "Dutch"
-msgstr "Holandština"
-
-#: ../src/gcompris/config.c:99
-msgid "Norwegian Nynorsk"
-msgstr "Norština Nynorsk"
-
-#: ../src/gcompris/config.c:100
-msgid "Occitan (languedocien)"
-msgstr "Okcitánština (languedocien)"
-
-#: ../src/gcompris/config.c:101
-msgid "Punjabi"
-msgstr "Paňdžábština"
-
-#: ../src/gcompris/config.c:102
-msgid "Polish"
-msgstr "Polština"
-
-#: ../src/gcompris/config.c:103
-msgid "Portuguese (Brazil)"
-msgstr "Portugalština (Brazílie)"
-
-#: ../src/gcompris/config.c:104
-msgid "Portuguese"
-msgstr "Portugalština"
-
-#: ../src/gcompris/config.c:105
-msgid "Romanian"
-msgstr "Rumunština"
-
-#: ../src/gcompris/config.c:106
-msgid "Russian"
-msgstr "Ruština"
-
-#: ../src/gcompris/config.c:107
-msgid "Kinyarwanda"
-msgstr "Rwandština"
-
-#: ../src/gcompris/config.c:108
-msgid "Slovak"
-msgstr "Slovenština"
-
-#: ../src/gcompris/config.c:109
-msgid "Slovenian"
-msgstr "Slovinština"
-
-#: ../src/gcompris/config.c:110
-msgid "Somali"
-msgstr "Somálština"
-
-#: ../src/gcompris/config.c:111
-msgid "Albanian"
-msgstr "Albánština"
-
-#: ../src/gcompris/config.c:112
-msgid "Serbian (Latin)"
-msgstr "Srbština (latinka)"
-
-#: ../src/gcompris/config.c:113
-#| msgid "Serbia Montenegro"
 msgid "Montenegrin"
 msgstr "Černohorština"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:99
+msgid "Nepal"
+msgstr "Nepálština"
+
+#: ../src/gcompris/config.c:100
+msgid "Norwegian Bokmal"
+msgstr "Norština Bokmal"
+
+#: ../src/gcompris/config.c:101
+msgid "Norwegian Nynorsk"
+msgstr "Norština Nynorsk"
+
+#: ../src/gcompris/config.c:102
+msgid "Occitan (languedocien)"
+msgstr "Okcitánština (languedocien)"
+
+#: ../src/gcompris/config.c:103
+msgid "Persian"
+msgstr "Perština"
+
+#: ../src/gcompris/config.c:104
+msgid "Polish"
+msgstr "Polština"
+
+#: ../src/gcompris/config.c:105
+msgid "Portuguese (Brazil)"
+msgstr "Portugalština (Brazílie)"
+
+#: ../src/gcompris/config.c:106
+msgid "Portuguese"
+msgstr "Portugalština"
+
+#: ../src/gcompris/config.c:107
+msgid "Punjabi"
+msgstr "Paňdžábština"
+
+#: ../src/gcompris/config.c:108
+msgid "Romanian"
+msgstr "Rumunština"
+
+#: ../src/gcompris/config.c:109
+msgid "Russian"
+msgstr "Ruština"
+
+#: ../src/gcompris/config.c:110
+msgid "Serbian (Latin)"
+msgstr "Srbština (latinka)"
+
+#: ../src/gcompris/config.c:111
 msgid "Serbian"
 msgstr "Srbština"
 
+#: ../src/gcompris/config.c:112
+msgid "Slovak"
+msgstr "Slovenština"
+
+#: ../src/gcompris/config.c:113
+msgid "Slovenian"
+msgstr "Slovinština"
+
+#: ../src/gcompris/config.c:114
+msgid "Somali"
+msgstr "Somálština"
+
 #: ../src/gcompris/config.c:115
+msgid "Spanish"
+msgstr "Španělština"
+
+#: ../src/gcompris/config.c:116
 msgid "Swedish"
 msgstr "Švédština"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:117
 msgid "Tamil"
 msgstr "Tamilština"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:118
 msgid "Thai"
 msgstr "Thajština"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:119
+msgid "Turkish (Azerbaijan)"
+msgstr "Turečtina (Ázerbájdžán)"
+
+#: ../src/gcompris/config.c:120
 msgid "Turkish"
 msgstr "Turečtina"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:121
 msgid "Ukrainian"
 msgstr "Ukrajinština"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:122
 msgid "Urdu"
 msgstr "Urdština"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:123
 msgid "Vietnamese"
 msgstr "Vitnamština"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:124
 msgid "Walloon"
 msgstr "Valonština"
 
-#: ../src/gcompris/config.c:123
-msgid "Chinese (Simplified)"
-msgstr "Čínština (zjednodušená)"
+#: ../src/gcompris/config.c:125
+msgid "Zulu"
+msgstr "Zulu"
 
-#: ../src/gcompris/config.c:124
-msgid "Chinese (Traditional)"
-msgstr "Čínština (klasická)"
-
-#: ../src/gcompris/config.c:129
+#: ../src/gcompris/config.c:130
 msgid "No time limit"
 msgstr "Žádný časový limit"
 
-#: ../src/gcompris/config.c:130
+#: ../src/gcompris/config.c:131
 msgid "Slow timer"
 msgstr "Pomalý časovač"
 
-#: ../src/gcompris/config.c:131
+#: ../src/gcompris/config.c:132
 msgid "Normal timer"
 msgstr "Normální časovač"
 
-#: ../src/gcompris/config.c:132
+#: ../src/gcompris/config.c:133
 msgid "Fast timer"
 msgstr "Rychlý časovač"
 
-#: ../src/gcompris/config.c:136
+#: ../src/gcompris/config.c:137
 msgid "Use Gcompris administration module to filter boards"
 msgstr "Použít modul správy Gcompris pro filtrování hracích desek"
 
-#: ../src/gcompris/config.c:187
+#: ../src/gcompris/config.c:188
 msgid "GCompris Configuration"
 msgstr "Nastavení GCompris"
 
-#: ../src/gcompris/config.c:254
+#: ../src/gcompris/config.c:271
 msgid "Fullscreen"
 msgstr "Přes celou obrazovku"
 
-#: ../src/gcompris/config.c:279
+#: ../src/gcompris/config.c:296
 msgid "Music"
 msgstr "Hudba"
 
-#: ../src/gcompris/config.c:304
+#: ../src/gcompris/config.c:321
 msgid "Effect"
 msgstr "Efekty"
 
-#: ../src/gcompris/config.c:328 ../src/gcompris/sugar.c:82
+#: ../src/gcompris/config.c:345 ../src/gcompris/sugar.c:82
 msgid "Zoom"
 msgstr "Přiblížení"
 
-#: ../src/gcompris/config.c:365
+#: ../src/gcompris/config.c:382
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Nelze otevřít složku s maskami vzhledu: %s"
 
-#: ../src/gcompris/config.c:396 ../src/gcompris/config.c:754
-#: ../src/gcompris/config.c:768
+#: ../src/gcompris/config.c:413 ../src/gcompris/config.c:780
+#: ../src/gcompris/config.c:794
 #, c-format
 msgid "Skin : %s"
 msgstr "Vzhled: %s"
 
-#: ../src/gcompris/config.c:398
+#: ../src/gcompris/config.c:415
 msgid "SKINS NOT FOUND"
 msgstr "MASKY VZHLEDU NENALEZENY"
 
-#: ../src/gcompris/config.c:479
+#: ../src/gcompris/config.c:496
 msgid "English (United State)"
 msgstr "Angličtina (americká)"
 
