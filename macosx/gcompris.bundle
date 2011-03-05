@@ -91,17 +91,9 @@
     ${prefix}/lib/libvorbisfile.dylib
   </binary>
 
-  <!-- Python
   <binary>
-    ${prefix}/../local/lib/libpython2.6.dylib
+    ${prefix}/lib/libpyglib-2.0-python.dylib
   </binary>
-  <binary>
-    ${prefix}/../local/lib/libpyglib-2.0-python.dylib
-  </binary>
-  <binary>
-    ${prefix}/../local/lib/python2.6
-  </binary>
- -->
 
   <!-- GCompris plugins -->
   <binary>
@@ -116,19 +108,6 @@
   <binary>
     ${prefix}/lib/gtk-2.0/${pkg:gtk+-2.0:gtk_binary_version}/loaders/*.so
   </binary -->
-
-  <!-- Translation filenames, one for each program or library that you
-       want to copy in to the bundle. The "dest" attribute is
-       optional, as usual. Bundler will find all translations of that
-       library/program under the indicated directory and copy them.-->
-  <translations dest="${bundle}/Contents/Resources" name="gcompris">
-    ${prefix}/share/locale
-  </translations>
-
-  <translations dest="${bundle}/Contents/Resources" name="gtk20">
-    ${prefix}/share/locale
-  </translations>
-
 
   <!-- Data to copy in, usually Glade/UI files, images, sounds files
        etc. The destination inside the bundle can be specified if the
