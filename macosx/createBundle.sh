@@ -17,6 +17,14 @@ cd -
 echo "Create the bundle of the whole application"
 ige-mac-bundler gcompris.bundle
 
+# Copy localization files (gcompris.mo)
+for f in $( find $JHBUILD_PREFIX -name gcompris.mo ); do
+  stripped=$(echo $f | sed s:$JHBUILD_PREFIX/::)
+  dir=GCompris/GCompris.app/Contents/Resources/$(dirname $stripped)
+  mkdir -p $dir
+  cp $f $dir
+done
+
 # Create the distributable .dmg
 echo "Creating the final GCompris.dmg"
 rm -f GCompris.dmg
