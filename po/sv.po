@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-27 10:58+0100\n"
-"PO-Revision-Date: 2011-02-27 10:59+0100\n"
+"POT-Creation-Date: 2011-03-06 20:32+0100\n"
+"PO-Revision-Date: 2011-03-06 20:32+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -2396,7 +2396,7 @@ msgid "This software is a GNU Package and is released under the GNU General Publ
 msgstr "Detta program är ett GNU-paket och är släppt under Gnu Public License"
 
 #: ../src/gcompris/about.c:222
-#: ../src/gcompris/config.c:455
+#: ../src/gcompris/config.c:456
 #: ../src/gcompris/dialog.c:99
 #: ../src/gcompris/help.c:355
 #: ../src/gcompris/images_selector.c:306
@@ -2747,64 +2747,68 @@ msgstr "Vietnamesiska"
 msgid "Walloon"
 msgstr "Vallonska"
 
-#: ../src/gcompris/config.c:129
+#: ../src/gcompris/config.c:125
+msgid "Zulu"
+msgstr "Zulu"
+
+#: ../src/gcompris/config.c:130
 msgid "No time limit"
 msgstr "Ingen tidsbegränsning"
 
-#: ../src/gcompris/config.c:130
+#: ../src/gcompris/config.c:131
 msgid "Slow timer"
 msgstr "Långsam tidtagare"
 
-#: ../src/gcompris/config.c:131
+#: ../src/gcompris/config.c:132
 msgid "Normal timer"
 msgstr "Normal tidtagare"
 
-#: ../src/gcompris/config.c:132
+#: ../src/gcompris/config.c:133
 msgid "Fast timer"
 msgstr "Snabb tidtagare"
 
-#: ../src/gcompris/config.c:136
+#: ../src/gcompris/config.c:137
 msgid "Use Gcompris administration module to filter boards"
 msgstr "Använd Gcompris administrationsmodul för att filtrera bräden"
 
-#: ../src/gcompris/config.c:187
+#: ../src/gcompris/config.c:188
 msgid "GCompris Configuration"
 msgstr "Konfiguration av GCompris"
 
-#: ../src/gcompris/config.c:270
+#: ../src/gcompris/config.c:271
 msgid "Fullscreen"
 msgstr "Helskärmsläge"
 
-#: ../src/gcompris/config.c:295
+#: ../src/gcompris/config.c:296
 msgid "Music"
 msgstr "Musik"
 
-#: ../src/gcompris/config.c:320
+#: ../src/gcompris/config.c:321
 msgid "Effect"
 msgstr "Effekt"
 
-#: ../src/gcompris/config.c:344
+#: ../src/gcompris/config.c:345
 #: ../src/gcompris/sugar.c:82
 msgid "Zoom"
 msgstr "Zoom"
 
-#: ../src/gcompris/config.c:381
+#: ../src/gcompris/config.c:382
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kunde inte öppna skalkatalogen: %s"
 
-#: ../src/gcompris/config.c:412
-#: ../src/gcompris/config.c:779
-#: ../src/gcompris/config.c:793
+#: ../src/gcompris/config.c:413
+#: ../src/gcompris/config.c:780
+#: ../src/gcompris/config.c:794
 #, c-format
 msgid "Skin : %s"
 msgstr "Skal: %s"
 
-#: ../src/gcompris/config.c:414
+#: ../src/gcompris/config.c:415
 msgid "SKINS NOT FOUND"
 msgstr "SKALEN HITTADES INTE"
 
-#: ../src/gcompris/config.c:495
+#: ../src/gcompris/config.c:496
 msgid "English (United State)"
 msgstr "Engelska (USA)"
 
