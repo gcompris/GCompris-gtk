@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-07 15:35+0200\n"
-"PO-Revision-Date: 2011-02-07 15:34+0300\n"
+"POT-Creation-Date: 2011-03-06 16:53+0200\n"
+"PO-Revision-Date: 2011-03-06 16:52+0300\n"
 "Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
 "MIME-Version: 1.0\n"
@@ -1482,7 +1482,7 @@ msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "استعمال الفأرة: تحرك، أمسك واسحب. مراجع ثقافية"
 
 #: ../src/babymatch-activity/shapegame.c:1903
-#: ../src/click_on_letter-activity/click_on_letter.c:675
+#: ../src/click_on_letter-activity/click_on_letter.c:671
 #: ../src/colors-activity/colors.c:168
 #, c-format
 msgid ""
@@ -2056,11 +2056,11 @@ msgstr ""
 "تأتي بأصوات «فهمت» للغة '%s' ! سأعود إلى اللغة الإنجليزية، عذرًا!"
 
 #. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:698
+#: ../src/click_on_letter-activity/click_on_letter.c:694
 #: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:484
 #: ../src/missing_letter-activity/missingletter_config.c:492
 #: ../src/readingh-activity/reading.c:928
-#: ../src/wordsgame-activity/wordsgame.c:889
+#: ../src/wordsgame-activity/wordsgame.c:887
 msgid "Uppercase only text"
 msgstr "نص بحروف كبيرة فقط"
 
@@ -2126,7 +2126,7 @@ msgstr "معاونة العقل: التحريك والنقر بالفأرة."
 msgid "Use the left mouse button to click on the moving fish."
 msgstr "استعمل الزر الأيسر للفأرة للنقر على السمك المتحرك"
 
-#: ../src/clockgame-activity/clockgame.c:525
+#: ../src/clockgame-activity/clockgame.c:524
 msgid "Set the watch to:"
 msgstr "حرك العقارب لتحديد الساعة :"
 
@@ -2678,7 +2678,7 @@ msgstr ""
 msgid "Tux needs to water the flowers, but the hose is blocked."
 msgstr "تُكس يريد أن يسقي الزهور، ولكن الخرطوم مغلق."
 
-#: ../src/gcompris/about.c:49
+#: ../src/gcompris/about.c:48
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge, Yves Combe\n"
@@ -2693,7 +2693,7 @@ msgstr ""
 "موسيقى خلفية: ريكو دا هلفاريز \n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:57
+#: ../src/gcompris/about.c:56
 msgid "translator_credits"
 msgstr ""
 "فريق عربآيز للترجمة:\n"
@@ -2702,47 +2702,47 @@ msgstr ""
 "أنس الحسيني\n"
 "خالد حسني"
 
-#: ../src/gcompris/about.c:84
+#: ../src/gcompris/about.c:82
 msgid "About GCompris"
 msgstr "حوْل «فهمت»"
 
-#: ../src/gcompris/about.c:94
+#: ../src/gcompris/about.c:92
 msgid "GCompris Home Page: http://gcompris.net"
 msgstr "صفحة «فهمت» الرئيسية http://gcompris.net"
 
-#: ../src/gcompris/about.c:105
+#: ../src/gcompris/about.c:103
 msgid "Translators:"
 msgstr "المترجمون:"
 
-#: ../src/gcompris/about.c:210
+#: ../src/gcompris/about.c:208
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
 msgstr "هذا البرنامج حزمة من حزم جنو وقد أُصدِر وفقًا لرخصة جنو العمومية"
 
-#: ../src/gcompris/about.c:224 ../src/gcompris/config.c:438
-#: ../src/gcompris/dialog.c:104 ../src/gcompris/help.c:355
-#: ../src/gcompris/images_selector.c:307
+#: ../src/gcompris/about.c:222 ../src/gcompris/config.c:456
+#: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:355
+#: ../src/gcompris/images_selector.c:306
 msgid "OK"
 msgstr "موافق"
 
-#: ../src/gcompris/bar.c:693
+#: ../src/gcompris/bar.c:684
 msgid "GCompris confirmation"
 msgstr "تأكيد «فهمت»"
 
-#: ../src/gcompris/bar.c:694
+#: ../src/gcompris/bar.c:685
 msgid "Are you sure you want to quit?"
 msgstr "أمتأكد أنك تريد الخروج؟"
 
-#: ../src/gcompris/bar.c:695
+#: ../src/gcompris/bar.c:686
 msgid "Yes, I am sure!"
 msgstr "نعم، متأكد!"
 
-#: ../src/gcompris/bar.c:696
+#: ../src/gcompris/bar.c:687
 msgid "No, I want to keep going"
 msgstr "لا أريد المغادرة"
 
-#: ../src/gcompris/board.c:168
+#: ../src/gcompris/board.c:155
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr "التحميل الديناميكي للوحدات غير مدعوم. «فهمت» لا يمكنه التحميل.\n"
 
@@ -2810,77 +2810,77 @@ msgid "Afrikaans"
 msgstr "أفريكاني"
 
 #: ../src/gcompris/config.c:60
+msgid "Albanian"
+msgstr "ألباني"
+
+#: ../src/gcompris/config.c:61
 msgid "Amharic"
 msgstr "أثيوبي"
 
-#: ../src/gcompris/config.c:61
+#: ../src/gcompris/config.c:62
 msgid "Arabic"
 msgstr "عربي"
 
-#: ../src/gcompris/config.c:62
+#: ../src/gcompris/config.c:63
 msgid "Asturian"
 msgstr "أستوري"
 
-#: ../src/gcompris/config.c:63
-msgid "Turkish (Azerbaijan)"
-msgstr "تركي (أذربيجان)"
-
 #: ../src/gcompris/config.c:64
-msgid "Bulgarian"
-msgstr "بلغاري"
+msgid "Basque"
+msgstr "باسكي"
 
 #: ../src/gcompris/config.c:65
 msgid "Breton"
 msgstr "بريتون"
 
 #: ../src/gcompris/config.c:66
+msgid "Bulgarian"
+msgstr "بلغاري"
+
+#: ../src/gcompris/config.c:67
 msgid "Catalan"
 msgstr "كاتالوني"
 
-#: ../src/gcompris/config.c:67
+#: ../src/gcompris/config.c:68
+msgid "Chinese (Simplified)"
+msgstr "صيني (مبسط)"
+
+#: ../src/gcompris/config.c:69
+msgid "Chinese (Traditional)"
+msgstr "صيني (تقليدي)"
+
+#: ../src/gcompris/config.c:70
+msgid "Croatian"
+msgstr "كرواتي"
+
+#: ../src/gcompris/config.c:71
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:7
 msgid "Czech Republic"
 msgstr "تشيكيا"
 
-#: ../src/gcompris/config.c:68
+#: ../src/gcompris/config.c:72
 msgid "Danish"
 msgstr "دانماركي"
 
-#: ../src/gcompris/config.c:69
-msgid "German"
-msgstr "ألماني"
+#: ../src/gcompris/config.c:73
+msgid "Dutch"
+msgstr "هولندي"
 
-#: ../src/gcompris/config.c:70
+#: ../src/gcompris/config.c:74
 msgid "Dzongkha"
 msgstr "زونخائي"
 
-#: ../src/gcompris/config.c:71
-msgid "Greek"
-msgstr "يوناني"
-
-#: ../src/gcompris/config.c:72
+#: ../src/gcompris/config.c:75
 msgid "English (Canada)"
 msgstr "إنجليزي (كندا)"
 
-#: ../src/gcompris/config.c:73
+#: ../src/gcompris/config.c:76
 msgid "English (Great Britain)"
 msgstr "إنجليزي (المملكة المتحدة)"
 
-#: ../src/gcompris/config.c:74
+#: ../src/gcompris/config.c:77
 msgid "English (United States)"
 msgstr "إنجليزي (الولايات المتحدة)"
-
-#: ../src/gcompris/config.c:75
-msgid "Spanish"
-msgstr "إسباني"
-
-#: ../src/gcompris/config.c:76
-msgid "Basque"
-msgstr "باسكي"
-
-#: ../src/gcompris/config.c:77
-msgid "Persian"
-msgstr "فارسي"
 
 #: ../src/gcompris/config.c:78
 msgid "Finnish"
@@ -2891,249 +2891,258 @@ msgid "French"
 msgstr "فرنسي"
 
 #: ../src/gcompris/config.c:80
-msgid "Irish (Gaelic)"
-msgstr "إيرلندي"
-
-#: ../src/gcompris/config.c:81
-msgid "Gujarati"
-msgstr "غوجاراتي"
-
-#: ../src/gcompris/config.c:82
-msgid "Hebrew"
-msgstr "عبري"
-
-#: ../src/gcompris/config.c:83
-msgid "Hindi"
-msgstr "هندي"
-
-#: ../src/gcompris/config.c:84
-msgid "Croatian"
-msgstr "كرواتي"
-
-#: ../src/gcompris/config.c:85
-msgid "Hungarian"
-msgstr "هنغاري"
-
-#: ../src/gcompris/config.c:86
-msgid "Indonesian"
-msgstr "إندونيسي"
-
-#: ../src/gcompris/config.c:87
-msgid "Italian"
-msgstr "إيطالي"
-
-#: ../src/gcompris/config.c:88
-msgid "Japanese"
-msgstr "ياباني"
-
-#: ../src/gcompris/config.c:89
 msgid "Georgian"
 msgstr "جورجي"
 
+#: ../src/gcompris/config.c:81
+msgid "German"
+msgstr "ألماني"
+
+#: ../src/gcompris/config.c:82
+msgid "Greek"
+msgstr "يوناني"
+
+#: ../src/gcompris/config.c:83
+msgid "Gujarati"
+msgstr "غوجاراتي"
+
+#: ../src/gcompris/config.c:84
+msgid "Hebrew"
+msgstr "عبري"
+
+#: ../src/gcompris/config.c:85
+msgid "Hindi"
+msgstr "هندي"
+
+#: ../src/gcompris/config.c:86
+msgid "Hungarian"
+msgstr "هنغاري"
+
+#: ../src/gcompris/config.c:87
+msgid "Indonesian"
+msgstr "إندونيسي"
+
+#: ../src/gcompris/config.c:88
+msgid "Irish (Gaelic)"
+msgstr "إيرلندي"
+
+#: ../src/gcompris/config.c:89
+msgid "Italian"
+msgstr "إيطالي"
+
 #: ../src/gcompris/config.c:90
+msgid "Japanese"
+msgstr "ياباني"
+
+#: ../src/gcompris/config.c:91
+msgid "Kinyarwanda"
+msgstr "كينيا رواندا"
+
+#: ../src/gcompris/config.c:92
 msgid "Korean"
 msgstr "كوري"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:93
 msgid "Lithuanian"
 msgstr "لتواني"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:94
 msgid "Macedonian"
 msgstr "مقدوني"
-
-#: ../src/gcompris/config.c:93
-msgid "Malayalam"
-msgstr "ماليزي"
-
-#: ../src/gcompris/config.c:94
-msgid "Marathi"
-msgstr "ماراتي"
 
 #: ../src/gcompris/config.c:95
 msgid "Malay"
 msgstr "مالاي"
 
 #: ../src/gcompris/config.c:96
-msgid "Norwegian Bokmal"
-msgstr "نرويجي بوكمال"
+msgid "Malayalam"
+msgstr "ماليزي"
 
 #: ../src/gcompris/config.c:97
+msgid "Marathi"
+msgstr "ماراتي"
+
+#: ../src/gcompris/config.c:98
+#, fuzzy
+msgid "Montenegrin"
+msgstr "الجبل الأسود"
+
+#: ../src/gcompris/config.c:99
 msgid "Nepal"
 msgstr "نيبالي"
 
-#: ../src/gcompris/config.c:98
-msgid "Dutch"
-msgstr "هولندي"
+#: ../src/gcompris/config.c:100
+msgid "Norwegian Bokmal"
+msgstr "نرويجي بوكمال"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:101
 msgid "Norwegian Nynorsk"
 msgstr "نرويجي نينورسك"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:102
 msgid "Occitan (languedocien)"
 msgstr "أوسيتان"
 
-#: ../src/gcompris/config.c:101
-msgid "Punjabi"
-msgstr "بنجابي"
+#: ../src/gcompris/config.c:103
+msgid "Persian"
+msgstr "فارسي"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:104
 msgid "Polish"
 msgstr "بولوني"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:105
 msgid "Portuguese (Brazil)"
 msgstr "برتغالي (البرازيل)"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:106
 msgid "Portuguese"
 msgstr "برتغالي"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:107
+msgid "Punjabi"
+msgstr "بنجابي"
+
+#: ../src/gcompris/config.c:108
 msgid "Romanian"
 msgstr "روماني"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:109
 msgid "Russian"
 msgstr "روسي"
 
-#: ../src/gcompris/config.c:107
-msgid "Kinyarwanda"
-msgstr "كينيا رواندا"
-
-#: ../src/gcompris/config.c:108
-msgid "Slovak"
-msgstr "سلوفاكي"
-
-#: ../src/gcompris/config.c:109
-msgid "Slovenian"
-msgstr "سلوفاني"
-
 #: ../src/gcompris/config.c:110
-msgid "Somali"
-msgstr "صومالي"
-
-#: ../src/gcompris/config.c:111
-msgid "Albanian"
-msgstr "ألباني"
-
-#: ../src/gcompris/config.c:112
 msgid "Serbian (Latin)"
 msgstr "صربي (لاتيني)"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:111
 msgid "Serbian"
 msgstr "صربي"
 
+#: ../src/gcompris/config.c:112
+msgid "Slovak"
+msgstr "سلوفاكي"
+
+#: ../src/gcompris/config.c:113
+msgid "Slovenian"
+msgstr "سلوفاني"
+
 #: ../src/gcompris/config.c:114
+msgid "Somali"
+msgstr "صومالي"
+
+#: ../src/gcompris/config.c:115
+msgid "Spanish"
+msgstr "إسباني"
+
+#: ../src/gcompris/config.c:116
 msgid "Swedish"
 msgstr "سويدي"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:117
 msgid "Tamil"
 msgstr "تاميل"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:118
 msgid "Thai"
 msgstr "تايلاندي"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:119
+msgid "Turkish (Azerbaijan)"
+msgstr "تركي (أذربيجان)"
+
+#: ../src/gcompris/config.c:120
 msgid "Turkish"
 msgstr "تركي"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:121
 msgid "Ukrainian"
 msgstr "أكراني"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:122
 msgid "Urdu"
 msgstr "أردو"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:123
 msgid "Vietnamese"
 msgstr "فييتنامي"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:124
 msgid "Walloon"
 msgstr "والوني"
 
-#: ../src/gcompris/config.c:122
-msgid "Chinese (Simplified)"
-msgstr "صيني (مبسط)"
+#: ../src/gcompris/config.c:125
+msgid "Zulu"
+msgstr "زولو"
 
-#: ../src/gcompris/config.c:123
-msgid "Chinese (Traditional)"
-msgstr "صيني (تقليدي)"
-
-#: ../src/gcompris/config.c:128
+#: ../src/gcompris/config.c:130
 msgid "No time limit"
 msgstr "وقت غير محدود"
 
-#: ../src/gcompris/config.c:129
+#: ../src/gcompris/config.c:131
 msgid "Slow timer"
 msgstr "مؤقت بطيء"
 
-#: ../src/gcompris/config.c:130
+#: ../src/gcompris/config.c:132
 msgid "Normal timer"
 msgstr "مؤقت عادي"
 
-#: ../src/gcompris/config.c:131
+#: ../src/gcompris/config.c:133
 msgid "Fast timer"
 msgstr "مؤقت سريع"
 
-#: ../src/gcompris/config.c:135
+#: ../src/gcompris/config.c:137
 msgid "Use Gcompris administration module to filter boards"
 msgstr "استخدم وحدة إدارة «فهمت» لتصفية اللوحات"
 
-#: ../src/gcompris/config.c:186
+#: ../src/gcompris/config.c:188
 msgid "GCompris Configuration"
 msgstr "إعدادات «فهمت»"
 
-#: ../src/gcompris/config.c:253
+#: ../src/gcompris/config.c:271
 msgid "Fullscreen"
 msgstr "ملء الشاشة"
 
-#: ../src/gcompris/config.c:278
+#: ../src/gcompris/config.c:296
 msgid "Music"
 msgstr "موسيقى"
 
-#: ../src/gcompris/config.c:303
+#: ../src/gcompris/config.c:321
 msgid "Effect"
 msgstr "التأثير"
 
-#: ../src/gcompris/config.c:327 ../src/gcompris/sugar.c:82
+#: ../src/gcompris/config.c:345 ../src/gcompris/sugar.c:82
 msgid "Zoom"
 msgstr "التقريب"
 
-#: ../src/gcompris/config.c:364
+#: ../src/gcompris/config.c:382
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "تعذر فتح مجلد المظاهر : %s"
 
-#: ../src/gcompris/config.c:395 ../src/gcompris/config.c:753
-#: ../src/gcompris/config.c:767
+#: ../src/gcompris/config.c:413 ../src/gcompris/config.c:780
+#: ../src/gcompris/config.c:794
 #, c-format
 msgid "Skin : %s"
 msgstr "المظهر : %s"
 
-#: ../src/gcompris/config.c:397
+#: ../src/gcompris/config.c:415
 msgid "SKINS NOT FOUND"
 msgstr "المظهر غير موجود"
 
-#: ../src/gcompris/config.c:478
+#: ../src/gcompris/config.c:496
 msgid "English (United State)"
 msgstr "إنجليزي (الولايات المتحدة)"
 
-#: ../src/gcompris/file_selector.c:254
+#: ../src/gcompris/file_selector.c:251
 msgid "CANCEL"
 msgstr "الغِ"
 
-#: ../src/gcompris/file_selector.c:262
+#: ../src/gcompris/file_selector.c:259
 msgid "LOAD"
 msgstr "حمِّل"
 
-#: ../src/gcompris/file_selector.c:262
+#: ../src/gcompris/file_selector.c:259
 msgid "SAVE"
 msgstr "احفظ"
 
@@ -4141,10 +4150,10 @@ msgstr "ابتثجحخدذرزسشصضطظعغفقكلمنهوي"
 #: ../src/missing_letter-activity/missingletter.c:784
 #: ../src/pythontest-activity/pythontest.py:454
 #: ../src/readingh-activity/reading.c:904
-#: ../src/scalesboard-activity/scale.c:1161
+#: ../src/scalesboard-activity/scale.c:1160
 #: ../src/smallnumbers-activity/smallnumbers.c:595
 #: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:866
+#: ../src/wordsgame-activity/wordsgame.c:864
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -6690,7 +6699,7 @@ msgstr "الوزن بالجرام = %s"
 msgid "Weight = %s"
 msgstr "الوزن = %s"
 
-#: ../src/scalesboard-activity/scale.c:1008
+#: ../src/scalesboard-activity/scale.c:1007
 msgid "Take care, you can drop masses on both sides of the scale."
 msgstr "خذ حذرك، يمكن أن تُسقط الأوزان عن كفتي الميزان."
 
