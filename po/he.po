@@ -7,9 +7,9 @@ msgstr ""
 "Project-Id-Version: he\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&component=general\n"
-"POT-Creation-Date: 2010-12-04 11:00+0000\n"
-"PO-Revision-Date: 2010-11-09 14:35+0200\n"
-"Last-Translator: Reuma Mordechai <reumamordechai@yahoo.com>\n"
+"POT-Creation-Date: 2011-03-06 19:33+0000\n"
+"PO-Revision-Date: 2011-03-09 20:44+0200\n"
+"Last-Translator: Jorge Mariano <jmariano@ymail.com>\n"
 "Language-Team: Hebrew\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,6 +21,7 @@ msgid "Go to Algebra activities"
 msgstr "לך לפעיליות אלגברה"
 
 #: ../boards/algebra_group.xml.in.h:2 ../boards/menu.xml.in.h:18
+#: ../boards/money_group.xml.in.h:2
 msgid "Left-click the mouse on an activity to select it."
 msgstr "פתרו את התרגילים לפני שהכדור נוחת!"
 
@@ -79,7 +80,7 @@ msgstr "פעילויות ניסיונית"
 
 #: ../boards/experimental.xml.in.h:2
 msgid "Run gcompris --experimental to see this menu."
-msgstr "הרץ ג'יקומפרי – כדי לראות את התפריט הזה"
+msgstr "הרץ gcompris --experimental כדי לראות את התפריט הזה"
 
 #: ../boards/fun.xml.in.h:1
 msgid "Go to Amusement activities"
@@ -181,7 +182,7 @@ msgstr ""
 "   -> שפתיים  – חזור על השאלה (במשחקים עם קול). \n"
 "   -> סימן שאלה  – עזרה והוראות. \n"
 "   -> חיצים במעגל  – חזרה למצב התחלה. \n"
-"   -> מטוס  – אודות Gcompris \n"
+"   -> מטוס  – אודות ג'יקומפרי \n"
 "   -> לילה  – לצאת מהתוכנה. \n"
 "\n"
 "הכוכבים ליד הפעילויות מציינים את רמת המורכבות שלה \n"
@@ -193,20 +194,20 @@ msgstr ""
 
 #: ../boards/menu.xml.in.h:16
 msgid "GCompris Main Menu"
-msgstr "התפריט הראשי של Gcompris"
+msgstr "התפריט הראשי של ג'יקומפרי"
 
-#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:876
+#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:866
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
-msgstr "ברוכים הבאים ל Gcompris !"
+msgstr "ברוכים הבאים ל ג'יקומפרי!"
 
 #: ../boards/menu.xml.in.h:19
 msgid ""
 "The goal of GCompris is to provide a free alternative to popular proprietary "
 "edutainment software"
 msgstr ""
-"מטרת Gcompris היא לספק תחליף חופשי ואיכותי לתוכנות ילדים \n"
+"מטרת ג'יקומפרי היא לספק תחליף חופשי ואיכותי לתוכנות ילדים \n"
 "פופולריות המשלבות חינוך והנאה. "
 
 #: ../boards/miscelaneous.xml.in.h:1
@@ -216,6 +217,10 @@ msgstr "שונות"
 #: ../boards/miscelaneous.xml.in.h:2
 msgid "Time, Geography, ..."
 msgstr "זמן, סדרות, צורות..."
+
+#: ../boards/money_group.xml.in.h:1
+msgid "Go to money activities"
+msgstr "עבור לפעילויות הכסף"
 
 #: ../boards/mouse.xml.in.h:1
 msgid "Mouse-manipulation activities."
@@ -742,7 +747,7 @@ msgstr ""
 
 #: ../src/administration-activity/administration.xml.in.h:4
 msgid "GCompris Administration Menu"
-msgstr "המסך הראשי של Gcompris"
+msgstr "המסך הראשי של ג'יקומפרי"
 
 #: ../src/administration-activity/administration.xml.in.h:5
 msgid ""
@@ -1469,7 +1474,7 @@ msgstr ""
 "יכולת לזהות את הפריטים. "
 
 #: ../src/babymatch-activity/shapegame.c:1903
-#: ../src/click_on_letter-activity/click_on_letter.c:675
+#: ../src/click_on_letter-activity/click_on_letter.c:671
 #: ../src/colors-activity/colors.c:168
 #, c-format
 msgid ""
@@ -1573,7 +1578,7 @@ msgstr ""
 msgid "bar game"
 msgstr "כדורים בשורה"
 
-#: ../src/billard-activity/billard.c:89 ../src/erase-activity/erase.c:124
+#: ../src/billard-activity/billard.c:89 ../src/erase-activity/erase.c:85
 #: ../src/erase-activity/erase.xml.in.h:4
 msgid "Move the mouse"
 msgstr "הזז ונקה"
@@ -1642,6 +1647,7 @@ msgid "Special board that embeds python into gcompris."
 msgstr "לוח מיוחד שמשבץ פיתון לתוך ג'יקומפרי"
 
 #: ../src/canal_lock-activity/canal_lock.xml.in.h:1
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:2
 #: ../src/watercycle-activity/watercycle.xml.in.h:2
 msgid "Drawing by Stephane Cabaraux."
 msgstr "ציור מאת סטפן קברוקס"
@@ -2044,11 +2050,11 @@ msgstr ""
 "את הקולות ג’יקומפרי עם חבילות עבור המיקום '%s'! נסיגה לאנגלית, סליחה!"
 
 #. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:698
+#: ../src/click_on_letter-activity/click_on_letter.c:694
 #: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:484
 #: ../src/missing_letter-activity/missingletter_config.c:492
 #: ../src/readingh-activity/reading.c:928
-#: ../src/wordsgame-activity/wordsgame.c:889
+#: ../src/wordsgame-activity/wordsgame.c:887
 msgid "Uppercase only text"
 msgstr "רק טקסט באותיות רישיות"
 
@@ -2116,7 +2122,7 @@ msgstr ""
 "תפסו את הדגים בעזרת העכבר. עליכם לתפוס 10 דגים בכל שלב.\n"
 " בשלבים 5 ו 6 יש ללחוץ לחיצה כפולה על כל דג!"
 
-#: ../src/clockgame-activity/clockgame.c:525
+#: ../src/clockgame-activity/clockgame.c:524
 msgid "Set the watch to:"
 msgstr "שנה את השעה ל:"
 
@@ -2301,8 +2307,8 @@ msgid "Find the details"
 msgstr "מצא את הזוג המתאים"
 
 #: ../src/details-activity/details.xml.in.h:5
-msgid "The images are from wiki commons"
-msgstr "האיורים יובאו מקהילת ויקי"
+msgid "The images are from Wikimedia Commons."
+msgstr "התמונות הן מתוך ויקיפדיה."
 
 #: ../src/details-activity/resources/details/board1_0.xml.in.h:1
 msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1889"
@@ -2331,8 +2337,8 @@ msgid "Vincent van Gogh, Cafe Terrace at Night - 1888"
 msgstr "ינסנט ואן גוך, מרפסת בית קפה בלילה - 1888"
 
 #: ../src/details-activity/resources/details/board1_6.xml.in.h:1
-msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1888"
-msgstr "וינסנט ואך גוך, בכניסה להיכל בית חולים סנט פול - 1888"
+msgid "Vincent van Gogh, The Night Café - 1888"
+msgstr "וינסנט ואן גוך, קציר - 1888"
 
 #: ../src/details-activity/resources/details/board1_7.xml.in.h:1
 msgid "Vincent van Gogh, Portrait of Pere Tanguy 1887-8"
@@ -2443,6 +2449,10 @@ msgstr ""
 "כדי לבחור כלי לציור, לחצו בצד שמאל. לבחירת צבע לחצו בשורת הצבעים שבתחתית "
 "המסך.יש לגרור את העכבר כדי לעצב את הצורה. "
 
+#: ../src/drawnumber-activity/drawnumber.py:236
+msgid "Cannot find the file '{filename}'"
+msgstr "לא מצליח למצוא את הקובץ '{filename}'"
+
 #: ../src/drawnumber-activity/drawnumber.xml.in.h:1
 msgid "Can count from 1 to 50."
 msgstr "יכולת לספור מ 1 עד 50."
@@ -2548,9 +2558,31 @@ msgstr ""
 "סדרו את הפריטים כך שיהיה קל לספור אותם. \n"
 "הקלידו את המספר המתאים לכל פריט. לחצו על אישור לבדיקה."
 
-#: ../src/erase-activity/erase.c:125 ../src/erase-activity/erase.xml.in.h:5
+#: ../src/erase-activity/erase.c:86 ../src/erase-activity/erase.xml.in.h:5
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "נקה את התמונה בהזזה "
+
+#: ../src/erase-activity/erase.c:180
+msgid "Error: No images found\n"
+msgstr "שגיאה: לא נמצאו תמונות \n"
+
+#: ../src/erase-activity/erase.c:578 ../src/gcompris/properties.c:504
+#: ../src/gcompris/properties.c:511
+msgid "readme"
+msgstr "מידע"
+
+#: ../src/erase-activity/erase.c:580
+msgid ""
+"Put any number of images in this directory.\n"
+"They will be used as background in the 'erase' activity.\n"
+"The image must be in the 'jpeg' format and be suffixed with '.jpg' or '."
+"jpeg'.\n"
+"For best results, they must have a size of 800x520 pixels.\n"
+msgstr ""
+"לשים את כל התמונות בספרייה זו.\n"
+"הם ישמשו כרקע את הפעילות \"למחוק\".\n"
+"התמונה חייבת להיות בפורמט \"jpeg\" להיות עם סיומת \". jpg\" או \". jpeg\".\n"
+"לקבלת התוצאות הטובות ביותר, הם חייבים להיות בגודל של 800x520 פיקסלים.\n"
 
 #: ../src/erase-activity/erase.xml.in.h:1
 msgid ""
@@ -2564,8 +2596,12 @@ msgstr ""
 "לג'יקומפרי לעשות שימוש בתמונותיהם. אנו מודים לשניכם עמוקות. "
 
 #: ../src/erase-activity/erase.xml.in.h:6
-msgid "Move the mouse until all the blocks disappear."
-msgstr "יש להזיז את העכבר מבלי ללחוץ כדי לנקות את התמונה."
+msgid ""
+"Move the mouse until all the blocks disappear. You can add you own images "
+"under the directory '~/My GCompris/erase'."
+msgstr ""
+"להזיז את העכבר עד שכל הגושים נעלמים. אתה יכול להוסיף לך תמונות שלו תחת "
+"תיקיית '~/My GCompris/erase'."
 
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
 msgid "Double click the mouse"
@@ -2635,7 +2671,7 @@ msgstr ""
 msgid "Tux needs to water the flowers, but the hose is blocked."
 msgstr "השקה את הפרחים"
 
-#: ../src/gcompris/about.c:49
+#: ../src/gcompris/about.c:48
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge, Yves Combe\n"
@@ -2650,55 +2686,56 @@ msgstr ""
 "מוזיקת רקע:  Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:57
+#: ../src/gcompris/about.c:56
 msgid "translator_credits"
 msgstr ""
 "אילת בן אליהו <eilaty_miso@hotmail.com> \n"
 "ויטלי פרצונוק  <vitali_pe@yahoo.com> \n"
 "יוסי זילברמן - דיבוב  <yossizi@gmail.com>  \n"
-"ג'ורג' מריאנו <mjminfo@yahoo.com> /nראומה מרדכי <reumamordechai@yahoo.com>"
+"ג'ורג' מריאנו <mjminfo@yahoo.com> \n"
+"ראומה מרדכי <reumamordechai@yahoo.com>"
 
-#: ../src/gcompris/about.c:84
+#: ../src/gcompris/about.c:82
 msgid "About GCompris"
-msgstr "אודות gcompris"
+msgstr "אודות ג'יקומפרי"
 
-#: ../src/gcompris/about.c:94
+#: ../src/gcompris/about.c:92
 msgid "GCompris Home Page: http://gcompris.net"
 msgstr "עמוד הבית של ג'יקומפרי נמצא בכתובת :   http://gcompris.net"
 
-#: ../src/gcompris/about.c:105
+#: ../src/gcompris/about.c:103
 msgid "Translators:"
 msgstr "מתרגמים:"
 
-#: ../src/gcompris/about.c:210
+#: ../src/gcompris/about.c:208
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
 msgstr "תוכנה זו הינה תוכנה חופשית המופצת תחת רשיון ה GPL "
 
-#: ../src/gcompris/about.c:224 ../src/gcompris/config.c:438
-#: ../src/gcompris/dialog.c:104 ../src/gcompris/help.c:355
-#: ../src/gcompris/images_selector.c:307
+#: ../src/gcompris/about.c:222 ../src/gcompris/config.c:456
+#: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:355
+#: ../src/gcompris/images_selector.c:306
 msgid "OK"
 msgstr "אישור"
 
-#: ../src/gcompris/bar.c:692
+#: ../src/gcompris/bar.c:684
 msgid "GCompris confirmation"
 msgstr "יציאה"
 
-#: ../src/gcompris/bar.c:693
+#: ../src/gcompris/bar.c:685
 msgid "Are you sure you want to quit?"
 msgstr "האם ברצונכם לצאת מהתוכנה?"
 
-#: ../src/gcompris/bar.c:694
+#: ../src/gcompris/bar.c:686
 msgid "Yes, I am sure!"
 msgstr "כן, אני רוצה לצאת!"
 
-#: ../src/gcompris/bar.c:695
+#: ../src/gcompris/bar.c:687
 msgid "No, I want to keep going"
 msgstr "לא, אני רוצה להישאר!"
 
-#: ../src/gcompris/board.c:168
+#: ../src/gcompris/board.c:155
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr "מודול טעינה דינמית אינה נתמכת. ג’יקומפרי  לא יכול לטעון\n"
 
@@ -2764,77 +2801,77 @@ msgid "Afrikaans"
 msgstr "אפריקה"
 
 #: ../src/gcompris/config.c:60
+msgid "Albanian"
+msgstr "אלבניה"
+
+#: ../src/gcompris/config.c:61
 msgid "Amharic"
 msgstr "אמהרית"
 
-#: ../src/gcompris/config.c:61
+#: ../src/gcompris/config.c:62
 msgid "Arabic"
 msgstr "ערבית"
 
-#: ../src/gcompris/config.c:62
+#: ../src/gcompris/config.c:63
 msgid "Asturian"
 msgstr "אוסטרית"
 
-#: ../src/gcompris/config.c:63
-msgid "Turkish (Azerbaijan)"
-msgstr "טורקית (אזרבייג'ן)"
-
 #: ../src/gcompris/config.c:64
-msgid "Bulgarian"
-msgstr "בולגרית"
+msgid "Basque"
+msgstr "בסקית"
 
 #: ../src/gcompris/config.c:65
 msgid "Breton"
 msgstr "ברטונית"
 
 #: ../src/gcompris/config.c:66
+msgid "Bulgarian"
+msgstr "בולגרית"
+
+#: ../src/gcompris/config.c:67
 msgid "Catalan"
 msgstr "קטלנית"
 
-#: ../src/gcompris/config.c:67
+#: ../src/gcompris/config.c:68
+msgid "Chinese (Simplified)"
+msgstr "סינית (פשוטה)"
+
+#: ../src/gcompris/config.c:69
+msgid "Chinese (Traditional)"
+msgstr "סינית (מסורתית)"
+
+#: ../src/gcompris/config.c:70
+msgid "Croatian"
+msgstr "קרואתית"
+
+#: ../src/gcompris/config.c:71
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:7
 msgid "Czech Republic"
 msgstr "צכיה"
 
-#: ../src/gcompris/config.c:68
+#: ../src/gcompris/config.c:72
 msgid "Danish"
 msgstr "דנית"
 
-#: ../src/gcompris/config.c:69
-msgid "German"
-msgstr "גרמנית"
+#: ../src/gcompris/config.c:73
+msgid "Dutch"
+msgstr "הולנדית"
 
-#: ../src/gcompris/config.c:70
+#: ../src/gcompris/config.c:74
 msgid "Dzongkha"
 msgstr "דזונקה"
 
-#: ../src/gcompris/config.c:71
-msgid "Greek"
-msgstr "יוונית"
-
-#: ../src/gcompris/config.c:72
+#: ../src/gcompris/config.c:75
 msgid "English (Canada)"
 msgstr "אנגלית(קנדה)"
 
-#: ../src/gcompris/config.c:73
+#: ../src/gcompris/config.c:76
 msgid "English (Great Britain)"
 msgstr "אנגלית בריטית"
 
-#: ../src/gcompris/config.c:74
+#: ../src/gcompris/config.c:77
 msgid "English (United States)"
 msgstr "אנגלית (ארצות הברית)"
-
-#: ../src/gcompris/config.c:75
-msgid "Spanish"
-msgstr "ספרדית"
-
-#: ../src/gcompris/config.c:76
-msgid "Basque"
-msgstr "בסקית"
-
-#: ../src/gcompris/config.c:77
-msgid "Persian"
-msgstr "פרסית"
 
 #: ../src/gcompris/config.c:78
 msgid "Finnish"
@@ -2845,249 +2882,257 @@ msgid "French"
 msgstr "צרפתית"
 
 #: ../src/gcompris/config.c:80
-msgid "Irish (Gaelic)"
-msgstr "גיילית אירית"
-
-#: ../src/gcompris/config.c:81
-msgid "Gujarati"
-msgstr "גוג'ראטית"
-
-#: ../src/gcompris/config.c:82
-msgid "Hebrew"
-msgstr "עברית"
-
-#: ../src/gcompris/config.c:83
-msgid "Hindi"
-msgstr "הינדי"
-
-#: ../src/gcompris/config.c:84
-msgid "Croatian"
-msgstr "קרואתית"
-
-#: ../src/gcompris/config.c:85
-msgid "Hungarian"
-msgstr "הונגרית"
-
-#: ../src/gcompris/config.c:86
-msgid "Indonesian"
-msgstr "אינדונזית"
-
-#: ../src/gcompris/config.c:87
-msgid "Italian"
-msgstr "איטלקית"
-
-#: ../src/gcompris/config.c:88
-msgid "Japanese"
-msgstr "יפנית"
-
-#: ../src/gcompris/config.c:89
 msgid "Georgian"
 msgstr "גאורגית"
 
+#: ../src/gcompris/config.c:81
+msgid "German"
+msgstr "גרמנית"
+
+#: ../src/gcompris/config.c:82
+msgid "Greek"
+msgstr "יוונית"
+
+#: ../src/gcompris/config.c:83
+msgid "Gujarati"
+msgstr "גוג'ראטית"
+
+#: ../src/gcompris/config.c:84
+msgid "Hebrew"
+msgstr "עברית"
+
+#: ../src/gcompris/config.c:85
+msgid "Hindi"
+msgstr "הינדי"
+
+#: ../src/gcompris/config.c:86
+msgid "Hungarian"
+msgstr "הונגרית"
+
+#: ../src/gcompris/config.c:87
+msgid "Indonesian"
+msgstr "אינדונזית"
+
+#: ../src/gcompris/config.c:88
+msgid "Irish (Gaelic)"
+msgstr "גיילית אירית"
+
+#: ../src/gcompris/config.c:89
+msgid "Italian"
+msgstr "איטלקית"
+
 #: ../src/gcompris/config.c:90
+msgid "Japanese"
+msgstr "יפנית"
+
+#: ../src/gcompris/config.c:91
+msgid "Kinyarwanda"
+msgstr "קינירואנדה"
+
+#: ../src/gcompris/config.c:92
 msgid "Korean"
 msgstr "קוריאנית"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:93
 msgid "Lithuanian"
 msgstr "ליטאית"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:94
 msgid "Macedonian"
 msgstr "מקדונית"
-
-#: ../src/gcompris/config.c:93
-msgid "Malayalam"
-msgstr "מליאלם"
-
-#: ../src/gcompris/config.c:94
-msgid "Marathi"
-msgstr "מרטהי"
 
 #: ../src/gcompris/config.c:95
 msgid "Malay"
 msgstr "מלאית"
 
 #: ../src/gcompris/config.c:96
-msgid "Norwegian Bokmal"
-msgstr "נורבגית ספרותית"
+msgid "Malayalam"
+msgstr "מליאלם"
 
 #: ../src/gcompris/config.c:97
+msgid "Marathi"
+msgstr "מרטהי"
+
+#: ../src/gcompris/config.c:98
+msgid "Montenegrin"
+msgstr "סרביה מונטינגרו"
+
+#: ../src/gcompris/config.c:99
 msgid "Nepal"
 msgstr "נפאל"
 
-#: ../src/gcompris/config.c:98
-msgid "Dutch"
-msgstr "הולנדית"
+#: ../src/gcompris/config.c:100
+msgid "Norwegian Bokmal"
+msgstr "נורבגית ספרותית"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:101
 msgid "Norwegian Nynorsk"
 msgstr "נורבגית חדשה"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:102
 msgid "Occitan (languedocien)"
 msgstr "אוקסיטנית (שפה docien)"
 
-#: ../src/gcompris/config.c:101
-msgid "Punjabi"
-msgstr "פנג'אבי"
+#: ../src/gcompris/config.c:103
+msgid "Persian"
+msgstr "פרסית"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:104
 msgid "Polish"
 msgstr "פולנית"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:105
 msgid "Portuguese (Brazil)"
 msgstr "פורטוגזית (ברזיל)"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:106
 msgid "Portuguese"
 msgstr "פורטוגזית"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:107
+msgid "Punjabi"
+msgstr "פנג'אבי"
+
+#: ../src/gcompris/config.c:108
 msgid "Romanian"
 msgstr "רומנית"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:109
 msgid "Russian"
 msgstr "רוסית"
 
-#: ../src/gcompris/config.c:107
-msgid "Kinyarwanda"
-msgstr "קינירואנדה"
-
-#: ../src/gcompris/config.c:108
-msgid "Slovak"
-msgstr "סלובקית"
-
-#: ../src/gcompris/config.c:109
-msgid "Slovenian"
-msgstr "סלובנית"
-
 #: ../src/gcompris/config.c:110
-msgid "Somali"
-msgstr "סומלי"
-
-#: ../src/gcompris/config.c:111
-msgid "Albanian"
-msgstr "אלבניה"
-
-#: ../src/gcompris/config.c:112
 msgid "Serbian (Latin)"
 msgstr "סרבית"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:111
 msgid "Serbian"
 msgstr "סרבית"
 
+#: ../src/gcompris/config.c:112
+msgid "Slovak"
+msgstr "סלובקית"
+
+#: ../src/gcompris/config.c:113
+msgid "Slovenian"
+msgstr "סלובנית"
+
 #: ../src/gcompris/config.c:114
+msgid "Somali"
+msgstr "סומלי"
+
+#: ../src/gcompris/config.c:115
+msgid "Spanish"
+msgstr "ספרדית"
+
+#: ../src/gcompris/config.c:116
 msgid "Swedish"
 msgstr "שוודית"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:117
 msgid "Tamil"
 msgstr "טאמילית"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:118
 msgid "Thai"
 msgstr "תאילנדית"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:119
+msgid "Turkish (Azerbaijan)"
+msgstr "טורקית (אזרבייג'ן)"
+
+#: ../src/gcompris/config.c:120
 msgid "Turkish"
 msgstr "טורקית"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:121
 msgid "Ukrainian"
 msgstr "אוקראיניה"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:122
 msgid "Urdu"
 msgstr "אורדו"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:123
 msgid "Vietnamese"
 msgstr "וייטנאמית"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:124
 msgid "Walloon"
 msgstr "ולוניה"
 
-#: ../src/gcompris/config.c:122
-msgid "Chinese (Simplified)"
-msgstr "סינית (פשוטה)"
+#: ../src/gcompris/config.c:125
+msgid "Zulu"
+msgstr "זולו"
 
-#: ../src/gcompris/config.c:123
-msgid "Chinese (Traditional)"
-msgstr "סינית (מסורתית)"
-
-#: ../src/gcompris/config.c:128
+#: ../src/gcompris/config.c:130
 msgid "No time limit"
 msgstr "אין הגבלת זמן"
 
-#: ../src/gcompris/config.c:129
+#: ../src/gcompris/config.c:131
 msgid "Slow timer"
 msgstr "טיימר איטי"
 
-#: ../src/gcompris/config.c:130
+#: ../src/gcompris/config.c:132
 msgid "Normal timer"
 msgstr "טיימר רגיל"
 
-#: ../src/gcompris/config.c:131
+#: ../src/gcompris/config.c:133
 msgid "Fast timer"
 msgstr "טיימר מהיר"
 
-#: ../src/gcompris/config.c:135
+#: ../src/gcompris/config.c:137
 msgid "Use Gcompris administration module to filter boards"
 msgstr "ג’יקומפרי להשתמש כדי לסנן במודול ניהול לוחות"
 
-#: ../src/gcompris/config.c:186
+#: ../src/gcompris/config.c:188
 msgid "GCompris Configuration"
-msgstr "הגדרות"
+msgstr "ג'יקומפרי הגדרות"
 
-#: ../src/gcompris/config.c:253
+#: ../src/gcompris/config.c:271
 msgid "Fullscreen"
 msgstr "מסך-מלא"
 
-#: ../src/gcompris/config.c:278
+#: ../src/gcompris/config.c:296
 msgid "Music"
 msgstr "מוסיקה"
 
-#: ../src/gcompris/config.c:303
+#: ../src/gcompris/config.c:321
 msgid "Effect"
 msgstr "סאונד"
 
-#: ../src/gcompris/config.c:327 ../src/gcompris/sugar.c:82
+#: ../src/gcompris/config.c:345 ../src/gcompris/sugar.c:82
 msgid "Zoom"
 msgstr "זום"
 
-#: ../src/gcompris/config.c:364
+#: ../src/gcompris/config.c:382
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "אין אפשרות לפתוח את ספריית העור: %s"
 
-#: ../src/gcompris/config.c:395 ../src/gcompris/config.c:753
-#: ../src/gcompris/config.c:767
+#: ../src/gcompris/config.c:413 ../src/gcompris/config.c:780
+#: ../src/gcompris/config.c:794
 #, c-format
 msgid "Skin : %s"
 msgstr "סקין: %s"
 
-#: ../src/gcompris/config.c:397
+#: ../src/gcompris/config.c:415
 msgid "SKINS NOT FOUND"
 msgstr "הסקין לא נמצא"
 
-#: ../src/gcompris/config.c:478
+#: ../src/gcompris/config.c:496
 msgid "English (United State)"
 msgstr "אנגלית (ארצות הברית)"
 
-#: ../src/gcompris/file_selector.c:254
+#: ../src/gcompris/file_selector.c:251
 msgid "CANCEL"
 msgstr "בטל"
 
-#: ../src/gcompris/file_selector.c:262
+#: ../src/gcompris/file_selector.c:259
 msgid "LOAD"
 msgstr "טען"
 
-#: ../src/gcompris/file_selector.c:262
+#: ../src/gcompris/file_selector.c:259
 msgid "SAVE"
 msgstr "שמור"
 
@@ -3109,19 +3154,19 @@ msgstr ""
 
 #: ../src/gcompris/gcompris.c:158
 msgid "run GCompris in fullscreen mode."
-msgstr "הפעל את התוכנה על מסך מלא"
+msgstr "הפעל את ג'יקומפרי על מסך מלא"
 
 #: ../src/gcompris/gcompris.c:161
 msgid "run GCompris in window mode."
-msgstr " הפעל את התוכנה בחלון"
+msgstr " הפעל את ג'יקומפרי בחלון"
 
 #: ../src/gcompris/gcompris.c:164
 msgid "run GCompris with sound enabled."
-msgstr "הפעל את התוכנה עם קול"
+msgstr "הפעל את ג'יקומפרי עם קול"
 
 #: ../src/gcompris/gcompris.c:167
 msgid "run GCompris without sound."
-msgstr "הפעל את התוכנה ללא קול"
+msgstr "הפעל את ג'יקומפרי ללא קול"
 
 #: ../src/gcompris/gcompris.c:170
 msgid "run GCompris with the default system cursor."
@@ -3164,7 +3209,7 @@ msgstr "ג'יקומפרי ימצא את הסקין בקובץ הזה"
 
 #: ../src/gcompris/gcompris.c:196
 msgid "GCompris will find the activity plugins in this directory"
-msgstr "גיקמפרי ימצא את תוספי הפעילות במדריך זה "
+msgstr "ג'יקומפרי ימצא את תוספי הפעילות במדריך זה "
 
 #: ../src/gcompris/gcompris.c:199
 msgid "GCompris will find the python activity in this directory"
@@ -3172,7 +3217,7 @@ msgstr "ג 'יקומפרי תמצאו את פעילות פיתון בספריה 
 
 #: ../src/gcompris/gcompris.c:202
 msgid "GCompris will find the locale file (.mo translation) in this directory"
-msgstr "ג'קומפרי ימצא את הקובץ המקומי (תרגום .mo) במדריך זה"
+msgstr "ג'יקומפרי ימצא את הקובץ המקומי (תרגום .mo) במדריך זה"
 
 #: ../src/gcompris/gcompris.c:205
 msgid "GCompris will find the activities menu in this directory"
@@ -3231,7 +3276,6 @@ msgid "Disable the config button"
 msgstr "נטרל את כפתור ההגדרות"
 
 #: ../src/gcompris/gcompris.c:241
-#| msgid "Disable the quit button"
 msgid "Disable the level button"
 msgstr "נטרל את כפתור הרמה"
 
@@ -3265,7 +3309,7 @@ msgstr ""
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "אל תמנע את ביצוע מספר המופעים של ג’יקומפרי."
 
-#: ../src/gcompris/gcompris.c:922
+#: ../src/gcompris/gcompris.c:929
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -3286,18 +3330,23 @@ msgstr ""
 "את הילדים , אנא שקול להשתמש בגנו/לינוקס. לקבל מידע נוסף בכתובת FSF: \n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1462
+#: ../src/gcompris/gcompris.c:1223
+#, c-format
+msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
+msgstr "לא הצליח לטעון את '%s' את הסקין (בדוק את קובץ קיים וניתן לקריאה)"
+
+#: ../src/gcompris/gcompris.c:1486
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
 msgstr "ג’יקומפרי לא יפעל כי לקובץ הנעילה הוא בן פחות מ %d שניות.\n"
 
-#: ../src/gcompris/gcompris.c:1464
+#: ../src/gcompris/gcompris.c:1488
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "לנעול את הקובץ: %s\n"
 
-#: ../src/gcompris/gcompris.c:1578
+#: ../src/gcompris/gcompris.c:1599
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3305,34 +3354,33 @@ msgid ""
 "Licence: GPL\n"
 "More info at http://gcompris.net\n"
 msgstr ""
-"GCompris-KG - Hebrew Version of GCompris.\n"
-"Version: %s\n"
-"Licence: GPL\n"
-"More info about the Hebrew version: http://qiryat-gat.muni.il\n"
-"Gcompris Home Page: http://gcompris.net\n"
+" ג'יקומפרי\n"
+"גירסה: %s\n"
+"רישיון: GPL\n"
+"עמוד הבית של ג'יקומפרי נמצא בכתובת :   http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1693
+#: ../src/gcompris/gcompris.c:1714
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "השתמש ב-L כדי לגשת ישירות על הפעילות \n"
 
-#: ../src/gcompris/gcompris.c:1694
+#: ../src/gcompris/gcompris.c:1715
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "רשימתפעילויות זמינות: \n"
 
-#: ../src/gcompris/gcompris.c:1725
+#: ../src/gcompris/gcompris.c:1746
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "מספר פעילויות : %d\n"
 
-#: ../src/gcompris/gcompris.c:1761
+#: ../src/gcompris/gcompris.c:1782
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s קיים אך אינו ניתן לקריאה או לכתיבה"
 
-#: ../src/gcompris/gcompris.c:1824
+#: ../src/gcompris/gcompris.c:1845
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
@@ -3340,7 +3388,7 @@ msgid ""
 msgstr ""
 "אופציה --server  לא ניתן להשתמש כי ג 'יקומפרי כבר מלוקט ללא תמיכה ברשת!"
 
-#: ../src/gcompris/gcompris.c:1878
+#: ../src/gcompris/gcompris.c:1899
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3349,7 +3397,7 @@ msgstr ""
 "שגיאה: לא נמצא פרופיל '%s'.שגיאה: לא נמצא פרופיל לרוץ  'gcompris --profile-"
 "list'  לרשימת אלה זמינים \n"
 
-#: ../src/gcompris/gcompris.c:1892
+#: ../src/gcompris/gcompris.c:1913
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "רשימת פרופילים זמינים היא: \n"
@@ -3362,7 +3410,7 @@ msgstr "טבעי"
 msgid "Users without a class"
 msgstr "משתמשים בלי כיתות"
 
-#: ../src/gcompris/gcompris_db.c:894
+#: ../src/gcompris/gcompris_db.c:889
 #, c-format
 msgid ""
 "Loading activity from database:\n"
@@ -3387,7 +3435,7 @@ msgstr "הוראות"
 msgid "Credit"
 msgstr "תודות"
 
-#: ../src/gcompris/menu.c:583
+#: ../src/gcompris/menu.c:582
 #, c-format
 msgid ""
 "Loading activity from file:\n"
@@ -3396,17 +3444,13 @@ msgstr ""
 "פעילות טוען מקובץ:\n"
 "%s"
 
-#: ../src/gcompris/properties.c:501 ../src/gcompris/properties.c:508
-msgid "readme"
-msgstr "מידע"
-
-#: ../src/gcompris/properties.c:503
+#: ../src/gcompris/properties.c:506
 msgid ""
 "This directory contains the files you create with the GCompris educational "
 "suite\n"
-msgstr "תיקייה זו מכילה את הקבצים שיצרת עם Gcompris\n"
+msgstr "תיקייה זו מכילה את הקבצים שיצרת עם ג'יקומפרי\n"
 
-#: ../src/gcompris/properties.c:510
+#: ../src/gcompris/properties.c:513
 msgid ""
 "Put any number of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
@@ -4093,10 +4137,10 @@ msgstr "אבגדהוזחטיכךלמםנסעפףצץקרשת"
 #: ../src/missing_letter-activity/missingletter.c:784
 #: ../src/pythontest-activity/pythontest.py:454
 #: ../src/readingh-activity/reading.c:904
-#: ../src/scalesboard-activity/scale.c:1161
+#: ../src/scalesboard-activity/scale.c:1160
 #: ../src/smallnumbers-activity/smallnumbers.c:595
 #: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:866
+#: ../src/wordsgame-activity/wordsgame.c:864
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -4425,6 +4469,51 @@ msgid ""
 msgstr ""
 "הקלידו את המספר בתיבה שבצד ימין למעלה. המסוק מציג את המרחק שלך מהמספר הנכון."
 
+#. All the vowel of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:61
+msgid "aeiouy"
+msgstr "האיו"
+
+#. All the consonants of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:63
+msgid "bcdfghjklmnpqrstvwxz"
+msgstr "אבגדהוזחטיכךלמםנןסעפףצץקרשת"
+
+#. Letters equivallence for the hangman activity. It has the
+#. form of a space separated list like: "e=éè a=àâ"
+#. Keep the word NONE if not available in your language
+#: ../src/hangman-activity/hangman.py:67
+msgid "NONE"
+msgstr "NONE"
+
+#: ../src/hangman-activity/hangman.py:104
+msgid "Could not find the list of words."
+msgstr "לא הצליח למצוא את רשימת המילים"
+
+#: ../src/hangman-activity/hangman.xml.in.h:1
+msgid "A word is hidden, you must discover it letter by letter"
+msgstr "המילה מסתתרת, אתה צריך לגלות אותה אות אחר אות"
+
+#: ../src/hangman-activity/hangman.xml.in.h:2
+msgid "Reading skill"
+msgstr "כישורי קריאה"
+
+#: ../src/hangman-activity/hangman.xml.in.h:3
+msgid "The classic hangman game"
+msgstr "משחק האיש התלוי הקלאסי!"
+
+#: ../src/hangman-activity/hangman.xml.in.h:4
+msgid "This is a good exercise to improve reading and spelling skills."
+msgstr "זהו תרגול מצויין כדי לשפר את יכולות הקריאה והכתיבה"
+
+#: ../src/hangman-activity/hangman.xml.in.h:5
+msgid ""
+"You can enter the letters using the virtual keyboard on the screen or with "
+"the real keyboard."
+msgstr ""
+"אתה יכול להזין את האותיות באמצעות המקלדת הוירטואלית על המסך או עם מקלדת "
+"אמיתית."
+
 #: ../src/hanoi-activity/hanoi.c:112 ../src/hanoi-activity/hanoi.xml.in.h:6
 msgid "Simplified Tower of Hanoi"
 msgstr "מגדלים (אותיות)"
@@ -4525,6 +4614,138 @@ msgstr ""
 #: ../src/hexagon-activity/hexagon.xml.in.h:5
 msgid "hexagon"
 msgstr "חם! קר!"
+
+#: ../src/hydroelectric-activity/hydroelectric.py:88
+#: ../src/watercycle-activity/watercycle.py:107
+msgid ""
+"The sun heats the water and creates water vapor. Water vapor combines into "
+"small water droplets which becomes clouds."
+msgstr ""
+"השמש מחממת את המים ויוצר אדי מים. אדי מים משלבת לתוך טיפות מים קטנות אשר "
+"הופך לעננים."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:126
+#: ../src/watercycle-activity/watercycle.py:144
+msgid ""
+"As a cloud matures, the dense water droplets may combine to produce larger "
+"droplets, which may combine to form droplets large enough to fall as rain"
+msgstr ""
+"כמו ענן מתבגר, את טיפות המים צפופים עשויים לשלב לייצר טיפות גדולות, אשר עשוי "
+"המצטרפות טיפות גדולות מספיק כדי ליפול כמו גשם"
+
+#: ../src/hydroelectric-activity/hydroelectric.py:169
+msgid "This is the meter for electricity produced by the turbine. "
+msgstr "זהו מטר עבור החשמל המיוצר על ידי טורבינות."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:170
+#: ../src/hydroelectric-activity/hydroelectric.py:282
+#: ../src/hydroelectric-activity/hydroelectric.py:289
+#: ../src/hydroelectric-activity/hydroelectric.py:319
+#: ../src/hydroelectric-activity/hydroelectric.py:341
+msgid "The electricity power is measured in Watt (W)."
+msgstr "כוח החשמל נמדדת בוואט (W)."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:175
+msgid ""
+"Flowing water is directed on to the blades of a turbine runner, creating a "
+"force on the blades. In this way, energy is transferred from the water flow "
+"to the turbine"
+msgstr ""
+"המים הזורמים היא נוהלה על להבי הטורבינה של רץ, יצירת כוח על הלהבים. בדרך זו, "
+"האנרגיה מועברת מזרימת מים הטורבינה"
+
+#: ../src/hydroelectric-activity/hydroelectric.py:189
+msgid "This cloud simulates the wind, click on it to have wind."
+msgstr "ענן זה מדמה את הרוח, לחץ על זה כדי להיות הרוח."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:227
+msgid ""
+"This is a step down transformer. Electricity is transformed in low voltage, "
+"ready to be used by the customers."
+msgstr ""
+"זהו צעד במורד שנאי. החשמל עובר טרנספורמציה של מתח נמוך, מוכן לשימוש על ידי "
+"הלקוחות."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:281
+msgid "This is the meter for all the electricity produced. "
+msgstr "זהו מטר עבור כל החשמל המיוצר."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:288
+msgid "This is the meter for electricity consumed by the users. "
+msgstr "זהו מטר עבור החשמל הנצרך על ידי המשתמשים."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:318
+msgid "This is the meter for electricity produced by the solar panels. "
+msgstr "זהו מטר עבור החשמל המיוצר על ידי פאנלים סולאריים."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:324
+msgid ""
+"Solar panels use light energy (photons) from the sun to generate electricity "
+"through the photovoltaic effect."
+msgstr ""
+"פאנלים סולאריים לשימוש באנרגיה אור (פוטונים) מן השמש להפקת חשמל באמצעות אפקט "
+"פוטו."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:340
+msgid "This is the meter for electricity produced by the wind turbines. "
+msgstr "זהו מטר עבור החשמל המיוצר על ידי טורבינות רוח."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:346
+msgid ""
+"A wind turbine is a device that converts wind motion energy into electricity "
+"generation. It is called a wind generator or wind charger. "
+msgstr ""
+"טורבינת רוח היא מכשיר הממיר תנועה אנרגיית הרוח לתוך החשמל. היא נקראת גנרטור "
+"רוח או מטען הרוח."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:732
+msgid ""
+"It is not possible to consume more electricity than what is produced. This "
+"is a key limitation in the distribution of electricity, with minor "
+"exceptions, electrical energy cannot be stored, and therefore it must be "
+"generated as it is needed. A sophisticated system of control is therefore "
+"required to ensure electric generation very closely matches the demand. If "
+"supply and demand are not in balance, generation plants and transmission "
+"equipment can shut down which, in the worst cases, can lead to a major "
+"regional blackout."
+msgstr ""
+"אין זה אפשרי לצרוך יותר חשמל ממה מיוצר. זוהי מגבלה מרכזי הפצה של חשמל, עם "
+"חריגות קלות, אנרגיה חשמלית לא ניתן לאחסן, ולכן הוא חייב להיות שנוצר כפי שהוא "
+"צריך. מערכת מתוחכמת של שליטה ולכן נדרש כדי להבטיח את הדור חשמלי מאוד תואם "
+"במידה רבה את הביקוש. אם הביקוש וההיצע אינם מאוזנים, צמחים הדור וציוד שידור "
+"יכול לסגור אשר, במקרים הגרועים ביותר, יכול להוביל ההאפלה אזורית גדולה."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:946
+msgid ""
+"This is a step up transformer. Electricity is transmitted at high voltages "
+"(110 kV or above) to reduce the energy lost in long distance transmission."
+msgstr ""
+"זהו צעד עד שנאי. החשמל מועבר במתח גבוה (110 KV ומעלה) כדי להקטין את האנרגיה "
+"לאיבוד שידור למרחקים ארוכים."
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:1
+msgid ""
+"Click on different active elements : sun, cloud, dam, solar array, wind farm "
+"and transformers, in order to reactivate the entire electrical system. When "
+"the system is back up and Tux is in his home, push the light button for him. "
+"To win you must switch on all the consumers while all the producers are up."
+msgstr ""
+"לחץ על גורמים שונים הפעילים: שמש, ענן, הסכר, מערך סולארי, חוות רוח ושנאים, "
+"כדי להפעיל מחדש את מערכת החשמל כולה. כאשר המערכת היא לגבות טוקס הוא בביתו, "
+"ללחוץ על הכפתור האור בשבילו. כדי לנצח אתה חייב לעבור על כל הצרכנים, בעוד כל "
+"המפיקים הם למעלה."
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:3
+msgid "Learn about an electrical system based on renewable energy"
+msgstr "למד על מערכת החשמל המבוססת על אנרגיה מתחדשת"
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:4
+msgid ""
+"Tux has come back from a long fishing party on his boat. Bring the "
+"electrical system back up so he can have light in his home."
+msgstr ""
+"עליך להפעיל את מערכת אספקת המים. טוקס חזר ממסיבת דייג ארוכה בסירה שלו. עזור "
+"לו להתקלח."
 
 #: ../src/imageid-activity/imageid.c:94
 #: ../src/imageid-activity/imageid.xml.in.h:3
@@ -5566,7 +5787,7 @@ msgstr "שאלות אינן יכולות להיות ריקוףת"
 
 #: ../src/missing_letter-activity/missingletter_config.c:95
 msgid ""
-"Question must include the character '_'. It represent the letter to search."
+"Question must include the character '_'. It represents the letter to search."
 msgstr "השאלה חייבת לכלול את התכונה  '_'.. זה מציג את האות לחיפוש "
 
 #: ../src/missing_letter-activity/missingletter_config.c:102
@@ -5641,7 +5862,7 @@ msgstr "מקם מחדש את האות כדי לנחש את התכונה '_'. "
 #: ../src/missing_letter-activity/missingletter_config.c:591
 msgid ""
 "Enter here the letter that will be proposed. The first letter here must be "
-"the solution"
+"the solution."
 msgstr "הכנס את האות שתהיה מוצגת. האות הראשונה כאן חיבת להיות הפיתרון"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:1
@@ -5789,22 +6010,37 @@ msgid "satchel/sa_chel/t/p/c/z/s/l"
 msgstr "ילקוט/יל_וט/ק/ח/כ"
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
-#: ../src/money-activity/money.c:496
+#: ../src/money-activity/money.c:795
 #, c-format
 msgid "$ %.2f"
 msgstr "₪ %.2f"
 
-#: ../src/money-activity/money.c:509
+#. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
+#: ../src/money-activity/money.c:809
 #, c-format
 msgid "$ %.0f"
 msgstr "₪ %.0f"
 
+#. Set here the way to display money. Change only the money sign, and it's place, always keep %d
+#: ../src/money-activity/money.c:932
+#, c-format
+msgid ""
+"Tux just bought some items in your shop.\n"
+"He gives you $ %d, please give back his change."
+msgstr ""
+"טוקס פשוט קנה כמה פריטים בחנות שלכם.\n"
+"הוא נותן לך %d ₪ , בבקשה תחזיר את העודף שלו."
+
 #: ../src/money-activity/money.xml.in.h:1
+#: ../src/money_back-activity/money_back.xml.in.h:1
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:1
 #: ../src/money_cents-activity/money_cents.xml.in.h:1
 msgid "Can count"
 msgstr "נדרשת יכולת לספור."
 
 #: ../src/money-activity/money.xml.in.h:2
+#: ../src/money_back-activity/money_back.xml.in.h:2
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:2
 #: ../src/money_cents-activity/money_cents.xml.in.h:2
 msgid ""
 "Click on the coins or paper money at the bottom of the screen to pay. If you "
@@ -5832,6 +6068,30 @@ msgstr ""
 "עליכם לקנות את הפריטים השונים ולשלם את המחיר המדויק. \n"
 " בשלב גבוה יותר, מספר פריטים מופיעים, ולכן עליכם לחשב  \n"
 "את המחיר הכולל."
+
+#: ../src/money_back-activity/money_back.xml.in.h:3
+msgid "Give tux his change"
+msgstr "תן טוקס בבקשה את העודף שלו"
+
+#: ../src/money_back-activity/money_back.xml.in.h:4
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:4
+msgid "Practice money usage by giving Tux his change"
+msgstr "שלם את המחיר הנכון, כולל אגורות"
+
+#: ../src/money_back-activity/money_back.xml.in.h:5
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:5
+msgid ""
+"Tux bought you different items and shows you his money. You must give him "
+"back his change. At higher levels, several items are displayed, and you must "
+"first calculate the total price."
+msgstr ""
+"עליכם לקנות את הפריטים השונים ולשלם את המחיר המדויק. \n"
+" בשלב גבוה יותר, מספר פריטים מופיעים, ולכן עליכם לחשב  \n"
+"את המחיר הכולל."
+
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:3
+msgid "Give tux his change, including cents"
+msgstr "שלם את המחיר הנכון, כולל אגורות"
 
 #: ../src/money_cents-activity/money_cents.xml.in.h:4
 msgid "Practice money usage including cents"
@@ -5877,52 +6137,91 @@ msgstr "אדגר דגה, שיעור הריקוד- 1873"
 msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
 msgstr "פייר אוגוסט רנואר, מולן דה לה גלט - 1876"
 
+#: ../src/paintings-activity/resources/paintings/board1_10.xml.in.h:1
+msgid ""
+"Katsushika Hokusai,\\nViewing Sunset over the Ryogoku Bridge from the Ommaya "
+"Embankment - 1830"
+msgstr "קאצוסקה הוקוסאי \\nצפייה בשקיעה מעל גשר ריאוגוקו, מרציף אומיה - 1830"
+
+#: ../src/paintings-activity/resources/paintings/board1_11.xml.in.h:1
+msgid "Katsushika Hokusa, Poppies - 1833-1834"
+msgstr "קאצוסקה הוקוסאי, כלבלבים - 1833-1834"
+
+#: ../src/paintings-activity/resources/paintings/board1_12.xml.in.h:1
+msgid "Katsushika Hokusai, Kazusa sea Route - 1830."
+msgstr "קאטסושיקה הוקוסאי, כביש הים קזוסה - 1830"
+
 #: ../src/paintings-activity/resources/paintings/board1_2.xml.in.h:1
 msgid "Giuseppe Arcimboldo, Spring - 1573"
 msgstr "ג'וזפה ארכימבולדו, אביב - 1573"
 
 #: ../src/paintings-activity/resources/paintings/board1_3.xml.in.h:1
-msgid "Giuseppe Arcimboldo, The Librarian - 1566)"
+msgid "Giuseppe Arcimboldo, The Librarian - 1566"
 msgstr "ג'וזפה ארכימבולדו, הספרן, 1566"
 
+#: ../src/paintings-activity/resources/paintings/board1_4.xml.in.h:1
+msgid "Katsushika Hokusai, Oiran and Kamuro"
+msgstr "קאטסושיקה הוקוסאי, אויראן וקמורו"
+
 #: ../src/paintings-activity/resources/paintings/board1_5.xml.in.h:1
-msgid "Woman holding a fan"
+msgid "Katsushika Hokusai, Woman holding a fan"
 msgstr "אישה מחזיקה במאוורר"
 
+#: ../src/paintings-activity/resources/paintings/board1_6.xml.in.h:1
+msgid "Katsushika Hokusai, Ejiri in Suruga Province - 1830-1833"
+msgstr "קאטסושיקה הוקוסאי אג'ירי במחוז סורוגה - 1830-1833"
+
+#: ../src/paintings-activity/resources/paintings/board1_7.xml.in.h:1
+msgid "Katsushika Hokusai, The Great Wave off Kanagawa - 1823-1829"
+msgstr "קאטסושיקה הוקוסאי, הגל הגדול של קאנאגאווה - 1823-1829"
+
+#: ../src/paintings-activity/resources/paintings/board1_8.xml.in.h:1
+msgid ""
+"Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
+msgstr "הירושיגה אוטאגאווה,  \\ nהיכל בנזיטאן באינוקשירה בשלג -1760-1770"
+
+#: ../src/paintings-activity/resources/paintings/board1_9.xml.in.h:1
+msgid "Utagawa Hiroshige, Horse-mackerel and Prawn - 1840"
+msgstr "אוטאגאווה הירושיגה, סוס מקרל וסרטנים - 1840"
+
+#: ../src/paintings-activity/resources/paintings/board2_0.xml.in.h:1
+msgid "Michelangelo, Pieta - 1499"
+msgstr "מיכלאנג 'לו, פייטה - 1499"
+
 #: ../src/paintings-activity/resources/paintings/board2_1.xml.in.h:1
-msgid "Mona Lisa"
-msgstr "מונה ליזה"
+msgid "Leonardo da Vinci, Mona Lisa - 1503-19"
+msgstr "ליאונרדו דה-וינצ'י, מונה ליזה - 1503-1519"
 
 #: ../src/paintings-activity/resources/paintings/board2_2.xml.in.h:1
-msgid "Bellini : Pala di pesaro"
-msgstr "בליני: פאלה די פסרו"
+msgid "Giovanni Bellini, La Pala di Pesaro - 1475-85"
+msgstr "בליני: פאלה די פסרו - 1475-85"
 
 #: ../src/paintings-activity/resources/paintings/board2_3.xml.in.h:1
-msgid "Dürer : Lion"
-msgstr "דורר, ליאון"
+msgid "Albrecht Dürer, Lion - 1494"
+msgstr "דירר אלברכט, אריה - 149"
 
 #: ../src/paintings-activity/resources/paintings/board2_4.xml.in.h:1
-msgid "Pieter Brugel : Harvest"
-msgstr "פיטר ברוגל: קציר"
+msgid "Pieter Brugel, The Harvesters - 1565"
+msgstr "פיטר ברוגל: קציר - 1565"
 
 #: ../src/paintings-activity/resources/paintings/board3_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
 msgstr "פייר אוגוסט רנואר, ילדות ליד הפסנתר- 1892"
 
 #: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:1
-msgid "Kandinsky, Wassily, Composition VIII - 1923"
-msgstr "ואסילי קנדינסקי, קומפוזיציה 8 - 1923"
-
-#: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:2
 msgid "Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
 msgstr "שמן על אריג, 140 על 201 סנטימטר, ר. סולומון."
+
+#: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:2
+msgid "Wassily Kandinsky, Composition VIII - 1923"
+msgstr "ואסילי קנדינסקי, קומפוזיציה 8 - 1923"
 
 #: ../src/paintings-activity/resources/paintings/board4_0.xml.in.h:1
 msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
 msgstr "בזיל, המגן של איגנוס מורטס - 1867"
 
 #: ../src/paintings-activity/resources/paintings/board5_0.xml.in.h:1
-msgid "Cassatt, Mary - Summertime - 1894"
+msgid "Mary Cassatt, Summertime - 1894"
 msgstr "קאסאט, מארי - עונת הקיץ - 1894"
 
 #: ../src/paintings-activity/resources/paintings/board6_0.xml.in.h:1
@@ -6013,12 +6312,12 @@ msgstr "צייד תמונות"
 msgid "Visual discrimination."
 msgstr "הבחנה ויזואלית"
 
-#: ../src/planegame-activity/planegame.c:61
+#: ../src/planegame-activity/planegame.c:62
 #: ../src/planegame-activity/planegame.xml.in.h:4
 msgid "Numbers in Order"
 msgstr "מספרים בעננים"
 
-#: ../src/planegame-activity/planegame.c:62
+#: ../src/planegame-activity/planegame.c:63
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "הזז את המטוס כדי לתפוס את העננים בסדר הנכון"
 
@@ -6038,7 +6337,7 @@ msgstr "תפוס את העננים לפי הסדר"
 msgid "Number"
 msgstr "יכולת לספור"
 
-#: ../src/pythontemplate-activity/pythontemplate.py:60
+#: ../src/pythontemplate-activity/pythontemplate.py:62
 #: ../src/pythontest-activity/pythontest.py:184
 msgid ""
 "This is the first plugin in GCompris coded in the Python\n"
@@ -6368,7 +6667,7 @@ msgstr "המשקל בגרמים = %s"
 msgid "Weight = %s"
 msgstr "המשקל = %s"
 
-#: ../src/scalesboard-activity/scale.c:1008
+#: ../src/scalesboard-activity/scale.c:1007
 msgid "Take care, you can drop masses on both sides of the scale."
 msgstr "שימו לב, אפשר להניח משקולות על שני צידי המאזניים!"
 
@@ -6873,6 +7172,23 @@ msgstr "השתמש Tuxpaint לצייר. כאשר הוא סיים Tuxpaint הלו
 msgid "mouse and keyboard manipulation"
 msgstr "שימוש במקלדת ועכבר"
 
+#: ../src/watercycle-activity/watercycle.py:170
+msgid "This is a water pump station."
+msgstr "זוהי תחנת משאבת מים."
+
+#: ../src/watercycle-activity/watercycle.py:183
+msgid "This is a water cleanup station."
+msgstr "זוהי תחנת ניקוי המים."
+
+#: ../src/watercycle-activity/watercycle.py:263
+msgid ""
+"A water tower or elevated water tower is a large elevated water storage "
+"container constructed to hold a water supply at a height sufficient to "
+"pressurize a water distribution system."
+msgstr ""
+"מגדל מים או מגדל מים גבוה הוא אחסון גדול מוגבה מים במיכל נבנה כדי לקיים "
+"אספקת מים בגובה מספיק לחצים מערכת חלוקת מים."
+
 #: ../src/watercycle-activity/watercycle.xml.in.h:1
 msgid ""
 "Click on different active elements : sun, cloud, water pump station, and "
@@ -6983,50 +7299,17 @@ msgstr "אימון מקלדת"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "הקלידו את המילים לפני שהן מגיעות לקרקע!"
 
-#: ../src/hangman-activity/hangman.xml.in.h:1
-msgid "A word is hidden, you must discover it letter by letter"
-msgstr "המילה מסתתרת, אתה צריך לגלות אותה אות אחר אות"
+#~ msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1888"
+#~ msgstr "וינסנט ואך גוך, בכניסה להיכל בית חולים סנט פול - 1888"
 
-#: ../src/hangman-activity/hangman.xml.in.h:2
-msgid "Reading skill"
-msgstr "כישורי קריאה"
+#~ msgid "Move the mouse until all the blocks disappear."
+#~ msgstr "יש להזיז את העכבר מבלי ללחוץ כדי לנקות את התמונה."
 
-#: ../src/hangman-activity/hangman.xml.in.h:3
-msgid "The classic hangman game"
-msgstr "משחק האיש התלוי הקלאסי!"
+#~ msgid "Mona Lisa"
+#~ msgstr "מונה ליזה"
 
-#: ../src/hangman-activity/hangman.xml.in.h:4
-msgid "This is a good exercise to improve reading and spelling skills."
-msgstr "זהו תרגול מצויין כדי לשפר את יכולות הקריאה והכתיבה"
-
-#: ../src/hangman-activity/hangman.xml.in.h:5
-msgid ""
-"You can enter the letters using the virtual keyboard on the screen or with "
-"the real keyboard."
-msgstr ""
-"אתה יכול להזין את האותיות באמצעות המקלדת הוירטואלית על המסך או עם מקלדת "
-"אמיתית."
-
-#. All the vowel of your language (keep empty if non applicable)
-#: ../src/hangman-activity/hangman.py:61
-msgid "aeiouy"
-msgstr "האיו"
-
-#. All the consonants of your language (keep empty if non applicable)
-#: ../src/hangman-activity/hangman.py:63
-msgid "bcdfghjklmnpqrstvwxz"
-msgstr "אבגדהוזחטיכךלמםנןסעפףצץקרשת"
-
-#. Letters equivallence for the hangman activity. It has the
-#. form of a space separated list like: "e=éè a=àâ"
-#. Keep the word NONE if not available in your language
-#: ../src/hangman-activity/hangman.py:67
-msgid "NONE"
-msgstr "NONE"
-
-#: ../src/hangman-activity/hangman.py:104
-msgid "Could not find the list of words."
-msgstr "לא הצליח למצוא את רשימת המילים"
+#~ msgid "Dürer : Lion"
+#~ msgstr "דורר, ליאון"
 
 #~ msgid ""
 #~ "The dog is provided by Andre Connes and released under the GPL.\n"
