@@ -22,7 +22,6 @@ import cairo
 import gcompris
 import gcompris.utils
 import gcompris.skin
-import gcompris.bonus
 import gcompris.sound
 import gtk
 import gtk.gdk
