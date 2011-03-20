@@ -9,16 +9,16 @@
 # Jonathan Ernst <jonathan@ernstfamily.ch>, 2006.
 # Claude Paroz <claude@2xlibre.net>, 2006-2011.
 # Stéphane Raimbault <stephane.raimbault@gmail.com>, 2007.
-# Bruno Brouard <annoa.b@gmail.com>, 2010.
+# Bruno Brouard <annoa.b@gmail.com>, 2010-2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&component=general\n"
-"POT-Creation-Date: 2011-01-17 23:09+0000\n"
-"PO-Revision-Date: 2011-02-14 08 51+0100\n"
-"Last-Translator: Claude Paroz <claude@2xlibre.net>\n"
+"POT-Creation-Date: 2011-02-28 22:06+0000\n"
+"PO-Revision-Date: 2011-03-20 12:03+0100\n"
+"Last-Translator: Bruno Brouard <annoa.b@gmail.com>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1543,7 +1543,7 @@ msgstr ""
 "culturelles."
 
 #: ../src/babymatch-activity/shapegame.c:1903
-#: ../src/click_on_letter-activity/click_on_letter.c:675
+#: ../src/click_on_letter-activity/click_on_letter.c:671
 #: ../src/colors-activity/colors.c:168
 #, c-format
 msgid ""
@@ -2156,11 +2156,11 @@ msgstr ""
 "l'anglais, désolé !"
 
 #. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:698
+#: ../src/click_on_letter-activity/click_on_letter.c:694
 #: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:484
 #: ../src/missing_letter-activity/missingletter_config.c:492
 #: ../src/readingh-activity/reading.c:928
-#: ../src/wordsgame-activity/wordsgame.c:889
+#: ../src/wordsgame-activity/wordsgame.c:887
 msgid "Uppercase only text"
 msgstr "Texte en capitales uniquement"
 
@@ -2230,7 +2230,7 @@ msgid "Use the left mouse button to click on the moving fish."
 msgstr ""
 "Clique avec le bouton gauche de la souris sur les poissons qui bougent."
 
-#: ../src/clockgame-activity/clockgame.c:525
+#: ../src/clockgame-activity/clockgame.c:524
 msgid "Set the watch to:"
 msgstr "Règle la montre sur :"
 
@@ -2713,8 +2713,8 @@ msgstr "Déplace la souris pour tout effacer et découvrir l'image du fond."
 msgid "Error: No images found\n"
 msgstr "Erreur : aucune image trouvée\n"
 
-#: ../src/erase-activity/erase.c:578 ../src/gcompris/properties.c:501
-#: ../src/gcompris/properties.c:508
+#: ../src/erase-activity/erase.c:578 ../src/gcompris/properties.c:504
+#: ../src/gcompris/properties.c:511
 msgid "readme"
 msgstr "lisezmoi"
 
@@ -2728,8 +2728,8 @@ msgid ""
 msgstr ""
 "Place des images dans ce dossier.\n"
 "Elles seront utilisées comme arrière-plan dans l'activité d'effacement.\n"
-"Les images doivent être au format JPEG et se terminer par « .jpg » ou "
-"« .jpeg ».\n"
+"Les images doivent être au format JPEG et se terminer par « .jpg » ou « ."
+"jpeg ».\n"
 "Pour un rendu optimal, leur taille devrait être de 800x520 pixels.\n"
 
 #: ../src/erase-activity/erase.xml.in.h:1
@@ -2825,7 +2825,7 @@ msgstr ""
 msgid "Tux needs to water the flowers, but the hose is blocked."
 msgstr "Tux a besoin d'arroser les fleurs, mais le tuyau est bouché."
 
-#: ../src/gcompris/about.c:49
+#: ../src/gcompris/about.c:48
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge, Yves Combe\n"
@@ -2840,7 +2840,7 @@ msgstr ""
 "Musique de fond : Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:57
+#: ../src/gcompris/about.c:56
 msgid "translator_credits"
 msgstr ""
 "Bruno Coudoin <bruno.coudoin@free.fr>\n"
@@ -2850,19 +2850,19 @@ msgstr ""
 "Claude Paroz <claude@2xlibre.net>\n"
 "Jean-Philippe Ayanidès <jp.ayanides@free.fr>"
 
-#: ../src/gcompris/about.c:84
+#: ../src/gcompris/about.c:82
 msgid "About GCompris"
 msgstr "À propos de GCompris"
 
-#: ../src/gcompris/about.c:94
+#: ../src/gcompris/about.c:92
 msgid "GCompris Home Page: http://gcompris.net"
 msgstr "Page d'accueil de GCompris : http://gcompris.net"
 
-#: ../src/gcompris/about.c:105
+#: ../src/gcompris/about.c:103
 msgid "Translators:"
 msgstr "Traducteurs :"
 
-#: ../src/gcompris/about.c:210
+#: ../src/gcompris/about.c:208
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
@@ -2870,29 +2870,29 @@ msgstr ""
 "Ce logiciel est un paquet GNU et est soumis à la Licence Publique Générale "
 "GNU (GPL)."
 
-#: ../src/gcompris/about.c:224 ../src/gcompris/config.c:438
-#: ../src/gcompris/dialog.c:104 ../src/gcompris/help.c:355
-#: ../src/gcompris/images_selector.c:307
+#: ../src/gcompris/about.c:222 ../src/gcompris/config.c:456
+#: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:355
+#: ../src/gcompris/images_selector.c:306
 msgid "OK"
 msgstr "Valider"
 
-#: ../src/gcompris/bar.c:693
+#: ../src/gcompris/bar.c:684
 msgid "GCompris confirmation"
 msgstr "GCompris : confirmation"
 
-#: ../src/gcompris/bar.c:694
+#: ../src/gcompris/bar.c:685
 msgid "Are you sure you want to quit?"
 msgstr "Veux-tu vraiment quitter ?"
 
-#: ../src/gcompris/bar.c:695
+#: ../src/gcompris/bar.c:686
 msgid "Yes, I am sure!"
 msgstr "Oui, je suis sûr !"
 
-#: ../src/gcompris/bar.c:696
+#: ../src/gcompris/bar.c:687
 msgid "No, I want to keep going"
 msgstr "Non, je veux continuer à jouer !"
 
-#: ../src/gcompris/board.c:168
+#: ../src/gcompris/board.c:155
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr ""
 "Chargement dynamique de module non pris en charge. GCompris ne peut pas "
@@ -2962,77 +2962,77 @@ msgid "Afrikaans"
 msgstr "Afrikaans"
 
 #: ../src/gcompris/config.c:60
+msgid "Albanian"
+msgstr "Albanais"
+
+#: ../src/gcompris/config.c:61
 msgid "Amharic"
 msgstr "Amharique"
 
-#: ../src/gcompris/config.c:61
+#: ../src/gcompris/config.c:62
 msgid "Arabic"
 msgstr "Arabe"
 
-#: ../src/gcompris/config.c:62
+#: ../src/gcompris/config.c:63
 msgid "Asturian"
 msgstr "Asturien"
 
-#: ../src/gcompris/config.c:63
-msgid "Turkish (Azerbaijan)"
-msgstr "Turque (Azerbaïdjan)"
-
 #: ../src/gcompris/config.c:64
-msgid "Bulgarian"
-msgstr "Bulgare"
+msgid "Basque"
+msgstr "Basque"
 
 #: ../src/gcompris/config.c:65
 msgid "Breton"
 msgstr "Breton"
 
 #: ../src/gcompris/config.c:66
+msgid "Bulgarian"
+msgstr "Bulgare"
+
+#: ../src/gcompris/config.c:67
 msgid "Catalan"
 msgstr "Catalan"
 
-#: ../src/gcompris/config.c:67
+#: ../src/gcompris/config.c:68
+msgid "Chinese (Simplified)"
+msgstr "Chinois (simplifié)"
+
+#: ../src/gcompris/config.c:69
+msgid "Chinese (Traditional)"
+msgstr "Chinois (traditionnel)"
+
+#: ../src/gcompris/config.c:70
+msgid "Croatian"
+msgstr "Croate"
+
+#: ../src/gcompris/config.c:71
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:7
 msgid "Czech Republic"
 msgstr "République tchèque"
 
-#: ../src/gcompris/config.c:68
+#: ../src/gcompris/config.c:72
 msgid "Danish"
 msgstr "Danois"
 
-#: ../src/gcompris/config.c:69
-msgid "German"
-msgstr "Allemand"
+#: ../src/gcompris/config.c:73
+msgid "Dutch"
+msgstr "Hollandais"
 
-#: ../src/gcompris/config.c:70
+#: ../src/gcompris/config.c:74
 msgid "Dzongkha"
 msgstr "Dzongkha"
 
-#: ../src/gcompris/config.c:71
-msgid "Greek"
-msgstr "Grec"
-
-#: ../src/gcompris/config.c:72
+#: ../src/gcompris/config.c:75
 msgid "English (Canada)"
 msgstr "Anglais (Canada)"
 
-#: ../src/gcompris/config.c:73
+#: ../src/gcompris/config.c:76
 msgid "English (Great Britain)"
 msgstr "Anglais (Royaume-Uni)"
 
-#: ../src/gcompris/config.c:74
+#: ../src/gcompris/config.c:77
 msgid "English (United States)"
 msgstr "Anglais (États-Unis)"
-
-#: ../src/gcompris/config.c:75
-msgid "Spanish"
-msgstr "Espagnol"
-
-#: ../src/gcompris/config.c:76
-msgid "Basque"
-msgstr "Basque"
-
-#: ../src/gcompris/config.c:77
-msgid "Persian"
-msgstr "Perse"
 
 #: ../src/gcompris/config.c:78
 msgid "Finnish"
@@ -3043,249 +3043,257 @@ msgid "French"
 msgstr "Français"
 
 #: ../src/gcompris/config.c:80
-msgid "Irish (Gaelic)"
-msgstr "Irlandais (Gaélique)"
-
-#: ../src/gcompris/config.c:81
-msgid "Gujarati"
-msgstr "Gujarati"
-
-#: ../src/gcompris/config.c:82
-msgid "Hebrew"
-msgstr "Hébreu"
-
-#: ../src/gcompris/config.c:83
-msgid "Hindi"
-msgstr "Hindi"
-
-#: ../src/gcompris/config.c:84
-msgid "Croatian"
-msgstr "Croate"
-
-#: ../src/gcompris/config.c:85
-msgid "Hungarian"
-msgstr "Hongrois"
-
-#: ../src/gcompris/config.c:86
-msgid "Indonesian"
-msgstr "Indonésien"
-
-#: ../src/gcompris/config.c:87
-msgid "Italian"
-msgstr "Italien"
-
-#: ../src/gcompris/config.c:88
-msgid "Japanese"
-msgstr "Japonais"
-
-#: ../src/gcompris/config.c:89
 msgid "Georgian"
 msgstr "Géorgien"
 
+#: ../src/gcompris/config.c:81
+msgid "German"
+msgstr "Allemand"
+
+#: ../src/gcompris/config.c:82
+msgid "Greek"
+msgstr "Grec"
+
+#: ../src/gcompris/config.c:83
+msgid "Gujarati"
+msgstr "Gujarati"
+
+#: ../src/gcompris/config.c:84
+msgid "Hebrew"
+msgstr "Hébreu"
+
+#: ../src/gcompris/config.c:85
+msgid "Hindi"
+msgstr "Hindi"
+
+#: ../src/gcompris/config.c:86
+msgid "Hungarian"
+msgstr "Hongrois"
+
+#: ../src/gcompris/config.c:87
+msgid "Indonesian"
+msgstr "Indonésien"
+
+#: ../src/gcompris/config.c:88
+msgid "Irish (Gaelic)"
+msgstr "Irlandais (Gaélique)"
+
+#: ../src/gcompris/config.c:89
+msgid "Italian"
+msgstr "Italien"
+
 #: ../src/gcompris/config.c:90
+msgid "Japanese"
+msgstr "Japonais"
+
+#: ../src/gcompris/config.c:91
+msgid "Kinyarwanda"
+msgstr "Kinyarwandais"
+
+#: ../src/gcompris/config.c:92
 msgid "Korean"
 msgstr "Coréen"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:93
 msgid "Lithuanian"
 msgstr "Lituanien"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:94
 msgid "Macedonian"
 msgstr "Macédonien"
-
-#: ../src/gcompris/config.c:93
-msgid "Malayalam"
-msgstr "Malayalam"
-
-#: ../src/gcompris/config.c:94
-msgid "Marathi"
-msgstr "Marâthî"
 
 #: ../src/gcompris/config.c:95
 msgid "Malay"
 msgstr "Malaisien"
 
 #: ../src/gcompris/config.c:96
-msgid "Norwegian Bokmal"
-msgstr "Norvégien Bokmal"
+msgid "Malayalam"
+msgstr "Malayalam"
 
 #: ../src/gcompris/config.c:97
+msgid "Marathi"
+msgstr "Marâthî"
+
+#: ../src/gcompris/config.c:98
+msgid "Montenegrin"
+msgstr "Monténégrin"
+
+#: ../src/gcompris/config.c:99
 msgid "Nepal"
 msgstr "Népalais"
 
-#: ../src/gcompris/config.c:98
-msgid "Dutch"
-msgstr "Hollandais"
+#: ../src/gcompris/config.c:100
+msgid "Norwegian Bokmal"
+msgstr "Norvégien Bokmal"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:101
 msgid "Norwegian Nynorsk"
 msgstr "Norvégien Nynorsk"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:102
 msgid "Occitan (languedocien)"
 msgstr "Occitan (languedocien)"
 
-#: ../src/gcompris/config.c:101
-msgid "Punjabi"
-msgstr "Punjabi"
+#: ../src/gcompris/config.c:103
+msgid "Persian"
+msgstr "Perse"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:104
 msgid "Polish"
 msgstr "Polonais"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:105
 msgid "Portuguese (Brazil)"
 msgstr "Portugais (Brésil)"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:106
 msgid "Portuguese"
 msgstr "Portugais"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:107
+msgid "Punjabi"
+msgstr "Punjabi"
+
+#: ../src/gcompris/config.c:108
 msgid "Romanian"
 msgstr "Roumain"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:109
 msgid "Russian"
 msgstr "Russe"
 
-#: ../src/gcompris/config.c:107
-msgid "Kinyarwanda"
-msgstr "Kinyarwandais"
-
-#: ../src/gcompris/config.c:108
-msgid "Slovak"
-msgstr "Slovaque"
-
-#: ../src/gcompris/config.c:109
-msgid "Slovenian"
-msgstr "Slovène"
-
 #: ../src/gcompris/config.c:110
-msgid "Somali"
-msgstr "Somali"
-
-#: ../src/gcompris/config.c:111
-msgid "Albanian"
-msgstr "Albanais"
-
-#: ../src/gcompris/config.c:112
 msgid "Serbian (Latin)"
 msgstr "Serbe (Latin)"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:111
 msgid "Serbian"
 msgstr "Serbe"
 
+#: ../src/gcompris/config.c:112
+msgid "Slovak"
+msgstr "Slovaque"
+
+#: ../src/gcompris/config.c:113
+msgid "Slovenian"
+msgstr "Slovène"
+
 #: ../src/gcompris/config.c:114
+msgid "Somali"
+msgstr "Somali"
+
+#: ../src/gcompris/config.c:115
+msgid "Spanish"
+msgstr "Espagnol"
+
+#: ../src/gcompris/config.c:116
 msgid "Swedish"
 msgstr "Suédois"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:117
 msgid "Tamil"
 msgstr "Tamoul"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:118
 msgid "Thai"
 msgstr "Thaï"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:119
+msgid "Turkish (Azerbaijan)"
+msgstr "Turque (Azerbaïdjan)"
+
+#: ../src/gcompris/config.c:120
 msgid "Turkish"
 msgstr "Turc"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:121
 msgid "Ukrainian"
 msgstr "Ukrainien"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:122
 msgid "Urdu"
 msgstr "Ourdou"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:123
 msgid "Vietnamese"
 msgstr "Vietnamien"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:124
 msgid "Walloon"
 msgstr "Wallon"
 
-#: ../src/gcompris/config.c:122
-msgid "Chinese (Simplified)"
-msgstr "Chinois (simplifié)"
+#: ../src/gcompris/config.c:125
+msgid "Zulu"
+msgstr "Zoulou"
 
-#: ../src/gcompris/config.c:123
-msgid "Chinese (Traditional)"
-msgstr "Chinois (traditionnel)"
-
-#: ../src/gcompris/config.c:128
+#: ../src/gcompris/config.c:130
 msgid "No time limit"
 msgstr "Sans limite de temps"
 
-#: ../src/gcompris/config.c:129
+#: ../src/gcompris/config.c:131
 msgid "Slow timer"
 msgstr "Compteur lent"
 
-#: ../src/gcompris/config.c:130
+#: ../src/gcompris/config.c:132
 msgid "Normal timer"
 msgstr "Compteur normal"
 
-#: ../src/gcompris/config.c:131
+#: ../src/gcompris/config.c:133
 msgid "Fast timer"
 msgstr "Compteur rapide"
 
-#: ../src/gcompris/config.c:135
+#: ../src/gcompris/config.c:137
 msgid "Use Gcompris administration module to filter boards"
 msgstr "Filtrez les activités avec le module d'administration Gcompris"
 
-#: ../src/gcompris/config.c:186
+#: ../src/gcompris/config.c:188
 msgid "GCompris Configuration"
 msgstr "Configuration de GCompris"
 
-#: ../src/gcompris/config.c:253
+#: ../src/gcompris/config.c:271
 msgid "Fullscreen"
 msgstr "Plein écran"
 
-#: ../src/gcompris/config.c:278
+#: ../src/gcompris/config.c:296
 msgid "Music"
 msgstr "Musique"
 
-#: ../src/gcompris/config.c:303
+#: ../src/gcompris/config.c:321
 msgid "Effect"
 msgstr "Effet"
 
-#: ../src/gcompris/config.c:327 ../src/gcompris/sugar.c:82
+#: ../src/gcompris/config.c:345 ../src/gcompris/sugar.c:82
 msgid "Zoom"
 msgstr "Zoom"
 
-#: ../src/gcompris/config.c:364
+#: ../src/gcompris/config.c:382
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Impossible d'ouvrir le répertoire de thèmes : %s"
 
-#: ../src/gcompris/config.c:395 ../src/gcompris/config.c:753
-#: ../src/gcompris/config.c:767
+#: ../src/gcompris/config.c:413 ../src/gcompris/config.c:780
+#: ../src/gcompris/config.c:794
 #, c-format
 msgid "Skin : %s"
 msgstr "Thème : %s"
 
-#: ../src/gcompris/config.c:397
+#: ../src/gcompris/config.c:415
 msgid "SKINS NOT FOUND"
 msgstr "THÈMES INTROUVABLES"
 
-#: ../src/gcompris/config.c:478
+#: ../src/gcompris/config.c:496
 msgid "English (United State)"
 msgstr "Anglais (États-Unis)"
 
-#: ../src/gcompris/file_selector.c:254
+#: ../src/gcompris/file_selector.c:251
 msgid "CANCEL"
 msgstr "ANNULER"
 
-#: ../src/gcompris/file_selector.c:262
+#: ../src/gcompris/file_selector.c:259
 msgid "LOAD"
 msgstr "CHARGER"
 
-#: ../src/gcompris/file_selector.c:262
+#: ../src/gcompris/file_selector.c:259
 msgid "SAVE"
 msgstr "ENREGISTRER"
 
@@ -3515,7 +3523,7 @@ msgstr ""
 msgid "The lock file is: %s\n"
 msgstr "Le fichier verrou est « %s »\n"
 
-#: ../src/gcompris/gcompris.c:1602
+#: ../src/gcompris/gcompris.c:1599
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3529,27 +3537,27 @@ msgstr ""
 "Plus d'informations sur http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1717
+#: ../src/gcompris/gcompris.c:1714
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Utilise l'option -l pour accéder directement à une activité.\n"
 
-#: ../src/gcompris/gcompris.c:1718
+#: ../src/gcompris/gcompris.c:1715
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "La liste des activités disponibles est :\n"
 
-#: ../src/gcompris/gcompris.c:1749
+#: ../src/gcompris/gcompris.c:1746
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Nombre d'activités : %d\n"
 
-#: ../src/gcompris/gcompris.c:1785
+#: ../src/gcompris/gcompris.c:1782
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s existe mais n'est ni lisible ni accessible en écriture"
 
-#: ../src/gcompris/gcompris.c:1848
+#: ../src/gcompris/gcompris.c:1845
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
@@ -3558,7 +3566,7 @@ msgstr ""
 "L'option --server ne peut pas être utilisée car GCompris a été compilé sans "
 "la prise en charge du réseau."
 
-#: ../src/gcompris/gcompris.c:1902
+#: ../src/gcompris/gcompris.c:1899
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3567,7 +3575,7 @@ msgstr ""
 "Erreur : profil « %s » introuvable. Lancez « gcompris --profile-list » pour "
 "afficher tous les profils disponibles\n"
 
-#: ../src/gcompris/gcompris.c:1916
+#: ../src/gcompris/gcompris.c:1913
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "La liste des profils disponibles est :\n"
@@ -3614,7 +3622,7 @@ msgstr ""
 "Chargement de l'activité à partir du fichier :\n"
 "%s"
 
-#: ../src/gcompris/properties.c:503
+#: ../src/gcompris/properties.c:506
 msgid ""
 "This directory contains the files you create with the GCompris educational "
 "suite\n"
@@ -3622,7 +3630,7 @@ msgstr ""
 "Ce répertoire contient les fichiers que vous avez créés avec la suite "
 "éducative GCompris\n"
 
-#: ../src/gcompris/properties.c:510
+#: ../src/gcompris/properties.c:513
 msgid ""
 "Put any number of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
@@ -4313,10 +4321,10 @@ msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 #: ../src/missing_letter-activity/missingletter.c:784
 #: ../src/pythontest-activity/pythontest.py:454
 #: ../src/readingh-activity/reading.c:904
-#: ../src/scalesboard-activity/scale.c:1161
+#: ../src/scalesboard-activity/scale.c:1160
 #: ../src/smallnumbers-activity/smallnumbers.c:595
 #: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:866
+#: ../src/wordsgame-activity/wordsgame.c:864
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -4837,9 +4845,9 @@ msgid ""
 "As a cloud matures, the dense water droplets may combine to produce larger "
 "droplets, which may combine to form droplets large enough to fall as rain"
 msgstr ""
-"Quand un nuage grandit, les gouttelettes d'eau peuvent fusionner pour devenir "
-"des gouttes de plus en plus grandes, jusqu'à ce qu'elles soient assez grandes "
-"pour tomber en pluie" 
+"Quand un nuage grandit, les gouttelettes d'eau peuvent fusionner pour "
+"devenir des gouttes de plus en plus grandes, jusqu'à ce qu'elles soient "
+"assez grandes pour tomber en pluie"
 
 #: ../src/hydroelectric-activity/hydroelectric.py:169
 msgid "This is the meter for electricity produced by the turbine. "
@@ -4859,9 +4867,9 @@ msgid ""
 "force on the blades. In this way, energy is transferred from the water flow "
 "to the turbine"
 msgstr ""
-"L'eau coule en direction des pales de la turbine ce qui crée des pressions sur "
-"les pales. De cette manière, l'énergie est transférée de l'eau qui coule vers "
-"la turbine"
+"L'eau coule en direction des pales de la turbine ce qui crée des pressions "
+"sur les pales. De cette manière, l'énergie est transférée de l'eau qui coule "
+"vers la turbine"
 
 #: ../src/hydroelectric-activity/hydroelectric.py:189
 msgid "This cloud simulates the wind, click on it to have wind."
@@ -4872,8 +4880,8 @@ msgid ""
 "This is a step down transformer. Electricity is transformed in low voltage, "
 "ready to be used by the customers."
 msgstr ""
-"C'est un transformateur abaisseur de tension. L'électricité est transformée à "
-"basse tension, prête à être consommée par les clients."
+"C'est un transformateur abaisseur de tension. L'électricité est transformée "
+"à basse tension, prête à être consommée par les clients."
 
 #: ../src/hydroelectric-activity/hydroelectric.py:281
 msgid "This is the meter for all the electricity produced. "
@@ -4885,7 +4893,8 @@ msgstr "C'est le compteur pour l'électricité consommée par les utilisateurs. 
 
 #: ../src/hydroelectric-activity/hydroelectric.py:318
 msgid "This is the meter for electricity produced by the solar panels. "
-msgstr "C'est le compteur pour l'électricité produite par les panneaux solaires. "
+msgstr ""
+"C'est le compteur pour l'électricité produite par les panneaux solaires. "
 
 #: ../src/hydroelectric-activity/hydroelectric.py:324
 msgid ""
@@ -4897,7 +4906,7 @@ msgstr ""
 
 #: ../src/hydroelectric-activity/hydroelectric.py:340
 msgid "This is the meter for electricity produced by the wind turbines. "
-msgstr 
+msgstr ""
 "C'est le compteur pour l'électricité produite par les turbines éoliennes. "
 
 #: ../src/hydroelectric-activity/hydroelectric.py:346
@@ -4905,8 +4914,8 @@ msgid ""
 "A wind turbine is a device that converts wind motion energy into electricity "
 "generation. It is called a wind generator or wind charger. "
 msgstr ""
-"Une turbine éolienne est un appareil qui convertit l'énergie de la vitesse du "
-"vent en électricité. On l'appelle aussi aérogénérateur. "
+"Une turbine éolienne est un appareil qui convertit l'énergie de la vitesse "
+"du vent en électricité. On l'appelle aussi aérogénérateur. "
 
 #: ../src/hydroelectric-activity/hydroelectric.py:732
 msgid ""
@@ -4920,14 +4929,14 @@ msgid ""
 "regional blackout."
 msgstr ""
 "Il n'est pas possible de consommer plus d'électricité que ce qu'on produit. "
-"C'est une limite essentielle dans la distribution de l'électricité ; à quelques "
-"exceptions près, l'énergie électrique ne peut pas être stockée et doit donc "
-"être produite en fonction des besoins. Il est alors nécessaire d'utiliser un "
-"système de contrôle complexe pour être sûr que la production électrique "
-"correspond très précisément à la demande. Si la production et la demande ne "
-"sont pas équilibrées, les usines de production et les équipements de transport "
-"peuvent tomber en panne ce qui dans le pire des cas peut conduire à une coupure "
-"générale dans toute une région."
+"C'est une limite essentielle dans la distribution de l'électricité ; à "
+"quelques exceptions près, l'énergie électrique ne peut pas être stockée et "
+"doit donc être produite en fonction des besoins. Il est alors nécessaire "
+"d'utiliser un système de contrôle complexe pour être sûr que la production "
+"électrique correspond très précisément à la demande. Si la production et la "
+"demande ne sont pas équilibrées, les usines de production et les équipements "
+"de transport peuvent tomber en panne ce qui dans le pire des cas peut "
+"conduire à une coupure générale dans toute une région."
 
 #: ../src/hydroelectric-activity/hydroelectric.py:946
 msgid ""
@@ -4935,8 +4944,8 @@ msgid ""
 "(110 kV or above) to reduce the energy lost in long distance transmission."
 msgstr ""
 "C'est un transformateur élévateur de tension. L'électricité est transmise à "
-"haute tension (110 kV ou plus) afin de diminuer les pertes d'énergie dans les "
-"transports de longue distance."
+"haute tension (110 kV ou plus) afin de diminuer les pertes d'énergie dans "
+"les transports de longue distance."
 
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:1
 msgid ""
@@ -4947,14 +4956,15 @@ msgid ""
 msgstr ""
 "Clique sur différents éléments actifs : soleil, nuage, barrage, panneaux "
 "solaires, éoliennes et transformateurs, afin de remettre en route tout le "
-"système électrique. Lorsque le système est rétabli et que Tux est rentré chez "
-"lui, allume la lumière pour lui. Pour gagner, tu dois activer tous les "
+"système électrique. Lorsque le système est rétabli et que Tux est rentré "
+"chez lui, allume la lumière pour lui. Pour gagner, tu dois activer tous les "
 "consommateurs lorsque les producteurs fonctionnent."
 
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:3
 msgid "Learn about an electrical system based on renewable energy"
 msgstr ""
-"Apprendre à connaître un système électrique basé sur les énergies renouvelables"
+"Apprendre à connaître un système électrique basé sur les énergies "
+"renouvelables"
 
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:4
 msgid ""
@@ -6410,9 +6420,9 @@ msgid ""
 "back his change. At higher levels, several items are displayed, and you must "
 "first calculate the total price."
 msgstr ""
-"Tux t'a acheté différentes choses et te montre son argent. Tu dois lui rendre "
-"sa monnaie. Aux niveaux supérieurs, plusieurs produits apparaissent et "
-"tu dois d'abord calculer le prix total."
+"Tux t'a acheté différentes choses et te montre son argent. Tu dois lui "
+"rendre sa monnaie. Aux niveaux supérieurs, plusieurs produits apparaissent "
+"et tu dois d'abord calculer le prix total."
 
 #: ../src/money_back_cents-activity/money_back_cents.xml.in.h:3
 msgid "Give tux his change, including cents"
@@ -7019,7 +7029,7 @@ msgstr "Poids en g = %s"
 msgid "Weight = %s"
 msgstr "Poids = %s"
 
-#: ../src/scalesboard-activity/scale.c:1008
+#: ../src/scalesboard-activity/scale.c:1007
 msgid "Take care, you can drop masses on both sides of the scale."
 msgstr "Fais attention, tu peux lâcher des poids des deux côtés de la balance."
 
@@ -7644,9 +7654,9 @@ msgid ""
 "container constructed to hold a water supply at a height sufficient to "
 "pressurize a water distribution system."
 msgstr ""
-"Un château d'eau est un grand conteneur de stockage d'eau construit en hauteur "
-"pour contenir un réservoir d'eau à une hauteur suffisante pour assurer de la "
-"pression dans un système de distribution d'eau."
+"Un château d'eau est un grand conteneur de stockage d'eau construit en "
+"hauteur pour contenir un réservoir d'eau à une hauteur suffisante pour "
+"assurer de la pression dans un système de distribution d'eau."
 
 #: ../src/watercycle-activity/watercycle.xml.in.h:1
 msgid ""
