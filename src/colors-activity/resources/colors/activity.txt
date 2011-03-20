@@ -1,0 +1,102 @@
+[common]
+
+object_area_xywh        = 140,50,520,340
+# If you want a rectangle under the objects
+#object_area_fill        = 0xCCCCCCAA
+#object_area_stroke      = 0xFFFF33AA
+#object_area_radius_x    = 10
+#object_area_radius_y    = 10
+#object_area_line_width  = 2
+
+object_selection_fill   = 0xFF000090
+object_selection_stroke = 0xFFFFFFCC
+
+question_color          = 0x000000FF
+question_font           = gcompris/board/title bold
+
+# Provide a text color and font to have it being displayed
+#text_color              = 0xFFFFFFFF
+#text_font               = gcompris/board/big bold
+
+background              = background.svgz
+
+# Section maybe [1] or [1.1] to create sublevels
+[1]
+
+question_position = 400,30
+question_text     = Find the {text} duck
+question_audio    = "voices/$LOCALE/colors/{text}.ogg"
+
+ok_position       = 470,310
+
+object1_image     = yellow_duck.svg
+object1_text      = yellow
+object1_audio     = "voices/$LOCALE/colors/{text}.ogg"
+
+object2_image     = black_duck.svg
+object2_text      = black
+object2_audio     = "voices/$LOCALE/colors/{text}.ogg"
+
+object3_image     = green_duck.svg
+object3_text      = green
+object3_audio     = "voices/$LOCALE/colors/{text}.ogg"
+
+object4_image     = red_duck.svg
+object4_text      = red
+object4_audio     = "voices/$LOCALE/colors/{text}.ogg"
+
+object5_image     = white_duck.svg
+object5_text      = white
+object5_audio     = "voices/$LOCALE/colors/{text}.ogg"
+
+object6_image     = blue_duck.svg
+object6_text      = blue
+object6_audio     = "voices/$LOCALE/colors/{text}.ogg"
+
+[2]
+
+question_position = 400,30
+question_text     = Find the {text} duck
+question_audio    = "voices/$LOCALE/colors/{text}.ogg"
+
+ok_position       = 470,310
+
+object1_image     = yellow_duck.svg
+object1_text      = yellow
+object1_audio     = "voices/$LOCALE/colors/{text}.ogg"
+
+object2_image     = black_duck.svg
+object2_text      = black
+object2_audio     = "voices/$LOCALE/colors/{text}.ogg"
+
+object3_image     = brown_duck.svg
+object3_text      = brown
+object3_audio     = "voices/$LOCALE/colors/{text}.ogg"
+
+object4_image     = green_duck.svg
+object4_text      = green
+object4_audio     = "voices/$LOCALE/colors/{text}.ogg"
+
+object5_image     = grey_duck.svg
+object5_text      = grey
+object5_audio     = "voices/$LOCALE/colors/{text}.ogg"
+
+object6_image     = orange_duck.svg
+object6_text      = orange
+object6_audio     = "voices/$LOCALE/colors/{text}.ogg"
+
+object7_image     = purple_duck.svg
+object7_text      = purple
+object7_audio     = "voices/$LOCALE/colors/{text}.ogg"
+
+object8_image     = red_duck.svg
+object8_text      = red
+object8_audio     = "voices/$LOCALE/colors/{text}.ogg"
+
+object9_image     = white_duck.svg
+object9_text      = white
+object9_audio     = "voices/$LOCALE/colors/{text}.ogg"
+
+object10_image     = blue_duck.svg
+object10_text      = blue
+object10_audio     = "voices/$LOCALE/colors/{text}.ogg"

@@ -2,7 +2,7 @@
 # This is sourced by runit.sh
 path=$1
 activity=colors
-plugindir=$path/.libs
-pythonplugindir=$path 
+plugindir=$path/../boards/.libs
+pythonplugindir=$path/../findit-activity
 resourcedir=$path/resources
 section="/discovery/colors_group"
