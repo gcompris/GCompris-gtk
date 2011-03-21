@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.gcomprixogoo\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=gcompris&component=general\n"
-"POT-Creation-Date: 2011-02-28 22:06+0000\n"
-"PO-Revision-Date: 2011-03-03 13:29+0100\n"
+"product=gcompris&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2011-03-20 22:23+0000\n"
+"PO-Revision-Date: 2011-03-21 15:17+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -2188,9 +2188,13 @@ msgid "Motor coordination: moving and clicking the mouse."
 msgstr "Coordinación motriz: movimiento del ratón y pulsación."
 
 #: ../src/clickgame-activity/clickgame.xml.in.h:6
-msgid "Use the left mouse button to click on the moving fish."
+#| msgid "Use the left mouse button to click on the moving fish."
+msgid ""
+"Use the left mouse button to click on the moving fish. A level 5 and after, "
+"a double click is mandatory."
 msgstr ""
-"Use el botón izquierdo del ratón para pulsar sobre el pez en movimiento."
+"Use el botón izquierdo del ratón para pulsar sobre el pez en movimiento. A "
+"partir del nivel 5 es obligatorio hacer una pulsación doble."
 
 #: ../src/clockgame-activity/clockgame.c:524
 msgid "Set the watch to:"
@@ -2542,6 +2546,7 @@ msgstr ""
 "borrar un objeto."
 
 #: ../src/drawnumber-activity/drawnumber.py:236
+#: ../src/findit-activity/findit.py:287
 msgid "Cannot find the file '{filename}'"
 msgstr "No se puede encontrar el archivo «{filename}»"
 
@@ -6538,11 +6543,11 @@ msgstr ""
 "Este tablero está orientado al juego. No se necesitan habilidades "
 "específicas para jugar."
 
-#: ../src/penalty-activity/penalty.py:293
+#: ../src/penalty-activity/penalty.py:292
 msgid "Click on the balloon to place it again."
 msgstr "Pulsa sobre el globo para volverlo a posicionar."
 
-#: ../src/penalty-activity/penalty.py:295
+#: ../src/penalty-activity/penalty.py:294
 msgid "Click twice on the balloon to shoot it."
 msgstr "Pulsa dos veces sobre el globo para dispararlo."
 
@@ -7631,6 +7636,14 @@ msgstr "Entrenamiento con el teclado"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:4
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Teclea la palabra completa mientras cae, antes de que llegue al suelo"
+
+#: ../src/findit-activity/findit.py:292
+msgid ""
+"Failed to parse data set '{filename}' with error:\n"
+"{error}"
+msgstr ""
+"Falló al analizar el conjunto de datos «{filename}» con el error:\n"
+"{error}"
 
 #~ msgid "Move the mouse until all the blocks disappear."
 #~ msgstr "Mueve el ratón hasta que todos los bloques desparezcan."
