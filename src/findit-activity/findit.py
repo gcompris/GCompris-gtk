@@ -219,7 +219,10 @@ class Gcompris_findit:
       audio = question
     if audio:
       print "play audio=" + audio
-      gcompris.sound.play_ogg(audio)
+      print gcompris.utils.find_file_absolute(audio)
+      gcompris.sound.play_ogg(
+        gcompris.utils.find_file_absolute(audio) )
+
 
   # Return the next question or None if any
   def get_next_question(self):
@@ -240,7 +243,7 @@ class Gcompris_findit:
     try:
       # The question can be formatted with {text} and if so this
       # is replaced by the target name
-      text = datasetlevel.question_text.format(text = object_target.text)
+      text = _(datasetlevel.question_text.format(text = _(object_target.text)))
     except:
       text = datasetlevel.question_text
 
@@ -280,7 +283,7 @@ class Gcompris_findit:
     config = ConfigParser.RawConfigParser()
     p = gcompris.get_properties()
     filename = gcompris.DATA_DIR + '/' + self.gcomprisBoard.name + \
-        '/activity.txt'
+        '/activity.desktop'
     try:
       gotit = config.read(filename)
       if not gotit:
@@ -373,39 +376,39 @@ class finditDataSetLevel:
 
     self.object_area_xywh = \
         map(lambda x: int(x) ,
-            load_common_prop(dataset, section, "object_area_xywh", "").split(','))
-    self.object_area_fill = long(load_common_prop(dataset, section, "object_area_fill", "0"), 16)
-    self.object_area_stroke = long(load_common_prop(dataset, section, "object_area_stroke", "0"), 16)
-    self.object_area_radius_x = int(load_common_prop(dataset, section, "object_area_radius_x", "0"))
-    self.object_area_radius_y = int(load_common_prop(dataset, section, "object_area_radius_y", "0"))
-    self.object_area_line_width = int(load_common_prop(dataset, section, "object_area_line_width", "0"))
+            load_common_prop(dataset, section, "objectAreaXYWH", "").split(','))
+    self.object_area_fill = long(load_common_prop(dataset, section, "objectAreaFill", "0"), 16)
+    self.object_area_stroke = long(load_common_prop(dataset, section, "objectAreaStroke", "0"), 16)
+    self.object_area_radius_x = int(load_common_prop(dataset, section, "objectAreaRadiusX", "0"))
+    self.object_area_radius_y = int(load_common_prop(dataset, section, "objectAreaRadiusY", "0"))
+    self.object_area_line_width = int(load_common_prop(dataset, section, "objectAreaLineWidth", "0"))
 
     self.question_position = \
         map(lambda x: int(x) ,
-            dataset.get(section, "question_position").split(','))
+            dataset.get(section, "questionPosition").split(','))
 
     try:
-      self.question_text = dataset.get(section, "question_text")
+      self.question_text = dataset.get(section, "questionText")
     except:
       self.question_text = None
 
     try:
-      self.question_audio = dataset.get(section, "question_audio")
+      self.question_audio = dataset.get(section, "questionAudio")
     except:
       self.question_audio = None
 
-    self.question_color = long(load_common_prop(dataset, section, "question_color", "0"), 16)
-    self.question_font = load_common_prop(dataset, section, "question_font", "")
+    self.question_color = long(load_common_prop(dataset, section, "questionColor", "0"), 16)
+    self.question_font = load_common_prop(dataset, section, "questionFont", "")
 
     self.ok_position = \
         map(lambda x: int(x) ,
-            dataset.get(section, "ok_position").split(','))
+            dataset.get(section, "okPosition").split(','))
 
     i = 1
     self.objects = []
     while True:
       try:
-        dataset.get(section, "object" + str(i) + "_image")
+        dataset.get(section, "object" + str(i) + "Image")
         self.objects.append(finditDataSetObject(dataset, section, i))
       except:
         break
@@ -434,15 +437,15 @@ class finditDataSetObject:
 
   def __init__(self, dataset, level, index):
     self.index = index
-    self.image = self._load_prop(dataset, level, index, "_image")
-    self.text  = self._load_prop(dataset, level, index, "_text")
-    self.audio = self._load_prop(dataset, level, index, "_audio")
-    self.selection_fill = long(load_common_prop(dataset, level, "object_selection_fill", "0"), 16)
-    self.selection_stroke = long(load_common_prop(dataset, level, "object_selection_stroke", "0"), 16)
-    self.text_color = load_common_prop(dataset, level, "text_color", "")
+    self.image = self._load_prop(dataset, level, index, "Image")
+    self.text  = self._load_prop(dataset, level, index, "Text")
+    self.audio = self._load_prop(dataset, level, index, "Audio")
+    self.selection_fill = long(load_common_prop(dataset, level, "objectSelectionFill", "0"), 16)
+    self.selection_stroke = long(load_common_prop(dataset, level, "objectSelectionStroke", "0"), 16)
+    self.text_color = load_common_prop(dataset, level, "textColor", "")
     if self.text_color:
       self.text_color =  long(self.text_color, 16)
-    self.text_font = load_common_prop(dataset, level, "text_font", "")
+    self.text_font = load_common_prop(dataset, level, "textFont", "")
     self.rootitem = None
     self.item = None
     self.selection = None
@@ -475,7 +478,7 @@ class finditDataSetObject:
     if (self.text_color and self.text_font):
       goocanvas.Text(
         parent = self.rootitem,
-        text = self.text,
+        text = _(self.text),
         x = x + width / 2,
         y = y + height / 2,
         font = gcompris.skin.get_font(self.text_font),

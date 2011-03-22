@@ -1,6 +1,6 @@
 imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/colors
 img_DATA = \
-	activity.txt \
+	activity.desktop \
 	background.svgz \
 	black_duck.svg \
 	blue_duck.svg \
@@ -13,4 +13,12 @@ img_DATA = \
 	white_duck.svg \
 	yellow_duck.svg
 
-EXTRA_DIST = $(img_DATA)
+# Do not use the INTLTOOL_DESKTOP_RULE, we don't need to embed the translations
+# in the file themselves. GCompris pick the translations from the po file at
+# runtime.
+activity.desktop: activity.desktop.in
+	sed -e "s/^_//g" $< > $@
+
+EXTRA_DIST = $(img_DATA) activity.desktop.in
+
+CLEANFILES = activity.desktop
