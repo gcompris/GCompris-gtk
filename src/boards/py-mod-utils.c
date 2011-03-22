@@ -84,12 +84,11 @@ py_gc_file_find_absolute(PyObject* self, PyObject* args)
 {
   char* file;
   gchar* result;
-  printf("ICI1\n");
+
   /* Parse arguments */
   if(!PyArg_ParseTuple(args, "s:gc_file_find_absolute", &file))
     return NULL;
 
-  printf("ICI2\n");
   /* Call the corresponding C function */
   result = (gchar*)gc_file_find_absolute(file, NULL);
 
