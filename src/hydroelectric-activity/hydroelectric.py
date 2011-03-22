@@ -1070,7 +1070,7 @@ class Producer:
     self.prod_items[self.current_prod_item].props.visibility = \
         goocanvas.ITEM_VISIBLE
     if self.is_on and self.energy:
-      self.timer = gobject.timeout_add(150, self.anim_item)
+      self.timer = gobject.timeout_add(1000, self.anim_item)
     else:
       self.timer = 0
 
