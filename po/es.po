@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: gcompris.gcomprixogoo\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2011-03-20 22:23+0000\n"
-"PO-Revision-Date: 2011-03-21 15:17+0100\n"
+"POT-Creation-Date: 2011-03-22 22:45+0000\n"
+"PO-Revision-Date: 2011-03-23 10:02+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -1055,6 +1055,7 @@ msgid "platinum"
 msgstr "platino"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:6
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:9
 msgid "purple"
 msgstr "púrpura"
 
@@ -2188,7 +2189,6 @@ msgid "Motor coordination: moving and clicking the mouse."
 msgstr "Coordinación motriz: movimiento del ratón y pulsación."
 
 #: ../src/clickgame-activity/clickgame.xml.in.h:6
-#| msgid "Use the left mouse button to click on the moving fish."
 msgid ""
 "Use the left mouse button to click on the moving fish. A level 5 and after, "
 "a double click is mandatory."
@@ -2293,6 +2293,57 @@ msgid ""
 msgstr ""
 "Este tablero te enseña a reconocer diferentes colores. Cuando escuches el "
 "nombre del color, pulsa en el pato que lo lleva."
+
+#. Translator: Do not translate {text}.
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:2
+#| msgid "Click on the white duck"
+msgid "Find the {text} duck"
+msgstr "Busca el pato {text}"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:3
+#: ../src/read_colors-activity/read_colors.c:65
+msgid "black"
+msgstr "negro"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:4
+#: ../src/read_colors-activity/read_colors.c:57
+msgid "blue"
+msgstr "azul"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:5
+#: ../src/read_colors-activity/read_colors.c:58
+msgid "brown"
+msgstr "marrón"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:6
+#: ../src/read_colors-activity/read_colors.c:59
+msgid "green"
+msgstr "verde"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:7
+#: ../src/read_colors-activity/read_colors.c:60
+msgid "grey"
+msgstr "gris"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:8
+#: ../src/read_colors-activity/read_colors.c:61
+msgid "orange"
+msgstr "naranja"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:10
+#: ../src/read_colors-activity/read_colors.c:63
+msgid "red"
+msgstr "rojo"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:11
+#: ../src/read_colors-activity/read_colors.c:66
+msgid "white"
+msgstr "blanco"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:12
+#: ../src/read_colors-activity/read_colors.c:64
+msgid "yellow"
+msgstr "amarillo"
 
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:1
 #: ../src/connect4-activity/connect4.xml.in.h:1
@@ -2546,7 +2597,7 @@ msgstr ""
 "borrar un objeto."
 
 #: ../src/drawnumber-activity/drawnumber.py:236
-#: ../src/findit-activity/findit.py:287
+#: ../src/findit-activity/findit.py:290
 msgid "Cannot find the file '{filename}'"
 msgstr "No se puede encontrar el archivo «{filename}»"
 
@@ -6737,45 +6788,9 @@ msgstr "Entrenamiento de la memoria"
 msgid "Railway"
 msgstr "Vía de tren"
 
-#: ../src/read_colors-activity/read_colors.c:57
-msgid "blue"
-msgstr "azul"
-
-#: ../src/read_colors-activity/read_colors.c:58
-msgid "brown"
-msgstr "marrón"
-
-#: ../src/read_colors-activity/read_colors.c:59
-msgid "green"
-msgstr "verde"
-
-#: ../src/read_colors-activity/read_colors.c:60
-msgid "grey"
-msgstr "gris"
-
-#: ../src/read_colors-activity/read_colors.c:61
-msgid "orange"
-msgstr "naranja"
-
 #: ../src/read_colors-activity/read_colors.c:62
 msgid "violet"
 msgstr "violeta"
-
-#: ../src/read_colors-activity/read_colors.c:63
-msgid "red"
-msgstr "rojo"
-
-#: ../src/read_colors-activity/read_colors.c:64
-msgid "yellow"
-msgstr "amarillo"
-
-#: ../src/read_colors-activity/read_colors.c:65
-msgid "black"
-msgstr "negro"
-
-#: ../src/read_colors-activity/read_colors.c:66
-msgid "white"
-msgstr "blanco"
 
 #: ../src/read_colors-activity/read_colors.c:67
 msgid "pink"
@@ -7637,7 +7652,7 @@ msgstr "Entrenamiento con el teclado"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Teclea la palabra completa mientras cae, antes de que llegue al suelo"
 
-#: ../src/findit-activity/findit.py:292
+#: ../src/findit-activity/findit.py:295
 msgid ""
 "Failed to parse data set '{filename}' with error:\n"
 "{error}"
