@@ -44,59 +44,63 @@ class Gcompris_clickanddraw(Gcompris_drawnumber):
 
     #Setting of the first background image of the level
     gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
-                            self.data[sublevel][0][1])
+                            self.data[sublevel-1].img1)
 
     #Initialisation of sub-elements in list
-    self.POINT=[0]
-    self.actu=0
+    self.POINT = []
+    self.actu = 0
 
     #Display actual sublevel and number of sublevel of this level
     self.gcomprisBoard.sublevel=sublevel
     self.gcomprisBoard.number_of_sublevel=len(self.data)
+
     #Display of score
-    gcompris.score.start(gcompris.score.STYLE_NOTE, 10, 485,self.gcomprisBoard.number_of_sublevel)
+    gcompris.score.start(gcompris.score.STYLE_NOTE, 10, 485,
+                         self.gcomprisBoard.number_of_sublevel)
     gcompris.score.set(self.gcomprisBoard.sublevel)
 
     #Set point number 0 from which the draw start. This point is equal to first one.
-    self.MAX=self.data[sublevel][0][0]
-    self.POINT[0]=self.point(0,self.data[sublevel][self.MAX][0],self.data[sublevel][self.MAX][1],30)
+    self.MAX = len( self.data[sublevel-1].points )
+    self.POINT.append(self.point(self.data[sublevel-1].points[0][0],
+                                 self.data[sublevel-1].points[0][1]))
     self.POINT[0].props.visibility = goocanvas.ITEM_INVISIBLE
 
     #Data loading from global data and display of points and numbers
     i=self.MAX
     prev_point = None
-    while(i>0):
-      if self.gcomprisBoard.level==1 :
-        self.POINT.append(self.point(idpt=(self.MAX-i+1),
-                                     x=self.data[sublevel][i][0],
-                                     y=self.data[sublevel][i][1],d=45))
-      elif self.gcomprisBoard.level==2 :
-        self.POINT.append(self.point(idpt=(self.MAX-i+1),
-                                     x=self.data[sublevel][i][0],
-                                     y=self.data[sublevel][i][1],d=30))
+    for i in range(0, self.MAX):
+      diameter = 0
+      if self.gcomprisBoard.level == 1:
+        diameter = 45
+      elif self.gcomprisBoard.level == 2:
+        diameter = 30
       else :
-        self.POINT.append(self.point(idpt=(self.MAX-i+1),
-                                     x=self.data[sublevel][i][0],
-                                     y=self.data[sublevel][i][1],d=20))
+        diameter = 20
 
-      self.POINT[(self.MAX-i+1)].connect('button_press_event',
-                                         self.action,(self.MAX-i+1))
+      point = self.point(self.data[sublevel-1].points[i][0],
+                                   self.data[sublevel-1].points[i][1],
+                                   diameter)
+      self.POINT.append(point)
+      self.POINT[i+1].connect('button_press_event', self.action, i+1)
 
-      #Setting of display level to prevent covering a point with another
-      #point which cause an impossibility to select it.
-      if prev_point:
-        self.POINT[(self.MAX-i+1)].lower(prev_point)
-      prev_point = self.POINT[(self.MAX-i+1)]
-      i = i-1
+      # Setting of display level to prevent covering a point with another point which
+      # cause an impossibility to select it.
+      self.POINT[i+1].lower(prev_point)
+      prev_point = self.POINT[i+1]
+
 
     #Setting color of the first point to blue instead of green
-    self.POINT[1].set_properties(fill_color_rgba = 0x003DF5D0)
+    self.POINT[1].set_properties(fill_color_rgba=0x003DF5D0)
 
   def action(self, objet, target, truc, idpt):
     """Action to do at each step during normal execution of the game"""
     if truc.type == gtk.gdk.BUTTON_PRESS :
       if idpt == (self.actu+1): #Action to execute if the selected point is the following of previous one
-        xd,yd,xa,ya = self.POINT[(idpt-1)].x, self.POINT[(idpt-1)].y, self.POINT[idpt].x, self.POINT[idpt].y
+        xd, yd, xa, ya = \
+            self.POINT[(idpt-1)].x, \
+            self.POINT[(idpt-1)].y, \
+            self.POINT[idpt].x, \
+            self.POINT[idpt].y
         goocanvas.Polyline(
           parent = self.ROOT,
           points = goocanvas.Points([(xd,yd), (xa,ya)]),
@@ -110,7 +114,7 @@ class Gcompris_clickanddraw(Gcompris_drawnumber):
         objet.props.visibility = goocanvas.ITEM_INVISIBLE
         if idpt==self.MAX : #Action to exectute if all points have been selected in good way
           gcompris.set_background(self.ROOT,
-                                  self.data[self.gcomprisBoard.sublevel][0][2])
+                                  self.data[self.gcomprisBoard.sublevel-1].img2)
           self.gamewon = 1
           gcompris.bar_hide(True)
           self.timeout = gobject.timeout_add(1500, self.lauch_bonus) # The level is complete -> Bonus display
