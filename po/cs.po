@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=gcompris&component=general\n"
-"POT-Creation-Date: 2011-02-28 22:06+0000\n"
-"PO-Revision-Date: 2011-03-01 09:40+0100\n"
+"product=gcompris&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2011-03-22 22:45+0000\n"
+"PO-Revision-Date: 2011-03-26 19:35+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -1044,6 +1044,7 @@ msgid "platinum"
 msgstr "platinová"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:6
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:9
 msgid "purple"
 msgstr "purpurová"
 
@@ -2160,8 +2161,13 @@ msgid "Motor coordination: moving and clicking the mouse."
 msgstr "Koordinace pohybů: pohyb a kliknutí myší."
 
 #: ../src/clickgame-activity/clickgame.xml.in.h:6
-msgid "Use the left mouse button to click on the moving fish."
-msgstr "Klikni levým tlačítkem myši na plovoucí rybu."
+#| msgid "Use the left mouse button to click on the moving fish."
+msgid ""
+"Use the left mouse button to click on the moving fish. A level 5 and after, "
+"a double click is mandatory."
+msgstr ""
+"Klikni levým tlačítkem myši na plovoucí rybu. Od úrovně 5 a výše musíš "
+"klikat dvojitě."
 
 #: ../src/clockgame-activity/clockgame.c:524
 msgid "Set the watch to:"
@@ -2259,6 +2265,57 @@ msgid ""
 msgstr ""
 "Tato deska učí rozpoznat jednotlivé barvy. Jakmile uslyšíš jméno barvy, "
 "klikni na tu správně obarvenou kachničku."
+
+#. Translator: Do not translate {text}.
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:2
+#| msgid "Click on the white duck"
+msgid "Find the {text} duck"
+msgstr "Najdi kachnu, která je {text}"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:3
+#: ../src/read_colors-activity/read_colors.c:65
+msgid "black"
+msgstr "černá"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:4
+#: ../src/read_colors-activity/read_colors.c:57
+msgid "blue"
+msgstr "modrá"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:5
+#: ../src/read_colors-activity/read_colors.c:58
+msgid "brown"
+msgstr "hnědá"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:6
+#: ../src/read_colors-activity/read_colors.c:59
+msgid "green"
+msgstr "zelená"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:7
+#: ../src/read_colors-activity/read_colors.c:60
+msgid "grey"
+msgstr "šedá"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:8
+#: ../src/read_colors-activity/read_colors.c:61
+msgid "orange"
+msgstr "oranžová"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:10
+#: ../src/read_colors-activity/read_colors.c:63
+msgid "red"
+msgstr "červená"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:11
+#: ../src/read_colors-activity/read_colors.c:66
+msgid "white"
+msgstr "bílá"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:12
+#: ../src/read_colors-activity/read_colors.c:64
+msgid "yellow"
+msgstr "žlutá"
 
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:1
 #: ../src/connect4-activity/connect4.xml.in.h:1
@@ -2513,6 +2570,7 @@ msgstr ""
 "prostřední tlačítko myši – odstraní objekt."
 
 #: ../src/drawnumber-activity/drawnumber.py:236
+#: ../src/findit-activity/findit.py:290
 msgid "Cannot find the file '{filename}'"
 msgstr "Nelze nalézt soubor „{filename}“"
 
@@ -6443,11 +6501,11 @@ msgstr "Parašutista"
 msgid "This board is game-oriented. No specific skills are needed to play."
 msgstr "Tato scéna je zaměřená na hru. Nejsou potřeba specifické dovednosti."
 
-#: ../src/penalty-activity/penalty.py:293
+#: ../src/penalty-activity/penalty.py:292
 msgid "Click on the balloon to place it again."
 msgstr "Klikni na balón a tím jej nachystáš na nový výkop."
 
-#: ../src/penalty-activity/penalty.py:295
+#: ../src/penalty-activity/penalty.py:294
 msgid "Click twice on the balloon to shoot it."
 msgstr "Klikni dvakrát na balón"
 
@@ -6635,45 +6693,9 @@ msgstr "Trénování paměti"
 msgid "Railway"
 msgstr "Železnice"
 
-#: ../src/read_colors-activity/read_colors.c:57
-msgid "blue"
-msgstr "modrá"
-
-#: ../src/read_colors-activity/read_colors.c:58
-msgid "brown"
-msgstr "hnědá"
-
-#: ../src/read_colors-activity/read_colors.c:59
-msgid "green"
-msgstr "zelená"
-
-#: ../src/read_colors-activity/read_colors.c:60
-msgid "grey"
-msgstr "šedá"
-
-#: ../src/read_colors-activity/read_colors.c:61
-msgid "orange"
-msgstr "oranžová"
-
 #: ../src/read_colors-activity/read_colors.c:62
 msgid "violet"
 msgstr "fialová"
-
-#: ../src/read_colors-activity/read_colors.c:63
-msgid "red"
-msgstr "červená"
-
-#: ../src/read_colors-activity/read_colors.c:64
-msgid "yellow"
-msgstr "žlutá"
-
-#: ../src/read_colors-activity/read_colors.c:65
-msgid "black"
-msgstr "černá"
-
-#: ../src/read_colors-activity/read_colors.c:66
-msgid "white"
-msgstr "bílá"
 
 #: ../src/read_colors-activity/read_colors.c:67
 msgid "pink"
@@ -7501,6 +7523,14 @@ msgstr "Procvičení klávesnice"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:4
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Napiš celé padající slovo, než spadnou na zem"
+
+#: ../src/findit-activity/findit.py:295
+msgid ""
+"Failed to parse data set '{filename}' with error:\n"
+"{error}"
+msgstr ""
+"Selhalo zpracování dat „{filename}“ s chybou:\n"
+"{error}"
 
 #~ msgid "Learn about an hydroelectric dam"
 #~ msgstr "Poučení o vodní elektrárně"
