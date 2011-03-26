@@ -856,8 +856,8 @@ static void start_frigate_anim()
 			  1,
 			  0,
 			  TRUE,
-			  30*1000,
-			  40,
+			  100*1000,
+			  100,
 			  GOO_CANVAS_ANIMATE_RESTART);
   gdk_pixbuf_unref(pixmap);
 }
@@ -1073,10 +1073,9 @@ static gboolean update_timeout_slow() {
 				       1, -assiette);
 
   /* the frigate */
-  {
+  if ( frigate_item ) {
     GooCanvasBounds bounds;
     goo_canvas_item_get_bounds(frigate_item, &bounds);
-    //goo_canvas_item_translate(frigate_item, - FRIGATE_SPEED * UPDATE_DELAY_SLOW/1000.0, 0.0);
     /* detects a collision between the frigate and the submarine */
     if (depth <= 30.0 && !submarine_destroyed)
       if ( (submarine_x - submarine_width <= bounds.x1 && submarine_x >= bounds.x2) ||
@@ -1084,9 +1083,6 @@ static gboolean update_timeout_slow() {
 	   (submarine_x >= bounds.x1 && submarine_x <= bounds.x2) ) {
         submarine_explosion();
       }
-    /* wraps the destroyer if it reached the left side (and disappeared for a long time)*/
-    //if (bounds.x2 < -300.0)
-    //gc_item_absolute_move( frigate_item, BOARDWIDTH, bounds.y1 );
   }
 
   /* whale detection */
