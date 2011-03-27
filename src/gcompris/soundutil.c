@@ -103,7 +103,7 @@ gc_sound_build_music_list()
   dir = g_dir_open(music_dir, 0, NULL);
 
   if (!dir) {
-    g_warning ("Couldn't open music dir: %s", music_dir);
+    g_message ("Couldn't open music dir: %s", music_dir);
     g_free(music_dir);
     return;
   }
@@ -142,7 +142,7 @@ get_next_sound_to_play( )
     {
       tmpSound = g_list_nth_data( pending_queue, 0 );
       pending_queue = g_list_remove( pending_queue, tmpSound );
-      g_warning( "... get_next_sound_to_play : %s\n", tmpSound );
+      g_debug( "... get_next_sound_to_play : %s\n", tmpSound );
     }
 
   return tmpSound;
@@ -193,7 +193,7 @@ gc_sound_play_ogg(const gchar *sound, ...)
 
   list = g_list_append(list, (gpointer)sound);
 
-  g_warning("Adding %s in the play list queue\n", sound);
+  g_debug("Adding %s in the play list queue\n", sound);
 
   va_start( ap, sound);
   while( (tmp = va_arg (ap, char *)))
@@ -232,7 +232,7 @@ gc_sound_play_ogg_list( GList* files )
     while ( g_list_length(pending_queue) > 0 )
     {
       tmpSound = g_list_nth_data( pending_queue, 0 );
-      g_warning("removing queue file (%s)", tmpSound);
+      g_debug("removing queue file (%s)", tmpSound);
       pending_queue = g_list_remove( pending_queue, tmpSound );
       gc_sound_callback(tmpSound);
     }
@@ -245,7 +245,7 @@ gc_sound_play_ogg_list( GList* files )
 	{
 	  pending_queue = g_list_append(pending_queue,
 					g_strdup( (gchar*)(list->data) ));
-	  g_warning("adding queue file (%s)", (gchar*)(list->data));
+	  g_debug("adding queue file (%s)", (gchar*)(list->data));
 	}
       list = g_list_next(list);
     }
@@ -306,11 +306,11 @@ void gc_sound_callback(gchar *file)
 
   if (cb)
     {
-      g_warning("calling callback for %s", file);
+      g_debug("calling callback for %s", file);
       cb(file);
     }
   else
-    g_warning("%s has no callback", file);
+    g_debug("%s has no callback", file);
 
   g_hash_table_remove(sound_callbacks, file);
 

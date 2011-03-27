@@ -69,12 +69,12 @@ fx_bus(GstBus* bus, GstMessage* msg, gpointer data)
   switch( GST_MESSAGE_TYPE( msg ) )
     {
     case GST_MESSAGE_EOS:
-      g_warning("fx_bus: EOS START");
+      g_debug("fx_bus: EOS START");
       gc_sound_fx_close();
       /* holds GStreamer locks */
       g_idle_add(run_sound_callback, data);
       fx_play();
-      g_warning("fx_bus: EOS END");
+      g_debug("fx_bus: EOS END");
       break;
     default:
       return TRUE;
@@ -88,7 +88,7 @@ bg_bus(GstBus* bus, GstMessage* msg, gpointer data)
 {
   switch( GST_MESSAGE_TYPE( msg ) ) {
     case GST_MESSAGE_EOS:
-        g_warning("bg_bus: EOS");
+        g_debug("bg_bus: EOS");
 	gc_sound_bg_close();
 	bg_play(NULL);
 	break;
@@ -112,14 +112,14 @@ gc_sound_bg_close()
 void
 gc_sound_fx_close()
 {
-  g_warning("gc_sound_fx_close");
+  g_debug("gc_sound_fx_close");
   if (fx_pipeline)
     {
       gst_element_set_state(fx_pipeline, GST_STATE_NULL);
       gst_object_unref(GST_OBJECT(fx_pipeline));
       fx_pipeline = NULL;
     }
-  g_warning("gc_sound_fx_close done");
+  g_debug("gc_sound_fx_close done");
 }
 
 void
@@ -204,7 +204,7 @@ bg_play(gpointer dummy)
 
   gchar *uri = g_strconcat("file://", absolute_file, NULL);
   g_free(absolute_file);
-  g_warning("  bg_play %s", uri);
+  g_debug("  bg_play %s", uri);
 
   g_object_set (G_OBJECT (bg_pipeline), "uri", uri, NULL);
 
@@ -233,7 +233,7 @@ fx_play()
   if(!file)
     return;
 
-  g_warning("  fx_play %s", file);
+  g_debug("  fx_play %s", file);
 
   absolute_file = gc_file_find_absolute(file);
 
@@ -252,7 +252,7 @@ fx_play()
 
   gchar *uri = g_strconcat("file://", absolute_file, NULL);
   g_free(absolute_file);
-  g_warning("   uri '%s'", uri);
+  g_debug("   uri '%s'", uri);
 
   g_object_set (G_OBJECT (fx_pipeline), "uri", uri, NULL);
   gst_bus_add_watch (gst_pipeline_get_bus (GST_PIPELINE (fx_pipeline)),
