@@ -7,12 +7,12 @@ img_DATA = \
 	down.png \
 	manette.png \
 	rudder.png \
-	sub_bg.jpg \
+	sub_bg.svgz \
 	submarine-broken.png \
 	submarine.png \
-	sub_schema.png \
+	sub_schema.svg \
 	up.png \
-	vanne.png \
+	vanne.svg \
 	whale_hit.png \
 	whale.png
 
