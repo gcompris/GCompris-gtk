@@ -9,9 +9,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&component=general\n"
-"POT-Creation-Date: 2011-03-05 10:06+0000\n"
-"PO-Revision-Date: 2011-03-05 17:28+0100\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2011-03-26 18:37+0000\n"
+"PO-Revision-Date: 2011-03-28 08:34+0100\n"
 "Last-Translator: Andrej Žnidaršič <andrej.znidarsic@gmail.com>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
@@ -993,6 +993,7 @@ msgid "platinum"
 msgstr "platinasta"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:6
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:9
 msgid "purple"
 msgstr "škrlatna"
 
@@ -1918,8 +1919,8 @@ msgid "Motor coordination: moving and clicking the mouse."
 msgstr "Motorična koordinacija: premikanje in klikanje miške"
 
 #: ../src/clickgame-activity/clickgame.xml.in.h:6
-msgid "Use the left mouse button to click on the moving fish."
-msgstr "Klikni z levim gumbom miške na premikajočo se ribo."
+msgid "Use the left mouse button to click on the moving fish. A level 5 and after, a double click is mandatory."
+msgstr "Klikni z levim gumbom miške na premikajočo se ribo. Na stopnji 5 in naprej je zahtevan dvojni klik."
 
 #: ../src/clockgame-activity/clockgame.c:524
 msgid "Set the watch to:"
@@ -2004,6 +2005,56 @@ msgstr "Poslušaj barve in klikni na pravo račko."
 #: ../src/colors-activity/colors.xml.in.h:5
 msgid "This board teaches you to recognize different colors. When you hear the name of the color, click on the duck wearing it."
 msgstr "Ta tabla te nauči kako prepoznati različne barve. Ko slišiš ime barve, klikni na račko, ki je oblečena v to barvo."
+
+#. Translator: Do not translate {text}.
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:2
+msgid "Find the {text} duck"
+msgstr "Nadji {text} račko"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:3
+#: ../src/read_colors-activity/read_colors.c:65
+msgid "black"
+msgstr "črna"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:4
+#: ../src/read_colors-activity/read_colors.c:57
+msgid "blue"
+msgstr "modra"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:5
+#: ../src/read_colors-activity/read_colors.c:58
+msgid "brown"
+msgstr "rjava"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:6
+#: ../src/read_colors-activity/read_colors.c:59
+msgid "green"
+msgstr "zelena"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:7
+#: ../src/read_colors-activity/read_colors.c:60
+msgid "grey"
+msgstr "siva"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:8
+#: ../src/read_colors-activity/read_colors.c:61
+msgid "orange"
+msgstr "oranžna"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:10
+#: ../src/read_colors-activity/read_colors.c:63
+msgid "red"
+msgstr "rdeča"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:11
+#: ../src/read_colors-activity/read_colors.c:66
+msgid "white"
+msgstr "bela"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:12
+#: ../src/read_colors-activity/read_colors.c:64
+msgid "yellow"
+msgstr "rumena"
 
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:1
 #: ../src/connect4-activity/connect4.xml.in.h:1
@@ -2199,6 +2250,7 @@ msgid "Select a drawing tool on the left, and a color down the bottom, then clic
 msgstr "Na levi strani izberi orodje za risanje v spodnjem delu pa izberi barvo. Klikni na belo polje ter nariši novo obliko. Za hitrejše delo lahko uporabiš srednjim gumbom na miški. Z njo predmet izbrišeš."
 
 #: ../src/drawnumber-activity/drawnumber.py:236
+#: ../src/findit-activity/findit.py:290
 msgid "Cannot find the file '{filename}'"
 msgstr "Datoteke '{filename}' ni mogoče najti"
 
@@ -5589,11 +5641,11 @@ msgstr "Padalec"
 msgid "This board is game-oriented. No specific skills are needed to play."
 msgstr "To je igralna deska. Ne potrebuješ posebne spretnosti za igranje."
 
-#: ../src/penalty-activity/penalty.py:293
+#: ../src/penalty-activity/penalty.py:292
 msgid "Click on the balloon to place it again."
 msgstr "Klikni na balon za ponovno postavljanje."
 
-#: ../src/penalty-activity/penalty.py:295
+#: ../src/penalty-activity/penalty.py:294
 msgid "Click twice on the balloon to shoot it."
 msgstr "Dvakrat klikni na balon in ga ustreli."
 
@@ -5758,45 +5810,9 @@ msgstr "Trening spomina"
 msgid "Railway"
 msgstr "Železniška proga"
 
-#: ../src/read_colors-activity/read_colors.c:57
-msgid "blue"
-msgstr "modra"
-
-#: ../src/read_colors-activity/read_colors.c:58
-msgid "brown"
-msgstr "rjava"
-
-#: ../src/read_colors-activity/read_colors.c:59
-msgid "green"
-msgstr "zelena"
-
-#: ../src/read_colors-activity/read_colors.c:60
-msgid "grey"
-msgstr "siva"
-
-#: ../src/read_colors-activity/read_colors.c:61
-msgid "orange"
-msgstr "oranžna"
-
 #: ../src/read_colors-activity/read_colors.c:62
 msgid "violet"
 msgstr "vijolična"
-
-#: ../src/read_colors-activity/read_colors.c:63
-msgid "red"
-msgstr "rdeča"
-
-#: ../src/read_colors-activity/read_colors.c:64
-msgid "yellow"
-msgstr "rumena"
-
-#: ../src/read_colors-activity/read_colors.c:65
-msgid "black"
-msgstr "črna"
-
-#: ../src/read_colors-activity/read_colors.c:66
-msgid "white"
-msgstr "bela"
 
 #: ../src/read_colors-activity/read_colors.c:67
 msgid "pink"
@@ -6430,6 +6446,14 @@ msgstr "Učenje tipkanja"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:4
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Natipkaj celo besedo, preden doseže zemljo"
+
+#: ../src/findit-activity/findit.py:295
+msgid ""
+"Failed to parse data set '{filename}' with error:\n"
+"{error}"
+msgstr ""
+"Razčlenjevanje niza podatkov '{filename}' je spodletelo z napako:\n"
+"{error}"
 
 #~ msgid "Learn about an hydroelectric dam"
 #~ msgstr "Nauči se o jezu hidroelektrarne"
