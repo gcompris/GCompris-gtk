@@ -1,22 +1,19 @@
-# French translation of gcompris
-# Copyright (C) 2000-2010 Free Software Foundation, Inc.
+# Breton translation of gcompris
+# Copyright (C) 2000-2011 Free Software Foundation, Inc.
 #
 # Alan Monfort <alan.monfort@free.fr>, 2007-2011.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gcompris.HEAD\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&component=general\n"
-"POT-Creation-Date: 2011-01-06 07:04+0000\n"
-"PO-Revision-Date: 2011-01-06 19:48+0100\n"
+"Project-Id-Version: gcompris\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2011-03-26 18:37+0000\n"
+"PO-Revision-Date: 2011-03-29 11:12+0100\n"
 "Last-Translator: Alan Monfort <alan.monfort@free.fr>\n"
 "Language-Team: An Drouizig <drouizig@drouizig.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Country: FRANCE\n"
-"X-Poedit-Language: Breton\n"
 
 #: ../boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
@@ -24,6 +21,7 @@ msgstr "Davit obererezhioù aljebr"
 
 #: ../boards/algebra_group.xml.in.h:2
 #: ../boards/menu.xml.in.h:18
+#: ../boards/money_group.xml.in.h:2
 msgid "Left-click the mouse on an activity to select it."
 msgstr "Klik gant an afell gleiz war un obererezh evit e ziuzañ."
 
@@ -206,6 +204,10 @@ msgstr "Obererezhioù liesseurt"
 #: ../boards/miscelaneous.xml.in.h:2
 msgid "Time, Geography, ..."
 msgstr "Amzer, douaroniezh..."
+
+#: ../boards/money_group.xml.in.h:1
+msgid "Go to money activities"
+msgstr "Davit an obererezhioù a-fet arc'hant"
 
 #: ../boards/mouse.xml.in.h:1
 msgid "Mouse-manipulation activities."
@@ -975,6 +977,7 @@ msgid "platinum"
 msgstr "liv platin"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:6
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:9
 msgid "purple"
 msgstr "limestra"
 
@@ -1335,7 +1338,7 @@ msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "Dornata al logodenn : dilec'hiañ, riklañ, lakaat. Daveoù sevenadurel."
 
 #: ../src/babymatch-activity/shapegame.c:1903
-#: ../src/click_on_letter-activity/click_on_letter.c:675
+#: ../src/click_on_letter-activity/click_on_letter.c:671
 #: ../src/colors-activity/colors.c:168
 #, c-format
 msgid ""
@@ -1515,8 +1518,8 @@ msgid "Special board that embeds python into gcompris."
 msgstr "Obererezh arbennik oc'h enkorfañ python e-barzh GCompris."
 
 #: ../src/canal_lock-activity/canal_lock.xml.in.h:1
-#: ../src/watercycle-activity/watercycle.xml.in.h:2
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:2
+#: ../src/watercycle-activity/watercycle.xml.in.h:2
 msgid "Drawing by Stephane Cabaraux."
 msgstr "Tresañ gant Stephane Cabaraux."
 
@@ -1558,7 +1561,7 @@ msgstr "FAZI : C'hwitadenn war deraouekaat ketal ar rouedad. N'hallez ket kehent
 
 #: ../src/chat-activity/chat.py:433
 msgid "Has left the chat."
-msgstr ""
+msgstr "En/He deus dilezet ar flapiñ."
 
 #: ../src/chat-activity/chat.py:512
 msgid "You must set a channel in your channel entry box first.\n"
@@ -1569,25 +1572,16 @@ msgid "Your friends must set the same channel in order to communicate with you"
 msgstr "Ret eo da vignoned dibab an hevelep sanell egedout evit kehentiñ ganit."
 
 #: ../src/chat-activity/chat.xml.in.h:1
-#, fuzzy
 msgid "Chat and draw with your friends"
-msgstr "Komz gant da vignoned"
+msgstr "Komz ha tres gant da vignoned"
 
 #: ../src/chat-activity/chat.xml.in.h:2
 msgid "This chat activity only works on the local network"
 msgstr "Gant ur rouedad lec'hel hepken ez a en-dro an obererezh komz"
 
 #: ../src/chat-activity/chat.xml.in.h:3
-#, fuzzy
 msgid "This chat activity will only work with other GCompris users on your local network, not on the Internet. To use it, just type in your message and hit Enter. Your message is then broadcasted on the local network, and any GCompris program running the chat activity on that local network will receive and display your message."
-msgstr ""
-"Mont a ra en-dro gant arveriaded all GCompris war da rouedad lec'hel.\n"
-"\n"
-"Ned a ket en-dro war internet avat.\n"
-"\n"
-"Skriv da gemennadenn ha pouez war « Enankañ ».\n"
-"\n"
-"Kaset e vo da gemennadenn dre da rouedad ha mar bez un arveriad all oc'h ober gant obererezh komz GCompris en hevelep mare e vo degemeret da gemennadenn gantañ."
+msgstr "Mont a ra en-dro gant arveriaded all GCompris war da rouedad lec'hel. Ned a ket en-dro war internet avat. Skriv da gemennadenn ha pouez war « Enankañ ». Kaset e vo da gemennadenn dre da rouedad ha mar bez un arveriad all oc'h ober gant obererezh flapiñ GCompris en hevelep mare e vo degemeret da gemennadenn gantañ."
 
 #: ../src/chess_computer-activity/chess.c:222
 msgid "Error: The external program gnuchess died unexpectedly"
@@ -1907,12 +1901,12 @@ msgstr ""
 "gant ar mouezhioù evit ar yezh « %s » enno. Mont a ray en-dro d'ar saozneg, digarez !"
 
 #. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:698
+#: ../src/click_on_letter-activity/click_on_letter.c:694
 #: ../src/gletters-activity/gletters.c:883
 #: ../src/login-activity/login.py:484
 #: ../src/missing_letter-activity/missingletter_config.c:492
 #: ../src/readingh-activity/reading.c:928
-#: ../src/wordsgame-activity/wordsgame.c:889
+#: ../src/wordsgame-activity/wordsgame.c:887
 msgid "Uppercase only text"
 msgstr "Pennlizherennoù nemetken"
 
@@ -1965,10 +1959,10 @@ msgid "Motor coordination: moving and clicking the mouse."
 msgstr "Kenurzhiadur loc'hadel : dilec'hiadurioù ha klikoù gant al logodenn."
 
 #: ../src/clickgame-activity/clickgame.xml.in.h:6
-msgid "Use the left mouse button to click on the moving fish."
-msgstr "Klik gant afell gleiz al logodenn war ar pesked oc'h en em zilec'hiañ."
+msgid "Use the left mouse button to click on the moving fish. A level 5 and after, a double click is mandatory."
+msgstr "Klik gant afell gleiz al logodenn war ar pesked oc'h en em zilec'hiañ. Gant al live5 ha uheloc'h e vo ret daouglikañ."
 
-#: ../src/clockgame-activity/clockgame.c:525
+#: ../src/clockgame-activity/clockgame.c:524
 msgid "Set the watch to:"
 msgstr "Laka bizied an eurier war :"
 
@@ -2052,6 +2046,56 @@ msgstr "Selaou al liv lavaret ha klik war an houad o klotañ gantañ."
 msgid "This board teaches you to recognize different colors. When you hear the name of the color, click on the duck wearing it."
 msgstr "Anavezout al livioù disheñvel a vo kelennet gant an obererezh-mañ. Pa glevi anv ul liv, klik war an houad gwisket gant al liv-mañ."
 
+#. Translator: Do not translate {text}.
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:2
+msgid "Find the {text} duck"
+msgstr "Klik war an houad {text}"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:3
+#: ../src/read_colors-activity/read_colors.c:65
+msgid "black"
+msgstr "du"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:4
+#: ../src/read_colors-activity/read_colors.c:57
+msgid "blue"
+msgstr "glas"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:5
+#: ../src/read_colors-activity/read_colors.c:58
+msgid "brown"
+msgstr "liv kistin"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:6
+#: ../src/read_colors-activity/read_colors.c:59
+msgid "green"
+msgstr "gwer"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:7
+#: ../src/read_colors-activity/read_colors.c:60
+msgid "grey"
+msgstr "loued"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:8
+#: ../src/read_colors-activity/read_colors.c:61
+msgid "orange"
+msgstr "liv orañjez"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:10
+#: ../src/read_colors-activity/read_colors.c:63
+msgid "red"
+msgstr "ruz"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:11
+#: ../src/read_colors-activity/read_colors.c:66
+msgid "white"
+msgstr "gwenn"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:12
+#: ../src/read_colors-activity/read_colors.c:64
+msgid "yellow"
+msgstr "melen"
+
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:1
 #: ../src/connect4-activity/connect4.xml.in.h:1
 msgid "Arrange four coins in a row"
@@ -2128,9 +2172,8 @@ msgid "Find the details"
 msgstr "Kav ar munudoù"
 
 #: ../src/details-activity/details.xml.in.h:5
-#, fuzzy
 msgid "The images are from Wikimedia Commons."
-msgstr "Eus wiki commons e teu ar skeudennoù"
+msgstr "Eus Wiki Commons e teu ar skeudennoù."
 
 #: ../src/details-activity/resources/details/board1_0.xml.in.h:1
 msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1889"
@@ -2157,9 +2200,8 @@ msgid "Vincent van Gogh, Cafe Terrace at Night - 1888"
 msgstr "Vincent van Gogh, Leurenn ur c'hafedi en noz - 1888"
 
 #: ../src/details-activity/resources/details/board1_6.xml.in.h:1
-#, fuzzy
 msgid "Vincent van Gogh, The Night Café - 1888"
-msgstr "Vincent van Gogh, An Eost - 1888"
+msgstr "Vincent van Gogh, Ar C'hafedi Noz - 1888"
 
 #: ../src/details-activity/resources/details/board1_7.xml.in.h:1
 msgid "Vincent van Gogh, Portrait of Pere Tanguy 1887-8"
@@ -2178,13 +2220,12 @@ msgid "Gizah Pyramids, Egypt"
 msgstr "Gizeh Piramidennoù, Ejipt"
 
 #: ../src/details-activity/resources/details/board2_11.xml.in.h:1
-#, fuzzy
 msgid "Sydney Opera House, Australia"
 msgstr "Operadi Sidney, Aostralia"
 
 #: ../src/details-activity/resources/details/board2_12.xml.in.h:1
 msgid "Tower Bridge in London"
-msgstr ""
+msgstr "Tower Bridge e London"
 
 #: ../src/details-activity/resources/details/board2_2.xml.in.h:1
 msgid "Courtyard of the Museum of Louvre, and its pyramid"
@@ -2264,8 +2305,9 @@ msgid "Select a drawing tool on the left, and a color down the bottom, then clic
 msgstr "Dibab ur benveg war an tu kleiz hag ul liv en traoñ. Klik ha rikl war ar bajenn wenn evit krouiñ ul lun nevez. Evit gounit amzer e vez kliket war afell greiz al logodenn a-benn diverkañ ul lun."
 
 #: ../src/drawnumber-activity/drawnumber.py:236
+#: ../src/findit-activity/findit.py:290
 msgid "Cannot find the file '{filename}'"
-msgstr ""
+msgstr "N'haller ket kavout ar restr '{filename}'"
 
 #: ../src/drawnumber-activity/drawnumber.xml.in.h:1
 msgid "Can count from 1 to 50."
@@ -2370,11 +2412,11 @@ msgstr "Dilec'h al logodenn evit diverkañ pep tra ha dizoleiñ ar skeudenn war 
 
 #: ../src/erase-activity/erase.c:180
 msgid "Error: No images found\n"
-msgstr ""
+msgstr "Fazi : Skeudenn ebet bet kavet\n"
 
 #: ../src/erase-activity/erase.c:578
-#: ../src/gcompris/properties.c:501
-#: ../src/gcompris/properties.c:508
+#: ../src/gcompris/properties.c:504
+#: ../src/gcompris/properties.c:511
 msgid "readme"
 msgstr "lennitme"
 
@@ -2385,6 +2427,10 @@ msgid ""
 "The image must be in the 'jpeg' format and be suffixed with '.jpg' or '.jpeg'.\n"
 "For best results, they must have a size of 800x520 pixels.\n"
 msgstr ""
+"Lakait ne vern pet skeudennoù er c'havlec'hiad-mañ.\n"
+"Graet e vo ganto da zrekleur evit an obererezh  'diverkañ'.\n"
+"E mentrezh 'jpeg' e rank  bezañ ar skeudennoù gant un askouezhadenn '.jpg' pe '.jpeg'.\n"
+"Da gaout un disoc'h brav e vo gwell lakaat ar skeudennoù d'ur vent 800x520 piksel.\n"
 
 #: ../src/erase-activity/erase.xml.in.h:1
 msgid "Animal pictures are taken from the Animal Photography Page of Ralf Schmode (&lt;http://schmode.net/&gt;) and from LE BERRE Daniel. These people kindly gave GCompris the authorization to include their pictures. Thanks a lot, both of you."
@@ -2392,7 +2438,7 @@ msgstr "Eus ar bajennad a-fet luc'hskeudennoù diwar-benn al loened, gant Ralf S
 
 #: ../src/erase-activity/erase.xml.in.h:6
 msgid "Move the mouse until all the blocks disappear. You can add you own images under the directory '~/My GCompris/erase'."
-msgstr ""
+msgstr "Laka al logodenn da zilec'hiañ betek ma vo diverket ar bloc'had. Da skeudenn dit-te a vez ouzhpennet er c'havlec'hiad '~/My GCompris/erase'."
 
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
 msgid "Double click the mouse"
@@ -2458,7 +2504,7 @@ msgstr ""
 msgid "Tux needs to water the flowers, but the hose is blocked."
 msgstr "Dourañ ar bleuñv a fell da dTuks, stanket eo an duellenn avat."
 
-#: ../src/gcompris/about.c:49
+#: ../src/gcompris/about.c:48
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge, Yves Combe\n"
@@ -2473,51 +2519,51 @@ msgstr ""
 "Sonerezh an drekva : Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:57
+#: ../src/gcompris/about.c:56
 msgid "translator_credits"
 msgstr "Alan Monfort <alan.monfort@free.fr>"
 
-#: ../src/gcompris/about.c:84
+#: ../src/gcompris/about.c:82
 msgid "About GCompris"
 msgstr "Diwar-benn GCompris"
 
-#: ../src/gcompris/about.c:94
+#: ../src/gcompris/about.c:92
 msgid "GCompris Home Page: http://gcompris.net"
 msgstr "Pajennad degemer GCompris : http://gcompris.net"
 
-#: ../src/gcompris/about.c:105
+#: ../src/gcompris/about.c:103
 msgid "Translators:"
 msgstr "Troet gant :"
 
-#: ../src/gcompris/about.c:210
+#: ../src/gcompris/about.c:208
 msgid "This software is a GNU Package and is released under the GNU General Public License"
 msgstr "Ur pakad GNU eo ar meziant-mañ ha savet eo bet dindan Lañvaz Hollek Foran GNU (GPL)."
 
-#: ../src/gcompris/about.c:224
-#: ../src/gcompris/config.c:438
-#: ../src/gcompris/dialog.c:104
+#: ../src/gcompris/about.c:222
+#: ../src/gcompris/config.c:456
+#: ../src/gcompris/dialog.c:99
 #: ../src/gcompris/help.c:355
-#: ../src/gcompris/images_selector.c:307
+#: ../src/gcompris/images_selector.c:306
 msgid "OK"
 msgstr "Mat eo"
 
-#: ../src/gcompris/bar.c:693
+#: ../src/gcompris/bar.c:684
 msgid "GCompris confirmation"
 msgstr "Gcompris : kadarnaat"
 
-#: ../src/gcompris/bar.c:694
+#: ../src/gcompris/bar.c:685
 msgid "Are you sure you want to quit?"
 msgstr "Ha mont kuit a fell dit ?"
 
-#: ../src/gcompris/bar.c:695
+#: ../src/gcompris/bar.c:686
 msgid "Yes, I am sure!"
 msgstr "Ya, a dra-sur !"
 
-#: ../src/gcompris/bar.c:696
+#: ../src/gcompris/bar.c:687
 msgid "No, I want to keep going"
 msgstr "Ne fell ket din !"
 
-#: ../src/gcompris/board.c:168
+#: ../src/gcompris/board.c:155
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr "N'eo ket skoret pellgargadur dialuskel ar mollad. GCompris n'eo ket evit pellgargañ.\n"
 
@@ -2587,77 +2633,77 @@ msgid "Afrikaans"
 msgstr "Boereg"
 
 #: ../src/gcompris/config.c:60
+msgid "Albanian"
+msgstr "Albaneg"
+
+#: ../src/gcompris/config.c:61
 msgid "Amharic"
 msgstr "Amhareg"
 
-#: ../src/gcompris/config.c:61
+#: ../src/gcompris/config.c:62
 msgid "Arabic"
 msgstr "Arabeg"
 
-#: ../src/gcompris/config.c:62
+#: ../src/gcompris/config.c:63
 msgid "Asturian"
 msgstr "Asturieg"
 
-#: ../src/gcompris/config.c:63
-msgid "Turkish (Azerbaijan)"
-msgstr "Turkeg (Azerbaidjan)"
-
 #: ../src/gcompris/config.c:64
-msgid "Bulgarian"
-msgstr "Bulgareg"
+msgid "Basque"
+msgstr "Euskareg"
 
 #: ../src/gcompris/config.c:65
 msgid "Breton"
 msgstr "Brezhoneg"
 
 #: ../src/gcompris/config.c:66
+msgid "Bulgarian"
+msgstr "Bulgareg"
+
+#: ../src/gcompris/config.c:67
 msgid "Catalan"
 msgstr "Katalaneg"
 
-#: ../src/gcompris/config.c:67
+#: ../src/gcompris/config.c:68
+msgid "Chinese (Simplified)"
+msgstr "Sineg (eeunaet)"
+
+#: ../src/gcompris/config.c:69
+msgid "Chinese (Traditional)"
+msgstr "Sinaeg (hengounel)"
+
+#: ../src/gcompris/config.c:70
+msgid "Croatian"
+msgstr "Kroateg"
+
+#: ../src/gcompris/config.c:71
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:7
 msgid "Czech Republic"
 msgstr "Republik Tchek"
 
-#: ../src/gcompris/config.c:68
+#: ../src/gcompris/config.c:72
 msgid "Danish"
 msgstr "Daneg"
 
-#: ../src/gcompris/config.c:69
-msgid "German"
-msgstr "Alamaneg"
+#: ../src/gcompris/config.c:73
+msgid "Dutch"
+msgstr "Nederlandeg"
 
-#: ../src/gcompris/config.c:70
+#: ../src/gcompris/config.c:74
 msgid "Dzongkha"
 msgstr "Dzongkheg"
 
-#: ../src/gcompris/config.c:71
-msgid "Greek"
-msgstr "Gresianeg"
-
-#: ../src/gcompris/config.c:72
+#: ../src/gcompris/config.c:75
 msgid "English (Canada)"
 msgstr "Saozneg (Kanada)"
 
-#: ../src/gcompris/config.c:73
+#: ../src/gcompris/config.c:76
 msgid "English (Great Britain)"
 msgstr "Saozneg (Rouantelezh Unanet)"
 
-#: ../src/gcompris/config.c:74
+#: ../src/gcompris/config.c:77
 msgid "English (United States)"
 msgstr "Saozneg (Stadoù Unanet)"
-
-#: ../src/gcompris/config.c:75
-msgid "Spanish"
-msgstr "Spagnoleg"
-
-#: ../src/gcompris/config.c:76
-msgid "Basque"
-msgstr "Euskareg"
-
-#: ../src/gcompris/config.c:77
-msgid "Persian"
-msgstr "Perseg"
 
 #: ../src/gcompris/config.c:78
 msgid "Finnish"
@@ -2668,251 +2714,259 @@ msgid "French"
 msgstr "Galleg"
 
 #: ../src/gcompris/config.c:80
-msgid "Irish (Gaelic)"
-msgstr "Iwerzhoneg"
-
-#: ../src/gcompris/config.c:81
-msgid "Gujarati"
-msgstr "Gujaratieg"
-
-#: ../src/gcompris/config.c:82
-msgid "Hebrew"
-msgstr "Hebraeg"
-
-#: ../src/gcompris/config.c:83
-msgid "Hindi"
-msgstr "Hindieg"
-
-#: ../src/gcompris/config.c:84
-msgid "Croatian"
-msgstr "Kroateg"
-
-#: ../src/gcompris/config.c:85
-msgid "Hungarian"
-msgstr "Hungareg"
-
-#: ../src/gcompris/config.c:86
-msgid "Indonesian"
-msgstr "Indonezieg"
-
-#: ../src/gcompris/config.c:87
-msgid "Italian"
-msgstr "Italianeg"
-
-#: ../src/gcompris/config.c:88
-msgid "Japanese"
-msgstr "Japoneg"
-
-#: ../src/gcompris/config.c:89
 msgid "Georgian"
 msgstr "Georgianeg"
 
+#: ../src/gcompris/config.c:81
+msgid "German"
+msgstr "Alamaneg"
+
+#: ../src/gcompris/config.c:82
+msgid "Greek"
+msgstr "Gresianeg"
+
+#: ../src/gcompris/config.c:83
+msgid "Gujarati"
+msgstr "Gujaratieg"
+
+#: ../src/gcompris/config.c:84
+msgid "Hebrew"
+msgstr "Hebraeg"
+
+#: ../src/gcompris/config.c:85
+msgid "Hindi"
+msgstr "Hindieg"
+
+#: ../src/gcompris/config.c:86
+msgid "Hungarian"
+msgstr "Hungareg"
+
+#: ../src/gcompris/config.c:87
+msgid "Indonesian"
+msgstr "Indonezieg"
+
+#: ../src/gcompris/config.c:88
+msgid "Irish (Gaelic)"
+msgstr "Iwerzhoneg"
+
+#: ../src/gcompris/config.c:89
+msgid "Italian"
+msgstr "Italianeg"
+
 #: ../src/gcompris/config.c:90
+msgid "Japanese"
+msgstr "Japoneg"
+
+#: ../src/gcompris/config.c:91
+msgid "Kinyarwanda"
+msgstr "Kinyarwandeg"
+
+#: ../src/gcompris/config.c:92
 msgid "Korean"
 msgstr "Koreeg"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:93
 msgid "Lithuanian"
 msgstr "Lituanieg"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:94
 msgid "Macedonian"
 msgstr "Makedonieg"
-
-#: ../src/gcompris/config.c:93
-msgid "Malayalam"
-msgstr "Malayalameg"
-
-#: ../src/gcompris/config.c:94
-msgid "Marathi"
-msgstr "Maratieg"
 
 #: ../src/gcompris/config.c:95
 msgid "Malay"
 msgstr "Malezieg"
 
 #: ../src/gcompris/config.c:96
-msgid "Norwegian Bokmal"
-msgstr "Norvegieg Bokmal"
+msgid "Malayalam"
+msgstr "Malayalameg"
 
 #: ../src/gcompris/config.c:97
+msgid "Marathi"
+msgstr "Maratieg"
+
+#: ../src/gcompris/config.c:98
+msgid "Montenegrin"
+msgstr "Montenegro"
+
+#: ../src/gcompris/config.c:99
 msgid "Nepal"
 msgstr "Nepaleg"
 
-#: ../src/gcompris/config.c:98
-msgid "Dutch"
-msgstr "Nederlandeg"
+#: ../src/gcompris/config.c:100
+msgid "Norwegian Bokmal"
+msgstr "Norvegieg Bokmal"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:101
 msgid "Norwegian Nynorsk"
 msgstr "Norvegieg Ninorsk"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:102
 msgid "Occitan (languedocien)"
 msgstr "Okitaneg"
 
-#: ../src/gcompris/config.c:101
-msgid "Punjabi"
-msgstr "Punjabieg"
+#: ../src/gcompris/config.c:103
+msgid "Persian"
+msgstr "Perseg"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:104
 msgid "Polish"
 msgstr "Polonieg"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:105
 msgid "Portuguese (Brazil)"
 msgstr "Portugaleg (Brazil)"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:106
 msgid "Portuguese"
 msgstr "Portugaleg"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:107
+msgid "Punjabi"
+msgstr "Punjabieg"
+
+#: ../src/gcompris/config.c:108
 msgid "Romanian"
 msgstr "Roumanieg"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:109
 msgid "Russian"
 msgstr "Rusianeg"
 
-#: ../src/gcompris/config.c:107
-msgid "Kinyarwanda"
-msgstr "Kinyarwandeg"
-
-#: ../src/gcompris/config.c:108
-msgid "Slovak"
-msgstr "Sloveg"
-
-#: ../src/gcompris/config.c:109
-msgid "Slovenian"
-msgstr "Slovenieg"
-
 #: ../src/gcompris/config.c:110
-msgid "Somali"
-msgstr "Somalieg"
-
-#: ../src/gcompris/config.c:111
-msgid "Albanian"
-msgstr "Albaneg"
-
-#: ../src/gcompris/config.c:112
 msgid "Serbian (Latin)"
 msgstr "Serbeg (Latin)"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:111
 msgid "Serbian"
 msgstr "Serbeg"
 
+#: ../src/gcompris/config.c:112
+msgid "Slovak"
+msgstr "Sloveg"
+
+#: ../src/gcompris/config.c:113
+msgid "Slovenian"
+msgstr "Slovenieg"
+
 #: ../src/gcompris/config.c:114
+msgid "Somali"
+msgstr "Somalieg"
+
+#: ../src/gcompris/config.c:115
+msgid "Spanish"
+msgstr "Spagnoleg"
+
+#: ../src/gcompris/config.c:116
 msgid "Swedish"
 msgstr "Swedeneg"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:117
 msgid "Tamil"
 msgstr "Tamouleg"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:118
 msgid "Thai"
 msgstr "Taieg"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:119
+msgid "Turkish (Azerbaijan)"
+msgstr "Turkeg (Azerbaidjan)"
+
+#: ../src/gcompris/config.c:120
 msgid "Turkish"
 msgstr "Turkeg"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:121
 msgid "Ukrainian"
 msgstr "Ukrainieg"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:122
 msgid "Urdu"
 msgstr "Ourdoueg"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:123
 msgid "Vietnamese"
 msgstr "Vietnamieg"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:124
 msgid "Walloon"
 msgstr "Waloneg"
 
-#: ../src/gcompris/config.c:122
-msgid "Chinese (Simplified)"
-msgstr "Sineg (eeunaet)"
+#: ../src/gcompris/config.c:125
+msgid "Zulu"
+msgstr "Zoulou"
 
-#: ../src/gcompris/config.c:123
-msgid "Chinese (Traditional)"
-msgstr "Sinaeg (hengounel)"
-
-#: ../src/gcompris/config.c:128
+#: ../src/gcompris/config.c:130
 msgid "No time limit"
 msgstr "Amzer divevenn"
 
-#: ../src/gcompris/config.c:129
+#: ../src/gcompris/config.c:131
 msgid "Slow timer"
 msgstr "Konterez c'horrek"
 
-#: ../src/gcompris/config.c:130
+#: ../src/gcompris/config.c:132
 msgid "Normal timer"
 msgstr "Konterez reizh"
 
-#: ../src/gcompris/config.c:131
+#: ../src/gcompris/config.c:133
 msgid "Fast timer"
 msgstr "Konterez herrek"
 
-#: ../src/gcompris/config.c:135
+#: ../src/gcompris/config.c:137
 msgid "Use Gcompris administration module to filter boards"
 msgstr "Silit an obererezhioù gant ar mollad ardeiñ"
 
-#: ../src/gcompris/config.c:186
+#: ../src/gcompris/config.c:188
 msgid "GCompris Configuration"
 msgstr "Kefluniadur GCompris"
 
-#: ../src/gcompris/config.c:253
+#: ../src/gcompris/config.c:271
 msgid "Fullscreen"
 msgstr "Skrammad a-bezh"
 
-#: ../src/gcompris/config.c:278
+#: ../src/gcompris/config.c:296
 msgid "Music"
 msgstr "Sonerezh"
 
-#: ../src/gcompris/config.c:303
+#: ../src/gcompris/config.c:321
 msgid "Effect"
 msgstr "Efed"
 
-#: ../src/gcompris/config.c:327
+#: ../src/gcompris/config.c:345
 #: ../src/gcompris/sugar.c:82
 msgid "Zoom"
 msgstr "Zoum"
 
-#: ../src/gcompris/config.c:364
+#: ../src/gcompris/config.c:382
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "N'haller ket digeriñ kavlec'hiad an neuzioù : %s"
 
-#: ../src/gcompris/config.c:395
-#: ../src/gcompris/config.c:753
-#: ../src/gcompris/config.c:767
+#: ../src/gcompris/config.c:413
+#: ../src/gcompris/config.c:780
+#: ../src/gcompris/config.c:794
 #, c-format
 msgid "Skin : %s"
 msgstr "Neuz : %s"
 
-#: ../src/gcompris/config.c:397
+#: ../src/gcompris/config.c:415
 msgid "SKINS NOT FOUND"
 msgstr "N'EO KET BET KAVET AN NEUZIOÙ"
 
-#: ../src/gcompris/config.c:478
+#: ../src/gcompris/config.c:496
 msgid "English (United State)"
 msgstr "Saozneg (Stadoù Unanet)"
 
-#: ../src/gcompris/file_selector.c:254
+#: ../src/gcompris/file_selector.c:251
 msgid "CANCEL"
 msgstr "DILEZEL"
 
-#: ../src/gcompris/file_selector.c:262
+#: ../src/gcompris/file_selector.c:259
 msgid "LOAD"
 msgstr "KARGAÑ"
 
-#: ../src/gcompris/file_selector.c:262
+#: ../src/gcompris/file_selector.c:259
 msgid "SAVE"
 msgstr "ENROLLAÑ"
 
@@ -2952,14 +3006,12 @@ msgid "run GCompris without sound."
 msgstr "loc'h GCompris hep ar sonioù."
 
 #: ../src/gcompris/gcompris.c:170
-#, fuzzy
 msgid "run GCompris with the default system cursor."
-msgstr "loc'h GCompris gant reti dre ziouer GNOME."
+msgstr "loc'h GCompris gant reti dre ziouer ar reizhiad."
 
 #: ../src/gcompris/gcompris.c:173
-#, fuzzy
 msgid "run GCompris without cursor (touch screen mode)."
-msgstr "loc'h GCompris hep ar sonioù."
+msgstr "loc'h GCompris hep ar reti (mod dre stekiñ ar skramm)."
 
 #: ../src/gcompris/gcompris.c:176
 msgid "display only activities with this difficulty level."
@@ -3046,9 +3098,8 @@ msgid "Disable the config button"
 msgstr "Diweredekaat an afell gefluniañ"
 
 #: ../src/gcompris/gcompris.c:241
-#, fuzzy
 msgid "Disable the level button"
-msgstr "Diweredekaat an afell guitaat"
+msgstr "Diweredekaat afell al live"
 
 #: ../src/gcompris/gcompris.c:244
 msgid "GCompris will get images, sounds and activity data from this server if not found locally."
@@ -3086,7 +3137,7 @@ msgstr ""
 #: ../src/gcompris/gcompris.c:1223
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
-msgstr ""
+msgstr "C'hwitadenn war kargañ an neuz '%s' (Bezit sur ez eus eus ar restr-mañ hag ez eo lennadus)"
 
 #: ../src/gcompris/gcompris.c:1486
 #, c-format
@@ -3098,7 +3149,7 @@ msgstr "Ne loc'ho ket GCompris rak lakaet eo bet ar restr potailh abaoe %d eilen
 msgid "The lock file is: %s\n"
 msgstr "« %s » eo ar restr potailh\n"
 
-#: ../src/gcompris/gcompris.c:1602
+#: ../src/gcompris/gcompris.c:1599
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3112,37 +3163,37 @@ msgstr ""
 "Muioc'h a ditouroù war http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1717
+#: ../src/gcompris/gcompris.c:1714
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Arverañ an dibarzh -l evit tizhout un obererezh end eeun.\n"
 
-#: ../src/gcompris/gcompris.c:1718
+#: ../src/gcompris/gcompris.c:1715
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Roll an obererezhioù hegerz :\n"
 
-#: ../src/gcompris/gcompris.c:1749
+#: ../src/gcompris/gcompris.c:1746
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Niver a obererezhioù : %d\n"
 
-#: ../src/gcompris/gcompris.c:1785
+#: ../src/gcompris/gcompris.c:1782
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s ez eus anezhi met n'hall ket bezañ lennet pe enrollet"
 
-#: ../src/gcompris/gcompris.c:1848
+#: ../src/gcompris/gcompris.c:1845
 #, c-format
 msgid "The --server option cannot be used because GCompris has been compiled without network support!"
 msgstr "Dibarzh an dafariad n'hall ket bezañ arveret rak kempunet eo bet GCompris hep ar skor rouedad !"
 
-#: ../src/gcompris/gcompris.c:1902
+#: ../src/gcompris/gcompris.c:1899
 #, c-format
 msgid "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list available ones\n"
 msgstr "FAZI : N'eo ket bet kavet aelad '%s'. Lañsit 'gcompris --profile-list' evit sevel roll ar re hegerz\n"
 
-#: ../src/gcompris/gcompris.c:1916
+#: ../src/gcompris/gcompris.c:1913
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Roll an aeladoù hegerz :\n"
@@ -3189,11 +3240,11 @@ msgstr ""
 "O kargañ an obererezh diouzh ar restr : \n"
 "%s"
 
-#: ../src/gcompris/properties.c:503
+#: ../src/gcompris/properties.c:506
 msgid "This directory contains the files you create with the GCompris educational suite\n"
 msgstr "Ar restroù krouet ganeoc'h gant GCompris zo er c'havlec'hiad-mañ.\n"
 
-#: ../src/gcompris/properties.c:510
+#: ../src/gcompris/properties.c:513
 msgid ""
 "Put any number of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
@@ -3877,10 +3928,10 @@ msgstr "ABCDEFGHIJKLMNÑOPRSTUÙVWYZ'"
 #: ../src/missing_letter-activity/missingletter.c:784
 #: ../src/pythontest-activity/pythontest.py:454
 #: ../src/readingh-activity/reading.c:904
-#: ../src/scalesboard-activity/scale.c:1161
+#: ../src/scalesboard-activity/scale.c:1160
 #: ../src/smallnumbers-activity/smallnumbers.c:595
 #: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:866
+#: ../src/wordsgame-activity/wordsgame.c:864
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -4173,6 +4224,47 @@ msgstr ""
 "\n"
 "Pa vez Tuks dindan pe a-us live an ezkerzh e talv neuze emañ da niver dindan pe a-us an niver mat."
 
+#. All the vowel of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:61
+msgid "aeiouy"
+msgstr "aeiouùy"
+
+#. All the consonants of your language (keep empty if non applicable)
+#: ../src/hangman-activity/hangman.py:63
+msgid "bcdfghjklmnpqrstvwxz"
+msgstr "bcdfghjklmnrstvwyz"
+
+#. Letters equivallence for the hangman activity. It has the
+#. form of a space separated list like: "e=éè a=àâ"
+#. Keep the word NONE if not available in your language
+#: ../src/hangman-activity/hangman.py:67
+msgid "NONE"
+msgstr "Tra ebet"
+
+#: ../src/hangman-activity/hangman.py:104
+msgid "Could not find the list of words."
+msgstr "N'hall ket kavout roll ar gerioù."
+
+#: ../src/hangman-activity/hangman.xml.in.h:1
+msgid "A word is hidden, you must discover it letter by letter"
+msgstr "Kuzhet eo bet ur ger, ret eo dit e zizoleiñ ul lizherenn goude eben"
+
+#: ../src/hangman-activity/hangman.xml.in.h:2
+msgid "Reading skill"
+msgstr "Barregezh lenn"
+
+#: ../src/hangman-activity/hangman.xml.in.h:3
+msgid "The classic hangman game"
+msgstr "C'hoari klasel an den krouget"
+
+#: ../src/hangman-activity/hangman.xml.in.h:4
+msgid "This is a good exercise to improve reading and spelling skills."
+msgstr "Ur pleustradenn vat eo da wellaatar  barregezhioù lenn ha skrivañ."
+
+#: ../src/hangman-activity/hangman.xml.in.h:5
+msgid "You can enter the letters using the virtual keyboard on the screen or with the real keyboard."
+msgstr "Biziataet e vez al lizherennoù dre ar c'hlavier galloudel war ar skramm pe gant ar c'hlavier gwir."
+
 #: ../src/hanoi-activity/hanoi.c:112
 #: ../src/hanoi-activity/hanoi.xml.in.h:6
 msgid "Simplified Tower of Hanoi"
@@ -4253,6 +4345,86 @@ msgstr "Kav ar sivi dre glikañ war ar c'hwec'htuegoù glas. Tostoc'h ez i ouzh 
 #: ../src/hexagon-activity/hexagon.xml.in.h:5
 msgid "hexagon"
 msgstr "C'hwec'htuegoù"
+
+#: ../src/hydroelectric-activity/hydroelectric.py:88
+#: ../src/watercycle-activity/watercycle.py:107
+msgid "The sun heats the water and creates water vapor. Water vapor combines into small water droplets which becomes clouds."
+msgstr "Skinoù an heol a dizh an dour ha burezh dour zo krouet neuze. Da dakennoù dour ez a ar vurezh en ur en em genstrollañ. Da goumoul ez eont da vezañ."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:126
+#: ../src/watercycle-activity/watercycle.py:144
+msgid "As a cloud matures, the dense water droplets may combine to produce larger droplets, which may combine to form droplets large enough to fall as rain"
+msgstr "E-pad m'emañ ar c'houmoul o tevaat emañ ar takennoù dour fetis o kenstrollañ da dakennoù brasoc'h hag a c'hallo en em strollañ c'hoazh a-benn stummañ takennoù bras a-walc'h da gouezhañ evel glav."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:169
+msgid "This is the meter for electricity produced by the turbine. "
+msgstr "Ur merker eo evit an tredan bet ganet gant an droellrod."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:170
+#: ../src/hydroelectric-activity/hydroelectric.py:282
+#: ../src/hydroelectric-activity/hydroelectric.py:289
+#: ../src/hydroelectric-activity/hydroelectric.py:319
+#: ../src/hydroelectric-activity/hydroelectric.py:341
+msgid "The electricity power is measured in Watt (W)."
+msgstr "Muzuliet e vez ar c'halloudezh-tredan e Watt (W)."
+
+# troellrod b. -où : turbine
+#: ../src/hydroelectric-activity/hydroelectric.py:175
+msgid "Flowing water is directed on to the blades of a turbine runner, creating a force on the blades. In this way, energy is transferred from the water flow to the turbine"
+msgstr "An dour red zo kaset etrezek laonennoù un droellrod o krouiñ un nerzh war al laonennoù. Evel-se ez eo treuskaset an nerzh diouzh an dour red etrezek an droellrod."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:189
+msgid "This cloud simulates the wind, click on it to have wind."
+msgstr "Gant ar goumoulenn-mañ e tiskouezer an avel, klik warni a-benn a vo avel."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:227
+msgid "This is a step down transformer. Electricity is transformed in low voltage, ready to be used by the customers."
+msgstr "Un dreuzfurmerez-digreskaat eo homañ. Treuzfurmet eo an tredan gant voltadurioù izel, aes d'ober gantañ gant an arvalion (an dud)."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:281
+msgid "This is the meter for all the electricity produced. "
+msgstr "Ur merker eo evit an tredan a-bezh bet ganet."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:288
+msgid "This is the meter for electricity consumed by the users. "
+msgstr "Ur merker eo evit an tredan bevezet gant an arveriaded."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:318
+msgid "This is the meter for electricity produced by the solar panels. "
+msgstr "Ur merker eo evit an tredan bet ganet gant panneloù heol."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:324
+msgid "Solar panels use light energy (photons) from the sun to generate electricity through the photovoltaic effect."
+msgstr "Gant gremm gouloù (fotonioù) an heol e ra ar panneloù heol a-benn genel tredan dre an efedoù luc'hvoltaek."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:340
+msgid "This is the meter for electricity produced by the wind turbines. "
+msgstr "Ur merker eo evit an tredan bet ganet gant an droellrod."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:346
+msgid "A wind turbine is a device that converts wind motion energy into electricity generation. It is called a wind generator or wind charger. "
+msgstr "Un ijinenn a amdro nerzh an avel da dredan eo un droellerez avel. Graet e vez ganerez-avel anezhi."
+
+#: ../src/hydroelectric-activity/hydroelectric.py:732
+msgid "It is not possible to consume more electricity than what is produced. This is a key limitation in the distribution of electricity, with minor exceptions, electrical energy cannot be stored, and therefore it must be generated as it is needed. A sophisticated system of control is therefore required to ensure electric generation very closely matches the demand. If supply and demand are not in balance, generation plants and transmission equipment can shut down which, in the worst cases, can lead to a major regional blackout."
+msgstr "N'eus ket tro da veveziñ muioc'h a dredan eget ar c'hementad bet ganet. Setu perak ez eo bevennet dasparzhadur an tredan rak, gant nemedennoù dister, ne vez ket kadavet an tredan ha neuze e rank bezañ ganet e-keit ma vez bevezet. Ur reizhiad reoliañ kemplezh ez eus ezhomm neuze a-benn bezañ sur e kengloto ar c'hementad tredan ganet gant an ezhommoù. Ma ne chomo ket ar c'hinnig hag ar goulenn war kempouez e tegouezho chanadoù gant ar c'heizennoù genel pe an aveadurioù treuzdougen. Gant an troioù gwashañ e tegouezho ur sac'hadeg war ur rannvro a-bezh."
+
+# step-up transformer : transformateur élévateur  m = treuzfurmerez-saverez
+#: ../src/hydroelectric-activity/hydroelectric.py:946
+msgid "This is a step up transformer. Electricity is transmitted at high voltages (110 kV or above) to reduce the energy lost in long distance transmission."
+msgstr "Un dreuzfurmerez-kreskaat eo homañ. Treuzdouget eo an tredan gant voltadurioù uhel (110 kV pe uheloc'h - 220 e Bro-C'hall) a-benn bihanaat ar c'holl tredan pa vez treuzdouget an tredan a-hed pellderioù hir."
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:1
+msgid "Click on different active elements : sun, cloud, dam, solar array, wind farm and transformers, in order to reactivate the entire electrical system. When the system is back up and Tux is in his home, push the light button for him. To win you must switch on all the consumers while all the producers are up."
+msgstr "Klik war an elfennoù disheñvel oberiant : heol, koumoulenn, stankell, treuzfurmerez a-benn adderaouiñ ar reizhiad tredan a-bezh. Ur wech ma 'z eo bet adsavet ar reizhiad ha Tuks er gêr, pouez war afell ar gouleier evitañ. A-benn gounit, enaou an holl dud koumanantet e-pad m'emañ an holl broduerion war genel."
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:3
+msgid "Learn about an electrical system based on renewable energy"
+msgstr "Deskit traoù a-zivout ur reizhiad tredanel diazezet war ar gremm aznevezadus"
+
+#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:4
+msgid "Tux has come back from a long fishing party on his boat. Bring the electrical system back up so he can have light in his home."
+msgstr "Emañ Tuks o vont d'ar gêr en-dro goude un abadenn besketa hir war e vag. Laka reizhiad dasparzhañ an tredan en urzh evit ma vo skaerijenn betek ti Tuks."
 
 #: ../src/imageid-activity/imageid.c:94
 #: ../src/imageid-activity/imageid.xml.in.h:3
@@ -4625,7 +4797,6 @@ msgid "GCompris login screen"
 msgstr "Skrammad kennaskañ GCompris"
 
 #: ../src/login-activity/login.xml.in.h:3
-#, fuzzy
 msgid ""
 "In order to activate the login screen, you must\n"
 "first add users in the administration part of GCompris.\n"
@@ -4636,10 +4807,12 @@ msgid ""
 "is the name of a profile as you created it in Administration."
 msgstr ""
 "A-benn gweredekaat ar skrammad kennaskañ ez eo ret deoc'h\n"
-"ouzhpennañ arveriaded e lod an ardeiñ eus GCompris.\n"
+"ouzhpennañ an arveriaded e lod an ardeiñ eus GCompris.\n"
 "Evit tizhout ar skrammad-mañ, lañsit 'gcompris -a'.\n"
-"En Ardoadur e vez krouet aeladoù disheñvel. Gant pep aelad e vez savet meur a strollad arveriaded ha diuzet an obererezhioù hegerz evito.\n"
-"Evit loc'hañ GCompris gant un aelad roet, arverit an arc'had  'gcompris -p profil' gant 'profil' o talvezout anv un aelad evel ma 'z eo bet krouet en Ardoadur."
+"En Ardoadur e vez krouet aeladoù disheñvel. Gant pep aelad e vez savet \n"
+"meur a strollad arveriaded ha diuzet an obererezhioù hegerz evito.\n"
+"Evit loc'hañ GCompris gant un aelad roet, arverit an arc'had  'gcompris -p profil' gant 'profil' \n"
+"o talvezout da anv un aelad evel ma 'z eo bet krouet en Ardoadur."
 
 #: ../src/login-activity/login.xml.in.h:10
 msgid "Select or enter your name to log in to GCompris"
@@ -5199,35 +5372,35 @@ msgstr "Lenn gerioù"
 
 #: ../src/missing_letter-activity/missingletter_config.c:77
 msgid "Please select an image."
-msgstr ""
+msgstr "Mar plij, dibab ur skeudenn."
 
 #: ../src/missing_letter-activity/missingletter_config.c:83
 msgid "Choice cannot be empty."
-msgstr ""
+msgstr "An dibab n'hall ket bezañ goullo."
 
 #: ../src/missing_letter-activity/missingletter_config.c:89
 msgid "Question cannot be empty."
-msgstr ""
+msgstr "Ar goulenn n'hall ket bezañ goullo."
 
 #: ../src/missing_letter-activity/missingletter_config.c:95
 msgid "Question must include the character '_'. It represents the letter to search."
-msgstr ""
+msgstr "An arouezenn '_' a rank bezañ gant ar goulenn. Talvezout a ra al lizherenn da glask."
 
 #: ../src/missing_letter-activity/missingletter_config.c:102
 msgid "Pixmap cannot be empty"
-msgstr ""
+msgstr "Pixmap n'hall ket bezañ goullo."
 
 #: ../src/missing_letter-activity/missingletter_config.c:108
 msgid "There must be at least 2 choices."
-msgstr ""
+msgstr "Ret eo kaout daou zibab da vihanañ."
 
 #: ../src/missing_letter-activity/missingletter_config.c:116
 msgid "The answer and question must be the same except for the character '_'."
-msgstr ""
+msgstr "Heñvel e rank bezañ ar respont hag ar goulenn nemet evit an arouezenn '_'."
 
 #: ../src/missing_letter-activity/missingletter_config.c:125
 msgid "The first choice must be the solution that replaces the character '_'."
-msgstr ""
+msgstr "An dibab kentañ a rank bezañ an diskoulm a gemer plas an arouezenn '_'."
 
 #: ../src/missing_letter-activity/missingletter_config.c:140
 #, c-format
@@ -5236,6 +5409,9 @@ msgid ""
 "Question '%s' / Answer '%s'\n"
 "%s"
 msgstr ""
+"Enankad didalvoudek :\n"
+"Goulenn '%s' / Respont '%s'\n"
+"%s"
 
 #. pixmap
 #: ../src/missing_letter-activity/missingletter_config.c:414
@@ -5277,11 +5453,11 @@ msgstr "Anv restr :"
 
 #: ../src/missing_letter-activity/missingletter_config.c:579
 msgid "Replace the letter to guess by the character '_'."
-msgstr ""
+msgstr "Lakaat an arouezenn '_' e lec'h al lizherenn da zivinout."
 
 #: ../src/missing_letter-activity/missingletter_config.c:591
 msgid "Enter here the letter that will be proposed. The first letter here must be the solution."
-msgstr ""
+msgstr "Biziata amañ al lizherenn a vo kinniget. An diskoulm a rank bezañ al lizherenn gentañ amañ."
 
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:1
 msgid "car/c_r/a/k/o"
@@ -5428,22 +5604,37 @@ msgid "satchel/sa_chel/t/p/c/z/s/l"
 msgstr "sac'h skol/sac'h _kol/s/g/v/d/t/l"
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
-#: ../src/money-activity/money.c:542
+#: ../src/money-activity/money.c:795
 #, c-format
 msgid "$ %.2f"
 msgstr "%.2f €"
 
-#: ../src/money-activity/money.c:555
+#. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
+#: ../src/money-activity/money.c:809
 #, c-format
 msgid "$ %.0f"
 msgstr "%.0f €"
 
+#. Set here the way to display money. Change only the money sign, and it's place, always keep %d
+#: ../src/money-activity/money.c:932
+#, c-format
+msgid ""
+"Tux just bought some items in your shop.\n"
+"He gives you $ %d, please give back his change."
+msgstr ""
+"Prenet en deus Tuks traoù en ho stal.\n"
+"$ %d a ro deoc'h, mar plij, distro e voneiz."
+
 #: ../src/money-activity/money.xml.in.h:1
+#: ../src/money_back-activity/money_back.xml.in.h:1
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:1
 #: ../src/money_cents-activity/money_cents.xml.in.h:1
 msgid "Can count"
 msgstr "Gouzout kontañ"
 
 #: ../src/money-activity/money.xml.in.h:2
+#: ../src/money_back-activity/money_back.xml.in.h:2
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:2
 #: ../src/money_cents-activity/money_cents.xml.in.h:2
 msgid "Click on the coins or paper money at the bottom of the screen to pay. If you want to remove a coin or note, click on it on the upper screen area."
 msgstr "Klik war ar pezhioù hag ar bilhedoù e traoñ ar bajenn evit paeañ. Mar fell dit tennañ ur pezh kuit, klik warnañ war ar maez e krec'h."
@@ -5461,6 +5652,24 @@ msgstr "Pleustriñ war arver an arc'hant"
 #: ../src/money_cents-activity/money_cents.xml.in.h:5
 msgid "You must buy the different items and give the exact price. At higher levels, several items are displayed, and you must first calculate the total price."
 msgstr "Ret eo dit prenañ traoù disheñvel ha reiñ ar priz rik. Gant al liveoù uhelañ e vo skrammet meur a dra ha ret e vo dit jediñ ar priz hollel."
+
+#: ../src/money_back-activity/money_back.xml.in.h:3
+msgid "Give tux his change"
+msgstr "Distro e voneiz da dTuks"
+
+#: ../src/money_back-activity/money_back.xml.in.h:4
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:4
+msgid "Practice money usage by giving Tux his change"
+msgstr "Pleustriñ war arver an arc'hant en ur zistreiñ e voneiz da dTuks"
+
+#: ../src/money_back-activity/money_back.xml.in.h:5
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:5
+msgid "Tux bought you different items and shows you his money. You must give him back his change. At higher levels, several items are displayed, and you must first calculate the total price."
+msgstr "Prenet en deus Tuks traoù en ho stal ha diskouez a ra e arc'hant. Ret e deoc'h distreiñ e voneiz dezhañ. Gant al liveoù uhelañ e vo diskouezet  meur a dra ha ret e vo dit jediñ ar priz hollel."
+
+#: ../src/money_back_cents-activity/money_back_cents.xml.in.h:3
+msgid "Give tux his change, including cents"
+msgstr "Distro e voneiz da dTuks, gant ar c'hentimoù."
 
 #: ../src/money_cents-activity/money_cents.xml.in.h:4
 msgid "Practice money usage including cents"
@@ -5507,72 +5716,72 @@ msgid ""
 "Katsushika Hokusai,\\n"
 "Viewing Sunset over the Ryogoku Bridge from the Ommaya Embankment - 1830"
 msgstr ""
+"Katsushika Hokusai,\\n"
+"O welout ar Sav-Heol dreist Pont Ryogoku diouzh Kae Ommaya - 1830"
 
 #: ../src/paintings-activity/resources/paintings/board1_11.xml.in.h:1
 msgid "Katsushika Hokusa, Poppies - 1833-1834"
-msgstr ""
+msgstr "Katsushika Hokusa, Roz-aer - 1833-1834"
 
 #: ../src/paintings-activity/resources/paintings/board1_12.xml.in.h:1
 msgid "Katsushika Hokusai, Kazusa sea Route - 1830."
-msgstr ""
+msgstr "Katsushika Hokusai, Hent-mor Kazusa - 1830"
 
 #: ../src/paintings-activity/resources/paintings/board1_2.xml.in.h:1
 msgid "Giuseppe Arcimboldo, Spring - 1573"
 msgstr "Giuseppe Arcimboldo, Nevez amzer - 1573"
 
 #: ../src/paintings-activity/resources/paintings/board1_3.xml.in.h:1
-#, fuzzy
 msgid "Giuseppe Arcimboldo, The Librarian - 1566"
 msgstr "Giuseppe Arcimboldo, Paotr al levraoueg - 1566"
 
 #: ../src/paintings-activity/resources/paintings/board1_4.xml.in.h:1
 msgid "Katsushika Hokusai, Oiran and Kamuro"
-msgstr ""
+msgstr "Katsushika Hokusai, Oiran ha Kamuro"
 
 #: ../src/paintings-activity/resources/paintings/board1_5.xml.in.h:1
-#, fuzzy
 msgid "Katsushika Hokusai, Woman holding a fan"
-msgstr "Maouez gant un aveler en he dorn"
+msgstr "Katsushika Hokusai, Maouez gant un aveler en he dorn"
 
 #: ../src/paintings-activity/resources/paintings/board1_6.xml.in.h:1
 msgid "Katsushika Hokusai, Ejiri in Suruga Province - 1830-1833"
-msgstr ""
+msgstr "Katsushika Hokusai, Ejiri e Proviñs Suruga - 1830-1833"
 
 #: ../src/paintings-activity/resources/paintings/board1_7.xml.in.h:1
 msgid "Katsushika Hokusai, The Great Wave off Kanagawa - 1823-1829"
-msgstr ""
+msgstr "Katsushika Hokusai, Ar Wagenn Veur e donvor da gKanagawa - 1823-1829"
 
 #: ../src/paintings-activity/resources/paintings/board1_8.xml.in.h:1
 msgid ""
 "Utagawa Hiroshige,\\n"
 "The Benzaiten Shrine at Inokashira in Snow - 1760-70"
 msgstr ""
+"Utagawa Hiroshige,\\n"
+"Chapel Benzaiten e Inokashira dindan an erc'h - 1760-1770"
 
 #: ../src/paintings-activity/resources/paintings/board1_9.xml.in.h:1
 msgid "Utagawa Hiroshige, Horse-mackerel and Prawn - 1840"
-msgstr ""
+msgstr "Utagawa Hiroshige, Brizhilli ha chifretezennoù - 1840"
 
 #: ../src/paintings-activity/resources/paintings/board2_0.xml.in.h:1
 msgid "Michelangelo, Pieta - 1499"
-msgstr ""
+msgstr "Michelangelo, Pieta - 1499"
 
 #: ../src/paintings-activity/resources/paintings/board2_1.xml.in.h:1
 msgid "Leonardo da Vinci, Mona Lisa - 1503-19"
-msgstr ""
+msgstr "Leonardo da Vinci, Mona Lisa - 1503-19"
 
 #: ../src/paintings-activity/resources/paintings/board2_2.xml.in.h:1
-#, fuzzy
 msgid "Giovanni Bellini, La Pala di Pesaro - 1475-85"
-msgstr "Bellini : Pala di pesaro"
+msgstr "Giovanni Bellini, La Pala di Pesaro - 1475-1485"
 
 #: ../src/paintings-activity/resources/paintings/board2_3.xml.in.h:1
 msgid "Albrecht Dürer, Lion - 1494"
-msgstr ""
+msgstr "Albrecht Dürer, Leon - 1494"
 
 #: ../src/paintings-activity/resources/paintings/board2_4.xml.in.h:1
-#, fuzzy
 msgid "Pieter Brugel, The Harvesters - 1565"
-msgstr "Pieter Brugel : Eost"
+msgstr "Pieter Brugel, An Eosterion - 1565"
 
 #: ../src/paintings-activity/resources/paintings/board3_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
@@ -5583,7 +5792,6 @@ msgid "Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
 msgstr "Liv dre eoul war lien, 140 x 201 cm ; Solomon R. Guggenheim Museum, New York"
 
 #: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:2
-#, fuzzy
 msgid "Wassily Kandinsky, Composition VIII - 1923"
 msgstr "Kandinsky, Wassily, Kenaozadenn VIII - 1923"
 
@@ -5592,7 +5800,6 @@ msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
 msgstr "Bazille, Ar Mogerioù e 'Aigues-Mortes - 1867"
 
 #: ../src/paintings-activity/resources/paintings/board5_0.xml.in.h:1
-#, fuzzy
 msgid "Mary Cassatt, Summertime - 1894"
 msgstr "Mary Cassatt, An Hañv - 1894"
 
@@ -5624,11 +5831,11 @@ msgstr "Harz-lammour"
 msgid "This board is game-oriented. No specific skills are needed to play."
 msgstr "Ur c'hoari eo nemetken. Plijadur deoc'h ! ;)"
 
-#: ../src/penalty-activity/penalty.py:293
+#: ../src/penalty-activity/penalty.py:292
 msgid "Click on the balloon to place it again."
 msgstr "Klik war ar vell d'he lakaat en he flas en-dro."
 
-#: ../src/penalty-activity/penalty.py:295
+#: ../src/penalty-activity/penalty.py:294
 msgid "Click twice on the balloon to shoot it."
 msgstr "Daouglik war ar vell a-benn lakaat un taol troad warni."
 
@@ -5797,45 +6004,9 @@ msgstr "Pleustriñ war ar c'houn"
 msgid "Railway"
 msgstr "Hent houarn"
 
-#: ../src/read_colors-activity/read_colors.c:57
-msgid "blue"
-msgstr "glas"
-
-#: ../src/read_colors-activity/read_colors.c:58
-msgid "brown"
-msgstr "liv kistin"
-
-#: ../src/read_colors-activity/read_colors.c:59
-msgid "green"
-msgstr "gwer"
-
-#: ../src/read_colors-activity/read_colors.c:60
-msgid "grey"
-msgstr "loued"
-
-#: ../src/read_colors-activity/read_colors.c:61
-msgid "orange"
-msgstr "liv orañjez"
-
 #: ../src/read_colors-activity/read_colors.c:62
 msgid "violet"
 msgstr "mouk"
-
-#: ../src/read_colors-activity/read_colors.c:63
-msgid "red"
-msgstr "ruz"
-
-#: ../src/read_colors-activity/read_colors.c:64
-msgid "yellow"
-msgstr "melen"
-
-#: ../src/read_colors-activity/read_colors.c:65
-msgid "black"
-msgstr "du"
-
-#: ../src/read_colors-activity/read_colors.c:66
-msgid "white"
-msgstr "gwenn"
 
 #: ../src/read_colors-activity/read_colors.c:67
 msgid "pink"
@@ -6008,7 +6179,7 @@ msgstr "Pouez e g. = %s"
 msgid "Weight = %s"
 msgstr "Pouez = %s"
 
-#: ../src/scalesboard-activity/scale.c:1008
+#: ../src/scalesboard-activity/scale.c:1007
 msgid "Take care, you can drop masses on both sides of the scale."
 msgstr "Taol evezh, laosket e vez tolzioù war an daou du eus ar ventel."
 
@@ -6276,22 +6447,20 @@ msgstr "Kuzhet ez eus bet un heuliad livioù, adkav an heuliad en urzh mat."
 #: ../src/superbrain-activity/superbrain.c:403
 #: ../src/superbrain-activity/superbrain.c:539
 msgid "This item is well placed"
-msgstr ""
+msgstr "Lec'hiet mat eo an elfenn-mañ"
 
 #: ../src/superbrain-activity/superbrain.c:416
 #: ../src/superbrain-activity/superbrain.c:569
-#, fuzzy
 msgid "This item is misplaced"
-msgstr "ar ger."
+msgstr "N'eo ket lec'hiet mat an elfenn-mañ"
 
 #: ../src/superbrain-activity/superbrain.c:587
 msgid "One item is well placed"
-msgstr ""
+msgstr "Un elfenn zo lec'hiet mat"
 
 #: ../src/superbrain-activity/superbrain.c:601
-#, fuzzy
 msgid "One item is misplaced"
-msgstr "Ha skrammet e oa."
+msgstr "Un elfenn n'eo ket lec'hiet mat "
 
 #: ../src/superbrain-activity/superbrain.xml.in.h:1
 msgid "Click on the items until you find what you think is the correct answer. Then, click on the OK button in the control bar. In the lower levels, Tux gives you an indication if you found a hiding place by marking the item with a black box. You can use the right mouse button to flip the colors in the opposite order."
@@ -6461,6 +6630,18 @@ msgstr "Gra gant ar meziant-mañ evit tresañ. Echuet e vo an obererezh-mañ pa 
 msgid "mouse and keyboard manipulation"
 msgstr "Dornata ar c'hlavier hag al logodenn"
 
+#: ../src/watercycle-activity/watercycle.py:170
+msgid "This is a water pump station."
+msgstr "Ur stal da bompañ an dour eo homañ."
+
+#: ../src/watercycle-activity/watercycle.py:183
+msgid "This is a water cleanup station."
+msgstr "Ur stal da zisaotrañ an dour eo homañ."
+
+#: ../src/watercycle-activity/watercycle.py:263
+msgid "A water tower or elevated water tower is a large elevated water storage container constructed to hold a water supply at a height sufficient to pressurize a water distribution system."
+msgstr "Un endalc'her bras hag uhel savet a-benn mirout ur c'hementad dour d'un uhelder ret a-benn bezañ evit lakaat gwask en ur reizhiad dasparzhañ eo ur c'hastell dour."
+
 #: ../src/watercycle-activity/watercycle.xml.in.h:1
 msgid "Click on different active elements : sun, cloud, water pump station, and water cleanup station, in order to reactivate the entire water system. When the system is back up and Tux is in the shower, push the shower button for him."
 msgstr ""
@@ -6557,131 +6738,24 @@ msgstr "Pleustriñ war ar c'hlavier"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Skriv gant da glavier ar gerioù klok e-pad m'emaint o kouezhañ a-raok ma tizho an douar."
 
-#: ../src/hangman-activity/hangman.xml.in.h:1
-msgid "A word is hidden, you must discover it letter by letter"
+#: ../src/findit-activity/findit.py:295
+msgid ""
+"Failed to parse data set '{filename}' with error:\n"
+"{error}"
 msgstr ""
+"C'hwitadenn war dezrannañ roadennoù  '{filename}' gant ur fazi :\n"
+"{error}"
 
-#: ../src/hangman-activity/hangman.xml.in.h:2
-#, fuzzy
-msgid "Reading skill"
-msgstr "Lenn"
-
-#: ../src/hangman-activity/hangman.xml.in.h:3
-msgid "The classic hangman game"
-msgstr ""
-
-#: ../src/hangman-activity/hangman.xml.in.h:4
-msgid "This is a good exercise to improve reading and spelling skills."
-msgstr ""
-
-#: ../src/hangman-activity/hangman.xml.in.h:5
-msgid "You can enter the letters using the virtual keyboard on the screen or with the real keyboard."
-msgstr ""
-
-#. All the vowel of your language (keep empty if non applicable)
-#: ../src/hangman-activity/hangman.py:61
-msgid "aeiouy"
-msgstr ""
-
-#. All the consonants of your language (keep empty if non applicable)
-#: ../src/hangman-activity/hangman.py:63
-#, fuzzy
-msgid "bcdfghjklmnpqrstvwxz"
-msgstr "abcdefghijklmnñorstuùvwyz'"
-
-#. Letters equivallence for the hangman activity. It has the
-#. form of a space separated list like: "e=éè a=àâ"
-#. Keep the word NONE if not available in your language
-#: ../src/hangman-activity/hangman.py:67
-msgid "NONE"
-msgstr ""
-
-#: ../src/hangman-activity/hangman.py:104
-#, fuzzy
-msgid "Could not find the list of words."
-msgstr "Kefluniañ ar roll gerioù"
-
-#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:1
-#, fuzzy
-msgid "Click on different active elements : sun, cloud, dam, solar array, wind farm and transformers, in order to reactivate the entire electrical system. When the system is back up and Tux is in his home, push the light button for him. To win you must switch on all the consumers while all the producers are up."
-msgstr ""
-"Klik war an elfennoù oberiant : heol, koumoulenn, stal bompañ ha stal buraat a-benn loc'hañ en-dro dasparzhadur an dour.\n"
-"\n"
-"Ur wech graet hag ur wech ma vo Tuks en e strinkadenn, pouez war afell ar strinkadenn evitañ."
-
-#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:3
-msgid "Learn about an hydroelectric dam"
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.xml.in.h:4
-#, fuzzy
-msgid "Tux has come back from a long fishing party on his boat. Bring the electrical system back up so he can have light in his home."
-msgstr "Emañ Tuks o vont d'ar gêr en-dro goude un abadenn besketa hir. Laka reizhiad dasparzhañ an dour en urzh evit ma strinkadenno Tuks."
-
-#: ../src/hydroelectric-activity/hydroelectric.py:88
-msgid "The sun heats the water and creates water vapor. Water vapor combines into small water droplets which becomes clouds."
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:126
-msgid "As a cloud matures, the dense water droplets may combine to produce larger droplets, which may combine to form droplets large enough to fall as rain"
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:169
-msgid "This is the meter for electricity produced by the turbine. "
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:170
-#: ../src/hydroelectric-activity/hydroelectric.py:282
-#: ../src/hydroelectric-activity/hydroelectric.py:289
-#: ../src/hydroelectric-activity/hydroelectric.py:319
-#: ../src/hydroelectric-activity/hydroelectric.py:341
-msgid "The electricity power is measured in Watt (W)."
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:175
-msgid "Flowing water is directed on to the blades of a turbine runner, creating a force on the blades. In this way, energy is transferred from the water flow to the turbine"
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:189
-msgid "This cloud simulates the wind, click on it to have wind."
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:227
-msgid "This is a step down transformer. Electricity is transformed in low voltage, ready to be used by the customers."
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:281
-msgid "This is the meter for all the electricity produced. "
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:288
-msgid "This is the meter for electricity consumed by the users. "
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:318
-msgid "This is the meter for electricity produced by the solar panels. "
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:324
-msgid "Solar panels use light energy (photons) from the sun to generate electricity through the photovoltaic effect."
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:340
-msgid "This is the meter for electricity produced by the wind turbines. "
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:346
-msgid "A wind turbine is a device that converts wind motion energy into electricity generation. It is called a wind generator or wind charger. "
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:732
-msgid "It is not possible to consume more electricity than what is produced. This is a key limitation in the distribution of electricity, with minor exceptions, electrical energy cannot be stored, and therefore it must be generated as it is needed. A sophisticated system of control is therefore required to ensure electric generation very closely matches the demand. If supply and demand are not in balance, generation plants and transmission equipment can shut down which, in the worst cases, can lead to a major regional blackout."
-msgstr ""
-
-#: ../src/hydroelectric-activity/hydroelectric.py:946
-msgid "This is a step up transformer. Electricity is transmitted at high voltages (110 kV or above) to reduce the energy lost in long distance transmission."
-msgstr ""
-
+#~ msgid "Learn about an hydroelectric dam"
+#~ msgstr "Deskiñ traoù diwar-benn ar stankelloù dourtredanel"
+#~ msgid "Move the mouse until all the blocks disappear."
+#~ msgstr "Dilec'h al logodenn war ar bloc'hadoù betek ma vint diverket holl."
+#~ msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1888"
+#~ msgstr "Vincent van Gogh, Novoz da vont e-barzh eus Klañvdi Sant-Paol -1888"
+#~ msgid "Mona Lisa"
+#~ msgstr "Mona Lisa"
+#~ msgid "Dürer : Lion"
+#~ msgstr "Dürer : Leon"
 #~ msgid "%s: option `%s' is ambiguous\n"
 #~ msgstr "%s : an dibarzh `%s' zo forc'hellek\n"
 #~ msgid "%s: option `--%s' doesn't allow an argument\n"
@@ -6704,14 +6778,6 @@ msgstr ""
 #~ msgstr "%s : an dibarzh `-W %s' zo forc'hellek\n"
 #~ msgid "%s: option `-W %s' doesn't allow an argument\n"
 #~ msgstr "%s : an dibarzh `-W %s' n' aotre ket un arguzenn\n"
-#~ msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1888"
-#~ msgstr "Vincent van Gogh, Novoz da vont e-barzh eus Klañvdi Sant-Paol -1888"
-#~ msgid "Move the mouse until all the blocks disappear."
-#~ msgstr "Dilec'h al logodenn war ar bloc'hadoù betek ma vint diverket holl."
-#~ msgid "Mona Lisa"
-#~ msgstr "Mona Lisa"
-#~ msgid "Dürer : Lion"
-#~ msgstr "Dürer : Leon"
 #~ msgid "Botticelli, Primavera - 1482"
 #~ msgstr "Botticelli, Primavera - 1482"
 #~ msgid "Caravage, Rest on the Flight into Egypt - 1597"
