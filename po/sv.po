@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-03-06 20:32+0100\n"
-"PO-Revision-Date: 2011-03-06 20:32+0100\n"
+"POT-Creation-Date: 2011-04-09 10:15+0200\n"
+"PO-Revision-Date: 2011-04-09 10:16+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -976,6 +976,7 @@ msgid "platinum"
 msgstr "platina"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:6
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:9
 msgid "purple"
 msgstr "lila"
 
@@ -1898,8 +1899,8 @@ msgid "Motor coordination: moving and clicking the mouse."
 msgstr "Motorik: flytta och klicka med musen."
 
 #: ../src/clickgame-activity/clickgame.xml.in.h:6
-msgid "Use the left mouse button to click on the moving fish."
-msgstr "Använd vänstra musknappen för att klicka på den rörliga fisken."
+msgid "Use the left mouse button to click on the moving fish. A level 5 and after, a double click is mandatory."
+msgstr "Använd vänstra musknappen för att klicka på den rörliga fisken. Dubbelklick krävs efter nivå 5."
 
 #: ../src/clockgame-activity/clockgame.c:524
 msgid "Set the watch to:"
@@ -1984,6 +1985,56 @@ msgstr "Lyssna på färgen och klicka på matchande anka."
 #: ../src/colors-activity/colors.xml.in.h:5
 msgid "This board teaches you to recognize different colors. When you hear the name of the color, click on the duck wearing it."
 msgstr "Det här brädet lär dig att känna igen olika färger. När du hör namnet på färgen ska du klicka på ankan som har färgen."
+
+#. Translator: Do not translate {text}.
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:2
+msgid "Find the {text} duck"
+msgstr "Hitta den {text} ankan"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:3
+#: ../src/read_colors-activity/read_colors.c:65
+msgid "black"
+msgstr "svart"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:4
+#: ../src/read_colors-activity/read_colors.c:57
+msgid "blue"
+msgstr "blå"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:5
+#: ../src/read_colors-activity/read_colors.c:58
+msgid "brown"
+msgstr "brun"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:6
+#: ../src/read_colors-activity/read_colors.c:59
+msgid "green"
+msgstr "grön"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:7
+#: ../src/read_colors-activity/read_colors.c:60
+msgid "grey"
+msgstr "grå"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:8
+#: ../src/read_colors-activity/read_colors.c:61
+msgid "orange"
+msgstr "orange"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:10
+#: ../src/read_colors-activity/read_colors.c:63
+msgid "red"
+msgstr "röd"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:11
+#: ../src/read_colors-activity/read_colors.c:66
+msgid "white"
+msgstr "vit"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:12
+#: ../src/read_colors-activity/read_colors.c:64
+msgid "yellow"
+msgstr "gul"
 
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:1
 #: ../src/connect4-activity/connect4.xml.in.h:1
@@ -2180,6 +2231,7 @@ msgid "Select a drawing tool on the left, and a color down the bottom, then clic
 msgstr "På vänstra sidan väljer du ett ritverktyg, sedan väljer du en färg nederst, och sedan klickar du på den vita ytan och drar för att skapa en ny figur. För att spara tid kan du använda musens mittknapp för att ta bort ett objekt."
 
 #: ../src/drawnumber-activity/drawnumber.py:236
+#: ../src/findit-activity/findit.py:290
 msgid "Cannot find the file '{filename}'"
 msgstr "Kan inte hitta filen \"{filename}\""
 
@@ -5580,11 +5632,11 @@ msgstr "Fallskärmshoppare"
 msgid "This board is game-oriented. No specific skills are needed to play."
 msgstr "Detta bräde är spelorienterat. Det kräver inga speciella förkunskaper för att spelas."
 
-#: ../src/penalty-activity/penalty.py:293
+#: ../src/penalty-activity/penalty.py:292
 msgid "Click on the balloon to place it again."
 msgstr "Klicka på ballongen för att placera den igen."
 
-#: ../src/penalty-activity/penalty.py:295
+#: ../src/penalty-activity/penalty.py:294
 msgid "Click twice on the balloon to shoot it."
 msgstr "Klicka två gånger på ballongen för att skjuta den."
 
@@ -5749,45 +5801,9 @@ msgstr "Minnesträning"
 msgid "Railway"
 msgstr "Järnväg"
 
-#: ../src/read_colors-activity/read_colors.c:57
-msgid "blue"
-msgstr "blå"
-
-#: ../src/read_colors-activity/read_colors.c:58
-msgid "brown"
-msgstr "brun"
-
-#: ../src/read_colors-activity/read_colors.c:59
-msgid "green"
-msgstr "grön"
-
-#: ../src/read_colors-activity/read_colors.c:60
-msgid "grey"
-msgstr "grå"
-
-#: ../src/read_colors-activity/read_colors.c:61
-msgid "orange"
-msgstr "orange"
-
 #: ../src/read_colors-activity/read_colors.c:62
 msgid "violet"
 msgstr "lila"
-
-#: ../src/read_colors-activity/read_colors.c:63
-msgid "red"
-msgstr "röd"
-
-#: ../src/read_colors-activity/read_colors.c:64
-msgid "yellow"
-msgstr "gul"
-
-#: ../src/read_colors-activity/read_colors.c:65
-msgid "black"
-msgstr "svart"
-
-#: ../src/read_colors-activity/read_colors.c:66
-msgid "white"
-msgstr "vit"
 
 #: ../src/read_colors-activity/read_colors.c:67
 msgid "pink"
@@ -6419,6 +6435,14 @@ msgstr "Tangentbordsträning"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:4
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Skriv hela ordet innan det når marken"
+
+#: ../src/findit-activity/findit.py:295
+msgid ""
+"Failed to parse data set '{filename}' with error:\n"
+"{error}"
+msgstr ""
+"Misslyckades med att tolka datauppsättningen \"{filename}\" med felet:\n"
+"{error}"
 
 #~ msgid "Move the mouse until all the blocks disappear."
 #~ msgstr "Flytta musen till alla block försvinner."
