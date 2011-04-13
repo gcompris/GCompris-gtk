@@ -8,17 +8,17 @@
 # Martin Herweg <m.herweg@gmx.de>, 2001.
 # Ronny Standtke <Ronny.Standtke@gmx.net>, 2003-2007.
 # Hendrik Richter <hendrikr@gnome.org>, 2005.
-# Mario Blättermann <mariobl@gnome.org>, 2010.
+# Mario Blättermann <mariobl@freenet.de>, 2010.
 # Christian Kirbach <Christian.Kirbach@googlemail.com>, 2009, 2010, 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=gcompris&component=general\n"
-"POT-Creation-Date: 2011-02-19 21:33+0000\n"
-"PO-Revision-Date: 2011-02-26 21:16+0100\n"
-"Last-Translator: Mario Blättermann <mariobl@gnome.org>\n"
+"product=gcompris&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2011-03-22 22:45+0000\n"
+"PO-Revision-Date: 2011-04-13 22:44+0100\n"
+"Last-Translator: Mario Blättermann <mariobl@freenet.de>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1049,6 +1049,7 @@ msgid "platinum"
 msgstr "Platin"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:6
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:9
 msgid "purple"
 msgstr "Lila"
 
@@ -2186,8 +2187,12 @@ msgid "Motor coordination: moving and clicking the mouse."
 msgstr "Motorische Fähigkeiten: Bewegen und Klicken der Maus."
 
 #: ../src/clickgame-activity/clickgame.xml.in.h:6
-msgid "Use the left mouse button to click on the moving fish."
-msgstr "Klicke mit der linken Maustaste auf die schwimmenden Fische."
+msgid ""
+"Use the left mouse button to click on the moving fish. A level 5 and after, a "
+"double click is mandatory."
+msgstr ""
+"Klicke mit der linken Maustaste auf die schwimmenden Fische. Ab Stufe 5 und "
+"höher ist ein Doppelklick nötig."
 
 #: ../src/clockgame-activity/clockgame.c:524
 msgid "Set the watch to:"
@@ -2286,6 +2291,56 @@ msgid ""
 msgstr ""
 "In dieser Tafel wird die Farberkennung geübt. Nachdem du den Namen einer "
 "Farbe gehört hast, klicke auf die Ente mit dieser Farbe."
+
+#. Translator: Do not translate {text}.
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:2
+msgid "Find the {text} duck"
+msgstr "Finde die {text} Ente"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:3
+#: ../src/read_colors-activity/read_colors.c:65
+msgid "black"
+msgstr "Schwarz"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:4
+#: ../src/read_colors-activity/read_colors.c:57
+msgid "blue"
+msgstr "Blau"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:5
+#: ../src/read_colors-activity/read_colors.c:58
+msgid "brown"
+msgstr "Braun"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:6
+#: ../src/read_colors-activity/read_colors.c:59
+msgid "green"
+msgstr "Grün"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:7
+#: ../src/read_colors-activity/read_colors.c:60
+msgid "grey"
+msgstr "Grau"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:8
+#: ../src/read_colors-activity/read_colors.c:61
+msgid "orange"
+msgstr "Orange"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:10
+#: ../src/read_colors-activity/read_colors.c:63
+msgid "red"
+msgstr "Rot"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:11
+#: ../src/read_colors-activity/read_colors.c:66
+msgid "white"
+msgstr "Weiß"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:12
+#: ../src/read_colors-activity/read_colors.c:64
+msgid "yellow"
+msgstr "Gelb"
 
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:1
 #: ../src/connect4-activity/connect4.xml.in.h:1
@@ -2542,6 +2597,7 @@ msgstr ""
 "sparen, kannst Du die mittlere Maustaste verwenden, um ein Objekt zu löschen."
 
 #: ../src/drawnumber-activity/drawnumber.py:236
+#: ../src/findit-activity/findit.py:290
 msgid "Cannot find the file '{filename}'"
 msgstr "Datei »{filename}« kann nicht gefunden werden"
 
@@ -2802,7 +2858,7 @@ msgstr ""
 "Martin Herweg <m.herweg@gmx.de>, 2001.\n"
 "Ronny Standtke <Ronny.Standtke@gmx.net>, 2004, 2005, 2006, 2007.\n"
 "Hendrik Richter <hendrikr@gnome.org>, 2005.\n"
-"Mario Blättermann <mariobl@gnome.org>, 2009, 2010, 2011.\n"
+"Mario Blättermann <mariobl@freenet.de>, 2009, 2010, 2011.\n"
 "Christian Kirbach <Christian.Kirbach@googlemail.com>, 2009, 2010, 2011."
 
 #: ../src/gcompris/about.c:82
@@ -2825,7 +2881,7 @@ msgstr ""
 "Dieses Programm ist ein GNU-Paket und wird unter der GNU General Public "
 "License veröffentlicht"
 
-#: ../src/gcompris/about.c:222 ../src/gcompris/config.c:439
+#: ../src/gcompris/about.c:222 ../src/gcompris/config.c:456
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:355
 #: ../src/gcompris/images_selector.c:306
 msgid "OK"
@@ -2917,77 +2973,77 @@ msgid "Afrikaans"
 msgstr "Afrikaans"
 
 #: ../src/gcompris/config.c:60
+msgid "Albanian"
+msgstr "Albanisch"
+
+#: ../src/gcompris/config.c:61
 msgid "Amharic"
 msgstr "Amharic"
 
-#: ../src/gcompris/config.c:61
+#: ../src/gcompris/config.c:62
 msgid "Arabic"
 msgstr "Arabisch"
 
-#: ../src/gcompris/config.c:62
+#: ../src/gcompris/config.c:63
 msgid "Asturian"
 msgstr "Asturisch"
 
-#: ../src/gcompris/config.c:63
-msgid "Turkish (Azerbaijan)"
-msgstr "Türkisch (Azerbaijan)"
-
 #: ../src/gcompris/config.c:64
-msgid "Bulgarian"
-msgstr "Bulgarisch"
+msgid "Basque"
+msgstr "Baskisch"
 
 #: ../src/gcompris/config.c:65
 msgid "Breton"
 msgstr "Breton"
 
 #: ../src/gcompris/config.c:66
+msgid "Bulgarian"
+msgstr "Bulgarisch"
+
+#: ../src/gcompris/config.c:67
 msgid "Catalan"
 msgstr "Katalanisch"
 
-#: ../src/gcompris/config.c:67
+#: ../src/gcompris/config.c:68
+msgid "Chinese (Simplified)"
+msgstr "Chinesisch (Vereinfacht)"
+
+#: ../src/gcompris/config.c:69
+msgid "Chinese (Traditional)"
+msgstr "Chinesisch (Traditionell)"
+
+#: ../src/gcompris/config.c:70
+msgid "Croatian"
+msgstr "Kroatisch"
+
+#: ../src/gcompris/config.c:71
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:7
 msgid "Czech Republic"
 msgstr "Tschechische Republik"
 
-#: ../src/gcompris/config.c:68
+#: ../src/gcompris/config.c:72
 msgid "Danish"
 msgstr "Dänisch"
 
-#: ../src/gcompris/config.c:69
-msgid "German"
-msgstr "Deutsch"
+#: ../src/gcompris/config.c:73
+msgid "Dutch"
+msgstr "Holländisch"
 
-#: ../src/gcompris/config.c:70
+#: ../src/gcompris/config.c:74
 msgid "Dzongkha"
 msgstr "Dzongkha"
 
-#: ../src/gcompris/config.c:71
-msgid "Greek"
-msgstr "Griechisch"
-
-#: ../src/gcompris/config.c:72
+#: ../src/gcompris/config.c:75
 msgid "English (Canada)"
 msgstr "Englisch (Kanada)"
 
-#: ../src/gcompris/config.c:73
+#: ../src/gcompris/config.c:76
 msgid "English (Great Britain)"
 msgstr "Englisch (Großbritannien)"
 
-#: ../src/gcompris/config.c:74
+#: ../src/gcompris/config.c:77
 msgid "English (United States)"
 msgstr "Englisch (Vereinigte Staaten)"
-
-#: ../src/gcompris/config.c:75
-msgid "Spanish"
-msgstr "Spanisch"
-
-#: ../src/gcompris/config.c:76
-msgid "Basque"
-msgstr "Baskisch"
-
-#: ../src/gcompris/config.c:77
-msgid "Persian"
-msgstr "Persisch"
 
 #: ../src/gcompris/config.c:78
 msgid "Finnish"
@@ -2998,242 +3054,245 @@ msgid "French"
 msgstr "Französisch"
 
 #: ../src/gcompris/config.c:80
-msgid "Irish (Gaelic)"
-msgstr "Irisch (Gälisch)"
-
-#: ../src/gcompris/config.c:81
-msgid "Gujarati"
-msgstr "Gujarati"
-
-#: ../src/gcompris/config.c:82
-msgid "Hebrew"
-msgstr "Hebräisch"
-
-#: ../src/gcompris/config.c:83
-msgid "Hindi"
-msgstr "Hindi"
-
-#: ../src/gcompris/config.c:84
-msgid "Croatian"
-msgstr "Kroatisch"
-
-#: ../src/gcompris/config.c:85
-msgid "Hungarian"
-msgstr "Ungarisch"
-
-#: ../src/gcompris/config.c:86
-msgid "Indonesian"
-msgstr "Indonesisch"
-
-#: ../src/gcompris/config.c:87
-msgid "Italian"
-msgstr "Italienisch"
-
-#: ../src/gcompris/config.c:88
-msgid "Japanese"
-msgstr "Japanisch"
-
-#: ../src/gcompris/config.c:89
 msgid "Georgian"
 msgstr "Georgisch"
 
+#: ../src/gcompris/config.c:81
+msgid "German"
+msgstr "Deutsch"
+
+#: ../src/gcompris/config.c:82
+msgid "Greek"
+msgstr "Griechisch"
+
+#: ../src/gcompris/config.c:83
+msgid "Gujarati"
+msgstr "Gujarati"
+
+#: ../src/gcompris/config.c:84
+msgid "Hebrew"
+msgstr "Hebräisch"
+
+#: ../src/gcompris/config.c:85
+msgid "Hindi"
+msgstr "Hindi"
+
+#: ../src/gcompris/config.c:86
+msgid "Hungarian"
+msgstr "Ungarisch"
+
+#: ../src/gcompris/config.c:87
+msgid "Indonesian"
+msgstr "Indonesisch"
+
+#: ../src/gcompris/config.c:88
+msgid "Irish (Gaelic)"
+msgstr "Irisch (Gälisch)"
+
+#: ../src/gcompris/config.c:89
+msgid "Italian"
+msgstr "Italienisch"
+
 #: ../src/gcompris/config.c:90
+msgid "Japanese"
+msgstr "Japanisch"
+
+#: ../src/gcompris/config.c:91
+msgid "Kinyarwanda"
+msgstr "Kinyarwanda"
+
+#: ../src/gcompris/config.c:92
 msgid "Korean"
 msgstr "Koreanisch"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:93
 msgid "Lithuanian"
 msgstr "Litauisch"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:94
 msgid "Macedonian"
 msgstr "Mazedonisch"
-
-#: ../src/gcompris/config.c:93
-msgid "Malayalam"
-msgstr "Malayalam"
-
-#: ../src/gcompris/config.c:94
-msgid "Marathi"
-msgstr "Marathi"
 
 #: ../src/gcompris/config.c:95
 msgid "Malay"
 msgstr "Malaysisch"
 
 #: ../src/gcompris/config.c:96
-msgid "Norwegian Bokmal"
-msgstr "Norwegisch Bokmal"
+msgid "Malayalam"
+msgstr "Malayalam"
 
 #: ../src/gcompris/config.c:97
-msgid "Nepal"
-msgstr "Nepal"
+msgid "Marathi"
+msgstr "Marathi"
 
 #: ../src/gcompris/config.c:98
-msgid "Dutch"
-msgstr "Holländisch"
-
-#: ../src/gcompris/config.c:99
-msgid "Norwegian Nynorsk"
-msgstr "Neunorwegisch"
-
-#: ../src/gcompris/config.c:100
-msgid "Occitan (languedocien)"
-msgstr "Okzitanisch (Languedokisch)"
-
-#: ../src/gcompris/config.c:101
-msgid "Punjabi"
-msgstr "Punjabi"
-
-#: ../src/gcompris/config.c:102
-msgid "Polish"
-msgstr "Polnisch"
-
-#: ../src/gcompris/config.c:103
-msgid "Portuguese (Brazil)"
-msgstr "Portugiesisch (Brasilien)"
-
-#: ../src/gcompris/config.c:104
-msgid "Portuguese"
-msgstr "Portugiesisch"
-
-#: ../src/gcompris/config.c:105
-msgid "Romanian"
-msgstr "Rumänisch"
-
-#: ../src/gcompris/config.c:106
-msgid "Russian"
-msgstr "Russisch"
-
-#: ../src/gcompris/config.c:107
-msgid "Kinyarwanda"
-msgstr "Kinyarwanda"
-
-#: ../src/gcompris/config.c:108
-msgid "Slovak"
-msgstr "Slowakisch"
-
-#: ../src/gcompris/config.c:109
-msgid "Slovenian"
-msgstr "Slowenisch"
-
-#: ../src/gcompris/config.c:110
-msgid "Somali"
-msgstr "Somali"
-
-#: ../src/gcompris/config.c:111
-msgid "Albanian"
-msgstr "Albanisch"
-
-#: ../src/gcompris/config.c:112
-msgid "Serbian (Latin)"
-msgstr "Serbisch (Latein)"
-
-#: ../src/gcompris/config.c:113
-#| msgid "Serbia Montenegro"
 msgid "Montenegrin"
 msgstr "Montenegrinisch"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:99
+msgid "Nepal"
+msgstr "Nepal"
+
+#: ../src/gcompris/config.c:100
+msgid "Norwegian Bokmal"
+msgstr "Norwegisch Bokmal"
+
+#: ../src/gcompris/config.c:101
+msgid "Norwegian Nynorsk"
+msgstr "Neunorwegisch"
+
+#: ../src/gcompris/config.c:102
+msgid "Occitan (languedocien)"
+msgstr "Okzitanisch (Languedokisch)"
+
+#: ../src/gcompris/config.c:103
+msgid "Persian"
+msgstr "Persisch"
+
+#: ../src/gcompris/config.c:104
+msgid "Polish"
+msgstr "Polnisch"
+
+#: ../src/gcompris/config.c:105
+msgid "Portuguese (Brazil)"
+msgstr "Portugiesisch (Brasilien)"
+
+#: ../src/gcompris/config.c:106
+msgid "Portuguese"
+msgstr "Portugiesisch"
+
+#: ../src/gcompris/config.c:107
+msgid "Punjabi"
+msgstr "Punjabi"
+
+#: ../src/gcompris/config.c:108
+msgid "Romanian"
+msgstr "Rumänisch"
+
+#: ../src/gcompris/config.c:109
+msgid "Russian"
+msgstr "Russisch"
+
+#: ../src/gcompris/config.c:110
+msgid "Serbian (Latin)"
+msgstr "Serbisch (Latein)"
+
+#: ../src/gcompris/config.c:111
 msgid "Serbian"
 msgstr "Serbisch"
 
+#: ../src/gcompris/config.c:112
+msgid "Slovak"
+msgstr "Slowakisch"
+
+#: ../src/gcompris/config.c:113
+msgid "Slovenian"
+msgstr "Slowenisch"
+
+#: ../src/gcompris/config.c:114
+msgid "Somali"
+msgstr "Somali"
+
 #: ../src/gcompris/config.c:115
+msgid "Spanish"
+msgstr "Spanisch"
+
+#: ../src/gcompris/config.c:116
 msgid "Swedish"
 msgstr "Schwedisch"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:117
 msgid "Tamil"
 msgstr "Tamilisch"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:118
 msgid "Thai"
 msgstr "Thai"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:119
+msgid "Turkish (Azerbaijan)"
+msgstr "Türkisch (Azerbaijan)"
+
+#: ../src/gcompris/config.c:120
 msgid "Turkish"
 msgstr "Türkisch"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:121
 msgid "Ukrainian"
 msgstr "Ukrainisch"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:122
 msgid "Urdu"
 msgstr "Urdu"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:123
 msgid "Vietnamese"
 msgstr "Vietnamesisch"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:124
 msgid "Walloon"
 msgstr "Wallonisch"
 
-#: ../src/gcompris/config.c:123
-msgid "Chinese (Simplified)"
-msgstr "Chinesisch (Vereinfacht)"
+#: ../src/gcompris/config.c:125
+msgid "Zulu"
+msgstr "Zulu"
 
-#: ../src/gcompris/config.c:124
-msgid "Chinese (Traditional)"
-msgstr "Chinesisch (Traditionell)"
-
-#: ../src/gcompris/config.c:129
+#: ../src/gcompris/config.c:130
 msgid "No time limit"
 msgstr "Keine Zeitbegrenzung"
 
-#: ../src/gcompris/config.c:130
+#: ../src/gcompris/config.c:131
 msgid "Slow timer"
 msgstr "Langsame Stoppuhr"
 
-#: ../src/gcompris/config.c:131
+#: ../src/gcompris/config.c:132
 msgid "Normal timer"
 msgstr "Normale Stoppuhr"
 
-#: ../src/gcompris/config.c:132
+#: ../src/gcompris/config.c:133
 msgid "Fast timer"
 msgstr "Schnelle Stoppuhr"
 
-#: ../src/gcompris/config.c:136
+#: ../src/gcompris/config.c:137
 msgid "Use Gcompris administration module to filter boards"
 msgstr "Benutzen Sie die GCompris-Administration, um Tafeln zu filtern"
 
-#: ../src/gcompris/config.c:187
+#: ../src/gcompris/config.c:188
 msgid "GCompris Configuration"
 msgstr "GCompris Konfiguration"
 
-#: ../src/gcompris/config.c:254
+#: ../src/gcompris/config.c:271
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: ../src/gcompris/config.c:279
+#: ../src/gcompris/config.c:296
 msgid "Music"
 msgstr "Musik"
 
-#: ../src/gcompris/config.c:304
+#: ../src/gcompris/config.c:321
 msgid "Effect"
 msgstr "Effekt"
 
-#: ../src/gcompris/config.c:328 ../src/gcompris/sugar.c:82
+#: ../src/gcompris/config.c:345 ../src/gcompris/sugar.c:82
 msgid "Zoom"
 msgstr "Vergrößerung"
 
-#: ../src/gcompris/config.c:365
+#: ../src/gcompris/config.c:382
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Themen-Ordner %s kann nicht geöffnet werden"
 
-#: ../src/gcompris/config.c:396 ../src/gcompris/config.c:754
-#: ../src/gcompris/config.c:768
+#: ../src/gcompris/config.c:413 ../src/gcompris/config.c:780
+#: ../src/gcompris/config.c:794
 #, c-format
 msgid "Skin : %s"
 msgstr "Thema: %s"
 
-#: ../src/gcompris/config.c:398
+#: ../src/gcompris/config.c:415
 msgid "SKINS NOT FOUND"
 msgstr "THEMEN NICHT GEFUNDEN"
 
-#: ../src/gcompris/config.c:479
+#: ../src/gcompris/config.c:496
 msgid "English (United State)"
 msgstr "Englisch (Vereinigte Staaten)"
 
@@ -6524,11 +6583,11 @@ msgstr ""
 "Diese Tafel ist spielorientiert. Zum Spielen sind keine besonderen Kenntnisse "
 "erforderlich."
 
-#: ../src/penalty-activity/penalty.py:293
+#: ../src/penalty-activity/penalty.py:292
 msgid "Click on the balloon to place it again."
 msgstr "Klicke auf den Ballon, um ihn zurückzusetzen."
 
-#: ../src/penalty-activity/penalty.py:295
+#: ../src/penalty-activity/penalty.py:294
 msgid "Click twice on the balloon to shoot it."
 msgstr "Klicke zweimal auf den Ballon, um ihn zum Platzen zu bringen."
 
@@ -6724,45 +6783,9 @@ msgstr "Gedächtnistraining"
 msgid "Railway"
 msgstr "Eisenbahn"
 
-#: ../src/read_colors-activity/read_colors.c:57
-msgid "blue"
-msgstr "Blau"
-
-#: ../src/read_colors-activity/read_colors.c:58
-msgid "brown"
-msgstr "Braun"
-
-#: ../src/read_colors-activity/read_colors.c:59
-msgid "green"
-msgstr "Grün"
-
-#: ../src/read_colors-activity/read_colors.c:60
-msgid "grey"
-msgstr "Grau"
-
-#: ../src/read_colors-activity/read_colors.c:61
-msgid "orange"
-msgstr "Orange"
-
 #: ../src/read_colors-activity/read_colors.c:62
 msgid "violet"
 msgstr "Violett"
-
-#: ../src/read_colors-activity/read_colors.c:63
-msgid "red"
-msgstr "Rot"
-
-#: ../src/read_colors-activity/read_colors.c:64
-msgid "yellow"
-msgstr "Gelb"
-
-#: ../src/read_colors-activity/read_colors.c:65
-msgid "black"
-msgstr "Schwarz"
-
-#: ../src/read_colors-activity/read_colors.c:66
-msgid "white"
-msgstr "Weiß"
 
 #: ../src/read_colors-activity/read_colors.c:67
 msgid "pink"
@@ -7639,6 +7662,14 @@ msgstr "Tastatur-Training"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr ""
 "Gib das vollständige Wort ein während es fällt, bevor es den Boden erreicht."
+
+#: ../src/findit-activity/findit.py:295
+msgid ""
+"Failed to parse data set '{filename}' with error:\n"
+"{error}"
+msgstr ""
+"Datensatz »{filename}« konnte nicht verarbeitet werden. Fehler war:\n"
+"{error}"
 
 #~ msgid "Learn about an hydroelectric dam"
 #~ msgstr "Lerne wie ein Staudamm funktioniert"
