@@ -13,7 +13,7 @@ GCOMPRIS_BOARDS = ./src/boards
 CANVAS_SRC = ./src/goocanvas/src
 GCOMPRIS_INSTALL_DIR = ./win32-install-dir
 
-activity_dir = advanced_colors-activity \
+activity_dir = \
 	algebra_by-activity \
 	algebra_guesscount-activity \
 	awele-activity \
@@ -24,7 +24,6 @@ activity_dir = advanced_colors-activity \
 	clickgame-activity \
 	click_on_letter-activity \
 	clockgame-activity \
-	colors-activity \
 	crane-activity \
 	enumerate-activity \
 	erase-activity \
@@ -43,7 +42,6 @@ activity_dir = advanced_colors-activity \
 	photohunter-activity \
 	planegame-activity \
 	railroad-activity \
-	read_colors-activity \
 	readingh-activity \
 	reversecount-activity \
 	scalesboard-activity \

@@ -1,41 +1,84 @@
-
-xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/advanced_colors
-
-xml_in_files = \
-	board1.xml.in \
-	board2.xml.in \
-	board3.xml.in \
-	board4.xml.in \
-	board5.xml.in \
-	board6.xml.in \
-	board7.xml.in \
-	board8.xml.in \
-	board9.xml.in
-
-xml_DATA = $(xml_in_files:.xml.in=.xml)
-
-#
-# Do not use the INTLTOOL_XML_RULE, we don't need to embed the translations
-# in the file themselves. GCompris pick the translations from the po file at
-# runtime.
-#
-$(xml_DATA): %.xml: %.xml.in
-	sed -e "s/\(<\{1\}\/*\)_/\1/g" $< > $@
-
-
-
 imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/advanced_colors
 img_DATA = \
-	advanced_colors1.jpg \
-	advanced_colors2.jpg \
-	advanced_colors3.jpg \
-	advanced_colors4.jpg \
-	advanced_colors5.jpg \
-	advanced_colors6.jpg \
-	advanced_colors7.jpg \
-	advanced_colors8.jpg \
-	advanced_colors9.jpg \
-	highlight.png
+	activity.desktop \
+	background.svgz \
+	absinthe_butterfly.svg \
+	alabaster_butterfly.svg \
+	almond_butterfly.svg \
+	amber_butterfly.svg \
+	amethyst_butterfly.svg \
+	anise_butterfly.svg \
+	aquamarine_butterfly.svg \
+	aubergine_butterfly.svg \
+	auburn_butterfly.svg \
+	azure_butterfly.svg \
+	bistre_butterfly.svg \
+	celadon_butterfly.svg \
+	cerulean_butterfly.svg \
+	ceruse_butterfly.svg \
+	chartreuse_butterfly.svg \
+	chestnut_butterfly.svg \
+	claret_butterfly.svg \
+	cobalt_butterfly.svg \
+	coral_butterfly.svg \
+	corn_butterfly.svg \
+	crimson_butterfly.svg \
+	cyan_butterfly.svg \
+	dark_purple_butterfly.svg \
+	dove_butterfly.svg \
+	emerald_butterfly.svg \
+	fawn_butterfly.svg \
+	fuchsia_butterfly.svg \
+	garnet_butterfly.svg \
+	glaucous_butterfly.svg \
+	greyish_blue_butterfly.svg \
+	greyish-brown_butterfly.svg \
+	indigo_butterfly.svg \
+	ivory_butterfly.svg \
+	jade_butterfly.svg \
+	larch_butterfly.svg \
+	lavender_butterfly.svg \
+	lichen_butterfly.svg \
+	lilac_butterfly.svg \
+	lime_butterfly.svg \
+	magenta_butterfly.svg \
+	mahogany_butterfly.svg \
+	malachite_butterfly.svg \
+	mauve_butterfly.svg \
+	mimosa_butterfly.svg \
+	navy_butterfly.svg \
+	ochre_butterfly.svg \
+	olive_butterfly.svg \
+	opaline_butterfly.svg \
+	pistachio_butterfly.svg \
+	platinum_butterfly.svg \
+	plum_butterfly.svg \
+	prussian_blue_butterfly.svg \
+	purple_butterfly.svg \
+	ruby_butterfly.svg \
+	rust_butterfly.svg \
+	saffron_butterfly.svg \
+	sage_butterfly.svg \
+	salmon_butterfly.svg \
+	sapphire_butterfly.svg \
+	sepia_butterfly.svg \
+	sienna_butterfly.svg \
+	sulphur_butterfly.svg \
+	tea_butterfly.svg \
+	turquoise_butterfly.svg \
+	ultramarine_butterfly.svg \
+	vanilla_butterfly.svg \
+	verdigris_butterfly.svg \
+	vermilion_butterfly.svg \
+	veronese_butterfly.svg \
+	wine_butterfly.svg
 
-EXTRA_DIST = $(img_DATA) ${xml_in_files}
-CLEANFILES = $(xml_DATA)
+# Do not use the INTLTOOL_DESKTOP_RULE, we don't need to embed the translations
+# in the file themselves. GCompris pick the translations from the po file at
+# runtime.
+activity.desktop: activity.desktop.in
+	sed -e "s/^_//g" $< > $@
+
+EXTRA_DIST = $(img_DATA) activity.desktop.in
+
+CLEANFILES = activity.desktop

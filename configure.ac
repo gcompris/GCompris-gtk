@@ -816,9 +816,6 @@ src/pythontest-activity/Makefile
 src/railroad-activity/Makefile
 src/railroad-activity/resources/Makefile
 src/railroad-activity/resources/railroad/Makefile
-src/read_colors-activity/Makefile
-src/read_colors-activity/resources/Makefile
-src/read_colors-activity/resources/read_colors/Makefile
 src/readingh-activity/Makefile
 src/readingh-activity/resources/Makefile
 src/readingh-activity/resources/readingh/Makefile

@@ -102,7 +102,6 @@ SUBDIRS = \
 	pythontemplate-activity \
 	pythontest-activity \
 	railroad-activity \
-	read_colors-activity \
 	readingh-activity \
 	readingv-activity \
 	redraw-activity \
