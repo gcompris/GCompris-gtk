@@ -55,6 +55,7 @@ class Gcompris_findit:
     self.object_target = None
     self.question_lost = []
     self.question_text_item = None
+    self.current_background = None
 
   def start(self):
     # Set the buttons we want in the bar
@@ -102,6 +103,7 @@ class Gcompris_findit:
         self.play(self.dataset.get_level(self.gcomprisBoard.level,
                                          self.gcomprisBoard.sublevel))
       self.gamewon = 0
+      self.selected = None
 
     return
 
@@ -114,17 +116,20 @@ class Gcompris_findit:
                                      self.gcomprisBoard.sublevel))
 
   def play(self, datasetlevel):
-    # Set a background image
-    gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
-                            gcompris.DATA_DIR + '/'
-                            + self.gcomprisBoard.name + "/"
-                            + datasetlevel.background)
+    # Set a background image if it has changed
+    if self.current_background != datasetlevel.background:
+      gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
+                              gcompris.DATA_DIR + '/'
+                              + self.gcomprisBoard.name + "/"
+                              + datasetlevel.background)
+      self.current_background = datasetlevel.background
 
     if self.rootitem:
       self.rootitem.remove()
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains
     # automaticaly.
+    print self.gcomprisBoard.canvas.get_root_item()
     self.rootitem = goocanvas.Group(parent =
                                     self.gcomprisBoard.canvas.get_root_item())
 
@@ -314,6 +319,7 @@ class finditDataSet:
     for section in dataset.sections():
       if section == 'common': continue
       level = self._level(section)
+      print "processing level " + str(level)
       if not level in self.levels:
         self.levels[level] = []
       self.levels[level].append( finditDataSetLevel(dataset, section) )
@@ -385,15 +391,16 @@ class finditDataSetLevel:
 
     self.question_position = \
         map(lambda x: int(x) ,
-            dataset.get(section, "questionPosition").split(','))
+            load_common_prop(dataset, section, "questionPosition", "").split(','))
 
     try:
-      self.question_text = dataset.get(section, "questionText")
+      self.question_text = load_common_prop(dataset, section, "questionText", "")
     except:
       self.question_text = None
 
+    print "     finditDataSetLevel " + self.question_text
     try:
-      self.question_audio = dataset.get(section, "questionAudio")
+      self.question_audio = load_common_prop(dataset, section, "questionAudio", "")
     except:
       self.question_audio = None
 
@@ -402,7 +409,7 @@ class finditDataSetLevel:
 
     self.ok_position = \
         map(lambda x: int(x) ,
-            dataset.get(section, "okPosition").split(','))
+            load_common_prop(dataset, section, "okPosition", "").split(','))
 
     i = 1
     self.objects = []
@@ -410,7 +417,10 @@ class finditDataSetLevel:
       try:
         dataset.get(section, "object" + str(i) + "Image")
         self.objects.append(finditDataSetObject(dataset, section, i))
-      except:
+      except Exception as inst:
+        print type(inst)     # the exception instance
+        print inst.args
+        print inst
         break
       i += 1
     # Shuffle the object
@@ -451,6 +461,7 @@ class finditDataSetObject:
     self.selection = None
     # Some random key to allow the sorting
     self.randint = 0
+    print "     finditDataSetObject " + self.text
 
   def init_randint(self):
     self.randint = random.randint(0, 100)
