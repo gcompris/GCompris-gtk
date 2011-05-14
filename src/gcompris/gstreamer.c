@@ -233,9 +233,15 @@ fx_play()
   if(!file)
     return;
 
-  g_debug("  fx_play %s", file);
+  absolute_file = gc_file_find_absolute(file, NULL);
+  if (absolute_file)
+    {
+      char *_realpath = realpath(absolute_file, NULL);
+      g_free(absolute_file);
+      absolute_file = _realpath;
+    }
 
-  absolute_file = gc_file_find_absolute(file);
+  g_debug("  fx_play %s (%s)", file, absolute_file);
 
   if (!absolute_file ||
       !properties->fx)

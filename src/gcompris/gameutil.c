@@ -31,10 +31,6 @@
 
 #include "gcompris.h"
 
-#ifdef WIN32
-#define realpath(N,R) _fullpath((R),(N),_MAX_PATH)
-#endif
-
 extern GooCanvas *canvas;
 
 typedef void (*sighandler_t)(int);
@@ -649,6 +645,7 @@ gc_file_find_absolute(const gchar *format, ...)
     }
 
  NOT_FOUND:
+  g_debug("absolute_filename '%s' NOT FOUND\n", filename);
   g_free(filename);
   g_free(absolute_filename);
   return NULL;
@@ -656,8 +653,6 @@ gc_file_find_absolute(const gchar *format, ...)
  FOUND:
   g_free(filename);
   //  printf("absolute_filename=%s\n", absolute_filename);
-  //  char *abs_name = realpath(absolute_filename, NULL);
-  //g_free(absolute_filename);
   return absolute_filename;
 }
 
