@@ -97,7 +97,6 @@ py_gc_file_find_absolute(PyObject* self, PyObject* args)
     Py_INCREF(Py_None);
     return Py_None;
   } else {
-    printf("ICI3 %s\n", result);
     return Py_BuildValue("s", result);
   }
 
