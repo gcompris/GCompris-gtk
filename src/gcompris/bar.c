@@ -508,6 +508,7 @@ static gchar *bar_flags_to_name(GComprisBarFlags flag)
       result = "quit";
       break;
     case GC_BAR_LEVEL_DOWN:
+      result = "level";
       break;
     case GC_BAR_HELP:
       result = "help";
@@ -528,11 +529,10 @@ static gint bar_play_sound (GooCanvasItem *item)
 
   GComprisBarFlags flag =
     GPOINTER_TO_UINT(g_object_get_data(G_OBJECT (item), "flag"));
+
   str = g_strdup_printf("voices/$LOCALE/misc/%s.ogg",
 			bar_flags_to_name(flag));
-
   gc_sound_play_ogg(str, NULL);
-
   g_free(str);
 
   gc_sound_policy_set(policy);
@@ -621,11 +621,12 @@ item_event_bar (GooCanvasItem  *item,
         if(gcomprisBoard && current_level > gcomprisBoard->maxlevel)
           current_level=1;
 
+        gc_bar_play_level_voice(current_level);
+
         /* Set the level */
         if(gcomprisBoard && gcomprisBoard->plugin->set_level != NULL)
           gcomprisBoard->plugin->set_level(current_level);
 
-        gc_bar_play_level_voice(current_level);
       }
       break;
     case GC_BAR_LEVEL_DOWN:
@@ -635,11 +636,12 @@ item_event_bar (GooCanvasItem  *item,
         if(current_level < 1)
           current_level = gcomprisBoard->maxlevel;
 
+        gc_bar_play_level_voice(current_level);
+
         /* Set the level */
         if(gcomprisBoard && gcomprisBoard->plugin->set_level != NULL)
           gcomprisBoard->plugin->set_level(current_level);
 
-        gc_bar_play_level_voice(current_level);
       }
       break;
     case GC_BAR_HOME:
