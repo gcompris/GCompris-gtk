@@ -1674,5 +1674,4 @@ class Selector:
     # ------------------------------------------------------------
 
 def stop_board():
-    gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
-
+  pass

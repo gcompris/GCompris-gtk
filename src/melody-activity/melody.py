@@ -392,5 +392,5 @@ class Gcompris_melody:
     self.pause(0)
 
 def stop_board():
-  gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
+  pass
 
