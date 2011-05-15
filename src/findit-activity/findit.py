@@ -71,6 +71,7 @@ class Gcompris_findit:
       self.gcomprisBoard.sublevel = 1;
       gcompris.bar_set(gcompris.BAR_LEVEL|gcompris.BAR_REPEAT)
       gcompris.bar_set_level(self.gcomprisBoard)
+      gcompris.sound.policy_set(gcompris.sound.PLAY_AND_INTERRUPT)
       self.play(data)
 
 
@@ -129,16 +130,14 @@ class Gcompris_findit:
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains
     # automaticaly.
-    print self.gcomprisBoard.canvas.get_root_item()
     self.rootitem = goocanvas.Group(parent =
                                     self.gcomprisBoard.canvas.get_root_item())
 
 
     # Get a random question
     self.datasetlevel = datasetlevel
-    datasetlevel.dump()
     datasetlevel.sort_objects()
-    datasetlevel.dump()
+    #datasetlevel.dump()
     self.current_question = -1
     self.question_lost = []
 
@@ -172,9 +171,9 @@ class Gcompris_findit:
         line_width = datasetlevel.object_area_line_width
         )
 
-    gap = 20
-    ix = x + gap
-    iy = y + gap
+    gap = datasetlevel.gap
+    ix = x
+    iy = y
     y_max = 0
     for object_source in datasetlevel.objects:
       item = object_source.create_item(self.rootitem,
@@ -185,8 +184,8 @@ class Gcompris_findit:
       height = bounds.y2 - bounds.y1
       # Manage line wrapping
       if ix + width + gap > x + w:
-        ix = x + gap
-        iy += y_max
+        ix = x
+        iy += y_max + gap
       item.props.x = ix
       item.props.y = iy
       item.connect("button_press_event", self.item_event, object_source)
@@ -216,15 +215,22 @@ class Gcompris_findit:
 
   def play_audio_question(self, question, object_):
     # Play the audio question if provided
+    audio = question
     try:
       # The question audio can be formatted with {text} and if so this
       # is replaced by the target text
-      audio = question.format(text = object_.text)
+      audio = audio.format(text = object_.text)
     except:
-      audio = question
+      pass
+
+    try:
+      # The question audio can be formatted with {audio} and if so this
+      # is replaced by the target text
+      audio = audio.format(audio = object_.audio)
+    except:
+      pass
+
     if audio:
-      print "play audio=" + audio
-      print gcompris.utils.find_file_absolute(audio)
       gcompris.sound.play_ogg(
         gcompris.utils.find_file_absolute(audio) )
 
@@ -245,12 +251,20 @@ class Gcompris_findit:
 
   def display_question(self, datasetlevel, object_target):
     # The question
+    text = datasetlevel.question_text
     try:
       # The question can be formatted with {text} and if so this
       # is replaced by the target name
-      text = _(datasetlevel.question_text.format(text = _(object_target.text)))
+      text = _(text.format(text = _(object_target.text)))
     except:
-      text = datasetlevel.question_text
+      pass
+
+    try:
+      # The question can be formatted with {audio} and if so this
+      # is replaced by the target name
+      text = _(text.format(audio = _(object_target.audio)))
+    except:
+      pass
 
     if self.selected:
       self.selected.select(False)
@@ -276,7 +290,7 @@ class Gcompris_findit:
       self.selected.select(False)
     self.selected = object_source
     self.selected.select(True)
-    self.play_audio_question(self.object_target.audio, object_source)
+    self.play_audio_question(object_source.audio, object_source)
 
     if (object_source.text == self.object_target.text):
       print "WON " + object_source.text
@@ -410,6 +424,8 @@ class finditDataSetLevel:
     self.ok_position = \
         map(lambda x: int(x) ,
             load_common_prop(dataset, section, "okPosition", "").split(','))
+
+    self.gap = long(load_common_prop(dataset, section, "objectGap", "20"), 10)
 
     i = 1
     self.objects = []
