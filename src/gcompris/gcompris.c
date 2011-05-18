@@ -269,10 +269,10 @@ static GOptionEntry options[] = {
    ("Disable maximization zoom"), NULL},
 
   {"timing-base",'\0', 0, G_OPTION_ARG_DOUBLE, &popt_timing_base,
-   ("Increase activiites' timeout delays; useful values > 1.0; 1.0 to not change hardcoded value"), NULL},
+   ("Increase activities' timeout delays; useful values > 1.0; 1.0 to not change hardcoded value"), NULL},
 
   {"timing-mult",'\0', 0, G_OPTION_ARG_DOUBLE, &popt_timing_mult,
-   ("How activiites' timeout delays are growing for several actors; useful values < 1.0; 1.0 to not change hardcoded value"), NULL},
+   ("How activities' timeout delays are growing for several actors; useful values < 1.0; 1.0 to not change hardcoded value"), NULL},
 
   { NULL }
 };
