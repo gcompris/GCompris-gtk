@@ -8,17 +8,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris master\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-27 19:15+0100\n"
-"PO-Revision-Date: 2011-02-27 19:15+0100\n"
-"Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=gcompris&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2011-05-02 17:48+0000\n"
+"PO-Revision-Date: 2011-05-08 10:17+0100\n"
+"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <gnome at fsf dot hu>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 "X-Generator: KBabel 1.11.4\n"
-"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
@@ -84,7 +85,8 @@ msgstr "A kísérletező játékokhoz"
 
 #: ../boards/experimental.xml.in.h:2
 msgid "Run gcompris --experimental to see this menu."
-msgstr "Ez a menü a gcompris --experimental parancs kiadásával jeleníthető meg."
+msgstr ""
+"Ez a menü a gcompris --experimental parancs kiadásával jeleníthető meg."
 
 #: ../boards/fun.xml.in.h:1
 msgid "Go to Amusement activities"
@@ -687,7 +689,8 @@ msgid "Birth date:"
 msgstr "Születési dátum:"
 
 #: ../src/administration-activity/admin/user_edit.py:153
-msgid "You need to provide at least a login, first name and last name for your users"
+msgid ""
+"You need to provide at least a login, first name and last name for your users"
 msgstr ""
 "Legalább egy bejelentkezési nevet, valamint egy utó- és vezetéknevet meg "
 "kell adnia a felhasználóinak"
@@ -1041,6 +1044,7 @@ msgid "platinum"
 msgstr "platina"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:6
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:9
 msgid "purple"
 msgstr "bíborvörös"
 
@@ -1510,7 +1514,8 @@ msgstr "Mozgáskoordináció. Fogalmak összekapcsolása."
 
 #: ../src/babymatch-activity/babymatch.xml.in.h:5
 msgid "Mouse manipulation: movement, drag and drop. Cultural references."
-msgstr "Egérkezelés: mozgatás, húzd és ejtsd ismerete. Kulturális vonatkozások."
+msgstr ""
+"Egérkezelés: mozgatás, húzd és ejtsd ismerete. Kulturális vonatkozások."
 
 #: ../src/babymatch-activity/shapegame.c:1903
 #: ../src/click_on_letter-activity/click_on_letter.c:671
@@ -1740,7 +1745,8 @@ msgid "color"
 msgstr "szín"
 
 #: ../src/chat-activity/chat.py:323
-msgid "ERROR: Failed to initialize the network interface. You cannot communicate."
+msgid ""
+"ERROR: Failed to initialize the network interface. You cannot communicate."
 msgstr ""
 "HIBA: a hálózati csatoló előkészítése meghiúsult. Nem fogsz tudni "
 "beszélgetni."
@@ -2164,15 +2170,20 @@ msgstr ""
 msgid ""
 "Left-Click with the mouse on all the swimming fish before they leave the "
 "fishtank"
-msgstr "Kattints a bal egérgombbal a halakra, mielőtt kiúsznának az akváriumból"
+msgstr ""
+"Kattints a bal egérgombbal a halakra, mielőtt kiúsznának az akváriumból"
 
 #: ../src/clickgame-activity/clickgame.xml.in.h:4
 msgid "Motor coordination: moving and clicking the mouse."
 msgstr "Mozgáskoordináció: egérmozgatás és kattintás."
 
 #: ../src/clickgame-activity/clickgame.xml.in.h:6
-msgid "Use the left mouse button to click on the moving fish."
-msgstr "Kattints a bal egérgombbal a mozgó halra."
+msgid ""
+"Use the left mouse button to click on the moving fish. A level 5 and after, "
+"a double click is mandatory."
+msgstr ""
+"Kattints a bal egérgombbal a mozgó halra. Az 5-ös szintől kezdve a dupla "
+"kattintás kötelező."
 
 #: ../src/clockgame-activity/clockgame.c:524
 msgid "Set the watch to:"
@@ -2271,6 +2282,56 @@ msgid ""
 msgstr ""
 "Ez a tábla a különböző színek felismerésére tanít. Amikor a szín nevét "
 "hallod, kattints az adott színű kacsára."
+
+#. Translator: Do not translate {text}.
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:2
+msgid "Find the {text} duck"
+msgstr "Keresd a {text} kacsát"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:3
+#: ../src/read_colors-activity/read_colors.c:65
+msgid "black"
+msgstr "fekete"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:4
+#: ../src/read_colors-activity/read_colors.c:57
+msgid "blue"
+msgstr "kék"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:5
+#: ../src/read_colors-activity/read_colors.c:58
+msgid "brown"
+msgstr "barna"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:6
+#: ../src/read_colors-activity/read_colors.c:59
+msgid "green"
+msgstr "zöld"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:7
+#: ../src/read_colors-activity/read_colors.c:60
+msgid "grey"
+msgstr "szürke"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:8
+#: ../src/read_colors-activity/read_colors.c:61
+msgid "orange"
+msgstr "narancssárga"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:10
+#: ../src/read_colors-activity/read_colors.c:63
+msgid "red"
+msgstr "vörös"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:11
+#: ../src/read_colors-activity/read_colors.c:66
+msgid "white"
+msgstr "fehér"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:12
+#: ../src/read_colors-activity/read_colors.c:64
+msgid "yellow"
+msgstr "sárga"
 
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:1
 #: ../src/connect4-activity/connect4.xml.in.h:1
@@ -2442,8 +2503,10 @@ msgid "Panorama of Château de Chenonceau, Indre-et-Loire, France."
 msgstr "A Château de Chenonceau panorámája, Indre-et-Loire, Franciaország"
 
 #: ../src/details-activity/resources/details/board2_4.xml.in.h:1
-msgid "Notre Dame de Paris cathedral on the Île de la Cité island in Paris, France."
-msgstr "A Notre Dame katedrális az Île de la Cité szigeten, Párizs, Franciaország"
+msgid ""
+"Notre Dame de Paris cathedral on the Île de la Cité island in Paris, France."
+msgstr ""
+"A Notre Dame katedrális az Île de la Cité szigeten, Párizs, Franciaország"
 
 #: ../src/details-activity/resources/details/board2_5.xml.in.h:1
 msgid "Nagoya Castle, Aichi Prefecture, Japan."
@@ -2522,6 +2585,7 @@ msgstr ""
 "alakzatot. Egy objektumot gyorsan törölni a középső egérgombbal lehet."
 
 #: ../src/drawnumber-activity/drawnumber.py:236
+#: ../src/findit-activity/findit.py:290
 msgid "Cannot find the file '{filename}'"
 msgstr "A fájl („{filename}”) nem található"
 
@@ -2689,7 +2753,8 @@ msgstr "Kattints duplán a téglalapokra az egérrel, amíg mind el nem tűnik."
 
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:4
 msgid "Double click the mouse to erase the area and discover the background"
-msgstr "Kattints duplán az egérrel, hogy kitöröld a területet és felfedezd a hátteret"
+msgstr ""
+"Kattints duplán az egérrel, hogy kitöröld a területet és felfedezd a hátteret"
 
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:2
 msgid "Click the mouse"
@@ -2712,7 +2777,8 @@ msgstr ""
 "cserélve az üres négyzettel."
 
 #: ../src/fifteen-activity/fifteen.xml.in.h:3
-msgid "Move each item to make an increasing series: from the smallest to the largest"
+msgid ""
+"Move each item to make an increasing series: from the smallest to the largest"
 msgstr ""
 "Mozgasd úgy az egyes elemeket, hogy növekvő sorozatot kapj: a legkisebbtől a "
 "legnagyobbig"
@@ -2785,9 +2851,10 @@ msgstr "Fordítók:"
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
-msgstr "Ez a program GNU szoftver és a GNU General Public License alatt van kiadva"
+msgstr ""
+"Ez a program GNU szoftver és a GNU General Public License alatt van kiadva"
 
-#: ../src/gcompris/about.c:222 ../src/gcompris/config.c:455
+#: ../src/gcompris/about.c:222 ../src/gcompris/config.c:456
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:355
 #: ../src/gcompris/images_selector.c:306
 msgid "OK"
@@ -2811,7 +2878,8 @@ msgstr "Nem, folytatni szeretném!"
 
 #: ../src/gcompris/board.c:155
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
-msgstr "Modulok dinamikus betöltése nem támogatott. A GCompris nem tölthető be.\n"
+msgstr ""
+"Modulok dinamikus betöltése nem támogatott. A GCompris nem tölthető be.\n"
 
 #: ../src/gcompris/board_config_combo.c:157
 msgid ""
@@ -3137,62 +3205,66 @@ msgstr "Vietnami"
 msgid "Walloon"
 msgstr "Vallon"
 
-#: ../src/gcompris/config.c:129
+#: ../src/gcompris/config.c:125
+msgid "Zulu"
+msgstr "Zulu"
+
+#: ../src/gcompris/config.c:130
 msgid "No time limit"
 msgstr "Nincs időkorlátozás"
 
-#: ../src/gcompris/config.c:130
+#: ../src/gcompris/config.c:131
 msgid "Slow timer"
 msgstr "Sok idő"
 
-#: ../src/gcompris/config.c:131
+#: ../src/gcompris/config.c:132
 msgid "Normal timer"
 msgstr "Átlagos idő"
 
-#: ../src/gcompris/config.c:132
+#: ../src/gcompris/config.c:133
 msgid "Fast timer"
 msgstr "Kevés idő"
 
-#: ../src/gcompris/config.c:136
+#: ../src/gcompris/config.c:137
 msgid "Use Gcompris administration module to filter boards"
 msgstr "Táblák szűréséhez használja a Gcompris adminisztrációs modulját"
 
-#: ../src/gcompris/config.c:187
+#: ../src/gcompris/config.c:188
 msgid "GCompris Configuration"
 msgstr "A GCompris beállítása"
 
-#: ../src/gcompris/config.c:270
+#: ../src/gcompris/config.c:271
 msgid "Fullscreen"
 msgstr "Teljes képernyő"
 
-#: ../src/gcompris/config.c:295
+#: ../src/gcompris/config.c:296
 msgid "Music"
 msgstr "Zene"
 
-#: ../src/gcompris/config.c:320
+#: ../src/gcompris/config.c:321
 msgid "Effect"
 msgstr "Effektusok"
 
-#: ../src/gcompris/config.c:344 ../src/gcompris/sugar.c:82
+#: ../src/gcompris/config.c:345 ../src/gcompris/sugar.c:82
 msgid "Zoom"
 msgstr "Nagyítás"
 
-#: ../src/gcompris/config.c:381
+#: ../src/gcompris/config.c:382
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Nem sikerült megnyitni a(z) %s témakönyvtárat"
 
-#: ../src/gcompris/config.c:412 ../src/gcompris/config.c:779
-#: ../src/gcompris/config.c:793
+#: ../src/gcompris/config.c:413 ../src/gcompris/config.c:780
+#: ../src/gcompris/config.c:794
 #, c-format
 msgid "Skin : %s"
 msgstr "Téma: %s"
 
-#: ../src/gcompris/config.c:414
+#: ../src/gcompris/config.c:415
 msgid "SKINS NOT FOUND"
 msgstr "NEM TALÁLHATÓK TÉMÁK!"
 
-#: ../src/gcompris/config.c:495
+#: ../src/gcompris/config.c:496
 msgid "English (United State)"
 msgstr "Angol (Egyesült Államok)"
 
@@ -3289,7 +3361,8 @@ msgstr "A GCompris ebben a könyvtárban keresi a python tevékenységeket"
 
 #: ../src/gcompris/gcompris.c:202
 msgid "GCompris will find the locale file (.mo translation) in this directory"
-msgstr "A GCompris ebben a könyvtárban keresi a lokalizációs fájlt (.mo fordítás)"
+msgstr ""
+"A GCompris ebben a könyvtárban keresi a lokalizációs fájlt (.mo fordítás)"
 
 #: ../src/gcompris/gcompris.c:205
 msgid "GCompris will find the activities menu in this directory"
@@ -3372,13 +3445,15 @@ msgstr ""
 "használatát - minden adat a webkiszolgálóról töltődik le. "
 
 #: ../src/gcompris/gcompris.c:251
-msgid "In server mode, specify the cache directory used to avoid useless downloads."
+msgid ""
+"In server mode, specify the cache directory used to avoid useless downloads."
 msgstr ""
 "Kiszolgáló módban adja meg a gyorsítótár-könyvtárat a felesleges letöltések "
 "kiküszöböléséhez."
 
 #: ../src/gcompris/gcompris.c:254
-msgid "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
+msgid ""
+"Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr ""
 "Globális fogd-és-ejtsd mód: normál, dupla kattintás, mindkettő. Az "
 "alapértelmezett a normál mód."
@@ -3418,7 +3493,8 @@ msgstr ""
 
 #: ../src/gcompris/gcompris.c:1486
 #, c-format
-msgid "GCompris won't start because the lock file is less than %d seconds old.\n"
+msgid ""
+"GCompris won't start because the lock file is less than %d seconds old.\n"
 msgstr ""
 "A GCompris nem indul el, mert a zárolási fájl kevesebb, mint %d másodperc "
 "korú.\n"
@@ -4402,7 +4478,8 @@ msgstr "Számfaló - osztók"
 msgid ""
 "Guide the Number Muncher to all the factors of the number at the top of the "
 "screen."
-msgstr "Irányítsd a Számfalót a képernyő tetején látható szám összes osztójára."
+msgstr ""
+"Irányítsd a Számfalót a képernyő tetején látható szám összes osztójára."
 
 #: ../src/gnumch-factors-activity/gnumch-factors.xml.in.h:3
 msgid "Learn about factors and multiples."
@@ -4606,7 +4683,8 @@ msgstr "A klasszikus akasztófás játék"
 
 #: ../src/hangman-activity/hangman.xml.in.h:4
 msgid "This is a good exercise to improve reading and spelling skills."
-msgstr "Ez egy remek gyakorlat az olvasási és betűzési képességek fejlesztésére."
+msgstr ""
+"Ez egy remek gyakorlat az olvasási és betűzési képességek fejlesztésére."
 
 #: ../src/hangman-activity/hangman.xml.in.h:5
 msgid ""
@@ -4645,7 +4723,8 @@ msgstr ""
 
 #: ../src/hanoi-activity/hanoi.xml.in.h:5
 msgid "Reproduce the tower on the right in the empty space on the left"
-msgstr "Építsd fel a jobb oldalon látható tornyot a bal oldalon lévő üres helyen"
+msgstr ""
+"Építsd fel a jobb oldalon látható tornyot a bal oldalon lévő üres helyen"
 
 #: ../src/hanoi_real-activity/hanoi_real.c:74
 msgid "Tower of Hanoi"
@@ -4653,7 +4732,8 @@ msgstr "Hanoi tornyai"
 
 #: ../src/hanoi_real-activity/hanoi_real.c:267
 msgid "Move the entire stack to the right peg, one disc at a time"
-msgstr "Mozgasd egyesével az összes korongot a bal oldali a cölöpről a jobb oldalira."
+msgstr ""
+"Mozgasd egyesével az összes korongot a bal oldali a cölöpről a jobb oldalira."
 
 #: ../src/hanoi_real-activity/hanoi_real.xml.in.h:1
 msgid ""
@@ -4759,7 +4839,8 @@ msgstr ""
 
 #: ../src/hydroelectric-activity/hydroelectric.py:189
 msgid "This cloud simulates the wind, click on it to have wind."
-msgstr "Ez a felhő a szelet szimulálja, kattints rá a szélfúvás megindításához."
+msgstr ""
+"Ez a felhő a szelet szimulálja, kattints rá a szélfúvás megindításához."
 
 #: ../src/hydroelectric-activity/hydroelectric.py:227
 msgid ""
@@ -5239,7 +5320,8 @@ msgid "Enter login to log in"
 msgstr "Add meg a bejelentkezési neved"
 
 #: ../src/login-activity/login.xml.in.h:1
-msgid "GCompris identifies each child, so we can provide child-specific reports."
+msgid ""
+"GCompris identifies each child, so we can provide child-specific reports."
 msgstr ""
 "A GCompris minden egyes gyereket azonosít, így a gyerekekre jellemző "
 "jelentéseket készíthetünk."
@@ -5277,7 +5359,8 @@ msgstr "Válaszd ki vagy add meg a neved a bejelentkezéshez a GCompris-ba"
 
 #: ../src/magic_hat_minus-activity/magic_hat_minus.xml.in.h:1
 msgid "Count how many items are under the magic hat after some have got away"
-msgstr "Számold meg, hány elem marad a bűvös kalap alatt, miután néhány eltűnik"
+msgstr ""
+"Számold meg, hány elem marad a bűvös kalap alatt, miután néhány eltűnik"
 
 #: ../src/magic_hat_minus-activity/magic_hat_minus.xml.in.h:2
 msgid "Learn subtraction"
@@ -5346,10 +5429,12 @@ msgstr "Találd meg a kijáratot a labirintusból"
 msgid ""
 "Look at your position, then switch back to invisible mode to continue your "
 "moves"
-msgstr "Nézd meg, hol állsz majd kapcsolj vissza láthatatlan módba a továbbhaladáshoz"
+msgstr ""
+"Nézd meg, hol állsz majd kapcsolj vissza láthatatlan módba a továbbhaladáshoz"
 
 #: ../src/maze-activity/maze.c:601
-msgid "Look at your position, then switch back to 3D mode to continue your moves"
+msgid ""
+"Look at your position, then switch back to 3D mode to continue your moves"
 msgstr "Nézd meg, hol állsz majd kapcsolj vissza 3D módba a továbbhaladáshoz"
 
 #: ../src/maze-activity/maze.xml.in.h:1
@@ -5720,7 +5805,8 @@ msgstr "Számlálási gyakorlat, memória."
 
 #: ../src/memory_enumerate-activity/memory_enumerate.xml.in.h:4
 msgid "Turn the cards over to match the number with the drawn picture."
-msgstr "Párosítsd azokat a kártyákat, amelyeken a szám megegyezik a képen láthatóval."
+msgstr ""
+"Párosítsd azokat a kártyákat, amelyeken a szám megegyezik a képen láthatóval."
 
 #: ../src/memory_enumerate-activity/memory_enumerate.xml.in.h:5
 msgid ""
@@ -5914,7 +6000,8 @@ msgstr "Számok olvasása, memória."
 
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:3
 msgid "Turn the cards over to match the number with the word matching it."
-msgstr "Párosítsd azokat a kártyákat, amelyeken a számjegy megfelel a leírt szónak."
+msgstr ""
+"Párosítsd azokat a kártyákat, amelyeken a számjegy megfelel a leírt szónak."
 
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:4
 msgid "Wordnumber memory game"
@@ -5965,7 +6052,8 @@ msgid "Question cannot be empty."
 msgstr "A kérdés nem lehet üres."
 
 #: ../src/missing_letter-activity/missingletter_config.c:95
-msgid "Question must include the character '_'. It represents the letter to search."
+msgid ""
+"Question must include the character '_'. It represents the letter to search."
 msgstr ""
 "A kérdésnek tartalmaznia kell az „_” karaktert. Ez képviseli a keresett "
 "betűt."
@@ -5980,7 +6068,8 @@ msgstr "Legalább két lehetőség kell legyen."
 
 #: ../src/missing_letter-activity/missingletter_config.c:116
 msgid "The answer and question must be the same except for the character '_'."
-msgstr "A válasznak és a kérdésnek azonosnak kell lennie, kivéve az „_” karaktert."
+msgstr ""
+"A válasznak és a kérdésnek azonosnak kell lennie, kivéve az „_” karaktert."
 
 #: ../src/missing_letter-activity/missingletter_config.c:125
 msgid "The first choice must be the solution that replaces the character '_'."
@@ -6045,7 +6134,8 @@ msgstr "Cserélje ki a betűt az „_” karakter kitalálásához."
 msgid ""
 "Enter here the letter that will be proposed. The first letter here must be "
 "the solution."
-msgstr "Adja meg itt a felajánlott betűt. Az első betűnek a megoldásnak kell lennie."
+msgstr ""
+"Adja meg itt a felajánlott betűt. Az első betűnek a megoldásnak kell lennie."
 
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:1
 msgid "car/c_r/a/k/o"
@@ -6360,8 +6450,10 @@ msgid "Katsushika Hokusai, The Great Wave off Kanagawa - 1823-1829"
 msgstr "Katsushika Hokusai, The Great Wave off Kanagawa - 1823-1829"
 
 #: ../src/paintings-activity/resources/paintings/board1_8.xml.in.h:1
-msgid "Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
-msgstr "Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
+msgid ""
+"Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
+msgstr ""
+"Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
 
 #: ../src/paintings-activity/resources/paintings/board1_9.xml.in.h:1
 msgid "Utagawa Hiroshige, Horse-mackerel and Prawn - 1840"
@@ -6393,7 +6485,8 @@ msgstr "Pierre-Auguste Renoir, Girls At The Piano - 1892"
 
 #: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:1
 msgid "Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
-msgstr "Olajfestmény vásznon, 140 x 201 cm; Solomon R. Guggenheim Múzeum, New York"
+msgstr ""
+"Olajfestmény vásznon, 140 x 201 cm; Solomon R. Guggenheim Múzeum, New York"
 
 #: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:2
 msgid "Wassily Kandinsky, Composition VIII - 1923"
@@ -6442,13 +6535,14 @@ msgstr "Ejtőernyős"
 
 #: ../src/paratrooper-activity/paratrooper.xml.in.h:5
 msgid "This board is game-oriented. No specific skills are needed to play."
-msgstr "Ez a tábla játékközpontú. A játékhoz nem szükségesek megadott képességek."
+msgstr ""
+"Ez a tábla játékközpontú. A játékhoz nem szükségesek megadott képességek."
 
-#: ../src/penalty-activity/penalty.py:293
+#: ../src/penalty-activity/penalty.py:292
 msgid "Click on the balloon to place it again."
 msgstr "Kattints a léggömbre az ismételt elhelyezéséhez."
 
-#: ../src/penalty-activity/penalty.py:295
+#: ../src/penalty-activity/penalty.py:294
 msgid "Click twice on the balloon to shoot it."
 msgstr "Kattints kétszer a léggömbre a lelövéséhez."
 
@@ -6517,7 +6611,8 @@ msgstr ""
 
 #: ../src/planegame-activity/planegame.xml.in.h:2
 msgid "Move the helicopter to catch the clouds in the correct order"
-msgstr "Mozgasd a helikoptert, hogy a helyes sorrendben repülhess át a felhőkön"
+msgstr ""
+"Mozgasd a helikoptert, hogy a helyes sorrendben repülhess át a felhőkön"
 
 #: ../src/planegame-activity/planegame.xml.in.h:3
 msgid "Number"
@@ -6550,8 +6645,10 @@ msgstr "Python sablon"
 
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:5
 #: ../src/pythontest-activity/pythontest.xml.in.h:5
-msgid "Thanks to Guido van Rossum and the python team for this powerful language!"
-msgstr "Köszönet Guido van Rossumnak és a Python csapatnak ezért a hatékony nyelvért!"
+msgid ""
+"Thanks to Guido van Rossum and the python team for this powerful language!"
+msgstr ""
+"Köszönet Guido van Rossumnak és a Python csapatnak ezért a hatékony nyelvért!"
 
 #: ../src/pythontest-activity/pythontest.py:194
 msgid ""
@@ -6633,45 +6730,9 @@ msgstr "Memóriaedzés"
 msgid "Railway"
 msgstr "Vasút"
 
-#: ../src/read_colors-activity/read_colors.c:57
-msgid "blue"
-msgstr "kék"
-
-#: ../src/read_colors-activity/read_colors.c:58
-msgid "brown"
-msgstr "barna"
-
-#: ../src/read_colors-activity/read_colors.c:59
-msgid "green"
-msgstr "zöld"
-
-#: ../src/read_colors-activity/read_colors.c:60
-msgid "grey"
-msgstr "szürke"
-
-#: ../src/read_colors-activity/read_colors.c:61
-msgid "orange"
-msgstr "narancssárga"
-
 #: ../src/read_colors-activity/read_colors.c:62
 msgid "violet"
 msgstr "viola"
-
-#: ../src/read_colors-activity/read_colors.c:63
-msgid "red"
-msgstr "vörös"
-
-#: ../src/read_colors-activity/read_colors.c:64
-msgid "yellow"
-msgstr "sárga"
-
-#: ../src/read_colors-activity/read_colors.c:65
-msgid "black"
-msgstr "fekete"
-
-#: ../src/read_colors-activity/read_colors.c:66
-msgid "white"
-msgstr "fehér"
 
 #: ../src/read_colors-activity/read_colors.c:67
 msgid "pink"
@@ -6761,7 +6822,8 @@ msgstr "Olvasási gyakorlat korlátozott időben"
 
 #: ../src/readingv-activity/readingv.xml.in.h:2
 msgid "Read a vertical list of words and work out if a given word is in it"
-msgstr "Olvass el egy függőleges szólistát és mondd meg, egy adott szó benne volt-e"
+msgstr ""
+"Olvass el egy függőleges szólistát és mondd meg, egy adott szó benne volt-e"
 
 #: ../src/readingv-activity/readingv.xml.in.h:3
 msgid "Read training in a limited time"
@@ -6800,7 +6862,8 @@ msgstr "Rajzold újra az adott tárgyat"
 msgid ""
 "Copy the mirror image of an object from the box on the right into the box on "
 "the left."
-msgstr "Másold át a jobb oldali dobozban lévő tárgy tükörképét a bal oldali dobozba."
+msgstr ""
+"Másold át a jobb oldali dobozban lévő tárgy tükörképét a bal oldali dobozba."
 
 #: ../src/redraw_symmetrical-activity/redraw_symmetrical.xml.in.h:2
 msgid ""
@@ -6844,7 +6907,8 @@ msgstr "Gyakorold a kivonást egy vidám játékkal"
 
 #: ../src/reversecount-activity/reversecount.xml.in.h:4
 msgid "Tux is hungry. Help him find fish by counting to the correct ice spot."
-msgstr "Tux éhes. A megfelelő jégkockáig számolva segíthetsz neki halakat találni."
+msgstr ""
+"Tux éhes. A megfelelő jégkockáig számolva segíthetsz neki halakat találni."
 
 #: ../src/scalesboard-activity/scale.c:294
 #, c-format
@@ -7138,7 +7202,8 @@ msgid "Sudoku, place unique symbols in a square."
 msgstr "Sudoku, helyezz el egyedi számokat egy négyzetben."
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:4
-msgid "Symbols must be unique in a row, in a column, and (if defined) each region."
+msgid ""
+"Symbols must be unique in a row, in a column, and (if defined) each region."
 msgstr ""
 "Minden szimbólumnak egyedinek kell lennie a soron, az oszlopon és (ha meg "
 "van adva) minden területen belül."
@@ -7251,7 +7316,8 @@ msgstr ""
 
 #: ../src/tangram-activity/tangram.xml.in.h:10
 msgid "The objective is to form a given shape with seven pieces"
-msgstr "A cél egy megadott alakzat megformálása mind a hét darab felhasználásával"
+msgstr ""
+"A cél egy megadott alakzat megformálása mind a hét darab felhasználásával"
 
 #: ../src/tangram-activity/tangram.xml.in.h:11
 msgid ""
@@ -7288,7 +7354,8 @@ msgid "Distance to target = %d meters"
 msgstr "A célpont távolsága = %d méter"
 
 #: ../src/target-activity/target.xml.in.h:1
-msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
+msgid ""
+"Can move the mouse, can read numbers and count up to 15 for the first level"
 msgstr "Kezelni tudja az egeret, számolni tud 15-ig (az első szinthez)"
 
 #: ../src/target-activity/target.xml.in.h:2
@@ -7517,3 +7584,10 @@ msgstr "Billentyűzetkezelés gyakorlása"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Gépeld be a teljes szót amíg esik, mielőtt leérne a földre"
 
+#: ../src/findit-activity/findit.py:295
+msgid ""
+"Failed to parse data set '{filename}' with error:\n"
+"{error}"
+msgstr ""
+"A(z) „{filename}” adathalmaz feldolgozása az alábbi hibával hiúsult meg:\n"
+"{error}"
