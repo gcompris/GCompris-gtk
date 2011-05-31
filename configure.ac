@@ -740,6 +740,9 @@ src/imageid-activity/resources/imageid/Makefile
 src/imagename-activity/Makefile
 src/imagename-activity/resources/Makefile
 src/imagename-activity/resources/imagename/Makefile
+src/instruments-activity/Makefile
+src/instruments-activity/resources/Makefile
+src/instruments-activity/resources/instruments/Makefile
 src/leftright-activity/Makefile
 src/leftright-activity/resources/Makefile
 src/leftright-activity/resources/leftright/Makefile
