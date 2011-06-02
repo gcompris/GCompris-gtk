@@ -185,7 +185,7 @@ gc_prop_new ()
   tmp->config_dir = gc_prop_default_config_directory_get();
   tmp->user_dir = gc_prop_default_user_directory_get();
   tmp->database = NULL;
-
+  tmp->bar_hidden = FALSE;
   return (tmp);
 }
 

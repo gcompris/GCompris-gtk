@@ -68,6 +68,8 @@ typedef struct {
   gchar        *server;
   gint		drag_mode;
   gint		zoom;
+  gboolean	bar_hidden;  /* Is the bar hiden */
+
 } GcomprisProperties;
 
 GcomprisProperties	*gc_prop_get (void);

@@ -328,6 +328,21 @@ board_widget_key_press_callback (GtkWidget   *widget,
 {
   int kv = event->keyval;
 
+  if(event->state & GDK_CONTROL_MASK && ((event->keyval == GDK_b)
+					 || (event->keyval == GDK_B))) {
+    if(properties->bar_hidden){
+      g_message("Restoring the control bar\n");
+      properties->bar_hidden=FALSE;
+      gc_bar_hide(properties->bar_hidden);
+    }
+    else{
+      g_message("Hidding the control bar\n");
+      properties->bar_hidden=TRUE;
+      gc_bar_hide(properties->bar_hidden);
+    };
+    goo_canvas_update(GOO_CANVAS(canvas));
+    return TRUE;
+  }
   if(event->state & GDK_CONTROL_MASK && ((event->keyval == GDK_r)
 					 || (event->keyval == GDK_R))) {
     g_message("Refreshing the canvas\n");

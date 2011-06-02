@@ -438,6 +438,7 @@ bar_set (const GComprisBarFlags flags)
 static void
 bar_hide (gboolean hide)
 {
+  GcomprisProperties *properties = gc_prop_get();
   /* Non yet initialized : Something Wrong */
   if ( ! rootitem )
     return;
@@ -451,7 +452,8 @@ bar_hide (gboolean hide)
     }
   else
     {
-      g_object_set(rootitem,
+      if(!properties->bar_hidden)
+        g_object_set(rootitem,
 		   "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
     }
 
