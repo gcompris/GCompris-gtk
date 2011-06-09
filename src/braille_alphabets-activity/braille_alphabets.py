@@ -31,6 +31,11 @@ from gcompris import gcompris_gettext as _
 from BrailleChar import *
 
 cell_width = 40
+on = 0xFF0000FFL
+off = 0X00000000L
+circle_fill = "#DfDfDf"
+circle_stroke = "blue"
+
 braille_desc = {'intro' : "A system of writing for the blinds that \n"
                 "uses characters made of raised dots. \n\n"
                 "The braille Cell is composed of 6 dot \n"
@@ -111,16 +116,20 @@ class Gcompris_braille_alphabets:
           #Place alphabets & numbers in array format
           for i, letter in enumerate(string.ascii_uppercase[:10]):
               tile = BrailleChar(self.rootitem, i*(cell_width+30)+60,
-                              60, 50, letter ,True ,False,None)
+                              60, 50, letter ,on,off,circle_fill,
+                              circle_stroke,True ,False,True,None)
           for i, letter in enumerate(string.ascii_uppercase[10:20]):
               tile = BrailleChar(self.rootitem, i*(cell_width+30)+60,
-                              150, 50, letter ,True ,False,None)
+                              150, 50, letter ,on, off, circle_fill,
+                              circle_stroke, True ,False,True,None)
           for i, letter in enumerate(string.ascii_uppercase[20:25]):
               tile = BrailleChar(self.rootitem, i*(cell_width+30)+60,
-                              250, 50, letter ,True ,False,None)
+                              250, 50, letter ,on ,off ,circle_fill,
+                              circle_stroke, True ,False,True, None)
           for letter in range(0,10):
               tile = BrailleChar(self.rootitem,letter *(cell_width+30)+60,
-                             350, 50, letter ,True,False ,None)
+                             350, 50, letter ,on ,off ,circle_fill,
+                             circle_stroke, True ,False ,True, None)
           #Move back item
           self.backitem = goocanvas.Image(parent = self.rootitem,
                     pixbuf = gcompris.utils.load_pixmap("back.png"),
@@ -262,11 +271,13 @@ class Gcompris_braille_alphabets:
   def board_tile(self,range_x,range_y):
       for i, letter in enumerate(string.ascii_uppercase[range_x:range_y]):
           tile = BrailleChar(self.rootitem, i*(cell_width+60)+60,
-                              80, 50, letter ,True ,False ,None)
+                              80, 50, letter ,on ,off ,circle_fill,
+                              circle_stroke, True ,False ,True, None)
   def board_number(self,num_1,num_2):
       for letter in range(num_1,num_2):
           tile = BrailleChar(self.rootitem,letter *(cell_width+30)+60,
-                             80, 50, letter ,True,False ,None)
+                             80, 50, letter ,on ,off ,circle_fill,
+                             circle_stroke, True,False ,True, None)
 
   def display_letter(self,letter):
       goocanvas.Text(parent=self.rootitem,
@@ -294,7 +305,8 @@ class Gcompris_braille_alphabets:
                      text=_("Braille Cell"),
                      fill_color="blue",
                      font='Sans BOLD')
-      BrailleChar(self.rootitem, 150, 270, 120, '',False,True,callback = self.letter_change)
+      BrailleChar(self.rootitem, 150, 270, 120, '',on ,off,circle_fill,circle_stroke,
+                   False,True,False,callback = self.letter_change)
       for i in range(2):
           for j in range(3):
                   goocanvas.Text(parent=self.rootitem,

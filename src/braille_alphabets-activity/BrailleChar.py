@@ -41,25 +41,27 @@ BRAILLE_LETTERS = {
     6 : [2,3,5],7 : [2,3,5,6],8 : [2,3,6], 9 : [3,5],0 :[3,5,6]
 }
 
-DOT_ON  = 0xFF0000FFL
-DOT_OFF = 0x00000000L
-
 class BrailleChar:
   """Braille Char"""
   def __init__(self, rootitem,
-               x, y, width, letter,
-               display_letter, clickable,
-               callback):
+               x, y, width, letter,DOT_ON,
+               DOT_OFF,fill,stroke,display_letter, clickable,
+               rectangle,callback):
 
     self.letter = letter
     self.callback = callback
     self.display_letter = display_letter
     self.clickable = clickable
+    self.DOT_ON = DOT_ON
+    self.DOT_OFF = DOT_OFF
+    self.fill = fill
+    self.stroke = stroke
+    self.rectangle = rectangle
 
     height = width * 1.33
     cell_radius = (width / 7.5)
     self.rootitem = goocanvas.Group(parent=rootitem)
-    if(letter == ''):
+    if(letter == '' or rectangle == False):
         """no rect"""
     else :
         self.item = goocanvas.Rect(parent=self.rootitem,
@@ -92,8 +94,8 @@ class BrailleChar:
                                      center_y=y + height / 4.0 * ( v + 1 ),
                                      radius_x=cell_radius,
                                      radius_y=cell_radius,
-                                     stroke_color="blue",
-                                     fill_color="#DfDfDf",
+                                     stroke_color=self.stroke,
+                                     fill_color=self.fill,
                                      line_width=width/25)
             # To fill the circles in lower board with red color
             if (clickable == True):
@@ -108,9 +110,9 @@ class BrailleChar:
             if fillings == None:
                 """only braille cell"""
             elif dot in fillings:
-                cell.set_property("fill_color_rgba", DOT_ON)
+                cell.set_property("fill_color_rgba", self.DOT_ON)
             else :
-                cell.set_property("fill_color_rgba", DOT_OFF)
+                cell.set_property("fill_color_rgba", self.DOT_OFF)
 
             self.dot_items.append(cell)
             dot += 1
@@ -125,7 +127,7 @@ class BrailleChar:
 
       # Create the dot list
       for l in range(6):
-          if(self.dot_items[l].get_property("fill_color_rgba") == DOT_ON):
+          if(self.dot_items[l].get_property("fill_color_rgba") == self.DOT_ON):
               cells.append(l+1)
 
       self.letter = ''
@@ -144,8 +146,8 @@ class BrailleChar:
 
   def dot_event(self, event, target, item):
       """A dot has been clicked, change its state and calculate our new letter value"""
-      if target.get_property("fill_color_rgba") == DOT_ON:
-          target.set_property("fill_color_rgba", DOT_OFF)
+      if target.get_property("fill_color_rgba") == self.DOT_ON:
+          target.set_property("fill_color_rgba", self.DOT_OFF)
       else:
-          target.set_property("fill_color_rgba", DOT_ON)
+          target.set_property("fill_color_rgba", self.DOT_ON)
       self.calculate_char()
