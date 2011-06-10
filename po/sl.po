@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2011-03-26 18:37+0000\n"
-"PO-Revision-Date: 2011-03-28 08:34+0100\n"
+"POT-Creation-Date: 2011-06-08 18:37+0000\n"
+"PO-Revision-Date: 2011-06-09 15:56+0100\n"
 "Last-Translator: Andrej Žnidaršič <andrej.znidarsic@gmail.com>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
@@ -733,7 +733,6 @@ msgid "Advanced colors"
 msgstr "Napredne barve"
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:2
-#: ../src/read_colors-activity/read_colors.xml.in.h:1
 msgid "Can read"
 msgstr "Branje"
 
@@ -749,289 +748,292 @@ msgstr "Klikni na pravilno obarvano polje."
 msgid "Learn to recognize unusual colors."
 msgstr "Nauči se prepoznavati nenavadne barve"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:1
-msgid "almond"
-msgstr "mandeljna"
+#. Translator: Do not translate {text}.
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:2
+msgid "Find the {text} butterfly"
+msgstr "Najdi metuljčka {text}"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:2
-msgid "chestnut"
-msgstr "kostanjeva"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:3
-msgid "claret"
-msgstr "temno rdeča"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:4
-msgid "cobalt"
-msgstr "kobaltna"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:5
-msgid "coral"
-msgstr "koralna"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:6
-msgid "corn"
-msgstr "koruzna"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:7
-msgid "cyan"
-msgstr "cijan"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:8
-msgid "sienna"
-msgstr "rjavo rdeča"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:1
-msgid "lime"
-msgstr "apnena"
-
-# v bistvu je to tale barva - http://www.google.si/imgres?imgurl=http://www.ssmrocks.com/kimnovak/mt/pictures/archives/sage_flower_01.jpg&imgrefurl=http://www.ssmrocks.com/kimnovak/mt/pictures/archives/pages/001625.php&h=609&w=510&sz=75&tbnid=gDgikufRx0WDPM:&tbnh=245&tbnw=205&prev=/images%3Fq%3Dsage%2Bflower&hl=sl&usg=__LIOcOXfE6etaDkPKcAqG15xgt74=&ei=NhwCTP3JK4OCOIC1wNYE&sa=X&oi=image_result&resnum=1&ct=image&ved=0CBoQ9QEwAA
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:2
-msgid "sage"
-msgstr "zelena"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:3
-msgid "salmon"
-msgstr "lososova barva"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:4
-msgid "sapphire"
-msgstr "safirna"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:5
-msgid "sepia"
-msgstr "rjavkasto črna"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:6
-msgid "sulphur"
-msgstr "žveplo"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:7
-msgid "tea"
-msgstr "čajna"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:8
-msgid "turquoise"
-msgstr "turkizna"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:1
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:3
 msgid "absinthe"
 msgstr "pelinkasta"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:2
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:4
 msgid "alabaster"
 msgstr "motno steklo"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:3
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:5
+msgid "almond"
+msgstr "mandeljna"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:6
 msgid "amber"
 msgstr "jantar"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:4
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:7
 msgid "amethyst"
 msgstr "ametist"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:5
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:8
 msgid "anise"
 msgstr "janežna"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:6
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:9
 msgid "aquamarine"
 msgstr "morsko modra"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:7
-msgid "mahogany"
-msgstr "mahagonij"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:8
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:8
-msgid "vermilion"
-msgstr "rumeno rdeča"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:1
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:1
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:10
 msgid "aubergine"
 msgstr "jajčevec"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:2
-msgid "ceruse"
-msgstr "sinja"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:3
-msgid "chartreuse"
-msgstr "chartreuse"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:4
-msgid "emerald"
-msgstr "smragdna"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:5
-msgid "fawn"
-msgstr "lanena"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:6
-msgid "fuchsia"
-msgstr "fuksija"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:7
-msgid "glaucous"
-msgstr "glukozna"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:8
-msgid "ruby"
-msgstr "rubinska"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:2
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:11
 msgid "auburn"
 msgstr "kostanjeva"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:3
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:12
 msgid "azure"
 msgstr "azurna"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:4
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:13
 msgid "bistre"
 msgstr "bistra"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:5
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:14
 msgid "celadon"
 msgstr "svetlo zelena"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:6
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:15
 msgid "cerulean"
 msgstr "sinje modra"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:7
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:16
+msgid "ceruse"
+msgstr "sinja"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:17
+msgid "chartreuse"
+msgstr "chartreuse"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:18
+msgid "chestnut"
+msgstr "kostanjeva"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:19
+msgid "claret"
+msgstr "temno rdeča"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:20
+msgid "cobalt"
+msgstr "kobaltna"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:21
+msgid "coral"
+msgstr "koralna"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:22
+msgid "corn"
+msgstr "koruzna"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:23
 msgid "crimson"
 msgstr "škrlatna"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:8
-msgid "greyish-brown"
-msgstr "sivkasto-rjava"
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:24
+msgid "cyan"
+msgstr "cijan"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:1
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:25
+msgid "dark_purple"
+msgstr "temo_vijolična"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:26
 msgid "dove"
 msgstr "golobska"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:2
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:27
+msgid "emerald"
+msgstr "smragdna"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:28
+msgid "fawn"
+msgstr "lanena"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:29
+msgid "fuchsia"
+msgstr "fuksija"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:30
 msgid "garnet"
 msgstr "garnet"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:3
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:31
+msgid "glaucous"
+msgstr "glukozna"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:32
+msgid "greyish-brown"
+msgstr "sivkasto-rjava"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:33
+msgid "greyish_blue"
+msgstr "sivo_morda"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:34
 msgid "indigo"
 msgstr "vijoličasto moder"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:4
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:35
 msgid "ivory"
 msgstr "slonokoščen"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:5
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:36
 msgid "jade"
 msgstr "žadasto zelen"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:6
-msgid "lavender"
-msgstr "svetlo vijoličasta"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:7
-msgid "lichen"
-msgstr "lišaj"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:8
-msgid "wine"
-msgstr "vinska"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:1
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:37
 msgid "larch"
 msgstr "macesen"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:2
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:38
+msgid "lavender"
+msgstr "svetlo vijoličasta"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:39
+msgid "lichen"
+msgstr "lišaj"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:40
 msgid "lilac"
 msgstr "lila"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:3
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:41
+msgid "lime"
+msgstr "apnena"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:42
 msgid "magenta"
 msgstr "škrlatna"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:4
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:43
+msgid "mahogany"
+msgstr "mahagonij"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:44
 msgid "malachite"
 msgstr "malahit"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:5
-msgid "mimosa"
-msgstr "mimoza"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:6
-msgid "navy"
-msgstr "mornarska"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:7
-msgid "ochre"
-msgstr "okrasta"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:8
-msgid "olive"
-msgstr "olivna"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:1
-msgid "greyish blue"
-msgstr "sivkasto modra"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:2
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:45
 msgid "mauve"
 msgstr "slezenasta"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:3
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:46
+msgid "mimosa"
+msgstr "mimoza"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:47
+msgid "navy"
+msgstr "mornarska"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:48
+msgid "ochre"
+msgstr "okrasta"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:49
+msgid "olive"
+msgstr "olivna"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:50
 msgid "opaline"
 msgstr "opalna"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:4
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:51
 msgid "pistachio"
 msgstr "pistacijsko zelena"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:5
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:52
 msgid "platinum"
 msgstr "platinasta"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:6
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:53
+msgid "plum"
+msgstr "modra kot sliva"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:54
+msgid "prussian_blue"
+msgstr "prusko_modra"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:55
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:9
 msgid "purple"
 msgstr "škrlatna"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:7
-msgid "ultramarine"
-msgstr "ultramarinska modrina"
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:56
+msgid "ruby"
+msgstr "rubinska"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:1
-msgid "dark purple"
-msgstr "temno vijolicna"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:2
-msgid "plum"
-msgstr "modra kot sliva"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:3
-msgid "prussian blue"
-msgstr "prusko modra"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:4
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:57
 msgid "rust"
 msgstr "rja"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:5
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:58
 msgid "saffron"
 msgstr "žafran"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:6
+# v bistvu je to tale barva - http://www.google.si/imgres?imgurl=http://www.ssmrocks.com/kimnovak/mt/pictures/archives/sage_flower_01.jpg&imgrefurl=http://www.ssmrocks.com/kimnovak/mt/pictures/archives/pages/001625.php&h=609&w=510&sz=75&tbnid=gDgikufRx0WDPM:&tbnh=245&tbnw=205&prev=/images%3Fq%3Dsage%2Bflower&hl=sl&usg=__LIOcOXfE6etaDkPKcAqG15xgt74=&ei=NhwCTP3JK4OCOIC1wNYE&sa=X&oi=image_result&resnum=1&ct=image&ved=0CBoQ9QEwAA
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:59
+msgid "sage"
+msgstr "zelena"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:60
+msgid "salmon"
+msgstr "lososova barva"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:61
+msgid "sapphire"
+msgstr "safirna"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:62
+msgid "sepia"
+msgstr "rjavkasto črna"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:63
+msgid "sienna"
+msgstr "rjavo rdeča"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:64
+msgid "sulphur"
+msgstr "žveplo"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:65
+msgid "tea"
+msgstr "čajna"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:66
+msgid "turquoise"
+msgstr "turkizna"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:67
+msgid "ultramarine"
+msgstr "ultramarinska modrina"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:68
 msgid "vanilla"
 msgstr "vanilija"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:7
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:69
 msgid "verdigris"
 msgstr "zeleni volk"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:8
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:70
+msgid "vermilion"
+msgstr "rumeno rdeča"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:71
 msgid "veronese"
 msgstr "veronski"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:72
+msgid "wine"
+msgstr "vinska"
 
 #. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
 #: ../src/algebra_by-activity/algebra.c:186
@@ -2012,47 +2014,38 @@ msgid "Find the {text} duck"
 msgstr "Nadji {text} račko"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:3
-#: ../src/read_colors-activity/read_colors.c:65
 msgid "black"
 msgstr "črna"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:4
-#: ../src/read_colors-activity/read_colors.c:57
 msgid "blue"
 msgstr "modra"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:5
-#: ../src/read_colors-activity/read_colors.c:58
 msgid "brown"
 msgstr "rjava"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:6
-#: ../src/read_colors-activity/read_colors.c:59
 msgid "green"
 msgstr "zelena"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:7
-#: ../src/read_colors-activity/read_colors.c:60
 msgid "grey"
 msgstr "siva"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:8
-#: ../src/read_colors-activity/read_colors.c:61
 msgid "orange"
 msgstr "oranžna"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:10
-#: ../src/read_colors-activity/read_colors.c:63
 msgid "red"
 msgstr "rdeča"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:11
-#: ../src/read_colors-activity/read_colors.c:66
 msgid "white"
 msgstr "bela"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:12
-#: ../src/read_colors-activity/read_colors.c:64
 msgid "yellow"
 msgstr "rumena"
 
@@ -2250,7 +2243,7 @@ msgid "Select a drawing tool on the left, and a color down the bottom, then clic
 msgstr "Na levi strani izberi orodje za risanje v spodnjem delu pa izberi barvo. Klikni na belo polje ter nariši novo obliko. Za hitrejše delo lahko uporabiš srednjim gumbom na miški. Z njo predmet izbrišeš."
 
 #: ../src/drawnumber-activity/drawnumber.py:236
-#: ../src/findit-activity/findit.py:290
+#: ../src/findit-activity/findit.py:309
 msgid "Cannot find the file '{filename}'"
 msgstr "Datoteke '{filename}' ni mogoče najti"
 
@@ -2471,19 +2464,19 @@ msgstr "Ta program je GNU paket in je izdan pod GNU splošno javno licenco"
 msgid "OK"
 msgstr "V redu"
 
-#: ../src/gcompris/bar.c:684
+#: ../src/gcompris/bar.c:688
 msgid "GCompris confirmation"
 msgstr "Potrditev GCompris"
 
-#: ../src/gcompris/bar.c:685
+#: ../src/gcompris/bar.c:689
 msgid "Are you sure you want to quit?"
 msgstr "Ali si prepričan, da želiš končati?"
 
-#: ../src/gcompris/bar.c:686
+#: ../src/gcompris/bar.c:690
 msgid "Yes, I am sure!"
 msgstr "Da, prepričan sem"
 
-#: ../src/gcompris/bar.c:687
+#: ../src/gcompris/bar.c:691
 msgid "No, I want to keep going"
 msgstr "Ne, želim nadaljevati"
 
@@ -2892,18 +2885,18 @@ msgstr "Naloži"
 msgid "SAVE"
 msgstr "Shrani"
 
-#: ../src/gcompris/gameutil.c:142
-#: ../src/gcompris/gameutil.c:200
+#: ../src/gcompris/gameutil.c:138
+#: ../src/gcompris/gameutil.c:196
 msgid "Couldn't find or load the file"
 msgstr "Datoteke ni mogoče najti ali naložiti"
 
-#: ../src/gcompris/gameutil.c:144
-#: ../src/gcompris/gameutil.c:202
+#: ../src/gcompris/gameutil.c:140
+#: ../src/gcompris/gameutil.c:198
 msgid "This activity is incomplete."
 msgstr "Dejavnost je nedokončana."
 
-#: ../src/gcompris/gameutil.c:145
-#: ../src/gcompris/gameutil.c:203
+#: ../src/gcompris/gameutil.c:141
+#: ../src/gcompris/gameutil.c:199
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -3043,7 +3036,7 @@ msgstr "Splošni način povleci in spusti: običajen, 2klika, oboje. Privzeti na
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Ne izogni se izvajanju več primerkov GCompris."
 
-#: ../src/gcompris/gcompris.c:929
+#: ../src/gcompris/gcompris.c:944
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to support its development, this version provides only %d of the %d activities. You can get the full version for a small fee at\n"
@@ -3056,22 +3049,22 @@ msgstr ""
 "Različica GNU/Linux nima teh omejitev. Če verjamete, da je otroke treba naučiti svobodo, razmislite o uporabi GNU/Linux. Več podrobnosti na strani FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1223
+#: ../src/gcompris/gcompris.c:1238
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
 msgstr "Nalaganje preobleke '%s' je spodletelo (Preverite, če datoteka obstaja in je berljiva)"
 
-#: ../src/gcompris/gcompris.c:1486
+#: ../src/gcompris/gcompris.c:1501
 #, c-format
 msgid "GCompris won't start because the lock file is less than %d seconds old.\n"
 msgstr "GCompris se ne bo zagnal, ker je datoteka ključavnice stara manj kot %d sekund.\n"
 
-#: ../src/gcompris/gcompris.c:1488
+#: ../src/gcompris/gcompris.c:1503
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Datoteka ključa je: %s\n"
 
-#: ../src/gcompris/gcompris.c:1599
+#: ../src/gcompris/gcompris.c:1614
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3085,37 +3078,37 @@ msgstr ""
 "Več podrobnosti je mogoče najti na http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1714
+#: ../src/gcompris/gcompris.c:1729
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Uporabi -l za neposreden dostop do dejavnosti.\n"
 
-#: ../src/gcompris/gcompris.c:1715
+#: ../src/gcompris/gcompris.c:1730
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Seznam dostopnih dejavnosti je:\n"
 
-#: ../src/gcompris/gcompris.c:1746
+#: ../src/gcompris/gcompris.c:1761
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Število dejavnosti: %d\n"
 
-#: ../src/gcompris/gcompris.c:1782
+#: ../src/gcompris/gcompris.c:1797
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s obstaja toda ni berljiv ali zapisljiv"
 
-#: ../src/gcompris/gcompris.c:1845
+#: ../src/gcompris/gcompris.c:1860
 #, c-format
 msgid "The --server option cannot be used because GCompris has been compiled without network support!"
 msgstr "Možnosti --server ni mogoče uporabiti, ker GCompris ni bil preveden z omrežno podporo!"
 
-#: ../src/gcompris/gcompris.c:1899
+#: ../src/gcompris/gcompris.c:1914
 #, c-format
 msgid "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list available ones\n"
 msgstr "NAPAKA: Profila '%s' ni mogoče najti. Poženi 'gcompris --profile-list' za seznam razpoložljivih profilov\n"
 
-#: ../src/gcompris/gcompris.c:1913
+#: ../src/gcompris/gcompris.c:1928
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Seznam dostopnih profilov je:\n"
@@ -5810,31 +5803,6 @@ msgstr "Trening spomina"
 msgid "Railway"
 msgstr "Železniška proga"
 
-#: ../src/read_colors-activity/read_colors.c:62
-msgid "violet"
-msgstr "vijolična"
-
-#: ../src/read_colors-activity/read_colors.c:67
-msgid "pink"
-msgstr "roza"
-
-#: ../src/read_colors-activity/read_colors.xml.in.h:2
-msgid "Click on the correct colored object."
-msgstr "Klikni na pravilno pobarvan predmet."
-
-# zdi se mi bolj preprosto kot klikni na ujemajočo barvo
-#: ../src/read_colors-activity/read_colors.xml.in.h:3
-msgid "Click on the matching color"
-msgstr "Klikni na barvo, ki se ujema"
-
-#: ../src/read_colors-activity/read_colors.xml.in.h:4
-msgid "Read the names of colors"
-msgstr "Preberi imena barv"
-
-#: ../src/read_colors-activity/read_colors.xml.in.h:5
-msgid "This board teaches basic colors."
-msgstr "Ta tabla te bo naučila osnovnih barv."
-
 #: ../src/readingh-activity/reading.c:229
 #: ../src/wordsgame-activity/wordsgame.c:219
 msgid ""
@@ -6447,7 +6415,7 @@ msgstr "Učenje tipkanja"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Natipkaj celo besedo, preden doseže zemljo"
 
-#: ../src/findit-activity/findit.py:295
+#: ../src/findit-activity/findit.py:314
 msgid ""
 "Failed to parse data set '{filename}' with error:\n"
 "{error}"
@@ -6455,6 +6423,147 @@ msgstr ""
 "Razčlenjevanje niza podatkov '{filename}' je spodletelo z napako:\n"
 "{error}"
 
+#: ../src/instruments-activity/instruments.xml.in.h:1
+msgid "Click on the correct instrument."
+msgstr "Klikni na pravilni inštrument."
+
+#: ../src/instruments-activity/instruments.xml.in.h:2
+msgid "Click on the correct mucical instruments"
+msgstr "Klikni na pravilne glasbene inštrumente"
+
+#: ../src/instruments-activity/instruments.xml.in.h:3
+msgid "Learn to recognize musical instruments."
+msgstr "Nauči se prepoznavati glasbene inštrumente."
+
+#: ../src/instruments-activity/instruments.xml.in.h:4
+msgid "Music instruments"
+msgstr "Glasbeni inštrumenti"
+
+#. Translator: Do not translate {text}.
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:2
+msgid "Find {text}"
+msgstr "Najdi besedo {text}"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:3
+msgid "the accordion"
+msgstr "Harmonika"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:4
+msgid "the banjo"
+msgstr "Bendžo"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:5
+msgid "the bass drum"
+msgstr "Basovski boben"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:6
+msgid "the bongo"
+msgstr "Bobni bongo"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:7
+msgid "the castanets"
+msgstr "Kastanjete"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:8
+msgid "the cello"
+msgstr "Čelo"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:9
+msgid "the clarinet"
+msgstr "Klarinet"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:10
+msgid "the cymbal"
+msgstr "Cimbale"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:11
+msgid "the drum kit"
+msgstr "Tolkalska baterija"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
+msgid "the electric guitar"
+msgstr "Električna kitara"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
+msgid "the flute traversiere"
+msgstr "Prečna flavta"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
+msgid "the guitar"
+msgstr "Kitara"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
+msgid "the harmonica"
+msgstr "Orglice"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
+msgid "the harp"
+msgstr "Harpa"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
+msgid "the horn"
+msgstr "Rog"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
+msgid "the maracas"
+msgstr "Marake"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
+msgid "the organ"
+msgstr "Orgle"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
+msgid "the piano"
+msgstr "Klavir"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
+msgid "the saxophone"
+msgstr "Saksofon"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
+msgid "the tambourine"
+msgstr "Tamburin"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
+msgid "the timpani"
+msgstr "Pavke"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
+msgid "the triangle"
+msgstr "Triangel"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
+msgid "the trombone"
+msgstr "Pozavna"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
+msgid "the trumpet"
+msgstr "Trobenta"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:27
+msgid "the tuba"
+msgstr "Tuba"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:28
+msgid "the violin"
+msgstr "Violina"
+
+#~ msgid "violet"
+#~ msgstr "vijolična"
+
+#~ msgid "pink"
+#~ msgstr "roza"
+
+#~ msgid "Click on the correct colored object."
+#~ msgstr "Klikni na pravilno pobarvan predmet."
+
+# zdi se mi bolj preprosto kot klikni na ujemajočo barvo
+#~ msgid "Click on the matching color"
+#~ msgstr "Klikni na barvo, ki se ujema"
+#~ msgid "Read the names of colors"
+#~ msgstr "Preberi imena barv"
+#~ msgid "This board teaches basic colors."
+#~ msgstr "Ta tabla te bo naučila osnovnih barv."
 #~ msgid "Learn about an hydroelectric dam"
 #~ msgstr "Nauči se o jezu hidroelektrarne"
 #~ msgid "Move the mouse until all the blocks disappear."
@@ -6522,7 +6631,6 @@ msgstr ""
 #~ msgstr "Prikaži sredstva na standardnem izhodu glede na izbrane dejavnosti "
 #~ msgid "Do not display the background images of activities."
 #~ msgstr "Ne prikaži slik ozadja dejavnosti."
-
 #, fuzzy
 #~ msgid "reading"
 #~ msgstr "Reading"
@@ -6538,15 +6646,19 @@ msgstr ""
 #~ "Napaka: zunanji program gnuchess je obvezenza igranje šaha v gcomprise.\n"
 #~ "Najdi ta program na strani http://www.rpmfind.net ali v\n"
 #~ "GNU/Linux izdaji"
+
 #~ msgid "This board is dedicated to recognize unusual colors."
 #~ msgstr "Ta igra je namenjena prepoznavanju nenavadnih barv."
+
 #~ msgid ""
 #~ "In a limited time, give the result to the multiplication of two numbers"
 #~ msgstr "V določenem času, vrni zmnožek dveh števil"
+
 #~ msgid ""
 #~ "With displayed numbers and operations, find the right combination to get "
 #~ "the right result"
 #~ msgstr "Najdi pravo operacijo in število, tako da bo rezultat pravilen."
+
 #~ msgid ""
 #~ "In the main area, a puzzle set is proposed. In the left area, you have "
 #~ "the set of pieces for this puzzle. To place the pieces, you must use the "
@@ -6554,12 +6666,14 @@ msgstr ""
 #~ msgstr ""
 #~ "Na levi strani imaš kup delov zloženke. Za zlaganje zloženke uporabi "
 #~ "miško."
+
 #~ msgid ""
 #~ "Moon photo comes from NASA\n"
 #~ " Space sounds from Tuxpaint and Vegastrike"
 #~ msgstr ""
 #~ "Slikce Lune je podarila NASA\n"
 #~ "vesoljski zvok od Tuxpainta in Vegastrike"
+
 #~ msgid ""
 #~ "Fish are taken from the Unix utility xfishtank. Images are taken from the "
 #~ "National Undersea Research Program (NURP) Collection at http://www."
@@ -6580,6 +6694,7 @@ msgstr ""
 #~ "nur00523) Photographer: D.Kesling Location: Florida Keys (slika nur03006) "
 #~ "Mesto: Neznano (slika nur03505)Mesto: Neznano (slika nur03010) Mesto: "
 #~ "Neznano (slika nur03011)Mesto: Neznano (slika nur03013)"
+
 #~ msgid ""
 #~ "For each printed hour (hours:minutes or hours:minutes:seconds) manipulate "
 #~ "the corresponding arrow to set the clock time matching the given hour. "
@@ -6587,6 +6702,7 @@ msgstr ""
 #~ msgstr ""
 #~ "Vsaki izpisani uri (ure:minute ali ure:minute:sekunde) nastavi kazalec,"
 #~ "tako da bo kazala določeno uro. Kazalce nastavljate z miško."
+
 #~ msgid ""
 #~ "This board is dedicated to train kids to recognize colors. Several "
 #~ "colored toons are displayed and a color is spoken. The kid must select "
@@ -6595,13 +6711,17 @@ msgstr ""
 #~ "Tabla je namenjena otrokom kot pomoc pri spoznavanju barv. Nekaj slik "
 #~ "jepobarvanih tako da barva govori sama zase. Otrok mora izbrato pravilno "
 #~ "barvo."
+
 #~ msgid "Needs to handle the mouse with the click easily"
 #~ msgstr "Za lažje upravljanje uporabi miško."
+
 #~ msgid "Move the items one by one to reorder them in the increasing number"
 #~ msgstr ""
 #~ "Premakni vsak predmet posebej in jih sestavi po naraščajočih številkah."
+
 #~ msgid "Drag and Drop the top piece only on an empty location"
 #~ msgstr "Povleci zgornji predmet na prazno mesto."
+
 #~ msgid ""
 #~ "In the main board area, a set of red plots associated with work are "
 #~ "printed. In the vertical frame - at the left of the main board area, a "
@@ -6614,10 +6734,13 @@ msgstr ""
 #~ "levi strani, je prikazana zbirka predmetov. Vsak od teh predmetov se "
 #~ "nanaša na eno besedo v glavnem delu okna. Najdi pravilno povezavo med "
 #~ "predmeti.Nalogo naredis s prenosom predmetov na desni stran zaslona."
+
 #~ msgid "spruce"
 #~ msgstr "jelka"
+
 #~ msgid "Given hands pictures, find if it's a right or left one"
 #~ msgstr "Podane so slike dlani. Poišči leve in desne."
+
 #~ msgid ""
 #~ "A set of blink cards is printed. Each pair is associated by the same "
 #~ "picture in their hidden faces. When clicking on a card, you can uncover "
@@ -6628,30 +6751,37 @@ msgstr ""
 #~ "Izrisane so karte. Vsak par se sklada s sliko. S klikom na karto odkriješ "
 #~ "karto in pogledaš sliko. Hkrati lahko pogledaš le dve sliki. Cilj je "
 #~ "odkriti dve karti, ki imata enako sliko. "
+
 #~ msgid ""
 #~ "In the main board area, a set of red plots are displayed. In the vertical "
 #~ "frame - at the left of the main board area, a set of image parts of a "
 #~ "painting are avalaible. Drag and drop these parts in the right plot to "
 #~ "rebuild the original painting."
 #~ msgstr "Povleci in spusti odgovarjajoče dele, da dobiš pravilno sliko"
+
 #~ msgid "Make the puzzle"
 #~ msgstr "Naredi zloženko"
+
 #~ msgid ""
 #~ "Click on any keyboard key to let Tux jump. Another keypress will open the "
 #~ "parachute. Alternatively, a click on the plane and the tux also works."
 #~ msgstr ""
 #~ "Za skok Pinga pritisni poljubno tipko. Da se odpre padalospet pritisni "
 #~ "poljubno tipko. Lahko pa z miško klikneš na letalo ali pinga"
+
 #~ msgid "Manage the paratrooper to let him safely land"
 #~ msgstr "Upravljaj s padalcem, da bo srečno pristal"
+
 #~ msgid "Paratrooper"
 #~ msgstr "Padalec"
+
 #~ msgid ""
 #~ "Use the up, down, right and left keyboard keys to move the helicopter to "
 #~ "catch the numbers in the incremental order"
 #~ msgstr ""
 #~ "Za premikanje helikopterja uporabljaj tipke gor, dol, levo in desno.Ujami "
 #~ "števila po naraščajočem vrstnem redu."
+
 #~ msgid ""
 #~ "At the top and right of the board area, a word is printed. At the left a "
 #~ "list of words will move in and out of the screen. Tell if you see the "
@@ -6659,34 +6789,44 @@ msgstr ""
 #~ msgstr ""
 #~ "Zgoraj na desni strani je napisana beseda.Levo se nahaja skupina besed, "
 #~ "ki se bodo premikale po zaslonu.Ali vidite začetnico besede."
+
 #~ msgid ""
 #~ "At each level, a drawing is displayed in the right area. You must redraw "
 #~ "it in the left area."
 #~ msgstr ""
 #~ "Na vsaki ravni je prikazano pravilno narisano polje. Tvoja naloga je "
 #~ "ponovno narisati polje."
+
 #~ msgid ""
 #~ "At each level, a drawing is displayed in the right area. You must redraw "
 #~ "its symmetry in the left area."
 #~ msgstr "Na vsaki ravniigre je narisan "
+
 #~ msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
 #~ msgstr "Pritisni tipko od 1 do 9 preden pade na tla"
+
 #~ msgid "Couldn't find file %s !"
 #~ msgstr "Ni mogoče najti datoteke %s !"
+
 #~ msgid "find file %s !"
 #~ msgstr "najdi datoteko %s !"
+
 #~ msgid "Guess operations"
 #~ msgstr "Uganite operacije"
+
 #~ msgid ""
 #~ "Tux is in trouble in his ship, he needs to take through a lock.\n"
 #~ "Help Tux and understand how a canal lock works."
 #~ msgstr ""
 #~ "Pingo je v težavah na ladji, rabi tvojo pomoč skozi prepreke.\n"
 #~ "Pomagaj Pingu premagat prepreke."
+
 #~ msgid "Learning Chess"
 #~ msgstr "Učenje šaha"
+
 #~ msgid "Play chess against tux in a learning mode"
 #~ msgstr "Igraj šah v načinu za učenje."
+
 #~ msgid ""
 #~ "Error: /usr/bin/gnuchessx is installed\n"
 #~ "which means you run an old version\n"
@@ -6697,22 +6837,31 @@ msgstr ""
 #~ "starejšo različico\n"
 #~ "gnuchess.\n"
 #~ "Nadgradi gnuchess na različico 5 ali višje."
+
 #~ msgid "Read a letter"
 #~ msgstr "Branje črk"
+
 #~ msgid "Couldn't open pixmap dir: %s"
 #~ msgstr "Nemorem odreti direktorija s sliko %s"
+
 #~ msgid "Pratice money usage"
 #~ msgstr "Uporabljaj denar"
+
 #~ msgid "Read Colors"
 #~ msgstr "Preberi barve"
+
 #~ msgid "Click on the corresponding color"
 #~ msgstr "Klikni na odgovarjajočo barvo"
+
 #~ msgid "Read a list of words and then tell if the given word is in it"
 #~ msgstr "Preberi celo besedilo in potem povej ali najdeš besedo"
+
 #~ msgid "Reverse count"
 #~ msgstr "Štetje nazaj"
+
 #~ msgid "Drag and Drop the items to rebuild the object"
 #~ msgstr "Povleci in spusti za ponovno izgradnjo predmeta"
+
 #~ msgid ""
 #~ "You entered the Edit mode\n"
 #~ "Move the puzzle items and\n"
@@ -6723,58 +6872,77 @@ msgstr ""
 #~ "Premaknite zloženko in\n"
 #~ "'s' za  shraniti\n"
 #~ "'d' za prikaži vse oblike"
+
 #~ msgid ""
 #~ "This board data are saved under\n"
 #~ "/tmp/gcompris-board.xml"
 #~ msgstr ""
 #~ "Te točke so shranjene v mapi\n"
 #~ "/tmp/gcompris-board.xml"
+
 #~ msgid "Azerbaijani Turkic"
 #~ msgstr "Azerbaijani Turkic"
+
 #~ msgid "Czech"
 #~ msgstr "Ħeško"
+
 #~ msgid "Brazil Portuguese"
 #~ msgstr "Brazilsko Portugalsko"
+
 #~ msgid ""
 #~ "select the audio output. Use '-A list' to get the list of available audio "
 #~ "output"
 #~ msgstr "Izberi izhod za zvok."
+
 #~ msgid "Icon"
 #~ msgstr "Ikona"
+
 #~ msgid "Name"
 #~ msgstr "Ime"
+
 #~ msgid "Type"
 #~ msgstr "Vrsta"
+
 #~ msgid "Difficulty"
 #~ msgstr "Težavnost"
+
 #~ msgid "Directory"
 #~ msgstr "Mapa"
+
 #~ msgid "Released under GPL"
 #~ msgstr "Objavljeno pod GPL"
+
 #~ msgid ""
 #~ "Possible audio output devices are:\n"
 #~ "default "
 #~ msgstr ""
 #~ "Možni zvočni izhodi so:\n"
 #~ "privzeto"
+
 #~ msgid "Now Playing Music"
 #~ msgstr "Predvajam glasbo"
+
 #~ msgid "Artist"
 #~ msgstr "Avtor"
+
 #~ msgid "Couldn't open music dir: %s"
 #~ msgstr "Nemorem predvajati glasbe: %s"
+
 #~ msgid "Couldn't find pixmap file: %s"
 #~ msgstr "Ne najdem datoteke s sliko: %s"
+
 #~ msgid "Baby Shape Puzzle"
 #~ msgstr "Zloŵenke za otroke."
+
 #~ msgid ""
 #~ "Motor coordination: mouse mouvement and mouse click. The goal is just to "
 #~ "click with the left mouse button on the moving fish."
 #~ msgstr ""
 #~ "Gibalne sposobnosti: Premikanje in klikanje z misko. Cilj je klikniti z "
 #~ "levo miŷkino tipko na ribo in jo premakniti."
+
 #~ msgid "Move the mouse to machpuzzle the area and discover the background"
 #~ msgstr "Premakni miŷko, da raziŷīeŷ ozadje"
+
 #~ msgid "GCompris I Have Understood"
 #~ msgstr "GComprise sem razumel"
-
