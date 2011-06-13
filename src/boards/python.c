@@ -119,6 +119,35 @@ GET_BPLUGIN_INFO(python)
 
 static GList *config_boards= NULL;
 
+/*
+ * Create the import string to be added to the python path
+ * The plugin directory is passed in properties->package_python_plugin_dir
+ * It accepts several directory separated by a ":" character
+ */
+static gchar *get_pythonpath()
+{
+  gchar *pythonpath;
+  gchar *plugin_dir = NULL;
+  GcomprisProperties *properties = gc_prop_get();
+  /* Add the python plugins dir to the python's search path */
+  gchar **plugin_dirs = g_strsplit( properties->package_python_plugin_dir , ":", -1 );
+  int i;
+
+  for ( i = 0 ; i < g_strv_length( plugin_dirs ); i++ ) {
+    if ( plugin_dir ) {
+      plugin_dir = g_strconcat(plugin_dir, "; sys.path.append('", plugin_dirs[i], "')", NULL);
+    } else {
+      plugin_dir = g_strdup_printf("sys.path.append('%s')", plugin_dirs[i] );
+    }
+  }
+
+  pythonpath = g_strdup_printf("import sys; %s", plugin_dir );
+
+  g_free(plugin_dir);
+  g_strfreev (plugin_dirs);
+  return pythonpath;
+}
+
 GList *
 get_pythonboards_list()
 {
@@ -180,9 +209,7 @@ init_config_boards()
     }
 
     /* Add the python plugins dir to the python's search path */
-    boarddir = g_strdup_printf("import sys; sys.path.append('%s')",
-			       properties->package_python_plugin_dir );
-
+    boarddir = get_pythonpath();
     PyRun_SimpleString(boarddir);
     g_free(boarddir);
 
@@ -245,8 +272,6 @@ pythonboard_init (GcomprisBoard *agcomprisBoard){
   PyObject* globals;
   gchar* execstr;
 
-  GcomprisProperties *properties = gc_prop_get();
-
   if (pythonboard_is_ready)
     return ;
 
@@ -266,7 +291,7 @@ pythonboard_init (GcomprisBoard *agcomprisBoard){
     pythonboard_is_ready = FALSE;
   } else {
     /* Add the python plugins dir to the python's search path */
-    execstr = g_strdup_printf("import sys; sys.path.append('%s')",properties->package_python_plugin_dir );
+    execstr = get_pythonpath();
 
     g_message("Executing %s\n", execstr);
     if(PyRun_SimpleString(execstr)!=0){
@@ -328,8 +353,6 @@ pythonboard_start (GcomprisBoard *agcomprisBoard){
   char* boardclass;
   char* board_file_name;
 
-  GcomprisProperties	*properties = gc_prop_get();
-
   if(agcomprisBoard!=NULL){
     /* Initialize the python interpreter */
     Py_SetProgramName(python_prog_name);
@@ -350,7 +373,7 @@ pythonboard_start (GcomprisBoard *agcomprisBoard){
     }
 
     /* Add the python plugins dir to the python's search path */
-    boarddir = g_strdup_printf("import sys; sys.path.append('%s')",properties->package_python_plugin_dir );
+    boarddir = get_pythonpath();
 
     PyRun_SimpleString(boarddir);
     g_free(boarddir);
@@ -563,7 +586,6 @@ pythongc_board_config_start (GcomprisBoard *agcomprisBoard,
 			  GcomprisProfile *aProfile
 			  )
 {
-  GcomprisProperties *properties = gc_prop_get();
   PyObject* py_function_result;
   PyObject* module_dict;
   PyObject* py_boardclass;
@@ -597,7 +619,7 @@ pythongc_board_config_start (GcomprisBoard *agcomprisBoard,
       gcomprisBoard_config = agcomprisBoard;
     }
 
-    boarddir = g_strdup_printf("import sys; sys.path.append('%s')", properties->package_python_plugin_dir );
+    boarddir = get_pythonpath();
 
     PyRun_SimpleString(boarddir);
     g_free(boarddir);
