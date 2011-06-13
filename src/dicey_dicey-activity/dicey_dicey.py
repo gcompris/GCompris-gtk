@@ -150,7 +150,7 @@ class Gcompris_dicey_dicey:
 
       if(level == 1 or level == 2 or level == 3):
           gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
-                            "dice.svg")
+                            "diecy_dicey/dice.svg")
           ok = goocanvas.Svg(parent = self.rootitem,
                          svg_handle = gcompris.skin.svg_get(),
                          svg_id = "#OK",
@@ -304,7 +304,7 @@ class Gcompris_dicey_dicey:
   def dicey_dicey1(self):
       for l in range(3):
           item = goocanvas.Image(parent = self.rootitem,
-                                 pixbuf = gcompris.utils.load_pixmap("diceyo.svg"),
+                                 pixbuf = gcompris.utils.load_pixmap("dicey_dicey/diceyo.svg"),
                                  x = 80 *(3*l+1),
                                  y = 150,
                                  )
@@ -330,12 +330,12 @@ class Gcompris_dicey_dicey:
   def dicey_dicey2(self):
       for l in range(3):
                 item1 = goocanvas.Image(parent = self.rootitem,
-                                 pixbuf = gcompris.utils.load_pixmap("diceyo.svg"),
+                                 pixbuf = gcompris.utils.load_pixmap("dicey_dicey/diceyo.svg"),
                                  x = 65 *(3*l+1),
                                  y = 150,
                                  )
       item2 = goocanvas.Image(parent = self.rootitem,
-                                    pixbuf = gcompris.utils.load_pixmap("diceyo.svg"),
+                                    pixbuf = gcompris.utils.load_pixmap("dicey_dicey/diceyo.svg"),
                                     x = 600,
                                     y = 150,
                                     )
@@ -358,7 +358,7 @@ class Gcompris_dicey_dicey:
 
   def dicey_dicey4(self):
       gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
-                            "dice_area.svg")
+                            "dicey_dicey/dice_area.svg")
       goocanvas.Text(parent = self.rootitem,
                      x=300.0,
                      y=358.0,
