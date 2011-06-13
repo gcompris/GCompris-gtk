@@ -47,8 +47,8 @@ static void		 config_start(GcomprisBoard *agcomprisBoard,
 static void		 config_stop(void);
 
 
-#define VERTICAL_SEPARATION 408
-#define HORIZONTAL_SEPARATION 0
+#define VERTICAL_SEPARATION 505
+#define HORIZONTAL_SEPARATION -1
 
 #define NUMBER_OF_SUBLEVELS 3
 #define NUMBER_OF_LEVELS 5
@@ -162,7 +162,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     {
       gcomprisBoard=agcomprisBoard;
       gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
-			      "click_on_letter/scenery4_background.png");
+			      "click_on_letter/background.svgz");
       gcomprisBoard->level=1;
       gcomprisBoard->maxlevel=NUMBER_OF_LEVELS;
       gcomprisBoard->sublevel=1;
@@ -459,10 +459,10 @@ static GooCanvasItem *click_on_letter_create_item(GooCanvasItem *parent)
 
 
 
-  button_pixmap = gc_pixmap_load("click_on_letter/wagon-yellow.png");
+  button_pixmap = gc_pixmap_load("click_on_letter/carriage.svg");
 
-  yOffset = VERTICAL_SEPARATION;
-  xOffset = 5;
+  yOffset = VERTICAL_SEPARATION - gdk_pixbuf_get_height(button_pixmap);
+  xOffset = 144;
 
 
   for (i=0; i< number_of_letters; i++) {
@@ -475,12 +475,12 @@ static GooCanvasItem *click_on_letter_create_item(GooCanvasItem *parent)
 
     l_items[i] = goo_canvas_text_new (boardRootItem,
 				      letters[i],
-				      (double) xOffset + gdk_pixbuf_get_width(button_pixmap)/2,
-				      (double) yOffset + gdk_pixbuf_get_height(button_pixmap)/2 - 5,
+				      (double) xOffset + gdk_pixbuf_get_width(button_pixmap)/2 - 10,
+				      (double) yOffset + 30,
 				      -1,
 				      GTK_ANCHOR_CENTER,
 				      "font", gc_skin_font_board_huge_bold,
-				      "fill_color_rgba", 0x0000ffff,
+				      "fill_color_rgba", 0x000000ff,
 				      NULL);
 
     g_free(letters[i]);
@@ -490,6 +490,7 @@ static GooCanvasItem *click_on_letter_create_item(GooCanvasItem *parent)
 		     (GtkSignalFunc) item_event, GINT_TO_POINTER(i));
     g_signal_connect(buttons[i], "button_press_event",
 		     (GtkSignalFunc) item_event, GINT_TO_POINTER(i));
+    gc_item_focus_init(l_items[i], buttons[i]);
     gc_item_focus_init(buttons[i], NULL);
   }
 
@@ -569,13 +570,13 @@ static void highlight_selected(GooCanvasItem * item) {
   }
 
   if (selected_button != NULL && selected_button != button) {
-    button_pixmap = gc_pixmap_load("click_on_letter/wagon-yellow.png");
+    button_pixmap = gc_pixmap_load("click_on_letter/carriage.svg");
     g_object_set(selected_button, "pixbuf", button_pixmap, NULL);
     gdk_pixbuf_unref(button_pixmap);
   }
 
   if (selected_button != button) {
-    button_pixmap_selected = gc_pixmap_load("click_on_letter/wagon-green.png");
+    button_pixmap_selected = gc_pixmap_load("click_on_letter/carriage_on.svg");
     g_object_set(button, "pixbuf", button_pixmap_selected, NULL);
     selected_button = button;
     gdk_pixbuf_unref(button_pixmap_selected);
