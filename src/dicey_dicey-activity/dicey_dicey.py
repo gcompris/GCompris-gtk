@@ -150,7 +150,7 @@ class Gcompris_dicey_dicey:
 
       if(level == 1 or level == 2 or level == 3):
           gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
-                            "diecy_dicey/dice.svg")
+                            "dice.svg")
           ok = goocanvas.Svg(parent = self.rootitem,
                          svg_handle = gcompris.skin.svg_get(),
                          svg_id = "#OK",
