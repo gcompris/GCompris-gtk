@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GCompris>
+  <Board
+        name="braille_alphabets"
+        type="python:braille_alphabets"
+        section="/experimental"
+        icon="braille_bug.svg"
+        difficulty="1"
+        author="Srishti Sethi (srishakatux@gmail.com)"
+        boarddir=""
+        demo="1">
+        <_title>Braille Alphabets Activity</_title>
+        <_description>Learn and memorize the braille code for alphabets</_description>
+        <_prerequisite></_prerequisite>
+        <_goal>To let the kids discover braille codes for alphabets</_goal>
+        <_manual>The GCompris board shows three sections : braille cell,alphabet name and lower board
+        containing 13 letters.Click on each letter in the lower board to know its corresponding braille
+        code in the braille cell section.Click on the increment level button to jump to the
+        next 13 letters of the english alphabets.</_manual>
+        <_credit></_credit>
+  </Board>
+  <Data directory=""/>
+</GCompris>
