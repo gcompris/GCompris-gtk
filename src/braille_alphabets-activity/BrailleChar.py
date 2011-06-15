@@ -37,7 +37,8 @@ BRAILLE_LETTERS = {
     "N": [1, 3, 4, 5], "O": [1, 3, 5], "P": [1, 2, 3, 4], "Q": [1, 2, 3, 4, 5],
     "R": [1, 2, 3, 5], "S": [2, 3, 4], "T": [2, 3, 4, 5], "U": [1, 3, 6],
     "V": [1, 2, 3, 6], "W": [2, 4, 5, 6], "X": [1, 3, 4, 6], "Y": [1, 3, 4, 5, 6],
-    "Z": [1, 3, 5, 6], 1: [2],2 :[2,3], 3 : [2,5], 4: [2,5,6],5 : [2,6],
+    "Z": [1, 3, 5, 6], "+" : [3,4,6], "_": [3,6], "." : [4],"X" : [1,6],"/" : [4,6],
+    "-" : [3,4],1: [2],2 :[2,3], 3 : [2,5], 4: [2,5,6],5 : [2,6],
     6 : [2,3,5],7 : [2,3,5,6],8 : [2,3,6], 9 : [3,5],0 :[3,5,6]
 }
 
@@ -69,8 +70,8 @@ class BrailleChar:
                           y=y,
                           width=width,
                           height=height,
-                          stroke_color="blue",
-                          fill_color="#DfDfDf",
+                          stroke_color=self.stroke,
+                          fill_color=self.fill,
                           line_width=2.0)
 
 
@@ -78,7 +79,7 @@ class BrailleChar:
                                x=x + (width / 2.0),
                                y=y + height + 15,
                                text=str(letter),
-                               fill_color="blue",
+                               fill_color=self.stroke,
                                alignment=pango.ALIGN_CENTER,
                                anchor = gtk.ANCHOR_CENTER,
                                font = 'Sans BOLD')
