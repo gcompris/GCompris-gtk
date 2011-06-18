@@ -126,8 +126,10 @@ class Gcompris_braille_alphabets:
               tile = BrailleChar(self.rootitem, i*(cell_width+30)+60,
                               250, 50, letter ,on ,off ,circle_fill,
                               circle_stroke, True ,False,True, None)
+          BrailleChar(self.rootitem,60, 350, 50, "#",on ,off, circle_fill,
+                      circle_stroke, True, False,True, None)
           for letter in range(0,10):
-              tile = BrailleChar(self.rootitem,letter *(cell_width+30)+60,
+              tile = BrailleChar(self.rootitem,(letter+1) *(cell_width+25)+60,
                              350, 50, letter ,on ,off ,circle_fill,
                              circle_stroke, True ,False ,True, None)
           #Move back item
