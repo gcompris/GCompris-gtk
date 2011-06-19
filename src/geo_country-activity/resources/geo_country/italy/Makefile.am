@@ -1,3 +1,8 @@
+SUBDIRS = \
+	  north \
+	  central \
+	  south
+
 imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/geo_country/italy
 img_DATA = \
 	abruzzo.png \
