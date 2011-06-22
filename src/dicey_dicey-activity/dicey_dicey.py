@@ -41,76 +41,31 @@ CIRCLE_STROKE = "black"
 CIRCLE_FILL = "#660066"
 SYMBOL_OFF = "#DfDfDf"
 CELL_WIDTH = 30
-
 SYMBOL = ['+','_','*','/']
 COLOR_LIST = ["red","green","blue","dark green"]
 
 #Declaring list of all questions
 #used in different levels
-PLUS_LIST_LEVEL_ONE_A = [0,1,2]
-PLUS_LIST_LEVEL_ONE_B = [0,1,2]
-MINUS_LIST_LEVEL_ONE_A = [2,2,2]
-MINUS_LIST_LEVEL_ONE_B = [0,1,2]
-PLUS_LIST_LEVEL_TWO_A = [3,4,5]
-PLUS_LIST_LEVEL_TWO_B = [2,3,4]
-MINUS_LIST_LEVEL_TWO_A = [5,5,5]
-MINUS_LIST_LEVEL_TWO_B = [3,4,5]
-PLUS_LIST_LEVEL_THREE_A = [6,7,8,9]
-PLUS_LIST_LEVEL_THREE_B = [6,7,8,9]
-MINUS_LIST_LEVEL_THREE_A = [9,9,9]
-MINUS_LIST_LEVEL_THREE_B = [6,7,8,9]
-MULT_LIST_LEVEL_FOUR_A= [0,1,2]
-MULT_LIST_LEVEL_FOUR_B = [0,1,2]
-DIV_LIST_LEVEL_FOUR_A = [0,1,2]
-DIV_LIST_LEVEL_FOUR_B = [1,2,3]
-MULT_LIST_LEVEL_FIVE_A = [3,4,3,4]
-MULT_LIST_LEVEL_FIVE_B = [1,2,1,2]
-DIV_LIST_LEVEL_FIVE_A = [2,4,6]
-DIV_LIST_LEVEL_FIVE_B = [2,2,2]
-MULT_LIST_LEVEL_SIX_A = [6,7,8,9]
-MULT_LIST_LEVEL_SIX_B = [6,7,8,9]
-DIV_LIST_LEVEL_SIX_A = [3,6,9]
-DIV_LIST_LEVEL_SIX_B = [3,3,3]
-
-
-#Shuffling all the lists
-random.shuffle(PLUS_LIST_LEVEL_ONE_A)
-random.shuffle(PLUS_LIST_LEVEL_ONE_B)
-random.shuffle(MINUS_LIST_LEVEL_ONE_B)
-random.shuffle(PLUS_LIST_LEVEL_TWO_A)
-random.shuffle(PLUS_LIST_LEVEL_TWO_B)
-random.shuffle(MINUS_LIST_LEVEL_TWO_A)
-random.shuffle(MINUS_LIST_LEVEL_TWO_B)
-random.shuffle(PLUS_LIST_LEVEL_THREE_A)
-random.shuffle(PLUS_LIST_LEVEL_THREE_B)
-random.shuffle(MINUS_LIST_LEVEL_THREE_A)
-random.shuffle(MINUS_LIST_LEVEL_THREE_B)
-random.shuffle(MULT_LIST_LEVEL_FOUR_A)
-random.shuffle(MULT_LIST_LEVEL_FOUR_B)
-random.shuffle(DIV_LIST_LEVEL_FOUR_A)
-random.shuffle(DIV_LIST_LEVEL_FOUR_B)
-random.shuffle(MULT_LIST_LEVEL_FIVE_A)
-random.shuffle(MULT_LIST_LEVEL_FIVE_B)
-random.shuffle(DIV_LIST_LEVEL_FIVE_A)
-random.shuffle(DIV_LIST_LEVEL_FIVE_B)
-random.shuffle(MULT_LIST_LEVEL_SIX_A)
-random.shuffle(MULT_LIST_LEVEL_SIX_B)
-random.shuffle(DIV_LIST_LEVEL_SIX_A)
-random.shuffle(DIV_LIST_LEVEL_SIX_B)
-random.shuffle(SYMBOL)
-
-x1 = 100
-x2 = 300
-x3 = 340
-x4 = 120
-x5 = 360
-x6 = 400
-
-SIGN_LIST_ONE = ['+','_','+','_']
-random.shuffle(SIGN_LIST_ONE)
-SIGN_LIST_TWO = ['+','_','*','/']
-random.shuffle(SIGN_LIST_TWO)
-
+QUESTIONS= [
+    [# level 1
+     [3,"-",2],[1,"+",1],[2,"-",2]
+     ],
+    [# level 2
+     [2,"+",1],[3,"+",2],[2,"+",2]
+     ],
+    [#level 3
+    [4 ,"+" ,4],[4, "+", 5],[9 ,"-", 3],[9 , "-" ,2]
+     ],
+    [ #level 4
+     [0,"*",1],[1,"+",1],[3,"-",3],[6,"/",3]
+    ],
+    [# level 5
+     [3 , "+" , 2],[5, "-", 2],[4, "*", 1],[8,"/",2]
+     ],
+     [# level 6
+      [4, "+", 5],[9, "-", 2],[3, "*", 2],[8, "/", 1]
+      ]
+ ]
 class Gcompris_dicey_dicey:
   """Empty gcompris python class"""
 
@@ -121,7 +76,7 @@ class Gcompris_dicey_dicey:
 
     self.gcomprisBoard.level=1
     self.gcomprisBoard.sublevel=1
-    self.gcomprisBoard.number_of_sublevel=2
+    self.gcomprisBoard.number_of_sublevel=1
     self.gcomprisBoard.maxlevel = 6
 
     self.counter = 0
@@ -133,6 +88,11 @@ class Gcompris_dicey_dicey:
 
     # Needed to get key_press
     gcomprisBoard.disable_im_context = True
+
+    for index in range(6):
+        random.shuffle(QUESTIONS[index])
+    random.shuffle(SYMBOL)
+
 
   def start(self):
 
@@ -154,11 +114,8 @@ class Gcompris_dicey_dicey:
     # automaticaly.
     self.rootitem = goocanvas.Group(parent =
                                     self.gcomprisBoard.canvas.get_root_item())
-
-    gcompris.score.start(gcompris.score.STYLE_NOTE, 50, 470,
-                         self.gcomprisBoard.number_of_sublevel)
     gcompris.bar_set_level(self.gcomprisBoard)
-    gcompris.score.set(self.gcomprisBoard.sublevel)
+
 
     #Display title of activity
     goocanvas.Text(parent = self.rootitem,
@@ -173,47 +130,9 @@ class Gcompris_dicey_dicey:
     self.display_function(self.gcomprisBoard.level)
 
   def display_function(self,level):
-      if(level == 1):
-          self.random_sign = SIGN_LIST_ONE[self.counter]
-          self.dicey_dicey()
-          self.calculate(level)
-
-      if(level == 2):
-          self.random_sign = SIGN_LIST_ONE[self.counter]
-          self.dicey_dicey()
-          self.calculate(level)
-
-      if(level == 3):
-          self.random_sign = SIGN_LIST_ONE[self.counter]
-          if(self.random_sign == '+'):
-              self.dicey_dicey1()
-          else :
-              self.dicey_dicey()
-          self.calculate(level)
-
-      if(level == 4):
-          self.random_sign = SIGN_LIST_TWO[self.counter]
-          self.dicey_dicey()
-          self.dicey_dicey2()
-          self.calculate(level)
-
-      if(level == 5):
-          self.random_sign = SIGN_LIST_TWO[self.counter]
-          self.dicey_dicey()
-          self.dicey_dicey2()
-          self.calculate(level)
-
-      if(level == 6):
-          self.random_sign = SIGN_LIST_TWO[self.counter]
-          if((self.random_sign == '+') or (self.random_sign == '*')):
-              self.dicey_dicey1()
-              self.dicey_dicey2()
-          else:
-              self.dicey_dicey()
-              self.dicey_dicey2()
-          self.calculate(level)
-
       if(level == 1 or level == 2 or level == 3):
+          self.dicey_dicey()
+          self.calculate(level)
           gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                             "dicey_dicey/dice.svg")
           ok = goocanvas.Svg(parent = self.rootitem,
@@ -224,168 +143,66 @@ class Gcompris_dicey_dicey:
           ok.translate(40,-30)
           ok.connect("button_press_event", self.ok_event,level)
           gcompris.utils.item_focus_init(ok, None)
+      elif(level == 4 or level == 5 or level == 6):
+          self.dicey_dicey()
+          self.dicey_dicey1()
+          self.calculate(level)
+
 
   def calculate(self,level):
-      if(self.random_sign == '+'):
-          if(level == 1 or level == 4):
-              i = PLUS_LIST_LEVEL_ONE_A[self.counter]
-              j = PLUS_LIST_LEVEL_ONE_B[self.counter]
-          elif(level == 2 or level == 5):
-              i = PLUS_LIST_LEVEL_TWO_A[self.counter]
-              j = PLUS_LIST_LEVEL_TWO_B[self.counter]
-          elif(level == 3 or level == 6):
-              i = PLUS_LIST_LEVEL_THREE_A[self.counter]
-              j = PLUS_LIST_LEVEL_THREE_B[self.counter]
+      i = QUESTIONS[level - 1][self.counter][0]
+      j= QUESTIONS[level - 1][self.counter][2]
+      self.random_sign = QUESTIONS[level - 1][self.counter][1]
 
+      #Mathematical calculations
+      if(self.random_sign == '+'):
           self.result = i + j
-      elif(self.random_sign == '_'):
-          if(level == 1 or level == 4):
-              i = MINUS_LIST_LEVEL_ONE_A[self.counter]
-              j = MINUS_LIST_LEVEL_ONE_B[self.counter]
-          elif(level == 2 or level == 5):
-              i = MINUS_LIST_LEVEL_TWO_A[self.counter]
-              j = MINUS_LIST_LEVEL_TWO_B[self.counter]
-          elif(level == 3 or level == 6):
-              i = MINUS_LIST_LEVEL_THREE_A[self.counter]
-              j = MINUS_LIST_LEVEL_THREE_B[self.counter]
+      elif(self.random_sign == '-'):
           self.result = i - j
       elif(self.random_sign == '*'):
-          if(level == 4):
-              i = MULT_LIST_LEVEL_FOUR_A[self.counter]
-              j = MULT_LIST_LEVEL_FOUR_B[self.counter]
-          elif(level == 5):
-              i = MULT_LIST_LEVEL_FIVE_A[self.counter]
-              j = MULT_LIST_LEVEL_FIVE_B[self.counter]
-          elif(level == 6):
-              i = MULT_LIST_LEVEL_SIX_A[self.counter]
-              j = MULT_LIST_LEVEL_SIX_B[self.counter]
           self.result = i * j
       elif(self.random_sign == '/'):
-          if(level == 4):
-              i = DIV_LIST_LEVEL_FOUR_A[self.counter]
-              j = DIV_LIST_LEVEL_FOUR_B[self.counter]
-          elif(level == 5):
-              i = DIV_LIST_LEVEL_FIVE_A[self.counter]
-              j = DIV_LIST_LEVEL_FIVE_B[self.counter]
-          elif(level == 6):
-              i = DIV_LIST_LEVEL_SIX_A[self.counter]
-              j = DIV_LIST_LEVEL_SIX_B[self.counter]
           self.result = i / j
 
-      if(level ==1 or level == 2):
-          goocanvas.Text(parent = self.rootitem,
-                     x=280.0,
-                     y=200.0,
-                     text=self.random_sign,
-                     anchor = gtk.ANCHOR_CENTER,
-                     font='SANS 25')
-          BrailleChar(self.rootitem,600,160,70,'' ,
-                      COLOR_ON, COLOR_OFF, CIRCLE_FILL,
-                      CIRCLE_STROKE, False, True, False,
-                      callback = self.letter_change1)
-          self.braille_display(x4,x5,x6,i,j)
 
-      if(level == 4 or level == 5):
-          self.braille_display(x4,x5,x6,i,j)
-          goocanvas.Text(parent = self.rootitem,
-                     x=280.0,
-                     y=200.0,
-                     text='?',
-                     anchor = gtk.ANCHOR_CENTER,
-                     font='SANS 25')
-          BrailleChar(self.rootitem,600, 160, 70, self.result,
-                      COLOR_ON,COLOR_OFF,CIRCLE_FILL,CIRCLE_STROKE,
-                      False,False,False,None)
-          self.text_display()
-
-      if(level == 3):
-          if(self.random_sign == '+'):
-              self.braille_display(x1, x2, x3 ,i, j)
-              self.a1 = self.result / 10
-              self.a2 = self.result % 10
-              goocanvas.Text(parent = self.rootitem,
-                     x=240.0,
-                     y=200.0,
-                     text=self.random_sign,
-                     anchor = gtk.ANCHOR_CENTER,
-                     font='SANS 25')
-              braille_cell1 = BrailleChar(self.rootitem,490, 160, 70,
-                                 '', COLOR_ON, COLOR_OFF, CIRCLE_FILL,
-                                 CIRCLE_STROKE, False, True, False,
-                                 callback = self.letter_change1)
-              braille_cell2 = BrailleChar(self.rootitem,630, 160, 70,
-                                 '', COLOR_ON, COLOR_OFF, CIRCLE_FILL,
-                                 CIRCLE_STROKE, False, True, False,
-                                 callback = self.letter_change2)
-          else :
-              self.braille_display(x4, x5, x6, i, j)
-              braille_cell = BrailleChar(self.rootitem,600, 160, 70,
-                                 '',COLOR_ON, COLOR_OFF, CIRCLE_FILL,
-                                 CIRCLE_STROKE, False, True, False,
-                                 callback = self.letter_change1)
-              goocanvas.Text(parent = self.rootitem,
-                     x=280.0,
-                     y=200.0,
-                     text=self.random_sign,
-                     anchor = gtk.ANCHOR_CENTER,
-                     font='SANS 25')
-      elif(level == 6):
-          if(self.random_sign == '+' or self.random_sign == '*'):
-                goocanvas.Text(parent = self.rootitem,
-                     x=240.0,
-                     y=200.0,
-                     text='?',
-                     anchor = gtk.ANCHOR_CENTER,
-                     font='SANS 25')
-                self.braille_display(x1, x2, x3, i, j)
-                self.two_cells()
-                self.text_display()
-
-          else :
-                goocanvas.Text(parent = self.rootitem,
-                     x=280.0,
-                     y=200.0,
-                     text='?',
-                     anchor = gtk.ANCHOR_CENTER,
-                     font='SANS 25')
-                self.braille_display(x4, x5, x6, i, j)
-                self.result_display()
-                self.text_display()
-
-  def result_display(self):
-      BrailleChar(self.rootitem, 600, 160, 70, self.result,
-                  COLOR_ON, COLOR_OFF, CIRCLE_FILL,
-                  CIRCLE_STROKE, False, False, False, None)
-
-
-  def text_display(self):
-      goocanvas.Text(parent = self.rootitem, x=640.0,y=330.0,
-                     text="%i" % self.result,anchor = gtk.ANCHOR_CENTER,
-                     font='SANS 25')
-  def two_cells(self):
-      self.a1 = self.result / 10
-      self.a2 = self.result % 10
-      braille_cell1 = BrailleChar(self.rootitem, 490, 160, 70,
-                                 self.a1, COLOR_ON, COLOR_OFF, CIRCLE_FILL,
-                                 CIRCLE_STROKE, False, False, False,
-                                 callback = self.letter_change1)
-      braille_cell2 = BrailleChar(self.rootitem, 630, 160, 70,
-                                 self.a2, COLOR_ON, COLOR_OFF, CIRCLE_FILL,
-                                 CIRCLE_STROKE, False, False, False,
-                                 callback = self.letter_change2)
-  def braille_display(self,x4,x5,x6,i,j):
-      BrailleChar(self.rootitem, x4, 160, 70 , i, COLOR_ON, COLOR_OFF ,
+      BrailleChar(self.rootitem, 120, 160, 70 , i, COLOR_ON, COLOR_OFF ,
                   CIRCLE_FILL, CIRCLE_STROKE, False, False ,False, None)
-      BrailleChar(self.rootitem, x5, 160, 70, j, COLOR_ON, COLOR_OFF ,
+      BrailleChar(self.rootitem, 360, 160, 70, j, COLOR_ON, COLOR_OFF ,
                   CIRCLE_FILL, CIRCLE_STROKE, False, False, False, None)
       goocanvas.Text(parent = self.rootitem, x=140.0 ,y=330.0,
                      text="%i" % i, anchor = gtk.ANCHOR_CENTER,
                      font='SANS 25')
       goocanvas.Text(parent = self.rootitem,
-                     x=x6,y=330.0,
+                     x=400,y=330.0,
                      text="%i" % j,
                      anchor = gtk.ANCHOR_CENTER,
                      font='SANS 25')
+      if(level == 4 or level == 5 or level == 6):
+          BrailleChar(self.rootitem, 600, 160, 70, self.result,
+                  COLOR_ON, COLOR_OFF, CIRCLE_FILL,
+                  CIRCLE_STROKE, False, False, False, None)
+          goocanvas.Text(parent = self.rootitem,
+                     x=280.0,
+                     y=230.0,
+                     text='?',
+                     anchor = gtk.ANCHOR_CENTER,
+                     font='SANS 30')
+          goocanvas.Text(parent = self.rootitem, x=640.0,y=330.0,
+                     text="%i" % self.result,anchor = gtk.ANCHOR_CENTER,
+                     font='SANS 25')
+
+      elif(level == 1 or level == 2 or level == 3):
+          goocanvas.Text(parent = self.rootitem,
+                     x=280.0,
+                     y=230.0,
+                     text=self.random_sign,
+                     anchor = gtk.ANCHOR_CENTER,
+                     font='SANS 30')
+          BrailleChar(self.rootitem,600,160,70,'' ,
+                      COLOR_ON, COLOR_OFF, CIRCLE_FILL,
+                      CIRCLE_STROKE, False, True, False,
+                      callback = self.letter_change)
+
 
   def dicey_dicey(self):
       #Display dices
@@ -395,55 +212,19 @@ class Gcompris_dicey_dicey:
                                  x = 80 *(3*index+1),
                                  y = 150,
                                  )
-
-      goocanvas.Text(parent = self.rootitem,
-                   x=280.0,
-                   y=230.0,
-                   text="___",
-                   anchor = gtk.ANCHOR_CENTER,
-                   font='SANS 25')
       goocanvas.Text(parent = self.rootitem,
                    x=520.0,y=230.0,
                    text="=",
                    anchor = gtk.ANCHOR_CENTER,
-                   font='SANS 25')
+                   font='SANS 30')
       goocanvas.Text(parent = self.rootitem,
-                   x=655.0,y=325.0,
+                   x=655.0,y=323.0,
                    text="___",
                    anchor = gtk.ANCHOR_CENTER,
-                       font='SANS 25')
+                       font='SANS 30')
 
 
   def dicey_dicey1(self):
-      for index in range(3):
-                item1 = goocanvas.Image(parent = self.rootitem,
-                                 pixbuf = gcompris.utils.load_pixmap("dicey_dicey/diceyo.svg"),
-                                 x = 65 *(3*index+1),
-                                 y = 150,
-                                 )
-      item2 = goocanvas.Image(parent = self.rootitem,
-                                    pixbuf = gcompris.utils.load_pixmap("dicey_dicey/diceyo.svg"),
-                                    x = 600,
-                                    y = 150,
-                                    )
-      goocanvas.Text(parent = self.rootitem,
-                   x=240.0,
-                   y=230.0,
-                   text="___",
-                   anchor = gtk.ANCHOR_CENTER,
-                   font='SANS 25')
-      goocanvas.Text(parent = self.rootitem,
-                   x=430.0,y=230.0,
-                   text="=",
-                   anchor = gtk.ANCHOR_CENTER,
-                   font='SANS 25')
-      goocanvas.Text(parent = self.rootitem,
-                   x=628.0,y=325.0,
-                   text="___",
-                   anchor = gtk.ANCHOR_CENTER,
-                   font='SANS 25')
-
-  def dicey_dicey2(self):
       gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                             "dicey_dicey/dice_area.svg")
       goocanvas.Text(parent = self.rootitem,
@@ -486,55 +267,32 @@ class Gcompris_dicey_dicey:
 
   def symbol_identify(self, event, target, item, index):
       if((SYMBOL[index] == '+' and self.random_sign == '+') or
-         (SYMBOL[index] == '_' and self.random_sign == '_') or
+         (SYMBOL[index] == '_' and self.random_sign == '-') or
           (SYMBOL[index] == '*' and self.random_sign == '*')
         or (SYMBOL[index] == '/' and self.random_sign == '/')):
           self.gamewon = 1
           gcompris.bonus.display(gcompris.bonus.WIN,gcompris.bonus.FLOWER)
       else :
-          self.gamewon = 1
+          self.gamewon = 0
           gcompris.bonus.display(gcompris.bonus.LOOSE,gcompris.bonus.FLOWER)
 
   def ok_event(self, item, target, event, level):
-      if(level == 1 or level == 2 or level == 3):
-            if(level == 3 and self.random_sign == '+'):
-                if((self.a1 == self.correct_letter1) and
-                   (self.a2 == self.correct_letter2)):
-                  goocanvas.Text(parent = self.rootitem,
-                         x = 620,
-                         y = 330,
-                         text = str(self.correct_letter1) + ''
-                          +str(self.correct_letter2),
-                         anchor = gtk.ANCHOR_CENTER,
-                         font = 'SANS 25'
-                         )
-                  #If there is a Win
-                  self.gamewon = 1
-                  gcompris.bonus.display(gcompris.bonus.WIN,gcompris.bonus.FLOWER)
-
-                else :
-                  #If there is a loose
-                  self.gamewon = 1
-                  gcompris.bonus.display(gcompris.bonus.LOOSE,gcompris.bonus.FLOWER)
-            else :
-                if(self.result == self.correct_letter1):
-                    goocanvas.Text(parent = self.rootitem,
+        if(self.result == self.correct_letter):
+              goocanvas.Text(parent = self.rootitem,
                      x=650.0,
                      y=330.0,
                      text=self.result,
                      anchor = gtk.ANCHOR_CENTER,
                      font='SANS 25')
-                    self.gamewon = 1
-                    gcompris.bonus.display(gcompris.bonus.WIN,gcompris.bonus.FLOWER)
-                else :
-                    self.gamewon = 1
-                    gcompris.bonus.display(gcompris.bonus.LOOSE,gcompris.bonus.FLOWER)
+              self.gamewon = 1
+              gcompris.bonus.display(gcompris.bonus.WIN,gcompris.bonus.FLOWER)
+        else :
+              self.gamewon = 0
+              gcompris.bonus.display(gcompris.bonus.LOOSE,gcompris.bonus.FLOWER)
 
-  def letter_change1(self, letter):
-      self.correct_letter1 = letter
+  def letter_change(self, letter):
+      self.correct_letter = letter
 
-  def letter_change2(self, letter):
-      self.correct_letter2 = letter
 
   def end(self):
     # Remove the root item removes all the others inside it
@@ -605,14 +363,15 @@ class Gcompris_dicey_dicey:
     utf8char = gtk.gdk.keyval_to_unicode(keyval)
     strn = u'%c' % utf8char
 
-    print("Gcompris_dicey_dicey key press keyval=%i %s" % (keyval, strn))
-
   def pause(self, pause):
       self.board_paused = pause
       if(pause == 0) and (self.gamewon == 1):
           self.gamewon = 0
           self.counter +=1
-          if (self.counter == 3):
+          if ((self.gcomprisBoard.level == 1 or self.gcomprisBoard.level == 2 or
+               self.gcomprisBoard.level == 3) and self.counter == 3):
+              self.increment_level()
+          elif(self.counter == 4):
               self.increment_level()
           self.end()
           self.start()
