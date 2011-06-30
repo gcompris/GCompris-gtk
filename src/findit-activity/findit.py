@@ -280,7 +280,8 @@ class Gcompris_findit:
         gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.FLOWER)
       else:
         print "LOST: " +  self.selected.text + " != " + self.object_target.text
-        self.question_lost.append( self.object_target )
+        if not self.object_target in self.question_lost:
+          self.question_lost.append( self.object_target )
         self.gamewon = 0
         gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.FLOWER)
 
