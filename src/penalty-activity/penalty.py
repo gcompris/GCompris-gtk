@@ -289,9 +289,9 @@ class Gcompris_penalty:
   def help(self, widget, target, event=None):
     if event.type == gtk.gdk.BUTTON_PRESS:
       if self.balloon.need_reset:
-        text=_("Click on the balloon to place it again.")
+        text=_("Click on the ball to place it again.")
       else:
-        text=_("Click twice on the balloon to shoot it.")
+        text=_("Click twice on the ball to shoot it.")
 
       self.help_item.set_properties(text = text)
       self.help_item.props.visibility = goocanvas.ITEM_VISIBLE
