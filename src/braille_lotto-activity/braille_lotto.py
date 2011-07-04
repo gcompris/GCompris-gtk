@@ -16,17 +16,28 @@
 #   along with this program; if not, see <http://www.gnu.org/licenses/>.
 #
 # braille_lotto activity.
+import goocanvas
+import gcompris
+from gcompris import gcompris_gettext as _
+import gcompris.utils
+import gcompris.bonus
+import gcompris.skin
+import gcompris.sound
+import gcompris.timer
 import gtk
 import gtk.gdk
-import gcompris
-import gcompris.utils
-import gcompris.skin
-import gcompris.bonus
-import gcompris.timer
-import goocanvas
+import gobject
 import random
-import pango
+import cairo
 from BrailleChar import *
+
+import socket
+import struct
+import pango
+import sys
+import uuid
+
+from socket import gethostname
 from gcompris import gcompris_gettext as _
 
 #CONSTANTS for generating TICKET A
@@ -62,6 +73,14 @@ class Gcompris_braille_lotto:
     # Save the gcomprisBoard, it defines everything we need
     # to know from the core
     self.gcomprisBoard = gcomprisBoard
+
+    # Adress and port
+    self.mcast_adress = "227.234.253.9"
+    self.port = 15922
+    self.mcast_timer = 0
+    self.sock = None
+    # Used to recognize our own network message
+    self.uuid = uuid.uuid1().hex
 
     # Needed to get key_press
     gcomprisBoard.disable_im_context = True
@@ -220,7 +239,7 @@ class Gcompris_braille_lotto:
     self.lotto_room_tv.set_editable(False)
     self.lotto_room_sw.add(self.lotto_room_tv)
     # save name and selected color in a map
-    self.lotto_room_map = {}
+    self.lotto_room_map = []
 
     self.lotto_room_tb.set_text("")
 
@@ -262,7 +281,7 @@ class Gcompris_braille_lotto:
 
     self.channel.show()
     self.channel.set_text("Type your channel name in order to start playing")
-
+    self.channel.connect("activate",self.enter_callback, self.channel)
 
     # A label for the channel area
     goocanvas.Text(
@@ -455,6 +474,66 @@ class Gcompris_braille_lotto:
     BrailleChar(self.rootitem, 738, 377, 33 , ones_digit_f, COLOR_ON, COLOR_OFF ,
                   CIRCLE_FILL, CIRCLE_FILL, False, False ,True, None)
 
+    try:
+      # Start the server
+      self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
+      self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+      self.sock.bind(('', self.port))
+      mreq = struct.pack('4sl', socket.inet_aton(self.mcast_adress), socket.INADDR_ANY)
+      self.sock.setsockopt(socket.IPPROTO_IP, socket.IP_ADD_MEMBERSHIP, mreq)
+      self.sock.setblocking(0)
+      self.timer_interval = 10
+      self.mcast_timer = gobject.timeout_add(self.timer_interval, self.mcast_read)
+      print self.mcast_timer
+    except:
+      gcompris.utils.dialog(_("GCompris ERROR: Failed to initialize the network interface.\n"
+                              " You cannot communicate."),None)
+      self.pause(1)
+
+
+  def enter_callback(self, widget, entry):
+    gcompris.sound.play_ogg("sounds/bleep.wav")
+    if(not self.channel.get_text()):
+        gcompris.utils.dialog(_("GCompris You must set a channel in your channel entry box first.\n"
+                    "Your friends must set the same channel in order to start playing"),None)
+        return
+    Prop = gcompris.get_properties()
+    entry_text = entry.get_text()
+    # format the message
+    entry_text = ("GCOMPRIS:CHAT:" +
+                  self.channel.get_text() + ":" +
+                  Prop.logged_user.login + ":" +
+                  ":" + entry_text)
+    self.send_message(entry_text)
+
+
+  def send_message(self, message):
+    """sends the given message."""
+
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM,
+                         socket.IPPROTO_UDP)
+    sock.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_TTL, 2)
+
+    sock.sendto(message, (self.mcast_adress, self.port))
+    sock.close()
+
+  def mcast_read(self):
+      if not self.mcast_timer:
+          return
+      self.mcast_timer = gobject.timeout_add(self.timer_interval,
+                                             self.mcast_read)
+      text = ""
+      try:
+          text = self.sock.recv(10240)
+          print "Received text: %s\n" % text
+      except:
+          return
+      # Parse it
+      textl = text.split(":", 10)
+      self.lotto_room_map.append(textl[3])
+      self.lotto_room_tb.set_text(textl[3])
+      gcompris.sound.play_ogg("sounds/receive.wav")
+      return False
 
 
   def say(self):
@@ -536,7 +615,10 @@ class Gcompris_braille_lotto:
           self.channel.show()
           self.lotto_room_tv.show()
           self.lotto_room_sw.show()
+          #Setting Timer
+          gcompris.timer.display(560,100,gcompris.timer.CLOCK,10,self.say)
           gcompris.timer.pause(9)
+          gcompris.timer.add(10)
 
 
   def set_level(self, level):
