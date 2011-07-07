@@ -28,12 +28,14 @@ import random
 import string
 
 from BrailleChar import *
+from braille_alphabets import *
 from gcompris import gcompris_gettext as _
 
 #Constants Declaration
 COLOR_ON = 0XCC3399L
 COLOR_OFF = 0X00000000L
 CIRCLE_FILL = "#CC3399"
+CIRCLE_STROKE = "#CC3399"
 CELL_WIDTH = 30
 RHYMES_RIDDLES_LIST = [
       [ # Level 1
@@ -138,6 +140,7 @@ class Gcompris_rhymes_riddles:
           BrailleChar(self.rootitem,index*(CELL_WIDTH+20)+100,350,40,str[index],
                       COLOR_ON, COLOR_OFF, CIRCLE_FILL,
                       CIRCLE_FILL, False, False, True,None)
+
       # the answer area
       self.entry = gtk.Entry()
       self.entry.connect("activate", self.enter_callback,self.entry,level)
@@ -185,26 +188,8 @@ class Gcompris_rhymes_riddles:
           self.rootitem = goocanvas.Group(parent=
                                    self.gcomprisBoard.canvas.get_root_item())
           gcompris.set_default_background(self.gcomprisBoard.canvas.get_root_item())
-
-          #Place alphabets & numbers in array format
-          for index, letter in enumerate(string.ascii_uppercase[:10]):
-              tile = BrailleChar(self.rootitem, index*(CELL_WIDTH+40)+60,
-                              55, 50, letter ,COLOR_ON, COLOR_OFF, CIRCLE_FILL,
-                              CIRCLE_FILL, True ,False ,True , None)
-          for index, letter in enumerate(string.ascii_uppercase[10:20]):
-              tile = BrailleChar(self.rootitem, index*(CELL_WIDTH+40)+60,
-                              150, 50, letter ,COLOR_ON, COLOR_OFF, CIRCLE_FILL,
-                              CIRCLE_FILL, True ,False ,True, None)
-          for index, letter in enumerate(string.ascii_uppercase[20:25]):
-              tile = BrailleChar(self.rootitem, index*(CELL_WIDTH+40)+60,
-                              250, 50, letter ,COLOR_ON ,COLOR_OFF ,CIRCLE_FILL,
-                              CIRCLE_FILL, True ,False,True, None)
-          BrailleChar(self.rootitem,60, 350, 50, "#",COLOR_ON,COLOR_OFF, CIRCLE_FILL,
-                      CIRCLE_FILL, True, False,True, None)
-          for index in range(0,10):
-              tile = BrailleChar(self.rootitem,(index+1) *(CELL_WIDTH + 33)+60,
-                             350, 50, index ,COLOR_ON,COLOR_OFF ,CIRCLE_FILL,
-                             CIRCLE_FILL, True ,False ,True, None)
+          map_obj = Gcompris_braille_alphabets(self.gcomprisBoard)
+          map_obj.Braille_Map(self.rootitem, COLOR_ON, COLOR_OFF, CIRCLE_FILL, CIRCLE_STROKE)
           self.mapActive = True
           self.pause(1)
 

@@ -27,6 +27,7 @@ import pango
 import random
 import gcompris.bonus
 from BrailleChar import *
+from braille_alphabets import *
 from gcompris import gcompris_gettext as _
 
 #Constants Declaration
@@ -313,47 +314,9 @@ class Gcompris_dicey_dicey:
           self.rootitem = goocanvas.Group(parent=
                                    self.gcomprisBoard.canvas.get_root_item())
           gcompris.set_default_background(self.gcomprisBoard.canvas.get_root_item())
-
-          #Place alphabets & numbers in array format
-          for index, letter in enumerate(string.ascii_uppercase[:10]):
-              tile = BrailleChar(self.rootitem, index*(CELL_WIDTH+40)+60,
-                              60, 38, letter ,COLOR_ON, COLOR_OFF, CIRCLE_FILL,
-                              CIRCLE_FILL, True ,False ,True , None)
-          for index, letter in enumerate(string.ascii_uppercase[10:20]):
-              tile = BrailleChar(self.rootitem, index*(CELL_WIDTH+40)+60,
-                              135, 38, letter ,COLOR_ON, COLOR_OFF, CIRCLE_FILL,
-                              CIRCLE_FILL, True ,False ,True, None)
-          for index, letter in enumerate(string.ascii_uppercase[20:25]):
-              tile = BrailleChar(self.rootitem, index*(CELL_WIDTH+40)+60,
-                              210, 38, letter ,COLOR_ON ,COLOR_OFF ,CIRCLE_FILL,
-                              CIRCLE_FILL, True ,False,True, None)
-          BrailleChar(self.rootitem,60, 285, 38, "#",COLOR_ON,COLOR_OFF, CIRCLE_FILL,
-                      CIRCLE_FILL, True, False,True, None)
-          for index in range(0,10):
-              tile = BrailleChar(self.rootitem,(index+1) *(CELL_WIDTH + 33)+60,
-                             285, 38, index ,COLOR_ON,COLOR_OFF ,CIRCLE_FILL,
-                             CIRCLE_FILL, True ,False ,True, None)
-          for index in range(4):
-              BrailleChar(self.rootitem,index * (CELL_WIDTH + 40) + 60,
-                              360 , 38,SYMBOL[index],COLOR_ON,COLOR_OFF,CIRCLE_FILL
-                              ,CIRCLE_FILL,True, False , True, None)
-
-          #Move back item
-          self.backitem = goocanvas.Image(parent = self.rootitem,
-                    pixbuf = gcompris.utils.load_pixmap("dicey_dicey/back.png"),
-                    x = 600,
-                    y = 450,
-                    tooltip = "Move Back"
-                    )
-          self.backitem.connect("button_press_event", self.move_back)
-          gcompris.utils.item_focus_init(self.backitem, None)
-
+          map_obj = Gcompris_braille_alphabets(self.gcomprisBoard)
+          map_obj.Braille_Map(self.rootitem, COLOR_ON, COLOR_OFF, CIRCLE_FILL, CIRCLE_STROKE)
           self.mapActive = True
-
-
-  def move_back(self,event,target,item):
-      self.end()
-      self.start()
 
   def config(self):
     print("dicey_dicey config.")
