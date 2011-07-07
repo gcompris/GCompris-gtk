@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: gcompris master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2011-06-06 20:16+0000\n"
-"PO-Revision-Date: 2011-06-08 16:47+0100\n"
+"POT-Creation-Date: 2011-07-04 21:06+0000\n"
+"PO-Revision-Date: 2011-07-07 20:29+0100\n"
 "Last-Translator: Mario Blättermann <mariobl@freenet.de>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -1526,7 +1526,7 @@ msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "Maus-Handhabung: Bewegung, Ziehen und ablegen. Kulturelle Bezüge."
 
 #: ../src/babymatch-activity/shapegame.c:1903
-#: ../src/click_on_letter-activity/click_on_letter.c:671
+#: ../src/click_on_letter-activity/click_on_letter.c:672
 #: ../src/colors-activity/colors.c:168
 #, c-format
 msgid ""
@@ -2117,7 +2117,7 @@ msgstr ""
 "aus!"
 
 #. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:694
+#: ../src/click_on_letter-activity/click_on_letter.c:695
 #: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:484
 #: ../src/missing_letter-activity/missingletter_config.c:492
 #: ../src/readingh-activity/reading.c:928
@@ -2590,7 +2590,7 @@ msgstr ""
 "sparen, kannst Du die mittlere Maustaste verwenden, um ein Objekt zu löschen."
 
 #: ../src/drawnumber-activity/drawnumber.py:236
-#: ../src/findit-activity/findit.py:309
+#: ../src/findit-activity/findit.py:310
 msgid "Cannot find the file '{filename}'"
 msgstr "Datei »{filename}« kann nicht gefunden werden"
 
@@ -6577,12 +6577,12 @@ msgstr ""
 "erforderlich."
 
 #: ../src/penalty-activity/penalty.py:292
-msgid "Click on the balloon to place it again."
-msgstr "Klicke auf den Ballon, um ihn zurückzusetzen."
+msgid "Click on the ball to place it again."
+msgstr "Klicke auf den Ball, um ihn erneut zu setzen."
 
 #: ../src/penalty-activity/penalty.py:294
-msgid "Click twice on the balloon to shoot it."
-msgstr "Klicke zweimal auf den Ballon, um ihn zum Platzen zu bringen."
+msgid "Click twice on the ball to shoot it."
+msgstr "Klicke zweimal auf den Ball, um ihn zu schießen."
 
 #: ../src/penalty-activity/penalty.xml.in.h:1
 msgid ""
@@ -7632,7 +7632,7 @@ msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr ""
 "Gib das vollständige Wort ein während es fällt, bevor es den Boden erreicht."
 
-#: ../src/findit-activity/findit.py:314
+#: ../src/findit-activity/findit.py:315
 msgid ""
 "Failed to parse data set '{filename}' with error:\n"
 "{error}"
