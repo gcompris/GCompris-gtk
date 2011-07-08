@@ -41,8 +41,8 @@ braille_desc = {'intro' : "A system of writing for the blinds that \n"
                 "The braille Cell is composed of 6 dot \n"
                 "cells organized in form of two vertical\n"
                 "columns with 3 dots {1,2,3} side\n"
-                "by side on left and 3 dots side by\n"
-                "on right {4,5,6}"}
+                "by side COLOR_ON left and 3 dots side by\n"
+                "COLOR_ON right {4,5,6}"}
 
 #Array Declaration
 letter_arr_one = ['A','B','C','D','E','F','G']
@@ -254,14 +254,14 @@ class Gcompris_braille_alphabets:
 
   def board_tile(self,range_x,range_y):
       for i, letter in enumerate(string.ascii_uppercase[range_x:range_y]):
-          tile = BrailleChar(self.rootitem, i*(cell_width+60)+60,
-                              80, 50, letter ,on ,off ,circle_fill,
-                              circle_stroke, True ,False ,True, None)
+          tile = BrailleChar(self.rootitem, i*(CELL_WIDTH+60)+60,
+                              80, 50, letter ,COLOR_ON ,COLOR_OFF ,CIRCLE_FILL,
+                              CIRCLE_STROKE, True ,False ,True, None)
   def board_number(self,num_1,num_2):
       for letter in range(num_1,num_2):
-          tile = BrailleChar(self.rootitem,letter *(cell_width+30)+60,
-                             80, 50, letter ,on ,off ,circle_fill,
-                             circle_stroke, True,False ,True, None)
+          tile = BrailleChar(self.rootitem,letter *(CELL_WIDTH+30)+60,
+                             80, 50, letter ,COLOR_ON ,COLOR_OFF ,CIRCLE_FILL,
+                             CIRCLE_STROKE, True,False ,True, None)
 
   def display_letter(self,letter):
       goocanvas.Text(parent=self.rootitem,
@@ -279,7 +279,7 @@ class Gcompris_braille_alphabets:
       goocanvas.Text(parent = self.rootitem,
                      x = 100,
                      y = 200,
-                     text="Click on the dots in braille cell area to produce letter"
+                     text="Click COLOR_ON the dots in braille cell area to produce letter"
                       + ' '+str(self.random_letter),
                      fill_color="blue",
                      font='SANS 15')
@@ -289,7 +289,7 @@ class Gcompris_braille_alphabets:
                      text=_("Braille Cell"),
                      fill_color="blue",
                      font='Sans BOLD')
-      BrailleChar(self.rootitem, 150, 270, 120, '',on ,off,circle_fill,circle_stroke,
+      BrailleChar(self.rootitem, 150, 270, 120, '',COLOR_ON ,COLOR_OFF,CIRCLE_FILL,CIRCLE_STROKE,
                    False,True,False,callback = self.letter_change)
       for i in range(2):
           for j in range(3):
@@ -329,22 +329,22 @@ class Gcompris_braille_alphabets:
       for index, letter in enumerate(string.ascii_uppercase[:10]):
           BrailleChar(rootitem, index*(CELL_WIDTH+40)+60,
                               40, 38, letter ,color_on, color_off, circle_fill,
-                               circle_stroke,True ,False ,True , None)
+                              circle_stroke,True ,False ,True , None)
       for index, letter in enumerate(string.ascii_uppercase[10:20]):
           BrailleChar(rootitem, index*(CELL_WIDTH+40)+60,
                               130, 38, letter ,color_on, color_off, circle_fill,
-                               circle_stroke,True ,False ,True , None)
+                              circle_stroke,True ,False ,True , None)
       for index, letter in enumerate(string.ascii_uppercase[20:25]):
           BrailleChar(rootitem, index*(CELL_WIDTH+40)+60,
                               220, 38, letter ,color_on, color_off, circle_fill,
-                               circle_stroke,True ,False ,True , None)
+                              circle_stroke,True ,False ,True , None)
       BrailleChar(rootitem,60, 310, 38, "#",color_on, color_off, circle_fill,
-                               circle_stroke,True ,False ,True , None)
+                              circle_stroke,True ,False ,True , None)
       for index in range(10):
           BrailleChar(rootitem,(index+1) *(CELL_WIDTH + 33)+60,
                              310, 38, index ,color_on, color_off, circle_fill,
-                               circle_stroke,True ,False ,True , None)
+                              circle_stroke,True ,False ,True , None)
       for index in range(4):
           BrailleChar(rootitem,index * (CELL_WIDTH + 40) + 60,
                               400 , 38,SYMBOL[index],color_on, color_off, circle_fill,
-                               circle_stroke,True ,False ,True , None)
+                              circle_stroke,True ,False ,True , None)
