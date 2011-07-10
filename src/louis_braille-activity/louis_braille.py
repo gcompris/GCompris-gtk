@@ -332,7 +332,6 @@ class Gcompris_louis_braille:
     # Remove the root item removes all the others inside it
     self.rootitem.remove()
 
-
   def ok(self):
     print("louis_braille ok.")
 
