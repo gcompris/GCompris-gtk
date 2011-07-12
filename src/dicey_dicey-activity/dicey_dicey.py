@@ -27,7 +27,7 @@ import pango
 import random
 import gcompris.bonus
 from BrailleChar import *
-from braille_alphabets import *
+from BrailleMap import *
 from gcompris import gcompris_gettext as _
 
 #Constants Declaration
@@ -314,8 +314,7 @@ class Gcompris_dicey_dicey:
           self.rootitem = goocanvas.Group(parent=
                                    self.gcomprisBoard.canvas.get_root_item())
           gcompris.set_default_background(self.gcomprisBoard.canvas.get_root_item())
-          map_obj = Gcompris_braille_alphabets(self.gcomprisBoard)
-          map_obj.Braille_Map(self.rootitem, COLOR_ON, COLOR_OFF, CIRCLE_FILL, CIRCLE_STROKE)
+          map_obj = BrailleMap(self.rootitem, COLOR_ON, COLOR_OFF, CIRCLE_FILL, CIRCLE_STROKE)
           self.mapActive = True
 
   def config(self):

@@ -30,12 +30,13 @@ import random
 import pango
 
 from BrailleChar import *
-from braille_alphabets import *
+from BrailleMap import *
 from gcompris import gcompris_gettext as _
 
 COLOR_ON = 0X00FFFFL
 COLOR_OFF = 0X00000000L
 CIRCLE_FILL = "light green"
+CIRCLE_STROKE = "black"
 CELL_WIDTH = 30
 
 CHECK_RANDOM = []
@@ -371,8 +372,7 @@ class Gcompris_braille_lotto:
           self.rootitem = goocanvas.Group(parent=
                                    self.gcomprisBoard.canvas.get_root_item())
           gcompris.set_default_background(self.gcomprisBoard.canvas.get_root_item())
-          map_obj = Gcompris_braille_alphabets(self.gcomprisBoard)
-          map_obj.Braille_Map(self.rootitem, COLOR_ON, COLOR_OFF, CIRCLE_FILL, CIRCLE_STROKE)
+          map_obj = BrailleMap(self.rootitem, COLOR_ON, COLOR_OFF, CIRCLE_FILL, CIRCLE_STROKE)
           self.mapActive = True
           self.pause(1)
 
