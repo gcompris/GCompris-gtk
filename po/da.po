@@ -17,6 +17,7 @@
 #                   æble, vindruer, motorsav, kokosnød, ...
 # hør udviklerne om hvordan item skal oversættes de enkelte steder
 # (del, element, punkt, genstand).
+# skin -> tema
 # Vincent Van Gogh -> Vincent van Gogh
 #       http://sproget.dk/raad-og-regler/ordlister/sproglige-ordlister/store-
 #       eller-sma-begyndelsesbogstaver-i-proprier-tiltalepronomener-og-titulaturer
@@ -25,8 +26,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GCompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-26 13:15+0100\n"
-"PO-Revision-Date: 2011-02-25 19:00+0100\n"
+"POT-Creation-Date: 2011-07-13 23:27+0200\n"
+"PO-Revision-Date: 2011-06-26 19:00+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -792,7 +793,6 @@ msgid "Advanced colors"
 msgstr "Avancerede farver"
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:2
-#: ../src/read_colors-activity/read_colors.xml.in.h:1
 msgid "Can read"
 msgstr "Kan læse"
 
@@ -808,287 +808,292 @@ msgstr "Klik på den rigtigt farvede kasse."
 msgid "Learn to recognize unusual colors."
 msgstr "Lær at genkende usædvanlige farver."
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:1
-msgid "almond"
-msgstr "mandel"
+# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
+#. Translator: Do not translate {text}.
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:2
+msgid "Find the {text} butterfly"
+msgstr "Find den {text} sommerfugl"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:2
-msgid "chestnut"
-msgstr "kastanie"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:3
-msgid "claret"
-msgstr "mørk purpur"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:4
-msgid "cobalt"
-msgstr "kobolt"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:5
-msgid "coral"
-msgstr "koralrød"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:6
-msgid "corn"
-msgstr "majsgul"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:7
-msgid "cyan"
-msgstr "cyan"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:8
-msgid "sienna"
-msgstr "sienna"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:1
-msgid "lime"
-msgstr "lime"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:2
-msgid "sage"
-msgstr "salvie"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:3
-msgid "salmon"
-msgstr "laksefarvet"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:4
-msgid "sapphire"
-msgstr "safirblå"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:5
-msgid "sepia"
-msgstr "sepia"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:6
-msgid "sulphur"
-msgstr "svovlgul"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:7
-msgid "tea"
-msgstr "te"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:8
-msgid "turquoise"
-msgstr "turkis"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:1
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:3
 msgid "absinthe"
 msgstr "absinth"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:2
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:4
 msgid "alabaster"
 msgstr "alabast"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:3
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:5
+msgid "almond"
+msgstr "mandel"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:6
 msgid "amber"
 msgstr "rav"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:4
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:7
 msgid "amethyst"
 msgstr "ametyst"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:5
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:8
 msgid "anise"
 msgstr "anis"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:6
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:9
 msgid "aquamarine"
 msgstr "akvamarin"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:7
-msgid "mahogany"
-msgstr "mahogni"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:8
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:8
-msgid "vermilion"
-msgstr "cinnobberrød"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:1
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:1
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:10
 msgid "aubergine"
 msgstr "aubergine"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:2
-msgid "ceruse"
-msgstr "blyhvid"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:3
-msgid "chartreuse"
-msgstr "chartreuse"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:4
-msgid "emerald"
-msgstr "smaragdgrøn"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:5
-msgid "fawn"
-msgstr "dådyrbrun"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:6
-msgid "fuchsia"
-msgstr "fuchsia"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:7
-msgid "glaucous"
-msgstr "glasgrøn"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:8
-msgid "ruby"
-msgstr "rubinrød"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:2
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:11
 msgid "auburn"
 msgstr "kastanjebrun"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:3
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:12
 msgid "azure"
 msgstr "azurblå"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:4
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:13
 msgid "bistre"
 msgstr "bistre"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:5
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:14
 msgid "celadon"
 msgstr "celadon"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:6
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:15
 msgid "cerulean"
 msgstr "himmelblå"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:7
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:16
+msgid "ceruse"
+msgstr "blyhvid"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:17
+msgid "chartreuse"
+msgstr "chartreuse"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:18
+msgid "chestnut"
+msgstr "kastanie"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:19
+msgid "claret"
+msgstr "mørk purpur"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:20
+msgid "cobalt"
+msgstr "kobolt"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:21
+msgid "coral"
+msgstr "koralrød"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:22
+msgid "corn"
+msgstr "majsgul"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:23
 msgid "crimson"
 msgstr "blodrød"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:8
-msgid "greyish-brown"
-msgstr "gråbrun"
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:24
+msgid "cyan"
+msgstr "cyan"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:1
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:25
+msgid "dark_purple"
+msgstr "mørk_violet"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:26
 msgid "dove"
 msgstr "duegrå"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:2
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:27
+msgid "emerald"
+msgstr "smaragdgrøn"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:28
+msgid "fawn"
+msgstr "dådyrbrun"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:29
+msgid "fuchsia"
+msgstr "fuchsia"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:30
 msgid "garnet"
 msgstr "granat"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:3
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:31
+msgid "glaucous"
+msgstr "glasgrøn"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:32
+msgid "greyish-brown"
+msgstr "gråbrun"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:33
+msgid "greyish_blue"
+msgstr "gråblå"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:34
 msgid "indigo"
 msgstr "indigo"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:4
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:35
 msgid "ivory"
 msgstr "elfenben"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:5
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:36
 msgid "jade"
 msgstr "jade"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:6
-msgid "lavender"
-msgstr "lavendelblå"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:7
-msgid "lichen"
-msgstr "lav"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:8
-msgid "wine"
-msgstr "vinrød"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:1
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:37
 msgid "larch"
 msgstr "lærk"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:2
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:38
+msgid "lavender"
+msgstr "lavendelblå"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:39
+msgid "lichen"
+msgstr "lav"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:40
 msgid "lilac"
 msgstr "lilla"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:3
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:41
+msgid "lime"
+msgstr "lime"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:42
 msgid "magenta"
 msgstr "magenta"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:4
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:43
+msgid "mahogany"
+msgstr "mahogni"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:44
 msgid "malachite"
 msgstr "malakit"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:5
-msgid "mimosa"
-msgstr "mimose"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:6
-msgid "navy"
-msgstr "marineblå"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:7
-msgid "ochre"
-msgstr "okker"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:8
-msgid "olive"
-msgstr "oliven"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:1
-msgid "greyish blue"
-msgstr "gråblå"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:2
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:45
 msgid "mauve"
 msgstr "grålilla"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:3
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:46
+msgid "mimosa"
+msgstr "mimose"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:47
+msgid "navy"
+msgstr "marineblå"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:48
+msgid "ochre"
+msgstr "okker"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:49
+msgid "olive"
+msgstr "oliven"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:50
 msgid "opaline"
 msgstr "opal"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:4
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:51
 msgid "pistachio"
 msgstr "pistaciegrøn"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:5
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:52
 msgid "platinum"
 msgstr "platin"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:6
-msgid "purple"
-msgstr "purpur"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:7
-msgid "ultramarine"
-msgstr "ultramarin"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:1
-msgid "dark purple"
-msgstr "mørk violet"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:2
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:53
 msgid "plum"
 msgstr "blomme"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:3
-msgid "prussian blue"
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:54
+msgid "prussian_blue"
 msgstr "berlinerblå"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:4
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:55
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:9
+msgid "purple"
+msgstr "purpur"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:56
+msgid "ruby"
+msgstr "rubinrød"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:57
 msgid "rust"
 msgstr "rust"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:5
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:58
 msgid "saffron"
 msgstr "safran"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:6
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:59
+msgid "sage"
+msgstr "salvie"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:60
+msgid "salmon"
+msgstr "laksefarvet"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:61
+msgid "sapphire"
+msgstr "safirblå"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:62
+msgid "sepia"
+msgstr "sepia"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:63
+msgid "sienna"
+msgstr "sienna"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:64
+msgid "sulphur"
+msgstr "svovlgul"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:65
+msgid "tea"
+msgstr "te"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:66
+msgid "turquoise"
+msgstr "turkis"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:67
+msgid "ultramarine"
+msgstr "ultramarin"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:68
 msgid "vanilla"
 msgstr "vanilje"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:7
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:69
 msgid "verdigris"
 msgstr "spanskgrønt"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:8
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:70
+msgid "vermilion"
+msgstr "cinnobberrød"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:71
 msgid "veronese"
 msgstr "veronese"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:72
+msgid "wine"
+msgstr "vinrød"
 
 #. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
 #: ../src/algebra_by-activity/algebra.c:186
@@ -1519,7 +1524,7 @@ msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "Brug af mus: flyt, træk og slip."
 
 #: ../src/babymatch-activity/shapegame.c:1903
-#: ../src/click_on_letter-activity/click_on_letter.c:671
+#: ../src/click_on_letter-activity/click_on_letter.c:672
 #: ../src/colors-activity/colors.c:168
 #, c-format
 msgid ""
@@ -2092,7 +2097,7 @@ msgid ""
 "Error: this activity requires that you first install\n"
 "the packages with GCompris voices for the locale '%s' or '%s'"
 msgstr ""
-"Fejl: denne aktivitet kræver, at du først installerer\n"
+"Fejl: Denne aktivitet kræver, at du først installerer\n"
 "pakkerne med GCompris lyde for landeområdet '%s' eller '%s'"
 
 #: ../src/click_on_letter-activity/click_on_letter.c:354
@@ -2102,11 +2107,11 @@ msgid ""
 "the packages with GCompris voices for the locale '%s' ! Fallback to english, "
 "sorry!"
 msgstr ""
-"Fejl: denne aktivitet kræver, at du først installerer pakken med\n"
+"Fejl: Denne aktivitet kræver, at du først installerer pakken med\n"
 "lyde for landeområdet '%s' ! Skifter tilbage til engelsk, beklager!"
 
 #. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:694
+#: ../src/click_on_letter-activity/click_on_letter.c:695
 #: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:484
 #: ../src/missing_letter-activity/missingletter_config.c:492
 #: ../src/readingh-activity/reading.c:928
@@ -2173,8 +2178,12 @@ msgid "Motor coordination: moving and clicking the mouse."
 msgstr "Motorisk koordination: bevæg musen og klik med den."
 
 #: ../src/clickgame-activity/clickgame.xml.in.h:6
-msgid "Use the left mouse button to click on the moving fish."
-msgstr "Klik med musen på den svømmende fisk."
+msgid ""
+"Use the left mouse button to click on the moving fish. A level 5 and after, "
+"a double click is mandatory."
+msgstr ""
+"Brug den venstre museknap til at klikke på den svømmende fisk. På niveau 5 "
+"og efterfølgende er et dobbeltklik krævet."
 
 #: ../src/clockgame-activity/clockgame.c:524
 msgid "Set the watch to:"
@@ -2273,6 +2282,48 @@ msgid ""
 msgstr ""
 "Dette bræt lærer dig at genkende forskellige farver. Når du hører farvens "
 "navn, klikker du på anden med den farve."
+
+# yak hvis sort, rød sættes ind her går det da galt.
+#. Translator: Do not translate {text}.
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:2
+msgid "Find the {text} duck"
+msgstr "Find den {text} and"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:3
+msgid "black"
+msgstr "sort"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:4
+msgid "blue"
+msgstr "blå"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:5
+msgid "brown"
+msgstr "brun"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:6
+msgid "green"
+msgstr "grøn"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:7
+msgid "grey"
+msgstr "grå"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:8
+msgid "orange"
+msgstr "orange"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:10
+msgid "red"
+msgstr "rød"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:11
+msgid "white"
+msgstr "hvid"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:12
+msgid "yellow"
+msgstr "gul"
 
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:1
 #: ../src/connect4-activity/connect4.xml.in.h:1
@@ -2531,6 +2582,7 @@ msgstr ""
 "musens midtertaste til at slette et objekt med."
 
 #: ../src/drawnumber-activity/drawnumber.py:236
+#: ../src/findit-activity/findit.py:310
 msgid "Cannot find the file '{filename}'"
 msgstr "Kan ikke finde filen '{filename}'"
 
@@ -2778,7 +2830,7 @@ msgid "translator_credits"
 msgstr ""
 "Mogens Jæger\n"
 "Frederik Dannemare\n"
-"Joe Hansen, 2009, 2010.\n"
+"Joe Hansen, 2009, 2010, 2011.\n"
 "Dansk indtaling: Maja Høhn\n"
 "\n"
 "Dansk-gruppen <dansk@dansk-gruppen.dk>\n"
@@ -2802,25 +2854,25 @@ msgid ""
 "License"
 msgstr "Dette program er en GNU-pakke, der er frigivet under GNU GPL."
 
-#: ../src/gcompris/about.c:222 ../src/gcompris/config.c:439
+#: ../src/gcompris/about.c:222 ../src/gcompris/config.c:456
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:355
 #: ../src/gcompris/images_selector.c:306
 msgid "OK"
 msgstr "O.k."
 
-#: ../src/gcompris/bar.c:684
+#: ../src/gcompris/bar.c:688
 msgid "GCompris confirmation"
 msgstr "GCompris bekræftelse"
 
-#: ../src/gcompris/bar.c:685
+#: ../src/gcompris/bar.c:689
 msgid "Are you sure you want to quit?"
 msgstr "Er du sikker på at du vil slutte?"
 
-#: ../src/gcompris/bar.c:686
+#: ../src/gcompris/bar.c:690
 msgid "Yes, I am sure!"
 msgstr "Ja, jeg er!"
 
-#: ../src/gcompris/bar.c:687
+#: ../src/gcompris/bar.c:691
 msgid "No, I want to keep going"
 msgstr "Nej, jeg vil fortsætte"
 
@@ -2894,77 +2946,77 @@ msgid "Afrikaans"
 msgstr "Afrikaans"
 
 #: ../src/gcompris/config.c:60
+msgid "Albanian"
+msgstr "Albansk"
+
+#: ../src/gcompris/config.c:61
 msgid "Amharic"
 msgstr "Amharisk"
 
-#: ../src/gcompris/config.c:61
+#: ../src/gcompris/config.c:62
 msgid "Arabic"
 msgstr "Arabisk"
 
-#: ../src/gcompris/config.c:62
+#: ../src/gcompris/config.c:63
 msgid "Asturian"
 msgstr "Asturiansk"
 
-#: ../src/gcompris/config.c:63
-msgid "Turkish (Azerbaijan)"
-msgstr "Tyrkisk (Azerbaijan)"
-
 #: ../src/gcompris/config.c:64
-msgid "Bulgarian"
-msgstr "Bulgarsk"
+msgid "Basque"
+msgstr "Baskisk"
 
 #: ../src/gcompris/config.c:65
 msgid "Breton"
 msgstr "Bretonsk"
 
 #: ../src/gcompris/config.c:66
+msgid "Bulgarian"
+msgstr "Bulgarsk"
+
+#: ../src/gcompris/config.c:67
 msgid "Catalan"
 msgstr "Catalansk"
 
-#: ../src/gcompris/config.c:67
+#: ../src/gcompris/config.c:68
+msgid "Chinese (Simplified)"
+msgstr "Kinesisk (simplificeret)"
+
+#: ../src/gcompris/config.c:69
+msgid "Chinese (Traditional)"
+msgstr "Kinesisk (traditionel)"
+
+#: ../src/gcompris/config.c:70
+msgid "Croatian"
+msgstr "Kroatisk"
+
+#: ../src/gcompris/config.c:71
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:7
 msgid "Czech Republic"
 msgstr "Tjekkiet"
 
-#: ../src/gcompris/config.c:68
+#: ../src/gcompris/config.c:72
 msgid "Danish"
 msgstr "Dansk"
 
-#: ../src/gcompris/config.c:69
-msgid "German"
-msgstr "Tysk"
+#: ../src/gcompris/config.c:73
+msgid "Dutch"
+msgstr "Hollandsk"
 
-#: ../src/gcompris/config.c:70
+#: ../src/gcompris/config.c:74
 msgid "Dzongkha"
 msgstr "Dzongkha"
 
-#: ../src/gcompris/config.c:71
-msgid "Greek"
-msgstr "Græsk"
-
-#: ../src/gcompris/config.c:72
+#: ../src/gcompris/config.c:75
 msgid "English (Canada)"
 msgstr "Engelsk (Canada)"
 
-#: ../src/gcompris/config.c:73
+#: ../src/gcompris/config.c:76
 msgid "English (Great Britain)"
 msgstr "Engelsk (England)"
 
-#: ../src/gcompris/config.c:74
+#: ../src/gcompris/config.c:77
 msgid "English (United States)"
 msgstr "Engelsk (USA)"
-
-#: ../src/gcompris/config.c:75
-msgid "Spanish"
-msgstr "Spansk"
-
-#: ../src/gcompris/config.c:76
-msgid "Basque"
-msgstr "Baskisk"
-
-#: ../src/gcompris/config.c:77
-msgid "Persian"
-msgstr "Persisk"
 
 #: ../src/gcompris/config.c:78
 msgid "Finnish"
@@ -2975,242 +3027,246 @@ msgid "French"
 msgstr "Fransk"
 
 #: ../src/gcompris/config.c:80
-msgid "Irish (Gaelic)"
-msgstr "Irsk (Gaelic)"
-
-#: ../src/gcompris/config.c:81
-msgid "Gujarati"
-msgstr "Gujarati"
-
-#: ../src/gcompris/config.c:82
-msgid "Hebrew"
-msgstr "Hebræisk"
-
-#: ../src/gcompris/config.c:83
-msgid "Hindi"
-msgstr "Hindi"
-
-#: ../src/gcompris/config.c:84
-msgid "Croatian"
-msgstr "Kroatisk"
-
-#: ../src/gcompris/config.c:85
-msgid "Hungarian"
-msgstr "Ungarnsk"
-
-#: ../src/gcompris/config.c:86
-msgid "Indonesian"
-msgstr "Indonesisk"
-
-#: ../src/gcompris/config.c:87
-msgid "Italian"
-msgstr "Italiensk"
-
-#: ../src/gcompris/config.c:88
-msgid "Japanese"
-msgstr "Japansk"
-
-#: ../src/gcompris/config.c:89
 msgid "Georgian"
 msgstr "Georgiansk"
 
+#: ../src/gcompris/config.c:81
+msgid "German"
+msgstr "Tysk"
+
+#: ../src/gcompris/config.c:82
+msgid "Greek"
+msgstr "Græsk"
+
+#: ../src/gcompris/config.c:83
+msgid "Gujarati"
+msgstr "Gujarati"
+
+#: ../src/gcompris/config.c:84
+msgid "Hebrew"
+msgstr "Hebræisk"
+
+#: ../src/gcompris/config.c:85
+msgid "Hindi"
+msgstr "Hindi"
+
+#: ../src/gcompris/config.c:86
+msgid "Hungarian"
+msgstr "Ungarnsk"
+
+#: ../src/gcompris/config.c:87
+msgid "Indonesian"
+msgstr "Indonesisk"
+
+#: ../src/gcompris/config.c:88
+msgid "Irish (Gaelic)"
+msgstr "Irsk (Gaelic)"
+
+#: ../src/gcompris/config.c:89
+msgid "Italian"
+msgstr "Italiensk"
+
 #: ../src/gcompris/config.c:90
+msgid "Japanese"
+msgstr "Japansk"
+
+#: ../src/gcompris/config.c:91
+msgid "Kinyarwanda"
+msgstr "Kinyarwanda"
+
+#: ../src/gcompris/config.c:92
 msgid "Korean"
 msgstr "Koreansk"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:93
 msgid "Lithuanian"
 msgstr "Litauisk"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:94
 msgid "Macedonian"
 msgstr "Makedonsk"
-
-#: ../src/gcompris/config.c:93
-msgid "Malayalam"
-msgstr "Malajalam"
-
-#: ../src/gcompris/config.c:94
-msgid "Marathi"
-msgstr "Marathi"
 
 #: ../src/gcompris/config.c:95
 msgid "Malay"
 msgstr "Malaysisk"
 
 #: ../src/gcompris/config.c:96
-msgid "Norwegian Bokmal"
-msgstr "Norsk (bogmål)"
+msgid "Malayalam"
+msgstr "Malajalam"
 
 #: ../src/gcompris/config.c:97
-msgid "Nepal"
-msgstr "Nepal"
-
-#: ../src/gcompris/config.c:98
-msgid "Dutch"
-msgstr "Hollandsk"
-
-#: ../src/gcompris/config.c:99
-msgid "Norwegian Nynorsk"
-msgstr "Norsk (nynorsk)"
-
-#: ../src/gcompris/config.c:100
-msgid "Occitan (languedocien)"
-msgstr "Occitan (languedocien)"
-
-#: ../src/gcompris/config.c:101
-msgid "Punjabi"
-msgstr "Punjabi"
-
-#: ../src/gcompris/config.c:102
-msgid "Polish"
-msgstr "Polsk"
-
-#: ../src/gcompris/config.c:103
-msgid "Portuguese (Brazil)"
-msgstr "Portugisisk (Brazilien)"
-
-#: ../src/gcompris/config.c:104
-msgid "Portuguese"
-msgstr "Portugisisk"
-
-#: ../src/gcompris/config.c:105
-msgid "Romanian"
-msgstr "Rumænsk"
-
-#: ../src/gcompris/config.c:106
-msgid "Russian"
-msgstr "Russisk"
-
-#: ../src/gcompris/config.c:107
-msgid "Kinyarwanda"
-msgstr "Kinyarwanda"
-
-#: ../src/gcompris/config.c:108
-msgid "Slovak"
-msgstr "Slovensk"
-
-#: ../src/gcompris/config.c:109
-msgid "Slovenian"
-msgstr "Slovakisk"
-
-#: ../src/gcompris/config.c:110
-msgid "Somali"
-msgstr "Somalisk"
-
-#: ../src/gcompris/config.c:111
-msgid "Albanian"
-msgstr "Albansk"
-
-#: ../src/gcompris/config.c:112
-msgid "Serbian (Latin)"
-msgstr "Serbisk (Latin)"
+msgid "Marathi"
+msgstr "Marathi"
 
 # http://www.denstoredanske.dk/Samfund,_jura_og_politik/Sprog/Fremmedord/mi-mo/montenegrinsk
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:98
 msgid "Montenegrin"
 msgstr "Montenegrinsk"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:99
+msgid "Nepal"
+msgstr "Nepal"
+
+#: ../src/gcompris/config.c:100
+msgid "Norwegian Bokmal"
+msgstr "Norsk (bogmål)"
+
+#: ../src/gcompris/config.c:101
+msgid "Norwegian Nynorsk"
+msgstr "Norsk (nynorsk)"
+
+#: ../src/gcompris/config.c:102
+msgid "Occitan (languedocien)"
+msgstr "Occitan (languedocien)"
+
+#: ../src/gcompris/config.c:103
+msgid "Persian"
+msgstr "Persisk"
+
+#: ../src/gcompris/config.c:104
+msgid "Polish"
+msgstr "Polsk"
+
+#: ../src/gcompris/config.c:105
+msgid "Portuguese (Brazil)"
+msgstr "Portugisisk (Brazilien)"
+
+#: ../src/gcompris/config.c:106
+msgid "Portuguese"
+msgstr "Portugisisk"
+
+#: ../src/gcompris/config.c:107
+msgid "Punjabi"
+msgstr "Punjabi"
+
+#: ../src/gcompris/config.c:108
+msgid "Romanian"
+msgstr "Rumænsk"
+
+#: ../src/gcompris/config.c:109
+msgid "Russian"
+msgstr "Russisk"
+
+#: ../src/gcompris/config.c:110
+msgid "Serbian (Latin)"
+msgstr "Serbisk (Latin)"
+
+#: ../src/gcompris/config.c:111
 msgid "Serbian"
 msgstr "Serbisk"
 
+#: ../src/gcompris/config.c:112
+msgid "Slovak"
+msgstr "Slovensk"
+
+#: ../src/gcompris/config.c:113
+msgid "Slovenian"
+msgstr "Slovakisk"
+
+#: ../src/gcompris/config.c:114
+msgid "Somali"
+msgstr "Somalisk"
+
 #: ../src/gcompris/config.c:115
+msgid "Spanish"
+msgstr "Spansk"
+
+#: ../src/gcompris/config.c:116
 msgid "Swedish"
 msgstr "Svensk"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:117
 msgid "Tamil"
 msgstr "Tamilsk"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:118
 msgid "Thai"
 msgstr "Thai"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:119
+msgid "Turkish (Azerbaijan)"
+msgstr "Tyrkisk (Azerbaijan)"
+
+#: ../src/gcompris/config.c:120
 msgid "Turkish"
 msgstr "Tyrkisk"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:121
 msgid "Ukrainian"
 msgstr "Ukrainsk"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:122
 msgid "Urdu"
 msgstr "Urdu"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:123
 msgid "Vietnamese"
 msgstr "Vietnamesisk"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:124
 msgid "Walloon"
 msgstr "Vallonsk"
 
-#: ../src/gcompris/config.c:123
-msgid "Chinese (Simplified)"
-msgstr "Kinesisk (simplificeret)"
+#: ../src/gcompris/config.c:125
+msgid "Zulu"
+msgstr "Zulu"
 
-#: ../src/gcompris/config.c:124
-msgid "Chinese (Traditional)"
-msgstr "Kinesisk (traditionel)"
-
-#: ../src/gcompris/config.c:129
+#: ../src/gcompris/config.c:130
 msgid "No time limit"
 msgstr "Ingen tidsgrænse"
 
-#: ../src/gcompris/config.c:130
+#: ../src/gcompris/config.c:131
 msgid "Slow timer"
 msgstr "Langsomt tidsforløb"
 
-#: ../src/gcompris/config.c:131
+#: ../src/gcompris/config.c:132
 msgid "Normal timer"
 msgstr "Normalt tidsforløb"
 
-#: ../src/gcompris/config.c:132
+#: ../src/gcompris/config.c:133
 msgid "Fast timer"
 msgstr "Hurtigt tidsforløb"
 
-#: ../src/gcompris/config.c:136
+#: ../src/gcompris/config.c:137
 msgid "Use Gcompris administration module to filter boards"
 msgstr "Brug GCompris' administrationsmodul til at filtrere brætter"
 
-#: ../src/gcompris/config.c:187
+#: ../src/gcompris/config.c:188
 msgid "GCompris Configuration"
 msgstr "GCompris-konfiguration"
 
-#: ../src/gcompris/config.c:254
+#: ../src/gcompris/config.c:271
 msgid "Fullscreen"
 msgstr "Fuldskærm"
 
-#: ../src/gcompris/config.c:279
+#: ../src/gcompris/config.c:296
 msgid "Music"
 msgstr "Baggrundsmusik"
 
-#: ../src/gcompris/config.c:304
+#: ../src/gcompris/config.c:321
 msgid "Effect"
 msgstr "Lydeffekter"
 
-#: ../src/gcompris/config.c:328 ../src/gcompris/sugar.c:82
+#: ../src/gcompris/config.c:345 ../src/gcompris/sugar.c:82
 msgid "Zoom"
 msgstr "Zoom"
 
-#: ../src/gcompris/config.c:365
+#: ../src/gcompris/config.c:382
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kunne ikke åbne temabibliotek: %s"
 
-#: ../src/gcompris/config.c:396 ../src/gcompris/config.c:754
-#: ../src/gcompris/config.c:768
+#: ../src/gcompris/config.c:413 ../src/gcompris/config.c:780
+#: ../src/gcompris/config.c:794
 #, c-format
 msgid "Skin : %s"
 msgstr "Tema : %s"
 
-#: ../src/gcompris/config.c:398
+#: ../src/gcompris/config.c:415
 msgid "SKINS NOT FOUND"
-msgstr "SKINS IKKE FUNDET"
+msgstr "TEMAER IKKE FUNDET"
 
-#: ../src/gcompris/config.c:479
+#: ../src/gcompris/config.c:496
 msgid "English (United State)"
 msgstr "Engelsk (USA)"
 
@@ -3226,15 +3282,15 @@ msgstr "INDLÆS"
 msgid "SAVE"
 msgstr "GEM"
 
-#: ../src/gcompris/gameutil.c:142 ../src/gcompris/gameutil.c:200
+#: ../src/gcompris/gameutil.c:138 ../src/gcompris/gameutil.c:196
 msgid "Couldn't find or load the file"
 msgstr "Kunne ikke finde eller indlæse filen"
 
-#: ../src/gcompris/gameutil.c:144 ../src/gcompris/gameutil.c:202
+#: ../src/gcompris/gameutil.c:140 ../src/gcompris/gameutil.c:198
 msgid "This activity is incomplete."
 msgstr "Denne aktivitet er ikke færdig."
 
-#: ../src/gcompris/gameutil.c:145 ../src/gcompris/gameutil.c:203
+#: ../src/gcompris/gameutil.c:141 ../src/gcompris/gameutil.c:199
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -3407,7 +3463,7 @@ msgstr ""
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Tillad flere kørsler af GCompris samtidigt."
 
-#: ../src/gcompris/gcompris.c:929
+#: ../src/gcompris/gcompris.c:944
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -3428,12 +3484,12 @@ msgstr ""
 "Linux. Hent flere informationer på FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1223
+#: ../src/gcompris/gcompris.c:1238
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
 msgstr "Kunne ikke indlæse temaet '%s' (Undersøg om filen findes og er læsbar)"
 
-#: ../src/gcompris/gcompris.c:1486
+#: ../src/gcompris/gcompris.c:1501
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
@@ -3441,12 +3497,12 @@ msgstr ""
 "GCompris vil ikke starte, fordi lock-filen er mindre ens %d sekunder "
 "gammel.\n"
 
-#: ../src/gcompris/gcompris.c:1488
+#: ../src/gcompris/gcompris.c:1503
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Lock-filen er: %s\n"
 
-#: ../src/gcompris/gcompris.c:1599
+#: ../src/gcompris/gcompris.c:1614
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3460,27 +3516,27 @@ msgstr ""
 "Mere information på http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1714
+#: ../src/gcompris/gcompris.c:1729
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Brug -l for at starte en aktivitet direkte.\n"
 
-#: ../src/gcompris/gcompris.c:1715
+#: ../src/gcompris/gcompris.c:1730
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Listen af tilgængelige aktiviteter er :\n"
 
-#: ../src/gcompris/gcompris.c:1746
+#: ../src/gcompris/gcompris.c:1761
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Antal aktiviteter: %d\n"
 
-#: ../src/gcompris/gcompris.c:1782
+#: ../src/gcompris/gcompris.c:1797
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s eksisterer men kan ikke læses eller er skrivebeskyttet"
 
-#: ../src/gcompris/gcompris.c:1845
+#: ../src/gcompris/gcompris.c:1860
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
@@ -3489,7 +3545,7 @@ msgstr ""
 "Tilvalget --server kan ikke bruges, da GCompris er blevet kompileret uden "
 "netværksunderstøttelse!"
 
-#: ../src/gcompris/gcompris.c:1899
+#: ../src/gcompris/gcompris.c:1914
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3498,7 +3554,7 @@ msgstr ""
 "FEJL: Profilen '%s' er ikke fundet. Kør 'gcompris --profile-list' for at "
 "vise en oversigt over de tilgængelige profiler.\n"
 
-#: ../src/gcompris/gcompris.c:1913
+#: ../src/gcompris/gcompris.c:1928
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Listen af tilgængelige profiler er:\n"
@@ -6435,12 +6491,14 @@ msgstr "Faldskærmsudspringer"
 msgid "This board is game-oriented. No specific skills are needed to play."
 msgstr "Dette bræt er spilorienteret. Ingen særlige færdigheder er påkrævet."
 
-#: ../src/penalty-activity/penalty.py:293
-msgid "Click on the balloon to place it again."
+#: ../src/penalty-activity/penalty.py:292
+#, fuzzy
+msgid "Click on the ball to place it again."
 msgstr "Klik på ballonen for at placere den igen."
 
-#: ../src/penalty-activity/penalty.py:295
-msgid "Click twice on the balloon to shoot it."
+#: ../src/penalty-activity/penalty.py:294
+#, fuzzy
+msgid "Click twice on the ball to shoot it."
 msgstr "Klik to gange på ballonen for at skyde den ned."
 
 #: ../src/penalty-activity/penalty.xml.in.h:1
@@ -6627,66 +6685,6 @@ msgstr "Hukommelsestræning"
 #: ../src/railroad-activity/railroad.xml.in.h:5
 msgid "Railway"
 msgstr "Jernbane"
-
-#: ../src/read_colors-activity/read_colors.c:57
-msgid "blue"
-msgstr "blå"
-
-#: ../src/read_colors-activity/read_colors.c:58
-msgid "brown"
-msgstr "brun"
-
-#: ../src/read_colors-activity/read_colors.c:59
-msgid "green"
-msgstr "grøn"
-
-#: ../src/read_colors-activity/read_colors.c:60
-msgid "grey"
-msgstr "grå"
-
-#: ../src/read_colors-activity/read_colors.c:61
-msgid "orange"
-msgstr "orange"
-
-#: ../src/read_colors-activity/read_colors.c:62
-msgid "violet"
-msgstr "violet"
-
-#: ../src/read_colors-activity/read_colors.c:63
-msgid "red"
-msgstr "rød"
-
-#: ../src/read_colors-activity/read_colors.c:64
-msgid "yellow"
-msgstr "gul"
-
-#: ../src/read_colors-activity/read_colors.c:65
-msgid "black"
-msgstr "sort"
-
-#: ../src/read_colors-activity/read_colors.c:66
-msgid "white"
-msgstr "hvid"
-
-#: ../src/read_colors-activity/read_colors.c:67
-msgid "pink"
-msgstr "pink"
-
-#: ../src/read_colors-activity/read_colors.xml.in.h:2
-msgid "Click on the correct colored object."
-msgstr "Klik på det rigtigt farvede objekt."
-
-#: ../src/read_colors-activity/read_colors.xml.in.h:3
-msgid "Click on the matching color"
-msgstr "Klik på den tilsvarende farve"
-
-#: ../src/read_colors-activity/read_colors.xml.in.h:4
-msgid "Read the names of colors"
-msgstr "Læs farvenavne"
-
-#: ../src/read_colors-activity/read_colors.xml.in.h:5
-msgid "This board teaches basic colors."
-msgstr "Dette bræt træner grundlæggende farver."
 
 #: ../src/readingh-activity/reading.c:229
 #: ../src/wordsgame-activity/wordsgame.c:219
@@ -7507,3 +7505,144 @@ msgstr "Tastaturtræning"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:4
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Skriv hele ordet mens det falder, og før det når bunden"
+
+#: ../src/findit-activity/findit.py:315
+msgid ""
+"Failed to parse data set '{filename}' with error:\n"
+"{error}"
+msgstr ""
+"Kunne ikke fortolke datasæt \"{filename}\" med fejl:\n"
+"{error}"
+
+#: ../src/instruments-activity/instruments.xml.in.h:1
+msgid "Click on the correct instrument."
+msgstr "Klik på det rigtige instrument."
+
+#: ../src/instruments-activity/instruments.xml.in.h:2
+msgid "Click on the correct mucical instruments"
+msgstr "Klik på de rigtige musikinstrumenter"
+
+#: ../src/instruments-activity/instruments.xml.in.h:3
+msgid "Learn to recognize musical instruments."
+msgstr "Lær at genkende musikinstrumenter."
+
+#: ../src/instruments-activity/instruments.xml.in.h:4
+msgid "Music instruments"
+msgstr "Musikinstrumenter"
+
+#. Translator: Do not translate {text}.
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:2
+msgid "Find {text}"
+msgstr "Find {text}"
+
+# http://da.wikipedia.org/wiki/Harmonika#Akkordeon
+# Der er rent faktisk noget der hedder en Accordeon på dansk. 
+# Og da der kommer en harmonika senere, vil jeg anbefale det her, 
+# se: http://www.smks.dk/uddannelser/efteruddannelser/accordeonharmonikaspil_paedagogik_og_metodik/
+# Da jeg ville sende, foreslog Thunderbirds oversætter at skrive det "akkordeonen"
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:3
+msgid "the accordion"
+msgstr "akkordeonet"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:4
+msgid "the banjo"
+msgstr "banjoen"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:5
+msgid "the bass drum"
+msgstr "bastrommen"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:6
+msgid "the bongo"
+msgstr "bongoen"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:7
+msgid "the castanets"
+msgstr "kastagnetterne"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:8
+msgid "the cello"
+msgstr "celloen"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:9
+msgid "the clarinet"
+msgstr "klarinetten"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:10
+msgid "the cymbal"
+msgstr "bækkenet"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:11
+msgid "the drum kit"
+msgstr "trommesættet"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
+msgid "the electric guitar"
+msgstr "den elektriske guitar"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
+msgid "the flute traversiere"
+msgstr "tværfløjten"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
+msgid "the guitar"
+msgstr "guitaren"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
+msgid "the harmonica"
+msgstr "harmonikaen"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
+msgid "the harp"
+msgstr "harpen"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
+msgid "the horn"
+msgstr "hornet"
+
+# http://www.denstoredanske.dk/Kunst_og_kultur/Musik/Musikinstrumenter_og_tilbeh%C3%B8r/maracas
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
+msgid "the maracas"
+msgstr "maracasen"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
+msgid "the organ"
+msgstr "orglet"
+
+# Piano er normalt enten et flygel (strenge sidder vandret) eller et klaver (opretstående)
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
+msgid "the piano"
+msgstr "klaveret"
+
+# saxofonen http://ordnet.dk/ddo/ordbog?aselect=saksofon&query=sal
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
+msgid "the saxophone"
+msgstr "saxofonen"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
+msgid "the tambourine"
+msgstr "tamburinen"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
+msgid "the timpani"
+msgstr "paukeren"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
+msgid "the triangle"
+msgstr "triangelen"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
+msgid "the trombone"
+msgstr "trækbasunen"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
+msgid "the trumpet"
+msgstr "trompeten"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:27
+msgid "the tuba"
+msgstr "tubaen"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:28
+msgid "the violin"
+msgstr "violinen"
