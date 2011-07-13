@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2011-06-08 18:37+0000\n"
-"PO-Revision-Date: 2011-06-09 15:56+0100\n"
+"POT-Creation-Date: 2011-07-08 21:22+0000\n"
+"PO-Revision-Date: 2011-07-11 11:13+0100\n"
 "Last-Translator: Andrej Žnidaršič <andrej.znidarsic@gmail.com>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
@@ -1321,7 +1321,7 @@ msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "Igre z miško: premakni, povleci in spusti."
 
 #: ../src/babymatch-activity/shapegame.c:1903
-#: ../src/click_on_letter-activity/click_on_letter.c:671
+#: ../src/click_on_letter-activity/click_on_letter.c:672
 #: ../src/colors-activity/colors.c:168
 #, c-format
 msgid ""
@@ -1863,7 +1863,7 @@ msgstr ""
 "z glasovi GCompris za jezikovno določilo '%s' ! Uporabljena bo angleščina, oprosti!"
 
 #. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:694
+#: ../src/click_on_letter-activity/click_on_letter.c:695
 #: ../src/gletters-activity/gletters.c:883
 #: ../src/login-activity/login.py:484
 #: ../src/missing_letter-activity/missingletter_config.c:492
@@ -2243,7 +2243,7 @@ msgid "Select a drawing tool on the left, and a color down the bottom, then clic
 msgstr "Na levi strani izberi orodje za risanje v spodnjem delu pa izberi barvo. Klikni na belo polje ter nariši novo obliko. Za hitrejše delo lahko uporabiš srednjim gumbom na miški. Z njo predmet izbrišeš."
 
 #: ../src/drawnumber-activity/drawnumber.py:236
-#: ../src/findit-activity/findit.py:309
+#: ../src/findit-activity/findit.py:310
 msgid "Cannot find the file '{filename}'"
 msgstr "Datoteke '{filename}' ni mogoče najti"
 
@@ -5635,12 +5635,12 @@ msgid "This board is game-oriented. No specific skills are needed to play."
 msgstr "To je igralna deska. Ne potrebuješ posebne spretnosti za igranje."
 
 #: ../src/penalty-activity/penalty.py:292
-msgid "Click on the balloon to place it again."
-msgstr "Klikni na balon za ponovno postavljanje."
+msgid "Click on the ball to place it again."
+msgstr "Klikni na žogo za ponovno postavljanje."
 
 #: ../src/penalty-activity/penalty.py:294
-msgid "Click twice on the balloon to shoot it."
-msgstr "Dvakrat klikni na balon in ga ustreli."
+msgid "Click twice on the ball to shoot it."
+msgstr "Dvakrat klikni na žogo in jo ustreli."
 
 #: ../src/penalty-activity/penalty.xml.in.h:1
 msgid "Double click the mouse on the ball to kick it. You can double click the left right or middle mouse button. If you lose, Tux catches the ball. You must click on it to bring it back to its former position"
@@ -6415,7 +6415,7 @@ msgstr "Učenje tipkanja"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Natipkaj celo besedo, preden doseže zemljo"
 
-#: ../src/findit-activity/findit.py:314
+#: ../src/findit-activity/findit.py:315
 msgid ""
 "Failed to parse data set '{filename}' with error:\n"
 "{error}"
