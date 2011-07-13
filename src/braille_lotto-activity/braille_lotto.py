@@ -1,6 +1,6 @@
 #  gcompris - braille_lotto.py
 #
-# Copyright (C) 2003, 2008 Bruno Coudoin
+# Copyright (C) 2003, 2008 Bruno Coudoin | Srishti Sethi
 #
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
@@ -130,7 +130,7 @@ class Gcompris_braille_lotto:
     even = 0
     while (index < 12):
         if(even % 2 == 0):
-            gcompris.utils.item_focus_init(self.rect[even],None)
+            gcompris.utils.item_focus_init(self.rect[even],self.rect[even])
             self.rect[even].connect("button_press_event",self.cross_number, index)
         even += 2
         index += 1
@@ -212,7 +212,7 @@ class Gcompris_braille_lotto:
                                      )
     self.hint_left_button.translate(470, 150)
     self.hint_left_button.connect("button_press_event", self.clue_left)
-    gcompris.utils.item_focus_init(self.hint_left_button, None)
+    gcompris.utils.item_focus_init(self.hint_left_button, self.hint_left_button)
 
     #RIGHT Button
     self.hint_right_button = goocanvas.Svg(
@@ -223,7 +223,7 @@ class Gcompris_braille_lotto:
                                      )
     self.hint_right_button.translate(470, 150)
     self.hint_right_button.connect("button_press_event", self.clue_right)
-    gcompris.utils.item_focus_init(self.hint_right_button, None)
+    gcompris.utils.item_focus_init(self.hint_right_button, self.hint_right_button)
 
     #Displaying text on clue buttons
     for index in range(2):
@@ -251,8 +251,24 @@ class Gcompris_braille_lotto:
                     anchor=gtk.ANCHOR_CENTER,
                     )
 
-    #Adding a timer
-    self.displayTimer()
+    #Generate Number Button
+    generate_number = goocanvas.Image(parent = self.root,
+                    pixbuf = gcompris.utils.load_pixmap("braille_lotto/generate_number.png"),
+                    x = 670,
+                    y = 30,
+                    )
+    generate_number.connect("button_press_event", self.generateNumber)
+    gcompris.utils.item_focus_init(generate_number, None)
+
+    goocanvas.Text(
+                    parent = self.root,
+                    text = _("Generate")+"\n"+_("Number"),
+                    font = gcompris.skin.get_font("gcompris/board/medium"),
+                    x = 730,
+                    y = 90,
+                    anchor=gtk.ANCHOR_CENTER,
+                    )
+
 
     #Calling the random number and checking it on lotto board
     self.number_call()
@@ -352,29 +368,16 @@ class Gcompris_braille_lotto:
           self.column = "4th"
 
 
-  def animTimer(self):
-        self.countAnim -= 1
-        if self.countAnim > 0:
-            self.timerAnim = gobject.timeout_add(200, self.animTimer)
-        else:
-            self.check_number.set_property("text","")
-            self.countAnim = 200
-            self.counter += 1
-            self.number_call()
-
-
-  def displayTimer(self):
-      self.timericon = gcompris.anim.CanvasItem( gcompris.anim.Animation("braille_lotto/sablier.txt"),
-            self.root)
-      self.timericon.goocanvas.translate(680, 35)
-      self.timerAnim = gobject.timeout_add(200, self.animTimer)
-      self.timericon.goocanvas.props.visibility = goocanvas.ITEM_VISIBLE
+  def generateNumber(self, item, event, target):
+        self.check_number.set_property("text","")
+        self.counter += 1
+        self.number_call()
 
   def number_call(self):
       if(self.counter == 90):
-          gcompris.utils.dialog(_("Game Over"),None)
-          self.pause(1)
-      self.timerAnim = gobject.timeout_add(200, self.animTimer)
+          self.game.props.visibility = goocanvas.ITEM_VISIBLE
+          self.game_status.props.text = " Game Over"
+
       self.check_number = goocanvas.Text(
                             parent = self.root,
                             text= CHECK_RANDOM[self.counter],
@@ -446,7 +449,7 @@ class Gcompris_braille_lotto:
             self.score_player_b +=1
 
     if(self.score_player_a == 6 or self.score_player_b == 6):
-        goocanvas.Image(parent = self.root,
+        self.game = goocanvas.Image(parent = self.root,
                     pixbuf = gcompris.utils.load_pixmap("braille_lotto/game.svg"),
                     x = 230 ,
                     y = 150,
