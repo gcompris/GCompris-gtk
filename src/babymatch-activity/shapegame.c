@@ -939,11 +939,12 @@ item_event_drag(GooCanvasItem *item,
 	{
 	case SHAPE_TARGET:
 	  /* unplace this shape */
-	  if (shape->placed && shape->placed->target_point)
+	  if (shape->placed && shape->placed->target_point) {
 	    g_object_set (shape->placed->target_point, "visibility",
 			  GOO_CANVAS_ITEM_VISIBLE, NULL);
-	  shape->placed->shape_place = NULL;
-	  shape->placed = NULL;
+	    shape->placed->shape_place = NULL;
+	    shape->placed = NULL;
+	  }
 	  /* No break on purpose */
 	case SHAPE_ICON:
 	  gc_drag_offset_save(event);
