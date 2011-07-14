@@ -150,6 +150,16 @@ gc_drag_event_root(GooCanvasItem * item,
 		   GdkEventMotion *event,
 		   gpointer data)
 {
+  if(gc_drag_mode & GC_DRAG_MODE_2CLICKS) {
+    gdouble new_x = event->x_root;
+    gdouble new_y = event->y_root;
+    goo_canvas_convert_to_item_space(goo_canvas_item_get_canvas(item),
+                                    gc_drag_item, &new_x, &new_y);
+    event->x = new_x;
+    event->y = new_y;
+    target = gc_drag_target;
+  }
+
   if(gc_drag_target != target)
     return FALSE;
 

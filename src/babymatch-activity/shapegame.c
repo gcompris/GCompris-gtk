@@ -992,6 +992,8 @@ item_event_drag(GooCanvasItem *item,
 					     NULL);
 	  g_object_set(shadow_item, "visibility",
 		       GOO_CANVAS_ITEM_INVISIBLE, NULL);
+	  g_object_set(shadow_item, "pointer-events",
+		       GOO_CANVAS_EVENTS_NONE, NULL);
 	  gdk_pixbuf_unref(dest);
 	}
       dragged = shape->item;
