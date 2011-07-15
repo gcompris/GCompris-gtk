@@ -33,8 +33,8 @@ from BrailleChar import *
 from BrailleMap import *
 from gcompris import gcompris_gettext as _
 
-COLOR_ON = 0X00FFFFL
-COLOR_OFF = 0X00000000L
+COLOR_ON = 0X00FFFF
+COLOR_OFF = 0X000000
 CIRCLE_FILL = "light green"
 CIRCLE_STROKE = "black"
 CELL_WIDTH = 30
@@ -97,33 +97,12 @@ class Gcompris_braille_lotto:
     self.lotto_board()
 
   def lotto_board(self):
-    #Lotto Board
-    board = goocanvas.Rect(
-      parent = self.root,
-      x = 40,
-      y = 20,
-      width = 420,
-      height = 270,
-      stroke_color = "blue",
-      fill_color = "light blue" ,
-      line_width=5)
-
-    #Horizontal polylines for lotto board
-    for index in range(8):
-        p_points = goocanvas.Points([(40.0, 30 * index + 50),(460.0, 30 * index + 50)])
-        polyline = goocanvas.Polyline(parent = self.root, points=p_points, stroke_color="blue")
-
-    #Vertical polylines for lotto board
-    for index in range(9):
-        p_points = goocanvas.Points([(42 * index + 80, 20.0),(42 * index + 80, 290.0)])
-        polyline = goocanvas.Polyline(parent = self.root, points=p_points, stroke_color="blue")
-
     #Display Rectangle Ticket Boxes
     self.rect = []
     self.rect_x = []
     self.rect_y = []
-    self.displayTicketBox(40 , 310)
-    self.displayTicketBox(500, 310)
+    self.displayTicketBox(40 , 40)
+    self.displayTicketBox(420, 40)
 
     #Rectangle box with ticket number is made clickable
     index = 0
@@ -139,8 +118,8 @@ class Gcompris_braille_lotto:
     #PLAYER 1
     goocanvas.Text(
                 parent = self.root,
-                x=170.0,
-                y=500.0,
+                x=200.0,
+                y=300.0,
                 text=_("PLAYER 1"),
                 fill_color="black",
                 anchor = gtk.ANCHOR_CENTER,
@@ -149,8 +128,8 @@ class Gcompris_braille_lotto:
     #PLAYER TWO
     goocanvas.Text(
                 parent = self.root,
-                x=640.0,
-                y=500.0,
+                x=580.0,
+                y=300.0,
                 text=_("PLAYER 2"),
                 fill_color="black",
                 anchor = gtk.ANCHOR_CENTER,
@@ -159,9 +138,9 @@ class Gcompris_braille_lotto:
 
     #Button to display the number to be checked in the ticket
     goocanvas.Image(parent = self.root,
-                    pixbuf = gcompris.utils.load_pixmap("braille_lotto/button.jpg"),
-                    x = 470,
-                    y = 35,
+                    pixbuf = gcompris.utils.load_pixmap("braille_lotto/button.svg"),
+                    x = -15,
+                    y = 340,
                     )
 
     #Check number
@@ -169,37 +148,11 @@ class Gcompris_braille_lotto:
       parent = self.root,
       text= _("Check Number"),
       font = gcompris.skin.get_font("gcompris/board/medium"),
-      x=560,
-      y=55,
+      x=120,
+      y=390,
       anchor=gtk.ANCHOR_CENTER,
       )
 
-    #Displaying Numbers in Lotto Board
-    k = 0
-    i = 0
-    j = 10
-    self.board_array = []
-    self.board_array_x = []
-    self.board_array_y = []
-    while k < 9:
-        spacing = 0
-        for index in range(i,j):
-            goocanvas.Text(
-                    parent = self.root,
-                    text = (index + 1),
-                    font = gcompris.skin.get_font("gcompris/board/medium"),
-                    x = spacing * 43 + 55,
-                    y = 30 * k + 35,
-                    anchor=gtk.ANCHOR_CENTER,
-                    )
-            #Append number, x and y location to arrays
-            self.board_array.append(index + 1)
-            self.board_array_x.append(spacing * 43 + 55)
-            self.board_array_y.append(30 * k + 35)
-            spacing = spacing + 1
-        i += 10
-        j += 10
-        k += 1
 
     #Buttons for Clue
     svghandle = gcompris.utils.load_svg("braille_lotto/button1.svg")
@@ -210,9 +163,10 @@ class Gcompris_braille_lotto:
                                      svg_id = "#FIG1",
                                      tooltip = "Click me to get some hint"
                                      )
-    self.hint_left_button.translate(470, 150)
+    self.hint_left_button.translate(210, 330)
     self.hint_left_button.connect("button_press_event", self.clue_left)
-    gcompris.utils.item_focus_init(self.hint_left_button, self.hint_left_button)
+    gcompris.utils.item_focus_init(self.hint_left_button, None)
+
 
     #RIGHT Button
     self.hint_right_button = goocanvas.Svg(
@@ -221,53 +175,63 @@ class Gcompris_braille_lotto:
                                      svg_id = "#FIG2",
                                      tooltip = "Click me to get some hint"
                                      )
-    self.hint_right_button.translate(470, 150)
+    self.hint_right_button.translate(290, 330)
     self.hint_right_button.connect("button_press_event", self.clue_right)
-    gcompris.utils.item_focus_init(self.hint_right_button, self.hint_right_button)
+    gcompris.utils.item_focus_init(self.hint_right_button, None)
+
 
     #Displaying text on clue buttons
+    self.text_array = []
     for index in range(2):
-        goocanvas.Text(
+        clue_text = goocanvas.Text(
                     parent = self.root,
                     text = _("I don't have \n""this number \n\n" "PLAYER " + str(index + 1)),
                     font = gcompris.skin.get_font("gcompris/board/medium"),
-                    x = index * 160 + 550,
-                    y = 215,
+                    x = index * 230 + 295,
+                    y = 395,
                     anchor=gtk.ANCHOR_CENTER,
                     )
+        self.text_array.append(clue_text)
+    gcompris.utils.item_focus_init(self.text_array[0], self.hint_left_button)
+    self.text_array[0].connect("button_press_event", self.clue_left)
+    gcompris.utils.item_focus_init(self.text_array[1], self.hint_right_button)
+    self.text_array[1].connect("button_press_event", self.clue_right)
+
 
     #Displaying Tux Lotto Master
     goocanvas.Image(parent = self.root,
                     pixbuf = gcompris.utils.load_pixmap("braille_lotto/tux.svg"),
                     x = 360,
-                    y = 320,
+                    y = 330,
                     )
     goocanvas.Text(
                     parent = self.root,
                     text = _("Lotto Master"),
                     font = gcompris.skin.get_font("gcompris/board/medium"),
-                    x = 400,
-                    y = 430,
+                    x = 410,
+                    y = 455,
                     anchor=gtk.ANCHOR_CENTER,
                     )
 
     #Generate Number Button
     generate_number = goocanvas.Image(parent = self.root,
-                    pixbuf = gcompris.utils.load_pixmap("braille_lotto/generate_number.png"),
-                    x = 670,
-                    y = 30,
+                    pixbuf = gcompris.utils.load_pixmap("braille_lotto/button2.png"),
+                    x = 620,
+                    y = 350,
                     )
     generate_number.connect("button_press_event", self.generateNumber)
     gcompris.utils.item_focus_init(generate_number, None)
 
-    goocanvas.Text(
+    generate_text = goocanvas.Text(
                     parent = self.root,
                     text = _("Generate")+"\n"+_("Number"),
                     font = gcompris.skin.get_font("gcompris/board/medium"),
-                    x = 730,
-                    y = 90,
+                    x = 700,
+                    y = 390,
                     anchor=gtk.ANCHOR_CENTER,
                     )
+    generate_text.connect("button_press_event", self.generateNumber)
+    gcompris.utils.item_focus_init(generate_text, generate_number)
 
 
     #Calling the random number and checking it on lotto board
@@ -278,32 +242,32 @@ class Gcompris_braille_lotto:
 
     #Displaying the Braille Code for TICKETS A & B
     #TICKET A
-    self.displayTicket(1, 25, 55, 320)
-    self.displayTicket(1, 25, 55, 432)
-    self.displayTicket(26, 50, 122, 377)
-    self.displayTicket(51, 75, 191, 320)
-    self.displayTicket(51, 75, 191, 432)
-    self.displayTicket(76, 90, 259, 377)
+    self.displayTicket(1, 25, 60, 50)
+    self.displayTicket(1, 25, 60, 200)
+    self.displayTicket(26, 50, 140, 125)
+    self.displayTicket(51, 75, 230, 50)
+    self.displayTicket(51, 75, 230, 200)
+    self.displayTicket(76, 90, 320, 125)
 
     #TICKET B
-    self.displayTicket(1, 25, 515, 320)
-    self.displayTicket(1, 25, 515, 432)
-    self.displayTicket(26, 50, 582, 377)
-    self.displayTicket(51, 75, 650, 320)
-    self.displayTicket(51, 75, 650, 432)
-    self.displayTicket(76, 90, 718, 377)
+    self.displayTicket(1, 25, 440, 50)
+    self.displayTicket(1, 25, 440, 200)
+    self.displayTicket(26, 50, 520, 125)
+    self.displayTicket(51, 75, 610, 50)
+    self.displayTicket(51, 75, 610, 200)
+    self.displayTicket(76, 90, 700, 125)
 
   def clue_left(self, event , target, item):
       self.callout1 = goocanvas.Image(parent = self.root,
                     pixbuf = gcompris.utils.load_pixmap("braille_lotto/callout1.svg"),
                     x = 220,
-                    y = 340,
+                    y =250,
                     )
       self.status_one = goocanvas.Text(
                             parent = self.root,
                             text= "",
                             x=310,
-                            y=410,
+                            y=320,
                             font = "SANS 10 BOLD",
                             anchor=gtk.ANCHOR_CENTER,
                             )
@@ -319,13 +283,13 @@ class Gcompris_braille_lotto:
       self.callout2 = goocanvas.Image(parent = self.root,
                     pixbuf = gcompris.utils.load_pixmap("braille_lotto/callout2.svg"),
                     x = 400,
-                    y = 340,
+                    y = 250,
                     )
       self.status_two = goocanvas.Text(
                             parent = self.root,
                             text= "",
                             x=500,
-                            y=410,
+                            y=320,
                             font = "SANS 10 BOLD",
                             anchor=gtk.ANCHOR_CENTER,
                             )
@@ -381,26 +345,19 @@ class Gcompris_braille_lotto:
       self.check_number = goocanvas.Text(
                             parent = self.root,
                             text= CHECK_RANDOM[self.counter],
-                            x=560,
-                            y=100,
+                            x=110,
+                            y=420,
                             font = "SANS 20",
                             anchor=gtk.ANCHOR_CENTER,
                             )
-      #Place the checked button on number which is being called
-      goocanvas.Image(parent = self.root,
-                    pixbuf = gcompris.utils.load_pixmap("braille_lotto/button_checked.png"),
-                    x = self.board_array_x[CHECK_RANDOM[self.counter] - 1] - 10 ,
-                    y = self.board_array_y[CHECK_RANDOM[self.counter] - 1]- 10,
-                    )
-
 
   def displayTicketBox(self, x, y):
       goocanvas.Rect(
       parent = self.root,
       x = x + 5,
       y = y + 5,
-      width = 268,
-      height = 168,
+      width = 350,
+      height = 230,
       stroke_color = "dark green",
       fill_color = "light green" ,
       line_width=7)
@@ -409,37 +366,37 @@ class Gcompris_braille_lotto:
         for j in range(3):
               box = goocanvas.Rect(
                              parent = self.root,
-                             x = x + 5 + 68 * i,
-                             y = y + 5 + 57 * j,
-                             width = 65,
-                             height = 54,
+                             x = x + 7 + 88 * i,
+                             y = y + 7 + 77 * j,
+                             width = 82,
+                             height = 73,
                              stroke_color = "dark green",
                              fill_color = "light green" ,
                              line_width=2)
               self.rect.append(box)
-              self.rect_x.append(x + 5 + 68 * i)
-              self.rect_y.append(y + 5 + 57 * j)
+              self.rect_x.append(x + 7 + 88 * i)
+              self.rect_y.append(y + 7 + 77 * j)
 
   def displayTicket(self, a, b, x, y):
       ticket = random.randint(a, b)
       self.ticket_array.append(ticket)
       if (ticket < 10):
-          BrailleChar(self.root, x, y, 35 , ticket, COLOR_ON, COLOR_OFF ,
-                  CIRCLE_FILL, CIRCLE_FILL, False, False ,True, None)
+          BrailleChar(self.root, x, y, 50 , ticket, COLOR_ON, COLOR_OFF ,
+                  CIRCLE_FILL, CIRCLE_FILL, False, False ,False, None)
       else :
           tens_digit = ticket / 10
           ones_digit = ticket % 10
-          BrailleChar(self.root, x - 7, y, 33 ,tens_digit, COLOR_ON, COLOR_OFF ,
-                  CIRCLE_FILL, CIRCLE_FILL, False, False ,True, None)
-          BrailleChar(self.root, x + 20, y, 33 , ones_digit, COLOR_ON, COLOR_OFF ,
-                  CIRCLE_FILL, CIRCLE_FILL, False, False ,True, None)
+          BrailleChar(self.root, x - 7, y, 50 ,tens_digit, COLOR_ON, COLOR_OFF ,
+                  CIRCLE_FILL, CIRCLE_FILL, False, False ,False, None)
+          BrailleChar(self.root, x + 25, y, 50 , ones_digit, COLOR_ON, COLOR_OFF ,
+                  CIRCLE_FILL, CIRCLE_FILL, False, False ,False, None)
 
   def cross_number(self,item, event, target, index):
     #Cross Sign
     goocanvas.Image(parent = self.root,
                     pixbuf = gcompris.utils.load_pixmap("braille_lotto/cross_button.png"),
-                    x = self.rect_x[index * 2]+8 ,
-                    y = self.rect_y[index * 2]+5,
+                    x = self.rect_x[index * 2] + 8,
+                    y = self.rect_y[index * 2] + 5,
                     )
 
     if( CHECK_RANDOM[self.counter] == self.ticket_array[index]):
