@@ -72,17 +72,19 @@ class Gcompris_braille_lotto:
 
     #Boolean variable declaration
     self.mapActive = False
+
+    #CONSTANT Declarations
     self.board_paused = 0
     self.timerAnim = 0
     self.counter = 0
     self.gamewon = 0
-    self.countAnim = 200
     self.score_player_a = 0
     self.score_player_b = 0
     self.status_timer = 50
     self.delay_one = 100
     self.delay_two = 100
-
+    self.tile_counter = 0
+    self.rectangle_counter = 0
 
     #REPEAT ICON
     gcompris.bar_set(gcompris.BAR_REPEAT_ICON)
@@ -109,7 +111,7 @@ class Gcompris_braille_lotto:
     even = 0
     while (index < 12):
         if(even % 2 == 0):
-            gcompris.utils.item_focus_init(self.rect[even],self.rect[even])
+            gcompris.utils.item_focus_init(self.rect[even],None)
             self.rect[even].connect("button_press_event",self.cross_number, index)
         even += 2
         index += 1
@@ -139,7 +141,7 @@ class Gcompris_braille_lotto:
     #Button to display the number to be checked in the ticket
     goocanvas.Image(parent = self.root,
                     pixbuf = gcompris.utils.load_pixmap("braille_lotto/button.svg"),
-                    x = -15,
+                    x = 5,
                     y = 340,
                     )
 
@@ -185,7 +187,7 @@ class Gcompris_braille_lotto:
     for index in range(2):
         clue_text = goocanvas.Text(
                     parent = self.root,
-                    text = _("I don't have \n""this number \n\n" "PLAYER " + str(index + 1)),
+                    text = _("I don't have \n""this number \n" " PLAYER " + str(index + 1)),
                     font = gcompris.skin.get_font("gcompris/board/medium"),
                     x = index * 230 + 295,
                     y = 395,
@@ -381,29 +383,44 @@ class Gcompris_braille_lotto:
       ticket = random.randint(a, b)
       self.ticket_array.append(ticket)
       if (ticket < 10):
-          BrailleChar(self.root, x, y, 50 , ticket, COLOR_ON, COLOR_OFF ,
+          obj = BrailleChar(self.root, x, y, 50 , ticket, COLOR_ON, COLOR_OFF ,
                   CIRCLE_FILL, CIRCLE_FILL, False, False ,False, None)
+          obj.ticket_focus(self.rect[self.rectangle_counter],self.cross_number, self.tile_counter)
       else :
           tens_digit = ticket / 10
           ones_digit = ticket % 10
-          BrailleChar(self.root, x - 7, y, 50 ,tens_digit, COLOR_ON, COLOR_OFF ,
+          obj1 = BrailleChar(self.root, x - 7, y, 50 ,tens_digit, COLOR_ON, COLOR_OFF ,
                   CIRCLE_FILL, CIRCLE_FILL, False, False ,False, None)
-          BrailleChar(self.root, x + 25, y, 50 , ones_digit, COLOR_ON, COLOR_OFF ,
+          obj1.ticket_focus(self.rect[self.rectangle_counter], self.cross_number, self.tile_counter)
+
+          obj2 = BrailleChar(self.root, x + 25, y, 50 , ones_digit, COLOR_ON, COLOR_OFF ,
                   CIRCLE_FILL, CIRCLE_FILL, False, False ,False, None)
+          obj2.ticket_focus(self.rect[self.rectangle_counter], self.cross_number, self.tile_counter)
+
+      self.rectangle_counter += 2
+      self.tile_counter += 1
 
   def cross_number(self,item, event, target, index):
-    #Cross Sign
-    goocanvas.Image(parent = self.root,
-                    pixbuf = gcompris.utils.load_pixmap("braille_lotto/cross_button.png"),
-                    x = self.rect_x[index * 2] + 8,
-                    y = self.rect_y[index * 2] + 5,
-                    )
-
     if( CHECK_RANDOM[self.counter] == self.ticket_array[index]):
         if(index in (0, 1, 2, 3, 4, 5)):
             self.score_player_a +=1
         else:
             self.score_player_b +=1
+
+        #Checked_button
+        goocanvas.Image(parent = self.root,
+                    pixbuf = gcompris.utils.load_pixmap("braille_lotto/button_checked.png"),
+                    x = self.rect_x[index * 2] + 8,
+                    y = self.rect_y[index * 2] + 5,
+                    )
+    else :
+        #Cross Sign
+        goocanvas.Image(parent = self.root,
+                    pixbuf = gcompris.utils.load_pixmap("braille_lotto/cross_button.png"),
+                    x = self.rect_x[index * 2] + 8,
+                    y = self.rect_y[index * 2] + 5,
+                    )
+
 
     if(self.score_player_a == 6 or self.score_player_b == 6):
         self.game = goocanvas.Image(parent = self.root,

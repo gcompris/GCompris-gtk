@@ -88,9 +88,10 @@ class BrailleChar:
 
     dot = 1
     self.dot_items = []
+    self.cell_array = []
     for u in range(2):
         for v in range(3):
-            cell = goocanvas.Ellipse(parent=self.rootitem,
+            self.cell = goocanvas.Ellipse(parent=self.rootitem,
                                      center_x=x + width / 3.0 * ( u + 1 ),
                                      center_y=y + height / 4.0 * ( v + 1 ),
                                      radius_x=cell_radius,
@@ -98,10 +99,12 @@ class BrailleChar:
                                      stroke_color=self.stroke,
                                      fill_color=self.fill,
                                      line_width=width/25)
+            self.cell_array.append(self.cell)
+
             # To fill the circles in lower board with red color
             if (clickable == True):
-                cell.connect("button_press_event", self.dot_event)
-                gcompris.utils.item_focus_init(cell, None)
+                self.cell.connect("button_press_event", self.dot_event)
+                gcompris.utils.item_focus_init(self.cell, None)
 
             if isinstance(letter,int):
                 fillings = BRAILLE_LETTERS.get(letter)
@@ -109,13 +112,13 @@ class BrailleChar:
                 fillings = BRAILLE_LETTERS.get(letter.upper())
 
             if fillings == None:
-                """only braille cell"""
+                """only braille self.cell"""
             elif dot in fillings:
-                cell.set_property("fill_color_rgba", self.DOT_ON)
+                self.cell.set_property("fill_color_rgba", self.DOT_ON)
             else :
-                cell.set_property("fill_color_rgba", self.DOT_OFF)
+                self.cell.set_property("fill_color_rgba", self.DOT_OFF)
 
-            self.dot_items.append(cell)
+            self.dot_items.append(self.cell)
             dot += 1
 
   def get_letter(self):
@@ -152,3 +155,10 @@ class BrailleChar:
       else:
           target.set_property("fill_color_rgba", self.DOT_ON)
       self.calculate_char()
+
+  #### This function has been added specially for BrailleLotto Activity
+  #### to fix the focus issue on ticket numbers
+  def ticket_focus(self, rectangle, number_cross_function, counter):
+      for index in range(6):
+          gcompris.utils.item_focus_init(self.cell_array[index], rectangle)
+          self.cell_array[index].connect("button_press_event", number_cross_function, counter)
