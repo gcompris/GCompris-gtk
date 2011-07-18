@@ -202,7 +202,7 @@ class Gcompris_dicey_dicey:
           BrailleChar(self.rootitem,600,160,70,'' ,
                       COLOR_ON, COLOR_OFF, CIRCLE_FILL,
                       CIRCLE_STROKE, False, True, False,
-                      callback = self.letter_change)
+                      callback = self.letter_change, braille_letter = "number")
 
 
   def dicey_dicey(self):

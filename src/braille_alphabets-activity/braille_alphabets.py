@@ -215,7 +215,7 @@ class Gcompris_braille_alphabets:
         self.sublevel = range_upper - range_lower
         self.board_tile(range_lower,range_upper)
         self.random_letter = letter_arr_one[self.counter]
-        self.braille_cell()
+        self.braille_cell(level)
 
     elif(level == 3) :
         range_lower= 7
@@ -223,7 +223,7 @@ class Gcompris_braille_alphabets:
         self.sublevel = range_upper - range_lower
         self.board_tile(range_lower,range_upper)
         self.random_letter = letter_arr_two[self.counter]
-        self.braille_cell()
+        self.braille_cell(level)
 
     elif(level == 4):
         range_lower= 14
@@ -231,7 +231,7 @@ class Gcompris_braille_alphabets:
         self.sublevel = range_upper - range_lower
         self.board_tile(range_lower,range_upper)
         self.random_letter = letter_arr_three[self.counter]
-        self.braille_cell()
+        self.braille_cell(level)
 
     elif(level == 5):
         range_lower= 21
@@ -239,7 +239,7 @@ class Gcompris_braille_alphabets:
         self.sublevel = range_upper - range_lower
         self.board_tile(range_lower,range_upper)
         self.random_letter = letter_arr_four[self.counter]
-        self.braille_cell()
+        self.braille_cell(level)
 
     elif(level == 6):
         range_lower= 0
@@ -247,7 +247,8 @@ class Gcompris_braille_alphabets:
         self.sublevel = range_upper - range_lower
         self.board_number(range_lower,range_upper)
         self.random_letter = letter_arr_five[self.counter]
-        self.braille_cell()
+        self.braille_letter = "number"
+        self.braille_cell(level)
 
 
   def next_level(self,event,target,item):
@@ -275,14 +276,19 @@ class Gcompris_braille_alphabets:
                                  anchor=gtk.ANCHOR_CENTER,
                                  text=str(letter))
 
-  def braille_cell(self):
+  def braille_cell(self, level):
+      if (level == 6):
+          self.letter = "number"
+      else :
+          self.letter = "alphabet"
+
       gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                             "braille_alphabets/mosaic.svgz")
 
       goocanvas.Text(parent = self.rootitem,
                      x = 100,
                      y = 200,
-                     text="Click COLOR_ON the dots in braille cell area to produce letter"
+                     text="Click on the dots in braille cell area to produce letter"
                       + ' '+str(self.random_letter),
                      fill_color="blue",
                      font='SANS 15')
@@ -293,7 +299,7 @@ class Gcompris_braille_alphabets:
                      fill_color="blue",
                      font='Sans BOLD')
       BrailleChar(self.rootitem, 150, 270, 120, '',COLOR_ON ,COLOR_OFF,CIRCLE_FILL,CIRCLE_STROKE,
-                   False,True,False,callback = self.letter_change)
+                   False,True,False,callback = self.letter_change , braille_letter = self.letter)
       for i in range(2):
           for j in range(3):
                   goocanvas.Text(parent=self.rootitem,

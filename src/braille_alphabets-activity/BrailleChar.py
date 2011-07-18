@@ -47,7 +47,7 @@ class BrailleChar:
   def __init__(self, rootitem,
                x, y, width, letter,DOT_ON,
                DOT_OFF,fill,stroke,display_letter, clickable,
-               rectangle,callback):
+               rectangle,callback, braille_letter = "alphabet"):
 
     self.letter = letter
     self.callback = callback
@@ -58,6 +58,7 @@ class BrailleChar:
     self.fill = fill
     self.stroke = stroke
     self.rectangle = rectangle
+    self.braille_letter = braille_letter
 
     height = width * 1.33
     cell_radius = (width / 7.5)
@@ -136,13 +137,14 @@ class BrailleChar:
 
       self.letter = ''
       for k,v in BRAILLE_LETTERS.items():
-          if v == cells:
-              self.letter = k
-
-      if isinstance(self.letter,int):
-          self.text.set_property("text",self.letter)
-      else :
-          self.text.set_property("text", str.upper(self.letter))
+          if (self.braille_letter == "alphabet") and (v == cells):
+              if isinstance(k, basestring):
+                  self.letter = k
+                  self.text.set_property("text", str.upper(self.letter))
+          if (self.braille_letter == "number") and (v == cells):
+              if isinstance(k, int):
+                  self.letter = k
+                  self.text.set_property("text",self.letter)
 
       if self.callback:
           self.callback(self.letter)
