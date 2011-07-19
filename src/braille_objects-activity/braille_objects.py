@@ -1,6 +1,6 @@
 #  gcompris - braille_objects.py
 #
-# Copyright (C) 2003, 2008 Bruno Coudoin
+# Copyright (C) 2003, 2008 Bruno Coudoin | Srishti Sethi
 #
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
@@ -52,6 +52,19 @@ class Gcompris_braille_objects:
     #Boolean variable declaration
     self.mapActive = False
 
+    #Constant Declarations
+    self.answer_string = ""
+    self.counter = 0
+    self.tile_counter = 0
+
+    #Defining an Object Array
+    self.tile_array = []
+
+    # These are used to let us restart only after the bonus is displayed.
+    # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
+    self.board_paused  = 0
+    self.gamewon       = 0
+
     # Needed to get key_press
     gcomprisBoard.disable_im_context = True
 
@@ -62,13 +75,13 @@ class Gcompris_braille_objects:
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains
     # automaticaly.
-    self.rootitem = goocanvas.Group(parent =
+    self.root = goocanvas.Group(parent =
                                     self.gcomprisBoard.canvas.get_root_item())
 
 
     #Creating a Red Border
     goocanvas.Rect(
-      parent = self.rootitem,
+      parent = self.root,
       x = 10,
       y = 10,
       width = 780,
@@ -86,7 +99,7 @@ class Gcompris_braille_objects:
     gcompris.bar_location(300,-1,0.7)
 
     goocanvas.Text(
-      parent = self.rootitem,
+      parent = self.root,
       x=400.0,
       y=50.0,
       text=_("Braille these Objects"),
@@ -96,7 +109,7 @@ class Gcompris_braille_objects:
       font = 'SANS 20'
       )
     goocanvas.Text(
-      parent = self.rootitem,
+      parent = self.root,
       x=320.0,
       y=100.0,
       text=_("Category : "),
@@ -129,7 +142,7 @@ class Gcompris_braille_objects:
 
   def display_game(self, level):
       #Displaying the Category
-      goocanvas.Text(parent = self.rootitem,
+      goocanvas.Text(parent = self.root,
                    x=450.0,
                    y=100.0,
                    text=str(self.dataset.get(str(level),"category")),
@@ -139,11 +152,14 @@ class Gcompris_braille_objects:
                    font = 'SANS 15'
                    )
       #Displaying the OK Button
-      goocanvas.Image(parent = self.rootitem,
+      ok_button = goocanvas.Image(parent = self.root,
                                  pixbuf = gcompris.utils.load_pixmap("braille_objects/ok.svg"),
-                    x = 30,
-                    y = 380,
+                    x = 630,
+                    y = 50,
+                    tooltip =_("Click for Correction of Braille Objects"),
                     )
+      ok_button.connect("button_press_event", self.ok_event)
+      gcompris.utils.item_focus_init(ok_button, None)
 
 
       #Displaying the CONTENT
@@ -155,30 +171,54 @@ class Gcompris_braille_objects:
 
         #Displaying the OBJECTS
         for index in range(i,j):
-            goocanvas.Image(parent = self.rootitem,
+            goocanvas.Image(parent = self.root,
                                  pixbuf = gcompris.utils.load_pixmap
                                  (str(self.dataset.get(str(level),"image_" + str(index+1)))),
                     x = 370 * spacing + 130,
                     y = 150 * k + 130
                     )
 
+            answer = str(self.dataset.get(str(level),"ans_" + str(index+1)))
 
+            #Create a string of all answers
+            self.answer_string = self.answer_string + answer
             answer_length = len(str(self.dataset.get(str(level),"ans_" + str(index+1))))
 
             #Displaying the Braille Tile
             for index in range(answer_length):
-                BrailleChar(self.rootitem,( 370 * spacing + 130 ) + (40 * index + 1 ), 180 * k + 200, 50 ,
-                             '', COLOR_ON, COLOR_OFF ,CIRCLE_FILL, CIRCLE_STROKE, True, True ,False, None)
-
+                #Naming Objects from Variable Class Names
+                self.obj = "self.obj" + str(self.tile_counter)
+                #Appending a new object name to an array with tile_counter
+                self.tile_array.append(self.obj)
+                #Defining Object to BrailleChar Instance to produce braille_tile
+                self.tile_array[self.tile_counter] = BrailleChar(self.root,( 370 * spacing + 130 ) + (40 * index + 1 ),
+                                         180 * k + 200, 50 ,'', COLOR_ON, COLOR_OFF ,CIRCLE_FILL, CIRCLE_STROKE, True,
+                                         True ,False, callback = self.letter_change )
+                self.tile_counter +=1
             spacing = spacing + 1
         i += 2
         j += 2
         k += 1
 
+  def letter_change(self, letter):
+      self.correct_letter = letter
+
+  def ok_event(self, item, target, event):
+      self.list_array =  list(self.answer_string)
+      for index in range(self.tile_counter):
+          dot_letter = self.tile_array[index].get_letter()
+          if self.list_array[index].upper() == dot_letter:
+              self.counter += 1
+      if (self.counter == self.tile_counter) :
+          self.gamewon = 1
+          gcompris.bonus.display(gcompris.bonus.WIN,gcompris.bonus.SMILEY)
+      else :
+          self.gamewon = 0
+          gcompris.bonus.display(gcompris.bonus.LOOSE,gcompris.bonus.SMILEY)
 
   def end(self):
     # Remove the root item removes all the others inside it
-    self.rootitem.remove()
+    self.root.remove()
 
 
   def ok(self):
@@ -187,19 +227,16 @@ class Gcompris_braille_objects:
 
   def repeat(self):
     if(self.mapActive):
-          self.end()
-          self.start()
-          self.mapActive = False
-          self.pause(0)
-    else :
           self.rootitem.props.visibility = goocanvas.ITEM_INVISIBLE
+          self.root.props.visibility = goocanvas.ITEM_VISIBLE
+          self.mapActive = False
+    else :
+          self.root.props.visibility = goocanvas.ITEM_INVISIBLE
           self.rootitem = goocanvas.Group(parent=
                                    self.gcomprisBoard.canvas.get_root_item())
           gcompris.set_default_background(self.gcomprisBoard.canvas.get_root_item())
           map_obj = BrailleMap(self.rootitem, COLOR_ON, COLOR_OFF, CIRCLE_FILL, CIRCLE_STROKE)
           self.mapActive = True
-          self.pause(1)
-
 
   def config(self):
     print("braille_objects config.")
@@ -212,10 +249,27 @@ class Gcompris_braille_objects:
     print("Gcompris_braille_objects key press keyval=%i %s" % (keyval, strn))
 
   def pause(self, pause):
-    print("braille_objects pause. %i" % pause)
+    self.board_paused = pause
+    if(self.board_paused) and (self.gamewon == 1):
+          self.gamewon = 0
+          self.declare()
+          self.increment_level()
+          self.end()
+          self.start()
+    if(self.board_paused) and (self.gamewon == 0):
+        self.declare()
+        self.end()
+        self.start()
 
+  #This function is to reinitialize string arrays and counters
+  def declare(self):
+      self.tile_counter = 0
+      self.tile_array = []
+      self.list_array = []
+      self.answer_string = ""
 
   def set_level(self, level):
+    self.declare()
     gcompris.sound.play_ogg("sounds/receive.wav")
     self.gcomprisBoard.level = level
     self.gcomprisBoard.sublevel = 1
@@ -224,6 +278,7 @@ class Gcompris_braille_objects:
     self.start()
 
   def increment_level(self):
+    self.declare()
     gcompris.sound.play_ogg("sounds/bleep.wav")
     self.gcomprisBoard.sublevel += 1
     if(self.gcomprisBoard.sublevel>self.gcomprisBoard.number_of_sublevel):
