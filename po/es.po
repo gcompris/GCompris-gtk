@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: gcompris.gcomprixogoo\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2011-07-04 21:06+0000\n"
-"PO-Revision-Date: 2011-07-05 09:54+0200\n"
+"POT-Creation-Date: 2011-07-19 21:11+0000\n"
+"PO-Revision-Date: 2011-07-20 12:54+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -905,7 +905,8 @@ msgid "cyan"
 msgstr "cían"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:25
-msgid "dark_purple"
+#| msgid "dark_purple"
+msgid "dark purple"
 msgstr "púrpura oscuro"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:26
@@ -933,12 +934,14 @@ msgid "glaucous"
 msgstr "glauco"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:32
-msgid "greyish-brown"
-msgstr "marrón-grisáceo"
+#| msgid "greyish_blue"
+msgid "greyish blue"
+msgstr "azul grisáceo"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:33
-msgid "greyish_blue"
-msgstr "azul grisáceo"
+#| msgid "greyish-brown"
+msgid "greyish brown"
+msgstr "marrón grisáceo"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:34
 msgid "indigo"
@@ -1021,7 +1024,8 @@ msgid "plum"
 msgstr "ciruela"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:54
-msgid "prussian_blue"
+#| msgid "prussian_blue"
+msgid "prussian blue"
 msgstr "azul de Prusia"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:55
@@ -1538,7 +1542,7 @@ msgstr ""
 "Manipulación del ratón: movimiento, arrastrar y soltar. Referencias "
 "culturales."
 
-#: ../src/babymatch-activity/shapegame.c:1903
+#: ../src/babymatch-activity/shapegame.c:1906
 #: ../src/click_on_letter-activity/click_on_letter.c:672
 #: ../src/colors-activity/colors.c:168
 #, c-format
@@ -6587,12 +6591,10 @@ msgstr ""
 "específicas para jugar."
 
 #: ../src/penalty-activity/penalty.py:292
-#| msgid "Click on the balloon to place it again."
 msgid "Click on the ball to place it again."
 msgstr "Pulsa sobre el globo para volver a posicionarlo."
 
 #: ../src/penalty-activity/penalty.py:294
-#| msgid "Click twice on the balloon to shoot it."
 msgid "Click twice on the ball to shoot it."
 msgstr "Pulsa dos veces sobre el globo para dispararlo."
 
