@@ -72,6 +72,7 @@ class Gcompris_braille_lotto:
 
     #Boolean variable declaration
     self.mapActive = False
+    self.ticketCheck = True
 
     #CONSTANT Declarations
     self.board_paused = 0
@@ -414,12 +415,20 @@ class Gcompris_braille_lotto:
                     y = self.rect_y[index * 2] + 5,
                     )
     else :
-        #Cross Sign
-        goocanvas.Image(parent = self.root,
+        #This is to uncheck the cross button
+        if (self.ticketCheck):
+            #Cross Sign
+            self.cross_sign = goocanvas.Image(parent = self.root,
                     pixbuf = gcompris.utils.load_pixmap("braille_lotto/cross_button.png"),
                     x = self.rect_x[index * 2] + 8,
                     y = self.rect_y[index * 2] + 5,
                     )
+            self.ticketCheck = False
+            gcompris.utils.item_focus_init(self.cross_sign , self.rect[index * 2])
+            self.cross_sign.connect("button_press_event", self.cross_number, index)
+        else :
+            self.cross_sign.props.visibility = goocanvas.ITEM_INVISIBLE
+            self.ticketCheck = True
 
 
     if(self.score_player_a == 6 or self.score_player_b == 6):
@@ -438,6 +447,7 @@ class Gcompris_braille_lotto:
                     fill_color = "blue",
                     anchor=gtk.ANCHOR_CENTER,
                    )
+
         if(self.score_player_a == 6):
             self.game_status.props.text = "PLAYER 1\n" "You WON"
         elif(self.score_player_b == 6):
@@ -445,6 +455,9 @@ class Gcompris_braille_lotto:
 
         self.timer_inc  = gobject.timeout_add(self.status_timer,
                                             self.timer_loop)
+    #print self.score_player_a
+    #print self.score_player_b
+
   def timer_loop(self):
       self.status_timer -= 1
       if(self.status_timer == 0):
