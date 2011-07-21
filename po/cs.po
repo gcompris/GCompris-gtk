@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2011-07-04 21:06+0000\n"
-"PO-Revision-Date: 2011-07-05 15:30+0200\n"
+"POT-Creation-Date: 2011-07-19 21:11+0000\n"
+"PO-Revision-Date: 2011-07-21 09:32+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -894,7 +894,8 @@ msgid "cyan"
 msgstr "modrozelená"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:25
-msgid "dark_purple"
+#| msgid "dark_purple"
+msgid "dark purple"
 msgstr "tmavě nachová"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:26
@@ -922,12 +923,14 @@ msgid "glaucous"
 msgstr "šedozelená"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:32
-msgid "greyish-brown"
-msgstr "šedavě hnědá"
+#| msgid "greyish_blue"
+msgid "greyish blue"
+msgstr "šedomodrá"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:33
-msgid "greyish_blue"
-msgstr "šedomodrá"
+#| msgid "greyish-brown"
+msgid "greyish brown"
+msgstr "šedavě hnědá"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:34
 msgid "indigo"
@@ -1010,7 +1013,8 @@ msgid "plum"
 msgstr "švestková"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:54
-msgid "prussian_blue"
+#| msgid "prussian_blue"
+msgid "prussian blue"
 msgstr "berlínská modř"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:55
@@ -1507,7 +1511,7 @@ msgstr "Koordinace pohybu. Párování pojmů."
 msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "Manipulace s myší: pohyb, tažení a puštění."
 
-#: ../src/babymatch-activity/shapegame.c:1903
+#: ../src/babymatch-activity/shapegame.c:1906
 #: ../src/click_on_letter-activity/click_on_letter.c:672
 #: ../src/colors-activity/colors.c:168
 #, c-format
@@ -6493,12 +6497,10 @@ msgid "This board is game-oriented. No specific skills are needed to play."
 msgstr "Tato scéna je zaměřená na hru. Nejsou potřeba specifické dovednosti."
 
 #: ../src/penalty-activity/penalty.py:292
-#| msgid "Click on the balloon to place it again."
 msgid "Click on the ball to place it again."
 msgstr "Klikni na balón a tím jej nachystáš na nový výkop."
 
 #: ../src/penalty-activity/penalty.py:294
-#| msgid "Click twice on the balloon to shoot it."
 msgid "Click twice on the ball to shoot it."
 msgstr "Klikni dvojitě na balón a tím jej vykopneš."
 
