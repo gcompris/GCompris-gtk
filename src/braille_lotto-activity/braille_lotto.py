@@ -129,11 +129,16 @@ class Gcompris_braille_lotto:
                 )
 
     #Button to display the number to be checked in the ticket
-    goocanvas.Image(parent = self.root,
-                    pixbuf = gcompris.utils.load_pixmap("braille_lotto/button.svg"),
-                    x = 20,
-                    y = 340,
-                    )
+    goocanvas.Rect(parent = self.root,
+                   x = 25,
+                   y = 350,
+                   width = 170,
+                   height = 90,
+                   radius_x = 17,
+                   radius_y = 17,
+                   stroke_color = "black",
+                   fill_color = "#d38d5f" ,
+                   line_width = 2)
 
     #Check number
     goocanvas.Text(
@@ -153,7 +158,7 @@ class Gcompris_braille_lotto:
                                      parent = self.root,
                                      svg_handle = svghandle,
                                      svg_id = "#FIG1",
-                                     tooltip = "Click me to get some hint"
+                                     tooltip = _("Click me to get some hint")
                                      )
     self.hint_left_button.translate(210, 330)
     self.hint_left_button.connect("button_press_event", self.clue_left)
@@ -165,7 +170,7 @@ class Gcompris_braille_lotto:
                                      parent = self.root,
                                      svg_handle = svghandle,
                                      svg_id = "#FIG2",
-                                     tooltip = "Click me to get some hint"
+                                     tooltip = _("Click me to get some hint")
                                      )
     self.hint_right_button.translate(290, 330)
     self.hint_right_button.connect("button_press_event", self.clue_right)
@@ -206,11 +211,17 @@ class Gcompris_braille_lotto:
                     )
 
     #Generate Number Button
-    generate_number = goocanvas.Image(parent = self.root,
-                    pixbuf = gcompris.utils.load_pixmap("braille_lotto/button2.svg"),
-                    x = 610,
-                    y = 340,
-                    )
+    generate_number = goocanvas.Rect(parent = self.root,
+                   x = 610,
+                   y = 350,
+                   width = 170,
+                   height = 90,
+                   radius_x = 17,
+                   radius_y = 17,
+                   stroke_color = "black",
+                   fill_color = "#d33e5f",
+                   line_width = 2)
+
     generate_number.connect("button_press_event", self.generateNumber)
     gcompris.utils.item_focus_init(generate_number, None)
 
@@ -269,9 +280,9 @@ class Gcompris_braille_lotto:
 
       if (self.check_random[self.counter] in self.ticket_array[0:6]):
           self.findColumn()
-          self.status_one.props.text = " Hey,you have \n "" it. Its there \n"" in your\n " + self.column + " column"
+          self.status_one.props.text = _(" Hey,you have \n "" it. Its there \n"" in your\n " + self.column + " column")
       else :
-          self.status_one.props.text = " Oops, number\n"" isn't there\n" " in your ticket!"
+          self.status_one.props.text = _(" Oops, number\n"" isn't there\n" " in your ticket!")
       self.timerAnim = gobject.timeout_add(200, self.hideCalloutLeft)
 
   def clue_right(self, event , target, item):
@@ -290,9 +301,9 @@ class Gcompris_braille_lotto:
                             )
       if (self.check_random[self.counter] in self.ticket_array[6:12]):
           self.findColumn()
-          self.status_two.props.text = " Hey,you have \n "" it. Its there \n"" in your\n " + self.column + " column"
+          self.status_two.props.text = _(" Hey,you have \n "" it. Its there \n"" in your\n " + self.column + " column")
       else :
-          self.status_two.props.text = " Oops, number\n"" isn't there\n" " in your ticket!"
+          self.status_two.props.text = _(" Oops, number\n"" isn't there\n" " in your ticket!")
       self.timerAnim = gobject.timeout_add(100, self.hideCalloutRight)
 
 
@@ -335,10 +346,10 @@ class Gcompris_braille_lotto:
   def number_call(self):
       if(self.counter == 11):
           self.displayGameStatus()
-          self.game_status.props.text = " Game Over"
+          self.game_status.props.text = _(" Game Over")
           self.timer_inc  = gobject.timeout_add(self.status_timer,
                                             self.game_over)
-      else :
+      elif (self.counter < 11):
           self.check_number = goocanvas.Text(
                             parent = self.root,
                             text= self.check_random[self.counter],
@@ -347,6 +358,7 @@ class Gcompris_braille_lotto:
                             font = "SANS 20",
                             anchor=gtk.ANCHOR_CENTER,
                             )
+
   def game_over(self):
       self.status_timer -= 1
       if self.status_timer == 0 :
@@ -436,9 +448,9 @@ class Gcompris_braille_lotto:
     if(self.score_player_a == 6 or self.score_player_b == 6):
         self.displayGameStatus()
         if(self.score_player_a == 6):
-            self.game_status.props.text = "PLAYER 1\n" "You WON"
+            self.game_status.props.text = _("PLAYER 1\n" "You WON")
         elif(self.score_player_b == 6):
-            self.game_status.props.text = "PLAYER 2 \n" "You WON"
+            self.game_status.props.text = _("PLAYER 2 \n" "You WON")
 
         self.timer_inc  = gobject.timeout_add(self.status_timer,
                                             self.timer_loop)
@@ -448,14 +460,14 @@ class Gcompris_braille_lotto:
   def displayGameStatus(self):
       self.game = goocanvas.Image(parent = self.root,
                     pixbuf = gcompris.utils.load_pixmap("braille_lotto/game.svg"),
-                    x = 230 ,
-                    y = 150,
+                    x = 200 ,
+                    y = 100,
                     )
       self.game_status = goocanvas.Text(
                     parent = self.root,
                     text= "",
-                    x=375,
-                    y=220,
+                    x=365,
+                    y=200,
                     font = "SANS 30",
                     fill_color = "blue",
                     anchor=gtk.ANCHOR_CENTER,

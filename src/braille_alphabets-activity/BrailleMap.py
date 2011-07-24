@@ -45,7 +45,7 @@ class BrailleMap:
           BrailleChar(rootitem, index*(CELL_WIDTH+40)+60,
                               130, 38, letter ,color_on, color_off, circle_fill,
                               circle_stroke,True ,False ,True , None)
-      for index, letter in enumerate(string.ascii_uppercase[20:25]):
+      for index, letter in enumerate(string.ascii_uppercase[20:26]):
           BrailleChar(rootitem, index*(CELL_WIDTH+40)+60,
                               220, 38, letter ,color_on, color_off, circle_fill,
                               circle_stroke,True ,False ,True , None)
