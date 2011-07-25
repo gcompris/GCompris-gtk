@@ -44,8 +44,8 @@ braille_desc = {'intro' : "A system of writing for the blinds that \n"
                 "The braille Cell is composed of 6 dot \n"
                 "cells organized in form of two vertical\n"
                 "columns with 3 dots {1,2,3} side\n"
-                "by side COLOR_ON left and 3 dots side by\n"
-                "COLOR_ON right {4,5,6}"}
+                "by side on left and 3 dots side by\n"
+                "on right {4,5,6}"}
 
 #Array Declaration
 letter_arr_one = ['A','B','C','D','E','F','G']
