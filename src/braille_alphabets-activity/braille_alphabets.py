@@ -39,13 +39,9 @@ CIRCLE_STROKE = "blue"
 MAP_STROKE = "black"
 MAP_FILL = "light blue"
 
-braille_desc = {'intro' : "A system of writing for the blinds that \n"
-                "uses characters made of raised dots. \n\n"
-                "The braille Cell is composed of 6 dot \n"
-                "cells organized in form of two vertical\n"
-                "columns with 3 dots {1,2,3} side\n"
-                "by side on left and 3 dots side by\n"
-                "on right {4,5,6}"}
+braille_desc = _("A system of writing for the blinds that uses characters made of raised dots.\n\n"
+ "The braille Cell is composed of 6 dot cells organized in form of two vertical columns with 3 dots"
+ "{1,2,3} side by side on left and 3 dots side by side on right {4,5,6}")
 
 #Array Declaration
 letter_arr_one = ['A','B','C','D','E','F','G']
@@ -122,7 +118,7 @@ class Gcompris_braille_alphabets:
                     pixbuf = gcompris.utils.load_pixmap("braille_alphabets/back.png"),
                     x = 600,
                     y = 450,
-                    tooltip = "Move Back"
+                    tooltip = _("Move Back")
                     )
           self.backitem.connect("button_press_event", self.move_back)
           gcompris.utils.item_focus_init(self.backitem, None)
@@ -180,15 +176,16 @@ class Gcompris_braille_alphabets:
                                  fill_color="dark blue",
                                  font="Sans 15",
                                  anchor=gtk.ANCHOR_CENTER,
-                                 text="Braille : Unlocking the Code")
+                                 text=_("Braille : Unlocking the Code"))
         #Braille Description
         goocanvas.Text(parent=self.rootitem,
                                  x=520,
                                  y=260,
                                  fill_color="dark blue",
                                  font="Sans 15",
+                                 width = 400,
                                  anchor=gtk.ANCHOR_CENTER,
-                                 text=braille_desc.get('intro'))
+                                 text=braille_desc)
 
         #TUX svghandle
         svghandle = gcompris.utils.load_svg("braille_alphabets/braille_tux.svgz")
@@ -196,7 +193,7 @@ class Gcompris_braille_alphabets:
                                      parent = self.rootitem,
                                      svg_handle = svghandle,
                                      svg_id = "#TUX-5",
-                                     tooltip = "I am braille TUX"
+                                     tooltip = _("I am braille TUX")
                                      )
         self.tuxitem.connect("button_press_event", self.next_level)
         gcompris.utils.item_focus_init(self.tuxitem, None)
@@ -207,8 +204,9 @@ class Gcompris_braille_alphabets:
                         fill_color ="black",
                         font = "Sans 10",
                         anchor= gtk.ANCHOR_CENTER,
-                        text = "Finished reading braille ! Now click \n"
-                        "me and try reproducing braille characters")
+                        width = 300,
+                        text = _("Finished reading braille ! Now click"
+                        "me and try reproducing braille characters"))
     elif(level ==2):
         range_lower= 0
         range_upper= 7
@@ -285,11 +283,11 @@ class Gcompris_braille_alphabets:
       gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                             "braille_alphabets/mosaic.svgz")
 
+      #Translators : Do not translate the token {letter}
       goocanvas.Text(parent = self.rootitem,
                      x = 100,
                      y = 200,
-                     text="Click on the dots in braille cell area to produce letter"
-                      + ' '+str(self.random_letter),
+                     text=_("Click on the dots in braille cell area to produce letter {letter}").format(letter = self.random_letter),
                      fill_color="blue",
                      font='SANS 15')
 
@@ -313,7 +311,7 @@ class Gcompris_braille_alphabets:
       ok = goocanvas.Svg(parent = self.rootitem,
                          svg_handle = gcompris.skin.svg_get(),
                          svg_id = "#OK",
-                         tooltip = "Click to confirm your selection of dots"
+                         tooltip = _("Click to confirm your selection of dots")
                          )
       ok.translate(30,-185)
 

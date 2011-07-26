@@ -180,12 +180,14 @@ class Gcompris_braille_lotto:
     #Displaying text on clue buttons
     self.text_array = []
     for index in range(2):
+        #Translators : Do not translate the token {number}
         clue_text = goocanvas.Text(
                     parent = self.root,
-                    text = _("I don't have \n""this number \n" " PLAYER " + str(index + 1)),
+                    text = _("I don't have this number PLAYER {number}").format(number = str(index + 1)),
                     font = gcompris.skin.get_font("gcompris/board/medium"),
-                    x = index * 230 + 295,
+                    x = index * 230 + 310,
                     y = 395,
+                    width = 150,
                     anchor=gtk.ANCHOR_CENTER,
                     )
         self.text_array.append(clue_text)
@@ -227,10 +229,11 @@ class Gcompris_braille_lotto:
 
     generate_text = goocanvas.Text(
                     parent = self.root,
-                    text = _("Generate")+"\n"+_("Number"),
+                    text = _("Generate Number"),
                     font = gcompris.skin.get_font("gcompris/board/medium"),
-                    x = 700,
+                    x = 675,
                     y = 390,
+                    width = 50,
                     anchor=gtk.ANCHOR_CENTER,
                     )
     generate_text.connect("button_press_event", self.generateNumber)
@@ -272,17 +275,19 @@ class Gcompris_braille_lotto:
       self.status_one = goocanvas.Text(
                             parent = self.root,
                             text= "",
-                            x=310,
+                            x=315,
                             y=310,
+                            width = 130,
                             font = "SANS 10 BOLD",
                             anchor=gtk.ANCHOR_CENTER,
                             )
 
       if (self.check_random[self.counter] in self.ticket_array[0:6]):
           self.findColumn()
-          self.status_one.props.text = _(" Hey,you have \n "" it. Its there \n"" in your\n " + self.column + " column")
+          #Translators : Do not translate the token {column}
+          self.status_one.props.text = _("Hey,you have it. Its there in your {column} column").format(column = self.column)
       else :
-          self.status_one.props.text = _(" Oops, number\n"" isn't there\n" " in your ticket!")
+          self.status_one.props.text = _("Oops,number isn't there in your ticket!")
       self.timerAnim = gobject.timeout_add(200, self.hideCalloutLeft)
 
   def clue_right(self, event , target, item):
@@ -294,16 +299,18 @@ class Gcompris_braille_lotto:
       self.status_two = goocanvas.Text(
                             parent = self.root,
                             text= "",
-                            x=500,
+                            x=510,
                             y=310,
+                            width = 130,
                             font = "SANS 10 BOLD",
                             anchor=gtk.ANCHOR_CENTER,
                             )
       if (self.check_random[self.counter] in self.ticket_array[6:12]):
           self.findColumn()
-          self.status_two.props.text = _(" Hey,you have \n "" it. Its there \n"" in your\n " + self.column + " column")
+          #Translators : Do not translate the token {column}
+          self.status_two.props.text = _("Hey,you have it. Its there in your {column} column").format(column = self.column)
       else :
-          self.status_two.props.text = _(" Oops, number\n"" isn't there\n" " in your ticket!")
+          self.status_two.props.text = _("Oops,number isn't there in your ticket!")
       self.timerAnim = gobject.timeout_add(100, self.hideCalloutRight)
 
 
