@@ -71,8 +71,8 @@ class BrailleChar:
                           y=y,
                           width=width,
                           height=height,
-                          stroke_color=self.stroke,
-                          fill_color=self.fill,
+                          stroke_color = self.stroke,
+                          fill_color = self.fill,
                           line_width=2.0)
 
 

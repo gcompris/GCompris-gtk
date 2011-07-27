@@ -38,32 +38,32 @@ CIRCLE_STROKE = "black"
 CELL_WIDTH = 30
 RHYMES_RIDDLES_LIST = [
       [ # Level 1
-      ["What goes up white and comes down \n" "yellow and white?","egg"],
-      ["What rises and waves all day?","flag"],
-      ["What has two wheels and speeds up \n " "hills for a hike?","bike"],
-      ["What hides in shoes and crosses \n" "the street?","feet"],
-      ["What falls from the sky without \n" "hurting your brain?","rain"]
+      [_("What goes up white and comes down yellow and white?"),"egg"],
+      [_("What rises and waves all day?"),"flag"],
+      [_("What has two wheels and speeds up hills for a hike?"),"bike"],
+      [_("What hides in shoes and crosses the street?"),"feet"],
+      [_("What falls from the sky without hurting your brain?"),"rain"]
       ],
       [# Level 2
-  ["This is a word which rhymes with cat, It \n" "grows on your head because it's a :","hat"],
-  ["I'm useful for journey when you are going\n"" far, I need lots of petrol because I'm a :","car"],
-  ["This is a word which rhymes with up.\n""You can drink out of me because I'm a :","cup"],
-  ["This is a word which rhymes with bake,\n""I'm nice to eat because I'm a : ","cake"],
-  ["This is a word which rhymes with spoon,\n""I shine at night because I'm a :","moon"]
+  [_("This is a word which rhymes with cat, It grows on your head because it's a :"),"hat"],
+  [_("I'm useful for journey when you are going far, I need lots of petrol because I'm a :"),"car"],
+  [_("This is a word which rhymes with up.You can drink out of me because I'm a :"),"cup"],
+  [_("This is a word which rhymes with bake, I'm nice to eat because I'm a : "),"cake"],
+  [_("This is a word which rhymes with spoon, I shine at night because I'm a :"),"moon"]
   ],
   [# Level 3
-  ["A never ending circle,a brightly shiny \n""thing,It's on my fourth finger because its a :","ring"],
-  ["The more I dry,The wetter I get","towel"],
-  ["What has roots as nobody sees, Is taller than \n""trees,up it goes and yet never grows","mountain"],
-  ["You hear my sound you feel me when I \n""move,But see me when you never will","wind"],
-  ["You'll find us near ponds or sitting on logs, we\n"" jump and we cloak because we are : ","frogs"]
+  [_("A never ending circle,a brightly shiny thing,It's on my fourth finger because its a :"),"ring"],
+  [_("The more I dry,The wetter I get"),"towel"],
+  [_("What has roots as nobody sees, Is taller than trees,up it goes and yet never grows"),"mountain"],
+  [_("You hear my sound you feel me when I move,But see me when you never will"),"wind"],
+  [_("You'll find us near ponds or sitting on logs, we jump and we cloak because we are : "),"frogs"]
   ],
  [# Level 4
-  ["What do you get when you put a car and a\n"" pet together?","carpet"],
-  ["What can speak in every language , but \n""never went to school ?","echo"],
-  ["What's expensive and floats through the room?","perfume"],
-  ["What got loose and spoiled the race","shoelace"],
-  ["Some fly, some sting, some hide in rugs","bugs"]
+  [_("What do you get when you put a car and a pet together?"),"carpet"],
+  [_("What can speak in every language , but never went to school ?"),"echo"],
+  [_("What's expensive and floats through the room?"),"perfume"],
+  [_("What got loose and spoiled the race"),"shoelace"],
+  [_("Some fly, some sting, some hide in rugs"),"bugs"]
   ]
 ]
 class Gcompris_rhymes_riddles:
@@ -126,12 +126,13 @@ class Gcompris_rhymes_riddles:
 
   def rhymes_rhymes(self, level):
       goocanvas.Text(parent = self.rootitem,
-                   x=290.0,
+                   x=270.0,
                    y=270.0,
                    text=RHYMES_RIDDLES_LIST[level - 1][self.counter][0],
                    fill_color="black",
                    anchor = gtk.ANCHOR_CENTER,
                    alignment = pango.ALIGN_CENTER,
+                   width = 500 ,
                    font = 'SANS 17'
                    )
       str = RHYMES_RIDDLES_LIST[level - 1][self.counter][1]

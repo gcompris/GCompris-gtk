@@ -119,7 +119,7 @@ class Gcompris_louis_braille:
           goocanvas.Text(parent = self.rootitem,
                    x=350.0,
                    y=33,
-                   text="Arrange the sequence of story",
+                   text = _("Arrange the sequence of story"),
                    fill_color="blue",
                    anchor = gtk.ANCHOR_CENTER,
                    alignment = pango.ALIGN_CENTER,
@@ -128,7 +128,7 @@ class Gcompris_louis_braille:
           ok = goocanvas.Svg(parent = self.rootitem,
                          svg_handle = gcompris.skin.svg_get(),
                          svg_id = "#OK",
-                         tooltip = "Click to confirm your sequence"
+                         tooltip = _("Click to confirm your sequence")
                          )
           ok.translate(200,15)
           ok.connect("button_press_event", self.ok_event)
@@ -159,7 +159,7 @@ class Gcompris_louis_braille:
               goocanvas.Text(parent = self.rootitem,
                    x=350.0,
                    y=(index - 9) * 37.8,
-                   text=str(self.dataset.get(str(NUMBER_SEQUENCE[index - 11][0]),"story")),
+                   text=str(self.dataset.get(str(NUMBER_SEQUENCE[index - 11][0]),"_story")),
                    fill_color="black",
                    anchor = gtk.ANCHOR_CENTER,
                    alignment = pango.ALIGN_CENTER,
@@ -220,7 +220,7 @@ class Gcompris_louis_braille:
           ok = goocanvas.Svg(parent = self.rootitem,
                          svg_handle = gcompris.skin.svg_get(),
                          svg_id = "#PREVIOUS",
-                         tooltip = "Click to move to previous story page"
+                         tooltip = _("Click to move to previous story page")
                          )
           ok.translate(-300,50)
           ok.connect("button_press_event", self.previous_event, self.gcomprisBoard.level)
@@ -230,7 +230,7 @@ class Gcompris_louis_braille:
           ok = goocanvas.Svg(parent = self.rootitem,
                          svg_handle = gcompris.skin.svg_get(),
                          svg_id = "#NEXT",
-                         tooltip = "Click to move to next story page"
+                         tooltip = _("Click to move to next story page")
                          )
           ok.translate(75,-58)
           ok.connect("button_press_event", self.next_event, self.gcomprisBoard.level)
@@ -246,9 +246,7 @@ class Gcompris_louis_braille:
                              20, 50, LOUIS_BRAILLE_NAME[index] ,COLOR_ON, COLOR_OFF,
                              CIRCLE_FILL, CIRCLE_FILL,True,False ,False, None)
 
-          #Checking for newline in activity.desktop
-          story = self.dataset.get(str(level),"story")
-          story = story.replace("\\n", "\n")
+          story = self.dataset.get(str(level),"_story")
 
           #Rectangle for YEAR
           goocanvas.Rect(parent=self.rootitem,
@@ -264,7 +262,7 @@ class Gcompris_louis_braille:
           goocanvas.Text(parent = self.rootitem,
                    x=420.0,
                    y=395.0,
-                   text=str(self.dataset.get(str(level),"year")),
+                   text=str(self.dataset.get(str(level),"_year")),
                    fill_color="black",
                    anchor = gtk.ANCHOR_CENTER,
                    alignment = pango.ALIGN_CENTER,
@@ -283,12 +281,13 @@ class Gcompris_louis_braille:
 
           #Displaying the STORY
           goocanvas.Text(parent = self.rootitem,
-                   x=433.0,
+                   x=400.0,
                    y=455.0,
                    text=str(story),
                    fill_color="black",
                    anchor = gtk.ANCHOR_CENTER,
                    alignment = pango.ALIGN_CENTER,
+                   width = 700,
                    font = 'SANS 17'
                    )
 

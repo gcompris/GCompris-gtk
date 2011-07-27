@@ -122,7 +122,7 @@ class Gcompris_dicey_dicey:
     goocanvas.Text(parent = self.rootitem,
                    x=400.0,
                    y=100.0,
-                   text="Dicey - Dicey",
+                   text=_("Dicey - Dicey"),
                    fill_color="black",
                    anchor = gtk.ANCHOR_CENTER,
                    alignment = pango.ALIGN_CENTER,
@@ -139,7 +139,7 @@ class Gcompris_dicey_dicey:
           ok = goocanvas.Svg(parent = self.rootitem,
                          svg_handle = gcompris.skin.svg_get(),
                          svg_id = "#OK",
-                         tooltip = "Click to confirm your selection of dots"
+                         tooltip = _("Click to confirm your selection of dots")
                          )
           ok.translate(40,-30)
           ok.connect("button_press_event", self.ok_event,level)
@@ -231,7 +231,7 @@ class Gcompris_dicey_dicey:
       goocanvas.Text(parent = self.rootitem,
                      x=300.0,
                      y=358.0,
-                     text="Choose an operator to indicate the question mark",
+                     text = _("Choose an operator to indicate the question mark"),
                      anchor = gtk.ANCHOR_CENTER,
                      font='SANS 12')
 

@@ -39,9 +39,9 @@ CIRCLE_STROKE = "blue"
 MAP_STROKE = "black"
 MAP_FILL = "light blue"
 
-braille_desc = _("A system of writing for the blinds that uses characters made of raised dots.\n\n"
- "The braille Cell is composed of 6 dot cells organized in form of two vertical columns with 3 dots"
- "{1,2,3} side by side on left and 3 dots side by side on right {4,5,6}")
+braille_intro = _("A system of writing for the blinds that uses characters made of raised dots.")
+braille_desc = _("The braille cell is composed of 6 dot cells organized in form of two vertical columns"
+                 " with 3 dots {1,2,3} side by side on left and 3 dots side by side on right {4,5,6}")
 
 #Array Declaration
 letter_arr_one = ['A','B','C','D','E','F','G']
@@ -177,15 +177,25 @@ class Gcompris_braille_alphabets:
                                  font="Sans 15",
                                  anchor=gtk.ANCHOR_CENTER,
                                  text=_("Braille : Unlocking the Code"))
+        #Braille Intro
+        goocanvas.Text(parent=self.rootitem,
+                                 x=520,
+                                 y=200,
+                                 fill_color="dark blue",
+                                 font="Sans 15",
+                                 width = 400,
+                                 anchor=gtk.ANCHOR_CENTER,
+                                 text=braille_intro)
         #Braille Description
         goocanvas.Text(parent=self.rootitem,
                                  x=520,
-                                 y=260,
+                                 y=300,
                                  fill_color="dark blue",
                                  font="Sans 15",
                                  width = 400,
                                  anchor=gtk.ANCHOR_CENTER,
                                  text=braille_desc)
+
 
         #TUX svghandle
         svghandle = gcompris.utils.load_svg("braille_alphabets/braille_tux.svgz")
