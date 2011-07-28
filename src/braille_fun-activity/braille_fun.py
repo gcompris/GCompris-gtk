@@ -69,6 +69,7 @@ class Gcompris_braille_fun:
     self.letter_array = []
     self.alphabet_array = []
     self.tile_array = []
+    self.tile_index_array = []
 
     # Needed to get key_press
     gcomprisBoard.disable_im_context = True
@@ -101,12 +102,53 @@ class Gcompris_braille_fun:
     self.display_game(self.gcomprisBoard.level)
 
   def display_game(self, level):
+      #SVG Handle for TUX Plane
+      svghandle = gcompris.utils.load_svg("braille_fun/plane.svg")
+      self.tuxplane = goocanvas.Svg(
+                                     parent = self.root,
+                                     svg_handle = svghandle,
+                                     svg_id = "#PLANE",
+                                     tooltip = _("I am TUX PLANE")
+                                     )
+      self.tuxplane.translate(50 * level, 40 )
+
+      #Animated Tux plane.Move from left to right
+      self.tuxplane.animate(900,
+                            20 ,
+                           1,
+                           1,
+                           True,
+                           25000 + level * 9000,
+                           250,
+                           goocanvas.ANIMATE_FREEZE)
       for index in range (level) :
            #Select a random letter and append it to self.letter_array
            letter = random.choice(string.letters)
            self.letter_array.append(letter.upper())
 
-           self.alphabet = goocanvas.Text(
+           #Display alphabets for TUX_PLANE horizontally
+           self.alphabet_horizontal = goocanvas.Text(
+                         parent = self.root,
+                         x =  50 * index  ,
+                         y = 60.0 ,
+                         text=self.letter_array[index],
+                         fill_color="black",
+                         anchor = gtk.ANCHOR_CENTER,
+                         alignment = pango.ALIGN_CENTER,
+                         font = 'SANS 50'
+                         )
+           #Display animated or moving letters horizontally
+           self.alphabet_horizontal.animate(900,
+                           5,
+                           1,
+                           1,
+                           True,
+                           20000 + level * 16000,
+                           250,
+                           goocanvas.ANIMATE_FREEZE)
+
+           #Display alphabets vertically
+           self.alphabet_vertical = goocanvas.Text(
                          parent = self.root,
                          x=50.0 + 50 * index ,
                          y=130.0 ,
@@ -116,10 +158,10 @@ class Gcompris_braille_fun:
                          alignment = pango.ALIGN_CENTER,
                          font = 'SANS 50'
                          )
-           self.alphabet_array.append(self.alphabet)
+           self.alphabet_array.append(self.alphabet_vertical)
 
            #Display animated or falling letters
-           self.alphabet.animate(-20 + 30 * index,
+           self.alphabet_vertical.animate(-20 + 30 * index,
                            410,
                            1,
                            1,
@@ -129,7 +171,7 @@ class Gcompris_braille_fun:
                            goocanvas.ANIMATE_FREEZE)
 
            #To call a function when animation finishes
-           self.alphabet.connect("animation-finished", self.animationFinished)
+           self.alphabet_vertical.connect("animation-finished", self.animationFinished)
 
            #Display rectangle for braille tile
            goocanvas.Rect(parent=self.root,
@@ -154,17 +196,23 @@ class Gcompris_braille_fun:
   def letter_change(self, letter):
       self.letter = letter
       for index in range(self.gcomprisBoard.level):
+          #Change the text color of alphabet correctly identified in the braille tile
           if (self.tile_array[index].get_letter() == self.letter_array[index]):
-              #print str(index) + ' ' + "letter is created"
-              #Change the text color of alphabet correctly identified in the braille tile
               self.alphabet_array[index].set_property("fill_color_rgba",self.text_color)
 
-      if self.alphabet_array[self.counter].get_property("fill_color_rgba") == self.text_color :
-            self.counter += 1
+          #If an alphabet's color changes to blue the counter is increased
+          #and the index number of tile is appended to a self.tile_index_array
+          if self.alphabet_array[index].get_property("fill_color_rgba") == self.text_color \
+              and index not in self.tile_index_array :
+              self.tile_index_array.append(index)
+              self.counter +=1
 
+      #If counter equals level number then call a timer_loop
       if (self.counter == self.gcomprisBoard.level) :
           self.timerAnim = gobject.timeout_add(40, self.timer_loop)
 
+  #This timer loop is to wait for milliseconds before calling a
+  #Bonus API
   def timer_loop(self):
       self.delay -= 1
       if(self.delay == 0):
@@ -230,7 +278,9 @@ class Gcompris_braille_fun:
     self.letter_array = []
     self.tile_array = []
     self.alphabet_array = []
+    self.tile_index_array = []
     self.counter = 0
+
 
   def increment_level(self):
     self.declare()
