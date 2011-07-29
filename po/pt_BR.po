@@ -1,26 +1,27 @@
 # Brazilian Portuguese translation of GCompris
 # This file is distributed under the same license as the gcompris packages.
 #
+#
 # Rodrigo Lima <rdlima@terra.com.br>, 2004.
 # Viviani Ap. dos Santos <vivi_olivetti@brfree.com.br>, 2004.
 # Welther José O. Esteves <weltherjoe@yahoo.com.br>, 2004.
 # Leonardo Ferreira Fontenelle <leo.fontenelle@gmail.com>, 2007.
 # Frederico Gonçalves Guimarães <frederico@teia.bio.br>, 2006, 2011.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2011-04-04 14:13+0000\n"
-"PO-Revision-Date: 2011-04-05 02:52-0300\n"
-"Last-Translator: Rodrigo Padula de Oliveira <contato@rodrigopadula.com>\n"
+"POT-Creation-Date: 2011-07-19 21:11+0000\n"
+"PO-Revision-Date: 2011-07-20 15:05-0300\n"
+"Last-Translator: Frederico <frederico@teia.bio.br>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
-"X-Generator: Lokalize 1.0\n"
+"X-Generator: Lokalize 1.2\n"
+"Language: pt_BR\n"
 
 #: ../boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
@@ -59,7 +60,7 @@ msgstr "Vá para as atividades de cores"
 
 #: ../boards/computer.xml.in.h:1
 msgid "Discover the Computer"
-msgstr "Descobra o computador"
+msgstr "Descubra o computador"
 
 #: ../boards/computer.xml.in.h:2
 msgid "Play with computer peripherals."
@@ -111,7 +112,7 @@ msgstr "Ir para as atividades dos Mastigadores de Números"
 
 #: ../boards/gnumchmenu.xml.in.h:2
 msgid "Number Munchers are games to play with arithmetic."
-msgstr "Os Mastigadores de Números são jogos para brincar com a aritmética."
+msgstr "Os Mastigadores de Números são jogos para brincar com aritmética."
 
 #: ../boards/keyboard.xml.in.h:1
 msgid "Discover the keyboard."
@@ -314,7 +315,7 @@ msgstr "Visite o site web do GCompris"
 
 #: ../nsis_translations.desktop.in.h:4
 msgid "You do not have permission to uninstall this application."
-msgstr "Você não tem permissão para desinstalar essa aplicação."
+msgstr "Você não tem permissão para desinstalar esse aplicativo."
 
 #: ../nsis_translations.desktop.in.h:5
 msgid ""
@@ -711,7 +712,7 @@ msgstr ""
 "turma.\n"
 "FORMATO DO ARQUIVO: O seu arquivo deve ter o seguinte formato:\n"
 "login;primeiro nome;sobrenome;data de nascimento\n"
-"O separador é auto-detectável e pode ser \",\", \";\" ou \":\"."
+"O separador é auto-detectável e pode ser \",\", \";\" ou \":\""
 
 #: ../src/administration-activity/admin/user_list.py:363
 #, python-format
@@ -787,7 +788,6 @@ msgid "Advanced colors"
 msgstr "Cores avançadas"
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:2
-#: ../src/read_colors-activity/read_colors.xml.in.h:1
 msgid "Can read"
 msgstr "Saber ler"
 
@@ -801,290 +801,293 @@ msgstr "Clique na caixa colorida correta."
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:5
 msgid "Learn to recognize unusual colors."
-msgstr "Aprender a identificar cores incomuns."
+msgstr "Aprenda a identificar cores incomuns."
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:1
-msgid "almond"
-msgstr "amêndoa"
+#. Translator: Do not translate {text}.
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:2
+msgid "Find the {text} butterfly"
+msgstr "Encontre a borboleta {text}"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:2
-msgid "chestnut"
-msgstr "castanho"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:3
-msgid "claret"
-msgstr "vinho"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:4
-msgid "cobalt"
-msgstr "metálico"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:5
-msgid "coral"
-msgstr "coral"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:6
-msgid "corn"
-msgstr "milho"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:7
-msgid "cyan"
-msgstr "ciano"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:8
-msgid "sienna"
-msgstr "sienite"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:1
-msgid "lime"
-msgstr "lima"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:2
-msgid "sage"
-msgstr "folhas secas"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:3
-msgid "salmon"
-msgstr "salmão"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:4
-msgid "sapphire"
-msgstr "safira"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:5
-msgid "sepia"
-msgstr "sépia"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:6
-msgid "sulphur"
-msgstr "enxofre"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:7
-msgid "tea"
-msgstr "chá"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:8
-msgid "turquoise"
-msgstr "turquesa"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:1
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:3
 msgid "absinthe"
 msgstr "absinto"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:2
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:4
 msgid "alabaster"
 msgstr "alabastro"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:3
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:5
+msgid "almond"
+msgstr "amêndoa"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:6
 msgid "amber"
 msgstr "âmbar"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:4
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:7
 msgid "amethyst"
 msgstr "ametista"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:5
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:8
 msgid "anise"
 msgstr "anis"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:6
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:9
 msgid "aquamarine"
 msgstr "água-marinha"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:7
-msgid "mahogany"
-msgstr "mogno"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:8
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:8
-msgid "vermilion"
-msgstr "vermelhão"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:1
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:1
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:10
 msgid "aubergine"
 msgstr "berinjela"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:2
-msgid "ceruse"
-msgstr "cerusa"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:3
-msgid "chartreuse"
-msgstr "verde-amarelado"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:4
-msgid "emerald"
-msgstr "esmeralda"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:5
-msgid "fawn"
-msgstr "castanho-claro"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:6
-msgid "fuchsia"
-msgstr "fúcsia"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:7
-msgid "glaucous"
-msgstr "glaucoso"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:8
-msgid "ruby"
-msgstr "rubi"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:2
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:11
 msgid "auburn"
 msgstr "castanho-avermelhado"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:3
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:12
 msgid "azure"
 msgstr "azul celeste"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:4
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:13
 msgid "bistre"
 msgstr "bistre"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:5
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:14
 msgid "celadon"
 msgstr "verde-acinzentado"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:6
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:15
 msgid "cerulean"
 msgstr "cerúleo"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:7
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:16
+msgid "ceruse"
+msgstr "cerusa"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:17
+msgid "chartreuse"
+msgstr "verde-amarelado"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:18
+msgid "chestnut"
+msgstr "castanho"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:19
+msgid "claret"
+msgstr "vinho"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:20
+msgid "cobalt"
+msgstr "metálico"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:21
+msgid "coral"
+msgstr "coral"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:22
+msgid "corn"
+msgstr "milho"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:23
 msgid "crimson"
 msgstr "carmesim"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:8
-msgid "greyish-brown"
-msgstr "marrom-acinzentado"
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:24
+msgid "cyan"
+msgstr "ciano"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:1
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:25
+msgid "dark purple"
+msgstr "púrpura escuro"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:26
 msgid "dove"
 msgstr "branco"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:2
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:27
+msgid "emerald"
+msgstr "esmeralda"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:28
+msgid "fawn"
+msgstr "castanho-claro"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:29
+msgid "fuchsia"
+msgstr "fúcsia"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:30
 msgid "garnet"
 msgstr "granada"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:3
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:31
+msgid "glaucous"
+msgstr "glaucoso"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:32
+msgid "greyish blue"
+msgstr "azul acinzentado"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:33
+msgid "greyish brown"
+msgstr "marrom acinzentado"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:34
 msgid "indigo"
 msgstr "índigo"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:4
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:35
 msgid "ivory"
 msgstr "marfim"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:5
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:36
 msgid "jade"
 msgstr "jade"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:6
-msgid "lavender"
-msgstr "lavanda"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:7
-msgid "lichen"
-msgstr "líquen"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:8
-msgid "wine"
-msgstr "vinho"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:1
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:37
 msgid "larch"
 msgstr "lariço"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:2
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:38
+msgid "lavender"
+msgstr "lavanda"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:39
+msgid "lichen"
+msgstr "líquen"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:40
 msgid "lilac"
 msgstr "lilás"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:3
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:41
+msgid "lime"
+msgstr "lima"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:42
 msgid "magenta"
 msgstr "magenta"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:4
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:43
+msgid "mahogany"
+msgstr "mogno"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:44
 msgid "malachite"
 msgstr "malaquita"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:5
-msgid "mimosa"
-msgstr "mimosa"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:6
-msgid "navy"
-msgstr "marinha"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:7
-msgid "ochre"
-msgstr "ocre"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:8
-msgid "olive"
-msgstr "oliva"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:1
-msgid "greyish blue"
-msgstr "azul-acinzentado"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:2
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:45
 msgid "mauve"
 msgstr "malva"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:3
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:46
+msgid "mimosa"
+msgstr "mimosa"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:47
+msgid "navy"
+msgstr "marinha"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:48
+msgid "ochre"
+msgstr "ocre"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:49
+msgid "olive"
+msgstr "oliva"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:50
 msgid "opaline"
 msgstr "opalina"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:4
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:51
 msgid "pistachio"
 msgstr "pistache"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:5
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:52
 msgid "platinum"
 msgstr "platina"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:6
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:53
+msgid "plum"
+msgstr "ameixa"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:54
+msgid "prussian blue"
+msgstr "azul prussiano"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:55
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:9
 msgid "purple"
 msgstr "púrpura"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:7
-msgid "ultramarine"
-msgstr "ultramarino"
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:56
+msgid "ruby"
+msgstr "rubi"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:1
-msgid "dark purple"
-msgstr "púrpura escuro"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:2
-msgid "plum"
-msgstr "ameixa"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:3
-msgid "prussian blue"
-msgstr "azul prussiano"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:4
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:57
 msgid "rust"
 msgstr "ferrugem"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:5
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:58
 msgid "saffron"
 msgstr "açafrão"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:6
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:59
+msgid "sage"
+msgstr "folhas secas"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:60
+msgid "salmon"
+msgstr "salmão"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:61
+msgid "sapphire"
+msgstr "safira"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:62
+msgid "sepia"
+msgstr "sépia"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:63
+msgid "sienna"
+msgstr "sienite"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:64
+msgid "sulphur"
+msgstr "enxofre"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:65
+msgid "tea"
+msgstr "chá"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:66
+msgid "turquoise"
+msgstr "turquesa"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:67
+msgid "ultramarine"
+msgstr "ultramarino"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:68
 msgid "vanilla"
 msgstr "baunilha"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:7
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:69
 msgid "verdigris"
 msgstr "verdete"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:8
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:70
+msgid "vermilion"
+msgstr "vermelhão"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:71
 msgid "veronese"
 msgstr "veronesa"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:72
+msgid "wine"
+msgstr "vinho"
 
 #. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
 #: ../src/algebra_by-activity/algebra.c:186
@@ -1261,7 +1264,7 @@ msgstr "Salvar..."
 
 #: ../src/anim-activity/anim.py:109
 msgid "Load..."
-msgstr "Abrir..."
+msgstr "Carregar..."
 
 #: ../src/anim-activity/anim.py:115
 msgid "Run the animation"
@@ -1523,8 +1526,8 @@ msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr ""
 "Manipulação do mouse: movimento, arrastar e soltar. Referências culturais."
 
-#: ../src/babymatch-activity/shapegame.c:1903
-#: ../src/click_on_letter-activity/click_on_letter.c:671
+#: ../src/babymatch-activity/shapegame.c:1906
+#: ../src/click_on_letter-activity/click_on_letter.c:672
 #: ../src/colors-activity/colors.c:168
 #, c-format
 msgid ""
@@ -2113,7 +2116,7 @@ msgstr ""
 "Sinto muito, mas será utilizado o inglês no lugar."
 
 #. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:694
+#: ../src/click_on_letter-activity/click_on_letter.c:695
 #: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:484
 #: ../src/missing_letter-activity/missingletter_config.c:492
 #: ../src/readingh-activity/reading.c:928
@@ -2292,47 +2295,38 @@ msgid "Find the {text} duck"
 msgstr "Encontre o pato {text}"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:3
-#: ../src/read_colors-activity/read_colors.c:65
 msgid "black"
 msgstr "preto"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:4
-#: ../src/read_colors-activity/read_colors.c:57
 msgid "blue"
 msgstr "azul"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:5
-#: ../src/read_colors-activity/read_colors.c:58
 msgid "brown"
 msgstr "marrom"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:6
-#: ../src/read_colors-activity/read_colors.c:59
 msgid "green"
 msgstr "verde"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:7
-#: ../src/read_colors-activity/read_colors.c:60
 msgid "grey"
 msgstr "cinza"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:8
-#: ../src/read_colors-activity/read_colors.c:61
 msgid "orange"
 msgstr "laranja"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:10
-#: ../src/read_colors-activity/read_colors.c:63
 msgid "red"
 msgstr "vermelho"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:11
-#: ../src/read_colors-activity/read_colors.c:66
 msgid "white"
 msgstr "branco"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:12
-#: ../src/read_colors-activity/read_colors.c:64
 msgid "yellow"
 msgstr "amarelo"
 
@@ -2587,7 +2581,7 @@ msgstr ""
 "um objeto."
 
 #: ../src/drawnumber-activity/drawnumber.py:236
-#: ../src/findit-activity/findit.py:290
+#: ../src/findit-activity/findit.py:310
 msgid "Cannot find the file '{filename}'"
 msgstr "Não foi possível encontrar o arquivo '{filename}'"
 
@@ -2866,19 +2860,19 @@ msgstr ""
 msgid "OK"
 msgstr "OK"
 
-#: ../src/gcompris/bar.c:684
+#: ../src/gcompris/bar.c:688
 msgid "GCompris confirmation"
 msgstr "Confirmação do GCompris"
 
-#: ../src/gcompris/bar.c:685
+#: ../src/gcompris/bar.c:689
 msgid "Are you sure you want to quit?"
 msgstr "Deseja realmente sair?"
 
-#: ../src/gcompris/bar.c:686
+#: ../src/gcompris/bar.c:690
 msgid "Yes, I am sure!"
 msgstr "Sim, é isso que eu quero."
 
-#: ../src/gcompris/bar.c:687
+#: ../src/gcompris/bar.c:691
 msgid "No, I want to keep going"
 msgstr "Não, prefiro continuar aqui."
 
@@ -3281,21 +3275,21 @@ msgstr "CANCELAR"
 
 #: ../src/gcompris/file_selector.c:259
 msgid "LOAD"
-msgstr "ABRIR"
+msgstr "CARREGAR"
 
 #: ../src/gcompris/file_selector.c:259
 msgid "SAVE"
 msgstr "SALVAR"
 
-#: ../src/gcompris/gameutil.c:142 ../src/gcompris/gameutil.c:200
+#: ../src/gcompris/gameutil.c:138 ../src/gcompris/gameutil.c:196
 msgid "Couldn't find or load the file"
 msgstr "Não foi possível encontrar ou carregar o arquivo"
 
-#: ../src/gcompris/gameutil.c:144 ../src/gcompris/gameutil.c:202
+#: ../src/gcompris/gameutil.c:140 ../src/gcompris/gameutil.c:198
 msgid "This activity is incomplete."
 msgstr "Essa atividade está incompleta."
 
-#: ../src/gcompris/gameutil.c:145 ../src/gcompris/gameutil.c:203
+#: ../src/gcompris/gameutil.c:141 ../src/gcompris/gameutil.c:199
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -3346,7 +3340,7 @@ msgid ""
 "activity). Use '-l list' to list all the availaible activities and their "
 "descriptions."
 msgstr ""
-"Executa o GCompris com o menu/aplicação indicado (ex. \"-l /reading\" "
+"Executa o GCompris com o menu/aplicativo indicado (ex. \"-l /reading\" "
 "permite jogar somente as atividades do diretório de leitura, \"-l /strategy/"
 "connect4\", apenas a atividade Ligue 4). Use \"-l list\" para listar todas "
 "as atividades disponíveis e suas descrições."
@@ -3467,7 +3461,7 @@ msgstr ""
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Não evitar a execução de múltiplas instâncias do GCompris."
 
-#: ../src/gcompris/gcompris.c:929
+#: ../src/gcompris/gcompris.c:944
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -3488,14 +3482,14 @@ msgstr ""
 "Linux. Mais informações na FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1223
+#: ../src/gcompris/gcompris.c:1238
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
 msgstr ""
-"Não foi possível abrir o tema '%s'. Por favor, verifique se o arquivo existe "
+"Não foi possível carregar o tema \"%s\". Por favor, verifique se o arquivo existe "
 "e se tem permissão de leitura."
 
-#: ../src/gcompris/gcompris.c:1486
+#: ../src/gcompris/gcompris.c:1501
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
@@ -3503,12 +3497,12 @@ msgstr ""
 "O GCompris não iniciará porque o arquivo de trava possui menos de %d "
 "segundos.\n"
 
-#: ../src/gcompris/gcompris.c:1488
+#: ../src/gcompris/gcompris.c:1503
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "O arquivo de trava é: %s\n"
 
-#: ../src/gcompris/gcompris.c:1599
+#: ../src/gcompris/gcompris.c:1614
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3522,27 +3516,27 @@ msgstr ""
 "Maiores informações em http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1714
+#: ../src/gcompris/gcompris.c:1729
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Use -l para acessar uma atividade diretamente.\n"
 
-#: ../src/gcompris/gcompris.c:1715
+#: ../src/gcompris/gcompris.c:1730
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "A lista de atividades disponíveis é:\n"
 
-#: ../src/gcompris/gcompris.c:1746
+#: ../src/gcompris/gcompris.c:1761
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Número de atividades: %d\n"
 
-#: ../src/gcompris/gcompris.c:1782
+#: ../src/gcompris/gcompris.c:1797
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s existe, mas não permite leitura nem escrita"
 
-#: ../src/gcompris/gcompris.c:1845
+#: ../src/gcompris/gcompris.c:1860
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
@@ -3551,7 +3545,7 @@ msgstr ""
 "A opção --server não pode ser usada porque o GCompris foi compilado sem "
 "suporte à rede!"
 
-#: ../src/gcompris/gcompris.c:1899
+#: ../src/gcompris/gcompris.c:1914
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3560,7 +3554,7 @@ msgstr ""
 "Erro: o perfil '%s' não foi encontrado. Execute 'gcompris --profile-list' "
 "para listar os disponíveis\n"
 
-#: ../src/gcompris/gcompris.c:1913
+#: ../src/gcompris/gcompris.c:1928
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "A lista de perfis disponíveis é:\n"
@@ -3579,7 +3573,7 @@ msgid ""
 "Loading activity from database:\n"
 "%s"
 msgstr ""
-"Abrindo a atividade a partir do banco de dados:\n"
+"Carregando a atividade a partir do banco de dados:\n"
 "%s"
 
 #: ../src/gcompris/help.c:180
@@ -3604,7 +3598,7 @@ msgid ""
 "Loading activity from file:\n"
 "%s"
 msgstr ""
-"Abrindo a atividade a partir do arquivo:\n"
+"Carregando a atividade a partir do arquivo:\n"
 "%s"
 
 #: ../src/gcompris/properties.c:506
@@ -5364,7 +5358,7 @@ msgstr ""
 "adicionar usuários na parte administrativa do GCompris.\n"
 "Para isso, executando o comando 'gcompris -a'.\n"
 "Algumas distribuições já instalam, automaticamente,\n"
-"um item com essa opção no menu de aplicações.\n"
+"um item com essa opção no menu de aplicativos.\n"
 "Na administração você pode criar diferentes perfis. Em cada\n"
 "perfil você pode ter vários conjuntos de usuários e selecionar\n"
 "as atividades que estarão disponíveis para cada um deles.\n"
@@ -6573,12 +6567,12 @@ msgstr ""
 "específica para ser realizada."
 
 #: ../src/penalty-activity/penalty.py:292
-msgid "Click on the balloon to place it again."
-msgstr "Clique no balão para recolocá-lo."
+msgid "Click on the ball to place it again."
+msgstr "Clique na bola para recolocá-la."
 
 #: ../src/penalty-activity/penalty.py:294
-msgid "Click twice on the balloon to shoot it."
-msgstr "Clique duas vezes no balão para acertá-lo."
+msgid "Click twice on the ball to shoot it."
+msgstr "Clique duas vezes na bola para atirá-la."
 
 #: ../src/penalty-activity/penalty.xml.in.h:1
 msgid ""
@@ -6673,7 +6667,7 @@ msgstr "Programador avançado de Python :)"
 
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:3
 msgid "An empty python activity to use as a starting point"
-msgstr "Uma aplicação Python em branco, para ser usada como ponto de partida"
+msgstr "Um aplicativo Python em branco, para ser usado como ponto de partida"
 
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:4
 msgid "Python Template"
@@ -6765,30 +6759,6 @@ msgstr "Treinamento de memória"
 #: ../src/railroad-activity/railroad.xml.in.h:5
 msgid "Railway"
 msgstr "Ferrovia"
-
-#: ../src/read_colors-activity/read_colors.c:62
-msgid "violet"
-msgstr "violeta"
-
-#: ../src/read_colors-activity/read_colors.c:67
-msgid "pink"
-msgstr "rosa"
-
-#: ../src/read_colors-activity/read_colors.xml.in.h:2
-msgid "Click on the correct colored object."
-msgstr "Clique no objeto colorido correto."
-
-#: ../src/read_colors-activity/read_colors.xml.in.h:3
-msgid "Click on the matching color"
-msgstr "Clique na cor correspondente"
-
-#: ../src/read_colors-activity/read_colors.xml.in.h:4
-msgid "Read the names of colors"
-msgstr "Leia os nomes das cores"
-
-#: ../src/read_colors-activity/read_colors.xml.in.h:5
-msgid "This board teaches basic colors."
-msgstr "Essa atividade ensina as cores básicas."
 
 #: ../src/readingh-activity/reading.c:229
 #: ../src/wordsgame-activity/wordsgame.c:219
@@ -7624,7 +7594,7 @@ msgstr "Treinar com o teclado"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Digite a palavra completa, antes que ela chegue no chão"
 
-#: ../src/findit-activity/findit.py:295
+#: ../src/findit-activity/findit.py:315
 msgid ""
 "Failed to parse data set '{filename}' with error:\n"
 "{error}"
@@ -7632,3 +7602,145 @@ msgstr ""
 "Falhou ao processar o conjunto de dados \"{filename}\" com o erro:\n"
 "{error}"
 
+#: ../src/instruments-activity/instruments.xml.in.h:1
+msgid "Click on the correct instrument."
+msgstr "Clique no instrumento correto."
+
+#: ../src/instruments-activity/instruments.xml.in.h:2
+msgid "Click on the correct mucical instruments"
+msgstr "Clique nos instrumentos musicais corretos"
+
+#: ../src/instruments-activity/instruments.xml.in.h:3
+msgid "Learn to recognize musical instruments."
+msgstr "Aprenda a identificar instrumentos musicais."
+
+#: ../src/instruments-activity/instruments.xml.in.h:4
+msgid "Music instruments"
+msgstr "Instrumentos musicais"
+
+#. Translator: Do not translate {text}.
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:2
+msgid "Find {text}"
+msgstr "Encontre {text}"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:3
+msgid "the accordion"
+msgstr "o acordeão"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:4
+msgid "the banjo"
+msgstr "o banjo"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:5
+msgid "the bass drum"
+msgstr "o bumbo"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:6
+msgid "the bongo"
+msgstr "o bongô"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:7
+msgid "the castanets"
+msgstr "as castanholas"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:8
+msgid "the cello"
+msgstr "o violoncelo"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:9
+msgid "the clarinet"
+msgstr "a clarineta"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:10
+msgid "the cymbal"
+msgstr "o címbalo"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:11
+msgid "the drum kit"
+msgstr "a bateria"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
+msgid "the electric guitar"
+msgstr "a guitarra elétrica"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
+msgid "the flute traversiere"
+msgstr "a flauta transversa"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
+msgid "the guitar"
+msgstr "o violão"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
+msgid "the harmonica"
+msgstr "a gaita"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
+msgid "the harp"
+msgstr "a harpa"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
+msgid "the horn"
+msgstr "a buzina"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
+msgid "the maracas"
+msgstr "os maracás"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
+msgid "the organ"
+msgstr "o órgão"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
+msgid "the piano"
+msgstr "o piano"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
+msgid "the saxophone"
+msgstr "o saxofone"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
+msgid "the tambourine"
+msgstr "o tamborim"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
+msgid "the timpani"
+msgstr "os timbales"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
+msgid "the triangle"
+msgstr "o triângulo"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
+msgid "the trombone"
+msgstr "o trombone"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
+msgid "the trumpet"
+msgstr "o trompete"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:27
+msgid "the tuba"
+msgstr "a tuba"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:28
+msgid "the violin"
+msgstr "o violino"
+
+#~ msgid "violet"
+#~ msgstr "violeta"
+
+#~ msgid "pink"
+#~ msgstr "rosa"
+
+#~ msgid "Click on the correct colored object."
+#~ msgstr "Clique no objeto colorido correto."
+
+#~ msgid "Click on the matching color"
+#~ msgstr "Clique na cor correspondente"
+
+#~ msgid "Read the names of colors"
+#~ msgstr "Leia os nomes das cores"
+
+#~ msgid "This board teaches basic colors."
+#~ msgstr "Essa atividade ensina as cores básicas."
