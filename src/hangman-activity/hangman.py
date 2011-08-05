@@ -95,10 +95,13 @@ class Gcompris_hangman:
     self.rootitem = goocanvas.Group(parent =
                                     self.backitem)
 
+    # Get the name of the language for the current locale
+    self.language = gcompris.gcompris_gettext( gcompris.get_locale_name(gcompris.get_locale()) )
     self.wordlist = gcompris.get_wordlist("wordsgame/default-$LOCALE.xml")
     if not self.wordlist:
       # Fallback to english
       self.wordlist = gcompris.get_wordlist("wordsgame/default-en.xml")
+      self.language = _("English")
 
     if not self.wordlist:
       gcompris.utils.dialog(_("Could not find the list of words."),
@@ -225,6 +228,17 @@ class Gcompris_hangman:
       self.letters.append(Letter(self, x + i*w, 70,
                                  self.word[i],
                                  self.get_equiv(self.word[i])))
+
+    # Display the language
+    goocanvas.Text(
+      parent = self.rootitem,
+      x = gcompris.BOARD_WIDTH / 2,
+      y = gcompris.BOARD_HEIGHT / 2 - 30,
+      text = self.language,
+      fill_color = "white",
+      anchor = gtk.ANCHOR_CENTER,
+      alignment = pango.ALIGN_CENTER
+      )
 
     # Display the virtual keyboard
     (group_vowels, y_vowels) = self.display_letter_set(self.vowels, 0,

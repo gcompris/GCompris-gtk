@@ -368,6 +368,22 @@ py_gc_locale_set(PyObject* self, PyObject* args)
   return Py_None;
 }
 
+/* void gc_locale_get_name(gchar *locale); */
+static PyObject*
+py_gc_locale_get_name(PyObject* self, PyObject* args)
+{
+  gchar* locale;
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, "s:gc_locale_get_name", &locale))
+    return NULL;
+
+  /* Call the corresponding C function */
+  gchar *result = gc_locale_get_name(locale);
+
+  /* Create and return the result */
+  return Py_BuildValue("s", result);
+}
+
 
 /* char *gc_locale_get_user_default(void) */
 static PyObject*
@@ -1633,6 +1649,7 @@ static PyMethodDef PythonGcomprisModule[] = {
   { "get_locale",  py_gc_locale_get, METH_VARARGS, "gc_locale_get" },
   { "get_user_default_locale",  py_gc_locale_get_user_default, METH_VARARGS, "gc_locale_get_user_default" },
   { "set_locale",  py_gc_locale_set, METH_VARARGS, "gc_locale_set" },
+  { "get_locale_name",  py_gc_locale_get_name, METH_VARARGS, "gc_locale_get_name" },
   { "set_cursor",  py_gc_cursor_set, METH_VARARGS, "gc_cursor_set" },
   { "images_selector_start",  py_gc_selector_images_start,
     METH_VARARGS, "gc_selector_images_start" },

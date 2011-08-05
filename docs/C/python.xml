@@ -224,6 +224,11 @@ attribute is readeable and/or writable.</para>
 		<entry>return a string</entry>
 	      </row>
 	      <row>
+		<entry>gcompris.get_locale_name(locale)</entry>
+		<entry>gchar* gc_locale_get_name(gchar *locale)</entry>
+		<entry>returns the language name for the given locale (e.g French)</entry>
+	      </row>
+	      <row>
 		<entry>gcompris.set_locale(locale)</entry>
 		<entry>void gc_locale_set(gchar *locale)</entry>
 		<entry></entry>
