@@ -466,7 +466,7 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
   GdkPixbuf *pixmap = NULL;
   GooCanvasItem *item = NULL;
   char s12[12];
-  int i, w, h;
+  int i;
 
   GooCanvasItem *rootItem = goo_canvas_group_new (parent, NULL);
 
@@ -535,8 +535,6 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 
   // DEPTH RUDDERS
   pixmap = gc_pixmap_load("submarine/rudder.png");
-  w = gdk_pixbuf_get_width(pixmap);
-  h = gdk_pixbuf_get_height(pixmap);
   barre_av_item = goo_canvas_image_new (rootItem,
 					pixmap,
 					schema_x + BARRE_AV_X,
@@ -713,8 +711,6 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 
   // displays an alert when some parameters are bad
   pixmap = gc_pixmap_load("submarine/alert_submarine.png");
-  w = gdk_pixbuf_get_width(pixmap);
-  h = gdk_pixbuf_get_height(pixmap);
   alert_submarine = goo_canvas_image_new (rootItem,
 					  pixmap,
 					  ALERT_SUBMARINE_X,
