@@ -47,7 +47,7 @@ EXTRA_DIST = \
 	gnome2-macros/gnome-deprecated-macros.m4 \
 	README.mingw README.translators README.windows \
 	config.h.mingw.in Makefile.mingw.in global_win32.mak gcompris.ico gc_admin.ico gcompris-uninstal.ico \
-	gcompris-installer.nsi.in
+	gcompris-installer.nsi.in nsis_translations.desktop.in
 
 
 distcore = $(PACKAGE)-core-$(VERSION)
