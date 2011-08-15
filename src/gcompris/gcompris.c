@@ -150,6 +150,7 @@ static gchar *sugarBundleId        = NULL;
 static gchar *sugarActivityId      = NULL;
 static gint popt_sugar_look        = FALSE;
 static gint popt_no_zoom           = FALSE;
+static gint popt_test              = FALSE;
 static gdouble popt_timing_base    = 1.0;
 static gdouble popt_timing_mult    = 1.0;
 
@@ -266,13 +267,16 @@ static GOptionEntry options[] = {
    ("Use Sugar DE look&feel"), NULL},
 
   {"no-zoom",'\0', 0, G_OPTION_ARG_NONE, &popt_no_zoom,
-   ("Disable maximization zoom"), NULL},
+   N_("Disable maximization zoom"), NULL},
 
   {"timing-base",'\0', 0, G_OPTION_ARG_DOUBLE, &popt_timing_base,
-   ("Increase activities' timeout delays; useful values > 1.0; 1.0 to not change hardcoded value"), NULL},
+   N_("Increase activities' timeout delays; useful values > 1.0; 1.0 to not change hardcoded value"), NULL},
 
   {"timing-mult",'\0', 0, G_OPTION_ARG_DOUBLE, &popt_timing_mult,
-   ("How activities' timeout delays are growing for several actors; useful values < 1.0; 1.0 to not change hardcoded value"), NULL},
+   N_("How activities' timeout delays are growing for several actors; useful values < 1.0; 1.0 to not change hardcoded value"), NULL},
+
+  {"test",'\0', 0, G_OPTION_ARG_NONE, &popt_test,
+   N_("For test purpose, run in a loop all the activities"), NULL},
 
   { NULL }
 };
@@ -1552,6 +1556,68 @@ single_instance_check()
   // Do not free lock_file, the unlink needs it
 }
 
+gboolean test_board_end(gpointer data);
+
+gboolean test_board_start(gpointer data) {
+  GList *full_list = (GList *) data;
+  GcomprisBoard *board = (GcomprisBoard*)full_list->data;
+  printf("Testing %s/%s : %s (%s) \n", board->section, board->name, board->title, board->description );
+  gc_board_run_next(board);
+
+  g_timeout_add(600, test_board_end, full_list);
+  return FALSE;
+}
+gboolean test_board_end(gpointer data) {
+   GList *full_list = (GList *) data;
+   gc_close_all_dialog();
+
+  gc_board_stop();
+  if (full_list->next) {
+    full_list = full_list->next;
+    g_timeout_add(600, test_board_start, full_list);
+  } else {
+    printf("TEST DONE\n");
+  }
+  return FALSE;
+}
+
+void gc_test() {
+  gc_db_init(FALSE /* ENABLE DATABASE */);
+  gc_board_init();
+  gc_menu_load();
+
+  // Create the list of all the activity in full_list
+  GList *full_list = NULL;
+
+  GList *list = NULL;
+  GList *menulist = NULL;
+  GList *menu_todo = NULL;
+
+  menu_todo = g_list_append(menu_todo,g_strdup("/"));
+
+  while ( menu_todo != NULL) {
+    menulist = gc_menu_getlist(menu_todo->data);
+    g_free(menu_todo->data);
+    menu_todo = menu_todo->next;
+
+    for(list = menulist; list != NULL; list = list->next) {
+      GcomprisBoard *board = list->data;
+
+      if (board){
+	if (strcmp(board->type,"menu")==0)
+	  menu_todo = g_list_prepend(menu_todo, g_strdup_printf("%s/%s",board->section, board->name));
+	else {
+	  full_list = g_list_append(full_list, board);
+	}
+      }
+    }
+  }
+
+  // Start the test in a few seconds to be sure everything is loaded
+  g_timeout_add(5000, test_board_start, full_list);
+
+}
+
 /*****************************************
  * Main
  *
@@ -2031,6 +2097,10 @@ main (int argc, char *argv[])
   if (sugarActivityId)
     gc_dbus_init(sugarActivityId);
 #endif
+
+  if (popt_test) {
+    gc_test();
+  }
 
   gtk_main ();
 
