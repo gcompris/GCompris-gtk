@@ -493,11 +493,43 @@ void gc_cursor_hide()
 
   bp = gdk_bitmap_create_from_data(NULL , in_cursor , 1, 1);
   cursor = gdk_cursor_new_from_pixmap(bp , bp ,
-				      &color , &color ,
-				      1 , 1);
+                                      &color , &color ,
+                                      1 , 1);
   gdk_window_set_cursor(window->window , cursor);
   gdk_cursor_unref(cursor);
 }
+
+
+#if 0
+  // READY FOR GTK 3
+void gc_cursor_hide()
+{
+
+  GdkCursor *cursor;
+  cairo_surface_t *s;
+  GdkPixbuf *pixbuf;
+  cairo_t *cr;
+
+  s = cairo_image_surface_create (CAIRO_FORMAT_A1, 1, 1);
+  cr = cairo_create (s);
+  cairo_set_source_rgba(cr, 0.0, 0.0, 0.0, 1.0);
+  cairo_rectangle(cr, 0, 0, 1, 1);
+  cairo_fill(cr);
+  cairo_destroy(cr);
+
+  pixbuf = gdk_pixbuf_get_from_surface (s,
+					0, 0,
+					1, 1);
+  cairo_surface_destroy (s);
+
+  cursor = gdk_cursor_new_from_pixbuf (NULL, pixbuf, 0, 0);
+
+  g_object_unref (pixbuf);
+
+  gdk_window_set_cursor(window->window , cursor);
+  gdk_cursor_unref(cursor);
+}
+#endif
 
 void gc_cursor_set(guint gdk_cursor_type)
 {
@@ -514,7 +546,7 @@ void gc_cursor_set(guint gdk_cursor_type)
   if (gdk_cursor_type < GCOMPRIS_FIRST_CUSTOM_CURSOR) {
     cursor = gdk_cursor_new(gdk_cursor_type);
     gdk_window_set_cursor (window->window, cursor);
-    gdk_cursor_destroy(cursor);
+    gdk_cursor_unref(cursor);
   } else { // we use a custom cursor
     GdkPixbuf *cursor_pixbuf = NULL;
 
@@ -754,8 +786,8 @@ init_workspace()
   GtkWidget *quit_item;
   quit_item = gtk_menu_item_new();
   ige_mac_menu_set_quit_menu_item(GTK_MENU_ITEM (quit_item));
-  gtk_signal_connect(GTK_OBJECT (quit_item),
-		     "activate", GTK_SIGNAL_FUNC (quit_cb), NULL);
+  g_signal_connect(GTK_OBJECT (quit_item),
+		   "activate", G_CALLBACK (quit_cb), NULL);
   gtk_widget_show (quit_item);
 
 #endif
@@ -851,11 +883,11 @@ static void setup_window ()
 		    G_CALLBACK (_realize_callback), NULL);
   gtk_widget_realize (window);
 
-  gtk_signal_connect (GTK_OBJECT (window), "delete_event",
-		      GTK_SIGNAL_FUNC (quit_cb), NULL);
+  g_signal_connect (GTK_OBJECT (window), "delete_event",
+		    G_CALLBACK (quit_cb), NULL);
 
-  gtk_signal_connect (GTK_OBJECT (window), "map_event",
-		      GTK_SIGNAL_FUNC (map_cb), NULL);
+  g_signal_connect (GTK_OBJECT (window), "map_event",
+		    G_CALLBACK (map_cb), NULL);
 
   // Set the cursor
   if (properties->nocursor)
@@ -874,17 +906,17 @@ static void setup_window ()
 		NULL);
 
 
-  gtk_signal_connect_after (GTK_OBJECT (window), "key_press_event",
-			    GTK_SIGNAL_FUNC (board_widget_key_press_callback), 0);
+  g_signal_connect_after (GTK_OBJECT (window), "key_press_event",
+			  (GCallback) board_widget_key_press_callback, 0);
   g_signal_connect_after (canvas,
 			  "key_press_event",
-			  GTK_SIGNAL_FUNC (board_widget_key_press_callback), 0);
+			  (GCallback) board_widget_key_press_callback, 0);
 
   gc_im_init(window);
 
   init_workspace();
 
-  GTK_WIDGET_SET_FLAGS (canvas, GTK_CAN_FOCUS);
+  gtk_widget_set_can_focus(canvas, TRUE);
   gtk_widget_grab_focus (canvas);
 
 }
@@ -936,9 +968,9 @@ display_activation_dialog()
 			   100.0,
 			   30.0,
 			   NULL);
-  gtk_signal_connect(GTK_OBJECT(widget_activation_entry), "activate",
-		     GTK_SIGNAL_FUNC(activation_enter_callback),
-		     NULL);
+  g_signal_connect(GTK_OBJECT(widget_activation_entry), "activate",
+		   GTK_SIGNAL_FUNC(activation_enter_callback),
+		   NULL);
 
   char *msg = g_strdup_printf( \
       _("GCompris is free software released under the GPL License. "

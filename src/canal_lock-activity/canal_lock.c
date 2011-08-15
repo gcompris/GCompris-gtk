@@ -105,7 +105,7 @@ static gboolean          hightlight(GooCanvasItem *item,
                                     GooCanvasItem  *target,
                                     GdkEventButton *event,
                                     gpointer status);
-static gboolean		 animate_step();
+static gboolean		 animate_step(gpointer data);
 static void		 update_water();
 static void		 toggle_lock(GooCanvasItem *item);
 static void		 update_lights();
@@ -190,7 +190,7 @@ static void end_board ()
 {
   // If we don't stop animation, there may be a segfault if leaving while the animation is running
   if (timer_id) {
-    gtk_timeout_remove (timer_id);
+    g_source_remove (timer_id);
     timer_id = 0;
   }
   animation = FALSE;
@@ -265,13 +265,13 @@ static void
 set_lock_event(GooCanvasItem *item)
 {
   g_signal_connect(item, "button-press-event",
-		   (GtkSignalFunc) item_event,
+		   (GCallback) item_event,
 		   NULL);
   g_signal_connect(item, "enter_notify_event",
-		   (GtkSignalFunc) hightlight,
+		   (GCallback) hightlight,
 		   GINT_TO_POINTER(TRUE));
   g_signal_connect(item, "leave_notify_event",
-		   (GtkSignalFunc) hightlight,
+		   (GCallback) hightlight,
 		   GINT_TO_POINTER(FALSE));
 }
 
@@ -293,7 +293,7 @@ static GooCanvasItem *canal_lock_create_item(GooCanvasItem *boardRootItem)
 				     "svg-id", "#BOAT_NO_SAIL", NULL);
 
   g_signal_connect(tuxboat_item, "button-press-event",
-                   (GtkSignalFunc) item_event,
+                   (GCallback) item_event,
                    NULL);
   gc_item_focus_init(tuxboat_item, NULL);
 
@@ -485,7 +485,7 @@ move_boat()
   timer_item = tuxboat_item;
   timer_step_y1 = 0;
 
-  timer_id = gtk_timeout_add (ANIMATE_SPEED, (GtkFunction) animate_step, NULL);
+  timer_id = g_timeout_add (ANIMATE_SPEED, animate_step, NULL);
 }
 
 /* ==================================== */
@@ -524,7 +524,7 @@ static void update_water()
 
   gc_item_focus_remove(tuxboat_item, NULL);
 
-  timer_id = gtk_timeout_add (ANIMATE_SPEED, (GtkFunction) animate_step, NULL);
+  timer_id = g_timeout_add (ANIMATE_SPEED, animate_step, NULL);
 }
 
 /* ==================================== */
@@ -585,7 +585,7 @@ toggle_lock(GooCanvasItem *item)
 
   gc_item_focus_remove(tuxboat_item, NULL);
 
-  timer_id = gtk_timeout_add (animate_speed, (GtkFunction) animate_step,
+  timer_id = g_timeout_add (animate_speed, animate_step,
 			      NULL);
 
 }
@@ -593,7 +593,7 @@ toggle_lock(GooCanvasItem *item)
 
 /* ==================================== */
 static gboolean
-animate_step()
+animate_step(gpointer data)
 {
 
   if(!gcomprisBoard)
@@ -621,7 +621,7 @@ animate_step()
   if((bounds.y1 >= timer_item_limit_y && timer_step_y1 > 0) ||
      (bounds.y1 <= timer_item_limit_y && timer_step_y1 < 0))
     {
-      gtk_timeout_remove (timer_id);
+      g_source_remove (timer_id);
       timer_id = 0;
       animation = FALSE;
       update_water();
@@ -632,7 +632,7 @@ animate_step()
   else if((bounds.x1 >= timer_item_limit_x && timer_step_x1 > 0) ||
      (bounds.x1 <= timer_item_limit_x && timer_step_x1 < 0))
     {
-      gtk_timeout_remove (timer_id);
+      g_source_remove (timer_id);
       timer_id = 0;
       animation = FALSE;
       update_water();

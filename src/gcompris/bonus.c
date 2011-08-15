@@ -210,7 +210,7 @@ bonus_image(char *image, GCBonusStatusList gamewon)
   gdk_pixbuf_unref(pixmap);
 
   g_free(str);
-  end_bonus_id = g_timeout_add (GC_BONUS_DURATION, (GtkFunction) end_bonus, NULL);
+  end_bonus_id = g_timeout_add (GC_BONUS_DURATION, (GSourceFunc) end_bonus, NULL);
 }
 
 /* ==================================== */

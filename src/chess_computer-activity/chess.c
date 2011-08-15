@@ -445,7 +445,7 @@ static void chess_destroy_all_items()
   info_item     = NULL;
 
   if(position!=NULL)
-    gtk_object_destroy (GTK_OBJECT (position));
+    g_object_unref (G_OBJECT (position));
 
   position = NULL;
 
@@ -588,16 +588,16 @@ chess_create_item(GooCanvasItem *parent)
 	    if(WPIECE(piece))
 	      {
 		g_signal_connect (item, "motion_notify_event",
-				  (GtkSignalFunc) on_motion_notify, NULL);
+				  (GCallback) on_motion_notify, NULL);
 		g_signal_connect (item, "button_press_event",
-				  (GtkSignalFunc) on_button_press, NULL);
+				  (GCallback) on_button_press, NULL);
 		g_signal_connect (item, "button_release_event",
-				  (GtkSignalFunc) on_button_release, NULL);
+				  (GCallback) on_button_release, NULL);
 
 	      }
 	    else
 	      g_signal_connect(item, "button_press_event",
-			       (GtkSignalFunc) item_event_black, NULL);
+			       (GCallback) item_event_black, NULL);
 
 	    gdk_pixbuf_unref(pixmap);
 	  }

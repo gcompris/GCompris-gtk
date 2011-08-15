@@ -154,7 +154,7 @@ static void pause_board (gboolean pause)
     return;
 
   if (timer_id) {
-    gtk_timeout_remove (timer_id);
+    g_source_remove (timer_id);
     timer_id = 0;
   }
 
@@ -197,7 +197,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 static void end_board () {
 
   if (timer_id) {
-	gtk_timeout_remove (timer_id);
+	g_source_remove (timer_id);
 	timer_id = 0;
   }
 
@@ -281,7 +281,7 @@ static void magic_hat_next_level() {
 static void magic_hat_destroy_all_items()
 {
   if (timer_id) {
-    gtk_timeout_remove (timer_id);
+    g_source_remove (timer_id);
     timer_id = 0;
   }
 
@@ -512,7 +512,7 @@ static void draw_hat(GooCanvasItem *item,
   if (type == STARS) {
 	 hat_event_id = g_signal_connect(item,
 					 "button_press_event",
-					 (GtkSignalFunc) hat_event,
+					 (GCallback) hat_event,
 					 NULL);
 	 gc_item_focus_init(item, NULL);
   }
@@ -580,7 +580,7 @@ static void place_item(frame * my_frame, int type)
 
       if (type == DYNAMIC)
 	g_signal_connect(item, "button_press_event",
-			 (GtkSignalFunc) item_event,
+			 (GCallback) item_event,
 			 GINT_TO_POINTER(MAX_ITEM * i + j));
 
       if (type == UNDERHAT || type == NORMAL)
@@ -686,10 +686,10 @@ static gboolean hat_event (GooCanvasItem  *item,
     // Make the items move from/out the hat, depending on the mode
     // Wait a few seconds between the two frames
     move_stars(&frame1);
-    timer_id = g_timeout_add(1200, (GtkFunction) move_stars, &frame2);
+    timer_id = g_timeout_add(1200, (GSourceFunc) move_stars, &frame2);
 
     // Wait again a few seconds before closing the hat. Then the game is ready to start
-    timer_id = g_timeout_add(2600, (GtkFunction) close_hat, NULL);
+    timer_id = g_timeout_add(2600, (GSourceFunc) close_hat, NULL);
   }
 
   return FALSE;
@@ -735,7 +735,7 @@ static gint move_stars(frame *my_frame) {
 		}
 
 		my_move->frame = my_frame->id;
-		timer_id = g_timeout_add(50, (GtkFunction) smooth_move, my_move);
+		timer_id = g_timeout_add(50, (GSourceFunc) smooth_move, my_move);
 	}
   }
   return FALSE;

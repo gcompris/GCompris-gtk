@@ -74,7 +74,7 @@ void gc_dialog(gchar *str, DialogBoxCallBack dbcb)
 				       "svg-id", "#DIALOG",
 				       NULL);
   g_signal_connect(itemDialogText, "button_press_event",
-		   (GtkSignalFunc) item_event_ok,
+		   (GCallback) item_event_ok,
 		   dbcb);
 
   GooCanvasBounds bounds;
@@ -97,7 +97,7 @@ void gc_dialog(gchar *str, DialogBoxCallBack dbcb)
 			  bounds.y2 - 30,
 			  "#BUTTON_TEXT",
 			  _("OK"),
-			  (GtkSignalFunc) item_event_ok,
+			  (GCallback) item_event_ok,
 			  dbcb);
 }
 

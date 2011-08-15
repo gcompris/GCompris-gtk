@@ -186,7 +186,7 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
 
   /* Set the scrollwheel event */
   g_signal_connect (list_adj, "value_changed",
-		    (GtkSignalFunc) item_event_scroll,
+		    (GCallback) item_event_scroll,
 		    canvas_list_selector);
 
   /*
@@ -240,7 +240,7 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
 
   /* Set the scrollwheel event */
   g_signal_connect (image_adj, "value_changed",
-		    (GtkSignalFunc) item_event_scroll,
+		    (GCallback) item_event_scroll,
 		    canvas_image_selector);
 
   /*
@@ -304,7 +304,7 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
 			  BOARDHEIGHT - 32,
 			  "#BUTTON_TEXT",
 			  _("OK"),
-			  (GtkSignalFunc) item_event_images_selector,
+			  (GCallback) item_event_images_selector,
 			  "/ok/");
 }
 
@@ -374,7 +374,7 @@ display_image(gchar *imagename, GooCanvasItem *root_item)
   gdk_pixbuf_unref(pixmap);
 
   g_signal_connect(item, "button_press_event",
-		   (GtkSignalFunc) item_event_images_selector,
+		   (GCallback) item_event_images_selector,
 		   imagename);
   gc_item_focus_init(item, NULL);
 
@@ -430,7 +430,7 @@ display_image_set(gchar *imagename, GSList *imagelist)
   g_object_set_data (G_OBJECT (item), "imagelist", imagelist);
 
   g_signal_connect(item, "button_press_event",
-		     (GtkSignalFunc) item_event_imageset_selector,
+		     (GCallback) item_event_imageset_selector,
 		     imagename);
   gc_item_focus_init(item, NULL);
 

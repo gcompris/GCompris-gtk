@@ -83,7 +83,7 @@ static int		 wait_for_ready;
 static int		 gamewon;
 
 static gboolean		 reading_create_item(GooCanvasItem *parent);
-static gint		 reading_drop_items (void);
+static gboolean		 reading_drop_items (gpointer data);
 static void		 reading_destroy_all_items(void);
 static gint		 reading_next_level(void);
 static void		 reading_config_start(GcomprisBoard *agcomprisBoard,
@@ -153,14 +153,14 @@ static void pause_board (gboolean pause)
   if(pause)
     {
       if (drop_items_id) {
-	gtk_timeout_remove (drop_items_id);
+	g_source_remove (drop_items_id);
 	drop_items_id = 0;
       }
     }
   else
     {
       if(!drop_items_id) {
-	reading_drop_items();
+	reading_drop_items(NULL);
       }
     }
 }
@@ -342,12 +342,12 @@ reading_destroy_all_items()
 {
 
   if (drop_items_id) {
-    gtk_timeout_remove (drop_items_id);
+    g_source_remove (drop_items_id);
     drop_items_id = 0;
   }
 
   if (next_level_timer) {
-    gtk_timeout_remove (next_level_timer);
+    g_source_remove (next_level_timer);
     drop_items_id = 0;
   }
 
@@ -566,13 +566,13 @@ reading_create_item(GooCanvasItem *parent)
  * This is called on a low frequency and is used to display new items
  *
  */
-static gint
-reading_drop_items ()
+static gboolean
+reading_drop_items (gpointer data)
 {
 
   if(reading_create_item(boardRootItem))
-    drop_items_id = gtk_timeout_add (fallSpeed,
-				     (GtkFunction) reading_drop_items, NULL);
+    drop_items_id = g_timeout_add (fallSpeed,
+				   reading_drop_items, NULL);
   return (FALSE);
 }
 
@@ -637,13 +637,13 @@ ask_ready(gboolean status)
 				NULL);
 
   g_signal_connect(item2, "button-press-event",
-		   (GtkSignalFunc) item_event_valid,
+		   (GCallback) item_event_valid,
 		   "R");
 
   item1 = addBackground(boardRootItem, item2);
 
   g_signal_connect(item1, "button-press-event",
-		   (GtkSignalFunc) item_event_valid,
+		   (GCallback) item_event_valid,
 		   "R");
   gc_item_focus_init(item1, NULL);
   gc_item_focus_init(item2, item1);
@@ -677,10 +677,10 @@ ask_yes_no()
   item1 = addBackground(boardRootItem, item2);
 
   g_signal_connect(item2, "button-press-event",
-		   (GtkSignalFunc) item_event_valid,
+		   (GCallback) item_event_valid,
 		   "Y");
   g_signal_connect(item1, "button-press-event",
-		   (GtkSignalFunc) item_event_valid,
+		   (GCallback) item_event_valid,
 		   "Y");
 
   gc_item_focus_init(item1, NULL);
@@ -704,10 +704,10 @@ ask_yes_no()
   item1 = addBackground(boardRootItem, item2);
 
   g_signal_connect(item2, "button-press-event",
-		   (GtkSignalFunc) item_event_valid,
+		   (GCallback) item_event_valid,
 		   "N");
   g_signal_connect(item1, "button-press-event",
-		   (GtkSignalFunc) item_event_valid,
+		   (GCallback) item_event_valid,
 		   "N");
 
   gc_item_focus_init(item1, NULL);
@@ -727,7 +727,7 @@ player_win()
   if(gcomprisBoard->level>gcomprisBoard->maxlevel)
     gcomprisBoard->level = gcomprisBoard->maxlevel;
 
-  next_level_timer = g_timeout_add(3000, (GtkFunction)reading_next_level, NULL);
+  next_level_timer = g_timeout_add(3000, (GSourceFunc)reading_next_level, NULL);
 }
 
 static void
@@ -753,7 +753,7 @@ player_loose()
 
   gc_bonus_display(gamewon, GC_BONUS_FLOWER);
 
-  next_level_timer = g_timeout_add(3000, (GtkFunction)reading_next_level, NULL);
+  next_level_timer = g_timeout_add(3000, (GSourceFunc)reading_next_level, NULL);
 }
 
 /* Callback for the yes and no buttons */

@@ -44,70 +44,52 @@ static const int jump [] = { 8, 12,19, 21,-8,-12,-19,-21,
 			     -9,-11, 1,-10,-1     };
 static Square *nindex, *sindex;
 
-/* Prototypes */
-static void class_init (PositionClass *class);
-static void init (Position *pos);
+G_DEFINE_TYPE(Position, position, G_TYPE_OBJECT);
 
+/* Prototypes */
 static void position_set_empty (Position *pos);
 
-GtkType
-position_get_type ()
+static GObject *
+position_constructor (GType                  gtype,
+		      guint                  n_properties,
+                      GObjectConstructParam *properties)
 {
-	static guint position_type = 0;
+  GObject *obj;
 
-	if (!position_type) {
-		GtkTypeInfo position_info = {
-			"Position",
-			sizeof (Position),
-			sizeof (PositionClass),
-			(GtkClassInitFunc) class_init,
-			(GtkObjectInitFunc) init,
-			(gpointer) NULL,
-			(gpointer) NULL,
-			(GtkClassInitFunc) NULL
-		};
-		position_type = gtk_type_unique (gtk_object_get_type (),
-						 &position_info);
-	}
+  {
+    /* Always chain up to the parent constructor */
+    obj = G_OBJECT_CLASS (position_parent_class)->constructor (gtype, n_properties, properties);
+  }
 
-	return position_type;
+  /* update the object state depending on constructor properties */
+
+  return obj;
+}
+
+
+static void
+position_class_init (PositionClass *klass)
+{
+        g_type_class_add_private (klass, sizeof (PositionPrivate));
+	GObjectClass *gobject_class = G_OBJECT_CLASS (klass);
+	gobject_class->constructor = position_constructor;
+
 }
 
 static void
-finalize (GtkObject *object)
+position_init (Position *self)
 {
-	Position *pos = (Position *) object;
-
-	g_free (pos->priv);
-
-	pos->priv = NULL;
+	self->priv = POSITION_GET_PRIVATE (self);
+	position_set_empty (self);
 }
 
-static void
-class_init (PositionClass *class)
-{
-	GtkObjectClass *object_class;
-
-	object_class = (GtkObjectClass*) class;
-
-	object_class->destroy = finalize;
-}
-
-static void
-init (Position *pos)
-{
-	pos->priv = g_new0 (PositionPrivate, 1);
-
-	position_set_empty (pos);
-}
-
-GtkObject *
+GObject *
 position_new ()
 {
-	return GTK_OBJECT (gtk_type_new (position_get_type ()));
+  return G_OBJECT (g_object_new (position_get_type (), NULL));
 }
 
-GtkObject *
+GObject *
 position_new_initial ()
 {
 	Position *pos;
@@ -115,7 +97,7 @@ position_new_initial ()
 	pos = POSITION (position_new ());
 	position_set_initial (pos);
 
-	return GTK_OBJECT (pos);
+	return G_OBJECT (pos);
 }
 
 Position *

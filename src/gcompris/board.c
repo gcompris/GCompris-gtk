@@ -405,7 +405,7 @@ void gc_board_run_next(GcomprisBoard *board)
   next_board = board;
 
   next_board_callback_id = g_timeout_add (NEXT_TIME_DELAY,
-					  (GtkFunction) board_run_next_end,
+					  (GSourceFunc) board_run_next_end,
 					  NULL);
 
 }

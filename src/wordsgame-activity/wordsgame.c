@@ -162,10 +162,10 @@ static void pause_board (gboolean pause)
     {
       if(!drop_items_id) {
 	drop_items_id = g_timeout_add (0,
-				       (GtkFunction) wordsgame_drop_items, NULL);
+				       (GSourceFunc) wordsgame_drop_items, NULL);
       }
       if(!dummy_id) {
-	dummy_id = g_timeout_add (10, (GtkFunction) wordsgame_move_items, NULL);
+	dummy_id = g_timeout_add (10, (GSourceFunc) wordsgame_move_items, NULL);
       }
     }
 }
@@ -511,7 +511,7 @@ static void wordsgame_move_item(LettersItem *item)
     g_ptr_array_add (items2del, item);
     g_static_rw_lock_writer_unlock (&items2del_lock);
 
-    g_timeout_add (100,(GtkFunction) wordsgame_destroy_items, items2del);
+    g_timeout_add (100,(GSourceFunc) wordsgame_destroy_items, items2del);
 
     player_loose();
   }
@@ -536,7 +536,7 @@ static gint wordsgame_move_items (GtkWidget *widget, gpointer data)
       wordsgame_move_item(item);
     }
   dummy_id = g_timeout_add (gc_timing (speed, items->len),
-          (GtkFunction) wordsgame_move_items, NULL);
+          (GSourceFunc) wordsgame_move_items, NULL);
   return (FALSE);
 }
 
@@ -711,7 +711,7 @@ static gint wordsgame_drop_items (GtkWidget *widget, gpointer data)
   gc_sound_play_ogg ("sounds/level.wav", NULL);
   wordsgame_add_new_item();
   g_source_remove(drop_items_id);
-  drop_items_id = g_timeout_add (fallSpeed,(GtkFunction) wordsgame_drop_items, NULL);
+  drop_items_id = g_timeout_add (fallSpeed,(GSourceFunc) wordsgame_drop_items, NULL);
 
   return (FALSE);
 }
@@ -736,7 +736,7 @@ static void player_win(LettersItem *item)
   g_static_rw_lock_writer_unlock (&items2del_lock);
 
   g_object_set (item->rootitem, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
-  g_timeout_add (500,(GtkFunction) wordsgame_destroy_items, items2del);
+  g_timeout_add (500,(GSourceFunc) wordsgame_destroy_items, items2del);
 
 
   if(gcomprisBoard->sublevel > gcomprisBoard->number_of_sublevel)
@@ -774,7 +774,7 @@ static void player_win(LettersItem *item)
 
           if(!drop_items_id) {
             drop_items_id = g_timeout_add (0,
-					   (GtkFunction) wordsgame_drop_items,
+					   (GSourceFunc) wordsgame_drop_items,
 					   NULL);
           }
 

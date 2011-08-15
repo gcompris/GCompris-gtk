@@ -228,13 +228,13 @@ static GooCanvasItem *leftright_create_item(GooCanvasItem *parent) {
 			  BOARDWIDTH/3, BOARDHEIGHT*2/3 + 50,
 			  "#BUTTON_TEXT",
 			  _("left"),
-			  (GtkSignalFunc) clicked_left, NULL);
+			  (GCallback) clicked_left, NULL);
 
   gc_util_button_text_svg(boardRootItem,
 			  BOARDWIDTH*2/3, BOARDHEIGHT*2/3 + 50,
 			  "#BUTTON_TEXT",
 			  _("right"),
-			  (GtkSignalFunc) clicked_right, NULL);
+			  (GCallback) clicked_right, NULL);
 
   // make sure that next hand is not the same as previous
   do {

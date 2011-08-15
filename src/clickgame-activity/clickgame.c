@@ -56,9 +56,9 @@ static void	 clickgame_set_level (guint level);
 static void	 clickgame_config(void);
 
 static FishItem *clickgame_create_item();
-static gint	 clickgame_drop_items (GtkWidget *widget, gpointer data);
-static gint	 clickgame_move_items (GtkWidget *widget, gpointer data);
-static gint	 clickgame_animate_items (GtkWidget *widget, gpointer data);
+static gboolean	 clickgame_drop_items (gpointer data);
+static gboolean	 clickgame_move_items (gpointer data);
+static gboolean  clickgame_animate_items (gpointer data);
 static void	 clickgame_destroy_item(FishItem *fishitem);
 static void	 clickgame_destroy_items(void);
 static void	 clickgame_destroy_all_items(void);
@@ -165,29 +165,29 @@ static void clickgame_pause (gboolean pause)
   if(pause)
     {
       if (move_items_id) {
-	gtk_timeout_remove (move_items_id);
+	g_source_remove (move_items_id);
 	move_items_id = 0;
       }
       if (animate_id) {
-	gtk_timeout_remove (animate_id);
+	g_source_remove (animate_id);
 	animate_id = 0;
       }
       if (drop_items_id) {
-	gtk_timeout_remove (drop_items_id);
+	g_source_remove (drop_items_id);
 	drop_items_id = 0;
       }
     }
   else
     {
       if(!drop_items_id) {
-	drop_items_id = gtk_timeout_add (200,
-					 (GtkFunction) clickgame_drop_items, NULL);
+	drop_items_id = g_timeout_add (200,
+				       clickgame_drop_items, NULL);
       }
       if(!move_items_id) {
-	move_items_id = gtk_timeout_add (200, (GtkFunction) clickgame_move_items, NULL);
+	move_items_id = g_timeout_add (200, clickgame_move_items, NULL);
       }
       if(!animate_id) {
-	animate_id = gtk_timeout_add (200, (GtkFunction) clickgame_animate_items, NULL);
+	animate_id = g_timeout_add (200, clickgame_animate_items, NULL);
       }
     }
 
@@ -231,9 +231,9 @@ fish_gobble (FishItem *fishitem)
     {
       /* Remove any pending new item creation to sync the falls */
       if (drop_items_id)
-	gtk_timeout_remove (drop_items_id);
+	g_source_remove (drop_items_id);
       drop_items_id =
-	gtk_timeout_add (0, (GtkFunction) clickgame_drop_items, NULL);
+	g_timeout_add (0, clickgame_drop_items, NULL);
     }
 }
 
@@ -367,7 +367,7 @@ static void clickgame_start (GcomprisBoard *agcomprisBoard)
 
   g_signal_connect(goo_canvas_get_root_item(gcomprisBoard->canvas),
 		   "enter_notify_event",
-		   (GtkSignalFunc) canvas_event, NULL);
+		   (GCallback) canvas_event, NULL);
   clickgame_next_level();
 
   clickgame_pause(FALSE);
@@ -382,7 +382,7 @@ clickgame_end ()
       gc_score_end();
       clickgame_destroy_all_items();
       g_signal_handlers_disconnect_by_func(goo_canvas_get_root_item(gcomprisBoard->canvas),
-					   (GtkSignalFunc) canvas_event, NULL);
+					   (GCallback) canvas_event, NULL);
       gcomprisBoard->level = 1;       // Restart this game to zero
     }
   gcomprisBoard = NULL;
@@ -580,15 +580,15 @@ static void clickgame_destroy_all_items()
  * This does the moves of the game items on the play canvas
  *
  */
-static gint clickgame_move_items (GtkWidget *widget, gpointer data)
+static gboolean clickgame_move_items (gpointer data)
 {
   g_list_foreach (item_list, (GFunc) clickgame_move_item, NULL);
 
   /* Destroy items that falls out of the canvas */
   clickgame_destroy_items();
 
-  move_items_id = gtk_timeout_add (moveSpeed,
-				   (GtkFunction) clickgame_move_items, NULL);
+  move_items_id = g_timeout_add (moveSpeed,
+				 clickgame_move_items, NULL);
 
   return(FALSE);
 }
@@ -597,12 +597,12 @@ static gint clickgame_move_items (GtkWidget *widget, gpointer data)
  * This does the icon animation
  *
  */
-static gint clickgame_animate_items (GtkWidget *widget, gpointer data)
+static gboolean clickgame_animate_items (gpointer data)
 {
   g_list_foreach (item_list, (GFunc) clickgame_animate_item, NULL);
 
-  animate_id = gtk_timeout_add (1000,
-			      (GtkFunction) clickgame_animate_items, NULL);
+  animate_id = g_timeout_add (1000,
+			      clickgame_animate_items, NULL);
 
   return(FALSE);
 }
@@ -709,7 +709,7 @@ clickgame_create_item()
 			   NULL);
 
   g_signal_connect(rootitem, "button_press_event",
-		   (GtkSignalFunc) item_event, fishitem);
+		   (GCallback) item_event, fishitem);
 
   fishitem->rootitem = rootitem;
 
@@ -775,12 +775,12 @@ clickgame_create_item()
  * This is called on a low frequency and is used to drop new items
  *
  */
-static gint clickgame_drop_items (GtkWidget *widget, gpointer data)
+static gboolean clickgame_drop_items (gpointer data)
 {
   clickgame_create_item();
 
-  drop_items_id = gtk_timeout_add (fallSpeed,
-				   (GtkFunction) clickgame_drop_items, NULL);
+  drop_items_id = g_timeout_add (fallSpeed,
+				 clickgame_drop_items, NULL);
   return (FALSE);
 }
 

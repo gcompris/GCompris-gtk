@@ -416,11 +416,11 @@ static GooCanvasItem *enumerate_create_item(GooCanvasItem *parent)
 				       NULL);
 
 	  g_signal_connect (item, "motion_notify_event",
-			    (GtkSignalFunc) on_motion_notify, NULL);
+			    (GCallback) on_motion_notify, NULL);
 	  g_signal_connect (item, "button_press_event",
-			    (GtkSignalFunc) on_button_press, NULL);
+			    (GCallback) on_button_press, NULL);
 	  g_signal_connect (item, "button_release_event",
-			    (GtkSignalFunc) on_button_release, NULL);
+			    (GCallback) on_button_release, NULL);
 	}
 
       /* Display the answer area */
@@ -436,7 +436,7 @@ static GooCanvasItem *enumerate_create_item(GooCanvasItem *parent)
 			      NULL);
 
       g_signal_connect(item, "button-press-event",
-		       (GtkSignalFunc) item_event_focus, GINT_TO_POINTER(i));
+		       (GCallback) item_event_focus, GINT_TO_POINTER(i));
 
       gdk_pixbuf_unref(pixmap_answer);
 
@@ -466,7 +466,7 @@ static GooCanvasItem *enumerate_create_item(GooCanvasItem *parent)
       gdk_pixbuf_unref(pixmap);
 
       g_signal_connect(item, "button-press-event",
-		       (GtkSignalFunc) item_event_focus, GINT_TO_POINTER(i));
+		       (GCallback) item_event_focus, GINT_TO_POINTER(i));
       gc_item_focus_init(item, NULL);
 
 
@@ -482,7 +482,7 @@ static GooCanvasItem *enumerate_create_item(GooCanvasItem *parent)
 			     NULL);
       g_signal_connect(answer_item[i],
 		       "button-press-event",
-		       (GtkSignalFunc) item_event_focus, GINT_TO_POINTER(i));
+		       (GCallback) item_event_focus, GINT_TO_POINTER(i));
 
     }
 

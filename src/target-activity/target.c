@@ -74,7 +74,7 @@ static gboolean		tooltip_event (GooCanvasItem  *item,
 				       GooCanvasItem  *target,
 				       GdkEventButton *event,
 				       gpointer gpoint);
-static void		animate_items(void);
+static gboolean		animate_items(gpointer data);
 static void		launch_dart(double item_x, double item_y);
 
 /*
@@ -171,14 +171,14 @@ static void pause_board (gboolean pause)
   if(pause)
     {
       if (animate_id) {
-	gtk_timeout_remove (animate_id);
+	g_source_remove (animate_id);
 	animate_id = 0;
       }
     }
   else
     {
       if(animate_item) {
-	animate_id = gtk_timeout_add (200, (GtkFunction) animate_items, NULL);
+	animate_id = g_timeout_add (200, animate_items, NULL);
       }
     }
 
@@ -456,7 +456,7 @@ static GooCanvasItem *target_create_item(GooCanvasItem *parent)
 				    NULL);
 
 	  goo_canvas_item_lower(item, NULL);
-	  g_signal_connect(item, "button-press-event", (GtkSignalFunc) item_event, NULL);
+	  g_signal_connect(item, "button-press-event", (GCallback) item_event, NULL);
 
 	  /* Display the value for this target */
 	  tmpstr = g_strdup_printf("%d",
@@ -472,7 +472,7 @@ static GooCanvasItem *target_create_item(GooCanvasItem *parent)
 				      NULL);
 	  g_free(tmpstr);
 
-	  g_signal_connect(item, "button-press-event", (GtkSignalFunc) item_event, NULL);
+	  g_signal_connect(item, "button-press-event", (GCallback) item_event, NULL);
 	}
     }
 
@@ -524,10 +524,11 @@ static void game_won()
   target_next_level();
 }
 
-static void bonus()
+static gboolean bonus(gpointer data)
 {
   gc_bonus_display(gamewon, GC_BONUS_SMILEY);
   animate_id = 0;
+  return(FALSE);
 }
 
 static void process_ok()
@@ -539,7 +540,7 @@ static void process_ok()
     if(answer_points == user_points)
       {
 	gamewon = TRUE;
-	animate_id = gtk_timeout_add (200, (GtkFunction) bonus, NULL);
+	animate_id = g_timeout_add (200, bonus, NULL);
       }
   }
 
@@ -627,13 +628,13 @@ static guint add_points(double x, double y)
  * Dart animation
  *
  */
-static void animate_items()
+static gboolean animate_items(gpointer data)
 {
   if(board_paused)
-    return;
+    return(FALSE);
 
   if(!animate_item)
-    return;
+    return(FALSE);
 
   // Apply the wind move
   animate_item_x = animate_item_x + wind_speed * sin(ang);
@@ -659,20 +660,20 @@ static void animate_items()
       // Add a tooltip on this dart to let the children
       // see how we count it
       g_signal_connect(animate_item,
-		       "enter_notify_event", (GtkSignalFunc) tooltip_event,
+		       "enter_notify_event", (GCallback) tooltip_event,
 		       GINT_TO_POINTER(points));
       g_signal_connect(animate_item,
-		       "leave_notify_event", (GtkSignalFunc) tooltip_event,
+		       "leave_notify_event", (GCallback) tooltip_event,
 		       GINT_TO_POINTER(-1));
 
-      gtk_timeout_remove (animate_id);
+      g_source_remove (animate_id);
       animate_id = 0;
       animate_item = NULL;
 
       // Change the wind for the next target
       display_windspeed();
     }
-
+  return(TRUE);
 }
 
 /*
@@ -699,7 +700,7 @@ static void launch_dart(double item_x, double item_y)
 					NULL);
   /* Make sure the target values stay on top */
   goo_canvas_item_lower(animate_item, valueRootItem);
-  animate_id = gtk_timeout_add (200, (GtkFunction) animate_items, NULL);
+  animate_id = g_timeout_add (200, animate_items, NULL);
 
   if(--number_of_arrow == 0)
     {

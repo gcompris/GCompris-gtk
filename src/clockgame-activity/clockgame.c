@@ -488,11 +488,11 @@ clockgame_create_item(GooCanvasItem *parent)
   hour_item = goo_canvas_polyline_new (boardRootItem, FALSE, 0,
 				       NULL);
   g_signal_connect (hour_item, "motion_notify_event",
-		    (GtkSignalFunc) on_motion_notify, NULL);
+		    (GCallback) on_motion_notify, NULL);
   g_signal_connect (hour_item, "button_press_event",
-		    (GtkSignalFunc) on_button_press, NULL);
+		    (GCallback) on_button_press, NULL);
   g_signal_connect (hour_item, "button_release_event",
-		    (GtkSignalFunc) on_button_release, NULL);
+		    (GCallback) on_button_release, NULL);
   display_hour(currentTime.hour);
 
   /* Create the minute needle */
@@ -500,11 +500,11 @@ clockgame_create_item(GooCanvasItem *parent)
   minute_item = goo_canvas_polyline_new (boardRootItem, FALSE, 0,
 					 NULL);
   g_signal_connect (minute_item, "motion_notify_event",
-		    (GtkSignalFunc) on_motion_notify, NULL);
+		    (GCallback) on_motion_notify, NULL);
   g_signal_connect (minute_item, "button_press_event",
-		    (GtkSignalFunc) on_button_press, NULL);
+		    (GCallback) on_button_press, NULL);
   g_signal_connect (minute_item, "button_release_event",
-		    (GtkSignalFunc) on_button_release, NULL);
+		    (GCallback) on_button_release, NULL);
   display_minute(currentTime.minute);
 
   /* Create the second needle */
@@ -512,11 +512,11 @@ clockgame_create_item(GooCanvasItem *parent)
   second_item = goo_canvas_polyline_new (boardRootItem, FALSE, 0,
 					 NULL);
   g_signal_connect (second_item, "motion_notify_event",
-		    (GtkSignalFunc) on_motion_notify, NULL);
+		    (GCallback) on_motion_notify, NULL);
   g_signal_connect (second_item, "button_press_event",
-		    (GtkSignalFunc) on_button_press, NULL);
+		    (GCallback) on_button_press, NULL);
   g_signal_connect (second_item, "button_release_event",
-		    (GtkSignalFunc) on_button_release, NULL);
+		    (GCallback) on_button_release, NULL);
   display_second(currentTime.second);
 
   /* Create the text area for the time to find display */

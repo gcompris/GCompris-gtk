@@ -40,8 +40,8 @@ static void set_level (guint level);
 static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str);
 
 static void smallnumbers_create_item(GooCanvasItem *parent);
-static gint smallnumbers_drop_items (GtkWidget *widget, gpointer data);
-static gint smallnumbers_move_items (GtkWidget *widget, gpointer data);
+static gboolean smallnumbers_drop_items (gpointer data);
+static gboolean smallnumbers_move_items (gpointer data);
 static void smallnumbers_destroy_all_items(void);
 static void smallnumbers_next_level(void);
 static gboolean smallnumbers_gotkey_item(GooCanvasItem *item, guint key);
@@ -107,11 +107,11 @@ static void pause_board (gboolean pause)
   if(pause)
     {
       if (dummy_id) {
-	gtk_timeout_remove (dummy_id);
+	g_source_remove (dummy_id);
 	dummy_id = 0;
       }
       if (drop_items_id) {
-	gtk_timeout_remove (drop_items_id);
+	g_source_remove (drop_items_id);
 	drop_items_id = 0;
       }
     }
@@ -123,11 +123,11 @@ static void pause_board (gboolean pause)
 	}
 
       if(!drop_items_id) {
-	drop_items_id = gtk_timeout_add (1000,
-					 (GtkFunction) smallnumbers_drop_items, NULL);
+	drop_items_id = g_timeout_add (1000,
+				       smallnumbers_drop_items, NULL);
       }
       if(!dummy_id) {
-	dummy_id = gtk_timeout_add (1000, (GtkFunction) smallnumbers_move_items, NULL);
+	dummy_id = g_timeout_add (1000, smallnumbers_move_items, NULL);
       }
     }
 }
@@ -346,7 +346,7 @@ static void smallnumbers_move_item(GooCanvasItem *item)
  * This does the moves of the game items on the play canvas
  *
  */
-static gint smallnumbers_move_items (GtkWidget *widget, gpointer data)
+static gboolean smallnumbers_move_items (gpointer data)
 {
   int i;
   int count = goo_canvas_item_get_n_children(boardRootItem);
@@ -355,8 +355,8 @@ static gint smallnumbers_move_items (GtkWidget *widget, gpointer data)
   for(i=0; i<count; i++)
     smallnumbers_move_item(goo_canvas_item_get_child(boardRootItem, i));
 
-  dummy_id = gtk_timeout_add (gc_timing (speed, count),
-			      (GtkFunction) smallnumbers_move_items, NULL);
+  dummy_id = g_timeout_add (gc_timing (speed, count),
+			    smallnumbers_move_items, NULL);
 
   return(FALSE);
 }
@@ -470,13 +470,13 @@ static void smallnumbers_create_item(GooCanvasItem *parent)
  * This is called on a low frequency and is used to drop new items
  *
  */
-static gint smallnumbers_drop_items (GtkWidget *widget, gpointer data)
+static gboolean smallnumbers_drop_items (gpointer data)
 {
   gc_sound_play_ogg ("sounds/level.wav", NULL);
   smallnumbers_create_item(boardRootItem);
 
-  drop_items_id = gtk_timeout_add (fallSpeed,
-				   (GtkFunction) smallnumbers_drop_items, NULL);
+  drop_items_id = g_timeout_add (fallSpeed,
+				 smallnumbers_drop_items, NULL);
   return (FALSE);
 }
 

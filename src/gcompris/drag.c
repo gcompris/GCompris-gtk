@@ -189,7 +189,7 @@ gc_drag_start(GooCanvasItem *root_item,
 	      gc_drag_mode_type mode)
 {
   g_signal_connect(root_item, "motion_notify_event",
-  		   (GtkSignalFunc) gc_drag_event_root, NULL);
+  		   (GCallback) gc_drag_event_root, NULL);
   gc_drag_func = function;
   gc_drag_user_data = NULL;
   gc_drag_status = 0;
@@ -214,7 +214,7 @@ gc_drag_stop(GooCanvasItem *root_item)
       gc_drag_func(gc_drag_item, NULL, &event, gc_drag_user_data);
     }
   g_signal_handlers_disconnect_by_func(root_item,
-				       (GtkSignalFunc) gc_drag_event_root,
+				       (GCallback) gc_drag_event_root,
 				       NULL);
   gc_drag_func = NULL;
   gc_drag_user_data = NULL;

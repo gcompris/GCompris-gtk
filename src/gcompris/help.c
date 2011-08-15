@@ -171,7 +171,7 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
 			y_start  - 10)
 
       g_signal_connect(item_prerequisite, "button_press_event",
-			 (GtkSignalFunc) item_event_help,
+			 (GCallback) item_event_help,
 			 "prerequisite");
       gc_item_focus_init(item_prerequisite, NULL);
 
@@ -186,7 +186,7 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
 			     "fill-color-rgba", gc_skin_get_color("gcompris/helpunselect"),
 			     NULL);
       g_signal_connect(item_prerequisite_text, "button_press_event",
-			 (GtkSignalFunc) item_event_help,
+			 (GCallback) item_event_help,
 			 "prerequisite");
     }
 
@@ -202,7 +202,7 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
 			y_start  - 10);
 
       g_signal_connect(item_goal, "button_press_event",
-			 (GtkSignalFunc) item_event_help,
+			 (GCallback) item_event_help,
 			 "goal");
       gc_item_focus_init(item_goal, NULL);
 
@@ -216,7 +216,7 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
 					    "fill-color-rgba", gc_skin_get_color("gcompris/helpunselect"),
 					    NULL);
       g_signal_connect(item_goal_text, "button_press_event",
-			 (GtkSignalFunc) item_event_help,
+			 (GCallback) item_event_help,
 			 "goal");
     }
 
@@ -232,7 +232,7 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
 			y_start  - 10);
 
       g_signal_connect(item_manual, "button_press_event",
-			 (GtkSignalFunc) item_event_help,
+			 (GCallback) item_event_help,
 			 "manual");
       gc_item_focus_init(item_manual, NULL);
 
@@ -246,7 +246,7 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
 					      "fill-color-rgba", gc_skin_get_color("gcompris/helpunselect"),
 					      NULL);
       g_signal_connect(item_manual_text, "button_press_event",
-			 (GtkSignalFunc) item_event_help,
+			 (GCallback) item_event_help,
 			 "manual");
     }
 
@@ -262,7 +262,7 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
 			y_start  - 10);
 
       g_signal_connect(item_credit, "button_press_event",
-			 (GtkSignalFunc) item_event_help,
+			 (GCallback) item_event_help,
 			 "credit");
       gc_item_focus_init(item_credit, NULL);
 
@@ -276,7 +276,7 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
 					      "fill-color-rgba", gc_skin_get_color("gcompris/helpunselect"),
 					      NULL);
       g_signal_connect(item_credit_text, "button_press_event",
-			 (GtkSignalFunc) item_event_help,
+			 (GCallback) item_event_help,
 			 "credit");
     }
 
@@ -315,8 +315,8 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
   gtk_text_view_set_editable(GTK_TEXT_VIEW (view), FALSE);
   gtk_text_view_set_cursor_visible(GTK_TEXT_VIEW (view), FALSE);
 
-  gtk_signal_connect(GTK_OBJECT(view), "button-press-event",
-		     (GtkSignalFunc) event_disable_right_click_popup, NULL);
+  g_signal_connect(GTK_OBJECT(view), "button-press-event",
+		   (GCallback) event_disable_right_click_popup, NULL);
 
   PangoFontDescription *font_desc;
   font_desc = pango_font_description_from_string (gc_skin_font_content);
@@ -353,7 +353,7 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
 			  y,
 			  "#BUTTON_TEXT",
 			  _("OK"),
-			  (GtkSignalFunc) item_event_help,
+			  (GCallback) item_event_help,
 			  "ok");
 
   gc_bar_hide(TRUE);

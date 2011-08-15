@@ -145,7 +145,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       g_signal_connect(goo_canvas_get_root_item(gcomprisBoard->canvas),
 		       "button_press_event",
-		       (GtkSignalFunc) MouseClick, NULL);
+		       (GCallback) MouseClick, NULL);
 
       boardRootItem = NULL;
       gDiffCoorArray = g_array_new( FALSE, FALSE, sizeof(GooCanvasBounds) );
@@ -169,7 +169,7 @@ static void end_board ()
   CleanLevelDatas( );
 
   g_signal_handlers_disconnect_by_func(goo_canvas_get_root_item(gcomprisBoard->canvas),
-				       (GtkSignalFunc) MouseClick, NULL);
+				       (GCallback) MouseClick, NULL);
 
   gcomprisBoard = NULL;
   if(boardRootItem!=NULL)

@@ -232,7 +232,7 @@ display_confirm(gchar *title,
 			   button_y + 2*button_h/3);
 
   g_signal_connect(no_button, "button_press_event",
-		     (GtkSignalFunc) button_event,
+		     (GCallback) button_event,
 		     "/no/");
 
   gc_item_focus_init(no_button, NULL);
@@ -247,7 +247,7 @@ display_confirm(gchar *title,
 			   button_y + 2*button_h/3);
 
   g_signal_connect(no_cross, "button_press_event",
-		     (GtkSignalFunc) button_event,
+		     (GCallback) button_event,
 		     "/no/");
   gc_item_focus_init(no_cross, no_button);
 
@@ -273,7 +273,7 @@ display_confirm(gchar *title,
 			   button_y + button_h/3);
 
   g_signal_connect(yes_button, "button_press_event",
-		     (GtkSignalFunc) button_event,
+		     (GCallback) button_event,
 		     "/yes/");
 
   gc_item_focus_init(yes_button, NULL);
@@ -289,7 +289,7 @@ display_confirm(gchar *title,
 
 
   g_signal_connect(yes_stick, "button_press_event",
-		     (GtkSignalFunc) button_event,
+		     (GCallback) button_event,
 		     "/yes/");
   gc_item_focus_init(yes_stick, yes_button);
 

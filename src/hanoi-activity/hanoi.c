@@ -544,17 +544,17 @@ hanoi_create_item(GooCanvasItem *parent)
 	      if(i != number_of_item_x+1)
 		{
 		  g_signal_connect(item, "button_press_event",
-				   (GtkSignalFunc)gc_drag_event,
+				   (GCallback)gc_drag_event,
 				   position[i][j]);
 		  g_signal_connect(item, "button_release_event",
-				   (GtkSignalFunc)gc_drag_event,
+				   (GCallback)gc_drag_event,
 				   position[i][j]);
 
 		  g_signal_connect(item, "enter_notify_event",
-				   (GtkSignalFunc) item_event,
+				   (GCallback) item_event,
 				   position[i][j]);
 		  g_signal_connect(item, "leave_notify_event",
-				   (GtkSignalFunc) item_event,
+				   (GCallback) item_event,
 				   position[i][j]);
 		}
 	    }

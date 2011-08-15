@@ -343,12 +343,12 @@ create_panel(GooCanvasItem *parent)
       g_object_set_data (G_OBJECT (item), "board", board);
 
       g_signal_connect(item, "button_press_event",
-		       (GtkSignalFunc) item_event,
+		       (GCallback) item_event,
 		       menuitems);
       g_signal_connect (item, "enter_notify_event",
-			(GtkSignalFunc) on_enter_notify, menuitems);
+			(GCallback) on_enter_notify, menuitems);
       g_signal_connect (item, "leave_notify_event",
-			(GtkSignalFunc) on_leave_notify, menuitems);
+			(GCallback) on_leave_notify, menuitems);
 
       gc_item_focus_init(item, NULL);
     }
@@ -559,12 +559,12 @@ static void menu_create_item(GooCanvasItem *parent, MenuItems *menuitems, Gcompr
   g_object_set_data (G_OBJECT (menu_button), "board", board);
 
   g_signal_connect(menu_button, "button_press_event",
-		   (GtkSignalFunc) item_event,
+		   (GCallback) item_event,
 		   menuitems);
   g_signal_connect (menu_button, "enter_notify_event",
-		    (GtkSignalFunc) on_enter_notify, menuitems);
+		    (GCallback) on_enter_notify, menuitems);
   g_signal_connect (menu_button, "leave_notify_event",
-		    (GtkSignalFunc) on_leave_notify, menuitems);
+		    (GCallback) on_leave_notify, menuitems);
 
   gc_item_focus_init(menu_button, NULL);
 
@@ -832,7 +832,7 @@ create_top(GooCanvasItem *parent, gchar *path)
       g_object_set_data (G_OBJECT (item), "board", board);
 
       g_signal_connect(item, "button_press_event",
-		       (GtkSignalFunc) item_event,
+		       (GCallback) item_event,
 		       menuitems);
 
       gc_item_focus_init(item, NULL);
@@ -897,9 +897,9 @@ display_welcome (MenuItems *menuitems)
 
 
   g_signal_connect (item, "enter_notify_event",
-		    (GtkSignalFunc) display_welcome_event, menuitems);
+		    (GCallback) display_welcome_event, menuitems);
   g_signal_connect (item, "leave_notify_event",
-		    (GtkSignalFunc) on_leave_notify, menuitems);
+		    (GCallback) on_leave_notify, menuitems);
 
   menu_displayed = TRUE;
 }

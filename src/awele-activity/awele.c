@@ -447,7 +447,7 @@ awele_create_item (GooCanvasItem * parent)
 
       g_signal_connect (graphsElt->button[i],
 			"button_press_event",
-			GTK_SIGNAL_FUNC (buttonClick),
+			(GCallback) buttonClick,
 			GINT_TO_POINTER(i));
       gc_item_focus_init(graphsElt->button[i], NULL);
 

@@ -111,12 +111,12 @@ static void pause_board (gboolean pause)
     {
       if(!drop_items_id) {
 	drop_items_id = g_timeout_add (1000,
-				       (GtkFunction) planegame_drop_items,
+				       (GSourceFunc) planegame_drop_items,
 				       NULL);
       }
       if(!planemove_id) {
 	planemove_id = g_timeout_add (1000,
-				      (GtkFunction) planegame_move_items,
+				      (GSourceFunc) planegame_move_items,
 				      NULL);
       }
     }
@@ -420,7 +420,7 @@ static gint planegame_move_items (GtkWidget *widget, gpointer data)
   /* move the plane */
   planegame_move_plane(planeitem);
   planemove_id = g_timeout_add (speed,
-				(GtkFunction) planegame_move_items, NULL);
+				(GSourceFunc) planegame_move_items, NULL);
 
   return(FALSE);
 }
@@ -519,7 +519,7 @@ static gint planegame_drop_items (GtkWidget *widget, gpointer data)
   planegame_add_new_item();
 
   drop_items_id = g_timeout_add (fallSpeed,
-				 (GtkFunction) planegame_drop_items, NULL);
+				 (GSourceFunc) planegame_drop_items, NULL);
   return (FALSE);
 }
 

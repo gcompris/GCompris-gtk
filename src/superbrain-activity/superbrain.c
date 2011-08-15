@@ -285,7 +285,7 @@ static void superbrain_next_level()
 					    NULL);
   SET_ITEM_LOCATION(item, 270, 50);
   g_signal_connect(item, "button_press_event",
-		   (GtkSignalFunc) process_ok, NULL);
+		   (GCallback) process_ok, NULL);
   gc_item_focus_init(item, NULL);
 
   /* The list of the pieces */
@@ -434,7 +434,7 @@ static GooCanvasItem *superbrain_create_item(GooCanvasItem *parent)
 	  piece->listitem = g_list_append(piece->listitem, item);
 
 	  g_signal_connect(item, "button-press-event",
-			   (GtkSignalFunc) item_event, piece);
+			   (GCallback) item_event, piece);
 	}
 
       piece->selecteditem = 0;
@@ -619,7 +619,7 @@ void listPiecesClear()
 	{
 	  GooCanvasItem *item = g_list_nth_data(piece->listitem, j);
 	  g_signal_handlers_disconnect_by_func(item,
-					       (GtkSignalFunc) item_event, piece);
+					       (GCallback) item_event, piece);
 	  gc_item_focus_remove(item, NULL);
 	}
       g_free(piece);

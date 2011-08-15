@@ -592,17 +592,17 @@ static void shapegame_init_canvas(GooCanvasItem *parent)
 
   g_signal_connect(continue_root_item,
 		   "button_press_event",
-		   (GtkSignalFunc) item_event_ok,
+		   (GCallback) item_event_ok,
 		   "continue_click");
 
   g_signal_connect(continue_root_item,
 		   "enter_notify_event",
-		   (GtkSignalFunc) item_event_ok,
+		   (GCallback) item_event_ok,
 		   "title_raise");
 
   g_signal_connect(continue_root_item,
 		   "leave_notify_event",
-		   (GtkSignalFunc) item_event_ok,
+		   (GCallback) item_event_ok,
 		   "title_lower");
 
   /* Hide the continue */
@@ -644,7 +644,7 @@ add_shape_to_list_of_shapes(Shape *shape)
 
       g_signal_connect(previous_shapelist_item,
 		       "button_press_event",
-		       (GtkSignalFunc) item_event_ok,
+		       (GCallback) item_event_ok,
 		       "previous_shapelist");
       gc_item_focus_init(previous_shapelist_item, NULL);
 
@@ -659,7 +659,7 @@ add_shape_to_list_of_shapes(Shape *shape)
 			shapeBox.h);
 
       g_signal_connect(next_shapelist_item, "button_press_event",
-		       (GtkSignalFunc) item_event_ok,
+		       (GCallback) item_event_ok,
 		       "next_shapelist");
       gc_item_focus_init(next_shapelist_item, NULL);
 
@@ -1305,18 +1305,18 @@ static void
 setup_item(GooCanvasItem *item, Shape *shape)
 {
   g_signal_connect(item, "enter_notify_event",
-		   (GtkSignalFunc) item_event,
+		   (GCallback) item_event,
 		   shape);
   g_signal_connect(item, "leave_notify_event",
-		   (GtkSignalFunc) item_event,
+		   (GCallback) item_event,
 		   shape);
   g_signal_connect(item, "button_press_event",
-		   (GtkSignalFunc) item_event,
+		   (GCallback) item_event,
 		   shape);
   g_signal_connect(item, "button_press_event",
-		   (GtkSignalFunc) gc_drag_event, shape);
+		   (GCallback) gc_drag_event, shape);
   g_signal_connect(item, "button_release_event",
-		   (GtkSignalFunc) gc_drag_event, shape);
+		   (GCallback) gc_drag_event, shape);
 }
 
 /*

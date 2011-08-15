@@ -487,9 +487,9 @@ static GooCanvasItem *click_on_letter_create_item(GooCanvasItem *parent)
     xOffset +=HORIZONTAL_SEPARATION +gdk_pixbuf_get_width(button_pixmap);
 
     g_signal_connect(l_items[i], "button_press_event",
-		     (GtkSignalFunc) item_event, GINT_TO_POINTER(i));
+		     (GCallback) item_event, GINT_TO_POINTER(i));
     g_signal_connect(buttons[i], "button_press_event",
-		     (GtkSignalFunc) item_event, GINT_TO_POINTER(i));
+		     (GCallback) item_event, GINT_TO_POINTER(i));
     gc_item_focus_init(l_items[i], buttons[i]);
     gc_item_focus_init(buttons[i], NULL);
   }

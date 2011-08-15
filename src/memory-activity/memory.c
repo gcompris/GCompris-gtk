@@ -1475,7 +1475,7 @@ static void create_item(GooCanvasItem *parent)
 
 	  g_object_set (memoryItem->frontcardItem, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 	  g_signal_connect(memoryItem->rootItem, "button_press_event",
-			     (GtkSignalFunc) item_event,
+			     (GCallback) item_event,
 			     memoryItem);
 
 	}

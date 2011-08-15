@@ -641,11 +641,11 @@ scale_list_add_weight(GooCanvasItem *group,
 
   gc_item_focus_init(new_item->item, NULL);
   g_signal_connect(new_item->item, "button_press_event",
-		   (GtkSignalFunc)gc_drag_event, new_item);
+		   (GCallback)gc_drag_event, new_item);
   g_signal_connect(new_item->item, "button_release_event",
-		   (GtkSignalFunc)gc_drag_event, new_item);
+		   (GCallback)gc_drag_event, new_item);
   g_signal_connect(new_item->item, "button_press_event",
-  		   (GtkSignalFunc) scale_item_event, new_item);
+  		   (GCallback) scale_item_event, new_item);
 
   item_list = g_list_append(item_list, new_item);
   return new_item;

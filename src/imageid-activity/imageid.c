@@ -349,7 +349,7 @@ imageid_create_item(GooCanvasItem *parent)
 		      "button", button);
 
       g_signal_connect(button, "button_press_event",
-		       (GtkSignalFunc) item_event,
+		       (GCallback) item_event,
 		       GINT_TO_POINTER(i));
 
       item = goo_canvas_text_new (group,
@@ -363,7 +363,7 @@ imageid_create_item(GooCanvasItem *parent)
 				  NULL);
 
       g_signal_connect(item, "button_press_event",
-		       (GtkSignalFunc) item_event,
+		       (GCallback) item_event,
 		       GINT_TO_POINTER(i));
 
       item = goo_canvas_text_new (group,
@@ -377,7 +377,7 @@ imageid_create_item(GooCanvasItem *parent)
 				  NULL);
 
       g_signal_connect(item, "button_press_event",
-		       (GtkSignalFunc) item_event,
+		       (GCallback) item_event,
 		       GINT_TO_POINTER(i));
 
       yp +=  button_pixmap_height + vertical_separation;

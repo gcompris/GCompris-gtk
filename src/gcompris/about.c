@@ -220,7 +220,7 @@ void gc_about_start ()
 			  y,
 			  "#BUTTON_TEXT",
 			  _("OK"),
-			  (GtkSignalFunc) item_event_ok,
+			  (GCallback) item_event_ok,
 			  "ok");
 
   is_displayed = TRUE;

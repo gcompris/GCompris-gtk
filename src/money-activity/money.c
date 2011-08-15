@@ -39,8 +39,8 @@ static void	 money_next_level(void);
 void		 moneyactivity_process_ok(void);
 static void	 display_paying_tux(guint note);
 
-Money_Widget    *tux_money    = NULL;
-Money_Widget    *seller_money = NULL;
+MoneyWidget     *tux_money    = NULL;
+MoneyWidget     *seller_money = NULL;
 
 static float	 price_target = 0;
 
@@ -255,7 +255,7 @@ static void money_next_level()
 					    NULL);
   SET_ITEM_LOCATION(item, 725, 230);
   g_signal_connect(item, "button_press_event",
-		   (GtkSignalFunc) moneyactivity_process_ok, NULL);
+		   (GCallback) moneyactivity_process_ok, NULL);
   gc_item_focus_init(item, NULL);
 
   tux_money = MONEY_WIDGET(money_widget_new());
@@ -840,11 +840,11 @@ static void money_destroy_all_items()
     goo_canvas_item_remove(boardRootItem);
 
   if(tux_money!=NULL)
-    gtk_object_destroy (GTK_OBJECT (tux_money));
+    g_object_unref (G_OBJECT (tux_money));
   tux_money = NULL;
 
   if(seller_money!=NULL)
-    gtk_object_destroy (GTK_OBJECT (seller_money));
+    g_object_unref (G_OBJECT (seller_money));
   seller_money = NULL;
 
   boardRootItem = NULL;

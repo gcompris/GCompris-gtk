@@ -156,7 +156,7 @@ gc_board_config_combo_locales(GcomprisBoardConf *config, gchar *init)
   gtk_label_set_markup (GTK_LABEL(label_combo),
                         _("Select the language\n to use in the board"));
 
-  combobox = gtk_combo_box_new_text();
+  combobox = GTK_WIDGET(gtk_combo_box_new_text());
 
   gtk_widget_show(combobox);
 
@@ -257,7 +257,7 @@ gc_board_config_combo_drag(GcomprisBoardConf *config, gint init)
   gtk_label_set_markup (GTK_LABEL(label_combo),
                         _("Select the drag and drop mode\n to use in the board"));
 
-  combobox = gtk_combo_box_new_text();
+  combobox = GTK_WIDGET(gtk_combo_box_new_text());
 
   gtk_widget_show(combobox);
 
@@ -431,7 +431,7 @@ GtkComboBox *gc_board_config_combo_locales_asset(GcomprisBoardConf *config, cons
   gtk_label_set_markup (GTK_LABEL(label_combo),
                         label);
 
-  combobox = gtk_combo_box_new_text();
+  combobox = GTK_WIDGET(gtk_combo_box_new_text());
 
   gtk_widget_show(combobox);
 
@@ -522,7 +522,7 @@ GtkComboBox *gc_board_config_combo_box(GcomprisBoardConf *config, const gchar *l
                         (const gchar *)label);
 
 
-  combobox = gtk_combo_box_new_text();
+  combobox = GTK_WIDGET(gtk_combo_box_new_text());
 
   gtk_widget_show(combobox);
 

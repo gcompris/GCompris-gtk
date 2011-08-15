@@ -66,8 +66,8 @@ static void	 	 set_level (guint level);
 static gint	 	 key_press(guint keyval, gchar *commit_str, gchar *preedit_str);
 
 static void		 paratrooper_create_cloud(GooCanvasItem *parent);
-static gint		 paratrooper_drop_clouds (GtkWidget *widget, gpointer data);
-static gint		 paratrooper_move_tux (GtkWidget *widget, gpointer data);
+static gboolean		 paratrooper_drop_clouds (gpointer data);
+static gboolean		 paratrooper_move_tux (gpointer data);
 static void		 paratrooper_destroy_all_items(void);
 static void		 paratrooper_next_level(void);
 static gboolean		 item_event (GooCanvasItem  *item,
@@ -125,7 +125,7 @@ static void pause_board (gboolean pause)
   if(pause)
     {
       if (drop_tux_id) {
-	gtk_timeout_remove (drop_tux_id);
+	g_source_remove (drop_tux_id);
 	drop_tux_id = 0;
       }
     }
@@ -140,7 +140,7 @@ static void pause_board (gboolean pause)
 
       // Unpause code
       if(paratrooperItem.status!=TUX_INPLANE && paratrooperItem.status!=TUX_LANDED) {
-	drop_tux_id = gtk_timeout_add (1000, (GtkFunction) paratrooper_move_tux, NULL);
+	drop_tux_id = g_timeout_add (1000, paratrooper_move_tux, NULL);
       }
 
       if(gamewon == TRUE) /* the game is won */
@@ -334,7 +334,7 @@ static void paratrooper_next_level()
 			  GOO_CANVAS_ANIMATE_RESTART);
 
   g_signal_connect(planeitem, "button-press-event",
-		     (GtkSignalFunc) item_event,
+		     (GCallback) item_event,
 		     NULL);
   gc_item_focus_init(planeitem, NULL);
   g_object_unref(svg_handle);
@@ -346,8 +346,8 @@ static void paratrooper_next_level()
     windspeed *= 2;
 
   /* Drop a cloud */
-  gtk_timeout_add (200,
-		   (GtkFunction) paratrooper_drop_clouds, NULL);
+  g_timeout_add (200,
+		 paratrooper_drop_clouds, NULL);
 
   /* Display the target */
   svg_handle = gc_rsvg_load("paratrooper/fishingboat.svgz");
@@ -380,7 +380,7 @@ static void paratrooper_next_level()
 
   /* Prepare the parachute */
   if (drop_tux_id) {
-    gtk_timeout_remove (drop_tux_id);
+    g_source_remove (drop_tux_id);
     drop_tux_id = 0;
   }
 
@@ -400,7 +400,7 @@ static void paratrooper_next_level()
 		GOO_CANVAS_ITEM_INVISIBLE, NULL);
 
   g_signal_connect(paratrooperItem.paratrooper, "button-press-event",
-		     (GtkSignalFunc) item_event,
+		     (GCallback) item_event,
 		     NULL);
 
   paratrooperItem.instruct = \
@@ -429,8 +429,8 @@ static void paratrooper_destroy_all_items()
  * This does the moves of the game's paratropper
  *
  */
-static gint
-paratrooper_move_tux (GtkWidget *widget, gpointer data)
+static gboolean
+paratrooper_move_tux (gpointer data)
 {
   double offset;
   GooCanvasBounds bounds;
@@ -478,9 +478,9 @@ paratrooper_move_tux (GtkWidget *widget, gpointer data)
       else
 	{
 	  if(bounds.y2 < BOARDHEIGHT - 20)
-	    drop_tux_id = gtk_timeout_add (150,
-					   (GtkFunction) paratrooper_move_tux,
-					   NULL);
+	    drop_tux_id = g_timeout_add (150,
+					 paratrooper_move_tux,
+					 NULL);
 	  else
 	    {
 	      paratrooperItem.status = TUX_CRASHED;
@@ -490,8 +490,8 @@ paratrooper_move_tux (GtkWidget *widget, gpointer data)
     }
   else
     {
-      drop_tux_id = gtk_timeout_add (150,
-				     (GtkFunction) paratrooper_move_tux, NULL);
+      drop_tux_id = g_timeout_add (150,
+				   paratrooper_move_tux, NULL);
     }
 
   return(FALSE);
@@ -555,7 +555,7 @@ paratrooper_create_cloud(GooCanvasItem *parent)
  * This is called on a low frequency and is used to drop new items
  *
  */
-static gint paratrooper_drop_clouds (GtkWidget *widget, gpointer data)
+static gboolean paratrooper_drop_clouds (gpointer data)
 {
   paratrooper_create_cloud(boardRootItem);
 
@@ -597,8 +597,8 @@ void next_state()
 				  (bounds.x1 > 0 ? bounds.x1 : 0),
 				  bounds.y2);
 	drop_tux_id = \
-	  gtk_timeout_add (gc_timing (10, 4),
-              (GtkFunction) paratrooper_move_tux, NULL);
+	  g_timeout_add (gc_timing (10, 4),
+              paratrooper_move_tux, NULL);
 
         gc_item_focus_remove(planeitem, NULL);
       }

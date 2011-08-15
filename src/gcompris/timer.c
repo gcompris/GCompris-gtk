@@ -219,13 +219,13 @@ start_animation()
       /* Perform under second animation */
       subratio = 5;
       subanimate_id = g_timeout_add (1000/subratio,
-				     (GtkFunction) subtimer_increment,
+				     (GSourceFunc) subtimer_increment,
 				     gc_timer_item);
       break;
     }
 
   animate_id = g_timeout_add (1000,
-			      (GtkFunction) timer_increment,
+			      (GSourceFunc) timer_increment,
 			      gc_timer_item);
 }
 

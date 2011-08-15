@@ -55,7 +55,7 @@ static GooCanvasItem	*display_item_at(gchar *imagename, int block);
 static void		 display_random_fish();
 static void		 create_clock(double x, double y, int value);
 static void		 update_clock(int value);
-static gint		 animate_tux();
+static gboolean		 animate_tux(gpointer data);
 static void		 rotate_tux(GooCanvasItem *tuxitem, gint direction,
 				    gdouble scale);
 static void		 move_item_at(GooCanvasItem *item,
@@ -325,8 +325,8 @@ static void process_ok()
     }
 
   if(!animate_id) {
-    animate_id = gtk_timeout_add (animate_speed,
-				  (GtkFunction) animate_tux, NULL);
+    animate_id = g_timeout_add (animate_speed,
+				animate_tux, NULL);
   }
 
 }
@@ -528,7 +528,7 @@ static GooCanvasItem *reversecount_create_item(GooCanvasItem *parent)
       *val = d;
 
       g_signal_connect(item, "button_press_event",
-		       (GtkSignalFunc) item_event,
+		       (GCallback) item_event,
 		       val);
       gc_item_focus_init(item, NULL);
     }
@@ -543,7 +543,7 @@ static GooCanvasItem *reversecount_create_item(GooCanvasItem *parent)
 		    dice_area_x - 60,
 		    block_height + 20);
   g_signal_connect(item, "button_press_event",
-		   (GtkSignalFunc) process_ok, NULL);
+		   (GCallback) process_ok, NULL);
   gc_item_focus_init(item, NULL);
 
   // Tux
@@ -834,7 +834,7 @@ static void update_clock(int value)
   g_free(str);
 }
 
-static gint animate_tux()
+static gboolean animate_tux(gpointer data)
 {
   // Move tux
   tux_index++;
@@ -861,8 +861,8 @@ static gint animate_tux()
   /* Rearm the timer to go to the next spot */
   if(tux_index != tux_destination)
     {
-      animate_id = gtk_timeout_add (animate_speed,
-      				    (GtkFunction) animate_tux, NULL);
+      animate_id = g_timeout_add (animate_speed,
+				  animate_tux, NULL);
     }
   else
     {

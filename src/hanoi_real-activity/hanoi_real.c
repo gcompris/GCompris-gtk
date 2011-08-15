@@ -367,10 +367,10 @@ hanoi_create_item(GooCanvasItem *parent)
 
 	      g_signal_connect(item,
 			       "button_press_event",
-			       (GtkSignalFunc) gc_drag_event,  position[i][j]);
+			       (GCallback) gc_drag_event,  position[i][j]);
 	      g_signal_connect(item,
 			       "button_release_event",
-			       (GtkSignalFunc) gc_drag_event,  position[i][j]);
+			       (GCallback) gc_drag_event,  position[i][j]);
 	    }
 	}
     }

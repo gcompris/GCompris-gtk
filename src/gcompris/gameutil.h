@@ -93,12 +93,12 @@ void		 gc_util_button_text(GooCanvasItem *rootitem,
 				     guint x, guint y,
 				     char *button_file,
 				     char *text,
-				     GtkSignalFunc process,
+				     GCallback process,
 				     gpointer data);
 void		 gc_util_button_text_svg(GooCanvasItem *rootitem,
 					 guint x, guint y,
 					 char *button_id,
 					 char *text,
-					 GtkSignalFunc process,
+					 GCallback process,
 					 gpointer data);
 #endif

@@ -203,7 +203,7 @@ static void pause_board (gboolean pause)
     return;
 
   if (timer_id) {
-    gtk_timeout_remove (timer_id);
+    g_source_remove (timer_id);
     timer_id = 0;
   }
 
@@ -249,7 +249,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     gamewon = FALSE;
 
     g_signal_connect(goo_canvas_get_root_item(gcomprisBoard->canvas),
-		     "button_press_event", (GtkSignalFunc) item_event, NULL);
+		     "button_press_event", (GCallback) item_event, NULL);
 
     colors_next_level();
     pause_board(FALSE);
@@ -266,7 +266,7 @@ static void end_board ()
     GcomprisProperties	*properties = gc_prop_get();
 
     g_signal_handlers_disconnect_by_func(goo_canvas_get_root_item(gcomprisBoard->canvas),
-					 (GtkSignalFunc) item_event, NULL);
+					 (GCallback) item_event, NULL);
 
     pause_board(TRUE);
     gc_score_end();
@@ -370,7 +370,7 @@ static void repeat ()
 static void colors_destroy_all_items()
 {
   if (timer_id) {
-    gtk_timeout_remove (timer_id);
+    g_source_remove (timer_id);
     timer_id = 0;
   }
 

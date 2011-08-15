@@ -462,7 +462,7 @@ move_target(int direction)
 
       // Do a smooth move
       my_move.nb = 52;
-      timer_id = g_timeout_add(10, (GtkFunction) smooth_move, &my_move);
+      timer_id = g_timeout_add(10, (GSourceFunc) smooth_move, &my_move);
       list_game[new_index] = list_game[index];
       list_game[index] = -1;
     }
@@ -476,7 +476,7 @@ move_target(int direction)
 
   if (success) {
       gamewon = TRUE;
-      timer_id = g_timeout_add (1200, (GtkFunction) bonus, NULL);
+      timer_id = g_timeout_add (1200, (GSourceFunc) bonus, NULL);
   }
 
 }
@@ -533,7 +533,7 @@ static void draw_arrow() {
 					   arrow[i].y,
 					   NULL);
   	g_signal_connect(item_arrow, "button_press_event",
-			 (GtkSignalFunc) arrow_event, GINT_TO_POINTER(i));
+			 (GCallback) arrow_event, GINT_TO_POINTER(i));
 	gc_item_focus_init(item_arrow, NULL);
 	gdk_pixbuf_unref( arrow[i].pixmap);
 
@@ -651,7 +651,7 @@ static void place_item(int x, int y, int active) {
 	if (active)
 	  {
 	    g_signal_connect(item_image, "button_press_event",
-			       (GtkSignalFunc) item_event, NULL);
+			       (GCallback) item_event, NULL);
 
 	    if(previous_item_image)
 	      g_object_set_data(G_OBJECT(item_image), "previous_item",

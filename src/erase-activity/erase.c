@@ -159,7 +159,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       event_handle_id =
 	g_signal_connect(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			 "button_press_event",
-			 (GtkSignalFunc) canvas_event, NULL);
+			 (GCallback) canvas_event, NULL);
 
       if (strcmp(gcomprisBoard->mode,"clic")==0)
 	board_mode = CLIC;

@@ -232,7 +232,7 @@ gc_config_start ()
 			      (-1 * bounds.x1 + x_flag_start - 340) * zoom,
 			      (-1 * bounds.y1 + y_start - 120) * zoom);
   g_signal_connect(item, "button_press_event",
-		   (GtkSignalFunc) item_event_ok,
+		   (GCallback) item_event_ok,
 		   "locale_reset");
   gc_item_focus_init(item, NULL);
 
@@ -262,7 +262,7 @@ gc_config_start ()
   SET_ITEM_LOCATION(item, x_start, y_start - pixmap_width/2);
 
   g_signal_connect(item, "button_press_event",
-		   (GtkSignalFunc) item_event_ok,
+		   (GCallback) item_event_ok,
 		   "fullscreen");
   gc_item_focus_init(item, NULL);
 
@@ -287,7 +287,7 @@ gc_config_start ()
   SET_ITEM_LOCATION(item, x_start, y_start - pixmap_width/2);
 
   g_signal_connect(item, "button_press_event",
-		   (GtkSignalFunc) item_event_ok,
+		   (GCallback) item_event_ok,
 		   "music");
   gc_item_focus_init(item, NULL);
 
@@ -312,7 +312,7 @@ gc_config_start ()
   SET_ITEM_LOCATION(item, x_start, y_start - pixmap_width/2);
 
   g_signal_connect(item, "button_press_event",
-		   (GtkSignalFunc) item_event_ok,
+		   (GCallback) item_event_ok,
 		   "effect");
   gc_item_focus_init(item, NULL);
 
@@ -337,7 +337,7 @@ gc_config_start ()
   SET_ITEM_LOCATION(item, x_start, y_start - pixmap_width/2);
 
   g_signal_connect(item, "button_press_event",
-		   (GtkSignalFunc) item_event_ok,
+		   (GCallback) item_event_ok,
 		   "zoom");
   gc_item_focus_init(item, NULL);
 
@@ -454,7 +454,7 @@ gc_config_start ()
 			  y,
 			  "#BUTTON_TEXT",
 			  _("OK"),
-			  (GtkSignalFunc) item_event_ok,
+			  (GCallback) item_event_ok,
 			  "ok");
 
   is_displayed = TRUE;
@@ -528,7 +528,7 @@ display_previous_next(guint x_start, guint y_start,
 		    y_start - pixmap_width/2);
 
   g_signal_connect(item, "button_press_event",
-		   (GtkSignalFunc) item_event_ok,
+		   (GCallback) item_event_ok,
 		   eventname_previous);
   gc_item_focus_init(item, NULL);
 
@@ -542,7 +542,7 @@ display_previous_next(guint x_start, guint y_start,
 		    y_start - pixmap_width/2);
 
   g_signal_connect(item, "button_press_event",
-		   (GtkSignalFunc) item_event_ok,
+		   (GCallback) item_event_ok,
 		   eventname_next);
   gc_item_focus_init(item, NULL);
 }

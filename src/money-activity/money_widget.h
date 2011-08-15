@@ -32,22 +32,22 @@ extern "C" {
 #endif /* __cplusplus */
 
 #define TYPE_MONEY_WIDGET	   (money_widget_get_type ())
-#define MONEY_WIDGET(obj)          GTK_CHECK_CAST (obj, TYPE_MONEY_WIDGET, Money_Widget)
-#define MONEY_WIDGET_CLASS(klass)  GTK_CHECK_CLASS_CAST (klass, TYPE_MONEY_WIDGET, Money_WidgetClass)
-#define IS_MONEY_WIDGET(obj)       GTK_CHECK_TYPE (obj, TYPE_MONEY_WIDGET)
+#define MONEY_WIDGET(obj)          (G_TYPE_CHECK_INSTANCE_CAST ((obj), TYPE_MONEY_WIDGET, MoneyWidget))
+#define MONEY_WIDGET_CLASS(klass)  (G_TYPE_CHECK_CLASS_CAST ((klass), TYPE_MONEY_WIDGET, MoneyWidgetClass))
+#define IS_MONEY_WIDGET(obj)       (G_TYPE_CHECK_INSTANCE_TYPE ((obj), TYPE_MONEY_WIDGET))
 
-typedef struct _Money_Widget        Money_Widget;
-typedef struct _Money_WidgetClass   Money_WidgetClass;
-typedef struct _Money_WidgetPrivate Money_WidgetPrivate;
+typedef struct _MoneyWidget        MoneyWidget;
+typedef struct _MoneyWidgetClass   MoneyWidgetClass;
+typedef struct _MoneyWidgetPrivate MoneyWidgetPrivate;
 
-struct _Money_WidgetClass {
-	GtkObjectClass parent_class;
+struct _MoneyWidgetClass {
+	GObjectClass parent_class;
 };
 
-struct _Money_Widget {
-	GtkObject        object;
+struct _MoneyWidget {
+	GObject        parent_instance;
 
-	Money_WidgetPrivate *priv;
+	MoneyWidgetPrivate *priv;
 };
 
 typedef enum {
@@ -66,13 +66,13 @@ typedef enum {
 } MoneyEuroType;
 
 
-GtkType        money_widget_get_type             (void);
-GtkObject     *money_widget_new                  (void);
-Money_Widget  *money_widget_copy                 (Money_Widget *moneyWidget);
+GType          money_widget_get_type             (void);
+GObject       *money_widget_new                  (void);
+MoneyWidget   *money_widget_copy                 (MoneyWidget *moneyWidget);
 
-void	       money_widget_set_target		 (Money_Widget *moneyWidget,
-					          Money_Widget *targetWidget);
-void           money_widget_set_position         (Money_Widget *moneyWidget,
+void	       money_widget_set_target		 (MoneyWidget *moneyWidget,
+					          MoneyWidget *targetWidget);
+void           money_widget_set_position         (MoneyWidget *moneyWidget,
 						  GooCanvasItem *rootItem,
 						  double x1,
 						  double y1,
@@ -81,11 +81,11 @@ void           money_widget_set_position         (Money_Widget *moneyWidget,
 						  guint  colomns,
 						  guint  lines,
 						  gboolean display_total);
-void           money_widget_add		        (Money_Widget *moneyWidget, MoneyEuroType value);
-void           money_widget_remove	        (Money_Widget *moneyWidget, MoneyEuroType value);
+void           money_widget_add		        (MoneyWidget *moneyWidget, MoneyEuroType value);
+void           money_widget_remove	        (MoneyWidget *moneyWidget, MoneyEuroType value);
 
 /* Misc. accessors */
-float          money_widget_get_total           (Money_Widget *moneyWidget);
+float          money_widget_get_total           (MoneyWidget *moneyWidget);
 
 #ifdef __cplusplus
 }

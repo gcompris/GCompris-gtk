@@ -409,7 +409,7 @@ static GooCanvasItem *submarine_drawbackground(GooCanvasItem *parent) {
 			       schema_y + BARRE_AV_Y - COMMAND_OFFSET,
 			       NULL);
   g_signal_connect(item, "button-press-event",
-		     (GtkSignalFunc) barre_av_event, GINT_TO_POINTER(UP));
+		     (GCallback) barre_av_event, GINT_TO_POINTER(UP));
 
   item = goo_canvas_image_new (backgroundRootItem,
 			       pixmap,
@@ -417,7 +417,7 @@ static GooCanvasItem *submarine_drawbackground(GooCanvasItem *parent) {
 			       schema_y + BARRE_AR_Y - COMMAND_OFFSET,
 			       NULL);
   g_signal_connect(item, "button-press-event",
-		   (GtkSignalFunc) barre_ar_event, GINT_TO_POINTER(UP));
+		   (GCallback) barre_ar_event, GINT_TO_POINTER(UP));
 
   item = goo_canvas_image_new (backgroundRootItem,
 			       pixmap,
@@ -425,7 +425,7 @@ static GooCanvasItem *submarine_drawbackground(GooCanvasItem *parent) {
 			       schema_y + ENGINE_UP_Y,
 			       NULL);
   g_signal_connect(item, "button-press-event",
-		   (GtkSignalFunc) engine_event, GINT_TO_POINTER(UP));
+		   (GCallback) engine_event, GINT_TO_POINTER(UP));
 
   gdk_pixbuf_unref(pixmap);
 
@@ -436,7 +436,7 @@ static GooCanvasItem *submarine_drawbackground(GooCanvasItem *parent) {
 			       schema_y + BARRE_AV_Y + COMMAND_OFFSET,
 			       NULL);
   g_signal_connect(item, "button-press-event",
-		   (GtkSignalFunc) barre_av_event, GINT_TO_POINTER(DOWN));
+		   (GCallback) barre_av_event, GINT_TO_POINTER(DOWN));
 
   item = goo_canvas_image_new (backgroundRootItem,
 			       pixmap,
@@ -444,7 +444,7 @@ static GooCanvasItem *submarine_drawbackground(GooCanvasItem *parent) {
 			       schema_y + BARRE_AR_Y + COMMAND_OFFSET,
 			       NULL);
   g_signal_connect(item, "button-press-event",
-		   (GtkSignalFunc) barre_ar_event, GINT_TO_POINTER(DOWN));
+		   (GCallback) barre_ar_event, GINT_TO_POINTER(DOWN));
 
   item = goo_canvas_image_new (backgroundRootItem,
 			       pixmap,
@@ -452,7 +452,7 @@ static GooCanvasItem *submarine_drawbackground(GooCanvasItem *parent) {
 			       schema_y + ENGINE_DOWN_Y,
 			       NULL);
   g_signal_connect(item, "button-press-event",
-		     (GtkSignalFunc) engine_event, GINT_TO_POINTER(DOWN));
+		     (GCallback) engine_event, GINT_TO_POINTER(DOWN));
 
   gdk_pixbuf_unref(pixmap);
 
@@ -489,7 +489,7 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 						schema_y -1.0,
 						 NULL);
   g_signal_connect(ballast_ar_purge_item, "button-press-event",
-		   (GtkSignalFunc) ballast_ar_purge_event, NULL);
+		   (GCallback) ballast_ar_purge_event, NULL);
 
   ballast_av_purge_item = goo_canvas_image_new (rootItem,
 						pixmap,
@@ -497,7 +497,7 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 						schema_y -1.0,
 						NULL);
   g_signal_connect(ballast_av_purge_item, "button-press-event",
-		   (GtkSignalFunc) ballast_av_purge_event, NULL);
+		   (GCallback) ballast_av_purge_event, NULL);
 
   regleur_purge_item = goo_canvas_image_new (rootItem,
 					     pixmap,
@@ -505,7 +505,7 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 					     schema_y -2.0,
 					     NULL);
   g_signal_connect(regleur_purge_item, "button-press-event",
-		   (GtkSignalFunc) regleur_purge_event, NULL);
+		   (GCallback) regleur_purge_event, NULL);
 
   item = goo_canvas_image_new (rootItem,
 			       pixmap,
@@ -513,7 +513,7 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 			       schema_y +  CHASSE_BALLAST_AV_Y,
 			       NULL);
   g_signal_connect(item, "button-press-event",
-		   (GtkSignalFunc) ballast_av_chasse_event, NULL);
+		   (GCallback) ballast_av_chasse_event, NULL);
 
   item = goo_canvas_image_new (rootItem,
 			       pixmap,
@@ -521,7 +521,7 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 			       schema_y +  CHASSE_BALLAST_AR_Y,
 			       NULL);
   g_signal_connect(item, "button-press-event",
-		   (GtkSignalFunc) ballast_ar_chasse_event, NULL);
+		   (GCallback) ballast_ar_chasse_event, NULL);
 
   regleur_chasse_item = goo_canvas_image_new (rootItem,
 					      pixmap,
@@ -529,7 +529,7 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 					      schema_y + CHASSE_REGLEUR_Y,
 					      NULL);
   g_signal_connect(regleur_chasse_item, "button-press-event",
-		   (GtkSignalFunc) regleur_chasse_event, NULL);
+		   (GCallback) regleur_chasse_event, NULL);
 
   gdk_pixbuf_unref(pixmap);
 
@@ -814,9 +814,9 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
   gdk_pixbuf_unref(pixmap);
 
   g_signal_connect(air_compressor_item, "button-press-event",
-		   (GtkSignalFunc) air_compressor_event, NULL);
+		   (GCallback) air_compressor_event, NULL);
   g_signal_connect(battery_charger_item, "button-press-event",
-		   (GtkSignalFunc) battery_charger_event, NULL);
+		   (GCallback) battery_charger_event, NULL);
 
   /*
    * Set the right wall

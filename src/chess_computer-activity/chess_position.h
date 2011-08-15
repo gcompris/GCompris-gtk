@@ -31,20 +31,20 @@ extern "C" {
 #endif /* __cplusplus */
 
 #define TYPE_POSITION	       (position_get_type ())
-#define POSITION(obj)          GTK_CHECK_CAST (obj, TYPE_POSITION, Position)
-#define POSITION_CLASS(klass)  GTK_CHECK_CLASS_CAST (klass, TYPE_POSITION, PositionClass)
-#define IS_POSITION(obj)       GTK_CHECK_TYPE (obj, TYPE_POSITION)
+#define POSITION(obj)          G_TYPE_CHECK_INSTANCE_CAST (obj, TYPE_POSITION, Position)
+#define POSITION_CLASS(klass)  G_TYPE_CHECK_CLASS_CAST (klass, TYPE_POSITION, PositionClass)
+#define IS_POSITION(obj)       G_TYPE_CHECK_INSTANCE_TYPE (obj, TYPE_POSITION)
 
 typedef struct _Position        Position;
 typedef struct _PositionClass   PositionClass;
 typedef struct _PositionPrivate PositionPrivate;
 
 struct _PositionClass {
-	GtkObjectClass parent_class;
+	GObjectClass parent_class;
 };
 
 struct _Position {
-	GtkObject        object;
+	GObject          parent_instance;
 
 	/* 10x10 board - extra for move generation */
 	Piece            square[120];
@@ -52,9 +52,13 @@ struct _Position {
 	PositionPrivate *priv;
 };
 
-GtkType    position_get_type             (void);
-GtkObject *position_new                   (void);
-GtkObject *position_new_initial           (void);
+#define POSITION_GET_PRIVATE(obj) (G_TYPE_INSTANCE_GET_PRIVATE ((obj), TYPE_POSITION, \
+								PositionPrivate))
+
+
+GType      position_get_type             (void);
+GObject   *position_new                  (void);
+GObject   *position_new_initial          (void);
 Position  *position_copy                 (Position *pos);
 void       position_set_initial          (Position *pos);
 void       position_set_initial_partyend (Position *pos, int level);

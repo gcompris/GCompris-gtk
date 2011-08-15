@@ -409,7 +409,7 @@ static void ask_for_ready()
 			  BOARDHEIGHT * 0.5,
 			  "#BUTTON_TEXT",
 			  _("I am Ready"),
-			  (GtkSignalFunc) item_event_ready,
+			  (GCallback) item_event_ready,
 			  "ready");
 }
 
@@ -566,7 +566,7 @@ display_operand(GooCanvasItem *parent,
 	      set_focus_item(toBeFoundItem, FALSE);
 	    }
 	  g_signal_connect(item, "button_press_event",
-			   (GtkSignalFunc) item_event,
+			   (GCallback) item_event,
 			   toBeFoundItem);
 	}
     }

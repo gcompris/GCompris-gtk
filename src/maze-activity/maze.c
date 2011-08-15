@@ -300,7 +300,7 @@ static void maze_next_level() {
 
   g_signal_connect(tuxitem,
 		   "button_press_event",
-		   (GtkSignalFunc) tux_event, NULL);
+		   (GCallback) tux_event, NULL);
 
   /* Draw the target */
   pixmap = gc_pixmap_load("maze/door.png");

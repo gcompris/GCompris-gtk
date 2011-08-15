@@ -373,9 +373,9 @@ draw_car(car *thiscar)
   g_signal_connect(car_group,"button_press_event",
 		   GTK_SIGNAL_FUNC(on_button_press), (gpointer)thiscar);
   g_signal_connect (car_group, "button_release_event",
-		    (GtkSignalFunc) on_button_release, (gpointer)thiscar);
+		    (GCallback) on_button_release, (gpointer)thiscar);
   g_signal_connect (car_group, "motion_notify_event",
-		    (GtkSignalFunc) on_motion_notify, (gpointer)thiscar);
+		    (GCallback) on_motion_notify, (gpointer)thiscar);
 
   g_object_set_data(G_OBJECT(car_group), "car", (gpointer)thiscar);
   g_object_set_data(G_OBJECT(car_group), "whatami", (gpointer)"car_group");

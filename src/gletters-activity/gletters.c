@@ -105,8 +105,8 @@ static void gletter_config_start(GcomprisBoard *agcomprisBoard,
 static void gletter_config_stop(void);
 
 static GooCanvasItem *gletters_create_item(GooCanvasItem *parent);
-static gint gletters_drop_items (GtkWidget *widget, gpointer data);
-static gint gletters_move_items (GtkWidget *widget, gpointer data);
+static gboolean gletters_drop_items (gpointer data);
+static gboolean gletters_move_items (gpointer data);
 static void gletters_destroy_item(GooCanvasItem *item);
 static void gletters_destroy_items(void);
 static void gletters_destroy_all_items(void);
@@ -186,11 +186,11 @@ static void pause_board (gboolean pause)
   if(pause)
     {
       if (dummy_id) {
-	gtk_timeout_remove (dummy_id);
+	g_source_remove (dummy_id);
 	dummy_id = 0;
       }
       if (drop_items_id) {
-	gtk_timeout_remove (drop_items_id);
+	g_source_remove (drop_items_id);
 	drop_items_id = 0;
       }
     }
@@ -203,11 +203,11 @@ static void pause_board (gboolean pause)
 	}
 
       if(!drop_items_id) {
-	drop_items_id = gtk_timeout_add (1000,
-					 (GtkFunction) gletters_drop_items, NULL);
+	drop_items_id = g_timeout_add (1000,
+				       gletters_drop_items, NULL);
       }
       if(!dummy_id) {
-	dummy_id = gtk_timeout_add (1000, (GtkFunction) gletters_move_items, NULL);
+	dummy_id = g_timeout_add (1000, gletters_move_items, NULL);
       }
     }
 }
@@ -561,15 +561,15 @@ static void gletters_destroy_all_items()
  * This does the moves of the game items on the play canvas
  *
  */
-static gint gletters_move_items (GtkWidget *widget, gpointer data)
+static gboolean gletters_move_items (gpointer data)
 {
   g_list_foreach (item_list, (GFunc) gletters_move_item, NULL);
 
   /* Destroy items that falls out of the canvas */
   gletters_destroy_items();
 
-  dummy_id = gtk_timeout_add (gc_timing (speed, actors_count),
-			      (GtkFunction) gletters_move_items, NULL);
+  dummy_id = g_timeout_add (gc_timing (speed, actors_count),
+			    gletters_move_items, NULL);
 
   return(FALSE);
 }
@@ -691,13 +691,13 @@ static void gletters_add_new_item()
  * This is called on a low frequency and is used to drop new items
  *
  */
-static gint gletters_drop_items (GtkWidget *widget, gpointer data)
+static gboolean gletters_drop_items (gpointer data)
 {
   gc_sound_play_ogg ("sounds/level.wav", NULL);
   gletters_add_new_item();
 
-  drop_items_id = gtk_timeout_add (fallSpeed,
-				   (GtkFunction) gletters_drop_items, NULL);
+  drop_items_id = g_timeout_add (fallSpeed,
+				 gletters_drop_items, NULL);
   return (FALSE);
 }
 
@@ -728,12 +728,12 @@ static void player_win(GooCanvasItem *item)
 	{
 	  if (drop_items_id) {
 	    /* Remove pending new item creation to sync the falls */
-	    gtk_timeout_remove (drop_items_id);
+	    g_source_remove (drop_items_id);
 	    drop_items_id = 0;
 	  }
 	  if(!drop_items_id) {
-	    drop_items_id = gtk_timeout_add (0,
-					     (GtkFunction) gletters_drop_items, NULL);
+	    drop_items_id = g_timeout_add (0,
+					   gletters_drop_items, NULL);
 	  }
 	}
     }

@@ -133,13 +133,13 @@ new_button(GooCanvasItem *rootitem,
   g_object_set_data (G_OBJECT(item), "flag",
 		     GUINT_TO_POINTER(flag));
   g_signal_connect (item, "enter_notify_event",
-		    (GtkSignalFunc) on_enter_notify,
+		    (GCallback) on_enter_notify,
                     GUINT_TO_POINTER(flag));
   g_signal_connect (item, "leave_notify_event",
-		    (GtkSignalFunc) on_leave_notify,
+		    (GCallback) on_leave_notify,
                     GUINT_TO_POINTER(flag));
   g_signal_connect(item, "button_press_event",
-		   (GtkSignalFunc) item_event_bar,
+		   (GCallback) item_event_bar,
 		   GUINT_TO_POINTER(flag));
   return item;
 }
@@ -560,7 +560,7 @@ on_enter_notify (GooCanvasItem  *item,
     return FALSE;
 
   sound_play_id =
-    g_timeout_add (1000, (GtkFunction) bar_play_sound, item);
+    g_timeout_add (1000, (GSourceFunc) bar_play_sound, item);
 
   return FALSE;
 }

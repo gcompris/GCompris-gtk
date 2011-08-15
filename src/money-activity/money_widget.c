@@ -27,7 +27,7 @@
 /* From money.c */
 void	 moneyactivity_process_ok(void);
 
-struct _Money_WidgetPrivate {
+struct _MoneyWidgetPrivate {
   GooCanvasItem	*rootItem;	/* The canvas to display our euros in             */
   double		 x1;		/* Coordinate of the widget                       */
   double		 y1;
@@ -37,7 +37,7 @@ struct _Money_WidgetPrivate {
   guint			 lines;		/* Number of lines				  */
   guint			 next_spot;	/* Next spot to display a money item		  */
   float			 total;		/* The number of euro in this pocket              */
-  Money_Widget		*targetWidget;	/* Target money widget to add when remove here	  */
+  MoneyWidget		*targetWidget;	/* Target money widget to add when remove here	  */
   gboolean		 display_total;	/* Display or not the total of this pocket        */
 
   GooCanvasItem		*item_total;	/* Item to display the total                      */
@@ -71,7 +71,7 @@ static const MoneyList euroList[] =
 };
 
 typedef struct {
-  Money_Widget		*moneyWidget;
+  MoneyWidget		*moneyWidget;
   GooCanvasItem		*item;
   MoneyEuroType		 value;
   gboolean		 inPocket;
@@ -80,44 +80,24 @@ typedef struct {
 #define BORDER_GAP	6
 
 /* Prototypes */
-static void class_init (Money_WidgetClass *class);
-static void init (Money_Widget *pos);
-static void money_display_total(Money_Widget *moneyWidget);
+static void money_display_total(MoneyWidget *moneyWidget);
 static gboolean item_event (GooCanvasItem  *item,
 			    GooCanvasItem  *target,
 			    GdkEventButton *event,
 			    MoneyItem *moneyItem);
 
-GtkType
-money_widget_get_type ()
-{
-	static guint money_widget_type = 0;
+#define MONEY_WIDGET_GET_PRIVATE(obj) (G_TYPE_INSTANCE_GET_PRIVATE ((obj), TYPE_MONEY_WIDGET, MoneyWidgetPrivate))
 
-	if (!money_widget_type) {
-		GtkTypeInfo money_widget_info = {
-			"Money_Widget",
-			sizeof (Money_Widget),
-			sizeof (Money_WidgetClass),
-			(GtkClassInitFunc) class_init,
-			(GtkObjectInitFunc) init,
-			(gpointer) NULL,
-			(gpointer) NULL,
-			(GtkClassInitFunc) NULL
-		};
-		money_widget_type = gtk_type_unique (gtk_object_get_type (),
-						 &money_widget_info);
-	}
 
-	return money_widget_type;
-}
+G_DEFINE_TYPE(MoneyWidget, money_widget, G_TYPE_OBJECT);
 
 #if 0
 static void
-finalize (GtkObject *object)
+finalize (GObject *object)
 {
   MoneyItem	  *moneyitem;
 
-  Money_Widget *moneyWidget = (Money_Widget *) object;
+  MoneyWidget *moneyWidget = (MoneyWidget *) object;
 
   printf("ERROR : Finalize is NEVER CALLED\n");
   /* FIXME: CLEANUP CODE UNTESTED */
@@ -136,53 +116,69 @@ finalize (GtkObject *object)
 }
 #endif
 
-static void
-class_init (Money_WidgetClass *class)
+static GObject *
+money_widget_constructor (GType                  gtype,
+			  guint                  n_properties,
+			  GObjectConstructParam *properties)
 {
-#if 0
-  GtkObjectClass *object_class;
+  GObject *obj;
 
-  object_class = (GtkObjectClass*) class;
+  {
+    /* Always chain up to the parent constructor */
+    obj = G_OBJECT_CLASS (money_widget_parent_class)->constructor (gtype, n_properties, properties);
+  }
 
-  object_class->destroy = finalize;
-#endif
+  /* update the object state depending on constructor properties */
+
+  return obj;
 }
 
 static void
-init (Money_Widget *pos)
+money_widget_class_init (MoneyWidgetClass *klass)
 {
-  pos->priv = g_new0 (Money_WidgetPrivate, 1);
-  pos->priv->total = 0;
+  g_type_class_add_private (klass, sizeof (MoneyWidgetPrivate));
+  GObjectClass *gobject_class = G_OBJECT_CLASS (klass);
+  gobject_class->constructor = money_widget_constructor;
 
 }
 
-GtkObject *
+static void
+money_widget_init (MoneyWidget *self)
+{
+  MoneyWidgetPrivate *priv;
+  self->priv = priv = MONEY_WIDGET_GET_PRIVATE (self);
+
+  priv->total = 0;
+
+}
+
+GObject *
 money_widget_new ()
 {
-	return GTK_OBJECT (gtk_type_new (money_widget_get_type ()));
+  return G_OBJECT (g_object_new (money_widget_get_type (), NULL));
 }
 
-Money_Widget *
-money_widget_copy (Money_Widget *pos)
+MoneyWidget *
+money_widget_copy (MoneyWidget *pos)
 {
-	Money_Widget *cpPos;
+	MoneyWidget *cpPos;
 
 	cpPos = MONEY_WIDGET (money_widget_new ());
 
-	memcpy (cpPos->priv, pos->priv, sizeof (Money_WidgetPrivate));
+	memcpy (cpPos->priv, pos->priv, sizeof (MoneyWidgetPrivate));
 
 	return cpPos;
 }
 
 void
-money_widget_set_target (Money_Widget *moneyWidget,
-			 Money_Widget *targetWidget)
+money_widget_set_target (MoneyWidget *moneyWidget,
+			 MoneyWidget *targetWidget)
 {
   moneyWidget->priv->targetWidget = targetWidget;
 }
 
 void
-money_widget_set_position (Money_Widget *moneyWidget,
+money_widget_set_position (MoneyWidget *moneyWidget,
 			   GooCanvasItem *rootItem,
 			   double x1,
 			   double y1,
@@ -229,7 +225,7 @@ money_widget_set_position (Money_Widget *moneyWidget,
 
 }
 
-static void money_display_total(Money_Widget *moneyWidget)
+static void money_display_total(MoneyWidget *moneyWidget)
 {
   gchar *tmpstr;
   g_return_if_fail (moneyWidget != NULL);
@@ -244,7 +240,7 @@ static void money_display_total(Money_Widget *moneyWidget)
 }
 
 void
-money_widget_add (Money_Widget *moneyWidget, MoneyEuroType value)
+money_widget_add (MoneyWidget *moneyWidget, MoneyEuroType value)
 {
   GooCanvasItem *item;
   RsvgHandle    *svg_handle;
@@ -322,7 +318,7 @@ money_widget_add (Money_Widget *moneyWidget, MoneyEuroType value)
 		   moneyitem);
 
   g_signal_connect(item,
-		   "button_press_event", (GtkSignalFunc) item_event,
+		   "button_press_event", (GCallback) item_event,
 		   moneyitem);
 
   g_object_unref(svg_handle);
@@ -335,7 +331,7 @@ money_widget_add (Money_Widget *moneyWidget, MoneyEuroType value)
 }
 
 void
-money_widget_remove(Money_Widget *moneyWidget, MoneyEuroType value)
+money_widget_remove(MoneyWidget *moneyWidget, MoneyEuroType value)
 {
   g_return_if_fail (moneyWidget != NULL);
 
@@ -345,7 +341,7 @@ money_widget_remove(Money_Widget *moneyWidget, MoneyEuroType value)
 }
 
 float
-money_widget_get_total (Money_Widget *moneyWidget)
+money_widget_get_total (MoneyWidget *moneyWidget)
 {
   if(moneyWidget == NULL)
     return 0;

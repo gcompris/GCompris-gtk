@@ -30,7 +30,7 @@ static void		 set_level (guint level);
 static int gamewon;
 static gint process_time_id = 0;
 
-static void		 process_time(void);
+static gboolean		 process_time(gpointer data);
 static void		 game_won(void);
 static void		 destroy_board(void);
 
@@ -466,7 +466,7 @@ static GooCanvasItem *algebra_guesscount_create_item(GooCanvasItem *parent) {
 					  NULL);
     xOffset += BUTTON_WIDTH+HORIZONTAL_SEPARATION;
     g_signal_connect(oper_item[i], "button_press_event",
-		     (GtkSignalFunc) item_event_oper,
+		     (GCallback) item_event_oper,
 		     GINT_TO_POINTER(&(token_value[i*2+1])) );
     token_value[i*2+1].isNumber = FALSE;
     token_value[i*2+1].isMoved = FALSE;
@@ -502,7 +502,7 @@ static GooCanvasItem *algebra_guesscount_create_item(GooCanvasItem *parent) {
 					Y_NUM,
 					NULL);
     sid = g_signal_connect(num_item[i], "button_press_event",
-			   (GtkSignalFunc) item_event_num,
+			   (GCallback) item_event_num,
 			   (void *)&(token_value[i*2]));
     token_value[i*2].isNumber = TRUE;
     token_value[i*2].num = answer_num_index[i];
@@ -541,12 +541,13 @@ static void game_won() {
 }
 
 /* ==================================== */
-static void process_time(){
+static gboolean process_time(gpointer data){
   if (process_time_id) {
-    gtk_timeout_remove (process_time_id);
+    g_source_remove (process_time_id);
     process_time_id = 0;
   }
   gc_bonus_display(gamewon, GC_BONUS_RANDOM);
+  return(FALSE);
 }
 /* ==================================== */
 static int oper_char_to_pixmap_index(char oper) {
@@ -587,7 +588,7 @@ static gboolean item_event_oper (GooCanvasItem  *item,
 				     NULL);
     token_count++;
     g_signal_connect(tmp_item, "button_press_event",
-		     (GtkSignalFunc) item_event_oper_moved,
+		     (GCallback) item_event_oper_moved,
 		     GINT_TO_POINTER(token_count));
     break;
   default : break;
@@ -669,7 +670,7 @@ static gboolean item_event_num (GooCanvasItem  *item,
 
 	gamewon = (result_to_find == token_result());
 	if(gamewon)
-	  process_time_id = gtk_timeout_add (2000, (GtkFunction) process_time, NULL);
+	  process_time_id = g_timeout_add (2000, process_time, NULL);
 
 
       }

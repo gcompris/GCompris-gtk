@@ -33,7 +33,7 @@ static void		 process_ok(void);
 static void		 game_won(void);
 static void		 repeat(void);
 static void		 animate_model(void);
-static gboolean		 animate_step(void);
+static gboolean		 animate_step(gpointer data);
 static void		 stop_animation();
 
 #define ENGINES 9
@@ -192,7 +192,7 @@ static void end_board ()
   GdkPixbuf * pixmap = NULL;
   // If we don't end animation, there may be a segfault if leaving while the animation is pending
   if (timer_id) {
-    gtk_timeout_remove (timer_id);
+    g_source_remove (timer_id);
     timer_id = 0;
   }
 
@@ -322,7 +322,7 @@ static GooCanvasItem *railroad_create_item(GooCanvasItem *boardRootItem)
     xOffset += gdk_pixbuf_get_width(pixmap);
 
     g_signal_connect(item,
-		     "button_press_event", (GtkSignalFunc) item_event,
+		     "button_press_event", (GCallback) item_event,
 		     GINT_TO_POINTER(i));
 
   }
@@ -349,7 +349,7 @@ static GooCanvasItem *railroad_create_item(GooCanvasItem *boardRootItem)
 					  yOffset - gdk_pixbuf_get_height(pixmap),
 					  NULL);
     g_signal_connect(item_model[i],
-		     "button_press_event", (GtkSignalFunc) stop_animation,
+		     "button_press_event", (GCallback) stop_animation,
 		     NULL);
     xOffset  += gdk_pixbuf_get_width(pixmap);
   }
@@ -367,7 +367,7 @@ static GooCanvasItem *railroad_create_item(GooCanvasItem *boardRootItem)
 						  NULL);
 
   g_signal_connect(item_model[model_size-1],
-		   "button_press_event", (GtkSignalFunc) stop_animation,
+		   "button_press_event", (GCallback) stop_animation,
 		   NULL);
   animate_model();
 
@@ -460,7 +460,7 @@ static gint item_event(GooCanvasItem *item,
       int_answer_list = g_list_append(int_answer_list,GINT_TO_POINTER(item_number));
       //	printf("added %d to int_answer_list\n", item_number);
       g_signal_connect(local_item,
-		       "button_press_event", (GtkSignalFunc) answer_event,
+		       "button_press_event", (GCallback) answer_event,
 		       GINT_TO_POINTER( g_list_length(item_answer_list)-1 ));
       process_ok();
       break;
@@ -508,11 +508,11 @@ static gint answer_event(GooCanvasItem *item,
 	{
 	  local_item = g_list_nth_data(item_answer_list, i);
 	  g_signal_handlers_disconnect_by_func(G_OBJECT(local_item),
-				      (GtkSignalFunc) answer_event,
+				      (GCallback) answer_event,
 				      GINT_TO_POINTER( i+1 ));
 	  g_signal_connect(local_item,
 			   "button_press_event",
-			   (GtkSignalFunc) answer_event,
+			   (GCallback) answer_event,
 			   GINT_TO_POINTER( i ));
 	}
       break;
@@ -561,7 +561,7 @@ static void reposition_model() {
 static void stop_animation()
 {
   if (timer_id) {
-    gtk_timeout_remove (timer_id);
+    g_source_remove (timer_id);
     timer_id = 0;
   }
   animation_pending = FALSE;
@@ -574,7 +574,7 @@ static void stop_animation()
 }
 
 /* ==================================== */
-static gboolean animate_step() {
+static gboolean animate_step(gpointer data) {
   double step = 0;
 
   // this defines how the train waits before start
@@ -612,7 +612,7 @@ static void animate_model() {
   gc_sound_play_ogg( "sounds/train.wav", NULL );
 
   // warning : if timeout is too low, the model will not be displayed
-  timer_id = gtk_timeout_add (100, (GtkFunction) animate_step, NULL);
+  timer_id = g_timeout_add (100, animate_step, NULL);
 }
 /* ==================================== */
 static void reset_all_lists(void) {

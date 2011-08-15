@@ -202,9 +202,9 @@ display_file_selector(int the_mode,
 				30.0,
 				NULL);
 
-  gtk_signal_connect(GTK_OBJECT(widget_entry), "activate",
-		     GTK_SIGNAL_FUNC(entry_enter_callback),
-		     widget_entry);
+  g_signal_connect(GTK_OBJECT(widget_entry), "activate",
+		   G_CALLBACK(entry_enter_callback),
+		   widget_entry);
 
   gtk_widget_show(widget_entry);
 
@@ -217,7 +217,7 @@ display_file_selector(int the_mode,
     gchar **all_type = g_strsplit(file_exts, " ", 0);
     guint i = 0;
 
-    gtk_combo_filetypes = gtk_combo_box_new_text();
+    gtk_combo_filetypes = GTK_WIDGET(gtk_combo_box_new_text());
 
     /* Extract first string */
     while (all_type[i])
@@ -249,7 +249,7 @@ display_file_selector(int the_mode,
 			  BOARDHEIGHT - 32,
 			  "#BUTTON_TEXT",
 			  _("CANCEL"),
-			  (GtkSignalFunc) item_event_file_selector,
+			  (GCallback) item_event_file_selector,
 			  "/cancel/");
   // OK
   gc_util_button_text_svg(rootitem,
@@ -257,7 +257,7 @@ display_file_selector(int the_mode,
 			  BOARDHEIGHT - 32,
 			  "#BUTTON_TEXT",
 			  (mode==MODE_LOAD ? _("LOAD") : _("SAVE")),
-			  (GtkSignalFunc) item_event_file_selector,
+			  (GCallback) item_event_file_selector,
 			  "/ok/");
 
   file_selector_displayed = TRUE;
@@ -361,7 +361,7 @@ display_files(GooCanvasItem *root_item, gchar *rootdir)
 
   /* Set the scrollwheel event */
   g_signal_connect (adj, "value_changed",
-		    (GtkSignalFunc) item_event_scroll,
+		    (GCallback) item_event_scroll,
 		    canvas);
 
   /* Display the directory name
@@ -441,13 +441,13 @@ display_files(GooCanvasItem *root_item, gchar *rootdir)
       if(g_file_test(allfilename, G_FILE_TEST_IS_DIR))
 	{
 	  g_signal_connect(item, "button_press_event",
-			   (GtkSignalFunc) item_event_directory,
+			   (GCallback) item_event_directory,
 			   allfilename);
 	}
       else
 	{
 	  g_signal_connect(item, "button_press_event",
-			   (GtkSignalFunc) item_event_file_selector,
+			   (GCallback) item_event_file_selector,
 			   allfilename);
 	}
       gc_item_focus_init(item, NULL);
@@ -469,7 +469,7 @@ display_files(GooCanvasItem *root_item, gchar *rootdir)
 				 gc_skin_get_color("gcompris/fileselectcol"),
 				 NULL);
 	  g_signal_connect(_item, "button_press_event",
-			   (GtkSignalFunc) item_event_file_selector,
+			   (GCallback) item_event_file_selector,
 			   allfilename);
 	  gc_item_focus_init(_item, item);
 	}
@@ -491,13 +491,13 @@ display_files(GooCanvasItem *root_item, gchar *rootdir)
       if(g_file_test(allfilename, G_FILE_TEST_IS_DIR))
 	{
 	  g_signal_connect(name_item, "button_press_event",
-			   (GtkSignalFunc) item_event_directory,
+			   (GCallback) item_event_directory,
 			   allfilename);
 	}
       else
 	{
 	  g_signal_connect(name_item, "button_press_event",
-			   (GtkSignalFunc) item_event_file_selector,
+			   (GCallback) item_event_file_selector,
 			   allfilename);
 	}
       gc_item_focus_init(name_item, item);

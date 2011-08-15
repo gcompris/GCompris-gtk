@@ -111,13 +111,13 @@ void create_mainwindow (GooCanvasItem *rootitem)
 
 
   g_signal_connect(previous_figure, "button_press_event",
-		     (GtkSignalFunc) on_arrow_clicked,
+		     (GCallback) on_arrow_clicked,
 		     (gpointer) FALSE);
 
   gc_item_focus_init(previous_figure, NULL);
 
   g_signal_connect(next_figure, "button_press_event",
-		     (GtkSignalFunc) on_arrow_clicked,
+		     (GCallback) on_arrow_clicked,
 		     (gpointer) TRUE);
 
   gc_item_focus_init(next_figure, NULL);
@@ -139,11 +139,11 @@ void create_mainwindow (GooCanvasItem *rootitem)
 					 NULL);
 
   g_signal_connect(outline_figure, "button_press_event",
-		     (GtkSignalFunc) on_outline_clicked,
+		     (GCallback) on_outline_clicked,
 		     NULL);
 
   g_signal_connect(show_figure, "button_press_event",
-		     (GtkSignalFunc) on_show_clicked,
+		     (GCallback) on_show_clicked,
 		     NULL);
 
   gc_item_focus_init(outline_figure, NULL);
@@ -160,7 +160,7 @@ void create_mainwindow (GooCanvasItem *rootitem)
 				  NULL);
 
   g_signal_connect(symetry, "button_press_event",
-		     (GtkSignalFunc) on_symetry_clicked,
+		     (GCallback) on_symetry_clicked,
 		     NULL);
 
   gc_item_focus_init(symetry, NULL);
@@ -214,25 +214,25 @@ void create_mainwindow (GooCanvasItem *rootitem)
 
 
   g_signal_connect(r_rot_s, "button_press_event",
-		     (GtkSignalFunc) on_rotation_clicked,
+		     (GCallback) on_rotation_clicked,
 		     (gpointer) 0);
 
   gc_item_focus_init(r_rot_s, NULL);
 
   g_signal_connect(l_rot_s, "button_press_event",
-		     (GtkSignalFunc) on_rotation_clicked,
+		     (GCallback) on_rotation_clicked,
 		     (gpointer) 1);
 
   gc_item_focus_init(l_rot_s, NULL);
 
   g_signal_connect(r_rot_b, "button_press_event",
-		     (GtkSignalFunc) on_rotation_clicked,
+		     (GCallback) on_rotation_clicked,
 		     (gpointer) 2);
 
   gc_item_focus_init(r_rot_b, NULL);
 
   g_signal_connect(l_rot_b, "button_press_event",
-		     (GtkSignalFunc) on_rotation_clicked,
+		     (GCallback) on_rotation_clicked,
 		     (gpointer) 3);
 
   gc_item_focus_init(l_rot_b, NULL);

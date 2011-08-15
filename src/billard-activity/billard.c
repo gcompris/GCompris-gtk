@@ -68,7 +68,7 @@ static gboolean		 item_event (GooCanvasItem  *item,
 				     GooCanvasItem  *target,
 				     GdkEventButton *event,
 				     MachItem *machItem);
-static void		 minigolf_move(GList *item_list);
+static gboolean		 minigolf_move(GList *item_list);
 
 static MachItem		*create_machine_item(MachItemType machItemType, double x, double y);
 
@@ -206,7 +206,7 @@ static void minigolf_next_level()
   /* Try the next level */
   minigolf_create_item(goo_canvas_get_root_item(gcomprisBoard->canvas));
 
-  move_id = gtk_timeout_add (40, (GtkFunction) minigolf_move, item_list);
+  move_id = g_timeout_add (40, (GSourceFunc)minigolf_move, item_list);
 
 }
 /* ==================================== */
@@ -217,7 +217,7 @@ static void minigolf_destroy_all_items()
     goo_canvas_item_remove(boardRootItem);
 
   if (move_id) {
-    gtk_timeout_remove (move_id);
+    g_source_remove (move_id);
     move_id = 0;
   }
 
@@ -360,7 +360,7 @@ static MachItem *create_machine_item(MachItemType machItemType, double x, double
 
       g_signal_connect(machItem->item,
 		       "button_press_event",
-		       (GtkSignalFunc) item_event,
+		       (GCallback) item_event,
 		       machItem);
       break;
     case MACH_VERT_WALL:
@@ -430,7 +430,7 @@ static MachItem *create_machine_item(MachItemType machItemType, double x, double
 					      NULL);
 
       g_signal_connect(machItem->item, "button_press_event",
-		       (GtkSignalFunc) item_event,
+		       (GCallback) item_event,
 		       machItem);
 
       break;
@@ -465,7 +465,7 @@ static MachItem *create_machine_item(MachItemType machItemType, double x, double
 					      NULL);
 
       g_signal_connect(machItem->item, "enter_notify_event",
-		       (GtkSignalFunc) item_event,
+		       (GCallback) item_event,
 		       machItem);
       break;
     }
@@ -503,7 +503,7 @@ static gint rectangle_in(double sx1, double sy1, double sx2, double sy2,
 }
 
 /* Move */
-static void minigolf_move(GList *item_list)
+static gboolean minigolf_move(GList *item_list)
 {
   GooCanvasBounds bounds;
   MachItem		*machItem;
@@ -550,7 +550,7 @@ static void minigolf_move(GList *item_list)
 		    gamewon = TRUE;
 		    minigolf_destroy_all_items();
 		    gc_bonus_display(gamewon, GC_BONUS_SMILEY);
-		    return;
+		    return(FALSE);
 		  }
 	      }
 	    }
@@ -659,6 +659,6 @@ static void minigolf_move(GList *item_list)
 	}
 
     }
-
+  return(TRUE);
 }
 

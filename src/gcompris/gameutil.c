@@ -327,15 +327,15 @@ void gc_item_focus_init(GooCanvasItem *source_item,
 
   /* Avoid double connection */
   g_signal_handlers_disconnect_by_func(source_item,
-				       (GtkSignalFunc) gc_item_focus_event,
+				       (GCallback) gc_item_focus_event,
 				       target_item);
 
   /* connect source to target */
   g_signal_connect(source_item, "enter_notify_event",
-		   (GtkSignalFunc) gc_item_focus_event,
+		   (GCallback) gc_item_focus_event,
 		   target_item);
   g_signal_connect(source_item, "leave_notify_event",
-		   (GtkSignalFunc) gc_item_focus_event,
+		   (GCallback) gc_item_focus_event,
 		   target_item);
 }
 
@@ -358,7 +358,7 @@ void gc_item_focus_remove(GooCanvasItem *source_item,
     target_item = source_item;
 
   g_signal_handlers_disconnect_by_func(source_item,
-				       (GtkSignalFunc) gc_item_focus_event,
+				       (GCallback) gc_item_focus_event,
 				       target_item);
 
   highlight_item = g_object_get_data (G_OBJECT(target_item),
@@ -736,7 +736,7 @@ gc_util_button_text(GooCanvasItem *rootitem,
 		    guint x, guint y,
 		    char *button_file,
 		    char *text,
-		    GtkSignalFunc process,
+		    GCallback process,
 		    gpointer data)
 {
   GdkPixbuf *pixmap;
@@ -752,7 +752,7 @@ gc_util_button_text(GooCanvasItem *rootitem,
 			       NULL);
   g_signal_connect(item,
 		   "button_press_event",
-		   (GtkSignalFunc) process, data);
+		   (GCallback) process, data);
   gc_item_focus_init(item, NULL);
 
   /* The Text */
@@ -789,7 +789,7 @@ gc_util_button_text_svg(GooCanvasItem *rootitem,
 			guint x, guint y,
 			char *button_id,
 			char *text,
-			GtkSignalFunc process,
+			GCallback process,
 			gpointer data)
 {
   GooCanvasItem *item;
@@ -804,7 +804,7 @@ gc_util_button_text_svg(GooCanvasItem *rootitem,
 
   g_signal_connect(item,
 		   "button_press_event",
-		   (GtkSignalFunc) process, data);
+		   (GCallback) process, data);
   gc_item_focus_init(item, NULL);
 
   /* The Text */

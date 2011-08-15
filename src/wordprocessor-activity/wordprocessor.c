@@ -366,7 +366,7 @@ static GooCanvasItem *wordprocessor_create()
 			  NULL);
   gdk_pixbuf_unref(pixmap);
   g_signal_connect(item, "button_press_event",
-		   (GtkSignalFunc) save_event, buffer);
+		   (GCallback) save_event, buffer);
   gc_item_focus_init(item, NULL);
 
 
@@ -382,7 +382,7 @@ static GooCanvasItem *wordprocessor_create()
 			  NULL);
   gdk_pixbuf_unref(pixmap);
   g_signal_connect(item, "button_press_event",
-		   (GtkSignalFunc) load_event, buffer);
+		   (GCallback) load_event, buffer);
   gc_item_focus_init(item, NULL);
 
 
@@ -440,7 +440,7 @@ display_style_buttons(GooCanvasItem *boardRootItem,
 			     NULL);
 
       g_signal_connect(GTK_OBJECT(gtk_button_style[i]), "pressed",
-			 (GtkSignalFunc)item_event, styles_tab[i*2+1] );
+			 (GCallback)item_event, styles_tab[i*2+1] );
 
       y += offset_y;
 
