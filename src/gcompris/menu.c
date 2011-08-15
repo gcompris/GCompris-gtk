@@ -580,7 +580,7 @@ void gc_menu_load_dir(char *dirname, gboolean db){
 	  }
 	  if (board_read) {
 	    gc_status_set_msg( _("Loading activity from file:\n%s"),
-			       gettext(board_read->title) );
+			       board_read->title );
 	  }
 	}
     else

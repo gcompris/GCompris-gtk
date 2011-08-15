@@ -887,7 +887,7 @@ GList *gc_menu_load_db(GList *boards_list)
 
     boards = g_list_append(boards, gcomprisBoard);
     gchar *msg = g_strdup_printf(_("Loading activity from database:\n%s"),
-				 gettext(gcomprisBoard->title));
+				 gcomprisBoard->title);
     gc_status_set_msg(msg);
     g_free(msg);
   }
