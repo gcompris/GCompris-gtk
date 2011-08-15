@@ -91,10 +91,10 @@ static gchar *numbers;
 static gchar *alphabet_lowercase;
 static gchar *alphabet_uppercase;
 static gchar *operators;
-static gchar *op_add;
-static gchar *op_minus;
-static gchar *op_mult;
-static gchar *op_div;
+static gchar *op_add = NULL;
+static gchar *op_minus = NULL;
+static gchar *op_mult = NULL;
+static gchar *op_div = NULL;
 
 typedef struct {
   gchar *data;
@@ -327,7 +327,7 @@ static BoardPlugin menu_bp =
 
 static gboolean to_tux = FALSE;
 static gboolean lock_user = FALSE;
-static GQueue *tux_memory;
+static GQueue *tux_memory = NULL;
 static gint tux_memory_size;
 static gint tux_memory_sizes[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 static gint tux_pairs = 0;
@@ -988,14 +988,19 @@ end_board ()
 
       memory_destroy_all_items();
       if (currentMode == MODE_TUX){
-	g_queue_free(tux_memory);
+	if (tux_memory)
+	  g_queue_free(tux_memory);
 	tux_memory = NULL;
       }
     }
   g_free(op_add);
+  op_add = NULL;
   g_free(op_minus);
+  op_minus = NULL;
   g_free(op_mult);
+  op_mult = NULL;
   g_free(op_div);
+  op_div = NULL;
 
   gcomprisBoard = NULL;
 }
@@ -1142,8 +1147,8 @@ static void memory_destroy_all_items()
     g_list_free(winning_pairs);
 
     winning_pairs = NULL;
-    while (g_queue_pop_head (tux_memory));
-    //tux_memory = NULL;
+    if (tux_memory)
+      while (g_queue_pop_head (tux_memory));
   }
 
 }
