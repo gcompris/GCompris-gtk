@@ -10,22 +10,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GCompris - master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-09 20:27+0200\n"
-"PO-Revision-Date: 2011-04-09 12:20+0200\n"
+"POT-Creation-Date: 2011-08-16 19:00+0200\n"
+"PO-Revision-Date: 2011-07-26 21:50+0200\n"
 "Last-Translator: Gonçalo Cordeiro <gzcordeiro@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Wordforge 0.8 beta1\n"
+"X-Generator: Wordforge 0.8 RC1\n"
 "X-Language: gl\n"
 
 #: ../boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
 msgstr "Ir ás actividades de álxebra"
 
-#: ../boards/algebra_group.xml.in.h:2 ../boards/menu.xml.in.h:18
+#: ../boards/algebra_group.xml.in.h:2 ../boards/menu.xml.in.h:22
 #: ../boards/money_group.xml.in.h:2
 msgid "Left-click the mouse on an activity to select it."
 msgstr ""
@@ -158,6 +158,7 @@ msgid "Go to mathematics memory activities against Tux"
 msgstr "Vai ás actividades de memoria de matemáticas contra Tux"
 
 #: ../boards/menu.xml.in.h:1
+#, fuzzy
 msgid ""
 "A simple click on an icon brings you to an activity or a menu of "
 "activities.\n"
@@ -165,17 +166,21 @@ msgid ""
 "The following icons are displayed from right to left.\n"
 "(note that each icon is displayed only if available in the current "
 "activity)\n"
-"    Home - Exit an activity, go back to menu\n"
+"    Home - Exit an activity, go back to menu (ctrl-w and escape key)\n"
 "    Thumb - OK. Confirm your answer\n"
-"    Dice - Display the current level. Click to select another level\n"
+"    Arrows - Display the current level. Click to select another level\n"
 "    Lips - Repeat the question\n"
 "    Question Mark - Help\n"
 "    Tool - The configuration menu\n"
 "    Tux Plane - About GCompris\n"
-"    Night - Quit GCompris\n"
+"    Quit - Quit GCompris (ctrl-x)\n"
 "The stars show suitable age groups for each game:\n"
 "    1, 2 or 3 simple stars  - from 2 to 6 years old\n"
-"    1, 2 or 3 complex stars - 7 years and up"
+"    1, 2 or 3 complex stars - 7 years and up\n"
+"Shortcuts:\n"
+"    ctrl-b Show or Hide the control bar\n"
+"    ctrl-f Toggle full screen\n"
+"    ctrl-m Toggle mute for the background music"
 msgstr ""
 "Un só clic nunha icona levarache a unha actividade ou a un menú de "
 "actividades.\n"
@@ -195,11 +200,11 @@ msgstr ""
 "    1, 2 ou 3 estrelas simples  - de 2 a 6 anos\n"
 "    1, 2 ou 3 estrelas complexas - de 7 anos para arriba"
 
-#: ../boards/menu.xml.in.h:16
+#: ../boards/menu.xml.in.h:20
 msgid "GCompris Main Menu"
 msgstr "Menú principal de GCompris"
 
-#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:866
+#: ../boards/menu.xml.in.h:21 ../src/boards/menu2.c:866
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -207,7 +212,7 @@ msgstr ""
 "GCompris é unha colección de xogos educativos con actividades para nenos e "
 "nenas a partir dos 2 anos."
 
-#: ../boards/menu.xml.in.h:19
+#: ../boards/menu.xml.in.h:23
 msgid ""
 "The goal of GCompris is to provide a free alternative to popular proprietary "
 "edutainment software"
@@ -271,7 +276,6 @@ msgstr "Actividades baseadas en son."
 msgid "Strategy games"
 msgstr "Xogos de estratexia"
 
-#  O xogo Connect4 é ben coñecido como Catro en raia. Existe un xoguete á venda que reproduce con disquiños reais (amarelos e vermellos) este xogo. Catro en raia tamén se chama o xogo que aparece na colección de xogos que inclúen por defecto a maioría das distros GNU/Linux (e tamén as BSD's e openSolaris) para o escritorio GNOME. Substituír? O xogo Connect4 é ben coñecido como Catro en raia. Existe un xoguete á venda que reproduce con disquiños reais (amarelos e vermellos) este xogo. Catro en raia tamén se chama o xogo que aparece na colección de xogos que inclúen por defecto a maioría das distros GNU/Linux (e tamén as BSD's e OpenSolaris) para o escritorio GNOME. Substituír?
 #: ../boards/strategy.xml.in.h:2
 msgid "Strategy games like chess, connect4, ..."
 msgstr "Xogos de estratexia, como o xadrez, o catro en raia etc."
@@ -790,7 +794,6 @@ msgid "Advanced colors"
 msgstr "Cores avanzadas"
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:2
-#: ../src/read_colors-activity/read_colors.xml.in.h:1
 msgid "Can read"
 msgstr "Podes ler"
 
@@ -806,289 +809,291 @@ msgstr "Preme na caixa coloreada correcta."
 msgid "Learn to recognize unusual colors."
 msgstr "Aprende a recoñecer cores pouco comúns."
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:1
-msgid "almond"
-msgstr "améndoa"
+#. Translator: Do not translate {text}.
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:2
+msgid "Find the {text} butterfly"
+msgstr "Encontra a bolboreta {text}"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:2
-msgid "chestnut"
-msgstr "castaño"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:3
-msgid "claret"
-msgstr "bordeos"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:4
-msgid "cobalt"
-msgstr "cobalto"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:5
-msgid "coral"
-msgstr "coral"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:6
-msgid "corn"
-msgstr "millo"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:7
-msgid "cyan"
-msgstr "cian"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:8
-msgid "sienna"
-msgstr "siena"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:1
-msgid "lime"
-msgstr "lima"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:2
-msgid "sage"
-msgstr "salvia"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:3
-msgid "salmon"
-msgstr "salmón"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:4
-msgid "sapphire"
-msgstr "zafiro"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:5
-msgid "sepia"
-msgstr "sepia"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:6
-msgid "sulphur"
-msgstr "xofre"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:7
-msgid "tea"
-msgstr "té"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:8
-msgid "turquoise"
-msgstr "turquesa"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:1
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:3
 msgid "absinthe"
 msgstr "absenta"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:2
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:4
 msgid "alabaster"
 msgstr "alabastro"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:3
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:5
+msgid "almond"
+msgstr "améndoa"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:6
 msgid "amber"
 msgstr "ámbar"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:4
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:7
 msgid "amethyst"
 msgstr "amatista"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:5
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:8
 msgid "anise"
 msgstr "anís"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:6
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:9
 msgid "aquamarine"
 msgstr "augamariña"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:7
-msgid "mahogany"
-msgstr "caoba"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:8
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:8
-msgid "vermilion"
-msgstr "vermellón"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:1
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:1
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:10
 msgid "aubergine"
 msgstr "berenxena"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:2
-msgid "ceruse"
-msgstr "cerusita"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:3
-msgid "chartreuse"
-msgstr "mazá claro"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:4
-msgid "emerald"
-msgstr "esmeralda"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:5
-msgid "fawn"
-msgstr "beixe"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:6
-msgid "fuchsia"
-msgstr "fucsia"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:7
-msgid "glaucous"
-msgstr "glauco"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:8
-msgid "ruby"
-msgstr "rubí"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:2
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:11
 msgid "auburn"
 msgstr "castaño avermellado"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:3
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:12
 msgid "azure"
 msgstr "azul ceo"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:4
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:13
 msgid "bistre"
 msgstr "vermello escuro"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:5
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:14
 msgid "celadon"
 msgstr "verde celedón"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:6
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:15
 msgid "cerulean"
 msgstr "cerúleo"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:7
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:16
+msgid "ceruse"
+msgstr "cerusita"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:17
+msgid "chartreuse"
+msgstr "mazá claro"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:18
+msgid "chestnut"
+msgstr "castaño"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:19
+msgid "claret"
+msgstr "bordeos"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:20
+msgid "cobalt"
+msgstr "cobalto"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:21
+msgid "coral"
+msgstr "coral"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:22
+msgid "corn"
+msgstr "millo"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:23
 msgid "crimson"
 msgstr "carmesí"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:8
-msgid "greyish-brown"
-msgstr "marrón agrisado"
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:24
+msgid "cyan"
+msgstr "cian"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:1
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:25
+msgid "dark purple"
+msgstr "púrpura escuro"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:26
 msgid "dove"
 msgstr "perla"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:2
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:27
+msgid "emerald"
+msgstr "esmeralda"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:28
+msgid "fawn"
+msgstr "beixe"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:29
+msgid "fuchsia"
+msgstr "fucsia"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:30
 msgid "garnet"
 msgstr "granate"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:3
-msgid "indigo"
-msgstr "índigo"
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:31
+msgid "glaucous"
+msgstr "glauco"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:4
-msgid "ivory"
-msgstr "marfil"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:5
-msgid "jade"
-msgstr "xade"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:6
-msgid "lavender"
-msgstr "lavanda"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:7
-msgid "lichen"
-msgstr "lique"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:8
-msgid "wine"
-msgstr "viño"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:1
-msgid "larch"
-msgstr "piñeiro"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:2
-msgid "lilac"
-msgstr "lila"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:3
-msgid "magenta"
-msgstr "maxenta"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:4
-msgid "malachite"
-msgstr "malaquita"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:5
-msgid "mimosa"
-msgstr "mimosa"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:6
-msgid "navy"
-msgstr "azul mariño"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:7
-msgid "ochre"
-msgstr "ocre"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:8
-msgid "olive"
-msgstr "oliva"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:1
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:32
 msgid "greyish blue"
 msgstr "azul agrisado"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:2
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:33
+msgid "greyish brown"
+msgstr "marrón agrisado"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:34
+msgid "indigo"
+msgstr "índigo"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:35
+msgid "ivory"
+msgstr "marfil"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:36
+msgid "jade"
+msgstr "xade"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:37
+msgid "larch"
+msgstr "piñeiro"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:38
+msgid "lavender"
+msgstr "lavanda"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:39
+msgid "lichen"
+msgstr "lique"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:40
+msgid "lilac"
+msgstr "lila"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:41
+msgid "lime"
+msgstr "lima"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:42
+msgid "magenta"
+msgstr "maxenta"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:43
+msgid "mahogany"
+msgstr "caoba"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:44
+msgid "malachite"
+msgstr "malaquita"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:45
 msgid "mauve"
 msgstr "malva"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:3
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:46
+msgid "mimosa"
+msgstr "mimosa"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:47
+msgid "navy"
+msgstr "azul mariño"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:48
+msgid "ochre"
+msgstr "ocre"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:49
+msgid "olive"
+msgstr "oliva"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:50
 msgid "opaline"
 msgstr "opalina"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:4
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:51
 msgid "pistachio"
 msgstr "pistacho"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:5
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:52
 msgid "platinum"
 msgstr "platino"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:6
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:53
+msgid "plum"
+msgstr "ameixa"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:54
+msgid "prussian blue"
+msgstr "azul prusia"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:55
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:9
 msgid "purple"
 msgstr "púrpura"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:7
-msgid "ultramarine"
-msgstr "ultramarino"
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:56
+msgid "ruby"
+msgstr "rubí"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:1
-msgid "dark purple"
-msgstr "púrpura escuro"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:2
-msgid "plum"
-msgstr "ameixa"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:3
-msgid "prussian blue"
-msgstr "azul prusia"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:4
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:57
 msgid "rust"
 msgstr "ferruxe"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:5
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:58
 msgid "saffron"
 msgstr "azafrán"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:6
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:59
+msgid "sage"
+msgstr "salvia"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:60
+msgid "salmon"
+msgstr "salmón"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:61
+msgid "sapphire"
+msgstr "zafiro"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:62
+msgid "sepia"
+msgstr "sepia"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:63
+msgid "sienna"
+msgstr "siena"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:64
+msgid "sulphur"
+msgstr "xofre"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:65
+msgid "tea"
+msgstr "té"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:66
+msgid "turquoise"
+msgstr "turquesa"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:67
+msgid "ultramarine"
+msgstr "ultramarino"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:68
 msgid "vanilla"
 msgstr "vainilla"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:7
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:69
 msgid "verdigris"
 msgstr "verde gris"
 
-#  Adxetivo relativo a Verona, cidade Italiana
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:8
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:70
+msgid "vermilion"
+msgstr "vermellón"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:71
 msgid "veronese"
 msgstr "veronés"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:72
+msgid "wine"
+msgstr "viño"
 
 #. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
 #: ../src/algebra_by-activity/algebra.c:186
@@ -1129,7 +1134,7 @@ msgstr "Táboa de multiplicar"
 
 #: ../src/algebra_by-activity/algebra_by.xml.in.h:5
 msgid "Practice the multiplication operation"
-msgstr "Practicar a operación de multiplicar"
+msgstr "Practica a operación de multiplicar"
 
 #: ../src/algebra_guesscount-activity/algebra_guesscount.xml.in.h:1
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:1
@@ -1332,7 +1337,6 @@ msgstr "Baixar"
 msgid "Current frame"
 msgstr "Fotograma actual"
 
-#  �'Crea', imperativo, e non 'Crear', pois as�o vin no contexto do propio programa.
 #: ../src/anim-activity/anim.xml.in.h:1
 msgid "Create a drawing or an animation"
 msgstr "Crea un debuxo ou unha animación"
@@ -1474,7 +1478,6 @@ msgstr "Oware"
 msgid "Play the Oware strategy game against Tux"
 msgstr "Xoga contra Tux ao xogo de estratexia Oware"
 
-#  Ao final da cadea fala de 'stones', cando no Oware se fala sempre de sementes e de sementar (é un xogo africano). De aí que teña traducido o de 'stones' por 'sementes' -> VER CADEA NA QUE SE FALA DAS NORMAS DO XOGO, NESTA MESMA PÁXINA DE CADEAS.
 #: ../src/awele-activity/awele.xml.in.h:4
 msgid ""
 "The object of the game is to capture more seeds than one's opponent. Since "
@@ -1533,8 +1536,8 @@ msgstr "Coordinación motriz. Coincidencia conceptual."
 msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "Manexo do rato: movemento, arrastrar e soltar. Referencias culturais."
 
-#: ../src/babymatch-activity/shapegame.c:1903
-#: ../src/click_on_letter-activity/click_on_letter.c:671
+#: ../src/babymatch-activity/shapegame.c:1906
+#: ../src/click_on_letter-activity/click_on_letter.c:672
 #: ../src/colors-activity/colors.c:168
 #, c-format
 msgid ""
@@ -1614,7 +1617,7 @@ msgstr ""
 
 #: ../src/ballcatch-activity/ballcatch.xml.in.h:1
 msgid "Make the ball go to Tux"
-msgstr "Fai que a pelota chegue a Tux"
+msgstr "Fai que a bóla lle chegue a Tux"
 
 #: ../src/bargame-activity/bargame.xml.in.h:1
 msgid "Brain"
@@ -1622,14 +1625,13 @@ msgstr "Cerebro"
 
 #: ../src/bargame-activity/bargame.xml.in.h:2
 msgid "Don't use the last ball"
-msgstr "Non uses a última pelota"
+msgstr "Non uses a última bóla"
 
 #: ../src/bargame-activity/bargame.xml.in.h:3
 #: ../src/hexagon-activity/hexagon.xml.in.h:2
 msgid "Logic-training activity"
 msgstr "Actividade de adestramento lóxico"
 
-#  Son m�s ben bolas, v�doo sobre o xogo real.
 #: ../src/bargame-activity/bargame.xml.in.h:4
 msgid ""
 "Place balls in the holes. You win if the computer has to place the last "
@@ -1649,11 +1651,11 @@ msgstr "Mover o rato"
 
 #: ../src/billard-activity/billard.xml.in.h:1
 msgid "Kick the ball into the black hole on the right"
-msgstr "Mete a pelota no buraco negro que está á dereita"
+msgstr "Mete a bóla no buraco negro que está á dereita"
 
 #: ../src/billard-activity/billard.xml.in.h:2
 msgid "Kick the ball into the goal"
-msgstr "Mete a pelota na portería"
+msgstr "Mete a bóla na portería"
 
 #: ../src/billard-activity/billard.xml.in.h:3
 #: ../src/chess_computer-activity/chess_computer.xml.in.h:2
@@ -1678,8 +1680,8 @@ msgid ""
 "Point the mouse and click on the ball, to set the speed and direction of the "
 "ball. The closer you click to the centre, the slower the ball moves."
 msgstr ""
-"Apunta co rato e preme na pelota para fixar a súa velocidade e a súa "
-"dirección. Canto máis preto do centro premas máis lento se moverá a pelota."
+"Apunta co rato e preme na bóla para fixar a súa velocidade e a súa "
+"dirección. Canto máis preto do centro premas máis lento se moverá a bóla."
 
 #: ../src/billard-activity/billard.xml.in.h:5
 msgid "The football game"
@@ -1744,7 +1746,6 @@ msgstr "Todas as mensaxes se mostrarán aquí.\n"
 msgid "Your Friends"
 msgstr "Os teus amigos"
 
-#  Canle �feminino en galego
 #: ../src/chat-activity/chat.py:172
 msgid "Your Channel"
 msgstr "A túa canle"
@@ -1826,7 +1827,6 @@ msgstr "Xogan as brancas"
 msgid "Black's Turn"
 msgstr "Xogan as negras"
 
-#  'xeque' �'jaque' en castel�. Ver galipedia: http://gl.wikipedia.org/wiki/Xadrez
 #: ../src/chess_computer-activity/chess.c:789
 msgid "White checks"
 msgstr "Xeque das brancas"
@@ -1839,12 +1839,10 @@ msgstr "Xeque das negras"
 msgid "Black mates"
 msgstr "Xeque mate das negras"
 
-#  'xeque mate' �'jaque mate' en espa�l. Ver galipedia: http://gl.wikipedia.org/wiki/Xadrez
 #: ../src/chess_computer-activity/chess.c:1204
 msgid "White mates"
 msgstr "Xeque mate das brancas"
 
-#  Acabar empatados ao xadrez �acabar en 't�oas'
 #: ../src/chess_computer-activity/chess.c:1211 ../src/gcompris/bonus.c:191
 #: ../src/gcompris/bonus.c:200
 msgid "Drawn game"
@@ -1878,7 +1876,6 @@ msgstr "Xoga o final da partida de xadrez contra o computador"
 msgid "Chronos"
 msgstr "Chronos"
 
-#  historia pode ser 'conto' ou 'historieta' ou similar. Haber� que velo no propio contexto da aplicaci�.
 #: ../src/chronos-activity/chronos.xml.in.h:2
 msgid "Drag and Drop the items to organize the story"
 msgstr "Arrastra e solta os elementos para organizar a historia"
@@ -1907,7 +1904,6 @@ msgstr "Poñer as imaxes na orde que indica a historia"
 msgid "Tell a short story"
 msgstr "Conta unha historia curta"
 
-#  Ver comentarios �suxesti� 'Viaxe �la'
 #: ../src/chronos-activity/resources/chronos/board1_0.xml.in.h:1
 msgid "Moonwalker"
 msgstr "Camiñando pola lúa"
@@ -1944,7 +1940,6 @@ msgstr "Xardinaría"
 msgid "Tux and the apple tree"
 msgstr "Tux e a maceira"
 
-#  Fardier semella que non ten traducci�: http://fr.wikipedia.org/wiki/Joseph_Cugnot . �un autom�il primitivo inventado por ese enxe�iro franc�.
 #: ../src/chronos-activity/resources/chronos/board3_0.xml.in.h:1
 #: ../src/chronos-activity/resources/chronos/board3_2.xml.in.h:1
 #: ../src/chronos-activity/resources/chronos/board3_4.xml.in.h:1
@@ -1952,7 +1947,6 @@ msgstr "Tux e a maceira"
 msgid "1769 Cugnot's fardier"
 msgstr "O Fardier de Cugnot, 1769"
 
-#  Rocket �nome propio. Pode verse que non se traduce en ningunha l�gua: http://it.wikipedia.org/wiki/Locomotiva_Rocket . A falta de castel�, puxen a wiki italiana :)
 #: ../src/chronos-activity/resources/chronos/board3_0.xml.in.h:2
 #: ../src/chronos-activity/resources/chronos/board3_3.xml.in.h:5
 #: ../src/chronos-activity/resources/chronos/board3_4.xml.in.h:2
@@ -2007,7 +2001,6 @@ msgstr ""
 "Primeiro voo en helicóptero\n"
 "de Paul Cornu, 1906"
 
-#  http://r.queneau.chez-alice.fr/800X600/pages/bicycl/celerif.htm
 #: ../src/chronos-activity/resources/chronos/board3_2.xml.in.h:2
 #: ../src/chronos-activity/resources/chronos/board3_3.xml.in.h:3
 msgid ""
@@ -2132,7 +2125,7 @@ msgstr ""
 "quedámonos no inglés!"
 
 #. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:694
+#: ../src/click_on_letter-activity/click_on_letter.c:695
 #: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:484
 #: ../src/missing_letter-activity/missingletter_config.c:492
 #: ../src/readingh-activity/reading.c:928
@@ -2149,7 +2142,6 @@ msgstr ""
 "volver escoitala se premes na icona con forma de boca que está na caixa da "
 "parte inferior da pantalla."
 
-#  Na meirande parte das traducci�s mantense un trato de ti, pois �un programa para cativos de entre 2 e 10 anos. Pola contra, cando se trata de cadeas da parte de configuraci�, deber�mos manter o trato de vostede. �a mi� opini�.
 #: ../src/click_on_letter-activity/click_on_letter.xml.in.h:2
 msgid "Click on a letter"
 msgstr "Preme nunha letra"
@@ -2314,47 +2306,38 @@ msgid "Find the {text} duck"
 msgstr "Encontra o pato {text}"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:3
-#: ../src/read_colors-activity/read_colors.c:65
 msgid "black"
 msgstr "negro"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:4
-#: ../src/read_colors-activity/read_colors.c:57
 msgid "blue"
 msgstr "azul"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:5
-#: ../src/read_colors-activity/read_colors.c:58
 msgid "brown"
 msgstr "marrón"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:6
-#: ../src/read_colors-activity/read_colors.c:59
 msgid "green"
 msgstr "verde"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:7
-#: ../src/read_colors-activity/read_colors.c:60
 msgid "grey"
 msgstr "gris"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:8
-#: ../src/read_colors-activity/read_colors.c:61
 msgid "orange"
 msgstr "laranxa"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:10
-#: ../src/read_colors-activity/read_colors.c:63
 msgid "red"
 msgstr "vermello"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:11
-#: ../src/read_colors-activity/read_colors.c:66
 msgid "white"
 msgstr "branco"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:12
-#: ../src/read_colors-activity/read_colors.c:64
 msgid "yellow"
 msgstr "amarelo"
 
@@ -2611,7 +2594,7 @@ msgstr ""
 "aforrar tempo, podes premer o botón central do rato para borrar un obxecto."
 
 #: ../src/drawnumber-activity/drawnumber.py:236
-#: ../src/findit-activity/findit.py:290
+#: ../src/findit-activity/findit.py:310
 msgid "Cannot find the file '{filename}'"
 msgstr "Non se puido encontrar o ficheiro '{filename}'"
 
@@ -2766,7 +2749,6 @@ msgstr ""
 "persoas permitíronnos amabelmente incluír as súas fotos en GCompris. "
 "Moitísimas grazas a ambos os dous."
 
-# revisar: verificar nome e camiño
 #: ../src/erase-activity/erase.xml.in.h:6
 msgid ""
 "Move the mouse until all the blocks disappear. You can add you own images "
@@ -2891,19 +2873,19 @@ msgstr ""
 msgid "OK"
 msgstr "Aceptar"
 
-#: ../src/gcompris/bar.c:684
+#: ../src/gcompris/bar.c:688
 msgid "GCompris confirmation"
 msgstr "Confirmación de GCompris"
 
-#: ../src/gcompris/bar.c:685
+#: ../src/gcompris/bar.c:689
 msgid "Are you sure you want to quit?"
 msgstr "Estás seguro de que queres saír?"
 
-#: ../src/gcompris/bar.c:686
+#: ../src/gcompris/bar.c:690
 msgid "Yes, I am sure!"
 msgstr "Si, estou seguro!"
 
-#: ../src/gcompris/bar.c:687
+#: ../src/gcompris/bar.c:691
 msgid "No, I want to keep going"
 msgstr "Non, quero seguir adiante"
 
@@ -3033,7 +3015,6 @@ msgstr "Danés"
 msgid "Dutch"
 msgstr "Holandés"
 
-#  L�gua do Bhut� (Asia). Aparece as�tam� na wikipedia en castel�, franc� e italiano.
 #: ../src/gcompris/config.c:74
 msgid "Dzongkha"
 msgstr "Dzongkha"
@@ -3070,7 +3051,6 @@ msgstr "Alemán"
 msgid "Greek"
 msgstr "Grego"
 
-#  l�gua da Uni� India
 #: ../src/gcompris/config.c:83
 msgid "Gujarati"
 msgstr "Gujarati"
@@ -3103,7 +3083,6 @@ msgstr "Italiano"
 msgid "Japanese"
 msgstr "Xaponés"
 
-#  Outras posibilidades: kinyarwanda e qui�ruanda. Lingua de Ruanda.
 #: ../src/gcompris/config.c:91
 msgid "Kinyarwanda"
 msgstr "Ruandés"
@@ -3124,8 +3103,6 @@ msgstr "Macedonio"
 msgid "Malay"
 msgstr "Malaio"
 
-#  O malaialam é unha lingua dravídica falada no estado de Kerala, sur da Unión 
-# India. Non ten nada que ver co malaio.
 #: ../src/gcompris/config.c:96
 msgid "Malayalam"
 msgstr "Malayalam"
@@ -3170,7 +3147,6 @@ msgstr "Portugués (Brasil)"
 msgid "Portuguese"
 msgstr "Portugués"
 
-#  L�gua da Uni� India e do Pakist�
 #: ../src/gcompris/config.c:107
 msgid "Punjabi"
 msgstr "Punjabi"
@@ -3219,7 +3195,6 @@ msgstr "Támil"
 msgid "Thai"
 msgstr "Tailandés"
 
-#  http://gl.wikipedia.org/wiki/Acerbaix%C3%A1n_-_Az%C9%99rbaycan
 #: ../src/gcompris/config.c:119
 msgid "Turkish (Azerbaijan)"
 msgstr "Turco (Acerbaixán)"
@@ -3264,7 +3239,6 @@ msgstr "Cronómetro normal"
 msgid "Fast timer"
 msgstr "Cronómetro rápido"
 
-#  'filtrar' podería substituíse por 'seleccionar un subconxunto de'.
 #: ../src/gcompris/config.c:137
 msgid "Use Gcompris administration module to filter boards"
 msgstr "Use o módulo de administración de Gcompris para filtrar taboleiros"
@@ -3320,15 +3294,15 @@ msgstr "CARGAR"
 msgid "SAVE"
 msgstr "GARDAR"
 
-#: ../src/gcompris/gameutil.c:142 ../src/gcompris/gameutil.c:200
+#: ../src/gcompris/gameutil.c:138 ../src/gcompris/gameutil.c:196
 msgid "Couldn't find or load the file"
 msgstr "Non se puido atopar ou cargar o ficheiro"
 
-#: ../src/gcompris/gameutil.c:144 ../src/gcompris/gameutil.c:202
+#: ../src/gcompris/gameutil.c:140 ../src/gcompris/gameutil.c:198
 msgid "This activity is incomplete."
 msgstr "Esta actividade está incompleta."
 
-#: ../src/gcompris/gameutil.c:145 ../src/gcompris/gameutil.c:203
+#: ../src/gcompris/gameutil.c:141 ../src/gcompris/gameutil.c:199
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -3336,43 +3310,43 @@ msgstr ""
 "Saia do aplicativo e informe\n"
 "do problema aos/às autores/as."
 
-#: ../src/gcompris/gcompris.c:158
+#: ../src/gcompris/gcompris.c:159
 msgid "run GCompris in fullscreen mode."
 msgstr "executar GCompris no modo pantalla completa."
 
-#: ../src/gcompris/gcompris.c:161
+#: ../src/gcompris/gcompris.c:162
 msgid "run GCompris in window mode."
 msgstr "executar GCompris no modo de xanela."
 
-#: ../src/gcompris/gcompris.c:164
+#: ../src/gcompris/gcompris.c:165
 msgid "run GCompris with sound enabled."
 msgstr "executar GCompris co son activado."
 
-#: ../src/gcompris/gcompris.c:167
+#: ../src/gcompris/gcompris.c:168
 msgid "run GCompris without sound."
 msgstr "executar GCompris sen son."
 
-#: ../src/gcompris/gcompris.c:170
+#: ../src/gcompris/gcompris.c:171
 msgid "run GCompris with the default system cursor."
 msgstr "executar GCompris co cursor predeterminado do sistema."
 
-#: ../src/gcompris/gcompris.c:173
+#: ../src/gcompris/gcompris.c:174
 msgid "run GCompris without cursor (touch screen mode)."
 msgstr "executar GCompris sen cursor (modo de pantalla táctil)."
 
-#: ../src/gcompris/gcompris.c:176
+#: ../src/gcompris/gcompris.c:177
 msgid "display only activities with this difficulty level."
 msgstr "mostrar só as actividades con este nivel de dificultade."
 
-#: ../src/gcompris/gcompris.c:179
+#: ../src/gcompris/gcompris.c:180
 msgid "display debug informations on the console."
 msgstr "mostra información de depuración de erros na consola."
 
-#: ../src/gcompris/gcompris.c:182
+#: ../src/gcompris/gcompris.c:183
 msgid "Print the version of "
 msgstr "Imprime a versión de "
 
-#: ../src/gcompris/gcompris.c:185
+#: ../src/gcompris/gcompris.c:186
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
@@ -3384,38 +3358,38 @@ msgstr ""
 "conecta4). Use '-l list' para listar todas as actividades dispoñíbeis e as "
 "súas descricións."
 
-#: ../src/gcompris/gcompris.c:190
+#: ../src/gcompris/gcompris.c:191
 msgid "GCompris will find the data dir in this directory"
 msgstr "GCompris encontrará os datos neste directorio"
 
-#: ../src/gcompris/gcompris.c:193
+#: ../src/gcompris/gcompris.c:194
 msgid "GCompris will find the skins in this directory"
 msgstr "GCompris encontrará os ficheiros de aparencia neste directorio"
 
-#: ../src/gcompris/gcompris.c:196
+#: ../src/gcompris/gcompris.c:197
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "GCompris encontrará os plugins de actividade neste directorio"
 
-#: ../src/gcompris/gcompris.c:199
+#: ../src/gcompris/gcompris.c:200
 msgid "GCompris will find the python activity in this directory"
 msgstr "GCompris encontrará a actividade de Python neste directorio"
 
-#: ../src/gcompris/gcompris.c:202
+#: ../src/gcompris/gcompris.c:203
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr ""
 "GCompris encontrará o ficheiro de configuración rexional (tradución .mo) "
 "neste directorio"
 
-#: ../src/gcompris/gcompris.c:205
+#: ../src/gcompris/gcompris.c:206
 msgid "GCompris will find the activities menu in this directory"
 msgstr "GCompris encontrará o menú de actividades neste directorio"
 
-#: ../src/gcompris/gcompris.c:208
+#: ../src/gcompris/gcompris.c:209
 msgid "Run GCompris in administration and user-management mode"
 msgstr ""
 "Executar GCompris no modo de administración e xestión de persoas usuarias"
 
-#: ../src/gcompris/gcompris.c:211
+#: ../src/gcompris/gcompris.c:212
 msgid ""
 "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
@@ -3423,24 +3397,24 @@ msgstr ""
 "Usa unha base de datos para os ficheiros [$HOME/.config/gcompris/"
 "gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:214
+#: ../src/gcompris/gcompris.c:215
 msgid "Create the alternate database for profiles"
 msgstr "Crear a base de datos alternativa para os perfís"
 
-#: ../src/gcompris/gcompris.c:217
+#: ../src/gcompris/gcompris.c:218
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Reler os menús XML e almacenalos na base de datos"
 
-#: ../src/gcompris/gcompris.c:220
+#: ../src/gcompris/gcompris.c:221
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Define o perfil que se vai usar. Usa o 'gcompris-a' para crear perfís"
 
-#: ../src/gcompris/gcompris.c:223
+#: ../src/gcompris/gcompris.c:224
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Lista de todos os perfís dispoñíbeis. Use 'gcompris -a' para crear perfís"
 
-#: ../src/gcompris/gcompris.c:226
+#: ../src/gcompris/gcompris.c:227
 msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
@@ -3448,27 +3422,27 @@ msgstr ""
 "Configurar directorio de localización: [$HOME/.config/gcompris]. Unha opción "
 "alternativa é estabelecer $XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:229
+#: ../src/gcompris/gcompris.c:230
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "A localización dos directorios de usuario: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:232
+#: ../src/gcompris/gcompris.c:233
 msgid "Run the experimental activities"
 msgstr "Executar as actividades experimentais"
 
-#: ../src/gcompris/gcompris.c:235
+#: ../src/gcompris/gcompris.c:236
 msgid "Disable the quit button"
 msgstr "Desactivar o botón de saída"
 
-#: ../src/gcompris/gcompris.c:238
+#: ../src/gcompris/gcompris.c:239
 msgid "Disable the config button"
 msgstr "Desactivar o botón de configuración"
 
-#: ../src/gcompris/gcompris.c:241
+#: ../src/gcompris/gcompris.c:242
 msgid "Disable the level button"
 msgstr "Desactivar o botón de nivel"
 
-#: ../src/gcompris/gcompris.c:244
+#: ../src/gcompris/gcompris.c:245
 msgid ""
 "GCompris will get images, sounds and activity data from this server if not "
 "found locally."
@@ -3476,7 +3450,7 @@ msgstr ""
 "GCompris collerá deste servidor imaxes, son e os datos de actividades se non "
 "se atoparen localmente. "
 
-#: ../src/gcompris/gcompris.c:247
+#: ../src/gcompris/gcompris.c:248
 msgid ""
 "Only when --server is provided, disable check for local resource first. Data "
 "are always taken from the web server."
@@ -3484,25 +3458,45 @@ msgstr ""
 "Só cando se especifica --server, desactívase a comprobación de recursos "
 "locais en primeiro lugar. Os datos sempre se obteñen do servidor web."
 
-#: ../src/gcompris/gcompris.c:251
+#: ../src/gcompris/gcompris.c:252
 msgid ""
 "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr ""
 "No modo servidor, especifica onde está o directorio de caché para evitar "
 "descargas  innecesarias."
 
-#: ../src/gcompris/gcompris.c:254
+#: ../src/gcompris/gcompris.c:255
 msgid ""
 "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr ""
 "Modo global de arrastrar e soltar: normal, premer 2 veces, ambos. O modo por "
 "defecto é normal."
 
-#: ../src/gcompris/gcompris.c:257
+#: ../src/gcompris/gcompris.c:258
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Non evitar a execución de varias instancias de GCompris."
 
-#: ../src/gcompris/gcompris.c:929
+#: ../src/gcompris/gcompris.c:270
+msgid "Disable maximization zoom"
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:273
+msgid ""
+"Increase activities' timeout delays; useful values > 1.0; 1.0 to not change "
+"hardcoded value"
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:276
+msgid ""
+"How activities' timeout delays are growing for several actors; useful values "
+"< 1.0; 1.0 to not change hardcoded value"
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:279
+msgid "For test purpose, run in a loop all the activities"
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:980
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -3524,14 +3518,14 @@ msgstr ""
 "usar GNU/Linux. Encontrará máis información na FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1223
+#: ../src/gcompris/gcompris.c:1274
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
 msgstr ""
 "Houbo un fallo ao cargar o ficheiro de aparencia '%s' (verifique que o "
 "ficheiro existe e que se pode ler)"
 
-#: ../src/gcompris/gcompris.c:1486
+#: ../src/gcompris/gcompris.c:1537
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
@@ -3539,12 +3533,12 @@ msgstr ""
 "GCompris non vai comezar porque o ficheiro de bloqueo non é anterior a %d "
 "segundos.\n"
 
-#: ../src/gcompris/gcompris.c:1488
+#: ../src/gcompris/gcompris.c:1539
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "O ficheiro de bloqueo é: %s\n"
 
-#: ../src/gcompris/gcompris.c:1599
+#: ../src/gcompris/gcompris.c:1712
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3558,27 +3552,27 @@ msgstr ""
 "Máis información en http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1714
+#: ../src/gcompris/gcompris.c:1827
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Usa -l para acceder a unha actividade directamente.\n"
 
-#: ../src/gcompris/gcompris.c:1715
+#: ../src/gcompris/gcompris.c:1828
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "A lista de actividades dispoñíbeis é:\n"
 
-#: ../src/gcompris/gcompris.c:1746
+#: ../src/gcompris/gcompris.c:1859
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Número de actividades: %d\n"
 
-#: ../src/gcompris/gcompris.c:1782
+#: ../src/gcompris/gcompris.c:1895
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s existe, pero non é un ficheiro lexíbel nin escribíbel"
 
-#: ../src/gcompris/gcompris.c:1845
+#: ../src/gcompris/gcompris.c:1958
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
@@ -3587,7 +3581,7 @@ msgstr ""
 "A opción --server non se pode usar porque GCompris se compilou sen "
 "compatibilidade de rede!"
 
-#: ../src/gcompris/gcompris.c:1899
+#: ../src/gcompris/gcompris.c:2012
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3596,7 +3590,7 @@ msgstr ""
 "ERRO: O perfil '%s' non se encontrou. Execute 'gcompris --profile-list' para "
 "listar os dispoñíbeis\n"
 
-#: ../src/gcompris/gcompris.c:1913
+#: ../src/gcompris/gcompris.c:2026
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "A lista de perfís dispoñíbeis é:\n"
@@ -4376,7 +4370,6 @@ msgstr ""
 "Guía o Tragón de números ás expresións que son iguais ao número que hai na "
 "parte superior da pantalla."
 
-#  Cambiei a orde dos termos para adaptar a frase ao que �t�ico de aquí
 #: ../src/gnumch-equality-activity/gnumch-equality.xml.in.h:3
 msgid "Practice addition, multiplication, division and subtraction."
 msgstr "Practica a suma, a resta, a multiplicación e a división."
@@ -4649,7 +4642,6 @@ msgstr ""
 msgid "Guess a number between %d and %d"
 msgstr "Adiviña un número entre %d e %d"
 
-#  Sáltome o 'please' porque non é tan común o seu uso como no mundo anglosaxón.
 #: ../src/guessnumber-activity/guessnumber.py:299
 #, python-format
 msgid "Please enter a number between %d and %d"
@@ -4680,7 +4672,6 @@ msgstr ""
 msgid "Numbers from 1 to 1000 for the last level."
 msgstr "Números do 1 ao 1000 para o último nivel."
 
-#  give you = CHE dá; top right blue entry box = caixa de entrada azul que hai na parte superior dereita ; will tell you = déaCHe ; enter = (neste contexto é imperativo) poN ; over or under = por enriba ou por debaixo. give you = CHE dá; top right blue entry box = caixa de entrada azul que hai na parte superior dereita ; will tell you = déaCHe ; enter = (neste contexto é imperativo) poN ; over or under = por enriba ou por debaixo.
 #: ../src/guessnumber-activity/guessnumber.xml.in.h:4
 msgid ""
 "Read the instructions that give you the range of the number to find. Enter a "
@@ -4716,6 +4707,11 @@ msgid "NONE"
 msgstr "a=á e=é i=í o=ó u=ú i=ï u=ü"
 
 #: ../src/hangman-activity/hangman.py:104
+#, fuzzy
+msgid "English"
+msgstr "Danés"
+
+#: ../src/hangman-activity/hangman.py:107
 msgid "Could not find the list of words."
 msgstr "Non se puido encontrar a lista de palabras."
 
@@ -4810,7 +4806,6 @@ msgstr ""
 "* Só se pode mover un disco de cada vez\n"
 "* Non se pode colocar un disco sobre un disco máis pequeno"
 
-#  Puxen a ligazón da wikipedia en español. Tamén haina en portugués.
 #: ../src/hanoi_real-activity/hanoi_real.xml.in.h:8
 msgid ""
 "The puzzle was invented by the French mathematician Edouard Lucas in 1883. "
@@ -4870,8 +4865,6 @@ msgstr ""
 msgid "This is the meter for electricity produced by the turbine. "
 msgstr "Este é o medidor para a electricidade producida pola turbina. "
 
-# 'watt' é a forma recomendada no VOLGA
-# ('vatio' = sin. 'tolerado')
 #: ../src/hydroelectric-activity/hydroelectric.py:170
 #: ../src/hydroelectric-activity/hydroelectric.py:282
 #: ../src/hydroelectric-activity/hydroelectric.py:289
@@ -4935,7 +4928,6 @@ msgstr ""
 "Unha turbina eólica é un dispositivo que converte a enerxía motriz do vento "
 "en xeración de electricidade. Chámaselle xerador eólico ou cargador eólico. "
 
-# ver en: http://www.realacademiagalega.org/volga/index.jsp "apagada"
 #: ../src/hydroelectric-activity/hydroelectric.py:732
 msgid ""
 "It is not possible to consume more electricity than what is produced. This "
@@ -4965,7 +4957,6 @@ msgstr ""
 "voltaxes altas (110 kV ou máis) para reducir a perda de enerxía na "
 "transmisión a longas distancias."
 
-# revisar: consumers/producers
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:1
 msgid ""
 "Click on different active elements : sun, cloud, dam, solar array, wind farm "
@@ -5203,7 +5194,6 @@ msgstr "oveira"
 msgid "flower"
 msgstr "flor"
 
-#  No contexto da actividade é un vaso, que hai que asociar coa botella!
 #: ../src/imagename-activity/resources/imagename/board2_0.xml.in.h:6
 msgid "glass"
 msgstr "vaso"
@@ -5690,7 +5680,6 @@ msgstr ""
 "Dálle a volta ás tarxetas para atopar dous números que sumen o mesmo ata que "
 "todas as tarxetas desaparezan."
 
-#  Penso que é mellor falar de 'ti' ao usuario, que será un neno ou nena pequeno. Esta traducción é coherente cunha traducción unhas cadeas máis abaixo, e que fala da resta.
 #: ../src/memory_add-activity/memory_add.xml.in.h:5
 #: ../src/memory_add_tux-activity/memory_add_tux.xml.in.h:5
 msgid ""
@@ -5756,7 +5745,6 @@ msgstr ""
 "Dálle a volta ás tarxetas para atopar dous números que sumen ou resten o "
 "mesmo ata que todas as tarxetas desaparezan. "
 
-#  É coherente coas traduccións de suma e resta que hai nesta páxina de cadeas.
 #: ../src/memory_add_minus-activity/memory_add_minus.xml.in.h:5
 #: ../src/memory_add_minus_mult_div-activity/memory_add_minus_mult_div.xml.in.h:5
 #: ../src/memory_add_minus_mult_div_tux-activity/memory_add_minus_mult_div_tux.xml.in.h:5
@@ -5901,7 +5889,6 @@ msgstr ""
 "Dálle a volta ás tarxetas para atopar dous números que resten o mesmo ata "
 "que todas as tarxetas desaparezan."
 
-#  Nalgunhas partes da cadea orixinal f�ase de sum, onde ten que dicir subtraction. Eu correxinno.
 #: ../src/memory_minus-activity/memory_minus.xml.in.h:5
 #: ../src/memory_minus_tux-activity/memory_minus_tux.xml.in.h:5
 msgid ""
@@ -6453,7 +6440,6 @@ msgstr "Reconstruír o mosaico"
 msgid "Assemble the puzzle"
 msgstr "Monta o quebracabezas"
 
-#  Entrando na aplicación GCompris vese que, neste contexto, é 'cadros'.
 #: ../src/paintings-activity/paintings.xml.in.h:2
 msgid "Drag and Drop the items to rebuild the original paintings"
 msgstr "Arrastra e solta os elementos para reconstruír os cadros orixinais"
@@ -6510,7 +6496,6 @@ msgstr "Giuseppe Arcimboldo, O bibliotecario - 1566"
 msgid "Katsushika Hokusai, Oiran and Kamuro"
 msgstr "Katsushika Hokusai, Oiran e Kamuro"
 
-# visto en: http://www.lib-art.com/artgallery/12154-portrait-of-a-woman-holding-a-fan-frans-hals.html
 #: ../src/paintings-activity/resources/paintings/board1_5.xml.in.h:1
 msgid "Katsushika Hokusai, Woman holding a fan"
 msgstr "Katsushika Hokusai, Muller sostendo un abano"
@@ -6523,14 +6508,12 @@ msgstr "Katsushika Hokusai, Ejiri na provincia de Suruga - 1830-1833"
 msgid "Katsushika Hokusai, The Great Wave off Kanagawa - 1823-1829"
 msgstr "Katsushika Hokusai, A grande onda de Kanagawa - 1823-1829"
 
-# visto en: http://en.wikipedia.org/wiki/File:Hiroshige_Benzaiten_Shrine_at_Inokashira_in_Snow.jpg
 #: ../src/paintings-activity/resources/paintings/board1_8.xml.in.h:1
 msgid ""
 "Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
 msgstr ""
 "Utagawa Hiroshige,\\nO santuario nevado de Benzaiten en Inokashira - 1760-70"
 
-# visto en: http://commons.wikimedia.org/wiki/File:Hiroshige_Horse-mackerel_and_prawns.jpg
 #: ../src/paintings-activity/resources/paintings/board1_9.xml.in.h:1
 msgid "Utagawa Hiroshige, Horse-mackerel and Prawn - 1840"
 msgstr "Utagawa Hiroshige, Xarda e lagostino - 1840"
@@ -6551,7 +6534,6 @@ msgstr "Giovanni Bellini, Retablo de Pesaro - 1475-85"
 msgid "Albrecht Dürer, Lion - 1494"
 msgstr "Albrecht Dürer, León - 1494"
 
-# http://es.wikipedia.org/wiki/La_cosecha_%28Brueghel%29
 #: ../src/paintings-activity/resources/paintings/board2_4.xml.in.h:1
 msgid "Pieter Brugel, The Harvesters - 1565"
 msgstr "Pieter Brugel, A colleita - 1565"
@@ -6569,7 +6551,6 @@ msgstr ""
 msgid "Wassily Kandinsky, Composition VIII - 1923"
 msgstr "Wassily Kandinsky, Composición VIII - 1923"
 
-#  Este cadro coñécese máis como 'Aigues-Mortes'
 #: ../src/paintings-activity/resources/paintings/board4_0.xml.in.h:1
 msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
 msgstr "Bazille, As murallas de Aigues-Mortes - 1867"
@@ -6618,12 +6599,12 @@ msgstr ""
 "especiais para xogar."
 
 #: ../src/penalty-activity/penalty.py:292
-msgid "Click on the balloon to place it again."
+msgid "Click on the ball to place it again."
 msgstr "Preme no balón para colocalo de novo."
 
 #: ../src/penalty-activity/penalty.py:294
-msgid "Click twice on the balloon to shoot it."
-msgstr "Preme dúas veces no valón para lanzalo."
+msgid "Click twice on the ball to shoot it."
+msgstr "Preme dúas veces no balón para lanzalo."
 
 #: ../src/penalty-activity/penalty.xml.in.h:1
 msgid ""
@@ -6631,13 +6612,13 @@ msgid ""
 "right or middle mouse button. If you lose, Tux catches the ball. You must "
 "click on it to bring it back to its former position"
 msgstr ""
-"Preme dúas veces co rato na bóla para golpeala. Podes premer dúas veces no "
-"botón esquerdo, dereito ou do medio do rato. Se perdes, a bóla cóllea Tux. "
-"Terás que premer nela outra vez para que volva á súa posición anterior"
+"Preme dúas veces co rato no balón para golpealo. Podes premer dúas veces no "
+"botón esquerdo, dereito ou do medio do rato. Se perdes, o balón cólleo Tux. "
+"Terás que premer nel outra vez para que volva á súa posición anterior"
 
 #: ../src/penalty-activity/penalty.xml.in.h:2
 msgid "Double click the mouse on the ball to score a goal."
-msgstr "Preme dúas veces co rato na bóla para marcar."
+msgstr "Preme dúas veces co rato no balón para marcar un gol."
 
 #: ../src/penalty-activity/penalty.xml.in.h:5
 msgid "Penalty kick"
@@ -6812,30 +6793,6 @@ msgstr "Adestramento de memoria"
 #: ../src/railroad-activity/railroad.xml.in.h:5
 msgid "Railway"
 msgstr "Ferrocarril"
-
-#: ../src/read_colors-activity/read_colors.c:62
-msgid "violet"
-msgstr "violeta"
-
-#: ../src/read_colors-activity/read_colors.c:67
-msgid "pink"
-msgstr "rosa"
-
-#: ../src/read_colors-activity/read_colors.xml.in.h:2
-msgid "Click on the correct colored object."
-msgstr "Preme no obxecto coloreado correcto."
-
-#: ../src/read_colors-activity/read_colors.xml.in.h:3
-msgid "Click on the matching color"
-msgstr "Preme na cor que corresponde"
-
-#: ../src/read_colors-activity/read_colors.xml.in.h:4
-msgid "Read the names of colors"
-msgstr "Le os nomes das cores"
-
-#: ../src/read_colors-activity/read_colors.xml.in.h:5
-msgid "This board teaches basic colors."
-msgstr "Este taboleiro ensina as cores básicas."
 
 #: ../src/readingh-activity/reading.c:229
 #: ../src/wordsgame-activity/wordsgame.c:219
@@ -7417,8 +7374,8 @@ msgstr "O xogo de quebracabezas tangram"
 
 #. Set the maximum text to calc the background
 #. Set the correct initial text
-#: ../src/target-activity/target.c:296 ../src/target-activity/target.c:559
-#: ../src/target-activity/target.c:596
+#: ../src/target-activity/target.c:296 ../src/target-activity/target.c:560
+#: ../src/target-activity/target.c:597
 #, c-format
 msgid "Points = %s"
 msgstr "Puntos = %s"
@@ -7522,7 +7479,6 @@ msgstr "Actividade de debuxo (punto a punto)"
 msgid "Launch Tuxpaint"
 msgstr "Iniciar Tuxpaint"
 
-#  nome da aplicación GNU
 #: ../src/tuxpaint-activity/tuxpaint.xml.in.h:3
 msgid "Tuxpaint"
 msgstr "Tuxpaint"
@@ -7669,7 +7625,7 @@ msgstr "Adestramento co teclado"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Escribe a palabra completa mentres cae e antes de que chegue ao chan"
 
-#: ../src/findit-activity/findit.py:295
+#: ../src/findit-activity/findit.py:315
 msgid ""
 "Failed to parse data set '{filename}' with error:\n"
 "{error}"
@@ -7677,5 +7633,127 @@ msgstr ""
 "Houbo un fallo ao analizar o conxunto de datos '{filename}' co erro:\n"
 "{error}"
 
-#~ msgid "Learn about an hydroelectric dam"
-#~ msgstr "Aprende sobre un encoro hidroeléctrico"
+#: ../src/instruments-activity/instruments.xml.in.h:1
+msgid "Click on the correct instrument."
+msgstr "Preme no instrumento correcto."
+
+#: ../src/instruments-activity/instruments.xml.in.h:2
+msgid "Click on the correct mucical instruments"
+msgstr "Preme nos instrumentos musicais correctos"
+
+#: ../src/instruments-activity/instruments.xml.in.h:3
+msgid "Learn to recognize musical instruments."
+msgstr "Aprende a recoñecer os instrumentos musicais."
+
+#: ../src/instruments-activity/instruments.xml.in.h:4
+msgid "Music instruments"
+msgstr "Instrumentos musicais"
+
+#. Translator: Do not translate {text}.
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:2
+msgid "Find {text}"
+msgstr "Encontra {text}"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:3
+msgid "the accordion"
+msgstr "o acordeón"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:4
+msgid "the banjo"
+msgstr "o banjo"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:5
+msgid "the bass drum"
+msgstr "o bombo"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:6
+msgid "the bongo"
+msgstr "o bongó"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:7
+msgid "the castanets"
+msgstr "as castañolas"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:8
+msgid "the cello"
+msgstr "o violonchelo"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:9
+msgid "the clarinet"
+msgstr "o clarinete"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:10
+msgid "the cymbal"
+msgstr "o címbalo"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:11
+msgid "the drum kit"
+msgstr "a batería"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
+msgid "the electric guitar"
+msgstr "a guitarra eléctrica"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
+msgid "the flute traversiere"
+msgstr "a frauta traveseira"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
+msgid "the guitar"
+msgstr "a guitarra"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
+msgid "the harmonica"
+msgstr "a harmónica"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
+msgid "the harp"
+msgstr "a arpa"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
+msgid "the horn"
+msgstr "o corno"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
+msgid "the maracas"
+msgstr "as maracas"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
+msgid "the organ"
+msgstr "o órgano"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
+msgid "the piano"
+msgstr "o piano"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
+msgid "the saxophone"
+msgstr "o saxofón"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
+msgid "the tambourine"
+msgstr "a pandeireta"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
+msgid "the timpani"
+msgstr "o timbal"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
+msgid "the triangle"
+msgstr "o triángulo"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
+msgid "the trombone"
+msgstr "o trombón"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
+msgid "the trumpet"
+msgstr "a trompeta"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:27
+msgid "the tuba"
+msgstr "a tuba"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:28
+msgid "the violin"
+msgstr "o violín"
