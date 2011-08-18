@@ -1,6 +1,6 @@
 #  gcompris - braille_alphabets.py
 #
-# Copyright (C) 2003, 2008 Bruno Coudoin
+# Copyright (C) 2003, 2008 Bruno Coudoin | Srishti Sethi
 #
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
@@ -171,17 +171,17 @@ class Gcompris_braille_alphabets:
         gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                             "braille_alphabets/braille_tux.svgz")
         goocanvas.Text(parent=self.rootitem,
-                                 x=390,
+                                 x=385,
                                  y=100,
-                                 fill_color="dark blue",
-                                 font="Sans 15",
+                                 fill_color="black",
+                                 font="Sans 17",
                                  anchor=gtk.ANCHOR_CENTER,
                                  text=_("Braille : Unlocking the Code"))
         #Braille Intro
         goocanvas.Text(parent=self.rootitem,
                                  x=520,
                                  y=200,
-                                 fill_color="dark blue",
+                                 fill_color="black",
                                  font="Sans 15",
                                  width = 400,
                                  anchor=gtk.ANCHOR_CENTER,
@@ -190,7 +190,7 @@ class Gcompris_braille_alphabets:
         goocanvas.Text(parent=self.rootitem,
                                  x=520,
                                  y=300,
-                                 fill_color="dark blue",
+                                 fill_color="black",
                                  font="Sans 15",
                                  width = 400,
                                  anchor=gtk.ANCHOR_CENTER,
