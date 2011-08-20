@@ -1,6 +1,6 @@
 #  gcompris - braille_fun.py
 #
-# Copyright (C) 2003, 2008 Bruno Coudoin
+# Copyright (C) 2003, 2008 Bruno Coudoin | Srishti Sethi
 #
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
@@ -89,6 +89,11 @@ class Gcompris_braille_fun:
     # automaticaly.
     self.root = goocanvas.Group(parent =
                                     self.gcomprisBoard.canvas.get_root_item())
+    #To create a group item for horizontal and vertical text
+    self.horizontalTextRoot = goocanvas.Group(parent =
+                                    self.gcomprisBoard.canvas.get_root_item())
+    self.verticalTextRoot = goocanvas.Group(parent =
+                                    self.gcomprisBoard.canvas.get_root_item())
 
     #Display the sublevel
     gcompris.score.start(gcompris.score.STYLE_NOTE, 530, 460,
@@ -121,57 +126,12 @@ class Gcompris_braille_fun:
                            25000 + level * 9000,
                            250,
                            goocanvas.ANIMATE_FREEZE)
+
       for index in range (level) :
            #Select a random letter and append it to self.letter_array
            letter = random.choice(string.letters)
            self.letter_array.append(letter.upper())
-
-           #Display alphabets for TUX_PLANE horizontally
-           self.alphabet_horizontal = goocanvas.Text(
-                         parent = self.root,
-                         x =  50 * index  ,
-                         y = 60.0 ,
-                         text=self.letter_array[index],
-                         fill_color="black",
-                         anchor = gtk.ANCHOR_CENTER,
-                         alignment = pango.ALIGN_CENTER,
-                         font = 'SANS 50'
-                         )
-           #Display animated or moving letters horizontally
-           self.alphabet_horizontal.animate(900,
-                           5,
-                           1,
-                           1,
-                           True,
-                           20000 + level * 16000,
-                           250,
-                           goocanvas.ANIMATE_FREEZE)
-
-           #Display alphabets vertically
-           self.alphabet_vertical = goocanvas.Text(
-                         parent = self.root,
-                         x=50.0 + 50 * index ,
-                         y=130.0 ,
-                         text=self.letter_array[index],
-                         fill_color="black",
-                         anchor = gtk.ANCHOR_CENTER,
-                         alignment = pango.ALIGN_CENTER,
-                         font = 'SANS 50'
-                         )
-           self.alphabet_array.append(self.alphabet_vertical)
-
-           #Display animated or falling letters
-           self.alphabet_vertical.animate(-20 + 30 * index,
-                           410,
-                           1,
-                           1,
-                           True,
-                           30000 + level * 5000,
-                           250,
-                           goocanvas.ANIMATE_FREEZE)
-
-           #To call a function when animation finishes
-           self.alphabet_vertical.connect("animation-finished", self.animationFinished)
+           self.animateString = "".join(self.letter_array)
 
            #Display rectangle for braille tile
            goocanvas.Rect(parent=self.root,
@@ -192,6 +152,54 @@ class Gcompris_braille_fun:
            self.tile_array[index] = BrailleChar(self.root, 300 + 90 * index , 150, 80,
                                         '',COLOR_ON ,COLOR_OFF, "#DfDfDf","black",
                                          True, True ,True, callback = self.letter_change)
+
+      #Display alphabets for TUX_PLANE horizontally and vertically
+      lengthString = len(self.animateString)
+      for index in range(lengthString):
+          self.alphabet_horizontal = goocanvas.Text(
+                         parent = self.horizontalTextRoot,
+                         x =  50 * index  ,
+                         y = 60.0 ,
+                         text = self.animateString[index],
+                         fill_color="black",
+                         anchor = gtk.ANCHOR_CENTER,
+                         alignment = pango.ALIGN_CENTER,
+                         font = 'SANS 50'
+                         )
+          self.alphabet_vertical = goocanvas.Text(
+                         parent = self.verticalTextRoot,
+                         x=50.0 + 50 * index ,
+                         y=130.0 ,
+                         text=self.animateString[index],
+                         fill_color="black",
+                         anchor = gtk.ANCHOR_CENTER,
+                         alignment = pango.ALIGN_CENTER,
+                         font = 'SANS 50'
+                         )
+          self.alphabet_array.append(self.alphabet_vertical)
+
+      #Animate or move letters horizontally and vertically
+      self.horizontalTextRoot.animate(900,
+                           5,
+                           1,
+                           1,
+                           True,
+                           20000 + level * 16000,
+                           250,
+                           goocanvas.ANIMATE_FREEZE)
+
+      self.verticalTextRoot.animate(5,
+                           415,
+                           1,
+                           1,
+                           True,
+                           30000 + level * 5000,
+                           250,
+                           goocanvas.ANIMATE_FREEZE)
+
+      #To call a function when animation finishes
+      self.verticalTextRoot.connect("animation-finished", self.animationFinished)
+
 
   def letter_change(self, letter):
       self.letter = letter
@@ -229,6 +237,8 @@ class Gcompris_braille_fun:
   def end(self):
     # Remove the root item removes all the others inside it
     self.root.remove()
+    self.horizontalTextRoot.remove()
+    self.verticalTextRoot.remove()
 
   def ok(self):
     print("braille_fun ok.")
@@ -239,9 +249,13 @@ class Gcompris_braille_fun:
           gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                             "braille_fun/hillside.svg")
           self.root.props.visibility = goocanvas.ITEM_VISIBLE
+          self.horizontalTextRoot.props.visibility = goocanvas.ITEM_VISIBLE
+          self.verticalTextRoot.props.visibility = goocanvas.ITEM_VISIBLE
           self.mapActive = False
     else :
           self.root.props.visibility = goocanvas.ITEM_INVISIBLE
+          self.horizontalTextRoot.props.visibility = goocanvas.ITEM_INVISIBLE
+          self.verticalTextRoot.props.visibility = goocanvas.ITEM_INVISIBLE
           self.rootitem = goocanvas.Group(parent=
                                    self.gcomprisBoard.canvas.get_root_item())
           gcompris.set_default_background(self.gcomprisBoard.canvas.get_root_item())
@@ -280,7 +294,6 @@ class Gcompris_braille_fun:
     self.alphabet_array = []
     self.tile_index_array = []
     self.counter = 0
-
 
   def increment_level(self):
     self.declare()
