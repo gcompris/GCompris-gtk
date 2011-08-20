@@ -75,6 +75,12 @@ score_end()
 }
 
 static void
+score_set_max(guint gmax)
+{
+  max = gmax;
+}
+
+static void
 score_set(guint value)
 {
 
@@ -178,6 +184,19 @@ gc_score_end ()
         score_end ();
     else if (custom_score->end != NULL)
         custom_score->end ();
+}
+
+/**
+ * Set a new max score, will be displayed at next call
+ * to score_set
+ */
+void
+gc_score_set_max(guint max)
+{
+    if (custom_score == NULL)
+      score_set_max(max);
+    else if (custom_score->set_max != NULL)
+        custom_score->set_max (max);
 }
 
 void

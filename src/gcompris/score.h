@@ -29,6 +29,7 @@ typedef enum
 
 void gc_score_start (ScoreStyleList style, guint x, guint y, guint max);
 void gc_score_end();
+void gc_score_set_max(guint max);
 void gc_score_set(guint value);
 
 typedef struct
@@ -36,6 +37,7 @@ typedef struct
   void (*start) (ScoreStyleList style, guint x, guint y, guint max);
   void (*end) ();
   void (*set) (guint value);
+  void (*set_max) (guint max);
 } Score;
 
 void gc_score_register (Score *score);

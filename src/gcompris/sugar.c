@@ -57,6 +57,7 @@ Score sugar_score = {
   score_start,
   score_end,
   score_set
+  score_set_max,
 };
 
 typedef struct {
@@ -346,6 +347,12 @@ static void
 score_set(guint value)
 {
   update_score(value);
+}
+
+static void
+score_set_max(guint max)
+{
+  max_score = max;
 }
 
 static void
