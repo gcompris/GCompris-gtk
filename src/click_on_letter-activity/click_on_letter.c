@@ -103,7 +103,7 @@ static gint item_event(GooCanvasItem *item, GooCanvasItem *target,
 static guint sounds_are_fine();
 
 static int n_answer;
-static gchar *right_letter;
+static gchar *right_letter = NULL;
 
 static gchar *alphabet;
 
@@ -451,7 +451,6 @@ click_on_letter_next_level()
   click_on_letter_destroy_all_items();
   gamewon = FALSE;
   selected_button = NULL;
-  g_free (right_letter);
   /* Try the next level */
   gc_sound_play_ogg("voices/$LOCALE/misc/click_on_letter.ogg", NULL);
   click_on_letter_create_item(goo_canvas_get_root_item(gcomprisBoard->canvas));
@@ -467,6 +466,8 @@ static void click_on_letter_destroy_all_items()
 
   boardRootItem = NULL;
 
+  g_free (right_letter);
+  right_letter = NULL;
 }
 
 /*
@@ -512,15 +513,24 @@ static GooCanvasItem *click_on_letter_create_item(GooCanvasItem *parent)
 
   if (gcomprisBoard->sublevel == 1)
     {
-      Level level = g_array_index (levels, Level, gcomprisBoard->level - 1);
-      n_answer = g_utf8_strlen (level.answers, -1);
+      Level *level = &g_array_index (levels, Level, gcomprisBoard->level - 1);
+      n_answer = g_utf8_strlen (level->answers, -1);
       g_assert( n_answer <= MAX_N_ANSWER );
 
-      answers = shuffle_utf8(level.answers);
-      questions = shuffle_utf8(level.questions);
+      if ( uppercase_only )
+	{
+	  gchar *answers = g_utf8_strup( level->answers, -1 );
+	  gchar *questions = g_utf8_strup( level->questions, -1 );
+	  g_free( level->answers );
+	  g_free( level->questions );
+	  level->answers = answers;
+	  level->questions = questions;
+	}
+      answers = shuffle_utf8(level->answers);
+      questions = shuffle_utf8(level->questions);
 
       /* Go to next level after this number of 'play' */
-      gcomprisBoard->number_of_sublevel = g_utf8_strlen (level.questions, -1);
+      gcomprisBoard->number_of_sublevel = g_utf8_strlen (level->questions, -1);
     }
   right_letter = g_utf8_strdown(questions[gcomprisBoard->sublevel - 1], -1);
   printf("right_letter=%s\n",right_letter);
@@ -548,7 +558,7 @@ static GooCanvasItem *click_on_letter_create_item(GooCanvasItem *parent)
 			 "radius-y", (double) 10,
 			 NULL);
     goo_canvas_text_new (boardRootItem,
-			 right_letter,
+			 questions[gcomprisBoard->sublevel - 1],
 			 (double) x + width / 2,
 			 (double) y + height / 2,
 			 -1,
@@ -1351,6 +1361,10 @@ config_start(GcomprisBoard *agcomprisBoard,
   g_signal_connect (button, "clicked",
 		    G_CALLBACK (down_item), treeview);
   gtk_box_pack_start (GTK_BOX (hbox), button, TRUE, TRUE, 0);
+
+  hbox = gtk_hbox_new (TRUE, 4);
+  gtk_widget_show(hbox);
+  gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, FALSE, 0);
 
   button = gtk_button_new_with_label(_("Back to default"));
   gtk_widget_show(button);
