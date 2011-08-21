@@ -652,7 +652,7 @@ static GooCanvasItem *wordsgame_create_item(GooCanvasItem *parent)
 			 -1,
 			 direction_anchor,
 			 "font", gc_skin_font_board_huge_bold,
-			 "fill_color_rgba", 0xba00ffff,
+			 "fill_color_rgba", 0xffffffff,
 			 NULL);
 
   item->overwriteItem = \
@@ -663,7 +663,7 @@ static GooCanvasItem *wordsgame_create_item(GooCanvasItem *parent)
 			 -1,
 			 direction_anchor,
 			 "font", gc_skin_font_board_huge_bold,
-			 "fill-color_rgba", 0x33c033ff,
+			 "fill-color_rgba", 0x000000ff,
 			 NULL);
 
   /*set right x position */
