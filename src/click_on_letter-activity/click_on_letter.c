@@ -318,23 +318,49 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 }
 
 /* ======================================= */
+/*
+ * return TRUE if the sound is found and the audio is activated
+ *        FALSE if the sound was not played
+ */
+static gboolean _repeat ()
+{
+  gboolean retval = FALSE;
+
+  gchar *str1 = NULL;
+  gchar *right_letter_ogg = NULL;
+
+
+  GcomprisProperties *properties = gc_prop_get();
+  if( !properties->fx )
+    return FALSE;
+
+  str1 = gc_sound_alphabet(right_letter);
+
+  right_letter_ogg = g_strdup_printf("voices/$LOCALE/alphabet/%s", str1);
+  g_free(str1);
+
+  if(right_letter_ogg) {
+
+    /* Let's check the file exist to be abble to return FALSE */
+    gchar *absolute_file = gc_file_find_absolute(right_letter_ogg, NULL);
+    if (absolute_file)
+      {
+	gc_sound_play_ogg_cb(right_letter_ogg, sound_played);
+	g_free(absolute_file);
+	retval = TRUE;
+      }
+  }
+
+  g_free(right_letter_ogg);
+
+  return retval;
+}
+
 static void repeat ()
 {
   if(gcomprisBoard!=NULL)
     {
-      gchar *str1 = NULL;
-      gchar *right_letter_ogg = NULL;
-
-      str1 = gc_sound_alphabet(right_letter);
-
-      right_letter_ogg = g_strdup_printf("voices/$LOCALE/alphabet/%s", str1);
-      g_free(str1);
-
-      if(right_letter_ogg) {
-	gc_sound_play_ogg_cb(right_letter_ogg, sound_played);
-      }
-
-      g_free(right_letter_ogg);
+      _repeat();
     }
 }
 
@@ -342,12 +368,17 @@ static guint sounds_are_fine()
 {
   char *letter_str;
   char *str2;
-  GcomprisProperties	*properties = gc_prop_get();
+  GcomprisProperties *properties = gc_prop_get();
+  gchar *text_mode_str = _("This activity will be played with questions displayed as text"
+			   " instead of being spoken");
 
   if(!properties->fx)
     {
-      gc_dialog(_("Error: this activity cannot be played with the\nsound effects disabled.\nGo to the configuration dialog to\nenable the sound"), gc_board_stop);
-      return(NOT_OK);
+      gchar *msg = g_strconcat( _("Error: this activity cannot be played with the\nsound effects disabled.\nGo to the configuration dialog to\nenable the sound"),
+			       "\n", text_mode_str, NULL);
+      gc_dialog(msg, click_on_letter_next_level);
+      g_free(msg);
+      return(OK_NO_INIT);
     }
 
   /* TRANSLATORS: Put here the alphabet in your language */
@@ -365,7 +396,6 @@ static guint sounds_are_fine()
     {
       gchar *locale;
       gchar **localsearch;
-
       localsearch = g_strsplit_set(gc_locale_get(), "_", 2);
       if(g_strv_length(localsearch) <= 1)
 	return NOT_OK; /* Should not happens */
@@ -379,17 +409,22 @@ static guint sounds_are_fine()
 
       if (!str2)
 	{
-	  gchar *msg = g_strdup_printf( _("Error: this activity requires that you first install\nthe packages with GCompris voices for the locale '%s' or '%s'"),
+	  gchar *msg2 = g_strdup_printf( _("Error: this activity requires that you first install\nthe packages with GCompris voices for the locale '%s' or '%s'"),
 					locale, "en");
-	  gc_dialog(msg, gc_board_stop);
+	  gchar *msg = g_strconcat(msg2, "\n", text_mode_str, NULL);
+	  g_free(msg2);
+	  gc_dialog(msg, click_on_letter_next_level);
 	  g_free(msg);
 	  g_free(locale);
 	  g_free(letter_str);
-	  return (NOT_OK);
+	  return (OK_NO_INIT);
 	}
       else
 	{
-	  gchar *msg = g_strdup_printf( _("Error: this activity requires that you first install\nthe packages with GCompris voices for the locale '%s' ! Fallback to english, sorry!"), locale);
+	  gchar *msg2 = g_strdup_printf( _("Error: this activity requires that you first install\nthe packages with GCompris voices for the locale '%s' ! Fallback to english, sorry!"),
+					locale);
+	  gchar *msg = g_strconcat(msg2, "\n", text_mode_str, NULL);
+	  g_free(msg2);
 	  gc_dialog(msg, click_on_letter_next_level);
 	  g_free(msg);
 	  g_free(str2);
@@ -491,15 +526,44 @@ static GooCanvasItem *click_on_letter_create_item(GooCanvasItem *parent)
     }
   right_letter = g_utf8_strdown(questions[gcomprisBoard->sublevel - 1], -1);
   printf("right_letter=%s\n",right_letter);
-  repeat();
 
 
   boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
 					NULL);
 
+  if ( ! _repeat() )
+  {
+    /* Sound was not played, display the letter to find instead */
+    guint x = 300;
+    guint y = 30;
+    guint width = 100;
+    guint height = 100;
+    goo_canvas_rect_new (boardRootItem,
+			 x,
+			 y,
+			 width,
+			 height,
+			 "stroke_color_rgba", 0xFFFFFFFFL,
+			 "fill_color_rgba", 0x00005550L,
+			 "line-width", (double) 2,
+			 "radius-x", (double) 10,
+			 "radius-y", (double) 10,
+			 NULL);
+    goo_canvas_text_new (boardRootItem,
+			 right_letter,
+			 (double) x + width / 2,
+			 (double) y + height / 2,
+			 -1,
+			 GTK_ANCHOR_CENTER,
+			 "font", gc_skin_font_board_huge_bold,
+			 "fill_color_rgba", 0xffffffff,
+			 NULL);
+  }
+
+  /* Display the answers */
   yOffset = VERTICAL_SEPARATION - carriage_svg_dimension.height;
   xOffset = 144;
-  gint text_gap_x = -10;
+  gint text_gap_x = -5;
   gint text_gap_y = -35;
 
   RsvgHandle *svg_handle= carriage_svg_handle;
