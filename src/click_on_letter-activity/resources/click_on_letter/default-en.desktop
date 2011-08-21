@@ -1,0 +1,49 @@
+# This file describes how the click_on_letter activity will behave
+
+# Section matches the level, you can put any number of level
+# but they must be in sequence starting at 1
+
+# Question is a list of letters that will be asked to search for
+# Answer is a list of possible answers the children will have to choose from
+# WARNING: It is up to you to put at least all the Question letters in the Answer.
+#          You can also add some confusing letters in the Answer section
+# WARNING: Answer must have at max 18 characters
+[1]
+Question=aeiouy
+Answer=aeiouy
+
+[2]
+Question=aeiouy
+Answer=aeiouycs
+
+[3]
+Question=aeiouy
+Answer=aeiouycksvxz
+
+[4]
+Question=ckpsvxwz
+Answer=ckpsvxwz
+
+[5]
+Question=bfglmnqt
+Answer=bfglmnqt
+
+[6]
+Question=bdgqpnmu
+Answer=bdgqpnmu
+
+[7]
+Question=ilthwvae
+Answer=ilthwvae
+
+[8]
+Question=abcdefgh
+Answer=abcdefgh
+
+[9]
+Question=ijklmnop
+Answer=ijklmnop
+
+[10]
+Question=qrstuvwxyz
+Answer=qrstuvwxyz

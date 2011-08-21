@@ -1,6 +1,7 @@
 /* gcompris - click_on_letter.c
  *
- * Copyright (C) 2001, 2008 Pascal Georges
+ * Copyright (C) 2001, 2010 Pascal Georges
+ * Copyright (C) 2011 Bruno Coudoin (Mostly full rewrite)
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -46,13 +47,36 @@ static void		 config_start(GcomprisBoard *agcomprisBoard,
 				      GcomprisProfile *aProfile);
 static void		 config_stop(void);
 
+/* The data structure of a level */
+typedef struct
+{
+  guint  level;
+  gchar *questions;
+  gchar *answers;
+} Level;
+static GArray *levels = NULL;
+static gchar **questions;
+static gchar **answers;
+
+static void		 load_datafile();
+
+/* The data model of the configuration */
+static GtkListStore *model;
+
+enum
+  {
+    LEVEL_COLUMN,
+    ANSWER_COLUMN,
+    QUESTION_COLUMN,
+    N_COLUMNS
+  };
 
 #define VERTICAL_SEPARATION 505
 #define HORIZONTAL_SEPARATION -1
 
-#define NUMBER_OF_SUBLEVELS 3
-#define NUMBER_OF_LEVELS 5
-#define MAX_NUMBER_OF_LETTERS 4
+#define N_LETTER_PER_LINE 6
+#define MAX_N_LETTER_LINE 3
+#define MAX_N_ANSWER      (N_LETTER_PER_LINE * MAX_N_LETTER_LINE)
 
 #define NOT_OK		0
 #define OK		1
@@ -62,9 +86,12 @@ static void		 config_stop(void);
 
 static GooCanvasItem *boardRootItem = NULL;
 
-static GooCanvasItem *l_items[MAX_NUMBER_OF_LETTERS];
-static GooCanvasItem *buttons[MAX_NUMBER_OF_LETTERS];
 static GooCanvasItem *selected_button = NULL;
+
+static RsvgHandle *carriage_svg_handle;
+static RsvgDimensionData carriage_svg_dimension;
+static RsvgHandle *cloud_svg_handle;
+static RsvgDimensionData cloud_svg_dimension;
 
 static GooCanvasItem *click_on_letter_create_item(GooCanvasItem *parent);
 
@@ -74,8 +101,7 @@ static gint item_event(GooCanvasItem *item, GooCanvasItem *target,
 		       GdkEvent *event, gpointer data);
 static guint sounds_are_fine();
 
-static int right_position;
-static int number_of_letters=MAX_NUMBER_OF_LETTERS;
+static int n_answer;
 static gchar *right_letter;
 
 static gchar *alphabet;
@@ -163,22 +189,27 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard=agcomprisBoard;
       gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			      "click_on_letter/background.svgz");
+
+      gc_score_start(SCORESTYLE_NOTE,
+		     50,
+		     50,
+		     0);
+      /* create level array */
+      levels = g_array_sized_new (FALSE, FALSE, sizeof (Level), 10);
+
+      load_datafile();
+
       gcomprisBoard->level=1;
-      gcomprisBoard->maxlevel=NUMBER_OF_LEVELS;
       gcomprisBoard->sublevel=1;
 
-      /* Go to next level after this number of 'play' */
-      gcomprisBoard->number_of_sublevel=NUMBER_OF_SUBLEVELS;
+      carriage_svg_handle = gc_rsvg_load("click_on_letter/carriage.svgz");
+      rsvg_handle_get_dimensions (carriage_svg_handle, &carriage_svg_dimension);
+
+      cloud_svg_handle = gc_rsvg_load("click_on_letter/cloud.svgz");
+      rsvg_handle_get_dimensions (cloud_svg_handle, &cloud_svg_dimension);
 
       if(ready)
 	{
-	  /* Warning, bar buttons are set in click_on_letter_next_level()
-	     to avoid them to appear in the case a dialog is displayed */
-	  gc_score_start(SCORESTYLE_NOTE,
-			       50,
-			       50,
-			       gcomprisBoard->number_of_sublevel);
-
 	  if(ready == OK)
 	    click_on_letter_next_level();
 
@@ -246,6 +277,13 @@ static void end_board ()
       pause_board(TRUE);
       gc_score_end();
       click_on_letter_destroy_all_items();
+      g_strfreev(answers);
+      g_strfreev(questions);
+
+      g_object_unref(carriage_svg_handle);
+      g_object_unref(cloud_svg_handle);
+      g_array_free(levels, TRUE);
+      levels = NULL;
     }
   gc_locale_reset();
   gcomprisBoard = NULL;
@@ -380,11 +418,12 @@ click_on_letter_next_level()
   click_on_letter_destroy_all_items();
   gamewon = FALSE;
   selected_button = NULL;
-  gc_score_set(gcomprisBoard->sublevel);
   g_free (right_letter);
   /* Try the next level */
   gc_sound_play_ogg("voices/$LOCALE/misc/click_on_letter.ogg", NULL);
   click_on_letter_create_item(goo_canvas_get_root_item(gcomprisBoard->canvas));
+  gc_score_set_max(gcomprisBoard->number_of_sublevel);
+  gc_score_set(gcomprisBoard->sublevel);
 }
 /* ==================================== */
 /* Destroy all the items */
@@ -394,108 +433,123 @@ static void click_on_letter_destroy_all_items()
     goo_canvas_item_remove(boardRootItem);
 
   boardRootItem = NULL;
+
 }
+
+/*
+ * given an utf8 string, return an array of pointers to string
+ * where each string is a char from the original string.
+ * All the char in the returned array are shuffled
+ * free the result with g_strfreev()
+ */
+static gchar
+**shuffle_utf8(gchar *string)
+{
+  guint n_letters = g_utf8_strlen (string, -1);
+  gchar **result = (gchar **) g_new( gpointer, n_letters + 1);
+  /* Randomize the list, create a random index first */
+  int random[n_letters];
+  int i;
+  for ( i = 0 ; i < n_letters ; i++) {
+    random[i] = i;
+  }
+
+  for ( i = 0 ; i < n_letters ; i++) {
+    int swap_index = g_random_int_range(0, n_letters);
+    int save = random[i];
+    random[i] = random[swap_index];
+    random[swap_index] = save;
+  }
+
+  /* Now use the index to swap letter */
+  for ( i = 0 ; i < n_letters ; i++) {
+    gchar *copy_from = g_utf8_offset_to_pointer(string, random[i]);
+    gchar *copy_to = g_utf8_offset_to_pointer(string, random[i] + 1);
+    result[i] = g_strndup(copy_from, copy_to - copy_from);
+  }
+  result[i] = NULL;
+  return result;
+}
+
 /* ==================================== */
 static GooCanvasItem *click_on_letter_create_item(GooCanvasItem *parent)
 {
 
-  int xOffset,yOffset,i,j;
-  GdkPixbuf *button_pixmap = NULL;
+  int xOffset, yOffset, i;
 
-  int length_of_aphabet=g_utf8_strlen (alphabet,-1);
+  if (gcomprisBoard->sublevel == 1)
+    {
+      Level level = g_array_index (levels, Level, gcomprisBoard->level - 1);
+      n_answer = g_utf8_strlen (level.answers, -1);
+      g_assert( n_answer <= MAX_N_ANSWER );
 
-  number_of_letters=gcomprisBoard->level+1;
-  if (number_of_letters>MAX_NUMBER_OF_LETTERS) number_of_letters=MAX_NUMBER_OF_LETTERS;
+      answers = shuffle_utf8(level.answers);
+      questions = shuffle_utf8(level.questions);
 
-  int numbers[number_of_letters];
-
-  gchar *letters[number_of_letters];
-  g_assert(number_of_letters<=length_of_aphabet); // because we must set unique letter on every "vagon"
-
-  for (i=0;i<number_of_letters;i++){
-    numbers[i]= g_random_int_range(0, length_of_aphabet);
-
-    // check that the letter has not been taken yet
-    for(j=0;j<i;j++){
-      if (numbers[i]==numbers[j]) {
-	i--;
-	continue;
-      }
+      /* Go to next level after this number of 'play' */
+      gcomprisBoard->number_of_sublevel = g_utf8_strlen (level.questions, -1);
     }
-
-  }
-
-  for (i=0;i<number_of_letters;i++){
-    gchar *copy_from=g_utf8_offset_to_pointer(alphabet, numbers[i]);
-    gchar *copy_to=g_utf8_offset_to_pointer(alphabet, numbers[i]+1);
-    letters[i]=g_strndup(copy_from,copy_to-copy_from);
-
-    if (uppercase_only)
-      letters[i]=g_utf8_strup(copy_from,copy_to-copy_from);
-    else {
-      switch (gcomprisBoard->level) {
-      case 1	:
-      case 2  : letters[i]=g_strndup(copy_from,copy_to-copy_from); break;
-      case 3  : letters[i]=g_utf8_strup(copy_from,copy_to-copy_from); break;
-      default :
-	if ( g_random_boolean() )
-	  letters[i]=g_strndup(copy_from,copy_to-copy_from);
-	else
-	  letters[i]=g_utf8_strup(copy_from,copy_to-copy_from);
-      }
-    }
-  }
-
-  /*  */
-  right_position = g_random_int_range(0,number_of_letters);
-  g_assert(right_position >= 0  && right_position < number_of_letters);
-  right_letter = g_utf8_strdown(letters[right_position],-1);
-
+  right_letter = g_utf8_strdown(questions[gcomprisBoard->sublevel - 1], -1);
+  printf("right_letter=%s\n",right_letter);
   repeat();
 
 
   boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
 					NULL);
 
-
-
-  button_pixmap = gc_pixmap_load("click_on_letter/carriage.svg");
-
-  yOffset = VERTICAL_SEPARATION - gdk_pixbuf_get_height(button_pixmap);
+  yOffset = VERTICAL_SEPARATION - carriage_svg_dimension.height;
   xOffset = 144;
+  gint text_gap_x = -10;
+  gint text_gap_y = -35;
+
+  RsvgHandle *svg_handle= carriage_svg_handle;
+  RsvgDimensionData svg_dimension = carriage_svg_dimension;
+
+  for (i = 0; i< n_answer; i++) {
+
+    if ( i > 0 && i % N_LETTER_PER_LINE == 0 )
+      {
+	/* Line wrapping */
+	svg_handle= cloud_svg_handle;
+	svg_dimension = cloud_svg_dimension;
+	xOffset = 144;
+	yOffset -= svg_dimension.height;
+	text_gap_x = 0;
+	text_gap_y = 0;
+      }
+
+    GooCanvasItem *button_item =		\
+      goo_canvas_svg_new (boardRootItem,
+			  svg_handle,
+			  "svg-id", "#OFF",
+			  NULL);
+    goo_canvas_item_translate( button_item,
+			       xOffset,
+			       yOffset);
 
 
-  for (i=0; i< number_of_letters; i++) {
-    buttons[i] = goo_canvas_image_new (boardRootItem,
-				       button_pixmap,
-				       xOffset,
-				       yOffset,
-				       NULL);
+    GooCanvasItem *text_item = \
+      goo_canvas_text_new (boardRootItem,
+			   answers[i],
+			   (double) xOffset + svg_dimension.width / 2 + text_gap_x,
+			   (double) yOffset + svg_dimension.height / 2 + text_gap_y,
+			   -1,
+			   GTK_ANCHOR_CENTER,
+			   "font", gc_skin_font_board_huge_bold,
+			   "fill_color_rgba", 0x000000ff,
+			   NULL);
 
+    xOffset += HORIZONTAL_SEPARATION + svg_dimension.width;
 
-    l_items[i] = goo_canvas_text_new (boardRootItem,
-				      letters[i],
-				      (double) xOffset + gdk_pixbuf_get_width(button_pixmap)/2 - 10,
-				      (double) yOffset + 30,
-				      -1,
-				      GTK_ANCHOR_CENTER,
-				      "font", gc_skin_font_board_huge_bold,
-				      "fill_color_rgba", 0x000000ff,
-				      NULL);
-
-    g_free(letters[i]);
-    xOffset +=HORIZONTAL_SEPARATION +gdk_pixbuf_get_width(button_pixmap);
-
-    g_signal_connect(l_items[i], "button_press_event",
-		     (GCallback) item_event, GINT_TO_POINTER(i));
-    g_signal_connect(buttons[i], "button_press_event",
-		     (GCallback) item_event, GINT_TO_POINTER(i));
-    gc_item_focus_init(l_items[i], buttons[i]);
-    gc_item_focus_init(buttons[i], NULL);
+    g_signal_connect(text_item, "button_press_event",
+		     (GCallback) item_event, answers[i]);
+    g_signal_connect(button_item, "button_press_event",
+		     (GCallback) item_event, answers[i]);
+    gc_item_focus_init(text_item, button_item);
+    gc_item_focus_init(button_item, NULL);
+    g_object_set_data(G_OBJECT(button_item), "button_item", button_item);
+    g_object_set_data(G_OBJECT(text_item), "button_item", button_item);
   }
-
-
-  gdk_pixbuf_unref(button_pixmap);
 
   return NULL;
 }
@@ -504,11 +558,11 @@ static void game_won()
 {
   gcomprisBoard->sublevel++;
 
-  if(gcomprisBoard->sublevel>gcomprisBoard->number_of_sublevel) {
+  if(gcomprisBoard->sublevel > gcomprisBoard->number_of_sublevel) {
     /* Try the next level */
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
-    if(gcomprisBoard->level>gcomprisBoard->maxlevel)
+    if(gcomprisBoard->level > gcomprisBoard->maxlevel)
       gcomprisBoard->level = gcomprisBoard->maxlevel;
   }
   click_on_letter_next_level();
@@ -529,7 +583,7 @@ static gint
 item_event(GooCanvasItem *item, GooCanvasItem *target,
 	   GdkEvent *event, gpointer data)
 {
-  int pos = GPOINTER_TO_INT(data);
+  gchar *answer = (gchar*)data;
 
   if(board_paused)
     return FALSE;
@@ -540,7 +594,7 @@ item_event(GooCanvasItem *item, GooCanvasItem *target,
       /* We really don't want the user to change his/her mind */
       board_paused = TRUE;
 
-      if ( pos == right_position ) {
+      if ( strcmp(answer, right_letter) == 0 ) {
 	gamewon = TRUE;
       } else {
 	gamewon = FALSE;
@@ -556,34 +610,95 @@ item_event(GooCanvasItem *item, GooCanvasItem *target,
 }
 /* ==================================== */
 static void highlight_selected(GooCanvasItem * item) {
-  GdkPixbuf *button_pixmap_selected = NULL, *button_pixmap = NULL;
   GooCanvasItem *button;
-  int i;
 
-
-  /* Replace text item by button item */
-  button = item;
-  for (i=0; i<number_of_letters;i++) {
-    if ( l_items[i] == item ) {
-      button = buttons[i];
-    }
-  }
+  button = (GooCanvasItem*)g_object_get_data(G_OBJECT(item), "button_item");
 
   if (selected_button != NULL && selected_button != button) {
-    button_pixmap = gc_pixmap_load("click_on_letter/carriage.svg");
-    g_object_set(selected_button, "pixbuf", button_pixmap, NULL);
-    gdk_pixbuf_unref(button_pixmap);
+    g_object_set(selected_button, "svg-id", "#OFF",  NULL);
   }
 
   if (selected_button != button) {
-    button_pixmap_selected = gc_pixmap_load("click_on_letter/carriage_on.svg");
-    g_object_set(button, "pixbuf", button_pixmap_selected, NULL);
+    g_object_set(button, "svg-id", "#ON",  NULL);
     selected_button = button;
-    gdk_pixbuf_unref(button_pixmap_selected);
   }
 
 }
 
+/*
+ * Management of Data File (Desktop style)
+ */
+
+/*
+ * Load a desktop style data file and create the levels array
+ */
+static void load_datafile() {
+  GKeyFile *keyfile = g_key_file_new ();
+  GError *error = NULL;
+  gchar *filename = gc_file_find_absolute("click_on_letter/default-$LOCALE.desktop");
+
+  if ( ! filename )
+    {
+      /* Fallback to english */
+      filename = gc_file_find_absolute("click_on_letter/default-en.desktop");
+
+      if(!filename)
+	{
+	  gcomprisBoard = NULL;
+	  gc_dialog(_("Error: We can't find\na list of words to play this game.\n"), gc_board_end);
+	  return;
+	}
+    }
+
+  if ( ! g_key_file_load_from_file (keyfile,
+				    filename,
+				    G_KEY_FILE_NONE,
+				    &error)  ) {
+    if (error)
+      g_error ("%s", error->message);
+    return;
+  }
+
+  gsize n_level;
+  gchar **groups = g_key_file_get_groups (keyfile, &n_level);
+  int i;
+  for (i=0; i<n_level; i++)
+    {
+      Level level;
+      level.level = i + 1;
+      level.questions = g_key_file_get_string (keyfile, groups[i],
+					      "Questions", NULL);
+      level.answers = g_key_file_get_string (keyfile, groups[i],
+					    "Answers", NULL);
+      g_array_append_vals (levels, &level, 1);
+    }
+
+  g_strfreev(groups);
+  g_free(filename);
+  gcomprisBoard->maxlevel = n_level;
+}
+
+/**
+ * Based on the levels array, returns a desktop file
+ * free the returned value with g_free()
+ */
+static gchar *levels_to_desktop() {
+  GKeyFile *keyfile = g_key_file_new ();
+
+  int i;
+  for (i = 0; i < levels->len; i++)
+    {
+      Level level = g_array_index (levels, Level, i);
+      gchar *group = g_strdup_printf("%d", level.level);
+      g_key_file_set_string(keyfile, group, "Questions", level.questions);
+      g_key_file_set_string(keyfile, group, "Answers", level.answers);
+      g_free(group);
+    }
+
+  gchar *buffer = g_key_file_to_data(keyfile, NULL, NULL);
+  printf("%s\n", buffer);
+  return buffer;
+}
 
 /* ************************************* */
 /* *            Configuration          * */
@@ -609,16 +724,147 @@ static GHFunc save_table (gpointer key,
   return NULL;
 }
 
-static void
+static gboolean _save_level_from_model(GtkTreeModel *model, GtkTreePath *path,
+				       GtkTreeIter *iter, gpointer data)
+{
+  Level level;
+
+  gtk_tree_model_get (GTK_TREE_MODEL (model), iter,
+                      LEVEL_COLUMN, &level.level,
+                      ANSWER_COLUMN, &level.answers,
+                      QUESTION_COLUMN, &level.questions,
+                      -1);
+  g_array_append_vals (levels, &level, 1);
+  gcomprisBoard->maxlevel = level.level;
+
+  return FALSE;
+}
+
+
+static void create_levels_from_config_model()
+{
+  GtkTreeIter iter;
+  gtk_tree_model_get_iter_first (GTK_TREE_MODEL(model), &iter );
+
+  g_array_free(levels, TRUE);
+  levels = g_array_sized_new (FALSE, FALSE, sizeof (Level), 10);
+  gtk_tree_model_foreach(GTK_TREE_MODEL(model), _save_level_from_model, NULL);
+}
+
+static gboolean
+valid_entry(Level *level)
+{
+  gboolean result=FALSE;
+  gchar *error;
+  GtkWidget *dialog;
+
+  g_assert(level->questions);
+  g_assert(level->answers);
+
+  if ( strlen(level->questions) == 0 )
+    {
+      error = g_strdup (_("Questions cannot be empty.") );
+      goto error;
+    }
+
+  if ( strlen(level->answers) == 0 )
+    {
+      error = g_strdup( _("Answers cannot be empty.") );
+      goto error;
+    }
+
+  if ( strlen(level->answers) > MAX_N_ANSWER )
+    {
+      error = g_strdup_printf( _("Too many characters in the Answer (maximum is %d)."),
+				 MAX_N_ANSWER );
+      goto error;
+    }
+
+  /* Now check all chars in questions are in answers */
+  guint n_answers = g_utf8_strlen (level->answers, -1);
+  guint n_questions = g_utf8_strlen (level->questions, -1);
+
+  /* The shuffle is not important, we are using it to get an array of chars */
+  gchar **answers = shuffle_utf8(level->answers);
+  gchar **questions = shuffle_utf8(level->questions);
+
+  guint a;
+  guint q;
+  for ( q = 0; q < n_questions; q++)
+    {
+      gboolean found = FALSE;
+      for ( a = 0; a < n_answers; a++)
+	{
+	  if ( strcmp( answers[a], questions[q] ) == 0 )
+	    {
+	      found = TRUE;
+	      break;
+	    }
+	}
+      if ( ! found )
+	{
+	  error = g_strdup ( _("All the characters in Questions must also be in the Answers.") );
+	  g_strfreev(questions);
+	  g_strfreev(answers);
+	  goto error;
+	}
+    }
+
+  g_strfreev(questions);
+  g_strfreev(answers);
+  return TRUE;
+
+ error:
+  dialog = \
+    gtk_message_dialog_new (NULL,
+			    GTK_DIALOG_DESTROY_WITH_PARENT,
+			    GTK_MESSAGE_ERROR,
+			    GTK_BUTTONS_CLOSE,
+			    _("Invalid entry:\n"
+			      "At level %d, Questions '%s' / Answers '%s'\n%s"),
+			    level->level, level->questions, level->answers,
+			    error);
+  gtk_dialog_run (GTK_DIALOG (dialog));
+  gtk_widget_destroy (dialog);
+  g_free(error);
+
+  return result;
+}
+
+static gboolean
+_check_errors(GtkTreeModel *model, GtkTreePath *path,
+	      GtkTreeIter *iter, gpointer data)
+{
+  Level level;
+  gboolean *has_error = (gboolean*)data;
+
+  gtk_tree_model_get (model, iter,
+                      LEVEL_COLUMN, &level.level,
+                      QUESTION_COLUMN, &level.questions,
+                      ANSWER_COLUMN, &level.answers,
+                      -1);
+
+  if( ! valid_entry( &level ) )
+    {
+      *has_error = TRUE;
+      /* Don't check more errors */
+      return TRUE;
+    }
+
+  return FALSE;
+}
+
+
+
+static gboolean
 conf_ok(GHashTable *table)
 {
   if (!table){
     if (gcomprisBoard)
       pause_board(FALSE);
 
-    return;
+    return TRUE;
   }
-
 
   g_hash_table_foreach(table, (GHFunc) save_table, NULL);
 
@@ -631,6 +877,14 @@ conf_ok(GHashTable *table)
       config = gc_db_get_board_conf();
     else
       config = table;
+
+    gboolean has_error = FALSE;
+    gtk_tree_model_foreach(GTK_TREE_MODEL(model), _check_errors, &has_error);
+
+    /* Tell the config not to close the dialog to let the user fix the issues */
+    if (has_error)
+      return FALSE;
+
 
     gc_locale_set(g_hash_table_lookup(config, "locale_sound"));
 
@@ -648,6 +902,33 @@ conf_ok(GHashTable *table)
 
     sounds_are_fine();
 
+    /*
+     * Save the new editied value if needed
+     */
+    /* Keep a cache of the old model */
+    gchar *old_levels = levels_to_desktop();
+    create_levels_from_config_model();
+    gchar *new_levels = levels_to_desktop();
+
+    if ( gcomprisBoard->level > gcomprisBoard->maxlevel )
+      gcomprisBoard->level = 1;
+
+    if (strcmp(old_levels, new_levels) != 0)
+      {
+	/* The level has changed, save the new desktop file in the user's dir */
+	gchar **locale = g_strsplit_set(gc_locale_get(), ".", 2);
+	gchar *filename =
+	  gc_file_find_absolute_writeable("%s/default-%s.desktop",
+					  gcomprisBoard->boarddir,
+					  locale[0]);
+	printf("file to save: %s\n", filename);
+	g_file_set_contents(filename, new_levels, -1, NULL);
+	g_free(filename);
+	g_strfreev(locale);
+      }
+    g_free(old_levels);
+    g_free(new_levels);
+
     click_on_letter_next_level();
 
     gamewon = FALSE;
@@ -657,7 +938,181 @@ conf_ok(GHashTable *table)
 
   board_conf = NULL;
   profile_conf = NULL;
+  return TRUE;
 }
+
+static gboolean resequence_level_in_model(GtkTreeModel *model, GtkTreePath *path,
+					  GtkTreeIter *iter, gpointer data)
+{
+  guint *level = (guint*)data;
+
+  gtk_list_store_set (GTK_LIST_STORE(model), iter,
+                      LEVEL_COLUMN, (*level)++,
+                      -1);
+
+  return FALSE;
+}
+
+static gboolean next_level_in_model(GtkTreeModel *model, GtkTreePath *path,
+				    GtkTreeIter *iter, gpointer data)
+{
+  guint *level = (guint*)data;
+  guint level_in_tree;
+
+  gtk_tree_model_get (model, iter,
+                      LEVEL_COLUMN, &level_in_tree,
+                      -1);
+
+  if ( level_in_tree >= *level)
+    *level = level_in_tree + 1;
+
+  return FALSE;
+}
+
+static void
+add_item (GtkWidget *button, gpointer data)
+{
+  GtkTreeIter iter;
+  GtkTreeModel *model = (GtkTreeModel *)data;
+
+  guint next_level = 0;
+  gtk_tree_model_foreach(model, next_level_in_model, &next_level);
+
+  gtk_list_store_append (GTK_LIST_STORE (model), &iter);
+  gtk_list_store_set (GTK_LIST_STORE (model), &iter,
+                      LEVEL_COLUMN, next_level,
+                      ANSWER_COLUMN, "",
+                      QUESTION_COLUMN, "",
+                      -1);
+}
+
+static void
+remove_item (GtkWidget *widget, gpointer data)
+{
+  GtkTreeIter iter;
+  GtkTreeView *treeview = (GtkTreeView *)data;
+  GtkTreeModel *model = gtk_tree_view_get_model (treeview);
+  GtkTreeSelection *selection = gtk_tree_view_get_selection (treeview);
+
+  if (gtk_tree_selection_get_selected (selection, NULL, &iter))
+    {
+      gtk_list_store_remove (GTK_LIST_STORE (model), &iter);
+    }
+
+  guint next_level = 1;
+  gtk_tree_model_foreach(model, resequence_level_in_model, &next_level);
+
+}
+
+static void
+move_item (GtkWidget *widget, gpointer data, gboolean up)
+{
+  GtkTreeIter iter;
+  GtkTreeView *treeview = (GtkTreeView *)data;
+  GtkTreeModel *model = gtk_tree_view_get_model (treeview);
+  GtkTreeSelection *selection = gtk_tree_view_get_selection (treeview);
+
+  if (gtk_tree_selection_get_selected (selection, NULL, &iter))
+    {
+      gint i;
+      GtkTreePath *path;
+
+      path = gtk_tree_model_get_path (model, &iter);
+      i = gtk_tree_path_get_indices (path)[0];
+      if (up) {
+	if ( i > 0)
+	  i--;
+      } else {
+	if ( i < gtk_tree_model_iter_n_children(model, NULL) - 1 )
+	  i++;
+      }
+
+      GtkTreePath *dst_path = gtk_tree_path_new_from_indices (i, -1);
+
+      GtkTreeIter dst_iter;
+      gtk_tree_model_get_iter(GTK_TREE_MODEL(model), &dst_iter, dst_path);
+
+
+      if (up)
+	gtk_list_store_move_before (GTK_LIST_STORE(model), &iter, &dst_iter);
+      else
+	gtk_list_store_move_after (GTK_LIST_STORE(model), &iter, &dst_iter);
+
+      gtk_tree_path_free (path);
+      gtk_tree_path_free (dst_path);
+    }
+
+  guint next_level = 1;
+  gtk_tree_model_foreach(model, resequence_level_in_model, &next_level);
+
+}
+
+static void
+up_item (GtkWidget *widget, gpointer data)
+{
+  move_item(widget, data, TRUE);
+}
+
+static void
+down_item (GtkWidget *widget, gpointer data)
+{
+  move_item(widget, data, FALSE);
+}
+
+static void cell_edited_callback (GtkCellRendererText *cell,
+			   gchar               *path,
+			   gchar               *new_text,
+			   GtkTreeView         *tree_view) {
+  guint column_number = GPOINTER_TO_UINT(g_object_get_data(G_OBJECT(cell), "my_column_num"));
+
+  GtkTreeIter iter;
+  GtkListStore *model = GTK_LIST_STORE(gtk_tree_view_get_model(GTK_TREE_VIEW(tree_view)));
+  gtk_tree_model_get_iter_from_string(GTK_TREE_MODEL(model),&iter,path);
+  if (column_number == 0)
+    gtk_list_store_set(model, &iter, column_number, atoi(new_text), -1);
+  else
+    gtk_list_store_set(model, &iter, column_number, new_text, -1);
+}
+
+static void configure_colummns(GtkTreeView *treeview)
+{
+  GtkCellRenderer *renderer;
+  GtkTreeViewColumn *column;
+
+  /* Level column */
+  renderer = gtk_cell_renderer_text_new();
+  g_object_set_data(G_OBJECT(renderer), "my_column_num",  GUINT_TO_POINTER(LEVEL_COLUMN) );
+
+  column = gtk_tree_view_column_new_with_attributes(_("Level"),
+                                                    renderer,
+						    "text", LEVEL_COLUMN,
+						    NULL);
+  gtk_tree_view_append_column(treeview, column);
+
+  /* Answer column */
+  renderer = gtk_cell_renderer_text_new();
+  g_object_set(renderer, "editable", TRUE, NULL);
+  g_object_set_data(G_OBJECT(renderer), "my_column_num",  GUINT_TO_POINTER(ANSWER_COLUMN) );
+  g_signal_connect(renderer, "edited", (GCallback) cell_edited_callback, treeview);
+  column = gtk_tree_view_column_new_with_attributes(_("Answer"),
+                                                    renderer,
+						    "text", ANSWER_COLUMN,
+						    NULL);
+  gtk_tree_view_append_column(treeview, column);
+
+  /* Question column */
+  renderer = gtk_cell_renderer_text_new();
+  g_object_set(renderer, "editable", TRUE, NULL);
+  g_object_set_data(G_OBJECT(renderer), "my_column_num",  GUINT_TO_POINTER(QUESTION_COLUMN) );
+  g_signal_connect(renderer, "edited", (GCallback) cell_edited_callback, treeview);
+  column = gtk_tree_view_column_new_with_attributes(_("Question"),
+                                                    renderer,
+						    "text", QUESTION_COLUMN,
+						    NULL);
+  gtk_tree_view_append_column(treeview, column);
+
+}
+
 
 static void
 config_start(GcomprisBoard *agcomprisBoard,
@@ -695,6 +1150,89 @@ config_start(GcomprisBoard *agcomprisBoard,
   gc_board_config_boolean_box(bconf, _("Uppercase only text"),
 		       "uppercase_only",
 		       up_init);
+
+  /* frame */
+  GtkWidget *frame = gtk_frame_new("");
+  gtk_widget_show(frame);
+  gtk_box_pack_start(GTK_BOX(bconf->main_conf_box),
+		     frame, TRUE, TRUE, 8);
+
+  GtkWidget *vbox = gtk_vbox_new(FALSE, 8);
+  gtk_widget_show(vbox);
+  gtk_container_add(GTK_CONTAINER(frame), vbox);
+
+  /* list view */
+  GtkListStore *list = gtk_list_store_new(N_COLUMNS,
+					  G_TYPE_UINT,    /* Level */
+					  G_TYPE_STRING,  /* Answers */
+					  G_TYPE_STRING   /* Questions */
+					  );
+
+  GtkWidget *treeview = gtk_tree_view_new_with_model(GTK_TREE_MODEL(list));
+  configure_colummns(GTK_TREE_VIEW(treeview));
+  gtk_tree_view_set_rules_hint (GTK_TREE_VIEW (treeview), TRUE);
+  gtk_tree_view_set_search_column (GTK_TREE_VIEW (treeview), LEVEL_COLUMN);
+  gtk_widget_set_size_request(treeview, -1, 200);
+  gtk_widget_show(treeview);
+
+  GtkScrolledWindow *scroll = GTK_SCROLLED_WINDOW(gtk_scrolled_window_new(NULL,NULL));
+  gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scroll),
+				  GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
+  gtk_widget_show(GTK_WIDGET(scroll));
+  gtk_container_add(GTK_CONTAINER(scroll), treeview);
+
+  gtk_box_pack_start(GTK_BOX(vbox), GTK_WIDGET(scroll), TRUE, TRUE, 10);
+
+  GtkTreeSelection *selection;
+  selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(treeview));
+  gtk_tree_selection_set_mode(selection, GTK_SELECTION_SINGLE);
+
+  GtkTreeIter iter;
+
+  model = GTK_LIST_STORE(gtk_tree_view_get_model(GTK_TREE_VIEW(treeview)));
+
+  guint i;
+  for ( i = 0; i < levels->len; i++)
+    {
+      Level level = g_array_index (levels, Level, i);
+      gtk_list_store_append(model, &iter);
+      gtk_list_store_set(model, &iter,
+			 LEVEL_COLUMN, level.level,
+			 ANSWER_COLUMN, level.answers,
+			 QUESTION_COLUMN, level.questions,
+			 -1);
+    }
+
+  gtk_tree_selection_select_iter(selection , &iter);
+
+  /* some buttons */
+  GtkWidget *hbox = gtk_hbox_new (TRUE, 4);
+  gtk_widget_show(hbox);
+  gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, FALSE, 0);
+
+  GtkWidget *button = gtk_button_new_from_stock(GTK_STOCK_NEW);
+  gtk_widget_show(button);
+  g_signal_connect (button, "clicked",
+		    G_CALLBACK (add_item), model);
+  gtk_box_pack_start (GTK_BOX (hbox), button, TRUE, TRUE, 0);
+
+  button = gtk_button_new_from_stock(GTK_STOCK_DELETE);
+  gtk_widget_show(button);
+  g_signal_connect (button, "clicked",
+		    G_CALLBACK (remove_item), treeview);
+  gtk_box_pack_start (GTK_BOX (hbox), button, TRUE, TRUE, 0);
+
+  button = gtk_button_new_from_stock(GTK_STOCK_GO_UP);
+  gtk_widget_show(button);
+  g_signal_connect (button, "clicked",
+		    G_CALLBACK (up_item), treeview);
+  gtk_box_pack_start (GTK_BOX (hbox), button, TRUE, TRUE, 0);
+
+  button = gtk_button_new_from_stock(GTK_STOCK_GO_DOWN);
+  gtk_widget_show(button);
+  g_signal_connect (button, "clicked",
+		    G_CALLBACK (down_item), treeview);
+  gtk_box_pack_start (GTK_BOX (hbox), button, TRUE, TRUE, 0);
 
   g_hash_table_destroy(config);
 }
