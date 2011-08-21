@@ -125,7 +125,7 @@ class Gcompris_tuxpaint:
 
     gobject.child_watch_add(pid, child_callback, data=self, priority=gobject.PRIORITY_HIGH)
 
-    gcompris.bar_set(0)
+    gcompris.bar_set(gcompris.BAR_CONFIG)
     gcompris.bar_hide(1)
 
     gcompris.set_default_background(self.gcomprisBoard.canvas.get_root_item())
@@ -216,6 +216,7 @@ class Gcompris_tuxpaint:
       for key,value in table.iteritems():
         gcompris.set_board_conf(self.configure_profile, self.gcomprisBoard,
                               key, value)
+    return True
 
   def init_config(self):
     default_config_dict = { 'fullscreen'             : 'True',

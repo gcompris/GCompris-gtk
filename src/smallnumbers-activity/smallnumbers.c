@@ -529,12 +529,13 @@ static GHFunc save_table (gpointer key,
   return NULL;
 }
 
-static void conf_ok(GHashTable *table)
+static gboolean
+conf_ok(GHashTable *table)
 {
   if (!table){
     if (gcomprisBoard)
       pause_board(FALSE);
-    return;
+    return TRUE;
   }
 
   g_hash_table_foreach(table, (GHFunc) save_table, NULL);
@@ -571,6 +572,7 @@ static void conf_ok(GHashTable *table)
 
   board_conf = NULL;
   profile_conf = NULL;
+  return TRUE;
 }
 
 static void sound_control_box_toggled(GtkToggleButton *togglebutton,
@@ -596,7 +598,7 @@ smallnumber_config_start(GcomprisBoard *agcomprisBoard,
 			  agcomprisBoard->name, aProfile ? aProfile->name : "");
 
   GcomprisBoardConf *bconf;
-  bconf = gc_board_config_window_display(label, (GcomprisConfCallback )conf_ok);
+  bconf = gc_board_config_window_display(label, conf_ok);
 
   g_free(label);
 

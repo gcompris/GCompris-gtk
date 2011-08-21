@@ -54,7 +54,7 @@ class Gcompris_login:
     self.gcomprisBoard.maxlevel=1
     self.gcomprisBoard.sublevel=1
     self.gcomprisBoard.number_of_sublevel=1
-    gcompris.bar_set(gcompris.BAR_REPEAT)
+    gcompris.bar_set(gcompris.BAR_REPEAT|gcompris.BAR_CONFIG)
 
     gcompris.bar_set_level(self.gcomprisBoard)
 
@@ -78,8 +78,9 @@ class Gcompris_login:
 
     # Get the user list
     users = []
-    for group_id in self.Prop.profile.group_ids:
-      users.extend( gcompris.admin.get_users_from_group(group_id))
+    if self.Prop.profile:
+      for group_id in self.Prop.profile.group_ids:
+        users.extend( gcompris.admin.get_users_from_group(group_id))
 
     self.users = self.check_unique_id(users)
 
@@ -98,7 +99,7 @@ class Gcompris_login:
     # Display the profile name
     x = gcompris.BOARD_WIDTH-100
     y = 20.0
-    text = _("Profile: ") + Prop.profile.name
+    text = _("Profile: ") + (Prop.profile.name if Prop.profile else "")
 
     # Profile name
     goocanvas.Text(
@@ -465,7 +466,7 @@ class Gcompris_login:
     # init with default values
     self.config_dict = self.init_config()
 
-    #get the configured values for that profile
+    # get the configured values for that profile
     self.config_dict.update(gcompris.get_conf(profile, self.gcomprisBoard))
 
     # Init configuration window:
@@ -476,7 +477,8 @@ class Gcompris_login:
     #we can add what you want in it.
 
     bconf = gcompris.configuration_window ( \
-      _('<b>%s</b> configuration\n for profile <b>%s</b>') % ('Login', profile.name ),
+      _('<b>%s</b> configuration\n for profile <b>%s</b>')
+      % ('Login', ( profile.name if profile else "" ) ),
       self.ok_callback
       )
 
@@ -502,7 +504,7 @@ class Gcompris_login:
 
   def ok_callback(self, table):
     if(not table):
-      return
+      return True
     for key,value in table.iteritems():
       gcompris.set_board_conf(self.configuring_profile, self.gcomprisBoard, key, value)
-
+    return True

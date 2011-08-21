@@ -301,10 +301,6 @@ class Gcompris_pythontest:
     print("Gcompris_pythontest repeat.")
 
 
-  def config(self):
-    print("Gcompris_pythontest config.")
-
-
   def key_press(self, keyval, commit_str, preedit_str):
     utf8char = gtk.gdk.keyval_to_unicode(keyval)
     strn = u'%c' % utf8char
@@ -451,7 +447,8 @@ class Gcompris_pythontest:
     #we can add what you want in it.
 
     bconf = gcompris.configuration_window ( \
-      _('<b>%s</b> configuration\n for profile <b>%s</b>') % ('Pythontest', profile.name ),
+      _('<b>%s</b> configuration\n for profile <b>%s</b>')
+      % ('Pythontest', (profile.name if profile else "") ),
       self.ok_callback
       )
 
@@ -491,11 +488,14 @@ class Gcompris_pythontest:
                  'rectangle': _('Use rectangles')
                  }
 
-    gcompris.radio_buttons(bconf, _('Choice of pattern'),
-                           'pattern',
-                           patterns,
-                           self.config_dict['pattern']
-                           )
+    # FIXME radio button makes the configuration unstable
+    #       the problem is perhaps in the C code but since
+    #       no one use it, let's forget it for now.
+    # gcompris.radio_buttons(bconf, _('Choice of pattern'),
+    #                        'pattern',
+    #                        patterns,
+    #                        self.config_dict['pattern']
+    #                        )
 
     print "List of locales shown in gcompris.combo_locale :"
     print gcompris.get_locales_list()
@@ -507,22 +507,12 @@ class Gcompris_pythontest:
     gcompris.separator(bconf)
 
     print "List of locales shown in gcompris.combo_locales_asset :"
-    locales_purple = gcompris.get_locales_asset_list( "gcompris colors", None, "audio/x-ogg", "purple.ogg")
+    locales_purple = gcompris.get_locales_asset_list( "purple.ogg" )
     print locales_purple
-
-    label = gtk.Label()
-    label.set_markup('<i>-- unused, but here for test --</i>')
-    label.props.visibility = goocanvas.ITEM_VISIBLE
-#    self.main_vbox.pack_start (label, False, False, 8)
 
     gcompris.combo_locales_asset(bconf, _("Select sound locale"),
                                  self.config_dict['locale_sound'],
                                  "voices/$LOCALE/colors/red.ogg" )
-
-    print gcompris.utils.get_asset_file ("gcompris colors", None, "audio/x-ogg", "purple.ogg")
-    print gcompris.utils.get_asset_file_locale ("gcompris colors", None, "audio/x-ogg", "purple.ogg", None)
-    for lang in locales_purple:
-      print gcompris.utils.get_asset_file_locale ("gcompris colors", None, "audio/x-ogg", "purple.ogg", lang)
 
   def color_disable(self, button):
     self.color_choice.set_sensitive(not button.get_active())
@@ -532,7 +522,7 @@ class Gcompris_pythontest:
   def ok_callback(self, table):
     if (table == None):
       print 'Configuration returns None'
-      return
+      return True
 
     print "Keys and values returned by PythonTest config window:"
 
@@ -543,6 +533,7 @@ class Gcompris_pythontest:
       print '%20s:%20s    ' % (key, value)
       gcompris.set_board_conf(self.configuring_profile, self.gcomprisBoard, key, value)
 
+    return True;
 
   def init_config(self):
     default_config = { 'disable_line'    : 'False',

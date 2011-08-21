@@ -20,10 +20,14 @@
 #define BOARD_CONFIG_H
 #include "gcompris.h"
 
-/* the callback type */
-typedef void (*GcomprisConfCallback) (GHashTable *table);
+/**
+ * the callback type
+ * returns TRUE if the data is valid and the save succeeded
+ */
 
-typedef struct 
+typedef gboolean (*GcomprisConfCallback) (GHashTable *table);
+
+typedef struct
 {
 	GtkWindow *conf_window;
 	GtkVBox *main_conf_box;

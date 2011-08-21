@@ -784,12 +784,12 @@ static void save_table (gpointer key,
 
 /* a GcomprisConfCallback
  */
-static void conf_ok(GHashTable *table)
+static gboolean conf_ok(GHashTable *table)
 {
   if (!table){
     if (gcomprisBoard)
       pause_board(FALSE);
-    return;
+    return TRUE;
   }
 
   g_hash_table_foreach(table, save_table, NULL);
@@ -832,7 +832,7 @@ static void conf_ok(GHashTable *table)
 
   board_conf = NULL;
   profile_conf = NULL;
-
+  return TRUE;
 }
 
 static void

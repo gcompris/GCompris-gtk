@@ -717,13 +717,13 @@ static void save_table (gpointer key,
 			 (gchar *) value);
 }
 
-static GcomprisConfCallback
+static gboolean
 conf_ok(GHashTable *table)
 {
   if (!table){
     if (gcomprisBoard_missing)
       pause_board(FALSE);
-    return NULL;
+    return TRUE;
   }
 
   g_hash_table_foreach(table, (GHFunc) save_table, NULL);
@@ -763,7 +763,7 @@ conf_ok(GHashTable *table)
   profile_conf = NULL;
   pause_board(FALSE);
 
-  return NULL;
+  return TRUE;
 }
 
 static void
@@ -786,7 +786,7 @@ config_start(GcomprisBoard *agcomprisBoard,
 				 aProfile ? aProfile->name : "");
   GcomprisBoardConf *bconf;
   bconf = gc_board_config_window_display( label,
-				 (GcomprisConfCallback )conf_ok);
+				 conf_ok);
 
   g_free(label);
 

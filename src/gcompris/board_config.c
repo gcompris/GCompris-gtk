@@ -78,7 +78,6 @@ gc_board_conf_close (GtkDialog *dialog,
   }
   gc_bar_hide(FALSE);
   g_free(u);
-
 }
 
 void
@@ -92,7 +91,9 @@ _response_board_conf (GtkButton *button,
 
     switch (arg1){
     case GTK_RESPONSE_APPLY:
-      u->Confcallback(u->hash_conf);
+      /* Do not close the config dialog if the user returns FALSE */
+      if ( ! u->Confcallback(u->hash_conf) )
+	return;
       break;
     case GTK_RESPONSE_CANCEL:
       u->Confcallback(NULL);

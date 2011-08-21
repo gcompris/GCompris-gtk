@@ -1088,16 +1088,16 @@ py_gc_db_set_board_conf (PyObject* self, PyObject* args)
 }
 
 
-/* Some functions and variables needed to get the file selector working */
+/* Some functions and variables needed to get the config dialog working */
 static PyObject* pyGcomprisConfCallbackFunc = NULL;
 
-static void pyGcomprisConfCallback(GHashTable* table){
+static gboolean pyGcomprisConfCallback(GHashTable* table){
   PyObject* result;
 
   PyGILState_STATE gil;
+  gboolean retval = TRUE;
 
-
-  if(pyGcomprisConfCallbackFunc==NULL) return;
+  if(pyGcomprisConfCallbackFunc==NULL) return TRUE;
 
   gil = pyg_gil_state_ensure();
 
@@ -1106,17 +1106,18 @@ static void pyGcomprisConfCallback(GHashTable* table){
   else
     result = PyObject_CallFunction(pyGcomprisConfCallbackFunc, "O", Py_None);
 
-  // This callback can be called multiple time ? not now
-
-  Py_DECREF(pyGcomprisConfCallbackFunc);
-
   if(result==NULL){
     PyErr_Print();
   } else {
+    if (PyObject_IsTrue(result))
+      retval = TRUE;
+    else
+      retval = FALSE;
     Py_DECREF(result);
   }
 
   pyg_gil_state_release(gil);
+  return retval;
 
 }
 
@@ -1139,8 +1140,8 @@ py_gc_board_config_window_display(PyObject* self, PyObject* args){
       return NULL;
     }
 
-  //if (pyGcomprisConfCallbackFunc)
-  //  Py_DECREF(pyGcomprisConfCallbackFunc);
+  if (pyGcomprisConfCallbackFunc)
+    Py_DECREF(pyGcomprisConfCallbackFunc);
 
   pyGcomprisConfCallbackFunc = pyCallback;
 
@@ -1149,7 +1150,7 @@ py_gc_board_config_window_display(PyObject* self, PyObject* args){
 
   return gcompris_new_pyGcomprisBoardConfigObject(
 		  gc_board_config_window_display( label,
-			  (GcomprisConfCallback )pyGcomprisConfCallback));
+						  pyGcomprisConfCallback));
 
 }
 
