@@ -59,6 +59,7 @@ static gchar **questions;
 static gchar **answers;
 
 static void		 load_datafile();
+static void		 clear_levels();
 
 /* The data model of the configuration */
 static GtkListStore *model;
@@ -165,7 +166,7 @@ GET_BPLUGIN_INFO(click_on_letter)
 static void start_board (GcomprisBoard *agcomprisBoard)
 {
   GHashTable *config = gc_db_get_board_conf();
-  int ready;
+  guint ready;
 
   board_paused = TRUE;
 
@@ -194,8 +195,6 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 		     50,
 		     50,
 		     0);
-      /* create level array */
-      levels = g_array_sized_new (FALSE, FALSE, sizeof (Level), 10);
 
       load_datafile();
 
@@ -282,8 +281,7 @@ static void end_board ()
 
       g_object_unref(carriage_svg_handle);
       g_object_unref(cloud_svg_handle);
-      g_array_free(levels, TRUE);
-      levels = NULL;
+      clear_levels();
     }
   gc_locale_reset();
   gcomprisBoard = NULL;
@@ -701,6 +699,11 @@ static void load_datafile() {
   GError *error = NULL;
   gchar *filename = gc_file_find_absolute("click_on_letter/default-$LOCALE.desktop");
 
+  clear_levels();
+
+  /* create level array */
+  levels = g_array_sized_new (FALSE, FALSE, sizeof (Level), 10);
+
   if ( ! filename )
     {
       /* Fallback to english */
@@ -760,7 +763,6 @@ static gchar *levels_to_desktop() {
     }
 
   gchar *buffer = g_key_file_to_data(keyfile, NULL, NULL);
-  printf("%s\n", buffer);
   return buffer;
 }
 
@@ -810,9 +812,46 @@ static void create_levels_from_config_model()
   GtkTreeIter iter;
   gtk_tree_model_get_iter_first (GTK_TREE_MODEL(model), &iter );
 
-  g_array_free(levels, TRUE);
+  clear_levels();
   levels = g_array_sized_new (FALSE, FALSE, sizeof (Level), 10);
   gtk_tree_model_foreach(GTK_TREE_MODEL(model), _save_level_from_model, NULL);
+}
+
+void
+load_model_from_levels(GtkListStore *model)
+{
+  GtkTreeIter iter;
+
+  gtk_list_store_clear(model);
+  guint i;
+  for ( i = 0; i < levels->len; i++)
+    {
+      Level level = g_array_index (levels, Level, i);
+      gtk_list_store_append(model, &iter);
+      gtk_list_store_set(model, &iter,
+			 LEVEL_COLUMN, level.level,
+			 ANSWER_COLUMN, level.answers,
+			 QUESTION_COLUMN, level.questions,
+			 -1);
+    }
+}
+
+void
+clear_levels()
+{
+  if ( ! levels )
+    return;
+
+  gint i = 0;
+  for (i = 0; i < levels->len; i++)
+    {
+      Level level = g_array_index (levels, Level, i);
+      g_free(level.answers);
+      g_free(level.questions);
+    }
+
+  g_array_free(levels, TRUE);
+  levels = NULL;
 }
 
 static gboolean
@@ -919,6 +958,21 @@ _check_errors(GtkTreeModel *model, GtkTreePath *path,
 }
 
 
+/**
+ * Based on the current locale, return the user desktop filename
+ * to use.
+ * The returned value must be freed
+ */
+gchar *get_user_desktop_file()
+{
+  gchar **locale = g_strsplit_set(gc_locale_get(), ".", 2);
+  gchar *filename =
+    gc_file_find_absolute_writeable("%s/default-%s.desktop",
+				    gcomprisBoard->boarddir,
+				    locale[0]);
+  g_strfreev(locale);
+  return filename;
+}
 
 static gboolean
 conf_ok(GHashTable *table)
@@ -964,7 +1018,7 @@ conf_ok(GHashTable *table)
     if (profile_conf)
       g_hash_table_destroy(config);
 
-    sounds_are_fine();
+    guint ready = sounds_are_fine();
 
     /*
      * Save the new editied value if needed
@@ -980,23 +1034,21 @@ conf_ok(GHashTable *table)
     if (strcmp(old_levels, new_levels) != 0)
       {
 	/* The level has changed, save the new desktop file in the user's dir */
-	gchar **locale = g_strsplit_set(gc_locale_get(), ".", 2);
-	gchar *filename =
-	  gc_file_find_absolute_writeable("%s/default-%s.desktop",
-					  gcomprisBoard->boarddir,
-					  locale[0]);
-	printf("file to save: %s\n", filename);
+	gchar *filename = get_user_desktop_file();
 	g_file_set_contents(filename, new_levels, -1, NULL);
 	g_free(filename);
-	g_strfreev(locale);
       }
     g_free(old_levels);
     g_free(new_levels);
 
-    click_on_letter_next_level();
+    if(ready)
+      {
+	if(ready == OK)
+	  click_on_letter_next_level();
 
-    gamewon = FALSE;
-    pause_board(FALSE);
+	gamewon = FALSE;
+	pause_board(FALSE);
+      }
 
   }
 
@@ -1005,8 +1057,9 @@ conf_ok(GHashTable *table)
   return TRUE;
 }
 
-static gboolean resequence_level_in_model(GtkTreeModel *model, GtkTreePath *path,
-					  GtkTreeIter *iter, gpointer data)
+static gboolean
+resequence_level_in_model(GtkTreeModel *model, GtkTreePath *path,
+			  GtkTreeIter *iter, gpointer data)
 {
   guint *level = (guint*)data;
 
@@ -1122,6 +1175,21 @@ down_item (GtkWidget *widget, gpointer data)
 {
   move_item(widget, data, FALSE);
 }
+
+static void
+return_to_default(GtkWidget *widget, gpointer data)
+{
+  GtkListStore *model = (GtkListStore *)data;
+  gchar *filename = get_user_desktop_file();
+  /* Erase the user desktop file */
+  gc_cache_remove(filename);
+  g_free(filename);
+
+  load_datafile();
+  load_model_from_levels(model);
+
+}
+
 
 static void cell_edited_callback (GtkCellRendererText *cell,
 			   gchar               *path,
@@ -1251,23 +1319,9 @@ config_start(GcomprisBoard *agcomprisBoard,
   selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(treeview));
   gtk_tree_selection_set_mode(selection, GTK_SELECTION_SINGLE);
 
-  GtkTreeIter iter;
-
   model = GTK_LIST_STORE(gtk_tree_view_get_model(GTK_TREE_VIEW(treeview)));
 
-  guint i;
-  for ( i = 0; i < levels->len; i++)
-    {
-      Level level = g_array_index (levels, Level, i);
-      gtk_list_store_append(model, &iter);
-      gtk_list_store_set(model, &iter,
-			 LEVEL_COLUMN, level.level,
-			 ANSWER_COLUMN, level.answers,
-			 QUESTION_COLUMN, level.questions,
-			 -1);
-    }
-
-  gtk_tree_selection_select_iter(selection , &iter);
+  load_model_from_levels(model);
 
   /* some buttons */
   GtkWidget *hbox = gtk_hbox_new (TRUE, 4);
@@ -1297,6 +1351,13 @@ config_start(GcomprisBoard *agcomprisBoard,
   g_signal_connect (button, "clicked",
 		    G_CALLBACK (down_item), treeview);
   gtk_box_pack_start (GTK_BOX (hbox), button, TRUE, TRUE, 0);
+
+  button = gtk_button_new_with_label(_("Back to default"));
+  gtk_widget_show(button);
+  g_signal_connect (button, "clicked",
+		    G_CALLBACK (return_to_default), model);
+  gtk_box_pack_start(GTK_BOX(hbox), button, TRUE, TRUE, 0);
+
 
   g_hash_table_destroy(config);
 }

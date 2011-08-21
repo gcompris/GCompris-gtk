@@ -95,7 +95,7 @@ void
 gc_board_config_combo_locales_changed(GtkComboBox *combobox,
 			       gpointer data)
 {
-  _gc_boardconf_key*u = (_gc_boardconf_key*)data;
+  _gc_boardconf_key *u = (_gc_boardconf_key*)data;
   gchar *the_key = g_strdup((gchar *)u->key);
   gchar *value;
   gint index = gtk_combo_box_get_active (combobox);
