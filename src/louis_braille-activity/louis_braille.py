@@ -38,8 +38,8 @@ CELL_WIDTH = 30
 LOUIS_BRAILLE_NAME = ['L','O','U','I','S','B','R','A','I','L','L','E']
 NUMBERS = [12,13,14,15,16,17,18,19,20,21,22]
 SEQUENCE = ['a','b','c','d','e','f','g','h','i','j','k']
-NUMBER_SEQUENCE = [[12,'a'],[13,'b'],[14,'c'],[15,'d'],[16,'e'],[17,'f'],
-                   [18,'g'],[19,'h'],[20,'i'],[21,'j'],[22,'k']]
+NUMBER_SEQUENCE = [[1,'a'],[2,'b'],[3,'c'],[4,'d'],[5,'e'],[6,'f'],
+                   [7,'g'],[8,'h'],[9,'i'],[10,'j'],[11,'k']]
 random.shuffle(NUMBERS)
 random.shuffle(NUMBER_SEQUENCE)
 
@@ -72,6 +72,8 @@ class Gcompris_louis_braille:
     self.won = 0
     self.counter = 0
     self.gamewon = 0
+    self.offset_x = self.offset_y = 0
+    self.init_coord = {}
 
 
     # Create our rootitem. We put each canvas item in it so at the end we
@@ -106,113 +108,48 @@ class Gcompris_louis_braille:
 
   def display_game(self, level):
       if(level == 12):
-          gcompris.bar_location(gcompris.BOARD_WIDTH - 250, -1, 0.8)
-          #Rectangle for STORY
-          goocanvas.Rect(parent=self.rootitem,
-                          x=170,
-                          y=20,
-                          width=400,
-                          height=30,
-                          stroke_color="dark orange",
-                          fill_color="white",
-                          line_width=2.0)
-          goocanvas.Text(parent = self.rootitem,
-                   x=350.0,
-                   y=33,
-                   text = _("Arrange the sequence of story"),
-                   fill_color="blue",
+          gcompris.bar_location(gcompris.BOARD_WIDTH - 120, -1, 0.8)
+
+          for index in range(11):
+              #Create Rounded Rectangles for each story
+              self.dragRect = goocanvas.Rect(parent=self.rootitem,
+                          x = 100,
+                          y = (index + 0.5) * 43,
+                          width = 550,
+                          height = 40,
+                          radius_x = 17,
+                          radius_y = 17,
+                          stroke_color = "orange",
+                          fill_color = "white",
+                          line_width = 2.0)
+
+              #Displaying the STORY
+              self.dragText = goocanvas.Text(parent = self.rootitem,
+                   x = 370.0,
+                   y = (index + 1) * 43,
+                   text = str(self.dataset.get(str(NUMBER_SEQUENCE[index][0]),"_story")),
+                   fill_color = "black",
                    anchor = gtk.ANCHOR_CENTER,
                    alignment = pango.ALIGN_CENTER,
-                   font = 'SANS 12'
+                   font = 'SANS 9',
+                   width = 500,
                    )
+              gcompris.utils.item_focus_init(self.dragText, self.dragRect)
+              self.dragText.connect("button_press_event", self.component_drag)
+              self.dragText.connect("motion_notify_event", self.component_drag)
+              self.dragText.connect("button_release_event", self.component_drag)
+
+
           ok = goocanvas.Svg(parent = self.rootitem,
                          svg_handle = gcompris.skin.svg_get(),
                          svg_id = "#OK",
                          tooltip = _("Click to confirm your sequence")
                          )
-          ok.translate(200,15)
+          ok.translate(200,-70)
           ok.connect("button_press_event", self.ok_event)
           gcompris.utils.item_focus_init(ok, None)
 
-          for index in range(11,22):
-              #Rectangle for STORY
-              goocanvas.Rect(parent=self.rootitem,
-                          x=50,
-                          y=(index - 9) * 35,
-                          width=600,
-                          height=45,
-                          stroke_color="orange",
-                          fill_color="white",
-                          line_width=2.0)
 
-              #Rectangle for SEQUENCE
-              goocanvas.Rect(parent=self.rootitem,
-                          x=20,
-                          y=(index - 9) * 35,
-                          width=30,
-                          height=45,
-                          stroke_color="orange",
-                          fill_color="white",
-                          line_width=2.0)
-
-              #Displaying the STORY
-              goocanvas.Text(parent = self.rootitem,
-                   x=350.0,
-                   y=(index - 9) * 37.8,
-                   text=str(self.dataset.get(str(NUMBER_SEQUENCE[index - 11][0]),"_story")),
-                   fill_color="black",
-                   anchor = gtk.ANCHOR_CENTER,
-                   alignment = pango.ALIGN_CENTER,
-                   font = 'SANS 8'
-                   )
-              #Displaying the SEQUENCE
-              goocanvas.Text(parent = self.rootitem,
-                   x=28.0,
-                   y=(index - 9) * 37,
-                   text= str(SEQUENCE[index - 11]),
-                   fill_color="black",
-                   anchor = gtk.ANCHOR_CENTER,
-                   alignment = pango.ALIGN_CENTER,
-                   font = 'SANS 8'
-                   )
-              #Answer area to the right
-              #Rectangle for numbering
-              goocanvas.Rect(parent=self.rootitem,
-                          x=690,
-                          y=(index - 9) * 35,
-                          width=30,
-                          height=45,
-                          stroke_color="orange",
-                          fill_color="white",
-                          line_width=2.0)
-              #Displaying the numbering
-              goocanvas.Text(parent = self.rootitem,
-                   x=710.0,
-                   y=(index - 9) * 37,
-                   text= str(index - 10),
-                   fill_color="black",
-                   anchor = gtk.ANCHOR_CENTER,
-                   alignment = pango.ALIGN_CENTER,
-                   font = 'SANS 8'
-                   )
-          self.widget_array = []
-
-          for index in range(11):
-              # the answer area
-              self.entry = gtk.Entry()
-
-              goocanvas.Widget(
-                       parent = self.rootitem,
-                       widget=self.entry,
-                       x = 740,
-                       y = (index + 2) * 36,
-                       width = 50,
-                       height= 25,
-                       anchor=gtk.ANCHOR_NW)
-
-              self.widget_array.append(self.entry)
-              self.widget_array[index].connect("activate", self.enter_callback,
-                                               self.widget_array[index], index)
       else :
           gcompris.bar_location(gcompris.BOARD_WIDTH - 140, 350, 0.8)
 
@@ -298,6 +235,25 @@ class Gcompris_louis_braille:
                                  x = 300,
                                  y = 120,
                                  )
+
+  def component_drag(self, widget, target, event):
+      if event.type == gtk.gdk.MOTION_NOTIFY:
+        if event.state & gtk.gdk.BUTTON1_MASK:
+          # Save the click to image offset
+          if self.offset_x == 0:
+            bounds = widget.get_bounds()
+            self.offset_x = (event.x - bounds.x1)
+            self.offset_y = (event.y - bounds.y1)
+
+          widget.set_properties(x = 360,
+                                y = event.y - self.offset_y)
+
+      if event.type == gtk.gdk.BUTTON_RELEASE:
+        if event.button == 1:
+          bounds = widget.get_bounds()
+
+        return True
+
   def enter_callback(self, event, widget, index):
       print self.widget_array[index].get_text()
 
