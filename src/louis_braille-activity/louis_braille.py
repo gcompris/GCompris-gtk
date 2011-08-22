@@ -30,9 +30,9 @@ from BrailleChar import *
 
 from gcompris import gcompris_gettext as _
 
-COLOR_ON = 0X00FFFFL
-COLOR_OFF= 0X00000000L
-CIRCLE_FILL = "red"
+COLOR_ON = 0XFFFFFFFFL
+COLOR_OFF= 0X000000FFL
+CIRCLE_FILL = "white"
 CELL_WIDTH = 30
 
 LOUIS_BRAILLE_NAME = ['L','O','U','I','S','B','R','A','I','L','L','E']
@@ -64,9 +64,8 @@ class Gcompris_louis_braille:
     gcompris.bar_set (0)
 
     # Set a background image
-    gcompris.set_default_background(self.gcomprisBoard.canvas.get_root_item())
     gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
-                            "louis_braille/back.png")
+                            "louis_braille/background.svgz")
 
     #Initialize variables
     self.won = 0
@@ -152,6 +151,18 @@ class Gcompris_louis_braille:
 
       else :
           gcompris.bar_location(gcompris.BOARD_WIDTH - 140, 350, 0.8)
+
+          goocanvas.Rect( parent = self.rootitem,
+                          x = 50,
+                          y = 20,
+                          width = 700,
+                          height = 95,
+                          radius_x = 10,
+                          radius_y = 10,
+                          stroke_color_rgba = 0x666666FFL,
+                          fill_color_rgba = 0x33333333L,
+                          line_width = 2.0)
+
 
           #Previous Button
           ok = goocanvas.Svg(parent = self.rootitem,
