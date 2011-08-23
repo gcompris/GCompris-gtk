@@ -1,6 +1,6 @@
 #  gcompris - louis_braille.py
 #
-# Copyright (C) 2003, 2008 Bruno Coudoin
+# Copyright (C) 2011 Bruno Coudoin | Srishti Sethi
 #
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
@@ -36,9 +36,6 @@ CIRCLE_FILL = "white"
 CELL_WIDTH = 30
 
 LOUIS_BRAILLE_NAME = ['L','O','U','I','S','B','R','A','I','L','L','E']
-NUMBER_SEQUENCE = [[1,'a'],[2,'b'],[3,'c'],[4,'d'],[5,'e'],[6,'f'],
-                   [7,'g'],[8,'h'],[9,'i'],[10,'j'],[11,'k']]
-random.shuffle(NUMBER_SEQUENCE)
 
 class Gcompris_louis_braille:
   """Empty gcompris python class"""
@@ -68,9 +65,9 @@ class Gcompris_louis_braille:
     self.won = 0
     self.counter = 0
     self.gamewon = 0
-    self.offset_x = self.offset_y = 0
-    self.init_coord = {}
-
+    self.item = 0
+    self.groupitem_array = []
+    self.coorditem_array = []
 
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains
@@ -121,7 +118,6 @@ class Gcompris_louis_braille:
           ok.translate(200,-70)
           ok.connect("button_press_event", self.ok_event)
           gcompris.utils.item_focus_init(ok, None)
-
 
       else :
           gcompris.bar_location(gcompris.BOARD_WIDTH - 140, 350, 0.8)
@@ -221,9 +217,6 @@ class Gcompris_louis_braille:
                                  y = 120,
                                  )
 
-  def enter_callback(self, event, widget, index):
-      print self.widget_array[index].get_text()
-
   def ok_event(self, event ,target ,item):
       if ( self.reordering.is_done() ):
           gcompris.bonus.display(gcompris.bonus.WIN,gcompris.bonus.TUX)
@@ -302,15 +295,16 @@ class Reordering:
      return True
 
   def add_line(self, text):
-    group_item = goocanvas.Group(parent = self.rootitem)
+    position = self.randoms[ self.index ]
+    y = (position + 0.5) * 43
+    group_item = goocanvas.Group(parent = self.rootitem,
+                                 y = y)
     # Save in the item itself where is its correct position
     group_item.set_data("index", self.index)
     # Create Rounded Rectangles for each story
-    position = self.randoms[ self.index ]
-    y = (position + 0.5) * 43
     goocanvas.Rect(parent = group_item,
                    x = 100,
-                   y = y,
+                   y = 0,
                    width = 550,
                    height = 40,
                    radius_x = 17,
@@ -323,7 +317,7 @@ class Reordering:
     # Displaying the STORY
     goocanvas.Text(parent = group_item,
                    x = 370.0,
-                   y = (position + 1) * 43,
+                   y = 20,
                    text = text,
                    fill_color = "black",
                    anchor = gtk.ANCHOR_CENTER,
@@ -345,8 +339,16 @@ class Reordering:
 
   def move_group(self, from_index, to_index):
     from_item = self.orders[from_index]
+    (from_x, from_y) = from_item.get_properties('x', 'y')
+    print "from", from_x, from_y
     to_item = self.orders[to_index]
-
+    to_x = to_item.get_data('xref')
+    to_y = to_item.get_data('yref')
+    print "to", to_x, to_y
+    from_item.set_properties(x = to_x, y = to_y)
+    to_item.set_data("xref", from_x)
+    to_item.set_data("yref", from_y)
+    self.orders[from_index], self.orders[to_index] = self.orders[to_index], self.orders[from_index]
 
   def swap_with_group_near(self, group, y):
     for index, item in enumerate(self.orders):
@@ -355,6 +357,7 @@ class Reordering:
            y < bounds.y2 and y > bounds.y1 ):
         print "got it at index " + str(index)
         print self.get_group_index(group)
+        self.move_group( index, self.get_group_index(group) )
         return
 
 
@@ -365,6 +368,10 @@ class Reordering:
       if event.type == gtk.gdk.BUTTON_PRESS:
         bounds = groupitem.get_bounds()
         self.offset_y = event.y
+        # We save the x and y coord in xref and yref for future use
+        (x, y) = groupitem.get_properties('x', 'y')
+        groupitem.set_data("xref", x)
+        groupitem.set_data("yref", y)
 
       elif ( event.type == gtk.gdk.MOTION_NOTIFY
              and event.state & gtk.gdk.BUTTON1_MASK ):
@@ -375,9 +382,10 @@ class Reordering:
           self.swap_with_group_near(groupitem, y)
 
       elif event.type == gtk.gdk.BUTTON_RELEASE:
-        pass
-        # Must find the closer stop to drop this item
+        self.dump()
+        groupitem.set_transform(None)
+        to_x = groupitem.get_data('xref')
+        to_y = groupitem.get_data('yref')
+        groupitem.set_properties(x = to_x, y = to_y)
 
       return True
-
-
