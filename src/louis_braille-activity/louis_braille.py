@@ -1,6 +1,6 @@
 #  gcompris - louis_braille.py
 #
-# Copyright (C) 2003, 2008 Bruno Coudoin
+# Copyright (C) 2003, 2008 Bruno Coudoin | Srishti Sethi
 #
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
@@ -30,9 +30,9 @@ from BrailleChar import *
 
 from gcompris import gcompris_gettext as _
 
-COLOR_ON = 0X00FFFFL
-COLOR_OFF= 0X00000000L
-CIRCLE_FILL = "red"
+COLOR_ON = 0XFFFFFFFFL
+COLOR_OFF= 0X000000FFL
+CIRCLE_FILL = "white"
 CELL_WIDTH = 30
 
 LOUIS_BRAILLE_NAME = ['L','O','U','I','S','B','R','A','I','L','L','E']
@@ -40,6 +40,7 @@ NUMBERS = [12,13,14,15,16,17,18,19,20,21,22]
 SEQUENCE = ['a','b','c','d','e','f','g','h','i','j','k']
 NUMBER_SEQUENCE = [[1,'a'],[2,'b'],[3,'c'],[4,'d'],[5,'e'],[6,'f'],
                    [7,'g'],[8,'h'],[9,'i'],[10,'j'],[11,'k']]
+
 random.shuffle(NUMBERS)
 random.shuffle(NUMBER_SEQUENCE)
 
@@ -64,17 +65,16 @@ class Gcompris_louis_braille:
     gcompris.bar_set (0)
 
     # Set a background image
-    gcompris.set_default_background(self.gcomprisBoard.canvas.get_root_item())
     gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
-                            "louis_braille/back.png")
+                            "louis_braille/background.svgz")
 
     #Initialize variables
     self.won = 0
     self.counter = 0
     self.gamewon = 0
-    self.offset_x = self.offset_y = 0
-    self.init_coord = {}
-
+    self.item = 0
+    self.groupitem_array = []
+    self.coorditem_array = []
 
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains
@@ -111,33 +111,44 @@ class Gcompris_louis_braille:
           gcompris.bar_location(gcompris.BOARD_WIDTH - 120, -1, 0.8)
 
           for index in range(11):
-              #Create Rounded Rectangles for each story
-              self.dragRect = goocanvas.Rect(parent=self.rootitem,
-                          x = 100,
-                          y = (index + 0.5) * 43,
-                          width = 550,
-                          height = 40,
-                          radius_x = 17,
-                          radius_y = 17,
-                          stroke_color = "orange",
-                          fill_color = "white",
-                          line_width = 2.0)
+              group_item = goocanvas.Group(parent = self.rootitem)
 
-              #Displaying the STORY
-              self.dragText = goocanvas.Text(parent = self.rootitem,
-                   x = 370.0,
-                   y = (index + 1) * 43,
-                   text = str(self.dataset.get(str(NUMBER_SEQUENCE[index][0]),"_story")),
-                   fill_color = "black",
-                   anchor = gtk.ANCHOR_CENTER,
-                   alignment = pango.ALIGN_CENTER,
-                   font = 'SANS 9',
-                   width = 500,
-                   )
-              gcompris.utils.item_focus_init(self.dragText, self.dragRect)
-              self.dragText.connect("button_press_event", self.component_drag)
-              self.dragText.connect("motion_notify_event", self.component_drag)
-              self.dragText.connect("button_release_event", self.component_drag)
+              # Create Rounded Rectangles for each story
+              goocanvas.Rect(parent = group_item,
+                             x = 100,
+                             y = (index + 0.5) * 43,
+                             width = 550,
+                             height = 40,
+                             radius_x = 17,
+                             radius_y = 17,
+                             stroke_color = "orange",
+                             fill_color = "white",
+                             line_width = 2.0)
+
+              # Displaying the STORY
+              goocanvas.Text(parent = group_item,
+                             x = 370.0,
+                             y = (index + 1) * 43,
+                             text = str(self.dataset.get(str(NUMBER_SEQUENCE[index][0]),"_story")),
+                             fill_color = "black",
+                             anchor = gtk.ANCHOR_CENTER,
+                             alignment = pango.ALIGN_CENTER,
+                             font = 'SANS 9',
+                             width = 500,
+                             )
+
+              #Calculate y coordinates of each group item
+              bounds = group_item.get_bounds()
+              coord_item = (bounds.y1 + bounds.y2 )/ 2
+
+              #Append all group items and coordinates of them in an array
+              self.groupitem_array.append(group_item)
+              self.coorditem_array.append(coord_item)
+
+              # It is hard to manage focus when we move the item
+              group_item.connect("button_press_event", self.component_drag, index)
+              group_item.connect("motion_notify_event", self.component_drag, index)
+              group_item.connect("button_release_event", self.component_drag, index)
 
 
           ok = goocanvas.Svg(parent = self.rootitem,
@@ -149,9 +160,20 @@ class Gcompris_louis_braille:
           ok.connect("button_press_event", self.ok_event)
           gcompris.utils.item_focus_init(ok, None)
 
-
       else :
           gcompris.bar_location(gcompris.BOARD_WIDTH - 140, 350, 0.8)
+
+          goocanvas.Rect( parent = self.rootitem,
+                          x = 50,
+                          y = 20,
+                          width = 700,
+                          height = 95,
+                          radius_x = 10,
+                          radius_y = 10,
+                          stroke_color_rgba = 0x666666FFL,
+                          fill_color_rgba = 0x33333333L,
+                          line_width = 2.0)
+
 
           #Previous Button
           ok = goocanvas.Svg(parent = self.rootitem,
@@ -236,23 +258,43 @@ class Gcompris_louis_braille:
                                  y = 120,
                                  )
 
-  def component_drag(self, widget, target, event):
-      if event.type == gtk.gdk.MOTION_NOTIFY:
-        if event.state & gtk.gdk.BUTTON1_MASK:
-          # Save the click to image offset
-          if self.offset_x == 0:
-            bounds = widget.get_bounds()
-            self.offset_x = (event.x - bounds.x1)
-            self.offset_y = (event.y - bounds.y1)
 
-          widget.set_properties(x = 360,
-                                y = event.y - self.offset_y)
+  def component_drag(self, widget, target, event, index):
+      groupitem = target.get_parent()
+      groupitem.raise_(None)
 
-      if event.type == gtk.gdk.BUTTON_RELEASE:
-        if event.button == 1:
-          bounds = widget.get_bounds()
 
-        return True
+      if event.type == gtk.gdk.BUTTON_PRESS:
+        bounds = groupitem.get_bounds()
+        self.offset_y = event.y
+        print (self.groupitem_array[index].get_bounds().y1 + self.groupitem_array[index].get_bounds().y2 )/ 2
+
+      elif ( event.type == gtk.gdk.MOTION_NOTIFY
+             and event.state & gtk.gdk.BUTTON1_MASK ):
+          groupitem.translate(0, event.y - self.offset_y)
+
+      elif event.type == gtk.gdk.BUTTON_RELEASE:
+        bounds = groupitem.get_bounds()
+        self.mid_bounds = (bounds.y1 + bounds.y2) / 2
+
+        groupitem.translate(0, 100)
+        # Must find the closer stop to drop this item
+        while(self.item < 11):
+          if (self.coorditem_array[self.item] < self.mid_bounds and self.coorditem_array[self.item + 1] \
+               > self.mid_bounds):
+              if( self.mid_bounds - self.coorditem_array[self.item] < self.coorditem_array[self.item + 1] \
+                   - self.mid_bounds ) :
+                  #TODO
+                  #Here I want to translate the group item to calculated bound
+                  #But it goes somewhere else
+                  groupitem.translate(0, self.coorditem_array[self.item])
+                  print self.coorditem_array[self.item]
+              else :
+                  groupitem.translate(0, self.coorditem_array[self.item + 1])
+                  print self.coorditem_array[self.item + 1]
+          self.item += 1
+      self.item = 0
+      return True
 
   def enter_callback(self, event, widget, index):
       print self.widget_array[index].get_text()
