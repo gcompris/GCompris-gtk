@@ -150,7 +150,6 @@ class Gcompris_louis_braille:
               group_item.connect("motion_notify_event", self.component_drag, index)
               group_item.connect("button_release_event", self.component_drag, index)
 
-
           ok = goocanvas.Svg(parent = self.rootitem,
                          svg_handle = gcompris.skin.svg_get(),
                          svg_id = "#OK",
@@ -277,7 +276,7 @@ class Gcompris_louis_braille:
         bounds = groupitem.get_bounds()
         self.mid_bounds = (bounds.y1 + bounds.y2) / 2
 
-        groupitem.translate(0, 100)
+
         # Must find the closer stop to drop this item
         while(self.item < 11):
           if (self.coorditem_array[self.item] < self.mid_bounds and self.coorditem_array[self.item + 1] \
@@ -294,7 +293,6 @@ class Gcompris_louis_braille:
                   print self.coorditem_array[self.item + 1]
           self.item += 1
       self.item = 0
-      return True
 
   def enter_callback(self, event, widget, index):
       print self.widget_array[index].get_text()
