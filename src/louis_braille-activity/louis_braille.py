@@ -36,11 +36,8 @@ CIRCLE_FILL = "white"
 CELL_WIDTH = 30
 
 LOUIS_BRAILLE_NAME = ['L','O','U','I','S','B','R','A','I','L','L','E']
-NUMBERS = [12,13,14,15,16,17,18,19,20,21,22]
-SEQUENCE = ['a','b','c','d','e','f','g','h','i','j','k']
 NUMBER_SEQUENCE = [[1,'a'],[2,'b'],[3,'c'],[4,'d'],[5,'e'],[6,'f'],
                    [7,'g'],[8,'h'],[9,'i'],[10,'j'],[11,'k']]
-random.shuffle(NUMBERS)
 random.shuffle(NUMBER_SEQUENCE)
 
 class Gcompris_louis_braille:
@@ -109,38 +106,12 @@ class Gcompris_louis_braille:
       if(level == 12):
           gcompris.bar_location(gcompris.BOARD_WIDTH - 120, -1, 0.8)
 
-          for index in range(11):
-              group_item = goocanvas.Group(parent = self.rootitem)
+          n_lines = 11
+          self.reordering = Reordering(self, n_lines)
 
-              # Create Rounded Rectangles for each story
-              goocanvas.Rect(parent = group_item,
-                             x = 100,
-                             y = (index + 0.5) * 43,
-                             width = 550,
-                             height = 40,
-                             radius_x = 17,
-                             radius_y = 17,
-                             stroke_color = "orange",
-                             fill_color = "white",
-                             line_width = 2.0)
-
-              # Displaying the STORY
-              goocanvas.Text(parent = group_item,
-                             x = 370.0,
-                             y = (index + 1) * 43,
-                             text = str(self.dataset.get(str(NUMBER_SEQUENCE[index][0]),"_story")),
-                             fill_color = "black",
-                             anchor = gtk.ANCHOR_CENTER,
-                             alignment = pango.ALIGN_CENTER,
-                             font = 'SANS 9',
-                             width = 500,
-                             )
-              # It is hard to manage focus when we move the item
-              #gcompris.utils.item_focus_init(self.dragText, self.dragRect)
-              group_item.connect("button_press_event", self.component_drag)
-              group_item.connect("motion_notify_event", self.component_drag)
-              group_item.connect("button_release_event", self.component_drag)
-
+          # Insert the lines in the correct order
+          for index in range(n_lines):
+              self.reordering.add_line( str(self.dataset.get(str(index + 1), "_story") ) )
 
           ok = goocanvas.Svg(parent = self.rootitem,
                          svg_handle = gcompris.skin.svg_get(),
@@ -250,32 +221,11 @@ class Gcompris_louis_braille:
                                  y = 120,
                                  )
 
-  def component_drag(self, widget, target, event):
-      groupitem = target.get_parent()
-      groupitem.raise_(None)
-
-      if event.type == gtk.gdk.BUTTON_PRESS:
-        bounds = groupitem.get_bounds()
-        self.offset_y = event.y
-
-      elif ( event.type == gtk.gdk.MOTION_NOTIFY
-             and event.state & gtk.gdk.BUTTON1_MASK ):
-          groupitem.translate(0, event.y - self.offset_y)
-
-      elif event.type == gtk.gdk.BUTTON_RELEASE:
-        pass
-        # Must find the closer stop to drop this item
-
-      return True
-
   def enter_callback(self, event, widget, index):
       print self.widget_array[index].get_text()
 
   def ok_event(self, event ,target ,item):
-      for index in range(11):
-          if(self.widget_array[index].get_text() == NUMBER_SEQUENCE[index][1]):
-              self.won +=1
-      if (self.won == 11):
+      if ( self.reordering.is_done() ):
           gcompris.bonus.display(gcompris.bonus.WIN,gcompris.bonus.TUX)
           self.gamewon = 1
       else :
@@ -326,3 +276,108 @@ class Gcompris_louis_braille:
 
   def set_level(self, level):
     print("louis_braille set level. %i" % level)
+
+class Reordering:
+  """This class manages the reordering activity"""
+
+  def __init__(self, louisbraille, max_item):
+    self.louisbraille = louisbraille
+    self.rootitem = louisbraille.rootitem
+    self.index = 0
+    self.randoms = range(max_item)
+    random.shuffle(self.randoms)
+    self.orders = range(max_item)
+
+  def dump(self):
+    for index, item in enumerate(self.orders):
+      print index, item.get_data("index")
+
+  # Return True if all the items are properly placed
+  def is_done(self):
+     self.dump()
+     for index, item in enumerate(self.orders):
+       group_index = item.get_data("index")
+       if ( group_index != index ):
+         return False
+     return True
+
+  def add_line(self, text):
+    group_item = goocanvas.Group(parent = self.rootitem)
+    # Save in the item itself where is its correct position
+    group_item.set_data("index", self.index)
+    # Create Rounded Rectangles for each story
+    position = self.randoms[ self.index ]
+    y = (position + 0.5) * 43
+    goocanvas.Rect(parent = group_item,
+                   x = 100,
+                   y = y,
+                   width = 550,
+                   height = 40,
+                   radius_x = 17,
+                   radius_y = 17,
+                   stroke_color = "orange",
+                   fill_color = "white",
+                   line_width = 2.0)
+    self.orders[ position ] = group_item
+
+    # Displaying the STORY
+    goocanvas.Text(parent = group_item,
+                   x = 370.0,
+                   y = (position + 1) * 43,
+                   text = text,
+                   fill_color = "black",
+                   anchor = gtk.ANCHOR_CENTER,
+                   alignment = pango.ALIGN_CENTER,
+                   font = 'SANS 9',
+                   width = 500,
+                   )
+    # It is hard to manage focus when we move the item
+    # gcompris.utils.item_focus_init(self.dragText, self.dragRect)
+    group_item.connect("button_press_event", self.component_drag)
+    group_item.connect("motion_notify_event", self.component_drag)
+    group_item.connect("button_release_event", self.component_drag)
+
+    self.index += 1
+
+  # Return the index in self.orders of the given group
+  def get_group_index(self, group):
+    return self.orders.index(group)
+
+  def move_group(self, from_index, to_index):
+    from_item = self.orders[from_index]
+    to_item = self.orders[to_index]
+
+
+  def swap_with_group_near(self, group, y):
+    for index, item in enumerate(self.orders):
+      bounds = item.get_bounds()
+      if ( group != item and
+           y < bounds.y2 and y > bounds.y1 ):
+        print "got it at index " + str(index)
+        print self.get_group_index(group)
+        return
+
+
+  def component_drag(self, widget, target, event):
+      groupitem = target.get_parent()
+      groupitem.raise_(None)
+
+      if event.type == gtk.gdk.BUTTON_PRESS:
+        bounds = groupitem.get_bounds()
+        self.offset_y = event.y
+
+      elif ( event.type == gtk.gdk.MOTION_NOTIFY
+             and event.state & gtk.gdk.BUTTON1_MASK ):
+          groupitem.translate(0, event.y - self.offset_y)
+
+          (x, y) = self.louisbraille.gcomprisBoard.canvas.\
+              convert_from_item_space(groupitem, event.x, event.y)
+          self.swap_with_group_near(groupitem, y)
+
+      elif event.type == gtk.gdk.BUTTON_RELEASE:
+        pass
+        # Must find the closer stop to drop this item
+
+      return True
+
+
