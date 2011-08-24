@@ -1,6 +1,9 @@
                            NOTE TO TRANSLATORS
                            -------------------
 
+You can also get these instructions online there:
+http://gcompris.net/wiki/Translation_addons
+
 WARNING: After a .po update and install, run GCompris with --reread-menu option
          in order to see your changes. (GCompris caches strings in a database).
 
@@ -8,8 +11,6 @@ To update only you po file, run: intltool-update lang (lang is fr for French).
 
 GCompris is a little bit special in terms of translation needs. The best is
 done to bring back everything to .po files but it is not exhaustive.
-
-To complete the translation, you must also provide:
 
 Note that in the po file when you encounter string like this:
 #: ../boards/missing_letter/board1.xml.in.h:2
@@ -24,7 +25,9 @@ So here is the format description:
                letter                   confuse the kid
    apple       appl_                    / e / h / a
 
-A single word list file for your locale named:
+To complete the translation, you must also provide:
+
+- A single word list file for your locale named:
 src/readingh-activity/resources/wordsgame/default-XX.xml
 Where XX is your target locale.
 
@@ -44,7 +47,13 @@ Level   Word length
   4     = 6
   5     > 6
 
-A complete voice translation in boards/voices/yy
+- A level description for the click on letter activity in
+  src/click_on_letter/resources/click_on_letter/default-<locale>.desktop
+  This file describes the different levels of this activity and
+  depends on how letters are teached to children in your language
+  (Read the english file introduction to get the instructions).
+
+- A complete voice translation in boards/voices/yy
 The voices are in a separate git branch. If you got the source from the
 git, you can get the voices simply by running 'make update-voices'.
 It is best to choose somebody that speaks and articulate well your language.
