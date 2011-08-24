@@ -283,7 +283,6 @@ class Reordering:
   def __init__(self, louisbraille, max_item):
     self.louisbraille = louisbraille
     self.rootitem = louisbraille.rootitem
-    self.rectbox_array = []
     self.index = 0
     self.randoms = range(max_item)
     random.shuffle(self.randoms)
@@ -295,21 +294,21 @@ class Reordering:
 
   # Return True if all the items are properly placed
   def is_done(self):
-     self.dump()
      for index, item in enumerate(self.orders):
        group_index = item.get_data("index")
        if ( group_index != index ):
          return False
      return True
 
-  #To indicate correct and wrong lines
+  # To indicate correct and wrong lines
   def is_not_done(self):
       for index , item in enumerate (self.orders):
           group_index = item.get_data("index")
+          rectbox = item.get_data("rectbox")
           if ( group_index != index ):
-              self.rectbox_array[index].set_property("fill_color","#F95234")
+              rectbox.set_property("fill_color_rgba", 0xed6d6deeL)
           else :
-              self.rectbox_array[index].set_property("fill_color","#5DF934")
+              rectbox.set_property("fill_color_rgba", 0x80e072eeL)
 
   def add_line(self, text):
     position = self.randoms[ self.index ]
@@ -324,13 +323,12 @@ class Reordering:
                    y = 0,
                    width = 550,
                    height = 40,
-                   radius_x = 17,
-                   radius_y = 17,
-                   stroke_color = "orange",
-                   fill_color = "white",
+                   radius_x = 5,
+                   radius_y = 5,
+                   stroke_color = "black",
+                   fill_color_rgba = 0xEEEEEEEEL,
                    line_width = 2.0)
-
-    self.rectbox_array.append(rect_box)
+    group_item.set_data("rectbox", rect_box)
     self.orders[ position ] = group_item
 
     # Displaying the STORY
@@ -345,8 +343,6 @@ class Reordering:
                    width = 500,
                    )
 
-    # It is hard to manage focus when we move the item
-    # gcompris.utils.item_focus_init(self.dragText, self.dragRect)
     group_item.connect("button_press_event", self.component_drag)
     group_item.connect("motion_notify_event", self.component_drag)
     group_item.connect("button_release_event", self.component_drag)
@@ -375,7 +371,6 @@ class Reordering:
       bounds = item.get_bounds()
       if ( group != item and
            y < bounds.y2 and y > bounds.y1 ):
-        print "got it at index " + str(index)
         print self.get_group_index(group)
         self.move_group( index, self.get_group_index(group) )
         return
@@ -401,7 +396,6 @@ class Reordering:
           self.swap_with_group_near(groupitem, y)
 
       elif event.type == gtk.gdk.BUTTON_RELEASE:
-        self.dump()
         groupitem.set_transform(None)
         to_x = groupitem.get_data('xref')
         to_y = groupitem.get_data('yref')
