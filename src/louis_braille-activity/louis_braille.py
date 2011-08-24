@@ -165,58 +165,64 @@ class Gcompris_louis_braille:
                              20, 50, LOUIS_BRAILLE_NAME[index] ,COLOR_ON, COLOR_OFF,
                              CIRCLE_FILL, CIRCLE_FILL,True,False ,False, None)
 
-          story = self.dataset.get(str(level),_("story"))
+          story = self.dataset.get(str(level), _("story"))
 
-          #Rectangle for YEAR
-          goocanvas.Rect(parent=self.rootitem,
-                          x=330,
-                          y=382,
-                          width=180,
-                          height=25,
-                          stroke_color="orange",
-                          fill_color="white",
-                          line_width=2.0)
-
-          #Displaying the YEAR
-          goocanvas.Text(parent = self.rootitem,
-                   x=420.0,
-                   y=395.0,
+          # Displaying the YEAR
+          item = goocanvas.Text(parent = self.rootitem,
+                   x = 420.0,
+                   y = 400.0,
                    text=str(self.dataset.get(str(level) , "year")),
                    fill_color="black",
                    anchor = gtk.ANCHOR_CENTER,
                    alignment = pango.ALIGN_CENTER,
-                   font = 'SANS 17'
+                   font = gcompris.skin.get_font("gcompris/title")
                    )
+          bounds = item.get_bounds()
+
+          #Rectangle for YEAR
+          gapx = 10
+          gapy = 4
+          item = goocanvas.Rect(parent = self.rootitem,
+                         x = bounds.x1 - gapx,
+                         y = bounds.y1 - gapy,
+                         width = (bounds.x2 - bounds.x1) + gapx * 2,
+                         height = (bounds.y2 - bounds.y1) + gapy * 2,
+                         stroke_color = "orange",
+                         fill_color = "white",
+                         line_width = 2.0)
+          item.lower(None)
 
           #Rectangle for STORY
           goocanvas.Rect(parent=self.rootitem,
-                          x=50,
-                          y=415,
-                          width=720,
-                          height=80,
-                          stroke_color="orange",
-                          fill_color="white",
-                          line_width=2.0)
+                          x = 40,
+                          y = 425,
+                          width = 720,
+                          height = 85,
+                          stroke_color = "orange",
+                          fill_color = "white",
+                          line_width = 2.0)
 
           #Displaying the STORY
           goocanvas.Text(parent = self.rootitem,
                    x=400.0,
-                   y=455.0,
+                   y=465.0,
                    text=str(story),
                    fill_color="black",
                    anchor = gtk.ANCHOR_CENTER,
                    alignment = pango.ALIGN_CENTER,
-                   width = 700,
-                   font = 'SANS 17'
+                   width = 710,
+                   font = gcompris.skin.get_font("gcompris/subtitle")
                    )
 
           #Displaying the IMAGE
+          pixbuf = \
+              gcompris.utils.load_pixmap( (str(self.dataset.get(str(level),
+                                                                "image"))) )
           goocanvas.Image(parent = self.rootitem,
-                                 pixbuf = gcompris.utils.load_pixmap
-                                 (str(self.dataset.get(str(level),"image"))),
-                                 x = 300,
-                                 y = 120,
-                                 )
+                          pixbuf = pixbuf,
+                          x = 300,
+                          y = 120,
+                          )
 
   def ok_event(self, event ,target ,item):
       if ( self.reordering.is_done() ):
