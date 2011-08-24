@@ -533,7 +533,6 @@ static GooCanvasItem *click_on_letter_create_item(GooCanvasItem *parent)
       gcomprisBoard->number_of_sublevel = g_utf8_strlen (level->questions, -1);
     }
   right_letter = g_utf8_strdown(questions[gcomprisBoard->sublevel - 1], -1);
-  printf("right_letter=%s\n",right_letter);
 
 
   boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
@@ -701,32 +700,10 @@ static void highlight_selected(GooCanvasItem * item) {
  * Management of Data File (Desktop style)
  */
 
-/*
- * Load a desktop style data file and create the levels array
- */
-static void load_datafile() {
+static void load_desktop_datafile(gchar *filename)
+{
   GKeyFile *keyfile = g_key_file_new ();
   GError *error = NULL;
-  gchar *filename = gc_file_find_absolute("click_on_letter/default-$LOCALE.desktop");
-
-  clear_levels();
-
-  /* create level array */
-  levels = g_array_sized_new (FALSE, FALSE, sizeof (Level), 10);
-
-  if ( ! filename )
-    {
-      /* Fallback to english */
-      filename = gc_file_find_absolute("click_on_letter/default-en.desktop");
-
-      if(!filename)
-	{
-	  gcomprisBoard = NULL;
-	  gc_dialog(_("Error: We can't find\na list of words to play this game.\n"), gc_board_end);
-	  return;
-	}
-    }
-
   if ( ! g_key_file_load_from_file (keyfile,
 				    filename,
 				    G_KEY_FILE_NONE,
@@ -751,8 +728,77 @@ static void load_datafile() {
     }
 
   g_strfreev(groups);
-  g_free(filename);
   gcomprisBoard->maxlevel = n_level;
+}
+
+static void create_level_from_alphabet(gchar *alphabet)
+{
+  guint alphabet_len = g_utf8_strlen (alphabet, -1);
+
+  guint level_i = 0;
+  guint i = 0;
+  while ( TRUE )
+    {
+      Level level;
+      level.level = ++level_i;
+
+      guint n_questions = level_i + 3;
+
+      if ( i + n_questions > alphabet_len)
+	{
+	  n_questions = MAX_N_ANSWER;
+	  i = alphabet_len - n_questions;
+	}
+      gchar *copy_from = g_utf8_offset_to_pointer(alphabet, i);
+      gchar *copy_to = g_utf8_offset_to_pointer(alphabet, i + n_questions);
+
+      i += n_questions;
+
+      level.questions = g_strndup(copy_from, copy_to - copy_from);
+      level.answers = g_strdup(level.questions);
+      g_array_append_vals (levels, &level, 1);
+
+      if ( i >= alphabet_len)
+	break;
+    }
+
+  gcomprisBoard->maxlevel = level_i;
+
+}
+
+/*
+ * Load a desktop style data file and create the levels array
+ */
+static void load_datafile() {
+  gchar *filename = gc_file_find_absolute("click_on_letter/default-$LOCALE.desktop");
+
+  clear_levels();
+
+  /* create level array */
+  levels = g_array_sized_new (FALSE, FALSE, sizeof (Level), 10);
+
+  if ( filename )
+    {
+      load_desktop_datafile(filename);
+    }
+  else if ( ! filename && alphabet[0] == 'a')
+    {
+      /* This is a LATIN based language, let's fallback to english */
+      filename = gc_file_find_absolute("click_on_letter/default-en.desktop");
+
+      if( filename )
+	load_desktop_datafile(filename);
+      else
+	// Should not happens but in case let's create the level for LATIN
+	create_level_from_alphabet(alphabet);
+    }
+  else
+    {
+      // No data file and no latin character set
+      create_level_from_alphabet(alphabet);
+    }
+
+  g_free(filename);
 }
 
 /**
