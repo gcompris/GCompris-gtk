@@ -66,6 +66,7 @@ class Gcompris_louis_braille:
     self.counter = 0
     self.gamewon = 0
     self.item = 0
+
     self.groupitem_array = []
     self.coorditem_array = []
 
@@ -108,7 +109,7 @@ class Gcompris_louis_braille:
 
           # Insert the lines in the correct order
           for index in range(n_lines):
-              self.reordering.add_line( str(self.dataset.get(str(index + 1), "_story") ) )
+              self.reordering.add_line( str(self.dataset.get(str(index + 1), _("story"))))
 
           ok = goocanvas.Svg(parent = self.rootitem,
                          svg_handle = gcompris.skin.svg_get(),
@@ -164,7 +165,7 @@ class Gcompris_louis_braille:
                              20, 50, LOUIS_BRAILLE_NAME[index] ,COLOR_ON, COLOR_OFF,
                              CIRCLE_FILL, CIRCLE_FILL,True,False ,False, None)
 
-          story = self.dataset.get(str(level),"_story")
+          story = self.dataset.get(str(level),_("story"))
 
           #Rectangle for YEAR
           goocanvas.Rect(parent=self.rootitem,
@@ -180,7 +181,7 @@ class Gcompris_louis_braille:
           goocanvas.Text(parent = self.rootitem,
                    x=420.0,
                    y=395.0,
-                   text=str(self.dataset.get(str(level),"_year")),
+                   text=str(self.dataset.get(str(level) , "year")),
                    fill_color="black",
                    anchor = gtk.ANCHOR_CENTER,
                    alignment = pango.ALIGN_CENTER,
@@ -222,7 +223,7 @@ class Gcompris_louis_braille:
           gcompris.bonus.display(gcompris.bonus.WIN,gcompris.bonus.TUX)
           self.gamewon = 1
       else :
-          gcompris.bonus.display(gcompris.bonus.LOOSE,gcompris.bonus.TUX)
+          self.reordering.is_not_done()
 
   def previous_event(self, event, target,item, level):
       if (self.gcomprisBoard.level == 1):
@@ -276,6 +277,7 @@ class Reordering:
   def __init__(self, louisbraille, max_item):
     self.louisbraille = louisbraille
     self.rootitem = louisbraille.rootitem
+    self.rectbox_array = []
     self.index = 0
     self.randoms = range(max_item)
     random.shuffle(self.randoms)
@@ -294,6 +296,15 @@ class Reordering:
          return False
      return True
 
+  #To indicate correct and wrong lines
+  def is_not_done(self):
+      for index , item in enumerate (self.orders):
+          group_index = item.get_data("index")
+          if ( group_index != index ):
+              self.rectbox_array[index].set_property("fill_color","#F95234")
+          else :
+              self.rectbox_array[index].set_property("fill_color","#5DF934")
+
   def add_line(self, text):
     position = self.randoms[ self.index ]
     y = (position + 0.5) * 43
@@ -302,7 +313,7 @@ class Reordering:
     # Save in the item itself where is its correct position
     group_item.set_data("index", self.index)
     # Create Rounded Rectangles for each story
-    goocanvas.Rect(parent = group_item,
+    rect_box = goocanvas.Rect(parent = group_item,
                    x = 100,
                    y = 0,
                    width = 550,
@@ -312,6 +323,8 @@ class Reordering:
                    stroke_color = "orange",
                    fill_color = "white",
                    line_width = 2.0)
+
+    self.rectbox_array.append(rect_box)
     self.orders[ position ] = group_item
 
     # Displaying the STORY
@@ -325,6 +338,7 @@ class Reordering:
                    font = 'SANS 9',
                    width = 500,
                    )
+
     # It is hard to manage focus when we move the item
     # gcompris.utils.item_focus_init(self.dragText, self.dragRect)
     group_item.connect("button_press_event", self.component_drag)
@@ -359,7 +373,6 @@ class Reordering:
         print self.get_group_index(group)
         self.move_group( index, self.get_group_index(group) )
         return
-
 
   def component_drag(self, widget, target, event):
       groupitem = target.get_parent()
