@@ -1,6 +1,6 @@
 #  gcompris - braille_lotto.py
 #
-# Copyright (C) 2003, 2008 Bruno Coudoin | Srishti Sethi
+# Copyright (C) 2011 Bruno Coudoin | Srishti Sethi
 #
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
@@ -51,11 +51,6 @@ class Gcompris_braille_lotto:
     gcomprisBoard.disable_im_context = True
 
   def start(self):
-    # Set the buttons we want in the bar
-    gcompris.bar_set(gcompris.BAR_LEVEL)
-    gcompris.bar_set(0)
-    gcompris.bar_location(400, -1, 0.8)
-
     # Set a background image
     gcompris.set_default_background(self.gcomprisBoard.canvas.get_root_item())
 
@@ -77,6 +72,8 @@ class Gcompris_braille_lotto:
     self.rectangle_counter = 0
 
     #REPEAT ICON
+    pixmap = gcompris.utils.load_svg("braille_alphabets/target.svg")
+    gcompris.bar_set_repeat_icon(pixmap)
     gcompris.bar_set(gcompris.BAR_REPEAT_ICON)
     gcompris.bar_location(320,-1,0.8)
 
@@ -145,9 +142,9 @@ class Gcompris_braille_lotto:
       parent = self.root,
       text= _("Check Number"),
       font = gcompris.skin.get_font("gcompris/board/medium"),
-      x=110,
-      y=380,
-      anchor=gtk.ANCHOR_CENTER,
+      x = 110,
+      y = 380,
+      anchor = gtk.ANCHOR_CENTER,
       )
 
 
@@ -229,12 +226,13 @@ class Gcompris_braille_lotto:
 
     generate_text = goocanvas.Text(
                     parent = self.root,
-                    text = _("Generate Number"),
+                    text = _("Generate a number"),
                     font = gcompris.skin.get_font("gcompris/board/medium"),
-                    x = 675,
+                    x = 695,
                     y = 390,
                     width = 50,
-                    anchor=gtk.ANCHOR_CENTER,
+                    anchor = gtk.ANCHOR_CENTER,
+                    alignment = pango.ALIGN_CENTER,
                     )
     generate_text.connect("button_press_event", self.generateNumber)
     gcompris.utils.item_focus_init(generate_text, generate_number)
@@ -285,7 +283,8 @@ class Gcompris_braille_lotto:
       if (self.check_random[self.counter] in self.ticket_array[0:6]):
           self.findColumn()
           #Translators : Do not translate the token {column}
-          self.status_one.props.text = _("Hey,you have it. Its there in your {column} column").format(column = self.column)
+          self.status_one.props.text = \
+              _("Hey, you have it. Its there in your {column} column").format(column = self.column)
       else :
           self.status_one.props.text = _("Oops,number isn't there in your ticket!")
       self.timerAnim = gobject.timeout_add(200, self.hideCalloutLeft)
@@ -308,9 +307,10 @@ class Gcompris_braille_lotto:
       if (self.check_random[self.counter] in self.ticket_array[6:12]):
           self.findColumn()
           #Translators : Do not translate the token {column}
-          self.status_two.props.text = _("Hey,you have it. Its there in your {column} column").format(column = self.column)
+          self.status_two.props.text = \
+              _("Hey, you have it. Its there in your {column} column").format(column = self.column)
       else :
-          self.status_two.props.text = _("Oops,number isn't there in your ticket!")
+          self.status_two.props.text = _("Oops, number isn't there in your ticket!")
       self.timerAnim = gobject.timeout_add(100, self.hideCalloutRight)
 
 
@@ -322,7 +322,7 @@ class Gcompris_braille_lotto:
           self.delay_one = 100
       if self.delay_one < 100 :
           self.timer_inc  = gobject.timeout_add(self.delay_one,
-                                            self.hideCalloutLeft)
+                                                self.hideCalloutLeft)
 
   def hideCalloutRight(self):
       self.delay_two -= 1
@@ -337,9 +337,11 @@ class Gcompris_braille_lotto:
   def findColumn(self):
       if self.check_random[self.counter] <= 25:
           self.column = "1st"
-      elif self.check_random[self.counter] <= 50 and self.check_random[self.counter] > 25 :
+      elif self.check_random[self.counter] <= 50 \
+            and self.check_random[self.counter] > 25 :
           self.column = "2nd"
-      elif self.check_random[self.counter] <= 75 and self.check_random[self.counter] > 50 :
+      elif self.check_random[self.counter] <= 75 \
+            and self.check_random[self.counter] > 50 :
           self.column = "3rd"
       else :
           self.column = "4th"
@@ -357,14 +359,14 @@ class Gcompris_braille_lotto:
           self.timer_inc  = gobject.timeout_add(self.status_timer,
                                             self.game_over)
       elif (self.counter < 11):
-          self.check_number = goocanvas.Text(
-                            parent = self.root,
-                            text= self.check_random[self.counter],
-                            x=110,
-                            y=420,
-                            font = "SANS 20",
-                            anchor=gtk.ANCHOR_CENTER,
-                            )
+        self.check_number = \
+            goocanvas.Text(parent = self.root,
+                           text= self.check_random[self.counter],
+                           x=110,
+                           y=420,
+                           font = gcompris.skin.get_font("gcompris/board/title bold"),
+                           anchor=gtk.ANCHOR_CENTER,
+                           )
 
   def game_over(self):
       self.status_timer -= 1
@@ -516,11 +518,10 @@ class Gcompris_braille_lotto:
           self.pause(1)
 
   def config(self):
-    print("braille_lotto config.")
+    pass
 
   def key_press(self, keyval, commit_str, preedit_str):
-    utf8char = gtk.gdk.keyval_to_unicode(keyval)
-    strn = u'%c' % utf8char
+    pass
 
   def pause(self, pause):
       self.board_paused = pause
@@ -529,4 +530,4 @@ class Gcompris_braille_lotto:
           self.start()
 
   def set_level(self, level):
-    print("braille_lotto set level. %i" % level)
+    pass

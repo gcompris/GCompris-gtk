@@ -81,6 +81,8 @@ class Gcompris_braille_fun:
     gcompris.bar_set_level(self.gcomprisBoard)
 
     #REPEAT ICON
+    pixmap = gcompris.utils.load_svg("braille_alphabets/target.svg")
+    gcompris.bar_set_repeat_icon(pixmap)
     gcompris.bar_set(gcompris.BAR_LEVEL|gcompris.BAR_REPEAT_ICON)
     gcompris.bar_location(300,-1,0.7)
 
