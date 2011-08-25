@@ -49,13 +49,22 @@ class BrailleMap:
           BrailleChar(rootitem, index*(CELL_WIDTH+40)+60,
                               220, 38, letter ,color_on, color_off, circle_fill,
                               circle_stroke,True ,False ,True , None)
-      BrailleChar(rootitem,60, 310, 38, "#",color_on, color_off, circle_fill,
-                              circle_stroke,True ,False ,True , None)
-      for index in range(10):
-          BrailleChar(rootitem,(index+1) *(CELL_WIDTH + 33)+60,
-                             310, 38, index ,color_on, color_off, circle_fill,
-                              circle_stroke,True ,False ,True , None)
+
+      # The number line (Keep it aligned with the ASCII in the Braille sense)
+      for index in range(0, 9):
+          BrailleChar(rootitem, index *(CELL_WIDTH + 40)+60,
+                      310, 38, index + 1,color_on, color_off, circle_fill,
+                      circle_stroke, True ,False ,True , None)
+      BrailleChar(rootitem, 9 *(CELL_WIDTH + 40)+60,
+                  310, 38, 0 ,color_on, color_off, circle_fill,
+                  circle_stroke, True ,False ,True , None)
+
+      # The math operators +-*/
       for index in range(4):
           BrailleChar(rootitem,index * (CELL_WIDTH + 40) + 60,
-                              400 , 38,SYMBOL[index],color_on, color_off, circle_fill,
+                              400 , 38,SYMBOL[index], color_on, color_off, circle_fill,
                               circle_stroke,True ,False ,True , None)
+
+      BrailleChar(rootitem, 5 *(CELL_WIDTH + 40) + 60, 400, 38,
+                  "#", color_on, color_off, circle_fill,
+                  circle_stroke, True ,False ,True , None)
