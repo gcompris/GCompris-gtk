@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: gcompris.gcomprixogoo\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2011-08-15 23:10+0000\n"
-"PO-Revision-Date: 2011-08-20 11:14+0200\n"
+"POT-Creation-Date: 2011-08-23 22:35+0000\n"
+"PO-Revision-Date: 2011-08-26 11:29+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -162,24 +162,6 @@ msgid "Go to mathematics memory activities against Tux"
 msgstr "Ir a las actividades de memoria matemática contra Tux"
 
 #: ../boards/menu.xml.in.h:1
-#| msgid ""
-#| "A simple click on an icon brings you to an activity or a menu of "
-#| "activities.\n"
-#| "At the bottom of the screen is the GCompris control bar.\n"
-#| "The following icons are displayed from right to left.\n"
-#| "(note that each icon is displayed only if available in the current "
-#| "activity)\n"
-#| "    Home - Exit an activity, go back to menu\n"
-#| "    Thumb - OK. Confirm your answer\n"
-#| "    Dice - Display the current level. Click to select another level\n"
-#| "    Lips - Repeat the question\n"
-#| "    Question Mark - Help\n"
-#| "    Tool - The configuration menu\n"
-#| "    Tux Plane - About GCompris\n"
-#| "    Night - Quit GCompris\n"
-#| "The stars show suitable age groups for each game:\n"
-#| "    1, 2 or 3 simple stars  - from 2 to 6 years old\n"
-#| "    1, 2 or 3 complex stars - 7 years and up"
 msgid ""
 "A simple click on an icon brings you to an activity or a menu of "
 "activities.\n"
@@ -435,11 +417,9 @@ msgstr ""
 "<b>{config}</b> configuración\n"
 " para el perfil <b>{profile}</b>"
 
-#. self.main_vbox.pack_start (label, False, False, 8)
 #: ../src/administration-activity/admin/board_list.py:660
-#: ../src/colors-activity/colors.c:180
-#: ../src/pythontest-activity/pythontest.py:518
-#: ../src/smallnumbers-activity/smallnumbers.c:616
+#: ../src/pythontest-activity/pythontest.py:513
+#: ../src/smallnumbers-activity/smallnumbers.c:618
 msgid "Select sound locale"
 msgstr "Selecciona el idioma del sonido"
 
@@ -602,6 +582,7 @@ msgid "Board"
 msgstr "Tablero"
 
 #: ../src/administration-activity/admin/log_list.py:246
+#: ../src/click_on_letter-activity/click_on_letter.c:1228
 #: ../src/redraw-activity/redraw.py:339
 msgid "Level"
 msgstr "Nivel"
@@ -777,13 +758,13 @@ msgstr ""
 "usado para leerlas, por ejemplo, y después el idioma usado para decir los "
 "nombres de los colores. \n"
 "- Puedes guardar configuraciones múltiples, y cambiar fácilmente entre "
-"ellas. En la sección «Perfil» añade un perfil, después en la sección "
-"«Tablero» selecciona el perfil en la lista desplegable, y después elige los "
-"tableros que quieres que estén activos. Puedes añadir un montón de perfiles, "
-"con diferentes listas de tableros, y diferentes idiomas. Puedes establecer "
-"el perfil por omisión en la sección «Perfil», eligiendo el perfil que "
-"quieras, y después pulsando el botón «Predeterminado». También puedes elegir "
-"un perfil desde la línea de comandos.\n"
+"ellas. En la sección «Perfil» añade un perfil, después en la sección «Tablero» "
+"selecciona el perfil en la lista desplegable, y después elige los tableros "
+"que quieres que estén activos. Puedes añadir un montón de perfiles, con "
+"diferentes listas de tableros, y diferentes idiomas. Puedes establecer el "
+"perfil por omisión en la sección «Perfil», eligiendo el perfil que quieras, y "
+"después pulsando el botón «Predeterminado». También puedes elegir un perfil "
+"desde la línea de comandos.\n"
 "- Puedes añadir usuarios, clases y para cada clase, puedes crear grupos de "
 "usuarios. Ten en cuenta que puedes importar usuarios de un archivo separado "
 "por comas. Asigna uno o más grupos a un perfil, y los nuevos identificadores "
@@ -1562,8 +1543,7 @@ msgstr ""
 "culturales."
 
 #: ../src/babymatch-activity/shapegame.c:1906
-#: ../src/click_on_letter-activity/click_on_letter.c:672
-#: ../src/colors-activity/colors.c:168
+#: ../src/click_on_letter-activity/click_on_letter.c:1269
 #, c-format
 msgid ""
 "<b>%1$s</b> configuration\n"
@@ -2102,7 +2082,15 @@ msgstr "1955 Citroën ds 19"
 msgid "Cars"
 msgstr "Automóviles"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:311
+#: ../src/click_on_letter-activity/click_on_letter.c:370
+msgid ""
+"This activity will be played with questions displayed as text instead of "
+"being spoken"
+msgstr ""
+"Esta actividad se jugará con preguntas mostradas como texto en lugar de "
+"hablarse"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:375
 #: ../src/memory-activity/memory.c:906
 msgid ""
 "Error: this activity cannot be played with the\n"
@@ -2118,12 +2106,12 @@ msgstr ""
 #. TRANSLATORS: Put here the alphabet in your language
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
-#: ../src/click_on_letter-activity/click_on_letter.c:316
+#: ../src/click_on_letter-activity/click_on_letter.c:383
 #: ../src/gletters-activity/gletters.c:229 ../src/memory-activity/memory.c:935
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcdefghijklmnñopqrstuvwxyz"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:344
+#: ../src/click_on_letter-activity/click_on_letter.c:410
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -2132,7 +2120,7 @@ msgstr ""
 "Error: esta actividad requiere que instale primero\n"
 "los paquetes con las voces de GCompris para el idioma «%s» o «%s»"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:354
+#: ../src/click_on_letter-activity/click_on_letter.c:422
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -2143,14 +2131,78 @@ msgstr ""
 "los paquetes con las voces de GCompris para el idioma «%s» Volviendo a "
 "inglés, lo siento."
 
+#: ../src/click_on_letter-activity/click_on_letter.c:725
+#: ../src/readingh-activity/reading.c:229
+#: ../src/wordsgame-activity/wordsgame.c:219
+msgid ""
+"Error: We can't find\n"
+"a list of words to play this game.\n"
+msgstr ""
+"Error: No se puede encontrar\n"
+"una lista de palabras para jugar a este juego.\n"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:879
+#| msgid "Question cannot be empty."
+msgid "Questions cannot be empty."
+msgstr "Las preguntas no pueden estar vacías."
+
+#: ../src/click_on_letter-activity/click_on_letter.c:885
+#| msgid "Question cannot be empty."
+msgid "Answers cannot be empty."
+msgstr "Las respuestas no pueden estar vacías."
+
+#: ../src/click_on_letter-activity/click_on_letter.c:891
+#, c-format
+msgid "Too many characters in the Answer (maximum is %d)."
+msgstr "Demasiados caracteres en la respuesta (el máximo es %d)"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:919
+msgid "All the characters in Questions must also be in the Answers."
+msgstr ""
+"Todos los caracteres de las preguntas deben estar también en las respuestas."
+
+#: ../src/click_on_letter-activity/click_on_letter.c:936
+#, c-format
+#| msgid ""
+#| "Invalid entry:\n"
+#| "Question '%s' / Answer '%s'\n"
+#| "%s"
+msgid ""
+"Invalid entry:\n"
+"At level %d, Questions '%s' / Answers '%s'\n"
+"%s"
+msgstr ""
+"Entrada no válida:\n"
+"En el nivel %d, Preguntas «%s» /Respuestas «%s»\n"
+"%s"
+
+#. answer
+#: ../src/click_on_letter-activity/click_on_letter.c:1239
+#: ../src/missing_letter-activity/missingletter_config.c:420
+#: ../src/missing_letter-activity/missingletter_config.c:548
+msgid "Answer"
+msgstr "Respuesta"
+
+#. question
+#: ../src/click_on_letter-activity/click_on_letter.c:1250
+#: ../src/missing_letter-activity/missingletter_config.c:426
+#: ../src/missing_letter-activity/missingletter_config.c:571
+msgid "Question"
+msgstr "Pregunta"
+
 #. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:695
-#: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:484
+#: ../src/click_on_letter-activity/click_on_letter.c:1292
+#: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:486
 #: ../src/missing_letter-activity/missingletter_config.c:492
-#: ../src/readingh-activity/reading.c:928
-#: ../src/wordsgame-activity/wordsgame.c:887
+#: ../src/readingh-activity/reading.c:929
+#: ../src/wordsgame-activity/wordsgame.c:889
 msgid "Uppercase only text"
 msgstr "Texto sólo en mayúsculas"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:1369
+#: ../src/gcompris/board_config_wordlist.c:246
+msgid "Back to default"
+msgstr "Restablecer predeterminados"
 
 #: ../src/click_on_letter-activity/click_on_letter.xml.in.h:1
 msgid ""
@@ -2254,46 +2306,6 @@ msgstr ""
 #: ../src/clockgame-activity/clockgame.xml.in.h:5
 msgid "The concept of time. Reading the time."
 msgstr "El concepto de hora. Lectura de la hora."
-
-#: ../src/colors-activity/colors.c:60
-msgid "Click on the blue duck"
-msgstr "Pulsa en el pato azul"
-
-#: ../src/colors-activity/colors.c:61
-msgid "Click on the brown duck"
-msgstr "Pulsa en el pato marrón"
-
-#: ../src/colors-activity/colors.c:62
-msgid "Click on the green duck"
-msgstr "Pulsa en el pato verde"
-
-#: ../src/colors-activity/colors.c:63
-msgid "Click on the grey duck"
-msgstr "Pulsa en el pato gris"
-
-#: ../src/colors-activity/colors.c:64
-msgid "Click on the orange duck"
-msgstr "Pulsa en el pato naranja"
-
-#: ../src/colors-activity/colors.c:65
-msgid "Click on the purple duck"
-msgstr "Pulsa en el pato púrpura"
-
-#: ../src/colors-activity/colors.c:66
-msgid "Click on the red duck"
-msgstr "Pulsa en el pato rojo"
-
-#: ../src/colors-activity/colors.c:67
-msgid "Click on the yellow duck"
-msgstr "Pulsa en el pato amarillo"
-
-#: ../src/colors-activity/colors.c:68
-msgid "Click on the black duck"
-msgstr "Pulsa en el pato negro"
-
-#: ../src/colors-activity/colors.c:69
-msgid "Click on the white duck"
-msgstr "Pulsa en el pato blanco"
 
 #: ../src/colors-activity/colors.xml.in.h:1
 msgid "Can move the mouse."
@@ -2971,10 +2983,6 @@ msgstr "Elección de idioma"
 msgid "Choice of the level"
 msgstr "Elección de nivel"
 
-#: ../src/gcompris/board_config_wordlist.c:246
-msgid "Back to default"
-msgstr "Restablecer predeterminados"
-
 #: ../src/gcompris/config.c:58
 msgid "Your system default"
 msgstr "Lo predeterminado en su sistema"
@@ -3284,7 +3292,7 @@ msgstr "Música"
 msgid "Effect"
 msgstr "Efecto"
 
-#: ../src/gcompris/config.c:345 ../src/gcompris/sugar.c:82
+#: ../src/gcompris/config.c:345 ../src/gcompris/sugar.c:83
 msgid "Zoom"
 msgstr "Ampliación"
 
@@ -3679,36 +3687,36 @@ msgstr ""
 "Puedes incluir estas imágenes en tus dibujos y animaciones.\n"
 "Los formatos de imagen soportados son jpeg, png y svg.\n"
 
-#: ../src/gcompris/sugar.c:70
+#: ../src/gcompris/sugar.c:71
 msgid "Help"
 msgstr "Ayuda"
 
-#: ../src/gcompris/sugar.c:71
+#: ../src/gcompris/sugar.c:72
 msgid "About"
 msgstr "Acerca de"
 
-#: ../src/gcompris/sugar.c:72
+#: ../src/gcompris/sugar.c:73
 msgid "Previous level"
 msgstr "Nivel anterior"
 
-#: ../src/gcompris/sugar.c:75
+#: ../src/gcompris/sugar.c:76
 msgid "Next level"
 msgstr "Siguiente nivel"
 
-#: ../src/gcompris/sugar.c:77
+#: ../src/gcompris/sugar.c:78
 msgid "Refresh"
 msgstr "Actualizar"
 
-#: ../src/gcompris/sugar.c:78
+#: ../src/gcompris/sugar.c:79
 msgid "Settings"
 msgstr "Configuración"
 
 #. TRANSLATORS: Back as in previous
-#: ../src/gcompris/sugar.c:86
+#: ../src/gcompris/sugar.c:87
 msgid "Back"
 msgstr "Atrás"
 
-#: ../src/gcompris/sugar.c:87
+#: ../src/gcompris/sugar.c:88
 msgid "Stop"
 msgstr "Parar"
 
@@ -4352,14 +4360,14 @@ msgstr "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
 #: ../src/gletters-activity/gletters.c:850
-#: ../src/imageid-activity/imageid.c:712 ../src/login-activity/login.py:479
+#: ../src/imageid-activity/imageid.c:712 ../src/login-activity/login.py:480
 #: ../src/missing_letter-activity/missingletter.c:784
-#: ../src/pythontest-activity/pythontest.py:454
-#: ../src/readingh-activity/reading.c:904
-#: ../src/scalesboard-activity/scale.c:1160
-#: ../src/smallnumbers-activity/smallnumbers.c:595
+#: ../src/pythontest-activity/pythontest.py:450
+#: ../src/readingh-activity/reading.c:905
+#: ../src/scalesboard-activity/scale.c:1161
+#: ../src/smallnumbers-activity/smallnumbers.c:597
 #: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:864
+#: ../src/wordsgame-activity/wordsgame.c:866
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -4369,7 +4377,7 @@ msgstr ""
 " para el perfil <b>%s</b>"
 
 #: ../src/gletters-activity/gletters.c:879
-#: ../src/smallnumbers-activity/smallnumbers.c:614
+#: ../src/smallnumbers-activity/smallnumbers.c:616
 msgid "Enable sounds"
 msgstr "Activar sonidos"
 
@@ -5382,16 +5390,16 @@ msgstr ""
 "saber más acerca del juego Luces fuera: &lt;http://www.haar.clara.co.uk/"
 "Lights/solving.html&gt;"
 
-#: ../src/login-activity/login.py:101
+#: ../src/login-activity/login.py:102
 msgid "Profile: "
 msgstr "Perfil: "
 
-#: ../src/login-activity/login.py:234
+#: ../src/login-activity/login.py:235
 msgid "Login: "
 msgstr "Usuario: "
 
 #. toggle box
-#: ../src/login-activity/login.py:494
+#: ../src/login-activity/login.py:496
 msgid "Enter login to log in"
 msgstr "Introduce tu nombre de usuario para identificarte"
 
@@ -6187,18 +6195,6 @@ msgstr ""
 msgid "Picture"
 msgstr "Imagen"
 
-#. answer
-#: ../src/missing_letter-activity/missingletter_config.c:420
-#: ../src/missing_letter-activity/missingletter_config.c:548
-msgid "Answer"
-msgstr "Respuesta"
-
-#. question
-#: ../src/missing_letter-activity/missingletter_config.c:426
-#: ../src/missing_letter-activity/missingletter_config.c:571
-msgid "Question"
-msgstr "Pregunta"
-
 #. choice
 #: ../src/missing_letter-activity/missingletter_config.c:432
 #: ../src/missing_letter-activity/missingletter_config.c:583
@@ -6546,8 +6542,8 @@ msgstr "Katsushika Hokusai, La gran ola de Kanagawa (1823-29)"
 msgid ""
 "Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
 msgstr ""
-"Utagawa Hiroshige, El santuario de Benzaiten en Inokashira con nieve "
-"(1760-70)"
+"Utagawa Hiroshige, El santuario de Benzaiten en Inokashira con nieve (1760-"
+"70)"
 
 #: ../src/paintings-activity/resources/paintings/board1_9.xml.in.h:1
 msgid "Utagawa Hiroshige, Horse-mackerel and Prawn - 1840"
@@ -6759,32 +6755,28 @@ msgid "This activity is not playable, just a test"
 msgstr "Esta actividad aún no se puede jugar, es tan sólo un test"
 
 #. toggle box
-#: ../src/pythontest-activity/pythontest.py:459
+#: ../src/pythontest-activity/pythontest.py:456
 msgid "Disable line drawing in circle"
 msgstr "Desactivar dibujo de línea en círculo"
 
 #. combo box
-#: ../src/pythontest-activity/pythontest.py:468
+#: ../src/pythontest-activity/pythontest.py:465
 msgid "Color of the line"
 msgstr "Color de la línea"
 
 #. spin button for int
-#: ../src/pythontest-activity/pythontest.py:479
+#: ../src/pythontest-activity/pythontest.py:476
 msgid "Distance between circles"
 msgstr "Distancia entre círculos"
 
 #. radio buttons for circle or rectangle
-#: ../src/pythontest-activity/pythontest.py:490
+#: ../src/pythontest-activity/pythontest.py:487
 msgid "Use circles"
 msgstr "Usar círculos"
 
-#: ../src/pythontest-activity/pythontest.py:491
+#: ../src/pythontest-activity/pythontest.py:488
 msgid "Use rectangles"
 msgstr "Usar rectángulos"
-
-#: ../src/pythontest-activity/pythontest.py:494
-msgid "Choice of pattern"
-msgstr "Elección de patrón"
 
 #: ../src/pythontest-activity/pythontest.xml.in.h:3
 msgid "Python Test"
@@ -6826,15 +6818,6 @@ msgstr "Entrenamiento de la memoria"
 #: ../src/railroad-activity/railroad.xml.in.h:5
 msgid "Railway"
 msgstr "Vía de tren"
-
-#: ../src/readingh-activity/reading.c:229
-#: ../src/wordsgame-activity/wordsgame.c:219
-msgid ""
-"Error: We can't find\n"
-"a list of words to play this game.\n"
-msgstr ""
-"Error: No se puede encontrar\n"
-"una lista de palabras para jugar a este juego.\n"
 
 #: ../src/readingh-activity/reading.c:389
 msgid "Please, check if the word"
@@ -7136,11 +7119,11 @@ msgstr ""
 "En el campo de texto, introduce una orden por línea para controlar tu "
 "bote. \n"
 "Las órdenes válidas se muestran entre las dos áreas de entrada. Las órdenes "
-"«izquierda» y «derecha» deben llevar como sufijo el ángulo en grados. Al "
-"valor del ángulo también se le llama «parámetro» de la orden izquierda o "
-"derecha. De forma predeterminada, se usan 45 grados. La orden «hacia "
-"adelante» acepta un parámetro con la distancia. De forma predeterminada se "
-"usa un valor de 1.\n"
+"«izquierda» y «derecha» deben llevar como sufijo el ángulo en grados. Al valor "
+"del ángulo también se le llama «parámetro» de la orden izquierda o derecha. "
+"De forma predeterminada, se usan 45 grados. La orden «hacia adelante» acepta "
+"un parámetro con la distancia. De forma predeterminada se usa un valor de "
+"1.\n"
 "Por ejemplo:\n"
 "- izquierda 90 => Hacer un giro perpendicular a la izquierda\n"
 "- hacia delante 10 => Ir hacia delante 10 unidades (como se muestran en la "
@@ -7192,11 +7175,11 @@ msgid ""
 msgstr ""
 "En el campo de texto, introduce una orden por línea para controlar tu bote."
 "Las órdenes válidas se muestran entre las dos áreas de entrada. Las órdenes "
-"«izquierda» y «derecha» deben llevar como sufijo el ángulo en grados. Al "
-"valor del ángulo también se le llama «parámetro» de la orden izquierda o "
-"derecha. De forma predeterminada, se usan 45 grados. La orden «hacia "
-"adelante» acepta un parámetro con la distancia. De forma predeterminada se "
-"usa un valor de 1.\n"
+"«izquierda» y «derecha» deben llevar como sufijo el ángulo en grados. Al valor "
+"del ángulo también se le llama «parámetro» de la orden izquierda o derecha. "
+"De forma predeterminada, se usan 45 grados. La orden «hacia adelante» acepta "
+"un parámetro con la distancia. De forma predeterminada se usa un valor de "
+"1.\n"
 "Por ejemplo:\n"
 "- izquierda 90 => Hacer un giro perpendicular a la izquierda\n"
 "- hacia delante 10 => Ir hacia delante 10 unidades (como se muestran en la "
@@ -7799,6 +7782,39 @@ msgstr "la tuba"
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:28
 msgid "the violin"
 msgstr "el violín"
+
+#~ msgid "Click on the blue duck"
+#~ msgstr "Pulsa en el pato azul"
+
+#~ msgid "Click on the brown duck"
+#~ msgstr "Pulsa en el pato marrón"
+
+#~ msgid "Click on the green duck"
+#~ msgstr "Pulsa en el pato verde"
+
+#~ msgid "Click on the grey duck"
+#~ msgstr "Pulsa en el pato gris"
+
+#~ msgid "Click on the orange duck"
+#~ msgstr "Pulsa en el pato naranja"
+
+#~ msgid "Click on the purple duck"
+#~ msgstr "Pulsa en el pato púrpura"
+
+#~ msgid "Click on the red duck"
+#~ msgstr "Pulsa en el pato rojo"
+
+#~ msgid "Click on the yellow duck"
+#~ msgstr "Pulsa en el pato amarillo"
+
+#~ msgid "Click on the black duck"
+#~ msgstr "Pulsa en el pato negro"
+
+#~ msgid "Click on the white duck"
+#~ msgstr "Pulsa en el pato blanco"
+
+#~ msgid "Choice of pattern"
+#~ msgstr "Elección de patrón"
 
 #~ msgid "violet"
 #~ msgstr "violeta"
