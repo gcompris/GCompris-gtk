@@ -519,15 +519,18 @@ static GooCanvasItem *click_on_letter_create_item(GooCanvasItem *parent)
 
       if ( uppercase_only )
 	{
-	  gchar *answers = g_utf8_strup( level->answers, -1 );
-	  gchar *questions = g_utf8_strup( level->questions, -1 );
-	  g_free( level->answers );
-	  g_free( level->questions );
-	  level->answers = answers;
-	  level->questions = questions;
+	  gchar *answers_up = g_utf8_strup( level->answers, -1 );
+	  gchar *questions_up = g_utf8_strup( level->questions, -1 );
+	  answers = shuffle_utf8(answers_up);
+	  questions = shuffle_utf8(questions_up);
+	  g_free(answers_up);
+	  g_free(questions_up);
 	}
-      answers = shuffle_utf8(level->answers);
-      questions = shuffle_utf8(level->questions);
+      else
+	{
+	  answers = shuffle_utf8(level->answers);
+	  questions = shuffle_utf8(level->questions);
+	}
 
       /* Go to next level after this number of 'play' */
       gcomprisBoard->number_of_sublevel = g_utf8_strlen (level->questions, -1);
