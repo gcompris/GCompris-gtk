@@ -127,12 +127,10 @@ class Gcompris_braille_alphabets:
       self.start()
 
   def config(self):
-    print("learnbraille config.")
+    pass
 
   def key_press(self, keyval, commit_str, preedit_str):
-    utf8char = gtk.gdk.keyval_to_unicode(keyval)
-    strn = u'%c' % utf8char
-    print("Gcompris_learnbraille key press keyval=%i %s" % (keyval, strn))
+    pass
 
   def pause(self,pause):
     if(pause == 0):
@@ -294,7 +292,7 @@ class Gcompris_braille_alphabets:
       gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                             "braille_alphabets/mosaic.svgz")
 
-      #Translators : Do not translate the token {letter}
+      # Translators : Do not translate the token {letter}
       goocanvas.Text(parent = self.rootitem,
                      x = 100,
                      y = 200,
@@ -307,8 +305,10 @@ class Gcompris_braille_alphabets:
                      text=_("Braille Cell"),
                      fill_color="black",
                      font='Sans BOLD')
-      BrailleChar(self.rootitem, 150, 270, 120, '',COLOR_ON ,COLOR_OFF,CIRCLE_FILL,CIRCLE_STROKE,
-                   False,True,False,callback = self.letter_change , braille_letter = self.letter)
+      BrailleChar(self.rootitem, 150, 270, 120, '',
+                  COLOR_ON ,COLOR_OFF, CIRCLE_FILL, CIRCLE_STROKE,
+                  False, True, False, callback = self.letter_change,
+                  braille_letter = self.letter)
       for i in range(2):
           for j in range(3):
                   goocanvas.Text(parent=self.rootitem,

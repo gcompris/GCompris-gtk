@@ -1,6 +1,6 @@
 #  gcompris - BrailleMap.py
 #
-# Copyright (C) 2011 xxxx
+# Copyright (C) 2011 Bruno Coudoin | Srishti Sethi
 #
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
@@ -29,14 +29,14 @@ import pango
 from BrailleChar import *
 from gcompris import gcompris_gettext as _
 
-SYMBOL = ['+','_','*','/']
+SYMBOL = ['+', '_', '*', '/', '#']
 CELL_WIDTH = 30
 
 class BrailleMap:
   """Braille Map"""
   def __init__(self, rootitem, color_on, color_off, circle_fill, circle_stroke):
 
-      #Place alphabets & numbers in array format
+      # Place alphabets & numbers in array format
       for index, letter in enumerate(string.ascii_uppercase[:10]):
           BrailleChar(rootitem, index*(CELL_WIDTH+40)+60,
                               40, 38, letter ,color_on, color_off, circle_fill,
@@ -60,11 +60,8 @@ class BrailleMap:
                   circle_stroke, True ,False ,True , None)
 
       # The math operators +-*/
-      for index in range(4):
-          BrailleChar(rootitem,index * (CELL_WIDTH + 40) + 60,
-                              400 , 38,SYMBOL[index], color_on, color_off, circle_fill,
-                              circle_stroke,True ,False ,True , None)
+      for index, value in enumerate( SYMBOL ):
+        BrailleChar(rootitem,index * (CELL_WIDTH + 40) + 60,
+                    400 , 38,SYMBOL[index], color_on, color_off, circle_fill,
+                    circle_stroke,True ,False ,True , None)
 
-      BrailleChar(rootitem, 5 *(CELL_WIDTH + 40) + 60, 400, 38,
-                  "#", color_on, color_off, circle_fill,
-                  circle_stroke, True ,False ,True , None)
