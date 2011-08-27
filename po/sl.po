@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2011-08-14 10:11+0000\n"
-"PO-Revision-Date: 2011-08-14 16:31+0100\n"
+"POT-Creation-Date: 2011-08-27 06:51+0000\n"
+"PO-Revision-Date: 2011-08-27 09:07+0100\n"
 "Last-Translator: Andrej Žnidaršič <andrej.znidarsic@gmail.com>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
@@ -28,7 +28,7 @@ msgid "Go to Algebra activities"
 msgstr "Pojdi k matematičnim nalogam"
 
 #: ../boards/algebra_group.xml.in.h:2
-#: ../boards/menu.xml.in.h:18
+#: ../boards/menu.xml.in.h:22
 #: ../boards/money_group.xml.in.h:2
 msgid "Left-click the mouse on an activity to select it."
 msgstr "Z levim klikom miške izberi igro, ki jo želiš igrati."
@@ -166,25 +166,29 @@ msgid ""
 "At the bottom of the screen is the GCompris control bar.\n"
 "The following icons are displayed from right to left.\n"
 "(note that each icon is displayed only if available in the current activity)\n"
-"    Home - Exit an activity, go back to menu\n"
+"    Home - Exit an activity, go back to menu (ctrl-w and escape key)\n"
 "    Thumb - OK. Confirm your answer\n"
-"    Dice - Display the current level. Click to select another level\n"
+"    Arrows - Display the current level. Click to select another level\n"
 "    Lips - Repeat the question\n"
 "    Question Mark - Help\n"
 "    Tool - The configuration menu\n"
 "    Tux Plane - About GCompris\n"
-"    Night - Quit GCompris\n"
+"    Quit - Quit GCompris (ctrl-x)\n"
 "The stars show suitable age groups for each game:\n"
 "    1, 2 or 3 simple stars  - from 2 to 6 years old\n"
-"    1, 2 or 3 complex stars - 7 years and up"
+"    1, 2 or 3 complex stars - 7 years and up\n"
+"Shortcuts:\n"
+"    ctrl-b Show or Hide the control bar\n"
+"    ctrl-f Toggle full screen\n"
+"    ctrl-m Toggle mute for the background music"
 msgstr ""
-"Za uporabo klikni na ikono in izberi dejavnost oziroma meni.\n"
+"Za uporabo klikni na ikono in izberi dejavnost iz menija dejavnosti.\n"
 "Na dnu je nadzorna vrstica GCompris.\n"
 "Od leve proti desni so razvrščene sledeče ikone.\n"
 "(ikone so prikazane le, če so na voljo v trenutni dejavnosti)\n"
 "    Domov - Konča dejavnost, gre nazaj v meni\n"
 "    Palec - V redu. Potrdi tvoj odgovor\n"
-"    Kocka - Prikaže trenutno raven. Klikni za drugo raven\n"
+"    Puščice - Prikaže trenutno raven. Klikni za drugo raven\n"
 "    Ustnice - Ponovni vprašanje\n"
 "    Vprašaj - Pomoč\n"
 "    Orodje - Nastavitveni meni\n"
@@ -194,16 +198,16 @@ msgstr ""
 "    1, 2 ali 3 enostavne zvezdice - od 2 do 6 let\n"
 "    1, 2 ali 3 zapletene zvezdice - 7 let in več    Nazaj, Izhod. Prikazana je tudi ikona za dostop na višjo raven. Ikona Zvočna opomba je namenjena  ponavljanju vprašanja. Program ima tudi ikono Pomoč in Zvezdni meni kjer pomeni: 1 zvezdica 3 do 4 leta starosti, 2 zvezdici 5 do 6 let in 3 zvezdice 7 do 10 let."
 
-#: ../boards/menu.xml.in.h:16
+#: ../boards/menu.xml.in.h:20
 msgid "GCompris Main Menu"
 msgstr "Glavni meni GCompris"
 
-#: ../boards/menu.xml.in.h:17
+#: ../boards/menu.xml.in.h:21
 #: ../src/boards/menu2.c:866
 msgid "GCompris is a collection of educational games that provides different activities for children aged 2 and up."
 msgstr "GCompris je zbirka izobraževalnih iger z različnimi dejavnostmi namenjena otrokom od 2. leta naprej."
 
-#: ../boards/menu.xml.in.h:19
+#: ../boards/menu.xml.in.h:23
 msgid "The goal of GCompris is to provide a free alternative to popular proprietary edutainment software"
 msgstr "Cilj GCompris-a je predstaviti prosto alternativo priljubljenim lastniškim izobraževalnim programom"
 
@@ -382,11 +386,9 @@ msgstr ""
 "<b>{config}</b> nastavitev\n"
 " za profil <b>{profile}</b>"
 
-#. self.main_vbox.pack_start (label, False, False, 8)
 #: ../src/administration-activity/admin/board_list.py:660
-#: ../src/colors-activity/colors.c:180
-#: ../src/pythontest-activity/pythontest.py:518
-#: ../src/smallnumbers-activity/smallnumbers.c:616
+#: ../src/pythontest-activity/pythontest.py:513
+#: ../src/smallnumbers-activity/smallnumbers.c:618
 msgid "Select sound locale"
 msgstr "Izberi jezik zvoka"
 
@@ -549,6 +551,7 @@ msgid "Board"
 msgstr "Tabla"
 
 #: ../src/administration-activity/admin/log_list.py:246
+#: ../src/click_on_letter-activity/click_on_letter.c:1274
 #: ../src/redraw-activity/redraw.py:339
 msgid "Level"
 msgstr "Raven"
@@ -1321,8 +1324,7 @@ msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "Igre z miško: premakni, povleci in spusti."
 
 #: ../src/babymatch-activity/shapegame.c:1906
-#: ../src/click_on_letter-activity/click_on_letter.c:672
-#: ../src/colors-activity/colors.c:168
+#: ../src/click_on_letter-activity/click_on_letter.c:1315
 #, c-format
 msgid ""
 "<b>%1$s</b> configuration\n"
@@ -1822,7 +1824,11 @@ msgstr "1955 Citroën ds 19"
 msgid "Cars"
 msgstr "Avtomobili"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:311
+#: ../src/click_on_letter-activity/click_on_letter.c:370
+msgid "This activity will be played with questions displayed as text instead of being spoken"
+msgstr "Ta dejavnost se bo igrala z vprašanji prikazanimi kot besedilo namesto govorjenja"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:375
 #: ../src/memory-activity/memory.c:906
 msgid ""
 "Error: this activity cannot be played with the\n"
@@ -1838,13 +1844,13 @@ msgstr ""
 #. TRANSLATORS: Put here the alphabet in your language
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
-#: ../src/click_on_letter-activity/click_on_letter.c:316
+#: ../src/click_on_letter-activity/click_on_letter.c:383
 #: ../src/gletters-activity/gletters.c:229
 #: ../src/memory-activity/memory.c:935
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcčdefghijklmnoprsštuvzž"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:344
+#: ../src/click_on_letter-activity/click_on_letter.c:410
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -1853,7 +1859,7 @@ msgstr ""
 "Napaka: ta dejavnost zahteva namestitev\n"
 "paketov z GCompris glasovi za jezikovno določilo '%s' ali '%s'"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:354
+#: ../src/click_on_letter-activity/click_on_letter.c:422
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -1862,15 +1868,62 @@ msgstr ""
 "Napaka: ta dejavnost zahteva namestitev paketov\n"
 "z glasovi GCompris za jezikovno določilo '%s' ! Uporabljena bo angleščina, oprosti!"
 
+#: ../src/click_on_letter-activity/click_on_letter.c:925
+msgid "Questions cannot be empty."
+msgstr "Vprašanja ne smejo biti prazna"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:931
+msgid "Answers cannot be empty."
+msgstr "Odgovori ne smerjo biti prazni."
+
+#: ../src/click_on_letter-activity/click_on_letter.c:937
+#, c-format
+msgid "Too many characters in the Answer (maximum is %d)."
+msgstr "Preveč znakov v odgovoru (največje število je %d.)"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:965
+msgid "All the characters in Questions must also be in the Answers."
+msgstr "Vsi znaki v vprašanjih morajo biti tudi v odgovorih."
+
+#: ../src/click_on_letter-activity/click_on_letter.c:982
+#, c-format
+msgid ""
+"Invalid entry:\n"
+"At level %d, Questions '%s' / Answers '%s'\n"
+"%s"
+msgstr ""
+"Neveljaven vnos:\n"
+"Na stopnji %d, Vprašanja '%s' / Odgovori '%s'\n"
+"%s"
+
+#. answer
+#: ../src/click_on_letter-activity/click_on_letter.c:1285
+#: ../src/missing_letter-activity/missingletter_config.c:420
+#: ../src/missing_letter-activity/missingletter_config.c:548
+msgid "Answer"
+msgstr "Odgovor"
+
+#. question
+#: ../src/click_on_letter-activity/click_on_letter.c:1296
+#: ../src/missing_letter-activity/missingletter_config.c:426
+#: ../src/missing_letter-activity/missingletter_config.c:571
+msgid "Question"
+msgstr "Vprašanje"
+
 #. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:695
+#: ../src/click_on_letter-activity/click_on_letter.c:1338
 #: ../src/gletters-activity/gletters.c:883
-#: ../src/login-activity/login.py:484
+#: ../src/login-activity/login.py:486
 #: ../src/missing_letter-activity/missingletter_config.c:492
-#: ../src/readingh-activity/reading.c:928
-#: ../src/wordsgame-activity/wordsgame.c:887
+#: ../src/readingh-activity/reading.c:929
+#: ../src/wordsgame-activity/wordsgame.c:889
 msgid "Uppercase only text"
 msgstr "Le besedilo z velikimi črkami"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:1415
+#: ../src/gcompris/board_config_wordlist.c:246
+msgid "Back to default"
+msgstr "Nazaj na privzeto"
 
 #: ../src/click_on_letter-activity/click_on_letter.xml.in.h:1
 msgid "A letter is spoken. Click on the matching letter in the main area. You can listen to the letter again, by clicking on the mouth icon in the bottom box."
@@ -1947,46 +2000,6 @@ msgstr "Nastavi uro na dani čas v prikazanih časovnih enotah (ure:minute ali u
 #: ../src/clockgame-activity/clockgame.xml.in.h:5
 msgid "The concept of time. Reading the time."
 msgstr "Pojem časa. Odčitavanje časa."
-
-#: ../src/colors-activity/colors.c:60
-msgid "Click on the blue duck"
-msgstr "Klikni na modro račko"
-
-#: ../src/colors-activity/colors.c:61
-msgid "Click on the brown duck"
-msgstr "Klikni na rjavo račko"
-
-#: ../src/colors-activity/colors.c:62
-msgid "Click on the green duck"
-msgstr "Klikni na zeleno račko"
-
-#: ../src/colors-activity/colors.c:63
-msgid "Click on the grey duck"
-msgstr "Klikni na sivo račko"
-
-#: ../src/colors-activity/colors.c:64
-msgid "Click on the orange duck"
-msgstr "Klikni na oranžno račko"
-
-#: ../src/colors-activity/colors.c:65
-msgid "Click on the purple duck"
-msgstr "Klikni na vijolično račko"
-
-#: ../src/colors-activity/colors.c:66
-msgid "Click on the red duck"
-msgstr "Klikni na rdečo račko"
-
-#: ../src/colors-activity/colors.c:67
-msgid "Click on the yellow duck"
-msgstr "Klikni na rumeno račko"
-
-#: ../src/colors-activity/colors.c:68
-msgid "Click on the black duck"
-msgstr "Klikni na črno račko"
-
-#: ../src/colors-activity/colors.c:69
-msgid "Click on the white duck"
-msgstr "Klikni na belo račko"
 
 #: ../src/colors-activity/colors.xml.in.h:1
 msgid "Can move the mouse."
@@ -2535,10 +2548,6 @@ msgstr "Izberi jezik"
 msgid "Choice of the level"
 msgstr "Izberi raven"
 
-#: ../src/gcompris/board_config_wordlist.c:246
-msgid "Back to default"
-msgstr "Nazaj na privzeto"
-
 #: ../src/gcompris/config.c:58
 msgid "Your system default"
 msgstr "Privzete sistemske nastavitve"
@@ -2849,7 +2858,7 @@ msgid "Effect"
 msgstr "Učinki"
 
 #: ../src/gcompris/config.c:345
-#: ../src/gcompris/sugar.c:82
+#: ../src/gcompris/sugar.c:83
 msgid "Zoom"
 msgstr "Približanje"
 
@@ -2904,139 +2913,155 @@ msgstr ""
 "Končajte program in poročajte\n"
 "napako avtorjem."
 
-#: ../src/gcompris/gcompris.c:158
+#: ../src/gcompris/gcompris.c:159
 msgid "run GCompris in fullscreen mode."
 msgstr "Zagon GCompris v celozaslonskem načinu."
 
-#: ../src/gcompris/gcompris.c:161
+#: ../src/gcompris/gcompris.c:162
 msgid "run GCompris in window mode."
 msgstr "Zagon GCompris v okenskem načinu."
 
-#: ../src/gcompris/gcompris.c:164
+#: ../src/gcompris/gcompris.c:165
 msgid "run GCompris with sound enabled."
 msgstr "Zagon GCompris z omogočenim zvokom."
 
-#: ../src/gcompris/gcompris.c:167
+#: ../src/gcompris/gcompris.c:168
 msgid "run GCompris without sound."
 msgstr "Zagon Gcompris brez zvoka."
 
-#: ../src/gcompris/gcompris.c:170
+#: ../src/gcompris/gcompris.c:171
 msgid "run GCompris with the default system cursor."
 msgstr "zaženi GCompris s privzeto sistemsko kazalko."
 
-#: ../src/gcompris/gcompris.c:173
+#: ../src/gcompris/gcompris.c:174
 msgid "run GCompris without cursor (touch screen mode)."
 msgstr "zaženi GCompris brez kazalke (način zaslona na dotik)."
 
-#: ../src/gcompris/gcompris.c:176
+#: ../src/gcompris/gcompris.c:177
 msgid "display only activities with this difficulty level."
 msgstr "Pokaži le dejavnosti te težavnostne ravni."
 
-#: ../src/gcompris/gcompris.c:179
+#: ../src/gcompris/gcompris.c:180
 msgid "display debug informations on the console."
 msgstr "Prikaži podrobnosti razhroščevanja na konzoli."
 
-#: ../src/gcompris/gcompris.c:182
+#: ../src/gcompris/gcompris.c:183
 msgid "Print the version of "
 msgstr "Natisni različico "
 
-#: ../src/gcompris/gcompris.c:185
+#: ../src/gcompris/gcompris.c:186
 msgid "Run GCompris with local menu (e.g -l /reading will let you play only activities in the reading directory, -l /strategy/connect4 only the connect4 activity). Use '-l list' to list all the availaible activities and their descriptions."
 msgstr "Poženi GCompris s krajevnim menijem (na primer -l /reading dovoli le igranje delavnosti v mapi branje, -l /strategy/connect4 le dejavnost 4 v vrsto). Uporabi '-l list' za seznam vseh dostopnih dejavnosti in njihovih opisov."
 
-#: ../src/gcompris/gcompris.c:190
+#: ../src/gcompris/gcompris.c:191
 msgid "GCompris will find the data dir in this directory"
 msgstr "GCompris bo v tej mapi našel mapo podatkov"
 
-#: ../src/gcompris/gcompris.c:193
+#: ../src/gcompris/gcompris.c:194
 msgid "GCompris will find the skins in this directory"
 msgstr "GCompris bo v tej mapi našel preobleke"
 
-#: ../src/gcompris/gcompris.c:196
+#: ../src/gcompris/gcompris.c:197
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "GCompris bo v tej mapi našel vstavke dejavnosti"
 
-#: ../src/gcompris/gcompris.c:199
+#: ../src/gcompris/gcompris.c:200
 msgid "GCompris will find the python activity in this directory"
 msgstr "GCompris bo našel dejavnost python v tej mapi"
 
-#: ../src/gcompris/gcompris.c:202
+#: ../src/gcompris/gcompris.c:203
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr "GCompris bo v tej mapi našel datoteko jezikovne oznake (prevod .mo)"
 
-#: ../src/gcompris/gcompris.c:205
+#: ../src/gcompris/gcompris.c:206
 msgid "GCompris will find the activities menu in this directory"
 msgstr "GCompris bo v tej mapi našel meni dejavnosti"
 
-#: ../src/gcompris/gcompris.c:208
+#: ../src/gcompris/gcompris.c:209
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Zaženi GCompris v načinu skrbništva in upravljanja uporabnikov "
 
-#: ../src/gcompris/gcompris.c:211
+#: ../src/gcompris/gcompris.c:212
 msgid "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite.db]"
 msgstr "Uporabi dodatno podatkovno zbirko za profile [$HOME/.config/gcompris/gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:214
+#: ../src/gcompris/gcompris.c:215
 msgid "Create the alternate database for profiles"
 msgstr "Ustvari dodatno podatkovno zbirko za profile"
 
-#: ../src/gcompris/gcompris.c:217
+#: ../src/gcompris/gcompris.c:218
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Ponovno preberi menije XML in jih shrani v podatkovni zbirki"
 
-#: ../src/gcompris/gcompris.c:220
+#: ../src/gcompris/gcompris.c:221
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Nastavi profil za uporabo. Uporabi 'gcompris -a' za ustvarjanje profilov"
 
-#: ../src/gcompris/gcompris.c:223
+#: ../src/gcompris/gcompris.c:224
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr "Naštej vse razpoložljive profile. Za ustvarjanje profilov uporabi 'gcompris -a'"
 
-#: ../src/gcompris/gcompris.c:226
+#: ../src/gcompris/gcompris.c:227
 msgid "Config directory location: [$HOME/.config/gcompris]. Alternate is to set $XDG_CONFIG_HOME."
 msgstr "Mesto nastavitvene mape: [$HOME/.config/gcompris] Dodatna možnost je nastviti $XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:229
+#: ../src/gcompris/gcompris.c:230
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "Mesto uporabniških map: [$HOME/Moj GCompris]"
 
-#: ../src/gcompris/gcompris.c:232
+#: ../src/gcompris/gcompris.c:233
 msgid "Run the experimental activities"
 msgstr "Zagon preizkusnih dejavnosti"
 
-#: ../src/gcompris/gcompris.c:235
+#: ../src/gcompris/gcompris.c:236
 msgid "Disable the quit button"
 msgstr "Onemogoči gumb končaj"
 
-#: ../src/gcompris/gcompris.c:238
+#: ../src/gcompris/gcompris.c:239
 msgid "Disable the config button"
 msgstr "Onemogoči gumb nastavitve"
 
-#: ../src/gcompris/gcompris.c:241
+#: ../src/gcompris/gcompris.c:242
 msgid "Disable the level button"
 msgstr "Onemogoči gumb ravni"
 
-#: ../src/gcompris/gcompris.c:244
+#: ../src/gcompris/gcompris.c:245
 msgid "GCompris will get images, sounds and activity data from this server if not found locally."
 msgstr "GCompris bo dobil slike, zvoke in podatke dejavnost s tega strežnika, če podatkov ne bo mogoče najti krajevno."
 
-#: ../src/gcompris/gcompris.c:247
+#: ../src/gcompris/gcompris.c:248
 msgid "Only when --server is provided, disable check for local resource first. Data are always taken from the web server."
 msgstr "Ko je izbran --server, onemogoči preverjanje za krajevna sredstva. Podatki so vedno preneseni s strežnik."
 
-#: ../src/gcompris/gcompris.c:251
+#: ../src/gcompris/gcompris.c:252
 msgid "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr "V strežniškem načinu je treba določiti mapo predpomnilnika za izogibanje nepotrebnim prejemom."
 
-#: ../src/gcompris/gcompris.c:254
+#: ../src/gcompris/gcompris.c:255
 msgid "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr "Splošni način povleci in spusti: običajen, 2klika, oboje. Privzeti način je običajen."
 
-#: ../src/gcompris/gcompris.c:257
+#: ../src/gcompris/gcompris.c:258
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Ne izogni se izvajanju več primerkov GCompris."
 
-#: ../src/gcompris/gcompris.c:944
+#: ../src/gcompris/gcompris.c:270
+msgid "Disable maximization zoom"
+msgstr "Onemogoči približanje razpetja"
+
+#: ../src/gcompris/gcompris.c:273
+msgid "Increase activities' timeout delays; useful values > 1.0; 1.0 to not change hardcoded value"
+msgstr "Poveča  zakasnitve dejavnosti, uporabne vrednosti > 1,0. 1,0 ne spremeni trenutne vrednosti"
+
+#: ../src/gcompris/gcompris.c:276
+msgid "How activities' timeout delays are growing for several actors; useful values < 1.0; 1.0 to not change hardcoded value"
+msgstr "Kako čas zakasnitve dejavnosti rastejo za več igralcev. Uporabne vrednosti <1,0. 1,0 ne spremeni trdno vnesene vrednosti."
+
+#: ../src/gcompris/gcompris.c:279
+msgid "For test purpose, run in a loop all the activities"
+msgstr "Za preizkusne namene. Požene vse dejavnosti v zanki"
+
+#: ../src/gcompris/gcompris.c:980
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to support its development, this version provides only %d of the %d activities. You can get the full version for a small fee at\n"
@@ -3049,22 +3074,22 @@ msgstr ""
 "Različica GNU/Linux nima teh omejitev. Če verjamete, da je otroke treba naučiti svobodo, razmislite o uporabi GNU/Linux. Več podrobnosti na strani FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1238
+#: ../src/gcompris/gcompris.c:1274
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
 msgstr "Nalaganje preobleke '%s' je spodletelo (Preverite, če datoteka obstaja in je berljiva)"
 
-#: ../src/gcompris/gcompris.c:1501
+#: ../src/gcompris/gcompris.c:1537
 #, c-format
 msgid "GCompris won't start because the lock file is less than %d seconds old.\n"
 msgstr "GCompris se ne bo zagnal, ker je datoteka ključavnice stara manj kot %d sekund.\n"
 
-#: ../src/gcompris/gcompris.c:1503
+#: ../src/gcompris/gcompris.c:1539
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Datoteka ključa je: %s\n"
 
-#: ../src/gcompris/gcompris.c:1614
+#: ../src/gcompris/gcompris.c:1712
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3078,37 +3103,37 @@ msgstr ""
 "Več podrobnosti je mogoče najti na http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1729
+#: ../src/gcompris/gcompris.c:1827
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Uporabi -l za neposreden dostop do dejavnosti.\n"
 
-#: ../src/gcompris/gcompris.c:1730
+#: ../src/gcompris/gcompris.c:1828
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Seznam dostopnih dejavnosti je:\n"
 
-#: ../src/gcompris/gcompris.c:1761
+#: ../src/gcompris/gcompris.c:1859
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Število dejavnosti: %d\n"
 
-#: ../src/gcompris/gcompris.c:1797
+#: ../src/gcompris/gcompris.c:1895
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s obstaja toda ni berljiv ali zapisljiv"
 
-#: ../src/gcompris/gcompris.c:1860
+#: ../src/gcompris/gcompris.c:1958
 #, c-format
 msgid "The --server option cannot be used because GCompris has been compiled without network support!"
 msgstr "Možnosti --server ni mogoče uporabiti, ker GCompris ni bil preveden z omrežno podporo!"
 
-#: ../src/gcompris/gcompris.c:1914
+#: ../src/gcompris/gcompris.c:2012
 #, c-format
 msgid "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list available ones\n"
 msgstr "NAPAKA: Profila '%s' ni mogoče najti. Poženi 'gcompris --profile-list' za seznam razpoložljivih profilov\n"
 
-#: ../src/gcompris/gcompris.c:1928
+#: ../src/gcompris/gcompris.c:2026
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Seznam dostopnih profilov je:\n"
@@ -3169,36 +3194,36 @@ msgstr ""
 "Te slike lahko vključiš v svoje risbe in animacije.\n"
 "Podprti zapisi slik so jpeg, png in svg.\n"
 
-#: ../src/gcompris/sugar.c:70
+#: ../src/gcompris/sugar.c:71
 msgid "Help"
 msgstr "POMOČ"
 
-#: ../src/gcompris/sugar.c:71
+#: ../src/gcompris/sugar.c:72
 msgid "About"
 msgstr "O programi"
 
-#: ../src/gcompris/sugar.c:72
+#: ../src/gcompris/sugar.c:73
 msgid "Previous level"
 msgstr "Prednodna raven"
 
-#: ../src/gcompris/sugar.c:75
+#: ../src/gcompris/sugar.c:76
 msgid "Next level"
 msgstr "Naslednja raven"
 
-#: ../src/gcompris/sugar.c:77
+#: ../src/gcompris/sugar.c:78
 msgid "Refresh"
 msgstr "Osveži"
 
-#: ../src/gcompris/sugar.c:78
+#: ../src/gcompris/sugar.c:79
 msgid "Settings"
 msgstr "Nastavitve"
 
 #. TRANSLATORS: Back as in previous
-#: ../src/gcompris/sugar.c:86
+#: ../src/gcompris/sugar.c:87
 msgid "Back"
 msgstr "Nazaj"
 
-#: ../src/gcompris/sugar.c:87
+#: ../src/gcompris/sugar.c:88
 msgid "Stop"
 msgstr "Zaustavi"
 
@@ -3839,14 +3864,14 @@ msgstr "ABCČDEFGHIJKLMNOPRSŠTUVZŽ"
 #. we can add what you want in it.
 #: ../src/gletters-activity/gletters.c:850
 #: ../src/imageid-activity/imageid.c:712
-#: ../src/login-activity/login.py:479
+#: ../src/login-activity/login.py:480
 #: ../src/missing_letter-activity/missingletter.c:784
-#: ../src/pythontest-activity/pythontest.py:454
-#: ../src/readingh-activity/reading.c:904
-#: ../src/scalesboard-activity/scale.c:1160
-#: ../src/smallnumbers-activity/smallnumbers.c:595
+#: ../src/pythontest-activity/pythontest.py:450
+#: ../src/readingh-activity/reading.c:905
+#: ../src/scalesboard-activity/scale.c:1161
+#: ../src/smallnumbers-activity/smallnumbers.c:597
 #: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:864
+#: ../src/wordsgame-activity/wordsgame.c:866
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -3856,7 +3881,7 @@ msgstr ""
 " za profil <b>%s</b>"
 
 #: ../src/gletters-activity/gletters.c:879
-#: ../src/smallnumbers-activity/smallnumbers.c:614
+#: ../src/smallnumbers-activity/smallnumbers.c:616
 msgid "Enable sounds"
 msgstr "Omogoči zvok"
 
@@ -4640,16 +4665,16 @@ msgstr "Pritisk na gumb spremeni stanje gumba in vseh njegovih vodoravnih in nav
 msgid "The solver algorithm described on haar.clara.co.uk is a valuable resource to know more about the Lights Off game: &lt;http://www.haar.clara.co.uk/Lights/solving.html&gt;"
 msgstr "Reševalni algoritem opisan na haar.clara.co.uk je pomemben vir za več podrobnosti o igri izklopi luči: &lt;http://www.haar.clara.co.uk/Lights/solving.html&gt;"
 
-#: ../src/login-activity/login.py:101
+#: ../src/login-activity/login.py:102
 msgid "Profile: "
 msgstr "Profil:"
 
-#: ../src/login-activity/login.py:234
+#: ../src/login-activity/login.py:235
 msgid "Login: "
 msgstr "Prijava:"
 
 #. toggle box
-#: ../src/login-activity/login.py:494
+#: ../src/login-activity/login.py:496
 msgid "Enter login to log in"
 msgstr "Vnesi geslo za prijavo"
 
@@ -5226,18 +5251,6 @@ msgstr ""
 msgid "Picture"
 msgstr "Slika"
 
-#. answer
-#: ../src/missing_letter-activity/missingletter_config.c:420
-#: ../src/missing_letter-activity/missingletter_config.c:548
-msgid "Answer"
-msgstr "Odgovor"
-
-#. question
-#: ../src/missing_letter-activity/missingletter_config.c:426
-#: ../src/missing_letter-activity/missingletter_config.c:571
-msgid "Question"
-msgstr "Vprašanje"
-
 #. choice
 #: ../src/missing_letter-activity/missingletter_config.c:432
 #: ../src/missing_letter-activity/missingletter_config.c:583
@@ -5748,32 +5761,28 @@ msgid "This activity is not playable, just a test"
 msgstr "Te dejavnosti ni mogoče igrati, je samo preizkus"
 
 #. toggle box
-#: ../src/pythontest-activity/pythontest.py:459
+#: ../src/pythontest-activity/pythontest.py:456
 msgid "Disable line drawing in circle"
 msgstr "Onemogoči risanje črt v krogu"
 
 #. combo box
-#: ../src/pythontest-activity/pythontest.py:468
+#: ../src/pythontest-activity/pythontest.py:465
 msgid "Color of the line"
 msgstr "Barva črte"
 
 #. spin button for int
-#: ../src/pythontest-activity/pythontest.py:479
+#: ../src/pythontest-activity/pythontest.py:476
 msgid "Distance between circles"
 msgstr "Razdalja med krogi"
 
 #. radio buttons for circle or rectangle
-#: ../src/pythontest-activity/pythontest.py:490
+#: ../src/pythontest-activity/pythontest.py:487
 msgid "Use circles"
 msgstr "Uporabi kroge"
 
-#: ../src/pythontest-activity/pythontest.py:491
+#: ../src/pythontest-activity/pythontest.py:488
 msgid "Use rectangles"
 msgstr "Uporabi pravokotnike"
-
-#: ../src/pythontest-activity/pythontest.py:494
-msgid "Choice of pattern"
-msgstr "Izbira vzorca"
 
 #: ../src/pythontest-activity/pythontest.xml.in.h:3
 msgid "Python Test"
@@ -6221,8 +6230,8 @@ msgstr "Sestavljanka tangram"
 #. Set the maximum text to calc the background
 #. Set the correct initial text
 #: ../src/target-activity/target.c:296
-#: ../src/target-activity/target.c:559
-#: ../src/target-activity/target.c:596
+#: ../src/target-activity/target.c:560
+#: ../src/target-activity/target.c:597
 #, c-format
 msgid "Points = %s"
 msgstr "Točke = %s"
@@ -6552,6 +6561,28 @@ msgstr "Tuba"
 msgid "the violin"
 msgstr "Violina"
 
+#~ msgid "Click on the blue duck"
+#~ msgstr "Klikni na modro račko"
+#~ msgid "Click on the brown duck"
+#~ msgstr "Klikni na rjavo račko"
+#~ msgid "Click on the green duck"
+#~ msgstr "Klikni na zeleno račko"
+#~ msgid "Click on the grey duck"
+#~ msgstr "Klikni na sivo račko"
+#~ msgid "Click on the orange duck"
+#~ msgstr "Klikni na oranžno račko"
+#~ msgid "Click on the purple duck"
+#~ msgstr "Klikni na vijolično račko"
+#~ msgid "Click on the red duck"
+#~ msgstr "Klikni na rdečo račko"
+#~ msgid "Click on the yellow duck"
+#~ msgstr "Klikni na rumeno račko"
+#~ msgid "Click on the black duck"
+#~ msgstr "Klikni na črno račko"
+#~ msgid "Click on the white duck"
+#~ msgstr "Klikni na belo račko"
+#~ msgid "Choice of pattern"
+#~ msgstr "Izbira vzorca"
 #~ msgid "violet"
 #~ msgstr "vijolična"
 #~ msgid "pink"
