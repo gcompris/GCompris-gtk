@@ -81,8 +81,6 @@ class Gcompris_braille_fun:
     gcompris.bar_set_level(self.gcomprisBoard)
 
     #REPEAT ICON
-    pixmap = gcompris.utils.load_svg("braille_alphabets/target.svg")
-    gcompris.bar_set_repeat_icon(pixmap)
     gcompris.bar_set(gcompris.BAR_LEVEL|gcompris.BAR_REPEAT_ICON)
     gcompris.bar_location(300,-1,0.7)
 
@@ -130,8 +128,19 @@ class Gcompris_braille_fun:
                            goocanvas.ANIMATE_FREEZE)
 
       for index in range (level) :
-           #Select a random letter and append it to self.letter_array
-           letter = random.choice(string.letters)
+      	   #Select a random letter and append it to self.letter_array
+           if (level == 1):
+                #Letters from A to J
+           	letter = random.choice(string.letters[random.randint(0,9)])
+           elif(level == 2):
+           	#Letters from K to T
+           	letter = random.choice(string.letters[random.randint(10,18)])
+           elif(level == 3):
+           	#Letters from U to Z
+           	letter = random.choice(string.letters[random.randint(19,25)])
+           else :
+           	letter = random.choice(string.letters[random.randint(0,25)])
+           	
            self.letter_array.append(letter.upper())
            self.animateString = "".join(self.letter_array)
 
