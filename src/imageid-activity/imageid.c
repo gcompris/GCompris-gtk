@@ -145,7 +145,7 @@ start_board (GcomprisBoard *agcomprisBoard)
   gchar *filename = NULL;
   GHashTable *config = gc_db_get_board_conf();
 
-  gc_locale_change(g_hash_table_lookup( config, "locale"));
+  gc_locale_set(g_hash_table_lookup( config, "locale"));
 
   g_hash_table_destroy(config);
 
@@ -192,7 +192,7 @@ end_board ()
       destroy_board_list();
     }
 
-  gc_locale_reset();
+  gc_locale_set( NULL );
 
   gcomprisBoard = NULL;
 }

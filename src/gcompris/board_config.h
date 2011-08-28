@@ -78,14 +78,11 @@ GtkComboBox *gc_board_config_combo_locales(GcomprisBoardConf *config, gchar *ini
 
 GtkComboBox *gc_board_config_combo_drag( GcomprisBoardConf *config, gint init);
 
-void gc_locale_change(gchar *locale);
-
-void gc_locale_reset();
-
 GList *gc_locale_gets_asset_list(const gchar *file);
 
 GtkComboBox *gc_board_config_combo_locales_asset(GcomprisBoardConf *config,
-	const gchar *label, gchar *init, const gchar *file);
+						 const gchar *label, gchar *init,
+						 const gchar *file, GCallback callback);
 /***********************************/
 /* TextView  facility              */
 /* Callback is text vaidating function */

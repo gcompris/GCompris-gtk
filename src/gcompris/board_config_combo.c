@@ -127,6 +127,7 @@ gc_board_config_combo_locales_changed(GtkComboBox *combobox,
 
   g_hash_table_replace(u->config->hash_conf,
 		       (gpointer) the_key, (gpointer) g_strdup( value ) );
+
 }
 
 /* key = "locale" */
@@ -318,36 +319,6 @@ gc_board_config_combo_drag(GcomprisBoardConf *config, gint init)
 
 }
 
-static gchar *current_locale = NULL;
-void
-gc_locale_change(gchar *locale)
-{
-  if (!locale)
-    return;
-
-  if (g_strcmp0(locale, "NULL") == 0){
-    gc_locale_reset();
-    return;
-  }
-
-  current_locale = g_strdup(gc_locale_get());
-
-  gc_locale_set(locale);
-}
-
-void
-gc_locale_reset()
-{
-  if (current_locale == NULL)
-    return;
-
-  gc_locale_change(current_locale);
-
-  g_free(current_locale);
-  current_locale = NULL;
-}
-
-
 /** \brief Search the given file for each locale and returns the locale list
  *
  * \param file: the file to search. In order to work, you need to provide a
@@ -418,7 +389,8 @@ gc_locale_gets_asset_list(const gchar *filename)
 GtkComboBox *gc_board_config_combo_locales_asset(GcomprisBoardConf *config,
 						 const gchar *label,
 						 gchar *init,
-						 const gchar *file)
+						 const gchar *file,
+						 GCallback callback)
 {
   g_return_val_if_fail(config, NULL);
   GtkWidget *combobox;
@@ -500,6 +472,11 @@ GtkComboBox *gc_board_config_combo_locales_asset(GcomprisBoardConf *config,
 		   "changed",
 		   G_CALLBACK(gc_board_config_combo_locales_changed),
 		   u);
+  if ( callback )
+    g_signal_connect_after(G_OBJECT(combobox),
+			   "changed",
+			   G_CALLBACK(callback),
+			   u);
 
   return GTK_COMBO_BOX(combobox);
 }

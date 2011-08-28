@@ -616,8 +616,9 @@ smallnumber_config_start(GcomprisBoard *agcomprisBoard,
   GtkCheckButton  *sound_control = gc_board_config_boolean_box(bconf, _("Enable sounds"), "with_sound", with_sound);
 
   GtkComboBox *sound_box = gc_board_config_combo_locales_asset(bconf, _("Select sound locale"),
-							 saved_locale_sound,
-							 "voices/$LOCALE/colors/purple.ogg");
+							       saved_locale_sound,
+							       "voices/$LOCALE/colors/purple.ogg",
+							       NULL);
 
   gtk_widget_set_sensitive(GTK_WIDGET(sound_box), with_sound);
 

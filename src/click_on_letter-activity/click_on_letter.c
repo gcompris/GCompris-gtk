@@ -170,7 +170,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
   board_paused = TRUE;
 
-  gc_locale_change(g_hash_table_lookup( config, "locale_sound"));
+  gc_locale_set(g_hash_table_lookup( config, "locale_sound"));
 
   gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
 
@@ -283,7 +283,7 @@ static void end_board ()
       g_object_unref(cloud_svg_handle);
       clear_levels();
     }
-  gc_locale_reset();
+  gc_locale_set( NULL );
   gcomprisBoard = NULL;
   gc_sound_bg_resume();
 }
@@ -362,6 +362,15 @@ static void repeat ()
     }
 }
 
+static gchar *
+get_alphabet()
+{
+  gchar *alphabet = gettext( _("abcdefghijklmnopqrstuvwxyz") );
+  /* TRANSLATORS: Put here the alphabet in your language */
+  g_assert(g_utf8_validate(alphabet, -1, NULL)); // require by all utf8-functions
+  return alphabet;
+}
+
 static guint sounds_are_fine()
 {
   char *letter_str;
@@ -372,16 +381,16 @@ static guint sounds_are_fine()
 
   if(!properties->fx)
     {
-      gchar *msg = g_strconcat( _("Error: this activity cannot be played with the\nsound effects disabled.\nGo to the configuration dialog to\nenable the sound"),
+      gchar *msg = g_strconcat( _("Error: this activity cannot be played with the\n"
+				  "sound effects disabled.\nGo to the configuration"
+				  " dialog to\nenable the sound"),
 			       "\n", text_mode_str, NULL);
       gc_dialog(msg, click_on_letter_next_level);
       g_free(msg);
       return(OK_NO_INIT);
     }
 
-  /* TRANSLATORS: Put here the alphabet in your language */
-  alphabet=_("abcdefghijklmnopqrstuvwxyz");
-  g_assert(g_utf8_validate(alphabet, -1, NULL)); // require by all utf8-functions
+  alphabet = get_alphabet();
 
   gchar *letter = g_new0(gchar, 8);
   g_unichar_to_utf8(g_utf8_get_char(alphabet), letter);
@@ -389,52 +398,17 @@ static guint sounds_are_fine()
   g_free(letter);
 
   str2 = gc_file_find_absolute("voices/$LOCALE/alphabet/%s", letter_str);
+  g_free(letter_str);
 
   if (!str2)
     {
-      gchar *locale;
-      gchar **localsearch;
-      localsearch = g_strsplit_set(gc_locale_get(), "_", 2);
-      if(g_strv_length(localsearch) <= 1)
-	return NOT_OK; /* Should not happens */
-      locale = g_strdup(localsearch[0]);
-      g_strfreev(localsearch);
-
-      gc_locale_reset();
-      gc_locale_set(GC_DEFAULT_LOCALE);
-
-      str2 = gc_file_find_absolute("voices/$LOCALE/alphabet/%s", letter_str);
-
-      if (!str2)
-	{
-	  gchar *msg2 = g_strdup_printf( _("Error: this activity requires that you first install\nthe packages with GCompris voices for the locale '%s' or '%s'"),
-					locale, "en");
-	  gchar *msg = g_strconcat(msg2, "\n", text_mode_str, NULL);
-	  g_free(msg2);
-	  gc_dialog(msg, click_on_letter_next_level);
-	  g_free(msg);
-	  g_free(locale);
-	  g_free(letter_str);
-	  return (OK_NO_INIT);
-	}
-      else
-	{
-	  gchar *msg2 = g_strdup_printf( _("Error: this activity requires that you first install\nthe packages with GCompris voices for the locale '%s' ! Fallback to english, sorry!"),
-					locale);
-	  gchar *msg = g_strconcat(msg2, "\n", text_mode_str, NULL);
-	  g_free(msg2);
-	  gc_dialog(msg, click_on_letter_next_level);
-	  g_free(msg);
-	  g_free(str2);
-	  g_free(locale);
-	  g_free(letter_str);
-	  return(OK_NO_INIT);
-	}
-    }
-  else
-    {
-      g_free(str2);
-      g_free(letter_str);
+      gchar *msg2 = g_strdup_printf( _("Error: this activity requires that you first install\nthe packages with GCompris voices for the %s locale."),
+				     gc_locale_get_name( gc_locale_get() ) );
+      gchar *msg = g_strconcat(msg2, "\n", text_mode_str, NULL);
+      g_free(msg2);
+      gc_dialog(msg, click_on_letter_next_level);
+      g_free(msg);
+      return (OK_NO_INIT);
     }
 
   return(OK);
@@ -705,6 +679,7 @@ static void highlight_selected(GooCanvasItem * item) {
 
 static void load_desktop_datafile(gchar *filename)
 {
+  printf("load_desktop_datafile %s\n", filename);
   GKeyFile *keyfile = g_key_file_new ();
   GError *error = NULL;
   if ( ! g_key_file_load_from_file (keyfile,
@@ -777,9 +752,14 @@ static void load_datafile() {
 
   clear_levels();
 
+  // Reset the alphabet to match the current locale
+  alphabet = get_alphabet();
+  printf("alphabet=%s\n", alphabet);
+
   /* create level array */
   levels = g_array_sized_new (FALSE, FALSE, sizeof (Level), 10);
 
+  printf("load_datafile %s\n", filename);
   if ( filename )
     {
       load_desktop_datafile(filename);
@@ -929,22 +909,22 @@ valid_entry(Level *level)
       goto error;
     }
 
-  if ( strlen(level->answers) == 0 )
+  /* Now check all chars in questions are in answers */
+  guint n_answers = g_utf8_strlen (level->answers, -1);
+  guint n_questions = g_utf8_strlen (level->questions, -1);
+
+  if ( n_answers == 0 )
     {
       error = g_strdup( _("Answers cannot be empty.") );
       goto error;
     }
 
-  if ( strlen(level->answers) > MAX_N_ANSWER )
+  if ( n_answers > MAX_N_ANSWER )
     {
       error = g_strdup_printf( _("Too many characters in the Answer (maximum is %d)."),
 				 MAX_N_ANSWER );
       goto error;
     }
-
-  /* Now check all chars in questions are in answers */
-  guint n_answers = g_utf8_strlen (level->answers, -1);
-  guint n_questions = g_utf8_strlen (level->questions, -1);
 
   /* The shuffle is not important, we are using it to get an array of chars */
   gchar **answers = shuffle_utf8(level->answers);
@@ -1063,6 +1043,7 @@ conf_ok(GHashTable *table)
       return FALSE;
 
 
+    printf("conf_ok =%s\n", (char*)g_hash_table_lookup(config, "locale_sound"));
     gc_locale_set(g_hash_table_lookup(config, "locale_sound"));
 
     gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
@@ -1306,6 +1287,31 @@ static void configure_colummns(GtkTreeView *treeview)
 
 
 static void
+locale_changed (GtkComboBox *combobox, gpointer data)
+{
+  const gchar *locale;
+  GtkTreeIter iter;
+  gchar *text = NULL;
+
+  if (gtk_combo_box_get_active_iter (combobox, &iter))
+    gtk_tree_model_get (gtk_combo_box_get_model (combobox), &iter,
+			0, &text, -1);
+
+  // Get back the locale from the locale name (French becomes fr_FR.UTF8)
+  locale = gc_locale_get_locale( text );
+  printf("LOCALE = %s\n", locale);
+
+  gc_locale_set(locale);
+
+  load_datafile();
+  load_model_from_levels(model);
+
+  // Our job is done, set back the default locale
+  gc_locale_set( NULL );
+}
+
+
+static void
 config_start(GcomprisBoard *agcomprisBoard,
 	     GcomprisProfile *aProfile)
 {
@@ -1314,6 +1320,8 @@ config_start(GcomprisBoard *agcomprisBoard,
 
   if (gcomprisBoard)
     pause_board(TRUE);
+
+  gc_locale_set( NULL );
 
   gchar *label = g_strdup_printf(_("<b>%1$s</b> configuration\n for profile <b>%2$s</b>"),
 				 agcomprisBoard->name,
@@ -1329,7 +1337,8 @@ config_start(GcomprisBoard *agcomprisBoard,
   gchar *saved_locale_sound = g_hash_table_lookup( config, "locale_sound");
 
   gc_board_config_combo_locales_asset(bconf, "Select sound locale", saved_locale_sound,
-				"voices/$LOCALE/colors/purple.ogg");
+				      "voices/$LOCALE/colors/purple.ogg",
+				      G_CALLBACK (locale_changed));
 
   gboolean up_init = FALSE;
 

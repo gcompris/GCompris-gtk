@@ -28,7 +28,7 @@ typedef struct
 {
 	gchar *key;
 	GcomprisBoardConf *config;
-} _gc_boardconf_key;
+  } _gc_boardconf_key;
 
 void _gc_destroy_boardconf_key(GtkWidget*w, gpointer data);
 

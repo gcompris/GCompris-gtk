@@ -154,7 +154,7 @@ start_board (GcomprisBoard *agcomprisBoard)
 {
   GHashTable *config = gc_db_get_board_conf();
 
-  gc_locale_change(g_hash_table_lookup( config, "locale"));
+  gc_locale_set(g_hash_table_lookup( config, "locale"));
 
   gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
 
@@ -193,7 +193,7 @@ static void end_board ()
       board_list = NULL;
     }
 
-  gc_locale_reset();
+  gc_locale_set( NULL );
 
   gcomprisBoard_missing = NULL;
 }

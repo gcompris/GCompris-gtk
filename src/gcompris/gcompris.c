@@ -1426,14 +1426,21 @@ char *gc_locale_get_user_default()
 
 /*
  * This set the locale for which text must be displayed
+ * If locale is NULL, "" or "NULL" then locale is set to the user's default locale
+ * if any or the user's system locale instead.
  *
  */
 void
-gc_locale_set(gchar *locale)
+gc_locale_set(const gchar *locale)
 {
 
-  if(!locale)
-    return;
+  if(!locale || locale[0] == '\0' || (g_strcmp0(locale, "NULL") == 0) )
+    {
+      if ( properties->locale && properties->locale[0] != '\0')
+	locale = properties->locale;
+      else
+	locale = gc_locale_get_user_default();
+    }
 
   g_message("gc_locale_set '%s'\n", locale);
   if(gc_locale != NULL)

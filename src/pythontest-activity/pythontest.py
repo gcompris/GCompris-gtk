@@ -98,10 +98,8 @@ class Gcompris_pythontest:
 
     print "self.config_dict final :", self.config_dict
 
-    self.previous_locale = gcompris.get_locale()
-
     if self.config_dict.has_key('locale'):
-      gcompris.change_locale(self.config_dict['locale'])
+      gcompris.set_locale(self.config_dict['locale'])
 
     # self.colors['line'] s set in init.
     # I put here the configuration use
@@ -284,7 +282,7 @@ class Gcompris_pythontest:
 
   def end(self):
 
-    gcompris.reset_locale()
+    gcompris.set_locale( "" )
 
     # Remove the root item removes all the others inside it
     self.rootitem.remove()
@@ -512,7 +510,7 @@ class Gcompris_pythontest:
 
     gcompris.combo_locales_asset(bconf, _("Select sound locale"),
                                  self.config_dict['locale_sound'],
-                                 "voices/$LOCALE/colors/red.ogg" )
+                                 "voices/$LOCALE/colors/red.ogg")
 
   def color_disable(self, button):
     self.color_choice.set_sensitive(not button.get_active())

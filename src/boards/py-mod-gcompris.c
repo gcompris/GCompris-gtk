@@ -378,7 +378,7 @@ py_gc_locale_get_name(PyObject* self, PyObject* args)
     return NULL;
 
   /* Call the corresponding C function */
-  gchar *result = gc_locale_get_name(locale);
+  const gchar *result = gc_locale_get_name(locale);
 
   /* Create and return the result */
   return Py_BuildValue("s", result);
@@ -1410,7 +1410,9 @@ py_gc_board_config_combo_locales_asset(PyObject* self, PyObject* args)
     return NULL;
   bconf = (pyGcomprisBoardConfigObject*)py_bconf;
   return (PyObject *)pygobject_new((GObject*) \
-				   gc_board_config_combo_locales_asset(bconf->cdata, label, init, file ));
+				   gc_board_config_combo_locales_asset(bconf->cdata,
+								       label, init, file,
+								       NULL));
 }
 
 
@@ -1453,42 +1455,6 @@ py_gcompris_gettext(PyObject* self, PyObject* args)
   return PyString_FromString(_(text));
 }
 
-
-
-/* void gc_locale_change(gchar *locale); */
-static PyObject*
-py_gc_locale_change(PyObject* self, PyObject* args)
-{
-  gchar *locale;
-
-  /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "s:gc_locale_change", &locale))
-    return NULL;
-
-  /* Call the corresponding C function */
-  gc_locale_set(locale);
-
-  /* Create and return the result */
-  Py_INCREF(Py_None);
-  return Py_None;
-}
-
-
-/* void gc_locale_reset(gchar *locale); */
-static PyObject*
-py_gc_locale_reset(PyObject* self, PyObject* args)
-{
-  /* Parse arguments */
-  if(!PyArg_ParseTuple(args, ":gc_locale_reset"))
-    return NULL;
-
-  /* Call the corresponding C function */
-  gc_locale_reset();
-
-  /* Create and return the result */
-  Py_INCREF(Py_None);
-  return Py_None;
-}
 
 
 /* How can i free that ? */
@@ -1683,8 +1649,6 @@ static PyMethodDef PythonGcomprisModule[] = {
   { "combo_locales",  py_gc_board_config_combo_locales, METH_VARARGS, "gc_board_config_combo_locales" },
   { "get_locales_list",  py_gc_locale_gets_list, METH_VARARGS, "gc_locale_gets_list" },
   { "gcompris_gettext",  py_gcompris_gettext, METH_VARARGS, "gcompris_gettext" },
-  { "change_locale",  py_gc_locale_change, METH_VARARGS, "gc_locale_change" },
-  { "reset_locale",  py_gc_locale_reset, METH_VARARGS, "gc_locale_reset" },
   { "combo_locales_asset",  py_gc_board_config_combo_locales_asset, METH_VARARGS, "gc_board_config_combo_locales_asset" },
   { "get_locales_asset_list",  py_gc_locale_gets_asset_list, METH_VARARGS, "gc_locale_gets_asset_list" },
   { "textview",  py_gc_board_config_textview, METH_VARARGS, "gc_board_config_textview" },

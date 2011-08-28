@@ -168,7 +168,7 @@ GooCanvas       *gc_get_canvas(void);
 GtkWidget	*gc_get_window(void);
 
 const gchar	*gc_locale_get(void);
-void		 gc_locale_set(gchar *locale);
+void		 gc_locale_set(const gchar *locale);
 char		*gc_locale_get_user_default(void);
 const gchar	*gc_locale_get_name(const gchar *locale);
 const gchar	*gc_locale_get_locale(const gchar *name);
