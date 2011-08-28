@@ -484,27 +484,109 @@ void gc_config_stop ()
 
 /**
  * Given the locale name, return the full translated name
- * If not found, simply return the name
+ * e.g In the French locale, gc_locale_get_name("fr_FR.UTF8") returns "Français"
+ * If not found, return NULL
+ * The result must not be freed.
  */
-gchar*
-gc_locale_get_name(gchar *locale)
+const gchar*
+gc_locale_get_name(const gchar *locale)
 {
   guint i = 0;
 
-  /* en (US) is not in the Linguas table */
-  if(locale[0] != '\0' && !strncmp(locale, "en", strlen(locale)))
-    return(_("English (United State)"));
+  if ( !locale )
+    return NULL;
+
+  /*
+   * On some systems, locales are returned as fr_FR.utf8
+   * but in GCompris we use fr_FR.UTF-8
+   * Do our best to support both
+   */
+  const gchar *dot_char = g_strrstr ( locale, ".");
 
   while(linguas[i] != NULL)
     {
 
-      if(!strncmp(locale, linguas[i], strlen(locale)))
+      if( !g_ascii_strncasecmp(locale, linguas[i],
+			       (dot_char ? dot_char - locale : strlen(locale)) ) )
 	return(gettext(linguas[i+1]));
 
       i=i+2;
     }
-  // Oups this locale is not in the table. Return the first one (system default)
-  return(linguas[1]);
+  // Oups this locale is not in the table.
+  return( NULL );
+}
+
+/**
+ * Given the locale code, return the short version
+ * e.g In the French locale, gc_locale_short("fr_FR.UTF8") returns "fr"
+ * The result must be freed.
+ */
+gchar*
+gc_locale_short(const gchar *locale)
+{
+  if ( ! locale )
+    return NULL;
+
+  gchar **locale_short = g_strsplit_set(locale, "_", 2);
+  if(g_strv_length(locale_short) >= 1)
+    {
+      gchar *result = g_strdup(locale_short[0]);
+      g_strfreev(locale_short);
+      return result;
+    }
+  g_strfreev(locale_short);
+
+  // We found no '_', this is already a short version
+  return ( g_strdup(locale) );
+}
+
+/**
+ * Given the locale code, return the long version
+ * e.g In the French locale, gc_locale_long("fr_FR.UTF8") returns "fr_FR"
+ * The result must be freed.
+ */
+gchar*
+gc_locale_long(const gchar *locale)
+{
+  if ( ! locale )
+    return NULL;
+
+  gchar **locale_long = g_strsplit_set(locale, ".", 2);
+  if(g_strv_length(locale_long) >= 1)
+    {
+      gchar *result = g_strdup(locale_long[0]);
+      g_strfreev(locale_long);
+      return result;
+    }
+  g_strfreev(locale_long);
+
+  // We found no '.', this is already a short version
+  return ( g_strdup(locale) );
+}
+
+/**
+ * Given the locale translated name, return the locale name
+ * e.g In the French local, gc_locale_get_locale("Français") returns "fr_FR.UTF8"
+ * If not found, return NULL
+ * The result must not be freed.
+ */
+const gchar*
+gc_locale_get_locale(const gchar *name)
+{
+  guint i = 0;
+
+  if ( !name )
+    return NULL;
+
+  while(linguas[i] != NULL)
+    {
+      if( !strncmp(name, gettext(linguas[i+1]), strlen(name)) )
+	 return( linguas[i] );
+
+      i=i+2;
+    }
+  // Oups this locale is not in the table.
+  return( NULL );
 }
 
 /*-------------------------------------------------------------------------------*/

@@ -26,16 +26,19 @@
 /***********************************************/
 
 /** \brief return the list of locales in which GCompris has been translated
- *         even partialy.
+ *         even partialy. A locale is returned only if the GCompris translation
+ *         has been installed.
+ *
  *
  * \note The list is calculated at the first call and must not be freed.
  *       Uppon next call, the same list is returned.
  *
- * \return a list containing the locales we suport
+ * \return a list containing the locales we suport: "fr_FR.UTF-8",
  */
 GList*
 gc_locale_gets_list(){
 
+  // Maintains the locale list "fr_FR.UTF-8", ...
   static GList *gcompris_locales_list = NULL;
 
   GcomprisProperties *properties = gc_prop_get();
@@ -47,7 +50,7 @@ gc_locale_gets_list(){
     return(gcompris_locales_list);
 
   /* There is no english locale but it exists anyway */
-  locales = g_list_append(locales, g_strdup("en"));
+  locales = g_list_append(locales,  g_strdup( "en_US") );
 
   textdomain_dir = g_dir_open (properties->package_locale_dir, 0, error);
   const gchar *fname;
@@ -62,51 +65,68 @@ gc_locale_gets_list(){
 
       catalog = g_strdup_printf("%s/LC_MESSAGES/gcompris.mo", fname_abs);
 
-      if (g_file_test(catalog, G_FILE_TEST_EXISTS)){
-      locales = g_list_append(locales, g_strdup(fname));
-      }
+      if ( g_file_test(catalog, G_FILE_TEST_EXISTS) && gc_locale_get_name(fname) )
+	{
+	  locales = g_list_append( locales, g_strdup( fname ) );
+	}
       g_free (fname_abs);
       g_free(catalog);
     }
   g_dir_close (textdomain_dir);
   }
 
-#if DEBUG	/* to find locales list when run from src directory */
-  if(g_file_test("po", G_FILE_TEST_IS_DIR))
-  {
-  	textdomain_dir= g_dir_open("po",0, error);
-	while((fname = g_dir_read_name(textdomain_dir)))
-	{
-		if(g_str_has_suffix(fname,".po"))
-			locales = g_list_append(locales, g_strndup(fname,2));
-	}
-	g_dir_close(textdomain_dir);
-
-  }
-#endif
   /* Save it for next call */
   gcompris_locales_list = locales;
 
   return locales;
 }
 
+/** \brief return the list of locales name in which GCompris has been translated
+ *         even partialy. A locale is returned only if the GCompris translation
+ *         has been installed.
+ *
+ *
+ * \note The list is calculated at each call because it depends on the locale
+ *       You must not free the list, it is freed internaly on next call.
+ *
+ * \return a list containing the locales we suport: "French", ...
+ */
+GList*
+gc_locale_gets_list_name(){
+
+  static GList *gcompris_locales_list_name = NULL;
+  GList *list;
+
+  if(gcompris_locales_list_name) {
+    g_list_free(gcompris_locales_list_name);
+    gcompris_locales_list_name = NULL;
+  }
+
+  for (list = gc_locale_gets_list(); list != NULL; list = list->next)
+    {
+      gcompris_locales_list_name =			\
+	g_list_insert_sorted(gcompris_locales_list_name,
+			     g_strdup( gc_locale_get_name( list->data) ),
+			     (GCompareFunc) g_strcmp0  );
+    }
+  return gcompris_locales_list_name;
+}
 
 void
 gc_board_config_combo_locales_changed(GtkComboBox *combobox,
-			       gpointer data)
+				      gpointer data)
 {
   _gc_boardconf_key *u = (_gc_boardconf_key*)data;
   gchar *the_key = g_strdup((gchar *)u->key);
-  gchar *value;
-  gint index = gtk_combo_box_get_active (combobox);
+  const gchar *value;
 
-  if (index == 0)
-    /* Default value of gcompris selected */
-    value = g_strdup ("NULL");
-  else
-    value = _get_active_text (combobox);
+  // Get back the locale from the locale name (French becomes fr_FR.UTF8)
+  value = gc_locale_get_locale( _get_active_text (combobox) );
+  if ( value == NULL || value[0] == '\0' )
+    value = "NULL";
 
-  g_hash_table_replace(u->config->hash_conf, (gpointer) the_key, (gpointer) value);
+  g_hash_table_replace(u->config->hash_conf,
+		       (gpointer) the_key, (gpointer) g_strdup( value ) );
 }
 
 /* key = "locale" */
@@ -120,15 +140,19 @@ gc_board_config_combo_locales(GcomprisBoardConf *config, gchar *init)
   GtkWidget *label_combo;
   gint init_index = 0;
 
-  strings = gc_locale_gets_list();
+  strings = gc_locale_gets_list_name();
 
-  strings = g_list_prepend( strings, _("Default"));
+  /* System default */
+  strings = g_list_prepend( strings, g_strdup( gc_locale_get_name("") ) );
 
   if (init)
-    init_index = g_list_position(strings,
-				 g_list_find_custom(strings,
-						    (gconstpointer) init,
-						    (GCompareFunc) strcmp));
+    {
+      const gchar *init_name = gc_locale_get_name( init );
+      init_index = g_list_position(strings,
+				   g_list_find_custom(strings,
+						      (gconstpointer) init_name,
+						      (GCompareFunc) g_strcmp0));
+    }
 
   if (init_index < 0)
     init_index=0;
@@ -168,8 +192,8 @@ gc_board_config_combo_locales(GcomprisBoardConf *config, gchar *init)
 
 
   for (list = strings; list != NULL; list = list->next)
-    gtk_combo_box_append_text       (GTK_COMBO_BOX(combobox),
-				     list->data);
+    gtk_combo_box_append_text (GTK_COMBO_BOX(combobox),
+			       list->data);
 
   if (g_list_length(strings) > COMBOBOX_COL_MAX)
     gtk_combo_box_set_wrap_width    (GTK_COMBO_BOX(combobox),
@@ -301,7 +325,7 @@ gc_locale_change(gchar *locale)
   if (!locale)
     return;
 
-  if (strcmp(locale, "NULL") == 0){
+  if (g_strcmp0(locale, "NULL") == 0){
     gc_locale_reset();
     return;
   }
@@ -330,7 +354,7 @@ gc_locale_reset()
  *              filename that includes a $LOCALE in it like:
  *              voices/$LOCALE/colors/blue.ogg
  *
- * \return a list of locale
+ * \return a list of locale name (French, English, ...)
  */
 GList*
 gc_locale_gets_asset_list(const gchar *filename)
@@ -353,9 +377,21 @@ gc_locale_gets_asset_list(const gchar *filename)
 	  /* try with the locale */
 	  g_strlcpy(locale, list->data, sizeof(locale));
 	  filename2 = g_strjoinv(locale, tmp);
-	  g_warning("trying locale file '%s'\n", filename2);
 	  abs_filename = gc_file_find_absolute(filename2);
 	  g_free(filename2);
+
+	  // Try the short locale
+	  if ( ! abs_filename )
+	    {
+	      gchar **locale_short = g_strsplit_set(locale, "_", 2);
+	      if(g_strv_length(locale_short) >= 1)
+		{
+		  filename2 = g_strjoinv(locale_short[0], tmp);
+		  abs_filename = gc_file_find_absolute(filename2);
+		  g_free(filename2);
+		  g_strfreev(locale_short);
+		}
+	    }
 
 	  g_strfreev(tmp);
 	}
@@ -366,15 +402,12 @@ gc_locale_gets_asset_list(const gchar *filename)
 
       if(abs_filename)
       {
-	/* It would be cleaner to provide the real locale name but then we need a way
-	 * to get back the locale code from it's name and from the boards
-	 *
-	 * locales_asset = g_list_append(locales_asset, gc_locale_get_name(list->data));
-	 *
-	 */
-	locales_asset = g_list_append(locales_asset, list->data);
+	locales_asset = \
+	  g_list_insert_sorted(locales_asset,
+			       g_strdup( gc_locale_get_name( list->data) ),
+			       (GCompareFunc) g_strcmp0  );
 	g_free(abs_filename);
-	}
+      }
     }
 
 
@@ -382,9 +415,10 @@ gc_locale_gets_asset_list(const gchar *filename)
 }
 
 /* key = "locale_sound" */
-GtkComboBox *gc_board_config_combo_locales_asset(GcomprisBoardConf *config, const gchar *label,
-					  gchar *init,
-					  const gchar *file)
+GtkComboBox *gc_board_config_combo_locales_asset(GcomprisBoardConf *config,
+						 const gchar *label,
+						 gchar *init,
+						 const gchar *file)
 {
   g_return_val_if_fail(config, NULL);
   GtkWidget *combobox;
@@ -395,14 +429,15 @@ GtkComboBox *gc_board_config_combo_locales_asset(GcomprisBoardConf *config, cons
 
   strings = gc_locale_gets_asset_list(file);
 
-  strings = g_list_prepend( strings, _("Default"));
+  strings = g_list_prepend( strings, g_strdup ( gc_locale_get_name("") ) );
 
   if (init)
     {
+      const gchar *init_name = gc_locale_get_name( init );
       init_index =  g_list_position(strings,
 				    g_list_find_custom(strings,
-						       (gconstpointer)init,
-						       (GCompareFunc) strcmp));
+						       (gconstpointer)init_name,
+						       (GCompareFunc) g_strcmp0));
     }
 
   if (init_index < 0)
@@ -476,13 +511,19 @@ _combo_box_changed(GtkComboBox *combobox,
   _gc_boardconf_key *u = (_gc_boardconf_key*)data;
   gchar *the_key = g_strdup(u->key);
 
-  gchar *value = g_strdup_printf("%s", _get_active_text (combobox));
+  // Get back the locale from the locale name (French becomes fr_FR.UTF8)
+  const gchar *value = gc_locale_get_locale( _get_active_text(combobox) );
 
-  g_hash_table_replace(u->config->hash_conf, (gpointer) the_key, (gpointer) value);
+  if ( value == NULL || value[0] == '\0' )
+    value = "NULL";
+
+  g_hash_table_replace(u->config->hash_conf,
+		       (gpointer) the_key, (gpointer) g_strdup ( value ) );
 }
 
 
-GtkComboBox *gc_board_config_combo_box(GcomprisBoardConf *config, const gchar *label, GList *strings, gchar *key, gchar *init)
+GtkComboBox *gc_board_config_combo_box(GcomprisBoardConf *config,
+				       const gchar *label, GList *strings, gchar *key, gchar *init)
 {
   g_return_val_if_fail(config, NULL);
   check_key(key);
@@ -493,7 +534,10 @@ GtkComboBox *gc_board_config_combo_box(GcomprisBoardConf *config, const gchar *l
   gint init_index = 0;
 
   if (init)
-    init_index =  g_list_position ( strings, g_list_find_custom ( strings,(gconstpointer)  init, (GCompareFunc) strcmp));
+    init_index = \
+      g_list_position ( strings,
+			g_list_find_custom ( strings,(gconstpointer) init,
+					     (GCompareFunc) g_strcmp0));
 
   if (init_index < 0)
     init_index=0;

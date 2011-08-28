@@ -63,24 +63,38 @@ static void _combo_level_changed(GtkComboBox *combo_level, gpointer user_data)
 	gtk_widget_set_sensitive(GTK_WIDGET(w->button), FALSE);
 }
 
-static void _combo_lang_changed(GtkComboBox *combo_lang, gpointer user_data)
+static void
+_combo_lang_changed(GtkComboBox *combo_lang, gpointer user_data)
 {
 	user_param_type_wordlist *w = (user_param_type_wordlist*)user_data;
-	gchar * lang, *filename, *temp, **tmp;
+	const gchar *locale;
+	gchar *filename, *temp, **tmp;
 	int i;
 
 	if(gtk_combo_box_get_active(combo_lang)<0)
 		return;
 	/* get the filename of the xml */
-	lang =_get_active_text(combo_lang);
+	locale = gc_locale_get_locale( _get_active_text(combo_lang) );
 	if((tmp = g_strsplit(w->files, "$LOCALE", -1)))
 	{
-		filename = g_strjoinv(lang, tmp);
-		g_strfreev(tmp);
+	  // Try the short locale
+	  gchar *lang_short = gc_locale_short(locale);
+	  filename = g_strjoinv(lang_short, tmp);
+	  gchar *f_short = gc_file_find_absolute(filename);
+	  if ( ! f_short )
+	    {
+	      // Try the long locale
+	      g_free(filename);
+	      gchar *lang_long = gc_locale_long(locale);
+	      filename = g_strjoinv(lang_long, tmp);
+	      f_short = gc_file_find_absolute(filename);
+	    }
+	  g_free(f_short);
+
+	  g_strfreev(tmp);
 	}
 	else
 		filename = g_strdup(w->files);
-	g_free(lang);
 
 	/* clear combo level entry */
 	if(w->wordlist)
@@ -91,6 +105,9 @@ static void _combo_lang_changed(GtkComboBox *combo_lang, gpointer user_data)
 	/* load wordlist */
 	w->wordlist = gc_wordlist_get_from_file(filename);
 	g_free(filename);
+
+	if ( ! w->wordlist )
+	  g_error("Failed to find the wordlist file '%s'", filename);
 
 	/* combo level */
 	for(i=1; i <= w->wordlist->number_of_level; i++)
@@ -164,6 +181,37 @@ static void _destroy(GtkWidget *w, gpointer data)
 	g_free(u);
 }
 
+/**
+ * Create a combo that let the user select the language
+ */
+static GtkWidget*
+_create_lang_combo(const gchar *files) {
+  GtkWidget *combo_lang = gtk_combo_box_new_text();
+  GList *file_list;
+  GList *list;
+  const gchar *locale_name = gc_locale_get_name(  gc_locale_get() );
+
+  file_list = gc_locale_gets_asset_list(files);
+  for(list = file_list; list; list = list->next)
+    {
+      gtk_combo_box_append_text(GTK_COMBO_BOX(combo_lang), list->data);
+      if(g_strcmp0( list->data, locale_name)==0)
+	{
+	  gtk_combo_box_set_active(GTK_COMBO_BOX(combo_lang),
+				   g_list_position(file_list, list));
+	}
+    }
+  if (g_list_length(file_list) > COMBOBOX_COL_MAX)
+    gtk_combo_box_set_wrap_width    (GTK_COMBO_BOX(combo_lang),
+				     g_list_length(file_list) / COMBOBOX_COL_MAX +1 );
+
+  g_list_free(file_list);
+
+  gtk_widget_show(combo_lang);
+
+  return combo_lang;
+}
+
 /* wordlist edit */
 GtkWidget *gc_board_config_wordlist(GcomprisBoardConf *config, const gchar *files)
 {
@@ -172,9 +220,7 @@ GtkWidget *gc_board_config_wordlist(GcomprisBoardConf *config, const gchar *file
 	GtkWidget *hbox, *vbox, *frame;
 	GtkWidget *textview;
 	GtkWidget *button;
-	GList *file_list, *list;
 	user_param_type_wordlist *user_data;
-	const gchar *locale;
 
 	/* frame */
 	frame = gtk_frame_new(_("Configure the list of words"));
@@ -186,25 +232,7 @@ GtkWidget *gc_board_config_wordlist(GcomprisBoardConf *config, const gchar *file
 
 	gtk_container_add(GTK_CONTAINER(frame), vbox);
 	/* Combo_box lang */
-	combo_lang = gtk_combo_box_new_text();
-
-	locale = gc_locale_get();
-	file_list = gc_locale_gets_asset_list(files);
-	for(list = file_list; list; list = list->next)
-	{
-		gtk_combo_box_append_text(GTK_COMBO_BOX(combo_lang), list->data);
-		if(strncmp((char*)list->data, locale,2)==0)
-		{
-			gtk_combo_box_set_active(GTK_COMBO_BOX(combo_lang), g_list_position(file_list, list));
-		}
-	}
-	if (g_list_length(file_list) > COMBOBOX_COL_MAX)
-		gtk_combo_box_set_wrap_width    (GTK_COMBO_BOX(combo_lang),
-				g_list_length(file_list) / COMBOBOX_COL_MAX +1 );
-
-	g_list_free(file_list);
-
-	gtk_widget_show(combo_lang);
+	combo_lang = _create_lang_combo(files);
 	hbox = gtk_hbox_new(FALSE, 8);
 	label = gtk_label_new(_("Choice of the language"));
 	gtk_widget_show(label);

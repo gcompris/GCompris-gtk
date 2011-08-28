@@ -170,7 +170,10 @@ GtkWidget	*gc_get_window(void);
 const gchar	*gc_locale_get(void);
 void		 gc_locale_set(gchar *locale);
 char		*gc_locale_get_user_default(void);
-gchar		*gc_locale_get_name(gchar *locale);
+const gchar	*gc_locale_get_name(const gchar *locale);
+const gchar	*gc_locale_get_locale(const gchar *name);
+gchar		*gc_locale_short(const gchar *locale);
+gchar		*gc_locale_long(const gchar *locale);
 
 guint		 gc_cursor_get();
 void		 gc_cursor_set(guint gdk_cursor_type);
