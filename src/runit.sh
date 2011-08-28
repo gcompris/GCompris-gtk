@@ -32,6 +32,6 @@ $gcompris -L $plugindir \
     -A $resourcedir \
     -S $menudir/../../boards/skins \
     -M $menudir \
-    --locale_dir=$path/locale \
+    --locale_dir=/usr/local/share/locale \
     -l $section/$activity $*
 
