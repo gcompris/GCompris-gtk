@@ -1,8 +1,11 @@
-SUBDIRS =
+SUBDIRS = resources
 
 pythondir = $(PYTHON_PLUGIN_DIR)
 
-dist_python_DATA= 	braille_alphabets.py
+dist_python_DATA= \
+	BrailleChar.py \
+	BrailleMap.py \
+	braille_alphabets.py
 
 
 

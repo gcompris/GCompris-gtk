@@ -3,17 +3,21 @@
   <Board
         name="braille_alphabets"
         type="python:braille_alphabets"
-        section="/experimental"
-        icon="braille_bug.svg"
-        difficulty="1"
+        section="/discovery/braille"
+        icon="braille_alphabets.svg"
+        difficulty="5"
         author="Srishti Sethi (srishakatux@gmail.com)"
         boarddir=""
         demo="1">
-        <title>Braille Alphabets Activity</title>
-        <description>Learn and memorize braille code</description>
+        <title>Discover the Braille system</title>
+        <description>Learn and memorize the Braille system.</description>
         <prerequisite></prerequisite>
-        <goal>To let the kids discover braille codes for alphabets and numbers</goal>
-        <manual>Read about braille.Try to produce the braille code in the braille cell area for the letter by clicking on the dots.Check the braille chart by clicking on the toggle button for help</manual>
+        <goal>Let kids discover the Braille system.</goal>
+        <manual>The screen has 3 sections: braille cell, alphabet name
+        and lower board containing 13 letters. Click on each letter in
+        the lower board to know its corresponding braille code in the
+        braille cell section.Click on the increment level button to
+        jump to the next 13 letters of the english alphabets.</manual>
         <credit></credit>
   </Board>
   <Data directory=""/>

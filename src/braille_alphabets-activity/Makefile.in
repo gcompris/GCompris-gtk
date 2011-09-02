@@ -314,8 +314,12 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-SUBDIRS = 
-dist_python_DATA = braille_alphabets.py
+SUBDIRS = resources
+dist_python_DATA = \
+	BrailleChar.py \
+	BrailleMap.py \
+	braille_alphabets.py
+
 xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@
 xml_in_files = \
 	braille_alphabets.xml.in

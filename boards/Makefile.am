@@ -6,6 +6,7 @@ icon_DATA = algebra_group.svg \
 	algebramenu.svg \
 	ballcatch.svg \
 	book.svg \
+	braille.svg \
 	chess.svg \
 	computer.svg \
 	discovery.svg \
@@ -34,6 +35,7 @@ xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@
 xml_in_files = \
 	algebra_group.xml.in \
 	algebramenu.xml.in \
+	braille.xml.in \
 	chess.xml.in \
 	colors_group.xml.in \
 	computer.xml.in \

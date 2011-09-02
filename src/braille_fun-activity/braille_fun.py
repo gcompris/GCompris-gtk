@@ -1,6 +1,6 @@
 #  gcompris - braille_fun.py
 #
-# Copyright (C) 2003, 2008 Bruno Coudoin
+# Copyright (C) 2011 Srishti Sethi
 #
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by

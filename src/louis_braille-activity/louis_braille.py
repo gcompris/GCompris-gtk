@@ -1,6 +1,6 @@
 #  gcompris - louis_braille.py
 #
-# Copyright (C) 2003, 2008 Bruno Coudoin
+# Copyright (C) 2011 Srishti Sethi
 #
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
@@ -159,7 +159,7 @@ class Gcompris_louis_braille:
               goocanvas.Text(parent = self.rootitem,
                    x=350.0,
                    y=(index - 9) * 37.8,
-                   text=str(self.dataset.get(str(NUMBER_SEQUENCE[index - 11][0]),"_story")),
+                   text=str(self.dataset.get(str(NUMBER_SEQUENCE[index - 11][0]),"story")),
                    fill_color="black",
                    anchor = gtk.ANCHOR_CENTER,
                    alignment = pango.ALIGN_CENTER,
@@ -246,7 +246,7 @@ class Gcompris_louis_braille:
                              20, 50, LOUIS_BRAILLE_NAME[index] ,COLOR_ON, COLOR_OFF,
                              CIRCLE_FILL, CIRCLE_FILL,True,False ,False, None)
 
-          story = self.dataset.get(str(level),"_story")
+          story = self.dataset.get(str(level),"story")
 
           #Rectangle for YEAR
           goocanvas.Rect(parent=self.rootitem,
@@ -262,7 +262,7 @@ class Gcompris_louis_braille:
           goocanvas.Text(parent = self.rootitem,
                    x=420.0,
                    y=395.0,
-                   text=str(self.dataset.get(str(level),"_year")),
+                   text=str(self.dataset.get(str(level),"year")),
                    fill_color="black",
                    anchor = gtk.ANCHOR_CENTER,
                    alignment = pango.ALIGN_CENTER,

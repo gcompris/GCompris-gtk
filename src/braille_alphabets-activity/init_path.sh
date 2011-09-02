@@ -5,4 +5,4 @@ activity=braille_alphabets
 plugindir=$path/../boards/.libs
 pythonplugindir=$path 
 resourcedir=$path/resources
-section="/experimental"
+section="/discovery/braille"

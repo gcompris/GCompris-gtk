@@ -1,6 +1,6 @@
 ## Process this file with automake to produce Makefile.in
 
-SUBDIRS = instruments-activity \
+SUBDIRS = \
 	administration-activity \
 	advanced_colors-activity \
 	algebra_by-activity \
@@ -15,6 +15,9 @@ SUBDIRS = instruments-activity \
 	ballcatch-activity \
 	bargame-activity \
 	billard-activity \
+	braille_alphabets-activity \
+	braille_fun-activity \
+	braille_lotto-activity \
 	canal_lock-activity \
 	chat-activity \
 	chess_computer-activity \
@@ -58,9 +61,11 @@ SUBDIRS = instruments-activity \
 	hydroelectric-activity \
 	imageid-activity \
 	imagename-activity \
+	instruments-activity \
 	leftright-activity \
 	lightsoff-activity \
 	login-activity \
+	louis_braille-activity \
 	magic_hat_minus-activity \
 	magic_hat_plus-activity \
 	maze-activity \

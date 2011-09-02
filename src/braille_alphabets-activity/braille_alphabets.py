@@ -1,6 +1,6 @@
 #  gcompris - braille_alphabets.py
 #
-# Copyright (C) 2003, 2008 Bruno Coudoin | Srishti Sethi
+# Copyright (C) 2011 Bruno Coudoin and Srishti Sethi
 #
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
@@ -39,9 +39,10 @@ CIRCLE_STROKE = "blue"
 MAP_STROKE = "black"
 MAP_FILL = "light blue"
 
-braille_intro = _("A system of writing for the blinds that uses characters made of raised dots.")
-braille_desc = _("The braille cell is composed of 6 dot cells organized in form of two vertical columns"
-                 " with 3 dots {1,2,3} side by side on left and 3 dots side by side on right {4,5,6}")
+braille_intro = _("The Braille system is a method that is used by blind people to read and write.")
+braille_desc = _("Each Braille character, or cell, is made up of six dot positions, arranged in "
+                 "a rectangle containing two columns of three dots each. As seen on the left, each dot "
+                 "is referenced by a number from 1 to 6.")
 
 #Array Declaration
 letter_arr_one = ['A','B','C','D','E','F','G']

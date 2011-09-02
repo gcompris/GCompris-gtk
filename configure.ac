@@ -549,8 +549,8 @@ AC_SUBST(LIBS)
 
 dnl Autoconf output
 AC_OUTPUT([
-Makefile.mingw
 Makefile
+Makefile.mingw
 autopackage/Makefile
 autopackage/default.apspec
 boards/Makefile
@@ -619,6 +619,15 @@ src/boards/python/gcompris/skin/Makefile
 src/boards/python/gcompris/sound/Makefile
 src/boards/python/gcompris/timer/Makefile
 src/boards/python/gcompris/utils/Makefile
+src/braille_alphabets-activity/Makefile
+src/braille_alphabets-activity/resources/Makefile
+src/braille_alphabets-activity/resources/braille_alphabets/Makefile
+src/braille_fun-activity/Makefile
+src/braille_fun-activity/resources/Makefile
+src/braille_fun-activity/resources/braille_fun/Makefile
+src/braille_lotto-activity/Makefile
+src/braille_lotto-activity/resources/Makefile
+src/braille_lotto-activity/resources/braille_lotto/Makefile
 src/canal_lock-activity/Makefile
 src/canal_lock-activity/resources/Makefile
 src/canal_lock-activity/resources/canal_lock/Makefile
@@ -626,9 +635,9 @@ src/chat-activity/Makefile
 src/chat-activity/resources/Makefile
 src/chat-activity/resources/chat/Makefile
 src/chess_computer-activity/Makefile
+src/chess_computer-activity/gnuchess/Makefile
 src/chess_computer-activity/resources/Makefile
 src/chess_computer-activity/resources/chess/Makefile
-src/chess_computer-activity/gnuchess/Makefile
 src/chess_movelearn-activity/Makefile
 src/chess_partyend-activity/Makefile
 src/chronos-activity/Makefile
@@ -674,8 +683,8 @@ src/enumerate-activity/resources/enumerate/Makefile
 src/erase-activity/Makefile
 src/erase-activity/resources/Makefile
 src/erase-activity/resources/erase/Makefile
-src/erase_clic-activity/Makefile
 src/erase_2clic-activity/Makefile
+src/erase_clic-activity/Makefile
 src/fifteen-activity/Makefile
 src/fifteen-activity/resources/Makefile
 src/fifteen-activity/resources/fifteen/Makefile
@@ -693,8 +702,8 @@ src/geo_country-activity/resources/geo_country/canada/Makefile
 src/geo_country-activity/resources/geo_country/france/Makefile
 src/geo_country-activity/resources/geo_country/germany/Makefile
 src/geo_country-activity/resources/geo_country/italy/Makefile
-src/geo_country-activity/resources/geo_country/italy/north/Makefile
 src/geo_country-activity/resources/geo_country/italy/central/Makefile
+src/geo_country-activity/resources/geo_country/italy/north/Makefile
 src/geo_country-activity/resources/geo_country/italy/south/Makefile
 src/geo_country-activity/resources/geo_country/mexico/Makefile
 src/geo_country-activity/resources/geo_country/norway/Makefile
@@ -756,6 +765,9 @@ src/lightsoff-activity/resources/lightsoff/Makefile
 src/login-activity/Makefile
 src/login-activity/resources/Makefile
 src/login-activity/resources/login/Makefile
+src/louis_braille-activity/Makefile
+src/louis_braille-activity/resources/Makefile
+src/louis_braille-activity/resources/louis_braille/Makefile
 src/magic_hat_minus-activity/Makefile
 src/magic_hat_minus-activity/resources/Makefile
 src/magic_hat_minus-activity/resources/magic_hat/Makefile
@@ -797,9 +809,9 @@ src/missing_letter-activity/resources/missing_letter/Makefile
 src/money-activity/Makefile
 src/money-activity/resources/Makefile
 src/money-activity/resources/money/Makefile
-src/money_cents-activity/Makefile
 src/money_back-activity/Makefile
 src/money_back_cents-activity/Makefile
+src/money_cents-activity/Makefile
 src/mosaic-activity/Makefile
 src/mosaic-activity/resources/Makefile
 src/mosaic-activity/resources/mosaic/Makefile
