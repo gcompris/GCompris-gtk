@@ -77,6 +77,8 @@ struct _Shape {
   double offset_x, offset_y;
   Shape *shape_place;			/* the shape place in this place */
   Shape *placed ;			/* where is placed this shape */
+  GooCanvasItem *crossitem;    	  	/* A red cross indicating the item is */
+				  	/* not at the correct position */
   };
 
 /* This is the list of shape for the current game */
@@ -128,6 +130,7 @@ static void 		 end_board (void);
 static gboolean 	 is_our_board (GcomprisBoard *gcomprisBoard);
 static void 		 set_level (guint level);
 static void 		 process_ok(void);
+static void 		 process_nok(void);
 static gint		 key_press(guint keyval, gchar *commit_str, gchar *preedit_str);
 static void	         config_start (GcomprisBoard *agcomprisBoard,
 				       GcomprisProfile *aProfile);
@@ -161,6 +164,8 @@ static void dump_shape(Shape *shape);
 #endif
 static void update_shapelist_item(void);
 static void auto_process(void);
+static void show_errors(void);
+static void hide_errors(void);
 
 static gint drag_mode;
 /* Description of this plugin */
@@ -468,6 +473,14 @@ static void shapegame_next_level()
 static void process_ok()
 {
   gamewon = TRUE;
+
+  /* Show the tooltip to let the user continue the game */
+  g_object_set (continue_root_item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+}
+
+static void process_nok()
+{
+  gamewon = FALSE;
 
   /* Show the tooltip to let the user continue the game */
   g_object_set (continue_root_item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
@@ -870,6 +883,10 @@ shape_goes_back_to_list(Shape *shape)
 {
   gdouble z;
 
+  g_object_set (continue_root_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE,
+		NULL);
+  hide_errors();
+
   if(shape->type == SHAPE_ICON)
     shape = shape->target_shape;
 
@@ -1189,6 +1206,7 @@ auto_process(void)
 {
   GList *list;
   gboolean done = TRUE;
+  gboolean all_placed = TRUE;
 
   /* Loop through all the shapes to find if all target are in place */
   for(list = shape_list; list != NULL; list = list->next)
@@ -1199,11 +1217,57 @@ auto_process(void)
 	{
 	  if(shape->placed != shape)
 	    done=FALSE;
+
+	  if(shape->placed == NULL)
+	    all_placed = FALSE;
 	}
     }
 
   if(done)
     process_ok();
+  else if(all_placed)
+    process_nok();
+}
+
+static void
+show_errors(void)
+{
+  GList *list;
+
+  /* Loop through all the shapes to find and highlight the error item */
+  for(list = shape_list; list != NULL; list = list->next)
+    {
+      Shape *shape = list->data;
+
+      if(shape->type == SHAPE_TARGET)
+	{
+	  if(shape->placed != shape)
+	    {
+	      g_object_set (shape->crossitem, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+	      goo_canvas_item_raise(shape->crossitem, NULL);
+	    }
+	  else
+	    g_object_set (shape->crossitem, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+
+	}
+    }
+}
+
+static void
+hide_errors(void)
+{
+  GList *list;
+
+  /* Loop through all the shapes and hide the error item */
+  for(list = shape_list; list != NULL; list = list->next)
+    {
+      Shape *shape = list->data;
+
+      if(shape->type == SHAPE_TARGET)
+	{
+	  g_object_set (shape->crossitem, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+	}
+    }
 }
 
 static void
@@ -1270,8 +1334,8 @@ item_event_ok(GooCanvasItem *item, GooCanvasItem *target,
 	  update_shapelist_item();
 	}
       else if(!strcmp(data, "continue_click"))
-	if(gamewon == TRUE)
-	  gc_bonus_display(gamewon, GC_BONUS_FLOWER);
+	show_errors();
+	gc_bonus_display(gamewon, GC_BONUS_FLOWER);
 
       root_item = g_list_nth_data(shape_list_group, current_shapelistgroup_index);
       g_object_set (root_item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
@@ -1373,7 +1437,22 @@ add_shape_to_canvas(Shape *shape)
 					 "line-width", 2.0,
 					 NULL);
 	  shape->target_point = item;
+
+	  pixmap = gc_pixmap_load("shapegame/error.svg");
+	  if(pixmap)
+	    {
+	      /* Display the error cross */
+	      shape->crossitem = \
+		goo_canvas_image_new (shape_root_item,
+				      pixmap,
+				      shape->x - gdk_pixbuf_get_width(pixmap) / 2,
+				      shape->y - gdk_pixbuf_get_height(pixmap) / 2,
+				      NULL);
+	      g_object_set (shape->crossitem,
+			    "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+	    }
 	}
+
       if (item)
 	goo_canvas_item_lower(item, NULL);
     }
