@@ -36,8 +36,6 @@ COLOR_ON = 0xFF0000FFL
 COLOR_OFF = 0X00000000L
 CIRCLE_FILL = "white"
 CIRCLE_STROKE = "black"
-MAP_STROKE = "black"
-MAP_FILL = "light blue"
 
 #Array Declaration
 letter_arr_one = ['A','B','C','D','E','F','G']
@@ -89,41 +87,33 @@ class Gcompris_braille_alphabets:
                                    self.gcomprisBoard.canvas.get_root_item())
     self.board_upper(self.gcomprisBoard.level)
 
+    # The root item for the help
+    self.map_rootitem = \
+        goocanvas.Group( parent = self.gcomprisBoard.canvas.get_root_item() )
+    BrailleMap(self.map_rootitem, self.move_back)
+    self.map_rootitem.props.visibility = goocanvas.ITEM_INVISIBLE
+
+
   def end(self):
     # Remove the root item removes all the others inside it
     self.rootitem.remove()
+    self.map_rootitem.remove()
 
   def ok(self):
     print("learnbraille ok.")
 
   def repeat(self):
       if(self.mapActive):
-          self.end()
-          self.start()
+          self.map_rootitem.props.visibility = goocanvas.ITEM_INVISIBLE
           self.mapActive = False
       else :
-          self.rootitem.props.visibility = goocanvas.ITEM_INVISIBLE
-          self.rootitem = goocanvas.Group(parent=
-                                   self.gcomprisBoard.canvas.get_root_item())
-          gcompris.set_default_background(self.gcomprisBoard.canvas.get_root_item())
-
-          map_obj = BrailleMap(self.rootitem, COLOR_ON, COLOR_OFF,MAP_FILL, MAP_STROKE)
-          # Move back item
-          self.backitem = goocanvas.Image(parent = self.rootitem,
-                    pixbuf = gcompris.utils.load_pixmap("braille_alphabets/back.svg"),
-                    x = 600,
-                    y = 450,
-                    tooltip = _("Back to the activity")
-                    )
-          self.backitem.connect("button_press_event", self.move_back)
-          gcompris.utils.item_focus_init(self.backitem, None)
-
+          self.map_rootitem.props.visibility = goocanvas.ITEM_VISIBLE
           self.mapActive = True
 
-
   def move_back(self,event,target,item):
-      self.end()
-      self.start()
+    self.map_rootitem.props.visibility = goocanvas.ITEM_INVISIBLE
+    self.mapActive = False
+
 
   def config(self):
     pass
@@ -172,24 +162,17 @@ class Gcompris_braille_alphabets:
                                  text = _("Braille : Unlocking the Code"))
         # Braille Intro
         text = _("The Braille system is a method that is used by blind people to read and write.")
+        # Braille Description
+        text += "\n" + \
+            _("Each Braille character, or cell, is made up of six dot positions, arranged in "
+              "a rectangle containing two columns of three dots each. As seen on the left, each dot "
+              "is referenced by a number from 1 to 6.")
         goocanvas.Text(parent=self.rootitem,
-                                 x = 520,
-                                 y = 200,
+                                 x = 490,
+                                 y = 280,
                                  fill_color = "black",
                                  font = gcompris.skin.get_font("gcompris/subtitle"),
-                                 width = 400,
-                                 anchor = gtk.ANCHOR_CENTER,
-                                 text = text)
-        # Braille Description
-        text = _("Each Braille character, or cell, is made up of six dot positions, arranged in "
-                 "a rectangle containing two columns of three dots each. As seen on the left, each dot "
-                 "is referenced by a number from 1 to 6.")
-        goocanvas.Text(parent=self.rootitem,
-                                 x=520,
-                                 y=300,
-                                 fill_color = "black",
-                                 font =  gcompris.skin.get_font("gcompris/subtitle"),
-                                 width = 400,
+                                 width = 395,
                                  anchor = gtk.ANCHOR_CENTER,
                                  text = text)
 
@@ -206,14 +189,14 @@ class Gcompris_braille_alphabets:
         gcompris.utils.item_focus_init(self.tuxitem, None)
 
         goocanvas.Text(parent = self.rootitem,
-                        x = 435,
+                        x = 445,
                         y = 475,
                         fill_color ="black",
                         font = "Sans 10",
                         anchor= gtk.ANCHOR_CENTER,
                         width = 355,
-                        text = _("Finished reading braille ! Now click on "
-                        "me and try reproducing braille characters"))
+                        text = _("When you are ready, click on "
+                        "me and try reproducing Braille characters."))
     elif(level == 2):
         range_lower= 0
         range_upper= 7

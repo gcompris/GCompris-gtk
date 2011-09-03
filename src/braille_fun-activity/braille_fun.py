@@ -81,6 +81,8 @@ class Gcompris_braille_fun:
     gcompris.bar_set_level(self.gcomprisBoard)
 
     #REPEAT ICON
+    pixmap = gcompris.utils.load_svg("braille_alphabets/target.svg")
+    gcompris.bar_set_repeat_icon(pixmap)
     gcompris.bar_set(gcompris.BAR_LEVEL|gcompris.BAR_REPEAT_ICON)
     gcompris.bar_location(300,-1,0.7)
 
@@ -95,6 +97,12 @@ class Gcompris_braille_fun:
     self.verticalTextRoot = goocanvas.Group(parent =
                                     self.gcomprisBoard.canvas.get_root_item())
 
+    # The root item for the help
+    self.map_rootitem = \
+        goocanvas.Group( parent = self.gcomprisBoard.canvas.get_root_item() )
+    BrailleMap(self.map_rootitem, self.move_back)
+    self.map_rootitem.props.visibility = goocanvas.ITEM_INVISIBLE
+
     #Display the sublevel
     gcompris.score.start(gcompris.score.STYLE_NOTE, 530, 460,
                          self.gcomprisBoard.number_of_sublevel)
@@ -105,6 +113,10 @@ class Gcompris_braille_fun:
                             "braille_fun/hillside.svg")
 
     self.display_game(self.gcomprisBoard.level)
+
+  def move_back(self,event,target,item):
+    self.map_rootitem.props.visibility = goocanvas.ITEM_INVISIBLE
+    self.mapActive = False
 
   def display_game(self, level):
       #SVG Handle for TUX Plane
@@ -248,6 +260,7 @@ class Gcompris_braille_fun:
   def end(self):
     # Remove the root item removes all the others inside it
     self.root.remove()
+    self.map_rootitem.remove()
     self.horizontalTextRoot.remove()
     self.verticalTextRoot.remove()
 
@@ -255,23 +268,13 @@ class Gcompris_braille_fun:
     print("braille_fun ok.")
 
   def repeat(self):
-    if(self.mapActive):
-          self.rootitem.props.visibility = goocanvas.ITEM_INVISIBLE
-          gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
-                            "braille_fun/hillside.svg")
-          self.root.props.visibility = goocanvas.ITEM_VISIBLE
-          self.horizontalTextRoot.props.visibility = goocanvas.ITEM_VISIBLE
-          self.verticalTextRoot.props.visibility = goocanvas.ITEM_VISIBLE
+      if(self.mapActive):
+          self.map_rootitem.props.visibility = goocanvas.ITEM_INVISIBLE
           self.mapActive = False
-    else :
-          self.root.props.visibility = goocanvas.ITEM_INVISIBLE
-          self.horizontalTextRoot.props.visibility = goocanvas.ITEM_INVISIBLE
-          self.verticalTextRoot.props.visibility = goocanvas.ITEM_INVISIBLE
-          self.rootitem = goocanvas.Group(parent=
-                                   self.gcomprisBoard.canvas.get_root_item())
-          gcompris.set_default_background(self.gcomprisBoard.canvas.get_root_item())
-          map_obj = BrailleMap(self.rootitem, COLOR_ON, COLOR_OFF, CIRCLE_FILL, CIRCLE_STROKE)
+      else :
+          self.map_rootitem.props.visibility = goocanvas.ITEM_VISIBLE
           self.mapActive = True
+
 
   def config(self):
     print("braille_fun config.")

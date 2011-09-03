@@ -26,7 +26,7 @@ $(xml_DATA): %.xml: %.xml.in
 #@INTLTOOL_XML_RULE@
 
 icondir = $(pkgdatadir)/@PACKAGE_DATA_DIR@
-icon_DATA = louis_braille.svg
+icon_DATA = louis_braille.png
 
 EXTRA_DIST = $(icon_DATA) ${xml_in_files} init_path.sh
 CLEANFILES = $(xml_DATA)

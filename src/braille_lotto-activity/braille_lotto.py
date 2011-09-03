@@ -81,6 +81,16 @@ class Gcompris_braille_lotto:
 
     self.lotto_board()
 
+    # The root item for the help
+    self.map_rootitem = \
+        goocanvas.Group( parent = self.gcomprisBoard.canvas.get_root_item() )
+    BrailleMap(self.map_rootitem, self.move_back)
+    self.map_rootitem.props.visibility = goocanvas.ITEM_INVISIBLE
+
+  def move_back(self,event,target,item):
+    self.map_rootitem.props.visibility = goocanvas.ITEM_INVISIBLE
+    self.mapActive = False
+
   def lotto_board(self):
     #Display Rectangle Ticket Boxes
     self.rect = []
@@ -241,7 +251,7 @@ class Gcompris_braille_lotto:
     #TICKET A
     self.displayTicket(1, 25, 60, 50)
     self.displayTicket(1, 25, 60, 200)
-    self.displayTicket(26, 50, 140, 125)
+    self.displayTicket(26, 50, 145, 125)
     self.displayTicket(51, 75, 230, 50)
     self.displayTicket(51, 75, 230, 200)
     self.displayTicket(76, 90, 320, 125)
@@ -249,7 +259,7 @@ class Gcompris_braille_lotto:
     #TICKET B
     self.displayTicket(1, 25, 440, 50)
     self.displayTicket(1, 25, 440, 200)
-    self.displayTicket(26, 50, 520, 125)
+    self.displayTicket(26, 50, 525, 125)
     self.displayTicket(51, 75, 610, 50)
     self.displayTicket(51, 75, 610, 200)
     self.displayTicket(76, 90, 700, 125)
@@ -384,20 +394,26 @@ class Gcompris_braille_lotto:
       ticket = random.randint(a, b)
       self.ticket_array.append(ticket)
       if (ticket < 10):
-          obj = BrailleChar(self.root, x, y, 50 , ticket, COLOR_ON, COLOR_OFF ,
-                  CIRCLE_FILL, CIRCLE_FILL, False, False ,False, None)
+          obj = BrailleChar(self.root, x, y, 50 , ticket,
+                            COLOR_ON, COLOR_OFF ,
+                            CIRCLE_FILL, CIRCLE_STROKE,
+                            False, False ,False, None)
           obj.ticket_focus(self.rect[self.rectangle_counter],
                            self.cross_number, self.tile_counter)
       else :
           tens_digit = ticket / 10
           ones_digit = ticket % 10
-          obj1 = BrailleChar(self.root, x - 7, y, 50 ,tens_digit, COLOR_ON, COLOR_OFF ,
-                  CIRCLE_FILL, CIRCLE_FILL, False, False ,False, None)
+          obj1 = BrailleChar(self.root, x - 8, y, 43 ,tens_digit,
+                             COLOR_ON, COLOR_OFF ,
+                             CIRCLE_FILL, CIRCLE_STROKE,
+                             False, False ,False, None)
           obj1.ticket_focus(self.rect[self.rectangle_counter],
                             self.cross_number, self.tile_counter)
 
-          obj2 = BrailleChar(self.root, x + 25, y, 50 , ones_digit, COLOR_ON, COLOR_OFF ,
-                  CIRCLE_FILL, CIRCLE_FILL, False, False ,False, None)
+          obj2 = BrailleChar(self.root, x + 29, y, 43 , ones_digit,
+                             COLOR_ON, COLOR_OFF ,
+                             CIRCLE_FILL, CIRCLE_STROKE,
+                             False, False ,False, None)
           obj2.ticket_focus(self.rect[self.rectangle_counter],
                             self.cross_number, self.tile_counter)
 
@@ -468,6 +484,7 @@ class Gcompris_braille_lotto:
   def end(self):
     # Remove the root item removes all the others inside it
     self.root.remove()
+    self.map_rootitem.remove()
     gcompris.end_board()
 
   def ok(self):
@@ -475,18 +492,12 @@ class Gcompris_braille_lotto:
 
   def repeat(self):
       if(self.mapActive):
-          self.rootitem.props.visibility = goocanvas.ITEM_INVISIBLE
-          self.root.props.visibility = goocanvas.ITEM_VISIBLE
+          self.map_rootitem.props.visibility = goocanvas.ITEM_INVISIBLE
           self.mapActive = False
-          self.pause(0)
       else :
-          self.root.props.visibility = goocanvas.ITEM_INVISIBLE
-          self.rootitem = goocanvas.Group(parent=
-                                   self.gcomprisBoard.canvas.get_root_item())
-          gcompris.set_default_background(self.gcomprisBoard.canvas.get_root_item())
-          map_obj = BrailleMap(self.rootitem, COLOR_ON, COLOR_OFF, CIRCLE_FILL, CIRCLE_STROKE)
+          self.map_rootitem.props.visibility = goocanvas.ITEM_VISIBLE
           self.mapActive = True
-          self.pause(1)
+
 
   def config(self):
     pass

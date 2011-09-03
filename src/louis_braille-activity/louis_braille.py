@@ -252,15 +252,15 @@ class Gcompris_louis_braille:
     self.rootitem.remove()
 
   def ok(self):
-    print("louis_braille ok.")
+    pass
 
 
   def repeat(self):
-    print("louis_braille repeat.")
+    pass
 
 
   def config(self):
-    print("louis_braille config.")
+    pass
 
 
   def key_press(self, keyval, commit_str, preedit_str):
@@ -268,14 +268,13 @@ class Gcompris_louis_braille:
     strn = u'%c' % utf8char
 
   def pause(self, pause):
-    print("louis_braille pause. %i" % pause)
     if(self.gamewon == 1):
         self.gcomprisBoard.level = 1
         self.end()
         self.start()
 
   def set_level(self, level):
-    print("louis_braille set level. %i" % level)
+    pass
 
 class Reordering:
   """This class manages the reordering activity"""
@@ -356,11 +355,9 @@ class Reordering:
   def move_group(self, from_index, to_index):
     from_item = self.orders[from_index]
     (from_x, from_y) = from_item.get_properties('x', 'y')
-    print "from", from_x, from_y
     to_item = self.orders[to_index]
     to_x = to_item.get_data('xref')
     to_y = to_item.get_data('yref')
-    print "to", to_x, to_y
     from_item.set_properties(x = to_x, y = to_y)
     to_item.set_data("xref", from_x)
     to_item.set_data("yref", from_y)
@@ -371,7 +368,6 @@ class Reordering:
       bounds = item.get_bounds()
       if ( group != item and
            y < bounds.y2 and y > bounds.y1 ):
-        print self.get_group_index(group)
         self.move_group( index, self.get_group_index(group) )
         return
 
