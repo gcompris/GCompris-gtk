@@ -371,8 +371,10 @@ class Gcompris_braille_lotto:
       y = y + 5,
       width = 350,
       height = 230,
-      stroke_color = "dark green",
-      fill_color = "light green" ,
+      stroke_color_rgba = 0x223344FFL,
+      fill_color_rgba = 0x00000000L,
+      radius_x = 5.0,
+      radius_y = 5.0,
       line_width=7)
 
       for i in range(4):
@@ -383,8 +385,8 @@ class Gcompris_braille_lotto:
                              y = y + 7 + 77 * j,
                              width = 82,
                              height = 73,
-                             stroke_color = "dark green",
-                             fill_color = "light green" ,
+                             stroke_color_rgba = 0x223344FFL,
+                             fill_color_rgba = 0x66666666L,
                              line_width=2)
               self.rect.append(box)
               self.rect_x.append(x + 7 + 88 * i)
