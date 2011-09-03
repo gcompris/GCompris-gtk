@@ -454,7 +454,7 @@ class Gcompris_braille_lotto:
 
     if winner:
       self.displayGameStatus( \
-        _("Congratulation player {player_id},  you won").format(player_id = str(winner) ) )
+        _("Congratulation player {player_id}, you won").format(player_id = str(winner) ) )
       self.timer_inc  = gobject.timeout_add(1500, self.timer_loop)
 
 

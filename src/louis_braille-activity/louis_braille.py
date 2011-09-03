@@ -309,6 +309,13 @@ class Reordering:
           else :
               rectbox.set_property("fill_color_rgba", 0x80e072eeL)
 
+  # Reset the lines to the original color, no good or bad position mark
+  def reset_selection(self):
+      for index , item in enumerate (self.orders):
+          group_index = item.get_data("index")
+          rectbox = item.get_data("rectbox")
+          rectbox.set_property("fill_color_rgba", 0xEEEEEEEEL)
+
   def add_line(self, text):
     position = self.randoms[ self.index ]
     y = (position + 0.5) * 43
@@ -376,6 +383,7 @@ class Reordering:
       groupitem.raise_(None)
 
       if event.type == gtk.gdk.BUTTON_PRESS:
+        self.reset_selection()
         bounds = groupitem.get_bounds()
         self.offset_y = event.y
         # We save the x and y coord in xref and yref for future use
