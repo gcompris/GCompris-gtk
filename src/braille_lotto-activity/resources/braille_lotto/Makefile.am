@@ -6,6 +6,7 @@ img_DATA = \
 	callout2.svg \
 	cross_button.png \
 	game.svg \
+<<<<<<< HEAD
 	tux.svg
 
 EXTRA_DIST = $(img_DATA)
@@ -13,3 +14,8 @@ EXTRA_DIST = $(img_DATA)
 CLEANFILES =
 
 
+=======
+	tux.svg 
+
+EXTRA_DIST = $(img_DATA)
+>>>>>>> gcomprisbraille
