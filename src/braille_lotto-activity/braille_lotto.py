@@ -1,10 +1,6 @@
 #  gcompris - braille_lotto.py
 #
-<<<<<<< HEAD
 # Copyright (C) 2011 Bruno Coudoin and Srishti Sethi
-=======
-# Copyright (C) 2011 Bruno Coudoin | Srishti Sethi
->>>>>>> gcomprisbraille
 #
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
@@ -505,8 +501,4 @@ class Gcompris_braille_lotto:
           self.start()
 
   def set_level(self, level):
-<<<<<<< HEAD
-    print("braille_lotto set level. %i" % level)
-=======
     pass
->>>>>>> gcomprisbraille

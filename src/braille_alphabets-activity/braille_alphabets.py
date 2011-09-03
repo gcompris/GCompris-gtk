@@ -1,10 +1,6 @@
 #  gcompris - braille_alphabets.py
 #
-<<<<<<< HEAD
 # Copyright (C) 2011 Bruno Coudoin and Srishti Sethi
-=======
-# Copyright (C) 2011 Bruno Coudoin | Srishti Sethi
->>>>>>> gcomprisbraille
 #
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
@@ -42,14 +38,6 @@ CIRCLE_FILL = "white"
 CIRCLE_STROKE = "black"
 MAP_STROKE = "black"
 MAP_FILL = "light blue"
-
-<<<<<<< HEAD
-braille_intro = _("The Braille system is a method that is used by blind people to read and write.")
-braille_desc = _("Each Braille character, or cell, is made up of six dot positions, arranged in "
-                 "a rectangle containing two columns of three dots each. As seen on the left, each dot "
-                 "is referenced by a number from 1 to 6.")
-=======
->>>>>>> gcomprisbraille
 
 #Array Declaration
 letter_arr_one = ['A','B','C','D','E','F','G']
@@ -183,8 +171,7 @@ class Gcompris_braille_alphabets:
                                  anchor = gtk.ANCHOR_CENTER,
                                  text = _("Braille : Unlocking the Code"))
         # Braille Intro
-        text = _("A system of writing for the blinds that uses characters made "
-                 "of raised dots.")
+        text = _("The Braille system is a method that is used by blind people to read and write.")
         goocanvas.Text(parent=self.rootitem,
                                  x = 520,
                                  y = 200,
@@ -194,9 +181,9 @@ class Gcompris_braille_alphabets:
                                  anchor = gtk.ANCHOR_CENTER,
                                  text = text)
         # Braille Description
-        text = _("The braille cell is composed of 6 dot cells organized in form "
-                 "of two vertical columns with 3 dots {1,2,3} side by side on "
-                 "left and 3 dots side by side on right {4,5,6}")
+        text = _("Each Braille character, or cell, is made up of six dot positions, arranged in "
+                 "a rectangle containing two columns of three dots each. As seen on the left, each dot "
+                 "is referenced by a number from 1 to 6.")
         goocanvas.Text(parent=self.rootitem,
                                  x=520,
                                  y=300,

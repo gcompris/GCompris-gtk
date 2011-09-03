@@ -1,10 +1,6 @@
 #  gcompris - braille_fun.py
 #
-<<<<<<< HEAD
 # Copyright (C) 2011 Srishti Sethi
-=======
-# Copyright (C) 2003, 2008 Bruno Coudoin | Srishti Sethi
->>>>>>> gcomprisbraille
 #
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
@@ -144,7 +140,7 @@ class Gcompris_braille_fun:
            	letter = random.choice(string.letters[random.randint(19,25)])
            else :
            	letter = random.choice(string.letters[random.randint(0,25)])
-           	
+
            self.letter_array.append(letter.upper())
            self.animateString = "".join(self.letter_array)
 

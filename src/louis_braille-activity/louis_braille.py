@@ -1,6 +1,6 @@
 #  gcompris - louis_braille.py
 #
-# Copyright (C) 2011 Srishti Sethi
+# Copyright (C) 2011 Bruno Coudoin | Srishti Sethi
 #
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
@@ -120,88 +120,6 @@ class Gcompris_louis_braille:
           ok.connect("button_press_event", self.ok_event)
           gcompris.utils.item_focus_init(ok, None)
 
-<<<<<<< HEAD
-          for index in range(11,22):
-              #Rectangle for STORY
-              goocanvas.Rect(parent=self.rootitem,
-                          x=50,
-                          y=(index - 9) * 35,
-                          width=600,
-                          height=45,
-                          stroke_color="orange",
-                          fill_color="white",
-                          line_width=2.0)
-
-              #Rectangle for SEQUENCE
-              goocanvas.Rect(parent=self.rootitem,
-                          x=20,
-                          y=(index - 9) * 35,
-                          width=30,
-                          height=45,
-                          stroke_color="orange",
-                          fill_color="white",
-                          line_width=2.0)
-
-              #Displaying the STORY
-              goocanvas.Text(parent = self.rootitem,
-                   x=350.0,
-                   y=(index - 9) * 37.8,
-                   text=str(self.dataset.get(str(NUMBER_SEQUENCE[index - 11][0]),"story")),
-                   fill_color="black",
-                   anchor = gtk.ANCHOR_CENTER,
-                   alignment = pango.ALIGN_CENTER,
-                   font = 'SANS 8'
-                   )
-              #Displaying the SEQUENCE
-              goocanvas.Text(parent = self.rootitem,
-                   x=28.0,
-                   y=(index - 9) * 37,
-                   text= str(SEQUENCE[index - 11]),
-                   fill_color="black",
-                   anchor = gtk.ANCHOR_CENTER,
-                   alignment = pango.ALIGN_CENTER,
-                   font = 'SANS 8'
-                   )
-              #Answer area to the right
-              #Rectangle for numbering
-              goocanvas.Rect(parent=self.rootitem,
-                          x=690,
-                          y=(index - 9) * 35,
-                          width=30,
-                          height=45,
-                          stroke_color="orange",
-                          fill_color="white",
-                          line_width=2.0)
-              #Displaying the numbering
-              goocanvas.Text(parent = self.rootitem,
-                   x=710.0,
-                   y=(index - 9) * 37,
-                   text= str(index - 10),
-                   fill_color="black",
-                   anchor = gtk.ANCHOR_CENTER,
-                   alignment = pango.ALIGN_CENTER,
-                   font = 'SANS 8'
-                   )
-          self.widget_array = []
-
-          for index in range(11):
-              # the answer area
-              self.entry = gtk.Entry()
-
-              goocanvas.Widget(
-                       parent = self.rootitem,
-                       widget=self.entry,
-                       x = 740,
-                       y = (index + 2) * 36,
-                       width = 50,
-                       height= 25,
-                       anchor=gtk.ANCHOR_NW)
-
-              self.widget_array.append(self.entry)
-              self.widget_array[index].connect("activate", self.enter_callback,
-                                               self.widget_array[index], index)
-=======
->>>>>>> gcomprisbraille
       else :
           gcompris.bar_location(gcompris.BOARD_WIDTH - 140, 350, 0.8)
 
@@ -247,25 +165,6 @@ class Gcompris_louis_braille:
                              20, 50, LOUIS_BRAILLE_NAME[index] ,COLOR_ON, COLOR_OFF,
                              CIRCLE_FILL, CIRCLE_FILL,True,False ,False, None)
 
-<<<<<<< HEAD
-          story = self.dataset.get(str(level),"story")
-
-          #Rectangle for YEAR
-          goocanvas.Rect(parent=self.rootitem,
-                          x=330,
-                          y=382,
-                          width=180,
-                          height=25,
-                          stroke_color="orange",
-                          fill_color="white",
-                          line_width=2.0)
-
-          #Displaying the YEAR
-          goocanvas.Text(parent = self.rootitem,
-                   x=420.0,
-                   y=395.0,
-                   text=str(self.dataset.get(str(level),"year")),
-=======
           story = self.dataset.get(str(level), _("story"))
 
           # Displaying the YEAR
@@ -273,7 +172,6 @@ class Gcompris_louis_braille:
                    x = 420.0,
                    y = 400.0,
                    text=str(self.dataset.get(str(level) , "year")),
->>>>>>> gcomprisbraille
                    fill_color="black",
                    anchor = gtk.ANCHOR_CENTER,
                    alignment = pango.ALIGN_CENTER,
@@ -378,8 +276,6 @@ class Gcompris_louis_braille:
 
   def set_level(self, level):
     print("louis_braille set level. %i" % level)
-<<<<<<< HEAD
-=======
 
 class Reordering:
   """This class manages the reordering activity"""
@@ -506,4 +402,3 @@ class Reordering:
         groupitem.set_properties(x = to_x, y = to_y)
 
       return True
->>>>>>> gcomprisbraille
