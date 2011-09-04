@@ -47,6 +47,7 @@ maki*.jpg
 
 The following images are from Wikipedia:
 Asian_Elephant_and_Baby.jpg
+giant_panda.jpg
 golden_toad.jpg
 Pteroglossus-torquatus-001.jpg
 papilio_demodocus.jpg

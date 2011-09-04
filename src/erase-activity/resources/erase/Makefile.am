@@ -24,6 +24,7 @@ img_DATA = \
 	fulmar_antarctic.jpg \
 	gazelle.jpg \
 	girafegc.jpg \
+	giant_panda.jpg \
 	golden_toad.jpg \
 	honey_bee.jpg \
 	horses.jpg \
