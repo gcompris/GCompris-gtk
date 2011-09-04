@@ -32,7 +32,6 @@ img_DATA = \
 	maki6.jpg \
 	malaybear002.jpg \
 	papilio_demodocus.jpg \
-	pigeon.jpg \
 	polabear011.jpg \
 	polarbear001.jpg \
 	poolbears001.jpg \
