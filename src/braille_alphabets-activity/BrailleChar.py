@@ -63,9 +63,7 @@ class BrailleChar:
 
     height = width * 1.33
     self.rootitem = goocanvas.Group(parent = rootitem)
-    if(letter == '' or rectangle == False):
-        """no rect"""
-    else :
+    if(rectangle):
         self.item = goocanvas.Rect(parent = self.rootitem,
                                    x = x,
                                    y = y,
