@@ -1,5 +1,7 @@
 imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/erase
 img_DATA = \
+	Adelie_Penguin.jpg \
+	Adelie_Penguin2.jpg \
 	Asian_Elephant_and_Baby.jpg \
 	Helioconius_sp_Richard_Bartz.jpg \
 	Pteroglossus-torquatus-001.jpg \
@@ -9,12 +11,17 @@ img_DATA = \
 	bear001.jpg \
 	black-headed-gull.jpg \
 	butterfly.jpg \
+	cape_petrel.jpg \
 	cat1.jpg \
 	cat2.jpg \
 	cow.jpg \
 	donkey.jpg \
+	earless_seal.jpg \
+	earless_seal2.jpg \
 	elephanteauxgc.jpg \
+	emperor_penguin.jpg \
 	flamentrosegc.jpg \
+	fulmar_antarctic.jpg \
 	gazelle.jpg \
 	girafegc.jpg \
 	golden_toad.jpg \
@@ -39,6 +46,8 @@ img_DATA = \
 	sheep_irish.jpg \
 	sheep_irish2.jpg \
 	singegc.jpg \
+	skua.jpg \
+	snow_petrels.jpg \
 	spectbear001.jpg \
 	sponge.png \
 	squirrel.jpg \

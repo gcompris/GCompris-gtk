@@ -55,3 +55,18 @@ Spider_vdg.jpg
 honey_bee.jpg
 Helioconius_sp_Richard_Bartz.jpg
 White_shark.jpg
+
+Antarctic by Adrien Grellier <adrien.grellier@laposte.net>:
+skua.jpg http://adrieng.homeip.net/piwigo/picture.php?/39/category/8
+fulmar_antarctic.jpg http://adrieng.homeip.net/piwigo/picture.php?/5/category/3
+
+Antartic by Claire Gégout:
+snow_petrels.jpg http://adrieng.homeip.net/piwigo/picture.php?/582/category/6
+cape_petrel.jpg http://adrieng.homeip.net/piwigo/picture.php?/605/category/2
+earless_seal.jpg http://adrieng.homeip.net/piwigo/picture.php?/51/category/9
+earless_seal2.jpg http://adrieng.homeip.net/piwigo/picture.php?/52/category/9
+Adelie_Penguin.jpg http://adrieng.homeip.net/piwigo/picture.php?/665/category/4
+Adelie_Penguin2.jpg http://adrieng.homeip.net/piwigo/picture.php?/664/category/4
+emperor_penguin.jpg http://adrieng.homeip.net/piwigo/picture.php?/624/category/5
+
+
