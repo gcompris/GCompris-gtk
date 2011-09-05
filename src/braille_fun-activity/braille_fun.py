@@ -218,12 +218,10 @@ class Gcompris_braille_fun:
 
   # This timer loop is to wait for milliseconds before calling a Bonus API
   def timer_loop(self):
-    print "timer_loop"
     self.gamewon = True
     gcompris.bonus.display(gcompris.bonus.WIN,gcompris.bonus.SMILEY)
 
   def animationFinished(self, item, status):
-      print "animationFinished"
       if (self.counter != self.gcomprisBoard.level) :
           self.gamewon = False
           gcompris.bonus.display(gcompris.bonus.LOOSE,gcompris.bonus.SMILEY)
@@ -262,13 +260,12 @@ class Gcompris_braille_fun:
     if (self.board_paused):
         return
 
-    if (not self.board_paused):
-        self.reset_level()
-        if self.gamewon:
-          self.increment_level()
-          self.gamewon = False
-          self.end()
-          self.start()
+    self.reset_level()
+    if self.gamewon:
+      self.increment_level()
+    self.gamewon = False
+    self.end()
+    self.start()
 
   def reset_level(self):
     self.letter_array = []
@@ -278,7 +275,6 @@ class Gcompris_braille_fun:
     self.counter = 0
 
   def increment_level(self):
-    print "increment_level"
     self.reset_level()
     gcompris.sound.play_ogg("sounds/bleep.wav")
     self.gcomprisBoard.sublevel += 1
