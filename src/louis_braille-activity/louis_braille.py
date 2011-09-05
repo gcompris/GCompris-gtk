@@ -30,8 +30,8 @@ from BrailleChar import *
 
 from gcompris import gcompris_gettext as _
 
-COLOR_ON = 0XFFFFFFFFL
-COLOR_OFF= 0X000000FFL
+COLOR_ON = 0XFF0000FFL
+COLOR_OFF= 0XFFFFFFFFL
 CIRCLE_FILL = "white"
 CELL_WIDTH = 30
 
@@ -70,16 +70,8 @@ class Gcompris_louis_braille:
     self.groupitem_array = []
     self.coorditem_array = []
 
-    # Create our rootitem. We put each canvas item in it so at the end we
-    # only have to kill it. The canvas deletes all the items it contains
-    # automaticaly.
-
-    self.rootitem = goocanvas.Group(parent =
-                                    self.gcomprisBoard.canvas.get_root_item())
-
-
     self.read_data()
-    self.display_game(self.gcomprisBoard.level)
+    self.display_story()
 
   def read_data(self):
     '''Load the activity data'''
@@ -100,152 +92,178 @@ class Gcompris_louis_braille:
     self.dataset = config
     return True
 
-  def display_game(self, level):
-      if(level == 12):
-          gcompris.bar_location(gcompris.BOARD_WIDTH - 120, -1, 0.8)
+  def display_game(self):
+    gcompris.bar_location(gcompris.BOARD_WIDTH - 120, -1, 0.8)
 
-          n_lines = 11
-          self.reordering = Reordering(self, n_lines)
+    self.rootitem = goocanvas.Group(parent =
+                                    self.gcomprisBoard.canvas.get_root_item())
 
-          # Insert the lines in the correct order
-          for index in range(n_lines):
-              self.reordering.add_line( str(self.dataset.get(str(index + 1), _("story"))))
+    n_lines = 11
+    self.reordering = Reordering(self, n_lines)
 
-          ok = goocanvas.Svg(parent = self.rootitem,
+    # Insert the lines in the correct order
+    for index in range(n_lines):
+      self.reordering.add_line( str(self.dataset.get(str(index + 1), _("story"))))
+
+      ok = goocanvas.Svg(parent = self.rootitem,
                          svg_handle = gcompris.skin.svg_get(),
                          svg_id = "#OK",
                          tooltip = _("Click to confirm your sequence")
                          )
-          ok.translate(200,-70)
-          ok.connect("button_press_event", self.ok_event)
-          gcompris.utils.item_focus_init(ok, None)
-
-      else :
-          gcompris.bar_location(gcompris.BOARD_WIDTH - 140, 350, 0.8)
-
-          goocanvas.Rect( parent = self.rootitem,
-                          x = 50,
-                          y = 20,
-                          width = 700,
-                          height = 95,
-                          radius_x = 10,
-                          radius_y = 10,
-                          stroke_color_rgba = 0x666666FFL,
-                          fill_color_rgba = 0x33333333L,
-                          line_width = 2.0)
+      ok.translate(200,-70)
+      ok.connect("button_press_event", self.ok_event)
+      gcompris.utils.item_focus_init(ok, None)
 
 
-          #Previous Button
-          ok = goocanvas.Svg(parent = self.rootitem,
-                         svg_handle = gcompris.skin.svg_get(),
-                         svg_id = "#PREVIOUS",
-                         tooltip = _("Click to move to previous story page")
-                         )
-          ok.translate(-300,50)
-          ok.connect("button_press_event", self.previous_event, self.gcomprisBoard.level)
-          gcompris.utils.item_focus_init(ok, None)
+  def display_story(self):
+    gcompris.bar_location(gcompris.BOARD_WIDTH - 140, 350, 0.8)
 
-          #Next Button
-          ok = goocanvas.Svg(parent = self.rootitem,
-                         svg_handle = gcompris.skin.svg_get(),
-                         svg_id = "#NEXT",
-                         tooltip = _("Click to move to next story page")
-                         )
-          ok.translate(75,-58)
-          ok.connect("button_press_event", self.next_event, self.gcomprisBoard.level)
-          gcompris.utils.item_focus_init(ok, None)
+    self.rootitem = goocanvas.Group(parent =
+                                    self.gcomprisBoard.canvas.get_root_item())
 
-          #Display name of louis braille
-          for index in range(5):
-              BrailleChar(self.rootitem,(index+1) *(CELL_WIDTH + 20)+30,
-                             20, 50, LOUIS_BRAILLE_NAME[index] ,COLOR_ON, COLOR_OFF,
-                             CIRCLE_FILL, CIRCLE_FILL, True,False ,False, None)
-          for index in range(5,12):
-              BrailleChar(self.rootitem,(index+1) *(CELL_WIDTH + 20)+65,
-                             20, 50, LOUIS_BRAILLE_NAME[index] ,COLOR_ON, COLOR_OFF,
-                             CIRCLE_FILL, CIRCLE_FILL,True,False ,False, None)
+    goocanvas.Rect( parent = self.rootitem,
+                    x = 50,
+                    y = 20,
+                    width = 700,
+                    height = 95,
+                    radius_x = 10,
+                    radius_y = 10,
+                    stroke_color_rgba = 0x666666FFL,
+                    fill_color_rgba = 0x33333333L,
+                    line_width = 2.0 )
 
-          story = self.dataset.get(str(level), _("story"))
 
-          # Displaying the YEAR
-          item = goocanvas.Text(parent = self.rootitem,
-                   x = 420.0,
-                   y = 400.0,
-                   text=str(self.dataset.get(str(level) , "year")),
-                   fill_color="black",
-                   anchor = gtk.ANCHOR_CENTER,
-                   alignment = pango.ALIGN_CENTER,
-                   font = gcompris.skin.get_font("gcompris/title")
-                   )
-          bounds = item.get_bounds()
+    # Previous Button
+    ok = goocanvas.Svg( parent = self.rootitem,
+                        svg_handle = gcompris.skin.svg_get(),
+                        svg_id = "#PREVIOUS",
+                        )
+    ok.translate(-300,50)
+    ok.connect("button_press_event", self.previous_event, None)
+    gcompris.utils.item_focus_init(ok, None)
 
-          #Rectangle for YEAR
-          gapx = 10
-          gapy = 4
-          item = goocanvas.Rect(parent = self.rootitem,
-                         x = bounds.x1 - gapx,
-                         y = bounds.y1 - gapy,
-                         width = (bounds.x2 - bounds.x1) + gapx * 2,
-                         height = (bounds.y2 - bounds.y1) + gapy * 2,
-                         stroke_color = "orange",
-                         fill_color = "white",
-                         line_width = 2.0)
-          item.lower(None)
+    # Next Button
+    ok = goocanvas.Svg(parent = self.rootitem,
+                       svg_handle = gcompris.skin.svg_get(),
+                       svg_id = "#NEXT",
+                       )
+    ok.translate(75,-58)
+    ok.connect("button_press_event", self.next_event, None)
+    gcompris.utils.item_focus_init(ok, None)
 
-          #Rectangle for STORY
-          goocanvas.Rect(parent=self.rootitem,
-                          x = 40,
-                          y = 425,
-                          width = 720,
-                          height = 85,
-                          stroke_color = "orange",
-                          fill_color = "white",
-                          line_width = 2.0)
+    # Display name of louis braille
+    for index in range(5):
+      BrailleChar(self.rootitem,(index+1) *(CELL_WIDTH + 20)+30,
+                  20, 50, LOUIS_BRAILLE_NAME[index] ,COLOR_ON, COLOR_OFF,
+                  CIRCLE_FILL, CIRCLE_FILL, True,False ,False, None)
+    for index in range(5,12):
+      BrailleChar(self.rootitem,(index+1) *(CELL_WIDTH + 20)+65,
+                  20, 50, LOUIS_BRAILLE_NAME[index] ,COLOR_ON, COLOR_OFF,
+                  CIRCLE_FILL, CIRCLE_FILL,True,False ,False, None)
 
-          #Displaying the STORY
-          goocanvas.Text(parent = self.rootitem,
-                   x=400.0,
-                   y=465.0,
-                   text=str(story),
-                   fill_color="black",
-                   anchor = gtk.ANCHOR_CENTER,
-                   alignment = pango.ALIGN_CENTER,
-                   width = 710,
-                   font = gcompris.skin.get_font("gcompris/subtitle")
-                   )
+    # Displaying the YEAR
+    self.year_item = \
+        goocanvas.Text(parent = self.rootitem,
+                       x = 420.0,
+                       y = 400.0,
+                       fill_color="black",
+                       anchor = gtk.ANCHOR_CENTER,
+                       alignment = pango.ALIGN_CENTER,
+                       font = gcompris.skin.get_font("gcompris/title")
+                       )
 
-          #Displaying the IMAGE
-          pixbuf = \
-              gcompris.utils.load_pixmap( (str(self.dataset.get(str(level),
-                                                                "image"))) )
-          goocanvas.Image(parent = self.rootitem,
-                          pixbuf = pixbuf,
-                          x = 300,
-                          y = 120,
-                          )
+    # Rectangle for STORY
+    self.year_rect = \
+        goocanvas.Rect(parent=self.rootitem,
+                       x = 40,
+                       y = 425,
+                       width = 720,
+                       height = 85,
+                       stroke_color = "orange",
+                       fill_color = "white",
+                       line_width = 2.0)
+    self.year_rect.lower(None)
+
+    # Rectangle for STORY
+    goocanvas.Rect(parent=self.rootitem,
+                   x = 40,
+                   y = 425,
+                   width = 720,
+                   height = 85,
+                   stroke_color = "orange",
+                   fill_color = "white",
+                   line_width = 2.0)
+
+    # Displaying the STORY
+    self.storyitem = \
+        goocanvas.Text(parent = self.rootitem,
+                       x=400.0,
+                       y=465.0,
+                       fill_color="black",
+                       anchor = gtk.ANCHOR_CENTER,
+                       alignment = pango.ALIGN_CENTER,
+                       width = 710,
+                       font = gcompris.skin.get_font("gcompris/subtitle")
+                       )
+
+    self.imageitem = \
+        goocanvas.Image(parent = self.rootitem,
+                        x = 300,
+                        y = 120,
+                        )
+    self.imageitem.connect("button_press_event", self.next_event, None)
+    self.display_image()
+
+  def display_image(self):
+    pixbuf = \
+        gcompris.utils.load_pixmap( (str(self.dataset.get(str(self.gcomprisBoard.level),
+                                                          "image"))) )
+    self.imageitem.set_properties(pixbuf = pixbuf)
+    story = self.dataset.get( str(self.gcomprisBoard.level), _("story") )
+    self.storyitem.set_properties(text = story)
+    year = self.dataset.get( str(self.gcomprisBoard.level) , _("year") )
+    self.year_item.set_properties(text = year)
+    bounds = self.year_item.get_bounds()
+    gapx = 10
+    gapy = 4
+    self.year_rect.set_properties(
+      x = bounds.x1 - gapx,
+      y = bounds.y1 - gapy,
+      width = (bounds.x2 - bounds.x1) + gapx * 2,
+      height = (bounds.y2 - bounds.y1) + gapy * 2,
+      )
+
 
   def ok_event(self, event ,target ,item):
-      if ( self.reordering.is_done() ):
-          gcompris.bonus.display(gcompris.bonus.WIN,gcompris.bonus.TUX)
-          self.gamewon = 1
-      else :
-          self.reordering.is_not_done()
+    if ( self.reordering.is_done() ):
+      gcompris.bonus.display(gcompris.bonus.WIN,gcompris.bonus.TUX)
+      self.gamewon = 1
+    else :
+      self.reordering.is_not_done()
 
-  def previous_event(self, event, target,item, level):
+  def refresh_level(self):
+    if ( self.gcomprisBoard.level == 1 ):
+      self.end()
+      self.display_story()
+    elif ( self.gcomprisBoard.level != 12 ):
+      self.display_image()
+    else:
+      self.end()
+      self.display_game()
+
+  def previous_event(self, event, target,item, dummy):
       if (self.gcomprisBoard.level == 1):
           self.gcomprisBoard.level = self.gcomprisBoard.maxlevel
       else :
-          self.gcomprisBoard.level = level - 1
-      self.end()
-      self.start()
+          self.gcomprisBoard.level -= 1
+      self.refresh_level()
 
-  def next_event(self, event, target, item, level):
+  def next_event(self, event, target, item, dummy):
       if (self.gcomprisBoard.level == self.gcomprisBoard.maxlevel):
           self.gcomprisBoard.level = 1
       else :
-          self.gcomprisBoard.level = level + 1
-      self.end()
-      self.start()
+          self.gcomprisBoard.level += 1
+      self.refresh_level()
 
   def end(self):
     # Remove the root item removes all the others inside it
