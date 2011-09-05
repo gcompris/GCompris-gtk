@@ -288,12 +288,11 @@ class Gcompris_braille_lotto:
                             )
 
       if (self.check_random[self.counter] in self.ticket_array[0:6]):
-          self.findColumn()
           #Translators : Do not translate the token {column}
           self.status_one.props.text = \
-              _("Hey, you have it. Its there in your {column} column").format(column = self.column)
+              _("Hey, you have it. It is there in your {column} column").format( column = self.findColumn() )
       else :
-          self.status_one.props.text = _("Oops,number isn't there in your ticket!")
+          self.status_one.props.text = _("Oops, this number is not in your ticket!")
       self.timerAnim = gobject.timeout_add(1500, self.hideCalloutLeft)
 
   def clue_right(self, event , target, item):
@@ -312,12 +311,11 @@ class Gcompris_braille_lotto:
                             anchor=gtk.ANCHOR_CENTER,
                             )
       if (self.check_random[self.counter] in self.ticket_array[6:12]):
-          self.findColumn()
           #Translators : Do not translate the token {column}
           self.status_two.props.text = \
-              _("Hey, you have it. Its there in your {column} column").format(column = self.column)
+              _("Hey, you have it. It is there in your {column} column").format( column = self.findColumn() )
       else :
-          self.status_two.props.text = _("Oops, number isn't there in your ticket!")
+          self.status_two.props.text = _("Oops, this number is not in your ticket!")
       self.timerAnim = gobject.timeout_add(1500, self.hideCalloutRight)
 
 
@@ -331,16 +329,16 @@ class Gcompris_braille_lotto:
 
   def findColumn(self):
       if self.check_random[self.counter] <= 25:
-          self.column = "1st"
+          column = _("1st")
       elif self.check_random[self.counter] <= 50 \
-            and self.check_random[self.counter] > 25 :
-          self.column = "2nd"
+            and self.check_random[self.counter] > 25:
+          column = _("2nd")
       elif self.check_random[self.counter] <= 75 \
-            and self.check_random[self.counter] > 50 :
-          self.column = "3rd"
+            and self.check_random[self.counter] > 50:
+          column = _("3rd")
       else :
-          self.column = "4th"
-
+          column = _("4th")
+      return column
 
   def generateNumber(self, item, event, target):
         self.check_number.set_property("text","")
@@ -362,7 +360,11 @@ class Gcompris_braille_lotto:
                            )
 
   def game_over(self):
-          self.pause(1)
+    # Hide the game status
+    self.game.props.visibility = goocanvas.ITEM_INVISIBLE
+    self.game_status.props.visibility = goocanvas.ITEM_INVISIBLE
+    self.gamewon = 1
+    gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.FLOWER)
 
   def displayTicketBox(self, x, y):
       goocanvas.Rect(
