@@ -37,17 +37,6 @@ COLOR_OFF = 0X00000000L
 CIRCLE_FILL = "white"
 CIRCLE_STROKE = "black"
 
-#Array Declaration
-letter_arr_one = ['A','B','C','D','E','F','G']
-random.shuffle(letter_arr_one)
-letter_arr_two = ['H','I','J','K','L','M','N']
-random.shuffle(letter_arr_two)
-letter_arr_three = ['O','P','Q','R','S','T','U']
-random.shuffle(letter_arr_three)
-letter_arr_four = ['V','W','V','X','Y','Z']
-random.shuffle(letter_arr_four)
-letter_arr_five = [0,1,2,3,4,5,6,7,8,9]
-random.shuffle(letter_arr_five)
 
 class Gcompris_braille_alphabets:
   """Empty gcompris python class"""
@@ -60,8 +49,8 @@ class Gcompris_braille_alphabets:
     self.counter = 0
     self.gcomprisBoard = gcomprisBoard
     self.gcomprisBoard.level = 1
-    self.gcomprisBoard.maxlevel=6
-    self.gcomprisBoard.sublevel=1
+    self.gcomprisBoard.maxlevel = 5
+    self.gcomprisBoard.sublevel = 1
     self.gcomprisBoard.number_of_sublevel=1
 
     #Boolean variable decaration
@@ -149,7 +138,7 @@ class Gcompris_braille_alphabets:
             self.gcomprisBoard.level = 1
 
 
-  def board_upper(self,level):
+  def board_upper(self, level):
     if(level == 1):
         gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                             "braille_alphabets/braille_tux.svgz")
@@ -198,43 +187,43 @@ class Gcompris_braille_alphabets:
                         text = _("When you are ready, click on "
                         "me and try reproducing Braille characters."))
     elif(level == 2):
-        range_lower= 0
-        range_upper= 7
-        self.sublevel = range_upper - range_lower
-        self.board_tile(range_lower,range_upper)
-        self.random_letter = letter_arr_one[self.counter]
+        chars = ['A','B','C','D','E','F','G','H','I','J']
+        self.sublevel = len(chars)
+        if self.counter == 0:
+          self.chars_shuffled = list(chars)
+          random.shuffle( self.chars_shuffled )
+        self.board_tile( chars )
+        self.random_letter = self.chars_shuffled[self.counter]
         self.braille_cell(level)
 
     elif(level == 3) :
-        range_lower= 7
-        range_upper= 14
-        self.sublevel = range_upper - range_lower
-        self.board_tile(range_lower,range_upper)
-        self.random_letter = letter_arr_two[self.counter]
+        chars = ['K','L','M','N','O','P','Q','R','S','T']
+        self.sublevel = len(chars)
+        if self.counter == 0:
+          self.chars_shuffled = list(chars)
+          random.shuffle(self.chars_shuffled)
+        self.board_tile( chars )
+        self.random_letter = self.chars_shuffled[self.counter]
         self.braille_cell(level)
 
     elif(level == 4):
-        range_lower= 14
-        range_upper= 21
-        self.sublevel = range_upper - range_lower
-        self.board_tile(range_lower,range_upper)
-        self.random_letter = letter_arr_three[self.counter]
+        chars = ['U','V','X','Y','Z','W']
+        self.sublevel = len(chars)
+        if self.counter == 0:
+          self.chars_shuffled = list(chars)
+          random.shuffle(self.chars_shuffled)
+        self.board_tile( chars )
+        self.random_letter = self.chars_shuffled[self.counter]
         self.braille_cell(level)
 
     elif(level == 5):
-        range_lower= 21
-        range_upper= 26
-        self.sublevel = range_upper - range_lower
-        self.board_tile(range_lower,range_upper)
-        self.random_letter = letter_arr_four[self.counter]
-        self.braille_cell(level)
-
-    elif(level == 6):
-        range_lower= 0
-        range_upper= 10
-        self.sublevel = range_upper - range_lower
-        self.board_number(range_lower,range_upper)
-        self.random_letter = letter_arr_five[self.counter]
+        chars = [0,1,2,3,4,5,6,7,8,9]
+        self.sublevel = len(chars)
+        if self.counter == 0:
+          self.chars_shuffled = list(chars)
+          random.shuffle(self.chars_shuffled)
+        self.board_number()
+        self.random_letter = self.chars_shuffled[self.counter]
         self.braille_letter = "number"
         self.braille_cell(level)
 
@@ -244,15 +233,16 @@ class Gcompris_braille_alphabets:
       self.end()
       self.start()
 
-  def board_tile(self,range_x,range_y):
-      for i, letter in enumerate(string.ascii_uppercase[range_x:range_y]):
-          tile = BrailleChar(self.rootitem, i*(CELL_WIDTH+60)+60,
-                              80, 50, letter ,COLOR_ON ,COLOR_OFF ,CIRCLE_FILL,
+  def board_tile(self, chars):
+      for i, letter in enumerate( chars ):
+          tile = BrailleChar(self.rootitem, i*(CELL_WIDTH+40)+60,
+                              60, 50, letter ,COLOR_ON ,COLOR_OFF ,CIRCLE_FILL,
                               CIRCLE_STROKE, True ,False ,True, None)
-  def board_number(self,num_1,num_2):
-      for letter in range(num_1,num_2):
-          tile = BrailleChar(self.rootitem,letter *(CELL_WIDTH+30)+60,
-                             80, 50, letter ,COLOR_ON ,COLOR_OFF ,CIRCLE_FILL,
+
+  def board_number(self):
+      for letter in range(0, 10):
+          tile = BrailleChar(self.rootitem, letter *(CELL_WIDTH+40)+60,
+                             60, 50, letter ,COLOR_ON ,COLOR_OFF ,CIRCLE_FILL,
                              CIRCLE_STROKE, True,False ,True, None)
 
   def display_letter(self,letter):
@@ -265,39 +255,52 @@ class Gcompris_braille_alphabets:
                                  text=str(letter))
 
   def braille_cell(self, level):
-      if (level == 6):
-          self.letter = "number"
-      else :
-          self.letter = "alphabet"
+      # Translators : Do not translate the token {letter}
+      message = _("Click on the dots in braille cell area to produce the "
+                  "letter {letter}.").format(letter = self.random_letter)
+
+      self.letter = "alphabet"
+      if (level == 3):
+        message += "\n" + _("Look at the char map and observe the first and second"
+                            " line how they are similar.")
+      elif (level == 4):
+        message += "\n" + _("Take care, the 'W' letter was added afterwards.")
+      elif (level == 5):
+        message += "\n" + _("This is easy, numbers are the same as letters from A to J.")
+        self.letter = "number"
 
       gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                             "braille_alphabets/mosaic.svgz")
 
-      # Translators : Do not translate the token {letter}
       goocanvas.Text(parent = self.rootitem,
-                     x = 100,
+                     x = 400,
                      y = 200,
-                     text=_("Click on the dots in braille cell area to produce letter {letter}").format(letter = self.random_letter),
-                     fill_color="black",
-                     font='SANS 15')
+                     text = message,
+                     fill_color = "black",
+                     font = 'SANS 14',
+                     width = 780,
+                     anchor = gtk.ANCHOR_CENTER,
+                     alignment = pango.ALIGN_CENTER)
 
       goocanvas.Text(parent=self.rootitem,
                       x=160.0, y=250.0,
                      text=_("Braille Cell"),
                      fill_color="black",
                      font='Sans BOLD')
+
       BrailleChar(self.rootitem, 150, 270, 120, '',
                   COLOR_ON ,COLOR_OFF, CIRCLE_FILL, CIRCLE_STROKE,
                   False, True, False, callback = self.letter_change,
                   braille_letter = self.letter)
+
       for i in range(2):
           for j in range(3):
-                  goocanvas.Text(parent=self.rootitem,
-                                 text=(str(j + 1 + i * 3)),
-                                 font='Sans 20',
-                                 fill_color="black",
-                                 x=i * 120 + 140,
-                                 y=j * 45 + 290)
+                  goocanvas.Text(parent = self.rootitem,
+                                 text = ( str(j + 1 + i * 3) ),
+                                 font = 'Sans 20',
+                                 fill_color = "black",
+                                 x = i * 120 + 140,
+                                 y = j * 45 + 290)
 
       # OK Button
       ok = goocanvas.Svg(parent = self.rootitem,

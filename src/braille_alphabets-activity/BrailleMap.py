@@ -64,10 +64,14 @@ class BrailleMap:
           BrailleChar(rootitem, index*(CELL_WIDTH+40)+60,
                               130, 38, letter ,COLOR_ON, COLOR_OFF, CIRCLE_FILL,
                               CIRCLE_STROKE,True ,False ,True , None)
-      for index, letter in enumerate(string.ascii_uppercase[20:26]):
+      # Put the W at the end to align the braille codes properly
+      for index, letter in enumerate(['U', 'V', 'X', 'Y', 'Z']):
           BrailleChar(rootitem, index*(CELL_WIDTH+40)+60,
                               220, 38, letter ,COLOR_ON, COLOR_OFF, CIRCLE_FILL,
                               CIRCLE_STROKE,True ,False ,True , None)
+      BrailleChar(rootitem, (index + 2) *(CELL_WIDTH+40)+60,
+                  220, 38, 'W' ,COLOR_ON, COLOR_OFF, CIRCLE_FILL,
+                  CIRCLE_STROKE,True ,False ,True , None)
 
       # The number line (Keep it aligned with the ASCII in the Braille sense)
       for index in range(0, 9):
@@ -87,7 +91,7 @@ class BrailleMap:
       # Move back item
       item = goocanvas.Image(parent = rootitem,
                              pixbuf = gcompris.utils.load_pixmap("braille_alphabets/back.svg"),
-                             x = 600,
+                             x = 430,
                              y = 400,
                              tooltip = _("Back to the activity")
                              )
