@@ -46,15 +46,19 @@ class Gcompris_braille_alphabets:
     # Save the gcomprisBoard, it defines everything we need
     # to know from the core
     #defining the number of levels in activity
-    self.counter = 0
     self.gcomprisBoard = gcomprisBoard
     self.gcomprisBoard.level = 1
     self.gcomprisBoard.maxlevel = 5
     self.gcomprisBoard.sublevel = 1
-    self.gcomprisBoard.number_of_sublevel=1
+    self.gcomprisBoard.number_of_sublevel = 1
 
     #Boolean variable decaration
     self.mapActive = False
+
+    # These are used to let us restart only after the bonus is displayed.
+    # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
+    self.board_paused  = 0
+    self.gamewon       = False
 
     # Needed to get key_press
     gcomprisBoard.disable_im_context = True
@@ -68,19 +72,15 @@ class Gcompris_braille_alphabets:
     gcompris.bar_set_repeat_icon(pixmap)
     gcompris.bar_set(gcompris.BAR_LEVEL|gcompris.BAR_REPEAT_ICON)
     gcompris.bar_location(20, -1, 0.6)
-    # Create our rootitem. We put each canvas item in it so at the end we
-    # only have to kill it. The canvas deletes all the items it contains
-    # automaticaly.
-
-    self.rootitem = goocanvas.Group(parent=
-                                   self.gcomprisBoard.canvas.get_root_item())
-    self.board_upper(self.gcomprisBoard.level)
 
     # The root item for the help
     self.map_rootitem = \
         goocanvas.Group( parent = self.gcomprisBoard.canvas.get_root_item() )
     BrailleMap(self.map_rootitem, self.move_back)
     self.map_rootitem.props.visibility = goocanvas.ITEM_INVISIBLE
+
+    self.rootitem = None
+    self.display_level(self.gcomprisBoard.level)
 
 
   def end(self):
@@ -111,34 +111,48 @@ class Gcompris_braille_alphabets:
     pass
 
   def pause(self,pause):
-    if(pause == 0):
-        self.counter +=1
-        if (self.counter == self.sublevel):
-            self.increment_level()
-        self.end()
-        self.start()
+    self.board_paused = pause
+    # This is to hide the Repeat board
+    if self.mapActive == True:
+        self.root.props.visibility = goocanvas.ITEM_INVISIBLE
+
+    if (self.board_paused):
+        return
+
+    if self.gamewon:
+      self.increment_level()
+
+    print "pause " ,  self.gcomprisBoard.sublevel
+    self.gamewon = False
+    self.display_level(self.gcomprisBoard.level)
 
   def set_level(self,level):
     gcompris.sound.play_ogg("sounds/receive.wav")
     self.gcomprisBoard.level = level
     self.gcomprisBoard.sublevel = 1
     gcompris.bar_set_level(self.gcomprisBoard)
-    self.end()
-    self.start()
+    self.display_level(self.gcomprisBoard.level)
 
   def increment_level(self):
-    self.counter = 0
     gcompris.sound.play_ogg("sounds/bleep.wav")
     self.gcomprisBoard.sublevel += 1
 
-    if(self.gcomprisBoard.sublevel>self.gcomprisBoard.number_of_sublevel):
-        self.gcomprisBoard.sublevel=1
+    if(self.gcomprisBoard.sublevel > self.gcomprisBoard.number_of_sublevel):
+        self.gcomprisBoard.sublevel = 1
         self.gcomprisBoard.level += 1
         if(self.gcomprisBoard.level > self.gcomprisBoard.maxlevel):
             self.gcomprisBoard.level = 1
 
 
-  def board_upper(self, level):
+  def display_level(self, level):
+
+    if self.rootitem:
+      self.rootitem.remove()
+
+    self.rootitem = goocanvas.Group(parent=
+                                   self.gcomprisBoard.canvas.get_root_item())
+    self.map_rootitem.raise_(None)
+
     if(level == 1):
         gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                             "braille_alphabets/braille_tux.svgz")
@@ -188,50 +202,49 @@ class Gcompris_braille_alphabets:
                         "me and try reproducing Braille characters."))
     elif(level == 2):
         chars = ['A','B','C','D','E','F','G','H','I','J']
-        self.sublevel = len(chars)
-        if self.counter == 0:
+        self.gcomprisBoard.number_of_sublevel = len(chars)
+        if self.gcomprisBoard.sublevel == 1:
           self.chars_shuffled = list(chars)
           random.shuffle( self.chars_shuffled )
+          print self.chars_shuffled
         self.board_tile( chars )
-        self.random_letter = self.chars_shuffled[self.counter]
+        self.random_letter = self.chars_shuffled[self.gcomprisBoard.sublevel - 1]
         self.braille_cell(level)
 
     elif(level == 3) :
         chars = ['K','L','M','N','O','P','Q','R','S','T']
-        self.sublevel = len(chars)
-        if self.counter == 0:
+        self.gcomprisBoard.number_of_sublevel = len(chars)
+        if self.gcomprisBoard.sublevel == 1:
           self.chars_shuffled = list(chars)
           random.shuffle(self.chars_shuffled)
         self.board_tile( chars )
-        self.random_letter = self.chars_shuffled[self.counter]
+        self.random_letter = self.chars_shuffled[self.gcomprisBoard.sublevel - 1]
         self.braille_cell(level)
 
     elif(level == 4):
         chars = ['U','V','X','Y','Z','W']
-        self.sublevel = len(chars)
-        if self.counter == 0:
+        self.gcomprisBoard.number_of_sublevel = len(chars)
+        if self.gcomprisBoard.sublevel == 1:
           self.chars_shuffled = list(chars)
           random.shuffle(self.chars_shuffled)
         self.board_tile( chars )
-        self.random_letter = self.chars_shuffled[self.counter]
+        self.random_letter = self.chars_shuffled[self.gcomprisBoard.sublevel - 1]
         self.braille_cell(level)
 
     elif(level == 5):
         chars = [0,1,2,3,4,5,6,7,8,9]
-        self.sublevel = len(chars)
-        if self.counter == 0:
+        self.gcomprisBoard.number_of_sublevel = len(chars)
+        if self.gcomprisBoard.sublevel == 1:
           self.chars_shuffled = list(chars)
           random.shuffle(self.chars_shuffled)
         self.board_number()
-        self.random_letter = self.chars_shuffled[self.counter]
-        self.braille_letter = "number"
+        self.random_letter = self.chars_shuffled[self.gcomprisBoard.sublevel - 1]
         self.braille_cell(level)
 
 
   def next_level(self,event,target,item):
       self.increment_level()
-      self.end()
-      self.start()
+      self.display_level(self.gcomprisBoard.level)
 
   def board_tile(self, chars):
       for i, letter in enumerate( chars ):
@@ -261,12 +274,14 @@ class Gcompris_braille_alphabets:
 
       self.letter = "alphabet"
       if (level == 3):
-        message += "\n" + _("Look at the char map and observe the first and second"
-                            " line how they are similar.")
+        message += "\n" + _("Look at the Braille character map and observe how "
+                            "similar the first and second line are.")
       elif (level == 4):
-        message += "\n" + _("Take care, the 'W' letter was added afterwards.")
+        message += "\n" + _("Again, similar as the first line but take care, "
+                            "the 'W' letter was added afterwards.")
       elif (level == 5):
-        message += "\n" + _("This is easy, numbers are the same as letters from A to J.")
+        message += "\n" + _("This is easy, numbers are the same as letters "
+                            "from A to J.")
         self.letter = "number"
 
       gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
@@ -316,6 +331,7 @@ class Gcompris_braille_alphabets:
   def ok_event(self,item,target,event):
       if(self.random_letter == self.correct_letter):
           self.display_letter(self.correct_letter)
+          self.gamewon = True
           gcompris.bonus.display(gcompris.bonus.WIN,gcompris.bonus.SMILEY)
       else :
           gcompris.bonus.display(gcompris.bonus.LOOSE,gcompris.bonus.SMILEY)
