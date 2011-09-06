@@ -67,6 +67,7 @@ class Gcompris_braille_fun:
     gcomprisBoard.disable_im_context = True
 
   def start(self):
+    self.reseted = False
     # Set the buttons we want in the bar
     gcompris.bar_set(gcompris.BAR_LEVEL)
     gcompris.bar_location(300,-1,0.6)
@@ -222,16 +223,21 @@ class Gcompris_braille_fun:
     gcompris.bonus.display(gcompris.bonus.WIN,gcompris.bonus.SMILEY)
 
   def animationFinished(self, item, status):
+      if self.reseted:
+        return
+      print "animationFinished"
       if (self.counter != self.gcomprisBoard.level) :
           self.gamewon = False
           gcompris.bonus.display(gcompris.bonus.LOOSE,gcompris.bonus.SMILEY)
 
   def end(self):
+    self.reseted = True
     # Remove the root item removes all the others inside it
     self.root.remove()
     self.map_rootitem.remove()
     self.horizontalTextRoot.remove()
     self.verticalTextRoot.remove()
+    gcompris.score.end()
 
   def ok(self):
     pass
