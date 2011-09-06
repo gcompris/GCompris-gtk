@@ -4,14 +4,15 @@
 	 name="click_on_letter"
 	 type="click_on_letter"
 	 section="/reading"
-	 icon="click_on_letter.svg"
+	 mode="uppercase"
+	 icon="click_on_letter_up.svg"
 	 mandatory_sound_dir="voices/$LOCALE/alphabet"
 	 mandatory_sound_file="voices/$LOCALE/misc/click_on_letter.ogg"
 	 difficulty="1"
 	 author="Pascal Georges (pascal.georges1@free.fr)"
 	 boarddir="click_on_letter"
 	 demo="1">
-	 <_title>Click on a lowercase letter</_title>
+	 <_title>Click on an uppercase letter</_title>
 	 <_description>Listen to a letter and click on the right one</_description>
         <_prerequisite>Visual letter-recognition. Can move the mouse.</_prerequisite>
         <_goal>Letter-name recognition</_goal>

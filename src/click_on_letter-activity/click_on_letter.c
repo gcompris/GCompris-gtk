@@ -172,13 +172,6 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
   gc_locale_set(g_hash_table_lookup( config, "locale_sound"));
 
-  gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
-
-  if (up_init_str && (strcmp(up_init_str, "True")==0))
-    uppercase_only = TRUE;
-  else
-    uppercase_only = FALSE;
-
   g_hash_table_destroy(config);
 
   ready = sounds_are_fine();
@@ -188,6 +181,12 @@ static void start_board (GcomprisBoard *agcomprisBoard)
   if (agcomprisBoard!=NULL)
     {
       gcomprisBoard=agcomprisBoard;
+
+      if ( gcomprisBoard->mode && g_strcasecmp(gcomprisBoard->mode, "uppercase")==0 )
+	uppercase_only = TRUE;
+      else
+	uppercase_only = FALSE;
+
       gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			      "click_on_letter/background.svgz");
 
@@ -754,12 +753,10 @@ static void load_datafile() {
 
   // Reset the alphabet to match the current locale
   alphabet = get_alphabet();
-  printf("alphabet=%s\n", alphabet);
 
   /* create level array */
   levels = g_array_sized_new (FALSE, FALSE, sizeof (Level), 10);
 
-  printf("load_datafile %s\n", filename);
   if ( filename )
     {
       load_desktop_datafile(filename);
@@ -1046,15 +1043,6 @@ conf_ok(GHashTable *table)
     printf("conf_ok =%s\n", (char*)g_hash_table_lookup(config, "locale_sound"));
     gc_locale_set(g_hash_table_lookup(config, "locale_sound"));
 
-    gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
-    if (up_init_str)
-      {
-	if(strcmp(up_init_str, "True")==0)
-	  uppercase_only = TRUE;
-	else
-	  uppercase_only = FALSE;
-      }
-
     if (profile_conf)
       g_hash_table_destroy(config);
 
@@ -1339,17 +1327,6 @@ config_start(GcomprisBoard *agcomprisBoard,
   gc_board_config_combo_locales_asset(bconf, "Select sound locale", saved_locale_sound,
 				      "voices/$LOCALE/colors/purple.ogg",
 				      G_CALLBACK (locale_changed));
-
-  gboolean up_init = FALSE;
-
-  gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
-
-  if (up_init_str && (strcmp(up_init_str, "True")==0))
-    up_init = TRUE;
-
-  gc_board_config_boolean_box(bconf, _("Uppercase only text"),
-		       "uppercase_only",
-		       up_init);
 
   /* frame */
   GtkWidget *frame = gtk_frame_new("");

@@ -646,6 +646,7 @@ src/chronos-activity/resources/chronos/Makefile
 src/click_on_letter-activity/Makefile
 src/click_on_letter-activity/resources/Makefile
 src/click_on_letter-activity/resources/click_on_letter/Makefile
+src/click_on_letter_up-activity/Makefile
 src/clickanddraw-activity/Makefile
 src/clickgame-activity/Makefile
 src/clickgame-activity/resources/Makefile

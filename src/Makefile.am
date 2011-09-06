@@ -25,6 +25,7 @@ SUBDIRS = \
 	chess_partyend-activity \
 	chronos-activity \
 	click_on_letter-activity \
+	click_on_letter_up-activity \
 	clickanddraw-activity \
 	clickgame-activity \
 	clockgame-activity \
