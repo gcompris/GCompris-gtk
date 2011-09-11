@@ -1,1 +1,0 @@
-SUBDIRS = dicey_dicey
