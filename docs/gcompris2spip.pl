@@ -110,6 +110,7 @@ my %sections = (
 		"zh_CN", 425,
 		"zh_HK", 0,
 		"zh_TW", 0,
+		"zu", 0,
 	       );
 
 my %rubriques = (
@@ -181,6 +182,7 @@ my %rubriques = (
 		 "zh_CN", 430,
 		 "zh_HK", 0,
 		 "zh_TW", 0,
+		 "zu", 0,
 		);
 
 
@@ -253,6 +255,7 @@ my %rubriques_all = (
 		 "zh_CN", 431,
 		 "zh_HK", 0,
 		 "zh_TW", 0,
+		 "zu", 0,
 		);
 #-------------------------------------------------------------------------------
 sub spip_cleanup {
