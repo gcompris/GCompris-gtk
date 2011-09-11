@@ -76,7 +76,7 @@ enum
 #define HORIZONTAL_SEPARATION -1
 
 #define N_LETTER_PER_LINE 6
-#define MAX_N_LETTER_LINE 3
+#define MAX_N_LETTER_LINE 4
 #define MAX_N_ANSWER      (N_LETTER_PER_LINE * MAX_N_LETTER_LINE)
 
 #define NOT_OK		0
@@ -517,10 +517,10 @@ static GooCanvasItem *click_on_letter_create_item(GooCanvasItem *parent)
   if ( ! _repeat() )
   {
     /* Sound was not played, display the letter to find instead */
-    guint x = 300;
-    guint y = 30;
-    guint width = 100;
-    guint height = 100;
+    guint x = 10;
+    guint y = 110;
+    guint width = 80;
+    guint height = 80;
     goo_canvas_rect_new (boardRootItem,
 			 x,
 			 y,
