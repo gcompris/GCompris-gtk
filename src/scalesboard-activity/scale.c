@@ -1004,7 +1004,7 @@ scale_next_level()
   /* display some hint */
   if(gcomprisBoard->level > 2 || board_mode == MODE_WEIGHT)
     goo_canvas_text_new(boardRootItem,
-			_("Take care, you can drop masses on both sides of the scale."),
+			_("Take care, you can drop weights on both sides of the scale."),
 			BOARDWIDTH/2,
 			ITEM_Y_MIN - 20,
 			-1,
