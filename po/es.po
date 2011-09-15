@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: gcompris.gcomprixogoo\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2011-09-06 01:20+0000\n"
-"PO-Revision-Date: 2011-09-06 11:54+0200\n"
+"POT-Creation-Date: 2011-09-11 21:24+0000\n"
+"PO-Revision-Date: 2011-09-15 12:17+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -45,7 +45,6 @@ msgstr "Varias actividades de cálculo."
 
 #: ../boards/braille.xml.in.h:1
 #: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:1
-#| msgid "Discover the Computer"
 msgid "Discover the Braille system"
 msgstr "Descubre el sistema Braille"
 
@@ -348,7 +347,7 @@ msgid ""
 "continue?$\\r$\\rNote: Any non-standard plugins that you may have installed "
 "will be deleted.$\\rGCompris user settings will not be affected."
 msgstr ""
-"Se va a eliminar su directorio GCompris. Quiere continuar?$\\r$\\rNota: se "
+"Se va a eliminar su carpeta GCompris. ¿Quiere continuar?$\\r$\\rNota: se "
 "borrará cualquier complemento no estándar que haya instalado.$\\rLos ajustes "
 "de GCompris no se verán afectados."
 
@@ -656,7 +655,7 @@ msgid "Board"
 msgstr "Tablero"
 
 #: ../src/administration-activity/admin/log_list.py:246
-#: ../src/click_on_letter-activity/click_on_letter.c:1258
+#: ../src/click_on_letter-activity/click_on_letter.c:1246
 #: ../src/redraw-activity/redraw.py:339
 msgid "Level"
 msgstr "Nivel"
@@ -1555,7 +1554,7 @@ msgstr ""
 "culturales."
 
 #: ../src/babymatch-activity/shapegame.c:1985
-#: ../src/click_on_letter-activity/click_on_letter.c:1326
+#: ../src/click_on_letter-activity/click_on_letter.c:1314
 #, c-format
 msgid ""
 "<b>%1$s</b> configuration\n"
@@ -1730,58 +1729,59 @@ msgstr "Tablero especial que incrusta python dentro de GCompris."
 msgid "Special board that embeds python into gcompris."
 msgstr "Tablero especial que incrusta Python dentro de GCompris."
 
-#: ../src/braille_alphabets-activity/braille_alphabets.py:151
+#: ../src/braille_alphabets-activity/braille_alphabets.py:165
 msgid "Braille : Unlocking the Code"
 msgstr ""
 
 #. Braille Intro
-#: ../src/braille_alphabets-activity/braille_alphabets.py:153
+#: ../src/braille_alphabets-activity/braille_alphabets.py:167
 msgid ""
 "The Braille system is a method that is used by blind people to read and "
 "write."
 msgstr ""
 
 #. Braille Description
-#: ../src/braille_alphabets-activity/braille_alphabets.py:156
+#: ../src/braille_alphabets-activity/braille_alphabets.py:170
 msgid ""
 "Each Braille character, or cell, is made up of six dot positions, arranged "
 "in a rectangle containing two columns of three dots each. As seen on the "
 "left, each dot is referenced by a number from 1 to 6."
 msgstr ""
 
-#: ../src/braille_alphabets-activity/braille_alphabets.py:175
+#: ../src/braille_alphabets-activity/braille_alphabets.py:189
 msgid "I am braille TUX"
 msgstr ""
 
-#: ../src/braille_alphabets-activity/braille_alphabets.py:187
+#: ../src/braille_alphabets-activity/braille_alphabets.py:201
 msgid "When you are ready, click on me and try reproducing Braille characters."
 msgstr ""
 
 #. Translators : Do not translate the token {letter}
-#: ../src/braille_alphabets-activity/braille_alphabets.py:259
+#: ../src/braille_alphabets-activity/braille_alphabets.py:272
 msgid "Click on the dots in braille cell area to produce the letter {letter}."
 msgstr ""
 
-#: ../src/braille_alphabets-activity/braille_alphabets.py:264
+#: ../src/braille_alphabets-activity/braille_alphabets.py:277
 msgid ""
-"Look at the char map and observe the first and second line how they are "
-"similar."
+"Look at the Braille character map and observe how similar the first and "
+"second line are."
 msgstr ""
 
-#: ../src/braille_alphabets-activity/braille_alphabets.py:267
-msgid "Take care, the 'W' letter was added afterwards."
+#: ../src/braille_alphabets-activity/braille_alphabets.py:280
+msgid ""
+"Again, similar as the first line but take care, the 'W' letter was added "
+"afterwards."
 msgstr ""
 
-#: ../src/braille_alphabets-activity/braille_alphabets.py:269
+#: ../src/braille_alphabets-activity/braille_alphabets.py:283
 msgid "This is easy, numbers are the same as letters from A to J."
 msgstr ""
 
-#: ../src/braille_alphabets-activity/braille_alphabets.py:287
+#: ../src/braille_alphabets-activity/braille_alphabets.py:302
 msgid "Braille Cell"
 msgstr ""
 
-#: ../src/braille_alphabets-activity/braille_alphabets.py:309
-#: ../src/dicey_dicey-activity/dicey_dicey.py:142
+#: ../src/braille_alphabets-activity/braille_alphabets.py:324
 msgid "Click to confirm your selection of dots"
 msgstr ""
 
@@ -1839,7 +1839,6 @@ msgid "PLAYER 2"
 msgstr "JUGADOR 2"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:150
-#| msgid "Number"
 msgid "Check Number"
 msgstr ""
 
@@ -1857,7 +1856,6 @@ msgid "Lotto Master"
 msgstr ""
 
 #: ../src/braille_lotto-activity/braille_lotto.py:236
-#| msgid "Guess a number"
 msgid "Generate a number"
 msgstr "Genera un número"
 
@@ -1881,7 +1879,6 @@ msgid "2nd"
 msgstr "2º"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:338
-#| msgid "red"
 msgid "3rd"
 msgstr "3º"
 
@@ -2323,12 +2320,12 @@ msgstr ""
 
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
-#: ../src/click_on_letter-activity/click_on_letter.c:368
+#: ../src/click_on_letter-activity/click_on_letter.c:367
 #: ../src/gletters-activity/gletters.c:229 ../src/memory-activity/memory.c:935
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcdefghijklmnñopqrstuvwxyz"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:379
+#: ../src/click_on_letter-activity/click_on_letter.c:378
 msgid ""
 "This activity will be played with questions displayed as text instead of "
 "being spoken"
@@ -2336,7 +2333,7 @@ msgstr ""
 "Esta actividad se jugará con preguntas mostradas como texto en lugar de "
 "hablarse"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:384
+#: ../src/click_on_letter-activity/click_on_letter.c:383
 #: ../src/memory-activity/memory.c:906
 msgid ""
 "Error: this activity cannot be played with the\n"
@@ -2349,7 +2346,7 @@ msgstr ""
 "Ve al diálogo de configuración para\n"
 "activar el sonido"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:405
+#: ../src/click_on_letter-activity/click_on_letter.c:404
 #, fuzzy, c-format
 #| msgid ""
 #| "Error: this activity requires that you first install\n"
@@ -2361,25 +2358,25 @@ msgstr ""
 "Error: esta actividad requiere que instale primero\n"
 "los paquetes con las voces de GCompris para el idioma «%s» o «%s»"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:908
+#: ../src/click_on_letter-activity/click_on_letter.c:905
 msgid "Questions cannot be empty."
 msgstr "Las preguntas no pueden estar vacías."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:918
+#: ../src/click_on_letter-activity/click_on_letter.c:915
 msgid "Answers cannot be empty."
 msgstr "Las respuestas no pueden estar vacías."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:924
+#: ../src/click_on_letter-activity/click_on_letter.c:921
 #, c-format
 msgid "Too many characters in the Answer (maximum is %d)."
 msgstr "Demasiados caracteres en la respuesta (el máximo es %d)"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:948
+#: ../src/click_on_letter-activity/click_on_letter.c:945
 msgid "All the characters in Questions must also be in the Answers."
 msgstr ""
 "Todos los caracteres de las preguntas deben estar también en las respuestas."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:965
+#: ../src/click_on_letter-activity/click_on_letter.c:962
 #, c-format
 msgid ""
 "Invalid entry:\n"
@@ -2391,34 +2388,26 @@ msgstr ""
 "%s"
 
 #. answer
-#: ../src/click_on_letter-activity/click_on_letter.c:1269
+#: ../src/click_on_letter-activity/click_on_letter.c:1257
 #: ../src/missing_letter-activity/missingletter_config.c:420
 #: ../src/missing_letter-activity/missingletter_config.c:548
 msgid "Answer"
 msgstr "Respuesta"
 
 #. question
-#: ../src/click_on_letter-activity/click_on_letter.c:1280
+#: ../src/click_on_letter-activity/click_on_letter.c:1268
 #: ../src/missing_letter-activity/missingletter_config.c:426
 #: ../src/missing_letter-activity/missingletter_config.c:571
 msgid "Question"
 msgstr "Pregunta"
 
-#. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:1350
-#: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:486
-#: ../src/missing_letter-activity/missingletter_config.c:492
-#: ../src/readingh-activity/reading.c:929
-#: ../src/wordsgame-activity/wordsgame.c:889
-msgid "Uppercase only text"
-msgstr "Texto sólo en mayúsculas"
-
-#: ../src/click_on_letter-activity/click_on_letter.c:1427
+#: ../src/click_on_letter-activity/click_on_letter.c:1404
 #: ../src/gcompris/board_config_wordlist.c:274
 msgid "Back to default"
 msgstr "Restablecer predeterminados"
 
 #: ../src/click_on_letter-activity/click_on_letter.xml.in.h:1
+#: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:1
 msgid ""
 "A letter is spoken. Click on the matching letter in the main area. You can "
 "listen to the letter again, by clicking on the mouth icon in the bottom box."
@@ -2428,20 +2417,31 @@ msgstr ""
 "boca en marco horizontal inferior."
 
 #: ../src/click_on_letter-activity/click_on_letter.xml.in.h:2
-msgid "Click on a letter"
+#, fuzzy
+#| msgid "Click on a letter"
+msgid "Click on a lowercase letter"
 msgstr "Pulsa sobre una letra"
 
 #: ../src/click_on_letter-activity/click_on_letter.xml.in.h:3
+#: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:3
 msgid "Letter-name recognition"
 msgstr "Reconocimiento de nombres de letras"
 
 #: ../src/click_on_letter-activity/click_on_letter.xml.in.h:4
+#: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:4
 msgid "Listen to a letter and click on the right one"
 msgstr "Escucha una letra y pulsa en la correcta"
 
 #: ../src/click_on_letter-activity/click_on_letter.xml.in.h:5
+#: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:5
 msgid "Visual letter-recognition. Can move the mouse."
 msgstr "Reconocimiento visual de letras. Puede mover el ratón."
+
+#: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:2
+#, fuzzy
+#| msgid "Click on a letter"
+msgid "Click on an uppercase letter"
+msgstr "Pulsa sobre una letra"
 
 #: ../src/clockgame-activity/clockgame.c:524
 msgid "Set the watch to:"
@@ -2735,45 +2735,6 @@ msgstr "Castillo de Egeskov, Dinamarca"
 #: ../src/details-activity/resources/details/board2_9.xml.in.h:1
 msgid "Windmill in Sønderho, Fanø, Denmark"
 msgstr "Molino de viento en Sønderho, Fanø, Dinamarca"
-
-#: ../src/dicey_dicey-activity/dicey_dicey.py:125
-msgid "Dicey - Dicey"
-msgstr ""
-
-#: ../src/dicey_dicey-activity/dicey_dicey.py:234
-msgid "Choose an operator to indicate the question mark"
-msgstr ""
-
-#: ../src/dicey_dicey-activity/dicey_dicey.xml.in.h:1
-#, fuzzy
-#| msgid "Prime Number Munchers"
-msgid "Braille number codes"
-msgstr "Masticadores de números primos"
-
-#: ../src/dicey_dicey-activity/dicey_dicey.xml.in.h:2
-msgid "Deciphering the braille code"
-msgstr ""
-
-#: ../src/dicey_dicey-activity/dicey_dicey.xml.in.h:3
-msgid "Dicey Dicey"
-msgstr ""
-
-#: ../src/dicey_dicey-activity/dicey_dicey.xml.in.h:4
-msgid ""
-"In the first three levels you have to identify the corresponding braille "
-"code resulting out of the given operation. Click on the dots in braille cell "
-"and click on OK to confirm your selection of dots. In the last three levels "
-"you have to identify the given braille mathematical operator to find out the "
-"operation involved. Click on the braille math symbol dice to confirm your "
-"answer. There is a REPEAT icon given in the bottom board for help. Check the "
-"braille chart on clicking it."
-msgstr ""
-
-#: ../src/dicey_dicey-activity/dicey_dicey.xml.in.h:5
-msgid ""
-"Louis Braille School : http://louisbrailleschool.org .Libbraille : Portable "
-"library for braille display : http://libbraille.org/features.php"
-msgstr ""
 
 #: ../src/doubleentry-activity/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
@@ -3518,7 +3479,7 @@ msgstr "Ampliación"
 #: ../src/gcompris/config.c:382
 #, c-format
 msgid "Couldn't open skin dir: %s"
-msgstr "No se puede abrir el directorio de apariencias: %s"
+msgstr "No se pudo abrir la carpeta de apariencias: %s"
 
 #: ../src/gcompris/config.c:413 ../src/gcompris/config.c:862
 #: ../src/gcompris/config.c:876
@@ -3602,35 +3563,34 @@ msgid ""
 "descriptions."
 msgstr ""
 "Ejecuta gcompris con menú local (p. ej. -l /reading te permitirá jugar sólo "
-"a actividades en el directorio de lectura, -l /strategy/connect4 sólo a la "
-"actividad conecta4). Use «-l list» para listar todas las actividades "
+"a actividades en la carepta de lectura, -l /strategy/connect4 sólo a la "
+"actividad conecta4). Usa «-l list» para listar todas las actividades "
 "disponibles y sus descripciones."
 
 #: ../src/gcompris/gcompris.c:191
 msgid "GCompris will find the data dir in this directory"
-msgstr "GCompris buscará el directorio de datos en este directorio"
+msgstr "GCompris buscará la carpeta de datos en esta carpeta"
 
 #: ../src/gcompris/gcompris.c:194
 msgid "GCompris will find the skins in this directory"
-msgstr "GCompris buscará las apariencias en este directorio"
+msgstr "GCompris buscará las apariencias en esta carpeta"
 
 #: ../src/gcompris/gcompris.c:197
 msgid "GCompris will find the activity plugins in this directory"
-msgstr "GCompris buscará los complementos de actividad en este directorio"
+msgstr "GCompris buscará los complementos de actividad en esta carpeta"
 
 #: ../src/gcompris/gcompris.c:200
 msgid "GCompris will find the python activity in this directory"
-msgstr "GCompris buscará la actividad Python en este directorio"
+msgstr "GCompris buscará la actividad Python en esta carpeta"
 
 #: ../src/gcompris/gcompris.c:203
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr ""
-"GCompros buscará el archivo de localización (traducción .mo) en este "
-"directorio"
+"GCompros buscará el archivo de localización (traducción .mo) en esta carpeta"
 
 #: ../src/gcompris/gcompris.c:206
 msgid "GCompris will find the activities menu in this directory"
-msgstr "GCompris buscará el menú de actividades en este directorio"
+msgstr "GCompris buscará el menú de actividades en esta carpeta"
 
 #: ../src/gcompris/gcompris.c:209
 msgid "Run GCompris in administration and user-management mode"
@@ -3666,12 +3626,12 @@ msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
 msgstr ""
-"Ubicación del directorio de configuración: [$HOME/.config/gcompris]. Lo "
+"Ubicación de la carpeta de configuración: [$HOME/.config/gcompris]. Lo "
 "alternativo es establecer $XDG_CONFIG_HOME."
 
 #: ../src/gcompris/gcompris.c:230
 msgid "The location of user directories: [$HOME/My GCompris]"
-msgstr "La ubicación de los directorios de usuario: [$HOME/My GCompris]"
+msgstr "La ubicación de las carpetas de usuario: [$HOME/My GCompris]"
 
 #: ../src/gcompris/gcompris.c:233
 msgid "Run the experimental activities"
@@ -3709,7 +3669,7 @@ msgstr ""
 msgid ""
 "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr ""
-"En modo servidor, especifica donde está el directorio caché para evitar "
+"En modo servidor, especifica donde está la carpeta caché para evitar "
 "descargas innecesarias."
 
 #: ../src/gcompris/gcompris.c:255
@@ -3889,7 +3849,7 @@ msgid ""
 "This directory contains the files you create with the GCompris educational "
 "suite\n"
 msgstr ""
-"Este directorio contiene los archivos que creas con la suit educacional "
+"Esta carpeta contiene los archivos que creas con la suit educacional "
 "GCompris\n"
 
 #: ../src/gcompris/properties.c:513
@@ -3898,7 +3858,7 @@ msgid ""
 "You can include these images in your drawings and animations.\n"
 "The image formats supported are jpeg, png and svg.\n"
 msgstr ""
-"Pon cualquier número de imágenes en este directorio.\n"
+"Pon cualquier número de imágenes en esta carpeta.\n"
 "Puedes incluir estas imágenes en tus dibujos y animaciones.\n"
 "Los formatos de imagen soportados son jpeg, png y svg.\n"
 
@@ -4595,6 +4555,14 @@ msgstr ""
 #: ../src/smallnumbers-activity/smallnumbers.c:616
 msgid "Enable sounds"
 msgstr "Activar sonidos"
+
+#. toggle box
+#: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:486
+#: ../src/missing_letter-activity/missingletter_config.c:492
+#: ../src/readingh-activity/reading.c:929
+#: ../src/wordsgame-activity/wordsgame.c:889
+msgid "Uppercase only text"
+msgstr "Texto sólo en mayúsculas"
 
 #: ../src/gletters-activity/gletters.xml.in.h:1
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:2
@@ -5793,7 +5761,6 @@ msgid "Click to confirm your sequence"
 msgstr ""
 
 #: ../src/louis_braille-activity/louis_braille.py:224
-#| msgid "pear"
 msgid "year"
 msgstr "año"
 
@@ -7077,7 +7044,7 @@ msgstr "Penalty"
 
 #: ../src/photohunter-activity/photohunter.c:512
 msgid "Error: Absolutely no photo found in the data directory"
-msgstr "Error: no se encontró ninguna foto en el directorio de datos"
+msgstr "Error: no se encontró ninguna foto en la carpeta de datos"
 
 #: ../src/photohunter-activity/photohunter.c:575
 msgid "Click on the differences between the two images."
@@ -7399,133 +7366,6 @@ msgid "Tux is hungry. Help him find fish by counting to the correct ice spot."
 msgstr ""
 "Tux está hambriento. Ayúdalo a encontrar peces contando los bloques de hielo "
 "necesarios para alcanzarlos."
-
-#. Level 1
-#: ../src/rhymes_riddles-activity/rhymes_riddles.py:41
-msgid "What goes up white and comes down yellow and white?"
-msgstr ""
-
-#: ../src/rhymes_riddles-activity/rhymes_riddles.py:42
-msgid "What rises and waves all day?"
-msgstr ""
-
-#: ../src/rhymes_riddles-activity/rhymes_riddles.py:43
-msgid "What has two wheels and speeds up hills for a hike?"
-msgstr ""
-
-#: ../src/rhymes_riddles-activity/rhymes_riddles.py:44
-msgid "What hides in shoes and crosses the street?"
-msgstr ""
-
-#: ../src/rhymes_riddles-activity/rhymes_riddles.py:45
-msgid "What falls from the sky without hurting your brain?"
-msgstr ""
-
-#. Level 2
-#: ../src/rhymes_riddles-activity/rhymes_riddles.py:48
-msgid ""
-"This is a word which rhymes with cat, It grows on your head because it's a :"
-msgstr ""
-
-#: ../src/rhymes_riddles-activity/rhymes_riddles.py:49
-msgid ""
-"I'm useful for journey when you are going far, I need lots of petrol because "
-"I'm a :"
-msgstr ""
-
-#: ../src/rhymes_riddles-activity/rhymes_riddles.py:50
-msgid ""
-"This is a word which rhymes with up.You can drink out of me because I'm a :"
-msgstr ""
-
-#: ../src/rhymes_riddles-activity/rhymes_riddles.py:51
-msgid "This is a word which rhymes with bake, I'm nice to eat because I'm a : "
-msgstr ""
-
-#: ../src/rhymes_riddles-activity/rhymes_riddles.py:52
-msgid ""
-"This is a word which rhymes with spoon, I shine at night because I'm a :"
-msgstr ""
-
-#. Level 3
-#: ../src/rhymes_riddles-activity/rhymes_riddles.py:55
-msgid ""
-"A never ending circle,a brightly shiny thing,It's on my fourth finger "
-"because its a :"
-msgstr ""
-
-#: ../src/rhymes_riddles-activity/rhymes_riddles.py:56
-msgid "The more I dry,The wetter I get"
-msgstr ""
-
-#: ../src/rhymes_riddles-activity/rhymes_riddles.py:57
-msgid ""
-"What has roots as nobody sees, Is taller than trees,up it goes and yet never "
-"grows"
-msgstr ""
-
-#: ../src/rhymes_riddles-activity/rhymes_riddles.py:58
-msgid ""
-"You hear my sound you feel me when I move,But see me when you never will"
-msgstr ""
-
-#: ../src/rhymes_riddles-activity/rhymes_riddles.py:59
-msgid ""
-"You'll find us near ponds or sitting on logs, we jump and we cloak because "
-"we are : "
-msgstr ""
-
-#. Level 4
-#: ../src/rhymes_riddles-activity/rhymes_riddles.py:62
-msgid "What do you get when you put a car and a pet together?"
-msgstr ""
-
-#: ../src/rhymes_riddles-activity/rhymes_riddles.py:63
-msgid "What can speak in every language , but never went to school ?"
-msgstr ""
-
-#: ../src/rhymes_riddles-activity/rhymes_riddles.py:64
-msgid "What's expensive and floats through the room?"
-msgstr ""
-
-#: ../src/rhymes_riddles-activity/rhymes_riddles.py:65
-msgid "What got loose and spoiled the race"
-msgstr ""
-
-#: ../src/rhymes_riddles-activity/rhymes_riddles.py:66
-msgid "Some fly, some sting, some hide in rugs"
-msgstr ""
-
-#: ../src/rhymes_riddles-activity/rhymes_riddles.py:157
-msgid "Type your answer here"
-msgstr "Escribe aquí tu respuesta"
-
-#: ../src/rhymes_riddles-activity/rhymes_riddles.xml.in.h:1
-msgid ""
-"Answer to the rhyme or riddle by identifying the braille alphabet code.Check "
-"the braille chart on clicking the toggle button for help.Click in the entry "
-"box to start typing your answer.Press enter to confirm."
-msgstr ""
-
-#: ../src/rhymes_riddles-activity/rhymes_riddles.xml.in.h:2
-msgid "Braille alphabet codes"
-msgstr ""
-
-#: ../src/rhymes_riddles-activity/rhymes_riddles.xml.in.h:3
-msgid "Can you solve this ?"
-msgstr "¿Puedes resolver esto?"
-
-#: ../src/rhymes_riddles-activity/rhymes_riddles.xml.in.h:4
-msgid "Rhymes Riddles"
-msgstr ""
-
-#: ../src/rhymes_riddles-activity/rhymes_riddles.xml.in.h:5
-msgid "set a credit for rhymes_riddles"
-msgstr ""
-
-#: ../src/rhymes_riddles-activity/rhymes_riddles.xml.in.h:6
-msgid "set a manual for rhymes_riddles"
-msgstr ""
 
 #: ../src/scalesboard-activity/scale.c:294
 #, c-format
@@ -8205,6 +8045,17 @@ msgstr "Entrenamiento con el teclado"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:4
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Teclea la palabra completa mientras cae, antes de que llegue al suelo"
+
+#, fuzzy
+#~| msgid "Prime Number Munchers"
+#~ msgid "Braille number codes"
+#~ msgstr "Masticadores de números primos"
+
+#~ msgid "Type your answer here"
+#~ msgstr "Escribe aquí tu respuesta"
+
+#~ msgid "Can you solve this ?"
+#~ msgstr "¿Puedes resolver esto?"
 
 #~ msgid ""
 #~ "Error: this activity requires that you first install\n"
