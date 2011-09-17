@@ -1,6 +1,6 @@
 dnl Process this file with autoconf to produce a configure script.
 
-AC_INIT(gcompris, 9.6, http://gcompris.net)
+AC_INIT(gcompris, 11.09RC1, http://gcompris.net)
 
 AM_INIT_AUTOMAKE(AC_PACKAGE_NAME, AC_PACKAGE_VERSION)
 AM_CONFIG_HEADER(config.h)
@@ -170,7 +170,7 @@ AC_SUBST(REBUILD)
 LDFLAGS="${LDFLAGS}"
 
 dnl Add the languages which your application supports here.
-ALL_LINGUAS="af am ar ast az bg br ca cs da de dz el en_CA en_GB eo es et eu fa fi fr ga gl gu he hi hr hu id it ja ka ko lt mk ml mr ms nb ne nl nn oc pa pl pt pt_BR ro ru rw sk sl so sq sr sr_ME sr@Latn sv ta th tr uk ur vi wa zh_CN zh_HK zh_TW zu"
+ALL_LINGUAS="af am ar ast az bg br ca cs da de dz el en_CA en_GB eo es et eu fa fi fr ga gl gu he hi hr hu id it ja ka ko lt mk ml mr ms nb ne nl nn oc pa pl pt pt_BR ro ru rw sk sl so sq sr sr_ME sr@latin sv ta th tr uk ur vi wa zh_CN zh_HK zh_TW zu"
 
 dnl GCompris needs to know which locale are supported
 AC_SUBST(ALL_LINGUAS)
