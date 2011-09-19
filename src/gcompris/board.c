@@ -32,7 +32,6 @@ int gc_activation_check(char *code);
 #endif
 
 #ifdef STATIC_MODULE
-extern BoardPlugin * get_advanced_colors_bplugin_info();
 extern BoardPlugin * get_algebra_bplugin_info();
 extern BoardPlugin * get_algebra_guesscount_bplugin_info();
 extern BoardPlugin * get_awele_bplugin_info();
@@ -41,7 +40,6 @@ extern BoardPlugin * get_chess_bplugin_info();
 extern BoardPlugin * get_clickgame_bplugin_info();
 extern BoardPlugin * get_click_on_letter_bplugin_info();
 extern BoardPlugin * get_clockgame_bplugin_info();
-extern BoardPlugin * get_colors_bplugin_info();
 extern BoardPlugin * get_crane_bplugin_info();
 extern BoardPlugin * get_enumerate_bplugin_info();
 extern BoardPlugin * get_erase_bplugin_info();
@@ -63,7 +61,6 @@ extern BoardPlugin * get_paratrooper_bplugin_info();
 extern BoardPlugin * get_photohunter_bplugin_info();
 extern BoardPlugin * get_planegame_bplugin_info();
 extern BoardPlugin * get_railroad_bplugin_info();
-extern BoardPlugin * get_read_colors_bplugin_info();
 extern BoardPlugin * get_reading_bplugin_info();
 extern BoardPlugin * get_reversecount_bplugin_info();
 extern BoardPlugin * get_scale_bplugin_info();
@@ -86,7 +83,6 @@ void gc_board_init(void)
 
   bp_data = g_malloc0(sizeof (struct BoardPluginData));
 
-  static_boards[i++] = get_advanced_colors_bplugin_info();
   static_boards[i++] = get_algebra_bplugin_info();
   static_boards[i++] = get_algebra_bplugin_info();
   static_boards[i++] = get_algebra_guesscount_bplugin_info();
@@ -96,7 +92,6 @@ void gc_board_init(void)
   static_boards[i++] = get_click_on_letter_bplugin_info();
   static_boards[i++] = get_clickgame_bplugin_info();
   static_boards[i++] = get_clockgame_bplugin_info();
-  static_boards[i++] = get_colors_bplugin_info();
   static_boards[i++] = get_crane_bplugin_info();
   static_boards[i++] = get_enumerate_bplugin_info();
   static_boards[i++] = get_erase_bplugin_info();
@@ -119,7 +114,6 @@ void gc_board_init(void)
   static_boards[i++] = get_planegame_bplugin_info();
   static_boards[i++] = get_python_bplugin_info();
   static_boards[i++] = get_railroad_bplugin_info();
-  static_boards[i++] = get_read_colors_bplugin_info();
   static_boards[i++] = get_reading_bplugin_info();
   static_boards[i++] = get_reversecount_bplugin_info();
   static_boards[i++] = get_scale_bplugin_info();

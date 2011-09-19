@@ -124,7 +124,7 @@ EXE_OBJECTS = $(EXE_C_SRC:%.c=%.o) $(RC_SRC:%.rc=%.o)
 ## LIBRARIES
 ##
 
-ACTIVITY_LIBS = ../advanced_colors-activity/libactivity.a \
+ACTIVITY_LIBS =  \
 	../algebra_by-activity/libactivity.a \
 	../algebra_guesscount-activity/libactivity.a \
 	../awele-activity/libactivity.a \
@@ -135,7 +135,6 @@ ACTIVITY_LIBS = ../advanced_colors-activity/libactivity.a \
 	../clickgame-activity/libactivity.a \
 	../click_on_letter-activity/libactivity.a \
 	../clockgame-activity/libactivity.a \
-	../colors-activity/libactivity.a \
 	../crane-activity/libactivity.a \
 	../enumerate-activity/libactivity.a \
 	../erase-activity/libactivity.a \
@@ -154,7 +153,6 @@ ACTIVITY_LIBS = ../advanced_colors-activity/libactivity.a \
 	../photohunter-activity/libactivity.a \
 	../planegame-activity/libactivity.a \
 	../railroad-activity/libactivity.a \
-	../read_colors-activity/libactivity.a \
 	../readingh-activity/libactivity.a \
 	../reversecount-activity/libactivity.a \
 	../scalesboard-activity/libactivity.a \
