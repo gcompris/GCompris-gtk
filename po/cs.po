@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2011-08-15 23:10+0000\n"
-"PO-Revision-Date: 2011-08-16 15:23+0200\n"
+"POT-Creation-Date: 2011-09-11 21:24+0000\n"
+"PO-Revision-Date: 2011-09-18 22:12+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -41,6 +41,20 @@ msgstr "Jít na početní aktivity"
 #: ../boards/algebramenu.xml.in.h:2
 msgid "Various calculation activities."
 msgstr "Různé početní aktivity."
+
+#: ../boards/braille.xml.in.h:1
+#: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:1
+#| msgid "Discover the Computer"
+msgid "Discover the Braille system"
+msgstr "Poznej Braillův systém"
+
+#: ../boards/braille.xml.in.h:2
+msgid ""
+"The Braille system is a method that is widely used by blind people to read "
+"and write, and was the first digital form of writing."
+msgstr ""
+"Braillův systém je široce využíván slepými lidmi ke čtení a psaní a byla to "
+"vlastně první forma digitálního zápisu."
 
 #: ../boards/chess.xml.in.h:1
 #: ../src/chess_computer-activity/chess_computer.xml.in.h:3
@@ -147,38 +161,20 @@ msgstr "Jít na paměťové aktivity"
 msgid "Various memory activities (images, letters, sounds)."
 msgstr "Různé paměťové aktivity (obrázky, písmena, zvuky)."
 
-#: ../boards/memory_op_group.xml.in.h:1
-msgid "Go to mathematics memory activities"
-msgstr "Jít na matematické paměťové aktivity"
-
-#: ../boards/memory_op_group.xml.in.h:2
-#: ../boards/memory_op_group_tux.xml.in.h:2
-msgid "Memory activities based on operations"
-msgstr "Paměťové aktivity založené operacích"
-
 #: ../boards/memory_op_group_tux.xml.in.h:1
 msgid "Go to mathematics memory activities against Tux"
 msgstr "Jít na matematické paměťové aktivity proti Tuxovi"
 
+#: ../boards/memory_op_group_tux.xml.in.h:2
+#: ../boards/memory_op_group.xml.in.h:2
+msgid "Memory activities based on operations"
+msgstr "Paměťové aktivity založené operacích"
+
+#: ../boards/memory_op_group.xml.in.h:1
+msgid "Go to mathematics memory activities"
+msgstr "Jít na matematické paměťové aktivity"
+
 #: ../boards/menu.xml.in.h:1
-#| msgid ""
-#| "A simple click on an icon brings you to an activity or a menu of "
-#| "activities.\n"
-#| "At the bottom of the screen is the GCompris control bar.\n"
-#| "The following icons are displayed from right to left.\n"
-#| "(note that each icon is displayed only if available in the current "
-#| "activity)\n"
-#| "    Home - Exit an activity, go back to menu\n"
-#| "    Thumb - OK. Confirm your answer\n"
-#| "    Dice - Display the current level. Click to select another level\n"
-#| "    Lips - Repeat the question\n"
-#| "    Question Mark - Help\n"
-#| "    Tool - The configuration menu\n"
-#| "    Tux Plane - About GCompris\n"
-#| "    Night - Quit GCompris\n"
-#| "The stars show suitable age groups for each game:\n"
-#| "    1, 2 or 3 simple stars  - from 2 to 6 years old\n"
-#| "    1, 2 or 3 complex stars - 7 years and up"
 msgid ""
 "A simple click on an icon brings you to an activity or a menu of "
 "activities.\n"
@@ -303,14 +299,6 @@ msgstr "Strategické hry"
 msgid "Strategy games like chess, connect4, ..."
 msgstr "Strategické hry – šachy, spoj 4, …"
 
-#: ../gcompris-edit.desktop.in.h:1
-msgid "Administration for gcompris"
-msgstr "Správa aplikace gcompris"
-
-#: ../gcompris-edit.desktop.in.h:2
-msgid "GCompris Administration"
-msgstr "Správa GCompris"
-
 #: ../gcompris.desktop.in.h:1
 msgid "Educational game for ages 2 to 10"
 msgstr "Naučná hra pro děti od 2 do 10 let"
@@ -322,6 +310,14 @@ msgstr "Vzdělávací sada GCompris"
 #: ../gcompris.desktop.in.h:3
 msgid "Multi-activity educational game"
 msgstr "Vzdělávací hra s mnohými aktivitami"
+
+#: ../gcompris-edit.desktop.in.h:1
+msgid "Administration for gcompris"
+msgstr "Správa aplikace gcompris"
+
+#: ../gcompris-edit.desktop.in.h:2
+msgid "GCompris Administration"
+msgstr "Správa GCompris"
 
 #: ../nsis_translations.desktop.in.h:1
 msgid ""
@@ -433,11 +429,9 @@ msgstr ""
 "Nastavení <b>{config}</b>\n"
 " pro profil <b>{profile}</b>"
 
-#. self.main_vbox.pack_start (label, False, False, 8)
 #: ../src/administration-activity/admin/board_list.py:660
-#: ../src/colors-activity/colors.c:180
-#: ../src/pythontest-activity/pythontest.py:518
-#: ../src/smallnumbers-activity/smallnumbers.c:616
+#: ../src/pythontest-activity/pythontest.py:511
+#: ../src/smallnumbers-activity/smallnumbers.c:618
 msgid "Select sound locale"
 msgstr "Vyber si nastavení zvuků"
 
@@ -565,6 +559,64 @@ msgstr "Nejprve musíte zvolit skupinu ze seznamu"
 msgid "Birth Date"
 msgstr "Datum narození"
 
+#: ../src/administration-activity/administration.xml.in.h:1
+msgid ""
+"- In the 'Boards' section you can change the list of activities. Just "
+"untoggle them in the treeview. You can change the language used for reading, "
+"for example, then the language used for saying the names of colors.\n"
+"- You can save multiple configurations, and switch between them easily. In "
+"the 'Profile' section add a profile, then in the 'Board' section select the "
+"profile in the combobox, then select the boards you want to be active. You "
+"can add multiple profiles, with different lists of boards, and different "
+"languages. You set the default profile in the 'Profile' section, by choosing "
+"the profile you want, then clicking on the 'Default' button. You can also "
+"choose a profile from the command line.\n"
+"- You can add users, classes and for each class, you can create groups of "
+"users. Note that you can import users from a comma-separated file. Assign "
+"one or more groups to a profile, after which those new logins will appear "
+"after restarting GCompris. Being able to identify individual children in "
+"GCompris means we can provide individual reports. It also recognizes the "
+"children as individuals; they can learn to type in and recognize their own "
+"usernames (login is configurable)."
+msgstr ""
+"- V části „Desky“ můžete změnit seznam aktivit. Jednoduše je v stromovém "
+"seznamu odznačte. Můžete změnit jazyk použitý pro čtení, např. jazyk použitý "
+"pro čtení jmen barev.\n"
+"- Můžete uložit více nastavení a pak mezi nimi jednoduše přepínat. V části "
+"„Profil“ přidejte profil, pak v části „Jeviště“ profil vyberte z rozbalovací "
+"nabídky, poté zvolte ta jeviště, která chcete mít aktivní. Můžete přidat "
+"více profilů, s rozdílnými seznamy jevišť a jazyky. Výchozí profil  "
+"nastavíte v části „Profil“ tak, že nejprve kliknete na profil, který "
+"chcete,  a pak na tlačítko „Výchozí“. Profil lze také zvolit z příkazové "
+"řádky.\n"
+"- Můžete přidávat uživatele, třídy a pro každou třídu vytvářet skupiny "
+"uživatelů. Pamatujte, že uživatele můžete importovat z CSV souboru (soubor s "
+"hodnotami oddělenými čárkou). Profilu pak přiřaďte jednu nebo více skupin, "
+"načež budou tato nová přihlášení zobrazena po restartování GComprisu. Díky "
+"rozdílné identifikaci jednotlivých dětí je možno poskytovat individuální "
+"reporty. Děti se také mohou naučit přihlašovat vlastním uživatelským jménem, "
+"poté co se jej naučí napsat. (přihlašování je volitelné)."
+
+#: ../src/administration-activity/administration.xml.in.h:4
+msgid "GCompris Administration Menu"
+msgstr "Nabídka GCompris pro správu"
+
+#: ../src/administration-activity/administration.xml.in.h:5
+msgid ""
+"If you want to fine tune GCompris to your needs, you can use the "
+"administration module here. The ultimate goal is to provide child-specific "
+"reporting for parents and teacher who want to monitor the progress, "
+"strengths and needs of their children."
+msgstr ""
+"Pokud si přejete nastavit GCompris dle svých potřeb, pak použijte "
+"administrační modul. Hlavním cílem je poskytnout rodičům a učitelům "
+"informace o pokroku jednotlivých dětí, jejich silných stránkách a také "
+"slabinách."
+
+#: ../src/administration-activity/administration.xml.in.h:6
+msgid "Left-Click with the mouse to select an activity"
+msgstr "Pro zvolení aktivity klikni levým tlačítkem myši"
+
 #: ../src/administration-activity/admin/log_list.py:91
 msgid "Select a user:"
 msgstr "Vyberte uživatele:"
@@ -577,8 +629,6 @@ msgstr "Všichni uživatelé"
 #: ../src/administration-activity/admin/log_list.py:108
 #: ../src/administration-activity/admin/log_list.py:295
 #: ../src/administration-activity/admin/profile_list.py:117
-#: ../src/gcompris/board_config_combo.c:125
-#: ../src/gcompris/board_config_combo.c:398
 msgid "Default"
 msgstr "Výchozí"
 
@@ -600,6 +650,7 @@ msgid "Board"
 msgstr "Hrací deska"
 
 #: ../src/administration-activity/admin/log_list.py:246
+#: ../src/click_on_letter-activity/click_on_letter.c:1246
 #: ../src/redraw-activity/redraw.py:339
 msgid "Level"
 msgstr "Úroveň"
@@ -747,64 +798,6 @@ msgid ""
 msgstr ""
 "Jedno nebo více přihlašovacích jmen nejsou jedinečné !\n"
 "Je potřeba změnit následující: %s !"
-
-#: ../src/administration-activity/administration.xml.in.h:1
-msgid ""
-"- In the 'Boards' section you can change the list of activities. Just "
-"untoggle them in the treeview. You can change the language used for reading, "
-"for example, then the language used for saying the names of colors.\n"
-"- You can save multiple configurations, and switch between them easily. In "
-"the 'Profile' section add a profile, then in the 'Board' section select the "
-"profile in the combobox, then select the boards you want to be active. You "
-"can add multiple profiles, with different lists of boards, and different "
-"languages. You set the default profile in the 'Profile' section, by choosing "
-"the profile you want, then clicking on the 'Default' button. You can also "
-"choose a profile from the command line.\n"
-"- You can add users, classes and for each class, you can create groups of "
-"users. Note that you can import users from a comma-separated file. Assign "
-"one or more groups to a profile, after which those new logins will appear "
-"after restarting GCompris. Being able to identify individual children in "
-"GCompris means we can provide individual reports. It also recognizes the "
-"children as individuals; they can learn to type in and recognize their own "
-"usernames (login is configurable)."
-msgstr ""
-"- V části „Desky“ můžete změnit seznam aktivit. Jednoduše je v stromovém "
-"seznamu odznačte. Můžete změnit jazyk použitý pro čtení, např. jazyk použitý "
-"pro čtení jmen barev.\n"
-"- Můžete uložit více nastavení a pak mezi nimi jednoduše přepínat. V části "
-"„Profil“ přidejte profil, pak v části „Jeviště“ profil vyberte z rozbalovací "
-"nabídky, poté zvolte ta jeviště, která chcete mít aktivní. Můžete přidat "
-"více profilů, s rozdílnými seznamy jevišť a jazyky. Výchozí profil  "
-"nastavíte v části „Profil“ tak, že nejprve kliknete na profil, který "
-"chcete,  a pak na tlačítko „Výchozí“. Profil lze také zvolit z příkazové "
-"řádky.\n"
-"- Můžete přidávat uživatele, třídy a pro každou třídu vytvářet skupiny "
-"uživatelů. Pamatujte, že uživatele můžete importovat z CSV souboru (soubor s "
-"hodnotami oddělenými čárkou). Profilu pak přiřaďte jednu nebo více skupin, "
-"načež budou tato nová přihlášení zobrazena po restartování GComprisu. Díky "
-"rozdílné identifikaci jednotlivých dětí je možno poskytovat individuální "
-"reporty. Děti se také mohou naučit přihlašovat vlastním uživatelským jménem, "
-"poté co se jej naučí napsat. (přihlašování je volitelné)."
-
-#: ../src/administration-activity/administration.xml.in.h:4
-msgid "GCompris Administration Menu"
-msgstr "Nabídka GCompris pro správu"
-
-#: ../src/administration-activity/administration.xml.in.h:5
-msgid ""
-"If you want to fine tune GCompris to your needs, you can use the "
-"administration module here. The ultimate goal is to provide child-specific "
-"reporting for parents and teacher who want to monitor the progress, "
-"strengths and needs of their children."
-msgstr ""
-"Pokud si přejete nastavit GCompris dle svých potřeb, pak použijte "
-"administrační modul. Hlavním cílem je poskytnout rodičům a učitelům "
-"informace o pokroku jednotlivých dětí, jejich silných stránkách a také "
-"slabinách."
-
-#: ../src/administration-activity/administration.xml.in.h:6
-msgid "Left-Click with the mouse to select an activity"
-msgstr "Pro zvolení aktivity klikni levým tlačítkem myši"
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:1
 msgid "Advanced colors"
@@ -1112,17 +1105,6 @@ msgstr "šeděmodrá"
 msgid "wine"
 msgstr "vínová"
 
-#. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
-#: ../src/algebra_by-activity/algebra.c:186
-#: ../src/memory-activity/memory.c:946
-msgid "+-×÷"
-msgstr "+-.:"
-
-#: ../src/algebra_by-activity/algebra.c:411
-#: ../src/readingh-activity/reading.c:630
-msgid "I am Ready"
-msgstr "Jsem připraven"
-
 #: ../src/algebra_by-activity/algebra_by.xml.in.h:1
 msgid ""
 "A multiplication of two numbers is displayed. At the right of the equals "
@@ -1151,6 +1133,17 @@ msgstr "Násobilka"
 #: ../src/algebra_by-activity/algebra_by.xml.in.h:5
 msgid "Practice the multiplication operation"
 msgstr "Procvičení operace násobení"
+
+#. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
+#: ../src/algebra_by-activity/algebra.c:186
+#: ../src/memory-activity/memory.c:946
+msgid "+-×÷"
+msgstr "+-.:"
+
+#: ../src/algebra_by-activity/algebra.c:411
+#: ../src/readingh-activity/reading.c:630
+msgid "I am Ready"
+msgstr "Jsem připraven"
 
 #: ../src/algebra_guesscount-activity/algebra_guesscount.xml.in.h:1
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:1
@@ -1266,14 +1259,6 @@ msgstr "Pohyb a klikání myší"
 #: ../src/algorithm-activity/algorithm.xml.in.h:5
 msgid "algorithm"
 msgstr "Algoritmy"
-
-#: ../src/anim-activity/Color.py:86
-msgid "Fill color..."
-msgstr "Barva výplně…"
-
-#: ../src/anim-activity/Color.py:98
-msgid "Stroke color..."
-msgstr "Barva obrysu…"
 
 #: ../src/anim-activity/anim.py:103
 msgid "Save..."
@@ -1394,6 +1379,14 @@ msgstr ""
 "zobrazování. Do režimu kreslení se z režimu zobrazování vrátíš kliknutím na "
 "tlačítko „kreslení“. Svoji animaci si můžeš také uložit a znovu načíst "
 "pomocí tlačítek „disketa“ a „složka“."
+
+#: ../src/anim-activity/Color.py:86
+msgid "Fill color..."
+msgstr "Barva výplně…"
+
+#: ../src/anim-activity/Color.py:98
+msgid "Stroke color..."
+msgstr "Barva obrysu…"
 
 #: ../src/awele-activity/awele.c:158
 #, c-format
@@ -1533,9 +1526,8 @@ msgstr "Koordinace pohybu. Párování pojmů."
 msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "Manipulace s myší: pohyb, tažení a puštění."
 
-#: ../src/babymatch-activity/shapegame.c:1906
-#: ../src/click_on_letter-activity/click_on_letter.c:672
-#: ../src/colors-activity/colors.c:168
+#: ../src/babymatch-activity/shapegame.c:1985
+#: ../src/click_on_letter-activity/click_on_letter.c:1314
 #, c-format
 msgid ""
 "<b>%1$s</b> configuration\n"
@@ -1660,8 +1652,8 @@ msgstr "Pošli míč do branky"
 #: ../src/clickgame-activity/clickgame.xml.in.h:5
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:5
 #: ../src/connect4-activity/connect4.xml.in.h:6
-#: ../src/erase-activity/erase.xml.in.h:3
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:6
+#: ../src/erase-activity/erase.xml.in.h:3
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:6
 #: ../src/fifteen-activity/fifteen.xml.in.h:2
 #: ../src/hanoi-activity/hanoi.xml.in.h:3
@@ -1707,6 +1699,203 @@ msgstr "Speciální deska, která vkládá python do GCompris."
 #: ../src/boards/python.c:89
 msgid "Special board that embeds python into gcompris."
 msgstr "Speciální deska, která vkládá python do gcompris."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:165
+msgid "Braille : Unlocking the Code"
+msgstr "Braille: odhalení kódu"
+
+#. Braille Intro
+#: ../src/braille_alphabets-activity/braille_alphabets.py:167
+msgid ""
+"The Braille system is a method that is used by blind people to read and "
+"write."
+msgstr "Braillův systém je způsob, díky kterému mohou číst a psát slepí lidé."
+
+#. Braille Description
+#: ../src/braille_alphabets-activity/braille_alphabets.py:170
+msgid ""
+"Each Braille character, or cell, is made up of six dot positions, arranged "
+"in a rectangle containing two columns of three dots each. As seen on the "
+"left, each dot is referenced by a number from 1 to 6."
+msgstr ""
+"Každý Braillský znak je tvořen šesti body uspořádanými v mřížce o dvou "
+"sloupcích s třemi body. Jak můžeš vidět vlevo, každý z bodů má "
+"přiřazeno číslo od 1 do 6."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:189
+msgid "I am braille TUX"
+msgstr "Jsem Braillův tučňák"
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:201
+msgid "When you are ready, click on me and try reproducing Braille characters."
+msgstr ""
+"Až budeš připraven, klikni na mě a zkus Braillské znaky po mě opakovat."
+
+#. Translators : Do not translate the token {letter}
+#: ../src/braille_alphabets-activity/braille_alphabets.py:272
+msgid "Click on the dots in braille cell area to produce the letter {letter}."
+msgstr "Klikáním na body v Braillské mřížce vytvoř znak {letter}."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:277
+msgid ""
+"Look at the Braille character map and observe how similar the first and "
+"second line are."
+msgstr ""
+"Podívej se na Braillovu tabulku znaků a všimni si, jak si je první a druhý "
+"řádek podobný."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:280
+msgid ""
+"Again, similar as the first line but take care, the 'W' letter was added "
+"afterwards."
+msgstr ""
+"A opět podobně jako v prvním řádku, akorát pozor na písmenko „W“, to bylo "
+"přidáno dodatečně."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:283
+msgid "This is easy, numbers are the same as letters from A to J."
+msgstr "Je to snadné, čísla jsou stejná, jako písmenka od A do J."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:302
+msgid "Braille Cell"
+msgstr "Braillská mřížka"
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:324
+msgid "Click to confirm your selection of dots"
+msgstr "Kliknutím potvrdíš svůj výběr bodů"
+
+#: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:2
+msgid "Learn and memorize the Braille system."
+msgstr "Nauč se a zapamatuj si Braillovo písmo."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:3
+msgid "Let kids discover the Braille system."
+msgstr "Ať děti poznají Braillovo písmo."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:4
+msgid ""
+"The screen has 3 sections: braille cell, alphabet name and lower board "
+"containing 13 letters. Click on each letter in the lower board to know its "
+"corresponding braille code in the braille cell section. Click on the "
+"increment level button to jump to the next 13 letters of the English "
+"alphabets."
+msgstr ""
+"Obrazovka je rozdělena na 3 části: braillskou mřížku, název abecedy a dolní "
+"panel obsahující 13 písmen. Klikni na každý ze znaků v dolním panelu, "
+"abys poznal příslušný Braillův kód, který se zobrazí v mřížce. Kliknutím "
+"na tlačítko pro přesun do další úrovně se zobrazí dalších 13 písmen anglické "
+"abecedy."
+
+#: ../src/braille_alphabets-activity/BrailleMap.py:96
+msgid "Back to the activity"
+msgstr "Zpátky na aktivitu"
+
+#: ../src/braille_fun-activity/braille_fun.xml.in.h:1
+msgid "Braille Alphabet Codes"
+msgstr "Kódy Braillova písma"
+
+#: ../src/braille_fun-activity/braille_fun.xml.in.h:2
+#| msgid "Brain"
+msgid "Braille Fun"
+msgstr "Braillská zábava"
+
+#: ../src/braille_fun-activity/braille_fun.xml.in.h:3
+msgid ""
+"Braille code the tile for the corresponding falling letters. Check the "
+"braille chart by clicking on the toggle button for help."
+msgstr ""
+"Braillský kód pro příslušná padající písmenka. Braillskou tabulku si můžeš "
+"zobrazit kliknutím na přepínací tlačítko nápovědy."
+
+#: ../src/braille_fun-activity/braille_fun.xml.in.h:4
+#| msgid "Fill in the missing letter"
+msgid "Braille the falling letters"
+msgstr "Pan Braille shazuje písmenka"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:119
+msgid "PLAYER 1"
+msgstr "HRÁČ 1"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:129
+msgid "PLAYER 2"
+msgstr "HRÁČ 2"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:150
+msgid "Check Number"
+msgstr "Odškrtni číslo"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:165
+#: ../src/braille_lotto-activity/braille_lotto.py:177
+msgid "Click me to get some hint"
+msgstr "Když na mě klikneš, poradím ti"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:190
+msgid "I don't have this number PLAYER {number}"
+msgstr "Já tohle číslo nemám HRÁČ {number}"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:212
+msgid "Lotto Master"
+msgstr "Výherní loterie"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:236
+msgid "Generate a number"
+msgstr "Vygenerovat číslo"
+
+#. Translators : Do not translate the token {column}
+#: ../src/braille_lotto-activity/braille_lotto.py:293
+#: ../src/braille_lotto-activity/braille_lotto.py:316
+msgid "Hey, you have it. It is there in your {column} column"
+msgstr "Ale máš jej. Je ve tvém {column} sloupci"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:295
+#: ../src/braille_lotto-activity/braille_lotto.py:318
+msgid "Oops, this number is not in your ticket!"
+msgstr "Jejda, toto číslo na tvém tiketu není."
+
+#: ../src/braille_lotto-activity/braille_lotto.py:332
+msgid "1st"
+msgstr "prvním"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:335
+msgid "2nd"
+msgstr "druhém"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:338
+#| msgid "red"
+msgid "3rd"
+msgstr "třetím"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:340
+msgid "4th"
+msgstr "čtvrtém"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:350
+msgid "Game Over"
+msgstr "Konec hry"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:459
+msgid "Congratulation player {player_id}, you won"
+msgstr "Gratuluji ti hráči {player_id}, vyhrál jsi"
+
+#: ../src/braille_lotto-activity/braille_lotto.xml.in.h:1
+msgid "Braille Lotto"
+msgstr "Braillská loterie"
+
+#: ../src/braille_lotto-activity/braille_lotto.xml.in.h:2
+msgid "Discover the Braille system for numbers."
+msgstr "Poznej Braillův systém pro čísla."
+
+#: ../src/braille_lotto-activity/braille_lotto.xml.in.h:3
+msgid ""
+"Each player must find if the proposed number is in their board. If the code "
+"is in the board, just click on it in order to validate it. The player who "
+"crosses all the Braille numbers correctly wins the game. Check the Braille "
+"table by clicking on the toggle button in the control bar."
+msgstr ""
+"Každý z hráčů musí najít vylosované číslo na svojí herní desce. Když číslo "
+"na desce najde, prostě na něj klikne a ono se zkontroluje. Hráč, který "
+"správně zaškrtá všechna Braillova čísla, hru vyhrává. Na Braillovu tabulku "
+"se můžete podívat kliknutím na přepínací tlačítko v ovládacím panelu."
 
 #: ../src/canal_lock-activity/canal_lock.xml.in.h:1
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:2
@@ -2078,81 +2267,6 @@ msgstr "1955 Citroën ds 19"
 msgid "Cars"
 msgstr "Auta"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:311
-#: ../src/memory-activity/memory.c:906
-msgid ""
-"Error: this activity cannot be played with the\n"
-"sound effects disabled.\n"
-"Go to the configuration dialog to\n"
-"enable the sound"
-msgstr ""
-"Chyba: tuto aktivitu nelze hrát s vypnutými\n"
-"zvukovými efekty.\n"
-"Zvuk zapni v dialogovém okně\n"
-"nastavení"
-
-#. TRANSLATORS: Put here the alphabet in your language
-#. require by all utf8-functions
-#. TRANSLATORS: Put here the alphabet lowercase in your language
-#: ../src/click_on_letter-activity/click_on_letter.c:316
-#: ../src/gletters-activity/gletters.c:229 ../src/memory-activity/memory.c:935
-msgid "abcdefghijklmnopqrstuvwxyz"
-msgstr "aábcčdďeéěfghiíjklmnňoópqrřsštťuúůvwxyýzž"
-
-#: ../src/click_on_letter-activity/click_on_letter.c:344
-#, c-format
-msgid ""
-"Error: this activity requires that you first install\n"
-"the packages with GCompris voices for the locale '%s' or '%s'"
-msgstr ""
-"Chyba: tato aktivita vyžaduje, abys nejdříve nainstaloval\n"
-"balíčky s hlasovým doprovodem GCompris pro jazyk „%s“ nebo „%s“"
-
-#: ../src/click_on_letter-activity/click_on_letter.c:354
-#, c-format
-msgid ""
-"Error: this activity requires that you first install\n"
-"the packages with GCompris voices for the locale '%s' ! Fallback to english, "
-"sorry!"
-msgstr ""
-"Chyba: tato aktivita vyžaduje, abys nejdříve nainstaloval\n"
-"balíčky s hlasovým doprovodem gcompris pro jazyk „%s“! Zůstávám u "
-"angličtiny, je mi líto!"
-
-#. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:695
-#: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:484
-#: ../src/missing_letter-activity/missingletter_config.c:492
-#: ../src/readingh-activity/reading.c:928
-#: ../src/wordsgame-activity/wordsgame.c:887
-msgid "Uppercase only text"
-msgstr "Text pouze velkými písmeny"
-
-#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:1
-msgid ""
-"A letter is spoken. Click on the matching letter in the main area. You can "
-"listen to the letter again, by clicking on the mouth icon in the bottom box."
-msgstr ""
-"Je vysloveno písmeno. Klikni na odpovídající písmeno v hlavní oblasti. "
-"Písmeno si můžeš poslechnout znovu kliknutím na ikonu úst v dolním "
-"vodorovném rámu."
-
-#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:2
-msgid "Click on a letter"
-msgstr "Klikni na písmeno"
-
-#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:3
-msgid "Letter-name recognition"
-msgstr "Rozpoznávání názvů písmen"
-
-#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:4
-msgid "Listen to a letter and click on the right one"
-msgstr "Poslechni si písmeno a klikni na jeho psanou podobu"
-
-#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:5
-msgid "Visual letter-recognition. Can move the mouse."
-msgstr "Vizuální rozpoznávání písmen. Umí hýbat myší."
-
 #: ../src/clickanddraw-activity/clickanddraw.xml.in.h:1
 msgid "Click and draw"
 msgstr "Klikněte a kreslete"
@@ -2196,6 +2310,134 @@ msgstr ""
 "Klikni levým tlačítkem myši na plovoucí rybu. Od úrovně 5 a výše musíš "
 "klikat dvojitě."
 
+#. require by all utf8-functions
+#. TRANSLATORS: Put here the alphabet lowercase in your language
+#: ../src/click_on_letter-activity/click_on_letter.c:367
+#: ../src/gletters-activity/gletters.c:229 ../src/memory-activity/memory.c:935
+msgid "abcdefghijklmnopqrstuvwxyz"
+msgstr "aábcčdďeéěfghiíjklmnňoópqrřsštťuúůvwxyýzž"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:378
+msgid ""
+"This activity will be played with questions displayed as text instead of "
+"being spoken"
+msgstr ""
+"Tato aktivita bude hrána s otázkami zobrazenými v textové podobě, místo aby "
+"byly čteny."
+
+#: ../src/click_on_letter-activity/click_on_letter.c:383
+#: ../src/memory-activity/memory.c:906
+msgid ""
+"Error: this activity cannot be played with the\n"
+"sound effects disabled.\n"
+"Go to the configuration dialog to\n"
+"enable the sound"
+msgstr ""
+"Chyba: tuto aktivitu nelze hrát s vypnutými\n"
+"zvukovými efekty.\n"
+"Zvuk zapni v dialogovém okně\n"
+"nastavení"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:404
+#, c-format
+#| msgid ""
+#| "Error: this activity requires that you first install\n"
+#| "the packages with GCompris voices for the locale '%s' or '%s'"
+msgid ""
+"Error: this activity requires that you first install\n"
+"the packages with GCompris voices for the %s locale."
+msgstr ""
+"Chyba: tato aktivita vyžaduje, abys nejdříve nainstaloval\n"
+"balíčky s hlasovým doprovodem GCompris pro národní prostředí %s"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:905
+#| msgid "Question cannot be empty."
+msgid "Questions cannot be empty."
+msgstr "Otázky nemohou být prázdné."
+
+#: ../src/click_on_letter-activity/click_on_letter.c:915
+#| msgid "Question cannot be empty."
+msgid "Answers cannot be empty."
+msgstr "Odpovědi nemohou být prázdné."
+
+#: ../src/click_on_letter-activity/click_on_letter.c:921
+#, c-format
+msgid "Too many characters in the Answer (maximum is %d)."
+msgstr "Příliš mnoho znaků v odpovědi (maximum je %d)."
+
+#: ../src/click_on_letter-activity/click_on_letter.c:945
+msgid "All the characters in Questions must also be in the Answers."
+msgstr "Všechny znaky v otázce se musí rovněž objevit v odpovědi."
+
+#: ../src/click_on_letter-activity/click_on_letter.c:962
+#, c-format
+#| msgid ""
+#| "Invalid entry:\n"
+#| "Question '%s' / Answer '%s'\n"
+#| "%s"
+msgid ""
+"Invalid entry:\n"
+"At level %d, Questions '%s' / Answers '%s'\n"
+"%s"
+msgstr ""
+"Neplatné údaje:\n"
+"V úrovni %d, otázka „%s“ / odpověď „%s“\n"
+"%s"
+
+#. answer
+#: ../src/click_on_letter-activity/click_on_letter.c:1257
+#: ../src/missing_letter-activity/missingletter_config.c:420
+#: ../src/missing_letter-activity/missingletter_config.c:548
+msgid "Answer"
+msgstr "Odpověď"
+
+#. question
+#: ../src/click_on_letter-activity/click_on_letter.c:1268
+#: ../src/missing_letter-activity/missingletter_config.c:426
+#: ../src/missing_letter-activity/missingletter_config.c:571
+msgid "Question"
+msgstr "Otázka"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:1404
+#: ../src/gcompris/board_config_wordlist.c:274
+msgid "Back to default"
+msgstr "Zpět na výchozí"
+
+#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:1
+#: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:1
+msgid ""
+"A letter is spoken. Click on the matching letter in the main area. You can "
+"listen to the letter again, by clicking on the mouth icon in the bottom box."
+msgstr ""
+"Je vysloveno písmeno. Klikni na odpovídající písmeno v hlavní oblasti. "
+"Písmeno si můžeš poslechnout znovu kliknutím na ikonu úst v dolním "
+"vodorovném rámu."
+
+#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:2
+#| msgid "Click on a letter"
+msgid "Click on a lowercase letter"
+msgstr "Klikni na malé písmeno"
+
+#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:3
+#: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:3
+msgid "Letter-name recognition"
+msgstr "Rozpoznávání názvů písmen"
+
+#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:4
+#: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:4
+msgid "Listen to a letter and click on the right one"
+msgstr "Poslechni si písmeno a klikni na jeho psanou podobu"
+
+#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:5
+#: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:5
+msgid "Visual letter-recognition. Can move the mouse."
+msgstr "Vizuální rozpoznávání písmen. Umí hýbat myší."
+
+#: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:2
+#| msgid "Click on a letter"
+msgid "Click on an uppercase letter"
+msgstr "Klikni na velké písmeno"
+
 #: ../src/clockgame-activity/clockgame.c:524
 msgid "Set the watch to:"
 msgstr "Nastav hodiny na:"
@@ -2213,7 +2455,7 @@ msgstr "Nauč se, jak číst čas"
 
 #: ../src/clockgame-activity/clockgame.xml.in.h:3
 msgid "Learning Clock"
-msgstr "Učení se hodin"
+msgstr "Nauč se hodiny"
 
 #: ../src/clockgame-activity/clockgame.xml.in.h:4
 msgid ""
@@ -2228,46 +2470,6 @@ msgstr ""
 #: ../src/clockgame-activity/clockgame.xml.in.h:5
 msgid "The concept of time. Reading the time."
 msgstr "Představa času. Čtení času."
-
-#: ../src/colors-activity/colors.c:60
-msgid "Click on the blue duck"
-msgstr "Klikni na modrou kačenku"
-
-#: ../src/colors-activity/colors.c:61
-msgid "Click on the brown duck"
-msgstr "Klikni na hnědou kačenku"
-
-#: ../src/colors-activity/colors.c:62
-msgid "Click on the green duck"
-msgstr "Klikni na zelenou kačenku"
-
-#: ../src/colors-activity/colors.c:63
-msgid "Click on the grey duck"
-msgstr "Klikni na šedou kačenku"
-
-#: ../src/colors-activity/colors.c:64
-msgid "Click on the orange duck"
-msgstr "Klikni na oranžovou kačenku"
-
-#: ../src/colors-activity/colors.c:65
-msgid "Click on the purple duck"
-msgstr "Klikni na nachovou kačenku"
-
-#: ../src/colors-activity/colors.c:66
-msgid "Click on the red duck"
-msgstr "Klikni na červenou kačenku"
-
-#: ../src/colors-activity/colors.c:67
-msgid "Click on the yellow duck"
-msgstr "Klikni na žlutou kačenku"
-
-#: ../src/colors-activity/colors.c:68
-msgid "Click on the black duck"
-msgstr "Klikni na černou kačenku"
-
-#: ../src/colors-activity/colors.c:69
-msgid "Click on the white duck"
-msgstr "Klikni na bílou kačenku"
 
 #: ../src/colors-activity/colors.xml.in.h:1
 msgid "Can move the mouse."
@@ -2405,8 +2607,8 @@ msgid "Drive the crane and copy the model"
 msgstr "Řiď jeřáb a sestav podle modelu"
 
 #: ../src/crane-activity/crane.xml.in.h:3
-#: ../src/erase-activity/erase.xml.in.h:2
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:5
+#: ../src/erase-activity/erase.xml.in.h:2
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:5
 #: ../src/penalty-activity/penalty.xml.in.h:3
 msgid "Motor-coordination"
@@ -2482,10 +2684,6 @@ msgstr "Vincent van Gogh, Portrét Pere Tanguy – 1887-8"
 msgid "Eilean Donan castle"
 msgstr "Hrad Eilean Donan"
 
-#: ../src/details-activity/resources/details/board2_1.xml.in.h:1
-msgid "Eiffel Tower, seen from the champ de Mars, Paris, France"
-msgstr "Eiffelova věž, pohled z champ de Mars, Paříž, Francie"
-
 #: ../src/details-activity/resources/details/board2_10.xml.in.h:1
 msgid "Gizah Pyramids, Egypt"
 msgstr "Pyramidy v Gíze, Egypt"
@@ -2497,6 +2695,10 @@ msgstr "Budova opery v Sydney, Austrálie"
 #: ../src/details-activity/resources/details/board2_12.xml.in.h:1
 msgid "Tower Bridge in London"
 msgstr "Most Tower Bridge v Londýně"
+
+#: ../src/details-activity/resources/details/board2_1.xml.in.h:1
+msgid "Eiffel Tower, seen from the champ de Mars, Paris, France"
+msgstr "Eiffelova věž, pohled z champ de Mars, Paříž, Francie"
 
 #: ../src/details-activity/resources/details/board2_2.xml.in.h:1
 msgid "Courtyard of the Museum of Louvre, and its pyramid"
@@ -2588,6 +2790,7 @@ msgstr ""
 
 #: ../src/drawnumber-activity/drawnumber.py:236
 #: ../src/findit-activity/findit.py:310
+#: ../src/louis_braille-activity/louis_braille.py:84
 msgid "Cannot find the file '{filename}'"
 msgstr "Nelze nalézt soubor „{filename}“"
 
@@ -2699,6 +2902,18 @@ msgstr ""
 "vyber položku, na kterou chceš odpovídat. Zadej odpověď pomocí klávesnice a "
 "stiskni tlačítko Budiž nebo klávesu „Enter“."
 
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
+msgid "Double click the mouse"
+msgstr "Dvojité klikání myší"
+
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:3
+msgid "Double click the mouse on rectangles until all the blocks disappear."
+msgstr "Klikej dvojitě myší na obdélníky, dokud všechny bloky nezmizí."
+
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:4
+msgid "Double click the mouse to erase the area and discover the background"
+msgstr "Dvojitým klikáním myší vymažeš oblast a objeví se pozadí"
+
 #: ../src/erase-activity/erase.c:86 ../src/erase-activity/erase.xml.in.h:5
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Hýbáním myší vymažeš oblast a objeví se pozadí"
@@ -2744,18 +2959,6 @@ msgstr ""
 "Hýbej myší dokud nezmizí všechny bloky. Můžeš přidat i své vlastní obrázky a "
 "to do složky „~/My GCompris/erase“."
 
-#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
-msgid "Double click the mouse"
-msgstr "Dvojité klikání myší"
-
-#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:3
-msgid "Double click the mouse on rectangles until all the blocks disappear."
-msgstr "Klikej dvojitě myší na obdélníky, dokud všechny bloky nezmizí."
-
-#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:4
-msgid "Double click the mouse to erase the area and discover the background"
-msgstr "Dvojitým klikáním myší vymažeš oblast a objeví se pozadí"
-
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:2
 msgid "Click the mouse"
 msgstr "Klikej myší"
@@ -2790,6 +2993,15 @@ msgstr "Původní kód převzat z dema libgnomecanvas"
 #: ../src/fifteen-activity/fifteen.xml.in.h:5
 msgid "The fifteen game"
 msgstr "Hra patnáct"
+
+#: ../src/findit-activity/findit.py:315
+#: ../src/louis_braille-activity/louis_braille.py:88
+msgid ""
+"Failed to parse data set '{filename}' with error:\n"
+"{error}"
+msgstr ""
+"Selhalo zpracování dat „{filename}“ s chybou:\n"
+"{error}"
 
 #: ../src/followline-activity/followline.xml.in.h:1
 msgid "Control the hose-pipe"
@@ -2885,7 +3097,7 @@ msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr ""
 "Dynamické načítání modulů není podporováno. GCompris se nemůže spustit.\n"
 
-#: ../src/gcompris/board_config_combo.c:157
+#: ../src/gcompris/board_config_combo.c:182
 msgid ""
 "Select the language\n"
 " to use in the board"
@@ -2893,23 +3105,23 @@ msgstr ""
 "Vyberte jazyk,\n"
 " který se má použít na scéně"
 
-#: ../src/gcompris/board_config_combo.c:227
+#: ../src/gcompris/board_config_combo.c:252
 msgid "Global GCompris mode"
 msgstr "Globální režim GComprisu"
 
-#: ../src/gcompris/board_config_combo.c:228
+#: ../src/gcompris/board_config_combo.c:253
 msgid "Normal"
 msgstr "Normální"
 
-#: ../src/gcompris/board_config_combo.c:229
+#: ../src/gcompris/board_config_combo.c:254
 msgid "2 clicks"
 msgstr "2 kliknutí"
 
-#: ../src/gcompris/board_config_combo.c:230
+#: ../src/gcompris/board_config_combo.c:255
 msgid "both modes"
 msgstr "oba režimy"
 
-#: ../src/gcompris/board_config_combo.c:258
+#: ../src/gcompris/board_config_combo.c:283
 msgid ""
 "Select the drag and drop mode\n"
 " to use in the board"
@@ -2918,27 +3130,23 @@ msgstr ""
 " pro použití na desce."
 
 #. add a new level
-#: ../src/gcompris/board_config_wordlist.c:106
+#: ../src/gcompris/board_config_wordlist.c:123
 #, c-format
 msgid "%d (New level)"
 msgstr "%d (Nová úroveň)"
 
 #. frame
-#: ../src/gcompris/board_config_wordlist.c:180
+#: ../src/gcompris/board_config_wordlist.c:226
 msgid "Configure the list of words"
 msgstr "Nastavit seznam slov"
 
-#: ../src/gcompris/board_config_wordlist.c:209
+#: ../src/gcompris/board_config_wordlist.c:237
 msgid "Choice of the language"
 msgstr "Volba jazyka"
 
-#: ../src/gcompris/board_config_wordlist.c:221
+#: ../src/gcompris/board_config_wordlist.c:249
 msgid "Choice of the level"
 msgstr "Volba úrovně"
-
-#: ../src/gcompris/board_config_wordlist.c:246
-msgid "Back to default"
-msgstr "Zpět na výchozí"
 
 #: ../src/gcompris/config.c:58
 msgid "Your system default"
@@ -3249,7 +3457,7 @@ msgstr "Hudba"
 msgid "Effect"
 msgstr "Efekty"
 
-#: ../src/gcompris/config.c:345 ../src/gcompris/sugar.c:82
+#: ../src/gcompris/config.c:345 ../src/gcompris/sugar.c:83
 msgid "Zoom"
 msgstr "Přiblížení"
 
@@ -3258,8 +3466,8 @@ msgstr "Přiblížení"
 msgid "Couldn't open skin dir: %s"
 msgstr "Nelze otevřít složku s maskami vzhledu: %s"
 
-#: ../src/gcompris/config.c:413 ../src/gcompris/config.c:780
-#: ../src/gcompris/config.c:794
+#: ../src/gcompris/config.c:413 ../src/gcompris/config.c:862
+#: ../src/gcompris/config.c:876
 #, c-format
 msgid "Skin : %s"
 msgstr "Vzhled: %s"
@@ -3267,10 +3475,6 @@ msgstr "Vzhled: %s"
 #: ../src/gcompris/config.c:415
 msgid "SKINS NOT FOUND"
 msgstr "MASKY VZHLEDU NENALEZENY"
-
-#: ../src/gcompris/config.c:496
-msgid "English (United State)"
-msgstr "Angličtina (americká)"
 
 #: ../src/gcompris/file_selector.c:251
 msgid "CANCEL"
@@ -3514,7 +3718,7 @@ msgstr ""
 "Nelze načíst vzhled „%s“ (Zkontrolujte, zda soubor existuje a zda jej lze "
 "číst)"
 
-#: ../src/gcompris/gcompris.c:1537
+#: ../src/gcompris/gcompris.c:1544
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
@@ -3522,12 +3726,12 @@ msgstr ""
 "GCompris se nemůže spustit, protože soubor zámku je méně než %d sekund "
 "starý.\n"
 
-#: ../src/gcompris/gcompris.c:1539
+#: ../src/gcompris/gcompris.c:1546
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Soubor zámku je: %s\n"
 
-#: ../src/gcompris/gcompris.c:1712
+#: ../src/gcompris/gcompris.c:1719
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3541,27 +3745,27 @@ msgstr ""
 "Více informací na http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1827
+#: ../src/gcompris/gcompris.c:1834
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Pro přímý přístup k aktivitě použijte -l.\n"
 
-#: ../src/gcompris/gcompris.c:1828
+#: ../src/gcompris/gcompris.c:1835
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Seznam dostupných aktivit:\n"
 
-#: ../src/gcompris/gcompris.c:1859
+#: ../src/gcompris/gcompris.c:1866
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Počet aktivit: %d\n"
 
-#: ../src/gcompris/gcompris.c:1895
+#: ../src/gcompris/gcompris.c:1902
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s existuje, ale nelze jej číst nebo do něj zapisovat"
 
-#: ../src/gcompris/gcompris.c:1958
+#: ../src/gcompris/gcompris.c:1965
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
@@ -3570,7 +3774,7 @@ msgstr ""
 "Přepínač --server nelze použít, protože GCompris byl přeložen bez podpory "
 "sítě."
 
-#: ../src/gcompris/gcompris.c:2012
+#: ../src/gcompris/gcompris.c:2019
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3579,7 +3783,7 @@ msgstr ""
 "CHYBA: Profil „%s“ nebyl nalezen. Dostupné profily si vypíšete spuštěním "
 "„gcompris --profile-list“\n"
 
-#: ../src/gcompris/gcompris.c:2026
+#: ../src/gcompris/gcompris.c:2033
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Seznam dostupných profilů:\n"
@@ -3642,36 +3846,36 @@ msgstr ""
 "Tyto obrazy pak můžete vkládat do svých kreseb a animací.\n"
 "Podporované formáty jsou jpeg, png a svg.\n"
 
-#: ../src/gcompris/sugar.c:70
+#: ../src/gcompris/sugar.c:71
 msgid "Help"
 msgstr "Nápověda"
 
-#: ../src/gcompris/sugar.c:71
+#: ../src/gcompris/sugar.c:72
 msgid "About"
 msgstr "O aplikaci"
 
-#: ../src/gcompris/sugar.c:72
+#: ../src/gcompris/sugar.c:73
 msgid "Previous level"
 msgstr "Předchozí úroveň"
 
-#: ../src/gcompris/sugar.c:75
+#: ../src/gcompris/sugar.c:76
 msgid "Next level"
 msgstr "Následující úroveň"
 
-#: ../src/gcompris/sugar.c:77
+#: ../src/gcompris/sugar.c:78
 msgid "Refresh"
 msgstr "Obnovit"
 
-#: ../src/gcompris/sugar.c:78
+#: ../src/gcompris/sugar.c:79
 msgid "Settings"
 msgstr "Nastavení"
 
 #. TRANSLATORS: Back as in previous
-#: ../src/gcompris/sugar.c:86
+#: ../src/gcompris/sugar.c:87
 msgid "Back"
 msgstr "Zpět"
 
-#: ../src/gcompris/sugar.c:87
+#: ../src/gcompris/sugar.c:88
 msgid "Stop"
 msgstr "Zastavit"
 
@@ -4316,14 +4520,14 @@ msgstr "AÁBCČDĎEÉĚFGHIÍJKLMNŇOÓPQRŘSŠTŤUÚŮVWXYÝZŽ"
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
 #: ../src/gletters-activity/gletters.c:850
-#: ../src/imageid-activity/imageid.c:712 ../src/login-activity/login.py:479
+#: ../src/imageid-activity/imageid.c:712 ../src/login-activity/login.py:480
 #: ../src/missing_letter-activity/missingletter.c:784
-#: ../src/pythontest-activity/pythontest.py:454
-#: ../src/readingh-activity/reading.c:904
-#: ../src/scalesboard-activity/scale.c:1160
-#: ../src/smallnumbers-activity/smallnumbers.c:595
+#: ../src/pythontest-activity/pythontest.py:448
+#: ../src/readingh-activity/reading.c:905
+#: ../src/scalesboard-activity/scale.c:1161
+#: ../src/smallnumbers-activity/smallnumbers.c:597
 #: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:864
+#: ../src/wordsgame-activity/wordsgame.c:866
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -4333,9 +4537,17 @@ msgstr ""
 " pro profil <b>%s</b>"
 
 #: ../src/gletters-activity/gletters.c:879
-#: ../src/smallnumbers-activity/smallnumbers.c:614
+#: ../src/smallnumbers-activity/smallnumbers.c:616
 msgid "Enable sounds"
 msgstr "Povolit zvuky"
+
+#. toggle box
+#: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:486
+#: ../src/missing_letter-activity/missingletter_config.c:492
+#: ../src/readingh-activity/reading.c:929
+#: ../src/wordsgame-activity/wordsgame.c:889
+msgid "Uppercase only text"
+msgstr "Text pouze velkými písmeny"
 
 #: ../src/gletters-activity/gletters.xml.in.h:1
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:2
@@ -4940,7 +5152,7 @@ msgstr ""
 
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:3
 msgid "Learn about an electrical system based on renewable energy"
-msgstr "Poučit se o elektrických systémech založených na obnovitelné energii"
+msgstr "Pouč se o elektřině založené na obnovitelný zdrojích"
 
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:4
 msgid ""
@@ -5233,6 +5445,131 @@ msgstr "vlajka"
 msgid "racket"
 msgstr "raketa"
 
+#: ../src/instruments-activity/instruments.xml.in.h:1
+msgid "Click on the correct instrument."
+msgstr "Klikni na správný nástroj."
+
+#: ../src/instruments-activity/instruments.xml.in.h:2
+msgid "Click on the correct mucical instruments"
+msgstr "Klikni na správný hudební nástroj"
+
+#: ../src/instruments-activity/instruments.xml.in.h:3
+msgid "Learn to recognize musical instruments."
+msgstr "Nauč se rozpoznávat hudební nástroje."
+
+#: ../src/instruments-activity/instruments.xml.in.h:4
+msgid "Music instruments"
+msgstr "Hudební nástroje"
+
+#. Translator: Do not translate {text}.
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:2
+msgid "Find {text}"
+msgstr "Najdi {text}"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:3
+msgid "the accordion"
+msgstr "tahací harmoniku"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:4
+msgid "the banjo"
+msgstr "bendžo"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:5
+msgid "the bass drum"
+msgstr "basový buben"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:6
+msgid "the bongo"
+msgstr "bonga"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:7
+msgid "the castanets"
+msgstr "kastaněty"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:8
+msgid "the cello"
+msgstr "violončelo"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:9
+msgid "the clarinet"
+msgstr "klarinet"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:10
+msgid "the cymbal"
+msgstr "činely"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:11
+msgid "the drum kit"
+msgstr "bicí souprava"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
+msgid "the electric guitar"
+msgstr "elektrickou kytaru"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
+msgid "the flute traversiere"
+msgstr "příčná flétna"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
+msgid "the guitar"
+msgstr "kytaru"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
+msgid "the harmonica"
+msgstr "foukací harmoniku"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
+msgid "the harp"
+msgstr "harfu"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
+msgid "the horn"
+msgstr "lesní roh"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
+msgid "the maracas"
+msgstr "rumba koule"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
+msgid "the organ"
+msgstr "varhany"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
+msgid "the piano"
+msgstr "klavír"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
+msgid "the saxophone"
+msgstr "saxofon"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
+msgid "the tambourine"
+msgstr "tamburinu"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
+msgid "the timpani"
+msgstr "tympány"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
+msgid "the triangle"
+msgstr "triangl"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
+msgid "the trombone"
+msgstr "pozoun"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
+msgid "the trumpet"
+msgstr "trubku"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:27
+msgid "the tuba"
+msgstr "tubu"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:28
+msgid "the violin"
+msgstr "housle"
+
 #: ../src/leftright-activity/leftright.c:230
 #: ../src/searace-activity/searace.py:415
 #: ../src/searace-activity/searace.py:439
@@ -5319,16 +5656,16 @@ msgstr ""
 "cenným zdrojem znalostí: &lt;http://www.haar.clara.co.uk/Lights/solving."
 "html&gt;"
 
-#: ../src/login-activity/login.py:101
+#: ../src/login-activity/login.py:102
 msgid "Profile: "
 msgstr "Profil: "
 
-#: ../src/login-activity/login.py:234
+#: ../src/login-activity/login.py:235
 msgid "Login: "
 msgstr "Přihlášení: "
 
 #. toggle box
-#: ../src/login-activity/login.py:494
+#: ../src/login-activity/login.py:496
 msgid "Enter login to log in"
 msgstr "Pro přihlášení zadej své přihlašovací jméno"
 
@@ -5368,6 +5705,101 @@ msgstr ""
 #: ../src/login-activity/login.xml.in.h:10
 msgid "Select or enter your name to log in to GCompris"
 msgstr "Zvol nebo zadej své jméno pro přihlášení do GComprisu"
+
+#: ../src/louis_braille-activity/louis_braille.py:106
+#: ../src/louis_braille-activity/louis_braille.py:222
+#| msgid "star"
+msgid "story"
+msgstr "příběh"
+
+#: ../src/louis_braille-activity/louis_braille.py:111
+msgid "Click to confirm your sequence"
+msgstr "Kliknutím své uspořádání potvrdíte"
+
+#: ../src/louis_braille-activity/louis_braille.py:224
+#| msgid "pear"
+msgid "year"
+msgstr "rok"
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:1
+msgid " After his Death"
+msgstr "Po jeho smrti"
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:2
+msgid ""
+" At the age of 10, he was sent to Paris to study at the Royal Institute for "
+"Blind Youth."
+msgstr ""
+"V deseti 10 letech byl poslán do Paříže na studium v Královském institutu "
+"pro slepou mládež."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:3
+msgid ""
+" At the age of three, Louis became blind due to a severe infection that "
+"spread to his left eye."
+msgstr ""
+"Ve věku tří let Louis oslepl v důsledku těžké infekce, která napadla i jeho "
+"levé oko."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:4
+msgid " Born on January 4th in Coupvary near Paris in France."
+msgstr "Narodil se 4. ledna ve Francii v městečku Coupvary poblíž Paříže."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:5
+msgid ""
+" Braille got accepted as a world wide standard. Louis Braille proved that if "
+"you have motivation you can do incredible things."
+msgstr ""
+"Braillův systém byl přijat jako celosvětový standard. Louis Braille je "
+"důkazem, že když má člověk motivaci, může dokázat velké věci."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:6
+msgid ""
+" Charles Barbier, a French soldier, visited his school and shared his "
+"invention of night writing, a code of 12 raised dots to share information on "
+"battlefields."
+msgstr ""
+"Jeho školu navštívil Charles Barbier, francouzský voják, a ukázal mu "
+"vynález pro noční psaní, kód založený na 12 bodech používaný pro předávání "
+"informací na bitevních polích."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:7
+msgid " He became a teacher after graduating and secretly taught his method."
+msgstr ""
+"Po absolvování školy se na ní stal učitelem a v tichosti zavedl svoji metodu."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:8
+msgid ""
+" He died of tuberculosis. He is burried in the Pantheon in Paris. A monument "
+"is erected to honor him."
+msgstr ""
+"Zemřel na tuberkulózu. Je pochována v Pantheonu v Paříži. Na jeho počest "
+"byl vztyčen památník."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:9
+msgid " He impressed his classmates and began to play the piano and the organ."
+msgstr "Mezi spolužáky byl uznávaný a začal hrát na klavír a varhany."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:10
+msgid ""
+" He revised and extended braille to include mathematics, symbols, "
+"punctuations and music notations."
+msgstr ""
+"Svůj systém upravil a rozšířil, aby obsahoval i matematické značky, "
+"symboly, interpunkci a notový zápis."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:11
+msgid ""
+" Louis Braille injured his right eye with a stitching awl from his father's "
+"workshop."
+msgstr ""
+"Louis Braille si poranil své pravé oko ševcovským šídlem z otcovy dílny"
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:12
+msgid ""
+" Louis trimmed Barbier's 12 dots into 6 and invented the Braille language."
+msgstr ""
+"Louis zredukoval Barbierových 12 bodů jen na 6 a vyvinul Brallovo písmo."
 
 #: ../src/magic_hat_minus-activity/magic_hat_minus.xml.in.h:1
 msgid "Count how many items are under the magic hat after some have got away"
@@ -5428,49 +5860,29 @@ msgstr "Kolik položek se nachází pod magickým kloboukem"
 msgid "Learn addition"
 msgstr "Výuka sčítání"
 
-#: ../src/maze-activity/maze.c:132 ../src/maze-activity/maze.xml.in.h:4
-#: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:4
-#: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:4
-msgid "Maze"
-msgstr "Bludiště"
-
-#: ../src/maze-activity/maze.c:133 ../src/maze-activity/maze.xml.in.h:2
-msgid "Find your way out of the maze"
-msgstr "Najdi cestu z bludiště"
-
-#: ../src/maze-activity/maze.c:599
-msgid ""
-"Look at your position, then switch back to invisible mode to continue your "
-"moves"
-msgstr ""
-"Podívej se na svou pozici a pro pohyb se přepni zpět do neviditelného režimu"
-
-#: ../src/maze-activity/maze.c:601
-msgid ""
-"Look at your position, then switch back to 3D mode to continue your moves"
-msgstr "Podívej se na svou pozici a pro pohyb se přepni zpět do režimu 3D"
-
-#: ../src/maze-activity/maze.xml.in.h:1
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:1
 #: ../src/maze3D-activity/maze3D.xml.in.h:2
+#: ../src/maze-activity/maze.xml.in.h:1
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:1
 msgid "Can use the keyboard arrow to move an object."
 msgstr "Umí používat šipky na klávesnici pro pohyb objektu."
 
-#: ../src/maze-activity/maze.xml.in.h:3
+#: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:2
+msgid "Find your way out of the maze (Move is relative)"
+msgstr "Najdi cestu z bludiště (pohyb je relativní)"
+
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:3
 #: ../src/maze3D-activity/maze3D.xml.in.h:4
+#: ../src/maze-activity/maze.xml.in.h:3
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:3
 msgid "Help Tux get out of this maze."
 msgstr "Pomoz Tuxovi dostat se z tohoto bludiště."
 
-#: ../src/maze-activity/maze.xml.in.h:5
-msgid "Use the keyboard arrows to move Tux up to the door."
-msgstr "Použij šipky na klávesnici pro přesunutí Tuxe nahoru ke dveřím."
-
-#: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:2
-msgid "Find your way out of the maze (Move is relative)"
-msgstr "Najdi cestu z bludiště (pohyb je relativní)"
+#: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:4
+#: ../src/maze-activity/maze.c:132 ../src/maze-activity/maze.xml.in.h:4
+#: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:4
+msgid "Maze"
+msgstr "Bludiště"
 
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:5
 msgid ""
@@ -5499,6 +5911,26 @@ msgstr ""
 "Použij šipky na klávesnici pro přesun Tuxe nahoru ke dveřím. Pro přepínání "
 "mezi režimy 2D a 3D použij mezerník. Režim 2D ti dává informaci o tvé pozici "
 "na mapě. V režimu 2D nemůžeš Tuxem pohybovat."
+
+#: ../src/maze-activity/maze.c:133 ../src/maze-activity/maze.xml.in.h:2
+msgid "Find your way out of the maze"
+msgstr "Najdi cestu z bludiště"
+
+#: ../src/maze-activity/maze.c:599
+msgid ""
+"Look at your position, then switch back to invisible mode to continue your "
+"moves"
+msgstr ""
+"Podívej se na svou pozici a pro pohyb se přepni zpět do neviditelného režimu"
+
+#: ../src/maze-activity/maze.c:601
+msgid ""
+"Look at your position, then switch back to 3D mode to continue your moves"
+msgstr "Podívej se na svou pozici a pro pohyb se přepni zpět do režimu 3D"
+
+#: ../src/maze-activity/maze.xml.in.h:5
+msgid "Use the keyboard arrows to move Tux up to the door."
+msgstr "Použij šipky na klávesnici pro přesunutí Tuxe nahoru ke dveřím."
 
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:2
 msgid "Find your way out of the invisible maze"
@@ -6024,30 +6456,6 @@ msgstr ""
 "Můžete vidět několik karet, ale nemůžete vidět, co je na nich z druhé "
 "strany. Každá karta skrývá několik čísel nebo slovně uvedené číslo."
 
-#: ../src/missing_letter-activity/missing_letter.xml.in.h:1
-msgid ""
-"An object is displayed in the main area, and an incomplete word is printed "
-"under the picture. Select the missing letter to complete the word."
-msgstr ""
-"Pod obrázkem je vytištěno neúplné slovo. Vyber chybějící písmeno pro "
-"doplnění slova."
-
-#: ../src/missing_letter-activity/missing_letter.xml.in.h:2
-msgid "Fill in the missing letter"
-msgstr "Doplň chybějící písmeno"
-
-#: ../src/missing_letter-activity/missing_letter.xml.in.h:3
-msgid "Missing Letter"
-msgstr "Chybějící písmeno"
-
-#: ../src/missing_letter-activity/missing_letter.xml.in.h:4
-msgid "Training reading skills"
-msgstr "Procvičení čtecích schopností"
-
-#: ../src/missing_letter-activity/missing_letter.xml.in.h:5
-msgid "Word reading"
-msgstr "Čtení slov"
-
 #: ../src/missing_letter-activity/missingletter_config.c:77
 msgid "Please select an image."
 msgstr "Vyberte prosím obrázek."
@@ -6099,18 +6507,6 @@ msgstr ""
 msgid "Picture"
 msgstr "Obrázek"
 
-#. answer
-#: ../src/missing_letter-activity/missingletter_config.c:420
-#: ../src/missing_letter-activity/missingletter_config.c:548
-msgid "Answer"
-msgstr "Odpověď"
-
-#. question
-#: ../src/missing_letter-activity/missingletter_config.c:426
-#: ../src/missing_letter-activity/missingletter_config.c:571
-msgid "Question"
-msgstr "Otázka"
-
 #. choice
 #: ../src/missing_letter-activity/missingletter_config.c:432
 #: ../src/missing_letter-activity/missingletter_config.c:583
@@ -6141,6 +6537,30 @@ msgid ""
 "the solution."
 msgstr ""
 "Zde zadejte písmena, která budou nabízena. První písmeno musí být řešením"
+
+#: ../src/missing_letter-activity/missing_letter.xml.in.h:1
+msgid ""
+"An object is displayed in the main area, and an incomplete word is printed "
+"under the picture. Select the missing letter to complete the word."
+msgstr ""
+"Pod obrázkem je vytištěno neúplné slovo. Vyber chybějící písmeno pro "
+"doplnění slova."
+
+#: ../src/missing_letter-activity/missing_letter.xml.in.h:2
+msgid "Fill in the missing letter"
+msgstr "Doplň chybějící písmeno"
+
+#: ../src/missing_letter-activity/missing_letter.xml.in.h:3
+msgid "Missing Letter"
+msgstr "Chybějící písmeno"
+
+#: ../src/missing_letter-activity/missing_letter.xml.in.h:4
+msgid "Training reading skills"
+msgstr "Procvičení čtecích schopností"
+
+#: ../src/missing_letter-activity/missing_letter.xml.in.h:5
+msgid "Word reading"
+msgstr "Čtení slov"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:1
 msgid "car/c_r/a/k/o"
@@ -6407,12 +6827,6 @@ msgstr "Reprezentace prostoru"
 msgid "Edgar Degas, The Dancing Class - 1873-75"
 msgstr "Edgar Degas, Taneční třída (La Classe de Danse) – 1873-75"
 
-#: ../src/paintings-activity/resources/paintings/board1_1.xml.in.h:1
-msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
-msgstr ""
-"Pierre-Auguste Renoir, Tanec u Lea Moulin de la Galette (Le Bal au Moulin de "
-"la Galette) – 1876"
-
 #: ../src/paintings-activity/resources/paintings/board1_10.xml.in.h:1
 msgid ""
 "Katsushika Hokusai,\\nViewing Sunset over the Ryogoku Bridge from the Ommaya "
@@ -6429,6 +6843,12 @@ msgstr "Katsushika Hokusa, Vlčí máky (Poppies) – 1833-1834"
 #: ../src/paintings-activity/resources/paintings/board1_12.xml.in.h:1
 msgid "Katsushika Hokusai, Kazusa sea Route - 1830."
 msgstr "Katsushika Hokusai, Námořní cesta Kazusa (Kazusa sea Route) – 1830."
+
+#: ../src/paintings-activity/resources/paintings/board1_1.xml.in.h:1
+msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
+msgstr ""
+"Pierre-Auguste Renoir, Tanec u Lea Moulin de la Galette (Le Bal au Moulin de "
+"la Galette) – 1876"
 
 #: ../src/paintings-activity/resources/paintings/board1_2.xml.in.h:1
 msgid "Giuseppe Arcimboldo, Spring - 1573"
@@ -6626,7 +7046,7 @@ msgid "Number"
 msgstr "Číslo"
 
 #: ../src/pythontemplate-activity/pythontemplate.py:62
-#: ../src/pythontest-activity/pythontest.py:184
+#: ../src/pythontest-activity/pythontest.py:182
 msgid ""
 "This is the first plugin in GCompris coded in the Python\n"
 "Programming language."
@@ -6658,7 +7078,7 @@ msgid ""
 "Thanks to Guido van Rossum and the python team for this powerful language!"
 msgstr "Díky Guido van Rossum a python týmu za tento mocný jazyk!"
 
-#: ../src/pythontest-activity/pythontest.py:194
+#: ../src/pythontest-activity/pythontest.py:192
 msgid ""
 "It is now possible to develop GCompris activities in C or in Python.\n"
 "Thanks to Olivier Samys who makes this possible."
@@ -6666,37 +7086,33 @@ msgstr ""
 "Nyní je možné vyvíjet GCompris aktivity v C nebo Pythonu.\n"
 " Zásluhy za tuto možnost připadají Olivieru Samys."
 
-#: ../src/pythontest-activity/pythontest.py:204
+#: ../src/pythontest-activity/pythontest.py:202
 msgid "This activity is not playable, just a test"
 msgstr "Tato aktivita se ještě nedá hrát, je to pouze test"
 
 #. toggle box
-#: ../src/pythontest-activity/pythontest.py:459
+#: ../src/pythontest-activity/pythontest.py:454
 msgid "Disable line drawing in circle"
 msgstr "Zrušit vykreslení čáry v kruhu"
 
 #. combo box
-#: ../src/pythontest-activity/pythontest.py:468
+#: ../src/pythontest-activity/pythontest.py:463
 msgid "Color of the line"
 msgstr "Barva čáry"
 
 #. spin button for int
-#: ../src/pythontest-activity/pythontest.py:479
+#: ../src/pythontest-activity/pythontest.py:474
 msgid "Distance between circles"
 msgstr "Vzdálenost mezi kruhy"
 
 #. radio buttons for circle or rectangle
-#: ../src/pythontest-activity/pythontest.py:490
+#: ../src/pythontest-activity/pythontest.py:485
 msgid "Use circles"
 msgstr "Použít kruhy"
 
-#: ../src/pythontest-activity/pythontest.py:491
+#: ../src/pythontest-activity/pythontest.py:486
 msgid "Use rectangles"
 msgstr "Použít obdélníky"
-
-#: ../src/pythontest-activity/pythontest.py:494
-msgid "Choice of pattern"
-msgstr "Zvolit vzor"
 
 #: ../src/pythontest-activity/pythontest.xml.in.h:3
 msgid "Python Test"
@@ -6951,6 +7367,57 @@ msgstr ""
 "pozornost hmotnosti a jednotce u závaží, pamatuj, že kilogram (kg) je 1000 "
 "gramů (g). Závaží mohou být seřazená v libovolném pořadí."
 
+#: ../src/searace1player-activity/searace1player.xml.in.h:1
+msgid "Give good instructions to your ship in order to be first in the race."
+msgstr "Dávej své lodi správné instrukce, abys vyhrál závod."
+
+#: ../src/searace1player-activity/searace1player.xml.in.h:2
+msgid ""
+"In the text entry, enter one command per line, to control your boat. "
+"Commands supported are displayed between the two entry areas. The 'left' and "
+"'right' commands must be followed by an angle in degrees. The angle value is "
+"also called a 'parameter' to the left or right command. By default 45 "
+"degrees is used. The 'forward' command accepts a distance parameter. By "
+"default 1 is used.\n"
+"For example:\n"
+"- left 90: Make a perpendicular left turn\n"
+"- forward 10: Go forward for 10 units (as displayed on the ruler).\n"
+"The goal is to reach the right of the screen (the red line). When done, you "
+"can try to improve your program and start a new race with the same weather "
+"conditions by using the retry button. You can click and drag your mouse "
+"anywhere on the map to get a measurement in distance and angle. Going to the "
+"next level will give you more complex weather conditions."
+msgstr ""
+"Do textového pole zadávej na samostatné řádky příkazy, kterými ovládáte loď. "
+"Povolené příkazy jsou zobrazeny mezi dvěma textovými poli. Za příkazy "
+"„vlevo“ a „vpravo“ musíte zadat úhel ve stupních. Toto číslo se nazývá "
+"„parametr“ příkazu vlevo nebo vpravo. Výchozí úhel je 45 stupňů. Příkaz "
+"„vpřed“ potřebuje jako parametr vzdálenost. Výchozí je 1.\n"
+"Příklad:\n"
+"- vlevo 90: prudký obrat vlevo\n"
+"- vpřed 10: posune se vpřed o 10 jednotek (jak je zobrazeno na pravítku).\n"
+"Cílem je dosáhnout pravé strany obrazovky (červená čára). Pokud jste toho "
+"dosáhli, můžete zkusit se zdokonalit a spustit novou trasu se stejnými "
+"povětrnostními podmínkami stiskem tlačítka Znovu. Chcete-li si změřit "
+"vzdálenost nebo úhel, klikněte a táhněte myší kdekoliv na mapě. Ve vyšších "
+"úrovních vás čekají náročnější povětrnostní podmínky."
+
+#: ../src/searace1player-activity/searace1player.xml.in.h:7
+#: ../src/searace-activity/searace.xml.in.h:8
+msgid ""
+"In this activity, you will learn how to enter commands into a computer. Even "
+"if the language is extremely basic, you learn here how to think ahead and "
+"construct a program. This activity can be used to introduce the programming "
+"concept to children."
+msgstr ""
+"V této aktivitě se naučíš, jak zadávat příkazy počítači. I když je tento "
+"jazyk extrémně jednoduchý, naučíš se, jak myslet dopředu a vytvářet program. "
+"Tuto aktivitu lze použít pro představení pojmu programování dětem."
+
+#: ../src/searace1player-activity/searace1player.xml.in.h:8
+msgid "Sea race (Single Player)"
+msgstr "Námořní závod (jeden hráč)"
+
 #: ../src/searace-activity/searace.py:174
 msgid "The race is already being run"
 msgstr "Závod již běží"
@@ -7045,87 +7512,36 @@ msgstr ""
 "vzdálenost nebo úhel, klikni a táhni myší kdekoliv na mapě. Ve vyšších "
 "úrovních tě čekají náročnější povětrnostní podmínky."
 
-#: ../src/searace-activity/searace.xml.in.h:8
-#: ../src/searace1player-activity/searace1player.xml.in.h:7
-msgid ""
-"In this activity, you will learn how to enter commands into a computer. Even "
-"if the language is extremely basic, you learn here how to think ahead and "
-"construct a program. This activity can be used to introduce the programming "
-"concept to children."
-msgstr ""
-"V této aktivitě se naučíš, jak zadávat příkazy počítači. I když je tento "
-"jazyk extrémně jednoduchý, naučíš se, jak myslet dopředu a vytvářet program. "
-"Tuto aktivitu lze použít pro představení pojmu programování dětem."
-
 #: ../src/searace-activity/searace.xml.in.h:9
 msgid "Sea race (2 Players)"
 msgstr "Námořní závod (2 hráči)"
 
-#: ../src/searace1player-activity/searace1player.xml.in.h:1
-msgid "Give good instructions to your ship in order to be first in the race."
-msgstr "Dávej své lodi správné instrukce, abys vyhrál závod."
-
-#: ../src/searace1player-activity/searace1player.xml.in.h:2
-msgid ""
-"In the text entry, enter one command per line, to control your boat. "
-"Commands supported are displayed between the two entry areas. The 'left' and "
-"'right' commands must be followed by an angle in degrees. The angle value is "
-"also called a 'parameter' to the left or right command. By default 45 "
-"degrees is used. The 'forward' command accepts a distance parameter. By "
-"default 1 is used.\n"
-"For example:\n"
-"- left 90: Make a perpendicular left turn\n"
-"- forward 10: Go forward for 10 units (as displayed on the ruler).\n"
-"The goal is to reach the right of the screen (the red line). When done, you "
-"can try to improve your program and start a new race with the same weather "
-"conditions by using the retry button. You can click and drag your mouse "
-"anywhere on the map to get a measurement in distance and angle. Going to the "
-"next level will give you more complex weather conditions."
-msgstr ""
-"Do textového pole zadávej na samostatné řádky příkazy, kterými ovládáte loď. "
-"Povolené příkazy jsou zobrazeny mezi dvěma textovými poli. Za příkazy "
-"„vlevo“ a „vpravo“ musíte zadat úhel ve stupních. Toto číslo se nazývá "
-"„parametr“ příkazu vlevo nebo vpravo. Výchozí úhel je 45 stupňů. Příkaz "
-"„vpřed“ potřebuje jako parametr vzdálenost. Výchozí je 1.\n"
-"Příklad:\n"
-"- vlevo 90: prudký obrat vlevo\n"
-"- vpřed 10: posune se vpřed o 10 jednotek (jak je zobrazeno na pravítku).\n"
-"Cílem je dosáhnout pravé strany obrazovky (červená čára). Pokud jste toho "
-"dosáhli, můžete zkusit se zdokonalit a spustit novou trasu se stejnými "
-"povětrnostními podmínkami stiskem tlačítka Znovu. Chcete-li si změřit "
-"vzdálenost nebo úhel, klikněte a táhněte myší kdekoliv na mapě. Ve vyšších "
-"úrovních vás čekají náročnější povětrnostní podmínky."
-
-#: ../src/searace1player-activity/searace1player.xml.in.h:8
-msgid "Sea race (Single Player)"
-msgstr "Námořní závod (jeden hráč)"
-
-#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:1
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:1
+#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:1
 msgid "Count the number of dots on dice before they reach the ground"
 msgstr "Spočítej číslo na na kostce než se dotkne země"
 
-#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:2
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:2
+#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:2
 msgid "Counting skills"
 msgstr "Schopnost počítat"
 
-#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:3
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:3
+#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:3
 msgid "In a limited time, count the number of dots"
 msgstr "V omezeném čase spočítat počet teček"
 
-#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:4
-msgid "Numbers With Dice"
+#: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:4
+msgid "Numbers with pairs of dice"
 msgstr "Čísla na kostce"
 
-#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:5
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:5
+#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:5
 msgid "With the keyboard, type the number of dots you see on the falling dice."
 msgstr "Na klávesnici napiš číslo odpovídající počtu teček na padající kostce."
 
-#: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:4
-msgid "Numbers with pairs of dice"
+#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:4
+msgid "Numbers With Dice"
 msgstr "Čísla na kostce"
 
 #: ../src/submarine-activity/submarine.xml.in.h:1
@@ -7446,7 +7862,7 @@ msgstr ""
 
 #: ../src/watercycle-activity/watercycle.xml.in.h:3
 msgid "Learn about the water cycle"
-msgstr "Poznat koloběh vody"
+msgstr "Poznej koloběh vody"
 
 #: ../src/watercycle-activity/watercycle.xml.in.h:4
 msgid "Learn the water cycle"
@@ -7544,136 +7960,3 @@ msgstr "Procvičení klávesnice"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:4
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Napiš celé padající slovo, než spadnou na zem"
-
-#: ../src/findit-activity/findit.py:315
-msgid ""
-"Failed to parse data set '{filename}' with error:\n"
-"{error}"
-msgstr ""
-"Selhalo zpracování dat „{filename}“ s chybou:\n"
-"{error}"
-
-#: ../src/instruments-activity/instruments.xml.in.h:1
-msgid "Click on the correct instrument."
-msgstr "Klikni na správný nástroj."
-
-#: ../src/instruments-activity/instruments.xml.in.h:2
-msgid "Click on the correct mucical instruments"
-msgstr "Klikni na správný hudební nástroj"
-
-#: ../src/instruments-activity/instruments.xml.in.h:3
-msgid "Learn to recognize musical instruments."
-msgstr "Nauč se rozpoznávat hudební nástroje."
-
-#: ../src/instruments-activity/instruments.xml.in.h:4
-msgid "Music instruments"
-msgstr "Hudební nástroje"
-
-#. Translator: Do not translate {text}.
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:2
-msgid "Find {text}"
-msgstr "Najdi {text}"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:3
-msgid "the accordion"
-msgstr "tahací harmoniku"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:4
-msgid "the banjo"
-msgstr "bendžo"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:5
-msgid "the bass drum"
-msgstr "basový buben"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:6
-msgid "the bongo"
-msgstr "bonga"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:7
-msgid "the castanets"
-msgstr "kastaněty"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:8
-msgid "the cello"
-msgstr "violončelo"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:9
-msgid "the clarinet"
-msgstr "klarinet"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:10
-msgid "the cymbal"
-msgstr "činely"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:11
-msgid "the drum kit"
-msgstr "bicí souprava"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
-msgid "the electric guitar"
-msgstr "elektrickou kytaru"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
-msgid "the flute traversiere"
-msgstr "příčná flétna"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
-msgid "the guitar"
-msgstr "kytaru"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
-msgid "the harmonica"
-msgstr "foukací harmoniku"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
-msgid "the harp"
-msgstr "harfu"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
-msgid "the horn"
-msgstr "lesní roh"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
-msgid "the maracas"
-msgstr "rumba koule"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
-msgid "the organ"
-msgstr "varhany"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
-msgid "the piano"
-msgstr "klavír"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
-msgid "the saxophone"
-msgstr "saxofon"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
-msgid "the tambourine"
-msgstr "tamburinu"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
-msgid "the timpani"
-msgstr "tympány"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
-msgid "the triangle"
-msgstr "triangl"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
-msgid "the trombone"
-msgstr "pozoun"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
-msgid "the trumpet"
-msgstr "trubku"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:27
-msgid "the tuba"
-msgstr "tubu"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:28
-msgid "the violin"
-msgstr "housle"
