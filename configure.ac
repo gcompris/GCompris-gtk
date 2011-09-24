@@ -371,12 +371,11 @@ AC_PATH_PROG(TEXINFO, makeinfo,no)
 if test x$TEXINFO = xno; then
   AC_MSG_WARN(Couldn't find texinfo, docs are not compiled. please install the texinfo package)
 fi
-AM_CONDITIONAL(TEXINFO, test x$TEXINFO != xno)
-
 AC_PATH_PROG(TETEX, texi2html,no)
 if test x$TETEX = xno; then
   AC_MSG_WARN(Couldn't find texi2html usualy in the tetex package, please install it)
 fi
+AM_CONDITIONAL(TEXINFO, test x$TEXINFO != xno -a x$TETEX != xno)
 
 
 dnl SDLMixer support
