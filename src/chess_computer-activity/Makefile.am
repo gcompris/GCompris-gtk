@@ -1,3 +1,5 @@
+include $(top_srcdir)/Makefile.activity
+
 if BUILD_GNUCHESS
 SUBDIRS = resources gnuchess
 else

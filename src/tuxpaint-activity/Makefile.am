@@ -1,3 +1,6 @@
+# Passthrough, do not break uplevel make rule
+install-activity:
+
 SUBDIRS =
 
 pythondir = $(PYTHON_PLUGIN_DIR)

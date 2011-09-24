@@ -1,3 +1,6 @@
+# Passthrough, do not break uplevel make rule
+install-activity:
+
 ## Process this file with automake to produce Makefile.in
 
 SUBDIRS = src

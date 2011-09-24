@@ -1,3 +1,6 @@
+include $(top_srcdir)/Makefile.activity
+
+ACTIVITY_SUBDIRS = smallnumbers-activity
 SUBDIRS =
 
 xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@

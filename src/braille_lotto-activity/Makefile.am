@@ -1,3 +1,6 @@
+include $(top_srcdir)/Makefile.activity
+
+ACTIVITY_SUBDIRS = braille_alphabets-activity
 SUBDIRS = resources
 
 pythondir = $(PYTHON_PLUGIN_DIR)

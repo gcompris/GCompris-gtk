@@ -1,3 +1,6 @@
+# Passthrough, do not break uplevel make rule
+install-activity:
+
 ## Process this file with automake to produce Makefile.in
 if PYTHON_PLUGIN
 python_ldadd = $(PYTHON_LIBS)

@@ -1,0 +1,28 @@
+ACTIVITY_DESTDIR = $(DESTDIR)/$(notdir $(abs_builddir))
+
+install-activity: all-am do-install-activity do-install-resources do-install-launcher
+
+do-install-activity: install
+	for i in $(ACTIVITY_SUBDIRS); do $(MAKE) -C ../$$i do-install-activity || break 0; done
+
+do-install-resources:
+	@[ "$(DESTDIR)" ] || (echo 'Pass DESTDIR with $@'; false)
+	$(MAKE) DESTDIR=$(ACTIVITY_DESTDIR) -C $(top_builddir)/src/goocanvas install
+	$(MAKE) DESTDIR=$(ACTIVITY_DESTDIR) -C $(top_builddir)/src/gcompris install
+	$(MAKE) DESTDIR=$(ACTIVITY_DESTDIR) -C $(top_builddir)/po install
+	$(MAKE) DESTDIR=$(ACTIVITY_DESTDIR) do-install-activity
+	$(INSTALL) -d $(ACTIVITY_DESTDIR)/$(pkgdatadir)/boards
+	cp -r $(top_srcdir)/boards/skins $(ACTIVITY_DESTDIR)/$(pkgdatadir)/boards/
+	cp -r $(top_srcdir)/boards/sounds $(ACTIVITY_DESTDIR)/$(pkgdatadir)/boards/
+	if [ "$$(cat $(builddir)/*.xml | grep 'type *=.*python:')" ]; then \
+		$(MAKE) DESTDIR=$(ACTIVITY_DESTDIR) -C $(top_builddir)/src/boards install; \
+	fi
+
+do-install-launcher:
+	[ $(notdir $(abs_builddir)) == administration-activity ] || ( \
+	mv $(ACTIVITY_DESTDIR)/$(bindir)/gcompris{,.bin}; \
+	launcher=$(ACTIVITY_DESTDIR)/$(bindir)/gcompris; \
+	name="$$(cat $(builddir)/*.xml | grep -o 'name *= *"[^"]\+' | awk -F\" '{print $$2}')"; \
+	section="$$(cat $(builddir)/*.xml | grep -o 'section *= *"[^"]\+' | awk -F\" '{print $$2}')"; \
+	echo -e "#!/bin/sh\nexec \$$(dirname \$$0)/gcompris.bin -l $$section/$$name \$$@" > $$launcher; \
+	chmod 0755 $$launcher )

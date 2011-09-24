@@ -1,5 +1,8 @@
 ## Process this file with automake to produce Makefile.in
 
+install-activity:
+	for i in $(SUBDIRS); do $(MAKE) -C $$i $@ || break 0; done
+
 SUBDIRS = \
 	administration-activity \
 	advanced_colors-activity \

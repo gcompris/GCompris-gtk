@@ -1,3 +1,6 @@
+include $(top_srcdir)/Makefile.activity
+
+ACTIVITY_SUBDIRS = findit-activity
 SUBDIRS = resources
 
 xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@

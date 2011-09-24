@@ -1,3 +1,5 @@
+include $(top_srcdir)/Makefile.activity
+
 SUBDIRS =
 
 if PLATFORM_WIN32

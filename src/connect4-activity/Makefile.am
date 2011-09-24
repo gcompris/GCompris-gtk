@@ -1,3 +1,5 @@
+include $(top_srcdir)/Makefile.activity
+
 SUBDIRS = resources connect4p
 
 pythondir = $(PYTHON_PLUGIN_DIR)

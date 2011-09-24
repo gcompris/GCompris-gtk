@@ -1,3 +1,6 @@
+# Passthrough, do not break uplevel make rule
+install-activity:
+
 if PYTHON_PLUGIN
 python_plugin = libpython.la
 python_subdir = python

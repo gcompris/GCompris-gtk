@@ -93,5 +93,7 @@ update-voices:
 
 all-local:
 
+install-activity:
+	$(MAKE) -C src $@
 
 ACLOCAL_AMFLAGS = -I m4

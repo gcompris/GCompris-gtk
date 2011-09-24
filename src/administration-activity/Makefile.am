@@ -1,3 +1,10 @@
+include $(top_srcdir)/Makefile.activity
+
+install-activity:
+	$(MAKE) -C $(top_srcdir)/boards
+	cp $(top_srcdir)/boards/*.svg $(ACTIVITY_DESTDIR)/$(pkgdatadir)/boards/
+	cp $(top_srcdir)/boards/*.xml $(ACTIVITY_DESTDIR)/$(pkgdatadir)/boards/
+
 SUBDIRS = admin resources
 
 pythondir = $(PYTHON_PLUGIN_DIR)

@@ -1,3 +1,6 @@
+include $(top_srcdir)/Makefile.activity
+
+ACTIVITY_SUBDIRS = algebra_by-activity
 SUBDIRS = resources
 
 if PLATFORM_WIN32
