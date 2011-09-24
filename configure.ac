@@ -489,7 +489,7 @@ else
   dnl Python interpreter is available so check for pygtk
   PKG_CHECK_MODULES(PYGTK, pygtk-2.0 pycairo)
 
-  PYCAIRO_VERSION=$(pkg-config pycairo --modversion | awk -F. '{print ($1 * 1000) + $2 }')
+  PYCAIRO_VERSION=$(pkg-config pycairo --modversion | awk -F. '{print $1 * 10000 + $2 * 100 + $3}')
   AC_DEFINE_UNQUOTED([PYCAIRO_VERSION], $PYCAIRO_VERSION, [pycairo version])
 
   AC_MSG_CHECKING([for pygtk defs])
