@@ -45,7 +45,4 @@ void gc_menu_destroy(void);
 /** log */
 void gc_log_start (GcomprisBoard *gcomprisBoard);
 
-/** dbus */
-void gc_dbus_init(gchar *sugarActivityId);
-
 #endif

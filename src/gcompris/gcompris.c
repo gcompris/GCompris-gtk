@@ -70,8 +70,6 @@ gchar * exec_prefix = NULL;
 //static gint pause_board_cb (GtkWidget *widget, gpointer data);
 static void quit_cb (GtkWidget *widget, gpointer data);
 static void map_cb  (GtkWidget *widget, gpointer data);
-static gboolean _realize_callback (GtkWidget *widget, GdkEventExpose *event,
-				   gpointer data);
 static gint board_widget_key_press_callback (GtkWidget   *widget,
 					    GdkEventKey *event,
 					    gpointer     client_data);
@@ -146,8 +144,6 @@ static gchar *popt_server          = NULL;
 static gint  *popt_web_only        = NULL;
 static gchar *popt_cache_dir       = NULL;
 static gchar *popt_drag_mode       = NULL;
-static gchar *sugarBundleId        = NULL;
-static gchar *sugarActivityId      = NULL;
 static gint popt_sugar_look        = FALSE;
 static gint popt_no_zoom           = FALSE;
 static gint popt_test              = FALSE;
@@ -256,12 +252,6 @@ static GOptionEntry options[] = {
 
   {"nolockcheck", '\0', 0, G_OPTION_ARG_NONE, &popt_nolockcheck,
    N_("Do not avoid the execution of multiple instances of GCompris."), NULL},
-
-  {"sugarBundleId", '\0', 0, G_OPTION_ARG_STRING, &sugarBundleId,
-   "Sugar Bundle Id", NULL},
-
-  {"sugarActivityId", '\0', 0, G_OPTION_ARG_STRING, &sugarActivityId,
-   "Sugar Activity Id", NULL},
 
   {"sugar",'\0', 0, G_OPTION_ARG_NONE, &popt_sugar_look,
    ("Use Sugar DE look&feel"), NULL},
@@ -734,34 +724,6 @@ gc_set_default_background(GooCanvasItem *parent)
 			  "#BACKGROUND");
 }
 
-static gboolean
-_realize_callback (GtkWidget *widget, GdkEventExpose *event, gpointer data)
-{
-#ifdef USE_SUGAR
-  Window xwindow = GDK_WINDOW_XWINDOW(window->window);
-  /*
-   * Sugar requires properties to be set before the windows is realized
-   */
-  if (sugarBundleId)
-    XChangeProperty(GDK_DISPLAY(),
-		    xwindow,
-		    XInternAtom(GDK_DISPLAY(), "_SUGAR_BUNDLE_ID", 0),
-		    XInternAtom(GDK_DISPLAY(), "STRING", 0), 8,
-		    PropModeReplace,
-		    (unsigned char *) sugarBundleId, strlen(sugarBundleId));
-
-  if (sugarActivityId)
-    XChangeProperty(GDK_DISPLAY(),
-		    xwindow,
-		    XInternAtom(GDK_DISPLAY(), "_SUGAR_ACTIVITY_ID", 0),
-		    XInternAtom(GDK_DISPLAY(), "STRING", 0), 8,
-		    PropModeReplace,
-		    (unsigned char *) sugarActivityId, strlen(sugarActivityId));
-#endif
-
-  return FALSE;
-}
-
 static void
 init_workspace()
 {
@@ -883,8 +845,6 @@ static void setup_window ()
 
   gtk_window_set_default_size(GTK_WINDOW(window), BOARDWIDTH, BOARDHEIGHT);
   gtk_window_set_wmclass(GTK_WINDOW(window), "gcompris", "GCompris");
-  g_signal_connect (GTK_OBJECT (window), "realize",
-		    G_CALLBACK (_realize_callback), NULL);
   gtk_widget_realize (window);
 
   g_signal_connect (GTK_OBJECT (window), "delete_event",
@@ -2099,11 +2059,6 @@ main (int argc, char *argv[])
       else
 	gc_sound_play_ogg("voices/$LOCALE/misc/welcome.ogg", NULL);
     }
-
-#ifndef WIN32
-  if (sugarActivityId)
-    gc_dbus_init(sugarActivityId);
-#endif
 
   if (popt_test) {
     gc_test();

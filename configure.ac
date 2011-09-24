@@ -422,20 +422,6 @@ AC_ARG_ENABLE(sqlite,
           with_sqlite="$enableval", with_sqlite="yes")
 AC_MSG_RESULT($with_sqlite)
 
-dnl DBUS support (Needed only for OLPC XO)
-AC_MSG_CHECKING([wether we build with DBUS (needed only for OLPC SUGAR XO)])
-AC_ARG_ENABLE(dbus,
-          AC_HELP_STRING(
-          [--enable-dbus],
-          [Turn on dbus (will let GCompris integrate well on OLPC SUGAR XO)]),
-          with_dbus="$enableval", with_dbus="no")
-AC_MSG_RESULT($with_dbus)
-
-if test x$with_dbus = xyes; then
-  PKG_CHECK_MODULES(DBUS, [dbus-1 dbus-glib-1],, AC_MSG_ERROR([*** DBUS not found!]))
-  AC_DEFINE([USE_DBUS], 1,[DBUS support is enabled])
-fi
-
 dnl Sugar DE support
 AC_MSG_CHECKING([wether we build with Sugar DE support])
 AC_ARG_ENABLE(sugar,
@@ -445,10 +431,7 @@ AC_ARG_ENABLE(sugar,
           with_sugar="$enableval", with_sugar="no")
 AC_MSG_RESULT($with_sugar)
 if test x$with_sugar = xyes; then
-  if test x$with_dbus = xno; then
-    AC_MSG_ERROR([You need to add DBUS support as well.])
-  fi
-  PKG_CHECK_MODULES(SUGAR, [sugar-toolkit])
+  PKG_CHECK_MODULES(SUGAR, [polyol-toolkit])
   AC_DEFINE([USE_SUGAR], 1, [Sugar DE support is enabled])
 fi
 AM_CONDITIONAL([SUGAR], [test x$with_sugar = xyes])
@@ -900,7 +883,6 @@ echo "Python plugin                            = $build_python_plugin"
 
 echo "SQLITE database (--enable-sqlite)        = $with_sqlite (profiles depend on this)"
 
-echo "DBUS Support (OLPC XO Sugar)             = $with_dbus"
 echo "Sugar DE Support                         = $with_sugar"
 echo "GNET Networking (--enable-gnet)          = $with_gnet (networking depends on this)"
 echo "BINRELOC (--enable-binreloc)             = $br_cv_binreloc"

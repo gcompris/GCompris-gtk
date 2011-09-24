@@ -39,7 +39,6 @@ INCLUDES = \
 	-DGNOME_DISABLE_DEPRECATED \
         $(sqlite_cflags) \
 	$(GNET_CFLAGS) \
-	$(DBUS_CFLAGS) \
 	$(AUDIO_CFLAGS) \
 	$(cairo_cflags) \
 	${IGE_MAC_CFLAGS}
@@ -63,7 +62,6 @@ gcompris_SOURCES = \
 	bonus.c \
 	bonus.h \
 	config.c \
-	dbus.c \
 	dialog.c \
 	drag.c \
 	drag.h \
@@ -119,7 +117,6 @@ gcompris_LDFLAGS = \
 gcompris_LDADD = \
 	$(top_builddir)/src/goocanvas/src/libgoocanvas.la \
 	$(GCOMPRIS_LIBS) $(sqlite_ldadd) $(XML_LIBS) $(GNET_LIBS) \
-	$(DBUS_LIBS) \
 	$(AUDIO_LIBS) \
         $(INTLLIBS) \
 	${IGE_MAC_LIBS}
