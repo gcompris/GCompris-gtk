@@ -557,7 +557,7 @@ gc_file_find_absolute(const gchar *format, ...)
   int			 i = 0;
   gchar			*filename;
   gchar			*absolute_filename;
-  gchar			*dir_to_search[4];
+  gchar			*dir_to_search[5];
   GcomprisProperties	*properties = gc_prop_get();
 
   if (!format)
