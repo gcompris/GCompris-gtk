@@ -1141,7 +1141,9 @@ py_gc_board_config_window_display(PyObject* self, PyObject* args){
     }
 
   if (pyGcomprisConfCallbackFunc)
-    Py_DECREF(pyGcomprisConfCallbackFunc);
+    {
+      Py_DECREF(pyGcomprisConfCallbackFunc);
+    }
 
   pyGcomprisConfCallbackFunc = pyCallback;
 
