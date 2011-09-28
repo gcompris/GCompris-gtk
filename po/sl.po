@@ -10,14 +10,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2011-09-15 10:20+0000\n"
-"PO-Revision-Date: 2011-09-17 11:30+0100\n"
-"Last-Translator: Andrej Žnidaršič <andrej.znidarsic@gmail.com>\n"
+"POT-Creation-Date: 2011-09-27 22:09+0000\n"
+"PO-Revision-Date: 2011-09-28 10:20+0100\n"
+"Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n%100==4 ? 3 : 0);\n"
 "X-Poedit-Country: SLOVENIA\n"
 "X-Poedit-Language: Slovenian\n"
@@ -2653,7 +2653,7 @@ msgstr "Da, prepričan sem"
 msgid "No, I want to keep going"
 msgstr "Ne, želim nadaljevati"
 
-#: ../src/gcompris/board.c:155
+#: ../src/gcompris/board.c:149
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr "Dinamično nalaganje modulov ni podprto. GCompris se ne more naložiti.\n"
 
@@ -6297,8 +6297,8 @@ msgid "Weight = %s"
 msgstr "Teža = %s"
 
 #: ../src/scalesboard-activity/scale.c:1007
-msgid "Take care, you can drop masses on both sides of the scale."
-msgstr "Pazi, uteži lahko spustiš na obe strani tehtnice."
+msgid "Take care, you can drop weights on both sides of the scale."
+msgstr "Vedi, da lahko uteži spustiš na obe strani tehtnice."
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:1
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:1
@@ -6306,7 +6306,7 @@ msgid "Balance the scales properly"
 msgstr "Pravilno uravnoteži tehtnico"
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:2
-msgid "Drag and Drop masses to balance the scales"
+msgid "Drag and Drop weights to balance the scales"
 msgstr "Povleci in spusti uteži in uravnoteži tehtnico."
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:3
@@ -6319,8 +6319,8 @@ msgid "The painting is an original painting created by Virginie MOREAU (virginie
 msgstr "Slika je izvirno delo Virginie MOREAU (virginie.moreau@free.fr), ki je nastalo leta 2001. Ime ji je 'Prodajalec začimb v Egiptu'. Objavljena je pod licenco GPL."
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:5
-msgid "To balance the scales, move the masses on the left or the right side. The masses can be arranged in any order."
-msgstr "Premakni uteži na levo ali desno stran tako, da bo tehtnica uravnotežena. Uteži lahko urediš kakor želiš."
+msgid "To balance the scales, move the weights on the left or the right side. The weights can be arranged in any order."
+msgstr "Premakni uteži na levo ali desno stran tako, da bo tehtnica uravnotežena. Uteži lahko prestaviš kakor želiš."
 
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:2
 msgid "Drag and Drop masses to balance the scales and calculate the weight"
@@ -6787,34 +6787,49 @@ msgstr "Natipkaj celo besedo, preden doseže zemljo"
 #~ "Napaka: ta dejavnost zahteva namestitev paketov\n"
 #~ "z glasovi GCompris za jezikovno določilo '%s' ! Uporabljena bo "
 #~ "angleščina, oprosti!"
+
 #~ msgid "English (United State)"
 #~ msgstr "Angleško (Združene države)"
+
 #~ msgid "Click on the blue duck"
 #~ msgstr "Klikni na modro račko"
+
 #~ msgid "Click on the brown duck"
 #~ msgstr "Klikni na rjavo račko"
+
 #~ msgid "Click on the green duck"
 #~ msgstr "Klikni na zeleno račko"
+
 #~ msgid "Click on the grey duck"
 #~ msgstr "Klikni na sivo račko"
+
 #~ msgid "Click on the orange duck"
 #~ msgstr "Klikni na oranžno račko"
+
 #~ msgid "Click on the purple duck"
 #~ msgstr "Klikni na vijolično račko"
+
 #~ msgid "Click on the red duck"
 #~ msgstr "Klikni na rdečo račko"
+
 #~ msgid "Click on the yellow duck"
 #~ msgstr "Klikni na rumeno račko"
+
 #~ msgid "Click on the black duck"
 #~ msgstr "Klikni na črno račko"
+
 #~ msgid "Click on the white duck"
 #~ msgstr "Klikni na belo račko"
+
 #~ msgid "Choice of pattern"
 #~ msgstr "Izbira vzorca"
+
 #~ msgid "violet"
 #~ msgstr "vijolična"
+
 #~ msgid "pink"
 #~ msgstr "roza"
+
 #~ msgid "Click on the correct colored object."
 #~ msgstr "Klikni na pravilno pobarvan predmet."
 
@@ -6907,15 +6922,19 @@ msgstr "Natipkaj celo besedo, preden doseže zemljo"
 #~ "Napaka: zunanji program gnuchess je obvezenza igranje šaha v gcomprise.\n"
 #~ "Najdi ta program na strani http://www.rpmfind.net ali v\n"
 #~ "GNU/Linux izdaji"
+
 #~ msgid "This board is dedicated to recognize unusual colors."
 #~ msgstr "Ta igra je namenjena prepoznavanju nenavadnih barv."
+
 #~ msgid ""
 #~ "In a limited time, give the result to the multiplication of two numbers"
 #~ msgstr "V določenem času, vrni zmnožek dveh števil"
+
 #~ msgid ""
 #~ "With displayed numbers and operations, find the right combination to get "
 #~ "the right result"
 #~ msgstr "Najdi pravo operacijo in število, tako da bo rezultat pravilen."
+
 #~ msgid ""
 #~ "In the main area, a puzzle set is proposed. In the left area, you have "
 #~ "the set of pieces for this puzzle. To place the pieces, you must use the "
@@ -6923,12 +6942,14 @@ msgstr "Natipkaj celo besedo, preden doseže zemljo"
 #~ msgstr ""
 #~ "Na levi strani imaš kup delov zloženke. Za zlaganje zloženke uporabi "
 #~ "miško."
+
 #~ msgid ""
 #~ "Moon photo comes from NASA\n"
 #~ " Space sounds from Tuxpaint and Vegastrike"
 #~ msgstr ""
 #~ "Slikce Lune je podarila NASA\n"
 #~ "vesoljski zvok od Tuxpainta in Vegastrike"
+
 #~ msgid ""
 #~ "Fish are taken from the Unix utility xfishtank. Images are taken from the "
 #~ "National Undersea Research Program (NURP) Collection at http://www."
@@ -6949,6 +6970,7 @@ msgstr "Natipkaj celo besedo, preden doseže zemljo"
 #~ "nur00523) Photographer: D.Kesling Location: Florida Keys (slika nur03006) "
 #~ "Mesto: Neznano (slika nur03505)Mesto: Neznano (slika nur03010) Mesto: "
 #~ "Neznano (slika nur03011)Mesto: Neznano (slika nur03013)"
+
 #~ msgid ""
 #~ "For each printed hour (hours:minutes or hours:minutes:seconds) manipulate "
 #~ "the corresponding arrow to set the clock time matching the given hour. "
@@ -6956,6 +6978,7 @@ msgstr "Natipkaj celo besedo, preden doseže zemljo"
 #~ msgstr ""
 #~ "Vsaki izpisani uri (ure:minute ali ure:minute:sekunde) nastavi kazalec,"
 #~ "tako da bo kazala določeno uro. Kazalce nastavljate z miško."
+
 #~ msgid ""
 #~ "This board is dedicated to train kids to recognize colors. Several "
 #~ "colored toons are displayed and a color is spoken. The kid must select "
@@ -6964,13 +6987,17 @@ msgstr "Natipkaj celo besedo, preden doseže zemljo"
 #~ "Tabla je namenjena otrokom kot pomoc pri spoznavanju barv. Nekaj slik "
 #~ "jepobarvanih tako da barva govori sama zase. Otrok mora izbrato pravilno "
 #~ "barvo."
+
 #~ msgid "Needs to handle the mouse with the click easily"
 #~ msgstr "Za lažje upravljanje uporabi miško."
+
 #~ msgid "Move the items one by one to reorder them in the increasing number"
 #~ msgstr ""
 #~ "Premakni vsak predmet posebej in jih sestavi po naraščajočih številkah."
+
 #~ msgid "Drag and Drop the top piece only on an empty location"
 #~ msgstr "Povleci zgornji predmet na prazno mesto."
+
 #~ msgid ""
 #~ "In the main board area, a set of red plots associated with work are "
 #~ "printed. In the vertical frame - at the left of the main board area, a "
@@ -6983,10 +7010,13 @@ msgstr "Natipkaj celo besedo, preden doseže zemljo"
 #~ "levi strani, je prikazana zbirka predmetov. Vsak od teh predmetov se "
 #~ "nanaša na eno besedo v glavnem delu okna. Najdi pravilno povezavo med "
 #~ "predmeti.Nalogo naredis s prenosom predmetov na desni stran zaslona."
+
 #~ msgid "spruce"
 #~ msgstr "jelka"
+
 #~ msgid "Given hands pictures, find if it's a right or left one"
 #~ msgstr "Podane so slike dlani. Poišči leve in desne."
+
 #~ msgid ""
 #~ "A set of blink cards is printed. Each pair is associated by the same "
 #~ "picture in their hidden faces. When clicking on a card, you can uncover "
@@ -6997,30 +7027,37 @@ msgstr "Natipkaj celo besedo, preden doseže zemljo"
 #~ "Izrisane so karte. Vsak par se sklada s sliko. S klikom na karto odkriješ "
 #~ "karto in pogledaš sliko. Hkrati lahko pogledaš le dve sliki. Cilj je "
 #~ "odkriti dve karti, ki imata enako sliko. "
+
 #~ msgid ""
 #~ "In the main board area, a set of red plots are displayed. In the vertical "
 #~ "frame - at the left of the main board area, a set of image parts of a "
 #~ "painting are avalaible. Drag and drop these parts in the right plot to "
 #~ "rebuild the original painting."
 #~ msgstr "Povleci in spusti odgovarjajoče dele, da dobiš pravilno sliko"
+
 #~ msgid "Make the puzzle"
 #~ msgstr "Naredi zloženko"
+
 #~ msgid ""
 #~ "Click on any keyboard key to let Tux jump. Another keypress will open the "
 #~ "parachute. Alternatively, a click on the plane and the tux also works."
 #~ msgstr ""
 #~ "Za skok Pinga pritisni poljubno tipko. Da se odpre padalospet pritisni "
 #~ "poljubno tipko. Lahko pa z miško klikneš na letalo ali pinga"
+
 #~ msgid "Manage the paratrooper to let him safely land"
 #~ msgstr "Upravljaj s padalcem, da bo srečno pristal"
+
 #~ msgid "Paratrooper"
 #~ msgstr "Padalec"
+
 #~ msgid ""
 #~ "Use the up, down, right and left keyboard keys to move the helicopter to "
 #~ "catch the numbers in the incremental order"
 #~ msgstr ""
 #~ "Za premikanje helikopterja uporabljaj tipke gor, dol, levo in desno.Ujami "
 #~ "števila po naraščajočem vrstnem redu."
+
 #~ msgid ""
 #~ "At the top and right of the board area, a word is printed. At the left a "
 #~ "list of words will move in and out of the screen. Tell if you see the "
@@ -7028,34 +7065,44 @@ msgstr "Natipkaj celo besedo, preden doseže zemljo"
 #~ msgstr ""
 #~ "Zgoraj na desni strani je napisana beseda.Levo se nahaja skupina besed, "
 #~ "ki se bodo premikale po zaslonu.Ali vidite začetnico besede."
+
 #~ msgid ""
 #~ "At each level, a drawing is displayed in the right area. You must redraw "
 #~ "it in the left area."
 #~ msgstr ""
 #~ "Na vsaki ravni je prikazano pravilno narisano polje. Tvoja naloga je "
 #~ "ponovno narisati polje."
+
 #~ msgid ""
 #~ "At each level, a drawing is displayed in the right area. You must redraw "
 #~ "its symmetry in the left area."
 #~ msgstr "Na vsaki ravniigre je narisan "
+
 #~ msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
 #~ msgstr "Pritisni tipko od 1 do 9 preden pade na tla"
+
 #~ msgid "Couldn't find file %s !"
 #~ msgstr "Ni mogoče najti datoteke %s !"
+
 #~ msgid "find file %s !"
 #~ msgstr "najdi datoteko %s !"
+
 #~ msgid "Guess operations"
 #~ msgstr "Uganite operacije"
+
 #~ msgid ""
 #~ "Tux is in trouble in his ship, he needs to take through a lock.\n"
 #~ "Help Tux and understand how a canal lock works."
 #~ msgstr ""
 #~ "Pingo je v težavah na ladji, rabi tvojo pomoč skozi prepreke.\n"
 #~ "Pomagaj Pingu premagat prepreke."
+
 #~ msgid "Learning Chess"
 #~ msgstr "Učenje šaha"
+
 #~ msgid "Play chess against tux in a learning mode"
 #~ msgstr "Igraj šah v načinu za učenje."
+
 #~ msgid ""
 #~ "Error: /usr/bin/gnuchessx is installed\n"
 #~ "which means you run an old version\n"
@@ -7066,22 +7113,31 @@ msgstr "Natipkaj celo besedo, preden doseže zemljo"
 #~ "starejšo različico\n"
 #~ "gnuchess.\n"
 #~ "Nadgradi gnuchess na različico 5 ali višje."
+
 #~ msgid "Read a letter"
 #~ msgstr "Branje črk"
+
 #~ msgid "Couldn't open pixmap dir: %s"
 #~ msgstr "Nemorem odreti direktorija s sliko %s"
+
 #~ msgid "Pratice money usage"
 #~ msgstr "Uporabljaj denar"
+
 #~ msgid "Read Colors"
 #~ msgstr "Preberi barve"
+
 #~ msgid "Click on the corresponding color"
 #~ msgstr "Klikni na odgovarjajočo barvo"
+
 #~ msgid "Read a list of words and then tell if the given word is in it"
 #~ msgstr "Preberi celo besedilo in potem povej ali najdeš besedo"
+
 #~ msgid "Reverse count"
 #~ msgstr "Štetje nazaj"
+
 #~ msgid "Drag and Drop the items to rebuild the object"
 #~ msgstr "Povleci in spusti za ponovno izgradnjo predmeta"
+
 #~ msgid ""
 #~ "You entered the Edit mode\n"
 #~ "Move the puzzle items and\n"
@@ -7092,58 +7148,77 @@ msgstr "Natipkaj celo besedo, preden doseže zemljo"
 #~ "Premaknite zloženko in\n"
 #~ "'s' za  shraniti\n"
 #~ "'d' za prikaži vse oblike"
+
 #~ msgid ""
 #~ "This board data are saved under\n"
 #~ "/tmp/gcompris-board.xml"
 #~ msgstr ""
 #~ "Te točke so shranjene v mapi\n"
 #~ "/tmp/gcompris-board.xml"
+
 #~ msgid "Azerbaijani Turkic"
 #~ msgstr "Azerbaijani Turkic"
+
 #~ msgid "Czech"
 #~ msgstr "Ħeško"
+
 #~ msgid "Brazil Portuguese"
 #~ msgstr "Brazilsko Portugalsko"
+
 #~ msgid ""
 #~ "select the audio output. Use '-A list' to get the list of available audio "
 #~ "output"
 #~ msgstr "Izberi izhod za zvok."
+
 #~ msgid "Icon"
 #~ msgstr "Ikona"
+
 #~ msgid "Name"
 #~ msgstr "Ime"
+
 #~ msgid "Type"
 #~ msgstr "Vrsta"
+
 #~ msgid "Difficulty"
 #~ msgstr "Težavnost"
+
 #~ msgid "Directory"
 #~ msgstr "Mapa"
+
 #~ msgid "Released under GPL"
 #~ msgstr "Objavljeno pod GPL"
+
 #~ msgid ""
 #~ "Possible audio output devices are:\n"
 #~ "default "
 #~ msgstr ""
 #~ "Možni zvočni izhodi so:\n"
 #~ "privzeto"
+
 #~ msgid "Now Playing Music"
 #~ msgstr "Predvajam glasbo"
+
 #~ msgid "Artist"
 #~ msgstr "Avtor"
+
 #~ msgid "Couldn't open music dir: %s"
 #~ msgstr "Nemorem predvajati glasbe: %s"
+
 #~ msgid "Couldn't find pixmap file: %s"
 #~ msgstr "Ne najdem datoteke s sliko: %s"
+
 #~ msgid "Baby Shape Puzzle"
 #~ msgstr "Zloŵenke za otroke."
+
 #~ msgid ""
 #~ "Motor coordination: mouse mouvement and mouse click. The goal is just to "
 #~ "click with the left mouse button on the moving fish."
 #~ msgstr ""
 #~ "Gibalne sposobnosti: Premikanje in klikanje z misko. Cilj je klikniti z "
 #~ "levo miŷkino tipko na ribo in jo premakniti."
+
 #~ msgid "Move the mouse to machpuzzle the area and discover the background"
 #~ msgstr "Premakni miŷko, da raziŷīeŷ ozadje"
+
 #~ msgid "GCompris I Have Understood"
 #~ msgstr "GComprise sem razumel"
-
