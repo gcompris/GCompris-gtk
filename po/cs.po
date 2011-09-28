@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2011-09-11 21:24+0000\n"
-"PO-Revision-Date: 2011-09-18 22:12+0200\n"
+"POT-Creation-Date: 2011-09-27 22:09+0000\n"
+"PO-Revision-Date: 2011-09-28 07:37+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -44,7 +44,6 @@ msgstr "Různé početní aktivity."
 
 #: ../boards/braille.xml.in.h:1
 #: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:1
-#| msgid "Discover the Computer"
 msgid "Discover the Braille system"
 msgstr "Poznej Braillův systém"
 
@@ -1719,8 +1718,8 @@ msgid ""
 "left, each dot is referenced by a number from 1 to 6."
 msgstr ""
 "Každý Braillský znak je tvořen šesti body uspořádanými v mřížce o dvou "
-"sloupcích s třemi body. Jak můžeš vidět vlevo, každý z bodů má "
-"přiřazeno číslo od 1 do 6."
+"sloupcích s třemi body. Jak můžeš vidět vlevo, každý z bodů má přiřazeno "
+"číslo od 1 do 6."
 
 #: ../src/braille_alphabets-activity/braille_alphabets.py:189
 msgid "I am braille TUX"
@@ -1781,9 +1780,9 @@ msgid ""
 "alphabets."
 msgstr ""
 "Obrazovka je rozdělena na 3 části: braillskou mřížku, název abecedy a dolní "
-"panel obsahující 13 písmen. Klikni na každý ze znaků v dolním panelu, "
-"abys poznal příslušný Braillův kód, který se zobrazí v mřížce. Kliknutím "
-"na tlačítko pro přesun do další úrovně se zobrazí dalších 13 písmen anglické "
+"panel obsahující 13 písmen. Klikni na každý ze znaků v dolním panelu, abys "
+"poznal příslušný Braillův kód, který se zobrazí v mřížce. Kliknutím na "
+"tlačítko pro přesun do další úrovně se zobrazí dalších 13 písmen anglické "
 "abecedy."
 
 #: ../src/braille_alphabets-activity/BrailleMap.py:96
@@ -1795,7 +1794,6 @@ msgid "Braille Alphabet Codes"
 msgstr "Kódy Braillova písma"
 
 #: ../src/braille_fun-activity/braille_fun.xml.in.h:2
-#| msgid "Brain"
 msgid "Braille Fun"
 msgstr "Braillská zábava"
 
@@ -1808,7 +1806,6 @@ msgstr ""
 "zobrazit kliknutím na přepínací tlačítko nápovědy."
 
 #: ../src/braille_fun-activity/braille_fun.xml.in.h:4
-#| msgid "Fill in the missing letter"
 msgid "Braille the falling letters"
 msgstr "Pan Braille shazuje písmenka"
 
@@ -1861,7 +1858,6 @@ msgid "2nd"
 msgstr "druhém"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:338
-#| msgid "red"
 msgid "3rd"
 msgstr "třetím"
 
@@ -2340,9 +2336,6 @@ msgstr ""
 
 #: ../src/click_on_letter-activity/click_on_letter.c:404
 #, c-format
-#| msgid ""
-#| "Error: this activity requires that you first install\n"
-#| "the packages with GCompris voices for the locale '%s' or '%s'"
 msgid ""
 "Error: this activity requires that you first install\n"
 "the packages with GCompris voices for the %s locale."
@@ -2351,12 +2344,10 @@ msgstr ""
 "balíčky s hlasovým doprovodem GCompris pro národní prostředí %s"
 
 #: ../src/click_on_letter-activity/click_on_letter.c:905
-#| msgid "Question cannot be empty."
 msgid "Questions cannot be empty."
 msgstr "Otázky nemohou být prázdné."
 
 #: ../src/click_on_letter-activity/click_on_letter.c:915
-#| msgid "Question cannot be empty."
 msgid "Answers cannot be empty."
 msgstr "Odpovědi nemohou být prázdné."
 
@@ -2371,10 +2362,6 @@ msgstr "Všechny znaky v otázce se musí rovněž objevit v odpovědi."
 
 #: ../src/click_on_letter-activity/click_on_letter.c:962
 #, c-format
-#| msgid ""
-#| "Invalid entry:\n"
-#| "Question '%s' / Answer '%s'\n"
-#| "%s"
 msgid ""
 "Invalid entry:\n"
 "At level %d, Questions '%s' / Answers '%s'\n"
@@ -2414,7 +2401,6 @@ msgstr ""
 "vodorovném rámu."
 
 #: ../src/click_on_letter-activity/click_on_letter.xml.in.h:2
-#| msgid "Click on a letter"
 msgid "Click on a lowercase letter"
 msgstr "Klikni na malé písmeno"
 
@@ -2434,7 +2420,6 @@ msgid "Visual letter-recognition. Can move the mouse."
 msgstr "Vizuální rozpoznávání písmen. Umí hýbat myší."
 
 #: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:2
-#| msgid "Click on a letter"
 msgid "Click on an uppercase letter"
 msgstr "Klikni na velké písmeno"
 
@@ -3092,7 +3077,7 @@ msgstr "Ano, chci!"
 msgid "No, I want to keep going"
 msgstr "Ne, zůstanu"
 
-#: ../src/gcompris/board.c:155
+#: ../src/gcompris/board.c:149
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr ""
 "Dynamické načítání modulů není podporováno. GCompris se nemůže spustit.\n"
@@ -5708,7 +5693,6 @@ msgstr "Zvol nebo zadej své jméno pro přihlášení do GComprisu"
 
 #: ../src/louis_braille-activity/louis_braille.py:106
 #: ../src/louis_braille-activity/louis_braille.py:222
-#| msgid "star"
 msgid "story"
 msgstr "příběh"
 
@@ -5717,7 +5701,6 @@ msgid "Click to confirm your sequence"
 msgstr "Kliknutím své uspořádání potvrdíte"
 
 #: ../src/louis_braille-activity/louis_braille.py:224
-#| msgid "pear"
 msgid "year"
 msgstr "rok"
 
@@ -5759,9 +5742,9 @@ msgid ""
 "invention of night writing, a code of 12 raised dots to share information on "
 "battlefields."
 msgstr ""
-"Jeho školu navštívil Charles Barbier, francouzský voják, a ukázal mu "
-"vynález pro noční psaní, kód založený na 12 bodech používaný pro předávání "
-"informací na bitevních polích."
+"Jeho školu navštívil Charles Barbier, francouzský voják, a ukázal mu vynález "
+"pro noční psaní, kód založený na 12 bodech používaný pro předávání informací "
+"na bitevních polích."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:7
 msgid " He became a teacher after graduating and secretly taught his method."
@@ -5773,8 +5756,8 @@ msgid ""
 " He died of tuberculosis. He is burried in the Pantheon in Paris. A monument "
 "is erected to honor him."
 msgstr ""
-"Zemřel na tuberkulózu. Je pochována v Pantheonu v Paříži. Na jeho počest "
-"byl vztyčen památník."
+"Zemřel na tuberkulózu. Je pochována v Pantheonu v Paříži. Na jeho počest byl "
+"vztyčen památník."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:9
 msgid " He impressed his classmates and began to play the piano and the organ."
@@ -5785,8 +5768,8 @@ msgid ""
 " He revised and extended braille to include mathematics, symbols, "
 "punctuations and music notations."
 msgstr ""
-"Svůj systém upravil a rozšířil, aby obsahoval i matematické značky, "
-"symboly, interpunkci a notový zápis."
+"Svůj systém upravil a rozšířil, aby obsahoval i matematické značky, symboly, "
+"interpunkci a notový zápis."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:11
 msgid ""
@@ -7314,8 +7297,9 @@ msgid "Weight = %s"
 msgstr "Hmotnost = %s"
 
 #: ../src/scalesboard-activity/scale.c:1007
-msgid "Take care, you can drop masses on both sides of the scale."
-msgstr "Dej pozor, závaží můžeš pokládat na obě strany váhy."
+#| msgid "Take care, you can drop masses on both sides of the scale."
+msgid "Take care, you can drop weights on both sides of the scale."
+msgstr "Věnuj pozornost tomu, že závaží můžeš pokládat na obě strany váhy."
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:1
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:1
@@ -7323,7 +7307,8 @@ msgid "Balance the scales properly"
 msgstr "Správně vyrovnat váhy"
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:2
-msgid "Drag and Drop masses to balance the scales"
+#| msgid "Drag and Drop masses to balance the scales"
+msgid "Drag and Drop weights to balance the scales"
 msgstr "Přetažením závaží vyrovnej váhu"
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:3
@@ -7342,9 +7327,12 @@ msgstr ""
 "licence GPL."
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:5
+#| msgid ""
+#| "To balance the scales, move the masses on the left or the right side. The "
+#| "masses can be arranged in any order."
 msgid ""
-"To balance the scales, move the masses on the left or the right side. The "
-"masses can be arranged in any order."
+"To balance the scales, move the weights on the left or the right side. The "
+"weights can be arranged in any order."
 msgstr ""
 "Abys váhu vyvážil, přesouvej závaží na levou nebo pravou stranu. Závaží "
 "mohou být seřazena v libovolném pořadí."
