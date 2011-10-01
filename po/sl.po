@@ -10,14 +10,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2011-09-27 22:09+0000\n"
-"PO-Revision-Date: 2011-09-28 10:20+0100\n"
+"POT-Creation-Date: 2011-10-01 17:05+0000\n"
+"PO-Revision-Date: 2011-10-01 20:13+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n%100==4 ? 3 : 0);\n"
 "X-Poedit-Country: SLOVENIA\n"
 "X-Poedit-Language: Slovenian\n"
@@ -3069,155 +3069,155 @@ msgstr ""
 "Končajte program in poročajte\n"
 "napako avtorjem."
 
-#: ../src/gcompris/gcompris.c:159
+#: ../src/gcompris/gcompris.c:155
 msgid "run GCompris in fullscreen mode."
 msgstr "Zagon GCompris v celozaslonskem načinu."
 
-#: ../src/gcompris/gcompris.c:162
+#: ../src/gcompris/gcompris.c:158
 msgid "run GCompris in window mode."
 msgstr "Zagon GCompris v okenskem načinu."
 
-#: ../src/gcompris/gcompris.c:165
+#: ../src/gcompris/gcompris.c:161
 msgid "run GCompris with sound enabled."
 msgstr "Zagon GCompris z omogočenim zvokom."
 
-#: ../src/gcompris/gcompris.c:168
+#: ../src/gcompris/gcompris.c:164
 msgid "run GCompris without sound."
 msgstr "Zagon Gcompris brez zvoka."
 
-#: ../src/gcompris/gcompris.c:171
+#: ../src/gcompris/gcompris.c:167
 msgid "run GCompris with the default system cursor."
 msgstr "zaženi GCompris s privzeto sistemsko kazalko."
 
-#: ../src/gcompris/gcompris.c:174
+#: ../src/gcompris/gcompris.c:170
 msgid "run GCompris without cursor (touch screen mode)."
 msgstr "zaženi GCompris brez kazalke (način zaslona na dotik)."
 
-#: ../src/gcompris/gcompris.c:177
+#: ../src/gcompris/gcompris.c:173
 msgid "display only activities with this difficulty level."
 msgstr "Pokaži le dejavnosti te težavnostne ravni."
 
-#: ../src/gcompris/gcompris.c:180
+#: ../src/gcompris/gcompris.c:176
 msgid "display debug informations on the console."
 msgstr "Prikaži podrobnosti razhroščevanja na konzoli."
 
-#: ../src/gcompris/gcompris.c:183
+#: ../src/gcompris/gcompris.c:179
 msgid "Print the version of "
 msgstr "Natisni različico "
 
-#: ../src/gcompris/gcompris.c:186
+#: ../src/gcompris/gcompris.c:182
 msgid "Run GCompris with local menu (e.g -l /reading will let you play only activities in the reading directory, -l /strategy/connect4 only the connect4 activity). Use '-l list' to list all the availaible activities and their descriptions."
 msgstr "Poženi GCompris s krajevnim menijem (na primer -l /reading dovoli le igranje delavnosti v mapi branje, -l /strategy/connect4 le dejavnost 4 v vrsto). Uporabi '-l list' za seznam vseh dostopnih dejavnosti in njihovih opisov."
 
-#: ../src/gcompris/gcompris.c:191
+#: ../src/gcompris/gcompris.c:187
 msgid "GCompris will find the data dir in this directory"
 msgstr "GCompris bo v tej mapi našel mapo podatkov"
 
-#: ../src/gcompris/gcompris.c:194
+#: ../src/gcompris/gcompris.c:190
 msgid "GCompris will find the skins in this directory"
 msgstr "GCompris bo v tej mapi našel preobleke"
 
-#: ../src/gcompris/gcompris.c:197
+#: ../src/gcompris/gcompris.c:193
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "GCompris bo v tej mapi našel vstavke dejavnosti"
 
-#: ../src/gcompris/gcompris.c:200
+#: ../src/gcompris/gcompris.c:196
 msgid "GCompris will find the python activity in this directory"
 msgstr "GCompris bo našel dejavnost python v tej mapi"
 
-#: ../src/gcompris/gcompris.c:203
+#: ../src/gcompris/gcompris.c:199
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr "GCompris bo v tej mapi našel datoteko jezikovne oznake (prevod .mo)"
 
-#: ../src/gcompris/gcompris.c:206
+#: ../src/gcompris/gcompris.c:202
 msgid "GCompris will find the activities menu in this directory"
 msgstr "GCompris bo v tej mapi našel meni dejavnosti"
 
-#: ../src/gcompris/gcompris.c:209
+#: ../src/gcompris/gcompris.c:205
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Zaženi GCompris v načinu skrbništva in upravljanja uporabnikov "
 
-#: ../src/gcompris/gcompris.c:212
+#: ../src/gcompris/gcompris.c:208
 msgid "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite.db]"
 msgstr "Uporabi dodatno podatkovno zbirko za profile [$HOME/.config/gcompris/gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:215
+#: ../src/gcompris/gcompris.c:211
 msgid "Create the alternate database for profiles"
 msgstr "Ustvari dodatno podatkovno zbirko za profile"
 
-#: ../src/gcompris/gcompris.c:218
+#: ../src/gcompris/gcompris.c:214
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Ponovno preberi menije XML in jih shrani v podatkovni zbirki"
 
-#: ../src/gcompris/gcompris.c:221
+#: ../src/gcompris/gcompris.c:217
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Nastavi profil za uporabo. Uporabi 'gcompris -a' za ustvarjanje profilov"
 
-#: ../src/gcompris/gcompris.c:224
+#: ../src/gcompris/gcompris.c:220
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr "Naštej vse razpoložljive profile. Za ustvarjanje profilov uporabi 'gcompris -a'"
 
-#: ../src/gcompris/gcompris.c:227
+#: ../src/gcompris/gcompris.c:223
 msgid "Config directory location: [$HOME/.config/gcompris]. Alternate is to set $XDG_CONFIG_HOME."
 msgstr "Mesto nastavitvene mape: [$HOME/.config/gcompris] Dodatna možnost je nastviti $XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:230
+#: ../src/gcompris/gcompris.c:226
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "Mesto uporabniških map: [$HOME/Moj GCompris]"
 
-#: ../src/gcompris/gcompris.c:233
+#: ../src/gcompris/gcompris.c:229
 msgid "Run the experimental activities"
 msgstr "Zagon preizkusnih dejavnosti"
 
-#: ../src/gcompris/gcompris.c:236
+#: ../src/gcompris/gcompris.c:232
 msgid "Disable the quit button"
 msgstr "Onemogoči gumb končaj"
 
-#: ../src/gcompris/gcompris.c:239
+#: ../src/gcompris/gcompris.c:235
 msgid "Disable the config button"
 msgstr "Onemogoči gumb nastavitve"
 
-#: ../src/gcompris/gcompris.c:242
+#: ../src/gcompris/gcompris.c:238
 msgid "Disable the level button"
 msgstr "Onemogoči gumb ravni"
 
-#: ../src/gcompris/gcompris.c:245
+#: ../src/gcompris/gcompris.c:241
 msgid "GCompris will get images, sounds and activity data from this server if not found locally."
 msgstr "GCompris bo dobil slike, zvoke in podatke dejavnost s tega strežnika, če podatkov ne bo mogoče najti krajevno."
 
-#: ../src/gcompris/gcompris.c:248
+#: ../src/gcompris/gcompris.c:244
 msgid "Only when --server is provided, disable check for local resource first. Data are always taken from the web server."
 msgstr "Ko je izbran --server, onemogoči preverjanje za krajevna sredstva. Podatki so vedno preneseni s strežnik."
 
-#: ../src/gcompris/gcompris.c:252
+#: ../src/gcompris/gcompris.c:248
 msgid "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr "V strežniškem načinu je treba določiti mapo predpomnilnika za izogibanje nepotrebnim prejemom."
 
-#: ../src/gcompris/gcompris.c:255
+#: ../src/gcompris/gcompris.c:251
 msgid "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr "Splošni način povleci in spusti: običajen, 2klika, oboje. Privzeti način je običajen."
 
-#: ../src/gcompris/gcompris.c:258
+#: ../src/gcompris/gcompris.c:254
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Ne izogni se izvajanju več primerkov GCompris."
 
-#: ../src/gcompris/gcompris.c:270
+#: ../src/gcompris/gcompris.c:260
 msgid "Disable maximization zoom"
 msgstr "Onemogoči približanje razpetja"
 
-#: ../src/gcompris/gcompris.c:273
+#: ../src/gcompris/gcompris.c:263
 msgid "Increase activities' timeout delays; useful values > 1.0; 1.0 to not change hardcoded value"
 msgstr "Poveča  zakasnitve dejavnosti, uporabne vrednosti > 1,0. 1,0 ne spremeni trenutne vrednosti"
 
-#: ../src/gcompris/gcompris.c:276
+#: ../src/gcompris/gcompris.c:266
 msgid "How activities' timeout delays are growing for several actors; useful values < 1.0; 1.0 to not change hardcoded value"
 msgstr "Kako čas zakasnitve dejavnosti rastejo za več igralcev. Uporabne vrednosti <1,0. 1,0 ne spremeni trdno vnesene vrednosti."
 
-#: ../src/gcompris/gcompris.c:279
+#: ../src/gcompris/gcompris.c:269
 msgid "For test purpose, run in a loop all the activities"
 msgstr "Za preizkusne namene. Požene vse dejavnosti v zanki"
 
-#: ../src/gcompris/gcompris.c:980
+#: ../src/gcompris/gcompris.c:940
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to support its development, this version provides only %d of the %d activities. You can get the full version for a small fee at\n"
@@ -3230,22 +3230,26 @@ msgstr ""
 "Različica GNU/Linux nima teh omejitev. Če verjamete, da je otroke treba naučiti svobodo, razmislite o uporabi GNU/Linux. Več podrobnosti na strani FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1274
+#: ../src/gcompris/gcompris.c:1234
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
 msgstr "Nalaganje preobleke '%s' je spodletelo (Preverite, če datoteka obstaja in je berljiva)"
 
-#: ../src/gcompris/gcompris.c:1544
+#: ../src/gcompris/gcompris.c:1504
 #, c-format
-msgid "GCompris won't start because the lock file is less than %d seconds old.\n"
-msgstr "GCompris se ne bo zagnal, ker je datoteka ključavnice stara manj kot %d sekund.\n"
+msgid "GCompris won't start because the lock file is less than %d second old.\n"
+msgid_plural "GCompris won't start because the lock file is less than %d seconds old.\n"
+msgstr[0] "GCompris se ne zažene, ker je datoteka zaklepa stara manj kot %d sekund.\n"
+msgstr[1] "GCompris se ne zažene, ker je datoteka zaklepa stara manj kot %d sekundo.\n"
+msgstr[2] "GCompris se ne zažene, ker je datoteka zaklepa stara manj kot %d sekundi.\n"
+msgstr[3] "GCompris se ne zažene, ker je datoteka zaklepa stara manj kot %d sekunde.\n"
 
-#: ../src/gcompris/gcompris.c:1546
+#: ../src/gcompris/gcompris.c:1508
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Datoteka ključa je: %s\n"
 
-#: ../src/gcompris/gcompris.c:1719
+#: ../src/gcompris/gcompris.c:1681
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3259,37 +3263,37 @@ msgstr ""
 "Več podrobnosti je mogoče najti na http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1834
+#: ../src/gcompris/gcompris.c:1796
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Uporabi -l za neposreden dostop do dejavnosti.\n"
 
-#: ../src/gcompris/gcompris.c:1835
+#: ../src/gcompris/gcompris.c:1797
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Seznam dostopnih dejavnosti je:\n"
 
-#: ../src/gcompris/gcompris.c:1866
+#: ../src/gcompris/gcompris.c:1828
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Število dejavnosti: %d\n"
 
-#: ../src/gcompris/gcompris.c:1902
+#: ../src/gcompris/gcompris.c:1864
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s obstaja toda ni berljiv ali zapisljiv"
 
-#: ../src/gcompris/gcompris.c:1965
+#: ../src/gcompris/gcompris.c:1927
 #, c-format
 msgid "The --server option cannot be used because GCompris has been compiled without network support!"
 msgstr "Možnosti --server ni mogoče uporabiti, ker GCompris ni bil preveden z omrežno podporo!"
 
-#: ../src/gcompris/gcompris.c:2019
+#: ../src/gcompris/gcompris.c:1981
 #, c-format
 msgid "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list available ones\n"
 msgstr "NAPAKA: Profila '%s' ni mogoče najti. Poženi 'gcompris --profile-list' za seznam razpoložljivih profilov\n"
 
-#: ../src/gcompris/gcompris.c:2033
+#: ../src/gcompris/gcompris.c:1995
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Seznam dostopnih profilov je:\n"
@@ -4998,66 +5002,73 @@ msgstr ""
 msgid "Select or enter your name to log in to GCompris"
 msgstr "Izberi ali napiši svoje ime za prijavo v GCompris"
 
-#: ../src/louis_braille-activity/louis_braille.py:106
-#: ../src/louis_braille-activity/louis_braille.py:222
-msgid "story"
-msgstr "zgodba"
-
-#: ../src/louis_braille-activity/louis_braille.py:111
+#: ../src/louis_braille-activity/louis_braille.py:112
 msgid "Click to confirm your sequence"
 msgstr "Kliknite za potrditev zaporedja"
 
-#: ../src/louis_braille-activity/louis_braille.py:224
-msgid "year"
-msgstr "leto"
+#: ../src/louis_braille-activity/louis_braille.xml.in.h:1
+msgid "Louis Braille Video: &lt; http://www.youtube.com/watch?v=9bdfC2j_4x4 &gt;"
+msgstr "Video o Louisu Braillu: &lt; http://www.youtube.com/watch?v=9bdfC2j_4x4 &gt;"
+
+#: ../src/louis_braille-activity/louis_braille.xml.in.h:2
+msgid "Read the history of Louis Braille, his biography and discovery of the Braille system. Click on the previous and next buttons to move to the respective story page. At the end, arrange the sequence in the chronological order."
+msgstr "Preberite zgodovino Louisa Brailla, njegovo biografijo in odkritje sistema Braillove pisave. S klikom na gumbe za naprej in nazaj se je mogoče premikati med stranmi zgodbe, na koncu pa je treba urediti stavke v kronološkem vrstnem redu."
+
+#: ../src/louis_braille-activity/louis_braille.xml.in.h:3
+msgid "Review the major dates of the inventor of the Braille system."
+msgstr "Pregled pomembnejših datumov odkrivanja Braillovega sistema."
+
+#: ../src/louis_braille-activity/louis_braille.xml.in.h:4
+msgid "The History of Louis Braille"
+msgstr "Zgodovina Louisa Brailla"
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:1
-msgid " After his Death"
-msgstr " Po njegovi smrti"
+msgid "After his Death"
+msgstr "Po njegovi smrti"
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:2
-msgid " At the age of 10, he was sent to Paris to study at the Royal Institute for Blind Youth."
-msgstr "Pri 10 letih je bil poslan v šolo v kraljevi inštitut za slepo mladino v Parizu."
+msgid "At the age of 10, he was sent to Paris to study at the Royal Institute for Blind Youth."
+msgstr "Pri 10 letih je bil poslan na študij v Pariz na Kraljevi inštitut za slepo mladino."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:3
-msgid " At the age of three, Louis became blind due to a severe infection that spread to his left eye."
-msgstr " Pri treh letih je Louis postal slep zaradi hude infekcije, ki se je razširila na njegovo levo oko."
+msgid "At the age of three, Louis became blind due to a severe infection that spread to his left eye."
+msgstr "Pri treh letih je Louis oslepel zaradi hude infekcije levega očesa."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:4
-msgid " Born on January 4th in Coupvary near Paris in France."
-msgstr " Rojen je bil 4. januarja v Coupvaryu blizu Pariza v Franciji."
+msgid "Born on January 4th in Coupvary near Paris in France."
+msgstr "Rojen je bil 4. januarja v Coupvaryu blizu Pariza v Franciji."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:5
-msgid " Braille got accepted as a world wide standard. Louis Braille proved that if you have motivation you can do incredible things."
-msgstr " Braillova pisava je postala sprejeta kot svetovni standard. Louis Braille je dokazal, da lahko z motivacijo narediš neverjetne stvari."
+msgid "Braille got accepted as a world wide standard. Louis Braille proved that if you have motivation you can do incredible things."
+msgstr "Braillova pisava je postala svetovni standard. Louis Braille je dokazal, da lahko z veliko volje, doseže neverjetne stvari."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:6
-msgid " Charles Barbier, a French soldier, visited his school and shared his invention of night writing, a code of 12 raised dots to share information on battlefields."
-msgstr " Charles Barbier, francoski vojak, je obiskal njegovo šolo in mu pokazal svoj izum nočnega pisanja, kodo 12 pik za deljenje podatkov na bojišču."
+msgid "Charles Barbier, a French soldier, visited his school and shared his invention of night writing, a code of 12 raised dots to share information on battlefields."
+msgstr "Francoski vojak Charles Barbier je obiskal njegovo šolo in mu pokazal svoj izum za nočno beleženje podatkov z bojišča, ki je bil zasnovan na znakih z dvanajstimi pikami."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:7
-msgid " He became a teacher after graduating and secretly taught his method."
-msgstr " Po diplomi je postal učitelj in skrivoma učil svojo metodo."
+msgid "He became a teacher after graduating and secretly taught his method."
+msgstr "Po diplomi je postal učitelj in je skrivaje poučeval svojo metodo branja."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:8
-msgid " He died of tuberculosis. He is burried in the Pantheon in Paris. A monument is erected to honor him."
-msgstr " Umrl je zaradi tuberkuloze. Pokopan je v Panteonu v Parizu. V njegovo čast je postavljen spomenik."
+msgid "He died of tuberculosis. He is burried in the Pantheon in Paris. A monument is erected to honor him."
+msgstr "Umrl je zaradi tuberkuloze, pokopali pa so ga v Panteonu v Parizu. V čast njegovemu delu, so mu postavili tudi spomenik."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:9
-msgid " He impressed his classmates and began to play the piano and the organ."
-msgstr " Svoje sošolce je navdušil in začel igrati klavir in orgle."
+msgid "He impressed his classmates and began to play the piano and the organ."
+msgstr "Svoje sošolce je navdušil in začel igrati klavir in orgle."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:10
-msgid " He revised and extended braille to include mathematics, symbols, punctuations and music notations."
-msgstr " Braillovo pisavo je pregledal in razširil da vključuje matematiko, simbole, ločila in glasbene zapise. "
+msgid "He revised and extended braille to include mathematics, symbols, punctuations and music notations."
+msgstr "Braillovo pisavo je razširil, da vključuje tudi posebne znake za matematiko, simbole, ločila in glasbene zapise. "
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:11
-msgid " Louis Braille injured his right eye with a stitching awl from his father's workshop."
-msgstr " Louis Braille je ranil svojo desno oko s šivalnim šilom iz očetove delavnice."
+msgid "Louis Braille injured his right eye with a stitching awl from his father's workshop."
+msgstr "Louis Braille si je s šivalnim šilom iz očetove delavnice poškodoval desno oko."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:12
-msgid " Louis trimmed Barbier's 12 dots into 6 and invented the Braille language."
-msgstr " Louis je skrčil Barbierjev sistem 12 pik v 6 pik in izumil Braillov jezik."
+msgid "Louis trimmed Barbier's 12 dots into 6 and invented the Braille system."
+msgstr " Louis je skrčil Barbierjev sistem z dvanajstimi pikami v sistem s šestimi pik in izumil Braillov jezik."
 
 #: ../src/magic_hat_minus-activity/magic_hat_minus.xml.in.h:1
 msgid "Count how many items are under the magic hat after some have got away"
@@ -6581,8 +6592,8 @@ msgstr "Sestavljanka tangram"
 #. Set the maximum text to calc the background
 #. Set the correct initial text
 #: ../src/target-activity/target.c:296
-#: ../src/target-activity/target.c:560
-#: ../src/target-activity/target.c:597
+#: ../src/target-activity/target.c:562
+#: ../src/target-activity/target.c:599
 #, c-format
 msgid "Points = %s"
 msgstr "Točke = %s"
@@ -6596,10 +6607,14 @@ msgstr ""
 "Hitrost vetra = %d\n"
 "kilometrov/uro"
 
-#: ../src/target-activity/target.c:481
+#: ../src/target-activity/target.c:482
 #, c-format
-msgid "Distance to target = %d meters"
-msgstr "Razdalja do tarče = %d metrov"
+msgid "Distance to target = %d meter"
+msgid_plural "Distance to target = %d meters"
+msgstr[0] "Razdalja do tarče = %d metrov"
+msgstr[1] "Razdalja do tarče = %d meter"
+msgstr[2] "Razdalja do tarče = %d metra"
+msgstr[3] "Razdalja do tarče = %d metre"
 
 #: ../src/target-activity/target.xml.in.h:1
 msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
@@ -6778,6 +6793,12 @@ msgstr "Učenje tipkanja"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:4
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Natipkaj celo besedo, preden doseže zemljo"
+
+#~ msgid "story"
+#~ msgstr "zgodba"
+
+#~ msgid "year"
+#~ msgstr "leto"
 
 #~ msgid ""
 #~ "Error: this activity requires that you first install\n"
