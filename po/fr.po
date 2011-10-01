@@ -16,20 +16,21 @@ msgstr ""
 "Project-Id-Version: gcompris master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2011-07-19 21:11+0000\n"
-"PO-Revision-Date: 2011-08-01 17:05+0200\n"
-"Last-Translator: Bruno Brouard <annoa.b@gmail.com>\n"
+"POT-Creation-Date: 2011-10-01 15:25+0000\n"
+"PO-Revision-Date: 2011-10-01 23:01+0200\n"
+"Last-Translator: Claude Paroz <claude@2xlibre.net>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: ../boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
 msgstr "Vers les activités d'arithmétique"
 
-#: ../boards/algebra_group.xml.in.h:2 ../boards/menu.xml.in.h:18
+#: ../boards/algebra_group.xml.in.h:2 ../boards/menu.xml.in.h:22
 #: ../boards/money_group.xml.in.h:2
 msgid "Left-click the mouse on an activity to select it."
 msgstr "Clique avec le bouton gauche sur une activité pour la sélectionner."
@@ -41,6 +42,19 @@ msgstr "Vers les activités de calcul"
 #: ../boards/algebramenu.xml.in.h:2
 msgid "Various calculation activities."
 msgstr "Diverses activités de calcul."
+
+#: ../boards/braille.xml.in.h:1
+#: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:1
+msgid "Discover the Braille system"
+msgstr "Découvre le système Braille"
+
+#: ../boards/braille.xml.in.h:2
+msgid ""
+"The Braille system is a method that is widely used by blind people to read "
+"and write, and was the first digital form of writing."
+msgstr ""
+"Le système Braille est une méthode largement utilisée par les aveugles pour "
+"lire et écrire. C'est la forme d'écriture numérique la plus ancienne."
 
 #: ../boards/chess.xml.in.h:1
 #: ../src/chess_computer-activity/chess_computer.xml.in.h:3
@@ -147,18 +161,18 @@ msgstr "Vers les activités basées sur la mémoire"
 msgid "Various memory activities (images, letters, sounds)."
 msgstr "Diverses activités de mémoire (images, lettres, sons)."
 
-#: ../boards/memory_op_group.xml.in.h:1
-msgid "Go to mathematics memory activities"
-msgstr "Vers les activités de memory mathématique"
-
-#: ../boards/memory_op_group.xml.in.h:2
-#: ../boards/memory_op_group_tux.xml.in.h:2
-msgid "Memory activities based on operations"
-msgstr "Activités de memory basées sur des opérations"
-
 #: ../boards/memory_op_group_tux.xml.in.h:1
 msgid "Go to mathematics memory activities against Tux"
 msgstr "Vers les memory mathématiques, contre Tux"
+
+#: ../boards/memory_op_group_tux.xml.in.h:2
+#: ../boards/memory_op_group.xml.in.h:2
+msgid "Memory activities based on operations"
+msgstr "Activités de memory basées sur des opérations"
+
+#: ../boards/memory_op_group.xml.in.h:1
+msgid "Go to mathematics memory activities"
+msgstr "Vers les activités de memory mathématique"
 
 #: ../boards/menu.xml.in.h:1
 msgid ""
@@ -168,17 +182,21 @@ msgid ""
 "The following icons are displayed from right to left.\n"
 "(note that each icon is displayed only if available in the current "
 "activity)\n"
-"    Home - Exit an activity, go back to menu\n"
+"    Home - Exit an activity, go back to menu (ctrl-w and escape key)\n"
 "    Thumb - OK. Confirm your answer\n"
-"    Dice - Display the current level. Click to select another level\n"
+"    Arrows - Display the current level. Click to select another level\n"
 "    Lips - Repeat the question\n"
 "    Question Mark - Help\n"
 "    Tool - The configuration menu\n"
 "    Tux Plane - About GCompris\n"
-"    Night - Quit GCompris\n"
+"    Quit - Quit GCompris (ctrl-x)\n"
 "The stars show suitable age groups for each game:\n"
 "    1, 2 or 3 simple stars  - from 2 to 6 years old\n"
-"    1, 2 or 3 complex stars - 7 years and up"
+"    1, 2 or 3 complex stars - 7 years and up\n"
+"Shortcuts:\n"
+"    ctrl-b Show or Hide the control bar\n"
+"    ctrl-f Toggle full screen\n"
+"    ctrl-m Toggle mute for the background music"
 msgstr ""
 "Un simple clic sur une icône t'amènera vers une activité ou un menu "
 "d'activités.\n"
@@ -186,23 +204,29 @@ msgstr ""
 "Les icônes suivantes sont décrites ci-dessous de droite à gauche (notons que "
 "ces\n"
 "icônes ne sont affichées que si elles sont disponibles dans l'activité).\n"
-"    Accueil - Quitte une activité et revient au menu\n"
+"    Accueil - Quitte une activité et revient au menu (Ctrl-w et touche "
+"Échap.)\n"
 "    Pouce - Valider, confirmer ta réponse\n"
-"    Dé - Affiche le niveau actuel. Clique dessus pour sélectionner un autre "
-"niveau\n"
+"    Flèches - Affiche le niveau actuel. Clique dessus pour sélectionner un "
+"autre niveau\n"
 "    Lèvres - Répète la question\n"
 "    Point d'interrogation - Aide\n"
 "    Outil - Le menu de configuration\n"
 "    L'avion de Tux - Boîte d'information sur GCompris\n"
+"    Quitter - Fermer GCompris (Ctrl-x)\n"
 "Les étoiles indiquent le groupe d'âge adapté à chaque activité :\n"
 "    1, 2 ou 3 étoiles simples - de 2 à 6 ans\n"
-"    1, 2 ou 3 étoiles sophistiquées - 7 ans et plus."
+"    1, 2 ou 3 étoiles sophistiquées - 7 ans et plus.\n"
+"Raccourcis :\n"
+"    Ctrl-b Affiche ou masque la barre de contrôle\n"
+"    Ctrl-f Active ou désactive le mode plein écran\n"
+"    Ctrl-m Active ou désactive la musique de fond"
 
-#: ../boards/menu.xml.in.h:16
+#: ../boards/menu.xml.in.h:20
 msgid "GCompris Main Menu"
 msgstr "Menu principal de GCompris"
 
-#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:866
+#: ../boards/menu.xml.in.h:21 ../src/boards/menu2.c:866
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -210,7 +234,7 @@ msgstr ""
 "GCompris est une collection d'activités et jeux éducatifs destinés aux "
 "enfants de 2 ans et plus."
 
-#: ../boards/menu.xml.in.h:19
+#: ../boards/menu.xml.in.h:23
 msgid ""
 "The goal of GCompris is to provide a free alternative to popular proprietary "
 "edutainment software"
@@ -232,7 +256,7 @@ msgstr "Vers les activités d'argent"
 
 #: ../boards/mouse.xml.in.h:1
 msgid "Mouse-manipulation activities."
-msgstr "Activités de manipulation de la souris."
+msgstr "Activités de manipulation de la souris"
 
 #: ../boards/mouse.xml.in.h:2
 msgid "Various mouse-based activities (clicking, moving)"
@@ -248,11 +272,11 @@ msgstr "Activités de numération."
 
 #: ../boards/puzzle.xml.in.h:1
 msgid "Puzzles"
-msgstr "Puzzles"
+msgstr "Casse-têtes"
 
 #: ../boards/puzzle.xml.in.h:2
 msgid "Various puzzles."
-msgstr "Diverses sortes de puzzles."
+msgstr "Diverses sortes de jeux de type casse-tête."
 
 #: ../boards/reading.xml.in.h:1
 msgid "Go to the Reading activities"
@@ -278,14 +302,6 @@ msgstr "Jeux de stratégie"
 msgid "Strategy games like chess, connect4, ..."
 msgstr "Jeux de stratégie comme les échecs, Puissance 4, ..."
 
-#: ../gcompris-edit.desktop.in.h:1
-msgid "Administration for gcompris"
-msgstr "Administration de GCompris"
-
-#: ../gcompris-edit.desktop.in.h:2
-msgid "GCompris Administration"
-msgstr "Administration de GCompris"
-
 #: ../gcompris.desktop.in.h:1
 msgid "Educational game for ages 2 to 10"
 msgstr "Jeu éducatif pour les enfants de 2 à 10 ans"
@@ -297,6 +313,14 @@ msgstr "Suite éducative GCompris"
 #: ../gcompris.desktop.in.h:3
 msgid "Multi-activity educational game"
 msgstr "Jeu éducatif multi-activités"
+
+#: ../gcompris-edit.desktop.in.h:1
+msgid "Administration for gcompris"
+msgstr "Administration de GCompris"
+
+#: ../gcompris-edit.desktop.in.h:2
+msgid "GCompris Administration"
+msgstr "Administration de GCompris"
 
 #: ../nsis_translations.desktop.in.h:1
 msgid ""
@@ -409,11 +433,9 @@ msgstr ""
 "<b>{config}</b> configuration\n"
 " pour le profil <b>{profile}</b>"
 
-#. self.main_vbox.pack_start (label, False, False, 8)
 #: ../src/administration-activity/admin/board_list.py:660
-#: ../src/colors-activity/colors.c:180
-#: ../src/pythontest-activity/pythontest.py:518
-#: ../src/smallnumbers-activity/smallnumbers.c:616
+#: ../src/pythontest-activity/pythontest.py:511
+#: ../src/smallnumbers-activity/smallnumbers.c:618
 msgid "Select sound locale"
 msgstr "Sélectionne la langue des sons"
 
@@ -541,6 +563,67 @@ msgstr "Vous devez d'abord sélectionner un groupe dans la liste"
 msgid "Birth Date"
 msgstr "Naissance"
 
+#: ../src/administration-activity/administration.xml.in.h:1
+msgid ""
+"- In the 'Boards' section you can change the list of activities. Just "
+"untoggle them in the treeview. You can change the language used for reading, "
+"for example, then the language used for saying the names of colors.\n"
+"- You can save multiple configurations, and switch between them easily. In "
+"the 'Profile' section add a profile, then in the 'Board' section select the "
+"profile in the combobox, then select the boards you want to be active. You "
+"can add multiple profiles, with different lists of boards, and different "
+"languages. You set the default profile in the 'Profile' section, by choosing "
+"the profile you want, then clicking on the 'Default' button. You can also "
+"choose a profile from the command line.\n"
+"- You can add users, classes and for each class, you can create groups of "
+"users. Note that you can import users from a comma-separated file. Assign "
+"one or more groups to a profile, after which those new logins will appear "
+"after restarting GCompris. Being able to identify individual children in "
+"GCompris means we can provide individual reports. It also recognizes the "
+"children as individuals; they can learn to type in and recognize their own "
+"usernames (login is configurable)."
+msgstr ""
+"- Dans la section « Activités » vous pouvez modifier la liste des activités. "
+"Il suffit pour cela de les cocher/décocher dans la vue arborescente. Vous "
+"pouvez changer la langue utilisée pour les activités de lecture, par exemple "
+"la langue utilisée pour nommer des couleurs.\n"
+"- Vous pouvez sauver plusieurs configurations, et tout simplement passer "
+"simplement de l'une à l'autre. Dans la section « Profils », ajoutez un "
+"profil, ensuite dans la section « Activités » sélectionnez le profil dans la "
+"boîte à choix multiples, ensuite sélectionnez les activités désirées. Vous "
+"pouvez ajouter beaucoup de profils, avec différentes listes d'activités, et "
+"différentes langues. Vous positionnez le profil par défaut dans la section "
+"« Profil », en sélectionnant le profil désiré. Il est aussi possible de "
+"sélectionner directement un profil à partir de la ligne de commande. Vous "
+"pouvez ajouter des utilisateurs, classes et pour chaque classe vous pouvez "
+"créer des groupes d'utilisateurs. Notez que vous pouvez importer des "
+"utilisateurs à partir d'un fichier à champs séparés par des virgules (csv). "
+"Assignez un ou plusieurs groupes à un profil ; après cela, ces utilisateurs "
+"devront s'identifier dans GCompris au prochain démarrage. Pouvoir identifier "
+"chaque utilisateur dans GCompris permet de créer des rapports individuels. "
+"Cela permet aussi aux enfants d'apprendre à entrer leur identifiant en "
+"tapant leur nom (les identifiants sont configurables)."
+
+#: ../src/administration-activity/administration.xml.in.h:4
+msgid "GCompris Administration Menu"
+msgstr "Menu d'administration de GCompris"
+
+#: ../src/administration-activity/administration.xml.in.h:5
+msgid ""
+"If you want to fine tune GCompris to your needs, you can use the "
+"administration module here. The ultimate goal is to provide child-specific "
+"reporting for parents and teacher who want to monitor the progress, "
+"strengths and needs of their children."
+msgstr ""
+"Si vous désirez adapter précisément GCompris à vos besoins, vous pouvez "
+"utiliser le module d'administration ici. Le but ultime est de fournir des "
+"rapports spécifiques aux parents et professeurs qui désirent suivre la "
+"progression, les points forts et les points faibles de leurs enfants."
+
+#: ../src/administration-activity/administration.xml.in.h:6
+msgid "Left-Click with the mouse to select an activity"
+msgstr "Clique avec le bouton gauche pour sélectionner une activité."
+
 #: ../src/administration-activity/admin/log_list.py:91
 msgid "Select a user:"
 msgstr "Sélectionne un utilisateur :"
@@ -553,8 +636,6 @@ msgstr "Tous les utilisateurs"
 #: ../src/administration-activity/admin/log_list.py:108
 #: ../src/administration-activity/admin/log_list.py:295
 #: ../src/administration-activity/admin/profile_list.py:117
-#: ../src/gcompris/board_config_combo.c:125
-#: ../src/gcompris/board_config_combo.c:398
 msgid "Default"
 msgstr "Par défaut"
 
@@ -576,6 +657,7 @@ msgid "Board"
 msgstr "Activité"
 
 #: ../src/administration-activity/admin/log_list.py:246
+#: ../src/click_on_letter-activity/click_on_letter.c:1246
 #: ../src/redraw-activity/redraw.py:339
 msgid "Level"
 msgstr "Niveau"
@@ -723,67 +805,6 @@ msgid ""
 msgstr ""
 "Un ou plusieurs identifiants ne sont pas uniques !\n"
 "Vous devez les modifier : %s !"
-
-#: ../src/administration-activity/administration.xml.in.h:1
-msgid ""
-"- In the 'Boards' section you can change the list of activities. Just "
-"untoggle them in the treeview. You can change the language used for reading, "
-"for example, then the language used for saying the names of colors.\n"
-"- You can save multiple configurations, and switch between them easily. In "
-"the 'Profile' section add a profile, then in the 'Board' section select the "
-"profile in the combobox, then select the boards you want to be active. You "
-"can add multiple profiles, with different lists of boards, and different "
-"languages. You set the default profile in the 'Profile' section, by choosing "
-"the profile you want, then clicking on the 'Default' button. You can also "
-"choose a profile from the command line.\n"
-"- You can add users, classes and for each class, you can create groups of "
-"users. Note that you can import users from a comma-separated file. Assign "
-"one or more groups to a profile, after which those new logins will appear "
-"after restarting GCompris. Being able to identify individual children in "
-"GCompris means we can provide individual reports. It also recognizes the "
-"children as individuals; they can learn to type in and recognize their own "
-"usernames (login is configurable)."
-msgstr ""
-"- Dans la section « Activités » vous pouvez modifier la liste des activités. "
-"Il suffit pour cela de les cocher/décocher dans la vue arborescente. Vous "
-"pouvez changer la langue utilisée pour les activités de lecture, par exemple "
-"la langue utilisée pour nommer des couleurs.\n"
-"- Vous pouvez sauver plusieurs configurations, et tout simplement passer "
-"simplement de l'une à l'autre. Dans la section « Profils », ajoutez un "
-"profil, ensuite dans la section « Activités » sélectionnez le profil dans la "
-"boîte à choix multiples, ensuite sélectionnez les activités désirées. Vous "
-"pouvez ajouter beaucoup de profils, avec différentes listes d'activités, et "
-"différentes langues. Vous positionnez le profil par défaut dans la section "
-"« Profil », en sélectionnant le profil désiré. Il est aussi possible de "
-"sélectionner directement un profil à partir de la ligne de commande. Vous "
-"pouvez ajouter des utilisateurs, classes et pour chaque classe vous pouvez "
-"créer des groupes d'utilisateurs. Notez que vous pouvez importer des "
-"utilisateurs à partir d'un fichier à champs séparés par des virgules (csv). "
-"Assignez un ou plusieurs groupes à un profil ; après cela, ces utilisateurs "
-"devront s'identifier dans GCompris au prochain démarrage. Pouvoir identifier "
-"chaque utilisateur dans GCompris permet de créer des rapports individuels. "
-"Cela permet aussi aux enfants d'apprendre à entrer leur identifiant en "
-"tapant leur nom (les identifiants sont configurables)."
-
-#: ../src/administration-activity/administration.xml.in.h:4
-msgid "GCompris Administration Menu"
-msgstr "Menu d'administration de GCompris"
-
-#: ../src/administration-activity/administration.xml.in.h:5
-msgid ""
-"If you want to fine tune GCompris to your needs, you can use the "
-"administration module here. The ultimate goal is to provide child-specific "
-"reporting for parents and teacher who want to monitor the progress, "
-"strengths and needs of their children."
-msgstr ""
-"Si vous désirez adapter précisément GCompris à vos besoins, vous pouvez "
-"utiliser le module d'administration ici. Le but ultime est de fournir des "
-"rapports spécifiques aux parents et professeurs qui désirent suivre la "
-"progression, les points forts et les points faibles de leurs enfants."
-
-#: ../src/administration-activity/administration.xml.in.h:6
-msgid "Left-Click with the mouse to select an activity"
-msgstr "Clique avec le bouton gauche pour sélectionner une activité."
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:1
 msgid "Advanced colors"
@@ -1091,17 +1112,6 @@ msgstr "véronèse"
 msgid "wine"
 msgstr "lie-de-vin"
 
-#. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
-#: ../src/algebra_by-activity/algebra.c:186
-#: ../src/memory-activity/memory.c:946
-msgid "+-×÷"
-msgstr "+-×÷"
-
-#: ../src/algebra_by-activity/algebra.c:411
-#: ../src/readingh-activity/reading.c:630
-msgid "I am Ready"
-msgstr "Je suis prêt"
-
 #: ../src/algebra_by-activity/algebra_by.xml.in.h:1
 msgid ""
 "A multiplication of two numbers is displayed. At the right of the equals "
@@ -1131,6 +1141,17 @@ msgstr "Table de multiplication"
 #: ../src/algebra_by-activity/algebra_by.xml.in.h:5
 msgid "Practice the multiplication operation"
 msgstr "Entraînement à la multiplication"
+
+#. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
+#: ../src/algebra_by-activity/algebra.c:186
+#: ../src/memory-activity/memory.c:946
+msgid "+-×÷"
+msgstr "+-×÷"
+
+#: ../src/algebra_by-activity/algebra.c:411
+#: ../src/readingh-activity/reading.c:630
+msgid "I am Ready"
+msgstr "Je suis prêt"
 
 #: ../src/algebra_guesscount-activity/algebra_guesscount.xml.in.h:1
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:1
@@ -1235,7 +1256,7 @@ msgstr "Addition simple. Sait reconnaître les nombres écrits."
 
 #: ../src/algorithm-activity/algorithm.xml.in.h:1
 msgid "Complete a list of symbols"
-msgstr "Entraine-toi à compléter des listes logiques"
+msgstr "Entraîne-toi à compléter des listes logiques"
 
 #: ../src/algorithm-activity/algorithm.xml.in.h:2
 msgid "Find the next symbol in a list."
@@ -1256,14 +1277,6 @@ msgstr "Déplacement et clic de la souris"
 #: ../src/algorithm-activity/algorithm.xml.in.h:5
 msgid "algorithm"
 msgstr "Suites logiques"
-
-#: ../src/anim-activity/Color.py:86
-msgid "Fill color..."
-msgstr "Couleur de remplissage..."
-
-#: ../src/anim-activity/Color.py:98
-msgid "Stroke color..."
-msgstr "Couleur du trait..."
 
 #: ../src/anim-activity/anim.py:103
 msgid "Save..."
@@ -1388,6 +1401,14 @@ msgstr ""
 "« dessiner » pour revenir au mode dessin. Tu peux ensuite modifier chaque "
 "image en utilisant le sélecteur d'image en bas à droite de l'écran. Tu peux "
 "sauver et recharger ton travail avec les boutons « disquette » et « dossier »."
+
+#: ../src/anim-activity/Color.py:86
+msgid "Fill color..."
+msgstr "Couleur de remplissage..."
+
+#: ../src/anim-activity/Color.py:98
+msgid "Stroke color..."
+msgstr "Couleur du trait..."
 
 #: ../src/awele-activity/awele.c:158
 #, c-format
@@ -1545,9 +1566,8 @@ msgstr ""
 "Manipulation de la souris : mouvement, attraper et faire glisser. Références "
 "culturelles."
 
-#: ../src/babymatch-activity/shapegame.c:1906
-#: ../src/click_on_letter-activity/click_on_letter.c:672
-#: ../src/colors-activity/colors.c:168
+#: ../src/babymatch-activity/shapegame.c:1985
+#: ../src/click_on_letter-activity/click_on_letter.c:1314
 #, c-format
 msgid ""
 "<b>%1$s</b> configuration\n"
@@ -1639,7 +1659,7 @@ msgstr "Oblige l'adversaire à placer la dernière boule."
 #: ../src/bargame-activity/bargame.xml.in.h:3
 #: ../src/hexagon-activity/hexagon.xml.in.h:2
 msgid "Logic-training activity"
-msgstr "Activité d'entrainement à la stratégie"
+msgstr "Activité d'entraînement à la stratégie"
 
 #: ../src/bargame-activity/bargame.xml.in.h:4
 msgid ""
@@ -1657,7 +1677,7 @@ msgstr ""
 
 #: ../src/bargame-activity/bargame.xml.in.h:5
 msgid "bar game"
-msgstr "jeu de la barre"
+msgstr "Jeu de la barre"
 
 #: ../src/billard-activity/billard.c:89 ../src/erase-activity/erase.c:85
 #: ../src/erase-activity/erase.xml.in.h:4
@@ -1679,8 +1699,8 @@ msgstr "Envoie le ballon dans les buts."
 #: ../src/clickgame-activity/clickgame.xml.in.h:5
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:5
 #: ../src/connect4-activity/connect4.xml.in.h:6
-#: ../src/erase-activity/erase.xml.in.h:3
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:6
+#: ../src/erase-activity/erase.xml.in.h:3
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:6
 #: ../src/fifteen-activity/fifteen.xml.in.h:2
 #: ../src/hanoi-activity/hanoi.xml.in.h:3
@@ -1731,6 +1751,206 @@ msgstr "Activité spéciale qui embarque Python dans GCompris."
 #: ../src/boards/python.c:89
 msgid "Special board that embeds python into gcompris."
 msgstr "Activité spéciale qui embarque Python dans GCompris."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:165
+msgid "Braille : Unlocking the Code"
+msgstr "Braille : Comment ça marche"
+
+#. Braille Intro
+#: ../src/braille_alphabets-activity/braille_alphabets.py:167
+msgid ""
+"The Braille system is a method that is used by blind people to read and "
+"write."
+msgstr ""
+"Le système Braile est une méthode utilisée par les aveugles pour lire et "
+"écrire."
+
+#. Braille Description
+#: ../src/braille_alphabets-activity/braille_alphabets.py:170
+msgid ""
+"Each Braille character, or cell, is made up of six dot positions, arranged "
+"in a rectangle containing two columns of three dots each. As seen on the "
+"left, each dot is referenced by a number from 1 to 6."
+msgstr ""
+"Chaque caractère Braille (ou cellule) est composé de six points placés dans "
+"un rectangle en deux colonnes de trois points. Comme le montre la figure de "
+"gauche, chaque point est numéroté de 1 à 6."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:189
+msgid "I am braille TUX"
+msgstr "Je suis le Tux Braille"
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:201
+msgid "When you are ready, click on me and try reproducing Braille characters."
+msgstr ""
+"Dès que tu es prêt, clique sur moi et essaie de reproduire les caractères "
+"Braille."
+
+#. Translators : Do not translate the token {letter}
+#: ../src/braille_alphabets-activity/braille_alphabets.py:272
+msgid "Click on the dots in braille cell area to produce the letter {letter}."
+msgstr ""
+"Clique sur les points dans la zone de la cellule Braille afin de produire la "
+"lettre {letter}."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:277
+msgid ""
+"Look at the Braille character map and observe how similar the first and "
+"second line are."
+msgstr ""
+"Observe la carte des caractères Braille, tu constateras que les deux "
+"premières lignes sont très semblables."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:280
+msgid ""
+"Again, similar as the first line but take care, the 'W' letter was added "
+"afterwards."
+msgstr ""
+"Encore une fois, comme pour la première ligne, mais attention à la lettre "
+"« W » qui a été ajoutée après coup."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:283
+msgid "This is easy, numbers are the same as letters from A to J."
+msgstr "C'est facile, les nombres sont identiques aux lettres de A à J."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:302
+msgid "Braille Cell"
+msgstr "Cellule Braille"
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:324
+msgid "Click to confirm your selection of dots"
+msgstr "Clique pour confirmer ta sélection de points"
+
+#: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:2
+msgid "Learn and memorize the Braille system."
+msgstr "Apprendre et mémoriser le système Braille."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:3
+msgid "Let kids discover the Braille system."
+msgstr "Faire découvrir le système Braille aux enfants."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:4
+msgid ""
+"The screen has 3 sections: braille cell, alphabet name and lower board "
+"containing 13 letters. Click on each letter in the lower board to know its "
+"corresponding braille code in the braille cell section. Click on the "
+"increment level button to jump to the next 13 letters of the English "
+"alphabets."
+msgstr ""
+"L'écran est composé de 3 sections : la cellule Braille, le nom d'alphabet et "
+"le tableau inférieur contenant 13 lettres. Clique sur chaque lettre du "
+"tableau inférieur pour découvrir son code Braille correspondant affiché dans "
+"la cellule Braille. Clique sur le bouton d'augmentation de niveau pour "
+"passer aux 13 lettres suivantes de l'alphabet."
+
+#: ../src/braille_alphabets-activity/BrailleMap.py:96
+msgid "Back to the activity"
+msgstr "Retour à l'activité"
+
+#: ../src/braille_fun-activity/braille_fun.xml.in.h:1
+msgid "Braille Alphabet Codes"
+msgstr "Codes de l'alphabet Braille"
+
+#: ../src/braille_fun-activity/braille_fun.xml.in.h:2
+msgid "Braille Fun"
+msgstr "Braille ludique"
+
+#: ../src/braille_fun-activity/braille_fun.xml.in.h:3
+msgid ""
+"Braille code the tile for the corresponding falling letters. Check the "
+"braille chart by clicking on the toggle button for help."
+msgstr ""
+"Compose une lettre Braille correspondant aux lettres qui tombent. Tu peux "
+"consulter le tableau Braille en cliquant sur le bouton d'aide."
+
+#: ../src/braille_fun-activity/braille_fun.xml.in.h:4
+msgid "Braille the falling letters"
+msgstr "Coder en Braille les lettres qui tombent"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:119
+msgid "PLAYER 1"
+msgstr "Joueur 1"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:129
+msgid "PLAYER 2"
+msgstr "Joueur 2"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:150
+msgid "Check Number"
+msgstr "Chercher le nombre"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:165
+#: ../src/braille_lotto-activity/braille_lotto.py:177
+msgid "Click me to get some hint"
+msgstr "Clique sur moi pour obtenir de l'aide"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:190
+msgid "I don't have this number PLAYER {number}"
+msgstr "Je n'ai pas ce nombre joueur {number}"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:212
+msgid "Lotto Master"
+msgstr "Maître du loto"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:236
+msgid "Generate a number"
+msgstr "Générer un nombre"
+
+#. Translators : Do not translate the token {column}
+#: ../src/braille_lotto-activity/braille_lotto.py:293
+#: ../src/braille_lotto-activity/braille_lotto.py:316
+msgid "Hey, you have it. It is there in your {column} column"
+msgstr "Si, si, tu l'as. Il se trouve dans la {column} colonne."
+
+#: ../src/braille_lotto-activity/braille_lotto.py:295
+#: ../src/braille_lotto-activity/braille_lotto.py:318
+msgid "Oops, this number is not in your ticket!"
+msgstr "Mmmmh, non, ce nombre ne se trouve pas dans ton ticket !"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:332
+msgid "1st"
+msgstr "1ère"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:335
+msgid "2nd"
+msgstr "2e"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:338
+msgid "3rd"
+msgstr "3e"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:340
+msgid "4th"
+msgstr "4e"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:350
+msgid "Game Over"
+msgstr "Fin de la partie"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:459
+msgid "Congratulation player {player_id}, you won"
+msgstr "Félicitations, joueur {player_id}, tu as gagné"
+
+#: ../src/braille_lotto-activity/braille_lotto.xml.in.h:1
+msgid "Braille Lotto"
+msgstr "Loto Braille"
+
+#: ../src/braille_lotto-activity/braille_lotto.xml.in.h:2
+msgid "Discover the Braille system for numbers."
+msgstr "Découvrir le système Braille pour les nombres."
+
+#: ../src/braille_lotto-activity/braille_lotto.xml.in.h:3
+msgid ""
+"Each player must find if the proposed number is in their board. If the code "
+"is in the board, just click on it in order to validate it. The player who "
+"crosses all the Braille numbers correctly wins the game. Check the Braille "
+"table by clicking on the toggle button in the control bar."
+msgstr ""
+"Chaque joueur doit trouver si le nombre proposé se trouve sur sa carte. Si "
+"le code est présent sur sa carte, il suffit de cliquer dessus pour le "
+"valider. Le joueur qui coche correctement tous les nombres Braille gagne la "
+"partie. Il est possible de consulter le tableau Braille en cliquant sur le "
+"bouton d'aide de la barre de contrôle."
 
 #: ../src/canal_lock-activity/canal_lock.xml.in.h:1
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:2
@@ -2117,81 +2337,6 @@ msgstr "1955, Citroën DS 19"
 msgid "Cars"
 msgstr "Voitures"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:311
-#: ../src/memory-activity/memory.c:906
-msgid ""
-"Error: this activity cannot be played with the\n"
-"sound effects disabled.\n"
-"Go to the configuration dialog to\n"
-"enable the sound"
-msgstr ""
-"Erreur : cette activité ne peut être jouée\n"
-"avec les effets sonores désactivés.\n"
-"Il faut retourner dans la boîte de dialogue de\n"
-"configuration pour activer le son."
-
-#. TRANSLATORS: Put here the alphabet in your language
-#. require by all utf8-functions
-#. TRANSLATORS: Put here the alphabet lowercase in your language
-#: ../src/click_on_letter-activity/click_on_letter.c:316
-#: ../src/gletters-activity/gletters.c:229 ../src/memory-activity/memory.c:935
-msgid "abcdefghijklmnopqrstuvwxyz"
-msgstr "abcdefghijklmnopqrstuvwxyz"
-
-#: ../src/click_on_letter-activity/click_on_letter.c:344
-#, c-format
-msgid ""
-"Error: this activity requires that you first install\n"
-"the packages with GCompris voices for the locale '%s' or '%s'"
-msgstr ""
-"Erreur : cette activité nécessite d'abord l'installation\n"
-"des paquets contenant les voix de GCompris pour la langue « %s » ou « %s »"
-
-#: ../src/click_on_letter-activity/click_on_letter.c:354
-#, c-format
-msgid ""
-"Error: this activity requires that you first install\n"
-"the packages with GCompris voices for the locale '%s' ! Fallback to english, "
-"sorry!"
-msgstr ""
-"Erreur : cette activité nécessite d'abord l'installation\n"
-"des paquets avec les voix de GCompris pour la locale « %s ». Retour à "
-"l'anglais, désolé !"
-
-#. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:695
-#: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:484
-#: ../src/missing_letter-activity/missingletter_config.c:492
-#: ../src/readingh-activity/reading.c:928
-#: ../src/wordsgame-activity/wordsgame.c:887
-msgid "Uppercase only text"
-msgstr "Texte en capitales uniquement"
-
-#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:1
-msgid ""
-"A letter is spoken. Click on the matching letter in the main area. You can "
-"listen to the letter again, by clicking on the mouth icon in the bottom box."
-msgstr ""
-"Une lettre est prononcée. Clique sur la lettre correspondante dans la zone "
-"principale. Tu peux réécouter la lettre en cliquant sur la bouche dans la "
-"zone du bas."
-
-#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:2
-msgid "Click on a letter"
-msgstr "Clique sur une lettre."
-
-#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:3
-msgid "Letter-name recognition"
-msgstr "Reconnaissance des lettres"
-
-#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:4
-msgid "Listen to a letter and click on the right one"
-msgstr "Écoute le nom d'une lettre et retrouve-là en cliquant dessus"
-
-#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:5
-msgid "Visual letter-recognition. Can move the mouse."
-msgstr "Reconnaissance visuelle des lettres. Savoir déplacer la souris."
-
 #: ../src/clickanddraw-activity/clickanddraw.xml.in.h:1
 msgid "Click and draw"
 msgstr "Clique et dessine"
@@ -2233,8 +2378,127 @@ msgid ""
 "Use the left mouse button to click on the moving fish. A level 5 and after, "
 "a double click is mandatory."
 msgstr ""
-"Clique avec le bouton gauche de la souris sur les poissons qui bougent. À partir "
-"du niveau 5, il faut faire un double-clic."
+"Clique avec le bouton gauche de la souris sur les poissons qui bougent. À "
+"partir du niveau 5, il faut faire un double-clic."
+
+#. require by all utf8-functions
+#. TRANSLATORS: Put here the alphabet lowercase in your language
+#: ../src/click_on_letter-activity/click_on_letter.c:367
+#: ../src/gletters-activity/gletters.c:229 ../src/memory-activity/memory.c:935
+msgid "abcdefghijklmnopqrstuvwxyz"
+msgstr "abcdefghijklmnopqrstuvwxyz"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:378
+msgid ""
+"This activity will be played with questions displayed as text instead of "
+"being spoken"
+msgstr ""
+"Les questions de cette activité seront affichées à l'écran au lieu d'être "
+"lues"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:383
+#: ../src/memory-activity/memory.c:906
+msgid ""
+"Error: this activity cannot be played with the\n"
+"sound effects disabled.\n"
+"Go to the configuration dialog to\n"
+"enable the sound"
+msgstr ""
+"Erreur : cette activité ne peut être jouée\n"
+"avec les effets sonores désactivés.\n"
+"Il faut retourner dans la boîte de dialogue de\n"
+"configuration pour activer le son."
+
+#: ../src/click_on_letter-activity/click_on_letter.c:404
+#, c-format
+msgid ""
+"Error: this activity requires that you first install\n"
+"the packages with GCompris voices for the %s locale."
+msgstr ""
+"Erreur : cette activité nécessite d'abord l'installation\n"
+"des paquets contenant les voix de GCompris pour la langue %s."
+
+#: ../src/click_on_letter-activity/click_on_letter.c:905
+msgid "Questions cannot be empty."
+msgstr "Les questions ne peuvent pas être vides."
+
+#: ../src/click_on_letter-activity/click_on_letter.c:915
+msgid "Answers cannot be empty."
+msgstr "Les réponses ne peuvent pas être vides."
+
+#: ../src/click_on_letter-activity/click_on_letter.c:921
+#, c-format
+msgid "Too many characters in the Answer (maximum is %d)."
+msgstr "Trop de caractères dans la réponse (le maximum est %d)."
+
+#: ../src/click_on_letter-activity/click_on_letter.c:945
+msgid "All the characters in Questions must also be in the Answers."
+msgstr ""
+"Tous les caractères dans les questions doivent aussi se trouver dans les "
+"réponses."
+
+#: ../src/click_on_letter-activity/click_on_letter.c:962
+#, c-format
+msgid ""
+"Invalid entry:\n"
+"At level %d, Questions '%s' / Answers '%s'\n"
+"%s"
+msgstr ""
+"Saisie non valide :\n"
+"Au niveau %d, questions « %s » / réponses « %s »\n"
+"%s"
+
+#. answer
+#: ../src/click_on_letter-activity/click_on_letter.c:1257
+#: ../src/missing_letter-activity/missingletter_config.c:420
+#: ../src/missing_letter-activity/missingletter_config.c:548
+msgid "Answer"
+msgstr "Réponse"
+
+#. question
+#: ../src/click_on_letter-activity/click_on_letter.c:1268
+#: ../src/missing_letter-activity/missingletter_config.c:426
+#: ../src/missing_letter-activity/missingletter_config.c:571
+msgid "Question"
+msgstr "Question"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:1404
+#: ../src/gcompris/board_config_wordlist.c:274
+msgid "Back to default"
+msgstr "Revenir aux valeurs par défaut"
+
+#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:1
+#: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:1
+msgid ""
+"A letter is spoken. Click on the matching letter in the main area. You can "
+"listen to the letter again, by clicking on the mouth icon in the bottom box."
+msgstr ""
+"Une lettre est prononcée. Clique sur la lettre correspondante dans la zone "
+"principale. Tu peux réécouter la lettre en cliquant sur la bouche dans la "
+"zone du bas."
+
+#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:2
+msgid "Click on a lowercase letter"
+msgstr "Clique sur une lettre minuscule"
+
+#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:3
+#: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:3
+msgid "Letter-name recognition"
+msgstr "Reconnaissance des lettres"
+
+#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:4
+#: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:4
+msgid "Listen to a letter and click on the right one"
+msgstr "Écoute le nom d'une lettre et retrouve-là en cliquant dessus"
+
+#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:5
+#: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:5
+msgid "Visual letter-recognition. Can move the mouse."
+msgstr "Reconnaissance visuelle des lettres. Savoir déplacer la souris."
+
+#: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:2
+msgid "Click on an uppercase letter"
+msgstr "Clique sur une lettre majuscule"
 
 #: ../src/clockgame-activity/clockgame.c:524
 msgid "Set the watch to:"
@@ -2250,7 +2514,7 @@ msgstr ""
 
 #: ../src/clockgame-activity/clockgame.xml.in.h:2
 msgid "Learn how to tell the time"
-msgstr "Apprends à lire l'heure sur une montre à aiguilles."
+msgstr "Apprendre à lire l'heure sur une montre à aiguilles."
 
 #: ../src/clockgame-activity/clockgame.xml.in.h:3
 msgid "Learning Clock"
@@ -2269,46 +2533,6 @@ msgstr ""
 #: ../src/clockgame-activity/clockgame.xml.in.h:5
 msgid "The concept of time. Reading the time."
 msgstr "Concept de l'heure. Lecture de l'heure."
-
-#: ../src/colors-activity/colors.c:60
-msgid "Click on the blue duck"
-msgstr "Clique sur le canard bleu"
-
-#: ../src/colors-activity/colors.c:61
-msgid "Click on the brown duck"
-msgstr "Clique sur le canard marron"
-
-#: ../src/colors-activity/colors.c:62
-msgid "Click on the green duck"
-msgstr "Clique sur le canard vert"
-
-#: ../src/colors-activity/colors.c:63
-msgid "Click on the grey duck"
-msgstr "Clique sur le canard gris"
-
-#: ../src/colors-activity/colors.c:64
-msgid "Click on the orange duck"
-msgstr "Clique sur le canard orange"
-
-#: ../src/colors-activity/colors.c:65
-msgid "Click on the purple duck"
-msgstr "Clique sur le canard violet"
-
-#: ../src/colors-activity/colors.c:66
-msgid "Click on the red duck"
-msgstr "Clique sur le canard rouge"
-
-#: ../src/colors-activity/colors.c:67
-msgid "Click on the yellow duck"
-msgstr "Clique sur le canard jaune"
-
-#: ../src/colors-activity/colors.c:68
-msgid "Click on the black duck"
-msgstr "Clique sur le canard noir"
-
-#: ../src/colors-activity/colors.c:69
-msgid "Click on the white duck"
-msgstr "Clique sur le canard blanc"
 
 #: ../src/colors-activity/colors.xml.in.h:1
 msgid "Can move the mouse."
@@ -2449,8 +2673,8 @@ msgid "Drive the crane and copy the model"
 msgstr "Pilote le bras de la grue pour déplacer des éléments suivant un modèle"
 
 #: ../src/crane-activity/crane.xml.in.h:3
-#: ../src/erase-activity/erase.xml.in.h:2
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:5
+#: ../src/erase-activity/erase.xml.in.h:2
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:5
 #: ../src/penalty-activity/penalty.xml.in.h:3
 msgid "Motor-coordination"
@@ -2522,10 +2746,6 @@ msgstr "Vincent Van Gogh, Portrait du Père Tanguy - 1887-8"
 msgid "Eilean Donan castle"
 msgstr "Château d'Eilean Donan"
 
-#: ../src/details-activity/resources/details/board2_1.xml.in.h:1
-msgid "Eiffel Tower, seen from the champ de Mars, Paris, France"
-msgstr "Tour Eiffel, vue du champ de Mars, Paris, France"
-
 #: ../src/details-activity/resources/details/board2_10.xml.in.h:1
 msgid "Gizah Pyramids, Egypt"
 msgstr "Nécropole de Gizeh, Égypte"
@@ -2537,6 +2757,10 @@ msgstr "Opéra de Sydney, Australie"
 #: ../src/details-activity/resources/details/board2_12.xml.in.h:1
 msgid "Tower Bridge in London"
 msgstr "Pont Tower Bridge à Londres"
+
+#: ../src/details-activity/resources/details/board2_1.xml.in.h:1
+msgid "Eiffel Tower, seen from the champ de Mars, Paris, France"
+msgstr "Tour Eiffel, vue du champ de Mars, Paris, France"
 
 #: ../src/details-activity/resources/details/board2_2.xml.in.h:1
 msgid "Courtyard of the Museum of Louvre, and its pyramid"
@@ -2635,6 +2859,7 @@ msgstr ""
 
 #: ../src/drawnumber-activity/drawnumber.py:236
 #: ../src/findit-activity/findit.py:310
+#: ../src/louis_braille-activity/louis_braille.py:84
 msgid "Cannot find the file '{filename}'"
 msgstr "Impossible de trouver le fichier « {filename} »"
 
@@ -2753,6 +2978,21 @@ msgstr ""
 "la zone de droite. Saisis la réponse avec le clavier et clique sur le bouton "
 "« OK » ou la touche « Entrée »."
 
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
+msgid "Double click the mouse"
+msgstr "Double clic de la souris"
+
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:3
+msgid "Double click the mouse on rectangles until all the blocks disappear."
+msgstr ""
+"Double clique avec la souris sur les rectangles pour les faire disparaître."
+
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:4
+msgid "Double click the mouse to erase the area and discover the background"
+msgstr ""
+"Double clique avec la souris pour tout effacer dans la zone et découvrir "
+"l'image de fond"
+
 #: ../src/erase-activity/erase.c:86 ../src/erase-activity/erase.xml.in.h:5
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Déplace la souris pour tout effacer et découvrir l'image du fond."
@@ -2800,21 +3040,6 @@ msgstr ""
 "Bouge la souris jusqu'à ce que tous les blocs disparaissent. Tu peux ajouter "
 "tes propres images dans le dossier « ~/My GCompris/erase »."
 
-#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
-msgid "Double click the mouse"
-msgstr "Double clic de la souris"
-
-#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:3
-msgid "Double click the mouse on rectangles until all the blocks disappear."
-msgstr ""
-"Double clique avec la souris sur les rectangles pour les faire disparaître."
-
-#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:4
-msgid "Double click the mouse to erase the area and discover the background"
-msgstr ""
-"Double clique avec la souris pour tout effacer dans la zone et découvrir "
-"l'image de fond"
-
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:2
 msgid "Click the mouse"
 msgstr "Cliquer avec la souris"
@@ -2841,7 +3066,8 @@ msgstr ""
 #: ../src/fifteen-activity/fifteen.xml.in.h:3
 msgid ""
 "Move each item to make an increasing series: from the smallest to the largest"
-msgstr "Déplace les carrés numériques afin des disposer dans l'ordre croissant"
+msgstr ""
+"Déplace les carrés numériques afin de les disposer dans l'ordre croissant."
 
 #: ../src/fifteen-activity/fifteen.xml.in.h:4
 msgid "Original code taken from the libgnomecanvas demo"
@@ -2850,6 +3076,15 @@ msgstr "Code original provenant d'un exemple didactique de libgnomecanvas"
 #: ../src/fifteen-activity/fifteen.xml.in.h:5
 msgid "The fifteen game"
 msgstr "Le jeu de taquin"
+
+#: ../src/findit-activity/findit.py:315
+#: ../src/louis_braille-activity/louis_braille.py:88
+msgid ""
+"Failed to parse data set '{filename}' with error:\n"
+"{error}"
+msgstr ""
+"Échec de l'analyse des données du fichier « {filename} » avec l'erreur :\n"
+"{error}"
 
 #: ../src/followline-activity/followline.xml.in.h:1
 msgid "Control the hose-pipe"
@@ -2940,13 +3175,13 @@ msgstr "Oui, je suis sûr !"
 msgid "No, I want to keep going"
 msgstr "Non, je veux continuer à jouer !"
 
-#: ../src/gcompris/board.c:155
+#: ../src/gcompris/board.c:149
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr ""
 "Chargement dynamique de module non pris en charge. GCompris ne peut pas "
 "charger.\n"
 
-#: ../src/gcompris/board_config_combo.c:157
+#: ../src/gcompris/board_config_combo.c:182
 msgid ""
 "Select the language\n"
 " to use in the board"
@@ -2954,23 +3189,23 @@ msgstr ""
 "Sélection de la langue\n"
 "à utiliser dans cette activité"
 
-#: ../src/gcompris/board_config_combo.c:227
+#: ../src/gcompris/board_config_combo.c:252
 msgid "Global GCompris mode"
 msgstr "Mode GCompris global"
 
-#: ../src/gcompris/board_config_combo.c:228
+#: ../src/gcompris/board_config_combo.c:253
 msgid "Normal"
 msgstr "Normal"
 
-#: ../src/gcompris/board_config_combo.c:229
+#: ../src/gcompris/board_config_combo.c:254
 msgid "2 clicks"
 msgstr "2 clics"
 
-#: ../src/gcompris/board_config_combo.c:230
+#: ../src/gcompris/board_config_combo.c:255
 msgid "both modes"
 msgstr "les deux modes"
 
-#: ../src/gcompris/board_config_combo.c:258
+#: ../src/gcompris/board_config_combo.c:283
 msgid ""
 "Select the drag and drop mode\n"
 " to use in the board"
@@ -2979,27 +3214,23 @@ msgstr ""
 "à utiliser dans cette activité"
 
 #. add a new level
-#: ../src/gcompris/board_config_wordlist.c:106
+#: ../src/gcompris/board_config_wordlist.c:123
 #, c-format
 msgid "%d (New level)"
 msgstr "%d (nouveau niveau)"
 
 #. frame
-#: ../src/gcompris/board_config_wordlist.c:180
+#: ../src/gcompris/board_config_wordlist.c:226
 msgid "Configure the list of words"
 msgstr "Configurer la liste de mots"
 
-#: ../src/gcompris/board_config_wordlist.c:209
+#: ../src/gcompris/board_config_wordlist.c:237
 msgid "Choice of the language"
 msgstr "Sélection de la langue"
 
-#: ../src/gcompris/board_config_wordlist.c:221
+#: ../src/gcompris/board_config_wordlist.c:249
 msgid "Choice of the level"
 msgstr "Choix du niveau"
-
-#: ../src/gcompris/board_config_wordlist.c:246
-msgid "Back to default"
-msgstr "Revenir aux valeurs par défaut"
 
 #: ../src/gcompris/config.c:58
 msgid "Your system default"
@@ -3310,7 +3541,7 @@ msgstr "Musique"
 msgid "Effect"
 msgstr "Effet"
 
-#: ../src/gcompris/config.c:345 ../src/gcompris/sugar.c:82
+#: ../src/gcompris/config.c:345 ../src/gcompris/sugar.c:83
 msgid "Zoom"
 msgstr "Zoom"
 
@@ -3319,8 +3550,8 @@ msgstr "Zoom"
 msgid "Couldn't open skin dir: %s"
 msgstr "Impossible d'ouvrir le répertoire de thèmes : %s"
 
-#: ../src/gcompris/config.c:413 ../src/gcompris/config.c:780
-#: ../src/gcompris/config.c:794
+#: ../src/gcompris/config.c:413 ../src/gcompris/config.c:862
+#: ../src/gcompris/config.c:876
 #, c-format
 msgid "Skin : %s"
 msgstr "Thème : %s"
@@ -3328,10 +3559,6 @@ msgstr "Thème : %s"
 #: ../src/gcompris/config.c:415
 msgid "SKINS NOT FOUND"
 msgstr "THÈMES INTROUVABLES"
-
-#: ../src/gcompris/config.c:496
-msgid "English (United State)"
-msgstr "Anglais (États-Unis)"
 
 #: ../src/gcompris/file_selector.c:251
 msgid "CANCEL"
@@ -3361,43 +3588,43 @@ msgstr ""
 "Quitte-la et informe\n"
 "les auteurs du problème rencontré."
 
-#: ../src/gcompris/gcompris.c:158
+#: ../src/gcompris/gcompris.c:155
 msgid "run GCompris in fullscreen mode."
 msgstr "lance GCompris en mode plein écran."
 
-#: ../src/gcompris/gcompris.c:161
+#: ../src/gcompris/gcompris.c:158
 msgid "run GCompris in window mode."
 msgstr "lance GCompris en mode fenêtré."
 
-#: ../src/gcompris/gcompris.c:164
+#: ../src/gcompris/gcompris.c:161
 msgid "run GCompris with sound enabled."
 msgstr "lance GCompris avec le son."
 
-#: ../src/gcompris/gcompris.c:167
+#: ../src/gcompris/gcompris.c:164
 msgid "run GCompris without sound."
 msgstr "lance GCompris sans le son."
 
-#: ../src/gcompris/gcompris.c:170
+#: ../src/gcompris/gcompris.c:167
 msgid "run GCompris with the default system cursor."
 msgstr "lance GCompris avec le curseur par défaut du système."
 
-#: ../src/gcompris/gcompris.c:173
+#: ../src/gcompris/gcompris.c:170
 msgid "run GCompris without cursor (touch screen mode)."
 msgstr "lance GCompris sans curseur (mode écran tactile)."
 
-#: ../src/gcompris/gcompris.c:176
+#: ../src/gcompris/gcompris.c:173
 msgid "display only activities with this difficulty level."
 msgstr "affiche uniquement les activités avec ce niveau de difficulté."
 
-#: ../src/gcompris/gcompris.c:179
+#: ../src/gcompris/gcompris.c:176
 msgid "display debug informations on the console."
 msgstr "affiche les informations de débogage dans la console."
 
-#: ../src/gcompris/gcompris.c:182
+#: ../src/gcompris/gcompris.c:179
 msgid "Print the version of "
 msgstr "Affiche la version de "
 
-#: ../src/gcompris/gcompris.c:185
+#: ../src/gcompris/gcompris.c:182
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
@@ -3409,37 +3636,37 @@ msgstr ""
 "uniquement à l'activité Puissance 4). Utilisez '-l list' pour lister toutes "
 "les activités disponibles ainsi que leurs descriptions."
 
-#: ../src/gcompris/gcompris.c:190
+#: ../src/gcompris/gcompris.c:187
 msgid "GCompris will find the data dir in this directory"
 msgstr "GCompris trouvera les données dans ce répertoire"
 
-#: ../src/gcompris/gcompris.c:193
+#: ../src/gcompris/gcompris.c:190
 msgid "GCompris will find the skins in this directory"
 msgstr "GCompris trouvera les thèmes dans ce répertoire"
 
-#: ../src/gcompris/gcompris.c:196
+#: ../src/gcompris/gcompris.c:193
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "GCompris trouvera les greffons d'activité dans ce répertoire"
 
-#: ../src/gcompris/gcompris.c:199
+#: ../src/gcompris/gcompris.c:196
 msgid "GCompris will find the python activity in this directory"
 msgstr "GCompris trouvera les activités en python dans ce répertoire"
 
-#: ../src/gcompris/gcompris.c:202
+#: ../src/gcompris/gcompris.c:199
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr ""
 "GCompris trouvera les fichiers locale (traduction .mo) dans ce répertoire"
 
-#: ../src/gcompris/gcompris.c:205
+#: ../src/gcompris/gcompris.c:202
 msgid "GCompris will find the activities menu in this directory"
 msgstr "GCompris trouvera les menus d'activité dans ce répertoire"
 
-#: ../src/gcompris/gcompris.c:208
+#: ../src/gcompris/gcompris.c:205
 msgid "Run GCompris in administration and user-management mode"
 msgstr ""
 "Lance GCompris dans le mode administration et gestion des utilisateurs."
 
-#: ../src/gcompris/gcompris.c:211
+#: ../src/gcompris/gcompris.c:208
 msgid ""
 "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
@@ -3447,26 +3674,26 @@ msgstr ""
 "Utilise une base de données alternative pour les profils [$HOME/.config/"
 "gcompris/gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:214
+#: ../src/gcompris/gcompris.c:211
 msgid "Create the alternate database for profiles"
 msgstr "Crée la base alternative pour les profils"
 
-#: ../src/gcompris/gcompris.c:217
+#: ../src/gcompris/gcompris.c:214
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Relis les menus XML et les sauvegarde dans la base de données"
 
-#: ../src/gcompris/gcompris.c:220
+#: ../src/gcompris/gcompris.c:217
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Sélectionne le profil à utiliser. Utilisez « gcompris -a » pour créer des "
 "profils"
 
-#: ../src/gcompris/gcompris.c:223
+#: ../src/gcompris/gcompris.c:220
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Liste les profils disponibles. Utilisez « gcompris -a » pour créer des profils"
 
-#: ../src/gcompris/gcompris.c:226
+#: ../src/gcompris/gcompris.c:223
 msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
@@ -3474,27 +3701,27 @@ msgstr ""
 "Emplacement du répertoire de configuration : [$HOME/.config/gcompris]. Une "
 "méthode alternative est de définir $XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:229
+#: ../src/gcompris/gcompris.c:226
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "Emplacement du répertoire des utilisateurs : [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:232
+#: ../src/gcompris/gcompris.c:229
 msgid "Run the experimental activities"
 msgstr "Vers les activités d'expérimentation"
 
-#: ../src/gcompris/gcompris.c:235
+#: ../src/gcompris/gcompris.c:232
 msgid "Disable the quit button"
 msgstr "Désactiver le bouton quitter"
 
-#: ../src/gcompris/gcompris.c:238
+#: ../src/gcompris/gcompris.c:235
 msgid "Disable the config button"
 msgstr "Désactiver le bouton de configuration"
 
-#: ../src/gcompris/gcompris.c:241
+#: ../src/gcompris/gcompris.c:238
 msgid "Disable the level button"
 msgstr "Désactiver le bouton des niveaux"
 
-#: ../src/gcompris/gcompris.c:244
+#: ../src/gcompris/gcompris.c:241
 msgid ""
 "GCompris will get images, sounds and activity data from this server if not "
 "found locally."
@@ -3502,7 +3729,7 @@ msgstr ""
 "GCompris récupère les images, les sons et les activités depuis ce serveur "
 "s'ils ne sont pas disponibles localement."
 
-#: ../src/gcompris/gcompris.c:247
+#: ../src/gcompris/gcompris.c:244
 msgid ""
 "Only when --server is provided, disable check for local resource first. Data "
 "are always taken from the web server."
@@ -3511,25 +3738,50 @@ msgstr ""
 "des ressources locales. Les données sont toujours récupérées depuis le "
 "serveur Web."
 
-#: ../src/gcompris/gcompris.c:251
+#: ../src/gcompris/gcompris.c:248
 msgid ""
 "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr ""
 "En mode serveur, spécifiez l'emplacement du dossier de cache pour éviter des "
 "téléchargements inutiles."
 
-#: ../src/gcompris/gcompris.c:254
+#: ../src/gcompris/gcompris.c:251
 msgid ""
 "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr ""
 "Mode cliquer-glisser global : normal, 2 clics, les deux. Le mode par défaut "
 "est normal."
 
-#: ../src/gcompris/gcompris.c:257
+#: ../src/gcompris/gcompris.c:254
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Ne pas empêcher l'exécution de plusieurs instances de GCompris."
 
-#: ../src/gcompris/gcompris.c:944
+#: ../src/gcompris/gcompris.c:260
+msgid "Disable maximization zoom"
+msgstr "Désactiver le zoom maximisé"
+
+#: ../src/gcompris/gcompris.c:263
+msgid ""
+"Increase activities' timeout delays; useful values > 1.0; 1.0 to not change "
+"hardcoded value"
+msgstr ""
+"Augmenter le délai d'expiration des activités ; les valeurs utiles sont > "
+"1.0 ;  1.0 pour laisser inchangée la valeur inscrite dans le code"
+
+#: ../src/gcompris/gcompris.c:266
+msgid ""
+"How activities' timeout delays are growing for several actors; useful values "
+"< 1.0; 1.0 to not change hardcoded value"
+msgstr ""
+"Facteur d'augmentation du délai d'expiration des activités pour plusieurs "
+"acteurs ; les valeurs utiles sont > 1.0 ; 1.0 pour laisser inchangée la "
+"valeur inscrite dans le code"
+
+#: ../src/gcompris/gcompris.c:269
+msgid "For test purpose, run in a loop all the activities"
+msgstr "Utile pour tester, lance toutes les activités en boucle"
+
+#: ../src/gcompris/gcompris.c:940
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -3551,27 +3803,33 @@ msgstr ""
 "GNU/Linux. Vous pouvez obtenir plus d'informations sur : <http://www.fsf.org/"
 "philosophy>"
 
-#: ../src/gcompris/gcompris.c:1238
+#: ../src/gcompris/gcompris.c:1234
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
 msgstr ""
 "Impossible de charger le thème « %s » (contrôlez que le fichier existe et "
 "qu'il est lisible)"
 
-#: ../src/gcompris/gcompris.c:1501
+# c-format
+#: ../src/gcompris/gcompris.c:1504
 #, c-format
 msgid ""
+"GCompris won't start because the lock file is less than %d second old.\n"
+msgid_plural ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
-msgstr ""
+msgstr[0] ""
+"GCompris ne va pas démarrer car le fichier verrou est posé depuis seulement %"
+"d seconde.\n"
+msgstr[1] ""
 "GCompris ne va pas démarrer car le fichier verrou est posé depuis seulement %"
 "d secondes.\n"
 
-#: ../src/gcompris/gcompris.c:1503
+#: ../src/gcompris/gcompris.c:1508
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Le fichier verrou est « %s »\n"
 
-#: ../src/gcompris/gcompris.c:1614
+#: ../src/gcompris/gcompris.c:1681
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3585,27 +3843,27 @@ msgstr ""
 "Plus d'informations sur http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1729
+#: ../src/gcompris/gcompris.c:1796
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Utilise l'option -l pour accéder directement à une activité.\n"
 
-#: ../src/gcompris/gcompris.c:1730
+#: ../src/gcompris/gcompris.c:1797
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "La liste des activités disponibles est :\n"
 
-#: ../src/gcompris/gcompris.c:1761
+#: ../src/gcompris/gcompris.c:1828
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Nombre d'activités : %d\n"
 
-#: ../src/gcompris/gcompris.c:1797
+#: ../src/gcompris/gcompris.c:1864
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s existe mais n'est ni lisible ni accessible en écriture"
 
-#: ../src/gcompris/gcompris.c:1860
+#: ../src/gcompris/gcompris.c:1927
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
@@ -3614,7 +3872,7 @@ msgstr ""
 "L'option --server ne peut pas être utilisée car GCompris a été compilé sans "
 "la prise en charge du réseau."
 
-#: ../src/gcompris/gcompris.c:1914
+#: ../src/gcompris/gcompris.c:1981
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3623,7 +3881,7 @@ msgstr ""
 "Erreur : profil « %s » introuvable. Lancez « gcompris --profile-list » pour "
 "afficher tous les profils disponibles\n"
 
-#: ../src/gcompris/gcompris.c:1928
+#: ../src/gcompris/gcompris.c:1995
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "La liste des profils disponibles est :\n"
@@ -3688,36 +3946,36 @@ msgstr ""
 "Vous pouvez inclure ces images dans vos dessins et vos animations.\n"
 "Les formats d'image pris en charge sont jpeg, png et svg.\n"
 
-#: ../src/gcompris/sugar.c:70
+#: ../src/gcompris/sugar.c:71
 msgid "Help"
 msgstr "Aide"
 
-#: ../src/gcompris/sugar.c:71
+#: ../src/gcompris/sugar.c:72
 msgid "About"
 msgstr "À propos"
 
-#: ../src/gcompris/sugar.c:72
+#: ../src/gcompris/sugar.c:73
 msgid "Previous level"
 msgstr "Niveau précédent"
 
-#: ../src/gcompris/sugar.c:75
+#: ../src/gcompris/sugar.c:76
 msgid "Next level"
 msgstr "Niveau suivant"
 
-#: ../src/gcompris/sugar.c:77
+#: ../src/gcompris/sugar.c:78
 msgid "Refresh"
 msgstr "Rafraichir"
 
-#: ../src/gcompris/sugar.c:78
+#: ../src/gcompris/sugar.c:79
 msgid "Settings"
 msgstr "Paramètres"
 
 #. TRANSLATORS: Back as in previous
-#: ../src/gcompris/sugar.c:86
+#: ../src/gcompris/sugar.c:87
 msgid "Back"
 msgstr "Précédent"
 
-#: ../src/gcompris/sugar.c:87
+#: ../src/gcompris/sugar.c:88
 msgid "Stop"
 msgstr "Stop"
 
@@ -4365,14 +4623,14 @@ msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
 #: ../src/gletters-activity/gletters.c:850
-#: ../src/imageid-activity/imageid.c:712 ../src/login-activity/login.py:479
+#: ../src/imageid-activity/imageid.c:712 ../src/login-activity/login.py:480
 #: ../src/missing_letter-activity/missingletter.c:784
-#: ../src/pythontest-activity/pythontest.py:454
-#: ../src/readingh-activity/reading.c:904
-#: ../src/scalesboard-activity/scale.c:1160
-#: ../src/smallnumbers-activity/smallnumbers.c:595
+#: ../src/pythontest-activity/pythontest.py:448
+#: ../src/readingh-activity/reading.c:905
+#: ../src/scalesboard-activity/scale.c:1161
+#: ../src/smallnumbers-activity/smallnumbers.c:597
 #: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:864
+#: ../src/wordsgame-activity/wordsgame.c:866
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -4382,9 +4640,17 @@ msgstr ""
 " pour le profil <b>%s</b>"
 
 #: ../src/gletters-activity/gletters.c:879
-#: ../src/smallnumbers-activity/smallnumbers.c:614
+#: ../src/smallnumbers-activity/smallnumbers.c:616
 msgid "Enable sounds"
 msgstr "Activer les sons"
+
+#. toggle box
+#: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:486
+#: ../src/missing_letter-activity/missingletter_config.c:492
+#: ../src/readingh-activity/reading.c:929
+#: ../src/wordsgame-activity/wordsgame.c:889
+msgid "Uppercase only text"
+msgstr "Texte en capitales uniquement"
 
 #: ../src/gletters-activity/gletters.xml.in.h:1
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:2
@@ -4557,7 +4823,7 @@ msgstr ""
 
 #: ../src/gnumch-factors-activity/gnumch-factors.xml.in.h:3
 msgid "Learn about factors and multiples."
-msgstr "Apprends les diviseurs et les multiples."
+msgstr "Apprendre les diviseurs et les multiples."
 
 #: ../src/gnumch-factors-activity/gnumch-factors.xml.in.h:4
 msgid ""
@@ -4741,6 +5007,10 @@ msgid "NONE"
 msgstr "a=àâä c=ç e=éèêë i=îï o=ôö u=ùûü y=ŷÿ"
 
 #: ../src/hangman-activity/hangman.py:104
+msgid "English"
+msgstr "Anglais"
+
+#: ../src/hangman-activity/hangman.py:107
 msgid "Could not find the list of words."
 msgstr "Impossible de trouver la liste des mots."
 
@@ -4858,9 +5128,9 @@ msgstr ""
 "étaient constamment occupés à bouger un ensemble de 64 disques selon les "
 "lois de la Tour de Hanoï. Selon la légende, le monde devait prendre fin "
 "lorsque les prêtres auraient terminé leur travail. Le problème est donc "
-"aussi connu sous le nom de puzzle de la Tour de Brahma. On ne sait pas bien "
-"si Lucas a inventé cette légende ou s'il s'en est inspiré. (source : "
-"Wikipédia &lt;http://fr.wikipedia.org/wiki/Tours_de_Hanoi&gt;)"
+"aussi connu sous le nom de Tour de Brahma. On ne sait pas bien si Lucas a "
+"inventé cette légende ou s'il s'en est inspiré. (source : Wikipédia &lt;"
+"http://fr.wikipedia.org/wiki/Tours_de_Hanoi&gt;)"
 
 #: ../src/hexagon-activity/hexagon.xml.in.h:1
 msgid "Find the strawberry by clicking on the blue fields"
@@ -5008,11 +5278,10 @@ msgstr ""
 "chez lui, allume la lumière pour lui. Pour gagner, tu dois activer tous les "
 "consommateurs lorsque les producteurs fonctionnent."
 
+# Doit tenir sur une ligne
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:3
 msgid "Learn about an electrical system based on renewable energy"
-msgstr ""
-"Apprendre à connaître un système électrique basé sur les énergies "
-"renouvelables"
+msgstr "Système électrique basé sur les énergies renouvelables"
 
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:4
 msgid ""
@@ -5306,6 +5575,131 @@ msgstr "drapeau"
 msgid "racket"
 msgstr "raquette"
 
+#: ../src/instruments-activity/instruments.xml.in.h:1
+msgid "Click on the correct instrument."
+msgstr "Clique sur le bon instrument."
+
+#: ../src/instruments-activity/instruments.xml.in.h:2
+msgid "Click on the correct mucical instruments"
+msgstr "Clique sur l'instrument de musique correct"
+
+#: ../src/instruments-activity/instruments.xml.in.h:3
+msgid "Learn to recognize musical instruments."
+msgstr "Apprendre à reconnaître des instruments de musique."
+
+#: ../src/instruments-activity/instruments.xml.in.h:4
+msgid "Music instruments"
+msgstr "Instruments de musique"
+
+#. Translator: Do not translate {text}.
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:2
+msgid "Find {text}"
+msgstr "Trouve {text}"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:3
+msgid "the accordion"
+msgstr "l'accordéon"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:4
+msgid "the banjo"
+msgstr "le banjo"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:5
+msgid "the bass drum"
+msgstr "la grosse caisse"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:6
+msgid "the bongo"
+msgstr "le bongo"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:7
+msgid "the castanets"
+msgstr "les castagnettes"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:8
+msgid "the cello"
+msgstr "le violoncelle"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:9
+msgid "the clarinet"
+msgstr "la clarinette"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:10
+msgid "the cymbal"
+msgstr "la cymbale"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:11
+msgid "the drum kit"
+msgstr "la batterie"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
+msgid "the electric guitar"
+msgstr "la guitare électrique"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
+msgid "the flute traversiere"
+msgstr "la flûte traversière"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
+msgid "the guitar"
+msgstr "la guitare"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
+msgid "the harmonica"
+msgstr "l'harmonica"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
+msgid "the harp"
+msgstr "la harpe"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
+msgid "the horn"
+msgstr "le cor"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
+msgid "the maracas"
+msgstr "les maracas"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
+msgid "the organ"
+msgstr "l'orgue"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
+msgid "the piano"
+msgstr "le piano"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
+msgid "the saxophone"
+msgstr "le saxophone"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
+msgid "the tambourine"
+msgstr "le tambourin"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
+msgid "the timpani"
+msgstr "les timbales"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
+msgid "the triangle"
+msgstr "le triangle"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
+msgid "the trombone"
+msgstr "le trombone"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
+msgid "the trumpet"
+msgstr "la trompette"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:27
+msgid "the tuba"
+msgstr "le tuba"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:28
+msgid "the violin"
+msgstr "le violon"
+
 #: ../src/leftright-activity/leftright.c:230
 #: ../src/searace-activity/searace.py:415
 #: ../src/searace-activity/searace.py:439
@@ -5395,16 +5789,16 @@ msgstr ""
 "ressource importante pour en savoir plus sur le jeux Éteindre les lumières : "
 "&lt;http://www.haar.clara.co.uk/Lights/solving.html&gt;"
 
-#: ../src/login-activity/login.py:101
+#: ../src/login-activity/login.py:102
 msgid "Profile: "
 msgstr "Profil : "
 
-#: ../src/login-activity/login.py:234
+#: ../src/login-activity/login.py:235
 msgid "Login: "
 msgstr "Identifiant : "
 
 #. toggle box
-#: ../src/login-activity/login.py:494
+#: ../src/login-activity/login.py:496
 msgid "Enter login to log in"
 msgstr "Entre ton identifiant pour te connecter"
 
@@ -5444,6 +5838,121 @@ msgstr ""
 #: ../src/login-activity/login.xml.in.h:10
 msgid "Select or enter your name to log in to GCompris"
 msgstr "Sélectionne ou inscris ton nom pour entrer dans GCompris"
+
+#: ../src/louis_braille-activity/louis_braille.py:112
+msgid "Click to confirm your sequence"
+msgstr "Clique pour confirmer ta combinaison"
+
+#: ../src/louis_braille-activity/louis_braille.xml.in.h:1
+msgid ""
+"Louis Braille Video: &lt; http://www.youtube.com/watch?v=9bdfC2j_4x4 &gt;"
+msgstr ""
+"Vidéo sur Louis Braille : &lt; http://www.youtube.com/watch?v=9bdfC2j_4x4 "
+"&gt;"
+
+#: ../src/louis_braille-activity/louis_braille.xml.in.h:2
+msgid ""
+"Read the history of Louis Braille, his biography and discovery of the "
+"Braille system. Click on the previous and next buttons to move to the "
+"respective story page. At the end, arrange the sequence in the chronological "
+"order."
+msgstr ""
+"Lisez l'histoire de Louis Braille, sa biographie et sa découverte du système "
+"Braille. Cliquez sur les boutons précédent et suivant pour vous déplacer "
+"d'une page à l'autre de son histoire. À la fin, vous devez placer la suite "
+"des différents évènements de sa vie dans l'ordre chronologique."
+
+#: ../src/louis_braille-activity/louis_braille.xml.in.h:3
+msgid "Review the major dates of the inventor of the Braille system."
+msgstr ""
+"Passer en revue les dates principales de l'inventeur du système Braille."
+
+#: ../src/louis_braille-activity/louis_braille.xml.in.h:4
+msgid "The History of Louis Braille"
+msgstr "L'histoire de Louis Braille"
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:1
+msgid "After his Death"
+msgstr "Après sa mort"
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:2
+msgid ""
+"At the age of 10, he was sent to Paris to study at the Royal Institute for "
+"Blind Youth."
+msgstr ""
+"À l'âge de 10 ans, il part à Paris pour étudier à l'Institution Royale des "
+"Jeunes Aveugles."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:3
+msgid ""
+"At the age of three, Louis became blind due to a severe infection that "
+"spread to his left eye."
+msgstr ""
+"À 3 ans, Louis est rendu aveugle à la suite d'une grave infection de son œil "
+"droit qui s'étend à son œil gauche."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:4
+msgid "Born on January 4th in Coupvary near Paris in France."
+msgstr "Naît le 4 janvier à Coupvray, près de Paris, en France."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:5
+msgid ""
+"Braille got accepted as a world wide standard. Louis Braille proved that if "
+"you have motivation you can do incredible things."
+msgstr ""
+"Le Braille est accepté comme un standard mondial. Louis Braille a démontré "
+"qu'avec de la motivation, il est possible d'accomplir de grandes choses."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:6
+msgid ""
+"Charles Barbier, a French soldier, visited his school and shared his "
+"invention of night writing, a code of 12 raised dots to share information on "
+"battlefields."
+msgstr ""
+"Charles Barbier, un soldat français, visite son école et lui présente son "
+"invention de lecture dans le noir, un code de 12 points saillants pour communiquer "
+"des informations sur les champs de bataille."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:7
+msgid "He became a teacher after graduating and secretly taught his method."
+msgstr ""
+"Il devient enseignant après avoir obtenu son diplôme et avoir secrètement "
+"enseigné sa méthode."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:8
+msgid ""
+"He died of tuberculosis. He is burried in the Pantheon in Paris. A monument "
+"is erected to honor him."
+msgstr ""
+"Il meurt de la tuberculose. Il est enterré au Panthéon de Paris. Un monument "
+"est dressé en son honneur."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:9
+msgid "He impressed his classmates and began to play the piano and the organ."
+msgstr ""
+"Il impressionne ses camarades et commence à jouer du piano et de l'orgue."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:10
+msgid ""
+"He revised and extended braille to include mathematics, symbols, "
+"punctuations and music notations."
+msgstr ""
+"Il révise et étend le Braille aux mathématiques, aux symboles, à la "
+"ponctuation et à l'écriture musicale."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:11
+msgid ""
+"Louis Braille injured his right eye with a stitching awl from his father's "
+"workshop."
+msgstr ""
+"Louis Braille se blesse l'œil droit avec une serpette dans l'atelier de son "
+"père."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:12
+msgid "Louis trimmed Barbier's 12 dots into 6 and invented the Braille system."
+msgstr ""
+"Louis réduit les 12 points de Barbier à 6 points et invente le système "
+"Braille."
 
 #: ../src/magic_hat_minus-activity/magic_hat_minus.xml.in.h:1
 msgid "Count how many items are under the magic hat after some have got away"
@@ -5503,52 +6012,29 @@ msgstr "Compte les objets qui pénètrent sous le chapeau magique"
 msgid "Learn addition"
 msgstr "Apprendre à additionner"
 
-#: ../src/maze-activity/maze.c:132 ../src/maze-activity/maze.xml.in.h:4
-#: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:4
-#: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:4
-msgid "Maze"
-msgstr "Labyrinthe"
-
-#: ../src/maze-activity/maze.c:133 ../src/maze-activity/maze.xml.in.h:2
-msgid "Find your way out of the maze"
-msgstr "Trouve ta voie hors du labyrinthe."
-
-#: ../src/maze-activity/maze.c:599
-msgid ""
-"Look at your position, then switch back to invisible mode to continue your "
-"moves"
-msgstr ""
-"Repère bien ta position, puis retourne à la vue invisible pour continuer à "
-"te déplacer"
-
-#: ../src/maze-activity/maze.c:601
-msgid ""
-"Look at your position, then switch back to 3D mode to continue your moves"
-msgstr ""
-"Repère bien ta position, puis retourne à la vue tridimensionnelle pour "
-"poursuivre tes mouvements"
-
-#: ../src/maze-activity/maze.xml.in.h:1
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:1
 #: ../src/maze3D-activity/maze3D.xml.in.h:2
+#: ../src/maze-activity/maze.xml.in.h:1
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:1
 msgid "Can use the keyboard arrow to move an object."
 msgstr "Sait utiliser les flèches du clavier pour déplacer un objet."
 
-#: ../src/maze-activity/maze.xml.in.h:3
+#: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:2
+msgid "Find your way out of the maze (Move is relative)"
+msgstr "Trouve ta voie hors du labyrinthe (déplacement relatif)."
+
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:3
 #: ../src/maze3D-activity/maze3D.xml.in.h:4
+#: ../src/maze-activity/maze.xml.in.h:3
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:3
 msgid "Help Tux get out of this maze."
 msgstr "Aide Tux à trouver sa voie hors du labyrinthe."
 
-#: ../src/maze-activity/maze.xml.in.h:5
-msgid "Use the keyboard arrows to move Tux up to the door."
-msgstr "Utilise les flèches du clavier pour déplacer Tux jusqu'à la porte."
-
-#: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:2
-msgid "Find your way out of the maze (Move is relative)"
-msgstr "Trouve ta voie hors du labyrinthe (déplacement relatif)."
+#: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:4
+#: ../src/maze-activity/maze.c:132 ../src/maze-activity/maze.xml.in.h:4
+#: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:4
+msgid "Maze"
+msgstr "Labyrinthe"
 
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:5
 msgid ""
@@ -5579,6 +6065,29 @@ msgstr ""
 "tridimensionnel (3D). Le mode bidimensionnel donne juste une indication sur "
 "ta position, comme une carte. Tu ne peux pas déplacer Tux en mode "
 "bidimensionnel."
+
+#: ../src/maze-activity/maze.c:133 ../src/maze-activity/maze.xml.in.h:2
+msgid "Find your way out of the maze"
+msgstr "Trouve ta voie hors du labyrinthe."
+
+#: ../src/maze-activity/maze.c:599
+msgid ""
+"Look at your position, then switch back to invisible mode to continue your "
+"moves"
+msgstr ""
+"Repère bien ta position, puis retourne à la vue invisible pour continuer à "
+"te déplacer"
+
+#: ../src/maze-activity/maze.c:601
+msgid ""
+"Look at your position, then switch back to 3D mode to continue your moves"
+msgstr ""
+"Repère bien ta position, puis retourne à la vue tridimensionnelle pour "
+"poursuivre tes mouvements"
+
+#: ../src/maze-activity/maze.xml.in.h:5
+msgid "Use the keyboard arrows to move Tux up to the door."
+msgstr "Utilise les flèches du clavier pour déplacer Tux jusqu'à la porte."
 
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:2
 msgid "Find your way out of the invisible maze"
@@ -6128,30 +6637,6 @@ msgstr ""
 "Tu peux voir certaines cartes, mais tu ne peux pas voir leur face cachées. "
 "Chaque carte cache des images ou un chiffre correspondant."
 
-#: ../src/missing_letter-activity/missing_letter.xml.in.h:1
-msgid ""
-"An object is displayed in the main area, and an incomplete word is printed "
-"under the picture. Select the missing letter to complete the word."
-msgstr ""
-"Un objet est affiché dans la zone principale. Un mot incomplet est inscrit "
-"sous l'image. Sélectionne la lettre manquante pour compléter le mot."
-
-#: ../src/missing_letter-activity/missing_letter.xml.in.h:2
-msgid "Fill in the missing letter"
-msgstr "Trouve la lettre manquante."
-
-#: ../src/missing_letter-activity/missing_letter.xml.in.h:3
-msgid "Missing Letter"
-msgstr "Lettre manquante"
-
-#: ../src/missing_letter-activity/missing_letter.xml.in.h:4
-msgid "Training reading skills"
-msgstr "Apprentissage de la lecture"
-
-#: ../src/missing_letter-activity/missing_letter.xml.in.h:5
-msgid "Word reading"
-msgstr "Lecture de mots"
-
 #: ../src/missing_letter-activity/missingletter_config.c:77
 msgid "Please select an image."
 msgstr "Choisis une image."
@@ -6205,18 +6690,6 @@ msgstr ""
 msgid "Picture"
 msgstr "Image"
 
-#. answer
-#: ../src/missing_letter-activity/missingletter_config.c:420
-#: ../src/missing_letter-activity/missingletter_config.c:548
-msgid "Answer"
-msgstr "Réponse"
-
-#. question
-#: ../src/missing_letter-activity/missingletter_config.c:426
-#: ../src/missing_letter-activity/missingletter_config.c:571
-msgid "Question"
-msgstr "Question"
-
 #. choice
 #: ../src/missing_letter-activity/missingletter_config.c:432
 #: ../src/missing_letter-activity/missingletter_config.c:583
@@ -6248,6 +6721,30 @@ msgid ""
 msgstr ""
 "Écris ici la lettre qui sera proposée. Cette première lettre doit être la "
 "solution."
+
+#: ../src/missing_letter-activity/missing_letter.xml.in.h:1
+msgid ""
+"An object is displayed in the main area, and an incomplete word is printed "
+"under the picture. Select the missing letter to complete the word."
+msgstr ""
+"Un objet est affiché dans la zone principale. Un mot incomplet est inscrit "
+"sous l'image. Sélectionne la lettre manquante pour compléter le mot."
+
+#: ../src/missing_letter-activity/missing_letter.xml.in.h:2
+msgid "Fill in the missing letter"
+msgstr "Trouve la lettre manquante."
+
+#: ../src/missing_letter-activity/missing_letter.xml.in.h:3
+msgid "Missing Letter"
+msgstr "Lettre manquante"
+
+#: ../src/missing_letter-activity/missing_letter.xml.in.h:4
+msgid "Training reading skills"
+msgstr "Apprentissage de la lecture"
+
+#: ../src/missing_letter-activity/missing_letter.xml.in.h:5
+msgid "Word reading"
+msgstr "Lecture de mots"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:1
 msgid "car/c_r/a/k/o"
@@ -6517,10 +7014,6 @@ msgstr "Reconstitution spatiale d'éléments cohérents entre eux."
 msgid "Edgar Degas, The Dancing Class - 1873-75"
 msgstr "Edgar Degas, La classe de danse - 1873-75"
 
-#: ../src/paintings-activity/resources/paintings/board1_1.xml.in.h:1
-msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
-msgstr "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
-
 #: ../src/paintings-activity/resources/paintings/board1_10.xml.in.h:1
 msgid ""
 "Katsushika Hokusai,\\nViewing Sunset over the Ryogoku Bridge from the Ommaya "
@@ -6536,6 +7029,10 @@ msgstr "Katsushika Hokusa, Les Pavots - 1833-1834"
 #: ../src/paintings-activity/resources/paintings/board1_12.xml.in.h:1
 msgid "Katsushika Hokusai, Kazusa sea Route - 1830."
 msgstr "Katsushika Hokusai, La route maritime de la province de Kazusa - 1830"
+
+#: ../src/paintings-activity/resources/paintings/board1_1.xml.in.h:1
+msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
+msgstr "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
 
 #: ../src/paintings-activity/resources/paintings/board1_2.xml.in.h:1
 msgid "Giuseppe Arcimboldo, Spring - 1573"
@@ -6734,7 +7231,7 @@ msgid "Number"
 msgstr "Nombre"
 
 #: ../src/pythontemplate-activity/pythontemplate.py:62
-#: ../src/pythontest-activity/pythontest.py:184
+#: ../src/pythontest-activity/pythontest.py:182
 msgid ""
 "This is the first plugin in GCompris coded in the Python\n"
 "Programming language."
@@ -6765,7 +7262,7 @@ msgid ""
 msgstr ""
 "Merci à Guido van Rossum et à l'équipe python pour ce langage puissant !"
 
-#: ../src/pythontest-activity/pythontest.py:194
+#: ../src/pythontest-activity/pythontest.py:192
 msgid ""
 "It is now possible to develop GCompris activities in C or in Python.\n"
 "Thanks to Olivier Samys who makes this possible."
@@ -6773,37 +7270,33 @@ msgstr ""
 "Il est maintenant possible de développer des activités GCompris en C ou en "
 "Python. Merci à Olivier Samyn qui a rendu cela possible."
 
-#: ../src/pythontest-activity/pythontest.py:204
+#: ../src/pythontest-activity/pythontest.py:202
 msgid "This activity is not playable, just a test"
 msgstr "Cette activité n'est pas jouable, c'est juste un test"
 
 #. toggle box
-#: ../src/pythontest-activity/pythontest.py:459
+#: ../src/pythontest-activity/pythontest.py:454
 msgid "Disable line drawing in circle"
 msgstr "Désactivation du dessin des contours de cercles"
 
 #. combo box
-#: ../src/pythontest-activity/pythontest.py:468
+#: ../src/pythontest-activity/pythontest.py:463
 msgid "Color of the line"
 msgstr "Couleur de la ligne"
 
 #. spin button for int
-#: ../src/pythontest-activity/pythontest.py:479
+#: ../src/pythontest-activity/pythontest.py:474
 msgid "Distance between circles"
 msgstr "Distance entre les cercles"
 
 #. radio buttons for circle or rectangle
-#: ../src/pythontest-activity/pythontest.py:490
+#: ../src/pythontest-activity/pythontest.py:485
 msgid "Use circles"
 msgstr "Utilisation de cercles"
 
-#: ../src/pythontest-activity/pythontest.py:491
+#: ../src/pythontest-activity/pythontest.py:486
 msgid "Use rectangles"
 msgstr "Utilisation de rectangles"
-
-#: ../src/pythontest-activity/pythontest.py:494
-msgid "Choice of pattern"
-msgstr "Choix d'un motif"
 
 #: ../src/pythontest-activity/pythontest.xml.in.h:3
 msgid "Python Test"
@@ -6835,7 +7328,7 @@ msgstr ""
 "Un train (une locomotive et ses wagons) est affiché en haut de la zone "
 "principale pendant quelques secondes. Tu dois ensuite le reconstituer en "
 "haut de l'écran en sélectionnant les wagons et la locomotive adéquats.Tu "
-"peux toujours désélectionner un élément en cliquant dessus.Pour valider ta "
+"peux toujours désélectionner un élément en cliquant dessus. Pour valider ta "
 "construction, clique sur le pouce dans la barre de contrôle."
 
 #: ../src/railroad-activity/railroad.xml.in.h:3
@@ -7018,7 +7511,7 @@ msgid "Weight = %s"
 msgstr "Poids = %s"
 
 #: ../src/scalesboard-activity/scale.c:1007
-msgid "Take care, you can drop masses on both sides of the scale."
+msgid "Take care, you can drop weights on both sides of the scale."
 msgstr "Fais attention, tu peux lâcher des poids des deux côtés de la balance."
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:1
@@ -7027,7 +7520,7 @@ msgid "Balance the scales properly"
 msgstr "La balance de Roberval"
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:2
-msgid "Drag and Drop masses to balance the scales"
+msgid "Drag and Drop weights to balance the scales"
 msgstr "Répartis les poids pour équilibrer la balance."
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:3
@@ -7048,11 +7541,11 @@ msgstr ""
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:5
 msgid ""
-"To balance the scales, move the masses on the left or the right side. The "
-"masses can be arranged in any order."
+"To balance the scales, move the weights on the left or the right side. The "
+"weights can be arranged in any order."
 msgstr ""
-"Pour équilibrer la balance, déplace les masses sur le plateau de gauche. Les "
-"masses peuvent être placées dans n'importe quel ordre."
+"Pour équilibrer la balance, déplace les poids sur le plateau de gauche ou de "
+"droite. Les poids peuvent être placés dans n'importe quel ordre."
 
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:2
 msgid "Drag and Drop masses to balance the scales and calculate the weight"
@@ -7074,6 +7567,69 @@ msgstr ""
 "Attention aux masses et à leurs unités, rappelle toi que un kilogramme (kg) "
 "représente 1000 grammes (g). Les masses peuvent être placées dans n'importe "
 "quel ordre."
+
+#: ../src/searace1player-activity/searace1player.xml.in.h:1
+msgid "Give good instructions to your ship in order to be first in the race."
+msgstr "Pilote précisément ton bateau pour gagner la course contre Tux."
+
+#: ../src/searace1player-activity/searace1player.xml.in.h:2
+msgid ""
+"In the text entry, enter one command per line, to control your boat. "
+"Commands supported are displayed between the two entry areas. The 'left' and "
+"'right' commands must be followed by an angle in degrees. The angle value is "
+"also called a 'parameter' to the left or right command. By default 45 "
+"degrees is used. The 'forward' command accepts a distance parameter. By "
+"default 1 is used.\n"
+"For example:\n"
+"- left 90: Make a perpendicular left turn\n"
+"- forward 10: Go forward for 10 units (as displayed on the ruler).\n"
+"The goal is to reach the right of the screen (the red line). When done, you "
+"can try to improve your program and start a new race with the same weather "
+"conditions by using the retry button. You can click and drag your mouse "
+"anywhere on the map to get a measurement in distance and angle. Going to the "
+"next level will give you more complex weather conditions."
+msgstr ""
+"Dans la zone de saisie relative à ton bateau, inscris ligne par ligne les "
+"commandes qui vont contrôler ton bateau. Les commandes supportées sont "
+"affichées entre les deux zones de saisie. Les commandes doivent être suivies "
+"d'une valeur (ici un nombre) que l'on appelle un « paramètre ».\n"
+"-Les commandes « gauche » et « droite » prennent comme paramètre un angle "
+"exprimé en degrés.\n"
+"-La commande « avance » prend comme paramètre une distance exprimée en unités "
+"de grille.\n"
+"\n"
+"Exemple :\n"
+"« gauche 90 » => Pivote sur la gauche à angle droit (90°)\n"
+"« avance 10 » => Avance de 10 unités (se repérer avec les coordonnées "
+"horizontales et verticales).\n"
+"L'objectif est d'atteindre le premier la ligne rouge à droite de l'écran. "
+"Lorsque tu es arrivé(e), tu peux essayer d'améliorer ton programme en "
+"recommençant une course dans les mêmes conditions météorologiques, en "
+"cliquant sur le bouton « recommencer ».\n"
+"\n"
+"Tu peux aussi cliquer et faire glisser ta souris sur n'importe quelle zone "
+"de la carte pour mesurer un déplacement sous la forme d'une distance et d'un "
+"angle.\n"
+"Tu peux aussi tenter ta chance dans les niveaux suivants qui ont des "
+"conditions météorologiques plus complexes."
+
+#: ../src/searace1player-activity/searace1player.xml.in.h:7
+#: ../src/searace-activity/searace.xml.in.h:8
+msgid ""
+"In this activity, you will learn how to enter commands into a computer. Even "
+"if the language is extremely basic, you learn here how to think ahead and "
+"construct a program. This activity can be used to introduce the programming "
+"concept to children."
+msgstr ""
+"Dans cette activité, tu vas apprendre comment entrer des commandes dans un "
+"ordinateur. Même si le langage est très simple, cela t'apprend à réfléchir à "
+"l'avance et à coder un programme.\n"
+"Cette activité peut être utilisée pour initier les enfants à la "
+"programmation."
+
+#: ../src/searace1player-activity/searace1player.xml.in.h:8
+msgid "Sea race (Single Player)"
+msgstr "Course de bateaux (1 joueur)"
 
 #: ../src/searace-activity/searace.py:174
 msgid "The race is already being run"
@@ -7179,103 +7735,40 @@ msgstr ""
 "Tu peux aussi tenter ta chance dans les niveaux suivants qui ont des "
 "conditions météorologiques plus complexes."
 
-#: ../src/searace-activity/searace.xml.in.h:8
-#: ../src/searace1player-activity/searace1player.xml.in.h:7
-msgid ""
-"In this activity, you will learn how to enter commands into a computer. Even "
-"if the language is extremely basic, you learn here how to think ahead and "
-"construct a program. This activity can be used to introduce the programming "
-"concept to children."
-msgstr ""
-"Dans cette activité, tu vas apprendre comment entrer des commandes dans un "
-"ordinateur. Même si le langage est très simple, cela t'apprend à réfléchir à "
-"l'avance et à coder un programme.\n"
-"Cette activité peut être utilisée pour initier les enfants à la "
-"programmation."
-
 #: ../src/searace-activity/searace.xml.in.h:9
 msgid "Sea race (2 Players)"
 msgstr "Course de bateaux (2 joueurs)"
 
-#: ../src/searace1player-activity/searace1player.xml.in.h:1
-msgid "Give good instructions to your ship in order to be first in the race."
-msgstr "Pilote précisément ton bateau pour gagner la course contre Tux."
-
-#: ../src/searace1player-activity/searace1player.xml.in.h:2
-msgid ""
-"In the text entry, enter one command per line, to control your boat. "
-"Commands supported are displayed between the two entry areas. The 'left' and "
-"'right' commands must be followed by an angle in degrees. The angle value is "
-"also called a 'parameter' to the left or right command. By default 45 "
-"degrees is used. The 'forward' command accepts a distance parameter. By "
-"default 1 is used.\n"
-"For example:\n"
-"- left 90: Make a perpendicular left turn\n"
-"- forward 10: Go forward for 10 units (as displayed on the ruler).\n"
-"The goal is to reach the right of the screen (the red line). When done, you "
-"can try to improve your program and start a new race with the same weather "
-"conditions by using the retry button. You can click and drag your mouse "
-"anywhere on the map to get a measurement in distance and angle. Going to the "
-"next level will give you more complex weather conditions."
-msgstr ""
-"Dans la zone de saisie relative à ton bateau, inscris ligne par ligne les "
-"commandes qui vont contrôler ton bateau. Les commandes supportées sont "
-"affichées entre les deux zones de saisie. Les commandes doivent être suivies "
-"d'une valeur (ici un nombre) que l'on appelle un « paramètre ».\n"
-"-Les commandes « gauche » et « droite » prennent comme paramètre un angle "
-"exprimé en degrés.\n"
-"-La commande « avance » prend comme paramètre une distance exprimée en unités "
-"de grille.\n"
-"\n"
-"Exemple :\n"
-"« gauche 90 » => Pivote sur la gauche à angle droit (90°)\n"
-"« avance 10 » => Avance de 10 unités (se repérer avec les coordonnées "
-"horizontales et verticales).\n"
-"L'objectif est d'atteindre le premier la ligne rouge à droite de l'écran. "
-"Lorsque tu es arrivé(e), tu peux essayer d'améliorer ton programme en "
-"recommençant une course dans les mêmes conditions météorologiques, en "
-"cliquant sur le bouton « recommencer ».\n"
-"\n"
-"Tu peux aussi cliquer et faire glisser ta souris sur n'importe quelle zone "
-"de la carte pour mesurer un déplacement sous la forme d'une distance et d'un "
-"angle.\n"
-"Tu peux aussi tenter ta chance dans les niveaux suivants qui ont des "
-"conditions météorologiques plus complexes."
-
-#: ../src/searace1player-activity/searace1player.xml.in.h:8
-msgid "Sea race (Single Player)"
-msgstr "Course de bateaux (1 joueur)"
-
-#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:1
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:1
+#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:1
 msgid "Count the number of dots on dice before they reach the ground"
 msgstr ""
 "Compte le nombre de points sur les dés avant qu'ils ne touchent le sol."
 
-#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:2
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:2
+#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:2
 msgid "Counting skills"
 msgstr "Savoir compter"
 
-#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:3
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:3
+#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:3
 msgid "In a limited time, count the number of dots"
 msgstr "En temps limité, compte le nombre de points."
 
-#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:4
-msgid "Numbers With Dice"
-msgstr "Les nombres avec les dés"
+#: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:4
+msgid "Numbers with pairs of dice"
+msgstr "Les nombres avec une paire de dés"
 
-#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:5
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:5
+#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:5
 msgid "With the keyboard, type the number of dots you see on the falling dice."
 msgstr ""
 "Avec le clavier, tape le nombre correspondant au nombre de points indiqué "
 "par le dé qui tombe."
 
-#: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:4
-msgid "Numbers with pairs of dice"
-msgstr "Les nombres avec une paire de dés"
+#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:4
+msgid "Numbers With Dice"
+msgstr "Les nombres avec les dés"
 
 #: ../src/submarine-activity/submarine.xml.in.h:1
 msgid ""
@@ -7314,7 +7807,7 @@ msgstr ""
 
 #: ../src/submarine-activity/submarine.xml.in.h:2
 msgid "Learn how a submarine works"
-msgstr "Apprends le fonctionnement d'un sous-marin."
+msgstr "Apprendre le fonctionnement d'un sous-marin."
 
 #: ../src/submarine-activity/submarine.xml.in.h:3
 msgid "Physics basics"
@@ -7332,7 +7825,7 @@ msgstr ""
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:1
 msgid "Completing the puzzle requires patience and logical ability"
-msgstr "Compléter ce puzzle nécessite de la patience et de la logique"
+msgstr "Compléter la grille nécessite de la patience et de la logique"
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:2
 msgid ""
@@ -7349,7 +7842,7 @@ msgstr ""
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:3
 msgid "Sudoku, place unique symbols in a square."
-msgstr "Jeu du Sudoku."
+msgstr "Jeu du Sudoku"
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:4
 msgid ""
@@ -7498,12 +7991,12 @@ msgstr ""
 
 #: ../src/tangram-activity/tangram.xml.in.h:12
 msgid "The tangram puzzle game"
-msgstr "Le jeu du tangram (puzzle)"
+msgstr "Le jeu du tangram"
 
 #. Set the maximum text to calc the background
 #. Set the correct initial text
-#: ../src/target-activity/target.c:296 ../src/target-activity/target.c:559
-#: ../src/target-activity/target.c:596
+#: ../src/target-activity/target.c:296 ../src/target-activity/target.c:562
+#: ../src/target-activity/target.c:599
 #, c-format
 msgid "Points = %s"
 msgstr "Points = %s"
@@ -7517,10 +8010,12 @@ msgstr ""
 "Vitesse du vent = %d\n"
 "kilomètres/heure"
 
-#: ../src/target-activity/target.c:481
+#: ../src/target-activity/target.c:482
 #, c-format
-msgid "Distance to target = %d meters"
-msgstr "Distance de la cible = %d mètres"
+msgid "Distance to target = %d meter"
+msgid_plural "Distance to target = %d meters"
+msgstr[0] "Distance de la cible = %d mètre"
+msgstr[1] "Distance de la cible = %d mètres"
 
 #: ../src/target-activity/target.xml.in.h:1
 msgid ""
@@ -7764,137 +8259,3 @@ msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr ""
 "Entre au clavier les mots complets pendant qu'ils tombent, et avant qu'ils "
 "ne touchent le sol."
-
-#: ../src/findit-activity/findit.py:315
-msgid ""
-"Failed to parse data set '{filename}' with error:\n"
-"{error}"
-msgstr ""
-"Échec de l'analyse des données du fichier « {filename} » avec l'erreur :\n"
-"{error}"
-
-#: ../src/instruments-activity/instruments.xml.in.h:1
-msgid "Click on the correct instrument."
-msgstr "Clique sur le bon instrument."
-
-#: ../src/instruments-activity/instruments.xml.in.h:2
-msgid "Click on the correct mucical instruments"
-msgstr "Clique sur l'instrument de musique correct"
-
-#: ../src/instruments-activity/instruments.xml.in.h:3
-msgid "Learn to recognize musical instruments."
-msgstr "Apprendre à reconnaître des instruments de musique."
-
-#: ../src/instruments-activity/instruments.xml.in.h:4
-msgid "Music instruments"
-msgstr "Instruments de musique"
-
-#. Translator: Do not translate {text}.
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:2
-msgid "Find {text}"
-msgstr "Trouve {text}"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:3
-msgid "the accordion"
-msgstr "l'accordéon"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:4
-msgid "the banjo"
-msgstr "le banjo"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:5
-msgid "the bass drum"
-msgstr "la grosse caisse"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:6
-msgid "the bongo"
-msgstr "le bongo"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:7
-msgid "the castanets"
-msgstr "les castagnettes"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:8
-msgid "the cello"
-msgstr "le violoncelle"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:9
-msgid "the clarinet"
-msgstr "la clarinette"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:10
-msgid "the cymbal"
-msgstr "la cymbale"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:11
-msgid "the drum kit"
-msgstr "la batterie"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
-msgid "the electric guitar"
-msgstr "la guitare électrique"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
-msgid "the flute traversiere"
-msgstr "la flute traversière"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
-msgid "the guitar"
-msgstr "la guitare"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
-msgid "the harmonica"
-msgstr "l'harmonica"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
-msgid "the harp"
-msgstr "la harpe"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
-msgid "the horn"
-msgstr "le cor"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
-msgid "the maracas"
-msgstr "les maracas"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
-msgid "the organ"
-msgstr "l'orgue"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
-msgid "the piano"
-msgstr "le piano"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
-msgid "the saxophone"
-msgstr "le saxophone"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
-msgid "the tambourine"
-msgstr "le tambourin"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
-msgid "the timpani"
-msgstr "les timbales"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
-msgid "the triangle"
-msgstr "le triangle"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
-msgid "the trombone"
-msgstr "le trombone"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
-msgid "the trumpet"
-msgstr "la trompette"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:27
-msgid "the tuba"
-msgstr "le tuba"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:28
-msgid "the violin"
-msgstr "le violon"
-
