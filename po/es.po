@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: gcompris.gcomprixogoo\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2011-09-11 21:24+0000\n"
-"PO-Revision-Date: 2011-09-15 12:17+0200\n"
+"POT-Creation-Date: 2011-09-27 22:09+0000\n"
+"PO-Revision-Date: 2011-10-01 11:19+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -585,13 +585,13 @@ msgstr ""
 "usado para leerlas, por ejemplo, y después el idioma usado para decir los "
 "nombres de los colores. \n"
 "- Puedes guardar configuraciones múltiples, y cambiar fácilmente entre "
-"ellas. En la sección «Perfil» añade un perfil, después en la sección «Tablero» "
-"selecciona el perfil en la lista desplegable, y después elige los tableros "
-"que quieres que estén activos. Puedes añadir un montón de perfiles, con "
-"diferentes listas de tableros, y diferentes idiomas. Puedes establecer el "
-"perfil por omisión en la sección «Perfil», eligiendo el perfil que quieras, y "
-"después pulsando el botón «Predeterminado». También puedes elegir un perfil "
-"desde la línea de comandos.\n"
+"ellas. En la sección «Perfil» añade un perfil, después en la sección "
+"«Tablero» selecciona el perfil en la lista desplegable, y después elige los "
+"tableros que quieres que estén activos. Puedes añadir un montón de perfiles, "
+"con diferentes listas de tableros, y diferentes idiomas. Puedes establecer "
+"el perfil por omisión en la sección «Perfil», eligiendo el perfil que "
+"quieras, y después pulsando el botón «Predeterminado». También puedes elegir "
+"un perfil desde la línea de comandos.\n"
 "- Puedes añadir usuarios, clases y para cada clase, puedes crear grupos de "
 "usuarios. Ten en cuenta que puedes importar usuarios de un archivo separado "
 "por comas. Asigna uno o más grupos a un perfil, y los nuevos identificadores "
@@ -1787,11 +1787,11 @@ msgstr ""
 
 #: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:2
 msgid "Learn and memorize the Braille system."
-msgstr ""
+msgstr "Aprender y memorizar el sistema Braille."
 
 #: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:3
 msgid "Let kids discover the Braille system."
-msgstr ""
+msgstr "Permitir a los niños descubrir el sistema Braille."
 
 #: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:4
 msgid ""
@@ -1888,11 +1888,11 @@ msgstr "4º"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:350
 msgid "Game Over"
-msgstr ""
+msgstr "Juego terminado"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:459
 msgid "Congratulation player {player_id}, you won"
-msgstr ""
+msgstr "Enhorabuena jugador {player_id}, has ganado"
 
 #: ../src/braille_lotto-activity/braille_lotto.xml.in.h:1
 msgid "Braille Lotto"
@@ -2347,7 +2347,7 @@ msgstr ""
 "activar el sonido"
 
 #: ../src/click_on_letter-activity/click_on_letter.c:404
-#, fuzzy, c-format
+#, c-format
 #| msgid ""
 #| "Error: this activity requires that you first install\n"
 #| "the packages with GCompris voices for the locale '%s' or '%s'"
@@ -2356,7 +2356,7 @@ msgid ""
 "the packages with GCompris voices for the %s locale."
 msgstr ""
 "Error: esta actividad requiere que instale primero\n"
-"los paquetes con las voces de GCompris para el idioma «%s» o «%s»"
+"los paquetes con las voces de GCompris para el idioma %s."
 
 #: ../src/click_on_letter-activity/click_on_letter.c:905
 msgid "Questions cannot be empty."
@@ -2417,10 +2417,9 @@ msgstr ""
 "boca en marco horizontal inferior."
 
 #: ../src/click_on_letter-activity/click_on_letter.xml.in.h:2
-#, fuzzy
 #| msgid "Click on a letter"
 msgid "Click on a lowercase letter"
-msgstr "Pulsa sobre una letra"
+msgstr "Pulsa sobre una letra en minúscula"
 
 #: ../src/click_on_letter-activity/click_on_letter.xml.in.h:3
 #: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:3
@@ -2438,10 +2437,9 @@ msgid "Visual letter-recognition. Can move the mouse."
 msgstr "Reconocimiento visual de letras. Puede mover el ratón."
 
 #: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:2
-#, fuzzy
 #| msgid "Click on a letter"
 msgid "Click on an uppercase letter"
-msgstr "Pulsa sobre una letra"
+msgstr "Pulsa sobre una letra en mayúscula"
 
 #: ../src/clockgame-activity/clockgame.c:524
 msgid "Set the watch to:"
@@ -3107,7 +3105,7 @@ msgstr "Sí, estoy seguro."
 msgid "No, I want to keep going"
 msgstr "No, quiero continuar"
 
-#: ../src/gcompris/board.c:155
+#: ../src/gcompris/board.c:149
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr ""
 "La carga dinámica de módulos no está soportada. GCompris no puede cargar.\n"
@@ -5751,10 +5749,9 @@ msgstr "Selecciona o introduce tu nombre para identificarte en GCompris"
 
 #: ../src/louis_braille-activity/louis_braille.py:106
 #: ../src/louis_braille-activity/louis_braille.py:222
-#, fuzzy
 #| msgid "star"
 msgid "story"
-msgstr "estrella"
+msgstr "historia"
 
 #: ../src/louis_braille-activity/louis_braille.py:111
 msgid "Click to confirm your sequence"
@@ -5773,22 +5770,28 @@ msgid ""
 " At the age of 10, he was sent to Paris to study at the Royal Institute for "
 "Blind Youth."
 msgstr ""
+" Cuando tenía 10 años, le enviaron a París para estudiar en el Real "
+"Instituto para Jóvenes Ciegos."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:3
 msgid ""
 " At the age of three, Louis became blind due to a severe infection that "
 "spread to his left eye."
 msgstr ""
+" A la edad de tres años, Louis se quedó ciego debido a una infección severa "
+"que se extendió a su ojo izquierdo."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:4
 msgid " Born on January 4th in Coupvary near Paris in France."
-msgstr ""
+msgstr " Nacido el 4 de enero en Coupvary cerca de París en Francia."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:5
 msgid ""
 " Braille got accepted as a world wide standard. Louis Braille proved that if "
 "you have motivation you can do incredible things."
 msgstr ""
+"Braille se aceptó como un estándar en todo el mundo. Louis Braille demostró "
+"que si tienes la motivación, puedes hacer cosas increíbles."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:6
 msgid ""
@@ -5806,22 +5809,29 @@ msgid ""
 " He died of tuberculosis. He is burried in the Pantheon in Paris. A monument "
 "is erected to honor him."
 msgstr ""
+" Murió de tuberculosis. Fue enterrado en el Panteón de París. Se ha erigido "
+"un monumento en su honor."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:9
 msgid " He impressed his classmates and began to play the piano and the organ."
 msgstr ""
+" Impresionó a sus compañeros de clase y comenzó a tocar el piano y el órgano."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:10
 msgid ""
 " He revised and extended braille to include mathematics, symbols, "
 "punctuations and music notations."
 msgstr ""
+" Revisó y amplió el Braille para incluir las matemáticas, símbolos, signos "
+"de puntuación y las notas musicales."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:11
 msgid ""
 " Louis Braille injured his right eye with a stitching awl from his father's "
 "workshop."
 msgstr ""
+" Louis Braille se lesionó el ojo derecho con un punzón de coser del taller "
+"de su padre."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:12
 msgid ""
@@ -6929,8 +6939,8 @@ msgstr "Katsushika Hokusai, La gran ola de Kanagawa (1823-29)"
 msgid ""
 "Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
 msgstr ""
-"Utagawa Hiroshige, El santuario de Benzaiten en Inokashira con nieve (1760-"
-"70)"
+"Utagawa Hiroshige, El santuario de Benzaiten en Inokashira con nieve "
+"(1760-70)"
 
 #: ../src/paintings-activity/resources/paintings/board1_9.xml.in.h:1
 msgid "Utagawa Hiroshige, Horse-mackerel and Prawn - 1840"
@@ -7378,7 +7388,8 @@ msgid "Weight = %s"
 msgstr "Peso = %s"
 
 #: ../src/scalesboard-activity/scale.c:1007
-msgid "Take care, you can drop masses on both sides of the scale."
+#| msgid "Take care, you can drop masses on both sides of the scale."
+msgid "Take care, you can drop weights on both sides of the scale."
 msgstr "Ten cuidado, puedes dejar caer masas en ambos lados de la balanza."
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:1
@@ -7387,7 +7398,9 @@ msgid "Balance the scales properly"
 msgstr "Equilibra las balanzas adecuadamente"
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:2
-msgid "Drag and Drop masses to balance the scales"
+#, fuzzy
+#| msgid "Drag and Drop masses to balance the scales"
+msgid "Drag and Drop weights to balance the scales"
 msgstr "Arrastra y suelta los pesos para equilibrar las balanzas"
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:3
@@ -7406,9 +7419,13 @@ msgstr ""
 "publicado bajo la licencia GPL."
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:5
+#, fuzzy
+#| msgid ""
+#| "To balance the scales, move the masses on the left or the right side. The "
+#| "masses can be arranged in any order."
 msgid ""
-"To balance the scales, move the masses on the left or the right side. The "
-"masses can be arranged in any order."
+"To balance the scales, move the weights on the left or the right side. The "
+"weights can be arranged in any order."
 msgstr ""
 "Para equilibrar los platillos mueve las masas en su plato izquierdo. Las "
 "masas pueden colocarse en cualquier orden."
@@ -7455,11 +7472,11 @@ msgid ""
 msgstr ""
 "En el campo de texto, introduce una orden por línea para controlar tu bote."
 "Las órdenes válidas se muestran entre las dos áreas de entrada. Las órdenes "
-"«izquierda» y «derecha» deben llevar como sufijo el ángulo en grados. Al valor "
-"del ángulo también se le llama «parámetro» de la orden izquierda o derecha. "
-"De forma predeterminada, se usan 45 grados. La orden «hacia adelante» acepta "
-"un parámetro con la distancia. De forma predeterminada se usa un valor de "
-"1.\n"
+"«izquierda» y «derecha» deben llevar como sufijo el ángulo en grados. Al "
+"valor del ángulo también se le llama «parámetro» de la orden izquierda o "
+"derecha. De forma predeterminada, se usan 45 grados. La orden «hacia "
+"adelante» acepta un parámetro con la distancia. De forma predeterminada se "
+"usa un valor de 1.\n"
 "Por ejemplo:\n"
 "- izquierda 90 => Hacer un giro perpendicular a la izquierda\n"
 "- hacia delante 10 => Ir hacia delante 10 unidades (como se muestran en la "
@@ -7571,11 +7588,11 @@ msgstr ""
 "En el campo de texto, introduce una orden por línea para controlar tu "
 "bote. \n"
 "Las órdenes válidas se muestran entre las dos áreas de entrada. Las órdenes "
-"«izquierda» y «derecha» deben llevar como sufijo el ángulo en grados. Al valor "
-"del ángulo también se le llama «parámetro» de la orden izquierda o derecha. "
-"De forma predeterminada, se usan 45 grados. La orden «hacia adelante» acepta "
-"un parámetro con la distancia. De forma predeterminada se usa un valor de "
-"1.\n"
+"«izquierda» y «derecha» deben llevar como sufijo el ángulo en grados. Al "
+"valor del ángulo también se le llama «parámetro» de la orden izquierda o "
+"derecha. De forma predeterminada, se usan 45 grados. La orden «hacia "
+"adelante» acepta un parámetro con la distancia. De forma predeterminada se "
+"usa un valor de 1.\n"
 "Por ejemplo:\n"
 "- izquierda 90 => Hacer un giro perpendicular a la izquierda\n"
 "- hacia delante 10 => Ir hacia delante 10 unidades (como se muestran en la "
