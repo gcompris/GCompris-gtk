@@ -103,7 +103,8 @@ class Gcompris_louis_braille:
 
     # Insert the lines in the correct order
     for index in range(n_lines):
-      self.reordering.add_line( str(self.dataset.get(str(index + 1), _("story"))))
+      self.reordering.add_line( _(str(self.dataset.get(str(index + 1),
+                                                       "story"))) )
 
       ok = goocanvas.Svg(parent = self.rootitem,
                          svg_handle = gcompris.skin.svg_get(),
@@ -219,9 +220,9 @@ class Gcompris_louis_braille:
         gcompris.utils.load_pixmap( (str(self.dataset.get(str(self.gcomprisBoard.level),
                                                           "image"))) )
     self.imageitem.set_properties(pixbuf = pixbuf)
-    story = self.dataset.get( str(self.gcomprisBoard.level), _("story") )
+    story = _(self.dataset.get( str(self.gcomprisBoard.level), "story"))
     self.storyitem.set_properties(text = story)
-    year = self.dataset.get( str(self.gcomprisBoard.level) , _("year") )
+    year = self.dataset.get( str(self.gcomprisBoard.level) , "year")
     self.year_item.set_properties(text = year)
     bounds = self.year_item.get_bounds()
     gapx = 10
