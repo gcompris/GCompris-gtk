@@ -1501,7 +1501,9 @@ single_instance_check()
 
 	  if(current_time.tv_sec - seconds < GC_LOCK_LIMIT)
 	    {
-	      printf(_("GCompris won't start because the lock file is less than %d seconds old.\n"),
+	      printf(ngettext("GCompris won't start because the lock file is less than %d second old.\n",
+			      "GCompris won't start because the lock file is less than %d seconds old.\n",
+			      GC_LOCK_LIMIT),
 		     GC_LOCK_LIMIT);
 	      printf(_("The lock file is: %s\n"),
 		     lock_file);

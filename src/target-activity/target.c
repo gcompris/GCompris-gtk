@@ -478,8 +478,10 @@ static GooCanvasItem *target_create_item(GooCanvasItem *parent)
 
   number_of_arrow = targetDefinition[gcomprisBoard->level-1].number_of_arrow;
 
-  tmpstr = g_strdup_printf(_("Distance to target = %d meters"),
-			   targetDefinition[gcomprisBoard->level-1].target_distance);
+  guint target_distance = targetDefinition[gcomprisBoard->level-1].target_distance;
+  tmpstr = g_strdup_printf(ngettext("Distance to target = %d meter",
+				    "Distance to target = %d meters", target_distance),
+			   target_distance);
   goo_canvas_text_new (boardRootItem,
 		       tmpstr,
 		       (double) 0,
