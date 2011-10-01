@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: gcompris.gcomprixogoo\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2011-10-01 09:26+0000\n"
-"PO-Revision-Date: 2011-10-01 14:53+0200\n"
+"POT-Creation-Date: 2011-10-01 13:49+0000\n"
+"PO-Revision-Date: 2011-10-01 15:54+0200\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -3758,18 +3758,25 @@ msgstr ""
 
 #: ../src/gcompris/gcompris.c:1504
 #, c-format
+#| msgid ""
+#| "GCompris won't start because the lock file is less than %d seconds old.\n"
 msgid ""
+"GCompris won't start because the lock file is less than %d second old.\n"
+msgid_plural ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
-msgstr ""
+msgstr[0] ""
+"No se iniciará GCompris porque el archivo de bloqueo es menos antiguo de %d "
+"segundo.\n"
+msgstr[1] ""
 "No se iniciará GCompris porque el archivo de bloqueo es menos antiguo de %d "
 "segundos.\n"
 
-#: ../src/gcompris/gcompris.c:1506
+#: ../src/gcompris/gcompris.c:1508
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "El archivo de bloqueo es: %s\n"
 
-#: ../src/gcompris/gcompris.c:1679
+#: ../src/gcompris/gcompris.c:1681
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3783,27 +3790,27 @@ msgstr ""
 "Más información en http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1794
+#: ../src/gcompris/gcompris.c:1796
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Usa -l actividad para acceder directamente a una actividad.\n"
 
-#: ../src/gcompris/gcompris.c:1795
+#: ../src/gcompris/gcompris.c:1797
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Lista de actividades disponibles es:\n"
 
-#: ../src/gcompris/gcompris.c:1826
+#: ../src/gcompris/gcompris.c:1828
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Número de actividades: %d\n"
 
-#: ../src/gcompris/gcompris.c:1862
+#: ../src/gcompris/gcompris.c:1864
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s existe pero no se puede leer o escribir"
 
-#: ../src/gcompris/gcompris.c:1925
+#: ../src/gcompris/gcompris.c:1927
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
@@ -3812,7 +3819,7 @@ msgstr ""
 "La opción «--server» no se puede usar porque GCompris se ha compilado sin "
 "soporte de red."
 
-#: ../src/gcompris/gcompris.c:1979
+#: ../src/gcompris/gcompris.c:1981
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3821,7 +3828,7 @@ msgstr ""
 "ERROR: No se encontró el perfil «%s». Ejecute «gcompris --profile list» para "
 "listar los disponibles\n"
 
-#: ../src/gcompris/gcompris.c:1993
+#: ../src/gcompris/gcompris.c:1995
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "La lista de perfiles disponibles es:\n"
@@ -5786,6 +5793,32 @@ msgstr "Pulsa para confirmar tu secuencia"
 msgid "year"
 msgstr "año"
 
+#: ../src/louis_braille-activity/louis_braille.xml.in.h:1
+msgid ""
+"Louis Braille Video: &lt; http://www.youtube.com/watch?v=9bdfC2j_4x4 &gt;"
+msgstr "Vídeo de Louis Braille http://www.youtube.com/watch?v=9bdfC2j_4x4"
+
+#: ../src/louis_braille-activity/louis_braille.xml.in.h:2
+msgid ""
+"Read the history of Louis Braille, his biography and discovery of the "
+"Braille system. Click on the previous and next buttons to move to the "
+"respective story page. At the end, arrange the sequence in the chronological "
+"order."
+msgstr ""
+"Lee la historia de Louis Braille, su biografía y descubrimiento del sistema "
+"Braille. Pulsa los botones anterior y siguiente para moverte a las "
+"respectivas páginas de la historia. Al final, ordena la historia en orden "
+"cronológico."
+
+#: ../src/louis_braille-activity/louis_braille.xml.in.h:3
+#| msgid "Let kids discover the Braille system."
+msgid "Review the major dates of the inventor of the Braille system."
+msgstr "Revisa las fechas más importantes del inventor del sistema Braille."
+
+#: ../src/louis_braille-activity/louis_braille.xml.in.h:4
+msgid "The History of Louis Braille"
+msgstr "La historia de Louis Braille"
+
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:1
 msgid " After his Death"
 msgstr " Después de su muerte"
@@ -7421,7 +7454,6 @@ msgid "Weight = %s"
 msgstr "Peso = %s"
 
 #: ../src/scalesboard-activity/scale.c:1007
-#| msgid "Take care, you can drop masses on both sides of the scale."
 msgid "Take care, you can drop weights on both sides of the scale."
 msgstr "Ten cuidado, puedes dejar caer masas en ambos lados de la balanza."
 
@@ -7431,7 +7463,6 @@ msgid "Balance the scales properly"
 msgstr "Equilibra las balanzas adecuadamente"
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:2
-#| msgid "Drag and Drop masses to balance the scales"
 msgid "Drag and Drop weights to balance the scales"
 msgstr "Arrastra y suelta los pesos para equilibrar las balanzas"
 
@@ -7451,9 +7482,6 @@ msgstr ""
 "publicado bajo la licencia GPL."
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:5
-#| msgid ""
-#| "To balance the scales, move the masses on the left or the right side. The "
-#| "masses can be arranged in any order."
 msgid ""
 "To balance the scales, move the weights on the left or the right side. The "
 "weights can be arranged in any order."
@@ -7837,8 +7865,8 @@ msgstr "El juego de puzle de tangram"
 
 #. Set the maximum text to calc the background
 #. Set the correct initial text
-#: ../src/target-activity/target.c:296 ../src/target-activity/target.c:560
-#: ../src/target-activity/target.c:597
+#: ../src/target-activity/target.c:296 ../src/target-activity/target.c:562
+#: ../src/target-activity/target.c:599
 #, c-format
 msgid "Points = %s"
 msgstr "Puntos = %s"
@@ -7852,10 +7880,13 @@ msgstr ""
 "Velocidad del viento = %d\n"
 "kilómetros/hora"
 
-#: ../src/target-activity/target.c:481
+#: ../src/target-activity/target.c:482
 #, c-format
-msgid "Distance to target = %d meters"
-msgstr "Distancia al blanco = %d metros"
+#| msgid "Distance to target = %d meters"
+msgid "Distance to target = %d meter"
+msgid_plural "Distance to target = %d meters"
+msgstr[0] "Distancia al blanco = %d metro"
+msgstr[1] "Distancia al blanco = %d metros"
 
 #: ../src/target-activity/target.xml.in.h:1
 msgid ""
