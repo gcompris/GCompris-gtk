@@ -209,11 +209,14 @@ class Gcompris_guessnumber:
 
       self.indicator =goocanvas.Text(
         parent = self.rootitem,
-        x=300.0,
+        x=400.0,
         y=70.0,
+        width = 700,
         font=gcompris.skin.get_font("gcompris/subtitle"),
         text=(""),
         fill_color_rgba=0xff0006ffL,
+        anchor = gtk.ANCHOR_CENTER,
+        alignment = pango.ALIGN_CENTER,
         )
 
       text_item = self.entry_text()
