@@ -166,6 +166,7 @@ class Gcompris_hydroelectric:
       Producer(self.rootitem, self.svghandle,
                Counter( self.rootitem, self.svghandle,
                         "#DAM_PROD_COUNT",
+                        #Translator : "meter" here means a measuring device
                         _("This is the meter for electricity produced by the turbine. ") + \
                         _("The electricity power is measured in Watt (W)."),
                         303, 224 ),
@@ -278,6 +279,7 @@ class Gcompris_hydroelectric:
     self.production_counter = \
         Counter( self.rootitem, self.svghandle,
                  "#PROD_COUNT",
+                 #Translator : "meter" here means a measuring device
                  _("This is the meter for all the electricity produced. ") + \
                  _("The electricity power is measured in Watt (W)."),
                  525, 226 )
@@ -285,6 +287,7 @@ class Gcompris_hydroelectric:
     self.consumers_counter = \
         Counter( self.rootitem, self.svghandle,
                  "#CONSO_COUNT",
+                 #Translator : "meter" here means a measuring device
                  _("This is the meter for electricity consumed by the users. ") + \
                  _("The electricity power is measured in Watt (W)."),
                  590, 203 )
@@ -315,6 +318,7 @@ class Gcompris_hydroelectric:
       Producer(self.rootitem, self.svghandle,
                Counter( self.rootitem, self.svghandle,
                         "#SOLAR_PANEL_COUNT",
+                        #Translator : "meter" here means a measuring device
                         _("This is the meter for electricity produced by the solar panels. ") + \
                         _("The electricity power is measured in Watt (W)."),
                         697, 177 ),
@@ -337,6 +341,7 @@ class Gcompris_hydroelectric:
       Producer(self.rootitem, self.svghandle,
                Counter( self.rootitem, self.svghandle,
                         "#WIND_FARM_COUNT",
+                        #Translator : "meter" here means a measuring device
                         _("This is the meter for electricity produced by the wind turbines. ") + \
                         _("The electricity power is measured in Watt (W)."),
                         650, 137 ),
