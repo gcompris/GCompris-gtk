@@ -173,7 +173,7 @@ class Gcompris_louis_braille:
                        font = gcompris.skin.get_font("gcompris/title")
                        )
 
-    # Rectangle for STORY
+    # Rectangle for YEAR
     self.year_rect = \
         goocanvas.Rect(parent=self.rootitem,
                        x = 40,
@@ -187,9 +187,9 @@ class Gcompris_louis_braille:
 
     # Rectangle for STORY
     goocanvas.Rect(parent=self.rootitem,
-                   x = 40,
+                   x = 20,
                    y = 425,
-                   width = 720,
+                   width = 760,
                    height = 85,
                    stroke_color = "orange",
                    fill_color = "white",
@@ -203,7 +203,7 @@ class Gcompris_louis_braille:
                        fill_color="black",
                        anchor = gtk.ANCHOR_CENTER,
                        alignment = pango.ALIGN_CENTER,
-                       width = 710,
+                       width = 750,
                        font = gcompris.skin.get_font("gcompris/subtitle")
                        )
 
@@ -344,9 +344,9 @@ class Reordering:
     group_item.set_data("index", self.index)
     # Create Rounded Rectangles for each story
     rect_box = goocanvas.Rect(parent = group_item,
-                   x = 100,
+                   x = 30,
                    y = 0,
-                   width = 550,
+                   width = 640,
                    height = 40,
                    radius_x = 5,
                    radius_y = 5,
@@ -358,14 +358,14 @@ class Reordering:
 
     # Displaying the STORY
     goocanvas.Text(parent = group_item,
-                   x = 370.0,
+                   x = 350.0,
                    y = 20,
                    text = text,
                    fill_color = "black",
                    anchor = gtk.ANCHOR_CENTER,
                    alignment = pango.ALIGN_CENTER,
                    font = 'SANS 9',
-                   width = 500,
+                   width = 635,
                    )
 
     group_item.connect("button_press_event", self.component_drag)
