@@ -222,7 +222,7 @@ class Gcompris_louis_braille:
     self.imageitem.set_properties(pixbuf = pixbuf)
     story = _(self.dataset.get( str(self.gcomprisBoard.level), "story"))
     self.storyitem.set_properties(text = story)
-    year = self.dataset.get( str(self.gcomprisBoard.level) , "year")
+    year = _(self.dataset.get( str(self.gcomprisBoard.level) , "year"))
     self.year_item.set_properties(text = year)
     bounds = self.year_item.get_bounds()
     gapx = 10
