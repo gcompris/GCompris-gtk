@@ -630,10 +630,10 @@ static gint
 item_event(GooCanvasItem *item, GooCanvasItem *target,
 	   GdkEvent *event, gpointer data)
 {
-  gchar *answer = (gchar*)data;
-
   if(board_paused)
     return FALSE;
+
+  gchar *answer = g_utf8_strdown ( (gchar*)data , -1 );
 
   switch (event->type)
     {
@@ -653,6 +653,8 @@ item_event(GooCanvasItem *item, GooCanvasItem *target,
     default:
       break;
     }
+
+  g_free(answer);
   return FALSE;
 }
 /* ==================================== */
