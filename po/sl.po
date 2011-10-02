@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2011-10-01 17:05+0000\n"
-"PO-Revision-Date: 2011-10-01 20:13+0100\n"
+"POT-Creation-Date: 2011-10-02 18:03+0000\n"
+"PO-Revision-Date: 2011-10-02 20:57+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
@@ -592,7 +592,7 @@ msgid "Board"
 msgstr "Tabla"
 
 #: ../src/administration-activity/admin/log_list.py:246
-#: ../src/click_on_letter-activity/click_on_letter.c:1246
+#: ../src/click_on_letter-activity/click_on_letter.c:1248
 #: ../src/redraw-activity/redraw.py:339
 msgid "Level"
 msgstr "Raven"
@@ -1299,8 +1299,8 @@ msgid "Play the Oware strategy game against Tux"
 msgstr "Igraj strateško igro Oware proti Pingu"
 
 #: ../src/awele-activity/awele.xml.in.h:4
-msgid "The object of the game is to capture more seeds than one's opponent. Since the game has only 48 seeds, capturing 25 is sufficient to accomplish this. Since there are an even number of seeds, it is possible for the game to end in a draw, where each player has captured 24. The game is over when one player has captured 25 or more stones, or both players have taken 24 stones each (draw). If both players agree that the game has been reduced to an endless cycle, each player captures the stones on their side of the board."
-msgstr "Cilj igre je dobiti več semen kot nasprotnik. Ker ima igra samo 48 semen, je za zmago dovolj 25 semen. Ker je število semen sodo, se igra lahko konča neodločeno. V tem primeru vsak igralec dobi 24 semen. Igra se konča, ko ima en igralec 25 semen ali ko imata vsak tekmovalec 24 semen (neodločeno). V primeru da se oba igralca strinjata za igro neskončnega kroga, vsak igralec ujame semena na svoji strani table."
+msgid "The object of the game is to capture more seeds than one's opponent. Since the game has only 48 seeds, capturing 25 is sufficient to accomplish this. Since there are an even number of seeds, it is possible for the game to end in a draw, where each player has captured 24. The game is over when one player has captured 25 or more seeds, or both players have taken 24 seeds each (draw). If both players agree that the game has been reduced to an endless cycle, each player captures the seeds on their side of the board."
+msgstr "Cilj igre je dobiti več semen kot nasprotnik. Ker ima igra samo 48 semen, je za zmago dovolj zbrati 25 semen. Ker je število semen sodo, se igra lahko konča tudi neodločeno. V tem primeru zbere vsak igralec 24 semen. Igra se konča, ko ima en igralec 25 semen ali ko imata vsak tekmovalec 24 semen (neodločeno). V primeru, da se oba igralca strinjata za igro neskončnega kroga, vsak igralec ujame semena na svoji strani table."
 
 #: ../src/babymatch-activity/babymatch.xml.in.h:1
 #: ../src/babymatch-activity/resources/babymatch/board1_0.xml.in.h:1
@@ -1331,7 +1331,7 @@ msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "Igre z miško: premakni, povleci in spusti."
 
 #: ../src/babymatch-activity/shapegame.c:1985
-#: ../src/click_on_letter-activity/click_on_letter.c:1314
+#: ../src/click_on_letter-activity/click_on_letter.c:1316
 #, c-format
 msgid ""
 "<b>%1$s</b> configuration\n"
@@ -2052,24 +2052,24 @@ msgstr ""
 "Napaka: ta dejavnost zahteva namestitev\n"
 "paketov z glasovi GCompris za jezikovno oznako %s."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:905
+#: ../src/click_on_letter-activity/click_on_letter.c:907
 msgid "Questions cannot be empty."
 msgstr "Vprašanja ne smejo biti prazna"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:915
+#: ../src/click_on_letter-activity/click_on_letter.c:917
 msgid "Answers cannot be empty."
 msgstr "Odgovori ne smerjo biti prazni."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:921
+#: ../src/click_on_letter-activity/click_on_letter.c:923
 #, c-format
 msgid "Too many characters in the Answer (maximum is %d)."
 msgstr "Preveč znakov v odgovoru (največje število je %d.)"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:945
+#: ../src/click_on_letter-activity/click_on_letter.c:947
 msgid "All the characters in Questions must also be in the Answers."
 msgstr "Vsi znaki v vprašanjih morajo biti tudi v odgovorih."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:962
+#: ../src/click_on_letter-activity/click_on_letter.c:964
 #, c-format
 msgid ""
 "Invalid entry:\n"
@@ -2081,20 +2081,20 @@ msgstr ""
 "%s"
 
 #. answer
-#: ../src/click_on_letter-activity/click_on_letter.c:1257
+#: ../src/click_on_letter-activity/click_on_letter.c:1259
 #: ../src/missing_letter-activity/missingletter_config.c:420
 #: ../src/missing_letter-activity/missingletter_config.c:548
 msgid "Answer"
 msgstr "Odgovor"
 
 #. question
-#: ../src/click_on_letter-activity/click_on_letter.c:1268
+#: ../src/click_on_letter-activity/click_on_letter.c:1270
 #: ../src/missing_letter-activity/missingletter_config.c:426
 #: ../src/missing_letter-activity/missingletter_config.c:571
 msgid "Question"
 msgstr "Vprašanje"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:1404
+#: ../src/click_on_letter-activity/click_on_letter.c:1406
 #: ../src/gcompris/board_config_wordlist.c:274
 msgid "Back to default"
 msgstr "Nazaj na privzeto"
@@ -4266,20 +4266,20 @@ msgstr "Praštevila so števila, ki so deljiva le sama s sabo in 1. Na primer, 3
 msgid "Guess a number between %d and %d"
 msgstr "Ugani število med %d in %d"
 
-#: ../src/guessnumber-activity/guessnumber.py:299
+#: ../src/guessnumber-activity/guessnumber.py:302
 #, python-format
 msgid "Please enter a number between %d and %d"
 msgstr "Vtipkaj število med %d in %d"
 
-#: ../src/guessnumber-activity/guessnumber.py:304
+#: ../src/guessnumber-activity/guessnumber.py:307
 msgid "Out of range"
 msgstr "Izven obsega"
 
-#: ../src/guessnumber-activity/guessnumber.py:310
+#: ../src/guessnumber-activity/guessnumber.py:313
 msgid "Too high"
 msgstr "Previsoko"
 
-#: ../src/guessnumber-activity/guessnumber.py:312
+#: ../src/guessnumber-activity/guessnumber.py:315
 msgid "Too low"
 msgstr "Prenizko"
 
@@ -4426,59 +4426,64 @@ msgstr "Sonce segreje vodo in ustvari vodno paro. Vodna para se združuje v majh
 msgid "As a cloud matures, the dense water droplets may combine to produce larger droplets, which may combine to form droplets large enough to fall as rain"
 msgstr "Ko oblak odraste, se goste vodne kapljice lahko združijo tako da proizvedejo večje kapljice, ki se lahko združijo in tvorijo dovolj velike vodne kapljice, ki padajo kot dež"
 
-#: ../src/hydroelectric-activity/hydroelectric.py:169
+#. Translator : "meter" here means a measuring device
+#: ../src/hydroelectric-activity/hydroelectric.py:170
 msgid "This is the meter for electricity produced by the turbine. "
 msgstr "To je merilo za elektriko, ki jo je proizvedla turbina."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:170
-#: ../src/hydroelectric-activity/hydroelectric.py:282
-#: ../src/hydroelectric-activity/hydroelectric.py:289
-#: ../src/hydroelectric-activity/hydroelectric.py:319
-#: ../src/hydroelectric-activity/hydroelectric.py:341
+#: ../src/hydroelectric-activity/hydroelectric.py:171
+#: ../src/hydroelectric-activity/hydroelectric.py:284
+#: ../src/hydroelectric-activity/hydroelectric.py:292
+#: ../src/hydroelectric-activity/hydroelectric.py:323
+#: ../src/hydroelectric-activity/hydroelectric.py:346
 msgid "The electricity power is measured in Watt (W)."
 msgstr "Električna moč se meri v Wattih (W)."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:175
+#: ../src/hydroelectric-activity/hydroelectric.py:176
 msgid "Flowing water is directed on to the blades of a turbine runner, creating a force on the blades. In this way, energy is transferred from the water flow to the turbine"
 msgstr "Tekoča voda se usmeri na lopatice turbine, kar na njih ustvari silo. Na ta način se energija iz toka vode prenese na turbino"
 
-#: ../src/hydroelectric-activity/hydroelectric.py:189
+#: ../src/hydroelectric-activity/hydroelectric.py:190
 msgid "This cloud simulates the wind, click on it to have wind."
 msgstr "Ta oblak simulira veter. Klikni nanj, če želiš imeti veter."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:227
+#: ../src/hydroelectric-activity/hydroelectric.py:228
 msgid "This is a step down transformer. Electricity is transformed in low voltage, ready to be used by the customers."
 msgstr "To je transformator za znižanje napetosti. Elektrika se pretvori na nizko napetost in je pripravljena na uporabo strank."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:281
+#. Translator : "meter" here means a measuring device
+#: ../src/hydroelectric-activity/hydroelectric.py:283
 msgid "This is the meter for all the electricity produced. "
 msgstr "To je merilo za vso proizvedeno elektriko."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:288
+#. Translator : "meter" here means a measuring device
+#: ../src/hydroelectric-activity/hydroelectric.py:291
 msgid "This is the meter for electricity consumed by the users. "
 msgstr "To je merilo za elektriko, ki jo porabljajo uporabniki."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:318
+#. Translator : "meter" here means a measuring device
+#: ../src/hydroelectric-activity/hydroelectric.py:322
 msgid "This is the meter for electricity produced by the solar panels. "
 msgstr "To je merilo za elektriko, ki so jo proizvedle sončne celice."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:324
+#: ../src/hydroelectric-activity/hydroelectric.py:328
 msgid "Solar panels use light energy (photons) from the sun to generate electricity through the photovoltaic effect."
 msgstr "Sončne celice uporabljajo svetlobno energijo (fotone) s sonca za ustvarjanje električne energije s fotovoltaičnim učinkom."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:340
+#. Translator : "meter" here means a measuring device
+#: ../src/hydroelectric-activity/hydroelectric.py:345
 msgid "This is the meter for electricity produced by the wind turbines. "
 msgstr "To je merilo za elektriko, ki jo proizvedejo vetrne turbine."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:346
+#: ../src/hydroelectric-activity/hydroelectric.py:351
 msgid "A wind turbine is a device that converts wind motion energy into electricity generation. It is called a wind generator or wind charger. "
 msgstr "Vetrna turbina je naprava, ki pretvori gibalno energijo vetra v električno naprava. Imenuje se tudi električni generator"
 
-#: ../src/hydroelectric-activity/hydroelectric.py:732
+#: ../src/hydroelectric-activity/hydroelectric.py:737
 msgid "It is not possible to consume more electricity than what is produced. This is a key limitation in the distribution of electricity, with minor exceptions, electrical energy cannot be stored, and therefore it must be generated as it is needed. A sophisticated system of control is therefore required to ensure electric generation very closely matches the demand. If supply and demand are not in balance, generation plants and transmission equipment can shut down which, in the worst cases, can lead to a major regional blackout."
 msgstr "Porabi se lahko samo toliko električne energije kot se je proizvede. To je ključna omejitev pri distribuciji elektrike, saj je razen majhnih izjem elektrike ni mogoče shraniti in jo je treba zato proizvesti ob potrebi. Zato je zahtevan dovršen sistem nadzora, ki zagotovi da se ustvarjanje elektrike zelo dobro ujema s porabo. V primeru, da ustvarjanje in poraba nista v ravnotežju, se lahko elektrarne in oprema za njen prenos izklopita, kar lahko v najhujših primerih vodi do območnega izpada elektrike."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:946
+#: ../src/hydroelectric-activity/hydroelectric.py:951
 msgid "This is a step up transformer. Electricity is transmitted at high voltages (110 kV or above) to reduce the energy lost in long distance transmission."
 msgstr "To je transformator za zvišanje napetosti. Elektrika se prenaša pri visokih napetostih (110 kV ali več), kar zmanjša izgubo energije pri prenosu na dolge razdalje."
 
