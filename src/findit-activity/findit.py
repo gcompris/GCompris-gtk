@@ -409,7 +409,7 @@ class finditDataSetLevel:
             load_common_prop(dataset, section, "questionPosition", "").split(','))
 
     try:
-      self.question_text = load_common_prop(dataset, section, "questionText", "")
+      self.question_text = _( load_common_prop(dataset, section, "questionText", "") )
     except:
       self.question_text = None
 
