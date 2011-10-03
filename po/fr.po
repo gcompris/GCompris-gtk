@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: gcompris master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2011-10-01 15:25+0000\n"
+"POT-Creation-Date: 2011-10-02 16:06+0000\n"
 "PO-Revision-Date: 2011-10-01 23:01+0200\n"
 "Last-Translator: Claude Paroz <claude@2xlibre.net>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -657,7 +657,7 @@ msgid "Board"
 msgstr "Activité"
 
 #: ../src/administration-activity/admin/log_list.py:246
-#: ../src/click_on_letter-activity/click_on_letter.c:1246
+#: ../src/click_on_letter-activity/click_on_letter.c:1248
 #: ../src/redraw-activity/redraw.py:339
 msgid "Level"
 msgstr "Niveau"
@@ -1512,9 +1512,9 @@ msgid ""
 "the game has only 48 seeds, capturing 25 is sufficient to accomplish this. "
 "Since there are an even number of seeds, it is possible for the game to end "
 "in a draw, where each player has captured 24. The game is over when one "
-"player has captured 25 or more stones, or both players have taken 24 stones "
+"player has captured 25 or more seeds, or both players have taken 24 seeds "
 "each (draw). If both players agree that the game has been reduced to an "
-"endless cycle, each player captures the stones on their side of the board."
+"endless cycle, each player captures the seeds on their side of the board."
 msgstr ""
 "L'objectif du jeu est de capturer plus de graines que son adversaire. "
 "Puisque qu'il n'y a que 48 graines, il suffit donc d'en capturer 25 pour "
@@ -1567,7 +1567,7 @@ msgstr ""
 "culturelles."
 
 #: ../src/babymatch-activity/shapegame.c:1985
-#: ../src/click_on_letter-activity/click_on_letter.c:1314
+#: ../src/click_on_letter-activity/click_on_letter.c:1316
 #, c-format
 msgid ""
 "<b>%1$s</b> configuration\n"
@@ -2418,26 +2418,26 @@ msgstr ""
 "Erreur : cette activité nécessite d'abord l'installation\n"
 "des paquets contenant les voix de GCompris pour la langue %s."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:905
+#: ../src/click_on_letter-activity/click_on_letter.c:907
 msgid "Questions cannot be empty."
 msgstr "Les questions ne peuvent pas être vides."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:915
+#: ../src/click_on_letter-activity/click_on_letter.c:917
 msgid "Answers cannot be empty."
 msgstr "Les réponses ne peuvent pas être vides."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:921
+#: ../src/click_on_letter-activity/click_on_letter.c:923
 #, c-format
 msgid "Too many characters in the Answer (maximum is %d)."
 msgstr "Trop de caractères dans la réponse (le maximum est %d)."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:945
+#: ../src/click_on_letter-activity/click_on_letter.c:947
 msgid "All the characters in Questions must also be in the Answers."
 msgstr ""
 "Tous les caractères dans les questions doivent aussi se trouver dans les "
 "réponses."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:962
+#: ../src/click_on_letter-activity/click_on_letter.c:964
 #, c-format
 msgid ""
 "Invalid entry:\n"
@@ -2449,20 +2449,20 @@ msgstr ""
 "%s"
 
 #. answer
-#: ../src/click_on_letter-activity/click_on_letter.c:1257
+#: ../src/click_on_letter-activity/click_on_letter.c:1259
 #: ../src/missing_letter-activity/missingletter_config.c:420
 #: ../src/missing_letter-activity/missingletter_config.c:548
 msgid "Answer"
 msgstr "Réponse"
 
 #. question
-#: ../src/click_on_letter-activity/click_on_letter.c:1268
+#: ../src/click_on_letter-activity/click_on_letter.c:1270
 #: ../src/missing_letter-activity/missingletter_config.c:426
 #: ../src/missing_letter-activity/missingletter_config.c:571
 msgid "Question"
 msgstr "Question"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:1404
+#: ../src/click_on_letter-activity/click_on_letter.c:1406
 #: ../src/gcompris/board_config_wordlist.c:274
 msgid "Back to default"
 msgstr "Revenir aux valeurs par défaut"
@@ -5167,19 +5167,20 @@ msgstr ""
 "devenir des gouttes de plus en plus grandes, jusqu'à ce qu'elles soient "
 "assez grandes pour tomber en pluie"
 
-#: ../src/hydroelectric-activity/hydroelectric.py:169
+#. Translator : "meter" here means a measuring device
+#: ../src/hydroelectric-activity/hydroelectric.py:170
 msgid "This is the meter for electricity produced by the turbine. "
 msgstr "C'est le compteur d'électricité produit par la turbine. "
 
-#: ../src/hydroelectric-activity/hydroelectric.py:170
-#: ../src/hydroelectric-activity/hydroelectric.py:282
-#: ../src/hydroelectric-activity/hydroelectric.py:289
-#: ../src/hydroelectric-activity/hydroelectric.py:319
-#: ../src/hydroelectric-activity/hydroelectric.py:341
+#: ../src/hydroelectric-activity/hydroelectric.py:171
+#: ../src/hydroelectric-activity/hydroelectric.py:284
+#: ../src/hydroelectric-activity/hydroelectric.py:292
+#: ../src/hydroelectric-activity/hydroelectric.py:323
+#: ../src/hydroelectric-activity/hydroelectric.py:346
 msgid "The electricity power is measured in Watt (W)."
 msgstr "La puissance électrique est mesurée en Watt (W)."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:175
+#: ../src/hydroelectric-activity/hydroelectric.py:176
 msgid ""
 "Flowing water is directed on to the blades of a turbine runner, creating a "
 "force on the blades. In this way, energy is transferred from the water flow "
@@ -5189,11 +5190,11 @@ msgstr ""
 "sur les pales. De cette manière, l'énergie est transférée de l'eau qui coule "
 "vers la turbine"
 
-#: ../src/hydroelectric-activity/hydroelectric.py:189
+#: ../src/hydroelectric-activity/hydroelectric.py:190
 msgid "This cloud simulates the wind, click on it to have wind."
 msgstr "Ce nuage simule le vent, clique sur lui pour faire du vent."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:227
+#: ../src/hydroelectric-activity/hydroelectric.py:228
 msgid ""
 "This is a step down transformer. Electricity is transformed in low voltage, "
 "ready to be used by the customers."
@@ -5201,20 +5202,23 @@ msgstr ""
 "C'est un transformateur abaisseur de tension. L'électricité est transformée "
 "à basse tension, prête à être consommée par les clients."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:281
+#. Translator : "meter" here means a measuring device
+#: ../src/hydroelectric-activity/hydroelectric.py:283
 msgid "This is the meter for all the electricity produced. "
 msgstr "C'est le compteur pour toute l'électricité produite. "
 
-#: ../src/hydroelectric-activity/hydroelectric.py:288
+#. Translator : "meter" here means a measuring device
+#: ../src/hydroelectric-activity/hydroelectric.py:291
 msgid "This is the meter for electricity consumed by the users. "
 msgstr "C'est le compteur pour l'électricité consommée par les utilisateurs. "
 
-#: ../src/hydroelectric-activity/hydroelectric.py:318
+#. Translator : "meter" here means a measuring device
+#: ../src/hydroelectric-activity/hydroelectric.py:322
 msgid "This is the meter for electricity produced by the solar panels. "
 msgstr ""
 "C'est le compteur pour l'électricité produite par les panneaux solaires. "
 
-#: ../src/hydroelectric-activity/hydroelectric.py:324
+#: ../src/hydroelectric-activity/hydroelectric.py:328
 msgid ""
 "Solar panels use light energy (photons) from the sun to generate electricity "
 "through the photovoltaic effect."
@@ -5222,12 +5226,13 @@ msgstr ""
 "Les panneaux solaires utilisent l'énergie de la lumière du soleil (photons) "
 "pour produire de l'électricité au moyen de l'effet photovoltaïque."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:340
+#. Translator : "meter" here means a measuring device
+#: ../src/hydroelectric-activity/hydroelectric.py:345
 msgid "This is the meter for electricity produced by the wind turbines. "
 msgstr ""
 "C'est le compteur pour l'électricité produite par les turbines éoliennes. "
 
-#: ../src/hydroelectric-activity/hydroelectric.py:346
+#: ../src/hydroelectric-activity/hydroelectric.py:351
 msgid ""
 "A wind turbine is a device that converts wind motion energy into electricity "
 "generation. It is called a wind generator or wind charger. "
@@ -5235,7 +5240,7 @@ msgstr ""
 "Une turbine éolienne est un appareil qui convertit l'énergie de la vitesse "
 "du vent en électricité. On l'appelle aussi aérogénérateur. "
 
-#: ../src/hydroelectric-activity/hydroelectric.py:732
+#: ../src/hydroelectric-activity/hydroelectric.py:737
 msgid ""
 "It is not possible to consume more electricity than what is produced. This "
 "is a key limitation in the distribution of electricity, with minor "
@@ -5256,7 +5261,7 @@ msgstr ""
 "de transport peuvent tomber en panne ce qui dans le pire des cas peut "
 "conduire à une coupure générale dans toute une région."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:946
+#: ../src/hydroelectric-activity/hydroelectric.py:951
 msgid ""
 "This is a step up transformer. Electricity is transmitted at high voltages "
 "(110 kV or above) to reduce the energy lost in long distance transmission."
@@ -5910,8 +5915,8 @@ msgid ""
 "battlefields."
 msgstr ""
 "Charles Barbier, un soldat français, visite son école et lui présente son "
-"invention de lecture dans le noir, un code de 12 points saillants pour communiquer "
-"des informations sur les champs de bataille."
+"invention de lecture dans le noir, un code de 12 points saillants pour "
+"communiquer des informations sur les champs de bataille."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:7
 msgid "He became a teacher after graduating and secretly taught his method."
