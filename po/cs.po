@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2011-09-27 22:09+0000\n"
-"PO-Revision-Date: 2011-09-28 07:37+0200\n"
+"POT-Creation-Date: 2011-10-02 16:06+0000\n"
+"PO-Revision-Date: 2011-10-04 10:31+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -649,7 +649,7 @@ msgid "Board"
 msgstr "Hrací deska"
 
 #: ../src/administration-activity/admin/log_list.py:246
-#: ../src/click_on_letter-activity/click_on_letter.c:1246
+#: ../src/click_on_letter-activity/click_on_letter.c:1248
 #: ../src/redraw-activity/redraw.py:339
 msgid "Level"
 msgstr "Úroveň"
@@ -1472,14 +1472,23 @@ msgid "Play the Oware strategy game against Tux"
 msgstr "Hrát strategickou hru Oware proti Tuxovi"
 
 #: ../src/awele-activity/awele.xml.in.h:4
+#| msgid ""
+#| "The object of the game is to capture more seeds than one's opponent. "
+#| "Since the game has only 48 seeds, capturing 25 is sufficient to "
+#| "accomplish this. Since there are an even number of seeds, it is possible "
+#| "for the game to end in a draw, where each player has captured 24. The "
+#| "game is over when one player has captured 25 or more stones, or both "
+#| "players have taken 24 stones each (draw). If both players agree that the "
+#| "game has been reduced to an endless cycle, each player captures the "
+#| "stones on their side of the board."
 msgid ""
 "The object of the game is to capture more seeds than one's opponent. Since "
 "the game has only 48 seeds, capturing 25 is sufficient to accomplish this. "
 "Since there are an even number of seeds, it is possible for the game to end "
 "in a draw, where each player has captured 24. The game is over when one "
-"player has captured 25 or more stones, or both players have taken 24 stones "
+"player has captured 25 or more seeds, or both players have taken 24 seeds "
 "each (draw). If both players agree that the game has been reduced to an "
-"endless cycle, each player captures the stones on their side of the board."
+"endless cycle, each player captures the seeds on their side of the board."
 msgstr ""
 "Cílem hry je získat víc semínek než protihráč. Protože je ve hře pouze 48 "
 "semínek, stačí získat 25. Protože je zde sudý počet semínek, je možné "
@@ -1526,7 +1535,7 @@ msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "Manipulace s myší: pohyb, tažení a puštění."
 
 #: ../src/babymatch-activity/shapegame.c:1985
-#: ../src/click_on_letter-activity/click_on_letter.c:1314
+#: ../src/click_on_letter-activity/click_on_letter.c:1316
 #, c-format
 msgid ""
 "<b>%1$s</b> configuration\n"
@@ -2343,24 +2352,24 @@ msgstr ""
 "Chyba: tato aktivita vyžaduje, abys nejdříve nainstaloval\n"
 "balíčky s hlasovým doprovodem GCompris pro národní prostředí %s"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:905
+#: ../src/click_on_letter-activity/click_on_letter.c:907
 msgid "Questions cannot be empty."
 msgstr "Otázky nemohou být prázdné."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:915
+#: ../src/click_on_letter-activity/click_on_letter.c:917
 msgid "Answers cannot be empty."
 msgstr "Odpovědi nemohou být prázdné."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:921
+#: ../src/click_on_letter-activity/click_on_letter.c:923
 #, c-format
 msgid "Too many characters in the Answer (maximum is %d)."
 msgstr "Příliš mnoho znaků v odpovědi (maximum je %d)."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:945
+#: ../src/click_on_letter-activity/click_on_letter.c:947
 msgid "All the characters in Questions must also be in the Answers."
 msgstr "Všechny znaky v otázce se musí rovněž objevit v odpovědi."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:962
+#: ../src/click_on_letter-activity/click_on_letter.c:964
 #, c-format
 msgid ""
 "Invalid entry:\n"
@@ -2372,20 +2381,20 @@ msgstr ""
 "%s"
 
 #. answer
-#: ../src/click_on_letter-activity/click_on_letter.c:1257
+#: ../src/click_on_letter-activity/click_on_letter.c:1259
 #: ../src/missing_letter-activity/missingletter_config.c:420
 #: ../src/missing_letter-activity/missingletter_config.c:548
 msgid "Answer"
 msgstr "Odpověď"
 
 #. question
-#: ../src/click_on_letter-activity/click_on_letter.c:1268
+#: ../src/click_on_letter-activity/click_on_letter.c:1270
 #: ../src/missing_letter-activity/missingletter_config.c:426
 #: ../src/missing_letter-activity/missingletter_config.c:571
 msgid "Question"
 msgstr "Otázka"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:1404
+#: ../src/click_on_letter-activity/click_on_letter.c:1406
 #: ../src/gcompris/board_config_wordlist.c:274
 msgid "Back to default"
 msgstr "Zpět na výchozí"
@@ -3489,43 +3498,43 @@ msgstr ""
 "Ukonči ji a nahlas\n"
 "problém autorům"
 
-#: ../src/gcompris/gcompris.c:159
+#: ../src/gcompris/gcompris.c:155
 msgid "run GCompris in fullscreen mode."
 msgstr "spustit GCompris v režimu celé obrazovky."
 
-#: ../src/gcompris/gcompris.c:162
+#: ../src/gcompris/gcompris.c:158
 msgid "run GCompris in window mode."
 msgstr "spustit GCompris v režimu okna."
 
-#: ../src/gcompris/gcompris.c:165
+#: ../src/gcompris/gcompris.c:161
 msgid "run GCompris with sound enabled."
 msgstr "spustit GCompris se zapnutými zvuky."
 
-#: ../src/gcompris/gcompris.c:168
+#: ../src/gcompris/gcompris.c:164
 msgid "run GCompris without sound."
 msgstr "spustit GCompris bez zvuku."
 
-#: ../src/gcompris/gcompris.c:171
+#: ../src/gcompris/gcompris.c:167
 msgid "run GCompris with the default system cursor."
 msgstr "spustit GCompris s výchozím systémovým kurzorem."
 
-#: ../src/gcompris/gcompris.c:174
+#: ../src/gcompris/gcompris.c:170
 msgid "run GCompris without cursor (touch screen mode)."
 msgstr "spustit GCompris bez kurzoru (režim dotykových obrazovek)."
 
-#: ../src/gcompris/gcompris.c:177
+#: ../src/gcompris/gcompris.c:173
 msgid "display only activities with this difficulty level."
 msgstr "zobrazovat jen aktivity s touto úrovní obtížnosti."
 
-#: ../src/gcompris/gcompris.c:180
+#: ../src/gcompris/gcompris.c:176
 msgid "display debug informations on the console."
 msgstr "zobrazovat ladicí informace na konzoli."
 
-#: ../src/gcompris/gcompris.c:183
+#: ../src/gcompris/gcompris.c:179
 msgid "Print the version of "
 msgstr "Vytiskne verzi "
 
-#: ../src/gcompris/gcompris.c:186
+#: ../src/gcompris/gcompris.c:182
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
@@ -3537,59 +3546,59 @@ msgstr ""
 "connect4). Použij „-l list“ pro seznam všech dostupných aktivit a jejich "
 "popisů."
 
-#: ../src/gcompris/gcompris.c:191
+#: ../src/gcompris/gcompris.c:187
 msgid "GCompris will find the data dir in this directory"
 msgstr "Aplikace GCompris bude hledat datovou složku v této složce"
 
-#: ../src/gcompris/gcompris.c:194
+#: ../src/gcompris/gcompris.c:190
 msgid "GCompris will find the skins in this directory"
 msgstr "Aplikace GCompris bude hledat masky vzhledu v této složce"
 
-#: ../src/gcompris/gcompris.c:197
+#: ../src/gcompris/gcompris.c:193
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "Aplikace GCompris bude hledat zásuvné moduly aktivit v této složce"
 
-#: ../src/gcompris/gcompris.c:200
+#: ../src/gcompris/gcompris.c:196
 msgid "GCompris will find the python activity in this directory"
 msgstr "Aplikace GCompris bude hledat aktivity python v této složce"
 
-#: ../src/gcompris/gcompris.c:203
+#: ../src/gcompris/gcompris.c:199
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr "Aplikace GCompris bude hledat soubory s překlady (.mo) v této složce"
 
-#: ../src/gcompris/gcompris.c:206
+#: ../src/gcompris/gcompris.c:202
 msgid "GCompris will find the activities menu in this directory"
 msgstr "Aplikace GCompris bude hledat nabídku aktivit v této složce"
 
-#: ../src/gcompris/gcompris.c:209
+#: ../src/gcompris/gcompris.c:205
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Spustit GCompris v administračním a řídícím módu"
 
-#: ../src/gcompris/gcompris.c:212
+#: ../src/gcompris/gcompris.c:208
 msgid ""
 "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
 msgstr ""
 "Použít náhradní databázi profilů [$HOME/.config/gcompris/gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:215
+#: ../src/gcompris/gcompris.c:211
 msgid "Create the alternate database for profiles"
 msgstr "Vytvořit alternativní databázi pro profily"
 
-#: ../src/gcompris/gcompris.c:218
+#: ../src/gcompris/gcompris.c:214
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Znovu načíst nabídku XML a uložit ji do databáze"
 
-#: ../src/gcompris/gcompris.c:221
+#: ../src/gcompris/gcompris.c:217
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Vybrat profil. Pro vytvoření profilu použijte „gcompris -a“"
 
-#: ../src/gcompris/gcompris.c:224
+#: ../src/gcompris/gcompris.c:220
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Seznam všech dostupných profilů. Pro vytvoření profilu použijte „gcompris -a“"
 
-#: ../src/gcompris/gcompris.c:227
+#: ../src/gcompris/gcompris.c:223
 msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
@@ -3597,27 +3606,27 @@ msgstr ""
 "Složka s nastavením: [$HOME/.config/gcompris]. Alternativou je nastavení "
 "$XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:230
+#: ../src/gcompris/gcompris.c:226
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "Složka uživatele: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:233
+#: ../src/gcompris/gcompris.c:229
 msgid "Run the experimental activities"
 msgstr "Jít na pokusné aktivity"
 
-#: ../src/gcompris/gcompris.c:236
+#: ../src/gcompris/gcompris.c:232
 msgid "Disable the quit button"
 msgstr "Vypnout tlačítko konec"
 
-#: ../src/gcompris/gcompris.c:239
+#: ../src/gcompris/gcompris.c:235
 msgid "Disable the config button"
 msgstr "Vypnout tlačítko nastavení"
 
-#: ../src/gcompris/gcompris.c:242
+#: ../src/gcompris/gcompris.c:238
 msgid "Disable the level button"
 msgstr "Vypnout tlačítko úroveň"
 
-#: ../src/gcompris/gcompris.c:245
+#: ../src/gcompris/gcompris.c:241
 msgid ""
 "GCompris will get images, sounds and activity data from this server if not "
 "found locally."
@@ -3625,7 +3634,7 @@ msgstr ""
 "Z tohoto serveru GCompris získá obrázky, zvuky a data aktivit, pokud nejsou "
 "k dispozici místní."
 
-#: ../src/gcompris/gcompris.c:248
+#: ../src/gcompris/gcompris.c:244
 msgid ""
 "Only when --server is provided, disable check for local resource first. Data "
 "are always taken from the web server."
@@ -3633,29 +3642,29 @@ msgstr ""
 "Pouze když je zadáno --server, vypne úvodní kontrolu pro místní zdroje. Data "
 "jsou vždy brána z webového serveru."
 
-#: ../src/gcompris/gcompris.c:252
+#: ../src/gcompris/gcompris.c:248
 msgid ""
 "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr ""
 "U serverového režimu určete složku mezipaměti pro omezení zbytečných "
 "stahování."
 
-#: ../src/gcompris/gcompris.c:255
+#: ../src/gcompris/gcompris.c:251
 msgid ""
 "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr ""
 "Obecný režim táhni a pusť: normální, dvojklik, oboje. Výchozí režim je "
 "normální."
 
-#: ../src/gcompris/gcompris.c:258
+#: ../src/gcompris/gcompris.c:254
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Povolit spuštění více GComprisů najednou."
 
-#: ../src/gcompris/gcompris.c:270
+#: ../src/gcompris/gcompris.c:260
 msgid "Disable maximization zoom"
 msgstr "Zakázat maximalizaci"
 
-#: ../src/gcompris/gcompris.c:273
+#: ../src/gcompris/gcompris.c:263
 msgid ""
 "Increase activities' timeout delays; useful values > 1.0; 1.0 to not change "
 "hardcoded value"
@@ -3663,7 +3672,7 @@ msgstr ""
 "Zvýšit časový limit aktivit; použitelné hodnoty jsou > 1,0; 1,0 zachová "
 "vestavěnou hodnotu"
 
-#: ../src/gcompris/gcompris.c:276
+#: ../src/gcompris/gcompris.c:266
 msgid ""
 "How activities' timeout delays are growing for several actors; useful values "
 "< 1.0; 1.0 to not change hardcoded value"
@@ -3671,11 +3680,11 @@ msgstr ""
 "Jak se má časový limit zvyšovat pro více účastníků; použitelné hodnoty jsou "
 "> 1,0; 1,0 zachová vestavěnou hodnotu"
 
-#: ../src/gcompris/gcompris.c:279
+#: ../src/gcompris/gcompris.c:269
 msgid "For test purpose, run in a loop all the activities"
 msgstr "Pro testovací účely, spustí ve smyčce všechny aktivity"
 
-#: ../src/gcompris/gcompris.c:980
+#: ../src/gcompris/gcompris.c:940
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -3696,27 +3705,37 @@ msgstr ""
 "na FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1274
+#: ../src/gcompris/gcompris.c:1234
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
 msgstr ""
 "Nelze načíst vzhled „%s“ (Zkontrolujte, zda soubor existuje a zda jej lze "
 "číst)"
 
-#: ../src/gcompris/gcompris.c:1544
+#: ../src/gcompris/gcompris.c:1504
 #, c-format
+#| msgid ""
+#| "GCompris won't start because the lock file is less than %d seconds old.\n"
 msgid ""
+"GCompris won't start because the lock file is less than %d second old.\n"
+msgid_plural ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
-msgstr ""
+msgstr[0] ""
+"GCompris se nemůže spustit, protože soubor zámku je méně než %d sekundu "
+"starý.\n"
+msgstr[1] ""
+"GCompris se nemůže spustit, protože soubor zámku je méně než %d sekundy "
+"starý.\n"
+msgstr[2] ""
 "GCompris se nemůže spustit, protože soubor zámku je méně než %d sekund "
 "starý.\n"
 
-#: ../src/gcompris/gcompris.c:1546
+#: ../src/gcompris/gcompris.c:1508
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Soubor zámku je: %s\n"
 
-#: ../src/gcompris/gcompris.c:1719
+#: ../src/gcompris/gcompris.c:1681
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3730,27 +3749,27 @@ msgstr ""
 "Více informací na http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1834
+#: ../src/gcompris/gcompris.c:1796
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Pro přímý přístup k aktivitě použijte -l.\n"
 
-#: ../src/gcompris/gcompris.c:1835
+#: ../src/gcompris/gcompris.c:1797
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Seznam dostupných aktivit:\n"
 
-#: ../src/gcompris/gcompris.c:1866
+#: ../src/gcompris/gcompris.c:1828
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Počet aktivit: %d\n"
 
-#: ../src/gcompris/gcompris.c:1902
+#: ../src/gcompris/gcompris.c:1864
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s existuje, ale nelze jej číst nebo do něj zapisovat"
 
-#: ../src/gcompris/gcompris.c:1965
+#: ../src/gcompris/gcompris.c:1927
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
@@ -3759,7 +3778,7 @@ msgstr ""
 "Přepínač --server nelze použít, protože GCompris byl přeložen bez podpory "
 "sítě."
 
-#: ../src/gcompris/gcompris.c:2019
+#: ../src/gcompris/gcompris.c:1981
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3768,7 +3787,7 @@ msgstr ""
 "CHYBA: Profil „%s“ nebyl nalezen. Dostupné profily si vypíšete spuštěním "
 "„gcompris --profile-list“\n"
 
-#: ../src/gcompris/gcompris.c:2033
+#: ../src/gcompris/gcompris.c:1995
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Seznam dostupných profilů:\n"
@@ -5029,19 +5048,20 @@ msgstr ""
 "Jak mrak roste, vodní kapičky houstnou a spojují se do větších kapek, které "
 "se mohou spojit až do tak velkých kapek, že začnou padat v podobě deště."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:169
+#. Translator : "meter" here means a measuring device
+#: ../src/hydroelectric-activity/hydroelectric.py:170
 msgid "This is the meter for electricity produced by the turbine. "
 msgstr "Toto je elektroměr pro elektřinu produkovanou turbínou."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:170
-#: ../src/hydroelectric-activity/hydroelectric.py:282
-#: ../src/hydroelectric-activity/hydroelectric.py:289
-#: ../src/hydroelectric-activity/hydroelectric.py:319
-#: ../src/hydroelectric-activity/hydroelectric.py:341
+#: ../src/hydroelectric-activity/hydroelectric.py:171
+#: ../src/hydroelectric-activity/hydroelectric.py:284
+#: ../src/hydroelectric-activity/hydroelectric.py:292
+#: ../src/hydroelectric-activity/hydroelectric.py:323
+#: ../src/hydroelectric-activity/hydroelectric.py:346
 msgid "The electricity power is measured in Watt (W)."
 msgstr "Elektrický výkon se měří ve wattech (W)."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:175
+#: ../src/hydroelectric-activity/hydroelectric.py:176
 msgid ""
 "Flowing water is directed on to the blades of a turbine runner, creating a "
 "force on the blades. In this way, energy is transferred from the water flow "
@@ -5050,11 +5070,11 @@ msgstr ""
 "Tekoucí voda je směrována na lopatky běžící turbíny a vytváří na lopatky "
 "tlak. Tímto způsobem se přenáší energie z tekoucí vody do turbíny."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:189
+#: ../src/hydroelectric-activity/hydroelectric.py:190
 msgid "This cloud simulates the wind, click on it to have wind."
 msgstr "Tento mrak simuluje vítr. Kliknutím na něj uděláte větrno."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:227
+#: ../src/hydroelectric-activity/hydroelectric.py:228
 msgid ""
 "This is a step down transformer. Electricity is transformed in low voltage, "
 "ready to be used by the customers."
@@ -5062,19 +5082,22 @@ msgstr ""
 "Toto je snižující transformátor. Elektřina je měněna na nízké napětí, "
 "připravené k použití spotřebiteli."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:281
+#. Translator : "meter" here means a measuring device
+#: ../src/hydroelectric-activity/hydroelectric.py:283
 msgid "This is the meter for all the electricity produced. "
 msgstr "Toto je elektroměr pro veškerou vyprodukovanou elektřinu."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:288
+#. Translator : "meter" here means a measuring device
+#: ../src/hydroelectric-activity/hydroelectric.py:291
 msgid "This is the meter for electricity consumed by the users. "
 msgstr "Toto je elektroměr pro elektřinu spotřebovanou uživateli."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:318
+#. Translator : "meter" here means a measuring device
+#: ../src/hydroelectric-activity/hydroelectric.py:322
 msgid "This is the meter for electricity produced by the solar panels. "
 msgstr "Toto je elektroměr pro elektřinu produkovanou solárním panelem."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:324
+#: ../src/hydroelectric-activity/hydroelectric.py:328
 msgid ""
 "Solar panels use light energy (photons) from the sun to generate electricity "
 "through the photovoltaic effect."
@@ -5082,11 +5105,12 @@ msgstr ""
 "Solární panely používají světelnou energii (fotony) ze slunce ke generování "
 "elektřiny pomocí fotovoltaického efektu."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:340
+#. Translator : "meter" here means a measuring device
+#: ../src/hydroelectric-activity/hydroelectric.py:345
 msgid "This is the meter for electricity produced by the wind turbines. "
 msgstr "Toto je elektroměr pro elektřinu produkovanou větrnou turbínou."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:346
+#: ../src/hydroelectric-activity/hydroelectric.py:351
 msgid ""
 "A wind turbine is a device that converts wind motion energy into electricity "
 "generation. It is called a wind generator or wind charger. "
@@ -5094,7 +5118,7 @@ msgstr ""
 "Větrná turbína (větrná vrtule) je zařízení, které převádí pohybovou energii "
 "větru do elektrického generátoru."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:732
+#: ../src/hydroelectric-activity/hydroelectric.py:737
 msgid ""
 "It is not possible to consume more electricity than what is produced. This "
 "is a key limitation in the distribution of electricity, with minor "
@@ -5114,7 +5138,7 @@ msgstr ""
 "zhroutit, což může v nejčernějších scénářích vést v celých regionech k "
 "totálnímu výpadku (tzv. blackout)."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:946
+#: ../src/hydroelectric-activity/hydroelectric.py:951
 msgid ""
 "This is a step up transformer. Electricity is transmitted at high voltages "
 "(110 kV or above) to reduce the energy lost in long distance transmission."
@@ -5691,54 +5715,88 @@ msgstr ""
 msgid "Select or enter your name to log in to GCompris"
 msgstr "Zvol nebo zadej své jméno pro přihlášení do GComprisu"
 
-#: ../src/louis_braille-activity/louis_braille.py:106
-#: ../src/louis_braille-activity/louis_braille.py:222
-msgid "story"
-msgstr "příběh"
-
-#: ../src/louis_braille-activity/louis_braille.py:111
+#: ../src/louis_braille-activity/louis_braille.py:112
 msgid "Click to confirm your sequence"
 msgstr "Kliknutím své uspořádání potvrdíte"
 
-#: ../src/louis_braille-activity/louis_braille.py:224
-msgid "year"
-msgstr "rok"
+#: ../src/louis_braille-activity/louis_braille.xml.in.h:1
+msgid ""
+"Louis Braille Video: &lt; http://www.youtube.com/watch?v=9bdfC2j_4x4 &gt;"
+msgstr ""
+"Video o Louisovi Braillovi: &lt; http://www.youtube.com/watch?v=9bdfC2j_4x4 "
+"&gt;"
+
+#: ../src/louis_braille-activity/louis_braille.xml.in.h:2
+msgid ""
+"Read the history of Louis Braille, his biography and discovery of the "
+"Braille system. Click on the previous and next buttons to move to the "
+"respective story page. At the end, arrange the sequence in the chronological "
+"order."
+msgstr ""
+"Přečti si historická fakta o Louisovi Braillovi, jeho životopis a objev "
+"Braillova systému. Klikáním na tlačítka předchozí a následující se "
+"posouvej po stránkách příběhu. Na konci pak věty seřaď ve správném "
+"časovém sledu."
+
+#: ../src/louis_braille-activity/louis_braille.xml.in.h:3
+#| msgid "Let kids discover the Braille system."
+msgid "Review the major dates of the inventor of the Braille system."
+msgstr "Přehled mezníků v životě vynálezce Braillova systému."
+
+#: ../src/louis_braille-activity/louis_braille.xml.in.h:4
+msgid "The History of Louis Braille"
+msgstr "Historie o Louisovi Braillovi"
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:1
-msgid " After his Death"
+#| msgid " After his Death"
+msgid "After his Death"
 msgstr "Po jeho smrti"
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:2
+#| msgid ""
+#| " At the age of 10, he was sent to Paris to study at the Royal Institute "
+#| "for Blind Youth."
 msgid ""
-" At the age of 10, he was sent to Paris to study at the Royal Institute for "
+"At the age of 10, he was sent to Paris to study at the Royal Institute for "
 "Blind Youth."
 msgstr ""
 "V deseti 10 letech byl poslán do Paříže na studium v Královském institutu "
 "pro slepou mládež."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:3
+#| msgid ""
+#| " At the age of three, Louis became blind due to a severe infection that "
+#| "spread to his left eye."
 msgid ""
-" At the age of three, Louis became blind due to a severe infection that "
+"At the age of three, Louis became blind due to a severe infection that "
 "spread to his left eye."
 msgstr ""
 "Ve věku tří let Louis oslepl v důsledku těžké infekce, která napadla i jeho "
 "levé oko."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:4
-msgid " Born on January 4th in Coupvary near Paris in France."
+#| msgid " Born on January 4th in Coupvary near Paris in France."
+msgid "Born on January 4th in Coupvary near Paris in France."
 msgstr "Narodil se 4. ledna ve Francii v městečku Coupvary poblíž Paříže."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:5
+#| msgid ""
+#| " Braille got accepted as a world wide standard. Louis Braille proved that "
+#| "if you have motivation you can do incredible things."
 msgid ""
-" Braille got accepted as a world wide standard. Louis Braille proved that if "
+"Braille got accepted as a world wide standard. Louis Braille proved that if "
 "you have motivation you can do incredible things."
 msgstr ""
 "Braillův systém byl přijat jako celosvětový standard. Louis Braille je "
 "důkazem, že když má člověk motivaci, může dokázat velké věci."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:6
+#| msgid ""
+#| " Charles Barbier, a French soldier, visited his school and shared his "
+#| "invention of night writing, a code of 12 raised dots to share information "
+#| "on battlefields."
 msgid ""
-" Charles Barbier, a French soldier, visited his school and shared his "
+"Charles Barbier, a French soldier, visited his school and shared his "
 "invention of night writing, a code of 12 raised dots to share information on "
 "battlefields."
 msgstr ""
@@ -5747,40 +5805,54 @@ msgstr ""
 "na bitevních polích."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:7
-msgid " He became a teacher after graduating and secretly taught his method."
+#| msgid ""
+#| " He became a teacher after graduating and secretly taught his method."
+msgid "He became a teacher after graduating and secretly taught his method."
 msgstr ""
 "Po absolvování školy se na ní stal učitelem a v tichosti zavedl svoji metodu."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:8
+#| msgid ""
+#| " He died of tuberculosis. He is burried in the Pantheon in Paris. A "
+#| "monument is erected to honor him."
 msgid ""
-" He died of tuberculosis. He is burried in the Pantheon in Paris. A monument "
+"He died of tuberculosis. He is burried in the Pantheon in Paris. A monument "
 "is erected to honor him."
 msgstr ""
 "Zemřel na tuberkulózu. Je pochována v Pantheonu v Paříži. Na jeho počest byl "
 "vztyčen památník."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:9
-msgid " He impressed his classmates and began to play the piano and the organ."
+#| msgid ""
+#| " He impressed his classmates and began to play the piano and the organ."
+msgid "He impressed his classmates and began to play the piano and the organ."
 msgstr "Mezi spolužáky byl uznávaný a začal hrát na klavír a varhany."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:10
+#| msgid ""
+#| " He revised and extended braille to include mathematics, symbols, "
+#| "punctuations and music notations."
 msgid ""
-" He revised and extended braille to include mathematics, symbols, "
+"He revised and extended braille to include mathematics, symbols, "
 "punctuations and music notations."
 msgstr ""
 "Svůj systém upravil a rozšířil, aby obsahoval i matematické značky, symboly, "
 "interpunkci a notový zápis."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:11
+#| msgid ""
+#| " Louis Braille injured his right eye with a stitching awl from his "
+#| "father's workshop."
 msgid ""
-" Louis Braille injured his right eye with a stitching awl from his father's "
+"Louis Braille injured his right eye with a stitching awl from his father's "
 "workshop."
 msgstr ""
 "Louis Braille si poranil své pravé oko ševcovským šídlem z otcovy dílny"
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:12
-msgid ""
-" Louis trimmed Barbier's 12 dots into 6 and invented the Braille language."
+#| msgid ""
+#| " Louis trimmed Barbier's 12 dots into 6 and invented the Braille language."
+msgid "Louis trimmed Barbier's 12 dots into 6 and invented the Braille system."
 msgstr ""
 "Louis zredukoval Barbierových 12 bodů jen na 6 a vyvinul Brallovo písmo."
 
@@ -7297,7 +7369,6 @@ msgid "Weight = %s"
 msgstr "Hmotnost = %s"
 
 #: ../src/scalesboard-activity/scale.c:1007
-#| msgid "Take care, you can drop masses on both sides of the scale."
 msgid "Take care, you can drop weights on both sides of the scale."
 msgstr "Věnuj pozornost tomu, že závaží můžeš pokládat na obě strany váhy."
 
@@ -7307,7 +7378,6 @@ msgid "Balance the scales properly"
 msgstr "Správně vyrovnat váhy"
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:2
-#| msgid "Drag and Drop masses to balance the scales"
 msgid "Drag and Drop weights to balance the scales"
 msgstr "Přetažením závaží vyrovnej váhu"
 
@@ -7327,9 +7397,6 @@ msgstr ""
 "licence GPL."
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:5
-#| msgid ""
-#| "To balance the scales, move the masses on the left or the right side. The "
-#| "masses can be arranged in any order."
 msgid ""
 "To balance the scales, move the weights on the left or the right side. The "
 "weights can be arranged in any order."
@@ -7699,8 +7766,8 @@ msgstr "Skládanka tangram"
 
 #. Set the maximum text to calc the background
 #. Set the correct initial text
-#: ../src/target-activity/target.c:296 ../src/target-activity/target.c:560
-#: ../src/target-activity/target.c:597
+#: ../src/target-activity/target.c:296 ../src/target-activity/target.c:562
+#: ../src/target-activity/target.c:599
 #, c-format
 msgid "Points = %s"
 msgstr "Body = %s"
@@ -7714,10 +7781,14 @@ msgstr ""
 "Rychlost větru = %d\n"
 "kilometrů/hodinu"
 
-#: ../src/target-activity/target.c:481
+#: ../src/target-activity/target.c:482
 #, c-format
-msgid "Distance to target = %d meters"
-msgstr "Vzdálenost k cíli = %d metrů"
+#| msgid "Distance to target = %d meters"
+msgid "Distance to target = %d meter"
+msgid_plural "Distance to target = %d meters"
+msgstr[0] "Vzdálenost k cíli = %d metr"
+msgstr[1] "Vzdálenost k cíli = %d metry"
+msgstr[2] "Vzdálenost k cíli = %d metrů"
 
 #: ../src/target-activity/target.xml.in.h:1
 msgid ""
