@@ -9,21 +9,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-09 10:15+0200\n"
-"PO-Revision-Date: 2011-04-09 10:16+0100\n"
+"POT-Creation-Date: 2011-10-09 01:12+0200\n"
+"PO-Revision-Date: 2011-10-09 10:27+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
 msgstr "Gå till algebraaktiviteterna"
 
 #: ../boards/algebra_group.xml.in.h:2
-#: ../boards/menu.xml.in.h:18
+#: ../boards/menu.xml.in.h:22
 #: ../boards/money_group.xml.in.h:2
 msgid "Left-click the mouse on an activity to select it."
 msgstr "Vänsterklicka med musen för att välja en aktivitet."
@@ -35,6 +36,15 @@ msgstr "Gå till beräkningsaktiviteter"
 #: ../boards/algebramenu.xml.in.h:2
 msgid "Various calculation activities."
 msgstr "Diverse beräkningsaktiviteter."
+
+#: ../boards/braille.xml.in.h:1
+#: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:1
+msgid "Discover the Braille system"
+msgstr "Upptäck punktskrift"
+
+#: ../boards/braille.xml.in.h:2
+msgid "The Braille system is a method that is widely used by blind people to read and write, and was the first digital form of writing."
+msgstr "Punktskrift (Braille) är en metod som används av blinda personer för att läsa och skriva. Det var den första digitala formen för skrivning."
 
 #: ../boards/chess.xml.in.h:1
 #: ../src/chess_computer-activity/chess_computer.xml.in.h:3
@@ -141,36 +151,41 @@ msgstr "Gå till minnesaktiviteterna"
 msgid "Various memory activities (images, letters, sounds)."
 msgstr "Olika minnesaktiviteter (bilder, bokstäver, ljud)."
 
-#: ../boards/memory_op_group.xml.in.h:1
-msgid "Go to mathematics memory activities"
-msgstr "Gå till matematiska minnesaktiviteter"
-
-#: ../boards/memory_op_group.xml.in.h:2
-#: ../boards/memory_op_group_tux.xml.in.h:2
-msgid "Memory activities based on operations"
-msgstr "Minnesaktiviteter baserade på räknesätt"
-
 #: ../boards/memory_op_group_tux.xml.in.h:1
 msgid "Go to mathematics memory activities against Tux"
 msgstr "Gå till matematiska minnesaktiviteter mot Tux"
 
+#: ../boards/memory_op_group_tux.xml.in.h:2
+#: ../boards/memory_op_group.xml.in.h:2
+msgid "Memory activities based on operations"
+msgstr "Minnesaktiviteter baserade på räknesätt"
+
+#: ../boards/memory_op_group.xml.in.h:1
+msgid "Go to mathematics memory activities"
+msgstr "Gå till matematiska minnesaktiviteter"
+
 #: ../boards/menu.xml.in.h:1
+#, fuzzy
 msgid ""
 "A simple click on an icon brings you to an activity or a menu of activities.\n"
 "At the bottom of the screen is the GCompris control bar.\n"
 "The following icons are displayed from right to left.\n"
 "(note that each icon is displayed only if available in the current activity)\n"
-"    Home - Exit an activity, go back to menu\n"
+"    Home - Exit an activity, go back to menu (ctrl-w and escape key)\n"
 "    Thumb - OK. Confirm your answer\n"
-"    Dice - Display the current level. Click to select another level\n"
+"    Arrows - Display the current level. Click to select another level\n"
 "    Lips - Repeat the question\n"
 "    Question Mark - Help\n"
 "    Tool - The configuration menu\n"
 "    Tux Plane - About GCompris\n"
-"    Night - Quit GCompris\n"
+"    Quit - Quit GCompris (ctrl-x)\n"
 "The stars show suitable age groups for each game:\n"
 "    1, 2 or 3 simple stars  - from 2 to 6 years old\n"
-"    1, 2 or 3 complex stars - 7 years and up"
+"    1, 2 or 3 complex stars - 7 years and up\n"
+"Shortcuts:\n"
+"    ctrl-b Show or Hide the control bar\n"
+"    ctrl-f Toggle full screen\n"
+"    ctrl-m Toggle mute for the background music"
 msgstr ""
 "Klicka på en ikon för att plocka fram en aktivitet eller en aktivitetsmeny. \n"
 "Nederst på skärmen finns GCompris kontrollrad.\n"
@@ -188,16 +203,16 @@ msgstr ""
 "    1, 2 eller 3 enkla stjärnor - från 2 till 6 års ålder\n"
 "    1, 2 eller 3 komplexa stjärnor - 7 år och uppåt"
 
-#: ../boards/menu.xml.in.h:16
+#: ../boards/menu.xml.in.h:20
 msgid "GCompris Main Menu"
 msgstr "GCompris-huvudmeny"
 
-#: ../boards/menu.xml.in.h:17
+#: ../boards/menu.xml.in.h:21
 #: ../src/boards/menu2.c:866
 msgid "GCompris is a collection of educational games that provides different activities for children aged 2 and up."
 msgstr "GCompris är en samling pedagogiska spel som tillhandahåller olika aktiviteter för barn som är 2 år och uppåt."
 
-#: ../boards/menu.xml.in.h:19
+#: ../boards/menu.xml.in.h:23
 msgid "The goal of GCompris is to provide a free alternative to popular proprietary edutainment software"
 msgstr "Målet för GCompris är att tillhandahålla ett fritt alternativ till populära men proprietära pedagogiska programvaror"
 
@@ -261,14 +276,6 @@ msgstr "Strategispel"
 msgid "Strategy games like chess, connect4, ..."
 msgstr "Strategispel som schack, fyra-i-rad, ..."
 
-#: ../gcompris-edit.desktop.in.h:1
-msgid "Administration for gcompris"
-msgstr "Administrera GCompris"
-
-#: ../gcompris-edit.desktop.in.h:2
-msgid "GCompris Administration"
-msgstr "Administrera GCompris"
-
 #: ../gcompris.desktop.in.h:1
 msgid "Educational game for ages 2 to 10"
 msgstr "Lärorikt spel för barn från 2 till 10 års ålder"
@@ -280,6 +287,14 @@ msgstr "Pedagogiksviten GCompris"
 #: ../gcompris.desktop.in.h:3
 msgid "Multi-activity educational game"
 msgstr "Pedagogiskt spel med flera aktiviteter"
+
+#: ../gcompris-edit.desktop.in.h:1
+msgid "Administration for gcompris"
+msgstr "Administrera GCompris"
+
+#: ../gcompris-edit.desktop.in.h:2
+msgid "GCompris Administration"
+msgstr "Administrera GCompris"
 
 #: ../nsis_translations.desktop.in.h:1
 msgid "An instance of GCompris is currently running. Exit GCompris and then try again."
@@ -376,11 +391,9 @@ msgstr ""
 "<b>{config}</b>-konfiguration\n"
 " för profilen <b>{profile}</b>"
 
-#. self.main_vbox.pack_start (label, False, False, 8)
 #: ../src/administration-activity/admin/board_list.py:660
-#: ../src/colors-activity/colors.c:180
-#: ../src/pythontest-activity/pythontest.py:518
-#: ../src/smallnumbers-activity/smallnumbers.c:616
+#: ../src/pythontest-activity/pythontest.py:511
+#: ../src/smallnumbers-activity/smallnumbers.c:618
 msgid "Select sound locale"
 msgstr "Välj ljudlokalen"
 
@@ -508,6 +521,28 @@ msgstr "Du måste först välja en grupp i listan"
 msgid "Birth Date"
 msgstr "Födelsedag"
 
+#: ../src/administration-activity/administration.xml.in.h:1
+msgid ""
+"- In the 'Boards' section you can change the list of activities. Just untoggle them in the treeview. You can change the language used for reading, for example, then the language used for saying the names of colors.\n"
+"- You can save multiple configurations, and switch between them easily. In the 'Profile' section add a profile, then in the 'Board' section select the profile in the combobox, then select the boards you want to be active. You can add multiple profiles, with different lists of boards, and different languages. You set the default profile in the 'Profile' section, by choosing the profile you want, then clicking on the 'Default' button. You can also choose a profile from the command line.\n"
+"- You can add users, classes and for each class, you can create groups of users. Note that you can import users from a comma-separated file. Assign one or more groups to a profile, after which those new logins will appear after restarting GCompris. Being able to identify individual children in GCompris means we can provide individual reports. It also recognizes the children as individuals; they can learn to type in and recognize their own usernames (login is configurable)."
+msgstr ""
+"- I sektionen \"Bräden\" kan du ändra listan över aktiviteter. Bara att avmarkera dem i trädvyn. Du kan till exempel ändra språket som används för läsning eller språket som används för att säga namn på färger.\n"
+"- Du kan spara flera olika konfigurationer och enkelt växla mellan dem. I sektionen \"Profil\" kan du lägga till en profil, välj sedan profilen i sektionen \"Bräde\" och sedan välj de bräden som du vill ska vara aktiva. Du kan lägga till flera profiler med olika tillgängliga bräden och med olika språk. Du kan ställa in standardprofilen i sektionen \"Profil\" genom att välja profilen och sedan klicka på knappen \"Standard\". Du kan även välja en profil från kommandoraden.\n"
+"- Du kan lägga till användare, klasser och för varje klass kan du skapa grupper av användare. Observera att du kan importera användare från en kommaseparerad fil. Tilldela en eller flera grupper till en profil, efter vilka dessa inloggningsnamn kommer att visas efter omstart av GCompris. Genom att kunna identifiera individuella barn i GCompris så kan vi tillhandahålla individuella rapporter. Det känner även igen barnet som individ; de kan lära sig att skriva in och känna igen sina egna användarnamn (inloggning är möjlig att konfigurera)."
+
+#: ../src/administration-activity/administration.xml.in.h:4
+msgid "GCompris Administration Menu"
+msgstr "Administrationsmeny för GCompris"
+
+#: ../src/administration-activity/administration.xml.in.h:5
+msgid "If you want to fine tune GCompris to your needs, you can use the administration module here. The ultimate goal is to provide child-specific reporting for parents and teacher who want to monitor the progress, strengths and needs of their children."
+msgstr "Om du vill finjustera GCompris till att passa dina behov kan du använda administrationsmodulen. Det slutgiltiga målet är att tillhandahålla individuella rapporter till föräldrar och lärare som vill övervaka inlärningsförloppet, vad barnet är bra på och vad det är mindre bra på."
+
+#: ../src/administration-activity/administration.xml.in.h:6
+msgid "Left-Click with the mouse to select an activity"
+msgstr "Vänsterklicka med musen för att välja en aktivitet"
+
 #: ../src/administration-activity/admin/log_list.py:91
 msgid "Select a user:"
 msgstr "Välj en användare:"
@@ -520,8 +555,6 @@ msgstr "Alla användare"
 #: ../src/administration-activity/admin/log_list.py:108
 #: ../src/administration-activity/admin/log_list.py:295
 #: ../src/administration-activity/admin/profile_list.py:117
-#: ../src/gcompris/board_config_combo.c:125
-#: ../src/gcompris/board_config_combo.c:398
 msgid "Default"
 msgstr "Standard"
 
@@ -543,6 +576,7 @@ msgid "Board"
 msgstr "Bräde"
 
 #: ../src/administration-activity/admin/log_list.py:246
+#: ../src/click_on_letter-activity/click_on_letter.c:1248
 #: ../src/redraw-activity/redraw.py:339
 msgid "Level"
 msgstr "Nivå"
@@ -689,34 +723,11 @@ msgstr ""
 "Ett eller flera inloggningsnamn är inte unika!\n"
 "Du behöver ändra dem: %s!"
 
-#: ../src/administration-activity/administration.xml.in.h:1
-msgid ""
-"- In the 'Boards' section you can change the list of activities. Just untoggle them in the treeview. You can change the language used for reading, for example, then the language used for saying the names of colors.\n"
-"- You can save multiple configurations, and switch between them easily. In the 'Profile' section add a profile, then in the 'Board' section select the profile in the combobox, then select the boards you want to be active. You can add multiple profiles, with different lists of boards, and different languages. You set the default profile in the 'Profile' section, by choosing the profile you want, then clicking on the 'Default' button. You can also choose a profile from the command line.\n"
-"- You can add users, classes and for each class, you can create groups of users. Note that you can import users from a comma-separated file. Assign one or more groups to a profile, after which those new logins will appear after restarting GCompris. Being able to identify individual children in GCompris means we can provide individual reports. It also recognizes the children as individuals; they can learn to type in and recognize their own usernames (login is configurable)."
-msgstr ""
-"- I sektionen \"Bräden\" kan du ändra listan över aktiviteter. Bara att avmarkera dem i trädvyn. Du kan till exempel ändra språket som används för läsning eller språket som används för att säga namn på färger.\n"
-"- Du kan spara flera olika konfigurationer och enkelt växla mellan dem. I sektionen \"Profil\" kan du lägga till en profil, välj sedan profilen i sektionen \"Bräde\" och sedan välj de bräden som du vill ska vara aktiva. Du kan lägga till flera profiler med olika tillgängliga bräden och med olika språk. Du kan ställa in standardprofilen i sektionen \"Profil\" genom att välja profilen och sedan klicka på knappen \"Standard\". Du kan även välja en profil från kommandoraden.\n"
-"- Du kan lägga till användare, klasser och för varje klass kan du skapa grupper av användare. Observera att du kan importera användare från en kommaseparerad fil. Tilldela en eller flera grupper till en profil, efter vilka dessa inloggningsnamn kommer att visas efter omstart av GCompris. Genom att kunna identifiera individuella barn i GCompris så kan vi tillhandahålla individuella rapporter. Det känner även igen barnet som individ; de kan lära sig att skriva in och känna igen sina egna användarnamn (inloggning är möjlig att konfigurera)."
-
-#: ../src/administration-activity/administration.xml.in.h:4
-msgid "GCompris Administration Menu"
-msgstr "Administrationsmeny för GCompris"
-
-#: ../src/administration-activity/administration.xml.in.h:5
-msgid "If you want to fine tune GCompris to your needs, you can use the administration module here. The ultimate goal is to provide child-specific reporting for parents and teacher who want to monitor the progress, strengths and needs of their children."
-msgstr "Om du vill finjustera GCompris till att passa dina behov kan du använda administrationsmodulen. Det slutgiltiga målet är att tillhandahålla individuella rapporter till föräldrar och lärare som vill övervaka inlärningsförloppet, vad barnet är bra på och vad det är mindre bra på."
-
-#: ../src/administration-activity/administration.xml.in.h:6
-msgid "Left-Click with the mouse to select an activity"
-msgstr "Vänsterklicka med musen för att välja en aktivitet"
-
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:1
 msgid "Advanced colors"
 msgstr "Avancerade färger"
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:2
-#: ../src/read_colors-activity/read_colors.xml.in.h:1
 msgid "Can read"
 msgstr "Kan läsa"
 
@@ -732,300 +743,292 @@ msgstr "Klicka på lådan med rätt färg."
 msgid "Learn to recognize unusual colors."
 msgstr "Lär dig känna igen ovanliga färger."
 
-# Detta är alltså beskrivande namn på färger
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:1
-msgid "almond"
-msgstr "mandel"
+#. Translator: Do not translate {text}.
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:2
+msgid "Find the {text} butterfly"
+msgstr "Hitta den {text} fjärilen"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:2
-msgid "chestnut"
-msgstr "kastanj"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:3
-msgid "claret"
-msgstr "vinröd"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:4
-msgid "cobalt"
-msgstr "kobolt"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:5
-msgid "coral"
-msgstr "korallröd"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:6
-msgid "corn"
-msgstr "majs"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:7
-msgid "cyan"
-msgstr "cyan"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:8
-msgid "sienna"
-msgstr "sienafärgad"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:1
-msgid "lime"
-msgstr "lime"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:2
-msgid "sage"
-msgstr "salvia"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:3
-msgid "salmon"
-msgstr "lax"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:4
-msgid "sapphire"
-msgstr "safirblå"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:5
-msgid "sepia"
-msgstr "sepiabrun"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:6
-msgid "sulphur"
-msgstr "svavelgul"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:7
-msgid "tea"
-msgstr "te"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:8
-msgid "turquoise"
-msgstr "turkos"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:1
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:3
 msgid "absinthe"
 msgstr "absint"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:2
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:4
 msgid "alabaster"
 msgstr "alabastervit"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:3
+# Detta är alltså beskrivande namn på färger
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:5
+msgid "almond"
+msgstr "mandel"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:6
 msgid "amber"
 msgstr "bärnstensfärgad"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:4
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:7
 msgid "amethyst"
 msgstr "ametist"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:5
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:8
 msgid "anise"
 msgstr "anis"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:6
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:9
 msgid "aquamarine"
 msgstr "Akvamarin"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:7
-msgid "mahogany"
-msgstr "mahognyfärgad"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:8
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:8
-msgid "vermilion"
-msgstr "cinnoberröd"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:1
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:1
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:10
 msgid "aubergine"
 msgstr "äggplanta"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:2
-msgid "ceruse"
-msgstr "blyvit"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:3
-msgid "chartreuse"
-msgstr "chartreuse"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:4
-msgid "emerald"
-msgstr "smaragdgrön"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:5
-msgid "fawn"
-msgstr "ljust gulbrun"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:6
-msgid "fuchsia"
-msgstr "fuchsia"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:7
-msgid "glaucous"
-msgstr "sjögrön"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:8
-msgid "ruby"
-msgstr "rubin"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:2
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:11
 msgid "auburn"
 msgstr "kastanjebrun"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:3
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:12
 msgid "azure"
 msgstr "azurblå"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:4
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:13
 msgid "bistre"
 msgstr "bisterfärgad"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:5
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:14
 msgid "celadon"
 msgstr "blekgrön"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:6
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:15
 msgid "cerulean"
 msgstr "himmelsblå"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:7
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:16
+msgid "ceruse"
+msgstr "blyvit"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:17
+msgid "chartreuse"
+msgstr "chartreuse"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:18
+msgid "chestnut"
+msgstr "kastanj"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:19
+msgid "claret"
+msgstr "vinröd"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:20
+msgid "cobalt"
+msgstr "kobolt"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:21
+msgid "coral"
+msgstr "korallröd"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:22
+msgid "corn"
+msgstr "majs"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:23
 msgid "crimson"
 msgstr "karmosinröd"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:8
-msgid "greyish-brown"
-msgstr "gråbrun"
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:24
+msgid "cyan"
+msgstr "cyan"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:1
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:25
+msgid "dark purple"
+msgstr "mörklila"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:26
 msgid "dove"
 msgstr "rödskiftande grå"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:2
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:27
+msgid "emerald"
+msgstr "smaragdgrön"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:28
+msgid "fawn"
+msgstr "ljust gulbrun"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:29
+msgid "fuchsia"
+msgstr "fuchsia"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:30
 msgid "garnet"
 msgstr "granatröd"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:3
-msgid "indigo"
-msgstr "indigoblå"
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:31
+msgid "glaucous"
+msgstr "sjögrön"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:4
-msgid "ivory"
-msgstr "elfenbensvit"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:5
-msgid "jade"
-msgstr "jade"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:6
-msgid "lavender"
-msgstr "lavendelblå"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:7
-msgid "lichen"
-msgstr "lav"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:8
-msgid "wine"
-msgstr "vinröd"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:1
-msgid "larch"
-msgstr "lärk"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:2
-msgid "lilac"
-msgstr "syrenfärgad"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:3
-msgid "magenta"
-msgstr "magenta"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:4
-msgid "malachite"
-msgstr "malakitgrön"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:5
-msgid "mimosa"
-msgstr "mimosa"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:6
-msgid "navy"
-msgstr "marinblå"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:7
-msgid "ochre"
-msgstr "ockra"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:8
-msgid "olive"
-msgstr "olivgrön"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:1
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:32
 msgid "greyish blue"
 msgstr "gråblå"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:2
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:33
+msgid "greyish brown"
+msgstr "gråbrun"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:34
+msgid "indigo"
+msgstr "indigoblå"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:35
+msgid "ivory"
+msgstr "elfenbensvit"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:36
+msgid "jade"
+msgstr "jade"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:37
+msgid "larch"
+msgstr "lärk"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:38
+msgid "lavender"
+msgstr "lavendelblå"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:39
+msgid "lichen"
+msgstr "lav"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:40
+msgid "lilac"
+msgstr "syrenfärgad"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:41
+msgid "lime"
+msgstr "lime"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:42
+msgid "magenta"
+msgstr "magenta"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:43
+msgid "mahogany"
+msgstr "mahognyfärgad"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:44
+msgid "malachite"
+msgstr "malakitgrön"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:45
 msgid "mauve"
 msgstr "malvafärgad"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:3
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:46
+msgid "mimosa"
+msgstr "mimosa"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:47
+msgid "navy"
+msgstr "marinblå"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:48
+msgid "ochre"
+msgstr "ockra"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:49
+msgid "olive"
+msgstr "olivgrön"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:50
 msgid "opaline"
 msgstr "opalfärgad"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:4
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:51
 msgid "pistachio"
 msgstr "pistaschgrön"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:5
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:52
 msgid "platinum"
 msgstr "platina"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:6
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:53
+msgid "plum"
+msgstr "plommonfärgad"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:54
+msgid "prussian blue"
+msgstr "berlinerblå"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:55
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:9
 msgid "purple"
 msgstr "lila"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:7
-msgid "ultramarine"
-msgstr "ultramarinfärgad"
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:56
+msgid "ruby"
+msgstr "rubin"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:1
-msgid "dark purple"
-msgstr "mörklila"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:2
-msgid "plum"
-msgstr "plommonfärgad"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:3
-msgid "prussian blue"
-msgstr "berlinerblå"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:4
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:57
 msgid "rust"
 msgstr "rostfärgad"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:5
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:58
 msgid "saffron"
 msgstr "saffransgul"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:6
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:59
+msgid "sage"
+msgstr "salvia"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:60
+msgid "salmon"
+msgstr "lax"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:61
+msgid "sapphire"
+msgstr "safirblå"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:62
+msgid "sepia"
+msgstr "sepiabrun"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:63
+msgid "sienna"
+msgstr "sienafärgad"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:64
+msgid "sulphur"
+msgstr "svavelgul"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:65
+msgid "tea"
+msgstr "te"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:66
+msgid "turquoise"
+msgstr "turkos"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:67
+msgid "ultramarine"
+msgstr "ultramarinfärgad"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:68
 msgid "vanilla"
 msgstr "vanilj"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:7
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:69
 msgid "verdigris"
 msgstr "spansk grön"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:8
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:70
+msgid "vermilion"
+msgstr "cinnoberröd"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:71
 msgid "veronese"
 msgstr "veronesisk"
 
-#. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
-#: ../src/algebra_by-activity/algebra.c:186
-#: ../src/memory-activity/memory.c:946
-msgid "+-×÷"
-msgstr "+-·÷"
-
-#: ../src/algebra_by-activity/algebra.c:411
-#: ../src/readingh-activity/reading.c:630
-msgid "I am Ready"
-msgstr "Jag är redo"
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:72
+msgid "wine"
+msgstr "vinröd"
 
 #: ../src/algebra_by-activity/algebra_by.xml.in.h:1
 msgid "A multiplication of two numbers is displayed. At the right of the equals sign, give the answer, the product. Use the left and right arrows to modify your answer and press the Enter key to check if you've got it right. If not, just try again."
@@ -1048,6 +1051,17 @@ msgstr "Multiplikationstabell"
 #: ../src/algebra_by-activity/algebra_by.xml.in.h:5
 msgid "Practice the multiplication operation"
 msgstr "Träna på multiplikation"
+
+#. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
+#: ../src/algebra_by-activity/algebra.c:186
+#: ../src/memory-activity/memory.c:946
+msgid "+-×÷"
+msgstr "+-·÷"
+
+#: ../src/algebra_by-activity/algebra.c:411
+#: ../src/readingh-activity/reading.c:630
+msgid "I am Ready"
+msgstr "Jag är redo"
 
 #: ../src/algebra_guesscount-activity/algebra_guesscount.xml.in.h:1
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:1
@@ -1128,14 +1142,6 @@ msgstr "Flytta och klicka musen"
 #: ../src/algorithm-activity/algorithm.xml.in.h:5
 msgid "algorithm"
 msgstr "algoritm"
-
-#: ../src/anim-activity/Color.py:86
-msgid "Fill color..."
-msgstr "Fyllnadsfärg..."
-
-#: ../src/anim-activity/Color.py:98
-msgid "Stroke color..."
-msgstr "Penselfärg..."
 
 #: ../src/anim-activity/anim.py:103
 msgid "Save..."
@@ -1228,6 +1234,14 @@ msgstr "Behöver kunna flytta och klicka med musen utan problem"
 msgid "Select a drawing tool on the left, and a color down the bottom. Then click and drag in the white area to create a new shape. Once you've completed a drawing, you can select a new frame to work on by selecting one of the small rectangles on the bottom. Each frame contains the same content as its previous one. You can then edit it by moving objects a little bit or adding/deleting objects. When you create several frames and then click on the 'film' button, you will see all your images in a continuous slide-show (an infinite loop pattern). You can change the last image in your film by right clicking on a time frame. You can also change the viewing speed in this mode. In viewing mode, click on the 'drawing' button to return to drawing mode. You can also save and reload your animations with the 'floppy disk' and 'folder' buttons."
 msgstr "Välj ett teckningsverktyg till vänster och en färg ifrån botten. Klicka och dra därefter i det vita området för att skapa en ny figur. När en teckning är färdig så kan du välja en ny ram att arbeta på genom att välja en av de mindre rektanglarna i nederkant. Varje ram innehåller samma innehåll som den tidigare. Du kan sedan redigera den genom att flytta objekten lite eller lägga till/ta bort objekt. Skapa många teckningar och klicka sedan på \"film\"-knappen. Du ser då dina teckningar i ett oavbrutet bildspel (en oändlig slinga). Du kan ändra sista bilden i din film genom att högerklicka på en tidsruta. Du kan även ändra visningshastigheten i detta läge. I visningsläget kan du klicka på \"teckning\"-knappen för att återvända till teckningsläget. Du kan även spara och läsa in dina animeringar via knapparna \"diskett\" och \"katalog\"."
 
+#: ../src/anim-activity/Color.py:86
+msgid "Fill color..."
+msgstr "Fyllnadsfärg..."
+
+#: ../src/anim-activity/Color.py:98
+msgid "Stroke color..."
+msgstr "Penselfärg..."
+
 #: ../src/awele-activity/awele.c:158
 #, c-format
 msgid ""
@@ -1270,8 +1284,8 @@ msgid "Play the Oware strategy game against Tux"
 msgstr "Spela strategispelet Oware mot Tux"
 
 #: ../src/awele-activity/awele.xml.in.h:4
-msgid "The object of the game is to capture more seeds than one's opponent. Since the game has only 48 seeds, capturing 25 is sufficient to accomplish this. Since there are an even number of seeds, it is possible for the game to end in a draw, where each player has captured 24. The game is over when one player has captured 25 or more stones, or both players have taken 24 stones each (draw). If both players agree that the game has been reduced to an endless cycle, each player captures the stones on their side of the board."
-msgstr "Målet med spelet är att fånga fler frön än sin motståndare. Eftersom spelet endast har 48 frön så räcker det med att fånga 25 för att vinna. Eftersom det finns ett jämnt antal frön är det möjligt att spelet slutar oavgjort, när varje spelare har fångat 24. Spelet är över när en spelare har fångat 25 eller fler stenar, eller båda spelarna har tagit 24 stenar var (ingen vinner). Om båda spelarna kommer överens om att spelet hamnat i en oändlig upprepning fångar båda spelarna stenarna på sin sida av brädet."
+msgid "The object of the game is to capture more seeds than one's opponent. Since the game has only 48 seeds, capturing 25 is sufficient to accomplish this. Since there are an even number of seeds, it is possible for the game to end in a draw, where each player has captured 24. The game is over when one player has captured 25 or more seeds, or both players have taken 24 seeds each (draw). If both players agree that the game has been reduced to an endless cycle, each player captures the seeds on their side of the board."
+msgstr "Målet med spelet är att fånga fler frön än sin motståndare. Eftersom spelet endast har 48 frön så räcker det med att fånga 25 för att vinna. Eftersom det finns ett jämnt antal frön är det möjligt att spelet slutar oavgjort, när varje spelare har fångat 24. Spelet är över när en spelare har fångat 25 eller fler frön, eller båda spelarna har tagit 24 frön var (ingen vinner). Om båda spelarna kommer överens om att spelet hamnat i en oändlig upprepning fångar båda spelarna fröna på sin sida av brädet."
 
 #: ../src/babymatch-activity/babymatch.xml.in.h:1
 #: ../src/babymatch-activity/resources/babymatch/board1_0.xml.in.h:1
@@ -1300,9 +1314,8 @@ msgstr "Motorikkoordinering. Konceptuell matchning."
 msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "Mushantering: flytta, dra och släpp. Kulturella referenser."
 
-#: ../src/babymatch-activity/shapegame.c:1903
-#: ../src/click_on_letter-activity/click_on_letter.c:671
-#: ../src/colors-activity/colors.c:168
+#: ../src/babymatch-activity/shapegame.c:1985
+#: ../src/click_on_letter-activity/click_on_letter.c:1316
 #, c-format
 msgid ""
 "<b>%1$s</b> configuration\n"
@@ -1417,8 +1430,8 @@ msgstr "Sparka bollen i målet"
 #: ../src/clickgame-activity/clickgame.xml.in.h:5
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:5
 #: ../src/connect4-activity/connect4.xml.in.h:6
-#: ../src/erase-activity/erase.xml.in.h:3
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:6
+#: ../src/erase-activity/erase.xml.in.h:3
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:6
 #: ../src/fifteen-activity/fifteen.xml.in.h:2
 #: ../src/hanoi-activity/hanoi.xml.in.h:3
@@ -1461,6 +1474,164 @@ msgstr "Specialbräde som bäddar in python i GCompris."
 #: ../src/boards/python.c:89
 msgid "Special board that embeds python into gcompris."
 msgstr "Specialbräde som bäddar in python i gcompris."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:165
+msgid "Braille : Unlocking the Code"
+msgstr "Braille : Lås upp koden"
+
+#. Braille Intro
+#: ../src/braille_alphabets-activity/braille_alphabets.py:167
+msgid "The Braille system is a method that is used by blind people to read and write."
+msgstr "Punktskrift (Braille) är en metod som används av blinda personer för att läsa och skriva."
+
+#. Braille Description
+#: ../src/braille_alphabets-activity/braille_alphabets.py:170
+msgid "Each Braille character, or cell, is made up of six dot positions, arranged in a rectangle containing two columns of three dots each. As seen on the left, each dot is referenced by a number from 1 to 6."
+msgstr ""
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:189
+msgid "I am braille TUX"
+msgstr ""
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:201
+msgid "When you are ready, click on me and try reproducing Braille characters."
+msgstr ""
+
+#. Translators : Do not translate the token {letter}
+#: ../src/braille_alphabets-activity/braille_alphabets.py:272
+msgid "Click on the dots in braille cell area to produce the letter {letter}."
+msgstr ""
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:277
+msgid "Look at the Braille character map and observe how similar the first and second line are."
+msgstr ""
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:280
+msgid "Again, similar as the first line but take care, the 'W' letter was added afterwards."
+msgstr ""
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:283
+msgid "This is easy, numbers are the same as letters from A to J."
+msgstr "Det är enkelt. Tal är samma som bokstäver från A till J."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:302
+msgid "Braille Cell"
+msgstr ""
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:324
+msgid "Click to confirm your selection of dots"
+msgstr "Klicka för att bekräfta ditt val av punkter"
+
+#: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:2
+msgid "Learn and memorize the Braille system."
+msgstr "Lär och memorera punktskrift."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:3
+msgid "Let kids discover the Braille system."
+msgstr "Låt barnen upptäcka punktskriftssystemet."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:4
+msgid "The screen has 3 sections: braille cell, alphabet name and lower board containing 13 letters. Click on each letter in the lower board to know its corresponding braille code in the braille cell section. Click on the increment level button to jump to the next 13 letters of the English alphabets."
+msgstr ""
+
+#: ../src/braille_alphabets-activity/BrailleMap.py:96
+msgid "Back to the activity"
+msgstr "Tillbaka till aktiviteten"
+
+#: ../src/braille_fun-activity/braille_fun.xml.in.h:1
+msgid "Braille Alphabet Codes"
+msgstr ""
+
+#: ../src/braille_fun-activity/braille_fun.xml.in.h:2
+#, fuzzy
+msgid "Braille Fun"
+msgstr "Hjärna"
+
+#: ../src/braille_fun-activity/braille_fun.xml.in.h:3
+msgid "Braille code the tile for the corresponding falling letters. Check the braille chart by clicking on the toggle button for help."
+msgstr ""
+
+#: ../src/braille_fun-activity/braille_fun.xml.in.h:4
+#, fuzzy
+msgid "Braille the falling letters"
+msgstr "Fyll i bokstaven som saknas"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:119
+msgid "PLAYER 1"
+msgstr "SPELARE 1"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:129
+msgid "PLAYER 2"
+msgstr "SPELARE 2"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:150
+#, fuzzy
+msgid "Check Number"
+msgstr "Tal"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:165
+#: ../src/braille_lotto-activity/braille_lotto.py:177
+msgid "Click me to get some hint"
+msgstr "Klicka på mig för att få tips"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:190
+msgid "I don't have this number PLAYER {number}"
+msgstr "Jag har inte detta tal, SPELARE {number}"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:212
+msgid "Lotto Master"
+msgstr "Lottomästare"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:236
+msgid "Generate a number"
+msgstr "Generera ett tal"
+
+#. Translators : Do not translate the token {column}
+#: ../src/braille_lotto-activity/braille_lotto.py:293
+#: ../src/braille_lotto-activity/braille_lotto.py:316
+msgid "Hey, you have it. It is there in your {column} column"
+msgstr "Hej, du har det. Det finns i din {column} kolumn"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:295
+#: ../src/braille_lotto-activity/braille_lotto.py:318
+msgid "Oops, this number is not in your ticket!"
+msgstr "Hoppsan, detta tal finns inte på din bricka!"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:332
+msgid "1st"
+msgstr "Första"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:335
+msgid "2nd"
+msgstr "Andra"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:338
+msgid "3rd"
+msgstr "Tredje"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:340
+msgid "4th"
+msgstr "Fjärde"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:350
+msgid "Game Over"
+msgstr "Spelet är över"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:459
+msgid "Congratulation player {player_id}, you won"
+msgstr "Gratulerar, spelare {player_id}. Du vann"
+
+#: ../src/braille_lotto-activity/braille_lotto.xml.in.h:1
+msgid "Braille Lotto"
+msgstr "Punktskriftslotto"
+
+#: ../src/braille_lotto-activity/braille_lotto.xml.in.h:2
+msgid "Discover the Braille system for numbers."
+msgstr "Upptäck punktskrift för tal."
+
+#: ../src/braille_lotto-activity/braille_lotto.xml.in.h:3
+msgid "Each player must find if the proposed number is in their board. If the code is in the board, just click on it in order to validate it. The player who crosses all the Braille numbers correctly wins the game. Check the Braille table by clicking on the toggle button in the control bar."
+msgstr ""
 
 #: ../src/canal_lock-activity/canal_lock.xml.in.h:1
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:2
@@ -1800,76 +1971,6 @@ msgstr "1955 Citroën ds 19"
 msgid "Cars"
 msgstr "Bilar"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:311
-#: ../src/memory-activity/memory.c:906
-msgid ""
-"Error: this activity cannot be played with the\n"
-"sound effects disabled.\n"
-"Go to the configuration dialog to\n"
-"enable the sound"
-msgstr ""
-"Fel: denna aktivitet kan inte spelas med\n"
-"ljudeffekterna inaktiverade.\n"
-"Gå in i konfigurationsdialogen\n"
-"för att aktivera ljudet"
-
-#. TRANSLATORS: Put here the alphabet in your language
-#. require by all utf8-functions
-#. TRANSLATORS: Put here the alphabet lowercase in your language
-#: ../src/click_on_letter-activity/click_on_letter.c:316
-#: ../src/gletters-activity/gletters.c:229
-#: ../src/memory-activity/memory.c:935
-msgid "abcdefghijklmnopqrstuvwxyz"
-msgstr "abcdefghijklmnopqrstuvxyzåäö"
-
-#: ../src/click_on_letter-activity/click_on_letter.c:344
-#, c-format
-msgid ""
-"Error: this activity requires that you first install\n"
-"the packages with GCompris voices for the locale '%s' or '%s'"
-msgstr ""
-"Fel: denna aktivitet kräver att du först installerar\n"
-"paketen med GCompris-röster för lokalen \"%s\" eller \"%s\""
-
-#: ../src/click_on_letter-activity/click_on_letter.c:354
-#, c-format
-msgid ""
-"Error: this activity requires that you first install\n"
-"the packages with GCompris voices for the locale '%s' ! Fallback to english, sorry!"
-msgstr ""
-"Fel: denna aktivitet kräver att du först installerar\n"
-"paketen med GCompris-röster för lokalen \"%s\"! Faller tillbaka på engelska, ursäkta!"
-
-#. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:694
-#: ../src/gletters-activity/gletters.c:883
-#: ../src/login-activity/login.py:484
-#: ../src/missing_letter-activity/missingletter_config.c:492
-#: ../src/readingh-activity/reading.c:928
-#: ../src/wordsgame-activity/wordsgame.c:887
-msgid "Uppercase only text"
-msgstr "Endast stora bokstäver"
-
-#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:1
-msgid "A letter is spoken. Click on the matching letter in the main area. You can listen to the letter again, by clicking on the mouth icon in the bottom box."
-msgstr "En bokstav uttalas. Klicka på motsvarande bokstav i huvudområdet. Du kan höra bokstaven igen genom att klicka på munikonen i den nedre rutan."
-
-#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:2
-msgid "Click on a letter"
-msgstr "Klicka på en bokstav"
-
-#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:3
-msgid "Letter-name recognition"
-msgstr "Bokstavsigenkänning"
-
-#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:4
-msgid "Listen to a letter and click on the right one"
-msgstr "Lyssna och klicka på rätt bokstav"
-
-#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:5
-msgid "Visual letter-recognition. Can move the mouse."
-msgstr "Visuell bokstavsidentifiering. Kan flytta musen."
-
 #: ../src/clickanddraw-activity/clickanddraw.xml.in.h:1
 msgid "Click and draw"
 msgstr "Klicka och rita"
@@ -1902,6 +2003,115 @@ msgstr "Motorik: flytta och klicka med musen."
 msgid "Use the left mouse button to click on the moving fish. A level 5 and after, a double click is mandatory."
 msgstr "Använd vänstra musknappen för att klicka på den rörliga fisken. Dubbelklick krävs efter nivå 5."
 
+#. require by all utf8-functions
+#. TRANSLATORS: Put here the alphabet lowercase in your language
+#: ../src/click_on_letter-activity/click_on_letter.c:367
+#: ../src/gletters-activity/gletters.c:229
+#: ../src/memory-activity/memory.c:935
+msgid "abcdefghijklmnopqrstuvwxyz"
+msgstr "abcdefghijklmnopqrstuvxyzåäö"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:378
+msgid "This activity will be played with questions displayed as text instead of being spoken"
+msgstr "Denna aktivitet kommer att spelas med frågor som visas som text istället för uppläsning"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:383
+#: ../src/memory-activity/memory.c:906
+msgid ""
+"Error: this activity cannot be played with the\n"
+"sound effects disabled.\n"
+"Go to the configuration dialog to\n"
+"enable the sound"
+msgstr ""
+"Fel: denna aktivitet kan inte spelas med\n"
+"ljudeffekterna inaktiverade.\n"
+"Gå in i konfigurationsdialogen\n"
+"för att aktivera ljudet"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:404
+#, fuzzy, c-format
+msgid ""
+"Error: this activity requires that you first install\n"
+"the packages with GCompris voices for the %s locale."
+msgstr ""
+"Fel: denna aktivitet kräver att du först installerar\n"
+"paketen med GCompris-röster för lokalen \"%s\" eller \"%s\""
+
+#: ../src/click_on_letter-activity/click_on_letter.c:907
+msgid "Questions cannot be empty."
+msgstr "Frågor får inte vara tomma."
+
+#: ../src/click_on_letter-activity/click_on_letter.c:917
+msgid "Answers cannot be empty."
+msgstr "Svar får inte vara tomma."
+
+#: ../src/click_on_letter-activity/click_on_letter.c:923
+#, c-format
+msgid "Too many characters in the Answer (maximum is %d)."
+msgstr "För många tecken i svaret (maximalt %d)."
+
+#: ../src/click_on_letter-activity/click_on_letter.c:947
+msgid "All the characters in Questions must also be in the Answers."
+msgstr "Alla tecken i frågorna måste även finnas i svaren."
+
+#: ../src/click_on_letter-activity/click_on_letter.c:964
+#, fuzzy, c-format
+msgid ""
+"Invalid entry:\n"
+"At level %d, Questions '%s' / Answers '%s'\n"
+"%s"
+msgstr ""
+"Ogiltig inmatning:\n"
+"Fråga \"%s\" / Svar \"%s\"\n"
+"%s"
+
+#. answer
+#: ../src/click_on_letter-activity/click_on_letter.c:1259
+#: ../src/missing_letter-activity/missingletter_config.c:420
+#: ../src/missing_letter-activity/missingletter_config.c:548
+msgid "Answer"
+msgstr "Svar"
+
+#. question
+#: ../src/click_on_letter-activity/click_on_letter.c:1270
+#: ../src/missing_letter-activity/missingletter_config.c:426
+#: ../src/missing_letter-activity/missingletter_config.c:571
+msgid "Question"
+msgstr "Fråga"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:1406
+#: ../src/gcompris/board_config_wordlist.c:274
+msgid "Back to default"
+msgstr "Tillbaka till standard"
+
+#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:1
+#: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:1
+msgid "A letter is spoken. Click on the matching letter in the main area. You can listen to the letter again, by clicking on the mouth icon in the bottom box."
+msgstr "En bokstav uttalas. Klicka på motsvarande bokstav i huvudområdet. Du kan höra bokstaven igen genom att klicka på munikonen i den nedre rutan."
+
+#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:2
+msgid "Click on a lowercase letter"
+msgstr "Klicka på en liten bokstav"
+
+#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:3
+#: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:3
+msgid "Letter-name recognition"
+msgstr "Bokstavsigenkänning"
+
+#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:4
+#: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:4
+msgid "Listen to a letter and click on the right one"
+msgstr "Lyssna och klicka på rätt bokstav"
+
+#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:5
+#: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:5
+msgid "Visual letter-recognition. Can move the mouse."
+msgstr "Visuell bokstavsidentifiering. Kan flytta musen."
+
+#: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:2
+msgid "Click on an uppercase letter"
+msgstr "Klicka på en stor bokstav"
+
 #: ../src/clockgame-activity/clockgame.c:524
 msgid "Set the watch to:"
 msgstr "Ställ klockan till:"
@@ -1925,46 +2135,6 @@ msgstr "Ställ in klockan till angiven tid, i de tidsenheter som visas (timmar:m
 #: ../src/clockgame-activity/clockgame.xml.in.h:5
 msgid "The concept of time. Reading the time."
 msgstr "Tidskonceptet och tidsläsning."
-
-#: ../src/colors-activity/colors.c:60
-msgid "Click on the blue duck"
-msgstr "Klicka på den blåa ankan"
-
-#: ../src/colors-activity/colors.c:61
-msgid "Click on the brown duck"
-msgstr "Klicka på den bruna ankan"
-
-#: ../src/colors-activity/colors.c:62
-msgid "Click on the green duck"
-msgstr "Klicka på den gröna ankan"
-
-#: ../src/colors-activity/colors.c:63
-msgid "Click on the grey duck"
-msgstr "Klicka på den gråa ankan"
-
-#: ../src/colors-activity/colors.c:64
-msgid "Click on the orange duck"
-msgstr "Klicka på den orangea ankan"
-
-#: ../src/colors-activity/colors.c:65
-msgid "Click on the purple duck"
-msgstr "Klicka på den lila ankan"
-
-#: ../src/colors-activity/colors.c:66
-msgid "Click on the red duck"
-msgstr "Klicka på den röda ankan"
-
-#: ../src/colors-activity/colors.c:67
-msgid "Click on the yellow duck"
-msgstr "Klicka på den gula ankan"
-
-#: ../src/colors-activity/colors.c:68
-msgid "Click on the black duck"
-msgstr "Klicka på den svarta ankan"
-
-#: ../src/colors-activity/colors.c:69
-msgid "Click on the white duck"
-msgstr "Klicka på den vita ankan"
 
 #: ../src/colors-activity/colors.xml.in.h:1
 msgid "Can move the mouse."
@@ -1992,47 +2162,38 @@ msgid "Find the {text} duck"
 msgstr "Hitta den {text} ankan"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:3
-#: ../src/read_colors-activity/read_colors.c:65
 msgid "black"
 msgstr "svart"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:4
-#: ../src/read_colors-activity/read_colors.c:57
 msgid "blue"
 msgstr "blå"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:5
-#: ../src/read_colors-activity/read_colors.c:58
 msgid "brown"
 msgstr "brun"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:6
-#: ../src/read_colors-activity/read_colors.c:59
 msgid "green"
 msgstr "grön"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:7
-#: ../src/read_colors-activity/read_colors.c:60
 msgid "grey"
 msgstr "grå"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:8
-#: ../src/read_colors-activity/read_colors.c:61
 msgid "orange"
 msgstr "orange"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:10
-#: ../src/read_colors-activity/read_colors.c:63
 msgid "red"
 msgstr "röd"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:11
-#: ../src/read_colors-activity/read_colors.c:66
 msgid "white"
 msgstr "vit"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:12
-#: ../src/read_colors-activity/read_colors.c:64
 msgid "yellow"
 msgstr "gul"
 
@@ -2079,8 +2240,8 @@ msgid "Drive the crane and copy the model"
 msgstr "Kör kranen och kopiera modellen"
 
 #: ../src/crane-activity/crane.xml.in.h:3
-#: ../src/erase-activity/erase.xml.in.h:2
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:5
+#: ../src/erase-activity/erase.xml.in.h:2
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:5
 #: ../src/penalty-activity/penalty.xml.in.h:3
 msgid "Motor-coordination"
@@ -2139,10 +2300,6 @@ msgstr "Vincent van Gogh, Porträtt av Pere Tanguy 1887-8"
 msgid "Eilean Donan castle"
 msgstr "Slottet på Eilean Donan"
 
-#: ../src/details-activity/resources/details/board2_1.xml.in.h:1
-msgid "Eiffel Tower, seen from the champ de Mars, Paris, France"
-msgstr "Eiffeltornet, sett från Marsfältet i Paris, Frankrike"
-
 #: ../src/details-activity/resources/details/board2_10.xml.in.h:1
 msgid "Gizah Pyramids, Egypt"
 msgstr "Gizah-pyramiderna, Egypten"
@@ -2154,6 +2311,10 @@ msgstr "Operahuset i Sydney, Australien"
 #: ../src/details-activity/resources/details/board2_12.xml.in.h:1
 msgid "Tower Bridge in London"
 msgstr "Tower Bridge i London"
+
+#: ../src/details-activity/resources/details/board2_1.xml.in.h:1
+msgid "Eiffel Tower, seen from the champ de Mars, Paris, France"
+msgstr "Eiffeltornet, sett från Marsfältet i Paris, Frankrike"
 
 #: ../src/details-activity/resources/details/board2_2.xml.in.h:1
 msgid "Courtyard of the Museum of Louvre, and its pyramid"
@@ -2231,7 +2392,8 @@ msgid "Select a drawing tool on the left, and a color down the bottom, then clic
 msgstr "På vänstra sidan väljer du ett ritverktyg, sedan väljer du en färg nederst, och sedan klickar du på den vita ytan och drar för att skapa en ny figur. För att spara tid kan du använda musens mittknapp för att ta bort ett objekt."
 
 #: ../src/drawnumber-activity/drawnumber.py:236
-#: ../src/findit-activity/findit.py:290
+#: ../src/findit-activity/findit.py:310
+#: ../src/louis_braille-activity/louis_braille.py:84
 msgid "Cannot find the file '{filename}'"
 msgstr "Kan inte hitta filen \"{filename}\""
 
@@ -2314,6 +2476,18 @@ msgstr "Räkna objekten"
 msgid "First, properly organize the items so that you can count them. Then, select the item you want to answer in the bottom right area. Enter the answer with the keyboard and press the OK button or the 'Enter' key."
 msgstr "Först, organisera objekten så att du kan räkna dem. Sedan, välj den saken som du vill svara på i den nedre högra området. Mata in svaret med tangentbordet och tryck på OK-knappen eller \"Retur\"-tangenten."
 
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
+msgid "Double click the mouse"
+msgstr "Dubbelklicka med musen"
+
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:3
+msgid "Double click the mouse on rectangles until all the blocks disappear."
+msgstr "Dubbelklicka med musen på rektanglarna tills alla block har försvunnit."
+
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:4
+msgid "Double click the mouse to erase the area and discover the background"
+msgstr "Dubbelklicka med musen för att radera området och upptäck bakgrunden"
+
 #: ../src/erase-activity/erase.c:86
 #: ../src/erase-activity/erase.xml.in.h:5
 msgid "Move the mouse to erase the area and discover the background"
@@ -2349,18 +2523,6 @@ msgstr "Djurbilderna har tagits från Ralf Schmodes djurfotografisida (&lt;http:
 msgid "Move the mouse until all the blocks disappear. You can add you own images under the directory '~/My GCompris/erase'."
 msgstr "Flytta muspekaren tills alla block har försvunnit. Du kan lägga till egna bilder under katalogen \"~/My GCompris/erase\"."
 
-#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
-msgid "Double click the mouse"
-msgstr "Dubbelklicka med musen"
-
-#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:3
-msgid "Double click the mouse on rectangles until all the blocks disappear."
-msgstr "Dubbelklicka med musen på rektanglarna tills alla block har försvunnit."
-
-#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:4
-msgid "Double click the mouse to erase the area and discover the background"
-msgstr "Dubbelklicka med musen för att radera området och upptäck bakgrunden"
-
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:2
 msgid "Click the mouse"
 msgstr "Klicka med musen"
@@ -2388,6 +2550,15 @@ msgstr "Ursprunglig kod tagen från libgnomecanvas-demot"
 #: ../src/fifteen-activity/fifteen.xml.in.h:5
 msgid "The fifteen game"
 msgstr "Femtonspelet"
+
+#: ../src/findit-activity/findit.py:315
+#: ../src/louis_braille-activity/louis_braille.py:88
+msgid ""
+"Failed to parse data set '{filename}' with error:\n"
+"{error}"
+msgstr ""
+"Misslyckades med att tolka datauppsättningen \"{filename}\" med felet:\n"
+"{error}"
 
 #: ../src/followline-activity/followline.xml.in.h:1
 msgid "Control the hose-pipe"
@@ -2429,7 +2600,7 @@ msgstr ""
 "Ulrika Uddeborg\n"
 "\n"
 "Skicka synpunkter på översättningen\n"
-"<till tp-sv@listor.tp-sv.se>"
+"till <tp-sv@listor.tp-sv.se>"
 
 #: ../src/gcompris/about.c:82
 msgid "About GCompris"
@@ -2455,27 +2626,27 @@ msgstr "Detta program är ett GNU-paket och är släppt under Gnu Public License
 msgid "OK"
 msgstr "OK"
 
-#: ../src/gcompris/bar.c:684
+#: ../src/gcompris/bar.c:688
 msgid "GCompris confirmation"
 msgstr "Bekräfta"
 
-#: ../src/gcompris/bar.c:685
+#: ../src/gcompris/bar.c:689
 msgid "Are you sure you want to quit?"
 msgstr "Är du säker på att du vill avsluta?"
 
-#: ../src/gcompris/bar.c:686
+#: ../src/gcompris/bar.c:690
 msgid "Yes, I am sure!"
 msgstr "Ja, jag är säker!"
 
-#: ../src/gcompris/bar.c:687
+#: ../src/gcompris/bar.c:691
 msgid "No, I want to keep going"
 msgstr "Nej, jag vill fortsätta"
 
-#: ../src/gcompris/board.c:155
+#: ../src/gcompris/board.c:149
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr "Dynamisk inläsning av moduler stöds inte. GCompris kan inte läsa in.\n"
 
-#: ../src/gcompris/board_config_combo.c:157
+#: ../src/gcompris/board_config_combo.c:182
 msgid ""
 "Select the language\n"
 " to use in the board"
@@ -2483,23 +2654,23 @@ msgstr ""
 "Välj språket att\n"
 " använda i brädet"
 
-#: ../src/gcompris/board_config_combo.c:227
+#: ../src/gcompris/board_config_combo.c:252
 msgid "Global GCompris mode"
 msgstr "Allmänt GCompris-läge"
 
-#: ../src/gcompris/board_config_combo.c:228
+#: ../src/gcompris/board_config_combo.c:253
 msgid "Normal"
 msgstr "Normalt"
 
-#: ../src/gcompris/board_config_combo.c:229
+#: ../src/gcompris/board_config_combo.c:254
 msgid "2 clicks"
 msgstr "2 klick"
 
-#: ../src/gcompris/board_config_combo.c:230
+#: ../src/gcompris/board_config_combo.c:255
 msgid "both modes"
 msgstr "båda lägena"
 
-#: ../src/gcompris/board_config_combo.c:258
+#: ../src/gcompris/board_config_combo.c:283
 msgid ""
 "Select the drag and drop mode\n"
 " to use in the board"
@@ -2508,27 +2679,23 @@ msgstr ""
 " för att använda brädet"
 
 #. add a new level
-#: ../src/gcompris/board_config_wordlist.c:106
+#: ../src/gcompris/board_config_wordlist.c:123
 #, c-format
 msgid "%d (New level)"
 msgstr "%d (Ny nivå)"
 
 #. frame
-#: ../src/gcompris/board_config_wordlist.c:180
+#: ../src/gcompris/board_config_wordlist.c:226
 msgid "Configure the list of words"
 msgstr "Konfigurera ordlistan"
 
-#: ../src/gcompris/board_config_wordlist.c:209
+#: ../src/gcompris/board_config_wordlist.c:237
 msgid "Choice of the language"
 msgstr "Val av språk"
 
-#: ../src/gcompris/board_config_wordlist.c:221
+#: ../src/gcompris/board_config_wordlist.c:249
 msgid "Choice of the level"
 msgstr "Val av nivå"
-
-#: ../src/gcompris/board_config_wordlist.c:246
-msgid "Back to default"
-msgstr "Tillbaka till standard"
 
 #: ../src/gcompris/config.c:58
 msgid "Your system default"
@@ -2840,7 +3007,7 @@ msgid "Effect"
 msgstr "Effekt"
 
 #: ../src/gcompris/config.c:345
-#: ../src/gcompris/sugar.c:82
+#: ../src/gcompris/sugar.c:83
 msgid "Zoom"
 msgstr "Zoom"
 
@@ -2850,8 +3017,8 @@ msgid "Couldn't open skin dir: %s"
 msgstr "Kunde inte öppna skalkatalogen: %s"
 
 #: ../src/gcompris/config.c:413
-#: ../src/gcompris/config.c:780
-#: ../src/gcompris/config.c:794
+#: ../src/gcompris/config.c:862
+#: ../src/gcompris/config.c:876
 #, c-format
 msgid "Skin : %s"
 msgstr "Skal: %s"
@@ -2859,10 +3026,6 @@ msgstr "Skal: %s"
 #: ../src/gcompris/config.c:415
 msgid "SKINS NOT FOUND"
 msgstr "SKALEN HITTADES INTE"
-
-#: ../src/gcompris/config.c:496
-msgid "English (United State)"
-msgstr "Engelska (USA)"
 
 #: ../src/gcompris/file_selector.c:251
 msgid "CANCEL"
@@ -2876,18 +3039,18 @@ msgstr "LÄS IN"
 msgid "SAVE"
 msgstr "SPARA"
 
-#: ../src/gcompris/gameutil.c:142
-#: ../src/gcompris/gameutil.c:200
+#: ../src/gcompris/gameutil.c:138
+#: ../src/gcompris/gameutil.c:196
 msgid "Couldn't find or load the file"
 msgstr "Kunde inte hitta eller läsa in filen"
 
-#: ../src/gcompris/gameutil.c:144
-#: ../src/gcompris/gameutil.c:202
+#: ../src/gcompris/gameutil.c:140
+#: ../src/gcompris/gameutil.c:198
 msgid "This activity is incomplete."
 msgstr "Denna aktivitet är inte klar."
 
-#: ../src/gcompris/gameutil.c:145
-#: ../src/gcompris/gameutil.c:203
+#: ../src/gcompris/gameutil.c:141
+#: ../src/gcompris/gameutil.c:199
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -2895,139 +3058,155 @@ msgstr ""
 "Avsluta och rapportera\n"
 "problemet till författarna."
 
-#: ../src/gcompris/gcompris.c:158
+#: ../src/gcompris/gcompris.c:155
 msgid "run GCompris in fullscreen mode."
 msgstr "kör GCompris i helskärmsläge."
 
-#: ../src/gcompris/gcompris.c:161
+#: ../src/gcompris/gcompris.c:158
 msgid "run GCompris in window mode."
 msgstr "kör GCompris i fönsterläge."
 
-#: ../src/gcompris/gcompris.c:164
+#: ../src/gcompris/gcompris.c:161
 msgid "run GCompris with sound enabled."
 msgstr "kör GCompris med ljud aktiverat."
 
-#: ../src/gcompris/gcompris.c:167
+#: ../src/gcompris/gcompris.c:164
 msgid "run GCompris without sound."
 msgstr "kör GCompris utan ljud."
 
-#: ../src/gcompris/gcompris.c:170
+#: ../src/gcompris/gcompris.c:167
 msgid "run GCompris with the default system cursor."
 msgstr "kör GCompris med systemets standardmuspekare."
 
-#: ../src/gcompris/gcompris.c:173
+#: ../src/gcompris/gcompris.c:170
 msgid "run GCompris without cursor (touch screen mode)."
 msgstr "kör GCompris utan muspekare (pekskärmsläge)."
 
-#: ../src/gcompris/gcompris.c:176
+#: ../src/gcompris/gcompris.c:173
 msgid "display only activities with this difficulty level."
 msgstr "visa endast aktiviteter med denna svårighetsnivå."
 
-#: ../src/gcompris/gcompris.c:179
+#: ../src/gcompris/gcompris.c:176
 msgid "display debug informations on the console."
 msgstr "Visa felsökningsinformation på konsolen."
 
-#: ../src/gcompris/gcompris.c:182
+#: ../src/gcompris/gcompris.c:179
 msgid "Print the version of "
 msgstr "Skriver ut versionsnumret av "
 
-#: ../src/gcompris/gcompris.c:185
+#: ../src/gcompris/gcompris.c:182
 msgid "Run GCompris with local menu (e.g -l /reading will let you play only activities in the reading directory, -l /strategy/connect4 only the connect4 activity). Use '-l list' to list all the availaible activities and their descriptions."
 msgstr "Kör GCompris med lokal meny (-l /reading låter dig endast spela aktiviteter i katalogen reading (läsaktiviteterna), -l /boards/connect4 endast aktiviteten connect4 (4 i Rad)). Använd \"-l list\" för att lista alla tillgängliga aktiviteter och deras beskrivningar."
 
-#: ../src/gcompris/gcompris.c:190
+#: ../src/gcompris/gcompris.c:187
 msgid "GCompris will find the data dir in this directory"
 msgstr "GCompris kommer att söka efter datakatalogen i denna katalog"
 
-#: ../src/gcompris/gcompris.c:193
+#: ../src/gcompris/gcompris.c:190
 msgid "GCompris will find the skins in this directory"
 msgstr "GCompris kommer att söka efter skalen i denna katalog"
 
-#: ../src/gcompris/gcompris.c:196
+#: ../src/gcompris/gcompris.c:193
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "GCompris kommer att söka efter aktiviteter i denna katalog"
 
-#: ../src/gcompris/gcompris.c:199
+#: ../src/gcompris/gcompris.c:196
 msgid "GCompris will find the python activity in this directory"
 msgstr "GCompris kommer att söka efter python-aktiviteten i denna katalog"
 
-#: ../src/gcompris/gcompris.c:202
+#: ../src/gcompris/gcompris.c:199
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr "GCompris kommer att söka efter lokalanpassningsfilen (filändelsen .mo) i denna katalog"
 
-#: ../src/gcompris/gcompris.c:205
+#: ../src/gcompris/gcompris.c:202
 msgid "GCompris will find the activities menu in this directory"
 msgstr "GCompris kommer att söka efter aktivitetsmenyn i denna katalog"
 
-#: ../src/gcompris/gcompris.c:208
+#: ../src/gcompris/gcompris.c:205
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Kör GCompris i administrations- och användarhanteringsläget"
 
-#: ../src/gcompris/gcompris.c:211
+#: ../src/gcompris/gcompris.c:208
 msgid "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite.db]"
 msgstr "Använd alternativ databas för profiler [$HOME/.config/gcompris/gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:214
+#: ../src/gcompris/gcompris.c:211
 msgid "Create the alternate database for profiles"
 msgstr "Skapa den alternativa databasen för profiler"
 
-#: ../src/gcompris/gcompris.c:217
+#: ../src/gcompris/gcompris.c:214
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Läs om XML-menyerna och lagra dem i databasen"
 
-#: ../src/gcompris/gcompris.c:220
+#: ../src/gcompris/gcompris.c:217
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Ställ in profilen att använda. Använd \"gcompris -a\" för att skapa profiler"
 
-#: ../src/gcompris/gcompris.c:223
+#: ../src/gcompris/gcompris.c:220
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr "Lista alla tillgängliga profiler. Använd \"gcompris -a\" för att skapa profiler"
 
-#: ../src/gcompris/gcompris.c:226
+#: ../src/gcompris/gcompris.c:223
 msgid "Config directory location: [$HOME/.config/gcompris]. Alternate is to set $XDG_CONFIG_HOME."
 msgstr "Plats för konfigurationskatalog: [$HOME/.config/gcompris]. Alternativet är att ställa in $XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:229
+#: ../src/gcompris/gcompris.c:226
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "Platsen för användarkataloger: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:232
+#: ../src/gcompris/gcompris.c:229
 msgid "Run the experimental activities"
 msgstr "Kör de experimentella aktiviteterna"
 
-#: ../src/gcompris/gcompris.c:235
+#: ../src/gcompris/gcompris.c:232
 msgid "Disable the quit button"
 msgstr "Inaktivera avslutningsknappen"
 
-#: ../src/gcompris/gcompris.c:238
+#: ../src/gcompris/gcompris.c:235
 msgid "Disable the config button"
 msgstr "Inaktivera konfigurationsknappen"
 
-#: ../src/gcompris/gcompris.c:241
+#: ../src/gcompris/gcompris.c:238
 msgid "Disable the level button"
 msgstr "Inaktivera nivåknappen"
 
-#: ../src/gcompris/gcompris.c:244
+#: ../src/gcompris/gcompris.c:241
 msgid "GCompris will get images, sounds and activity data from this server if not found locally."
 msgstr "GCompris kommer att hämta bilder, ljud och aktivitetsdata från denna server om de inte hittas lokalt."
 
-#: ../src/gcompris/gcompris.c:247
+#: ../src/gcompris/gcompris.c:244
 msgid "Only when --server is provided, disable check for local resource first. Data are always taken from the web server."
 msgstr "Endast när --server anges, inaktivera först kontroll för lokala resurser. Data tas alltid från webbservern."
 
-#: ../src/gcompris/gcompris.c:251
+#: ../src/gcompris/gcompris.c:248
 msgid "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr "I serverläget, ange cachekatalogen som används för att undvika onödiga hämtningar."
 
-#: ../src/gcompris/gcompris.c:254
+#: ../src/gcompris/gcompris.c:251
 msgid "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr "Allmänt dra och släpp-läge: normal, 2clicks, both. Standardläget är normal."
 
-#: ../src/gcompris/gcompris.c:257
+#: ../src/gcompris/gcompris.c:254
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Förhindra inte körning av flera instanser av GCompris."
 
-#: ../src/gcompris/gcompris.c:929
+#: ../src/gcompris/gcompris.c:260
+msgid "Disable maximization zoom"
+msgstr "Inaktivera maximerad zoom"
+
+#: ../src/gcompris/gcompris.c:263
+msgid "Increase activities' timeout delays; useful values > 1.0; 1.0 to not change hardcoded value"
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:266
+msgid "How activities' timeout delays are growing for several actors; useful values < 1.0; 1.0 to not change hardcoded value"
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:269
+msgid "For test purpose, run in a loop all the activities"
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:940
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to support its development, this version provides only %d of the %d activities. You can get the full version for a small fee at\n"
@@ -3040,22 +3219,24 @@ msgstr ""
 "GNU/Linux-versionen har inte denna begränsning. Om du också tycker att vi skall undervisa frihet till barn, överväg att använda GNU/Linux. Få mer information hos FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1223
+#: ../src/gcompris/gcompris.c:1234
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
 msgstr "Misslyckades med att läsa in skalet \"%s\" (Kontrollera om filen finns och är läsbar)"
 
-#: ../src/gcompris/gcompris.c:1486
+#: ../src/gcompris/gcompris.c:1504
 #, c-format
-msgid "GCompris won't start because the lock file is less than %d seconds old.\n"
-msgstr "GCompris kommer inte att starta därför att låsningsfilen är mindre än %d sekunder gammal.\n"
+msgid "GCompris won't start because the lock file is less than %d second old.\n"
+msgid_plural "GCompris won't start because the lock file is less than %d seconds old.\n"
+msgstr[0] "GCompris kommer inte att starta därför att låsningsfilen är mindre än %d sekund gammal.\n"
+msgstr[1] "GCompris kommer inte att starta därför att låsningsfilen är mindre än %d sekunder gammal.\n"
 
-#: ../src/gcompris/gcompris.c:1488
+#: ../src/gcompris/gcompris.c:1508
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Låsningsfilen är: %s\n"
 
-#: ../src/gcompris/gcompris.c:1599
+#: ../src/gcompris/gcompris.c:1681
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3069,37 +3250,37 @@ msgstr ""
 "Mer information på http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1714
+#: ../src/gcompris/gcompris.c:1796
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Använd -l för att komma åt en aktivitet direkt.\n"
 
-#: ../src/gcompris/gcompris.c:1715
+#: ../src/gcompris/gcompris.c:1797
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Listan på tillgängliga aktiviteter är :\n"
 
-#: ../src/gcompris/gcompris.c:1746
+#: ../src/gcompris/gcompris.c:1828
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Antal aktiviteter: %d\n"
 
-#: ../src/gcompris/gcompris.c:1782
+#: ../src/gcompris/gcompris.c:1864
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s finns men är inte läs- eller skrivbar"
 
-#: ../src/gcompris/gcompris.c:1845
+#: ../src/gcompris/gcompris.c:1927
 #, c-format
 msgid "The --server option cannot be used because GCompris has been compiled without network support!"
 msgstr "Flaggan --server kan inte användas därför att GCompris har byggts utan nätverksstöd!"
 
-#: ../src/gcompris/gcompris.c:1899
+#: ../src/gcompris/gcompris.c:1981
 #, c-format
 msgid "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list available ones\n"
 msgstr "FEL: Profilen \"%s\" hittades inte. Kör \"gcompris --profile-list\" för att lista tillgängliga profiler\n"
 
-#: ../src/gcompris/gcompris.c:1913
+#: ../src/gcompris/gcompris.c:1995
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Listan på tillgängliga profiler är:\n"
@@ -3160,36 +3341,36 @@ msgstr ""
 "Du kan inkludera dessa bilder i dina teckningar och animeringar.\n"
 "Bildformaten som stöds är jpeg, png och svg.\n"
 
-#: ../src/gcompris/sugar.c:70
+#: ../src/gcompris/sugar.c:71
 msgid "Help"
 msgstr "Hjälp"
 
-#: ../src/gcompris/sugar.c:71
+#: ../src/gcompris/sugar.c:72
 msgid "About"
 msgstr "Om"
 
-#: ../src/gcompris/sugar.c:72
+#: ../src/gcompris/sugar.c:73
 msgid "Previous level"
 msgstr "Föregående nivå"
 
-#: ../src/gcompris/sugar.c:75
+#: ../src/gcompris/sugar.c:76
 msgid "Next level"
 msgstr "Nästa nivå"
 
-#: ../src/gcompris/sugar.c:77
+#: ../src/gcompris/sugar.c:78
 msgid "Refresh"
 msgstr "Uppdatera"
 
-#: ../src/gcompris/sugar.c:78
+#: ../src/gcompris/sugar.c:79
 msgid "Settings"
 msgstr "Inställningar"
 
 #. TRANSLATORS: Back as in previous
-#: ../src/gcompris/sugar.c:86
+#: ../src/gcompris/sugar.c:87
 msgid "Back"
 msgstr "Bakåt"
 
-#: ../src/gcompris/sugar.c:87
+#: ../src/gcompris/sugar.c:88
 msgid "Stop"
 msgstr "Stoppa"
 
@@ -3830,14 +4011,14 @@ msgstr "ABCDEFGHIJKLMNOPQRSTUVXYZÅÄÖ"
 #. we can add what you want in it.
 #: ../src/gletters-activity/gletters.c:850
 #: ../src/imageid-activity/imageid.c:712
-#: ../src/login-activity/login.py:479
+#: ../src/login-activity/login.py:480
 #: ../src/missing_letter-activity/missingletter.c:784
-#: ../src/pythontest-activity/pythontest.py:454
-#: ../src/readingh-activity/reading.c:904
-#: ../src/scalesboard-activity/scale.c:1160
-#: ../src/smallnumbers-activity/smallnumbers.c:595
+#: ../src/pythontest-activity/pythontest.py:448
+#: ../src/readingh-activity/reading.c:905
+#: ../src/scalesboard-activity/scale.c:1161
+#: ../src/smallnumbers-activity/smallnumbers.c:597
 #: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:864
+#: ../src/wordsgame-activity/wordsgame.c:866
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -3847,9 +4028,18 @@ msgstr ""
 " för profilen <b>%s</b>"
 
 #: ../src/gletters-activity/gletters.c:879
-#: ../src/smallnumbers-activity/smallnumbers.c:614
+#: ../src/smallnumbers-activity/smallnumbers.c:616
 msgid "Enable sounds"
 msgstr "Aktivera ljud"
+
+#. toggle box
+#: ../src/gletters-activity/gletters.c:883
+#: ../src/login-activity/login.py:486
+#: ../src/missing_letter-activity/missingletter_config.c:492
+#: ../src/readingh-activity/reading.c:929
+#: ../src/wordsgame-activity/wordsgame.c:889
+msgid "Uppercase only text"
+msgstr "Endast stora bokstäver"
 
 #: ../src/gletters-activity/gletters.xml.in.h:1
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:2
@@ -4064,20 +4254,20 @@ msgstr "Primtal är tal som endast är delbara med sig själva och 1. Till exemp
 msgid "Guess a number between %d and %d"
 msgstr "Gissa ett tal mellan %d och %d"
 
-#: ../src/guessnumber-activity/guessnumber.py:299
+#: ../src/guessnumber-activity/guessnumber.py:302
 #, python-format
 msgid "Please enter a number between %d and %d"
 msgstr "Ange ett tal mellan %d och %d"
 
-#: ../src/guessnumber-activity/guessnumber.py:304
+#: ../src/guessnumber-activity/guessnumber.py:307
 msgid "Out of range"
 msgstr "Utanför intervallet"
 
-#: ../src/guessnumber-activity/guessnumber.py:310
+#: ../src/guessnumber-activity/guessnumber.py:313
 msgid "Too high"
 msgstr "För högt"
 
-#: ../src/guessnumber-activity/guessnumber.py:312
+#: ../src/guessnumber-activity/guessnumber.py:315
 msgid "Too low"
 msgstr "För lågt"
 
@@ -4115,6 +4305,10 @@ msgid "NONE"
 msgstr "INGET"
 
 #: ../src/hangman-activity/hangman.py:104
+msgid "English"
+msgstr "Engelska"
+
+#: ../src/hangman-activity/hangman.py:107
 msgid "Could not find the list of words."
 msgstr "Kunde inte hitta ordlistan."
 
@@ -4226,59 +4420,64 @@ msgstr "Solen värmer upp vattnet och skapa vattenångor. Vattenångorna blir ti
 msgid "As a cloud matures, the dense water droplets may combine to produce larger droplets, which may combine to form droplets large enough to fall as rain"
 msgstr "När ett moln åldras kan kompakta vattendroppar kombineras och skapa större droppar, som kan forma droppar stora nog att falla ner som regn"
 
-#: ../src/hydroelectric-activity/hydroelectric.py:169
+#. Translator : "meter" here means a measuring device
+#: ../src/hydroelectric-activity/hydroelectric.py:170
 msgid "This is the meter for electricity produced by the turbine. "
 msgstr "Detta är mätare för den elektricitet som produceras av turbinen. "
 
-#: ../src/hydroelectric-activity/hydroelectric.py:170
-#: ../src/hydroelectric-activity/hydroelectric.py:282
-#: ../src/hydroelectric-activity/hydroelectric.py:289
-#: ../src/hydroelectric-activity/hydroelectric.py:319
-#: ../src/hydroelectric-activity/hydroelectric.py:341
+#: ../src/hydroelectric-activity/hydroelectric.py:171
+#: ../src/hydroelectric-activity/hydroelectric.py:284
+#: ../src/hydroelectric-activity/hydroelectric.py:292
+#: ../src/hydroelectric-activity/hydroelectric.py:323
+#: ../src/hydroelectric-activity/hydroelectric.py:346
 msgid "The electricity power is measured in Watt (W)."
 msgstr "Elkraften mäts i watt (W)."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:175
+#: ../src/hydroelectric-activity/hydroelectric.py:176
 msgid "Flowing water is directed on to the blades of a turbine runner, creating a force on the blades. In this way, energy is transferred from the water flow to the turbine"
 msgstr "Rinnande vatten dirigeras till bladen i turbinen vilket skapar en kraft mot bladen. På detta sätt kan energi överföras från vattenkraften till turbinen"
 
-#: ../src/hydroelectric-activity/hydroelectric.py:189
+#: ../src/hydroelectric-activity/hydroelectric.py:190
 msgid "This cloud simulates the wind, click on it to have wind."
 msgstr "Detta moln simulerar vinden. Klicka på det för att blåsa."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:227
+#: ../src/hydroelectric-activity/hydroelectric.py:228
 msgid "This is a step down transformer. Electricity is transformed in low voltage, ready to be used by the customers."
 msgstr "Detta är en lågspänningstransformator. Elektricitet omvandlas till ett lägre volttag som kan användas av kunderna."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:281
+#. Translator : "meter" here means a measuring device
+#: ../src/hydroelectric-activity/hydroelectric.py:283
 msgid "This is the meter for all the electricity produced. "
 msgstr "Detta är mätaren för all elektricitet som produceras."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:288
+#. Translator : "meter" here means a measuring device
+#: ../src/hydroelectric-activity/hydroelectric.py:291
 msgid "This is the meter for electricity consumed by the users. "
 msgstr "Detta är mätaren för elektricitet som används av användarna."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:318
+#. Translator : "meter" here means a measuring device
+#: ../src/hydroelectric-activity/hydroelectric.py:322
 msgid "This is the meter for electricity produced by the solar panels. "
 msgstr "Detta är mätaren för elektricitet som produceras av solpanelerna."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:324
+#: ../src/hydroelectric-activity/hydroelectric.py:328
 msgid "Solar panels use light energy (photons) from the sun to generate electricity through the photovoltaic effect."
 msgstr "Solpaneler använd ljusenergi (fotoner) från solen för att generera elektricitet genom en fotovoltaisk effekt."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:340
+#. Translator : "meter" here means a measuring device
+#: ../src/hydroelectric-activity/hydroelectric.py:345
 msgid "This is the meter for electricity produced by the wind turbines. "
 msgstr "Detta är mätaren för elektricitet som produceras av vindturbinerna."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:346
+#: ../src/hydroelectric-activity/hydroelectric.py:351
 msgid "A wind turbine is a device that converts wind motion energy into electricity generation. It is called a wind generator or wind charger. "
 msgstr "En vindturbin är en enhet som gör om vindenergi till elektricitet. Det kallas för en vindgenerator eller vindladdare."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:732
+#: ../src/hydroelectric-activity/hydroelectric.py:737
 msgid "It is not possible to consume more electricity than what is produced. This is a key limitation in the distribution of electricity, with minor exceptions, electrical energy cannot be stored, and therefore it must be generated as it is needed. A sophisticated system of control is therefore required to ensure electric generation very closely matches the demand. If supply and demand are not in balance, generation plants and transmission equipment can shut down which, in the worst cases, can lead to a major regional blackout."
 msgstr "Det är inte möjligt att använda mer elektricitet än vad som produceras. Detta är en huvudsaklig begränsning i distributionen av elektrictet, med mindre undantag, elektrisk energi kan inte lagras och därför måste den genereras efter behov. Ett sofistikerat system av kontroll behövs därför för att försäkra sig att lika mycket elektricitet genereras som det behövs. Om produktion och behov inte balanseras kan kraftverk och överföringsutrustning stängas av, vilket i värsta fall, kan leda till stora  regionala elavbrott."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:946
+#: ../src/hydroelectric-activity/hydroelectric.py:951
 msgid "This is a step up transformer. Electricity is transmitted at high voltages (110 kV or above) to reduce the energy lost in long distance transmission."
 msgstr "Detta är en högspänningstransformator. Electricitet överförs i högre volttal (110 kV eller högre) för att minska den energi som förloras vid överföringar över långa avstånd."
 
@@ -4569,6 +4768,131 @@ msgstr "flagga"
 msgid "racket"
 msgstr "racket"
 
+#: ../src/instruments-activity/instruments.xml.in.h:1
+msgid "Click on the correct instrument."
+msgstr "Klicka på rätt instrument."
+
+#: ../src/instruments-activity/instruments.xml.in.h:2
+msgid "Click on the correct mucical instruments"
+msgstr "Klicka på de rätta musikinstrumenten"
+
+#: ../src/instruments-activity/instruments.xml.in.h:3
+msgid "Learn to recognize musical instruments."
+msgstr "Lär dig känna igen musikinstrument."
+
+#: ../src/instruments-activity/instruments.xml.in.h:4
+msgid "Music instruments"
+msgstr "Musikinstrument"
+
+#. Translator: Do not translate {text}.
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:2
+msgid "Find {text}"
+msgstr "Hitta {text}"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:3
+msgid "the accordion"
+msgstr "dragspelet"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:4
+msgid "the banjo"
+msgstr "banjon"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:5
+msgid "the bass drum"
+msgstr "bastrumman"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:6
+msgid "the bongo"
+msgstr "bongotrumman"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:7
+msgid "the castanets"
+msgstr "kastanjetten"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:8
+msgid "the cello"
+msgstr "cellon"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:9
+msgid "the clarinet"
+msgstr "klarinetten"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:10
+msgid "the cymbal"
+msgstr "cymbalen"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:11
+msgid "the drum kit"
+msgstr "trumsetet"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
+msgid "the electric guitar"
+msgstr "elgitarren"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
+msgid "the flute traversiere"
+msgstr "tvärflöjten"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
+msgid "the guitar"
+msgstr "gitarren"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
+msgid "the harmonica"
+msgstr "munspelet"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
+msgid "the harp"
+msgstr "harpan"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
+msgid "the horn"
+msgstr "hornet"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
+msgid "the maracas"
+msgstr "maracas"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
+msgid "the organ"
+msgstr "orgeln"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
+msgid "the piano"
+msgstr "pianot"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
+msgid "the saxophone"
+msgstr "saxofonen"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
+msgid "the tambourine"
+msgstr "tamburinen"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
+msgid "the timpani"
+msgstr "pukan"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
+msgid "the triangle"
+msgstr "triangeln"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
+msgid "the trombone"
+msgstr "trombonen"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
+msgid "the trumpet"
+msgstr "trumpeten"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:27
+msgid "the tuba"
+msgstr "tuban"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:28
+msgid "the violin"
+msgstr "fiolen"
+
 #: ../src/leftright-activity/leftright.c:230
 #: ../src/searace-activity/searace.py:415
 #: ../src/searace-activity/searace.py:439
@@ -4634,16 +4958,16 @@ msgstr "Effekten av att trycka på en knapp är att växla tillståndet för den
 msgid "The solver algorithm described on haar.clara.co.uk is a valuable resource to know more about the Lights Off game: &lt;http://www.haar.clara.co.uk/Lights/solving.html&gt;"
 msgstr "Lösningsalgoritmen som beskrivs på haar.clara.co.uk är en värdefull resurs för att lära sig mer om spelet Släck lyset: &lt;http://www.haar.clara.co.uk/Lights/solving.html&gt;"
 
-#: ../src/login-activity/login.py:101
+#: ../src/login-activity/login.py:102
 msgid "Profile: "
 msgstr "Profil: "
 
-#: ../src/login-activity/login.py:234
+#: ../src/login-activity/login.py:235
 msgid "Login: "
 msgstr "Inloggningsnamn: "
 
 #. toggle box
-#: ../src/login-activity/login.py:494
+#: ../src/login-activity/login.py:496
 msgid "Enter login to log in"
 msgstr "Ange inloggningsnamn för att logga in"
 
@@ -4676,6 +5000,74 @@ msgstr ""
 #: ../src/login-activity/login.xml.in.h:10
 msgid "Select or enter your name to log in to GCompris"
 msgstr "Välj eller ange ditt namn för att logga in i GCompris"
+
+#: ../src/louis_braille-activity/louis_braille.py:112
+msgid "Click to confirm your sequence"
+msgstr "Klicka för att bekräfta din sekvens"
+
+#: ../src/louis_braille-activity/louis_braille.xml.in.h:1
+msgid "Louis Braille Video: &lt; http://www.youtube.com/watch?v=9bdfC2j_4x4 &gt;"
+msgstr "Video om Louis Braille: &lt; http://www.youtube.com/watch?v=9bdfC2j_4x4 &gt;"
+
+#: ../src/louis_braille-activity/louis_braille.xml.in.h:2
+msgid "Read the history of Louis Braille, his biography and discovery of the Braille system. Click on the previous and next buttons to move to the respective story page. At the end, arrange the sequence in the chronological order."
+msgstr ""
+
+#: ../src/louis_braille-activity/louis_braille.xml.in.h:3
+msgid "Review the major dates of the inventor of the Braille system."
+msgstr ""
+
+#: ../src/louis_braille-activity/louis_braille.xml.in.h:4
+msgid "The History of Louis Braille"
+msgstr "Berättelsen om Louis Braille"
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:1
+msgid "After his Death"
+msgstr "Efter hans död"
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:2
+msgid "At the age of 10, he was sent to Paris to study at the Royal Institute for Blind Youth."
+msgstr "Vid 10 års ålder skickades han till Paris för att studera vid Kungliga institutet för blinda barn."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:3
+msgid "At the age of three, Louis became blind due to a severe infection that spread to his left eye."
+msgstr "Vid 3 års ålder blev Louis blind på grund av en allvarlig infektion som spred sig till hans vänstra öga."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:4
+msgid "Born on January 4th in Coupvary near Paris in France."
+msgstr "Föddes den 4:e januari i Coupvary nära Paris i Frankrike."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:5
+msgid "Braille got accepted as a world wide standard. Louis Braille proved that if you have motivation you can do incredible things."
+msgstr "Punktskrift (Braille) godtogs som världsstandard. Louis Braille bevisade att om du har motivation så kan du göra otroliga saker."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:6
+msgid "Charles Barbier, a French soldier, visited his school and shared his invention of night writing, a code of 12 raised dots to share information on battlefields."
+msgstr "Charles Barbier, en fransk soldat, besökte sin skola och delade med sig av sin uppfinning för nattskrivning, en kod av 12 upphöjda punkter för att dela information på krigsplatser."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:7
+msgid "He became a teacher after graduating and secretly taught his method."
+msgstr "Han blev en lärare efter studenten och lärde ut sin metod i hemlighet."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:8
+msgid "He died of tuberculosis. He is burried in the Pantheon in Paris. A monument is erected to honor him."
+msgstr "Han dog av tuberkulos. Han är begravd i Pantheon i Paris. Ett monument har rests i hans ära."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:9
+msgid "He impressed his classmates and began to play the piano and the organ."
+msgstr "Han imponerade på sina klasskompisar och börjar spela piano och orgel."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:10
+msgid "He revised and extended braille to include mathematics, symbols, punctuations and music notations."
+msgstr "Han utvecklade och ökade punktskriften till att inkludera matematik, symboler, skiljetecken och musiknoter."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:11
+msgid "Louis Braille injured his right eye with a stitching awl from his father's workshop."
+msgstr "Louis Braille skadade sitt högra öga med en syl från sin pappas verkstad."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:12
+msgid "Louis trimmed Barbier's 12 dots into 6 and invented the Braille system."
+msgstr "Louis kortade ner Barbiers 12 punkter till 6 och uppfann punktskriften (Braille-systemet)."
 
 #: ../src/magic_hat_minus-activity/magic_hat_minus.xml.in.h:1
 msgid "Count how many items are under the magic hat after some have got away"
@@ -4720,47 +5112,30 @@ msgstr "Räkna hur många objekt som finns under den magiska hatten"
 msgid "Learn addition"
 msgstr "Lär dig addition"
 
-#: ../src/maze-activity/maze.c:132
-#: ../src/maze-activity/maze.xml.in.h:4
-#: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:4
-#: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:4
-msgid "Maze"
-msgstr "Labyrint"
-
-#: ../src/maze-activity/maze.c:133
-#: ../src/maze-activity/maze.xml.in.h:2
-msgid "Find your way out of the maze"
-msgstr "Hitta vägen ut ur labyrinten"
-
-#: ../src/maze-activity/maze.c:599
-msgid "Look at your position, then switch back to invisible mode to continue your moves"
-msgstr "Titta på din position och växla tillbaka till osynligt läge för att fortsätta din förflyttning"
-
-#: ../src/maze-activity/maze.c:601
-msgid "Look at your position, then switch back to 3D mode to continue your moves"
-msgstr "Titta på din position och växla tillbaka till tredimensionellt läge för att fortsätta din förflyttning"
-
-#: ../src/maze-activity/maze.xml.in.h:1
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:1
 #: ../src/maze3D-activity/maze3D.xml.in.h:2
+#: ../src/maze-activity/maze.xml.in.h:1
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:1
 msgid "Can use the keyboard arrow to move an object."
 msgstr "Kan använda tangentbordet för att flytta ett objekt."
 
-#: ../src/maze-activity/maze.xml.in.h:3
+#: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:2
+msgid "Find your way out of the maze (Move is relative)"
+msgstr "Hitta vägen ut ur labyrinten (förflyttningarna är relativa)"
+
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:3
 #: ../src/maze3D-activity/maze3D.xml.in.h:4
+#: ../src/maze-activity/maze.xml.in.h:3
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:3
 msgid "Help Tux get out of this maze."
 msgstr "Hjälp Tux komma ut ur labyrinten."
 
-#: ../src/maze-activity/maze.xml.in.h:5
-msgid "Use the keyboard arrows to move Tux up to the door."
-msgstr "Använd tangentbordspilarna för att flytta Tux upp till dörren."
-
-#: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:2
-msgid "Find your way out of the maze (Move is relative)"
-msgstr "Hitta vägen ut ur labyrinten (förflyttningarna är relativa)"
+#: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:4
+#: ../src/maze-activity/maze.c:132
+#: ../src/maze-activity/maze.xml.in.h:4
+#: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:4
+msgid "Maze"
+msgstr "Labyrint"
 
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:5
 msgid "Use the keyboard arrows to move Tux up to the door. In this maze, the move is relative (first person). Use the up arrow to go forward. The other arrow let you turn Tux in another direction."
@@ -4777,6 +5152,23 @@ msgstr "Hitta vägen ut ur den tredimensionella labyrinten"
 #: ../src/maze3D-activity/maze3D.xml.in.h:5
 msgid "Use the keyboard arrows to move Tux up to the door. Use the spacebar to switch between 2D and 3D modes. 2D mode just gives you an indication of your position, like a map. You cannot move Tux in 2D mode."
 msgstr "Använd tangentbordspilarna för att flytta Tux upp till dörren. Använd blankstegstangenten för att växla mellan tvådimensionellt och tredimensionellt läge. Tvådimensionellt läge ger dig enbart en indikation om din position på en karta. Du kan inte flytta Tux i tvådimensionellt läge."
+
+#: ../src/maze-activity/maze.c:133
+#: ../src/maze-activity/maze.xml.in.h:2
+msgid "Find your way out of the maze"
+msgstr "Hitta vägen ut ur labyrinten"
+
+#: ../src/maze-activity/maze.c:599
+msgid "Look at your position, then switch back to invisible mode to continue your moves"
+msgstr "Titta på din position och växla tillbaka till osynligt läge för att fortsätta din förflyttning"
+
+#: ../src/maze-activity/maze.c:601
+msgid "Look at your position, then switch back to 3D mode to continue your moves"
+msgstr "Titta på din position och växla tillbaka till tredimensionellt läge för att fortsätta din förflyttning"
+
+#: ../src/maze-activity/maze.xml.in.h:5
+msgid "Use the keyboard arrows to move Tux up to the door."
+msgstr "Använd tangentbordspilarna för att flytta Tux upp till dörren."
 
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:2
 msgid "Find your way out of the invisible maze"
@@ -5151,26 +5543,6 @@ msgstr "Minnesspel med ordnummer"
 msgid "You can see some cards, but you can't see what's on the other side of them. Each card is hiding a number of number, or the word of the number."
 msgstr "Du kan se ett antal kort men inte vad som finns på andra sidan av dem. Varje kort döljer ett antal nummer eller ordet på numret."
 
-#: ../src/missing_letter-activity/missing_letter.xml.in.h:1
-msgid "An object is displayed in the main area, and an incomplete word is printed under the picture. Select the missing letter to complete the word."
-msgstr "Ett objekt visas i huvudområdet, och ett ofullständigt ord visas under bilden. Välj den bokstav som saknas för att göra ordet komplett."
-
-#: ../src/missing_letter-activity/missing_letter.xml.in.h:2
-msgid "Fill in the missing letter"
-msgstr "Fyll i bokstaven som saknas"
-
-#: ../src/missing_letter-activity/missing_letter.xml.in.h:3
-msgid "Missing Letter"
-msgstr "Saknad bokstav"
-
-#: ../src/missing_letter-activity/missing_letter.xml.in.h:4
-msgid "Training reading skills"
-msgstr "Träna läsförmågan"
-
-#: ../src/missing_letter-activity/missing_letter.xml.in.h:5
-msgid "Word reading"
-msgstr "Ordläsning"
-
 #: ../src/missing_letter-activity/missingletter_config.c:77
 msgid "Please select an image."
 msgstr "Välj en bild."
@@ -5220,18 +5592,6 @@ msgstr ""
 msgid "Picture"
 msgstr "Bild"
 
-#. answer
-#: ../src/missing_letter-activity/missingletter_config.c:420
-#: ../src/missing_letter-activity/missingletter_config.c:548
-msgid "Answer"
-msgstr "Svar"
-
-#. question
-#: ../src/missing_letter-activity/missingletter_config.c:426
-#: ../src/missing_letter-activity/missingletter_config.c:571
-msgid "Question"
-msgstr "Fråga"
-
 #. choice
 #: ../src/missing_letter-activity/missingletter_config.c:432
 #: ../src/missing_letter-activity/missingletter_config.c:583
@@ -5259,6 +5619,26 @@ msgstr "Ersätt bokstaven för att gissa på tecknet \"_\"."
 #: ../src/missing_letter-activity/missingletter_config.c:591
 msgid "Enter here the letter that will be proposed. The first letter here must be the solution."
 msgstr "Ange bokstaven som ska föreslås. Den första bokstaven här måste vara lösningen."
+
+#: ../src/missing_letter-activity/missing_letter.xml.in.h:1
+msgid "An object is displayed in the main area, and an incomplete word is printed under the picture. Select the missing letter to complete the word."
+msgstr "Ett objekt visas i huvudområdet, och ett ofullständigt ord visas under bilden. Välj den bokstav som saknas för att göra ordet komplett."
+
+#: ../src/missing_letter-activity/missing_letter.xml.in.h:2
+msgid "Fill in the missing letter"
+msgstr "Fyll i bokstaven som saknas"
+
+#: ../src/missing_letter-activity/missing_letter.xml.in.h:3
+msgid "Missing Letter"
+msgstr "Saknad bokstav"
+
+#: ../src/missing_letter-activity/missing_letter.xml.in.h:4
+msgid "Training reading skills"
+msgstr "Träna läsförmågan"
+
+#: ../src/missing_letter-activity/missing_letter.xml.in.h:5
+msgid "Word reading"
+msgstr "Ordläsning"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:1
 msgid "car/c_r/a/k/o"
@@ -5508,10 +5888,6 @@ msgstr "Spatiell representation"
 msgid "Edgar Degas, The Dancing Class - 1873-75"
 msgstr "Edgar Degas, Dansklassen - 1873"
 
-#: ../src/paintings-activity/resources/paintings/board1_1.xml.in.h:1
-msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
-msgstr "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
-
 #: ../src/paintings-activity/resources/paintings/board1_10.xml.in.h:1
 msgid ""
 "Katsushika Hokusai,\\n"
@@ -5527,6 +5903,10 @@ msgstr "Katsushika Hokusa, Poppies - 1833-1834"
 #: ../src/paintings-activity/resources/paintings/board1_12.xml.in.h:1
 msgid "Katsushika Hokusai, Kazusa sea Route - 1830."
 msgstr "Katsushika Hokusai, Kazusa sea Route - 1830."
+
+#: ../src/paintings-activity/resources/paintings/board1_1.xml.in.h:1
+msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
+msgstr "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
 
 #: ../src/paintings-activity/resources/paintings/board1_2.xml.in.h:1
 msgid "Giuseppe Arcimboldo, Spring - 1573"
@@ -5633,12 +6013,12 @@ msgid "This board is game-oriented. No specific skills are needed to play."
 msgstr "Detta bräde är spelorienterat. Det kräver inga speciella förkunskaper för att spelas."
 
 #: ../src/penalty-activity/penalty.py:292
-msgid "Click on the balloon to place it again."
-msgstr "Klicka på ballongen för att placera den igen."
+msgid "Click on the ball to place it again."
+msgstr "Klicka på bollen för att placera den igen."
 
 #: ../src/penalty-activity/penalty.py:294
-msgid "Click twice on the balloon to shoot it."
-msgstr "Klicka två gånger på ballongen för att skjuta den."
+msgid "Click twice on the ball to shoot it."
+msgstr "Klicka två gånger på bollen för att skjuta den."
 
 #: ../src/penalty-activity/penalty.xml.in.h:1
 msgid "Double click the mouse on the ball to kick it. You can double click the left right or middle mouse button. If you lose, Tux catches the ball. You must click on it to bring it back to its former position"
@@ -5698,7 +6078,7 @@ msgid "Number"
 msgstr "Tal"
 
 #: ../src/pythontemplate-activity/pythontemplate.py:62
-#: ../src/pythontest-activity/pythontest.py:184
+#: ../src/pythontest-activity/pythontest.py:182
 msgid ""
 "This is the first plugin in GCompris coded in the Python\n"
 "Programming language."
@@ -5729,7 +6109,7 @@ msgstr "Python-mall"
 msgid "Thanks to Guido van Rossum and the python team for this powerful language!"
 msgstr "Tack till Guido van Rossum och python-teamet för detta kraftfulla språk!"
 
-#: ../src/pythontest-activity/pythontest.py:194
+#: ../src/pythontest-activity/pythontest.py:192
 msgid ""
 "It is now possible to develop GCompris activities in C or in Python.\n"
 "Thanks to Olivier Samys who makes this possible."
@@ -5737,37 +6117,33 @@ msgstr ""
 "Nu är det möjligt att utveckla GCompris-aktiviteter i C eller i Python.\n"
 "Tack till Olivier Samys som gjorde detta möjligt."
 
-#: ../src/pythontest-activity/pythontest.py:204
+#: ../src/pythontest-activity/pythontest.py:202
 msgid "This activity is not playable, just a test"
 msgstr "Denna aktivitet är inte spelbar ännu, bara ett test"
 
 #. toggle box
-#: ../src/pythontest-activity/pythontest.py:459
+#: ../src/pythontest-activity/pythontest.py:454
 msgid "Disable line drawing in circle"
 msgstr "Inaktivera linjeritning i cirkel"
 
 #. combo box
-#: ../src/pythontest-activity/pythontest.py:468
+#: ../src/pythontest-activity/pythontest.py:463
 msgid "Color of the line"
 msgstr "Färg på linjen"
 
 #. spin button for int
-#: ../src/pythontest-activity/pythontest.py:479
+#: ../src/pythontest-activity/pythontest.py:474
 msgid "Distance between circles"
 msgstr "Avstånd mellan cirklar"
 
 #. radio buttons for circle or rectangle
-#: ../src/pythontest-activity/pythontest.py:490
+#: ../src/pythontest-activity/pythontest.py:485
 msgid "Use circles"
 msgstr "Använd cirklar"
 
-#: ../src/pythontest-activity/pythontest.py:491
+#: ../src/pythontest-activity/pythontest.py:486
 msgid "Use rectangles"
 msgstr "Använd rektanglar"
-
-#: ../src/pythontest-activity/pythontest.py:494
-msgid "Choice of pattern"
-msgstr "Val av mönster"
 
 #: ../src/pythontest-activity/pythontest.xml.in.h:3
 msgid "Python Test"
@@ -5800,30 +6176,6 @@ msgstr "Minnesträning"
 #: ../src/railroad-activity/railroad.xml.in.h:5
 msgid "Railway"
 msgstr "Järnväg"
-
-#: ../src/read_colors-activity/read_colors.c:62
-msgid "violet"
-msgstr "lila"
-
-#: ../src/read_colors-activity/read_colors.c:67
-msgid "pink"
-msgstr "rosa"
-
-#: ../src/read_colors-activity/read_colors.xml.in.h:2
-msgid "Click on the correct colored object."
-msgstr "Klicka på rätt färgat föremål."
-
-#: ../src/read_colors-activity/read_colors.xml.in.h:3
-msgid "Click on the matching color"
-msgstr "Klicka på rätt färg"
-
-#: ../src/read_colors-activity/read_colors.xml.in.h:4
-msgid "Read the names of colors"
-msgstr "Läs namnen på färger"
-
-#: ../src/read_colors-activity/read_colors.xml.in.h:5
-msgid "This board teaches basic colors."
-msgstr "Detta bräde lär ut grundläggande färger."
 
 #: ../src/readingh-activity/reading.c:229
 #: ../src/wordsgame-activity/wordsgame.c:219
@@ -5954,7 +6306,7 @@ msgid "Weight = %s"
 msgstr "Vikt = %s"
 
 #: ../src/scalesboard-activity/scale.c:1007
-msgid "Take care, you can drop masses on both sides of the scale."
+msgid "Take care, you can drop weights on both sides of the scale."
 msgstr "Var försiktig, du kan släppa vikter på båda sidor av vågen."
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:1
@@ -5963,7 +6315,7 @@ msgid "Balance the scales properly"
 msgstr "Balansera vågarna"
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:2
-msgid "Drag and Drop masses to balance the scales"
+msgid "Drag and Drop weights to balance the scales"
 msgstr "Dra och släpp vikter för att balansera vågen"
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:3
@@ -5976,7 +6328,7 @@ msgid "The painting is an original painting created by Virginie MOREAU (virginie
 msgstr "Målningen är en originalmålning av Virginie Moreau (virginie.moreau@free.fr) år 2001. Dess namn är \"Kryddsäljare i Egypten\". Den är utgiven under GPL-licensen."
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:5
-msgid "To balance the scales, move the masses on the left or the right side. The masses can be arranged in any order."
+msgid "To balance the scales, move the weights on the left or the right side. The weights can be arranged in any order."
 msgstr "För att balansera vågen flyttar du tyngderna på den högra eller vänstra sidan. Tyngderna kan arrangeras i valfri ordning."
 
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:2
@@ -5990,6 +6342,33 @@ msgstr "Huvudräkning, aritmetisk likhet, enhetskonvertering"
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:5
 msgid "To balance the scales, move the masses on the left or the right side. Take care of the weight and the unit of the masses, remember that a kilogram (kg) is 1000 grams (g). They can be arranged in any order."
 msgstr "För att balansera vågen så flyttar du vikterna på den högra eller vänstra sidan. Var noga med vikten och enheterna för vikterna. Kom ihåg att ett kilogram (kg) är 1000 gram (g). De kan arrangeras i valfri ordning."
+
+#: ../src/searace1player-activity/searace1player.xml.in.h:1
+msgid "Give good instructions to your ship in order to be first in the race."
+msgstr "Ge bra instruktioner till ditt skepp för att komma på första platsen i tävlingen."
+
+#: ../src/searace1player-activity/searace1player.xml.in.h:2
+msgid ""
+"In the text entry, enter one command per line, to control your boat. Commands supported are displayed between the two entry areas. The 'left' and 'right' commands must be followed by an angle in degrees. The angle value is also called a 'parameter' to the left or right command. By default 45 degrees is used. The 'forward' command accepts a distance parameter. By default 1 is used.\n"
+"For example:\n"
+"- left 90: Make a perpendicular left turn\n"
+"- forward 10: Go forward for 10 units (as displayed on the ruler).\n"
+"The goal is to reach the right of the screen (the red line). When done, you can try to improve your program and start a new race with the same weather conditions by using the retry button. You can click and drag your mouse anywhere on the map to get a measurement in distance and angle. Going to the next level will give you more complex weather conditions."
+msgstr ""
+"I text fältet, ge kommandon rad för rad för att styra din båt. Kommandon som stöds visas mellan de två inmatningsareorna. Kommandona \"vänster\" och \"höger\" måste följas med en vinkel i grader. Vinkelvärdet kallas också en \"parameter\" till vänster- eller högerkommandot. Som standard används en 45 graders vinkel. Kommandot \"framåt\" accepterar en avståndsparamater. Som standard används 1.\n"
+"Till exempel:\n"
+"- vänster 90 => Gör en 90 graders vänstersväng\n"
+"- framåt 10 => Gå framåt i 10 enheter (som visas i linjalen).\n"
+"Målet är att nå den högra delen av bildskärmen (den röda linjen). När du är klar så kan du förbättra ditt program och starta en ny tävling med samma väderförhållanden genom att använda omstartsknappen. Du kan klicka och dra din mus var som helst på kartan för att få en indikation om avstånd och vinkel. Avancering till nästa nivå ger dig mer komplicerade väderförhållanden."
+
+#: ../src/searace1player-activity/searace1player.xml.in.h:7
+#: ../src/searace-activity/searace.xml.in.h:8
+msgid "In this activity, you will learn how to enter commands into a computer. Even if the language is extremely basic, you learn here how to think ahead and construct a program. This activity can be used to introduce the programming concept to children."
+msgstr "I denna aktivitet kommer du att lära dig hur man skriver in kommandon i en dator. Även om språket är mycket grundläggande så kommer du att lära dig hur man tänker framåt och matar in ett program. Denna aktivitet kan användas för att introducera programmering till barn."
+
+#: ../src/searace1player-activity/searace1player.xml.in.h:8
+msgid "Sea race (Single Player)"
+msgstr "Havstävling (1 spelare)"
 
 #: ../src/searace-activity/searace.py:174
 msgid "The race is already being run"
@@ -6070,63 +6449,36 @@ msgstr ""
 "- framåt 10 => Gå framåt i 10 enheter (som visas i linjalen).\n"
 "Målet är att nå den högra delen av bildskärmen (den röda linjen). När du är klar, så kan du förbättra ditt program och starta en ny tävling med samma väderförhållanden genom att använda omstartsknappen. Du kan klicka och dra din mus var som helst på kartan för att få en indikation om avstånd och vinkel. Avancering till nästa nivå ger dig mer komplicerade väderförhållanden."
 
-#: ../src/searace-activity/searace.xml.in.h:8
-#: ../src/searace1player-activity/searace1player.xml.in.h:7
-msgid "In this activity, you will learn how to enter commands into a computer. Even if the language is extremely basic, you learn here how to think ahead and construct a program. This activity can be used to introduce the programming concept to children."
-msgstr "I denna aktivitet kommer du att lära dig hur man skriver in kommandon i en dator. Även om språket är mycket grundläggande så kommer du att lära dig hur man tänker framåt och matar in ett program. Denna aktivitet kan användas för att introducera programmering till barn."
-
 #: ../src/searace-activity/searace.xml.in.h:9
 msgid "Sea race (2 Players)"
 msgstr "Havstävling (2 spelare)"
 
-#: ../src/searace1player-activity/searace1player.xml.in.h:1
-msgid "Give good instructions to your ship in order to be first in the race."
-msgstr "Ge bra instruktioner till ditt skepp för att komma på första platsen i tävlingen."
-
-#: ../src/searace1player-activity/searace1player.xml.in.h:2
-msgid ""
-"In the text entry, enter one command per line, to control your boat. Commands supported are displayed between the two entry areas. The 'left' and 'right' commands must be followed by an angle in degrees. The angle value is also called a 'parameter' to the left or right command. By default 45 degrees is used. The 'forward' command accepts a distance parameter. By default 1 is used.\n"
-"For example:\n"
-"- left 90: Make a perpendicular left turn\n"
-"- forward 10: Go forward for 10 units (as displayed on the ruler).\n"
-"The goal is to reach the right of the screen (the red line). When done, you can try to improve your program and start a new race with the same weather conditions by using the retry button. You can click and drag your mouse anywhere on the map to get a measurement in distance and angle. Going to the next level will give you more complex weather conditions."
-msgstr ""
-"I text fältet, ge kommandon rad för rad för att styra din båt. Kommandon som stöds visas mellan de två inmatningsareorna. Kommandona \"vänster\" och \"höger\" måste följas med en vinkel i grader. Vinkelvärdet kallas också en \"parameter\" till vänster- eller högerkommandot. Som standard används en 45 graders vinkel. Kommandot \"framåt\" accepterar en avståndsparamater. Som standard används 1.\n"
-"Till exempel:\n"
-"- vänster 90 => Gör en 90 graders vänstersväng\n"
-"- framåt 10 => Gå framåt i 10 enheter (som visas i linjalen).\n"
-"Målet är att nå den högra delen av bildskärmen (den röda linjen). När du är klar så kan du förbättra ditt program och starta en ny tävling med samma väderförhållanden genom att använda omstartsknappen. Du kan klicka och dra din mus var som helst på kartan för att få en indikation om avstånd och vinkel. Avancering till nästa nivå ger dig mer komplicerade väderförhållanden."
-
-#: ../src/searace1player-activity/searace1player.xml.in.h:8
-msgid "Sea race (Single Player)"
-msgstr "Havstävling (1 spelare)"
-
-#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:1
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:1
+#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:1
 msgid "Count the number of dots on dice before they reach the ground"
 msgstr "Räkna prickarna på tärningen innan tärningarna träffar marken"
 
-#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:2
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:2
+#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:2
 msgid "Counting skills"
 msgstr "Räknekunskaper"
 
-#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:3
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:3
+#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:3
 msgid "In a limited time, count the number of dots"
 msgstr "Räkna antalet punkter under begränsad tid"
 
-#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:4
-msgid "Numbers With Dice"
+#: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:4
+msgid "Numbers with pairs of dice"
 msgstr "Tal med par av tärningar"
 
-#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:5
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:5
+#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:5
 msgid "With the keyboard, type the number of dots you see on the falling dice."
 msgstr "Tryck på siffran på tangentbordet som motsvarar antalet prickar på den fallande tärningen."
 
-#: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:4
-msgid "Numbers with pairs of dice"
+#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:4
+msgid "Numbers With Dice"
 msgstr "Tal med par av tärningar"
 
 #: ../src/submarine-activity/submarine.xml.in.h:1
@@ -6238,8 +6590,8 @@ msgstr "Pusselspelet Tangram"
 #. Set the maximum text to calc the background
 #. Set the correct initial text
 #: ../src/target-activity/target.c:296
-#: ../src/target-activity/target.c:559
-#: ../src/target-activity/target.c:596
+#: ../src/target-activity/target.c:562
+#: ../src/target-activity/target.c:599
 #, c-format
 msgid "Points = %s"
 msgstr "Poäng = %s"
@@ -6253,10 +6605,12 @@ msgstr ""
 "Vindhastighet = %d\n"
 "kilometer/timme"
 
-#: ../src/target-activity/target.c:481
+#: ../src/target-activity/target.c:482
 #, c-format
-msgid "Distance to target = %d meters"
-msgstr "Avstånd till målet = %d meter"
+msgid "Distance to target = %d meter"
+msgid_plural "Distance to target = %d meters"
+msgstr[0] "Avstånd till målet = %d meter"
+msgstr[1] "Avstånd till målet = %d meter"
 
 #: ../src/target-activity/target.xml.in.h:1
 msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
@@ -6436,14 +6790,50 @@ msgstr "Tangentbordsträning"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Skriv hela ordet innan det når marken"
 
-#: ../src/findit-activity/findit.py:295
-msgid ""
-"Failed to parse data set '{filename}' with error:\n"
-"{error}"
-msgstr ""
-"Misslyckades med att tolka datauppsättningen \"{filename}\" med felet:\n"
-"{error}"
-
+#~ msgid ""
+#~ "Error: this activity requires that you first install\n"
+#~ "the packages with GCompris voices for the locale '%s' ! Fallback to "
+#~ "english, sorry!"
+#~ msgstr ""
+#~ "Fel: denna aktivitet kräver att du först installerar\n"
+#~ "paketen med GCompris-röster för lokalen \"%s\"! Faller tillbaka på "
+#~ "engelska, ursäkta!"
+#~ msgid "Click on the blue duck"
+#~ msgstr "Klicka på den blåa ankan"
+#~ msgid "Click on the brown duck"
+#~ msgstr "Klicka på den bruna ankan"
+#~ msgid "Click on the green duck"
+#~ msgstr "Klicka på den gröna ankan"
+#~ msgid "Click on the grey duck"
+#~ msgstr "Klicka på den gråa ankan"
+#~ msgid "Click on the orange duck"
+#~ msgstr "Klicka på den orangea ankan"
+#~ msgid "Click on the purple duck"
+#~ msgstr "Klicka på den lila ankan"
+#~ msgid "Click on the red duck"
+#~ msgstr "Klicka på den röda ankan"
+#~ msgid "Click on the yellow duck"
+#~ msgstr "Klicka på den gula ankan"
+#~ msgid "Click on the black duck"
+#~ msgstr "Klicka på den svarta ankan"
+#~ msgid "Click on the white duck"
+#~ msgstr "Klicka på den vita ankan"
+#~ msgid "English (United State)"
+#~ msgstr "Engelska (USA)"
+#~ msgid "Choice of pattern"
+#~ msgstr "Val av mönster"
+#~ msgid "violet"
+#~ msgstr "lila"
+#~ msgid "pink"
+#~ msgstr "rosa"
+#~ msgid "Click on the correct colored object."
+#~ msgstr "Klicka på rätt färgat föremål."
+#~ msgid "Click on the matching color"
+#~ msgstr "Klicka på rätt färg"
+#~ msgid "Read the names of colors"
+#~ msgstr "Läs namnen på färger"
+#~ msgid "This board teaches basic colors."
+#~ msgstr "Detta bräde lär ut grundläggande färger."
 #~ msgid "Move the mouse until all the blocks disappear."
 #~ msgstr "Flytta musen till alla block försvinner."
 #~ msgid "The aim is to switch off all the lights"
@@ -6547,8 +6937,6 @@ msgstr ""
 #~ "Förbättra läsningskunskaperna och möjligheten att förstå vad som läses."
 #~ msgid "Read and play with the story"
 #~ msgstr "Läs och spela med i berättelsen"
-#~ msgid "The story of Oscar and friend"
-#~ msgstr "Berättelsen om Oskar och hans vänner"
 #~ msgid "reading"
 #~ msgstr "läsning"
 #~ msgid ""
