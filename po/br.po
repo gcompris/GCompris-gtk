@@ -7,20 +7,23 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2011-03-26 18:37+0000\n"
-"PO-Revision-Date: 2011-03-29 11:12+0100\n"
+"POT-Creation-Date: 2011-10-02 15:57+0000\n"
+"PO-Revision-Date: 2011-10-02 18:43+0100\n"
 "Last-Translator: Alan Monfort <alan.monfort@free.fr>\n"
 "Language-Team: An Drouizig <drouizig@drouizig.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-Language: Breton\n"
+"X-Poedit-Country: FRANCE\n"
 
 #: ../boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
 msgstr "Davit obererezhioù aljebr"
 
 #: ../boards/algebra_group.xml.in.h:2
-#: ../boards/menu.xml.in.h:18
+#: ../boards/menu.xml.in.h:22
 #: ../boards/money_group.xml.in.h:2
 msgid "Left-click the mouse on an activity to select it."
 msgstr "Klik gant an afell gleiz war un obererezh evit e ziuzañ."
@@ -32,6 +35,15 @@ msgstr "Davit an obererezhioù jediñ"
 #: ../boards/algebramenu.xml.in.h:2
 msgid "Various calculation activities."
 msgstr "Obererezhioù jediñ liesseurt."
+
+#: ../boards/braille.xml.in.h:1
+#: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:1
+msgid "Discover the Braille system"
+msgstr "Dizoleiñ reizhiad Braille"
+
+#: ../boards/braille.xml.in.h:2
+msgid "The Braille system is a method that is widely used by blind people to read and write, and was the first digital form of writing."
+msgstr "Un hentenn graet gant kalz tud dall da lenn ha skrivañ eo ar reizhiad Braille. Unan eus an doareoù skrivañ kentañ dre vizied e oa."
 
 #: ../boards/chess.xml.in.h:1
 #: ../src/chess_computer-activity/chess_computer.xml.in.h:3
@@ -138,18 +150,18 @@ msgstr "Davit an obererezhioù kounañ"
 msgid "Various memory activities (images, letters, sounds)."
 msgstr "Obererezhioù kounañ liesseurt (skeudennoù, lizherennoù, sonioù)."
 
-#: ../boards/memory_op_group.xml.in.h:1
-msgid "Go to mathematics memory activities"
-msgstr "Davit obererezhioù ar c'houn dre ar jedoniezh"
-
-#: ../boards/memory_op_group.xml.in.h:2
-#: ../boards/memory_op_group_tux.xml.in.h:2
-msgid "Memory activities based on operations"
-msgstr "Obererezhioù koun diazezet war jedadurioù"
-
 #: ../boards/memory_op_group_tux.xml.in.h:1
 msgid "Go to mathematics memory activities against Tux"
 msgstr "Davit obererezhioù ar c'houn dre ar jedoniezh a-enep Tuks"
+
+#: ../boards/memory_op_group_tux.xml.in.h:2
+#: ../boards/memory_op_group.xml.in.h:2
+msgid "Memory activities based on operations"
+msgstr "Obererezhioù koun diazezet war jedadurioù"
+
+#: ../boards/memory_op_group.xml.in.h:1
+msgid "Go to mathematics memory activities"
+msgstr "Davit obererezhioù ar c'houn dre ar jedoniezh"
 
 #: ../boards/menu.xml.in.h:1
 msgid ""
@@ -157,43 +169,51 @@ msgid ""
 "At the bottom of the screen is the GCompris control bar.\n"
 "The following icons are displayed from right to left.\n"
 "(note that each icon is displayed only if available in the current activity)\n"
-"    Home - Exit an activity, go back to menu\n"
+"    Home - Exit an activity, go back to menu (ctrl-w and escape key)\n"
 "    Thumb - OK. Confirm your answer\n"
-"    Dice - Display the current level. Click to select another level\n"
+"    Arrows - Display the current level. Click to select another level\n"
 "    Lips - Repeat the question\n"
 "    Question Mark - Help\n"
 "    Tool - The configuration menu\n"
 "    Tux Plane - About GCompris\n"
-"    Night - Quit GCompris\n"
+"    Quit - Quit GCompris (ctrl-x)\n"
 "The stars show suitable age groups for each game:\n"
 "    1, 2 or 3 simple stars  - from 2 to 6 years old\n"
-"    1, 2 or 3 complex stars - 7 years and up"
+"    1, 2 or 3 complex stars - 7 years and up\n"
+"Shortcuts:\n"
+"    ctrl-b Show or Hide the control bar\n"
+"    ctrl-f Toggle full screen\n"
+"    ctrl-m Toggle mute for the background music"
 msgstr ""
 "Ur c'hlik eeun war un arlun az kaso davit un obererezh pe lañser un obererezh.\n"
 "E traoñ ar skramm emañ barrenn reoliñ GCompris.\n"
 "Skrammet eo an arlunioù da zont ag an tu kleiz d'an tu dehou\n"
 "(Skrammet e vez un arlun  mar bez hegerz en obererezhioù.\n"
-"    Degemer - Kuitaat un obererezh ha distreiñ d'al lañser\n"
+"    Degemer - Kuitaat un obererezh ha distreiñ d'al lañser (ctrl-w hag ar stokell achap)\n"
 "    Biz Meud - Mat eo, kadarnaat da respont\n"
-"    Diñs - Skrammañ al live bremanel. Klikañ warni evit diuzañ ul live all\n"
-"    Divweuz - Adlavarout ar goulenn\n"
+"    Biroù - Skrammañ al live bremanel. Klikañ warno evit diuzañ ul live all\n"
+"    Diweuz - Adlavarout ar goulenn\n"
 "    Pik goulenn - Skoazell\n"
 "    Benveg - Lañser ar c'hefluniadur\n"
 "    Nijerez Tuks - Boestad stlennoù a-fet GCompris\n"
 "Spisaet e vez an oad dereatañ evit an obererezhioù gant ar steredennoù :\n"
-"    1, 2 pe 3 steredenn : eeun - etre 2 ha 6 vloazh\n"
-"    1, 2 pe 3 steredenn : diaesoc'h - 7 vloazh ha koshoc'h."
+"    1, 2 pe 3 steredenn eeun - etre 2 ha 6 vloazh\n"
+"    1, 2 pe 3 steredenn gemplezh - 7 vloazh ha koshoc'h.\n"
+"Berradennoù :\n"
+"    ctrl-b Diskouezh pe guzhat ar varrenn reoliñr\n"
+"    ctrl-f Gweredekaat pe ziweredekaat ar skram a-bezh\n"
+"    ctrl-m Gweredekaat pe ziweredekaat ar sonerezh"
 
-#: ../boards/menu.xml.in.h:16
+#: ../boards/menu.xml.in.h:20
 msgid "GCompris Main Menu"
 msgstr "Lañser pennañ GCompris"
 
-#: ../boards/menu.xml.in.h:17
+#: ../boards/menu.xml.in.h:21
 #: ../src/boards/menu2.c:866
 msgid "GCompris is a collection of educational games that provides different activities for children aged 2 and up."
 msgstr "Un dastumadeg obererezhioù ha c'hoarioù kelennadel evit ar vugale 2 vloaz ha koshoc'h eo GCompris."
 
-#: ../boards/menu.xml.in.h:19
+#: ../boards/menu.xml.in.h:23
 msgid "The goal of GCompris is to provide a free alternative to popular proprietary edutainment software"
 msgstr "Pourchas un dibab digoust all eget meziantoù kelennadel brudet mat met kenwerzhel eo pal GCompris."
 
@@ -257,14 +277,6 @@ msgstr "C'hoarioù bellouriezh"
 msgid "Strategy games like chess, connect4, ..."
 msgstr "C'hoarioù bellouriezh evel an echedoù, 4 ha 4..."
 
-#: ../gcompris-edit.desktop.in.h:1
-msgid "Administration for gcompris"
-msgstr "Ardeiñ GCompris"
-
-#: ../gcompris-edit.desktop.in.h:2
-msgid "GCompris Administration"
-msgstr "Ardoadur GCompris"
-
 #: ../gcompris.desktop.in.h:1
 msgid "Educational game for ages 2 to 10"
 msgstr "C'hoarioù kelennadel evit ar vugale etre 2 ha dek vloaz"
@@ -276,6 +288,14 @@ msgstr "Heuliad kelennadel GCompris"
 #: ../gcompris.desktop.in.h:3
 msgid "Multi-activity educational game"
 msgstr "C'hoarioù kelennadel dre obererezhioù lies"
+
+#: ../gcompris-edit.desktop.in.h:1
+msgid "Administration for gcompris"
+msgstr "Ardeiñ GCompris"
+
+#: ../gcompris-edit.desktop.in.h:2
+msgid "GCompris Administration"
+msgstr "Ardoadur GCompris"
 
 #: ../nsis_translations.desktop.in.h:1
 msgid "An instance of GCompris is currently running. Exit GCompris and then try again."
@@ -372,11 +392,9 @@ msgstr ""
 "<b>{config}</b> kefluniadur\n"
 " evit an aelad <b>{profile}</b>"
 
-#. self.main_vbox.pack_start (label, False, False, 8)
 #: ../src/administration-activity/admin/board_list.py:660
-#: ../src/colors-activity/colors.c:180
-#: ../src/pythontest-activity/pythontest.py:518
-#: ../src/smallnumbers-activity/smallnumbers.c:616
+#: ../src/pythontest-activity/pythontest.py:511
+#: ../src/smallnumbers-activity/smallnumbers.c:618
 msgid "Select sound locale"
 msgstr "Diuz yezh ar sonioù"
 
@@ -504,6 +522,30 @@ msgstr "Ret eo deoc'h diuzañ ur strollad er roll"
 msgid "Birth Date"
 msgstr "Ganedigezh"
 
+#: ../src/administration-activity/administration.xml.in.h:1
+msgid ""
+"- In the 'Boards' section you can change the list of activities. Just untoggle them in the treeview. You can change the language used for reading, for example, then the language used for saying the names of colors.\n"
+"- You can save multiple configurations, and switch between them easily. In the 'Profile' section add a profile, then in the 'Board' section select the profile in the combobox, then select the boards you want to be active. You can add multiple profiles, with different lists of boards, and different languages. You set the default profile in the 'Profile' section, by choosing the profile you want, then clicking on the 'Default' button. You can also choose a profile from the command line.\n"
+"- You can add users, classes and for each class, you can create groups of users. Note that you can import users from a comma-separated file. Assign one or more groups to a profile, after which those new logins will appear after restarting GCompris. Being able to identify individual children in GCompris means we can provide individual reports. It also recognizes the children as individuals; they can learn to type in and recognize their own usernames (login is configurable)."
+msgstr ""
+"- Er rann « Obererezhioù » e vez daskemmet roll an obererezhioù. Kevaskit i pe digevaskit i er gwezennad. Kemmet e vez ar yezh arveret evit obererezhioù al lenn, da skouer, ar yezh arveret evit envel al livioù.\n"
+"\n"
+" - Meur a gefluniadur a vez enrollet ha mont eus unan d'an eil a c'hallit eeun. Er rann « Aeladoù », ouzhpennit un aelad ha war-lerc'h er rann  « Obererezhioù » diuzit an aelad er voestad dre zibaboù lies, neuze diuzit an obererezhioù c'hoantaet ganeoc'h. Kalz aeladoù a c'hallot ouzhpennañ gant rolloù obererezhioù disheñvel ha yezhoù disheñvel ivez. Lakait an aelad dre ziouer er rann « Aelad », en ur ziuzañ an aelad c'hoantaet. Tu zo deoc'h diuzañ end-eeun un aelad diouzh an arroudenn arc'had. Ouzhpennet e vez arveriaded, rannadoù hag evit pep rannad e vez krouet strolladoù arveriaded.\n"
+"\n"
+"Notennit : enporzhiet e vez arveriaded diouzh ur restr dre vaeziennoù rannet gant ur skejig (csv). Deverkit ur pe veur a strollad d'un aelad ; goude se e vo ret d'an arveriaded reiñ o anvioù tremen nevez da GCompris goude al loc'hadur war-lerc'h. Reiñ un anv tremen da bep arveriad e GCompris a ro tu da grouiñ danevelloù hiniennel. Desket e vez gant ar vugale d'en em hennadiñ en ur viziata o anvioù (kefluniadus e vez an anvioù tremen)."
+
+#: ../src/administration-activity/administration.xml.in.h:4
+msgid "GCompris Administration Menu"
+msgstr "Lañser arloañ GCompris"
+
+#: ../src/administration-activity/administration.xml.in.h:5
+msgid "If you want to fine tune GCompris to your needs, you can use the administration module here. The ultimate goal is to provide child-specific reporting for parents and teacher who want to monitor the progress, strengths and needs of their children."
+msgstr "Mar fell deoc'h azasaat GCompris ent spis ouzh hoc'h ezhommoù e c'hallit arverañ ar mollad arloañ amañ. Pourvezañ danevelloù kalvezel d'ar gerent ha kelennerion hag a fell dezho heuliañ araokadur, kreñvderioù ha gwanderioù o bugale eo pal uhelañ GCompris."
+
+#: ../src/administration-activity/administration.xml.in.h:6
+msgid "Left-Click with the mouse to select an activity"
+msgstr "Klik gant an afell a-gleiz evit diuzañ un obererezh."
+
 #: ../src/administration-activity/admin/log_list.py:91
 msgid "Select a user:"
 msgstr "Diuzañ un arveriad :"
@@ -516,8 +558,6 @@ msgstr "An holl arveriaded"
 #: ../src/administration-activity/admin/log_list.py:108
 #: ../src/administration-activity/admin/log_list.py:295
 #: ../src/administration-activity/admin/profile_list.py:117
-#: ../src/gcompris/board_config_combo.c:125
-#: ../src/gcompris/board_config_combo.c:398
 msgid "Default"
 msgstr "Dre ziouer"
 
@@ -539,6 +579,7 @@ msgid "Board"
 msgstr "Obererezh"
 
 #: ../src/administration-activity/admin/log_list.py:246
+#: ../src/click_on_letter-activity/click_on_letter.c:1248
 #: ../src/redraw-activity/redraw.py:339
 msgid "Level"
 msgstr "Live"
@@ -684,36 +725,11 @@ msgstr ""
 "Unan pe veur a anv tremen n'int ket nemeto !\n"
 "Ret eo deoc'h o c'hemm : %s !"
 
-#: ../src/administration-activity/administration.xml.in.h:1
-msgid ""
-"- In the 'Boards' section you can change the list of activities. Just untoggle them in the treeview. You can change the language used for reading, for example, then the language used for saying the names of colors.\n"
-"- You can save multiple configurations, and switch between them easily. In the 'Profile' section add a profile, then in the 'Board' section select the profile in the combobox, then select the boards you want to be active. You can add multiple profiles, with different lists of boards, and different languages. You set the default profile in the 'Profile' section, by choosing the profile you want, then clicking on the 'Default' button. You can also choose a profile from the command line.\n"
-"- You can add users, classes and for each class, you can create groups of users. Note that you can import users from a comma-separated file. Assign one or more groups to a profile, after which those new logins will appear after restarting GCompris. Being able to identify individual children in GCompris means we can provide individual reports. It also recognizes the children as individuals; they can learn to type in and recognize their own usernames (login is configurable)."
-msgstr ""
-"- Er rann « Obererezhioù » e vez daskemmet roll an obererezhioù. Kevaskit i pe digevaskit i er gwezennad. Kemmet e vez ar yezh arveret evit obererezhioù al lenn, da skouer, ar yezh arveret evit envel al livioù.\n"
-"\n"
-" - Meur a gefluniadur a vez enrollet ha mont eus unan d'an eil a c'hallit eeun. Er rann « Aeladoù », ouzhpennit un aelad ha war-lerc'h er rann  « Obererezhioù » diuzit an aelad er voestad dre zibaboù lies, neuze diuzit an obererezhioù c'hoantaet ganeoc'h. Kalz aeladoù a c'hallot ouzhpennañ gant rolloù obererezhioù disheñvel ha yezhoù disheñvel ivez. Lakait an aelad dre ziouer er rann « Aelad », en ur ziuzañ an aelad c'hoantaet. Tu zo deoc'h diuzañ end-eeun un aelad diouzh an arroudenn arc'had. Ouzhpennet e vez arveriaded, rannadoù hag evit pep rannad e vez krouet strolladoù arveriaded.\n"
-"\n"
-"Notennit : enporzhiet e vez arveriaded diouzh ur restr dre vaeziennoù rannet gant ur skejig (csv). Deverkit ur pe veur a strollad d'un aelad ; goude se e vo ret d'an arveriaded reiñ o anvioù tremen nevez da GCompris goude al loc'hadur war-lerc'h. Reiñ un anv tremen da bep arveriad e GCompris a ro tu da grouiñ danevelloù hiniennel. Desket e vez gant ar vugale d'en em hennadiñ en ur viziata o anvioù (kefluniadus e vez an anvioù tremen)."
-
-#: ../src/administration-activity/administration.xml.in.h:4
-msgid "GCompris Administration Menu"
-msgstr "Lañser arloañ GCompris"
-
-#: ../src/administration-activity/administration.xml.in.h:5
-msgid "If you want to fine tune GCompris to your needs, you can use the administration module here. The ultimate goal is to provide child-specific reporting for parents and teacher who want to monitor the progress, strengths and needs of their children."
-msgstr "Mar fell deoc'h azasaat GCompris ent spis ouzh hoc'h ezhommoù e c'hallit arverañ ar mollad arloañ amañ. Pourvezañ danevelloù kalvezel d'ar gerent ha kelennerion hag a fell dezho heuliañ araokadur, kreñvderioù ha gwanderioù o bugale eo pal uhelañ GCompris."
-
-#: ../src/administration-activity/administration.xml.in.h:6
-msgid "Left-Click with the mouse to select an activity"
-msgstr "Klik gant an afell a-gleiz evit diuzañ un obererezh."
-
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:1
 msgid "Advanced colors"
 msgstr "Livioù kempleshoc'h"
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:2
-#: ../src/read_colors-activity/read_colors.xml.in.h:1
 msgid "Can read"
 msgstr "Gouzout lenn"
 
@@ -729,305 +745,297 @@ msgstr "Klik war ar voest livet dereat."
 msgid "Learn to recognize unusual colors."
 msgstr "Deskiñ da anavezout al livioù divoutin."
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:1
-msgid "almond"
-msgstr "liv alamañdez"
+#. Translator: Do not translate {text}.
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:2
+msgid "Find the {text} butterfly"
+msgstr "Kav ar valafenn {text}"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:2
-msgid "chestnut"
-msgstr "liv kistin"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:3
-msgid "claret"
-msgstr "liv gwin"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:4
-msgid "cobalt"
-msgstr "liv kobalt"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:5
-msgid "coral"
-msgstr "liv koural"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:6
-msgid "corn"
-msgstr "liv ed"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:7
-msgid "cyan"
-msgstr "siañ"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:8
-msgid "sienna"
-msgstr "liv douar Sienna"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:1
-msgid "lime"
-msgstr "liv tilh"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:2
-msgid "sage"
-msgstr "liv saoj"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:3
-msgid "salmon"
-msgstr "liv eog"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:4
-msgid "sapphire"
-msgstr "liv safir"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:5
-msgid "sepia"
-msgstr "liv sepia"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:6
-msgid "sulphur"
-msgstr "liv soufr"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:7
-msgid "tea"
-msgstr "liv te"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:8
-msgid "turquoise"
-msgstr "liv turkvaen"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:1
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:3
 msgid "absinthe"
 msgstr "liv huelenn"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:2
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:4
 msgid "alabaster"
 msgstr "liv glanvaen"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:3
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:5
+msgid "almond"
+msgstr "liv alamañdez"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:6
 msgid "amber"
 msgstr "liv goularz"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:4
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:7
 msgid "amethyst"
 msgstr "liv kouarz glas-ruz"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:5
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:8
 msgid "anise"
 msgstr "liv aniz"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:6
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:9
 msgid "aquamarine"
 msgstr "liv maen glas mor"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:7
-msgid "mahogany"
-msgstr "liv akajou"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:8
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:8
-msgid "vermilion"
-msgstr "ruz glaou"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:1
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:1
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:10
 msgid "aubergine"
 msgstr "liv berjinez"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:2
-msgid "ceruse"
-msgstr "gwenn plom"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:3
-msgid "chartreuse"
-msgstr "liv chartouzenn"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:4
-msgid "emerald"
-msgstr "liv gwervaen"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:5
-msgid "fawn"
-msgstr "loued gell"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:6
-msgid "fuchsia"
-msgstr "liv fuchsia"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:7
-msgid "glaucous"
-msgstr "glas dour"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:8
-msgid "ruby"
-msgstr "liv ruzvaen"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:2
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:11
 msgid "auburn"
 msgstr "liv auburn"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:3
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:12
 msgid "azure"
 msgstr "glas mor"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:4
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:13
 msgid "bistre"
 msgstr "gell du"
 
 # Céladon : anv ur mêsaer, gwer e zilhad, ar c'harour peurvat eus an "Astrée", un romant skrivet gant Honoré d'Ufé o kontañ karantez ar vêsaerez Astrée hag he c'harour peurvat.
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:5
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:14
 msgid "celadon"
 msgstr "liv keladon"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:6
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:15
 msgid "cerulean"
 msgstr "damc'hlas"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:7
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:16
+msgid "ceruse"
+msgstr "gwenn plom"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:17
+msgid "chartreuse"
+msgstr "liv chartouzenn"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:18
+msgid "chestnut"
+msgstr "liv kistin"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:19
+msgid "claret"
+msgstr "liv gwin"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:20
+msgid "cobalt"
+msgstr "liv kobalt"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:21
+msgid "coral"
+msgstr "liv koural"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:22
+msgid "corn"
+msgstr "liv ed"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:23
 msgid "crimson"
 msgstr "ruz bev"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:8
-msgid "greyish-brown"
-msgstr "damzu"
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:24
+msgid "cyan"
+msgstr "siañ"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:25
+msgid "dark purple"
+msgstr "limestra teñval"
 
 # grège
 #   adj. Se dit de la soie naturelle telle qu’elle apparaît au dévidage du cocon. / Par ext. Qui est fait avec cette soie. Des fils grèges. / Invar. Qui est de la couleur de cette soie (jaune grisâtre).
 #
 #
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:1
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:26
 msgid "dove"
 msgstr "brizh"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:2
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:27
+msgid "emerald"
+msgstr "liv gwervaen"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:28
+msgid "fawn"
+msgstr "loued gell"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:29
+msgid "fuchsia"
+msgstr "liv fuchia"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:30
 msgid "garnet"
 msgstr "ruz mouk"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:3
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:31
+msgid "glaucous"
+msgstr "glas dour"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:32
+msgid "greyish blue"
+msgstr "glas loued"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:33
+msgid "greyish brown"
+msgstr "gell loued"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:34
 msgid "indigo"
 msgstr "indigo"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:4
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:35
 msgid "ivory"
 msgstr "liv dant olifant"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:5
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:36
 msgid "jade"
 msgstr "liv maen jad"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:6
-msgid "lavender"
-msgstr "liv lavañd"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:7
-msgid "lichen"
-msgstr "liv man"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:8
-msgid "wine"
-msgstr "liv gwin"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:1
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:37
 msgid "larch"
 msgstr "liv gwez tourmantin"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:2
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:38
+msgid "lavender"
+msgstr "liv lavañd"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:39
+msgid "lichen"
+msgstr "liv man"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:40
 msgid "lilac"
 msgstr "liv lireu"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:3
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:41
+msgid "lime"
+msgstr "liv tilh"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:42
 msgid "magenta"
 msgstr "majenta"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:4
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:43
+msgid "mahogany"
+msgstr "liv akajou"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:44
 msgid "malachite"
 msgstr "liv marbr kouevr"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:5
-msgid "mimosa"
-msgstr "liv mimoza"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:6
-msgid "navy"
-msgstr "liv mor"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:7
-msgid "ochre"
-msgstr "melendu"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:8
-msgid "olive"
-msgstr "liv olivez"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:1
-msgid "greyish blue"
-msgstr "liv tireoul"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:2
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:45
 msgid "mauve"
 msgstr "mouk"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:3
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:46
+msgid "mimosa"
+msgstr "liv mimoza"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:47
+msgid "navy"
+msgstr "liv mor"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:48
+msgid "ochre"
+msgstr "melendu"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:49
+msgid "olive"
+msgstr "liv olivez"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:50
 msgid "opaline"
 msgstr "liv opalennek"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:4
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:51
 msgid "pistachio"
 msgstr "liv huegan Spagn"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:5
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:52
 msgid "platinum"
 msgstr "liv platin"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:6
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:53
+msgid "plum"
+msgstr "liv prun"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:54
+msgid "prussian blue"
+msgstr "glas Prusia"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:55
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:9
 msgid "purple"
 msgstr "limestra"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:7
-msgid "ultramarine"
-msgstr "glas pers"
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:56
+msgid "ruby"
+msgstr "liv ruzvaen"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:1
-msgid "dark purple"
-msgstr "limestra teñval"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:2
-msgid "plum"
-msgstr "liv prun"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:3
-msgid "prussian blue"
-msgstr "glas Prusia"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:4
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:57
 msgid "rust"
 msgstr "liv mergl"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:5
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:58
 msgid "saffron"
 msgstr "liv safran"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:6
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:59
+msgid "sage"
+msgstr "liv saoj"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:60
+msgid "salmon"
+msgstr "liv eog"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:61
+msgid "sapphire"
+msgstr "liv safir"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:62
+msgid "sepia"
+msgstr "liv sepia"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:63
+msgid "sienna"
+msgstr "liv douar Sienna"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:64
+msgid "sulphur"
+msgstr "liv soufr"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:65
+msgid "tea"
+msgstr "liv te"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:66
+msgid "turquoise"
+msgstr "liv turkvaen"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:67
+msgid "ultramarine"
+msgstr "glas pers"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:68
 msgid "vanilla"
 msgstr "liv vanilha"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:7
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:69
 msgid "verdigris"
 msgstr "liv mergl kouevr"
 
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:70
+msgid "vermilion"
+msgstr "ruz glaou"
+
 # Veronese, Paolo Caliari (1528-1588)
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:8
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:71
 msgid "veronese"
 msgstr "liv veronese"
 
-#. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
-#: ../src/algebra_by-activity/algebra.c:186
-#: ../src/memory-activity/memory.c:946
-msgid "+-×÷"
-msgstr "+-×÷"
-
-#: ../src/algebra_by-activity/algebra.c:411
-#: ../src/readingh-activity/reading.c:630
-msgid "I am Ready"
-msgstr "Prest on"
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:72
+msgid "wine"
+msgstr "liv gwin"
 
 #: ../src/algebra_by-activity/algebra_by.xml.in.h:1
 msgid "A multiplication of two numbers is displayed. At the right of the equals sign, give the answer, the product. Use the left and right arrows to modify your answer and press the Enter key to check if you've got it right. If not, just try again."
@@ -1050,6 +1058,17 @@ msgstr "Taolenn liesaat"
 #: ../src/algebra_by-activity/algebra_by.xml.in.h:5
 msgid "Practice the multiplication operation"
 msgstr "Pleustriñ war al liesadurioù"
+
+#. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
+#: ../src/algebra_by-activity/algebra.c:186
+#: ../src/memory-activity/memory.c:946
+msgid "+-×÷"
+msgstr "+-×÷"
+
+#: ../src/algebra_by-activity/algebra.c:411
+#: ../src/readingh-activity/reading.c:630
+msgid "I am Ready"
+msgstr "Prest on"
 
 #: ../src/algebra_guesscount-activity/algebra_guesscount.xml.in.h:1
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:1
@@ -1131,14 +1150,6 @@ msgstr "Dilec'hiañ ha klikañ gant al logodenn"
 msgid "algorithm"
 msgstr "Heuliadoù poellek"
 
-#: ../src/anim-activity/Color.py:86
-msgid "Fill color..."
-msgstr "Liv leuniañ..."
-
-#: ../src/anim-activity/Color.py:98
-msgid "Stroke color..."
-msgstr "Liv an tres..."
-
 #: ../src/anim-activity/anim.py:103
 msgid "Save..."
 msgstr "Enrollañ..."
@@ -1157,11 +1168,11 @@ msgstr "Diuzañ"
 
 #: ../src/anim-activity/anim.py:127
 msgid "Rectangle"
-msgstr "Reizhkorn"
+msgstr "Reizhkorneg"
 
 #: ../src/anim-activity/anim.py:133
 msgid "Filled rectangle"
-msgstr "Reizhkorn leuniet"
+msgstr "Reizhkorneg leuniet"
 
 #: ../src/anim-activity/anim.py:139
 msgid "Circle"
@@ -1219,7 +1230,7 @@ msgstr "Ur benveg tresañ ha blivañ."
 
 #: ../src/anim-activity/anim.xml.in.h:3
 msgid "In this game, children can draw freely. The goal is to discover how to create attractive drawings based on basic shapes: rectangles, ellipses and lines. To give children a wider range of choices, a set of images can also be used."
-msgstr "Gant ar c'hoari-mañ e vez treset frank gant ar bugel. Penaos tresañ brav gant lunioù eeun (reizhkornioù, elipsennoù, linennoù) eo pal ar c'hoari. Evit reiñ muioc'h a zibaboù d'ar bugel e vezo enlakaet skeudennoù ivez."
+msgstr "Gant ar c'hoari-mañ e vez treset frank gant ar bugel. Penaos tresañ brav gant lunioù eeun (reizhkornegoù, elipsennoù, linennoù) eo pal ar c'hoari. Evit reiñ muioc'h a zibaboù d'ar bugel e vezo enlakaet skeudennoù ivez."
 
 #: ../src/anim-activity/anim.xml.in.h:4
 #: ../src/draw-activity/draw.xml.in.h:4
@@ -1233,7 +1244,7 @@ msgstr ""
 "\n"
 "Neuze klik ha rikl war al leur wenn evit krouiñ ul lun nevez.\n"
 "\n"
-"Ur wech savet un dresadenn e c'halli diuzañ ur frammad nevez da labourat warnañ dre ziuzañ unan eus ar reizhkornioù bihan gwenn en traoñ.\n"
+"Ur wech savet un dresadenn e c'halli diuzañ ur frammad nevez da labourat warnañ dre ziuzañ unan eus ar reizhkornegoù bihan gwenn en traoñ.\n"
 "\n"
 "Pep frammad a vo heñvel e endalc'had ouzh an hini kent.\n"
 "\n"
@@ -1252,6 +1263,14 @@ msgstr ""
 "Kemmpennet e vez pep skeudenn eus da vliverezh dre ober gant an diuzer skeudennoù er c'horn kleiz e traoñ ar skramm.\n"
 "\n"
 "Enrollet pe adkarget e vez da labour gant an afelloù « kantennig » ha « teuliad »."
+
+#: ../src/anim-activity/Color.py:86
+msgid "Fill color..."
+msgstr "Liv leuniañ..."
+
+#: ../src/anim-activity/Color.py:98
+msgid "Stroke color..."
+msgstr "Liv an tres..."
 
 #: ../src/awele-activity/awele.c:158
 #, c-format
@@ -1337,9 +1356,8 @@ msgstr "Kenurzhiadur loc'hadel. Ergraf ar c'henglotañ."
 msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "Dornata al logodenn : dilec'hiañ, riklañ, lakaat. Daveoù sevenadurel."
 
-#: ../src/babymatch-activity/shapegame.c:1903
-#: ../src/click_on_letter-activity/click_on_letter.c:671
-#: ../src/colors-activity/colors.c:168
+#: ../src/babymatch-activity/shapegame.c:1985
+#: ../src/click_on_letter-activity/click_on_letter.c:1316
 #, c-format
 msgid ""
 "<b>%1$s</b> configuration\n"
@@ -1465,8 +1483,8 @@ msgstr "Kas ar vell er pal"
 #: ../src/clickgame-activity/clickgame.xml.in.h:5
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:5
 #: ../src/connect4-activity/connect4.xml.in.h:6
-#: ../src/erase-activity/erase.xml.in.h:3
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:6
+#: ../src/erase-activity/erase.xml.in.h:3
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:6
 #: ../src/fifteen-activity/fifteen.xml.in.h:2
 #: ../src/hanoi-activity/hanoi.xml.in.h:3
@@ -1516,6 +1534,161 @@ msgstr "Obererezh arbennik oc'h enkorfañ Python e-barzh GCompris."
 #: ../src/boards/python.c:89
 msgid "Special board that embeds python into gcompris."
 msgstr "Obererezh arbennik oc'h enkorfañ python e-barzh GCompris."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:165
+msgid "Braille : Unlocking the Code"
+msgstr "Braille : terriñ ar rineg"
+
+#. Braille Intro
+#: ../src/braille_alphabets-activity/braille_alphabets.py:167
+msgid "The Braille system is a method that is used by blind people to read and write."
+msgstr "Un hentenn graet gant tud dall da lenn ha skrivañ eo ar reizhiad Braille. "
+
+#. Braille Description
+#: ../src/braille_alphabets-activity/braille_alphabets.py:170
+msgid "Each Braille character, or cell, is made up of six dot positions, arranged in a rectangle containing two columns of three dots each. As seen on the left, each dot is referenced by a number from 1 to 6."
+msgstr "Savet gant c'hwec'h lec'h pik, kempennet en ur reizhkorneg gant daou vann, tri fik e pep bann, eo an arouezennoù Braille (anvet \"kellig\" ivez). Evel ma welez war an tu kleiz e vez dishañvalet pep pik gant un niverenn eus 1 betek 6."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:189
+msgid "I am braille TUX"
+msgstr "Me eo TUKS braille"
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:201
+msgid "When you are ready, click on me and try reproducing Braille characters."
+msgstr "Pa vi prest, klik warnon ha klask adober an arouezennoù Braille."
+
+#. Translators : Do not translate the token {letter}
+#: ../src/braille_alphabets-activity/braille_alphabets.py:272
+msgid "Click on the dots in braille cell area to produce the letter {letter}."
+msgstr "Klik war ar pikoù war maez ar gellig vraille a-benn skrivañ al lizherenn {letter}."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:277
+msgid "Look at the Braille character map and observe how similar the first and second line are."
+msgstr "Sell ouzh taolenn an arouezennoù Braille ha sell ouzh al linenn gentañ hag an eil linenn. Gwel pegen heñvel ez int."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:280
+msgid "Again, similar as the first line but take care, the 'W' letter was added afterwards."
+msgstr "C'hoazh, heñvel ouzh al linenn gentañ. Taol evezh avat, ouzhpennet eo bet al lizherenn 'W' diwezhatoc'h."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:283
+msgid "This is easy, numbers are the same as letters from A to J."
+msgstr "Aes eo, heñvel ouzh al lizhereznnoù eus A bet J eo an niveroù."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:302
+msgid "Braille Cell"
+msgstr "Kellig Braille"
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:324
+msgid "Click to confirm your selection of dots"
+msgstr "Klik a-benn kadarnaat da ziuzad pikoù"
+
+#: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:2
+msgid "Learn and memorize the Braille system."
+msgstr "Deskiñ ha kounañ reizhiad Braille."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:3
+msgid "Let kids discover the Braille system."
+msgstr "Lakaat ar vugale da zizoleiñ reizhiad Braille."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:4
+msgid "The screen has 3 sections: braille cell, alphabet name and lower board containing 13 letters. Click on each letter in the lower board to know its corresponding braille code in the braille cell section. Click on the increment level button to jump to the next 13 letters of the English alphabets."
+msgstr "Tri rann ez eus gant ar skramm : kellig vBraille, anv al lizherenneg hag ur penel, izeloc'h, gant 13 lizherenn. Klik war pep lizherenn war ar penel a-benn gouzout ar voneg vraille o klotañ ganti war ar gellig vraille. Klik war an afell da gemmañ al live evit mont betek 13 lizherenn da heul al lizherenneg saoz."
+
+#: ../src/braille_alphabets-activity/BrailleMap.py:96
+msgid "Back to the activity"
+msgstr "Distreiñ d'an obererezh"
+
+#: ../src/braille_fun-activity/braille_fun.xml.in.h:1
+msgid "Braille Alphabet Codes"
+msgstr "Bonegoù lizherenneg Braille"
+
+#: ../src/braille_fun-activity/braille_fun.xml.in.h:2
+msgid "Braille Fun"
+msgstr "Plijadur gant ar Braille"
+
+#: ../src/braille_fun-activity/braille_fun.xml.in.h:3
+msgid "Braille code the tile for the corresponding falling letters. Check the braille chart by clicking on the toggle button for help."
+msgstr "Skriv ar rineg vBraille war an deolenn evit al lizherennoù a gouezh o klotañ ganti. Dre gklikañ war an afell drec'haoliñ e vez gwiriet taolenn an arouezennoù Braille."
+
+#: ../src/braille_fun-activity/braille_fun.xml.in.h:4
+msgid "Braille the falling letters"
+msgstr "Skrivañ e Braille al lizherennoù o kouezhañ"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:119
+msgid "PLAYER 1"
+msgstr "C'HOARIER 1"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:129
+msgid "PLAYER 2"
+msgstr "C'HOARIER 2"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:150
+msgid "Check Number"
+msgstr "Gwiriañ an niveroù"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:165
+#: ../src/braille_lotto-activity/braille_lotto.py:177
+msgid "Click me to get some hint"
+msgstr "Klik warnon a-benn kaout kuzulioù"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:190
+msgid "I don't have this number PLAYER {number}"
+msgstr "An niverenn-mañ n'emañ ket ganeoc'h C'HOARIER {number}"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:212
+msgid "Lotto Master"
+msgstr "Mestr al Lotiri"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:236
+msgid "Generate a number"
+msgstr "Krouiñ un niver"
+
+#. Translators : Do not translate the token {column}
+#: ../src/braille_lotto-activity/braille_lotto.py:293
+#: ../src/braille_lotto-activity/braille_lotto.py:316
+msgid "Hey, you have it. It is there in your {column} column"
+msgstr "C'he, emañ ganit. Emañ war ho pann {column}"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:295
+#: ../src/braille_lotto-activity/braille_lotto.py:318
+msgid "Oops, this number is not in your ticket!"
+msgstr "Hopala, n'emañ ket an niver-mañ war da vilhed !"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:332
+msgid "1st"
+msgstr "1ñ"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:335
+msgid "2nd"
+msgstr "2l"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:338
+msgid "3rd"
+msgstr "3de"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:340
+msgid "4th"
+msgstr "4t"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:350
+msgid "Game Over"
+msgstr "Echu eo ar c'hoari"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:459
+msgid "Congratulation player {player_id}, you won"
+msgstr "Gourc'hemennoù c'hoarier {player_id}, aet eo ar maout ganeoc'h"
+
+#: ../src/braille_lotto-activity/braille_lotto.xml.in.h:1
+msgid "Braille Lotto"
+msgstr "Lotiri Braille"
+
+#: ../src/braille_lotto-activity/braille_lotto.xml.in.h:2
+msgid "Discover the Braille system for numbers."
+msgstr "Dizolo reizhiad Braille evit an niveroù."
+
+#: ../src/braille_lotto-activity/braille_lotto.xml.in.h:3
+msgid "Each player must find if the proposed number is in their board. If the code is in the board, just click on it in order to validate it. The player who crosses all the Braille numbers correctly wins the game. Check the Braille table by clicking on the toggle button in the control bar."
+msgstr "Ret eo da bep c'hoarier kavout hag emañ an niverenn war e blankenn. Mard emañ warnañ, klik warnañ a-benn he zalvoudekaat. Mont a ray ar mout gant ar c'hoarier a lakay ur groaz war an holl niverennoù Braille gant un doare dereat. Laka ur groaz war an doalenn vraille dre glikañ war an afell drec'haoliñ war ar varrenn reoliñ."
 
 #: ../src/canal_lock-activity/canal_lock.xml.in.h:1
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:2
@@ -1860,76 +2033,6 @@ msgstr "1955, Citroën DS 19"
 msgid "Cars"
 msgstr "Kirri"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:311
-#: ../src/memory-activity/memory.c:906
-msgid ""
-"Error: this activity cannot be played with the\n"
-"sound effects disabled.\n"
-"Go to the configuration dialog to\n"
-"enable the sound"
-msgstr ""
-"Fazi : ret eo gweredekaat an efedoù son\n"
-"evit c'hoari an obererezh-mañ.\n"
-"Kit er voestad kefluniañ\n"
-"evit gweredekaat ar sonioù."
-
-#. TRANSLATORS: Put here the alphabet in your language
-#. require by all utf8-functions
-#. TRANSLATORS: Put here the alphabet lowercase in your language
-#: ../src/click_on_letter-activity/click_on_letter.c:316
-#: ../src/gletters-activity/gletters.c:229
-#: ../src/memory-activity/memory.c:935
-msgid "abcdefghijklmnopqrstuvwxyz"
-msgstr "abcdefghijklmnñorstuùvwyz'"
-
-#: ../src/click_on_letter-activity/click_on_letter.c:344
-#, c-format
-msgid ""
-"Error: this activity requires that you first install\n"
-"the packages with GCompris voices for the locale '%s' or '%s'"
-msgstr ""
-"Fazi : ret eo staliañ da gentañ ar pakadoù sonioù\n"
-"gant ar mouezhioù evit ar yezh « %s » pe « %s » enno."
-
-#: ../src/click_on_letter-activity/click_on_letter.c:354
-#, c-format
-msgid ""
-"Error: this activity requires that you first install\n"
-"the packages with GCompris voices for the locale '%s' ! Fallback to english, sorry!"
-msgstr ""
-"Fazi : ret eo staliañ da gentañ ar pakadoù sonioù\n"
-"gant ar mouezhioù evit ar yezh « %s » enno. Mont a ray en-dro d'ar saozneg, digarez !"
-
-#. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:694
-#: ../src/gletters-activity/gletters.c:883
-#: ../src/login-activity/login.py:484
-#: ../src/missing_letter-activity/missingletter_config.c:492
-#: ../src/readingh-activity/reading.c:928
-#: ../src/wordsgame-activity/wordsgame.c:887
-msgid "Uppercase only text"
-msgstr "Pennlizherennoù nemetken"
-
-#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:1
-msgid "A letter is spoken. Click on the matching letter in the main area. You can listen to the letter again, by clicking on the mouth icon in the bottom box."
-msgstr "Distaget ez eus ul lizherenn. Klik war al lizherenn o klotañ ganti er maez pennañ. Klev al lizherenn en-dro dre glikañ war ar genou er voest en traoñ."
-
-#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:2
-msgid "Click on a letter"
-msgstr "Klik war ul lizherenn"
-
-#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:3
-msgid "Letter-name recognition"
-msgstr "Anavezout al lizherennoù"
-
-#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:4
-msgid "Listen to a letter and click on the right one"
-msgstr "Selaou ul lizherenn ha klik war an hini vat"
-
-#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:5
-msgid "Visual letter-recognition. Can move the mouse."
-msgstr "Anavezout al lizherennoù gant ar gweled. Bezañ barrek da zilec'hiañ al logodenn."
-
 #: ../src/clickanddraw-activity/clickanddraw.xml.in.h:1
 msgid "Click and draw"
 msgstr "Klik ha tres"
@@ -1962,6 +2065,115 @@ msgstr "Kenurzhiadur loc'hadel : dilec'hiadurioù ha klikoù gant al logodenn."
 msgid "Use the left mouse button to click on the moving fish. A level 5 and after, a double click is mandatory."
 msgstr "Klik gant afell gleiz al logodenn war ar pesked oc'h en em zilec'hiañ. Gant al live5 ha uheloc'h e vo ret daouglikañ."
 
+#. require by all utf8-functions
+#. TRANSLATORS: Put here the alphabet lowercase in your language
+#: ../src/click_on_letter-activity/click_on_letter.c:367
+#: ../src/gletters-activity/gletters.c:229
+#: ../src/memory-activity/memory.c:935
+msgid "abcdefghijklmnopqrstuvwxyz"
+msgstr "abcdefghijklmnñorstuùvwyz'"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:378
+msgid "This activity will be played with questions displayed as text instead of being spoken"
+msgstr "Skrammet e vo ar goulennoù evel testenn eget evel goulennoù lavaret gant an obererezh-mañ."
+
+#: ../src/click_on_letter-activity/click_on_letter.c:383
+#: ../src/memory-activity/memory.c:906
+msgid ""
+"Error: this activity cannot be played with the\n"
+"sound effects disabled.\n"
+"Go to the configuration dialog to\n"
+"enable the sound"
+msgstr ""
+"Fazi : ret eo gweredekaat an efedoù son\n"
+"evit c'hoari an obererezh-mañ.\n"
+"Kit er voestad kefluniañ\n"
+"evit gweredekaat ar sonioù."
+
+#: ../src/click_on_letter-activity/click_on_letter.c:404
+#, c-format
+msgid ""
+"Error: this activity requires that you first install\n"
+"the packages with GCompris voices for the %s locale."
+msgstr ""
+"Fazi : ret eo staliañ da gentañ ar pakadoù sonioù\n"
+"gant ar mouezhioù evit ar yezh « %s » enno."
+
+#: ../src/click_on_letter-activity/click_on_letter.c:907
+msgid "Questions cannot be empty."
+msgstr "Ar goulennoù n'hallont ket bezañ goullo."
+
+#: ../src/click_on_letter-activity/click_on_letter.c:917
+msgid "Answers cannot be empty."
+msgstr "Ar respontoù n'hallont ket bezañ goullo."
+
+#: ../src/click_on_letter-activity/click_on_letter.c:923
+#, c-format
+msgid "Too many characters in the Answer (maximum is %d)."
+msgstr "Re a arouezennoù gant ar respont (%d arouezenn d'ar muiañ)."
+
+#: ../src/click_on_letter-activity/click_on_letter.c:947
+msgid "All the characters in Questions must also be in the Answers."
+msgstr "An holl arouezennoù er Goulennoù ar rank bezañ ivez er Respontoù."
+
+#: ../src/click_on_letter-activity/click_on_letter.c:964
+#, c-format
+msgid ""
+"Invalid entry:\n"
+"At level %d, Questions '%s' / Answers '%s'\n"
+"%s"
+msgstr ""
+"Enankad didalvoudek :\n"
+"D'al live %d, Goulenn '%s' / Respont '%s'\n"
+"%s"
+
+#. answer
+#: ../src/click_on_letter-activity/click_on_letter.c:1259
+#: ../src/missing_letter-activity/missingletter_config.c:420
+#: ../src/missing_letter-activity/missingletter_config.c:548
+msgid "Answer"
+msgstr "Respont"
+
+#. question
+#: ../src/click_on_letter-activity/click_on_letter.c:1270
+#: ../src/missing_letter-activity/missingletter_config.c:426
+#: ../src/missing_letter-activity/missingletter_config.c:571
+msgid "Question"
+msgstr "Goulenn"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:1406
+#: ../src/gcompris/board_config_wordlist.c:274
+msgid "Back to default"
+msgstr "Distreiñ d'an arventennoù dre ziouer"
+
+#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:1
+#: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:1
+msgid "A letter is spoken. Click on the matching letter in the main area. You can listen to the letter again, by clicking on the mouth icon in the bottom box."
+msgstr "Distaget ez eus ul lizherenn. Klik war al lizherenn o klotañ ganti er maez pennañ. Klev al lizherenn en-dro dre glikañ war ar genou er voest en traoñ."
+
+#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:2
+msgid "Click on a lowercase letter"
+msgstr "Klik war ul lizherenn vunut"
+
+#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:3
+#: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:3
+msgid "Letter-name recognition"
+msgstr "Anavezout al lizherennoù"
+
+#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:4
+#: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:4
+msgid "Listen to a letter and click on the right one"
+msgstr "Selaou ul lizherenn ha klik war an hini vat"
+
+#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:5
+#: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:5
+msgid "Visual letter-recognition. Can move the mouse."
+msgstr "Anavezout al lizherennoù gant ar gweled. Bezañ barrek da zilec'hiañ al logodenn."
+
+#: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:2
+msgid "Click on an uppercase letter"
+msgstr "Klik war ur pennlizherenn"
+
 #: ../src/clockgame-activity/clockgame.c:524
 msgid "Set the watch to:"
 msgstr "Laka bizied an eurier war :"
@@ -1985,46 +2197,6 @@ msgstr "Reizh an horolaj gant an eur roet, gant an unanennoù amzer diskouezet (
 #: ../src/clockgame-activity/clockgame.xml.in.h:5
 msgid "The concept of time. Reading the time."
 msgstr "Meizad an eurioù. Lenn an eurioù."
-
-#: ../src/colors-activity/colors.c:60
-msgid "Click on the blue duck"
-msgstr "Klik war an houad glas"
-
-#: ../src/colors-activity/colors.c:61
-msgid "Click on the brown duck"
-msgstr "Klik war an houad liv kistin"
-
-#: ../src/colors-activity/colors.c:62
-msgid "Click on the green duck"
-msgstr "Klik war an houad gwer"
-
-#: ../src/colors-activity/colors.c:63
-msgid "Click on the grey duck"
-msgstr "Klik war an houad louet"
-
-#: ../src/colors-activity/colors.c:64
-msgid "Click on the orange duck"
-msgstr "Klik war an houad orañjez"
-
-#: ../src/colors-activity/colors.c:65
-msgid "Click on the purple duck"
-msgstr "Klik war an houad mouk"
-
-#: ../src/colors-activity/colors.c:66
-msgid "Click on the red duck"
-msgstr "Klik war an houad ruz"
-
-#: ../src/colors-activity/colors.c:67
-msgid "Click on the yellow duck"
-msgstr "Klik war an houad melen"
-
-#: ../src/colors-activity/colors.c:68
-msgid "Click on the black duck"
-msgstr "Klik war an houad du"
-
-#: ../src/colors-activity/colors.c:69
-msgid "Click on the white duck"
-msgstr "Klik war an houad gwenn"
 
 #: ../src/colors-activity/colors.xml.in.h:1
 msgid "Can move the mouse."
@@ -2052,54 +2224,45 @@ msgid "Find the {text} duck"
 msgstr "Klik war an houad {text}"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:3
-#: ../src/read_colors-activity/read_colors.c:65
 msgid "black"
 msgstr "du"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:4
-#: ../src/read_colors-activity/read_colors.c:57
 msgid "blue"
 msgstr "glas"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:5
-#: ../src/read_colors-activity/read_colors.c:58
 msgid "brown"
 msgstr "liv kistin"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:6
-#: ../src/read_colors-activity/read_colors.c:59
 msgid "green"
 msgstr "gwer"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:7
-#: ../src/read_colors-activity/read_colors.c:60
 msgid "grey"
 msgstr "loued"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:8
-#: ../src/read_colors-activity/read_colors.c:61
 msgid "orange"
 msgstr "liv orañjez"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:10
-#: ../src/read_colors-activity/read_colors.c:63
 msgid "red"
 msgstr "ruz"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:11
-#: ../src/read_colors-activity/read_colors.c:66
 msgid "white"
 msgstr "gwenn"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:12
-#: ../src/read_colors-activity/read_colors.c:64
 msgid "yellow"
 msgstr "melen"
 
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:1
 #: ../src/connect4-activity/connect4.xml.in.h:1
 msgid "Arrange four coins in a row"
-msgstr "Sav ur renkad 4 fezh a-serzh, a-zremm, a-veskell"
+msgstr "Sav ur renkad 4 fezh a-serzh, a-blaen, a-veskell"
 
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:2
 #: ../src/connect4-activity/connect4.xml.in.h:2
@@ -2117,7 +2280,7 @@ msgstr "4 ha 4 (2 c'hoarier)"
 
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:4
 msgid "Create a line of 4 pieces either horizontally (lying down) or vertically (standing up) or diagonally."
-msgstr "Krouiñ ur renkad 4 fezh a-zremm, a-serzh pe a-veskell."
+msgstr "Krouiñ ur renkad 4 fezh a-blaen, a-serzh pe a-veskell."
 
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:6
 msgid "The original code was written in 2005 by Laurent Lacheny. In 2006, Miguel de Izarra made the two players game. Images and Artificial Intelligence taken from project 4stattack by Jeroen Vloothuis. The original project can be found on &lt;http://forcedattack.sourceforge.net&gt;"
@@ -2130,7 +2293,7 @@ msgstr "4 ha 4"
 
 #: ../src/connect4-activity/connect4.xml.in.h:4
 msgid "Create a line of 4 pieces either horizontally (lying down), vertically (standing up) or diagonally."
-msgstr "Krouiñ ur renkad 4 fezh a-zremm, a-serzh pe a-veskell."
+msgstr "Krouiñ ur renkad 4 fezh a-blaen, a-serzh pe a-veskell."
 
 #: ../src/connect4-activity/connect4.xml.in.h:5
 msgid "Laurent Lacheny. Images and Artificial Intelligence taken from project 4stattack by Jeroen Vloothuis. The original project can be found on &lt;http://forcedattack.sourceforge.net&gt;"
@@ -2145,8 +2308,8 @@ msgid "Drive the crane and copy the model"
 msgstr "Blein brec'h ar c'havr evit dilec'hiañ an elfennoù hervez ar skouer"
 
 #: ../src/crane-activity/crane.xml.in.h:3
-#: ../src/erase-activity/erase.xml.in.h:2
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:5
+#: ../src/erase-activity/erase.xml.in.h:2
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:5
 #: ../src/penalty-activity/penalty.xml.in.h:3
 msgid "Motor-coordination"
@@ -2211,10 +2374,6 @@ msgstr "Vincent van Gogh, Poltred Tad Tanguy 1887-8"
 msgid "Eilean Donan castle"
 msgstr "Kastell Eilean Donan"
 
-#: ../src/details-activity/resources/details/board2_1.xml.in.h:1
-msgid "Eiffel Tower, seen from the champ de Mars, Paris, France"
-msgstr "Tour Eiffel, gwelet diouzh Champ de Mars, Pariz, Bro-C'hall"
-
 #: ../src/details-activity/resources/details/board2_10.xml.in.h:1
 msgid "Gizah Pyramids, Egypt"
 msgstr "Gizeh Piramidennoù, Ejipt"
@@ -2226,6 +2385,10 @@ msgstr "Operadi Sidney, Aostralia"
 #: ../src/details-activity/resources/details/board2_12.xml.in.h:1
 msgid "Tower Bridge in London"
 msgstr "Tower Bridge e London"
+
+#: ../src/details-activity/resources/details/board2_1.xml.in.h:1
+msgid "Eiffel Tower, seen from the champ de Mars, Paris, France"
+msgstr "Tour Eiffel, gwelet diouzh Champ de Mars, Pariz, Bro-C'hall"
 
 #: ../src/details-activity/resources/details/board2_2.xml.in.h:1
 msgid "Courtyard of the Museum of Louvre, and its pyramid"
@@ -2298,14 +2461,15 @@ msgstr ""
 "\n"
 "Tresañ evel ma plijo dezho eo pal ar c'hoari-mañ.\n"
 "\n"
-"E bal eo dizoleiñ penaos sevel tresadennoù brav gant lunioù eeun : reizhkornioù, elipsennoù ha linennoù."
+"E bal eo dizoleiñ penaos sevel tresadennoù brav gant lunioù eeun : reizhkornegoù, elipsennoù ha linennoù."
 
 #: ../src/draw-activity/draw.xml.in.h:5
 msgid "Select a drawing tool on the left, and a color down the bottom, then click and drag in the white area to create a new shape. To save time, you can click with the middle mouse button to delete an object."
 msgstr "Dibab ur benveg war an tu kleiz hag ul liv en traoñ. Klik ha rikl war ar bajenn wenn evit krouiñ ul lun nevez. Evit gounit amzer e vez kliket war afell greiz al logodenn a-benn diverkañ ul lun."
 
 #: ../src/drawnumber-activity/drawnumber.py:236
-#: ../src/findit-activity/findit.py:290
+#: ../src/findit-activity/findit.py:310
+#: ../src/louis_braille-activity/louis_braille.py:84
 msgid "Cannot find the file '{filename}'"
 msgstr "N'haller ket kavout ar restr '{filename}'"
 
@@ -2405,6 +2569,18 @@ msgstr ""
 "\n"
 "Biziata ar respont gant ar c'hlavier ha klik war an afell 'Mat eo' pe ar stokell 'Enankañ' (enter)."
 
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
+msgid "Double click the mouse"
+msgstr "Daouglikañ gant al logodenn"
+
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:3
+msgid "Double click the mouse on rectangles until all the blocks disappear."
+msgstr "Daouglikañ gant al logodenn war ar reizhkornegoù betek ma vo ar bloc'hadoù aet da get."
+
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:4
+msgid "Double click the mouse to erase the area and discover the background"
+msgstr "Daouglikañ gant al logodenn a-benn dilemel ar maez ha dizoleiñ an drekva"
+
 #: ../src/erase-activity/erase.c:86
 #: ../src/erase-activity/erase.xml.in.h:5
 msgid "Move the mouse to erase the area and discover the background"
@@ -2440,25 +2616,13 @@ msgstr "Eus ar bajennad a-fet luc'hskeudennoù diwar-benn al loened, gant Ralf S
 msgid "Move the mouse until all the blocks disappear. You can add you own images under the directory '~/My GCompris/erase'."
 msgstr "Laka al logodenn da zilec'hiañ betek ma vo diverket ar bloc'had. Da skeudenn dit-te a vez ouzhpennet er c'havlec'hiad '~/My GCompris/erase'."
 
-#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
-msgid "Double click the mouse"
-msgstr "Daouglikañ gant al logodenn"
-
-#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:3
-msgid "Double click the mouse on rectangles until all the blocks disappear."
-msgstr "Daouglikañ gant al logodenn war ar reizhkornioù betek ma vo ar bloc'hadoù aet da get."
-
-#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:4
-msgid "Double click the mouse to erase the area and discover the background"
-msgstr "Daouglikañ gant al logodenn a-benn dilemel ar maez ha dizoleiñ an drekva"
-
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:2
 msgid "Click the mouse"
 msgstr "Klik gant al logodenn"
 
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:3
 msgid "Click the mouse on rectangles until all the blocks disappear."
-msgstr "Dilec'h al logodenn ha klik war ar reizhkornioù betek ma vint diverket holl."
+msgstr "Dilec'h al logodenn ha klik war ar reizhkornegoù betek ma vint diverket holl."
 
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:4
 msgid "Click the mouse to erase the area and discover the background"
@@ -2484,6 +2648,15 @@ msgstr "Boneg orin o tont eus ur skouer gelennadel gant libgnomecanvas"
 #: ../src/fifteen-activity/fifteen.xml.in.h:5
 msgid "The fifteen game"
 msgstr "Lec'h-dilec'h"
+
+#: ../src/findit-activity/findit.py:315
+#: ../src/louis_braille-activity/louis_braille.py:88
+msgid ""
+"Failed to parse data set '{filename}' with error:\n"
+"{error}"
+msgstr ""
+"C'hwitadenn war dezrannañ roadennoù  '{filename}' gant ur fazi :\n"
+"{error}"
 
 #: ../src/followline-activity/followline.xml.in.h:1
 msgid "Control the hose-pipe"
@@ -2547,27 +2720,27 @@ msgstr "Ur pakad GNU eo ar meziant-mañ ha savet eo bet dindan Lañvaz Hollek Fo
 msgid "OK"
 msgstr "Mat eo"
 
-#: ../src/gcompris/bar.c:684
+#: ../src/gcompris/bar.c:688
 msgid "GCompris confirmation"
 msgstr "Gcompris : kadarnaat"
 
-#: ../src/gcompris/bar.c:685
+#: ../src/gcompris/bar.c:689
 msgid "Are you sure you want to quit?"
 msgstr "Ha mont kuit a fell dit ?"
 
-#: ../src/gcompris/bar.c:686
+#: ../src/gcompris/bar.c:690
 msgid "Yes, I am sure!"
 msgstr "Ya, a dra-sur !"
 
-#: ../src/gcompris/bar.c:687
+#: ../src/gcompris/bar.c:691
 msgid "No, I want to keep going"
 msgstr "Ne fell ket din !"
 
-#: ../src/gcompris/board.c:155
+#: ../src/gcompris/board.c:149
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr "N'eo ket skoret pellgargadur dialuskel ar mollad. GCompris n'eo ket evit pellgargañ.\n"
 
-#: ../src/gcompris/board_config_combo.c:157
+#: ../src/gcompris/board_config_combo.c:182
 msgid ""
 "Select the language\n"
 " to use in the board"
@@ -2576,23 +2749,23 @@ msgstr ""
 "da arverañ evit\n"
 "an obererezh-mañ"
 
-#: ../src/gcompris/board_config_combo.c:227
+#: ../src/gcompris/board_config_combo.c:252
 msgid "Global GCompris mode"
 msgstr "Mod GCompris hollel"
 
-#: ../src/gcompris/board_config_combo.c:228
+#: ../src/gcompris/board_config_combo.c:253
 msgid "Normal"
 msgstr "Reizh"
 
-#: ../src/gcompris/board_config_combo.c:229
+#: ../src/gcompris/board_config_combo.c:254
 msgid "2 clicks"
 msgstr "2 glik"
 
-#: ../src/gcompris/board_config_combo.c:230
+#: ../src/gcompris/board_config_combo.c:255
 msgid "both modes"
 msgstr "an daou vod"
 
-#: ../src/gcompris/board_config_combo.c:258
+#: ../src/gcompris/board_config_combo.c:283
 msgid ""
 "Select the drag and drop mode\n"
 " to use in the board"
@@ -2602,27 +2775,23 @@ msgstr ""
 "an obererezh-mañ"
 
 #. add a new level
-#: ../src/gcompris/board_config_wordlist.c:106
+#: ../src/gcompris/board_config_wordlist.c:123
 #, c-format
 msgid "%d (New level)"
 msgstr "%d (Live nevez)"
 
 #. frame
-#: ../src/gcompris/board_config_wordlist.c:180
+#: ../src/gcompris/board_config_wordlist.c:226
 msgid "Configure the list of words"
 msgstr "Kefluniañ ar roll gerioù"
 
-#: ../src/gcompris/board_config_wordlist.c:209
+#: ../src/gcompris/board_config_wordlist.c:237
 msgid "Choice of the language"
 msgstr "Dibab ar yezh"
 
-#: ../src/gcompris/board_config_wordlist.c:221
+#: ../src/gcompris/board_config_wordlist.c:249
 msgid "Choice of the level"
 msgstr "Dibab al live"
-
-#: ../src/gcompris/board_config_wordlist.c:246
-msgid "Back to default"
-msgstr "Distreiñ d'an arventennoù dre ziouer"
 
 #: ../src/gcompris/config.c:58
 msgid "Your system default"
@@ -2895,7 +3064,7 @@ msgstr "Waloneg"
 
 #: ../src/gcompris/config.c:125
 msgid "Zulu"
-msgstr "Zoulou"
+msgstr "Zouloueg"
 
 #: ../src/gcompris/config.c:130
 msgid "No time limit"
@@ -2934,7 +3103,7 @@ msgid "Effect"
 msgstr "Efed"
 
 #: ../src/gcompris/config.c:345
-#: ../src/gcompris/sugar.c:82
+#: ../src/gcompris/sugar.c:83
 msgid "Zoom"
 msgstr "Zoum"
 
@@ -2944,8 +3113,8 @@ msgid "Couldn't open skin dir: %s"
 msgstr "N'haller ket digeriñ kavlec'hiad an neuzioù : %s"
 
 #: ../src/gcompris/config.c:413
-#: ../src/gcompris/config.c:780
-#: ../src/gcompris/config.c:794
+#: ../src/gcompris/config.c:862
+#: ../src/gcompris/config.c:876
 #, c-format
 msgid "Skin : %s"
 msgstr "Neuz : %s"
@@ -2953,10 +3122,6 @@ msgstr "Neuz : %s"
 #: ../src/gcompris/config.c:415
 msgid "SKINS NOT FOUND"
 msgstr "N'EO KET BET KAVET AN NEUZIOÙ"
-
-#: ../src/gcompris/config.c:496
-msgid "English (United State)"
-msgstr "Saozneg (Stadoù Unanet)"
 
 #: ../src/gcompris/file_selector.c:251
 msgid "CANCEL"
@@ -2970,18 +3135,18 @@ msgstr "KARGAÑ"
 msgid "SAVE"
 msgstr "ENROLLAÑ"
 
-#: ../src/gcompris/gameutil.c:142
-#: ../src/gcompris/gameutil.c:200
+#: ../src/gcompris/gameutil.c:138
+#: ../src/gcompris/gameutil.c:196
 msgid "Couldn't find or load the file"
 msgstr "N'haller ket kavout pe gargañ ar restr"
 
-#: ../src/gcompris/gameutil.c:144
-#: ../src/gcompris/gameutil.c:202
+#: ../src/gcompris/gameutil.c:140
+#: ../src/gcompris/gameutil.c:198
 msgid "This activity is incomplete."
 msgstr "N'eo ket klok an obererezh-mañ."
 
-#: ../src/gcompris/gameutil.c:145
-#: ../src/gcompris/gameutil.c:203
+#: ../src/gcompris/gameutil.c:141
+#: ../src/gcompris/gameutil.c:199
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -2989,139 +3154,155 @@ msgstr ""
 "Kae kuit ha kas keloù\n"
 "d'an aozerion diwar-benn ar gudenn."
 
-#: ../src/gcompris/gcompris.c:158
+#: ../src/gcompris/gcompris.c:155
 msgid "run GCompris in fullscreen mode."
 msgstr "loc'h GCompris e mod skrammad a-bezh."
 
-#: ../src/gcompris/gcompris.c:161
+#: ../src/gcompris/gcompris.c:158
 msgid "run GCompris in window mode."
 msgstr "loc'h GCompris e mod prenestr."
 
-#: ../src/gcompris/gcompris.c:164
+#: ../src/gcompris/gcompris.c:161
 msgid "run GCompris with sound enabled."
 msgstr "loc'h GCompris gant ar sonioù."
 
-#: ../src/gcompris/gcompris.c:167
+#: ../src/gcompris/gcompris.c:164
 msgid "run GCompris without sound."
 msgstr "loc'h GCompris hep ar sonioù."
 
-#: ../src/gcompris/gcompris.c:170
+#: ../src/gcompris/gcompris.c:167
 msgid "run GCompris with the default system cursor."
 msgstr "loc'h GCompris gant reti dre ziouer ar reizhiad."
 
-#: ../src/gcompris/gcompris.c:173
+#: ../src/gcompris/gcompris.c:170
 msgid "run GCompris without cursor (touch screen mode)."
 msgstr "loc'h GCompris hep ar reti (mod dre stekiñ ar skramm)."
 
-#: ../src/gcompris/gcompris.c:176
+#: ../src/gcompris/gcompris.c:173
 msgid "display only activities with this difficulty level."
 msgstr "skrammañ an obererezhioù a-live-mañ nemetken."
 
-#: ../src/gcompris/gcompris.c:179
+#: ../src/gcompris/gcompris.c:176
 msgid "display debug informations on the console."
 msgstr "skrammañ ar stlennoù diveugañ war ar penel."
 
-#: ../src/gcompris/gcompris.c:182
+#: ../src/gcompris/gcompris.c:179
 msgid "Print the version of "
 msgstr "Moullañ an handelv eus "
 
-#: ../src/gcompris/gcompris.c:185
+#: ../src/gcompris/gcompris.c:182
 msgid "Run GCompris with local menu (e.g -l /reading will let you play only activities in the reading directory, -l /strategy/connect4 only the connect4 activity). Use '-l list' to list all the availaible activities and their descriptions."
 msgstr "Loc'hañ GCompris gant ul lañser lec'hel  (sk. : -l /reading evit c'hoari gant obererezhioù al lenn ; -l /strategy/connect4 evit tizhout ar c'hoari 4 ha 4). Arverit -l evit renabliñ an holl obererzhioù hegerz gant o deskrivadurioù."
 
-#: ../src/gcompris/gcompris.c:190
+#: ../src/gcompris/gcompris.c:187
 msgid "GCompris will find the data dir in this directory"
 msgstr "Er c'havlec'hiad-mañ e kavo GCompris roadennoù ar c'havlec'hiad"
 
-#: ../src/gcompris/gcompris.c:193
+#: ../src/gcompris/gcompris.c:190
 msgid "GCompris will find the skins in this directory"
 msgstr "Er c'havlec'hiad-mañ e kavo GCompris an neuzioù"
 
-#: ../src/gcompris/gcompris.c:196
+#: ../src/gcompris/gcompris.c:193
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "Er c'havlec'hiad-mañ e kavo GCompris enlugelladoù an obererezhioù"
 
-#: ../src/gcompris/gcompris.c:199
+#: ../src/gcompris/gcompris.c:196
 msgid "GCompris will find the python activity in this directory"
 msgstr "An obererezh 'python' a vo kavet gant GCompris er c'havlec'hiad-mañ"
 
-#: ../src/gcompris/gcompris.c:202
+#: ../src/gcompris/gcompris.c:199
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr "Er c'havlec'hiad-mañ e kavo GCompris ar restr yezh (troidigezh .mo)"
 
-#: ../src/gcompris/gcompris.c:205
+#: ../src/gcompris/gcompris.c:202
 msgid "GCompris will find the activities menu in this directory"
 msgstr "Er c'havlec'hiad-mañ e kavo GCompris lañser an obererezhioù"
 
-#: ../src/gcompris/gcompris.c:208
+#: ../src/gcompris/gcompris.c:205
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Loc'hañ GCompris er mod ardeiñ ha merañ al livioù."
 
-#: ../src/gcompris/gcompris.c:211
+#: ../src/gcompris/gcompris.c:208
 msgid "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite.db]"
 msgstr "Arverañ ur stlennvon dazeilel evit an aeladoù [$HOME/.config/gcompris/gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:214
+#: ../src/gcompris/gcompris.c:211
 msgid "Create the alternate database for profiles"
 msgstr "Krouiñ ar stlennvon dazeilel evit an aeladoù."
 
-#: ../src/gcompris/gcompris.c:217
+#: ../src/gcompris/gcompris.c:214
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Adlenn al lañserioù XML hag enrollañ i er stlennvon"
 
-#: ../src/gcompris/gcompris.c:220
+#: ../src/gcompris/gcompris.c:217
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Diuzañ an aelad da arverañ. Arverañ « gcompris -a » evit krouiñ aeladoù"
 
-#: ../src/gcompris/gcompris.c:223
+#: ../src/gcompris/gcompris.c:220
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr "Renabliñ an aeladoù hegerz. Arverañ « gcompris -a » evit krouiñ aeladoù"
 
-#: ../src/gcompris/gcompris.c:226
+#: ../src/gcompris/gcompris.c:223
 msgid "Config directory location: [$HOME/.config/gcompris]. Alternate is to set $XDG_CONFIG_HOME."
 msgstr "Lec'hiadur ar c'havlec'hiad kefluniañ : [$HOME/.config/gcompris]. Un doare all eo arventenniñ $XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:229
+#: ../src/gcompris/gcompris.c:226
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "Lec'hiadur kavlec'hiad an arveriaded : [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:232
+#: ../src/gcompris/gcompris.c:229
 msgid "Run the experimental activities"
 msgstr "Davit an obererezhioù arnodiñ"
 
-#: ../src/gcompris/gcompris.c:235
+#: ../src/gcompris/gcompris.c:232
 msgid "Disable the quit button"
 msgstr "Diweredekaat an afell guitaat"
 
-#: ../src/gcompris/gcompris.c:238
+#: ../src/gcompris/gcompris.c:235
 msgid "Disable the config button"
 msgstr "Diweredekaat an afell gefluniañ"
 
-#: ../src/gcompris/gcompris.c:241
+#: ../src/gcompris/gcompris.c:238
 msgid "Disable the level button"
 msgstr "Diweredekaat afell al live"
 
-#: ../src/gcompris/gcompris.c:244
+#: ../src/gcompris/gcompris.c:241
 msgid "GCompris will get images, sounds and activity data from this server if not found locally."
 msgstr "Diouzh an dafariad-mañ ez adpak GCompris ar skeudennoù, ar sonioù hag an obererezhioù ma n'emaint ket hegerz war al lec'h."
 
-#: ../src/gcompris/gcompris.c:247
+#: ../src/gcompris/gcompris.c:244
 msgid "Only when --server is provided, disable check for local resource first. Data are always taken from the web server."
 msgstr "Pa vez pourchaset --server hepken e tiweredeka gwiriadur al loazioù lec'hel da gentañ. Diouzh an dafariad e vez adpaket ar roadennoù atav."
 
-#: ../src/gcompris/gcompris.c:251
+#: ../src/gcompris/gcompris.c:248
 msgid "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr "E mod dafariad, erspizañ lec'hiadur kavlec'hiad ar grubuilh evit mirout ouzh ar pellgagadurioù didalvoudus."
 
-#: ../src/gcompris/gcompris.c:254
+#: ../src/gcompris/gcompris.c:251
 msgid "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr "Mod klikañ-riklañ hollel : reizh, 2 glik, an eil hag egile. Ar mod dre ziouer eo ar mod reizh."
 
-#: ../src/gcompris/gcompris.c:257
+#: ../src/gcompris/gcompris.c:254
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Na virout ouzh an erounezadur eus meur a eriol GCompris."
 
-#: ../src/gcompris/gcompris.c:929
+#: ../src/gcompris/gcompris.c:260
+msgid "Disable maximization zoom"
+msgstr "Diweredekaat ar zoum uc'hekaat"
+
+#: ../src/gcompris/gcompris.c:263
+msgid "Increase activities' timeout delays; useful values > 1.0; 1.0 to not change hardcoded value"
+msgstr "Kreskiñ daleoù diamzeriañ an obererezhioù ; gwerzhioù talvoudus > 1.0 ; 1.0 evit chom hep kemmañ ar gwerzhioù bet enboneget gant un doare spesadel"
+
+#: ../src/gcompris/gcompris.c:266
+msgid "How activities' timeout delays are growing for several actors; useful values < 1.0; 1.0 to not change hardcoded value"
+msgstr "Penaos emañ daleoù diamzeriañ an obererezhioù o kreskiñ evit meur a wereder ; gwerzhioù talvoudus < 1.0 ; 1.0 evit chom hep kemmañ ar gwerzhioù bet enboneget gant un doare spesadel"
+
+#: ../src/gcompris/gcompris.c:269
+msgid "For test purpose, run in a loop all the activities"
+msgstr "A-benn ober un taol arnod, erounezit dre un dol an holl obererezhioù"
+
+#: ../src/gcompris/gcompris.c:940
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to support its development, this version provides only %d of the %d activities. You can get the full version for a small fee at\n"
@@ -3134,22 +3315,24 @@ msgstr ""
 "Klok eo handelv GNU/Linux. Notennit ez eo bet diorreet GCompris evit dieubiñ ar skolioù diouzh ar meziantoù perc'hennek. Trugarez da arverañ GNU/Linux. Muioc'h a ditouroù war\n"
 " <http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1223
+#: ../src/gcompris/gcompris.c:1234
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
 msgstr "C'hwitadenn war kargañ an neuz '%s' (Bezit sur ez eus eus ar restr-mañ hag ez eo lennadus)"
 
-#: ../src/gcompris/gcompris.c:1486
+#: ../src/gcompris/gcompris.c:1504
 #, c-format
-msgid "GCompris won't start because the lock file is less than %d seconds old.\n"
-msgstr "Ne loc'ho ket GCompris rak lakaet eo bet ar restr potailh abaoe %d eilenn hepken.\n"
+msgid "GCompris won't start because the lock file is less than %d second old.\n"
+msgid_plural "GCompris won't start because the lock file is less than %d seconds old.\n"
+msgstr[0] "Ne loc'ho ket GCompris rak lakaet eo bet ar restr potailh abaoe %d eilenn hepken.\n"
+msgstr[1] "Ne loc'ho ket GCompris rak lakaet eo bet ar restr potailh abaoe %d eilenn hepken.\n"
 
-#: ../src/gcompris/gcompris.c:1488
+#: ../src/gcompris/gcompris.c:1508
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "« %s » eo ar restr potailh\n"
 
-#: ../src/gcompris/gcompris.c:1599
+#: ../src/gcompris/gcompris.c:1681
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3163,37 +3346,37 @@ msgstr ""
 "Muioc'h a ditouroù war http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1714
+#: ../src/gcompris/gcompris.c:1796
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Arverañ an dibarzh -l evit tizhout un obererezh end eeun.\n"
 
-#: ../src/gcompris/gcompris.c:1715
+#: ../src/gcompris/gcompris.c:1797
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Roll an obererezhioù hegerz :\n"
 
-#: ../src/gcompris/gcompris.c:1746
+#: ../src/gcompris/gcompris.c:1828
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Niver a obererezhioù : %d\n"
 
-#: ../src/gcompris/gcompris.c:1782
+#: ../src/gcompris/gcompris.c:1864
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s ez eus anezhi met n'hall ket bezañ lennet pe enrollet"
 
-#: ../src/gcompris/gcompris.c:1845
+#: ../src/gcompris/gcompris.c:1927
 #, c-format
 msgid "The --server option cannot be used because GCompris has been compiled without network support!"
 msgstr "Dibarzh an dafariad n'hall ket bezañ arveret rak kempunet eo bet GCompris hep ar skor rouedad !"
 
-#: ../src/gcompris/gcompris.c:1899
+#: ../src/gcompris/gcompris.c:1981
 #, c-format
 msgid "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list available ones\n"
 msgstr "FAZI : N'eo ket bet kavet aelad '%s'. Lañsit 'gcompris --profile-list' evit sevel roll ar re hegerz\n"
 
-#: ../src/gcompris/gcompris.c:1913
+#: ../src/gcompris/gcompris.c:1995
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Roll an aeladoù hegerz :\n"
@@ -3254,36 +3437,36 @@ msgstr ""
 "E-barzh ho tresadennoù pe ho bliverezhioù e vezint lakaet.\n"
 "Skoret e vez ar mentrezhoù skeudennoù jpeg, png ha svg.\n"
 
-#: ../src/gcompris/sugar.c:70
+#: ../src/gcompris/sugar.c:71
 msgid "Help"
 msgstr "Skoazell"
 
-#: ../src/gcompris/sugar.c:71
+#: ../src/gcompris/sugar.c:72
 msgid "About"
 msgstr "A-zivout"
 
-#: ../src/gcompris/sugar.c:72
+#: ../src/gcompris/sugar.c:73
 msgid "Previous level"
 msgstr "Live kent"
 
-#: ../src/gcompris/sugar.c:75
+#: ../src/gcompris/sugar.c:76
 msgid "Next level"
 msgstr "Liv war-lec'h"
 
-#: ../src/gcompris/sugar.c:77
+#: ../src/gcompris/sugar.c:78
 msgid "Refresh"
 msgstr "Azbevaat"
 
-#: ../src/gcompris/sugar.c:78
+#: ../src/gcompris/sugar.c:79
 msgid "Settings"
 msgstr "Arventennoù"
 
 #. TRANSLATORS: Back as in previous
-#: ../src/gcompris/sugar.c:86
+#: ../src/gcompris/sugar.c:87
 msgid "Back"
 msgstr "War-gil"
 
-#: ../src/gcompris/sugar.c:87
+#: ../src/gcompris/sugar.c:88
 msgid "Stop"
 msgstr "Arsav"
 
@@ -3924,14 +4107,14 @@ msgstr "ABCDEFGHIJKLMNÑOPRSTUÙVWYZ'"
 #. we can add what you want in it.
 #: ../src/gletters-activity/gletters.c:850
 #: ../src/imageid-activity/imageid.c:712
-#: ../src/login-activity/login.py:479
+#: ../src/login-activity/login.py:480
 #: ../src/missing_letter-activity/missingletter.c:784
-#: ../src/pythontest-activity/pythontest.py:454
-#: ../src/readingh-activity/reading.c:904
-#: ../src/scalesboard-activity/scale.c:1160
-#: ../src/smallnumbers-activity/smallnumbers.c:595
+#: ../src/pythontest-activity/pythontest.py:448
+#: ../src/readingh-activity/reading.c:905
+#: ../src/scalesboard-activity/scale.c:1161
+#: ../src/smallnumbers-activity/smallnumbers.c:597
 #: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:864
+#: ../src/wordsgame-activity/wordsgame.c:866
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -3941,9 +4124,18 @@ msgstr ""
 " evit an aelad <b>%s</b>"
 
 #: ../src/gletters-activity/gletters.c:879
-#: ../src/smallnumbers-activity/smallnumbers.c:614
+#: ../src/smallnumbers-activity/smallnumbers.c:616
 msgid "Enable sounds"
 msgstr "Gweredekaat ar sonioù"
+
+#. toggle box
+#: ../src/gletters-activity/gletters.c:883
+#: ../src/login-activity/login.py:486
+#: ../src/missing_letter-activity/missingletter_config.c:492
+#: ../src/readingh-activity/reading.c:929
+#: ../src/wordsgame-activity/wordsgame.c:889
+msgid "Uppercase only text"
+msgstr "Pennlizherennoù nemetken"
 
 #: ../src/gletters-activity/gletters.xml.in.h:1
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:2
@@ -4242,6 +4434,10 @@ msgid "NONE"
 msgstr "Tra ebet"
 
 #: ../src/hangman-activity/hangman.py:104
+msgid "English"
+msgstr "Saozneg"
+
+#: ../src/hangman-activity/hangman.py:107
 msgid "Could not find the list of words."
 msgstr "N'hall ket kavout roll ar gerioù."
 
@@ -4356,61 +4552,66 @@ msgstr "Skinoù an heol a dizh an dour ha burezh dour zo krouet neuze. Da dakenn
 msgid "As a cloud matures, the dense water droplets may combine to produce larger droplets, which may combine to form droplets large enough to fall as rain"
 msgstr "E-pad m'emañ ar c'houmoul o tevaat emañ ar takennoù dour fetis o kenstrollañ da dakennoù brasoc'h hag a c'hallo en em strollañ c'hoazh a-benn stummañ takennoù bras a-walc'h da gouezhañ evel glav."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:169
+#. Translator : "meter" here means a measuring device
+#: ../src/hydroelectric-activity/hydroelectric.py:170
 msgid "This is the meter for electricity produced by the turbine. "
 msgstr "Ur merker eo evit an tredan bet ganet gant an droellrod."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:170
-#: ../src/hydroelectric-activity/hydroelectric.py:282
-#: ../src/hydroelectric-activity/hydroelectric.py:289
-#: ../src/hydroelectric-activity/hydroelectric.py:319
-#: ../src/hydroelectric-activity/hydroelectric.py:341
+#: ../src/hydroelectric-activity/hydroelectric.py:171
+#: ../src/hydroelectric-activity/hydroelectric.py:284
+#: ../src/hydroelectric-activity/hydroelectric.py:292
+#: ../src/hydroelectric-activity/hydroelectric.py:323
+#: ../src/hydroelectric-activity/hydroelectric.py:346
 msgid "The electricity power is measured in Watt (W)."
 msgstr "Muzuliet e vez ar c'halloudezh-tredan e Watt (W)."
 
 # troellrod b. -où : turbine
-#: ../src/hydroelectric-activity/hydroelectric.py:175
+#: ../src/hydroelectric-activity/hydroelectric.py:176
 msgid "Flowing water is directed on to the blades of a turbine runner, creating a force on the blades. In this way, energy is transferred from the water flow to the turbine"
 msgstr "An dour red zo kaset etrezek laonennoù un droellrod o krouiñ un nerzh war al laonennoù. Evel-se ez eo treuskaset an nerzh diouzh an dour red etrezek an droellrod."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:189
+#: ../src/hydroelectric-activity/hydroelectric.py:190
 msgid "This cloud simulates the wind, click on it to have wind."
 msgstr "Gant ar goumoulenn-mañ e tiskouezer an avel, klik warni a-benn a vo avel."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:227
+#: ../src/hydroelectric-activity/hydroelectric.py:228
 msgid "This is a step down transformer. Electricity is transformed in low voltage, ready to be used by the customers."
 msgstr "Un dreuzfurmerez-digreskaat eo homañ. Treuzfurmet eo an tredan gant voltadurioù izel, aes d'ober gantañ gant an arvalion (an dud)."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:281
+#. Translator : "meter" here means a measuring device
+#: ../src/hydroelectric-activity/hydroelectric.py:283
 msgid "This is the meter for all the electricity produced. "
 msgstr "Ur merker eo evit an tredan a-bezh bet ganet."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:288
+#. Translator : "meter" here means a measuring device
+#: ../src/hydroelectric-activity/hydroelectric.py:291
 msgid "This is the meter for electricity consumed by the users. "
 msgstr "Ur merker eo evit an tredan bevezet gant an arveriaded."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:318
+#. Translator : "meter" here means a measuring device
+#: ../src/hydroelectric-activity/hydroelectric.py:322
 msgid "This is the meter for electricity produced by the solar panels. "
 msgstr "Ur merker eo evit an tredan bet ganet gant panneloù heol."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:324
+#: ../src/hydroelectric-activity/hydroelectric.py:328
 msgid "Solar panels use light energy (photons) from the sun to generate electricity through the photovoltaic effect."
 msgstr "Gant gremm gouloù (fotonioù) an heol e ra ar panneloù heol a-benn genel tredan dre an efedoù luc'hvoltaek."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:340
+#. Translator : "meter" here means a measuring device
+#: ../src/hydroelectric-activity/hydroelectric.py:345
 msgid "This is the meter for electricity produced by the wind turbines. "
 msgstr "Ur merker eo evit an tredan bet ganet gant an droellrod."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:346
+#: ../src/hydroelectric-activity/hydroelectric.py:351
 msgid "A wind turbine is a device that converts wind motion energy into electricity generation. It is called a wind generator or wind charger. "
 msgstr "Un ijinenn a amdro nerzh an avel da dredan eo un droellerez avel. Graet e vez ganerez-avel anezhi."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:732
+#: ../src/hydroelectric-activity/hydroelectric.py:737
 msgid "It is not possible to consume more electricity than what is produced. This is a key limitation in the distribution of electricity, with minor exceptions, electrical energy cannot be stored, and therefore it must be generated as it is needed. A sophisticated system of control is therefore required to ensure electric generation very closely matches the demand. If supply and demand are not in balance, generation plants and transmission equipment can shut down which, in the worst cases, can lead to a major regional blackout."
 msgstr "N'eus ket tro da veveziñ muioc'h a dredan eget ar c'hementad bet ganet. Setu perak ez eo bevennet dasparzhadur an tredan rak, gant nemedennoù dister, ne vez ket kadavet an tredan ha neuze e rank bezañ ganet e-keit ma vez bevezet. Ur reizhiad reoliañ kemplezh ez eus ezhomm neuze a-benn bezañ sur e kengloto ar c'hementad tredan ganet gant an ezhommoù. Ma ne chomo ket ar c'hinnig hag ar goulenn war kempouez e tegouezho chanadoù gant ar c'heizennoù genel pe an aveadurioù treuzdougen. Gant an troioù gwashañ e tegouezho ur sac'hadeg war ur rannvro a-bezh."
 
 # step-up transformer : transformateur élévateur  m = treuzfurmerez-saverez
-#: ../src/hydroelectric-activity/hydroelectric.py:946
+#: ../src/hydroelectric-activity/hydroelectric.py:951
 msgid "This is a step up transformer. Electricity is transmitted at high voltages (110 kV or above) to reduce the energy lost in long distance transmission."
 msgstr "Un dreuzfurmerez-kreskaat eo homañ. Treuzdouget eo an tredan gant voltadurioù uhel (110 kV pe uheloc'h - 220 e Bro-C'hall) a-benn bihanaat ar c'holl tredan pa vez treuzdouget an tredan a-hed pellderioù hir."
 
@@ -4701,6 +4902,131 @@ msgstr "baniell"
 msgid "racket"
 msgstr "raketenn"
 
+#: ../src/instruments-activity/instruments.xml.in.h:1
+msgid "Click on the correct instrument."
+msgstr "Klik war benveg sonerezh dereat."
+
+#: ../src/instruments-activity/instruments.xml.in.h:2
+msgid "Click on the correct mucical instruments"
+msgstr "Klik war ar binvioù sonerezh dereat."
+
+#: ../src/instruments-activity/instruments.xml.in.h:3
+msgid "Learn to recognize musical instruments."
+msgstr "Deskiñ da anavezout ar binvioù sonerezh."
+
+#: ../src/instruments-activity/instruments.xml.in.h:4
+msgid "Music instruments"
+msgstr "Binvioù sonerezh"
+
+#. Translator: Do not translate {text}.
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:2
+msgid "Find {text}"
+msgstr "Kavout {text}"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:3
+msgid "the accordion"
+msgstr "an akordeoñs"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:4
+msgid "the banjo"
+msgstr "ar banjo"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:5
+msgid "the bass drum"
+msgstr "an taboulin bout"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:6
+msgid "the bongo"
+msgstr "ar bongo"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:7
+msgid "the castanets"
+msgstr "ar rigedagoù"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:8
+msgid "the cello"
+msgstr "ar violoñsell"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:9
+msgid "the clarinet"
+msgstr "an dreujenn gaol"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:10
+msgid "the cymbal"
+msgstr "ar simbalenn"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:11
+msgid "the drum kit"
+msgstr "an taboulinoù"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
+msgid "the electric guitar"
+msgstr "ar gitar tredan"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
+msgid "the flute traversiere"
+msgstr "ar fleüt a-dreuz"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
+msgid "the guitar"
+msgstr "ar gitar"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
+msgid "the harmonica"
+msgstr "an harmonika"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
+msgid "the harp"
+msgstr "an delenn"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
+msgid "the horn"
+msgstr "ar c'horn"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
+msgid "the maracas"
+msgstr "ar marakasoù"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
+msgid "the organ"
+msgstr "an ograoù"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
+msgid "the piano"
+msgstr "ar piano"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
+msgid "the saxophone"
+msgstr "ar saksofon"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
+msgid "the tambourine"
+msgstr "an taboulin"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
+msgid "the timpani"
+msgstr "an timbalenn"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
+msgid "the triangle"
+msgstr "an tric'horn"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
+msgid "the trombone"
+msgstr "an istrompilh"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
+msgid "the trumpet"
+msgstr "an drompilh"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:27
+msgid "the tuba"
+msgstr "an tuba"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:28
+msgid "the violin"
+msgstr "ar violoñs"
+
 #: ../src/leftright-activity/leftright.c:230
 #: ../src/searace-activity/searace.py:415
 #: ../src/searace-activity/searace.py:439
@@ -4765,7 +5091,7 @@ msgstr "Klask lazhañ an holl c'houleier."
 #: ../src/lightsoff-activity/lightsoff.xml.in.h:3
 msgid "The effect of pressing a button is to toggle the state of that button, and of its immediate vertical and horizontal neighbours. The sun and the color of the sky depend on the number of clicks needed to solve the puzzle. If you click on Tux, the solution is shown."
 msgstr ""
-"Mar bez pouezet war an afell e vo trec'haolet stad an afell hag ivez stad an afelloù kar a-serzh hag a-zremm.\n"
+"Mar bez pouezet war an afell e vo trec'haolet stad an afell hag ivez stad an afelloù kar a-serzh hag a-blaen.\n"
 "\n"
 "Lec'hiadur an heol ha liv an oabl zo liammet gant an niver a glikoù az po ezhomm a-benn diskoulmañ ar miltamm.\n"
 "\n"
@@ -4775,16 +5101,16 @@ msgstr ""
 msgid "The solver algorithm described on haar.clara.co.uk is a valuable resource to know more about the Lights Off game: &lt;http://www.haar.clara.co.uk/Lights/solving.html&gt;"
 msgstr "An algoritm diskoulmañ deskrivet war haar.clara.co.uk zo ul loaz hegerz a-benn gouzout hiroc'h a-zivout ar c'hoari Lazh ar gouleier : &lt;http://www.haar.clara.co.uk/Lights/solving.html&gt;"
 
-#: ../src/login-activity/login.py:101
+#: ../src/login-activity/login.py:102
 msgid "Profile: "
 msgstr "Aelad : "
 
-#: ../src/login-activity/login.py:234
+#: ../src/login-activity/login.py:235
 msgid "Login: "
 msgstr "Anv tremen : "
 
 #. toggle box
-#: ../src/login-activity/login.py:494
+#: ../src/login-activity/login.py:496
 msgid "Enter login to log in"
 msgstr "Skriv da anv tremen evit en em gennaskañ."
 
@@ -4817,6 +5143,74 @@ msgstr ""
 #: ../src/login-activity/login.xml.in.h:10
 msgid "Select or enter your name to log in to GCompris"
 msgstr "Diuz pe skriv da anv evit mont e-barzh GCompris"
+
+#: ../src/louis_braille-activity/louis_braille.py:112
+msgid "Click to confirm your sequence"
+msgstr "Klik evit kadarnaat da gemalenn"
+
+#: ../src/louis_braille-activity/louis_braille.xml.in.h:1
+msgid "Louis Braille Video: &lt; http://www.youtube.com/watch?v=9bdfC2j_4x4 &gt;"
+msgstr "Video Louis Braille : &lt; http://www.youtube.com/watch?v=9bdfC2j_4x4 &gt;"
+
+#: ../src/louis_braille-activity/louis_braille.xml.in.h:2
+msgid "Read the history of Louis Braille, his biography and discovery of the Braille system. Click on the previous and next buttons to move to the respective story page. At the end, arrange the sequence in the chronological order."
+msgstr "Lenn istor Louis Braille, e vuhez ha dizolo ar reizhiad braille. Klik war an afelloù Kent pe War-lec'h evit mont betek ur bajenn eus an istor. En dibenn, kempenn lodennoù an istor en urzh an amzer."
+
+#: ../src/louis_braille-activity/louis_braille.xml.in.h:3
+msgid "Review the major dates of the inventor of the Braille system."
+msgstr "Dizollo dreiziadoù pennañ ijinnour ar reizhiad braille."
+
+#: ../src/louis_braille-activity/louis_braille.xml.in.h:4
+msgid "The History of Louis Braille"
+msgstr "Istor Louis Braille"
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:1
+msgid "After his Death"
+msgstr "Goude e varv"
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:2
+msgid "At the age of 10, he was sent to Paris to study at the Royal Institute for Blind Youth."
+msgstr "Pa voe 10 vloaz e voe kaset da Baris evit studiañ en Ensavadur Roueel evit ar re yaouank dall."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:3
+msgid "At the age of three, Louis became blind due to a severe infection that spread to his left eye."
+msgstr "Pa voe 3 bloaz ez eas Louis da zall gant un danijenn griz a dizhas e lagad kleiz."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:4
+msgid "Born on January 4th in Coupvary near Paris in France."
+msgstr "Bet ganet d'ar 4 a viz Genver e Coupvary e-kichen Paris e Bro-C'hall."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:5
+msgid "Braille got accepted as a world wide standard. Louis Braille proved that if you have motivation you can do incredible things."
+msgstr "Degemeret eo bet ar braille evel ur skouereg evit ar bed a-bezh. Prouet en deus Louis Braille e vez graet traoù dispar gant tud enlusket kreñv."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:6
+msgid "Charles Barbier, a French soldier, visited his school and shared his invention of night writing, a code of 12 raised dots to share information on battlefields."
+msgstr "Charles Barbier, ur milour gall, a weladennas e skol ha rannas e ijinadenn a skritur en noz, ur rineg gant 12 pik savet da rannañ titouroù war ar c'hadlec'hioù."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:7
+msgid "He became a teacher after graduating and secretly taught his method."
+msgstr "Da gelenner ez eas goude bezañ bet e ziplom hag ent-kuzh e kelennas e hentenn."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:8
+msgid "He died of tuberculosis. He is burried in the Pantheon in Paris. A monument is erected to honor him."
+msgstr "Gant an dorzhellegezh ez eas da anaon. Er Pantheon, e Paris, emañ douaret. Ur savadur zo bet savet evit enoriñ e goun."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:9
+msgid "He impressed his classmates and began to play the piano and the organ."
+msgstr "Abafet e voe e gamaladed ha kregiñ a reas seniñ ar piano hag an ograoù."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:10
+msgid "He revised and extended braille to include mathematics, symbols, punctuations and music notations."
+msgstr "A-benn enlakaat ennañ ar jedoniezh, argelloù, arouezennoù poentadur ha notennoù sonerezh e taskemmas ha astennas ar braille."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:11
+msgid "Louis Braille injured his right eye with a stitching awl from his father's workshop."
+msgstr "Gant ur minaoued gwriat e labourva e dad e c'hloazas e lagad dehou."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:12
+msgid "Louis trimmed Barbier's 12 dots into 6 and invented the Braille system."
+msgstr "Daskemmet e voe 12 pik Barbier da 6 pik gant Louis hag evel-se e voe krouet ar reizhiad braille."
 
 #: ../src/magic_hat_minus-activity/magic_hat_minus.xml.in.h:1
 msgid "Count how many items are under the magic hat after some have got away"
@@ -4873,47 +5267,30 @@ msgstr "Kont pet elfenn ez eus dindan an tog hudus"
 msgid "Learn addition"
 msgstr "Deskiñ sammañ"
 
-#: ../src/maze-activity/maze.c:132
-#: ../src/maze-activity/maze.xml.in.h:4
-#: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:4
-#: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:4
-msgid "Maze"
-msgstr "Milendall"
-
-#: ../src/maze-activity/maze.c:133
-#: ../src/maze-activity/maze.xml.in.h:2
-msgid "Find your way out of the maze"
-msgstr "Kav an hent evit mont er-maez eus ar milendall"
-
-#: ../src/maze-activity/maze.c:599
-msgid "Look at your position, then switch back to invisible mode to continue your moves"
-msgstr "Sell mat ouzh da lec'hiadur ha distro d'ar mod diweladus evit kenderc'hel da zilec'hiañ."
-
-#: ../src/maze-activity/maze.c:601
-msgid "Look at your position, then switch back to 3D mode to continue your moves"
-msgstr "Sell mat ouzh da lec'hiadur ha distro d'ar mod 3M evit kenderc'hel da zilec'hiañ."
-
-#: ../src/maze-activity/maze.xml.in.h:1
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:1
 #: ../src/maze3D-activity/maze3D.xml.in.h:2
+#: ../src/maze-activity/maze.xml.in.h:1
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:1
 msgid "Can use the keyboard arrow to move an object."
 msgstr "Barrek eo da arverañ biroù ar c'hlavier evit dilec'hiañ un dra."
 
-#: ../src/maze-activity/maze.xml.in.h:3
+#: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:2
+msgid "Find your way out of the maze (Move is relative)"
+msgstr "Kav an hent evit mont er-maez eus ar milendall (daveel eo da zilec'hiadur)."
+
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:3
 #: ../src/maze3D-activity/maze3D.xml.in.h:4
+#: ../src/maze-activity/maze.xml.in.h:3
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:3
 msgid "Help Tux get out of this maze."
 msgstr "Ro skoazell da dTuks evit kavout e hent evit mont er-maez eus ar milendall."
 
-#: ../src/maze-activity/maze.xml.in.h:5
-msgid "Use the keyboard arrows to move Tux up to the door."
-msgstr "Gra gant biroù ar c'hlavier evit dilec'hiañ Tuks betek an nor."
-
-#: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:2
-msgid "Find your way out of the maze (Move is relative)"
-msgstr "Kav an hent evit mont er-maez eus ar milendall (daveel eo da zilec'hiadur)."
+#: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:4
+#: ../src/maze-activity/maze.c:132
+#: ../src/maze-activity/maze.xml.in.h:4
+#: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:4
+msgid "Maze"
+msgstr "Milendall"
 
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:5
 msgid "Use the keyboard arrows to move Tux up to the door. In this maze, the move is relative (first person). Use the up arrow to go forward. The other arrow let you turn Tux in another direction."
@@ -4942,6 +5319,23 @@ msgstr ""
 "Gra gant ar varrenn esaouiñ evit gwelout ar milendall e mod 2M hag a bep eil.\n"
 "\n"
 "Ur gartenn eo ar mod 2M, evit gwelout da blas er milendall, ne vez ket dilec'hiet Tuks gant ar mod-mañ."
+
+#: ../src/maze-activity/maze.c:133
+#: ../src/maze-activity/maze.xml.in.h:2
+msgid "Find your way out of the maze"
+msgstr "Kav an hent evit mont er-maez eus ar milendall"
+
+#: ../src/maze-activity/maze.c:599
+msgid "Look at your position, then switch back to invisible mode to continue your moves"
+msgstr "Sell mat ouzh da lec'hiadur ha distro d'ar mod diweladus evit kenderc'hel da zilec'hiañ."
+
+#: ../src/maze-activity/maze.c:601
+msgid "Look at your position, then switch back to 3D mode to continue your moves"
+msgstr "Sell mat ouzh da lec'hiadur ha distro d'ar mod 3M evit kenderc'hel da zilec'hiañ."
+
+#: ../src/maze-activity/maze.xml.in.h:5
+msgid "Use the keyboard arrows to move Tux up to the door."
+msgstr "Gra gant biroù ar c'hlavier evit dilec'hiañ Tuks betek an nor."
 
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:2
 msgid "Find your way out of the invisible maze"
@@ -5350,26 +5744,6 @@ msgstr "C'hoari ar c'houn dre niveroù ha gerioù"
 msgid "You can see some cards, but you can't see what's on the other side of them. Each card is hiding a number of number, or the word of the number."
 msgstr "Kartennoù a c'hallez gwelout, n'out ket evit gwelout pezh a zo war an tu gin avat. Gant pep kartenn ez kuzhet un niver eus un niver pe ar ger eus un niver."
 
-#: ../src/missing_letter-activity/missing_letter.xml.in.h:1
-msgid "An object is displayed in the main area, and an incomplete word is printed under the picture. Select the missing letter to complete the word."
-msgstr "Un dra zo skrammet war ar maez pennañ. Skrivet ez eus ur ger diglok dindan ar skeudenn. Dibab al lizherenn o vankout evit klokaat ar ger."
-
-#: ../src/missing_letter-activity/missing_letter.xml.in.h:2
-msgid "Fill in the missing letter"
-msgstr "Kav al lizherenn o vankout."
-
-#: ../src/missing_letter-activity/missing_letter.xml.in.h:3
-msgid "Missing Letter"
-msgstr "Lizherenn o vankout"
-
-#: ../src/missing_letter-activity/missing_letter.xml.in.h:4
-msgid "Training reading skills"
-msgstr "Pleustriñ war al lenn"
-
-#: ../src/missing_letter-activity/missing_letter.xml.in.h:5
-msgid "Word reading"
-msgstr "Lenn gerioù"
-
 #: ../src/missing_letter-activity/missingletter_config.c:77
 msgid "Please select an image."
 msgstr "Mar plij, dibab ur skeudenn."
@@ -5419,18 +5793,6 @@ msgstr ""
 msgid "Picture"
 msgstr "Skeudenn"
 
-#. answer
-#: ../src/missing_letter-activity/missingletter_config.c:420
-#: ../src/missing_letter-activity/missingletter_config.c:548
-msgid "Answer"
-msgstr "Respont"
-
-#. question
-#: ../src/missing_letter-activity/missingletter_config.c:426
-#: ../src/missing_letter-activity/missingletter_config.c:571
-msgid "Question"
-msgstr "Goulenn"
-
 #. choice
 #: ../src/missing_letter-activity/missingletter_config.c:432
 #: ../src/missing_letter-activity/missingletter_config.c:583
@@ -5458,6 +5820,26 @@ msgstr "Lakaat an arouezenn '_' e lec'h al lizherenn da zivinout."
 #: ../src/missing_letter-activity/missingletter_config.c:591
 msgid "Enter here the letter that will be proposed. The first letter here must be the solution."
 msgstr "Biziata amañ al lizherenn a vo kinniget. An diskoulm a rank bezañ al lizherenn gentañ amañ."
+
+#: ../src/missing_letter-activity/missing_letter.xml.in.h:1
+msgid "An object is displayed in the main area, and an incomplete word is printed under the picture. Select the missing letter to complete the word."
+msgstr "Un dra zo skrammet war ar maez pennañ. Skrivet ez eus ur ger diglok dindan ar skeudenn. Dibab al lizherenn o vankout evit klokaat ar ger."
+
+#: ../src/missing_letter-activity/missing_letter.xml.in.h:2
+msgid "Fill in the missing letter"
+msgstr "Kav al lizherenn o vankout."
+
+#: ../src/missing_letter-activity/missing_letter.xml.in.h:3
+msgid "Missing Letter"
+msgstr "Lizherenn o vankout"
+
+#: ../src/missing_letter-activity/missing_letter.xml.in.h:4
+msgid "Training reading skills"
+msgstr "Pleustriñ war al lenn"
+
+#: ../src/missing_letter-activity/missing_letter.xml.in.h:5
+msgid "Word reading"
+msgstr "Lenn gerioù"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:1
 msgid "car/c_r/a/k/o"
@@ -5623,7 +6005,7 @@ msgid ""
 "He gives you $ %d, please give back his change."
 msgstr ""
 "Prenet en deus Tuks traoù en ho stal.\n"
-"$ %d a ro deoc'h, mar plij, distro e voneiz."
+"%d € a ro deoc'h, mar plij, distro e voneiz."
 
 #: ../src/money-activity/money.xml.in.h:1
 #: ../src/money_back-activity/money_back.xml.in.h:1
@@ -5707,10 +6089,6 @@ msgstr "Derc'hennadur egorel elfennoù kempoellek kenetrezo."
 msgid "Edgar Degas, The Dancing Class - 1873-75"
 msgstr "Edgar Degas, Ar C'hlasad Dañs - 1873-75"
 
-#: ../src/paintings-activity/resources/paintings/board1_1.xml.in.h:1
-msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
-msgstr "Pierre-Auguste Renoir, Milin ar C'haletezenn - 1876"
-
 #: ../src/paintings-activity/resources/paintings/board1_10.xml.in.h:1
 msgid ""
 "Katsushika Hokusai,\\n"
@@ -5726,6 +6104,10 @@ msgstr "Katsushika Hokusa, Roz-aer - 1833-1834"
 #: ../src/paintings-activity/resources/paintings/board1_12.xml.in.h:1
 msgid "Katsushika Hokusai, Kazusa sea Route - 1830."
 msgstr "Katsushika Hokusai, Hent-mor Kazusa - 1830"
+
+#: ../src/paintings-activity/resources/paintings/board1_1.xml.in.h:1
+msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
+msgstr "Pierre-Auguste Renoir, Milin ar C'haletezenn - 1876"
 
 #: ../src/paintings-activity/resources/paintings/board1_2.xml.in.h:1
 msgid "Giuseppe Arcimboldo, Spring - 1573"
@@ -5832,11 +6214,11 @@ msgid "This board is game-oriented. No specific skills are needed to play."
 msgstr "Ur c'hoari eo nemetken. Plijadur deoc'h ! ;)"
 
 #: ../src/penalty-activity/penalty.py:292
-msgid "Click on the balloon to place it again."
+msgid "Click on the ball to place it again."
 msgstr "Klik war ar vell d'he lakaat en he flas en-dro."
 
 #: ../src/penalty-activity/penalty.py:294
-msgid "Click twice on the balloon to shoot it."
+msgid "Click twice on the ball to shoot it."
 msgstr "Daouglik war ar vell a-benn lakaat un taol troad warni."
 
 #: ../src/penalty-activity/penalty.xml.in.h:1
@@ -5897,7 +6279,7 @@ msgid "Number"
 msgstr "Niver"
 
 #: ../src/pythontemplate-activity/pythontemplate.py:62
-#: ../src/pythontest-activity/pythontest.py:184
+#: ../src/pythontest-activity/pythontest.py:182
 msgid ""
 "This is the first plugin in GCompris coded in the Python\n"
 "Programming language."
@@ -5928,7 +6310,7 @@ msgstr "Skouer Python"
 msgid "Thanks to Guido van Rossum and the python team for this powerful language!"
 msgstr "Trugarez da Guido van Rossum ha da bare python evit an areg galloudus-mañ !"
 
-#: ../src/pythontest-activity/pythontest.py:194
+#: ../src/pythontest-activity/pythontest.py:192
 msgid ""
 "It is now possible to develop GCompris activities in C or in Python.\n"
 "Thanks to Olivier Samys who makes this possible."
@@ -5936,37 +6318,33 @@ msgstr ""
 "Bremañ e vez diorreet obererezhioù evit GCompris e C pe e Python.\n"
 "Trugarez da Olivier Samyn evit bezañ lakaet an dra-se da vezañ bet graet."
 
-#: ../src/pythontest-activity/pythontest.py:204
+#: ../src/pythontest-activity/pythontest.py:202
 msgid "This activity is not playable, just a test"
 msgstr "An obererezh-mañ n'eo ket ur c'hoari, un taol arnod eo hepken."
 
 #. toggle box
-#: ../src/pythontest-activity/pythontest.py:459
+#: ../src/pythontest-activity/pythontest.py:454
 msgid "Disable line drawing in circle"
 msgstr "Diweredekaat tresadur trolinennoù ar c'helc'hioù"
 
 #. combo box
-#: ../src/pythontest-activity/pythontest.py:468
+#: ../src/pythontest-activity/pythontest.py:463
 msgid "Color of the line"
 msgstr "Liv al linenn"
 
 #. spin button for int
-#: ../src/pythontest-activity/pythontest.py:479
+#: ../src/pythontest-activity/pythontest.py:474
 msgid "Distance between circles"
 msgstr "Pellder etre ar c'helc'hioù"
 
 #. radio buttons for circle or rectangle
-#: ../src/pythontest-activity/pythontest.py:490
+#: ../src/pythontest-activity/pythontest.py:485
 msgid "Use circles"
 msgstr "Arver ar c'helc'hioù"
 
-#: ../src/pythontest-activity/pythontest.py:491
+#: ../src/pythontest-activity/pythontest.py:486
 msgid "Use rectangles"
-msgstr "Arver ar reizhkornioù"
-
-#: ../src/pythontest-activity/pythontest.py:494
-msgid "Choice of pattern"
-msgstr "Dibab ur goustur"
+msgstr "Arver ar reizhkornegoù"
 
 #: ../src/pythontest-activity/pythontest.xml.in.h:3
 msgid "Python Test"
@@ -6003,30 +6381,6 @@ msgstr "Pleustriñ war ar c'houn"
 #: ../src/railroad-activity/railroad.xml.in.h:5
 msgid "Railway"
 msgstr "Hent houarn"
-
-#: ../src/read_colors-activity/read_colors.c:62
-msgid "violet"
-msgstr "mouk"
-
-#: ../src/read_colors-activity/read_colors.c:67
-msgid "pink"
-msgstr "roz"
-
-#: ../src/read_colors-activity/read_colors.xml.in.h:2
-msgid "Click on the correct colored object."
-msgstr "Klik war an elfenn he liv o klotañ gant al liv skrivet."
-
-#: ../src/read_colors-activity/read_colors.xml.in.h:3
-msgid "Click on the matching color"
-msgstr "Klik war al liv o klotañ gant an hini skrivet"
-
-#: ../src/read_colors-activity/read_colors.xml.in.h:4
-msgid "Read the names of colors"
-msgstr "Lenn anvioù al livioù"
-
-#: ../src/read_colors-activity/read_colors.xml.in.h:5
-msgid "This board teaches basic colors."
-msgstr "Al livioù diazez a vo desket gant an obererezh-mañ."
 
 #: ../src/readingh-activity/reading.c:229
 #: ../src/wordsgame-activity/wordsgame.c:219
@@ -6080,7 +6434,7 @@ msgstr "Skrammet ez eus ur ger e krec'h a-zehou. Mont war-wel ha  diwar-wel a ra
 
 #: ../src/readingh-activity/readingh.xml.in.h:2
 msgid "Horizontal reading practice"
-msgstr "Pleustriñ war al lenn a-zremm"
+msgstr "Pleustriñ war al lenn a-blaen"
 
 #: ../src/readingh-activity/readingh.xml.in.h:3
 msgid "Read a list of words and work out if a given word is in it"
@@ -6180,8 +6534,8 @@ msgid "Weight = %s"
 msgstr "Pouez = %s"
 
 #: ../src/scalesboard-activity/scale.c:1007
-msgid "Take care, you can drop masses on both sides of the scale."
-msgstr "Taol evezh, laosket e vez tolzioù war an daou du eus ar ventel."
+msgid "Take care, you can drop weights on both sides of the scale."
+msgstr "Taol evezh, laosket e vez tolzoù war an daou du eus ar ventel."
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:1
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:1
@@ -6189,7 +6543,7 @@ msgid "Balance the scales properly"
 msgstr "Mentel Roberval"
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:2
-msgid "Drag and Drop masses to balance the scales"
+msgid "Drag and Drop weights to balance the scales"
 msgstr "Tap ha laka ar pouezioù da riklañ evit kempouez ar ventel."
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:3
@@ -6205,7 +6559,7 @@ msgstr ""
 "Emañ dindan lañvaz GPL."
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:5
-msgid "To balance the scales, move the masses on the left or the right side. The masses can be arranged in any order."
+msgid "To balance the scales, move the weights on the left or the right side. The weights can be arranged in any order."
 msgstr "Evit kempouezañ ar ventel, dilec'h an tolzoù war ar pladoù. N'eo ket pouezhus urzh an tolzoù."
 
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:2
@@ -6218,7 +6572,41 @@ msgstr "Jediñ en e benn, parder niveroniel, amdreiñ unanennoù"
 
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:5
 msgid "To balance the scales, move the masses on the left or the right side. Take care of the weight and the unit of the masses, remember that a kilogram (kg) is 1000 grams (g). They can be arranged in any order."
-msgstr "Evit kempouezañ ar ventel, dilec'h an tolzoù war an tu kleiz pe an tu dehou. Taol evezh eus ar pouez hag unanennoù an tolzioù. Soñj mat : ur c'hilogramm (kg) a dalv 1000 gramm (g). N'eo ket pouezhus urzh an tolzoù."
+msgstr "Evit kempouezañ ar ventel, dilec'h an tolzoù war an tu kleiz pe an tu dehou. Taol evezh eus ar pouez hag unanennoù an tolzoù. Soñj mat : ur c'hilogramm (kg) a dalv 1000 gramm (g). N'eo ket pouezhus urzh an tolzoù."
+
+#: ../src/searace1player-activity/searace1player.xml.in.h:1
+msgid "Give good instructions to your ship in order to be first in the race."
+msgstr "Ro urzhioù mat d'az pag evit gounit ar redadeg a-enep Tuks."
+
+#: ../src/searace1player-activity/searace1player.xml.in.h:2
+msgid ""
+"In the text entry, enter one command per line, to control your boat. Commands supported are displayed between the two entry areas. The 'left' and 'right' commands must be followed by an angle in degrees. The angle value is also called a 'parameter' to the left or right command. By default 45 degrees is used. The 'forward' command accepts a distance parameter. By default 1 is used.\n"
+"For example:\n"
+"- left 90: Make a perpendicular left turn\n"
+"- forward 10: Go forward for 10 units (as displayed on the ruler).\n"
+"The goal is to reach the right of the screen (the red line). When done, you can try to improve your program and start a new race with the same weather conditions by using the retry button. You can click and drag your mouse anywhere on the map to get a measurement in distance and angle. Going to the next level will give you more complex weather conditions."
+msgstr ""
+"Er maez skrivañ evit da vag, skriv un arc'had (urzh) war bep linenn evit sturiañ da vag. Skrammet eo an arc'hadoù skoret etre an daou lec'h skrivañ. Ret eo lakaat ur werzh (ur sifr) anvet 'arventenn' war-lerc'h an arc'had 'kleiz' ha 'dehou' o talvezout d'ur c'horn roet e derezioù. Dre ziouer ez arverer 45°.\n"
+"\n"
+"-An arc'had 'war-raok' a arver, evel arventenn, ur pellder roet dre unanennoù ar gael. Dre ziouer 1 a vez arveret.\n"
+"Da skouer :\n"
+"« kleiz 90 »  => C'hwelañ (treiñ) war an tu kleiz gant ur c'horn serzh (90°)\n"
+"« war-raok 10 »  => Mont war-raok dre 10 unanenn (en em spislec'hiañ gant daveoù a-blaen hag a-serzh ar reolenn).\n"
+"Bezañ an hini kentañ o tizhout al linenn ruz eo pal ar c'hoari. Ur wech gounezet, klask gwellaat da red en ur gregiñ ar redadeg en-dro gant doareoù anzer heñvel, dre glikañ war an afell 'Adober'.\n"
+"\n"
+"Kliket ha riklet e vez gant al logodenn forzh pelec'h evit muzuliañ un dilec'hiadur a-fet korn ha pellder.\n"
+"Klask dont a-benn da c'hounit gant doareoù amzer diaesoc'h."
+
+#: ../src/searace1player-activity/searace1player.xml.in.h:7
+#: ../src/searace-activity/searace.xml.in.h:8
+msgid "In this activity, you will learn how to enter commands into a computer. Even if the language is extremely basic, you learn here how to think ahead and construct a program. This activity can be used to introduce the programming concept to children."
+msgstr ""
+"Deskiñ a ri, gant an obererezh-mañ, penaos enankañ arc'hadoù (urzhioù) en un urzhiataer. Daoust ma 'z eo eeun kenañ an areg (yezh an urzhiataer) e teski penaos soñjal en a-raok ha sevel ur goulev.\n"
+"Evit deraouiñ gant ar gouleviñ e vez arveret an obererezh-mañ."
+
+#: ../src/searace1player-activity/searace1player.xml.in.h:8
+msgid "Sea race (Single Player)"
+msgstr "Redadeg bigi (1 c'hoarier)"
 
 #: ../src/searace-activity/searace.py:174
 msgid "The race is already being run"
@@ -6300,78 +6688,44 @@ msgstr ""
 "\n"
 "Da skouer :\n"
 "« kleiz 90 »  => C'hwelañ (treiñ) war an tu kleiz gant ur c'horn  serzh (90°)\n"
-"« war-raok 10 »  => Mont war-raok dre 10 unanenn (en em spislec'hiañ gant daveoù a-zremm hag a-serzh ar reolenn).\n"
+"« war-raok 10 »  => Mont war-raok dre 10 unanenn (en em spislec'hiañ gant daveoù a-blaen hag a-serzh ar reolenn).\n"
 "\n"
 "Bezañ an hini kentañ o tizhout al linenn ruz eo pal ar c'hoari. Ur wech gounezet, klask gwellaat da red en ur gregiñ ar redadeg en-dro gant doareoù anzer heñvel, en ur glikañ war an afell 'Adober'.\n"
 "\n"
 "Kliket ha riklet e vez gant al logodenn forzh pelec'h evit muzuliañ un dilec'hiadur a-fet korn ha pellder.\n"
 "Klask dont a-benn da c'hounit gant doareoù amzer diaesoc'h."
 
-#: ../src/searace-activity/searace.xml.in.h:8
-#: ../src/searace1player-activity/searace1player.xml.in.h:7
-msgid "In this activity, you will learn how to enter commands into a computer. Even if the language is extremely basic, you learn here how to think ahead and construct a program. This activity can be used to introduce the programming concept to children."
-msgstr ""
-"Deskiñ a ri, gant an obererezh-mañ, penaos enankañ arc'hadoù (urzhioù) en un urzhiataer. Daoust ma 'z eo eeun kenañ an areg (yezh an urzhiataer) e teski penaos soñjal en a-raok ha sevel ur goulev.\n"
-"Evit deraouiñ gant ar gouleviñ e vez arveret an obererezh-mañ."
-
 #: ../src/searace-activity/searace.xml.in.h:9
 msgid "Sea race (2 Players)"
 msgstr "Redadeg bigi (2 c'hoarier)"
 
-#: ../src/searace1player-activity/searace1player.xml.in.h:1
-msgid "Give good instructions to your ship in order to be first in the race."
-msgstr "Ro urzhioù mat d'az pag evit gounit ar redadeg a-enep Tuks."
-
-#: ../src/searace1player-activity/searace1player.xml.in.h:2
-msgid ""
-"In the text entry, enter one command per line, to control your boat. Commands supported are displayed between the two entry areas. The 'left' and 'right' commands must be followed by an angle in degrees. The angle value is also called a 'parameter' to the left or right command. By default 45 degrees is used. The 'forward' command accepts a distance parameter. By default 1 is used.\n"
-"For example:\n"
-"- left 90: Make a perpendicular left turn\n"
-"- forward 10: Go forward for 10 units (as displayed on the ruler).\n"
-"The goal is to reach the right of the screen (the red line). When done, you can try to improve your program and start a new race with the same weather conditions by using the retry button. You can click and drag your mouse anywhere on the map to get a measurement in distance and angle. Going to the next level will give you more complex weather conditions."
-msgstr ""
-"Er maez skrivañ evit da vag, skriv un arc'had (urzh) war bep linenn evit sturiañ da vag. Skrammet eo an arc'hadoù skoret etre an daou lec'h skrivañ. Ret eo lakaat ur werzh (ur sifr) anvet 'arventenn' war-lerc'h an arc'had 'kleiz' ha 'dehou' o talvezout d'ur c'horn roet e derezioù. Dre ziouer ez arverer 45°.\n"
-"\n"
-"-An arc'had 'war-raok' a arver, evel arventenn, ur pellder roet dre unanennoù ar gael. Dre ziouer 1 a vez arveret.\n"
-"Da skouer :\n"
-"« kleiz 90 »  => C'hwelañ (treiñ) war an tu kleiz gant ur c'horn serzh (90°)\n"
-"« war-raok 10 »  => Mont war-raok dre 10 unanenn (en em spislec'hiañ gant daveoù a-zremm hag a-serzh ar reolenn).\n"
-"Bezañ an hini kentañ o tizhout al linenn ruz eo pal ar c'hoari. Ur wech gounezet, klask gwellaat da red en ur gregiñ ar redadeg en-dro gant doareoù anzer heñvel, dre glikañ war an afell 'Adober'.\n"
-"\n"
-"Kliket ha riklet e vez gant al logodenn forzh pelec'h evit muzuliañ un dilec'hiadur a-fet korn ha pellder.\n"
-"Klask dont a-benn da c'hounit gant doareoù amzer diaesoc'h."
-
-#: ../src/searace1player-activity/searace1player.xml.in.h:8
-msgid "Sea race (Single Player)"
-msgstr "Redadeg bigi (1 c'hoarier)"
-
-#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:1
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:1
+#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:1
 msgid "Count the number of dots on dice before they reach the ground"
 msgstr "Kont an niver a bikoù war an diñsoù kent ma tizho an douar."
 
-#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:2
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:2
+#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:2
 msgid "Counting skills"
 msgstr "Gouzout kontañ"
 
-#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:3
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:3
+#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:3
 msgid "In a limited time, count the number of dots"
 msgstr "En ur pad bevennet, kont an niver a bikoù."
-
-#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:4
-msgid "Numbers With Dice"
-msgstr "An niveroù gant an diñsoù"
-
-#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:5
-#: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:5
-msgid "With the keyboard, type the number of dots you see on the falling dice."
-msgstr "Gant ar c'hlavier, biziata an niver a bikoù a welez war an diñs o kouezhañ."
 
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:4
 msgid "Numbers with pairs of dice"
 msgstr "An niveroù gant daou ziñs"
+
+#: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:5
+#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:5
+msgid "With the keyboard, type the number of dots you see on the falling dice."
+msgstr "Gant ar c'hlavier, biziata an niver a bikoù a welez war an diñs o kouezhañ."
+
+#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:4
+msgid "Numbers With Dice"
+msgstr "An niveroù gant an diñsoù"
 
 #: ../src/submarine-activity/submarine.xml.in.h:1
 msgid "Click on different active elements : engine, rudders and air tanks, in order to navigate to the required depth. There is a close gate on the right. Catch the jewel to open it, then pass through it to reach the next level."
@@ -6380,7 +6734,7 @@ msgstr ""
 "\n"
 "Teir beoliad aer ez eus (anvet ballastroù) hag a vez leuniet gant aer pe zour. Emañ ar balastr kleiz en adreñv, an hini kreiz zo e-kreiz hag en araog emañ ar balastr dehou. Ur rañvell velen zo a-us d'an holl dri. Reiñ a reont tu da leuniañ ar balastroù gant dour ha da lakaat ar splujerez da ziskenn en dour. Pa vezont serr e vez taolet an dour er-maez dre zigeriñ reñvell a zo dindan : beoliadoù aer moustret a vount war an dour hag a zo kaset er-maez ha neuze ez a ar splujerez da vezañ skañvoc'h : mont war-c'horre a ra ar splujerez neuze (bullennoù a vez gwellet).\n"
 "\n"
-"War an tu kleiz eus an daolenn vourzh emañ jaoj an tizh. Kemmet e vez tizh a-zremm ar splujerez dre glikañ war '+' pe '-'. Liammet eo ar jaoj-mañ gant ar veoliad trelosk (mazout) o voueta ar c'heflusker, en traoñ, e liv glas-gwer.\n"
+"War an tu kleiz eus an daolenn vourzh emañ jaoj an tizh. Kemmet e vez tizh a-blaen ar splujerez dre glikañ war '+' pe '-'. Liammet eo ar jaoj-mañ gant ar veoliad trelosk (mazout) o voueta ar c'heflusker, en traoñ, e liv glas-gwer.\n"
 "\n"
 "Erfin, ouzh ar balastroù emañ lankerioù araok hag adreñv ar sturioù da ziskenn a-serzh. Da sturiañ a-serzh araog pe adreñv ar splujerez evit mestronaiñ ar sevel pe an diskenn (komz a reer eus an 'azez') e talvezont. Diwall ! Arabat eo dezhi bezañ re stouet ! Mar bez re stouet ez ay war enaou ul luc'hig reoliñ (e stumm heñvel ouzh ar splujerez), evit lavarout dit eo poent adwintañ azez da splujerez.\n"
 "\n"
@@ -6521,8 +6875,8 @@ msgstr "C'hoari an Tangram (miltamm)"
 #. Set the maximum text to calc the background
 #. Set the correct initial text
 #: ../src/target-activity/target.c:296
-#: ../src/target-activity/target.c:559
-#: ../src/target-activity/target.c:596
+#: ../src/target-activity/target.c:562
+#: ../src/target-activity/target.c:599
 #, c-format
 msgid "Points = %s"
 msgstr "Poentoù = %s"
@@ -6536,10 +6890,12 @@ msgstr ""
 "Tizh an avel = %d\n"
 "a gilometroù/eur"
 
-#: ../src/target-activity/target.c:481
+#: ../src/target-activity/target.c:482
 #, c-format
-msgid "Distance to target = %d meters"
-msgstr "Pellder ar gwenn = %d a vetroù"
+msgid "Distance to target = %d meter"
+msgid_plural "Distance to target = %d meters"
+msgstr[0] "Pellder ar gwenn = %d metr"
+msgstr[1] "Pellder ar gwenn = %d a vetroù"
 
 #: ../src/target-activity/target.xml.in.h:1
 msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
@@ -6571,7 +6927,7 @@ msgstr "Ur miltamm dre riklañ ar bloc'hadoù"
 
 #: ../src/traffic-activity/traffic.xml.in.h:2
 msgid "Each car can only move either horizontally or vertically. You must make some room in order to let the red car move through the gate on the right."
-msgstr "Pep karr a vez dilec'hiet hervez e roud (a-zremm pe a-serzh). Ret eo dit lakaat ar c'harr ruz da vont er-maez dre an nor a-zehou en ur reiñ lec'h dre vountañ ar c'hirri all."
+msgstr "Pep karr a vez dilec'hiet hervez e roud (a-blaen pe a-serzh). Ret eo dit lakaat ar c'harr ruz da vont er-maez dre an nor a-zehou en ur reiñ lec'h dre vountañ ar c'hirri all."
 
 #: ../src/traffic-activity/traffic.xml.in.h:3
 msgid "Remove the red car from the parking lot through the gate on the right"
@@ -6738,14 +7094,75 @@ msgstr "Pleustriñ war ar c'hlavier"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Skriv gant da glavier ar gerioù klok e-pad m'emaint o kouezhañ a-raok ma tizho an douar."
 
-#: ../src/findit-activity/findit.py:295
-msgid ""
-"Failed to parse data set '{filename}' with error:\n"
-"{error}"
-msgstr ""
-"C'hwitadenn war dezrannañ roadennoù  '{filename}' gant ur fazi :\n"
-"{error}"
-
+#~ msgid "story"
+#~ msgstr "istor"
+#~ msgid "year"
+#~ msgstr "bloaz"
+#~ msgid "Braille number codes"
+#~ msgstr "Bonegoù an niveroù e Braille"
+#~ msgid "Deciphering the braille code"
+#~ msgstr "Ezrinegañ ar voneg vraille"
+#~ msgid ""
+#~ "Louis Braille School : http://louisbrailleschool.org .Libbraille : "
+#~ "Portable library for braille display : http://libbraille.org/features.php"
+#~ msgstr ""
+#~ "Skol Louis Braille : http://louisbrailleschool.org . Libbraille : "
+#~ "Levraoueg hezouk evit skrammañ braille display : http://libbraille.org/"
+#~ "features.php"
+#~ msgid "The more I dry,The wetter I get"
+#~ msgstr "Seul sec'hoc'h ez on, seul gleboc'h ez an da vezañ"
+#~ msgid "Type your answer here"
+#~ msgstr "Biziata da respont amañ"
+#~ msgid "Braille alphabet codes"
+#~ msgstr "Boneg lizherenneg Braille"
+#~ msgid "Can you solve this ?"
+#~ msgstr "Barrek out da ziskoulmañ an dra-mañ ?"
+#~ msgid "Rhymes Riddles"
+#~ msgstr "Divinadennoù dre werzennoù"
+#~ msgid ""
+#~ "Error: this activity requires that you first install\n"
+#~ "the packages with GCompris voices for the locale '%s' ! Fallback to "
+#~ "english, sorry!"
+#~ msgstr ""
+#~ "Fazi : ret eo staliañ da gentañ ar pakadoù sonioù\n"
+#~ "gant ar mouezhioù evit ar yezh « %s » enno. Mont a ray en-dro d'ar "
+#~ "saozneg, digarez !"
+#~ msgid "Click on the blue duck"
+#~ msgstr "Klik war an houad glas"
+#~ msgid "Click on the brown duck"
+#~ msgstr "Klik war an houad liv kistin"
+#~ msgid "Click on the green duck"
+#~ msgstr "Klik war an houad gwer"
+#~ msgid "Click on the grey duck"
+#~ msgstr "Klik war an houad louet"
+#~ msgid "Click on the orange duck"
+#~ msgstr "Klik war an houad orañjez"
+#~ msgid "Click on the purple duck"
+#~ msgstr "Klik war an houad mouk"
+#~ msgid "Click on the red duck"
+#~ msgstr "Klik war an houad ruz"
+#~ msgid "Click on the yellow duck"
+#~ msgstr "Klik war an houad melen"
+#~ msgid "Click on the black duck"
+#~ msgstr "Klik war an houad du"
+#~ msgid "Click on the white duck"
+#~ msgstr "Klik war an houad gwenn"
+#~ msgid "English (United State)"
+#~ msgstr "Saozneg (Stadoù Unanet)"
+#~ msgid "Choice of pattern"
+#~ msgstr "Dibab ur goustur"
+#~ msgid "violet"
+#~ msgstr "mouk"
+#~ msgid "pink"
+#~ msgstr "roz"
+#~ msgid "Click on the correct colored object."
+#~ msgstr "Klik war an elfenn he liv o klotañ gant al liv skrivet."
+#~ msgid "Click on the matching color"
+#~ msgstr "Klik war al liv o klotañ gant an hini skrivet"
+#~ msgid "Read the names of colors"
+#~ msgstr "Lenn anvioù al livioù"
+#~ msgid "This board teaches basic colors."
+#~ msgstr "Al livioù diazez a vo desket gant an obererezh-mañ."
 #~ msgid "Learn about an hydroelectric dam"
 #~ msgstr "Deskiñ traoù diwar-benn ar stankelloù dourtredanel"
 #~ msgid "Move the mouse until all the blocks disappear."
@@ -6890,8 +7307,6 @@ msgstr ""
 #~ "Pakit ar goulev-mañ war http://www.rpmfind.net pe \n"
 #~ "e-barzh ho tasparzhadenn GNU/Linux.\n"
 #~ "Gwiriit emañ amañ war-lerc'h : "
-#~ msgid "The story of Oscar and friend"
-#~ msgstr "Istor Oskar hag e vignoned"
 #~ msgid "Wordlist"
 #~ msgstr "Roll gerioù"
 #~ msgid ""
