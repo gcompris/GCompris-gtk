@@ -86,10 +86,10 @@ class Gcompris_electric:
     # You can provide a gnucap binary in python_plugin_dir.
     #
     for binary in (os.environ.get('GNUCAP', ''),
+                   "gnucap.exe",
                    os.path.join(gcompris.PYTHON_PLUGIN_DIR, 'bin', 'gnucap'),
                    "/usr/bin/gnucap",
                    "/usr/local/bin/gnucap",
-                   "gnucap.exe",
 		   os.path.join(gcompris.DATA_DIR, '..' , '..', '..', 'bin', 'gnucap')):
       if(os.path.exists(binary)):
         self.gnucap_binary = binary
