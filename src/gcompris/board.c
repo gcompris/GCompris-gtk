@@ -177,6 +177,18 @@ void gc_board_set_current(GcomprisBoard * gcomprisBoard)
   bp_data->current_gcompris_board = gcomprisBoard;
 }
 
+gboolean
+gc_board_is_demo_only(GcomprisBoard *gcomprisBoard)
+{
+#ifdef ACTIVATION_CODE
+  GcomprisProperties	*properties = gc_prop_get();
+  g_assert(properties->key!=NULL);
+  if ( !gcomprisBoard->demo && gc_activation_check(properties->key) <= 0 )
+    return TRUE;
+#endif
+  return FALSE;
+}
+
 #ifdef STATIC_MODULE
 gboolean
 gc_board_check_file(GcomprisBoard *gcomprisBoard)
@@ -186,7 +198,6 @@ gc_board_check_file(GcomprisBoard *gcomprisBoard)
   guint        i=0;
 
   g_assert(gcomprisBoard!=NULL);
-  g_assert(properties->key!=NULL);
 
   /* Check Already loaded */
   if(gcomprisBoard->plugin!=NULL) {
@@ -223,11 +234,6 @@ gc_board_check_file(GcomprisBoard *gcomprisBoard)
   gchar *type;
 
   g_assert(gcomprisBoard!=NULL);
-
-#ifdef ACTIVATION_CODE
-  if ( !gcomprisBoard->demo && gc_activation_check(properties->key) <= 0 )
-    return FALSE;
-#endif
 
 #if defined WIN32 || defined MAC_INTEGRATION
   /* Some activities are not relevant on some platform */

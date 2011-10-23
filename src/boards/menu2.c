@@ -79,6 +79,8 @@ static GooCanvasItem	*menu_difficulty_display(GooCanvasItem *parent,
 						 double x, double y,
 						 double ratio,
 						 gint difficulty);
+static GooCanvasItem	*menu_demo_display(GooCanvasItem *parent,
+					   gdouble x, gdouble y);
 
 static double current_x = 0.0;
 static double current_y = 0.0;
@@ -350,7 +352,8 @@ create_panel(GooCanvasItem *parent)
       g_signal_connect (item, "leave_notify_event",
 			(GCallback) on_leave_notify, menuitems);
 
-      gc_item_focus_init(item, NULL);
+      if ( ! gc_board_is_demo_only(board) )
+	gc_item_focus_init(item, NULL);
     }
 }
 
@@ -545,6 +548,11 @@ static void menu_create_item(GooCanvasItem *parent, MenuItems *menuitems, Gcompr
 				  (double) 0.6,
 				  difficulty);
 	}
+
+      if ( gc_board_is_demo_only(board) )
+	menu_demo_display(parent,
+			  (gdouble)(current_x - pixmap_w/2 - 20),
+			  (gdouble)(current_y - pixmap_h/2 + 60) );
     }
 
 
@@ -654,7 +662,7 @@ item_event(GooCanvasItem *item, GdkEvent *event,  MenuItems *menuitems)
       menu_position = path;
 
     }
-  else
+  else if ( ! gc_board_is_demo_only(board) )
     {
       gc_sound_play_ogg ("sounds/level.wav", NULL);
       gc_board_run_next (board);
@@ -947,11 +955,28 @@ menu_difficulty_display(GooCanvasItem *parent,
   item = goo_canvas_svg_new (stars_group,
 			     gc_skin_rsvg_get(),
 			     "svg-id", svg_id,
+			     "pointer-events", GOO_CANVAS_EVENTS_NONE,
 			     NULL);
   SET_ITEM_LOCATION(item, x, y);
 
   g_free(svg_id);
 
   return(stars_group);
+}
+
+/**
+ * Display the demo only icon
+ */
+static GooCanvasItem *
+menu_demo_display(GooCanvasItem *parent,
+		  gdouble x, gdouble y)
+{
+  GooCanvasItem *item = goo_canvas_svg_new (parent,
+					    gc_skin_rsvg_get(),
+					    "svg-id", "#UNCHECKED",
+					    "pointer-events", GOO_CANVAS_EVENTS_NONE,
+					    NULL);
+  SET_ITEM_LOCATION(item, x, y);
+  return(item);
 }
 

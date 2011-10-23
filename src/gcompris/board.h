@@ -66,5 +66,6 @@ void		 gc_board_pause(int pause);
 
 void             gc_board_run_next(GcomprisBoard *board);
 guint		 gc_board_get_number_of_activity();
+gboolean	 gc_board_is_demo_only(GcomprisBoard *gcomprisBoard);
 
 #endif
