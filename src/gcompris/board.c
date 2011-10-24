@@ -204,9 +204,6 @@ gc_board_check_file(GcomprisBoard *gcomprisBoard)
     return TRUE;
   }
 
-  if ( !gcomprisBoard->demo && gc_activation_check(properties->key) <= 0 )
-    return FALSE;
-
   while(static_boards[i++] != NULL) {
 
     /* Get the BoardPlugin Info */
