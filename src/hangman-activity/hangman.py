@@ -96,8 +96,13 @@ class Gcompris_hangman:
                                     self.backitem)
 
     # Get the name of the language for the current locale
-    self.language = gcompris.gcompris_gettext( gcompris.get_locale_name(gcompris.get_locale()) )
-    self.wordlist = gcompris.get_wordlist("wordsgame/default-$LOCALE.xml")
+    self.wordlist = None
+    try:
+      self.language = gcompris.gcompris_gettext( gcompris.get_locale_name(gcompris.get_locale()) )
+      self.wordlist = gcompris.get_wordlist("wordsgame/default-$LOCALE.xml")
+    except:
+      pass
+
     if not self.wordlist:
       # Fallback to english
       self.wordlist = gcompris.get_wordlist("wordsgame/default-en.xml")
