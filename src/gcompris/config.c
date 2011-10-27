@@ -489,12 +489,15 @@ void gc_config_stop ()
  * The result must not be freed.
  */
 const gchar*
-gc_locale_get_name(const gchar *locale)
+gc_locale_get_name(const gchar *locale_code)
 {
   guint i = 0;
-
+  const gchar *locale = locale_code;
   if ( !locale )
     return NULL;
+
+  if( !g_ascii_strncasecmp(locale, "C", 1) )
+      locale = GC_DEFAULT_LOCALE;
 
   /*
    * On some systems, locales are returned as fr_FR.utf8
@@ -522,10 +525,14 @@ gc_locale_get_name(const gchar *locale)
  * The result must be freed.
  */
 gchar*
-gc_locale_short(const gchar *locale)
+gc_locale_short(const gchar *locale_code)
 {
-  if ( ! locale )
+   const gchar *locale = locale_code;
+   if ( ! locale )
     return NULL;
+
+  if( !g_ascii_strncasecmp(locale, "C", 1) )
+      locale = GC_DEFAULT_LOCALE;
 
   gchar **locale_short = g_strsplit_set(locale, "_", 2);
   if(g_strv_length(locale_short) >= 1)
@@ -546,10 +553,14 @@ gc_locale_short(const gchar *locale)
  * The result must be freed.
  */
 gchar*
-gc_locale_long(const gchar *locale)
+gc_locale_long(const gchar *locale_code)
 {
+  const gchar *locale = locale_code;
   if ( ! locale )
     return NULL;
+
+  if( !g_ascii_strncasecmp(locale, "C", 1) )
+    locale = GC_DEFAULT_LOCALE;
 
   gchar **locale_long = g_strsplit_set(locale, ".", 2);
   if(g_strv_length(locale_long) >= 1)
