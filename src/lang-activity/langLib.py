@@ -34,17 +34,18 @@ class Triplet:
     def parse(self, elem):
         for e in elem.childNodes:
             if isNode(e, "image"):
-                self.image = e.firstChild.nodeValue
+                self.image = e.firstChild.nodeValue if e.firstChild else None
             elif isNode(e, "description"):
-                self.description = e.firstChild.nodeValue
+                self.description = e.firstChild.nodeValue if e.firstChild else None
             elif isNode(e, "voice"):
-                self.voice = e.firstChild.nodeValue
+                self.voice = e.firstChild.nodeValue if e.firstChild else None
             elif isNode(e, "type"):
-                self.type = e.firstChild.nodeValue
+                self.type = e.firstChild.nodeValue if e.firstChild else None
 
     def dump(self):
         print "    Triplet "+ self.description + " / " \
-            + self.image + " / " + self.voice + " / " + self.type
+            + str(self.image) + " / " + str(self.voice) \
+            + " / " + str(self.type)
 
 class Lesson:
     def __init__(self, elem):
@@ -58,7 +59,7 @@ class Lesson:
             if isNode(e, "name"):
                 self.name = e.firstChild.nodeValue
             elif isNode(e, "description"):
-                self.description = e.firstChild.nodeValue
+                self.description = e.firstChild.nodeValue if e.firstChild else None
             elif isNode(e, "Triplet"):
                 self.triplets.append( Triplet(e) )
 
@@ -66,7 +67,7 @@ class Lesson:
         return self.triplets
 
     def dump(self):
-        print "  Lesson "+ self.name + " / " + self.description
+        print "  Lesson "+ self.name + " / " + str(self.description)
         for triplet in self.triplets:
             triplet.dump()
 
@@ -83,7 +84,7 @@ class Chapter:
             if isNode(e, "name"):
                 self.name = e.firstChild.nodeValue
             elif isNode(e, "description"):
-                self.description = e.firstChild.nodeValue
+                self.description = e.firstChild.nodeValue if e.firstChild else None
             elif isNode(e, "Lesson"):
                 self.lessons.append( Lesson(e) )
 
@@ -91,7 +92,7 @@ class Chapter:
         return self.lessons
 
     def dump(self):
-        print "Chapter "+ self.name + " / " + self.description
+        print "Chapter "+ self.name + " / " + str(self.description)
         for lesson in self.lessons:
             lesson.dump()
 

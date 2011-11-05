@@ -27,9 +27,44 @@ import pango
 from gcompris import gcompris_gettext as _
 from langLib import *
 
+class MissingImage:
+  """This is used to display a missing image"""
+
+  def __init__(self, rootitem, langActivity):
+    self.missingroot = goocanvas.Group( parent = rootitem )
+    width = 280
+    height = 240
+    item = goocanvas.Rect( parent = self.missingroot,
+                           x = gcompris.BOARD_WIDTH  / 2 - width / 2,
+                           y = gcompris.BOARD_HEIGHT / 2 - height / 2,
+                           width = width,
+                           height = height,
+                           radius_x = 5,
+                           radius_y = 5,
+                           stroke_color_rgba = 0x666666FFL,
+                           fill_color_rgba = 0x33333366L,
+                           line_width = 2.0 )
+    item.connect("button_press_event", langActivity.next_event, None)
+    self.missingtext = goocanvas.Text(
+      parent = self.missingroot,
+      x = gcompris.BOARD_WIDTH / 2,
+      y = gcompris.BOARD_HEIGHT / 2,
+      fill_color = "black",
+      font = gcompris.skin.get_font("gcompris/subtitle"),
+      text = _("Missing Image"),
+      anchor = gtk.ANCHOR_CENTER,
+      alignment = pango.ALIGN_CENTER
+      )
+
+  def hide(self):
+    self.missingroot.props.visibility = goocanvas.ITEM_INVISIBLE
+
+  def show(self, triplet):
+    self.missingroot.props.visibility = goocanvas.ITEM_VISIBLE
+
+
 class Gcompris_lang:
   """Empty gcompris python class"""
-
 
   def __init__(self, gcomprisBoard):
     print "lang init"
@@ -57,13 +92,19 @@ class Gcompris_lang:
     self.rootitem = goocanvas.Group(parent =
                                     self.gcomprisBoard.canvas.get_root_item())
 
-    langLib = LangLib(gcompris.DATA_DIR + "/lang/lang.xml")
-    langLib.dump()
-    self.chapters = langLib.getChapters()
+    self.langLib = LangLib(gcompris.DATA_DIR + "/lang/lang.xml.in")
+    self.chapters = self.langLib.getChapters()
+    # FIXME Do not manage Chapter yet
     self.currentChapterId = 0
-    self.currentLessonId = 0
-    self.currentTripletId = 0
-    self.currentLesson = langLib.getLesson(self.currentChapterId, self.currentLessonId)
+
+    # Manage levels (a level is a lesson in the lang model)
+    self.gcomprisBoard.level = 1
+    self.gcomprisBoard.maxlevel = \
+        len ( self.chapters.getChapters()[self.currentChapterId].getLessons() )
+    gcompris.bar_set_level(self.gcomprisBoard)
+
+    self.currentLesson = self.langLib.getLesson(self.currentChapterId,
+                                                self.gcomprisBoard.level - 1)
     self.displayLesson( self.currentLesson )
 
   def end(self):
@@ -95,7 +136,12 @@ class Gcompris_lang:
 
 
   def set_level(self, level):
-    print("lang set level. %i" % level)
+    self.gcomprisBoard.level = level;
+    self.gcomprisBoard.sublevel = 1;
+    gcompris.bar_set_level(self.gcomprisBoard)
+    self.currentLesson = self.langLib.getLesson(self.currentChapterId,
+                                                self.gcomprisBoard.level - 1)
+    self.displayLesson( self.currentLesson )
 
 # -------
 
@@ -105,6 +151,12 @@ class Gcompris_lang:
 
   def displayLesson(self, lesson):
 
+    try:
+      self.lessonroot.remove()
+    except:
+      pass
+
+    self.currentTripletId = 0
     self.lessonroot = goocanvas.Group( parent = self.rootitem )
 
     goocanvas.Rect(
@@ -163,7 +215,18 @@ class Gcompris_lang:
     item.connect("button_press_event", self.next_event, None)
     gcompris.utils.item_focus_init(item, None)
 
+    self.counteritem = goocanvas.Text(
+      parent = self.lessonroot,
+      x = gcompris.BOARD_WIDTH - 40,
+      y = gcompris.BOARD_HEIGHT - 40,
+      fill_color = "black",
+      font = gcompris.skin.get_font("gcompris/board/tiny"),
+      anchor = gtk.ANCHOR_CENTER,
+      alignment = pango.ALIGN_CENTER
+      )
+
     # The triplet area
+    self.missingImage = MissingImage(self.lessonroot, self)
     self.imageitem = goocanvas.Image( parent = self.lessonroot )
     self.imageitem.connect("button_press_event", self.next_event, None)
     self.descriptionitem = goocanvas.Text(
@@ -178,16 +241,24 @@ class Gcompris_lang:
     self.displayImage( lesson.getTriplets()[self.currentTripletId] )
 
   def displayImage(self, triplet):
-    pixbuf = gcompris.utils.load_pixmap(gcompris.DATA_DIR + "/lang/" +
-                                        triplet.image)
-    center_x =  pixbuf.get_width()/2
-    center_y =  pixbuf.get_height()/2
-    self.imageitem.set_properties(pixbuf = pixbuf,
-                                  x = gcompris.BOARD_WIDTH  / 2 - center_x,
-                                  y = gcompris.BOARD_HEIGHT / 2 - center_y )
     self.descriptionitem.set_properties (
       text = triplet.description,
       )
+    self.counteritem.set_properties (
+      text = str(self.currentTripletId + 1) + "/" \
+        + str( len( self.currentLesson.getTriplets() ) ),
+      )
+    if triplet.image:
+      self.missingImage.hide()
+      pixbuf = gcompris.utils.load_pixmap(gcompris.DATA_DIR + "/lang/" +
+                                          triplet.image)
+      center_x =  pixbuf.get_width()/2
+      center_y =  pixbuf.get_height()/2
+      self.imageitem.set_properties(pixbuf = pixbuf,
+                                    x = gcompris.BOARD_WIDTH  / 2 - center_x,
+                                    y = gcompris.BOARD_HEIGHT / 2 - center_y )
+    else:
+      self.missingImage.show(triplet)
 
   def previous_event(self, event, target,item, dummy):
     self.currentTripletId -= 1
@@ -200,3 +271,6 @@ class Gcompris_lang:
     if self.currentTripletId >= len( self.currentLesson.getTriplets() ):
       self.currentTripletId = 0
     self.displayImage( self.currentLesson.getTriplets()[self.currentTripletId] )
+
+
+
