@@ -66,6 +66,7 @@ SUBDIRS = \
 	imageid-activity \
 	imagename-activity \
 	instruments-activity \
+	lang-activity \
 	leftright-activity \
 	lightsoff-activity \
 	login-activity \

@@ -739,6 +739,9 @@ src/imagename-activity/resources/imagename/Makefile
 src/instruments-activity/Makefile
 src/instruments-activity/resources/Makefile
 src/instruments-activity/resources/instruments/Makefile
+src/lang-activity/Makefile
+src/lang-activity/resources/Makefile
+src/lang-activity/resources/lang/Makefile
 src/leftright-activity/Makefile
 src/leftright-activity/resources/Makefile
 src/leftright-activity/resources/leftright/Makefile
