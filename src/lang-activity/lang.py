@@ -21,6 +21,7 @@ import gtk.gdk
 import gcompris
 import gcompris.utils
 import gcompris.skin
+import gcompris.sound
 import goocanvas
 import pango
 
@@ -239,6 +240,11 @@ class Gcompris_lang:
       alignment = pango.ALIGN_CENTER
       )
     self.displayImage( lesson.getTriplets()[self.currentTripletId] )
+    self.playVoice( lesson.getTriplets()[self.currentTripletId] )
+
+  def playVoice(self, triplet):
+    if triplet.voice:
+      gcompris.sound.play_ogg("voices/$LOCALE/" + triplet.voice)
 
   def displayImage(self, triplet):
     self.descriptionitem.set_properties (
@@ -250,6 +256,7 @@ class Gcompris_lang:
       )
     if triplet.image:
       self.missingImage.hide()
+      self.imageitem.props.visibility = goocanvas.ITEM_VISIBLE
       pixbuf = gcompris.utils.load_pixmap(gcompris.DATA_DIR + "/lang/" +
                                           triplet.image)
       center_x =  pixbuf.get_width()/2
@@ -258,6 +265,7 @@ class Gcompris_lang:
                                     x = gcompris.BOARD_WIDTH  / 2 - center_x,
                                     y = gcompris.BOARD_HEIGHT / 2 - center_y )
     else:
+      self.imageitem.props.visibility = goocanvas.ITEM_INVISIBLE
       self.missingImage.show(triplet)
 
   def previous_event(self, event, target,item, dummy):
