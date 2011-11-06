@@ -109,7 +109,6 @@ class Gcompris_lang:
     self.displayLesson( self.currentLesson )
 
   def end(self):
-    print "lang end"
     # Remove the root item removes all the others inside it
     self.rootitem.remove()
 
@@ -119,8 +118,7 @@ class Gcompris_lang:
 
 
   def repeat(self):
-    print("lang repeat.")
-
+    self.playVoice( self.currentLesson.getTriplets()[self.currentTripletId] )
 
   def config(self):
     print("lang config.")
@@ -240,13 +238,13 @@ class Gcompris_lang:
       alignment = pango.ALIGN_CENTER
       )
     self.displayImage( lesson.getTriplets()[self.currentTripletId] )
-    self.playVoice( lesson.getTriplets()[self.currentTripletId] )
 
   def playVoice(self, triplet):
     if triplet.voice:
       gcompris.sound.play_ogg("voices/$LOCALE/" + triplet.voice)
 
   def displayImage(self, triplet):
+    self.playVoice( triplet )
     self.descriptionitem.set_properties (
       text = triplet.description,
       )
