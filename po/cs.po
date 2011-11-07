@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2011-11-05 14:32+0000\n"
-"PO-Revision-Date: 2011-11-05 22:51+0100\n"
+"POT-Creation-Date: 2011-11-06 13:57+0000\n"
+"PO-Revision-Date: 2011-11-07 18:09+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -5571,6 +5571,11 @@ msgstr "housle"
 #: ../src/lang-activity/lang.xml.in.h:1
 msgid "Practice a foreign language"
 msgstr "Procvič si cizí jazyk"
+
+#: ../src/lang-activity/lang.py:55
+#| msgid "Missing Letter"
+msgid "Missing Image"
+msgstr "Chybějící obrázek"
 
 #: ../src/leftright-activity/leftright.c:230
 #: ../src/searace-activity/searace.py:415
