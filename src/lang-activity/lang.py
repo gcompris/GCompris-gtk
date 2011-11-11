@@ -80,8 +80,22 @@ class Gcompris_lang:
   def start(self):
     print "lang start"
 
+    # init config to default values
+    self.config_dict = self.init_config()
+
+    print "init self.config_dict :", self.config_dict
+
+    # change configured values
+    print "gcompris.get_board_conf() : ", gcompris.get_board_conf()
+    self.config_dict.update(gcompris.get_board_conf())
+
+    print "self.config_dict final :", self.config_dict
+
+    if self.config_dict.has_key('locale_sound'):
+      gcompris.set_locale(self.config_dict['locale_sound'])
+
     # Set the buttons we want in the bar
-    gcompris.bar_set(gcompris.BAR_LEVEL|gcompris.BAR_REPEAT)
+    gcompris.bar_set(gcompris.BAR_LEVEL|gcompris.BAR_REPEAT|gcompris.BAR_CONFIG)
     gcompris.bar_location(gcompris.BOARD_WIDTH / 2 - 100, -1, 0.6)
 
     # Set a background image
@@ -93,7 +107,7 @@ class Gcompris_lang:
     self.rootitem = goocanvas.Group(parent =
                                     self.gcomprisBoard.canvas.get_root_item())
 
-    self.langLib = LangLib(gcompris.DATA_DIR + "/lang/lang.xml.in")
+    self.langLib = LangLib(gcompris.DATA_DIR + "/lang/lang.xml")
     self.chapters = self.langLib.getChapters()
     # FIXME Do not manage Chapter yet
     self.currentChapterId = 0
@@ -120,8 +134,48 @@ class Gcompris_lang:
   def repeat(self):
     self.playVoice( self.currentLesson.getTriplets()[self.currentTripletId] )
 
-  def config(self):
-    print("lang config.")
+  def init_config(self):
+    default_config = { 'locale_sound' : 'NULL' }
+    return default_config
+
+  #mandatory but unused yet
+  def config_stop(self):
+    pass
+
+  # Configuration function.
+  def config_start(self, profile):
+    # keep profile in mind
+    # profile can be Py_None
+    self.configuring_profile = profile
+
+    # init with default values
+    self.config_dict = self.init_config()
+
+    # get the configured values for that profile
+    self.config_dict.update(gcompris.get_conf(profile, self.gcomprisBoard))
+
+    bconf = gcompris.configuration_window ( \
+      _('Configuration\n for profile <b>%s</b>')
+      % ( (profile.name if profile else _("Default") ) ),
+      self.ok_callback
+      )
+
+    gcompris.combo_locales_asset(bconf, _("Select locale"),
+                                 self.config_dict['locale_sound'],
+                                 "voices/$LOCALE/colors/red.ogg")
+
+  # Callback when the "OK" button is clicked in configuration window
+  # this get all the _changed_ values
+  def ok_callback(self, table):
+    if (table == None):
+      return True
+
+    for key,value in table.iteritems():
+      gcompris.set_board_conf(self.configuring_profile,
+                              self.gcomprisBoard, key, value)
+
+    return True;
+
 
 
   def key_press(self, keyval, commit_str, preedit_str):

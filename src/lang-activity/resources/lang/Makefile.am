@@ -14,8 +14,20 @@ $(xml_DATA): %.xml: %.xml.in
 	sed -e "s/\(<\{1\}\/*\)_/\1/g" $< > $@
 
 
-imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/lang
-img_DATA =
+imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/lang/numbers
+img_DATA = \
+	numbers/banana.svg \
+	numbers/empty.svg \
+	numbers/lemon.svg \
+	numbers/mango.svg \
+	numbers/one.svg \
+	numbers/orange.svg \
+	numbers/peach.svg \
+	numbers/pear.svg \
+	numbers/pineapples.svg \
+	numbers/raspberries.svg \
+	numbers/strawberries.svg
+
 
 
 EXTRA_DIST = $(img_DATA) ${xml_in_files}

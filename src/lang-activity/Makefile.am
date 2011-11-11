@@ -1,11 +1,12 @@
 # Passthrough, do not break uplevel make rule
 install-activity:
 
-SUBDIRS =
+SUBDIRS = resources
 
 pythondir = $(PYTHON_PLUGIN_DIR)
 
-dist_python_DATA= 	lang.py
+dist_python_DATA= 	lang.py \
+	langLib.py
 
 
 

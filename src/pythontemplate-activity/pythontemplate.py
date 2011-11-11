@@ -80,9 +80,13 @@ class Gcompris_pythontemplate:
     print("pythontemplate repeat.")
 
 
-  def config(self):
-    print("pythontemplate config.")
+  #mandatory but unused yet
+  def config_stop(self):
+    pass
 
+  # Configuration function.
+  def config_start(self, profile):
+    print("pythontemplate config_start.")
 
   def key_press(self, keyval, commit_str, preedit_str):
     utf8char = gtk.gdk.keyval_to_unicode(keyval)
