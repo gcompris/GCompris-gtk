@@ -26,7 +26,6 @@ icon_DATA = algebra_group.svg \
 	mouse.svg \
 	numeration.svg \
 	puzzles.svg \
-	read_colors.svg \
 	strategy.svg \
 	warning.svg
 
