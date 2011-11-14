@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: gcompris.gcomprixogoo\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2011-11-06 13:57+0000\n"
-"PO-Revision-Date: 2011-11-08 12:29+0100\n"
+"POT-Creation-Date: 2011-11-11 23:30+0000\n"
+"PO-Revision-Date: 2011-11-14 13:18+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -635,6 +635,7 @@ msgstr "Todos los usuarios"
 #: ../src/administration-activity/admin/log_list.py:108
 #: ../src/administration-activity/admin/log_list.py:295
 #: ../src/administration-activity/admin/profile_list.py:117
+#: ../src/lang-activity/lang.py:159
 msgid "Default"
 msgstr "Predeterminado"
 
@@ -5646,14 +5647,29 @@ msgid "the violin"
 msgstr "el violín"
 
 #: ../src/lang-activity/lang.xml.in.h:1
-#| msgid "Practice money usage"
 msgid "Practice a foreign language"
 msgstr "Practica un idioma extranjero"
 
 #: ../src/lang-activity/lang.py:55
-#| msgid "Missing Letter"
 msgid "Missing Image"
 msgstr "Imagen no encontrada"
+
+#: ../src/lang-activity/lang.py:158
+#, python-format
+#| msgid ""
+#| "<b>%s</b> configuration\n"
+#| " for profile <b>%s</b>"
+msgid ""
+"Configuration\n"
+" for profile <b>%s</b>"
+msgstr ""
+"Configuración\n"
+" para el perfil <b>%s</b>"
+
+#: ../src/lang-activity/lang.py:163
+#| msgid "Select sound locale"
+msgid "Select locale"
+msgstr "Seleccionar idioma"
 
 #: ../src/leftright-activity/leftright.c:230
 #: ../src/searace-activity/searace.py:415
