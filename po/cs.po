@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2011-11-06 13:57+0000\n"
-"PO-Revision-Date: 2011-11-07 18:09+0100\n"
+"POT-Creation-Date: 2011-11-11 23:30+0000\n"
+"PO-Revision-Date: 2011-11-21 10:55+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -628,6 +628,7 @@ msgstr "Všichni uživatelé"
 #: ../src/administration-activity/admin/log_list.py:108
 #: ../src/administration-activity/admin/log_list.py:295
 #: ../src/administration-activity/admin/profile_list.py:117
+#: ../src/lang-activity/lang.py:159
 msgid "Default"
 msgstr "Výchozí"
 
@@ -5573,9 +5574,21 @@ msgid "Practice a foreign language"
 msgstr "Procvič si cizí jazyk"
 
 #: ../src/lang-activity/lang.py:55
-#| msgid "Missing Letter"
 msgid "Missing Image"
 msgstr "Chybějící obrázek"
+
+#: ../src/lang-activity/lang.py:158
+#, python-format
+msgid ""
+"Configuration\n"
+" for profile <b>%s</b>"
+msgstr ""
+"Nastavení\n"
+" pro profil <b>%s</b>"
+
+#: ../src/lang-activity/lang.py:163
+msgid "Select locale"
+msgstr "Vyber si národní nastavení"
 
 #: ../src/leftright-activity/leftright.c:230
 #: ../src/searace-activity/searace.py:415
