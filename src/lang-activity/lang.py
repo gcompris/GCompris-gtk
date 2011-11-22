@@ -27,6 +27,7 @@ import pango
 
 from gcompris import gcompris_gettext as _
 from langLib import *
+from findit import *
 
 class MissingImage:
   """This is used to display a missing image"""
@@ -118,11 +119,14 @@ class Gcompris_lang:
         len ( self.chapters.getChapters()[self.currentChapterId].getLessons() )
     gcompris.bar_set_level(self.gcomprisBoard)
 
+    self.currentExercise = None
     self.currentLesson = self.langLib.getLesson(self.currentChapterId,
                                                 self.gcomprisBoard.level - 1)
     self.displayLesson( self.currentLesson )
 
   def end(self):
+    if self.currentExercise:
+      self.currentExercise.stop()
     # Remove the root item removes all the others inside it
     self.rootitem.remove()
 
@@ -188,10 +192,20 @@ class Gcompris_lang:
     print("lang pause. %i" % pause)
 
 
+  def next_level(self):
+    if self.gcomprisBoard.level < self.gcomprisBoard.maxlevel:
+      self.set_level(self.gcomprisBoard.level + 1)
+    else:
+      self.set_level(self.gcomprisBoard.level)
+
   def set_level(self, level):
     self.gcomprisBoard.level = level;
     self.gcomprisBoard.sublevel = 1;
     gcompris.bar_set_level(self.gcomprisBoard)
+
+    if self.currentExercise:
+      self.currentExercise.stop()
+
     self.currentLesson = self.langLib.getLesson(self.currentChapterId,
                                                 self.gcomprisBoard.level - 1)
     self.displayLesson( self.currentLesson )
@@ -203,6 +217,10 @@ class Gcompris_lang:
 
 
   def displayLesson(self, lesson):
+
+    # Keep the triplet shown to the user to know when
+    # we can move to the exercices
+    self.tripletSeen = set()
 
     try:
       self.lessonroot.remove()
@@ -232,7 +250,8 @@ class Gcompris_lang:
       fill_color = "black",
       font = gcompris.skin.get_font("gcompris/title"),
       anchor = gtk.ANCHOR_CENTER,
-      alignment = pango.ALIGN_CENTER
+      alignment = pango.ALIGN_CENTER,
+      width = 300
       )
 
     goocanvas.Text(
@@ -243,7 +262,8 @@ class Gcompris_lang:
       fill_color = "black",
       font = gcompris.skin.get_font("gcompris/subtitle"),
       anchor = gtk.ANCHOR_CENTER,
-      alignment = pango.ALIGN_CENTER
+      alignment = pango.ALIGN_CENTER,
+      width = 600
       )
 
     # Previous Button
@@ -289,7 +309,8 @@ class Gcompris_lang:
       fill_color = "black",
       font = gcompris.skin.get_font("gcompris/subtitle"),
       anchor = gtk.ANCHOR_CENTER,
-      alignment = pango.ALIGN_CENTER
+      alignment = pango.ALIGN_CENTER,
+      width = 300
       )
     self.displayImage( lesson.getTriplets()[self.currentTripletId] )
 
@@ -298,6 +319,14 @@ class Gcompris_lang:
       gcompris.sound.play_ogg("voices/$LOCALE/" + triplet.voice)
 
   def displayImage(self, triplet):
+
+    if len(self.tripletSeen) == len(self.currentLesson.getTriplets()):
+      self.clearLesson()
+      self.currentExercise = Findit(self, self.rootitem, self.currentLesson)
+      self.currentExercise.start()
+      return
+
+    self.tripletSeen.add(triplet)
     self.playVoice( triplet )
     self.descriptionitem.set_properties (
       text = triplet.description,
