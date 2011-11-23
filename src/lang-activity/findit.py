@@ -29,6 +29,53 @@ import random
 from gcompris import gcompris_gettext as _
 from langLib import *
 
+class SpotTarget:
+  """Display a triplet"""
+
+  def __init__(self, parentitem, x, y, triplet, callback):
+      rootitem = goocanvas.Group( parent = parentitem )
+      self.width = 380
+      self.height = 100
+      # The background
+      item = goocanvas.Rect( parent = rootitem,
+                             x = x,
+                             y = y,
+                             width = self.width,
+                             height = self.height,
+                             radius_x = 5,
+                             radius_y = 5,
+                             stroke_color_rgba = 0x666666FFL,
+                             fill_color_rgba = 0x33333366L,
+                             line_width = 2.0 )
+      item.connect("button_press_event", callback, triplet)
+      # The text description
+      textx = 100
+      item = goocanvas.Text(
+          parent = rootitem,
+          x = x + textx,
+          y = y + 10,
+          fill_color = "black",
+          font = gcompris.skin.get_font("gcompris/subtitle"),
+          text = triplet.description,
+          anchor = gtk.ANCHOR_NW,
+          alignment = pango.ALIGN_LEFT,
+          width = self.width - textx - 10
+          )
+      item.connect("button_press_event", callback, triplet)
+      # The image
+      if triplet.image:
+          pixbuf = gcompris.utils.load_pixmap(gcompris.DATA_DIR + "/lang/" +
+                                              triplet.image)
+          item = goocanvas.Image( parent = rootitem,
+                                  pixbuf = pixbuf,
+                                  x = x  + 5,
+                                  y = y  + 5,
+                                  width = 110,
+                                  height = 90
+                                  )
+          item.connect("button_press_event", callback, triplet)
+
+
 class Findit:
     """An exercice that given a lesson asks the children to find"""
     """the good anwer from a source text, a target text or a voice"""
@@ -59,7 +106,7 @@ class Findit:
         goocanvas.Text(
             parent = self.gameroot,
             x = gcompris.BOARD_WIDTH / 2,
-            y = gcompris.BOARD_HEIGHT / 4,
+            y = 100,
             fill_color = "black",
             font = gcompris.skin.get_font("gcompris/subtitle"),
             text = self.tripletToFind.description,
@@ -72,26 +119,19 @@ class Findit:
         triplets2 = list(self.lesson.getTriplets())
         triplets2.remove(self.tripletToFind)
         random.shuffle(triplets2)
-        numberOfItem = 3
-        y = gcompris.BOARD_HEIGHT / 2
+        numberOfItem = 4
+        y_start = 200
+        y = y_start
+        x = 10
         triplets2 = triplets2[:numberOfItem-1]
         triplets2.insert(random.randint(0, numberOfItem-1),
                          self.tripletToFind)
         for i in range(0, numberOfItem):
-            item = goocanvas.Text(
-                parent = self.gameroot,
-                x = gcompris.BOARD_WIDTH / 2,
-                y = y,
-                fill_color = "black",
-                font = gcompris.skin.get_font("gcompris/subtitle"),
-                text = triplets2[i].description,
-                anchor = gtk.ANCHOR_CENTER,
-                alignment = pango.ALIGN_CENTER,
-                width = 300
-                )
-            item.connect("button_press_event", self.ok, triplets2[i])
-            y += 30
-
+            spot = SpotTarget(self.gameroot, x, y, triplets2[i], self.ok)
+            y += spot.height + 20
+            if (i+1) % 2 == 0:
+                y = y_start
+                x = gcompris.BOARD_WIDTH / 2 + 10
 
     def stop(self):
         self.rootitem.remove()
