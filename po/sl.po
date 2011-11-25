@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2011-10-02 18:03+0000\n"
-"PO-Revision-Date: 2011-10-02 20:57+0100\n"
+"POT-Creation-Date: 2011-11-23 00:04+0000\n"
+"PO-Revision-Date: 2011-11-25 17:41+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
@@ -212,7 +212,7 @@ msgid "GCompris Main Menu"
 msgstr "Glavni meni GCompris"
 
 #: ../boards/menu.xml.in.h:21
-#: ../src/boards/menu2.c:866
+#: ../src/boards/menu2.c:874
 msgid "GCompris is a collection of educational games that provides different activities for children aged 2 and up."
 msgstr "GCompris je zbirka izobraževalnih iger z različnimi dejavnostmi namenjena otrokom od 2. leta naprej."
 
@@ -571,6 +571,7 @@ msgstr "Vsi uporabniki"
 #: ../src/administration-activity/admin/log_list.py:108
 #: ../src/administration-activity/admin/log_list.py:295
 #: ../src/administration-activity/admin/profile_list.py:117
+#: ../src/lang-activity/lang.py:163
 msgid "Default"
 msgstr "Privzeto"
 
@@ -1465,15 +1466,15 @@ msgstr "Usmeri miško in klikni na žogo. S tem boš nastavil hitrost in smer ž
 msgid "The football game"
 msgstr "Nogometna igra"
 
-#: ../src/boards/menu2.c:135
+#: ../src/boards/menu2.c:137
 msgid "Main Menu Second Version"
 msgstr "Druga različica glavnega menija"
 
-#: ../src/boards/menu2.c:136
+#: ../src/boards/menu2.c:138
 msgid "Select a Board"
 msgstr "Izberi tablo"
 
-#: ../src/boards/menu2.c:266
+#: ../src/boards/menu2.c:268
 #, c-format
 msgid "Number of activities: %d"
 msgstr "Število dejavnosti: %d"
@@ -3028,8 +3029,8 @@ msgid "Couldn't open skin dir: %s"
 msgstr "Ni mogoče odpreti mape preoblek: %s"
 
 #: ../src/gcompris/config.c:413
-#: ../src/gcompris/config.c:862
-#: ../src/gcompris/config.c:876
+#: ../src/gcompris/config.c:873
+#: ../src/gcompris/config.c:887
 #, c-format
 msgid "Skin : %s"
 msgstr "Preobleka : %s"
@@ -4316,11 +4317,11 @@ msgstr "bcčdfghjklmnprsštvzž"
 msgid "NONE"
 msgstr "BREZ"
 
-#: ../src/hangman-activity/hangman.py:104
+#: ../src/hangman-activity/hangman.py:109
 msgid "English"
 msgstr "Angleščina"
 
-#: ../src/hangman-activity/hangman.py:107
+#: ../src/hangman-activity/hangman.py:112
 msgid "Could not find the list of words."
 msgstr "Ni mogoče najti seznama besed."
 
@@ -4898,6 +4899,27 @@ msgstr "Tuba"
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:28
 msgid "the violin"
 msgstr "Violina"
+
+#: ../src/lang-activity/lang.xml.in.h:1
+msgid "Practice a foreign language"
+msgstr "Vaja tujega jezika"
+
+#: ../src/lang-activity/lang.py:56
+msgid "Missing Image"
+msgstr "Manjkajoča slika"
+
+#: ../src/lang-activity/lang.py:162
+#, python-format
+msgid ""
+"Configuration\n"
+" for profile <b>%s</b>"
+msgstr ""
+"Nastavitev\n"
+" za profil <b>%s</b>"
+
+#: ../src/lang-activity/lang.py:167
+msgid "Select locale"
+msgstr "Izbor jezikovnih nastavitev"
 
 #: ../src/leftright-activity/leftright.c:230
 #: ../src/searace-activity/searace.py:415
