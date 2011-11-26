@@ -22,8 +22,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2011-03-22 22:45+0000\n"
-"PO-Revision-Date: 2011-03-25 20:33+0200\n"
+"POT-Creation-Date: 2011-11-11 23:30+0000\n"
+"PO-Revision-Date: 2011-11-25 18:48+0200\n"
 "Last-Translator: Yannis Kaskamanidis <kiolalis@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
@@ -40,7 +40,7 @@ msgid "Go to Algebra activities"
 msgstr "Δραστηριότητες Άλγεβρας"
 
 #: ../boards/algebra_group.xml.in.h:2
-#: ../boards/menu.xml.in.h:18
+#: ../boards/menu.xml.in.h:22
 #: ../boards/money_group.xml.in.h:2
 msgid "Left-click the mouse on an activity to select it."
 msgstr "Κάνε δεξί κλικ σε μια δραστηριότητα για να την επιλέξεις."
@@ -52,6 +52,16 @@ msgstr "Δραστηριότητες υπολογισμού"
 #: ../boards/algebramenu.xml.in.h:2
 msgid "Various calculation activities."
 msgstr "Ποικιλία δραστηριοτήτων υπολογισμού."
+
+#: ../boards/braille.xml.in.h:1
+#: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:1
+#| msgid "Discover the Computer"
+msgid "Discover the Braille system"
+msgstr "Ανακαλύψτε το σύστημα Μπράιγ"
+
+#: ../boards/braille.xml.in.h:2
+msgid "The Braille system is a method that is widely used by blind people to read and write, and was the first digital form of writing."
+msgstr "Το σύστημα Μπράιγ είναι μια μέθοδος που χρησιμοποιείται παγκοσμίως από ανθρώπους με σοβαρά προβλήματα όρασης, προκειμένου να μπορούν να διαβάσουν και να γράψουν. Επίσης, υπήρξε η πρώτη ψηφιακή μορφή γραφής."
 
 #: ../boards/chess.xml.in.h:1
 #: ../src/chess_computer-activity/chess_computer.xml.in.h:3
@@ -158,38 +168,60 @@ msgstr "Δραστηριότητες μνήμης"
 msgid "Various memory activities (images, letters, sounds)."
 msgstr "Ποικίλες δραστηριότητες μνήμης (εικόνες, γράμματα, ήχοι)."
 
-#: ../boards/memory_op_group.xml.in.h:1
-msgid "Go to mathematics memory activities"
-msgstr "Δραστηριότητες μαθηματικών"
-
-#: ../boards/memory_op_group.xml.in.h:2
-#: ../boards/memory_op_group_tux.xml.in.h:2
-msgid "Memory activities based on operations"
-msgstr "Μνημονικές δραστηριότητες βασισμένες σε αριθμητικές πράξεις"
-
 #: ../boards/memory_op_group_tux.xml.in.h:1
 msgid "Go to mathematics memory activities against Tux"
 msgstr ""
 "Πήγαινε στις δραστηριότητες μαθηματικών\n"
 "με αντίπαλο τον Tux"
 
+#: ../boards/memory_op_group_tux.xml.in.h:2
+#: ../boards/memory_op_group.xml.in.h:2
+msgid "Memory activities based on operations"
+msgstr "Μνημονικές δραστηριότητες βασισμένες σε αριθμητικές πράξεις"
+
+#: ../boards/memory_op_group.xml.in.h:1
+msgid "Go to mathematics memory activities"
+msgstr "Δραστηριότητες μαθηματικών"
+
 #: ../boards/menu.xml.in.h:1
+#| msgid ""
+#| "A simple click on an icon brings you to an activity or a menu of "
+#| "activities.\n"
+#| "At the bottom of the screen is the GCompris control bar.\n"
+#| "The following icons are displayed from right to left.\n"
+#| "(note that each icon is displayed only if available in the current "
+#| "activity)\n"
+#| "    Home - Exit an activity, go back to menu\n"
+#| "    Thumb - OK. Confirm your answer\n"
+#| "    Dice - Display the current level. Click to select another level\n"
+#| "    Lips - Repeat the question\n"
+#| "    Question Mark - Help\n"
+#| "    Tool - The configuration menu\n"
+#| "    Tux Plane - About GCompris\n"
+#| "    Night - Quit GCompris\n"
+#| "The stars show suitable age groups for each game:\n"
+#| "    1, 2 or 3 simple stars  - from 2 to 6 years old\n"
+#| "    1, 2 or 3 complex stars - 7 years and up"
 msgid ""
 "A simple click on an icon brings you to an activity or a menu of activities.\n"
 "At the bottom of the screen is the GCompris control bar.\n"
 "The following icons are displayed from right to left.\n"
 "(note that each icon is displayed only if available in the current activity)\n"
-"    Home - Exit an activity, go back to menu\n"
+"    Home - Exit an activity, go back to menu (ctrl-w and escape key)\n"
 "    Thumb - OK. Confirm your answer\n"
-"    Dice - Display the current level. Click to select another level\n"
+"    Arrows - Display the current level. Click to select another level\n"
 "    Lips - Repeat the question\n"
 "    Question Mark - Help\n"
 "    Tool - The configuration menu\n"
 "    Tux Plane - About GCompris\n"
-"    Night - Quit GCompris\n"
+"    Quit - Quit GCompris (ctrl-x)\n"
 "The stars show suitable age groups for each game:\n"
 "    1, 2 or 3 simple stars  - from 2 to 6 years old\n"
-"    1, 2 or 3 complex stars - 7 years and up"
+"    1, 2 or 3 complex stars - 7 years and up\n"
+"Shortcuts:\n"
+"    ctrl-b Show or Hide the control bar\n"
+"    ctrl-f Toggle full screen\n"
+"    ctrl-m Toggle mute for the background music"
 msgstr ""
 "Ένα απλό κλικ σε μια εικόνα σε μεταφέρει σε μια δραστηριότητα ή σε ένα μενού δραστηριοτήτων.\n"
 "Στο κάτω μέρος της οθόνης είναι η μπάρα ελέγχου του Gcompris.\n"
@@ -206,18 +238,22 @@ msgstr ""
 "    Νύχτα - Έξοδος από το GCompris\n"
 "Τα αστέρια δείχνουν την κατάλληλη ηλικιακή ομάδα για κάθε παιχνίδι:\n"
 "    1, 2 ή 3 απλά αστέρια - από 2 έως 6 ετών\n"
-"    1, 2 ή 3 σύνθετα αστέρια - από 7 έως 10 ετών"
+"    1, 2 ή 3 σύνθετα αστέρια - από 7 έως 10 ετών\n"
+"Συντομεύσεις:\n"
+"    ctrl-b Εμφανίζει ή κρύβει την μπάρα ελέγχου\n"
+"    ctrl-f Εναλλαγή σε προβολή πλήρους οθόνης\n"
+"    ctrl-m Εναλλαγή σε σίγαση μουσικής παρασκηνίου"
 
-#: ../boards/menu.xml.in.h:16
+#: ../boards/menu.xml.in.h:20
 msgid "GCompris Main Menu"
 msgstr "Κύριο μενού του GCompris "
 
-#: ../boards/menu.xml.in.h:17
-#: ../src/boards/menu2.c:866
+#: ../boards/menu.xml.in.h:21
+#: ../src/boards/menu2.c:874
 msgid "GCompris is a collection of educational games that provides different activities for children aged 2 and up."
 msgstr "Το GCompris είναι μια συλλογή εκπαιδευτικών δραστηριοτήτων για παιδιά από 2 έως 10 ετών."
 
-#: ../boards/menu.xml.in.h:19
+#: ../boards/menu.xml.in.h:23
 msgid "The goal of GCompris is to provide a free alternative to popular proprietary edutainment software"
 msgstr "Το GCompris είναι μια εναλλακτική πρόταση λογισμικού εκπαιδευτικής ψυχαγωγίας"
 
@@ -281,14 +317,6 @@ msgstr "Παιχνίδια στρατηγικής"
 msgid "Strategy games like chess, connect4, ..."
 msgstr "Παιχνίδια στρατηγικής, όπως το σκάκι, σύνδεσε 4, ..."
 
-#: ../gcompris-edit.desktop.in.h:1
-msgid "Administration for gcompris"
-msgstr "Επεξεργαστής gcompris"
-
-#: ../gcompris-edit.desktop.in.h:2
-msgid "GCompris Administration"
-msgstr "Μενού Διαχείρισης του GCompris"
-
 #: ../gcompris.desktop.in.h:1
 msgid "Educational game for ages 2 to 10"
 msgstr "Εκπαιδευτικό παιχνίδι για παιδιά από 2 έως 10 ετών"
@@ -300,6 +328,14 @@ msgstr "Εκπαιδευτική σουίτα GCompris"
 #: ../gcompris.desktop.in.h:3
 msgid "Multi-activity educational game"
 msgstr "Εκπαιδευτικό παιχνίδι πολλαπλών δραστηριοτήτων"
+
+#: ../gcompris-edit.desktop.in.h:1
+msgid "Administration for gcompris"
+msgstr "Επεξεργαστής gcompris"
+
+#: ../gcompris-edit.desktop.in.h:2
+msgid "GCompris Administration"
+msgstr "Μενού Διαχείρισης του GCompris"
 
 #: ../nsis_translations.desktop.in.h:1
 msgid "An instance of GCompris is currently running. Exit GCompris and then try again."
@@ -396,11 +432,9 @@ msgstr ""
 "<b>{config}</b> Ρυθμίσεις\n"
 " για το προφίλ <b>{profile}</b>"
 
-#. self.main_vbox.pack_start (label, False, False, 8)
 #: ../src/administration-activity/admin/board_list.py:660
-#: ../src/colors-activity/colors.c:180
-#: ../src/pythontest-activity/pythontest.py:518
-#: ../src/smallnumbers-activity/smallnumbers.c:616
+#: ../src/pythontest-activity/pythontest.py:511
+#: ../src/smallnumbers-activity/smallnumbers.c:618
 msgid "Select sound locale"
 msgstr "Διάλεξε τοπικοποιημένο σύνολο ήχων"
 
@@ -528,6 +562,28 @@ msgstr "Πρέπει πρώτα να επιλέξετε ομάδα από τον
 msgid "Birth Date"
 msgstr "Ημερομηνία γέννησης"
 
+#: ../src/administration-activity/administration.xml.in.h:1
+msgid ""
+"- In the 'Boards' section you can change the list of activities. Just untoggle them in the treeview. You can change the language used for reading, for example, then the language used for saying the names of colors.\n"
+"- You can save multiple configurations, and switch between them easily. In the 'Profile' section add a profile, then in the 'Board' section select the profile in the combobox, then select the boards you want to be active. You can add multiple profiles, with different lists of boards, and different languages. You set the default profile in the 'Profile' section, by choosing the profile you want, then clicking on the 'Default' button. You can also choose a profile from the command line.\n"
+"- You can add users, classes and for each class, you can create groups of users. Note that you can import users from a comma-separated file. Assign one or more groups to a profile, after which those new logins will appear after restarting GCompris. Being able to identify individual children in GCompris means we can provide individual reports. It also recognizes the children as individuals; they can learn to type in and recognize their own usernames (login is configurable)."
+msgstr ""
+"- Στο μενού \"Πίνακες\" μπορείτε να αλλάξετε τον κατάλογο δραστηριοτήτων. Απλά αποεπιλέξτε τις από το δενδροειδές διάγραμμα. Μπορείτε να αλλάξετε τη γλώσσα που χρησιμοποιείται για την ανάγνωση, παραδείγματος χάριν αυτή που χρησιμοποιείται για την ανάγνωση των χρωμάτων .\n"
+"- Μπορείτε να αποθηκεύσετε πολλές διαφορετικές διαμορφώσεις και να επιλέγετε εύκολα όποια από αυτές επιθυμείτε. Στο μενού \"Προφίλ\" προσθέστε ένα προφίλ και μετά από το μενού \"Πίνακες\" επιλέξτε το από το πλαίσιο συνδυασμών, κατόπιν επιλέξτε τους πίνακες που θέλετε να είναι ενεργοποιημένοι. Μπορείτε να προσθέσετε πολλαπλά προφίλ, με διαφορετικούς καταλόγους πινάκων και διαφορετικές γλώσσες. Μπορείτε να ορίσετε το προκαθορισμένο προφίλ στο μενού \"Προφίλ\" επιλέγοντας το προφίλ που επιθυμείτε και κάνοντας κλικ στο κουμπί \"Προκαθορισμένο\". Μπορείτε, επίσης, να επιλέξετε ένα προφίλ από τη γραμμή εντολών.\n"
+"- Μπορείτε να προσθέσετε χρήστες, τάξεις, ενώ για κάθε τάξη μπορείτε να δημιουργήσετε ομάδες χρηστών. Σημειώστε ότι μπορείτε να εισάγετε χρήστες από ένα αρχείο όπου τα ονόματα των χρηστών είναι διαχωρισμένα με κόμμα. Ορίστε μία ή περισσότερες ομάδες σε κάθε προφίλ, οι συνδέσεις των οποίων θα εμφανιστούν μετά την επανεκκίνηση του Gcompris. Το να είστε σε θέση να προσδιορίσετε μεμονωμένα παιδιά στο Gcompris σημαίνει ότι μπορούμε να παρέχουμε εκθέσεις για καθένα από τα παιδιά. Επίσης, το GCompris αναγνωρίζει κάθε μεμονωμένο παιδί, το οποίο μπορεί να μάθει να πληκτρολογεί και να αναγνωρίζει το προσωπικό του όνομα χρήστη (η σύνδεση είναι διαμορφώσιμη)."
+
+#: ../src/administration-activity/administration.xml.in.h:4
+msgid "GCompris Administration Menu"
+msgstr "Μενού Διαχείρισης του GCompris"
+
+#: ../src/administration-activity/administration.xml.in.h:5
+msgid "If you want to fine tune GCompris to your needs, you can use the administration module here. The ultimate goal is to provide child-specific reporting for parents and teacher who want to monitor the progress, strengths and needs of their children."
+msgstr "Εάν θέλετε να προσαρμόσετε το GCompris στις δικές σας ανάγκες, μπορείτε να χρησιμοποιήσετε τη Διαχείριση. Βασικός σκοπός είναι η παροχή, στους γονείς και το δάσκαλο, εξειδικευμένων αναφορών για κάθε παιδί, έτσι ώστε να μπορούν να εποπτεύουν την πρόοδο, τις ικανότητες και τις ανάγκες των παιδιών."
+
+#: ../src/administration-activity/administration.xml.in.h:6
+msgid "Left-Click with the mouse to select an activity"
+msgstr "Πατήστε το αριστερό πλήκτρο του ποντικιού για να επιλέξετε μια δραστηριότητα"
+
 #: ../src/administration-activity/admin/log_list.py:91
 msgid "Select a user:"
 msgstr "Διάλεξε χρήστη:"
@@ -540,8 +596,7 @@ msgstr "Όλοι οι χρήστες"
 #: ../src/administration-activity/admin/log_list.py:108
 #: ../src/administration-activity/admin/log_list.py:295
 #: ../src/administration-activity/admin/profile_list.py:117
-#: ../src/gcompris/board_config_combo.c:125
-#: ../src/gcompris/board_config_combo.c:398
+#: ../src/lang-activity/lang.py:159
 msgid "Default"
 msgstr "Προεπιλεγμένο"
 
@@ -563,6 +618,7 @@ msgid "Board"
 msgstr "Πίνακας"
 
 #: ../src/administration-activity/admin/log_list.py:246
+#: ../src/click_on_letter-activity/click_on_letter.c:1248
 #: ../src/redraw-activity/redraw.py:339
 msgid "Level"
 msgstr "Επίπεδο"
@@ -708,34 +764,11 @@ msgstr ""
 "Μία ή περισσότερες συνδέσεις δεν είναι μοναδικές !\n"
 "Πρέπει να τις τροποποιήσεις: %s !"
 
-#: ../src/administration-activity/administration.xml.in.h:1
-msgid ""
-"- In the 'Boards' section you can change the list of activities. Just untoggle them in the treeview. You can change the language used for reading, for example, then the language used for saying the names of colors.\n"
-"- You can save multiple configurations, and switch between them easily. In the 'Profile' section add a profile, then in the 'Board' section select the profile in the combobox, then select the boards you want to be active. You can add multiple profiles, with different lists of boards, and different languages. You set the default profile in the 'Profile' section, by choosing the profile you want, then clicking on the 'Default' button. You can also choose a profile from the command line.\n"
-"- You can add users, classes and for each class, you can create groups of users. Note that you can import users from a comma-separated file. Assign one or more groups to a profile, after which those new logins will appear after restarting GCompris. Being able to identify individual children in GCompris means we can provide individual reports. It also recognizes the children as individuals; they can learn to type in and recognize their own usernames (login is configurable)."
-msgstr ""
-"- Στο μενού \"Πίνακες\" μπορείτε να αλλάξετε τον κατάλογο δραστηριοτήτων. Απλά αποεπιλέξτε τις από το δενδροειδές διάγραμμα. Μπορείτε να αλλάξετε τη γλώσσα που χρησιμοποιείται για την ανάγνωση, παραδείγματος χάριν αυτή που χρησιμοποιείται για την ανάγνωση των χρωμάτων .\n"
-"- Μπορείτε να αποθηκεύσετε πολλές διαφορετικές διαμορφώσεις και να επιλέγετε εύκολα όποια από αυτές επιθυμείτε. Στο μενού \"Προφίλ\" προσθέστε ένα προφίλ και μετά από το μενού \"Πίνακες\" επιλέξτε το από το πλαίσιο συνδυασμών, κατόπιν επιλέξτε τους πίνακες που θέλετε να είναι ενεργοποιημένοι. Μπορείτε να προσθέσετε πολλαπλά προφίλ, με διαφορετικούς καταλόγους πινάκων και διαφορετικές γλώσσες. Μπορείτε να ορίσετε το προκαθορισμένο προφίλ στο μενού \"Προφίλ\" επιλέγοντας το προφίλ που επιθυμείτε και κάνοντας κλικ στο κουμπί \"Προκαθορισμένο\". Μπορείτε, επίσης, να επιλέξετε ένα προφίλ από τη γραμμή εντολών.\n"
-"- Μπορείτε να προσθέσετε χρήστες, τάξεις, ενώ για κάθε τάξη μπορείτε να δημιουργήσετε ομάδες χρηστών. Σημειώστε ότι μπορείτε να εισάγετε χρήστες από ένα αρχείο όπου τα ονόματα των χρηστών είναι διαχωρισμένα με κόμμα. Ορίστε μία ή περισσότερες ομάδες σε κάθε προφίλ, οι συνδέσεις των οποίων θα εμφανιστούν μετά την επανεκκίνηση του Gcompris. Το να είστε σε θέση να προσδιορίσετε μεμονωμένα παιδιά στο Gcompris σημαίνει ότι μπορούμε να παρέχουμε εκθέσεις για καθένα από τα παιδιά. Επίσης, το GCompris αναγνωρίζει κάθε μεμονωμένο παιδί, το οποίο μπορεί να μάθει να πληκτρολογεί και να αναγνωρίζει το προσωπικό του όνομα χρήστη (η σύνδεση είναι διαμορφώσιμη)."
-
-#: ../src/administration-activity/administration.xml.in.h:4
-msgid "GCompris Administration Menu"
-msgstr "Μενού Διαχείρισης του GCompris"
-
-#: ../src/administration-activity/administration.xml.in.h:5
-msgid "If you want to fine tune GCompris to your needs, you can use the administration module here. The ultimate goal is to provide child-specific reporting for parents and teacher who want to monitor the progress, strengths and needs of their children."
-msgstr "Εάν θέλετε να προσαρμόσετε το GCompris στις δικές σας ανάγκες, μπορείτε να χρησιμοποιήσετε τη Διαχείριση. Βασικός σκοπός είναι η παροχή, στους γονείς και το δάσκαλο, εξειδικευμένων αναφορών για κάθε παιδί, έτσι ώστε να μπορούν να εποπτεύουν την πρόοδο, τις ικανότητες και τις ανάγκες των παιδιών."
-
-#: ../src/administration-activity/administration.xml.in.h:6
-msgid "Left-Click with the mouse to select an activity"
-msgstr "Πατήστε το αριστερό πλήκτρο του ποντικιού για να επιλέξετε μια δραστηριότητα"
-
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:1
 msgid "Advanced colors"
 msgstr "Περισσότερα χρώματα"
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:2
-#: ../src/read_colors-activity/read_colors.xml.in.h:1
 msgid "Can read"
 msgstr "Δυνατότητα ανάγνωσης"
 
@@ -751,299 +784,293 @@ msgstr "Κάντε κλικ στο σωστό χρωματιστό κουτί."
 msgid "Learn to recognize unusual colors."
 msgstr "Μάθε να αναγνωρίζεις σπάνια χρώματα."
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:1
-msgid "almond"
-msgstr "αμύγδαλο"
+#. Translator: Do not translate {text}.
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:2
+#| msgid "Find the {text} duck"
+msgid "Find the {text} butterfly"
+msgstr "Βρες την {text} πεταλούδα"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:2
-msgid "chestnut"
-msgstr "κάστανο"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:3
-msgid "claret"
-msgstr "μπορντό"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:4
-msgid "cobalt"
-msgstr "βαθυκυανό"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:5
-msgid "coral"
-msgstr "κοραλί"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:6
-msgid "corn"
-msgstr "κεχριμπαρί"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:7
-msgid "cyan"
-msgstr "κυανό"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:8
-msgid "sienna"
-msgstr "καστανογκρί"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:1
-msgid "lime"
-msgstr "λεμονί"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:2
-msgid "sage"
-msgstr "σταχτοπράσινο"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:3
-msgid "salmon"
-msgstr "ροδοκίτρινο"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:4
-msgid "sapphire"
-msgstr "ζαφειρί"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:5
-msgid "sepia"
-msgstr "κοκκινόφαιο"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:6
-msgid "sulphur"
-msgstr "ωχροκίτρινο"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:7
-msgid "tea"
-msgstr "τσάι"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:8
-msgid "turquoise"
-msgstr "τιρκουάζ"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:1
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:3
 msgid "absinthe"
 msgstr "αψέντι "
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:2
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:4
 msgid "alabaster"
 msgstr "αλάβαστρο"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:3
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:5
+msgid "almond"
+msgstr "αμύγδαλο"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:6
 msgid "amber"
 msgstr "κεχριμπαρί"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:4
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:7
 msgid "amethyst"
 msgstr "αμέθυστος"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:5
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:8
 msgid "anise"
 msgstr "γλυκάνισος"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:6
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:9
 msgid "aquamarine"
 msgstr "άκουα-μαρίνα"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:7
-msgid "mahogany"
-msgstr "μαονί"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:8
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:8
-msgid "vermilion"
-msgstr "ζωηρό κόκκινο"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:1
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:1
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:10
 msgid "aubergine"
 msgstr "μελιτζανί"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:2
-msgid "ceruse"
-msgstr "λευκό του μολύβδου"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:3
-msgid "chartreuse"
-msgstr "κιτρινοπράσινo"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:4
-msgid "emerald"
-msgstr "σμαραγδί"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:5
-msgid "fawn"
-msgstr "κιτρινόφαιο"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:6
-msgid "fuchsia"
-msgstr "φούξια"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:7
-msgid "glaucous"
-msgstr "γλαυκοπράσινο"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:8
-msgid "ruby"
-msgstr "ρουμπινί"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:2
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:11
 msgid "auburn"
 msgstr "καστανοκόκκινο"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:3
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:12
 msgid "azure"
 msgstr "γαλάζιο"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:4
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:13
 msgid "bistre"
 msgstr "φούμο"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:5
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:14
 msgid "celadon"
 msgstr "γκριζοκιτρινωπό πράσινο"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:6
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:15
 msgid "cerulean"
 msgstr "ουρανί"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:7
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:16
+msgid "ceruse"
+msgstr "λευκό του μολύβδου"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:17
+msgid "chartreuse"
+msgstr "κιτρινοπράσινo"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:18
+msgid "chestnut"
+msgstr "κάστανο"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:19
+msgid "claret"
+msgstr "μπορντό"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:20
+msgid "cobalt"
+msgstr "βαθυκυανό"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:21
+msgid "coral"
+msgstr "κοραλί"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:22
+msgid "corn"
+msgstr "κεχριμπαρί"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:23
 msgid "crimson"
 msgstr "βυσσινί"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:8
-msgid "greyish-brown"
-msgstr "γκρι καφέ"
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:24
+msgid "cyan"
+msgstr "κυανό"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:1
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:25
+msgid "dark purple"
+msgstr "σκούρο μωβ"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:26
 msgid "dove"
 msgstr "περιστερίσιο λευκό"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:2
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:27
+msgid "emerald"
+msgstr "σμαραγδί"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:28
+msgid "fawn"
+msgstr "κιτρινόφαιο"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:29
+msgid "fuchsia"
+msgstr "φούξια"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:30
 msgid "garnet"
 msgstr "σκοτεινό κόκκινο"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:3
-msgid "indigo"
-msgstr "λουλακί"
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:31
+msgid "glaucous"
+msgstr "γλαυκοπράσινο"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:4
-msgid "ivory"
-msgstr "ιβουάρ"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:5
-msgid "jade"
-msgstr "νεφρίτης"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:6
-msgid "lavender"
-msgstr "λεβάντα"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:7
-msgid "lichen"
-msgstr "λειχήνα"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:8
-msgid "wine"
-msgstr "του κρασιού"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:1
-msgid "larch"
-msgstr "αγριόπευκο"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:2
-msgid "lilac"
-msgstr "λιλά"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:3
-msgid "magenta"
-msgstr "ματζέντα"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:4
-msgid "malachite"
-msgstr "μαλαχίτης"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:5
-msgid "mimosa"
-msgstr "μιμόζα"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:6
-msgid "navy"
-msgstr "ναυτικό μπλε"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:7
-msgid "ochre"
-msgstr "ώχρα"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:8
-msgid "olive"
-msgstr "λαδί"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:1
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:32
 msgid "greyish blue"
 msgstr "γκρι-μπλέ"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:2
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:33
+#| msgid "greyish-brown"
+msgid "greyish brown"
+msgstr "γκριζωπό καφέ"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:34
+msgid "indigo"
+msgstr "λουλακί"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:35
+msgid "ivory"
+msgstr "ιβουάρ"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:36
+msgid "jade"
+msgstr "νεφρίτης"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:37
+msgid "larch"
+msgstr "αγριόπευκο"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:38
+msgid "lavender"
+msgstr "λεβάντα"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:39
+msgid "lichen"
+msgstr "λειχήνα"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:40
+msgid "lilac"
+msgstr "λιλά"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:41
+msgid "lime"
+msgstr "λεμονί"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:42
+msgid "magenta"
+msgstr "ματζέντα"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:43
+msgid "mahogany"
+msgstr "μαονί"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:44
+msgid "malachite"
+msgstr "μαλαχίτης"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:45
 msgid "mauve"
 msgstr "μωβ"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:3
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:46
+msgid "mimosa"
+msgstr "μιμόζα"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:47
+msgid "navy"
+msgstr "ναυτικό μπλε"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:48
+msgid "ochre"
+msgstr "ώχρα"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:49
+msgid "olive"
+msgstr "λαδί"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:50
 msgid "opaline"
 msgstr "γαλακτώδες"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:4
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:51
 msgid "pistachio"
 msgstr "φυστικί"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:5
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:52
 msgid "platinum"
 msgstr "πλατινέ"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:6
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:53
+msgid "plum"
+msgstr "δαμασκηνί"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:54
+msgid "prussian blue"
+msgstr "πρωσικό μπλέ"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:55
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:9
 msgid "purple"
 msgstr "μωβ"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:7
-msgid "ultramarine"
-msgstr "βαθύ-μπλέ"
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:56
+msgid "ruby"
+msgstr "ρουμπινί"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:1
-msgid "dark purple"
-msgstr "σκούρο μωβ"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:2
-msgid "plum"
-msgstr "δαμασκηνί"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:3
-msgid "prussian blue"
-msgstr "πρωσικό μπλέ"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:4
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:57
 msgid "rust"
 msgstr "σκουριάς"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:5
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:58
 msgid "saffron"
 msgstr "βαθυκίτρινο"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:6
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:59
+msgid "sage"
+msgstr "σταχτοπράσινο"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:60
+msgid "salmon"
+msgstr "ροδοκίτρινο"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:61
+msgid "sapphire"
+msgstr "ζαφειρί"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:62
+msgid "sepia"
+msgstr "κοκκινόφαιο"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:63
+msgid "sienna"
+msgstr "καστανογκρί"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:64
+msgid "sulphur"
+msgstr "ωχροκίτρινο"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:65
+msgid "tea"
+msgstr "τσάι"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:66
+msgid "turquoise"
+msgstr "τιρκουάζ"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:67
+msgid "ultramarine"
+msgstr "βαθύ-μπλέ"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:68
 msgid "vanilla"
 msgstr "βανίλια"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:7
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:69
 msgid "verdigris"
 msgstr "χαλκοσκουριά"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:8
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:70
+msgid "vermilion"
+msgstr "ζωηρό κόκκινο"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:71
 msgid "veronese"
 msgstr "βερονέζ"
 
-#. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
-#: ../src/algebra_by-activity/algebra.c:186
-#: ../src/memory-activity/memory.c:946
-msgid "+-×÷"
-msgstr "+-*/"
-
-#: ../src/algebra_by-activity/algebra.c:411
-#: ../src/readingh-activity/reading.c:630
-msgid "I am Ready"
-msgstr "Είμαι Έτοιμος"
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:72
+msgid "wine"
+msgstr "του κρασιού"
 
 #: ../src/algebra_by-activity/algebra_by.xml.in.h:1
 msgid "A multiplication of two numbers is displayed. At the right of the equals sign, give the answer, the product. Use the left and right arrows to modify your answer and press the Enter key to check if you've got it right. If not, just try again."
@@ -1066,6 +1093,17 @@ msgstr " Πίνακας πολλαπλασιασμού"
 #: ../src/algebra_by-activity/algebra_by.xml.in.h:5
 msgid "Practice the multiplication operation"
 msgstr "Εξάσκηση στον πολλαπλασιασμό"
+
+#. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
+#: ../src/algebra_by-activity/algebra.c:186
+#: ../src/memory-activity/memory.c:946
+msgid "+-×÷"
+msgstr "+-*/"
+
+#: ../src/algebra_by-activity/algebra.c:411
+#: ../src/readingh-activity/reading.c:630
+msgid "I am Ready"
+msgstr "Είμαι Έτοιμος"
 
 #: ../src/algebra_guesscount-activity/algebra_guesscount.xml.in.h:1
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:1
@@ -1146,14 +1184,6 @@ msgstr "Χειρισμός ποντικιού"
 #: ../src/algorithm-activity/algorithm.xml.in.h:5
 msgid "algorithm"
 msgstr "Αλγόριθμος"
-
-#: ../src/anim-activity/Color.py:86
-msgid "Fill color..."
-msgstr "Γέμισμα χρώματος..."
-
-#: ../src/anim-activity/Color.py:98
-msgid "Stroke color..."
-msgstr "Χρώμα πινελιάς..."
 
 #: ../src/anim-activity/anim.py:103
 msgid "Save..."
@@ -1246,6 +1276,14 @@ msgstr "Πρέπει να είναι ικανός να κινεί και να κ
 msgid "Select a drawing tool on the left, and a color down the bottom. Then click and drag in the white area to create a new shape. Once you've completed a drawing, you can select a new frame to work on by selecting one of the small rectangles on the bottom. Each frame contains the same content as its previous one. You can then edit it by moving objects a little bit or adding/deleting objects. When you create several frames and then click on the 'film' button, you will see all your images in a continuous slide-show (an infinite loop pattern). You can change the last image in your film by right clicking on a time frame. You can also change the viewing speed in this mode. In viewing mode, click on the 'drawing' button to return to drawing mode. You can also save and reload your animations with the 'floppy disk' and 'folder' buttons."
 msgstr "Επίλεξε ένα εργαλείο σχεδιασμού στα αριστερά και ένα χρώμα από τη συλλογή στο κάτω μέρος. Κατόπιν κάνε κλικ και σύρε το ποντίκι στην άσπρη περιοχή για να δημιουργήσεις ένα νέο σχήμα. Μόλις ολοκληρώσεις ένα σχέδιο, μπορείς να δημιουργήσεις ένα νέο στιγμιότυπο επιλέγοντας ένα από τα μικρά παραλληλόγραμμα που βρίσκονται στο κάτω μέρος. Κάθε στιγμιότυπο διαθέτει το ίδιο περιεχόμενο όπως και το προηγούμενο. Μπορείτε κατόπιν να το επεξεργαστείτε μετακινώντας, προσθέτοντας ή διαγράφοντας αντικείμενα. Όταν θα έχετε δημιουργήσει πολλά στιγμιότυπα και κάνετε κλικ στο πλήκτρο της ταινίας, θα δείτε όλα τα στιγμιότυπα να παρουσιάζονται το ένα μετά το άλλο ως ταινία (η παρουσίαση θα επαναλαμβάνεται). Μπορείτε να αλλάξετε την τελευταία εικόνα της ταινίας σας κάνοντας δεξί κλικ στο πλαίσιο χρόνου. Επίσης, μπορείτε να αλλάξετε την ταχύτητα αναπαραγωγής της ταινίας. Στη λειτουργία παρακολούθησης, κάντε κλικ στο πλήκτρο της σχεδίασης για να επιστρέψετε σε λειτουργία σχεδίασης. Μπορείτε να αποθηκεύσετε και να ξανανοίξετε τα κινούμενα σχέδια που δημιουργήσατε με τα πλήκτρα της δισκέτας και του φακέλου."
 
+#: ../src/anim-activity/Color.py:86
+msgid "Fill color..."
+msgstr "Γέμισμα χρώματος..."
+
+#: ../src/anim-activity/Color.py:98
+msgid "Stroke color..."
+msgstr "Χρώμα πινελιάς..."
+
 #: ../src/awele-activity/awele.c:158
 #, c-format
 msgid ""
@@ -1288,7 +1326,16 @@ msgid "Play the Oware strategy game against Tux"
 msgstr "Παίξτε το παιχνίδι στρατηγικής Oware με αντίπαλο τον Tux"
 
 #: ../src/awele-activity/awele.xml.in.h:4
-msgid "The object of the game is to capture more seeds than one's opponent. Since the game has only 48 seeds, capturing 25 is sufficient to accomplish this. Since there are an even number of seeds, it is possible for the game to end in a draw, where each player has captured 24. The game is over when one player has captured 25 or more stones, or both players have taken 24 stones each (draw). If both players agree that the game has been reduced to an endless cycle, each player captures the stones on their side of the board."
+#| msgid ""
+#| "The object of the game is to capture more seeds than one's opponent. "
+#| "Since the game has only 48 seeds, capturing 25 is sufficient to "
+#| "accomplish this. Since there are an even number of seeds, it is possible "
+#| "for the game to end in a draw, where each player has captured 24. The "
+#| "game is over when one player has captured 25 or more stones, or both "
+#| "players have taken 24 stones each (draw). If both players agree that the "
+#| "game has been reduced to an endless cycle, each player captures the "
+#| "stones on their side of the board."
+msgid "The object of the game is to capture more seeds than one's opponent. Since the game has only 48 seeds, capturing 25 is sufficient to accomplish this. Since there are an even number of seeds, it is possible for the game to end in a draw, where each player has captured 24. The game is over when one player has captured 25 or more seeds, or both players have taken 24 seeds each (draw). If both players agree that the game has been reduced to an endless cycle, each player captures the seeds on their side of the board."
 msgstr "Σκοπός του παιχνιδιού είναι να μαζέψεις περισσότερους σπόρους από τον αντίπαλο. Δεδομένου ότι το παιχνίδι έχει μόνο 48 σπόρους, αν μαζέψεις 25 είναι αρκετοί για να κερδίσεις. Επίσης, επειδή ο αριθμός των σπόρων είναι ζυγός, είναι πιθανόν το παιχνίδι να τελειώσει ισόπαλο, αν κάθε παίχτης συγκεντρώσει 24 σπόρους. Το παιχνίδι τελειώνει αν κάθε παίχτης συγκεντρώσει 25 ή περισσότερους σπόρους, ή αν και οι δυο παίχτες έχουν πάρει από 24 σπόρους ο καθένας (ισοπαλία). Εάν και οι δύο παίκτες συμφωνούν ότι το παιχνίδι έχει μεταβληθεί σε έναν ατελείωτο κύκλο, κάθε παίχτης συγκεντρώνει τους σπόρους στη δική τους πλευρά του πίνακα."
 
 #: ../src/babymatch-activity/babymatch.xml.in.h:1
@@ -1318,9 +1365,8 @@ msgstr "Συγχρονισμός κίνησης. Εννοιολογικός συ
 msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "Χειρισμός ποντικιού: κίνηση, μετακίνηση και τοποθέτηση. Πολιτιστικές αναφορές."
 
-#: ../src/babymatch-activity/shapegame.c:1903
-#: ../src/click_on_letter-activity/click_on_letter.c:671
-#: ../src/colors-activity/colors.c:168
+#: ../src/babymatch-activity/shapegame.c:1985
+#: ../src/click_on_letter-activity/click_on_letter.c:1316
 #, c-format
 msgid ""
 "<b>%1$s</b> configuration\n"
@@ -1435,8 +1481,8 @@ msgstr "Κλώτσησε τη μπάλα για να μπει στο τέρμα"
 #: ../src/clickgame-activity/clickgame.xml.in.h:5
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:5
 #: ../src/connect4-activity/connect4.xml.in.h:6
-#: ../src/erase-activity/erase.xml.in.h:3
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:6
+#: ../src/erase-activity/erase.xml.in.h:3
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:6
 #: ../src/fifteen-activity/fifteen.xml.in.h:2
 #: ../src/hanoi-activity/hanoi.xml.in.h:3
@@ -1454,15 +1500,15 @@ msgstr "Σημάδεψε και κάνε κλικ στη μπάλα για να 
 msgid "The football game"
 msgstr "Παιχνίδι ποδοσφαίρου"
 
-#: ../src/boards/menu2.c:135
+#: ../src/boards/menu2.c:137
 msgid "Main Menu Second Version"
 msgstr "Κυρίως Μενού Δεύτερη Έκδοση"
 
-#: ../src/boards/menu2.c:136
+#: ../src/boards/menu2.c:138
 msgid "Select a Board"
 msgstr "Διάλεξε πίνακα"
 
-#: ../src/boards/menu2.c:266
+#: ../src/boards/menu2.c:268
 #, c-format
 msgid "Number of activities: %d"
 msgstr "Αριθμός δραστηριοτήτων: %d"
@@ -1479,6 +1525,167 @@ msgstr "Ειδικός πίνακας που ενσωματώνει τη γλώ�
 #: ../src/boards/python.c:89
 msgid "Special board that embeds python into gcompris."
 msgstr "Ειδικός πίνακας που ενσωματώνει τη γλώσσα προγραμματισμού python στο GCompris."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:165
+msgid "Braille : Unlocking the Code"
+msgstr "Μπράιγ: Ξεκλειδώνοντας τον Κώδικα"
+
+#. Braille Intro
+#: ../src/braille_alphabets-activity/braille_alphabets.py:167
+msgid "The Braille system is a method that is used by blind people to read and write."
+msgstr "Το σύστημα Μπράιγ είναι μια μέθοδος που χρησιμοποιείται παγκοσμίως από ανθρώπους με σοβαρά προβλήματα όρασης, προκειμένου να μπορούν να διαβάσουν και να γράψουν."
+
+#. Braille Description
+#: ../src/braille_alphabets-activity/braille_alphabets.py:170
+msgid "Each Braille character, or cell, is made up of six dot positions, arranged in a rectangle containing two columns of three dots each. As seen on the left, each dot is referenced by a number from 1 to 6."
+msgstr "Κάθε χαρακτήρας του συστήματος Μπράιγ, ή κάθε κελί, αποτελείται από έξι θέσεις τελειών, κατανεμημένες σε ένα ορθογώνιο που περιέχει δύο στήλες, με τρεις θέσεις η καθεμιά. Όπως βλέπουμε στ' αριστερά, κάθε θέση τελείας αντιστοιχεί σε έναν αριθμό από το 1 μέχρι το 6."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:189
+msgid "I am braille TUX"
+msgstr "Είμαι ο Μπράιγ Tux"
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:201
+msgid "When you are ready, click on me and try reproducing Braille characters."
+msgstr "Όταν είστε έτοιμοι, κάντε κλικ σε μένα και προσπαθήστε να αναπαράγετε τους χαρακτήρες Μπράιγ."
+
+#. Translators : Do not translate the token {letter}
+#: ../src/braille_alphabets-activity/braille_alphabets.py:272
+msgid "Click on the dots in braille cell area to produce the letter {letter}."
+msgstr "Κάντε κλικ στις θέσεις τελειών του κελιού Μπράιγ για να σχηματίσετε το γράμμα {letter}."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:277
+msgid "Look at the Braille character map and observe how similar the first and second line are."
+msgstr "Παρατηρήστε τον χάρτη με τους χαρακτήρες Μπράιγ για να διαπιστώσετε πόσο όμοιες είναι οι δυο πρώτες γραμμές."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:280
+msgid "Again, similar as the first line but take care, the 'W' letter was added afterwards."
+msgstr "Και πάλι, το ίδιο όπως η πρώτη γραμμή, αλλά προσέξτε: το γράμμα 'W' προστέθηκε μετά."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:283
+msgid "This is easy, numbers are the same as letters from A to J."
+msgstr "Αυτό είναι εύκολο, αφού οι αριθμοί είναι ίδιοι όπως τα γράμματα από το Α έως το Κ."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:302
+msgid "Braille Cell"
+msgstr "Κελί Μπράιγ"
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:324
+msgid "Click to confirm your selection of dots"
+msgstr "Κάντε κλικ για να επιβεβαιώσετε την επιλογή των τελειών."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:2
+msgid "Learn and memorize the Braille system."
+msgstr "Μάθετε και απομνημονεύστε το σύστημα Μπράιγ"
+
+#: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:3
+msgid "Let kids discover the Braille system."
+msgstr "Παρωθήστε τα παιδιά να ανακαλύψουν το σύστημα Μπράιγ."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:4
+msgid "The screen has 3 sections: braille cell, alphabet name and lower board containing 13 letters. Click on each letter in the lower board to know its corresponding braille code in the braille cell section. Click on the increment level button to jump to the next 13 letters of the English alphabets."
+msgstr "Η οθόνη έχει 3 τμήματα: τα κελιά Μπράιγ, τα αλφαβητικά ονόματα και έναν πίνακα χαμηλότερα που περιέχει 13 γράμματα. Κάντε κλικ σε καθένα από τα γράμματα του πίνακα για να δείτε τον αντίστοιχο κώδικα στο τμήμα των κελιών. Κάντε κλικ στο πλήκτρο αύξησης των επιπέδων για να μεταβείτε στα επόμενα 13 γράμματα του αγγλικού αλφαβήτου."
+
+#: ../src/braille_alphabets-activity/BrailleMap.py:96
+#| msgid "Go to Maze activities"
+msgid "Back to the activity"
+msgstr "Πίσω στη δραστηριότητα"
+
+#: ../src/braille_fun-activity/braille_fun.xml.in.h:1
+msgid "Braille Alphabet Codes"
+msgstr "Αλφαβητικοί κώδικες Μπράιγ"
+
+#: ../src/braille_fun-activity/braille_fun.xml.in.h:2
+#| msgid "Brain"
+msgid "Braille Fun"
+msgstr "Διασκέδαση με το Μπράιγ"
+
+#: ../src/braille_fun-activity/braille_fun.xml.in.h:3
+msgid "Braille code the tile for the corresponding falling letters. Check the braille chart by clicking on the toggle button for help."
+msgstr "Κωδικοποιήστε το πλακίδιο με το σύστημα Μπράιγ, έτσι ώστε να αντιστοιχεί με τα γράμματα που πέφτουν. Αν χρειαστείτε βοήθεια, δείτε τον πίνακα με το σύστημα Μπράιγ, κάνοντας κλικ στο πλήκτρο με τα χρωματιστά κυκλάκια στο κάτω μέρος της οθόνης."
+
+#: ../src/braille_fun-activity/braille_fun.xml.in.h:4
+#| msgid "Fill in the missing letter"
+msgid "Braille the falling letters"
+msgstr "Μπράιγ, τα γράμματα που πέφτουν"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:119
+msgid "PLAYER 1"
+msgstr "ΠΑΙΚΤΗΣ 1"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:129
+msgid "PLAYER 2"
+msgstr "ΠΑΙΚΤΗΣ 2"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:150
+#| msgid "Number"
+msgid "Check Number"
+msgstr "Έλεγχος αριθμού"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:165
+#: ../src/braille_lotto-activity/braille_lotto.py:177
+msgid "Click me to get some hint"
+msgstr "Κάντε κλικ  για να λάβετε μια συμβουλή"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:190
+msgid "I don't have this number PLAYER {number}"
+msgstr "Δεν έχω αυτόν τον αριθμό ΠΑΙΚΤΗΣ {number}"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:212
+msgid "Lotto Master"
+msgstr "Δάσκαλος"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:236
+#| msgid "Guess a number"
+msgid "Generate a number"
+msgstr "Δημιουργία αριθμού"
+
+#. Translators : Do not translate the token {column}
+#: ../src/braille_lotto-activity/braille_lotto.py:293
+#: ../src/braille_lotto-activity/braille_lotto.py:316
+msgid "Hey, you have it. It is there in your {column} column"
+msgstr "Εεε, το έχεις. Είναι εκεί, στη στήλη {column}."
+
+#: ../src/braille_lotto-activity/braille_lotto.py:295
+#: ../src/braille_lotto-activity/braille_lotto.py:318
+msgid "Oops, this number is not in your ticket!"
+msgstr "Οοοπς! Αυτό το νούμερο δεν είναι στο εισιτήριό σου."
+
+#: ../src/braille_lotto-activity/braille_lotto.py:332
+msgid "1st"
+msgstr "1ος"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:335
+msgid "2nd"
+msgstr "2ος"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:338
+#| msgid "red"
+msgid "3rd"
+msgstr "3ος"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:340
+msgid "4th"
+msgstr "4ος"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:350
+msgid "Game Over"
+msgstr "Τέλος παιχνιδιού"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:459
+msgid "Congratulation player {player_id}, you won"
+msgstr "Συγχαρητήρια παίκτη {player_id}, κέρδισες!"
+
+#: ../src/braille_lotto-activity/braille_lotto.xml.in.h:1
+msgid "Braille Lotto"
+msgstr "Λαχνός Μπράιγ"
+
+#: ../src/braille_lotto-activity/braille_lotto.xml.in.h:2
+msgid "Discover the Braille system for numbers."
+msgstr "Εξερευνήστε το σύστημα Μπράγι για τους αριθμούς."
+
+#: ../src/braille_lotto-activity/braille_lotto.xml.in.h:3
+msgid "Each player must find if the proposed number is in their board. If the code is in the board, just click on it in order to validate it. The player who crosses all the Braille numbers correctly wins the game. Check the Braille table by clicking on the toggle button in the control bar."
+msgstr "Κάθε παίκτης πρέπει να βρει εάν ο προτεινόμενος αριθμός υπάρχει στο πλακίδιό του. Εάν ναι, απλά κάνει κλικ σε αυτόν για να επικυρώσει την απάντησή του. Ο παίκτης που θα βρει με επιτυχία όλους τους αριθμούς κερδίζει το παιχνίδι. Για βοήθεια, κάντε κλικ στο πλήκτρο με τις κουκκίδες στο κάτω μέρος της οθόνης."
 
 #: ../src/canal_lock-activity/canal_lock.xml.in.h:1
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:2
@@ -1836,76 +2043,6 @@ msgstr "1955 Citroën ds 199"
 msgid "Cars"
 msgstr "Αυτοκίνητα"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:311
-#: ../src/memory-activity/memory.c:906
-msgid ""
-"Error: this activity cannot be played with the\n"
-"sound effects disabled.\n"
-"Go to the configuration dialog to\n"
-"enable the sound"
-msgstr ""
-"Σφάλμα: αυτή η εφαρμογή δεν μπορεί να εκτελεστεί\n"
-"με απενεργοποιημένα εφέ ήχων.\n"
-"Από τη Διαχείριση του Gcompris\n"
-"ενεργοποίησε τον ήχο"
-
-#. TRANSLATORS: Put here the alphabet in your language
-#. require by all utf8-functions
-#. TRANSLATORS: Put here the alphabet lowercase in your language
-#: ../src/click_on_letter-activity/click_on_letter.c:316
-#: ../src/gletters-activity/gletters.c:229
-#: ../src/memory-activity/memory.c:935
-msgid "abcdefghijklmnopqrstuvwxyz"
-msgstr "αβγδεζηθικλμνξοπρστυφχψω"
-
-#: ../src/click_on_letter-activity/click_on_letter.c:344
-#, c-format
-msgid ""
-"Error: this activity requires that you first install\n"
-"the packages with GCompris voices for the locale '%s' or '%s'"
-msgstr ""
-"Σφάλμα: αυτή η δραστηριότητα απαιτεί την εγκατάσταση\n"
-"των ελληνικών ήχων του Gcompris '%s' ή '%s'"
-
-#: ../src/click_on_letter-activity/click_on_letter.c:354
-#, c-format
-msgid ""
-"Error: this activity requires that you first install\n"
-"the packages with GCompris voices for the locale '%s' ! Fallback to english, sorry!"
-msgstr ""
-"Σφάλμα: αυτή η δραστηριότητα απαιτεί την εγκατάσταση\n"
-"των ελληνικών ήχων του Gcompris '%s ! 'Επιστροφή στους αγγλικούς ήχους, συγγνώμη!"
-
-#. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:694
-#: ../src/gletters-activity/gletters.c:883
-#: ../src/login-activity/login.py:484
-#: ../src/missing_letter-activity/missingletter_config.c:492
-#: ../src/readingh-activity/reading.c:928
-#: ../src/wordsgame-activity/wordsgame.c:887
-msgid "Uppercase only text"
-msgstr "Κείμενο μόνο με κεφαλαία γράμματα"
-
-#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:1
-msgid "A letter is spoken. Click on the matching letter in the main area. You can listen to the letter again, by clicking on the mouth icon in the bottom box."
-msgstr "Άκουσες ένα γράμμα. Πάτησε στο αντίστοιχο γράμμα που βρίσκεται στον κεντρικό πίνακα. Μπορείς να ακούσεις το γράμμα ξανά κάνοντας κλικ στο εικονίδιο του στόματος που βρίσκεται κάτω δεξιά."
-
-#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:2
-msgid "Click on a letter"
-msgstr "Κάνε κλικ πάνω σε ένα γράμμα"
-
-#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:3
-msgid "Letter-name recognition"
-msgstr "Οπτική αναγνώριση των γραμμάτων του αλφαβήτου"
-
-#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:4
-msgid "Listen to a letter and click on the right one"
-msgstr "Άκουσε ένα γράμμα και πάτησε το σωστό"
-
-#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:5
-msgid "Visual letter-recognition. Can move the mouse."
-msgstr "Ακουστική και οπτική αναγνώριση γραμμάτων. Δυνατότητα κίνησης του ποντικιού."
-
 #: ../src/clickanddraw-activity/clickanddraw.xml.in.h:1
 msgid "Click and draw"
 msgstr "Κάνε κλικ και σχεδίασε"
@@ -1935,9 +2072,128 @@ msgid "Motor coordination: moving and clicking the mouse."
 msgstr "Συγχρονισμός κινήσεων: κίνηση και πάτημα του ποντικιού."
 
 #: ../src/clickgame-activity/clickgame.xml.in.h:6
-#| msgid "Use the left mouse button to click on the moving fish."
 msgid "Use the left mouse button to click on the moving fish. A level 5 and after, a double click is mandatory."
 msgstr "Χρησιμοποίησε το αριστερό κουμπί του ποντικιού για να κάνεις κλικ στο ψάρι που κινείται. Από το επίπεδο 5 και έπειτα, το διπλό κλικ είναι υποχρεωτικό."
+
+#. require by all utf8-functions
+#. TRANSLATORS: Put here the alphabet lowercase in your language
+#: ../src/click_on_letter-activity/click_on_letter.c:367
+#: ../src/gletters-activity/gletters.c:229
+#: ../src/memory-activity/memory.c:935
+msgid "abcdefghijklmnopqrstuvwxyz"
+msgstr "αβγδεζηθικλμνξοπρστυφχψω"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:378
+msgid "This activity will be played with questions displayed as text instead of being spoken"
+msgstr "Αυτή η δραστηριότητα διεξάγεται με ερωτήσεις που εμφανίζονται ως κείμενο, αντί να εκφωνούνται. "
+
+#: ../src/click_on_letter-activity/click_on_letter.c:383
+#: ../src/memory-activity/memory.c:906
+msgid ""
+"Error: this activity cannot be played with the\n"
+"sound effects disabled.\n"
+"Go to the configuration dialog to\n"
+"enable the sound"
+msgstr ""
+"Σφάλμα: αυτή η εφαρμογή δεν μπορεί να εκτελεστεί\n"
+"με απενεργοποιημένα εφέ ήχων.\n"
+"Από τη Διαχείριση του Gcompris\n"
+"ενεργοποίησε τον ήχο"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:404
+#, c-format
+#| msgid ""
+#| "Error: this activity requires that you first install\n"
+#| "the packages with GCompris voices for the locale '%s' or '%s'"
+msgid ""
+"Error: this activity requires that you first install\n"
+"the packages with GCompris voices for the %s locale."
+msgstr ""
+"Σφάλμα: αυτή η δραστηριότητα απαιτεί την εγκατάσταση\n"
+"των πακέτων ήχου του GCompris για τη γλώσσα %s."
+
+#: ../src/click_on_letter-activity/click_on_letter.c:907
+#| msgid "Question cannot be empty."
+msgid "Questions cannot be empty."
+msgstr "Η ερώτηση δεν μπορεί να είναι κενή"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:917
+#| msgid "Question cannot be empty."
+msgid "Answers cannot be empty."
+msgstr "Η ερώτηση δεν μπορεί να είναι κενή."
+
+#: ../src/click_on_letter-activity/click_on_letter.c:923
+#, c-format
+msgid "Too many characters in the Answer (maximum is %d)."
+msgstr "Πάρα πολλοί χαρακτήρες στην απάντηση (το μέγιστο είναι %d)."
+
+#: ../src/click_on_letter-activity/click_on_letter.c:947
+msgid "All the characters in Questions must also be in the Answers."
+msgstr "Όλοι οι χαρακτήρες των ερωτήσεων θα πρέπει να συμπεριλαμβάνονται και στις απαντήσεις."
+
+#: ../src/click_on_letter-activity/click_on_letter.c:964
+#, c-format
+#| msgid ""
+#| "Invalid entry:\n"
+#| "Question '%s' / Answer '%s'\n"
+#| "%s"
+msgid ""
+"Invalid entry:\n"
+"At level %d, Questions '%s' / Answers '%s'\n"
+"%s"
+msgstr ""
+"Μη έγκυρη καταχώρηση:\n"
+"Στο επίπεδο %d, Ερωτήσεις '%s' / Απαντήσεις '%s'\n"
+"%s"
+
+#. answer
+#: ../src/click_on_letter-activity/click_on_letter.c:1259
+#: ../src/missing_letter-activity/missingletter_config.c:420
+#: ../src/missing_letter-activity/missingletter_config.c:548
+msgid "Answer"
+msgstr "Απάντηση"
+
+#. question
+#: ../src/click_on_letter-activity/click_on_letter.c:1270
+#: ../src/missing_letter-activity/missingletter_config.c:426
+#: ../src/missing_letter-activity/missingletter_config.c:571
+msgid "Question"
+msgstr "Ερώτηση"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:1406
+#: ../src/gcompris/board_config_wordlist.c:274
+msgid "Back to default"
+msgstr "Επιστροφή στο προκαθορισμένο"
+
+#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:1
+#: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:1
+msgid "A letter is spoken. Click on the matching letter in the main area. You can listen to the letter again, by clicking on the mouth icon in the bottom box."
+msgstr "Άκουσες ένα γράμμα. Πάτησε στο αντίστοιχο γράμμα που βρίσκεται στον κεντρικό πίνακα. Μπορείς να ακούσεις το γράμμα ξανά κάνοντας κλικ στο εικονίδιο του στόματος που βρίσκεται κάτω δεξιά."
+
+#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:2
+#| msgid "Click on a letter"
+msgid "Click on a lowercase letter"
+msgstr "Κάνε κλικ πάνω σε ένα πεζό γράμμα"
+
+#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:3
+#: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:3
+msgid "Letter-name recognition"
+msgstr "Οπτική αναγνώριση των γραμμάτων του αλφαβήτου"
+
+#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:4
+#: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:4
+msgid "Listen to a letter and click on the right one"
+msgstr "Άκουσε ένα γράμμα και πάτησε το σωστό"
+
+#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:5
+#: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:5
+msgid "Visual letter-recognition. Can move the mouse."
+msgstr "Ακουστική και οπτική αναγνώριση γραμμάτων. Δυνατότητα κίνησης του ποντικιού."
+
+#: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:2
+#| msgid "Click on a letter"
+msgid "Click on an uppercase letter"
+msgstr "Κάνε κλικ πάνω σε ένα κεφαλαίο γράμμα"
 
 #: ../src/clockgame-activity/clockgame.c:524
 msgid "Set the watch to:"
@@ -1963,46 +2219,6 @@ msgstr "Ρύθμισε το ρολόι στην ώρα που δίνεται κ�
 msgid "The concept of time. Reading the time."
 msgstr "Η έννοια του χρόνου. Διαβάζοντας το χρόνο."
 
-#: ../src/colors-activity/colors.c:60
-msgid "Click on the blue duck"
-msgstr "Πάτησε στην μπλε πάπια"
-
-#: ../src/colors-activity/colors.c:61
-msgid "Click on the brown duck"
-msgstr "Πάτησε στην καφέ πάπια"
-
-#: ../src/colors-activity/colors.c:62
-msgid "Click on the green duck"
-msgstr "Πάτησε στην πράσινη πάπια"
-
-#: ../src/colors-activity/colors.c:63
-msgid "Click on the grey duck"
-msgstr "Πάτησε στην γκρι πάπια"
-
-#: ../src/colors-activity/colors.c:64
-msgid "Click on the orange duck"
-msgstr "Πάτησε στην πορτοκαλί πάπια"
-
-#: ../src/colors-activity/colors.c:65
-msgid "Click on the purple duck"
-msgstr "Πάτησε στη μωβ πάπια"
-
-#: ../src/colors-activity/colors.c:66
-msgid "Click on the red duck"
-msgstr "Πάτησε στην κόκκινη πάπια"
-
-#: ../src/colors-activity/colors.c:67
-msgid "Click on the yellow duck"
-msgstr "Πάτησε στην κίτρινη πάπια"
-
-#: ../src/colors-activity/colors.c:68
-msgid "Click on the black duck"
-msgstr "Πάτησε στη μαύρη πάπια"
-
-#: ../src/colors-activity/colors.c:69
-msgid "Click on the white duck"
-msgstr "Πάτησε στην άσπρη πάπια"
-
 #: ../src/colors-activity/colors.xml.in.h:1
 msgid "Can move the mouse."
 msgstr "Δυνατότητα χειρισμού του ποντικιού."
@@ -2025,52 +2241,42 @@ msgstr "Με αυτό το παιχνίδι μαθαίνεις να αναγνω
 
 #. Translator: Do not translate {text}.
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:2
-#| msgid "Click on the white duck"
 msgid "Find the {text} duck"
 msgstr "Βρες την {text} πάπια"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:3
-#: ../src/read_colors-activity/read_colors.c:65
 msgid "black"
 msgstr "μαύρο"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:4
-#: ../src/read_colors-activity/read_colors.c:57
 msgid "blue"
 msgstr "μπλε"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:5
-#: ../src/read_colors-activity/read_colors.c:58
 msgid "brown"
 msgstr "καφέ"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:6
-#: ../src/read_colors-activity/read_colors.c:59
 msgid "green"
 msgstr "πράσινο"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:7
-#: ../src/read_colors-activity/read_colors.c:60
 msgid "grey"
 msgstr "γκρί"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:8
-#: ../src/read_colors-activity/read_colors.c:61
 msgid "orange"
 msgstr "πορτοκαλί"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:10
-#: ../src/read_colors-activity/read_colors.c:63
 msgid "red"
 msgstr "κόκκινο"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:11
-#: ../src/read_colors-activity/read_colors.c:66
 msgid "white"
 msgstr "λευκό"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:12
-#: ../src/read_colors-activity/read_colors.c:64
 msgid "yellow"
 msgstr "κίτρινο"
 
@@ -2117,8 +2323,8 @@ msgid "Drive the crane and copy the model"
 msgstr "Οδήγησε το γερανό και αντέγραψε το μοντέλο"
 
 #: ../src/crane-activity/crane.xml.in.h:3
-#: ../src/erase-activity/erase.xml.in.h:2
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:5
+#: ../src/erase-activity/erase.xml.in.h:2
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:5
 #: ../src/penalty-activity/penalty.xml.in.h:3
 msgid "Motor-coordination"
@@ -2177,10 +2383,6 @@ msgstr "Vincent Van Gogh, Πορτρέτο του Περέ Τανγκί - 1887-8
 msgid "Eilean Donan castle"
 msgstr "Κάστρο του Eilean Donan"
 
-#: ../src/details-activity/resources/details/board2_1.xml.in.h:1
-msgid "Eiffel Tower, seen from the champ de Mars, Paris, France"
-msgstr "Ο Πύργος του Άιφελ όπως φαίνεται από το Πεδίον του Άρεως, Παρίσι, Γαλλία"
-
 #: ../src/details-activity/resources/details/board2_10.xml.in.h:1
 msgid "Gizah Pyramids, Egypt"
 msgstr "Πυραμίδες της Γκίζας, Αίγυπτος"
@@ -2192,6 +2394,10 @@ msgstr "Η Όπερα του Σίδνεϊ, Αυστραλία"
 #: ../src/details-activity/resources/details/board2_12.xml.in.h:1
 msgid "Tower Bridge in London"
 msgstr "Η Γέφυρα των Πύργων στο Λονδίνο"
+
+#: ../src/details-activity/resources/details/board2_1.xml.in.h:1
+msgid "Eiffel Tower, seen from the champ de Mars, Paris, France"
+msgstr "Ο Πύργος του Άιφελ όπως φαίνεται από το Πεδίον του Άρεως, Παρίσι, Γαλλία"
 
 #: ../src/details-activity/resources/details/board2_2.xml.in.h:1
 msgid "Courtyard of the Museum of Louvre, and its pyramid"
@@ -2266,7 +2472,8 @@ msgid "Select a drawing tool on the left, and a color down the bottom, then clic
 msgstr "Επέλεξε ένα εργαλείο σχεδίασης στα αριστερά και ένα χρώμα από κάτω, σύρε το με το ποντίκι στην λευκή περιοχή για να φτιάξεις μια φιγούρα. Για να εξοικονομήσεις χρόνο χρησιμοποίησε το μεσαίο πλήκτρο του ποντικιού για να σβήσεις ένα σχέδιο."
 
 #: ../src/drawnumber-activity/drawnumber.py:236
-#: ../src/findit-activity/findit.py:290
+#: ../src/findit-activity/findit.py:310
+#: ../src/louis_braille-activity/louis_braille.py:84
 msgid "Cannot find the file '{filename}'"
 msgstr "Αδυναμία εύρεσης του αρχείου '{filename}'"
 
@@ -2349,6 +2556,18 @@ msgstr "Μέτρησε τα αντικείμενα"
 msgid "First, properly organize the items so that you can count them. Then, select the item you want to answer in the bottom right area. Enter the answer with the keyboard and press the OK button or the 'Enter' key."
 msgstr "Αρχικά βάλε τα όμοια αντικείμενα σε διαφορετικές φολίδες της χελώνας για να μπορείς να τα μετρήσεις. Έπειτα κάνε κλικ στην κάτω δεξιά περιοχή στο κάθε μετρήσιμο αντικείμενο και με το πληκτρολόγιο δώσε την απάντηση με τα αριθμητικά πλήκτρα του πληκτρολογίου. Αν γράψεις λάθος αριθμό, πάτησε Delete ή Backspace για να διορθώσεις. Όταν γράψεις τους αριθμούς, πάτησε το OK (αντίχειρας) ή το πλήκτρο Enter."
 
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
+msgid "Double click the mouse"
+msgstr "Κάνε διπλό κλικ με το ποντίκι"
+
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:3
+msgid "Double click the mouse on rectangles until all the blocks disappear."
+msgstr "Κάνε διπλό κλικ με το ποντίκι μέχρι να εξαφανιστούν όλα τα ορθογώνια παραλληλόγραμμα."
+
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:4
+msgid "Double click the mouse to erase the area and discover the background"
+msgstr "Κάνε διπλό κλικ με το ποντίκι για να διαγράψεις την επιφάνεια και να ανακαλύψεις τι υπάρχει στο παρασκήνιο."
+
 #: ../src/erase-activity/erase.c:86
 #: ../src/erase-activity/erase.xml.in.h:5
 msgid "Move the mouse to erase the area and discover the background"
@@ -2384,18 +2603,6 @@ msgstr "Οι φωτογραφίες προέρχονται από την σελ�
 msgid "Move the mouse until all the blocks disappear. You can add you own images under the directory '~/My GCompris/erase'."
 msgstr "Μετακινήστε το ποντίκι μέχρι να εξαφανιστούν όλα τα μπλοκ. Μπορείτε να εισάγετε τις δικές σας εικόνες στον φάκελο '~/My GCompris/erase'."
 
-#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
-msgid "Double click the mouse"
-msgstr "Κάνε διπλό κλικ με το ποντίκι"
-
-#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:3
-msgid "Double click the mouse on rectangles until all the blocks disappear."
-msgstr "Κάνε διπλό κλικ με το ποντίκι μέχρι να εξαφανιστούν όλα τα ορθογώνια παραλληλόγραμμα."
-
-#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:4
-msgid "Double click the mouse to erase the area and discover the background"
-msgstr "Κάνε διπλό κλικ με το ποντίκι για να διαγράψεις την επιφάνεια και να ανακαλύψεις τι υπάρχει στο παρασκήνιο."
-
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:2
 msgid "Click the mouse"
 msgstr "Μετακίνησε και κάνε κλικ στο ποντίκι"
@@ -2423,6 +2630,15 @@ msgstr "Ο αρχικός κώδικας προέρχεται από το libgno
 #: ../src/fifteen-activity/fifteen.xml.in.h:5
 msgid "The fifteen game"
 msgstr "Δεκαπέντε"
+
+#: ../src/findit-activity/findit.py:315
+#: ../src/louis_braille-activity/louis_braille.py:88
+msgid ""
+"Failed to parse data set '{filename}' with error:\n"
+"{error}"
+msgstr ""
+"Αποτυχία ανάλυσης συνόλου δεδομένων '{filename}'  με σφάλμα:\n"
+"{error}"
 
 #: ../src/followline-activity/followline.xml.in.h:1
 msgid "Control the hose-pipe"
@@ -2487,27 +2703,27 @@ msgstr "Το GCompris είναι ένα πακέτο GNU και διέπεται
 msgid "OK"
 msgstr "Εντάξει"
 
-#: ../src/gcompris/bar.c:684
+#: ../src/gcompris/bar.c:688
 msgid "GCompris confirmation"
 msgstr "Επιβεβαίωση GCompris"
 
-#: ../src/gcompris/bar.c:685
+#: ../src/gcompris/bar.c:689
 msgid "Are you sure you want to quit?"
 msgstr "Θέλεις να κλείσεις το GCompris?"
 
-#: ../src/gcompris/bar.c:686
+#: ../src/gcompris/bar.c:690
 msgid "Yes, I am sure!"
 msgstr "Ναι, θέλω να το κλείσω!"
 
-#: ../src/gcompris/bar.c:687
+#: ../src/gcompris/bar.c:691
 msgid "No, I want to keep going"
 msgstr "Όχι, θέλω να συνεχίσω"
 
-#: ../src/gcompris/board.c:155
+#: ../src/gcompris/board.c:149
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr "Δεν υποστηρίζεται η φόρτωση δυναμικών αρθρωμάτων. Το GCompris δεν μπορεί να φορτώσει.\n"
 
-#: ../src/gcompris/board_config_combo.c:157
+#: ../src/gcompris/board_config_combo.c:182
 msgid ""
 "Select the language\n"
 " to use in the board"
@@ -2515,23 +2731,23 @@ msgstr ""
 "Επέλεξε γλώσσα\n"
 "για χρήση της στον πίνακα"
 
-#: ../src/gcompris/board_config_combo.c:227
+#: ../src/gcompris/board_config_combo.c:252
 msgid "Global GCompris mode"
 msgstr "Καθολική λειτουργία του GCompris"
 
-#: ../src/gcompris/board_config_combo.c:228
+#: ../src/gcompris/board_config_combo.c:253
 msgid "Normal"
 msgstr "Κανονικό"
 
-#: ../src/gcompris/board_config_combo.c:229
+#: ../src/gcompris/board_config_combo.c:254
 msgid "2 clicks"
 msgstr "2 κλικ"
 
-#: ../src/gcompris/board_config_combo.c:230
+#: ../src/gcompris/board_config_combo.c:255
 msgid "both modes"
 msgstr "και οι δυο λειτουργίες"
 
-#: ../src/gcompris/board_config_combo.c:258
+#: ../src/gcompris/board_config_combo.c:283
 msgid ""
 "Select the drag and drop mode\n"
 " to use in the board"
@@ -2540,27 +2756,23 @@ msgstr ""
 "για να χρησιμοποιήσεις τον πίνακα"
 
 #. add a new level
-#: ../src/gcompris/board_config_wordlist.c:106
+#: ../src/gcompris/board_config_wordlist.c:123
 #, c-format
 msgid "%d (New level)"
 msgstr "%d (Νέο επίπεδο)"
 
 #. frame
-#: ../src/gcompris/board_config_wordlist.c:180
+#: ../src/gcompris/board_config_wordlist.c:226
 msgid "Configure the list of words"
 msgstr "Διαμόρφωση του καταλόγου των λέξεων"
 
-#: ../src/gcompris/board_config_wordlist.c:209
+#: ../src/gcompris/board_config_wordlist.c:237
 msgid "Choice of the language"
 msgstr "Επιλογή γλώσσας"
 
-#: ../src/gcompris/board_config_wordlist.c:221
+#: ../src/gcompris/board_config_wordlist.c:249
 msgid "Choice of the level"
 msgstr "Επιλογή επιπέδου"
-
-#: ../src/gcompris/board_config_wordlist.c:246
-msgid "Back to default"
-msgstr "Επιστροφή στο προκαθορισμένο"
 
 #: ../src/gcompris/config.c:58
 msgid "Your system default"
@@ -2872,7 +3084,7 @@ msgid "Effect"
 msgstr "Εφέ"
 
 #: ../src/gcompris/config.c:345
-#: ../src/gcompris/sugar.c:82
+#: ../src/gcompris/sugar.c:83
 msgid "Zoom"
 msgstr "Εστίαση"
 
@@ -2882,8 +3094,8 @@ msgid "Couldn't open skin dir: %s"
 msgstr "Αδυναμία ανοίγματος καταλόγου skin: %s"
 
 #: ../src/gcompris/config.c:413
-#: ../src/gcompris/config.c:780
-#: ../src/gcompris/config.c:794
+#: ../src/gcompris/config.c:873
+#: ../src/gcompris/config.c:887
 #, c-format
 msgid "Skin : %s"
 msgstr "Θέμα: %s"
@@ -2891,10 +3103,6 @@ msgstr "Θέμα: %s"
 #: ../src/gcompris/config.c:415
 msgid "SKINS NOT FOUND"
 msgstr "ΔΕΝ ΒΡΕΘΗΚΑΝ ΤΑ ΘΕΜΑΤΑ"
-
-#: ../src/gcompris/config.c:496
-msgid "English (United State)"
-msgstr "Αγγλικά (Ηνωμένων Πολιτειών)"
 
 #: ../src/gcompris/file_selector.c:251
 msgid "CANCEL"
@@ -2908,18 +3116,18 @@ msgstr "ΦΟΡΤΩΣΗ"
 msgid "SAVE"
 msgstr "ΑΠΟΘΗΚΕΥΣΗ"
 
-#: ../src/gcompris/gameutil.c:142
-#: ../src/gcompris/gameutil.c:200
+#: ../src/gcompris/gameutil.c:138
+#: ../src/gcompris/gameutil.c:196
 msgid "Couldn't find or load the file"
 msgstr "Δε μπορώ να βρω ή να φορτώσω το αρχείο"
 
-#: ../src/gcompris/gameutil.c:144
-#: ../src/gcompris/gameutil.c:202
+#: ../src/gcompris/gameutil.c:140
+#: ../src/gcompris/gameutil.c:198
 msgid "This activity is incomplete."
 msgstr "Αυτή η δραστηριότητα δεν έχει ολοκληρωθεί."
 
-#: ../src/gcompris/gameutil.c:145
-#: ../src/gcompris/gameutil.c:203
+#: ../src/gcompris/gameutil.c:141
+#: ../src/gcompris/gameutil.c:199
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -2927,139 +3135,155 @@ msgstr ""
 "Έξοδος και αναφορά\n"
 "του προβλήματος στους συγγραφείς."
 
-#: ../src/gcompris/gcompris.c:158
+#: ../src/gcompris/gcompris.c:155
 msgid "run GCompris in fullscreen mode."
 msgstr "εκτέλεση gcompris σε λειτουργία πλήρους οθόνης."
 
-#: ../src/gcompris/gcompris.c:161
+#: ../src/gcompris/gcompris.c:158
 msgid "run GCompris in window mode."
 msgstr "εκτέλεση gcompris σε λειτουργία παραθύρου "
 
-#: ../src/gcompris/gcompris.c:164
+#: ../src/gcompris/gcompris.c:161
 msgid "run GCompris with sound enabled."
 msgstr "εκτέλεση gcompris με ενεργοποιημένο τον ήχο. "
 
-#: ../src/gcompris/gcompris.c:167
+#: ../src/gcompris/gcompris.c:164
 msgid "run GCompris without sound."
 msgstr "εκτέλεση gcompris χωρίς ήχο."
 
-#: ../src/gcompris/gcompris.c:170
+#: ../src/gcompris/gcompris.c:167
 msgid "run GCompris with the default system cursor."
 msgstr "Εκτέλεση του Gcompris με τον προεπιλεγμένο δρομέα του συστήματος."
 
-#: ../src/gcompris/gcompris.c:173
+#: ../src/gcompris/gcompris.c:170
 msgid "run GCompris without cursor (touch screen mode)."
 msgstr "Εκτέλεση του Gcompris χωρίς τον δρομέα (λειτουργία οθόνης αφής)."
 
-#: ../src/gcompris/gcompris.c:176
+#: ../src/gcompris/gcompris.c:173
 msgid "display only activities with this difficulty level."
 msgstr "εμφάνιση των δραστηριοτήτων με αυτό το επίπεδο δυσκολίας μόνο."
 
-#: ../src/gcompris/gcompris.c:179
+#: ../src/gcompris/gcompris.c:176
 msgid "display debug informations on the console."
 msgstr "εμφάνιση πληροφοριών αποσφαλμάτωσης στην κονσόλα."
 
-#: ../src/gcompris/gcompris.c:182
+#: ../src/gcompris/gcompris.c:179
 msgid "Print the version of "
 msgstr "Εκτύπωση της έκδοσης του"
 
-#: ../src/gcompris/gcompris.c:185
+#: ../src/gcompris/gcompris.c:182
 msgid "Run GCompris with local menu (e.g -l /reading will let you play only activities in the reading directory, -l /strategy/connect4 only the connect4 activity). Use '-l list' to list all the availaible activities and their descriptions."
 msgstr "Εκτέλεσε το GCompris προεπιλέγοντας δραστηριότητες (π.χ. -l /reading σου επιτρέπει να παίξεις μόνο με τις δραστηριότητες του καταλόγου reading, -l/strategy/connect4 σου επιτρέπει να παίξεις με το παιχνίδι connect 4)"
 
-#: ../src/gcompris/gcompris.c:190
+#: ../src/gcompris/gcompris.c:187
 msgid "GCompris will find the data dir in this directory"
 msgstr "Το GCompris θα βρει τα δεδομένα σε αυτόν τον κατάλογο."
 
-#: ../src/gcompris/gcompris.c:193
+#: ../src/gcompris/gcompris.c:190
 msgid "GCompris will find the skins in this directory"
 msgstr "Το GCompris θα βρει τα θέματα σε αυτόν τον κατάλογο."
 
-#: ../src/gcompris/gcompris.c:196
+#: ../src/gcompris/gcompris.c:193
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "Το GCompris θα βρει τα πρόσθετα των δραστηριοτήτων σε αυτόν τον κατάλογο."
 
-#: ../src/gcompris/gcompris.c:199
+#: ../src/gcompris/gcompris.c:196
 msgid "GCompris will find the python activity in this directory"
 msgstr "Το GCompris θα βρει τη δραστηριότητα σε αυτόν τον κατάλογο."
 
-#: ../src/gcompris/gcompris.c:202
+#: ../src/gcompris/gcompris.c:199
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr "plugins "
 
-#: ../src/gcompris/gcompris.c:205
+#: ../src/gcompris/gcompris.c:202
 msgid "GCompris will find the activities menu in this directory"
 msgstr "Το GCompris θα βρει το μενού των δραστηριοτήτων σε αυτόν τον κατάλογο."
 
-#: ../src/gcompris/gcompris.c:208
+#: ../src/gcompris/gcompris.c:205
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Άνοιξε το GCompris σε κατάσταση λειτουργίας διαχειριστή και διαχείρισης χρηστών"
 
-#: ../src/gcompris/gcompris.c:211
+#: ../src/gcompris/gcompris.c:208
 msgid "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite.db]"
 msgstr "Χρησιμοποίησε εναλλακτική βάση δεδομένων για τα προφίλ [$HOME/.config/gcompris/gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:214
+#: ../src/gcompris/gcompris.c:211
 msgid "Create the alternate database for profiles"
 msgstr "Κατασκεύασε εναλλακτική βάση δεδομένων για τα προφίλ"
 
-#: ../src/gcompris/gcompris.c:217
+#: ../src/gcompris/gcompris.c:214
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Ξαναδιάβασε τα μενού XML και αποθήκευσέ τα στη βάση δεδομένων"
 
-#: ../src/gcompris/gcompris.c:220
+#: ../src/gcompris/gcompris.c:217
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Καθόρισε το προφίλ που θα χρησιμοποιηθεί. Χρησιμοποίησε την εντολή 'gcompris -a' για να φτιάξεις καινούρια προφίλ"
 
-#: ../src/gcompris/gcompris.c:223
+#: ../src/gcompris/gcompris.c:220
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr "Κατάλογος όλων των διαθέσιμων προφιλ. Χρησιμοποίησε την εντολή 'gcompris -a' για να φτιάξεις καινούρια προφίλ"
 
-#: ../src/gcompris/gcompris.c:226
+#: ../src/gcompris/gcompris.c:223
 msgid "Config directory location: [$HOME/.config/gcompris]. Alternate is to set $XDG_CONFIG_HOME."
 msgstr "Τοποθεσία καταλόγου Config [$HOME/.config/gcompris]. Εναλλακτικά μπορεί να καθοριστεί στο $XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:229
+#: ../src/gcompris/gcompris.c:226
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "Τοποθεσία των καταλόγων του χρήστη: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:232
+#: ../src/gcompris/gcompris.c:229
 msgid "Run the experimental activities"
 msgstr "Εκτέλεσε τις δραστηριότητες πειραματισμού"
 
-#: ../src/gcompris/gcompris.c:235
+#: ../src/gcompris/gcompris.c:232
 msgid "Disable the quit button"
 msgstr "Απενεργοποίησε το κουμπί της εξόδου"
 
-#: ../src/gcompris/gcompris.c:238
+#: ../src/gcompris/gcompris.c:235
 msgid "Disable the config button"
 msgstr "Απενεργοποίηση του κουμπιού config"
 
-#: ../src/gcompris/gcompris.c:241
+#: ../src/gcompris/gcompris.c:238
 msgid "Disable the level button"
 msgstr "Απενεργοποίηση του πλήκτρου των επιπέδων"
 
-#: ../src/gcompris/gcompris.c:244
+#: ../src/gcompris/gcompris.c:241
 msgid "GCompris will get images, sounds and activity data from this server if not found locally."
 msgstr "Το GCompris θα φορτώσει εικόνες, ήχους και δεδομένα δραστηριοτήτων από τον εξυπηρετητή αν αυτά δεν βρεθούν τοπικά."
 
-#: ../src/gcompris/gcompris.c:247
+#: ../src/gcompris/gcompris.c:244
 msgid "Only when --server is provided, disable check for local resource first. Data are always taken from the web server."
 msgstr "Απενεργοποίησε πρώτα τους τοπικούς πόρους, μόνον όταν ο εξυπηρετητής είναι διαθέσιμος. Τα δεδομένα λαμβάνονται μόνο από τον διαδικτυακό εξυπηρετητή."
 
-#: ../src/gcompris/gcompris.c:251
+#: ../src/gcompris/gcompris.c:248
 msgid "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr "Στη λειτουργία εξυπηρετητή, καθόρισε τον κατάλογο της λανθάνουσας μνήμης (cache) που χρησιμοποιείται για να αποφύγεις ανώφελες μεταφορτώσεις (downloads)."
 
-#: ../src/gcompris/gcompris.c:254
+#: ../src/gcompris/gcompris.c:251
 msgid "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr "Καθολική λειτουργία μετακίνησης και απόθεσης: κανονικά, 2 κλικ, αμφότερα. Η προκαθορισμένη λειτουργία είναι ομαλή."
 
-#: ../src/gcompris/gcompris.c:257
+#: ../src/gcompris/gcompris.c:254
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Να αποφεύγετε την εκτέλεση πολλαπλών στιγμιότυπων του GCompris."
 
-#: ../src/gcompris/gcompris.c:929
+#: ../src/gcompris/gcompris.c:260
+msgid "Disable maximization zoom"
+msgstr "Απενεργοποίηση εστίασης μεγιστοποίησης"
+
+#: ../src/gcompris/gcompris.c:263
+msgid "Increase activities' timeout delays; useful values > 1.0; 1.0 to not change hardcoded value"
+msgstr "Αύξηση καθυστέρησης χρόνου προσωρινής διακοπής δραστηριοτήτων; χρήσιμες τιμές > 1.0; 1.0 για να μην αλλάξει η προκαθορισμένη τιμή."
+
+#: ../src/gcompris/gcompris.c:266
+msgid "How activities' timeout delays are growing for several actors; useful values < 1.0; 1.0 to not change hardcoded value"
+msgstr "Μέθοδος αύξησης χρόνου προσωρινής διακοπής δραστηριοτήτων; χρήσιμες τιμές > 1.0; 1.0 για να μην αλλάξει η προκαθορισμένη τιμή."
+
+#: ../src/gcompris/gcompris.c:269
+msgid "For test purpose, run in a loop all the activities"
+msgstr "Για δοκιμαστικούς λόγους, εκτελέστε σε βρόχο όλες τις δραστηριότητες"
+
+#: ../src/gcompris/gcompris.c:940
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to support its development, this version provides only %d of the %d activities. You can get the full version for a small fee at\n"
@@ -3072,22 +3296,26 @@ msgstr ""
 "Η έκδοση GNU/Linux δεν έχει αυτόν τον περιορισμό. Σημειώστε ότι το GCompris αναπτύσσεται για να απελευθερώσει τα σχολεία από τους μονοπωλιακούς προμηθευτές λογισμικού. Αν πιστεύετε επίσης ότι μπορούμε να διδάξουμε την ελευθερία στα παιδιά, τότε είναι απαραίτητη η χρήση λογισμικού GNU/Linux. Περισσότερες πληροφορίες στο FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1223
+#: ../src/gcompris/gcompris.c:1234
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
 msgstr "Αποτυχία φόρτωσης του θέματος '%s' (Ελέγξτε αν το αρχείο υπάρχει και είναι αναγνώσιμο)"
 
-#: ../src/gcompris/gcompris.c:1486
+#: ../src/gcompris/gcompris.c:1504
 #, c-format
-msgid "GCompris won't start because the lock file is less than %d seconds old.\n"
-msgstr "Δεν είναι δυνατή η εκκίνηση του gcompris επειδή το αρχείο κλειδώματος είναι ενεργό για λιγότερο από %d δευτερόλεπτα.\n"
+#| msgid ""
+#| "GCompris won't start because the lock file is less than %d seconds old.\n"
+msgid "GCompris won't start because the lock file is less than %d second old.\n"
+msgid_plural "GCompris won't start because the lock file is less than %d seconds old.\n"
+msgstr[0] "Το GCompris δεν μπορεί να ξεκινήσει, επειδή το αρχείο κλειδώματος είναι λιγότερο από %d δευτερόλεπτα παλιό.\n"
+msgstr[1] "Δεν είναι δυνατή η εκκίνηση του gcompris επειδή το αρχείο κλειδώματος είναι ενεργό για λιγότερο από %d δευτερόλεπτα.\n"
 
-#: ../src/gcompris/gcompris.c:1488
+#: ../src/gcompris/gcompris.c:1508
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Το αρχείο κλειδώματος είναι: %s\n"
 
-#: ../src/gcompris/gcompris.c:1599
+#: ../src/gcompris/gcompris.c:1681
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3101,37 +3329,37 @@ msgstr ""
 "Πληροφορίες στο http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1714
+#: ../src/gcompris/gcompris.c:1796
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Χρησιμοποίησε το -l για να αποκτήσεις άμεση πρόσβαση σε μια δραστηριότητα.\n"
 
-#: ../src/gcompris/gcompris.c:1715
+#: ../src/gcompris/gcompris.c:1797
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Ο κατάλογος των διαθέσιμων δραστηριοτήτων είναι:\n"
 
-#: ../src/gcompris/gcompris.c:1746
+#: ../src/gcompris/gcompris.c:1828
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Αριθμός δραστηριοτήτων: %d\n"
 
-#: ../src/gcompris/gcompris.c:1782
+#: ../src/gcompris/gcompris.c:1864
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s υπάρχει αλλά δεν είναι αναγνώσιμο ή εγγράψιμο"
 
-#: ../src/gcompris/gcompris.c:1845
+#: ../src/gcompris/gcompris.c:1927
 #, c-format
 msgid "The --server option cannot be used because GCompris has been compiled without network support!"
 msgstr "Η επιλογή --διακομιστή δεν μπορεί να χρησιμοποιηθεί, επειδή το GCompris έχει μεταγλωττιστεί χωρίς υποστήριξη δικτύου!"
 
-#: ../src/gcompris/gcompris.c:1899
+#: ../src/gcompris/gcompris.c:1981
 #, c-format
 msgid "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list available ones\n"
 msgstr "ΣΦΑΛΜΑ: Το προφίλ '%s' δεν βρέθηκε. Εκτελέστε την εντολή  'gcompris --profile-list' για να δείτε τα διαθέσιμα προφίλ\n"
 
-#: ../src/gcompris/gcompris.c:1913
+#: ../src/gcompris/gcompris.c:1995
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Ο κατάλογος των διαθέσιμων προφίλ είναι:\n"
@@ -3192,36 +3420,36 @@ msgstr ""
 "Μπορείς να συμπεριλάβεις αυτές τις εικόνες στα ζωγραφικά και στα κινούμενα σχέδια.\n"
 "Οι μορφές των αρχείων που υποστηρίζονται είναι jpeg, png και svg.\n"
 
-#: ../src/gcompris/sugar.c:70
+#: ../src/gcompris/sugar.c:71
 msgid "Help"
 msgstr "Βοήθεια"
 
-#: ../src/gcompris/sugar.c:71
+#: ../src/gcompris/sugar.c:72
 msgid "About"
 msgstr "Σχετικά"
 
-#: ../src/gcompris/sugar.c:72
+#: ../src/gcompris/sugar.c:73
 msgid "Previous level"
 msgstr "Προηγούμενο επίπεδο"
 
-#: ../src/gcompris/sugar.c:75
+#: ../src/gcompris/sugar.c:76
 msgid "Next level"
 msgstr "Επόμενο επίπεδο"
 
-#: ../src/gcompris/sugar.c:77
+#: ../src/gcompris/sugar.c:78
 msgid "Refresh"
 msgstr "Ανανέωση"
 
-#: ../src/gcompris/sugar.c:78
+#: ../src/gcompris/sugar.c:79
 msgid "Settings"
 msgstr "Ρυθμίσεις"
 
 #. TRANSLATORS: Back as in previous
-#: ../src/gcompris/sugar.c:86
+#: ../src/gcompris/sugar.c:87
 msgid "Back"
 msgstr "Πίσω"
 
-#: ../src/gcompris/sugar.c:87
+#: ../src/gcompris/sugar.c:88
 msgid "Stop"
 msgstr "Διακοπή"
 
@@ -3862,14 +4090,14 @@ msgstr "ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ"
 #. we can add what you want in it.
 #: ../src/gletters-activity/gletters.c:850
 #: ../src/imageid-activity/imageid.c:712
-#: ../src/login-activity/login.py:479
+#: ../src/login-activity/login.py:480
 #: ../src/missing_letter-activity/missingletter.c:784
-#: ../src/pythontest-activity/pythontest.py:454
-#: ../src/readingh-activity/reading.c:904
-#: ../src/scalesboard-activity/scale.c:1160
-#: ../src/smallnumbers-activity/smallnumbers.c:595
+#: ../src/pythontest-activity/pythontest.py:448
+#: ../src/readingh-activity/reading.c:905
+#: ../src/scalesboard-activity/scale.c:1161
+#: ../src/smallnumbers-activity/smallnumbers.c:597
 #: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:864
+#: ../src/wordsgame-activity/wordsgame.c:866
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -3879,9 +4107,18 @@ msgstr ""
 " για το προφίλ <b>%s</b>"
 
 #: ../src/gletters-activity/gletters.c:879
-#: ../src/smallnumbers-activity/smallnumbers.c:614
+#: ../src/smallnumbers-activity/smallnumbers.c:616
 msgid "Enable sounds"
 msgstr "Ενεργοποίηση ήχων"
+
+#. toggle box
+#: ../src/gletters-activity/gletters.c:883
+#: ../src/login-activity/login.py:486
+#: ../src/missing_letter-activity/missingletter_config.c:492
+#: ../src/readingh-activity/reading.c:929
+#: ../src/wordsgame-activity/wordsgame.c:889
+msgid "Uppercase only text"
+msgstr "Κείμενο μόνο με κεφαλαία γράμματα"
 
 #: ../src/gletters-activity/gletters.xml.in.h:1
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:2
@@ -4096,20 +4333,20 @@ msgstr "Πρώτοι λέγονται οι αριθμοί που διαιρού�
 msgid "Guess a number between %d and %d"
 msgstr "Μάντεψε έναν αριθμό μεταξύ %d και %d"
 
-#: ../src/guessnumber-activity/guessnumber.py:299
+#: ../src/guessnumber-activity/guessnumber.py:302
 #, python-format
 msgid "Please enter a number between %d and %d"
 msgstr "Παρακαλώ βάλε έναν αριθμό μεταξύ %d και %d"
 
-#: ../src/guessnumber-activity/guessnumber.py:304
+#: ../src/guessnumber-activity/guessnumber.py:307
 msgid "Out of range"
 msgstr "Εκτός ορίων"
 
-#: ../src/guessnumber-activity/guessnumber.py:310
+#: ../src/guessnumber-activity/guessnumber.py:313
 msgid "Too high"
 msgstr "Πολύ μεγάλο"
 
-#: ../src/guessnumber-activity/guessnumber.py:312
+#: ../src/guessnumber-activity/guessnumber.py:315
 msgid "Too low"
 msgstr "Πολύ μικρό"
 
@@ -4146,7 +4383,12 @@ msgstr "βγδζθκλμνξπρστφχψ"
 msgid "NONE"
 msgstr "ΚΑΝΕΝΑ"
 
-#: ../src/hangman-activity/hangman.py:104
+#: ../src/hangman-activity/hangman.py:109
+#| msgid "Danish"
+msgid "English"
+msgstr "Αγγλικά"
+
+#: ../src/hangman-activity/hangman.py:112
 msgid "Could not find the list of words."
 msgstr "Αδύνατη η εύρεση του καταλόγου των λέξεων."
 
@@ -4252,59 +4494,64 @@ msgstr "Ο ήλιος εξατμίζει το νερό και δημιουργε
 msgid "As a cloud matures, the dense water droplets may combine to produce larger droplets, which may combine to form droplets large enough to fall as rain"
 msgstr "Καθώς το σύννεφο 'ωριμάζει', τα μικρά σταγονίδια συνενώνονται σχηματίζοντας μεγαλύτερα σταγονίδια, τα οποία με τη σειρά τους συνενώνονται σχηματίζοντας ακόμη μεγαλύτερα, τα οποία έχουν αρκετό βάρος ώστε να πέσουν στη γη με τη μορφή βροχής."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:169
+#. Translator : "meter" here means a measuring device
+#: ../src/hydroelectric-activity/hydroelectric.py:170
 msgid "This is the meter for electricity produced by the turbine. "
 msgstr "Αυτή είναι το όργανο μέτρησης της ηλεκτρικής ενέργειας που παράγεται από την τουρμπίνα."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:170
-#: ../src/hydroelectric-activity/hydroelectric.py:282
-#: ../src/hydroelectric-activity/hydroelectric.py:289
-#: ../src/hydroelectric-activity/hydroelectric.py:319
-#: ../src/hydroelectric-activity/hydroelectric.py:341
+#: ../src/hydroelectric-activity/hydroelectric.py:171
+#: ../src/hydroelectric-activity/hydroelectric.py:284
+#: ../src/hydroelectric-activity/hydroelectric.py:292
+#: ../src/hydroelectric-activity/hydroelectric.py:323
+#: ../src/hydroelectric-activity/hydroelectric.py:346
 msgid "The electricity power is measured in Watt (W)."
 msgstr "Η ηλεκτρική ενέργεια μετριέται σε Watt (W)."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:175
+#: ../src/hydroelectric-activity/hydroelectric.py:176
 msgid "Flowing water is directed on to the blades of a turbine runner, creating a force on the blades. In this way, energy is transferred from the water flow to the turbine"
 msgstr "Το τρεχούμενο νερό κατευθύνεται προς τα πτερύγια μιας περιστρεφόμενης τουρμπίνας, ασκώντας δύναμη επάνω τους. Με αυτόν τον τρόπο η ενέργεια του νερού μεταφέρεται από το τρεχούμενο νερό στην τουρμπίνα."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:189
+#: ../src/hydroelectric-activity/hydroelectric.py:190
 msgid "This cloud simulates the wind, click on it to have wind."
 msgstr "Αυτό το σύννεφο προσομοιώνει τον άνεμο. Κάντε κλικ επάνω του για να δημιουργήσετε άνεμο."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:227
+#: ../src/hydroelectric-activity/hydroelectric.py:228
 msgid "This is a step down transformer. Electricity is transformed in low voltage, ready to be used by the customers."
 msgstr "Αυτός είναι ένας μετασχηματιστής που μειώνει την τάση του ρεύματος, ώστε να μπορεί να χρησιμοποιηθεί από τους καταναλωτές."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:281
+#. Translator : "meter" here means a measuring device
+#: ../src/hydroelectric-activity/hydroelectric.py:283
 msgid "This is the meter for all the electricity produced. "
 msgstr "Αυτό είναι ένα όργανο μέτρησης της ηλεκτρικής ενέργειας που έχει παραχθεί."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:288
+#. Translator : "meter" here means a measuring device
+#: ../src/hydroelectric-activity/hydroelectric.py:291
 msgid "This is the meter for electricity consumed by the users. "
 msgstr "Αυτό είναι ένα όργανο μέτρησης της ηλεκτρικής ενέργειας που καταναλώθηκε από τους χρήστες."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:318
+#. Translator : "meter" here means a measuring device
+#: ../src/hydroelectric-activity/hydroelectric.py:322
 msgid "This is the meter for electricity produced by the solar panels. "
 msgstr "Αυτό είναι ένα όργανο μέτρησης της ηλεκτρικής ενέργειας που έχει παραχθεί από τα φωτοβολταϊκά τόξα."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:324
+#: ../src/hydroelectric-activity/hydroelectric.py:328
 msgid "Solar panels use light energy (photons) from the sun to generate electricity through the photovoltaic effect."
 msgstr "Τα φωτοβολταϊκά τόξα χρησιμοποιούν την φωτεινή ενέργεια (φωτόνια) του ήλιου για να παράγουν ηλεκτρική ενέργεια μέσω της φωτοβολταϊκής επίδρασης."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:340
+#. Translator : "meter" here means a measuring device
+#: ../src/hydroelectric-activity/hydroelectric.py:345
 msgid "This is the meter for electricity produced by the wind turbines. "
 msgstr "Αυτό είναι ένα όργανο μέτρησης της ηλεκτρικής ενέργειας που έχει παραχθεί από τις ανεμογεννήτριες."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:346
+#: ../src/hydroelectric-activity/hydroelectric.py:351
 msgid "A wind turbine is a device that converts wind motion energy into electricity generation. It is called a wind generator or wind charger. "
 msgstr "Μια ανεμογεννήτρια μετατρέπει την κινητική ενέργεια του ανέμου σε ηλεκτρική. "
 
-#: ../src/hydroelectric-activity/hydroelectric.py:732
+#: ../src/hydroelectric-activity/hydroelectric.py:737
 msgid "It is not possible to consume more electricity than what is produced. This is a key limitation in the distribution of electricity, with minor exceptions, electrical energy cannot be stored, and therefore it must be generated as it is needed. A sophisticated system of control is therefore required to ensure electric generation very closely matches the demand. If supply and demand are not in balance, generation plants and transmission equipment can shut down which, in the worst cases, can lead to a major regional blackout."
 msgstr "Με ελάχιστες εξαιρέσεις, η ηλεκτρική ενέργεια δεν μπορεί να αποθηκευτεί, με αποτέλεσμα να παράγεται τόση ενέργεια όση χρειάζεται. Συνεπώς, απαιτείται ένα υπερσύγχρονο σύστημα ελέγχου που θα φροντίζει ώστε η παραγόμενη ενέργεια να καλύπτει τις ανάγκες.  Εάν η διαθέσιμη και η απαιτούμενη ενέργεια δεν βρίσκονται σε ισορροπία, τότε το σύστημα παραγωγής και διανομής της ηλεκτρικής ενέργειας μπορεί να καταρρεύσει, με αποτέλεσμα τις διακοπές ρεύματος, που είναι γνωστές και ως blackout."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:946
+#: ../src/hydroelectric-activity/hydroelectric.py:951
 msgid "This is a step up transformer. Electricity is transmitted at high voltages (110 kV or above) to reduce the energy lost in long distance transmission."
 msgstr "Αυτός είναι ένας μετασχηματιστής που αυξάνει την τάση του ηλεκτρικού ρεύματος. Η υψηλή τάση (110kV ή μεγαλύτερη) βοηθά στην ελαχιστοποίηση των απωλειών ηλεκτρικής ενέργειας κατά τη μεταφορά της σε μεγάλες αποστάσεις."
 
@@ -4314,7 +4561,7 @@ msgstr "Κάνε κλικ στα ενεργά στοιχεία: ήλιος, σύ
 
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:3
 msgid "Learn about an electrical system based on renewable energy"
-msgstr "Μάθετε για τα συστήματα κατανάλωσης ηλεκτρικής ενέργειας που βασίζονται σε ανανεώσιμες πηγές ενέργειας."
+msgstr "Συστήματα ηλεκτρικής ενέργειας που βασίζονται σε ανανεώσιμες πηγές"
 
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:4
 msgid "Tux has come back from a long fishing party on his boat. Bring the electrical system back up so he can have light in his home."
@@ -4597,6 +4844,168 @@ msgstr "σημαία"
 msgid "racket"
 msgstr "ρακέτα"
 
+#: ../src/instruments-activity/instruments.xml.in.h:1
+#| msgid "Click on the correct color"
+msgid "Click on the correct instrument."
+msgstr "Κάνε κλικ στο σωστό μουσικό όργανο"
+
+#: ../src/instruments-activity/instruments.xml.in.h:2
+#| msgid "Click on the correct color"
+msgid "Click on the correct mucical instruments"
+msgstr "Κάνε κλικ στα σωστά μουσικά όργανα"
+
+#: ../src/instruments-activity/instruments.xml.in.h:3
+#| msgid "Learn to recognize unusual colors."
+msgid "Learn to recognize musical instruments."
+msgstr "Μάθε να αναγνωρίζεις μουσικά όργανα"
+
+#: ../src/instruments-activity/instruments.xml.in.h:4
+msgid "Music instruments"
+msgstr "Μουσικά όργανα"
+
+#. Translator: Do not translate {text}.
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:2
+#| msgid "Find the {text} duck"
+msgid "Find {text}"
+msgstr "Βρες {text}"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:3
+msgid "the accordion"
+msgstr "το ακορντεόν"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:4
+msgid "the banjo"
+msgstr "το μπάντζο"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:5
+msgid "the bass drum"
+msgstr "το μπάσο τύμπανο"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:6
+msgid "the bongo"
+msgstr "το μπόνγκο"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:7
+msgid "the castanets"
+msgstr "οι καστανιέτες"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:8
+msgid "the cello"
+msgstr "το τσέλο"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:9
+#| msgid "claret"
+msgid "the clarinet"
+msgstr "το κλαρινέτο"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:10
+msgid "the cymbal"
+msgstr "τα κύμβαλα"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:11
+msgid "the drum kit"
+msgstr "τα ντραμς"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
+#| msgid "Electricity"
+msgid "the electric guitar"
+msgstr "η ηλεκτρική κιθάρα"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
+msgid "the flute traversiere"
+msgstr "το φλάουτο"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
+msgid "the guitar"
+msgstr "η κιθάρα"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
+msgid "the harmonica"
+msgstr "η φυσαρμόνικα"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
+#| msgid "The car"
+msgid "the harp"
+msgstr "η άρπα"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
+msgid "the horn"
+msgstr "το κόρνο"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
+#| msgid "Mathematics"
+msgid "the maracas"
+msgstr "οι μαράκες"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
+#| msgid "Georgian"
+msgid "the organ"
+msgstr "το όργανο"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
+msgid "the piano"
+msgstr "το πιάνο"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
+msgid "the saxophone"
+msgstr "το σαξόφωνο"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
+msgid "the tambourine"
+msgstr "το ταμπουρίνο"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
+msgid "the timpani"
+msgstr "το τύμπανο"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
+#| msgid "Rectangle"
+msgid "the triangle"
+msgstr "το τρίγωνο"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
+msgid "the trombone"
+msgstr "το τρομπόνι"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
+msgid "the trumpet"
+msgstr "η τρομπέτα"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:27
+msgid "the tuba"
+msgstr "η τούμπα"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:28
+msgid "the violin"
+msgstr "το βιολί"
+
+#: ../src/lang-activity/lang.xml.in.h:1
+#| msgid "Practice money usage"
+msgid "Practice a foreign language"
+msgstr "Εξάσκηση σε μια ξένη γλώσσα"
+
+#: ../src/lang-activity/lang.py:55
+#| msgid "Missing Letter"
+msgid "Missing Image"
+msgstr "Εικόνα που λείπει"
+
+#: ../src/lang-activity/lang.py:158
+#, python-format
+#| msgid ""
+#| "<b>%s</b> configuration\n"
+#| " for profile <b>%s</b>"
+msgid ""
+"Configuration\n"
+" for profile <b>%s</b>"
+msgstr ""
+"Ρυθμίσεις\n"
+" για το προφίλ <b>%s</b>"
+
+#: ../src/lang-activity/lang.py:163
+#| msgid "Select sound locale"
+msgid "Select locale"
+msgstr "Επιλογή γλώσσας"
+
 #: ../src/leftright-activity/leftright.c:230
 #: ../src/searace-activity/searace.py:415
 #: ../src/searace-activity/searace.py:439
@@ -4662,16 +5071,16 @@ msgstr "Η επίπτωση που έχει το πάτημα ενός πλήκ�
 msgid "The solver algorithm described on haar.clara.co.uk is a valuable resource to know more about the Lights Off game: &lt;http://www.haar.clara.co.uk/Lights/solving.html&gt;"
 msgstr "Ο αλγόριθμος επίλυσης που περιγράφεται στο haar.clara.co.uk είναι μια αξιόλογη πηγή για να μάθεις περισσότερα σχετικά με το παιχνίδι Κλείσε τα φώτα: &lt;http://www.haar.clara.co.uk/Lights/solving.html&gt;"
 
-#: ../src/login-activity/login.py:101
+#: ../src/login-activity/login.py:102
 msgid "Profile: "
 msgstr "Προφίλ: "
 
-#: ../src/login-activity/login.py:234
+#: ../src/login-activity/login.py:235
 msgid "Login: "
 msgstr "Σύνδεση:"
 
 #. toggle box
-#: ../src/login-activity/login.py:494
+#: ../src/login-activity/login.py:496
 msgid "Enter login to log in"
 msgstr "Πιέστε Σύνδεση για να συνδεθείτε"
 
@@ -4704,6 +5113,74 @@ msgstr ""
 #: ../src/login-activity/login.xml.in.h:10
 msgid "Select or enter your name to log in to GCompris"
 msgstr "Επέλεξε ή γράψε το όνομά σου για να συνδεθείς στο GCompris"
+
+#: ../src/louis_braille-activity/louis_braille.py:112
+msgid "Click to confirm your sequence"
+msgstr "Κάντε κλικ για να επιβεβαιώσετε την ακολουθία"
+
+#: ../src/louis_braille-activity/louis_braille.xml.in.h:1
+msgid "Louis Braille Video: &lt; http://www.youtube.com/watch?v=9bdfC2j_4x4 &gt;"
+msgstr "Βίντεο του Λουίς Μπράιγ: &lt; http://www.youtube.com/watch?v=9bdfC2j_4x4 &gt;"
+
+#: ../src/louis_braille-activity/louis_braille.xml.in.h:2
+msgid "Read the history of Louis Braille, his biography and discovery of the Braille system. Click on the previous and next buttons to move to the respective story page. At the end, arrange the sequence in the chronological order."
+msgstr "Διαβάστε την ιστορία του Λουίς Μπράιγ, τη βιογραφία του και ανακαλύψτε το σύστημα Μπράιγ. Μεταβείτε μπρος και πίσω για να δείτε τις αντίστοιχες σελίδες της βιογραφίας του. Στο τέλος, τοποθετήστε την ακολουθία στη σωστή χρονική σειρά."
+
+#: ../src/louis_braille-activity/louis_braille.xml.in.h:3
+msgid "Review the major dates of the inventor of the Braille system."
+msgstr "Κάντε μια επισκόπηση των σημαντικότερων χρονολογιών που αφορούν τον εφευρέτη του συστήματος Μπράιγ."
+
+#: ../src/louis_braille-activity/louis_braille.xml.in.h:4
+msgid "The History of Louis Braille"
+msgstr "Η ιστορία του Λουίς Μπράιγ"
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:1
+msgid "After his Death"
+msgstr "Μετά το θάνατό του"
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:2
+msgid "At the age of 10, he was sent to Paris to study at the Royal Institute for Blind Youth."
+msgstr "Σε ηλικία 10 ετών, πήγε στο Παρίσι για να φοιτήσει στο Βασιλικό Ινστιτούτο Τυφλών."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:3
+msgid "At the age of three, Louis became blind due to a severe infection that spread to his left eye."
+msgstr "Σε ηλικία τριών ετών, ο Λουίς τυφλώθηκε εξαιτίας μιας σοβαρής μόλυνσης στο αριστερό του μάτι."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:4
+msgid "Born on January 4th in Coupvary near Paris in France."
+msgstr "Γεννήθηκε στις 4 Ιανουαρίου στο Κουπβαρί κοντά στο Παρίσι."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:5
+msgid "Braille got accepted as a world wide standard. Louis Braille proved that if you have motivation you can do incredible things."
+msgstr "Το σύστημα Μπράιγ έγινε παγκόσμια αποδεκτό. Ο Λουίς Μπράιγ απέδειξε ότι εάν έχεις κίνητρο μπορείς να κάνεις απίστευτα πράγματα."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:6
+msgid "Charles Barbier, a French soldier, visited his school and shared his invention of night writing, a code of 12 raised dots to share information on battlefields."
+msgstr "Ο Τσαρλς Μπαρπιέρ, ένας πρώην αξιωματικός του γαλλικού στρατού, επισκέφθηκε το σχολείο του και παρουσίασε την εφεύρεσή του για το 'Νυχτερινό γράψιμο', έναν κώδικα που περιέχει 12 ανάγλυφους χαρακτήρες, που επέτρεπε τον διαμοιρασμό πληροφοριών στα πεδία της μάχης."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:7
+msgid "He became a teacher after graduating and secretly taught his method."
+msgstr "Έγινε δάσκαλος αμέσως μετά την αποφοίτησή του και δίδαξε μυστικά τη μέθοδό του."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:8
+msgid "He died of tuberculosis. He is burried in the Pantheon in Paris. A monument is erected to honor him."
+msgstr "Πέθανε από φυματίωση και τάφηκε στο Πάνθεον στο Παρίσι. Ένα μνημείο ανεγέρθηκε προς τιμή του."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:9
+msgid "He impressed his classmates and began to play the piano and the organ."
+msgstr "Εντυπωσίασε τους συμμαθητές του και άρχισε να παίζει πιάνο και όργανο."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:10
+msgid "He revised and extended braille to include mathematics, symbols, punctuations and music notations."
+msgstr "Αναθεώρησε και επέκτεινε το σύστημα Μπράιγ για να συμπεριλάβει μαθηματικά σύμβολα, σημεία στίξης και τη μουσική σημειογραφία."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:11
+msgid "Louis Braille injured his right eye with a stitching awl from his father's workshop."
+msgstr "Ο Λουίς Μπράιγ τραυματίστηκε στο δεξί του μάτι με μια βελόνα ραψίματος από το εργαστήριο του πατέρα του."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:12
+msgid "Louis trimmed Barbier's 12 dots into 6 and invented the Braille system."
+msgstr "Ο Λουίς περιορίσε τις 12 τελείες του συστήματος του Μπαρμπιέρ σε 6 και έτσι ανακάλυψε το σύστημα Μπράιγ."
 
 #: ../src/magic_hat_minus-activity/magic_hat_minus.xml.in.h:1
 msgid "Count how many items are under the magic hat after some have got away"
@@ -4748,49 +5225,30 @@ msgstr "Μέτρησε πόσα αντικείμενα είναι κάτω απ�
 msgid "Learn addition"
 msgstr "Μαθαίνω πρόσθεση"
 
-#: ../src/maze-activity/maze.c:132
-#: ../src/maze-activity/maze.xml.in.h:4
-#: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:4
-#: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:4
-msgid "Maze"
-msgstr "Λαβύρινθος"
-
-#: ../src/maze-activity/maze.c:133
-#: ../src/maze-activity/maze.xml.in.h:2
-msgid "Find your way out of the maze"
-msgstr "Βρες το δρόμο που θα σε οδηγήσει έξω από το λαβύρινθο"
-
-#: ../src/maze-activity/maze.c:599
-msgid "Look at your position, then switch back to invisible mode to continue your moves"
-msgstr ""
-"Κοίταξε σε ποια θέση βρίσκεσαι αυτή τη στιγμή  και ξαναγύρνα\n"
-"στην τρισδιάστατη λειτουργία για να συνεχίσεις τις κινήσεις σου"
-
-#: ../src/maze-activity/maze.c:601
-msgid "Look at your position, then switch back to 3D mode to continue your moves"
-msgstr "Κοίταξε την θέση σου και ξαναγύρνα στην τρισδιάσταστη λειτουργία για να συνεχίσεις τις κινήσεις σου"
-
-#: ../src/maze-activity/maze.xml.in.h:1
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:1
 #: ../src/maze3D-activity/maze3D.xml.in.h:2
+#: ../src/maze-activity/maze.xml.in.h:1
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:1
 msgid "Can use the keyboard arrow to move an object."
 msgstr "Δυνατότητα χρήσης του βέλους στο πληκτρολόγιο για τη μετακίνηση αντικειμένων."
 
-#: ../src/maze-activity/maze.xml.in.h:3
+#: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:2
+msgid "Find your way out of the maze (Move is relative)"
+msgstr "Βρες το δρόμο που θα σε οδηγήσει έξω από το λαβύρινθο"
+
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:3
 #: ../src/maze3D-activity/maze3D.xml.in.h:4
+#: ../src/maze-activity/maze.xml.in.h:3
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:3
 msgid "Help Tux get out of this maze."
 msgstr "Βοήθησε τον Tux να βγει έξω από τον λαβύρινθο."
 
-#: ../src/maze-activity/maze.xml.in.h:5
-msgid "Use the keyboard arrows to move Tux up to the door."
-msgstr "Χρησιμοποίησε τα βέλη του πληκτρολόγιου για να οδηγήσεις τον Tux έξω από την πόρτα."
-
-#: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:2
-msgid "Find your way out of the maze (Move is relative)"
-msgstr "Βρες το δρόμο που θα σε οδηγήσει έξω από το λαβύρινθο"
+#: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:4
+#: ../src/maze-activity/maze.c:132
+#: ../src/maze-activity/maze.xml.in.h:4
+#: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:4
+msgid "Maze"
+msgstr "Λαβύρινθος"
 
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:5
 msgid "Use the keyboard arrows to move Tux up to the door. In this maze, the move is relative (first person). Use the up arrow to go forward. The other arrow let you turn Tux in another direction."
@@ -4807,6 +5265,25 @@ msgstr "Βρες το δρόμο που θα σε οδηγήσει έξω από
 #: ../src/maze3D-activity/maze3D.xml.in.h:5
 msgid "Use the keyboard arrows to move Tux up to the door. Use the spacebar to switch between 2D and 3D modes. 2D mode just gives you an indication of your position, like a map. You cannot move Tux in 2D mode."
 msgstr "Χρησιμοποίησε τα βέλη του πληκτρολογίου για να οδηγήσεις τον Tux έξω από την πόρτα. Χρησιμοποίησε το πλήκτρο διαστήματος (spacebar) για να εναλλάσσεσαι μεταξύ λειτουργιών 2 και 3 διαστάσεων. Η λειτουργία δύο διαστάσεων σου δείχνει απλά τη θέση σου όπως σε έναν χάρτη. Δεν μπορείς να μετακινήσεις τον Tux σε αυτή τη διάσταση."
+
+#: ../src/maze-activity/maze.c:133
+#: ../src/maze-activity/maze.xml.in.h:2
+msgid "Find your way out of the maze"
+msgstr "Βρες το δρόμο που θα σε οδηγήσει έξω από το λαβύρινθο"
+
+#: ../src/maze-activity/maze.c:599
+msgid "Look at your position, then switch back to invisible mode to continue your moves"
+msgstr ""
+"Κοίταξε σε ποια θέση βρίσκεσαι αυτή τη στιγμή  και ξαναγύρνα\n"
+"στην τρισδιάστατη λειτουργία για να συνεχίσεις τις κινήσεις σου"
+
+#: ../src/maze-activity/maze.c:601
+msgid "Look at your position, then switch back to 3D mode to continue your moves"
+msgstr "Κοίταξε την θέση σου και ξαναγύρνα στην τρισδιάσταστη λειτουργία για να συνεχίσεις τις κινήσεις σου"
+
+#: ../src/maze-activity/maze.xml.in.h:5
+msgid "Use the keyboard arrows to move Tux up to the door."
+msgstr "Χρησιμοποίησε τα βέλη του πληκτρολόγιου για να οδηγήσεις τον Tux έξω από την πόρτα."
 
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:2
 msgid "Find your way out of the invisible maze"
@@ -5181,26 +5658,6 @@ msgstr "Παιχνίδι μνήμης λέξη - αριθμός"
 msgid "You can see some cards, but you can't see what's on the other side of them. Each card is hiding a number of number, or the word of the number."
 msgstr "Μπορείτε να δείτε μερικές κάρτες, όχι όμως τι υπάρχει στην άλλη πλευρά τους. Κάθε κάρτα κρύβει έναν αριθμό, ή τον αριθμό ολογράφως."
 
-#: ../src/missing_letter-activity/missing_letter.xml.in.h:1
-msgid "An object is displayed in the main area, and an incomplete word is printed under the picture. Select the missing letter to complete the word."
-msgstr "Ένα αντικείμενο εμφανίζεται στην κύρια περιοχή και μια ελλιπής λέξη κάτω από την εικόνα. Επέλεξε το γράμμα που λείπει για να συμπληρώσεις τη λέξη."
-
-#: ../src/missing_letter-activity/missing_letter.xml.in.h:2
-msgid "Fill in the missing letter"
-msgstr "Συμπλήρωσε το γράμμα που λείπει"
-
-#: ../src/missing_letter-activity/missing_letter.xml.in.h:3
-msgid "Missing Letter"
-msgstr "Γράμμα που λείπει"
-
-#: ../src/missing_letter-activity/missing_letter.xml.in.h:4
-msgid "Training reading skills"
-msgstr "Εξάσκηση αναγνωστικών δεξιοτήτων"
-
-#: ../src/missing_letter-activity/missing_letter.xml.in.h:5
-msgid "Word reading"
-msgstr "Ανάγνωση λέξης"
-
 #: ../src/missing_letter-activity/missingletter_config.c:77
 msgid "Please select an image."
 msgstr "Παρακαλώ επίλεξε μια εικόνα."
@@ -5250,18 +5707,6 @@ msgstr ""
 msgid "Picture"
 msgstr "Εικόνα"
 
-#. answer
-#: ../src/missing_letter-activity/missingletter_config.c:420
-#: ../src/missing_letter-activity/missingletter_config.c:548
-msgid "Answer"
-msgstr "Απάντηση"
-
-#. question
-#: ../src/missing_letter-activity/missingletter_config.c:426
-#: ../src/missing_letter-activity/missingletter_config.c:571
-msgid "Question"
-msgstr "Ερώτηση"
-
 #. choice
 #: ../src/missing_letter-activity/missingletter_config.c:432
 #: ../src/missing_letter-activity/missingletter_config.c:583
@@ -5289,6 +5734,26 @@ msgstr "Αντικαταστήστε το γράμμα για να μαντέψ�
 #: ../src/missing_letter-activity/missingletter_config.c:591
 msgid "Enter here the letter that will be proposed. The first letter here must be the solution."
 msgstr "Γράψε εδώ το γράμμα που θα προταθεί. Το πρώτο γράμμα εδώ θα πρέπει να είναι η λύση."
+
+#: ../src/missing_letter-activity/missing_letter.xml.in.h:1
+msgid "An object is displayed in the main area, and an incomplete word is printed under the picture. Select the missing letter to complete the word."
+msgstr "Ένα αντικείμενο εμφανίζεται στην κύρια περιοχή και μια ελλιπής λέξη κάτω από την εικόνα. Επέλεξε το γράμμα που λείπει για να συμπληρώσεις τη λέξη."
+
+#: ../src/missing_letter-activity/missing_letter.xml.in.h:2
+msgid "Fill in the missing letter"
+msgstr "Συμπλήρωσε το γράμμα που λείπει"
+
+#: ../src/missing_letter-activity/missing_letter.xml.in.h:3
+msgid "Missing Letter"
+msgstr "Γράμμα που λείπει"
+
+#: ../src/missing_letter-activity/missing_letter.xml.in.h:4
+msgid "Training reading skills"
+msgstr "Εξάσκηση αναγνωστικών δεξιοτήτων"
+
+#: ../src/missing_letter-activity/missing_letter.xml.in.h:5
+msgid "Word reading"
+msgstr "Ανάγνωση λέξης"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:1
 msgid "car/c_r/a/k/o"
@@ -5538,10 +6003,6 @@ msgstr "Αναπαράσταση του χώρου"
 msgid "Edgar Degas, The Dancing Class - 1873-75"
 msgstr "Edgar Degas, Η τάξη του χορού - 1873-75"
 
-#: ../src/paintings-activity/resources/paintings/board1_1.xml.in.h:1
-msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
-msgstr "Pierre-Auguste Renoir, Χορός στο Le Moulin de la Galette - 1876"
-
 #: ../src/paintings-activity/resources/paintings/board1_10.xml.in.h:1
 msgid ""
 "Katsushika Hokusai,\\n"
@@ -5557,6 +6018,10 @@ msgstr "Katsushika Hokusa, Παπαρούνες - 1833-1834"
 #: ../src/paintings-activity/resources/paintings/board1_12.xml.in.h:1
 msgid "Katsushika Hokusai, Kazusa sea Route - 1830."
 msgstr "Katsushika Hokusai, Ο θαλάσσιος δρόμος Kazusa - 1830."
+
+#: ../src/paintings-activity/resources/paintings/board1_1.xml.in.h:1
+msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
+msgstr "Pierre-Auguste Renoir, Χορός στο Le Moulin de la Galette - 1876"
 
 #: ../src/paintings-activity/resources/paintings/board1_2.xml.in.h:1
 msgid "Giuseppe Arcimboldo, Spring - 1573"
@@ -5663,12 +6128,14 @@ msgid "This board is game-oriented. No specific skills are needed to play."
 msgstr "Αυτός ο πίνακας έχει παιγνιώδη χαρακτήρα. Δεν απαιτούνται ιδιαίτερες δεξιότητες για να παίξει κανείς."
 
 #: ../src/penalty-activity/penalty.py:292
-msgid "Click on the balloon to place it again."
-msgstr "Κάνε κλικ στο μπαλόνι για να το ξαναβάλεις στη θέση του."
+#| msgid "Click on the balloon to place it again."
+msgid "Click on the ball to place it again."
+msgstr "Κάνε κλικ στη μπάλα για να την ξαναβάλεις στη θέση της"
 
 #: ../src/penalty-activity/penalty.py:294
-msgid "Click twice on the balloon to shoot it."
-msgstr "Χτύπα δυο φορές το μπαλόνι για να σουτάρεις."
+#| msgid "Click twice on the balloon to shoot it."
+msgid "Click twice on the ball to shoot it."
+msgstr "Κάνε διπλό κλικ στη μπάλα για να σουτάρεις"
 
 #: ../src/penalty-activity/penalty.xml.in.h:1
 msgid "Double click the mouse on the ball to kick it. You can double click the left right or middle mouse button. If you lose, Tux catches the ball. You must click on it to bring it back to its former position"
@@ -5676,7 +6143,7 @@ msgstr "Κάνε διπλό κλικ με το ποντίκι για να κλω
 
 #: ../src/penalty-activity/penalty.xml.in.h:2
 msgid "Double click the mouse on the ball to score a goal."
-msgstr "Κάνε διπλό κλι με το ποντίκι πάνω στη μπάλα για να βάλεις γκολ."
+msgstr "Κάνε διπλό κλικ με το ποντίκι πάνω στη μπάλα για να βάλεις γκολ"
 
 #: ../src/penalty-activity/penalty.xml.in.h:5
 msgid "Penalty kick"
@@ -5728,7 +6195,7 @@ msgid "Number"
 msgstr "Αριθμοί κατά αύξουσα σειρά"
 
 #: ../src/pythontemplate-activity/pythontemplate.py:62
-#: ../src/pythontest-activity/pythontest.py:184
+#: ../src/pythontest-activity/pythontest.py:182
 msgid ""
 "This is the first plugin in GCompris coded in the Python\n"
 "Programming language."
@@ -5759,7 +6226,7 @@ msgstr "Πρότυπο Python"
 msgid "Thanks to Guido van Rossum and the python team for this powerful language!"
 msgstr "Ευχαριστίες προς τον Guido van Rossum και την ομάδα της Python γι' αυτή την ισχυρή γλώσσα προγραμματισμού!"
 
-#: ../src/pythontest-activity/pythontest.py:194
+#: ../src/pythontest-activity/pythontest.py:192
 msgid ""
 "It is now possible to develop GCompris activities in C or in Python.\n"
 "Thanks to Olivier Samys who makes this possible."
@@ -5767,37 +6234,33 @@ msgstr ""
 "Τώρα είναι δυνατή η ανάπτυξη δραστηριοτήτων για το GCompris με τη γλώσσα προγραμματισμού C ή Python.\n"
 "Οφείλονται ευχαριστίες στον Olivier Samys που έκανε εφικτή μια τέτοια δυνατότητα."
 
-#: ../src/pythontest-activity/pythontest.py:204
+#: ../src/pythontest-activity/pythontest.py:202
 msgid "This activity is not playable, just a test"
 msgstr "Δεν μπορείς να παίξεις σε αυτή την δραστηριότητα, είναι απλά μια δοκιμή"
 
 #. toggle box
-#: ../src/pythontest-activity/pythontest.py:459
+#: ../src/pythontest-activity/pythontest.py:454
 msgid "Disable line drawing in circle"
 msgstr "Απενεργοποίησε τη σχεδίαση γραμμής στον κύκλο"
 
 #. combo box
-#: ../src/pythontest-activity/pythontest.py:468
+#: ../src/pythontest-activity/pythontest.py:463
 msgid "Color of the line"
 msgstr "Χρώμα γραμμής"
 
 #. spin button for int
-#: ../src/pythontest-activity/pythontest.py:479
+#: ../src/pythontest-activity/pythontest.py:474
 msgid "Distance between circles"
 msgstr "Απόσταση μεταξύ κύκλων"
 
 #. radio buttons for circle or rectangle
-#: ../src/pythontest-activity/pythontest.py:490
+#: ../src/pythontest-activity/pythontest.py:485
 msgid "Use circles"
 msgstr "Χρησιμοποίησε κύκλους"
 
-#: ../src/pythontest-activity/pythontest.py:491
+#: ../src/pythontest-activity/pythontest.py:486
 msgid "Use rectangles"
 msgstr "Χρησιμοποίησε ορθογώνια παραλληλόγραμμα"
-
-#: ../src/pythontest-activity/pythontest.py:494
-msgid "Choice of pattern"
-msgstr "Επιλογή μοτίβου"
 
 #: ../src/pythontest-activity/pythontest.xml.in.h:3
 msgid "Python Test"
@@ -5830,30 +6293,6 @@ msgstr "Εξάσκηση μνήμης"
 #: ../src/railroad-activity/railroad.xml.in.h:5
 msgid "Railway"
 msgstr "Σιδηρόδρομος"
-
-#: ../src/read_colors-activity/read_colors.c:62
-msgid "violet"
-msgstr "βιολετί"
-
-#: ../src/read_colors-activity/read_colors.c:67
-msgid "pink"
-msgstr "ροζ"
-
-#: ../src/read_colors-activity/read_colors.xml.in.h:2
-msgid "Click on the correct colored object."
-msgstr "Πάτησε στο σωστό χρωματιστό αντικείμενο."
-
-#: ../src/read_colors-activity/read_colors.xml.in.h:3
-msgid "Click on the matching color"
-msgstr "Κάνε κλικ στο σωστό χρώμα"
-
-#: ../src/read_colors-activity/read_colors.xml.in.h:4
-msgid "Read the names of colors"
-msgstr "Διάβασε τα ονόματα των χρωμάτων"
-
-#: ../src/read_colors-activity/read_colors.xml.in.h:5
-msgid "This board teaches basic colors."
-msgstr "Αυτός ο πίνακας διδάσκει τα βασικά χρώματα."
 
 #: ../src/readingh-activity/reading.c:229
 #: ../src/wordsgame-activity/wordsgame.c:219
@@ -5985,8 +6424,9 @@ msgid "Weight = %s"
 msgstr "Βάρος = %s"
 
 #: ../src/scalesboard-activity/scale.c:1007
-msgid "Take care, you can drop masses on both sides of the scale."
-msgstr "Πρόσεξε, μπορείς να μετακινήσεις μάζες στις δύο πλευρές της ζυγαριάς."
+#| msgid "Take care, you can drop masses on both sides of the scale."
+msgid "Take care, you can drop weights on both sides of the scale."
+msgstr "Πρόσεξε! Μπορείς να μετακινήσεις μάζες και στις δύο πλευρές της ζυγαριάς."
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:1
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:1
@@ -5994,8 +6434,9 @@ msgid "Balance the scales properly"
 msgstr "Ισορρόπησε τη ζυγαριά"
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:2
-msgid "Drag and Drop masses to balance the scales"
-msgstr "Μετακίνησε και τοποθέτησε τα βαράκια για να ισορροπήσει η ζυγαριά"
+#| msgid "Drag and Drop masses to balance the scales"
+msgid "Drag and Drop weights to balance the scales"
+msgstr "Μετακίνησε και τοποθέτησε τα σταθμά για να ισορροπήσει η ζυγαριά."
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:3
 msgid "Mental calculation, arithmetic equality"
@@ -6007,7 +6448,10 @@ msgid "The painting is an original painting created by Virginie MOREAU (virginie
 msgstr "Ο πίνακας της Virginie MOREAU (virginie.moreau@free.fr) είναι αυθεντικός και δημιουργήθηκε το 2001. Ο τίτλος του πίνακα είναι \"Πωλητής μπαχαρικών στην Αίγυπτο\". Κυκλοφορεί υπό τους όρους της άδειας GPL."
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:5
-msgid "To balance the scales, move the masses on the left or the right side. The masses can be arranged in any order."
+#| msgid ""
+#| "To balance the scales, move the masses on the left or the right side. The "
+#| "masses can be arranged in any order."
+msgid "To balance the scales, move the weights on the left or the right side. The weights can be arranged in any order."
 msgstr "Για να ισορροπήσεις τη ζυγαριά, μετακίνησε τα σταθμά στην αριστερά ή τη δεξιά πλευρά της. Τα σταθμά μπορείς να τα διευθετήσεις με όποια σειρά θέλεις."
 
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:2
@@ -6021,6 +6465,33 @@ msgstr "Νοεροί υπολογισμοί, αριθμητικές ισότητ
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:5
 msgid "To balance the scales, move the masses on the left or the right side. Take care of the weight and the unit of the masses, remember that a kilogram (kg) is 1000 grams (g). They can be arranged in any order."
 msgstr "Για να ισορροπήσεις τη ζυγαριά, μετακίνησε τα σταθμά στην αριστερά ή τη δεξιά πλευρά της. Προσέξτε το βάρος και τις μονάδες των σταθμών και θυμηθείτε ότι ένα κιλό (κ.) έχει 1000 γραμμάρια (γρ.). Τα σταθμά μπορείς να τα διευθετήσεις με όποια σειρά θέλεις."
+
+#: ../src/searace1player-activity/searace1player.xml.in.h:1
+msgid "Give good instructions to your ship in order to be first in the race."
+msgstr "Δώσε τις κατάλληλες οδηγίες στο πλοιάριό σου, ώστε να είσαι πρώτος στον αγώνα."
+
+#: ../src/searace1player-activity/searace1player.xml.in.h:2
+msgid ""
+"In the text entry, enter one command per line, to control your boat. Commands supported are displayed between the two entry areas. The 'left' and 'right' commands must be followed by an angle in degrees. The angle value is also called a 'parameter' to the left or right command. By default 45 degrees is used. The 'forward' command accepts a distance parameter. By default 1 is used.\n"
+"For example:\n"
+"- left 90: Make a perpendicular left turn\n"
+"- forward 10: Go forward for 10 units (as displayed on the ruler).\n"
+"The goal is to reach the right of the screen (the red line). When done, you can try to improve your program and start a new race with the same weather conditions by using the retry button. You can click and drag your mouse anywhere on the map to get a measurement in distance and angle. Going to the next level will give you more complex weather conditions."
+msgstr ""
+"Στο πλαίσιο κειμένου, δώσε μια εντολή σε κάθε γραμμή για να ελέγξεις τη βάρκα. Οι εντολές που υποστηρίζονται, εμφανίζονται μεταξύ των δύο πλαισίων κειμένου. Οι \"αριστερές\" και οι \"δεξιές\" εντολές πρέπει να ακολουθούνται από τον αριθμό των μοιρών της γωνίας. Η τιμή κάθε γωνίας χαρακτηρίζεται επίσης και ως 'παράμετρος' στην αριστερή ή δεξιά εντολή. Ως προεπιλεγμένη τιμή χρησιμοποιούνται οι 45 μοίρες. Η εντολή 'μπροστά' δέχεται παραμέτρους απόστασης. Προεπιλεγμένη τιμή είναι το 1.\n"
+"Για παράδειγμα:\n"
+"- αριστερά 90: κάθετη στροφή αριστερά\n"
+"- μπροστά 10: Πήγαινε μπροστά για 10 μονάδες (όπως εμφανίζονται στο χάρακα).\n"
+"Σκοπός του παιχνιδιού είναι να φτάσεις στην κόκκινη γραμμή στα δεξιά. Όταν ολοκληρώσεις, μπορείς να προσπαθήσεις να βελτιώσεις τις κινήσεις σου ξεκινώντας ένα νέο παιχνίδι με τις ίδιες καιρικές συνθήκες πατώντας στο πλήκτρο με τα πράσινα βέλη. Κάνοντας κλικ και τραβώντας με το ποντίκι επάνω στην επιφάνεια του παιχνιδιού, μπορείς να μετρήσεις την απόσταση και τη γωνία οποιουδήποτε σημείου. Η μεταπήδηση σε επόμενο επίπεδο σου προσφέρει πιο σύνθετες καιρικές συνθήκες."
+
+#: ../src/searace1player-activity/searace1player.xml.in.h:7
+#: ../src/searace-activity/searace.xml.in.h:8
+msgid "In this activity, you will learn how to enter commands into a computer. Even if the language is extremely basic, you learn here how to think ahead and construct a program. This activity can be used to introduce the programming concept to children."
+msgstr "Με αυτή τη δραστηριότητα θα μάθεις πώς να εισάγεις εντολές στον υπολογιστή. Ακόμη και αν η γλώσσα είνα εντελώς βασική, θα μάθεις να σκέφτεσαι και να κατασκευάζεις μια εφαρμογή. Αυτό το παιχνίδι είναι μια εισαγωγική δραστηριότητα στην έννοια του προγραμματισμού για παιδιά."
+
+#: ../src/searace1player-activity/searace1player.xml.in.h:8
+msgid "Sea race (Single Player)"
+msgstr "Θαλάσσιος αγώνας (1 παίκτης)"
 
 #: ../src/searace-activity/searace.py:174
 msgid "The race is already being run"
@@ -6101,64 +6572,37 @@ msgstr ""
 "- μπροστά 10: Πήγαινε μπροστά για 10 μονάδες (όπως εμφανίζονται στο χάρακα).\n"
 "Σκοπός του παιχνιδιού είναι να φτάσεις στην κόκκινη γραμμή στα δεξιά. Όταν ολοκληρώσεις, μπορείς να προσπαθήσεις να βελτιώσεις τις κινήσεις σου ξεκινώντας ένα νέο παιχνίδι με τις ίδιες καιρικές συνθήκες πατώντας στο πλήκτρο με τα πράσινα βέλη. Κάνοντας κλικ και τραβώντας με το ποντίκι επάνω στην επιφάνεια του παιχνιδιού, μπορείς να μετρήσεις την απόσταση και τη γωνία οποιουδήποτε σημείου. Η μεταπήδηση σε επόμενο επίπεδο σου προσφέρει πιο σύνθετες καιρικές συνθήκες."
 
-#: ../src/searace-activity/searace.xml.in.h:8
-#: ../src/searace1player-activity/searace1player.xml.in.h:7
-msgid "In this activity, you will learn how to enter commands into a computer. Even if the language is extremely basic, you learn here how to think ahead and construct a program. This activity can be used to introduce the programming concept to children."
-msgstr "Με αυτή τη δραστηριότητα θα μάθεις πώς να εισάγεις εντολές στον υπολογιστή. Ακόμη και αν η γλώσσα είνα εντελώς βασική, θα μάθεις να σκέφτεσαι και να κατασκευάζεις μια εφαρμογή. Αυτό το παιχνίδι είναι μια εισαγωγική δραστηριότητα στην έννοια του προγραμματισμού για παιδιά."
-
 #: ../src/searace-activity/searace.xml.in.h:9
 msgid "Sea race (2 Players)"
 msgstr "Θαλάσσιος αγώνας (2 παίκτες)"
 
-#: ../src/searace1player-activity/searace1player.xml.in.h:1
-msgid "Give good instructions to your ship in order to be first in the race."
-msgstr "Δώσε τις κατάλληλες οδηγίες στο πλοιάριό σου, ώστε να είσαι πρώτος στον αγώνα."
-
-#: ../src/searace1player-activity/searace1player.xml.in.h:2
-msgid ""
-"In the text entry, enter one command per line, to control your boat. Commands supported are displayed between the two entry areas. The 'left' and 'right' commands must be followed by an angle in degrees. The angle value is also called a 'parameter' to the left or right command. By default 45 degrees is used. The 'forward' command accepts a distance parameter. By default 1 is used.\n"
-"For example:\n"
-"- left 90: Make a perpendicular left turn\n"
-"- forward 10: Go forward for 10 units (as displayed on the ruler).\n"
-"The goal is to reach the right of the screen (the red line). When done, you can try to improve your program and start a new race with the same weather conditions by using the retry button. You can click and drag your mouse anywhere on the map to get a measurement in distance and angle. Going to the next level will give you more complex weather conditions."
-msgstr ""
-"Στο πλαίσιο κειμένου, δώσε μια εντολή σε κάθε γραμμή για να ελέγξεις τη βάρκα. Οι εντολές που υποστηρίζονται, εμφανίζονται μεταξύ των δύο πλαισίων κειμένου. Οι \"αριστερές\" και οι \"δεξιές\" εντολές πρέπει να ακολουθούνται από τον αριθμό των μοιρών της γωνίας. Η τιμή κάθε γωνίας χαρακτηρίζεται επίσης και ως 'παράμετρος' στην αριστερή ή δεξιά εντολή. Ως προεπιλεγμένη τιμή χρησιμοποιούνται οι 45 μοίρες. Η εντολή 'μπροστά' δέχεται παραμέτρους απόστασης. Προεπιλεγμένη τιμή είναι το 1.\n"
-"Για παράδειγμα:\n"
-"- αριστερά 90: κάθετη στροφή αριστερά\n"
-"- μπροστά 10: Πήγαινε μπροστά για 10 μονάδες (όπως εμφανίζονται στο χάρακα).\n"
-"Σκοπός του παιχνιδιού είναι να φτάσεις στην κόκκινη γραμμή στα δεξιά. Όταν ολοκληρώσεις, μπορείς να προσπαθήσεις να βελτιώσεις τις κινήσεις σου ξεκινώντας ένα νέο παιχνίδι με τις ίδιες καιρικές συνθήκες πατώντας στο πλήκτρο με τα πράσινα βέλη. Κάνοντας κλικ και τραβώντας με το ποντίκι επάνω στην επιφάνεια του παιχνιδιού, μπορείς να μετρήσεις την απόσταση και τη γωνία οποιουδήποτε σημείου. Η μεταπήδηση σε επόμενο επίπεδο σου προσφέρει πιο σύνθετες καιρικές συνθήκες."
-
-#: ../src/searace1player-activity/searace1player.xml.in.h:8
-msgid "Sea race (Single Player)"
-msgstr "Θαλάσσιος αγώνας (1 παίκτης)"
-
-#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:1
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:1
+#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:1
 msgid "Count the number of dots on dice before they reach the ground"
 msgstr "Μέτρησε τις κουκίδες στα ζάρια πριν φτάσουν στο έδαφος"
 
-#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:2
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:2
+#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:2
 msgid "Counting skills"
 msgstr "Βασικές ικανότητες αρίθμησης"
 
-#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:3
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:3
+#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:3
 msgid "In a limited time, count the number of dots"
 msgstr "Σε περιορισμένο χρόνο, μέτρησε τον αριθμό των κουκκίδων"
-
-#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:4
-msgid "Numbers With Dice"
-msgstr "Ζάρια με αριθμούς"
-
-#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:5
-#: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:5
-msgid "With the keyboard, type the number of dots you see on the falling dice."
-msgstr "Πρόσθεσε τις κουκκίδες των δύο ζαριών που πέφτουν και πληκτρολόγησε το άθροισμα."
 
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:4
 msgid "Numbers with pairs of dice"
 msgstr "Ζευγάρια ζαριών με αριθμούς"
+
+#: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:5
+#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:5
+msgid "With the keyboard, type the number of dots you see on the falling dice."
+msgstr "Πρόσθεσε τις κουκκίδες των δύο ζαριών που πέφτουν και πληκτρολόγησε το άθροισμα."
+
+#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:4
+msgid "Numbers With Dice"
+msgstr "Ζάρια με αριθμούς"
 
 #: ../src/submarine-activity/submarine.xml.in.h:1
 msgid "Click on different active elements : engine, rudders and air tanks, in order to navigate to the required depth. There is a close gate on the right. Catch the jewel to open it, then pass through it to reach the next level."
@@ -6269,8 +6713,8 @@ msgstr "Παιχνίδι Τάγκραμ"
 #. Set the maximum text to calc the background
 #. Set the correct initial text
 #: ../src/target-activity/target.c:296
-#: ../src/target-activity/target.c:559
-#: ../src/target-activity/target.c:596
+#: ../src/target-activity/target.c:562
+#: ../src/target-activity/target.c:599
 #, c-format
 msgid "Points = %s"
 msgstr "Πόντοι = %s"
@@ -6284,10 +6728,13 @@ msgstr ""
 "Ταχύτητα ανέμου = %d\n"
 "χιλιόμετρα/ώρα"
 
-#: ../src/target-activity/target.c:481
+#: ../src/target-activity/target.c:482
 #, c-format
-msgid "Distance to target = %d meters"
-msgstr "Απόσταση από το στόχο = %d μέτρα"
+#| msgid "Distance to target = %d meters"
+msgid "Distance to target = %d meter"
+msgid_plural "Distance to target = %d meters"
+msgstr[0] "Απόσταση από το στόχο = %d μέτρα"
+msgstr[1] "Απόσταση από το στόχο = %d μέτρα"
 
 #: ../src/target-activity/target.xml.in.h:1
 msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
@@ -6467,13 +6914,68 @@ msgstr "Εξάσκηση στο πληκτρολόγιο"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Πληκτρολόγησε την λέξη πριν αυτή πέσει στο έδαφος"
 
-#: ../src/findit-activity/findit.py:295
-msgid ""
-"Failed to parse data set '{filename}' with error:\n"
-"{error}"
-msgstr ""
-"Αποτυχία ανάλυσης συνόλου δεδομένων '{filename}'  με σφάλμα:\n"
-"{error}"
+#~ msgid ""
+#~ "Error: this activity requires that you first install\n"
+#~ "the packages with GCompris voices for the locale '%s' ! Fallback to "
+#~ "english, sorry!"
+#~ msgstr ""
+#~ "Σφάλμα: αυτή η δραστηριότητα απαιτεί την εγκατάσταση\n"
+#~ "των ελληνικών ήχων του Gcompris '%s ! 'Επιστροφή στους αγγλικούς ήχους, "
+#~ "συγγνώμη!"
+
+#~ msgid "Click on the blue duck"
+#~ msgstr "Πάτησε στην μπλε πάπια"
+
+#~ msgid "Click on the brown duck"
+#~ msgstr "Πάτησε στην καφέ πάπια"
+
+#~ msgid "Click on the green duck"
+#~ msgstr "Πάτησε στην πράσινη πάπια"
+
+#~ msgid "Click on the grey duck"
+#~ msgstr "Πάτησε στην γκρι πάπια"
+
+#~ msgid "Click on the orange duck"
+#~ msgstr "Πάτησε στην πορτοκαλί πάπια"
+
+#~ msgid "Click on the purple duck"
+#~ msgstr "Πάτησε στη μωβ πάπια"
+
+#~ msgid "Click on the red duck"
+#~ msgstr "Πάτησε στην κόκκινη πάπια"
+
+#~ msgid "Click on the yellow duck"
+#~ msgstr "Πάτησε στην κίτρινη πάπια"
+
+#~ msgid "Click on the black duck"
+#~ msgstr "Πάτησε στη μαύρη πάπια"
+
+#~ msgid "Click on the white duck"
+#~ msgstr "Πάτησε στην άσπρη πάπια"
+
+#~ msgid "English (United State)"
+#~ msgstr "Αγγλικά (Ηνωμένων Πολιτειών)"
+
+#~ msgid "Choice of pattern"
+#~ msgstr "Επιλογή μοτίβου"
+
+#~ msgid "violet"
+#~ msgstr "βιολετί"
+
+#~ msgid "pink"
+#~ msgstr "ροζ"
+
+#~ msgid "Click on the correct colored object."
+#~ msgstr "Πάτησε στο σωστό χρωματιστό αντικείμενο."
+
+#~ msgid "Click on the matching color"
+#~ msgstr "Κάνε κλικ στο σωστό χρώμα"
+
+#~ msgid "Read the names of colors"
+#~ msgstr "Διάβασε τα ονόματα των χρωμάτων"
+
+#~ msgid "This board teaches basic colors."
+#~ msgstr "Αυτός ο πίνακας διδάσκει τα βασικά χρώματα."
 
 #~ msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1888"
 #~ msgstr "Vincent Van Gogh, Είσοδος του νοσοκομείου του Σέντ Πολ - 1888"
