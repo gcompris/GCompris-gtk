@@ -2036,7 +2036,11 @@ main (int argc, char *argv[])
   /* Gdk-Pixbuf */
   gdk_rgb_init();
 
+/* rsvg.h only marks these deprecated with glib >= 2.31.0, and rsvg.h has no
+   version define itself */
+#if !GLIB_CHECK_VERSION (2, 31, 0)
   rsvg_init();
+#endif
 
   setup_window ();
 

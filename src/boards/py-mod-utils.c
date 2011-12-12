@@ -72,7 +72,13 @@ py_gc_svg_load(PyObject* self, PyObject* args)
   /* Create and return the result */
   pyresult = (PyObject*) pygobject_new((GObject*) result);
 
+/* rsvg.h only marks these deprecated with glib >= 2.31.0, and rsvg.h has no
+   version define itself */
+#if GLIB_CHECK_VERSION (2, 31, 0)
+  g_object_unref(result);
+#else
   rsvg_handle_free(result);
+#endif
 
   return(pyresult);
 
