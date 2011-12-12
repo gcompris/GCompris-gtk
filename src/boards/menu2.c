@@ -405,7 +405,7 @@ menu_is_our_board (GcomprisBoard *gcomprisBoard)
 {
   if (gcomprisBoard)
     {
-      if(g_strcasecmp(gcomprisBoard->type, "menu")==0)
+      if(g_ascii_strcasecmp(gcomprisBoard->type, "menu")==0)
 	{
 	  /* Set the plugin entry */
 	  gcomprisBoard->plugin=&menu_bp;
@@ -525,7 +525,7 @@ static void menu_create_item(GooCanvasItem *parent, MenuItems *menuitems, Gcompr
     }
 
   // display menu icon ========================== BEGIN
-  if(g_strcasecmp(board->type, "menu") == 0)
+  if(g_ascii_strcasecmp(board->type, "menu") == 0)
     {
       GooCanvasItem *item = goo_canvas_svg_new (parent,
 						gc_skin_rsvg_get(),

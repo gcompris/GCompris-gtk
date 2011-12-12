@@ -198,16 +198,16 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     modeIsInvisible=FALSE;
     if(!gcomprisBoard->mode)
       modeIs2D=TRUE;
-    else if(g_strncasecmp(gcomprisBoard->mode, "2DR", 3)==0) {
+    else if(g_ascii_strncasecmp(gcomprisBoard->mode, "2DR", 3)==0) {
       /* 2D Relative */
       modeIs2D=TRUE;
       modeRelative=TRUE;
-    } else if(g_strncasecmp(gcomprisBoard->mode, "2DI", 3)==0) {
+    } else if(g_ascii_strncasecmp(gcomprisBoard->mode, "2DI", 3)==0) {
       modeIs2D=TRUE;
       modeIsInvisible=TRUE;
-    } else if(g_strncasecmp(gcomprisBoard->mode, "2D", 2)==0) {
+    } else if(g_ascii_strncasecmp(gcomprisBoard->mode, "2D", 2)==0) {
       modeIs2D=TRUE;
-    } else if(g_strncasecmp(gcomprisBoard->mode, "3D", 2)==0) {
+    } else if(g_ascii_strncasecmp(gcomprisBoard->mode, "3D", 2)==0) {
       modeIs2D=FALSE;
     }
 
@@ -251,7 +251,7 @@ static void end_board () {
  * =====================================================================*/
 static gboolean is_our_board (GcomprisBoard *gcomprisBoard) {
   if (gcomprisBoard) {
-    if(g_strcasecmp(gcomprisBoard->type, "maze")==0) {
+    if(g_ascii_strcasecmp(gcomprisBoard->type, "maze")==0) {
       /* Set the plugin entry */
       gcomprisBoard->plugin=&menu_bp;
       return TRUE;

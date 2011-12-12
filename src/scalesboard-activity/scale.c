@@ -231,7 +231,7 @@ set_level (guint level)
 gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 {
   if (gcomprisBoard)
-    if(g_strcasecmp(gcomprisBoard->type, "scale")==0)
+    if(g_ascii_strcasecmp(gcomprisBoard->type, "scale")==0)
       {
 	/* Set the plugin entry */
 	gcomprisBoard->plugin=&menu_bp;
@@ -1128,7 +1128,7 @@ conf_ok(GHashTable *table)
 
     gchar *drag_mode_str = g_hash_table_lookup( config, "drag_mode");
 
-    if (drag_mode_str && (g_strcasecmp (drag_mode_str, "NULL") != 0))
+    if (drag_mode_str && (g_ascii_strcasecmp (drag_mode_str, "NULL") != 0))
       drag_mode = (gint ) g_ascii_strtod(drag_mode_str, NULL);
     else
       drag_mode = 0;

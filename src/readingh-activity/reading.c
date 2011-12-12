@@ -233,7 +233,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
 
       currentMode=MODE_VERTICAL; // Default mode
-      if(gcomprisBoard->mode && g_strcasecmp(gcomprisBoard->mode, "horizontal")==0)
+      if(gcomprisBoard->mode && g_ascii_strcasecmp(gcomprisBoard->mode, "horizontal")==0)
         {
           if (pango_unichar_direction(g_utf8_get_char(gc_wordlist_random_word_get(gc_wordlist, gcomprisBoard->level))) == PANGO_DIRECTION_RTL)
               currentMode=MODE_HORIZONTAL_RTL;
@@ -281,7 +281,7 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 {
   if (gcomprisBoard)
     {
-      if(g_strcasecmp(gcomprisBoard->type, "reading")==0)
+      if(g_ascii_strcasecmp(gcomprisBoard->type, "reading")==0)
 	{
 	  /* Set the plugin entry */
 	  gcomprisBoard->plugin=&menu_bp;

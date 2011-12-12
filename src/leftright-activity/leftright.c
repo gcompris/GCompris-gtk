@@ -180,7 +180,7 @@ static void set_level (guint level) {
  * =====================================================================*/
 static gboolean is_our_board (GcomprisBoard *gcomprisBoard) {
   if (gcomprisBoard) {
-    if(g_strcasecmp(gcomprisBoard->type, "leftright")==0) {
+    if(g_ascii_strcasecmp(gcomprisBoard->type, "leftright")==0) {
       /* Set the plugin entry */
       gcomprisBoard->plugin=&menu_bp;
       return TRUE;

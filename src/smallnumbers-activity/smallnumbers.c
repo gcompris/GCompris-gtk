@@ -172,7 +172,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       number_of_dices=1;
       if(!gcomprisBoard->mode)
 	number_of_dices=1;
-      else if(g_strncasecmp(gcomprisBoard->mode, "2_DICES", 7)==0) {
+      else if(g_ascii_strncasecmp(gcomprisBoard->mode, "2_DICES", 7)==0) {
 	/* 2 Dices mode */
 	number_of_dices=2;
       }
@@ -260,7 +260,7 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 {
   if (gcomprisBoard)
     {
-      if(g_strcasecmp(gcomprisBoard->type, "smallnumbers")==0)
+      if(g_ascii_strcasecmp(gcomprisBoard->type, "smallnumbers")==0)
 	{
 	  /* Set the plugin entry */
 	  gcomprisBoard->plugin=&menu_bp;

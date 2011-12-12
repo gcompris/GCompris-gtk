@@ -182,7 +182,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     {
       gcomprisBoard=agcomprisBoard;
 
-      if ( gcomprisBoard->mode && g_strcasecmp(gcomprisBoard->mode, "uppercase")==0 )
+      if ( gcomprisBoard->mode && g_ascii_strcasecmp(gcomprisBoard->mode, "uppercase")==0 )
 	uppercase_only = TRUE;
       else
 	uppercase_only = FALSE;
@@ -303,7 +303,7 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 {
   if (gcomprisBoard)
     {
-      if(g_strcasecmp(gcomprisBoard->type, "click_on_letter")==0)
+      if(g_ascii_strcasecmp(gcomprisBoard->type, "click_on_letter")==0)
 	{
 	  /* Set the plugin entry */
 	  gcomprisBoard->plugin=&menu_bp;

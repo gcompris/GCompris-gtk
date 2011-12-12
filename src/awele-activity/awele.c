@@ -190,7 +190,7 @@ is_our_board (GcomprisBoard * gcomprisBoard)
 {
   if (gcomprisBoard)
     {
-      if (g_strcasecmp (gcomprisBoard->type, "awele") == 0)
+      if (g_ascii_strcasecmp (gcomprisBoard->type, "awele") == 0)
 	{
 	  /*
 	   * Set the plugin entry

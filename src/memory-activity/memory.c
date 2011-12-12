@@ -749,107 +749,107 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	currentUiMode=UIMODE_NORMAL;
 	currentBoardMode=BOARDMODE_NORMAL;
       } else {
-	if(g_strcasecmp(gcomprisBoard->mode, "tux")==0){
+	if(g_ascii_strcasecmp(gcomprisBoard->mode, "tux")==0){
 	  currentMode=MODE_TUX;
 	  currentUiMode=UIMODE_NORMAL;
 	  currentBoardMode=BOARDMODE_NORMAL;
 	} else {
-	  if(g_strcasecmp(gcomprisBoard->mode, "sound")==0){
+	  if(g_ascii_strcasecmp(gcomprisBoard->mode, "sound")==0){
 	    currentMode=MODE_NORMAL;
 	    currentUiMode=UIMODE_SOUND;
 	    currentBoardMode=BOARDMODE_SOUND;
 	  } else {
-	    if(g_strcasecmp(gcomprisBoard->mode, "sound_tux")==0){
+	    if(g_ascii_strcasecmp(gcomprisBoard->mode, "sound_tux")==0){
 	      currentMode=MODE_TUX;
 	      currentUiMode=UIMODE_SOUND;
 	      currentBoardMode=BOARDMODE_SOUND;
 	    } else {
-	      if(g_strcasecmp(gcomprisBoard->mode, "add")==0){
+	      if(g_ascii_strcasecmp(gcomprisBoard->mode, "add")==0){
 		currentMode=MODE_NORMAL;
 		currentUiMode=UIMODE_NORMAL;
 		currentBoardMode=BOARDMODE_ADD;
 	      } else {
-		if(g_strcasecmp(gcomprisBoard->mode, "add_tux")==0){
+		if(g_ascii_strcasecmp(gcomprisBoard->mode, "add_tux")==0){
 		  currentMode=MODE_TUX;
 		  currentUiMode=UIMODE_NORMAL;
 		  currentBoardMode=BOARDMODE_ADD;
 		} else {
-		  if(g_strcasecmp(gcomprisBoard->mode, "minus")==0){
+		  if(g_ascii_strcasecmp(gcomprisBoard->mode, "minus")==0){
 		    currentMode=MODE_NORMAL;
 		    currentUiMode=UIMODE_NORMAL;
 		    currentBoardMode=BOARDMODE_MINUS;
 		  } else {
-		    if(g_strcasecmp(gcomprisBoard->mode, "minus_tux")==0){
+		    if(g_ascii_strcasecmp(gcomprisBoard->mode, "minus_tux")==0){
 		      currentMode=MODE_TUX;
 		      currentUiMode=UIMODE_NORMAL;
 		      currentBoardMode=BOARDMODE_MINUS;
 		    } else {
-		      if(g_strcasecmp(gcomprisBoard->mode, "mult")==0){
+		      if(g_ascii_strcasecmp(gcomprisBoard->mode, "mult")==0){
 			currentMode=MODE_NORMAL;
 			currentUiMode=UIMODE_NORMAL;
 			currentBoardMode=BOARDMODE_MULT;
 		      } else {
-			if(g_strcasecmp(gcomprisBoard->mode, "mult_tux")==0){
+			if(g_ascii_strcasecmp(gcomprisBoard->mode, "mult_tux")==0){
 			  currentMode=MODE_TUX;
 			  currentUiMode=UIMODE_NORMAL;
 			  currentBoardMode=BOARDMODE_MULT;
 			} else {
-			  if(g_strcasecmp(gcomprisBoard->mode, "div")==0){
+			  if(g_ascii_strcasecmp(gcomprisBoard->mode, "div")==0){
 			    currentMode=MODE_NORMAL;
 			    currentUiMode=UIMODE_NORMAL;
 			    currentBoardMode=BOARDMODE_DIV;
 			  } else {
-			    if(g_strcasecmp(gcomprisBoard->mode, "div_tux")==0){
+			    if(g_ascii_strcasecmp(gcomprisBoard->mode, "div_tux")==0){
 			      currentMode=MODE_TUX;
 			      currentUiMode=UIMODE_NORMAL;
 			      currentBoardMode=BOARDMODE_DIV;
 			    } else {
-			      if(g_strcasecmp(gcomprisBoard->mode, "add_minus")==0){
+			      if(g_ascii_strcasecmp(gcomprisBoard->mode, "add_minus")==0){
 				currentMode=MODE_NORMAL;
 				currentUiMode=UIMODE_NORMAL;
 				currentBoardMode=BOARDMODE_ADD_MINUS;
 			      } else {
-				if(g_strcasecmp(gcomprisBoard->mode, "add_minus_tux")==0){
+				if(g_ascii_strcasecmp(gcomprisBoard->mode, "add_minus_tux")==0){
 				  currentMode=MODE_TUX;
 				  currentUiMode=UIMODE_NORMAL;
 				  currentBoardMode=BOARDMODE_ADD_MINUS;
 				} else {
-				  if(g_strcasecmp(gcomprisBoard->mode, "mult_div")==0){
+				  if(g_ascii_strcasecmp(gcomprisBoard->mode, "mult_div")==0){
 				    currentMode=MODE_NORMAL;
 				    currentUiMode=UIMODE_NORMAL;
 				    currentBoardMode=BOARDMODE_MULT_DIV;
 				  } else {
-				    if(g_strcasecmp(gcomprisBoard->mode, "mult_div_tux")==0){
+				    if(g_ascii_strcasecmp(gcomprisBoard->mode, "mult_div_tux")==0){
 				      currentMode=MODE_TUX;
 				      currentUiMode=UIMODE_NORMAL;
 				      currentBoardMode=BOARDMODE_MULT_DIV;
 				    } else {
-				      if(g_strcasecmp(gcomprisBoard->mode, "add_minus_mult_div")==0){
+				      if(g_ascii_strcasecmp(gcomprisBoard->mode, "add_minus_mult_div")==0){
 					currentMode=MODE_NORMAL;
 					currentUiMode=UIMODE_NORMAL;
 					currentBoardMode=BOARDMODE_ADD_MINUS_MULT_DIV;
 				      } else {
-					if(g_strcasecmp(gcomprisBoard->mode, "add_minus_mult_div_tux")==0){
+					if(g_ascii_strcasecmp(gcomprisBoard->mode, "add_minus_mult_div_tux")==0){
 					  currentMode=MODE_TUX;
 					  currentUiMode=UIMODE_NORMAL;
 					  currentBoardMode=BOARDMODE_ADD_MINUS_MULT_DIV;
 					} else {
-					  if(g_strcasecmp(gcomprisBoard->mode, "enumerate")==0){
+					  if(g_ascii_strcasecmp(gcomprisBoard->mode, "enumerate")==0){
 					    currentMode=MODE_NORMAL;
 					    currentUiMode=UIMODE_NORMAL;
 					    currentBoardMode=BOARDMODE_ENUMERATE;
 					  } else {
-					    if(g_strcasecmp(gcomprisBoard->mode, "enumerate_tux")==0){
+					    if(g_ascii_strcasecmp(gcomprisBoard->mode, "enumerate_tux")==0){
 					      currentMode=MODE_TUX;
 					      currentUiMode=UIMODE_NORMAL;
 					      currentBoardMode=BOARDMODE_ENUMERATE;
 					    } else {
-				              if(g_strcasecmp(gcomprisBoard->mode, "wordnumber")==0){
+				              if(g_ascii_strcasecmp(gcomprisBoard->mode, "wordnumber")==0){
 						currentMode=MODE_NORMAL;
 						currentUiMode=UIMODE_NORMAL;
 						currentBoardMode=BOARDMODE_WORDNUMBER;
 					      } else {
-						if(g_strcasecmp(gcomprisBoard->mode, "wordnumber_tux")==0){
+						if(g_ascii_strcasecmp(gcomprisBoard->mode, "wordnumber_tux")==0){
 					          currentMode=MODE_TUX;
 						  currentUiMode=UIMODE_NORMAL;
 						  currentBoardMode=BOARDMODE_WORDNUMBER;
@@ -1021,7 +1021,7 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 {
   if (gcomprisBoard)
     {
-      if(g_strcasecmp(gcomprisBoard->type, "memory")==0)
+      if(g_ascii_strcasecmp(gcomprisBoard->type, "memory")==0)
 	{
 	  /* Set the plugin entry */
 	  gcomprisBoard->plugin=&menu_bp;

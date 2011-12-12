@@ -214,7 +214,7 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 {
   if (gcomprisBoard)
     {
-      if(g_strcasecmp(gcomprisBoard->type, "imageid")==0)
+      if(g_ascii_strcasecmp(gcomprisBoard->type, "imageid")==0)
 	{
 	  /* Set the plugin entry */
 	  gcomprisBoard->plugin=&menu_bp;
@@ -573,7 +573,7 @@ parse_doc(xmlDocPtr doc)
   xmlNodePtr node;
 
   for(node = doc->children->children; node != NULL; node = node->next) {
-    if ( g_strcasecmp((gchar *)node->name, "Board") == 0 )
+    if ( g_ascii_strcasecmp((gchar *)node->name, "Board") == 0 )
       add_xml_data(doc, node, NULL);
   }
 
@@ -601,7 +601,7 @@ read_xml_file(char *fname)
      /* if it doesn't have a name */
      !doc->children->name ||
      /* if it isn't a ImageId node */
-     g_strcasecmp((char *)doc->children->name,"ImageId")!=0) {
+     g_ascii_strcasecmp((char *)doc->children->name,"ImageId")!=0) {
     xmlFreeDoc(doc);
     return FALSE;
   }

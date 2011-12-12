@@ -777,7 +777,7 @@ read_xml_file(gchar *fname)
      /* if it doesn't have a name */
      !doc->children->name ||
      /* if it isn't the good node */
-     g_strcasecmp((gchar *)doc->children->name, "ImageSetRoot")!=0) {
+     g_ascii_strcasecmp((gchar *)doc->children->name, "ImageSetRoot")!=0) {
     xmlFreeDoc(doc);
     return FALSE;
   }
@@ -842,7 +842,7 @@ read_dataset_directory(gchar *dataset_dir)
        /* if it doesn't have a name */
        !doc->children->name ||
        /* if it isn't the good node */
-       g_strcasecmp((gchar *)doc->children->name, "ImageSetRoot")!=0) {
+       g_ascii_strcasecmp((gchar *)doc->children->name, "ImageSetRoot")!=0) {
       xmlFreeDoc(doc);
       g_free(absolute_fname);
       continue;

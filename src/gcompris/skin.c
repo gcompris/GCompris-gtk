@@ -343,7 +343,7 @@ skin_xml_load (gchar* skin)
      /* if it doesn't have a name */
      !xmldoc->children->name ||
      /* if it isn't a GCompris node */
-     g_strcasecmp((gchar *)xmldoc->children->name, "GCompris")!=0) {
+     g_ascii_strcasecmp((gchar *)xmldoc->children->name, "GCompris")!=0) {
     xmlFreeDoc(xmldoc);
     g_warning("Skin file is not properly formatted (no GCompris node) '%s' !",
 	      skin);
@@ -355,7 +355,7 @@ skin_xml_load (gchar* skin)
     skinNode = skinNode->next;
 
   if((skinNode==NULL)||
-     g_strcasecmp((gchar *)skinNode->name, "Skin")!=0) {
+     g_ascii_strcasecmp((gchar *)skinNode->name, "Skin")!=0) {
     g_warning("In skin file '%s' there are no Skin node %s", skin,
 	      xmldoc->children->children->name);
     xmlFreeDoc(xmldoc);
@@ -365,7 +365,7 @@ skin_xml_load (gchar* skin)
   node = skinNode->children;
   while(node !=NULL)
     {
-      if(g_strcasecmp((gchar *)node->name, "color")==0){
+      if(g_ascii_strcasecmp((gchar *)node->name, "color")==0){
 	key = (gchar *)xmlGetProp(node,  BAD_CAST "id");
 	data =(gchar *) xmlGetProp(node,  BAD_CAST "rgba");
 	if((key!=NULL)&&(data!=NULL)){
@@ -377,7 +377,7 @@ skin_xml_load (gchar* skin)
 	}
 	if(data!=NULL) g_free(data);
       }
-      else if(g_strcasecmp((gchar *)node->name, "font")==0){
+      else if(g_ascii_strcasecmp((gchar *)node->name, "font")==0){
 	key = (gchar *)xmlGetProp(node,  BAD_CAST "id");
 	data = (gchar *)xmlGetProp(node,  BAD_CAST "name");
 	if((key!=NULL)&&(data!=NULL)){
@@ -387,7 +387,7 @@ skin_xml_load (gchar* skin)
 	  if(data!=NULL) g_free(data);
 	}
       }
-      else if(g_strcasecmp((gchar *)node->name, "number")==0){
+      else if(g_ascii_strcasecmp((gchar *)node->name, "number")==0){
 	key = (gchar *)xmlGetProp(node, BAD_CAST "id");
 	data = (gchar *)xmlGetProp(node, BAD_CAST "value");
 	if((key!=NULL)&&(data!=NULL)){

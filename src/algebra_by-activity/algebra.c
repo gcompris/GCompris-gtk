@@ -207,22 +207,22 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	  currentOperation[0]=PLUSSIGNFILE;
 	  currentOperationText = op_add;
 	}
-      else if(g_strncasecmp(gcomprisBoard->mode, "+", 1)==0)
+      else if(g_ascii_strncasecmp(gcomprisBoard->mode, "+", 1)==0)
 	{
 	  currentOperation[0]=PLUSSIGNFILE;
 	  currentOperationText = op_add;
 	}
-      else if(g_strncasecmp(gcomprisBoard->mode, "-", 1)==0)
+      else if(g_ascii_strncasecmp(gcomprisBoard->mode, "-", 1)==0)
 	{
 	  currentOperation[0]=MINUSSIGNFILE;
 	  currentOperationText = op_minus;
 	}
-      else if(g_strncasecmp(gcomprisBoard->mode, "*", 1)==0)
+      else if(g_ascii_strncasecmp(gcomprisBoard->mode, "*", 1)==0)
 	{
 	  currentOperation[0]=BYSIGNFILE;
 	  currentOperationText = op_mult;
 	}
-      else if(g_strncasecmp(gcomprisBoard->mode, "/", 1)==0)
+      else if(g_ascii_strncasecmp(gcomprisBoard->mode, "/", 1)==0)
 	{
 	  currentOperation[0]=DIVIDESIGNFILE;
 	  currentOperationText = op_div;
@@ -368,7 +368,7 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 {
   if (gcomprisBoard)
     {
-      if(g_strcasecmp(gcomprisBoard->type, "algebra")==0)
+      if(g_ascii_strcasecmp(gcomprisBoard->type, "algebra")==0)
 	{
 	  /* Set the plugin entry */
 	  gcomprisBoard->plugin=&menu_bp;

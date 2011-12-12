@@ -278,7 +278,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
 
       if(gcomprisBoard->mode!=NULL)
-	if(g_strncasecmp(gcomprisBoard->mode, "background=", 11)==0)
+	if(g_ascii_strncasecmp(gcomprisBoard->mode, "background=", 11)==0)
 	  {
 	    gchar *tmp = NULL;
 
@@ -355,7 +355,7 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 {
   if (gcomprisBoard)
     {
-      if(g_strcasecmp(gcomprisBoard->type, "shapegame")==0)
+      if(g_ascii_strcasecmp(gcomprisBoard->type, "shapegame")==0)
 	{
 	  gcomprisBoard->plugin = &menu_bp;
 
@@ -1628,13 +1628,13 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, GList **
   if(/* if the node has no name */
      !xmlnode->name ||
      /* or if the name is not "Shape" */
-     ((g_strcasecmp((const char *)xmlnode->name,"Shape")!=0) &&
+     ((g_ascii_strcasecmp((const char *)xmlnode->name,"Shape")!=0) &&
       /* or if the name is not "Title" */
-      (g_strcasecmp((const char *)xmlnode->name,"Title")!=0) &&
+      (g_ascii_strcasecmp((const char *)xmlnode->name,"Title")!=0) &&
       /* or if the name is not "Title" */
-      (g_strcasecmp((const char *)xmlnode->name,"Info")!=0) &&
+      (g_ascii_strcasecmp((const char *)xmlnode->name,"Info")!=0) &&
       /* or if the name is not "Option" */
-      (g_strcasecmp((const char *)xmlnode->name,"Option")!=0) )
+      (g_ascii_strcasecmp((const char *)xmlnode->name,"Option")!=0) )
      )
     return;
 
@@ -1673,11 +1673,11 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, GList **
   /* get the TYPE of the shape */
   ctype = (char *)xmlGetProp(xmlnode, BAD_CAST "type");
   if(ctype) {
-    if(g_strcasecmp(ctype,"SHAPE_TARGET")==0)
+    if(g_ascii_strcasecmp(ctype,"SHAPE_TARGET")==0)
       type = SHAPE_TARGET;
-    else if(g_strcasecmp(ctype,"SHAPE_DUMMY_TARGET")==0)
+    else if(g_ascii_strcasecmp(ctype,"SHAPE_DUMMY_TARGET")==0)
       type = SHAPE_DUMMY_TARGET;
-    else if (g_strcasecmp(ctype,"SHAPE_BACKGROUND")==0)
+    else if (g_ascii_strcasecmp(ctype,"SHAPE_BACKGROUND")==0)
       type = SHAPE_BACKGROUND;
     xmlFree(ctype);
   }
@@ -1748,7 +1748,7 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, GList **
   if(!name)
     name = (char *)xmlGetProp(xmlnode, BAD_CAST "name");
 
-  if(g_strcasecmp((char *)xmlnode->name, "Shape")==0)
+  if(g_ascii_strcasecmp((char *)xmlnode->name, "Shape")==0)
     {
       /* add the shape to the database */
       /* WARNING : I do not initialize the width and height since I don't need them */
@@ -1761,7 +1761,7 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, GList **
       /* add the shape to the list */
       *list = g_list_append(*list, shape);
     }
-  else if (g_strcasecmp((char *)xmlnode->name, "Title")==0)
+  else if (g_ascii_strcasecmp((char *)xmlnode->name, "Title")==0)
     {
       /* Read \n is needed */
       gchar *newname;
@@ -1775,7 +1775,7 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, GList **
 	g_free(newname);
       }
     }
-  else if (g_strcasecmp((char *)xmlnode->name, "Info")==0)
+  else if (g_ascii_strcasecmp((char *)xmlnode->name, "Info")==0)
     {
       /* Read \n is needed */
       gchar *newname;
@@ -1876,7 +1876,7 @@ read_xml_file(char *fname)
      /* if it doesn't have a name */
      !doc->children->name ||
      /* if it isn't a ShapeGame node */
-     g_strcasecmp((char *)doc->children->name, "ShapeGame")!=0) {
+     g_ascii_strcasecmp((char *)doc->children->name, "ShapeGame")!=0) {
     xmlFreeDoc(doc);
     return FALSE;
   }

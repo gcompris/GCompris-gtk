@@ -278,11 +278,11 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       /* Default mode */
       if(!gcomprisBoard->mode)
 	gameType=COMPUTER;
-      else if(g_strncasecmp(gcomprisBoard->mode, "computer", 1)==0)
+      else if(g_ascii_strncasecmp(gcomprisBoard->mode, "computer", 1)==0)
 	gameType=COMPUTER;
-      else if(g_strncasecmp(gcomprisBoard->mode, "partyend", 1)==0)
+      else if(g_ascii_strncasecmp(gcomprisBoard->mode, "partyend", 1)==0)
 	gameType=PARTYEND;
-      else if(g_strncasecmp(gcomprisBoard->mode, "movelearn", 1)==0)
+      else if(g_ascii_strncasecmp(gcomprisBoard->mode, "movelearn", 1)==0)
 	gameType=MOVELEARN;
 
       gcomprisBoard->level=1;
@@ -371,7 +371,7 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 {
   if (gcomprisBoard)
     {
-      if(g_strcasecmp(gcomprisBoard->type, "chess")==0)
+      if(g_ascii_strcasecmp(gcomprisBoard->type, "chess")==0)
 	{
 	  /* Set the plugin entry */
 	  gcomprisBoard->plugin=&menu_bp;
@@ -1067,10 +1067,10 @@ engine_local_destroy (GPid gnuchess_pid)
   g_source_remove(read_cb);
   g_source_remove(err_cb);
 
-  g_io_channel_close (read_chan);
+  g_io_channel_shutdown (read_chan, TRUE, NULL);
   g_io_channel_unref (read_chan);
 
-  g_io_channel_close (write_chan);
+  g_io_channel_shutdown (write_chan, TRUE, NULL);
   g_io_channel_unref (write_chan);
 
   g_spawn_close_pid(gnuchess_pid);

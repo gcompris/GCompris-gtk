@@ -103,7 +103,7 @@ GcomprisWordlist
      /* if it doesn't have a name */
      !xmldoc->children->name ||
      /* if it isn't a GCompris node */
-     g_strcasecmp((gchar *)xmldoc->children->name,(gchar *)"GCompris")!=0) {
+     g_ascii_strcasecmp((gchar *)xmldoc->children->name,(gchar *)"GCompris")!=0) {
     g_warning("No Gcompris node");
     xmlFreeDoc(xmldoc);
     g_free(filename);
@@ -116,7 +116,7 @@ GcomprisWordlist
     wlNode = wlNode->next;
 
   if((wlNode==NULL)||
-     g_strcasecmp((gchar *)wlNode->name,"Wordlist")!=0) {
+     g_ascii_strcasecmp((gchar *)wlNode->name,"Wordlist")!=0) {
     g_warning("No wordlist node %s", (wlNode == NULL) ? (gchar *)wlNode->name : "NULL node");
     xmlFreeDoc(xmldoc);
     g_free(filename);

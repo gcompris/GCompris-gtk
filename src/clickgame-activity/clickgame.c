@@ -404,7 +404,7 @@ clickgame_is_our_board (GcomprisBoard *board)
 {
   if (board)
     {
-      if(g_strcasecmp(board->type, "clickgame")==0)
+      if(g_ascii_strcasecmp(board->type, "clickgame")==0)
 	{
 	  /* Set the plugin entry */
 	  board->plugin=&menu_bp;

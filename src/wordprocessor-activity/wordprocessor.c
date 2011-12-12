@@ -283,7 +283,7 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 {
   if (gcomprisBoard)
     {
-      if(g_strcasecmp(gcomprisBoard->type, "wordprocessor")==0)
+      if(g_ascii_strcasecmp(gcomprisBoard->type, "wordprocessor")==0)
 	{
 	  /* Set the plugin entry */
 	  gcomprisBoard->plugin=&menu_bp;
@@ -1024,7 +1024,7 @@ load_buffer(gchar *file, gchar *file_type, void *unused)
   node = xmlDocGetRootElement(doc);
 
   for(node = node; node != NULL; node = node->next)
-    if ( g_strcasecmp((char *)node->name, "html") == 0 &&
+    if ( g_ascii_strcasecmp((char *)node->name, "html") == 0 &&
 	 node->children )
       break;
 
@@ -1033,20 +1033,20 @@ load_buffer(gchar *file, gchar *file_type, void *unused)
 
   for(node = node->children; node != NULL; node = node->next)
     {
-      if ( g_strcasecmp((char *)node->name, "head") == 0 &&
+      if ( g_ascii_strcasecmp((char *)node->name, "head") == 0 &&
 	   node->children )
 	{
 	  /* Search and apply the saved style in the META */
 	  xmlNodePtr snode;
 	  for(snode = node->children; snode != NULL; snode = snode->next)
 	    {
-	      if ( ( g_strcasecmp((char *)snode->name, "meta") == 0 ) &&
+	      if ( ( g_ascii_strcasecmp((char *)snode->name, "meta") == 0 ) &&
 		   xmlHasProp(snode, BAD_CAST "http-equiv") )
 		{
 		  xmlChar *key = xmlGetProp(snode, BAD_CAST "http-equiv");
 		  xmlChar *content = xmlGetProp(snode, BAD_CAST "content");
 
-		  if(g_strcasecmp((char *)key, "GCompris-doctype") == 0)
+		  if(g_ascii_strcasecmp((char *)key, "GCompris-doctype") == 0)
 		    {
 		      int style_index = get_style_index(gettext((char *)content));
 		      apply_style(style_index);
@@ -1054,7 +1054,7 @@ load_buffer(gchar *file, gchar *file_type, void *unused)
 					       style_index);
 		    }
 
-		  if(g_strcasecmp((char *)key, "GCompris-color-style") == 0)
+		  if(g_ascii_strcasecmp((char *)key, "GCompris-color-style") == 0)
 		    {
 		      int cstyle_index = get_color_style_index(gettext((char *)content));
 		      apply_color_style(cstyle_index);
@@ -1068,7 +1068,7 @@ load_buffer(gchar *file, gchar *file_type, void *unused)
 	    }
 	}
 
-      if ( g_strcasecmp((char *)node->name, "body") == 0 &&
+      if ( g_ascii_strcasecmp((char *)node->name, "body") == 0 &&
 	   node->children )
 	break;
     }
@@ -1090,10 +1090,10 @@ load_buffer(gchar *file, gchar *file_type, void *unused)
   for(node = node->children; node != NULL; node = node->next)
     {
 
-      if ( g_strcasecmp((char *)node->name, "h1") == 0 ||
-	   g_strcasecmp((char *)node->name, "h2") == 0 ||
-	   g_strcasecmp((char *)node->name, "h3") == 0 ||
-	   g_strcasecmp((char *)node->name, "p") == 0 )
+      if ( g_ascii_strcasecmp((char *)node->name, "h1") == 0 ||
+	   g_ascii_strcasecmp((char *)node->name, "h2") == 0 ||
+	   g_ascii_strcasecmp((char *)node->name, "h3") == 0 ||
+	   g_ascii_strcasecmp((char *)node->name, "p") == 0 )
 	{
 	  xmlChar *content;
 	  content = xmlNodeGetContent(node);

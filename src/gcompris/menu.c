@@ -60,7 +60,7 @@ _add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child,
   if(/* if the node has no name */
      !xmlnode->name ||
      /* or if the name is not "Board" */
-     (g_strcasecmp((char *)xmlnode->name,"Board")!=0)
+     (g_ascii_strcasecmp((char *)xmlnode->name,"Board")!=0)
      )
     return;
 
@@ -302,7 +302,7 @@ _read_xml_file(GcomprisBoard *gcomprisBoard,
      /* if it doesn't have a name */
      !doc->children->name ||
      /* if it isn't a GCompris node */
-     g_strcasecmp((char *)doc->children->name,"GCompris")!=0) {
+     g_ascii_strcasecmp((char *)doc->children->name,"GCompris")!=0) {
     xmlFreeDoc(doc);
     g_free(gcomprisBoard);
     g_warning("Oops, the file %s is not for gcompris", filename);
@@ -649,7 +649,7 @@ void gc_menu_load()
       /* use GTimeVal for portability */
       GDate *today = g_date_new();
 
-#if  (GLIB_MAJOR_VERSION > 2) && (GLIB_MINOR_VERSION > 10)
+#if GLIB_CHECK_VERSION(2, 10, 0)
       GTimeVal now;
 
       g_get_current_time (&now);
