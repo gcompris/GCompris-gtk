@@ -26,8 +26,7 @@
 #define MAXWORDSLENGTH 50
 static GcomprisWordlist *gc_wordlist = NULL;
 
-GStaticRWLock items_lock = G_STATIC_RW_LOCK_INIT;
-GStaticRWLock items2del_lock = G_STATIC_RW_LOCK_INIT;
+GStaticMutex items_lock = G_STATIC_MUTEX_INIT;
 
 /*
   word - word to type
@@ -75,7 +74,7 @@ static GooCanvasItem	 *wordsgame_create_item(GooCanvasItem *parent);
 static gint		 wordsgame_drop_items (GtkWidget *widget, gpointer data);
 static gint		 wordsgame_move_items (GtkWidget *widget, gpointer data);
 static void		 wordsgame_destroy_item(LettersItem *item);
-static gboolean		 wordsgame_destroy_items(GPtrArray *items);
+static gboolean		 wordsgame_delete_items(gpointer user_data);
 static void		 wordsgame_destroy_all_items(void);
 static void		 wordsgame_next_level(void);
 static void		 wordsgame_add_new_item(void);
@@ -233,7 +232,9 @@ end_board ()
     {
       pause_board(TRUE);
       gc_score_end();
+      g_static_mutex_lock (&items_lock);
       wordsgame_destroy_all_items();
+      g_static_mutex_unlock (&items_lock);
       if (preedit_text){
 	goo_canvas_item_remove(preedit_text);
 	preedit_text=NULL;
@@ -269,6 +270,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
   LettersItem *item;
   gchar *str;
   gunichar unichar_letter;
+  gint retval = TRUE;
 
   if(!gcomprisBoard)
     return FALSE;
@@ -318,12 +320,14 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 
   str = commit_str;
 
+  g_static_mutex_lock (&items_lock);
   for (i=0; i < g_utf8_strlen(commit_str,-1); i++){
     unichar_letter = g_utf8_get_char(str);
     str = g_utf8_next_char(str);
     if(!g_unichar_isalnum (unichar_letter)){
       player_loose();
-      return FALSE;
+      retval = FALSE;
+      break;
     }
 
     letter = g_new0(gchar,6);
@@ -346,15 +350,9 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 
     if(item_on_focus==NULL)
       {
-	g_static_rw_lock_reader_lock (&items_lock);
-	gint count=items->len;
-	g_static_rw_lock_reader_unlock (&items_lock);
-
-	for (i=0;i<count;i++)
+	for (i=0;i<items->len;i++)
 	  {
-	    g_static_rw_lock_reader_lock (&items_lock);
 	    item=g_ptr_array_index(items,i);
-	    g_static_rw_lock_reader_unlock (&items_lock);
 	    g_assert (item!=NULL);
 	    if (strcmp(item->letter,letter)==0)
 	      {
@@ -427,7 +425,9 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 
     g_free(letter);
   }
-  return TRUE;
+  g_static_mutex_unlock (&items_lock);
+
+  return retval;
 }
 
 static gboolean
@@ -452,8 +452,8 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 /*-------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------*/
 
-/* set initial values for the next level */
-static void wordsgame_next_level()
+/* Called with items_lock locked */
+static void wordsgame_next_level_unlocked()
 {
   gcomprisBoard->number_of_sublevel = 10 +
     ((gcomprisBoard->level-1) * 5);
@@ -487,7 +487,15 @@ static void wordsgame_next_level()
   pause_board(FALSE);
 }
 
+/* set initial values for the next level */
+static void wordsgame_next_level()
+{
+  g_static_mutex_lock (&items_lock);
+  wordsgame_next_level_unlocked();
+  g_static_mutex_unlock (&items_lock);
+}
 
+/* Called with items_lock locked */
 static void wordsgame_move_item(LettersItem *item)
 {
   GooCanvasBounds bounds;
@@ -503,15 +511,9 @@ static void wordsgame_move_item(LettersItem *item)
     if (item == item_on_focus)
       item_on_focus = NULL;
 
-    g_static_rw_lock_writer_lock (&items_lock);
     g_ptr_array_remove (items, item);
-    g_static_rw_lock_writer_unlock (&items_lock);
-
-    g_static_rw_lock_writer_lock (&items2del_lock);
     g_ptr_array_add (items2del, item);
-    g_static_rw_lock_writer_unlock (&items2del_lock);
-
-    g_timeout_add (100,(GSourceFunc) wordsgame_destroy_items, items2del);
+    g_timeout_add (100,(GSourceFunc) wordsgame_delete_items, NULL);
 
     player_loose();
   }
@@ -527,14 +529,13 @@ static gint wordsgame_move_items (GtkWidget *widget, gpointer data)
   gint i;
   LettersItem *item;
 
+  g_static_mutex_lock (&items_lock);
   for (i=items->len-1;i>=0;i--)
     {
-
-      g_static_rw_lock_reader_lock (&items_lock);
       item=g_ptr_array_index(items,i);
-      g_static_rw_lock_reader_unlock (&items_lock);
       wordsgame_move_item(item);
     }
+  g_static_mutex_unlock (&items_lock);
   dummy_id = g_timeout_add (gc_timing (speed, items->len),
           (GSourceFunc) wordsgame_move_items, NULL);
   return (FALSE);
@@ -554,55 +555,50 @@ static void wordsgame_destroy_item(LettersItem *item)
 }
 
 /* Destroy items that falls out of the canvas */
-static gboolean wordsgame_destroy_items(GPtrArray *item_list)
+static gboolean wordsgame_delete_items(gpointer user_data)
 {
   LettersItem *item;
 
-  g_assert(item_list!=NULL);
-
-
-
-  if  (item_list==items) {
-    g_static_rw_lock_writer_lock (&items_lock);
-    while (item_list->len>0)
+  g_static_mutex_lock (&items_lock);
+  /* items2del may be NULL, as we can get called after
+     wordsgame_destroy_all_items() has been called (since we get called
+     as a timeout handler). */
+  if (items2del!=NULL){
+    while (items2del->len>0)
       {
-	item = g_ptr_array_index(item_list,0);
-	g_ptr_array_remove_index_fast(item_list,0);
-	wordsgame_destroy_item(item);
+        item = g_ptr_array_index(items2del,0);
+        g_ptr_array_remove_index_fast(items2del,0);
+        wordsgame_destroy_item(item);
       }
-    g_static_rw_lock_writer_unlock (&items_lock);
   }
-
-  if  (item_list==items2del) {
-    g_static_rw_lock_writer_lock (&items2del_lock);
-    while (item_list->len>0)
-      {
-	item = g_ptr_array_index(item_list,0);
-	g_ptr_array_remove_index_fast(item_list,0);
-	wordsgame_destroy_item(item);
-      }
-    g_static_rw_lock_writer_unlock (&items2del_lock);
-  }
+  g_static_mutex_unlock (&items_lock);
 
   return (FALSE);
 }
 
-/* Destroy all the items */
+/* Destroy all the items, called with items_lock locked */
 static void wordsgame_destroy_all_items()
 {
+  LettersItem *item;
 
   if (items!=NULL){
-    if(items->len > 0) {
-      wordsgame_destroy_items(items);
-    }
+    while (items->len>0)
+      {
+        item = g_ptr_array_index(items,0);
+        g_ptr_array_remove_index_fast(items,0);
+        wordsgame_destroy_item(item);
+      }
     g_ptr_array_free (items, TRUE);
     items=NULL;
   }
 
   if (items2del!=NULL){
-    if(items2del->len > 0) {
-      wordsgame_destroy_items(items2del);
-    }
+    while (items2del->len>0)
+      {
+        item = g_ptr_array_index(items2del,0);
+        g_ptr_array_remove_index_fast(items2del,0);
+        wordsgame_destroy_item(item);
+      }
     g_ptr_array_free (items2del, TRUE);
     items2del=NULL;
   }
@@ -687,9 +683,9 @@ static GooCanvasItem *wordsgame_create_item(GooCanvasItem *parent)
    }
 
 
-  g_static_rw_lock_writer_lock (&items_lock);
+  g_static_mutex_lock (&items_lock);
   g_ptr_array_add(items, item);
-  g_static_rw_lock_writer_unlock (&items_lock);
+  g_static_mutex_unlock (&items_lock);
 
   return (item->rootitem);
 }
@@ -716,6 +712,7 @@ static gint wordsgame_drop_items (GtkWidget *widget, gpointer data)
   return (FALSE);
 }
 
+/* Called with items_lock locked */
 static void player_win(LettersItem *item)
 {
 
@@ -726,18 +723,11 @@ static void player_win(LettersItem *item)
   gcomprisBoard->sublevel++;
   gc_score_set(gcomprisBoard->sublevel);
 
-
-  g_static_rw_lock_writer_lock (&items_lock);
   g_ptr_array_remove(items,item);
-  g_static_rw_lock_writer_unlock (&items_lock);
-
-  g_static_rw_lock_writer_lock (&items2del_lock);
   g_ptr_array_add(items2del,item);
-  g_static_rw_lock_writer_unlock (&items2del_lock);
 
   g_object_set (item->rootitem, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
-  g_timeout_add (500,(GSourceFunc) wordsgame_destroy_items, items2del);
-
+  g_timeout_add (500,(GSourceFunc) wordsgame_delete_items, NULL);
 
   if(gcomprisBoard->sublevel > gcomprisBoard->number_of_sublevel)
     {
@@ -748,18 +738,14 @@ static void player_win(LettersItem *item)
       if(gcomprisBoard->level>gcomprisBoard->maxlevel)
 	gcomprisBoard->level = gcomprisBoard->maxlevel;
 
-      wordsgame_next_level();
+      wordsgame_next_level_unlocked();
       gc_sound_play_ogg ("sounds/bonus.wav", NULL);
     }
   else
     {
 
       /* Drop a new item now to speed up the game */
-      g_static_rw_lock_reader_lock (&items_lock);
-      gint count=items->len;
-      g_static_rw_lock_reader_unlock (&items_lock);
-
-      if(count==0)
+      if(items->len==0)
         {
 
 	  if ((fallSpeed-=INCREMENT_FALLSPEED) < MIN_FALLSPEED) fallSpeed+=INCREMENT_FALLSPEED;
