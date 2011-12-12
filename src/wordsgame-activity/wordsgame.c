@@ -26,7 +26,11 @@
 #define MAXWORDSLENGTH 50
 static GcomprisWordlist *gc_wordlist = NULL;
 
+#if GLIB_CHECK_VERSION(2, 31, 0)
+static GMutex items_lock; /* No init needed for static GMutexes */
+#else
 GStaticMutex items_lock = G_STATIC_MUTEX_INIT;
+#endif
 
 /*
   word - word to type
@@ -232,9 +236,17 @@ end_board ()
     {
       pause_board(TRUE);
       gc_score_end();
+#if GLIB_CHECK_VERSION(2, 31, 0)
+      g_mutex_lock (&items_lock);
+#else
       g_static_mutex_lock (&items_lock);
+#endif
       wordsgame_destroy_all_items();
+#if GLIB_CHECK_VERSION(2, 31, 0)
+      g_mutex_unlock (&items_lock);
+#else
       g_static_mutex_unlock (&items_lock);
+#endif
       if (preedit_text){
 	goo_canvas_item_remove(preedit_text);
 	preedit_text=NULL;
@@ -320,7 +332,11 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 
   str = commit_str;
 
+#if GLIB_CHECK_VERSION(2, 31, 0)
+  g_mutex_lock (&items_lock);
+#else
   g_static_mutex_lock (&items_lock);
+#endif
   for (i=0; i < g_utf8_strlen(commit_str,-1); i++){
     unichar_letter = g_utf8_get_char(str);
     str = g_utf8_next_char(str);
@@ -425,7 +441,11 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 
     g_free(letter);
   }
+#if GLIB_CHECK_VERSION(2, 31, 0)
+  g_mutex_unlock (&items_lock);
+#else
   g_static_mutex_unlock (&items_lock);
+#endif
 
   return retval;
 }
@@ -490,9 +510,17 @@ static void wordsgame_next_level_unlocked()
 /* set initial values for the next level */
 static void wordsgame_next_level()
 {
+#if GLIB_CHECK_VERSION(2, 31, 0)
+  g_mutex_lock (&items_lock);
+#else
   g_static_mutex_lock (&items_lock);
+#endif
   wordsgame_next_level_unlocked();
+#if GLIB_CHECK_VERSION(2, 31, 0)
+  g_mutex_unlock (&items_lock);
+#else
   g_static_mutex_unlock (&items_lock);
+#endif
 }
 
 /* Called with items_lock locked */
@@ -529,13 +557,21 @@ static gint wordsgame_move_items (GtkWidget *widget, gpointer data)
   gint i;
   LettersItem *item;
 
+#if GLIB_CHECK_VERSION(2, 31, 0)
+  g_mutex_lock (&items_lock);
+#else
   g_static_mutex_lock (&items_lock);
+#endif
   for (i=items->len-1;i>=0;i--)
     {
       item=g_ptr_array_index(items,i);
       wordsgame_move_item(item);
     }
+#if GLIB_CHECK_VERSION(2, 31, 0)
+  g_mutex_unlock (&items_lock);
+#else
   g_static_mutex_unlock (&items_lock);
+#endif
   dummy_id = g_timeout_add (gc_timing (speed, items->len),
           (GSourceFunc) wordsgame_move_items, NULL);
   return (FALSE);
@@ -559,7 +595,11 @@ static gboolean wordsgame_delete_items(gpointer user_data)
 {
   LettersItem *item;
 
+#if GLIB_CHECK_VERSION(2, 31, 0)
+  g_mutex_lock (&items_lock);
+#else
   g_static_mutex_lock (&items_lock);
+#endif
   /* items2del may be NULL, as we can get called after
      wordsgame_destroy_all_items() has been called (since we get called
      as a timeout handler). */
@@ -571,7 +611,11 @@ static gboolean wordsgame_delete_items(gpointer user_data)
         wordsgame_destroy_item(item);
       }
   }
+#if GLIB_CHECK_VERSION(2, 31, 0)
+  g_mutex_unlock (&items_lock);
+#else
   g_static_mutex_unlock (&items_lock);
+#endif
 
   return (FALSE);
 }
@@ -683,9 +727,17 @@ static GooCanvasItem *wordsgame_create_item(GooCanvasItem *parent)
    }
 
 
+#if GLIB_CHECK_VERSION(2, 31, 0)
+  g_mutex_lock (&items_lock);
+#else
   g_static_mutex_lock (&items_lock);
+#endif
   g_ptr_array_add(items, item);
+#if GLIB_CHECK_VERSION(2, 31, 0)
+  g_mutex_unlock (&items_lock);
+#else
   g_static_mutex_unlock (&items_lock);
+#endif
 
   return (item->rootitem);
 }
