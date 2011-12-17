@@ -1,6 +1,6 @@
 /* gcompris - about.c
  *
- * Copyright (C) 2000, 2010 Bruno Coudoin
+ * Copyright (C) 2000, 2011 Bruno Coudoin
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -194,7 +194,7 @@ void gc_about_start ()
 
   // Copyright
   item = goo_canvas_text_new (rootitem,
-			      "Copyright 2000-2010 Bruno Coudoin and Others",
+			      "Copyright 2000-2011 Bruno Coudoin and Others",
 			      (gdouble)  BOARDWIDTH/2,
 			      (gdouble)  y - 55,
 			      -1,
