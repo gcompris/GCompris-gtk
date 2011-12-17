@@ -27,7 +27,7 @@ import pango
 
 from gcompris import gcompris_gettext as _
 from langLib import *
-from findit import *
+from langFindit import *
 
 class MissingImage:
   """This is used to display a missing image"""

@@ -6,7 +6,8 @@ SUBDIRS = resources
 pythondir = $(PYTHON_PLUGIN_DIR)
 
 dist_python_DATA= 	lang.py \
-	langLib.py
+	langLib.py \
+	langFindit.py
 
 
 
