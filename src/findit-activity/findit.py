@@ -66,6 +66,10 @@ class Gcompris_findit:
       if not data:
         return
 
+      if self.gcomprisBoard.mode == "nobackgroundmusic":
+        # pause the bg music
+        gcompris.sound.pause()
+
       self.gcomprisBoard.level = 1
       self.gcomprisBoard.maxlevel = self.dataset.number_of_level()
       self.gcomprisBoard.sublevel = 1;
@@ -80,6 +84,9 @@ class Gcompris_findit:
     if self.rootitem:
       self.rootitem.remove()
       self.rootitem = None
+
+      if self.gcomprisBoard.mode == "nobackgroundmusic":
+        gcompris.sound.resume()
 
   def repeat(self):
     self.play_audio_question(self.datasetlevel.question_audio, self.object_target)
