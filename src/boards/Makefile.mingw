@@ -41,6 +41,7 @@ INCLUDE_PATHS +=	-I. \
 			-I$(GTK_TOP)/include/gtk-2.0 \
 			-I$(GLIB_TOP)/include/glib-2.0 \
 			-I$(GTK_TOP)/include/pango-1.0 \
+			-I$(GTK_TOP)/include/gdk-pixbuf-2.0 \
 			-I$(GLIB_TOP)/lib/glib-2.0/include \
 			-I$(GTK_TOP)/lib/gtk-2.0/include \
 			-I$(GTK_TOP)/include/atk-1.0 \
@@ -55,7 +56,7 @@ INCLUDE_PATHS +=	-I. \
 			-I$(PYTHON_TOP)/include/pycairo \
 			-I$(SQLITE_TOP) \
 			-I$(ICONV_TOP)/include \
-			-I$(RSVG_TOP)/include/librsvg-2
+			-I$(RSVG_TOP)/include/librsvg-2.0
 
 
 ##

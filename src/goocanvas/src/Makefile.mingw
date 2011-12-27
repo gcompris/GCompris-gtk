@@ -47,6 +47,7 @@ INCLUDE_PATHS +=	-I$(GTK_TOP)/include \
 			-I$(GLIB_TOP)/include/glib-2.0 \
 			-I$(GTK_TOP)/include/pango-1.0 \
 			-I$(GTK_TOP)/include/atk-1.0 \
+			-I$(GTK_TOP)/include/gdk-pixbuf-2.0 \
 			-I$(GLIB_TOP)/lib/glib-2.0/include \
 			-I$(GTK_TOP)/lib/gtk-2.0/include \
 			-I$(GTK_TOP)/include/freetype2 \
@@ -57,7 +58,7 @@ INCLUDE_PATHS +=	-I$(GTK_TOP)/include \
 			-I$(FONTCONFIG_TOP) \
 			-I$(FREETYPE_TOP)/include \
 			-I$(FREETYPE_TOP)/include/freetype2/ \
-			-I$(RSVG_TOP)/include/librsvg-2 \
+			-I$(RSVG_TOP)/include/librsvg-2.0 \
 			-I.
 
 

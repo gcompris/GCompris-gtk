@@ -43,6 +43,7 @@ INCLUDE_PATHS +=	-I$(INCLUDE_DIR) \
 			-I$(GLIB_TOP)/include/glib-2.0 \
 			-I$(GTK_TOP)/include/pango-1.0 \
 			-I$(GTK_TOP)/include/atk-1.0 \
+			-I$(GTK_TOP)/include/gdk-pixbuf-2.0 \
 			-I$(GLIB_TOP)/lib/glib-2.0/include \
 			-I$(GTK_TOP)/lib/gtk-2.0/include \
 			-I$(GTK_TOP)/include/freetype2 \
@@ -50,7 +51,7 @@ INCLUDE_PATHS +=	-I$(INCLUDE_DIR) \
 			-I$(SDLMIXER_TOP)/include \
 			-I$(LIBXML2_TOP)/include \
 			-I$(CAIRO_TOP)/include/cairo \
-			-I$(RSVG_TOP)/include/librsvg-2 \
+			-I$(RSVG_TOP)/include/librsvg-2.0 \
 			-I$(SQLITE_TOP) \
 			-I$(GCOMPRIS_TOP) \
 			-I$(GCOMPRIS_TOP)/src/boards \
@@ -182,7 +183,7 @@ EXE_LIBS =		../boards/libboards.a \
 			-lSDLmain -lSDL -lSDL_mixer \
 			-lpangoft2-1.0 \
 			-liconv \
-			-lpython26 \
+			-lpython27 \
 			-lsqlite3 \
 			-lcairo \
 			-lpangocairo-1.0 \

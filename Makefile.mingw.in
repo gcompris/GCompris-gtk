@@ -80,7 +80,7 @@ NEEDED_DLLS =		$(GNUCHESS_TOP)/bin/pthreadGC2.dll \
 			$(GTK_TOP)/bin/libpangoft2-1.0-0.dll \
 			$(GTK_TOP)/bin/libpangowin32-1.0-0.dll \
 			$(GTK_TOP)/bin/libgio-2.0-0.dll \
-			$(GTK_TOP)/bin/libpng12-0.dll \
+			$(GTK_TOP)/bin/libpng14-14.dll \
 			$(GTK_TOP)/bin/zlib1.dll \
 			$(ICONV_TOP)/bin/iconv.dll \
 			$(LIBXML2_TOP)/bin/libxml2.dll \
@@ -145,6 +145,7 @@ prepack: Makefile.mingw
 	cp -r $(GTK_TOP)/share/themes $(GCOMPRIS_INSTALL_DIR)/share
 	mkdir -p $(GCOMPRIS_INSTALL_DIR)/lib
 	cp -r $(GTK_TOP)/share/locale $(GCOMPRIS_INSTALL_DIR)/lib
+	cp -r $(GTK_TOP)/lib/gdk-pixbuf-2.0 $(GCOMPRIS_INSTALL_DIR)/lib
 	cp -r $(GTK_TOP)/lib/gtk-2.0 $(GCOMPRIS_INSTALL_DIR)/lib
 	cp $(LOCAL_PREFIX)/libxml2-2.7.6.win32/bin/libxml2.dll $(GCOMPRIS_INSTALL_DIR)/libxml2-2.dll
 	mkdir -p $(GCOMPRIS_INSTALL_DIR)/bin
@@ -153,10 +154,10 @@ prepack: Makefile.mingw
 python: Makefile.mingw
 	cp $(PYTHON_TOP)/DLLs/tcl85.dll $(GCOMPRIS_INSTALL_DIR)
 	cp $(PYTHON_TOP)/DLLs/tk85.dll $(GCOMPRIS_INSTALL_DIR)
-	cp $(PYTHON_TOP)/python26.dll $(GCOMPRIS_INSTALL_DIR)
+	cp $(PYTHON_TOP)/python27.dll $(GCOMPRIS_INSTALL_DIR)
 	cp tools/py2exe/gcompris.py $(GCOMPRIS_INSTALL_DIR)
 	cp tools/py2exe/setup.py $(GCOMPRIS_INSTALL_DIR)
-	cd $(GCOMPRIS_INSTALL_DIR);$(PYTHON_TOP)/python.exe setup.py py2exe;cp dist/library.zip python26.zip;cp dist/*.pyd .;rm -rf dist build;rm -f gcompris.py*;cd ..
+	cd $(GCOMPRIS_INSTALL_DIR);$(PYTHON_TOP)/python.exe setup.py py2exe;cp dist/library.zip python27.zip;cp dist/*.pyd .;rm -rf dist build;rm -f gcompris.py*;cd ..
 	rm -f $(GCOMPRIS_INSTALL_DIR)/tcl85.dll
 	rm -f $(GCOMPRIS_INSTALL_DIR)/tk85.dll
 

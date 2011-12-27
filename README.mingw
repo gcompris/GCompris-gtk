@@ -69,6 +69,14 @@ be provided and where.
   make -f Makefile.mingw install - include the generated code in the installer directory
 
 * Now on the windows system:
+  Preparation on Windows for python:
+  - Install Python on Windows
+  - Copy the pythonxx.dll from the c:\Windows\System32 in c:\Pythonxx
+  - Install py2exe-0.6.9.win32-pyx.x.exe
+  - Intall pycairo-1.8.10.win32-pyx.x.exe from http://ftp.gnome.org/pub/GNOME/binaries/win32
+  - Install pygobject
+  - Install pygtk
+
   make -f Makefile.mingw python - create an embedded python interpreter
 
 * the win32-install-dir contains anything needed to run and package GCompris.
