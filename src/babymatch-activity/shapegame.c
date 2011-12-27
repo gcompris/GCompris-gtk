@@ -1333,9 +1333,10 @@ item_event_ok(GooCanvasItem *item, GooCanvasItem *target,
 	  current_shapelistgroup_index = get_no_void_group(1);
 	  update_shapelist_item();
 	}
-      else if(!strcmp(data, "continue_click"))
+      else if(!strcmp(data, "continue_click")) {
 	show_errors();
 	gc_bonus_display(gamewon, GC_BONUS_FLOWER);
+      }
 
       root_item = g_list_nth_data(shape_list_group, current_shapelistgroup_index);
       g_object_set (root_item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
