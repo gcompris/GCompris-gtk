@@ -92,6 +92,9 @@ class Gcompris_findit:
     self.play_audio_question(self.datasetlevel.question_audio, self.object_target)
 
 
+  def key_press(self, keyval, commit_str, preedit_str):
+    pass
+
   def pause(self, pause):
     self.board_paused = pause
 
@@ -282,11 +285,11 @@ class Gcompris_findit:
   def ok_event(self, widget, target, event, dummy):
     if self.selected:
       if (self.selected.text == self.object_target.text):
-        print "WON " + self.selected.text
+        #print "WON " + self.selected.text
         self.gamewon = 1
         gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.FLOWER)
       else:
-        print "LOST: " +  self.selected.text + " != " + self.object_target.text
+        #print "LOST: " +  self.selected.text + " != " + self.object_target.text
         if not self.object_target in self.question_lost:
           self.question_lost.append( self.object_target )
         self.gamewon = 0
@@ -299,11 +302,6 @@ class Gcompris_findit:
     self.selected = object_source
     self.selected.select(True)
     self.play_audio_question(object_source.audio, object_source)
-
-    if (object_source.text == self.object_target.text):
-      print "WON " + object_source.text
-    else:
-      print "LOST: " + object_source.text + " != " + self.object_target.text
 
   def read_data(self):
     '''Load the activity data, return True if OK'''
@@ -341,7 +339,7 @@ class finditDataSet:
     for section in dataset.sections():
       if section == 'common': continue
       level = self._level(section)
-      print "processing level " + str(level)
+      #print "processing level " + str(level)
       if not level in self.levels:
         self.levels[level] = []
       self.levels[level].append( finditDataSetLevel(dataset, section) )
@@ -420,7 +418,7 @@ class finditDataSetLevel:
     except:
       self.question_text = None
 
-    print "     finditDataSetLevel " + self.question_text
+    #print "     finditDataSetLevel " + self.question_text
     try:
       self.question_audio = load_common_prop(dataset, section, "questionAudio", "")
     except:
@@ -437,15 +435,13 @@ class finditDataSetLevel:
 
     i = 1
     self.objects = []
-    while True:
+    while dataset.has_option(section, "object" + str(i) + "Image"):
       try:
         dataset.get(section, "object" + str(i) + "Image")
         self.objects.append(finditDataSetObject(dataset, section, i))
-      except Exception as inst:
-        print type(inst)     # the exception instance
-        print inst.args
-        print inst
-        break
+      except:
+        # Should not happens
+        pass
       i += 1
     # Shuffle the object
     self.sort_objects()
@@ -485,16 +481,14 @@ class finditDataSetObject:
     self.selection = None
     # Some random key to allow the sorting
     self.randint = 0
-    print "     finditDataSetObject " + self.text
 
   def init_randint(self):
     self.randint = random.randint(0, 100)
 
   def _load_prop(self, dataset, level, index, suffix):
-    try:
+    if dataset.has_option(level, "object" + str(index) + suffix):
       return dataset.get(level, "object" + str(index) + suffix)
-    except:
-      return None
+    return None
 
   def create_item(self, rootitem, board_name, x, y):
     filename = gcompris.DATA_DIR + '/' \
@@ -559,11 +553,11 @@ class finditDataSetObject:
 # Load the requested property_ first from the level section
 # then from the common section if not found.
 def load_common_prop(dataset, level, property_, default):
-  try:
+  if dataset.has_option(level, property_):
     return dataset.get(level, property_)
-  except:
-    try:
+
+  if dataset.has_option("common", property_):
       return dataset.get("common", property_)
-    except:
-      return default
+
+  return default
 
