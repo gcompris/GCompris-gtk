@@ -145,7 +145,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard=agcomprisBoard;
 
       gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
-			      "clockgame/clockgame-bg.svgz");
+			      "clockgame/clockgame-bg0.svgz");
 
       /* set initial values for this level adjusted to
 	 fit the watch background */
@@ -154,7 +154,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       clock_size = BOARDHEIGHT*0.3;
 
       gcomprisBoard->level=1;
-      gcomprisBoard->maxlevel=6;
+      gcomprisBoard->maxlevel=7;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=3; /* Go to next level after this number of 'play' */
       gc_score_start(SCORESTYLE_NOTE,
@@ -390,6 +390,17 @@ clockgame_create_item(GooCanvasItem *parent)
   gchar *mtext = NULL;
   gchar *font = NULL;
 
+  if(gcomprisBoard->level > 4)
+  {
+     gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
+                       "clockgame/clockgame-bg.svgz");
+  }
+  else
+  {
+     gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
+                       "clockgame/clockgame-bg0.svgz");
+  }
+
   boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
 					NULL);
 
@@ -430,7 +441,7 @@ clockgame_create_item(GooCanvasItem *parent)
 				      NULL);
 
       /* Display minute number */
-      if(gcomprisBoard->level<5)
+      if(gcomprisBoard->level<6)
 	{
 	  mtext = g_strdup_printf("%d", min);
 	  goo_canvas_text_new (boardRootItem,
@@ -446,7 +457,7 @@ clockgame_create_item(GooCanvasItem *parent)
 	}
 
       /* Display hour numbers */
-      if(gcomprisBoard->level<6)
+      if(gcomprisBoard->level<7)
 	if(min%5==0)
 	  {
 	    mtext = g_strdup_printf( "%d", min/5);
