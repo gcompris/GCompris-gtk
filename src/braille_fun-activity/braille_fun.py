@@ -149,6 +149,7 @@ class Gcompris_braille_fun:
            else :
            	letter = random.choice(string[random.randint(0,25)])
 
+           self.play_letter(letter)
            self.letter_array.append( letter.upper() )
 
            # Defining Object to BrailleChar Instance to produce braille_tile
@@ -203,6 +204,12 @@ class Gcompris_braille_fun:
       for index in range(self.gcomprisBoard.level):
           # Change the text color of alphabet correctly identified in the braille tile
           if (self.tile_array[index].get_letter() == self.letter_array[index]):
+
+              # The user just found this letter, let's play it to give a
+              # success feedback
+              if self.alphabet_array[index].get_property("fill_color_rgba") != self.text_color:
+                self.play_letter(self.letter_array[index])
+
               self.alphabet_array[index].set_property("fill_color_rgba",
                                                       self.text_color)
 
@@ -282,7 +289,6 @@ class Gcompris_braille_fun:
 
   def increment_level(self):
     self.reset_level()
-    gcompris.sound.play_ogg("sounds/bleep.wav")
     self.gcomprisBoard.sublevel += 1
     if(self.gcomprisBoard.sublevel>self.gcomprisBoard.number_of_sublevel):
         self.gcomprisBoard.sublevel=1
@@ -295,9 +301,14 @@ class Gcompris_braille_fun:
     if self.mapActive == True:
         self.root.props.visibility = goocanvas.ITEM_INVISIBLE
     self.reset_level()
-    gcompris.sound.play_ogg("sounds/receive.wav")
     self.gcomprisBoard.level = level
     self.gcomprisBoard.sublevel = 1
     gcompris.bar_set_level(self.gcomprisBoard)
     self.end()
     self.start()
+
+  def play_letter(self, letter):
+    # Play the letter
+    filename = 'voices/$LOCALE/alphabet/U%04X.ogg' % ord(letter.lower())
+    gcompris.sound.play_ogg(filename)
+
