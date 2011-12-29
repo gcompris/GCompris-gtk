@@ -89,7 +89,7 @@ class Gcompris_braille_alphabets:
     self.map_rootitem.remove()
 
   def ok(self):
-    print("learnbraille ok.")
+    pass
 
   def repeat(self):
       if(self.mapActive):
@@ -122,19 +122,16 @@ class Gcompris_braille_alphabets:
     if self.gamewon:
       self.increment_level()
 
-    print "pause " ,  self.gcomprisBoard.sublevel
     self.gamewon = False
     self.display_level(self.gcomprisBoard.level)
 
   def set_level(self,level):
-    gcompris.sound.play_ogg("sounds/receive.wav")
     self.gcomprisBoard.level = level
     self.gcomprisBoard.sublevel = 1
     gcompris.bar_set_level(self.gcomprisBoard)
     self.display_level(self.gcomprisBoard.level)
 
   def increment_level(self):
-    gcompris.sound.play_ogg("sounds/bleep.wav")
     self.gcomprisBoard.sublevel += 1
 
     if(self.gcomprisBoard.sublevel > self.gcomprisBoard.number_of_sublevel):
@@ -142,6 +139,20 @@ class Gcompris_braille_alphabets:
         self.gcomprisBoard.level += 1
         if(self.gcomprisBoard.level > self.gcomprisBoard.maxlevel):
             self.gcomprisBoard.level = 1
+
+  def show_play_button(self):
+    # Create an audio button to let the user ear again the letter to find
+    self.play_item = goocanvas.Svg(parent = self.rootitem,
+                                   svg_handle = gcompris.skin.svg_get(),
+                                   svg_id = "#SOUND"
+                                   )
+    item = self.play_item
+    item.translate(item.get_bounds().x1 * -1
+                   + gcompris.BOARD_WIDTH - (item.get_bounds().x2 - item.get_bounds().x1) - 30,
+                   item.get_bounds().y1 * -1
+                   + 430)
+    item.connect("button_press_event", self.play_event)
+    gcompris.utils.item_focus_init(item, None)
 
 
   def display_level(self, level):
@@ -201,17 +212,18 @@ class Gcompris_braille_alphabets:
                         text = _("When you are ready, click on "
                         "me and try reproducing Braille characters."))
     elif(level == 2):
+        self.show_play_button()
         chars = ['A','B','C','D','E','F','G','H','I','J']
         self.gcomprisBoard.number_of_sublevel = len(chars)
         if self.gcomprisBoard.sublevel == 1:
           self.chars_shuffled = list(chars)
           random.shuffle( self.chars_shuffled )
-          print self.chars_shuffled
         self.board_tile( chars )
         self.random_letter = self.chars_shuffled[self.gcomprisBoard.sublevel - 1]
         self.braille_cell(level)
 
     elif(level == 3) :
+        self.show_play_button()
         chars = ['K','L','M','N','O','P','Q','R','S','T']
         self.gcomprisBoard.number_of_sublevel = len(chars)
         if self.gcomprisBoard.sublevel == 1:
@@ -222,6 +234,7 @@ class Gcompris_braille_alphabets:
         self.braille_cell(level)
 
     elif(level == 4):
+        self.show_play_button()
         chars = ['U','V','X','Y','Z','W']
         self.gcomprisBoard.number_of_sublevel = len(chars)
         if self.gcomprisBoard.sublevel == 1:
@@ -232,6 +245,7 @@ class Gcompris_braille_alphabets:
         self.braille_cell(level)
 
     elif(level == 5):
+        self.show_play_button()
         chars = [0,1,2,3,4,5,6,7,8,9]
         self.gcomprisBoard.number_of_sublevel = len(chars)
         if self.gcomprisBoard.sublevel == 1:
@@ -267,7 +281,17 @@ class Gcompris_braille_alphabets:
                                  anchor=gtk.ANCHOR_CENTER,
                                  text=str(letter))
 
+  def play_event(self, item, target, event):
+    self.play_letter(self.random_letter)
+
+  def play_letter(self, letter):
+      # Play the letter
+      filename = 'voices/$LOCALE/alphabet/U%04X.ogg' % ord(letter.lower())
+      gcompris.sound.play_ogg(filename)
+
   def braille_cell(self, level):
+      self.play_letter(self.random_letter)
+
       # Translators : Do not translate the token {letter}
       message = _("Click on the dots in braille cell area to produce the "
                   "letter {letter}.").format(letter = self.random_letter)
