@@ -945,7 +945,7 @@ item_event_drag(GooCanvasItem *item,
   double item_x, item_y;
   Shape *found_shape;
 
-  if(board_paused)
+  if(board_paused || shape == NULL)
     return FALSE;
 
   switch(event->type)
@@ -1131,7 +1131,8 @@ item_event(GooCanvasItem *item, GooCanvasItem *target,
   if(!gcomprisBoard || board_paused)
     return FALSE;
 
-  g_assert(shape);
+  if (shape == NULL )
+    return FALSE;
 
   switch (event->type)
     {
