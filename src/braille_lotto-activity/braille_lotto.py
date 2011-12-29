@@ -25,6 +25,7 @@ import gcompris.skin
 import gcompris.bonus
 import gcompris.timer
 import gcompris.anim
+import gcompris.sound
 import goocanvas
 import random
 import pango
@@ -137,9 +138,9 @@ class Gcompris_braille_lotto:
                    x = 25,
                    y = 350,
                    width = 170,
-                   height = 90,
-                   radius_x = 17,
-                   radius_y = 17,
+                   height = 120,
+                   radius_x = 5,
+                   radius_y = 5,
                    stroke_color = "black",
                    fill_color = "#d38d5f" ,
                    line_width = 2)
@@ -149,9 +150,11 @@ class Gcompris_braille_lotto:
       parent = self.root,
       text= _("Check Number"),
       font = gcompris.skin.get_font("gcompris/board/medium"),
-      x = 110,
-      y = 380,
+      x = 100,
+      y = 384,
+      width = 140,
       anchor = gtk.ANCHOR_CENTER,
+      alignment = pango.ALIGN_CENTER,
       )
 
 
@@ -164,7 +167,7 @@ class Gcompris_braille_lotto:
                                      svg_id = "#FIG1",
                                      tooltip = _("Click me to get some hint")
                                      )
-    self.hint_left_button.translate(210, 330)
+    self.hint_left_button.translate(200, 330)
     self.hint_left_button.connect("button_press_event", self.clue_left)
     gcompris.utils.item_focus_init(self.hint_left_button, None)
 
@@ -189,9 +192,9 @@ class Gcompris_braille_lotto:
                     parent = self.root,
                     text = _("I don't have this number PLAYER {number}").format(number = str(index + 1)),
                     font = gcompris.skin.get_font("gcompris/board/medium"),
-                    x = index * 230 + 310,
+                    x = 290 if index == 0 else 540,
                     y = 395,
-                    width = 150,
+                    width = 140,
                     anchor=gtk.ANCHOR_CENTER,
                     )
         self.text_array.append(clue_text)
@@ -212,7 +215,7 @@ class Gcompris_braille_lotto:
                     text = _("Lotto Master"),
                     font = gcompris.skin.get_font("gcompris/board/medium"),
                     x = 410,
-                    y = 455,
+                    y = 460,
                     anchor=gtk.ANCHOR_CENTER,
                     )
 
@@ -221,9 +224,9 @@ class Gcompris_braille_lotto:
                    x = 610,
                    y = 350,
                    width = 170,
-                   height = 90,
-                   radius_x = 17,
-                   radius_y = 17,
+                   height = 120,
+                   radius_x = 5,
+                   radius_y = 5,
                    stroke_color = "black",
                    fill_color = "#d33e5f",
                    line_width = 2)
@@ -236,7 +239,7 @@ class Gcompris_braille_lotto:
                     text = _("Generate a number"),
                     font = gcompris.skin.get_font("gcompris/board/medium"),
                     x = 695,
-                    y = 390,
+                    y = 410,
                     width = 50,
                     anchor = gtk.ANCHOR_CENTER,
                     alignment = pango.ALIGN_CENTER,
@@ -348,13 +351,14 @@ class Gcompris_braille_lotto:
   def number_call(self):
       if(self.counter == 11):
           self.displayGameStatus( _("Game Over") )
-          self.timer_inc  = gobject.timeout_add(1000, self.game_over)
+          self.timer_inc  = gobject.timeout_add(5000, self.game_over)
       elif (self.counter < 11):
+        gcompris.sound.play_ogg("sounds/flip.wav")
         self.check_number = \
             goocanvas.Text(parent = self.root,
                            text = self.check_random[self.counter],
                            x=110,
-                           y=420,
+                           y=440,
                            font = gcompris.skin.get_font("gcompris/board/title bold"),
                            anchor=gtk.ANCHOR_CENTER,
                            )
@@ -427,6 +431,7 @@ class Gcompris_braille_lotto:
   def cross_number(self, item, event, target, index):
     if( self.check_random[self.counter] == self.ticket_array[index]):
         # This is a win
+        gcompris.sound.play_ogg("sounds/tuxok.wav")
         if(index in (0, 1, 2, 3, 4, 5)):
             self.score_player_a +=1
         else:
@@ -440,6 +445,7 @@ class Gcompris_braille_lotto:
                     )
     else :
       # This is a loss, indicate it with a cross mark
+      gcompris.sound.play_ogg("sounds/crash.wav")
       item = \
           goocanvas.Image(parent = self.root,
                           pixbuf = gcompris.utils.load_pixmap("braille_lotto/cross_button.png"),
@@ -457,7 +463,7 @@ class Gcompris_braille_lotto:
     if winner:
       self.displayGameStatus( \
         _("Congratulation player {player_id}, you won").format(player_id = str(winner) ) )
-      self.timer_inc  = gobject.timeout_add(1500, self.timer_loop)
+      self.timer_inc  = gobject.timeout_add(5000, self.timer_loop)
 
 
   def displayGameStatus(self, message):
@@ -489,10 +495,9 @@ class Gcompris_braille_lotto:
     # Remove the root item removes all the others inside it
     self.root.remove()
     self.map_rootitem.remove()
-    gcompris.end_board()
 
   def ok(self):
-    print("braille_lotto ok.")
+    pass
 
   def repeat(self):
       if(self.mapActive):
