@@ -54,6 +54,7 @@ class Gcompris_guessnumber:
     # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
     self.board_paused  = 0
     self.gamewon       = 0
+    self.stopped       = True
 
     # Manage the helico move
     self.move_stepnum = 0
@@ -91,11 +92,14 @@ class Gcompris_guessnumber:
     gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                             "guessnumber/cave.png")
 
+    self.stopped = False
+
     self.display_game()
 
 
   def end(self):
 
+    self.stopped = True
     # Remove the root item removes all the others inside it
     self.cleanup_game()
 
@@ -279,7 +283,7 @@ class Gcompris_guessnumber:
     self.widget.raise_(None)
 
     #self.widget.grab_focus()
-    #self.entry.grab_focus()
+    self.entry.grab_focus()
 
     return self.entry
 
@@ -322,6 +326,9 @@ class Gcompris_guessnumber:
 
 
   def move_step(self):
+
+    if self.stopped:
+      return
 
     if self.move_stepnum < self.num_moveticks-1:
       self.move_stepnum += 1
@@ -377,4 +384,6 @@ class Gcompris_guessnumber:
     self.movestep_timer = gobject.timeout_add(self.move_tick, self.move_step)
 
   def ok_event(self, widget, target, event, data):
+    if self.stopped:
+      return
     self.enter_callback(data)
