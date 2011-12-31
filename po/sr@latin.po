@@ -1,4 +1,3 @@
-# translation of gcompris.HEAD.po to
 # Serbian translation of gcompris
 # This file is distributed under the same license as the gcompris package.
 # Maintainer: Danilo Šegan <dsegan@gmx.net>
@@ -9,19 +8,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2011-08-15 23:10+0000\n"
-"PO-Revision-Date: 2011-07-26 20:12+0200\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompr"
+"is&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2011-11-11 23:30+0000\n"
+"PO-Revision-Date: 2011-12-31 03:20+0200\n"
 "Last-Translator: Miroslav Nikolić <miroslavnikolic@rocketmail.com>\n"
-"Language-Team: Serbian <gnom@prevod.org>\n"
+"Language-Team: Serbian <gnu@prevod.org>\n"
+"Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: Serbian (sr)\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Virtaal 0.7.0\n"
+"Plural-Forms: nplurals=4; plural=n==1? 3 : n%10==1 && n%100!=11 ? 0 :    "
+"n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Project-Style: gnome\n"
 
 #: ../boards/algebra_group.xml.in.h:1
@@ -40,6 +38,20 @@ msgstr "Idi na vežbe računanja"
 #: ../boards/algebramenu.xml.in.h:2
 msgid "Various calculation activities."
 msgstr "Razne vežbe računanja."
+
+#: ../boards/braille.xml.in.h:1
+#: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:1
+#| msgid "Discover the Computer"
+msgid "Discover the Braille system"
+msgstr "Otkrij Brajevu azbuku"
+
+#: ../boards/braille.xml.in.h:2
+msgid ""
+"The Braille system is a method that is widely used by blind people to read "
+"and write, and was the first digital form of writing."
+msgstr ""
+"Brajeva azbuka je način koji naširoko koriste slepi ljudi da čitaju i pišu, i "
+"bejaše prvi oblik digitalnog pisanja."
 
 #: ../boards/chess.xml.in.h:1
 #: ../src/chess_computer-activity/chess_computer.xml.in.h:3
@@ -146,22 +158,21 @@ msgstr "Idi na vežbe pamćenja"
 msgid "Various memory activities (images, letters, sounds)."
 msgstr "Raznovrsne vežbe pamćenja (slike, slova, zvuci)."
 
-#: ../boards/memory_op_group.xml.in.h:1
-msgid "Go to mathematics memory activities"
-msgstr "Idi na matematičke vežbe pamćenja"
-
-#: ../boards/memory_op_group.xml.in.h:2
-#: ../boards/memory_op_group_tux.xml.in.h:2
-msgid "Memory activities based on operations"
-msgstr "Vežbe pamćenja zasnovane na računskim operacijama"
-
 #: ../boards/memory_op_group_tux.xml.in.h:1
 msgid "Go to mathematics memory activities against Tux"
 msgstr "Idi na matematičke vežbe pamćenja protiv Pingoslava"
 
+#: ../boards/memory_op_group_tux.xml.in.h:2
+#: ../boards/memory_op_group.xml.in.h:2
+msgid "Memory activities based on operations"
+msgstr "Vežbe pamćenja zasnovane na računskim operacijama"
+
+#: ../boards/memory_op_group.xml.in.h:1
+msgid "Go to mathematics memory activities"
+msgstr "Idi na matematičke vežbe pamćenja"
+
 # bug: not very clear
 #: ../boards/menu.xml.in.h:1
-#, fuzzy
 #| msgid ""
 #| "A simple click on an icon brings you to an activity or a menu of "
 #| "activities.\n"
@@ -203,29 +214,32 @@ msgid ""
 "    ctrl-f Toggle full screen\n"
 "    ctrl-m Toggle mute for the background music"
 msgstr ""
-"Klik na ikonu vam prikazuje vežbu ili izbor vežbi.\n"
+"Klik na ikonicu vam prikazuje vežbu ili izbor vežbi.\n"
 "Pri dnu ekrana se nalazi upravljačka linija GKomprisa.\n"
-"Sledeće ikone su prikazane sa desna na levo.\n"
-"(obratite pažnju da se ove ikone prikazuju samo ako su dostupne u vežbi)\n"
+"Sledeće ikonice su prikazane sa desna na levo.\n"
+"(obratite pažnju da se ove ikonice prikazuju samo ako su dostupne u vežbi)\n"
 "    Kuća — Izlaz iz vežbe, povratak na izbor.\n"
 "    Palac — U redu. Potvrda vašeg odgovora.\n"
-"    Kockica — Prikazuje tekući nivo. Kliknite na nju da izaberete drugi "
-"nivo.\n"
+"    Kockica — Prikazuje tekući nivo. Kliknite na nju da izaberete drugi nivo.\n"
 "    Usne — Ponavlja pitanje.\n"
 "    Znak pitanja — Pomoć.\n"
 "    Alat — Izbor podešavanja.\n"
 "    Tuks u letu — O programu.\n"
-"    Noć — Izlaz iz GKomprisa\n"
+"    Noć — Izlaz iz GKomprisa (ctrl-x)\n"
 "Zvezde pokazuju odgovarajuće starosne grupe za svaku igru:\n"
 "    1, 2 ili 3 obične zvezde  — od 2 do 6 godina starosti\n"
-"    1, 2 ili 3 složene zvezde — 7 godina i više"
+"    1, 2 ili 3 složene zvezde — 7 godina i više\n"
+"Prečice:\n"
+"    ctrl-b — Prikazuje ili skriva upravljačku liniju\n"
+"    ctrl-f — Prebacuje prikaz preko celog ekrana\n"
+"    ctrl-m — Prebacuje čujnost muzike u pozadini"
 
 #: ../boards/menu.xml.in.h:20
 msgid "GCompris Main Menu"
 msgstr "Glavni izbornik Gkomprisa"
 
 # bug: "is an educational games" -> "is an educational game"/"is a set of educational games"
-#: ../boards/menu.xml.in.h:21 ../src/boards/menu2.c:866
+#: ../boards/menu.xml.in.h:21 ../src/boards/menu2.c:874
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -301,14 +315,6 @@ msgstr "Strategijske igre"
 msgid "Strategy games like chess, connect4, ..."
 msgstr "Strategijske igre poput šaha, poveži4, ..."
 
-#: ../gcompris-edit.desktop.in.h:1
-msgid "Administration for gcompris"
-msgstr "Administracija za gkompris"
-
-#: ../gcompris-edit.desktop.in.h:2
-msgid "GCompris Administration"
-msgstr "Administracija GKomprisa"
-
 #: ../gcompris.desktop.in.h:1
 msgid "Educational game for ages 2 to 10"
 msgstr "Obrazovna igra za starost od 2 do 10 godina"
@@ -320,6 +326,14 @@ msgstr "Obrazovni komplet GKompris"
 #: ../gcompris.desktop.in.h:3
 msgid "Multi-activity educational game"
 msgstr "Raznovrsne obrazovne igre"
+
+#: ../gcompris-edit.desktop.in.h:1
+msgid "Administration for gcompris"
+msgstr "Administracija za gkompris"
+
+#: ../gcompris-edit.desktop.in.h:2
+msgid "GCompris Administration"
+msgstr "Administracija GKomprisa"
 
 #: ../nsis_translations.desktop.in.h:1
 msgid ""
@@ -430,11 +444,9 @@ msgstr ""
 "<b>{config}</b> podešavanja\n"
 " za profil <b>{profile}</b>"
 
-#. self.main_vbox.pack_start (label, False, False, 8)
 #: ../src/administration-activity/admin/board_list.py:660
-#: ../src/colors-activity/colors.c:180
-#: ../src/pythontest-activity/pythontest.py:518
-#: ../src/smallnumbers-activity/smallnumbers.c:616
+#: ../src/pythontest-activity/pythontest.py:511
+#: ../src/smallnumbers-activity/smallnumbers.c:618
 msgid "Select sound locale"
 msgstr "Izaberite lokalne zvuke"
 
@@ -564,6 +576,64 @@ msgstr "Prvo morate da izaberete grupu sa spiska"
 msgid "Birth Date"
 msgstr "Datum rođenja"
 
+#: ../src/administration-activity/administration.xml.in.h:1
+msgid ""
+"- In the 'Boards' section you can change the list of activities. Just "
+"untoggle them in the treeview. You can change the language used for reading, "
+"for example, then the language used for saying the names of colors.\n"
+"- You can save multiple configurations, and switch between them easily. In "
+"the 'Profile' section add a profile, then in the 'Board' section select the "
+"profile in the combobox, then select the boards you want to be active. You "
+"can add multiple profiles, with different lists of boards, and different "
+"languages. You set the default profile in the 'Profile' section, by choosing "
+"the profile you want, then clicking on the 'Default' button. You can also "
+"choose a profile from the command line.\n"
+"- You can add users, classes and for each class, you can create groups of "
+"users. Note that you can import users from a comma-separated file. Assign "
+"one or more groups to a profile, after which those new logins will appear "
+"after restarting GCompris. Being able to identify individual children in "
+"GCompris means we can provide individual reports. It also recognizes the "
+"children as individuals; they can learn to type in and recognize their own "
+"usernames (login is configurable)."
+msgstr ""
+"— U odeljku „Table“ možete menjati listu aktivnosti. Samo ih izaberite u "
+"razgranatom prikazu. Možete izmeniti jezik koji se koristi za čitanje, na "
+"primer, zatim jezik koji se koristi za izgovaranje naziva boja.\n"
+"— Možete sačuvati više podešavanja i birati ih lako. U odeljku „Profil“ "
+"dodajte profil. Zatim u odeljku „Table“ izaberite profil u prozorčetu za "
+"izbor, i na kraju izaberite table koje želite da budu aktivne. Možete dodati "
+"više profila, sa različitim spiskovima tabli, i različitim jezicima. Osnovni "
+"profil određujete u odeljku „Profil“, birajući željeni profil, i klikom na "
+"dugme „Osnovno“. Takođe možete izabrati profil i iz komandne linije.\n"
+"— Možete dodati korisnike, razrede i za svaki razred možete napraviti grupu "
+"korisnika. Korisnike možete ubaciti i iz datoteke u kojoj su navedeni "
+"korisnici odvojeni zarezom. Dodelite jednu ili više grupa određenom profilu, "
+"nakon čega će se te nove prijave pojaviti nakon ponovnog pokretanja "
+"GKomprisa. Pošto u GKomprisu možete da vidite svako dete pojedinačno, to "
+"znači da možemte dobiti i pojedinačne izveštaje. Takođe prepoznaje decu kao "
+"pojedince; deca će moći da nauče da unesu i prepoznaju svoja korisnička "
+"imena (prijava je podesiva)."
+
+#: ../src/administration-activity/administration.xml.in.h:4
+msgid "GCompris Administration Menu"
+msgstr "Administrativni izbornik GKomprisa"
+
+#: ../src/administration-activity/administration.xml.in.h:5
+msgid ""
+"If you want to fine tune GCompris to your needs, you can use the "
+"administration module here. The ultimate goal is to provide child-specific "
+"reporting for parents and teacher who want to monitor the progress, "
+"strengths and needs of their children."
+msgstr ""
+"Ako želite fino da prilagodite GKompris vašim potrebama, možete koristiti "
+"ovaj administrativni modul. Krajnji cilj je da obezbedi izveštaje za svako "
+"dete pojedinačno i omogući roditeljima i učiteljima uvid u njihovo napredovanje, "
+"snagu i potrebe njihove dece."
+
+#: ../src/administration-activity/administration.xml.in.h:6
+msgid "Left-Click with the mouse to select an activity"
+msgstr "Levi klik mišem za izbor vežbe"
+
 #: ../src/administration-activity/admin/log_list.py:91
 msgid "Select a user:"
 msgstr "Izaberite korisnika:"
@@ -576,8 +646,7 @@ msgstr "Svi korisnici"
 #: ../src/administration-activity/admin/log_list.py:108
 #: ../src/administration-activity/admin/log_list.py:295
 #: ../src/administration-activity/admin/profile_list.py:117
-#: ../src/gcompris/board_config_combo.c:125
-#: ../src/gcompris/board_config_combo.c:398
+#: ../src/lang-activity/lang.py:159
 msgid "Default"
 msgstr "Osnovno"
 
@@ -599,6 +668,7 @@ msgid "Board"
 msgstr "Tabla"
 
 #: ../src/administration-activity/admin/log_list.py:246
+#: ../src/click_on_letter-activity/click_on_letter.c:1248
 #: ../src/redraw-activity/redraw.py:339
 msgid "Level"
 msgstr "Nivo"
@@ -745,64 +815,6 @@ msgid ""
 msgstr ""
 "Jedna ili više prijava nisu jedinstvene !\n"
 "Morate da ih izmenite: %s !"
-
-#: ../src/administration-activity/administration.xml.in.h:1
-msgid ""
-"- In the 'Boards' section you can change the list of activities. Just "
-"untoggle them in the treeview. You can change the language used for reading, "
-"for example, then the language used for saying the names of colors.\n"
-"- You can save multiple configurations, and switch between them easily. In "
-"the 'Profile' section add a profile, then in the 'Board' section select the "
-"profile in the combobox, then select the boards you want to be active. You "
-"can add multiple profiles, with different lists of boards, and different "
-"languages. You set the default profile in the 'Profile' section, by choosing "
-"the profile you want, then clicking on the 'Default' button. You can also "
-"choose a profile from the command line.\n"
-"- You can add users, classes and for each class, you can create groups of "
-"users. Note that you can import users from a comma-separated file. Assign "
-"one or more groups to a profile, after which those new logins will appear "
-"after restarting GCompris. Being able to identify individual children in "
-"GCompris means we can provide individual reports. It also recognizes the "
-"children as individuals; they can learn to type in and recognize their own "
-"usernames (login is configurable)."
-msgstr ""
-"— U odeljku „Table“ možete menjati listu aktivnosti. Samo ih izaberite u "
-"razgranatom prikazu. Možete izmeniti jezik koji se koristi za čitanje, na "
-"primer, zatim jezik koji se koristi za izgovaranje naziva boja.\n"
-"— Možete sačuvati više podešavanja i birati ih lako. U odeljku „Profil“ "
-"dodajte profil. Zatim u odeljku „Table“ izaberite profil u prozorčetu za "
-"izbor, i na kraju izaberite table koje želite da budu aktivne. Možete dodati "
-"više profila, sa različitim spiskovima tabli, i različitim jezicima. Osnovni "
-"profil određujete u odeljku „Profil“, birajući željeni profil, i klikom na "
-"dugme „Osnovno“. Takođe možete izabrati profil i iz komandne linije.\n"
-"— Možete dodati korisnike, razrede i za svaki razred možete napraviti grupu "
-"korisnika. Korisnike možete ubaciti i iz datoteke u kojoj su navedeni "
-"korisnici odvojeni zarezom. Dodelite jednu ili više grupa određenom profilu, "
-"nakon čega će se te nove prijave pojaviti nakon ponovnog pokretanja "
-"GKomprisa. Pošto u GKomprisu možete da vidite svako dete pojedinačno, to "
-"znači da možemte dobiti i pojedinačne izveštaje. Takođe prepoznaje decu kao "
-"pojedince; deca će moći da nauče da unesu i prepoznaju svoja korisnička "
-"imena (prijava je podesiva)."
-
-#: ../src/administration-activity/administration.xml.in.h:4
-msgid "GCompris Administration Menu"
-msgstr "Administrativni izbornik GKomprisa"
-
-#: ../src/administration-activity/administration.xml.in.h:5
-msgid ""
-"If you want to fine tune GCompris to your needs, you can use the "
-"administration module here. The ultimate goal is to provide child-specific "
-"reporting for parents and teacher who want to monitor the progress, "
-"strengths and needs of their children."
-msgstr ""
-"Ako želite fino da prilagodite GKompris vašim potrebama, možete koristiti "
-"ovaj administrativni modul. Krajnji cilj je da obezbedi izveštaje za svako "
-"dete pojedinačno i omogući roditeljima i učiteljima uvid u njihovo napredovanje, "
-"snagu i potrebe njihove dece."
-
-#: ../src/administration-activity/administration.xml.in.h:6
-msgid "Left-Click with the mouse to select an activity"
-msgstr "Levi klik mišem za izbor vežbe"
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:1
 msgid "Advanced colors"
@@ -1111,17 +1123,6 @@ msgstr "veronezna"
 msgid "wine"
 msgstr "vino"
 
-#. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
-#: ../src/algebra_by-activity/algebra.c:186
-#: ../src/memory-activity/memory.c:946
-msgid "+-×÷"
-msgstr "+-×÷"
-
-#: ../src/algebra_by-activity/algebra.c:411
-#: ../src/readingh-activity/reading.c:630
-msgid "I am Ready"
-msgstr "Spreman sam"
-
 #: ../src/algebra_by-activity/algebra_by.xml.in.h:1
 msgid ""
 "A multiplication of two numbers is displayed. At the right of the equals "
@@ -1152,6 +1153,17 @@ msgstr "Tablica množenja"
 #: ../src/algebra_by-activity/algebra_by.xml.in.h:5
 msgid "Practice the multiplication operation"
 msgstr "Vežbajte operaciju množenja"
+
+#. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
+#: ../src/algebra_by-activity/algebra.c:186
+#: ../src/memory-activity/memory.c:946
+msgid "+-×÷"
+msgstr "+-×÷"
+
+#: ../src/algebra_by-activity/algebra.c:411
+#: ../src/readingh-activity/reading.c:630
+msgid "I am Ready"
+msgstr "Spreman sam"
 
 #: ../src/algebra_guesscount-activity/algebra_guesscount.xml.in.h:1
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:1
@@ -1272,14 +1284,6 @@ msgstr "Pomerajte i klikajte mišem"
 #: ../src/algorithm-activity/algorithm.xml.in.h:5
 msgid "algorithm"
 msgstr "algoritam"
-
-#: ../src/anim-activity/Color.py:86
-msgid "Fill color..."
-msgstr "Ispuni boju..."
-
-#: ../src/anim-activity/Color.py:98
-msgid "Stroke color..."
-msgstr "Potegni boju..."
 
 #: ../src/anim-activity/anim.py:103
 msgid "Save..."
@@ -1403,6 +1407,14 @@ msgstr ""
 "crtanje. Takođe, možete da sačuvate i da ponovo učitate vaše animacije "
 "koristeći dugmiad „Disketa“ i „Fascikla“."
 
+#: ../src/anim-activity/Color.py:86
+msgid "Fill color..."
+msgstr "Ispuni boju..."
+
+#: ../src/anim-activity/Color.py:98
+msgid "Stroke color..."
+msgstr "Potegni boju..."
+
 #: ../src/awele-activity/awele.c:158
 #, c-format
 msgid ""
@@ -1487,21 +1499,30 @@ msgid "Play the Oware strategy game against Tux"
 msgstr "Igrajte strategijsku igru Ovar protiv Pingoslava"
 
 #: ../src/awele-activity/awele.xml.in.h:4
+#| msgid ""
+#| "The object of the game is to capture more seeds than one's opponent. "
+#| "Since the game has only 48 seeds, capturing 25 is sufficient to "
+#| "accomplish this. Since there are an even number of seeds, it is possible "
+#| "for the game to end in a draw, where each player has captured 24. The "
+#| "game is over when one player has captured 25 or more stones, or both "
+#| "players have taken 24 stones each (draw). If both players agree that the "
+#| "game has been reduced to an endless cycle, each player captures the "
+#| "stones on their side of the board."
 msgid ""
 "The object of the game is to capture more seeds than one's opponent. Since "
 "the game has only 48 seeds, capturing 25 is sufficient to accomplish this. "
 "Since there are an even number of seeds, it is possible for the game to end "
 "in a draw, where each player has captured 24. The game is over when one "
-"player has captured 25 or more stones, or both players have taken 24 stones "
+"player has captured 25 or more seeds, or both players have taken 24 seeds "
 "each (draw). If both players agree that the game has been reduced to an "
-"endless cycle, each player captures the stones on their side of the board."
+"endless cycle, each player captures the seeds on their side of the board."
 msgstr ""
 "Cilj igre je osvojiti više zrna nego protivnik. Pošto u igri ima samo 48 "
 "zrna, osvajanje 25 zrna je sasvim dovoljno. Pošto ima paran broj zrna, igru je "
 "moguće završiti i nerešeno, kada svaki igrač osvoji po 24 zrna. Igra se "
-"završava kada jedan igrač osvoji 25 ili više kamenčića ili kada oba igrača "
-"osvoje po 24 (nerešeno). Ako se oba igrača slože da je igra ušla u "
-"beskonačno ponavljanje, svaki igrač osvaja kamenčiće sa svoje strane table."
+"završava kada jedan igrač osvoji 25 ili više zrna ili kada oba igrača osvoje "
+"po 24 (nerešeno). Ako se oba igrača slože da je igra ušla u beskonačno "
+"ponavljanje, svaki igrač osvaja zrna sa svoje strane table."
 
 #: ../src/babymatch-activity/babymatch.xml.in.h:1
 #: ../src/babymatch-activity/resources/babymatch/board1_0.xml.in.h:1
@@ -1542,9 +1563,8 @@ msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr ""
 "Upravljanje mišem: kretanje, prevlačenje i puštanje. Kulturološke reference."
 
-#: ../src/babymatch-activity/shapegame.c:1906
-#: ../src/click_on_letter-activity/click_on_letter.c:672
-#: ../src/colors-activity/colors.c:168
+#: ../src/babymatch-activity/shapegame.c:1985
+#: ../src/click_on_letter-activity/click_on_letter.c:1316
 #, c-format
 msgid ""
 "<b>%1$s</b> configuration\n"
@@ -1669,8 +1689,8 @@ msgstr "Šutnite loptu u gol"
 #: ../src/clickgame-activity/clickgame.xml.in.h:5
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:5
 #: ../src/connect4-activity/connect4.xml.in.h:6
-#: ../src/erase-activity/erase.xml.in.h:3
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:6
+#: ../src/erase-activity/erase.xml.in.h:3
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:6
 #: ../src/fifteen-activity/fifteen.xml.in.h:2
 #: ../src/hanoi-activity/hanoi.xml.in.h:3
@@ -1692,15 +1712,15 @@ msgstr ""
 msgid "The football game"
 msgstr "Fudbal"
 
-#: ../src/boards/menu2.c:135
+#: ../src/boards/menu2.c:137
 msgid "Main Menu Second Version"
 msgstr "Drugo izdanje glavnog izbornika"
 
-#: ../src/boards/menu2.c:136
+#: ../src/boards/menu2.c:138
 msgid "Select a Board"
 msgstr "Izaberite tablu"
 
-#: ../src/boards/menu2.c:266
+#: ../src/boards/menu2.c:268
 #, c-format
 msgid "Number of activities: %d"
 msgstr "Broj vežbi: %d"
@@ -1716,6 +1736,205 @@ msgstr "Posebna tabla koja ugrađuje Pitona u GKompris."
 #: ../src/boards/python.c:89
 msgid "Special board that embeds python into gcompris."
 msgstr "Posebna tabla koja ugrađuje Pitona u gkompris."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:165
+msgid "Braille : Unlocking the Code"
+msgstr "Braj : Otključavam kod"
+
+#. Braille Intro
+#: ../src/braille_alphabets-activity/braille_alphabets.py:167
+msgid ""
+"The Braille system is a method that is used by blind people to read and "
+"write."
+msgstr "Brajeva azbuka je način koji koriste slepi ljudi da čitaju i pišu."
+
+#. Braille Description
+#: ../src/braille_alphabets-activity/braille_alphabets.py:170
+msgid ""
+"Each Braille character, or cell, is made up of six dot positions, arranged "
+"in a rectangle containing two columns of three dots each. As seen on the "
+"left, each dot is referenced by a number from 1 to 6."
+msgstr ""
+"Svaki Brajev znak, ili ćelija, se sastoji od šest položaja tačaka, "
+"raspoređenih u pravougaoniku koji sadrži dve kolone sa tri tačke u svakoj. "
+"Kao što se vidi na levoj strani, svaka tačka je označena brojem od 1 do 6."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:189
+msgid "I am braille TUX"
+msgstr "Ja sam Brajević PINGOSLAV"
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:201
+msgid "When you are ready, click on me and try reproducing Braille characters."
+msgstr ""
+"Kada ste spremni, kliknite na mene i pokušajte da proizvedete Brajeve znake."
+
+#. Translators : Do not translate the token {letter}
+#: ../src/braille_alphabets-activity/braille_alphabets.py:272
+msgid "Click on the dots in braille cell area to produce the letter {letter}."
+msgstr "Kliknite na tačke unutar Brajeve ćelije da proizvedete slovo {letter}."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:277
+msgid ""
+"Look at the Braille character map and observe how similar the first and "
+"second line are."
+msgstr ""
+"Pogledajte mapu Brajevih znakova i primetite kako su slični prvi i drugi "
+"red."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:280
+msgid ""
+"Again, similar as the first line but take care, the 'W' letter was added "
+"afterwards."
+msgstr ""
+"I još jednom, slično je prvom redu ali vodite računa, slovo „W“ je dodato "
+"kasnije."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:283
+msgid "This is easy, numbers are the same as letters from A to J."
+msgstr "Ovo je lako, brojevi su isti kao i slova od A do J."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:302
+msgid "Braille Cell"
+msgstr "Brajeva ćelija"
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:324
+msgid "Click to confirm your selection of dots"
+msgstr "Kliknite da potvrdite vaš izbor tačaka"
+
+#: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:2
+msgid "Learn and memorize the Braille system."
+msgstr "Učite i zapamtite Brajevo pismo."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:3
+msgid "Let kids discover the Braille system."
+msgstr "Neka deca otkriju Brajevo pismo."
+
+#: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:4
+msgid ""
+"The screen has 3 sections: braille cell, alphabet name and lower board "
+"containing 13 letters. Click on each letter in the lower board to know its "
+"corresponding braille code in the braille cell section. Click on the "
+"increment level button to jump to the next 13 letters of the English "
+"alphabets."
+msgstr ""
+"Ekran ima 3 dela: Brajeva ćelija, naziv slova i nižu tabelu koja sadrži 13 "
+"slova. Kliknite na svako slovo u donjoj tabeli da saznate njegovu odgovarajuću "
+"Brajevu šifru u odeljku Brajeve ćelije. Kliknite na dugme za uvećanje nivoa "
+"da se prebacite na narednih 13 slova engleskog alfabeta."
+
+#: ../src/braille_alphabets-activity/BrailleMap.py:96
+#| msgid "Go to Maze activities"
+msgid "Back to the activity"
+msgstr "Vratite se na vežbu"
+
+#: ../src/braille_fun-activity/braille_fun.xml.in.h:1
+msgid "Braille Alphabet Codes"
+msgstr "Brajeva azbuka"
+
+#: ../src/braille_fun-activity/braille_fun.xml.in.h:2
+#| msgid "Brain"
+msgid "Braille Fun"
+msgstr "Brajeva zabava"
+
+#: ../src/braille_fun-activity/braille_fun.xml.in.h:3
+msgid ""
+"Braille code the tile for the corresponding falling letters. Check the "
+"braille chart by clicking on the toggle button for help."
+msgstr ""
+"Pločica Brajevog koda za odgovarajuća padajuća slova. Proverite Brajev znak "
+"tako što ćete kliknuti na dugme prebacivanja za pomoć"
+
+#: ../src/braille_fun-activity/braille_fun.xml.in.h:4
+#| msgid "Fill in the missing letter"
+msgid "Braille the falling letters"
+msgstr "Brajirajte padajuća slova"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:119
+msgid "PLAYER 1"
+msgstr "IGRAČ 1"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:129
+msgid "PLAYER 2"
+msgstr "IGRAČ 2"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:150
+#| msgid "Number"
+msgid "Check Number"
+msgstr "Proveri broj"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:165
+#: ../src/braille_lotto-activity/braille_lotto.py:177
+msgid "Click me to get some hint"
+msgstr "Kliknite na me da dobijete neki savet"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:190
+msgid "I don't have this number PLAYER {number}"
+msgstr "Nemam ovaj broj „IGRAČ {number}“"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:212
+msgid "Lotto Master"
+msgstr "Gospodar lotoa"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:236
+#| msgid "Guess a number"
+msgid "Generate a number"
+msgstr "Proizvedite broj"
+
+#. Translators : Do not translate the token {column}
+#: ../src/braille_lotto-activity/braille_lotto.py:293
+#: ../src/braille_lotto-activity/braille_lotto.py:316
+msgid "Hey, you have it. It is there in your {column} column"
+msgstr "Hej, imate ga. Nalazi se u vašoj {column} koloni"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:295
+#: ../src/braille_lotto-activity/braille_lotto.py:318
+msgid "Oops, this number is not in your ticket!"
+msgstr "Ups, ovaj broj nije na vašem listiću!"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:332
+msgid "1st"
+msgstr "prvoj"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:335
+msgid "2nd"
+msgstr "drugoj"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:338
+#| msgid "red"
+msgid "3rd"
+msgstr "trećoj"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:340
+msgid "4th"
+msgstr "četvrtoj"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:350
+msgid "Game Over"
+msgstr "Kraj igre"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:459
+msgid "Congratulation player {player_id}, you won"
+msgstr "Svaka čast igraču {player_id}, pobediliste"
+
+#: ../src/braille_lotto-activity/braille_lotto.xml.in.h:1
+msgid "Braille Lotto"
+msgstr "Brajevo loto"
+
+#: ../src/braille_lotto-activity/braille_lotto.xml.in.h:2
+msgid "Discover the Braille system for numbers."
+msgstr "Otkrijte Brajevo pismo za brojeve."
+
+#: ../src/braille_lotto-activity/braille_lotto.xml.in.h:3
+msgid ""
+"Each player must find if the proposed number is in their board. If the code "
+"is in the board, just click on it in order to validate it. The player who "
+"crosses all the Braille numbers correctly wins the game. Check the Braille "
+"table by clicking on the toggle button in the control bar."
+msgstr ""
+"Svaki igrač mora da pronađe da li je predloženi broj na njihovoj tabli. Ako "
+"je kod na tabli, samo kliknite na njega da ga potvrdite. Igrač koji prođe "
+"ispravno sve Brajeve brojeve pobeđuje u igri. Proverite Brajevu tabelu "
+"klikom na dugme za prebacivanje na liniji za upravljanje."
 
 #: ../src/canal_lock-activity/canal_lock.xml.in.h:1
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:2
@@ -2090,79 +2309,6 @@ msgstr "1955 Citroen ds 19"
 msgid "Cars"
 msgstr "Kola"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:311
-#: ../src/memory-activity/memory.c:906
-msgid ""
-"Error: this activity cannot be played with the\n"
-"sound effects disabled.\n"
-"Go to the configuration dialog to\n"
-"enable the sound"
-msgstr ""
-"Greška: ova vežba se ne može igrati \n"
-"bez uključenih zvučnih efekata.\n"
-"Idite u prozor za podešavanja da\n"
-"uključite zvuk"
-
-#. TRANSLATORS: Put here the alphabet in your language
-#. require by all utf8-functions
-#. TRANSLATORS: Put here the alphabet lowercase in your language
-#: ../src/click_on_letter-activity/click_on_letter.c:316
-#: ../src/gletters-activity/gletters.c:229 ../src/memory-activity/memory.c:935
-msgid "abcdefghijklmnopqrstuvwxyz"
-msgstr "abvgdđežzijklljmnnjoprstćufhcčdžš"
-
-#: ../src/click_on_letter-activity/click_on_letter.c:344
-#, c-format
-msgid ""
-"Error: this activity requires that you first install\n"
-"the packages with GCompris voices for the locale '%s' or '%s'"
-msgstr ""
-"Greška: ova vežba zahteva da prvo instalirate paket\n"
-"glasova za GKompris za lokalitet „%s“ ili „%s“"
-
-#: ../src/click_on_letter-activity/click_on_letter.c:354
-#, c-format
-msgid ""
-"Error: this activity requires that you first install\n"
-"the packages with GCompris voices for the locale '%s' ! Fallback to english, "
-"sorry!"
-msgstr ""
-"Greška: ova vežba zahteva da instalirate paket sa glasovima\n"
-"za GKompris za lokalitet „%s“ ! Vraćam se na engleski, žao mi je!"
-
-#. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:695
-#: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:484
-#: ../src/missing_letter-activity/missingletter_config.c:492
-#: ../src/readingh-activity/reading.c:928
-#: ../src/wordsgame-activity/wordsgame.c:887
-msgid "Uppercase only text"
-msgstr "Tekst samo sa velikim slovima"
-
-#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:1
-msgid ""
-"A letter is spoken. Click on the matching letter in the main area. You can "
-"listen to the letter again, by clicking on the mouth icon in the bottom box."
-msgstr ""
-"Slovo je izgovoreno. Kliknite na odgovarajuće slovo na glavnoj površini. "
-"Izgovor možete ponovo čuti ako kliknete na sličicu usta pri dnu."
-
-#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:2
-msgid "Click on a letter"
-msgstr "Kliknite na slovo"
-
-#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:3
-msgid "Letter-name recognition"
-msgstr "Prepoznavanje slova"
-
-#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:4
-msgid "Listen to a letter and click on the right one"
-msgstr "Slušajte izgovor i kliknite na pravo slovo"
-
-#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:5
-msgid "Visual letter-recognition. Can move the mouse."
-msgstr "Vizuelno prepoznavanje slova. Ume da pomera miša."
-
 #: ../src/clickanddraw-activity/clickanddraw.xml.in.h:1
 msgid "Click and draw"
 msgstr "Kliknite i crtajte"
@@ -2208,6 +2354,133 @@ msgstr ""
 "Kliknite levim dugmetom miša na ribu u pokretu. Nakon petog nivoa, dvoklik "
 "je obavezan."
 
+#. require by all utf8-functions
+#. TRANSLATORS: Put here the alphabet lowercase in your language
+#: ../src/click_on_letter-activity/click_on_letter.c:367
+#: ../src/gletters-activity/gletters.c:229 ../src/memory-activity/memory.c:935
+msgid "abcdefghijklmnopqrstuvwxyz"
+msgstr "abvgdđežzijklljmnnjoprstćufhcčdžš"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:378
+msgid ""
+"This activity will be played with questions displayed as text instead of "
+"being spoken"
+msgstr ""
+"Ova vežba će se igrati sa pitanjima prikazanim u obliku teksta umesto njihovog "
+"izgovaranja"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:383
+#: ../src/memory-activity/memory.c:906
+msgid ""
+"Error: this activity cannot be played with the\n"
+"sound effects disabled.\n"
+"Go to the configuration dialog to\n"
+"enable the sound"
+msgstr ""
+"Greška: ova vežba se ne može igrati \n"
+"bez uključenih zvučnih efekata.\n"
+"Idite u prozor za podešavanja da\n"
+"uključite zvuk"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:404
+#, c-format
+#| msgid ""
+#| "Error: this activity requires that you first install\n"
+#| "the packages with GCompris voices for the locale '%s' or '%s'"
+msgid ""
+"Error: this activity requires that you first install\n"
+"the packages with GCompris voices for the %s locale."
+msgstr ""
+"Greška: ova vežba zahteva da prvo instalirate paket\n"
+"glasova za GKompris za lokalitet „%s“."
+
+#: ../src/click_on_letter-activity/click_on_letter.c:907
+#| msgid "Question cannot be empty."
+msgid "Questions cannot be empty."
+msgstr "Pitanja ne mogu biti prazna."
+
+#: ../src/click_on_letter-activity/click_on_letter.c:917
+#| msgid "Question cannot be empty."
+msgid "Answers cannot be empty."
+msgstr "Odgovori ne mogu biti prazni."
+
+#: ../src/click_on_letter-activity/click_on_letter.c:923
+#, c-format
+msgid "Too many characters in the Answer (maximum is %d)."
+msgstr "Previše znakova u odgovoru (najviše je %d)."
+
+#: ../src/click_on_letter-activity/click_on_letter.c:947
+msgid "All the characters in Questions must also be in the Answers."
+msgstr "Svi znakovi u pitanjima moraju biti i u odgovorima."
+
+#: ../src/click_on_letter-activity/click_on_letter.c:964
+#, c-format
+#| msgid ""
+#| "Invalid entry:\n"
+#| "Question '%s' / Answer '%s'\n"
+#| "%s"
+msgid ""
+"Invalid entry:\n"
+"At level %d, Questions '%s' / Answers '%s'\n"
+"%s"
+msgstr ""
+"Neispravan unos:\n"
+"Na nivou %d, Odgovori „%s“ / Pitanja „%s“\n"
+"%s"
+
+#. answer
+#: ../src/click_on_letter-activity/click_on_letter.c:1259
+#: ../src/missing_letter-activity/missingletter_config.c:420
+#: ../src/missing_letter-activity/missingletter_config.c:548
+msgid "Answer"
+msgstr "Odgovor"
+
+#. question
+#: ../src/click_on_letter-activity/click_on_letter.c:1270
+#: ../src/missing_letter-activity/missingletter_config.c:426
+#: ../src/missing_letter-activity/missingletter_config.c:571
+msgid "Question"
+msgstr "Pitanje"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:1406
+#: ../src/gcompris/board_config_wordlist.c:274
+msgid "Back to default"
+msgstr "Vrati na osnovno"
+
+#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:1
+#: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:1
+msgid ""
+"A letter is spoken. Click on the matching letter in the main area. You can "
+"listen to the letter again, by clicking on the mouth icon in the bottom box."
+msgstr ""
+"Slovo je izgovoreno. Kliknite na odgovarajuće slovo na glavnoj površini. "
+"Izgovor možete ponovo čuti ako kliknete na sličicu usta pri dnu."
+
+#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:2
+#| msgid "Click on a letter"
+msgid "Click on a lowercase letter"
+msgstr "Kliknite na malo slovo"
+
+#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:3
+#: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:3
+msgid "Letter-name recognition"
+msgstr "Prepoznavanje slova"
+
+#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:4
+#: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:4
+msgid "Listen to a letter and click on the right one"
+msgstr "Slušajte izgovor i kliknite na pravo slovo"
+
+#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:5
+#: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:5
+msgid "Visual letter-recognition. Can move the mouse."
+msgstr "Vizuelno prepoznavanje slova. Ume da pomera miša."
+
+#: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:2
+#| msgid "Click on a letter"
+msgid "Click on an uppercase letter"
+msgstr "Kliknite na veliko slovo"
+
 #: ../src/clockgame-activity/clockgame.c:524
 msgid "Set the watch to:"
 msgstr "Postavi sat na:"
@@ -2242,46 +2515,6 @@ msgstr ""
 #: ../src/clockgame-activity/clockgame.xml.in.h:5
 msgid "The concept of time. Reading the time."
 msgstr "Pojam vremena. Čitanje vremena."
-
-#: ../src/colors-activity/colors.c:60
-msgid "Click on the blue duck"
-msgstr "Kliknite na plavu patku"
-
-#: ../src/colors-activity/colors.c:61
-msgid "Click on the brown duck"
-msgstr "Kliknite na braon patku"
-
-#: ../src/colors-activity/colors.c:62
-msgid "Click on the green duck"
-msgstr "Kliknite na zelenu patku"
-
-#: ../src/colors-activity/colors.c:63
-msgid "Click on the grey duck"
-msgstr "Kliknite na sivu patku"
-
-#: ../src/colors-activity/colors.c:64
-msgid "Click on the orange duck"
-msgstr "Kliknite na narandžastu patku"
-
-#: ../src/colors-activity/colors.c:65
-msgid "Click on the purple duck"
-msgstr "Kliknite na ljubičastu patku"
-
-#: ../src/colors-activity/colors.c:66
-msgid "Click on the red duck"
-msgstr "Kliknite na crvenu patku"
-
-#: ../src/colors-activity/colors.c:67
-msgid "Click on the yellow duck"
-msgstr "Kliknite na žutu patku"
-
-#: ../src/colors-activity/colors.c:68
-msgid "Click on the black duck"
-msgstr "Kliknite na crnu patku"
-
-#: ../src/colors-activity/colors.c:69
-msgid "Click on the white duck"
-msgstr "Kliknite na belu patku"
 
 #: ../src/colors-activity/colors.xml.in.h:1
 msgid "Can move the mouse."
@@ -2420,8 +2653,8 @@ msgid "Drive the crane and copy the model"
 msgstr "Upravljajte kranom i napravite isti model"
 
 #: ../src/crane-activity/crane.xml.in.h:3
-#: ../src/erase-activity/erase.xml.in.h:2
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:5
+#: ../src/erase-activity/erase.xml.in.h:2
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:5
 #: ../src/penalty-activity/penalty.xml.in.h:3
 msgid "Motor-coordination"
@@ -2490,10 +2723,6 @@ msgstr "Vinsent van Gog, Portret Pera Tangija 1887-8"
 msgid "Eilean Donan castle"
 msgstr "Zamak u Ejlin Donanu"
 
-#: ../src/details-activity/resources/details/board2_1.xml.in.h:1
-msgid "Eiffel Tower, seen from the champ de Mars, Paris, France"
-msgstr "Ajfelov toranj, viđen iz polja Marsa, Pariz, Francuska"
-
 #: ../src/details-activity/resources/details/board2_10.xml.in.h:1
 msgid "Gizah Pyramids, Egypt"
 msgstr "Piramide u Gizi, Egipat"
@@ -2505,6 +2734,10 @@ msgstr "Opera u Sidneju, Australija"
 #: ../src/details-activity/resources/details/board2_12.xml.in.h:1
 msgid "Tower Bridge in London"
 msgstr "Tauer Bridž u ​​Londonu"
+
+#: ../src/details-activity/resources/details/board2_1.xml.in.h:1
+msgid "Eiffel Tower, seen from the champ de Mars, Paris, France"
+msgstr "Ajfelov toranj, viđen iz polja Marsa, Pariz, Francuska"
 
 #: ../src/details-activity/resources/details/board2_2.xml.in.h:1
 msgid "Courtyard of the Museum of Louvre, and its pyramid"
@@ -2597,6 +2830,7 @@ msgstr ""
 
 #: ../src/drawnumber-activity/drawnumber.py:236
 #: ../src/findit-activity/findit.py:310
+#: ../src/louis_braille-activity/louis_braille.py:84
 msgid "Cannot find the file '{filename}'"
 msgstr "Ne mogu da pronađem datoteku „{filename}“"
 
@@ -2712,6 +2946,18 @@ msgstr ""
 "Unesite odgovor koristeći tastaturu, i pritisnite dugme „U redu“ ili taster "
 "„Unesi“."
 
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
+msgid "Double click the mouse"
+msgstr "Dvaput kliknite mišem"
+
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:3
+msgid "Double click the mouse on rectangles until all the blocks disappear."
+msgstr "Dvaput kliknite mišem na pravougaonike sve dok ne nestanu svi blokovi."
+
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:4
+msgid "Double click the mouse to erase the area and discover the background"
+msgstr "Dvaput kliknite mišem da obrišete površinu i otkrijete pozadinu"
+
 #: ../src/erase-activity/erase.c:86 ../src/erase-activity/erase.xml.in.h:5
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Pomerajte miša da obrišete površinu i otkrijete pozadinu"
@@ -2758,18 +3004,6 @@ msgstr ""
 "Pomerajte miša sve dok svi blokovi ne nestanu. Možete da dodate vaše slike u "
 "direktorijum „~/My GCompris/erase“."
 
-#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
-msgid "Double click the mouse"
-msgstr "Dvaput kliknite mišem"
-
-#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:3
-msgid "Double click the mouse on rectangles until all the blocks disappear."
-msgstr "Dvaput kliknite mišem na pravougaonike sve dok ne nestanu svi blokovi."
-
-#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:4
-msgid "Double click the mouse to erase the area and discover the background"
-msgstr "Dvaput kliknite mišem da obrišete površinu i otkrijete pozadinu"
-
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:2
 msgid "Click the mouse"
 msgstr "Kliknite mišem"
@@ -2803,6 +3037,15 @@ msgstr "Izvorni kôd je preuzet iz primera za „libgnomecanvas“"
 #: ../src/fifteen-activity/fifteen.xml.in.h:5
 msgid "The fifteen game"
 msgstr "Igra petnaest"
+
+#: ../src/findit-activity/findit.py:315
+#: ../src/louis_braille-activity/louis_braille.py:88
+msgid ""
+"Failed to parse data set '{filename}' with error:\n"
+"{error}"
+msgstr ""
+"Nisam uspeo da obradim skup podataka „{filename}“ sa gređkom:\n"
+"{error}"
 
 #: ../src/followline-activity/followline.xml.in.h:1
 msgid "Control the hose-pipe"
@@ -2891,12 +3134,12 @@ msgstr "Da, siguran sam!"
 msgid "No, I want to keep going"
 msgstr "Ne, želim da nastavim"
 
-#: ../src/gcompris/board.c:155
+#: ../src/gcompris/board.c:149
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr ""
 "Dinamičko učitavanje modula nije podržano. GKompris se ne može učitati.\n"
 
-#: ../src/gcompris/board_config_combo.c:157
+#: ../src/gcompris/board_config_combo.c:182
 msgid ""
 "Select the language\n"
 " to use in the board"
@@ -2904,23 +3147,23 @@ msgstr ""
 "Izaberite jezik\n"
 " koji ćete koristiti"
 
-#: ../src/gcompris/board_config_combo.c:227
+#: ../src/gcompris/board_config_combo.c:252
 msgid "Global GCompris mode"
 msgstr "Opšti režim GKomprisa"
 
-#: ../src/gcompris/board_config_combo.c:228
+#: ../src/gcompris/board_config_combo.c:253
 msgid "Normal"
 msgstr "Normalan"
 
-#: ../src/gcompris/board_config_combo.c:229
+#: ../src/gcompris/board_config_combo.c:254
 msgid "2 clicks"
 msgstr "2 klika"
 
-#: ../src/gcompris/board_config_combo.c:230
+#: ../src/gcompris/board_config_combo.c:255
 msgid "both modes"
 msgstr "oba režima"
 
-#: ../src/gcompris/board_config_combo.c:258
+#: ../src/gcompris/board_config_combo.c:283
 msgid ""
 "Select the drag and drop mode\n"
 " to use in the board"
@@ -2929,27 +3172,23 @@ msgstr ""
 " da koristite na tabli"
 
 #. add a new level
-#: ../src/gcompris/board_config_wordlist.c:106
+#: ../src/gcompris/board_config_wordlist.c:123
 #, c-format
 msgid "%d (New level)"
 msgstr "%d (novi nivo)"
 
 #. frame
-#: ../src/gcompris/board_config_wordlist.c:180
+#: ../src/gcompris/board_config_wordlist.c:226
 msgid "Configure the list of words"
 msgstr "Podesi listu reči"
 
-#: ../src/gcompris/board_config_wordlist.c:209
+#: ../src/gcompris/board_config_wordlist.c:237
 msgid "Choice of the language"
 msgstr "Izbor jezika"
 
-#: ../src/gcompris/board_config_wordlist.c:221
+#: ../src/gcompris/board_config_wordlist.c:249
 msgid "Choice of the level"
 msgstr "Izbor nivoa"
-
-#: ../src/gcompris/board_config_wordlist.c:246
-msgid "Back to default"
-msgstr "Vrati na osnovno"
 
 #: ../src/gcompris/config.c:58
 msgid "Your system default"
@@ -3260,7 +3499,7 @@ msgstr "Muzika"
 msgid "Effect"
 msgstr "Efekti"
 
-#: ../src/gcompris/config.c:345 ../src/gcompris/sugar.c:82
+#: ../src/gcompris/config.c:345 ../src/gcompris/sugar.c:83
 msgid "Zoom"
 msgstr "Uvećanje"
 
@@ -3269,8 +3508,8 @@ msgstr "Uvećanje"
 msgid "Couldn't open skin dir: %s"
 msgstr "Ne mogu da otvorim direktorijum sa maskama: %s"
 
-#: ../src/gcompris/config.c:413 ../src/gcompris/config.c:780
-#: ../src/gcompris/config.c:794
+#: ../src/gcompris/config.c:413 ../src/gcompris/config.c:873
+#: ../src/gcompris/config.c:887
 #, c-format
 msgid "Skin : %s"
 msgstr "Maska : %s"
@@ -3278,10 +3517,6 @@ msgstr "Maska : %s"
 #: ../src/gcompris/config.c:415
 msgid "SKINS NOT FOUND"
 msgstr "MASKE NISU NAĐENE"
-
-#: ../src/gcompris/config.c:496
-msgid "English (United State)"
-msgstr "Engleski (Sjedinjene Države)"
 
 #: ../src/gcompris/file_selector.c:251
 msgid "CANCEL"
@@ -3311,43 +3546,43 @@ msgstr ""
 "Zatvorite je i prijavite\n"
 "problem autorima."
 
-#: ../src/gcompris/gcompris.c:159
+#: ../src/gcompris/gcompris.c:155
 msgid "run GCompris in fullscreen mode."
 msgstr "pokreće GKompris preko celog ekrana."
 
-#: ../src/gcompris/gcompris.c:162
+#: ../src/gcompris/gcompris.c:158
 msgid "run GCompris in window mode."
 msgstr "pokreće GKompris u prozoru."
 
-#: ../src/gcompris/gcompris.c:165
+#: ../src/gcompris/gcompris.c:161
 msgid "run GCompris with sound enabled."
 msgstr "pokreće GKompris uz uključen zvuk."
 
-#: ../src/gcompris/gcompris.c:168
+#: ../src/gcompris/gcompris.c:164
 msgid "run GCompris without sound."
 msgstr "pokreće GKompris bez zvuka."
 
-#: ../src/gcompris/gcompris.c:171
+#: ../src/gcompris/gcompris.c:167
 msgid "run GCompris with the default system cursor."
 msgstr "pokreće GKompris uz osnovni pokazivač sistema."
 
-#: ../src/gcompris/gcompris.c:174
+#: ../src/gcompris/gcompris.c:170
 msgid "run GCompris without cursor (touch screen mode)."
 msgstr "pokreće GKompris bez pokazivača (režim dodirnog ekrana)."
 
-#: ../src/gcompris/gcompris.c:177
+#: ../src/gcompris/gcompris.c:173
 msgid "display only activities with this difficulty level."
 msgstr "prikazuje samo vežbe ove težine."
 
-#: ../src/gcompris/gcompris.c:180
+#: ../src/gcompris/gcompris.c:176
 msgid "display debug informations on the console."
 msgstr "prikazuje podatke za ispravljanje grešaka u konzoli."
 
-#: ../src/gcompris/gcompris.c:183
+#: ../src/gcompris/gcompris.c:179
 msgid "Print the version of "
 msgstr "Ispiši izdanje za "
 
-#: ../src/gcompris/gcompris.c:186
+#: ../src/gcompris/gcompris.c:182
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
@@ -3358,36 +3593,36 @@ msgstr ""
 "vežbe iz tog direktorijuma, „-l /strategy/connect4“ samo igru poveži4). "
 "Koristite „-l list“ da izlistate sve dostupne aktivnosti i njihove opise."
 
-#: ../src/gcompris/gcompris.c:191
+#: ../src/gcompris/gcompris.c:187
 msgid "GCompris will find the data dir in this directory"
 msgstr "Gkompris će pronaći dir podataka u ovom direktorijumu"
 
-#: ../src/gcompris/gcompris.c:194
+#: ../src/gcompris/gcompris.c:190
 msgid "GCompris will find the skins in this directory"
 msgstr "Gkompris će pronaći maske u ovom direktorijumu"
 
-#: ../src/gcompris/gcompris.c:197
+#: ../src/gcompris/gcompris.c:193
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "Gkompris će pronaći dodatke vežbi u ovom direktorijumu"
 
-#: ../src/gcompris/gcompris.c:200
+#: ../src/gcompris/gcompris.c:196
 msgid "GCompris will find the python activity in this directory"
 msgstr "Gkompris će pronaći vežbe pitona u ovom direktorijumu"
 
-#: ../src/gcompris/gcompris.c:203
+#: ../src/gcompris/gcompris.c:199
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr ""
 "Gkompris će pronaći datoteku lokaliteta („.mo“ prevod) u ovom direktorijumu"
 
-#: ../src/gcompris/gcompris.c:206
+#: ../src/gcompris/gcompris.c:202
 msgid "GCompris will find the activities menu in this directory"
 msgstr "Gkompris će pronaći izbor vežbi u ovom direktorijumu"
 
-#: ../src/gcompris/gcompris.c:209
+#: ../src/gcompris/gcompris.c:205
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Pokreće GKompris u režimu administracije i upravljanja korisnicima"
 
-#: ../src/gcompris/gcompris.c:212
+#: ../src/gcompris/gcompris.c:208
 msgid ""
 "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
@@ -3395,25 +3630,25 @@ msgstr ""
 "Koristi alternativnu bazu za profile [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
 
-#: ../src/gcompris/gcompris.c:215
+#: ../src/gcompris/gcompris.c:211
 msgid "Create the alternate database for profiles"
 msgstr "Pravi alternativnu bazu za profile"
 
-#: ../src/gcompris/gcompris.c:218
+#: ../src/gcompris/gcompris.c:214
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Ponovo čita HML menije i smešta ih u bazu podataka"
 
-#: ../src/gcompris/gcompris.c:221
+#: ../src/gcompris/gcompris.c:217
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Podešava profil za korišćenje. Koristite „gcompris -a“ da napravite profile"
 
-#: ../src/gcompris/gcompris.c:224
+#: ../src/gcompris/gcompris.c:220
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Navodi sve dostupne profile. Koristite „gcompris -a“ da napravite profile"
 
-#: ../src/gcompris/gcompris.c:227
+#: ../src/gcompris/gcompris.c:223
 msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
@@ -3421,27 +3656,27 @@ msgstr ""
 "Podešava lokaciju direktorijuma: [$HOME/.config/gcompris]. Alternativa je da "
 "podesite „$XDG_CONFIG_HOME“."
 
-#: ../src/gcompris/gcompris.c:230
+#: ../src/gcompris/gcompris.c:226
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "Lokacija korisničkog direktorijuma: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:233
+#: ../src/gcompris/gcompris.c:229
 msgid "Run the experimental activities"
 msgstr "Pokreće eksperimentalne vežbe"
 
-#: ../src/gcompris/gcompris.c:236
+#: ../src/gcompris/gcompris.c:232
 msgid "Disable the quit button"
 msgstr "Isključuje dugme za izlaz"
 
-#: ../src/gcompris/gcompris.c:239
+#: ../src/gcompris/gcompris.c:235
 msgid "Disable the config button"
 msgstr "Isključuje dugme za podešavanja"
 
-#: ../src/gcompris/gcompris.c:242
+#: ../src/gcompris/gcompris.c:238
 msgid "Disable the level button"
 msgstr "Isključuje dugme nivoa"
 
-#: ../src/gcompris/gcompris.c:245
+#: ../src/gcompris/gcompris.c:241
 msgid ""
 "GCompris will get images, sounds and activity data from this server if not "
 "found locally."
@@ -3449,7 +3684,7 @@ msgstr ""
 "GKompris će nabaviti slike, zvuke i podatke za vežbe sa ovog servera ako ih "
 "ne nađe u lokalu."
 
-#: ../src/gcompris/gcompris.c:248
+#: ../src/gcompris/gcompris.c:244
 msgid ""
 "Only when --server is provided, disable check for local resource first. Data "
 "are always taken from the web server."
@@ -3457,45 +3692,49 @@ msgstr ""
 "Samo kada je zadat parametar „--server“, isključuje proveru lokalnih izvora. "
 "Podaci će uvek biti preuzimani sa veb servera."
 
-#: ../src/gcompris/gcompris.c:252
+#: ../src/gcompris/gcompris.c:248
 msgid ""
 "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr ""
 "U serverskom režimu, navedite direktorijum za lokalno smeštanje da bi se "
 "izbeglo bespotrebno preuzimanje."
 
-#: ../src/gcompris/gcompris.c:255
+#: ../src/gcompris/gcompris.c:251
 msgid ""
 "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr ""
 "Opšti režim za prevuci-i-pusti: normalan, 2 klika, oba. Podrazumevano je "
 "normalan."
 
-#: ../src/gcompris/gcompris.c:258
+#: ../src/gcompris/gcompris.c:254
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Ne izbegava izvršavanje višestrukih instanci GKomprisa."
 
-#: ../src/gcompris/gcompris.c:270
+#: ../src/gcompris/gcompris.c:260
 msgid "Disable maximization zoom"
-msgstr ""
+msgstr "Isključuje uvećavanje"
 
-#: ../src/gcompris/gcompris.c:273
+#: ../src/gcompris/gcompris.c:263
 msgid ""
 "Increase activities' timeout delays; useful values > 1.0; 1.0 to not change "
 "hardcoded value"
 msgstr ""
+"Povećava kašnjenja isteka vremena vežbi; korisne vrednosti > 1.0; 1.0 da ne "
+"menja striktno kodne vrednosti"
 
-#: ../src/gcompris/gcompris.c:276
+#: ../src/gcompris/gcompris.c:266
 msgid ""
 "How activities' timeout delays are growing for several actors; useful values "
 "< 1.0; 1.0 to not change hardcoded value"
 msgstr ""
+"Određuje priraštaj kašnjenja isteka vremena vežbi za nekoliko izvođača; "
+"korisne vrednosti > 1.0; 1.0 da ne menja striktno kodne vrednosti"
 
-#: ../src/gcompris/gcompris.c:279
+#: ../src/gcompris/gcompris.c:269
 msgid "For test purpose, run in a loop all the activities"
-msgstr ""
+msgstr "Za probu, ponavlja neprekidno sve vežbe"
 
-#: ../src/gcompris/gcompris.c:980
+#: ../src/gcompris/gcompris.c:940
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -3516,7 +3755,7 @@ msgstr ""
 "informacija možete naći na sajtu ZSS:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1274
+#: ../src/gcompris/gcompris.c:1234
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
 msgstr ""
@@ -3524,20 +3763,29 @@ msgstr ""
 "je čitljiva)"
 
 # bug: plural-forms
-#: ../src/gcompris/gcompris.c:1537
+#: ../src/gcompris/gcompris.c:1504
 #, c-format
+#| msgid ""
+#| "GCompris won't start because the lock file is less than %d seconds old.\n"
 msgid ""
+"GCompris won't start because the lock file is less than %d second old.\n"
+msgid_plural ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
-msgstr ""
-"GKompris se neće pokrenuti zato što je datoteka zaključavanja mlađa od %d "
+msgstr[0] "GKompris se neće pokrenuti zato što je datoteka zaključavanja mlađa od %d "
+"sekunde.\n"
+msgstr[1] "GKompris se neće pokrenuti zato što je datoteka zaključavanja mlađa od %d "
+"sekunde.\n"
+msgstr[2] "GKompris se neće pokrenuti zato što je datoteka zaključavanja mlađa od %d "
+"sekundi.\n"
+msgstr[3] "GKompris se neće pokrenuti zato što je datoteka zaključavanja mlađa od jedne "
 "sekunde.\n"
 
-#: ../src/gcompris/gcompris.c:1539
+#: ../src/gcompris/gcompris.c:1508
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Datoteka zaključavanja: %s\n"
 
-#: ../src/gcompris/gcompris.c:1712
+#: ../src/gcompris/gcompris.c:1681
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3551,27 +3799,27 @@ msgstr ""
 "Više na http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1827
+#: ../src/gcompris/gcompris.c:1796
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Koristite parametar „-l“ da direktno pristupite vežbi.\n"
 
-#: ../src/gcompris/gcompris.c:1828
+#: ../src/gcompris/gcompris.c:1797
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Lista dostupnih vežbi je :\n"
 
-#: ../src/gcompris/gcompris.c:1859
+#: ../src/gcompris/gcompris.c:1828
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Broj vežbi: %d\n"
 
-#: ../src/gcompris/gcompris.c:1895
+#: ../src/gcompris/gcompris.c:1864
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s postoji ali se ne može čitati niti prepisivati"
 
-#: ../src/gcompris/gcompris.c:1958
+#: ../src/gcompris/gcompris.c:1927
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
@@ -3580,7 +3828,7 @@ msgstr ""
 "Opcija „--server“ ne može biti korišćena zato što je Gkompris izgrađen bez "
 "podrške za mrežu!"
 
-#: ../src/gcompris/gcompris.c:2012
+#: ../src/gcompris/gcompris.c:1981
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3589,7 +3837,7 @@ msgstr ""
 "GREŠKA: Profil „%s“ nije pronađen. Pokrenite „gcompris --profile-list“ da "
 "prikažete dostupne\n"
 
-#: ../src/gcompris/gcompris.c:2026
+#: ../src/gcompris/gcompris.c:1995
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Lista dostupnih profila je:\n"
@@ -3654,36 +3902,36 @@ msgstr ""
 "Te slike možete uključiti u vaše crteže i animacije.\n"
 "Podržani formati slika su „jpeg“, „png“ i „svg“.\n"
 
-#: ../src/gcompris/sugar.c:70
+#: ../src/gcompris/sugar.c:71
 msgid "Help"
 msgstr "Pomoć"
 
-#: ../src/gcompris/sugar.c:71
+#: ../src/gcompris/sugar.c:72
 msgid "About"
 msgstr "O programu"
 
-#: ../src/gcompris/sugar.c:72
+#: ../src/gcompris/sugar.c:73
 msgid "Previous level"
 msgstr "Prethodni nivo"
 
-#: ../src/gcompris/sugar.c:75
+#: ../src/gcompris/sugar.c:76
 msgid "Next level"
 msgstr "Sledeći nivo"
 
-#: ../src/gcompris/sugar.c:77
+#: ../src/gcompris/sugar.c:78
 msgid "Refresh"
 msgstr "Osveži"
 
-#: ../src/gcompris/sugar.c:78
+#: ../src/gcompris/sugar.c:79
 msgid "Settings"
 msgstr "Podešavanja"
 
 #. TRANSLATORS: Back as in previous
-#: ../src/gcompris/sugar.c:86
+#: ../src/gcompris/sugar.c:87
 msgid "Back"
 msgstr "Nazad"
 
-#: ../src/gcompris/sugar.c:87
+#: ../src/gcompris/sugar.c:88
 msgid "Stop"
 msgstr "Zaustavi"
 
@@ -4327,14 +4575,14 @@ msgstr "ABVGDĐEŽZIJKLLJMNNJOPRSTĆUFHCČDŽŠ"
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
 #: ../src/gletters-activity/gletters.c:850
-#: ../src/imageid-activity/imageid.c:712 ../src/login-activity/login.py:479
+#: ../src/imageid-activity/imageid.c:712 ../src/login-activity/login.py:480
 #: ../src/missing_letter-activity/missingletter.c:784
-#: ../src/pythontest-activity/pythontest.py:454
-#: ../src/readingh-activity/reading.c:904
-#: ../src/scalesboard-activity/scale.c:1160
-#: ../src/smallnumbers-activity/smallnumbers.c:595
+#: ../src/pythontest-activity/pythontest.py:448
+#: ../src/readingh-activity/reading.c:905
+#: ../src/scalesboard-activity/scale.c:1161
+#: ../src/smallnumbers-activity/smallnumbers.c:597
 #: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:864
+#: ../src/wordsgame-activity/wordsgame.c:866
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -4344,9 +4592,17 @@ msgstr ""
 " za profil <b>%s</b>"
 
 #: ../src/gletters-activity/gletters.c:879
-#: ../src/smallnumbers-activity/smallnumbers.c:614
+#: ../src/smallnumbers-activity/smallnumbers.c:616
 msgid "Enable sounds"
 msgstr "Uključi zvuke"
+
+#. toggle box
+#: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:486
+#: ../src/missing_letter-activity/missingletter_config.c:492
+#: ../src/readingh-activity/reading.c:929
+#: ../src/wordsgame-activity/wordsgame.c:889
+msgid "Uppercase only text"
+msgstr "Tekst samo sa velikim slovima"
 
 #: ../src/gletters-activity/gletters.xml.in.h:1
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:2
@@ -4631,20 +4887,20 @@ msgstr ""
 msgid "Guess a number between %d and %d"
 msgstr "Pogodi broj između %d i %d"
 
-#: ../src/guessnumber-activity/guessnumber.py:299
+#: ../src/guessnumber-activity/guessnumber.py:302
 #, python-format
 msgid "Please enter a number between %d and %d"
 msgstr "Unesi broj između %d i %d"
 
-#: ../src/guessnumber-activity/guessnumber.py:304
+#: ../src/guessnumber-activity/guessnumber.py:307
 msgid "Out of range"
 msgstr "Izvan opsega"
 
-#: ../src/guessnumber-activity/guessnumber.py:310
+#: ../src/guessnumber-activity/guessnumber.py:313
 msgid "Too high"
 msgstr "Prevelik"
 
-#: ../src/guessnumber-activity/guessnumber.py:312
+#: ../src/guessnumber-activity/guessnumber.py:315
 msgid "Too low"
 msgstr "Premali"
 
@@ -4694,13 +4950,12 @@ msgstr "bvgdđžzjklljmnnjprstćfhcčdžš"
 msgid "NONE"
 msgstr "NONE"
 
-#: ../src/hangman-activity/hangman.py:104
-#, fuzzy
+#: ../src/hangman-activity/hangman.py:109
 #| msgid "Danish"
 msgid "English"
-msgstr "Danski"
+msgstr "Engleski"
 
-#: ../src/hangman-activity/hangman.py:107
+#: ../src/hangman-activity/hangman.py:112
 msgid "Could not find the list of words."
 msgstr "Ne mogu da nađem listu reči."
 
@@ -4852,19 +5107,20 @@ msgstr ""
 "veće kapi, koje dalje mogu da se sjedine i da obrazuju kapi dovoljno velike "
 "koje mogu da padnu u vidu kiše."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:169
+#. Translator : "meter" here means a measuring device
+#: ../src/hydroelectric-activity/hydroelectric.py:170
 msgid "This is the meter for electricity produced by the turbine. "
 msgstr "Ovo je merač električne energije proizvedene u turbini. "
 
-#: ../src/hydroelectric-activity/hydroelectric.py:170
-#: ../src/hydroelectric-activity/hydroelectric.py:282
-#: ../src/hydroelectric-activity/hydroelectric.py:289
-#: ../src/hydroelectric-activity/hydroelectric.py:319
-#: ../src/hydroelectric-activity/hydroelectric.py:341
+#: ../src/hydroelectric-activity/hydroelectric.py:171
+#: ../src/hydroelectric-activity/hydroelectric.py:284
+#: ../src/hydroelectric-activity/hydroelectric.py:292
+#: ../src/hydroelectric-activity/hydroelectric.py:323
+#: ../src/hydroelectric-activity/hydroelectric.py:346
 msgid "The electricity power is measured in Watt (W)."
 msgstr "Snaga električne energije se meri u vatima (W)."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:175
+#: ../src/hydroelectric-activity/hydroelectric.py:176
 msgid ""
 "Flowing water is directed on to the blades of a turbine runner, creating a "
 "force on the blades. In this way, energy is transferred from the water flow "
@@ -4873,11 +5129,11 @@ msgstr ""
 "Tekuća voda se usmerava na lopatice rotora turbine, stvarajući silu na "
 "oštricama. Na taj način, tekuća voda predaje energiju turbini."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:189
+#: ../src/hydroelectric-activity/hydroelectric.py:190
 msgid "This cloud simulates the wind, click on it to have wind."
 msgstr "Ovaj oblak simulira vetar, kliknite na njega da dobijete vetar."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:227
+#: ../src/hydroelectric-activity/hydroelectric.py:228
 msgid ""
 "This is a step down transformer. Electricity is transformed in low voltage, "
 "ready to be used by the customers."
@@ -4885,19 +5141,22 @@ msgstr ""
 "Ovo je transformator nižeg nivoa. Električna energija je pretvorena na niži "
 "napon, spremna za isporuku krajnjim korisnicima."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:281
+#. Translator : "meter" here means a measuring device
+#: ../src/hydroelectric-activity/hydroelectric.py:283
 msgid "This is the meter for all the electricity produced. "
 msgstr "Ovo je merač ukupne proizvedene električne energije. "
 
-#: ../src/hydroelectric-activity/hydroelectric.py:288
+#. Translator : "meter" here means a measuring device
+#: ../src/hydroelectric-activity/hydroelectric.py:291
 msgid "This is the meter for electricity consumed by the users. "
 msgstr "Ovo je merač električne energije koju su potrošili korisnici. "
 
-#: ../src/hydroelectric-activity/hydroelectric.py:318
+#. Translator : "meter" here means a measuring device
+#: ../src/hydroelectric-activity/hydroelectric.py:322
 msgid "This is the meter for electricity produced by the solar panels. "
 msgstr "Ovo je merač električne energije proizvedene sunčanim panelima. "
 
-#: ../src/hydroelectric-activity/hydroelectric.py:324
+#: ../src/hydroelectric-activity/hydroelectric.py:328
 msgid ""
 "Solar panels use light energy (photons) from the sun to generate electricity "
 "through the photovoltaic effect."
@@ -4905,11 +5164,12 @@ msgstr ""
 "Sunčani paneli koriste energiju svetla (fotona) sa sunca da bi stvorili "
 "električnu energiju primenom fotoelektričnog efekta."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:340
+#. Translator : "meter" here means a measuring device
+#: ../src/hydroelectric-activity/hydroelectric.py:345
 msgid "This is the meter for electricity produced by the wind turbines. "
 msgstr "Ovo je merač električne energije proizvedene vetrenjačama. "
 
-#: ../src/hydroelectric-activity/hydroelectric.py:346
+#: ../src/hydroelectric-activity/hydroelectric.py:351
 msgid ""
 "A wind turbine is a device that converts wind motion energy into electricity "
 "generation. It is called a wind generator or wind charger. "
@@ -4917,7 +5177,7 @@ msgstr ""
 "Vetrenjače su uređaji koji pretvaraju energiju kretanja vetra u električnu "
 "energiju. Poznate su i pod nazivom generatori vetra ili punjači vetra."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:732
+#: ../src/hydroelectric-activity/hydroelectric.py:737
 msgid ""
 "It is not possible to consume more electricity than what is produced. This "
 "is a key limitation in the distribution of electricity, with minor "
@@ -4937,7 +5197,7 @@ msgstr ""
 "što, u najgorem slučaju, može da dovede do nestanka el. energije na "
 "regionalnom nivou."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:946
+#: ../src/hydroelectric-activity/hydroelectric.py:951
 msgid ""
 "This is a step up transformer. Electricity is transmitted at high voltages "
 "(110 kV or above) to reduce the energy lost in long distance transmission."
@@ -5255,6 +5515,158 @@ msgstr "zastava"
 msgid "racket"
 msgstr "reket"
 
+#: ../src/instruments-activity/instruments.xml.in.h:1
+msgid "Click on the correct instrument."
+msgstr "Kliknite na pravi instrument."
+
+#: ../src/instruments-activity/instruments.xml.in.h:2
+msgid "Click on the correct mucical instruments"
+msgstr "Kliknite na odgovarajući muzički instrument."
+
+#: ../src/instruments-activity/instruments.xml.in.h:3
+msgid "Learn to recognize musical instruments."
+msgstr "Nauči da prepoznaješ nesvakidašnje boje."
+
+#: ../src/instruments-activity/instruments.xml.in.h:4
+msgid "Music instruments"
+msgstr "Muzički instrumenti"
+
+#. Translator: Do not translate {text}.
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:2
+msgid "Find {text}"
+msgstr "Pronađi {text}"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:3
+msgid "the accordion"
+msgstr "harmoniku"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:4
+msgid "the banjo"
+msgstr "bendžo"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:5
+msgid "the bass drum"
+msgstr "bubanj"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:6
+msgid "the bongo"
+msgstr "bongo"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:7
+msgid "the castanets"
+msgstr "kastanjete"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:8
+msgid "the cello"
+msgstr "violončelo"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:9
+msgid "the clarinet"
+msgstr "klarinet"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:10
+msgid "the cymbal"
+msgstr "cimbal"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:11
+msgid "the drum kit"
+msgstr "bubnjeve"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
+msgid "the electric guitar"
+msgstr "električnu gitaru"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
+msgid "the flute traversiere"
+msgstr "flautu"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
+msgid "the guitar"
+msgstr "gitaru"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
+msgid "the harmonica"
+msgstr "usnu harmoniku"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
+msgid "the harp"
+msgstr "harfu"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
+msgid "the horn"
+msgstr "rog"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
+msgid "the maracas"
+msgstr "marakas"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
+msgid "the organ"
+msgstr "orgulje"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
+msgid "the piano"
+msgstr "klavir"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
+msgid "the saxophone"
+msgstr "saksofon"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
+msgid "the tambourine"
+msgstr "daire"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
+msgid "the timpani"
+msgstr "timpane"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
+msgid "the triangle"
+msgstr "trougao"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
+msgid "the trombone"
+msgstr "trombon"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
+msgid "the trumpet"
+msgstr "trubu"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:27
+msgid "the tuba"
+msgstr "tubu"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:28
+msgid "the violin"
+msgstr "violinu"
+
+#: ../src/lang-activity/lang.xml.in.h:1
+#| msgid "Practice money usage"
+msgid "Practice a foreign language"
+msgstr "Vežbajte nepoznati jezik"
+
+#: ../src/lang-activity/lang.py:55
+#| msgid "Missing Letter"
+msgid "Missing Image"
+msgstr "Nedostajuća slika"
+
+#: ../src/lang-activity/lang.py:158
+#, python-format
+#| msgid ""
+#| "<b>%s</b> configuration\n"
+#| " for profile <b>%s</b>"
+msgid ""
+"Configuration\n"
+" for profile <b>%s</b>"
+msgstr ""
+"Podešavanja\n"
+" za profil <b>%s</b>"
+
+#: ../src/lang-activity/lang.py:163
+#| msgid "Select sound locale"
+msgid "Select locale"
+msgstr "Izaberite lokalitet"
+
 #: ../src/leftright-activity/leftright.c:230
 #: ../src/searace-activity/searace.py:415
 #: ../src/searace-activity/searace.py:439
@@ -5342,16 +5754,16 @@ msgstr ""
 "saznate više o igri „Pogasi svetla“: &lt;http://www.haar.clara.co.uk/Lights/"
 "solving.html&gt;"
 
-#: ../src/login-activity/login.py:101
+#: ../src/login-activity/login.py:102
 msgid "Profile: "
 msgstr "Profil: "
 
-#: ../src/login-activity/login.py:234
+#: ../src/login-activity/login.py:235
 msgid "Login: "
 msgstr "Prijava: "
 
 #. toggle box
-#: ../src/login-activity/login.py:494
+#: ../src/login-activity/login.py:496
 msgid "Enter login to log in"
 msgstr "Unesite prijavu"
 
@@ -5391,6 +5803,112 @@ msgstr ""
 #: ../src/login-activity/login.xml.in.h:10
 msgid "Select or enter your name to log in to GCompris"
 msgstr "Izaberi ili unesi vaše ime da se prijavite u GKompris"
+
+#: ../src/louis_braille-activity/louis_braille.py:112
+msgid "Click to confirm your sequence"
+msgstr "Kliknite da potvrdite vaš redosled"
+
+#: ../src/louis_braille-activity/louis_braille.xml.in.h:1
+msgid ""
+"Louis Braille Video: &lt; http://www.youtube.com/watch?v=9bdfC2j_4x4 &gt;"
+msgstr ""
+"Video o Luju Braju: &lt; http://www.youtube.com/watch?v=9bdfC2j_4x4 &gt;"
+
+#: ../src/louis_braille-activity/louis_braille.xml.in.h:2
+msgid ""
+"Read the history of Louis Braille, his biography and discovery of the "
+"Braille system. Click on the previous and next buttons to move to the "
+"respective story page. At the end, arrange the sequence in the chronological "
+"order."
+msgstr ""
+"Čitajte istoriju o Luju Braju, njegovu biografiju i otkriću Brajevog sistema. "
+"Kliknite na dugme za napred i nazad da pređete na odgovarajuću stranu. Na "
+"kraju, poređajte nizove hronološkim redom."
+
+#: ../src/louis_braille-activity/louis_braille.xml.in.h:3
+msgid "Review the major dates of the inventor of the Braille system."
+msgstr "Pregledajte najvažnije datume o pronalazaču Brajevog sistema."
+
+#: ../src/louis_braille-activity/louis_braille.xml.in.h:4
+#| msgid "The story of Oscar and friend"
+msgid "The History of Louis Braille"
+msgstr "Priča o Luju Braju"
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:1
+msgid "After his Death"
+msgstr "Posle njegove smrti"
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:2
+msgid ""
+"At the age of 10, he was sent to Paris to study at the Royal Institute for "
+"Blind Youth."
+msgstr ""
+"Sa 10 godina starosti, bio je poslat u Pariz da studira na Kraljevskom "
+"institutu za mlade slepce."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:3
+msgid ""
+"At the age of three, Louis became blind due to a severe infection that "
+"spread to his left eye."
+msgstr ""
+"Kada je imao tri godine, Luj je ostao slep zbog teške infekcije koja se "
+"širila na njegovom levom oku."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:4
+msgid "Born on January 4th in Coupvary near Paris in France."
+msgstr "Rođen je 4. januara u Kupvariju u blizini Pariza u Francuskoj."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:5
+msgid ""
+"Braille got accepted as a world wide standard. Louis Braille proved that if "
+"you have motivation you can do incredible things."
+msgstr ""
+"Brajeva azbuka je prihvaćena kao svetski standard. Luj Braj je dokazao da "
+"ako imate motivaciju možete da uradite neverovatne stvari."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:6
+msgid ""
+"Charles Barbier, a French soldier, visited his school and shared his "
+"invention of night writing, a code of 12 raised dots to share information on "
+"battlefields."
+msgstr ""
+"Šarl Barbjer, francuski vojnik, je posetio njegovu školu i podelio njegov "
+"pronalazak noćnog pisanja, kod od 12 uzdignutih tačaka za razmenu informacija "
+"na ratištima."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:7
+msgid "He became a teacher after graduating and secretly taught his method."
+msgstr "Postao je učitelj nakon diplomiranja i tajno je razmatrao svoj metod."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:8
+msgid ""
+"He died of tuberculosis. He is burried in the Pantheon in Paris. A monument "
+"is erected to honor him."
+msgstr ""
+"Umro je od tuberkuloze. Sahranjen je u Panteonu u Parizu. Spomenik je "
+"podignut u njegovu čast."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:9
+msgid "He impressed his classmates and began to play the piano and the organ."
+msgstr "Zadivio jen svoje vršnjake i počeo je da svira klavir i orgulje."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:10
+msgid ""
+"He revised and extended braille to include mathematics, symbols, "
+"punctuations and music notations."
+msgstr ""
+"Obnovio je i proširio Brajevu azbuku uključujući matematiku, simbole, "
+"pravopisne znake i oznake muzičkih nota."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:11
+msgid ""
+"Louis Braille injured his right eye with a stitching awl from his father's "
+"workshop."
+msgstr "Luj Braj je povredio desno oko šilom za šavove iz radionice svoga oca."
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:12
+msgid "Louis trimmed Barbier's 12 dots into 6 and invented the Braille system."
+msgstr "Luj je smanjio Barbjerovih 12 tačaka na 6 i izmislio Brajev sistem"
 
 #: ../src/magic_hat_minus-activity/magic_hat_minus.xml.in.h:1
 msgid "Count how many items are under the magic hat after some have got away"
@@ -5450,51 +5968,29 @@ msgstr "Izbroj koliko stavki je ispod magičnog šešira"
 msgid "Learn addition"
 msgstr "Naučite sabiranje"
 
-#: ../src/maze-activity/maze.c:132 ../src/maze-activity/maze.xml.in.h:4
-#: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:4
-#: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:4
-msgid "Maze"
-msgstr "Lavirint"
-
-#: ../src/maze-activity/maze.c:133 ../src/maze-activity/maze.xml.in.h:2
-msgid "Find your way out of the maze"
-msgstr "Pronađite put iz lavirinta"
-
-#: ../src/maze-activity/maze.c:599
-msgid ""
-"Look at your position, then switch back to invisible mode to continue your "
-"moves"
-msgstr ""
-"Pogledajte vaš položaj i onda se prebacite u nevidljivi režim da nastavite "
-"kretanje"
-
-#: ../src/maze-activity/maze.c:601
-msgid ""
-"Look at your position, then switch back to 3D mode to continue your moves"
-msgstr ""
-"Pogledajte vaš položaj i onda se prebacite u 3D režim da nastavite kretanje"
-
-#: ../src/maze-activity/maze.xml.in.h:1
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:1
 #: ../src/maze3D-activity/maze3D.xml.in.h:2
+#: ../src/maze-activity/maze.xml.in.h:1
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:1
 msgid "Can use the keyboard arrow to move an object."
 msgstr "Ume da koristi strelice na tastaturi da premesti predmet."
 
-#: ../src/maze-activity/maze.xml.in.h:3
+#: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:2
+msgid "Find your way out of the maze (Move is relative)"
+msgstr "Pronađite put iz lavirinta (Pokreti su u odnosu na položaj)"
+
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:3
 #: ../src/maze3D-activity/maze3D.xml.in.h:4
+#: ../src/maze-activity/maze.xml.in.h:3
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:3
 msgid "Help Tux get out of this maze."
 msgstr "Pomozite Pingoslavu da izađe iz lavirinta."
 
-#: ../src/maze-activity/maze.xml.in.h:5
-msgid "Use the keyboard arrows to move Tux up to the door."
-msgstr "Koristite strelice na tastaturi da dovučete Pingoslava do vrata."
-
-#: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:2
-msgid "Find your way out of the maze (Move is relative)"
-msgstr "Pronađite put iz lavirinta (Pokreti su u odnosu na položaj)"
+#: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:4
+#: ../src/maze-activity/maze.c:132 ../src/maze-activity/maze.xml.in.h:4
+#: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:4
+msgid "Maze"
+msgstr "Lavirint"
 
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:5
 msgid ""
@@ -5524,6 +6020,28 @@ msgstr ""
 "Koristite strelice na tastaturi da pomerate Pingoslava do vrata. Koristite "
 "taster za razmak da se prebacite u 2D ili 3D režim. 2D režim vam jedino daje "
 "vaš položaj (nalik mapi). Pingoslava ne možete da pomerate u 2D režimu."
+
+#: ../src/maze-activity/maze.c:133 ../src/maze-activity/maze.xml.in.h:2
+msgid "Find your way out of the maze"
+msgstr "Pronađite put iz lavirinta"
+
+#: ../src/maze-activity/maze.c:599
+msgid ""
+"Look at your position, then switch back to invisible mode to continue your "
+"moves"
+msgstr ""
+"Pogledajte vaš položaj i onda se prebacite u nevidljivi režim da nastavite "
+"kretanje"
+
+#: ../src/maze-activity/maze.c:601
+msgid ""
+"Look at your position, then switch back to 3D mode to continue your moves"
+msgstr ""
+"Pogledajte vaš položaj i onda se prebacite u 3D režim da nastavite kretanje"
+
+#: ../src/maze-activity/maze.xml.in.h:5
+msgid "Use the keyboard arrows to move Tux up to the door."
+msgstr "Koristite strelice na tastaturi da dovučete Pingoslava do vrata."
 
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:2
 msgid "Find your way out of the invisible maze"
@@ -5709,7 +6227,7 @@ msgstr ""
 "onda ih uparite kada nađete drugi deo. Vi ste sada u ulozi znaka jednakosti, "
 "i potrebni ste brojevima da ih sastavite i dobijete pravi zbir. Kada to "
 "učinite, obe ove karte će nestati! Kada sve nestanu, tako što ćete naći sve "
-"zbirove, dobili ste igru! :)"
+"zbirove, dobili ste igru! *_*"
 
 #: ../src/memory_add_minus-activity/memory_add_minus.xml.in.h:1
 msgid "Addition and subtraction memory game"
@@ -6051,30 +6569,6 @@ msgstr ""
 "Možete da vidite neke karte, ali ne možete da vidite šta je sa njihove druge "
 "strane. Svaka karta krije broj napisan cifrom ili slovima."
 
-#: ../src/missing_letter-activity/missing_letter.xml.in.h:1
-msgid ""
-"An object is displayed in the main area, and an incomplete word is printed "
-"under the picture. Select the missing letter to complete the word."
-msgstr ""
-"Prikazan je objekat na glavnoj površini, a nepotpuna reč je ispisana ispod "
-"slike. Izaberite nedostajuće slovo da dopunite reč."
-
-#: ../src/missing_letter-activity/missing_letter.xml.in.h:2
-msgid "Fill in the missing letter"
-msgstr "Dopišite nedostajuće slovo"
-
-#: ../src/missing_letter-activity/missing_letter.xml.in.h:3
-msgid "Missing Letter"
-msgstr "Nedostajuće slovo"
-
-#: ../src/missing_letter-activity/missing_letter.xml.in.h:4
-msgid "Training reading skills"
-msgstr "Vežbajte čitanje"
-
-#: ../src/missing_letter-activity/missing_letter.xml.in.h:5
-msgid "Word reading"
-msgstr "Čitanje reči"
-
 #: ../src/missing_letter-activity/missingletter_config.c:77
 msgid "Please select an image."
 msgstr "Molim izaberite jednu sliku."
@@ -6126,18 +6620,6 @@ msgstr ""
 msgid "Picture"
 msgstr "Slika"
 
-#. answer
-#: ../src/missing_letter-activity/missingletter_config.c:420
-#: ../src/missing_letter-activity/missingletter_config.c:548
-msgid "Answer"
-msgstr "Odgovor"
-
-#. question
-#: ../src/missing_letter-activity/missingletter_config.c:426
-#: ../src/missing_letter-activity/missingletter_config.c:571
-msgid "Question"
-msgstr "Pitanje"
-
 #. choice
 #: ../src/missing_letter-activity/missingletter_config.c:432
 #: ../src/missing_letter-activity/missingletter_config.c:583
@@ -6168,6 +6650,30 @@ msgid ""
 "the solution."
 msgstr ""
 "Ovde upišite slovo koje će biti predloženo. Prvo slovo ovde mora biti rešenje."
+
+#: ../src/missing_letter-activity/missing_letter.xml.in.h:1
+msgid ""
+"An object is displayed in the main area, and an incomplete word is printed "
+"under the picture. Select the missing letter to complete the word."
+msgstr ""
+"Prikazan je objekat na glavnoj površini, a nepotpuna reč je ispisana ispod "
+"slike. Izaberite nedostajuće slovo da dopunite reč."
+
+#: ../src/missing_letter-activity/missing_letter.xml.in.h:2
+msgid "Fill in the missing letter"
+msgstr "Dopišite nedostajuće slovo"
+
+#: ../src/missing_letter-activity/missing_letter.xml.in.h:3
+msgid "Missing Letter"
+msgstr "Nedostajuće slovo"
+
+#: ../src/missing_letter-activity/missing_letter.xml.in.h:4
+msgid "Training reading skills"
+msgstr "Vežbajte čitanje"
+
+#: ../src/missing_letter-activity/missing_letter.xml.in.h:5
+msgid "Word reading"
+msgstr "Čitanje reči"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:1
 msgid "car/c_r/a/k/o"
@@ -6435,10 +6941,6 @@ msgstr "Prostorna predstava"
 msgid "Edgar Degas, The Dancing Class - 1873-75"
 msgstr "Edgar Dega, Čas plesa — 1873-75"
 
-#: ../src/paintings-activity/resources/paintings/board1_1.xml.in.h:1
-msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
-msgstr "Pjer-Ogist Renuar, Mlin Galete — 1876"
-
 #: ../src/paintings-activity/resources/paintings/board1_10.xml.in.h:1
 msgid ""
 "Katsushika Hokusai,\\nViewing Sunset over the Ryogoku Bridge from the Ommaya "
@@ -6454,6 +6956,10 @@ msgstr "Kacušika Hokusai, Makovi — 1833-1834"
 #: ../src/paintings-activity/resources/paintings/board1_12.xml.in.h:1
 msgid "Katsushika Hokusai, Kazusa sea Route - 1830."
 msgstr "Kacušika Hokusai, Kazusški morski put — 1830."
+
+#: ../src/paintings-activity/resources/paintings/board1_1.xml.in.h:1
+msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
+msgstr "Pjer-Ogist Renuar, Mlin Galete — 1876"
 
 #: ../src/paintings-activity/resources/paintings/board1_2.xml.in.h:1
 msgid "Giuseppe Arcimboldo, Spring - 1573"
@@ -6646,7 +7152,7 @@ msgid "Number"
 msgstr "Broj"
 
 #: ../src/pythontemplate-activity/pythontemplate.py:62
-#: ../src/pythontest-activity/pythontest.py:184
+#: ../src/pythontest-activity/pythontest.py:182
 msgid ""
 "This is the first plugin in GCompris coded in the Python\n"
 "Programming language."
@@ -6678,7 +7184,7 @@ msgid ""
 "Thanks to Guido van Rossum and the python team for this powerful language!"
 msgstr "Zahvaljujemo se Gvidu van Rosumu i Pitonovom timu za ovaj moćan jezik!"
 
-#: ../src/pythontest-activity/pythontest.py:194
+#: ../src/pythontest-activity/pythontest.py:192
 msgid ""
 "It is now possible to develop GCompris activities in C or in Python.\n"
 "Thanks to Olivier Samys who makes this possible."
@@ -6686,37 +7192,33 @@ msgstr ""
 "Sada je moguće praviti vežbe za GKompris u C-u ili Pitonu.\n"
 "Zahvaljujemo se Olivijeru Samiju koji je to omogućio."
 
-#: ../src/pythontest-activity/pythontest.py:204
+#: ../src/pythontest-activity/pythontest.py:202
 msgid "This activity is not playable, just a test"
 msgstr "Ova vežba nije za igru, već je samo proba"
 
 #. toggle box
-#: ../src/pythontest-activity/pythontest.py:459
+#: ../src/pythontest-activity/pythontest.py:454
 msgid "Disable line drawing in circle"
 msgstr "Isključi kružno iscrtavanje linije"
 
 #. combo box
-#: ../src/pythontest-activity/pythontest.py:468
+#: ../src/pythontest-activity/pythontest.py:463
 msgid "Color of the line"
 msgstr "Boja linije"
 
 #. spin button for int
-#: ../src/pythontest-activity/pythontest.py:479
+#: ../src/pythontest-activity/pythontest.py:474
 msgid "Distance between circles"
 msgstr "Razmak između krugova"
 
 #. radio buttons for circle or rectangle
-#: ../src/pythontest-activity/pythontest.py:490
+#: ../src/pythontest-activity/pythontest.py:485
 msgid "Use circles"
 msgstr "Koristi krugove"
 
-#: ../src/pythontest-activity/pythontest.py:491
+#: ../src/pythontest-activity/pythontest.py:486
 msgid "Use rectangles"
 msgstr "Koristi pravougaonike"
-
-#: ../src/pythontest-activity/pythontest.py:494
-msgid "Choice of pattern"
-msgstr "Izbor šare"
 
 #: ../src/pythontest-activity/pythontest.xml.in.h:3
 msgid "Python Test"
@@ -6921,8 +7423,9 @@ msgid "Weight = %s"
 msgstr "Težina = %s"
 
 #: ../src/scalesboard-activity/scale.c:1007
-msgid "Take care, you can drop masses on both sides of the scale."
-msgstr "Pazite, možete sa obe strane vage dodavati težine."
+#| msgid "Take care, you can drop masses on both sides of the scale."
+msgid "Take care, you can drop weights on both sides of the scale."
+msgstr "Pazite, možete dodavati težine sa obe strane vage."
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:1
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:1
@@ -6930,8 +7433,9 @@ msgid "Balance the scales properly"
 msgstr "Uravnotežite vagu"
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:2
-msgid "Drag and Drop masses to balance the scales"
-msgstr "Prevucite i pustite mase da uravnotežite vagu"
+#| msgid "Drag and Drop masses to balance the scales"
+msgid "Drag and Drop weights to balance the scales"
+msgstr "Prevucite i pustite težine da uravnotežite vagu"
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:3
 msgid "Mental calculation, arithmetic equality"
@@ -6944,17 +7448,20 @@ msgid ""
 "moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is "
 "released under the GPL licence."
 msgstr ""
-"Slika je originalno delo Virdžinije Moro (Virginie MOREAU — virginie."
-"moreau@free.fr) iz 2001. godine. Ime joj je „Prodavac začina u Egiptu“. "
-"Objavljena je pod OJL."
+"Slika je originalno delo Virdžinije Moro (Virginie MOREAU — "
+"virginie.moreau@free.fr) iz 2001. godine. Naziv joj je „Prodavac začina u "
+"Egiptu“. Objavljena je pod OJL."
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:5
+#| msgid ""
+#| "To balance the scales, move the masses on the left or the right side. The "
+#| "masses can be arranged in any order."
 msgid ""
-"To balance the scales, move the masses on the left or the right side. The "
-"masses can be arranged in any order."
+"To balance the scales, move the weights on the left or the right side. The "
+"weights can be arranged in any order."
 msgstr ""
-"Da uravnotežite vagu, stavite mase na levu ili desnu ploču. Mase se mogu "
-"slagati potpuno proizvoljno."
+"Da uravnotežite vagu, premestite težine na levu ili desnu ploču. Težine se "
+"mogu slagati potpuno proizvoljno."
 
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:2
 msgid "Drag and Drop masses to balance the scales and calculate the weight"
@@ -6973,6 +7480,58 @@ msgstr ""
 "Da uravnotežite vagu, stavite mase na levu ili desnu ploču. Obratite pažnju "
 "na težinu i na jedinicu mere, samo da vas podsetimo da je jedan kilogram "
 "(kg) 1000 grama. Mase se mogu slagati potpuno proizvoljno."
+
+#: ../src/searace1player-activity/searace1player.xml.in.h:1
+msgid "Give good instructions to your ship in order to be first in the race."
+msgstr "Zadajte pravi kurs svom brodu da biste pobedili u trci."
+
+#: ../src/searace1player-activity/searace1player.xml.in.h:2
+msgid ""
+"In the text entry, enter one command per line, to control your boat. "
+"Commands supported are displayed between the two entry areas. The 'left' and "
+"'right' commands must be followed by an angle in degrees. The angle value is "
+"also called a 'parameter' to the left or right command. By default 45 "
+"degrees is used. The 'forward' command accepts a distance parameter. By "
+"default 1 is used.\n"
+"For example:\n"
+"- left 90: Make a perpendicular left turn\n"
+"- forward 10: Go forward for 10 units (as displayed on the ruler).\n"
+"The goal is to reach the right of the screen (the red line). When done, you "
+"can try to improve your program and start a new race with the same weather "
+"conditions by using the retry button. You can click and drag your mouse "
+"anywhere on the map to get a measurement in distance and angle. Going to the "
+"next level will give you more complex weather conditions."
+msgstr ""
+"U polje za unos teksta unesite jednu naredbu po liniji da biste upravljali "
+"vašim brodom. Naredbe koje su podržane su prikazane između dva polja za "
+"unose. Nakon naredbi „levo“ i „desno“ mora slediti parametar za ugao u "
+"stepenima. Podrazumevano se koristi 45 stepeni. Naredba „napred“ prihvata "
+"parametar za udaljenost. Podrazumevano je 1.\n"
+"Na primer:\n"
+"— levo 90: pravi okret u levo pod pravim uglom\n"
+"— napred 10: ide napred za 10 polja (kako je prikazano na lenjiru).\n"
+"Cilj je stići do desne strane ekrana (crvene linije). Kada završite, možete "
+"pokušati da poboljšate svoj program i započnete novu trku sa istim vremenskim "
+"uslovima pomoću dugmeta za ponovni pokušaj. Možete kliknuti mišem bilo gde "
+"na karti da izmerite rastojanje ili ugao. Prelaskom na sledeći nivo imaćete "
+"mnogo složenije vremenske uslove."
+
+#: ../src/searace1player-activity/searace1player.xml.in.h:7
+#: ../src/searace-activity/searace.xml.in.h:8
+msgid ""
+"In this activity, you will learn how to enter commands into a computer. Even "
+"if the language is extremely basic, you learn here how to think ahead and "
+"construct a program. This activity can be used to introduce the programming "
+"concept to children."
+msgstr ""
+"U ovoj vežbi, naučićete kako se unose naredbe u računar. Iako je jezik "
+"krajnje jednostavan, ovde ćete naučiti kako razmišljati unapred i napraviti "
+"program. Ova vežba se može koristiti za upoznavanje dece sa konceptom "
+"programiranja."
+
+#: ../src/searace1player-activity/searace1player.xml.in.h:8
+msgid "Sea race (Single Player)"
+msgstr "Pomorska trka (jedan igrač)"
 
 #: ../src/searace-activity/searace.py:174
 msgid "The race is already being run"
@@ -7069,91 +7628,39 @@ msgstr ""
 "na karti da izmerite rastojanje ili ugao. Prelaskom na sledeći nivo imaćete "
 "mnogo složenije vremenske uslove."
 
-#: ../src/searace-activity/searace.xml.in.h:8
-#: ../src/searace1player-activity/searace1player.xml.in.h:7
-msgid ""
-"In this activity, you will learn how to enter commands into a computer. Even "
-"if the language is extremely basic, you learn here how to think ahead and "
-"construct a program. This activity can be used to introduce the programming "
-"concept to children."
-msgstr ""
-"U ovoj vežbi, naučićete kako se unose naredbe u računar. Iako je jezik "
-"krajnje jednostavan, ovde ćete naučiti kako razmišljati unapred i napraviti "
-"program. Ova vežba se može koristiti za upoznavanje dece sa konceptom "
-"programiranja."
-
 #: ../src/searace-activity/searace.xml.in.h:9
 msgid "Sea race (2 Players)"
 msgstr "Pomorska trka (2 igrača)"
 
-#: ../src/searace1player-activity/searace1player.xml.in.h:1
-msgid "Give good instructions to your ship in order to be first in the race."
-msgstr "Zadajte pravi kurs svom brodu da biste pobedili u trci."
-
-#: ../src/searace1player-activity/searace1player.xml.in.h:2
-msgid ""
-"In the text entry, enter one command per line, to control your boat. "
-"Commands supported are displayed between the two entry areas. The 'left' and "
-"'right' commands must be followed by an angle in degrees. The angle value is "
-"also called a 'parameter' to the left or right command. By default 45 "
-"degrees is used. The 'forward' command accepts a distance parameter. By "
-"default 1 is used.\n"
-"For example:\n"
-"- left 90: Make a perpendicular left turn\n"
-"- forward 10: Go forward for 10 units (as displayed on the ruler).\n"
-"The goal is to reach the right of the screen (the red line). When done, you "
-"can try to improve your program and start a new race with the same weather "
-"conditions by using the retry button. You can click and drag your mouse "
-"anywhere on the map to get a measurement in distance and angle. Going to the "
-"next level will give you more complex weather conditions."
-msgstr ""
-"U polje za unos teksta unesite jednu naredbu po liniji da biste upravljali "
-"vašim brodom. Naredbe koje su podržane su prikazane između dva polja za "
-"unose. Nakon naredbi „levo“ i „desno“ mora slediti parametar za ugao u "
-"stepenima. Podrazumevano se koristi 45 stepeni. Naredba „napred“ prihvata "
-"parametar za udaljenost. Podrazumevano je 1.\n"
-"Na primer:\n"
-"— levo 90: pravi okret u levo pod pravim uglom\n"
-"— napred 10: ide napred za 10 polja (kako je prikazano na lenjiru).\n"
-"Cilj je stići do desne strane ekrana (crvene linije). Kada završite, možete "
-"pokušati da poboljšate svoj program i započnete novu trku sa istim vremenskim "
-"uslovima pomoću dugmeta za ponovni pokušaj. Možete kliknuti mišem bilo gde "
-"na karti da izmerite rastojanje ili ugao. Prelaskom na sledeći nivo imaćete "
-"mnogo složenije vremenske uslove."
-
-#: ../src/searace1player-activity/searace1player.xml.in.h:8
-msgid "Sea race (Single Player)"
-msgstr "Pomorska trka (jedan igrač)"
-
-#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:1
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:1
+#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:1
 msgid "Count the number of dots on dice before they reach the ground"
 msgstr "Izbrojte tačkice na kockici pre nego što stigne do zemlje"
 
-#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:2
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:2
+#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:2
 msgid "Counting skills"
 msgstr "Sposobnost brojanja"
 
-#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:3
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:3
+#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:3
 msgid "In a limited time, count the number of dots"
 msgstr "Prebrojte tačke u datom vremenu"
 
-#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:4
-msgid "Numbers With Dice"
-msgstr "Brojevi sa kockicom"
+#: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:4
+msgid "Numbers with pairs of dice"
+msgstr "Brojevi sa parom kockica"
 
-#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:5
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:5
+#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:5
 msgid "With the keyboard, type the number of dots you see on the falling dice."
 msgstr ""
 "Pomoću tastature, pritisnite broj koji odgovara broju tačaka na padajućoj "
 "kockici."
 
-#: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:4
-msgid "Numbers with pairs of dice"
-msgstr "Brojevi sa parom kockica"
+#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:4
+msgid "Numbers With Dice"
+msgstr "Brojevi sa kockicom"
 
 #: ../src/submarine-activity/submarine.xml.in.h:1
 msgid ""
@@ -7323,8 +7830,8 @@ msgstr "Tangram slagalica"
 
 #. Set the maximum text to calc the background
 #. Set the correct initial text
-#: ../src/target-activity/target.c:296 ../src/target-activity/target.c:560
-#: ../src/target-activity/target.c:597
+#: ../src/target-activity/target.c:296 ../src/target-activity/target.c:562
+#: ../src/target-activity/target.c:599
 #, c-format
 msgid "Points = %s"
 msgstr "Tačke = %s"
@@ -7338,10 +7845,15 @@ msgstr ""
 "Brzina vetra = %d\n"
 "kilometara na čas"
 
-#: ../src/target-activity/target.c:481
+#: ../src/target-activity/target.c:482
 #, c-format
-msgid "Distance to target = %d meters"
-msgstr "Rastojanje do mete = %d metara"
+#| msgid "Distance to target = %d meters"
+msgid "Distance to target = %d meter"
+msgid_plural "Distance to target = %d meters"
+msgstr[0] "Rastojanje do mete = %d metar"
+msgstr[1] "Rastojanje do mete = %d metra"
+msgstr[2] "Rastojanje do mete = %d metara"
+msgstr[3] "Rastojanje do mete = jedan metar"
 
 #: ../src/target-activity/target.xml.in.h:1
 msgid ""
@@ -7573,138 +8085,49 @@ msgstr "Vežba kucanja"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Ukucajte celu reč dok pada, pre nego što stigne do zemlje"
 
-#: ../src/findit-activity/findit.py:315
-msgid ""
-"Failed to parse data set '{filename}' with error:\n"
-"{error}"
-msgstr ""
-"Nisam uspeo da obradim skup podataka „{filename}“ sa gređkom:\n"
-"{error}"
+#~ msgid ""
+#~ "Error: this activity requires that you first install\n"
+#~ "the packages with GCompris voices for the locale '%s' ! Fallback to "
+#~ "english, sorry!"
+#~ msgstr ""
+#~ "Greška: ova vežba zahteva da instalirate paket sa glasovima\n"
+#~ "za GKompris za lokalitet „%s“ ! Vraćam se na engleski, žao mi je!"
 
-#: ../src/instruments-activity/instruments.xml.in.h:1
-msgid "Click on the correct instrument."
-msgstr "Kliknite na pravi instrument."
+#~ msgid "Click on the blue duck"
+#~ msgstr "Kliknite na plavu patku"
 
-#: ../src/instruments-activity/instruments.xml.in.h:2
-msgid "Click on the correct mucical instruments"
-msgstr "Kliknite na odgovarajući muzički instrument."
+#~ msgid "Click on the brown duck"
+#~ msgstr "Kliknite na braon patku"
 
-#: ../src/instruments-activity/instruments.xml.in.h:3
-msgid "Learn to recognize musical instruments."
-msgstr "Nauči da prepoznaješ nesvakidašnje boje."
+#~ msgid "Click on the green duck"
+#~ msgstr "Kliknite na zelenu patku"
 
-#: ../src/instruments-activity/instruments.xml.in.h:4
-msgid "Music instruments"
-msgstr "Muzički instrumenti"
+#~ msgid "Click on the grey duck"
+#~ msgstr "Kliknite na sivu patku"
 
-#. Translator: Do not translate {text}.
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:2
-msgid "Find {text}"
-msgstr "Pronađi {text}"
+#~ msgid "Click on the orange duck"
+#~ msgstr "Kliknite na narandžastu patku"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:3
-msgid "the accordion"
-msgstr "harmoniku"
+#~ msgid "Click on the purple duck"
+#~ msgstr "Kliknite na ljubičastu patku"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:4
-msgid "the banjo"
-msgstr "bendžo"
+#~ msgid "Click on the red duck"
+#~ msgstr "Kliknite na crvenu patku"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:5
-msgid "the bass drum"
-msgstr "bubanj"
+#~ msgid "Click on the yellow duck"
+#~ msgstr "Kliknite na žutu patku"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:6
-msgid "the bongo"
-msgstr "bongo"
+#~ msgid "Click on the black duck"
+#~ msgstr "Kliknite na crnu patku"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:7
-msgid "the castanets"
-msgstr "kastanjete"
+#~ msgid "Click on the white duck"
+#~ msgstr "Kliknite na belu patku"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:8
-msgid "the cello"
-msgstr "violončelo"
+#~ msgid "English (United State)"
+#~ msgstr "Engleski (Sjedinjene Države)"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:9
-msgid "the clarinet"
-msgstr "klarinet"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:10
-msgid "the cymbal"
-msgstr "cimbal"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:11
-msgid "the drum kit"
-msgstr "bubnjeve"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
-msgid "the electric guitar"
-msgstr "električnu gitaru"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
-msgid "the flute traversiere"
-msgstr "flautu"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
-msgid "the guitar"
-msgstr "gitaru"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
-msgid "the harmonica"
-msgstr "usnu harmoniku"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
-msgid "the harp"
-msgstr "harfu"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
-msgid "the horn"
-msgstr "rog"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
-msgid "the maracas"
-msgstr "marakas"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
-msgid "the organ"
-msgstr "orgulje"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
-msgid "the piano"
-msgstr "klavir"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
-msgid "the saxophone"
-msgstr "saksofon"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
-msgid "the tambourine"
-msgstr "daire"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
-msgid "the timpani"
-msgstr "timpane"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
-msgid "the triangle"
-msgstr "trougao"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
-msgid "the trombone"
-msgstr "trombon"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
-msgid "the trumpet"
-msgstr "trubu"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:27
-msgid "the tuba"
-msgstr "tubu"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:28
-msgid "the violin"
-msgstr "violinu"
+#~ msgid "Choice of pattern"
+#~ msgstr "Izbor šare"
 
 #~ msgid "Move the mouse until all the blocks disappear."
 #~ msgstr "Pomerajte miša dok ne nestanu sva polja."
@@ -7729,9 +8152,6 @@ msgstr "violinu"
 
 #~ msgid "Read and play with the story"
 #~ msgstr "Čitaj i igraj se sa pričom"
-
-#~ msgid "The story of Oscar and friend"
-#~ msgstr "Priča o Oskaru i prijateljima"
 
 #~ msgid "reading"
 #~ msgstr "čitanje"
