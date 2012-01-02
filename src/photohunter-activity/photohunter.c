@@ -528,8 +528,13 @@ static void StartLevel( )
 
     search_diffs(pixmap[0], pixmap[1]);
 
-    for( ScanPhoto=0; ScanPhoto<2; ScanPhoto++ )
+    for( ScanPhoto=0; ScanPhoto<2; ScanPhoto++ ) {
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
       gdk_pixbuf_unref(pixmap[ScanPhoto]);
+#else
+      g_object_unref(pixmap[ScanPhoto]);
+#endif
+    }
 
     g_free(RandomFileToLoad);
 

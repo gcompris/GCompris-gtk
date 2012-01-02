@@ -205,13 +205,21 @@ static void end_board ()
       while(g_list_length(listPixmapEngines)>0) {
 	pixmap = g_list_nth_data(listPixmapEngines, 0);
 	listPixmapEngines = g_list_remove (listPixmapEngines, pixmap);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
 	gdk_pixbuf_unref(pixmap);
+#else
+	g_object_unref(pixmap);
+#endif
       }
 
       while(g_list_length(listPixmapWagons)>0) {
 	pixmap = g_list_nth_data(listPixmapWagons, 0);
 	listPixmapWagons = g_list_remove (listPixmapWagons, pixmap);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
 	gdk_pixbuf_unref(pixmap);
+#else
+	g_object_unref(pixmap);
+#endif
       }
 
     }

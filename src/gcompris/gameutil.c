@@ -770,7 +770,11 @@ gc_util_button_text(GooCanvasItem *rootitem,
 		   "button_press_event",
 		   process, data);
   gc_item_focus_init(item_text, item);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(pixmap);
+#else
+  g_object_unref(pixmap);
+#endif
 }
 
 /** Display a button with the given text (BY SKIN'S SVG ID)

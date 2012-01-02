@@ -1342,7 +1342,11 @@ static void create_item(GooCanvasItem *parent)
 				50,
 				140,
 				NULL);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
     gdk_pixbuf_unref(pixmap_tux);
+#else
+    g_object_unref(pixmap_tux);
+#endif
 
     tux_score = goo_canvas_text_new (parent,
 				     "",
@@ -1393,7 +1397,11 @@ static void create_item(GooCanvasItem *parent)
 	  goo_canvas_item_scale(memoryItem->backcardItem,
 				width2 / gdk_pixbuf_get_width(pixmap),
 				height2 / gdk_pixbuf_get_height(pixmap));
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
 	  gdk_pixbuf_unref(pixmap);
+#else
+	  g_object_unref(pixmap);
+#endif
 
 	  if (currentUiMode != UIMODE_SOUND){
 	    pixmap = gc_pixmap_load("memory/emptycard.png");
@@ -1407,7 +1415,11 @@ static void create_item(GooCanvasItem *parent)
 				  (width2 / gdk_pixbuf_get_width(pixmap)),
 				  (height2 / gdk_pixbuf_get_height(pixmap)));
 	    g_object_set (memoryItem->framecardItem, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
 	    gdk_pixbuf_unref(pixmap);
+#else
+	    g_object_unref(pixmap);
+#endif
 	  }
 
 
@@ -1425,7 +1437,11 @@ static void create_item(GooCanvasItem *parent)
 	    goo_canvas_item_scale(memoryItem->frontcardItem,
 				  (width2 / gdk_pixbuf_get_width(pixmap)),
 				  (height2 / gdk_pixbuf_get_height(pixmap)));
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
 	    gdk_pixbuf_unref(pixmap);
+#else
+	    g_object_unref(pixmap);
+#endif
 	  }
 	  else {
 
@@ -1452,7 +1468,11 @@ static void create_item(GooCanvasItem *parent)
 					      (width2 - gdk_pixbuf_get_width(pixmap))/2,
 					      (height2 - gdk_pixbuf_get_height(pixmap))/2);
 		 }
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
 	      gdk_pixbuf_unref(pixmap);
+#else
+	      g_object_unref(pixmap);
+#endif
 
 	    } else {
 	      gchar *font;

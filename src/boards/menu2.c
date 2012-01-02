@@ -338,7 +338,11 @@ create_panel(GooCanvasItem *parent)
 				   y,
 				   NULL);
 
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
       gdk_pixbuf_unref(pixmap);
+#else
+      g_object_unref(pixmap);
+#endif
 
       y += int_y + icon_size_panel;
 
@@ -556,7 +560,11 @@ static void menu_create_item(GooCanvasItem *parent, MenuItems *menuitems, Gcompr
     }
 
 
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(menu_pixmap);
+#else
+  g_object_unref(menu_pixmap);
+#endif
 
   // display menu icon ========================== END
 
@@ -833,7 +841,11 @@ create_top(GooCanvasItem *parent, gchar *path)
 				current_top_x,
 				current_top_y);
       goo_canvas_item_scale(item, ratio, ratio);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
       gdk_pixbuf_unref(pixmap);
+#else
+      g_object_unref(pixmap);
+#endif
 
       current_top_x += top_int_x + icon_size_top;
 

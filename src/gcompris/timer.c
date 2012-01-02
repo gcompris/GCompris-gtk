@@ -90,7 +90,11 @@ gc_timer_display(int ax, int ay,
 					      y,
                           NULL);
 
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
 	gdk_pixbuf_unref(pixmap);
+#else
+	g_object_unref(pixmap);
+#endif
 	g_free(filename);
       }
       break;
@@ -123,7 +127,11 @@ gc_timer_display(int ax, int ay,
        */
       ystep = (BOARDHEIGHT-y-gdk_pixbuf_get_height(pixmap))/second;
 
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
       gdk_pixbuf_unref(pixmap);
+#else
+      g_object_unref(pixmap);
+#endif
 
       pixmap = gc_skin_pixmap_load("timers/sea.png");
       goo_canvas_image_new (boardRootItem,
@@ -133,7 +141,11 @@ gc_timer_display(int ax, int ay,
 			    "width", (double) gdk_pixbuf_get_width(pixmap),
 			    "height", (double) gdk_pixbuf_get_height(pixmap),
 			    NULL);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
       gdk_pixbuf_unref(pixmap);
+#else
+      g_object_unref(pixmap);
+#endif
 
       break;
     default:
@@ -312,7 +324,11 @@ timer_increment(GooCanvasItem *item)
 	  g_object_set(item,
 		       "pixbuf", pixmap,
 		       NULL);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
 	  gdk_pixbuf_unref(pixmap);
+#else
+	  g_object_unref(pixmap);
+#endif
 	  g_free(filename);
 	}
       break;

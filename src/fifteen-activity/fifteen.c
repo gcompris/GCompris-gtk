@@ -210,7 +210,11 @@ static GooCanvasItem *fifteen_create_item(GooCanvasItem *parent)
 			-1*((gdk_pixbuf_get_width(pixmap)-(4*PIECE_SIZE))/2),
 			-1*((gdk_pixbuf_get_height(pixmap)-(4*PIECE_SIZE))/2)-2,
 			NULL);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(pixmap);
+#else
+  g_object_unref(pixmap);
+#endif
 
 
   board = g_new (GooCanvasItem *, 16);

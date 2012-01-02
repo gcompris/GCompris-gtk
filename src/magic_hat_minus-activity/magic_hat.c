@@ -312,7 +312,11 @@ static GooCanvasItem *magic_hat_create_item()
 			0.0,
 			0.0,
 			NULL);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(pixmap);
+#else
+  g_object_unref(pixmap);
+#endif
 
   // Initialisation for frame1
   frame1.id = 1;
@@ -507,7 +511,11 @@ static void draw_hat(GooCanvasItem *item,
   g_object_set(item,
 	       "pixbuf", image,
 	       NULL);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(image);
+#else
+  g_object_unref(image);
+#endif
 
   if (type == STARS) {
 	 hat_event_id = g_signal_connect(item,

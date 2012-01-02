@@ -636,7 +636,11 @@ scale_list_add_weight(GooCanvasItem *group,
   goo_canvas_item_translate(new_item->item,
 			    new_item->x,
 			    new_item->y);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(pixmap);
+#else
+  g_object_unref(pixmap);
+#endif
   g_free(weight_text);
 
   gc_item_focus_init(new_item->item, NULL);
@@ -801,7 +805,11 @@ scale_prepare_level()
 
   pixmap = gc_pixmap_load(imageList[g_random_int_range(0,imageListCount)]);
   scale_list_add_object(group_d, pixmap, objet_weight, -1, show_weight);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(pixmap);
+#else
+  g_object_unref(pixmap);
+#endif
 }
 
 // Defines a set of available weight-items and possible values for the "unknown" object
@@ -914,7 +922,11 @@ static void scale_prepare_level_weight()
 
     pixmap = gc_pixmap_load(imageList[g_random_int_range(0,imageListCount)]);
     scale_list_add_object(group_d, pixmap, objet_weight,-1, show_weight_objet);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
     gdk_pixbuf_unref(pixmap);
+#else
+    g_object_unref(pixmap);
+#endif
 }
 
 static void
@@ -946,14 +958,22 @@ scale_next_level()
 			      BOARDWIDTH/2 - gdk_pixbuf_get_width(pixmap2)/2,
 			      balance_left_y - 10,
 			      NULL);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(pixmap2);
+#else
+  g_object_unref(pixmap2);
+#endif
 
   goo_canvas_image_new(boardRootItem,
 				 pixmap,
 				 balance_x,
 				 balance_left_y,
 				 NULL);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(pixmap);
+#else
+  g_object_unref(pixmap);
+#endif
 
   /* Set a sign on the scale in case it's not easy to determine
      on which side it balances */
@@ -982,7 +1002,11 @@ scale_next_level()
 			      0,
 			      PLATE_Y,
 			      NULL);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(pixmap);
+#else
+  g_object_unref(pixmap);
+#endif
 
   /* create right plate */
   group_d = goo_canvas_group_new(boardRootItem, NULL);
@@ -998,8 +1022,13 @@ scale_next_level()
 			      0,
 			      PLATE_Y,
 			      NULL);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(pixmap);
   gdk_pixbuf_unref(pixmap2);
+#else
+  g_object_unref(pixmap);
+  g_object_unref(pixmap2);
+#endif
 
   /* display some hint */
   if(gcomprisBoard->level > 2 || board_mode == MODE_WEIGHT)

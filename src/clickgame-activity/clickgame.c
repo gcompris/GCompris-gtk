@@ -739,8 +739,13 @@ clickgame_create_item()
 				  y,
 				  NULL);
       goo_canvas_item_scale(rev, imageZoom, imageZoom);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
       gdk_pixbuf_unref(pixmap);
       gdk_pixbuf_unref(pixmap2);
+#else
+      g_object_unref(pixmap);
+      g_object_unref(pixmap2);
+#endif
 
       fishitem->fwd_frames = g_slist_prepend (fishitem->fwd_frames, fwd);
       fishitem->rev_frames = g_slist_prepend (fishitem->rev_frames, rev);

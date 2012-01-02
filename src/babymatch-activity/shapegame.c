@@ -493,8 +493,13 @@ static void destroy_shape (Shape *shape)
   g_free(shape->targetfile);
   g_free(shape->soundfile);
   g_free(shape->tooltip);
-  if(shape->pixmap)
+  if(shape->pixmap) {
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
     gdk_pixbuf_unref(shape->pixmap);
+#else
+    g_object_unref(shape->pixmap);
+#endif
+  }
   g_free(shape);
 }
 
@@ -758,7 +763,11 @@ add_shape_to_list_of_shapes(Shape *shape)
 		  GdkPixbuf *scale, *hand;
 
 		  scale = gdk_pixbuf_scale_simple(pixmap, w, h, GDK_INTERP_BILINEAR);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
 		  gdk_pixbuf_unref(pixmap);
+#else
+		  g_object_unref(pixmap);
+#endif
 
 		  pixmap = gdk_pixbuf_new( GDK_COLORSPACE_RGB, TRUE, 8,
 					   ICON_WIDTH, ICON_HEIGHT);
@@ -766,7 +775,11 @@ add_shape_to_list_of_shapes(Shape *shape)
 		  // add the shape
 		  gdk_pixbuf_copy_area( scale, 0, 0, w, h,
 					pixmap, (ICON_WIDTH-w )/2, (ICON_HEIGHT-h)/2 );
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
 		  gdk_pixbuf_unref(scale);
+#else
+		  g_object_unref(scale);
+#endif
 
 		  // add the hand
 		  hand = gc_pixmap_load("shapegame/hand.svg");
@@ -775,8 +788,13 @@ add_shape_to_list_of_shapes(Shape *shape)
 		  scale = gdk_pixbuf_scale_simple(hand, w, h, GDK_INTERP_BILINEAR);
 		  gdk_pixbuf_copy_area(scale, 0, 0, w, h,
 				       pixmap, ICON_WIDTH-w,0);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
 		  gdk_pixbuf_unref(hand);
 		  gdk_pixbuf_unref(scale);
+#else
+		  g_object_unref(hand);
+		  g_object_unref(scale);
+#endif
 
 		  w = ICON_WIDTH;
 		  h = ICON_HEIGHT;
@@ -793,7 +811,11 @@ add_shape_to_list_of_shapes(Shape *shape)
 					y_offset - h/2);
 	      goo_canvas_item_scale(item, z, z);
 	      g_object_set_data(G_OBJECT(item), "z", GINT_TO_POINTER((int)(z * 1000)));
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
 	      gdk_pixbuf_unref(pixmap);
+#else
+	      g_object_unref(pixmap);
+#endif
 
 	      icon_shape = create_shape(SHAPE_ICON, shape->name, shape->tooltip,
 					shape->pixmapfile, shape->targetfile,
@@ -1012,7 +1034,11 @@ item_event_drag(GooCanvasItem *item,
 		       GOO_CANVAS_ITEM_INVISIBLE, NULL);
 	  g_object_set(shadow_item, "pointer-events",
 		       GOO_CANVAS_EVENTS_NONE, NULL);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
 	  gdk_pixbuf_unref(dest);
+#else
+	  g_object_unref(dest);
+#endif
 	}
       dragged = shape->item;
       gc_drag_item_move(event, NULL);
@@ -1421,7 +1447,11 @@ add_shape_to_canvas(Shape *shape)
 				    shape->zoomx, shape->zoomy);
 
 	      shape->targetitem = item;
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
 	      gdk_pixbuf_unref(targetpixmap);
+#else
+	      g_object_unref(targetpixmap);
+#endif
 	    }
 	  // An empty targetfile means no target and no point
 	}

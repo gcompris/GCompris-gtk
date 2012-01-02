@@ -339,7 +339,11 @@ hanoi_create_item(GooCanvasItem *parent)
 				   baseline - gdk_pixbuf_get_height(pixmap) + item_height,
 				   NULL);
 
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
       gdk_pixbuf_unref(pixmap);
+#else
+      g_object_unref(pixmap);
+#endif
 
 
       for(j=0; j<number_of_item_y; j++)
@@ -357,7 +361,11 @@ hanoi_create_item(GooCanvasItem *parent)
 					   pixmap,
 					   0, 0,
 					   NULL);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
 	      gdk_pixbuf_unref(pixmap);
+#else
+	      g_object_unref(pixmap);
+#endif
 	      goo_canvas_item_translate(item,
 					position[i][j]->x - w/2,
 					position[i][j]->y);

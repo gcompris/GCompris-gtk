@@ -307,7 +307,11 @@ static void maze_next_level() {
   if(pixmap)
     {
       draw_image(mazegroup,breedte-1,end,pixmap);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
       gdk_pixbuf_unref(pixmap);
+#else
+      g_object_unref(pixmap);
+#endif
     }
 
   position[ind][0]=0;
@@ -699,7 +703,11 @@ draw_image(GooCanvasItem *group,
 			       x1+buffer,
 			       y1+buffer,
 			       NULL);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(pixmap2);
+#else
+  g_object_unref(pixmap2);
+#endif
 
   return(item);
 }

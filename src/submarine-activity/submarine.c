@@ -397,7 +397,11 @@ static GooCanvasItem *submarine_drawbackground(GooCanvasItem *parent) {
   goo_canvas_image_new (backgroundRootItem, pixmap,
   			schema_x, schema_y, NULL);
 
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(pixmap);
+#else
+  g_object_unref(pixmap);
+#endif
 
 #define COMMAND_OFFSET 20.0
   pixmap = gc_pixmap_load("submarine/up.png");
@@ -427,7 +431,11 @@ static GooCanvasItem *submarine_drawbackground(GooCanvasItem *parent) {
   g_signal_connect(item, "button-press-event",
 		   (GCallback) engine_event, GINT_TO_POINTER(UP));
 
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(pixmap);
+#else
+  g_object_unref(pixmap);
+#endif
 
   pixmap = gc_pixmap_load("submarine/down.png");
   item = goo_canvas_image_new (backgroundRootItem,
@@ -454,7 +462,11 @@ static GooCanvasItem *submarine_drawbackground(GooCanvasItem *parent) {
   g_signal_connect(item, "button-press-event",
 		     (GCallback) engine_event, GINT_TO_POINTER(DOWN));
 
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(pixmap);
+#else
+  g_object_unref(pixmap);
+#endif
 
   return backgroundRootItem;
 }
@@ -479,7 +491,11 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 					 0,
 					 NULL);
 
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(pixmap);
+#else
+  g_object_unref(pixmap);
+#endif
 
 
   pixmap = gc_pixmap_load("submarine/vanne.svg");
@@ -531,7 +547,11 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
   g_signal_connect(regleur_chasse_item, "button-press-event",
 		   (GCallback) regleur_chasse_event, NULL);
 
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(pixmap);
+#else
+  g_object_unref(pixmap);
+#endif
 
   // DEPTH RUDDERS
   pixmap = gc_pixmap_load("submarine/rudder.png");
@@ -545,7 +565,11 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 					schema_x + BARRE_AR_X,
 					schema_y + BARRE_AR_Y,
 					 NULL);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(pixmap);
+#else
+  g_object_unref(pixmap);
+#endif
 
   // displays the speed on the engine
   sprintf(s12,"%d",(int)submarine_horizontal_speed);
@@ -716,7 +740,11 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 					  ALERT_SUBMARINE_X,
 					  ALERT_SUBMARINE_Y,
 					  NULL);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(pixmap);
+#else
+  g_object_unref(pixmap);
+#endif
   g_object_set (alert_submarine,
 		"visibility", GOO_CANVAS_ITEM_INVISIBLE,
 		NULL);
@@ -734,7 +762,11 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 		  "visibility", GOO_CANVAS_ITEM_INVISIBLE,
 		  NULL);
   }
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(pixmap);
+#else
+  g_object_unref(pixmap);
+#endif
 
   // whale item
   switch(gcomprisBoard->level)
@@ -763,7 +795,11 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 				whale_x,
 				whale_y,
 				NULL);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(pixmap);
+#else
+  g_object_unref(pixmap);
+#endif
 
   //  whale being hit
   pixmap = gc_pixmap_load("submarine/whale_hit.png");
@@ -776,7 +812,11 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 		"visibility", GOO_CANVAS_ITEM_INVISIBLE,
 		NULL);
 
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(pixmap);
+#else
+  g_object_unref(pixmap);
+#endif
 
   // treasure item
   pixmap = gc_pixmap_load("submarine/crown.png");
@@ -797,7 +837,11 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 			  6*1000,
 			  40,
 			  GOO_CANVAS_ANIMATE_FREEZE);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(pixmap);
+#else
+  g_object_unref(pixmap);
+#endif
 
   // the triggers for air compressor and battery charger
   pixmap = gc_pixmap_load("submarine/manette.png");
@@ -811,7 +855,11 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 					       schema_x + BATTERY_TRIGGER_X,
 					       schema_y + BATTERY_TRIGGER_Y,
 					       NULL);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(pixmap);
+#else
+  g_object_unref(pixmap);
+#endif
 
   g_signal_connect(air_compressor_item, "button-press-event",
 		   (GCallback) air_compressor_event, NULL);
@@ -895,7 +943,11 @@ static void start_frigate_anim()
 			  100*1000,
 			  100,
 			  GOO_CANVAS_ANIMATE_RESTART);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(pixmap);
+#else
+  g_object_unref(pixmap);
+#endif
 }
 
 static void stop_frigate_anim()
@@ -1663,7 +1715,11 @@ static void submarine_explosion()
   g_object_set(submarine_item,
 	       "pixbuf", pixmap,
 	       NULL);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(pixmap);
+#else
+  g_object_unref(pixmap);
+#endif
 
   ok();
 }

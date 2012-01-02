@@ -438,7 +438,11 @@ static GooCanvasItem *enumerate_create_item(GooCanvasItem *parent)
       g_signal_connect(item, "button-press-event",
 		       (GCallback) item_event_focus, GINT_TO_POINTER(i));
 
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
       gdk_pixbuf_unref(pixmap_answer);
+#else
+      g_object_unref(pixmap_answer);
+#endif
 
       pixmap_answer = gc_pixmap_load("enumerate/enumerate_answer.png");
 
@@ -449,7 +453,11 @@ static GooCanvasItem *enumerate_create_item(GooCanvasItem *parent)
 			      current_y - ANSWER_HEIGHT/2,
 			      NULL);
 
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
       gdk_pixbuf_unref(pixmap_answer);
+#else
+      g_object_unref(pixmap_answer);
+#endif
       g_object_set (answer_item_focus[i], "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 
       item = goo_canvas_image_new (boardRootItem,
@@ -463,7 +471,11 @@ static GooCanvasItem *enumerate_create_item(GooCanvasItem *parent)
 					   current_y - 5,
 					   scale, 0.0);
 
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
       gdk_pixbuf_unref(pixmap);
+#else
+      g_object_unref(pixmap);
+#endif
 
       g_signal_connect(item, "button-press-event",
 		       (GCallback) item_event_focus, GINT_TO_POINTER(i));

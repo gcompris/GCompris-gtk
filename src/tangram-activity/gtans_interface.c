@@ -190,8 +190,13 @@ void create_mainwindow (GooCanvasItem *rootitem)
 				  NULL);
 
 
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(right_rot);
   gdk_pixbuf_unref(left_rot);
+#else
+  g_object_unref(right_rot);
+  g_object_unref(left_rot);
+#endif
 
   right_rot_big   = gc_pixmap_load("tangram/gtans_2x-rotate.png");
   left_rot_big    = gc_pixmap_load("tangram/gtans_2x-rotate-left.png");
@@ -209,8 +214,13 @@ void create_mainwindow (GooCanvasItem *rootitem)
 				  Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 120,
 				   NULL);
 
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(right_rot_big);
   gdk_pixbuf_unref(left_rot_big);
+#else
+  g_object_unref(right_rot_big);
+  g_object_unref(left_rot_big);
+#endif
 
 
   g_signal_connect(r_rot_s, "button_press_event",

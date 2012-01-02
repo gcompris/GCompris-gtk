@@ -583,7 +583,11 @@ void gc_cursor_set(guint gdk_cursor_type)
 					    cursor_pixbuf, 0, 0);
 	gdk_window_set_cursor(window->window, cursor);
 	gdk_cursor_unref(cursor);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
 	gdk_pixbuf_unref(cursor_pixbuf);
+#else
+	g_object_unref(cursor_pixbuf);
+#endif
       }
     else
       {
@@ -651,7 +655,11 @@ _set_pixmap_background(GooCanvasItem *parent, gchar *file)
 					  NULL);
   goo_canvas_item_lower(backgroundimg, NULL);
 
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(background_pixmap);
+#else
+  g_object_unref(background_pixmap);
+#endif
 
 }
 
@@ -828,7 +836,11 @@ static void setup_window ()
 	if (icon_pixbuf)
 	  {
 	    gtk_window_set_icon (GTK_WINDOW (window), icon_pixbuf);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
 	    gdk_pixbuf_unref (icon_pixbuf);
+#else
+	    g_object_unref (icon_pixbuf);
+#endif
 	  }
       }
     else

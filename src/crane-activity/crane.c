@@ -535,7 +535,11 @@ static void draw_arrow() {
   	g_signal_connect(item_arrow, "button_press_event",
 			 (GCallback) arrow_event, GINT_TO_POINTER(i));
 	gc_item_focus_init(item_arrow, NULL);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
 	gdk_pixbuf_unref( arrow[i].pixmap);
+#else
+	g_object_unref( arrow[i].pixmap);
+#endif
 
   }
 
@@ -570,7 +574,11 @@ static void draw_redhands() {
 				    "height", (double) (CRANE_FRAME_IMAGE_SIZE + 5),
 				    NULL);
 
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(pixmap);
+#else
+  g_object_unref(pixmap);
+#endif
 
   g_object_set (red_hands,
 		"visibility", GOO_CANVAS_ITEM_INVISIBLE,
@@ -646,7 +654,11 @@ static void place_item(int x, int y, int active) {
 					   (x + 5 + ((i % CRANE_FRAME_COLUMN) * CRANE_FRAME_CELL)),
 					   (y + 5 + (floor(i / CRANE_FRAME_COLUMN) * CRANE_FRAME_CELL)),
 					   NULL);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
 	gdk_pixbuf_unref( pixmap);
+#else
+	g_object_unref( pixmap);
+#endif
 
 	if (active)
 	  {

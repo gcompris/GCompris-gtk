@@ -684,8 +684,15 @@ static gboolean item_event_num (GooCanvasItem  *item,
 static void destroy_board() {
   int i;
 
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   for (i=0; i<NUM_VALUES; i++)
     gdk_pixbuf_unref(num_pixmap[i]);
   for (i=0; i<5; i++)
     gdk_pixbuf_unref(oper_pixmap[i]);
+#else
+  for (i=0; i<NUM_VALUES; i++)
+    g_object_unref(num_pixmap[i]);
+  for (i=0; i<5; i++)
+    g_object_unref(oper_pixmap[i]);
+#endif
 }

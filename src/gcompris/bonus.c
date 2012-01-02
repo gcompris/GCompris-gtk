@@ -207,7 +207,11 @@ bonus_image(char *image, GCBonusStatusList gamewon)
 			 NULL);
   }
 
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(pixmap);
+#else
+  g_object_unref(pixmap);
+#endif
 
   g_free(str);
   end_bonus_id = g_timeout_add (GC_BONUS_DURATION, (GSourceFunc) end_bonus, NULL);

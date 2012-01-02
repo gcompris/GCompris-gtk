@@ -364,7 +364,11 @@ static GooCanvasItem *wordprocessor_create()
 			  17.0,
 			  y,
 			  NULL);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(pixmap);
+#else
+  g_object_unref(pixmap);
+#endif
   g_signal_connect(item, "button_press_event",
 		   (GCallback) save_event, buffer);
   gc_item_focus_init(item, NULL);
@@ -380,7 +384,11 @@ static GooCanvasItem *wordprocessor_create()
 			  60.0,
 			  y,
 			  NULL);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(pixmap);
+#else
+  g_object_unref(pixmap);
+#endif
   g_signal_connect(item, "button_press_event",
 		   (GCallback) load_event, buffer);
   gc_item_focus_init(item, NULL);

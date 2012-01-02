@@ -297,9 +297,15 @@ awele_destroy_all_items ()
     {
       for (i = 0; i < NBHOLE / 2; i++)
 	{
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
 	  gdk_pixbuf_unref(graphsElt->pixbufButton[i]);
 	  gdk_pixbuf_unref(graphsElt->pixbufButtonNotify[i]);
 	  gdk_pixbuf_unref(graphsElt->pixbufButtonClicked[i]);
+#else
+	  g_object_unref(graphsElt->pixbufButton[i]);
+	  g_object_unref(graphsElt->pixbufButtonNotify[i]);
+	  g_object_unref(graphsElt->pixbufButtonClicked[i]);
+#endif
 	}
       g_free(graphsElt);
       graphsElt = NULL;
@@ -335,7 +341,11 @@ awele_create_item (GooCanvasItem * parent)
 			0,
 			OFFSET_Y,
 			NULL);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(pixmap);
+#else
+  g_object_unref(pixmap);
+#endif
 
   /*
    * Display text

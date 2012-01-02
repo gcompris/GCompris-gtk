@@ -371,7 +371,11 @@ display_image(gchar *imagename, GooCanvasItem *root_item)
 			       NULL);
   goo_canvas_item_translate(item, ix, iy);
   goo_canvas_item_scale(item, xratio, xratio);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(pixmap);
+#else
+  g_object_unref(pixmap);
+#endif
 
   g_signal_connect(item, "button_press_event",
 		   (GCallback) item_event_images_selector,
@@ -426,7 +430,11 @@ display_image_set(gchar *imagename, GSList *imagelist)
 			       NULL);
   goo_canvas_item_translate(item, 5, isy);
   goo_canvas_item_scale(item, xratio, xratio);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(pixmap);
+#else
+  g_object_unref(pixmap);
+#endif
   g_object_set_data (G_OBJECT (item), "imagelist", imagelist);
 
   g_signal_connect(item, "button_press_event",

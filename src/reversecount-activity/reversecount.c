@@ -649,7 +649,11 @@ display_item_at(gchar *imagename, int block)
 				    gdk_pixbuf_get_width (pixmap) * xratio,
 				    gdk_pixbuf_get_height(pixmap) * xratio,
 				    GDK_INTERP_BILINEAR);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(pixmap);
+#else
+  g_object_unref(pixmap);
+#endif
 
   item = goo_canvas_image_new (boardRootItem,
 			       pixmap2,
@@ -659,7 +663,11 @@ display_item_at(gchar *imagename, int block)
 				    (gdk_pixbuf_get_height (pixmap2))) / 2,
 			       NULL);
 
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(pixmap2);
+#else
+  g_object_unref(pixmap2);
+#endif
 
   return(item);
 }
@@ -810,7 +818,11 @@ static void create_clock(double x, double y, int value)
 					   y,
 					   NULL);
 
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(pixmap);
+#else
+  g_object_unref(pixmap);
+#endif
   g_free(str);
 }
 
@@ -830,7 +842,11 @@ static void update_clock(int value)
 		"pixbuf", pixmap,
 		NULL);
 
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(pixmap);
+#else
+  g_object_unref(pixmap);
+#endif
   g_free(str);
 }
 

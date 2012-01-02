@@ -329,7 +329,11 @@ missing_letter_create_item(GooCanvasItem *parent)
 			img_area_x+(img_area_w - gdk_pixbuf_get_width(pixmap))/2,
 			img_area_y+(img_area_h - gdk_pixbuf_get_height(pixmap))/2,
 			NULL);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(pixmap);
+#else
+  g_object_unref(pixmap);
+#endif
 
   /* Calc the number of proposals */
   i = 0;
@@ -402,7 +406,11 @@ missing_letter_create_item(GooCanvasItem *parent)
       i++;
     }
 
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(button_pixmap);
+#else
+  g_object_unref(button_pixmap);
+#endif
 }
 
 /* ==================================== */
@@ -494,7 +502,11 @@ highlight_selected(GooCanvasItem * button)
     {
       button_pixmap = gc_pixmap_load("missing_letter/button.png");
       g_object_set(selected_button, "pixbuf", button_pixmap, NULL);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
       gdk_pixbuf_unref(button_pixmap);
+#else
+      g_object_unref(button_pixmap);
+#endif
     }
 
   if (selected_button != button)
@@ -502,7 +514,11 @@ highlight_selected(GooCanvasItem * button)
       button_pixmap_selected = gc_pixmap_load("missing_letter/button_selected.png");
       g_object_set(button, "pixbuf", button_pixmap_selected, NULL);
       selected_button = button;
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
       gdk_pixbuf_unref(button_pixmap_selected);
+#else
+      g_object_unref(button_pixmap_selected);
+#endif
     }
 }
 

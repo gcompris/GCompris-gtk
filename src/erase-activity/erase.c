@@ -259,7 +259,11 @@ static void set_cursor()
 					      gdk_pixbuf_get_height(cursor_pixbuf)/2);
 	  gdk_window_set_cursor(gc_get_window()->window, cursor);
 	  gdk_cursor_unref(cursor);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
 	  gdk_pixbuf_unref(cursor_pixbuf);
+#else
+	  g_object_unref(cursor_pixbuf);
+#endif
 	}
     }
 }

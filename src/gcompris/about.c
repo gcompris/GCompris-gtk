@@ -164,7 +164,11 @@ void gc_about_start ()
 				   (gdouble) y_start - gdk_pixbuf_get_height(pixmap) + 15,
                    NULL);
 
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
       gdk_pixbuf_unref(pixmap);
+#else
+      g_object_unref(pixmap);
+#endif
       g_free(sponsor_image);
     }
   else

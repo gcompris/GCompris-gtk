@@ -908,7 +908,11 @@ static void display_paying_tux(guint note)
 			20,
 			130,
 			NULL);
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(pixmap);
+#else
+  g_object_unref(pixmap);
+#endif
 
   if (note == 30)
     {
