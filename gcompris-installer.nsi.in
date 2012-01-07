@@ -179,12 +179,8 @@ Section -SecUninstallOldGcompris
             StrCmp $R0 "HKLM" gcompris_del_lm_reg gcompris_del_cu_reg
             gcompris_del_cu_reg:
               DeleteRegKey HKCU ${GCOMPRIS_REG_KEY}
-              Goto uninstall_prob_cont
             gcompris_del_lm_reg:
               DeleteRegKey HKLM ${GCOMPRIS_REG_KEY}
-
-            uninstall_prob_cont:
-	      RMDir /r "$R1"
 
   done:
 SectionEnd
