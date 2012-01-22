@@ -7,10 +7,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gcompris 9.6\n"
+"Project-Id-Version: gcompris 12.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-26 06:34+0800\n"
-"PO-Revision-Date: 2011-02-26 06:35+0800\n"
+"POT-Creation-Date: 2012-01-22 21:23+0800\n"
+"PO-Revision-Date: 2012-01-22 21:24+0800\n"
 "Last-Translator: Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>\n"
 "Language-Team: Chinese (Hong Kong) <community@linuxhall.org>\n"
 "Language: zh_TW\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "Go to Algebra activities"
 msgstr "前往代數遊戲"
 
-#: ../boards/algebra_group.xml.in.h:2 ../boards/menu.xml.in.h:18
+#: ../boards/algebra_group.xml.in.h:2 ../boards/menu.xml.in.h:22
 #: ../boards/money_group.xml.in.h:2
 msgid "Left-click the mouse on an activity to select it."
 msgstr "在一個遊戲上按下滑鼠左鍵來選擇它。"
@@ -35,6 +35,18 @@ msgstr "前往計算遊戲"
 #: ../boards/algebramenu.xml.in.h:2
 msgid "Various calculation activities."
 msgstr "各種不同的計算遊戲。"
+
+#: ../boards/braille.xml.in.h:1
+#: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:1
+#, fuzzy
+msgid "Discover the Braille system"
+msgstr "電腦探險"
+
+#: ../boards/braille.xml.in.h:2
+msgid ""
+"The Braille system is a method that is widely used by blind people to read "
+"and write, and was the first digital form of writing."
+msgstr "布拉耶點字法系統是一種廣泛使用在視障人們讀寫的方法，而且是第一個數碼的書寫格式。"
 
 #: ../boards/chess.xml.in.h:1
 #: ../src/chess_computer-activity/chess_computer.xml.in.h:3
@@ -141,20 +153,21 @@ msgstr "前往記憶遊戲"
 msgid "Various memory activities (images, letters, sounds)."
 msgstr "各種不同的記憶遊戲(圖片﹑字母﹑聲音)。"
 
-#: ../boards/memory_op_group.xml.in.h:1
-msgid "Go to mathematics memory activities"
-msgstr "前往數學的記憶遊戲"
-
-#: ../boards/memory_op_group.xml.in.h:2
-#: ../boards/memory_op_group_tux.xml.in.h:2
-msgid "Memory activities based on operations"
-msgstr "基於計算的記憶遊戲"
-
 #: ../boards/memory_op_group_tux.xml.in.h:1
 msgid "Go to mathematics memory activities against Tux"
 msgstr "跟小企鵝玩計算的記憶遊戲"
 
+#: ../boards/memory_op_group_tux.xml.in.h:2
+#: ../boards/memory_op_group.xml.in.h:2
+msgid "Memory activities based on operations"
+msgstr "基於計算的記憶遊戲"
+
+#: ../boards/memory_op_group.xml.in.h:1
+msgid "Go to mathematics memory activities"
+msgstr "前往數學的記憶遊戲"
+
 #: ../boards/menu.xml.in.h:1
+#, fuzzy
 msgid ""
 "A simple click on an icon brings you to an activity or a menu of "
 "activities.\n"
@@ -162,17 +175,21 @@ msgid ""
 "The following icons are displayed from right to left.\n"
 "(note that each icon is displayed only if available in the current "
 "activity)\n"
-"    Home - Exit an activity, go back to menu\n"
+"    Home - Exit an activity, go back to menu (ctrl-w and escape key)\n"
 "    Thumb - OK. Confirm your answer\n"
-"    Dice - Display the current level. Click to select another level\n"
+"    Arrows - Display the current level. Click to select another level\n"
 "    Lips - Repeat the question\n"
 "    Question Mark - Help\n"
 "    Tool - The configuration menu\n"
 "    Tux Plane - About GCompris\n"
-"    Night - Quit GCompris\n"
+"    Quit - Quit GCompris (ctrl-x)\n"
 "The stars show suitable age groups for each game:\n"
 "    1, 2 or 3 simple stars  - from 2 to 6 years old\n"
-"    1, 2 or 3 complex stars - 7 years and up"
+"    1, 2 or 3 complex stars - 7 years and up\n"
+"Shortcuts:\n"
+"    ctrl-b Show or Hide the control bar\n"
+"    ctrl-f Toggle full screen\n"
+"    ctrl-m Toggle mute for the background music"
 msgstr ""
 "在某個圖示上按一下就會帶你進入一個遊戲，或是一個遊戲選單之中。\n"
 "螢幕下方是 GCompris 的控制列。下列圖示是由右到左顯示：\n"
@@ -189,17 +206,17 @@ msgstr ""
 "    1﹑2 或 3 個簡單星星  - 2 到 6 歲\n"
 "    1﹑2 或 3 個複雜星星  - 從 7 歲起"
 
-#: ../boards/menu.xml.in.h:16
+#: ../boards/menu.xml.in.h:20
 msgid "GCompris Main Menu"
 msgstr "GCompris 主選單"
 
-#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:866
+#: ../boards/menu.xml.in.h:21 ../src/boards/menu2.c:886
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
 msgstr "GCompris 是教育遊戲的集合，它提供兩歲起兒童各種不同的遊戲。"
 
-#: ../boards/menu.xml.in.h:19
+#: ../boards/menu.xml.in.h:23
 msgid ""
 "The goal of GCompris is to provide a free alternative to popular proprietary "
 "edutainment software"
@@ -265,14 +282,6 @@ msgstr "策略遊戲"
 msgid "Strategy games like chess, connect4, ..."
 msgstr "策略遊戲像是「國際象棋」﹑「連接四」…"
 
-#: ../gcompris-edit.desktop.in.h:1
-msgid "Administration for gcompris"
-msgstr "gcompris 系統管理"
-
-#: ../gcompris-edit.desktop.in.h:2
-msgid "GCompris Administration"
-msgstr "GCompris 系統管理"
-
 #: ../gcompris.desktop.in.h:1
 msgid "Educational game for ages 2 to 10"
 msgstr "適合二到十歲的教育遊戲"
@@ -284,6 +293,14 @@ msgstr "教育類套裝軟件 GCompris"
 #: ../gcompris.desktop.in.h:3
 msgid "Multi-activity educational game"
 msgstr "複合式教育遊戲"
+
+#: ../gcompris-edit.desktop.in.h:1
+msgid "Administration for gcompris"
+msgstr "gcompris 系統管理"
+
+#: ../gcompris-edit.desktop.in.h:2
+msgid "GCompris Administration"
+msgstr "GCompris 系統管理"
 
 #: ../nsis_translations.desktop.in.h:1
 msgid ""
@@ -385,11 +402,9 @@ msgstr ""
 "<b>{config}</b> 組態\n"
 " 用於簡介檔案 <b>{profile}</b>"
 
-#. self.main_vbox.pack_start (label, False, False, 8)
 #: ../src/administration-activity/admin/board_list.py:660
-#: ../src/colors-activity/colors.c:180
-#: ../src/pythontest-activity/pythontest.py:518
-#: ../src/smallnumbers-activity/smallnumbers.c:616
+#: ../src/pythontest-activity/pythontest.py:511
+#: ../src/smallnumbers-activity/smallnumbers.c:618
 msgid "Select sound locale"
 msgstr "選擇音效的語區"
 
@@ -517,6 +532,46 @@ msgstr "你必須先在列表中選取一個羣組"
 msgid "Birth Date"
 msgstr "出生日期"
 
+#: ../src/administration-activity/administration.xml.in.h:1
+msgid ""
+"- In the 'Boards' section you can change the list of activities. Just "
+"untoggle them in the treeview. You can change the language used for reading, "
+"for example, then the language used for saying the names of colors.\n"
+"- You can save multiple configurations, and switch between them easily. In "
+"the 'Profile' section add a profile, then in the 'Board' section select the "
+"profile in the combobox, then select the boards you want to be active. You "
+"can add multiple profiles, with different lists of boards, and different "
+"languages. You set the default profile in the 'Profile' section, by choosing "
+"the profile you want, then clicking on the 'Default' button. You can also "
+"choose a profile from the command line.\n"
+"- You can add users, classes and for each class, you can create groups of "
+"users. Note that you can import users from a comma-separated file. Assign "
+"one or more groups to a profile, after which those new logins will appear "
+"after restarting GCompris. Being able to identify individual children in "
+"GCompris means we can provide individual reports. It also recognizes the "
+"children as individuals; they can learn to type in and recognize their own "
+"usernames (login is configurable)."
+msgstr ""
+"- 在「園地」段落中，你可以修改遊戲的列表。只要在樹狀圖中切換選擇就可以。你可以改變讀取所用的語言，例如用來表示顏色名稱的語言。\n"
+"- 你可以儲存多份設定，並且輕鬆地切換。先在「簡介檔案」段落中增加一個簡介檔，然後在「園地」段落中的下拉式選單中選取該檔，再選擇你想要啟用的園地。你可以加入很多有着不同園地列表以及不同語言的簡介檔。藉着選取想要的簡介檔並按下「預設」鈕，就可以在「簡介檔案」段落中設定預設的簡介檔。也可以從命令列來選擇一個簡介檔。\n"
+"- 你可以加入使用者﹑班級，而對於每一班級則可以建立使用者羣組。請注意，你可以從一個內容欄位由逗號分隔的檔案中"
+
+#: ../src/administration-activity/administration.xml.in.h:4
+msgid "GCompris Administration Menu"
+msgstr "GCompris 管理選單"
+
+#: ../src/administration-activity/administration.xml.in.h:5
+msgid ""
+"If you want to fine tune GCompris to your needs, you can use the "
+"administration module here. The ultimate goal is to provide child-specific "
+"reporting for parents and teacher who want to monitor the progress, "
+"strengths and needs of their children."
+msgstr "如果想要根據你的需要精細調整 GCompris，你可以利用這裏的管理模組。最終的目標是提供個別兒童的報告給父母和老師，用來監督他們孩子的進度﹑優勢與需求。"
+
+#: ../src/administration-activity/administration.xml.in.h:6
+msgid "Left-Click with the mouse to select an activity"
+msgstr "按下滑鼠左鍵以選擇一個遊戲"
+
 #: ../src/administration-activity/admin/log_list.py:91
 msgid "Select a user:"
 msgstr "選擇使用者："
@@ -529,8 +584,7 @@ msgstr "所有使用者"
 #: ../src/administration-activity/admin/log_list.py:108
 #: ../src/administration-activity/admin/log_list.py:295
 #: ../src/administration-activity/admin/profile_list.py:117
-#: ../src/gcompris/board_config_combo.c:125
-#: ../src/gcompris/board_config_combo.c:398
+#: ../src/lang-activity/lang.py:163
 msgid "Default"
 msgstr "預設"
 
@@ -552,6 +606,7 @@ msgid "Board"
 msgstr "園地"
 
 #: ../src/administration-activity/admin/log_list.py:246
+#: ../src/click_on_letter-activity/click_on_letter.c:1248
 #: ../src/redraw-activity/redraw.py:339
 msgid "Level"
 msgstr "階段"
@@ -698,52 +753,11 @@ msgstr ""
 "一或多個帳號已有重覆！\n"
 "你需要去修改它們: %s ！"
 
-#: ../src/administration-activity/administration.xml.in.h:1
-msgid ""
-"- In the 'Boards' section you can change the list of activities. Just "
-"untoggle them in the treeview. You can change the language used for reading, "
-"for example, then the language used for saying the names of colors.\n"
-"- You can save multiple configurations, and switch between them easily. In "
-"the 'Profile' section add a profile, then in the 'Board' section select the "
-"profile in the combobox, then select the boards you want to be active. You "
-"can add multiple profiles, with different lists of boards, and different "
-"languages. You set the default profile in the 'Profile' section, by choosing "
-"the profile you want, then clicking on the 'Default' button. You can also "
-"choose a profile from the command line.\n"
-"- You can add users, classes and for each class, you can create groups of "
-"users. Note that you can import users from a comma-separated file. Assign "
-"one or more groups to a profile, after which those new logins will appear "
-"after restarting GCompris. Being able to identify individual children in "
-"GCompris means we can provide individual reports. It also recognizes the "
-"children as individuals; they can learn to type in and recognize their own "
-"usernames (login is configurable)."
-msgstr ""
-"- 在「園地」段落中，你可以修改遊戲的列表。只要在樹狀圖中切換選擇就可以。你可以改變讀取所用的語言，例如用來表示顏色名稱的語言。\n"
-"- 你可以儲存多份設定，並且輕鬆地切換。先在「簡介檔案」段落中增加一個簡介檔，然後在「園地」段落中的下拉式選單中選取該檔，再選擇你想要啟用的園地。你可以加入很多有着不同園地列表以及不同語言的簡介檔。藉着選取想要的簡介檔並按下「預設」鈕，就可以在「簡介檔案」段落中設定預設的簡介檔。也可以從命令列來選擇一個簡介檔。\n"
-"- 你可以加入使用者﹑班級，而對於每一班級則可以建立使用者羣組。請注意，你可以從一個內容欄位由逗號分隔的檔案中"
-
-#: ../src/administration-activity/administration.xml.in.h:4
-msgid "GCompris Administration Menu"
-msgstr "GCompris 管理選單"
-
-#: ../src/administration-activity/administration.xml.in.h:5
-msgid ""
-"If you want to fine tune GCompris to your needs, you can use the "
-"administration module here. The ultimate goal is to provide child-specific "
-"reporting for parents and teacher who want to monitor the progress, "
-"strengths and needs of their children."
-msgstr "如果想要根據你的需要精細調整 GCompris，你可以利用這裏的管理模組。最終的目標是提供個別兒童的報告給父母和老師，用來監督他們孩子的進度﹑優勢與需求。"
-
-#: ../src/administration-activity/administration.xml.in.h:6
-msgid "Left-Click with the mouse to select an activity"
-msgstr "按下滑鼠左鍵以選擇一個遊戲"
-
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:1
 msgid "Advanced colors"
 msgstr "進階顏色"
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:2
-#: ../src/read_colors-activity/read_colors.xml.in.h:1
 msgid "Can read"
 msgstr "能夠閱讀文字"
 
@@ -759,298 +773,292 @@ msgstr "點選正確的顏色方格"
 msgid "Learn to recognize unusual colors."
 msgstr "學習辨別少見的顏色"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:1
-msgid "almond"
-msgstr "杏仁"
+#. Translator: Do not translate {text}.
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:2
+msgid "Find the {text} butterfly"
+msgstr "尋找{text}的蝴蝶"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:2
-msgid "chestnut"
-msgstr "栗"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:3
-msgid "claret"
-msgstr "紅酒"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:4
-msgid "cobalt"
-msgstr "鈷藍"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:5
-msgid "coral"
-msgstr "珊瑚"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:6
-msgid "corn"
-msgstr "玉米"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:7
-msgid "cyan"
-msgstr "青綠"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board1.xml.in.h:8
-msgid "sienna"
-msgstr "黃褐"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:1
-msgid "lime"
-msgstr "萊姆"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:2
-msgid "sage"
-msgstr "鼠尾草"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:3
-msgid "salmon"
-msgstr "鮭魚"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:4
-msgid "sapphire"
-msgstr "寶藍"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:5
-msgid "sepia"
-msgstr "烏賊墨"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:6
-msgid "sulphur"
-msgstr "硫磺"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:7
-msgid "tea"
-msgstr "茶"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board2.xml.in.h:8
-msgid "turquoise"
-msgstr "藍玉"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:1
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:3
 msgid "absinthe"
 msgstr "苦艾"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:2
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:4
 msgid "alabaster"
 msgstr "石膏"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:3
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:5
+msgid "almond"
+msgstr "杏仁"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:6
 msgid "amber"
 msgstr "琥珀"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:4
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:7
 msgid "amethyst"
 msgstr "紫水晶"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:5
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:8
 msgid "anise"
 msgstr "大茴香"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:6
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:9
 msgid "aquamarine"
 msgstr "碧玉"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:7
-msgid "mahogany"
-msgstr "紅木"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board3.xml.in.h:8
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:8
-msgid "vermilion"
-msgstr "硃砂"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:1
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:1
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:10
 msgid "aubergine"
 msgstr "茄子"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:2
-msgid "ceruse"
-msgstr "鉛粉"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:3
-msgid "chartreuse"
-msgstr "淡黃綠"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:4
-msgid "emerald"
-msgstr "祖母綠"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:5
-msgid "fawn"
-msgstr "幼鹿"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:6
-msgid "fuchsia"
-msgstr "晚櫻"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:7
-msgid "glaucous"
-msgstr "綠灰"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board4.xml.in.h:8
-msgid "ruby"
-msgstr "紅寶石"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:2
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:11
 msgid "auburn"
 msgstr "赤褐"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:3
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:12
 msgid "azure"
 msgstr "蔚藍"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:4
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:13
 msgid "bistre"
 msgstr "深褐"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:5
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:14
 msgid "celadon"
 msgstr "青瓷"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:6
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:15
 msgid "cerulean"
 msgstr "天藍"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:7
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:16
+msgid "ceruse"
+msgstr "鉛粉"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:17
+msgid "chartreuse"
+msgstr "淡黃綠"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:18
+msgid "chestnut"
+msgstr "栗"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:19
+msgid "claret"
+msgstr "紅酒"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:20
+msgid "cobalt"
+msgstr "鈷藍"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:21
+msgid "coral"
+msgstr "珊瑚"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:22
+msgid "corn"
+msgstr "玉米"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:23
 msgid "crimson"
 msgstr "緋紅"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board5.xml.in.h:8
-msgid "greyish-brown"
-msgstr "灰褐"
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:24
+msgid "cyan"
+msgstr "青綠"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:1
-msgid "dove"
-msgstr "白鴿"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:2
-msgid "garnet"
-msgstr "石榴石"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:3
-msgid "indigo"
-msgstr "靛藍"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:4
-msgid "ivory"
-msgstr "象牙"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:5
-msgid "jade"
-msgstr "翡翠"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:6
-msgid "lavender"
-msgstr "薰衣草"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:7
-msgid "lichen"
-msgstr "地衣"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board6.xml.in.h:8
-msgid "wine"
-msgstr "白酒"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:1
-msgid "larch"
-msgstr "落葉松"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:2
-msgid "lilac"
-msgstr "紫丁香"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:3
-msgid "magenta"
-msgstr "洋紅"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:4
-msgid "malachite"
-msgstr "孔雀石"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:5
-msgid "mimosa"
-msgstr "含羞草"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:6
-msgid "navy"
-msgstr "海軍藍"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:7
-msgid "ochre"
-msgstr "赭石"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board7.xml.in.h:8
-msgid "olive"
-msgstr "橄欖"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:1
-msgid "greyish blue"
-msgstr "灰藍"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:2
-msgid "mauve"
-msgstr "淡紫"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:3
-msgid "opaline"
-msgstr "乳白"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:4
-msgid "pistachio"
-msgstr "淡黃綠"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:5
-msgid "platinum"
-msgstr "白金"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:6
-msgid "purple"
-msgstr "紫"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board8.xml.in.h:7
-msgid "ultramarine"
-msgstr "羣青"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:1
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:25
 msgid "dark purple"
 msgstr "深紫"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:2
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:26
+msgid "dove"
+msgstr "白鴿"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:27
+msgid "emerald"
+msgstr "祖母綠"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:28
+msgid "fawn"
+msgstr "幼鹿"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:29
+msgid "fuchsia"
+msgstr "晚櫻"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:30
+msgid "garnet"
+msgstr "石榴石"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:31
+msgid "glaucous"
+msgstr "綠灰"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:32
+msgid "greyish blue"
+msgstr "灰藍"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:33
+#, fuzzy
+msgid "greyish brown"
+msgstr "灰褐"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:34
+msgid "indigo"
+msgstr "靛藍"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:35
+msgid "ivory"
+msgstr "象牙"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:36
+msgid "jade"
+msgstr "翡翠"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:37
+msgid "larch"
+msgstr "落葉松"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:38
+msgid "lavender"
+msgstr "薰衣草"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:39
+msgid "lichen"
+msgstr "地衣"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:40
+msgid "lilac"
+msgstr "紫丁香"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:41
+msgid "lime"
+msgstr "萊姆"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:42
+msgid "magenta"
+msgstr "洋紅"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:43
+msgid "mahogany"
+msgstr "紅木"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:44
+msgid "malachite"
+msgstr "孔雀石"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:45
+msgid "mauve"
+msgstr "淡紫"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:46
+msgid "mimosa"
+msgstr "含羞草"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:47
+msgid "navy"
+msgstr "海軍藍"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:48
+msgid "ochre"
+msgstr "赭石"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:49
+msgid "olive"
+msgstr "橄欖"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:50
+msgid "opaline"
+msgstr "乳白"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:51
+msgid "pistachio"
+msgstr "淡黃綠"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:52
+msgid "platinum"
+msgstr "白金"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:53
 msgid "plum"
 msgstr "梅子"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:3
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:54
 msgid "prussian blue"
 msgstr "普魯士藍"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:4
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:55
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:9
+msgid "purple"
+msgstr "紫"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:56
+msgid "ruby"
+msgstr "紅寶石"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:57
 msgid "rust"
 msgstr "鐵鏽"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:5
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:58
 msgid "saffron"
 msgstr "番紅花"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:6
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:59
+msgid "sage"
+msgstr "鼠尾草"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:60
+msgid "salmon"
+msgstr "鮭魚"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:61
+msgid "sapphire"
+msgstr "寶藍"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:62
+msgid "sepia"
+msgstr "烏賊墨"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:63
+msgid "sienna"
+msgstr "黃褐"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:64
+msgid "sulphur"
+msgstr "硫磺"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:65
+msgid "tea"
+msgstr "茶"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:66
+msgid "turquoise"
+msgstr "藍玉"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:67
+msgid "ultramarine"
+msgstr "羣青"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:68
 msgid "vanilla"
 msgstr "香草"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:7
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:69
 msgid "verdigris"
 msgstr "銅綠"
 
-#: ../src/advanced_colors-activity/resources/advanced_colors/board9.xml.in.h:8
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:70
+msgid "vermilion"
+msgstr "硃砂"
+
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:71
 msgid "veronese"
 msgstr "威洛納"
 
-#. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
-#: ../src/algebra_by-activity/algebra.c:186
-#: ../src/memory-activity/memory.c:946
-msgid "+-×÷"
-msgstr "+-×÷"
-
-#: ../src/algebra_by-activity/algebra.c:411
-#: ../src/readingh-activity/reading.c:630
-msgid "I am Ready"
-msgstr "我準備好了"
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:72
+msgid "wine"
+msgstr "白酒"
 
 #: ../src/algebra_by-activity/algebra_by.xml.in.h:1
 msgid ""
@@ -1077,6 +1085,17 @@ msgstr "乘法表"
 #: ../src/algebra_by-activity/algebra_by.xml.in.h:5
 msgid "Practice the multiplication operation"
 msgstr "練習乘法運算"
+
+#. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
+#: ../src/algebra_by-activity/algebra.c:186
+#: ../src/memory-activity/memory.c:946
+msgid "+-×÷"
+msgstr "+-×÷"
+
+#: ../src/algebra_by-activity/algebra.c:411
+#: ../src/readingh-activity/reading.c:630
+msgid "I am Ready"
+msgstr "我準備好了"
 
 #: ../src/algebra_guesscount-activity/algebra_guesscount.xml.in.h:1
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:1
@@ -1178,14 +1197,6 @@ msgstr "移動並按下滑鼠"
 msgid "algorithm"
 msgstr "找出規則"
 
-#: ../src/anim-activity/Color.py:86
-msgid "Fill color..."
-msgstr "填入色彩..."
-
-#: ../src/anim-activity/Color.py:98
-msgid "Stroke color..."
-msgstr "筆劃顏色..."
-
 #: ../src/anim-activity/anim.py:103
 msgid "Save..."
 msgstr "儲存..."
@@ -1224,7 +1235,7 @@ msgstr "線條"
 
 #: ../src/anim-activity/anim.py:157
 #: ../src/wordprocessor-activity/wordprocessor.c:87
-#: ../src/wordprocessor-activity/wordprocessor.c:426
+#: ../src/wordprocessor-activity/wordprocessor.c:434
 msgid "Text"
 msgstr "文字"
 
@@ -1292,6 +1303,14 @@ msgid ""
 "and 'folder' buttons."
 msgstr "在左邊選擇一種畫圖工具，並在下方選擇一種顏色。然後在白色區域按下並且拖拉以創造一個新的形狀。一旦已經完成一張圖，你可以選擇底部的一個小方塊來選擇要畫畫的新圖畫。每張圖畫的內容都會和前一個相同。接着可以藉由稍微移動或是增減物品來編輯它。當你建立多個圖畫然後按下「電影」鈕，你將會以連續的投影片放映 (無窮循環模式) 來觀看你的圖畫。你可以在時間圖畫上按右鍵來改變影片中的最後一個圖片。你也可以修改這個模式的觀賞速度。在觀賞模式中，按下「畫圖」鈕以回到畫圖模式。也可以藉由「軟碟」與「資料夾」按鈕來儲存與重新載入你的動畫。"
 
+#: ../src/anim-activity/Color.py:86
+msgid "Fill color..."
+msgstr "填入色彩..."
+
+#: ../src/anim-activity/Color.py:98
+msgid "Stroke color..."
+msgstr "筆劃顏色..."
+
 #: ../src/awele-activity/awele.c:158
 #, c-format
 msgid ""
@@ -1301,23 +1320,23 @@ msgstr ""
 "找不到檔案「%s」。\n"
 "你不能玩這個遊戲。"
 
-#: ../src/awele-activity/awele.c:349
+#: ../src/awele-activity/awele.c:359
 msgid "NORTH"
 msgstr "北方"
 
-#: ../src/awele-activity/awele.c:361
+#: ../src/awele-activity/awele.c:371
 msgid "SOUTH"
 msgstr "南方"
 
-#: ../src/awele-activity/awele.c:523
+#: ../src/awele-activity/awele.c:533
 msgid "Choose a house"
 msgstr "選擇一間房子"
 
-#: ../src/awele-activity/awele.c:638
+#: ../src/awele-activity/awele.c:648
 msgid "Your turn to play ..."
 msgstr "輪到你玩了 ..."
 
-#: ../src/awele-activity/awele.c:679
+#: ../src/awele-activity/awele.c:689
 msgid "Not allowed! Try again !"
 msgstr "不能這樣！再試一次！"
 
@@ -1356,14 +1375,15 @@ msgid "Play the Oware strategy game against Tux"
 msgstr "跟小企鵝玩 Oware 策略遊戲"
 
 #: ../src/awele-activity/awele.xml.in.h:4
+#, fuzzy
 msgid ""
 "The object of the game is to capture more seeds than one's opponent. Since "
 "the game has only 48 seeds, capturing 25 is sufficient to accomplish this. "
 "Since there are an even number of seeds, it is possible for the game to end "
 "in a draw, where each player has captured 24. The game is over when one "
-"player has captured 25 or more stones, or both players have taken 24 stones "
+"player has captured 25 or more seeds, or both players have taken 24 seeds "
 "each (draw). If both players agree that the game has been reduced to an "
-"endless cycle, each player captures the stones on their side of the board."
+"endless cycle, each player captures the seeds on their side of the board."
 msgstr "這個遊戲的目標是要比對手抓住更多種子。由於遊戲中只有 48 顆種子，抓住了 25 顆就足夠達到。由於種子的數目是偶數，遊戲的結局有可能是平手，此時每位玩家都抓住了 24 顆種子。當某位玩家抓住超過 25 顆種子，或是雙方都抓到了 24 顆(平手)。如果雙方都認為，遊戲已經演變成一個無窮盡的迴圈，那麼每位玩家就抓取位於自己端的種子。"
 
 #: ../src/babymatch-activity/babymatch.xml.in.h:1
@@ -1399,9 +1419,8 @@ msgstr "運動統合。概念匹配。"
 msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "滑鼠操控：移動﹑拖放。文化的關聯。"
 
-#: ../src/babymatch-activity/shapegame.c:1903
-#: ../src/click_on_letter-activity/click_on_letter.c:671
-#: ../src/colors-activity/colors.c:168
+#: ../src/babymatch-activity/shapegame.c:2017
+#: ../src/click_on_letter-activity/click_on_letter.c:1316
 #, c-format
 msgid ""
 "<b>%1$s</b> configuration\n"
@@ -1521,8 +1540,8 @@ msgstr "將球打進目標"
 #: ../src/clickgame-activity/clickgame.xml.in.h:5
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:5
 #: ../src/connect4-activity/connect4.xml.in.h:6
-#: ../src/erase-activity/erase.xml.in.h:3
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:6
+#: ../src/erase-activity/erase.xml.in.h:3
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:6
 #: ../src/fifteen-activity/fifteen.xml.in.h:2
 #: ../src/hanoi-activity/hanoi.xml.in.h:3
@@ -1542,15 +1561,15 @@ msgstr "將滑鼠對準球並且按一下，來設定球的速度和方向。按
 msgid "The football game"
 msgstr "足球遊戲"
 
-#: ../src/boards/menu2.c:135
+#: ../src/boards/menu2.c:137
 msgid "Main Menu Second Version"
 msgstr "主選單第二版"
 
-#: ../src/boards/menu2.c:136
+#: ../src/boards/menu2.c:138
 msgid "Select a Board"
 msgstr "選擇一塊園地"
 
-#: ../src/boards/menu2.c:266
+#: ../src/boards/menu2.c:268
 #, c-format
 msgid "Number of activities: %d"
 msgstr "遊戲的數目：%d"
@@ -1566,6 +1585,186 @@ msgstr "用來內嵌 python 於 gcompris 的特殊園地。"
 #: ../src/boards/python.c:89
 msgid "Special board that embeds python into gcompris."
 msgstr "將 python 嵌入 gcompris 的特殊園地。"
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:176
+msgid "Braille : Unlocking the Code"
+msgstr "布拉耶點字法：解碼"
+
+#. Braille Intro
+#: ../src/braille_alphabets-activity/braille_alphabets.py:178
+msgid ""
+"The Braille system is a method that is used by blind people to read and "
+"write."
+msgstr "盲文系統是一個用於盲人識字、寫字的方法。"
+
+#. Braille Description
+#: ../src/braille_alphabets-activity/braille_alphabets.py:181
+msgid ""
+"Each Braille character, or cell, is made up of six dot positions, arranged "
+"in a rectangle containing two columns of three dots each. As seen on the "
+"left, each dot is referenced by a number from 1 to 6."
+msgstr "每一個布拉耶點字法的字符是由六個點的位置不同所構成，每個字是由二乘三點點所組成。就像左手邊看到的，每個點被定為數字1到6。"
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:200
+msgid "I am braille TUX"
+msgstr ""
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:212
+msgid "When you are ready, click on me and try reproducing Braille characters."
+msgstr "當你準備好後，請按我以再製點字。"
+
+#. Translators : Do not translate the token {letter}
+#: ../src/braille_alphabets-activity/braille_alphabets.py:296
+msgid "Click on the dots in braille cell area to produce the letter {letter}."
+msgstr ""
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:301
+msgid ""
+"Look at the Braille character map and observe how similar the first and "
+"second line are."
+msgstr "觀察點字文字表，比較第一與第二行的相似。"
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:304
+msgid ""
+"Again, similar as the first line but take care, the 'W' letter was added "
+"afterwards."
+msgstr "再一次的，如同第一行，但是要注意'W'字母被加在後面。"
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:307
+msgid "This is easy, numbers are the same as letters from A to J."
+msgstr "這很簡單，數字就跟字母 A 到 J 一樣"
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:326
+msgid "Braille Cell"
+msgstr ""
+
+#: ../src/braille_alphabets-activity/braille_alphabets.py:348
+msgid "Click to confirm your selection of dots"
+msgstr ""
+
+#: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:2
+msgid "Learn and memorize the Braille system."
+msgstr "學習並記憶點字系統。"
+
+#: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:3
+msgid "Let kids discover the Braille system."
+msgstr "讓孩子們發現點字系統。"
+
+#: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:4
+msgid ""
+"The screen has 3 sections: braille cell, alphabet name and lower board "
+"containing 13 letters. Click on each letter in the lower board to know its "
+"corresponding braille code in the braille cell section. Click on the "
+"increment level button to jump to the next 13 letters of the English "
+"alphabets."
+msgstr ""
+
+#: ../src/braille_alphabets-activity/BrailleMap.py:96
+#, fuzzy
+msgid "Back to the activity"
+msgstr "前往迷宮遊戲"
+
+#: ../src/braille_fun-activity/braille_fun.xml.in.h:1
+msgid "Braille Alphabet Codes"
+msgstr "點字字母碼"
+
+#: ../src/braille_fun-activity/braille_fun.xml.in.h:2
+#, fuzzy
+msgid "Braille Fun"
+msgstr "腦力"
+
+#: ../src/braille_fun-activity/braille_fun.xml.in.h:3
+msgid ""
+"Braille code the tile for the corresponding falling letters. Check the "
+"braille chart by clicking on the toggle button for help."
+msgstr ""
+
+#: ../src/braille_fun-activity/braille_fun.xml.in.h:4
+#, fuzzy
+msgid "Braille the falling letters"
+msgstr "填入缺少的字母"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:120
+msgid "PLAYER 1"
+msgstr "玩家 1"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:130
+msgid "PLAYER 2"
+msgstr "玩家 2"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:151
+#, fuzzy
+msgid "Check Number"
+msgstr "數字"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:168
+#: ../src/braille_lotto-activity/braille_lotto.py:180
+msgid "Click me to get some hint"
+msgstr "點選我來取得提示"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:193
+msgid "I don't have this number PLAYER {number}"
+msgstr "我沒有這個號碼 PLAYER {number} "
+
+#: ../src/braille_lotto-activity/braille_lotto.py:215
+msgid "Lotto Master"
+msgstr "樂透得主"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:239
+msgid "Generate a number"
+msgstr "產生一個數字"
+
+#. Translators : Do not translate the token {column}
+#: ../src/braille_lotto-activity/braille_lotto.py:296
+#: ../src/braille_lotto-activity/braille_lotto.py:319
+msgid "Hey, you have it. It is there in your {column} column"
+msgstr ""
+
+#: ../src/braille_lotto-activity/braille_lotto.py:298
+#: ../src/braille_lotto-activity/braille_lotto.py:321
+msgid "Oops, this number is not in your ticket!"
+msgstr "哎呀，數字並沒有在你的清單上！"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:335
+msgid "1st"
+msgstr "第一"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:338
+msgid "2nd"
+msgstr "第二"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:341
+#, fuzzy
+msgid "3rd"
+msgstr "紅色"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:343
+msgid "4th"
+msgstr "第四"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:353
+msgid "Game Over"
+msgstr "遊戲結束"
+
+#: ../src/braille_lotto-activity/braille_lotto.py:465
+msgid "Congratulation player {player_id}, you won"
+msgstr "恭喜玩家 {player_id}，你獲勝了"
+
+#: ../src/braille_lotto-activity/braille_lotto.xml.in.h:1
+msgid "Braille Lotto"
+msgstr ""
+
+#: ../src/braille_lotto-activity/braille_lotto.xml.in.h:2
+msgid "Discover the Braille system for numbers."
+msgstr "發現點字系統的數字。"
+
+#: ../src/braille_lotto-activity/braille_lotto.xml.in.h:3
+msgid ""
+"Each player must find if the proposed number is in their board. If the code "
+"is in the board, just click on it in order to validate it. The player who "
+"crosses all the Braille numbers correctly wins the game. Check the Braille "
+"table by clicking on the toggle button in the control bar."
+msgstr "每位使用者必須找到建議的數字是否在他們的版子上。如果密碼在版子上，就點選它以驗證。 正確的通過所有的點字數字的玩家，將贏得遊戲。點選控制列的切換鈕以檢視點字表。"
 
 #: ../src/canal_lock-activity/canal_lock.xml.in.h:1
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:2
@@ -1660,36 +1859,36 @@ msgstr ""
 "外部程式 gnuchess。\n"
 "請先安裝這個程式，並檢查它是否在："
 
-#: ../src/chess_computer-activity/chess.c:648
+#: ../src/chess_computer-activity/chess.c:652
 msgid "White's Turn"
 msgstr "輪到白方"
 
-#: ../src/chess_computer-activity/chess.c:648
+#: ../src/chess_computer-activity/chess.c:652
 msgid "Black's Turn"
 msgstr "輪到黑方"
 
-#: ../src/chess_computer-activity/chess.c:789
+#: ../src/chess_computer-activity/chess.c:793
 msgid "White checks"
 msgstr "白方將軍"
 
-#: ../src/chess_computer-activity/chess.c:791
+#: ../src/chess_computer-activity/chess.c:795
 msgid "Black checks"
 msgstr "黑方將軍"
 
-#: ../src/chess_computer-activity/chess.c:1197
+#: ../src/chess_computer-activity/chess.c:1201
 msgid "Black mates"
 msgstr "黑方兵士"
 
-#: ../src/chess_computer-activity/chess.c:1204
+#: ../src/chess_computer-activity/chess.c:1208
 msgid "White mates"
 msgstr "白方兵士"
 
-#: ../src/chess_computer-activity/chess.c:1211 ../src/gcompris/bonus.c:191
+#: ../src/chess_computer-activity/chess.c:1215 ../src/gcompris/bonus.c:191
 #: ../src/gcompris/bonus.c:200
 msgid "Drawn game"
 msgstr "畫圖遊戲"
 
-#: ../src/chess_computer-activity/chess.c:1239
+#: ../src/chess_computer-activity/chess.c:1243
 msgid "Error: The external program gnuchess died unexpectingly"
 msgstr "錯誤：外部程式 gnuchess 意外中止了"
 
@@ -1919,77 +2118,6 @@ msgstr "1955 年 Citroën(雪鐵龍) ds 19"
 msgid "Cars"
 msgstr "汽車"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:311
-#: ../src/memory-activity/memory.c:906
-msgid ""
-"Error: this activity cannot be played with the\n"
-"sound effects disabled.\n"
-"Go to the configuration dialog to\n"
-"enable the sound"
-msgstr ""
-"錯誤：在停用音效時，\n"
-"沒辦法玩這個遊戲。\n"
-"請前往設定對話框\n"
-"來啟用音效"
-
-#. TRANSLATORS: Put here the alphabet in your language
-#. require by all utf8-functions
-#. TRANSLATORS: Put here the alphabet lowercase in your language
-#: ../src/click_on_letter-activity/click_on_letter.c:316
-#: ../src/gletters-activity/gletters.c:229 ../src/memory-activity/memory.c:935
-msgid "abcdefghijklmnopqrstuvwxyz"
-msgstr "abcdefghijklmnopqrstuvwxyz"
-
-#: ../src/click_on_letter-activity/click_on_letter.c:344
-#, c-format
-msgid ""
-"Error: this activity requires that you first install\n"
-"the packages with GCompris voices for the locale '%s' or '%s'"
-msgstr ""
-"錯誤：這個遊戲需要先安裝套件\n"
-"GCompris 聲音套件中的地區「%s」或「%s」"
-
-#: ../src/click_on_letter-activity/click_on_letter.c:354
-#, c-format
-msgid ""
-"Error: this activity requires that you first install\n"
-"the packages with GCompris voices for the locale '%s' ! Fallback to english, "
-"sorry!"
-msgstr ""
-"錯誤：這個遊戲需要先安裝套件\n"
-"GCompris 聲音套件中的地區「%s」！回復到英文，抱歉！"
-
-#. toggle box
-#: ../src/click_on_letter-activity/click_on_letter.c:694
-#: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:484
-#: ../src/missing_letter-activity/missingletter_config.c:492
-#: ../src/readingh-activity/reading.c:928
-#: ../src/wordsgame-activity/wordsgame.c:887
-msgid "Uppercase only text"
-msgstr "只允許大寫字母"
-
-#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:1
-msgid ""
-"A letter is spoken. Click on the matching letter in the main area. You can "
-"listen to the letter again, by clicking on the mouth icon in the bottom box."
-msgstr "首先一個字母被唸出來，然後在主區域中按下符合的字母。藉由按一下底部方格中的嘴巴圖示，可以再重聽字母一次。"
-
-#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:2
-msgid "Click on a letter"
-msgstr "在字母上按一下"
-
-#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:3
-msgid "Letter-name recognition"
-msgstr "字母名稱辨認"
-
-#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:4
-msgid "Listen to a letter and click on the right one"
-msgstr "注意聽字母的發音並選出正確的"
-
-#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:5
-msgid "Visual letter-recognition. Can move the mouse."
-msgstr "視覺化的字母辨認。可以移動滑鼠。"
-
 #: ../src/clickanddraw-activity/clickanddraw.xml.in.h:1
 msgid "Click and draw"
 msgstr "點選並畫畫"
@@ -2023,10 +2151,127 @@ msgid "Motor coordination: moving and clicking the mouse."
 msgstr "動態座標：滑鼠的移動與點選。"
 
 #: ../src/clickgame-activity/clickgame.xml.in.h:6
-msgid "Use the left mouse button to click on the moving fish."
+#, fuzzy
+msgid ""
+"Use the left mouse button to click on the moving fish. A level 5 and after, "
+"a double click is mandatory."
 msgstr "使用滑鼠左鍵在移動的魚上按一下。"
 
-#: ../src/clockgame-activity/clockgame.c:524
+#. require by all utf8-functions
+#. TRANSLATORS: Put here the alphabet lowercase in your language
+#: ../src/click_on_letter-activity/click_on_letter.c:367
+#: ../src/gletters-activity/gletters.c:229 ../src/memory-activity/memory.c:935
+msgid "abcdefghijklmnopqrstuvwxyz"
+msgstr "abcdefghijklmnopqrstuvwxyz"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:378
+msgid ""
+"This activity will be played with questions displayed as text instead of "
+"being spoken"
+msgstr "這次活動的進行將以文字顯示問題而非口述。"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:383
+#: ../src/memory-activity/memory.c:906
+msgid ""
+"Error: this activity cannot be played with the\n"
+"sound effects disabled.\n"
+"Go to the configuration dialog to\n"
+"enable the sound"
+msgstr ""
+"錯誤：在停用音效時，\n"
+"沒辦法玩這個遊戲。\n"
+"請前往設定對話框\n"
+"來啟用音效"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:404
+#, fuzzy, c-format
+msgid ""
+"Error: this activity requires that you first install\n"
+"the packages with GCompris voices for the %s locale."
+msgstr ""
+"錯誤：這個遊戲需要先安裝套件\n"
+"GCompris 聲音套件中的地區「%s」或「%s」"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:907
+#, fuzzy
+msgid "Questions cannot be empty."
+msgstr "問題不能為空白。"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:917
+#, fuzzy
+msgid "Answers cannot be empty."
+msgstr "問題不能為空白。"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:923
+#, c-format
+msgid "Too many characters in the Answer (maximum is %d)."
+msgstr "答案中有太多字 (最多 %d 字)。"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:947
+msgid "All the characters in Questions must also be in the Answers."
+msgstr "問題中的所有文字必須也都在答案裏。"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:964
+#, c-format
+msgid ""
+"Invalid entry:\n"
+"At level %d, Questions '%s' / Answers '%s'\n"
+"%s"
+msgstr ""
+"無效的項目：\n"
+"第 %d 級，問題「%s」/ 答案「%s」\n"
+" %s"
+
+#. answer
+#: ../src/click_on_letter-activity/click_on_letter.c:1259
+#: ../src/missing_letter-activity/missingletter_config.c:420
+#: ../src/missing_letter-activity/missingletter_config.c:548
+msgid "Answer"
+msgstr "答案"
+
+#. question
+#: ../src/click_on_letter-activity/click_on_letter.c:1270
+#: ../src/missing_letter-activity/missingletter_config.c:426
+#: ../src/missing_letter-activity/missingletter_config.c:571
+msgid "Question"
+msgstr "問題"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:1406
+#: ../src/gcompris/board_config_wordlist.c:274
+msgid "Back to default"
+msgstr "回到預設值"
+
+#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:1
+#: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:1
+msgid ""
+"A letter is spoken. Click on the matching letter in the main area. You can "
+"listen to the letter again, by clicking on the mouth icon in the bottom box."
+msgstr "首先一個字母被唸出來，然後在主區域中按下符合的字母。藉由按一下底部方格中的嘴巴圖示，可以再重聽字母一次。"
+
+#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:2
+msgid "Click on a lowercase letter"
+msgstr "在小寫字母上按一下 "
+
+#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:3
+#: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:3
+msgid "Letter-name recognition"
+msgstr "字母名稱辨認"
+
+#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:4
+#: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:4
+msgid "Listen to a letter and click on the right one"
+msgstr "注意聽字母的發音並選出正確的"
+
+#: ../src/click_on_letter-activity/click_on_letter.xml.in.h:5
+#: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:5
+msgid "Visual letter-recognition. Can move the mouse."
+msgstr "視覺化的字母辨認。可以移動滑鼠。"
+
+#: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:2
+msgid "Click on an uppercase letter"
+msgstr "在大寫字母上按一下"
+
+#: ../src/clockgame-activity/clockgame.c:535
 msgid "Set the watch to:"
 msgstr "將錶設定成："
 
@@ -2055,46 +2300,6 @@ msgstr "設定時鐘為指定的時間，根據所顯示的時間單位(時:分 
 msgid "The concept of time. Reading the time."
 msgstr "時間概念。讀出時間。"
 
-#: ../src/colors-activity/colors.c:60
-msgid "Click on the blue duck"
-msgstr "按一下藍色鴨子"
-
-#: ../src/colors-activity/colors.c:61
-msgid "Click on the brown duck"
-msgstr "按一下棕色鴨子"
-
-#: ../src/colors-activity/colors.c:62
-msgid "Click on the green duck"
-msgstr "按一下綠色鴨子"
-
-#: ../src/colors-activity/colors.c:63
-msgid "Click on the grey duck"
-msgstr "按一下灰色鴨子"
-
-#: ../src/colors-activity/colors.c:64
-msgid "Click on the orange duck"
-msgstr "按一下橙色鴨子"
-
-#: ../src/colors-activity/colors.c:65
-msgid "Click on the purple duck"
-msgstr "按一下紫色鴨子"
-
-#: ../src/colors-activity/colors.c:66
-msgid "Click on the red duck"
-msgstr "按一下紅色鴨子"
-
-#: ../src/colors-activity/colors.c:67
-msgid "Click on the yellow duck"
-msgstr "按一下黃色鴨子"
-
-#: ../src/colors-activity/colors.c:68
-msgid "Click on the black duck"
-msgstr "按一下黑色鴨子"
-
-#: ../src/colors-activity/colors.c:69
-msgid "Click on the white duck"
-msgstr "按一下白色鴨子"
-
 #: ../src/colors-activity/colors.xml.in.h:1
 msgid "Can move the mouse."
 msgstr "能夠移動滑鼠。"
@@ -2116,6 +2321,47 @@ msgid ""
 "This board teaches you to recognize different colors. When you hear the name "
 "of the color, click on the duck wearing it."
 msgstr "這塊園地教你辨認不同的顏色。當你聽到顏色的名稱，就按一下這種顏色的鴨子。"
+
+#. Translator: Do not translate {text}.
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:2
+msgid "Find the {text} duck"
+msgstr "尋找{text}鴨子"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:3
+msgid "black"
+msgstr "黑色"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:4
+msgid "blue"
+msgstr "藍色"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:5
+msgid "brown"
+msgstr "棕色"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:6
+msgid "green"
+msgstr "綠色"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:7
+msgid "grey"
+msgstr "灰色"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:8
+msgid "orange"
+msgstr "橙色"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:10
+msgid "red"
+msgstr "紅色"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:11
+msgid "white"
+msgstr "白色"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:12
+msgid "yellow"
+msgstr "黃色"
 
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:1
 #: ../src/connect4-activity/connect4.xml.in.h:1
@@ -2174,8 +2420,8 @@ msgid "Drive the crane and copy the model"
 msgstr "駕駛起重機來複製模型"
 
 #: ../src/crane-activity/crane.xml.in.h:3
-#: ../src/erase-activity/erase.xml.in.h:2
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:5
+#: ../src/erase-activity/erase.xml.in.h:2
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:5
 #: ../src/penalty-activity/penalty.xml.in.h:3
 msgid "Motor-coordination"
@@ -2229,9 +2475,8 @@ msgid "Vincent van Gogh, The Harvest - 1888"
 msgstr "Vincent Van Gogh(梵谷)，鄉村小路 - 1888"
 
 #: ../src/details-activity/resources/details/board1_5.xml.in.h:1
-#, fuzzy
 msgid "Vincent van Gogh, Cafe Terrace at Night - 1888"
-msgstr "Vincent Van Gogh(梵谷)，鄉村小路 - 1888"
+msgstr "文森·威廉·梵谷(Vincent Van Gogh),夜晚露天咖啡座(Cafe Terrace at Night) - 1888"
 
 #: ../src/details-activity/resources/details/board1_6.xml.in.h:1
 #, fuzzy
@@ -2247,10 +2492,6 @@ msgstr "Vincent Van Gogh(梵谷)，鄉村小路 - 1888"
 msgid "Eilean Donan castle"
 msgstr "愛蓮·朵娜城堡"
 
-#: ../src/details-activity/resources/details/board2_1.xml.in.h:1
-msgid "Eiffel Tower, seen from the champ de Mars, Paris, France"
-msgstr "艾菲爾鐵塔,自 champ de Mars,法國巴黎遠觀"
-
 #: ../src/details-activity/resources/details/board2_10.xml.in.h:1
 msgid "Gizah Pyramids, Egypt"
 msgstr "Gizah Pyramids,埃及"
@@ -2263,6 +2504,10 @@ msgstr "悉尼歌劇院，澳洲"
 #: ../src/details-activity/resources/details/board2_12.xml.in.h:1
 msgid "Tower Bridge in London"
 msgstr "倫敦的塔橋"
+
+#: ../src/details-activity/resources/details/board2_1.xml.in.h:1
+msgid "Eiffel Tower, seen from the champ de Mars, Paris, France"
+msgstr "艾菲爾鐵塔,自 champ de Mars,法國巴黎遠觀"
 
 #: ../src/details-activity/resources/details/board2_2.xml.in.h:1
 msgid "Courtyard of the Museum of Louvre, and its pyramid"
@@ -2346,6 +2591,8 @@ msgid ""
 msgstr "在左邊選擇一種畫圖工具，並在下方選擇一種顏色。然後在白色區域按下並且拖拉來創造一個新的形狀。為了節省時間，你可以按下滑鼠中鍵來刪除一個物品。"
 
 #: ../src/drawnumber-activity/drawnumber.py:236
+#: ../src/findit-activity/findit.py:315
+#: ../src/louis_braille-activity/louis_braille.py:84
 msgid "Cannot find the file '{filename}'"
 msgstr "找不到檔案「{filename}」"
 
@@ -2443,6 +2690,18 @@ msgid ""
 "the keyboard and press the OK button or the 'Enter' key."
 msgstr "首先，適當地安排物品，好讓你能數它們。然後，在右下區域中選擇你想要回答的物品。用鍵盤輸入答案，並且按下「OK」鈕或是「Enter」鍵。"
 
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
+msgid "Double click the mouse"
+msgstr "按兩下滑鼠"
+
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:3
+msgid "Double click the mouse on rectangles until all the blocks disappear."
+msgstr "用滑鼠在長方形上連按兩下，直到所有的區塊都消失。"
+
+#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:4
+msgid "Double click the mouse to erase the area and discover the background"
+msgstr "連按兩下滑鼠來擦去這個區域，並顯示出背景"
+
 #: ../src/erase-activity/erase.c:86 ../src/erase-activity/erase.xml.in.h:5
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "移動滑鼠來擦去這個區域，並顯示出背景"
@@ -2451,12 +2710,12 @@ msgstr "移動滑鼠來擦去這個區域，並顯示出背景"
 msgid "Error: No images found\n"
 msgstr "錯誤：找不到圖片\n"
 
-#: ../src/erase-activity/erase.c:578 ../src/gcompris/properties.c:504
+#: ../src/erase-activity/erase.c:582 ../src/gcompris/properties.c:504
 #: ../src/gcompris/properties.c:511
 msgid "readme"
 msgstr "讀我檔案"
 
-#: ../src/erase-activity/erase.c:580
+#: ../src/erase-activity/erase.c:584
 msgid ""
 "Put any number of images in this directory.\n"
 "They will be used as background in the 'erase' activity.\n"
@@ -2478,18 +2737,6 @@ msgid ""
 "Move the mouse until all the blocks disappear. You can add you own images "
 "under the directory '~/My GCompris/erase'."
 msgstr "移動滑鼠直到所有區塊都消失掉。你可以把自己喜歡的圖片放在「~/My GCompris/erase」目錄下。"
-
-#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
-msgid "Double click the mouse"
-msgstr "按兩下滑鼠"
-
-#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:3
-msgid "Double click the mouse on rectangles until all the blocks disappear."
-msgstr "用滑鼠在長方形上連按兩下，直到所有的區塊都消失。"
-
-#: ../src/erase_2clic-activity/erase_2clic.xml.in.h:4
-msgid "Double click the mouse to erase the area and discover the background"
-msgstr "連按兩下滑鼠來擦去這個區域，並顯示出背景"
 
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:2
 msgid "Click the mouse"
@@ -2521,6 +2768,15 @@ msgstr "原本的程式碼來自 libgnomecanvas 展示範例"
 #: ../src/fifteen-activity/fifteen.xml.in.h:5
 msgid "The fifteen game"
 msgstr "遊戲十五"
+
+#: ../src/findit-activity/findit.py:320
+#: ../src/louis_braille-activity/louis_braille.py:88
+msgid ""
+"Failed to parse data set '{filename}' with error:\n"
+"{error}"
+msgstr ""
+"分析資料集「｛filename｝」失敗：\n"
+"{error}"
 
 #: ../src/followline-activity/followline.xml.in.h:1
 msgid "Control the hose-pipe"
@@ -2574,61 +2830,61 @@ msgstr "GCompris 首頁：http://gcompris.net"
 msgid "Translators:"
 msgstr "翻譯者："
 
-#: ../src/gcompris/about.c:208
+#: ../src/gcompris/about.c:212
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
 msgstr "這個軟件是個 GNU 套件，並且根據 GNU 一般公共授權來推出"
 
-#: ../src/gcompris/about.c:222 ../src/gcompris/config.c:439
+#: ../src/gcompris/about.c:226 ../src/gcompris/config.c:456
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:355
 #: ../src/gcompris/images_selector.c:306
 msgid "OK"
 msgstr "確定"
 
-#: ../src/gcompris/bar.c:684
+#: ../src/gcompris/bar.c:688
 msgid "GCompris confirmation"
 msgstr "GCompris 確認"
 
-#: ../src/gcompris/bar.c:685
+#: ../src/gcompris/bar.c:689
 msgid "Are you sure you want to quit?"
 msgstr "是否確定要結束？"
 
-#: ../src/gcompris/bar.c:686
+#: ../src/gcompris/bar.c:690
 msgid "Yes, I am sure!"
 msgstr "是，我確定！"
 
-#: ../src/gcompris/bar.c:687
+#: ../src/gcompris/bar.c:691
 msgid "No, I want to keep going"
 msgstr "不，我要繼續"
 
-#: ../src/gcompris/board.c:155
+#: ../src/gcompris/board.c:149
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr "不支援動態模組載入。無法載入 GCompris。\n"
 
-#: ../src/gcompris/board_config_combo.c:157
+#: ../src/gcompris/board_config_combo.c:182
 msgid ""
 "Select the language\n"
 " to use in the board"
 msgstr "請選擇要在遊戲中使用的語言"
 
-#: ../src/gcompris/board_config_combo.c:227
+#: ../src/gcompris/board_config_combo.c:252
 msgid "Global GCompris mode"
 msgstr "全域 GCompris 模式"
 
-#: ../src/gcompris/board_config_combo.c:228
+#: ../src/gcompris/board_config_combo.c:253
 msgid "Normal"
 msgstr "一般"
 
-#: ../src/gcompris/board_config_combo.c:229
+#: ../src/gcompris/board_config_combo.c:254
 msgid "2 clicks"
 msgstr "按兩下"
 
-#: ../src/gcompris/board_config_combo.c:230
+#: ../src/gcompris/board_config_combo.c:255
 msgid "both modes"
 msgstr "兩者模式"
 
-#: ../src/gcompris/board_config_combo.c:258
+#: ../src/gcompris/board_config_combo.c:283
 msgid ""
 "Select the drag and drop mode\n"
 " to use in the board"
@@ -2637,27 +2893,23 @@ msgstr ""
 "園地中使用的模式"
 
 #. add a new level
-#: ../src/gcompris/board_config_wordlist.c:106
+#: ../src/gcompris/board_config_wordlist.c:123
 #, c-format
 msgid "%d (New level)"
 msgstr "%d (新的階段)"
 
 #. frame
-#: ../src/gcompris/board_config_wordlist.c:180
+#: ../src/gcompris/board_config_wordlist.c:226
 msgid "Configure the list of words"
 msgstr "設定字詞清單"
 
-#: ../src/gcompris/board_config_wordlist.c:209
+#: ../src/gcompris/board_config_wordlist.c:237
 msgid "Choice of the language"
 msgstr "選擇語言"
 
-#: ../src/gcompris/board_config_wordlist.c:221
+#: ../src/gcompris/board_config_wordlist.c:249
 msgid "Choice of the level"
 msgstr "選擇階段"
-
-#: ../src/gcompris/board_config_wordlist.c:246
-msgid "Back to default"
-msgstr "回到預設值"
 
 #: ../src/gcompris/config.c:58
 msgid "Your system default"
@@ -2668,77 +2920,77 @@ msgid "Afrikaans"
 msgstr "南非荷蘭語"
 
 #: ../src/gcompris/config.c:60
+msgid "Albanian"
+msgstr "阿爾巴尼亞文"
+
+#: ../src/gcompris/config.c:61
 msgid "Amharic"
 msgstr "阿姆哈拉文"
 
-#: ../src/gcompris/config.c:61
+#: ../src/gcompris/config.c:62
 msgid "Arabic"
 msgstr "阿拉伯文"
 
-#: ../src/gcompris/config.c:62
+#: ../src/gcompris/config.c:63
 msgid "Asturian"
 msgstr "阿斯圖里亞斯文"
 
-#: ../src/gcompris/config.c:63
-msgid "Turkish (Azerbaijan)"
-msgstr "土耳其文(亞塞拜然)"
-
 #: ../src/gcompris/config.c:64
-msgid "Bulgarian"
-msgstr "保加利亞文"
+msgid "Basque"
+msgstr "巴斯克語"
 
 #: ../src/gcompris/config.c:65
 msgid "Breton"
 msgstr "布列塔尼語"
 
 #: ../src/gcompris/config.c:66
+msgid "Bulgarian"
+msgstr "保加利亞文"
+
+#: ../src/gcompris/config.c:67
 msgid "Catalan"
 msgstr "加泰隆文"
 
-#: ../src/gcompris/config.c:67
+#: ../src/gcompris/config.c:68
+msgid "Chinese (Simplified)"
+msgstr "簡體中文"
+
+#: ../src/gcompris/config.c:69
+msgid "Chinese (Traditional)"
+msgstr "繁體中文"
+
+#: ../src/gcompris/config.c:70
+msgid "Croatian"
+msgstr "克羅地亞語"
+
+#: ../src/gcompris/config.c:71
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:7
 msgid "Czech Republic"
 msgstr "捷克共和國"
 
-#: ../src/gcompris/config.c:68
+#: ../src/gcompris/config.c:72
 msgid "Danish"
 msgstr "丹麥文"
 
-#: ../src/gcompris/config.c:69
-msgid "German"
-msgstr "德文"
+#: ../src/gcompris/config.c:73
+msgid "Dutch"
+msgstr "荷蘭文"
 
-#: ../src/gcompris/config.c:70
+#: ../src/gcompris/config.c:74
 msgid "Dzongkha"
 msgstr "Dzongkha"
 
-#: ../src/gcompris/config.c:71
-msgid "Greek"
-msgstr "希臘文"
-
-#: ../src/gcompris/config.c:72
+#: ../src/gcompris/config.c:75
 msgid "English (Canada)"
 msgstr "英文(加拿大)"
 
-#: ../src/gcompris/config.c:73
+#: ../src/gcompris/config.c:76
 msgid "English (Great Britain)"
 msgstr "英文(英國)"
 
-#: ../src/gcompris/config.c:74
+#: ../src/gcompris/config.c:77
 msgid "English (United States)"
 msgstr "英文（美國）"
-
-#: ../src/gcompris/config.c:75
-msgid "Spanish"
-msgstr "西班牙文"
-
-#: ../src/gcompris/config.c:76
-msgid "Basque"
-msgstr "巴斯克語"
-
-#: ../src/gcompris/config.c:77
-msgid "Persian"
-msgstr "波斯文"
 
 #: ../src/gcompris/config.c:78
 msgid "Finnish"
@@ -2749,244 +3001,244 @@ msgid "French"
 msgstr "法文"
 
 #: ../src/gcompris/config.c:80
-msgid "Irish (Gaelic)"
-msgstr "愛爾蘭文(蓋爾)"
-
-#: ../src/gcompris/config.c:81
-msgid "Gujarati"
-msgstr "古吉拉特文(印度)"
-
-#: ../src/gcompris/config.c:82
-msgid "Hebrew"
-msgstr "希伯來文"
-
-#: ../src/gcompris/config.c:83
-msgid "Hindi"
-msgstr "北印度文"
-
-#: ../src/gcompris/config.c:84
-msgid "Croatian"
-msgstr "克羅地亞語"
-
-#: ../src/gcompris/config.c:85
-msgid "Hungarian"
-msgstr "匈牙利文"
-
-#: ../src/gcompris/config.c:86
-msgid "Indonesian"
-msgstr "印尼文"
-
-#: ../src/gcompris/config.c:87
-msgid "Italian"
-msgstr "意大利文"
-
-#: ../src/gcompris/config.c:88
-msgid "Japanese"
-msgstr "日文"
-
-#: ../src/gcompris/config.c:89
 msgid "Georgian"
 msgstr "喬吉亞文"
 
+#: ../src/gcompris/config.c:81
+msgid "German"
+msgstr "德文"
+
+#: ../src/gcompris/config.c:82
+msgid "Greek"
+msgstr "希臘文"
+
+#: ../src/gcompris/config.c:83
+msgid "Gujarati"
+msgstr "古吉拉特文(印度)"
+
+#: ../src/gcompris/config.c:84
+msgid "Hebrew"
+msgstr "希伯來文"
+
+#: ../src/gcompris/config.c:85
+msgid "Hindi"
+msgstr "北印度文"
+
+#: ../src/gcompris/config.c:86
+msgid "Hungarian"
+msgstr "匈牙利文"
+
+#: ../src/gcompris/config.c:87
+msgid "Indonesian"
+msgstr "印尼文"
+
+#: ../src/gcompris/config.c:88
+msgid "Irish (Gaelic)"
+msgstr "愛爾蘭文(蓋爾)"
+
+#: ../src/gcompris/config.c:89
+msgid "Italian"
+msgstr "意大利文"
+
 #: ../src/gcompris/config.c:90
+msgid "Japanese"
+msgstr "日文"
+
+#: ../src/gcompris/config.c:91
+msgid "Kinyarwanda"
+msgstr "金亞盧旺達文"
+
+#: ../src/gcompris/config.c:92
 msgid "Korean"
 msgstr "韓文"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:93
 msgid "Lithuanian"
 msgstr "立陶宛文"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:94
 msgid "Macedonian"
 msgstr "馬其頓文"
-
-#: ../src/gcompris/config.c:93
-msgid "Malayalam"
-msgstr "(印度)馬來雅拉姆文字"
-
-#: ../src/gcompris/config.c:94
-msgid "Marathi"
-msgstr "馬拉地語"
 
 #: ../src/gcompris/config.c:95
 msgid "Malay"
 msgstr "馬來文"
 
 #: ../src/gcompris/config.c:96
-msgid "Norwegian Bokmal"
-msgstr "挪威文(巴克摩)"
+msgid "Malayalam"
+msgstr "(印度)馬來雅拉姆文字"
 
 #: ../src/gcompris/config.c:97
-msgid "Nepal"
-msgstr "尼泊爾"
+msgid "Marathi"
+msgstr "馬拉地語"
 
 #: ../src/gcompris/config.c:98
-msgid "Dutch"
-msgstr "荷蘭文"
-
-#: ../src/gcompris/config.c:99
-msgid "Norwegian Nynorsk"
-msgstr "挪威文(新挪威)"
-
-#: ../src/gcompris/config.c:100
-msgid "Occitan (languedocien)"
-msgstr "奧克語 (languedocien)"
-
-#: ../src/gcompris/config.c:101
-msgid "Punjabi"
-msgstr "旁遮普語"
-
-#: ../src/gcompris/config.c:102
-msgid "Polish"
-msgstr "波蘭文"
-
-#: ../src/gcompris/config.c:103
-msgid "Portuguese (Brazil)"
-msgstr "葡萄牙文(巴西)"
-
-#: ../src/gcompris/config.c:104
-msgid "Portuguese"
-msgstr "葡萄牙文"
-
-#: ../src/gcompris/config.c:105
-msgid "Romanian"
-msgstr "羅馬尼亞文"
-
-#: ../src/gcompris/config.c:106
-msgid "Russian"
-msgstr "俄文"
-
-#: ../src/gcompris/config.c:107
-msgid "Kinyarwanda"
-msgstr "金亞盧旺達文"
-
-#: ../src/gcompris/config.c:108
-msgid "Slovak"
-msgstr "斯洛伐克文"
-
-#: ../src/gcompris/config.c:109
-msgid "Slovenian"
-msgstr "斯洛文尼亞文"
-
-#: ../src/gcompris/config.c:110
-msgid "Somali"
-msgstr "索馬里語"
-
-#: ../src/gcompris/config.c:111
-msgid "Albanian"
-msgstr "阿爾巴尼亞文"
-
-#: ../src/gcompris/config.c:112
-msgid "Serbian (Latin)"
-msgstr "塞爾維亞文(拉丁)"
-
-#: ../src/gcompris/config.c:113
 #, fuzzy
 msgid "Montenegrin"
 msgstr "塞爾維亞及芒特尼格羅"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:99
+msgid "Nepal"
+msgstr "尼泊爾"
+
+#: ../src/gcompris/config.c:100
+msgid "Norwegian Bokmal"
+msgstr "挪威文(巴克摩)"
+
+#: ../src/gcompris/config.c:101
+msgid "Norwegian Nynorsk"
+msgstr "挪威文(新挪威)"
+
+#: ../src/gcompris/config.c:102
+msgid "Occitan (languedocien)"
+msgstr "奧克語 (languedocien)"
+
+#: ../src/gcompris/config.c:103
+msgid "Persian"
+msgstr "波斯文"
+
+#: ../src/gcompris/config.c:104
+msgid "Polish"
+msgstr "波蘭文"
+
+#: ../src/gcompris/config.c:105
+msgid "Portuguese (Brazil)"
+msgstr "葡萄牙文(巴西)"
+
+#: ../src/gcompris/config.c:106
+msgid "Portuguese"
+msgstr "葡萄牙文"
+
+#: ../src/gcompris/config.c:107
+msgid "Punjabi"
+msgstr "旁遮普語"
+
+#: ../src/gcompris/config.c:108
+msgid "Romanian"
+msgstr "羅馬尼亞文"
+
+#: ../src/gcompris/config.c:109
+msgid "Russian"
+msgstr "俄文"
+
+#: ../src/gcompris/config.c:110
+msgid "Serbian (Latin)"
+msgstr "塞爾維亞文(拉丁)"
+
+#: ../src/gcompris/config.c:111
 msgid "Serbian"
 msgstr "塞爾維亞文"
 
+#: ../src/gcompris/config.c:112
+msgid "Slovak"
+msgstr "斯洛伐克文"
+
+#: ../src/gcompris/config.c:113
+msgid "Slovenian"
+msgstr "斯洛文尼亞文"
+
+#: ../src/gcompris/config.c:114
+msgid "Somali"
+msgstr "索馬里語"
+
 #: ../src/gcompris/config.c:115
+msgid "Spanish"
+msgstr "西班牙文"
+
+#: ../src/gcompris/config.c:116
 msgid "Swedish"
 msgstr "瑞典文"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:117
 msgid "Tamil"
 msgstr "泰米爾文"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:118
 msgid "Thai"
 msgstr "泰文"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:119
+msgid "Turkish (Azerbaijan)"
+msgstr "土耳其文(亞塞拜然)"
+
+#: ../src/gcompris/config.c:120
 msgid "Turkish"
 msgstr "土耳其文"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:121
 msgid "Ukrainian"
 msgstr "烏克蘭語"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:122
 msgid "Urdu"
 msgstr "烏爾都語 (巴基斯坦、印度)"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:123
 msgid "Vietnamese"
 msgstr "越南文"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:124
 msgid "Walloon"
 msgstr "華隆文"
 
-#: ../src/gcompris/config.c:123
-msgid "Chinese (Simplified)"
-msgstr "簡體中文"
+#: ../src/gcompris/config.c:125
+msgid "Zulu"
+msgstr ""
 
-#: ../src/gcompris/config.c:124
-msgid "Chinese (Traditional)"
-msgstr "繁體中文"
-
-#: ../src/gcompris/config.c:129
+#: ../src/gcompris/config.c:130
 msgid "No time limit"
 msgstr "無時間限制"
 
-#: ../src/gcompris/config.c:130
+#: ../src/gcompris/config.c:131
 msgid "Slow timer"
 msgstr "慢速計時"
 
-#: ../src/gcompris/config.c:131
+#: ../src/gcompris/config.c:132
 msgid "Normal timer"
 msgstr "正常計時"
 
-#: ../src/gcompris/config.c:132
+#: ../src/gcompris/config.c:133
 msgid "Fast timer"
 msgstr "快速計時"
 
-#: ../src/gcompris/config.c:136
+#: ../src/gcompris/config.c:137
 msgid "Use Gcompris administration module to filter boards"
 msgstr "使用 Gcompris 管理模組來過濾園地"
 
-#: ../src/gcompris/config.c:187
+#: ../src/gcompris/config.c:188
 msgid "GCompris Configuration"
 msgstr "GCompris 設定"
 
-#: ../src/gcompris/config.c:254
+#: ../src/gcompris/config.c:271
 msgid "Fullscreen"
 msgstr "全螢幕"
 
-#: ../src/gcompris/config.c:279
+#: ../src/gcompris/config.c:296
 msgid "Music"
 msgstr "音樂"
 
-#: ../src/gcompris/config.c:304
+#: ../src/gcompris/config.c:321
 msgid "Effect"
 msgstr "效果"
 
-#: ../src/gcompris/config.c:328 ../src/gcompris/sugar.c:82
+#: ../src/gcompris/config.c:345 ../src/gcompris/sugar.c:83
 msgid "Zoom"
 msgstr "縮放"
 
-#: ../src/gcompris/config.c:365
+#: ../src/gcompris/config.c:382
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "無法開啟外觀目錄: %s"
 
-#: ../src/gcompris/config.c:396 ../src/gcompris/config.c:754
-#: ../src/gcompris/config.c:768
+#: ../src/gcompris/config.c:413 ../src/gcompris/config.c:873
+#: ../src/gcompris/config.c:887
 #, c-format
 msgid "Skin : %s"
 msgstr "外觀：%s"
 
-#: ../src/gcompris/config.c:398
+#: ../src/gcompris/config.c:415
 msgid "SKINS NOT FOUND"
 msgstr "找不到外觀"
-
-#: ../src/gcompris/config.c:479
-msgid "English (United State)"
-msgstr "英文（美國）"
 
 #: ../src/gcompris/file_selector.c:251
 msgid "CANCEL"
@@ -3000,15 +3252,15 @@ msgstr "載入"
 msgid "SAVE"
 msgstr "儲存"
 
-#: ../src/gcompris/gameutil.c:142 ../src/gcompris/gameutil.c:200
+#: ../src/gcompris/gameutil.c:138 ../src/gcompris/gameutil.c:196
 msgid "Couldn't find or load the file"
 msgstr "無法找到或載入檔案"
 
-#: ../src/gcompris/gameutil.c:144 ../src/gcompris/gameutil.c:202
+#: ../src/gcompris/gameutil.c:140 ../src/gcompris/gameutil.c:198
 msgid "This activity is incomplete."
 msgstr "這個遊戲尚未完成。"
 
-#: ../src/gcompris/gameutil.c:145 ../src/gcompris/gameutil.c:203
+#: ../src/gcompris/gameutil.c:141 ../src/gcompris/gameutil.c:199
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -3016,43 +3268,43 @@ msgstr ""
 "離開它並且回報\n"
 "問題給作者。"
 
-#: ../src/gcompris/gcompris.c:158
+#: ../src/gcompris/gcompris.c:155
 msgid "run GCompris in fullscreen mode."
 msgstr "以全螢幕模式執行 GCompris。"
 
-#: ../src/gcompris/gcompris.c:161
+#: ../src/gcompris/gcompris.c:158
 msgid "run GCompris in window mode."
 msgstr "以視窗模式執行 GCompris。"
 
-#: ../src/gcompris/gcompris.c:164
+#: ../src/gcompris/gcompris.c:161
 msgid "run GCompris with sound enabled."
 msgstr "執行 GCompris 時啟用音效。"
 
-#: ../src/gcompris/gcompris.c:167
+#: ../src/gcompris/gcompris.c:164
 msgid "run GCompris without sound."
 msgstr "執行靜音模式的 GCompris。"
 
-#: ../src/gcompris/gcompris.c:170
+#: ../src/gcompris/gcompris.c:167
 msgid "run GCompris with the default system cursor."
 msgstr "執行 GCompris 時使用預設的系統游標。"
 
-#: ../src/gcompris/gcompris.c:173
+#: ../src/gcompris/gcompris.c:170
 msgid "run GCompris without cursor (touch screen mode)."
 msgstr "執行 GCompris 不使用游標（觸控螢幕模式）。"
 
-#: ../src/gcompris/gcompris.c:176
+#: ../src/gcompris/gcompris.c:173
 msgid "display only activities with this difficulty level."
 msgstr "只顯示具有難度階段的遊戲。"
 
-#: ../src/gcompris/gcompris.c:179
+#: ../src/gcompris/gcompris.c:176
 msgid "display debug informations on the console."
 msgstr "在主控台上顯示除錯資訊。"
 
-#: ../src/gcompris/gcompris.c:182
+#: ../src/gcompris/gcompris.c:179
 msgid "Print the version of "
 msgstr "印出版本資訊"
 
-#: ../src/gcompris/gcompris.c:185
+#: ../src/gcompris/gcompris.c:182
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
@@ -3060,110 +3312,130 @@ msgid ""
 "descriptions."
 msgstr "以本機選單來執行 GCompris (例如：-l /reading 將會讓你只能玩位於閱讀目錄的遊戲，-l /strategy/connect4 將會只允許與連接四有關的遊戲。)使用「-l list」可以列出所有可玩的遊戲和它們的相關描述。"
 
-#: ../src/gcompris/gcompris.c:190
+#: ../src/gcompris/gcompris.c:187
 msgid "GCompris will find the data dir in this directory"
 msgstr "GCompris 會在這個目錄中尋找資料目錄"
 
-#: ../src/gcompris/gcompris.c:193
+#: ../src/gcompris/gcompris.c:190
 msgid "GCompris will find the skins in this directory"
 msgstr "GCompris 會在這個目錄尋找外觀"
 
-#: ../src/gcompris/gcompris.c:196
+#: ../src/gcompris/gcompris.c:193
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "GCompris 會在這個目錄中尋找遊戲外掛程式"
 
-#: ../src/gcompris/gcompris.c:199
+#: ../src/gcompris/gcompris.c:196
 msgid "GCompris will find the python activity in this directory"
 msgstr "GCompris 會尋找在這個目錄中的 python 遊戲"
 
-#: ../src/gcompris/gcompris.c:202
+#: ../src/gcompris/gcompris.c:199
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr "GCompris 會在這個目錄中尋找地區語言檔（.mo 翻譯）"
 
-#: ../src/gcompris/gcompris.c:205
+#: ../src/gcompris/gcompris.c:202
 msgid "GCompris will find the activities menu in this directory"
 msgstr "GCompris 會在這個目錄中尋找遊戲選單"
 
-#: ../src/gcompris/gcompris.c:208
+#: ../src/gcompris/gcompris.c:205
 msgid "Run GCompris in administration and user-management mode"
 msgstr "以系統與使用者管理模式來執行 GCompris。"
 
-#: ../src/gcompris/gcompris.c:211
+#: ../src/gcompris/gcompris.c:208
 msgid ""
 "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
 msgstr "使用另外的資料庫來處理簡介檔案 [$HOME/.config/gcompris/gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:214
+#: ../src/gcompris/gcompris.c:211
 msgid "Create the alternate database for profiles"
 msgstr "建立另外的資料庫來處理簡介檔案"
 
-#: ../src/gcompris/gcompris.c:217
+#: ../src/gcompris/gcompris.c:214
 msgid "Re-read XML Menus and store them in the database"
 msgstr "重新讀取 XML 選單並且將它們儲存到資料庫之中"
 
-#: ../src/gcompris/gcompris.c:220
+#: ../src/gcompris/gcompris.c:217
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "設定要使用的簡介檔案。利用「gcompris -a」來建立簡介檔案"
 
-#: ../src/gcompris/gcompris.c:223
+#: ../src/gcompris/gcompris.c:220
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr "列出所有可用的簡介檔案。利用「gcompris -a」來建立簡介檔案"
 
-#: ../src/gcompris/gcompris.c:226
+#: ../src/gcompris/gcompris.c:223
 msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
 msgstr "設定目錄位置：[$HOME/.config/gcompris]。替代的方式是設定 $XDG_CONFIG_HOME。"
 
-#: ../src/gcompris/gcompris.c:229
+#: ../src/gcompris/gcompris.c:226
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "使用者目錄的位置：[$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:232
+#: ../src/gcompris/gcompris.c:229
 msgid "Run the experimental activities"
 msgstr "執行實驗遊戲"
 
-#: ../src/gcompris/gcompris.c:235
+#: ../src/gcompris/gcompris.c:232
 msgid "Disable the quit button"
 msgstr "停用結束按鈕"
 
-#: ../src/gcompris/gcompris.c:238
+#: ../src/gcompris/gcompris.c:235
 msgid "Disable the config button"
 msgstr "停用設定按鈕"
 
-#: ../src/gcompris/gcompris.c:241
+#: ../src/gcompris/gcompris.c:238
 #, fuzzy
 msgid "Disable the level button"
 msgstr "停用結束按鈕"
 
-#: ../src/gcompris/gcompris.c:244
+#: ../src/gcompris/gcompris.c:241
 msgid ""
 "GCompris will get images, sounds and activity data from this server if not "
 "found locally."
 msgstr "Gompris 會在無法從本地端取得時由這個伺服器下載圖片、聲音和遊戲資料。"
 
-#: ../src/gcompris/gcompris.c:247
+#: ../src/gcompris/gcompris.c:244
 msgid ""
 "Only when --server is provided, disable check for local resource first. Data "
 "are always taken from the web server."
 msgstr "只有在使用 --server 的時候，會先停用檢查本地端資源。資料將從網頁伺服器中取得。"
 
-#: ../src/gcompris/gcompris.c:251
+#: ../src/gcompris/gcompris.c:248
 msgid ""
 "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr "在伺服器模式中，指定快取目錄可以避免無用的下載。"
 
-#: ../src/gcompris/gcompris.c:254
+#: ../src/gcompris/gcompris.c:251
 msgid ""
 "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr "全域拖放模式：一般、按兩下、兩者。預設模式為一般。"
 
-#: ../src/gcompris/gcompris.c:257
+#: ../src/gcompris/gcompris.c:254
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "不避免執行多個 GCompris 實體。"
 
-#: ../src/gcompris/gcompris.c:929
+#: ../src/gcompris/gcompris.c:260
+msgid "Disable maximization zoom"
+msgstr "停用最大化的功能"
+
+#: ../src/gcompris/gcompris.c:263
+msgid ""
+"Increase activities' timeout delays; useful values > 1.0; 1.0 to not change "
+"hardcoded value"
+msgstr "增加活動的超時延遲；有效值 >1.0；1.0 為不改變內定值"
+
+#: ../src/gcompris/gcompris.c:266
+msgid ""
+"How activities' timeout delays are growing for several actors; useful values "
+"< 1.0; 1.0 to not change hardcoded value"
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:269
+msgid "For test purpose, run in a loop all the activities"
+msgstr "為了做為測試，請於一個迴圈中執行所有的活動"
+
+#: ../src/gcompris/gcompris.c:952
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -3180,23 +3452,25 @@ msgstr ""
 "GNU/Linux 版沒有這個限制。如果你也相信我們應該教導孩子自由，請考慮使用 GNU/Linux。需要更多資訊請至 FSF：\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1223
+#: ../src/gcompris/gcompris.c:1246
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
 msgstr "無法載入外框「%s」（請檢查檔案是否存在及是否可讀取）"
 
-#: ../src/gcompris/gcompris.c:1486
-#, c-format
+#: ../src/gcompris/gcompris.c:1516
+#, fuzzy, c-format
 msgid ""
+"GCompris won't start because the lock file is less than %d second old.\n"
+msgid_plural ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
-msgstr "將不啟動 GCompris，因為鎖定檔案的時間還沒超過 %d 秒。\n"
+msgstr[0] "將不啟動 GCompris，因為鎖定檔案的時間還沒超過 %d 秒。\n"
 
-#: ../src/gcompris/gcompris.c:1488
+#: ../src/gcompris/gcompris.c:1520
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "鎖定檔案為：%s\n"
 
-#: ../src/gcompris/gcompris.c:1599
+#: ../src/gcompris/gcompris.c:1693
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3210,41 +3484,41 @@ msgstr ""
 "更多的資訊在 http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1714
+#: ../src/gcompris/gcompris.c:1808
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "利用 -l 來直接存取遊戲。\n"
 
-#: ../src/gcompris/gcompris.c:1715
+#: ../src/gcompris/gcompris.c:1809
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "可用的遊戲列表是：\n"
 
-#: ../src/gcompris/gcompris.c:1746
+#: ../src/gcompris/gcompris.c:1840
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "遊戲的數目：%d\n"
 
-#: ../src/gcompris/gcompris.c:1782
+#: ../src/gcompris/gcompris.c:1876
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s 存在，但是無法讀取或寫入"
 
-#: ../src/gcompris/gcompris.c:1845
+#: ../src/gcompris/gcompris.c:1939
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
 "without network support!"
 msgstr "不能使用 --server 選項，因為 GCompris 沒有編譯網絡支援的功能！"
 
-#: ../src/gcompris/gcompris.c:1899
+#: ../src/gcompris/gcompris.c:1993
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
 "available ones\n"
 msgstr "錯誤：找不到簡介檔案「%s」。執行「gcompris --profile-list」來列出可用的\n"
 
-#: ../src/gcompris/gcompris.c:1913
+#: ../src/gcompris/gcompris.c:2007
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "可用的簡介檔案列表是：\n"
@@ -3307,44 +3581,44 @@ msgstr ""
 "你可以在自己的繪畫和動畫中包含這些圖片。\n"
 "圖片支援的格式有 jpeg、png 和 svg。\n"
 
-#: ../src/gcompris/sugar.c:70
+#: ../src/gcompris/sugar.c:71
 msgid "Help"
 msgstr "求助"
 
-#: ../src/gcompris/sugar.c:71
+#: ../src/gcompris/sugar.c:72
 msgid "About"
 msgstr "關於"
 
-#: ../src/gcompris/sugar.c:72
+#: ../src/gcompris/sugar.c:73
 msgid "Previous level"
 msgstr "前一個階段"
 
-#: ../src/gcompris/sugar.c:75
+#: ../src/gcompris/sugar.c:76
 msgid "Next level"
 msgstr "下一個階段"
 
-#: ../src/gcompris/sugar.c:77
+#: ../src/gcompris/sugar.c:78
 msgid "Refresh"
 msgstr "重新整理"
 
-#: ../src/gcompris/sugar.c:78
+#: ../src/gcompris/sugar.c:79
 msgid "Settings"
 msgstr "設定值"
 
 #. TRANSLATORS: Back as in previous
-#: ../src/gcompris/sugar.c:86
+#: ../src/gcompris/sugar.c:87
 msgid "Back"
 msgstr "返回"
 
-#: ../src/gcompris/sugar.c:87
+#: ../src/gcompris/sugar.c:88
 msgid "Stop"
 msgstr "停止"
 
-#: ../src/gcompris/timer.c:245
+#: ../src/gcompris/timer.c:257
 msgid "Time Elapsed"
 msgstr "經過時間"
 
-#: ../src/gcompris/timer.c:323
+#: ../src/gcompris/timer.c:339
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "剩餘時間 = %d"
@@ -3977,14 +4251,14 @@ msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
 #: ../src/gletters-activity/gletters.c:850
-#: ../src/imageid-activity/imageid.c:712 ../src/login-activity/login.py:479
-#: ../src/missing_letter-activity/missingletter.c:784
-#: ../src/pythontest-activity/pythontest.py:454
-#: ../src/readingh-activity/reading.c:904
-#: ../src/scalesboard-activity/scale.c:1160
-#: ../src/smallnumbers-activity/smallnumbers.c:595
+#: ../src/imageid-activity/imageid.c:716 ../src/login-activity/login.py:480
+#: ../src/missing_letter-activity/missingletter.c:800
+#: ../src/pythontest-activity/pythontest.py:448
+#: ../src/readingh-activity/reading.c:905
+#: ../src/scalesboard-activity/scale.c:1190
+#: ../src/smallnumbers-activity/smallnumbers.c:597
 #: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:864
+#: ../src/wordsgame-activity/wordsgame.c:904
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -3994,9 +4268,17 @@ msgstr ""
 "於簡介檔 <b>%s</b>"
 
 #: ../src/gletters-activity/gletters.c:879
-#: ../src/smallnumbers-activity/smallnumbers.c:614
+#: ../src/smallnumbers-activity/smallnumbers.c:616
 msgid "Enable sounds"
 msgstr "開啟音效"
+
+#. toggle box
+#: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:486
+#: ../src/missing_letter-activity/missingletter_config.c:492
+#: ../src/readingh-activity/reading.c:929
+#: ../src/wordsgame-activity/wordsgame.c:927
+msgid "Uppercase only text"
+msgstr "只允許大寫字母"
 
 #: ../src/gletters-activity/gletters.xml.in.h:1
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:2
@@ -4240,25 +4522,25 @@ msgid ""
 "the board and to avoid the Troggles. Press the spacebar to eat a number."
 msgstr "質數就是只能被它們自己和 1 整除的數字。例如，3 是質數而 4 不是(因為 4 可以被 2 整除)。你可以把質數想像成很小的家庭：它們每家只有兩個人(它自己和 1)！你無法用任何其他的數字將它填滿而不留空隙。5 是這些孤獨數字之一(只有 5 × 1 = 5)，你卻可以看到 6 的家庭中有 2 也有 3(6 × 1 = 6, 2 × 3 = 6)。因此 6 不是一個質數。使用方向鍵在園地四周引導來閃避野人。按下空白鍵來吃掉數字。"
 
-#: ../src/guessnumber-activity/guessnumber.py:199
+#: ../src/guessnumber-activity/guessnumber.py:203
 #, python-format
 msgid "Guess a number between %d and %d"
 msgstr "猜一個在 %d 和 %d 之間的數字"
 
-#: ../src/guessnumber-activity/guessnumber.py:299
+#: ../src/guessnumber-activity/guessnumber.py:306
 #, python-format
 msgid "Please enter a number between %d and %d"
 msgstr "請輸入一個在 %d 和 %d 之間的數字"
 
-#: ../src/guessnumber-activity/guessnumber.py:304
+#: ../src/guessnumber-activity/guessnumber.py:311
 msgid "Out of range"
 msgstr "超出範圍"
 
-#: ../src/guessnumber-activity/guessnumber.py:310
+#: ../src/guessnumber-activity/guessnumber.py:317
 msgid "Too high"
 msgstr "太高"
 
-#: ../src/guessnumber-activity/guessnumber.py:312
+#: ../src/guessnumber-activity/guessnumber.py:319
 msgid "Too low"
 msgstr "太低"
 
@@ -4301,7 +4583,11 @@ msgstr "bcdfghjklmnpqrstvwxz"
 msgid "NONE"
 msgstr "無"
 
-#: ../src/hangman-activity/hangman.py:104
+#: ../src/hangman-activity/hangman.py:109
+msgid "English"
+msgstr "英文"
+
+#: ../src/hangman-activity/hangman.py:112
 msgid "Could not find the list of words."
 msgstr "找不到字詞清單。"
 
@@ -4428,64 +4714,69 @@ msgid ""
 "droplets, which may combine to form droplets large enough to fall as rain"
 msgstr "當雲成熟後，密集的水滴合互相結合產生更大的水滴，最後形成的小滴就合下降而成為雨"
 
-#: ../src/hydroelectric-activity/hydroelectric.py:169
+#. Translator : "meter" here means a measuring device
+#: ../src/hydroelectric-activity/hydroelectric.py:170
 msgid "This is the meter for electricity produced by the turbine. "
 msgstr ""
 
-#: ../src/hydroelectric-activity/hydroelectric.py:170
-#: ../src/hydroelectric-activity/hydroelectric.py:282
-#: ../src/hydroelectric-activity/hydroelectric.py:289
-#: ../src/hydroelectric-activity/hydroelectric.py:319
-#: ../src/hydroelectric-activity/hydroelectric.py:341
+#: ../src/hydroelectric-activity/hydroelectric.py:171
+#: ../src/hydroelectric-activity/hydroelectric.py:284
+#: ../src/hydroelectric-activity/hydroelectric.py:292
+#: ../src/hydroelectric-activity/hydroelectric.py:323
+#: ../src/hydroelectric-activity/hydroelectric.py:346
 msgid "The electricity power is measured in Watt (W)."
 msgstr "電力是以瓦特 (W) 計算的。"
 
-#: ../src/hydroelectric-activity/hydroelectric.py:175
+#: ../src/hydroelectric-activity/hydroelectric.py:176
 msgid ""
 "Flowing water is directed on to the blades of a turbine runner, creating a "
 "force on the blades. In this way, energy is transferred from the water flow "
 "to the turbine"
-msgstr ""
+msgstr "流水直接流經渦輪的扇葉，產生一個作用力在扇葉上。如此一來，能量將能從流水轉移到渦輪。"
 
-#: ../src/hydroelectric-activity/hydroelectric.py:189
+#: ../src/hydroelectric-activity/hydroelectric.py:190
 msgid "This cloud simulates the wind, click on it to have wind."
 msgstr "這朵雲模擬風，按一下它就會有風。"
 
-#: ../src/hydroelectric-activity/hydroelectric.py:227
+#: ../src/hydroelectric-activity/hydroelectric.py:228
 msgid ""
 "This is a step down transformer. Electricity is transformed in low voltage, "
 "ready to be used by the customers."
 msgstr "這是降壓變壓器。電力會被降壓成低壓電，以便客戶使用。"
 
-#: ../src/hydroelectric-activity/hydroelectric.py:281
+#. Translator : "meter" here means a measuring device
+#: ../src/hydroelectric-activity/hydroelectric.py:283
 msgid "This is the meter for all the electricity produced. "
-msgstr ""
+msgstr "這是測量所有產生電力的測量計。"
 
-#: ../src/hydroelectric-activity/hydroelectric.py:288
+#. Translator : "meter" here means a measuring device
+#: ../src/hydroelectric-activity/hydroelectric.py:291
 msgid "This is the meter for electricity consumed by the users. "
-msgstr ""
+msgstr "這是測量使用者所消耗的電力的測量計。"
 
-#: ../src/hydroelectric-activity/hydroelectric.py:318
+#. Translator : "meter" here means a measuring device
+#: ../src/hydroelectric-activity/hydroelectric.py:322
 msgid "This is the meter for electricity produced by the solar panels. "
-msgstr ""
+msgstr "這是測量太陽能板所產生的電力的測量計。"
 
-#: ../src/hydroelectric-activity/hydroelectric.py:324
+#: ../src/hydroelectric-activity/hydroelectric.py:328
 msgid ""
 "Solar panels use light energy (photons) from the sun to generate electricity "
 "through the photovoltaic effect."
-msgstr ""
+msgstr "透過光電效應，太陽能板利用太陽的光能(光子)產生電力。"
 
-#: ../src/hydroelectric-activity/hydroelectric.py:340
+#. Translator : "meter" here means a measuring device
+#: ../src/hydroelectric-activity/hydroelectric.py:345
 msgid "This is the meter for electricity produced by the wind turbines. "
-msgstr ""
+msgstr "這是一個風力渦輪發電的電錶。"
 
-#: ../src/hydroelectric-activity/hydroelectric.py:346
+#: ../src/hydroelectric-activity/hydroelectric.py:351
 msgid ""
 "A wind turbine is a device that converts wind motion energy into electricity "
 "generation. It is called a wind generator or wind charger. "
-msgstr ""
+msgstr "風力發電機是一個轉換風力產生電力的裝置。它也被稱為 wind generator 或 wind charger。"
 
-#: ../src/hydroelectric-activity/hydroelectric.py:732
+#: ../src/hydroelectric-activity/hydroelectric.py:737
 msgid ""
 "It is not possible to consume more electricity than what is produced. This "
 "is a key limitation in the distribution of electricity, with minor "
@@ -4495,9 +4786,9 @@ msgid ""
 "supply and demand are not in balance, generation plants and transmission "
 "equipment can shut down which, in the worst cases, can lead to a major "
 "regional blackout."
-msgstr ""
+msgstr "不可能吸收超過產生的電力。這是分配電力的一個主要限制，除了少數例外，電力無法被儲存，也因此，必須在需要的時候產生電力。所以，控制一個複雜的系統必須確定產生的電力相當符合所需要的。如果供應和需求無法平衡，電廠和轉換裝置可能關閉，如此一來，最糟可能導致主要區域斷電。"
 
-#: ../src/hydroelectric-activity/hydroelectric.py:946
+#: ../src/hydroelectric-activity/hydroelectric.py:951
 msgid ""
 "This is a step up transformer. Electricity is transmitted at high voltages "
 "(110 kV or above) to reduce the energy lost in long distance transmission."
@@ -4514,7 +4805,7 @@ msgstr "在不同的動作元素上按一下：太陽﹑雲﹑抽水站和淨水
 
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:3
 msgid "Learn about an electrical system based on renewable energy"
-msgstr ""
+msgstr "學習使用再生能源的電力系統。"
 
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:4
 msgid ""
@@ -4537,14 +4828,14 @@ msgstr "閱讀"
 msgid "Learn how to read"
 msgstr "學習如何閱讀"
 
-#: ../src/imageid-activity/imageid.c:522
+#: ../src/imageid-activity/imageid.c:526
 msgid ""
 "Data file for this level is not properly formatted. Too many choices are "
 "proposed."
 msgstr "這個階段的資料檔案沒有正確的格式化。建議了太多選項。"
 
-#: ../src/imageid-activity/imageid.c:534
-#: ../src/missing_letter-activity/missingletter.c:592
+#: ../src/imageid-activity/imageid.c:538
+#: ../src/missing_letter-activity/missingletter.c:608
 msgid "Data file for this level is not properly formatted."
 msgstr "這個階段的資料檔案沒有正確的格式化。"
 
@@ -4801,6 +5092,156 @@ msgstr "旗子"
 msgid "racket"
 msgstr "球拍"
 
+#: ../src/instruments-activity/instruments.xml.in.h:1
+#, fuzzy
+msgid "Click on the correct instrument."
+msgstr "點選正確的顏色"
+
+#: ../src/instruments-activity/instruments.xml.in.h:2
+msgid "Click on the correct mucical instruments"
+msgstr "點選正確的樂器"
+
+#: ../src/instruments-activity/instruments.xml.in.h:3
+msgid "Learn to recognize musical instruments."
+msgstr "學習辨別樂器"
+
+#: ../src/instruments-activity/instruments.xml.in.h:4
+msgid "Music instruments"
+msgstr "樂器"
+
+#. Translator: Do not translate {text}.
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:2
+msgid "Find {text}"
+msgstr "尋找{text}"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:3
+msgid "the accordion"
+msgstr "手風琴"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:4
+msgid "the banjo"
+msgstr "班卓琴"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:5
+msgid "the bass drum"
+msgstr "大鼓"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:6
+msgid "the bongo"
+msgstr "曼波鼓"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:7
+msgid "the castanets"
+msgstr "響板"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:8
+msgid "the cello"
+msgstr "大提琴"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:9
+msgid "the clarinet"
+msgstr "單簧管"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:10
+msgid "the cymbal"
+msgstr "鈸"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:11
+msgid "the drum kit"
+msgstr ""
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
+msgid "the electric guitar"
+msgstr "電結他"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
+msgid "the flute traversiere"
+msgstr ""
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
+msgid "the guitar"
+msgstr "結他"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
+msgid "the harmonica"
+msgstr "口琴"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
+msgid "the harp"
+msgstr "豎琴"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
+msgid "the horn"
+msgstr "號角"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
+msgid "the maracas"
+msgstr "沙鈴"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
+msgid "the organ"
+msgstr "風琴"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
+msgid "the piano"
+msgstr "鋼琴"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
+msgid "the saxophone"
+msgstr "薩克斯風"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
+msgid "the tambourine"
+msgstr "鈴鼓"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
+msgid "the timpani"
+msgstr "定音鼓"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
+msgid "the triangle"
+msgstr "三角鐵"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
+msgid "the trombone"
+msgstr "長號"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
+msgid "the trumpet"
+msgstr "喇叭"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:27
+msgid "the tuba"
+msgstr "低音號"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:28
+msgid "the violin"
+msgstr "小提琴"
+
+#: ../src/lang-activity/lang.xml.in.h:1
+#, fuzzy
+msgid "Practice a foreign language"
+msgstr "練習金錢使用"
+
+#: ../src/lang-activity/lang.py:56
+#, fuzzy
+msgid "Missing Image"
+msgstr "缺少的字母"
+
+#: ../src/lang-activity/lang.py:162
+#, fuzzy, python-format
+msgid ""
+"Configuration\n"
+" for profile <b>%s</b>"
+msgstr ""
+"<b>%s</b> 設定值\n"
+"於簡介檔 <b>%s</b>"
+
+#: ../src/lang-activity/lang.py:167
+#, fuzzy
+msgid "Select locale"
+msgstr "選擇音效的語區"
+
 #: ../src/leftright-activity/leftright.c:230
 #: ../src/searace-activity/searace.py:415
 #: ../src/searace-activity/searace.py:439
@@ -4877,16 +5318,16 @@ msgid ""
 "solving.html&gt;"
 msgstr "計算解答的演算法在 haar.clara.co.uk 中有說明，這是一個學習關燈(Lights Off)遊戲的寶貴資源：&lt;http://www.haar.clara.co.uk/Lights/solving.html&gt;"
 
-#: ../src/login-activity/login.py:101
+#: ../src/login-activity/login.py:102
 msgid "Profile: "
 msgstr "簡介資料："
 
-#: ../src/login-activity/login.py:234
+#: ../src/login-activity/login.py:235
 msgid "Login: "
 msgstr "帳號："
 
 #. toggle box
-#: ../src/login-activity/login.py:494
+#: ../src/login-activity/login.py:496
 msgid "Enter login to log in"
 msgstr "輸入帳號來登入"
 
@@ -4921,6 +5362,94 @@ msgstr ""
 #: ../src/login-activity/login.xml.in.h:10
 msgid "Select or enter your name to log in to GCompris"
 msgstr "選擇或者輸入你的名字來登入 GCompris"
+
+#: ../src/louis_braille-activity/louis_braille.py:112
+msgid "Click to confirm your sequence"
+msgstr "點擊以確定你的排列"
+
+#: ../src/louis_braille-activity/louis_braille.xml.in.h:1
+msgid ""
+"Louis Braille Video: &lt; http://www.youtube.com/watch?v=9bdfC2j_4x4 &gt;"
+msgstr "路易‧布萊葉的影片在： &lt; http://www.youtube.com/watch?v=9bdfC2j_4x4 &gt;"
+
+#: ../src/louis_braille-activity/louis_braille.xml.in.h:2
+msgid ""
+"Read the history of Louis Braille, his biography and discovery of the "
+"Braille system. Click on the previous and next buttons to move to the "
+"respective story page. At the end, arrange the sequence in the chronological "
+"order."
+msgstr "閱讀關於路易‧布萊葉的歷史、他的傳記和點字系統的發現。按下前一頁(或下一頁)按鈕，檢視該故事頁面。最後，將故事根據字母順序排列。"
+
+#: ../src/louis_braille-activity/louis_braille.xml.in.h:3
+msgid "Review the major dates of the inventor of the Braille system."
+msgstr "複習點字系統發明者的重要歷史日期。"
+
+#: ../src/louis_braille-activity/louis_braille.xml.in.h:4
+msgid "The History of Louis Braille"
+msgstr "路易‧布萊葉的歷史"
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:1
+msgid "After his Death"
+msgstr "在他死後"
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:2
+msgid ""
+"At the age of 10, he was sent to Paris to study at the Royal Institute for "
+"Blind Youth."
+msgstr "在他 10 歲那年，他被送到巴黎的皇家失明青年學院讀書。"
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:3
+msgid ""
+"At the age of three, Louis became blind due to a severe infection that "
+"spread to his left eye."
+msgstr "在他三歲那年，路易因為左眼被感染而成為盲人。"
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:4
+msgid "Born on January 4th in Coupvary near Paris in France."
+msgstr "在法國巴黎附近的考普瓦利，出生於一月四日。"
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:5
+msgid ""
+"Braille got accepted as a world wide standard. Louis Braille proved that if "
+"you have motivation you can do incredible things."
+msgstr "點字系統成為世界標準。路易‧布萊葉證明了，只要有動機，你就可以有驚人的成就。"
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:6
+msgid ""
+"Charles Barbier, a French soldier, visited his school and shared his "
+"invention of night writing, a code of 12 raised dots to share information on "
+"battlefields."
+msgstr "夏爾‧巴比爾，一位法國軍人，拜訪了他就讀的學校，分享了他能在夜晚書寫的發明，利用 12 突起的點排列出字碼，可以在戰場上溝通。"
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:7
+msgid "He became a teacher after graduating and secretly taught his method."
+msgstr "畢業後，他成為一位老師，秘密地教授他的方法。"
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:8
+msgid ""
+"He died of tuberculosis. He is burried in the Pantheon in Paris. A monument "
+"is erected to honor him."
+msgstr "他死於肺結核。他葬在巴黎的先賢祠。有紀念碑為了他而建立。"
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:9
+msgid "He impressed his classmates and began to play the piano and the organ."
+msgstr "他給同學留下深刻印象，並開始彈鋼琴與風琴。"
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:10
+msgid ""
+"He revised and extended braille to include mathematics, symbols, "
+"punctuations and music notations."
+msgstr "他修訂並且擴展點字系統，使它包括了數學、符號、標點符號和音樂記號。"
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:11
+msgid ""
+"Louis Braille injured his right eye with a stitching awl from his father's "
+"workshop."
+msgstr "路易‧布萊葉被他父親工作場所的錐子弄傷右眼。"
+
+#: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:12
+msgid "Louis trimmed Barbier's 12 dots into 6 and invented the Braille system."
+msgstr ""
 
 #: ../src/magic_hat_minus-activity/magic_hat_minus.xml.in.h:1
 msgid "Count how many items are under the magic hat after some have got away"
@@ -4972,48 +5501,29 @@ msgstr "數一數有多少東西在魔術帽下"
 msgid "Learn addition"
 msgstr "學習加法"
 
-#: ../src/maze-activity/maze.c:132 ../src/maze-activity/maze.xml.in.h:4
-#: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:4
-#: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:4
-msgid "Maze"
-msgstr "迷宮"
-
-#: ../src/maze-activity/maze.c:133 ../src/maze-activity/maze.xml.in.h:2
-msgid "Find your way out of the maze"
-msgstr "找出離開迷宮的路"
-
-#: ../src/maze-activity/maze.c:599
-msgid ""
-"Look at your position, then switch back to invisible mode to continue your "
-"moves"
-msgstr "看清楚你的位置，然後切換回看不見的模式來繼續移動"
-
-#: ../src/maze-activity/maze.c:601
-msgid ""
-"Look at your position, then switch back to 3D mode to continue your moves"
-msgstr "看清楚你的位置，然後切換回 3D 模式來繼續移動"
-
-#: ../src/maze-activity/maze.xml.in.h:1
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:1
 #: ../src/maze3D-activity/maze3D.xml.in.h:2
+#: ../src/maze-activity/maze.xml.in.h:1
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:1
 msgid "Can use the keyboard arrow to move an object."
 msgstr "能夠使用鍵盤方向鍵來移動一個物品。"
 
-#: ../src/maze-activity/maze.xml.in.h:3
+#: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:2
+msgid "Find your way out of the maze (Move is relative)"
+msgstr "找出離開迷宮的路 (移動是相對的)"
+
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:3
 #: ../src/maze3D-activity/maze3D.xml.in.h:4
+#: ../src/maze-activity/maze.xml.in.h:3
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:3
 msgid "Help Tux get out of this maze."
 msgstr "幫助小企鵝離開這個迷宮。"
 
-#: ../src/maze-activity/maze.xml.in.h:5
-msgid "Use the keyboard arrows to move Tux up to the door."
-msgstr "使用鍵盤方向鍵來移動小企鵝往上到門口。"
-
-#: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:2
-msgid "Find your way out of the maze (Move is relative)"
-msgstr "找出離開迷宮的路 (移動是相對的)"
+#: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:4
+#: ../src/maze-activity/maze.c:132 ../src/maze-activity/maze.xml.in.h:4
+#: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:4
+msgid "Maze"
+msgstr "迷宮"
 
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:5
 msgid ""
@@ -5036,6 +5546,25 @@ msgid ""
 "switch between 2D and 3D modes. 2D mode just gives you an indication of your "
 "position, like a map. You cannot move Tux in 2D mode."
 msgstr "利用鍵盤的方向鍵來移動小企鵝往上到門口。利用空白鍵在 2D 與 3D 模式之間切換。2D 模式就只會提供你位置的指示，像是一張地圖。在 2D 模式中無法移動小企鵝。"
+
+#: ../src/maze-activity/maze.c:133 ../src/maze-activity/maze.xml.in.h:2
+msgid "Find your way out of the maze"
+msgstr "找出離開迷宮的路"
+
+#: ../src/maze-activity/maze.c:603
+msgid ""
+"Look at your position, then switch back to invisible mode to continue your "
+"moves"
+msgstr "看清楚你的位置，然後切換回看不見的模式來繼續移動"
+
+#: ../src/maze-activity/maze.c:605
+msgid ""
+"Look at your position, then switch back to 3D mode to continue your moves"
+msgstr "看清楚你的位置，然後切換回 3D 模式來繼續移動"
+
+#: ../src/maze-activity/maze.xml.in.h:5
+msgid "Use the keyboard arrows to move Tux up to the door."
+msgstr "使用鍵盤方向鍵來移動小企鵝往上到門口。"
 
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:2
 msgid "Find your way out of the invisible maze"
@@ -5486,28 +6015,6 @@ msgid ""
 "Each card is hiding a number of number, or the word of the number."
 msgstr "你可以看到部份的卡片，但是你無法看到卡片的另一面。每張卡片藏有特定數目的數字，或是該數字。"
 
-#: ../src/missing_letter-activity/missing_letter.xml.in.h:1
-msgid ""
-"An object is displayed in the main area, and an incomplete word is printed "
-"under the picture. Select the missing letter to complete the word."
-msgstr "在主要區域中會顯示一個物品，而在圖片下方會印出一個不完整的字。請選擇缺少的字母來完成這個字。"
-
-#: ../src/missing_letter-activity/missing_letter.xml.in.h:2
-msgid "Fill in the missing letter"
-msgstr "填入缺少的字母"
-
-#: ../src/missing_letter-activity/missing_letter.xml.in.h:3
-msgid "Missing Letter"
-msgstr "缺少的字母"
-
-#: ../src/missing_letter-activity/missing_letter.xml.in.h:4
-msgid "Training reading skills"
-msgstr "訓練閱讀能力"
-
-#: ../src/missing_letter-activity/missing_letter.xml.in.h:5
-msgid "Word reading"
-msgstr "單字閱讀"
-
 #: ../src/missing_letter-activity/missingletter_config.c:77
 msgid "Please select an image."
 msgstr "請選擇一張圖片。"
@@ -5558,18 +6065,6 @@ msgstr ""
 msgid "Picture"
 msgstr "照片"
 
-#. answer
-#: ../src/missing_letter-activity/missingletter_config.c:420
-#: ../src/missing_letter-activity/missingletter_config.c:548
-msgid "Answer"
-msgstr "答案"
-
-#. question
-#: ../src/missing_letter-activity/missingletter_config.c:426
-#: ../src/missing_letter-activity/missingletter_config.c:571
-msgid "Question"
-msgstr "問題"
-
 #. choice
 #: ../src/missing_letter-activity/missingletter_config.c:432
 #: ../src/missing_letter-activity/missingletter_config.c:583
@@ -5599,6 +6094,28 @@ msgid ""
 "Enter here the letter that will be proposed. The first letter here must be "
 "the solution."
 msgstr "在這裏輸入的字母會被使用。這裏的第一個字母必須是答案。"
+
+#: ../src/missing_letter-activity/missing_letter.xml.in.h:1
+msgid ""
+"An object is displayed in the main area, and an incomplete word is printed "
+"under the picture. Select the missing letter to complete the word."
+msgstr "在主要區域中會顯示一個物品，而在圖片下方會印出一個不完整的字。請選擇缺少的字母來完成這個字。"
+
+#: ../src/missing_letter-activity/missing_letter.xml.in.h:2
+msgid "Fill in the missing letter"
+msgstr "填入缺少的字母"
+
+#: ../src/missing_letter-activity/missing_letter.xml.in.h:3
+msgid "Missing Letter"
+msgstr "缺少的字母"
+
+#: ../src/missing_letter-activity/missing_letter.xml.in.h:4
+msgid "Training reading skills"
+msgstr "訓練閱讀能力"
+
+#: ../src/missing_letter-activity/missing_letter.xml.in.h:5
+msgid "Word reading"
+msgstr "單字閱讀"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:1
 msgid "car/c_r/a/k/o"
@@ -5757,7 +6274,7 @@ msgid "$ %.0f"
 msgstr "$ %.0f"
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %d
-#: ../src/money-activity/money.c:932
+#: ../src/money-activity/money.c:936
 #, c-format
 msgid ""
 "Tux just bought some items in your shop.\n"
@@ -5857,10 +6374,6 @@ msgstr "空間表現"
 msgid "Edgar Degas, The Dancing Class - 1873-75"
 msgstr "Edgar Degas(竇加)，舞蹈教室 - 1873-75"
 
-#: ../src/paintings-activity/resources/paintings/board1_1.xml.in.h:1
-msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
-msgstr "Pierre-Auguste Renoir(雷諾瓦)，煎餅磨坊 - 1876"
-
 #: ../src/paintings-activity/resources/paintings/board1_10.xml.in.h:1
 msgid ""
 "Katsushika Hokusai,\\nViewing Sunset over the Ryogoku Bridge from the Ommaya "
@@ -5874,6 +6387,10 @@ msgstr ""
 #: ../src/paintings-activity/resources/paintings/board1_12.xml.in.h:1
 msgid "Katsushika Hokusai, Kazusa sea Route - 1830."
 msgstr ""
+
+#: ../src/paintings-activity/resources/paintings/board1_1.xml.in.h:1
+msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
+msgstr "Pierre-Auguste Renoir(雷諾瓦)，煎餅磨坊 - 1876"
 
 #: ../src/paintings-activity/resources/paintings/board1_2.xml.in.h:1
 msgid "Giuseppe Arcimboldo, Spring - 1573"
@@ -5912,11 +6429,11 @@ msgstr ""
 
 #: ../src/paintings-activity/resources/paintings/board2_0.xml.in.h:1
 msgid "Michelangelo, Pieta - 1499"
-msgstr ""
+msgstr "Michelangelo(米開朗基羅),Pieta(聖母慟子像)-1499 "
 
 #: ../src/paintings-activity/resources/paintings/board2_1.xml.in.h:1
 msgid "Leonardo da Vinci, Mona Lisa - 1503-19"
-msgstr ""
+msgstr "(Leonardo da Vinci(李奧納多‧達文西).Mona Lisa(蒙娜麗莎的微笑)-1503-19"
 
 #: ../src/paintings-activity/resources/paintings/board2_2.xml.in.h:1
 #, fuzzy
@@ -5986,12 +6503,14 @@ msgstr "傘兵"
 msgid "This board is game-oriented. No specific skills are needed to play."
 msgstr "這園地是以遊戲為主的。不需要特別的技巧就可以玩。"
 
-#: ../src/penalty-activity/penalty.py:293
-msgid "Click on the balloon to place it again."
+#: ../src/penalty-activity/penalty.py:292
+#, fuzzy
+msgid "Click on the ball to place it again."
 msgstr "按一下氣球把它放回去。"
 
-#: ../src/penalty-activity/penalty.py:295
-msgid "Click twice on the balloon to shoot it."
+#: ../src/penalty-activity/penalty.py:294
+#, fuzzy
+msgid "Click twice on the ball to shoot it."
 msgstr "按兩下氣球來把它發射出去。"
 
 #: ../src/penalty-activity/penalty.xml.in.h:1
@@ -6013,7 +6532,7 @@ msgstr "罰球(PK)"
 msgid "Error: Absolutely no photo found in the data directory"
 msgstr "錯誤：絕對是因為在資料目錄中找不到相片"
 
-#: ../src/photohunter-activity/photohunter.c:575
+#: ../src/photohunter-activity/photohunter.c:580
 msgid "Click on the differences between the two images."
 msgstr "點一下兩張圖片每個不同的地方。"
 
@@ -6059,7 +6578,7 @@ msgid "Number"
 msgstr "數字"
 
 #: ../src/pythontemplate-activity/pythontemplate.py:62
-#: ../src/pythontest-activity/pythontest.py:184
+#: ../src/pythontest-activity/pythontest.py:182
 msgid ""
 "This is the first plugin in GCompris coded in the Python\n"
 "Programming language."
@@ -6091,7 +6610,7 @@ msgid ""
 "Thanks to Guido van Rossum and the python team for this powerful language!"
 msgstr "對於這個強大的語言要感謝 Guido van Rossum 與 python 小組！"
 
-#: ../src/pythontest-activity/pythontest.py:194
+#: ../src/pythontest-activity/pythontest.py:192
 msgid ""
 "It is now possible to develop GCompris activities in C or in Python.\n"
 "Thanks to Olivier Samys who makes this possible."
@@ -6099,37 +6618,33 @@ msgstr ""
 "現在可以用 C 或 Python 來開發 GCompris 遊戲。\n"
 "謝謝 Olivier Samys 讓它能夠實現。"
 
-#: ../src/pythontest-activity/pythontest.py:204
+#: ../src/pythontest-activity/pythontest.py:202
 msgid "This activity is not playable, just a test"
 msgstr "這個遊戲是不可以玩的，只是一個測試"
 
 #. toggle box
-#: ../src/pythontest-activity/pythontest.py:459
+#: ../src/pythontest-activity/pythontest.py:454
 msgid "Disable line drawing in circle"
 msgstr "在圓圈中停用畫線"
 
 #. combo box
-#: ../src/pythontest-activity/pythontest.py:468
+#: ../src/pythontest-activity/pythontest.py:463
 msgid "Color of the line"
 msgstr "線條的顏色"
 
 #. spin button for int
-#: ../src/pythontest-activity/pythontest.py:479
+#: ../src/pythontest-activity/pythontest.py:474
 msgid "Distance between circles"
 msgstr "圓圈之間的距離"
 
 #. radio buttons for circle or rectangle
-#: ../src/pythontest-activity/pythontest.py:490
+#: ../src/pythontest-activity/pythontest.py:485
 msgid "Use circles"
 msgstr "使用圓圈"
 
-#: ../src/pythontest-activity/pythontest.py:491
+#: ../src/pythontest-activity/pythontest.py:486
 msgid "Use rectangles"
 msgstr "使用長方形"
-
-#: ../src/pythontest-activity/pythontest.py:494
-msgid "Choice of pattern"
-msgstr "圖樣的選擇"
 
 #: ../src/pythontest-activity/pythontest.xml.in.h:3
 msgid "Python Test"
@@ -6167,68 +6682,8 @@ msgstr "記憶訓練"
 msgid "Railway"
 msgstr "鐵路"
 
-#: ../src/read_colors-activity/read_colors.c:57
-msgid "blue"
-msgstr "藍色"
-
-#: ../src/read_colors-activity/read_colors.c:58
-msgid "brown"
-msgstr "棕色"
-
-#: ../src/read_colors-activity/read_colors.c:59
-msgid "green"
-msgstr "綠色"
-
-#: ../src/read_colors-activity/read_colors.c:60
-msgid "grey"
-msgstr "灰色"
-
-#: ../src/read_colors-activity/read_colors.c:61
-msgid "orange"
-msgstr "橙色"
-
-#: ../src/read_colors-activity/read_colors.c:62
-msgid "violet"
-msgstr "紫色"
-
-#: ../src/read_colors-activity/read_colors.c:63
-msgid "red"
-msgstr "紅色"
-
-#: ../src/read_colors-activity/read_colors.c:64
-msgid "yellow"
-msgstr "黃色"
-
-#: ../src/read_colors-activity/read_colors.c:65
-msgid "black"
-msgstr "黑色"
-
-#: ../src/read_colors-activity/read_colors.c:66
-msgid "white"
-msgstr "白色"
-
-#: ../src/read_colors-activity/read_colors.c:67
-msgid "pink"
-msgstr "粉紅色"
-
-#: ../src/read_colors-activity/read_colors.xml.in.h:2
-msgid "Click on the correct colored object."
-msgstr "按下正確着色的物品。"
-
-#: ../src/read_colors-activity/read_colors.xml.in.h:3
-msgid "Click on the matching color"
-msgstr "按下符合的顏色"
-
-#: ../src/read_colors-activity/read_colors.xml.in.h:4
-msgid "Read the names of colors"
-msgstr "閱讀顏色的名稱"
-
-#: ../src/read_colors-activity/read_colors.xml.in.h:5
-msgid "This board teaches basic colors."
-msgstr "這個園地教導基本的顏色。"
-
 #: ../src/readingh-activity/reading.c:229
-#: ../src/wordsgame-activity/wordsgame.c:219
+#: ../src/wordsgame-activity/wordsgame.c:222
 msgid ""
 "Error: We can't find\n"
 "a list of words to play this game.\n"
@@ -6373,8 +6828,9 @@ msgstr "重量(公克) =%s"
 msgid "Weight = %s"
 msgstr "重量 = %s"
 
-#: ../src/scalesboard-activity/scale.c:1007
-msgid "Take care, you can drop masses on both sides of the scale."
+#: ../src/scalesboard-activity/scale.c:1036
+#, fuzzy
+msgid "Take care, you can drop weights on both sides of the scale."
 msgstr "小心，你可以把砝碼放在天平的兩側。"
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:1
@@ -6383,7 +6839,8 @@ msgid "Balance the scales properly"
 msgstr "適當地讓秤盤平衡"
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:2
-msgid "Drag and Drop masses to balance the scales"
+#, fuzzy
+msgid "Drag and Drop weights to balance the scales"
 msgstr "拖放砝碼讓秤盤平衡"
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:3
@@ -6399,9 +6856,10 @@ msgid ""
 msgstr "這張畫是由 Virginie MOREAU (virginie.moreau@free.fr) 在 2001 年原創的畫作。它的名稱是「埃及的辣椒商人」。它是根據據 GPL 使用授權而推出。"
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:5
+#, fuzzy
 msgid ""
-"To balance the scales, move the masses on the left or the right side. The "
-"masses can be arranged in any order."
+"To balance the scales, move the weights on the left or the right side. The "
+"weights can be arranged in any order."
 msgstr "要讓秤盤平衡，就移動左邊或右邊的砝碼。這些砝碼可以用任何順序排列。"
 
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:2
@@ -6418,6 +6876,47 @@ msgid ""
 "care of the weight and the unit of the masses, remember that a kilogram (kg) "
 "is 1000 grams (g). They can be arranged in any order."
 msgstr "為了讓天秤保持平衡，要把砝碼從左邊或右邊移到另一邊。要注意砝碼的重量單位，記得 1 公斤 (kg) 是 1000 公克 (g)。這些砝碼的順序可以任意改變。"
+
+#: ../src/searace1player-activity/searace1player.xml.in.h:1
+msgid "Give good instructions to your ship in order to be first in the race."
+msgstr "給你的船隻下達適當的指令，以期能在競速中得到第一。"
+
+#: ../src/searace1player-activity/searace1player.xml.in.h:2
+msgid ""
+"In the text entry, enter one command per line, to control your boat. "
+"Commands supported are displayed between the two entry areas. The 'left' and "
+"'right' commands must be followed by an angle in degrees. The angle value is "
+"also called a 'parameter' to the left or right command. By default 45 "
+"degrees is used. The 'forward' command accepts a distance parameter. By "
+"default 1 is used.\n"
+"For example:\n"
+"- left 90: Make a perpendicular left turn\n"
+"- forward 10: Go forward for 10 units (as displayed on the ruler).\n"
+"The goal is to reach the right of the screen (the red line). When done, you "
+"can try to improve your program and start a new race with the same weather "
+"conditions by using the retry button. You can click and drag your mouse "
+"anywhere on the map to get a measurement in distance and angle. Going to the "
+"next level will give you more complex weather conditions."
+msgstr ""
+"在文字輸入欄中每列輸入一個命令來控制你的船。\n"
+"支援的命令顯示於兩個輸入區域之間。命令「左轉」與「右轉」必須加上角度。角度值也被稱為這兩個命令的「參數」，預設會使用 45 度。命令「前進」接受一個距離的參數，預設會使用 1。\n"
+"舉例來說：\n"
+"- 左轉 90 ：直角左轉\n"
+"- 前進 10：向前 10 單位(根據尺上所標)。\n"
+"目標是要到達螢幕右邊(紅線)。完成之後，可以嘗試去加強你的程式，並且利用重試按鈕在相同的天氣條件下，去啟動一次新的競速。你可以在地圖的任何地點按下並拖拉滑鼠，來取得距離與角度的測量值。往下一層階段將會給予你更加複雜的天氣條件。"
+
+#: ../src/searace1player-activity/searace1player.xml.in.h:7
+#: ../src/searace-activity/searace.xml.in.h:8
+msgid ""
+"In this activity, you will learn how to enter commands into a computer. Even "
+"if the language is extremely basic, you learn here how to think ahead and "
+"construct a program. This activity can be used to introduce the programming "
+"concept to children."
+msgstr "在這個遊戲中，你將會學到如何給電腦輸入命令。即使所用的語言是極度的基本，這裏你會學到如何超前思考與建立一個程式。這個遊戲可以用來向兒童介紹寫電腦程式的概念。"
+
+#: ../src/searace1player-activity/searace1player.xml.in.h:8
+msgid "Sea race (Single Player)"
+msgstr "海上競速 (單人)"
 
 #: ../src/searace-activity/searace.py:174
 msgid "The race is already being run"
@@ -6506,78 +7005,37 @@ msgstr ""
 "- 前進 10：向前 10 單位(根據尺上所標)。\n"
 "目標是要到達螢幕右邊(紅線)。完成之後，可以嘗試去加強你的程式，並且利用重試按鈕在相同的天氣條件下，去啟動一次新的競速。你可以在地圖的任何地點按下並拖拉滑鼠，來取得距離與角度的測量值。往下一層階段將會給予你更加複雜的天氣條件。"
 
-#: ../src/searace-activity/searace.xml.in.h:8
-#: ../src/searace1player-activity/searace1player.xml.in.h:7
-msgid ""
-"In this activity, you will learn how to enter commands into a computer. Even "
-"if the language is extremely basic, you learn here how to think ahead and "
-"construct a program. This activity can be used to introduce the programming "
-"concept to children."
-msgstr "在這個遊戲中，你將會學到如何給電腦輸入命令。即使所用的語言是極度的基本，這裏你會學到如何超前思考與建立一個程式。這個遊戲可以用來向兒童介紹寫電腦程式的概念。"
-
 #: ../src/searace-activity/searace.xml.in.h:9
 msgid "Sea race (2 Players)"
 msgstr "海上競速 (雙人)"
 
-#: ../src/searace1player-activity/searace1player.xml.in.h:1
-msgid "Give good instructions to your ship in order to be first in the race."
-msgstr "給你的船隻下達適當的指令，以期能在競速中得到第一。"
-
-#: ../src/searace1player-activity/searace1player.xml.in.h:2
-msgid ""
-"In the text entry, enter one command per line, to control your boat. "
-"Commands supported are displayed between the two entry areas. The 'left' and "
-"'right' commands must be followed by an angle in degrees. The angle value is "
-"also called a 'parameter' to the left or right command. By default 45 "
-"degrees is used. The 'forward' command accepts a distance parameter. By "
-"default 1 is used.\n"
-"For example:\n"
-"- left 90: Make a perpendicular left turn\n"
-"- forward 10: Go forward for 10 units (as displayed on the ruler).\n"
-"The goal is to reach the right of the screen (the red line). When done, you "
-"can try to improve your program and start a new race with the same weather "
-"conditions by using the retry button. You can click and drag your mouse "
-"anywhere on the map to get a measurement in distance and angle. Going to the "
-"next level will give you more complex weather conditions."
-msgstr ""
-"在文字輸入欄中每列輸入一個命令來控制你的船。\n"
-"支援的命令顯示於兩個輸入區域之間。命令「左轉」與「右轉」必須加上角度。角度值也被稱為這兩個命令的「參數」，預設會使用 45 度。命令「前進」接受一個距離的參數，預設會使用 1。\n"
-"舉例來說：\n"
-"- 左轉 90 ：直角左轉\n"
-"- 前進 10：向前 10 單位(根據尺上所標)。\n"
-"目標是要到達螢幕右邊(紅線)。完成之後，可以嘗試去加強你的程式，並且利用重試按鈕在相同的天氣條件下，去啟動一次新的競速。你可以在地圖的任何地點按下並拖拉滑鼠，來取得距離與角度的測量值。往下一層階段將會給予你更加複雜的天氣條件。"
-
-#: ../src/searace1player-activity/searace1player.xml.in.h:8
-msgid "Sea race (Single Player)"
-msgstr "海上競速 (單人)"
-
-#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:1
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:1
+#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:1
 msgid "Count the number of dots on dice before they reach the ground"
 msgstr "在骰子掉落地面之前計算上面的點數"
 
-#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:2
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:2
+#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:2
 msgid "Counting skills"
 msgstr "計算能力"
 
-#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:3
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:3
+#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:3
 msgid "In a limited time, count the number of dots"
 msgstr "在限制時間中，計算點數"
-
-#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:4
-msgid "Numbers With Dice"
-msgstr "骰子點數"
-
-#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:5
-#: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:5
-msgid "With the keyboard, type the number of dots you see on the falling dice."
-msgstr "藉助鍵盤，根據掉落中骰子上面的點數來輸入數字。"
 
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:4
 msgid "Numbers with pairs of dice"
 msgstr "幾對骰子的點數"
+
+#: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:5
+#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:5
+msgid "With the keyboard, type the number of dots you see on the falling dice."
+msgstr "藉助鍵盤，根據掉落中骰子上面的點數來輸入數字。"
+
+#: ../src/smallnumbers-activity/smallnumbers.xml.in.h:4
+msgid "Numbers With Dice"
+msgstr "骰子點數"
 
 #: ../src/submarine-activity/submarine.xml.in.h:1
 msgid ""
@@ -6717,8 +7175,8 @@ msgstr "七巧板"
 
 #. Set the maximum text to calc the background
 #. Set the correct initial text
-#: ../src/target-activity/target.c:296 ../src/target-activity/target.c:559
-#: ../src/target-activity/target.c:596
+#: ../src/target-activity/target.c:296 ../src/target-activity/target.c:562
+#: ../src/target-activity/target.c:599
 #, c-format
 msgid "Points = %s"
 msgstr "點數 = %s"
@@ -6732,10 +7190,11 @@ msgstr ""
 "風速 = %d\n"
 "公里/小時"
 
-#: ../src/target-activity/target.c:481
-#, c-format
-msgid "Distance to target = %d meters"
-msgstr "目標距離 = %d 米"
+#: ../src/target-activity/target.c:482
+#, fuzzy, c-format
+msgid "Distance to target = %d meter"
+msgid_plural "Distance to target = %d meters"
+msgstr[0] "目標距離 = %d 米"
 
 #: ../src/target-activity/target.xml.in.h:1
 msgid ""
@@ -6881,15 +7340,15 @@ msgstr "正式"
 msgid "Flyer"
 msgstr "傳單"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:423
+#: ../src/wordprocessor-activity/wordprocessor.c:431
 msgid "Title"
 msgstr "標題"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:424
+#: ../src/wordprocessor-activity/wordprocessor.c:432
 msgid "Heading 1"
 msgstr "標題 1"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:425
+#: ../src/wordprocessor-activity/wordprocessor.c:433
 msgid "Heading 2"
 msgstr "標題 2"
 
@@ -6922,12 +7381,12 @@ msgstr "孩子們可以輸入他們自己的文字或複製老師指定的文字
 msgid "Your word processor"
 msgstr "你的文字處理機"
 
-#: ../src/wordsgame-activity/wordsgame.c:112
+#: ../src/wordsgame-activity/wordsgame.c:115
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:1
 msgid "Falling Words"
 msgstr "單字掉落"
 
-#: ../src/wordsgame-activity/wordsgame.c:113
+#: ../src/wordsgame-activity/wordsgame.c:116
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the falling words before they reach the ground"
 msgstr "在它們到達地面之前，輸入掉落中的單字"
