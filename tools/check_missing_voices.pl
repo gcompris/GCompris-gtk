@@ -18,15 +18,16 @@ if(!defined $ARGV[0])
   }
 my $TARGET_LOCALE =  $ARGV[0];
 
-my $BASEDIR="./boards/sounds";
+my $BASEDIR="./boards/voices";
 
 # I don't set alphabet dir, it's too locale specific
 my @SUBDIRS= qw/geography misc colors/;
 
-if(! -d $BASEDIR)
+if(! -f "$BASEDIR/en/misc/welcome.ogg")
   {
     print "ERROR: You must run this tool from the top GCompris directory this way:\n";
     print "       ./tools/check_missing_voices.pl $TARGET_LOCALE\n";
+    print "       You must make a link from boards/voices to its actual location.\n";
     exit(1);
   }
 
