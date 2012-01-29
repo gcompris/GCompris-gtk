@@ -80,6 +80,8 @@ class Gcompris_lang:
 
   def start(self):
     print "lang start"
+    self.saved_policy = gcompris.sound.policy_get()
+    gcompris.sound.policy_set(gcompris.sound.PLAY_AND_INTERRUPT)
 
     # init config to default values
     self.config_dict = self.init_config()
@@ -125,6 +127,7 @@ class Gcompris_lang:
     self.displayLesson( self.currentLesson )
 
   def end(self):
+    gcompris.sound.policy_set(self.saved_policy)
     if self.currentExercise:
       self.currentExercise.stop()
     # Remove the root item removes all the others inside it
