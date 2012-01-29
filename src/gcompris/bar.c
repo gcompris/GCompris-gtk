@@ -527,7 +527,7 @@ static gint bar_play_sound (GooCanvasItem *item)
 {
   int policy = gc_sound_policy_get();
   gchar *str;
-  gc_sound_policy_set(PLAY_ONLY_IF_IDLE);
+  gc_sound_policy_set(PLAY_AND_INTERRUPT);
 
   GComprisBarFlags flag =
     GPOINTER_TO_UINT(g_object_get_data(G_OBJECT (item), "flag"));
@@ -594,7 +594,10 @@ gc_bar_play_level_voice(int level)
 
   gchar *audio_str = g_strdup_printf("voices/$LOCALE/alphabet/%s", number_str);
 
+  int policy = gc_sound_policy_get();
+  gc_sound_policy_set(PLAY_AND_INTERRUPT);
   gc_sound_play_ogg("voices/$LOCALE/misc/level.ogg", audio_str, NULL);
+  gc_sound_policy_set(policy);
 
   g_free(number_str);
   g_free(audio_str);
@@ -613,7 +616,6 @@ item_event_bar (GooCanvasItem  *item,
     return(FALSE);
 
   bar_reset_sound_id();
-  gc_sound_play_ogg ("sounds/bleep.wav", NULL);
 
   switch (flag)
     {
