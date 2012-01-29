@@ -37,17 +37,27 @@ class SpotTarget:
       self.width = 380
       self.height = 100
       # The background
-      item = goocanvas.Rect( parent = rootitem,
-                             x = x,
-                             y = y,
-                             width = self.width,
-                             height = self.height,
-                             radius_x = 5,
-                             radius_y = 5,
-                             stroke_color_rgba = 0x666666FFL,
-                             fill_color_rgba = 0x33333366L,
-                             line_width = 2.0 )
-      item.connect("button_press_event", callback, triplet)
+      fill_color_off = 0x33333366L
+      fill_color_on  = 0x99999966L
+      itembg = \
+          goocanvas.Rect( parent = rootitem,
+                          x = x,
+                          y = y,
+                          width = self.width,
+                          height = self.height,
+                          radius_x = 5,
+                          radius_y = 5,
+                          stroke_color_rgba = 0x666666FFL,
+                          fill_color_rgba = fill_color_off,
+                          line_width = 2.0 )
+      itembg.connect("button_press_event", callback, triplet)
+      itembg.connect("enter_notify_event",
+                   (lambda s,e,t,i: i.set_properties(fill_color_rgba = fill_color_on)),
+                   itembg )
+      itembg.connect("leave_notify_event",
+                   (lambda s,e,t,i: i.set_properties(fill_color_rgba = fill_color_off)),
+                   itembg )
+
       # The text description
       textx = 100
       item = goocanvas.Text(
@@ -62,6 +72,12 @@ class SpotTarget:
           width = self.width - textx - 10
           )
       item.connect("button_press_event", callback, triplet)
+      item.connect("enter_notify_event",
+                   (lambda s,e,t,i: i.set_properties(fill_color_rgba = fill_color_on)),
+                   itembg )
+      item.connect("leave_notify_event",
+                   (lambda s,e,t,i: i.set_properties(fill_color_rgba = fill_color_off)),
+                   itembg )
       # The image
       if triplet.image:
           pixbuf = gcompris.utils.load_pixmap(gcompris.DATA_DIR + "/lang/" +
@@ -74,6 +90,12 @@ class SpotTarget:
                                   height = 90
                                   )
           item.connect("button_press_event", callback, triplet)
+          item.connect("enter_notify_event",
+                       (lambda s,e,t,i: i.set_properties(fill_color_rgba = fill_color_on)),
+                       itembg )
+          item.connect("leave_notify_event",
+                       (lambda s,e,t,i: i.set_properties(fill_color_rgba = fill_color_off)),
+                       itembg )
 
 
 class Findit:
