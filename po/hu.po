@@ -1,25 +1,24 @@
 # Hungarian translation of gcompris.
-# Copyright (C) 2002, 2004, 2005, 2006, 2008, 2009, 2010, 2011 Free Software Foundation, Inc.
-# This file is distributed under the same license as the gcompris package.
 # Hilzinger Marcel <hili at suselinux dot hu>, 2002.
-# Gabor Kelemen <kelemeng at gnome dot hu>, 2004, 2005, 2006, 2008, 2009, 2010, 2011.
+# Gabor Kelemen <kelemeng at gnome dot hu>, 2004, 2005, 2006, 2008, 2009, 2010, 2011, 2012.
 # Miklos Merenyi <mermik at freemail dot hu>, 2008.
 # Somlai Istvan <somlai at bg-bp dot sulinet dot hu>, 2012.
+# Copyright (C) 2002, 2004, 2005, 2006, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+# This file is distributed under the same license as the gcompris package.
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=gcompris&keywords=I18N+L10N&component=general\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2012-01-25 00:03+0000\n"
-"PO-Revision-Date: 2012-01-25 09:24+0200\n"
-"Last-Translator: somlai <somlai at bg-bp dot sulinet dot hu>\n"
-"Language-Team: Hungarian\n"
+"PO-Revision-Date: 2012-01-31 12:30+0100\n"
+"Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
+"Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.7.1\n"
+"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+"X-Generator: KBabel 1.11.4\n"
 "X-Project-Style: gnome\n"
 
 #: ../boards/algebra_group.xml.in.h:1
@@ -49,8 +48,8 @@ msgid ""
 "The Braille system is a method that is widely used by blind people to read "
 "and write, and was the first digital form of writing."
 msgstr ""
-"A Braille írás egy olyan módszer, amit a vak emberek széles körben "
-"használnak írni és olvasni, ez volt az első digitális formájú írás."
+"A Braille írás egy vak emberek által széles körben írásra és olvasásra "
+"használt módszer, ez volt az első digitális írásmód."
 
 #: ../boards/chess.xml.in.h:1
 #: ../src/chess_computer-activity/chess_computer.xml.in.h:3
@@ -79,7 +78,7 @@ msgstr "Játssz a számítógép perifériáival."
 
 #: ../boards/discovery.xml.in.h:1
 msgid "Colors, sounds, memory..."
-msgstr "Színek, hangok, memória..."
+msgstr "Színek, hangok, memória…"
 
 #: ../boards/discovery.xml.in.h:2
 msgid "Go to discovery activities"
@@ -99,8 +98,7 @@ msgstr "A kísérletező játékokhoz"
 
 #: ../boards/experimental.xml.in.h:2
 msgid "Run gcompris --experimental to see this menu."
-msgstr ""
-"Ez a menü a gcompris --experimental parancs kiadásával jeleníthető meg."
+msgstr "Ez a menü a gcompris --experimental parancs kiadásával jeleníthető meg."
 
 #: ../boards/fun.xml.in.h:1
 msgid "Go to Amusement activities"
@@ -195,13 +193,13 @@ msgid ""
 "    ctrl-f Toggle full screen\n"
 "    ctrl-m Toggle mute for the background music"
 msgstr ""
-"Egy ikonra kattintás megjeleniti a megfelelő játék vagy tevékenység "
+"Egy ikonra kattintás megjeleníti a megfelelő játék vagy tevékenység "
 "almenüjét.\n"
 "A képernyő alján a GCompris vezérlőpanelja látható.\n"
 "A következő ikonok láthatók, jobbról balra haladva:\n"
 "(A játékokban csak akkor jelennek meg az egyes ikonok, ha ott használni "
 "lehet azokat.)\n"
-"     Házikó - Vissza az előző menübe (ctrl-w vagy escape billentyű)\n"
+"     Házikó - Vissza az előző menübe (Ctrl-w vagy Esc billentyű)\n"
 "     Hüvelykujj - OK. A megoldásod megerősítése\n"
 "     Nyilak - A nehézségi fok megjelenítése. Rákattintva másik szint "
 "választható\n"
@@ -209,14 +207,14 @@ msgstr ""
 "     Kérdőjel - Segítség\n"
 "     Szerszámos láda - A program beállításai\n"
 "     Tux repülő - A játék névjegye\n"
-"     Kikapcsológomb - Kilépés (ctrl-x)\n"
+"     Kikapcsológomb - Kilépés (Ctrl-x)\n"
 "A csillagok jelentése a következő:\n"
 "     1, 2 vagy 3 egyszerű csillag - 2-6 éveseknek\n"
 "     1, 2 vagy 3 összetett csillag - 7 éves kortól\n"
 "Gyorsbillentyűk:\n"
-"     ctrl-b Megjeleníti vagy elrejti a GCompris vezérlőpanelt\n"
-"     ctrl-f Váltás teljes képernyő nézetre vagy vissza\n"
-"     ctrl-m Váltás a háttérzene ki-bekapcsolására"
+"     Ctrl-b Megjeleníti vagy elrejti a GCompris vezérlőpanelt\n"
+"     Ctrl-f Váltás teljes képernyős nézetre vagy vissza\n"
+"     Ctrl-m A háttérzene ki- és bekapcsolása"
 
 #: ../boards/menu.xml.in.h:20
 msgid "GCompris Main Menu"
@@ -244,7 +242,7 @@ msgstr "Egyéb tevékenységek"
 
 #: ../boards/miscelaneous.xml.in.h:2
 msgid "Time, Geography, ..."
-msgstr "Idő, földrajz, ..."
+msgstr "Idő, földrajz, …"
 
 #: ../boards/money_group.xml.in.h:1
 msgid "Go to money activities"
@@ -296,7 +294,7 @@ msgstr "Stratégiai játékok"
 
 #: ../boards/strategy.xml.in.h:2
 msgid "Strategy games like chess, connect4, ..."
-msgstr "Stratégiai játékok, például sakk, ..."
+msgstr "Stratégiai játékok, például sakk, …"
 
 #: ../gcompris.desktop.in.h:1
 msgid "Educational game for ages 2 to 10"
@@ -312,7 +310,7 @@ msgstr "Sokféle elfoglaltságot nyújtó oktatójáték"
 
 #: ../gcompris-edit.desktop.in.h:1
 msgid "Administration for gcompris"
-msgstr "Adminisztráció a gcompris-hoz"
+msgstr "Adminisztráció a GCompris-hoz"
 
 #: ../gcompris-edit.desktop.in.h:2
 msgid "GCompris Administration"
@@ -768,8 +766,7 @@ msgid "Birth date:"
 msgstr "Születési dátum:"
 
 #: ../src/administration-activity/admin/user_edit.py:153
-msgid ""
-"You need to provide at least a login, first name and last name for your users"
+msgid "You need to provide at least a login, first name and last name for your users"
 msgstr ""
 "Legalább egy bejelentkezési nevet, valamint egy utó- és vezetéknevet meg "
 "kell adnia a felhasználóinak"
@@ -798,7 +795,7 @@ msgid ""
 "You need to change them: %s !"
 msgstr ""
 "Néhány bejelentkezési név nem egyedi!\n"
-"Módosítsa ezeket: %s !"
+"Módosítsa ezeket: %s."
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:1
 msgid "Advanced colors"
@@ -1391,11 +1388,11 @@ msgstr ""
 
 #: ../src/anim-activity/Color.py:86
 msgid "Fill color..."
-msgstr "Kitöltőszín..."
+msgstr "Kitöltőszín…"
 
 #: ../src/anim-activity/Color.py:98
 msgid "Stroke color..."
-msgstr "Vonásszín..."
+msgstr "Vonásszín…"
 
 #: ../src/awele-activity/awele.c:158
 #, c-format
@@ -1403,7 +1400,7 @@ msgid ""
 "File '%s' is not found.\n"
 "You cannot play this activity."
 msgstr ""
-"A(z) '%s' fájl nem található.\n"
+"A(z) „%s” fájl nem található.\n"
 "Ezzel a tevékenységgel nem játszhatsz."
 
 #: ../src/awele-activity/awele.c:359
@@ -1420,7 +1417,7 @@ msgstr "Válassz egy rekeszt!"
 
 #: ../src/awele-activity/awele.c:648
 msgid "Your turn to play ..."
-msgstr "Te jössz..."
+msgstr "Te jössz…"
 
 #: ../src/awele-activity/awele.c:689
 msgid "Not allowed! Try again !"
@@ -1536,8 +1533,7 @@ msgstr "Mozgáskoordináció. Fogalmak összekapcsolása."
 
 #: ../src/babymatch-activity/babymatch.xml.in.h:5
 msgid "Mouse manipulation: movement, drag and drop. Cultural references."
-msgstr ""
-"Egérkezelés: mozgatás, húzd és ejtsd ismerete. Kulturális vonatkozások."
+msgstr "Egérkezelés: mozgatás, húzd és ejtsd ismerete. Kulturális vonatkozások."
 
 #: ../src/babymatch-activity/shapegame.c:2017
 #: ../src/click_on_letter-activity/click_on_letter.c:1316
@@ -1724,9 +1720,7 @@ msgstr "Braille : A kód megfejtése"
 msgid ""
 "The Braille system is a method that is used by blind people to read and "
 "write."
-msgstr ""
-"A Braille írás egy olyan módszer, amelyet széles körben használnak a vakok "
-"írni és olvasni."
+msgstr "A Braille írás egy vak emberek által írásra és olvasásra használt módszer."
 
 #. Braille Description
 #: ../src/braille_alphabets-activity/braille_alphabets.py:181
@@ -1735,24 +1729,23 @@ msgid ""
 "in a rectangle containing two columns of three dots each. As seen on the "
 "left, each dot is referenced by a number from 1 to 6."
 msgstr ""
-"Minden Braille karakter vagy cella hat pontból áll, ami álló téglalap "
-"formában két oszlopot tartalmaz, három-három ponttal. A bal oldalon látható, "
-"hogy mindegyik pontra egy szám hivatkozik 1-6."
+"Minden Braille karakter vagy cella hat pontból áll, amelyek álló téglalap "
+"formában két oszlopba vannak rendezve, oszloponként három-három ponttal. A "
+"bal oldalon látható, hogy mindegyik pontra egy szám hivatkozik 1-6 között."
 
 #: ../src/braille_alphabets-activity/braille_alphabets.py:200
 msgid "I am braille TUX"
-msgstr "Én braille TUX vagyok"
+msgstr "Én Braille TUX vagyok"
 
 #: ../src/braille_alphabets-activity/braille_alphabets.py:212
 msgid "When you are ready, click on me and try reproducing Braille characters."
-msgstr ""
-"Ha elkészültél, kattints rám, és próbáld meg létrehozni a Braille betűket."
+msgstr "Ha elkészültél, kattints rám, és próbáld meg létrehozni a Braille betűket."
 
 #. Translators : Do not translate the token {letter}
 #: ../src/braille_alphabets-activity/braille_alphabets.py:296
 msgid "Click on the dots in braille cell area to produce the letter {letter}."
 msgstr ""
-"A braille cella területén a pontokra kattintva hozd létre ezt a betűt "
+"A Braille cella területén a pontokra kattintva hozd létre ezt a betűt: "
 "{letter}."
 
 #: ../src/braille_alphabets-activity/braille_alphabets.py:301
@@ -1760,16 +1753,14 @@ msgid ""
 "Look at the Braille character map and observe how similar the first and "
 "second line are."
 msgstr ""
-"Nézd meg a Braille betűket és figyeld meg, hogy miben hasonlít az első és a "
-"második vonal."
+"Nézd meg a Braille betűket, és figyeld meg, hogy mennyire hasonlít az első "
+"és a második vonal."
 
 #: ../src/braille_alphabets-activity/braille_alphabets.py:304
 msgid ""
 "Again, similar as the first line but take care, the 'W' letter was added "
 "afterwards."
-msgstr ""
-"Ismét hasonló, mint az első sor, de vigyázzunk, mert a 'W' betűt később "
-"adták hozzá."
+msgstr "Ismét hasonló, mint az első sor, de vigyázz: a „W” betűt később adták hozzá."
 
 #: ../src/braille_alphabets-activity/braille_alphabets.py:307
 msgid "This is easy, numbers are the same as letters from A to J."
@@ -1785,11 +1776,11 @@ msgstr "Kattints ide a kiválasztott pontok jóváhagyásához"
 
 #: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:2
 msgid "Learn and memorize the Braille system."
-msgstr "Memorizáld a Braille-rendszert és tanuld meg."
+msgstr "Memorizáld a Braille-rendszert, és tanuld meg."
 
 #: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:3
 msgid "Let kids discover the Braille system."
-msgstr "Ismerjék meg a gyerekek a Braille írást."
+msgstr "A gyerekek ismerjék meg a Braille írást."
 
 #: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:4
 msgid ""
@@ -1800,9 +1791,9 @@ msgid ""
 "alphabets."
 msgstr ""
 "A képernyő 3 részből áll: a Braille cella, a betű megnevezése és az alsó "
-"rész, ami 13 betűt tartalmaz. Kattints az egyes betűkre az alsó részen, hogy "
-"megtudjuk a megfelelő Braille-kódot Braille-cella részben. Kattints a gombra "
-"ugrás a következő az angol ábécé 13 betű."
+"rész, amely 13 betűt tartalmaz. Kattints az egyes betűkre az alsó részen a "
+"megfelelő Braille-kód megjelenítéséhez a Braille-cella részben. Kattints a "
+"szintlépés gombra az angol ábécé következő 13 betűjére ugráshoz."
 
 #: ../src/braille_alphabets-activity/BrailleMap.py:96
 msgid "Back to the activity"
@@ -1810,7 +1801,7 @@ msgstr "Vissza a játékhoz"
 
 #: ../src/braille_fun-activity/braille_fun.xml.in.h:1
 msgid "Braille Alphabet Codes"
-msgstr "Braille betű-kódok ismerete"
+msgstr "Braille betűkódok ismerete"
 
 #: ../src/braille_fun-activity/braille_fun.xml.in.h:2
 msgid "Braille Fun"
@@ -1821,20 +1812,20 @@ msgid ""
 "Braille code the tile for the corresponding falling letters. Check the "
 "braille chart by clicking on the toggle button for help."
 msgstr ""
-"Jelöld be az éppen leeső betűk Braille kódját. Ellenőrizd a kódokat az alsó "
-"sorban a Braille táblára kattintva."
+"Jelöld be az éppen leeső betűk Braille kódját. A súgó gombra kattintva "
+"megnézheted a Braille táblát."
 
 #: ../src/braille_fun-activity/braille_fun.xml.in.h:4
 msgid "Braille the falling letters"
-msgstr "Egészítsd ki a hiányzó betűket"
+msgstr "Egészítsd ki a leeső betűket"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:120
 msgid "PLAYER 1"
-msgstr "PLAYER 1"
+msgstr "1. JÁTÉKOS"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:130
 msgid "PLAYER 2"
-msgstr "PLAYER 2"
+msgstr "2. JÁTÉKOS"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:151
 msgid "Check Number"
@@ -1847,11 +1838,11 @@ msgstr "Kattints rám egy kis segítségért"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:193
 msgid "I don't have this number PLAYER {number}"
-msgstr "Nálam nincs ilyen szám PLAYER {number}"
+msgstr "Nálam nincs ilyen szám {number}. JÁTÉKOS"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:215
 msgid "Lotto Master"
-msgstr "Lottó Mester"
+msgstr "Lottómester"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:239
 msgid "Generate a number"
@@ -1861,7 +1852,7 @@ msgstr "Mutass egy számot"
 #: ../src/braille_lotto-activity/braille_lotto.py:296
 #: ../src/braille_lotto-activity/braille_lotto.py:319
 msgid "Hey, you have it. It is there in your {column} column"
-msgstr "Hé, de bizony van. Ott láthatod a {column} oszlopban"
+msgstr "Hé, de bizony van. Ott láthatod a(z) {column} oszlopban"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:298
 #: ../src/braille_lotto-activity/braille_lotto.py:321
@@ -1894,7 +1885,7 @@ msgstr "Gratulálunk {player_id} játékos, te nyertél"
 
 #: ../src/braille_lotto-activity/braille_lotto.xml.in.h:1
 msgid "Braille Lotto"
-msgstr "Braille Lottó"
+msgstr "Braille lottó"
 
 #: ../src/braille_lotto-activity/braille_lotto.xml.in.h:2
 msgid "Discover the Braille system for numbers."
@@ -1907,10 +1898,10 @@ msgid ""
 "crosses all the Braille numbers correctly wins the game. Check the Braille "
 "table by clicking on the toggle button in the control bar."
 msgstr ""
-"Mindegyik játékosnak ki kell találnia, hogy a megadott szám ott van-e a "
-"tábláján. Ha igen, akkor kattintson rá, hogy ellenőrizze. Az a játékos nyeri "
-"meg a játékot, aki a Braille számok közül mindegyiket eltalálta. Ellenőrizd "
-"a kódokat az alsó sorban a Braille táblára kattintva."
+"A játékosoknak ki kell találniuk, hogy a megadott szám szerepel-e a "
+"táblájukon. Ha úgy véli igen, akkor rákattintva ellenőrizze. Az a játékos "
+"nyeri meg a játékot, aki a Braille számok közül mindegyiket eltalálta. Az "
+"alsó sorban a váltógombra kattintva megnézheted a Braille táblát."
 
 #: ../src/canal_lock-activity/canal_lock.xml.in.h:1
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:2
@@ -1963,8 +1954,7 @@ msgid "color"
 msgstr "szín"
 
 #: ../src/chat-activity/chat.py:323
-msgid ""
-"ERROR: Failed to initialize the network interface. You cannot communicate."
+msgid "ERROR: Failed to initialize the network interface. You cannot communicate."
 msgstr ""
 "HIBA: a hálózati csatoló előkészítése meghiúsult. Nem fogsz tudni "
 "beszélgetni."
@@ -2089,8 +2079,8 @@ msgid ""
 "those found in &lt;http://www.wikipedia.org&gt;."
 msgstr ""
 "A Hold képe a NASA-tól van. Az űrhangok a Tuxpaint-ből és a Vegastrike-ból "
-"származnak, amelyek GPL licensz alá tartoznak. A szállítóeszközök képei "
-"Franck Doucet-től vannak. A szállítóeszközökkel kapcsolatos dátumok alapja "
+"származnak, amelyek GPL licencűek. A szállítóeszközök képeinek szerzői joga "
+"Franck Douceté. A szállítóeszközökkel kapcsolatos dátumok alapja a "
 "&lt;http://www.wikipedia.org&gt;."
 
 #: ../src/chronos-activity/chronos.xml.in.h:4
@@ -2314,8 +2304,7 @@ msgstr ""
 msgid ""
 "Left-Click with the mouse on all the swimming fish before they leave the "
 "fishtank"
-msgstr ""
-"Kattints a bal egérgombbal a halakra, mielőtt kiúsznának az akváriumból"
+msgstr "Kattints a bal egérgombbal a halakra, mielőtt kiúsznának az akváriumból"
 
 #: ../src/clickgame-activity/clickgame.xml.in.h:4
 msgid "Motor coordination: moving and clicking the mouse."
@@ -2326,7 +2315,7 @@ msgid ""
 "Use the left mouse button to click on the moving fish. A level 5 and after, "
 "a double click is mandatory."
 msgstr ""
-"Kattints a bal egérgombbal a mozgó halra. Az 5-ös szintől kezdve a dupla "
+"Kattints a bal egérgombbal a mozgó halra. Az 5-ös szinttől kezdve a dupla "
 "kattintás kötelező."
 
 #. require by all utf8-functions
@@ -2377,11 +2366,11 @@ msgstr "A válasz nem lehet üres."
 #: ../src/click_on_letter-activity/click_on_letter.c:923
 #, c-format
 msgid "Too many characters in the Answer (maximum is %d)."
-msgstr "Túl sok karakter van a Válaszban (maximum %d lehet)."
+msgstr "Túl sok karakter van a válaszban (maximum %d lehet)."
 
 #: ../src/click_on_letter-activity/click_on_letter.c:947
 msgid "All the characters in Questions must also be in the Answers."
-msgstr "A kérdésben lévő Valamennyi karakternek ott kell lenni a válaszban."
+msgstr "A kérdésben lévő valamennyi karakternek ott kell lenni a válaszban."
 
 #: ../src/click_on_letter-activity/click_on_letter.c:964
 #, c-format
@@ -2391,7 +2380,7 @@ msgid ""
 "%s"
 msgstr ""
 "Érvénytelen bejegyzés:\n"
-"A %d szinten, Kérdések: „%s”, Válaszok: „%s”\n"
+"A(z) %d szinten, kérdések: „%s”,válaszok: „%s”\n"
 "%s"
 
 #. answer
@@ -2424,7 +2413,7 @@ msgstr ""
 
 #: ../src/click_on_letter-activity/click_on_letter.xml.in.h:2
 msgid "Click on a lowercase letter"
-msgstr "Kattints egy Kisbetűre"
+msgstr "Kattints egy kisbetűre"
 
 #: ../src/click_on_letter-activity/click_on_letter.xml.in.h:3
 #: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:3
@@ -2443,7 +2432,7 @@ msgstr "Leírt betűk felismerése. Tudja mozgatni az egeret."
 
 #: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:2
 msgid "Click on an uppercase letter"
-msgstr "Kattints egy Nagybetűre"
+msgstr "Kattints egy nagybetűre"
 
 #: ../src/clockgame-activity/clockgame.c:535
 msgid "Set the watch to:"
@@ -2714,10 +2703,8 @@ msgid "Panorama of Château de Chenonceau, Indre-et-Loire, France."
 msgstr "A Château de Chenonceau panorámája, Indre-et-Loire, Franciaország."
 
 #: ../src/details-activity/resources/details/board2_4.xml.in.h:1
-msgid ""
-"Notre Dame de Paris cathedral on the Île de la Cité island in Paris, France."
-msgstr ""
-"A Notre Dame katedrális az Île de la Cité szigeten, Párizs, Franciaország."
+msgid "Notre Dame de Paris cathedral on the Île de la Cité island in Paris, France."
+msgstr "A Notre Dame katedrális az Île de la Cité szigeten, Párizs, Franciaország."
 
 #: ../src/details-activity/resources/details/board2_5.xml.in.h:1
 msgid "Nagoya Castle, Aichi Prefecture, Japan."
@@ -2919,8 +2906,7 @@ msgstr "Kattints duplán a téglalapokra az egérrel, amíg mind el nem tűnik."
 
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:4
 msgid "Double click the mouse to erase the area and discover the background"
-msgstr ""
-"Kattints duplán az egérrel, hogy kitöröld a területet és felfedezd a hátteret"
+msgstr "Kattints duplán az egérrel, hogy kitöröld a területet és felfedezd a hátteret"
 
 #: ../src/erase-activity/erase.c:86 ../src/erase-activity/erase.xml.in.h:5
 msgid "Move the mouse to erase the area and discover the background"
@@ -2989,8 +2975,7 @@ msgstr ""
 "cserélve az üres négyzettel."
 
 #: ../src/fifteen-activity/fifteen.xml.in.h:3
-msgid ""
-"Move each item to make an increasing series: from the smallest to the largest"
+msgid "Move each item to make an increasing series: from the smallest to the largest"
 msgstr ""
 "Mozgasd úgy az egyes elemeket, hogy növekvő számsort kapj: a legkisebbtől a "
 "legnagyobbig"
@@ -3018,7 +3003,7 @@ msgstr "Irányítsd a locsolócsövet"
 
 #: ../src/followline-activity/followline.xml.in.h:2
 msgid "Fine motor coordination"
-msgstr "Finommozgás koordináció"
+msgstr "Finommozgás-koordináció"
 
 #: ../src/followline-activity/followline.xml.in.h:3
 msgid ""
@@ -3073,8 +3058,7 @@ msgstr "Fordítók:"
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
-msgstr ""
-"Ez a program GNU szoftver és a GNU General Public License alatt van kiadva"
+msgstr "Ez a program GNU szoftver és a GNU General Public License alatt van kiadva"
 
 #: ../src/gcompris/about.c:226 ../src/gcompris/config.c:456
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:355
@@ -3100,8 +3084,7 @@ msgstr "Nem, folytatni szeretném"
 
 #: ../src/gcompris/board.c:149
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
-msgstr ""
-"Modulok dinamikus betöltése nem támogatott. A GCompris nem tölthető be.\n"
+msgstr "Modulok dinamikus betöltése nem támogatott. A GCompris nem tölthető be.\n"
 
 #: ../src/gcompris/board_config_combo.c:182
 msgid ""
@@ -3480,7 +3463,7 @@ msgstr "Téma: %s"
 
 #: ../src/gcompris/config.c:415
 msgid "SKINS NOT FOUND"
-msgstr "NEM TALÁLHATÓK TÉMÁK!"
+msgstr "NEM TALÁLHATÓK TÉMÁK"
 
 #: ../src/gcompris/file_selector.c:251
 msgid "CANCEL"
@@ -3575,8 +3558,7 @@ msgstr "A GCompris ebben a könyvtárban keresi a python tevékenységeket"
 
 #: ../src/gcompris/gcompris.c:199
 msgid "GCompris will find the locale file (.mo translation) in this directory"
-msgstr ""
-"A GCompris ebben a könyvtárban keresi a lokalizációs fájlt (.mo fordítás)"
+msgstr "A GCompris ebben a könyvtárban keresi a lokalizációs fájlt (.mo fordítás)"
 
 #: ../src/gcompris/gcompris.c:202
 msgid "GCompris will find the activities menu in this directory"
@@ -3659,15 +3641,13 @@ msgstr ""
 "használatát - minden adat a webkiszolgálóról töltődik le. "
 
 #: ../src/gcompris/gcompris.c:248
-msgid ""
-"In server mode, specify the cache directory used to avoid useless downloads."
+msgid "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr ""
 "Kiszolgáló módban adja meg a gyorsítótár-könyvtárat a felesleges letöltések "
 "kiküszöböléséhez."
 
 #: ../src/gcompris/gcompris.c:251
-msgid ""
-"Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
+msgid "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr ""
 "Globális fogd-és-ejtsd mód: normál, dupla kattintás, mindkettő. Az "
 "alapértelmezett a normál mód."
@@ -3678,27 +3658,27 @@ msgstr "Ne akadályozza meg a GCompris több példányban való elindítását."
 
 #: ../src/gcompris/gcompris.c:260
 msgid "Disable maximization zoom"
-msgstr "Maximális nagyítás letiltása"
+msgstr "Maximalizálási nagyítás letiltása"
 
 #: ../src/gcompris/gcompris.c:263
 msgid ""
 "Increase activities' timeout delays; useful values > 1.0; 1.0 to not change "
 "hardcoded value"
 msgstr ""
-"A tevékenységek időtúllépés értéke; használható értékek > 1,0; az 1.0 nem "
-"változtatja meg a hardcoded értéket"
+"A tevékenységek időkorlátjának növelése; a hasznos értékek > 1.0; az 1.0 nem "
+"változtatja meg az alapértelmezett értéket"
 
 #: ../src/gcompris/gcompris.c:266
 msgid ""
 "How activities' timeout delays are growing for several actors; useful values "
 "< 1.0; 1.0 to not change hardcoded value"
 msgstr ""
-"A tevékenységek időtúllépés értéke hogyan nő több szereplőnél; használható "
-"értékek > 1,0; az 1.0 nem változtatja meg a hardcoded értéket"
+"A tevékenységek időkorlátja hogyan nő több szereplőnél; a hasznos értékek < "
+"1.0; az 1.0 nem változtatja meg az alapértelmezett értéket"
 
 #: ../src/gcompris/gcompris.c:269
 msgid "For test purpose, run in a loop all the activities"
-msgstr "Tesztelés céljából futtass egy ciklust minden tevékenységnél"
+msgstr "Tesztelési céllal az összes tevékenység futtatása ciklusban"
 
 #: ../src/gcompris/gcompris.c:952
 #, c-format
@@ -3731,12 +3711,11 @@ msgstr ""
 
 #: ../src/gcompris/gcompris.c:1516
 #, c-format
-msgid ""
-"GCompris won't start because the lock file is less than %d second old.\n"
-msgid_plural ""
-"GCompris won't start because the lock file is less than %d seconds old.\n"
+msgid "GCompris won't start because the lock file is less than %d second old.\n"
+msgid_plural "GCompris won't start because the lock file is less than %d seconds old.\n"
 msgstr[0] ""
-"A GCompris nem indul el, mert a lock fájl %d másodpercnél nem régebbi.\n"
+"A GCompris nem indul el, mert a zárolási fájl kevesebb, mint %d másodperc "
+"korú.\n"
 msgstr[1] ""
 "A GCompris nem indul el, mert a zárolási fájl kevesebb, mint %d másodperc "
 "korú.\n"
@@ -4728,8 +4707,7 @@ msgstr "Számfaló - osztók"
 msgid ""
 "Guide the Number Muncher to all the factors of the number at the top of the "
 "screen."
-msgstr ""
-"Irányítsd a Számfalót a képernyő tetején látható szám összes osztójára."
+msgstr "Irányítsd a Számfalót a képernyő tetején látható szám összes osztójára."
 
 #: ../src/gnumch-factors-activity/gnumch-factors.xml.in.h:3
 msgid "Learn about factors and multiples."
@@ -4937,8 +4915,7 @@ msgstr "A klasszikus akasztófás játék"
 
 #: ../src/hangman-activity/hangman.xml.in.h:4
 msgid "This is a good exercise to improve reading and spelling skills."
-msgstr ""
-"Ez egy remek gyakorlat az olvasási és betűzési képességek fejlesztésére."
+msgstr "Ez egy remek gyakorlat az olvasási és betűzési képességek fejlesztésére."
 
 #: ../src/hangman-activity/hangman.xml.in.h:5
 msgid ""
@@ -4985,8 +4962,7 @@ msgstr "Hanoi torony"
 
 #: ../src/hanoi_real-activity/hanoi_real.c:267
 msgid "Move the entire stack to the right peg, one disc at a time"
-msgstr ""
-"Mozgasd egyesével az összes korongot a bal oldali a cölöpről a jobb oldalira."
+msgstr "Mozgasd egyesével az összes korongot a bal oldali a cölöpről a jobb oldalira."
 
 #: ../src/hanoi_real-activity/hanoi_real.xml.in.h:1
 msgid ""
@@ -5093,8 +5069,7 @@ msgstr ""
 
 #: ../src/hydroelectric-activity/hydroelectric.py:190
 msgid "This cloud simulates the wind, click on it to have wind."
-msgstr ""
-"Ez a felhő a szelet szimulálja, kattints rá a szélfúvás megindításához."
+msgstr "Ez a felhő a szelet szimulálja, kattints rá a szélfúvás megindításához."
 
 #: ../src/hydroelectric-activity/hydroelectric.py:228
 msgid ""
@@ -5158,7 +5133,7 @@ msgstr ""
 "annak biztosításához, hogy az előállított elektromosság nagyon közel legyen "
 "az igényekhez. Ha a termelés és fogyasztás nincsenek egyensúlyban, akkor az "
 "erőművek és az átviteli berendezések leállhatnak, ami a legrosszabb "
-"esetekben jelentős regionális elsötétedéshez vezethez."
+"esetekben jelentős regionális elsötétedéshez vezethet."
 
 #: ../src/hydroelectric-activity/hydroelectric.py:951
 msgid ""
@@ -5496,115 +5471,115 @@ msgstr "Zenei hangszerek"
 #. Translator: Do not translate {text}.
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:2
 msgid "Find {text}"
-msgstr "Találd meg ezt: {text}"
+msgstr "Találd meg {text}"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:3
 msgid "the accordion"
-msgstr "a tangóharmonika"
+msgstr "a tangóharmonikát"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:4
 msgid "the banjo"
-msgstr "a bendzsó"
+msgstr "a bendzsót"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:5
 msgid "the bass drum"
-msgstr "a lábdob"
+msgstr "a lábdobot"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:6
 msgid "the bongo"
-msgstr "a bongó"
+msgstr "a bongót"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:7
 msgid "the castanets"
-msgstr "a kasztanyetta"
+msgstr "a kasztanyettát"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:8
 msgid "the cello"
-msgstr "a cselló"
+msgstr "a csellót"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:9
 msgid "the clarinet"
-msgstr "a klarinét"
+msgstr "a klarinétot"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:10
 msgid "the cymbal"
-msgstr "a cintányér"
+msgstr "a cintányért"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:11
 msgid "the drum kit"
-msgstr "a dobfelszerelés"
+msgstr "a dobfelszerelést"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
 msgid "the electric guitar"
-msgstr "az elektromos gitár"
+msgstr "az elektromos gitárt"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
 msgid "the flute traversiere"
-msgstr "a fuvola"
+msgstr "a fuvolát"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
 msgid "the guitar"
-msgstr "a gitár"
+msgstr "a gitárt"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
 msgid "the harmonica"
-msgstr "a szájharmonika"
+msgstr "a szájharmonikát"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
 msgid "the harp"
-msgstr "a hárfa"
+msgstr "a hárfát"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
 msgid "the horn"
-msgstr "a kürt"
+msgstr "a kürtöt"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
 msgid "the maracas"
-msgstr "a rumbatök"
+msgstr "a rumbatököt"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
 msgid "the organ"
-msgstr "az orgona"
+msgstr "az orgonát"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
 msgid "the piano"
-msgstr "a zongora"
+msgstr "a zongorát"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
 msgid "the saxophone"
-msgstr "a szaxofon"
+msgstr "a szaxofont"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
 msgid "the tambourine"
-msgstr "a csörgődob"
+msgstr "a csörgődobot"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
 msgid "the timpani"
-msgstr "az üstdob"
+msgstr "az üstdobot"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
 msgid "the triangle"
-msgstr "a triangulum"
+msgstr "a triangulumot"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
 msgid "the trombone"
-msgstr "a harsona"
+msgstr "a harsonát"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
 msgid "the trumpet"
-msgstr "a trombita"
+msgstr "a trombitát"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:27
 msgid "the tuba"
-msgstr "a tuba"
+msgstr "a tubát"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:28
 msgid "the violin"
-msgstr "a hegedű"
+msgstr "a hegedűt"
 
 #: ../src/lang-activity/lang.xml.in.h:1
 msgid "Practice a foreign language"
-msgstr "Gyakorold az idegen nyelvet"
+msgstr "Gyakorolj egy idegen nyelvet"
 
 #: ../src/lang-activity/lang.py:56
 msgid "Missing Image"
@@ -5617,7 +5592,7 @@ msgid ""
 " for profile <b>%s</b>"
 msgstr ""
 "Beállítás\n"
-"a <b>%s</b> profilhoz"
+"a(z) <b>%s</b> profilhoz"
 
 #: ../src/lang-activity/lang.py:167
 msgid "Select locale"
@@ -5724,8 +5699,7 @@ msgid "Enter login to log in"
 msgstr "Add meg a bejelentkezési neved"
 
 #: ../src/login-activity/login.xml.in.h:1
-msgid ""
-"GCompris identifies each child, so we can provide child-specific reports."
+msgid "GCompris identifies each child, so we can provide child-specific reports."
 msgstr ""
 "A GCompris minden egyes gyereket azonosít, így a gyerekekre jellemző "
 "jelentéseket készíthetünk."
@@ -5759,17 +5733,15 @@ msgstr ""
 
 #: ../src/login-activity/login.xml.in.h:10
 msgid "Select or enter your name to log in to GCompris"
-msgstr "Válaszd ki vagy add meg a neved a bejelentkezéshez a GCompris-ba"
+msgstr "Válaszd ki, vagy add meg a neved a bejelentkezéshez a GCompris-ba"
 
 #: ../src/louis_braille-activity/louis_braille.py:112
 msgid "Click to confirm your sequence"
-msgstr "Kattints, hogy megerősítsd a sorrendet"
+msgstr "Kattints a sorrend megerősítéséhez"
 
 #: ../src/louis_braille-activity/louis_braille.xml.in.h:1
-msgid ""
-"Louis Braille Video: &lt; http://www.youtube.com/watch?v=9bdfC2j_4x4 &gt;"
-msgstr ""
-"Louis Braille Videó: &lt; http://www.youtube.com/watch?v=9bdfC2j_4x4 &gt;"
+msgid "Louis Braille Video: &lt; http://www.youtube.com/watch?v=9bdfC2j_4x4 &gt;"
+msgstr "Louis Braille videó: &lt; http://www.youtube.com/watch?v=9bdfC2j_4x4 &gt;"
 
 #: ../src/louis_braille-activity/louis_braille.xml.in.h:2
 msgid ""
@@ -5784,7 +5756,7 @@ msgstr ""
 
 #: ../src/louis_braille-activity/louis_braille.xml.in.h:3
 msgid "Review the major dates of the inventor of the Braille system."
-msgstr "Nézzük át a Braille-írásrendszer feltalálójának jelentős dátumait."
+msgstr "Vegyük át a Braille-írásrendszer feltalálója életének jelentős dátumait."
 
 #: ../src/louis_braille-activity/louis_braille.xml.in.h:4
 msgid "The History of Louis Braille"
@@ -5799,7 +5771,7 @@ msgid ""
 "At the age of 10, he was sent to Paris to study at the Royal Institute for "
 "Blind Youth."
 msgstr ""
-"10 évesen Párizsba küldték hogy a \"Royal Institute for Blind Youth\" "
+"10 évesen Párizsba küldték, hogy a „Royal Institute for Blind Youth” "
 "iskolájában tanuljon."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:3
@@ -5807,19 +5779,20 @@ msgid ""
 "At the age of three, Louis became blind due to a severe infection that "
 "spread to his left eye."
 msgstr ""
-"Három évesen Louis megvakult egy komoly fertőzés miatt, ami átterjedt a bal "
+"Három évesen Louis megvakult egy komoly fertőzés miatt, amely átterjedt a "
+"bal "
 "szemére."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:4
 msgid "Born on January 4th in Coupvary near Paris in France."
-msgstr "Január 4-én született Coupvary-ben, Párizs közelében Franciaországban."
+msgstr "Január 4-én született Franciaországban, a Párizshoz közeli Coupvary-ben."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:5
 msgid ""
 "Braille got accepted as a world wide standard. Louis Braille proved that if "
 "you have motivation you can do incredible things."
 msgstr ""
-"A Braille írást elfogadták a világon szabványként. Louis Braille "
+"A Braille írást elfogadták világszintű szabványként. Louis Braille "
 "bebizonyította, hogy motivációval hihetetlen dolgokat lehet véghezvinni."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:6
@@ -5828,14 +5801,13 @@ msgid ""
 "invention of night writing, a code of 12 raised dots to share information on "
 "battlefields."
 msgstr ""
-"Charles Barbier, egy francia katona, meglátogatta az iskolájukat és "
-"megismertette velük az éjszakai írás találmányát, egy 12 kiemelkedő "
-"pontokból álló kódot."
+"Charles Barbier, egy francia katona, meglátogatta az iskolájukat, és "
+"megismertette velük az általa feltalált éjszakai írást, egy 12 kiemelkedő "
+"pontból álló kódot."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:7
 msgid "He became a teacher after graduating and secretly taught his method."
-msgstr ""
-"Az iskola elvégzése után tanár lett, és titokban tanította a módszerét."
+msgstr "Az iskola elvégzése után tanár lett, és titokban tanította a módszerét."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:8
 msgid ""
@@ -5843,39 +5815,37 @@ msgid ""
 "is erected to honor him."
 msgstr ""
 "Tuberkulózisban halt meg. A Párizsi Pantheonban van eltemetve. Tiszteletére  "
-"egy műemléket emeltek."
+"műemléket emeltek."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:9
 msgid "He impressed his classmates and began to play the piano and the organ."
 msgstr ""
-"Lenyűgözte az osztálytársait és elkezdett tanulni zongorán és orgonán "
-"játszani."
+"Lenyűgözte az osztálytársait, és elkezdett zongorán és orgonán játszani "
+"tanulni."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:10
 msgid ""
 "He revised and extended braille to include mathematics, symbols, "
 "punctuations and music notations."
 msgstr ""
-"Átdolgozta és kibővítette a braille írást hogy tartalmazzon matematika "
+"Átdolgozta és kibővítette a Braille írást, hogy tartalmazzon matematikai "
 "jeleket, szimbólumokat, írásjeleket és zenei jelöléseket."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:11
 msgid ""
 "Louis Braille injured his right eye with a stitching awl from his father's "
 "workshop."
-msgstr ""
-"Louis Braille az apja műhelyében megsértette a jobb szemét egy varrótűvel."
+msgstr "Louis Braille az apja műhelyében megsértette a jobb szemét egy varrótűvel."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:12
 msgid "Louis trimmed Barbier's 12 dots into 6 and invented the Braille system."
 msgstr ""
-"Louis lecsökkentette Barbier 12 pontját 6 pontra és feltalálta a Braille-"
+"Louis lecsökkentette Barbier 12 pontját 6 pontra, és feltalálta a Braille-"
 "írásrendszert."
 
 #: ../src/magic_hat_minus-activity/magic_hat_minus.xml.in.h:1
 msgid "Count how many items are under the magic hat after some have got away"
-msgstr ""
-"Számold meg, hány elem marad a bűvös kalap alatt, miután néhány eltűnik"
+msgstr "Számold meg, hány elem marad a bűvös kalap alatt, miután néhány eltűnik"
 
 #: ../src/magic_hat_minus-activity/magic_hat_minus.xml.in.h:2
 msgid "Learn subtraction"
@@ -5990,12 +5960,10 @@ msgstr "Találd meg a kijáratot a labirintusból"
 msgid ""
 "Look at your position, then switch back to invisible mode to continue your "
 "moves"
-msgstr ""
-"Nézd meg, hol állsz majd kapcsolj vissza láthatatlan módba a továbbhaladáshoz"
+msgstr "Nézd meg, hol állsz majd kapcsolj vissza láthatatlan módba a továbbhaladáshoz"
 
 #: ../src/maze-activity/maze.c:605
-msgid ""
-"Look at your position, then switch back to 3D mode to continue your moves"
+msgid "Look at your position, then switch back to 3D mode to continue your moves"
 msgstr "Nézd meg, hol állsz majd kapcsolj vissza 3D módba a továbbhaladáshoz"
 
 #: ../src/maze-activity/maze.xml.in.h:5
@@ -6320,8 +6288,7 @@ msgstr "Számlálási gyakorlat, memória."
 
 #: ../src/memory_enumerate-activity/memory_enumerate.xml.in.h:4
 msgid "Turn the cards over to match the number with the drawn picture."
-msgstr ""
-"Párosítsd azokat a kártyákat, amelyeken a szám megegyezik a képen láthatóval."
+msgstr "Párosítsd azokat a kártyákat, amelyeken a szám megegyezik a képen láthatóval."
 
 #: ../src/memory_enumerate-activity/memory_enumerate.xml.in.h:5
 msgid ""
@@ -6515,8 +6482,7 @@ msgstr "Számok olvasása, memória."
 
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:3
 msgid "Turn the cards over to match the number with the word matching it."
-msgstr ""
-"Párosítsd azokat a kártyákat, amelyeken a szám megfelel a leírt nevének."
+msgstr "Párosítsd azokat a kártyákat, amelyeken a szám megfelel a leírt nevének."
 
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:4
 msgid "Wordnumber memory game"
@@ -6543,8 +6509,7 @@ msgid "Question cannot be empty."
 msgstr "A kérdés nem lehet üres."
 
 #: ../src/missing_letter-activity/missingletter_config.c:95
-msgid ""
-"Question must include the character '_'. It represents the letter to search."
+msgid "Question must include the character '_'. It represents the letter to search."
 msgstr ""
 "A kérdésnek tartalmaznia kell az „_” karaktert. Ez képviseli a keresett "
 "betűt."
@@ -6559,8 +6524,7 @@ msgstr "Legalább két lehetőség kell legyen."
 
 #: ../src/missing_letter-activity/missingletter_config.c:116
 msgid "The answer and question must be the same except for the character '_'."
-msgstr ""
-"A válasznak és a kérdésnek azonosnak kell lennie, kivéve az „_” karaktert."
+msgstr "A válasznak és a kérdésnek azonosnak kell lennie, kivéve az „_” karaktert."
 
 #: ../src/missing_letter-activity/missingletter_config.c:125
 msgid "The first choice must be the solution that replaces the character '_'."
@@ -6613,8 +6577,7 @@ msgstr "Cseréld ki a betűt az „_” karakter kitalálásához."
 msgid ""
 "Enter here the letter that will be proposed. The first letter here must be "
 "the solution."
-msgstr ""
-"Add meg itt a felajánlott betűt. Az első betűnek a megoldásnak kell lennie."
+msgstr "Add meg itt a felajánlott betűt. Az első betűnek a megoldásnak kell lennie."
 
 #: ../src/missing_letter-activity/missing_letter.xml.in.h:1
 msgid ""
@@ -6953,10 +6916,8 @@ msgid "Katsushika Hokusai, The Great Wave off Kanagawa - 1823-1829"
 msgstr "Katsushika Hokusai, The Great Wave off Kanagawa - 1823-1829"
 
 #: ../src/paintings-activity/resources/paintings/board1_8.xml.in.h:1
-msgid ""
-"Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
-msgstr ""
-"Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
+msgid "Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
+msgstr "Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
 
 #: ../src/paintings-activity/resources/paintings/board1_9.xml.in.h:1
 msgid "Utagawa Hiroshige, Horse-mackerel and Prawn - 1840"
@@ -6988,8 +6949,7 @@ msgstr "Pierre-Auguste Renoir, Girls At The Piano - 1892"
 
 #: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:1
 msgid "Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
-msgstr ""
-"Olajfestmény vásznon, 140 x 201 cm; Solomon R. Guggenheim Múzeum, New York"
+msgstr "Olajfestmény vásznon, 140 x 201 cm; Solomon R. Guggenheim Múzeum, New York"
 
 #: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:2
 msgid "Wassily Kandinsky, Composition VIII - 1923"
@@ -7038,8 +6998,7 @@ msgstr "Ejtőernyős"
 
 #: ../src/paratrooper-activity/paratrooper.xml.in.h:5
 msgid "This board is game-oriented. No specific skills are needed to play."
-msgstr ""
-"Ez a tábla játékközpontú. A játékhoz nem szükségesek különleges képességek."
+msgstr "Ez a tábla játékközpontú. A játékhoz nem szükségesek különleges képességek."
 
 #: ../src/penalty-activity/penalty.py:292
 msgid "Click on the ball to place it again."
@@ -7114,8 +7073,7 @@ msgstr ""
 
 #: ../src/planegame-activity/planegame.xml.in.h:2
 msgid "Move the helicopter to catch the clouds in the correct order"
-msgstr ""
-"Mozgasd a helikoptert, hogy a helyes sorrendben repülhess át a felhőkön"
+msgstr "Mozgasd a helikoptert, hogy a helyes sorrendben repülhess át a felhőkön"
 
 #: ../src/planegame-activity/planegame.xml.in.h:3
 msgid "Number"
@@ -7148,10 +7106,8 @@ msgstr "Python sablon"
 
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:5
 #: ../src/pythontest-activity/pythontest.xml.in.h:5
-msgid ""
-"Thanks to Guido van Rossum and the python team for this powerful language!"
-msgstr ""
-"Köszönet Guido van Rossumnak és a Python csapatnak ezért a hatékony nyelvért!"
+msgid "Thanks to Guido van Rossum and the python team for this powerful language!"
+msgstr "Köszönet Guido van Rossumnak és a Python csapatnak ezért a hatékony nyelvért!"
 
 #: ../src/pythontest-activity/pythontest.py:192
 msgid ""
@@ -7337,8 +7293,7 @@ msgstr "Rajzold újra az adott tárgyat"
 msgid ""
 "Copy the mirror image of an object from the box on the right into the box on "
 "the left."
-msgstr ""
-"Másold át a jobb oldali dobozban lévő tárgy tükörképét a bal oldali dobozba."
+msgstr "Másold át a jobb oldali dobozban lévő tárgy tükörképét a bal oldali dobozba."
 
 #: ../src/redraw_symmetrical-activity/redraw_symmetrical.xml.in.h:2
 msgid ""
@@ -7381,8 +7336,7 @@ msgstr "Gyakorold a kivonást egy vidám játékkal"
 
 #: ../src/reversecount-activity/reversecount.xml.in.h:4
 msgid "Tux is hungry. Help him find fish by counting to the correct ice spot."
-msgstr ""
-"Tux éhes. A megfelelő jégkockáig számolva segíthetsz neki halakat találni."
+msgstr "Tux éhes. A megfelelő jégkockáig számolva segíthetsz neki halakat találni."
 
 #: ../src/scalesboard-activity/scale.c:294
 #, c-format
@@ -7676,8 +7630,7 @@ msgid "Sudoku, place unique symbols in a square."
 msgstr "Sudoku, helyezz el egyedi számokat egy négyzetben."
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:4
-msgid ""
-"Symbols must be unique in a row, in a column, and (if defined) each region."
+msgid "Symbols must be unique in a row, in a column, and (if defined) each region."
 msgstr ""
 "Minden szimbólumnak egyedinek kell lennie a soron, az oszlopon és (ha meg "
 "van adva) minden területen belül."
@@ -7790,8 +7743,7 @@ msgstr ""
 
 #: ../src/tangram-activity/tangram.xml.in.h:10
 msgid "The objective is to form a given shape with seven pieces"
-msgstr ""
-"A cél egy megadott alakzat megformálása mind a hét darab felhasználásával"
+msgstr "A cél egy megadott alakzat megformálása mind a hét darab felhasználásával"
 
 #: ../src/tangram-activity/tangram.xml.in.h:11
 msgid ""
@@ -7830,8 +7782,7 @@ msgstr[0] "A célpont távolsága = %d méter"
 msgstr[1] "A célpont távolsága = %d méter"
 
 #: ../src/target-activity/target.xml.in.h:1
-msgid ""
-"Can move the mouse, can read numbers and count up to 15 for the first level"
+msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
 msgstr "Kezelni tudja az egeret, számolni tud 15-ig (az első szinthez)"
 
 #: ../src/target-activity/target.xml.in.h:2
@@ -8122,3 +8073,4 @@ msgstr "Gépeld be a leeső teljes szót, mielőtt az leérne a földre"
 
 #~ msgid "This board teaches basic colors."
 #~ msgstr "Ez a tábla az alapvető színeket tanítja meg."
+
