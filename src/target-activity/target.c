@@ -350,6 +350,7 @@ static void target_destroy_all_items()
   animate_item = NULL;
   answer_item = NULL;
   answer_string_index = 0;
+  answer_string[0] = 0;
   user_points = 0;
 
   speedRootItem = NULL;
