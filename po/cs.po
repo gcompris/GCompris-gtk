@@ -8,15 +8,15 @@
 # Kamil Páral <ripper42@gmail.com>, 2008.
 # Petr Kovar <pknbe@volny.cz>, 2008.
 # Vladimír Burian <vladimir.burian@email.cz>, 2010.
-# Marek Černocký <marek@manet.cz>, 2009, 2010, 2011.
+# Marek Černocký <marek@manet.cz>, 2009, 2010, 2011, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2011-11-11 23:30+0000\n"
-"PO-Revision-Date: 2011-11-21 10:55+0100\n"
+"POT-Creation-Date: 2012-02-02 22:52+0000\n"
+"PO-Revision-Date: 2012-02-03 22:38+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -222,7 +222,7 @@ msgstr ""
 msgid "GCompris Main Menu"
 msgstr "Hlavní nabídka GCompris"
 
-#: ../boards/menu.xml.in.h:21 ../src/boards/menu2.c:874
+#: ../boards/menu.xml.in.h:21 ../src/boards/menu2.c:886
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -628,7 +628,7 @@ msgstr "Všichni uživatelé"
 #: ../src/administration-activity/admin/log_list.py:108
 #: ../src/administration-activity/admin/log_list.py:295
 #: ../src/administration-activity/admin/profile_list.py:117
-#: ../src/lang-activity/lang.py:159
+#: ../src/lang-activity/lang.py:166
 msgid "Default"
 msgstr "Výchozí"
 
@@ -1298,7 +1298,7 @@ msgstr "Čára"
 
 #: ../src/anim-activity/anim.py:157
 #: ../src/wordprocessor-activity/wordprocessor.c:87
-#: ../src/wordprocessor-activity/wordprocessor.c:426
+#: ../src/wordprocessor-activity/wordprocessor.c:434
 msgid "Text"
 msgstr "Text"
 
@@ -1397,23 +1397,23 @@ msgstr ""
 "Soubor „%s“ nebyl nalezen.\n"
 "Tuto aktivitu nemůžeš hrát."
 
-#: ../src/awele-activity/awele.c:349
+#: ../src/awele-activity/awele.c:359
 msgid "NORTH"
 msgstr "SEVER"
 
-#: ../src/awele-activity/awele.c:361
+#: ../src/awele-activity/awele.c:371
 msgid "SOUTH"
 msgstr "JIH"
 
-#: ../src/awele-activity/awele.c:523
+#: ../src/awele-activity/awele.c:533
 msgid "Choose a house"
 msgstr "Zvol dům"
 
-#: ../src/awele-activity/awele.c:638
+#: ../src/awele-activity/awele.c:648
 msgid "Your turn to play ..."
 msgstr "Tvůj tah…"
 
-#: ../src/awele-activity/awele.c:679
+#: ../src/awele-activity/awele.c:689
 msgid "Not allowed! Try again !"
 msgstr "Není dovoleno! Zkus to znovu!"
 
@@ -1526,7 +1526,7 @@ msgstr "Koordinace pohybu. Párování pojmů."
 msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "Manipulace s myší: pohyb, tažení a puštění."
 
-#: ../src/babymatch-activity/shapegame.c:1985
+#: ../src/babymatch-activity/shapegame.c:2017
 #: ../src/click_on_letter-activity/click_on_letter.c:1316
 #, c-format
 msgid ""
@@ -1700,19 +1700,19 @@ msgstr "Speciální deska, která vkládá python do GCompris."
 msgid "Special board that embeds python into gcompris."
 msgstr "Speciální deska, která vkládá python do gcompris."
 
-#: ../src/braille_alphabets-activity/braille_alphabets.py:165
+#: ../src/braille_alphabets-activity/braille_alphabets.py:176
 msgid "Braille : Unlocking the Code"
 msgstr "Braille: odhalení kódu"
 
 #. Braille Intro
-#: ../src/braille_alphabets-activity/braille_alphabets.py:167
+#: ../src/braille_alphabets-activity/braille_alphabets.py:178
 msgid ""
 "The Braille system is a method that is used by blind people to read and "
 "write."
 msgstr "Braillův systém je způsob, díky kterému mohou číst a psát slepí lidé."
 
 #. Braille Description
-#: ../src/braille_alphabets-activity/braille_alphabets.py:170
+#: ../src/braille_alphabets-activity/braille_alphabets.py:181
 msgid ""
 "Each Braille character, or cell, is made up of six dot positions, arranged "
 "in a rectangle containing two columns of three dots each. As seen on the "
@@ -1722,21 +1722,21 @@ msgstr ""
 "sloupcích s třemi body. Jak můžeš vidět vlevo, každý z bodů má přiřazeno "
 "číslo od 1 do 6."
 
-#: ../src/braille_alphabets-activity/braille_alphabets.py:189
+#: ../src/braille_alphabets-activity/braille_alphabets.py:200
 msgid "I am braille TUX"
 msgstr "Jsem Braillův tučňák"
 
-#: ../src/braille_alphabets-activity/braille_alphabets.py:201
+#: ../src/braille_alphabets-activity/braille_alphabets.py:212
 msgid "When you are ready, click on me and try reproducing Braille characters."
 msgstr ""
 "Až budeš připraven, klikni na mě a zkus Braillské znaky po mě opakovat."
 
 #. Translators : Do not translate the token {letter}
-#: ../src/braille_alphabets-activity/braille_alphabets.py:272
+#: ../src/braille_alphabets-activity/braille_alphabets.py:296
 msgid "Click on the dots in braille cell area to produce the letter {letter}."
 msgstr "Klikáním na body v Braillské mřížce vytvoř znak {letter}."
 
-#: ../src/braille_alphabets-activity/braille_alphabets.py:277
+#: ../src/braille_alphabets-activity/braille_alphabets.py:301
 msgid ""
 "Look at the Braille character map and observe how similar the first and "
 "second line are."
@@ -1744,7 +1744,7 @@ msgstr ""
 "Podívej se na Braillovu tabulku znaků a všimni si, jak si je první a druhý "
 "řádek podobný."
 
-#: ../src/braille_alphabets-activity/braille_alphabets.py:280
+#: ../src/braille_alphabets-activity/braille_alphabets.py:304
 msgid ""
 "Again, similar as the first line but take care, the 'W' letter was added "
 "afterwards."
@@ -1752,15 +1752,15 @@ msgstr ""
 "A opět podobně jako v prvním řádku, akorát pozor na písmenko „W“, to bylo "
 "přidáno dodatečně."
 
-#: ../src/braille_alphabets-activity/braille_alphabets.py:283
+#: ../src/braille_alphabets-activity/braille_alphabets.py:307
 msgid "This is easy, numbers are the same as letters from A to J."
 msgstr "Je to snadné, čísla jsou stejná, jako písmenka od A do J."
 
-#: ../src/braille_alphabets-activity/braille_alphabets.py:302
+#: ../src/braille_alphabets-activity/braille_alphabets.py:326
 msgid "Braille Cell"
 msgstr "Braillská mřížka"
 
-#: ../src/braille_alphabets-activity/braille_alphabets.py:324
+#: ../src/braille_alphabets-activity/braille_alphabets.py:348
 msgid "Click to confirm your selection of dots"
 msgstr "Kliknutím potvrdíš svůj výběr bodů"
 
@@ -1810,67 +1810,67 @@ msgstr ""
 msgid "Braille the falling letters"
 msgstr "Pan Braille shazuje písmenka"
 
-#: ../src/braille_lotto-activity/braille_lotto.py:119
+#: ../src/braille_lotto-activity/braille_lotto.py:120
 msgid "PLAYER 1"
 msgstr "HRÁČ 1"
 
-#: ../src/braille_lotto-activity/braille_lotto.py:129
+#: ../src/braille_lotto-activity/braille_lotto.py:130
 msgid "PLAYER 2"
 msgstr "HRÁČ 2"
 
-#: ../src/braille_lotto-activity/braille_lotto.py:150
+#: ../src/braille_lotto-activity/braille_lotto.py:151
 msgid "Check Number"
 msgstr "Odškrtni číslo"
 
-#: ../src/braille_lotto-activity/braille_lotto.py:165
-#: ../src/braille_lotto-activity/braille_lotto.py:177
+#: ../src/braille_lotto-activity/braille_lotto.py:168
+#: ../src/braille_lotto-activity/braille_lotto.py:180
 msgid "Click me to get some hint"
 msgstr "Když na mě klikneš, poradím ti"
 
-#: ../src/braille_lotto-activity/braille_lotto.py:190
+#: ../src/braille_lotto-activity/braille_lotto.py:193
 msgid "I don't have this number PLAYER {number}"
 msgstr "Já tohle číslo nemám HRÁČ {number}"
 
-#: ../src/braille_lotto-activity/braille_lotto.py:212
+#: ../src/braille_lotto-activity/braille_lotto.py:215
 msgid "Lotto Master"
 msgstr "Výherní loterie"
 
-#: ../src/braille_lotto-activity/braille_lotto.py:236
+#: ../src/braille_lotto-activity/braille_lotto.py:239
 msgid "Generate a number"
 msgstr "Vygenerovat číslo"
 
 #. Translators : Do not translate the token {column}
-#: ../src/braille_lotto-activity/braille_lotto.py:293
-#: ../src/braille_lotto-activity/braille_lotto.py:316
+#: ../src/braille_lotto-activity/braille_lotto.py:296
+#: ../src/braille_lotto-activity/braille_lotto.py:319
 msgid "Hey, you have it. It is there in your {column} column"
 msgstr "Ale máš jej. Je ve tvém {column} sloupci"
 
-#: ../src/braille_lotto-activity/braille_lotto.py:295
-#: ../src/braille_lotto-activity/braille_lotto.py:318
+#: ../src/braille_lotto-activity/braille_lotto.py:298
+#: ../src/braille_lotto-activity/braille_lotto.py:321
 msgid "Oops, this number is not in your ticket!"
 msgstr "Jejda, toto číslo na tvém tiketu není."
 
-#: ../src/braille_lotto-activity/braille_lotto.py:332
+#: ../src/braille_lotto-activity/braille_lotto.py:335
 msgid "1st"
 msgstr "prvním"
 
-#: ../src/braille_lotto-activity/braille_lotto.py:335
+#: ../src/braille_lotto-activity/braille_lotto.py:338
 msgid "2nd"
 msgstr "druhém"
 
-#: ../src/braille_lotto-activity/braille_lotto.py:338
+#: ../src/braille_lotto-activity/braille_lotto.py:341
 msgid "3rd"
 msgstr "třetím"
 
-#: ../src/braille_lotto-activity/braille_lotto.py:340
+#: ../src/braille_lotto-activity/braille_lotto.py:343
 msgid "4th"
 msgstr "čtvrtém"
 
-#: ../src/braille_lotto-activity/braille_lotto.py:350
+#: ../src/braille_lotto-activity/braille_lotto.py:353
 msgid "Game Over"
 msgstr "Konec hry"
 
-#: ../src/braille_lotto-activity/braille_lotto.py:459
+#: ../src/braille_lotto-activity/braille_lotto.py:465
 msgid "Congratulation player {player_id}, you won"
 msgstr "Gratuluji ti hráči {player_id}, vyhrál jsi"
 
@@ -2000,36 +2000,36 @@ msgstr ""
 "externí program gnuchess.\n"
 "Nejdříve jej nainstaluj a zkontroluj, jestli je v "
 
-#: ../src/chess_computer-activity/chess.c:648
+#: ../src/chess_computer-activity/chess.c:652
 msgid "White's Turn"
 msgstr "Bílý na tahu"
 
-#: ../src/chess_computer-activity/chess.c:648
+#: ../src/chess_computer-activity/chess.c:652
 msgid "Black's Turn"
 msgstr "Černý na tahu"
 
-#: ../src/chess_computer-activity/chess.c:789
+#: ../src/chess_computer-activity/chess.c:793
 msgid "White checks"
 msgstr "Bílý dává šach"
 
-#: ../src/chess_computer-activity/chess.c:791
+#: ../src/chess_computer-activity/chess.c:795
 msgid "Black checks"
 msgstr "Černý dává šach"
 
-#: ../src/chess_computer-activity/chess.c:1197
+#: ../src/chess_computer-activity/chess.c:1201
 msgid "Black mates"
 msgstr "Černý dává mat"
 
-#: ../src/chess_computer-activity/chess.c:1204
+#: ../src/chess_computer-activity/chess.c:1208
 msgid "White mates"
 msgstr "Bílý dává mat"
 
-#: ../src/chess_computer-activity/chess.c:1211 ../src/gcompris/bonus.c:191
+#: ../src/chess_computer-activity/chess.c:1215 ../src/gcompris/bonus.c:191
 #: ../src/gcompris/bonus.c:200
 msgid "Drawn game"
 msgstr "Remíza"
 
-#: ../src/chess_computer-activity/chess.c:1239
+#: ../src/chess_computer-activity/chess.c:1243
 msgid "Error: The external program gnuchess died unexpectingly"
 msgstr "Chyba: Externí program gnuchess neočekávaně skončil"
 
@@ -2424,7 +2424,7 @@ msgstr "Vizuální rozpoznávání písmen. Umí hýbat myší."
 msgid "Click on an uppercase letter"
 msgstr "Klikni na velké písmeno"
 
-#: ../src/clockgame-activity/clockgame.c:524
+#: ../src/clockgame-activity/clockgame.c:535
 msgid "Set the watch to:"
 msgstr "Nastav hodiny na:"
 
@@ -2775,7 +2775,7 @@ msgstr ""
 "prostřední tlačítko myši – odstraní objekt."
 
 #: ../src/drawnumber-activity/drawnumber.py:236
-#: ../src/findit-activity/findit.py:310
+#: ../src/findit-activity/findit.py:315
 #: ../src/louis_braille-activity/louis_braille.py:84
 msgid "Cannot find the file '{filename}'"
 msgstr "Nelze nalézt soubor „{filename}“"
@@ -2908,12 +2908,12 @@ msgstr "Hýbáním myší vymažeš oblast a objeví se pozadí"
 msgid "Error: No images found\n"
 msgstr "Chyba: nenalezen žádný obrázek\n"
 
-#: ../src/erase-activity/erase.c:578 ../src/gcompris/properties.c:504
+#: ../src/erase-activity/erase.c:582 ../src/gcompris/properties.c:504
 #: ../src/gcompris/properties.c:511
 msgid "readme"
 msgstr "čtěte"
 
-#: ../src/erase-activity/erase.c:580
+#: ../src/erase-activity/erase.c:584
 msgid ""
 "Put any number of images in this directory.\n"
 "They will be used as background in the 'erase' activity.\n"
@@ -2980,7 +2980,7 @@ msgstr "Původní kód převzat z dema libgnomecanvas"
 msgid "The fifteen game"
 msgstr "Hra patnáct"
 
-#: ../src/findit-activity/findit.py:315
+#: ../src/findit-activity/findit.py:320
 #: ../src/louis_braille-activity/louis_braille.py:88
 msgid ""
 "Failed to parse data set '{filename}' with error:\n"
@@ -3048,7 +3048,7 @@ msgstr "Domovská stránka GCompris http://gcompris.net"
 msgid "Translators:"
 msgstr "Překladatelé:"
 
-#: ../src/gcompris/about.c:208
+#: ../src/gcompris/about.c:212
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
@@ -3056,25 +3056,25 @@ msgstr ""
 "Tento software je balíček GNU a je uvolněn za podmínek GNU General Public "
 "Licence"
 
-#: ../src/gcompris/about.c:222 ../src/gcompris/config.c:456
+#: ../src/gcompris/about.c:226 ../src/gcompris/config.c:456
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:355
 #: ../src/gcompris/images_selector.c:306
 msgid "OK"
 msgstr "Budiž"
 
-#: ../src/gcompris/bar.c:688
+#: ../src/gcompris/bar.c:690
 msgid "GCompris confirmation"
 msgstr "Potvrzení GCompris"
 
-#: ../src/gcompris/bar.c:689
+#: ../src/gcompris/bar.c:691
 msgid "Are you sure you want to quit?"
 msgstr "Opravdu chceš skončit?"
 
-#: ../src/gcompris/bar.c:690
+#: ../src/gcompris/bar.c:692
 msgid "Yes, I am sure!"
 msgstr "Ano, chci!"
 
-#: ../src/gcompris/bar.c:691
+#: ../src/gcompris/bar.c:693
 msgid "No, I want to keep going"
 msgstr "Ne, zůstanu"
 
@@ -3676,7 +3676,7 @@ msgstr ""
 msgid "For test purpose, run in a loop all the activities"
 msgstr "Pro testovací účely, spustí ve smyčce všechny aktivity"
 
-#: ../src/gcompris/gcompris.c:940
+#: ../src/gcompris/gcompris.c:952
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -3697,14 +3697,14 @@ msgstr ""
 "na FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1234
+#: ../src/gcompris/gcompris.c:1246
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
 msgstr ""
 "Nelze načíst vzhled „%s“ (Zkontrolujte, zda soubor existuje a zda jej lze "
 "číst)"
 
-#: ../src/gcompris/gcompris.c:1504
+#: ../src/gcompris/gcompris.c:1516
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d second old.\n"
@@ -3720,12 +3720,12 @@ msgstr[2] ""
 "GCompris se nemůže spustit, protože soubor zámku je méně než %d sekund "
 "starý.\n"
 
-#: ../src/gcompris/gcompris.c:1508
+#: ../src/gcompris/gcompris.c:1520
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Soubor zámku je: %s\n"
 
-#: ../src/gcompris/gcompris.c:1681
+#: ../src/gcompris/gcompris.c:1693
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3739,27 +3739,27 @@ msgstr ""
 "Více informací na http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1796
+#: ../src/gcompris/gcompris.c:1808
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Pro přímý přístup k aktivitě použijte -l.\n"
 
-#: ../src/gcompris/gcompris.c:1797
+#: ../src/gcompris/gcompris.c:1809
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Seznam dostupných aktivit:\n"
 
-#: ../src/gcompris/gcompris.c:1828
+#: ../src/gcompris/gcompris.c:1840
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Počet aktivit: %d\n"
 
-#: ../src/gcompris/gcompris.c:1864
+#: ../src/gcompris/gcompris.c:1876
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s existuje, ale nelze jej číst nebo do něj zapisovat"
 
-#: ../src/gcompris/gcompris.c:1927
+#: ../src/gcompris/gcompris.c:1939
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
@@ -3768,7 +3768,7 @@ msgstr ""
 "Přepínač --server nelze použít, protože GCompris byl přeložen bez podpory "
 "sítě."
 
-#: ../src/gcompris/gcompris.c:1981
+#: ../src/gcompris/gcompris.c:1993
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3777,7 +3777,7 @@ msgstr ""
 "CHYBA: Profil „%s“ nebyl nalezen. Dostupné profily si vypíšete spuštěním "
 "„gcompris --profile-list“\n"
 
-#: ../src/gcompris/gcompris.c:1995
+#: ../src/gcompris/gcompris.c:2007
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Seznam dostupných profilů:\n"
@@ -3873,11 +3873,11 @@ msgstr "Zpět"
 msgid "Stop"
 msgstr "Zastavit"
 
-#: ../src/gcompris/timer.c:245
+#: ../src/gcompris/timer.c:257
 msgid "Time Elapsed"
 msgstr "Čas vypršel"
 
-#: ../src/gcompris/timer.c:323
+#: ../src/gcompris/timer.c:339
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Zbývající čas = %d"
@@ -4514,14 +4514,14 @@ msgstr "AÁBCČDĎEÉĚFGHIÍJKLMNŇOÓPQRŘSŠTŤUÚŮVWXYÝZŽ"
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
 #: ../src/gletters-activity/gletters.c:850
-#: ../src/imageid-activity/imageid.c:712 ../src/login-activity/login.py:480
-#: ../src/missing_letter-activity/missingletter.c:784
+#: ../src/imageid-activity/imageid.c:716 ../src/login-activity/login.py:480
+#: ../src/missing_letter-activity/missingletter.c:800
 #: ../src/pythontest-activity/pythontest.py:448
 #: ../src/readingh-activity/reading.c:905
-#: ../src/scalesboard-activity/scale.c:1161
+#: ../src/scalesboard-activity/scale.c:1190
 #: ../src/smallnumbers-activity/smallnumbers.c:597
 #: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:866
+#: ../src/wordsgame-activity/wordsgame.c:904
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -4539,7 +4539,7 @@ msgstr "Povolit zvuky"
 #: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:486
 #: ../src/missing_letter-activity/missingletter_config.c:492
 #: ../src/readingh-activity/reading.c:929
-#: ../src/wordsgame-activity/wordsgame.c:889
+#: ../src/wordsgame-activity/wordsgame.c:927
 msgid "Uppercase only text"
 msgstr "Text pouze velkými písmeny"
 
@@ -4821,25 +4821,25 @@ msgstr ""
 "6, 2 . 3 = 6). Takže 6 není prvočíslo. Pro pohyb na desce použij šipky na "
 "klávesnici. Pro snězení čísla použij mezerník."
 
-#: ../src/guessnumber-activity/guessnumber.py:199
+#: ../src/guessnumber-activity/guessnumber.py:203
 #, python-format
 msgid "Guess a number between %d and %d"
 msgstr "Uhádni číslo mezi %d a %d"
 
-#: ../src/guessnumber-activity/guessnumber.py:302
+#: ../src/guessnumber-activity/guessnumber.py:306
 #, python-format
 msgid "Please enter a number between %d and %d"
 msgstr "Zadej prosím číslo mezi %d a %d"
 
-#: ../src/guessnumber-activity/guessnumber.py:307
+#: ../src/guessnumber-activity/guessnumber.py:311
 msgid "Out of range"
 msgstr "Mimo rozsah"
 
-#: ../src/guessnumber-activity/guessnumber.py:313
+#: ../src/guessnumber-activity/guessnumber.py:317
 msgid "Too high"
 msgstr "Příliš velké"
 
-#: ../src/guessnumber-activity/guessnumber.py:315
+#: ../src/guessnumber-activity/guessnumber.py:319
 msgid "Too low"
 msgstr "Příliš malé"
 
@@ -5176,7 +5176,7 @@ msgstr "Čtení"
 msgid "Learn how to read"
 msgstr "Nauč se číst"
 
-#: ../src/imageid-activity/imageid.c:522
+#: ../src/imageid-activity/imageid.c:526
 msgid ""
 "Data file for this level is not properly formatted. Too many choices are "
 "proposed."
@@ -5184,8 +5184,8 @@ msgstr ""
 "Datový soubor pro tuto úroveň není správně naformátovaný. Je navrhováno "
 "příliš mnoho voleb."
 
-#: ../src/imageid-activity/imageid.c:534
-#: ../src/missing_letter-activity/missingletter.c:592
+#: ../src/imageid-activity/imageid.c:538
+#: ../src/missing_letter-activity/missingletter.c:608
 msgid "Data file for this level is not properly formatted."
 msgstr "Datový soubor pro tuto úroveň není správně naformátovaný."
 
@@ -5573,11 +5573,11 @@ msgstr "housle"
 msgid "Practice a foreign language"
 msgstr "Procvič si cizí jazyk"
 
-#: ../src/lang-activity/lang.py:55
+#: ../src/lang-activity/lang.py:56
 msgid "Missing Image"
 msgstr "Chybějící obrázek"
 
-#: ../src/lang-activity/lang.py:158
+#: ../src/lang-activity/lang.py:165
 #, python-format
 msgid ""
 "Configuration\n"
@@ -5586,7 +5586,7 @@ msgstr ""
 "Nastavení\n"
 " pro profil <b>%s</b>"
 
-#: ../src/lang-activity/lang.py:163
+#: ../src/lang-activity/lang.py:170
 msgid "Select locale"
 msgstr "Vyber si národní nastavení"
 
@@ -5858,7 +5858,6 @@ msgstr ""
 "pod kloboukem. Pro odpověď klikni vpravo dole."
 
 #: ../src/magic_hat_minus-activity/magic_hat_minus.xml.in.h:4
-#: ../src/memory_add_minus-activity/memory_add_minus.xml.in.h:3
 #: ../src/memory_add_minus_tux-activity/memory_add_minus_tux.xml.in.h:3
 #: ../src/memory_minus-activity/memory_minus.xml.in.h:2
 #: ../src/memory_minus_tux-activity/memory_minus_tux.xml.in.h:2
@@ -5950,14 +5949,14 @@ msgstr ""
 msgid "Find your way out of the maze"
 msgstr "Najdi cestu z bludiště"
 
-#: ../src/maze-activity/maze.c:599
+#: ../src/maze-activity/maze.c:603
 msgid ""
 "Look at your position, then switch back to invisible mode to continue your "
 "moves"
 msgstr ""
 "Podívej se na svou pozici a pro pohyb se přepni zpět do neviditelného režimu"
 
-#: ../src/maze-activity/maze.c:601
+#: ../src/maze-activity/maze.c:605
 msgid ""
 "Look at your position, then switch back to 3D mode to continue your moves"
 msgstr "Podívej se na svou pozici a pro pohyb se přepni zpět do režimu 3D"
@@ -6153,10 +6152,14 @@ msgstr ""
 "Jakmile zmizí všechny, nalezl jsi všechny součty a vyhrál jsi hru! :)"
 
 #: ../src/memory_add_minus-activity/memory_add_minus.xml.in.h:1
+msgid "Addition and subtraction"
+msgstr "Sčítání a odčítání"
+
+#: ../src/memory_add_minus-activity/memory_add_minus.xml.in.h:2
 msgid "Addition and subtraction memory game"
 msgstr "Paměťová hra se sčítáním a odčítáním"
 
-#: ../src/memory_add_minus-activity/memory_add_minus.xml.in.h:2
+#: ../src/memory_add_minus-activity/memory_add_minus.xml.in.h:3
 #: ../src/memory_add_minus_tux-activity/memory_add_minus_tux.xml.in.h:2
 msgid "Practise addition, subtraction, until all the cards are gone."
 msgstr "Cvičení sčítání a odčítání, dokud nezmizí všechny karty."
@@ -6753,7 +6756,7 @@ msgid "$ %.0f"
 msgstr "%.0f Kč"
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %d
-#: ../src/money-activity/money.c:932
+#: ../src/money-activity/money.c:936
 #, c-format
 msgid ""
 "Tux just bought some items in your shop.\n"
@@ -7030,7 +7033,7 @@ msgstr "Pokutový kop"
 msgid "Error: Absolutely no photo found in the data directory"
 msgstr "Chyba: V datové složce nebyly nalezeny vůbec žádné fotografie"
 
-#: ../src/photohunter-activity/photohunter.c:575
+#: ../src/photohunter-activity/photohunter.c:580
 msgid "Click on the differences between the two images."
 msgstr "Klikni na rozdíl mezi dvěma obrázky."
 
@@ -7189,7 +7192,7 @@ msgid "Railway"
 msgstr "Železnice"
 
 #: ../src/readingh-activity/reading.c:229
-#: ../src/wordsgame-activity/wordsgame.c:219
+#: ../src/wordsgame-activity/wordsgame.c:222
 msgid ""
 "Error: We can't find\n"
 "a list of words to play this game.\n"
@@ -7347,7 +7350,7 @@ msgstr "Hmotnost v g = %s"
 msgid "Weight = %s"
 msgstr "Hmotnost = %s"
 
-#: ../src/scalesboard-activity/scale.c:1007
+#: ../src/scalesboard-activity/scale.c:1036
 msgid "Take care, you can drop weights on both sides of the scale."
 msgstr "Věnuj pozornost tomu, že závaží můžeš pokládat na obě strany váhy."
 
@@ -7745,13 +7748,13 @@ msgstr "Skládanka tangram"
 
 #. Set the maximum text to calc the background
 #. Set the correct initial text
-#: ../src/target-activity/target.c:296 ../src/target-activity/target.c:562
-#: ../src/target-activity/target.c:599
+#: ../src/target-activity/target.c:296 ../src/target-activity/target.c:563
+#: ../src/target-activity/target.c:600
 #, c-format
 msgid "Points = %s"
 msgstr "Body = %s"
 
-#: ../src/target-activity/target.c:414
+#: ../src/target-activity/target.c:415
 #, c-format
 msgid ""
 "Wind speed = %d\n"
@@ -7760,7 +7763,7 @@ msgstr ""
 "Rychlost větru = %d\n"
 "kilometrů/hodinu"
 
-#: ../src/target-activity/target.c:482
+#: ../src/target-activity/target.c:483
 #, c-format
 msgid "Distance to target = %d meter"
 msgid_plural "Distance to target = %d meters"
@@ -7929,15 +7932,15 @@ msgstr "Oficiální"
 msgid "Flyer"
 msgstr "Leták"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:423
+#: ../src/wordprocessor-activity/wordprocessor.c:431
 msgid "Title"
 msgstr "Název"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:424
+#: ../src/wordprocessor-activity/wordprocessor.c:432
 msgid "Heading 1"
 msgstr "Nadpis 1"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:425
+#: ../src/wordprocessor-activity/wordprocessor.c:433
 msgid "Heading 2"
 msgstr "Nadpis 2"
 
@@ -7980,12 +7983,12 @@ msgstr ""
 msgid "Your word processor"
 msgstr "Tvůj textový editor"
 
-#: ../src/wordsgame-activity/wordsgame.c:112
+#: ../src/wordsgame-activity/wordsgame.c:115
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:1
 msgid "Falling Words"
 msgstr "Padající slova"
 
-#: ../src/wordsgame-activity/wordsgame.c:113
+#: ../src/wordsgame-activity/wordsgame.c:116
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the falling words before they reach the ground"
 msgstr "Napiš padající slova, než se spadnou na zem"
