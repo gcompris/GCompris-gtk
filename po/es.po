@@ -8,15 +8,15 @@
 # This file is distributed under the same license as the gcompris package.
 # Sylvia Sánchez <LailahFSF@gmail.com>, 2011.
 # Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008, 2009, 2010, 2011.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.gcomprixogoo\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2011-11-11 23:30+0000\n"
-"PO-Revision-Date: 2011-11-14 13:18+0100\n"
+"POT-Creation-Date: 2012-02-02 22:52+0000\n"
+"PO-Revision-Date: 2012-02-03 10:22+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -226,7 +226,7 @@ msgstr ""
 msgid "GCompris Main Menu"
 msgstr "Menú principal de GCompris"
 
-#: ../boards/menu.xml.in.h:21 ../src/boards/menu2.c:874
+#: ../boards/menu.xml.in.h:21 ../src/boards/menu2.c:886
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -635,7 +635,7 @@ msgstr "Todos los usuarios"
 #: ../src/administration-activity/admin/log_list.py:108
 #: ../src/administration-activity/admin/log_list.py:295
 #: ../src/administration-activity/admin/profile_list.py:117
-#: ../src/lang-activity/lang.py:159
+#: ../src/lang-activity/lang.py:166
 msgid "Default"
 msgstr "Predeterminado"
 
@@ -1316,7 +1316,7 @@ msgstr "Línea"
 
 #: ../src/anim-activity/anim.py:157
 #: ../src/wordprocessor-activity/wordprocessor.c:87
-#: ../src/wordprocessor-activity/wordprocessor.c:426
+#: ../src/wordprocessor-activity/wordprocessor.c:434
 msgid "Text"
 msgstr "Texto"
 
@@ -1418,23 +1418,23 @@ msgstr ""
 "No se encontró el archivo «%s».\n"
 "No puedes jugar a esta actividad."
 
-#: ../src/awele-activity/awele.c:349
+#: ../src/awele-activity/awele.c:359
 msgid "NORTH"
 msgstr "NORTE"
 
-#: ../src/awele-activity/awele.c:361
+#: ../src/awele-activity/awele.c:371
 msgid "SOUTH"
 msgstr "SUR"
 
-#: ../src/awele-activity/awele.c:523
+#: ../src/awele-activity/awele.c:533
 msgid "Choose a house"
 msgstr "Escoge una casa"
 
-#: ../src/awele-activity/awele.c:638
+#: ../src/awele-activity/awele.c:648
 msgid "Your turn to play ..."
 msgstr "Tu turno para jugar..."
 
-#: ../src/awele-activity/awele.c:679
+#: ../src/awele-activity/awele.c:689
 msgid "Not allowed! Try again !"
 msgstr "No está permitido. Inténtalo de nuevo."
 
@@ -1555,7 +1555,7 @@ msgstr ""
 "Manipulación del ratón: movimiento, arrastrar y soltar. Referencias "
 "culturales."
 
-#: ../src/babymatch-activity/shapegame.c:1985
+#: ../src/babymatch-activity/shapegame.c:2017
 #: ../src/click_on_letter-activity/click_on_letter.c:1316
 #, c-format
 msgid ""
@@ -1731,12 +1731,12 @@ msgstr "Tablero especial que incrusta python dentro de GCompris."
 msgid "Special board that embeds python into gcompris."
 msgstr "Tablero especial que incrusta Python dentro de GCompris."
 
-#: ../src/braille_alphabets-activity/braille_alphabets.py:165
+#: ../src/braille_alphabets-activity/braille_alphabets.py:176
 msgid "Braille : Unlocking the Code"
 msgstr "Braille: descubriendo el código"
 
 #. Braille Intro
-#: ../src/braille_alphabets-activity/braille_alphabets.py:167
+#: ../src/braille_alphabets-activity/braille_alphabets.py:178
 msgid ""
 "The Braille system is a method that is used by blind people to read and "
 "write."
@@ -1745,7 +1745,7 @@ msgstr ""
 "escribir."
 
 #. Braille Description
-#: ../src/braille_alphabets-activity/braille_alphabets.py:170
+#: ../src/braille_alphabets-activity/braille_alphabets.py:181
 msgid ""
 "Each Braille character, or cell, is made up of six dot positions, arranged "
 "in a rectangle containing two columns of three dots each. As seen on the "
@@ -1756,23 +1756,23 @@ msgstr ""
 "uno. Como se ve a la izquierda, cada punto hace referencia a un número del 1 "
 "al 6."
 
-#: ../src/braille_alphabets-activity/braille_alphabets.py:189
+#: ../src/braille_alphabets-activity/braille_alphabets.py:200
 msgid "I am braille TUX"
 msgstr "Yo soy un TUX en Braille"
 
-#: ../src/braille_alphabets-activity/braille_alphabets.py:201
+#: ../src/braille_alphabets-activity/braille_alphabets.py:212
 msgid "When you are ready, click on me and try reproducing Braille characters."
 msgstr ""
 "Cuando esté listo, pulse en mí y trate de reproducir los caracteres Braille."
 
 #. Translators : Do not translate the token {letter}
-#: ../src/braille_alphabets-activity/braille_alphabets.py:272
+#: ../src/braille_alphabets-activity/braille_alphabets.py:296
 msgid "Click on the dots in braille cell area to produce the letter {letter}."
 msgstr ""
 "Pulse con el ratón los puntos del área de la celda de Braille para "
 "reproducir la letra {letter}."
 
-#: ../src/braille_alphabets-activity/braille_alphabets.py:277
+#: ../src/braille_alphabets-activity/braille_alphabets.py:301
 msgid ""
 "Look at the Braille character map and observe how similar the first and "
 "second line are."
@@ -1780,7 +1780,7 @@ msgstr ""
 "Mire el mapa de caracteres de Braille y observe cómo de parecidas son la "
 "primera y segunda líneas."
 
-#: ../src/braille_alphabets-activity/braille_alphabets.py:280
+#: ../src/braille_alphabets-activity/braille_alphabets.py:304
 msgid ""
 "Again, similar as the first line but take care, the 'W' letter was added "
 "afterwards."
@@ -1788,16 +1788,16 @@ msgstr ""
 "Una vez más, similar a la primera línea pero tenga cuidado, la letra «W» se "
 "añadió luego."
 
-#: ../src/braille_alphabets-activity/braille_alphabets.py:283
+#: ../src/braille_alphabets-activity/braille_alphabets.py:307
 msgid "This is easy, numbers are the same as letters from A to J."
 msgstr ""
 "Esto es fácil, los números son iguales a las letras desde la A hasta la J."
 
-#: ../src/braille_alphabets-activity/braille_alphabets.py:302
+#: ../src/braille_alphabets-activity/braille_alphabets.py:326
 msgid "Braille Cell"
 msgstr "Celda Braille"
 
-#: ../src/braille_alphabets-activity/braille_alphabets.py:324
+#: ../src/braille_alphabets-activity/braille_alphabets.py:348
 msgid "Click to confirm your selection of dots"
 msgstr "Pulse el ratón para confirmar la selección de puntos"
 
@@ -1848,67 +1848,67 @@ msgstr ""
 msgid "Braille the falling letters"
 msgstr "Escriba en Braille las letras que caen"
 
-#: ../src/braille_lotto-activity/braille_lotto.py:119
+#: ../src/braille_lotto-activity/braille_lotto.py:120
 msgid "PLAYER 1"
 msgstr "JUGADOR 1"
 
-#: ../src/braille_lotto-activity/braille_lotto.py:129
+#: ../src/braille_lotto-activity/braille_lotto.py:130
 msgid "PLAYER 2"
 msgstr "JUGADOR 2"
 
-#: ../src/braille_lotto-activity/braille_lotto.py:150
+#: ../src/braille_lotto-activity/braille_lotto.py:151
 msgid "Check Number"
 msgstr "Comprobar número"
 
-#: ../src/braille_lotto-activity/braille_lotto.py:165
-#: ../src/braille_lotto-activity/braille_lotto.py:177
+#: ../src/braille_lotto-activity/braille_lotto.py:168
+#: ../src/braille_lotto-activity/braille_lotto.py:180
 msgid "Click me to get some hint"
 msgstr "Pulse con el botón del ratón mí para obtener alguna pista"
 
-#: ../src/braille_lotto-activity/braille_lotto.py:190
+#: ../src/braille_lotto-activity/braille_lotto.py:193
 msgid "I don't have this number PLAYER {number}"
 msgstr "Yo no tengo este número de JUGADOR {number}"
 
-#: ../src/braille_lotto-activity/braille_lotto.py:212
+#: ../src/braille_lotto-activity/braille_lotto.py:215
 msgid "Lotto Master"
 msgstr "Maestro de lotería"
 
-#: ../src/braille_lotto-activity/braille_lotto.py:236
+#: ../src/braille_lotto-activity/braille_lotto.py:239
 msgid "Generate a number"
 msgstr "Genera un número"
 
 #. Translators : Do not translate the token {column}
-#: ../src/braille_lotto-activity/braille_lotto.py:293
-#: ../src/braille_lotto-activity/braille_lotto.py:316
+#: ../src/braille_lotto-activity/braille_lotto.py:296
+#: ../src/braille_lotto-activity/braille_lotto.py:319
 msgid "Hey, you have it. It is there in your {column} column"
 msgstr "Lo tienes tú. Está allí, en su columna {column}"
 
-#: ../src/braille_lotto-activity/braille_lotto.py:295
-#: ../src/braille_lotto-activity/braille_lotto.py:318
+#: ../src/braille_lotto-activity/braille_lotto.py:298
+#: ../src/braille_lotto-activity/braille_lotto.py:321
 msgid "Oops, this number is not in your ticket!"
 msgstr "Ups, este número no está en su papeleta."
 
-#: ../src/braille_lotto-activity/braille_lotto.py:332
+#: ../src/braille_lotto-activity/braille_lotto.py:335
 msgid "1st"
 msgstr "1º"
 
-#: ../src/braille_lotto-activity/braille_lotto.py:335
+#: ../src/braille_lotto-activity/braille_lotto.py:338
 msgid "2nd"
 msgstr "2º"
 
-#: ../src/braille_lotto-activity/braille_lotto.py:338
+#: ../src/braille_lotto-activity/braille_lotto.py:341
 msgid "3rd"
 msgstr "3º"
 
-#: ../src/braille_lotto-activity/braille_lotto.py:340
+#: ../src/braille_lotto-activity/braille_lotto.py:343
 msgid "4th"
 msgstr "4º"
 
-#: ../src/braille_lotto-activity/braille_lotto.py:350
+#: ../src/braille_lotto-activity/braille_lotto.py:353
 msgid "Game Over"
 msgstr "Juego terminado"
 
-#: ../src/braille_lotto-activity/braille_lotto.py:459
+#: ../src/braille_lotto-activity/braille_lotto.py:465
 msgid "Congratulation player {player_id}, you won"
 msgstr "Felicidades jugador {player_id}, has ganado"
 
@@ -2036,36 +2036,36 @@ msgstr ""
 "para jugar al ajedrez en gcompris.\n"
 "Instálalo primero, y verifique que éste se encuentre "
 
-#: ../src/chess_computer-activity/chess.c:648
+#: ../src/chess_computer-activity/chess.c:652
 msgid "White's Turn"
 msgstr "El turno de las blancas"
 
-#: ../src/chess_computer-activity/chess.c:648
+#: ../src/chess_computer-activity/chess.c:652
 msgid "Black's Turn"
 msgstr "El turno de las negras"
 
-#: ../src/chess_computer-activity/chess.c:789
+#: ../src/chess_computer-activity/chess.c:793
 msgid "White checks"
 msgstr "Jaque de blancas"
 
-#: ../src/chess_computer-activity/chess.c:791
+#: ../src/chess_computer-activity/chess.c:795
 msgid "Black checks"
 msgstr "Jaque de negras"
 
-#: ../src/chess_computer-activity/chess.c:1197
+#: ../src/chess_computer-activity/chess.c:1201
 msgid "Black mates"
 msgstr "Jaque mate de negras"
 
-#: ../src/chess_computer-activity/chess.c:1204
+#: ../src/chess_computer-activity/chess.c:1208
 msgid "White mates"
 msgstr "Jaque de blancas"
 
-#: ../src/chess_computer-activity/chess.c:1211 ../src/gcompris/bonus.c:191
+#: ../src/chess_computer-activity/chess.c:1215 ../src/gcompris/bonus.c:191
 #: ../src/gcompris/bonus.c:200
 msgid "Drawn game"
 msgstr "Tablas"
 
-#: ../src/chess_computer-activity/chess.c:1239
+#: ../src/chess_computer-activity/chess.c:1243
 msgid "Error: The external program gnuchess died unexpectingly"
 msgstr "Error: El programa externo gnuchess finalizó inesperadamente"
 
@@ -2463,7 +2463,7 @@ msgstr "Reconocimiento visual de letras. Puede mover el ratón."
 msgid "Click on an uppercase letter"
 msgstr "Pulsa sobre una letra mayúscula"
 
-#: ../src/clockgame-activity/clockgame.c:524
+#: ../src/clockgame-activity/clockgame.c:535
 msgid "Set the watch to:"
 msgstr "Pon la hora en:"
 
@@ -2814,7 +2814,7 @@ msgstr ""
 "borrar un objeto."
 
 #: ../src/drawnumber-activity/drawnumber.py:236
-#: ../src/findit-activity/findit.py:310
+#: ../src/findit-activity/findit.py:315
 #: ../src/louis_braille-activity/louis_braille.py:84
 msgid "Cannot find the file '{filename}'"
 msgstr "No se puede encontrar el archivo «{filename}»"
@@ -2954,13 +2954,13 @@ msgstr "Mueve el ratón para aclarar la zona y descubre el dibujo escondido"
 msgid "Error: No images found\n"
 msgstr "Error: no se encontró ninguna imagen\n"
 
-#: ../src/erase-activity/erase.c:578 ../src/gcompris/properties.c:504
+#: ../src/erase-activity/erase.c:582 ../src/gcompris/properties.c:504
 #: ../src/gcompris/properties.c:511
 msgid "readme"
 msgstr "léeme"
 
 # ¿Cómo queda mejor traducido 'background':  imagen de fondo o simplemente fondo?
-#: ../src/erase-activity/erase.c:580
+#: ../src/erase-activity/erase.c:584
 msgid ""
 "Put any number of images in this directory.\n"
 "They will be used as background in the 'erase' activity.\n"
@@ -3030,7 +3030,7 @@ msgstr "Código original tomado de la demo de libgnomecanvas"
 msgid "The fifteen game"
 msgstr "El juego de los quince"
 
-#: ../src/findit-activity/findit.py:315
+#: ../src/findit-activity/findit.py:320
 #: ../src/louis_braille-activity/louis_braille.py:88
 msgid ""
 "Failed to parse data set '{filename}' with error:\n"
@@ -3097,7 +3097,7 @@ msgstr "Página de GCompris: http://gcompris.net"
 msgid "Translators:"
 msgstr "Traductores:"
 
-#: ../src/gcompris/about.c:208
+#: ../src/gcompris/about.c:212
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
@@ -3105,25 +3105,25 @@ msgstr ""
 "Este software es un paquete GNU y se distribuye bajo los términos de la "
 "Licencia Pública General GNU"
 
-#: ../src/gcompris/about.c:222 ../src/gcompris/config.c:456
+#: ../src/gcompris/about.c:226 ../src/gcompris/config.c:456
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:355
 #: ../src/gcompris/images_selector.c:306
 msgid "OK"
 msgstr "Aceptar"
 
-#: ../src/gcompris/bar.c:688
+#: ../src/gcompris/bar.c:690
 msgid "GCompris confirmation"
 msgstr "Confirmación de GCompris"
 
-#: ../src/gcompris/bar.c:689
+#: ../src/gcompris/bar.c:691
 msgid "Are you sure you want to quit?"
 msgstr "¿Seguro que deseas salir?"
 
-#: ../src/gcompris/bar.c:690
+#: ../src/gcompris/bar.c:692
 msgid "Yes, I am sure!"
 msgstr "Sí, estoy seguro."
 
-#: ../src/gcompris/bar.c:691
+#: ../src/gcompris/bar.c:693
 msgid "No, I want to keep going"
 msgstr "No, quiero continuar"
 
@@ -3728,7 +3728,7 @@ msgstr ""
 msgid "For test purpose, run in a loop all the activities"
 msgstr "Para pruebas, ejecutar en un bucle todas las actividades"
 
-#: ../src/gcompris/gcompris.c:940
+#: ../src/gcompris/gcompris.c:952
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -3750,14 +3750,14 @@ msgstr ""
 "considera usar GNU/Linux. Obtén más información acerca de esto en la FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1234
+#: ../src/gcompris/gcompris.c:1246
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
 msgstr ""
 "Falló al cargar la apariencia «%s» (comprueba que el archivo existe y se "
 "puede leer)"
 
-#: ../src/gcompris/gcompris.c:1504
+#: ../src/gcompris/gcompris.c:1516
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d second old.\n"
@@ -3770,12 +3770,12 @@ msgstr[1] ""
 "No se iniciará GCompris porque el archivo de bloqueo es menos antiguo de %d "
 "segundos.\n"
 
-#: ../src/gcompris/gcompris.c:1508
+#: ../src/gcompris/gcompris.c:1520
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "El archivo de bloqueo es: %s\n"
 
-#: ../src/gcompris/gcompris.c:1681
+#: ../src/gcompris/gcompris.c:1693
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3789,27 +3789,27 @@ msgstr ""
 "Más información en http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1796
+#: ../src/gcompris/gcompris.c:1808
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Usa -l actividad para acceder directamente a una actividad.\n"
 
-#: ../src/gcompris/gcompris.c:1797
+#: ../src/gcompris/gcompris.c:1809
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Lista de actividades disponibles es:\n"
 
-#: ../src/gcompris/gcompris.c:1828
+#: ../src/gcompris/gcompris.c:1840
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Número de actividades: %d\n"
 
-#: ../src/gcompris/gcompris.c:1864
+#: ../src/gcompris/gcompris.c:1876
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s existe pero no se puede leer o escribir"
 
-#: ../src/gcompris/gcompris.c:1927
+#: ../src/gcompris/gcompris.c:1939
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
@@ -3818,7 +3818,7 @@ msgstr ""
 "La opción «--server» no se puede usar porque GCompris se ha compilado sin "
 "soporte de red."
 
-#: ../src/gcompris/gcompris.c:1981
+#: ../src/gcompris/gcompris.c:1993
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3827,7 +3827,7 @@ msgstr ""
 "ERROR: No se encontró el perfil «%s». Ejecute «gcompris --profile list» para "
 "listar los disponibles\n"
 
-#: ../src/gcompris/gcompris.c:1995
+#: ../src/gcompris/gcompris.c:2007
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "La lista de perfiles disponibles es:\n"
@@ -3925,11 +3925,11 @@ msgstr "Atrás"
 msgid "Stop"
 msgstr "Parar"
 
-#: ../src/gcompris/timer.c:245
+#: ../src/gcompris/timer.c:257
 msgid "Time Elapsed"
 msgstr "Tiempo transcurrido"
 
-#: ../src/gcompris/timer.c:323
+#: ../src/gcompris/timer.c:339
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Tiempo restante = %d"
@@ -4565,14 +4565,14 @@ msgstr "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
 #: ../src/gletters-activity/gletters.c:850
-#: ../src/imageid-activity/imageid.c:712 ../src/login-activity/login.py:480
-#: ../src/missing_letter-activity/missingletter.c:784
+#: ../src/imageid-activity/imageid.c:716 ../src/login-activity/login.py:480
+#: ../src/missing_letter-activity/missingletter.c:800
 #: ../src/pythontest-activity/pythontest.py:448
 #: ../src/readingh-activity/reading.c:905
-#: ../src/scalesboard-activity/scale.c:1161
+#: ../src/scalesboard-activity/scale.c:1190
 #: ../src/smallnumbers-activity/smallnumbers.c:597
 #: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:866
+#: ../src/wordsgame-activity/wordsgame.c:904
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -4590,7 +4590,7 @@ msgstr "Activar sonidos"
 #: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:486
 #: ../src/missing_letter-activity/missingletter_config.c:492
 #: ../src/readingh-activity/reading.c:929
-#: ../src/wordsgame-activity/wordsgame.c:889
+#: ../src/wordsgame-activity/wordsgame.c:927
 msgid "Uppercase only text"
 msgstr "Texto sólo en mayúsculas"
 
@@ -4882,25 +4882,25 @@ msgstr ""
 "primo. Usa las teclas de flechas para navegar por el tablero y evitar a los "
 "Trogles. Pulsa la tecla de espacio para comer un número."
 
-#: ../src/guessnumber-activity/guessnumber.py:199
+#: ../src/guessnumber-activity/guessnumber.py:203
 #, python-format
 msgid "Guess a number between %d and %d"
 msgstr "Adivina un número entre %d y %d"
 
-#: ../src/guessnumber-activity/guessnumber.py:302
+#: ../src/guessnumber-activity/guessnumber.py:306
 #, python-format
 msgid "Please enter a number between %d and %d"
 msgstr "Introduce un número entre %d y %d"
 
-#: ../src/guessnumber-activity/guessnumber.py:307
+#: ../src/guessnumber-activity/guessnumber.py:311
 msgid "Out of range"
 msgstr "Fuera de rango"
 
-#: ../src/guessnumber-activity/guessnumber.py:313
+#: ../src/guessnumber-activity/guessnumber.py:317
 msgid "Too high"
 msgstr "Demasiado alto"
 
-#: ../src/guessnumber-activity/guessnumber.py:315
+#: ../src/guessnumber-activity/guessnumber.py:319
 msgid "Too low"
 msgstr "Demasiado bajo"
 
@@ -5252,7 +5252,7 @@ msgstr "Lectura"
 msgid "Learn how to read"
 msgstr "Aprende a leer"
 
-#: ../src/imageid-activity/imageid.c:522
+#: ../src/imageid-activity/imageid.c:526
 msgid ""
 "Data file for this level is not properly formatted. Too many choices are "
 "proposed."
@@ -5260,8 +5260,8 @@ msgstr ""
 "El archivo de datos para este nivel no está formateado correctamente. Se "
 "proponen demasiadas opciones."
 
-#: ../src/imageid-activity/imageid.c:534
-#: ../src/missing_letter-activity/missingletter.c:592
+#: ../src/imageid-activity/imageid.c:538
+#: ../src/missing_letter-activity/missingletter.c:608
 msgid "Data file for this level is not properly formatted."
 msgstr "El archivo de datos para este nivel no está formateado correctamente."
 
@@ -5650,15 +5650,12 @@ msgstr "el violín"
 msgid "Practice a foreign language"
 msgstr "Practica un idioma extranjero"
 
-#: ../src/lang-activity/lang.py:55
+#: ../src/lang-activity/lang.py:56
 msgid "Missing Image"
 msgstr "Imagen no encontrada"
 
-#: ../src/lang-activity/lang.py:158
+#: ../src/lang-activity/lang.py:165
 #, python-format
-#| msgid ""
-#| "<b>%s</b> configuration\n"
-#| " for profile <b>%s</b>"
 msgid ""
 "Configuration\n"
 " for profile <b>%s</b>"
@@ -5666,8 +5663,7 @@ msgstr ""
 "Configuración\n"
 " para el perfil <b>%s</b>"
 
-#: ../src/lang-activity/lang.py:163
-#| msgid "Select sound locale"
+#: ../src/lang-activity/lang.py:170
 msgid "Select locale"
 msgstr "Seleccionar idioma"
 
@@ -5946,7 +5942,6 @@ msgstr ""
 "área abajo a la derecha para responder."
 
 #: ../src/magic_hat_minus-activity/magic_hat_minus.xml.in.h:4
-#: ../src/memory_add_minus-activity/memory_add_minus.xml.in.h:3
 #: ../src/memory_add_minus_tux-activity/memory_add_minus_tux.xml.in.h:3
 #: ../src/memory_minus-activity/memory_minus.xml.in.h:2
 #: ../src/memory_minus_tux-activity/memory_minus_tux.xml.in.h:2
@@ -6039,7 +6034,7 @@ msgstr ""
 msgid "Find your way out of the maze"
 msgstr "Encuentra tu salida del laberinto"
 
-#: ../src/maze-activity/maze.c:599
+#: ../src/maze-activity/maze.c:603
 msgid ""
 "Look at your position, then switch back to invisible mode to continue your "
 "moves"
@@ -6047,7 +6042,7 @@ msgstr ""
 "Mira tu posición, después vuelve a modo invisible para continuar tus "
 "movimientos"
 
-#: ../src/maze-activity/maze.c:601
+#: ../src/maze-activity/maze.c:605
 msgid ""
 "Look at your position, then switch back to 3D mode to continue your moves"
 msgstr ""
@@ -6247,10 +6242,15 @@ msgstr ""
 "habrás ganado el juego! :)"
 
 #: ../src/memory_add_minus-activity/memory_add_minus.xml.in.h:1
+#| msgid "Addition and subtraction memory game"
+msgid "Addition and subtraction"
+msgstr "Suma y resta"
+
+#: ../src/memory_add_minus-activity/memory_add_minus.xml.in.h:2
 msgid "Addition and subtraction memory game"
 msgstr "Juego de memoria de la suma y la resta"
 
-#: ../src/memory_add_minus-activity/memory_add_minus.xml.in.h:2
+#: ../src/memory_add_minus-activity/memory_add_minus.xml.in.h:3
 #: ../src/memory_add_minus_tux-activity/memory_add_minus_tux.xml.in.h:2
 msgid "Practise addition, subtraction, until all the cards are gone."
 msgstr "Practica la suma, resta, hasta que desaparezcan todas las cartas."
@@ -6865,7 +6865,7 @@ msgid "$ %.0f"
 msgstr "$ %.0f"
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %d
-#: ../src/money-activity/money.c:932
+#: ../src/money-activity/money.c:936
 #, c-format
 msgid ""
 "Tux just bought some items in your shop.\n"
@@ -7140,7 +7140,7 @@ msgstr "Penalty"
 msgid "Error: Absolutely no photo found in the data directory"
 msgstr "Error: no se encontró ninguna foto en la carpeta de datos"
 
-#: ../src/photohunter-activity/photohunter.c:575
+#: ../src/photohunter-activity/photohunter.c:580
 msgid "Click on the differences between the two images."
 msgstr "Pulsa en las diferencias entre las dos imágenes."
 
@@ -7301,7 +7301,7 @@ msgid "Railway"
 msgstr "Vía de tren"
 
 #: ../src/readingh-activity/reading.c:229
-#: ../src/wordsgame-activity/wordsgame.c:219
+#: ../src/wordsgame-activity/wordsgame.c:222
 msgid ""
 "Error: We can't find\n"
 "a list of words to play this game.\n"
@@ -7471,7 +7471,7 @@ msgstr "Peso en g = %s"
 msgid "Weight = %s"
 msgstr "Peso = %s"
 
-#: ../src/scalesboard-activity/scale.c:1007
+#: ../src/scalesboard-activity/scale.c:1036
 msgid "Take care, you can drop weights on both sides of the scale."
 msgstr "Ten cuidado, puedes dejar caer masas en ambos lados de la balanza."
 
@@ -7883,13 +7883,13 @@ msgstr "El juego de puzle de tangram"
 
 #. Set the maximum text to calc the background
 #. Set the correct initial text
-#: ../src/target-activity/target.c:296 ../src/target-activity/target.c:562
-#: ../src/target-activity/target.c:599
+#: ../src/target-activity/target.c:296 ../src/target-activity/target.c:563
+#: ../src/target-activity/target.c:600
 #, c-format
 msgid "Points = %s"
 msgstr "Puntos = %s"
 
-#: ../src/target-activity/target.c:414
+#: ../src/target-activity/target.c:415
 #, c-format
 msgid ""
 "Wind speed = %d\n"
@@ -7898,7 +7898,7 @@ msgstr ""
 "Velocidad del viento = %d\n"
 "kilómetros/hora"
 
-#: ../src/target-activity/target.c:482
+#: ../src/target-activity/target.c:483
 #, c-format
 msgid "Distance to target = %d meter"
 msgid_plural "Distance to target = %d meters"
@@ -8071,15 +8071,15 @@ msgstr "Oficial"
 msgid "Flyer"
 msgstr "Octavilla"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:423
+#: ../src/wordprocessor-activity/wordprocessor.c:431
 msgid "Title"
 msgstr "Título"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:424
+#: ../src/wordprocessor-activity/wordprocessor.c:432
 msgid "Heading 1"
 msgstr "Cabecera 1"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:425
+#: ../src/wordprocessor-activity/wordprocessor.c:433
 msgid "Heading 2"
 msgstr "Cabecera 2"
 
@@ -8124,12 +8124,12 @@ msgstr ""
 msgid "Your word processor"
 msgstr "Tu procesador de textos"
 
-#: ../src/wordsgame-activity/wordsgame.c:112
+#: ../src/wordsgame-activity/wordsgame.c:115
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:1
 msgid "Falling Words"
 msgstr "Palabras que caen"
 
-#: ../src/wordsgame-activity/wordsgame.c:113
+#: ../src/wordsgame-activity/wordsgame.c:116
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the falling words before they reach the ground"
 msgstr "Teclea las palabras que caen antes de que lleguen al suelo"
