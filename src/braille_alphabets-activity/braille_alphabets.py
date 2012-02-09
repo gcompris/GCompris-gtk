@@ -286,7 +286,10 @@ class Gcompris_braille_alphabets:
 
   def play_letter(self, letter):
       # Play the letter
-      filename = 'voices/$LOCALE/alphabet/U%04X.ogg' % ord(letter.lower())
+      if type(letter) == type(str()):
+        filename = 'voices/$LOCALE/alphabet/U%04X.ogg' % ord(letter.lower())
+      else:
+        filename = 'voices/$LOCALE/alphabet/U%04X.ogg' % ord(str(letter))
       gcompris.sound.play_ogg(filename)
 
   def braille_cell(self, level):
