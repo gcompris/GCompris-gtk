@@ -6,6 +6,7 @@ SUBDIRS = \
 	france \
 	germany \
 	italy  \
+	india \
 	mexico \
 	norway \
 	poland \
@@ -31,7 +32,8 @@ xml_in_files = \
 	board11_0.xml.in \
 	board11_1.xml.in \
 	board11_2.xml.in \
-	board11_3.xml.in 
+	board11_3.xml.in \
+	board12_0.xml.in 
 
 xml_DATA = $(xml_in_files:.xml.in=.xml)
 

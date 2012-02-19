@@ -688,6 +688,7 @@ src/geo_country-activity/resources/geo_country/italy/Makefile
 src/geo_country-activity/resources/geo_country/italy/central/Makefile
 src/geo_country-activity/resources/geo_country/italy/north/Makefile
 src/geo_country-activity/resources/geo_country/italy/south/Makefile
+src/geo_country-activity/resources/geo_country/india/Makefile
 src/geo_country-activity/resources/geo_country/mexico/Makefile
 src/geo_country-activity/resources/geo_country/norway/Makefile
 src/geo_country-activity/resources/geo_country/poland/Makefile
