@@ -71,7 +71,7 @@ def gcompris_init(img):
         return False
 
     # resize the image
-    ratio = max(img.height / 500.0, img.width / 800.0)
+    ratio = max(img.height / 520.0, img.width / 800.0)
     if ratio > 1:
         new_w, new_h = [ int(i / ratio) for i in (img.width, img.height) ]
         pdb.gimp_image_scale(img, new_w, new_h)
@@ -104,7 +104,7 @@ def gcompris_puzzle(img, sdrawable, x, y, activity_name,
 
     if not gcompris_init(img):
         return
-
+    pdb.gimp_image_scale(img, img.width*2, img.height*2)
     # Default values
     if(not activity_name):
         activity_name = "paintings"
@@ -122,9 +122,11 @@ def gcompris_puzzle(img, sdrawable, x, y, activity_name,
             posx = width / x * (.5 + idx)
             pdb.gimp_fuzzy_select(puzzle, posx, posy, 0, CHANNEL_OP_REPLACE,
                 True, 0, 0, 0)
-            pdb.gimp_selection_grow(img, 1)
+            pdb.gimp_selection_grow(img, 2)
+            pdb.gimp_selection_feather(img, 3)
             pdb.gimp_edit_copy(bg_layer)
             pdb.gimp_floating_sel_to_layer(pdb.gimp_edit_paste(bg_layer, 1))
+            pdb.script_fu_add_bevel(img,img.active_layer,10,0,0)
             img.active_layer.name = chr(ord('A')+ idx) + str(idy+1)
             layerlist.append(img.active_layer)
 
@@ -134,9 +136,10 @@ def gcompris_puzzle(img, sdrawable, x, y, activity_name,
     d_title = dict(x=405, y=495, justification ="GTK_JUSTIFY_CENTER",
         color_skin="gcompris/text button")
     d_title["<name>"] = title
-    shapebg = dict(name=1, pixmapfile="skin:gcompris-shapelabel.png",
-        type="SHAPE_BACKGROUND", x=405, y=495, position=0)
-
+    shapebg=[]
+    # shapebg = dict(name=1, pixmapfile="skin:gcompris-shapelabel.png",
+    #    type="SHAPE_BACKGROUND", x=405, y=495, position=0)
+    pdb.gimp_image_scale(img, img.width/2, img.height/2)
     gcompris_layer_to_board(layerlist, activity_name, folder, d_title, shapebg, None,
                             level, sublevel)
 
@@ -279,6 +282,83 @@ register(
     [],
     gcompris_geography)
 
+def gcompris_babyshapes(img, sdrawable, activity_name,
+                       folder, title, bordersize, shapes_color,level, sublevel):
+    """Create file for the babyshapes activity from the current image """
+    # Default values
+    if(not activity_name):
+        activity_name = "babyshapes"
+
+    if not gcompris_init(img):
+        return
+    if len(img.channels) == 0:
+        gimp.message("Can't find channels. Please create them.")
+        return
+
+    save_bg = gimp.get_background()
+    save_fg = gimp.get_foreground()
+
+    layer_map = img.layers[0]
+    if not layer_map.has_alpha:
+    	layer_map.add_alpha()
+
+    layerlist = []
+    for chan in img.channels :
+        pdb.gimp_selection_load(chan)
+        pdb.gimp_selection_grow(img, bordersize)
+        # create new layer from selection
+        pdb.gimp_edit_copy(layer_map)
+        pdb.gimp_floating_sel_to_layer(pdb.gimp_edit_paste(layer_map, 1))
+        layer = img.active_layer
+        layer.name = chan.name
+        layerlist.append(layer)
+		# Fill main image with a color
+        if shapes_color==1:
+	        gimp.set_background(255,255, 255)
+        elif shapes_color==2:
+   	        gimp.set_background(0, 0, 0)
+        else:
+            gimp.set_background(randint(0, 255), randint(0, 255), randint(0, 255))
+        pdb.gimp_selection_load(chan)
+        pdb.gimp_selection_grow(img, bordersize)
+        pdb.gimp_edit_fill(layer_map,BACKGROUND_FILL)		
+
+
+    gimp.set_background(save_bg)
+    gimp.set_foreground(save_fg)
+    pdb.gimp_selection_none(img)
+
+    shape = dict()
+    shape["<tooltip>"] = "%n"
+    title_d = dict(x=600, y=495, justification="GTK_JUSTIFY_CENTER")
+    title_d["<name>"] = title
+
+    layer_map.name = "background"
+    gcompris_layer_to_board(layerlist, activity_name, folder, title_d, layer_map, shape,
+                            level, sublevel)
+
+register(
+    "gcompris_babyshapes",
+    "Make files for babyshapes activity",
+    "Make files for babyshapes activity",
+    "Miguel de Izarra. Adapted by Angel Ivan Moreno",
+    "Miguel de Izarra. Adapted by Angel Ivan Moreno",
+    "2012",
+    "<Image>/Python-Fu/GCompris/Babyshapes",
+    "RGB*, GRAY*",
+    [
+        (PF_STRING, "activity_name", "Name of the activity (default = babyshapes)", ""),
+        (PF_STRING, "folder", "Relative output directory (default = image name)", ""),
+        (PF_STRING, "title", "GCompris puzzle title", ""),
+        (PF_SPINNER, "bordersize", "The Size of border ", 0, (0, 20, 1) ),
+		(PF_OPTION,"shapes_color",   "Background color of shapes:", 0, ["Random","White","Black"]),
+        (PF_SPINNER, "level", "The level in the activity", 1, (1, 100, 1) ),
+        (PF_SPINNER, "sublevel", "The sub level in the activity", 0, (0, 20, 1) ),
+    ],
+    [],
+    gcompris_babyshapes)
+	
+	
 def gcompris_layer_to_board(layerlist, activity, subdir, title, background, shape,
                             level, sublevel):
     """ Create png file and board.xml for gcompris
