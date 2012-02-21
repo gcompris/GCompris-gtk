@@ -34,12 +34,12 @@
 # Chandran NC <>, 2011.
 # Raman C <>, 2011.
 # Vasudevan KV <>, 2011.
-#
+# Mohammed Sadiq <sadiqpkp@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-20 19:49+0530\n"
+"POT-Creation-Date: 2012-02-21 12:36+0530\n"
 "PO-Revision-Date: 2011-08-22 20:00+0530\n"
 "Last-Translator: Sabarish <ksabarish@gmail.com>\n"
 "Language-Team: Malayalam http://wiki.smc.org.in/GNOME\n"
@@ -67,15 +67,16 @@ msgstr ""
 
 #: ../boards/braille.xml.in.h:1
 #: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:1
-#, fuzzy
 msgid "Discover the Braille system"
-msgstr "കമ്പൂട്ടറിനെ അറിയുക"
+msgstr "ബ്രൈലി ലിപി അറിയുക"
 
 #: ../boards/braille.xml.in.h:2
 msgid ""
 "The Braille system is a method that is widely used by blind people to read "
 "and write, and was the first digital form of writing."
 msgstr ""
+"അന്ധരായവര്‍ വായിക്കാനും എഴുതാനും വ്യാപകമായി ഉപയോഗിക്കുന്ന ഒരു ലിപിയാണ് ബ്രൈലി. അവര്‍ക്കുള്ള "
+"ആദ്യത്തെ ഡിജിറ്റല്‍ എഴുത്തിന്റെ രൂപവും ഇതു തന്നെയാണ്."
 
 #: ../boards/chess.xml.in.h:1
 #: ../src/chess_computer-activity/chess_computer.xml.in.h:3
@@ -88,11 +89,11 @@ msgstr "ചെസ്സ് കളിക്കാം"
 
 #: ../boards/colors_group.xml.in.h:1
 msgid "Colors based activities."
-msgstr ""
+msgstr "നിറങ്ങള്‍ വെച്ചുള്ള കളികള്‍"
 
 #: ../boards/colors_group.xml.in.h:2
 msgid "Go to Color activities"
-msgstr ""
+msgstr "നിറങ്ങള്‍ കൊണ്ടു കളിക്കാം"
 
 #: ../boards/computer.xml.in.h:1
 msgid "Discover the Computer"
@@ -104,7 +105,7 @@ msgstr "കമ്പൂട്ടര്‍ അനുബന്ധ ഉപകരണ�
 
 #: ../boards/discovery.xml.in.h:1
 msgid "Colors, sounds, memory..."
-msgstr ""
+msgstr "നിറങ്ങള്‍, ശബ്ദങ്ങള്‍, ഓര്‍മ്മ..."
 
 #: ../boards/discovery.xml.in.h:2
 msgid "Go to discovery activities"
@@ -140,7 +141,7 @@ msgstr "ജ്യാമിതി"
 
 #: ../boards/geometry.xml.in.h:2
 msgid "Geometry activities."
-msgstr ""
+msgstr "ജ്യാമിതി കളികള്‍"
 
 #: ../boards/gnumchmenu.xml.in.h:1
 msgid "Go to Number Munchers activities"
@@ -160,7 +161,7 @@ msgstr "കീബോര്‍ഡ്-ഉപയോഗിച്ച് കൈകാ�
 
 #: ../boards/math.xml.in.h:1
 msgid "Mathematical activities."
-msgstr "കളികള്‍"
+msgstr "കണക്കിലെ കളികള്‍"
 
 #: ../boards/math.xml.in.h:2
 msgid "Mathematics"
@@ -246,7 +247,7 @@ msgstr ""
 
 #: ../boards/money_group.xml.in.h:1
 msgid "Go to money activities"
-msgstr ""
+msgstr "പണം കൊണ്ടുള്ള കളികളിലോട്ടു പോവുക"
 
 #: ../boards/mouse.xml.in.h:1
 msgid "Mouse-manipulation activities."
@@ -378,9 +379,8 @@ msgid "Login"
 msgstr ""
 
 #: ../src/administration-activity/admin/board_list.py:242
-#, fuzzy
 msgid "Main menu"
-msgstr "പ്രധാന പട്ടിക"
+msgstr "പ്രധാന മെനു"
 
 #. columns for Board name
 #. column_pref = gtk.TreeViewColumn(_('Conf'))
@@ -497,15 +497,14 @@ msgstr ""
 
 #: ../src/administration-activity/admin/group_edit.py:86
 msgid "Group:"
-msgstr ""
+msgstr "ഗ്രൂപ്:"
 
 #. FIXME: How to remove the selection
 #. Label and Entry for the first name
 #: ../src/administration-activity/admin/group_edit.py:98
 #: ../src/administration-activity/admin/profile_edit.py:95
-#, fuzzy
 msgid "Description:"
-msgstr "വിവരണം"
+msgstr "വിവരണം:"
 
 #. Top message gives instructions
 #: ../src/administration-activity/admin/group_edit.py:109
@@ -522,13 +521,13 @@ msgstr ""
 
 #: ../src/administration-activity/admin/group_list.py:82
 msgid "Select a class:"
-msgstr ""
+msgstr "ഒരു ക്ലാസ് തിരഞ്ഞെടുക്കുക:"
 
 #: ../src/administration-activity/admin/group_list.py:210
 #: ../src/administration-activity/admin/profile_edit.py:273
 #: ../src/administration-activity/admin/profile_group_list.py:150
 msgid "Group"
-msgstr ""
+msgstr "ഗ്രൂപ്"
 
 #: ../src/administration-activity/admin/group_list.py:221
 #: ../src/administration-activity/admin/profile_edit.py:283
@@ -539,12 +538,12 @@ msgstr "വിവരണം"
 
 #: ../src/administration-activity/admin/group_list.py:318
 msgid "You must first select a group in the list"
-msgstr ""
+msgstr "പട്ടികയിലുള്ള ഒരു ഗ്രൂപ് നിങ്ങള്‍ നിര്‍ബന്ധമായും തിരഞ്ഞെടുക്കണം"
 
 #: ../src/administration-activity/admin/group_user_list.py:170
 #: ../src/administration-activity/admin/user_list.py:211
 msgid "Birth Date"
-msgstr ""
+msgstr "ജനന തീയതി"
 
 #: ../src/administration-activity/administration.xml.in.h:1
 msgid ""
@@ -597,7 +596,7 @@ msgstr ""
 #: ../src/administration-activity/admin/profile_list.py:117
 #: ../src/lang-activity/lang.py:166
 msgid "Default"
-msgstr ""
+msgstr "സഹജം"
 
 #. Reset buttons
 #: ../src/administration-activity/admin/log_list.py:162
@@ -627,13 +626,12 @@ msgid "Sublevel"
 msgstr ""
 
 #: ../src/administration-activity/admin/log_list.py:266
-#, fuzzy
 msgid "Duration"
-msgstr "വിവരണം"
+msgstr "ദൈര്‍ഘ്യം"
 
 #: ../src/administration-activity/admin/log_list.py:276
 msgid "Status"
-msgstr ""
+msgstr "അവസ്ഥ"
 
 #: ../src/administration-activity/admin/module_boards.py:49
 #: ../src/administration-activity/admin/module_boards.py:77
@@ -643,7 +641,7 @@ msgstr ""
 #: ../src/administration-activity/admin/module_groups.py:46
 #: ../src/administration-activity/admin/module_groups.py:69
 msgid "Groups"
-msgstr ""
+msgstr "ഗ്രൂപ്പുകള്‍"
 
 #: ../src/administration-activity/admin/module_profiles.py:47
 #: ../src/administration-activity/admin/module_profiles.py:68
@@ -701,7 +699,7 @@ msgstr ""
 
 #: ../src/administration-activity/admin/profile_list.py:311
 msgid "[Default]"
-msgstr ""
+msgstr "[സഹജം]"
 
 #: ../src/administration-activity/admin/user_edit.py:47
 msgid "Editing a User"
@@ -1204,7 +1202,7 @@ msgstr ""
 
 #: ../src/anim-activity/anim.py:103
 msgid "Save..."
-msgstr ""
+msgstr "സൂക്ഷിക്കുക..."
 
 #: ../src/anim-activity/anim.py:109
 msgid "Load..."
@@ -1246,7 +1244,7 @@ msgstr ""
 
 #: ../src/anim-activity/anim.py:163
 msgid "Image..."
-msgstr ""
+msgstr "ചിത്രം..."
 
 #: ../src/anim-activity/anim.py:169
 msgid "Fill"
@@ -1254,7 +1252,7 @@ msgstr ""
 
 #: ../src/anim-activity/anim.py:175
 msgid "Delete"
-msgstr ""
+msgstr "നീക്കം ചെയ്യുക"
 
 #: ../src/anim-activity/anim.py:181
 msgid "Flip"
@@ -1324,7 +1322,7 @@ msgstr ""
 
 #: ../src/anim-activity/Color.py:86
 msgid "Fill color..."
-msgstr ""
+msgstr "നിറം നിറയ്ക്കുക"
 
 #: ../src/anim-activity/Color.py:98
 msgid "Stroke color..."
@@ -1339,19 +1337,19 @@ msgstr ""
 
 #: ../src/awele-activity/awele.c:359
 msgid "NORTH"
-msgstr ""
+msgstr "വടക്ക്"
 
 #: ../src/awele-activity/awele.c:371
 msgid "SOUTH"
-msgstr ""
+msgstr "തെക്ക്"
 
 #: ../src/awele-activity/awele.c:533
 msgid "Choose a house"
-msgstr ""
+msgstr "ഒരു വീട് തിരഞ്ഞെടുക്കുക"
 
 #: ../src/awele-activity/awele.c:648
 msgid "Your turn to play ..."
-msgstr ""
+msgstr "ഇനി നിങ്ങള്‍ക്കു കളിക്കാം"
 
 #: ../src/awele-activity/awele.c:689
 msgid "Not allowed! Try again !"
@@ -1425,7 +1423,7 @@ msgstr ""
 
 #: ../src/babymatch-activity/babymatch.xml.in.h:3
 msgid "Matching Items"
-msgstr ""
+msgstr "പൊരുത്തമുള്ള ഇനങ്ങള്‍"
 
 #: ../src/babymatch-activity/babymatch.xml.in.h:4
 msgid "Motor coordination. Conceptual matching."
@@ -1470,7 +1468,7 @@ msgstr ""
 
 #: ../src/babyshapes-activity/resources/babyshapes/board5_0.xml.in.h:1
 msgid "Hello ! My name is Lock."
-msgstr ""
+msgstr "നമസ്കാരം ! എന്റെ പേര് ലോക്ക് എന്നാണ്"
 
 #: ../src/babyshapes-activity/resources/babyshapes/board6_0.xml.in.h:1
 msgid "Lock on the grass."
@@ -1513,7 +1511,7 @@ msgstr "പന്ത് ടക്സില്‍ ഏത്തിക്കുക"
 
 #: ../src/bargame-activity/bargame.xml.in.h:1
 msgid "Brain"
-msgstr ""
+msgstr "തലച്ചോറ്"
 
 #: ../src/bargame-activity/bargame.xml.in.h:2
 msgid "Don't use the last ball"
@@ -1613,7 +1611,7 @@ msgstr ""
 msgid ""
 "The Braille system is a method that is used by blind people to read and "
 "write."
-msgstr ""
+msgstr "അന്ധരായവര്‍ വായിക്കാനും എഴുതാനും ഉപയോഗിക്കുന്ന ഒരു ലിപിയാണ് ബ്രൈലി. "
 
 #. Braille Description
 #: ../src/braille_alphabets-activity/braille_alphabets.py:181
@@ -1708,9 +1706,8 @@ msgid "PLAYER 2"
 msgstr ""
 
 #: ../src/braille_lotto-activity/braille_lotto.py:151
-#, fuzzy
 msgid "Check Number"
-msgstr "സംഖ്യകള്‍"
+msgstr "സംഖ്യ പരിശോധിക്കുക"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:168
 #: ../src/braille_lotto-activity/braille_lotto.py:180
@@ -1760,7 +1757,7 @@ msgstr ""
 
 #: ../src/braille_lotto-activity/braille_lotto.py:353
 msgid "Game Over"
-msgstr ""
+msgstr "കളി കഴിഞ്ഞു"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:465
 msgid "Congratulation player {player_id}, you won"
@@ -1887,7 +1884,6 @@ msgid "White checks"
 msgstr "വെളുപ്പിന് ചെക്ക്"
 
 #: ../src/chess_computer-activity/chess.c:795
-#, fuzzy
 msgid "Black checks"
 msgstr "കറുപ്പിന് ചെക്ക്"
 
@@ -1896,7 +1892,6 @@ msgid "Black mates"
 msgstr "ബ്ലാക്ക് മേറ്റ്സ്"
 
 #: ../src/chess_computer-activity/chess.c:1208
-#, fuzzy
 msgid "White mates"
 msgstr "വൈറ്റ് മേറ്റ്സ്"
 
@@ -1922,7 +1917,6 @@ msgid "The chess engine is from gnuchess."
 msgstr "ഇതിലുപയോഗിച്ച ചെസ്സ് എഞ്ചിന്‍ ഗ്നുചെസ്സിലേതാണ്."
 
 #: ../src/chess_movelearn-activity/chess_movelearn.xml.in.h:1
-#, fuzzy
 msgid "Chess training. Catch the computer's pawns."
 msgstr "ചെസ്സ് പരിശീലിക്കാം. കാലാളിനെ പിടിക്കൂ."
 
@@ -1956,7 +1950,7 @@ msgstr ""
 
 #: ../src/chronos-activity/chronos.xml.in.h:6
 msgid "Tell a short story"
-msgstr ""
+msgstr "ഒരു ചെറുകഥ പറയൂ"
 
 #: ../src/chronos-activity/resources/chronos/board1_0.xml.in.h:1
 msgid "Moonwalker"
@@ -1965,11 +1959,10 @@ msgstr ""
 #: ../src/chronos-activity/resources/chronos/board1_1.xml.in.h:1
 #: ../src/wordprocessor-activity/wordprocessor.c:117
 msgid "Autumn"
-msgstr ""
+msgstr "ശരത്കാലം"
 
 #: ../src/chronos-activity/resources/chronos/board1_1.xml.in.h:2
 #: ../src/wordprocessor-activity/wordprocessor.c:115
-#, fuzzy
 msgid "Spring"
 msgstr "വസന്തം"
 
@@ -1984,7 +1977,6 @@ msgstr "4 ഋതുക്കള്‍"
 
 #: ../src/chronos-activity/resources/chronos/board1_1.xml.in.h:5
 #: ../src/wordprocessor-activity/wordprocessor.c:118
-#, fuzzy
 msgid "Winter"
 msgstr "ശിശിരം"
 
@@ -1994,7 +1986,7 @@ msgstr ""
 
 #: ../src/chronos-activity/resources/chronos/board2_0.xml.in.h:1
 msgid "Tux and the apple tree"
-msgstr ""
+msgstr "ടക്സും ആപ്പിള്‍ മരവും"
 
 #: ../src/chronos-activity/resources/chronos/board3_0.xml.in.h:1
 #: ../src/chronos-activity/resources/chronos/board3_2.xml.in.h:1
@@ -2131,7 +2123,7 @@ msgstr "നീല കുത്തില്‍ ‍ഞെക്കി ചിത്
 
 #: ../src/clickgame-activity/clickgame.xml.in.h:1
 msgid "Click On Me"
-msgstr "ഏന്നെ അമര‍ത്തുക"
+msgstr "ഏന്നെ അമര്‍ത്തുക"
 
 #: ../src/clickgame-activity/clickgame.xml.in.h:2
 msgid ""
@@ -2149,7 +2141,7 @@ msgstr ""
 
 #: ../src/clickgame-activity/clickgame.xml.in.h:4
 msgid "Motor coordination: moving and clicking the mouse."
-msgstr "മൗസ് ചലിപ്പിക്കല്‍ ‍‍,ഞെക്കല്‍ എന്നിവ സമന്വയിപ്പിക്കുന്ന പ്രവര്‍ത്തനങ്ങള്‍"
+msgstr "മൗസ് ചലിപ്പിക്കല്‍, ഞെക്കല്‍ എന്നിവ സമന്വയിപ്പിക്കുന്ന പ്രവര്‍ത്തനങ്ങള്‍"
 
 #: ../src/clickgame-activity/clickgame.xml.in.h:6
 msgid ""
@@ -2188,11 +2180,11 @@ msgstr ""
 
 #: ../src/click_on_letter-activity/click_on_letter.c:907
 msgid "Questions cannot be empty."
-msgstr ""
+msgstr "ചോദ്യങ്ങള്‍ ശൂന്യമാവാന്‍ പാടുള്ളതല്ല"
 
 #: ../src/click_on_letter-activity/click_on_letter.c:917
 msgid "Answers cannot be empty."
-msgstr ""
+msgstr "ഉത്തരങ്ങള്‍ ശൂന്യമാവാന്‍ പാടുള്ളതല്ല"
 
 #: ../src/click_on_letter-activity/click_on_letter.c:923
 #, c-format
@@ -2216,7 +2208,7 @@ msgstr ""
 #: ../src/missing_letter-activity/missingletter_config.c:420
 #: ../src/missing_letter-activity/missingletter_config.c:548
 msgid "Answer"
-msgstr ""
+msgstr "ഉത്തരം"
 
 #. question
 #: ../src/click_on_letter-activity/click_on_letter.c:1270
@@ -2240,7 +2232,6 @@ msgstr ""
 "വായയുടെ ചിത്രം കാണുന്ന സ്ഥലത്ത് ക്ലിക്ക് ചെയ്താല്‍ മറ്റ് അക്ഷരങ്ങള്‍ കേള്‍ക്കാം"
 
 #: ../src/click_on_letter-activity/click_on_letter.xml.in.h:2
-#, fuzzy
 msgid "Click on a lowercase letter"
 msgstr "അക്ഷരത്തില്‍ ക്ലിക്ക് ചെയ്യുക"
 
@@ -2260,7 +2251,6 @@ msgid "Visual letter-recognition. Can move the mouse."
 msgstr "അക്ഷരങ്ങള്‍ കണ്ട് തിരിച്ചറിയല്‍, മൗസ് നീക്കാന്‍ പഠിക്കല്‍."
 
 #: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:2
-#, fuzzy
 msgid "Click on an uppercase letter"
 msgstr "അക്ഷരത്തില്‍ ക്ലിക്ക് ചെയ്യുക"
 
@@ -2276,11 +2266,11 @@ msgstr ""
 
 #: ../src/clockgame-activity/clockgame.xml.in.h:2
 msgid "Learn how to tell the time"
-msgstr ""
+msgstr "സമയം എങ്ങിനെ പറയാം എന്നു പഠിക്കാം"
 
 #: ../src/clockgame-activity/clockgame.xml.in.h:3
 msgid "Learning Clock"
-msgstr ""
+msgstr "സമയം പഠിക്കല്‍"
 
 #: ../src/clockgame-activity/clockgame.xml.in.h:4
 msgid ""
@@ -2291,11 +2281,11 @@ msgstr ""
 
 #: ../src/clockgame-activity/clockgame.xml.in.h:5
 msgid "The concept of time. Reading the time."
-msgstr ""
+msgstr "സമയം എന്ന ധാരണ. സമയം വായിക്കല്‍"
 
 #: ../src/colors-activity/colors.xml.in.h:1
 msgid "Can move the mouse."
-msgstr ""
+msgstr "മൌസ് നീക്കാന്‍ കഴിയും"
 
 #: ../src/colors-activity/colors.xml.in.h:2
 msgid "Click on the right color"
@@ -2439,7 +2429,7 @@ msgstr ""
 
 #: ../src/details-activity/details.xml.in.h:3
 msgid "Find the details"
-msgstr ""
+msgstr "വിശദീകരണങ്ങള്‍ കണ്ടുപിടിക്കുക"
 
 #: ../src/details-activity/details.xml.in.h:5
 msgid "The images are from Wikimedia Commons."
@@ -2518,7 +2508,7 @@ msgstr ""
 
 #: ../src/details-activity/resources/details/board2_6.xml.in.h:1
 msgid "Taj Mahal, Agra, India"
-msgstr ""
+msgstr "താജ് മഹല്‍, ആഗ്ര, ഇന്ത്യ"
 
 #: ../src/details-activity/resources/details/board2_7.xml.in.h:1
 msgid "Castle Neuschwanstein at Schwangau, Bavaria, Germany"
@@ -2584,7 +2574,7 @@ msgstr ""
 #: ../src/findit-activity/findit.py:315
 #: ../src/louis_braille-activity/louis_braille.py:84
 msgid "Cannot find the file '{filename}'"
-msgstr ""
+msgstr "'{filename}' എന്ന ഫയല്‍ കാണുന്നില്ല"
 
 #: ../src/drawnumber-activity/drawnumber.xml.in.h:1
 msgid "Can count from 1 to 50."
@@ -2615,9 +2605,8 @@ msgid ""
 msgstr ""
 
 #: ../src/electric-activity/electric.xml.in.h:1
-#, fuzzy
 msgid "Create and simulate an electric schema"
-msgstr "നമുക്കൊരു സര്‍ക്ക്യൂട്ടുണ്ടാക്കാം"
+msgstr "നമുക്കൊരു സര്‍ക്ക്യൂട്ടുണ്ടാക്കി പ്രവര്‍ത്തിപ്പിക്കാം"
 
 #: ../src/electric-activity/electric.xml.in.h:2
 #, fuzzy
@@ -2657,9 +2646,8 @@ msgid ""
 msgstr ""
 
 #: ../src/electric-activity/electric.xml.in.h:6
-#, fuzzy
 msgid "Requires some basic understanding of the concept of electricity."
-msgstr "വൈദ്യുത സര്‍ക്യൂട്ടുകളുടെ പ്രവര്‍ത്തിക്കുന്ന അനുകരണങ്ങള്‍ തയ്യാറാക്കുന്നതിന്."
+msgstr "വൈദ്യുത സര്‍ക്യൂട്ടുകളെ കുറിച്ച് ചെറി ധാരണ ആവശ്യമാണ്."
 
 #: ../src/enumerate-activity/enumerate.c:110
 #: ../src/enumerate-activity/enumerate.xml.in.h:4
@@ -2709,7 +2697,7 @@ msgstr "മൗസ് ചലിപ്പിച്ച് പ്രതലം മാ
 
 #: ../src/erase-activity/erase.c:180
 msgid "Error: No images found\n"
-msgstr ""
+msgstr "പിശക്: ഒരു ചിത്രവും കണ്ടില്ല\n"
 
 #: ../src/erase-activity/erase.c:582 ../src/gcompris/properties.c:504
 #: ../src/gcompris/properties.c:511
@@ -2741,9 +2729,8 @@ msgid ""
 msgstr "എല്ലാ ബോക്കുകളും അപ്രത്യക്ഷമാകുന്നത് വരെ മൗസ് ചലിപ്പിക്കുക"
 
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:2
-#, fuzzy
 msgid "Click the mouse"
-msgstr "മൗസ് അമര്‍ത്തല്‍"
+msgstr "മൗസ് അമര്‍ത്തുക"
 
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:3
 msgid "Click the mouse on rectangles until all the blocks disappear."
@@ -2770,7 +2757,6 @@ msgid "Original code taken from the libgnomecanvas demo"
 msgstr ""
 
 #: ../src/fifteen-activity/fifteen.xml.in.h:5
-#, fuzzy
 msgid "The fifteen game"
 msgstr "പതിനഞ്ചിന്റെ കളി"
 
@@ -2782,7 +2768,6 @@ msgid ""
 msgstr ""
 
 #: ../src/followline-activity/followline.xml.in.h:1
-#, fuzzy
 msgid "Control the hose-pipe"
 msgstr "ഹോസ് പൈപ്പ് നിയന്ത്രക്കുക"
 
@@ -2816,20 +2801,21 @@ msgstr ""
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/gcompris/about.c:56
 msgid "translator_credits"
-msgstr "എഫ്.എസ്.എഫ് - ഇന്ത്യ <gnu@gnu.org.in>"
+msgstr ""
+"എഫ്.എസ്.എഫ് - ഇന്ത്യ <gnu@gnu.org.in>\n"
+"Mohammed Sadiq <sadiqpkp@gmail.com>"
 
 #: ../src/gcompris/about.c:82
 msgid "About GCompris"
-msgstr ""
+msgstr "ജികോംപ്രിസിനെ കുറിച്ച്"
 
 #: ../src/gcompris/about.c:92
 msgid "GCompris Home Page: http://gcompris.net"
-msgstr ""
+msgstr "ജികോംപ്രിസ് പ്രധാന താള്‍: http://gcompris.net"
 
 #: ../src/gcompris/about.c:103
-#, fuzzy
 msgid "Translators:"
-msgstr "എഫ്.എസ്.എഫ് - ഇന്ത്യ <gnu@gnu.org.in>"
+msgstr "പരിഭാഷപ്പെടുത്തിയവര്‍:"
 
 #: ../src/gcompris/about.c:212
 msgid ""
@@ -2980,7 +2966,6 @@ msgid "Dzongkha"
 msgstr ""
 
 #: ../src/gcompris/config.c:75
-#, fuzzy
 msgid "English (Canada)"
 msgstr "ഇംഗ്ലീഷ് (കാനഡ)"
 
@@ -2990,7 +2975,7 @@ msgstr "ഇംഗ്ലീഷ് (ബ്രിട്ടന്‍)"
 
 #: ../src/gcompris/config.c:77
 msgid "English (United States)"
-msgstr ""
+msgstr "ഇംഗ്ലീഷ്  (യുനൈറ്റട് സ്റ്റേറ്റ്സ്)"
 
 #: ../src/gcompris/config.c:78
 msgid "Finnish"
@@ -3217,13 +3202,12 @@ msgid "Music"
 msgstr "സംഗീതം"
 
 #: ../src/gcompris/config.c:321
-#, fuzzy
 msgid "Effect"
 msgstr "പ്രഭാവം"
 
 #: ../src/gcompris/config.c:345 ../src/gcompris/sugar.c:83
 msgid "Zoom"
-msgstr ""
+msgstr "വലുതാക്കുക"
 
 #: ../src/gcompris/config.c:382
 #, c-format
@@ -3242,7 +3226,7 @@ msgstr ""
 
 #: ../src/gcompris/file_selector.c:251
 msgid "CANCEL"
-msgstr ""
+msgstr "റദ്ദാക്കുക"
 
 #: ../src/gcompris/file_selector.c:259
 msgid "LOAD"
@@ -3250,7 +3234,7 @@ msgstr ""
 
 #: ../src/gcompris/file_selector.c:259
 msgid "SAVE"
-msgstr ""
+msgstr "സൂക്ഷിക്കുക"
 
 #: ../src/gcompris/gameutil.c:138 ../src/gcompris/gameutil.c:196
 msgid "Couldn't find or load the file"
@@ -3276,11 +3260,11 @@ msgstr ""
 
 #: ../src/gcompris/gcompris.c:161
 msgid "run GCompris with sound enabled."
-msgstr ""
+msgstr "ശബ്ദത്തോടു കൂടി ജികോംപ്രിസ് പ്രവര്‍ത്തിപ്പിയ്ക്കുക"
 
 #: ../src/gcompris/gcompris.c:164
 msgid "run GCompris without sound."
-msgstr ""
+msgstr "ശബ്ദമില്ലാതെ ജികോംപ്രിസ് പ്രവര്‍ത്തിപ്പിയ്ക്കുക"
 
 #: ../src/gcompris/gcompris.c:167
 msgid "run GCompris with the default system cursor."
@@ -3472,6 +3456,10 @@ msgid ""
 "Licence: GPL\n"
 "More info at http://gcompris.net\n"
 msgstr ""
+"ജികോംപ്രിസ്\n"
+"പതിപ്പ്: %s\n"
+"അനുമതി: GPL\n"
+"കൂടുല്‍ വിവരങ്ങള്‍ക്കു് http://gcompris.net സന്ദര്‍ശിക്കുക\n"
 
 #. check the list of possible values for -l, then exit
 #: ../src/gcompris/gcompris.c:1808
@@ -3592,20 +3580,20 @@ msgstr ""
 #. TRANSLATORS: Back as in previous
 #: ../src/gcompris/sugar.c:87
 msgid "Back"
-msgstr ""
+msgstr "പിന്നോട്ട്"
 
 #: ../src/gcompris/sugar.c:88
 msgid "Stop"
-msgstr ""
+msgstr "നിറുത്തുക"
 
 #: ../src/gcompris/timer.c:257
 msgid "Time Elapsed"
-msgstr ""
+msgstr "ഉപയോഗിച്ച സമയം"
 
 #: ../src/gcompris/timer.c:339
 #, c-format
 msgid "Remaining Time = %d"
-msgstr ""
+msgstr "ബാക്കുയുള്ള സമയം = %d"
 
 #: ../src/geo_country-activity/geo_country.xml.in.h:1
 msgid "Drag and Drop the regions to redraw the whole country"
@@ -3678,7 +3666,6 @@ msgid "America"
 msgstr "അമേരിക്ക"
 
 #: ../src/geography-activity/resources/geography/board1_0.xml.in.h:3
-#, fuzzy
 msgid "Antarctica"
 msgstr "അന്റാര്‍ട്ടിക്ക"
 
@@ -3720,7 +3707,7 @@ msgstr ""
 
 #: ../src/geography-activity/resources/geography/board2_0.xml.in.h:6
 msgid "Greenland"
-msgstr ""
+msgstr "ഗ്രീന്‍ലാന്റ്"
 
 #: ../src/geography-activity/resources/geography/board2_0.xml.in.h:7
 msgid "Haiti"
@@ -3873,7 +3860,7 @@ msgstr ""
 
 #: ../src/geography-activity/resources/geography/board3_0.xml.in.h:18
 msgid "Western Europe"
-msgstr ""
+msgstr "പടിഞ്ഞാറന്‍ യൂറോപ്പ്"
 
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:1
 msgid "Albania"
@@ -3960,7 +3947,6 @@ msgid "Turkey"
 msgstr "തുര്‍ക്കി"
 
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:23
-#, fuzzy
 msgid "Ukraine"
 msgstr "ഉക്റെയിന്‍"
 
@@ -4001,7 +3987,7 @@ msgstr ""
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:8
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:11
 msgid "Egypt"
-msgstr ""
+msgstr "ഈജിപ്ത്"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:9
 #: ../src/geography-activity/resources/geography/board4_1.xml.in.h:5
@@ -4016,7 +4002,7 @@ msgstr ""
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:11
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:13
 msgid "Ethiopia"
-msgstr ""
+msgstr "എത്യോപ്യ"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:12
 #: ../src/geography-activity/resources/geography/board4_1.xml.in.h:6
@@ -4031,7 +4017,7 @@ msgstr ""
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:14
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:15
 msgid "Ghana"
-msgstr ""
+msgstr "ഘാന"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:15
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:16
@@ -4070,7 +4056,7 @@ msgstr ""
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:22
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:25
 msgid "Morocco"
-msgstr ""
+msgstr "മൊറോക്കോ"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:23
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:28
@@ -4124,7 +4110,7 @@ msgstr ""
 #: ../src/geography-activity/resources/geography/board4_1.xml.in.h:19
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:37
 msgid "Uganda"
-msgstr ""
+msgstr "ഉഗാണ്ട"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:34
 msgid "Western Sahara"
@@ -4185,7 +4171,7 @@ msgstr ""
 #: ../src/geography-activity/resources/geography/board4_1.xml.in.h:15
 #: ../src/geography-activity/resources/geography/board4_2.xml.in.h:32
 msgid "South Africa"
-msgstr ""
+msgstr "ദക്ഷിണാഫ്രിക്ക"
 
 #: ../src/geography-activity/resources/geography/board4_1.xml.in.h:16
 msgid "Southern Africa"
@@ -4254,7 +4240,7 @@ msgstr ""
 #: ../src/gletters-activity/gletters.c:879
 #: ../src/smallnumbers-activity/smallnumbers.c:616
 msgid "Enable sounds"
-msgstr ""
+msgstr "ശബ്ദം പ്രവര്‍ത്തന സജ്ജമാക്കുക"
 
 #. toggle box
 #: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:486
@@ -4297,17 +4283,17 @@ msgstr ""
 #: ../src/gnumch-equality-activity/gnumch.py:94
 #, python-format
 msgid ", %d"
-msgstr ""
+msgstr ", %d"
 
 #: ../src/gnumch-equality-activity/gnumch.py:95
 #, python-format
 msgid " and %d"
-msgstr ""
+msgstr " %d യും"
 
 #: ../src/gnumch-equality-activity/gnumch.py:115
 #, python-format
 msgid "%d is divisible by %s."
-msgstr ""
+msgstr "%d %s കൊണ്ട് ശിഷ്ടമില്ലാതെ ഹരിക്കാവുന്നതാണ്"
 
 #: ../src/gnumch-equality-activity/gnumch.py:119
 msgid "1 is not a prime number."
@@ -4334,7 +4320,7 @@ msgstr " %d ന്റെ ഘടകങ്ങള്‍"
 #: ../src/gnumch-equality-activity/gnumch.py:195
 #, python-format
 msgid "%s are the factors of %d."
-msgstr ""
+msgstr "%s %dയുടെ ഘടകങ്ങളാണ്."
 
 #: ../src/gnumch-equality-activity/gnumch.py:207
 #, python-format
@@ -4344,27 +4330,27 @@ msgstr " %d ന്റെ ഗുണിതങ്ങള്‍"
 #: ../src/gnumch-equality-activity/gnumch.py:241
 #, python-format
 msgid "%s = %d"
-msgstr ""
+msgstr "%s = %d"
 
 #: ../src/gnumch-equality-activity/gnumch.py:252
 #, python-format
 msgid "%d + %d"
-msgstr ""
+msgstr "%d + %d"
 
 #: ../src/gnumch-equality-activity/gnumch.py:257
 #, python-format
 msgid "%d − %d"
-msgstr ""
+msgstr "%d − %d"
 
 #: ../src/gnumch-equality-activity/gnumch.py:262
 #, python-format
 msgid "%d × %d"
-msgstr ""
+msgstr "%d × %d"
 
 #: ../src/gnumch-equality-activity/gnumch.py:266
 #, python-format
 msgid "%d ÷ %d"
-msgstr ""
+msgstr "%d ÷ %d"
 
 #: ../src/gnumch-equality-activity/gnumch.py:274
 #, python-format
@@ -4391,6 +4377,8 @@ msgid ""
 "\n"
 "Press <Return> to continue."
 msgstr ""
+"\n"
+"തുടരാന്‍ <Return> അമര്‍ത്തുക"
 
 #: ../src/gnumch-equality-activity/gnumch.py:783
 msgid ""
@@ -4514,11 +4502,11 @@ msgstr "പരിധിക്ക് പുറത്ത്"
 
 #: ../src/guessnumber-activity/guessnumber.py:317
 msgid "Too high"
-msgstr ""
+msgstr "വളരെ വലുത്"
 
 #: ../src/guessnumber-activity/guessnumber.py:319
 msgid "Too low"
-msgstr ""
+msgstr "വളരെ ചെറുത്"
 
 #: ../src/guessnumber-activity/guessnumber.xml.in.h:1
 msgid "Guess a number"
@@ -4594,9 +4582,8 @@ msgid "Simplified Tower of Hanoi"
 msgstr ""
 
 #: ../src/hanoi-activity/hanoi.c:113 ../src/hanoi-activity/hanoi.xml.in.h:4
-#, fuzzy
 msgid "Reproduce the given tower"
-msgstr "മാതൃക പോലെ തൂണ്‍ നിര്‍മ്മിക്കൂ"
+msgstr "മാതൃക പോലെ ഗോപുരംനിര്‍മ്മിക്കൂ"
 
 #: ../src/hanoi-activity/hanoi.c:348
 #, fuzzy
@@ -4810,7 +4797,7 @@ msgstr ""
 #: ../src/imageid-activity/imageid.c:95
 #: ../src/missing_letter-activity/missingletter.c:85
 msgid "Learn how to read"
-msgstr ""
+msgstr "വായിക്കാന്‍ പഠിക്കുക"
 
 #: ../src/imageid-activity/imageid.c:526
 msgid ""
@@ -5099,7 +5086,7 @@ msgstr "സംഗീത ഉപകരണങ്ങള്‍"
 #. Translator: Do not translate {text}.
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:2
 msgid "Find {text}"
-msgstr "കണ്ടെത്തുക"
+msgstr "{text} കണ്ടെത്തുക"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:3
 msgid "the accordion"
@@ -5211,7 +5198,6 @@ msgid "Practice a foreign language"
 msgstr "ശീലിക്കാം പണമിടപാടുകള്‍"
 
 #: ../src/lang-activity/lang.py:56
-#, fuzzy
 msgid "Missing Image"
 msgstr "വിട്ടുപോയ അക്ഷരം"
 
@@ -5457,7 +5443,6 @@ msgstr "മാന്ത്രികന്റെ തൊപ്പി"
 #: ../src/magic_hat_plus-activity/magic_hat_plus.xml.in.h:1
 #: ../src/memory_add-activity/memory_add.xml.in.h:1
 #: ../src/memory_enumerate-activity/memory_enumerate.xml.in.h:1
-#, fuzzy
 msgid "Addition"
 msgstr "തുക കാണല്‍"
 
@@ -5486,7 +5471,6 @@ msgid "Can use the keyboard arrow to move an object."
 msgstr "കീബോര്‍ഡിലെ ആരോ കീ ഉപയോഗിച്ച് വസ്തുവിനെ നീക്കാം."
 
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:2
-#, fuzzy
 msgid "Find your way out of the maze (Move is relative)"
 msgstr "പുറത്തേയ്ക്കുള്ള വഴി കണ്ടെത്തുക."
 
@@ -5535,7 +5519,6 @@ msgstr ""
 "നല്‍കുന്നുള്ളൂ. ടക്സിനെ ദ്വിമാന രീതിയില്‍ ചലിപ്പിക്കാന്‍ സാധിക്കില്ല."
 
 #: ../src/maze-activity/maze.c:133 ../src/maze-activity/maze.xml.in.h:2
-#, fuzzy
 msgid "Find your way out of the maze"
 msgstr "പുറത്തേയ്കുള്ള വഴി കണ്ടെത്തുക"
 
@@ -5587,13 +5570,12 @@ msgid ""
 msgstr ""
 
 #: ../src/melody-activity/melody.xml.in.h:3
-#, fuzzy
 msgid "Melody"
 msgstr "മധുരഗാനം"
 
 #: ../src/melody-activity/melody.xml.in.h:5
 msgid "Repeat a melody"
-msgstr ""
+msgstr "മധുരഗാനം ആവര്‍ത്തിക്കുക"
 
 #: ../src/memory-activity/memory.c:280
 msgid "zero"
@@ -6267,13 +6249,13 @@ msgstr ""
 #: ../src/money-activity/money.c:795
 #, c-format
 msgid "$ %.2f"
-msgstr ""
+msgstr "₹ %.2f"
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
 #: ../src/money-activity/money.c:809
 #, c-format
 msgid "$ %.0f"
-msgstr ""
+msgstr "₹ %.0f"
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %d
 #: ../src/money-activity/money.c:936
@@ -7415,11 +7397,11 @@ msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "വീണു കൊണ്ടിരിക്കുന്ന വാക്ക് താഴെയെത്തുന്നതിനു മുമ്പ് കീബോര്‍ഡില്‍ ടൈപ്പ് ചെയ്യുക "
 
 #, fuzzy
-msgid "Indian"
-msgstr "ഇറ്റാലിയന്‌"
+#~ msgid "Indian"
+#~ msgstr "ഇറ്റാലിയന്‌"
 
-msgid "Author"
-msgstr "കര്ത്താവ്"
+#~ msgid "Author"
+#~ msgstr "കര്ത്താവ്"
 
 #~ msgid "Icon"
 #~ msgstr "ചിഹ്നം"
