@@ -679,6 +679,7 @@ src/gcompris/Makefile
 src/geo_country-activity/Makefile
 src/geo_country-activity/resources/Makefile
 src/geo_country-activity/resources/geo_country/Makefile
+src/geo_country-activity/resources/geo_country/australia/Makefile
 src/geo_country-activity/resources/geo_country/argentina/Makefile
 src/geo_country-activity/resources/geo_country/brazil/Makefile
 src/geo_country-activity/resources/geo_country/canada/Makefile
