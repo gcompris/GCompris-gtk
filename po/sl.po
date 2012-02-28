@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-02-16 08:51+0000\n"
-"PO-Revision-Date: 2012-02-17 21:13+0100\n"
+"POT-Creation-Date: 2012-02-26 14:57+0000\n"
+"PO-Revision-Date: 2012-02-28 21:20+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
@@ -3418,6 +3418,14 @@ msgstr "Zemljevid Nemčije je iz Wikipedije in je izdan pod GNU Free Documentati
 msgid "Regions of France"
 msgstr "Francoske regije"
 
+#: ../src/geo_country-activity/resources/geo_country/board12_0.xml.in.h:1
+msgid "India"
+msgstr "Indija"
+
+#: ../src/geo_country-activity/resources/geo_country/board13_0.xml.in.h:1
+msgid "Australia"
+msgstr "Avstralija"
+
 #: ../src/geo_country-activity/resources/geo_country/board2_0.xml.in.h:1
 msgid "Deutschland Bundesländer"
 msgstr "Nemške province"
@@ -4900,10 +4908,6 @@ msgstr "Tamburin"
 msgid "the tuba"
 msgstr "Tuba"
 
-#: ../src/lang-activity/lang.xml.in.h:1
-msgid "Practice a foreign language"
-msgstr "Vaja tujega jezika"
-
 #: ../src/lang-activity/lang.py:56
 msgid "Missing Image"
 msgstr "Manjkajoča slika"
@@ -4920,6 +4924,10 @@ msgstr ""
 #: ../src/lang-activity/lang.py:170
 msgid "Select locale"
 msgstr "Izbor jezikovnih nastavitev"
+
+#: ../src/lang-activity/lang.xml.in.h:1
+msgid "Practice a foreign language"
+msgstr "Vaja tujega jezika"
 
 #: ../src/leftright-activity/leftright.c:230
 #: ../src/searace-activity/searace.py:415
