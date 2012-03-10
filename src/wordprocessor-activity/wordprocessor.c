@@ -16,11 +16,13 @@
  *   along with this program; if not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <unistd.h>
 #include <string.h>
 #include <glib/gstdio.h>
 #include <libxml/HTMLparser.h>
 
 #include "gcompris/gcompris.h"
+#include "gcompris/sugar_gc.h"
 
 /*
  * Predefined styles
@@ -162,6 +164,8 @@ static gint		 get_color_style_current_index();
 static GtkTextTag       *get_tag_from_name(gchar *name);
 static void		 apply_style(int style_index);
 static void		 apply_color_style(int style_index);
+static void      load_buffer(gchar *file, gchar *file_type, void *unused);
+static void      save_buffer(gchar *file, gchar *file_type, void *unused);
 
 #define word_area_x1 120
 #define word_area_y1 20
@@ -252,12 +256,19 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel=1;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
-      gc_bar_set(0);
+      gc_bar_set(GC_BAR_JOURNAL);
       gc_bar_location(10, -1, 0.6);
 
       gc_set_default_background(goo_canvas_get_root_item(gcomprisBoard->canvas));
 
       wordprocessor_create();
+
+      if (sugar_detected())
+      {
+        const char *file_to_load = sugar_load();
+        if (file_to_load)
+          load_buffer((char*)file_to_load, NULL, NULL);
+      }
 
       pause_board(FALSE);
 
@@ -269,6 +280,22 @@ static void end_board ()
   if(gcomprisBoard!=NULL)
     {
       pause_board(TRUE);
+
+      if (sugar_detected())
+      {
+        char tmp_file[] = "/tmp/GComprisXXXXXX";
+        int fd = mkstemp(tmp_file);
+        if (fd == -1)
+          g_warning("Cannot create temporary file to save");
+        else
+        {
+          fchmod(fd, 0644);
+          close(fd);
+          save_buffer(tmp_file, NULL, NULL);
+          sugar_save(tmp_file);
+        }
+      }
+
       wordprocessor_destroy_all_items();
     }
   gcomprisBoard = NULL;
@@ -354,6 +381,7 @@ static GooCanvasItem *wordprocessor_create()
   doctype_list[4] = &type_big;
 
   y = 20.0;
+  if (!sugar_detected()) {
   /*
    * The save button
    */
@@ -395,6 +423,7 @@ static GooCanvasItem *wordprocessor_create()
 
 
   y += 45;
+  }
   /*
    * Display the style buttons
    */

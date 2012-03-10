@@ -47,6 +47,7 @@
 #include "gcompris_config.h"
 #include "about.h"
 #include "bar.h"
+#include "sugar_gc.h"
 #include "status.h"
 #include <locale.h>
 
@@ -144,7 +145,6 @@ static gchar *popt_server          = NULL;
 static gint  *popt_web_only        = NULL;
 static gchar *popt_cache_dir       = NULL;
 static gchar *popt_drag_mode       = NULL;
-static gint popt_sugar_look        = FALSE;
 static gint popt_no_zoom           = FALSE;
 static gint popt_test              = FALSE;
 static gdouble popt_timing_base    = 1.0;
@@ -252,9 +252,6 @@ static GOptionEntry options[] = {
 
   {"nolockcheck", '\0', 0, G_OPTION_ARG_NONE, &popt_nolockcheck,
    N_("Do not avoid the execution of multiple instances of GCompris."), NULL},
-
-  {"sugar",'\0', 0, G_OPTION_ARG_NONE, &popt_sugar_look,
-   ("Use Sugar DE look&feel"), NULL},
 
   {"no-zoom",'\0', 0, G_OPTION_ARG_NONE, &popt_no_zoom,
    N_("Disable maximization zoom"), NULL},
@@ -1105,7 +1102,7 @@ void _set_geometry_hints(gboolean state)
   gint geom_mask = GDK_HINT_RESIZE_INC |
                    GDK_HINT_MIN_SIZE |
                    GDK_HINT_BASE_SIZE;
-  if (!popt_sugar_look)
+  if (!sugar_detected())
       geom_mask |= GDK_HINT_ASPECT;
   gtk_window_set_geometry_hints (GTK_WINDOW (window), NULL, &hints, geom_mask);
 }
@@ -1140,7 +1137,7 @@ void gc_fullscreen_set(gboolean state)
       gtk_window_set_decorated ( GTK_WINDOW ( window ), FALSE );
       gtk_window_set_type_hint ( GTK_WINDOW ( window ),
 				 GDK_WINDOW_TYPE_HINT_DESKTOP );
-      if (popt_sugar_look)
+      if (sugar_detected())
 	gtk_window_maximize ( GTK_WINDOW( window ) );
       else
         gtk_window_fullscreen ( GTK_WINDOW ( window ) );
@@ -1195,6 +1192,7 @@ static void cleanup()
   single_instance_release(); /* Must be done before property destroy */
   gc_board_stop();
   gc_db_exit();
+  sugar_cleanup();
   gc_fullscreen_set(FALSE);
   gc_menu_destroy();
   gc_net_destroy();
@@ -1254,17 +1252,21 @@ static void map_cb (GtkWidget *widget, gpointer data)
 
       gc_fullscreen_set(properties->fullscreen);
 
-      gc_status_init("");
+      gc_bar_start(GTK_CONTAINER(workspace), GOO_CANVAS(canvas));
 
       gc_board_init();
+
+      if (sugar_delayed_start())
+        gc_status_init(_("Retrieving remote data..."));
+      else
+      {
+      gc_status_init("");
       /* Load all the menu once */
       gc_menu_load();
       /* Save the root_menu */
       properties->menu_board = gc_menu_section_get(properties->root_menu);
-
-      gc_bar_start(GTK_CONTAINER(workspace), GOO_CANVAS(canvas));
-
       gc_status_close();
+
 
       board_to_start = get_board_to_start();
 
@@ -1283,6 +1285,8 @@ static void map_cb (GtkWidget *widget, gpointer data)
       }
 
     }
+  }
+
   g_message("gcompris window is now mapped");
 }
 
@@ -1627,6 +1631,7 @@ main (int argc, char *argv[])
   popt_difficulty_filter = -1;
 
   gtk_init (&argc, &argv);
+  sugar_setup(&argc, &argv);
 
   /* Argument parsing */
   context = g_option_context_new("GCompris");
@@ -1640,6 +1645,10 @@ main (int argc, char *argv[])
 		     | G_LOG_FLAG_RECURSION, gc_log_handler, NULL);
 
   /*------------------------------------------------------------*/
+
+  if (sugar_jobject_root_menu())
+    popt_root_menu = (gchar*)sugar_jobject_root_menu();
+
   if (popt_debug)
     {
       gc_debug = TRUE;
@@ -1919,7 +1928,8 @@ main (int argc, char *argv[])
     properties->music = FALSE;
     properties->fx = FALSE;
     g_message("Fullscreen and cursor is disabled");
-    properties->fullscreen = FALSE;
+    if (!sugar_detected())
+      properties->fullscreen = FALSE;
     properties->defaultcursor = GDK_LEFT_PTR;
   }
 
@@ -1984,6 +1994,8 @@ main (int argc, char *argv[])
     else
       gc_db_init(FALSE /* ENABLE DATABASE */);
 
+  sugar_setup_profile(popt_root_menu, popt_administration);
+
   /* An alternate profile is requested, check it does exists */
   if (popt_profile){
     properties->profile = gc_db_profile_from_name_get(popt_profile);
@@ -2015,17 +2027,6 @@ main (int argc, char *argv[])
     exit(0);
   }
 
-  if (popt_sugar_look){
-    #ifdef USE_SUGAR
-      extern Bar sugar_bar;
-      gc_bar_register(&sugar_bar);
-      extern Score sugar_score;
-      gc_score_register(&sugar_score);
-    #else
-	  printf("GCompris was not built with Sugar DE support.\n");
-      popt_sugar_look = FALSE;
-    #endif
-  }
 
   if (popt_no_zoom){
     g_message("Zoom disabled");
@@ -2055,6 +2056,7 @@ main (int argc, char *argv[])
 #endif
 
   setup_window ();
+  sugar_setup_x11();
 
   gtk_widget_show_all (window);
 

@@ -33,6 +33,7 @@
 #include <gcompris.h>
 #include "gcompris_db.h"
 #include "profile.h"
+#include "sugar_gc.h"
 
 #define KEYLOG_MAX 256
 
@@ -103,7 +104,13 @@ void gc_log_end (GcomprisBoard *gcomprisBoard, GCBonusStatusList status) {
 
   struct tm *tp;
 
+  int user_id = -1;
+  const gchar *user_login = "";
   GcomprisUser *gcomprisUser = gc_profile_get_current_user();
+  if (gcomprisUser) {
+    user_id = gcomprisUser->user_id;
+    user_login = gcomprisUser->login;
+  }
 
   /* A board change in between doesn't make sense */
   if(gcomprisBoard_set != gcomprisBoard)
@@ -118,11 +125,14 @@ void gc_log_end (GcomprisBoard *gcomprisBoard, GCBonusStatusList status) {
   /* convert the time to a string according to the format specification in fmt */
   strftime(buf, sizeof(buf), fmt, tp);
 
-
-  gc_db_log(buf, (guint)duration,
-	    gcomprisUser->user_id, gcomprisBoard->board_id,
-	    gcomprisBoard->level, gcomprisBoard->sublevel,
-	    status, comment_set);
+  if (sugar_detected())
+    sugar_report(buf, (guint)duration, user_login, gcomprisBoard, status,
+            comment_set);
+  else
+    gc_db_log(buf, (guint)duration,
+          user_id, gcomprisBoard->board_id,
+          gcomprisBoard->level, gcomprisBoard->sublevel,
+          status, comment_set);
 
   g_free(comment_set);
 }

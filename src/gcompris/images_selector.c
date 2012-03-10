@@ -29,6 +29,7 @@
 
 #include "gcompris.h"
 #include "gc_core.h"
+#include "sugar_gc.h"
 
 #define SOUNDLISTFILE PACKAGE
 
@@ -112,6 +113,12 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
   gchar		*dataseturl = NULL;
 
   GtkWidget	*w;
+
+  if(sugar_detected())
+  {
+    sugar_choose_image(iscb, user_context);
+    return;
+  }
 
   if(rootitem)
     return;
