@@ -888,7 +888,7 @@ escape(char *input)
       else
 	{
 	  result[o++] = c;
-	  result[o+1] = '\0';
+	  result[o] = '\0';
 	}
     }
   g_free(input);
