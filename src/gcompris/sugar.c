@@ -69,7 +69,7 @@ sugar_setup(int *argc, char ***argv)
 
   g_debug("Use sugar mode");
 
-  if (strcmp("net.gcompris.administration",
+  if (strcmp("activities.gcompris.administration",
               sugar_environ_get_bundle_id()) == 0)
   {
     /* There should be only one bundle_id for GCompris objects in

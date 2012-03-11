@@ -875,6 +875,7 @@ src/wordprocessor-activity/Makefile
 src/wordprocessor-activity/resources/Makefile
 src/wordprocessor-activity/resources/wordprocessor/Makefile
 src/wordsgame-activity/Makefile
+sugar/Makefile
 ])
 
 echo ""
