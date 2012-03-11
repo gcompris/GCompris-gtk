@@ -1,8 +1,6 @@
 ## Process this file with automake to produce Makefile.in
 
 INCLUDES = \
-	-DG_DISABLE_DEPRECATED -DPANGO_DISABLE_DEPRECATED \
-	-DGDK_PIXBUF_DISABLE_DEPRECATED \
 	-DG_LOG_DOMAIN=\"GooCanvas\" \
 	@GCOMPRIS_CFLAGS@
 
