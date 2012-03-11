@@ -23,5 +23,8 @@ dist_python_DATA= \
 	user_edit.py \
 	user_list.py \
         group_list.py \
-	wordlist.py
+	wordlist.py \
+	module_logins.py \
+	module_activities.py \
+	profile_widget.py
 

@@ -1,6 +1,7 @@
-#  gcompris - module_boards.py
+#  gcompris - module_activities.py
 #
 # Copyright (C) 2005, 2008 Yves Combe
+# Copyright (C) 2012, Aleksey Lim
 #
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
@@ -40,13 +41,13 @@ except:
 import module
 import board_list
 
-class Boards(module.Module):
+class Activities(module.Module):
   """Administrating GCompris Boards"""
 
   already_loaded = False
 
   def __init__(self, canvas):
-    module.Module.__init__(self, canvas, "boards", _("Boards"))
+    module.Module.__init__(self, canvas, "activities", _("Activities"))
 
   # Return the position it must have in the administration menu
   # The smaller number is the highest.
@@ -58,12 +59,12 @@ class Boards(module.Module):
     self.con = sqlite.connect(gcompris.get_database())
     self.cur = self.con.cursor()
 
-    if Boards.already_loaded:
+    if Activities.already_loaded:
       self.rootitem.props.visibility = goocanvas.ITEM_VISIBLE
       self.boardList.show(self.con, self.cur)
       return
 
-    Boards.already_loaded = True
+    Activities.already_loaded = True
 
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains automaticaly.
@@ -74,7 +75,7 @@ class Boards(module.Module):
 
     module.Module.start(self)
 
-    self.frame = gtk.Frame(_("Boards"))
+    self.frame = gtk.Frame(_("Activities"))
     self.frame.show()
 
     goocanvas.Widget(
@@ -86,13 +87,8 @@ class Boards(module.Module):
       height=area[3]-area[1]-2*self.module_panel_ofset,
       anchor=gtk.ANCHOR_NW)
 
-    # Get default pofile id.
-    self.cur.execute('SELECT profile_id FROM informations;')
-    self.con.commit()
-    default_profile_id = self.cur.fetchall()[0][0]
-
-    self.boardList = board_list.Board_list(self.con, self.cur,
-                                           self.frame, default_profile_id)
+    self.boardList = board_list.Board_list(self.con, self.cur, self.frame,
+            gcompris.sugar_get_profile_id(), hide_profiles=True)
     self.boardList.init()
 
   def stop(self):

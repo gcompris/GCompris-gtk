@@ -1,6 +1,7 @@
-#  gcompris - module_boards.py
+#  gcompris - module_logins.py
 #
-# Copyright (C) 2005, 2008 Yves Combe
+# Copyright (C) 2005, 2008 Bruno Coudoin and Yves Combe
+# Copyright (C) 2012, Aleksey Lim
 #
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
@@ -14,17 +15,19 @@
 #
 #   You should have received a copy of the GNU General Public License
 #   along with this program; if not, see <http://www.gnu.org/licenses/>.
-#
 
 import goocanvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
-import gcompris.admin
 import gtk
 import gtk.gdk
 from gcompris import gcompris_gettext as _
-import sys;
+
+import module
+import profile_list
+import profile_edit
+import profile_widget
 
 # Database
 try:
@@ -37,33 +40,22 @@ except:
         'http://initd.org/tracker/pysqlite/'
     sys.exit(1)
 
-import module
-import board_list
+class Logins(module.Module):
+  """Administrating GCompris Profiles"""
 
-class Boards(module.Module):
-  """Administrating GCompris Boards"""
-
-  already_loaded = False
 
   def __init__(self, canvas):
-    module.Module.__init__(self, canvas, "boards", _("Boards"))
+    module.Module.__init__(self, canvas, "logins", _("Logins"))
 
   # Return the position it must have in the administration menu
   # The smaller number is the highest.
   def position(self):
-    return 3
+    return 2
 
   def start(self, area):
     # Connect to our database
     self.con = sqlite.connect(gcompris.get_database())
     self.cur = self.con.cursor()
-
-    if Boards.already_loaded:
-      self.rootitem.props.visibility = goocanvas.ITEM_VISIBLE
-      self.boardList.show(self.con, self.cur)
-      return
-
-    Boards.already_loaded = True
 
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains automaticaly.
@@ -74,33 +66,28 @@ class Boards(module.Module):
 
     module.Module.start(self)
 
-    self.frame = gtk.Frame(_("Boards"))
-    self.frame.show()
+    frame = gtk.Frame(_("Logins"))
 
     goocanvas.Widget(
       parent = self.rootitem,
-      widget=self.frame,
+      widget=frame,
       x=area[0]+self.module_panel_ofset,
       y=area[1]+self.module_panel_ofset,
       width=area[2]-area[0]-2*self.module_panel_ofset,
       height=area[3]-area[1]-2*self.module_panel_ofset,
       anchor=gtk.ANCHOR_NW)
 
-    # Get default pofile id.
-    self.cur.execute('SELECT profile_id FROM informations;')
-    self.con.commit()
-    default_profile_id = self.cur.fetchall()[0][0]
+    self.profile_widget = profile_widget.ProfileWidget(self.con, self.cur,
+            gcompris.sugar_get_profile_id(), False)
+    frame.add(self.profile_widget)
 
-    self.boardList = board_list.Board_list(self.con, self.cur,
-                                           self.frame, default_profile_id)
-    self.boardList.init()
+    frame.show_all()
 
   def stop(self):
     module.Module.stop(self)
 
-    # This module is slow to start, we just hide it
-    self.rootitem.props.visibility = goocanvas.ITEM_INVISIBLE
-    self.boardList.hide()
+    # Remove the root item removes all the others inside it
+    self.rootitem.remove()
 
     # Close the database
     self.cur.close()
