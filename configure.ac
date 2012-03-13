@@ -683,6 +683,7 @@ src/geo_country-activity/resources/geo_country/australia/Makefile
 src/geo_country-activity/resources/geo_country/argentina/Makefile
 src/geo_country-activity/resources/geo_country/brazil/Makefile
 src/geo_country-activity/resources/geo_country/canada/Makefile
+src/geo_country-activity/resources/geo_country/china/Makefile
 src/geo_country-activity/resources/geo_country/france/Makefile
 src/geo_country-activity/resources/geo_country/germany/Makefile
 src/geo_country-activity/resources/geo_country/italy/Makefile
