@@ -29,6 +29,8 @@ import gtk.gdk
 import gobject
 import cairo
 
+import random
+
 from gcompris import gcompris_gettext as _
 
 class Gcompris_drawnumber :
@@ -257,6 +259,12 @@ class Gcompris_drawnumber :
 
       if not self.data_activity.has_key(level):
          self.data_activity[level] = []
+      # Begin randomized start position
+      del points[-1]
+      start = random.randint(0,len(points)-1)
+      playpoints = points[start:]+points[0:start]
+      playpoints.append(playpoints[0])
+      points = playpoints
       self.data_activity[level].append( Dataset(img1, img2, points) )
 
     f.close()
