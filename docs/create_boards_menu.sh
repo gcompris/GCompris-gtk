@@ -11,6 +11,9 @@ do
   /usr/bin/intltool-merge -x -u -c ../po/.intltool-merge-cache ../po $m boards/$menu
 done
 
-rm boards/pythontemplate.xml
-rm boards/pythontest.xml
+for f in $(grep -l 'section="/experimental"' boards/*)
+do
+  echo removing experimental $f
+  rm -f $f
+done
 rm boards/tuxpaint.xml

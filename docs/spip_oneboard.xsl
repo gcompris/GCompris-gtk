@@ -48,11 +48,10 @@
             </surtitre>
 
             <titre>__REMOVEME__
-              <xsl:variable name="tmptext" select="title[@xml:lang=$language]"/>
+	      <xsl:value-of select="$article_id"/>. <xsl:variable name="tmptext" select="title[@xml:lang=$language]"/>
               <xsl:if test="not($tmptext)">
                 <xsl:value-of select="title"/>
               </xsl:if>
-              <xsl:value-of select="$tmptext"/>
             </titre>
 
             <descriptif>__REMOVEME__

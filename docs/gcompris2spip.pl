@@ -101,6 +101,7 @@ my %sections = (
 		'sr@latin', 0,
 		"sv", 208,
 		"ta", 154,
+		"te", 0,
 		"th", 0,
 		"tr", 157,
 		"uk", 161,
@@ -173,6 +174,7 @@ my %rubriques = (
 		 'sr@latin', 0,
 		 "sv", 213,
 		 "ta", 155,
+                 "te", 0,
 		 "th", 0,
 		 "tr", 158,
 		 "uk", 164,
@@ -246,6 +248,7 @@ my %rubriques_all = (
 		 'sr@latin', 0,
 		 "sv", 220,
 		 "ta", 156,
+		 "te", 0,
 		 "th", 0,
 		 "tr", 159,
 		 "uk", 165,
@@ -294,6 +297,7 @@ my $date = "".($year+1900)."-".($month+1)."-"."$day $hours:$min:$sec";
 my $gcompris_root_dir = "..";
 my $boards_dir        = "$gcompris_root_dir/docs/boards";
 my $ALL_LINGUAS_STR   = `grep "ALL_LINGUAS=" $gcompris_root_dir/configure.ac | sed s/en_[A-Z][A-Z]//g | cut -d= -f2`;
+#my $ALL_LINGUAS_STR = "";
 $ALL_LINGUAS_STR      =~ s/\"//g;
 my @ALL_LINGUAS       = split(' ', $ALL_LINGUAS_STR);
 push @ALL_LINGUAS, "en";	# Add english, it's not in the po list
@@ -327,9 +331,18 @@ my $article_id    = $first_article;
 
 
 # First, Get all the boards description files
-opendir DIR, $boards_dir or die "cannot open dir $boards_dir: $!";
-my @files = grep { $_ =~ /\.xml$/} readdir DIR;
-closedir DIR;
+my $boards_dir        = "boards";
+my @files;
+
+# We get first the menu
+push @files, split(/ /, `grep -l 'type="menu"' $boards_dir/*.xml | sed s:boards/:: | xargs`);
+chomp($files[$#files]);
+
+# Then the difficulty 1 to 6
+for my $level (1..6) {
+    push @files, split(/ /, `grep -l 'difficulty="$level"' $boards_dir/*.xml | sed s:boards/:: | xargs`);
+    chomp($files[$#files]);
+}
 
 #-------------------------------------------------------------------------------
 # Menu creation

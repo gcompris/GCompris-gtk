@@ -10,7 +10,7 @@
     standalone="no"
     cdata-section-elements="namelist"
     indent="yes"/>
-  
+
 
   <xsl:template match="/">
 
@@ -61,7 +61,7 @@
 
         <HTML>
           <DIV class="conteneur">
-            
+
             <xsl:for-each select="GComprisBoards/GCompris/Board[@section=$section and @type!='menu']">
               <!-- order the result by difficulty -->
               <xsl:sort select="@difficulty"
@@ -75,8 +75,7 @@
                   </xsl:attribute>
                   <IMG border="0" align="top" alt="">
                     <xsl:attribute name="src">
-                      <xsl:value-of select="concat('screenshots/',@name)"/>_small.jpg
-                    </xsl:attribute>
+                      <xsl:value-of select="concat('screenshots/',@name)"/>_small.jpg</xsl:attribute>
                     <xsl:attribute name="title">
                       <xsl:variable name="tmptext" select="title[@xml:lang=$language]"/>
                       <xsl:if test="not($tmptext)">
