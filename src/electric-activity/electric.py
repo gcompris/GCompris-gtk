@@ -495,17 +495,21 @@ class Wire:
     #numbered sequentially.
     counter = 1
     connection = {}
-    colors = [ 0xdfc766FFL,
-               0xdf9766FFL,
-               0xdf667dFFL,
-               0xdf66bcFFL,
-               0xc466dfFFL,
-               0x9c66dfFFL,
-               0xA4FFB3FFL,
-               0x6666dfFFL,
-               0x669fdfFFL,
-               0x66df6cFFL,
-               0x66dfd8FFL ]
+    colors = [
+      0x000573FFL,
+      0x087008FFL,
+      0x0a62e5FFL,
+      0x33666cFFL,
+      0x669fdfFFL,
+      0x73004cFFL,
+      0x9c66dfFFL,
+      0xAA6633FFL,
+      0xCC3366FFL,
+      0xDD33CCFFL,
+      0xc466dfFFL,
+      0xdf66bcFFL,
+      0xe03f1bFFL
+      ]
 
     def __init__(self, electric, source_node, x1, y1, x2, y2):
       self.electric = electric
@@ -521,9 +525,8 @@ class Wire:
         parent = self.rootitem,
         points = goocanvas.Points([(self.x1, self.y1),
                                    (self.x2, self.y2)]),
-        stroke_color_rgba = 0xFF0000FFL,
         line_cap = cairo.LINE_CAP_ROUND,
-        line_width=5.0
+        line_width=7.0
         )
       self.wire_item.connect("button_press_event", self.delete_wire, self)
       self.wire_id = -1
@@ -555,6 +558,10 @@ class Wire:
 
         Wire.connection[node] = self
 
+      # Colorize the wire
+      print hex(Wire.colors[self.wire_id % len(Wire.colors)])
+      self.wire_item.set_properties(stroke_color_rgba = \
+                                      Wire.colors[self.wire_id % len(Wire.colors)])
       if debug: print "WIRE_ID = %d" %self.wire_id
 
     def set_wire_id(self, id):
@@ -563,9 +570,6 @@ class Wire:
         self.target_node.renumber_wire(self, id)
       if(self.source_node):
         self.source_node.renumber_wire(self, id)
-
-      # Colorize the wire
-      self.wire_item.set_properties(fill_color_rgba = Wire.colors[id % len(Wire.colors)])
 
     def get_wire_id(self):
       return self.wire_id
@@ -585,9 +589,6 @@ class Wire:
     def set_target_node(self, node):
       self.target_node = node
       self._add_connection(node)
-
-      # Colorize the wire
-      self.wire_item.set_properties(fill_color_rgba = Wire.colors[self.wire_id % len(Wire.colors)])
 
     # Move wire. In fact, the attached component are moved and THEY
     # move the wire
