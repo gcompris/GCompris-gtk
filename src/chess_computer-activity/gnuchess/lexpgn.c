@@ -1847,7 +1847,7 @@ static int yy_flex_strlen YY_PROTO(( yyconst char * ));
 #ifdef __cplusplus
 static int yyinput YY_PROTO(( void ));
 #else
-static int input YY_PROTO(( void ));
+static int __attribute__ ((unused)) input YY_PROTO(( void ));
 #endif
 #endif
 

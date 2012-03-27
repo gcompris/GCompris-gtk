@@ -1,7 +1,7 @@
 /* GNU Chess 5.0 - eval.c - evaluation code
    Copyright (c) 1999-2002 Free Software Foundation, Inc.
 
-   GNU Chess is based on the two research programs 
+   GNU Chess is based on the two research programs
    Cobalt by Chua Kong-Sian and Gazebo by Stuart Cracraft.
 
    GNU Chess is free software; you can redistribute it and/or modify
@@ -19,7 +19,7 @@
    the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.
 
-   Contact Info: 
+   Contact Info:
      bug-gnu-chess@gnu.org
      cracraft@ai.mit.edu, cracraft@stanfordalumni.org, cracraft@earthlink.net
 */
@@ -47,7 +47,7 @@ int DoubleQR7 (short);
 BitBoard passed[2];
 BitBoard weaked[2];
 
-static int PawnSq[2][64] = 
+static int PawnSq[2][64] =
 {
 {  0,  0,  0,  0,  0,  0,  0,  0,
    5,  5,  5,-10,-10,  5,  5,  5,
@@ -99,8 +99,8 @@ int ScoreP (short side)
  *  2.  Passed pawns.
  *  3.  Backward pawns.
  *  4.  Pawn base under attack.
- *  5.  Doubled pawns 
- *  6.  Isolated pawns 
+ *  5.  Doubled pawns
+ *  6.  Isolated pawns
  *  7.  Connected passed pawns on 6/7th rank.
  *  8.  Unmoved & blocked d, e pawn
  *  9.  Passed pawn which cannot be caught.
@@ -112,14 +112,12 @@ int ScoreP (short side)
    int s, sq, i, i1;
    int n1, n2, backward;
    int nfile[8];
-   int EnemyKing;
-   BitBoard c, t, p, blocker, *e;
+   BitBoard c, t, p, blocker;
    PawnSlot *ptable;
 
    if (board.b[side][pawn] == NULLBITBOARD)
       return (0);
    xside = 1^side;
-   EnemyKing = board.king[xside];
    p = board.b[xside][pawn];
    c = t = board.b[side][pawn];
    ptable = PawnTab[side] + (PawnHashKey & PHashMask);
@@ -130,7 +128,7 @@ int ScoreP (short side)
       s = ptable->score;
       passed[side] = ptable->passed;
       weaked[side] = ptable->weaked;
-      goto phase2; 
+      goto phase2;
    }
 
    s = 0;
@@ -141,13 +139,13 @@ int ScoreP (short side)
    {
       sq = leadz (t);
       CLEARBIT (t, sq);
-      s += PawnSq[side][sq]; 
+      s += PawnSq[side][sq];
 
       /*  Passed pawns  */
       if ((p & PassedPawnMask[side][sq]) == NULLBITBOARD)
       {
 	 if ((side == white && (FromToRay[sq][sq|56] & c) == 0) ||
-	     (side == black && (FromToRay[sq][sq&7] & c) == 0)) 
+	     (side == black && (FromToRay[sq][sq&7] & c) == 0))
          {
             passed[side] |= BitPosArray[sq];
             s += (Passed[side][RANK(sq)] * phase) / 12;
@@ -191,7 +189,7 @@ int ScoreP (short side)
       /* Pawn base under attack */
       if ((MoveArray[ptype[side]][sq] & p) && (MoveArray[ptype[side]][sq] & c))
          s += PAWNBASEATAK;
- 
+
       /*  Increment file count for isolani & doubled pawn evaluation */
       nfile[ROW(sq)]++;
    }
@@ -238,7 +236,7 @@ int ScoreP (short side)
   }
 
 
-   /* Save the score into the pawn hash table */ 
+   /* Save the score into the pawn hash table */
    ptable->pkey = KEY(PawnHashKey);
    ptable->passed = passed[side];
    ptable->weaked = weaked[side];
@@ -246,9 +244,9 @@ int ScoreP (short side)
    ptable->phase = phase;
 
 /***************************************************************************
- *  
+ *
  *  This section of the pawn code cannot be saved into the pawn hash as
- *  they depend on the position of other pieces.  So they have to be 
+ *  they depend on the position of other pieces.  So they have to be
  *  calculated again.
  *
  ***************************************************************************/
@@ -257,7 +255,7 @@ phase2:
    /* Pawn on f6/c6 with Queen against castled king is very strong */
    c = board.b[side][pawn];
    sq = board.king[xside];
-   if (side == white && board.b[side][queen] && 
+   if (side == white && board.b[side][queen] &&
 	(BitPosArray[C6] | BitPosArray[F6]) & c)
    {
       if (c & BitPosArray[F6] && sq > H6 && distance[sq][G7]==1)
@@ -276,7 +274,7 @@ phase2:
 
    /* Connected passed pawns on 6th or 7th rank */
    t = passed[side] & brank67[side];
-   if (t && (board.pmaterial[xside] == ValueR || 
+   if (t && (board.pmaterial[xside] == ValueR ||
 	(board.pmaterial[xside] == ValueN &&
 	pieces[xside] == board.b[xside][knight])))
    {
@@ -300,7 +298,6 @@ phase2:
    /* Enemy has no pieces & King is outside of passed pawn square */
    if (passed[side] && board.pmaterial[xside]==0)
    {
-      e = board.b[xside];
       i1 = board.king[xside];
       p = passed[side];
       while (p)
@@ -407,7 +404,6 @@ int ScoreN (short side)
 {
    int xside;
    int s, s1, sq;
-   int EnemyKing;
    BitBoard c, t;
 
    if (board.b[side][knight] == NULLBITBOARD)
@@ -415,8 +411,7 @@ int ScoreN (short side)
    xside = side^1;
    s = s1 = 0;
    c = board.b[side][knight];
-   t = board.b[xside][pawn]; 
-   EnemyKing = board.king[xside];
+   t = board.b[xside][pawn];
 
    if ( c & pinned )
    {
@@ -430,11 +425,11 @@ int ScoreN (short side)
 
       /* Control */
       s1 = CTL(sq,knight,side);
-  
+
       if ( (BitPosArray[sq] & rings[3]) != NULLBITBOARD)
 	s1 += KNIGHTONRIM;
 
-      if (Outpost[side][sq] && 
+      if (Outpost[side][sq] &&
 	  !(t & IsolaniMask[ROW(sq)] & PassedPawnMask[side][sq]) )
       {
          s1 += OUTPOSTKNIGHT;
@@ -443,7 +438,7 @@ int ScoreN (short side)
          if (MoveArray[ptype[xside]][sq] & board.b[side][pawn])
             s1 += OUTPOSTKNIGHT;
       }
-    
+
       /* Attack on weak opponent pawns */
       if (MoveArray[knight][sq] & weaked[xside])
          s1 += ATAKWEAKPAWN;
@@ -467,7 +462,7 @@ int ScoreB (short side)
  ****************************************************************************/
 {
    int xside;
-   int s, s1, n, sq, EnemyKing;
+   int s, s1, n, sq;
    BitBoard c, t;
 
    if (board.b[side][bishop] == NULLBITBOARD)
@@ -475,7 +470,6 @@ int ScoreB (short side)
    s = s1 = 0;
    c = board.b[side][bishop];
    xside = side ^ 1;
-   EnemyKing = board.king[xside];
    n = 0;
    t = board.b[xside][pawn];
 
@@ -494,7 +488,7 @@ int ScoreB (short side)
       s1 = CTL(sq,bishop,side);
 
       /*  Outpost bishop */
-      if (Outpost[side][sq] && 
+      if (Outpost[side][sq] &&
 	  !(t & IsolaniMask[ROW(sq)] & PassedPawnMask[side][sq]))
       {
          s1 += OUTPOSTBISHOP;
@@ -528,7 +522,7 @@ int ScoreB (short side)
    }
 
    /* Doubled bishops */
-   if (n > 1)            
+   if (n > 1)
       s += DOUBLEDBISHOPS;
 
    return (s);
@@ -547,7 +541,7 @@ int BishopTrapped (short side)
 
    /* Don't waste time */
    if (board.b[side][bishop] == NULLBITBOARD)
-     return (0); 
+     return (0);
 
    if (side == white)
    {
@@ -650,7 +644,7 @@ int DoubleQR7 (short side)
 /***************************************************************************
  *
  *  This code just check to see if there is a QQ or QR or RR combo on the
- *  7th rank.  This is very strong and given quite a big bonus.  This 
+ *  7th rank.  This is very strong and given quite a big bonus.  This
  *  routine is called by the lazy section.
  *
  ***************************************************************************/
@@ -659,7 +653,7 @@ int DoubleQR7 (short side)
 
    xside = 1^side;
    if (nbits ((board.b[side][queen]|board.b[side][rook]) & brank7[side]) > 1
-      && ((board.b[xside][king] & brank8[side]) || 
+      && ((board.b[xside][king] & brank8[side]) ||
 	  (board.b[xside][pawn] & brank7[side])))
 
       return (ROOKS7RANK);
@@ -679,7 +673,7 @@ int ScoreQ (short side)
    int xside;
    int s, s1, sq, EnemyKing;
    BitBoard c;
-   
+
    s = s1 = 0;
 
    /* Try to keep our queen on the board for attacking purposes. */
@@ -688,7 +682,7 @@ int ScoreQ (short side)
          s += QUEEN_NOT_PRESENT;
        }
        return(s);
-    }                                                                           
+    }
 
    xside = 1 ^ side;
    c = board.b[side][queen];
@@ -771,13 +765,13 @@ int ScoreK (short side)
    rank = RANK (sq);
    KingSafety[side] = 0;
    if (!ENDING)
-   { 
+   {
 
       s += ((6 - phase) * KingSq[sq] + phase * EndingKing[sq]) / 6;
 
       /* After castling kingside, reward having all 3 pawns in front but not if
 	 there is a threatening pawn. This permits the freeing move F3/F6. */
-	 
+
       if (side == white)
         n = nbits (MoveArray[king][sq] & board.b[side][pawn] & RankBit[rank+1]);
       else
@@ -793,12 +787,12 @@ int ScoreK (short side)
 	    /* Kingside - rook on original square and unmoved. */
 	    if ( (board.b[side][rook] & BitPosArray[H1])!=NULLBITBOARD &&
 		 Mvboard[H1] == 0)
-                   n = nbits (MoveArray[king][G1] & 
+                   n = nbits (MoveArray[king][G1] &
 			      board.b[side][pawn] & RankBit[rank+1]);
 	    /* Queenside */
 	    if ( (board.b[side][rook] & BitPosArray[A1])!=NULLBITBOARD &&
 		 Mvboard[A1] == 0)
-                   n = nbits (MoveArray[king][C1] & 
+                   n = nbits (MoveArray[king][C1] &
 			      board.b[side][pawn] & RankBit[rank+1]);
           }
    	} else {
@@ -806,21 +800,21 @@ int ScoreK (short side)
 	    /* Kingside */
 	    if ( (board.b[side][rook] & BitPosArray[H8])!=NULLBITBOARD &&
 		 Mvboard[H8] == 0)
-                   n = nbits (MoveArray[king][G8] & 
+                   n = nbits (MoveArray[king][G8] &
 			      board.b[side][pawn] & RankBit[rank-1]);
 	    /* Queenside */
 	    if ( (board.b[side][rook] & BitPosArray[A8])!=NULLBITBOARD &&
 		 Mvboard[A8] == 0)
-                   n = nbits (MoveArray[king][C8] & 
+                   n = nbits (MoveArray[king][C8] &
 			      board.b[side][pawn] & RankBit[rank-1]);
           }
 	}
-        
+
 	/* Penalize breaking the wing pawn formations prior to castle */
 	if (n != -1) s += pawncover[n];
       }
 
-      if (side == computer && file >= F_FILE && 
+      if (side == computer && file >= F_FILE &&
 		!(FileBit[G_FILE] & board.b[side][pawn]))
       {
          if (side == white && cboard[F2] == pawn)
@@ -893,7 +887,7 @@ int ScoreK (short side)
 	if (file >= E_FILE && board.b[xside][queen] && board.b[xside][rook] &&
 	    !((board.b[side][pawn]|board.b[xside][pawn]) & FileBit[7]))
          s += HOPEN;
-	
+
 	/* King trapping rook */
         if (side == white) {
 	  if (file > E_FILE) {
@@ -924,16 +918,16 @@ int ScoreK (short side)
 	 if ((BitPosArray[fsq] & board.b[side][pawn]) != NULLBITBOARD)
             if (((BitPosArray[F4]|BitPosArray[H4]|
 	         BitPosArray[F5]|BitPosArray[H5])
-	      & board.b[xside][pawn]) != NULLBITBOARD) 
-	        s += FIANCHETTO_TARGET;	
+	      & board.b[xside][pawn]) != NULLBITBOARD)
+	        s += FIANCHETTO_TARGET;
       }
       if (file < E_FILE && ROW(board.king[xside]) > E_FILE) {
          if (side == white) fsq = B3; else fsq = B6;
 	 if ((BitPosArray[fsq] & board.b[side][pawn]) != NULLBITBOARD)
             if (((BitPosArray[A4]|BitPosArray[C4]|
 	         BitPosArray[A5]|BitPosArray[C5])
-	      & board.b[xside][pawn]) != NULLBITBOARD) 
-	        s += FIANCHETTO_TARGET;	
+	      & board.b[xside][pawn]) != NULLBITBOARD)
+	        s += FIANCHETTO_TARGET;
       }
 
       /* No major/minor piece in king's quadrant */
@@ -943,12 +937,12 @@ int ScoreK (short side)
       n1 = nbits(x & (board.friends[xside]));
       if (n1 > 0) {
         /* Now identify the number of non-pawn friends in quadrant */
-        n2 = nbits(x & (board.friends[side] & ~board.b[side][pawn] & 
+        n2 = nbits(x & (board.friends[side] & ~board.b[side][pawn] &
 	 	~board.b[side][king]));
         if (n1 > n2)
 	  s += (n1 - n2) * KING_DEFENDER_DEFICIT;
       }
-      
+
       KingSafety[side] = s;
       s = (s * factor[phase]) / 8;
    }
@@ -978,12 +972,12 @@ int ScoreK (short side)
     if (phase >= 4) {
       /* Weak back rank */
       if (side == white) {
-        if (sq < A2) 
-	  if (!(MoveArray[king][sq] & (~board.b[side][pawn] & RankBit[1]))) 
+        if (sq < A2)
+	  if (!(MoveArray[king][sq] & (~board.b[side][pawn] & RankBit[1])))
 	    s += KING_BACK_RANK_WEAK;
       } else {
-	if (sq > H7) 
-	  if (!(MoveArray[king][sq] & (~board.b[side][pawn] & RankBit[6]))) 
+	if (sq > H7)
+	  if (!(MoveArray[king][sq] & (~board.b[side][pawn] & RankBit[6])))
 	    s += KING_BACK_RANK_WEAK;
       }
    }
@@ -996,7 +990,7 @@ int LoneKing (int side, int loser)
 /**************************************************************************
  *
  *  One side has a lonely king and the other has no pawns, but enough
- *  mating material.  We give an additional bonus of 150 points for the 
+ *  mating material.  We give an additional bonus of 150 points for the
  *  winning side to attract the search to such positions.
  *
  **************************************************************************/
@@ -1004,7 +998,7 @@ int LoneKing (int side, int loser)
    int s, winer, sq1, sq2;
 
    winer = 1^loser;
-   if (board.material[winer] == ValueB+ValueN && 
+   if (board.material[winer] == ValueB+ValueN &&
 	nbits(board.b[winer][bishop]) == 1 &&
 	nbits(board.b[winer][knight]) == 1)
       return (ScoreKBNK (side, loser));
@@ -1038,12 +1032,12 @@ int KPK (int side)
    sq  = leadz (board.b[winer][pawn]);
    sqw = board.king[winer];
    sql = board.king[loser];
-   s = ValueP + (ValueQ * Passed[winer][RANK(sq)] / PFACTOR) + 
+   s = ValueP + (ValueQ * Passed[winer][RANK(sq)] / PFACTOR) +
 	 4 * (winer == white ? RANK(sqw) : 7-RANK(sqw));
 
 /**************************************************************************
  *
- * Pawn is outside the square of the king 
+ * Pawn is outside the square of the king
  *
  **************************************************************************/
    if (~SquarePawnMask[winer][sq] & board.b[loser][king])
@@ -1056,7 +1050,7 @@ int KPK (int side)
 
 /**************************************************************************
  *
- *  Friendly king is on same or adjacent file to the pawn, and the pawn is 
+ *  Friendly king is on same or adjacent file to the pawn, and the pawn is
  *  on a file other than a rook file and ...
  *
  **************************************************************************/
@@ -1066,8 +1060,8 @@ int KPK (int side)
 
 /**************************************************************************
  *
- * a. friendly king is 2 ranks more advanced than the pawn 
- * b. friendly king is 1 rank more advanced than the pawn 
+ * a. friendly king is 2 ranks more advanced than the pawn
+ * b. friendly king is 1 rank more advanced than the pawn
  *    i.  The friendly king is on the sixth rank.
  *    ii. The enemy king does not have direct opposition by being 2 ranks
  *        in front of the friendly king and on the same file.
@@ -1079,7 +1073,7 @@ int KPK (int side)
  *    i.  The enemy king is not on the queening square.
  *    ii. The enemy is on the queening square but both kings are in the same
  *        file.
- * 
+ *
  **************************************************************************/
       if (winer == white)
       {
@@ -1089,7 +1083,7 @@ int KPK (int side)
          {
 	    if (RANK(sqw) == 5)
                return (winer == side ? s : -s);
-            if (sqw < A6) 
+            if (sqw < A6)
 	    {
 	       if (sqw+16 == sql && winer == side)
 		  return (0);
@@ -1115,7 +1109,7 @@ int KPK (int side)
 	    if (sql == sq+8 && sql == sqw+16)
                return (winer == side ? s : 0);
 	 }
-      } 
+      }
       else
       {
          if (RANK(sqw) == RANK(sq) - 2)
@@ -1130,7 +1124,7 @@ int KPK (int side)
 	          return (0);
 	       else
                   return (winer == side ? s : -s);
-	    }	
+	    }
 	 }
          if (RANK(sqw) == RANK(sq))
          {
@@ -1150,14 +1144,14 @@ int KPK (int side)
 	    if (sql == sq-8 && sql == sqw-16)
                return (winer == side ? s : 0);
 	 }
-      } 
-   }  
+      }
+   }
 
    return (0);
 }
 
 
-int KBNK[64] = 
+int KBNK[64] =
 {
    0, 10, 20, 30, 40, 50, 60, 70,
   10, 20, 30, 40, 50, 60, 70, 60,
@@ -1197,7 +1191,7 @@ int ScoreKBNK (int side, int loser)
       s = -s;
    s += MATERIAL;
 
-   return (s); 
+   return (s);
 }
 
 
@@ -1230,7 +1224,7 @@ int ScoreDev (short side)
    s += NOTCASTLED;
 
    /* If the king is moved, nail it, otherwise check rooks */
-   if (Mvboard[board.king[side]] > 0) 
+   if (Mvboard[board.king[side]] > 0)
       s += KINGMOVED;
 
    /* Discourage rook moves */
@@ -1267,7 +1261,7 @@ int ScoreDev (short side)
    while (c) {
      sq = leadz(c);
      CLEARBIT(c, sq);
-     if (Mvboard[sq] > 0) 
+     if (Mvboard[sq] > 0)
 	s += EARLYWINGPAWNMOVE;
    }
 
@@ -1277,7 +1271,7 @@ int ScoreDev (short side)
    while (c) {
      sq = leadz(c);
      CLEARBIT(c, sq);
-     if (Mvboard[sq] > 1) 
+     if (Mvboard[sq] > 1)
 	s += EARLYCENTERPREPEAT;
    }
 
@@ -1306,7 +1300,6 @@ int Evaluate (int alpha, int beta)
 {
    int side, xside;
    int piece, s, s1, score;
-   int npiece[2];
    BitBoard *b;
 
    side = board.side;
@@ -1314,11 +1307,11 @@ int Evaluate (int alpha, int beta)
 
    /*  If we are looking for a MATE, just return the material */
    if (alpha > MATE-255 || beta < -MATE+255)
-      return (MATERIAL); 
+      return (MATERIAL);
 
    /*  A KPK endgame. */
    if (board.material[white]+board.material[black] == ValueP)
-      return (KPK (side));  
+      return (KPK (side));
 
    /*  One side has a lone king and other side has no pawns */
    if (board.material[xside] == 0 && board.b[side][pawn] == NULLBITBOARD)
@@ -1339,10 +1332,8 @@ int Evaluate (int alpha, int beta)
    phase = PHASE;
    b = board.b[white];
    pieces[white] = b[knight] | b[bishop] | b[rook] | b[queen];
-   npiece[white] = nbits (pieces[white]);
    b = board.b[black];
    pieces[black] = b[knight] | b[bishop] | b[rook] | b[queen];
-   npiece[black] = nbits (pieces[black]);
    s1 = MATERIAL;
 
    if ((s1 + maxposnscore[side] < alpha || s1 - maxposnscore[xside] > beta) &&
@@ -1363,7 +1354,7 @@ int Evaluate (int alpha, int beta)
 /**************************************************************************
  *
  *  See if we can have a lazy evaluation cut.  Otherwise its a slow eval.
- * 
+ *
  **************************************************************************/
 
    if (s1 + lazyscore[side] < alpha || s1 - lazyscore[side] > beta)
@@ -1396,7 +1387,7 @@ next:
    if (MATERIAL >= 200)
    {
       score += (RootPieces - nbits(pieces[white] | pieces[black])) * TRADEPIECE;
-      score -= (RootPawns - nbits(board.b[white][pawn] | board.b[black][pawn])) 
+      score -= (RootPawns - nbits(board.b[white][pawn] | board.b[black][pawn]))
 			* TRADEPAWNS;
    }
    else if (MATERIAL <= -200)
@@ -1405,20 +1396,20 @@ next:
       score += (RootPawns - nbits(board.b[white][pawn] | board.b[black][pawn]))
 			 * TRADEPAWNS;
    }
-      
+
 /***************************************************************************
  *
  *  Opposite color bishops is drawish.
  *
  ***************************************************************************/
-   if (ENDING && pieces[white] == board.b[white][bishop] && 
+   if (ENDING && pieces[white] == board.b[white][bishop] &&
                  pieces[black] == board.b[black][bishop] &&
        ((pieces[white] & WHITESQUARES && pieces[black] & BLACKSQUARES) ||
 	(pieces[white] & BLACKSQUARES && pieces[black] & WHITESQUARES)))
    {
       score /= 2;
    }
-    
+
 /***************************************************************************
  *
  *  When one side has no mating material, then his score can never be > 0.
@@ -1430,7 +1421,7 @@ next:
    if (score < 0 && !board.b[xside][pawn] && (board.material[xside] < ValueR
         || pieces[xside] == board.b[xside][knight]))
       score = 0;
-   
+
    return (score);
 }
 
@@ -1451,8 +1442,8 @@ short EvaluateDraw (void)
    BitBoard *w, *b;
    int wm, bm, wn, bn;
 
-   /* 
-    * Exception - if we are close to a pawn move, promotion 
+   /*
+    * Exception - if we are close to a pawn move, promotion
     * or capture it is possible a forced mate will follow.
     * So we assume not drawn for 2 moves.
     */
@@ -1475,18 +1466,18 @@ short EvaluateDraw (void)
    bn = nbits (b[knight]);
    if  ((wm<ValueR || (wm==2*ValueN && wn==2)) &&
         (bm<ValueR || (bm==2*ValueN && bn==2)))
-      return (true); 
+      return (true);
 
    if (wm < ValueR)
    {
-      if (bm == 2*ValueB && 
+      if (bm == 2*ValueB &&
          ( nbits(board.b[black][bishop] & WHITESQUARES) == 2 ||
            nbits(board.b[black][bishop] & BLACKSQUARES) == 2 ))
       return (true);
    }
    if (bm < ValueR)
    {
-      if (wm == 2*ValueB && 
+      if (wm == 2*ValueB &&
          ( nbits(board.b[white][bishop] & WHITESQUARES) == 2 ||
            nbits(board.b[white][bishop] & BLACKSQUARES) == 2 ))
       return (true);

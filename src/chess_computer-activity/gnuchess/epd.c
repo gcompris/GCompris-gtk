@@ -1,7 +1,7 @@
 /* GNU Chess 5.0 - epd.c - EPD position definition code
    Copyright (c) 1999-2002 Free Software Foundation, Inc.
 
-   GNU Chess is based on the two research programs 
+   GNU Chess is based on the two research programs
    Cobalt by Chua Kong-Sian and Gazebo by Stuart Cracraft.
 
    GNU Chess is free software; you can redistribute it and/or modify
@@ -19,7 +19,7 @@
    the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.
 
-   Contact Info: 
+   Contact Info:
      bug-gnu-chess@gnu.org
 */
 /*
@@ -40,8 +40,8 @@ short ReadEPDFile (const char *file, short op)
  *  Reads in an EPD file.  The first call will read the first EPD line,
  *  the second call will read the 2nd line and so on.   To improve
  *  performance, the file is never closed.  Closing of the file happens
- *  only on 2 conditions:  (i) A ReadEPDFile failed because there is no 
- *  more lines to read.  (ii) A called to ReadEPDFile to explicitly 
+ *  only on 2 conditions:  (i) A ReadEPDFile failed because there is no
+ *  more lines to read.  (ii) A called to ReadEPDFile to explicitly
  *  request that the file is closed (op = EPDCLOSE);
  *  If op == 2, then we work silently.
  *
@@ -62,8 +62,8 @@ short ReadEPDFile (const char *file, short op)
    }
 
    /*  Is this a close request? */
-   if (op == EPDCLOSE)   
-   { 
+   if (op == EPDCLOSE)
+   {
       fclose (fp);
       fp = NULL;
       return (false);
@@ -71,23 +71,25 @@ short ReadEPDFile (const char *file, short op)
 
 next_line:
    /*  Okay, we read in an EPD entry  */
-   fgets (line, MAXSTR-1, fp);
-   if (!feof(fp)) 
    {
-      int ret = ParseEPD (line);
+     char *liner = fgets (line, MAXSTR-1, fp);
+     if (liner)
+       {
+	 int ret = ParseEPD (liner);
 
-      /* For now just ignore malformed lines */
-      if (ret != EPD_SUCCESS) goto next_line;
-      if (op != 2)
-         printf ("\n%s : Best move = %s\n", id, solution);
-      return (true);
-   }
-   /* finished, must close file */
-   else
-   { 
-      fclose (fp);
-      fp = NULL;
-      return (false);
+	 /* For now just ignore malformed lines */
+	 if (ret != EPD_SUCCESS) goto next_line;
+	 if (op != 2)
+	   printf ("\n%s : Best move = %s\n", id, solution);
+	 return (true);
+       }
+     /* finished, must close file */
+     else
+       {
+	 fclose (fp);
+	 fp = NULL;
+	 return (false);
+       }
    }
 }
 
@@ -100,7 +102,7 @@ next_line:
 
 int ParseEPD (char *p)
 /**************************************************************************
- *   
+ *
  *  Parses an EPD input line.  A few global variables are updated e.g.
  *  current board, side to move, en passant, castling status, etc.
  *
@@ -123,71 +125,71 @@ int ParseEPD (char *p)
 		    SETBIT (board.blockerr45, r45[sq]);
 		    SETBIT (board.blockerr315, r315[sq]);
 		    board.material[white] += ValueP;
-		    break;	
+		    break;
         case 'N' :  SETBIT (board.b[white][knight], sq);
 		    SETBIT (board.blockerr90, r90[sq]);
 		    SETBIT (board.blockerr45, r45[sq]);
 		    SETBIT (board.blockerr315, r315[sq]);
 		    board.material[white] += ValueN;
-		    break;	
+		    break;
         case 'B' :  SETBIT (board.b[white][bishop], sq);
 		    SETBIT (board.blockerr90, r90[sq]);
 		    SETBIT (board.blockerr45, r45[sq]);
 		    SETBIT (board.blockerr315, r315[sq]);
 		    board.material[white] += ValueB;
-		    break;	
+		    break;
         case 'R' :  SETBIT (board.b[white][rook], sq);
 		    SETBIT (board.blockerr90, r90[sq]);
 		    SETBIT (board.blockerr45, r45[sq]);
 		    SETBIT (board.blockerr315, r315[sq]);
 		    board.material[white] += ValueR;
-		    break;	
+		    break;
         case 'Q' :  SETBIT (board.b[white][queen], sq);
 		    SETBIT (board.blockerr90, r90[sq]);
 		    SETBIT (board.blockerr45, r45[sq]);
 		    SETBIT (board.blockerr315, r315[sq]);
 		    board.material[white] += ValueQ;
-		    break;	
+		    break;
         case 'K' :  SETBIT (board.b[white][king], sq);
 		    SETBIT (board.blockerr90, r90[sq]);
 		    SETBIT (board.blockerr45, r45[sq]);
 		    SETBIT (board.blockerr315, r315[sq]);
-		    break;	
+		    break;
         case 'p' :  SETBIT (board.b[black][pawn], sq);
 		    SETBIT (board.blockerr90, r90[sq]);
 		    SETBIT (board.blockerr45, r45[sq]);
 		    SETBIT (board.blockerr315, r315[sq]);
 		    board.material[black] += ValueP;
-		    break;	
+		    break;
         case 'n' :  SETBIT (board.b[black][knight], sq);
 		    SETBIT (board.blockerr90, r90[sq]);
 		    SETBIT (board.blockerr45, r45[sq]);
 		    SETBIT (board.blockerr315, r315[sq]);
 		    board.material[black] += ValueN;
-		    break;	
+		    break;
         case 'b' :  SETBIT (board.b[black][bishop], sq);
 		    SETBIT (board.blockerr90, r90[sq]);
 		    SETBIT (board.blockerr45, r45[sq]);
 		    SETBIT (board.blockerr315, r315[sq]);
 		    board.material[black] += ValueB;
-		    break;	
+		    break;
         case 'r' :  SETBIT (board.b[black][rook], sq);
 		    SETBIT (board.blockerr90, r90[sq]);
 		    SETBIT (board.blockerr45, r45[sq]);
 		    SETBIT (board.blockerr315, r315[sq]);
 		    board.material[black] += ValueR;
-		    break;	
+		    break;
         case 'q' :  SETBIT (board.b[black][queen], sq);
 		    SETBIT (board.blockerr90, r90[sq]);
 		    SETBIT (board.blockerr45, r45[sq]);
 		    SETBIT (board.blockerr315, r315[sq]);
                     board.material[black] += ValueQ;
-		    break;	
+		    break;
         case 'k' :  SETBIT (board.b[black][king], sq);
 		    SETBIT (board.blockerr90, r90[sq]);
 		    SETBIT (board.blockerr45, r45[sq]);
 		    SETBIT (board.blockerr315, r315[sq]);
-		    break;	
+		    break;
         case '/' :  r -= 8;
 	 	    c = -1;
 		    break;
@@ -198,7 +200,7 @@ int ParseEPD (char *p)
      else
         c++;
 
-     /* 
+     /*
       * Special case, a trailing "/" is accepted on the
       * end of the board settings.
       */
@@ -211,25 +213,25 @@ int ParseEPD (char *p)
      p++;
    }
 
-   board.pmaterial[white] = board.material[white] - 
+   board.pmaterial[white] = board.material[white] -
 				nbits(board.b[white][pawn]) * ValueP;
-   board.pmaterial[black] = board.material[black] - 
+   board.pmaterial[black] = board.material[black] -
 				nbits(board.b[black][pawn]) * ValueP;
    board.king[white] = leadz (board.b[white][king]);
    board.king[black] = leadz (board.b[black][king]);
-   UpdateFriends (); 
+   UpdateFriends ();
    UpdateCBoard ();
    UpdateMvboard ();
 
    /*  Get side to move  */
    if (!++p) return EPD_ERROR;
-   if      (*p == 'w') board.side = white; 
+   if      (*p == 'w') board.side = white;
    else if (*p == 'b') board.side = black;
    else return EPD_ERROR;
 
    /* Isn't this one cute? */
    if (!++p || *p != ' ' || !++p) return EPD_ERROR;
-  
+
    /*  Castling status  */
    while (p && *p != ' ') {
       if      (*p == 'K') board.flag |= WKINGCASTLE;
@@ -264,7 +266,7 @@ int ParseEPD (char *p)
 
    /*  Read in best move; "bm" operator */
    str_p = strstr(p, "bm");
-   if (str_p) sscanf (str_p, "bm %63[^;];", solution); 
+   if (str_p) sscanf (str_p, "bm %63[^;];", solution);
 
    /*  Read in the description; "id" operator */
    str_p = strstr(p, "id");
@@ -279,7 +281,7 @@ int ParseEPD (char *p)
 
 void LoadEPD (char *p)
 /**************************************************************************
- *   
+ *
  *  This routine reads in the next or the Nth position in the file.
  *
  **************************************************************************/
@@ -293,14 +295,14 @@ void LoadEPD (char *p)
       ReadEPDFile (file, 0);
    }
    else
-   { 
+   {
       ReadEPDFile (file, 1);
       while (--N)
       {
          if (ReadEPDFile (file, 2) == false)
          {
 	    printf ("File position exceeded\n");
-	    return; 
+	    return;
          }
       }
       ReadEPDFile (file, 0);
@@ -312,7 +314,7 @@ void LoadEPD (char *p)
 
 void SaveEPD (char *p)
 /**************************************************************************
- *   
+ *
  *  This routine appends the current position in EPD format into a file.
  *
  **************************************************************************/
@@ -334,7 +336,7 @@ void SaveEPD (char *p)
 	    k++;
 	 else
 	 {
-	    if (k) 
+	    if (k)
 	       fprintf (fp, "%1d", k);
 	    k = 0;
 	    c1 = notation[cboard[sq]];

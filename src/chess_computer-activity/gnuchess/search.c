@@ -1,7 +1,7 @@
 /* GNU Chess 5.0 - search.c - tree-search code
    Copyright (c) 1999-2002 Free Software Foundation, Inc.
 
-   GNU Chess is based on the two research programs 
+   GNU Chess is based on the two research programs
    Cobalt by Chua Kong-Sian and Gazebo by Stuart Cracraft.
 
    GNU Chess is free software; you can redistribute it and/or modify
@@ -19,7 +19,7 @@
    the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.
 
-   Contact Info: 
+   Contact Info:
      bug-gnu-chess@gnu.org
      cracraft@ai.mit.edu, cracraft@stanfordalumni.org, cracraft@earthlink.net
 */
@@ -46,7 +46,7 @@ static inline void ShowThinking (leaf *p, uint8_t ply)
       return;
    }
    SANMove (p->move, ply);
-   printf ("\r%2d.         %2d/%2d%10s    ", Idepth, 
+   printf ("\r%2d.         %2d/%2d%10s    ", Idepth,
       (int) (p-TreePtr[ply]+1), (int) (TreePtr[ply+1]-TreePtr[ply]), SANmv);
    fflush (stdout);
 }
@@ -68,7 +68,7 @@ int SearchRoot (short depth, int alpha, int beta)
    short nodetype;
    leaf *p, *pbest;
 
-   ply = 1; 
+   ply = 1;
    side = board.side;
    xside = 1^side;
    ChkCnt[2] = ChkCnt[1];
@@ -89,11 +89,11 @@ int SearchRoot (short depth, int alpha, int beta)
 
    for (p = TreePtr[1]; p < TreePtr[2]; p++)
    {
-      pick (p, 1); 
+      pick (p, 1);
       ShowThinking (p, ply);
       MakeMove (side, &p->move);
       NodeCnt++;
-      
+
       /*  If first move, search against full alpha-beta window  */
       if (p == TreePtr[1])
       {
@@ -114,7 +114,7 @@ int SearchRoot (short depth, int alpha, int beta)
       else
       {
 	 nodetype = CUT;
-         alpha = MAX (best, alpha);            
+         alpha = MAX (best, alpha);
          score = -Search (2, depth-1, -alpha-1, -alpha, nodetype);
          if (score > best)
          {
@@ -159,8 +159,8 @@ int SearchRoot (short depth, int alpha, int beta)
 	 } else {
 	    ElapsedTime = GetElapsed (StartTime);
 	    if ((ElapsedTime >= SearchTime && (
-		    rootscore == -INFINITY-1 
-		    || ply1score > lastrootscore - 25 
+		    rootscore == -INFINITY-1
+		    || ply1score > lastrootscore - 25
 		    || flags & SOLVE))
 		|| ElapsedTime >= maxtime)
 	       SET (flags, TIMEOUT);
@@ -194,7 +194,7 @@ done:
 int Search (uint8_t ply, short depth, int alpha, int beta, short nodetype)
 /**************************************************************************
  *
- *  The basic algorithm for this search routine came from Anthony 
+ *  The basic algorithm for this search routine came from Anthony
  *  Marsland.  It is a PVS (Principal Variation Search) algorithm.
  *  The fail-soft alpha-beta technique is also used for improved
  *  pruning.
@@ -207,7 +207,6 @@ int Search (uint8_t ply, short depth, int alpha, int beta, short nodetype)
    int fcut, fdel, donull, savenode, extend;
    leaf *p, *pbest;
    int g0, g1;
-   int upperbound;
 
    /* Check if this position is a known draw */
    if (EvaluateDraw ())
@@ -215,7 +214,7 @@ int Search (uint8_t ply, short depth, int alpha, int beta, short nodetype)
    if (GameCnt >= Game50+3 && Repeat())
    {
       RepeatCnt++;
-      return (DRAWSCORE); 
+      return (DRAWSCORE);
    }
 
    side = board.side;
@@ -225,7 +224,7 @@ int Search (uint8_t ply, short depth, int alpha, int beta, short nodetype)
 /*************************************************************************
  *
  *  Perform some basic search extensions.
- *  1.  One reply extensions.  
+ *  1.  One reply extensions.
  *  2.  If in check, extend (maximum of Idepth-1).
  *  3.  If there is a threat to the King, extend (not beyond 2*Idepth)
  *  4.  If recapture to same square and not beyond Idepth+2
@@ -249,7 +248,7 @@ int Search (uint8_t ply, short depth, int alpha, int beta, short nodetype)
    }
 
 /*
-   We've already found a mate at the next ply.  If we aren't being mated by 
+   We've already found a mate at the next ply.  If we aren't being mated by
    a shorter line, so just return the current material value.
 */
    if (rootscore + ply >= MATE)
@@ -257,7 +256,7 @@ int Search (uint8_t ply, short depth, int alpha, int beta, short nodetype)
 
    g0 = Game[GameCnt].move;
    g1 = GameCnt > 0 ? Game[GameCnt-1].move : 0;
-   t0 = TOSQ(g0); 
+   t0 = TOSQ(g0);
    t1 = TOSQ(g1);
    ChkCnt[ply+1] = ChkCnt[ply];
    ThrtCnt[ply+1] = ThrtCnt[ply];
@@ -286,7 +285,7 @@ int Search (uint8_t ply, short depth, int alpha, int beta, short nodetype)
       extend = true;
    }
    /* Recapture extension */
-   else if ((g0 & CAPTURE) && (board.material[computer] - 
+   else if ((g0 & CAPTURE) && (board.material[computer] -
 	board.material[1^computer] == RootMaterial))
    {
       RcpExtCnt++;
@@ -301,13 +300,13 @@ int Search (uint8_t ply, short depth, int alpha, int beta, short nodetype)
       extend = true;
    }
 
-/**************************************************************************** 
+/****************************************************************************
  *
- *  The following extension is to handle cases when the opposing side is 
- *  delaying the mate by useless interposing moves. 
+ *  The following extension is to handle cases when the opposing side is
+ *  delaying the mate by useless interposing moves.
  *
  ****************************************************************************/
-   if (ply > 2 && InChk[ply-1] && cboard[t0] != king && t0 != t1 && 
+   if (ply > 2 && InChk[ply-1] && cboard[t0] != king && t0 != t1 &&
 	 !SqAtakd (t0, xside))
    {
       HorzExtCnt++;
@@ -323,9 +322,9 @@ int Search (uint8_t ply, short depth, int alpha, int beta, short nodetype)
  **************************************************************************/
 
    if (depth <= 0)
-      return (Quiesce (ply, alpha, beta)); 
+      return (Quiesce (ply, alpha, beta));
 
-/**************************************************************************** 
+/****************************************************************************
  *
  *  Probe the transposition table for a score and a move.
  *  If the score is an upperbound, then we can use it to improve the value
@@ -334,7 +333,6 @@ int Search (uint8_t ply, short depth, int alpha, int beta, short nodetype)
  *
  ***************************************************************************/
    Hashmv[ply] = 0;
-   upperbound = INFINITY;
    if (flags & USEHASH)
    {
       rc = TTGet (side, depth, ply, &score, &g1);
@@ -346,7 +344,6 @@ int Search (uint8_t ply, short depth, int alpha, int beta, short nodetype)
 	 case POORDRAFT  :  /* Not reached */ break;
 	 case EXACTSCORE :  /* Not reached */ return (score);
             case UPPERBOUND :  beta = MIN (beta, score);
-			       upperbound = score;
 			       donull = false;
 	                       break;
             case LOWERBOUND :  /*alpha = MAX (alpha, score);*/
@@ -364,7 +361,7 @@ int Search (uint8_t ply, short depth, int alpha, int beta, short nodetype)
 /*****************************************************************************
  *
  *  Perform the null move here.  There are certain cases when null move
- *  is not done.  
+ *  is not done.
  *  1.  When the previous move is a null move.
  *  2.  At the frontier (depth == 1)
  *  3.  At a PV node.
@@ -386,7 +383,7 @@ int Search (uint8_t ply, short depth, int alpha, int beta, short nodetype)
       TreePtr[ply+1] = TreePtr[ply];
       MakeNullMove (side);
       nullscore = -Search (ply+1, depth-3, -beta, -beta+1, nodetype);
-      UnmakeNullMove (xside); 
+      UnmakeNullMove (xside);
       if (nullscore >= beta)
       {
          NullCutCnt++;
@@ -471,7 +468,7 @@ int Search (uint8_t ply, short depth, int alpha, int beta, short nodetype)
 
          MakeMove (side, &p->move);
          NodeCnt++;
-         if (SqAtakd (board.king[side], xside)) 
+         if (SqAtakd (board.king[side], xside))
          {
             UnmakeMove (xside, &p->move);
             continue;
@@ -481,14 +478,14 @@ int Search (uint8_t ply, short depth, int alpha, int beta, short nodetype)
  *
  *  Futility pruning.  The idea is that at the frontier node (depth == 1),
  *  if the side on the move is materially bad, then if the move doesn't win
- *  back material or the move isn't a check or doesn't threatened the king, 
- *  then there is no point in searching this move.  So skip it.  
+ *  back material or the move isn't a check or doesn't threatened the king,
+ *  then there is no point in searching this move.  So skip it.
  *  Caveat:  However if the node is a PV, we skip this test.
  *
  *****************************************************************************/
       	 if (fcut && FUTSCORE <= alpha && !SqAtakd (board.king[xside], side) &&
 		!MateScan (xside))
-		
+
          {
             UnmakeMove (xside, &p->move);
 	    FutlCutCnt++;
@@ -508,7 +505,7 @@ int Search (uint8_t ply, short depth, int alpha, int beta, short nodetype)
             if (alpha < score && score < beta)
 	    {
                score = -Search (ply+1, depth-1, -beta, -score, nodetype);
-	    } 
+	    }
 	    if (nodetype == PV && score <= alpha &&
 		Game[GameCnt+1].move == NULLMOVE)
 	    {
@@ -534,17 +531,17 @@ int Search (uint8_t ply, short depth, int alpha, int beta, short nodetype)
       }
 
       if (((flags & PONDER) || SearchDepth == 0) && (NodeCnt & TIMECHECK) == 0)
-      {	
+      {
 	 if (flags & PONDER) {
 	    if (input_status != INPUT_NONE)
 	       SET(flags, TIMEOUT);
 	 } else {
 	    ElapsedTime = GetElapsed (StartTime);
-	    if ((ElapsedTime >= SearchTime && 
-		 (rootscore == -INFINITY-1 || 
+	    if ((ElapsedTime >= SearchTime &&
+		 (rootscore == -INFINITY-1 ||
 		  ply1score > lastrootscore - 25 || flags & SOLVE)) ||
 		ElapsedTime >= maxtime)
-	       SET (flags, TIMEOUT);        
+	       SET (flags, TIMEOUT);
 	 }
       }
 
@@ -553,7 +550,7 @@ int Search (uint8_t ply, short depth, int alpha, int beta, short nodetype)
 /*  then we can skip the rest of the moves!  				   */
       if (MATE+1 == best+ply)
          goto done;
-   } 
+   }
 
 /*****************************************************************************
  *
@@ -575,7 +572,7 @@ done:
  * Must look at failure of TIMEOUT condition more carefully!
  */
 	if ( !(flags & TIMEOUT))
-          TTPut (side, depth, ply, savealpha, beta, best, pbest->move); 
+          TTPut (side, depth, ply, savealpha, beta, best, pbest->move);
       }
 
    /*  Update history  */
@@ -648,11 +645,11 @@ void ShowLine (int move __attribute__ ((unused)), int score, char c)
        fprintf (ofp,"%2d%c%7.2f -Mat%02d%10ld\t", Idepth, c, ElapsedTime,
 		 (MATE+2-abs(score))/2, NodeCnt+QuiesCnt);
      } else {
-	 printf ("%d%c %d %d %ld\t", Idepth, c, (int)score, 
+	 printf ("%d%c %d %d %ld\t", Idepth, c, (int)score,
 		 (int)(ElapsedTime), NodeCnt+QuiesCnt);
-	 if (ofp != stdout) 
-	   fprintf (ofp,"%2d%c%7.2f%7d%10ld\t", Idepth, c, 
-		    ElapsedTime, score, NodeCnt+QuiesCnt);	 
+	 if (ofp != stdout)
+	   fprintf (ofp,"%2d%c%7.2f%7d%10ld\t", Idepth, c,
+		    ElapsedTime, score, NodeCnt+QuiesCnt);
        }
    }
    else {              /* Not XBOARD */
@@ -671,9 +668,9 @@ void ShowLine (int move __attribute__ ((unused)), int score, char c)
       } else {
 	 printf ("\r%2d%c%7.2f%7d%10ld\t", Idepth, c, ElapsedTime,
 		 score, NodeCnt+QuiesCnt);
-	 if (ofp != stdout) 
+	 if (ofp != stdout)
 	    fprintf (ofp,"\r%2d%c%7.2f%7d%10ld\t", Idepth, c, ElapsedTime,
-		    score, NodeCnt+QuiesCnt);	 
+		    score, NodeCnt+QuiesCnt);
       }
    }
 
@@ -708,7 +705,7 @@ void ShowLine (int move __attribute__ ((unused)), int score, char c)
       {
          if ((MATESCORE(score) && abs(score) == MATE+2-i) || Repeat ())
             break;
-  
+
          if (len >= 32)
          {
             printf ("\n\t\t\t\t");

@@ -1,7 +1,7 @@
 /* GNU Chess 5.0 - input.c - Input thread and related
    Copyright (c) 2002 Free Software Foundation, Inc.
 
-   GNU Chess is based on the two research programs 
+   GNU Chess is based on the two research programs
    Cobalt by Chua Kong-Sian and Gazebo by Stuart Cracraft.
 
    GNU Chess is free software; you can redistribute it and/or modify
@@ -19,7 +19,7 @@
    the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.
 
-   Contact Info: 
+   Contact Info:
      bug-gnu-chess@gnu.org
      cracraft@ai.mit.edu, cracraft@stanfordalumni.org, cracraft@earthlink.net
      lukas@debian.org
@@ -54,7 +54,7 @@ extern void add_history(char *);
 
 /* Variable used to communicate with the main thread */
 volatile int input_status = INPUT_NONE;
-  
+
 char inputstr[MAXSTR];
 
 /*
@@ -90,7 +90,8 @@ void getline_standard(char *p)
     fputs(p, stdout);
     fflush(stdout);
   }
-  fgets(inputstr, MAXSTR, stdin);
+  char *resstr = fgets(inputstr, MAXSTR, stdin);
+  (void) resstr; // suppress unused var warning
 }
 
 pthread_t input_thread;
@@ -123,8 +124,8 @@ void *input_func(void *arg __attribute__((unused)) )
 
   while (!(flags & QUIT)) {
     if (!(flags & XBOARD)) {
-      sprintf(prompt,"%s (%d) : ", 
-	      RealSide ? "Black" : "White", 
+      sprintf(prompt,"%s (%d) : ",
+	      RealSide ? "Black" : "White",
 	      (RealGameCnt+1)/2 + 1 );
     }
     pthread_mutex_lock(&input_mutex);
@@ -137,7 +138,7 @@ void *input_func(void *arg __attribute__((unused)) )
     /*
      * Posix waits can wake up spuriously
      * so we must ensure that we keep waiting
-     * until we are woken by something that has 
+     * until we are woken by something that has
      * consumed the input
      */
     while ( input_status == INPUT_AVAILABLE ){
@@ -150,7 +151,7 @@ void *input_func(void *arg __attribute__((unused)) )
 
 void input_wakeup(void)
 {
-  
+
   pthread_mutex_lock(&input_mutex);
   input_status = INPUT_NONE;
   pthread_mutex_unlock(&input_mutex);

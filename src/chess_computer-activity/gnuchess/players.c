@@ -2,7 +2,7 @@
 /* GNU Chess 5.0 - player.c - database on players
    Copyright (c) 1999-2002 Free Software Foundation, Inc.
 
-   GNU Chess is based on the two research programs 
+   GNU Chess is based on the two research programs
    Cobalt by Chua Kong-Sian and Gazebo by Stuart Cracraft.
 
    GNU Chess is free software; you can redistribute it and/or modify
@@ -20,7 +20,7 @@
    the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.
 
-   Contact Info: 
+   Contact Info:
      bug-gnu-chess@gnu.org
      cracraft@ai.mit.edu, cracraft@stanfordalumni.org, cracraft@earthlink.net
 */
@@ -50,7 +50,7 @@ static char lname[MAXNAMESZ];
 static int rscorecompare(const void *aa, const void *bb)
 {
     const playerentry *a = aa;
-    const playerentry *b = bb;   
+    const playerentry *b = bb;
     float ascore, bscore;
     ascore = (a->wins+(a->draws/2))/(a->wins+a->draws+a->losses);
     bscore = (b->wins+(b->draws/2))/(b->wins+b->draws+b->losses);
@@ -62,7 +62,7 @@ static int rscorecompare(const void *aa, const void *bb)
 static int scorecompare(const void *aa, const void *bb)
 {
     const playerentry *a = aa;
-    const playerentry *b = bb;   
+    const playerentry *b = bb;
     int ascore, bscore;
     ascore = 100*(a->wins+(a->draws/2))/(a->wins+a->draws+a->losses);
     bscore = 100*(b->wins+(b->draws/2))/(b->wins+b->draws+b->losses);
@@ -74,7 +74,7 @@ static int scorecompare(const void *aa, const void *bb)
 static int namecompare(const void *aa, const void *bb)
 {
     const playerentry *a = aa;
-    const playerentry *b = bb;   
+    const playerentry *b = bb;
     if (strcmp(a->player,b->player) > 0) return(1);
     else if (strcmp(a->player,b->player) < 0) return(-1);
     else return(0);
@@ -94,7 +94,7 @@ void DBSortPlayer (const char *style)
 void DBListPlayer (const char *style)
 {
   int i;
-	
+
   DBReadPlayer ();
   DBSortPlayer (style);
   for (i = 0; i < totalplayers; i++) {
@@ -112,16 +112,10 @@ void DBListPlayer (const char *style)
 void DBWritePlayer (void)
 {
    int i;
-   float result1;
-   int result2;
    FILE *wfp;
    DBSortPlayer ("reverse");
    if ((wfp = fopen(PLAYERFILE,"w")) != NULL) {
      for (i = 0; i < totalplayers; i++) {
-        result1 =
-  	  100.0*(playerdb[i].wins+((float)playerdb[i].draws/2))/
-	   (playerdb[i].wins+playerdb[i].draws+playerdb[i].losses),
-	result2 = (int) result1;
         fprintf(wfp,"%s %d %d %d\n",
 	  playerdb[i].player,
           playerdb[i].wins,
@@ -175,7 +169,7 @@ void DBUpdatePlayer (const char *player, const char *resultstr)
   x = lname;
   strcpy(lname,player);
   do {
-    if (*p != ' ') 
+    if (*p != ' ')
       *x++ = *p++;
     else
 	p++;

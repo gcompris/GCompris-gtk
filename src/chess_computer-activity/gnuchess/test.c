@@ -1,7 +1,7 @@
 /* GNU Chess 5.0 - test.c - testing code
    Copyright (c) 1999-2002 Free Software Foundation, Inc.
 
-   GNU Chess is based on the two research programs 
+   GNU Chess is based on the two research programs
    Cobalt by Chua Kong-Sian and Gazebo by Stuart Cracraft.
 
    GNU Chess is free software; you can redistribute it and/or modify
@@ -19,7 +19,7 @@
    the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.
 
-   Contact Info: 
+   Contact Info:
      bug-gnu-chess@gnu.org
      cracraft@ai.mit.edu, cracraft@stanfordalumni.org, cracraft@earthlink.net
 */
@@ -42,7 +42,6 @@ void TestMoveGenSpeed (void)
    unsigned long i;
    struct timeval t1, t2;
    double et;
-   short side, xside;
 
    GenCnt = 0;
    et = 0;
@@ -51,8 +50,6 @@ void TestMoveGenSpeed (void)
    {
 */
       gettimeofday (&t1, NULL);
-      side = board.side;
-      xside = 1^side;
       for (i = 0; i < 2000000; i++)
       {
 	 TreePtr[2] = TreePtr[1];
@@ -103,7 +100,7 @@ void TestNonCaptureGenSpeed (void)
    printf ("No. of moves generated = %lu\n", GenCnt);
    printf ("Time taken = %f\n", et);
    if (et > 0)
-      printf ("Rate = %f\n", GenCnt / et);  
+      printf ("Rate = %f\n", GenCnt / et);
 }
 
 
@@ -138,26 +135,26 @@ void TestCaptureGenSpeed (void)
    printf ("No. of moves generated = %lu\n", GenCnt);
    printf ("Time taken = %f\n", et);
    if (et > 0)
-      printf ("Rate = %f\n", GenCnt / et);  
+      printf ("Rate = %f\n", GenCnt / et);
 }
 
 
 void TestMoveList (void)
 /****************************************************************************
- *  
+ *
  *  This routine reads in a *.epd file (EPD notation) and prints the legal
- *  moves for that position.  
+ *  moves for that position.
  *
  ****************************************************************************/
 {
    while (ReadEPDFile ("TEST/GMG1.epd", 0))
    {
-      ShowBoard (); 
+      ShowBoard ();
       GenCnt = 0;
       TreePtr[2] = TreePtr[1];
       GenMoves (1);
       FilterIllegalMoves (1);
-      ShowMoveList (1); 
+      ShowMoveList (1);
       printf ("No. of moves generated = %lu\n\n", GenCnt);
    }
 }
@@ -165,20 +162,20 @@ void TestMoveList (void)
 
 void TestNonCaptureList (void)
 /****************************************************************************
- *  
- *  This routine reads in a *.epd file (EPD notation) and prints the 
- *  non-capturing moves for that position.  
+ *
+ *  This routine reads in a *.epd file (EPD notation) and prints the
+ *  non-capturing moves for that position.
  *
  ****************************************************************************/
 {
    while (ReadEPDFile ("TEST/GMG1.epd", 0))
    {
-      ShowBoard (); 
+      ShowBoard ();
       GenCnt = 0;
       TreePtr[2] = TreePtr[1];
       GenNonCaptures (1);
       FilterIllegalMoves (1);
-      ShowMoveList (1); 
+      ShowMoveList (1);
       printf ("No. of moves generated = %lu\n\n", GenCnt);
    }
 }
@@ -186,20 +183,20 @@ void TestNonCaptureList (void)
 
 void TestCaptureList (void)
 /****************************************************************************
- *  
+ *
  *  This routine reads in a *.epd file (EPD notation) and prints the capture
- *  moves for that position.  
+ *  moves for that position.
  *
  ****************************************************************************/
 {
    while (ReadEPDFile ("TEST/GMG1.epd", 0))
    {
-      ShowBoard (); 
+      ShowBoard ();
       GenCnt = 0;
       TreePtr[2] = TreePtr[1];
       GenCaptures (1);
       FilterIllegalMoves (1);
-      ShowMoveList (1); 
+      ShowMoveList (1);
       printf ("No. of moves generated = %lu\n\n", GenCnt);
    }
 }
@@ -210,7 +207,7 @@ void TestCaptureList (void)
 void TestEvalSpeed (void)
 /***************************************************************************
  *
- *  This routine reads in the BK.epd and test the speed of the 
+ *  This routine reads in the BK.epd and test the speed of the
  *  evaluation routines.
  *
  ***************************************************************************/
@@ -235,7 +232,7 @@ void TestEvalSpeed (void)
    printf ("No. of positions evaluated = %lu\n", EvalCnt);
    printf ("Time taken = %f\n", et);
    if (et > 0)
-      printf ("Rate = %f\n", EvalCnt / et);  
+      printf ("Rate = %f\n", EvalCnt / et);
 }
 
 

@@ -1,7 +1,7 @@
 /* GNU Chess 5.0 - genmove.c - move generator code
    Copyright (c) 1999-2002 Free Software Foundation, Inc.
 
-   GNU Chess is based on the two research programs 
+   GNU Chess is based on the two research programs
    Cobalt by Chua Kong-Sian and Gazebo by Stuart Cracraft.
 
    GNU Chess is free software; you can redistribute it and/or modify
@@ -19,7 +19,7 @@
    the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.
 
-   Contact Info: 
+   Contact Info:
      bug-gnu-chess@gnu.org
      cracraft@ai.mit.edu, cracraft@stanfordalumni.org, cracraft@earthlink.net
 */
@@ -204,7 +204,7 @@ void GenMoves (short ply)
    /*  Black pawn forward moves   */
    if (side == black)
    {
-      c = (a[pawn] << 8) & notblocker;		
+      c = (a[pawn] << 8) & notblocker;
       while (c)
       {
          t = leadz (c);
@@ -271,28 +271,28 @@ void GenMoves (short ply)
    /* Castling code */
    b = board.b[side][rook];
    if (side == white && (board.flag & WKINGCASTLE) && (b & BitPosArray[H1]) &&
-       !(FromToRay[E1][G1] & blocker) && 
+       !(FromToRay[E1][G1] & blocker) &&
        !SqAtakd (E1, black) && !SqAtakd (F1, black) && !SqAtakd (G1, black))
    {
-           ADDMOVE (E1, G1, CASTLING);  
+           ADDMOVE (E1, G1, CASTLING);
    }
    if (side == white && (board.flag & WQUEENCASTLE) && (b & BitPosArray[A1]) &&
        !(FromToRay[E1][B1] & blocker) &&
        !SqAtakd (E1, black) && !SqAtakd (D1, black) && !SqAtakd (C1, black))
    {
-           ADDMOVE (E1, C1, CASTLING);  
+           ADDMOVE (E1, C1, CASTLING);
    }
    if (side == black && (board.flag & BKINGCASTLE) && (b & BitPosArray[H8]) &&
        !(FromToRay[E8][G8] & blocker) &&
        !SqAtakd (E8, white) && !SqAtakd (F8, white) && !SqAtakd (G8, white))
    {
-           ADDMOVE (E8, G8, CASTLING);  
+           ADDMOVE (E8, G8, CASTLING);
    }
    if (side == black && (board.flag & BQUEENCASTLE) && (b & BitPosArray[A8]) &&
        !(FromToRay[E8][B8] & blocker) &&
        !SqAtakd (E8, white) && !SqAtakd (D8, white) && !SqAtakd (C8, white))
    {
-           ADDMOVE (E8, C8, CASTLING);  
+           ADDMOVE (E8, C8, CASTLING);
    }
 
    /* Update tree pointers and count */
@@ -310,18 +310,15 @@ void GenNonCaptures (short ply)
  ****************************************************************************/
 {
    int side;
-   int piece, sq, t, ep;
-   BitBoard b, c, d, friends, notfriends, blocker, notblocker;
+   int piece, sq, t;
+   BitBoard b, c, d, blocker, notblocker;
    BitBoard *a;
 
    side = board.side;
    a = board.b[side];
-   friends = board.friends[side];
-   notfriends = ~friends;
    blocker = board.blocker;
    notblocker = ~blocker;
    node = TreePtr[ply + 1];
-   ep = board.ep;
 
    /* Knight & King */
    for (piece = knight; piece <= king; piece += 4)
@@ -392,7 +389,7 @@ void GenNonCaptures (short ply)
    /*  Black pawn forward moves   */
    if (side == black)
    {
-      c = (a[pawn] << 8) & notblocker;		
+      c = (a[pawn] << 8) & notblocker;
       while (c)
       {
          t = leadz (c);
@@ -418,25 +415,25 @@ void GenNonCaptures (short ply)
        !(FromToRay[4][6] & blocker) &&
        !SqAtakd (4, black) && !SqAtakd (5, black) && !SqAtakd (6, black))
    {
-           ADDMOVE (4, 6, CASTLING);  
+           ADDMOVE (4, 6, CASTLING);
    }
    if (side == white && (board.flag & WQUEENCASTLE) && (b & BitPosArray[0]) &&
        !(FromToRay[4][1] & blocker) &&
        !SqAtakd (4, black) && !SqAtakd (3, black) && !SqAtakd (2, black))
    {
-           ADDMOVE (4, 2, CASTLING);  
+           ADDMOVE (4, 2, CASTLING);
    }
    if (side == black && (board.flag & BKINGCASTLE) && (b & BitPosArray[63]) &&
        !(FromToRay[60][62] & blocker) &&
        !SqAtakd (60, white) && !SqAtakd (61, white) && !SqAtakd (62, white))
    {
-           ADDMOVE (60, 62, CASTLING);  
+           ADDMOVE (60, 62, CASTLING);
    }
    if (side == black && (board.flag & BQUEENCASTLE) && (b & BitPosArray[56]) &&
        !(FromToRay[60][57] & blocker) &&
        !SqAtakd (60, white) && !SqAtakd (59, white) && !SqAtakd (58, white))
    {
-           ADDMOVE (60, 58, CASTLING);  
+           ADDMOVE (60, 58, CASTLING);
    }
 
    /* Update tree pointers and count */
@@ -455,13 +452,11 @@ void GenCaptures (short ply)
 {
    int side;
    int piece, sq, t, ep;
-   BitBoard b, c, friends, notfriends, enemy, blocker;
+   BitBoard b, c, enemy, blocker;
    BitBoard *a;
 
    side = board.side;
    a = board.b[side];
-   friends = board.friends[side];
-   notfriends = ~friends;
    enemy = board.friends[1^side];
    blocker = board.blocker;
    node = TreePtr[ply + 1];
@@ -566,7 +561,7 @@ void GenCaptures (short ply)
    if (side == black)
    {
       b = a[pawn] & RankBit[1];			/* all pawns on 2nd rank */
-      c = (b << 8) & ~blocker;		
+      c = (b << 8) & ~blocker;
       while (c)
       {
          t = leadz (c);
@@ -626,7 +621,7 @@ void GenCheckEscapes (short ply)
 /**************************************************************************
  *
  *  The king is in check, so generate only moves which get the king out
- *  of check.  
+ *  of check.
  *  Caveat:  The special case of an enpassant capture must be taken into
  *  account too as the captured pawn could be the checking piece.
  *
@@ -634,7 +629,7 @@ void GenCheckEscapes (short ply)
 {
    int side, xside;
    int kingsq, chksq, sq, sq1, epsq, dir;
-   BitBoard checkers, b, c, p, escapes; 
+   BitBoard checkers, b, c, p, escapes;
    escapes = NULLBITBOARD;
    side = board.side;
    xside = 1 ^ side;
@@ -648,7 +643,7 @@ void GenCheckEscapes (short ply)
    {
       /*  Captures of checking pieces (except by king) */
       chksq = leadz (checkers);
-      b = AttackTo (chksq, side); 
+      b = AttackTo (chksq, side);
       b &= ~board.b[side][king];
       while (b)
       {
@@ -690,23 +685,23 @@ void GenCheckEscapes (short ply)
          {
             sq = leadz (c);
             CLEARBIT (c, sq);
-            b = AttackTo (sq, side); 
+            b = AttackTo (sq, side);
             b &= ~(board.b[side][king] | p);
 
             /* Add in pawn advances */
             if (side == white && sq > H2)
             {
-               if (BitPosArray[sq-8] & p) 
+               if (BitPosArray[sq-8] & p)
 	          b |= BitPosArray[sq-8];
-	       if (RANK(sq) == 3 && cboard[sq-8] == empty && 
+	       if (RANK(sq) == 3 && cboard[sq-8] == empty &&
 			(BitPosArray[sq-16] & p))
 	          b |= BitPosArray[sq-16];
             }
             if (side == black && sq < H7)
             {
-               if (BitPosArray[sq+8] & p) 
+               if (BitPosArray[sq+8] & p)
 	          b |= BitPosArray[sq+8];
-	       if (RANK(sq) == 4 && cboard[sq+8] == empty && 
+	       if (RANK(sq) == 4 && cboard[sq+8] == empty &&
 			(BitPosArray[sq+16] & p))
 	          b |= BitPosArray[sq+16];
             }
@@ -772,17 +767,17 @@ void FilterIllegalMoves (short ply)
    {
       MakeMove (side, &p->move);
       if (cboard[TOSQ(p->move)] != king)
-         check = SqAtakd (sq, xside); 
-      else 
-         check = SqAtakd (TOSQ(p->move), xside); 
+         check = SqAtakd (sq, xside);
+      else
+         check = SqAtakd (TOSQ(p->move), xside);
       UnmakeMove (xside, &p->move);
 
       if (check)	/* its an illegal move */
       {
          --TreePtr[ply+1];
          *p = *TreePtr[ply+1];
-         --p; 
+         --p;
 	 GenCnt--;
-      } 
+      }
    }
 }

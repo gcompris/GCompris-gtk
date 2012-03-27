@@ -7,6 +7,7 @@ gcompris_gnuchess_SOURCES = atak.c book.c cmd.c debug.c epd.c eval.c genmove.c \
  swap.c test.c ttable.c util.c common.h book.h eval.h getopt.h \
  inlines.h version.h lexpgn.c lexpgn.h
 
-gcompris_gnuchess_CFLAGS = $(PTHREAD_CFLAGS) $(AM_CFLAGS)
+gcompris_gnuchess_CFLAGS = $(AM_CFLAGS)
 
-gcompris_gnuchess_LDFLAGS = $(PTHREAD_LDFLAGS) $(PTHREAD_LIBS) $(AM_LDFLAGS)
+# FIXME We only need pthread but we use GCOMPRIS_LIBS.
+gcompris_gnuchess_LDFLAGS = $(GCOMPRIS_LIBS) $(AM_LDFLAGS)
