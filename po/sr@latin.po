@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompr"
 "is&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-02-25 22:54+0000\n"
-"PO-Revision-Date: 2012-02-26 15:54+0200\n"
+"POT-Creation-Date: 2012-03-13 02:15+0000\n"
+"PO-Revision-Date: 2012-03-31 14:18+0200\n"
 "Last-Translator: Miroslav Nikolić <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <gnom@prevod.org>\n"
 "Language: sr\n"
@@ -742,7 +742,7 @@ msgstr "Uređivanje korisnika"
 
 #: ../src/administration-activity/admin/user_edit.py:52
 msgid "Editing a User "
-msgstr "Uređivanje korisnika"
+msgstr "Uređivanje korisnika "
 
 #: ../src/administration-activity/admin/user_edit.py:58
 msgid "Editing a new user"
@@ -1813,7 +1813,7 @@ msgid ""
 "braille chart by clicking on the toggle button for help."
 msgstr ""
 "Pločica Brajevog koda za odgovarajuća padajuća slova. Proverite Brajev znak "
-"tako što ćete kliknuti na dugme prebacivanja za pomoć"
+"tako što ćete kliknuti na dugme prebacivanja za pomoć."
 
 #: ../src/braille_lotto-activity/braille_lotto.py:120
 msgid "PLAYER 1"
@@ -3062,8 +3062,7 @@ msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
 msgstr ""
-"Ovaj program je GNU-ov paket i objavljen je pod Gnuovom opštom javnom "
-"licencom"
+"Ovaj program je GNU-ov paket i objavljen je pod Gnuovom opštom javnom licencom"
 
 #: ../src/gcompris/about.c:226 ../src/gcompris/config.c:456
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:355
@@ -3927,12 +3926,10 @@ msgid "Regions of France"
 msgstr "Oblasti Francuske"
 
 #: ../src/geo_country-activity/resources/geo_country/board12_0.xml.in.h:1
-#| msgid "Indonesian"
 msgid "India"
 msgstr "Indija"
 
 #: ../src/geo_country-activity/resources/geo_country/board13_0.xml.in.h:1
-#| msgid "Austria"
 msgid "Australia"
 msgstr "Australija"
 
@@ -3987,7 +3984,6 @@ msgid "America"
 msgstr "Amerika"
 
 #: ../src/geography-activity/resources/geography/board1_0.xml.in.h:4
-#| msgid "Antartica"
 msgid "Antarctica"
 msgstr "Antarktik"
 
@@ -5140,7 +5136,7 @@ msgid ""
 "generation. It is called a wind generator or wind charger. "
 msgstr ""
 "Vetrenjače su uređaji koji pretvaraju energiju kretanja vetra u električnu "
-"energiju. Poznate su i pod nazivom generatori vetra ili punjači vetra."
+"energiju. Poznate su i pod nazivom generatori vetra ili punjači vetra. "
 
 #: ../src/hydroelectric-activity/hydroelectric.py:737
 msgid ""
@@ -5194,7 +5190,7 @@ msgstr ""
 "polje vetrenjača i transformatore, da biste ponovo pokrenuli čitav sistem "
 "električne energije. Kada se sistem povrati i kada je Pingoslav kod svoje "
 "kuće, upalite svetlo umesto njega. Da biste pobedili, morate da uključite sve "
-"potrošače dok su svi proizvodni pogoni aktivni. "
+"potrošače dok su svi proizvodni pogoni aktivni."
 
 #: ../src/imageid-activity/imageid.c:94
 #: ../src/imageid-activity/imageid.xml.in.h:3
@@ -5485,8 +5481,9 @@ msgid "Music instruments"
 msgstr "Muzički instrumenti"
 
 #: ../src/instruments-activity/instruments.xml.in.h:2
-msgid "Click on the correct mucical instruments"
-msgstr "Kliknite na odgovarajući muzički instrument."
+#| msgid "Click on the correct mucical instruments"
+msgid "Click on the correct musical instruments"
+msgstr "Kliknite na odgovarajuće muzičke instrumente"
 
 #: ../src/instruments-activity/instruments.xml.in.h:3
 msgid "Learn to recognize musical instruments."
@@ -5834,7 +5831,7 @@ msgstr ""
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:7
 msgid "Louis trimmed Barbier's 12 dots into 6 and invented the Braille system."
-msgstr "Luj je smanjio Barbjerovih 12 tačaka na 6 i izmislio Brajev sistem"
+msgstr "Luj je smanjio Barbjerovih 12 tačaka na 6 i izmislio Brajev sistem."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:8
 msgid "He became a teacher after graduating and secretly taught his method."
@@ -6200,7 +6197,6 @@ msgstr ""
 
 #: ../src/memory_add_minus-activity/memory_add_minus.xml.in.h:3
 #: ../src/memory_add_minus_tux-activity/memory_add_minus_tux.xml.in.h:3
-#| msgid "Addition and subtraction memory game"
 msgid "Addition and subtraction"
 msgstr "Sabiranje i oduzimanje"
 
@@ -6858,7 +6854,7 @@ msgid ""
 msgstr ""
 "Pingoslav je od vas kupio neke sitnice i pokazao vam novac. Sada vi njemu "
 "treba da vratite ostatak. Na višim nivoima, prikazano je nekoliko stavki, a "
-"vi morate prvo da izračunate ukupan iznos. "
+"vi morate prvo da izračunate ukupan iznos."
 
 #: ../src/money_back_cents-activity/money_back_cents.xml.in.h:1
 msgid "Give tux his change, including cents"
