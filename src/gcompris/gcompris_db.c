@@ -2099,6 +2099,7 @@ gboolean gc_db_log(gchar *date, int duration,
   SUPPORT_OR_RETURN(FALSE);
 
 #ifdef USE_SQLITE
+  static gboolean got_error = FALSE;
   char *zErrMsg;
   int rc;
   gchar *request;
@@ -2109,8 +2110,15 @@ gboolean gc_db_log(gchar *date, int duration,
 			    date, duration, user_id, board_id, level, sublevel, status, comment_quoted);
 
   rc = sqlite3_exec(gcompris_db, request, NULL,  0, &zErrMsg);
-  if( rc!=SQLITE_OK ){
-    g_error("SQL error: %s\n", zErrMsg);
+  if ( rc != SQLITE_OK && ! got_error ) {
+    got_error = TRUE;
+    GcomprisProperties	*properties = gc_prop_get();
+    gchar *msg = g_strdup_printf("Failed to write to our database '%s' with error: %s",
+				 properties->database, zErrMsg);
+    gc_dialog( msg, NULL);
+    g_free(msg);
+    sqlite3_free(zErrMsg);
+    return TRUE;
   }
 
   if(comment)
