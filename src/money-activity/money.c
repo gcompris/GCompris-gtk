@@ -878,8 +878,12 @@ void moneyactivity_process_ok()
      price_target <= money_widget_get_total(seller_money) + 0.001 )
     {
       gamewon = TRUE;
-      gc_bonus_display(gamewon, GC_BONUS_SMILEY);
     }
+  else
+    {
+      gamewon = FALSE;
+    }
+  gc_bonus_display(gamewon, GC_BONUS_SMILEY);
 }
 
 static void display_paying_note(guint note, guint x, guint y)
