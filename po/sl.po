@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-03-13 02:15+0000\n"
-"PO-Revision-Date: 2012-03-13 21:24+0100\n"
+"POT-Creation-Date: 2012-04-04 08:05+0000\n"
+"PO-Revision-Date: 2012-04-04 13:41+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
@@ -2406,7 +2406,7 @@ msgstr "V tej igri lahko otroci prosto rišejo. Cilj je raziskati načine risanj
 msgid "Select a drawing tool on the left, and a color down the bottom, then click and drag in the white area to create a new shape. To save time, you can click with the middle mouse button to delete an object."
 msgstr "Na levi strani izberi orodje za risanje v spodnjem delu pa izberi barvo. Klikni na belo polje ter nariši novo obliko. Za hitrejše delo lahko uporabiš srednjim gumbom na miški. Z njo predmet izbrišeš."
 
-#: ../src/drawnumber-activity/drawnumber.py:236
+#: ../src/drawnumber-activity/drawnumber.py:238
 #: ../src/findit-activity/findit.py:315
 #: ../src/louis_braille-activity/louis_braille.py:84
 msgid "Cannot find the file '{filename}'"
@@ -5086,8 +5086,8 @@ msgid "Louis trimmed Barbier's 12 dots into 6 and invented the Braille system."
 msgstr " Louis je skrčil Barbierjev sistem z dvanajstimi pikami v sistem s šestimi pik in izumil Braillov jezik."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:8
-msgid "He became a teacher after graduating and secretly taught his method."
-msgstr "Po diplomi je postal učitelj in je skrivaje poučeval svojo metodo branja."
+msgid "He became a teacher after graduating and promoted his method while secretly teaching it at the Institute."
+msgstr "Po diplomi je postal učitelj, hkrati pa je skrivaje poučeval svojo metodo branja."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:9
 msgid "He revised and extended braille to include mathematics, symbols, punctuations and music notations."
@@ -5836,7 +5836,7 @@ msgid "$ %.0f"
 msgstr "$ %.0f"
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %d
-#: ../src/money-activity/money.c:936
+#: ../src/money-activity/money.c:940
 #, c-format
 msgid ""
 "Tux just bought some items in your shop.\n"
