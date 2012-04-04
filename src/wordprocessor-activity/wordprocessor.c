@@ -17,6 +17,7 @@
  */
 
 #include <string.h>
+#include <stdlib.h>
 #include <glib/gstdio.h>
 #include <libxml/HTMLparser.h>
 
@@ -36,7 +37,7 @@ typedef struct {
   gint pixels_below_lines;
 } style_t;
 
-#define NUMBER_OF_STYLE 4 /* h1 h2 h3 p */
+#define NUMBER_OF_STYLE 5 /* h1 h2 h3 link p */
 
 static GtkTextTag *tag_list[NUMBER_OF_STYLE];
 
@@ -56,6 +57,7 @@ doctype_t type_normal =
       { "h1", "Serif 30", PANGO_WEIGHT_ULTRABOLD,  GTK_JUSTIFY_CENTER, 0,  40, 20 },
       { "h2", "Serif 26", PANGO_WEIGHT_BOLD,       GTK_JUSTIFY_LEFT,   0,  30, 15 },
       { "h3", "Serif 20", PANGO_WEIGHT_SEMIBOLD,   GTK_JUSTIFY_LEFT,   15,  20, 12 },
+      { "link",  "Serif 16", PANGO_WEIGHT_NORMAL,  GTK_JUSTIFY_LEFT,   30, 3,  3 },
       { "p",  "Serif 16", PANGO_WEIGHT_NORMAL,     GTK_JUSTIFY_LEFT,   30, 3,  3 }
     }
   };
@@ -67,6 +69,7 @@ doctype_t type_letter =
       { "h1", "Serif 26", PANGO_WEIGHT_ULTRABOLD,  GTK_JUSTIFY_CENTER, 0,  40, 20 },
       { "h2", "Serif 20", PANGO_WEIGHT_BOLD,       GTK_JUSTIFY_LEFT,   0,  30, 15 },
       { "h3", "Serif 16", PANGO_WEIGHT_SEMIBOLD,   GTK_JUSTIFY_LEFT,   10, 20, 12 },
+      { "link",  "Serif 14", PANGO_WEIGHT_NORMAL,  GTK_JUSTIFY_LEFT,   30, 3,  3 },
       { "p",  "Serif 14", PANGO_WEIGHT_NORMAL,     GTK_JUSTIFY_LEFT,   30, 3,  3 }
     },
   };
@@ -78,6 +81,7 @@ doctype_t type_small =
       { "h1", "Serif 18", PANGO_WEIGHT_ULTRABOLD,  GTK_JUSTIFY_CENTER, 0,  40, 20 },
       { "h2", "Serif 16", PANGO_WEIGHT_BOLD,       GTK_JUSTIFY_LEFT,   0,  30, 15 },
       { "h3", "Serif 14", PANGO_WEIGHT_SEMIBOLD,   GTK_JUSTIFY_LEFT,   10, 20, 12 },
+      { "link",  "Serif 12", PANGO_WEIGHT_NORMAL,  GTK_JUSTIFY_LEFT,   30, 3,  3 },
       { "p",  "Serif 12", PANGO_WEIGHT_NORMAL,     GTK_JUSTIFY_LEFT,   30, 3,  3 }
     },
   };
@@ -89,6 +93,7 @@ doctype_t type_text =
       { "h1", "Serif 12", PANGO_WEIGHT_ULTRABOLD,  GTK_JUSTIFY_CENTER, 0,  40, 20 },
       { "h2", "Serif 12", PANGO_WEIGHT_BOLD,       GTK_JUSTIFY_LEFT,   0,  30, 15 },
       { "h3", "Serif 12", PANGO_WEIGHT_SEMIBOLD,   GTK_JUSTIFY_LEFT,   15, 20, 12 },
+      { "link",  "Serif 12", PANGO_WEIGHT_NORMAL,  GTK_JUSTIFY_LEFT,   30, 3,  3 },
       { "p",  "Serif 12", PANGO_WEIGHT_NORMAL,     GTK_JUSTIFY_LEFT,   30, 3,  3 }
     },
   };
@@ -100,9 +105,11 @@ doctype_t type_big =
       { "h1", "Serif 34", PANGO_WEIGHT_ULTRABOLD,  GTK_JUSTIFY_CENTER, 0,  40, 20 },
       { "h2", "Serif 30", PANGO_WEIGHT_BOLD,       GTK_JUSTIFY_LEFT,   0,  30, 15 },
       { "h3", "Serif 26", PANGO_WEIGHT_SEMIBOLD,   GTK_JUSTIFY_LEFT,   15, 20, 12 },
-      { "p",  "Serif 18", PANGO_WEIGHT_NORMAL,     GTK_JUSTIFY_LEFT,   30, 3,  3 }
+      { "link",  "Serif 18", PANGO_WEIGHT_NORMAL,  GTK_JUSTIFY_LEFT,   30, 3,  3 },
+      { "p",  "Serif 16", PANGO_WEIGHT_NORMAL,     GTK_JUSTIFY_LEFT,   30, 3,  3 }
     },
   };
+
 #define NUMBER_OF_DOCTYPE 5
 static doctype_t *doctype_list[NUMBER_OF_DOCTYPE];
 
@@ -112,10 +119,10 @@ static doctype_t *doctype_list[NUMBER_OF_DOCTYPE];
 #define NUMBER_OF_COLOR_STYLE 4
 static gchar *color_style_list[NUMBER_OF_COLOR_STYLE][NUMBER_OF_STYLE+1] =
 {
-  {N_("Spring"), "red",  "blue",  "lightblue",  "black"},
-  {N_("Summer"), "DeepPink",  "HotPink",  "MediumOrchid",  "black"},
-  {N_("Autumn"), "blue",  "red",  "lightblue",  "black"},
-  {N_("Winter"), "black",  "black",  "black",  "black"},
+  {N_("Spring"), "red",  "blue",  "lightblue",  "blue", "black"},
+  {N_("Summer"), "DeepPink",  "HotPink",  "MediumOrchid", "blue", "black"},
+  {N_("Autumn"), "blue",  "red",  "lightblue", "blue", "black"},
+  {N_("Winter"), "black",  "black",  "black",  "blue", "black"},
 };
 
 static GcomprisBoard	*gcomprisBoard = NULL;
@@ -155,6 +162,10 @@ static gboolean		 load_event (GooCanvasItem  *item,
 				     GooCanvasItem  *target,
 				     GdkEventButton *event,
 				     gchar *data);
+static void              follow_if_link(GtkWidget *text_view, GtkTextIter *iter);
+static gboolean          event_after (GtkWidget *text_view, GdkEvent *ev);
+static gboolean          motion_notify_event (GtkWidget *text_view, GdkEventMotion *event);
+static void              set_cursor_if_appropriate (GtkTextView *text_view, gint x, gint y);
 static int		 get_style_index(gchar *style);
 static int		 get_style_current_index();
 static gint		 get_color_style_index(gchar *color_style);
@@ -162,6 +173,7 @@ static gint		 get_color_style_current_index();
 static GtkTextTag       *get_tag_from_name(gchar *name);
 static void		 apply_style(int style_index);
 static void		 apply_color_style(int style_index);
+static char *		 escape(char *input);
 
 #define word_area_x1 120
 #define word_area_y1 20
@@ -323,7 +335,10 @@ static GooCanvasItem *wordprocessor_create()
   gtk_text_view_set_left_margin (GTK_TEXT_VIEW (view), 1);
   g_signal_connect (view, "key-release-event",
 		    G_CALLBACK (key_release_event), NULL);
-
+  g_signal_connect (view, "event-after",
+            G_CALLBACK (event_after), NULL);
+  g_signal_connect (view, "motion-notify-event",
+            G_CALLBACK (motion_notify_event), NULL);
   buffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW (view));
 
 
@@ -352,6 +367,7 @@ static GooCanvasItem *wordprocessor_create()
   doctype_list[2] = &type_letter;
   doctype_list[3] = &type_small;
   doctype_list[4] = &type_big;
+//  doctype_list[5] = &type_link;
 
   y = 20.0;
   /*
@@ -432,7 +448,8 @@ display_style_buttons(GooCanvasItem *boardRootItem,
 				 N_("Heading 1"), "h2",
 				 N_("Heading 2"), "h3",
 				 N_("Text"), "p",
-				 NULL, NULL };
+				 N_("Hyperlink"), "link",
+				 NULL, NULL};
 
   while(styles_tab[i*2])
     {
@@ -526,16 +543,18 @@ create_tags (GtkTextBuffer *buffer, doctype_t *doctype)
   for(i=0; i<NUMBER_OF_STYLE; i++)
     {
       GtkTextTag *tag;
-
-      tag = gtk_text_buffer_create_tag (buffer, doctype->style[i].name,
-					"weight", doctype->style[i].weight,
-					"font", doctype->style[i].font,
-					"justification", doctype->style[i].justification,
-					"left-margin", doctype->style[i].left_margin,
-					"pixels-above-lines", doctype->style[i].pixels_above_lines,
-					"pixels-below-lines", doctype->style[i].pixels_below_lines,
-					"foreground",color_style_list[c][i+1],
-					NULL);
+      tag = gtk_text_buffer_create_tag \
+	(buffer, doctype->style[i].name,
+	 "weight", doctype->style[i].weight,
+	 "font", doctype->style[i].font,
+	 "justification", doctype->style[i].justification,
+	 "left-margin", doctype->style[i].left_margin,
+	 "pixels-above-lines", doctype->style[i].pixels_above_lines,
+	 "pixels-below-lines", doctype->style[i].pixels_below_lines,
+	 "foreground",color_style_list[c][i+1],
+	 /* For the link style an underline and blue color is essential */
+	 "underline", (i!=3 ? PANGO_UNDERLINE_NONE : PANGO_UNDERLINE_SINGLE),
+	 NULL);
       tag_list[i] = tag;
       g_object_set_data (G_OBJECT (tag), "style", &doctype->style[i]);
     }
@@ -554,6 +573,7 @@ set_default_tag (GtkTextBuffer *buffer, GtkTextTag *tag)
 {
   PangoFontDescription *font_desc;
   GdkColor *color = (GdkColor *)g_malloc(sizeof(GdkColor));
+  PangoUnderline *underline;
   int val;
   GtkJustification justification;
 
@@ -561,6 +581,7 @@ set_default_tag (GtkTextBuffer *buffer, GtkTextTag *tag)
     return;
 
   g_object_get (G_OBJECT (tag), "foreground-gdk", &color, NULL);
+  g_object_get (G_OBJECT (tag), "underline", &underline, NULL);
   g_object_get (G_OBJECT (tag), "font-desc", &font_desc, NULL);
 
   gtk_widget_modify_font (view, font_desc);
@@ -661,6 +682,122 @@ display_color_style_selector(GooCanvasItem *boardRootItem, double y)
 		   NULL);
 }
 
+/* Links can also be activated by clicking */
+static void
+follow_if_link (GtkWidget *text_view, GtkTextIter *iter)
+{
+  GSList *tags = NULL, *tagp = NULL;
+  tags = gtk_text_iter_get_tags (iter);
+  for (tagp = tags; tagp != NULL; tagp = tagp->next)
+    {
+      gchar *tag_name;
+      GtkTextTag *tag = tagp->data;
+      g_object_get (G_OBJECT (tag), "name", &tag_name, NULL);
+      if ( g_ascii_strcasecmp(tag_name, "link") == 0)
+	{
+	  GtkTextIter iter_end = *iter;
+	  GtkTextIter iter_start = iter_end;
+	  gtk_text_iter_backward_sentence_start(&iter_start);
+	  gtk_text_iter_forward_to_line_end(&iter_end);
+	  char *result =				\
+	    escape(gtk_text_buffer_get_text(buffer,
+					    &iter_start,
+					    &iter_end,
+					    0));
+	  gtk_show_uri(NULL, result, GDK_CURRENT_TIME, NULL);
+	  g_free(result);
+	}
+    }
+  if(tags)
+    g_slist_free (tags);
+}
+
+/* we shouldn't follow a link if the user has selected something */
+static gboolean
+event_after (GtkWidget *text_view, GdkEvent *ev)
+{
+  GtkTextIter start, end, iter;
+  GtkTextBuffer *buffer;
+  GdkEventButton *event;
+  gint x, y;
+
+  if (ev->type != GDK_BUTTON_RELEASE)
+    return FALSE;
+
+  event = (GdkEventButton *)ev;
+
+  if (event->button != 1)
+    return FALSE;
+
+  buffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW (text_view));
+
+  gtk_text_buffer_get_selection_bounds (buffer, &start, &end);
+  if (gtk_text_iter_get_offset (&start) != gtk_text_iter_get_offset (&end))
+    return FALSE;
+
+  gtk_text_view_window_to_buffer_coords (GTK_TEXT_VIEW (text_view),
+  GTK_TEXT_WINDOW_WIDGET, event->x, event->y, &x, &y);
+
+  gtk_text_view_get_iter_at_location (GTK_TEXT_VIEW (text_view), &iter, x, y);
+  follow_if_link (text_view, &iter);
+  return FALSE;
+}
+
+/* Update the cursor image if the pointer moved */
+static gboolean
+motion_notify_event (GtkWidget *text_view, GdkEventMotion *event)
+{
+  gint x, y;
+
+  gtk_text_view_window_to_buffer_coords (GTK_TEXT_VIEW (text_view),
+  GTK_TEXT_WINDOW_WIDGET, event->x, event->y, &x, &y);
+
+  set_cursor_if_appropriate (GTK_TEXT_VIEW (text_view), x, y);
+
+  gdk_window_get_pointer (text_view->window, NULL, NULL, NULL);
+  return FALSE;
+}
+
+/* Looks at all tags covering the position (x, y) in the text view,
+ * and if one of them is a link, change the cursor to the "hands" cursor
+ * typically used by web browsers.
+*/
+static void
+set_cursor_if_appropriate (GtkTextView *text_view, gint x, gint y)
+{
+  GSList *tags = NULL, *tagp = NULL;
+  GtkTextIter iter;
+  gboolean hovering = FALSE;
+
+  gtk_text_view_get_iter_at_location (text_view, &iter, x, y);
+
+  tags = gtk_text_iter_get_tags (&iter);
+  for (tagp = tags; tagp != NULL; tagp = tagp->next)
+   {
+     gchar *tag_name;
+     GtkTextTag *tag = tagp->data;
+     g_object_get (G_OBJECT (tag), "name", &tag_name, NULL);
+     if ( g_ascii_strcasecmp(tag_name, "link") == 0)
+     {
+       hovering = TRUE;
+       break;
+     }
+   }
+
+  GdkCursor *cursor;
+  if (hovering)
+       cursor = gdk_cursor_new (GDK_LEFT_PTR);
+  else
+       cursor = gdk_cursor_new (GDK_XTERM);
+
+  gdk_window_set_cursor (gtk_text_view_get_window (text_view, GTK_TEXT_WINDOW_TEXT),
+			 cursor);
+  gdk_cursor_unref (cursor);
+
+   if (tags)
+     g_slist_free (tags);
+}
+
 static int
 get_style_index(gchar *style)
 {
@@ -739,11 +876,9 @@ apply_color_style(int color_style_index)
 
   /* Change the color */
   for(j=0; j<NUMBER_OF_STYLE; j++)
-    g_object_set(tag_list[j],
-		 "foreground",color_style_list[i][j+1],
+    g_object_set(tag_list[j], "foreground", color_style_list[i][j+1],
 		 NULL);
 }
-
 /* Set a new color style from the combo box selection
  *
  */
@@ -901,7 +1036,7 @@ save_buffer(gchar *file, gchar *file_type, void *unused)
 
   {
     int i;
-    int font_size[NUMBER_OF_STYLE] = { 28, 22, 16, 12 };
+    int font_size[NUMBER_OF_STYLE] = { 28, 22, 16, 14, 12 };
     char *align[NUMBER_OF_STYLE] = { "center", "left", "left", "justify" };
     int left_margin[NUMBER_OF_STYLE] = { 0, 10, 20, 30 };
 
@@ -960,7 +1095,6 @@ save_buffer(gchar *file, gchar *file_type, void *unused)
 	  g_object_get (G_OBJECT (tag), "name", &tag_name, NULL);
 
 	}
-      fprintf(filefd, "<%s>", tag_name);
 
       char *result = escape(gtk_text_buffer_get_text(buffer,
 						     &iter_start,
@@ -973,7 +1107,12 @@ save_buffer(gchar *file, gchar *file_type, void *unused)
 	  g_object_get (G_OBJECT (tag), "name", &tag_name, NULL);
 
 	}
-      fprintf(filefd, "%s</%s>\n", result, tag_name);
+
+      if ( g_ascii_strcasecmp(tag_name, "link") == 0)
+	fprintf(filefd, "<a href='%s'>%s</a>\n", result, result);
+      else
+	fprintf(filefd, "<%s>%s</%s>\n", tag_name, result, tag_name);
+
       g_free(result);
 
       if (tags)
@@ -1101,6 +1240,7 @@ load_buffer(gchar *file, gchar *file_type, void *unused)
       if ( g_ascii_strcasecmp((char *)node->name, "h1") == 0 ||
 	   g_ascii_strcasecmp((char *)node->name, "h2") == 0 ||
 	   g_ascii_strcasecmp((char *)node->name, "h3") == 0 ||
+	   g_ascii_strcasecmp((char *)node->name, "link") == 0 ||
 	   g_ascii_strcasecmp((char *)node->name, "p") == 0 )
 	{
 	  xmlChar *content;
