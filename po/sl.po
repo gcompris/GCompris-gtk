@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-04-04 08:05+0000\n"
-"PO-Revision-Date: 2012-04-04 13:41+0100\n"
+"POT-Creation-Date: 2012-04-08 15:16+0000\n"
+"PO-Revision-Date: 2012-04-08 20:25+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
@@ -1196,8 +1196,8 @@ msgid "Line"
 msgstr "Črta"
 
 #: ../src/anim-activity/anim.py:157
-#: ../src/wordprocessor-activity/wordprocessor.c:87
-#: ../src/wordprocessor-activity/wordprocessor.c:434
+#: ../src/wordprocessor-activity/wordprocessor.c:91
+#: ../src/wordprocessor-activity/wordprocessor.c:450
 msgid "Text"
 msgstr "Besedilo"
 
@@ -1816,22 +1816,22 @@ msgid "The 4 Seasons"
 msgstr "Štirje letni časi"
 
 #: ../src/chronos-activity/resources/chronos/board1_1.xml.in.h:2
-#: ../src/wordprocessor-activity/wordprocessor.c:115
+#: ../src/wordprocessor-activity/wordprocessor.c:122
 msgid "Spring"
 msgstr "Pomlad"
 
 #: ../src/chronos-activity/resources/chronos/board1_1.xml.in.h:3
-#: ../src/wordprocessor-activity/wordprocessor.c:116
+#: ../src/wordprocessor-activity/wordprocessor.c:123
 msgid "Summer"
 msgstr "Poletje"
 
 #: ../src/chronos-activity/resources/chronos/board1_1.xml.in.h:4
-#: ../src/wordprocessor-activity/wordprocessor.c:117
+#: ../src/wordprocessor-activity/wordprocessor.c:124
 msgid "Autumn"
 msgstr "Jesen"
 
 #: ../src/chronos-activity/resources/chronos/board1_1.xml.in.h:5
-#: ../src/wordprocessor-activity/wordprocessor.c:118
+#: ../src/wordprocessor-activity/wordprocessor.c:125
 msgid "Winter"
 msgstr "Zima"
 
@@ -4889,8 +4889,8 @@ msgid "the organ"
 msgstr "Orgle"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
-msgid "the bass drum"
-msgstr "Basovski boben"
+msgid "the snare drum"
+msgstr "mali boben"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
 msgid "the timpani"
@@ -6766,33 +6766,37 @@ msgstr "Spoznaj vodni krog"
 msgid "Click on different active elements : sun, cloud, water pump station, and water cleanup station, in order to reactivate the entire water system. When the system is back up and Tux is in the shower, push the shower button for him."
 msgstr "Za ponovno zaganjanje celotnega vodnega sistema, klikni na različne dejavne predmete: sonce, oblak, postaja za črpanje vode in postaja za čiščenje vode. Ko sistem ponovno deluje in je Pingo pod prho, pritisni gumb za tuširanje."
 
-#: ../src/wordprocessor-activity/wordprocessor.c:54
+#: ../src/wordprocessor-activity/wordprocessor.c:55
 msgid "Research"
 msgstr "Raziskovanje"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:65
+#: ../src/wordprocessor-activity/wordprocessor.c:67
 msgid "Sentimental"
 msgstr "Čustveno"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:76
+#: ../src/wordprocessor-activity/wordprocessor.c:79
 msgid "Official"
 msgstr "Uradno"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:98
+#: ../src/wordprocessor-activity/wordprocessor.c:103
 msgid "Flyer"
 msgstr "Letak"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:431
+#: ../src/wordprocessor-activity/wordprocessor.c:447
 msgid "Title"
 msgstr "Naslov"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:432
+#: ../src/wordprocessor-activity/wordprocessor.c:448
 msgid "Heading 1"
 msgstr "Naslov 1"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:433
+#: ../src/wordprocessor-activity/wordprocessor.c:449
 msgid "Heading 2"
 msgstr "Naslov 2"
+
+#: ../src/wordprocessor-activity/wordprocessor.c:451
+msgid "Hyperlink"
+msgstr "Hiperpovezava"
 
 #: ../src/wordprocessor-activity/wordprocessor.xml.in.h:1
 msgid "Your word processor"
