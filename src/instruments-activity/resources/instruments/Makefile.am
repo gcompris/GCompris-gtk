@@ -8,8 +8,6 @@ img_DATA = \
 	banjo.svg \
 	bongo.ogg \
 	bongo.png \
-	bass_drum.ogg \
-	bass_drum.svg \
 	castanets.ogg \
 	castanets.svg \
 	cello.ogg \
@@ -40,6 +38,8 @@ img_DATA = \
 	piano.svg \
 	saxophone.ogg \
 	saxophone.svg \
+	snare_drum.ogg \
+	snare_drum.svg \
 	tambourine.ogg \
 	tambourine.svg \
 	bass_drum.ogg \
