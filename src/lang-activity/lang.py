@@ -248,25 +248,13 @@ class Gcompris_lang:
     goocanvas.Text(
       parent = self.lessonroot,
       x = gcompris.BOARD_WIDTH / 2,
-      y = 25.0,
+      y = 40.0,
       text = lesson.name,
       fill_color = "black",
       font = gcompris.skin.get_font("gcompris/title"),
       anchor = gtk.ANCHOR_CENTER,
       alignment = pango.ALIGN_CENTER,
       width = 300
-      )
-
-    goocanvas.Text(
-      parent = self.lessonroot,
-      x = gcompris.BOARD_WIDTH / 2,
-      y = 55.0,
-      text = lesson.description,
-      fill_color = "black",
-      font = gcompris.skin.get_font("gcompris/subtitle"),
-      anchor = gtk.ANCHOR_CENTER,
-      alignment = pango.ALIGN_CENTER,
-      width = 600
       )
 
     # Previous Button
@@ -308,12 +296,12 @@ class Gcompris_lang:
     self.descriptionitem = goocanvas.Text(
       parent = self.lessonroot,
       x = gcompris.BOARD_WIDTH / 2,
-      y = gcompris.BOARD_HEIGHT - 100,
+      y = gcompris.BOARD_HEIGHT - 80,
       fill_color = "black",
       font = gcompris.skin.get_font("gcompris/subtitle"),
       anchor = gtk.ANCHOR_CENTER,
       alignment = pango.ALIGN_CENTER,
-      width = 300
+      width = 500
       )
     self.displayImage( lesson.getTriplets()[self.currentTripletId] )
 
