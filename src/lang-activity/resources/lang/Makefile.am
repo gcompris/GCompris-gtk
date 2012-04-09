@@ -16,19 +16,16 @@ $(xml_DATA): %.xml: %.xml.in
 
 imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/lang/numbers
 img_DATA = \
-	numbers/banana.svg \
-	numbers/empty.svg \
-	numbers/lemon.svg \
-	numbers/mango.svg \
-	numbers/one.svg \
-	numbers/orange.svg \
-	numbers/peach.svg \
-	numbers/pear.svg \
-	numbers/pineapples.svg \
-	numbers/raspberries.svg \
-	numbers/strawberries.svg
-
-
+	numbers/10_litchis.jpg \
+	numbers/1_mango.jpg \
+	numbers/2_pears.jpg \
+	numbers/3_apples.jpg \
+	numbers/4_bananas.jpg \
+	numbers/5_lemons.jpg \
+	numbers/6_oranges.jpg \
+	numbers/7_strawberries.jpg \
+	numbers/8_guavas.jpg \
+	numbers/9_apricots.jpg
 
 EXTRA_DIST = $(img_DATA) ${xml_in_files}
 CLEANFILES = $(xml_DATA)

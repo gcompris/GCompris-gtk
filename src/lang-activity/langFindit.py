@@ -59,7 +59,7 @@ class SpotTarget:
                    itembg )
 
       # The text description
-      textx = 100
+      textx = 120
       item = goocanvas.Text(
           parent = rootitem,
           x = x + textx,
