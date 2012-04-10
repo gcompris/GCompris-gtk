@@ -31,8 +31,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GCompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-26 15:06+0200\n"
-"PO-Revision-Date: 2012-03-25 19:00+0100\n"
+"POT-Creation-Date: 2012-04-10 13:01+0200\n"
+"PO-Revision-Date: 2012-04-09 19:00+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -1314,8 +1314,8 @@ msgid "Line"
 msgstr "Linje"
 
 #: ../src/anim-activity/anim.py:157
-#: ../src/wordprocessor-activity/wordprocessor.c:87
-#: ../src/wordprocessor-activity/wordprocessor.c:434
+#: ../src/wordprocessor-activity/wordprocessor.c:91
+#: ../src/wordprocessor-activity/wordprocessor.c:450
 msgid "Text"
 msgstr "Tekst"
 
@@ -2115,22 +2115,22 @@ msgid "The 4 Seasons"
 msgstr "De fire årstider"
 
 #: ../src/chronos-activity/resources/chronos/board1_1.xml.in.h:2
-#: ../src/wordprocessor-activity/wordprocessor.c:115
+#: ../src/wordprocessor-activity/wordprocessor.c:122
 msgid "Spring"
 msgstr "Forår"
 
 #: ../src/chronos-activity/resources/chronos/board1_1.xml.in.h:3
-#: ../src/wordprocessor-activity/wordprocessor.c:116
+#: ../src/wordprocessor-activity/wordprocessor.c:123
 msgid "Summer"
 msgstr "Sommer"
 
 #: ../src/chronos-activity/resources/chronos/board1_1.xml.in.h:4
-#: ../src/wordprocessor-activity/wordprocessor.c:117
+#: ../src/wordprocessor-activity/wordprocessor.c:124
 msgid "Autumn"
 msgstr "Efterår"
 
 #: ../src/chronos-activity/resources/chronos/board1_1.xml.in.h:5
-#: ../src/wordprocessor-activity/wordprocessor.c:118
+#: ../src/wordprocessor-activity/wordprocessor.c:125
 msgid "Winter"
 msgstr "Vinter"
 
@@ -5593,7 +5593,8 @@ msgid "the organ"
 msgstr "orglet"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
-msgid "the bass drum"
+#, fuzzy
+msgid "the snare drum"
 msgstr "bastrommen"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
@@ -5827,8 +5828,8 @@ msgid ""
 "At the age of 10, he was sent to Paris to study at the Royal Institute for "
 "Blind Youth."
 msgstr ""
-"Som tiårig blev han sendt til Paris for at studere på Royal Institute for "
-"Blind Youth (Det Kongelige Institut For Unge Blinde)."
+"Som tiårig blev han sendt til Paris for at studere på det kongelige institut "
+"for unge blinde (Institut national des Jeunes Aveugles)."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:5
 msgid "He impressed his classmates and began to play the piano and the organ."
@@ -5851,8 +5852,12 @@ msgstr ""
 "Louis trimmede Barbiers 12 prikker ned til 6 og opfandt Braillesystemet."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:8
-msgid "He became a teacher after graduating and secretly taught his method."
-msgstr "Han blev lærer efter eksamen og lærte hemmeligt andre om sin metode."
+msgid ""
+"He became a teacher after graduating and promoted his method while secretly "
+"teaching it at the Institute."
+msgstr ""
+"Han blev lærer efter eksamen og promoverede for sin metode, mens han "
+"hemmeligt underviste i den på instituttet."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:9
 msgid ""
@@ -6772,7 +6777,7 @@ msgid "$ %.0f"
 msgstr "kr. %.0f"
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %d
-#: ../src/money-activity/money.c:936
+#: ../src/money-activity/money.c:940
 #, c-format
 msgid ""
 "Tux just bought some items in your shop.\n"
@@ -7943,33 +7948,37 @@ msgstr ""
 "renseanlæg for at genoprette hele vandballancen. Når systemet er i orden "
 "igen (vandtårnet er fuldt), og Tux er i bruseren, trykkes på bruserventilen."
 
-#: ../src/wordprocessor-activity/wordprocessor.c:54
+#: ../src/wordprocessor-activity/wordprocessor.c:55
 msgid "Research"
 msgstr "Forskning"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:65
+#: ../src/wordprocessor-activity/wordprocessor.c:67
 msgid "Sentimental"
 msgstr "Sentimental"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:76
+#: ../src/wordprocessor-activity/wordprocessor.c:79
 msgid "Official"
 msgstr "Officiel"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:98
+#: ../src/wordprocessor-activity/wordprocessor.c:103
 msgid "Flyer"
 msgstr "Løbeseddel"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:431
+#: ../src/wordprocessor-activity/wordprocessor.c:447
 msgid "Title"
 msgstr "Titel"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:432
+#: ../src/wordprocessor-activity/wordprocessor.c:448
 msgid "Heading 1"
 msgstr "Overskrift 1"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:433
+#: ../src/wordprocessor-activity/wordprocessor.c:449
 msgid "Heading 2"
 msgstr "Overskrift 2"
+
+#: ../src/wordprocessor-activity/wordprocessor.c:451
+msgid "Hyperlink"
+msgstr "Hyperhenvisning"
 
 #: ../src/wordprocessor-activity/wordprocessor.xml.in.h:1
 msgid "Your word processor"
@@ -8028,47 +8037,3 @@ msgstr "Tastaturtræning"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Skriv hele ordet mens det falder, og før det når bunden"
-
-#~ msgid ""
-#~ "Error: this activity requires that you first install\n"
-#~ "the packages with GCompris voices for the locale '%s' ! Fallback to "
-#~ "english, sorry!"
-#~ msgstr ""
-#~ "Fejl: Denne aktivitet kræver, at du først installerer pakken med\n"
-#~ "lyde for landeområdet '%s' ! Skifter tilbage til engelsk, beklager!"
-
-#~ msgid "Click on the blue duck"
-#~ msgstr "Klik på den blå and"
-
-#~ msgid "Click on the brown duck"
-#~ msgstr "Klik på den brune and"
-
-#~ msgid "Click on the green duck"
-#~ msgstr "Klik på den grønne and"
-
-#~ msgid "Click on the grey duck"
-#~ msgstr "Klik på den grå and"
-
-#~ msgid "Click on the orange duck"
-#~ msgstr "Klik på den orange and"
-
-#~ msgid "Click on the purple duck"
-#~ msgstr "Klik på den violette and"
-
-#~ msgid "Click on the red duck"
-#~ msgstr "Klik på den røde and"
-
-#~ msgid "Click on the yellow duck"
-#~ msgstr "Klik på den gule and"
-
-#~ msgid "Click on the black duck"
-#~ msgstr "Klik på den sorte and"
-
-#~ msgid "Click on the white duck"
-#~ msgstr "Klik på den hvide and"
-
-#~ msgid "English (United State)"
-#~ msgstr "Engelsk (USA)"
-
-#~ msgid "Choice of pattern"
-#~ msgstr "Valg af mønster"
