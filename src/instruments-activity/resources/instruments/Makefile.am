@@ -42,8 +42,6 @@ img_DATA = \
 	snare_drum.svg \
 	tambourine.ogg \
 	tambourine.svg \
-	bass_drum.ogg \
-	bass_drum.svg \
 	timpani.ogg \
 	timpani.svg \
 	triangle.ogg \
