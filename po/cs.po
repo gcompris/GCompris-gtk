@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-03-13 02:15+0000\n"
-"PO-Revision-Date: 2012-03-25 22:35+0200\n"
+"POT-Creation-Date: 2012-04-15 07:28+0000\n"
+"PO-Revision-Date: 2012-04-19 08:28+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -1297,8 +1297,8 @@ msgid "Line"
 msgstr "Čára"
 
 #: ../src/anim-activity/anim.py:157
-#: ../src/wordprocessor-activity/wordprocessor.c:87
-#: ../src/wordprocessor-activity/wordprocessor.c:434
+#: ../src/wordprocessor-activity/wordprocessor.c:91
+#: ../src/wordprocessor-activity/wordprocessor.c:450
 msgid "Text"
 msgstr "Text"
 
@@ -2090,22 +2090,22 @@ msgid "The 4 Seasons"
 msgstr "4 roční období"
 
 #: ../src/chronos-activity/resources/chronos/board1_1.xml.in.h:2
-#: ../src/wordprocessor-activity/wordprocessor.c:115
+#: ../src/wordprocessor-activity/wordprocessor.c:122
 msgid "Spring"
 msgstr "Jaro"
 
 #: ../src/chronos-activity/resources/chronos/board1_1.xml.in.h:3
-#: ../src/wordprocessor-activity/wordprocessor.c:116
+#: ../src/wordprocessor-activity/wordprocessor.c:123
 msgid "Summer"
 msgstr "Léto"
 
 #: ../src/chronos-activity/resources/chronos/board1_1.xml.in.h:4
-#: ../src/wordprocessor-activity/wordprocessor.c:117
+#: ../src/wordprocessor-activity/wordprocessor.c:124
 msgid "Autumn"
 msgstr "Podzim"
 
 #: ../src/chronos-activity/resources/chronos/board1_1.xml.in.h:5
-#: ../src/wordprocessor-activity/wordprocessor.c:118
+#: ../src/wordprocessor-activity/wordprocessor.c:125
 msgid "Winter"
 msgstr "Zima"
 
@@ -2770,7 +2770,7 @@ msgstr ""
 "táhni myší pro vytvoření nového tvaru. Pro úsporu času můžeš použít "
 "prostřední tlačítko myši – odstraní objekt."
 
-#: ../src/drawnumber-activity/drawnumber.py:236
+#: ../src/drawnumber-activity/drawnumber.py:238
 #: ../src/findit-activity/findit.py:315
 #: ../src/louis_braille-activity/louis_braille.py:84
 msgid "Cannot find the file '{filename}'"
@@ -5554,8 +5554,8 @@ msgid "the organ"
 msgstr "varhany"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
-msgid "the bass drum"
-msgstr "basový buben"
+msgid "the snare drum"
+msgstr "vířivý buben"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
 msgid "the timpani"
@@ -5807,9 +5807,12 @@ msgstr ""
 "Louis zredukoval Barbierových 12 bodů jen na 6 a vyvinul Brallovo písmo."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:8
-msgid "He became a teacher after graduating and secretly taught his method."
+msgid ""
+"He became a teacher after graduating and promoted his method while secretly "
+"teaching it at the Institute."
 msgstr ""
-"Po absolvování školy se na ní stal učitelem a v tichosti zavedl svoji metodu."
+"Po absolvování školy se stal učitelem a svoji metodu propagoval tím, že ji v "
+"institutu potajnu učil."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:9
 msgid ""
@@ -6760,7 +6763,7 @@ msgid "$ %.0f"
 msgstr "%.0f Kč"
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %d
-#: ../src/money-activity/money.c:936
+#: ../src/money-activity/money.c:940
 #, c-format
 msgid ""
 "Tux just bought some items in your shop.\n"
@@ -7920,33 +7923,37 @@ msgstr ""
 "celý vodní systém. Až to bude hotovo a Tux bude ve sprše, stiskni pro něj "
 "tlačítko sprchy."
 
-#: ../src/wordprocessor-activity/wordprocessor.c:54
+#: ../src/wordprocessor-activity/wordprocessor.c:55
 msgid "Research"
 msgstr "Prozkoumat"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:65
+#: ../src/wordprocessor-activity/wordprocessor.c:67
 msgid "Sentimental"
 msgstr "Sentimentální"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:76
+#: ../src/wordprocessor-activity/wordprocessor.c:79
 msgid "Official"
 msgstr "Oficiální"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:98
+#: ../src/wordprocessor-activity/wordprocessor.c:103
 msgid "Flyer"
 msgstr "Leták"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:431
+#: ../src/wordprocessor-activity/wordprocessor.c:447
 msgid "Title"
 msgstr "Název"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:432
+#: ../src/wordprocessor-activity/wordprocessor.c:448
 msgid "Heading 1"
 msgstr "Nadpis 1"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:433
+#: ../src/wordprocessor-activity/wordprocessor.c:449
 msgid "Heading 2"
 msgstr "Nadpis 2"
+
+#: ../src/wordprocessor-activity/wordprocessor.c:451
+msgid "Hyperlink"
+msgstr "Hypertextový odkaz"
 
 #: ../src/wordprocessor-activity/wordprocessor.xml.in.h:1
 msgid "Your word processor"
