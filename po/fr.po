@@ -9,14 +9,14 @@
 # Jonathan Ernst <jonathan@ernstfamily.ch>, 2006.
 # Claude Paroz <claude@2xlibre.net>, 2006-2012.
 # Stéphane Raimbault <stephane.raimbault@gmail.com>, 2007.
-# Bruno Brouard <annoa.b@gmail.com>, 2010-2011.
+# Bruno Brouard <annoa.b@gmail.com>, 2010-2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-03-13 21:36+0000\n"
+"POT-Creation-Date: 2012-04-19 06:30+0000\n"
 "PO-Revision-Date: 2012-02-28 22:38+0100\n"
 "Last-Translator: Pierre Henry <PierreHenry73@yahoo.fr>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -1316,8 +1316,8 @@ msgid "Line"
 msgstr "Ligne"
 
 #: ../src/anim-activity/anim.py:157
-#: ../src/wordprocessor-activity/wordprocessor.c:87
-#: ../src/wordprocessor-activity/wordprocessor.c:434
+#: ../src/wordprocessor-activity/wordprocessor.c:91
+#: ../src/wordprocessor-activity/wordprocessor.c:450
 msgid "Text"
 msgstr "Texte"
 
@@ -2164,22 +2164,22 @@ msgid "The 4 Seasons"
 msgstr "Les quatre saisons"
 
 #: ../src/chronos-activity/resources/chronos/board1_1.xml.in.h:2
-#: ../src/wordprocessor-activity/wordprocessor.c:115
+#: ../src/wordprocessor-activity/wordprocessor.c:122
 msgid "Spring"
 msgstr "Printemps"
 
 #: ../src/chronos-activity/resources/chronos/board1_1.xml.in.h:3
-#: ../src/wordprocessor-activity/wordprocessor.c:116
+#: ../src/wordprocessor-activity/wordprocessor.c:123
 msgid "Summer"
 msgstr "Été"
 
 #: ../src/chronos-activity/resources/chronos/board1_1.xml.in.h:4
-#: ../src/wordprocessor-activity/wordprocessor.c:117
+#: ../src/wordprocessor-activity/wordprocessor.c:124
 msgid "Autumn"
 msgstr "Automne"
 
 #: ../src/chronos-activity/resources/chronos/board1_1.xml.in.h:5
-#: ../src/wordprocessor-activity/wordprocessor.c:118
+#: ../src/wordprocessor-activity/wordprocessor.c:125
 msgid "Winter"
 msgstr "Hiver"
 
@@ -2855,7 +2855,7 @@ msgstr ""
 "dans la zone blanche en glissant pour créer une nouvelle forme. Pour aller "
 "plus vite, tu peux utiliser la touche du milieu pour supprimer un objet."
 
-#: ../src/drawnumber-activity/drawnumber.py:236
+#: ../src/drawnumber-activity/drawnumber.py:238
 #: ../src/findit-activity/findit.py:315
 #: ../src/louis_braille-activity/louis_braille.py:84
 msgid "Cannot find the file '{filename}'"
@@ -5692,8 +5692,8 @@ msgid "the organ"
 msgstr "l'orgue"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
-msgid "the bass drum"
-msgstr "la grosse caisse"
+msgid "the snare drum"
+msgstr "la caisse claire"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
 msgid "the timpani"
@@ -5953,10 +5953,12 @@ msgstr ""
 "Braille."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:8
-msgid "He became a teacher after graduating and secretly taught his method."
+msgid ""
+"He became a teacher after graduating and promoted his method while secretly "
+"teaching it at the Institute."
 msgstr ""
-"Il devient enseignant après avoir obtenu son diplôme et avoir secrètement "
-"enseigné sa méthode."
+"Il devient enseignant après avoir obtenu son diplôme et promeut sa méthode "
+"pendant qu'il l'enseigne secrètement à l'Institution."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:9
 msgid ""
@@ -6938,7 +6940,7 @@ msgid "$ %.0f"
 msgstr "%.0f €"
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %d
-#: ../src/money-activity/money.c:936
+#: ../src/money-activity/money.c:940
 #, c-format
 msgid ""
 "Tux just bought some items in your shop.\n"
@@ -8202,33 +8204,37 @@ msgstr ""
 "c'est fait et que Tux est dans sa douche, appuie sur le bouton de la douche "
 "pour lui."
 
-#: ../src/wordprocessor-activity/wordprocessor.c:54
+#: ../src/wordprocessor-activity/wordprocessor.c:55
 msgid "Research"
 msgstr "Recherche"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:65
+#: ../src/wordprocessor-activity/wordprocessor.c:67
 msgid "Sentimental"
 msgstr "Sentimental"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:76
+#: ../src/wordprocessor-activity/wordprocessor.c:79
 msgid "Official"
 msgstr "Officiel"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:98
+#: ../src/wordprocessor-activity/wordprocessor.c:103
 msgid "Flyer"
 msgstr "Prospectus"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:431
+#: ../src/wordprocessor-activity/wordprocessor.c:447
 msgid "Title"
 msgstr "Titre"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:432
+#: ../src/wordprocessor-activity/wordprocessor.c:448
 msgid "Heading 1"
 msgstr "En-tête 1"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:433
+#: ../src/wordprocessor-activity/wordprocessor.c:449
 msgid "Heading 2"
 msgstr "En-tête 2"
+
+#: ../src/wordprocessor-activity/wordprocessor.c:451
+msgid "Hyperlink"
+msgstr "Hyperlien"
 
 #: ../src/wordprocessor-activity/wordprocessor.xml.in.h:1
 msgid "Your word processor"
