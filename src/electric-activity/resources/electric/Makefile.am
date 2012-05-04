@@ -18,7 +18,6 @@ img_DATA = \
 	connect.png \
 	connect_icon.png \
 	connect_spot.png \
-	diod.png \
 	diode.png \
 	diode_icon.png \
 	resistor.png \
