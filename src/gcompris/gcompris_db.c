@@ -430,8 +430,15 @@ gboolean gc_db_init(gboolean disable_database_)
 	// backup it and re create it.
 	sqlite3_close(gcompris_db);
 	gchar *backup = g_strdup_printf("%s.broken", properties->database);
-	g_rename(properties->database, backup);
-	g_message("Database is broken, it is copyed in %s", backup);
+	if ( g_rename(properties->database, backup) < 0 )
+	  {
+	    // Obviously, we cannot write the backup file either
+	    g_message("Failed to write the backup database %s", backup);
+	    disable_database = TRUE;
+	    return FALSE;
+	  }
+	else
+	  g_message("Database is broken, it is copyed in %s", backup);
 	g_free(backup);
 
 	rc = sqlite3_open(properties->database, &gcompris_db);

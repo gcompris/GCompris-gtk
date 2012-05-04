@@ -140,6 +140,7 @@ static gint  popt_experimental     = FALSE;
 static gint  popt_no_quit	   = FALSE;
 static gint  popt_no_config        = FALSE;
 static gint  popt_no_level         = FALSE;
+static gint  popt_no_database      = FALSE;
 static gchar *popt_server          = NULL;
 static gint  *popt_web_only        = NULL;
 static gchar *popt_cache_dir       = NULL;
@@ -236,6 +237,9 @@ static GOptionEntry options[] = {
 
   {"disable-level",'\0', 0, G_OPTION_ARG_NONE, &popt_no_level,
    N_("Disable the level button"), NULL},
+
+  {"disable-database",'\0', 0, G_OPTION_ARG_NONE, &popt_no_database,
+   N_("Disable the database (slower start and no user log)"), NULL},
 
   {"server", '\0', 0, G_OPTION_ARG_STRING, &popt_server,
    N_("GCompris will get images, sounds and activity data from this server if not found locally."), NULL},
@@ -1756,6 +1760,12 @@ main (int argc, char *argv[])
       properties->disable_level = TRUE;
     }
 
+  if (popt_no_database)
+    {
+      g_message("Disable database");
+      gc_db_init(TRUE /* DISABLE DATABASE */);
+    }
+
   if (popt_difficulty_filter>=0)
     {
       /* This option provide less capacity than the GUI since we cannot set the filter_style */
@@ -1981,7 +1991,9 @@ main (int argc, char *argv[])
    */
   if (popt_root_menu)
       gc_db_init(TRUE /* DISABLE DATABASE */);
-    else
+  else if (popt_no_database)
+      gc_db_init(TRUE /* DISABLE DATABASE */);
+  else
       gc_db_init(FALSE /* ENABLE DATABASE */);
 
   /* An alternate profile is requested, check it does exists */
