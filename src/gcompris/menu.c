@@ -444,6 +444,11 @@ GList *gc_menu_getlist(gchar *section)
 	    }
 	  else
 	    {
+	      if ( (properties->difficulty_filter > 0) &&
+		   (properties->filter_style == GCOMPRIS_FILTER_EQUAL) &&
+		   (atoi(board->difficulty) != properties->difficulty_filter) )
+		continue;
+
 	      result_list = g_list_append(result_list, board);
 	    }
 	}
