@@ -318,6 +318,7 @@ class Gcompris_electric:
       self.gnucap_timer = 0
       return
 
+    self.gnucap_timer = 0
     connected = False
     for component in self.components:
       if component.is_connected():
@@ -384,7 +385,6 @@ class Gcompris_electric:
     results = output.close()
     if results:
       print('Failed to run gnugap with error ', results)
-      self.gnucap_timer = 0
       return
 
     values = []
@@ -429,7 +429,6 @@ class Gcompris_electric:
 
 
     if not debug: os.remove(filename)
-    self.gnucap_timer = 0
 
   # Convert a gnucap value back in a regular number
   # Return a float value
