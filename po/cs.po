@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-04-15 07:28+0000\n"
-"PO-Revision-Date: 2012-04-19 08:28+0200\n"
+"POT-Creation-Date: 2012-05-04 22:43+0000\n"
+"PO-Revision-Date: 2012-05-06 01:34+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -3486,43 +3486,43 @@ msgstr ""
 "Ukonči ji a nahlas\n"
 "problém autorům"
 
-#: ../src/gcompris/gcompris.c:155
+#: ../src/gcompris/gcompris.c:156
 msgid "run GCompris in fullscreen mode."
 msgstr "spustit GCompris v režimu celé obrazovky."
 
-#: ../src/gcompris/gcompris.c:158
+#: ../src/gcompris/gcompris.c:159
 msgid "run GCompris in window mode."
 msgstr "spustit GCompris v režimu okna."
 
-#: ../src/gcompris/gcompris.c:161
+#: ../src/gcompris/gcompris.c:162
 msgid "run GCompris with sound enabled."
 msgstr "spustit GCompris se zapnutými zvuky."
 
-#: ../src/gcompris/gcompris.c:164
+#: ../src/gcompris/gcompris.c:165
 msgid "run GCompris without sound."
 msgstr "spustit GCompris bez zvuku."
 
-#: ../src/gcompris/gcompris.c:167
+#: ../src/gcompris/gcompris.c:168
 msgid "run GCompris with the default system cursor."
 msgstr "spustit GCompris s výchozím systémovým kurzorem."
 
-#: ../src/gcompris/gcompris.c:170
+#: ../src/gcompris/gcompris.c:171
 msgid "run GCompris without cursor (touch screen mode)."
 msgstr "spustit GCompris bez kurzoru (režim dotykových obrazovek)."
 
-#: ../src/gcompris/gcompris.c:173
+#: ../src/gcompris/gcompris.c:174
 msgid "display only activities with this difficulty level."
 msgstr "zobrazovat jen aktivity s touto úrovní obtížnosti."
 
-#: ../src/gcompris/gcompris.c:176
+#: ../src/gcompris/gcompris.c:177
 msgid "display debug informations on the console."
 msgstr "zobrazovat ladicí informace na konzoli."
 
-#: ../src/gcompris/gcompris.c:179
+#: ../src/gcompris/gcompris.c:180
 msgid "Print the version of "
 msgstr "Vytiskne verzi "
 
-#: ../src/gcompris/gcompris.c:182
+#: ../src/gcompris/gcompris.c:183
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
@@ -3534,59 +3534,59 @@ msgstr ""
 "connect4). Použij „-l list“ pro seznam všech dostupných aktivit a jejich "
 "popisů."
 
-#: ../src/gcompris/gcompris.c:187
+#: ../src/gcompris/gcompris.c:188
 msgid "GCompris will find the data dir in this directory"
 msgstr "Aplikace GCompris bude hledat datovou složku v této složce"
 
-#: ../src/gcompris/gcompris.c:190
+#: ../src/gcompris/gcompris.c:191
 msgid "GCompris will find the skins in this directory"
 msgstr "Aplikace GCompris bude hledat masky vzhledu v této složce"
 
-#: ../src/gcompris/gcompris.c:193
+#: ../src/gcompris/gcompris.c:194
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "Aplikace GCompris bude hledat zásuvné moduly aktivit v této složce"
 
-#: ../src/gcompris/gcompris.c:196
+#: ../src/gcompris/gcompris.c:197
 msgid "GCompris will find the python activity in this directory"
 msgstr "Aplikace GCompris bude hledat aktivity python v této složce"
 
-#: ../src/gcompris/gcompris.c:199
+#: ../src/gcompris/gcompris.c:200
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr "Aplikace GCompris bude hledat soubory s překlady (.mo) v této složce"
 
-#: ../src/gcompris/gcompris.c:202
+#: ../src/gcompris/gcompris.c:203
 msgid "GCompris will find the activities menu in this directory"
 msgstr "Aplikace GCompris bude hledat nabídku aktivit v této složce"
 
-#: ../src/gcompris/gcompris.c:205
+#: ../src/gcompris/gcompris.c:206
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Spustit GCompris v administračním a řídícím módu"
 
-#: ../src/gcompris/gcompris.c:208
+#: ../src/gcompris/gcompris.c:209
 msgid ""
 "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
 msgstr ""
 "Použít náhradní databázi profilů [$HOME/.config/gcompris/gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:211
+#: ../src/gcompris/gcompris.c:212
 msgid "Create the alternate database for profiles"
 msgstr "Vytvořit alternativní databázi pro profily"
 
-#: ../src/gcompris/gcompris.c:214
+#: ../src/gcompris/gcompris.c:215
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Znovu načíst nabídku XML a uložit ji do databáze"
 
-#: ../src/gcompris/gcompris.c:217
+#: ../src/gcompris/gcompris.c:218
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Vybrat profil. Pro vytvoření profilu použijte „gcompris -a“"
 
-#: ../src/gcompris/gcompris.c:220
+#: ../src/gcompris/gcompris.c:221
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Seznam všech dostupných profilů. Pro vytvoření profilu použijte „gcompris -a“"
 
-#: ../src/gcompris/gcompris.c:223
+#: ../src/gcompris/gcompris.c:224
 msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
@@ -3594,27 +3594,31 @@ msgstr ""
 "Složka s nastavením: [$HOME/.config/gcompris]. Alternativou je nastavení "
 "$XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:226
+#: ../src/gcompris/gcompris.c:227
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "Složka uživatele: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:229
+#: ../src/gcompris/gcompris.c:230
 msgid "Run the experimental activities"
 msgstr "Jít na pokusné aktivity"
 
-#: ../src/gcompris/gcompris.c:232
+#: ../src/gcompris/gcompris.c:233
 msgid "Disable the quit button"
 msgstr "Vypnout tlačítko konec"
 
-#: ../src/gcompris/gcompris.c:235
+#: ../src/gcompris/gcompris.c:236
 msgid "Disable the config button"
 msgstr "Vypnout tlačítko nastavení"
 
-#: ../src/gcompris/gcompris.c:238
+#: ../src/gcompris/gcompris.c:239
 msgid "Disable the level button"
 msgstr "Vypnout tlačítko úroveň"
 
-#: ../src/gcompris/gcompris.c:241
+#: ../src/gcompris/gcompris.c:242
+msgid "Disable the database (slower start and no user log)"
+msgstr "Zakázat databázi (pomalejší spuštění a bez záznamu)"
+
+#: ../src/gcompris/gcompris.c:245
 msgid ""
 "GCompris will get images, sounds and activity data from this server if not "
 "found locally."
@@ -3622,7 +3626,7 @@ msgstr ""
 "Z tohoto serveru GCompris získá obrázky, zvuky a data aktivit, pokud nejsou "
 "k dispozici místní."
 
-#: ../src/gcompris/gcompris.c:244
+#: ../src/gcompris/gcompris.c:248
 msgid ""
 "Only when --server is provided, disable check for local resource first. Data "
 "are always taken from the web server."
@@ -3630,29 +3634,29 @@ msgstr ""
 "Pouze když je zadáno --server, vypne úvodní kontrolu pro místní zdroje. Data "
 "jsou vždy brána z webového serveru."
 
-#: ../src/gcompris/gcompris.c:248
+#: ../src/gcompris/gcompris.c:252
 msgid ""
 "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr ""
 "U serverového režimu určete složku mezipaměti pro omezení zbytečných "
 "stahování."
 
-#: ../src/gcompris/gcompris.c:251
+#: ../src/gcompris/gcompris.c:255
 msgid ""
 "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr ""
 "Obecný režim táhni a pusť: normální, dvojklik, oboje. Výchozí režim je "
 "normální."
 
-#: ../src/gcompris/gcompris.c:254
+#: ../src/gcompris/gcompris.c:258
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Povolit spuštění více GComprisů najednou."
 
-#: ../src/gcompris/gcompris.c:260
+#: ../src/gcompris/gcompris.c:264
 msgid "Disable maximization zoom"
 msgstr "Zakázat maximalizaci"
 
-#: ../src/gcompris/gcompris.c:263
+#: ../src/gcompris/gcompris.c:267
 msgid ""
 "Increase activities' timeout delays; useful values > 1.0; 1.0 to not change "
 "hardcoded value"
@@ -3660,7 +3664,7 @@ msgstr ""
 "Zvýšit časový limit aktivit; použitelné hodnoty jsou > 1,0; 1,0 zachová "
 "vestavěnou hodnotu"
 
-#: ../src/gcompris/gcompris.c:266
+#: ../src/gcompris/gcompris.c:270
 msgid ""
 "How activities' timeout delays are growing for several actors; useful values "
 "< 1.0; 1.0 to not change hardcoded value"
@@ -3668,11 +3672,11 @@ msgstr ""
 "Jak se má časový limit zvyšovat pro více účastníků; použitelné hodnoty jsou "
 "> 1,0; 1,0 zachová vestavěnou hodnotu"
 
-#: ../src/gcompris/gcompris.c:269
+#: ../src/gcompris/gcompris.c:273
 msgid "For test purpose, run in a loop all the activities"
 msgstr "Pro testovací účely, spustí ve smyčce všechny aktivity"
 
-#: ../src/gcompris/gcompris.c:952
+#: ../src/gcompris/gcompris.c:956
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -3693,14 +3697,14 @@ msgstr ""
 "na FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1246
+#: ../src/gcompris/gcompris.c:1250
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
 msgstr ""
 "Nelze načíst vzhled „%s“ (Zkontrolujte, zda soubor existuje a zda jej lze "
 "číst)"
 
-#: ../src/gcompris/gcompris.c:1516
+#: ../src/gcompris/gcompris.c:1520
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d second old.\n"
@@ -3716,12 +3720,12 @@ msgstr[2] ""
 "GCompris se nemůže spustit, protože soubor zámku je méně než %d sekund "
 "starý.\n"
 
-#: ../src/gcompris/gcompris.c:1520
+#: ../src/gcompris/gcompris.c:1524
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Soubor zámku je: %s\n"
 
-#: ../src/gcompris/gcompris.c:1693
+#: ../src/gcompris/gcompris.c:1697
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3735,27 +3739,27 @@ msgstr ""
 "Více informací na http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1808
+#: ../src/gcompris/gcompris.c:1818
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Pro přímý přístup k aktivitě použijte -l.\n"
 
-#: ../src/gcompris/gcompris.c:1809
+#: ../src/gcompris/gcompris.c:1819
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Seznam dostupných aktivit:\n"
 
-#: ../src/gcompris/gcompris.c:1840
+#: ../src/gcompris/gcompris.c:1850
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Počet aktivit: %d\n"
 
-#: ../src/gcompris/gcompris.c:1876
+#: ../src/gcompris/gcompris.c:1886
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s existuje, ale nelze jej číst nebo do něj zapisovat"
 
-#: ../src/gcompris/gcompris.c:1939
+#: ../src/gcompris/gcompris.c:1949
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
@@ -3764,7 +3768,7 @@ msgstr ""
 "Přepínač --server nelze použít, protože GCompris byl přeložen bez podpory "
 "sítě."
 
-#: ../src/gcompris/gcompris.c:1993
+#: ../src/gcompris/gcompris.c:2005
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3773,7 +3777,7 @@ msgstr ""
 "CHYBA: Profil „%s“ nebyl nalezen. Dostupné profily si vypíšete spuštěním "
 "„gcompris --profile-list“\n"
 
-#: ../src/gcompris/gcompris.c:2007
+#: ../src/gcompris/gcompris.c:2019
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Seznam dostupných profilů:\n"
@@ -3786,7 +3790,7 @@ msgstr "Neovlivněný"
 msgid "Users without a class"
 msgstr "Uživatelé bez třídy"
 
-#: ../src/gcompris/gcompris_db.c:889
+#: ../src/gcompris/gcompris_db.c:896
 #, c-format
 msgid ""
 "Loading activity from database:\n"
@@ -3811,7 +3815,7 @@ msgstr "Příručka"
 msgid "Credit"
 msgstr "Zásluhy"
 
-#: ../src/gcompris/menu.c:582
+#: ../src/gcompris/menu.c:587
 #, c-format
 msgid ""
 "Loading activity from file:\n"
