@@ -30,7 +30,7 @@ import os
 import tempfile
 
 # Set to True to debug
-debug = False
+debug = True
 
 from gcompris import gcompris_gettext as _
 
@@ -288,6 +288,7 @@ class Gcompris_electric:
                        (Resistor, 1000),
                        (Switch, None),
                        (Connection, None),
+                       (RedLed, None),
                        (Diode, None),
                        )
 
@@ -559,7 +560,6 @@ class Wire:
         Wire.connection[node] = self
 
       # Colorize the wire
-      print hex(Wire.colors[self.wire_id % len(Wire.colors)])
       self.wire_item.set_properties(stroke_color_rgba = \
                                       Wire.colors[self.wire_id % len(Wire.colors)])
       if debug: print "WIRE_ID = %d" %self.wire_id
@@ -782,7 +782,7 @@ class Component(object):
           parent = self.comp_rootitem,
         x = self.item_values_x,
         y = self.item_values_y,
-        font = "Sans 8",
+        font = "Sans 7",
         text = "",
         fill_color = "white",
         anchor = gtk.ANCHOR_CENTER
@@ -1009,12 +1009,65 @@ class Diode(Component):
     # Idealized diode: ~0V treshold voltage. Characteristic graph
     # passes through the two points (10 mV, 10 mA) and (20 mV, 2000
     # mA) => N  = 0.072 IS = 5x10-5 A
-    model = ".model  ddd  d  ( is= 50.u  rs= 0.  n= 0.072  tt= 0.  cjo= 1.p  vj= 1.  m= 0.5\n"
-    model += "+ eg= 1.11  xti= 3.  kf= 0.  af= 1.  fc= 0.5  bv= 0.  ibv= 0.001 )\n"
+    model = ".model  ddd  d  ( is= 50.u  rs= 0.  n= 0.072  tt= 0.  cjo= 1.p  vj= 1.  m= 0.5"
+    model += " eg= 1.11  xti= 3.  kf= 0.  af= 1.  fc= 0.5  bv= 0.  ibv= 0.001 )\n"
 
     gnucap = []
     gnucap = super(Diode, self).to_gnucap(model)
     return gnucap
+
+# ----------------------------------------
+# DIODE
+#
+#
+class RedLed(Component):
+  image = "electric/red_led_off.png"
+  icon  = "electric/red_led_icon.png"
+  def __init__(self, electric,
+               x, y, dummy):
+    super(RedLed, self).__init__(electric,
+                                "D",
+                                "led1 1.",
+                               self.image,
+                               [Node("electric/connect.png", "A", -10, 45),
+                                Node("electric/connect.png", "B", 30, 45)])
+
+    # Overide some values
+    self.item_values_x = 50
+    self.item_values_y = 12
+
+    self.move(x, y)
+    self.show()
+
+  # Return the gnucap definition for this component
+  # Here we just add the diode model
+  def to_gnucap(self, model):
+    # Our 'ddd' Diode model
+    # Idealized diode: ~0V treshold voltage. Characteristic graph
+    # passes through the two points (10 mV, 10 mA) and (20 mV, 2000
+    # mA) => N  = 0.072 IS = 5x10-5 A
+    model = ".model led1 d ( is=93.p rs=42M n=4.61 bv=4 ibv=10U"
+    model += " cjo=2.97P vj=.75 M=.333 TT=4.32U )\n"
+
+    gnucap = []
+    gnucap = super(RedLed, self).to_gnucap(model)
+    return gnucap
+
+  # Return False if we need more value to complete our component
+  # This is usefull in case where one Component is made of several gnucap component
+  def set_voltage_intensity(self, valid_value, voltage, intensity):
+    self.voltage = voltage
+    self.intensity = intensity
+    power = voltage * intensity
+    if debug: print "Led V=%f I=%f P=%f" %(self.voltage, self.intensity, power)
+    if power > 0.01:
+      pixmap = gcompris.utils.load_pixmap("electric/red_led_on.png")
+    else:
+      pixmap = gcompris.utils.load_pixmap("electric/red_led_off.png")
+    self.component_item.set_properties(pixbuf = pixmap)
+    # Never show values
+    self.item_values.props.visibility = goocanvas.ITEM_INVISIBLE
+    return True
 
 # ----------------------------------------
 # SWITCH
@@ -1509,8 +1562,8 @@ class Bulb(Component):
     # Resistor value to infinite and ask for a circuit recalc
     if image_index == 11:
       self.gnucap_value = self.resistor_blown
-      self.electric.run_simulation()
       self.is_blown = True
+      self.electric.run_simulation()
 
     return True
 
@@ -1551,7 +1604,7 @@ class Battery(Component):
                                [Node("electric/connect.png", "A", 6, -35),
                                 Node("electric/connect.png", "B", 6, 120)])
     # Overide some values
-    self.item_values_x = 23
+    self.item_values_x = 24
     self.item_values_y = 70
 
     self.move(x, y)
