@@ -336,20 +336,19 @@ class Board_list:
       pass
 
     self.update_selected(model, path)
+    self.con.commit()
 
   def update_selected(self, model, path):
     if model[path][2]:
       self.cur.execute('DELETE FROM activities_out WHERE board_id=%d AND out_id=%d' % (
         self.board_dict[model[path][3]].board_id,
-                                                                                       self.active_profile.profile_id
+        self.active_profile.profile_id
         ))
     else:
       self.cur.execute('INSERT INTO activities_out (board_id, out_id) VALUES (%d, %d)' % (
         self.board_dict[model[path][3]].board_id,
         self.active_profile.profile_id
         ))
-
-    self.con.commit()
 
     # update infos
     self.out_dict = self.get_boards_out_by_profile()
@@ -410,6 +409,7 @@ class Board_list:
 
   def select_all_boards(self, button, Value):
     self.model.foreach(self.update_all, Value)
+    self.con.commit()
 
   def update_all(self, model, path, iter, Value):
     model[path][2] = Value
@@ -562,6 +562,7 @@ class Board_list:
   def filter_apply(self, button):
     self.model.foreach(self.blank)
     self.model.foreach(self.board_filter)
+    self.con.commit()
 
   # Apply the filter as asked.
   def board_filter(self,  model, path, iter):
