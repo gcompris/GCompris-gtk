@@ -642,6 +642,14 @@ void gc_menu_load()
 	    }
 	  for (list = out_boards; list != NULL; list = list->next)
 	    boards_list = g_list_remove(boards_list, list->data);
+
+	  // 2 because there is always the administration
+	  // and the login activities
+	  if ( g_list_length(boards_list) <= 2 )
+	    gc_dialog( _("All the activities are disabled in this profile."
+			 " Go in the GCompris administration module and"
+			 " activate at least one activity."),
+		      NULL);
 	}
     }
   else
