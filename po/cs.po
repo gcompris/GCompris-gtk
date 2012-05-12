@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-05-04 22:43+0000\n"
-"PO-Revision-Date: 2012-05-06 01:34+0200\n"
+"POT-Creation-Date: 2012-05-10 17:40+0000\n"
+"PO-Revision-Date: 2012-05-12 07:30+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -418,8 +418,8 @@ msgstr ""
 "<span size='x-large'> Vyberte obtížnost \n"
 "pro profil <b>%s</b></span>"
 
-#: ../src/administration-activity/admin/board_list.py:642
-#: ../src/administration-activity/admin/board_list.py:654
+#: ../src/administration-activity/admin/board_list.py:643
+#: ../src/administration-activity/admin/board_list.py:655
 #: ../src/administration-activity/admin/wordlist.py:45
 msgid ""
 "<b>{config}</b> configuration\n"
@@ -428,7 +428,7 @@ msgstr ""
 "Nastavení <b>{config}</b>\n"
 " pro profil <b>{profile}</b>"
 
-#: ../src/administration-activity/admin/board_list.py:660
+#: ../src/administration-activity/admin/board_list.py:661
 #: ../src/pythontest-activity/pythontest.py:511
 #: ../src/smallnumbers-activity/smallnumbers.c:618
 msgid "Select sound locale"
@@ -3823,6 +3823,14 @@ msgid ""
 msgstr ""
 "Načítá se aktivita ze souboru:\n"
 "%s"
+
+#: ../src/gcompris/menu.c:649
+msgid ""
+"All the activities are disabled in this profile. Go in the GCompris "
+"administration module and activate at least one activity."
+msgstr ""
+"V tomto profilu byly zakázány všechny aktivity. Jděte do modulu pro správu "
+"GCompris a alespoň jednu aktivitu povolte."
 
 #: ../src/gcompris/properties.c:506
 msgid ""
