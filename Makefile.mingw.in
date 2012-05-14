@@ -62,9 +62,9 @@ NEEDED_DLLS =		$(GNUCHESS_TOP)/bin/pthreadGC2.dll \
 			$(FONTCONFIG_TOP)/bin/libfontconfig-1.dll \
 			$(FREETYPE_TOP)/bin/freetype6.dll \
 			$(GNUCAP_TOP)/src/MSW/gnucap.exe \
+			$(GTK_TOP)/bin/gspawn-win32-helper-console.exe \
 			$(GTK_TOP)/bin/gspawn-win32-helper.exe \
 			$(GTK_TOP)/bin/intl.dll \
-			$(GTK_TOP)/bin/libjpeg-7.dll \
 			$(GTK_TOP)/bin/libatk-1.0-0.dll \
 			$(GTK_TOP)/bin/libcairo-2.dll \
 			$(GTK_TOP)/bin/libexpat-1.dll \
@@ -139,6 +139,7 @@ prepack: Makefile.mingw
 	cp -r $(LOCAL_PREFIX)/Microsoft.VC90.CRT $(GCOMPRIS_INSTALL_DIR)
 	cp $(NEEDED_FILES) $(GCOMPRIS_INSTALL_DIR)
 	cp -r $(GTK_TOP)/etc $(GCOMPRIS_INSTALL_DIR)
+	rm -rf $(GCOMPRIS_INSTALL_DIR)/etc/bash_completion.d
 	cp -r $(GTK_TOP)/manifest $(GCOMPRIS_INSTALL_DIR)
 	mkdir -p $(GCOMPRIS_INSTALL_DIR)/share
 	cp -r $(GTK_TOP)/share/themes $(GCOMPRIS_INSTALL_DIR)/share

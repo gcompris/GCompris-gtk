@@ -326,6 +326,7 @@ Section Uninstall
     Delete "$INSTDIR\bin\gnuchess.exe"
     RMDir  "$INSTDIR\bin"
     Delete "$INSTDIR\gobject.pyd"
+    Delete "$INSTDIR\gspawn-win32-helper-console.exe"
     Delete "$INSTDIR\gspawn-win32-helper.exe"
     Delete "$INSTDIR\iconv.dll"
     Delete "$INSTDIR\intl.dll"
@@ -395,12 +396,13 @@ Section Uninstall
     Delete "$INSTDIR\Microsoft.VC90.CRT\msvcp90.dll"
     Delete "$INSTDIR\Microsoft.VC90.CRT\msvcr90.dll"
     RMDir  "$INSTDIR\Microsoft.VC90.CRT"
-    Delete "$INSTDIR\manifest\gtk+-bundle_2.24.8-20111122_win32.mft"
+    Delete "$INSTDIR\manifest\gtk+-bundle_2.24.10-20120208_win32.mft"
     Delete "$INSTDIR\manifest\libcroco_0.6.2-1_win32.mft"
     Delete "$INSTDIR\manifest\libgsf_1.14.17-1_win32.mft"
     Delete "$INSTDIR\manifest\librsvg_2.32.1-1_win32.mft"
     Delete "$INSTDIR\manifest\librsvg-dev_2.32.1-1_win32.mft"
     Delete "$INSTDIR\manifest\svg-gdk-pixbuf-loader_2.32.1-1_win32.mft"
+    Delete "$INSTDIR\manifest\svg-gtk-engine_2.32.1-1_win32.mft"
     RMDir  "$INSTDIR\manifest"
 
     ;Try to remove GCompris install dir .. if empty
