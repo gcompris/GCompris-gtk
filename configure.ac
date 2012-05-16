@@ -2,7 +2,8 @@ dnl Process this file with autoconf to produce a configure script.
 
 AC_INIT(gcompris, 12.01, http://gcompris.net)
 
-AM_INIT_AUTOMAKE(AC_PACKAGE_NAME, AC_PACKAGE_VERSION)
+AM_INIT_AUTOMAKE([tar-ustar no-dist-gzip dist-bzip2 -Wno-portability])
+
 AM_CONFIG_HEADER(config.h)
 AC_CONFIG_MACRO_DIR([m4])
 
