@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Copyright (C) 2000, 2008 Bruno Coudoin
+ * Copyright (C) 2000, 2012 Bruno Coudoin
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -996,7 +996,7 @@ gint gc_activation_check(const char *code)
 
   // A special code to test the full version without
   // saving the activation
-  if (strncmp(code, "123321", 6) == 0)
+  if (strncmp(code, "121212", 6) == 0)
     {
       return 2;
     }
