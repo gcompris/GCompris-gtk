@@ -361,7 +361,8 @@ else
   dnl Test for gnuchess
   AC_PATH_PROGS(GNUCHESS, gnuchess gnome-gnuchess, no, [/usr/bin:/usr/games:/usr/local/bin:$PATH])
   if test x$GNUCHESS = xno; then
-    AC_MSG_ERROR(Couldn't find gnuchess, please install the gnuchess package version 5 or above)
+    AC_MSG_ERROR([Couldn't find gnuchess, please install the gnuchess package version]
+                 [ 5 or above or define the environment variable GNUCHESS.])
   fi
   AC_DEFINE_UNQUOTED(GNUCHESS, "$GNUCHESS", Defines where GNU Chess resides on the system)
   build_gnuchess=no
