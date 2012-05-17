@@ -896,7 +896,9 @@ static void setup_window ()
 
   init_workspace();
 
+#if GDK_PIXBUF_MAJOR >= 2 && GDK_PIXBUF_MINOR >= 18
   gtk_widget_set_can_focus(canvas, TRUE);
+#endif
   gtk_widget_grab_focus (canvas);
 
 }
