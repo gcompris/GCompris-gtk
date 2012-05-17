@@ -893,6 +893,33 @@ display_welcome_event (GooCanvasItem  *item,
   return FALSE;
 }
 
+static void display_sponsor(GooCanvasItem *rootitem)
+{
+  GooCanvasItem *item;
+  GdkPixbuf   *pixmap = NULL;
+  /* Location for a potential sponsor */
+  gchar *sponsor_image = gc_file_find_absolute("sponsor.png");
+  if(sponsor_image)
+    {
+      pixmap = gc_pixmap_load("sponsor.png");
+      item = goo_canvas_image_new (rootitem,
+				   pixmap,
+				   0.0,
+				   0.0,
+				   NULL);
+      SET_ITEM_LOCATION_CENTER(item,
+			       display_x + display_w/2.0,
+			       display_y + display_h/3.0 + 150);
+
+#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
+      gdk_pixbuf_unref(pixmap);
+#else
+      g_object_unref(pixmap);
+#endif
+      g_free(sponsor_image);
+    }
+}
+
 static void
 display_welcome (MenuItems *menuitems)
 {
@@ -913,8 +940,9 @@ display_welcome (MenuItems *menuitems)
 			     NULL);
   SET_ITEM_LOCATION_CENTER(item,
 			   display_x + display_w/2.0,
-			   display_y + display_h/3.0)
+			   display_y + display_h/3.0);
 
+  display_sponsor(actualSectionItem);
 
   g_signal_connect (item, "enter_notify_event",
 		    (GCallback) display_welcome_event, menuitems);

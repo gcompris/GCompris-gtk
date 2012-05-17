@@ -135,10 +135,10 @@ void gc_about_start ()
 
   y_start += 180;
   /* Location for a potential sponsor */
-  gchar *sponsor_image = gc_file_find_absolute("sponsor.png");
+  gchar *sponsor_image = gc_file_find_absolute("sponsor_about.png");
   if(sponsor_image)
     {
-      pixmap = gc_pixmap_load("sponsor.png");
+      pixmap = gc_pixmap_load("sponsor_about.png");
       goo_canvas_text_new (rootitem,
 			   "Version parrainée par",
 			   (gdouble)  BOARDWIDTH*0.75,
@@ -147,15 +147,6 @@ void gc_about_start ()
 			   GTK_ANCHOR_CENTER,
 			   "font", gc_skin_font_content,
 			   "fill-color-rgba", gc_skin_color_content,
-			   NULL);
-      goo_canvas_text_new (rootitem,
-			   "Version parrainée par",
-			   (gdouble)  BOARDWIDTH*0.75 + 1,
-			   (gdouble)  y_start - gdk_pixbuf_get_height(pixmap),
-			   -1,
-			   GTK_ANCHOR_CENTER,
-			   "font", gc_skin_font_content,
-			   "fill_color", "black",
 			   NULL);
 
       item = goo_canvas_image_new (rootitem,
