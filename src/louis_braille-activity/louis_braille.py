@@ -84,7 +84,7 @@ class Gcompris_louis_braille:
          gcompris.utils.dialog(_("Cannot find the file '{filename}'").format(filename=filename),None)
          return False
 
-    except ConfigParser.Error as error:
+    except ConfigParser.Error, error:
       gcompris.utils.dialog(_("Failed to parse data set '{filename}' with error:\n{error}").
                               format(filename=filename, error=error), None)
       return False

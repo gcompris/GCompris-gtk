@@ -316,7 +316,7 @@ class Gcompris_findit:
                                 format(filename=filename),
                               None)
         return False
-    except ConfigParser.Error as error:
+    except ConfigParser.Error, error:
       gcompris.utils.dialog(_("Failed to parse data set '{filename}'"
                               " with error:\n{error}").\
                               format(filename=filename, error=error),
