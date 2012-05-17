@@ -352,7 +352,8 @@ static void end_board ()
   info_item     = NULL;
 
 
-  engine_local_destroy(gnuchess_pid);
+  if ( gnuchess_pid )
+    engine_local_destroy(gnuchess_pid);
 }
 
 /* ======================================= */
@@ -1065,7 +1066,7 @@ static void
 engine_local_destroy (GPid gnuchess_pid)
 {
 
-  g_warning("engine_local_destroy () \n");
+  g_warning("engine_local_destroy (%d) \n", gnuchess_pid);
   write_child (write_chan, "quit\n");
 
   g_source_remove(read_cb);
