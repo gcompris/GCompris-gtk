@@ -770,6 +770,9 @@ class Document:
     # a list of items id in the order they appear on screen.
     self.zorder = {}
 
+    # Set to true when the order or the list of object has changed
+    self.zorderDirty = False
+
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains
     # automaticaly.
@@ -790,16 +793,14 @@ class Document:
       item.display_at_time(time)
     self.restore_zorder()
 
-  # If an item is removed, we must remove it from all
-  # the timelines in which we saved a z_order
-  def delete_from_zorder(self, item_id):
-    for z_order in self.zorder.values():
-      try:
-        z_order.remove(item_id)
-      except ValueError:
-        pass
+
+  def zorder_dirty(self):
+    self.zorderDirty = True
 
   def save_zorder(self):
+    if not self.zorderDirty:
+      return
+
     z_order = []
     for i in range(self.rootitem.get_n_children()):
       item = self.rootitem.get_child(i)
@@ -807,21 +808,38 @@ class Document:
         z_order.append(item.get_data("id"))
 
     self.zorder[self.timeline.get_time()] = z_order
+    self.zorderDirty = False
 
   def restore_zorder(self):
     z_order = []
     if self.timeline.get_time() in self.zorder:
       z_order = self.zorder[self.timeline.get_time()]
+    else:
+      return
+
+    # Build the list of items_is present in the image
+    present_items = []
     for i in range(self.rootitem.get_n_children()):
       item = self.rootitem.get_child(i)
       if item:
-        item_id = item.get_data("id")
-        try:
-          z_index = z_order.index(item_id)
-          self.rootitem.move_child(i, z_index);
-        except ValueError:
-          pass
+        present_items.append( item.get_data("id") )
 
+    # Remove items in z_order that are not in present_items
+    z_order = [item for item in z_order if item in present_items]
+
+    for z_item_id in z_order:
+      for i in range(self.rootitem.get_n_children()):
+        item = self.rootitem.get_child(i)
+        if item:
+          item_id = item.get_data("id")
+          if ( item_id == z_item_id ):
+            z_index = z_order.index(item_id)
+            if ( i != z_index ):
+              try:
+                self.rootitem.move_child(i, z_index);
+                break
+              except ValueError:
+                pass
 
   def anim_to_file(self, filename):
 

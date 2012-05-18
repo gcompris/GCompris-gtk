@@ -67,6 +67,8 @@ class AnimItem:
 
         self.rootitem.set_data("id", self.id)
 
+        AnimItem.anim.doc.zorder_dirty()
+
     # Return the type name of the managed object
     def type_name(self):
         return (gobject.type_name(self.item))
@@ -297,7 +299,7 @@ class AnimItem:
         if not self.visible:
             AnimItem.anim.deleteItem(self)
         self.show(False)
-        AnimItem.anim.doc.delete_from_zorder(self.id)
+        AnimItem.anim.doc.zorder_dirty()
 
     def raise_(self):
         parent = self.item.get_parent()
@@ -305,7 +307,7 @@ class AnimItem:
         child_num = rootparent.find_child (parent);
         if child_num < rootparent.get_n_children() - 1:
             rootparent.move_child (child_num, child_num + 1);
-            AnimItem.anim.doc.save_zorder()
+            AnimItem.anim.doc.zorder_dirty()
 
     def lower(self):
         parent = self.item.get_parent()
@@ -313,7 +315,7 @@ class AnimItem:
         child_num = rootparent.find_child (parent);
         if child_num > 0:
             rootparent.move_child (child_num, child_num - 1);
-            AnimItem.anim.doc.save_zorder()
+            AnimItem.anim.doc.zorder_dirty()
 
 
     def rotate(self, angle):

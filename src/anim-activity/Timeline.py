@@ -122,6 +122,7 @@ class Timeline:
         self.select_it(self.timelinelist[time])
 
     def next(self):
+        self.anim.doc.save_zorder()
         self.current_time += 1
         if self.current_time >= min(len(self.timelinelist),
                                     self.lastmark + 1):
@@ -130,6 +131,7 @@ class Timeline:
 
 
     def previous(self):
+        self.anim.doc.save_zorder()
         self.current_time -= 1
         if self.current_time < 0:
             self.current_time = min(len(self.timelinelist) - 1,
