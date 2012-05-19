@@ -176,6 +176,10 @@ static GtkTextTag       *get_tag_from_name(gchar *name);
 static void		 apply_style(int style_index);
 static void		 apply_color_style(int style_index);
 static char *		 escape(char *input);
+static void		 load_buffer(gchar *file, gchar *file_type,
+				     void *unused);
+static void		 save_buffer(gchar *file, gchar *file_type,
+				     void *unused);
 
 #define word_area_x1 120
 #define word_area_y1 20
