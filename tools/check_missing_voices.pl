@@ -9,7 +9,6 @@
 use strict;
 use Data::Dumper;
 
-
 if(!defined $ARGV[0])
   {
     print "Usage: ./check_missing_voices <locale>\n";
@@ -52,7 +51,6 @@ foreach my $locale (@LOCALES)
       {
 	if (! opendir DIR, "$BASEDIR/$locale/$subdir")
 	  {
-	    print "cannot open dir $BASEDIR/$locale/$subdir: $!\n";
 	    next;
 	  }
 
@@ -81,5 +79,31 @@ foreach my $file (@ALL_FILES)
 	$got_error = 1;
       }
   }
+
+#
+# Check intro voices
+#
+my $database = glob("~/.config/gcompris/gcompris_sqlite.db");
+if (! -e $database) {
+    print "ERROR: The GCompris sqlite database is not in $database." .
+	" Run GCompris once to create it\n";
+    $got_error = 1;
+}
+
+my $request = "select name from boards where type != 'menu' and section != '/experimental'" .
+    " and name != 'tuxpaint' and name !='administration' and name !='login';";
+
+my $results = `sqlite3 $database "$request"`;
+foreach my $name (split /\n/, $results)
+{
+    my $file = "intro/$name.ogg";
+    if (! -e "$BASEDIR/$TARGET_LOCALE/$file") {
+	print "$file\n";
+	$got_error = 1;
+    }
+}
+
+
+
 print "\nGreat, nothing is missing !\n" if !$got_error;
 print "\nI did not checked the directory '$BASEDIR/$TARGET_LOCALE/alphabet'\n"
