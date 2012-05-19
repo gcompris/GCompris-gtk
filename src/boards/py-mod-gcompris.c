@@ -42,6 +42,8 @@ typedef int Py_ssize_t;
 #include "py-mod-anim.h"
 #include "py-mod-admin.h"
 
+#include "gcompris/sugar_gc.h"
+
 void initgoocanvas (void);
 
 void pair_in_dict(gpointer key,
@@ -1598,6 +1600,63 @@ py_gc_im_reset (PyObject* self, PyObject* args)
   return Py_None;
 }
 
+static PyObject*
+py_sugar_detected (PyObject* self, PyObject* args)
+{
+  long result;
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, ":gcompris.sugar_detected"))
+    return NULL;
+
+  /* Call the corresponding C function */
+  result = sugar_detected ();
+  return PyBool_FromLong(result);
+}
+
+static PyObject*
+py_sugar_load (PyObject* self, PyObject* args)
+{
+  const gchar *result;
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, ":gcompris.sugar_load"))
+    return NULL;
+
+  /* Call the corresponding C function */
+  result = sugar_load ();
+  if (result != NULL)
+    return PyString_FromString(result);
+  else {
+    Py_INCREF(Py_None);
+    return Py_None;
+  }
+}
+
+static PyObject*
+py_sugar_save (PyObject* self, PyObject* args)
+{
+  gchar *filename;
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, "s:gcompris.sugar_save", &filename))
+    return NULL;
+
+  /* Call the corresponding C function */
+  sugar_save (filename);
+  Py_INCREF(Py_None);
+  return Py_None;
+}
+
+static PyObject*
+py_sugar_get_profile_id (PyObject* self, PyObject* args)
+{
+  long result;
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, ":gcompris.sugar_get_profile_id"))
+    return NULL;
+
+  /* Call the corresponding C function */
+  result = sugar_get_profile_id ();
+  return PyInt_FromLong(result);
+}
 
 
 /****************************************************/
@@ -1657,6 +1716,10 @@ static PyMethodDef PythonGcomprisModule[] = {
   { "get_wordlist",  py_gcompris_wordlist_get_from_file, METH_VARARGS, "gc_wordlist_get_from_file" },
   { "get_random_word",  py_gcompris_wordlist_get_random_word, METH_VARARGS, "gc_wordlist_random_word_get" },
   { "im_reset",  py_gc_im_reset, METH_VARARGS, "gc_im_reset" },
+  { "sugar_detected",  py_sugar_detected, METH_VARARGS, "sugar_detected" },
+  { "sugar_load",  py_sugar_load, METH_VARARGS, "sugar_load" },
+  { "sugar_save",  py_sugar_save, METH_VARARGS, "sugar_save" },
+  { "sugar_get_profile_id",  py_sugar_get_profile_id, METH_VARARGS, "sugar_get_profile_id" },
   { NULL, NULL, 0, NULL}
 };
 
@@ -1678,6 +1741,8 @@ void python_gcompris_module_init(void)
   PyModule_AddIntConstant(gcomprisModule, "BAR_REPEAT_ICON", GC_BAR_REPEAT_ICON);
   PyModule_AddIntConstant(gcomprisModule, "BAR_CONFIG",      GC_BAR_CONFIG);
   PyModule_AddIntConstant(gcomprisModule, "BAR_ABOUT",       GC_BAR_ABOUT);
+  PyModule_AddIntConstant(gcomprisModule, "BAR_JOURNAL",     GC_BAR_JOURNAL);
+  PyModule_AddIntConstant(gcomprisModule, "BAR_SHARE",       GC_BAR_SHARE);
 
   /* Colors constants */
   PyModule_AddIntConstant(gcomprisModule, "COLOR_TITLE",       COLOR_TITLE);

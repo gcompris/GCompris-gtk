@@ -76,6 +76,12 @@ class Gcompris_administration:
       m_list = glob.glob(gcompris.PYTHON_PLUGIN_DIR+'/admin/module_*.py')
     for file in m_list:
       m_name = file.split('/')[-1].split('.')[0].split('_')[1]
+      if gcompris.sugar_detected():
+        if (m_name == 'profiles' or m_name == 'boards'):
+          continue
+      else:
+        if (m_name == 'logins' or m_name == 'activities'):
+          continue
       list_modules.append(m_name)
 
     # Now import modules,
@@ -92,7 +98,7 @@ class Gcompris_administration:
     self.gcomprisBoard.maxlevel=1
     self.gcomprisBoard.sublevel=1
     self.gcomprisBoard.number_of_sublevel=1
-    gcompris.bar_set(0)
+    gcompris.bar_set(gcompris.BAR_JOURNAL | gcompris.BAR_SHARE)
     gcompris.set_default_background(self.gcomprisBoard.canvas.get_root_item())
     gcompris.bar_set_level(self.gcomprisBoard)
     gcompris.bar_location(25, -1, 0.6)

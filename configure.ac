@@ -204,9 +204,9 @@ AC_ARG_ENABLE(debug,
           USE_DEBUG="$enableval", USE_DEBUG="no")
 if test "x$USE_DEBUG" == "xyes" ; then
     AC_DEFINE_UNQUOTED(DEBUG, 1, "Enable debug messages.")
-    CFLAGS="$CFLAGS $OSX_CFLAGS -Wall -Werror -g"
+    CFLAGS="$CFLAGS $OSX_CFLAGS -Wall -g"
 else
-    CFLAGS="$CFLAGS $OSX_CFLAGS -Wall -Werror -O2"
+    CFLAGS="$CFLAGS $OSX_CFLAGS -Wall -O2"
 fi
 
 dnl disable activation code
@@ -878,6 +878,7 @@ src/wordprocessor-activity/Makefile
 src/wordprocessor-activity/resources/Makefile
 src/wordprocessor-activity/resources/wordprocessor/Makefile
 src/wordsgame-activity/Makefile
+sugar/Makefile
 ])
 
 echo ""

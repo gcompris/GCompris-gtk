@@ -164,7 +164,10 @@ gc_config_start ()
   gc_board_pause(TRUE);
 
   if(rootitem)
+  {
+    gc_config_stop();
     return;
+  }
 
   gc_bar_hide(TRUE);
 

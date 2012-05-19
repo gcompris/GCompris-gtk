@@ -11,7 +11,9 @@ img_DATA = \
 	difficulty3.svg \
 	difficulty4.svg \
 	difficulty5.svg \
-	difficulty6.svg
+	difficulty6.svg \
+	config_logins.svgz \
+	config_activities.svgz
 
 EXTRA_DIST = $(img_DATA) ${xml_in_files}
 CLEANFILES = $(xml_DATA)

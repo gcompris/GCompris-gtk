@@ -30,6 +30,7 @@
 #include <libxml/parserInternals.h>
 
 #include "gcompris.h"
+#include "sugar_gc.h"
 
 extern GooCanvas *canvas;
 
@@ -118,6 +119,8 @@ GdkPixbuf *gc_pixmap_load(const gchar *format, ...)
   va_start (args, format);
   pixmapfile = g_strdup_vprintf (format, args);
   va_end (args);
+
+  pixmapfile = sugar_get_journal_file(pixmapfile);
 
   /* Search */
   filename = gc_file_find_absolute(pixmapfile);

@@ -28,6 +28,8 @@
 #include "gcompris.h"
 #include "status.h"
 
+static GcomprisBoard *gc_menu_load_board(const gchar*, const gchar*, gboolean);
+
 GcomprisBoard	*_read_xml_file(GcomprisBoard *gcomprisBoard, char *fname, gboolean db);
 
 /* List of all available boards  */
@@ -527,7 +529,6 @@ static gboolean compare_id(gconstpointer data1, gconstpointer data2)
 void gc_menu_load_dir(char *dirname, gboolean db){
   const gchar   *one_dirent;
   GDir          *dir;
-  GcomprisProperties	*properties = gc_prop_get();
   GList *list_old_boards_id = NULL;
 
   if (!g_file_test(dirname, G_FILE_TEST_IS_DIR)) {
@@ -544,8 +545,36 @@ void gc_menu_load_dir(char *dirname, gboolean db){
     if (db)
       list_old_boards_id = gc_db_get_board_id(list_old_boards_id);
 
+    int new_board_id = 1;
+
     while((one_dirent = g_dir_read_name(dir)) != NULL) {
       /* add the board to the list */
+      GcomprisBoard *board = gc_menu_load_board(dirname, one_dirent, db);
+      if (board) {
+        board->board_id = new_board_id++;
+	    list_old_boards_id = suppress_int_from_list(list_old_boards_id, board->board_id);
+      }
+    }
+  }
+
+  if (db){
+    /* remove suppressed boards from db */
+    while (list_old_boards_id != NULL){
+      int *data=list_old_boards_id->data;
+      gc_db_remove_board(*data);
+      list_old_boards_id=g_list_remove(list_old_boards_id, data);
+      g_free(data);
+    }
+  }
+
+  g_dir_close(dir);
+}
+
+static GcomprisBoard *gc_menu_load_board(const gchar *dirname,
+        const gchar *one_dirent, gboolean db)
+{
+      GcomprisProperties	*properties = gc_prop_get();
+      GcomprisBoard *board_read = NULL;
       GcomprisBoard *gcomprisBoard = NULL;
       gchar *filename;
 
@@ -554,7 +583,7 @@ void gc_menu_load_dir(char *dirname, gboolean db){
 
       if(!g_file_test(filename, G_FILE_TEST_IS_REGULAR)) {
 	g_free(filename);
-	continue;
+	return NULL;
       }
 
       if(file_end_with_xml(one_dirent)) {
@@ -566,9 +595,8 @@ void gc_menu_load_dir(char *dirname, gboolean db){
 	gcomprisBoard->plugin=NULL;
 	gcomprisBoard->previous_board=NULL;
 
-	GcomprisBoard *board_read = _read_xml_file(gcomprisBoard, filename, db);
+	board_read = _read_xml_file(gcomprisBoard, filename, db);
 	if (board_read) {
-	  list_old_boards_id = suppress_int_from_list(list_old_boards_id, board_read->board_id);
 	  if (properties->administration)
 	    boards_list = g_list_append(boards_list, board_read);
 	  else {
@@ -592,21 +620,16 @@ void gc_menu_load_dir(char *dirname, gboolean db){
         gc_menu_board_free(gcomprisBoard);
 	}
       g_free(filename);
-    }
-  }
 
-  if (db){
-    /* remove suppressed boards from db */
-    while (list_old_boards_id != NULL){
-      int *data=list_old_boards_id->data;
-      gc_db_remove_board(*data);
-      list_old_boards_id=g_list_remove(list_old_boards_id, data);
-      g_free(data);
-    }
+  return board_read;
+}
 
-  }
-
-  g_dir_close(dir);
+static void load_board(gpointer board_id, gchar *filename)
+{
+  GcomprisBoard *board = gc_menu_load_board(
+          gc_prop_get()->menu_dir, filename, FALSE);
+  if (board)
+    board->board_id = GPOINTER_TO_INT(board_id);
 }
 
 
@@ -623,6 +646,9 @@ void gc_menu_load()
       return;
     }
 
+  if (properties->profile && properties->profile->boards)
+    g_hash_table_foreach(properties->profile->boards, (GHFunc)load_board, NULL);
+  else
   if ((!properties->reread_menu) && gc_db_check_boards())
     {
       boards_list = gc_menu_load_db(boards_list);

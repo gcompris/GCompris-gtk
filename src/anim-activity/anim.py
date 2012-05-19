@@ -259,8 +259,13 @@ class Gcompris_anim:
     self.draw_drawing_area()
     self.draw_playing_area()
 
-    gcompris.bar_set(0)
+    gcompris.bar_set(gcompris.BAR_JOURNAL)
     gcompris.bar_location(10, -1, 0.6)
+
+    if gcompris.sugar_detected():
+      journal_file = gcompris.sugar_load()
+      if journal_file:
+        fles.doc.file_to_anim(journal_file)
 
   def end(self):
     # stop the animation
@@ -270,6 +275,13 @@ class Gcompris_anim:
     if self.timeout:
       gobject.source_remove(self.timeout)
     self.timeout = 0
+
+    if gcompris.sugar_detected():
+      fd, tmp_file = tempfile.mkstemp(dir='/tmp')
+      os.close(fd)
+      os.chmod(tmp_file, 0644)
+      fles.doc.anim_to_file(tmp_file)
+      gcompris.sugar_save(tmp_file)
 
     # Remove the root item removes all the others inside it
     gcompris.set_cursor(gcompris.CURSOR_DEFAULT);
@@ -294,13 +306,13 @@ class Gcompris_anim:
     codec = sys.stdin.encoding
 
     # keyboard shortcuts
-    if ( (keyval == gtk.keysyms.F1)
-         or (keyval == gtk.keysyms.l) ):
+    if ( ((keyval == gtk.keysyms.F1)
+         or (keyval == gtk.keysyms.l)) and not gcompris.sugar_detected() ):
       gcompris.file_selector_save( self.gcomprisBoard,
                                    self.selector_section, self.file_type,
                                    general_save, self)
-    elif ( (keyval == gtk.keysyms.F2)
-           or (keyval == gtk.keysyms.s) ):
+    elif ( ((keyval == gtk.keysyms.F2)
+           or (keyval == gtk.keysyms.s)) and not gcompris.sugar_detected() ):
       gcompris.file_selector_load( self.gcomprisBoard,
                                    self.selector_section, self.file_type,
                                    general_restore, self)
@@ -354,9 +366,13 @@ class Gcompris_anim:
     x2 = 56.0
     y = 11.0
     stepy = 45
+    start_tool = 0
+
+    if gcompris.sugar_detected():
+        start_tool = 2
 
     # Display the tools
-    for i in range(0,len(self.tools)):
+    for i in range(start_tool,len(self.tools)):
 
       # Exclude the anim specific buttons
       if self.gcomprisBoard.mode == 'draw':

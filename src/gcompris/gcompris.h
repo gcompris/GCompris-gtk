@@ -135,6 +135,8 @@ typedef enum
   GC_BAR_EXIT	   = 1 << 6,
   GC_BAR_LEVEL_DOWN = 1 << 7,
   GC_BAR_HELP      = 1 << 8,
+  GC_BAR_JOURNAL   = 1 << 9,
+  GC_BAR_SHARE     = 1 << 10,
 } GComprisBarFlags;
 
 /* Difficulty filtering */

@@ -16,356 +16,356 @@
  *   along with this program; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <sugar/toolkit.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <gdk/gdkx.h>
+#include <dbus/dbus-glib.h>
+
+#include <polyol/toolkit.h>
 
 #include "gcompris.h"
 #include "gc_core.h"
 #include "bar.h"
 #include "score.h"
+#include "status.h"
+#include "sugar.h"
+#include "sugar_db.h"
+#include "sugar_share.h"
 
-static void bar_start(GtkContainer*, GooCanvas*);
-static void bar_set_level(GcomprisBoard*);
-static void bar_set_flags(const GComprisBarFlags);
-static void score_start(ScoreStyleList, guint, guint, guint);
-static void score_end();
-static void score_set(guint);
-static void help_clicked_cb(GtkToolButton*, gpointer);
-static void about_clicked_cb(GtkToolButton*, gpointer);
-static void level_clicked_cb(GtkToolButton*, gpointer);
-static void refresh_clicked_cb(GtkToolButton*, gpointer);
-static void zoom_clicked_cb(GtkToolButton*, gpointer);
-static void config_clicked_cb(GtkToolButton*, gpointer);
-static void back_clicked_cb(GtkToolButton*, gpointer);
-static void stop_clicked_cb(GtkToolButton*, gpointer);
-static GtkToolItem* level_widget_new();
-static GtkToolItem* score_widget_new();
-static GtkToolItem* expander_new();
-static GtkToolItem* separator_new();
+#define JOURNAL_PREFIX "journal:"
 
-/* export sugar bar */
-Bar sugar_bar = {
-  bar_start,
-  bar_set_level,
-  NULL,
-  NULL,
-  bar_set_flags,
-  NULL
+static const gchar *jobject_mime_types[][2] = {
+  {GC_MIME_TYPE "-wordprocessor", "/fun/wordprocessor"},
+  {GC_MIME_TYPE "-anim", "/fun/anim"},
+  {GC_MIME_TYPE "-draw", "/fun/draw"},
+  {NULL, NULL}
 };
 
-/* export sugar score */
-Score sugar_score = {
-  score_start,
-  score_end,
-  score_set
-  score_set_max,
-};
+static void notify_active_cb(GObject*);
+static void chooser_response_cb(GObject*, const gchar*);
 
-typedef struct {
-  const gchar *icon;
-  const gchar *label;
-  gpointer cb;
-  gpointer user_data;
-} Button;
+SugarActivity *activity;
+SugarJobject *board_jobject;
 
-static Button buttons[] = {
-  { "emblem-question", N_("Help"), help_clicked_cb, NULL },
-  { "stock_home", N_("About"), about_clicked_cb, NULL },
-  { "go-previous-paired", N_("Previous level"), level_clicked_cb,
-      GINT_TO_POINTER(-1) },
-  { NULL, NULL, level_widget_new, NULL },
-  { "go-next-paired", N_("Next level"), level_clicked_cb,
-      GINT_TO_POINTER(+1) },
-  { "stock_refresh", N_("Refresh"), refresh_clicked_cb, NULL },
-  { "preferences-system", N_("Settings"), config_clicked_cb, NULL },
-  { NULL, NULL, expander_new, NULL },
-  { NULL, NULL, score_widget_new, NULL },
-  { NULL, NULL, expander_new, NULL },
-  { "view-fullscreen", N_("Zoom"), zoom_clicked_cb, NULL },
-  { NULL, NULL, separator_new, NULL },
-  { "go-previous",
-    /* TRANSLATORS: Back as in previous */
-    N_("Back"), back_clicked_cb, NULL },
-  { "activity-stop", N_("Stop"), stop_clicked_cb, NULL }
-};
+static SugarJobject *journal_file_object;
+static ImageSelectorCallBack choose_image_cb;
+static void * choose_image_user_context;
+static const gchar *jobject_mime_type;
 
-enum {
-  BUTTON_HELP = 0,
-  BUTTON_ABOUT,
-  BUTTON_PREV,
-  BUTTON_LEVEL,
-  BUTTON_NEXT,
-  BUTTON_REFRESH,
-  BUTTON_CONFIG,
-  BUTTON_EXPANDER_1,
-  BUTTON_SCORE,
-  BUTTON_EXPANDER_2,
-  BUTTON_ZOOM,
-  BUTTON_SEPARATOR,
-  BUTTON_BACK,
-  BUTTON_STOP,
-  BUTTONS_COUNT
-};
+extern Peer srv_peer;
+extern Peer cli_peer;
+static Peer empty_peer;
+static Peer *peer = &empty_peer;
+static gboolean initial_activate = TRUE;
 
-static gint16 buttons_mask;
-static GtkToolItem *button_widgets[BUTTONS_COUNT];
-static GtkToolbar *toolbar;
-static SugarToolkitToolText *level_widget;
-static SugarToolkitToolText *score_widget;
-static gint current_level = -1;
-static gint max_score;
+extern Bar sugar_bar;
+extern Score sugar_score;
 
-static void
-bar_start(GtkContainer *workspace, GooCanvas *theCanvas)
+void
+sugar_setup(int *argc, char ***argv)
 {
-  SugarToolkitToolbarBox *toolbox = sugar_toolkit_toolbar_box_new(-1);
-  gtk_box_pack_start(GTK_BOX(workspace), GTK_WIDGET(toolbox), FALSE, TRUE, 0);
-  toolbar = sugar_toolkit_toolbar_box_get_toolbar(toolbox);
-  gtk_widget_show(GTK_WIDGET(toolbar));
-  current_level = 1;
-}
+  if (!sugar_init(argv, argc))
+    return;
 
-static void
-set_button(gint number, gboolean visible)
-{
-  Button *button = &buttons[number];
-  GtkToolItem *item = button_widgets[number];
+  g_debug("Use sugar mode");
 
-  if (item == NULL) {
-    if (button->icon == NULL)
-      item = ((GtkToolItem* (*)(void))button->cb)();
-    else {
-      item = gtk_tool_button_new(NULL, button->label);
-      gtk_tool_button_set_icon_name(GTK_TOOL_BUTTON(item), button->icon);
-      g_signal_connect(item, "clicked", G_CALLBACK(button->cb),
-                button->user_data);
-    }
-
-    g_object_ref_sink(item);
-    button_widgets[number] = item;
+  if (strcmp("activities.gcompris.administration",
+              sugar_environ_get_bundle_id()) == 0)
+  {
+    /* There should be only one bundle_id for GCompris objects in
+       non-MODE_STANDALONE_ACTIVITY mode to let teacher via Administration
+       activity and students via GCompris activity share the same objects */
+    (*argv)[(*argc)++] = "-b";
+    (*argv)[(*argc)++] = "net.gcompris";
+    (*argv)[*argc] = NULL;
+    sugar_init(argv, argc);
   }
 
-  if (visible) {
-    if (gtk_widget_get_parent(GTK_WIDGET(item)) == NULL) {
-      int i;
-      int item_pos = 0;
-      for (i = 0; i < number; ++i)
-        if (buttons_mask & (1 << i))
-          ++item_pos;
+  if (!g_thread_supported())
+    g_thread_init(NULL);
+  dbus_g_thread_init ();
 
-      gtk_widget_show(GTK_WIDGET(item));
-      gtk_toolbar_insert(toolbar, item, item_pos);
-      buttons_mask |= (1 << number);
+  sugar_environ_set_sync_dbus(TRUE);
+
+  const gchar *resumed_jobject_id = sugar_environ_get_object_id();
+  if (resumed_jobject_id)
+  {
+    SugarJobject *resumed_jobject = sugar_jobject_find(resumed_jobject_id);
+    if (resumed_jobject)
+    {
+      const gchar *mime_type = sugar_jobject_get_mime_type(resumed_jobject);
+      const gchar *(*i)[2];
+      for (i = jobject_mime_types; (*i)[0]; ++i)
+      {
+        if (strcmp((*i)[0], mime_type) == 0)
+        {
+          jobject_mime_type = (*i)[1];
+          g_debug("Start activity %s", jobject_mime_type);
+          break;
+        }
+      }
     }
+  }
+}
+
+gboolean
+sugar_detected()
+{
+  return sugar_environ_get_initialized();
+}
+
+const gchar *
+sugar_jobject_root_menu(void)
+{
+  return jobject_mime_type;
+}
+
+void
+sugar_setup_profile(const gchar *root, gboolean administration)
+{
+  if (!sugar_detected())
+    return;
+
+  activity = sugar_activity_new (TRUE, !jobject_mime_type);
+
+  g_debug("Setup sugar profile root=%s administration=%d ",
+          root, administration);
+
+  SugarJobject *jobject = sugar_activity_get_jobject(activity);
+
+  if (!sugar_activity_get_resumed(activity))
+  {
+    if (!jobject_mime_type)
+      sugar_jobject_set_mime_type(jobject, GC_MIME_TYPE);
+    else
+    {
+      gchar *activity_name = strrchr(root, '/') + 1;
+      gchar *mime = g_strdup_printf("%s-%s", GC_MIME_TYPE, activity_name);
+      sugar_jobject_set_mime_type(jobject, mime);
+      g_free(mime);
+    }
+  }
+
+  if (!jobject_mime_type)
+  {
+    if (administration)
+      peer = &srv_peer;
+    else
+      peer = &cli_peer;
+  }
+
+  g_signal_connect(sugar_activity_get_shell(activity), "notify::active",
+          G_CALLBACK(notify_active_cb), NULL);
+  g_signal_connect(sugar_activity_get_journal(activity), "chooser-response",
+          G_CALLBACK(chooser_response_cb), NULL);
+
+  gc_bar_register(&sugar_bar);
+  gc_score_register(&sugar_score);
+
+  if (peer->construct)
+    peer->construct();
+}
+
+void
+sugar_setup_x11()
+{
+  GtkWidget *window = gc_get_window();
+  Window xwindow = GDK_WINDOW_XWINDOW(window->window);
+  sugar_environ_set_window(GDK_DISPLAY(), xwindow);
+}
+
+void
+sugar_cleanup()
+{
+  if (!sugar_detected())
+    return;
+
+  g_debug("Cleanup sugar mode");
+
+  if (peer->finalize)
+    peer->finalize();
+
+  if (board_jobject != NULL)
+    g_object_unref(G_OBJECT(board_jobject));
+  board_jobject = NULL;
+
+  if(journal_file_object != NULL)
+    g_object_unref(G_OBJECT(journal_file_object));
+  journal_file_object = NULL;
+
+  g_object_unref(G_OBJECT(activity));
+  activity = NULL;
+}
+
+const char *
+sugar_load(void)
+{
+  if (!sugar_detected())
+    return NULL;
+
+  switch_board_jobject();
+
+  const char *file_path = sugar_jobject_get_file_path(board_jobject);
+
+  if (file_path != NULL)
+    g_debug("Load file from %s", sugar_jobject_get_uid(board_jobject));
+
+  return file_path;
+}
+
+void
+sugar_save(const char *path)
+{
+  GError *error = NULL;
+  GArray *preview = NULL;
+
+  if (!sugar_detected())
+    return;
+
+  switch_board_jobject();
+
+  preview = sugar_get_preview(&error);
+  if (preview != NULL)
+  {
+    sugar_jobject_set_preview(board_jobject, preview);
+    g_array_free(preview, FALSE);
   } else {
-    if (gtk_widget_get_parent(GTK_WIDGET(item))) {
-      gtk_container_remove(GTK_CONTAINER(toolbar), GTK_WIDGET(item));
-      buttons_mask &= ~(1 << number);
-    }
+    g_warning("Cannot get preview: %s", error->message);
+    g_error_free(error);
+  }
+
+  sugar_jobject_write_file(board_jobject, path, TRUE);
+
+  if (peer->save_jobject)
+    peer->save_jobject(board_jobject);
+
+  g_warning("%p Saved %s file to journal entry %s", board_jobject, path,
+          sugar_jobject_get_uid(board_jobject));
+}
+
+void
+sugar_choose_image(ImageSelectorCallBack iscb, void *user_context)
+{
+  choose_image_cb = iscb;
+  choose_image_user_context = user_context;
+  sugar_journal_choose_object(sugar_activity_get_journal(activity),
+          SUGAR_MIME_IMAGE);
+}
+
+gchar *
+sugar_get_journal_file(gchar *file_id)
+{
+  if(!g_str_has_prefix(file_id, JOURNAL_PREFIX))
+    return file_id;
+
+  gchar *file_path = NULL;
+  const gchar *object_id = file_id + strlen(JOURNAL_PREFIX);
+
+  if(journal_file_object != NULL)
+    g_object_unref(G_OBJECT(journal_file_object));
+  journal_file_object = sugar_jobject_find(object_id);
+
+  if(journal_file_object == NULL)
+    g_warning("Cannot find jobject %s", object_id);
+  else
+  {
+    file_path = g_strdup(sugar_jobject_get_file_path(journal_file_object));
+    if(file_path == NULL)
+      g_warning("Cannot get file from jobject %s", object_id);
+  }
+
+  g_free(file_id);
+  return file_path;
+}
+
+static void
+notify_active_cb(GObject *sender)
+{
+  SugarShell *shell = sugar_activity_get_shell(activity);
+  gboolean active = sugar_shell_get_active(shell);
+
+  g_debug("SugarShell.active=%d", active);
+
+  if(!active)
+    gc_sound_close();
+  else if(initial_activate == FALSE)
+    gc_sound_reopen();
+
+  initial_activate = FALSE;
+}
+
+static void
+chooser_response_cb(GObject *sender, const gchar *object_id)
+{
+  g_debug("SugarShell.chooser_response_cb=%s", object_id);
+
+  if(choose_image_cb != NULL && object_id != NULL)
+  {
+    gchar file_id[256];
+    snprintf(file_id, sizeof(file_id), "%s%s", JOURNAL_PREFIX, object_id);
+    choose_image_cb(file_id, choose_image_user_context);
+    choose_image_cb = NULL;
   }
 }
 
-static void
-update_level()
+gboolean
+switch_board_jobject()
 {
-  gchar level_string[256];
-  snprintf(level_string, sizeof(level_string), "%d", current_level);
-  g_object_set(level_widget, "text", level_string, NULL);
+  static GcomprisBoard *board = NULL;
+
+  if (board == gc_board_get_current())
+    return FALSE;
+
+  board = gc_board_get_current();
+  SugarJobject *new_board_jobject = NULL;
+
+  if (peer->get_jobject && is_activity_board())
+    new_board_jobject = peer->get_jobject(board);
+  else
+  {
+    new_board_jobject = sugar_activity_get_jobject(activity);
+    g_object_ref(G_OBJECT(new_board_jobject));
+  }
+
+  gboolean result = (new_board_jobject != board_jobject);
+  if (board_jobject)
+    g_object_unref(board_jobject);
+  board_jobject = new_board_jobject;
+
+  return result;
 }
 
-static void
-update_score(guint value)
+void
+save_profile(GKeyFile *profile)
 {
-  gchar score_string[256];
-  snprintf(score_string, sizeof(score_string), "%d/%d", value, max_score);
-  g_object_set(score_widget, "text", score_string, NULL);
-}
-
-static GtkToolItem*
-level_widget_new()
-{
-    g_assert(level_widget == NULL);
-    level_widget = sugar_toolkit_tool_text_new();
-    update_level();
-    return GTK_TOOL_ITEM(level_widget);
-}
-
-static GtkToolItem*
-score_widget_new()
-{
-    g_assert(score_widget == NULL);
-    score_widget = sugar_toolkit_tool_text_new();
-    return GTK_TOOL_ITEM(score_widget);
-}
-
-static GtkToolItem*
-separator_new()
-{
-  GtkToolItem *separator = gtk_separator_tool_item_new();
-  gtk_separator_tool_item_set_draw(GTK_SEPARATOR_TOOL_ITEM(separator), FALSE);
-  return separator;
-}
-
-static GtkToolItem*
-expander_new()
-{
-  GtkToolItem *expander = gtk_separator_tool_item_new();
-  gtk_separator_tool_item_set_draw(GTK_SEPARATOR_TOOL_ITEM(expander), FALSE);
-  gtk_tool_item_set_expand(GTK_TOOL_ITEM(expander), TRUE);
-  return expander;
-}
-
-static void
-beep()
-{
-  gc_sound_play_ogg("sounds/bleep.wav", NULL);
-}
-
-static void
-help_clicked_cb(GtkToolButton *button, gpointer user_data)
-{
-  beep();
-  GcomprisBoard *board = gc_board_get_current();
-  gc_help_start(board);
-}
-
-static void
-about_clicked_cb(GtkToolButton *button, gpointer user_data)
-{
-  beep();
-  gc_about_start();
-}
-
-static void
-level_clicked_cb(GtkToolButton *button, gpointer user_data)
-{
-  beep();
-
-  GcomprisBoard *board = gc_board_get_current();
-  if (board == NULL)
-      return;
-
-  gint delta = GPOINTER_TO_INT(user_data);
-  current_level += delta;
-
-  if (current_level > board->maxlevel)
-    current_level = 1;
-  else if (current_level < 1)
-    current_level = board->maxlevel;
-
-  update_level();
-
-  if (board->plugin->set_level != NULL)
-    board->plugin->set_level(current_level);
-
-  gc_bar_play_level_voice(current_level);
-}
-
-static void
-refresh_clicked_cb(GtkToolButton *button, gpointer user_data)
-{
-  beep();
-  GcomprisBoard *board = gc_board_get_current();
-  if(board && board->plugin->repeat != NULL)
-    board->plugin->repeat();
-}
-
-static void
-zoom_clicked_cb(GtkToolButton *button, gpointer user_data)
-{
-  beep();
-  GcomprisProperties *properties = gc_prop_get();
-  properties->zoom = (properties->zoom ? 0 : 1);
-  gc_update_canvas_zoom();
-}
-
-static void
-config_clicked_cb(GtkToolButton *button, gpointer user_data)
-{
-  beep();
-  GcomprisBoard *board = gc_board_get_current();
-  if(board && board->plugin->config_start != NULL)
-    board->plugin->config_start(board, gc_profile_get_current());
-}
-
-static void
-back_clicked_cb(GtkToolButton *button, gpointer user_data)
-{
-  gc_board_stop();
-}
-
-static void
-stop_clicked_cb(GtkToolButton *button, gpointer user_data)
-{
-  // save zoom setting
-  GcomprisProperties *properties = gc_prop_get();
-  gc_prop_save(properties);
-
-  gc_exit();
-}
-
-static void
-bar_set_flags(const GComprisBarFlags flags)
-{
-  GcomprisBoard *board = gc_board_get_current();
-
-  set_button(BUTTON_HELP, flags & GC_BAR_HELP || gc_help_has_board(board));
-  set_button(BUTTON_ABOUT, flags & GC_BAR_ABOUT);
-
-  set_button(BUTTON_PREV, flags & GC_BAR_LEVEL);
-  set_button(BUTTON_LEVEL, flags & GC_BAR_LEVEL);
-  set_button(BUTTON_NEXT, flags & GC_BAR_LEVEL);
-
-  set_button(BUTTON_REFRESH, flags & (GC_BAR_REPEAT | GC_BAR_REPEAT_ICON));
-  set_button(BUTTON_CONFIG, flags & GC_BAR_CONFIG);
-
-  set_button(BUTTON_EXPANDER_1, TRUE);
-  set_button(BUTTON_SCORE, max_score);
-  set_button(BUTTON_EXPANDER_2, TRUE);
-
-  set_button(BUTTON_ZOOM, TRUE);
-  set_button(BUTTON_SEPARATOR, TRUE);
-  set_button(BUTTON_BACK, board && board->previous_board);
-  set_button(BUTTON_STOP, TRUE);
-}
-
-static void
-score_start(ScoreStyleList style, guint x, guint y, guint max)
-{
-  max_score = max;
-  set_button(BUTTON_SCORE, TRUE);
-  update_score(0);
-}
-
-static void
-score_end()
-{
-  max_score = 0;
-  set_button(BUTTON_SCORE, FALSE);
-}
-
-static void
-score_set(guint value)
-{
-  update_score(value);
-}
-
-static void
-score_set_max(guint max)
-{
-  max_score = max;
-}
-
-static void
-bar_set_level(GcomprisBoard *board)
-{
-  if (board == NULL)
-      return;
-
-  if (level_widget == NULL) {
-    g_message("in bar_set_level, level_item uninitialized : should not happen\n");
+  char tmp_file[] = "/tmp/GComprisXXXXXX";
+  int fd = mkstemp(tmp_file);
+  if (fd == -1)
+  {
+    g_warning("Cannot create temporary file to save");
     return;
   }
 
-  current_level = board->level;
-  update_level();
+  gsize size = 0;
+  gchar *profile_data = g_key_file_to_data(profile, &size, NULL);
+  gboolean success = (write(fd, profile_data, size) == size);
+  g_free(profile_data);
+  fchmod(fd, 0644);
+  close(fd);
+
+  if (success)
+    sugar_activity_write_file(activity, tmp_file, TRUE);
+  else
+  {
+    unlink(tmp_file);
+    g_warning("Cannot save profile to journal entry");
+  }
+}
+
+gboolean
+is_activity_board()
+{
+  GcomprisBoard *board = gc_board_get_current();
+  return board->name[0] != '\0' && strcmp("login", board->name) != 0 &&
+        strcmp("administration", board->name) != 0;
 }

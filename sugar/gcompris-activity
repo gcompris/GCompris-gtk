@@ -1,0 +1,36 @@
+#!/bin/sh
+
+[ -e /opt/sweets/gcompris/binding ] && . /opt/sweets/gcompris/binding
+
+args="--nolockcheck"
+
+GCOMPRIS_USERDIR="$SUGAR_ACTIVITY_ROOT/data/MyGCompris"
+args="$args --config-dir $GCOMPRIS_USERDIR"
+args="$args --user-dir $GCOMPRIS_USERDIR"
+
+# XO laptop related workarounds
+if [ -d /ofw ]; then
+    # XO is not fast
+    [ -e "$GCOMPRIS_USERDIR" ] || args="$args --no-zoom"
+    # http://bugs.sugarlabs.org/ticket/2600
+    args="$args --mute_music"
+fi
+
+if [ "$SUGAR_LOGGER_LEVEL" ]; then
+    args="$args --debug"
+fi
+
+[ -e "$GCOMPRIS_USERDIR" ] || mkdir -p "$GCOMPRIS_USERDIR"
+
+export LD_LIBRARY_PATH=$SUGAR_BUNDLE_PATH/lib:$SUGAR_BUNDLE_PATH/lib/gcompris:$LD_LIBRARY_PATH
+
+args="$args --package_data_dir $SUGAR_BUNDLE_PATH/share/gcompris/boards"
+args="$args --plugin_dir $SUGAR_BUNDLE_PATH/lib/gcompris"
+args="$args --python_plugin_dir $SUGAR_BUNDLE_PATH/share/gcompris/python/"
+args="$args --package_skin_dir $SUGAR_BUNDLE_PATH/share/gcompris/boards/skins"
+args="$args --menu_dir $SUGAR_BUNDLE_PATH/share/gcompris/boards"
+args="$args --locale_dir $SUGAR_BUNDLE_PATH/share/locale"
+
+# now run Gcompris
+echo $args $@
+exec $SUGAR_BUNDLE_PATH/bin/gcompris $args "$@"
