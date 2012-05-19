@@ -1,8 +1,17 @@
 		     GCompris / I Got IT
                   GCompris is a GNU package
+                     http://gcompris.net
 
-GCompris is an educational game for children starting at 3.
-It uses GTK the GOO canvas, libxml2 and librsvg.
+GCompris is a high quality educational software suite comprising of
+numerous activities for children aged 2 to 10. Some of the activities
+are game orientated, but nonetheless still educational.
+
+Currently GCompris offers in excess of 100 activities and more are
+being developed. GCompris is free software, that means that you can
+adapt it to your own needs, improve it and, most importantly, share it
+with children everywhere.
+
+It based on GTK and the GOO canvas has its main technical components.
 
 Read the file 'README.installation' to get specific information on how
 to build GCompris.
@@ -19,25 +28,25 @@ Big Issue:
 Big Goal:
   Build an educational game suite all accessible from a single user interface.
   GCompris provides a simple to use user interface that makes it easy to select
-  appropriate boards.
+  appropriate activities.
 
 How:
-  GCompris is designed in a way that it is easy to add new boards to it.
-  Today a board is called with the root canvas of the main window, and then
-  the board is free to implement the game scheme it wants.
-  The status bar is a common facility provided to the board.
+  GCompris is designed in a way that it is easy to add new activities to it.
+  An activity is called with the root canvas of the main window, and then
+  the activity is free to implement the game scheme it wants.
+  The status bar is a common facility provided to the activity. There is a C
+  and a Python API to let activities access the core feature of GCompris.
 
   To make GCompris a powerful tool for all its users, the teachers,
   the children but also the developers, GCompris implements a plugin system
-  where each board is an independant plugin. Then if the board requires it,
-  the data set for this board is defined in an XML file.
+  where each activity is an independant plugin.
 
-  GCompris will provide a board editor to let teacher/educator easily add
-  boards to GCompris.
+  GCompris provides some tools to let teacher/educator to easily add
+  activities to GCompris.
 
 About You:
   Yes you can help by:
-  Creating new boards.
+  Creating new activities.
   Providing fancy graphics to incorporate as icons or backgrounds.
   Translate GCompris.
   Just giving your ideas.
