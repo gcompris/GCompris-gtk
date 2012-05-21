@@ -10,14 +10,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-04-08 15:16+0000\n"
-"PO-Revision-Date: 2012-04-08 20:25+0100\n"
-"Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
+"POT-Creation-Date: 2012-05-20 00:06+0000\n"
+"PO-Revision-Date: 2012-05-20 11:17+0100\n"
+"Last-Translator: filmsi\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n%100==4 ? 3 : 0);\n"
 "X-Poedit-Country: SLOVENIA\n"
 "X-Poedit-Language: Slovenian\n"
@@ -324,37 +324,37 @@ msgstr "Odstranitveni program ni našel vnosov registra za GCompris.$\\rVerjetno
 msgid "You do not have permission to uninstall this application."
 msgstr "Nimaš dovoljena za odstranitev tega programa."
 
-#: ../src/administration-activity/admin/board_list.py:88
+#: ../src/administration-activity/admin/board_list.py:86
 msgid "Select a profile:"
 msgstr "Izbor profila:"
 
-#: ../src/administration-activity/admin/board_list.py:145
+#: ../src/administration-activity/admin/board_list.py:147
 msgid "Filter"
 msgstr "Filter"
 
-#: ../src/administration-activity/admin/board_list.py:150
+#: ../src/administration-activity/admin/board_list.py:152
 msgid "Select all"
 msgstr "Izberi vse"
 
-#: ../src/administration-activity/admin/board_list.py:155
+#: ../src/administration-activity/admin/board_list.py:157
 msgid "Unselect all"
 msgstr "Počisti celoten izbor"
 
-#: ../src/administration-activity/admin/board_list.py:160
+#: ../src/administration-activity/admin/board_list.py:162
 msgid "Locales"
 msgstr "Jezikovne nastavitve"
 
-#: ../src/administration-activity/admin/board_list.py:165
+#: ../src/administration-activity/admin/board_list.py:167
 msgid "Locales sound"
 msgstr "Jezikovne lastnosti zvokov"
 
-#: ../src/administration-activity/admin/board_list.py:170
+#: ../src/administration-activity/admin/board_list.py:172
 #: ../src/administration-activity/admin/group_user_list.py:140
 #: ../src/administration-activity/admin/user_list.py:181
 msgid "Login"
 msgstr "Prijava"
 
-#: ../src/administration-activity/admin/board_list.py:242
+#: ../src/administration-activity/admin/board_list.py:244
 msgid "Main menu"
 msgstr "Glavni meni"
 
@@ -363,20 +363,20 @@ msgstr "Glavni meni"
 #. image = gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, gtk.ICON_SIZE_MENU)
 #. image.show()
 #. column_pref.set_widget(image)
-#: ../src/administration-activity/admin/board_list.py:308
+#: ../src/administration-activity/admin/board_list.py:310
 msgid "Active"
 msgstr "Dejavno"
 
-#: ../src/administration-activity/admin/board_list.py:309
+#: ../src/administration-activity/admin/board_list.py:311
 msgid "Board title"
 msgstr "Naslov table"
 
-#: ../src/administration-activity/admin/board_list.py:422
+#: ../src/administration-activity/admin/board_list.py:424
 #, python-format
 msgid "Filter Boards difficulty for profile %s"
 msgstr "Filtriraj težavnost tabel za profil %s"
 
-#: ../src/administration-activity/admin/board_list.py:453
+#: ../src/administration-activity/admin/board_list.py:455
 #, python-format
 msgid ""
 "<span size='x-large'> Select the difficulty range \n"
@@ -385,8 +385,8 @@ msgstr ""
 "<span size='x-large'> Izberi težavnostno raven\n"
 "profila<b>%s</b></span>"
 
-#: ../src/administration-activity/admin/board_list.py:642
-#: ../src/administration-activity/admin/board_list.py:654
+#: ../src/administration-activity/admin/board_list.py:645
+#: ../src/administration-activity/admin/board_list.py:657
 #: ../src/administration-activity/admin/wordlist.py:45
 msgid ""
 "<b>{config}</b> configuration\n"
@@ -395,7 +395,7 @@ msgstr ""
 "<b>{config}</b> nastavitev\n"
 " za profil <b>{profile}</b>"
 
-#: ../src/administration-activity/admin/board_list.py:660
+#: ../src/administration-activity/admin/board_list.py:663
 #: ../src/pythontest-activity/pythontest.py:511
 #: ../src/smallnumbers-activity/smallnumbers.c:618
 msgid "Select sound locale"
@@ -450,8 +450,8 @@ msgid "There is already a class with this name"
 msgstr "Razred s tem imenom že obstaja"
 
 #: ../src/administration-activity/admin/class_list.py:165
-#: ../src/administration-activity/admin/profile_edit.py:263
 #: ../src/administration-activity/admin/profile_group_list.py:140
+#: ../src/administration-activity/admin/profile_widget.py:180
 msgid "Class"
 msgstr "Razred"
 
@@ -482,7 +482,7 @@ msgstr "Skupina:"
 #. FIXME: How to remove the selection
 #. Label and Entry for the first name
 #: ../src/administration-activity/admin/group_edit.py:98
-#: ../src/administration-activity/admin/profile_edit.py:95
+#: ../src/administration-activity/admin/profile_edit.py:76
 msgid "Description:"
 msgstr "Opis:"
 
@@ -504,15 +504,15 @@ msgid "Select a class:"
 msgstr "Izberi razred:"
 
 #: ../src/administration-activity/admin/group_list.py:210
-#: ../src/administration-activity/admin/profile_edit.py:273
 #: ../src/administration-activity/admin/profile_group_list.py:150
+#: ../src/administration-activity/admin/profile_widget.py:190
 msgid "Group"
 msgstr "Skupina"
 
 #: ../src/administration-activity/admin/group_list.py:221
-#: ../src/administration-activity/admin/profile_edit.py:283
 #: ../src/administration-activity/admin/profile_group_list.py:160
 #: ../src/administration-activity/admin/profile_list.py:194
+#: ../src/administration-activity/admin/profile_widget.py:200
 msgid "Description"
 msgstr "Opis"
 
@@ -569,7 +569,7 @@ msgid "All users"
 msgstr "Vsi uporabniki"
 
 #: ../src/administration-activity/admin/log_list.py:108
-#: ../src/administration-activity/admin/log_list.py:295
+#: ../src/administration-activity/admin/log_list.py:298
 #: ../src/administration-activity/admin/profile_list.py:117
 #: ../src/lang-activity/lang.py:166
 msgid "Default"
@@ -580,33 +580,33 @@ msgstr "Privzeto"
 msgid "Reset"
 msgstr "Ponastavi"
 
-#: ../src/administration-activity/admin/log_list.py:216
+#: ../src/administration-activity/admin/log_list.py:219
 msgid "Date"
 msgstr "Datum"
 
-#: ../src/administration-activity/admin/log_list.py:226
+#: ../src/administration-activity/admin/log_list.py:229
 msgid "User"
 msgstr "Uporabik"
 
-#: ../src/administration-activity/admin/log_list.py:236
+#: ../src/administration-activity/admin/log_list.py:239
 msgid "Board"
 msgstr "Tabla"
 
-#: ../src/administration-activity/admin/log_list.py:246
+#: ../src/administration-activity/admin/log_list.py:249
 #: ../src/click_on_letter-activity/click_on_letter.c:1248
 #: ../src/redraw-activity/redraw.py:339
 msgid "Level"
 msgstr "Raven"
 
-#: ../src/administration-activity/admin/log_list.py:256
+#: ../src/administration-activity/admin/log_list.py:259
 msgid "Sublevel"
 msgstr "Podraven"
 
-#: ../src/administration-activity/admin/log_list.py:266
+#: ../src/administration-activity/admin/log_list.py:269
 msgid "Duration"
 msgstr "Trajanje"
 
-#: ../src/administration-activity/admin/log_list.py:276
+#: ../src/administration-activity/admin/log_list.py:279
 msgid "Status"
 msgstr "Stanje"
 
@@ -641,34 +641,30 @@ msgstr "Uporabniki"
 msgid "Classes"
 msgstr "Razredi"
 
-#: ../src/administration-activity/admin/profile_edit.py:56
+#: ../src/administration-activity/admin/profile_edit.py:37
 msgid "Editing a Profile"
 msgstr "Urejanje profila"
 
-#: ../src/administration-activity/admin/profile_edit.py:61
+#: ../src/administration-activity/admin/profile_edit.py:42
 msgid "Editing profile: "
 msgstr "Urejanje profila:"
 
-#: ../src/administration-activity/admin/profile_edit.py:64
+#: ../src/administration-activity/admin/profile_edit.py:45
 msgid "Editing a new profile"
 msgstr "Urejanje novega profila"
 
-#: ../src/administration-activity/admin/profile_edit.py:83
+#: ../src/administration-activity/admin/profile_edit.py:64
 msgid "Profile:"
 msgstr "Profil:"
 
 #. Top message gives instructions
-#: ../src/administration-activity/admin/profile_edit.py:106
+#: ../src/administration-activity/admin/profile_edit.py:87
 msgid "Assign all the groups belonging to this profile"
 msgstr "Dodeli vsem skupinam, ki spadajo v ta profila"
 
-#: ../src/administration-activity/admin/profile_edit.py:371
+#: ../src/administration-activity/admin/profile_edit.py:130
 msgid "You need to provide at least a name for your profile"
 msgstr "Za profil je treba navesti vsaj ime"
-
-#: ../src/administration-activity/admin/profile_edit.py:393
-msgid "There is already a profile with this name"
-msgstr "Profil s tem imenom že obstaja"
 
 #: ../src/administration-activity/admin/profile_list.py:184
 msgid "Profile"
@@ -738,6 +734,22 @@ msgid ""
 msgstr ""
 "Ena ali več prijav nista edinstveni!\n"
 "Moraš ju spremeniti: %s!"
+
+#: ../src/administration-activity/admin/module_activities.py:50
+#: ../src/administration-activity/admin/module_activities.py:78
+#| msgid "Active"
+msgid "Activities"
+msgstr "Dejavnosti"
+
+#: ../src/administration-activity/admin/module_logins.py:48
+#: ../src/administration-activity/admin/module_logins.py:69
+#| msgid "Login"
+msgid "Logins"
+msgstr "Prijave"
+
+#: ../src/administration-activity/admin/profile_widget.py:291
+msgid "There is already a profile with this name"
+msgstr "Profil s tem imenom že obstaja"
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:1
 msgid "Advanced colors"
@@ -1196,8 +1208,8 @@ msgid "Line"
 msgstr "Črta"
 
 #: ../src/anim-activity/anim.py:157
-#: ../src/wordprocessor-activity/wordprocessor.c:91
-#: ../src/wordprocessor-activity/wordprocessor.c:450
+#: ../src/wordprocessor-activity/wordprocessor.c:93
+#: ../src/wordprocessor-activity/wordprocessor.c:481
 msgid "Text"
 msgstr "Besedilo"
 
@@ -1225,7 +1237,7 @@ msgstr "Dvigni"
 msgid "Lower"
 msgstr "Spusti"
 
-#: ../src/anim-activity/anim.py:753
+#: ../src/anim-activity/anim.py:769
 msgid "Current frame"
 msgstr "Trenutna sličica"
 
@@ -1728,38 +1740,38 @@ msgstr ""
 "za igranje šaha v gcompris.\n"
 "Najprej ga namestite in nato preverite da je v"
 
-#: ../src/chess_computer-activity/chess.c:652
+#: ../src/chess_computer-activity/chess.c:653
 msgid "White's Turn"
 msgstr "Črni na potezi"
 
-#: ../src/chess_computer-activity/chess.c:652
+#: ../src/chess_computer-activity/chess.c:653
 msgid "Black's Turn"
 msgstr "Beli na potezi"
 
-#: ../src/chess_computer-activity/chess.c:793
+#: ../src/chess_computer-activity/chess.c:794
 msgid "White checks"
 msgstr "Črni da šah"
 
-#: ../src/chess_computer-activity/chess.c:795
+#: ../src/chess_computer-activity/chess.c:796
 msgid "Black checks"
 msgstr "Beli da šah"
 
-#: ../src/chess_computer-activity/chess.c:1201
+#: ../src/chess_computer-activity/chess.c:1202
 msgid "Black mates"
 msgstr "Črni matira"
 
-#: ../src/chess_computer-activity/chess.c:1208
+#: ../src/chess_computer-activity/chess.c:1209
 msgid "White mates"
 msgstr "Beli matira"
 
 # Pad je izraz, ko je igra šaha izenačena
-#: ../src/chess_computer-activity/chess.c:1215
+#: ../src/chess_computer-activity/chess.c:1216
 #: ../src/gcompris/bonus.c:191
 #: ../src/gcompris/bonus.c:200
 msgid "Drawn game"
 msgstr "Pad"
 
-#: ../src/chess_computer-activity/chess.c:1243
+#: ../src/chess_computer-activity/chess.c:1244
 msgid "Error: The external program gnuchess died unexpectingly"
 msgstr "Napaka: Zunanji program gnuchess se je nepričakovano zaprl"
 
@@ -1816,22 +1828,22 @@ msgid "The 4 Seasons"
 msgstr "Štirje letni časi"
 
 #: ../src/chronos-activity/resources/chronos/board1_1.xml.in.h:2
-#: ../src/wordprocessor-activity/wordprocessor.c:122
+#: ../src/wordprocessor-activity/wordprocessor.c:124
 msgid "Spring"
 msgstr "Pomlad"
 
 #: ../src/chronos-activity/resources/chronos/board1_1.xml.in.h:3
-#: ../src/wordprocessor-activity/wordprocessor.c:123
+#: ../src/wordprocessor-activity/wordprocessor.c:125
 msgid "Summer"
 msgstr "Poletje"
 
 #: ../src/chronos-activity/resources/chronos/board1_1.xml.in.h:4
-#: ../src/wordprocessor-activity/wordprocessor.c:124
+#: ../src/wordprocessor-activity/wordprocessor.c:126
 msgid "Autumn"
 msgstr "Jesen"
 
 #: ../src/chronos-activity/resources/chronos/board1_1.xml.in.h:5
-#: ../src/wordprocessor-activity/wordprocessor.c:125
+#: ../src/wordprocessor-activity/wordprocessor.c:127
 msgid "Winter"
 msgstr "Zima"
 
@@ -2592,7 +2604,7 @@ msgstr "Fina motorična koordinacija"
 msgid "Move the mouse over the red part of the hose-pipe. This will move it, bringing it, part by part, up to the flowers. Be careful, if you move off the hose, the red part will go back down."
 msgstr "Premakni miško nad rdeči del cevi. To jo bo premaknilo in jo del za delom premaknilo k rožam. Bodi pozor-en/na. Če miško premakneš s cevi, se bo rdeči del premaknil nazaj."
 
-#: ../src/gcompris/about.c:48
+#: ../src/gcompris/about.c:49
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge, Yves Combe\n"
@@ -2607,50 +2619,50 @@ msgstr ""
 "Glasba v ozadju: Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:56
+#: ../src/gcompris/about.c:57
 msgid "translator_credits"
 msgstr ""
 "Damjan Kovač\n"
 "Matej Urbančič\n"
 "Andrej Žnidaršič"
 
-#: ../src/gcompris/about.c:82
+#: ../src/gcompris/about.c:86
 msgid "About GCompris"
 msgstr "O programu"
 
-#: ../src/gcompris/about.c:92
+#: ../src/gcompris/about.c:96
 msgid "GCompris Home Page: http://gcompris.net"
 msgstr "Domača stran GCompris: http://gcompris.net"
 
-#: ../src/gcompris/about.c:103
+#: ../src/gcompris/about.c:107
 msgid "Translators:"
 msgstr "Prevajalci:"
 
-#: ../src/gcompris/about.c:212
+#: ../src/gcompris/about.c:207
 msgid "This software is a GNU Package and is released under the GNU General Public License"
 msgstr "Ta program je GNU paket in je izdan pod GNU splošno javno licenco"
 
-#: ../src/gcompris/about.c:226
-#: ../src/gcompris/config.c:456
+#: ../src/gcompris/about.c:221
+#: ../src/gcompris/config.c:459
 #: ../src/gcompris/dialog.c:99
-#: ../src/gcompris/help.c:355
-#: ../src/gcompris/images_selector.c:306
+#: ../src/gcompris/help.c:358
+#: ../src/gcompris/images_selector.c:313
 msgid "OK"
 msgstr "V redu"
 
-#: ../src/gcompris/bar.c:690
+#: ../src/gcompris/bar.c:694
 msgid "GCompris confirmation"
 msgstr "Potrditev GCompris"
 
-#: ../src/gcompris/bar.c:691
+#: ../src/gcompris/bar.c:695
 msgid "Are you sure you want to quit?"
 msgstr "Ali si prepričan, da želiš končati?"
 
-#: ../src/gcompris/bar.c:692
+#: ../src/gcompris/bar.c:696
 msgid "Yes, I am sure!"
 msgstr "Da, prepričan sem"
 
-#: ../src/gcompris/bar.c:693
+#: ../src/gcompris/bar.c:697
 msgid "No, I want to keep going"
 msgstr "Ne, želim nadaljevati"
 
@@ -3002,40 +3014,40 @@ msgstr "Hitreje"
 msgid "Use Gcompris administration module to filter boards"
 msgstr "Za filtriranje tabel uporabite skrbniški modul Gcompris "
 
-#: ../src/gcompris/config.c:188
+#: ../src/gcompris/config.c:191
 msgid "GCompris Configuration"
 msgstr "GCompris nastavitve"
 
-#: ../src/gcompris/config.c:271
+#: ../src/gcompris/config.c:274
 msgid "Fullscreen"
 msgstr "Celozaslonski način"
 
-#: ../src/gcompris/config.c:296
+#: ../src/gcompris/config.c:299
 msgid "Music"
 msgstr "Glasba"
 
-#: ../src/gcompris/config.c:321
+#: ../src/gcompris/config.c:324
 msgid "Effect"
 msgstr "Učinki"
 
-#: ../src/gcompris/config.c:345
-#: ../src/gcompris/sugar.c:83
+#: ../src/gcompris/config.c:348
+#: ../src/gcompris/sugar_gc.c:93
 msgid "Zoom"
 msgstr "Približanje"
 
-#: ../src/gcompris/config.c:382
+#: ../src/gcompris/config.c:385
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Ni mogoče odpreti mape preoblek: %s"
 
-#: ../src/gcompris/config.c:413
-#: ../src/gcompris/config.c:873
-#: ../src/gcompris/config.c:887
+#: ../src/gcompris/config.c:416
+#: ../src/gcompris/config.c:876
+#: ../src/gcompris/config.c:890
 #, c-format
 msgid "Skin : %s"
 msgstr "Preobleka : %s"
 
-#: ../src/gcompris/config.c:415
+#: ../src/gcompris/config.c:418
 msgid "SKINS NOT FOUND"
 msgstr "PREOBLEKE NI MOGOČE NAJTI"
 
@@ -3051,18 +3063,18 @@ msgstr "Naloži"
 msgid "SAVE"
 msgstr "Shrani"
 
-#: ../src/gcompris/gameutil.c:138
-#: ../src/gcompris/gameutil.c:196
+#: ../src/gcompris/gameutil.c:141
+#: ../src/gcompris/gameutil.c:199
 msgid "Couldn't find or load the file"
 msgstr "Datoteke ni mogoče najti ali naložiti"
 
-#: ../src/gcompris/gameutil.c:140
-#: ../src/gcompris/gameutil.c:198
+#: ../src/gcompris/gameutil.c:143
+#: ../src/gcompris/gameutil.c:201
 msgid "This activity is incomplete."
 msgstr "Dejavnost je nedokončana."
 
-#: ../src/gcompris/gameutil.c:141
-#: ../src/gcompris/gameutil.c:199
+#: ../src/gcompris/gameutil.c:144
+#: ../src/gcompris/gameutil.c:202
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -3070,155 +3082,159 @@ msgstr ""
 "Končajte program in poročajte\n"
 "napako avtorjem."
 
-#: ../src/gcompris/gcompris.c:155
+#: ../src/gcompris/gcompris.c:156
 msgid "run GCompris in fullscreen mode."
 msgstr "Zagon GCompris v celozaslonskem načinu."
 
-#: ../src/gcompris/gcompris.c:158
+#: ../src/gcompris/gcompris.c:159
 msgid "run GCompris in window mode."
 msgstr "Zagon GCompris v okenskem načinu."
 
-#: ../src/gcompris/gcompris.c:161
+#: ../src/gcompris/gcompris.c:162
 msgid "run GCompris with sound enabled."
 msgstr "Zagon GCompris z omogočenim zvokom."
 
-#: ../src/gcompris/gcompris.c:164
+#: ../src/gcompris/gcompris.c:165
 msgid "run GCompris without sound."
 msgstr "Zagon Gcompris brez zvoka."
 
-#: ../src/gcompris/gcompris.c:167
+#: ../src/gcompris/gcompris.c:168
 msgid "run GCompris with the default system cursor."
 msgstr "zaženi GCompris s privzeto sistemsko kazalko."
 
-#: ../src/gcompris/gcompris.c:170
+#: ../src/gcompris/gcompris.c:171
 msgid "run GCompris without cursor (touch screen mode)."
 msgstr "zaženi GCompris brez kazalke (način zaslona na dotik)."
 
-#: ../src/gcompris/gcompris.c:173
+#: ../src/gcompris/gcompris.c:174
 msgid "display only activities with this difficulty level."
 msgstr "Pokaži le dejavnosti te težavnostne ravni."
 
-#: ../src/gcompris/gcompris.c:176
+#: ../src/gcompris/gcompris.c:177
 msgid "display debug informations on the console."
 msgstr "Prikaži podrobnosti razhroščevanja na konzoli."
 
-#: ../src/gcompris/gcompris.c:179
+#: ../src/gcompris/gcompris.c:180
 msgid "Print the version of "
 msgstr "Natisni različico "
 
-#: ../src/gcompris/gcompris.c:182
+#: ../src/gcompris/gcompris.c:183
 msgid "Run GCompris with local menu (e.g -l /reading will let you play only activities in the reading directory, -l /strategy/connect4 only the connect4 activity). Use '-l list' to list all the availaible activities and their descriptions."
 msgstr "Poženi GCompris s krajevnim menijem (na primer -l /reading dovoli le igranje delavnosti v mapi branje, -l /strategy/connect4 le dejavnost 4 v vrsto). Uporabi '-l list' za seznam vseh dostopnih dejavnosti in njihovih opisov."
 
-#: ../src/gcompris/gcompris.c:187
+#: ../src/gcompris/gcompris.c:188
 msgid "GCompris will find the data dir in this directory"
 msgstr "GCompris bo v tej mapi našel mapo podatkov"
 
-#: ../src/gcompris/gcompris.c:190
+#: ../src/gcompris/gcompris.c:191
 msgid "GCompris will find the skins in this directory"
 msgstr "GCompris bo v tej mapi našel preobleke"
 
-#: ../src/gcompris/gcompris.c:193
+#: ../src/gcompris/gcompris.c:194
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "GCompris bo v tej mapi našel vstavke dejavnosti"
 
-#: ../src/gcompris/gcompris.c:196
+#: ../src/gcompris/gcompris.c:197
 msgid "GCompris will find the python activity in this directory"
 msgstr "GCompris bo našel dejavnost python v tej mapi"
 
-#: ../src/gcompris/gcompris.c:199
+#: ../src/gcompris/gcompris.c:200
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr "GCompris bo v tej mapi našel datoteko jezikovne oznake (prevod .mo)"
 
-#: ../src/gcompris/gcompris.c:202
+#: ../src/gcompris/gcompris.c:203
 msgid "GCompris will find the activities menu in this directory"
 msgstr "GCompris bo v tej mapi našel meni dejavnosti"
 
-#: ../src/gcompris/gcompris.c:205
+#: ../src/gcompris/gcompris.c:206
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Zaženi GCompris v načinu skrbništva in upravljanja uporabnikov "
 
-#: ../src/gcompris/gcompris.c:208
+#: ../src/gcompris/gcompris.c:209
 msgid "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite.db]"
 msgstr "Uporabi dodatno podatkovno zbirko za profile [$HOME/.config/gcompris/gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:211
+#: ../src/gcompris/gcompris.c:212
 msgid "Create the alternate database for profiles"
 msgstr "Ustvari dodatno podatkovno zbirko za profile"
 
-#: ../src/gcompris/gcompris.c:214
+#: ../src/gcompris/gcompris.c:215
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Ponovno preberi menije XML in jih shrani v podatkovni zbirki"
 
-#: ../src/gcompris/gcompris.c:217
+#: ../src/gcompris/gcompris.c:218
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Nastavi profil za uporabo. Uporabi 'gcompris -a' za ustvarjanje profilov"
 
-#: ../src/gcompris/gcompris.c:220
+#: ../src/gcompris/gcompris.c:221
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr "Naštej vse razpoložljive profile. Za ustvarjanje profilov uporabi 'gcompris -a'"
 
-#: ../src/gcompris/gcompris.c:223
+#: ../src/gcompris/gcompris.c:224
 msgid "Config directory location: [$HOME/.config/gcompris]. Alternate is to set $XDG_CONFIG_HOME."
 msgstr "Mesto nastavitvene mape: [$HOME/.config/gcompris] Dodatna možnost je nastviti $XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:226
+#: ../src/gcompris/gcompris.c:227
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "Mesto uporabniških map: [$HOME/Moj GCompris]"
 
-#: ../src/gcompris/gcompris.c:229
+#: ../src/gcompris/gcompris.c:230
 msgid "Run the experimental activities"
 msgstr "Zagon preizkusnih dejavnosti"
 
-#: ../src/gcompris/gcompris.c:232
+#: ../src/gcompris/gcompris.c:233
 msgid "Disable the quit button"
 msgstr "Onemogoči gumb končaj"
 
-#: ../src/gcompris/gcompris.c:235
+#: ../src/gcompris/gcompris.c:236
 msgid "Disable the config button"
 msgstr "Onemogoči gumb nastavitve"
 
-#: ../src/gcompris/gcompris.c:238
+#: ../src/gcompris/gcompris.c:239
 msgid "Disable the level button"
 msgstr "Onemogoči gumb ravni"
 
-#: ../src/gcompris/gcompris.c:241
+#: ../src/gcompris/gcompris.c:242
+msgid "Disable the database (slower start and no user log)"
+msgstr "Onemogoči zbirko podatkov (počasneje in brez uporabniškega dnevnika)"
+
+#: ../src/gcompris/gcompris.c:245
 msgid "GCompris will get images, sounds and activity data from this server if not found locally."
 msgstr "GCompris bo dobil slike, zvoke in podatke dejavnost s tega strežnika, če podatkov ne bo mogoče najti krajevno."
 
-#: ../src/gcompris/gcompris.c:244
+#: ../src/gcompris/gcompris.c:248
 msgid "Only when --server is provided, disable check for local resource first. Data are always taken from the web server."
 msgstr "Ko je izbran --server, onemogoči preverjanje za krajevna sredstva. Podatki so vedno preneseni s strežnik."
 
-#: ../src/gcompris/gcompris.c:248
+#: ../src/gcompris/gcompris.c:252
 msgid "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr "V strežniškem načinu je treba določiti mapo predpomnilnika za izogibanje nepotrebnim prejemom."
 
-#: ../src/gcompris/gcompris.c:251
+#: ../src/gcompris/gcompris.c:255
 msgid "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr "Splošni način povleci in spusti: običajen, 2klika, oboje. Privzeti način je običajen."
 
-#: ../src/gcompris/gcompris.c:254
+#: ../src/gcompris/gcompris.c:258
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Ne izogni se izvajanju več primerkov GCompris."
 
-#: ../src/gcompris/gcompris.c:260
+#: ../src/gcompris/gcompris.c:261
 msgid "Disable maximization zoom"
 msgstr "Onemogoči približanje razpetja"
 
-#: ../src/gcompris/gcompris.c:263
+#: ../src/gcompris/gcompris.c:264
 msgid "Increase activities' timeout delays; useful values > 1.0; 1.0 to not change hardcoded value"
 msgstr "Poveča  zakasnitve dejavnosti, uporabne vrednosti > 1,0. 1,0 ne spremeni trenutne vrednosti"
 
-#: ../src/gcompris/gcompris.c:266
+#: ../src/gcompris/gcompris.c:267
 msgid "How activities' timeout delays are growing for several actors; useful values < 1.0; 1.0 to not change hardcoded value"
 msgstr "Kako čas zakasnitve dejavnosti rastejo za več igralcev. Uporabne vrednosti <1,0. 1,0 ne spremeni trdno vnesene vrednosti."
 
-#: ../src/gcompris/gcompris.c:269
+#: ../src/gcompris/gcompris.c:270
 msgid "For test purpose, run in a loop all the activities"
 msgstr "Za preizkusne namene. Požene vse dejavnosti v zanki"
 
-#: ../src/gcompris/gcompris.c:952
+#: ../src/gcompris/gcompris.c:955
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to support its development, this version provides only %d of the %d activities. You can get the full version for a small fee at\n"
@@ -3231,12 +3247,16 @@ msgstr ""
 "Različica GNU/Linux nima teh omejitev. Če verjamete, da je otroke treba naučiti svobodo, razmislite o uporabi GNU/Linux. Več podrobnosti na strani FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1246
+#: ../src/gcompris/gcompris.c:1250
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
 msgstr "Nalaganje preobleke '%s' je spodletelo (Preverite, če datoteka obstaja in je berljiva)"
 
-#: ../src/gcompris/gcompris.c:1516
+#: ../src/gcompris/gcompris.c:1266
+msgid "Retrieving remote data..."
+msgstr "Pridobivanje oddaljenih podatkov ..."
+
+#: ../src/gcompris/gcompris.c:1526
 #, c-format
 msgid "GCompris won't start because the lock file is less than %d second old.\n"
 msgid_plural "GCompris won't start because the lock file is less than %d seconds old.\n"
@@ -3245,12 +3265,12 @@ msgstr[1] "GCompris se ne zažene, ker je datoteka zaklepa stara manj kot %d sek
 msgstr[2] "GCompris se ne zažene, ker je datoteka zaklepa stara manj kot %d sekundi.\n"
 msgstr[3] "GCompris se ne zažene, ker je datoteka zaklepa stara manj kot %d sekunde.\n"
 
-#: ../src/gcompris/gcompris.c:1520
+#: ../src/gcompris/gcompris.c:1530
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Datoteka ključa je: %s\n"
 
-#: ../src/gcompris/gcompris.c:1693
+#: ../src/gcompris/gcompris.c:1708
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3264,37 +3284,37 @@ msgstr ""
 "Več podrobnosti je mogoče najti na http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1808
+#: ../src/gcompris/gcompris.c:1829
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Uporabi -l za neposreden dostop do dejavnosti.\n"
 
-#: ../src/gcompris/gcompris.c:1809
+#: ../src/gcompris/gcompris.c:1830
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Seznam dostopnih dejavnosti je:\n"
 
-#: ../src/gcompris/gcompris.c:1840
+#: ../src/gcompris/gcompris.c:1861
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Število dejavnosti: %d\n"
 
-#: ../src/gcompris/gcompris.c:1876
+#: ../src/gcompris/gcompris.c:1897
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s obstaja toda ni berljiv ali zapisljiv"
 
-#: ../src/gcompris/gcompris.c:1939
+#: ../src/gcompris/gcompris.c:1961
 #, c-format
 msgid "The --server option cannot be used because GCompris has been compiled without network support!"
 msgstr "Možnosti --server ni mogoče uporabiti, ker GCompris ni bil preveden z omrežno podporo!"
 
-#: ../src/gcompris/gcompris.c:1993
+#: ../src/gcompris/gcompris.c:2019
 #, c-format
 msgid "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list available ones\n"
 msgstr "NAPAKA: Profila '%s' ni mogoče najti. Poženi 'gcompris --profile-list' za seznam razpoložljivih profilov\n"
 
-#: ../src/gcompris/gcompris.c:2007
+#: ../src/gcompris/gcompris.c:2033
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Seznam dostopnih profilov je:\n"
@@ -3307,7 +3327,7 @@ msgstr "Ne vpliva"
 msgid "Users without a class"
 msgstr "Uporabniki brez razreda"
 
-#: ../src/gcompris/gcompris_db.c:889
+#: ../src/gcompris/gcompris_db.c:896
 #, c-format
 msgid ""
 "Loading activity from database:\n"
@@ -3316,23 +3336,23 @@ msgstr ""
 "Nalaganje dejavnosti iz podatkovne zbirke:\n"
 "%s"
 
-#: ../src/gcompris/help.c:180
+#: ../src/gcompris/help.c:183
 msgid "Prerequisite"
 msgstr "Predpogoj"
 
-#: ../src/gcompris/help.c:210
+#: ../src/gcompris/help.c:213
 msgid "Goal"
 msgstr "Cilj"
 
-#: ../src/gcompris/help.c:240
+#: ../src/gcompris/help.c:243
 msgid "Manual"
 msgstr "Navodila"
 
-#: ../src/gcompris/help.c:270
+#: ../src/gcompris/help.c:273
 msgid "Credit"
 msgstr "Zasluge"
 
-#: ../src/gcompris/menu.c:582
+#: ../src/gcompris/menu.c:615
 #, c-format
 msgid ""
 "Loading activity from file:\n"
@@ -3340,6 +3360,10 @@ msgid ""
 msgstr ""
 "Nalaganje dejavnosti iz datoteke:\n"
 "%s"
+
+#: ../src/gcompris/menu.c:675
+msgid "All the activities are disabled in this profile. Go in the GCompris administration module and activate at least one activity."
+msgstr "Vse dejavnosti so v tem profilu onemogočene. Odprite skrbniški modul GCompris in omogočite vsaj eno dejavnost."
 
 #: ../src/gcompris/properties.c:506
 msgid "This directory contains the files you create with the GCompris educational suite\n"
@@ -3354,39 +3378,6 @@ msgstr ""
 "V to mapo lahko daš slik, kolikor jih želiš.\n"
 "Te slike lahko vključiš v svoje risbe in animacije.\n"
 "Podprti zapisi slik so jpeg, png in svg.\n"
-
-#: ../src/gcompris/sugar.c:71
-msgid "Help"
-msgstr "POMOČ"
-
-#: ../src/gcompris/sugar.c:72
-msgid "About"
-msgstr "O programi"
-
-#: ../src/gcompris/sugar.c:73
-msgid "Previous level"
-msgstr "Prednodna raven"
-
-#: ../src/gcompris/sugar.c:76
-msgid "Next level"
-msgstr "Naslednja raven"
-
-#: ../src/gcompris/sugar.c:78
-msgid "Refresh"
-msgstr "Osveži"
-
-#: ../src/gcompris/sugar.c:79
-msgid "Settings"
-msgstr "Nastavitve"
-
-#. TRANSLATORS: Back as in previous
-#: ../src/gcompris/sugar.c:87
-msgid "Back"
-msgstr "Nazaj"
-
-#: ../src/gcompris/sugar.c:88
-msgid "Stop"
-msgstr "Zaustavi"
 
 #: ../src/gcompris/timer.c:257
 msgid "Time Elapsed"
@@ -6766,35 +6757,35 @@ msgstr "Spoznaj vodni krog"
 msgid "Click on different active elements : sun, cloud, water pump station, and water cleanup station, in order to reactivate the entire water system. When the system is back up and Tux is in the shower, push the shower button for him."
 msgstr "Za ponovno zaganjanje celotnega vodnega sistema, klikni na različne dejavne predmete: sonce, oblak, postaja za črpanje vode in postaja za čiščenje vode. Ko sistem ponovno deluje in je Pingo pod prho, pritisni gumb za tuširanje."
 
-#: ../src/wordprocessor-activity/wordprocessor.c:55
+#: ../src/wordprocessor-activity/wordprocessor.c:57
 msgid "Research"
 msgstr "Raziskovanje"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:67
+#: ../src/wordprocessor-activity/wordprocessor.c:69
 msgid "Sentimental"
 msgstr "Čustveno"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:79
+#: ../src/wordprocessor-activity/wordprocessor.c:81
 msgid "Official"
 msgstr "Uradno"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:103
+#: ../src/wordprocessor-activity/wordprocessor.c:105
 msgid "Flyer"
 msgstr "Letak"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:447
+#: ../src/wordprocessor-activity/wordprocessor.c:478
 msgid "Title"
 msgstr "Naslov"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:448
+#: ../src/wordprocessor-activity/wordprocessor.c:479
 msgid "Heading 1"
 msgstr "Naslov 1"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:449
+#: ../src/wordprocessor-activity/wordprocessor.c:480
 msgid "Heading 2"
 msgstr "Naslov 2"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:451
+#: ../src/wordprocessor-activity/wordprocessor.c:482
 msgid "Hyperlink"
 msgstr "Hiperpovezava"
 
@@ -6836,464 +6827,41 @@ msgstr "Učenje tipkanja"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Natipkaj celo besedo, preden doseže zemljo"
 
-#~ msgid ""
-#~ "The screen has 3 sections: braille cell, alphabet name and lower board "
-#~ "containing 13 letters. Click on each letter in the lower board to know "
-#~ "its corresponding braille code in the braille cell section. Click on the "
-#~ "increment level button to jump to the next 13 letters of the English "
-#~ "alphabets."
-#~ msgstr ""
-#~ "Zaslon ima 3 odseke, braillovo celico, ime črke in spodnjo ploščo, ki "
-#~ "vsebuje 13 črk. Klikni na vsako črko v spodnji plošči za ogled ustrezne "
-#~ "braillove kode v odseku braillove celice. Kliknite na gumb za skok na "
-#~ "naslednjih 13 črk angleške abecede."
+#: ../src/gcompris/sugar_cli.c:222
+#: ../src/gcompris/sugar_srv.c:156
+msgid "Sharing Error"
+msgstr "Napaka skupne rabe"
+
+#: ../src/gcompris/sugar_cli.c:223
+msgid "Cannot retrieve remote data"
+msgstr "Oddaljenih podatkov ni mogoče pridobiti"
+
+#: ../src/gcompris/sugar_gc.c:82
+msgid "About"
+msgstr "O programi"
+
+#: ../src/gcompris/sugar_gc.c:83
+msgid "Refresh"
+msgstr "Osveži"
+
+#: ../src/gcompris/sugar_gc.c:84
+msgid "Settings"
+msgstr "Nastavitve"
+
+#: ../src/gcompris/sugar_gc.c:85
+msgid "Previous level"
+msgstr "Prednodna raven"
+
+#: ../src/gcompris/sugar_gc.c:88
+msgid "Next level"
+msgstr "Naslednja raven"
+
+#. TRANSLATORS: Back as in previous
+#: ../src/gcompris/sugar_gc.c:97
+msgid "Back"
+msgstr "Nazaj"
+
+#: ../src/gcompris/sugar_srv.c:157
+msgid "Cannot initiate sharing session"
+msgstr "Seje skupne rabe ni mogoče odpreti"
 
-#~ msgid "story"
-#~ msgstr "zgodba"
-
-#~ msgid "year"
-#~ msgstr "leto"
-
-#~ msgid ""
-#~ "Error: this activity requires that you first install\n"
-#~ "the packages with GCompris voices for the locale '%s' ! Fallback to "
-#~ "english, sorry!"
-#~ msgstr ""
-#~ "Napaka: ta dejavnost zahteva namestitev paketov\n"
-#~ "z glasovi GCompris za jezikovno določilo '%s' ! Uporabljena bo "
-#~ "angleščina, oprosti!"
-
-#~ msgid "English (United State)"
-#~ msgstr "Angleško (Združene države)"
-
-#~ msgid "Click on the blue duck"
-#~ msgstr "Klikni na modro račko"
-
-#~ msgid "Click on the brown duck"
-#~ msgstr "Klikni na rjavo račko"
-
-#~ msgid "Click on the green duck"
-#~ msgstr "Klikni na zeleno račko"
-
-#~ msgid "Click on the grey duck"
-#~ msgstr "Klikni na sivo račko"
-
-#~ msgid "Click on the orange duck"
-#~ msgstr "Klikni na oranžno račko"
-
-#~ msgid "Click on the purple duck"
-#~ msgstr "Klikni na vijolično račko"
-
-#~ msgid "Click on the red duck"
-#~ msgstr "Klikni na rdečo račko"
-
-#~ msgid "Click on the yellow duck"
-#~ msgstr "Klikni na rumeno račko"
-
-#~ msgid "Click on the black duck"
-#~ msgstr "Klikni na črno račko"
-
-#~ msgid "Click on the white duck"
-#~ msgstr "Klikni na belo račko"
-
-#~ msgid "Choice of pattern"
-#~ msgstr "Izbira vzorca"
-
-#~ msgid "violet"
-#~ msgstr "vijolična"
-
-#~ msgid "pink"
-#~ msgstr "roza"
-
-#~ msgid "Click on the correct colored object."
-#~ msgstr "Klikni na pravilno pobarvan predmet."
-
-# zdi se mi bolj preprosto kot klikni na ujemajočo barvo
-#~ msgid "Click on the matching color"
-#~ msgstr "Klikni na barvo, ki se ujema"
-#~ msgid "Read the names of colors"
-#~ msgstr "Preberi imena barv"
-#~ msgid "This board teaches basic colors."
-#~ msgstr "Ta tabla te bo naučila osnovnih barv."
-#~ msgid "Learn about an hydroelectric dam"
-#~ msgstr "Nauči se o jezu hidroelektrarne"
-#~ msgid "Move the mouse until all the blocks disappear."
-#~ msgstr "Premikaj miško dokler vsa polja ne izginejo."
-#~ msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1888"
-#~ msgstr "Vincent Van Gogh, Vstopna dvorana bolnišnice Saint-Paul - 1888"
-#~ msgid "Mona Lisa"
-#~ msgstr "Mona Lisa"
-#~ msgid "Dürer : Lion"
-#~ msgstr "Dürer : Lion"
-#~ msgid "%s: option `%s' is ambiguous\n"
-#~ msgstr "%s: možnost `%s' je dvoumna\n"
-#~ msgid "%s: option `--%s' doesn't allow an argument\n"
-#~ msgstr "%s: možnost `--%s' ne dovoli argumenta\n"
-#~ msgid "%s: option `%c%s' doesn't allow an argument\n"
-#~ msgstr "%s: možnost `%c%s' ne dovoli argumenta\n"
-#~ msgid "%s: option `%s' requires an argument\n"
-#~ msgstr "%s: možnost `%s' zahteva argument\n"
-#~ msgid "%s: unrecognized option `--%s'\n"
-#~ msgstr "%s: nepoznana možnost `--%s'\n"
-#~ msgid "%s: unrecognized option `%c%s'\n"
-#~ msgstr "%s: nepoznana možnost `%c%s'\n"
-#~ msgid "%s: illegal option -- %c\n"
-#~ msgstr "%s: neveljavna možnost -- %c\n"
-#~ msgid "%s: invalid option -- %c\n"
-#~ msgstr "%s: neveljavna možnost -- %c\n"
-#~ msgid "%s: option requires an argument -- %c\n"
-#~ msgstr "%s: možnost zahteva argument -- %c\n"
-#~ msgid "%s: option `-W %s' is ambiguous\n"
-#~ msgstr "%s: možnost `-W %s' je dvoumna\n"
-#~ msgid "%s: option `-W %s' doesn't allow an argument\n"
-#~ msgstr "%s: možnost `-W %s' ne dovoli argumentov\n"
-#~ msgid "Botticelli, Primavera - 1482"
-#~ msgstr "Botticelli, Primavera - 1482"
-#~ msgid "Caravage, Rest on the Flight into Egypt - 1597"
-#~ msgstr "Caravage, Počitek na letu v Egipt - 1597"
-#~ msgid "Botticelli, The Birth of Venus - 1482–1486"
-#~ msgstr "Botticelli, Rojstvo Venere - 1482–1486"
-#~ msgid "gcompris animation"
-#~ msgstr "gcompris animacija"
-#~ msgid "gcompris drawing"
-#~ msgstr "gcompris risba"
-#~ msgid "svg drawing"
-#~ msgstr "svg risba"
-#~ msgid "svg mozilla animation"
-#~ msgstr "svg mozilla animacija"
-#~ msgid "wordprocessor text"
-#~ msgstr "besedilo urejevalnika besedila"
-#~ msgid "SVG is disabled. Install python xml module to enable it"
-#~ msgstr "SVG je onemogočen. Namesti modul python xml za omogočenje"
-#~ msgid "Warning: the following images cannot be accessed on your system.\n"
-#~ msgstr ""
-#~ "Opozorilo: Do sledečih slik na tvojem sistemu ni mogoče dostopati.\n"
-#~ msgid "The corresponding items have been skipped."
-#~ msgstr "Ustrezni predmeti so bili izpuščeni."
-#~ msgid "Language:"
-#~ msgstr "Jezik:"
-#~ msgid "800x600 (Default for GCompris)"
-#~ msgstr "800x600 (privzeta nastavitev)"
-#~ msgid "Use the antialiased canvas (slower)."
-#~ msgstr "Uporabljaj glajenje platna (počasneje)."
-#~ msgid "Disable XF86VidMode (No screen resolution change)."
-#~ msgstr "Onemogoči XF86VidMode (brez sprememb ločljivosti zaslona)."
-#~ msgid "Display the resources on stdout based on the selected activities"
-#~ msgstr "Prikaži sredstva na standardnem izhodu glede na izbrane dejavnosti "
-#~ msgid "Do not display the background images of activities."
-#~ msgstr "Ne prikaži slik ozadja dejavnosti."
-#, fuzzy
-#~ msgid "reading"
-#~ msgstr "Reading"
-
-#, fuzzy
-#~ msgid ""
-#~ "Error: The external program gnuchess is required\n"
-#~ "to play chess in GCompris.\n"
-#~ "Find this program on http://www.rpmfind.net or in your\n"
-#~ "GNU/Linux distribution\n"
-#~ "And check it is located here: "
-#~ msgstr ""
-#~ "Napaka: zunanji program gnuchess je obvezenza igranje šaha v gcomprise.\n"
-#~ "Najdi ta program na strani http://www.rpmfind.net ali v\n"
-#~ "GNU/Linux izdaji"
-
-#~ msgid "This board is dedicated to recognize unusual colors."
-#~ msgstr "Ta igra je namenjena prepoznavanju nenavadnih barv."
-
-#~ msgid ""
-#~ "In a limited time, give the result to the multiplication of two numbers"
-#~ msgstr "V določenem času, vrni zmnožek dveh števil"
-
-#~ msgid ""
-#~ "With displayed numbers and operations, find the right combination to get "
-#~ "the right result"
-#~ msgstr "Najdi pravo operacijo in število, tako da bo rezultat pravilen."
-
-#~ msgid ""
-#~ "In the main area, a puzzle set is proposed. In the left area, you have "
-#~ "the set of pieces for this puzzle. To place the pieces, you must use the "
-#~ "drag/drop mouvement with the mouse."
-#~ msgstr ""
-#~ "Na levi strani imaš kup delov zloženke. Za zlaganje zloženke uporabi "
-#~ "miško."
-
-#~ msgid ""
-#~ "Moon photo comes from NASA\n"
-#~ " Space sounds from Tuxpaint and Vegastrike"
-#~ msgstr ""
-#~ "Slikce Lune je podarila NASA\n"
-#~ "vesoljski zvok od Tuxpainta in Vegastrike"
-
-#~ msgid ""
-#~ "Fish are taken from the Unix utility xfishtank. Images are taken from the "
-#~ "National Undersea Research Program (NURP) Collection at http://www."
-#~ "photolib.noaa.gov All images credit bellongs to the OAR/National Undersea "
-#~ "Research Program (NURP). Except for the first image that also credits the "
-#~ "University of North Carolina at Wilmington. In the gcompris level order, "
-#~ "images information is: Location: Tropical Atlantic Ocean, Florida Keys "
-#~ "(image nur00523) Photographer: D. Kesling Location: Florida Keys (image "
-#~ "nur03006) Location: Unknown (image nur03505) Location: Unknown (image "
-#~ "nur03010) Location: Unknown (image nur03011) Location: Unknown (image "
-#~ "nur03013)"
-#~ msgstr ""
-#~ "Ribe so vzete iz orodne vrstice xfishtank. Slike je prispeval NURP"
-#~ "(National Undersea Research Program). Zbirko lahko najdete na http://www."
-#~ "photolib.noaa.gov. Vse slike, razen prve pripadajo University of "
-#~ "NorthCarolina iz Wilmingtona. V gcompris razvrščenih ravneg so "
-#~ "podrobnosti o slikah:Mesto: Tropical Atlantic Ocean, Florida Keys (slika "
-#~ "nur00523) Photographer: D.Kesling Location: Florida Keys (slika nur03006) "
-#~ "Mesto: Neznano (slika nur03505)Mesto: Neznano (slika nur03010) Mesto: "
-#~ "Neznano (slika nur03011)Mesto: Neznano (slika nur03013)"
-
-#~ msgid ""
-#~ "For each printed hour (hours:minutes or hours:minutes:seconds) manipulate "
-#~ "the corresponding arrow to set the clock time matching the given hour. "
-#~ "The different arrows can be turned by selecting them and moving the mouse"
-#~ msgstr ""
-#~ "Vsaki izpisani uri (ure:minute ali ure:minute:sekunde) nastavi kazalec,"
-#~ "tako da bo kazala določeno uro. Kazalce nastavljate z miško."
-
-#~ msgid ""
-#~ "This board is dedicated to train kids to recognize colors. Several "
-#~ "colored toons are displayed and a color is spoken. The kid must select "
-#~ "the proper toon."
-#~ msgstr ""
-#~ "Tabla je namenjena otrokom kot pomoc pri spoznavanju barv. Nekaj slik "
-#~ "jepobarvanih tako da barva govori sama zase. Otrok mora izbrato pravilno "
-#~ "barvo."
-
-#~ msgid "Needs to handle the mouse with the click easily"
-#~ msgstr "Za lažje upravljanje uporabi miško."
-
-#~ msgid "Move the items one by one to reorder them in the increasing number"
-#~ msgstr ""
-#~ "Premakni vsak predmet posebej in jih sestavi po naraščajočih številkah."
-
-#~ msgid "Drag and Drop the top piece only on an empty location"
-#~ msgstr "Povleci zgornji predmet na prazno mesto."
-
-#~ msgid ""
-#~ "In the main board area, a set of red plots associated with work are "
-#~ "printed. In the vertical frame - at the left of the main board area, a "
-#~ "set of objects are represented, each of these objects match with one word "
-#~ "of the main board area. The right association must be find for these "
-#~ "objects. This is achieved by dragging the objects to the right red plot "
-#~ "in the main area."
-#~ msgstr ""
-#~ "Na osrednjem delu so izrisani majhni rdeči kosi. V navpičnem delu, na "
-#~ "levi strani, je prikazana zbirka predmetov. Vsak od teh predmetov se "
-#~ "nanaša na eno besedo v glavnem delu okna. Najdi pravilno povezavo med "
-#~ "predmeti.Nalogo naredis s prenosom predmetov na desni stran zaslona."
-
-#~ msgid "spruce"
-#~ msgstr "jelka"
-
-#~ msgid "Given hands pictures, find if it's a right or left one"
-#~ msgstr "Podane so slike dlani. Poišči leve in desne."
-
-#~ msgid ""
-#~ "A set of blink cards is printed. Each pair is associated by the same "
-#~ "picture in their hidden faces. When clicking on a card, you can uncover "
-#~ "the card and see its hidden picture. However you can only see two hidden "
-#~ "pictures at once. You have to remember the position of the pictures to "
-#~ "associate them. To remove a pair of card, uncover both of them."
-#~ msgstr ""
-#~ "Izrisane so karte. Vsak par se sklada s sliko. S klikom na karto odkriješ "
-#~ "karto in pogledaš sliko. Hkrati lahko pogledaš le dve sliki. Cilj je "
-#~ "odkriti dve karti, ki imata enako sliko. "
-
-#~ msgid ""
-#~ "In the main board area, a set of red plots are displayed. In the vertical "
-#~ "frame - at the left of the main board area, a set of image parts of a "
-#~ "painting are avalaible. Drag and drop these parts in the right plot to "
-#~ "rebuild the original painting."
-#~ msgstr "Povleci in spusti odgovarjajoče dele, da dobiš pravilno sliko"
-
-#~ msgid "Make the puzzle"
-#~ msgstr "Naredi zloženko"
-
-#~ msgid ""
-#~ "Click on any keyboard key to let Tux jump. Another keypress will open the "
-#~ "parachute. Alternatively, a click on the plane and the tux also works."
-#~ msgstr ""
-#~ "Za skok Pinga pritisni poljubno tipko. Da se odpre padalospet pritisni "
-#~ "poljubno tipko. Lahko pa z miško klikneš na letalo ali pinga"
-
-#~ msgid "Manage the paratrooper to let him safely land"
-#~ msgstr "Upravljaj s padalcem, da bo srečno pristal"
-
-#~ msgid "Paratrooper"
-#~ msgstr "Padalec"
-
-#~ msgid ""
-#~ "Use the up, down, right and left keyboard keys to move the helicopter to "
-#~ "catch the numbers in the incremental order"
-#~ msgstr ""
-#~ "Za premikanje helikopterja uporabljaj tipke gor, dol, levo in desno.Ujami "
-#~ "števila po naraščajočem vrstnem redu."
-
-#~ msgid ""
-#~ "At the top and right of the board area, a word is printed. At the left a "
-#~ "list of words will move in and out of the screen. Tell if you see the "
-#~ "initial word in this list."
-#~ msgstr ""
-#~ "Zgoraj na desni strani je napisana beseda.Levo se nahaja skupina besed, "
-#~ "ki se bodo premikale po zaslonu.Ali vidite začetnico besede."
-
-#~ msgid ""
-#~ "At each level, a drawing is displayed in the right area. You must redraw "
-#~ "it in the left area."
-#~ msgstr ""
-#~ "Na vsaki ravni je prikazano pravilno narisano polje. Tvoja naloga je "
-#~ "ponovno narisati polje."
-
-#~ msgid ""
-#~ "At each level, a drawing is displayed in the right area. You must redraw "
-#~ "its symmetry in the left area."
-#~ msgstr "Na vsaki ravniigre je narisan "
-
-#~ msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
-#~ msgstr "Pritisni tipko od 1 do 9 preden pade na tla"
-
-#~ msgid "Couldn't find file %s !"
-#~ msgstr "Ni mogoče najti datoteke %s !"
-
-#~ msgid "find file %s !"
-#~ msgstr "najdi datoteko %s !"
-
-#~ msgid "Guess operations"
-#~ msgstr "Uganite operacije"
-
-#~ msgid ""
-#~ "Tux is in trouble in his ship, he needs to take through a lock.\n"
-#~ "Help Tux and understand how a canal lock works."
-#~ msgstr ""
-#~ "Pingo je v težavah na ladji, rabi tvojo pomoč skozi prepreke.\n"
-#~ "Pomagaj Pingu premagat prepreke."
-
-#~ msgid "Learning Chess"
-#~ msgstr "Učenje šaha"
-
-#~ msgid "Play chess against tux in a learning mode"
-#~ msgstr "Igraj šah v načinu za učenje."
-
-#~ msgid ""
-#~ "Error: /usr/bin/gnuchessx is installed\n"
-#~ "which means you run an old version\n"
-#~ "of gnuchess.\n"
-#~ "Please upgrade to gnuchess 5 or above."
-#~ msgstr ""
-#~ "Napaka: /usr/bin/gnuchessx je naloženkar pomeni da imaš najverjetneje "
-#~ "starejšo različico\n"
-#~ "gnuchess.\n"
-#~ "Nadgradi gnuchess na različico 5 ali višje."
-
-#~ msgid "Read a letter"
-#~ msgstr "Branje črk"
-
-#~ msgid "Couldn't open pixmap dir: %s"
-#~ msgstr "Nemorem odreti direktorija s sliko %s"
-
-#~ msgid "Pratice money usage"
-#~ msgstr "Uporabljaj denar"
-
-#~ msgid "Read Colors"
-#~ msgstr "Preberi barve"
-
-#~ msgid "Click on the corresponding color"
-#~ msgstr "Klikni na odgovarjajočo barvo"
-
-#~ msgid "Read a list of words and then tell if the given word is in it"
-#~ msgstr "Preberi celo besedilo in potem povej ali najdeš besedo"
-
-#~ msgid "Reverse count"
-#~ msgstr "Štetje nazaj"
-
-#~ msgid "Drag and Drop the items to rebuild the object"
-#~ msgstr "Povleci in spusti za ponovno izgradnjo predmeta"
-
-#~ msgid ""
-#~ "You entered the Edit mode\n"
-#~ "Move the puzzle items and\n"
-#~ "'s' to save\n"
-#~ "'d' to display all the shapes"
-#~ msgstr ""
-#~ "Ste v načinu urejanja\n"
-#~ "Premaknite zloženko in\n"
-#~ "'s' za  shraniti\n"
-#~ "'d' za prikaži vse oblike"
-
-#~ msgid ""
-#~ "This board data are saved under\n"
-#~ "/tmp/gcompris-board.xml"
-#~ msgstr ""
-#~ "Te točke so shranjene v mapi\n"
-#~ "/tmp/gcompris-board.xml"
-
-#~ msgid "Azerbaijani Turkic"
-#~ msgstr "Azerbaijani Turkic"
-
-#~ msgid "Czech"
-#~ msgstr "Ħeško"
-
-#~ msgid "Brazil Portuguese"
-#~ msgstr "Brazilsko Portugalsko"
-
-#~ msgid ""
-#~ "select the audio output. Use '-A list' to get the list of available audio "
-#~ "output"
-#~ msgstr "Izberi izhod za zvok."
-
-#~ msgid "Icon"
-#~ msgstr "Ikona"
-
-#~ msgid "Name"
-#~ msgstr "Ime"
-
-#~ msgid "Type"
-#~ msgstr "Vrsta"
-
-#~ msgid "Difficulty"
-#~ msgstr "Težavnost"
-
-#~ msgid "Directory"
-#~ msgstr "Mapa"
-
-#~ msgid "Released under GPL"
-#~ msgstr "Objavljeno pod GPL"
-
-#~ msgid ""
-#~ "Possible audio output devices are:\n"
-#~ "default "
-#~ msgstr ""
-#~ "Možni zvočni izhodi so:\n"
-#~ "privzeto"
-
-#~ msgid "Now Playing Music"
-#~ msgstr "Predvajam glasbo"
-
-#~ msgid "Artist"
-#~ msgstr "Avtor"
-
-#~ msgid "Couldn't open music dir: %s"
-#~ msgstr "Nemorem predvajati glasbe: %s"
-
-#~ msgid "Couldn't find pixmap file: %s"
-#~ msgstr "Ne najdem datoteke s sliko: %s"
-
-#~ msgid "Baby Shape Puzzle"
-#~ msgstr "Zloŵenke za otroke."
-
-#~ msgid ""
-#~ "Motor coordination: mouse mouvement and mouse click. The goal is just to "
-#~ "click with the left mouse button on the moving fish."
-#~ msgstr ""
-#~ "Gibalne sposobnosti: Premikanje in klikanje z misko. Cilj je klikniti z "
-#~ "levo miŷkino tipko na ribo in jo premakniti."
-
-#~ msgid "Move the mouse to machpuzzle the area and discover the background"
-#~ msgstr "Premakni miŷko, da raziŷīeŷ ozadje"
-
-#~ msgid "GCompris I Have Understood"
-#~ msgstr "GComprise sem razumel"
