@@ -1,28 +1,25 @@
 # Brazilian Portuguese translation of GCompris
 # This file is distributed under the same license as the gcompris packages.
 #
-#
-#
 # Rodrigo Lima <rdlima@terra.com.br>, 2004.
 # Viviani Ap. dos Santos <vivi_olivetti@brfree.com.br>, 2004.
 # Welther José O. Esteves <weltherjoe@yahoo.com.br>, 2004.
 # Leonardo Ferreira Fontenelle <leo.fontenelle@gmail.com>, 2007.
-# Frederico <frederico@teia.bio.br>, 2006, 2011.
+# Frederico <frederico@teia.bio.br>, 2006, 2011, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2011-10-09 08:28+0000\n"
-"PO-Revision-Date: 2011-10-10 21:28-0300\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-05-21 10:04-0300\n"
+"PO-Revision-Date: 2012-05-20 19:20-0300\n"
 "Last-Translator: Frederico Goncalves Guimaraes <frederico@teia.bio.br>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
 "X-Generator: Lokalize 1.2\n"
-"Language: pt_BR\n"
 
 #: ../boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
@@ -223,7 +220,7 @@ msgstr ""
 msgid "GCompris Main Menu"
 msgstr "Menu principal do GCompris"
 
-#: ../boards/menu.xml.in.h:21 ../src/boards/menu2.c:866
+#: ../boards/menu.xml.in.h:21 ../src/boards/menu2.c:886
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -358,37 +355,37 @@ msgstr ""
 "o desinstalador não conseguiu encontrar nenhuma entrada do GCompris no "
 "registro.$\\rProvavelmente ele foi instalado por outro usuário."
 
-#: ../src/administration-activity/admin/board_list.py:88
+#: ../src/administration-activity/admin/board_list.py:86
 msgid "Select a profile:"
 msgstr "Selecione um perfil:"
 
-#: ../src/administration-activity/admin/board_list.py:145
+#: ../src/administration-activity/admin/board_list.py:147
 msgid "Filter"
 msgstr "Filtro"
 
-#: ../src/administration-activity/admin/board_list.py:150
+#: ../src/administration-activity/admin/board_list.py:152
 msgid "Select all"
 msgstr "Selecionar tudo"
 
-#: ../src/administration-activity/admin/board_list.py:155
+#: ../src/administration-activity/admin/board_list.py:157
 msgid "Unselect all"
 msgstr "Desmarcar seleção"
 
-#: ../src/administration-activity/admin/board_list.py:160
+#: ../src/administration-activity/admin/board_list.py:162
 msgid "Locales"
 msgstr "Idioma"
 
-#: ../src/administration-activity/admin/board_list.py:165
+#: ../src/administration-activity/admin/board_list.py:167
 msgid "Locales sound"
 msgstr "Idioma do som"
 
-#: ../src/administration-activity/admin/board_list.py:170
+#: ../src/administration-activity/admin/board_list.py:172
 #: ../src/administration-activity/admin/group_user_list.py:140
 #: ../src/administration-activity/admin/user_list.py:181
 msgid "Login"
-msgstr "Login"
+msgstr "Identificação"
 
-#: ../src/administration-activity/admin/board_list.py:242
+#: ../src/administration-activity/admin/board_list.py:244
 msgid "Main menu"
 msgstr "Menu principal"
 
@@ -397,20 +394,20 @@ msgstr "Menu principal"
 #. image = gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, gtk.ICON_SIZE_MENU)
 #. image.show()
 #. column_pref.set_widget(image)
-#: ../src/administration-activity/admin/board_list.py:308
+#: ../src/administration-activity/admin/board_list.py:310
 msgid "Active"
 msgstr "Ativo"
 
-#: ../src/administration-activity/admin/board_list.py:309
+#: ../src/administration-activity/admin/board_list.py:311
 msgid "Board title"
 msgstr "Título da atividade"
 
-#: ../src/administration-activity/admin/board_list.py:422
+#: ../src/administration-activity/admin/board_list.py:424
 #, python-format
 msgid "Filter Boards difficulty for profile %s"
 msgstr "Filtrar a dificuldade das atividades para o perfil %s"
 
-#: ../src/administration-activity/admin/board_list.py:453
+#: ../src/administration-activity/admin/board_list.py:455
 #, python-format
 msgid ""
 "<span size='x-large'> Select the difficulty range \n"
@@ -419,8 +416,8 @@ msgstr ""
 "<span size=\"x-large\"> Selecione a faixa de dificuldade \n"
 "para o perfil <b>%s</b></span>"
 
-#: ../src/administration-activity/admin/board_list.py:642
-#: ../src/administration-activity/admin/board_list.py:654
+#: ../src/administration-activity/admin/board_list.py:645
+#: ../src/administration-activity/admin/board_list.py:657
 #: ../src/administration-activity/admin/wordlist.py:45
 msgid ""
 "<b>{config}</b> configuration\n"
@@ -429,7 +426,7 @@ msgstr ""
 "Configuração de <b>{config}</b>\n"
 " para o perfil <b>{profile}</b>"
 
-#: ../src/administration-activity/admin/board_list.py:660
+#: ../src/administration-activity/admin/board_list.py:663
 #: ../src/pythontest-activity/pythontest.py:511
 #: ../src/smallnumbers-activity/smallnumbers.c:618
 msgid "Select sound locale"
@@ -484,8 +481,8 @@ msgid "There is already a class with this name"
 msgstr "Já existe uma turma com esse nome"
 
 #: ../src/administration-activity/admin/class_list.py:165
-#: ../src/administration-activity/admin/profile_edit.py:263
 #: ../src/administration-activity/admin/profile_group_list.py:140
+#: ../src/administration-activity/admin/profile_widget.py:180
 msgid "Class"
 msgstr "Turma"
 
@@ -516,7 +513,7 @@ msgstr "Grupo:"
 #. FIXME: How to remove the selection
 #. Label and Entry for the first name
 #: ../src/administration-activity/admin/group_edit.py:98
-#: ../src/administration-activity/admin/profile_edit.py:95
+#: ../src/administration-activity/admin/profile_edit.py:76
 msgid "Description:"
 msgstr "Descrição:"
 
@@ -538,15 +535,15 @@ msgid "Select a class:"
 msgstr "Selecione uma turma:"
 
 #: ../src/administration-activity/admin/group_list.py:210
-#: ../src/administration-activity/admin/profile_edit.py:273
 #: ../src/administration-activity/admin/profile_group_list.py:150
+#: ../src/administration-activity/admin/profile_widget.py:190
 msgid "Group"
 msgstr "Grupo"
 
 #: ../src/administration-activity/admin/group_list.py:221
-#: ../src/administration-activity/admin/profile_edit.py:283
 #: ../src/administration-activity/admin/profile_group_list.py:160
 #: ../src/administration-activity/admin/profile_list.py:194
+#: ../src/administration-activity/admin/profile_widget.py:200
 msgid "Description"
 msgstr "Descrição"
 
@@ -629,8 +626,9 @@ msgid "All users"
 msgstr "Todos os usuários"
 
 #: ../src/administration-activity/admin/log_list.py:108
-#: ../src/administration-activity/admin/log_list.py:295
+#: ../src/administration-activity/admin/log_list.py:298
 #: ../src/administration-activity/admin/profile_list.py:117
+#: ../src/lang-activity/lang.py:166
 msgid "Default"
 msgstr "Padrão"
 
@@ -639,33 +637,33 @@ msgstr "Padrão"
 msgid "Reset"
 msgstr "Restaurar"
 
-#: ../src/administration-activity/admin/log_list.py:216
+#: ../src/administration-activity/admin/log_list.py:219
 msgid "Date"
 msgstr "Data"
 
-#: ../src/administration-activity/admin/log_list.py:226
+#: ../src/administration-activity/admin/log_list.py:229
 msgid "User"
 msgstr "Usuário"
 
-#: ../src/administration-activity/admin/log_list.py:236
+#: ../src/administration-activity/admin/log_list.py:239
 msgid "Board"
 msgstr "Atividade"
 
-#: ../src/administration-activity/admin/log_list.py:246
+#: ../src/administration-activity/admin/log_list.py:249
 #: ../src/click_on_letter-activity/click_on_letter.c:1248
 #: ../src/redraw-activity/redraw.py:339
 msgid "Level"
 msgstr "Nível"
 
-#: ../src/administration-activity/admin/log_list.py:256
+#: ../src/administration-activity/admin/log_list.py:259
 msgid "Sublevel"
 msgstr "Sub-nível"
 
-#: ../src/administration-activity/admin/log_list.py:266
+#: ../src/administration-activity/admin/log_list.py:269
 msgid "Duration"
 msgstr "Duração"
 
-#: ../src/administration-activity/admin/log_list.py:276
+#: ../src/administration-activity/admin/log_list.py:279
 msgid "Status"
 msgstr "Situação"
 
@@ -700,34 +698,30 @@ msgstr "Usuários"
 msgid "Classes"
 msgstr "Turmas"
 
-#: ../src/administration-activity/admin/profile_edit.py:56
+#: ../src/administration-activity/admin/profile_edit.py:37
 msgid "Editing a Profile"
 msgstr "Edição de perfil"
 
-#: ../src/administration-activity/admin/profile_edit.py:61
+#: ../src/administration-activity/admin/profile_edit.py:42
 msgid "Editing profile: "
 msgstr "Editando o perfil: "
 
-#: ../src/administration-activity/admin/profile_edit.py:64
+#: ../src/administration-activity/admin/profile_edit.py:45
 msgid "Editing a new profile"
 msgstr "Edição de um novo perfil"
 
-#: ../src/administration-activity/admin/profile_edit.py:83
+#: ../src/administration-activity/admin/profile_edit.py:64
 msgid "Profile:"
 msgstr "Perfil:"
 
 #. Top message gives instructions
-#: ../src/administration-activity/admin/profile_edit.py:106
+#: ../src/administration-activity/admin/profile_edit.py:87
 msgid "Assign all the groups belonging to this profile"
 msgstr "Informe os grupos pertencentes a esse perfil"
 
-#: ../src/administration-activity/admin/profile_edit.py:371
+#: ../src/administration-activity/admin/profile_edit.py:130
 msgid "You need to provide at least a name for your profile"
 msgstr "Você precisa fornecer ao menos o nome do perfil"
-
-#: ../src/administration-activity/admin/profile_edit.py:393
-msgid "There is already a profile with this name"
-msgstr "Já existe um perfil com esse nome"
 
 #: ../src/administration-activity/admin/profile_list.py:184
 msgid "Profile"
@@ -751,7 +745,7 @@ msgstr "Edição de um novo usuário"
 
 #: ../src/administration-activity/admin/user_edit.py:75
 msgid "Login:"
-msgstr "Login:"
+msgstr "Identificação:"
 
 #. FIXME: How to remove the selection
 #. Label and Entry for the first name
@@ -773,12 +767,12 @@ msgstr "Data de nascimento:"
 msgid ""
 "You need to provide at least a login, first name and last name for your users"
 msgstr ""
-"Você precisa fornecer ao menos o login, o primeiro nome e o sobrenome para o "
-"seu usuário"
+"Você precisa fornecer ao menos a identificação, o primeiro nome e o "
+"sobrenome para o seu usuário"
 
 #: ../src/administration-activity/admin/user_edit.py:170
 msgid "There is already a user with this login"
-msgstr "Já existe um usuário com esse login"
+msgstr "Já existe um usuário com essa identificação"
 
 #: ../src/administration-activity/admin/user_list.py:285
 msgid ""
@@ -790,7 +784,7 @@ msgstr ""
 "Para importar uma lista de usuários de um arquivo, primeiro selecione a "
 "turma.\n"
 "FORMATO DO ARQUIVO: O seu arquivo deve ter o seguinte formato:\n"
-"login;primeiro nome;sobrenome;data de nascimento\n"
+"identificação;primeiro nome;sobrenome;data de nascimento\n"
 "O separador é auto-detectável e pode ser \",\", \";\" ou \":\""
 
 #: ../src/administration-activity/admin/user_list.py:363
@@ -799,8 +793,22 @@ msgid ""
 "One or more logins are not unique !\n"
 "You need to change them: %s !"
 msgstr ""
-"Existem um ou mais logins duplicados!\n"
-"Você deve modificá-los: %s."
+"Existem uma ou mais identificações duplicadas!\n"
+"Você deve modificá-las: %s."
+
+#: ../src/administration-activity/admin/module_activities.py:50
+#: ../src/administration-activity/admin/module_activities.py:78
+msgid "Activities"
+msgstr "Atividades"
+
+#: ../src/administration-activity/admin/module_logins.py:48
+#: ../src/administration-activity/admin/module_logins.py:69
+msgid "Logins"
+msgstr "Identificações"
+
+#: ../src/administration-activity/admin/profile_widget.py:291
+msgid "There is already a profile with this name"
+msgstr "Já existe um perfil com esse nome"
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:1
 msgid "Advanced colors"
@@ -1306,8 +1314,8 @@ msgid "Line"
 msgstr "Linha"
 
 #: ../src/anim-activity/anim.py:157
-#: ../src/wordprocessor-activity/wordprocessor.c:87
-#: ../src/wordprocessor-activity/wordprocessor.c:426
+#: ../src/wordprocessor-activity/wordprocessor.c:93
+#: ../src/wordprocessor-activity/wordprocessor.c:481
 msgid "Text"
 msgstr "Texto"
 
@@ -1335,7 +1343,7 @@ msgstr "Elevar"
 msgid "Lower"
 msgstr "Rebaixar"
 
-#: ../src/anim-activity/anim.py:753
+#: ../src/anim-activity/anim.py:769
 msgid "Current frame"
 msgstr "Quadro atual"
 
@@ -1410,23 +1418,23 @@ msgstr ""
 "O arquivo '%s' não foi encontrado.\n"
 "Você não pode executar esta atividade."
 
-#: ../src/awele-activity/awele.c:349
+#: ../src/awele-activity/awele.c:359
 msgid "NORTH"
 msgstr "NORTE"
 
-#: ../src/awele-activity/awele.c:361
+#: ../src/awele-activity/awele.c:371
 msgid "SOUTH"
 msgstr "SUL"
 
-#: ../src/awele-activity/awele.c:523
+#: ../src/awele-activity/awele.c:533
 msgid "Choose a house"
 msgstr "Selecione uma casa"
 
-#: ../src/awele-activity/awele.c:638
+#: ../src/awele-activity/awele.c:648
 msgid "Your turn to play ..."
 msgstr "Sua vez de jogar..."
 
-#: ../src/awele-activity/awele.c:679
+#: ../src/awele-activity/awele.c:689
 msgid "Not allowed! Try again !"
 msgstr "Não permitido! Tente novamente."
 
@@ -1545,7 +1553,7 @@ msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr ""
 "Manipulação do mouse: movimento, arrastar e soltar. Referências culturais."
 
-#: ../src/babymatch-activity/shapegame.c:1985
+#: ../src/babymatch-activity/shapegame.c:2017
 #: ../src/click_on_letter-activity/click_on_letter.c:1316
 #, c-format
 msgid ""
@@ -1696,15 +1704,15 @@ msgstr ""
 msgid "The football game"
 msgstr "Jogo de futebol"
 
-#: ../src/boards/menu2.c:135
+#: ../src/boards/menu2.c:137
 msgid "Main Menu Second Version"
 msgstr "Menu principal - Segunda versão"
 
-#: ../src/boards/menu2.c:136
+#: ../src/boards/menu2.c:138
 msgid "Select a Board"
 msgstr "Selecione uma atividade"
 
-#: ../src/boards/menu2.c:266
+#: ../src/boards/menu2.c:268
 #, c-format
 msgid "Number of activities: %d"
 msgstr "Número de atividades: %d"
@@ -1721,12 +1729,12 @@ msgstr "Atividade especial que embute o Python ao GCompris."
 msgid "Special board that embeds python into gcompris."
 msgstr "Atividade especial que incorpora o Python ao GCompris."
 
-#: ../src/braille_alphabets-activity/braille_alphabets.py:165
+#: ../src/braille_alphabets-activity/braille_alphabets.py:176
 msgid "Braille : Unlocking the Code"
 msgstr "Braille: Destravando o código"
 
 #. Braille Intro
-#: ../src/braille_alphabets-activity/braille_alphabets.py:167
+#: ../src/braille_alphabets-activity/braille_alphabets.py:178
 msgid ""
 "The Braille system is a method that is used by blind people to read and "
 "write."
@@ -1735,7 +1743,7 @@ msgstr ""
 "escrever."
 
 #. Braille Description
-#: ../src/braille_alphabets-activity/braille_alphabets.py:170
+#: ../src/braille_alphabets-activity/braille_alphabets.py:181
 msgid ""
 "Each Braille character, or cell, is made up of six dot positions, arranged "
 "in a rectangle containing two columns of three dots each. As seen on the "
@@ -1745,23 +1753,23 @@ msgstr ""
 "arranjados em um retângulo contendo duas colunas de três pontos cada. Como "
 "visto à esquerda, cada ponto é referenciado por um número, de 1 a 6."
 
-#: ../src/braille_alphabets-activity/braille_alphabets.py:189
+#: ../src/braille_alphabets-activity/braille_alphabets.py:200
 msgid "I am braille TUX"
 msgstr "Eu sou o TUX Braille"
 
-#: ../src/braille_alphabets-activity/braille_alphabets.py:201
+#: ../src/braille_alphabets-activity/braille_alphabets.py:212
 msgid "When you are ready, click on me and try reproducing Braille characters."
 msgstr ""
 "Quando estiver pronto, clique em mim e tente reproduzir os caracteres "
 "Braille."
 
 #. Translators : Do not translate the token {letter}
-#: ../src/braille_alphabets-activity/braille_alphabets.py:272
+#: ../src/braille_alphabets-activity/braille_alphabets.py:299
 msgid "Click on the dots in braille cell area to produce the letter {letter}."
 msgstr ""
 "Clique nos pontos na área da célula Braille para produzir a letra {letter}."
 
-#: ../src/braille_alphabets-activity/braille_alphabets.py:277
+#: ../src/braille_alphabets-activity/braille_alphabets.py:304
 msgid ""
 "Look at the Braille character map and observe how similar the first and "
 "second line are."
@@ -1769,7 +1777,7 @@ msgstr ""
 "Observe o mapa do caractere Braille e veja como a primeira e a segunda linha "
 "são similares."
 
-#: ../src/braille_alphabets-activity/braille_alphabets.py:280
+#: ../src/braille_alphabets-activity/braille_alphabets.py:307
 msgid ""
 "Again, similar as the first line but take care, the 'W' letter was added "
 "afterwards."
@@ -1777,15 +1785,15 @@ msgstr ""
 "Novamente, similar à primeira linha, mas tome cuidado, a letra 'W' foi "
 "adicionada depois."
 
-#: ../src/braille_alphabets-activity/braille_alphabets.py:283
+#: ../src/braille_alphabets-activity/braille_alphabets.py:310
 msgid "This is easy, numbers are the same as letters from A to J."
 msgstr "Essa é fácil, os números são os mesmos que as letras de A a J."
 
-#: ../src/braille_alphabets-activity/braille_alphabets.py:302
+#: ../src/braille_alphabets-activity/braille_alphabets.py:329
 msgid "Braille Cell"
 msgstr "Célula Braille"
 
-#: ../src/braille_alphabets-activity/braille_alphabets.py:324
+#: ../src/braille_alphabets-activity/braille_alphabets.py:351
 msgid "Click to confirm your selection of dots"
 msgstr "Clique para confirmar sua seleção de pontos"
 
@@ -1799,19 +1807,13 @@ msgstr "Permitir às crianças descobrir o sistema Braille."
 
 #: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:4
 msgid ""
-"The screen has 3 sections: braille cell, alphabet name and lower board "
-"containing 13 letters. Click on each letter in the lower board to know its "
-"corresponding braille code in the braille cell section. Click on the "
-"increment level button to jump to the next 13 letters of the English "
-"alphabets."
+"The screen has 3 sections: an interactive braille cell, an instruction "
+"telling you the letter to reproduce, and at the top the Braille letters to "
+"use as a reference. Each level teaches a set of 10 letters."
 msgstr ""
-"Esta tela contém três seções: a célula Braille, a um campo para uma letra do "
-"alfabeto (a resposta) e um quadro contendo 13 letras. Clique nos pontos da "
-"célula Braille para produzir o código correspondente à letra solicitada. "
-"Repare que a letra solicitada sempre poderá ser encontrada no quadro situado "
-"no alto da tela. Caso queira verificar como são as outras letras, clique no "
-"ícone do código Braille situado na barra de ícones localizada na área "
-"inferior da tela. As setas avançam/recuam os conjuntos de letras."
+"Essa tela possui 3 seções: uma célula Braille interativa, uma instrução "
+"indicando a letra a ser reproduzida e, no alto, as letras em Braille para "
+"você usar como referência. Cada nível possui um conjunto de 10 letras."
 
 #: ../src/braille_alphabets-activity/BrailleMap.py:96
 msgid "Back to the activity"
@@ -1838,67 +1840,67 @@ msgstr ""
 msgid "Braille the falling letters"
 msgstr "Indique, em Braille, as letras que estão caindo."
 
-#: ../src/braille_lotto-activity/braille_lotto.py:119
+#: ../src/braille_lotto-activity/braille_lotto.py:120
 msgid "PLAYER 1"
 msgstr "JOGADOR 1"
 
-#: ../src/braille_lotto-activity/braille_lotto.py:129
+#: ../src/braille_lotto-activity/braille_lotto.py:130
 msgid "PLAYER 2"
 msgstr "JOGADOR 2"
 
-#: ../src/braille_lotto-activity/braille_lotto.py:150
+#: ../src/braille_lotto-activity/braille_lotto.py:151
 msgid "Check Number"
 msgstr "Número"
 
-#: ../src/braille_lotto-activity/braille_lotto.py:165
-#: ../src/braille_lotto-activity/braille_lotto.py:177
+#: ../src/braille_lotto-activity/braille_lotto.py:168
+#: ../src/braille_lotto-activity/braille_lotto.py:180
 msgid "Click me to get some hint"
 msgstr "Clique em mim para receber uma dica"
 
-#: ../src/braille_lotto-activity/braille_lotto.py:190
+#: ../src/braille_lotto-activity/braille_lotto.py:193
 msgid "I don't have this number PLAYER {number}"
 msgstr "Eu não tenho este número. JOGADOR {number}"
 
-#: ../src/braille_lotto-activity/braille_lotto.py:212
+#: ../src/braille_lotto-activity/braille_lotto.py:215
 msgid "Lotto Master"
 msgstr "Mestre do bingo"
 
-#: ../src/braille_lotto-activity/braille_lotto.py:236
+#: ../src/braille_lotto-activity/braille_lotto.py:239
 msgid "Generate a number"
 msgstr "Gerar um número"
 
 #. Translators : Do not translate the token {column}
-#: ../src/braille_lotto-activity/braille_lotto.py:293
-#: ../src/braille_lotto-activity/braille_lotto.py:316
+#: ../src/braille_lotto-activity/braille_lotto.py:296
+#: ../src/braille_lotto-activity/braille_lotto.py:319
 msgid "Hey, you have it. It is there in your {column} column"
 msgstr "Ei, este você tem. Está na sua coluna {column}."
 
-#: ../src/braille_lotto-activity/braille_lotto.py:295
-#: ../src/braille_lotto-activity/braille_lotto.py:318
+#: ../src/braille_lotto-activity/braille_lotto.py:298
+#: ../src/braille_lotto-activity/braille_lotto.py:321
 msgid "Oops, this number is not in your ticket!"
 msgstr "Puxa, este número você não tem..."
 
-#: ../src/braille_lotto-activity/braille_lotto.py:332
+#: ../src/braille_lotto-activity/braille_lotto.py:335
 msgid "1st"
 msgstr "1º"
 
-#: ../src/braille_lotto-activity/braille_lotto.py:335
+#: ../src/braille_lotto-activity/braille_lotto.py:338
 msgid "2nd"
 msgstr "2º"
 
-#: ../src/braille_lotto-activity/braille_lotto.py:338
+#: ../src/braille_lotto-activity/braille_lotto.py:341
 msgid "3rd"
 msgstr "3º"
 
-#: ../src/braille_lotto-activity/braille_lotto.py:340
+#: ../src/braille_lotto-activity/braille_lotto.py:343
 msgid "4th"
 msgstr "4º"
 
-#: ../src/braille_lotto-activity/braille_lotto.py:350
+#: ../src/braille_lotto-activity/braille_lotto.py:353
 msgid "Game Over"
 msgstr "Fim de jogo"
 
-#: ../src/braille_lotto-activity/braille_lotto.py:459
+#: ../src/braille_lotto-activity/braille_lotto.py:465
 msgid "Congratulation player {player_id}, you won"
 msgstr "Parabéns jogador {player_id}, você ganhou!"
 
@@ -2032,36 +2034,36 @@ msgstr ""
 "para jogar xadrez no GCompris.\n"
 "Instale-o e certifique-se de que ele esteja em "
 
-#: ../src/chess_computer-activity/chess.c:648
+#: ../src/chess_computer-activity/chess.c:653
 msgid "White's Turn"
 msgstr "Jogada das brancas"
 
-#: ../src/chess_computer-activity/chess.c:648
+#: ../src/chess_computer-activity/chess.c:653
 msgid "Black's Turn"
 msgstr "Jogada das pretas"
 
-#: ../src/chess_computer-activity/chess.c:789
+#: ../src/chess_computer-activity/chess.c:794
 msgid "White checks"
 msgstr "Xeque das brancas"
 
-#: ../src/chess_computer-activity/chess.c:791
+#: ../src/chess_computer-activity/chess.c:796
 msgid "Black checks"
 msgstr "Xeque das pretas"
 
-#: ../src/chess_computer-activity/chess.c:1197
+#: ../src/chess_computer-activity/chess.c:1202
 msgid "Black mates"
 msgstr "Xeque-mate das pretas"
 
-#: ../src/chess_computer-activity/chess.c:1204
+#: ../src/chess_computer-activity/chess.c:1209
 msgid "White mates"
 msgstr "Xeque-mate das brancas"
 
-#: ../src/chess_computer-activity/chess.c:1211 ../src/gcompris/bonus.c:191
+#: ../src/chess_computer-activity/chess.c:1216 ../src/gcompris/bonus.c:191
 #: ../src/gcompris/bonus.c:200
 msgid "Drawn game"
 msgstr "Jogo empatado"
 
-#: ../src/chess_computer-activity/chess.c:1239
+#: ../src/chess_computer-activity/chess.c:1244
 msgid "Error: The external program gnuchess died unexpectingly"
 msgstr "Erro: O programa externo gnuchess encerrou inesperadamente"
 
@@ -2122,17 +2124,17 @@ msgid "Moonwalker"
 msgstr "Viagem à lua"
 
 #: ../src/chronos-activity/resources/chronos/board1_1.xml.in.h:1
-#: ../src/wordprocessor-activity/wordprocessor.c:117
+#: ../src/wordprocessor-activity/wordprocessor.c:126
 msgid "Autumn"
 msgstr "Outono"
 
 #: ../src/chronos-activity/resources/chronos/board1_1.xml.in.h:2
-#: ../src/wordprocessor-activity/wordprocessor.c:115
+#: ../src/wordprocessor-activity/wordprocessor.c:124
 msgid "Spring"
 msgstr "Primavera"
 
 #: ../src/chronos-activity/resources/chronos/board1_1.xml.in.h:3
-#: ../src/wordprocessor-activity/wordprocessor.c:116
+#: ../src/wordprocessor-activity/wordprocessor.c:125
 msgid "Summer"
 msgstr "Verão"
 
@@ -2141,7 +2143,7 @@ msgid "The 4 Seasons"
 msgstr "As 4 estações"
 
 #: ../src/chronos-activity/resources/chronos/board1_1.xml.in.h:5
-#: ../src/wordprocessor-activity/wordprocessor.c:118
+#: ../src/wordprocessor-activity/wordprocessor.c:127
 msgid "Winter"
 msgstr "Inverno"
 
@@ -2454,7 +2456,7 @@ msgstr "Identificação visual de letras. Saber mover o mouse."
 msgid "Click on an uppercase letter"
 msgstr "Clique em uma letra maiúscula"
 
-#: ../src/clockgame-activity/clockgame.c:524
+#: ../src/clockgame-activity/clockgame.c:535
 msgid "Set the watch to:"
 msgstr "Acerte o relógio para:"
 
@@ -2802,8 +2804,8 @@ msgstr ""
 "economizar tempo, você pode clicar com o botão do meio do mouse para excluir "
 "um objeto."
 
-#: ../src/drawnumber-activity/drawnumber.py:236
-#: ../src/findit-activity/findit.py:310
+#: ../src/drawnumber-activity/drawnumber.py:238
+#: ../src/findit-activity/findit.py:315
 #: ../src/louis_braille-activity/louis_braille.py:84
 msgid "Cannot find the file '{filename}'"
 msgstr "Não foi possível encontrar o arquivo '{filename}'"
@@ -2940,12 +2942,12 @@ msgstr "Movimente o mouse para apagar a área e descobrir o fundo"
 msgid "Error: No images found\n"
 msgstr "Erro: Não foi encontrada nenhuma imagem\n"
 
-#: ../src/erase-activity/erase.c:578 ../src/gcompris/properties.c:504
+#: ../src/erase-activity/erase.c:582 ../src/gcompris/properties.c:504
 #: ../src/gcompris/properties.c:511
 msgid "readme"
 msgstr "leia-me"
 
-#: ../src/erase-activity/erase.c:580
+#: ../src/erase-activity/erase.c:584
 msgid ""
 "Put any number of images in this directory.\n"
 "They will be used as background in the 'erase' activity.\n"
@@ -3012,7 +3014,7 @@ msgstr "O código original foi tirado da demonstração da libgnomecanvas"
 msgid "The fifteen game"
 msgstr "O jogo dos quinze"
 
-#: ../src/findit-activity/findit.py:315
+#: ../src/findit-activity/findit.py:320
 #: ../src/louis_braille-activity/louis_braille.py:88
 msgid ""
 "Failed to parse data set '{filename}' with error:\n"
@@ -3043,7 +3045,7 @@ msgstr ""
 msgid "Tux needs to water the flowers, but the hose is blocked."
 msgstr "O Tux precisa molhar as flores, mas a mangueira está fechada."
 
-#: ../src/gcompris/about.c:48
+#: ../src/gcompris/about.c:49
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge, Yves Combe\n"
@@ -3058,7 +3060,7 @@ msgstr ""
 "Música de fundo: Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:56
+#: ../src/gcompris/about.c:57
 msgid "translator_credits"
 msgstr ""
 "Frederico Gonçalves Guimarães <frederico@teia.bio.br>\n"
@@ -3067,44 +3069,44 @@ msgstr ""
 "Viviani Ap. dos Santos <vivi_olivetti@brfree.com.br>\n"
 "Rodrigo Lima <rdlima@terra.com.br>"
 
-#: ../src/gcompris/about.c:82
+#: ../src/gcompris/about.c:86
 msgid "About GCompris"
 msgstr "Sobre o GCompris"
 
-#: ../src/gcompris/about.c:92
+#: ../src/gcompris/about.c:96
 msgid "GCompris Home Page: http://gcompris.net"
 msgstr "Site do GCompris http://gcompris.net"
 
-#: ../src/gcompris/about.c:103
+#: ../src/gcompris/about.c:107
 msgid "Translators:"
 msgstr "Tradutores:"
 
-#: ../src/gcompris/about.c:208
+#: ../src/gcompris/about.c:207
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
 msgstr ""
 "Este software é um Pacote GNU e é liberado sob a GNU General Public License"
 
-#: ../src/gcompris/about.c:222 ../src/gcompris/config.c:456
-#: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:355
-#: ../src/gcompris/images_selector.c:306
+#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:459
+#: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:358
+#: ../src/gcompris/images_selector.c:313
 msgid "OK"
 msgstr "OK"
 
-#: ../src/gcompris/bar.c:688
+#: ../src/gcompris/bar.c:694
 msgid "GCompris confirmation"
 msgstr "Confirmação do GCompris"
 
-#: ../src/gcompris/bar.c:689
+#: ../src/gcompris/bar.c:695
 msgid "Are you sure you want to quit?"
 msgstr "Deseja realmente sair?"
 
-#: ../src/gcompris/bar.c:690
+#: ../src/gcompris/bar.c:696
 msgid "Yes, I am sure!"
 msgstr "Sim, é isso que eu quero."
 
-#: ../src/gcompris/bar.c:691
+#: ../src/gcompris/bar.c:697
 msgid "No, I want to keep going"
 msgstr "Não, prefiro continuar aqui."
 
@@ -3458,38 +3460,38 @@ msgstr "Tempo mais rápido"
 msgid "Use Gcompris administration module to filter boards"
 msgstr "Use o módulo de administração do GCompris para filtrar as atividades"
 
-#: ../src/gcompris/config.c:188
+#: ../src/gcompris/config.c:191
 msgid "GCompris Configuration"
 msgstr "Configuração do GCompris"
 
-#: ../src/gcompris/config.c:271
+#: ../src/gcompris/config.c:274
 msgid "Fullscreen"
 msgstr "Tela inteira"
 
-#: ../src/gcompris/config.c:296
+#: ../src/gcompris/config.c:299
 msgid "Music"
 msgstr "Música"
 
-#: ../src/gcompris/config.c:321
+#: ../src/gcompris/config.c:324
 msgid "Effect"
 msgstr "Efeito"
 
-#: ../src/gcompris/config.c:345 ../src/gcompris/sugar.c:83
+#: ../src/gcompris/config.c:348 ../src/gcompris/sugar_gc.c:93
 msgid "Zoom"
 msgstr "Zoom"
 
-#: ../src/gcompris/config.c:382
+#: ../src/gcompris/config.c:385
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Não foi possível abrir o diretório de temas: %s"
 
-#: ../src/gcompris/config.c:413 ../src/gcompris/config.c:862
-#: ../src/gcompris/config.c:876
+#: ../src/gcompris/config.c:416 ../src/gcompris/config.c:876
+#: ../src/gcompris/config.c:890
 #, c-format
 msgid "Skin : %s"
 msgstr "Tema: %s"
 
-#: ../src/gcompris/config.c:415
+#: ../src/gcompris/config.c:418
 msgid "SKINS NOT FOUND"
 msgstr "OS TEMAS NÃO FORAM ENCONTRADOS"
 
@@ -3505,15 +3507,15 @@ msgstr "CARREGAR"
 msgid "SAVE"
 msgstr "SALVAR"
 
-#: ../src/gcompris/gameutil.c:138 ../src/gcompris/gameutil.c:196
+#: ../src/gcompris/gameutil.c:141 ../src/gcompris/gameutil.c:199
 msgid "Couldn't find or load the file"
 msgstr "Não foi possível encontrar ou carregar o arquivo"
 
-#: ../src/gcompris/gameutil.c:140 ../src/gcompris/gameutil.c:198
+#: ../src/gcompris/gameutil.c:143 ../src/gcompris/gameutil.c:201
 msgid "This activity is incomplete."
 msgstr "Essa atividade está incompleta."
 
-#: ../src/gcompris/gameutil.c:141 ../src/gcompris/gameutil.c:199
+#: ../src/gcompris/gameutil.c:144 ../src/gcompris/gameutil.c:202
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -3521,43 +3523,43 @@ msgstr ""
 "Saia dela e informe\n"
 "o problema aos autores."
 
-#: ../src/gcompris/gcompris.c:155
+#: ../src/gcompris/gcompris.c:156
 msgid "run GCompris in fullscreen mode."
 msgstr "executa o GCompris no modo de tela cheia."
 
-#: ../src/gcompris/gcompris.c:158
+#: ../src/gcompris/gcompris.c:159
 msgid "run GCompris in window mode."
 msgstr "executa o GCompris no modo de janela."
 
-#: ../src/gcompris/gcompris.c:161
+#: ../src/gcompris/gcompris.c:162
 msgid "run GCompris with sound enabled."
 msgstr "executa o GCompris com o som habilitado."
 
-#: ../src/gcompris/gcompris.c:164
+#: ../src/gcompris/gcompris.c:165
 msgid "run GCompris without sound."
 msgstr "executa o GCompris sem som."
 
-#: ../src/gcompris/gcompris.c:167
+#: ../src/gcompris/gcompris.c:168
 msgid "run GCompris with the default system cursor."
 msgstr "executa o GCompris com o cursor padrão do sistema."
 
-#: ../src/gcompris/gcompris.c:170
+#: ../src/gcompris/gcompris.c:171
 msgid "run GCompris without cursor (touch screen mode)."
 msgstr "executa o GCompris sem cursor (modo de tela de toque)."
 
-#: ../src/gcompris/gcompris.c:173
+#: ../src/gcompris/gcompris.c:174
 msgid "display only activities with this difficulty level."
 msgstr "exibe somente atividades com este nível da dificuldade."
 
-#: ../src/gcompris/gcompris.c:176
+#: ../src/gcompris/gcompris.c:177
 msgid "display debug informations on the console."
 msgstr "exibe informações de depuração no console."
 
-#: ../src/gcompris/gcompris.c:179
+#: ../src/gcompris/gcompris.c:180
 msgid "Print the version of "
 msgstr "Imprime a versão do "
 
-#: ../src/gcompris/gcompris.c:182
+#: ../src/gcompris/gcompris.c:183
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
@@ -3569,36 +3571,36 @@ msgstr ""
 "connect4\", apenas a atividade Ligue 4). Use \"-l list\" para listar todas "
 "as atividades disponíveis e suas descrições."
 
-#: ../src/gcompris/gcompris.c:187
+#: ../src/gcompris/gcompris.c:188
 msgid "GCompris will find the data dir in this directory"
 msgstr "O GCompris usará este diretório para os dados"
 
-#: ../src/gcompris/gcompris.c:190
+#: ../src/gcompris/gcompris.c:191
 msgid "GCompris will find the skins in this directory"
 msgstr "O GCompris usará este diretório para os temas"
 
-#: ../src/gcompris/gcompris.c:193
+#: ../src/gcompris/gcompris.c:194
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "O GCompris usará este diretório para os plugins de atividades"
 
-#: ../src/gcompris/gcompris.c:196
+#: ../src/gcompris/gcompris.c:197
 msgid "GCompris will find the python activity in this directory"
 msgstr "O GCompris usará este diretório para as atividades em Python"
 
-#: ../src/gcompris/gcompris.c:199
+#: ../src/gcompris/gcompris.c:200
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr "O GCompris usará este diretório para os arquivos de localização (.mo)"
 
-#: ../src/gcompris/gcompris.c:202
+#: ../src/gcompris/gcompris.c:203
 msgid "GCompris will find the activities menu in this directory"
 msgstr "O GCompris usará este diretório para o menu de atividades"
 
-#: ../src/gcompris/gcompris.c:205
+#: ../src/gcompris/gcompris.c:206
 msgid "Run GCompris in administration and user-management mode"
 msgstr ""
 "Executa o GCompris no modo de administração e gerenciamento de usuários"
 
-#: ../src/gcompris/gcompris.c:208
+#: ../src/gcompris/gcompris.c:209
 msgid ""
 "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
@@ -3606,24 +3608,24 @@ msgstr ""
 "Usar um banco de dados alternativo para os perfis [$HOME/.config/gcompris/"
 "gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:211
+#: ../src/gcompris/gcompris.c:212
 msgid "Create the alternate database for profiles"
 msgstr "Cria o banco de dados alternativo para os perfis"
 
-#: ../src/gcompris/gcompris.c:214
+#: ../src/gcompris/gcompris.c:215
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Relê os menus XML e os armazena no banco de dados"
 
-#: ../src/gcompris/gcompris.c:217
+#: ../src/gcompris/gcompris.c:218
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Configura o perfil a ser usado. Use \"gcompris -a\" para criar perfis"
 
-#: ../src/gcompris/gcompris.c:220
+#: ../src/gcompris/gcompris.c:221
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Lista todos os perfis disponíveis. Use \"gcompris -a\" para criar perfis"
 
-#: ../src/gcompris/gcompris.c:223
+#: ../src/gcompris/gcompris.c:224
 msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
@@ -3631,27 +3633,32 @@ msgstr ""
 "Configura a localização do diretório: [$HOME/.config/gcompris]. Uma "
 "alternativa é definir $XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:226
+#: ../src/gcompris/gcompris.c:227
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "A localização dos diretórios de usuário: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:229
+#: ../src/gcompris/gcompris.c:230
 msgid "Run the experimental activities"
 msgstr "Executa as atividades de experimentais"
 
-#: ../src/gcompris/gcompris.c:232
+#: ../src/gcompris/gcompris.c:233
 msgid "Disable the quit button"
 msgstr "Desabilita o botão \"Sair\""
 
-#: ../src/gcompris/gcompris.c:235
+#: ../src/gcompris/gcompris.c:236
 msgid "Disable the config button"
 msgstr "Desabilita o botão \"Configurar\""
 
-#: ../src/gcompris/gcompris.c:238
+#: ../src/gcompris/gcompris.c:239
 msgid "Disable the level button"
 msgstr "Desabilita o botão de seleção de nível"
 
-#: ../src/gcompris/gcompris.c:241
+#: ../src/gcompris/gcompris.c:242
+msgid "Disable the database (slower start and no user log)"
+msgstr ""
+"Desabilitar o banco de dados (início mais lento e nenhum registro do usuário)"
+
+#: ../src/gcompris/gcompris.c:245
 msgid ""
 "GCompris will get images, sounds and activity data from this server if not "
 "found locally."
@@ -3659,7 +3666,7 @@ msgstr ""
 "O GCompris obterá as imagens, sons e dados das atividades a partir desse "
 "servidor, caso não as encontre localmente."
 
-#: ../src/gcompris/gcompris.c:244
+#: ../src/gcompris/gcompris.c:248
 msgid ""
 "Only when --server is provided, disable check for local resource first. Data "
 "are always taken from the web server."
@@ -3667,29 +3674,29 @@ msgstr ""
 "Apenas quando --server é fornecido, desabilita a verificação inicial para "
 "recursos locais. Os dados são sempre obtidos do servidor web."
 
-#: ../src/gcompris/gcompris.c:248
+#: ../src/gcompris/gcompris.c:252
 msgid ""
 "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr ""
 "No modo servidor, especifica o diretório de cache utilizado, para evitar "
 "transferências desnecessárias."
 
-#: ../src/gcompris/gcompris.c:251
+#: ../src/gcompris/gcompris.c:255
 msgid ""
 "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr ""
 "Modo global de arrastar e soltar: normal, 2 cliques, ambos. O padrão é "
 "normal."
 
-#: ../src/gcompris/gcompris.c:254
+#: ../src/gcompris/gcompris.c:258
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Não evitar a execução de múltiplas instâncias do GCompris."
 
-#: ../src/gcompris/gcompris.c:260
+#: ../src/gcompris/gcompris.c:261
 msgid "Disable maximization zoom"
 msgstr "Desabilita o zoom na maximização"
 
-#: ../src/gcompris/gcompris.c:263
+#: ../src/gcompris/gcompris.c:264
 msgid ""
 "Increase activities' timeout delays; useful values > 1.0; 1.0 to not change "
 "hardcoded value"
@@ -3697,7 +3704,7 @@ msgstr ""
 "Aumenta o tempo limite nas atividades: valores úteis > 1.0; mantenha 1.0 "
 "para não mudar o valor padrão."
 
-#: ../src/gcompris/gcompris.c:266
+#: ../src/gcompris/gcompris.c:267
 msgid ""
 "How activities' timeout delays are growing for several actors; useful values "
 "< 1.0; 1.0 to not change hardcoded value"
@@ -3705,11 +3712,11 @@ msgstr ""
 "Como o tempo limite aumente para vários atores; valores úteis < 1.0; "
 "mantenha 1.0 pra não mudar o valor padrão."
 
-#: ../src/gcompris/gcompris.c:269
+#: ../src/gcompris/gcompris.c:270
 msgid "For test purpose, run in a loop all the activities"
 msgstr "Para testes, executa todas as atividades continuamente."
 
-#: ../src/gcompris/gcompris.c:940
+#: ../src/gcompris/gcompris.c:955
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -3730,14 +3737,18 @@ msgstr ""
 "Linux. Mais informações na FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1234
+#: ../src/gcompris/gcompris.c:1250
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
 msgstr ""
 "Não foi possível carregar o tema \"%s\". Por favor, verifique se o arquivo "
 "existe e se tem permissão de leitura."
 
-#: ../src/gcompris/gcompris.c:1504
+#: ../src/gcompris/gcompris.c:1266
+msgid "Retrieving remote data..."
+msgstr "Recebendo dados remotos..."
+
+#: ../src/gcompris/gcompris.c:1526
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d second old.\n"
@@ -3750,12 +3761,12 @@ msgstr[1] ""
 "O GCompris não iniciará porque o arquivo de trava possui menos de %d "
 "segundos.\n"
 
-#: ../src/gcompris/gcompris.c:1508
+#: ../src/gcompris/gcompris.c:1530
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "O arquivo de trava é: %s\n"
 
-#: ../src/gcompris/gcompris.c:1681
+#: ../src/gcompris/gcompris.c:1708
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3769,27 +3780,27 @@ msgstr ""
 "Maiores informações em http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1796
+#: ../src/gcompris/gcompris.c:1829
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Use -l para acessar uma atividade diretamente.\n"
 
-#: ../src/gcompris/gcompris.c:1797
+#: ../src/gcompris/gcompris.c:1830
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "A lista de atividades disponíveis é:\n"
 
-#: ../src/gcompris/gcompris.c:1828
+#: ../src/gcompris/gcompris.c:1861
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Número de atividades: %d\n"
 
-#: ../src/gcompris/gcompris.c:1864
+#: ../src/gcompris/gcompris.c:1897
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s existe, mas não permite leitura nem escrita"
 
-#: ../src/gcompris/gcompris.c:1927
+#: ../src/gcompris/gcompris.c:1961
 #, c-format
 msgid ""
 "The --server option cannot be used because GCompris has been compiled "
@@ -3798,7 +3809,7 @@ msgstr ""
 "A opção --server não pode ser usada porque o GCompris foi compilado sem "
 "suporte à rede!"
 
-#: ../src/gcompris/gcompris.c:1981
+#: ../src/gcompris/gcompris.c:2019
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3807,7 +3818,7 @@ msgstr ""
 "Erro: o perfil '%s' não foi encontrado. Execute 'gcompris --profile-list' "
 "para listar os disponíveis\n"
 
-#: ../src/gcompris/gcompris.c:1995
+#: ../src/gcompris/gcompris.c:2033
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "A lista de perfis disponíveis é:\n"
@@ -3820,7 +3831,7 @@ msgstr "Não afetado"
 msgid "Users without a class"
 msgstr "Usuários sem uma turma"
 
-#: ../src/gcompris/gcompris_db.c:889
+#: ../src/gcompris/gcompris_db.c:896
 #, c-format
 msgid ""
 "Loading activity from database:\n"
@@ -3829,23 +3840,23 @@ msgstr ""
 "Carregando a atividade a partir do banco de dados:\n"
 "%s"
 
-#: ../src/gcompris/help.c:180
+#: ../src/gcompris/help.c:183
 msgid "Prerequisite"
 msgstr "Pré-requisito"
 
-#: ../src/gcompris/help.c:210
+#: ../src/gcompris/help.c:213
 msgid "Goal"
 msgstr "Objetivo"
 
-#: ../src/gcompris/help.c:240
+#: ../src/gcompris/help.c:243
 msgid "Manual"
 msgstr "Manual"
 
-#: ../src/gcompris/help.c:270
+#: ../src/gcompris/help.c:273
 msgid "Credit"
 msgstr "Créditos"
 
-#: ../src/gcompris/menu.c:582
+#: ../src/gcompris/menu.c:615
 #, c-format
 msgid ""
 "Loading activity from file:\n"
@@ -3853,6 +3864,14 @@ msgid ""
 msgstr ""
 "Carregando a atividade a partir do arquivo:\n"
 "%s"
+
+#: ../src/gcompris/menu.c:675
+msgid ""
+"All the activities are disabled in this profile. Go in the GCompris "
+"administration module and activate at least one activity."
+msgstr ""
+"Todas as atividades estão desabilitadas nesse perfil. Vá para o módulo "
+"administrativo do GCompris e ative pelo menos uma atividade."
 
 #: ../src/gcompris/properties.c:506
 msgid ""
@@ -3872,44 +3891,11 @@ msgstr ""
 "Você pode incluir essas imagens nos seus desenhos e animações.\n"
 "Os formatos de imagem suportados são jpeg, png e svg.\n"
 
-#: ../src/gcompris/sugar.c:71
-msgid "Help"
-msgstr "Ajuda"
-
-#: ../src/gcompris/sugar.c:72
-msgid "About"
-msgstr "Sobre"
-
-#: ../src/gcompris/sugar.c:73
-msgid "Previous level"
-msgstr "Nível anterior"
-
-#: ../src/gcompris/sugar.c:76
-msgid "Next level"
-msgstr "Próximo nível"
-
-#: ../src/gcompris/sugar.c:78
-msgid "Refresh"
-msgstr "Atualizar"
-
-#: ../src/gcompris/sugar.c:79
-msgid "Settings"
-msgstr "Configurações"
-
-#. TRANSLATORS: Back as in previous
-#: ../src/gcompris/sugar.c:87
-msgid "Back"
-msgstr "Voltar"
-
-#: ../src/gcompris/sugar.c:88
-msgid "Stop"
-msgstr "Parar"
-
-#: ../src/gcompris/timer.c:245
+#: ../src/gcompris/timer.c:257
 msgid "Time Elapsed"
 msgstr "Tempo transcorrido"
 
-#: ../src/gcompris/timer.c:323
+#: ../src/gcompris/timer.c:339
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Tempo Restante = %d"
@@ -3940,6 +3926,14 @@ msgstr ""
 #: ../src/geo_country-activity/resources/geo_country/board1_0.xml.in.h:1
 msgid "Regions of France"
 msgstr "Regiões da França"
+
+#: ../src/geo_country-activity/resources/geo_country/board12_0.xml.in.h:1
+msgid "India"
+msgstr "Índia"
+
+#: ../src/geo_country-activity/resources/geo_country/board13_0.xml.in.h:1
+msgid "Australia"
+msgstr "Austrália"
 
 #: ../src/geo_country-activity/resources/geo_country/board2_0.xml.in.h:1
 msgid "Deutschland Bundesländer"
@@ -3988,7 +3982,7 @@ msgid "America"
 msgstr "América"
 
 #: ../src/geography-activity/resources/geography/board1_0.xml.in.h:3
-msgid "Antartica"
+msgid "Antarctica"
 msgstr "Antártida"
 
 #: ../src/geography-activity/resources/geography/board1_0.xml.in.h:4
@@ -4545,14 +4539,14 @@ msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
 #: ../src/gletters-activity/gletters.c:850
-#: ../src/imageid-activity/imageid.c:712 ../src/login-activity/login.py:480
-#: ../src/missing_letter-activity/missingletter.c:784
+#: ../src/imageid-activity/imageid.c:716 ../src/login-activity/login.py:480
+#: ../src/missing_letter-activity/missingletter.c:800
 #: ../src/pythontest-activity/pythontest.py:448
 #: ../src/readingh-activity/reading.c:905
-#: ../src/scalesboard-activity/scale.c:1161
+#: ../src/scalesboard-activity/scale.c:1190
 #: ../src/smallnumbers-activity/smallnumbers.c:597
 #: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:866
+#: ../src/wordsgame-activity/wordsgame.c:904
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -4570,7 +4564,7 @@ msgstr "Habilitar sons"
 #: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:486
 #: ../src/missing_letter-activity/missingletter_config.c:492
 #: ../src/readingh-activity/reading.c:929
-#: ../src/wordsgame-activity/wordsgame.c:889
+#: ../src/wordsgame-activity/wordsgame.c:927
 msgid "Uppercase only text"
 msgstr "Somente texto em maiúsculas"
 
@@ -4861,25 +4855,25 @@ msgstr ""
 "as teclas de seta para navegar pelo tabuleiro e para evitar os Troggles. "
 "Pressione a barra de espaço para comer um número."
 
-#: ../src/guessnumber-activity/guessnumber.py:199
+#: ../src/guessnumber-activity/guessnumber.py:203
 #, python-format
 msgid "Guess a number between %d and %d"
 msgstr "Adivinhe um número entre %d e %d"
 
-#: ../src/guessnumber-activity/guessnumber.py:302
+#: ../src/guessnumber-activity/guessnumber.py:306
 #, python-format
 msgid "Please enter a number between %d and %d"
 msgstr "Por favor, digite um número entre %d e %d"
 
-#: ../src/guessnumber-activity/guessnumber.py:307
+#: ../src/guessnumber-activity/guessnumber.py:311
 msgid "Out of range"
 msgstr "Fora dos limites"
 
-#: ../src/guessnumber-activity/guessnumber.py:313
+#: ../src/guessnumber-activity/guessnumber.py:317
 msgid "Too high"
 msgstr "Muito alto"
 
-#: ../src/guessnumber-activity/guessnumber.py:315
+#: ../src/guessnumber-activity/guessnumber.py:319
 msgid "Too low"
 msgstr "Muito baixo"
 
@@ -4932,11 +4926,11 @@ msgstr "bcdfghjklmnpqrstvwxz"
 msgid "NONE"
 msgstr "a=áàãâ e=éê i=í o=óõô u=ú"
 
-#: ../src/hangman-activity/hangman.py:104
+#: ../src/hangman-activity/hangman.py:109
 msgid "English"
 msgstr "Inglês"
 
-#: ../src/hangman-activity/hangman.py:107
+#: ../src/hangman-activity/hangman.py:112
 msgid "Could not find the list of words."
 msgstr "Não foi possível encontrar a lista de palavras."
 
@@ -5229,7 +5223,7 @@ msgstr "Leitura"
 msgid "Learn how to read"
 msgstr "Aprender a ler"
 
-#: ../src/imageid-activity/imageid.c:522
+#: ../src/imageid-activity/imageid.c:526
 msgid ""
 "Data file for this level is not properly formatted. Too many choices are "
 "proposed."
@@ -5237,8 +5231,8 @@ msgstr ""
 "O arquivo de dados para este nível não está formatado de maneira correta. "
 "São propostas muitas opções."
 
-#: ../src/imageid-activity/imageid.c:534
-#: ../src/missing_letter-activity/missingletter.c:592
+#: ../src/imageid-activity/imageid.c:538
+#: ../src/missing_letter-activity/missingletter.c:608
 msgid "Data file for this level is not properly formatted."
 msgstr ""
 "O arquivo de dados para este nível não está formatado de maneira correta."
@@ -5505,7 +5499,7 @@ msgid "Click on the correct instrument."
 msgstr "Clique no instrumento correto."
 
 #: ../src/instruments-activity/instruments.xml.in.h:2
-msgid "Click on the correct mucical instruments"
+msgid "Click on the correct musical instruments"
 msgstr "Clique nos instrumentos musicais corretos"
 
 #: ../src/instruments-activity/instruments.xml.in.h:3
@@ -5530,72 +5524,72 @@ msgid "the banjo"
 msgstr "o banjo"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:5
-msgid "the bass drum"
-msgstr "o bumbo"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:6
 msgid "the bongo"
 msgstr "o bongô"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:7
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:6
 msgid "the castanets"
 msgstr "as castanholas"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:8
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:7
 msgid "the cello"
 msgstr "o violoncelo"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:9
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:8
 msgid "the clarinet"
 msgstr "a clarineta"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:10
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:9
 msgid "the cymbal"
 msgstr "o címbalo"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:11
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:10
 msgid "the drum kit"
 msgstr "a bateria"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:11
 msgid "the electric guitar"
 msgstr "a guitarra elétrica"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
 msgid "the flute traversiere"
 msgstr "a flauta transversa"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
 msgid "the guitar"
 msgstr "o violão"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
 msgid "the harmonica"
 msgstr "a gaita"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
 msgid "the harp"
 msgstr "a harpa"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
 msgid "the horn"
 msgstr "a buzina"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
 msgid "the maracas"
 msgstr "os maracás"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
 msgid "the organ"
 msgstr "o órgão"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
 msgid "the piano"
 msgstr "o piano"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
 msgid "the saxophone"
 msgstr "o saxofone"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
+msgid "the snare drum"
+msgstr "o tarol"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
 msgid "the tambourine"
@@ -5624,6 +5618,27 @@ msgstr "a tuba"
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:28
 msgid "the violin"
 msgstr "o violino"
+
+#: ../src/lang-activity/lang.py:56
+msgid "Missing Image"
+msgstr "Imagem desaparecida"
+
+#: ../src/lang-activity/lang.py:165
+#, python-format
+msgid ""
+"Configuration\n"
+" for profile <b>%s</b>"
+msgstr ""
+"Configuração\n"
+" para o perfil <b>%s</b>"
+
+#: ../src/lang-activity/lang.py:170
+msgid "Select locale"
+msgstr "Selecione o idioma"
+
+#: ../src/lang-activity/lang.xml.in.h:1
+msgid "Practice a foreign language"
+msgstr "Pratique um idioma estrangeiro"
 
 #: ../src/leftright-activity/leftright.c:230
 #: ../src/searace-activity/searace.py:415
@@ -5718,12 +5733,12 @@ msgstr "Perfil: "
 
 #: ../src/login-activity/login.py:235
 msgid "Login: "
-msgstr "Login: "
+msgstr "Identificação: "
 
 #. toggle box
 #: ../src/login-activity/login.py:496
 msgid "Enter login to log in"
-msgstr "Digite o login para entrar"
+msgstr "Digite a identificação para entrar"
 
 #: ../src/login-activity/login.xml.in.h:1
 msgid ""
@@ -5734,7 +5749,7 @@ msgstr ""
 
 #: ../src/login-activity/login.xml.in.h:2
 msgid "GCompris login screen"
-msgstr "Tela de autenticação do GCompris"
+msgstr "Tela de identificação do GCompris"
 
 #: ../src/login-activity/login.xml.in.h:3
 msgid ""
@@ -5748,7 +5763,7 @@ msgid ""
 "'profile'\n"
 "is the name of a profile as you created it in Administration."
 msgstr ""
-"Para ativar a tela de autenticação, você deve, primeiro,\n"
+"Para ativar a tela de identificação, você deve, primeiro,\n"
 "adicionar usuários na parte administrativa do GCompris.\n"
 "Para isso, executando o comando 'gcompris -a'.\n"
 "Algumas distribuições já instalam, automaticamente,\n"
@@ -5836,10 +5851,12 @@ msgstr ""
 "informação nos campos de batalha."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:7
-msgid "He became a teacher after graduating and secretly taught his method."
+msgid ""
+"He became a teacher after graduating and promoted his method while secretly "
+"teaching it at the Institute."
 msgstr ""
-"Ele se tornou um professor após se graduar e ensinou, secretamente, o seu "
-"método."
+"Ele se tornou um professor após se graduar e divulgou o seu método enquanto "
+"o ensinava, secretamente, no instituto."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:8
 msgid ""
@@ -5899,8 +5916,6 @@ msgstr ""
 "verde, no canto inferior direito da tela."
 
 #: ../src/magic_hat_minus-activity/magic_hat_minus.xml.in.h:4
-#: ../src/memory_add_minus-activity/memory_add_minus.xml.in.h:3
-#: ../src/memory_add_minus_tux-activity/memory_add_minus_tux.xml.in.h:3
 #: ../src/memory_minus-activity/memory_minus.xml.in.h:2
 #: ../src/memory_minus_tux-activity/memory_minus_tux.xml.in.h:2
 msgid "Subtraction"
@@ -5992,7 +6007,7 @@ msgstr ""
 msgid "Find your way out of the maze"
 msgstr "Encontre a saída do labirinto"
 
-#: ../src/maze-activity/maze.c:599
+#: ../src/maze-activity/maze.c:603
 msgid ""
 "Look at your position, then switch back to invisible mode to continue your "
 "moves"
@@ -6000,7 +6015,7 @@ msgstr ""
 "Observe a sua posição e, então, volte para o modo invisível para continuar a "
 "se movimentar"
 
-#: ../src/maze-activity/maze.c:601
+#: ../src/maze-activity/maze.c:605
 msgid ""
 "Look at your position, then switch back to 3D mode to continue your moves"
 msgstr ""
@@ -6200,11 +6215,16 @@ msgstr ""
 "somas e ganhou o jogo!"
 
 #: ../src/memory_add_minus-activity/memory_add_minus.xml.in.h:1
+#: ../src/memory_add_minus_tux-activity/memory_add_minus_tux.xml.in.h:1
+msgid "Addition and subtraction"
+msgstr "Adição e subtração"
+
+#: ../src/memory_add_minus-activity/memory_add_minus.xml.in.h:2
 msgid "Addition and subtraction memory game"
 msgstr "Jogo da memória com adições e subtrações"
 
-#: ../src/memory_add_minus-activity/memory_add_minus.xml.in.h:2
-#: ../src/memory_add_minus_tux-activity/memory_add_minus_tux.xml.in.h:2
+#: ../src/memory_add_minus-activity/memory_add_minus.xml.in.h:3
+#: ../src/memory_add_minus_tux-activity/memory_add_minus_tux.xml.in.h:3
 msgid "Practise addition, subtraction, until all the cards are gone."
 msgstr "Pratique adições e subtrações até que todas as cartas sejam removidas."
 
@@ -6290,7 +6310,7 @@ msgstr ""
 msgid "All operations memory game against Tux"
 msgstr "Jogo da memória com todas as operações, contra o Tux"
 
-#: ../src/memory_add_minus_tux-activity/memory_add_minus_tux.xml.in.h:1
+#: ../src/memory_add_minus_tux-activity/memory_add_minus_tux.xml.in.h:2
 msgid "Addition and subtraction memory game against Tux"
 msgstr "Jogo da memória com adições e subtrações, contra o Tux"
 
@@ -6813,7 +6833,7 @@ msgid "$ %.0f"
 msgstr "R$ %.0f"
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %d
-#: ../src/money-activity/money.c:932
+#: ../src/money-activity/money.c:940
 #, c-format
 msgid ""
 "Tux just bought some items in your shop.\n"
@@ -7090,7 +7110,7 @@ msgstr "Cobrança de pênalti"
 msgid "Error: Absolutely no photo found in the data directory"
 msgstr "Erro: Não foi encontrada foto alguma no diretório de dados"
 
-#: ../src/photohunter-activity/photohunter.c:575
+#: ../src/photohunter-activity/photohunter.c:580
 msgid "Click on the differences between the two images."
 msgstr "Clique nas diferenças entre as duas imagens."
 
@@ -7250,7 +7270,7 @@ msgid "Railway"
 msgstr "Ferrovia"
 
 #: ../src/readingh-activity/reading.c:229
-#: ../src/wordsgame-activity/wordsgame.c:219
+#: ../src/wordsgame-activity/wordsgame.c:222
 msgid ""
 "Error: We can't find\n"
 "a list of words to play this game.\n"
@@ -7421,7 +7441,7 @@ msgstr "Peso em g = %s"
 msgid "Weight = %s"
 msgstr "Peso = %s"
 
-#: ../src/scalesboard-activity/scale.c:1007
+#: ../src/scalesboard-activity/scale.c:1036
 msgid "Take care, you can drop weights on both sides of the scale."
 msgstr "Atenção, você pode soltar os pesos em ambos os lados da balança."
 
@@ -7828,13 +7848,13 @@ msgstr "O quebra-cabeça Tangram"
 
 #. Set the maximum text to calc the background
 #. Set the correct initial text
-#: ../src/target-activity/target.c:296 ../src/target-activity/target.c:562
-#: ../src/target-activity/target.c:599
+#: ../src/target-activity/target.c:296 ../src/target-activity/target.c:563
+#: ../src/target-activity/target.c:600
 #, c-format
 msgid "Points = %s"
 msgstr "Pontos = %s"
 
-#: ../src/target-activity/target.c:414
+#: ../src/target-activity/target.c:415
 #, c-format
 msgid ""
 "Wind speed = %d\n"
@@ -7843,7 +7863,7 @@ msgstr ""
 "Velocidade do vento = %d\n"
 "quilômetros/hora"
 
-#: ../src/target-activity/target.c:482
+#: ../src/target-activity/target.c:483
 #, c-format
 msgid "Distance to target = %d meter"
 msgid_plural "Distance to target = %d meters"
@@ -7998,33 +8018,37 @@ msgstr ""
 "Tux voltou de uma longa pescaria em seu barco. Faça o sistema de água "
 "funcionar para que ele possa tomar um banho."
 
-#: ../src/wordprocessor-activity/wordprocessor.c:54
+#: ../src/wordprocessor-activity/wordprocessor.c:57
 msgid "Research"
 msgstr "Pesquisa"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:65
+#: ../src/wordprocessor-activity/wordprocessor.c:69
 msgid "Sentimental"
 msgstr "Sentimental"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:76
+#: ../src/wordprocessor-activity/wordprocessor.c:81
 msgid "Official"
 msgstr "Oficial"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:98
+#: ../src/wordprocessor-activity/wordprocessor.c:105
 msgid "Flyer"
 msgstr "Panfleto"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:423
+#: ../src/wordprocessor-activity/wordprocessor.c:478
 msgid "Title"
 msgstr "Título"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:424
+#: ../src/wordprocessor-activity/wordprocessor.c:479
 msgid "Heading 1"
 msgstr "Cabeçalho 1"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:425
+#: ../src/wordprocessor-activity/wordprocessor.c:480
 msgid "Heading 2"
 msgstr "Cabeçalho 2"
+
+#: ../src/wordprocessor-activity/wordprocessor.c:482
+msgid "Hyperlink"
+msgstr "Link"
 
 #: ../src/wordprocessor-activity/wordprocessor.xml.in.h:1
 msgid "A simple word processor to enter and save any text"
@@ -8067,12 +8091,12 @@ msgstr ""
 msgid "Your word processor"
 msgstr "Seu editor de textos"
 
-#: ../src/wordsgame-activity/wordsgame.c:112
+#: ../src/wordsgame-activity/wordsgame.c:115
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:1
 msgid "Falling Words"
 msgstr "Palavras cadentes"
 
-#: ../src/wordsgame-activity/wordsgame.c:113
+#: ../src/wordsgame-activity/wordsgame.c:116
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the falling words before they reach the ground"
 msgstr "Digite as palavras que estão caindo antes que elas cheguem ao chão"
@@ -8084,6 +8108,65 @@ msgstr "Treinar com o teclado"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:4
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Digite a palavra completa, antes que ela chegue no chão"
+
+#: ../src/gcompris/sugar_cli.c:222 ../src/gcompris/sugar_srv.c:156
+msgid "Sharing Error"
+msgstr "Erro de compartilhamento"
+
+#: ../src/gcompris/sugar_cli.c:223
+msgid "Cannot retrieve remote data"
+msgstr "Não foi possível recuperar os dados remotos"
+
+#: ../src/gcompris/sugar_gc.c:82
+msgid "About"
+msgstr "Sobre"
+
+#: ../src/gcompris/sugar_gc.c:83
+msgid "Refresh"
+msgstr "Atualizar"
+
+#: ../src/gcompris/sugar_gc.c:84
+msgid "Settings"
+msgstr "Configurações"
+
+#: ../src/gcompris/sugar_gc.c:85
+msgid "Previous level"
+msgstr "Nível anterior"
+
+#: ../src/gcompris/sugar_gc.c:88
+msgid "Next level"
+msgstr "Próximo nível"
+
+#. TRANSLATORS: Back as in previous
+#: ../src/gcompris/sugar_gc.c:97
+msgid "Back"
+msgstr "Voltar"
+
+#: ../src/gcompris/sugar_srv.c:157
+msgid "Cannot initiate sharing session"
+msgstr "Não foi possível iniciar a seção de compartilhamento"
+
+#~ msgid ""
+#~ "The screen has 3 sections: braille cell, alphabet name and lower board "
+#~ "containing 13 letters. Click on each letter in the lower board to know "
+#~ "its corresponding braille code in the braille cell section. Click on the "
+#~ "increment level button to jump to the next 13 letters of the English "
+#~ "alphabets."
+#~ msgstr ""
+#~ "Esta tela contém três seções: a célula Braille, a um campo para uma letra "
+#~ "do alfabeto (a resposta) e um quadro contendo 13 letras. Clique nos "
+#~ "pontos da célula Braille para produzir o código correspondente à letra "
+#~ "solicitada. Repare que a letra solicitada sempre poderá ser encontrada no "
+#~ "quadro situado no alto da tela. Caso queira verificar como são as outras "
+#~ "letras, clique no ícone do código Braille situado na barra de ícones "
+#~ "localizada na área inferior da tela. As setas avançam/recuam os conjuntos "
+#~ "de letras."
+
+#~ msgid "Help"
+#~ msgstr "Ajuda"
+
+#~ msgid "Stop"
+#~ msgstr "Parar"
 
 #~ msgid ""
 #~ "Error: this activity requires that you first install\n"
@@ -8132,9 +8215,6 @@ msgstr "Digite a palavra completa, antes que ela chegue no chão"
 
 #~ msgid "violet"
 #~ msgstr "violeta"
-
-#~ msgid "pink"
-#~ msgstr "rosa"
 
 #~ msgid "Click on the correct colored object."
 #~ msgstr "Clique no objeto colorido correto."
