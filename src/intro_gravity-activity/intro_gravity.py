@@ -365,7 +365,7 @@ class Gcompris_intro_gravity:
         gobject.timeout_add(30,self.force)
       else:
         self.crash = True
-        self.stopGame
+        self.stopGame()
       
       
   def force(self):
