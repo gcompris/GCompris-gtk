@@ -218,7 +218,6 @@ class Gcompris_intro_gravity:
 #    self.distance_neptune = self.distance_saturn = 1000
     self.velocity = 0.05
     self.direction = None
-    self.crash = False
       
   def end(self):
     print "intro_gravity end"
@@ -329,22 +328,21 @@ class Gcompris_intro_gravity:
     #start timer if not initiated
     #if planets don't crash during this time then level is won
     if self.timer_on == False:
-      self.t = gobject.timeout_add(30000,self.stopGame)
+      self.t = gobject.timeout_add(30000,self.next_level)
       self.timer_on = True
 
 
-  def stopGame(self):
-    if self.crash == False:
+  def next_level(self):
       gcompris.bonus.display(gcompris.bonus.WIN,gcompris.bonus.TUX)
       self.end()
       self.gcomprisBoard.level += 1
       self.timer_on = False    
       self.board_paused = 1
-    else:
+
+  def crash(self):
       gcompris.bonus.display(gcompris.bonus.LOOSE,gcompris.bonus.TUX)
       self.end()
       self.board_paused = 1
-      self.crash = False
       self.timer_on = False    
       gobject.source_remove(self.t)  
    
@@ -360,8 +358,7 @@ class Gcompris_intro_gravity:
       if self.position > 200:
         gobject.timeout_add(30,self.force)
       else:
-        self.crash = True
-        self.stopGame()
+        self.crash()
 
     elif self.direction ==2:
       x = self.mid_planet.get_bounds().x1
@@ -373,8 +370,7 @@ class Gcompris_intro_gravity:
       if self.position < 615:
         gobject.timeout_add(30,self.force)
       else:
-        self.crash = True
-        self.stopGame()
+        self.crash()
       
       
   def force(self):
