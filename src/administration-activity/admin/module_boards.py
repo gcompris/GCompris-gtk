@@ -86,8 +86,13 @@ class Boards(module.Module):
       height=area[3]-area[1]-2*self.module_panel_ofset,
       anchor=gtk.ANCHOR_NW)
 
+    # Get default pofile id.
+    self.cur.execute('SELECT profile_id FROM informations;')
+    self.con.commit()
+    default_profile_id = self.cur.fetchall()[0][0]
+
     self.boardList = board_list.Board_list(self.con, self.cur,
-                                           self.frame)
+                                           self.frame, default_profile_id)
     self.boardList.init()
 
   def stop(self):

@@ -37,11 +37,14 @@ class Board_list:
 
 
   # area is the drawing area for the list
-  def __init__(self, db_connect, db_cursor, frame):
+  def __init__(self, db_connect, db_cursor, frame, default_profile_id,
+          hide_profiles=False):
 
       self.frame = frame
       self.cur = db_cursor
       self.con = db_connect
+      self.default_profile_id = default_profile_id
+      self.hide_profiles = hide_profiles
 
   def init(self):
 
@@ -55,12 +58,6 @@ class Board_list:
 
       if not self.profiles_list:
         return
-
-      # Get default pofile id.
-      self.cur.execute('SELECT profile_id FROM informations;')
-      self.con.commit()
-
-      self.default_profile_id = self.cur.fetchall()[0][0]
 
       self.out_dict = self.get_boards_out_by_profile()
 
@@ -80,8 +77,9 @@ class Board_list:
       box3 = gtk.VBox(False, 8)
       box3.show()
 
-      top_box.pack_start(box1, False, False, 0)
-      top_box.pack_start(box2, True, True, 0)
+      if not self.hide_profiles:
+        top_box.pack_start(box1, False, False, 0)
+      top_box.pack_end(box2, True, True, 0)
 
       box2.pack_end(box3, False, False, 0)
 
@@ -98,10 +96,14 @@ class Board_list:
         if profile.profile_id == self.default_profile_id:
           combobox.set_active(self.profiles_list.index(profile))
 
-      self.active_profile = self.profiles_list[combobox.get_active()]
+      self.active_profile = filter(lambda x:
+              x.profile_id == self.default_profile_id, self.profiles_list)[0]
 
+      self.progressbar_box = gtk.Alignment(0.5, 0.5, 0.5, 0)
       self.progressbar = gtk.ProgressBar(adjustment=None)
-      box1.pack_start(self.progressbar, False, False, 0)
+      self.progressbar.show();
+      self.progressbar_box.add(self.progressbar)
+      box2.pack_start(self.progressbar_box)
 
       # Create the table
       sw = gtk.ScrolledWindow()
@@ -225,7 +227,7 @@ class Board_list:
     self.board_dict = {}
     height = 24
 
-    self.progressbar.show()
+    self.progressbar_box.show()
     index = 0.0
     for board_cell in menu_list:
       self.board_dict['%s/%s' % (board_cell[1].section,board_cell[1].name)] = board_cell[1]
@@ -250,7 +252,7 @@ class Board_list:
                                        _(board_cell[1].title) + '\n' + '%s/%s' % (board_cell[1].section,board_cell[1].name),
                                        not board_cell[1].board_id in self.out_dict[self.active_profile.profile_id],
                                        '%s/%s' % (board_cell[1].section,board_cell[1].name), self.pixbuf_configurable(board_cell[1])])
-    self.progressbar.hide()
+    self.progressbar_box.hide()
 
   def pixbuf_admin_at_height(self, file, height):
     pixbuf = gcompris.utils.load_pixmap(file)

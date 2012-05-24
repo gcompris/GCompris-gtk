@@ -101,6 +101,21 @@ void gc_user_destroy(GcomprisUser*user)
   g_free(user);
 }
 
+void gc_group_destroy(GcomprisGroup *group)
+{
+  if(!group)
+    return;
+
+  GList *i;
+  for (i = group->user_ids; i != NULL; i = i->next)
+    gc_user_destroy(i->data);
+  g_list_free(group->user_ids);
+  g_free(group->name);
+  g_free(group->description);
+  g_free(group->description);
+  g_free(group);
+}
+
 GcomprisUser*
 gc_profile_get_current_user()
 {

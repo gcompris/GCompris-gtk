@@ -226,7 +226,7 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel=1;
 
       /* Set back the bar to it's original location */
-      gc_bar_set(GC_BAR_CONFIG|GC_BAR_ABOUT);
+      gc_bar_set(GC_BAR_CONFIG|GC_BAR_ABOUT|GC_BAR_JOURNAL|GC_BAR_SHARE);
 
       menuitems = g_new(MenuItems, 1);
 

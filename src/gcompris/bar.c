@@ -515,6 +515,10 @@ static gchar *bar_flags_to_name(GComprisBarFlags flag)
     case GC_BAR_HELP:
       result = "help";
       break;
+    case GC_BAR_JOURNAL:
+    case GC_BAR_SHARE:
+      g_error("GC_BAR_JOURNAL and GC_BAR_SHARE can't be used in goocanvas");
+      break;
     }
   return result;
 }

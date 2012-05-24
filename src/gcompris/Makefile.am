@@ -142,6 +142,15 @@ DONT_DIST_SOURCE = $(marshal_sources)
 
 if SUGAR
 INCLUDES += $(SUGAR_CFLAGS)
-gcompris_SOURCES += sugar.c
+gcompris_SOURCES += \
+	sugar.c sugar.h \
+	sugar_gc.c sugar_gc.h \
+	sugar_cli.c \
+	sugar_srv.c \
+	sugar_share.c sugar_share.h \
+	sugar_db.h
 gcompris_LDADD += $(SUGAR_LIBS)
+if USE_SQLITE
+gcompris_SOURCES += sugar_db.c
+endif
 endif

@@ -104,7 +104,7 @@ class Log_list:
 
       for auser in user_list:
 
-        if(auser[0] == -1):
+        if(auser[0] == -1 or not auser[0]):
           self.combo_user.append_text(_("Default"))
           self.user_list.append(-1)
           continue
@@ -197,6 +197,9 @@ class Log_list:
     # Grab the log data
     if self.current_user_id == -2:
       self.cur.execute('SELECT date, user_id, board_id, level, sublevel, duration, status FROM logs ORDER BY date')
+    elif self.current_user_id == -1:
+      self.cur.execute('SELECT date, user_id, board_id, level, sublevel, duration, status FROM logs ' +
+                       'WHERE user_id=-1 OR user_id is NULL ORDER BY date')
     else:
       self.cur.execute('SELECT date, user_id, board_id, level, sublevel, duration, status FROM logs ' +
                        'WHERE user_id=? ORDER BY date', (self.current_user_id, ) )

@@ -100,7 +100,10 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
   gchar   *text_to_display = NULL;
 
   if(rootitem)
+  {
+    gc_help_stop();
     return;
+  }
 
   gc_board_pause(TRUE);
 

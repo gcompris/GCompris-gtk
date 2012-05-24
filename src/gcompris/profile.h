@@ -130,6 +130,13 @@ typedef struct {
   /* list of activities to play -- gchar section/name */
   GList             *activities;
 
+  /* board_id:xml-filename list of boards bundled to sugar objects */
+  GHashTable        *boards;
+  /* group_id:GcomprisGroup list of user groups bundled to sugar objects */
+  GHashTable        *groups;
+  /* board_id:GHashTable board configs bundled to sugar objects */
+  GHashTable        *config;
+
 } GcomprisProfile;
 
 
@@ -137,6 +144,7 @@ typedef struct {
 GcomprisProfile     *gc_profile_get_current();
 void gc_profile_destroy(GcomprisProfile *prof);
 void gc_user_destroy(GcomprisUser *user);
+void gc_group_destroy(GcomprisGroup *group);
 
 /* List of Gcomprisusers */
 void                 gc_profile_set_current_user(GcomprisUser *user);

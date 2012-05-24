@@ -33,6 +33,7 @@ static gboolean item_event_ok (GooCanvasItem  *item,
 			       GooCanvasItem  *target,
 			       GdkEventButton *event,
 			       gchar *data);
+void gc_about_stop (void);
 
 /*
  * Do all the bar display and register the events
@@ -59,7 +60,10 @@ void gc_about_start ()
   gc_board_pause(TRUE);
 
   if(rootitem)
+  {
+    gc_about_stop();
     return;
+  }
 
   gc_bar_hide (TRUE);
 

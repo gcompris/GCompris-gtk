@@ -1251,6 +1251,14 @@ GcomprisProfile *gc_db_get_profile()
 
 GList *gc_db_users_from_group_get(gint group_id)
 {
+  GcomprisProfile *profile = gc_profile_get_current();
+
+  if (profile && profile->groups)
+  {
+    GcomprisGroup *group = g_hash_table_lookup(profile->groups, GINT_TO_POINTER(group_id));
+    return group ? group->user_ids : NULL;
+  }
+
   SUPPORT_OR_RETURN(NULL);
 
 #ifdef USE_SQLITE
@@ -1542,9 +1550,24 @@ gc_db_set_board_conf(GcomprisProfile *profile,
 #define GET_CONF(p, b)							\
   "SELECT conf_key, conf_value FROM board_profile_conf WHERE profile_id=%d AND board_id=%d;", p, b
 
+static void merge_config(gchar *key, gchar *value, GHashTable *merge_to)
+{
+  g_hash_table_replace (merge_to, g_strdup(key), g_strdup(value));
+}
+
 GHashTable *gc_db_conf_with_table_get(int profile_id, int board_id,
 				      GHashTable *table )
 {
+  GcomprisProfile *profile = gc_profile_get_current();
+  if (profile && profile_id == profile->profile_id && profile->config)
+  {
+    GHashTable *config_table = g_hash_table_lookup(profile->config,
+            GINT_TO_POINTER(board_id));
+    if (config_table)
+      g_hash_table_foreach(config_table, (GHFunc)merge_config, table);
+    return table;
+  }
+
   GHashTable *hash_conf = table;
 
   SUPPORT_OR_RETURN(hash_conf);
@@ -1766,6 +1789,11 @@ GList *gc_db_profiles_list_get()
 
 GcomprisGroup *gc_db_get_group_from_id(int group_id)
 {
+  GcomprisProfile *profile = gc_profile_get_current();
+
+  if (profile && profile->groups)
+    return g_hash_table_lookup(profile->groups, GINT_TO_POINTER(group_id));
+
   SUPPORT_OR_RETURN(NULL);
 
 #ifdef USE_SQLITE
@@ -1821,6 +1849,11 @@ GcomprisGroup *gc_db_get_group_from_id(int group_id)
 
 GList *gc_db_get_groups_list()
 {
+  GcomprisProfile *profile = gc_profile_get_current();
+
+  if (profile && profile->groups)
+    return g_hash_table_get_values(profile->groups);
+
   SUPPORT_OR_RETURN(NULL);
 
 #ifdef USE_SQLITE
