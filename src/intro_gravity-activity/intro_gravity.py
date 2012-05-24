@@ -323,7 +323,7 @@ class Gcompris_intro_gravity:
     #start timer if not initiated
     #if planets don't crash during this time then level is won
     if self.timer_on == False:
-      self.t = gobject.timeout_add(30000,self.next_level)
+      self.t = gobject.timeout_add(20000,self.next_level)
       self.timer_on = True
 
 
@@ -349,7 +349,7 @@ class Gcompris_intro_gravity:
 #      gcompris.utils.item_absolute_move(self.mid_planet,self.position,200)
       self.mid_planet.set_properties(x=self.position,y=200)
       if self.position > 200:
-        gobject.timeout_add(30,self.force)
+        gobject.timeout_add(500,self.force)
       else:
         self.crash()
 
@@ -359,23 +359,23 @@ class Gcompris_intro_gravity:
 #      gcompris.utils.item_absolute_move(self.mid_planet,self.position,200)
       self.mid_planet.set_properties(x=self.position,y=200)
       if self.position < 615:
-        gobject.timeout_add(30,self.force)
+        gobject.timeout_add(500,self.force)
       else:
         self.crash()
       
       
   def force(self):
     if self.mass_neptune == self.mass_saturn:
-      self.velocity = 0.10
+      self.velocity = 1
       print 'equal',self.direction
       self.move_mid_planet() 
     elif self.mass_neptune > self.mass_saturn:
-      self.velocity += 0.01
+      self.velocity += 1
       self.direction = 2
       self.move_mid_planet()
       print 'neptune greater',self.direction
     else:
-      self.velocity += 0.01
+      self.velocity += 1
       self.move_mid_planet()
       self.direction = 1
       print 'saturn greater',self.direction
