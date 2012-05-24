@@ -215,7 +215,6 @@ class Gcompris_intro_gravity:
     self.timer_on = False  
     self.force_neptune = self.force_saturn = 10
     self.mass_neptune = self.mass_saturn = 10000 
-#    self.distance_neptune = self.distance_saturn = 1000
     self.velocity = 0.05
     self.direction = None
       
@@ -261,10 +260,6 @@ class Gcompris_intro_gravity:
   
   
   def increase_neptune(self,a,b,c):
-#    q,w = goocanvas.Canvas.convert_to_item_space(self.neptune,630,170)
-#    print q,w 
-#    x = self.neptune.get_bounds().x1
-#    print x
     self.timer()
     #increase planet if not maximum and move bar
     if self.yBar_neptune > 207:
@@ -353,8 +348,6 @@ class Gcompris_intro_gravity:
       self.position = int(x - self.velocity)
 #      gcompris.utils.item_absolute_move(self.mid_planet,self.position,200)
       self.mid_planet.set_properties(x=self.position,y=200)
-#      self.distance_neptune += 1
-#      self.distance_saturn -= 1
       if self.position > 200:
         gobject.timeout_add(30,self.force)
       else:
@@ -365,8 +358,6 @@ class Gcompris_intro_gravity:
       self.position = int(x + self.velocity)
 #      gcompris.utils.item_absolute_move(self.mid_planet,self.position,200)
       self.mid_planet.set_properties(x=self.position,y=200)
-#      self.distance_neptune -= 1
-#      self.distance_saturn += 1
       if self.position < 615:
         gobject.timeout_add(30,self.force)
       else:
@@ -374,19 +365,6 @@ class Gcompris_intro_gravity:
       
       
   def force(self):
-#    print 'before cal neptune',self.force_neptune
-#    print 'before cal saturn',self.force_saturn
-
-#    print 'neptune distance',self.distance_neptune
-#    print 'saturn distance',self.distance_saturn
-
-#    print 'mass of neptune',self.mass_neptune
-#    print 'mass of saturn',self.mass_saturn
-
-#    self.force_neptune = self.mass_neptune/self.distance_neptune 
-#    self.force_saturn = self.mass_saturn/self.distance_saturn
-#    print 'neptune force',self.force_neptune
-#    print 'saturn force',self.force_saturn
     if self.mass_neptune == self.mass_saturn:
       self.velocity = 0.10
       print 'equal',self.direction
@@ -401,7 +379,6 @@ class Gcompris_intro_gravity:
       self.move_mid_planet()
       self.direction = 1
       print 'saturn greater',self.direction
-#      print self.velocity
       
     
 
