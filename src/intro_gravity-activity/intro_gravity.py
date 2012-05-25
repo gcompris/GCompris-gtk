@@ -327,7 +327,7 @@ class Gcompris_intro_gravity:
     #start timer if not initiated
     #if planets don't crash during this time then level is won
     if self.timer_on == False:
-      self.t = gobject.timeout_add(20000,self.next_level)
+      self.t = gobject.timeout_add(15000,self.next_level)
       self.timer_on = True
 
 
