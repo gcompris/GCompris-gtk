@@ -254,14 +254,13 @@ class Gcompris_intro_gravity:
 
   def set_level(self,a,b,c):
     if self.gcomprisBoard.level == 1:
-      self.frequency = 500
+      self.frequency = 600
     elif self.gcomprisBoard.level == 2:
-      self.frequency = 300
+      self.frequency = 400
     elif self.gcomprisBoard.level == 3:
-      self.frequency = 100
+      self.frequency = 300
 
     self.game()   
-  
   
   def increase_neptune(self,a,b,c):
     self.timer()
@@ -280,7 +279,6 @@ class Gcompris_intro_gravity:
     
   def increase_saturn(self,a,b,c):
     self.timer()    
-    #increase planet if not maximum and move bar
     if self.yBar_saturn > 207: 
       self.saturn.scale(1.1,1.1)
       self.saturn.translate(-8,-20)  	
@@ -295,10 +293,9 @@ class Gcompris_intro_gravity:
       
   def decrease_neptune(self,a,b,c):
     self.timer()    
-    #decrease planet size if not minimum and move bar  
     if self.yBar_neptune < 247:
       self.neptune.scale(0.9,0.9) 
-      self.neptune.translate(80,23)
+      self.neptune.translate(78,25)
       self.yBar_neptune +=8
       gcompris.utils.item_absolute_move(self.bar_neptune, 782,self.yBar_neptune)
       if self.direction == None:
@@ -310,7 +307,6 @@ class Gcompris_intro_gravity:
 
   def decrease_saturn(self,a,b,c):
     self.timer()
-    #decrease planet size if not minimum and move bar 
     if self.yBar_saturn < 247:
       self.saturn.scale(0.9,0.9)
       self.saturn.translate(10,25)
@@ -324,8 +320,6 @@ class Gcompris_intro_gravity:
       self.mass_saturn -= 5000
       
   def timer(self):
-    #start timer if not initiated
-    #if planets don't crash during this time then level is won
     if self.timer_on == False:
       self.t = gobject.timeout_add(15000,self.next_level)
       self.timer_on = True
@@ -339,18 +333,17 @@ class Gcompris_intro_gravity:
       self.board_paused = 1
 
   def crash(self):
-      gcompris.bonus.display(gcompris.bonus.LOOSE,gcompris.bonus.TUX)
       self.end()
       self.board_paused = 1
       self.timer_on = False    
       gobject.source_remove(self.t)  
-   
+      gcompris.bonus.display(gcompris.bonus.LOOSE,gcompris.bonus.TUX)
+      self.board_paused = 1
 
   def move_mid_planet(self):
     if self.direction == 1:
       x = self.mid_planet.get_bounds().x1
       self.position = int(x - self.velocity)
-#      gcompris.utils.item_absolute_move(self.mid_planet,self.position,200)
       self.mid_planet.set_properties(x=self.position,y=200)
       if self.position > 200:
         gobject.timeout_add(self.frequency,self.force)
@@ -360,7 +353,6 @@ class Gcompris_intro_gravity:
     elif self.direction ==2:
       x = self.mid_planet.get_bounds().x1
       self.position = int(x + self.velocity)
-#      gcompris.utils.item_absolute_move(self.mid_planet,self.position,200)
       self.mid_planet.set_properties(x=self.position,y=200)
       if self.position < 615:
         gobject.timeout_add(self.frequency,self.force)
@@ -370,19 +362,20 @@ class Gcompris_intro_gravity:
       
   def force(self):
     if self.mass_neptune == self.mass_saturn:
-      self.velocity = 1
-      print 'equal',self.direction
       self.move_mid_planet() 
+    
     elif self.mass_neptune > self.mass_saturn:
+      if self.direction != 2:
+        self.velocity = 1
       self.velocity += 1
       self.direction = 2
       self.move_mid_planet()
-      print 'neptune greater',self.direction
+
     else:
-      self.velocity += 1
-      self.move_mid_planet()
+      if self.direction != 1:
+       self.velocity = 1
+      self.velocity +=1
       self.direction = 1
-      print 'saturn greater',self.direction
-      
+      self.move_mid_planet()
     
 
