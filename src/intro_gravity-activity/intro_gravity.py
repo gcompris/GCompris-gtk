@@ -72,7 +72,7 @@ class Gcompris_intro_gravity:
       )
     
     #connect the selected label to the next screen  
-    self.selection.connect("button_press_event", self.game)
+    self.selection.connect("button_press_event", self.set_level)
     gcompris.utils.item_focus_init(self.selection, None)
     
     self.text = goocanvas.Text(parent=self.rootitem,
@@ -82,7 +82,7 @@ class Gcompris_intro_gravity:
       font = gcompris.skin.get_font("gcompris/title"),
       text = _("The Solar System"))
 
-  def game(self,a,b,c):
+  def game(self):
     self.rootitem = goocanvas.Group(parent =
                                     self.gcomprisBoard.canvas.get_root_item())
 
@@ -230,9 +230,6 @@ class Gcompris_intro_gravity:
 
   def repeat(self):
     print 'repeat'
-    gcompris.bonus.display(gcompris.bonus.LOOSE,gcompris.bonus.SMILEY)
-    self.game(1,2,3)
-    self.neptune.set_transform(None)
 
 
   #mandatory but unused yet
@@ -253,10 +250,17 @@ class Gcompris_intro_gravity:
     # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
     # the game is won
     if pause == 0:
-      self.game(1,2,3)
+      self.set_level(1,2,3)
 
-  def set_level(self, level):
-    print("intro_gravity set level. %i" % level)
+  def set_level(self,a,b,c):
+    if self.gcomprisBoard.level == 1:
+      self.frequency = 500
+    elif self.gcomprisBoard.level == 2:
+      self.frequency = 300
+    elif self.gcomprisBoard.level == 3:
+      self.frequency = 100
+
+    self.game()   
   
   
   def increase_neptune(self,a,b,c):
@@ -349,7 +353,7 @@ class Gcompris_intro_gravity:
 #      gcompris.utils.item_absolute_move(self.mid_planet,self.position,200)
       self.mid_planet.set_properties(x=self.position,y=200)
       if self.position > 200:
-        gobject.timeout_add(500,self.force)
+        gobject.timeout_add(self.frequency,self.force)
       else:
         self.crash()
 
@@ -359,7 +363,7 @@ class Gcompris_intro_gravity:
 #      gcompris.utils.item_absolute_move(self.mid_planet,self.position,200)
       self.mid_planet.set_properties(x=self.position,y=200)
       if self.position < 615:
-        gobject.timeout_add(500,self.force)
+        gobject.timeout_add(self.frequency,self.force)
       else:
         self.crash()
       
