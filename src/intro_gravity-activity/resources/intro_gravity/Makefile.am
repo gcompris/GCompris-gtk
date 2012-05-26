@@ -3,7 +3,10 @@ img_DATA = \
 	neptune.png \
 	background.svg \
 	saturn.png \
-	uranus.png
+	uranus.png \
+	solar_system.svgz \
+	minus.png \
+	plus.png
 
 
 EXTRA_DIST = $(img_DATA)

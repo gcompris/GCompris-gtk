@@ -213,10 +213,9 @@ class Gcompris_intro_gravity:
     
     #declaring variables     
     self.timer_on = False  
-    self.force_neptune = self.force_saturn = 10
     self.mass_neptune = self.mass_saturn = 10000 
-    self.velocity = 0.05
-    self.direction = None
+    self.velocity = 1
+#    self.direction = None
       
   def end(self):
     print "intro_gravity end"
@@ -270,11 +269,11 @@ class Gcompris_intro_gravity:
       self.neptune.translate(-63,-20)
       self.yBar_neptune -=8
       gcompris.utils.item_absolute_move(self.bar_neptune, 782,self.yBar_neptune)
-      if self.direction == None:
-        self.direction = 2
-        self.move_mid_planet()
-      else:
-        self.move_mid_planet()
+#      if self.direction == None:
+#        self.direction = 2
+#        self.move_mid_planet()
+#      else:
+      self.move_mid_planet()
       self.mass_neptune += 5000
     
   def increase_saturn(self,a,b,c):
@@ -284,11 +283,11 @@ class Gcompris_intro_gravity:
       self.saturn.translate(-8,-20)  	
       self.yBar_saturn -=8
       gcompris.utils.item_absolute_move(self.bar_saturn,21,self.yBar_saturn)
-      if self.direction == None:
-        self.direction = 1
-        self.move_mid_planet()
-      else:
-        self.move_mid_planet()
+#      if self.direction == None:
+#        self.direction = 1
+#        self.move_mid_planet()
+#      else:
+      self.move_mid_planet()
       self.mass_saturn += 5000
       
   def decrease_neptune(self,a,b,c):
@@ -298,11 +297,11 @@ class Gcompris_intro_gravity:
       self.neptune.translate(78,25)
       self.yBar_neptune +=8
       gcompris.utils.item_absolute_move(self.bar_neptune, 782,self.yBar_neptune)
-      if self.direction == None:
-        self.direction = 1
-        self.move_mid_planet()
-      else:
-        self.move_mid_planet()
+#      if self.direction == None:
+#        self.direction = 1
+#        self.move_mid_planet()
+#      else:
+      self.move_mid_planet()
       self.mass_neptune -= 5000
 
   def decrease_saturn(self,a,b,c):
@@ -312,11 +311,11 @@ class Gcompris_intro_gravity:
       self.saturn.translate(10,25)
       self.yBar_saturn += 8
       gcompris.utils.item_absolute_move(self.bar_saturn,21,self.yBar_saturn)
-      if self.direction == None:
-        self.direction = 2
-        self.move_mid_planet()
-      else:
-        self.move_mid_planet()
+#      if self.direction == None:
+#        self.direction = 2
+#        self.move_mid_planet()
+#      else:
+      self.move_mid_planet()
       self.mass_saturn -= 5000
       
   def timer(self):
@@ -341,41 +340,46 @@ class Gcompris_intro_gravity:
       self.board_paused = 1
 
   def move_mid_planet(self):
-    if self.direction == 1:
-      x = self.mid_planet.get_bounds().x1
-      self.position = int(x - self.velocity)
-      self.mid_planet.set_properties(x=self.position,y=200)
-      if self.position > 200:
-        gobject.timeout_add(self.frequency,self.force)
-      else:
-        self.crash()
+#    if self.direction == 1:
+#      x = self.mid_planet.get_bounds().x1
+#      self.position = int(x - self.velocity)
+#      self.mid_planet.set_properties(x=self.position,y=200)
+#      if self.position > 200:
+#        gobject.timeout_add(self.frequency,self.force)
+#      else:
+#        self.crash()
 
-    elif self.direction ==2:
-      x = self.mid_planet.get_bounds().x1
-      self.position = int(x + self.velocity)
-      self.mid_planet.set_properties(x=self.position,y=200)
-      if self.position < 615:
-        gobject.timeout_add(self.frequency,self.force)
-      else:
-        self.crash()
+#    elif self.direction ==2:
+    print 'move_mid_planet'
+    x = self.mid_planet.get_bounds().x1
+    self.position = int(x + self.velocity)
+    gcompris.utils.item_absolute_move(self.mid_planet, self.position,200)
+#    self.mid_planet.set_properties(x=self.position,y=200)
+    if self.position < 615 and self.position > 200:
+      print 'position condition'
+      gobject.timeout_add(self.frequency,self.force)
+    else:
+      self.crash()
       
       
   def force(self):
     if self.mass_neptune == self.mass_saturn:
       self.move_mid_planet() 
-    
+      print 'equal',self.velocity
+      
     elif self.mass_neptune > self.mass_saturn:
-      if self.direction != 2:
-        self.velocity = 1
+#      if self.direction != 2:
+#        self.velocity = 1
       self.velocity += 1
       self.direction = 2
       self.move_mid_planet()
+      print 'right',self.velocity
 
     else:
-      if self.direction != 1:
-       self.velocity = 1
+#      if self.direction != 1:
+#       self.velocity = 1
       self.velocity +=1
       self.direction = 1
       self.move_mid_planet()
-    
+      print 'right',self.velocity
 
