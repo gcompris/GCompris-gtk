@@ -26,7 +26,6 @@ import goocanvas
 import pango
 import gcompris.bonus
 import gobject
-import gcompris.timer
 from gcompris import gcompris_gettext as _
 
 
@@ -104,9 +103,9 @@ class Gcompris_intro_gravity:
     gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                            "intro_gravity/background.svg")
 
-    #Load the middle planet
+    #Load the middle planet - Uranus
     pixbuf = gcompris.utils.load_pixmap("intro_gravity/uranus.png")
-    self.mid_planet = goocanvas.Image(
+    self.planet_C = goocanvas.Image(
       parent = self.rootitem,
       pixbuf = pixbuf,
       height = 50,
@@ -114,9 +113,9 @@ class Gcompris_intro_gravity:
       x = 375,
       y = 200)
 
-    #Load planet on left  
+    #Load planet on the left - saturn 
     pixbuf = gcompris.utils.load_pixmap("intro_gravity/saturn.png")
-    self.saturn = goocanvas.Image(
+    self.planet_A = goocanvas.Image(
       parent = self.rootitem,
       pixbuf=pixbuf,
       height=130,
@@ -133,38 +132,38 @@ class Gcompris_intro_gravity:
       width=2.0)
 
 
-    #Increase button for saturn
+    #Increase button for planet_A
     pixbuf_plus = gcompris.utils.load_pixmap("/intro_gravity/plus.png")
-    plus_saturn = goocanvas.Image(
+    plus_planet_A = goocanvas.Image(
       parent = self.rootitem,
       pixbuf = pixbuf_plus,
       x = 9,
       y = 175
       )
-    plus_saturn.connect("button_press_event",self.increase_saturn)
+    plus_planet_A.connect("button_press_event",self.increase_planet_A)
       
-    #Decrease button for saturn
+    #Decrease button for planet_A
     pixbuf_minus = gcompris.utils.load_pixmap("intro_gravity/minus.png")
-    minus_saturn = goocanvas.Image(
+    minus_planet_A = goocanvas.Image(
       parent = self.rootitem,
       pixbuf = pixbuf_minus,
       x = 9,
       y = 250
       )  
-    minus_saturn.connect("button_press_event",self.decrease_saturn)
+    minus_planet_A.connect("button_press_event",self.decrease_planet_A)
 
-    #sliding bar for saturn  
+    #sliding bar for planet_A  
     points = goocanvas.Points([(21,247),(33,247)])
-    self.bar_saturn = goocanvas.Polyline(
+    self.bar_planet_A = goocanvas.Polyline(
       parent = self.rootitem,
       points=points,
       stroke_color="grey",
       line_width=5.0)
-    self.yBar_saturn = 247  
+    self.yBar_planet_A = 247  
       
-    #Planet on right
+    #Planet on right - neptune
     pixbuf = gcompris.utils.load_pixmap("intro_gravity/neptune.png")
-    self.neptune = goocanvas.Image(
+    self.planet_B = goocanvas.Image(
       parent = self.rootitem,
       pixbuf=pixbuf,
       height=50,
@@ -180,42 +179,41 @@ class Gcompris_intro_gravity:
       stroke_color="grey",
       width=2.0)
 
-    #Increase button for neptune
+    #Increase button for planet_B
     pixbuf_plus = gcompris.utils.load_pixmap("/intro_gravity/plus.png")
-    plus_neptune = goocanvas.Image(
+    plus_planet_B = goocanvas.Image(
       parent = self.rootitem,
       pixbuf = pixbuf_plus,
       x = 770,
       y = 175
       )
 
-    plus_neptune.connect("button_press_event",self.increase_neptune)
+    plus_planet_B.connect("button_press_event",self.increase_planet_B)
       
-    #Decrease button for neptune
+    #Decrease button for planet_B
     pixbuf_minus = gcompris.utils.load_pixmap("intro_gravity/minus.png")
-    minus_neptune = goocanvas.Image(
+    minus_planet_B = goocanvas.Image(
       parent = self.rootitem,
       pixbuf = pixbuf_minus,
       x = 770,
       y = 250
       )  
     
-    minus_neptune.connect("button_press_event",self.decrease_neptune)
+    minus_planet_B.connect("button_press_event",self.decrease_planet_B)
     
     #sliding bar  
     points = goocanvas.Points([(782,247),(794,247)])
-    self.bar_neptune = goocanvas.Polyline(
+    self.bar_planet_B = goocanvas.Polyline(
       parent = self.rootitem,
       points=points,
       stroke_color="grey",
       line_width=5.0)
-    self.yBar_neptune = 247  
+    self.yBar_planet_B = 247  
     
     #declaring variables     
     self.timer_on = False  
-    self.mass_neptune = self.mass_saturn = 10000 
+    self.mass_planet_B = self.mass_planet_A = 10000 
     self.velocity = 1
-#    self.direction = None
       
   def end(self):
     print "intro_gravity end"
@@ -253,70 +251,54 @@ class Gcompris_intro_gravity:
 
   def set_level(self,a,b,c):
     if self.gcomprisBoard.level == 1:
-      self.frequency = 600
+      self.frequency = 30
     elif self.gcomprisBoard.level == 2:
-      self.frequency = 400
+      self.frequency = 30
     elif self.gcomprisBoard.level == 3:
-      self.frequency = 300
+      self.frequency = 30
 
     self.game()   
   
-  def increase_neptune(self,a,b,c):
+  def increase_planet_B(self,a,b,c):
     self.timer()
     #increase planet if not maximum and move bar
-    if self.yBar_neptune > 207:
-      self.neptune.scale(1.1,1.1)
-      self.neptune.translate(-63,-20)
-      self.yBar_neptune -=8
-      gcompris.utils.item_absolute_move(self.bar_neptune, 782,self.yBar_neptune)
-#      if self.direction == None:
-#        self.direction = 2
-#        self.move_mid_planet()
-#      else:
-      self.move_mid_planet()
-      self.mass_neptune += 5000
+    if self.yBar_planet_B > 207:
+      self.planet_B.scale(1.1,1.1)
+      self.planet_B.translate(-63,-20)
+      self.yBar_planet_B -=8
+      gcompris.utils.item_absolute_move(self.bar_planet_B, 782,self.yBar_planet_B)
+      self.move_planet_C()
+      self.mass_planet_B += 5000
     
-  def increase_saturn(self,a,b,c):
+  def increase_planet_A(self,a,b,c):
     self.timer()    
-    if self.yBar_saturn > 207: 
-      self.saturn.scale(1.1,1.1)
-      self.saturn.translate(-8,-20)  	
-      self.yBar_saturn -=8
-      gcompris.utils.item_absolute_move(self.bar_saturn,21,self.yBar_saturn)
-#      if self.direction == None:
-#        self.direction = 1
-#        self.move_mid_planet()
-#      else:
-      self.move_mid_planet()
-      self.mass_saturn += 5000
+    if self.yBar_planet_A > 207: 
+      self.planet_A.scale(1.1,1.1)
+      self.planet_A.translate(-8,-20)  	
+      self.yBar_planet_A -=8
+      gcompris.utils.item_absolute_move(self.bar_planet_A,21,self.yBar_planet_A)
+      self.move_planet_C()
+      self.mass_planet_A += 5000
       
-  def decrease_neptune(self,a,b,c):
+  def decrease_planet_B(self,a,b,c):
     self.timer()    
-    if self.yBar_neptune < 247:
-      self.neptune.scale(0.9,0.9) 
-      self.neptune.translate(78,25)
-      self.yBar_neptune +=8
-      gcompris.utils.item_absolute_move(self.bar_neptune, 782,self.yBar_neptune)
-#      if self.direction == None:
-#        self.direction = 1
-#        self.move_mid_planet()
-#      else:
-      self.move_mid_planet()
-      self.mass_neptune -= 5000
+    if self.yBar_planet_B < 247:
+      self.planet_B.scale(0.9,0.9) 
+      self.planet_B.translate(78,25)
+      self.yBar_planet_B +=8
+      gcompris.utils.item_absolute_move(self.bar_planet_B, 782,self.yBar_planet_B)
+      self.move_planet_C()
+      self.mass_planet_B -= 5000
 
-  def decrease_saturn(self,a,b,c):
+  def decrease_planet_A(self,a,b,c):
     self.timer()
-    if self.yBar_saturn < 247:
-      self.saturn.scale(0.9,0.9)
-      self.saturn.translate(10,25)
-      self.yBar_saturn += 8
-      gcompris.utils.item_absolute_move(self.bar_saturn,21,self.yBar_saturn)
-#      if self.direction == None:
-#        self.direction = 2
-#        self.move_mid_planet()
-#      else:
-      self.move_mid_planet()
-      self.mass_saturn -= 5000
+    if self.yBar_planet_A < 247:
+      self.planet_A.scale(0.9,0.9)
+      self.planet_A.translate(10,25)
+      self.yBar_planet_A += 8
+      gcompris.utils.item_absolute_move(self.bar_planet_A,21,self.yBar_planet_A)
+      self.move_planet_C()
+      self.mass_planet_A -= 5000
       
   def timer(self):
     if self.timer_on == False:
@@ -339,47 +321,30 @@ class Gcompris_intro_gravity:
       gcompris.bonus.display(gcompris.bonus.LOOSE,gcompris.bonus.TUX)
       self.board_paused = 1
 
-  def move_mid_planet(self):
-#    if self.direction == 1:
-#      x = self.mid_planet.get_bounds().x1
-#      self.position = int(x - self.velocity)
-#      self.mid_planet.set_properties(x=self.position,y=200)
-#      if self.position > 200:
-#        gobject.timeout_add(self.frequency,self.force)
-#      else:
-#        self.crash()
-
-#    elif self.direction ==2:
-    print 'move_mid_planet'
-    x = self.mid_planet.get_bounds().x1
+  def move_planet_C(self):
+    x = self.planet_C.get_bounds().x1
     self.position = int(x + self.velocity)
-    gcompris.utils.item_absolute_move(self.mid_planet, self.position,200)
-#    self.mid_planet.set_properties(x=self.position,y=200)
+    self.planet_C.set_properties(x=self.position,y=200)
     if self.position < 615 and self.position > 200:
-      print 'position condition'
       gobject.timeout_add(self.frequency,self.force)
     else:
       self.crash()
       
       
   def force(self):
-    if self.mass_neptune == self.mass_saturn:
-      self.move_mid_planet() 
+    if self.mass_planet_B == self.mass_planet_A:
+      self.move_planet_C() 
       print 'equal',self.velocity
       
-    elif self.mass_neptune > self.mass_saturn:
-#      if self.direction != 2:
-#        self.velocity = 1
+    elif self.mass_planet_B > self.mass_planet_A:
       self.velocity += 1
       self.direction = 2
-      self.move_mid_planet()
+      self.move_planet_C()
       print 'right',self.velocity
 
     else:
-#      if self.direction != 1:
-#       self.velocity = 1
-      self.velocity +=1
+      self.velocity -=1
       self.direction = 1
-      self.move_mid_planet()
+      self.move_planet_C()
       print 'right',self.velocity
 
