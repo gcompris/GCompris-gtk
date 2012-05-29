@@ -104,6 +104,8 @@ class Gcompris_intro_gravity:
                            "intro_gravity/background.svg")
 
     #Load the middle planet - Uranus
+#    self.moving_obj = moving_planet(self.gcomprisBoard)
+#    self.planet_C = self.moving_obj.load_moving_planet(self.rootitem)
     pixbuf = gcompris.utils.load_pixmap("intro_gravity/uranus.png")
     self.planet_C = goocanvas.Image(
       parent = self.rootitem,
@@ -113,108 +115,63 @@ class Gcompris_intro_gravity:
       x = 375,
       y = 200)
 
+
     #Load planet on the left - saturn 
-    pixbuf = gcompris.utils.load_pixmap("intro_gravity/saturn.png")
-    self.planet_A = goocanvas.Image(
-      parent = self.rootitem,
-      pixbuf=pixbuf,
-      height=130,
-      width=130,
-      x=45,
-      y=160)
+    fixed_obj = fixed_planet()
+    planet = "saturn.png"
+    self.planet_A = fixed_obj.load_fixed_planet(planet,45,160,130,self.rootitem)
       
     #line joining increase and decrease button
     points = goocanvas.Points([(27,190),(27,270)])
-    self.line = goocanvas.Polyline(
-      parent = self.rootitem,
-      points=points,
-      stroke_color="grey",
-      width=2.0)
-
+    slider_obj = slider()
+    slider_obj.scale(points,self.rootitem)
 
     #Increase button for planet_A
-    pixbuf_plus = gcompris.utils.load_pixmap("/intro_gravity/plus.png")
-    plus_planet_A = goocanvas.Image(
-      parent = self.rootitem,
-      pixbuf = pixbuf_plus,
-      x = 9,
-      y = 175
-      )
+    x = 9
+    plus_planet_A = slider_obj.increase_button(x,self.rootitem) 
     plus_planet_A.connect("button_press_event",self.increase_planet_A)
       
     #Decrease button for planet_A
-    pixbuf_minus = gcompris.utils.load_pixmap("intro_gravity/minus.png")
-    minus_planet_A = goocanvas.Image(
-      parent = self.rootitem,
-      pixbuf = pixbuf_minus,
-      x = 9,
-      y = 250
-      )  
+    x = 9 
+    minus_planet_A = slider_obj.decrease_button(x,self.rootitem)
     minus_planet_A.connect("button_press_event",self.decrease_planet_A)
 
     #sliding bar for planet_A  
     points = goocanvas.Points([(21,247),(33,247)])
-    self.bar_planet_A = goocanvas.Polyline(
-      parent = self.rootitem,
-      points=points,
-      stroke_color="grey",
-      line_width=5.0)
+    self.bar_planet_A = slider_obj.sliding_bar(points,self.rootitem)
     self.yBar_planet_A = 247  
       
     #Planet on right - neptune
-    pixbuf = gcompris.utils.load_pixmap("intro_gravity/neptune.png")
-    self.planet_B = goocanvas.Image(
-      parent = self.rootitem,
-      pixbuf=pixbuf,
-      height=50,
-      width=50,
-      x=690,
-      y=200)
+
+    planet = "neptune.png"
+    self.planet_B = fixed_obj.load_fixed_planet(planet,690,200,50,self.rootitem)
+
 
     #Line joining increase and decrease button
     points = goocanvas.Points([(788,190),(788,270)])
-    self.line = goocanvas.Polyline(
-      parent = self.rootitem,
-      points=points,
-      stroke_color="grey",
-      width=2.0)
+    slider_obj.scale(points,self.rootitem)
+
 
     #Increase button for planet_B
-    pixbuf_plus = gcompris.utils.load_pixmap("/intro_gravity/plus.png")
-    plus_planet_B = goocanvas.Image(
-      parent = self.rootitem,
-      pixbuf = pixbuf_plus,
-      x = 770,
-      y = 175
-      )
-
+    x = 770
+    plus_planet_B = slider_obj.increase_button(x,self.rootitem) 
     plus_planet_B.connect("button_press_event",self.increase_planet_B)
       
     #Decrease button for planet_B
-    pixbuf_minus = gcompris.utils.load_pixmap("intro_gravity/minus.png")
-    minus_planet_B = goocanvas.Image(
-      parent = self.rootitem,
-      pixbuf = pixbuf_minus,
-      x = 770,
-      y = 250
-      )  
-    
+    x = 770
+    minus_planet_B  = slider_obj.decrease_button(x,self.rootitem)    
     minus_planet_B.connect("button_press_event",self.decrease_planet_B)
     
     #sliding bar  
     points = goocanvas.Points([(782,247),(794,247)])
-    self.bar_planet_B = goocanvas.Polyline(
-      parent = self.rootitem,
-      points=points,
-      stroke_color="grey",
-      line_width=5.0)
+    self.bar_planet_B = slider_obj.sliding_bar(points,self.rootitem)  
     self.yBar_planet_B = 247  
     
     #declaring variables     
     self.timer_on = False  
-    self.mass_planet_B = self.mass_planet_A = 10000 
-    self.velocity = 1
-      
+    self.mass_planet_A = self.mass_planet_B = 1000
+    self.velocity = 0
+    self.count = 1  
   def end(self):
     print "intro_gravity end"
     # Remove the root item removes all the others inside it
@@ -251,11 +208,11 @@ class Gcompris_intro_gravity:
 
   def set_level(self,a,b,c):
     if self.gcomprisBoard.level == 1:
-      self.frequency = 30
+      self.level = 100
     elif self.gcomprisBoard.level == 2:
-      self.frequency = 30
+      self.level = 70
     elif self.gcomprisBoard.level == 3:
-      self.frequency = 30
+      self.level = 50
 
     self.game()   
   
@@ -267,8 +224,8 @@ class Gcompris_intro_gravity:
       self.planet_B.translate(-63,-20)
       self.yBar_planet_B -=8
       gcompris.utils.item_absolute_move(self.bar_planet_B, 782,self.yBar_planet_B)
-      self.move_planet_C()
       self.mass_planet_B += 5000
+      self.move_planet()
     
   def increase_planet_A(self,a,b,c):
     self.timer()    
@@ -277,8 +234,8 @@ class Gcompris_intro_gravity:
       self.planet_A.translate(-8,-20)  	
       self.yBar_planet_A -=8
       gcompris.utils.item_absolute_move(self.bar_planet_A,21,self.yBar_planet_A)
-      self.move_planet_C()
       self.mass_planet_A += 5000
+      self.move_planet()
       
   def decrease_planet_B(self,a,b,c):
     self.timer()    
@@ -287,8 +244,8 @@ class Gcompris_intro_gravity:
       self.planet_B.translate(78,25)
       self.yBar_planet_B +=8
       gcompris.utils.item_absolute_move(self.bar_planet_B, 782,self.yBar_planet_B)
-      self.move_planet_C()
       self.mass_planet_B -= 5000
+      self.move_planet()
 
   def decrease_planet_A(self,a,b,c):
     self.timer()
@@ -297,8 +254,8 @@ class Gcompris_intro_gravity:
       self.planet_A.translate(10,25)
       self.yBar_planet_A += 8
       gcompris.utils.item_absolute_move(self.bar_planet_A,21,self.yBar_planet_A)
-      self.move_planet_C()
       self.mass_planet_A -= 5000
+      self.move_planet()
       
   def timer(self):
     if self.timer_on == False:
@@ -321,30 +278,85 @@ class Gcompris_intro_gravity:
       gcompris.bonus.display(gcompris.bonus.LOOSE,gcompris.bonus.TUX)
       self.board_paused = 1
 
-  def move_planet_C(self):
+  def move_planet(self):
     x = self.planet_C.get_bounds().x1
-    self.position = int(x + self.velocity)
+    self.position = x + self.velocity
     self.planet_C.set_properties(x=self.position,y=200)
-    if self.position < 615 and self.position > 200:
-      gobject.timeout_add(self.frequency,self.force)
+    if self.position < 615 and self.position > 175:
+      gobject.timeout_add(30,self.force)
     else:
       self.crash()
       
-      
   def force(self):
     if self.mass_planet_B == self.mass_planet_A:
-      self.move_planet_C() 
-      print 'equal',self.velocity
+      self.move_planet() 
       
     elif self.mass_planet_B > self.mass_planet_A:
-      self.velocity += 1
-      self.direction = 2
-      self.move_planet_C()
-      print 'right',self.velocity
+      self.count +=1
+      if self.count%self.level==0 or self.velocity ==0:
+        self.velocity +=1
+      self.move_planet()
 
     else:
-      self.velocity -=1
-      self.direction = 1
-      self.move_planet_C()
-      print 'right',self.velocity
+      self.count +=1
+      if self.count%self.level==0 or self.velocity ==0:
+        self.velocity -=1
+      self.move_planet()
+    
+
+class fixed_planet:
+  """ Fixed planets """
+
+  def load_fixed_planet(self,planet,x,y,size,rootitem):
+    image = "intro_gravity/"+planet
+    pixbuf = gcompris.utils.load_pixmap(image)
+    planet = goocanvas.Image(
+      parent = rootitem,
+      pixbuf=pixbuf,
+      height=size,
+      width=size,
+      x=x,
+      y=y)
+    return planet
+
+    
+class slider:
+  """ class for scale slider"""
+
+  def scale(self,points,rootitem):
+    self.line = goocanvas.Polyline(
+      parent = rootitem,
+      points=points,
+      stroke_color="grey",
+      width=2.0)
+
+  def increase_button(self,x,rootitem):
+    pixbuf = gcompris.utils.load_pixmap("/intro_gravity/plus.png")
+    button = goocanvas.Image(
+      parent = rootitem,
+      pixbuf = pixbuf,
+      x = x,
+      y = 175
+      )
+    return button
+    
+  def decrease_button(self,x,rootitem):
+    pixbuf = gcompris.utils.load_pixmap("intro_gravity/minus.png")
+    button = goocanvas.Image(
+      parent = rootitem,
+      pixbuf = pixbuf,
+      x = x,
+      y = 250
+      )  
+    return button
+    
+  def sliding_bar(self,points,rootitem):
+    bar = goocanvas.Polyline(
+      parent = rootitem,
+      points=points,
+      stroke_color="grey",
+      line_width=5.0)
+    return bar
+    
+    
 
