@@ -159,8 +159,10 @@ class Gcompris_intro_gravity:
     #declaring variables     
     self.timer_on = False  
     self.planet_left_mass = self.planet_right_mass = 1000  
-    self.velocity = 1
-
+    self.velocity = 0
+    self.old_force = None
+    self.count = 0
+    
   def end(self):
     print "intro_gravity end"
     # Remove the root item removes all the others inside it
@@ -208,25 +210,26 @@ class Gcompris_intro_gravity:
   def increase_planet_right(self,a,b,c):
     self.timer()
     self.slider_right.move_bar(782,-8,1)
-    self.move_planet()
+    self.planet_right_mass = self.planet_right.set_mass(1.1,-63,-20,500,1)
+    self.move_planet('right')
     
   def increase_planet_left(self,a,b,c):
     self.timer()    
     self.planet_left_mass = self.planet_left.set_mass(1.1,-8,-20,500,1)
     self.slider_left.move_bar(21,-8,1)
-    self.move_planet()
+    self.move_planet('left')
      
   def decrease_planet_right(self,a,b,c):
     self.timer()    
     self.planet_right_mass = self.planet_right.set_mass(0.9,78,25,-500,2)
     self.slider_right.move_bar(782,8,2)
-    self.move_planet()
+    self.move_planet('left')
     
   def decrease_planet_left(self,a,b,c):
     self.timer()
     self.planet_left_mass = self.planet_left.set_mass(0.9,10,25,-500,2)
     self.slider_left.move_bar(21,8,2)
-    self.move_planet()
+    self.move_planet('right')
       
   def timer(self):
     if self.timer_on == False:
@@ -249,33 +252,57 @@ class Gcompris_intro_gravity:
       gcompris.bonus.display(gcompris.bonus.LOOSE,gcompris.bonus.TUX)
       self.board_paused = 1
 
-  def move_planet(self):
+  def move_planet(self,force):
     x = self.planet_mid.get_bounds().x1
     position = x + self.velocity
-    self.planet_mid.set_properties(x=position,y=198)
     if position < 615 and position > 175:
-      gobject.timeout_add(30,self.force)
+      self.planet_mid.set_properties(x=position,y=198)
+      self.new(force)
     else:
       self.crash()
+  
+  def new(self,force):
+    new_force = force
+    if new_force == 'equal':
+      if self.old_force == 'left':
+        self.velocity = self.last_velocity
+      elif self.old_force == 'right':
+        self.velocity = self.last_velocity
+        
+      self.old_force = new_force  
+      
+    elif self.old_force == new_force or new_force == 'equal':
+      self.true = 2
+      self.count += 1
+      if self.count == 100:
+        self.true = 1
+        self.count = 0
+
+    elif self.old_force != new_force:
+      self.old_force = new_force
+      self.true =1
+      self.last_velocity = self.velocity
+      self.velocity = 0
+
+    else:
+      self.true = 2
+      print self.true      
+      
+    gobject.timeout_add(30,self.force)
       
   def force(self):    
     if self.planet_right_mass == self.planet_left_mass:
-      print self.velocity
-      self.move_planet()
+      self.move_planet('equal')
       
     elif self.planet_right_mass > self.planet_left_mass:
-      self.count +=1
-      if self.count%self.level==0 or self.velocity ==0:
+      if self.true == 1:
         self.velocity +=1
-        print self.count
-      self.move_planet()
+      self.move_planet('right')
 
     else:
-      self.count +=1
-      if self.count%self.level==0 or self.velocity ==0:
-        self.velocity -=1  
-        print self.count
-      self.move_planet()
+      if self.true == 1:
+        self.velocity -=1
+      self.move_planet('left')
     
 
 class fixed_planet:
