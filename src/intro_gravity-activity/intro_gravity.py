@@ -199,7 +199,7 @@ class Gcompris_intro_gravity:
 
   def set_level(self,a,b,c):
     if self.gcomprisBoard.level == 1:
-      self.level = 100
+      self.level = 150
     elif self.gcomprisBoard.level == 2:
       self.level = 100
     elif self.gcomprisBoard.level == 3:
@@ -257,37 +257,33 @@ class Gcompris_intro_gravity:
     position = x + self.velocity
     if position < 615 and position > 175:
       self.planet_mid.set_properties(x=position,y=198)
-      self.new(force)
+      print self.velocity
+      self.check(force)
     else:
       self.crash()
   
-  def new(self,force):
-    new_force = force
-    if new_force == 'equal':
-      if self.old_force == 'left':
-        self.velocity = self.last_velocity
-      elif self.old_force == 'right':
-        self.velocity = self.last_velocity
-        
-      self.old_force = new_force  
+  def check(self,force):
+    if force == 'equal':
+      print 'equal'
+      self.velocity = self.last_velocity
       
-    elif self.old_force == new_force or new_force == 'equal':
+    elif self.old_force == force:
       self.true = 2
       self.count += 1
-      if self.count == 100:
+      if self.count == self.level or self.velocity == 0:
         self.true = 1
         self.count = 0
 
-    elif self.old_force != new_force:
-      self.old_force = new_force
+    elif self.old_force != force:
       self.true =1
       self.last_velocity = self.velocity
-      self.velocity = 0
+      if self.old_force == 'left':
+        self.velocity = -1
+      elif self.old_force == 'right':
+        self.velocity = 1
 
-    else:
-      self.true = 2
-      print self.true      
-      
+      self.old_force = force
+     
     gobject.timeout_add(30,self.force)
       
   def force(self):    
