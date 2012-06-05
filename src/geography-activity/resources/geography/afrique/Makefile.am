@@ -5,7 +5,7 @@ img_DATA = \
 	angola.png \
 	benin.png \
 	botswana.png \
-	burkina.png \
+	burkina_faso.png \
 	cameroon.png \
 	chad.png \
 	congo.png \
