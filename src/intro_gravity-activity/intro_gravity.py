@@ -113,15 +113,6 @@ class Gcompris_intro_gravity:
     #Planet on right (neptune) and it's slider
     self.planet_right = fixed_planet(self.rootitem,middle)
     self.planet_right.load_planet("neptune.png",660,165,2)
-
-
-    
-    #declaring variables     
-    self.timer_on = False  
-    self.planet_left_mass = self.planet_right_mass = 1000  
-    self.velocity = 0
-    self.old_force = None
-    self.count = 0
     
   def end(self):
     print "intro_gravity end"
@@ -166,10 +157,7 @@ class Gcompris_intro_gravity:
       self.level = 50
 
     self.game()   
-  
-      
-
-
+    
   def next_level(self):
       gcompris.bonus.display(gcompris.bonus.WIN,gcompris.bonus.TUX)
       self.end()
@@ -220,14 +208,7 @@ class mid_planet(Gcompris_intro_gravity):
     else:
       self.crash()
       gobject.source_remove(self.t)  
-      
-  
-  def timer(self):
-    if self.timer_on == False:
-      self.t = gobject.timeout_add(15000,self.next_level)
-      self.timer_on = True
-
-  
+        
   def check(self,force):
     if force == 'equal':
       self.velocity = self.last_velocity
@@ -235,7 +216,7 @@ class mid_planet(Gcompris_intro_gravity):
     elif self.old_force == force:
       self.true = 2
       self.count += 1
-      if self.count == 100 or self.velocity == 0:
+      if self.count == 150 or self.velocity == 0:
         self.true = 1
         self.count = 0
 
@@ -264,6 +245,11 @@ class mid_planet(Gcompris_intro_gravity):
       if self.true == 1:
         self.velocity -=1
       self.move_planet('left',1,self.planet_left_mass)
+  
+  def timer(self):
+    if self.timer_on == False:
+      self.t = gobject.timeout_add(15000,self.next_level)
+      self.timer_on = True    
     
 
 class fixed_planet:
@@ -309,34 +295,7 @@ class fixed_planet:
       
     #Decrease button
     decr = self.scale_slider.decrease_button(button_x)
-    decr.connect("button_press_event",self.set_mass,0.9,translate_x_decr,25,-500,2,planet)
-
-
-  def increase_planet(self,a,b,c):
-    if self.planet_no == 1:
-      x_bar = 21
-      direction = 'left'
-    elif self.planet_no == 2:
-      x_bar = 782
-      direction = 'right'
-    
-    self.timer()
-    self.mid.move_planet(direction)
-    
-    
-  def decrease_planet(self,a,b,c):
-    if self.planet_no == 2:
-      x_bar = 782
-      direction = 'left'
-    
-    elif self.planet_no == 1:
-      x_bar = 21
-      translate_x = 10
-      direction = 'right'
-
-    self.timer()    
-    self.mid.move_planet(direction)
-    
+    decr.connect("button_press_event",self.set_mass,0.9,translate_x_decr,25,-500,2,planet)    
 
   def set_mass(self,a,b,c,scale,x,y,mass,button,planet):
     if (self.planet_mass < 3500 and button ==1) or (self.planet_mass > 1000 and button ==2):
