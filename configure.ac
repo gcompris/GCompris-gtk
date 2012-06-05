@@ -1,6 +1,6 @@
 dnl Process this file with autoconf to produce a configure script.
 
-AC_INIT(gcompris, 12.01, http://gcompris.net)
+AC_INIT(gcompris, 12.05, http://gcompris.net)
 
 AM_INIT_AUTOMAKE([tar-ustar no-dist-gzip dist-bzip2 -Wno-portability])
 
