@@ -22,6 +22,9 @@
 #include <string.h>
 #include <unistd.h>
 #include <signal.h>
+#ifndef WIN32
+#include <sys/wait.h>
+#endif
 
 #include "chess_notation.h"
 
@@ -1066,7 +1069,7 @@ static void
 engine_local_destroy (GPid gnuchess_pid)
 {
 
-  g_warning("engine_local_destroy (%d) \n", gnuchess_pid);
+  g_warning("engine_local_destroy (%d) \n", (int)gnuchess_pid);
   write_child (write_chan, "quit\n");
 
   g_source_remove(read_cb);
@@ -1079,6 +1082,10 @@ engine_local_destroy (GPid gnuchess_pid)
   g_io_channel_unref (write_chan);
 
   g_spawn_close_pid(gnuchess_pid);
+#ifndef WIN32
+  int status;
+  waitpid(gnuchess_pid, &status, 0);
+#endif
 }
 
 /** We got data back from gnuchess, we parse them here
@@ -1265,7 +1272,7 @@ start_child (char *cmd,
   g_warning("Ready to start child");
 
   if (!g_spawn_async_with_pipes(NULL, Child_Argv, NULL,
-				G_SPAWN_SEARCH_PATH,
+				G_SPAWN_SEARCH_PATH | G_SPAWN_DO_NOT_REAP_CHILD,
 				NULL, NULL, Child_Process, &Child_In, &Child_Out,
 				&Child_Err, &gerror)) {
 
