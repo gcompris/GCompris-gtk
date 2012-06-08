@@ -59,6 +59,7 @@ class Gcompris_intro_gravity:
     self.rootitem = goocanvas.Group(parent =
                                     self.gcomprisBoard.canvas.get_root_item())
     
+    #set initial background
     gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),"intro_gravity/solar_system.svgz")
 
     #Load the solar system image
@@ -103,7 +104,7 @@ class Gcompris_intro_gravity:
                            "intro_gravity/background.svg")
 
     #Load the middle planet - Uranus
-    middle = mid_planet(self.rootitem)
+    middle = mid_planet(self.rootitem,self.level)
 
     #Load planet on the left (saturn) and it's slider 
     self.planet_left = fixed_planet(self.rootitem,middle)
@@ -155,7 +156,6 @@ class Gcompris_intro_gravity:
       self.level = 100
     elif self.gcomprisBoard.level == 3:
       self.level = 50
-
     self.game()   
     
   def next_level(self):
@@ -175,7 +175,7 @@ class Gcompris_intro_gravity:
 class mid_planet(Gcompris_intro_gravity):
   """Class for moving planet in the middle"""
 
-  def __init__(self,rootitem):
+  def __init__(self,rootitem,level):
     self.rootitem = rootitem
     pixbuf = gcompris.utils.load_pixmap("intro_gravity/uranus.png")
     self.planet_mid = goocanvas.Image(
@@ -186,12 +186,14 @@ class mid_planet(Gcompris_intro_gravity):
       x = 375,
       y = 198)
 
+    #declaring variables
     self.velocity = 0
     self.old_force = None
     self.count = 0
     self.planet_right_mass = 1000
     self.planet_left_mass = 1000 
     self.timer_on = False
+    self.level = level
 
   def move_planet(self,force,planet,planet_mass):
     self.timer()
@@ -216,7 +218,7 @@ class mid_planet(Gcompris_intro_gravity):
     elif self.old_force == force:
       self.true = 2
       self.count += 1
-      if self.count == 150 or self.velocity == 0:
+      if self.count == self.level or self.velocity == 0:
         self.true = 1
         self.count = 0
 
@@ -257,7 +259,6 @@ class fixed_planet:
   def __init__(self,rootitem,mid_instance):
     self.mid = mid_instance
     self.rootitem = rootitem
-    self.planet_mass = 1000 
      
   def load_planet(self,planet_image,x,y,planet):
     self.planet_ = planet 
@@ -276,16 +277,7 @@ class fixed_planet:
     else:
       points_line = goocanvas.Points([(788,190),(788,270)])
 
-    self.scale_slider= slider(self,points_line) #scale line
-
-  def set_mass(self,a,b,c,scale,x,y,mass,button,force):
-    if (self.planet_mass < 3500 and button ==1) or (self.planet_mass > 1000 and button ==2):
-      self.planet.scale(scale,scale)
-      self.planet.translate(x,y)
-      self.planet_mass += mass 
-      
-    self.mid.move_planet(force,self.planet_,self.planet_mass)
-      
+    self.scale_slider= slider(self,points_line) #scale line      
            
 class slider:
   """ class for scale slider"""
@@ -297,6 +289,7 @@ class slider:
       points=points,
       stroke_color="grey",
       width=2.0)
+    self.planet_mass = 1000 
       
     if planet_instance.planet_ == 1:
       points_bar = goocanvas.Points([(21,247),(33,247)])
@@ -326,7 +319,7 @@ class slider:
       translate_x = -63
       x_bar = 782
       force = 'right'
-    button.connect("button_press_event",self.planet_instance.set_mass,1.1,translate_x,-20,500,1,force)
+    button.connect("button_press_event",self.set_mass,1.1,translate_x,-20,500,1,force)
     button.connect("button_press_event",self.move_bar,x_bar,-8,1)
     
   def decrease_button(self,x):
@@ -345,7 +338,7 @@ class slider:
       translate_x = 78
       x_bar = 782
       force = 'left'
-    button.connect("button_press_event",self.planet_instance.set_mass,0.9,translate_x,25,-500,2,force)
+    button.connect("button_press_event",self.set_mass,0.9,translate_x,25,-500,2,force)
     button.connect("button_press_event",self.move_bar,x_bar,8,2)
 
   def sliding_bar(self,points):
@@ -361,4 +354,10 @@ class slider:
       y_new = int(y_old + y)
       gcompris.utils.item_absolute_move(self.bar,x,y_new)
       
-
+  def set_mass(self,a,b,c,scale,x,y,mass,button,force):
+    if (self.planet_mass < 3500 and button ==1) or (self.planet_mass > 1000 and button ==2):
+      self.planet_instance.planet.scale(scale,scale)
+      self.planet_instance.planet.translate(x,y)
+      self.planet_mass += mass 
+      
+    self.planet_instance.mid.move_planet(force,self.planet_instance.planet_,self.planet_mass)
