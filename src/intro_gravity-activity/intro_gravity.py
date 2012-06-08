@@ -227,7 +227,6 @@ class mid_planet(Gcompris_intro_gravity):
         self.velocity = -1
       elif self.old_force == 'right':
         self.velocity = 1
-
       self.old_force = force
      
     gobject.timeout_add(30,self.force)
@@ -261,6 +260,7 @@ class fixed_planet:
     self.planet_mass = 1000 
      
   def load_planet(self,planet_image,x,y,planet):
+    self.planet_ = planet 
     image = "intro_gravity/"+planet_image
     pixbuf = gcompris.utils.load_pixmap(image)
     self.planet = goocanvas.Image(
@@ -271,98 +271,91 @@ class fixed_planet:
       x=x,
       y=y)
           
-    if planet == 1:
+    if self.planet_ == 1:
       points_line = goocanvas.Points([(27,190),(27,270)])
-      points_bar = goocanvas.Points([(21,247),(33,247)])
-      button_x = 9
-      translate_x_incr = -8
-      translate_x_decr = 10
-      
     else:
       points_line = goocanvas.Points([(788,190),(788,270)])
-      points_bar = goocanvas.Points([(782,247),(794,247)])
-      button_x = 770
-      translate_x_incr = -63
-      translate_x_decr = 78
 
-    self.scale_slider= slider(points_line,self.rootitem) #scale line
-    self.scale_slider.sliding_bar(points_bar) # the sliding bar 
+    self.scale_slider= slider(self,points_line) #scale line
 
-
-    #Increase button
-    incr = self.scale_slider.increase_button(button_x)
-    incr.connect('button_press_event',self.set_mass,1.1,translate_x_incr,-20,500,1,planet)
-      
-    #Decrease button
-    decr = self.scale_slider.decrease_button(button_x)
-    decr.connect("button_press_event",self.set_mass,0.9,translate_x_decr,25,-500,2,planet)    
-
-  def set_mass(self,a,b,c,scale,x,y,mass,button,planet):
+  def set_mass(self,a,b,c,scale,x,y,mass,button,force):
     if (self.planet_mass < 3500 and button ==1) or (self.planet_mass > 1000 and button ==2):
       self.planet.scale(scale,scale)
       self.planet.translate(x,y)
       self.planet_mass += mass 
       
-    if button == 1:
-      move = -8
-      if planet == 1:
-        force = 'left'
-        x_bar = 21
-      else:
-        force = 'right'
-        x_bar = 782  
-
-    else:
-      move = 8
-      if planet == 1:
-        force = 'right'
-        x_bar = 21
-      else:
-        force = 'left'
-        x_bar = 782  
-    self.scale_slider.move_bar(x_bar,move,button)
-    self.mid.move_planet(force,planet,self.planet_mass)
+    self.mid.move_planet(force,self.planet_,self.planet_mass)
       
            
 class slider:
   """ class for scale slider"""
 
-  def __init__(self,points,rootitem):
-    self.rootitem = rootitem
-    self.line = goocanvas.Polyline(
-      parent = rootitem,
+  def __init__(self,planet_instance,points):
+    self.planet_instance = planet_instance
+    line = goocanvas.Polyline(
+      parent = planet_instance.rootitem,
       points=points,
       stroke_color="grey",
       width=2.0)
+      
+    if planet_instance.planet_ == 1:
+      points_bar = goocanvas.Points([(21,247),(33,247)])
+      button_x = 9
+    else:
+      points_bar = goocanvas.Points([(782,247),(794,247)])
+      button_x = 770
 
+    self.sliding_bar(points_bar)
+    self.decrease_button(button_x)
+    self.increase_button(button_x)    
+    
   def increase_button(self,x):
     pixbuf = gcompris.utils.load_pixmap("/intro_gravity/plus.png")
     button = goocanvas.Image(
-      parent = self.rootitem,
+      parent = self.planet_instance.rootitem,
       pixbuf = pixbuf,
       x = x,
       y = 175
       )
-    return button
+
+    if self.planet_instance.planet_ == 1:
+      translate_x = -8
+      x_bar = 21
+      force = 'left'
+    else:
+      translate_x = -63
+      x_bar = 782
+      force = 'right'
+    button.connect("button_press_event",self.planet_instance.set_mass,1.1,translate_x,-20,500,1,force)
+    button.connect("button_press_event",self.move_bar,x_bar,-8,1)
     
   def decrease_button(self,x):
     pixbuf = gcompris.utils.load_pixmap("intro_gravity/minus.png")
     button = goocanvas.Image(
-      parent = self.rootitem,
+      parent = self.planet_instance.rootitem,
       pixbuf = pixbuf,
       x = x,
       y = 250
       )  
-    return button
-    
+    if self.planet_instance.planet_ == 1:
+      translate_x = 10
+      x_bar = 21
+      force = 'right'
+    else:
+      translate_x = 78
+      x_bar = 782
+      force = 'left'
+    button.connect("button_press_event",self.planet_instance.set_mass,0.9,translate_x,25,-500,2,force)
+    button.connect("button_press_event",self.move_bar,x_bar,8,2)
+
   def sliding_bar(self,points):
     self.bar = goocanvas.Polyline(
-      parent = self.rootitem,
+      parent = self.planet_instance.rootitem,
       points=points,
       stroke_color="grey",
       line_width=5.0)
     
-  def move_bar(self,x,y,button):
+  def move_bar(self,a,b,c,x,y,button):
     y_old = self.bar.get_bounds().y1
     if (y_old > 207 and button ==1) or (y_old < 244 and button ==2):
       y_new = int(y_old + y)
