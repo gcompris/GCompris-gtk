@@ -90,6 +90,7 @@ static gchar *linguas[] = {
   "ja_JP.UTF-8",	N_("Japanese"),
   "rw_RW.UTF-8",	N_("Kinyarwanda"),
   "ko_KR.UTF-8",	N_("Korean"),
+  "lv_LV.UTF-8",	N_("latvian"),
   "lt_LT.UTF-8",	N_("Lithuanian"),
   "mk_MK.UTF-8",	N_("Macedonian"),
   "ms_MY.UTF-8",	N_("Malay"),
