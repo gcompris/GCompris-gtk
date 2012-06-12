@@ -58,7 +58,7 @@ class Gcompris_intro_gravity:
     # automaticaly.
     self.rootitem = goocanvas.Group(parent =
                                     self.gcomprisBoard.canvas.get_root_item())
-    
+
     #set initial background
     gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),"intro_gravity/solar_system.svgz")
 
@@ -69,11 +69,11 @@ class Gcompris_intro_gravity:
       svg_handle = svghandle,
       svg_id = "#selected"
       )
-    
-    #connect the selected label to the next screen  
+
+    #connect the selected label to the next screen
     self.selection.connect("button_press_event", self.set_level)
     gcompris.utils.item_focus_init(self.selection, None)
-    
+
     self.text = goocanvas.Text(parent=self.rootitem,
       x = 400,
       y = 400,
@@ -106,15 +106,15 @@ class Gcompris_intro_gravity:
     #Load the middle planet - Uranus
     middle = mid_planet(self.rootitem,self.level)
 
-    #Load planet on the left (saturn) and it's slider 
+    #Load planet on the left (saturn) and it's slider
     self.planet_left = fixed_planet(self.rootitem,middle)
     self.planet_left.load_planet("saturn.png",45,160,1)
-      
-      
+
+
     #Planet on right (neptune) and it's slider
     self.planet_right = fixed_planet(self.rootitem,middle)
     self.planet_right.load_planet("neptune.png",660,165,2)
-    
+
   def end(self):
     print "intro_gravity end"
     # Remove the root item removes all the others inside it
@@ -156,19 +156,19 @@ class Gcompris_intro_gravity:
       self.level = 100
     elif self.gcomprisBoard.level == 3:
       self.level = 50
-    self.game()   
-    
+    self.game()
+
   def next_level(self):
       gcompris.bonus.display(gcompris.bonus.WIN,gcompris.bonus.TUX)
       self.end()
       self.gcomprisBoard.level += 1
-      self.timer_on = False    
+      self.timer_on = False
       self.board_paused = 1
 
   def crash(self):
       self.end()
       self.board_paused = 1
-      self.timer_on = False    
+      self.timer_on = False
       gcompris.bonus.display(gcompris.bonus.LOOSE,gcompris.bonus.TUX)
       self.board_paused = 1
 
@@ -190,10 +190,10 @@ class mid_planet(Gcompris_intro_gravity):
     self.velocity = 0
     self.old_force = None
     self.count = 0
-    self.planet_right_mass = 1000
-    self.planet_left_mass = 1000 
+    self.planet_right_mass = self.planet_left_mass = 1000
     self.timer_on = False
     self.level = level
+    self.true = 2
 
   def move_planet(self,force,planet,planet_mass):
     self.timer()
@@ -209,12 +209,15 @@ class mid_planet(Gcompris_intro_gravity):
       self.check(force)
     else:
       self.crash()
-      gobject.source_remove(self.t)  
-        
+      gobject.source_remove(self.t)
+
   def check(self,force):
+    #if forces from both planets are equal then velocity does not change
     if force == 'equal':
       self.velocity = self.last_velocity
-      
+      self.old_force = 'equal'
+
+    #if there is no change in force applied then increase velocity gradually
     elif self.old_force == force:
       self.true = 2
       self.count += 1
@@ -222,21 +225,22 @@ class mid_planet(Gcompris_intro_gravity):
         self.true = 1
         self.count = 0
 
+    #incase of change in forces, change direction and velocity according to force
     elif self.old_force != force:
-      self.true =1
       self.last_velocity = self.velocity
-      if self.old_force == 'left':
+      if force == 'left':
         self.velocity = -1
-      elif self.old_force == 'right':
+      elif force == 'right':
         self.velocity = 1
       self.old_force = force
-     
+
     gobject.timeout_add(30,self.force)
-      
-  def force(self):    
+
+  #check force
+  def force(self):
     if self.planet_right_mass == self.planet_left_mass:
       self.move_planet('equal',1,self.planet_left_mass)
-      
+
     elif self.planet_right_mass > self.planet_left_mass:
       if self.true == 1:
         self.velocity +=1
@@ -246,12 +250,12 @@ class mid_planet(Gcompris_intro_gravity):
       if self.true == 1:
         self.velocity -=1
       self.move_planet('left',1,self.planet_left_mass)
-  
+
   def timer(self):
     if self.timer_on == False:
-      self.t = gobject.timeout_add(15000,self.next_level)
-      self.timer_on = True    
-    
+      self.t = gobject.timeout_add(10000,self.next_level)
+      self.timer_on = True
+
 
 class fixed_planet:
   """ Fixed planets """
@@ -259,9 +263,9 @@ class fixed_planet:
   def __init__(self,rootitem,mid_instance):
     self.mid = mid_instance
     self.rootitem = rootitem
-     
+
   def load_planet(self,planet_image,x,y,planet):
-    self.planet_ = planet 
+    self.planet_ = planet
     image = "intro_gravity/"+planet_image
     pixbuf = gcompris.utils.load_pixmap(image)
     self.planet = goocanvas.Image(
@@ -271,14 +275,14 @@ class fixed_planet:
       width=120,
       x=x,
       y=y)
-          
+
     if self.planet_ == 1:
       points_line = goocanvas.Points([(27,190),(27,270)])
     else:
       points_line = goocanvas.Points([(788,190),(788,270)])
 
-    self.scale_slider= slider(self,points_line) #scale line      
-           
+    self.scale_slider= slider(self,points_line) #scale line
+
 class slider:
   """ class for scale slider"""
 
@@ -289,8 +293,8 @@ class slider:
       points=points,
       stroke_color="grey",
       width=2.0)
-    self.planet_mass = 1000 
-      
+    self.planet_mass = 1000
+
     if planet_instance.planet_ == 1:
       points_bar = goocanvas.Points([(21,247),(33,247)])
       button_x = 9
@@ -300,8 +304,8 @@ class slider:
 
     self.sliding_bar(points_bar)
     self.decrease_button(button_x)
-    self.increase_button(button_x)    
-    
+    self.increase_button(button_x)
+
   def increase_button(self,x):
     pixbuf = gcompris.utils.load_pixmap("/intro_gravity/plus.png")
     button = goocanvas.Image(
@@ -319,9 +323,10 @@ class slider:
       translate_x = -63
       x_bar = 782
       force = 'right'
+
     button.connect("button_press_event",self.set_mass,1.1,translate_x,-20,500,1,force)
     button.connect("button_press_event",self.move_bar,x_bar,-8,1)
-    
+
   def decrease_button(self,x):
     pixbuf = gcompris.utils.load_pixmap("intro_gravity/minus.png")
     button = goocanvas.Image(
@@ -329,7 +334,7 @@ class slider:
       pixbuf = pixbuf,
       x = x,
       y = 250
-      )  
+      )
     if self.planet_instance.planet_ == 1:
       translate_x = 10
       x_bar = 21
@@ -347,17 +352,18 @@ class slider:
       points=points,
       stroke_color="grey",
       line_width=5.0)
-    
+
   def move_bar(self,a,b,c,x,y,button):
     y_old = self.bar.get_bounds().y1
     if (y_old > 207 and button ==1) or (y_old < 244 and button ==2):
       y_new = int(y_old + y)
       gcompris.utils.item_absolute_move(self.bar,x,y_new)
-      
+
   def set_mass(self,a,b,c,scale,x,y,mass,button,force):
     if (self.planet_mass < 3500 and button ==1) or (self.planet_mass > 1000 and button ==2):
       self.planet_instance.planet.scale(scale,scale)
       self.planet_instance.planet.translate(x,y)
-      self.planet_mass += mass 
-      
+      self.planet_mass += mass
+
     self.planet_instance.mid.move_planet(force,self.planet_instance.planet_,self.planet_mass)
+
