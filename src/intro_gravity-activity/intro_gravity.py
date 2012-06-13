@@ -103,16 +103,16 @@ class Gcompris_intro_gravity:
     gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                            "intro_gravity/background.svg")
 
-    #Load the middle planet - Uranus
-    middle = mid_planet(self.rootitem,self.level)
+    #Load the tux_ship
+    tux_ship = spaceship(self.rootitem,self.level)
 
     #Load planet on the left (saturn) and it's slider
-    self.planet_left = fixed_planet(self.rootitem,middle)
+    self.planet_left = fixed_planet(self.rootitem,tux_ship)
     self.planet_left.load_planet("saturn.png",45,160,1)
 
 
     #Planet on right (neptune) and it's slider
-    self.planet_right = fixed_planet(self.rootitem,middle)
+    self.planet_right = fixed_planet(self.rootitem,tux_ship)
     self.planet_right.load_planet("neptune.png",660,165,2)
 
   def end(self):
@@ -172,17 +172,17 @@ class Gcompris_intro_gravity:
       gcompris.bonus.display(gcompris.bonus.LOOSE,gcompris.bonus.TUX)
       self.board_paused = 1
 
-class mid_planet(Gcompris_intro_gravity):
-  """Class for moving planet in the middle"""
+class spaceship(Gcompris_intro_gravity):
+  """Class for moving the spaceship"""
 
   def __init__(self,rootitem,level):
     self.rootitem = rootitem
-    pixbuf = gcompris.utils.load_pixmap("intro_gravity/uranus.png")
-    self.planet_mid = goocanvas.Image(
+    pixbuf = gcompris.utils.load_pixmap("intro_gravity/tux_spaceship.png")
+    self.tux_spaceship = goocanvas.Image(
       parent = self.rootitem,
       pixbuf = pixbuf,
-      height = 50,
-      width = 50,
+      height = 45,
+      width = 70,
       x = 375,
       y = 198)
 
@@ -195,24 +195,25 @@ class mid_planet(Gcompris_intro_gravity):
     self.level = level
     self.true = 2
 
-  def move_planet(self,force,planet,planet_mass):
+  def move_spaceship(self,force,planet,planet_mass):
     self.timer()
+    x = self.tux_spaceship.get_bounds().x1
+    position = x + self.velocity
+    if position < 615 and position > 175:
+      print self.velocity
+      self.tux_spaceship.set_properties(x=position,y=198)
+      self.check(force,planet,planet_mass)
+    else:
+      self.crash()
+      gobject.source_remove(self.t)
+
+  def check(self,force,planet,planet_mass):
+    #if forces from both planets are equal then velocity does not change
     if planet == 1:
       self.planet_left_mass = planet_mass
     else:
       self.planet_right_mass = planet_mass
 
-    x = self.planet_mid.get_bounds().x1
-    position = x + self.velocity
-    if position < 615 and position > 175:
-      self.planet_mid.set_properties(x=position,y=198)
-      self.check(force)
-    else:
-      self.crash()
-      gobject.source_remove(self.t)
-
-  def check(self,force):
-    #if forces from both planets are equal then velocity does not change
     if force == 'equal':
       self.velocity = self.last_velocity
       self.old_force = 'equal'
@@ -227,11 +228,13 @@ class mid_planet(Gcompris_intro_gravity):
 
     #incase of change in forces, change direction and velocity according to force
     elif self.old_force != force:
+      self.count = 0
       self.last_velocity = self.velocity
-      if force == 'left':
-        self.velocity = -1
-      elif force == 'right':
-        self.velocity = 1
+      if self.old_force == 'equal':
+        if force == 'left':
+          self.velocity = -1
+        elif force == 'right':
+          self.velocity = 1
       self.old_force = force
 
     gobject.timeout_add(30,self.force)
@@ -239,17 +242,17 @@ class mid_planet(Gcompris_intro_gravity):
   #check force
   def force(self):
     if self.planet_right_mass == self.planet_left_mass:
-      self.move_planet('equal',1,self.planet_left_mass)
+      self.move_spaceship('equal',1,self.planet_left_mass)
 
     elif self.planet_right_mass > self.planet_left_mass:
       if self.true == 1:
         self.velocity +=1
-      self.move_planet('right',2,self.planet_right_mass)
+      self.move_spaceship('right',2,self.planet_right_mass)
 
     else:
       if self.true == 1:
         self.velocity -=1
-      self.move_planet('left',1,self.planet_left_mass)
+      self.move_spaceship('left',1,self.planet_left_mass)
 
   def timer(self):
     if self.timer_on == False:
@@ -260,8 +263,8 @@ class mid_planet(Gcompris_intro_gravity):
 class fixed_planet:
   """ Fixed planets """
 
-  def __init__(self,rootitem,mid_instance):
-    self.mid = mid_instance
+  def __init__(self,rootitem,ship_instance):
+    self.tux_ship = ship_instance
     self.rootitem = rootitem
 
   def load_planet(self,planet_image,x,y,planet):
@@ -365,5 +368,6 @@ class slider:
       self.planet_instance.planet.translate(x,y)
       self.planet_mass += mass
 
-    self.planet_instance.mid.move_planet(force,self.planet_instance.planet_,self.planet_mass)
+    print 'click'
+    self.planet_instance.tux_ship.check(force,self.planet_instance.planet_,self.planet_mass)
 

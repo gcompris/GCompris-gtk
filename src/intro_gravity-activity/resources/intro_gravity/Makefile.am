@@ -3,7 +3,7 @@ img_DATA = \
 	neptune.png \
 	background.svg \
 	saturn.png \
-	uranus.png \
+	tux_spaceship.png \
 	solar_system.svgz \
 	minus.png \
 	plus.png
