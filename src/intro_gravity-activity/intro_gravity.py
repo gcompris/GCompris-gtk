@@ -147,6 +147,7 @@ class Gcompris_intro_gravity:
     # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
     # the game is won
     if pause == 0:
+      self.end()
       self.set_level(1,2,3)
 
   def set_level(self,a,b,c):
@@ -160,13 +161,11 @@ class Gcompris_intro_gravity:
 
   def next_level(self):
       gcompris.bonus.display(gcompris.bonus.WIN,gcompris.bonus.TUX)
-      self.end()
       self.gcomprisBoard.level += 1
       self.timer_on = False
       self.board_paused = 1
 
   def crash(self):
-      self.end()
       self.board_paused = 1
       self.timer_on = False
       gcompris.bonus.display(gcompris.bonus.LOOSE,gcompris.bonus.TUX)
