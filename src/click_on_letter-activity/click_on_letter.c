@@ -425,7 +425,8 @@ click_on_letter_next_level()
   gamewon = FALSE;
   selected_button = NULL;
   /* Try the next level */
-  gc_sound_play_ogg("voices/$LOCALE/misc/click_on_letter.ogg", NULL);
+  gc_sound_play_ogg("voices/$LOCALE/misc/click_on_letter.ogg",
+		    "sounds/silence1s.ogg", NULL);
   click_on_letter_create_item(goo_canvas_get_root_item(gcomprisBoard->canvas));
   gc_score_set_max(gcomprisBoard->number_of_sublevel);
   gc_score_set(gcomprisBoard->sublevel);
