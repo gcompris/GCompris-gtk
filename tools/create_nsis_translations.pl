@@ -116,6 +116,7 @@ my %localeNames = (
 #  "ka" =>	["Georgian", "UTF-8"],
   "ko" =>	["Korean", "MSCP949"],
   "lt" =>	["Lithuanian", "WINDOWS-1257"],
+  "lv" =>	["Latvian", "WINDOWS-1257"],
   "mk" =>	["Macedonian", "WINDOWS-1251"],
 #  "ml" =>	["Malayalam", "UTF-8"],
 #  "mr" =>	["Marathi", "UTF-8"],

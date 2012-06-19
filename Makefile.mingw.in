@@ -112,7 +112,7 @@ all: Makefile.mingw config.h
 Makefile.mingw: Makefile.mingw.in config.h
 	./config.status Makefile.mingw
 
-config.h: config.h.mingw.in
+config.h: config.h.mingw.in configure
 	./config.status config.h.mingw
 	cp config.h.mingw config.h
 
