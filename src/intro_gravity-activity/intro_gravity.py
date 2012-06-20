@@ -22,9 +22,9 @@ import gcompris
 import gcompris.utils
 import gcompris.skin
 import gcompris.anim
+import gcompris.bonus
 import goocanvas
 import pango
-import gcompris.bonus
 import gobject
 from gcompris import gcompris_gettext as _
 
@@ -73,17 +73,17 @@ class Gcompris_intro_gravity:
                            "intro_gravity/background.svg")
 
     # Load planet on the left (saturn) and it's slider
-    planet_left = fixed_planet(self.rootitem,
+    planet_left = Fixed_planet(self.rootitem,
                                     80, 200, "saturn.png")
-    slider(self.rootitem, 20, 200, planet_left)
+    Slider(self.rootitem, 20, 200, planet_left)
 
     # Planet on right (neptune) and it's slider
-    planet_right = fixed_planet(self.rootitem,
+    planet_right = Fixed_planet(self.rootitem,
                                      630, 200, "neptune.png")
-    slider(self.rootitem, 780, 200, planet_right)
+    Slider(self.rootitem, 780, 200, planet_right)
 
     # Load the tux_ship
-    ship_instance = spaceship(self, self.rootitem,
+    ship_instance = Spaceship(self, self.rootitem,
                               gcompris.BOARD_WIDTH/2.0, 200,
                               self.gcomprisBoard.level,
                               planet_left,
@@ -118,10 +118,6 @@ class Gcompris_intro_gravity:
       self.end()
       self.game()
 
-  def set_level(self, level):
-    self.gcomprisBoard.level = level;
-    self.game()
-
   def next_level(self):
     if self.gcomprisBoard.level <= self.gcomprisBoard.maxlevel:
       self.gcomprisBoard.level += 1
@@ -135,7 +131,7 @@ class Gcompris_intro_gravity:
     self.next_level()
     gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.TUX)
 
-class spaceship(Gcompris_intro_gravity):
+class Spaceship(Gcompris_intro_gravity):
   """Class representing the spaceship"""
 
   # load spaceship
@@ -179,7 +175,7 @@ class spaceship(Gcompris_intro_gravity):
     dist_planet_left = abs ( x - self.planet_left.x )
     dist_planet_right = abs ( self.planet_right.x - x )
     self.move += ( ( self.planet_right.scale / dist_planet_right**2 ) -
-                   ( self.planet_left.scale / dist_planet_left**2 ) ) * 200.0
+                   ( self.planet_left.scale / dist_planet_left**2 ) ) * 200.0 * self.level
     self.tux_spaceship.translate(self.move, 0)
 
     # Manage the crash case
@@ -200,7 +196,7 @@ class spaceship(Gcompris_intro_gravity):
     print "Crash !!!"
     self.game.crash()
 
-class fixed_planet:
+class Fixed_planet:
   """ Fixed planets """
 
   def __init__(self, rootitem, x, y, planet_image):
@@ -228,7 +224,7 @@ class fixed_planet:
       self.y + ((bounds.y2 - bounds.y1) / 2.0 * -1) * self.scale + 0.5)
     self.planet.translate( x, y )
 
-class slider:
+class Slider:
   """ class for scale slider"""
 
   def __init__(self, rootitem, x, y, planet_instance):
