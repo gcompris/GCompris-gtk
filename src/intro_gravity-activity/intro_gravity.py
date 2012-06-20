@@ -1,6 +1,6 @@
 #  gcompris - intro_gravity.py
 #
-# Copyright (C) 2003, 2008 Bruno Coudoin
+# Copyright (C) 2012 Matilda Bernard and Bruno Coudoin
 #
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
@@ -37,9 +37,9 @@ class Gcompris_intro_gravity:
     # Save the gcomprisBoard, it defines everything we need
     # to know from the core
     self.gcomprisBoard = gcomprisBoard
-    self.gcomprisBoard.level=1
-    self.gcomprisBoard.sublevel=1
-    self.gcomprisBoard.number_of_sublevel=1
+    self.gcomprisBoard.level = 1
+    self.gcomprisBoard.sublevel = 1
+    self.gcomprisBoard.number_of_sublevel = 1
     self.gcomprisBoard.maxlevel = 4
 
     # Needed to get key_press
@@ -50,51 +50,20 @@ class Gcompris_intro_gravity:
 
     # Set the buttons we want in the bar
     gcompris.bar_set(0)
-
-
-    # Create our rootitem. We put each canvas item in it so at the end we
-    # only have to kill it. The canvas deletes all the items it contains
-    # automaticaly.
-    self.rootitem = goocanvas.Group(parent =
-                                    self.gcomprisBoard.canvas.get_root_item())
-
-    #set initial background
-    gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),"intro_gravity/solar_system.svgz")
-
-
-    #Load the solar system image
-    svghandle = gcompris.utils.load_svg("intro_gravity/solar_system.svgz")
-    self.selection = goocanvas.Svg(
-      parent = self.rootitem,
-      svg_handle = svghandle,
-      svg_id = "#selected"
-      )
-
-    #connect the selected label to the next screen
-    self.selection.connect("button_press_event", self.set_level)
-    gcompris.utils.item_focus_init(self.selection, None)
-
-    self.text = goocanvas.Text(parent=self.rootitem,
-      x = 400,
-      y = 400,
-      fill_color = "white",
-      font = gcompris.skin.get_font("gcompris/title"),
-      text = _("The Solar System"))
+    self.game()
 
   def game(self):
-    self.rootitem = goocanvas.Group(parent =
-                                    self.gcomprisBoard.canvas.get_root_item())
+    self.game_completed = False
 
-    gcompris.utils.item_focus_remove(self.selection, None)
-    self.text.remove()
+    self.rootitem = goocanvas.Group(parent = self.gcomprisBoard.canvas.get_root_item())
 
     goocanvas.Text(
       parent = self.rootitem,
-      x=400.0,
-      y=100.0,
-      text=_("Mass is directly proportional to gravitational force"),
+      x = gcompris.BOARD_WIDTH/2.0,
+      y = 50.0,
+      text = _("Mass is directly proportional to gravitational force"),
       font = gcompris.skin.get_font("gcompris/subtitle"),
-      fill_color="white",
+      fill_color = "white",
       anchor = gtk.ANCHOR_CENTER,
       alignment = pango.ALIGN_CENTER
       )
@@ -103,31 +72,32 @@ class Gcompris_intro_gravity:
     gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                            "intro_gravity/background.svg")
 
-    #Load the tux_ship
-    ship_instance = spaceship(self.rootitem,self.level,self.gcomprisBoard)
+    # Load planet on the left (saturn) and it's slider
+    planet_left = fixed_planet(self.rootitem,
+                                    80, 200, "saturn.png")
+    slider(self.rootitem, 20, 200, planet_left)
 
-    #Load planet on the left (saturn) and it's slider
-    self.planet_left = fixed_planet(self.rootitem,ship_instance)
-    self.planet_left.load_planet("saturn.png",45,160,1)
+    # Planet on right (neptune) and it's slider
+    planet_right = fixed_planet(self.rootitem,
+                                     630, 200, "neptune.png")
+    slider(self.rootitem, 780, 200, planet_right)
 
-
-    #Planet on right (neptune) and it's slider
-    self.planet_right = fixed_planet(self.rootitem,ship_instance)
-    self.planet_right.load_planet("neptune.png",660,165,2)
+    # Load the tux_ship
+    ship_instance = spaceship(self, self.rootitem,
+                              gcompris.BOARD_WIDTH/2.0, 200,
+                              self.gcomprisBoard.level,
+                              planet_left,
+                              planet_right)
 
   def end(self):
     # Remove the root item removes all the others inside it
     self.rootitem.remove()
-    self.set_level(1,2,3)
-
 
   def ok(self):
-    print("intro_gravity ok.")
-
+    pass
 
   def repeat(self):
-    print 'repeat'
-
+    pass
 
   #mandatory but unused yet
   def config_stop(self):
@@ -138,244 +108,203 @@ class Gcompris_intro_gravity:
     print("intro_gravity config_start.")
 
   def key_press(self, keyval, commit_str, preedit_str):
-    utf8char = gtk.gdk.keyval_to_unicode(keyval)
-    strn = u'%c' % utf8char
+    pass
 
   def pause(self, pause):
     # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
     # the game is won
-    if pause == 0:
+    self.board_paused = pause
+    if pause == 0 and self.game_completed:
       self.end()
+      self.game()
 
-  def set_level(self,a,b,c):
-    if self.gcomprisBoard.level == 1:
-      self.level = 100
-    elif self.gcomprisBoard.level == 2:
-      self.level = 50
-    elif self.gcomprisBoard.level == 3:
-      self.level = 20
-    elif self.gcomprisBoard.level == 4:
-      self.level = 10
-
+  def set_level(self, level):
+    self.gcomprisBoard.level = level;
     self.game()
 
   def next_level(self):
-      self.board_paused = 1
-      gcompris.bonus.display(gcompris.bonus.WIN,gcompris.bonus.TUX)
-      if self.gcomprisBoard.level > self.gcomprisBoard.maxlevel:
-        self.gcomprisBoard.level = 1
-      else:
-        self.gcomprisBoard.level += 1
+    if self.gcomprisBoard.level <= self.gcomprisBoard.maxlevel:
+      self.gcomprisBoard.level += 1
 
   def crash(self):
-      self.board_paused = 1
-      gcompris.bonus.display(gcompris.bonus.LOOSE,gcompris.bonus.TUX)
+    self.game_completed = True
+    gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.TUX)
+
+  def win(self):
+    self.game_completed = True
+    self.next_level()
+    gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.TUX)
 
 class spaceship(Gcompris_intro_gravity):
-  """Class for moving the spaceship"""
+  """Class representing the spaceship"""
 
-  #load spaceship
-  def __init__(self,rootitem,level,gcomprisBoard):
-    self.gcomprisBoard = gcomprisBoard
+  # load spaceship
+  def __init__(self, game, rootitem, x, y, level,
+               planet_left, planet_right):
+    self.game = game
     self.rootitem = rootitem
-    pixbuf = gcompris.utils.load_pixmap("intro_gravity/tux_spaceship.png")
+    self.level = level
+
+    # This counts how much space travel the children did
+    # Let us determine a success case
+    self.trip_distance = 0
+
     self.tux_spaceship = goocanvas.Image(
       parent = self.rootitem,
-      pixbuf = pixbuf,
-      height = 45,
-      width = 70,
-      x = 375,
-      y = 198)
+      pixbuf = gcompris.utils.load_pixmap("intro_gravity/tux_spaceship.png"),
+      x = x,
+      y = y)
+    # Center it
+    bounds = self.tux_spaceship.get_bounds()
+    self.tux_spaceship.translate( (bounds.x2 - bounds.x1) / 2.0 * -1,
+                                  (bounds.y2 - bounds.y1) / 2.0 * -1)
 
-    #declaring variables
-    self.velocity = 0
-    self.old_force = None
-    self.count = 0
-    self.planet_right_mass = self.planet_left_mass = 1000
-    self.timer_on = False
-    self.level = level
-    self.true = 2
-    self.initiate = 0
+    self.planet_right = planet_right
+    self.planet_left = planet_left
 
-  def initiate_movement(self):
-    if self.initiate == 0:
-      self.force()
-      self.initiate = 1
+    # Set to true to stop the calculation
+    self.done = False
+    self.move = 0
 
-  #set the change in mass of planet on button press
-  def get_mass(self,planet,planet_mass,click):
-    if planet == 1:
-      self.planet_left_mass = planet_mass
-    else:
-      self.planet_right_mass = planet_mass
+    gobject.timeout_add(30, self.calculate)
 
-    self.click = click
-    self.timer() #initialize timer for game if not initialized
-    self.initiate_movement()
+  def calculate(self):
+    if self.done:
+      return False
 
-  def move_spaceship(self,force,planet,planet_mass):
-    x = self.tux_spaceship.get_bounds().x1
-    position = x + self.velocity
-    if position < 615 and position > 175:
-      self.tux_spaceship.set_properties(x=position,y=198)
-      self.check(force)
-    else:
+    (x, y) = self.rootitem.get_canvas().\
+        convert_from_item_space( self.tux_spaceship,
+                                 self.tux_spaceship.props.x,
+                                 self.tux_spaceship.props.y)
+    dist_planet_left = abs ( x - self.planet_left.x )
+    dist_planet_right = abs ( self.planet_right.x - x )
+    self.move += ( ( self.planet_right.scale / dist_planet_right**2 ) -
+                   ( self.planet_left.scale / dist_planet_left**2 ) ) * 200.0
+    self.tux_spaceship.translate(self.move, 0)
+
+    # Manage the crash case
+    if  x - self.planet_left.x < 10:
       self.crash()
-      gobject.source_remove(self.t)
+    elif self.planet_right.x - x < 10:
+      self.crash()
+    # Manage the success case
+    self.trip_distance += abs(self.move)
+    if self.trip_distance > 500 * self.level:
+      self.done = True
+      self.game.win()
 
-  def check(self,force):
-    #incase of change in forces, change direction and velocity according to force
-    if self.old_force != force:
-      self.count = 0
-      self.last_velocity = self.velocity
-      if force == 'left':
-        self.velocity = -1
-      elif force == 'right':
-        self.velocity = 1
-      self.old_force = force
+    return True
 
-    #if forces from both planets are equal then velocity does not change
-    elif force == 'equal':
-      self.velocity = self.last_velocity
-      self.old_force = 'equal'
-
-    #if there is no change in force applied then increase velocity gradually
-    elif self.old_force == force:
-      self.true = 2
-      self.count += 1
-      if self.count == self.level or self.velocity == 0 or self.click == 1:
-        self.true = 1
-        self.count = 0
-        self.click = 0
-
-    gobject.timeout_add(30,self.force)
-
-  #check force
-  def force(self):
-    if self.planet_right_mass == self.planet_left_mass:
-      self.move_spaceship('equal',1,self.planet_left_mass)
-
-    elif self.planet_right_mass > self.planet_left_mass:
-      if self.true == 1:
-        self.velocity +=1
-      self.move_spaceship('right',2,self.planet_right_mass)
-
-    else:
-      if self.true == 1:
-        self.velocity -=1
-      self.move_spaceship('left',1,self.planet_left_mass)
-
-  def timer(self):
-    if self.timer_on == False:
-      self.t = gobject.timeout_add(10000,self.next_level)
-      self.timer_on = True
-
+  def crash(self):
+    self.done = True
+    print "Crash !!!"
+    self.game.crash()
 
 class fixed_planet:
   """ Fixed planets """
 
-  def __init__(self,rootitem,ship_instance):
-    self.ship_instance = ship_instance
+  def __init__(self, rootitem, x, y, planet_image):
     self.rootitem = rootitem
-
-  def load_planet(self,planet_image,x,y,planet):
-    self.planet_ = planet
-    image = "intro_gravity/"+planet_image
-    pixbuf = gcompris.utils.load_pixmap(image)
+    self.scale = 0
+    self.x = x
+    self.y = y
     self.planet = goocanvas.Image(
-      parent = self.rootitem,
-      pixbuf=pixbuf,
-      height=120,
-      width=120,
-      x=x,
-      y=y)
+      parent = rootitem,
+      pixbuf = gcompris.utils.load_pixmap("intro_gravity/"
+                                          + planet_image),
+      x = 0,
+      y = 0)
 
-    if self.planet_ == 1:
-      points_line = goocanvas.Points([(27,190),(27,270)])
-    else:
-      points_line = goocanvas.Points([(788,190),(788,270)])
-
-    self.scale_slider= slider(self,points_line) #scale line
+  def set_scale(self, scale):
+    self.scale = scale
+    self.planet.set_transform(None)
+    # Center it
+    bounds = self.planet.get_bounds()
+    self.planet.scale(self.scale + 0.5, self.scale + 0.5)
+    (x, y) = self.rootitem.get_canvas().\
+        convert_to_item_space(\
+      self.planet,
+      self.x + ((bounds.x2 - bounds.x1) / 2.0 * -1) * self.scale + 0.5,
+      self.y + ((bounds.y2 - bounds.y1) / 2.0 * -1) * self.scale + 0.5)
+    self.planet.translate( x, y )
 
 class slider:
   """ class for scale slider"""
 
-  #load the spaceship
-  def __init__(self,planet_instance,points):
+  def __init__(self, rootitem, x, y, planet_instance):
     self.planet_instance = planet_instance
+    self.height = 60
+    self.button_width = 20
+    self.x = x
+    self.y = y
+    self.rootitem = goocanvas.Group(parent = rootitem)
     line = goocanvas.Polyline(
-      parent = planet_instance.rootitem,
-      points=points,
-      stroke_color="grey",
-      width=2.0)
-    self.planet_mass = 1000
+      parent = self.rootitem,
+      points = goocanvas.Points( [(x, y + self.button_width / 2.0),
+                                  (x, y + self.button_width / 2.0 + self.height)] ),
+      stroke_color = "grey",
+      width = 2.0)
 
-    #set points for sliding bar according to planet
-    if planet_instance.planet_ == 1:
-      points_bar = goocanvas.Points([(21,247),(33,247)])
-      button_x = 9
-    else:
-      points_bar = goocanvas.Points([(782,247),(794,247)])
-      button_x = 770
+    # This is the relative position of the scale from 0 to 1
+    # 0 is the bottom
+    self.scale_value = 0.5
+    slider_y = y + self.height / 2.0
+    self.sliding_bar( goocanvas.Points([(x - 5, slider_y),
+                                        (x + 5, slider_y)] ) )
+    self.button(self.x, self.y, self.button_width, '+', 0.1)
+    self.button(self.x, self.y + self.height, self.button_width, '-', -0.1)
 
-    self.sliding_bar(points_bar)
-    self.decrease_button(button_x)
-    self.increase_button(button_x)
+    self.planet_instance.set_scale( self.scale_value )
 
-  def increase_button(self,x):
-    pixbuf = gcompris.utils.load_pixmap("/intro_gravity/plus.png")
-    button = goocanvas.Image(
-      parent = self.planet_instance.rootitem,
-      pixbuf = pixbuf,
-      x = x,
-      y = 175
+  def button(self, x, y, size, text, move):
+    button = goocanvas.Rect(
+      parent = self.rootitem,
+      x = x - size / 2.0,
+      y = y - size / 2.0,
+      width = size,
+      height =  size,
+      line_width = 1.0,
+      stroke_color_rgba= 0xCECECEFFL,
+      fill_color_rgba = 0x333333FFL,
+      radius_x = 15.0,
+      radius_y = 5.0,
       )
+    gcompris.utils.item_focus_init(button, None)
 
-    if self.planet_instance.planet_ == 1:
-      translate_x = -8
-      x_bar = 21
-    else:
-      translate_x = -63
-      x_bar = 782
-
-    button.connect("button_press_event",self.set_mass,1.1,translate_x,-20,500,1)
-    button.connect("button_press_event",self.move_bar,x_bar,-8,1)
-
-  def decrease_button(self,x):
-    pixbuf = gcompris.utils.load_pixmap("intro_gravity/minus.png")
-    button = goocanvas.Image(
-      parent = self.planet_instance.rootitem,
-      pixbuf = pixbuf,
+    text = goocanvas.Text(
+      parent = self.rootitem,
       x = x,
-      y = 250
+      y = y,
+      text = text,
+      font = gcompris.skin.get_font("gcompris/subtitle"),
+      fill_color = "white",
+      anchor = gtk.ANCHOR_CENTER,
+      alignment = pango.ALIGN_CENTER
       )
-    if self.planet_instance.planet_ == 1:
-      translate_x = 10
-      x_bar = 21
-    else:
-      translate_x = 78
-      x_bar = 782
-    button.connect("button_press_event",self.set_mass,0.9,translate_x,25,-500,2)
-    button.connect("button_press_event",self.move_bar,x_bar,8,2)
+    gcompris.utils.item_focus_init(text, button)
 
-  def sliding_bar(self,points):
+    button.connect("button_press_event", self.move_bar, move)
+    text.connect("button_press_event", self.move_bar, move)
+
+  def sliding_bar(self, points):
     self.bar = goocanvas.Polyline(
-      parent = self.planet_instance.rootitem,
-      points=points,
-      stroke_color="grey",
-      line_width=5.0)
+      parent = self.rootitem,
+      points = points,
+      stroke_color = "grey",
+      line_width = 5.0)
 
-  def move_bar(self,a,b,c,x,y,button):
-    y_old = self.bar.get_bounds().y1
-    if (y_old > 207 and button ==1) or (y_old < 244 and button ==2):
-      y_new = int(y_old + y)
-      gcompris.utils.item_absolute_move(self.bar,x,y_new)
+  def move_bar(self, widget, target, event, move):
+    self.scale_value += move
+    # Take care not to bypass bounds
+    if self.scale_value > 1.0:
+      self.scale_value = 1.0
+      return
+    elif self.scale_value < 0.0:
+      self.scale_value = 0.0
+      return
 
-  def set_mass(self,a,b,c,scale,x,y,mass,button):
-    if (self.planet_mass < 3500 and button ==1) or (self.planet_mass > 1000 and button ==2):
-      self.planet_instance.planet.scale(scale,scale)
-      self.planet_instance.planet.translate(x,y)
-      self.planet_mass += mass
+    self.bar.translate(0, move * -1 * self.height / 4.0);
 
-    self.planet_instance.ship_instance.get_mass(self.planet_instance.planet_,self.planet_mass,1)
+    # Change the planet mass
+    self.planet_instance.set_scale(self.scale_value)
 
