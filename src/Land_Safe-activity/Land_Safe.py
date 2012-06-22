@@ -76,7 +76,7 @@ class Gcompris_Land_Safe:
   def repeat(self):
     pass
 
-  #mandatory but unused yet
+  # mandatory but unused yet
   def config_stop(self):
     pass
 
@@ -125,7 +125,7 @@ class Spaceship:
     x = gcompris.BOARD_WIDTH/2
     y = 10
 
-    #Load flames
+    # Load flames
     self.flame(x + 15, y)
     self.flame_1.props.visibility = goocanvas.ITEM_INVISIBLE
     self.flame_2.props.visibility = goocanvas.ITEM_INVISIBLE
@@ -196,6 +196,7 @@ class Spaceship:
       self.spaceship_image.translate(self.x, self.y)
       self.subrootitem.translate(self.x, self.y)
       self.info.altitude(position)
+      self.info.set_velocity()
       return True
 
     else:
@@ -207,7 +208,7 @@ class Spaceship:
   def check_landing(self):
     x = self.spaceship_image.get_bounds().x1
     land_x = self.info.get_area()
-    if land_x < x < land_x + 100 and self.y < 0.5:
+    if land_x < x < land_x + 100 and self.y < 0.7:
       self.game.win()
     else:
       self.crash_image()
@@ -255,7 +256,7 @@ class Display:
 
 
   def __init__(self, ship_instance, rootitem):
-    #text for altitude
+    # text for altitude
     self.rootitem = rootitem
     text = goocanvas.Text(
       parent = rootitem,
@@ -264,7 +265,7 @@ class Display:
       fill_color = "white",
       text = _("Altitude : "))
 
-    #initiate text for altitude
+    # initiate text for altitude
     self.alt_text = goocanvas.Text(
       parent = rootitem,
       x = 100,
@@ -272,7 +273,7 @@ class Display:
       fill_color = "white",
       text = _('start'))
 
-    #text for fuel display
+    # text for fuel display
     fuel_text = goocanvas.Text(
       parent = rootitem,
       x = 20,
@@ -280,7 +281,7 @@ class Display:
       fill_color = "white",
       text = _('Fuel'))
 
-    #fuel tank
+    # fuel tank
     rectangle = goocanvas.Rect(
       parent = rootitem,
       radius_x = 10,
@@ -291,7 +292,7 @@ class Display:
       height=20,
       stroke_color="blue")
 
-    #initial fuel in tank
+    # initial fuel in tank
     self.fuel_amt = 100
     self.fuel_tank = goocanvas.Rect(
       parent = rootitem,
@@ -303,6 +304,7 @@ class Display:
       height=20,
       fill_color="blue")
 
+    # Load landing area
     self.land_x = random.randrange(10, 700)
     landing_area = goocanvas.Rect(
       parent = rootitem,
@@ -312,6 +314,22 @@ class Display:
       height=6,
       fill_color="green",
       stroke_color="green")
+
+    # text for velocity
+    velocity_text = goocanvas.Text(
+      parent = rootitem,
+      x = 20,
+      y = 60,
+      fill_color = "white",
+      text = _('Velocity : '))
+
+    # display velocity
+    self.velocity = goocanvas.Text(
+      parent = rootitem,
+      x = 100,
+      y = 60,
+      fill_color = 'white',
+      text = _('4'))
 
     self.ship_instance = ship_instance
     self.key = 0
@@ -323,6 +341,7 @@ class Display:
     self.alt_text.set_property('text', self.alt)
 
     self.key = self.ship_instance.key_vertical
+    self.vel = self.ship_instance.y
 
   def set_fuel_time(self):
     if self.stop_consumtion == True:
@@ -345,7 +364,7 @@ class Display:
     self.fuel_tank.set_property('width', self.fuel_amt)
 
     if self.fuel_amt != 1:
-      self.set_fuel()
+      self.set_fuel_time()
 
   def increase_vel(self):
     if self.fuel_amt == 1:
@@ -356,4 +375,7 @@ class Display:
 
   def get_area(self):
     return self.land_x
+
+  def set_velocity(self):
+    self.velocity.set_property('text',self.vel * 10)
 
