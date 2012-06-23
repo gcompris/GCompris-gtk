@@ -1,0 +1,2 @@
+SUBDIRS = land_safe
+
