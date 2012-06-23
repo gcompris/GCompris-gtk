@@ -1,16 +1,16 @@
 # Bulgarian translation of gcompris po-file.
 # Copyright (C) 2005, 2006, 2007, 2008, 2009 Free Software Foundation, Inc.
-# Copyright (C) 2010 Free Software Foundation, Inc.
+# Copyright (C) 2010, 2012 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gcompris package.
 # Yavor Doganov <yavor@gnu.org>, 2005, 2006, 2007, 2008, 2009, 2010.
-# Alexander Shopov <ash@kambanaria.org>, 2009, 2010.
+# Alexander Shopov <ash@kambanaria.org>, 2009, 2010, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-01 22:35+0300\n"
-"PO-Revision-Date: 2012-06-02 19:06+0300\n"
+"POT-Creation-Date: 2012-06-22 17:23+0300\n"
+"PO-Revision-Date: 2012-06-22 17:21+0300\n"
 "Last-Translator: Alexander Shopov <ash@kambanaria.org>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "Language: bg\n"
@@ -21,20 +21,20 @@ msgstr ""
 
 #: ../boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
-msgstr "Задачи по алгебра"
+msgstr "Занимания по алгебра"
 
 #: ../boards/algebra_group.xml.in.h:2 ../boards/menu.xml.in.h:2
 #: ../boards/money_group.xml.in.h:2
 msgid "Left-click the mouse on an activity to select it."
-msgstr "Натиснете с левия бутон на мишката, за да изберете задача."
+msgstr "Натиснете с левия бутон на мишката, за да изберете занимание."
 
 #: ../boards/algebramenu.xml.in.h:1
 msgid "Go to calculation activities"
-msgstr "Задачи по математика"
+msgstr "Занимания по математика"
 
 #: ../boards/algebramenu.xml.in.h:2
 msgid "Various calculation activities."
-msgstr "Различни задачи по математика."
+msgstr "Различни занимания по математика."
 
 #: ../boards/braille.xml.in.h:1
 #: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:1
@@ -46,6 +46,8 @@ msgid ""
 "The Braille system is a method that is widely used by blind people to read "
 "and write, and was the first digital form of writing."
 msgstr ""
+"Брайловото писмо е метод, който се използва, за да могат слепите хора да "
+"четат и пишат. Това е и първата цифрова система за писане."
 
 #: ../boards/chess.xml.in.h:1
 msgid "Practice chess"
@@ -134,7 +136,7 @@ msgstr "Математика"
 
 #: ../boards/math.xml.in.h:2
 msgid "Mathematical activities."
-msgstr "Задачи по математика."
+msgstr "Занимания по математика."
 
 #: ../boards/mazeMenu.xml.in.h:1
 msgid "Go to Maze activities"
@@ -187,7 +189,6 @@ msgstr ""
 "собственически образователен софтуер."
 
 #: ../boards/menu.xml.in.h:5
-#, fuzzy
 msgid ""
 "A simple click on an icon brings you to an activity or a menu of "
 "activities.\n"
@@ -217,17 +218,22 @@ msgstr ""
 "Изобразени са следните икони отдясно наляво:\n"
 "(Забележете, че всяка от иконите се показва само ако е налична в текущото "
 "занимание)\n"
-"    Къща — Спиране на заниманието, връщане към менюто\n"
+"    Къща — Спиране на заниманието, връщане към менюто (Ctrl-W или Esc)\n"
 "    Палец — Да. Потвърждаване на отговора\n"
-"    Зар — Показване на текущото ниво. Натиснете, за да изберете друго ниво\n"
+"    Стрелки — Показване на текущото ниво. Натиснете, за да изберете друго "
+"ниво\n"
 "    Устни — Повтаряне на въпроса\n"
 "    Въпросителен знак — Помощ\n"
 "    Инструмент — Меню за настройки\n"
 "    Самолетът на Тъкс — Относно GCompris\n"
-"    Нощ — Спиране на GCompris\n"
+"    Нощ — Спиране на GCompris (Crl-X)\n"
 "Звездите означават нивото на трудност за всяко занимание:\n"
 "    1, 2 или 3 обикновени звезди — за деца от 2 до 6 годишна възраст\n"
-"    1, 2 или 3 сложни звезди — за деца от 7 годишна възраст и по-големи"
+"    1, 2 или 3 сложни звезди — за деца от 7 годишна възраст и по-големи\n"
+"Клавишни комбинации:\n"
+"    Ctrl-B — Показване/скриване на лентата за управление\n"
+"    Ctrl-F — Преминаване към/излизане от режим на цял екран\n"
+"    Ctrl-M — Заглушаване/пускане на музиката"
 
 #: ../boards/miscelaneous.xml.in.h:1
 msgid "Miscellaneous activities"
@@ -238,9 +244,8 @@ msgid "Time, Geography, ..."
 msgstr "Време, география, …"
 
 #: ../boards/money_group.xml.in.h:1
-#, fuzzy
 msgid "Go to money activities"
-msgstr "Занимания за развиване на паметта"
+msgstr "Занимания за боравене с пари"
 
 #: ../boards/mouse.xml.in.h:1
 msgid "Mouse-manipulation activities."
@@ -447,7 +452,7 @@ msgstr "Учител:"
 
 #: ../src/administration-activity/admin/class_edit.py:109
 msgid "Assign all the users belonging to this class"
-msgstr "Избиране на всички потребители, принадлежащи към този клас"
+msgstr "Избиране на всички потребители в този клас"
 
 #: ../src/administration-activity/admin/class_edit.py:246
 #: ../src/administration-activity/admin/group_edit.py:258
@@ -469,7 +474,7 @@ msgstr "Необходимо е поне едно име на класа"
 
 #: ../src/administration-activity/admin/class_edit.py:377
 msgid "There is already a class with this name"
-msgstr "Вече има клас с това име"
+msgstr "Вече има клас с такова име"
 
 #: ../src/administration-activity/admin/class_list.py:165
 #: ../src/administration-activity/admin/profile_group_list.py:140
@@ -553,7 +558,7 @@ msgstr "Меню за администриране на GCompris"
 
 #: ../src/administration-activity/administration.xml.in.h:2
 msgid "Left-Click with the mouse to select an activity"
-msgstr "Натиснете с левия бутон на мишката, за да изберете задача."
+msgstr "Натиснете с левия бутон на мишката, за да изберете занимание."
 
 #: ../src/administration-activity/administration.xml.in.h:3
 msgid ""
@@ -587,18 +592,18 @@ msgid ""
 "children as individuals; they can learn to type in and recognize their own "
 "usernames (login is configurable)."
 msgstr ""
-"- В секцията „Занимания“ може да сменяте списъка със занимания. Просто "
+"⁃ В секцията „Занимания“ може да сменяте списъка със занимания. Просто "
 "премахнете маркировката на някои от тях в дървовидния списък. Например може "
 "да променяте езика за четене и след това езика за изговаряне на имената на "
 "цветовете.\n"
-"- Може да запазвате много конфигурации и да превключвате между тях лесно. "
+"⁃ Може да запазвате много конфигурации и да превключвате между тях лесно. "
 "Добавете профил в секцията „Профили“, след това изберете профила в секцията "
 "„Занимания“ и изберете заниманията, които искате да са активни. Може да "
 "добавяте много профили, с различни списъци от занимания и различни езици. "
-"Профилът по подразбиране се настройва в секцията „Профили“, като изберете "
-"необходимия профил и натиснете бутона „По подразбиране“. Може да избирате "
-"профил и от командния ред.\n"
-"- Може да добавяте потребители и класове, като за всеки клас може да "
+"Стандартният профил се настройва в секцията „Профили“, като изберете "
+"необходимия профил и натиснете бутона „Стандартен“. Може да избирате профил "
+"и от командния ред.\n"
+"⁃ Може да добавяте потребители и класове, като за всеки клас може да "
 "създавате групи от потребители. Забележете, че може да внасяте потребители "
 "от файл, разделени със запетаи. Назначете една или повече групи към даден "
 "профил и всички нови влизания ще се появят след рестартирането на GCompris. "
@@ -621,7 +626,7 @@ msgstr "Всички потребители"
 #: ../src/administration-activity/admin/profile_list.py:117
 #: ../src/lang-activity/lang.py:166
 msgid "Default"
-msgstr "По подразбиране"
+msgstr "Стандартен"
 
 #. Reset buttons
 #: ../src/administration-activity/admin/log_list.py:162
@@ -641,14 +646,14 @@ msgid "Board"
 msgstr "Занимание"
 
 #: ../src/administration-activity/admin/log_list.py:249
-#: ../src/click_on_letter-activity/click_on_letter.c:1248
+#: ../src/click_on_letter-activity/click_on_letter.c:1249
 #: ../src/redraw-activity/redraw.py:339
 msgid "Level"
 msgstr "Ниво"
 
 #: ../src/administration-activity/admin/log_list.py:259
 msgid "Sublevel"
-msgstr "Под-ниво"
+msgstr "Подниво"
 
 #: ../src/administration-activity/admin/log_list.py:269
 msgid "Duration"
@@ -657,6 +662,11 @@ msgstr "Времетраене"
 #: ../src/administration-activity/admin/log_list.py:279
 msgid "Status"
 msgstr "Състояние"
+
+#: ../src/administration-activity/admin/module_activities.py:50
+#: ../src/administration-activity/admin/module_activities.py:78
+msgid "Activities"
+msgstr "Занимания"
 
 #: ../src/administration-activity/admin/module_boards.py:49
 #: ../src/administration-activity/admin/module_boards.py:77
@@ -667,6 +677,11 @@ msgstr "Занимания"
 #: ../src/administration-activity/admin/module_groups.py:69
 msgid "Groups"
 msgstr "Групи"
+
+#: ../src/administration-activity/admin/module_logins.py:48
+#: ../src/administration-activity/admin/module_logins.py:69
+msgid "Logins"
+msgstr "Влизания"
 
 #: ../src/administration-activity/admin/module_profiles.py:47
 #: ../src/administration-activity/admin/module_profiles.py:68
@@ -720,7 +735,11 @@ msgstr "Профил"
 
 #: ../src/administration-activity/admin/profile_list.py:311
 msgid "[Default]"
-msgstr "[По подразбиране]"
+msgstr "[Стандартен]"
+
+#: ../src/administration-activity/admin/profile_widget.py:291
+msgid "There is already a profile with this name"
+msgstr "Вече има профил с това име"
 
 #: ../src/administration-activity/admin/user_edit.py:47
 msgid "Editing a User"
@@ -758,7 +777,7 @@ msgstr "Дата на раждане:"
 msgid ""
 "You need to provide at least a login, first name and last name for your users"
 msgstr ""
-"Трябва да укажете поне едно потребителско име, име и фамилия за потребителите"
+"Трябва да укажете поне потребителско име, име и фамилия за потребителите"
 
 #: ../src/administration-activity/admin/user_edit.py:170
 msgid "There is already a user with this login"
@@ -785,20 +804,6 @@ msgstr ""
 "Едно или повече потребителски имена съвпадат!\n"
 "Трябва да ги промените: %s!"
 
-#: ../src/administration-activity/admin/module_activities.py:50
-#: ../src/administration-activity/admin/module_activities.py:78
-msgid "Activities"
-msgstr "Занимания"
-
-#: ../src/administration-activity/admin/module_logins.py:48
-#: ../src/administration-activity/admin/module_logins.py:69
-msgid "Logins"
-msgstr "Влизания"
-
-#: ../src/administration-activity/admin/profile_widget.py:291
-msgid "There is already a profile with this name"
-msgstr "Вече има профил с това име"
-
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:1
 msgid "Advanced colors"
 msgstr "Сложни цветове"
@@ -822,11 +827,11 @@ msgstr "Натиснете върху правилно оцветената ку
 #. Translator: Do not translate {text}.
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:2
 msgid "Find the {text} butterfly"
-msgstr ""
+msgstr "Намерете пеперудата с цвят {text}"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:3
 msgid "coral"
-msgstr "коралов цвят"
+msgstr "корал"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:4
 msgid "claret"
@@ -834,11 +839,11 @@ msgstr "бордо"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:5
 msgid "sienna"
-msgstr "охра"
+msgstr "сиена"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:6
 msgid "corn"
-msgstr "царевичен цвят"
+msgstr "царевица"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:7
 msgid "cobalt"
@@ -846,36 +851,35 @@ msgstr "кобалтово синьо"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:8
 msgid "cyan"
-msgstr "синьо-зелено"
+msgstr "циан"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:9
 msgid "chestnut"
-msgstr "кестеняво"
+msgstr "кестенявата"
 
-# FIXME, TODO: Цветовете никак не са наред.
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:10
 msgid "almond"
-msgstr "бадемово"
+msgstr "бадем"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:11
 msgid "ruby"
-msgstr "рубинов цвят"
+msgstr "рубин"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:12
 msgid "sapphire"
-msgstr "сапфирено"
+msgstr "сапфир"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:13
 msgid "sage"
-msgstr "пелинов цвят"
+msgstr "градински чай"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:14
 msgid "salmon"
-msgstr "розово-оранжево"
+msgstr "сьомга"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:15
 msgid "sepia"
-msgstr "червеникавокафяво"
+msgstr "сепия"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:16
 msgid "sulphur"
@@ -883,15 +887,15 @@ msgstr "жълто-зелено"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:17
 msgid "tea"
-msgstr "чаен цвят"
+msgstr "на чай"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:18
 msgid "lime"
-msgstr "лимонено"
+msgstr "лайм"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:19
 msgid "turquoise"
-msgstr "тюркоазено"
+msgstr "тюркоаз"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:20
 msgid "absinthe"
@@ -899,19 +903,19 @@ msgstr "пелин"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:21
 msgid "mahogany"
-msgstr "махагонов цвят"
+msgstr "махагон"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:22
 msgid "aquamarine"
-msgstr "зеленикаво-синьо"
+msgstr "аквамарин"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:23
 msgid "alabaster"
-msgstr "алабастър"
+msgstr "алабасър"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:24
 msgid "amber"
-msgstr "кехлибарено"
+msgstr "кехлибар"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:25
 msgid "amethyst"
@@ -923,7 +927,7 @@ msgstr "анасон"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:27
 msgid "vermilion"
-msgstr "яркочервено"
+msgstr "цинобър"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:28
 msgid "ceruse"
@@ -939,7 +943,7 @@ msgstr "резеда"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:31
 msgid "emerald"
-msgstr "яркозелено"
+msgstr "яркозелената"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:32
 msgid "aubergine"
@@ -951,39 +955,39 @@ msgstr "фуксия"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:34
 msgid "glaucous"
-msgstr "синьозеленикаво"
+msgstr "сивкаво зеленикаво"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:35
 msgid "auburn"
-msgstr "кестеняво"
+msgstr "кестен"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:36
 msgid "azure"
-msgstr "небесно синьо"
+msgstr "лазур"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:37
 msgid "greyish brown"
-msgstr "сивкаво-кафяво"
+msgstr "сивкаво-кафявата"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:38
 msgid "bistre"
-msgstr "тъмнокафяво"
+msgstr "саждено кафяво"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:39
 msgid "crimson"
-msgstr "тъмночервено"
+msgstr "кармин"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:40
 msgid "celadon"
-msgstr "сивозелено"
+msgstr "селадон"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:41
 msgid "cerulean"
-msgstr "лазурно"
+msgstr "цьолиново синьо"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:42
 msgid "dove"
-msgstr "гълъбов цвят"
+msgstr "гълъбово сиво"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:43
 msgid "garnet"
@@ -991,7 +995,7 @@ msgstr "гранат"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:44
 msgid "indigo"
-msgstr "мастилено синьо"
+msgstr "индиго"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:45
 msgid "ivory"
@@ -1003,7 +1007,7 @@ msgstr "нефрит"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:47
 msgid "lavender"
-msgstr "бледолилаво"
+msgstr "лавандула"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:48
 msgid "lichen"
@@ -1011,15 +1015,15 @@ msgstr "лишей"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:49
 msgid "wine"
-msgstr "винен цвят"
+msgstr "вино"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:50
 msgid "lilac"
-msgstr "светловиолетово"
+msgstr "люляк"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:51
 msgid "magenta"
-msgstr "пурпурен цвят"
+msgstr "пурпур"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:52
 msgid "malachite"
@@ -1027,7 +1031,7 @@ msgstr "малахит"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:53
 msgid "navy"
-msgstr "тъмно синьо"
+msgstr "моряшко синьо"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:54
 msgid "larch"
@@ -1043,7 +1047,7 @@ msgstr "охра"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:57
 msgid "olive"
-msgstr "маслиненозелено"
+msgstr "маслина"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:58
 msgid "opaline"
@@ -1063,7 +1067,7 @@ msgstr "сивкаво-синьо"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:62
 msgid "pistachio"
-msgstr "фъстъчено"
+msgstr "шам фъстък"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:63
 msgid "platinum"
@@ -1076,7 +1080,7 @@ msgstr "мораво"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:65
 msgid "plum"
-msgstr "тъмновиолетово"
+msgstr "слива"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:66
 msgid "prussian blue"
@@ -1084,11 +1088,11 @@ msgstr "берлинско синьо"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:67
 msgid "rust"
-msgstr "ръждив цвят"
+msgstr "ръжда"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:68
 msgid "saffron"
-msgstr "минзухарен цвят"
+msgstr "шафран"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:69
 msgid "vanilla"
@@ -1096,11 +1100,11 @@ msgstr "ванилия"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:70
 msgid "veronese"
-msgstr "веронез"
+msgstr "веронско зелено"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:71
 msgid "verdigris"
-msgstr "зеленикаво"
+msgstr "френско зелено"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:72
 msgid "dark purple"
@@ -1139,7 +1143,7 @@ msgstr ""
 #: ../src/algebra_by-activity/algebra.c:186
 #: ../src/memory-activity/memory.c:946
 msgid "+-×÷"
-msgstr "+-.:"
+msgstr "+-·:"
 
 #: ../src/algebra_by-activity/algebra.c:411
 #: ../src/readingh-activity/reading.c:630
@@ -1155,8 +1159,8 @@ msgid ""
 "Work out the right combination of numbers and operations to match the given "
 "value"
 msgstr ""
-"Намерете правилната комбинация от числа и операции, за да се получи "
-"зададения резултат."
+"Намерете правилната комбинация от числа и операции, за да се получи даденият "
+"резултат."
 
 #: ../src/algebra_guesscount-activity/algebra_guesscount.xml.in.h:3
 msgid "The four arithmetic operations. Combine several arithmetic operations."
@@ -1188,7 +1192,7 @@ msgid ""
 "pictures. Thanks a lot, Ralf."
 msgstr ""
 "Снимките на животните са взети от страницата на Ралф Шмоде (http://schmode."
-"net/). Ралф е дал разрешение да се използват в GCompris. Благодаря много, "
+"net/). Ралф е дал разрешение да се използват в GCompris. Много благодарим, "
 "Ралф!"
 
 #: ../src/algebra_minus-activity/algebra_minus.xml.in.h:1
@@ -1246,7 +1250,7 @@ msgstr "Алгоритъм"
 
 #: ../src/algorithm-activity/algorithm.xml.in.h:2
 msgid "Complete a list of symbols"
-msgstr "Завършете списъка със символи"
+msgstr "Завършете списъка със знаци"
 
 #: ../src/algorithm-activity/algorithm.xml.in.h:3
 #: ../src/hexagon-activity/hexagon.xml.in.h:3
@@ -1260,7 +1264,7 @@ msgstr "Упражнения за развиване на логиката"
 
 #: ../src/algorithm-activity/algorithm.xml.in.h:5
 msgid "Find the next symbol in a list."
-msgstr "Намерете следващия символ в списъка."
+msgstr "Намерете следващия знак в списъка."
 
 #: ../src/anim-activity/anim.py:103
 msgid "Save..."
@@ -1429,7 +1433,6 @@ msgid "Play the Oware strategy game against Tux"
 msgstr "Стратегическа игра „Оваре“ срещу Тъкс"
 
 #: ../src/awele-activity/awele.xml.in.h:3
-#, fuzzy
 msgid ""
 "The object of the game is to capture more seeds than one's opponent. Since "
 "the game has only 48 seeds, capturing 25 is sufficient to accomplish this. "
@@ -1535,7 +1538,7 @@ msgstr ""
 "пространство на основната дъска."
 
 #: ../src/babymatch-activity/shapegame.c:2017
-#: ../src/click_on_letter-activity/click_on_letter.c:1316
+#: ../src/click_on_letter-activity/click_on_letter.c:1317
 #, c-format
 msgid ""
 "<b>%1$s</b> configuration\n"
@@ -1583,9 +1586,10 @@ msgstr "Оцветен Шаро."
 
 # FIXME: Не мога да издиря превода на тази картина на български.
 # http://fr.wikipedia.org/wiki/Fichier:Paul_Gauguin_006.jpg
+# Ararea на таитянски е Joyfulness - предавам като щастие
 #: ../src/babyshapes-activity/resources/babyshapes/board8_0.xml.in.h:1
 msgid "Paul Gauguin, Arearea - 1892"
-msgstr "Пол Гоген, „Ареария“ — 1892 г."
+msgstr "Пол Гоген, „Щастие“ — 1892 г."
 
 #: ../src/babyshapes-activity/resources/babyshapes/board8_1.xml.in.h:1
 msgid "Pieter Bruegel the Elder, The peasants wedding - 1568"
@@ -1710,7 +1714,7 @@ msgstr "Специална дъска, която вгражда Питон в G
 
 #: ../src/braille_alphabets-activity/braille_alphabets.py:176
 msgid "Braille : Unlocking the Code"
-msgstr ""
+msgstr "Брайл: Да разберем кода"
 
 #. Braille Intro
 #: ../src/braille_alphabets-activity/braille_alphabets.py:178
@@ -1718,6 +1722,7 @@ msgid ""
 "The Braille system is a method that is used by blind people to read and "
 "write."
 msgstr ""
+"Брайловото писмо е система, с която слепите хора могат да пишат и четат"
 
 #. Braille Description
 #: ../src/braille_alphabets-activity/braille_alphabets.py:181
@@ -1726,51 +1731,60 @@ msgid ""
 "in a rectangle containing two columns of three dots each. As seen on the "
 "left, each dot is referenced by a number from 1 to 6."
 msgstr ""
+"Всеки брайлов знак съдържа до шест точки разположени в клетка от две колони "
+"и три реда. Вляво е показано как се номерират точките."
 
 #: ../src/braille_alphabets-activity/braille_alphabets.py:200
 msgid "I am braille TUX"
-msgstr ""
+msgstr "Аз съм Тъкс с брайл"
 
 #: ../src/braille_alphabets-activity/braille_alphabets.py:212
 msgid "When you are ready, click on me and try reproducing Braille characters."
 msgstr ""
+"Натиснете с мишката върху мен и се опитайте да възпроизведете показаните "
+"брайлови знаци."
 
 #. Translators : Do not translate the token {letter}
 #: ../src/braille_alphabets-activity/braille_alphabets.py:299
 msgid "Click on the dots in braille cell area to produce the letter {letter}."
 msgstr ""
+"Натиснете на точките в брайловата клетка, за да съставите буквата {letter}."
 
 #: ../src/braille_alphabets-activity/braille_alphabets.py:304
 msgid ""
 "Look at the Braille character map and observe how similar the first and "
 "second line are."
 msgstr ""
+"Погледнете таблото със брайловите знаци. Забележете колко си приличат "
+"първите два реда."
 
 #: ../src/braille_alphabets-activity/braille_alphabets.py:307
 msgid ""
 "Again, similar as the first line but take care, the 'W' letter was added "
 "afterwards."
 msgstr ""
+"По същия начин — прилича на първия ред, но внимавайте — буквата „W“ е била "
+"добавена в последствие."
 
 #: ../src/braille_alphabets-activity/braille_alphabets.py:310
 msgid "This is easy, numbers are the same as letters from A to J."
-msgstr ""
+msgstr "Това е лесно, цифрите от 0 до 9 съответстват на буквите от A до J."
 
 #: ../src/braille_alphabets-activity/braille_alphabets.py:329
 msgid "Braille Cell"
-msgstr ""
+msgstr "Брайлова клетка"
 
 #: ../src/braille_alphabets-activity/braille_alphabets.py:351
 msgid "Click to confirm your selection of dots"
-msgstr ""
+msgstr "Натиснете, за да потвърдите избраните точки"
 
 #: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:2
 msgid "Learn and memorize the Braille system."
-msgstr ""
+msgstr "Научете и запомнете брайловото писмо."
 
 #: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:3
 msgid "Let kids discover the Braille system."
-msgstr ""
+msgstr "Нека децата да се научат на брайловата система."
 
 #: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:4
 msgid ""
@@ -1778,6 +1792,9 @@ msgid ""
 "telling you the letter to reproduce, and at the top the Braille letters to "
 "use as a reference. Each level teaches a set of 10 letters."
 msgstr ""
+"Екранът е разделен на три — интерактивна брайлова клетка, обяснение, "
+"указващо буквата, която трябва да конструирате, а най-отгоре е табло с "
+"образците на буквите. Всяко ниво отговаря на 10 букви."
 
 #: ../src/braille_alphabets-activity/BrailleMap.py:96
 msgid "Back to the activity"
@@ -1800,6 +1817,8 @@ msgid ""
 "Braille code the tile for the corresponding falling letters. Check the "
 "braille chart by clicking on the toggle button for help."
 msgstr ""
+"Въведете брайловия код за падащата плочка с буква. Сверявайте с брайловата "
+"карта, която се появява при натискането на бутона за помощта."
 
 #: ../src/braille_lotto-activity/braille_lotto.py:120
 msgid "PLAYER 1"
@@ -1867,11 +1886,11 @@ msgstr "Поздравления, играчо {player_id} — спечелих�
 
 #: ../src/braille_lotto-activity/braille_lotto.xml.in.h:1
 msgid "Braille Lotto"
-msgstr ""
+msgstr "Брайлова лотария"
 
 #: ../src/braille_lotto-activity/braille_lotto.xml.in.h:2
 msgid "Discover the Braille system for numbers."
-msgstr ""
+msgstr "Разучете брайловата система за числа."
 
 #: ../src/braille_lotto-activity/braille_lotto.xml.in.h:3
 msgid ""
@@ -1880,6 +1899,10 @@ msgid ""
 "crosses all the Braille numbers correctly wins the game. Check the Braille "
 "table by clicking on the toggle button in the control bar."
 msgstr ""
+"Всеки играч трябва да открие дали показаното число присъства в картончето "
+"му. Ако е там — натиснете го за потвърждение. Играчът, който първи зачертае "
+"всички брайлови числа, печели играта. Сверявайте с брайловата карта, която "
+"се появява при натискането на бутона в лентата за управление."
 
 #: ../src/canal_lock-activity/canal_lock.xml.in.h:1
 msgid "Operate a canal lock"
@@ -1891,7 +1914,7 @@ msgid ""
 "find out how a canal lock works."
 msgstr ""
 "Тъкс е в беда и иска да преведете кораба му през шлюза. Помогнете на Тъкс и "
-"разберете как работи шлюза в канал."
+"разберете как работи шлюзът в канал."
 
 #: ../src/canal_lock-activity/canal_lock.xml.in.h:3
 msgid ""
@@ -1940,7 +1963,7 @@ msgstr ""
 
 #: ../src/chat-activity/chat.py:433
 msgid "Has left the chat."
-msgstr ""
+msgstr "Напусна разговора."
 
 #: ../src/chat-activity/chat.py:512
 msgid "You must set a channel in your channel entry box first.\n"
@@ -1960,7 +1983,6 @@ msgid "This chat activity only works on the local network"
 msgstr "Това занимание работи само за разговори в локалната мрежа"
 
 #: ../src/chat-activity/chat.xml.in.h:3
-#, fuzzy
 msgid ""
 "This chat activity will only work with other GCompris users on your local "
 "network, not on the Internet. To use it, just type in your message and hit "
@@ -1974,12 +1996,12 @@ msgstr ""
 "и всяка програма GCompris, която изпълнява това занимание на друга машина, "
 "ще получи и покаже вашето съобщение."
 
-#: ../src/chess_computer-activity/chess.c:222
+#: ../src/chess_computer-activity/chess.c:225
 msgid "Error: The external program gnuchess died unexpectedly"
-msgstr "Грешка: Външната програма „gnuchess“ загина неочаквано"
+msgstr "Грешка: Външната програма „gnuchess“ неочаквано прекъсна работа"
 
-#: ../src/chess_computer-activity/chess.c:262
-#: ../src/chess_computer-activity/chess.c:308
+#: ../src/chess_computer-activity/chess.c:265
+#: ../src/chess_computer-activity/chess.c:311
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -1989,36 +2011,36 @@ msgstr ""
 "за да играете шах в GCompris.\n"
 "Първо я инсталирайте и проверете дали я има в "
 
-#: ../src/chess_computer-activity/chess.c:653
+#: ../src/chess_computer-activity/chess.c:656
 msgid "White's Turn"
 msgstr "Ред на белите"
 
-#: ../src/chess_computer-activity/chess.c:653
+#: ../src/chess_computer-activity/chess.c:656
 msgid "Black's Turn"
 msgstr "Ред на черните"
 
-#: ../src/chess_computer-activity/chess.c:794
+#: ../src/chess_computer-activity/chess.c:797
 msgid "White checks"
-msgstr "Шах на белите"
+msgstr "Белите обявяват шах"
 
-#: ../src/chess_computer-activity/chess.c:796
+#: ../src/chess_computer-activity/chess.c:799
 msgid "Black checks"
-msgstr "Шах на черните"
-
-#: ../src/chess_computer-activity/chess.c:1202
-msgid "Black mates"
-msgstr "Мат на черните"
+msgstr "Черните обявяват шах"
 
 #: ../src/chess_computer-activity/chess.c:1209
-msgid "White mates"
-msgstr "Мат на белите"
+msgid "Black mates"
+msgstr "Черните обявяват мат"
 
-#: ../src/chess_computer-activity/chess.c:1216 ../src/gcompris/bonus.c:191
+#: ../src/chess_computer-activity/chess.c:1216
+msgid "White mates"
+msgstr "Белите обявяват мат"
+
+#: ../src/chess_computer-activity/chess.c:1223 ../src/gcompris/bonus.c:191
 #: ../src/gcompris/bonus.c:200
 msgid "Drawn game"
 msgstr "Равна игра"
 
-#: ../src/chess_computer-activity/chess.c:1244
+#: ../src/chess_computer-activity/chess.c:1251
 msgid "Error: The external program gnuchess died unexpectingly"
 msgstr "Грешка: Външната програма „gnuchess“ загина неочаквано"
 
@@ -2032,15 +2054,15 @@ msgstr "Изучаване на шах"
 #: ../src/chess_movelearn-activity/chess_movelearn.xml.in.h:4
 #: ../src/chess_partyend-activity/chess_partyend.xml.in.h:4
 msgid "The chess engine is from gnuchess."
-msgstr "Машината за шах е от gnuchess."
+msgstr "Ядрото за шах е от gnuchess."
 
 #: ../src/chess_movelearn-activity/chess_movelearn.xml.in.h:2
 msgid "Chess training. Catch the computer's pawns."
-msgstr "Упражнения по шах. Хванете пешките на компютъра."
+msgstr "Упражнения по шах. Вземете пешките на компютъра."
 
 #: ../src/chess_partyend-activity/chess_partyend.xml.in.h:2
 msgid "Play the end of the chess game against the computer"
-msgstr "Игра „Край на шах“ срещу компютъра"
+msgstr "Ендшпил срещу компютъра"
 
 #: ../src/chronos-activity/chronos.xml.in.h:1
 msgid "Chronos"
@@ -2249,9 +2271,10 @@ msgstr "„Триколката“ на Рено от 1899 г."
 msgid "1923 Lancia Lambda"
 msgstr "Ланча „Ламбда“ от 1923 г."
 
+# FIXME ds -> DS
 #: ../src/chronos-activity/resources/chronos/board4_3.xml.in.h:4
 msgid "1955 Citroën ds 19"
-msgstr "Ситроен „ds 19“ от 1955 г."
+msgstr "Ситроен „DS 19“ от 1955 г."
 
 #: ../src/clickanddraw-activity/clickanddraw.xml.in.h:1
 msgid "Click and draw"
@@ -2259,7 +2282,7 @@ msgstr "Натиснете и рисувайте"
 
 #: ../src/clickanddraw-activity/clickanddraw.xml.in.h:2
 msgid "Draw the picture by clicking on the blue points."
-msgstr "Нарисувайте рисунката, натискайки сините точки."
+msgstr "Нарисувайте рисунката като натискате сините точки."
 
 #: ../src/clickanddraw-activity/clickanddraw.xml.in.h:3
 msgid "Draw the picture by clicking on each blue point in sequence."
@@ -2285,7 +2308,9 @@ msgstr "Двигателна координация: движение на ми�
 msgid ""
 "Use the left mouse button to click on the moving fish. A level 5 and after, "
 "a double click is mandatory."
-msgstr "Натиснете движещата се риба с левия бутон на мишката. От ниво 5 нагоре трябва да натискате двукратно върху рибата."
+msgstr ""
+"Натиснете движещата се риба с левия бутон на мишката. От ниво 5 нагоре "
+"трябва да натискате двукратно върху рибата."
 
 #: ../src/clickgame-activity/clickgame.xml.in.h:6
 msgid ""
@@ -2307,6 +2332,8 @@ msgid ""
 "This activity will be played with questions displayed as text instead of "
 "being spoken"
 msgstr ""
+"В това занимание въпросите ще бъдdат показани като текст вместо да бъдат "
+"произнасяни"
 
 #: ../src/click_on_letter-activity/click_on_letter.c:383
 #: ../src/memory-activity/memory.c:906
@@ -2330,46 +2357,49 @@ msgstr ""
 "Грешка: Това занимание изисква първо да инсталирате\n"
 "пакетите със звук за GCompris за локала „%s“."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:907
+#: ../src/click_on_letter-activity/click_on_letter.c:908
 msgid "Questions cannot be empty."
-msgstr ""
+msgstr "Въпросите не могат да са празни."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:917
+#: ../src/click_on_letter-activity/click_on_letter.c:918
 msgid "Answers cannot be empty."
-msgstr ""
+msgstr "Отговорите не могат да са празни."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:923
+#: ../src/click_on_letter-activity/click_on_letter.c:924
 #, c-format
 msgid "Too many characters in the Answer (maximum is %d)."
-msgstr ""
+msgstr "Прекалено много знаци в отговора (максимумът е %d)."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:947
+#: ../src/click_on_letter-activity/click_on_letter.c:948
 msgid "All the characters in Questions must also be in the Answers."
-msgstr ""
+msgstr "Всички знаци от въпроса трябва да присъстват в отговора."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:964
+#: ../src/click_on_letter-activity/click_on_letter.c:965
 #, c-format
 msgid ""
 "Invalid entry:\n"
 "At level %d, Questions '%s' / Answers '%s'\n"
 "%s"
 msgstr ""
+"Неправилно:\n"
+"Ниво %d, Въпроси „%s“ / Отговори „%s“\n"
+"%s"
 
 #. answer
-#: ../src/click_on_letter-activity/click_on_letter.c:1259
+#: ../src/click_on_letter-activity/click_on_letter.c:1260
 #: ../src/missing_letter-activity/missingletter_config.c:420
 #: ../src/missing_letter-activity/missingletter_config.c:548
 msgid "Answer"
 msgstr "Отговор"
 
 #. question
-#: ../src/click_on_letter-activity/click_on_letter.c:1270
+#: ../src/click_on_letter-activity/click_on_letter.c:1271
 #: ../src/missing_letter-activity/missingletter_config.c:426
 #: ../src/missing_letter-activity/missingletter_config.c:571
 msgid "Question"
 msgstr "Въпрос"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:1406
+#: ../src/click_on_letter-activity/click_on_letter.c:1407
 #: ../src/gcompris/board_config_wordlist.c:274
 msgid "Back to default"
 msgstr "Връщане по подразбиране"
@@ -2437,7 +2467,7 @@ msgid ""
 "hours:minutes:seconds). Click on the different arrows, and move the mouse, "
 "to make the numbers go up or down."
 msgstr ""
-"Настройте стрелките така, че да показват даденото време (часове:минути или "
+"Настройте стрелките, така че да показват даденото време (часове:минути или "
 "часове:минути:секунди). Може да променяте посоката на стрелката, като я "
 "изберете и я движите с мишката."
 
@@ -2646,56 +2676,56 @@ msgstr "Винсент ван Гог, „Портрет на Пер Танги�
 
 #: ../src/details-activity/resources/details/board2_0.xml.in.h:1
 msgid "Eilean Donan castle"
-msgstr ""
+msgstr "Замъка Ейлеан Донан"
 
 #: ../src/details-activity/resources/details/board2_10.xml.in.h:1
 msgid "Gizah Pyramids, Egypt"
-msgstr ""
+msgstr "Пирамидите в Гиза, Египет"
 
 #: ../src/details-activity/resources/details/board2_11.xml.in.h:1
 msgid "Sydney Opera House, Australia"
-msgstr ""
+msgstr "Операта в Сидни, Австралия"
 
 #: ../src/details-activity/resources/details/board2_12.xml.in.h:1
 msgid "Tower Bridge in London"
-msgstr ""
+msgstr "Тауър Бридж в Лондон"
 
 #: ../src/details-activity/resources/details/board2_1.xml.in.h:1
 msgid "Eiffel Tower, seen from the champ de Mars, Paris, France"
-msgstr ""
+msgstr "Айфеловата кула от Марсови поля, Париж, Франция"
 
 #: ../src/details-activity/resources/details/board2_2.xml.in.h:1
 msgid "Courtyard of the Museum of Louvre, and its pyramid"
-msgstr ""
+msgstr "Дворът на Лувъра с пирамидата"
 
 #: ../src/details-activity/resources/details/board2_3.xml.in.h:1
 msgid "Panorama of Château de Chenonceau, Indre-et-Loire, France."
-msgstr ""
+msgstr "Изглед към Шато де Шононсо, Ендр-е-Лоар, Франция"
 
 #: ../src/details-activity/resources/details/board2_4.xml.in.h:1
 msgid ""
 "Notre Dame de Paris cathedral on the Île de la Cité island in Paris, France."
-msgstr ""
+msgstr "Катедралата Парижката Света Богородица на остров Сите, Париж, Франция"
 
 #: ../src/details-activity/resources/details/board2_5.xml.in.h:1
 msgid "Nagoya Castle, Aichi Prefecture, Japan."
-msgstr ""
+msgstr "Замъка Нагоя, Префектура Аичи, Япония"
 
 #: ../src/details-activity/resources/details/board2_6.xml.in.h:1
 msgid "Taj Mahal, Agra, India"
-msgstr ""
+msgstr "Тадж Махал, Агра, Индия"
 
 #: ../src/details-activity/resources/details/board2_7.xml.in.h:1
 msgid "Castle Neuschwanstein at Schwangau, Bavaria, Germany"
-msgstr ""
+msgstr "Замъка Нойшванщайн в Швангау, Бавария, Германия"
 
 #: ../src/details-activity/resources/details/board2_8.xml.in.h:1
 msgid "Egeskov Castle, Denmark"
-msgstr ""
+msgstr "Замъка Егесков, Дания"
 
 #: ../src/details-activity/resources/details/board2_9.xml.in.h:1
 msgid "Windmill in Sønderho, Fanø, Denmark"
-msgstr ""
+msgstr "Мелница в Сьондеро, Фаньо, Дания"
 
 #: ../src/doubleentry-activity/doubleentry.xml.in.h:1
 msgid "Double-entry table"
@@ -2754,7 +2784,7 @@ msgstr ""
 #: ../src/findit-activity/findit.py:315
 #: ../src/louis_braille-activity/louis_braille.py:84
 msgid "Cannot find the file '{filename}'"
-msgstr ""
+msgstr "Файлът „{filename}“ не може да се открие"
 
 #: ../src/drawnumber-activity/drawnumber.xml.in.h:1
 msgid "Draw Number"
@@ -2806,6 +2836,7 @@ msgstr "Изисква първоначално разбиране на поня
 msgid "Freely create an electric schema with a real time simulation of it."
 msgstr "Свободно създаване на електрическа схема със симулация в реално време."
 
+# FIXME Вече го няма линка
 #: ../src/electric-activity/electric.xml.in.h:5
 msgid ""
 "GCompris uses the Gnucap electric simulator as a backend. You can get more "
@@ -2886,7 +2917,7 @@ msgstr "Движете мишката, за да изтриете зоната �
 
 #: ../src/erase-activity/erase.c:180
 msgid "Error: No images found\n"
-msgstr ""
+msgstr "Грешка: Не са открити изображения\n"
 
 #: ../src/erase-activity/erase.c:582 ../src/gcompris/properties.c:504
 #: ../src/gcompris/properties.c:511
@@ -2901,12 +2932,19 @@ msgid ""
 "jpeg'.\n"
 "For best results, they must have a size of 800x520 pixels.\n"
 msgstr ""
+"Поставете произволен брой изображения в тази папка.\n"
+"Те ще бъдат ползвани като фон за дейността за изтриване.\n"
+"Изображението трябва да бъде във формат JPEG с разширение „.jpg“ или „."
+"jpeg“.\n"
+"Най-добри резултати се получават при размер на изображението 800×520.\n"
 
 #: ../src/erase-activity/erase.xml.in.h:5
 msgid ""
 "Move the mouse until all the blocks disappear. You can add you own images "
 "under the directory '~/My GCompris/erase'."
 msgstr ""
+"Движете мишката докато всички плочки изчезнат. Можете да добавите собствени "
+"изображения в папката „~/My GCompris/erase“."
 
 #: ../src/erase-activity/erase.xml.in.h:6
 msgid ""
@@ -2939,7 +2977,9 @@ msgstr "Игра „Петнадесет“"
 #: ../src/fifteen-activity/fifteen.xml.in.h:2
 msgid ""
 "Move each item to make an increasing series: from the smallest to the largest"
-msgstr "Местете всеки обект по възходящ начин: от най-малкия към най-големия"
+msgstr ""
+"Местете всеки обект, за да подредите всички в последователност от най-малкия "
+"към най-големия"
 
 #: ../src/fifteen-activity/fifteen.xml.in.h:4
 msgid ""
@@ -2959,6 +2999,8 @@ msgid ""
 "Failed to parse data set '{filename}' with error:\n"
 "{error}"
 msgstr ""
+"Грешка пре анализа на данните във файла „{filename}“:\n"
+"{error}"
 
 #: ../src/followline-activity/followline.xml.in.h:1
 msgid "Control the hose-pipe"
@@ -2966,11 +3008,11 @@ msgstr "Контролирайте маркуча"
 
 #: ../src/followline-activity/followline.xml.in.h:2
 msgid "Tux needs to water the flowers, but the hose is blocked."
-msgstr "Тъкс трябва да полее цветята, но маркуча е запушен"
+msgstr "Тъкс трябва да полее цветята, но маркучът е запушен"
 
 #: ../src/followline-activity/followline.xml.in.h:3
 msgid "Fine motor coordination"
-msgstr "Добра двигателна координация"
+msgstr "Фина двигателна координация"
 
 #: ../src/followline-activity/followline.xml.in.h:4
 msgid ""
@@ -3023,7 +3065,7 @@ msgstr ""
 "Този софтуер е пакет на GNU и се разпространява под условията на Общия "
 "публичен лиценз на GNU (GNU GPL)"
 
-#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:459
+#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:460
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:358
 #: ../src/gcompris/images_selector.c:313
 msgid "OK"
@@ -3104,7 +3146,7 @@ msgstr "Избор на ниво"
 
 #: ../src/gcompris/config.c:58
 msgid "Your system default"
-msgstr "По подразбиране за системата"
+msgstr "Стандартният за операционната система"
 
 #: ../src/gcompris/config.c:59
 msgid "Afrikaans"
@@ -3154,10 +3196,11 @@ msgstr "китайски (традиционен)"
 msgid "Croatian"
 msgstr "хърватски"
 
+# FIXME - Да има 2 низа
 #: ../src/gcompris/config.c:71
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:7
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:7
 msgid "Czech Republic"
-msgstr "Чехия"
+msgstr "Чешки"
 
 #: ../src/gcompris/config.c:72
 msgid "Danish"
@@ -3244,190 +3287,194 @@ msgid "Korean"
 msgstr "корейски"
 
 #: ../src/gcompris/config.c:93
+msgid "Latvian"
+msgstr "латвийски"
+
+#: ../src/gcompris/config.c:94
 msgid "Lithuanian"
 msgstr "литовски"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:95
 msgid "Macedonian"
 msgstr "македонски"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:96
 msgid "Malay"
 msgstr "малайски"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:97
 msgid "Malayalam"
 msgstr "малаялам"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:98
 msgid "Marathi"
 msgstr "маратхи"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:99
 msgid "Montenegrin"
 msgstr "черногорски"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:100
 msgid "Nepal"
 msgstr "непалски"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:101
 msgid "Norwegian Bokmal"
 msgstr "норвежки (букмол)"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:102
 msgid "Norwegian Nynorsk"
 msgstr "норвежки (ниношк)"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:103
 msgid "Occitan (languedocien)"
 msgstr "провансалски"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:104
 msgid "Persian"
 msgstr "персийски"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:105
 msgid "Polish"
 msgstr "полски"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:106
 msgid "Portuguese (Brazil)"
 msgstr "португалски (Бразилия)"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:107
 msgid "Portuguese"
 msgstr "португалски"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:108
 msgid "Punjabi"
 msgstr "индийски (панджаби)"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:109
 msgid "Romanian"
 msgstr "румънски"
 
-#: ../src/gcompris/config.c:109
+#: ../src/gcompris/config.c:110
 msgid "Russian"
 msgstr "руски"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:111
 msgid "Serbian (Latin)"
 msgstr "сръбски (латиница)"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:112
 msgid "Serbian"
 msgstr "сръбски"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:113
 msgid "Slovak"
 msgstr "словашки"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:114
 msgid "Slovenian"
 msgstr "словенски"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:115
 msgid "Somali"
 msgstr "сомалийски"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:116
 msgid "Spanish"
 msgstr "испански"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:117
 msgid "Swedish"
 msgstr "шведски"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:118
 msgid "Tamil"
 msgstr "тамилски"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:119
 msgid "Thai"
 msgstr "тайландски"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:120
 msgid "Turkish (Azerbaijan)"
 msgstr "турски (Азербайджан)"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:121
 msgid "Turkish"
 msgstr "турски"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:122
 msgid "Ukrainian"
 msgstr "украински"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:123
 msgid "Urdu"
 msgstr "урду"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:124
 msgid "Vietnamese"
 msgstr "виетнамски"
 
-#: ../src/gcompris/config.c:124
+#: ../src/gcompris/config.c:125
 msgid "Walloon"
 msgstr "валонски"
 
-#: ../src/gcompris/config.c:125
+#: ../src/gcompris/config.c:126
 msgid "Zulu"
-msgstr ""
+msgstr "зулуски"
 
-#: ../src/gcompris/config.c:130
+#: ../src/gcompris/config.c:131
 msgid "No time limit"
 msgstr "Без ограничение за време"
 
-#: ../src/gcompris/config.c:131
+#: ../src/gcompris/config.c:132
 msgid "Slow timer"
 msgstr "Показване на хронометър"
 
-#: ../src/gcompris/config.c:132
+#: ../src/gcompris/config.c:133
 msgid "Normal timer"
 msgstr "Нормален хронометър"
 
-#: ../src/gcompris/config.c:133
+#: ../src/gcompris/config.c:134
 msgid "Fast timer"
 msgstr "Бърз хронометър"
 
-#: ../src/gcompris/config.c:137
+#: ../src/gcompris/config.c:138
 msgid "Use Gcompris administration module to filter boards"
 msgstr ""
 "Използвайте административния модул на GCompris, за да филтрирате занимания"
 
-#: ../src/gcompris/config.c:191
+#: ../src/gcompris/config.c:192
 msgid "GCompris Configuration"
 msgstr "Настройки на GCompris"
 
-#: ../src/gcompris/config.c:274
+#: ../src/gcompris/config.c:275
 msgid "Fullscreen"
 msgstr "На цял екран"
 
-#: ../src/gcompris/config.c:299
+#: ../src/gcompris/config.c:300
 msgid "Music"
 msgstr "Музика"
 
-#: ../src/gcompris/config.c:324
+#: ../src/gcompris/config.c:325
 msgid "Effect"
 msgstr "Ефекти"
 
-#: ../src/gcompris/config.c:348 ../src/gcompris/sugar_gc.c:93
+#: ../src/gcompris/config.c:349 ../src/gcompris/sugar_gc.c:93
 msgid "Zoom"
 msgstr "Мащаб"
 
-#: ../src/gcompris/config.c:385
+#: ../src/gcompris/config.c:386
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Не може да бъде отворена папка с тема: %s"
 
-#: ../src/gcompris/config.c:416 ../src/gcompris/config.c:876
-#: ../src/gcompris/config.c:890
+#: ../src/gcompris/config.c:417 ../src/gcompris/config.c:877
+#: ../src/gcompris/config.c:891
 #, c-format
 msgid "Skin : %s"
 msgstr "Тема : %s"
 
-#: ../src/gcompris/config.c:418
+#: ../src/gcompris/config.c:419
 msgid "SKINS NOT FOUND"
 msgstr "ТЕМИТЕ НЕ СА ОТКРИТИ"
 
@@ -3602,6 +3649,8 @@ msgstr "Изключване на бутона за ниво"
 #: ../src/gcompris/gcompris.c:242
 msgid "Disable the database (slower start and no user log)"
 msgstr ""
+"Изключване на базата от данни (програмата стартира по-бавно и без журнал за "
+"напредъка)"
 
 #: ../src/gcompris/gcompris.c:245
 msgid ""
@@ -3626,7 +3675,7 @@ msgstr ""
 msgid ""
 "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr ""
-"В сървърен режим, указва папката за кеш,\n"
+"В сървърен режим указва папката за кеш,\n"
 "                           използвана за избягване на излишните изтегляния."
 
 #: ../src/gcompris/gcompris.c:255
@@ -3640,28 +3689,34 @@ msgstr ""
 #: ../src/gcompris/gcompris.c:258
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr ""
-"Да не се избягва изпълнението на множество инстанции\n"
-"                           на GCompris."
+"Да не се избягва стартирането на повече от един\n"
+"                           GCompris."
 
 #: ../src/gcompris/gcompris.c:261
 msgid "Disable maximization zoom"
-msgstr ""
+msgstr "Изключване на максимизирането на цял екран"
 
 #: ../src/gcompris/gcompris.c:264
 msgid ""
 "Increase activities' timeout delays; useful values > 1.0; 1.0 to not change "
 "hardcoded value"
 msgstr ""
+"Увеличаване на времето за заниманията. Ползвайте\n"
+"                           стойности > 1.0. 1.0 — без промяна"
 
 #: ../src/gcompris/gcompris.c:267
 msgid ""
 "How activities' timeout delays are growing for several actors; useful values "
 "< 1.0; 1.0 to not change hardcoded value"
 msgstr ""
+"Коефициент за увеличаване на времето за няколко\n"
+"                           участника за заниманията. Ползвайте стойности > "
+"1.0.\n"
+"                           1.0 — без промяна"
 
 #: ../src/gcompris/gcompris.c:270
 msgid "For test purpose, run in a loop all the activities"
-msgstr ""
+msgstr "Изпълняване на всички занимания в цикъл за тестването им"
 
 #: ../src/gcompris/gcompris.c:955
 #, c-format
@@ -3688,10 +3743,12 @@ msgstr ""
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
 msgstr ""
+"Темата „%s“ не може да се зареди. (Проверете дали файлът съществува и дали "
+"имате права за четене)"
 
 #: ../src/gcompris/gcompris.c:1266
 msgid "Retrieving remote data..."
-msgstr ""
+msgstr "Получаване на отдалечени данни…"
 
 #: ../src/gcompris/gcompris.c:1526
 #, c-format
@@ -3699,7 +3756,9 @@ msgid ""
 "GCompris won't start because the lock file is less than %d second old.\n"
 msgid_plural ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
-msgstr[0] "GCompris няма да се стартира, защото заключващият файл е по-нов от %d секунда.\n"
+msgstr[0] ""
+"GCompris няма да се стартира, защото заключващият файл е по-нов от %d "
+"секунда.\n"
 msgstr[1] ""
 "GCompris няма да се стартира, защото заключващият файл е по-нов от %d "
 "секунди.\n"
@@ -3813,6 +3872,8 @@ msgid ""
 "All the activities are disabled in this profile. Go in the GCompris "
 "administration module and activate at least one activity."
 msgstr ""
+"В този профил всички занимания са изключени. Включете поне едно от тях чрез "
+"административния интерфейс."
 
 #: ../src/gcompris/properties.c:506
 msgid ""
@@ -3831,6 +3892,43 @@ msgstr ""
 "Записвайте всякакъв вид изображения в тази папка.\n"
 "Може да ги включвате във вашите рисунки и анимации.\n"
 "Поддържаните формати за изображения са JPEG, PNG и SVG.\n"
+
+#: ../src/gcompris/sugar_cli.c:222 ../src/gcompris/sugar_srv.c:156
+msgid "Sharing Error"
+msgstr "Грешка при споделяне"
+
+#: ../src/gcompris/sugar_cli.c:223
+msgid "Cannot retrieve remote data"
+msgstr "Отдалечените данни не могат да бъдат получени"
+
+#: ../src/gcompris/sugar_gc.c:82
+msgid "About"
+msgstr "Относно"
+
+#: ../src/gcompris/sugar_gc.c:83
+msgid "Refresh"
+msgstr "Обновяване"
+
+#: ../src/gcompris/sugar_gc.c:84
+msgid "Settings"
+msgstr "Настройки"
+
+#: ../src/gcompris/sugar_gc.c:85
+msgid "Previous level"
+msgstr "Предишно ниво"
+
+#: ../src/gcompris/sugar_gc.c:88
+msgid "Next level"
+msgstr "Следващо ниво"
+
+#. TRANSLATORS: Back as in previous
+#: ../src/gcompris/sugar_gc.c:97
+msgid "Back"
+msgstr "Назад"
+
+#: ../src/gcompris/sugar_srv.c:157
+msgid "Cannot initiate sharing session"
+msgstr "Не може да се стартира сесия за споделяне"
 
 #: ../src/gcompris/timer.c:257
 msgid "Time Elapsed"
@@ -3870,7 +3968,7 @@ msgstr "Области във Франция"
 
 #: ../src/geo_country-activity/resources/geo_country/board12_0.xml.in.h:1
 msgid "India"
-msgstr ""
+msgstr "Индия"
 
 #: ../src/geo_country-activity/resources/geo_country/board13_0.xml.in.h:1
 msgid "Australia"
@@ -3918,7 +4016,7 @@ msgid "Continents"
 msgstr "Континенти"
 
 #: ../src/geography-activity/resources/geography/board1_0.xml.in.h:2
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:1
 msgid "Africa"
 msgstr "Африка"
 
@@ -3971,7 +4069,7 @@ msgid "Haiti"
 msgstr "Хаити"
 
 #: ../src/geography-activity/resources/geography/board2_0.xml.in.h:8
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:8
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:8
 msgid "Iceland"
 msgstr "Исландия"
 
@@ -3991,465 +4089,469 @@ msgstr "Съединени американски щати"
 msgid "Alaska"
 msgstr "Аляска"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:1
 msgid "South America"
 msgstr "Южна Америка"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:2
 msgid "Argentina"
 msgstr "Аржентина"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:3
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:3
 msgid "Bolivia"
 msgstr "Боливия"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:4
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:4
 msgid "Brazil"
 msgstr "Бразилия"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:5
 msgid "Chile"
 msgstr "Чили"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:6
 msgid "Colombia"
 msgstr "Колумбия"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:7
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:7
 msgid "Ecuador"
 msgstr "Еквадор"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:8
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:8
 msgid "French Guiana"
 msgstr "Френска Гвиана"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:9
 msgid "Guyana"
 msgstr "Гаяна"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:10
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:10
 msgid "Panama"
 msgstr "Панама"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:11
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:11
 msgid "Paraguay"
 msgstr "Парагвай"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:12
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:12
 msgid "Peru"
 msgstr "Перу"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:13
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:13
 msgid "Suriname"
 msgstr "Суринам"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:14
 msgid "Uruguay"
 msgstr "Уругвай"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:15
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:15
 msgid "Venezuela"
 msgstr "Венецуела"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:1
 msgid "Western Europe"
 msgstr "Западна Европа"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:2
 msgid "Austria"
 msgstr "Австрия"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:3
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:3
 msgid "Belgium"
 msgstr "Белгия"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:4
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:4
 msgid "Denmark"
 msgstr "Дания"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:5
 msgid "Finland"
 msgstr "Финландия"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:6
 msgid "France"
 msgstr "Франция"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:7
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:7
 msgid "Germany"
 msgstr "Германия"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:9
 msgid "Ireland"
 msgstr "Ирландия"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:10
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:10
 msgid "Italy"
 msgstr "Италия"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:11
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:11
 msgid "Luxembourg"
 msgstr "Люксембург"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:12
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:12
 msgid "The Netherlands"
 msgstr "Холандия"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:13
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:13
 msgid "Norway"
 msgstr "Норвегия"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:14
 msgid "Portugal"
 msgstr "Португалия"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:15
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:15
 msgid "Spain"
 msgstr "Испания"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:16
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:16
 msgid "Sweden"
 msgstr "Швеция"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:17
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:17
 msgid "Switzerland"
 msgstr "Швейцария"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:18
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:18
 msgid "United Kingdom"
 msgstr "Великобритания"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:1
 msgid "Eastern Europe"
 msgstr "Източна Европа"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:2
 msgid "Albania"
 msgstr "Албания"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:3
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:3
 msgid "Belarus"
 msgstr "Беларус"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:4
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:4
 msgid "Bosnia Herzegovina"
 msgstr "Босна и Херцеговина"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:5
 msgid "Bulgaria"
 msgstr "България"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:6
 msgid "Croatia"
 msgstr "Хърватска"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:8
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:8
 msgid "Estonia"
 msgstr "Естония"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:9
 msgid "Hungary"
 msgstr "Унгария"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:10
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:10
 msgid "Latvia"
 msgstr "Латвия"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:11
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:11
 msgid "Lithuania"
 msgstr "Литва"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:12
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:12
 msgid "Macedonia"
 msgstr "Македония"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:13
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:13
 msgid "Moldova"
 msgstr "Молдова"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:14
 msgid "Poland"
 msgstr "Полша"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:15
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:15
 msgid "Romania"
 msgstr "Румъния"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:16
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:16
 msgid "Russia"
 msgstr "Русия"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:17
-msgid "Serbia Montenegro"
-msgstr "Сърбия и Черна гора"
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:17
+msgid "Serbia"
+msgstr "Сърбия"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:18
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:18
+msgid "Montenegro"
+msgstr "Черна гора"
+
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:19
 msgid "Slovak Republic"
 msgstr "Словакия"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:19
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:20
 msgid "Slovenia"
 msgstr "Словения"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:20
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:21
 msgid "Turkey"
 msgstr "Турция"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:21
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:22
 msgid "Ukraine"
 msgstr "Украйна"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:22
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:23
 msgid "Greece"
 msgstr "Гърция"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:23
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:24
 msgid "Cyprus"
 msgstr "Кипър"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:1
 msgid "Northern Africa"
 msgstr "Северна Африка"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:2
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:3
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:3
 msgid "Algeria"
 msgstr "Алжир"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:3
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:3
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:5
 msgid "Benin"
 msgstr "Бенин"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:4
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:7
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:4
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:7
 msgid "Burkina Faso"
 msgstr "Буркина Фасо"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:5
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:8
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:8
 msgid "Cameroon"
 msgstr "Камерун"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:6
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:30
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:30
 msgid "Central African Republic"
 msgstr "Централна африканска република"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:7
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:35
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:7
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:35
 msgid "Chad"
 msgstr "Чад"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:8
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:8
 msgid "Djibouti"
 msgstr "Джибути"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:9
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:11
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:11
 msgid "Egypt"
 msgstr "Египет"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:10
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:10
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:6
 msgid "Equatorial Guinea"
 msgstr "Екваториална Гвинея"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:11
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:13
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:11
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:13
 msgid "Ethiopia"
 msgstr "Етиопия"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:12
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:12
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:12
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:12
 msgid "Eritrea"
 msgstr "Еритрея"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:13
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:7
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:13
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:7
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:14
 msgid "Gabon"
 msgstr "Габон"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:14
 msgid "Gambia"
 msgstr "Гамбия"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:15
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:15
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:15
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:15
 msgid "Ghana"
 msgstr "Гана"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:16
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:16
 msgid "Guinea Bissau"
 msgstr "Гвинея-Бисау"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:17
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:16
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:17
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:16
 msgid "Guinea"
 msgstr "Гвинея"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:18
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:10
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:18
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:10
 msgid "Ivory Coast"
 msgstr "Бряг на слоновата кост"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:19
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:18
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:19
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:18
 msgid "Liberia"
 msgstr "Либерия"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:20
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:19
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:20
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:19
 msgid "Libya"
 msgstr "Либия"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:21
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:22
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:21
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:22
 msgid "Mali"
 msgstr "Мали"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:22
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:24
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:22
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:24
 msgid "Mauritania"
 msgstr "Мавритания"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:23
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:23
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:23
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:23
 msgid "Morocco"
 msgstr "Мароко"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:24
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:28
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:24
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:28
 msgid "Nigeria"
 msgstr "Нигерия"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:25
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:27
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:25
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:27
 msgid "Niger"
 msgstr "Нигер"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:26
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:15
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:26
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:15
 msgid "Rwanda"
 msgstr "Руанда"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:27
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:31
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:27
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:31
 msgid "Senegal"
 msgstr "Сенегал"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:28
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:28
 msgid "Sierra Leone"
 msgstr "Сиера Леоне"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:29
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:32
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:29
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:32
 msgid "Somalia"
 msgstr "Сомалия"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:30
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:33
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:30
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:33
 msgid "Sudan"
 msgstr "Судан"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:31
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:36
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:31
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:36
 msgid "Togo"
 msgstr "Того"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:32
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:37
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:32
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:37
 msgid "Tunisia"
 msgstr "Тунис"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:33
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:19
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:29
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:33
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:19
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:29
 msgid "Uganda"
 msgstr "Уганда"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:34
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:34
 msgid "Western Sahara"
 msgstr "Западна Сахара"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:1
 msgid "Southern Africa"
 msgstr "Южна Америка"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:2
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:4
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:4
 msgid "Angola"
 msgstr "Ангола"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:3
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:3
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:6
 msgid "Botswana"
 msgstr "Ботсвана"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:4
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:4
 msgid "Burundi"
 msgstr "Бурунди"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:5
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:9
 msgid "Democratic Republic of Congo"
 msgstr "Демократична република Конго"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:8
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:17
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:8
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:17
 msgid "Kenya"
 msgstr "Кения"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:9
 msgid "Lesotho"
 msgstr "Лесото"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:10
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:20
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:10
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:20
 msgid "Madagascar"
 msgstr "Мадагаскар"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:11
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:21
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:11
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:21
 msgid "Malawi"
 msgstr "Малави"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:12
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:25
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:12
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:25
 msgid "Mozambique"
 msgstr "Мозамбик"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:13
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:26
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:13
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:26
 msgid "Namibia"
 msgstr "Намибия"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:14
 msgid "Republic of Congo"
 msgstr "Република Конго"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:16
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:16
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:2
 msgid "South Africa"
 msgstr "Южна Африка"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:17
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:17
 msgid "Swaziland"
 msgstr "Свазиленд"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:18
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:34
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:18
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:34
 msgid "Tanzania"
 msgstr "Танзания"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:20
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:38
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:20
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:38
 msgid "Zambia"
 msgstr "Замбия"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:21
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:39
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:21
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:39
 msgid "Zimbabwe"
 msgstr "Зимбабве"
 
@@ -4499,7 +4601,7 @@ msgstr ""
 #: ../src/gletters-activity/gletters.c:879
 #: ../src/smallnumbers-activity/smallnumbers.c:616
 msgid "Enable sounds"
-msgstr "Активиране на звуците"
+msgstr "Включване на звуците"
 
 #. toggle box
 #: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:486
@@ -4520,7 +4622,7 @@ msgstr "Операции с клавиатурата"
 
 #: ../src/gnumch-equality-activity/gnumch-equality.xml.in.h:1
 msgid "Equality Number Munchers"
-msgstr "Равенство и числояди"
+msgstr "Равенства и числояди"
 
 #: ../src/gnumch-equality-activity/gnumch-equality.xml.in.h:2
 msgid ""
@@ -4540,8 +4642,8 @@ msgid ""
 "Use the arrow keys to navigate around the board and to avoid the Troggles. "
 "Press the spacebar to eat a number."
 msgstr ""
-"Използвайте стрелките, за да се движите по дъската и избягвайте Трогъл-"
-"четата. Натиснете интервала, за да изядете числото."
+"Използвайте стрелките, за да се движите по дъската и избягвайте "
+"Трогълчетата. Натиснете интервала, за да изядете числото."
 
 #: ../src/gnumch-equality-activity/gnumch.py:94
 #, python-format
@@ -4610,7 +4712,7 @@ msgstr "%d - %d"
 #: ../src/gnumch-equality-activity/gnumch.py:262
 #, python-format
 msgid "%d × %d"
-msgstr "%d × %d"
+msgstr "%d · %d"
 
 #: ../src/gnumch-equality-activity/gnumch.py:266
 #, python-format
@@ -4697,7 +4799,7 @@ msgstr ""
 "второто число е делител на първото. Може да мислите за кратните като "
 "семейства, а за делителите като хора в тези семейства. Така 1, 2, 3 и 6 се "
 "включват в семейството 6, но 4 принадлежи на друго семейство. Използвайте "
-"стрелките, за да се движите по дъската и избягвайте Трогъл-четата. Натиснете "
+"стрелките, за да се движите по дъската и избягвайте Трогълчетата. Натиснете "
 "интервала, за да изядете числото."
 
 #: ../src/gnumch-inequality-activity/gnumch-inequality.xml.in.h:1
@@ -4749,7 +4851,7 @@ msgid ""
 msgstr ""
 "Кратните на дадено число са всички числа, които са равни на оригиналното в "
 "пъти. Например, 24, 36, 48 и 60 са кратни на 12. 25 не е кратно на 12, "
-"защото няма число, по което да бъде умножено 12 и да се получи 25. Ако "
+"защото няма цяло число, по което да бъде умножено 12 и да се получи 25. Ако "
 "дадено число е делимо на второ, то второто число е кратно на първото. Отново "
 "може да мислите за кратните като семейства, а за делимите като хора, "
 "принадлежащи към тези семейства. Делимото 5 има родители 10, баби и дядовци "
@@ -4758,7 +4860,7 @@ msgstr ""
 "на семействата 8 или 23. Не може да вместите кратен брой 5-ици в 8 или 23, "
 "без да остане нещо. Така 8 не е кратно на 5, нито пък 23. Само 5, 10, 15, "
 "20, 25… са кратни (или семейства от стъпки) на 5. Използвайте стрелките, за "
-"да се движите по дъската и избягвайте Трогъл-четата. Натиснете интервала, за "
+"да се движите по дъската и избягвайте Трогълчетата. Натиснете интервала, за "
 "да изядете числото."
 
 #: ../src/gnumch-primes-activity/gnumch-primes.xml.in.h:1
@@ -4788,9 +4890,9 @@ msgstr ""
 "просто число, но 4 не е (понеже 4 се дели на 2). Може да мислите за простите "
 "числа като за много малки семейства: те имат най-много по двама члена! Само "
 "те самите и 1. Не може да вместите никакви числа, без да остане нещо. 5 е "
-"едно от тези самотни числа (само 5 x 1 = 5), но както виждате 6 има 2 и 3 в "
-"семейството си (6 x 1 = 6, 2 x 3 = 6). Така че 6 не е просто число. "
-"Използвайте стрелките, за да се придвижвате и избягвайте Трогъл-четата. "
+"едно от тези самотни числа (само 5 · 1 = 5), но както виждате 6 има 2 и 3 в "
+"семейството си (6 · 1 = 6, 2 · 3 = 6). Така че 6 не е просто число. "
+"Използвайте стрелките, за да се придвижвате и избягвайте Трогълчетата. "
 "Натиснете интервала, за да изядете число."
 
 #: ../src/guessnumber-activity/guessnumber.py:203
@@ -4848,12 +4950,12 @@ msgstr ""
 #. All the vowel of your language (keep empty if non applicable)
 #: ../src/hangman-activity/hangman.py:61
 msgid "aeiouy"
-msgstr ""
+msgstr "аъоуеи"
 
 #. All the consonants of your language (keep empty if non applicable)
 #: ../src/hangman-activity/hangman.py:63
 msgid "bcdfghjklmnpqrstvwxz"
-msgstr "бвгджзйклмнпрстфхцчшщ"
+msgstr "бвгджзклмнпрстфхцчшщ"
 
 #. Letters equivallence for the hangman activity. It has the
 #. form of a space separated list like: "e=éè a=àâ"
@@ -4872,26 +4974,27 @@ msgstr "Списъкът с думи не може да бъде открит."
 
 #: ../src/hangman-activity/hangman.xml.in.h:1
 msgid "The classic hangman game"
-msgstr ""
+msgstr "Класическата игра на бесеница"
 
 #: ../src/hangman-activity/hangman.xml.in.h:2
 msgid "A word is hidden, you must discover it letter by letter"
-msgstr ""
+msgstr "Има скрита дума и трябва да я откриете буква по буква"
 
 #: ../src/hangman-activity/hangman.xml.in.h:3
-#, fuzzy
 msgid "Reading skill"
-msgstr "Четене"
+msgstr "Умения по четене"
 
 #: ../src/hangman-activity/hangman.xml.in.h:4
 msgid "This is a good exercise to improve reading and spelling skills."
-msgstr ""
+msgstr "Това е добро упражнение за подобряване на уменията по писане и четене."
 
 #: ../src/hangman-activity/hangman.xml.in.h:5
 msgid ""
 "You can enter the letters using the virtual keyboard on the screen or with "
 "the real keyboard."
 msgstr ""
+"Можете да въвеждате буквите чрез физическата клавиатура или чрез виртуалната "
+"на екрана ви."
 
 #: ../src/hanoi-activity/hanoi.c:112 ../src/hanoi-activity/hanoi.xml.in.h:1
 msgid "Simplified Tower of Hanoi"
@@ -4916,7 +5019,7 @@ msgid ""
 "Drag and Drop one top piece at a time, from one peg to another, to reproduce "
 "the tower on the right in the empty space on the left."
 msgstr ""
-"Изтегляйте и пускайте горните кръгчета само от едно колче на друго така, че "
+"Изтегляйте и пускайте горните кръгчета само от едно колче на друго, така че "
 "да възпроизведете кулата вдясно в празното поле отляво."
 
 #: ../src/hanoi-activity/hanoi.xml.in.h:6
@@ -4956,7 +5059,7 @@ msgid ""
 "Drag and Drop the top pieces only from one peg to another, to reproduce the "
 "tower on the right in the empty space on the left."
 msgstr ""
-"Изтегляйте и пускайте горните кръгчета само от едно колче на друго така, че "
+"Изтегляйте и пускайте горните кръгчета само от едно колче на друго, така че "
 "да възпроизведете кулата вдясно в празното поле отляво."
 
 #: ../src/hanoi_real-activity/hanoi_real.xml.in.h:8
@@ -5000,6 +5103,8 @@ msgid ""
 "The sun heats the water and creates water vapor. Water vapor combines into "
 "small water droplets which becomes clouds."
 msgstr ""
+"Слънцето затопля водата, която се изпарява и превръща във водна па̀ра. Па̀рата "
+"постепенно кондензира в малки капчици, които съставят облаците."
 
 #: ../src/hydroelectric-activity/hydroelectric.py:126
 #: ../src/watercycle-activity/watercycle.py:144
@@ -5007,11 +5112,13 @@ msgid ""
 "As a cloud matures, the dense water droplets may combine to produce larger "
 "droplets, which may combine to form droplets large enough to fall as rain"
 msgstr ""
+"С течение на времето тежките капчици се съединяват в още по-големи и тежки "
+"капки. Когато станат достатъчно големи, могат да се изсипят като дъжд."
 
 #. Translator : "meter" here means a measuring device
 #: ../src/hydroelectric-activity/hydroelectric.py:170
 msgid "This is the meter for electricity produced by the turbine. "
-msgstr ""
+msgstr "Това е електромерът, отчитащ електричеството произведено от турбината."
 
 #: ../src/hydroelectric-activity/hydroelectric.py:171
 #: ../src/hydroelectric-activity/hydroelectric.py:284
@@ -5019,7 +5126,7 @@ msgstr ""
 #: ../src/hydroelectric-activity/hydroelectric.py:323
 #: ../src/hydroelectric-activity/hydroelectric.py:346
 msgid "The electricity power is measured in Watt (W)."
-msgstr ""
+msgstr "Електрическата мощност се измерва във ватове (W)."
 
 #: ../src/hydroelectric-activity/hydroelectric.py:176
 msgid ""
@@ -5027,48 +5134,60 @@ msgid ""
 "force on the blades. In this way, energy is transferred from the water flow "
 "to the turbine"
 msgstr ""
+"Водният поток се пренасочва към перките на турбината. При преминаването си "
+"той упражнява сила върху перките, която ги завърта. Така енергията се "
+"предава от водата към турбината."
 
 #: ../src/hydroelectric-activity/hydroelectric.py:190
 msgid "This cloud simulates the wind, click on it to have wind."
-msgstr ""
+msgstr "Този облак представя вятъра. Натиснете върху него и вятърът ще задуха."
 
 #: ../src/hydroelectric-activity/hydroelectric.py:228
 msgid ""
 "This is a step down transformer. Electricity is transformed in low voltage, "
 "ready to be used by the customers."
 msgstr ""
+"Този трансформатор понижава напрежението на електрическия ток. Така "
+"електроуредите могат да го консумират."
 
 #. Translator : "meter" here means a measuring device
 #: ../src/hydroelectric-activity/hydroelectric.py:283
 msgid "This is the meter for all the electricity produced. "
-msgstr ""
+msgstr "Този електромер измерва цялата произведена електрическа енергия."
 
 #. Translator : "meter" here means a measuring device
 #: ../src/hydroelectric-activity/hydroelectric.py:291
 msgid "This is the meter for electricity consumed by the users. "
-msgstr ""
+msgstr "Този електромер измерва консумираната електрическа енергия."
 
 #. Translator : "meter" here means a measuring device
 #: ../src/hydroelectric-activity/hydroelectric.py:322
 msgid "This is the meter for electricity produced by the solar panels. "
 msgstr ""
+"Този електромер измерва електрическата енергия произведена от слънчевите "
+"панели."
 
 #: ../src/hydroelectric-activity/hydroelectric.py:328
 msgid ""
 "Solar panels use light energy (photons) from the sun to generate electricity "
 "through the photovoltaic effect."
 msgstr ""
+"Слъневите панели използват енергията на светлинната от слънцето (фотоните), "
+"за да генерират електричеството чрез фотоелектричния ефект."
 
 #. Translator : "meter" here means a measuring device
 #: ../src/hydroelectric-activity/hydroelectric.py:345
 msgid "This is the meter for electricity produced by the wind turbines. "
 msgstr ""
+"Това е електромер за електричеството произведено от вятърните централи."
 
 #: ../src/hydroelectric-activity/hydroelectric.py:351
 msgid ""
 "A wind turbine is a device that converts wind motion energy into electricity "
 "generation. It is called a wind generator or wind charger. "
 msgstr ""
+"Вятърната турбина е устройство, което превръща енергията на движението на "
+"въздуха (вятъра) в електричество. Нарича се още ветрогенератор."
 
 #: ../src/hydroelectric-activity/hydroelectric.py:737
 msgid ""
@@ -5081,37 +5200,47 @@ msgid ""
 "equipment can shut down which, in the worst cases, can lead to a major "
 "regional blackout."
 msgstr ""
+"Невъзможно е да се консумира повече от произведеното количество "
+"електричество. Това е ключово ограничение при пренасянето и разпределянето "
+"на електрическа енергия — с малки изключения тя не може да бъде съхранявана, "
+"затова трябва да се генерира при необходимост. Нужна е сложна система за "
+"управление, която да напасва производството към потреблението. Ако те не са "
+"балансирани, електрическите централи и трансформаторите могат да се "
+"изключат, което може да доведе до спиране на тока на много места."
 
 #: ../src/hydroelectric-activity/hydroelectric.py:951
 msgid ""
 "This is a step up transformer. Electricity is transmitted at high voltages "
 "(110 kV or above) to reduce the energy lost in long distance transmission."
 msgstr ""
+"Това е повишаващ напрежението трансформатор. Електричеството се пренася при "
+"високо напрежение (110 kV или повече), за да се избегнат загубите при "
+"пренасяне на големи разстояния."
 
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:1
 msgid "Learn about an electrical system based on renewable energy"
-msgstr ""
+msgstr "Научете за електричеството, произвеждано от възобновяеми източници"
 
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:2
-#, fuzzy
 msgid ""
 "Tux has come back from a long fishing party on his boat. Bring the "
 "electrical system back up so he can have light in his home."
 msgstr ""
-"Тъкс се е върнал от продължителен риболов с лодката си. Задействайте водната "
-"система така, че да може да се изкъпе."
+"Тъкс се е върнал от продължителен риболов с лодката си. Задействайте "
+"електрическата система, за да има светлина в къщи."
 
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:3
-#, fuzzy
 msgid ""
 "Click on different active elements : sun, cloud, dam, solar array, wind farm "
 "and transformers, in order to reactivate the entire electrical system. When "
 "the system is back up and Tux is in his home, push the light button for him. "
 "To win you must switch on all the consumers while all the producers are up."
 msgstr ""
-"Натискайте по различните активни елементи: слънце, облак, помпена и "
-"пречиствателна станция така, че да задействате цялата водна система. Когато "
-"тя е активирана и Тъкс е в банята, натиснете бутона за душа."
+"Натискайте по различните активни елементи: слънце, облак, язовирна стена, "
+"соларен парк, вятърна ферма и трансформатор, за да задействате цялата "
+"електрическа система. Когато тя е активирана и Тъкс е вкъщи, натиснете ключа "
+"за светлината. За да спечелите трябва да включите всички източници и всички "
+"консуматори на електрически ток."
 
 #: ../src/imageid-activity/imageid.c:94
 #: ../src/imageid-activity/imageid.xml.in.h:3
@@ -5400,7 +5529,7 @@ msgstr "ракета"
 
 #: ../src/instruments-activity/instruments.xml.in.h:1
 msgid "Music instruments"
-msgstr ""
+msgstr "Музикални инструменти"
 
 #: ../src/instruments-activity/instruments.xml.in.h:2
 msgid "Click on the correct musical instruments"
@@ -5425,7 +5554,7 @@ msgstr "кларинета"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:4
 msgid "the flute traversiere"
-msgstr ""
+msgstr "флейтата"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:5
 msgid "the guitar"
@@ -5469,7 +5598,7 @@ msgstr "банджото"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
 msgid "the bongo"
-msgstr ""
+msgstr "бонгото"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
 msgid "the electric guitar"
@@ -5481,7 +5610,7 @@ msgstr "кастанетите"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
 msgid "the cymbal"
-msgstr ""
+msgstr "чинелите"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
 msgid "the cello"
@@ -5489,11 +5618,11 @@ msgstr "виолончелото"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
 msgid "the harmonica"
-msgstr ""
+msgstr "хармониката"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
 msgid "the horn"
-msgstr ""
+msgstr "валдхорната"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
 msgid "the maracas"
@@ -5505,7 +5634,7 @@ msgstr "органа"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
 msgid "the snare drum"
-msgstr ""
+msgstr "барабана"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
 msgid "the timpani"
@@ -5618,9 +5747,10 @@ msgid ""
 msgstr ""
 "Ефектът от натискането на бутона е превключване на състоянието му, както и "
 "на непосредствените му „съседи“ водоравно и отвесно. Слънцето и цветът на "
-"небето завсят от броя натискания, необходими за решаването на загадката. "
+"небето зависят от броя натискания, необходими за решаването на загадката. "
 "Отговорът ще се покаже, ако натиснете върху Тъкс."
 
+# FIXME - няма я
 #: ../src/lightsoff-activity/lightsoff.xml.in.h:4
 msgid ""
 "The solver algorithm described on haar.clara.co.uk is a valuable resource to "
@@ -5636,7 +5766,7 @@ msgstr "Профил: "
 
 #: ../src/login-activity/login.py:235
 msgid "Login: "
-msgstr "Потребителски име: "
+msgstr "Потребителско име: "
 
 #. toggle box
 #: ../src/login-activity/login.py:496
@@ -5659,7 +5789,6 @@ msgstr ""
 "доклади."
 
 #: ../src/login-activity/login.xml.in.h:4
-#, fuzzy
 msgid ""
 "In order to activate the login screen, you must\n"
 "first add users in the administration part of GCompris.\n"
@@ -5683,15 +5812,15 @@ msgstr ""
 
 #: ../src/louis_braille-activity/louis_braille.py:112
 msgid "Click to confirm your sequence"
-msgstr ""
+msgstr "Натиснете, за да потвърдите последователността"
 
 #: ../src/louis_braille-activity/louis_braille.xml.in.h:1
 msgid "The History of Louis Braille"
-msgstr ""
+msgstr "Историята на Лиу Брайл"
 
 #: ../src/louis_braille-activity/louis_braille.xml.in.h:2
 msgid "Review the major dates of the inventor of the Braille system."
-msgstr ""
+msgstr "Вижте основните дати в живота на изобретателя на брайловата система."
 
 #: ../src/louis_braille-activity/louis_braille.xml.in.h:3
 msgid ""
@@ -5700,37 +5829,47 @@ msgid ""
 "respective story page. At the end, arrange the sequence in the chronological "
 "order."
 msgstr ""
+"Прочетете биографията на Луи Брайл и как е създал азбуката за слепите. "
+"Придвижвайте се с бутоните, за да отидете на съответната страница. В края на "
+"заниманието ще трябва да подредите събитията от живота му в хронологичен ред."
 
 #: ../src/louis_braille-activity/louis_braille.xml.in.h:4
 msgid ""
 "Louis Braille Video: &lt; http://www.youtube.com/watch?v=9bdfC2j_4x4 &gt;"
 msgstr ""
+"Филм за Луи Брайл: &lt; http://www.youtube.com/watch?v=9bdfC2j_4x4 &gt;"
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:1
 msgid "Born on January 4th in Coupvary near Paris in France."
-msgstr ""
+msgstr "Роден е на 4 януари 1809 в град Кувре, близо до Париж, Франция."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:2
 msgid ""
 "Louis Braille injured his right eye with a stitching awl from his father's "
 "workshop."
 msgstr ""
+"Луи Брайл наранил дясното си око с шивашко шило в работилницата на баща си."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:3
 msgid ""
 "At the age of three, Louis became blind due to a severe infection that "
 "spread to his left eye."
 msgstr ""
+"Когато станал на 3 години Луи ослепял напълно поради инфекция, която се "
+"разпростряла и в лявото му око."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:4
 msgid ""
 "At the age of 10, he was sent to Paris to study at the Royal Institute for "
 "Blind Youth."
 msgstr ""
+"На 10 години Луи бил пратен в Париж, за да учи в Кралския институт за слепи "
+"младежи."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:5
 msgid "He impressed his classmates and began to play the piano and the organ."
 msgstr ""
+"Той успял да впечатли съучениците си, започнал да свири на пиано и орган."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:6
 msgid ""
@@ -5738,38 +5877,49 @@ msgid ""
 "invention of night writing, a code of 12 raised dots to share information on "
 "battlefields."
 msgstr ""
+"Френският войник Шарл Барбие посетил училището и споделил своето изобретение "
+"— нощната азбука — код от 12 издадени точки, коeто позволявало да се споделя "
+"информация на бойното поле."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:7
 msgid "Louis trimmed Barbier's 12 dots into 6 and invented the Braille system."
-msgstr ""
+msgstr "Луи съкратил 12-те точки на Барбие до 6 и създал брайловата азбука."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:8
 msgid ""
 "He became a teacher after graduating and promoted his method while secretly "
 "teaching it at the Institute."
 msgstr ""
+"След завършване станал преподавател в института и разпространявал тайно своя "
+"метод на писане."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:9
 msgid ""
 "He revised and extended braille to include mathematics, symbols, "
 "punctuations and music notations."
 msgstr ""
+"Луи променил брайла, за да включи математически, пунктуационни, музикални и "
+"др. знаци."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:10
 msgid ""
 "He died of tuberculosis. He is burried in the Pantheon in Paris. A monument "
 "is erected to honor him."
 msgstr ""
+"Той умира от туберкулоза. Погребан е в Пантеона в Париж. В чест на Брайл е "
+"издигнат паметник."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:11
 msgid "After his Death"
-msgstr ""
+msgstr "След смъртта му"
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:12
 msgid ""
 "Braille got accepted as a world wide standard. Louis Braille proved that if "
 "you have motivation you can do incredible things."
 msgstr ""
+"Брайловата система бива възприета като световен стандарт. Луи Брайл доказва, "
+"че ако си мотивиран, може да извършиш невероятни неща."
 
 #: ../src/magic_hat_minus-activity/magic_hat_minus.xml.in.h:1
 #: ../src/magic_hat_plus-activity/magic_hat_plus.xml.in.h:1
@@ -6089,7 +6239,7 @@ msgstr ""
 "и да ги избирате, когато намерите другата им половина. Вършите работата на "
 "знака за равенство и сте необходими на числата, за да ги съберете заедно и "
 "да направите подходящ сбор. Когато успеете, двете карти изчезват! Когато "
-"направите така, че всички да изчезнат и намерите всички сборове, печелите "
+"направите, така че всички да изчезнат и намерите всички сборове, печелите "
 "играта! :-)"
 
 #: ../src/memory_add_minus-activity/memory_add_minus.xml.in.h:1
@@ -6149,7 +6299,7 @@ msgstr ""
 "запомняте къде се крият числата и да ги избирате, когато намерите другата "
 "половина. Вършите работата на знака за равенство и сте необходими на "
 "числата, за да ги съберете заедно и да направите подходящо уравнение. Когато "
-"успеете, двете карти изчезват! Когато направите така, че всички да изчезнат "
+"успеете, двете карти изчезват! Когато направите, така че всички да изчезнат "
 "и намерите всички действия, печелите играта! :-)"
 
 #: ../src/memory_add_minus_mult_div-activity/memory_add_minus_mult_div.xml.in.h:1
@@ -6301,7 +6451,7 @@ msgstr ""
 "че трябва да запомняте къде се крият числата и да ги избирате, когато "
 "намерите другата им половина. Вършите работата на знака за равенство и сте "
 "необходими на числата, за да ги съберете заедно и да направите подходящо "
-"уравнение. Когато успеете, двете карти изчезват! Когато направите така, че "
+"уравнение. Когато успеете, двете карти изчезват! Когато направите, така че "
 "всички да изчезнат и намерите всички уравнения, печелите играта! :-)"
 
 #: ../src/memory_minus_tux-activity/memory_minus_tux.xml.in.h:1
@@ -6444,36 +6594,38 @@ msgstr ""
 
 #: ../src/missing_letter-activity/missingletter_config.c:77
 msgid "Please select an image."
-msgstr ""
+msgstr "Изберете изображение."
 
 #: ../src/missing_letter-activity/missingletter_config.c:83
 msgid "Choice cannot be empty."
-msgstr ""
+msgstr "Трябва да изберете нещо."
 
 #: ../src/missing_letter-activity/missingletter_config.c:89
 msgid "Question cannot be empty."
-msgstr ""
+msgstr "Въпросът не може да е празен."
 
 #: ../src/missing_letter-activity/missingletter_config.c:95
 msgid ""
 "Question must include the character '_'. It represents the letter to search."
-msgstr ""
+msgstr "Въпросът трябва да съдържа знака „_“, който замества търсената буква."
 
 #: ../src/missing_letter-activity/missingletter_config.c:102
 msgid "Pixmap cannot be empty"
-msgstr ""
+msgstr "Трябва да изберете изображение"
 
 #: ../src/missing_letter-activity/missingletter_config.c:108
 msgid "There must be at least 2 choices."
-msgstr ""
+msgstr "Трябва да има поне 2 възможности за избор"
 
 #: ../src/missing_letter-activity/missingletter_config.c:116
 msgid "The answer and question must be the same except for the character '_'."
-msgstr ""
+msgstr "Въпросът и отговорът трябва да се различават само по знака „_“."
 
 #: ../src/missing_letter-activity/missingletter_config.c:125
 msgid "The first choice must be the solution that replaces the character '_'."
 msgstr ""
+"Първият отговор трябва да е правилният, който както другите да заменя знака "
+"„_“."
 
 #: ../src/missing_letter-activity/missingletter_config.c:140
 #, c-format
@@ -6482,6 +6634,9 @@ msgid ""
 "Question '%s' / Answer '%s'\n"
 "%s"
 msgstr ""
+"Неправилни въпрос и отговор:\n"
+"Въпрос „%s“ / Отговор „%s“\n"
+"%s"
 
 #. pixmap
 #: ../src/missing_letter-activity/missingletter_config.c:414
@@ -6511,13 +6666,15 @@ msgstr "Име на файл:"
 
 #: ../src/missing_letter-activity/missingletter_config.c:579
 msgid "Replace the letter to guess by the character '_'."
-msgstr ""
+msgstr "Заменете буквата за отгатване със знака „_“."
 
 #: ../src/missing_letter-activity/missingletter_config.c:591
 msgid ""
 "Enter here the letter that will be proposed. The first letter here must be "
 "the solution."
 msgstr ""
+"Въведете буквите, които ще бъдат предложени. Първата буква трябва да бъде "
+"решението."
 
 #: ../src/missing_letter-activity/missing_letter.xml.in.h:1
 msgid "Missing Letter"
@@ -6691,13 +6848,13 @@ msgstr "топка/топк_/а/ъ/я/у/e"
 #: ../src/money-activity/money.c:795
 #, c-format
 msgid "$ %.2f"
-msgstr "$ %.2f"
+msgstr "%.2f лв."
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
 #: ../src/money-activity/money.c:809
 #, c-format
 msgid "$ %.0f"
-msgstr "$ %.0f"
+msgstr "%.0f лв."
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %d
 #: ../src/money-activity/money.c:940
@@ -6706,6 +6863,8 @@ msgid ""
 "Tux just bought some items in your shop.\n"
 "He gives you $ %d, please give back his change."
 msgstr ""
+"Тъкс е напазарувал няколко покупки от магазина ви.\n"
+"Той ви дава %d лв. Върнете му правилното ресто, моля."
 
 #: ../src/money-activity/money.xml.in.h:1
 #: ../src/money_cents-activity/money_cents.xml.in.h:1
@@ -6746,29 +6905,27 @@ msgstr ""
 
 #: ../src/money_back-activity/money_back.xml.in.h:1
 msgid "Give tux his change"
-msgstr ""
+msgstr "Дайте рестото на Тъкс"
 
 #: ../src/money_back-activity/money_back.xml.in.h:2
 #: ../src/money_back_cents-activity/money_back_cents.xml.in.h:2
-#, fuzzy
 msgid "Practice money usage by giving Tux his change"
-msgstr "Упражнения за боравене с пари, включително стотинки"
+msgstr "Упражнения за боравене с пари като връщате рестото на Тъкс"
 
 #: ../src/money_back-activity/money_back.xml.in.h:4
 #: ../src/money_back_cents-activity/money_back_cents.xml.in.h:4
-#, fuzzy
 msgid ""
 "Tux bought you different items and shows you his money. You must give him "
 "back his change. At higher levels, several items are displayed, and you must "
 "first calculate the total price."
 msgstr ""
-"Трябва да купите различни обекти и да платите точната цена. В по-горните "
-"нива са изобразени няколко обекта и първо трябва да я сметнете."
+"Тъкс е купил разни неща и показва колко пари има. Трябва да му върнете "
+"рестото. В по-горните нива са изобразени няколко обекта и първо трябва да "
+"сметнете общата цена."
 
 #: ../src/money_back_cents-activity/money_back_cents.xml.in.h:1
-#, fuzzy
 msgid "Give tux his change, including cents"
-msgstr "Упражнения за боравене с пари, включително стотинки"
+msgstr "Върнете рестото на Тъкс, включително и стотинките"
 
 #: ../src/money_cents-activity/money_cents.xml.in.h:2
 msgid "Practice money usage including cents"
@@ -6814,15 +6971,15 @@ msgstr "Едгар Дега, „Училище по балет“ — 1873-75 г
 msgid ""
 "Katsushika Hokusai,\\nViewing Sunset over the Ryogoku Bridge from the Ommaya "
 "Embankment - 1830"
-msgstr ""
+msgstr "Кацушика Хокусай, „Залез над моста Рьогоку от кея на Омая“ — 1830 г."
 
 #: ../src/paintings-activity/resources/paintings/board1_11.xml.in.h:1
 msgid "Katsushika Hokusa, Poppies - 1833-1834"
-msgstr ""
+msgstr "Кацушика Хокусай, „Макове“ — 1833-1834 г."
 
 #: ../src/paintings-activity/resources/paintings/board1_12.xml.in.h:1
 msgid "Katsushika Hokusai, Kazusa sea Route - 1830."
-msgstr ""
+msgstr "Кацушика Хокусай, „Морски път в провинция Казуса“ — 1830 г."
 
 #: ../src/paintings-activity/resources/paintings/board1_1.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
@@ -6846,20 +7003,21 @@ msgstr "Кацушика Хокусай, „Жена с ветрило“"
 
 #: ../src/paintings-activity/resources/paintings/board1_6.xml.in.h:1
 msgid "Katsushika Hokusai, Ejiri in Suruga Province - 1830-1833"
-msgstr ""
+msgstr "Кацушика Хокусай, „Станция Ежири в провинция Суруга“ — 1830-1833 г."
 
 #: ../src/paintings-activity/resources/paintings/board1_7.xml.in.h:1
 msgid "Katsushika Hokusai, The Great Wave off Kanagawa - 1823-1829"
-msgstr ""
+msgstr "Кацушика Хокусай, „Голямата вълна в Канагава“ — 1823-1829 г."
 
 #: ../src/paintings-activity/resources/paintings/board1_8.xml.in.h:1
 msgid ""
 "Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
 msgstr ""
+"Утагава Хирошиге, „Храмът на Бензайтен в Инокашира в снега“ — 1760-1770 г."
 
 #: ../src/paintings-activity/resources/paintings/board1_9.xml.in.h:1
 msgid "Utagawa Hiroshige, Horse-mackerel and Prawn - 1840"
-msgstr ""
+msgstr "Утагава Хирошиге, „Скумрия и скарида“ — 1840 г."
 
 #: ../src/paintings-activity/resources/paintings/board2_0.xml.in.h:1
 msgid "Michelangelo, Pieta - 1499"
@@ -6929,7 +7087,7 @@ msgid ""
 "boat. He needs to allow for the wind direction and speed."
 msgstr ""
 "В тази игра парашутистът Тъкс има нужда от помощ, за да се приземи безопасно "
-"в рибарската лодка. Трябва да внимава и за силата и посоката на вятъра."
+"в рибарската лодка. Той трябва да внимава и за силата и посоката на вятъра."
 
 #: ../src/paratrooper-activity/paratrooper.xml.in.h:5
 msgid ""
@@ -7232,7 +7390,7 @@ msgstr ""
 "Изберете подходящия инструмент от лентата с инструменти. После влачете с "
 "мишката, за да създавате обекти. Натиснете бутона „Да“, когато сте готови. "
 "Грешките ще бъдат показани с малко червено кръстче. Редът на обектите (над/"
-"под) не е важен, но обърнете внимание да нямате нежелани обекти под други."
+"под) не е важен, но внимавайте да нямате нежелани обекти под други."
 
 #: ../src/redraw_symmetrical-activity/redraw_symmetrical.xml.in.h:1
 msgid "Mirror the given item"
@@ -7316,7 +7474,9 @@ msgstr "Смятане наум, аритметично равенство"
 msgid ""
 "To balance the scales, move the weights on the left or the right side. The "
 "weights can be arranged in any order."
-msgstr "За да уравновесите кантара, поставяйте тежести от лявата или от дясната страна. Те могат да се подреждат във всякакъв ред."
+msgstr ""
+"За да уравновесите кантара, поставяйте тежести от лявата или от дясната "
+"страна. Те могат да се подреждат във всякакъв ред."
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:5
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:5
@@ -7389,12 +7549,12 @@ msgstr ""
 "Въведете ред по ред командите, които да управляват лодката. Поддържаните "
 "команди са показани между двете зони за въвеждане на текст. Командите „ляво“ "
 "и „дясно“ трябва да бъдат последвани от ъгъл в градуси. Стойността на ъгъла "
-"се нарича „параметър“ на командата „ляво“ или „дясно“. По подразбиране се "
+"се нарича „параметър“ на командата „ляво“ или „дясно“. Стандартно се "
 "използва ъгъл от 45 градуса. Командата „напред“ приема и параметър за "
 "разстояние. По подразбиране се използва 1.\n"
 "Например:\n"
-"— ляво 90: Перпендикулярно завъртане наляво\n"
-"— напред 10: Придвижване напред с 10 единици (както е показано на линията).\n"
+"⁃ ляво 90: Перпендикулярно завъртане наляво\n"
+"⁃ напред 10: Придвижване напред с 10 единици (както е показано на линията).\n"
 "Целта е да се достигне дясната част на екрана (червената линия). Когато сте "
 "готови, можете да подобрите програмата си и да започнете ново състезание при "
 "същите атмосферни условия, натискайки бутона „повторение“. Можете да "
@@ -7490,11 +7650,11 @@ msgstr ""
 "Поддържаните команди са показани между двете зони за въвеждане на текст. "
 "Командите „ляво“ и „дясно“ трябва да бъдат последвани от ъгъл в градуси. "
 "Стойността на ъгъла се нарича „параметър“ на командата „ляво“ или „дясно“. "
-"По подразбиране се използва ъгъл от 45 градуса. Командата „напред“ приема и "
+"Стандартно се използва ъгъл от 45 градуса. Командата „напред“ приема и "
 "параметър за разстояние. По подразбиране се използва 1. \n"
 "Например:\n"
-"— ляво 90: Перпендикулярно завъртане наляво\n"
-"— напред 10: Придвижване напред с 10 единици (както е показано на линията).\n"
+"⁃ ляво 90: Перпендикулярно завъртане наляво\n"
+"⁃ напред 10: Придвижване напред с 10 единици (както е показано на линията).\n"
 "Целта е да се достигне дясната част на екрана (червената линия). Когато сте "
 "готови, можете да подобрите програмата си и да започнете ново състезание при "
 "същите атмосферни условия, натискайки бутона „повторение“. Можете да "
@@ -7561,14 +7721,13 @@ msgstr ""
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:1
 msgid "Sudoku, place unique symbols in a square."
-msgstr "Судоку, поставяне на уникални символи в квадратче."
+msgstr "Судоку, поставяне на уникални знаци в квадратче."
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:2
 msgid ""
 "Symbols must be unique in a row, in a column, and (if defined) each region."
 msgstr ""
-"Символите трябва да са уникални във всеки ред, колона и (ако е определен) "
-"район."
+"Знаците трябва да са уникални във всеки ред, колона и (ако го има) район."
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:3
 msgid "Completing the puzzle requires patience and logical ability"
@@ -7583,11 +7742,11 @@ msgid ""
 "instance of each symbol or numeral (Source &lt;http://en.wikipedia.org/wiki/"
 "Sudoku&gt;)."
 msgstr ""
-"Целта на тази игра е да се въвеждат символ или число от 1 до 9 във всяка "
+"Целта на тази игра е да се въвеждат знак или число от 1 до 9 във всяка "
 "клетка от полета, най-често 9x9, направено от по-малки полета от 3x3 "
-"(наречени „райони“), започвайки с поставени различни символи или числа в "
+"(наречени „райони“), започвайки с поставени различни знаци или числа в "
 "дадени клетки („дадени“). Всеки ред, колона и район трябва да съдържа само "
-"един от всеки символ или число (източник: &lt;http://bg.wikipedia.org/wiki/"
+"един от всеки знак или число (източник: &lt;http://bg.wikipedia.org/wiki/"
 "Судоку&gt;)."
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:5
@@ -7597,7 +7756,7 @@ msgid ""
 "square to give it the keyboard focus. Then enter a possible letter or "
 "number. GCompris will not let you enter invalid data."
 msgstr ""
-"За първото ниво с цветни символи, изберете символ вляво и натиснете върху "
+"За първото ниво с цветни знаци, изберете символ вляво и натиснете върху "
 "крайната му позиция. За по-горните нива, натиснете празно квадратче, за да "
 "бъде на фокус. След това въведете буква или цифра. Играта няма да ви позволи "
 "въвеждането на неправилни данни."
@@ -7624,12 +7783,11 @@ msgstr "Това не е на мястото си"
 
 #: ../src/superbrain-activity/superbrain.c:587
 msgid "One item is well placed"
-msgstr ""
+msgstr "Само едно е на мястото си"
 
 #: ../src/superbrain-activity/superbrain.c:601
-#, fuzzy
 msgid "One item is misplaced"
-msgstr "И тя беше показана"
+msgstr "Само едно не е на мястото си"
 
 #: ../src/superbrain-activity/superbrain.xml.in.h:3
 msgid ""
@@ -7752,7 +7910,7 @@ msgid ""
 msgstr ""
 "Проверете скоростта и посоката на вятъра, след което натиснете мишената, за "
 "да хвърлите стреличка. Когато хвърлите всички стрелички се показва прозорец, "
-"приканвайки Ви да преброите точките. Въведете точките с клавиатурата и "
+"приканвайки ви да преброите точките. Въведете точките с клавиатурата и "
 "натиснете клавиша „Enter“ или бутона „Да“."
 
 #: ../src/traffic-activity/traffic.xml.in.h:1
@@ -7792,8 +7950,8 @@ msgstr "Наследяване на настройките за пълен ек�
 #: ../src/tuxpaint-activity/tuxpaint.py:193
 msgid "Inherit size setting from GCompris (800x600, 640x480)"
 msgstr ""
-"Наследяване на настройките за разделителна способност от GCompris (800x600, "
-"640x480)"
+"Наследяване на настройките за разделителна способност от GCompris (800×600, "
+"640×480)"
 
 #: ../src/tuxpaint-activity/tuxpaint.py:197
 msgid "Disable shape rotation"
@@ -7831,11 +7989,11 @@ msgstr ""
 
 #: ../src/watercycle-activity/watercycle.py:170
 msgid "This is a water pump station."
-msgstr ""
+msgstr "Това е помпена станция."
 
 #: ../src/watercycle-activity/watercycle.py:183
 msgid "This is a water cleanup station."
-msgstr ""
+msgstr "Това е пречиствателна станция."
 
 #: ../src/watercycle-activity/watercycle.py:263
 msgid ""
@@ -7843,6 +8001,9 @@ msgid ""
 "container constructed to hold a water supply at a height sufficient to "
 "pressurize a water distribution system."
 msgstr ""
+"Водонапорната кула е голямо съоръжение. Тя представлява резервоар, "
+"съхраняващ вода достатъчно на високо, за да се регулира налягането (напора) "
+"във водоснабдителната система."
 
 #: ../src/watercycle-activity/watercycle.xml.in.h:1
 msgid "Learn about the water cycle"
@@ -7854,7 +8015,7 @@ msgid ""
 "system back up so he can take a shower."
 msgstr ""
 "Тъкс се е върнал от продължителен риболов с лодката си. Задействайте водната "
-"система така, че да може да се изкъпе."
+"система, така че да може да се изкъпе."
 
 #: ../src/watercycle-activity/watercycle.xml.in.h:3
 msgid "Learn the water cycle"
@@ -7868,7 +8029,7 @@ msgid ""
 "him."
 msgstr ""
 "Натискайте по различните активни елементи: слънце, облак, помпена и "
-"пречиствателна станция така, че да задействате цялата водна система. Когато "
+"пречиствателна станция, така че да задействате цялата водна система. Когато "
 "тя е активирана и Тъкс е в банята, натиснете бутона за душа."
 
 #: ../src/wordprocessor-activity/wordprocessor.c:57
@@ -7901,11 +8062,11 @@ msgstr "Подзаглавие 2"
 
 #: ../src/wordprocessor-activity/wordprocessor.c:482
 msgid "Hyperlink"
-msgstr ""
+msgstr "Хипервръзка"
 
 #: ../src/wordprocessor-activity/wordprocessor.xml.in.h:1
 msgid "Your word processor"
-msgstr "Вашата текстообработваща програма"
+msgstr "Текстообработващата ви програма"
 
 #: ../src/wordprocessor-activity/wordprocessor.xml.in.h:2
 msgid "A simple word processor to enter and save any text"
@@ -7917,6 +8078,7 @@ msgstr ""
 "Децата могат да въвеждат техен собствен текст или да преписват предоставен "
 "им от учителя."
 
+# FIXME LibreOffice
 #: ../src/wordprocessor-activity/wordprocessor.xml.in.h:4
 msgid ""
 "Learn how to enter text in a wordprocessor. This wordprocessor is special in "
@@ -7961,151 +8123,3 @@ msgstr "Упражнения с клавиатурата"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Напишете пълната дума докато пада, преди да е достигнала земята"
-
-#: ../src/gcompris/sugar_cli.c:222 ../src/gcompris/sugar_srv.c:156
-msgid "Sharing Error"
-msgstr ""
-
-#: ../src/gcompris/sugar_cli.c:223
-msgid "Cannot retrieve remote data"
-msgstr ""
-
-#: ../src/gcompris/sugar_gc.c:82
-msgid "About"
-msgstr "Относно"
-
-#: ../src/gcompris/sugar_gc.c:83
-msgid "Refresh"
-msgstr "Обновяване"
-
-#: ../src/gcompris/sugar_gc.c:84
-msgid "Settings"
-msgstr "Настройки"
-
-#: ../src/gcompris/sugar_gc.c:85
-msgid "Previous level"
-msgstr "Предишно ниво"
-
-#: ../src/gcompris/sugar_gc.c:88
-msgid "Next level"
-msgstr "Следващо ниво"
-
-#. TRANSLATORS: Back as in previous
-#: ../src/gcompris/sugar_gc.c:97
-msgid "Back"
-msgstr "Назад"
-
-#: ../src/gcompris/sugar_srv.c:157
-msgid "Cannot initiate sharing session"
-msgstr ""
-
-#~ msgid ""
-#~ "Error: this activity requires that you first install\n"
-#~ "the packages with GCompris voices for the locale '%s' ! Fallback to "
-#~ "english, sorry!"
-#~ msgstr ""
-#~ "Грешка: Това занимание изисква първо да инсталирате\n"
-#~ "пакетите със звук за GCompris за локала „%s“! Стартиране на английски, за "
-#~ "съжаление."
-
-#~ msgid "Click on the blue duck"
-#~ msgstr "Натиснете синята играчка"
-
-#~ msgid "Click on the brown duck"
-#~ msgstr "Натиснете кафявата играчка"
-
-#~ msgid "Click on the green duck"
-#~ msgstr "Натиснете зелената играчка"
-
-#~ msgid "Click on the grey duck"
-#~ msgstr "Натиснете сивата играчка"
-
-#~ msgid "Click on the orange duck"
-#~ msgstr "Натиснете оранжевата играчка"
-
-#~ msgid "Click on the purple duck"
-#~ msgstr "Натиснете лилавата играчка"
-
-#~ msgid "Click on the red duck"
-#~ msgstr "Натиснете червената играчка"
-
-#~ msgid "Click on the yellow duck"
-#~ msgstr "Натиснете жълтата играчка"
-
-#~ msgid "Click on the black duck"
-#~ msgstr "Натиснете черната играчка"
-
-#~ msgid "Move the mouse until all the blocks disappear."
-#~ msgstr "Движете мишката, докато всички плочки изчезнат."
-
-#~ msgid "English (United State)"
-#~ msgstr "американски английски"
-
-#~ msgid "Help"
-#~ msgstr "Помощ"
-
-#~ msgid "Stop"
-#~ msgstr "Спиране"
-
-#~ msgid "Botticelli, Primavera - 1482"
-#~ msgstr "Ботичели, „Пролет“ — 1482"
-
-#~ msgid "Caravage, Rest on the Flight into Egypt - 1597"
-#~ msgstr "Караваджо, „Отдих на път за Египет“ — 1597"
-
-#~ msgid "Botticelli, The Birth of Venus - 1482–1486"
-#~ msgstr "Ботичели, „Раждането на Венера“ — 1482-1486"
-
-#~ msgid "Choice of pattern"
-#~ msgstr "Избор на шаблон"
-
-#~ msgid "violet"
-#~ msgstr "лилаво"
-
-#~ msgid "pink"
-#~ msgstr "розово"
-
-#~ msgid "Click on the correct colored object."
-#~ msgstr "Натиснете върху правилно оцветения обект."
-
-#~ msgid "Click on the matching color"
-#~ msgstr "Натиснете правилния цвят"
-
-#~ msgid "Read the names of colors"
-#~ msgstr "Четене на цветове"
-
-#~ msgid "This board teaches basic colors."
-#~ msgstr "Това занимание учи на основните цветове."
-
-#~ msgid "%s: option `%s' is ambiguous\n"
-#~ msgstr "%s: опцията „%s“ е двусмислена\n"
-
-#~ msgid "%s: option `--%s' doesn't allow an argument\n"
-#~ msgstr "%s: опцията „--%s“ не приема аргумент\n"
-
-#~ msgid "%s: option `%c%s' doesn't allow an argument\n"
-#~ msgstr "%s: опцията „%c%s“ не приема аргумент\n"
-
-#~ msgid "%s: option `%s' requires an argument\n"
-#~ msgstr "%s: опцията „%s“ изисква аргумент\n"
-
-#~ msgid "%s: unrecognized option `--%s'\n"
-#~ msgstr "%s: непозната опция „--%s“\n"
-
-#~ msgid "%s: unrecognized option `%c%s'\n"
-#~ msgstr "%s: непозната опция „%c%s“\n"
-
-#~ msgid "%s: illegal option -- %c\n"
-#~ msgstr "%s: непозволена опция — %c\n"
-
-#~ msgid "%s: invalid option -- %c\n"
-#~ msgstr "%s: неправилна опция — %c\n"
-
-#~ msgid "%s: option requires an argument -- %c\n"
-#~ msgstr "%s: опцията изисква аргумент — %c\n"
-
-#~ msgid "%s: option `-W %s' is ambiguous\n"
-#~ msgstr "%s: опцията „-W %s“ е двусмислена\n"
-
-#~ msgid "%s: option `-W %s' doesn't allow an argument\n"
-#~ msgstr "%s: опцията „-W %s“ не приема аргумент\n"
