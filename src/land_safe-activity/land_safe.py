@@ -23,7 +23,6 @@ import gcompris.utils
 import gcompris.skin
 import gcompris.bonus
 import goocanvas
-import pango
 import gobject
 import random
 
@@ -44,16 +43,12 @@ class Gcompris_land_safe:
     gcomprisBoard.disable_im_context = True
 
   def start(self):
-    gcompris.bar_set_level(self.gcomprisBoard)
-
-    # Set the buttons we want in the bar
-    gcompris.bar_set(gcompris.BAR_LEVEL)
-
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains
     # automaticaly.
     self.rootitem = goocanvas.Group(parent =
                                     self.gcomprisBoard.canvas.get_root_item())
+    land_rootitem = goocanvas.Group(parent = self.rootitem)
 
     # Set a background image
     level = str(self.gcomprisBoard.level)
@@ -61,10 +56,28 @@ class Gcompris_land_safe:
     gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                             image)
 
+    #Set the land
+    image = 'land_safe/land'+str(level)+'.png'
+    pixbuf = gcompris.utils.load_pixmap(image)
+    land = goocanvas.Image(
+      parent = land_rootitem,
+      pixbuf = pixbuf,
+      x = -550,
+      y = gcompris.BOARD_HEIGHT - 130
+      )
+    land.lower(None)
+
     # Load spaceship
     self.space_ship = Spaceship(self,
                                 self.rootitem,
+                                land_rootitem,
                                 self.gcomprisBoard.level)
+
+    gcompris.bar_set_level(self.gcomprisBoard)
+
+    # Set the buttons we want in the bar
+    gcompris.bar_set(gcompris.BAR_LEVEL)
+
 
   def end(self):
     # Remove the root item removes all the others inside it
@@ -108,7 +121,7 @@ class Gcompris_land_safe:
 
   def next_level(self):
     if self.gcomprisBoard.level < self.gcomprisBoard.maxlevel:
-      self.gcomprisBoard.level +=1
+      self.gcomprisBoard.level += 1
     else:
       self.gcomprisBoard.level = 1
 
@@ -116,12 +129,12 @@ class Spaceship:
   """Class for the spaceship"""
 
 
-  def __init__(self, game_instance, rootitem, level):
-    self.game = game_instance
+  def __init__(self, game_instance, rootitem, land_rootitem, level):
     self.rootitem = rootitem
+    self.game = game_instance
     self.level = level
-    self.subrootitem = goocanvas.Group(parent = rootitem)
-
+    self.flame_rootitem = goocanvas.Group(parent = rootitem)
+    self.land_rootitem = land_rootitem
     x = gcompris.BOARD_WIDTH/2
     y = 10
 
@@ -133,6 +146,18 @@ class Spaceship:
     self.flame_left.props.visibility = goocanvas.ITEM_INVISIBLE
     self.flame_right.props.visibility = goocanvas.ITEM_INVISIBLE
 
+    # Load landing area
+    self.land_x = random.randrange(100, 400)
+    landing_area = goocanvas.Rect(
+      parent = land_rootitem,
+      x=self.land_x,
+      y=440,
+      width=100,
+      height=6,
+      fill_color="green",
+      stroke_color="green")
+
+    # Load spaceship
     pixbuf = gcompris.utils.load_pixmap("land_safe/rocket.png")
     self.spaceship_image = goocanvas.Image(
       parent = rootitem,
@@ -141,11 +166,12 @@ class Spaceship:
       y = y
       )
 
+    # Declaring variables
     self.y = 0.005
     self.x = 0
     self.key_vertical = 4
-    self.right_stop = self.left_stop = False
-#    self.zoom_out = False
+    self.zoom_out = False
+    self.scale = 1
 
     # Load fuel, altitude and landing area
     self.info = Display(self, rootitem)
@@ -155,16 +181,14 @@ class Spaceship:
 
   def handle_key(self, key):
     if key == gtk.keysyms.Left:
-      if self.left_stop == False:
-        self.x -= 0.05
-        self.flame_right.props.visibility = goocanvas.ITEM_VISIBLE
-        gobject.timeout_add(300,self.remove_flame,2)
+      self.x -= 0.05
+      self.flame_right.props.visibility = goocanvas.ITEM_VISIBLE
+      gobject.timeout_add(300,self.remove_flame,2)
 
     elif key == gtk.keysyms.Right:
-      if self.right_stop == False:
-        self.x += 0.05
-        self.flame_left.props.visibility = goocanvas.ITEM_VISIBLE
-        gobject.timeout_add(300,self.remove_flame,1)
+      self.x += 0.05
+      self.flame_left.props.visibility = goocanvas.ITEM_VISIBLE
+      gobject.timeout_add(300,self.remove_flame,1)
 
     elif key == gtk.keysyms.Up:
       if self.key_vertical > 1:
@@ -182,9 +206,9 @@ class Spaceship:
 
   def spaceship_movement(self):
     if self.info.increase_vel():
-      self.y += 0.005 * self.level
+      self.key_vertical = 4
       self.x = 0
-      self.subrootitem.props.visibility = goocanvas.ITEM_INVISIBLE
+      self.flame_rootitem.props.visibility = goocanvas.ITEM_INVISIBLE
 
     # handle increase in velocity and flame
     if self.key_vertical == 1:
@@ -212,38 +236,54 @@ class Spaceship:
     bounds = self.spaceship_image.get_bounds()
     if  bounds.y1 < 365:
       self.horizontal_limit(bounds.x1)
-      self.spaceship_image.translate(self.x, self.y)
-      self.subrootitem.translate(self.x, self.y)
+      self.screen_zoom(bounds.x1, bounds.y1)
+      self.spaceship_image.translate(self.x * self.scale, self.y * self.scale)
+      self.flame_rootitem.translate(self.x * self.scale, self.y * self.scale)
       self.info.altitude(bounds.y1)
       self.info.set_velocity()
-#      self.screen_zoom(bounds.y1)
       return True
 
     else:
       self.info.altitude(364.000)
-      self.subrootitem.remove()
+      self.flame_rootitem.remove()
       self.info.stop_fuel()
       self.check_landing()
+      return False
 
-  def horizontal_limit(self,x):
-    if x < 5 and self.left_stop == False:
-      self.x = 0
-      self.left_stop = True
-    elif x > 745 and self.right_stop == False:
-      self.x = 0
-      self.right_stop = True
-    elif 5 < x < 745:
-      self.right_stop = self.left_stop = False
+  def horizontal_limit(self, x):
+    if self.zoom_out == False:
+      x_translate = 750
+    else:
+      x_translate = 1500
+    if x < 3:
+      self.spaceship_image.translate(x_translate,0)
+      self.flame_rootitem.translate(x_translate,0)
+    elif x > 755:
+      self.spaceship_image.translate(-x_translate,0)
+      self.flame_rootitem.translate(-x_translate,0)
 
-#  def screen_zoom(self,y):
-#    if y < 10 and self.zoom_out == False:
-#      self.rootitem.scale(0.4,0.4)
-#      self.zoom_out = True
+  def screen_zoom(self, x, y):
+    if y < 10 and self.zoom_out == False:
+      y_int = int(y/0.5 * 29)
+      self.land_rootitem.scale(0.5, 0.5)
+      self.land_rootitem.translate(300, 510)
+      self.spaceship_image.scale(0.5,0.5)
+      self.spaceship_image.translate(x, y_int)
+      self.flame_rootitem.scale(0.5,0.5)
+      self.flame_rootitem.translate(x, y_int)
+      self.scale -= 0.5
+      self.zoom_out = True
+
+    elif y > 298 and self.zoom_out == True:
+      self.land_rootitem.set_transform(None)
+      gcompris.utils.item_absolute_move(self.spaceship_image, int(x), 11)
+      gcompris.utils.item_absolute_move(self.flame_rootitem, int(x - 12), 11 + 56)
+      self.scale += 0.5
+      self.zoom_out = False
 
   def check_landing(self):
     x = self.spaceship_image.get_bounds().x1
-    land_x = self.info.get_area()
-    if land_x < x < land_x + 100 and self.y < 0.7:
+    if self.land_x < x < self.land_x + 100 and self.y < 0.7:
       self.game.win()
     else:
       self.crash_image()
@@ -264,7 +304,7 @@ class Spaceship:
   def flame(self,x,y):
     pixbuf = gcompris.utils.load_pixmap("land_safe/flame1.png")
     self.flame_1 = goocanvas.Image(
-      parent = self.subrootitem,
+      parent = self.flame_rootitem,
       pixbuf = pixbuf,
       x = x,
       y = y + 68
@@ -272,7 +312,7 @@ class Spaceship:
 
     pixbuf = gcompris.utils.load_pixmap("land_safe/flame2.png")
     self.flame_2 = goocanvas.Image(
-      parent = self.subrootitem,
+      parent = self.flame_rootitem,
       pixbuf = pixbuf,
       x = x,
       y = y + 65
@@ -280,7 +320,7 @@ class Spaceship:
 
     pixbuf = gcompris.utils.load_pixmap("land_safe/flame3.png")
     self.flame_3 = goocanvas.Image(
-      parent = self.subrootitem,
+      parent = self.flame_rootitem,
       pixbuf = pixbuf,
       x = x,
       y = y + 65
@@ -288,7 +328,7 @@ class Spaceship:
 
     pixbuf = gcompris.utils.load_pixmap("land_safe/flame_left.png")
     self.flame_left = goocanvas.Image(
-      parent = self.subrootitem,
+      parent = self.flame_rootitem,
       pixbuf = pixbuf,
       x = x - 27,
       y = y + 55
@@ -296,7 +336,7 @@ class Spaceship:
 
     pixbuf = gcompris.utils.load_pixmap("land_safe/flame_right.png")
     self.flame_right = goocanvas.Image(
-      parent = self.subrootitem,
+      parent = self.flame_rootitem,
       pixbuf = pixbuf,
       x = x + 25,
       y = y + 55
@@ -353,18 +393,8 @@ class Display:
       y=40.0,
       width=self.fuel_amt,
       height=20,
-      fill_color="blue")
-
-    # Load landing area
-    self.land_x = random.randrange(10, 700)
-    landing_area = goocanvas.Rect(
-      parent = rootitem,
-      x=self.land_x,
-      y=440,
-      width=100,
-      height=6,
-      fill_color="green",
-      stroke_color="green")
+      fill_color = "blue",
+      stroke_color = "blue")
 
     # text for velocity
     velocity_text = goocanvas.Text(
@@ -423,9 +453,6 @@ class Display:
 
   def stop_fuel(self):
     self.stop_consumtion = True
-
-  def get_area(self):
-    return self.land_x
 
   def set_velocity(self):
     self.velocity.set_property('text',self.vel * 10)
