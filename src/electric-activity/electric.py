@@ -96,7 +96,7 @@ class Gcompris_electric:
         break
 
     if not self.gnucap_binary:
-      gcompris.utils.dialog(_("Cannot find the 'gnucap' electric simulator.\nYou can download and install it from:\n<http://geda.seul.org/tools/gnucap/>\nTo be detected, it must be installed in\n/usr/bin/gnucap or /usr/local/bin/gnucap.\nYou can still use this activity to draw schematics without computer simulation."),
+      gcompris.utils.dialog(_("Cannot find the 'gnucap' electric simulator.\nYou can download and install it from:\n<http://www.gnu.org/software/gnucap/>\nTo be detected, it must be installed in\n/usr/bin/gnucap or /usr/local/bin/gnucap.\nYou can still use this activity to draw schematics without computer simulation."),
                             None)
 
 
