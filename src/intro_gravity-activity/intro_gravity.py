@@ -61,7 +61,7 @@ class Gcompris_intro_gravity:
       parent = self.rootitem,
       x = gcompris.BOARD_WIDTH/2.0,
       y = 50.0,
-      text = _("Mass is directly proportional to gravitational force"),
+      text = _("Gravitational force is directly proportional to mass"),
       font = gcompris.skin.get_font("gcompris/subtitle"),
       fill_color = "white",
       anchor = gtk.ANCHOR_CENTER,
@@ -74,12 +74,12 @@ class Gcompris_intro_gravity:
 
     # Load planet on the left (saturn) and it's slider
     planet_left = Fixed_planet(self.rootitem,
-                                    80, 200, "saturn.png")
+                                    70, 200, "saturn.png")
     Slider(self.rootitem, 20, 200, planet_left)
 
     # Planet on right (neptune) and it's slider
     planet_right = Fixed_planet(self.rootitem,
-                                     630, 200, "neptune.png")
+                                     680, 200, "neptune.png")
     Slider(self.rootitem, 780, 200, planet_right)
 
     # Load the tux_ship
@@ -134,17 +134,33 @@ class Gcompris_intro_gravity:
 class Spaceship(Gcompris_intro_gravity):
   """Class representing the spaceship"""
 
-  # load spaceship
   def __init__(self, game, rootitem, x, y, level,
                planet_left, planet_right):
     self.game = game
     self.rootitem = rootitem
     self.level = level
-
     # This counts how much space travel the children did
     # Let us determine a success case
     self.trip_distance = 0
 
+    # load arrows for force
+    self.force_left = goocanvas.Image(
+      parent = self.rootitem,
+      pixbuf = gcompris.utils.load_pixmap("intro_gravity/arrow_left.png"),
+      x = 350,
+      y = 250)
+    self.force_left.props.visibility = goocanvas.ITEM_INVISIBLE
+    self.force_left.animate(10,0,1,1,True,900,80,goocanvas.ANIMATE_BOUNCE)
+
+    self.force_right = goocanvas.Image(
+      parent = self.rootitem,
+      pixbuf = gcompris.utils.load_pixmap("intro_gravity/arrow_right.png"),
+      x = 350,
+      y = 250)
+    self.force_right.props.visibility = goocanvas.ITEM_INVISIBLE
+    self.force_right.animate(10,0,1,1,True,900,80,goocanvas.ANIMATE_BOUNCE)
+
+    # load spaceship
     self.tux_spaceship = goocanvas.Image(
       parent = self.rootitem,
       pixbuf = gcompris.utils.load_pixmap("intro_gravity/tux_spaceship.png"),
@@ -178,10 +194,18 @@ class Spaceship(Gcompris_intro_gravity):
                    ( self.planet_left.scale / dist_planet_left**2 ) ) * 200.0 * self.level
     self.tux_spaceship.translate(self.move, 0)
 
+    # Show force direction
+    if self.move > 0:
+      self.force_left.props.visibility = goocanvas.ITEM_INVISIBLE
+      self.force_right.props.visibility = goocanvas.ITEM_VISIBLE
+    elif self.move < 0:
+      self.force_right.props.visibility = goocanvas.ITEM_INVISIBLE
+      self.force_left.props.visibility = goocanvas.ITEM_VISIBLE
+
     # Manage the crash case
-    if  x - self.planet_left.x < 10:
+    if  x - self.planet_left.x < 60:
       self.crash()
-    elif self.planet_right.x - x < 10:
+    elif self.planet_right.x - x < 60:
       self.crash()
     # Manage the success case
     self.trip_distance += abs(self.move)
