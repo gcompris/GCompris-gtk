@@ -1,6 +1,6 @@
 #  gcompris - land_safe.py
 #
-# Copyright (C) 2003, 2008 Bruno Coudoin and Matilda Bernard
+# Copyright (C) 2012 Bruno Coudoin and Matilda Bernard
 #
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
@@ -77,14 +77,14 @@ class Gcompris_land_safe:
 
     # Set the buttons we want in the bar
     gcompris.bar_set(gcompris.BAR_LEVEL)
-
+    gcompris.bar_location(2,-1,0.5)
 
   def end(self):
     # Remove the root item removes all the others inside it
     self.rootitem.remove()
 
   def ok(self):
-    pass
+    gcompris.utils.dialog_close()
 
   def repeat(self):
     pass
@@ -138,6 +138,12 @@ class Spaceship:
     x = gcompris.BOARD_WIDTH/2
     y = 10
 
+#    if level == 1:
+#     intro = ("\n Use the up/down keys to control the thrust and the right/left keys to control direction."
+#              "\n The velocity while landing should be less than or equal to 7 to avoid a crash."
+#              "There is an indicator which when green indicates that it is safe to land")
+#      gcompris.utils.dialog(intro, gcompris.utils.dialog_close())
+
     # Load flames and hide them
     self.flame(x + 15, y)
     self.flame_1.props.visibility = goocanvas.ITEM_INVISIBLE
@@ -176,6 +182,31 @@ class Spaceship:
     # Load fuel, altitude and landing area
     self.info = Display(self, rootitem)
 
+    # Ready button
+    self.ready_back = goocanvas.Rect(
+      parent = rootitem,
+      radius_x = 10,
+      radius_y = 10,
+      x = 350.0,
+      y = 190.0,
+      width = 158,
+      height = 50,
+      fill_color = 'green')
+    gcompris.utils.item_focus_init(self.ready_back, None)
+    self.ready_back.connect('button_press_event', self.initiate)
+
+    self.ready_text = goocanvas.Text(
+      parent = rootitem,
+      x = 384,
+      y = 203,
+      fill_color = "white",
+      text = _('I am Ready!'))
+    gcompris.utils.item_focus_init(self.ready_text, self.ready_back)
+    self.ready_text.connect('button_press_event', self.initiate)
+
+  def initiate(self,a,b,c):
+    self.ready_back.props.visibility = goocanvas.ITEM_INVISIBLE
+    self.ready_text.props.visibility = goocanvas.ITEM_INVISIBLE
     # incase of landing return false
     gobject.timeout_add(30, self.spaceship_movement)
 
@@ -239,12 +270,11 @@ class Spaceship:
       self.screen_zoom(bounds.x1, bounds.y1)
       self.spaceship_image.translate(self.x * self.scale, self.y * self.scale)
       self.flame_rootitem.translate(self.x * self.scale, self.y * self.scale)
-      self.info.altitude(bounds.y1)
+      self.info.altitude(bounds.y1,self.zoom_out)
       self.info.set_velocity()
       return True
 
     else:
-      self.info.altitude(364.000)
       self.flame_rootitem.remove()
       self.info.stop_fuel()
       self.check_landing()
@@ -271,19 +301,19 @@ class Spaceship:
       self.spaceship_image.translate(x, y_int)
       self.flame_rootitem.scale(0.5,0.5)
       self.flame_rootitem.translate(x, y_int)
-      self.scale -= 0.5
+      self.scale = 0.5
       self.zoom_out = True
 
     elif y > 298 and self.zoom_out == True:
       self.land_rootitem.set_transform(None)
       gcompris.utils.item_absolute_move(self.spaceship_image, int(x), 11)
       gcompris.utils.item_absolute_move(self.flame_rootitem, int(x - 12), 11 + 56)
-      self.scale += 0.5
+      self.scale = 1
       self.zoom_out = False
 
   def check_landing(self):
     x = self.spaceship_image.get_bounds().x1
-    if self.land_x < x < self.land_x + 100 and self.y < 0.7:
+    if self.land_x < x < self.land_x + 100 and self.y < 0.8:
       self.game.win()
     else:
       self.crash_image()
@@ -377,11 +407,11 @@ class Display:
       parent = rootitem,
       radius_x = 10,
       radius_y = 10,
-      x=65.0,
-      y=40.0,
-      width=100,
-      height=20,
-      stroke_color="blue")
+      x = 65.0,
+      y = 40.0,
+      width = 100,
+      height = 20,
+      stroke_color = "blue")
 
     # initial fuel in tank
     self.fuel_amt = 100
@@ -389,10 +419,10 @@ class Display:
       parent = rootitem,
       radius_x = 10,
       radius_y = 10,
-      x=65.0,
-      y=40.0,
-      width=self.fuel_amt,
-      height=20,
+      x = 65.0,
+      y = 40.0,
+      width = self.fuel_amt,
+      height = 20,
       fill_color = "blue",
       stroke_color = "blue")
 
@@ -410,15 +440,27 @@ class Display:
       x = 100,
       y = 60,
       fill_color = 'white',
-      text = _('4'))
+      text = _('0'))
+
+    # Indicator for safe display
+    self.safe_land = goocanvas.Rect(
+      parent = rootitem,
+      x = 130,
+      y = 62,
+      width = 17,
+      height = 15,
+      stroke_color = "black")
 
     self.ship_instance = ship_instance
     self.key = 0
     self.stop_consumtion = False
     self.set_fuel_time()
 
-  def altitude(self, altitude): #display current altitude
-    self.alt = str(364-altitude)
+  def altitude(self, altitude, zoom): #display current altitude
+    if zoom == False:
+      self.alt = str(int(364 - altitude))
+    else:
+      self.alt = str(int(700 - altitude))
     self.alt_text.set_property('text', self.alt)
 
     self.key = self.ship_instance.key_vertical
@@ -455,5 +497,9 @@ class Display:
     self.stop_consumtion = True
 
   def set_velocity(self):
-    self.velocity.set_property('text',self.vel * 10)
+    self.velocity.set_property('text',int(self.vel * 10))
+    if 0 <= int(self.vel * 10) < 8:
+      self.safe_land.set_property('fill_color', 'green')
+    else:
+      self.safe_land.set_property('fill_color', 'red')
 
