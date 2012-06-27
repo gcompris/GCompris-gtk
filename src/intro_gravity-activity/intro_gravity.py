@@ -194,11 +194,13 @@ class Spaceship(Gcompris_intro_gravity):
                    ( self.planet_left.scale / dist_planet_left**2 ) ) * 200.0 * self.level
     self.tux_spaceship.translate(self.move, 0)
 
+    force_l = self.planet_left.scale / dist_planet_left**2
+    force_r = self.planet_right.scale / dist_planet_right**2
     # Show force direction
-    if self.move > 0:
+    if force_l < force_r:
       self.force_left.props.visibility = goocanvas.ITEM_INVISIBLE
       self.force_right.props.visibility = goocanvas.ITEM_VISIBLE
-    elif self.move < 0:
+    else:
       self.force_right.props.visibility = goocanvas.ITEM_INVISIBLE
       self.force_left.props.visibility = goocanvas.ITEM_VISIBLE
 
