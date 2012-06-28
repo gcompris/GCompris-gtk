@@ -25,6 +25,7 @@ import gcompris.bonus
 import goocanvas
 import gobject
 import random
+import pango
 
 from gcompris import gcompris_gettext as _
 
@@ -42,7 +43,10 @@ class Gcompris_land_safe:
     # Needed to get key_press
     gcomprisBoard.disable_im_context = True
 
+    self.game_complete = False
+
   def start(self):
+    self.board_paused = True
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains
     # automaticaly.
@@ -79,6 +83,8 @@ class Gcompris_land_safe:
     gcompris.bar_set(gcompris.BAR_LEVEL)
     gcompris.bar_location(2,-1,0.5)
 
+    self.ready_button(self.rootitem)
+
   def end(self):
     # Remove the root item removes all the others inside it
     self.rootitem.remove()
@@ -102,7 +108,8 @@ class Gcompris_land_safe:
 
   def pause(self, pause):
     self.board_paused = pause
-    if pause == 0:
+    if pause == False and self.game_complete:
+      self.game_complete = False
       self.end()
       self.start()
 
@@ -113,10 +120,12 @@ class Gcompris_land_safe:
     self.start()
 
   def crash(self):
+    self.game_complete = True
     gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.TUX)
 
   def win(self):
     self.next_level()
+    self.game_complete = True
     gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.TUX)
 
   def next_level(self):
@@ -124,6 +133,50 @@ class Gcompris_land_safe:
       self.gcomprisBoard.level += 1
     else:
       self.gcomprisBoard.level = 1
+
+  def ready_button(self, rootitem):
+    if self.gcomprisBoard.level == 1:
+     intro = _("Use the up and down keys to control the thrust"
+               "\nUse the right and left keys to control direction."
+               "\nYou must drive Tux's ship towards the landing platform."
+               "\nThere is an indicator that shows if the velocity is safe to land.")
+     intro += "\n\n"
+     intro += "Click on me when you are ready."
+    else:
+      intro = _('I am ready!')
+
+    # Ready button
+    self.ready_text = goocanvas.Text(
+      parent = rootitem,
+      x = 384,
+      y = 203,
+      fill_color = "white",
+      anchor = gtk.ANCHOR_CENTER,
+      alignment = pango.ALIGN_CENTER,
+      text = intro )
+    self.ready_text.connect('button_press_event', self.ready_event, False)
+    bounds = self.ready_text.get_bounds()
+    gap = 20
+
+    self.ready_back = goocanvas.Rect(
+      parent = rootitem,
+      radius_x = 6,
+      radius_y = 6,
+      x = bounds.x1 - gap,
+      y = bounds.y1 - gap,
+      width = bounds.x2 - bounds.x1 + gap * 2,
+      height = bounds.y2 - bounds.y1 + gap * 2,
+      stroke_color_rgba = 0xFFFFFFFFL,
+      fill_color_rgba = 0xCCCCCC44L)
+    gcompris.utils.item_focus_init(self.ready_back, None)
+    gcompris.utils.item_focus_init(self.ready_text, self.ready_back)
+    self.ready_back.connect('button_press_event', self.ready_event, False)
+
+
+  def ready_event(self, widget, target, event, state):
+    self.ready_back.props.visibility = goocanvas.ITEM_INVISIBLE
+    self.ready_text.props.visibility = goocanvas.ITEM_INVISIBLE
+    self.pause(state)
 
 class Spaceship:
   """Class for the spaceship"""
@@ -137,12 +190,6 @@ class Spaceship:
     self.land_rootitem = land_rootitem
     x = gcompris.BOARD_WIDTH/2
     y = 10
-
-#    if level == 1:
-#     intro = ("\n Use the up/down keys to control the thrust and the right/left keys to control direction."
-#              "\n The velocity while landing should be less than or equal to 7 to avoid a crash."
-#              "There is an indicator which when green indicates that it is safe to land")
-#      gcompris.utils.dialog(intro, gcompris.utils.dialog_close())
 
     # Load flames and hide them
     self.flame(x + 15, y)
@@ -182,40 +229,16 @@ class Spaceship:
     # Load fuel, altitude and landing area
     self.info = Display(self, rootitem)
 
-    # Ready button
-    self.ready_text = goocanvas.Text(
-      parent = rootitem,
-      x = 384,
-      y = 203,
-      fill_color = "white",
-      anchor = gtk.ANCHOR_CENTER,
-      text = _('I am ready!'))
-    self.ready_text.connect('button_press_event', self.initiate)
-    bounds = self.ready_text.get_bounds()
-    gap = 20
+    self.initiate()
 
-    self.ready_back = goocanvas.Rect(
-      parent = rootitem,
-      radius_x = 6,
-      radius_y = 6,
-      x = bounds.x1 - gap,
-      y = bounds.y1 - gap,
-      width = bounds.x2 - bounds.x1 + gap * 2,
-      height = bounds.y2 - bounds.y1 + gap * 2,
-      stroke_color_rgba = 0xFFFFFFFFL,
-      fill_color_rgba = 0xCCCCCC44L)
-    gcompris.utils.item_focus_init(self.ready_back, None)
-    gcompris.utils.item_focus_init(self.ready_text, self.ready_back)
-    self.ready_back.connect('button_press_event', self.initiate)
-
-
-  def initiate(self,a,b,c):
-    self.ready_back.props.visibility = goocanvas.ITEM_INVISIBLE
-    self.ready_text.props.visibility = goocanvas.ITEM_INVISIBLE
+  def initiate(self):
     # incase of landing return false
     gobject.timeout_add(30, self.spaceship_movement)
 
   def handle_key(self, key):
+    if self.game.board_paused:
+      return
+
     if key == gtk.keysyms.Left:
       self.x -= 0.05
       self.flame_right.props.visibility = goocanvas.ITEM_VISIBLE
@@ -241,6 +264,9 @@ class Spaceship:
       self.flame_right.props.visibility = goocanvas.ITEM_INVISIBLE
 
   def spaceship_movement(self):
+    if self.game.board_paused:
+      return True
+
     if self.info.increase_vel():
       self.key_vertical = 4
       self.x = 0
