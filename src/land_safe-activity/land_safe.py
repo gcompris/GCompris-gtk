@@ -183,26 +183,31 @@ class Spaceship:
     self.info = Display(self, rootitem)
 
     # Ready button
-    self.ready_back = goocanvas.Rect(
-      parent = rootitem,
-      radius_x = 10,
-      radius_y = 10,
-      x = 350.0,
-      y = 190.0,
-      width = 158,
-      height = 50,
-      fill_color = 'green')
-    gcompris.utils.item_focus_init(self.ready_back, None)
-    self.ready_back.connect('button_press_event', self.initiate)
-
     self.ready_text = goocanvas.Text(
       parent = rootitem,
       x = 384,
       y = 203,
       fill_color = "white",
-      text = _('I am Ready!'))
-    gcompris.utils.item_focus_init(self.ready_text, self.ready_back)
+      anchor = gtk.ANCHOR_CENTER,
+      text = _('I am ready!'))
     self.ready_text.connect('button_press_event', self.initiate)
+    bounds = self.ready_text.get_bounds()
+    gap = 20
+
+    self.ready_back = goocanvas.Rect(
+      parent = rootitem,
+      radius_x = 6,
+      radius_y = 6,
+      x = bounds.x1 - gap,
+      y = bounds.y1 - gap,
+      width = bounds.x2 - bounds.x1 + gap * 2,
+      height = bounds.y2 - bounds.y1 + gap * 2,
+      stroke_color_rgba = 0xFFFFFFFFL,
+      fill_color_rgba = 0xCCCCCC44L)
+    gcompris.utils.item_focus_init(self.ready_back, None)
+    gcompris.utils.item_focus_init(self.ready_text, self.ready_back)
+    self.ready_back.connect('button_press_event', self.initiate)
+
 
   def initiate(self,a,b,c):
     self.ready_back.props.visibility = goocanvas.ITEM_INVISIBLE
