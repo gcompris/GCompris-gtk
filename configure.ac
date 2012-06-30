@@ -129,9 +129,9 @@ _AM_DEPENDENCIES([OBJC])
 _gdk_tgt=`$PKG_CONFIG --variable=target gdk-2.0`
 AM_CONDITIONAL([GDK_TARGET_QUARTZ], [test x$_gdk_tgt = xquartz])
 if test "x$_gdk_tgt" = xquartz; then
-   PKG_CHECK_MODULES(IGE_MAC, ige-mac-integration)
-   AC_SUBST(IGE_MAC_LIBS)
-   AC_SUBST(IGE_MAC_CFLAGS)
+   PKG_CHECK_MODULES(GTK_MAC, gtk-mac-integration)
+   AC_SUBST(GTK_MAC_LIBS)
+   AC_SUBST(GTK_MAC_CFLAGS)
    AC_DEFINE_UNQUOTED(MAC_INTEGRATION, 1, [Integrate in the OSX Menu])
 fi
 
