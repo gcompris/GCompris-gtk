@@ -37,7 +37,7 @@
 
 // Include Mac OS X menu synchronization on native OSX build
 #ifdef  MAC_INTEGRATION
-#include "ige-mac-menu.h"
+#include "gtk-mac-menu.h"
 #endif
 
 #include <glib/gstdio.h>
@@ -760,7 +760,7 @@ init_workspace()
 #ifdef MAC_INTEGRATION
   GtkWidget *quit_item;
   quit_item = gtk_menu_item_new();
-  ige_mac_menu_set_quit_menu_item(GTK_MENU_ITEM (quit_item));
+  gtk_mac_menu_set_quit_menu_item(GTK_MENU_ITEM (quit_item));
   g_signal_connect(GTK_OBJECT (quit_item),
 		   "activate", G_CALLBACK (quit_cb), NULL);
   gtk_widget_show (quit_item);
