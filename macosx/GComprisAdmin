@@ -1,10 +1,10 @@
 #!/bin/sh
 
-if test "x$IGE_DEBUG_LAUNCHER" != x; then
+if test "x$GTK_DEBUG_LAUNCHER" != x; then
     set -x
 fi
 
-if test "x$IGE_DEBUG_GDB" != x; then
+if test "x$GTK_DEBUG_GDB" != x; then
     EXEC="gdb --args"
 else
     EXEC=exec

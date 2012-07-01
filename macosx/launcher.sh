@@ -1,10 +1,10 @@
 #!/bin/sh
 
-if test "x$IGE_DEBUG_LAUNCHER" != x; then
+if test "x$GTK_DEBUG_LAUNCHER" != x; then
     set -x
 fi
 
-if test "x$IGE_DEBUG_GDB" != x; then
+if test "x$GTK_DEBUG_GDB" != x; then
     EXEC="gdb --args"
 else
     EXEC=exec
@@ -34,7 +34,7 @@ export GTK_IM_MODULE_FILE="$bundle_etc/gtk-2.0/gtk.immodules"
 export GDK_PIXBUF_MODULE_FILE="$bundle_etc/gtk-2.0/gdk-pixbuf.loaders"
 export PANGO_RC_FILE="$bundle_etc/pango/pangorc"
 
-export PYTHONPATH=$bundle_lib/python2.6/site-packages:$bundle_lib/python2.6/site-packages/gtk-2.0/:$bundle_lib/python2.6:$bundle_lib/python2.6/plat-darwin:$bundle_lib/python2.6/plat-mac:$bundle_lib/python2.6/lib-dynload
+export PYTHONPATH=$bundle_lib/python2.7/site-packages:$bundle_lib/python2.7/site-packages/gtk-2.0/:$bundle_lib/python2.7:$bundle_lib/python2.7/plat-darwin:$bundle_lib/python2.7/plat-mac:$bundle_lib/python2.7/lib-dynload
 
 APP=gcompris
 I18NDIR="$bundle_data/locale"
