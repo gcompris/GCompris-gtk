@@ -3,9 +3,7 @@ img_DATA = \
 	neptune.png \
 	background.svg \
 	saturn.png \
-	tux_spaceship.png \
-	arrow_right.png \
-	arrow_left.png
+	tux_spaceship.png
 
 
 EXTRA_DIST = $(img_DATA)

@@ -143,23 +143,6 @@ class Spaceship(Gcompris_intro_gravity):
     # Let us determine a success case
     self.trip_distance = 0
 
-    # load arrows for force
-    self.force_left = goocanvas.Image(
-      parent = self.rootitem,
-      pixbuf = gcompris.utils.load_pixmap("intro_gravity/arrow_left.png"),
-      x = 350,
-      y = 250)
-    self.force_left.props.visibility = goocanvas.ITEM_INVISIBLE
-    self.force_left.animate(10,0,1,1,True,900,80,goocanvas.ANIMATE_BOUNCE)
-
-    self.force_right = goocanvas.Image(
-      parent = self.rootitem,
-      pixbuf = gcompris.utils.load_pixmap("intro_gravity/arrow_right.png"),
-      x = 350,
-      y = 250)
-    self.force_right.props.visibility = goocanvas.ITEM_INVISIBLE
-    self.force_right.animate(10,0,1,1,True,900,80,goocanvas.ANIMATE_BOUNCE)
-
     # load spaceship
     self.tux_spaceship = goocanvas.Image(
       parent = self.rootitem,
@@ -173,6 +156,15 @@ class Spaceship(Gcompris_intro_gravity):
 
     self.planet_right = planet_right
     self.planet_left = planet_left
+
+    # load arrows for force applied on spacehip
+    point = goocanvas.Points([(x - 50, y),(x - 90, y)])
+    self.force_line = goocanvas.Polyline(
+      parent = self.rootitem,
+      points = point,
+      stroke_color_rgba = 0xFFFFFFFFL,
+      end_arrow = True,
+      line_width = 0.5)
 
     # Set to true to stop the calculation
     self.done = False
@@ -194,15 +186,27 @@ class Spaceship(Gcompris_intro_gravity):
                    ( self.planet_left.scale / dist_planet_left**2 ) ) * 200.0 * self.level
     self.tux_spaceship.translate(self.move, 0)
 
-    force_l = self.planet_left.scale / dist_planet_left**2
-    force_r = self.planet_right.scale / dist_planet_right**2
-    # Show force direction
-    if force_l < force_r:
-      self.force_left.props.visibility = goocanvas.ITEM_INVISIBLE
-      self.force_right.props.visibility = goocanvas.ITEM_VISIBLE
+    force_l = (self.planet_left.scale / dist_planet_left**2) * 10**5
+    force_r = (self.planet_right.scale / dist_planet_right**2) * 10**5
+
+    # Manage force direction and intensity
+    if force_r > force_l:
+      if force_r < 3:
+        right_force_intensity = force_r *2
+      else:
+        right_force_intensity = 6
+      p = goocanvas.Points([(450, 200),(490, 200)])
+      self.force_line.set_properties(points = p, line_width = right_force_intensity)
+
     else:
-      self.force_right.props.visibility = goocanvas.ITEM_INVISIBLE
-      self.force_left.props.visibility = goocanvas.ITEM_VISIBLE
+      if force_l < 3:
+        left_force_intensity = force_l *2
+      else:
+        left_force_intensity = 6
+      p = goocanvas.Points([(350, 200),(310, 200)])
+      self.force_line.set_properties(points = p,line_width = left_force_intensity)
+
+    self.force_line.translate(self.move, 0)
 
     # Manage the crash case
     if  x - self.planet_left.x < 60:
@@ -219,7 +223,6 @@ class Spaceship(Gcompris_intro_gravity):
 
   def crash(self):
     self.done = True
-    print "Crash !!!"
     self.game.crash()
 
 class Fixed_planet:
