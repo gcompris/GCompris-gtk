@@ -34,6 +34,9 @@ export GTK_IM_MODULE_FILE="$bundle_etc/gtk-2.0/gtk.immodules"
 export GDK_PIXBUF_MODULE_FILE="$bundle_etc/gtk-2.0/gdk-pixbuf.loaders"
 export PANGO_RC_FILE="$bundle_etc/pango/pangorc"
 
+export GST_PLUGIN_SYSTEM_PATH=$bundle_res
+export GST_PLUGIN_SCANNER=$bundle_res/libexec/gstreamer-0.10/gst-plugin-scanner
+export PYTHONHOME=$bundle_res
 export PYTHONPATH=$bundle_lib/python2.7/site-packages:$bundle_lib/python2.7/site-packages/gtk-2.0/:$bundle_lib/python2.7:$bundle_lib/python2.7/plat-darwin:$bundle_lib/python2.7/plat-mac:$bundle_lib/python2.7/lib-dynload
 
 APP=gcompris
@@ -112,13 +115,13 @@ if test -n $LANG; then
 #bit matches $LANG
     elif test $LANG == ${APPLELOCALE:0:2} -a $APPLELOCALE > ${APPLELOCALE:0:2}; then
 	export LC_MESSAGES=${APPLELOCALE:0:5}
-#Fail. Get a list of the locales in $PREFIX/share/locale that match
+#Fail. Get a list of the locales in $bundle_res/share/locale that match
 #our two letter language code and pick the first one, special casing
 #english to set en_US
     elif test $LANG == "en"; then
 	export LC_MESSAGES="en_US"
     else
-	LOC=`find $PREFIX/share/locale -name $LANG???`
+	LOC=`find $bundle_res/share/locale -name $LANG???`
 	for L in $LOC; do
 	    export LC_MESSAGES=$L
 	done
