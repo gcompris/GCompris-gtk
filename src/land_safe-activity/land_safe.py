@@ -201,14 +201,12 @@ class Spaceship:
 
     # Load landing area
     self.land_x = random.randrange(100, 400)
-    landing_area = goocanvas.Rect(
-      parent = land_rootitem,
-      x=self.land_x,
-      y=440,
-      width=100,
-      height=6,
-      fill_color="green",
-      stroke_color="green")
+    landing = goocanvas.Image(
+      parent = rootitem,
+      pixbuf = gcompris.utils.load_pixmap("land_safe/landing_area.png"),
+      x = self.land_x,
+      y = 365)
+    landing.lower(self.flame_rootitem)
 
     # Load spaceship
     pixbuf = gcompris.utils.load_pixmap("land_safe/rocket.png")
@@ -343,8 +341,9 @@ class Spaceship:
       self.zoom_out = False
 
   def check_landing(self):
-    x = self.spaceship_image.get_bounds().x1
-    if self.land_x < x < self.land_x + 100 and self.y < 0.8:
+    bounds = self.spaceship_image.get_bounds()
+    x = (bounds.x1 + bounds.x2)/2
+    if self.land_x < x < self.land_x + 130 and self.y < 0.8:
       self.game.win()
     else:
       self.crash_image()
