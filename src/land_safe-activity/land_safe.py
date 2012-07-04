@@ -202,7 +202,7 @@ class Spaceship:
     # Load landing area
     self.land_x = random.randrange(100, 400)
     landing = goocanvas.Image(
-      parent = rootitem,
+      parent = self.land_rootitem,
       pixbuf = gcompris.utils.load_pixmap("land_safe/landing_area.png"),
       x = self.land_x,
       y = 365)
@@ -441,18 +441,18 @@ class Display:
       y = 40.0,
       width = 100,
       height = 20,
-      stroke_color = "blue")
+      stroke_color = "grey")
 
     # initial fuel in tank
-    self.fuel_amt = 100
+    self.fuel_amt = 96
     self.fuel_tank = goocanvas.Rect(
       parent = rootitem,
       radius_x = 10,
       radius_y = 10,
-      x = 65.0,
-      y = 40.0,
+      x = 66.5,
+      y = 41.3,
       width = self.fuel_amt,
-      height = 20,
+      height = 16.5,
       fill_color = "blue",
       stroke_color = "blue")
 
@@ -521,6 +521,7 @@ class Display:
 
   def increase_vel(self):
     if self.fuel_amt == 1:
+      self.fuel_tank.remove()
       return True
 
   def stop_fuel(self):
