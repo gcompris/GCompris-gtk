@@ -78,14 +78,67 @@
     ${prefix}/lib/libvorbis*.dylib
   </binary>
 
+  <!-- GSTREAMER plugins -->
   <binary>
-    ${prefix}/lib/gstreamer-0.10/*
+    ${prefix}/lib/gstreamer-0.10/libgstaudioconvert.so
   </binary>
+
+  <binary>
+    ${prefix}/lib/gstreamer-0.10/libgstaudiorate.so
+  </binary>
+
+  <binary>
+    ${prefix}/lib/gstreamer-0.10/libgstaudioresample.so
+  </binary>
+
+  <binary>
+    ${prefix}/lib/gstreamer-0.10/libgstautodetect.so
+  </binary>
+
+  <binary>
+    ${prefix}/lib/gstreamer-0.10/libgstcoreelements.so
+  </binary>
+
+  <binary>
+    ${prefix}/lib/gstreamer-0.10/libgstdecodebin.so
+  </binary>
+
+  <binary>
+    ${prefix}/lib/gstreamer-0.10/libgstdecodebin2.so
+  </binary>
+
+  <binary>
+    ${prefix}/lib/gstreamer-0.10/libgstogg.so
+  </binary>
+
+  <binary>
+    ${prefix}/lib/gstreamer-0.10/libgstosxaudio.so
+  </binary>
+
+  <binary>
+    ${prefix}/lib/gstreamer-0.10/libgstplaybin.so
+  </binary>
+
+  <binary>
+    ${prefix}/lib/gstreamer-0.10/libgsttypefindfunctions.so
+  </binary>
+
+  <binary>
+    ${prefix}/lib/gstreamer-0.10/libgstvolume.so
+  </binary>
+
+  <binary>
+    ${prefix}/lib/gstreamer-0.10/libgstvorbis.so
+  </binary>
+
+  <binary>
+    ${prefix}/lib/gstreamer-0.10/libgstwavparse.so
+  </binary>
+
 
   <binary>
     ${prefix}/libexec/gstreamer-0.10/*
   </binary>
-
 
   <binary>
     ${prefix}/bin/gcompris-gnuchess
