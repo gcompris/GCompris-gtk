@@ -38,7 +38,7 @@ class Gcompris_land_safe:
     # to know from the core
     self.gcomprisBoard = gcomprisBoard
     self.gcomprisBoard.level = 1
-    self.gcomprisBoard.maxlevel = 2
+    self.gcomprisBoard.maxlevel = 4
 
     # Needed to get key_press
     gcomprisBoard.disable_im_context = True
@@ -67,7 +67,7 @@ class Gcompris_land_safe:
       parent = land_rootitem,
       pixbuf = pixbuf,
       x = -550,
-      y = gcompris.BOARD_HEIGHT - 130
+      y = gcompris.BOARD_HEIGHT - 125
       )
     land.lower(None)
 
@@ -204,6 +204,7 @@ class Spaceship:
     landing = goocanvas.Image(
       parent = self.land_rootitem,
       pixbuf = gcompris.utils.load_pixmap("land_safe/landing_area.png"),
+      width = 145 - (self.level * 10),
       x = self.land_x,
       y = 365)
     landing.lower(self.flame_rootitem)
@@ -343,7 +344,8 @@ class Spaceship:
   def check_landing(self):
     bounds = self.spaceship_image.get_bounds()
     x = (bounds.x1 + bounds.x2)/2
-    if self.land_x < x < self.land_x + 130 and self.y < 0.8:
+    width = 135 - (self.level * 5)
+    if self.land_x < x < self.land_x + width and self.y < 0.8:
       self.game.win()
     else:
       self.crash_image()
@@ -479,7 +481,7 @@ class Display:
       y = 62,
       width = 17,
       height = 15,
-      stroke_color = "black")
+      stroke_color = "grey")
 
     self.ship_instance = ship_instance
     self.key = 0
