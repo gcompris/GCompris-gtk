@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: gcompris master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-05-20 18:41+0000\n"
+"POT-Creation-Date: 2012-07-06 03:05+0000\n"
 "PO-Revision-Date: 2012-02-28 22:38+0100\n"
 "Last-Translator: Pierre Henry <PierreHenry73@yahoo.fr>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -255,7 +255,7 @@ msgstr "Vers les activités d'argent"
 
 #: ../boards/mouse.xml.in.h:1
 msgid "Mouse-manipulation activities."
-msgstr "Activités de manipulation de la souris"
+msgstr "Activités de manipulation de la souris."
 
 #: ../boards/mouse.xml.in.h:2
 msgid "Various mouse-based activities (clicking, moving)"
@@ -657,7 +657,7 @@ msgid "Board"
 msgstr "Activité"
 
 #: ../src/administration-activity/admin/log_list.py:249
-#: ../src/click_on_letter-activity/click_on_letter.c:1248
+#: ../src/click_on_letter-activity/click_on_letter.c:1249
 #: ../src/redraw-activity/redraw.py:339
 msgid "Level"
 msgstr "Niveau"
@@ -674,6 +674,11 @@ msgstr "Durée"
 msgid "Status"
 msgstr "Statut"
 
+#: ../src/administration-activity/admin/module_activities.py:50
+#: ../src/administration-activity/admin/module_activities.py:78
+msgid "Activities"
+msgstr "Activités"
+
 #: ../src/administration-activity/admin/module_boards.py:49
 #: ../src/administration-activity/admin/module_boards.py:77
 msgid "Boards"
@@ -683,6 +688,11 @@ msgstr "Activités"
 #: ../src/administration-activity/admin/module_groups.py:69
 msgid "Groups"
 msgstr "Groupes"
+
+#: ../src/administration-activity/admin/module_logins.py:48
+#: ../src/administration-activity/admin/module_logins.py:69
+msgid "Logins"
+msgstr "Identifiants"
 
 #: ../src/administration-activity/admin/module_profiles.py:47
 #: ../src/administration-activity/admin/module_profiles.py:68
@@ -738,6 +748,10 @@ msgstr "Profil"
 msgid "[Default]"
 msgstr "[Par défaut]"
 
+#: ../src/administration-activity/admin/profile_widget.py:291
+msgid "There is already a profile with this name"
+msgstr "Il y a déjà un profil qui porte ce nom"
+
 #: ../src/administration-activity/admin/user_edit.py:47
 msgid "Editing a User"
 msgstr "Édition d'un utilisateur"
@@ -791,7 +805,8 @@ msgstr ""
 "Pour importer un fichier, sélectionnez d'abord une classe.\n"
 "FORMAT DE FICHIER : Votre fichier doit être formaté comme ceci :\n"
 "identifiant;prénom;nom;date de naissance\n"
-"En fait le séparateur est autodétecté et peut être « , », « ; » ou encore « : »"
+"En fait le séparateur est autodétecté et peut être « , », « ; » ou encore "
+"« : »"
 
 #: ../src/administration-activity/admin/user_list.py:363
 #, python-format
@@ -801,20 +816,6 @@ msgid ""
 msgstr ""
 "Un ou plusieurs identifiants ne sont pas uniques !\n"
 "Vous devez les modifier : %s !"
-
-#: ../src/administration-activity/admin/module_activities.py:50
-#: ../src/administration-activity/admin/module_activities.py:78
-msgid "Activities"
-msgstr "Activités"
-
-#: ../src/administration-activity/admin/module_logins.py:48
-#: ../src/administration-activity/admin/module_logins.py:69
-msgid "Logins"
-msgstr "Identifiants"
-
-#: ../src/administration-activity/admin/profile_widget.py:291
-msgid "There is already a profile with this name"
-msgstr "Il y a déjà un profil qui porte ce nom"
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:1
 msgid "Advanced colors"
@@ -1410,7 +1411,8 @@ msgstr ""
 "défilement dans ce mode. En mode visualisation, appuie sur le bouton "
 "« dessiner » pour revenir au mode dessin. Tu peux ensuite modifier chaque "
 "image en utilisant le sélecteur d'image en bas à droite de l'écran. Tu peux "
-"sauver et recharger ton travail avec les boutons « disquette » et « dossier »."
+"sauver et recharger ton travail avec les boutons « disquette » et "
+"« dossier »."
 
 #: ../src/anim-activity/Color.py:86
 msgid "Fill color..."
@@ -1577,7 +1579,7 @@ msgstr ""
 "correct dans la zone principale."
 
 #: ../src/babymatch-activity/shapegame.c:2017
-#: ../src/click_on_letter-activity/click_on_letter.c:1316
+#: ../src/click_on_letter-activity/click_on_letter.c:1317
 #, c-format
 msgid ""
 "<b>%1$s</b> configuration\n"
@@ -1651,8 +1653,8 @@ msgid ""
 "Press the two shift keys at the same time, to make the ball go in a straight "
 "line."
 msgstr ""
-"Appuie sur les deux touches « Maj » en même temps pour envoyer la balle droit "
-"devant."
+"Appuie sur les deux touches « Maj » en même temps pour envoyer la balle "
+"droit devant."
 
 #: ../src/ballcatch-activity/ballcatch.xml.in.h:1
 msgid "Make the ball go to Tux"
@@ -2055,12 +2057,12 @@ msgstr ""
 "utilisateur de ton réseau utilise au même moment l'activité de discussion de "
 "GCompris, il recevra ton message."
 
-#: ../src/chess_computer-activity/chess.c:222
+#: ../src/chess_computer-activity/chess.c:225
 msgid "Error: The external program gnuchess died unexpectedly"
 msgstr "Erreur : le programme externe Gnuchess a quitté de façon inattendue."
 
-#: ../src/chess_computer-activity/chess.c:262
-#: ../src/chess_computer-activity/chess.c:308
+#: ../src/chess_computer-activity/chess.c:265
+#: ../src/chess_computer-activity/chess.c:311
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -2070,40 +2072,40 @@ msgstr ""
 "pour jouer aux échecs dans GCompris.\n"
 "Commencez par l'installer, puis vérifiez qu'il est dans "
 
-#: ../src/chess_computer-activity/chess.c:653
+#: ../src/chess_computer-activity/chess.c:656
 msgid "White's Turn"
 msgstr "Les blancs jouent"
 
-#: ../src/chess_computer-activity/chess.c:653
+#: ../src/chess_computer-activity/chess.c:656
 msgid "Black's Turn"
 msgstr "Les noirs jouent"
 
-#: ../src/chess_computer-activity/chess.c:794
+#: ../src/chess_computer-activity/chess.c:797
 msgid "White checks"
 msgstr "Échec aux blancs"
 
-#: ../src/chess_computer-activity/chess.c:796
+#: ../src/chess_computer-activity/chess.c:799
 msgid "Black checks"
 msgstr "Échec aux noirs"
 
-#: ../src/chess_computer-activity/chess.c:1202
+#: ../src/chess_computer-activity/chess.c:1209
 msgid "Black mates"
 msgstr ""
 "Échec et mat\n"
 "aux blancs"
 
-#: ../src/chess_computer-activity/chess.c:1209
+#: ../src/chess_computer-activity/chess.c:1216
 msgid "White mates"
 msgstr ""
 "Échec et mat\n"
 "aux noirs"
 
-#: ../src/chess_computer-activity/chess.c:1216 ../src/gcompris/bonus.c:191
+#: ../src/chess_computer-activity/chess.c:1223 ../src/gcompris/bonus.c:191
 #: ../src/gcompris/bonus.c:200
 msgid "Drawn game"
 msgstr "Match nul"
 
-#: ../src/chess_computer-activity/chess.c:1244
+#: ../src/chess_computer-activity/chess.c:1251
 msgid "Error: The external program gnuchess died unexpectingly"
 msgstr "Erreur : le programme externe Gnuchess a quitté subitement"
 
@@ -2341,7 +2343,7 @@ msgid "1923 Lancia Lambda"
 msgstr "1923, Lancia Lambda"
 
 #: ../src/chronos-activity/resources/chronos/board4_3.xml.in.h:4
-msgid "1955 Citroën ds 19"
+msgid "1955 Citroën DS 19"
 msgstr "1955, Citroën DS 19"
 
 #: ../src/clickanddraw-activity/clickanddraw.xml.in.h:1
@@ -2425,26 +2427,26 @@ msgstr ""
 "Erreur : cette activité nécessite d'abord l'installation\n"
 "des paquets contenant les voix de GCompris pour la langue %s."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:907
+#: ../src/click_on_letter-activity/click_on_letter.c:908
 msgid "Questions cannot be empty."
 msgstr "Les questions ne peuvent pas être vides."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:917
+#: ../src/click_on_letter-activity/click_on_letter.c:918
 msgid "Answers cannot be empty."
 msgstr "Les réponses ne peuvent pas être vides."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:923
+#: ../src/click_on_letter-activity/click_on_letter.c:924
 #, c-format
 msgid "Too many characters in the Answer (maximum is %d)."
 msgstr "Trop de caractères dans la réponse (le maximum est %d)."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:947
+#: ../src/click_on_letter-activity/click_on_letter.c:948
 msgid "All the characters in Questions must also be in the Answers."
 msgstr ""
 "Tous les caractères dans les questions doivent aussi se trouver dans les "
 "réponses."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:964
+#: ../src/click_on_letter-activity/click_on_letter.c:965
 #, c-format
 msgid ""
 "Invalid entry:\n"
@@ -2456,20 +2458,20 @@ msgstr ""
 "%s"
 
 #. answer
-#: ../src/click_on_letter-activity/click_on_letter.c:1259
+#: ../src/click_on_letter-activity/click_on_letter.c:1260
 #: ../src/missing_letter-activity/missingletter_config.c:420
 #: ../src/missing_letter-activity/missingletter_config.c:548
 msgid "Answer"
 msgstr "Réponse"
 
 #. question
-#: ../src/click_on_letter-activity/click_on_letter.c:1270
+#: ../src/click_on_letter-activity/click_on_letter.c:1271
 #: ../src/missing_letter-activity/missingletter_config.c:426
 #: ../src/missing_letter-activity/missingletter_config.c:571
 msgid "Question"
 msgstr "Question"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:1406
+#: ../src/click_on_letter-activity/click_on_letter.c:1407
 #: ../src/gcompris/board_config_wordlist.c:274
 msgid "Back to default"
 msgstr "Revenir aux valeurs par défaut"
@@ -2890,7 +2892,7 @@ msgstr "Dessine l'image en cliquant sur tous les nombres dans le bon ordre."
 msgid ""
 "Cannot find the 'gnucap' electric simulator.\n"
 "You can download and install it from:\n"
-"<http://geda.seul.org/tools/gnucap/>\n"
+"<http://www.gnu.org/software/gnucap/>\n"
 "To be detected, it must be installed in\n"
 "/usr/bin/gnucap or /usr/local/bin/gnucap.\n"
 "You can still use this activity to draw schematics without computer "
@@ -2898,7 +2900,7 @@ msgid ""
 msgstr ""
 "Impossible de trouver le logiciel de simulation électrique « GnuCap ».\n"
 "Vous pouvez le télécharger à l'adresse:\n"
-"<http://geda.seul.org/tools/gnucap/>, ou bien l'installer depuis le "
+"<http://www.gnu.org/software/gnucap/>, ou bien l'installer depuis le "
 "gestionnaire de logiciel de votre distribution GNU/Linux.\n"
 "Pour être détecté, l'exécutable doit être installé dans /usr/bin/gnucap ou /"
 "usr/local/bin/gnucap.\n"
@@ -2924,11 +2926,11 @@ msgstr "Créer librement un schéma électrique simulé en temps réel."
 #: ../src/electric-activity/electric.xml.in.h:5
 msgid ""
 "GCompris uses the Gnucap electric simulator as a backend. You can get more "
-"information on gnucap at &lt;http://geda.seul.org/tools/gnucap/&gt;."
+"information on gnucap at &lt;http://www.gnu.org/software/gnucap/&gt;."
 msgstr ""
 "GCompris utilise le simulateur de circuit électrique Gnucap comme moteur. "
-"Vous pouvez obtenir plus d'information sur Gnucap à l'adresse : &lt;http://"
-"geda.seul.org/tools/gnucap/&gt;."
+"Vous pouvez obtenir plus d'information sur Gnucap à l'adresse : "
+"&lt;http://www.gnu.org/software/gnucap/&gt;."
 
 #: ../src/electric-activity/electric.xml.in.h:6
 msgid ""
@@ -3160,7 +3162,7 @@ msgstr ""
 "Ce logiciel est un paquet GNU et est soumis à la Licence Publique Générale "
 "GNU (GPL)."
 
-#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:459
+#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:460
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:358
 #: ../src/gcompris/images_selector.c:313
 msgid "OK"
@@ -3292,7 +3294,7 @@ msgid "Croatian"
 msgstr "Croate"
 
 #: ../src/gcompris/config.c:71
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:7
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:7
 msgid "Czech Republic"
 msgstr "République tchèque"
 
@@ -3381,189 +3383,193 @@ msgid "Korean"
 msgstr "Coréen"
 
 #: ../src/gcompris/config.c:93
+msgid "Latvian"
+msgstr "Letton"
+
+#: ../src/gcompris/config.c:94
 msgid "Lithuanian"
 msgstr "Lituanien"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:95
 msgid "Macedonian"
 msgstr "Macédonien"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:96
 msgid "Malay"
 msgstr "Malaisien"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:97
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:98
 msgid "Marathi"
 msgstr "Marâthî"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:99
 msgid "Montenegrin"
 msgstr "Monténégrin"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:100
 msgid "Nepal"
 msgstr "Népalais"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:101
 msgid "Norwegian Bokmal"
 msgstr "Norvégien Bokmal"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:102
 msgid "Norwegian Nynorsk"
 msgstr "Norvégien Nynorsk"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:103
 msgid "Occitan (languedocien)"
 msgstr "Occitan (languedocien)"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:104
 msgid "Persian"
 msgstr "Perse"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:105
 msgid "Polish"
 msgstr "Polonais"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:106
 msgid "Portuguese (Brazil)"
 msgstr "Portugais (Brésil)"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:107
 msgid "Portuguese"
 msgstr "Portugais"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:108
 msgid "Punjabi"
 msgstr "Punjabi"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:109
 msgid "Romanian"
 msgstr "Roumain"
 
-#: ../src/gcompris/config.c:109
+#: ../src/gcompris/config.c:110
 msgid "Russian"
 msgstr "Russe"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:111
 msgid "Serbian (Latin)"
 msgstr "Serbe (Latin)"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:112
 msgid "Serbian"
 msgstr "Serbe"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:113
 msgid "Slovak"
 msgstr "Slovaque"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:114
 msgid "Slovenian"
 msgstr "Slovène"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:115
 msgid "Somali"
 msgstr "Somali"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:116
 msgid "Spanish"
 msgstr "Espagnol"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:117
 msgid "Swedish"
 msgstr "Suédois"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:118
 msgid "Tamil"
 msgstr "Tamoul"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:119
 msgid "Thai"
 msgstr "Thaï"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:120
 msgid "Turkish (Azerbaijan)"
 msgstr "Turque (Azerbaïdjan)"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:121
 msgid "Turkish"
 msgstr "Turc"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:122
 msgid "Ukrainian"
 msgstr "Ukrainien"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:123
 msgid "Urdu"
 msgstr "Ourdou"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:124
 msgid "Vietnamese"
 msgstr "Vietnamien"
 
-#: ../src/gcompris/config.c:124
+#: ../src/gcompris/config.c:125
 msgid "Walloon"
 msgstr "Wallon"
 
-#: ../src/gcompris/config.c:125
+#: ../src/gcompris/config.c:126
 msgid "Zulu"
 msgstr "Zoulou"
 
-#: ../src/gcompris/config.c:130
+#: ../src/gcompris/config.c:131
 msgid "No time limit"
 msgstr "Sans limite de temps"
 
-#: ../src/gcompris/config.c:131
+#: ../src/gcompris/config.c:132
 msgid "Slow timer"
 msgstr "Compteur lent"
 
-#: ../src/gcompris/config.c:132
+#: ../src/gcompris/config.c:133
 msgid "Normal timer"
 msgstr "Compteur normal"
 
-#: ../src/gcompris/config.c:133
+#: ../src/gcompris/config.c:134
 msgid "Fast timer"
 msgstr "Compteur rapide"
 
-#: ../src/gcompris/config.c:137
+#: ../src/gcompris/config.c:138
 msgid "Use Gcompris administration module to filter boards"
 msgstr "Filtrez les activités avec le module d'administration Gcompris"
 
-#: ../src/gcompris/config.c:191
+#: ../src/gcompris/config.c:192
 msgid "GCompris Configuration"
 msgstr "Configuration de GCompris"
 
-#: ../src/gcompris/config.c:274
+#: ../src/gcompris/config.c:275
 msgid "Fullscreen"
 msgstr "Plein écran"
 
-#: ../src/gcompris/config.c:299
+#: ../src/gcompris/config.c:300
 msgid "Music"
 msgstr "Musique"
 
-#: ../src/gcompris/config.c:324
+#: ../src/gcompris/config.c:325
 msgid "Effect"
 msgstr "Effet"
 
-#: ../src/gcompris/config.c:348 ../src/gcompris/sugar_gc.c:93
+#: ../src/gcompris/config.c:349 ../src/gcompris/sugar_gc.c:93
 msgid "Zoom"
 msgstr "Zoom"
 
-#: ../src/gcompris/config.c:385
+#: ../src/gcompris/config.c:386
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Impossible d'ouvrir le répertoire de thèmes : %s"
 
-#: ../src/gcompris/config.c:416 ../src/gcompris/config.c:876
-#: ../src/gcompris/config.c:890
+#: ../src/gcompris/config.c:417 ../src/gcompris/config.c:877
+#: ../src/gcompris/config.c:891
 #, c-format
 msgid "Skin : %s"
 msgstr "Thème : %s"
 
-#: ../src/gcompris/config.c:418
+#: ../src/gcompris/config.c:419
 msgid "SKINS NOT FOUND"
 msgstr "THÈMES INTROUVABLES"
 
@@ -3698,7 +3704,8 @@ msgstr ""
 #: ../src/gcompris/gcompris.c:221
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
-"Liste les profils disponibles. Utilisez « gcompris -a » pour créer des profils"
+"Liste les profils disponibles. Utilisez « gcompris -a » pour créer des "
+"profils"
 
 #: ../src/gcompris/gcompris.c:224
 msgid ""
@@ -3835,11 +3842,11 @@ msgid ""
 msgid_plural ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
 msgstr[0] ""
-"GCompris ne va pas démarrer car le fichier verrou est posé depuis seulement %"
-"d seconde.\n"
+"GCompris ne va pas démarrer car le fichier verrou est posé depuis seulement "
+"%d seconde.\n"
 msgstr[1] ""
-"GCompris ne va pas démarrer car le fichier verrou est posé depuis seulement %"
-"d secondes.\n"
+"GCompris ne va pas démarrer car le fichier verrou est posé depuis seulement "
+"%d secondes.\n"
 
 #: ../src/gcompris/gcompris.c:1530
 #, c-format
@@ -3971,6 +3978,43 @@ msgstr ""
 "Vous pouvez inclure ces images dans vos dessins et vos animations.\n"
 "Les formats d'image pris en charge sont jpeg, png et svg.\n"
 
+#: ../src/gcompris/sugar_cli.c:222 ../src/gcompris/sugar_srv.c:156
+msgid "Sharing Error"
+msgstr "Erreur de partage"
+
+#: ../src/gcompris/sugar_cli.c:223
+msgid "Cannot retrieve remote data"
+msgstr "Impossible de récupérer les données distantes"
+
+#: ../src/gcompris/sugar_gc.c:82
+msgid "About"
+msgstr "À propos"
+
+#: ../src/gcompris/sugar_gc.c:83
+msgid "Refresh"
+msgstr "Rafraichir"
+
+#: ../src/gcompris/sugar_gc.c:84
+msgid "Settings"
+msgstr "Paramètres"
+
+#: ../src/gcompris/sugar_gc.c:85
+msgid "Previous level"
+msgstr "Niveau précédent"
+
+#: ../src/gcompris/sugar_gc.c:88
+msgid "Next level"
+msgstr "Niveau suivant"
+
+#. TRANSLATORS: Back as in previous
+#: ../src/gcompris/sugar_gc.c:97
+msgid "Back"
+msgstr "Précédent"
+
+#: ../src/gcompris/sugar_srv.c:157
+msgid "Cannot initiate sharing session"
+msgstr "Impossible d'initialiser la session de partage"
+
 #: ../src/gcompris/timer.c:257
 msgid "Time Elapsed"
 msgstr "Temps écoulé"
@@ -4059,7 +4103,7 @@ msgid "Continents"
 msgstr "Continents"
 
 #: ../src/geography-activity/resources/geography/board1_0.xml.in.h:2
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:1
 msgid "Africa"
 msgstr "Afrique"
 
@@ -4112,7 +4156,7 @@ msgid "Haiti"
 msgstr "Haïti"
 
 #: ../src/geography-activity/resources/geography/board2_0.xml.in.h:8
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:8
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:8
 msgid "Iceland"
 msgstr "Islande"
 
@@ -4132,465 +4176,469 @@ msgstr "États-Unis d'Amérique"
 msgid "Alaska"
 msgstr "Alaska"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:1
 msgid "South America"
 msgstr "Amérique du Sud"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:2
 msgid "Argentina"
 msgstr "Argentine"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:3
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:3
 msgid "Bolivia"
 msgstr "Bolivie"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:4
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:4
 msgid "Brazil"
 msgstr "Brésil"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:5
 msgid "Chile"
 msgstr "Chili"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:6
 msgid "Colombia"
 msgstr "Colombie"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:7
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:7
 msgid "Ecuador"
 msgstr "Équateur"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:8
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:8
 msgid "French Guiana"
 msgstr "Guyane française"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:9
 msgid "Guyana"
 msgstr "Guyane"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:10
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:10
 msgid "Panama"
 msgstr "Panama"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:11
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:11
 msgid "Paraguay"
 msgstr "Paraguay"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:12
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:12
 msgid "Peru"
 msgstr "Pérou"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:13
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:13
 msgid "Suriname"
 msgstr "Surinam"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:14
 msgid "Uruguay"
 msgstr "Uruguay"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:15
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:15
 msgid "Venezuela"
 msgstr "Vénézuela"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:1
 msgid "Western Europe"
 msgstr "Europe de l'ouest"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:2
 msgid "Austria"
 msgstr "Autriche"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:3
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:3
 msgid "Belgium"
 msgstr "Belgique"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:4
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:4
 msgid "Denmark"
 msgstr "Danemark"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:5
 msgid "Finland"
 msgstr "Finlande"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:6
 msgid "France"
 msgstr "France"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:7
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:7
 msgid "Germany"
 msgstr "Allemagne"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:9
 msgid "Ireland"
 msgstr "Irlande"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:10
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:10
 msgid "Italy"
 msgstr "Italie"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:11
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:11
 msgid "Luxembourg"
 msgstr "Luxembourg"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:12
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:12
 msgid "The Netherlands"
 msgstr "Hollande (Pays-Bas)"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:13
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:13
 msgid "Norway"
 msgstr "Norvège"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:14
 msgid "Portugal"
 msgstr "Portugal"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:15
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:15
 msgid "Spain"
 msgstr "Espagne"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:16
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:16
 msgid "Sweden"
 msgstr "Suède"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:17
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:17
 msgid "Switzerland"
 msgstr "Suisse"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:18
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:18
 msgid "United Kingdom"
 msgstr "Royaume-Uni"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:1
 msgid "Eastern Europe"
 msgstr "Europe de l'est"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:2
 msgid "Albania"
 msgstr "Albanie"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:3
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:3
 msgid "Belarus"
 msgstr "Biélorussie"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:4
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:4
 msgid "Bosnia Herzegovina"
 msgstr "Bosnie-Herzégovine"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:5
 msgid "Bulgaria"
 msgstr "Bulgarie"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:6
 msgid "Croatia"
 msgstr "Croatie"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:8
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:8
 msgid "Estonia"
 msgstr "Estonie"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:9
 msgid "Hungary"
 msgstr "Hongrie"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:10
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:10
 msgid "Latvia"
 msgstr "Lettonie"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:11
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:11
 msgid "Lithuania"
 msgstr "Lituanie"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:12
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:12
 msgid "Macedonia"
 msgstr "Macédoine"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:13
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:13
 msgid "Moldova"
 msgstr "Moldavie"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:14
 msgid "Poland"
 msgstr "Pologne"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:15
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:15
 msgid "Romania"
 msgstr "Roumanie"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:16
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:16
 msgid "Russia"
 msgstr "Russie"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:17
-msgid "Serbia Montenegro"
-msgstr "Serbie Monténégro"
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:17
+msgid "Serbia"
+msgstr "Serbie"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:18
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:18
+msgid "Montenegro"
+msgstr "Monténégro"
+
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:19
 msgid "Slovak Republic"
 msgstr "Slovaquie"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:19
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:20
 msgid "Slovenia"
 msgstr "Slovénie"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:20
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:21
 msgid "Turkey"
 msgstr "Turquie"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:21
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:22
 msgid "Ukraine"
 msgstr "Ukraine"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:22
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:23
 msgid "Greece"
 msgstr "Grèce"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:23
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:24
 msgid "Cyprus"
 msgstr "Chypre"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:1
 msgid "Northern Africa"
 msgstr "Afrique du Nord"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:2
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:3
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:3
 msgid "Algeria"
 msgstr "Algérie"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:3
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:3
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:5
 msgid "Benin"
 msgstr "Bénin"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:4
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:7
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:4
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:7
 msgid "Burkina Faso"
 msgstr "Burkina Faso"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:5
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:8
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:8
 msgid "Cameroon"
 msgstr "Cameroun"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:6
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:30
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:30
 msgid "Central African Republic"
 msgstr "République centrafricaine"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:7
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:35
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:7
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:35
 msgid "Chad"
 msgstr "Tchad"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:8
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:8
 msgid "Djibouti"
 msgstr "Djibouti"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:9
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:11
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:11
 msgid "Egypt"
 msgstr "Égypte"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:10
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:10
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:6
 msgid "Equatorial Guinea"
 msgstr "Guinée équatoriale"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:11
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:13
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:11
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:13
 msgid "Ethiopia"
 msgstr "Éthiopie"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:12
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:12
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:12
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:12
 msgid "Eritrea"
 msgstr "Érythrée"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:13
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:7
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:13
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:7
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:14
 msgid "Gabon"
 msgstr "Gabon"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:14
 msgid "Gambia"
 msgstr "Gambie"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:15
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:15
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:15
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:15
 msgid "Ghana"
 msgstr "Ghana"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:16
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:16
 msgid "Guinea Bissau"
 msgstr "Guinée Bissau"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:17
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:16
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:17
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:16
 msgid "Guinea"
 msgstr "Guinée"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:18
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:10
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:18
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:10
 msgid "Ivory Coast"
 msgstr "Côte d'Ivoire"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:19
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:18
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:19
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:18
 msgid "Liberia"
 msgstr "Libéria"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:20
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:19
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:20
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:19
 msgid "Libya"
 msgstr "Libye"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:21
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:22
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:21
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:22
 msgid "Mali"
 msgstr "Mali"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:22
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:24
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:22
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:24
 msgid "Mauritania"
 msgstr "Mauritanie"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:23
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:23
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:23
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:23
 msgid "Morocco"
 msgstr "Maroc"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:24
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:28
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:24
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:28
 msgid "Nigeria"
 msgstr "Nigeria"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:25
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:27
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:25
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:27
 msgid "Niger"
 msgstr "Niger"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:26
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:15
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:26
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:15
 msgid "Rwanda"
 msgstr "Rwanda"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:27
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:31
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:27
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:31
 msgid "Senegal"
 msgstr "Sénégal"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:28
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:28
 msgid "Sierra Leone"
 msgstr "Sierra Leone"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:29
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:32
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:29
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:32
 msgid "Somalia"
 msgstr "Somalie"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:30
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:33
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:30
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:33
 msgid "Sudan"
 msgstr "Soudan"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:31
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:36
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:31
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:36
 msgid "Togo"
 msgstr "Togo"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:32
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:37
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:32
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:37
 msgid "Tunisia"
 msgstr "Tunisie"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:33
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:19
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:29
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:33
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:19
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:29
 msgid "Uganda"
 msgstr "Ouganda"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:34
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:34
 msgid "Western Sahara"
 msgstr "Sahara occidental"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:1
 msgid "Southern Africa"
 msgstr "Sud de l'Afrique"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:2
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:4
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:4
 msgid "Angola"
 msgstr "Angola"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:3
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:3
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:6
 msgid "Botswana"
 msgstr "Botswana"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:4
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:4
 msgid "Burundi"
 msgstr "Burundi"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:5
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:9
 msgid "Democratic Republic of Congo"
 msgstr "République démocratique du Congo"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:8
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:17
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:8
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:17
 msgid "Kenya"
 msgstr "Kenya"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:9
 msgid "Lesotho"
 msgstr "Lesotho"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:10
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:20
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:10
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:20
 msgid "Madagascar"
 msgstr "Madagascar"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:11
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:21
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:11
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:21
 msgid "Malawi"
 msgstr "Malawi"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:12
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:25
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:12
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:25
 msgid "Mozambique"
 msgstr "Mozambique"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:13
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:26
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:13
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:26
 msgid "Namibia"
 msgstr "Namibie"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:14
 msgid "Republic of Congo"
 msgstr "République du Congo"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:16
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:16
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:2
 msgid "South Africa"
 msgstr "Afrique du Sud"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:17
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:17
 msgid "Swaziland"
 msgstr "Swaziland"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:18
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:34
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:18
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:34
 msgid "Tanzania"
 msgstr "Tanzanie"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:20
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:38
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:20
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:38
 msgid "Zambia"
 msgstr "Zambie"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:21
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:39
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:21
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:39
 msgid "Zimbabwe"
 msgstr "Zimbabwe"
 
@@ -4843,8 +4891,8 @@ msgstr ""
 "dernier est un diviseur du premier. Tu peux considérer les multiples d'un "
 "nombre comme un ensemble. Ainsi 1, 2, 3 et 6 sont éléments de cet ensemble, "
 "mais 4 ne l'est pas. Utilise les touches fléchées pour te déplacer dans "
-"l'activité et éviter les Troggles. Appuie sur la barre « espace » pour manger "
-"un nombre."
+"l'activité et éviter les Troggles. Appuie sur la barre « espace » pour "
+"manger un nombre."
 
 #: ../src/gnumch-inequality-activity/gnumch-inequality.xml.in.h:1
 msgid "Inequality Number Munchers"
@@ -5807,13 +5855,11 @@ msgstr ""
 
 #: ../src/lightsoff-activity/lightsoff.xml.in.h:4
 msgid ""
-"The solver algorithm described on haar.clara.co.uk is a valuable resource to "
-"know more about the Lights Off game: &lt;http://www.haar.clara.co.uk/Lights/"
-"solving.html&gt;"
+"The solver algorithm is described on Wikipedia. To know more about the "
+"Lights Off game: &lt;http://en.wikipedia.org/wiki/Lights_Out_(game)&gt;"
 msgstr ""
-"L'algorithme du solveur décrit sur le site haar.clara.co.uk est une "
-"ressource importante pour en savoir plus sur le jeux Éteindre les lumières : "
-"&lt;http://www.haar.clara.co.uk/Lights/solving.html&gt;"
+"L'algorithme du solveur est décrit sur Wikipedia. Pour en savoir plus sur le "
+"jeux Lights Off : &lt;http://en.wikipedia.org/wiki/Lights_Out_(game)&gt;"
 
 #: ../src/login-activity/login.py:102
 msgid "Profile: "
@@ -5861,9 +5907,9 @@ msgstr ""
 "Dans l'administration, vous pouvez créer différents profils. Dans chaque "
 "profil, vous pouvez avoir plusieurs ensembles d'utilisateurs et sélectionner "
 "les activités disponibles pour eux.\n"
-"Pour lancer GCompris avec un profil donné, utilisez la commande « gcompris -p "
-"profil » où « profil » est le nom d'un profil tel que vous l'avez créé dans "
-"l'administration."
+"Pour lancer GCompris avec un profil donné, utilisez la commande « gcompris -"
+"p profil » où « profil » est le nom d'un profil tel que vous l'avez créé "
+"dans l'administration."
 
 #: ../src/louis_braille-activity/louis_braille.py:112
 msgid "Click to confirm your sequence"
@@ -6702,7 +6748,8 @@ msgstr ""
 
 #: ../src/missing_letter-activity/missingletter_config.c:125
 msgid "The first choice must be the solution that replaces the character '_'."
-msgstr "Le premier choix doit être la solution qui remplace le caractère « _ »."
+msgstr ""
+"Le premier choix doit être la solution qui remplace le caractère « _ »."
 
 #: ../src/missing_letter-activity/missingletter_config.c:140
 #, c-format
@@ -7642,8 +7689,8 @@ msgstr ""
 "d'une valeur (ici un nombre) que l'on appelle un « paramètre ».\n"
 "-Les commandes « gauche » et « droite » prennent comme paramètre un angle "
 "exprimé en degrés.\n"
-"-La commande « avance » prend comme paramètre une distance exprimée en unités "
-"de grille.\n"
+"-La commande « avance » prend comme paramètre une distance exprimée en "
+"unités de grille.\n"
 "\n"
 "Exemple :\n"
 "« gauche 90 » => Pivote sur la gauche à angle droit (90°)\n"
@@ -7750,8 +7797,8 @@ msgstr ""
 "d'une valeur (ici un nombre) que l'on appelle un « paramètre ».\n"
 "-Les commandes « gauche » et « droite » prennent comme paramètre un angle "
 "exprimé en degrés.\n"
-"-La commande « avance » prend comme paramètre une distance exprimée en unités "
-"de grille.\n"
+"-La commande « avance » prend comme paramètre une distance exprimée en "
+"unités de grille.\n"
 "\n"
 "Exemple :\n"
 "« gauche 90 » => Pivote sur la gauche à angle droit (90°)\n"
@@ -7836,8 +7883,8 @@ msgstr ""
 "alors remonter vers la surface (tu peux alors voir des bulles apparaître).\n"
 "Sur la gauche du tableau de bord, il y a une jauge de vitesse, située près "
 "de l'hélice. Tu peux modifier la vitesse horizontale du sous-marin en "
-"cliquant sur « + » ou « - ». Cette jauge est reliée au réservoir de carburant "
-"qui alimente le moteur, en bas, de couleur bleu-vert.\n"
+"cliquant sur « + » ou « - ». Cette jauge est reliée au réservoir de "
+"carburant qui alimente le moteur, en bas, de couleur bleu-vert.\n"
 "Enfin, à droite du ballast droit et à gauche du ballast gauche se trouvent "
 "les commandes avant et arrière des gouvernails de direction de piqué. Elles "
 "servent à diriger verticalement l'avant et l'arrière du sous-marin, afin de "
@@ -8248,14 +8295,14 @@ msgstr ""
 msgid ""
 "Learn how to enter text in a wordprocessor. This wordprocessor is special in "
 "that it enforces the use of styles. This way, the children will understand "
-"their benefit when moving to more feature full wordprocessor like OpenOffice."
-"org."
+"their benefit when moving to more feature full wordprocessor like "
+"LibreOffice."
 msgstr ""
 "Apprendre à saisir du texte dans un traitement de texte.\n"
 "Ce logiciel de traitement de texte est particulier en cela qu'il insiste sur "
 "l'utilisation des styles. Ainsi, lorsqu'il en aura le besoin, l'enfant "
 "apprendra aisément à tirer bénéfice des possibilités offertes par un "
-"traitement de texte plus complexe comme OpenOffice.org."
+"traitement de texte plus complexe comme LibreOffice."
 
 #: ../src/wordprocessor-activity/wordprocessor.xml.in.h:5
 msgid ""
@@ -8292,41 +8339,4 @@ msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr ""
 "Entre au clavier les mots complets pendant qu'ils tombent, et avant qu'ils "
 "ne touchent le sol."
-
-#: ../src/gcompris/sugar_cli.c:222 ../src/gcompris/sugar_srv.c:156
-msgid "Sharing Error"
-msgstr "Erreur de partage"
-
-#: ../src/gcompris/sugar_cli.c:223
-msgid "Cannot retrieve remote data"
-msgstr "Impossible de récupérer les données distantes"
-
-#: ../src/gcompris/sugar_gc.c:82
-msgid "About"
-msgstr "À propos"
-
-#: ../src/gcompris/sugar_gc.c:83
-msgid "Refresh"
-msgstr "Rafraichir"
-
-#: ../src/gcompris/sugar_gc.c:84
-msgid "Settings"
-msgstr "Paramètres"
-
-#: ../src/gcompris/sugar_gc.c:85
-msgid "Previous level"
-msgstr "Niveau précédent"
-
-#: ../src/gcompris/sugar_gc.c:88
-msgid "Next level"
-msgstr "Niveau suivant"
-
-#. TRANSLATORS: Back as in previous
-#: ../src/gcompris/sugar_gc.c:97
-msgid "Back"
-msgstr "Précédent"
-
-#: ../src/gcompris/sugar_srv.c:157
-msgid "Cannot initiate sharing session"
-msgstr "Impossible d'initialiser la session de partage"
 
