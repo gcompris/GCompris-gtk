@@ -204,7 +204,7 @@ class Spaceship:
     landing = goocanvas.Image(
       parent = self.land_rootitem,
       pixbuf = gcompris.utils.load_pixmap("land_safe/landing_area.png"),
-      width = 145 - (self.level * 10),
+      width = 145 - (self.level * 12),
       x = self.land_x,
       y = 365)
     landing.lower(self.flame_rootitem)
