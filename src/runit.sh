@@ -27,6 +27,9 @@ if [ ! -f $gcompris ]; then
   gcompris=$1/../gcompris/gcompris
 fi
 
+# Recreate the activity.xml file
+sed -e "s/\(<\{1\}\/*\)_/\1/g" $1/${activity}.xml.in > $1/${activtiy}.xml
+
 $gcompris -L $plugindir \
     -P $pythonplugindir \
     -A $resourcedir \
