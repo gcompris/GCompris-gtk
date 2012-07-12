@@ -9,10 +9,10 @@
         author="your name here"
         boarddir=""
         >
-        <title>Land Safe</title>
-        <description>Understanding acceleration due to gravity.</description>
-        <goal>Station the spaceship in the green landing area.</goal>
-        <manual xml:space="preserve">
+        <_title>Land Safe</_title>
+        <_description>Understanding acceleration due to gravity.</_description>
+        <_goal>Station the spaceship in the green landing area.</_goal>
+        <_manual xml:space="preserve">
         Acceleration due to gravity experienced by the spaceship is directly proportional to the mass of
         the planet and inversely proportional to the square of the distance from the centre of the planet.
         Thus, with every planet the acceleration will differ and as the spaceship comes closer and closer
@@ -20,8 +20,7 @@
 
         Use the up/down keys to control the thrust and the right/left keys to control direction.
         The velocity while landing should be less than 7 to avoid a crash.
-        </manual>
-        <credit></credit>
+        </_manual>
   </Board>
   <Data directory=""/>
 </GCompris>
