@@ -188,6 +188,7 @@ class Spaceship:
     self.level = level
     self.flame_rootitem = goocanvas.Group(parent = rootitem)
     self.land_rootitem = land_rootitem
+    self.land_rootitem.lower(self.flame_rootitem)
     x = gcompris.BOARD_WIDTH/2
     y = 10
 
@@ -207,7 +208,6 @@ class Spaceship:
       width = 145 - (self.level * 12),
       x = self.land_x,
       y = 365)
-    self.landing_red.lower(self.flame_rootitem)
     self.landing_red.props.visibility = goocanvas.ITEM_INVISIBLE
 
     self.landing_green = goocanvas.Image(
@@ -216,7 +216,6 @@ class Spaceship:
       width = 145 - (self.level * 12),
       x = self.land_x,
       y = 365)
-    self.landing_green.lower(self.flame_rootitem)
 
     # Load spaceship
     pixbuf = gcompris.utils.load_pixmap("land_safe/rocket.png")
