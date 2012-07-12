@@ -1,9 +1,9 @@
 imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/land_safe
 img_DATA = \
-	background1.png \
-	background2.png \
-	background3.png \
-	background4.png \
+	background1.jpg \
+	background2.jpg \
+	background3.jpg \
+	background4.jpg \
 	crash.png \
 	flame1.png \
 	flame2.png \
@@ -14,7 +14,8 @@ img_DATA = \
 	land2.png \
 	land3.png \
 	land4.png \
-	landing_area.png \
+	landing_area_green.png \
+	landing_area_red.png \
 	rocket.png 
 
 EXTRA_DIST = $(img_DATA)
