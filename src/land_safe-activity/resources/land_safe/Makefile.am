@@ -16,9 +16,7 @@ img_DATA = \
 	land4.png \
 	landing_area_green.png \
 	landing_area_red.png \
-	rocket.png 
+	rocket.png
 
 EXTRA_DIST = $(img_DATA)
-
-CLEANFILES =
 

@@ -744,6 +744,9 @@ src/imagename-activity/resources/imagename/Makefile
 src/instruments-activity/Makefile
 src/instruments-activity/resources/Makefile
 src/instruments-activity/resources/instruments/Makefile
+src/land_safe-activity/Makefile
+src/land_safe-activity/resources/Makefile
+src/land_safe-activity/resources/land_safe/Makefile
 src/lang-activity/Makefile
 src/lang-activity/resources/Makefile
 src/lang-activity/resources/lang/Makefile
@@ -906,3 +909,4 @@ echo type sh configure --prefix=/usr
 echo
 echo type \'make\' to compile gcompris
 echo type \'make install\' to install it
+

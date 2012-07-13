@@ -72,6 +72,31 @@ class Gcompris_land_safe:
       )
     land.lower(None)
 
+    # Text for Gravity
+    gravity = str(0.58 * self.gcomprisBoard.level)
+    text = 'Gravity : ' + gravity
+    gravity_text = goocanvas.Text(
+      parent = self.rootitem,
+      x = 700,
+      y = 50,
+      fill_color = "white",
+      anchor = gtk.ANCHOR_CENTER,
+      alignment = pango.ALIGN_CENTER,
+      text = _(text))
+    bounds = gravity_text.get_bounds()
+    gap = 20
+
+    gravity_back = goocanvas.Rect(
+      parent = self.rootitem,
+      radius_x = 6,
+      radius_y = 6,
+      x = bounds.x1 - gap,
+      y = bounds.y1 - gap,
+      width = bounds.x2 - bounds.x1 + gap * 2,
+      height = bounds.y2 - bounds.y1 + gap * 2,
+      stroke_color_rgba = 0xFFFFFFFFL,
+      fill_color_rgba = 0xCCCCCC44L)
+
     # Load spaceship
     self.space_ship = Spaceship(self,
                                 self.rootitem,
@@ -487,6 +512,7 @@ class Display:
     self.key = 0
     self.stop_consumtion = False
     self.set_fuel_time()
+
 
   def altitude(self, altitude, zoom): #display current altitude
     if zoom == False:
