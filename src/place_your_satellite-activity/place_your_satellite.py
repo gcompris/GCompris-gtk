@@ -24,6 +24,7 @@ import gcompris.skin
 import gcompris.bonus
 import goocanvas
 import pango
+import cairo
 import math
 import gobject
 
@@ -41,8 +42,6 @@ class Gcompris_place_your_satellite:
     # Needed to get key_press
     gcomprisBoard.disable_im_context = True
 
-    self.game_complete = False
-
   def start(self):
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains
@@ -50,9 +49,9 @@ class Gcompris_place_your_satellite:
     self.rootitem = goocanvas.Group(parent =
                                     self.gcomprisBoard.canvas.get_root_item())
 
-    background = goocanvas.Image(
+    self.background = goocanvas.Image(
       parent = self.rootitem,
-      pixbuf = gcompris.utils.load_pixmap("place_your_satellite/background.png"),
+      pixbuf = gcompris.utils.load_pixmap("place_your_satellite/background.jpg"),
       x = 1,
       y = 1)
 
@@ -62,11 +61,11 @@ class Gcompris_place_your_satellite:
       x = gcompris.BOARD_WIDTH/2 - 50,
       y = gcompris.BOARD_HEIGHT/2 - 50)
 
-    satellite = Satellite(self, self.rootitem)
-    speed = Speed(satellite, self.rootitem)
-    mass = Mass(self, satellite, self.rootitem)
+    self.instructions()
+    self.satellite = Satellite(self, self.rootitem)
+    speed = Speed(self.satellite, self.rootitem)
+    mass = Mass(self, self.satellite, self.rootitem)
 
-    background.connect("button_press_event", satellite.load_satellite)
 
     # Set the buttons we want in the bar
     gcompris.bar_set(gcompris.BAR_REPEAT)
@@ -97,7 +96,7 @@ class Gcompris_place_your_satellite:
 
   def pause(self, pause):
     self.board_paused = pause
-    if pause == False and self.game_complete:
+    if pause == False:
       self.game_complete = False
       self.end()
       self.start()
@@ -106,8 +105,41 @@ class Gcompris_place_your_satellite:
   def set_level(self, level):
     pass
 
-  def crash(self):
-    self.game_complete = True
+  def instructions(self):
+    # Ready button
+    self.text = goocanvas.Text(
+      parent = self.rootitem,
+      x = 384,
+      y = 203,
+      fill_color = "white",
+      anchor = gtk.ANCHOR_CENTER,
+      alignment = pango.ALIGN_CENTER,
+      text = _('1. Click anywhere on the screen to place the satellite'
+               '\n at the required distance from the sun '
+               '\n 2. Click on the satellite and drag the line to set'
+               '\n the speed of the satellite'))
+    self.text.connect('button_press_event', self.ready_event)
+    bounds = self.text.get_bounds()
+    gap = 20
+
+    self.text_back = goocanvas.Rect(
+      parent = self.rootitem,
+      radius_x = 6,
+      radius_y = 6,
+      x = bounds.x1 - gap,
+      y = bounds.y1 - gap,
+      width = bounds.x2 - bounds.x1 + gap * 2,
+      height = bounds.y2 - bounds.y1 + gap * 2,
+      stroke_color_rgba = 0xFFFFFFFFL,
+      fill_color_rgba = 0xCCCCCC44L)
+    gcompris.utils.item_focus_init(self.text_back, None)
+    gcompris.utils.item_focus_init(self.text, self.text_back)
+    self.text_back.connect('button_press_event', self.ready_event)
+
+  def ready_event(self, widget, target, event):
+    self.text_back.props.visibility = goocanvas.ITEM_INVISIBLE
+    self.text.props.visibility = goocanvas.ITEM_INVISIBLE
+    self.background.connect("button_press_event", self.satellite.load_satellite)
 
 class Satellite:
   """Satellite simulation"""
@@ -119,6 +151,39 @@ class Satellite:
     self.game = game
     self.angle = 0
     self.mass = 800
+    self.line_length = 0
+
+  def start_event(self, widget, target, event=None):
+    if event.type == gtk.gdk.BUTTON_PRESS:
+      if event.button == 1:
+        bounds = widget.get_bounds()
+        self.pos_x = (bounds.x1+bounds.x2)/2
+        self.pos_y = (bounds.y1+bounds.y2)/2
+        self.line =goocanvas.Polyline(
+          parent = self.rootitem,
+          points = goocanvas.Points([(self.pos_x, self.pos_y),
+                                     (event.x, event.y)]),
+          fill_color = 'blue',
+          line_cap = cairo.LINE_CAP_ROUND,
+          line_width = 2.0
+          )
+        return True
+
+    if event.type == gtk.gdk.MOTION_NOTIFY:
+      if event.state & gtk.gdk.BUTTON1_MASK:
+        self.line.set_properties(
+          points = goocanvas.Points([(self.pos_x, self.pos_y),
+                                     (event.x, event.y)])
+          )
+        self.line_length = math.sqrt((((self.pos_x - event.x)**2)) + ((self.pos_y - event.y)**2))
+
+    if event.type == gtk.gdk.BUTTON_RELEASE:
+      if event.button == 1:
+        revolution_direction = self.pos_x - event.x
+        self.initiate_movement(revolution_direction / abs(revolution_direction))
+        self.line.remove()
+        return True
+    return False
 
   def load_satellite(self, a, b, event=None):
     if self.satellite_exists == False:
@@ -129,13 +194,16 @@ class Satellite:
         pixbuf = gcompris.utils.load_pixmap("place_your_satellite/satellite.png"),
         x = x,
         y = y)
-
       self.satellite_exists = True
-      self.initiate_movement()
+      self.satellite.connect('button_press_event',self.start_event)
+      self.satellite.connect('button_release_event',self.start_event)
+      self.satellite.connect('motion_notify_event',self.start_event)
       return False
 
-  def initiate_movement(self):
+  def initiate_movement(self, direction):
     # Calculate distance and set speed
+    self.revolution_direction = direction
+    print self.revolution_direction
     earth_bounds = self.game.earth.get_bounds()
     earth_x = (earth_bounds.x1 + earth_bounds.x2)/2
     earth_y = (earth_bounds.y1 + earth_bounds.y2)/2
@@ -144,7 +212,7 @@ class Satellite:
     satellite_y = (satellite_bounds.y1 + satellite_bounds.y2)/2
     self.distance = math.sqrt(((earth_x - satellite_x)**2) + ((earth_y - satellite_y)**2))
     self.orbital_speed = math.sqrt(self.mass/self.distance)
-    self.speed = self.orbital_speed
+    self.speed = self.line_length/20
     gobject.timeout_add(30, self.calculate, earth_x - 20, earth_y -20)
 
   def calculate(self, x_center, y_center):
@@ -164,16 +232,16 @@ class Satellite:
     self.angle += self.speed
     radian = self.angle * (math.pi/180)
     x_circle = x_center + math.cos(radian) * self.distance
-    y_circle = y_center - math.sin(radian) * self.distance
+    y_circle = y_center - self.revolution_direction * math.sin(radian) * self.distance
     gcompris.utils.item_absolute_move(self.satellite, int(x_circle), int(y_circle))
     return True
 
   def crash(self, x_center, y_center):
-    if self.distance > 75 + (self.mass * 0.01):
+    if self.distance > 52 + (self.mass * 0.01):
       self.angle += self.speed + 2
       radian = self.angle * (math.pi/180)
       x_circle = x_center + math.cos(radian) * self.distance
-      y_circle = y_center - math.sin(radian) * self.distance
+      y_circle = y_center - self.revolution_direction * math.sin(radian) * self.distance
       gcompris.utils.item_absolute_move(self.satellite, int(x_circle), int(y_circle))
       self.distance -=3
       return True
@@ -190,14 +258,12 @@ class Satellite:
       x = bounds.x1,
       y = bounds.y1)
 
-    self.game.crash()
-
   def fly_off(self, x_center, y_center):
     if self.distance < 500:
       self.angle += self.speed
       radian = self.angle * (math.pi / 180)
       x_circle = x_center + math.cos(radian) * self.distance
-      y_circle = y_center - math.sin(radian) * self.distance
+      y_circle = y_center - self.revolution_direction * math.sin(radian) * self.distance
       gcompris.utils.item_absolute_move(self.satellite, int(x_circle), int(y_circle))
       self.distance +=5
       return True
@@ -232,7 +298,6 @@ class Speed:
 
   def __init__(self,satellite_instance, rootitem):
     self.rootitem = rootitem
-    self.speed_change = 0
     self.satellite_instance = satellite_instance
 
     self.length = 130
@@ -274,8 +339,8 @@ class Speed:
     # This is the relative position of the scale from 0 to 1
     # 0 is the bottom
     self.scale_value = 0.5
-    self.speed_button(650, 500, self.button_width, '+', 0.1)
-    self.speed_button(780, 500, self.button_width, '-', -0.1)
+    self.speed_button(650, 500, self.button_width, '-', -0.1)
+    self.speed_button(780, 500, self.button_width, '+', 0.1)
 
   def speed_button(self, x, y, size, text, move):
     button = goocanvas.Rect(
@@ -317,7 +382,7 @@ class Speed:
       self.scale_value = 0.0
       return
 
-    self.bar.translate(move * -2.5 * self.length / 4.0, 0);
+    self.bar.translate(move * 2.5 * self.length / 4.0, 0);
     self.set_speed(move)
 
   def set_speed(self, change):
@@ -369,8 +434,8 @@ class Mass:
 
     self.scale_value = 0.5
     self.scale_earth(self.scale_value)
-    self.speed_button(650, 400, self.button_width, '+', 0.1)
-    self.speed_button(780, 400, self.button_width, '-', -0.1)
+    self.speed_button(650, 400, self.button_width, '-', -0.1)
+    self.speed_button(780, 400, self.button_width, '+', 0.1)
 
   def speed_button(self, x, y, size, text, move):
     button = goocanvas.Rect(
