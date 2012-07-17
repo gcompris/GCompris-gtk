@@ -83,7 +83,7 @@ class Gcompris_place_your_satellite:
   def repeat(self):
     self.game_complete = True
     self.end()
-    gobject.timeout_add(30, self.start)
+    gobject.timeout_add(5, self.start)
 
   #mandatory but unused yet
   def config_stop(self):
@@ -212,7 +212,6 @@ class Satellite:
     self.speed = self.line_length/20
 #    self.radian = math.acos((self.x - (earth_x - 20)) / self.distance)
 #    self.step = (self.radian * (180/math.pi)) - self.speed
-#    print self.step, self.radian, 'calculate'
     if self.game.game_complete == False:
       gobject.timeout_add(30, self.calculate, earth_x - 20, earth_y -20)
 
@@ -479,7 +478,7 @@ class Mass:
       self.scale_value = 0.0
       return
 
-    self.bar.translate(move * -2.5 * self.length / 4.0, 0);
+    self.bar.translate(move * 2.5 * self.length / 4.0, 0);
     self.scale_earth(self.scale_value)
     self.change_mass(move)
 
