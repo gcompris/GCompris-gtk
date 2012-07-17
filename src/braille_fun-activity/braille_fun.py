@@ -132,7 +132,7 @@ class Gcompris_braille_fun:
                              1,
                              True,
                              25000 + level * 9000,
-                             250,
+                             100,
                              goocanvas.ANIMATE_FREEZE)
 
       string = "abcdefghijklmnopqrstuvwxyz"
@@ -192,7 +192,7 @@ class Gcompris_braille_fun:
                                      1,
                                      True,
                                      30000 + level * 5000,
-                                     250,
+                                     100,
                                      goocanvas.ANIMATE_FREEZE )
 
       # To call a function when animation finishes
@@ -271,6 +271,8 @@ class Gcompris_braille_fun:
         self.root.props.visibility = goocanvas.ITEM_INVISIBLE
 
     if (self.board_paused):
+        self.verticalTextRoot.stop_animation()
+        self.planeroot.stop_animation()
         return
 
     self.reset_level()
