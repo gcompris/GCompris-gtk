@@ -46,6 +46,7 @@ class Gcompris_place_your_satellite:
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains
     # automaticaly.
+    self.game_complete = False
     self.rootitem = goocanvas.Group(parent =
                                     self.gcomprisBoard.canvas.get_root_item())
 
@@ -80,8 +81,9 @@ class Gcompris_place_your_satellite:
     pass
 
   def repeat(self):
-    self.rootitem.remove()
-    self.start()
+    self.game_complete = True
+    self.end()
+    gobject.timeout_add(30, self.start)
 
   #mandatory but unused yet
   def config_stop(self):
@@ -95,12 +97,7 @@ class Gcompris_place_your_satellite:
     pass
 
   def pause(self, pause):
-    self.board_paused = pause
-    if pause == False:
-      self.game_complete = False
-      self.end()
-      self.start()
-
+    pass
 
   def set_level(self, level):
     pass
@@ -149,7 +146,7 @@ class Satellite:
     self.rootitem = rootitem
     self.satellite_exists = False
     self.game = game
-    self.angle = 0
+    self.step = 0
     self.mass = 800
     self.line_length = 0
 
@@ -175,7 +172,8 @@ class Satellite:
           points = goocanvas.Points([(self.pos_x, self.pos_y),
                                      (event.x, event.y)])
           )
-        self.line_length = math.sqrt((((self.pos_x - event.x)**2)) + ((self.pos_y - event.y)**2))
+        self.line_length = math.sqrt((((self.pos_x - event.x)**2)) +
+                                      ((self.pos_y - event.y)**2))
 
     if event.type == gtk.gdk.BUTTON_RELEASE:
       if event.button == 1:
@@ -187,12 +185,12 @@ class Satellite:
 
   def load_satellite(self, a, b, event=None):
     if self.satellite_exists == False:
-      x = event.x - 12
+      self.x = event.x - 12
       y = event.y - 12
       self.satellite = goocanvas.Image(
         parent = self.rootitem,
         pixbuf = gcompris.utils.load_pixmap("place_your_satellite/satellite.png"),
-        x = x,
+        x = self.x,
         y = y)
       self.satellite_exists = True
       self.satellite.connect('button_press_event',self.start_event)
@@ -203,7 +201,6 @@ class Satellite:
   def initiate_movement(self, direction):
     # Calculate distance and set speed
     self.revolution_direction = direction
-    print self.revolution_direction
     earth_bounds = self.game.earth.get_bounds()
     earth_x = (earth_bounds.x1 + earth_bounds.x2)/2
     earth_y = (earth_bounds.y1 + earth_bounds.y2)/2
@@ -213,7 +210,11 @@ class Satellite:
     self.distance = math.sqrt(((earth_x - satellite_x)**2) + ((earth_y - satellite_y)**2))
     self.orbital_speed = math.sqrt(self.mass/self.distance)
     self.speed = self.line_length/20
-    gobject.timeout_add(30, self.calculate, earth_x - 20, earth_y -20)
+#    self.radian = math.acos((self.x - (earth_x - 20)) / self.distance)
+#    self.step = (self.radian * (180/math.pi)) - self.speed
+#    print self.step, self.radian, 'calculate'
+    if self.game.game_complete == False:
+      gobject.timeout_add(30, self.calculate, earth_x - 20, earth_y -20)
 
   def calculate(self, x_center, y_center):
     self.orbital_speed = math.sqrt(abs(self.mass/self.distance))
@@ -229,17 +230,18 @@ class Satellite:
       return value
 
   def revolve(self, x_center, y_center):
-    self.angle += self.speed
-    radian = self.angle * (math.pi/180)
-    x_circle = x_center + math.cos(radian) * self.distance
-    y_circle = y_center - self.revolution_direction * math.sin(radian) * self.distance
-    gcompris.utils.item_absolute_move(self.satellite, int(x_circle), int(y_circle))
-    return True
+    if self.game.game_complete == False:
+      self.step += self.speed
+      radian = self.step * (math.pi/180)
+      x_circle = x_center + math.cos(radian) * self.distance
+      y_circle = y_center - self.revolution_direction * math.sin(radian) * self.distance
+      gcompris.utils.item_absolute_move(self.satellite, int(x_circle), int(y_circle))
+      return True
 
   def crash(self, x_center, y_center):
     if self.distance > 52 + (self.mass * 0.01):
-      self.angle += self.speed + 2
-      radian = self.angle * (math.pi/180)
+      self.step += self.speed + 2
+      radian = self.step * (math.pi/180)
       x_circle = x_center + math.cos(radian) * self.distance
       y_circle = y_center - self.revolution_direction * math.sin(radian) * self.distance
       gcompris.utils.item_absolute_move(self.satellite, int(x_circle), int(y_circle))
@@ -260,8 +262,8 @@ class Satellite:
 
   def fly_off(self, x_center, y_center):
     if self.distance < 500:
-      self.angle += self.speed
-      radian = self.angle * (math.pi / 180)
+      self.step += self.speed
+      radian = self.step * (math.pi / 180)
       x_circle = x_center + math.cos(radian) * self.distance
       y_circle = y_center - self.revolution_direction * math.sin(radian) * self.distance
       gcompris.utils.item_absolute_move(self.satellite, int(x_circle), int(y_circle))
@@ -499,4 +501,3 @@ class Mass:
       self.satellite_instance.mass -= 500
     else:
       self.satellite_instance.mass += 500
-
