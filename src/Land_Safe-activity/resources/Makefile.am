@@ -1,2 +1,0 @@
-SUBDIRS = Land_Safe
-
