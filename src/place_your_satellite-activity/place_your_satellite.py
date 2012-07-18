@@ -107,7 +107,7 @@ class Gcompris_place_your_satellite:
     self.text = goocanvas.Text(
       parent = self.rootitem,
       x = 384,
-      y = 203,
+      y = 103,
       fill_color = "white",
       anchor = gtk.ANCHOR_CENTER,
       alignment = pango.ALIGN_CENTER,
@@ -238,8 +238,8 @@ class Satellite:
       return True
 
   def crash(self, x_center, y_center):
-    if self.distance > 52 + (self.mass * 0.01):
-      self.step += self.speed + 2
+    if self.distance > 45 + (self.mass/self.mass) * 20:
+      self.step += self.speed + 1
       radian = self.step * (math.pi/180)
       x_circle = x_center + math.cos(radian) * self.distance
       y_circle = y_center - self.revolution_direction * math.sin(radian) * self.distance
@@ -340,8 +340,8 @@ class Speed:
     # This is the relative position of the scale from 0 to 1
     # 0 is the bottom
     self.scale_value = 0.5
-    self.speed_button(650, 500, self.button_width, '-', -0.1)
-    self.speed_button(780, 500, self.button_width, '+', 0.1)
+    self.speed_button(650, 500, self.button_width, '-', -0.01)
+    self.speed_button(780, 500, self.button_width, '+', 0.01)
 
   def speed_button(self, x, y, size, text, move):
     button = goocanvas.Rect(
@@ -435,10 +435,10 @@ class Mass:
 
     self.scale_value = 0.5
     self.scale_earth(self.scale_value)
-    self.speed_button(650, 400, self.button_width, '-', -0.1)
-    self.speed_button(780, 400, self.button_width, '+', 0.1)
+    self.mass_button(650, 400, self.button_width, '-', -0.01)
+    self.mass_button(780, 400, self.button_width, '+', 0.01)
 
-  def speed_button(self, x, y, size, text, move):
+  def mass_button(self, x, y, size, text, move):
     button = goocanvas.Rect(
       parent = self.rootitem,
       x = x - size / 2.0,
@@ -496,7 +496,7 @@ class Mass:
     self.game.earth.set_properties( x = x, y = y )
 
   def change_mass(self, change):
-    if change == -0.1:
-      self.satellite_instance.mass -= 500
+    if change == -0.01:
+      self.satellite_instance.mass -= 25
     else:
-      self.satellite_instance.mass += 500
+      self.satellite_instance.mass += 25
