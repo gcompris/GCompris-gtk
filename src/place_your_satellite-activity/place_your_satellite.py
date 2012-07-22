@@ -250,7 +250,7 @@ class Satellite:
     self.orbital_speed = math.sqrt(self.mass/self.distance)
     self.speed = speed / 20.0
     if self.game.game_complete == False:
-      gobject.timeout_add(30, self.calculate, earth_x, earth_y)
+      gobject.timeout_add(30, self.calculate, earth_x - 20, earth_y - 20)
 
   def calculate(self, x_center, y_center):
     self.orbital_speed = math.sqrt(abs(self.mass/self.distance))
@@ -275,13 +275,13 @@ class Satellite:
       return True
 
   def crash(self, x_center, y_center):
-    if self.distance > 45 + (self.mass/self.mass) * 20:
-      self.step += self.speed + 1
+    if self.distance > 40 + (self.mass/self.mass) * 20:
+      self.step += self.speed
       radian = self.step * (math.pi/180)
       x_circle = x_center + math.cos(radian) * self.distance
       y_circle = y_center + math.sin(radian) * self.distance
       gcompris.utils.item_absolute_move(self.satellite, int(x_circle), int(y_circle))
-      self.distance -=3
+      self.distance -= 1
       return True
 
     else:
@@ -303,7 +303,7 @@ class Satellite:
       x_circle = x_center + math.cos(radian) * self.distance
       y_circle = y_center + math.sin(radian) * self.distance
       gcompris.utils.item_absolute_move(self.satellite, int(x_circle), int(y_circle))
-      self.distance +=5
+      self.distance +=3
       return True
     else:
       self.message()
@@ -424,7 +424,10 @@ class Speed:
     self.set_speed(move)
 
   def set_speed(self, change):
-    self.satellite_instance.speed += change * 2
+    if self.satellite_instance.speed > 0:
+      self.satellite_instance.speed += change * 2
+    else:
+      self.satellite_instance.speed += change * 2 * -1
 
 class Mass:
   """ Class dealing with mass and it's display"""
@@ -537,3 +540,4 @@ class Mass:
       self.satellite_instance.mass -= 25
     else:
       self.satellite_instance.mass += 25
+
