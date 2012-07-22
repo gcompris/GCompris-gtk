@@ -148,7 +148,6 @@ class Satellite:
     self.game = game
     self.step = 0
     self.mass = 800
-    self.line_length = 0
 
   def start_event(self, widget, target, event=None):
     if event.type == gtk.gdk.BUTTON_PRESS:
@@ -160,7 +159,7 @@ class Satellite:
           parent = self.rootitem,
           points = goocanvas.Points([(self.pos_x, self.pos_y),
                                      (event.x, event.y)]),
-          fill_color = 'blue',
+          stroke_color = 'white',
           line_cap = cairo.LINE_CAP_ROUND,
           line_width = 2.0
           )
@@ -172,25 +171,64 @@ class Satellite:
           points = goocanvas.Points([(self.pos_x, self.pos_y),
                                      (event.x, event.y)])
           )
-        self.line_length = math.sqrt((((self.pos_x - event.x)**2)) +
-                                      ((self.pos_y - event.y)**2))
 
     if event.type == gtk.gdk.BUTTON_RELEASE:
       if event.button == 1:
-        revolution_direction = self.pos_x - event.x
-        self.initiate_movement(revolution_direction / abs(revolution_direction))
+
+        # Get the earth center
+        earth_bounds = self.game.earth.get_bounds()
+        earth_x = (earth_bounds.x1 + earth_bounds.x2)/2
+        earth_y = (earth_bounds.y1 + earth_bounds.y2)/2
+
+        # Get the satellite center
+        sat_bounds = self.satellite.get_bounds()
+        sat_x = (sat_bounds.x1 + sat_bounds.x2)/2
+        sat_y = (sat_bounds.y1 + sat_bounds.y2)/2
+
+        # Calc the distances from earth center to sat and to click
+        sat_dist = math.sqrt(((earth_x - sat_x)**2) + ((earth_y - sat_y)**2))
+        click_dist = math.sqrt(((earth_x - event.x)**2) + ((earth_y - event.y)**2))
+
+        # Make the angle be linear in the range 0 -> 2*PI
+        sat_add = 0 if sat_y > earth_y else math.pi
+        if sat_y > earth_y:
+          sat_angle = math.acos((sat_x - earth_x) / sat_dist)
+        else:
+          sat_angle = math.pi * 2 - math.acos((sat_x - earth_x) / sat_dist)
+
+        # Make the angle be linear in the range 0 -> 2*PI
+        if event.y > earth_y:
+          click_angle = math.acos((event.x - earth_x) / click_dist)
+        else:
+          click_angle = math.pi * 2 - math.acos((event.x - earth_x) / click_dist)
+
+        # Fix the 0 angle case
+        if sat_angle > click_angle + math.pi:
+          click_angle += math.pi * 2
+        elif click_angle > sat_angle + math.pi:
+          click_angle -= math.pi * 2
+
+        revolution_direction = 1 if click_angle < sat_angle else -1
+
+        # Set the step to make the satellite start where it is now
+        self.step = sat_angle / (math.pi/180)
+
+        # Pass the line lengh * direction
+        self.initiate_movement(math.sqrt((((self.pos_x - event.x)**2)) +
+                                         ((self.pos_y - event.y)**2)) *
+                               revolution_direction)
         self.line.remove()
         return True
     return False
 
   def load_satellite(self, a, b, event=None):
     if self.satellite_exists == False:
-      self.x = event.x - 12
+      x = event.x - 12
       y = event.y - 12
       self.satellite = goocanvas.Image(
         parent = self.rootitem,
         pixbuf = gcompris.utils.load_pixmap("place_your_satellite/satellite.png"),
-        x = self.x,
+        x = x,
         y = y)
       self.satellite_exists = True
       self.satellite.connect('button_press_event',self.start_event)
@@ -198,26 +236,25 @@ class Satellite:
       self.satellite.connect('motion_notify_event',self.start_event)
       return False
 
-  def initiate_movement(self, direction):
+  def initiate_movement(self, speed):
     # Calculate distance and set speed
-    self.revolution_direction = direction
     earth_bounds = self.game.earth.get_bounds()
     earth_x = (earth_bounds.x1 + earth_bounds.x2)/2
     earth_y = (earth_bounds.y1 + earth_bounds.y2)/2
     satellite_bounds = self.satellite.get_bounds()
     satellite_x = (satellite_bounds.x1 + satellite_bounds.x2)/2
     satellite_y = (satellite_bounds.y1 + satellite_bounds.y2)/2
-    self.distance = math.sqrt(((earth_x - satellite_x)**2) + ((earth_y - satellite_y)**2))
+    self.distance = math.sqrt( ((earth_x - satellite_x)**2)
+                               + ((earth_y - satellite_y)**2) )
+
     self.orbital_speed = math.sqrt(self.mass/self.distance)
-    self.speed = self.line_length/20
-#    self.radian = math.acos((self.x - (earth_x - 20)) / self.distance)
-#    self.step = (self.radian * (180/math.pi)) - self.speed
+    self.speed = speed / 20.0
     if self.game.game_complete == False:
-      gobject.timeout_add(30, self.calculate, earth_x - 20, earth_y -20)
+      gobject.timeout_add(30, self.calculate, earth_x, earth_y)
 
   def calculate(self, x_center, y_center):
     self.orbital_speed = math.sqrt(abs(self.mass/self.distance))
-    difference = self.speed - self.orbital_speed
+    difference = abs(self.speed) - self.orbital_speed
     if abs(difference) < 0.7:
       value = self.revolve(x_center, y_center)
       return value
@@ -233,7 +270,7 @@ class Satellite:
       self.step += self.speed
       radian = self.step * (math.pi/180)
       x_circle = x_center + math.cos(radian) * self.distance
-      y_circle = y_center - self.revolution_direction * math.sin(radian) * self.distance
+      y_circle = y_center + math.sin(radian) * self.distance
       gcompris.utils.item_absolute_move(self.satellite, int(x_circle), int(y_circle))
       return True
 
@@ -242,7 +279,7 @@ class Satellite:
       self.step += self.speed + 1
       radian = self.step * (math.pi/180)
       x_circle = x_center + math.cos(radian) * self.distance
-      y_circle = y_center - self.revolution_direction * math.sin(radian) * self.distance
+      y_circle = y_center + math.sin(radian) * self.distance
       gcompris.utils.item_absolute_move(self.satellite, int(x_circle), int(y_circle))
       self.distance -=3
       return True
@@ -264,7 +301,7 @@ class Satellite:
       self.step += self.speed
       radian = self.step * (math.pi / 180)
       x_circle = x_center + math.cos(radian) * self.distance
-      y_circle = y_center - self.revolution_direction * math.sin(radian) * self.distance
+      y_circle = y_center + math.sin(radian) * self.distance
       gcompris.utils.item_absolute_move(self.satellite, int(x_circle), int(y_circle))
       self.distance +=5
       return True
