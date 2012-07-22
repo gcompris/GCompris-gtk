@@ -35,8 +35,6 @@ class Gcompris_place_your_satellite:
 
 
   def __init__(self, gcomprisBoard):
-    # Save the gcomprisBoard, it defines everything we need
-    # to know from the core
     self.gcomprisBoard = gcomprisBoard
 
     # Needed to get key_press
@@ -103,7 +101,7 @@ class Gcompris_place_your_satellite:
     pass
 
   def instructions(self):
-    # Ready button
+    # Instructions button to begin activity
     self.text = goocanvas.Text(
       parent = self.rootitem,
       x = 384,
@@ -177,8 +175,8 @@ class Satellite:
 
         # Get the earth center
         earth_bounds = self.game.earth.get_bounds()
-        earth_x = (earth_bounds.x1 + earth_bounds.x2)/2
-        earth_y = (earth_bounds.y1 + earth_bounds.y2)/2
+        self.earth_x = (earth_bounds.x1 + earth_bounds.x2)/2
+        self.earth_y = (earth_bounds.y1 + earth_bounds.y2)/2
 
         # Get the satellite center
         sat_bounds = self.satellite.get_bounds()
@@ -186,21 +184,21 @@ class Satellite:
         sat_y = (sat_bounds.y1 + sat_bounds.y2)/2
 
         # Calc the distances from earth center to sat and to click
-        sat_dist = math.sqrt(((earth_x - sat_x)**2) + ((earth_y - sat_y)**2))
-        click_dist = math.sqrt(((earth_x - event.x)**2) + ((earth_y - event.y)**2))
+        self.distance = math.sqrt(((self.earth_x - sat_x)**2) + ((self.earth_y - sat_y)**2))
+        click_dist = math.sqrt(((self.earth_x - event.x)**2) + ((self.earth_y - event.y)**2))
 
         # Make the angle be linear in the range 0 -> 2*PI
-        sat_add = 0 if sat_y > earth_y else math.pi
-        if sat_y > earth_y:
-          sat_angle = math.acos((sat_x - earth_x) / sat_dist)
+        sat_add = 0 if sat_y > self.earth_y else math.pi
+        if sat_y > self.earth_y:
+          sat_angle = math.acos((sat_x - self.earth_x) / self.distance)
         else:
-          sat_angle = math.pi * 2 - math.acos((sat_x - earth_x) / sat_dist)
+          sat_angle = math.pi * 2 - math.acos((sat_x - self.earth_x) / self.distance)
 
         # Make the angle be linear in the range 0 -> 2*PI
-        if event.y > earth_y:
-          click_angle = math.acos((event.x - earth_x) / click_dist)
+        if event.y > self.earth_y:
+          click_angle = math.acos((event.x - self.earth_x) / click_dist)
         else:
-          click_angle = math.pi * 2 - math.acos((event.x - earth_x) / click_dist)
+          click_angle = math.pi * 2 - math.acos((event.x - self.earth_x) / click_dist)
 
         # Fix the 0 angle case
         if sat_angle > click_angle + math.pi:
@@ -238,21 +236,13 @@ class Satellite:
 
   def initiate_movement(self, speed):
     # Calculate distance and set speed
-    earth_bounds = self.game.earth.get_bounds()
-    earth_x = (earth_bounds.x1 + earth_bounds.x2)/2
-    earth_y = (earth_bounds.y1 + earth_bounds.y2)/2
-    satellite_bounds = self.satellite.get_bounds()
-    satellite_x = (satellite_bounds.x1 + satellite_bounds.x2)/2
-    satellite_y = (satellite_bounds.y1 + satellite_bounds.y2)/2
-    self.distance = math.sqrt( ((earth_x - satellite_x)**2)
-                               + ((earth_y - satellite_y)**2) )
-
     self.orbital_speed = math.sqrt(self.mass/self.distance)
     self.speed = speed / 20.0
     if self.game.game_complete == False:
-      gobject.timeout_add(30, self.calculate, earth_x - 20, earth_y - 20)
+      gobject.timeout_add(30, self.calculate, self.earth_x - 20, self.earth_y - 20)
 
   def calculate(self, x_center, y_center):
+    # Check current speed against required orbital speed
     self.orbital_speed = math.sqrt(abs(self.mass/self.distance))
     difference = abs(self.speed) - self.orbital_speed
     if abs(difference) < 0.7:
