@@ -29,6 +29,7 @@
  */
 
 #include <time.h>
+#include <stdlib.h>
 
 #include <gcompris.h>
 #include "gcompris_db.h"

@@ -401,20 +401,6 @@ fi
 AC_SUBST(AUDIO_CFLAGS)
 AC_SUBST(AUDIO_LIBS)
 
-dnl GNET support
-AC_MSG_CHECKING([wether we build with GNET (if not, networking will be disabled)])
-AC_ARG_ENABLE(gnet,
-          AC_HELP_STRING(
-          [--disable-gnet],
-          [Turn off gnet (will not let GCompris fetch content from a web server)]),
-          with_gnet="$enableval", with_gnet="yes")
-AC_MSG_RESULT($with_gnet)
-
-if test x$with_gnet = xyes; then
-  PKG_CHECK_MODULES(GNET, gnet-2.0,, AC_MSG_ERROR([*** GNET not found!]))
-  AC_DEFINE([USE_GNET], 1,[Networking is enabled])
-fi
-
 dnl SQLITE support
 AC_MSG_CHECKING([wether we build with SQLITE (if not profile will be disabled)])
 AC_ARG_ENABLE(sqlite,
@@ -893,7 +879,6 @@ echo "Python plugin                            = $build_python_plugin"
 echo "SQLITE database (--enable-sqlite)        = $with_sqlite (profiles depend on this)"
 
 echo "Sugar DE Support                         = $with_sugar"
-echo "GNET Networking (--enable-gnet)          = $with_gnet (networking depends on this)"
 echo "BINRELOC (--enable-binreloc)             = $br_cv_binreloc"
 echo "NSBundle (--enable-nsbundle)             = $nsbundle"
 echo "SDL Mixer (--enable-sdlmixer)            = $with_sdlmixer (default is gstreamer)"

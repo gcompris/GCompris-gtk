@@ -17,6 +17,7 @@
  */
 
 #include <string.h>
+#include <stdlib.h>
 
 #include "gcompris.h"
 #include "status.h"

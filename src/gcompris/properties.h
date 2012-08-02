@@ -49,7 +49,6 @@ typedef struct {
   gchar        *package_python_plugin_dir;
   gchar        *menu_dir;
   gchar        *system_icon_dir;
-  gchar        *cache_dir;
   gchar	       *locale;
   gchar	       *skin;
   gchar	       *key;
@@ -65,7 +64,6 @@ typedef struct {
   GtkIMContext *context;
   gchar        *default_context;
   gint          experimental;
-  gchar        *server;
   gint		drag_mode;
   gint		zoom;
   gboolean	bar_hidden;  /* Is the bar hiden */

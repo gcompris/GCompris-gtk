@@ -69,8 +69,6 @@ gcompris_SOURCES = \
 	gameutil.c \
 	gameutil.h \
 	gc_core.h \
-	gc_net.c \
-	gc_net.h \
 	gcompris-board.h \
 	gcompris.c \
 	gcompris.h \

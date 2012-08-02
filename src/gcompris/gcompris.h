@@ -39,7 +39,6 @@
 #include "board_config.h"
 #include "properties.h"
 #include "gameutil.h"
-#include "gc_net.h"
 #include "bonus.h"
 #include "timer.h"
 #include "score.h"
