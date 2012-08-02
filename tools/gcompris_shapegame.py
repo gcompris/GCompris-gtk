@@ -109,6 +109,10 @@ def gcompris_puzzle(img, sdrawable, x, y, activity_name,
     if(not activity_name):
         activity_name = "paintings"
 
+    # make float to int
+    x = int(x)
+    y = int(y)
+
     # Init
     bg_layer = img.active_layer
     pdb.gimp_selection_none(img)
