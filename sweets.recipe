@@ -1,7 +1,7 @@
 [DEFAULT]
 depends   = base/gtk >= 2.12; base/gstreamer; base/gst-plugins-base; base/sqlite
             base/librsvg >= 2.26; base/libxml2 >= 2.7.3; base/python; base/pygtk
-            base/pycairo; base/gnet >= 2; sdk/polyol; base/gnuchess; base/gnucap
+            base/pycairo; sdk/polyol; base/gnuchess; base/gnucap
 
 [Application]
 implement = gcompris
@@ -35,7 +35,6 @@ requires  = %(depends)s; base/pkg-config; base/make; base/gcc-c; base/intltool
 clean     = make distclean; ./autogen.sh --version
 configure = ./configure
                 --prefix=%(PREFIX)s
-                --enable-gnet
                 --enable-sugar
                 --enable-sqlite
                 CFLAGS="%(CFLAGS)s"
