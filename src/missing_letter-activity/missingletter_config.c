@@ -1,6 +1,8 @@
 #include "gcompris/gcompris.h"
 #include <string.h>
 
+#include <libxml/tree.h>
+
 #include "missingletter.h"
 
 
@@ -151,7 +153,7 @@ static void apply_clicked(gpointer data)
 {
   _config_missing *u = (_config_missing*)data;
   const gchar *question, *answer, *choice;
-  gchar *pixmap, *pixfile;
+  gchar *pixmap;
   GtkTreeSelection *selection = gtk_tree_view_get_selection(u->view);
   GtkTreeModel *model;
   GtkTreeIter iter;
@@ -163,7 +165,6 @@ static void apply_clicked(gpointer data)
 
   if (gtk_tree_selection_get_selected (selection, &model, &iter))
     {
-      pixfile = gc_cache_import_pixmap(pixmap, "missingletter", 300, 300);
       GdkPixbuf *pixbuf =
 	gdk_pixbuf_new_from_file_at_size(pixmap, ICON_SIZE,
 					 ICON_SIZE, NULL);
@@ -172,11 +173,10 @@ static void apply_clicked(gpointer data)
 			 QUESTION_COLUMN, question,
 			 ANSWER_COLUMN, answer,
 			 CHOICE_COLUMN, choice,
-			 PIXMAP_COLUMN, pixfile,
+			 PIXMAP_COLUMN, pixmap,
 			 PIXBUF_COLUMN, pixbuf,
 			 -1);
       u->changed = TRUE;
-      g_free(pixfile);
       g_object_unref(pixbuf);
     }
   g_free(pixmap);
