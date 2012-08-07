@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-07-07 19:59+0000\n"
-"PO-Revision-Date: 2012-07-10 09:09+0100\n"
+"POT-Creation-Date: 2012-08-07 10:02+0000\n"
+"PO-Revision-Date: 2012-08-07 12:23+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
@@ -1578,8 +1578,8 @@ msgid "Braille Alphabet Codes"
 msgstr "Abecedne kode Braillove pisave"
 
 #: ../src/braille_fun-activity/braille_fun.xml.in.h:4
-msgid "Braille code the tile for the corresponding falling letters. Check the braille chart by clicking on the toggle button for help."
-msgstr "Braillova koda za ustrezne padajoče črke. Preveri seznam braillovih znakov s klikom na gumb za pomoč."
+msgid "Enter the braille code in the tile for the corresponding falling letters. Check the braille chart by clicking on the toggle button for help."
+msgstr "Vnesite Braillovo koda za ustrezne padajoče črke. Preveri seznam braillovih znakov s klikom na gumb za pomoč."
 
 #: ../src/braille_lotto-activity/braille_lotto.py:120
 msgid "PLAYER 1"
@@ -2106,7 +2106,7 @@ msgid "Question"
 msgstr "Vprašanje"
 
 #: ../src/click_on_letter-activity/click_on_letter.c:1407
-#: ../src/gcompris/board_config_wordlist.c:274
+#: ../src/gcompris/board_config_wordlist.c:273
 msgid "Back to default"
 msgstr "Nazaj na privzeto"
 
@@ -2524,8 +2524,8 @@ msgid "Error: No images found\n"
 msgstr "Napaka: Ni najdenih slik\n"
 
 #: ../src/erase-activity/erase.c:582
-#: ../src/gcompris/properties.c:504
-#: ../src/gcompris/properties.c:511
+#: ../src/gcompris/properties.c:503
+#: ../src/gcompris/properties.c:510
 msgid "readme"
 msgstr "preberime"
 
@@ -2707,15 +2707,15 @@ msgid "%d (New level)"
 msgstr "%d (Nova raven)"
 
 #. frame
-#: ../src/gcompris/board_config_wordlist.c:226
+#: ../src/gcompris/board_config_wordlist.c:225
 msgid "Configure the list of words"
 msgstr "Nastavi seznam besed"
 
-#: ../src/gcompris/board_config_wordlist.c:237
+#: ../src/gcompris/board_config_wordlist.c:236
 msgid "Choice of the language"
 msgstr "Izberi jezik"
 
-#: ../src/gcompris/board_config_wordlist.c:249
+#: ../src/gcompris/board_config_wordlist.c:248
 msgid "Choice of the level"
 msgstr "Izberi raven"
 
@@ -3084,159 +3084,147 @@ msgstr ""
 "Končajte program in poročajte\n"
 "napako avtorjem."
 
-#: ../src/gcompris/gcompris.c:156
+#: ../src/gcompris/gcompris.c:154
 msgid "run GCompris in fullscreen mode."
 msgstr "Zagon GCompris v celozaslonskem načinu."
 
-#: ../src/gcompris/gcompris.c:159
+#: ../src/gcompris/gcompris.c:157
 msgid "run GCompris in window mode."
 msgstr "Zagon GCompris v okenskem načinu."
 
-#: ../src/gcompris/gcompris.c:162
+#: ../src/gcompris/gcompris.c:160
 msgid "run GCompris with sound enabled."
 msgstr "Zagon GCompris z omogočenim zvokom."
 
-#: ../src/gcompris/gcompris.c:165
+#: ../src/gcompris/gcompris.c:163
 msgid "run GCompris without sound."
 msgstr "Zagon Gcompris brez zvoka."
 
-#: ../src/gcompris/gcompris.c:168
+#: ../src/gcompris/gcompris.c:166
 msgid "run GCompris with the default system cursor."
 msgstr "zaženi GCompris s privzeto sistemsko kazalko."
 
-#: ../src/gcompris/gcompris.c:171
+#: ../src/gcompris/gcompris.c:169
 msgid "run GCompris without cursor (touch screen mode)."
 msgstr "zaženi GCompris brez kazalke (način zaslona na dotik)."
 
-#: ../src/gcompris/gcompris.c:174
+#: ../src/gcompris/gcompris.c:172
 msgid "display only activities with this difficulty level."
 msgstr "Pokaži le dejavnosti te težavnostne ravni."
 
-#: ../src/gcompris/gcompris.c:177
+#: ../src/gcompris/gcompris.c:175
 msgid "display debug informations on the console."
 msgstr "Prikaži podrobnosti razhroščevanja na konzoli."
 
-#: ../src/gcompris/gcompris.c:180
+#: ../src/gcompris/gcompris.c:178
 msgid "Print the version of "
 msgstr "Natisni različico "
 
-#: ../src/gcompris/gcompris.c:183
+#: ../src/gcompris/gcompris.c:181
 msgid "Run GCompris with local menu (e.g -l /reading will let you play only activities in the reading directory, -l /strategy/connect4 only the connect4 activity). Use '-l list' to list all the availaible activities and their descriptions."
 msgstr "Poženi GCompris s krajevnim menijem (na primer -l /reading dovoli le igranje delavnosti v mapi branje, -l /strategy/connect4 le dejavnost 4 v vrsto). Uporabi '-l list' za seznam vseh dostopnih dejavnosti in njihovih opisov."
 
-#: ../src/gcompris/gcompris.c:188
+#: ../src/gcompris/gcompris.c:186
 msgid "GCompris will find the data dir in this directory"
 msgstr "GCompris bo v tej mapi našel mapo podatkov"
 
-#: ../src/gcompris/gcompris.c:191
+#: ../src/gcompris/gcompris.c:189
 msgid "GCompris will find the skins in this directory"
 msgstr "GCompris bo v tej mapi našel preobleke"
 
-#: ../src/gcompris/gcompris.c:194
+#: ../src/gcompris/gcompris.c:192
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "GCompris bo v tej mapi našel vstavke dejavnosti"
 
-#: ../src/gcompris/gcompris.c:197
+#: ../src/gcompris/gcompris.c:195
 msgid "GCompris will find the python activity in this directory"
 msgstr "GCompris bo našel dejavnost python v tej mapi"
 
-#: ../src/gcompris/gcompris.c:200
+#: ../src/gcompris/gcompris.c:198
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr "GCompris bo v tej mapi našel datoteko jezikovne oznake (prevod .mo)"
 
-#: ../src/gcompris/gcompris.c:203
+#: ../src/gcompris/gcompris.c:201
 msgid "GCompris will find the activities menu in this directory"
 msgstr "GCompris bo v tej mapi našel meni dejavnosti"
 
-#: ../src/gcompris/gcompris.c:206
+#: ../src/gcompris/gcompris.c:204
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Zaženi GCompris v načinu skrbništva in upravljanja uporabnikov "
 
-#: ../src/gcompris/gcompris.c:209
+#: ../src/gcompris/gcompris.c:207
 msgid "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite.db]"
 msgstr "Uporabi dodatno podatkovno zbirko za profile [$HOME/.config/gcompris/gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:212
+#: ../src/gcompris/gcompris.c:210
 msgid "Create the alternate database for profiles"
 msgstr "Ustvari dodatno podatkovno zbirko za profile"
 
-#: ../src/gcompris/gcompris.c:215
+#: ../src/gcompris/gcompris.c:213
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Ponovno preberi menije XML in jih shrani v podatkovni zbirki"
 
-#: ../src/gcompris/gcompris.c:218
+#: ../src/gcompris/gcompris.c:216
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Nastavi profil za uporabo. Uporabi 'gcompris -a' za ustvarjanje profilov"
 
-#: ../src/gcompris/gcompris.c:221
+#: ../src/gcompris/gcompris.c:219
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr "Naštej vse razpoložljive profile. Za ustvarjanje profilov uporabi 'gcompris -a'"
 
-#: ../src/gcompris/gcompris.c:224
+#: ../src/gcompris/gcompris.c:222
 msgid "Config directory location: [$HOME/.config/gcompris]. Alternate is to set $XDG_CONFIG_HOME."
 msgstr "Mesto nastavitvene mape: [$HOME/.config/gcompris] Dodatna možnost je nastviti $XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:227
+#: ../src/gcompris/gcompris.c:225
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "Mesto uporabniških map: [$HOME/Moj GCompris]"
 
-#: ../src/gcompris/gcompris.c:230
+#: ../src/gcompris/gcompris.c:228
 msgid "Run the experimental activities"
 msgstr "Zagon preizkusnih dejavnosti"
 
-#: ../src/gcompris/gcompris.c:233
+#: ../src/gcompris/gcompris.c:231
 msgid "Disable the quit button"
 msgstr "Onemogoči gumb končaj"
 
-#: ../src/gcompris/gcompris.c:236
+#: ../src/gcompris/gcompris.c:234
 msgid "Disable the config button"
 msgstr "Onemogoči gumb nastavitve"
 
-#: ../src/gcompris/gcompris.c:239
+#: ../src/gcompris/gcompris.c:237
 msgid "Disable the level button"
 msgstr "Onemogoči gumb ravni"
 
-#: ../src/gcompris/gcompris.c:242
+#: ../src/gcompris/gcompris.c:240
 msgid "Disable the database (slower start and no user log)"
 msgstr "Onemogoči zbirko podatkov (počasneje in brez uporabniškega dnevnika)"
 
-#: ../src/gcompris/gcompris.c:245
-msgid "GCompris will get images, sounds and activity data from this server if not found locally."
-msgstr "GCompris bo dobil slike, zvoke in podatke dejavnost s tega strežnika, če podatkov ne bo mogoče najti krajevno."
-
-#: ../src/gcompris/gcompris.c:248
-msgid "Only when --server is provided, disable check for local resource first. Data are always taken from the web server."
-msgstr "Ko je izbran --server, onemogoči preverjanje za krajevna sredstva. Podatki so vedno preneseni s strežnik."
-
-#: ../src/gcompris/gcompris.c:252
-msgid "In server mode, specify the cache directory used to avoid useless downloads."
-msgstr "V strežniškem načinu je treba določiti mapo predpomnilnika za izogibanje nepotrebnim prejemom."
-
-#: ../src/gcompris/gcompris.c:255
+#: ../src/gcompris/gcompris.c:243
 msgid "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr "Splošni način povleci in spusti: običajen, 2klika, oboje. Privzeti način je običajen."
 
-#: ../src/gcompris/gcompris.c:258
+#: ../src/gcompris/gcompris.c:246
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Ne izogni se izvajanju več primerkov GCompris."
 
-#: ../src/gcompris/gcompris.c:261
+#: ../src/gcompris/gcompris.c:249
 msgid "Disable maximization zoom"
 msgstr "Onemogoči približanje razpetja"
 
-#: ../src/gcompris/gcompris.c:264
+#: ../src/gcompris/gcompris.c:252
 msgid "Increase activities' timeout delays; useful values > 1.0; 1.0 to not change hardcoded value"
 msgstr "Poveča  zakasnitve dejavnosti, uporabne vrednosti > 1,0. 1,0 ne spremeni trenutne vrednosti"
 
-#: ../src/gcompris/gcompris.c:267
+#: ../src/gcompris/gcompris.c:255
 msgid "How activities' timeout delays are growing for several actors; useful values < 1.0; 1.0 to not change hardcoded value"
 msgstr "Kako čas zakasnitve dejavnosti rastejo za več igralcev. Uporabne vrednosti <1,0. 1,0 ne spremeni trdno vnesene vrednosti."
 
-#: ../src/gcompris/gcompris.c:270
+#: ../src/gcompris/gcompris.c:258
 msgid "For test purpose, run in a loop all the activities"
 msgstr "Za preizkusne namene. Požene vse dejavnosti v zanki"
 
-#: ../src/gcompris/gcompris.c:955
+#: ../src/gcompris/gcompris.c:943
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to support its development, this version provides only %d of the %d activities. You can get the full version for a small fee at\n"
@@ -3249,16 +3237,16 @@ msgstr ""
 "Različica GNU/Linux nima teh omejitev. Če verjamete, da je otroke treba naučiti svobodo, razmislite o uporabi GNU/Linux. Več podrobnosti na strani FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1250
+#: ../src/gcompris/gcompris.c:1236
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
 msgstr "Nalaganje preobleke '%s' je spodletelo (Preverite, če datoteka obstaja in je berljiva)"
 
-#: ../src/gcompris/gcompris.c:1266
+#: ../src/gcompris/gcompris.c:1252
 msgid "Retrieving remote data..."
 msgstr "Pridobivanje oddaljenih podatkov ..."
 
-#: ../src/gcompris/gcompris.c:1526
+#: ../src/gcompris/gcompris.c:1512
 #, c-format
 msgid "GCompris won't start because the lock file is less than %d second old.\n"
 msgid_plural "GCompris won't start because the lock file is less than %d seconds old.\n"
@@ -3267,12 +3255,12 @@ msgstr[1] "GCompris se ne zažene, ker je datoteka zaklepa stara manj kot %d sek
 msgstr[2] "GCompris se ne zažene, ker je datoteka zaklepa stara manj kot %d sekundi.\n"
 msgstr[3] "GCompris se ne zažene, ker je datoteka zaklepa stara manj kot %d sekunde.\n"
 
-#: ../src/gcompris/gcompris.c:1530
+#: ../src/gcompris/gcompris.c:1516
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Datoteka ključa je: %s\n"
 
-#: ../src/gcompris/gcompris.c:1708
+#: ../src/gcompris/gcompris.c:1694
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3286,50 +3274,45 @@ msgstr ""
 "Več podrobnosti je mogoče najti na http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1829
+#: ../src/gcompris/gcompris.c:1815
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Uporabi -l za neposreden dostop do dejavnosti.\n"
 
-#: ../src/gcompris/gcompris.c:1830
+#: ../src/gcompris/gcompris.c:1816
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Seznam dostopnih dejavnosti je:\n"
 
-#: ../src/gcompris/gcompris.c:1861
+#: ../src/gcompris/gcompris.c:1847
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Število dejavnosti: %d\n"
 
-#: ../src/gcompris/gcompris.c:1897
+#: ../src/gcompris/gcompris.c:1883
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s obstaja toda ni berljiv ali zapisljiv"
 
-#: ../src/gcompris/gcompris.c:1961
-#, c-format
-msgid "The --server option cannot be used because GCompris has been compiled without network support!"
-msgstr "Možnosti --server ni mogoče uporabiti, ker GCompris ni bil preveden z omrežno podporo!"
-
-#: ../src/gcompris/gcompris.c:2019
+#: ../src/gcompris/gcompris.c:1978
 #, c-format
 msgid "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list available ones\n"
 msgstr "NAPAKA: Profila '%s' ni mogoče najti. Poženi 'gcompris --profile-list' za seznam razpoložljivih profilov\n"
 
-#: ../src/gcompris/gcompris.c:2033
+#: ../src/gcompris/gcompris.c:1992
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Seznam dostopnih profilov je:\n"
 
-#: ../src/gcompris/gcompris_db.c:309
+#: ../src/gcompris/gcompris_db.c:310
 msgid "Unaffected"
 msgstr "Ne vpliva"
 
-#: ../src/gcompris/gcompris_db.c:310
+#: ../src/gcompris/gcompris_db.c:311
 msgid "Users without a class"
 msgstr "Uporabniki brez razreda"
 
-#: ../src/gcompris/gcompris_db.c:896
+#: ../src/gcompris/gcompris_db.c:897
 #, c-format
 msgid ""
 "Loading activity from database:\n"
@@ -3367,11 +3350,11 @@ msgstr ""
 msgid "All the activities are disabled in this profile. Go in the GCompris administration module and activate at least one activity."
 msgstr "Vse dejavnosti so v tem profilu onemogočene. Odprite skrbniški modul GCompris in omogočite vsaj eno dejavnost."
 
-#: ../src/gcompris/properties.c:506
+#: ../src/gcompris/properties.c:505
 msgid "This directory contains the files you create with the GCompris educational suite\n"
 msgstr "Ta mapa vsebuje datoteke, ki jih boš ustvaril s tem programom\n"
 
-#: ../src/gcompris/properties.c:513
+#: ../src/gcompris/properties.c:512
 msgid ""
 "Put any number of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
@@ -5617,39 +5600,39 @@ msgstr "Branje števil, spomin."
 msgid "You can see some cards, but you can't see what's on the other side of them. Each card is hiding a number of number, or the word of the number."
 msgstr "Vidiš lahko nekaj kart, toda ne moreš videti kaj je na drugi strani. Vsaka karta skriva število zapisano s številko ali besedo."
 
-#: ../src/missing_letter-activity/missingletter_config.c:77
+#: ../src/missing_letter-activity/missingletter_config.c:79
 msgid "Please select an image."
 msgstr "Izberi sliko."
 
-#: ../src/missing_letter-activity/missingletter_config.c:83
+#: ../src/missing_letter-activity/missingletter_config.c:85
 msgid "Choice cannot be empty."
 msgstr "Izbira ne sme biti prazna."
 
-#: ../src/missing_letter-activity/missingletter_config.c:89
+#: ../src/missing_letter-activity/missingletter_config.c:91
 msgid "Question cannot be empty."
 msgstr "Vprašanje ne sme biti prazno."
 
-#: ../src/missing_letter-activity/missingletter_config.c:95
+#: ../src/missing_letter-activity/missingletter_config.c:97
 msgid "Question must include the character '_'. It represents the letter to search."
 msgstr "Vprašanje mora vključevati znak '_'. Predstavlja črko za iskanje."
 
-#: ../src/missing_letter-activity/missingletter_config.c:102
+#: ../src/missing_letter-activity/missingletter_config.c:104
 msgid "Pixmap cannot be empty"
 msgstr "Večbitna sličica ne sme biti prazna"
 
-#: ../src/missing_letter-activity/missingletter_config.c:108
+#: ../src/missing_letter-activity/missingletter_config.c:110
 msgid "There must be at least 2 choices."
 msgstr "Na voljo morata biti vsaj 2 izbiri."
 
-#: ../src/missing_letter-activity/missingletter_config.c:116
+#: ../src/missing_letter-activity/missingletter_config.c:118
 msgid "The answer and question must be the same except for the character '_'."
 msgstr "Vprašanje in odgovor morata biti popolnoma enaka razen znaka '_'."
 
-#: ../src/missing_letter-activity/missingletter_config.c:125
+#: ../src/missing_letter-activity/missingletter_config.c:127
 msgid "The first choice must be the solution that replaces the character '_'."
 msgstr "Prva izbira mora biti rešitev, ki zamenja znak '_'."
 
-#: ../src/missing_letter-activity/missingletter_config.c:140
+#: ../src/missing_letter-activity/missingletter_config.c:142
 #, c-format
 msgid ""
 "Invalid entry:\n"
@@ -5731,8 +5714,8 @@ msgid "car/c_r/a/k/o"
 msgstr "avto/a_to/v/u/h"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board2.xml.in.h:1
-msgid "satchel/s_tchel/a/o/i"
-msgstr "torba/t_rba/o/r/b"
+msgid "bag/b_g/a/o/i"
+msgstr "vreča/vr_ča/a/e/i"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board2.xml.in.h:2
 msgid "banana/b_nana/a/o/i"
@@ -6870,6 +6853,37 @@ msgstr "Učenje tipkanja"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Natipkaj celo besedo, preden doseže zemljo"
+
+#~ msgid ""
+#~ "GCompris will get images, sounds and activity data from this server if "
+#~ "not found locally."
+#~ msgstr ""
+#~ "GCompris bo dobil slike, zvoke in podatke dejavnost s tega strežnika, če "
+#~ "podatkov ne bo mogoče najti krajevno."
+
+#~ msgid ""
+#~ "Only when --server is provided, disable check for local resource first. "
+#~ "Data are always taken from the web server."
+#~ msgstr ""
+#~ "Ko je izbran --server, onemogoči preverjanje za krajevna sredstva. "
+#~ "Podatki so vedno preneseni s strežnik."
+
+#~ msgid ""
+#~ "In server mode, specify the cache directory used to avoid useless "
+#~ "downloads."
+#~ msgstr ""
+#~ "V strežniškem načinu je treba določiti mapo predpomnilnika za izogibanje "
+#~ "nepotrebnim prejemom."
+
+#~ msgid ""
+#~ "The --server option cannot be used because GCompris has been compiled "
+#~ "without network support!"
+#~ msgstr ""
+#~ "Možnosti --server ni mogoče uporabiti, ker GCompris ni bil preveden z "
+#~ "omrežno podporo!"
+
+#~ msgid "satchel/s_tchel/a/o/i"
+#~ msgstr "torba/t_rba/o/r/b"
 
 #~ msgid "Serbia Montenegro"
 #~ msgstr "Srbija in Črna gora"
