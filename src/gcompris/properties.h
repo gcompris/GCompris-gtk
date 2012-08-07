@@ -77,7 +77,6 @@ void			 gc_prop_load (GcomprisProperties *props, GCPropSourceConf);
 void			 gc_prop_save (GcomprisProperties *props);
 void			 gc_prop_activate (GcomprisProperties *props);
 
-gchar                   *gc_prop_default_database_name_get (gchar *config_dir);
 int			 gc_setenv (const char * name, const char * value);
 
 void			 gc_prop_old_config_migration(GcomprisProperties *props);
