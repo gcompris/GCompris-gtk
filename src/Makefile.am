@@ -98,6 +98,7 @@ SUBDIRS = \
 	memory_sound_tux-activity \
 	memory_tux-activity \
 	memory_wordnumber-activity \
+	mining-activity \
 	missing_letter-activity \
 	money-activity \
 	money_back-activity \
