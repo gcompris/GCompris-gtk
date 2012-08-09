@@ -792,6 +792,7 @@ src/memory_sound-activity/Makefile
 src/memory_sound_tux-activity/Makefile
 src/memory_tux-activity/Makefile
 src/memory_wordnumber-activity/Makefile
+src/mining-activity/Makefile
 src/missing_letter-activity/Makefile
 src/missing_letter-activity/resources/Makefile
 src/missing_letter-activity/resources/missing_letter/Makefile
