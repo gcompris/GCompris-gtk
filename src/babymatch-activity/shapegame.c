@@ -747,17 +747,19 @@ add_shape_to_list_of_shapes(Shape *shape)
 	      Shape *icon_shape;
 
 	      /* Calc a zoom factor so that the shape will fit in the shapelist
-		 whatever its current size */
-	      w = ICON_WIDTH;
+		 whatever its current size
+		 but do not zoom that much small parts */
+	      w = MIN( ICON_WIDTH, gdk_pixbuf_get_width(pixmap) );
 	      h = gdk_pixbuf_get_height(pixmap) * (w / gdk_pixbuf_get_width(pixmap));
-	      z = ICON_WIDTH / gdk_pixbuf_get_width(pixmap);
+	      z = w / gdk_pixbuf_get_width(pixmap);
 
 	      if(h > ICON_HEIGHT)
 		{
-		  h = ICON_HEIGHT;
+		  h = MIN( ICON_HEIGHT, gdk_pixbuf_get_height(pixmap) );
 		  w = gdk_pixbuf_get_width(pixmap) * ( h / gdk_pixbuf_get_height(pixmap));
-		  z = ICON_HEIGHT / gdk_pixbuf_get_height(pixmap);
+		  z = h / gdk_pixbuf_get_height(pixmap);
 		}
+
 	      if(h < 20 || w < 20)
 		{
 		  GdkPixbuf *scale, *hand;
