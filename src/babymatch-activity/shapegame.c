@@ -1853,6 +1853,22 @@ insert_shape_random(GList *shapes_, int shapeMask)
   g_list_free(shapes);
 }
 
+static void
+insert_shape_sequence(GList *shapes, int shapeMask)
+{
+  int i;
+  /* Insert each of the shapes in reverse sequence so that the
+     first user defined one is the last. I do this because each
+     background shape is send to back and thus the last one in our
+     list is the first one in the user list */
+  for (i = g_list_length(shapes) - 1; i >= 0 ; i--)
+    {
+      Shape *shape = g_list_nth_data(shapes, i);
+      if (shape->type & shapeMask)
+	add_shape_to_canvas(shape);
+    }
+}
+
 /* parse the doc, add it to our internal structures and to the clist */
 static void
 parse_doc(xmlDocPtr doc)
@@ -1871,7 +1887,7 @@ parse_doc(xmlDocPtr doc)
 
   shape_list = g_list_copy(shape_list_init);
   insert_shape_random(shape_list_init, 0xFF ^ SHAPE_BACKGROUND);
-  insert_shape_random(shape_list_init, SHAPE_BACKGROUND);
+  insert_shape_sequence(shape_list_init, SHAPE_BACKGROUND);
   g_list_free(shape_list_init);
   shape_list_init = NULL;
 
