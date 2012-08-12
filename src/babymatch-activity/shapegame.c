@@ -1527,6 +1527,12 @@ add_shape_to_canvas(Shape *shape)
     }
   else if(shape->type==SHAPE_BACKGROUND)
     {
+      g_signal_connect(item, "enter_notify_event",
+		       (GCallback) item_event,
+		       shape);
+      g_signal_connect(item, "leave_notify_event",
+		       (GCallback) item_event,
+		       shape);
       goo_canvas_item_lower(item, NULL);
     }
 
