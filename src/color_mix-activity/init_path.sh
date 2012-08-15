@@ -3,6 +3,7 @@
 path=$1
 activity=color_mix
 plugindir=$path/../boards/.libs
-pythonplugindir=$path 
+pythonplugindir=$path
 resourcedir=$path/resources
-section="/experimental"
+section="/discovery/colors_group"
+
