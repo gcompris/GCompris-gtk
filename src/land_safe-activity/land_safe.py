@@ -130,7 +130,8 @@ class Gcompris_land_safe:
     print("intro_gravity config_start.")
 
   def key_press(self, keyval, commit_str, preedit_str):
-    self.space_ship.handle_key(keyval)
+    if self.game_start == True or keyval == gtk.keysyms.Return:
+      self.space_ship.handle_key(keyval)
 
   def pause(self, pause):
     self.board_paused = pause
@@ -195,7 +196,6 @@ class Gcompris_land_safe:
     gcompris.utils.item_focus_init(self.ready_back, None)
     gcompris.utils.item_focus_init(self.ready_text, self.ready_back)
     self.ready_back.connect('button_press_event', self.ready_event)
-
 
   def ready_event(self, widget, target, event):
     self.ready_back.props.visibility = goocanvas.ITEM_INVISIBLE
