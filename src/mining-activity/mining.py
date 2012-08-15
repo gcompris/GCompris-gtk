@@ -222,7 +222,6 @@ class Gcompris_mining:
   def on_level_won(self):
     """ The user collected enough nuggets """
 
-    gcompris.sound.play_ogg("sounds/bonus.wav")
     self.is_game_won = True;
 
     # display the lion bonus (I have no idea, why it has the GNU-label)
