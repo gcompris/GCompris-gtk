@@ -1,7 +1,6 @@
-# Passthrough, do not break uplevel make rule
-install-activity:
+include $(top_srcdir)/Makefile.activity
 
-SUBDIRS =
+SUBDIRS = resources
 
 pythondir = $(PYTHON_PLUGIN_DIR)
 
@@ -33,3 +32,4 @@ icon_DATA = place_your_satellite.svg
 
 EXTRA_DIST = $(icon_DATA) ${xml_in_files} init_path.sh
 CLEANFILES = $(xml_DATA)
+
