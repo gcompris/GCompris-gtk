@@ -146,7 +146,7 @@ class Gcompris_mining:
 
   def place_new_nugget(self):
     """ Place a new nugget to collect on the rockwall """
-    
+
     # TODO: check for stones/bones
     # TODO: nugget width / height
 
@@ -455,7 +455,7 @@ class Viewport:
 
     ###
     # inform main class about zoom change
-    
+
     if old_scale != self.scale:
       if self.scale == self.scale_max:
         state = 'max'
@@ -470,7 +470,7 @@ class Viewport:
 
   def __update_transformation(self):
     """ Update the viewport's transformation matrix """
-    
+
     self.gc_group.set_simple_transform(self.x, self.y, self.scale, 0)
 
 
@@ -491,7 +491,7 @@ class Nugget:
 
 
   def __init__(self, svghandle, parent):
-    """ 
+    """
     Constructor:
       svghandle      : handle to the svg file, holding the pictures
       parent         : GooCanvas parent item of the gold nugget
@@ -530,9 +530,9 @@ class Nugget:
 
 
   def is_hit(self, x, y):
-    """ 
+    """
     Determines whether the given coordinates are in the nugget's bounding box.
-      x and y are the coordinates in the canvas coordinate space. 
+      x and y are the coordinates in the canvas coordinate space.
     """
 
     # get the nugget's bounding box in canvas coordinate space
@@ -590,7 +590,7 @@ class Sparkling:
 
 
   def __init__(self, svghandle, parent):
-    """ 
+    """
     Constructor:
       svghandle : handle to the svg file, holding the pictures
       parent    : GooCanvas parent item of this spark
