@@ -86,6 +86,12 @@ class Gcompris_mining:
 
     gcompris.bar_location(0, -1, 0.8)
 
+    # Setup a nugget-blocking-area for the GCompris bar, to avoid placing the nugget behind
+    # the bar.
+    # The bar is in the lower, left corner of the screen with dimensions: width = 196; height = 50
+    self.gc_bar_blocker = BlockingArea(0, 470, 196, 520)
+
+
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains
     # automaticaly.
@@ -144,17 +150,43 @@ class Gcompris_mining:
     self.place_new_nugget()
 
 
+  def do_objects_collide(self, primary_object, *secondary_objects):
+    """ Tests whether any object of the tuple secondary_objects collides with the primary_object """
+
+    area_p = Area(primary_object.get_bounds())
+
+    for secondary_object in secondary_objects:
+      area_s = Area(secondary_object.get_bounds())
+
+      # collision on x-axis?
+      if math.fabs(area_p.center_x - area_s.center_x) <= (area_s.width + area_p.width) / 2.0:
+        # collision on y-axis?
+        if math.fabs(area_p.center_y - area_s.center_y) <= (area_s.height + area_p.height) / 2.0:
+          # collision!
+          return True
+
+    # no collision
+    return False
+
+
   def place_new_nugget(self):
     """ Place a new nugget to collect on the rockwall """
 
-    # TODO: check for stones/bones
-    # TODO: nugget width / height
+    nugget_area = Area(self.nugget.get_bounds())
+    nugget_width_half = int(nugget_area.width / 2.0)
+    nugget_height_half = int(nugget_area.height / 2.0)
 
-    margin = 50
-    x = random.randrange(margin, gcompris.BOARD_WIDTH - margin) * self.source_image_scale
-    y = random.randrange(margin, gcompris.BOARD_HEIGHT - margin) * self.source_image_scale
+    while True:
+      x = random.randrange(nugget_width_half, gcompris.BOARD_WIDTH - nugget_width_half) * self.source_image_scale
+      y = random.randrange(nugget_height_half, gcompris.BOARD_HEIGHT - nugget_height_half) * self.source_image_scale
 
-    self.nugget.reset(x, y)
+      self.nugget.reset(x, y)
+
+      # TODO: check for stones
+      if not self.do_objects_collide(self.nugget, self.gc_bar_blocker, *self.viewport.get_nugget_blocker()):
+        # we found a valid position without collisions
+        break
+
     (x, y) = self.nugget.get_sparkling_coordinates()
     self.sparkling.reset(x, y)
     self.sparkling.animation_start()
@@ -346,6 +378,13 @@ class Viewport:
     self.is_game_paused = activity.is_game_paused
     self.scale_min = 1.0 / self.source_image_scale
 
+    self.nugget_blocker = (
+      BlockingArea(0, 0, 800, 42), # top
+      BlockingArea(758, 0, 800, 520), # right
+      BlockingArea(0, 510, 800, 520), # bottom
+      BlockingArea(0, 0, 42, 520)     # left
+    )
+
 
   def reset(self):
     """ Reset the viewport """
@@ -361,6 +400,11 @@ class Viewport:
   def get_gc_group(self):
     """ get the GooCanvas group, which holds everything that is affected by zooming """
     return self.gc_group
+
+
+  def get_nugget_blocker(self):
+    """ Get the viewport's blocking areas, where no nugget should be placed """
+    return self.nugget_blocker
 
 
   def __on_scroll(self, item, target_item, event = None):
@@ -512,6 +556,11 @@ class Nugget:
     self.x = x
     self.y = y
     self.nugget_img.set_simple_transform(self.x - self.pivot_x, self.y - self.pivot_y, 1.0, 0)
+
+
+  def get_bounds(self):
+    """ Get the bounds of the nugget image on the canvas """
+    return self.nugget_img.get_bounds()
 
 
   def show(self):
@@ -727,3 +776,34 @@ class Sparkling:
   def __is_animation_playing(self):
     """ Tells us, if there is an animation running at the moment """
     return self.timer != None
+
+
+class Area:
+  """ A class for comfortable working with goocanvas.Bounds """
+
+  def __init__(self, bounds):
+    self.x1 = bounds.x1
+    self.x2 = bounds.x2
+    self.y1 = bounds.y1
+    self.y2 = bounds.y2
+
+    self.width = self.x2 - self.x1
+    self.height = self.y2 - self.y1
+
+    self.center_x = self.x1 + self.width / 2.0
+    self.center_y = self.y1 + self.height / 2.0
+
+
+class BlockingArea:
+  """ This class defines a blocking area, where no nugget should be put """
+
+  def __init__(self, x1, y1, x2, y2):
+    """
+    Constructor:
+      x1, y1, x2, y2 : bounding box of the blocker in canvas coordinates (0 - 800 / 0 - 520)
+    """
+    self.bounds = goocanvas.Bounds(x1, y1, x2, y2)
+
+  def get_bounds(self):
+    """ Return the bounds, defined in the constructor """
+    return self.bounds
