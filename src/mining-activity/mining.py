@@ -49,6 +49,9 @@ class Gcompris_mining:
   # used to start new game, after game was won and bonus is displayed
   is_game_won = False
 
+  # used to avoid input (like scrolling) during game pause
+  __is_game_paused = False
+
   # The factor to shrink the source image with, in order to make it fit on the screen.
   # This has to be larger than 1 (= source image has higher resolution than screen),
   # so the image looks still nice, if we zoom in a bit.
@@ -91,7 +94,7 @@ class Gcompris_mining:
 
     svghandle = gcompris.utils.load_svg("mining/rockwall.svgz")
 
-    self.viewport = Viewport(self.gcomprisBoard, self.rootitem, self.on_zoom_change, self.source_image_scale)
+    self.viewport = Viewport(self, self.rootitem)
 
     rockwall_img = goocanvas.Svg(
       parent = self.viewport.get_gc_group(),
@@ -187,6 +190,10 @@ class Gcompris_mining:
     So we can't use "nugget.connect()". :(
     """
 
+    # ignore input while game paused
+    if self.is_game_paused():
+      return
+
     # don't react on double clicks
     if event.type != gtk.gdk.BUTTON_PRESS:
       return
@@ -232,9 +239,22 @@ class Gcompris_mining:
     """ Called by GCompris, when the game is paused (e.g. config or bonus display) """
 
     # When the bonus is displayed, this function is called first with pause(1) and then with pause(0)
-    if(pause == 0 and self.is_game_won):
-      # the bonus has been shown, so start a new game in the next level
-      self.set_level(self.get_next_level())
+    if pause == 0:
+      # pause finished
+      self.__is_game_paused = False
+
+      if self.is_game_won:
+        # the bonus has been shown, so start a new game in the next level
+        self.set_level(self.get_next_level())
+
+    else:
+      # pause started
+      self.__is_game_paused = True
+
+
+  def is_game_paused(self):
+    """ Determine if the game is currently paused """
+    return self.__is_game_paused
 
 
   def get_next_level(self):
@@ -312,20 +332,19 @@ class Viewport:
   source_image_scale = None
 
 
-  def __init__(self, gcomprisBoard, parent, cb_zoom_change, source_image_scale):
+  def __init__(self, activity, parent):
     """
     Constructor:
-      gcomprisBoard      : the GCompris board
+      activity           : the main activity object
       parent             : the parent GooCanvas item to add our gc_group
-      cb_zoom_change     : callback function for "zoom changed"-event
-      source_image_scale : see documentation in Gcompris_mining
     """
-    self.gcomprisBoard = gcomprisBoard
+    self.gcomprisBoard = activity.gcomprisBoard
     self.gc_group = goocanvas.Group(parent = parent)
     self.gc_group.connect("scroll_event", self.__on_scroll)
-    self.cb_zoom_change = cb_zoom_change
-    self.source_image_scale = source_image_scale
-    self.scale_min = 1.0 / source_image_scale
+    self.cb_zoom_change = activity.on_zoom_change
+    self.source_image_scale = activity.source_image_scale
+    self.is_game_paused = activity.is_game_paused
+    self.scale_min = 1.0 / self.source_image_scale
 
 
   def reset(self):
@@ -350,6 +369,10 @@ class Viewport:
     # item - The element connected with this callback function
     # target_item - The element under the cursor
     # event  - gtk.gdk.Event
+
+    # ignore input while game paused
+    if self.is_game_paused():
+      return
 
     assert(event.type == gtk.gdk.SCROLL)
 
