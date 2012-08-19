@@ -47,7 +47,7 @@ class Gcompris_intro_gravity:
     gcomprisBoard.disable_im_context = True
 
   def start(self):
-    print "intro_gravity start"
+    self.board_paused = False
 
     # Set the buttons we want in the bar
     gcompris.bar_set(0)
@@ -182,6 +182,9 @@ class Spaceship(Gcompris_intro_gravity):
   def calculate(self):
     if self.done:
       return False
+
+    if self.game.board_paused:
+      return True
 
     (x, y) = self.rootitem.get_canvas().\
         convert_from_item_space( self.tux_spaceship,
