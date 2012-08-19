@@ -36,6 +36,7 @@ class Gcompris_color_mix:
   def __init__(self, gcomprisBoard):
     self.gcomprisBoard = gcomprisBoard
     self.game_complete = False
+    self.mode = 1
 
     # Needed to get key_press
     gcomprisBoard.disable_im_context = True
@@ -70,15 +71,56 @@ class Gcompris_color_mix:
     m_points = goocanvas.Points( [(390, 352), (390, 470)] )
     y_points = goocanvas.Points( [(548, 208), (665, 175)] )
 
-    colors = Colors(self, self.rootitem)
+    colors = Colors(self, self.rootitem, self.mode)
 
-    # Pass the points of the buttons and slider for the color tubes
-    cyan_tube = Color_tubes(self.rootitem, colors, 'cyan_tube.png',
-                            1, 80, 120, c_points, 242, 210, 130, 175)
-    magenta_tube = Color_tubes(self.rootitem, colors, 'magenta_tube.png',
-                               2, 350, 290, m_points, 390, 352, 390, 470)
-    yellow_tube = Color_tubes(self.rootitem, colors, 'yellow_tube.png',
-                              3, 460, 120, y_points, 548, 208, 665, 175)
+    if self.mode == 1:
+      text_mode = _('Switch to light')
+      # Pass the points of the buttons and slider for the color tubes
+      cyan_tube = Color_tubes(self.rootitem, colors, 'cyan_tube.png',
+                              1, 80, 120, c_points, 242, 210, 130, 175, self.mode)
+      magenta_tube = Color_tubes(self.rootitem, colors, 'magenta_tube.png',
+                                 2, 350, 290, m_points, 390, 352, 390, 470, self.mode)
+      yellow_tube = Color_tubes(self.rootitem, colors, 'yellow_tube.png',
+                                3, 460, 120, y_points, 548, 208, 665, 175, self.mode)
+    else:
+      r_points = goocanvas.Points( [(242, 212), (130, 177)] )
+      b_points = goocanvas.Points( [(548, 213), (665, 177)] )
+      m_points = goocanvas.Points( [(390, 372), (390, 490)] )
+      text_mode = _('Switch to paint')
+      # Pass the points of the buttons and slider for the color tubes
+      red_tube = Color_tubes(self.rootitem, colors, 'torch_red.png',
+                              1, 90, 115, r_points, 232, 210, 120, 175, self.mode)
+      green_tube = Color_tubes(self.rootitem, colors, 'torch_green.png',
+                                 2, 265, 265, m_points, 390, 372, 390, 490, self.mode)
+      blue_tube = Color_tubes(self.rootitem, colors, 'torch_blue.png',
+                                3, 462, 115, b_points, 554, 210, 672, 175, self.mode)
+
+    # Switch button
+    text = goocanvas.Text(
+      parent = self.rootitem,
+      x = 200,
+      y = 403,
+      fill_color = "black",
+      anchor = gtk.ANCHOR_CENTER,
+      alignment = pango.ALIGN_CENTER,
+      text = text_mode )
+    text.connect('button_press_event', self.switch, self.mode, False)
+    bounds = text.get_bounds()
+    gap = 20
+
+    text_back = goocanvas.Rect(
+      parent = self.rootitem,
+      radius_x = 6,
+      radius_y = 6,
+      x = bounds.x1 - gap,
+      y = bounds.y1 - gap,
+      width = bounds.x2 - bounds.x1 + gap * 2,
+      height = bounds.y2 - bounds.y1 + gap * 2,
+      stroke_color_rgba = 0xFFFFFFFFL,
+      fill_color_rgba = 0xCCCCCC44L)
+    gcompris.utils.item_focus_init(text_back, None)
+    gcompris.utils.item_focus_init(text, text_back)
+    text_back.connect('button_press_event', self.switch, self.mode)
 
   def game_over(self, result):
     self.game_complete = True
@@ -117,15 +159,29 @@ class Gcompris_color_mix:
   def set_level(self, level):
     pass
 
+  def switch(self, widget, target, event, mode):
+    # Switch between paint and light
+    if mode == 1:
+      self.mode = 2
+    elif mode == 2:
+      self.mode = 1
+    self.end()
+    self.start()
+
 class Color_tubes:
   """ Class containing the three primary color tubes"""
 
 
   def __init__(self, rootitem, color_instance, image, primary_color,
-               x, y, points, incr_x, incr_y, decr_x, decr_y):
+               x, y, points, incr_x, incr_y, decr_x, decr_y, mode):
     self.rootitem = rootitem
     self.primary_color = primary_color
     self.color_instance = color_instance
+
+    if mode == 1:
+      self.alter = -1
+    else:
+      self.alter = 1
 
     # Load the tube image
     image = 'color_mix/' + image
@@ -205,21 +261,31 @@ class Color_tubes:
 
   def set_color(self, change):
     if self.primary_color == 1:
-      self.color_instance.cyan += int(change * -1)
+      self.color_instance.color1 += int(change * self.alter)
       self.color_instance.resultant_color(1)
     elif self.primary_color == 2:
-      self.color_instance.magenta += int(change * -1)
+      self.color_instance.color2 += int(change * self.alter)
       self.color_instance.resultant_color(2)
     if self.primary_color == 3:
-      self.color_instance.yellow += int(change * -1)
+      self.color_instance.color3 += int(change * self.alter)
       self.color_instance.resultant_color(3)
 
 class Colors:
   """ Class containing all the colors"""
 
 
-  def __init__(self, game, rootitem):
+  def __init__(self, game, rootitem, mode):
     self.game = game
+    self.mode = mode
+
+    if mode == 1:
+      initial_color = 0xFFFFFFFFL
+      self.color_rgb = [255, 255, 255]
+      self.color1 = self.color2 = self.color3 = 255
+    else:
+      initial_color = 0x000000FFL
+      self.color_rgb = [0, 0, 0]
+      self.color1 = self.color2 = self.color3 = 0
 
     self.color_image = goocanvas.Ellipse(
       parent = rootitem,
@@ -227,8 +293,8 @@ class Colors:
       center_y = 230,
       radius_y = 60,
       radius_x = 75,
-      stroke_color_rgba = 0xFFFFFFFFL,
-      fill_color_rgba = 0xFFFFFFFFL,
+      stroke_color_rgba = initial_color,
+      fill_color_rgba = initial_color,
       line_width = 0.5)
 
     # Random color to be matched
@@ -248,7 +314,7 @@ class Colors:
       fill_color_rgba = long(code, 16))
 
 
-    # OK Buttonp
+    # OK Button
     ok = goocanvas.Svg(parent = rootitem,
                        svg_handle = gcompris.skin.svg_get(),
                        svg_id = "#OK"
@@ -257,10 +323,6 @@ class Colors:
 
     ok.connect("button_press_event", self.ok_event)
     gcompris.utils.item_focus_init(ok, None)
-
-    # initialise variables
-    self.color_rgb = [255, 255, 255]
-    self.cyan = self.magenta = self.yellow = 255
 
   def ok_event(self, widget, target, event):
     if self.color_rgb[0] - 30 < self.r_random < self.color_rgb[0] + 30 and \
@@ -271,9 +333,9 @@ class Colors:
       self.game.game_over(2)
 
   def resultant_color(self, change):
-    cyan_cmy  = (255 - self.cyan, 0, 0)
-    magenta_cmy  = (0, 255 - self.magenta, 0)
-    yellow_cmy  = (0, 0, 255 - self.yellow)
+    cyan_cmy  = (255 - self.color1, 0, 0)
+    magenta_cmy  = (0, 255 - self.color2, 0)
+    yellow_cmy  = (0, 0, 255 - self.color3)
 
     color_cmy = [255 - self.color_rgb[0], 255 - self.color_rgb[1],
                  255 - self.color_rgb[2]]
@@ -285,9 +347,15 @@ class Colors:
     elif change == 3:
       color_cmy[2] = (color_cmy[2] + yellow_cmy[2]) / 2
 
-    self.color_rgb[0] = 255 - color_cmy[0]
-    self.color_rgb[1] = 255 - color_cmy[1]
-    self.color_rgb[2] = 255 - color_cmy[2]
+    if self.mode == 1:
+      self.color_rgb[0] = 255 - color_cmy[0]
+      self.color_rgb[1] = 255 - color_cmy[1]
+      self.color_rgb[2] = 255 - color_cmy[2]
+
+    else:
+      self.color_rgb[0] = self.color1
+      self.color_rgb[1] = self.color2
+      self.color_rgb[2] = self.color3
 
     color_code = self.hex_code(self.color_rgb[0], self.color_rgb[1],
                                self.color_rgb[2])
