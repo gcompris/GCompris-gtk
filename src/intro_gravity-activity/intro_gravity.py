@@ -18,6 +18,7 @@
 # intro_gravity activity.
 import gtk
 import gtk.gdk
+import random
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -83,11 +84,13 @@ class Gcompris_intro_gravity:
     Slider(self.rootitem, 780, 200, planet_right)
 
     # Load the tux_ship
-    ship_instance = Spaceship(self, self.rootitem,
+    self.ship_instance = Spaceship(self, self.rootitem,
                               gcompris.BOARD_WIDTH/2.0, 200,
                               self.gcomprisBoard.level,
                               planet_left,
                               planet_right)
+    # Load random asteroids
+    asteroid_instance = Asteroids(self.ship_instance, self.rootitem)
 
   def end(self):
     # Remove the root item removes all the others inside it
@@ -108,7 +111,7 @@ class Gcompris_intro_gravity:
     print("intro_gravity config_start.")
 
   def key_press(self, keyval, commit_str, preedit_str):
-    pass
+    self.ship_instance.handle_key(keyval)
 
   def pause(self, pause):
     # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
@@ -134,6 +137,7 @@ class Gcompris_intro_gravity:
 class Spaceship(Gcompris_intro_gravity):
   """Class representing the spaceship"""
 
+
   def __init__(self, game, rootitem, x, y, level,
                planet_left, planet_right):
     self.game = game
@@ -143,12 +147,14 @@ class Spaceship(Gcompris_intro_gravity):
     # Let us determine a success case
     self.trip_distance = 0
 
+
     # load spaceship
     self.tux_spaceship = goocanvas.Image(
       parent = self.rootitem,
       pixbuf = gcompris.utils.load_pixmap("intro_gravity/tux_spaceship.png"),
       x = x,
       y = y)
+
     # Center it
     bounds = self.tux_spaceship.get_bounds()
     self.tux_spaceship.translate( (bounds.x2 - bounds.x1) / 2.0 * -1,
@@ -156,6 +162,7 @@ class Spaceship(Gcompris_intro_gravity):
 
     self.planet_right = planet_right
     self.planet_left = planet_left
+
 
     # load arrows for force applied on spacehip
     point = goocanvas.Points([(x - 50, y),(x - 90, y)])
@@ -225,8 +232,101 @@ class Spaceship(Gcompris_intro_gravity):
     self.done = True
     self.game.crash()
 
+  def handle_key(self, key):
+    bounds = self.tux_spaceship.get_bounds()
+    if key == gtk.keysyms.Up:
+      if bounds.y1 > 145:
+        self.tux_spaceship.translate(0, -1)
+        self.force_line.translate(0, -1)
+
+    elif key == gtk.keysyms.Down:
+      if bounds.y2 < 255:
+        self.tux_spaceship.translate(0, 1)
+        self.force_line.translate(0, 1)
+
+class Asteroids:
+  """Class for the asteroids"""
+
+
+  def __init__(self, ship_instance, rootitem):
+    self.ship_instance = ship_instance
+    self.rootitem = rootitem
+    self.load_asteroid()
+
+  def load_asteroid(self):
+    self.count = 1
+    self.asteroid_rootitem = goocanvas.Group(parent = self.rootitem)
+
+    # Make sure the ateroids are loaded between the planet and spaceship
+    bounds = self.ship_instance.tux_spaceship.get_bounds()
+    left_asteroid_x = random.uniform(150, bounds.x1 - 50)
+    right_asteroid_x = random.uniform(450, bounds.x2 + 20)
+    y_asteroid = [200, 160]
+    left_asteroid_y = random.choice(y_asteroid)
+    right_asteroid_y = random.choice(y_asteroid)
+
+    # Pick a random asteroid and load image
+    asteroid_number = [0, 1, 2, 3, 4]
+    asteroid = random.choice(asteroid_number)
+    image = "intro_gravity/asteroid" + str(asteroid) + ".jpg"
+    self.asteroid1 = goocanvas.Image(
+      parent = self.asteroid_rootitem,
+      pixbuf = gcompris.utils.load_pixmap(image),
+      x = left_asteroid_x,
+      y = left_asteroid_y)
+
+    # Make sure same asteroid is not picked
+    asteroid_number.remove(asteroid)
+    asteroid = random.choice(asteroid_number)
+    image = "intro_gravity/asteroid" + str(asteroid) + ".jpg"
+    self.asteroid2 = goocanvas.Image(
+      parent = self.asteroid_rootitem,
+      pixbuf = gcompris.utils.load_pixmap(image),
+      x = right_asteroid_x,
+      y = right_asteroid_y)
+
+    self.asteroid_rootitem.lower(self.ship_instance.tux_spaceship)
+    gobject.timeout_add(30, self.check_asteroid)
+
+  def check_asteroid(self):
+    self.count += 1
+    if self.count > 500:
+      self.asteroid_rootitem.remove()
+      self.load_asteroid()
+      return False
+
+    # Check whether ship and asteroid have collided
+    bound1 = self.asteroid1.get_bounds()
+    bound2 = self.asteroid2.get_bounds()
+    bound_ship = self.ship_instance.tux_spaceship.get_bounds()
+
+    bound1_x = (bound1.x1 + bound1.x2) / 2
+    bound2_x = (bound2.x1 + bound2.x2) / 2
+    bound1_y = (bound1.y1 + bound1.y2) / 2
+    bound2_y = (bound2.y1 + bound2.y2) / 2
+    bound_ship_x = (bound_ship.x1 + bound_ship.x2) / 2
+    bound_ship_y = (bound_ship.y1 + bound_ship.y2) / 2
+    if abs(bound1_x - bound_ship_x) < 40 and abs(bound1_y - bound_ship_y) < 40:
+      self.crash_image(bound_ship_x, bound_ship_y)
+    elif abs(bound2_x - bound_ship_x) < 40 and abs(bound2_y - bound_ship_y) < 40:
+      self.crash_image(bound_ship_x, bound_ship_y)
+    else:
+      return True
+
+  def crash_image(self, x, y):
+    image = goocanvas.Image(
+      parent = self.rootitem,
+      pixbuf = gcompris.utils.load_pixmap('/intro_gravity/crash.png'),
+      x = x - 50,
+      y = y - 50)
+
+    self.ship_instance.crash()
+
+
+
 class Fixed_planet:
   """ Fixed planets """
+
 
   def __init__(self, rootitem, x, y, planet_image):
     self.rootitem = rootitem
@@ -255,6 +355,7 @@ class Fixed_planet:
 
 class Slider:
   """ class for scale slider"""
+
 
   def __init__(self, rootitem, x, y, planet_instance):
     self.planet_instance = planet_instance

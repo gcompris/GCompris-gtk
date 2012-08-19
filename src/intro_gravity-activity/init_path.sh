@@ -3,6 +3,7 @@
 path=$1
 activity=intro_gravity
 plugindir=$path/../boards/.libs
-pythonplugindir=$path 
+pythonplugindir=$path
 resourcedir=$path/resources
-section="/experimental"
+section="/experince"
+

@@ -3,24 +3,29 @@
   <Board
         name="intro_gravity"
         type="python:intro_gravity"
-        section="/experimental"
+        section="/experience"
         icon="intro_gravity.svg"
-        difficulty="1"
-        author="your name here"
+        difficulty="4"
+        author="Matilda Bernard (seah4291@gmail.com)"
         boarddir=""
         >
         <_title>Intro gravity</_title>
         <_description>Introduction to the concept of gravity</_description>
-        <_goal>Maintain the spaceship in the middle without crashing into the planets</_goal>
+        <_goal>Maintain the spaceship in the middle without crashing into the planets or the asteroids</_goal>
         <_manual xml:space="preserve">
 Gravity is universal and Newton's law of universal gravitation extends gravity beyond earth.This force of gravitational attraction is directly dependent upon the masses of both objects and inversely proportional to the square of the distance that separates their centers.
 
 Since the gravitational force is directly proportional to the mass of both interacting objects, more massive objects will attract each other with a greater gravitational force. So as the mass of either object increases, the force of gravitational attraction between them also increases but this force is inversely proportional to the square of the separation distance between the two interacting objects, more separation distance will result in weaker gravitational forces.
 
-Increase and decrease the size of the planets at the two ends to see how the force on the spaceship changes with changes in the size and distance. This force results in acceleration of the spaceship. The arrow indicates the direction of force.
+Increase and decrease the size of the planets at the two ends to see how the force on the spaceship changes with changes in the size and distance. This force results in acceleration of the spaceship.
+The arrow indicates the direction of force.
+
+Use the up/down keys to move the spaceship up/down in order to save it from crashing into the asteroids on the way.
 
 With every level the speed of the spaceship will increase.
         </_manual>
+        <_credit>www.openclipart.org</_credit>
   </Board>
   <Data directory=""/>
 </GCompris>
+
