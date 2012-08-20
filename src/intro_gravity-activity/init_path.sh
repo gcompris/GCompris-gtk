@@ -5,5 +5,5 @@ activity=intro_gravity
 plugindir=$path/../boards/.libs
 pythonplugindir=$path
 resourcedir=$path/resources
-section="/experince"
+section="/experience"
 
