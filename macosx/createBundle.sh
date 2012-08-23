@@ -15,7 +15,7 @@ cd -
 
 # Create the bundle of the whole application
 echo "Create the bundle of the whole application"
-ige-mac-bundler gcompris.bundle
+gtk-mac-bundler gcompris.bundle
 
 # Copy localization files (gcompris.mo)
 for f in $( find $JHBUILD_PREFIX -name gcompris.mo ); do

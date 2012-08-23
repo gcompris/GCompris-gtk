@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompr"
 "is&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-05-20 00:06+0000\n"
-"PO-Revision-Date: 2012-05-20 09:28+0200\n"
+"POT-Creation-Date: 2012-08-03 12:47+0000\n"
+"PO-Revision-Date: 2012-08-07 09:17+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <gnom@prevod.org>\n"
 "Language: sr\n"
@@ -361,7 +361,7 @@ msgstr "Изаберите профил:"
 
 #: ../src/administration-activity/admin/board_list.py:147
 msgid "Filter"
-msgstr "Филтер"
+msgstr "Пропусник"
 
 #: ../src/administration-activity/admin/board_list.py:152
 msgid "Select all"
@@ -387,7 +387,7 @@ msgstr "Пријава"
 
 #: ../src/administration-activity/admin/board_list.py:244
 msgid "Main menu"
-msgstr "Главни мени"
+msgstr "Главни изборник"
 
 #. columns for Board name
 #. column_pref = gtk.TreeViewColumn(_('Conf'))
@@ -606,7 +606,7 @@ msgstr ""
 "избор, и на крају изаберите табле које желите да буду активне. Можете додати "
 "више профила, са различитим списковима табли, и различитим језицима. Основни "
 "профил одређујете у одељку „Профил“, бирајући жељени профил, и кликом на "
-"дугме „Основно“. Такође можете изабрати профил и из командне линије.\n"
+"дугме „Основно“. Такође можете изабрати профил и из линије наредби.\n"
 "— Можете додати кориснике, разреде и за сваки разред можете направити групу "
 "корисника. Кориснике можете убацити и из датотеке у којој су наведени "
 "корисници одвојени зарезом. Доделите једну или више група одређеном профилу, "
@@ -650,7 +650,7 @@ msgid "Board"
 msgstr "Табла"
 
 #: ../src/administration-activity/admin/log_list.py:249
-#: ../src/click_on_letter-activity/click_on_letter.c:1248
+#: ../src/click_on_letter-activity/click_on_letter.c:1249
 #: ../src/redraw-activity/redraw.py:339
 msgid "Level"
 msgstr "Ниво"
@@ -667,6 +667,11 @@ msgstr "Трајање"
 msgid "Status"
 msgstr "Стање"
 
+#: ../src/administration-activity/admin/module_activities.py:50
+#: ../src/administration-activity/admin/module_activities.py:78
+msgid "Activities"
+msgstr "Активности"
+
 #: ../src/administration-activity/admin/module_boards.py:49
 #: ../src/administration-activity/admin/module_boards.py:77
 msgid "Boards"
@@ -676,6 +681,11 @@ msgstr "Табле"
 #: ../src/administration-activity/admin/module_groups.py:69
 msgid "Groups"
 msgstr "Групе"
+
+#: ../src/administration-activity/admin/module_logins.py:48
+#: ../src/administration-activity/admin/module_logins.py:69
+msgid "Logins"
+msgstr "Пријаве"
 
 #: ../src/administration-activity/admin/module_profiles.py:47
 #: ../src/administration-activity/admin/module_profiles.py:68
@@ -731,6 +741,10 @@ msgstr "Профил"
 #: ../src/administration-activity/admin/profile_list.py:311
 msgid "[Default]"
 msgstr "[Основни]"
+
+#: ../src/administration-activity/admin/profile_widget.py:291
+msgid "There is already a profile with this name"
+msgstr "Профил са тим именом већ постоји"
 
 #: ../src/administration-activity/admin/user_edit.py:47
 msgid "Editing a User"
@@ -793,22 +807,6 @@ msgid ""
 msgstr ""
 "Једна или више пријава нису јединствене !\n"
 "Морате да их измените: %s !"
-
-#: ../src/administration-activity/admin/module_activities.py:50
-#: ../src/administration-activity/admin/module_activities.py:78
-#| msgid "Active"
-msgid "Activities"
-msgstr "Активности"
-
-#: ../src/administration-activity/admin/module_logins.py:48
-#: ../src/administration-activity/admin/module_logins.py:69
-#| msgid "Login"
-msgid "Logins"
-msgstr "Пријаве"
-
-#: ../src/administration-activity/admin/profile_widget.py:291
-msgid "There is already a profile with this name"
-msgstr "Профил са тим именом већ постоји"
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:1
 msgid "Advanced colors"
@@ -1030,7 +1028,7 @@ msgstr "лила"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:51
 msgid "magenta"
-msgstr "мађента"
+msgstr "љубичаста"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:52
 msgid "malachite"
@@ -1549,7 +1547,7 @@ msgstr ""
 "Превуците сваки објекат на одговарајући црвени простор на главној површини."
 
 #: ../src/babymatch-activity/shapegame.c:2017
-#: ../src/click_on_letter-activity/click_on_letter.c:1316
+#: ../src/click_on_letter-activity/click_on_letter.c:1317
 #, c-format
 msgid ""
 "<b>%1$s</b> configuration\n"
@@ -1821,11 +1819,11 @@ msgstr "Брајева азбука"
 
 #: ../src/braille_fun-activity/braille_fun.xml.in.h:4
 msgid ""
-"Braille code the tile for the corresponding falling letters. Check the "
-"braille chart by clicking on the toggle button for help."
+"Enter the braille code in the tile for the corresponding falling letters. "
+"Check the braille chart by clicking on the toggle button for help."
 msgstr ""
-"Плочица Брајевог кода за одговарајућа падајућа слова. Проверите Брајев знак "
-"тако што ћете кликнути на дугме пребацивања за помоћ."
+"Унесите Брајев код у плочицу за одговарајућа падајућа слова. Проверите "
+"Брајев знак тако што ћете кликнути на окидачко дугме за помоћ."
 
 #: ../src/braille_lotto-activity/braille_lotto.py:120
 msgid "PLAYER 1"
@@ -1885,7 +1883,7 @@ msgstr "четвртој"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:353
 msgid "Game Over"
-msgstr "Крај игре"
+msgstr "Игра је завршена"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:465
 msgid "Congratulation player {player_id}, you won"
@@ -2004,12 +2002,12 @@ msgstr ""
 "и у сваком ГКомприс програму на локалној мрежи у коме је укључено ћаскање "
 "биће приказана ваша порука."
 
-#: ../src/chess_computer-activity/chess.c:222
+#: ../src/chess_computer-activity/chess.c:225
 msgid "Error: The external program gnuchess died unexpectedly"
 msgstr "Грешка: Спољашњи програм гнушах је неочекивано завршен"
 
-#: ../src/chess_computer-activity/chess.c:262
-#: ../src/chess_computer-activity/chess.c:308
+#: ../src/chess_computer-activity/chess.c:265
+#: ../src/chess_computer-activity/chess.c:311
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -2019,36 +2017,36 @@ msgstr ""
 "играње шаха у гкомпрису.\n"
 "Прво га инсталирајте, и проверите да ли је у "
 
-#: ../src/chess_computer-activity/chess.c:653
+#: ../src/chess_computer-activity/chess.c:656
 msgid "White's Turn"
 msgstr "Бели на потезу"
 
-#: ../src/chess_computer-activity/chess.c:653
+#: ../src/chess_computer-activity/chess.c:656
 msgid "Black's Turn"
 msgstr "Црни на потезу"
 
-#: ../src/chess_computer-activity/chess.c:794
+#: ../src/chess_computer-activity/chess.c:797
 msgid "White checks"
 msgstr "Шах белог"
 
-#: ../src/chess_computer-activity/chess.c:796
+#: ../src/chess_computer-activity/chess.c:799
 msgid "Black checks"
 msgstr "Шах црног"
 
-#: ../src/chess_computer-activity/chess.c:1202
+#: ../src/chess_computer-activity/chess.c:1209
 msgid "Black mates"
 msgstr "Мат црног"
 
-#: ../src/chess_computer-activity/chess.c:1209
+#: ../src/chess_computer-activity/chess.c:1216
 msgid "White mates"
 msgstr "Мат белог"
 
-#: ../src/chess_computer-activity/chess.c:1216 ../src/gcompris/bonus.c:191
+#: ../src/chess_computer-activity/chess.c:1223 ../src/gcompris/bonus.c:191
 #: ../src/gcompris/bonus.c:200
 msgid "Drawn game"
 msgstr "Нерешено"
 
-#: ../src/chess_computer-activity/chess.c:1244
+#: ../src/chess_computer-activity/chess.c:1251
 msgid "Error: The external program gnuchess died unexpectingly"
 msgstr "Грешка: Спољашњи програм гнушах се неочекивано завршио"
 
@@ -2281,8 +2279,8 @@ msgid "1923 Lancia Lambda"
 msgstr "1923 Ланћа Ламбда"
 
 #: ../src/chronos-activity/resources/chronos/board4_3.xml.in.h:4
-msgid "1955 Citroën ds 19"
-msgstr "1955 Цитроен дс 19"
+msgid "1955 Citroën DS 19"
+msgstr "1955 Цитроен ДС 19"
 
 #: ../src/clickanddraw-activity/clickanddraw.xml.in.h:1
 msgid "Click and draw"
@@ -2366,24 +2364,24 @@ msgstr ""
 "Грешка: ова вежба захтева да прво инсталирате пакет\n"
 "гласова за ГКомприс за локалитет „%s“."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:907
+#: ../src/click_on_letter-activity/click_on_letter.c:908
 msgid "Questions cannot be empty."
 msgstr "Питања не могу бити празна."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:917
+#: ../src/click_on_letter-activity/click_on_letter.c:918
 msgid "Answers cannot be empty."
 msgstr "Одговори не могу бити празни."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:923
+#: ../src/click_on_letter-activity/click_on_letter.c:924
 #, c-format
 msgid "Too many characters in the Answer (maximum is %d)."
 msgstr "Превише знакова у одговору (највише је %d)."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:947
+#: ../src/click_on_letter-activity/click_on_letter.c:948
 msgid "All the characters in Questions must also be in the Answers."
 msgstr "Сви знакови у питањима морају бити и у одговорима."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:964
+#: ../src/click_on_letter-activity/click_on_letter.c:965
 #, c-format
 msgid ""
 "Invalid entry:\n"
@@ -2395,21 +2393,21 @@ msgstr ""
 "%s"
 
 #. answer
-#: ../src/click_on_letter-activity/click_on_letter.c:1259
+#: ../src/click_on_letter-activity/click_on_letter.c:1260
 #: ../src/missing_letter-activity/missingletter_config.c:420
 #: ../src/missing_letter-activity/missingletter_config.c:548
 msgid "Answer"
 msgstr "Одговор"
 
 #. question
-#: ../src/click_on_letter-activity/click_on_letter.c:1270
+#: ../src/click_on_letter-activity/click_on_letter.c:1271
 #: ../src/missing_letter-activity/missingletter_config.c:426
 #: ../src/missing_letter-activity/missingletter_config.c:571
 msgid "Question"
 msgstr "Питање"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:1406
-#: ../src/gcompris/board_config_wordlist.c:274
+#: ../src/click_on_letter-activity/click_on_letter.c:1407
+#: ../src/gcompris/board_config_wordlist.c:273
 msgid "Back to default"
 msgstr "Врати на основно"
 
@@ -2818,7 +2816,7 @@ msgstr "Нацртајте слику кликајући на сваки бро�
 msgid ""
 "Cannot find the 'gnucap' electric simulator.\n"
 "You can download and install it from:\n"
-"<http://geda.seul.org/tools/gnucap/>\n"
+"<http://www.gnu.org/software/gnucap/>\n"
 "To be detected, it must be installed in\n"
 "/usr/bin/gnucap or /usr/local/bin/gnucap.\n"
 "You can still use this activity to draw schematics without computer "
@@ -2826,7 +2824,7 @@ msgid ""
 msgstr ""
 "Не могу да пронађем „gnucap“ електрични симулатор.\n"
 "Можете да га преузмете и инсталирате са:\n"
-"<http://geda.seul.org/tools/gnucap/>\n"
+"<http://www.gnu.org/software/gnucap/>\n"
 "Да би био препознат, мора бити инсталиран у\n"
 "„/usr/bin/gnucap“ или у „/usr/local/bin/gnucap“.\n"
 "Ову вежбу можете и даље да користите за цртање\n"
@@ -2851,10 +2849,10 @@ msgstr "Направите електричну шему са њеним реа�
 #: ../src/electric-activity/electric.xml.in.h:5
 msgid ""
 "GCompris uses the Gnucap electric simulator as a backend. You can get more "
-"information on gnucap at &lt;http://geda.seul.org/tools/gnucap/&gt;."
+"information on gnucap at &lt;http://www.gnu.org/software/gnucap/&gt;."
 msgstr ""
 "ГКомприс користи ГнуКеп електрични симулатор као извршни програм. Више "
-"информација о ГнуКепу можете наћи на &lt;http://geda.seul.org/tools/gnucap/"
+"информација о ГнуКепу можете наћи на &lt;http://www.gnu.org/software/gnucap/"
 "&gt;."
 
 #: ../src/electric-activity/electric.xml.in.h:6
@@ -2930,8 +2928,8 @@ msgstr "Померајте миша да обришете површину и о
 msgid "Error: No images found\n"
 msgstr "Грешка: Нисам пронашао слике\n"
 
-#: ../src/erase-activity/erase.c:582 ../src/gcompris/properties.c:504
-#: ../src/gcompris/properties.c:511
+#: ../src/erase-activity/erase.c:582 ../src/gcompris/properties.c:503
+#: ../src/gcompris/properties.c:510
 msgid "readme"
 msgstr "прочитај ме"
 
@@ -3076,7 +3074,7 @@ msgid ""
 msgstr ""
 "Овај програм је ГНУ-ов пакет и објављен је под Гнуовом општом јавном лиценцом"
 
-#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:459
+#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:460
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:358
 #: ../src/gcompris/images_selector.c:313
 msgid "OK"
@@ -3142,15 +3140,15 @@ msgid "%d (New level)"
 msgstr "%d (нови ниво)"
 
 #. frame
-#: ../src/gcompris/board_config_wordlist.c:226
+#: ../src/gcompris/board_config_wordlist.c:225
 msgid "Configure the list of words"
 msgstr "Подеси листу речи"
 
-#: ../src/gcompris/board_config_wordlist.c:237
+#: ../src/gcompris/board_config_wordlist.c:236
 msgid "Choice of the language"
 msgstr "Избор језика"
 
-#: ../src/gcompris/board_config_wordlist.c:249
+#: ../src/gcompris/board_config_wordlist.c:248
 msgid "Choice of the level"
 msgstr "Избор нивоа"
 
@@ -3207,7 +3205,7 @@ msgid "Croatian"
 msgstr "Хрватски"
 
 #: ../src/gcompris/config.c:71
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:7
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:7
 msgid "Czech Republic"
 msgstr "Чешки"
 
@@ -3296,189 +3294,193 @@ msgid "Korean"
 msgstr "Корејски"
 
 #: ../src/gcompris/config.c:93
+msgid "Latvian"
+msgstr "Летонски"
+
+#: ../src/gcompris/config.c:94
 msgid "Lithuanian"
 msgstr "Литвански"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:95
 msgid "Macedonian"
 msgstr "Македонски"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:96
 msgid "Malay"
 msgstr "Малајски"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:97
 msgid "Malayalam"
 msgstr "Малајамски"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:98
 msgid "Marathi"
 msgstr "Марати"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:99
 msgid "Montenegrin"
 msgstr "Црногорски"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:100
 msgid "Nepal"
 msgstr "Непалски"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:101
 msgid "Norwegian Bokmal"
 msgstr "Норвешки Бокмал"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:102
 msgid "Norwegian Nynorsk"
 msgstr "Норвешки Нинорск"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:103
 msgid "Occitan (languedocien)"
 msgstr "Окситански"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:104
 msgid "Persian"
 msgstr "Персијски"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:105
 msgid "Polish"
 msgstr "Пољски"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:106
 msgid "Portuguese (Brazil)"
 msgstr "Португалски (Бразил)"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:107
 msgid "Portuguese"
 msgstr "Португалски"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:108
 msgid "Punjabi"
 msgstr "Панџаби"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:109
 msgid "Romanian"
 msgstr "Румунски"
 
-#: ../src/gcompris/config.c:109
+#: ../src/gcompris/config.c:110
 msgid "Russian"
 msgstr "Руски"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:111
 msgid "Serbian (Latin)"
 msgstr "Српски (латиница)"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:112
 msgid "Serbian"
 msgstr "Српски"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:113
 msgid "Slovak"
 msgstr "Словачки"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:114
 msgid "Slovenian"
 msgstr "Словеначки"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:115
 msgid "Somali"
 msgstr "Сомалијски"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:116
 msgid "Spanish"
 msgstr "Шпански"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:117
 msgid "Swedish"
 msgstr "Шведски"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:118
 msgid "Tamil"
 msgstr "Тамилски"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:119
 msgid "Thai"
 msgstr "Таи"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:120
 msgid "Turkish (Azerbaijan)"
 msgstr "Турски (Азербејџан)"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:121
 msgid "Turkish"
 msgstr "Турски"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:122
 msgid "Ukrainian"
 msgstr "Украјински"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:123
 msgid "Urdu"
 msgstr "Урду"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:124
 msgid "Vietnamese"
 msgstr "Вијетнамски"
 
-#: ../src/gcompris/config.c:124
+#: ../src/gcompris/config.c:125
 msgid "Walloon"
 msgstr "Валунски"
 
-#: ../src/gcompris/config.c:125
+#: ../src/gcompris/config.c:126
 msgid "Zulu"
 msgstr "Зулу"
 
-#: ../src/gcompris/config.c:130
+#: ../src/gcompris/config.c:131
 msgid "No time limit"
 msgstr "Без временског ограничења"
 
-#: ../src/gcompris/config.c:131
+#: ../src/gcompris/config.c:132
 msgid "Slow timer"
 msgstr "Успорено време"
 
-#: ../src/gcompris/config.c:132
+#: ../src/gcompris/config.c:133
 msgid "Normal timer"
 msgstr "Нормално време"
 
-#: ../src/gcompris/config.c:133
+#: ../src/gcompris/config.c:134
 msgid "Fast timer"
 msgstr "Брзо време"
 
-#: ../src/gcompris/config.c:137
+#: ../src/gcompris/config.c:138
 msgid "Use Gcompris administration module to filter boards"
 msgstr "Користите администраторски модул ГКомприса за филтрирање табли"
 
-#: ../src/gcompris/config.c:191
+#: ../src/gcompris/config.c:192
 msgid "GCompris Configuration"
 msgstr "Подешавање ГКомприса"
 
-#: ../src/gcompris/config.c:274
+#: ../src/gcompris/config.c:275
 msgid "Fullscreen"
-msgstr "Цео екран"
+msgstr "Преко целог екрана"
 
-#: ../src/gcompris/config.c:299
+#: ../src/gcompris/config.c:300
 msgid "Music"
 msgstr "Музика"
 
-#: ../src/gcompris/config.c:324
+#: ../src/gcompris/config.c:325
 msgid "Effect"
-msgstr "Ефекти"
+msgstr "Дејство"
 
-#: ../src/gcompris/config.c:348 ../src/gcompris/sugar_gc.c:93
+#: ../src/gcompris/config.c:349 ../src/gcompris/sugar_gc.c:93
 msgid "Zoom"
 msgstr "Увећање"
 
-#: ../src/gcompris/config.c:385
+#: ../src/gcompris/config.c:386
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Не могу да отворим директоријум са маскама: %s"
 
-#: ../src/gcompris/config.c:416 ../src/gcompris/config.c:876
-#: ../src/gcompris/config.c:890
+#: ../src/gcompris/config.c:417 ../src/gcompris/config.c:877
+#: ../src/gcompris/config.c:891
 #, c-format
 msgid "Skin : %s"
 msgstr "Маска : %s"
 
-#: ../src/gcompris/config.c:418
+#: ../src/gcompris/config.c:419
 msgid "SKINS NOT FOUND"
 msgstr "МАСКЕ НИСУ НАЂЕНЕ"
 
@@ -3510,83 +3512,83 @@ msgstr ""
 "Затворите је и пријавите\n"
 "проблем ауторима."
 
-#: ../src/gcompris/gcompris.c:156
+#: ../src/gcompris/gcompris.c:154
 msgid "run GCompris in fullscreen mode."
 msgstr "покреће ГКомприс преко целог екрана."
 
-#: ../src/gcompris/gcompris.c:159
+#: ../src/gcompris/gcompris.c:157
 msgid "run GCompris in window mode."
 msgstr "покреће ГКомприс у прозору."
 
-#: ../src/gcompris/gcompris.c:162
+#: ../src/gcompris/gcompris.c:160
 msgid "run GCompris with sound enabled."
 msgstr "покреће ГКомприс уз укључен звук."
 
-#: ../src/gcompris/gcompris.c:165
+#: ../src/gcompris/gcompris.c:163
 msgid "run GCompris without sound."
 msgstr "покреће ГКомприс без звука."
 
-#: ../src/gcompris/gcompris.c:168
+#: ../src/gcompris/gcompris.c:166
 msgid "run GCompris with the default system cursor."
 msgstr "покреће ГКомприс уз основни показивач система."
 
-#: ../src/gcompris/gcompris.c:171
+#: ../src/gcompris/gcompris.c:169
 msgid "run GCompris without cursor (touch screen mode)."
 msgstr "покреће ГКомприс без показивача (режим додирног екрана)."
 
-#: ../src/gcompris/gcompris.c:174
+#: ../src/gcompris/gcompris.c:172
 msgid "display only activities with this difficulty level."
 msgstr "приказује само вежбе ове тежине."
 
-#: ../src/gcompris/gcompris.c:177
+#: ../src/gcompris/gcompris.c:175
 msgid "display debug informations on the console."
 msgstr "приказује податке за исправљање грешака у конзоли."
 
-#: ../src/gcompris/gcompris.c:180
+#: ../src/gcompris/gcompris.c:178
 msgid "Print the version of "
 msgstr "Испиши издање за "
 
-#: ../src/gcompris/gcompris.c:183
+#: ../src/gcompris/gcompris.c:181
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
 "activity). Use '-l list' to list all the availaible activities and their "
 "descriptions."
 msgstr ""
-"Покрените ГКомприс са локалним менијем (нпр. „-l /reading“ ће вам дати само "
-"вежбе из тог директоријума, „-l /strategy/connect4“ само игру повежи4). "
+"Покрените ГКомприс са локалним изборником (нпр. „-l /reading“ ће вам дати "
+"само вежбе из тог директоријума, „-l /strategy/connect4“ само игру повежи4). "
 "Користите „-l list“ да излистате све доступне активности и њихове описе."
 
-#: ../src/gcompris/gcompris.c:188
+#: ../src/gcompris/gcompris.c:186
 msgid "GCompris will find the data dir in this directory"
 msgstr "Гкомприс ће пронаћи дир података у овом директоријуму"
 
-#: ../src/gcompris/gcompris.c:191
+#: ../src/gcompris/gcompris.c:189
 msgid "GCompris will find the skins in this directory"
 msgstr "Гкомприс ће пронаћи маске у овом директоријуму"
 
-#: ../src/gcompris/gcompris.c:194
+#: ../src/gcompris/gcompris.c:192
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "Гкомприс ће пронаћи додатке вежби у овом директоријуму"
 
-#: ../src/gcompris/gcompris.c:197
+#: ../src/gcompris/gcompris.c:195
 msgid "GCompris will find the python activity in this directory"
 msgstr "Гкомприс ће пронаћи вежбе питона у овом директоријуму"
 
-#: ../src/gcompris/gcompris.c:200
+#: ../src/gcompris/gcompris.c:198
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr ""
 "Гкомприс ће пронаћи датотеку локалитета („.mo“ превод) у овом директоријуму"
 
-#: ../src/gcompris/gcompris.c:203
+#: ../src/gcompris/gcompris.c:201
 msgid "GCompris will find the activities menu in this directory"
 msgstr "Гкомприс ће пронаћи избор вежби у овом директоријуму"
 
-#: ../src/gcompris/gcompris.c:206
+#: ../src/gcompris/gcompris.c:204
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Покреће ГКомприс у режиму администрације и управљања корисницима"
 
-#: ../src/gcompris/gcompris.c:209
+#: ../src/gcompris/gcompris.c:207
 msgid ""
 "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
@@ -3594,25 +3596,25 @@ msgstr ""
 "Користи алтернативну базу за профиле [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
 
-#: ../src/gcompris/gcompris.c:212
+#: ../src/gcompris/gcompris.c:210
 msgid "Create the alternate database for profiles"
 msgstr "Прави алтернативну базу за профиле"
 
-#: ../src/gcompris/gcompris.c:215
+#: ../src/gcompris/gcompris.c:213
 msgid "Re-read XML Menus and store them in the database"
-msgstr "Поново чита ХМЛ меније и смешта их у базу података"
+msgstr "Поново чита ИксМЛ изборнике и смешта их у базу података"
 
-#: ../src/gcompris/gcompris.c:218
+#: ../src/gcompris/gcompris.c:216
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Подешава профил за коришћење. Користите „gcompris -a“ да направите профиле"
 
-#: ../src/gcompris/gcompris.c:221
+#: ../src/gcompris/gcompris.c:219
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Наводи све доступне профиле. Користите „gcompris -a“ да направите профиле"
 
-#: ../src/gcompris/gcompris.c:224
+#: ../src/gcompris/gcompris.c:222
 msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
@@ -3620,69 +3622,46 @@ msgstr ""
 "Подешава локацију директоријума: [$HOME/.config/gcompris]. Алтернатива је да "
 "подесите „$XDG_CONFIG_HOME“."
 
-#: ../src/gcompris/gcompris.c:227
+#: ../src/gcompris/gcompris.c:225
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "Локација корисничког директоријума: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:230
+#: ../src/gcompris/gcompris.c:228
 msgid "Run the experimental activities"
 msgstr "Покреће експерименталне вежбе"
 
-#: ../src/gcompris/gcompris.c:233
+#: ../src/gcompris/gcompris.c:231
 msgid "Disable the quit button"
 msgstr "Искључује дугме за излаз"
 
-#: ../src/gcompris/gcompris.c:236
+#: ../src/gcompris/gcompris.c:234
 msgid "Disable the config button"
 msgstr "Искључује дугме за подешавања"
 
-#: ../src/gcompris/gcompris.c:239
+#: ../src/gcompris/gcompris.c:237
 msgid "Disable the level button"
 msgstr "Искључује дугме нивоа"
 
-#: ../src/gcompris/gcompris.c:242
+#: ../src/gcompris/gcompris.c:240
 msgid "Disable the database (slower start and no user log)"
 msgstr "Искључује базу података (спорије покретање и без пријаве корисника)"
 
-#: ../src/gcompris/gcompris.c:245
-msgid ""
-"GCompris will get images, sounds and activity data from this server if not "
-"found locally."
-msgstr ""
-"ГКомприс ће набавити слике, звуке и податке за вежбе са овог сервера ако их "
-"не нађе у локалу."
-
-#: ../src/gcompris/gcompris.c:248
-msgid ""
-"Only when --server is provided, disable check for local resource first. Data "
-"are always taken from the web server."
-msgstr ""
-"Само када је задат параметар „--server“, искључује проверу локалних извора. "
-"Подаци ће увек бити преузимани са веб сервера."
-
-#: ../src/gcompris/gcompris.c:252
-msgid ""
-"In server mode, specify the cache directory used to avoid useless downloads."
-msgstr ""
-"У серверском режиму, наведите директоријум за локално смештање да би се "
-"избегло беспотребно преузимање."
-
-#: ../src/gcompris/gcompris.c:255
+#: ../src/gcompris/gcompris.c:243
 msgid ""
 "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr ""
 "Општи режим за превуци-и-пусти: нормалан, 2 клика, оба. Подразумевано је "
 "нормалан."
 
-#: ../src/gcompris/gcompris.c:258
+#: ../src/gcompris/gcompris.c:246
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Не избегава извршавање вишеструких инстанци ГКомприса."
 
-#: ../src/gcompris/gcompris.c:261
+#: ../src/gcompris/gcompris.c:249
 msgid "Disable maximization zoom"
 msgstr "Искључује увећавање"
 
-#: ../src/gcompris/gcompris.c:264
+#: ../src/gcompris/gcompris.c:252
 msgid ""
 "Increase activities' timeout delays; useful values > 1.0; 1.0 to not change "
 "hardcoded value"
@@ -3690,7 +3669,7 @@ msgstr ""
 "Повећава кашњења истека времена вежби; корисне вредности > 1.0; 1.0 да не "
 "мења стриктно кодне вредности"
 
-#: ../src/gcompris/gcompris.c:267
+#: ../src/gcompris/gcompris.c:255
 msgid ""
 "How activities' timeout delays are growing for several actors; useful values "
 "< 1.0; 1.0 to not change hardcoded value"
@@ -3698,11 +3677,11 @@ msgstr ""
 "Одређује прираштај кашњења истека времена вежби за неколико извођача; "
 "корисне вредности > 1.0; 1.0 да не мења стриктно кодне вредности"
 
-#: ../src/gcompris/gcompris.c:270
+#: ../src/gcompris/gcompris.c:258
 msgid "For test purpose, run in a loop all the activities"
 msgstr "За пробу, понавља непрекидно све вежбе"
 
-#: ../src/gcompris/gcompris.c:955
+#: ../src/gcompris/gcompris.c:943
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -3723,19 +3702,19 @@ msgstr ""
 "информација можете наћи на сајту ЗСС:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1250
+#: ../src/gcompris/gcompris.c:1236
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
 msgstr ""
 "Нисам успео да учитам маску „%s“ (Проверите да ли датотека постоји и да ли "
 "је читљива)"
 
-#: ../src/gcompris/gcompris.c:1266
+#: ../src/gcompris/gcompris.c:1252
 msgid "Retrieving remote data..."
 msgstr "Преузимам удаљене податке..."
 
 # bug: plural-forms
-#: ../src/gcompris/gcompris.c:1526
+#: ../src/gcompris/gcompris.c:1512
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d second old.\n"
@@ -3754,12 +3733,12 @@ msgstr[3] ""
 "ГКомприс се неће покренути зато што је датотека закључавања млађа од једне "
 "секунде.\n"
 
-#: ../src/gcompris/gcompris.c:1530
+#: ../src/gcompris/gcompris.c:1516
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Датотека закључавања: %s\n"
 
-#: ../src/gcompris/gcompris.c:1708
+#: ../src/gcompris/gcompris.c:1694
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3773,36 +3752,27 @@ msgstr ""
 "Више на http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1829
+#: ../src/gcompris/gcompris.c:1815
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Користите параметар „-l“ да директно приступите вежби.\n"
 
-#: ../src/gcompris/gcompris.c:1830
+#: ../src/gcompris/gcompris.c:1816
 #, c-format
 msgid "The list of available activities is :\n"
-msgstr "Листа доступних вежби је :\n"
+msgstr "Списак доступних вежби је :\n"
 
-#: ../src/gcompris/gcompris.c:1861
+#: ../src/gcompris/gcompris.c:1847
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Број вежби: %d\n"
 
-#: ../src/gcompris/gcompris.c:1897
+#: ../src/gcompris/gcompris.c:1883
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s постоји али се не може читати нити преписивати"
 
-#: ../src/gcompris/gcompris.c:1961
-#, c-format
-msgid ""
-"The --server option cannot be used because GCompris has been compiled "
-"without network support!"
-msgstr ""
-"Опција „--server“ не може бити коришћена зато што је Гкомприс изграђен без "
-"подршке за мрежу!"
-
-#: ../src/gcompris/gcompris.c:2019
+#: ../src/gcompris/gcompris.c:1978
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3811,20 +3781,20 @@ msgstr ""
 "ГРЕШКА: Профил „%s“ није пронађен. Покрените „gcompris --profile-list“ да "
 "прикажете доступне\n"
 
-#: ../src/gcompris/gcompris.c:2033
+#: ../src/gcompris/gcompris.c:1992
 #, c-format
 msgid "The list of available profiles is:\n"
-msgstr "Листа доступних профила је:\n"
+msgstr "Списак доступних профила је:\n"
 
-#: ../src/gcompris/gcompris_db.c:309
+#: ../src/gcompris/gcompris_db.c:310
 msgid "Unaffected"
 msgstr "Ван утицаја"
 
-#: ../src/gcompris/gcompris_db.c:310
+#: ../src/gcompris/gcompris_db.c:311
 msgid "Users without a class"
 msgstr "Корисници без разреда"
 
-#: ../src/gcompris/gcompris_db.c:896
+#: ../src/gcompris/gcompris_db.c:897
 #, c-format
 msgid ""
 "Loading activity from database:\n"
@@ -3866,7 +3836,7 @@ msgstr ""
 "Све активности су искључене у овом профилу. Идите на модул администрације "
 "ГКомприса и активирајте барем једну активност."
 
-#: ../src/gcompris/properties.c:506
+#: ../src/gcompris/properties.c:505
 msgid ""
 "This directory contains the files you create with the GCompris educational "
 "suite\n"
@@ -3874,7 +3844,7 @@ msgstr ""
 "Овај директоријум садржи датотеке које сте направили са образовним пакетом "
 "ГКомприс\n"
 
-#: ../src/gcompris/properties.c:513
+#: ../src/gcompris/properties.c:512
 msgid ""
 "Put any number of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
@@ -3883,6 +3853,43 @@ msgstr ""
 "Ставите колико желите слика у овај директоријум.\n"
 "Те слике можете укључити у ваше цртеже и анимације.\n"
 "Подржани формати слика су „jpeg“, „png“ и „svg“.\n"
+
+#: ../src/gcompris/sugar_cli.c:222 ../src/gcompris/sugar_srv.c:156
+msgid "Sharing Error"
+msgstr "Грешка дељења"
+
+#: ../src/gcompris/sugar_cli.c:223
+msgid "Cannot retrieve remote data"
+msgstr "Не могу да преузмем удаљене податке"
+
+#: ../src/gcompris/sugar_gc.c:82
+msgid "About"
+msgstr "О програму"
+
+#: ../src/gcompris/sugar_gc.c:83
+msgid "Refresh"
+msgstr "Освежи"
+
+#: ../src/gcompris/sugar_gc.c:84
+msgid "Settings"
+msgstr "Подешавања"
+
+#: ../src/gcompris/sugar_gc.c:85
+msgid "Previous level"
+msgstr "Претходни ниво"
+
+#: ../src/gcompris/sugar_gc.c:88
+msgid "Next level"
+msgstr "Следећи ниво"
+
+#. TRANSLATORS: Back as in previous
+#: ../src/gcompris/sugar_gc.c:97
+msgid "Back"
+msgstr "Назад"
+
+#: ../src/gcompris/sugar_srv.c:157
+msgid "Cannot initiate sharing session"
+msgstr "Не могу да покренем сесију дељења"
 
 #: ../src/gcompris/timer.c:257
 msgid "Time Elapsed"
@@ -3970,7 +3977,7 @@ msgid "Continents"
 msgstr "Континенти"
 
 #: ../src/geography-activity/resources/geography/board1_0.xml.in.h:2
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:1
 msgid "Africa"
 msgstr "Африка"
 
@@ -4023,7 +4030,7 @@ msgid "Haiti"
 msgstr "Хаити"
 
 #: ../src/geography-activity/resources/geography/board2_0.xml.in.h:8
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:8
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:8
 msgid "Iceland"
 msgstr "Исланд"
 
@@ -4043,465 +4050,469 @@ msgstr "Сједињене Америчке Државе"
 msgid "Alaska"
 msgstr "Аљаска"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:1
 msgid "South America"
 msgstr "Јужна Америка"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:2
 msgid "Argentina"
 msgstr "Аргентина"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:3
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:3
 msgid "Bolivia"
 msgstr "Боливија"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:4
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:4
 msgid "Brazil"
 msgstr "Бразил"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:5
 msgid "Chile"
 msgstr "Чиле"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:6
 msgid "Colombia"
 msgstr "Колумбија"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:7
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:7
 msgid "Ecuador"
 msgstr "Еквадор"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:8
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:8
 msgid "French Guiana"
 msgstr "Француска Гвајана"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:9
 msgid "Guyana"
 msgstr "Гвајана"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:10
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:10
 msgid "Panama"
 msgstr "Панама"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:11
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:11
 msgid "Paraguay"
 msgstr "Парагвај"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:12
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:12
 msgid "Peru"
 msgstr "Перу"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:13
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:13
 msgid "Suriname"
 msgstr "Суринам"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:14
 msgid "Uruguay"
 msgstr "Уругвај"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:15
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:15
 msgid "Venezuela"
 msgstr "Венецуела"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:1
 msgid "Western Europe"
 msgstr "Западна Европа"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:2
 msgid "Austria"
 msgstr "Аустрија"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:3
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:3
 msgid "Belgium"
 msgstr "Белгија"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:4
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:4
 msgid "Denmark"
 msgstr "Данска"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:5
 msgid "Finland"
 msgstr "Финска"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:6
 msgid "France"
 msgstr "Француска"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:7
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:7
 msgid "Germany"
 msgstr "Немачка"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:9
 msgid "Ireland"
 msgstr "Ирска"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:10
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:10
 msgid "Italy"
 msgstr "Италија"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:11
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:11
 msgid "Luxembourg"
 msgstr "Луксембург"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:12
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:12
 msgid "The Netherlands"
 msgstr "Холандија"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:13
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:13
 msgid "Norway"
 msgstr "Норвешка"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:14
 msgid "Portugal"
 msgstr "Португал"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:15
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:15
 msgid "Spain"
 msgstr "Шпанија"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:16
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:16
 msgid "Sweden"
 msgstr "Шведска"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:17
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:17
 msgid "Switzerland"
 msgstr "Швајцарска"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:18
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:18
 msgid "United Kingdom"
 msgstr "Велика Британија"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:1
 msgid "Eastern Europe"
 msgstr "Источна Европа"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:2
 msgid "Albania"
 msgstr "Албанија"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:3
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:3
 msgid "Belarus"
 msgstr "Белорусија"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:4
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:4
 msgid "Bosnia Herzegovina"
 msgstr "Босна и Херцеговина"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:5
 msgid "Bulgaria"
 msgstr "Бугарска"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:6
 msgid "Croatia"
 msgstr "Хрватска"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:8
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:8
 msgid "Estonia"
 msgstr "Естонија"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:9
 msgid "Hungary"
 msgstr "Мађарска"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:10
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:10
 msgid "Latvia"
 msgstr "Летонија"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:11
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:11
 msgid "Lithuania"
 msgstr "Литванија"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:12
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:12
 msgid "Macedonia"
 msgstr "Македонија"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:13
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:13
 msgid "Moldova"
 msgstr "Молдавија"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:14
 msgid "Poland"
 msgstr "Пољска"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:15
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:15
 msgid "Romania"
 msgstr "Румунија"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:16
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:16
 msgid "Russia"
 msgstr "Русија"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:17
-msgid "Serbia Montenegro"
-msgstr "Србија и Црна Гора"
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:17
+msgid "Serbia"
+msgstr "Србија"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:18
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:18
+msgid "Montenegro"
+msgstr "Црна Гора"
+
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:19
 msgid "Slovak Republic"
 msgstr "Словачка"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:19
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:20
 msgid "Slovenia"
 msgstr "Словенија"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:20
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:21
 msgid "Turkey"
 msgstr "Турска"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:21
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:22
 msgid "Ukraine"
 msgstr "Украјина"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:22
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:23
 msgid "Greece"
 msgstr "Грчка"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:23
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:24
 msgid "Cyprus"
 msgstr "Кипар"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:1
 msgid "Northern Africa"
 msgstr "Северна Африка"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:2
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:3
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:3
 msgid "Algeria"
 msgstr "Алжир"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:3
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:3
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:5
 msgid "Benin"
 msgstr "Бенин"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:4
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:7
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:4
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:7
 msgid "Burkina Faso"
 msgstr "Буркина Фасо"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:5
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:8
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:8
 msgid "Cameroon"
 msgstr "Камерун"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:6
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:30
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:30
 msgid "Central African Republic"
-msgstr "Централноафричка република"
+msgstr "Централноафричка Република"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:7
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:35
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:7
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:35
 msgid "Chad"
 msgstr "Чад"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:8
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:8
 msgid "Djibouti"
 msgstr "Џибути"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:9
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:11
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:11
 msgid "Egypt"
 msgstr "Египат"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:10
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:10
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:6
 msgid "Equatorial Guinea"
 msgstr "Екваторијална Гвинеја"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:11
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:13
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:11
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:13
 msgid "Ethiopia"
 msgstr "Етиопија"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:12
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:12
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:12
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:12
 msgid "Eritrea"
 msgstr "Еритреја"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:13
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:7
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:13
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:7
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:14
 msgid "Gabon"
 msgstr "Габон"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:14
 msgid "Gambia"
 msgstr "Гамбија"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:15
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:15
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:15
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:15
 msgid "Ghana"
 msgstr "Гана"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:16
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:16
 msgid "Guinea Bissau"
 msgstr "Гвинеја Бисау"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:17
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:16
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:17
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:16
 msgid "Guinea"
 msgstr "Гвинеја"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:18
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:10
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:18
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:10
 msgid "Ivory Coast"
 msgstr "Обала Слоноваче"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:19
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:18
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:19
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:18
 msgid "Liberia"
 msgstr "Либерија"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:20
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:19
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:20
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:19
 msgid "Libya"
 msgstr "Либија"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:21
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:22
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:21
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:22
 msgid "Mali"
 msgstr "Мали"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:22
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:24
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:22
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:24
 msgid "Mauritania"
 msgstr "Мауританија"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:23
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:23
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:23
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:23
 msgid "Morocco"
 msgstr "Мароко"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:24
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:28
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:24
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:28
 msgid "Nigeria"
 msgstr "Нигерија"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:25
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:27
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:25
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:27
 msgid "Niger"
 msgstr "Нигер"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:26
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:15
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:26
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:15
 msgid "Rwanda"
 msgstr "Руанда"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:27
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:31
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:27
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:31
 msgid "Senegal"
 msgstr "Сенегал"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:28
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:28
 msgid "Sierra Leone"
 msgstr "Сијера Леоне"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:29
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:32
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:29
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:32
 msgid "Somalia"
 msgstr "Сомалија"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:30
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:33
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:30
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:33
 msgid "Sudan"
 msgstr "Судан"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:31
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:36
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:31
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:36
 msgid "Togo"
 msgstr "Того"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:32
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:37
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:32
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:37
 msgid "Tunisia"
 msgstr "Тунис"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:33
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:19
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:29
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:33
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:19
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:29
 msgid "Uganda"
 msgstr "Уганда"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:34
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:34
 msgid "Western Sahara"
 msgstr "Западна Сахара"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:1
 msgid "Southern Africa"
 msgstr "Јужна Африка"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:2
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:4
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:4
 msgid "Angola"
 msgstr "Ангола"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:3
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:3
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:6
 msgid "Botswana"
 msgstr "Боцвана"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:4
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:4
 msgid "Burundi"
 msgstr "Бурунди"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:5
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:9
 msgid "Democratic Republic of Congo"
 msgstr "Демократска Република Конго"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:8
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:17
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:8
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:17
 msgid "Kenya"
 msgstr "Кенија"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:9
 msgid "Lesotho"
 msgstr "Лесото"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:10
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:20
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:10
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:20
 msgid "Madagascar"
 msgstr "Мадагаскар"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:11
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:21
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:11
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:21
 msgid "Malawi"
 msgstr "Малави"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:12
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:25
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:12
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:25
 msgid "Mozambique"
 msgstr "Мозамбик"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:13
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:26
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:13
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:26
 msgid "Namibia"
 msgstr "Намибија"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:14
 msgid "Republic of Congo"
 msgstr "Република Конго"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:16
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:16
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:2
 msgid "South Africa"
-msgstr "Јужна Африка"
+msgstr "Јужноафричка Република"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:17
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:17
 msgid "Swaziland"
 msgstr "Свазиленд"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:18
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:34
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:18
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:34
 msgid "Tanzania"
 msgstr "Танзанија"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:20
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:38
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:20
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:38
 msgid "Zambia"
 msgstr "Замбија"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:21
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:39
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:21
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:39
 msgid "Zimbabwe"
 msgstr "Зимбабве"
 
@@ -5577,7 +5588,6 @@ msgid "the organ"
 msgstr "оргуље"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
-#| msgid "the bass drum"
 msgid "the snare drum"
 msgstr "добош"
 
@@ -5697,13 +5707,12 @@ msgstr ""
 
 #: ../src/lightsoff-activity/lightsoff.xml.in.h:4
 msgid ""
-"The solver algorithm described on haar.clara.co.uk is a valuable resource to "
-"know more about the Lights Off game: &lt;http://www.haar.clara.co.uk/Lights/"
-"solving.html&gt;"
+"The solver algorithm is described on Wikipedia. To know more about the "
+"Lights Off game: &lt;http://en.wikipedia.org/wiki/Lights_Out_(game)&gt;"
 msgstr ""
 "Алгоритам решавача описан на „haar.clara.co.uk“ је меродаван ресурс да "
-"сазнате више о игри „Погаси светла“: &lt;http://www.haar.clara.co.uk/Lights/"
-"solving.html&gt;"
+"сазнате више о игри „Погаси светла“: &lt;http://en.wikipedia.org/wiki/"
+"Lights_Out_(game)&gt;"
 
 #: ../src/login-activity/login.py:102
 msgid "Profile: "
@@ -5829,7 +5838,6 @@ msgid "Louis trimmed Barbier's 12 dots into 6 and invented the Braille system."
 msgstr "Луј је смањио Барбјерових 12 тачака на 6 и измислио Брајев систем."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:8
-#| msgid "He became a teacher after graduating and secretly taught his method."
 msgid ""
 "He became a teacher after graduating and promoted his method while secretly "
 "teaching it at the Institute."
@@ -6650,8 +6658,8 @@ msgid "car/c_r/a/k/o"
 msgstr "кола/к_ла/о/е/а"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board2.xml.in.h:1
-msgid "satchel/s_tchel/a/o/i"
-msgstr "торба/т_рба/о/а/е"
+msgid "bag/b_g/a/o/i"
+msgstr "торба/т_рба/о/а/и"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board2.xml.in.h:2
 msgid "banana/b_nana/a/o/i"
@@ -6917,7 +6925,7 @@ msgstr "Кацушика Хокусаи, Казусшки морски пут �
 
 #: ../src/paintings-activity/resources/paintings/board1_1.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
-msgstr "Пјер-Огист Ренуар, Млин Галете — 1876"
+msgstr "Пјер-Огист Ренуар, Галетски млин — 1876"
 
 #: ../src/paintings-activity/resources/paintings/board1_2.xml.in.h:1
 msgid "Giuseppe Arcimboldo, Spring - 1573"
@@ -7316,7 +7324,7 @@ msgid ""
 "marked with a little red cross. The order of objects (above/under) is not "
 "important but be careful not to end up with unwanted objects under others."
 msgstr ""
-"Прво, изаберите одговарајући алат са линије алата. Затим, превуците мишем да "
+"Прво, изаберите одговарајући алат са траке алата. Затим, превуците мишем да "
 "направите објекте. Када завршите, притисните дугме „У реду“. Грешке ће бити "
 "означене црвеним крстићима. Редослед објеката (изнад/испод) није битан, али "
 "пазите да не оставите нежељени објекат испод осталих."
@@ -7341,7 +7349,7 @@ msgid ""
 "(above/under) is not important but be careful not to end up with unwanted "
 "objects under others."
 msgstr ""
-"Прво, изаберите одговарајући алат са линије алата. Затим, превуците мишем да "
+"Прво, изаберите одговарајући алат са траке алата. Затим, превуците мишем да "
 "направите објекте. Када завршите, притисните дугме „У реду“. Грешке ће бити "
 "означене црвеним крстићима. Редослед објеката (изнад/испод) није битан, али "
 "пазите да не оставите нежељени објекат испод осталих."
@@ -7514,11 +7522,11 @@ msgstr "Ово је нерешено"
 
 #: ../src/searace-activity/searace.py:742
 msgid "The Red boat has won"
-msgstr "Црвени брод је победио"
+msgstr "Победио је црвени брод"
 
 #: ../src/searace-activity/searace.py:745
 msgid "The Green boat has won"
-msgstr "Зелени брод је победио"
+msgstr "Победио је зелени брод"
 
 #: ../src/searace-activity/searace.py:764
 #: ../src/searace-activity/searace.py:1005
@@ -7980,7 +7988,6 @@ msgid "Heading 2"
 msgstr "Наслов 2"
 
 #: ../src/wordprocessor-activity/wordprocessor.c:482
-#| msgid "pink"
 msgid "Hyperlink"
 msgstr "Хипервеза"
 
@@ -7990,7 +7997,7 @@ msgstr "Ваш обрађивач текста"
 
 #: ../src/wordprocessor-activity/wordprocessor.xml.in.h:2
 msgid "A simple word processor to enter and save any text"
-msgstr "Једноставан обрађивач текста за унос и снимање"
+msgstr "Једноставан обрађивач текста за унос и чување"
 
 #: ../src/wordprocessor-activity/wordprocessor.xml.in.h:3
 msgid "The children can type their own text or copy one given by the teacher."
@@ -8001,13 +8008,13 @@ msgstr ""
 msgid ""
 "Learn how to enter text in a wordprocessor. This wordprocessor is special in "
 "that it enforces the use of styles. This way, the children will understand "
-"their benefit when moving to more feature full wordprocessor like OpenOffice."
-"org."
+"their benefit when moving to more feature full wordprocessor like "
+"LibreOffice."
 msgstr ""
 "Научите да уносите текст у програм за обраду текста. Овај програм је посебан "
 "по томе што вас тера да користите стилове за исписивање. На тај начин, дете "
 "ће разумети све њихове предности када почне са коришћењем напреднијих "
-"програма за обраду текста попут OpenOffice.org."
+"програма за обраду текста као што је Либре офис."
 
 #: ../src/wordprocessor-activity/wordprocessor.xml.in.h:5
 msgid ""
@@ -8041,207 +8048,3 @@ msgstr "Вежба куцања"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Укуцајте целу реч док пада, пре него што стигне до земље"
-
-#: ../src/gcompris/sugar_cli.c:222 ../src/gcompris/sugar_srv.c:156
-msgid "Sharing Error"
-msgstr "Грешка дељења"
-
-#: ../src/gcompris/sugar_cli.c:223
-msgid "Cannot retrieve remote data"
-msgstr "Не могу да преузмем удаљене податке"
-
-#: ../src/gcompris/sugar_gc.c:82
-msgid "About"
-msgstr "О програму"
-
-#: ../src/gcompris/sugar_gc.c:83
-msgid "Refresh"
-msgstr "Освежи"
-
-#: ../src/gcompris/sugar_gc.c:84
-msgid "Settings"
-msgstr "Подешавања"
-
-#: ../src/gcompris/sugar_gc.c:85
-msgid "Previous level"
-msgstr "Претходни ниво"
-
-#: ../src/gcompris/sugar_gc.c:88
-msgid "Next level"
-msgstr "Следећи ниво"
-
-#. TRANSLATORS: Back as in previous
-#: ../src/gcompris/sugar_gc.c:97
-msgid "Back"
-msgstr "Назад"
-
-#: ../src/gcompris/sugar_srv.c:157
-msgid "Cannot initiate sharing session"
-msgstr "Не могу да покренем сесију дељења"
-
-#~ msgid "Help"
-#~ msgstr "Помоћ"
-
-#~ msgid "Stop"
-#~ msgstr "Заустави"
-
-#~ msgid ""
-#~ "The screen has 3 sections: braille cell, alphabet name and lower board "
-#~ "containing 13 letters. Click on each letter in the lower board to know "
-#~ "its corresponding braille code in the braille cell section. Click on the "
-#~ "increment level button to jump to the next 13 letters of the English "
-#~ "alphabets."
-#~ msgstr ""
-#~ "Екран има 3 дела: Брајева ћелија, назив слова и нижу табелу која садржи "
-#~ "13 слова. Кликните на свако слово у доњој табели да сазнате његову "
-#~ "одговарајућу Брајеву шифру у одељку Брајеве ћелије. Кликните на дугме за "
-#~ "увећање нивоа да се пребаците на наредних 13 слова енглеског алфабета."
-
-#~ msgid ""
-#~ "Error: this activity requires that you first install\n"
-#~ "the packages with GCompris voices for the locale '%s' ! Fallback to "
-#~ "english, sorry!"
-#~ msgstr ""
-#~ "Грешка: ова вежба захтева да инсталирате пакет са гласовима\n"
-#~ "за ГКомприс за локалитет „%s“ ! Враћам се на енглески, жао ми је!"
-
-#~ msgid "Click on the blue duck"
-#~ msgstr "Кликните на плаву патку"
-
-#~ msgid "Click on the brown duck"
-#~ msgstr "Кликните на браон патку"
-
-#~ msgid "Click on the green duck"
-#~ msgstr "Кликните на зелену патку"
-
-#~ msgid "Click on the grey duck"
-#~ msgstr "Кликните на сиву патку"
-
-#~ msgid "Click on the orange duck"
-#~ msgstr "Кликните на наранџасту патку"
-
-#~ msgid "Click on the purple duck"
-#~ msgstr "Кликните на љубичасту патку"
-
-#~ msgid "Click on the red duck"
-#~ msgstr "Кликните на црвену патку"
-
-#~ msgid "Click on the yellow duck"
-#~ msgstr "Кликните на жуту патку"
-
-#~ msgid "Click on the black duck"
-#~ msgstr "Кликните на црну патку"
-
-#~ msgid "Click on the white duck"
-#~ msgstr "Кликните на белу патку"
-
-#~ msgid "English (United State)"
-#~ msgstr "Енглески (Сједињене Државе)"
-
-#~ msgid "Choice of pattern"
-#~ msgstr "Избор шаре"
-
-#~ msgid "Move the mouse until all the blocks disappear."
-#~ msgstr "Померајте миша док не нестану сва поља."
-
-#~ msgid "gcompris animation"
-#~ msgstr "гкомприс анимација"
-
-#~ msgid "gcompris drawing"
-#~ msgstr "гкомприс цртеж"
-
-#~ msgid "svg drawing"
-#~ msgstr "svg цртеж"
-
-#~ msgid "svg mozilla animation"
-#~ msgstr "svg mozilla анимација"
-
-#~ msgid "wordprocessor text"
-#~ msgstr "текст програма за обраду текста"
-
-#~ msgid "Improve reading skill and the ability to understand what is read."
-#~ msgstr "Побољшава читање и способност да се разуме прочитано."
-
-#~ msgid "Read and play with the story"
-#~ msgstr "Читај и играј се са причом"
-
-#~ msgid "reading"
-#~ msgstr "читање"
-
-#~ msgid "Click on the correct colored object."
-#~ msgstr "Кликните на објекат одговарајуће боје."
-
-#~ msgid "Click on the matching color"
-#~ msgstr "Кликните на праву боју"
-
-#~ msgid "Read the names of colors"
-#~ msgstr "Прочитај називе боја"
-
-#~ msgid "This board teaches basic colors."
-#~ msgstr "Ова табла служи за учење основних боја."
-
-#~ msgid "violet"
-#~ msgstr "љубичаста"
-
-#~ msgid ""
-#~ "Error: The external program gnuchess is required\n"
-#~ "to play chess in GCompris.\n"
-#~ "Find this program on http://www.rpmfind.net or in your\n"
-#~ "GNU/Linux distribution\n"
-#~ "And check it is located here: "
-#~ msgstr ""
-#~ "Грешка: спољашњи програм gnuchess је потребан\n"
-#~ "за играње шаха у ГКомпрису.\n"
-#~ "Нађите овај програм на http://www.rpmfind.net или у \n"
-#~ "вашем ГНУ/Линукс систему\n"
-#~ "Такође, проверите да ли је у: "
-
-#~ msgid "Wordlist"
-#~ msgstr "Листа речи"
-
-#~ msgid "SVG is disabled. Install python xml module to enable it"
-#~ msgstr "SVG је искључен. Инсталирајте xml модул за Питона да би га укључили"
-
-#~ msgid "Warning: the following images cannot be accessed on your system.\n"
-#~ msgstr ""
-#~ "Упозорење: следећим сликама на вашем систему се не може приступити.\n"
-
-#~ msgid "The corresponding items have been skipped."
-#~ msgstr "Дотичне ставке су прескочене."
-
-#~ msgid ""
-#~ "Below the surface, Oscar the octopus and his friends sat on a rock,\n"
-#~ "watching the bad weather above them."
-#~ msgstr ""
-#~ "Испод површине, октопод Оскар и његови пријатељи седе на стени,\n"
-#~ "и посматрају невреме изнад њих."
-
-#~ msgid ""
-#~ "They were all happy that the storms never reached all the way down to "
-#~ "them."
-#~ msgstr "Срећни су јер олује никада не стигну доле до њих."
-
-#~ msgid ""
-#~ "No matter how bad it was up there, the bottom was always calm and quiet."
-#~ msgstr "Без обзира колико је лоше тамо горе, на дну је увек мирно и тихо."
-
-#~ msgid "Oscar's best friends were Charlie the crab and Sandy the sea-star."
-#~ msgstr "Оскарови најбољи другари су Раде рак и Милена морска звезда."
-
-#~ msgid "Arabic (Tunisia)"
-#~ msgstr "Арапски (Тунис)"
-
-#~ msgid "800x600 (Default for GCompris)"
-#~ msgstr "800x600 (подразумевано за ГКомприс)"
-
-#~ msgid "Use the antialiased canvas (slower)."
-#~ msgstr "Користи улепшан приказ (спорије)."
-
-#~ msgid "Disable XF86VidMode (No screen resolution change)."
-#~ msgstr "Искључи XF86VidMode (Нема измене резолуције)."
-
-#~ msgid "Display the resources on stdout based on the selected activities"
-#~ msgstr "Прикажи ресурсе на stdout на основу изабраних вежби"
-
-#~ msgid "Do not display the background images of activities."
-#~ msgstr "Не приказуј слике позадине за вежбе."

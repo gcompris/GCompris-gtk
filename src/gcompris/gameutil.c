@@ -578,8 +578,6 @@ gc_file_find_absolute(const gchar *format, ...)
    * Search it on the file system
    */
 
-  if(properties->server)
-  	dir_to_search[i++] = "";
   dir_to_search[i++] = properties->user_dir;
   dir_to_search[i++] = properties->package_data_dir;
   dir_to_search[i++] = properties->package_skin_dir;
@@ -683,8 +681,6 @@ gc_file_find_absolute_writeable(const gchar *format, ...)
       }
     }
   g_free(dirname);
-  if(absolute_filename)
-  	gc_cache_add(absolute_filename);
   return absolute_filename;
 }
 

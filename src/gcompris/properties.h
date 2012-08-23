@@ -49,7 +49,6 @@ typedef struct {
   gchar        *package_python_plugin_dir;
   gchar        *menu_dir;
   gchar        *system_icon_dir;
-  gchar        *cache_dir;
   gchar	       *locale;
   gchar	       *skin;
   gchar	       *key;
@@ -65,7 +64,6 @@ typedef struct {
   GtkIMContext *context;
   gchar        *default_context;
   gint          experimental;
-  gchar        *server;
   gint		drag_mode;
   gint		zoom;
   gboolean	bar_hidden;  /* Is the bar hiden */
@@ -79,7 +77,6 @@ void			 gc_prop_load (GcomprisProperties *props, GCPropSourceConf);
 void			 gc_prop_save (GcomprisProperties *props);
 void			 gc_prop_activate (GcomprisProperties *props);
 
-gchar                   *gc_prop_default_database_name_get (gchar *config_dir);
 int			 gc_setenv (const char * name, const char * value);
 
 void			 gc_prop_old_config_migration(GcomprisProperties *props);

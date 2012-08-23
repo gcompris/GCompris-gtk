@@ -23,6 +23,7 @@
 #include <unistd.h>
 #include <time.h>
 #include <string.h>
+#include <stdlib.h>
 
 #ifdef WIN32
 // WIN32
@@ -37,7 +38,7 @@
 
 // Include Mac OS X menu synchronization on native OSX build
 #ifdef  MAC_INTEGRATION
-#include "ige-mac-menu.h"
+#include "gtk-mac-menu.h"
 #endif
 
 #include <glib/gstdio.h>
@@ -142,9 +143,6 @@ static gint  popt_no_quit	   = FALSE;
 static gint  popt_no_config        = FALSE;
 static gint  popt_no_level         = FALSE;
 static gint  popt_no_database      = FALSE;
-static gchar *popt_server          = NULL;
-static gint  *popt_web_only        = NULL;
-static gchar *popt_cache_dir       = NULL;
 static gchar *popt_drag_mode       = NULL;
 static gint popt_no_zoom           = FALSE;
 static gint popt_test              = FALSE;
@@ -240,16 +238,6 @@ static GOptionEntry options[] = {
 
   {"disable-database",'\0', 0, G_OPTION_ARG_NONE, &popt_no_database,
    N_("Disable the database (slower start and no user log)"), NULL},
-
-  {"server", '\0', 0, G_OPTION_ARG_STRING, &popt_server,
-   N_("GCompris will get images, sounds and activity data from this server if not found locally."), NULL},
-
-  {"web-only", '\0', 0, G_OPTION_ARG_NONE, &popt_web_only,
-   N_("Only when --server is provided, disable check for local resource first."
-      " Data are always taken from the web server."), NULL},
-
-  {"cache-dir", '\0', 0, G_OPTION_ARG_STRING, &popt_cache_dir,
-   N_("In server mode, specify the cache directory used to avoid useless downloads."), NULL},
 
   {"drag-mode", 'g', 0, G_OPTION_ARG_STRING, &popt_drag_mode,
    N_("Global drag and drop mode: normal, 2clicks, both. Default mode is normal."), NULL},
@@ -760,7 +748,7 @@ init_workspace()
 #ifdef MAC_INTEGRATION
   GtkWidget *quit_item;
   quit_item = gtk_menu_item_new();
-  ige_mac_menu_set_quit_menu_item(GTK_MENU_ITEM (quit_item));
+  gtk_mac_menu_set_quit_menu_item(GTK_MENU_ITEM (quit_item));
   g_signal_connect(GTK_OBJECT (quit_item),
 		   "activate", G_CALLBACK (quit_cb), NULL);
   gtk_widget_show (quit_item);
@@ -1201,8 +1189,6 @@ static void cleanup()
   sugar_cleanup();
   gc_fullscreen_set(FALSE);
   gc_menu_destroy();
-  gc_net_destroy();
-  gc_cache_destroy();
   gc_prop_destroy(gc_prop_get());
 }
 
@@ -1953,33 +1939,6 @@ main (int argc, char *argv[])
       properties->reread_menu = TRUE;
   }
 
-  if (popt_server){
-#ifdef USE_GNET
-      properties->server = g_strdup(popt_server);
-      printf("   Server '%s'\n", properties->server);
-#else
-      printf(_("The --server option cannot be used because"
-	       " GCompris has been compiled without network support!"));
-      exit(1);
-#endif
-  }
-
-  if(popt_web_only) {
-    g_free(properties->package_data_dir);
-    properties->package_data_dir = g_strdup("");
-
-    g_free(properties->system_icon_dir);
-    properties->system_icon_dir = g_strdup("");
-  }
-
-  if (popt_server){
-    if(popt_cache_dir)
-      properties->cache_dir = g_strdup(popt_cache_dir);
-    else
-      properties->cache_dir = g_build_filename(g_get_user_cache_dir(), "gcompris", NULL);
-    printf("   Cache dir '%s'\n",properties->cache_dir);
-  }
-
   if (popt_drag_mode){
     if (strcmp(popt_drag_mode, "default") == 0)
       properties->drag_mode = GC_DRAG_MODE_GRAB;
@@ -2050,10 +2009,6 @@ main (int argc, char *argv[])
   /*------------------------------------------------------------*/
 
   single_instance_check();
-
-  /* networking init */
-  gc_net_init();
-  gc_cache_init();
 
   gc_sound_build_music_list();
 

@@ -129,9 +129,9 @@ _AM_DEPENDENCIES([OBJC])
 _gdk_tgt=`$PKG_CONFIG --variable=target gdk-2.0`
 AM_CONDITIONAL([GDK_TARGET_QUARTZ], [test x$_gdk_tgt = xquartz])
 if test "x$_gdk_tgt" = xquartz; then
-   PKG_CHECK_MODULES(IGE_MAC, ige-mac-integration)
-   AC_SUBST(IGE_MAC_LIBS)
-   AC_SUBST(IGE_MAC_CFLAGS)
+   PKG_CHECK_MODULES(GTK_MAC, gtk-mac-integration)
+   AC_SUBST(GTK_MAC_LIBS)
+   AC_SUBST(GTK_MAC_CFLAGS)
    AC_DEFINE_UNQUOTED(MAC_INTEGRATION, 1, [Integrate in the OSX Menu])
 fi
 
@@ -400,20 +400,6 @@ else
 fi
 AC_SUBST(AUDIO_CFLAGS)
 AC_SUBST(AUDIO_LIBS)
-
-dnl GNET support
-AC_MSG_CHECKING([wether we build with GNET (if not, networking will be disabled)])
-AC_ARG_ENABLE(gnet,
-          AC_HELP_STRING(
-          [--disable-gnet],
-          [Turn off gnet (will not let GCompris fetch content from a web server)]),
-          with_gnet="$enableval", with_gnet="yes")
-AC_MSG_RESULT($with_gnet)
-
-if test x$with_gnet = xyes; then
-  PKG_CHECK_MODULES(GNET, gnet-2.0,, AC_MSG_ERROR([*** GNET not found!]))
-  AC_DEFINE([USE_GNET], 1,[Networking is enabled])
-fi
 
 dnl SQLITE support
 AC_MSG_CHECKING([wether we build with SQLITE (if not profile will be disabled)])
@@ -896,7 +882,6 @@ echo "Python plugin                            = $build_python_plugin"
 echo "SQLITE database (--enable-sqlite)        = $with_sqlite (profiles depend on this)"
 
 echo "Sugar DE Support                         = $with_sugar"
-echo "GNET Networking (--enable-gnet)          = $with_gnet (networking depends on this)"
 echo "BINRELOC (--enable-binreloc)             = $br_cv_binreloc"
 echo "NSBundle (--enable-nsbundle)             = $nsbundle"
 echo "SDL Mixer (--enable-sdlmixer)            = $with_sdlmixer (default is gstreamer)"

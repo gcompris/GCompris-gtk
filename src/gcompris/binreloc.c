@@ -26,8 +26,8 @@
 #include "binreloc.h"
 
 #ifdef MAC_INTEGRATION
-#include <igemacintegration/ige-mac-bundle.h>
-static IgeMacBundle *bundle = NULL;
+#include <gtkmacintegration/gtk-mac-bundle.h>
+static GtkMacBundle *bundle = NULL;
 #endif
 
 G_BEGIN_DECLS
@@ -67,19 +67,19 @@ _br_find_exe (GbrInitError *error)
 #elif MAC_INTEGRATION
 	gchar *prefix = NULL, *result = NULL;
 	g_type_init();
-	bundle = ige_mac_bundle_new();
+	bundle = gtk_mac_bundle_new();
 	if (!bundle) {
 	  *error = GBR_INIT_ERROR_MAC_NOT_BUNDLE;
 	  return NULL;
 	}
-	if (!ige_mac_bundle_get_is_app_bundle (bundle)) {
+	if (!gtk_mac_bundle_get_is_app_bundle (bundle)) {
 	  g_object_unref(bundle);
 	  bundle = NULL;
 	  *error = GBR_INIT_ERROR_MAC_NOT_APP_BUNDLE;
 	  return NULL;
 	}
-	ige_mac_bundle_setup_environment(bundle);
-	prefix = g_strdup(ige_mac_bundle_get_path(bundle));
+	gtk_mac_bundle_setup_environment(bundle);
+	prefix = g_strdup(gtk_mac_bundle_get_path(bundle));
 	result = g_build_filename(prefix, "Contents/MacOS",
 				  "GCompris-bin", NULL);
 	g_free(prefix);
@@ -601,7 +601,7 @@ gbr_find_data_dir (const gchar *default_data_dir)
 	}
 
 #ifdef MAC_INTEGRATION
-	dir = g_strdup(ige_mac_bundle_get_datadir(bundle));
+	dir = g_strdup(gtk_mac_bundle_get_datadir(bundle));
 #else
 	dir = g_build_filename (prefix, "share", NULL);
 #endif
@@ -638,7 +638,7 @@ gbr_find_locale_dir (const gchar *default_locale_dir)
 	}
 
 #ifdef MAC_INTEGRATION
-	dir = g_strdup(ige_mac_bundle_get_localedir(bundle));
+	dir = g_strdup(gtk_mac_bundle_get_localedir(bundle));
 #else
 	dir = g_build_filename (data_dir, "locale", NULL);
 #endif
@@ -675,7 +675,7 @@ gbr_find_lib_dir (const gchar *default_lib_dir)
 	}
 
 #ifdef MAC_INTEGRATION
-	dir = g_build_filename(ige_mac_bundle_get_datadir(bundle),
+	dir = g_build_filename(gtk_mac_bundle_get_datadir(bundle),
 			       "..", "lib", NULL);
 #else
 	if (default_lib_dir && strstr(default_lib_dir, "lib64"))

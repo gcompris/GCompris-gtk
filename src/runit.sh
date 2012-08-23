@@ -1,5 +1,5 @@
 #!/bin/sh
-set -x
+#set -x
 if [ -z $1 ]; then
   echo "Usage: runit.sh [GCompris activity directory]"
   exit 1
@@ -26,6 +26,9 @@ fi
 if [ ! -f $gcompris ]; then
   gcompris=$1/../gcompris/gcompris
 fi
+
+# Recreate the activity.xml file
+sed -e "s/\(<\{1\}\/*\)_/\1/g" $1/${activity}.xml.in > $1/${activity}.xml
 
 $gcompris -L $plugindir \
     -P $pythonplugindir \

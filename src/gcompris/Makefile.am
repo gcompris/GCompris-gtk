@@ -41,7 +41,7 @@ INCLUDES = \
 	$(GNET_CFLAGS) \
 	$(AUDIO_CFLAGS) \
 	$(cairo_cflags) \
-	${IGE_MAC_CFLAGS}
+	${GTK_MAC_CFLAGS}
 
 gcompris_SOURCES = \
 	$(cairo_c) \
@@ -69,8 +69,6 @@ gcompris_SOURCES = \
 	gameutil.c \
 	gameutil.h \
 	gc_core.h \
-	gc_net.c \
-	gc_net.h \
 	gcompris-board.h \
 	gcompris.c \
 	gcompris.h \
@@ -119,7 +117,7 @@ gcompris_LDADD = \
 	$(GCOMPRIS_LIBS) $(sqlite_ldadd) $(XML_LIBS) $(GNET_LIBS) \
 	$(AUDIO_LIBS) \
         $(INTLLIBS) \
-	${IGE_MAC_LIBS}
+	${GTK_MAC_LIBS}
 
 marshal_sources =				\
 	gc-marshal.c				\

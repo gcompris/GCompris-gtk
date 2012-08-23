@@ -142,7 +142,6 @@ static void _return_clicked(GtkWidget *w, gpointer data)
 	gchar *filename;
 
 	filename = gc_file_find_absolute_writeable(u->wordlist->filename);
-	gc_cache_remove(filename);
 	g_free(filename);
 
 	level = gtk_combo_box_get_active(u->combo_level)+1;

@@ -55,27 +55,89 @@
        binaries link to are also copied in automatically.
   -->
   <binary>
-    ${prefix}/lib/gtk-2.0/${pkg:gtk+-2.0:gtk_binary_version}/loaders/*.so
+    ${prefix}/lib/gdk-pixbuf-2.0/${pkg:gtk+-2.0:gtk_binary_version}/loaders/*.so
   </binary>
 
   <binary>
-    ${prefix}/lib/python2.6/site-packages/cairo/*.so
+    ${prefix}/lib/python2.7/site-packages/cairo/*.so
   </binary>
 
   <binary>
-    ${prefix}/lib/python2.6/site-packages/gtk-2.0/gtk/*.so
+    ${prefix}/lib/python2.7/site-packages/gtk-2.0/gtk/*.so
   </binary>
 
   <binary>
-    ${prefix}/lib/python2.6/site-packages/gtk-2.0/gio/*.so
+    ${prefix}/lib/python2.7/site-packages/gtk-2.0/gio/*.so
   </binary>
 
   <binary>
-    ${prefix}/lib/python2.6/site-packages/gtk-2.0/glib/*.so
+    ${prefix}/lib/libogg*.dylib
   </binary>
 
   <binary>
-    ${prefix}/lib/python2.6/site-packages/gtk-2.0/gobject/*.so
+    ${prefix}/lib/libvorbis*.dylib
+  </binary>
+
+  <!-- GSTREAMER plugins -->
+  <binary>
+    ${prefix}/lib/gstreamer-0.10/libgstaudioconvert.so
+  </binary>
+
+  <binary>
+    ${prefix}/lib/gstreamer-0.10/libgstaudiorate.so
+  </binary>
+
+  <binary>
+    ${prefix}/lib/gstreamer-0.10/libgstaudioresample.so
+  </binary>
+
+  <binary>
+    ${prefix}/lib/gstreamer-0.10/libgstautodetect.so
+  </binary>
+
+  <binary>
+    ${prefix}/lib/gstreamer-0.10/libgstcoreelements.so
+  </binary>
+
+  <binary>
+    ${prefix}/lib/gstreamer-0.10/libgstdecodebin.so
+  </binary>
+
+  <binary>
+    ${prefix}/lib/gstreamer-0.10/libgstdecodebin2.so
+  </binary>
+
+  <binary>
+    ${prefix}/lib/gstreamer-0.10/libgstogg.so
+  </binary>
+
+  <binary>
+    ${prefix}/lib/gstreamer-0.10/libgstosxaudio.so
+  </binary>
+
+  <binary>
+    ${prefix}/lib/gstreamer-0.10/libgstplaybin.so
+  </binary>
+
+  <binary>
+    ${prefix}/lib/gstreamer-0.10/libgsttypefindfunctions.so
+  </binary>
+
+  <binary>
+    ${prefix}/lib/gstreamer-0.10/libgstvolume.so
+  </binary>
+
+  <binary>
+    ${prefix}/lib/gstreamer-0.10/libgstvorbis.so
+  </binary>
+
+  <binary>
+    ${prefix}/lib/gstreamer-0.10/libgstwavparse.so
+  </binary>
+
+
+  <binary>
+    ${prefix}/libexec/gstreamer-0.10/*
   </binary>
 
   <binary>
@@ -84,15 +146,6 @@
 
   <binary>
     ${prefix}/bin/gnucap
-  </binary>
-
-  <!-- SDL -->
-  <binary>
-    ${prefix}/lib/libvorbisfile.dylib
-  </binary>
-
-  <binary>
-    ${prefix}/lib/libpyglib-2.0-python.dylib
   </binary>
 
   <!-- GCompris plugins -->
@@ -120,7 +173,11 @@
   </data>
 
   <data>
-    ${prefix}/lib/python2.6
+    ${prefix}/lib/python2.7
+  </data>
+
+  <data>
+    ${prefix}/include/python2.7/pyconfig.h
   </data>
 
   <!-- Copy in the themes data. You may want to trim this to save space

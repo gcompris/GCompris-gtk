@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-22 17:23+0300\n"
-"PO-Revision-Date: 2012-06-22 17:21+0300\n"
+"POT-Creation-Date: 2012-06-29 08:22+0300\n"
+"PO-Revision-Date: 2012-06-29 08:21+0300\n"
 "Last-Translator: Alexander Shopov <ash@kambanaria.org>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "Language: bg\n"
@@ -2271,9 +2271,8 @@ msgstr "„Триколката“ на Рено от 1899 г."
 msgid "1923 Lancia Lambda"
 msgstr "Ланча „Ламбда“ от 1923 г."
 
-# FIXME ds -> DS
 #: ../src/chronos-activity/resources/chronos/board4_3.xml.in.h:4
-msgid "1955 Citroën ds 19"
+msgid "1955 Citroën DS 19"
 msgstr "Ситроен „DS 19“ от 1955 г."
 
 #: ../src/clickanddraw-activity/clickanddraw.xml.in.h:1
@@ -2806,7 +2805,7 @@ msgstr "Нарисувайте картината като натискате в
 msgid ""
 "Cannot find the 'gnucap' electric simulator.\n"
 "You can download and install it from:\n"
-"<http://geda.seul.org/tools/gnucap/>\n"
+"<http://www.gnu.org/software/gnucap/>\n"
 "To be detected, it must be installed in\n"
 "/usr/bin/gnucap or /usr/local/bin/gnucap.\n"
 "You can still use this activity to draw schematics without computer "
@@ -2814,7 +2813,7 @@ msgid ""
 msgstr ""
 "Неуспех при намирането на електрическия симулатор „gnucap“.\n"
 "Може да го изтеглите и инсталирате от:\n"
-"<http://geda.seul.org/tools/gnucap/>\n"
+"<http://www.gnu.org/software/gnucap/>\n"
 "За да бъде открит, трябва да се инсталира в\n"
 "/usr/bin/gnucap или /usr/local/bin/gnucap.\n"
 "Все пак може да ползвате това занимание, за да съставяте схеми, но без "
@@ -2836,14 +2835,13 @@ msgstr "Изисква първоначално разбиране на поня
 msgid "Freely create an electric schema with a real time simulation of it."
 msgstr "Свободно създаване на електрическа схема със симулация в реално време."
 
-# FIXME Вече го няма линка
 #: ../src/electric-activity/electric.xml.in.h:5
 msgid ""
 "GCompris uses the Gnucap electric simulator as a backend. You can get more "
-"information on gnucap at &lt;http://geda.seul.org/tools/gnucap/&gt;."
+"information on gnucap at &lt;http://www.gnu.org/software/gnucap/&gt;."
 msgstr ""
 "GCompris използва електрическия симулатор Gnucap. Може да научите повече "
-"информация за gnucap на &lt;http://geda.seul.org/tools/gnucap/&gt;."
+"информация за gnucap на &lt;http://www.gnu.org/software/gnucap/&gt;."
 
 #: ../src/electric-activity/electric.xml.in.h:6
 msgid ""
@@ -3043,7 +3041,13 @@ msgstr ""
 msgid "translator_credits"
 msgstr ""
 "Явор Доганов <yavor@gnu.org>\n"
-"Александър Шопов <ash@kambanaria.org>"
+"Александър Шопов <ash@kambanaria.org>\n"
+"\n"
+"Проектът за превод на GNOME има нужда от подкрепа.\n"
+"Научете повече за нас на <a href=\"http://gnome.cult.bg\">http://gnome.cult."
+"bg</a>\n"
+"Докладвайте за грешки на <a href=\"http://gnome.cult.bg/bugs\">http://gnome."
+"cult.bg/bugs</a>"
 
 #: ../src/gcompris/about.c:86
 msgid "About GCompris"
@@ -5750,15 +5754,13 @@ msgstr ""
 "небето зависят от броя натискания, необходими за решаването на загадката. "
 "Отговорът ще се покаже, ако натиснете върху Тъкс."
 
-# FIXME - няма я
 #: ../src/lightsoff-activity/lightsoff.xml.in.h:4
 msgid ""
-"The solver algorithm described on haar.clara.co.uk is a valuable resource to "
-"know more about the Lights Off game: &lt;http://www.haar.clara.co.uk/Lights/"
-"solving.html&gt;"
+"The solver algorithm is described on Wikipedia. To know more about the "
+"Lights Off game: &lt;http://en.wikipedia.org/wiki/Lights_Out_(game)&gt;"
 msgstr ""
 "Алгоритъмът, разяснен на haar.clara.co.uk, е ценен ресурс за опознаване на "
-"играта „Гаси лампи“: &lt;http://www.haar.clara.co.uk/Lights/solving.html&gt;"
+"играта „Гаси лампи“: &lt;http://en.wikipedia.org/wiki/Lights_Out_(game)&gt;"
 
 #: ../src/login-activity/login.py:102
 msgid "Profile: "
@@ -8078,18 +8080,17 @@ msgstr ""
 "Децата могат да въвеждат техен собствен текст или да преписват предоставен "
 "им от учителя."
 
-# FIXME LibreOffice
 #: ../src/wordprocessor-activity/wordprocessor.xml.in.h:4
 msgid ""
 "Learn how to enter text in a wordprocessor. This wordprocessor is special in "
 "that it enforces the use of styles. This way, the children will understand "
-"their benefit when moving to more feature full wordprocessor like OpenOffice."
-"org."
+"their benefit when moving to more feature full wordprocessor like "
+"LibreOffice.org."
 msgstr ""
 "Да се научи въвеждането на текст с текстообработваща програма. Тази програма "
 "е специална, понеже налага използването на стилове. По този начин, децата ще "
 "разберат ползата от тях, когато преминат към по-богата на функционалност "
-"текстообработваща програма като OpenOffice.org."
+"текстообработваща програма като LibreOffice.org."
 
 #: ../src/wordprocessor-activity/wordprocessor.xml.in.h:5
 msgid ""

@@ -747,17 +747,19 @@ add_shape_to_list_of_shapes(Shape *shape)
 	      Shape *icon_shape;
 
 	      /* Calc a zoom factor so that the shape will fit in the shapelist
-		 whatever its current size */
-	      w = ICON_WIDTH;
+		 whatever its current size
+		 but do not zoom that much small parts */
+	      w = MIN( ICON_WIDTH, gdk_pixbuf_get_width(pixmap) );
 	      h = gdk_pixbuf_get_height(pixmap) * (w / gdk_pixbuf_get_width(pixmap));
-	      z = ICON_WIDTH / gdk_pixbuf_get_width(pixmap);
+	      z = w / gdk_pixbuf_get_width(pixmap);
 
 	      if(h > ICON_HEIGHT)
 		{
-		  h = ICON_HEIGHT;
+		  h = MIN( ICON_HEIGHT, gdk_pixbuf_get_height(pixmap) );
 		  w = gdk_pixbuf_get_width(pixmap) * ( h / gdk_pixbuf_get_height(pixmap));
-		  z = ICON_HEIGHT / gdk_pixbuf_get_height(pixmap);
+		  z = h / gdk_pixbuf_get_height(pixmap);
 		}
+
 	      if(h < 20 || w < 20)
 		{
 		  GdkPixbuf *scale, *hand;
@@ -1525,6 +1527,12 @@ add_shape_to_canvas(Shape *shape)
     }
   else if(shape->type==SHAPE_BACKGROUND)
     {
+      g_signal_connect(item, "enter_notify_event",
+		       (GCallback) item_event,
+		       shape);
+      g_signal_connect(item, "leave_notify_event",
+		       (GCallback) item_event,
+		       shape);
       goo_canvas_item_lower(item, NULL);
     }
 
@@ -1851,6 +1859,22 @@ insert_shape_random(GList *shapes_, int shapeMask)
   g_list_free(shapes);
 }
 
+static void
+insert_shape_sequence(GList *shapes, int shapeMask)
+{
+  int i;
+  /* Insert each of the shapes in reverse sequence so that the
+     first user defined one is the last. I do this because each
+     background shape is send to back and thus the last one in our
+     list is the first one in the user list */
+  for (i = g_list_length(shapes) - 1; i >= 0 ; i--)
+    {
+      Shape *shape = g_list_nth_data(shapes, i);
+      if (shape->type & shapeMask)
+	add_shape_to_canvas(shape);
+    }
+}
+
 /* parse the doc, add it to our internal structures and to the clist */
 static void
 parse_doc(xmlDocPtr doc)
@@ -1869,7 +1893,7 @@ parse_doc(xmlDocPtr doc)
 
   shape_list = g_list_copy(shape_list_init);
   insert_shape_random(shape_list_init, 0xFF ^ SHAPE_BACKGROUND);
-  insert_shape_random(shape_list_init, SHAPE_BACKGROUND);
+  insert_shape_sequence(shape_list_init, SHAPE_BACKGROUND);
   g_list_free(shape_list_init);
   shape_list_init = NULL;
 
