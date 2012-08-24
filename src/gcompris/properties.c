@@ -20,6 +20,7 @@
 #include <glib/gstdio.h>
 #include <fcntl.h>
 #include <string.h>
+#include <stdlib.h>
 
 #include "gcompris.h"
 
@@ -176,8 +177,6 @@ gc_prop_new ()
   tmp->package_python_plugin_dir  = NULL;
   tmp->menu_dir			  = NULL;
   tmp->system_icon_dir            = NULL;
-  tmp->cache_dir                  = NULL;
-  tmp->server	                  = NULL;
   tmp->drag_mode                  = GC_DRAG_MODE_GRAB;
 
   tmp->zoom                       = 1;
@@ -531,7 +530,6 @@ gc_prop_destroy (GcomprisProperties *props)
   g_free(props->package_python_plugin_dir);
   g_free(props->menu_dir);
   g_free(props->system_icon_dir);
-  g_free(props->cache_dir);
   g_free(props->locale);
   g_free(props->skin);
   g_free(props->key);
@@ -540,7 +538,6 @@ gc_prop_destroy (GcomprisProperties *props)
   g_free(props->database);
   g_free(props->config_dir);
   g_free(props->user_dir);
-  g_free(props->server);
   g_free(props->root_menu);
   g_free(props);
 }

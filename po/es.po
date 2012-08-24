@@ -15,16 +15,16 @@ msgstr ""
 "Project-Id-Version: gcompris.gcomprixogoo\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-06-17 16:06+0000\n"
-"PO-Revision-Date: 2012-06-18 13:34+0200\n"
+"POT-Creation-Date: 2012-07-26 21:49+0000\n"
+"PO-Revision-Date: 2012-07-27 11:46+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.5\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Generator: Gtranslator 2.91.5\n"
 
 #: ../boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
@@ -1848,11 +1848,11 @@ msgstr "Los códigos del alfabeto Braille"
 
 #: ../src/braille_fun-activity/braille_fun.xml.in.h:4
 msgid ""
-"Braille code the tile for the corresponding falling letters. Check the "
-"braille chart by clicking on the toggle button for help."
+"Enter the braille code in the tile for the corresponding falling letters. "
+"Check the braille chart by clicking on the toggle button for help."
 msgstr ""
-"El código Braille de la ficha corresponde con letras que caen. Compruebe la "
-"gráfica de Braille pulsando en el botón de la ayuda."
+"Introduce el código Braille de la ficha corresponde para las letras que "
+"caen. Compruebe la gráfica de Braille pulsando en el botón de la ayuda."
 
 #: ../src/braille_lotto-activity/braille_lotto.py:120
 msgid "PLAYER 1"
@@ -2304,8 +2304,8 @@ msgid "1923 Lancia Lambda"
 msgstr "1923 Lancia Lambda"
 
 #: ../src/chronos-activity/resources/chronos/board4_3.xml.in.h:4
-msgid "1955 Citroën ds 19"
-msgstr "1955 Citroën ds 19"
+msgid "1955 Citroën DS 19"
+msgstr "1955 Citroën DS 19"
 
 #: ../src/clickanddraw-activity/clickanddraw.xml.in.h:1
 msgid "Click and draw"
@@ -2845,7 +2845,7 @@ msgstr "Dibujar la imagen pulsando en cada número en el orden correcto."
 msgid ""
 "Cannot find the 'gnucap' electric simulator.\n"
 "You can download and install it from:\n"
-"<http://geda.seul.org/tools/gnucap/>\n"
+"<http://www.gnu.org/software/gnucap/>\n"
 "To be detected, it must be installed in\n"
 "/usr/bin/gnucap or /usr/local/bin/gnucap.\n"
 "You can still use this activity to draw schematics without computer "
@@ -2853,11 +2853,11 @@ msgid ""
 msgstr ""
 "No se puede encontrar el simulador eléctrico «gnucap».\n"
 "Puede descargarlo e instalarlo de:\n"
-"<http://geda.seul.org/tools/gnucap/>\n"
+"<http://www.gnu.org/software/gnucap/>\n"
 "Para detectarlo, debe instalarse en\n"
 "/usr/bin/gnucap o /usr/local/bin/gnucap.\n"
 "Aún puede usar esta actividad para dibujar esquemas sin simulación por "
-"equipo."
+"ordenador."
 
 #: ../src/electric-activity/electric.xml.in.h:1
 msgid "Electricity"
@@ -2880,10 +2880,10 @@ msgstr ""
 #: ../src/electric-activity/electric.xml.in.h:5
 msgid ""
 "GCompris uses the Gnucap electric simulator as a backend. You can get more "
-"information on gnucap at &lt;http://geda.seul.org/tools/gnucap/&gt;."
+"information on gnucap at &lt;http://www.gnu.org/software/gnucap/&gt;."
 msgstr ""
-"GCompris usa el simulador eléctrico GNUcap como backend. Puede obtener "
-"información sobre gnucap en &lt;http://geda.seul.org/tools/gnucap/&gt;."
+"GCompris usa el simulador eléctrico GNUcap como «backend». Puede obtener "
+"información sobre gnucap en &lt;http://www.gnu.org/software/gnucap/&gt;."
 
 #: ../src/electric-activity/electric.xml.in.h:6
 msgid ""
@@ -3331,7 +3331,6 @@ msgid "Korean"
 msgstr "Coreano"
 
 #: ../src/gcompris/config.c:93
-#| msgid "Latvia"
 msgid "Latvian"
 msgstr "Letón"
 
@@ -4305,12 +4304,10 @@ msgid "Russia"
 msgstr "Rusia"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:17
-#| msgid "Serbian"
 msgid "Serbia"
 msgstr "Serbia"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:18
-#| msgid "Montenegrin"
 msgid "Montenegro"
 msgstr "Montenegro"
 
@@ -5792,13 +5789,11 @@ msgstr ""
 
 #: ../src/lightsoff-activity/lightsoff.xml.in.h:4
 msgid ""
-"The solver algorithm described on haar.clara.co.uk is a valuable resource to "
-"know more about the Lights Off game: &lt;http://www.haar.clara.co.uk/Lights/"
-"solving.html&gt;"
+"The solver algorithm is described on Wikipedia. To know more about the "
+"Lights Off game: &lt;http://en.wikipedia.org/wiki/Lights_Out_(game)&gt;"
 msgstr ""
-"El algoritmo resolutor descrito en haar.clara.co.uk está disponible para "
-"saber más acerca del juego Luces fuera: &lt;http://www.haar.clara.co.uk/"
-"Lights/solving.html&gt;"
+"El algoritmo resolutor descrito en en la Wikipedia. Para saber más acerca "
+"del juego Luces fuera: &lt;http://en.wikipedia.org/wiki/Lights_Out_(game)&gt;"
 
 #: ../src/login-activity/login.py:102
 msgid "Profile: "
@@ -6772,8 +6767,9 @@ msgid "car/c_r/a/k/o"
 msgstr "automóvil/au_omóvil/t/c/r"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board2.xml.in.h:1
-msgid "satchel/s_tchel/a/o/i"
-msgstr "cartera/c_rtera/a/o/i"
+#| msgid "banana/b_nana/a/o/i"
+msgid "bag/b_g/a/o/i"
+msgstr "bolsa/b_lsa/a/o/i"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board2.xml.in.h:2
 msgid "banana/b_nana/a/o/i"
@@ -8152,13 +8148,13 @@ msgstr ""
 msgid ""
 "Learn how to enter text in a wordprocessor. This wordprocessor is special in "
 "that it enforces the use of styles. This way, the children will understand "
-"their benefit when moving to more feature full wordprocessor like OpenOffice."
-"org."
+"their benefit when moving to more feature full wordprocessor like "
+"LibreOffice."
 msgstr ""
 "Aprende cómo introducir texto en un procesador de textos. Este procesador de "
 "textos es especial ya que refuerza el uso de estilos. De esta manera, los "
 "niños aprenderán su beneficio cuando trabajen con procesadores de textos "
-"llenos de características como OpenOffice.org."
+"llenos de características como LibreOffice."
 
 #: ../src/wordprocessor-activity/wordprocessor.xml.in.h:5
 msgid ""
@@ -8192,6 +8188,9 @@ msgstr "Entrenamiento con el teclado"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Teclea la palabra completa mientras cae, antes de que llegue al suelo"
+
+#~ msgid "satchel/s_tchel/a/o/i"
+#~ msgstr "cartera/c_rtera/a/o/i"
 
 #~ msgid "Serbia Montenegro"
 #~ msgstr "Serbia Montenegro"

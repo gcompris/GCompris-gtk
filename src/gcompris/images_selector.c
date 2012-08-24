@@ -286,7 +286,7 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
       g_free(dataseturl);
       dataseturl = g_strconcat("boards/", dataset, NULL);
       /* TODO */
-      filelist = NULL; //gc_net_dir_read_name(dataseturl, ".xml");
+      filelist = NULL;
 
       for (i = filelist; i != NULL; i = g_slist_next (i))
 	{
