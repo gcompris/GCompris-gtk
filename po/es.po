@@ -8,6 +8,7 @@
 # This file is distributed under the same license as the gcompris package.
 # Sylvia Sánchez <LailahFSF@gmail.com>, 2011.
 # Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008, 2009, 2010, 2011.
+# miguel rodriguez nuñez <bokerones.fritos@gmail.com>, 2012.
 # Daniel Mustieles <daniel.mustieles@gmail.com>, 2011, 2012.
 #
 msgid ""
@@ -15,15 +16,15 @@ msgstr ""
 "Project-Id-Version: gcompris.gcomprixogoo\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-07-26 21:49+0000\n"
-"PO-Revision-Date: 2012-07-27 11:46+0200\n"
+"POT-Creation-Date: 2012-08-22 13:17+0000\n"
+"PO-Revision-Date: 2012-08-24 18:01+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Gtranslator 2.91.5\n"
 
 #: ../boards/algebra_group.xml.in.h:1
@@ -607,13 +608,13 @@ msgstr ""
 "usado para leerlas, por ejemplo, y después el idioma usado para decir los "
 "nombres de los colores. \n"
 "- Puedes guardar configuraciones múltiples, y cambiar fácilmente entre "
-"ellas. En la sección «Perfil» añade un perfil, después en la sección «Tablero» "
-"selecciona el perfil en la lista desplegable, y después elige los tableros "
-"que quieres que estén activos. Puedes añadir un montón de perfiles, con "
-"diferentes listas de tableros, y diferentes idiomas. Puedes establecer el "
-"perfil por omisión en la sección «Perfil», eligiendo el perfil que quieras, y "
-"después pulsando el botón «Predeterminado». También puedes elegir un perfil "
-"desde la línea de comandos.\n"
+"ellas. En la sección «Perfil» añade un perfil, después en la sección "
+"«Tablero» selecciona el perfil en la lista desplegable, y después elige los "
+"tableros que quieres que estén activos. Puedes añadir un montón de perfiles, "
+"con diferentes listas de tableros, y diferentes idiomas. Puedes establecer "
+"el perfil por omisión en la sección «Perfil», eligiendo el perfil que "
+"quieras, y después pulsando el botón «Predeterminado». También puedes elegir "
+"un perfil desde la línea de comandos.\n"
 "- Puedes añadir usuarios, clases y para cada clase, puedes crear grupos de "
 "usuarios. Ten en cuenta que puedes importar usuarios de un archivo separado "
 "por comas. Asigna uno o más grupos a un perfil, y los nuevos identificadores "
@@ -1565,7 +1566,7 @@ msgstr ""
 "entre estos objetos. Arrastra cada objetos al espacio rojo correcto en el "
 "área principal."
 
-#: ../src/babymatch-activity/shapegame.c:2017
+#: ../src/babymatch-activity/shapegame.c:2041
 #: ../src/click_on_letter-activity/click_on_letter.c:1317
 #, c-format
 msgid ""
@@ -2432,7 +2433,7 @@ msgid "Question"
 msgstr "Pregunta"
 
 #: ../src/click_on_letter-activity/click_on_letter.c:1407
-#: ../src/gcompris/board_config_wordlist.c:274
+#: ../src/gcompris/board_config_wordlist.c:273
 msgid "Back to default"
 msgstr "Restablecer predeterminados"
 
@@ -2960,8 +2961,8 @@ msgstr "Mueve el ratón para aclarar la zona y descubre el dibujo escondido"
 msgid "Error: No images found\n"
 msgstr "Error: no se encontró ninguna imagen\n"
 
-#: ../src/erase-activity/erase.c:582 ../src/gcompris/properties.c:504
-#: ../src/gcompris/properties.c:511
+#: ../src/erase-activity/erase.c:582 ../src/gcompris/properties.c:503
+#: ../src/gcompris/properties.c:510
 msgid "readme"
 msgstr "léeme"
 
@@ -3177,15 +3178,15 @@ msgid "%d (New level)"
 msgstr "%d (nivel nuevo)"
 
 #. frame
-#: ../src/gcompris/board_config_wordlist.c:226
+#: ../src/gcompris/board_config_wordlist.c:225
 msgid "Configure the list of words"
 msgstr "Configurar la lista de palabras"
 
-#: ../src/gcompris/board_config_wordlist.c:237
+#: ../src/gcompris/board_config_wordlist.c:236
 msgid "Choice of the language"
 msgstr "Elección de idioma"
 
-#: ../src/gcompris/board_config_wordlist.c:249
+#: ../src/gcompris/board_config_wordlist.c:248
 msgid "Choice of the level"
 msgstr "Elección de nivel"
 
@@ -3359,6 +3360,7 @@ msgid "Montenegrin"
 msgstr "Montenegrin"
 
 #: ../src/gcompris/config.c:100
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:37
 msgid "Nepal"
 msgstr "Nepal"
 
@@ -3549,43 +3551,43 @@ msgstr ""
 "Salga e infórmanos\n"
 "del problema."
 
-#: ../src/gcompris/gcompris.c:156
+#: ../src/gcompris/gcompris.c:154
 msgid "run GCompris in fullscreen mode."
 msgstr "ejecutar GCompris a pantalla completa."
 
-#: ../src/gcompris/gcompris.c:159
+#: ../src/gcompris/gcompris.c:157
 msgid "run GCompris in window mode."
 msgstr "ejecutar GCompris en una ventana."
 
-#: ../src/gcompris/gcompris.c:162
+#: ../src/gcompris/gcompris.c:160
 msgid "run GCompris with sound enabled."
 msgstr "ejecutar GCompris con el sonido activado."
 
-#: ../src/gcompris/gcompris.c:165
+#: ../src/gcompris/gcompris.c:163
 msgid "run GCompris without sound."
 msgstr "ejecutar GCompris sin sonido."
 
-#: ../src/gcompris/gcompris.c:168
+#: ../src/gcompris/gcompris.c:166
 msgid "run GCompris with the default system cursor."
 msgstr "ejecutar GCompris con el cursor predeterminado del sistema."
 
-#: ../src/gcompris/gcompris.c:171
+#: ../src/gcompris/gcompris.c:169
 msgid "run GCompris without cursor (touch screen mode)."
 msgstr "ejecutar GCompris sin cursor (modo pantalla táctil)."
 
-#: ../src/gcompris/gcompris.c:174
+#: ../src/gcompris/gcompris.c:172
 msgid "display only activities with this difficulty level."
 msgstr "mostrar sólo actividades con este nivel de dificultad."
 
-#: ../src/gcompris/gcompris.c:177
+#: ../src/gcompris/gcompris.c:175
 msgid "display debug informations on the console."
 msgstr "mostrar información de depuración en la consola."
 
-#: ../src/gcompris/gcompris.c:180
+#: ../src/gcompris/gcompris.c:178
 msgid "Print the version of "
 msgstr "Imprime la versión de "
 
-#: ../src/gcompris/gcompris.c:183
+#: ../src/gcompris/gcompris.c:181
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
@@ -3597,36 +3599,36 @@ msgstr ""
 "actividad conecta4). Usa «-l list» para listar todas las actividades "
 "disponibles y sus descripciones."
 
-#: ../src/gcompris/gcompris.c:188
+#: ../src/gcompris/gcompris.c:186
 msgid "GCompris will find the data dir in this directory"
 msgstr "GCompris buscará la carpeta de datos en esta carpeta"
 
-#: ../src/gcompris/gcompris.c:191
+#: ../src/gcompris/gcompris.c:189
 msgid "GCompris will find the skins in this directory"
 msgstr "GCompris buscará las apariencias en esta carpeta"
 
-#: ../src/gcompris/gcompris.c:194
+#: ../src/gcompris/gcompris.c:192
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "GCompris buscará los complementos de actividad en esta carpeta"
 
-#: ../src/gcompris/gcompris.c:197
+#: ../src/gcompris/gcompris.c:195
 msgid "GCompris will find the python activity in this directory"
 msgstr "GCompris buscará la actividad Python en esta carpeta"
 
-#: ../src/gcompris/gcompris.c:200
+#: ../src/gcompris/gcompris.c:198
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr ""
 "GCompros buscará el archivo de localización (traducción .mo) en esta carpeta"
 
-#: ../src/gcompris/gcompris.c:203
+#: ../src/gcompris/gcompris.c:201
 msgid "GCompris will find the activities menu in this directory"
 msgstr "GCompris buscará el menú de actividades en esta carpeta"
 
-#: ../src/gcompris/gcompris.c:206
+#: ../src/gcompris/gcompris.c:204
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Ejecutar GCompris en modo administración y gestión de usuarios"
 
-#: ../src/gcompris/gcompris.c:209
+#: ../src/gcompris/gcompris.c:207
 msgid ""
 "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
@@ -3634,24 +3636,24 @@ msgstr ""
 "Usa una base de datos alternativa para los perfiles [$HOME/.config/gcompris/"
 "gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:212
+#: ../src/gcompris/gcompris.c:210
 msgid "Create the alternate database for profiles"
 msgstr "Crea la base de datos alternativa para los perfiles"
 
-#: ../src/gcompris/gcompris.c:215
+#: ../src/gcompris/gcompris.c:213
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Volver a leer los menús XML y almacenarlos en la base de datos"
 
-#: ../src/gcompris/gcompris.c:218
+#: ../src/gcompris/gcompris.c:216
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Establece el perfil a usar. Usa «gcompris -a» para crear perfiles"
 
-#: ../src/gcompris/gcompris.c:221
+#: ../src/gcompris/gcompris.c:219
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Lista todos los perfiles disponibles. Usa «gcompris -a» para crear perfiles"
 
-#: ../src/gcompris/gcompris.c:224
+#: ../src/gcompris/gcompris.c:222
 msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
@@ -3659,70 +3661,47 @@ msgstr ""
 "Ubicación de la carpeta de configuración: [$HOME/.config/gcompris]. Lo "
 "alternativo es establecer $XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:227
+#: ../src/gcompris/gcompris.c:225
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "La ubicación de las carpetas de usuario: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:230
+#: ../src/gcompris/gcompris.c:228
 msgid "Run the experimental activities"
 msgstr "Ejecutar las actividades experimentales"
 
-#: ../src/gcompris/gcompris.c:233
+#: ../src/gcompris/gcompris.c:231
 msgid "Disable the quit button"
 msgstr "Desactivar el botón de salida"
 
-#: ../src/gcompris/gcompris.c:236
+#: ../src/gcompris/gcompris.c:234
 msgid "Disable the config button"
 msgstr "Desactivar el botón de configuración"
 
-#: ../src/gcompris/gcompris.c:239
+#: ../src/gcompris/gcompris.c:237
 msgid "Disable the level button"
 msgstr "Desactivar el botón de nivel"
 
-#: ../src/gcompris/gcompris.c:242
+#: ../src/gcompris/gcompris.c:240
 msgid "Disable the database (slower start and no user log)"
 msgstr ""
 "Desactivar la base de datos (inicio más lento y sin registro del usuario)"
 
-#: ../src/gcompris/gcompris.c:245
-msgid ""
-"GCompris will get images, sounds and activity data from this server if not "
-"found locally."
-msgstr ""
-"GCompris cogerá imágenes, sonidos y datos de las actividades de este "
-"servidor si no se encuentran localmente."
-
-#: ../src/gcompris/gcompris.c:248
-msgid ""
-"Only when --server is provided, disable check for local resource first. Data "
-"are always taken from the web server."
-msgstr ""
-"Sólo cuando se especifica --server, desactivar la comprobación de recursos "
-"locales en primer lugar. Los datos siempre se obtienen del servidor web."
-
-#: ../src/gcompris/gcompris.c:252
-msgid ""
-"In server mode, specify the cache directory used to avoid useless downloads."
-msgstr ""
-"En modo servidor, especifica donde está la carpeta caché para evitar "
-"descargas innecesarias."
-
-#: ../src/gcompris/gcompris.c:255
+#: ../src/gcompris/gcompris.c:243
 msgid ""
 "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr ""
 "Modo global de arrastrar y soltar: normal, 2 pulsaciones, ambos. Lo "
 "predeterminado es normal."
 
-#: ../src/gcompris/gcompris.c:258
+#: ../src/gcompris/gcompris.c:246
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Permitir la ejecución de instancias múltiples de GCompris."
 
-#: ../src/gcompris/gcompris.c:261
+#: ../src/gcompris/gcompris.c:249
 msgid "Disable maximization zoom"
 msgstr "Desactivar la maximización de la ampliación"
 
-#: ../src/gcompris/gcompris.c:264
+#: ../src/gcompris/gcompris.c:252
 msgid ""
 "Increase activities' timeout delays; useful values > 1.0; 1.0 to not change "
 "hardcoded value"
@@ -3730,7 +3709,7 @@ msgstr ""
 "Incrementa el tiempo de espera de las actividades; valores útiles > 1.0; 1.0 "
 "para no cambiar el valor definido en el código de forma predeterminda"
 
-#: ../src/gcompris/gcompris.c:267
+#: ../src/gcompris/gcompris.c:255
 msgid ""
 "How activities' timeout delays are growing for several actors; useful values "
 "< 1.0; 1.0 to not change hardcoded value"
@@ -3739,11 +3718,11 @@ msgstr ""
 "valores útiles < 1.0; 1.0 para no cambiar el valor definido en el código de "
 "forma predeterminda"
 
-#: ../src/gcompris/gcompris.c:270
+#: ../src/gcompris/gcompris.c:258
 msgid "For test purpose, run in a loop all the activities"
 msgstr "Para pruebas, ejecutar en un bucle todas las actividades"
 
-#: ../src/gcompris/gcompris.c:955
+#: ../src/gcompris/gcompris.c:943
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -3765,18 +3744,18 @@ msgstr ""
 "considera usar GNU/Linux. Obtén más información acerca de esto en la FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1250
+#: ../src/gcompris/gcompris.c:1236
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
 msgstr ""
 "Falló al cargar la apariencia «%s» (comprueba que el archivo existe y se "
 "puede leer)"
 
-#: ../src/gcompris/gcompris.c:1266
+#: ../src/gcompris/gcompris.c:1252
 msgid "Retrieving remote data..."
 msgstr "Recuperando datos remotos..."
 
-#: ../src/gcompris/gcompris.c:1526
+#: ../src/gcompris/gcompris.c:1512
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d second old.\n"
@@ -3789,12 +3768,12 @@ msgstr[1] ""
 "No se iniciará GCompris porque el archivo de bloqueo es menos antiguo de %d "
 "segundos.\n"
 
-#: ../src/gcompris/gcompris.c:1530
+#: ../src/gcompris/gcompris.c:1516
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "El archivo de bloqueo es: %s\n"
 
-#: ../src/gcompris/gcompris.c:1708
+#: ../src/gcompris/gcompris.c:1694
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3808,36 +3787,27 @@ msgstr ""
 "Más información en http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1829
+#: ../src/gcompris/gcompris.c:1815
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Usa -l actividad para acceder directamente a una actividad.\n"
 
-#: ../src/gcompris/gcompris.c:1830
+#: ../src/gcompris/gcompris.c:1816
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Lista de actividades disponibles es:\n"
 
-#: ../src/gcompris/gcompris.c:1861
+#: ../src/gcompris/gcompris.c:1847
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Número de actividades: %d\n"
 
-#: ../src/gcompris/gcompris.c:1897
+#: ../src/gcompris/gcompris.c:1883
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s existe pero no se puede leer o escribir"
 
-#: ../src/gcompris/gcompris.c:1961
-#, c-format
-msgid ""
-"The --server option cannot be used because GCompris has been compiled "
-"without network support!"
-msgstr ""
-"La opción «--server» no se puede usar porque GCompris se ha compilado sin "
-"soporte de red."
-
-#: ../src/gcompris/gcompris.c:2019
+#: ../src/gcompris/gcompris.c:1978
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3846,20 +3816,20 @@ msgstr ""
 "ERROR: No se encontró el perfil «%s». Ejecute «gcompris --profile list» para "
 "listar los disponibles\n"
 
-#: ../src/gcompris/gcompris.c:2033
+#: ../src/gcompris/gcompris.c:1992
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "La lista de perfiles disponibles es:\n"
 
-#: ../src/gcompris/gcompris_db.c:309
+#: ../src/gcompris/gcompris_db.c:310
 msgid "Unaffected"
 msgstr "No afectado"
 
-#: ../src/gcompris/gcompris_db.c:310
+#: ../src/gcompris/gcompris_db.c:311
 msgid "Users without a class"
 msgstr "Usuarios sin una clase"
 
-#: ../src/gcompris/gcompris_db.c:896
+#: ../src/gcompris/gcompris_db.c:897
 #, c-format
 msgid ""
 "Loading activity from database:\n"
@@ -3901,7 +3871,7 @@ msgstr ""
 "Se han desactivado todas las actividades en este perfil. Vaya al módulo de "
 "administración de Gcompris y active al menos una actividad."
 
-#: ../src/gcompris/properties.c:506
+#: ../src/gcompris/properties.c:505
 msgid ""
 "This directory contains the files you create with the GCompris educational "
 "suite\n"
@@ -3909,7 +3879,7 @@ msgstr ""
 "Esta carpeta contiene los archivos que creas con la suit educacional "
 "GCompris\n"
 
-#: ../src/gcompris/properties.c:513
+#: ../src/gcompris/properties.c:512
 msgid ""
 "Put any number of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
@@ -3993,6 +3963,7 @@ msgid "Regions of France"
 msgstr "Regiones de Francia"
 
 #: ../src/geo_country-activity/resources/geo_country/board12_0.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:40
 msgid "India"
 msgstr "India"
 
@@ -4043,6 +4014,7 @@ msgstr "Continentes"
 
 #: ../src/geography-activity/resources/geography/board1_0.xml.in.h:2
 #: ../src/geography-activity/resources/geography/board8_0.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:6
 msgid "Africa"
 msgstr "África"
 
@@ -4055,6 +4027,7 @@ msgid "Antarctica"
 msgstr "Antártida"
 
 #: ../src/geography-activity/resources/geography/board1_0.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:1
 msgid "Asia"
 msgstr "Asia"
 
@@ -4300,6 +4273,7 @@ msgid "Romania"
 msgstr "Rumanía"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:16
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:54
 msgid "Russia"
 msgstr "Rusia"
 
@@ -4320,6 +4294,7 @@ msgid "Slovenia"
 msgstr "Eslovenia"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:21
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:24
 msgid "Turkey"
 msgstr "Turquía"
 
@@ -4580,6 +4555,199 @@ msgstr "Zambia"
 #: ../src/geography-activity/resources/geography/board8_0.xml.in.h:39
 msgid "Zimbabwe"
 msgstr "Zimbabwe"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:2
+msgid "Caspian Sea"
+msgstr "Mar Caspio"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:3
+msgid "Black Sea"
+msgstr "Mar Negro"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:4
+msgid "Mediteranean Sea"
+msgstr "Mar Mediterráneo"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:5
+msgid "Persian Gulf"
+msgstr "Golfo Pérsico"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:7
+msgid "Red Sea"
+msgstr "Mar Rojo"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:8
+msgid "Palestine"
+msgstr "Palestina"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:9
+msgid "Israel"
+msgstr "Israel"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:10
+msgid "Brunei"
+msgstr "Brunei"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:11
+msgid "Qatar"
+msgstr "Catar"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:12
+msgid "Bahrein"
+msgstr "Bahrein"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:13
+msgid "Lebanon"
+msgstr "Líbano"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:14
+msgid "Chypre"
+msgstr "Chipre"
+
+# está en Francés....
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:15
+msgid "Koweit"
+msgstr "Kuwait"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:16
+msgid "Armenia"
+msgstr "Armenia"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:17
+msgid "Oman"
+msgstr "Omán"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:18
+msgid "United Arab Emirates"
+msgstr "Emiratos Árabes Unidos"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:19
+msgid "Yemen"
+msgstr "Yemen"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:20
+msgid "Saudi Arabia"
+msgstr "Arabia Saudí"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:21
+msgid "Jordan"
+msgstr "Jordania"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:22
+msgid "Irak"
+msgstr "Irak"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:23
+msgid "Syria"
+msgstr "Siria"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:25
+msgid "Georgia"
+msgstr "Georgia"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:26
+msgid "Azerbaijan"
+msgstr "Azerbaiyán"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:27
+msgid "Iran"
+msgstr "Irán"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:28
+msgid "Turkmenistan"
+msgstr "Turkmenistán"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:29
+msgid "Kirghizstan"
+msgstr "Kirguistán"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:30
+msgid "Tadjikistan"
+msgstr "Tayikistán"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:31
+msgid "Afghanistan"
+msgstr "Agfanistán"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:32
+msgid "Malaysia"
+msgstr "Malasia"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:33
+msgid "Indonesia"
+msgstr "Indonesia"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:34
+msgid "Philippines"
+msgstr "Filipinas"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:35
+msgid "Nyanmar"
+msgstr "Myanmar(Birmania)"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:36
+msgid "Pakistan"
+msgstr "Pakistán"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:38
+msgid "Bhoutan"
+msgstr "Bután"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:39
+msgid "Bangladesh"
+msgstr "Bangladesh"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:41
+msgid "China"
+msgstr "China"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:42
+msgid "Sri Lanka"
+msgstr "Sri Lanka"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:43
+msgid "Thailand"
+msgstr "Tailandia"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:44
+msgid "Laos"
+msgstr "Laos"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:45
+msgid "Cambodia"
+msgstr "Camboya"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:46
+msgid "Vietnam"
+msgstr "Vietnam"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:47
+msgid "Taiwan"
+msgstr "Taiwan"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:48
+msgid "Ouzbekistan"
+msgstr "Uzbekistán"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:49
+msgid "Kazakhstan"
+msgstr "Kazajistán"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:50
+msgid "South Corea"
+msgstr "Corea del Sur"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:51
+msgid "North Corea"
+msgstr "Corea del Norte"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:52
+msgid "Japan"
+msgstr "Japón"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:53
+msgid "Mongolia"
+msgstr "Mongolia"
 
 #: ../src/gletters-activity/gletters.c:132
 #: ../src/gletters-activity/gletters.xml.in.h:1
@@ -6641,42 +6809,42 @@ msgstr ""
 "Puedes ver algunas cartas pero no puedes ver lo que está en el otro lado de "
 "las mismas. Cada carta oculta la imagen de un número o la palabra del número."
 
-#: ../src/missing_letter-activity/missingletter_config.c:77
+#: ../src/missing_letter-activity/missingletter_config.c:79
 msgid "Please select an image."
 msgstr "Selecciona una imagen."
 
-#: ../src/missing_letter-activity/missingletter_config.c:83
+#: ../src/missing_letter-activity/missingletter_config.c:85
 msgid "Choice cannot be empty."
 msgstr "La elección no puede estar vacía."
 
-#: ../src/missing_letter-activity/missingletter_config.c:89
+#: ../src/missing_letter-activity/missingletter_config.c:91
 msgid "Question cannot be empty."
 msgstr "La pregunta no puede estar vacía."
 
-#: ../src/missing_letter-activity/missingletter_config.c:95
+#: ../src/missing_letter-activity/missingletter_config.c:97
 msgid ""
 "Question must include the character '_'. It represents the letter to search."
 msgstr ""
 "La pregunta debe incluir el carácter «_». Representa la letra para buscar."
 
-#: ../src/missing_letter-activity/missingletter_config.c:102
+#: ../src/missing_letter-activity/missingletter_config.c:104
 msgid "Pixmap cannot be empty"
 msgstr "El pixmap no puede estar vacío"
 
-#: ../src/missing_letter-activity/missingletter_config.c:108
+#: ../src/missing_letter-activity/missingletter_config.c:110
 msgid "There must be at least 2 choices."
 msgstr "Deben existir al menos dos opciones."
 
-#: ../src/missing_letter-activity/missingletter_config.c:116
+#: ../src/missing_letter-activity/missingletter_config.c:118
 msgid "The answer and question must be the same except for the character '_'."
 msgstr ""
 "La respuesta y la pregunta deben ser iguales excepto por el carácter «_»."
 
-#: ../src/missing_letter-activity/missingletter_config.c:125
+#: ../src/missing_letter-activity/missingletter_config.c:127
 msgid "The first choice must be the solution that replaces the character '_'."
 msgstr "La primera opción debe ser la solución que reemplaza el carácter «_»."
 
-#: ../src/missing_letter-activity/missingletter_config.c:140
+#: ../src/missing_letter-activity/missingletter_config.c:142
 #, c-format
 msgid ""
 "Invalid entry:\n"
@@ -6767,7 +6935,6 @@ msgid "car/c_r/a/k/o"
 msgstr "automóvil/au_omóvil/t/c/r"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board2.xml.in.h:1
-#| msgid "banana/b_nana/a/o/i"
 msgid "bag/b_g/a/o/i"
 msgstr "bolsa/b_lsa/a/o/i"
 
@@ -7066,8 +7233,8 @@ msgstr "Katsushika Hokusai, La gran ola de Kanagawa (1823-29)"
 msgid ""
 "Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
 msgstr ""
-"Utagawa Hiroshige, El santuario de Benzaiten en Inokashira con nieve (1760-"
-"70)"
+"Utagawa Hiroshige, El santuario de Benzaiten en Inokashira con nieve "
+"(1760-70)"
 
 #: ../src/paintings-activity/resources/paintings/board1_9.xml.in.h:1
 msgid "Utagawa Hiroshige, Horse-mackerel and Prawn - 1840"
@@ -7609,11 +7776,11 @@ msgid ""
 msgstr ""
 "En el campo de texto, introduce una orden por línea para controlar tu bote."
 "Las órdenes válidas se muestran entre las dos áreas de entrada. Las órdenes "
-"«izquierda» y «derecha» deben llevar como sufijo el ángulo en grados. Al valor "
-"del ángulo también se le llama «parámetro» de la orden izquierda o derecha. "
-"De forma predeterminada, se usan 45 grados. La orden «hacia adelante» acepta "
-"un parámetro con la distancia. De forma predeterminada se usa un valor de "
-"1.\n"
+"«izquierda» y «derecha» deben llevar como sufijo el ángulo en grados. Al "
+"valor del ángulo también se le llama «parámetro» de la orden izquierda o "
+"derecha. De forma predeterminada, se usan 45 grados. La orden «hacia "
+"adelante» acepta un parámetro con la distancia. De forma predeterminada se "
+"usa un valor de 1.\n"
 "Por ejemplo:\n"
 "- izquierda 90 => Hacer un giro perpendicular a la izquierda\n"
 "- hacia delante 10 => Ir hacia delante 10 unidades (como se muestran en la "
@@ -7712,11 +7879,11 @@ msgstr ""
 "En el campo de texto, introduce una orden por línea para controlar tu "
 "bote. \n"
 "Las órdenes válidas se muestran entre las dos áreas de entrada. Las órdenes "
-"«izquierda» y «derecha» deben llevar como sufijo el ángulo en grados. Al valor "
-"del ángulo también se le llama «parámetro» de la orden izquierda o derecha. "
-"De forma predeterminada, se usan 45 grados. La orden «hacia adelante» acepta "
-"un parámetro con la distancia. De forma predeterminada se usa un valor de "
-"1.\n"
+"«izquierda» y «derecha» deben llevar como sufijo el ángulo en grados. Al "
+"valor del ángulo también se le llama «parámetro» de la orden izquierda o "
+"derecha. De forma predeterminada, se usan 45 grados. La orden «hacia "
+"adelante» acepta un parámetro con la distancia. De forma predeterminada se "
+"usa un valor de 1.\n"
 "Por ejemplo:\n"
 "- izquierda 90 => Hacer un giro perpendicular a la izquierda\n"
 "- hacia delante 10 => Ir hacia delante 10 unidades (como se muestran en la "
@@ -8188,6 +8355,35 @@ msgstr "Entrenamiento con el teclado"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Teclea la palabra completa mientras cae, antes de que llegue al suelo"
+
+#~ msgid ""
+#~ "GCompris will get images, sounds and activity data from this server if "
+#~ "not found locally."
+#~ msgstr ""
+#~ "GCompris cogerá imágenes, sonidos y datos de las actividades de este "
+#~ "servidor si no se encuentran localmente."
+
+#~ msgid ""
+#~ "Only when --server is provided, disable check for local resource first. "
+#~ "Data are always taken from the web server."
+#~ msgstr ""
+#~ "Sólo cuando se especifica --server, desactivar la comprobación de "
+#~ "recursos locales en primer lugar. Los datos siempre se obtienen del "
+#~ "servidor web."
+
+#~ msgid ""
+#~ "In server mode, specify the cache directory used to avoid useless "
+#~ "downloads."
+#~ msgstr ""
+#~ "En modo servidor, especifica donde está la carpeta caché para evitar "
+#~ "descargas innecesarias."
+
+#~ msgid ""
+#~ "The --server option cannot be used because GCompris has been compiled "
+#~ "without network support!"
+#~ msgstr ""
+#~ "La opción «--server» no se puede usar porque GCompris se ha compilado sin "
+#~ "soporte de red."
 
 #~ msgid "satchel/s_tchel/a/o/i"
 #~ msgstr "cartera/c_rtera/a/o/i"
