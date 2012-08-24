@@ -39,8 +39,6 @@ class Gcompris_intro_gravity:
     # to know from the core
     self.gcomprisBoard = gcomprisBoard
     self.gcomprisBoard.level = 1
-    self.gcomprisBoard.sublevel = 1
-    self.gcomprisBoard.number_of_sublevel = 1
     self.gcomprisBoard.maxlevel = 4
 
     # Needed to get key_press
@@ -57,17 +55,6 @@ class Gcompris_intro_gravity:
     self.game_completed = False
 
     self.rootitem = goocanvas.Group(parent = self.gcomprisBoard.canvas.get_root_item())
-
-    goocanvas.Text(
-      parent = self.rootitem,
-      x = gcompris.BOARD_WIDTH/2.0,
-      y = 50.0,
-      text = _("Gravitational force is directly proportional to mass"),
-      font = gcompris.skin.get_font("gcompris/subtitle"),
-      fill_color = "white",
-      anchor = gtk.ANCHOR_CENTER,
-      alignment = pango.ALIGN_CENTER
-      )
 
     # Set a background image
     gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
@@ -89,7 +76,42 @@ class Gcompris_intro_gravity:
                               self.gcomprisBoard.level,
                               planet_left,
                               planet_right)
-    # Load random asteroids
+    # Set the buttons we want in the bar
+    gcompris.bar_set(0)
+    gcompris.bar_location(2,-1,0.5)
+
+    # Ready button
+    self.ready_text = goocanvas.Text(
+      parent = self.rootitem,
+      x = 384,
+      y = 203,
+      fill_color = "white",
+      anchor = gtk.ANCHOR_CENTER,
+      alignment = pango.ALIGN_CENTER,
+      text = _("I'm ready") )
+    self.ready_text.connect('button_press_event', self.ready_event, False)
+    bounds = self.ready_text.get_bounds()
+    gap = 20
+
+    self.ready_back = goocanvas.Rect(
+      parent = self.rootitem,
+      radius_x = 6,
+      radius_y = 6,
+      x = bounds.x1 - gap,
+      y = bounds.y1 - gap,
+      width = bounds.x2 - bounds.x1 + gap * 2,
+      height = bounds.y2 - bounds.y1 + gap * 2,
+      stroke_color_rgba = 0xFFFFFFFFL,
+      fill_color_rgba = 0xCCCCCC44L)
+    gcompris.utils.item_focus_init(self.ready_back, None)
+    gcompris.utils.item_focus_init(self.ready_text, self.ready_back)
+    self.ready_back.connect('button_press_event', self.ready_event)
+
+  def ready_event(self, widget, target, event):
+    self.ready_back.props.visibility = goocanvas.ITEM_INVISIBLE
+    self.ready_text.props.visibility = goocanvas.ITEM_INVISIBLE
+
+    self.ship_instance.initiate()
     asteroid_instance = Asteroids(self.ship_instance, self.rootitem)
 
   def end(self):
@@ -111,7 +133,7 @@ class Gcompris_intro_gravity:
     print("intro_gravity config_start.")
 
   def key_press(self, keyval, commit_str, preedit_str):
-    self.ship_instance.handle_key(keyval)
+    pass
 
   def pause(self, pause):
     # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
@@ -177,6 +199,7 @@ class Spaceship(Gcompris_intro_gravity):
     self.done = False
     self.move = 0
 
+  def initiate(self):
     gobject.timeout_add(30, self.calculate)
 
   def calculate(self):
@@ -235,18 +258,6 @@ class Spaceship(Gcompris_intro_gravity):
     self.done = True
     self.game.crash()
 
-  def handle_key(self, key):
-    bounds = self.tux_spaceship.get_bounds()
-    if key == gtk.keysyms.Up:
-      if bounds.y1 > 145:
-        self.tux_spaceship.translate(0, -1)
-        self.force_line.translate(0, -1)
-
-    elif key == gtk.keysyms.Down:
-      if bounds.y2 < 255:
-        self.tux_spaceship.translate(0, 1)
-        self.force_line.translate(0, 1)
-
 class Asteroids:
   """Class for the asteroids"""
 
@@ -260,13 +271,12 @@ class Asteroids:
     self.count = 1
     self.asteroid_rootitem = goocanvas.Group(parent = self.rootitem)
 
-    # Make sure the ateroids are loaded between the planet and spaceship
+    # Make sure the asteroids are loaded between the planet and spaceship
     bounds = self.ship_instance.tux_spaceship.get_bounds()
     left_asteroid_x = random.uniform(150, bounds.x1 - 50)
     right_asteroid_x = random.uniform(450, bounds.x2 + 20)
-    y_asteroid = [200, 160]
-    left_asteroid_y = random.choice(y_asteroid)
-    right_asteroid_y = random.choice(y_asteroid)
+    left_asteroid_y = 550
+    right_asteroid_y = -20
 
     # Pick a random asteroid and load image
     asteroid_number = [0, 1, 2, 3, 4]
@@ -292,15 +302,17 @@ class Asteroids:
     gobject.timeout_add(30, self.check_asteroid)
 
   def check_asteroid(self):
-    self.count += 1
-    if self.count > 500:
-      self.asteroid_rootitem.remove()
-      self.load_asteroid()
-      return False
+    if self.ship_instance.game.board_paused:
+      return True
 
-    # Check whether ship and asteroid have collided
     bound1 = self.asteroid1.get_bounds()
     bound2 = self.asteroid2.get_bounds()
+
+    # Move asteroids
+    self.asteroid1.translate(0, -0.05)
+    self.asteroid2.translate(0, 0.09)
+
+    # Check whether ship and asteroid have collided
     bound_ship = self.ship_instance.tux_spaceship.get_bounds()
 
     bound1_x = (bound1.x1 + bound1.x2) / 2
@@ -324,8 +336,6 @@ class Asteroids:
       y = y - 50)
 
     self.ship_instance.crash()
-
-
 
 class Fixed_planet:
   """ Fixed planets """
