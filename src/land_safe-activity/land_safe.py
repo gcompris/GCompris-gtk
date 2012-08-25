@@ -541,7 +541,10 @@ class Display:
       gobject.timeout_add(30, self.set_fuel_time)
 
   def fuel(self):
-    self.fuel_amt -= 1
+    if self.ship_instance.level == 1:
+      self.fuel_amt -= 1 * 0.5
+    else:
+      self.fuel_amt -= 1
     self.fuel_tank.set_property('width', self.fuel_amt)
 
     if self.fuel_amt != 1:
