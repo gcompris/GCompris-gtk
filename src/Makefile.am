@@ -45,6 +45,10 @@ SUBDIRS = \
 	erase-activity \
 	erase_2clic-activity \
 	erase_clic-activity \
+	explore-activity \
+	explore_farm_animals-activity \
+	explore_world_animals-activity \
+	explore_world_music-activity \
 	fifteen-activity \
 	findit-activity \
 	followline-activity \
@@ -104,11 +108,15 @@ SUBDIRS = \
 	money_back_cents-activity \
 	money_cents-activity \
 	mosaic-activity \
+	note_names-activity \
 	paintings-activity \
 	paratrooper-activity \
 	penalty-activity \
 	photohunter-activity \
+	piano_composition-activity \
 	planegame-activity \
+	play_piano-activity \
+	play_rhythm-activity \
 	pythontemplate-activity \
 	pythontest-activity \
 	railroad-activity \
