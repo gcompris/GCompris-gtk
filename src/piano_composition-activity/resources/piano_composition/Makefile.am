@@ -11,14 +11,12 @@ img_DATA = \
 	flag.png \
 	gsoc2012.jpg \
 	halfNote.png \
-	happyNote.png \
 	keyboard.png \
 	load.png \
 	melodies.desktop.in \
 	mozart.jpg \
 	note_highlight.png \
 	quarterNote.png \
-	sadNote.png \
 	save.png \
 	trebleClef.png \
 	wholeNote.png

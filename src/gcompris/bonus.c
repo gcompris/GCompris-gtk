@@ -119,6 +119,9 @@ gc_bonus_display(GCBonusStatusList gamewon, GCBonusList bonus_id)
   case GC_BONUS_LION :
     bonus_image("lion",gamewon);
     break;
+  case GC_BONUS_NOTE :
+    bonus_image("note",gamewon);
+    break;
   default :
     bonus_image("smiley",gamewon);
     break;
