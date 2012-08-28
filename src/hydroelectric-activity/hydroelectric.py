@@ -281,7 +281,7 @@ class Gcompris_hydroelectric:
                  "#PROD_COUNT",
                  #Translator : "meter" here means a measuring device
                  _("This is the meter for all the electricity produced. ") + \
-                 _("The electricity power is measured in Watt (W)."),
+                 _("The electricity power is measured in watts (W)."),
                  525, 226 )
 
     self.consumers_counter = \
@@ -289,7 +289,7 @@ class Gcompris_hydroelectric:
                  "#CONSO_COUNT",
                  #Translator : "meter" here means a measuring device
                  _("This is the meter for electricity consumed by the users. ") + \
-                 _("The electricity power is measured in Watt (W)."),
+                 _("The electricity power is measured in watts (W)."),
                  590, 203 )
 
     self.consumers = []
@@ -320,7 +320,7 @@ class Gcompris_hydroelectric:
                         "#SOLAR_PANEL_COUNT",
                         #Translator : "meter" here means a measuring device
                         _("This is the meter for electricity produced by the solar panels. ") + \
-                        _("The electricity power is measured in Watt (W)."),
+                        _("The electricity power is measured in watts (W)."),
                         697, 177 ),
                self.update_prod_count,
                "#SOLAR_PANEL_BG",
@@ -343,7 +343,7 @@ class Gcompris_hydroelectric:
                         "#WIND_FARM_COUNT",
                         #Translator : "meter" here means a measuring device
                         _("This is the meter for electricity produced by the wind turbines. ") + \
-                        _("The electricity power is measured in Watt (W)."),
+                        _("The electricity power is measured in watts (W)."),
                         650, 137 ),
                self.update_prod_count,
                "#WIND_FARM_BG",
