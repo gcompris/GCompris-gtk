@@ -39,6 +39,8 @@ icons_DATA = \
 	application-x-gcompris-anim.svg \
 	application-x-gcompris-draw.svg
 
+endif
+
 EXTRA_DIST = \
 	gcompris-activity \
 	GCompris.activity/activity.info \
@@ -46,4 +48,3 @@ EXTRA_DIST = \
 	GComprisAdministration.activity/activity.info \
 	GComprisAdministration.activity/administration.svg
 
-endif
