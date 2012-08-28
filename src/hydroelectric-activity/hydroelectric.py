@@ -168,7 +168,7 @@ class Gcompris_hydroelectric:
                         "#DAM_PROD_COUNT",
                         #Translator : "meter" here means a measuring device
                         _("This is the meter for electricity produced by the turbine. ") + \
-                        _("The electricity power is measured in Watt (W)."),
+                        _("The electricity power is measured in watts (W)."),
                         303, 224 ),
                self.update_prod_count,
                None,

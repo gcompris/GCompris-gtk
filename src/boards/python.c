@@ -86,7 +86,7 @@ static BoardPlugin menu_bp_no_config =
     NULL,
     NULL,
     N_("Python Board"),
-    N_("Special board that embeds python into gcompris."),
+    N_("Special board that embeds python into GCompris."),
     "Olivier Samyn <osamyn@ulb.ac.be>",
     pythonboard_init,
     NULL,
