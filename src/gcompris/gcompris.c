@@ -192,7 +192,7 @@ static GOptionEntry options[] = {
    N_("GCompris will find the activity plugins in this directory"), NULL},
 
   {"python_plugin_dir", 'P', 0, G_OPTION_ARG_STRING, &popt_python_plugin_dir,
-   N_("GCompris will find the python activity in this directory"), NULL},
+   N_("GCompris will find the Python activity in this directory"), NULL},
 
   {"locale_dir", '\0', 0, G_OPTION_ARG_STRING, &popt_locale_dir,
    N_("GCompris will find the locale file (.mo translation) in this directory"), NULL},
