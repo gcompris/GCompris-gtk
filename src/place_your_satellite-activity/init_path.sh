@@ -5,5 +5,5 @@ activity=place_your_satellite
 plugindir=$path/../boards/.libs
 pythonplugindir=$path
 resourcedir=$path/resources
-section="/experimental"
+section="/experience"
 
