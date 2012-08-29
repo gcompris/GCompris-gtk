@@ -253,13 +253,9 @@ class Satellite:
       value = self.revolve(x_center, y_center, 0)
       return value
     elif difference < 0:
-      if self.distance < 400 and abs(difference) < 1:
-        self.distance += 10
       value = self.crash(x_center, y_center)
       return value
     else:
-      if self.distance > 50 and abs(difference) < 1:
-        self.distance -= 10
       value = self.fly_off(x_center, y_center)
       return value
 
@@ -435,6 +431,7 @@ class Speed:
     self.set_speed(move)
 
   def set_speed(self, change):
+    print self.satellite_instance.speed
     if self.satellite_instance.speed > 0:
       self.satellite_instance.speed += change * 2
     else:
