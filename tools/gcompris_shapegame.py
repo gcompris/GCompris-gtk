@@ -142,7 +142,7 @@ def gcompris_puzzle(img, sdrawable, x, y, activity_name,
     d_title["<name>"] = title
     shapebg=[]
     # shapebg = dict(name=1, pixmapfile="skin:gcompris-shapelabel.png",
-    #    type="SHAPE_BACKGROUND", x=405, y=495, position=0)
+    #    type="SHAPE_BACKGROUND", x=405, y=495)
     pdb.gimp_image_scale(img, img.width/2, img.height/2)
     gcompris_layer_to_board(layerlist, activity_name, folder, d_title, shapebg, None,
                             level, sublevel)
@@ -325,7 +325,7 @@ def gcompris_babyshapes(img, sdrawable, activity_name,
             gimp.set_background(randint(0, 255), randint(0, 255), randint(0, 255))
         pdb.gimp_selection_load(chan)
         pdb.gimp_selection_grow(img, bordersize)
-        pdb.gimp_edit_fill(layer_map,BACKGROUND_FILL)		
+        pdb.gimp_edit_fill(layer_map,BACKGROUND_FILL)
 
 
     gimp.set_background(save_bg)
@@ -361,8 +361,8 @@ register(
     ],
     [],
     gcompris_babyshapes)
-	
-	
+
+
 def gcompris_layer_to_board(layerlist, activity, subdir, title, background, shape,
                             level, sublevel):
     """ Create png file and board.xml for gcompris
@@ -442,11 +442,11 @@ def gcompris_layer_to_board(layerlist, activity, subdir, title, background, shap
         offsx, offsy = tile_layer.offsets
         shape_dict["x"] = deltax + offsx + tile_layer.width / 2.0
         shape_dict["y"] = deltay + offsy + tile_layer.height /2.0
-        shape_dict["position"] = 0
         shape_dict["pixmapfile"] = os.path.join(activity, subdir, tile_filename)
         shape_dict["name"] = tile_layer.name
         if tile_layer == background:
             shape_dict["type"] ="SHAPE_BACKGROUND"
+            del shape_dict["<tooltip>"]
         xml.write(dict_to_str("shape", shape_dict))
     xml.write("</ShapeGame>\n")
     xml.close()

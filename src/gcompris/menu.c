@@ -28,6 +28,9 @@
 #include "gcompris.h"
 #include "status.h"
 
+#define IS_ADMIN(board) ( ( strncmp(board->section, "/administration", \
+				   strlen("/administration")) == 0 ) )
+
 static GcomprisBoard *gc_menu_load_board(const gchar*, const gchar*, gboolean);
 
 GcomprisBoard	*_read_xml_file(GcomprisBoard *gcomprisBoard, char *fname, gboolean db);
@@ -551,8 +554,12 @@ void gc_menu_load_dir(char *dirname, gboolean db){
       /* add the board to the list */
       GcomprisBoard *board = gc_menu_load_board(dirname, one_dirent, db);
       if (board) {
-        board->board_id = new_board_id++;
-	    list_old_boards_id = suppress_int_from_list(list_old_boards_id, board->board_id);
+	if ( ! board->board_id )
+	  // If there is no datadase, let's give an id here
+	  board->board_id = new_board_id++;
+
+	if ( ! IS_ADMIN(board) )
+	  list_old_boards_id = suppress_int_from_list(list_old_boards_id, board->board_id);
       }
     }
   }
@@ -600,9 +607,7 @@ static GcomprisBoard *gc_menu_load_board(const gchar *dirname,
 	  if (properties->administration)
 	    boards_list = g_list_append(boards_list, board_read);
 	  else {
-	    if ((strncmp(board_read->section,
-			 "/administration",
-			 strlen("/administration"))!=0)) {
+	    if ( ! IS_ADMIN(board_read) ) {
 	      boards_list = g_list_append(boards_list, board_read);
 	    }
 	    else

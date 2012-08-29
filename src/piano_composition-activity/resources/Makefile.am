@@ -1,0 +1,2 @@
+SUBDIRS = piano_composition
+

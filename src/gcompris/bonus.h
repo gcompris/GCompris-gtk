@@ -34,6 +34,7 @@ typedef enum
   GC_BONUS_TUX,
   GC_BONUS_GNU,
   GC_BONUS_LION,
+  GC_BONUS_NOTE,
   GC_BONUS_LAST
 } GCBonusList;
 
