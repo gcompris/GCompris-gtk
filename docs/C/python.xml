@@ -10,6 +10,9 @@ translate this file to html:
 xsltproc -o python.html http://docbook.sourceforge.net/release/xsl/current/html/docbook.xsl python.xml
 -->
 
+<book>
+<title>Python wrapper for Gcompris</title>
+
 <article>
     <articleinfo>
       <author>
@@ -25,10 +28,13 @@ xsltproc -o python.html http://docbook.sourceforge.net/release/xsl/current/html/
 	  <date>July 2010</date>
 	  <revremark>Updated documentation of the sound API.</revremark>
 	</revision>
+	<revision>
+	  <revnumber>0.8</revnumber>
+	  <date>August 2012</date>
+	  <revremark>Updated documentation of the pause() function. Removed deprecated gc_bonus_end_display().</revremark>
+	</revision>
       </revhistory>
     </articleinfo>
-    <title>Python wrapper for Gcompris</title>
-
 
     <sect1>
       <title>Notes about this wrapper</title>
@@ -65,7 +71,9 @@ needed gcompris board functions.</para>
 	  <listitem>repeat(self)</listitem>
 	  <listitem>config(self)</listitem>
 	  <listitem>key_press(self, keyval)</listitem>
-	  <listitem>pause(self, pause)</listitem>
+	  <listitem>pause(self, pause)
+	  <para>This method is called when the user request the activity help and when you call the bonus API.</para>
+	  </listitem>
 	  <listitem>set_level(self, level)</listitem>
 	</itemizedlist>
 </para>
@@ -564,12 +572,10 @@ attribute is readeable and/or writable.</para>
 	      <row>
 		<entry>gcompris.bonus.display(BonusStatusList, BonusList)</entry>
 		<entry>void gc_bonus_display(BonusStatusList, BonusList)</entry>
-		<entry></entry>
-	      </row>
-	      <row>
-		<entry>gcompris.bonus.board_finished(BoardFinishedList)</entry>
-		<entry>void gc_bonus_end_display(BoardFinishedList)</entry>
-		<entry></entry>
+		<entry>This displays a WIN or LOOSE bonus of the given type.
+When called, your activity's pause() function is called with True and when the bonus is no more displayed,
+ your activity's pause is called with False.
+ It is up to you to protect your event functions not to react when your activity is paused.</entry>
 	      </row>
 	    </tbody>
 	  </tgroup>
@@ -631,29 +637,6 @@ attribute is readeable and/or writable.</para>
 	</informaltable>
       </sect2>
 
-      <sect2>
-	<title>Constants mapping (BoardFinishedList)</title>
-	<informaltable>
-	  <tgroup cols="2">
-	    <thead>
-	      <row>
-		<entry>Python constant</entry>
-		<entry>C equivalent</entry>
-	      </row>
-	    </thead>
-	    <tbody>
-	      <row><entry>gcompris.bonus.FINISHED_RANDOM</entry>
-		<entry>BOARD_FINISHED_RANDOM</entry></row>
-	      <row><entry>gcompris.bonus.FINISHED_TUXPLANE</entry>
-		<entry>BOARD_FINISHED_TUXPLANE</entry></row>
-	      <row><entry>gcompris.bonus.FINISHED_TUXLOCO</entry>
-		<entry>BOARD_FINISHED_TUXLOCO</entry></row>
-	      <row><entry>gcompris.bonus.FINISHED_TOOMANYERRORS</entry>
-		<entry>BOARD_FINISHED_TOOMANYERRORS</entry></row>
-	    </tbody>
-	  </tgroup>
-	</informaltable>
-      </sect2>
     </sect1>
 
     <sect1>
@@ -1001,6 +984,7 @@ gcompris.sound.reopen()
     </sect1>
 
 </article>
+</book>
 
 <!-- Keep this comment at the end of the file
 Local variables:
