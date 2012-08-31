@@ -10,10 +10,8 @@ translate this file to html:
 xsltproc -o python.html http://docbook.sourceforge.net/release/xsl/current/html/docbook.xsl python.xml
 -->
 
-<book>
-<title>Python wrapper for Gcompris</title>
-
 <article>
+  <title>Python wrapper for Gcompris</title>
     <articleinfo>
       <author>
 	<honorific>Ir</honorific>
@@ -984,7 +982,6 @@ gcompris.sound.reopen()
     </sect1>
 
 </article>
-</book>
 
 <!-- Keep this comment at the end of the file
 Local variables:
