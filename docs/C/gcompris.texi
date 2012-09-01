@@ -13,11 +13,11 @@ START-INFO-DIR-ENTRY
 * gcompris: (gcompris.info).   Educational games for small children.
 END-INFO-DIR-ENTRY
 @end format
-This is the documentation of GCompris. 
+This is the documentation of GCompris.
 It contains both a user manual and
 implementation detail suitable for developpers.
 
-Copyright 2001 Free Software Foundation, Inc.
+Copyright 2012 Free Software Foundation, Inc.
 
 Permission is  granted to copy,  distribute and/or modify  this document
 under the  terms of the GNU  Free Documentation License,  Version 1.1 or
@@ -30,14 +30,14 @@ Documentation License".
 @titlepage
 @sp 10
 @comment The title is printed in a large font.
-@center 
+@center
 @titlefont{GCompris Documentation}
 @author Written By Bruno Coudoin
 
 @c The following two commands start the copyright page.
 @page
 @vskip 0pt plus 1filll
-Copyright @copyright{} 2001 Free Software Foundation, Inc.
+Copyright @copyright{} 2012 Free Software Foundation, Inc.
 
 Permission is  granted to copy,  distribute and/or modify  this document
 under the  terms of the GNU  Free Documentation License,  Version 1.1 or
@@ -53,24 +53,24 @@ Documentation License".
 @end ifnottex
 
 @menu
-* Introduction::		
-* User Manual::			
-* Internationalization Issues::			
-* Developers Guide::		
-* GNU Free Documentation License::  
-* Concept Index::		
+* Introduction::
+* User Manual::
+* Internationalization Issues::
+* Developers Guide::
+* GNU Free Documentation License::
+* Concept Index::
 @end menu
 
 @node    Introduction, User Manual, Top,      Top
 @chapter Introduction
 @section Why GCompris
-GCompris intent is to provide a central location where a user can find different kind of small educational content called 'boards'.
+GCompris intent is to provide a central location where a user can find different kind of small educational content called 'activities'.
 
 Today there is already a lot of free software that provides a small education content.
 Unfortunatly, it is difficult to track, intall and use them because they do not evolve
 at the same speed and offer their own user interface.
 
-GCompris aims to provide a unique user interface that gives access to different boards.
+GCompris aims to provide a unique user interface that gives access to different educational activities.
 
 GCompris is part of the GNU project.
 
@@ -79,8 +79,7 @@ GCompris is part of the GNU project.
 @node    User Manual, Internationalization Issues, Introduction, Top
 @chapter User Manual
 @section Control
-All controls are designed to be user friendly for the youngest. For this reason, GCompris does not stick to the Gnome standard for user interfaces.
-GCompris is controlled with a mouse. It cannot be used without a mouse or a pointer device.
+All controls are designed to be user friendly for the youngest.GCompris is controlled with a mouse. It cannot be used without a mouse or a pointer device.
 
 @section Gameplay
 @cindex Interface
@@ -90,13 +89,13 @@ GCompris is controlled with a mouse. It cannot be used without a mouse or a poin
 Once started, GCompris presents a graphical view that includes from top to bottom:
 @enumerate
 @item
-Boards icon list
+Activities icon list
 
-Each icon represent a board. When you move the mouse over them, they are highlighted and the name and description of the board is displayed in the board description area.
+Each icon represent an activity. When you move the mouse over them, they are highlighted and the name and description of the activity is displayed in the activity description area.
 @item
-@dfn{Boards description area}
+@dfn{Activities description area}
 
-Display a small description of what the highlited board icon is about.
+Display a small description of what the highlited activity icon is about.
 Note that the descriptions are internationalized which means translated in a target language (See @ref{Internationalization Issues} for more information on Internationalization).
 
 
@@ -110,23 +109,23 @@ The control bar contains the icons from left to right:
 @item
 Help:
 @cindex Icon Help
-In some case, a board can be too complex to be described in the @dfn{Board description area}. In this case this will provide access to the additionnal instructions.
+In some case, an activity can be too complex to be described in the @dfn{Activity description area}. In this case this will provide access to the additionnal instructions.
 
 @item
 Level:
 @cindex Icon Level
-Some boards provide different level. The number of levels is board dependant.
+Some activities provide different level. The number of levels is activity dependant.
 
 @item
 OK:
 @cindex Icon OK
-Some boards do not automatically detect that the child has finish the given task. Clicking here is similar to entering @key{RET} on the keyboard and thus the @key{RET} key is a shortcut.
+Some activities do not automatically detect that the child has finish the given task. Clicking here is similar to entering @key{RET} on the keyboard and thus the @key{RET} key is a shortcut.
 
 @item
 End:
 @cindex Icon End
-End the current board if any, otherwise Exit GCompris.
-When entered at the board menu level, it will create a dialog window to confirm the Exit of GCompris.
+End the current activity if any, otherwise Exit GCompris.
+When entered at the activity menu level, it will create a dialog window to confirm the Exit of GCompris.
 @cindex Exiting from GCompris
 
 @item
@@ -138,8 +137,8 @@ Display the about box for gcompris with the version number, the author, the lice
 @item
 Configure:
 @cindex Icon Configure
-Display the configuration box for gcompris. Configuration can be done at gcompris level when no boards is selected.
-If a board is selected, it can provides configuration options.
+Display the configuration box for gcompris. Configuration can be done at gcompris level when no activities is selected.
+If an activity is selected, it can provides configuration options.
 Configuration is persistent and saved in the gnome file in the user home directory under '.gcompris'.
 @cindex Configuring GCompris
 
@@ -147,11 +146,11 @@ Configuration is persistent and saved in the gnome file in the user home directo
 
 @end enumerate
 
-@subsection Starting a game
-At the menu level, just click on the board icon.
+@subsection Starting an activity
+At the menu level, just click on the activity icon.
 
-@subsection Ending a game
-In the control bar, select the right most icon.
+@subsection Ending an activity
+In the control bar, select the close icon.
 
 @node    Internationalization Issues, Developers Guide, User Manual, Top
 @chapter Internationalization Issues
@@ -182,187 +181,18 @@ Then, send the translation to the GCompris maintainer. He/She will add it into t
 
 @node    Developers Guide, GNU Free Documentation License, Internationalization Issues, Top
 @chapter Developers Guide
-@section Why adding boards to GCompris
-If you have a game idea that you feel suitable for children, you can create a new project, let's call it gIdea. If you start from scratch, you will have to implement a menu, a status bar, user feedback mecanism and so on.
+@section Why adding activities to GCompris
+If you have an education game idea that you feel suitable for children, you can create a new project, let's call it gIdea. If you start from scratch, you will have to implement a menu, a status bar, user feedback mecanism and so on.
 
-If gIdea is not a complex and huge program, it can be easier and faster for you to implement your gIdea as a GCompris board.
+If gIdea is not a complex and huge program, it can be easier and faster for you to implement your gIdea as a GCompris activity.
 This way, you benefit from all the current infrastucture and can focus only on your very Idea.
 
-For the end user, it is also easier to have a unique interface to a bunch of different boards instead of having to install gIdea1 gIdea2 and so on.
+For the end user, it is also easier to have a unique interface to a bunch of different activities instead of having to install gIdea1 gIdea2 and so on.
 
-It is not the intent of GCompris to becomes a new programming language. It is implemented in C and boards are implemented in C also. Boards and GCompris dynamically linked at runtime (plugins) which makes it possible to distribute new boards independently of the gcompris core.
+It is not the intent of GCompris to becomes a new programming language. It is implemented in C and activities are implemented in C also. Activities and GCompris dynamically linked at runtime (plugins) which makes it possible to distribute new activities independently of the gcompris core.
 
-Current implementation is based on the Gnome Canvas widget (see @uref{http://www.gnome.org} documentations). The Gnome Canvas provides a high level
-widget that free programmers of bitmap manipulation when doing graphical application. In current implementation, it
-is not possible to write boards using another widget. If it appears that the Canvas is not powerfull enough, GCompris
-will have to be modified to support other widgets.
-
-Another approach is to have smarter boards that can read data files and behaves accordingly. In this case we can envision a GCompris board editor that will let non
-programmer add content to GCompris. Since the target of GCompris is definitly teachers and educators, this option seems very promising. Note that following this track, the shape board already receives its data through an XML file.
-
-@section How to add boards to GCompris
-
-@subsection The whole picture
-
-@image{overview, 17cm, }
-
-@subsection GCompris API
-
-GCompris provides several sercices to boards developpers.
-These services are described in the file gcompris/gcompris.h
-
-@itemize @bullet
-
-@item
-@code{GnomeCanvasItem *gcompris_set_background(GnomeCanvasGroup *parent, gchar *file);}
-
-Set the background image for your game. You can get help from gameutil.h
-to load the image.
-
-@item
-@code{void gcompris_bar_set_level (GcomprisGame *gcomprisGame);}
-
-The user did fine and has to go to the next level. 
-Before calling it, @code{gcomprisGame->level} must be updated by the
-board.
-
-@item
-@code{void gcompris_bar_set_timer (guint time);}
-
-The timer is a progress bar that is usually used to inform the user
-of were he/she is in the board. This value must be in the range
-0 to 'maxtimer' given with @code{bar_set_maxtimer()}
-
-@item
-@code{void bar_set_maxtimer (guint time);}
-
-Set the max value of the progress bar.
-
-So when you create a board, you must include gcompris/plugin.h to have
-access to those methods (this is already included in gcompris/gcompris.h).
-
-plugin.h also define the BoardPlugin structure. It is the heart
-of GCompris. Each board creates its own BoardPlugin and give it back to
-Gcompris when called in the get_bplugin_info() entry point:
-
-@code{BoardPlugin* *get_bplugin_info ();}
-
-The BoardPlugin returned structure must contains callbacks to your 
-implementation methods.
-
-The BoardPlugin structure must provide callbaks to at
-least:
-
-@end itemize
-
-@itemize @bullet
-
-@item
-@code{void *GcomprisStartBoard     (GcomprisBoard *gcomprisBoard);}
-
-This is called by GCompris when this board has been requested by the user
-
-@item
-@code{void *GcomprisEndBoard      (void);}
-
-This is called by GCompris when the user clicked 'end' in the control bar.
-
-@end itemize
-
-Optionnaly, a GComprisGame structure can contains callbacks to:
-
-@itemize @bullet
-
-@item
-@code{gint *GcomprisKeyPress     (guint keyval);}
-
-If the board wants to receive user keypress, it must provide this
-callback method. The keyval is not filtered and is returned as
-Gnome return it. Check the Gnome documentation to understand how
-to manipulate it.
-
-@item
-@code{void *GcomprisOK           (void);}
-
-This method is called when the user click the 'OK' button in the control
-bar. It is a good practice to make the enter and return key behaves
-as the 'ok' button, but it may not be always appropriate. For this reason,
-it is the responsibility of the board implementation to do it.
-
-@item
-@code{void *GcomprisSetLevel     (guint level);}
-
-This is called with the level requested by the user.
-You provide the maximum number of level you support in @code{gcomprisGame->maxlevel}.
- Gcompris will take care to call it only with a valid level value.
-
-@end itemize
-
-@subsection Example of duplicating an existing board to create your own
-
-This describes all the steps required to add a new board to GCompris.
-
-As an example, I describe here how I created the clock game.
-
-@enumerate
-@item
-Copy an existing game (closest to your new board).
-@code{cp algebra.c clockgame.c}
-
-@item
-Edit src/boards/Makefile.am and add the file to the list of lib_LTLIBRARIES
-Then add at the end the entries for libclockgame_la_LDFLAGS, 
-libclockgame_la_LIBADD and libclockgame_la_SOURCES. Look at examples in src/boards/Makefile.am
-to see how to do that.
-
-@item
-In clockgame.c replace all 'algebra' by 'clockgame'
-
-@item
-In clockgame.c set the proper information for the new game:
-
-@code{if(g_strcasecmp(gcomprisBoard->type, "clockgame")==0)}
-
-  You must then create or copy the board description to the proper location
-
-@code{cp boards/algebra.xml boards/clockgame.xml}
-
-  Then edit clockgame.xml with a proper description and icon.
-  Set the icon file at the location given in clockgame.xml.
-
-@item
-In boards/Makefile.am add your file in the list. Respect the alphanumeric order.
-Same step in po/POTFILES.in
-
-@item
-make should compile everything fine.
-
-@item
-make install is mandatory or the icon won't be find at runtime.
-
-@item
-Now running gcompris should show up the new icon and you should be able
-to play the game you did copy. Now it's time to code the board
-in clockgame.c
-
-@item
-Update the po files:
-
-@code{cd gcompris/po}
-
-@code{edit POTFILES.in and add src/clockgame.c)}
-
-@code{make}
-
-@code{make update-po}
-
-@item
-Now you can add the translation in the po files.
-      
-@item
-'make' and then 'make install' will compile and install your translation.
-
-@end enumerate
+Another approach is to have smarter activities that can read data files and behaves accordingly. In this case we can envision a GCompris activity editor that will let non
+programmer add content to GCompris. Since the target of GCompris is definitly teachers and educators, this option seems very promising. Note that following this track, the shape activity already receives its data through an XML file.
 
 @node GNU Free Documentation License, Concept Index, Developers Guide, Top
 @appendix GNU Free Documentation License
@@ -765,7 +595,7 @@ to permit their use in free software.
 @node     Concept Index,  , GNU Free Documentation License, Top
 @comment      node-name, next,       previous, up
 @unnumbered Concept Index
-     
+
 @printindex cp
 
 @contents
