@@ -1303,9 +1303,7 @@ static void load_properties ()
   /* Initialize the binary relocation API
    *  http://autopackage.org/docs/binreloc/
    */
-  if(gbr_init (&error))
-    g_message("Binary relocation enabled");
-  else
+  if( ! gbr_init (&error))
     {
       if (error->code == GBR_INIT_ERROR_DISABLED)
 	g_message("Binary relocation disabled");
@@ -1313,9 +1311,6 @@ static void load_properties ()
 	g_message("Binary relocation start failed with error %d", error->code);
       g_error_free (error);
     }
-
-  exec_prefix = gbr_find_exe_dir(NULL);
-  g_warning("exec_prefix %s\n", (exec_prefix==NULL ? "NONE" : exec_prefix));
 
   {
     gchar *pkg_data_dir = gbr_find_data_dir(PACKAGE_DATA_DIR);
@@ -1332,8 +1327,14 @@ static void load_properties ()
     g_free(pkg_data_dir);
     g_free(pkg_clib_dir);
   }
+}
 
-  /* Display the directory value we have */
+/* Display the directory value we have */
+static void display_property_dirs()
+{
+  exec_prefix = gbr_find_exe_dir(NULL);
+  printf("exec_prefix              = %s\n", (exec_prefix==NULL ? "NONE" : exec_prefix));
+
   printf("package_data_dir         = %s\n", properties->package_data_dir);
   printf("package_skin_dir         = %s\n", properties->package_skin_dir);
   printf("package_menu_dir         = %s\n", properties->menu_dir);
@@ -1626,11 +1627,21 @@ main (int argc, char *argv[])
   sugar_setup(&argc, &argv);
 
   /* Argument parsing */
-  context = g_option_context_new("GCompris");
+  context = g_option_context_new(" - An educational software for chilren 2 to 10");
   g_option_context_add_main_entries (context, options, GETTEXT_PACKAGE);
   g_option_context_add_group (context, gtk_get_option_group (TRUE));
   g_option_context_parse (context, &argc, &argv, &error);
   g_option_context_free(context);
+
+  if (popt_version)
+    {
+      printf (_("GCompris\nVersion: %s\nLicence: GPL\n"
+		"More info at http://gcompris.net\n"),
+	      VERSION);
+      exit (0);
+    }
+
+  display_property_dirs();
 
   /* Set the default message handler, it avoids message with option -D */
   g_log_set_handler (NULL, G_LOG_LEVEL_MESSAGE | G_LOG_LEVEL_WARNING | G_LOG_LEVEL_DEBUG | G_LOG_FLAG_FATAL
@@ -1688,14 +1699,6 @@ main (int argc, char *argv[])
   // Set the user's choice locale
   gc_locale_set(properties->locale);
 #endif
-
-  if (popt_version)
-    {
-      printf (_("GCompris\nVersion: %s\nLicence: GPL\n"
-		"More info at http://gcompris.net\n"),
-	      VERSION);
-      exit (0);
-    }
 
   if (popt_fullscreen)
     {
