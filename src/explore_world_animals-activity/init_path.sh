@@ -5,4 +5,4 @@ activity=explore_world_animals
 plugindir=$path/../boards/.libs
 pythonplugindir=$path/../explore-activity
 resourcedir=$path/resources
-section="/discovery/sound_group"
+section="/discovery/miscelaneous"
