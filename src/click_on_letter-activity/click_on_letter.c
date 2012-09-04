@@ -18,8 +18,9 @@
  */
 
 #include <glib.h>
+#include <glib/gstdio.h>
 #include <string.h>
-
+#include <stdlib.h> /* atoi */
 #include "gcompris/gcompris.h"
 
 
@@ -681,7 +682,6 @@ static void highlight_selected(GooCanvasItem * item) {
 
 static void load_desktop_datafile(gchar *filename)
 {
-  printf("load_desktop_datafile %s\n", filename);
   GKeyFile *keyfile = g_key_file_new ();
   GError *error = NULL;
   if ( ! g_key_file_load_from_file (keyfile,
@@ -1043,7 +1043,6 @@ conf_ok(GHashTable *table)
       return FALSE;
 
 
-    printf("conf_ok =%s\n", (char*)g_hash_table_lookup(config, "locale_sound"));
     gc_locale_set(g_hash_table_lookup(config, "locale_sound"));
 
     if (profile_conf)
@@ -1213,7 +1212,7 @@ return_to_default(GtkWidget *widget, gpointer data)
   GtkListStore *model = (GtkListStore *)data;
   gchar *filename = get_user_desktop_file();
   /* Erase the user desktop file */
-  gc_cache_remove(filename);
+  g_remove(filename);
   g_free(filename);
 
   load_datafile();
@@ -1290,7 +1289,6 @@ locale_changed (GtkComboBox *combobox, gpointer data)
 
   // Get back the locale from the locale name (French becomes fr_FR.UTF8)
   locale = gc_locale_get_locale( text );
-  printf("LOCALE = %s\n", locale);
 
   gc_locale_set(locale);
 
