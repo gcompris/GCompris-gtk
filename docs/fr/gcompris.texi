@@ -30,14 +30,14 @@ Documentation License".
 @titlepage
 @sp 10
 @comment The title is printed in a large font.
-@center 
+@center
 @titlefont{Documentation GCompris}
 @author Written By Bruno Coudoin
 
 @c The following two commands start the copyright page.
 @page
 @vskip 0pt plus 1filll
-Copyright @copyright{} 2001 Free Software Foundation, Inc.
+Copyright @copyright{} 2012 Free Software Foundation, Inc.
 
 Permission is  granted to copy,  distribute and/or modify  this document
 under the  terms of the GNU  Free Documentation License,  Version 1.1 or
@@ -53,12 +53,12 @@ Documentation License".
 @end ifnottex
 
 @menu
-* Introduction::		
-* Manuel utilisateur::			
-* Internationalisation::			
-* Guide pour les développeurs::		
-* GNU Free Documentation License::  
-* Concept Index::		
+* Introduction::
+* Manuel utilisateur::
+* Internationalisation::
+* Guide pour les développeurs::
+* GNU Free Documentation License::
+* Concept Index::
 @end menu
 
 @node    Introduction, Manuel utilisateur, Top,      Top
@@ -146,8 +146,8 @@ Dans la barre, sélectionner le bouton 'Retour'.
 @node    Internationalisation, Guide pour les développeurs, Manuel utilisateur, Top
 @chapter Internationalisation
 @section Ma langue est-elle supportée ?
-GCompris est internationalisé et supporte déjà plusieurs langues. 
-Pour savoir si la vôtre est prise en charge, vous pouvez lancer GCompris et sélectionner votre langue dans l'option de configuration. 
+GCompris est internationalisé et supporte déjà plusieurs langues.
+Pour savoir si la vôtre est prise en charge, vous pouvez lancer GCompris et sélectionner votre langue dans l'option de configuration.
 Si votre langue n'est pas supportée, vous pouvez réaliser la traduction vous même. Pour cela, contacter le mainteneur officiel du projet GCompris.
 
 @section Comment traduire GCompris dans ma langue
@@ -171,138 +171,13 @@ Ensuite, envoyer la traduction au mainteneur de GCompris. Il/Elle l'inclura dans
 @node    Guide pour les développeurs, GNU Free Documentation License, Internationalisation, Top
 @chapter Guide pour les développeurs
 @section Pourquoi ajouter vos activités dans GCompris
-Si vous avez une idée de tableau que vous aimeriez proposer aux enfants, vous pouvez faire un nouveau projet, appelons le gIdea. Si vous commencez à partir de zéro, il vous faudra tout implémenter, menu, barre de contrôle, gestion des retours utilisateur, mécanismes d'aides, gestion du projet sur le Web, ... 
-Si gIdea n'est pas un gros programme, il peut être plus simple de l'implémenter sous la forme d'une activité de GCompris. De cette façon, vous bénéficiez de l'infrastructure de GCompris et de sa constante évolution. 
-Pour l'utilisateur final, il est aussi plus simple et agréable d'avoir une interface unique et consistante pour un ensemble d'activités plutôt que d'avoir à installer des programmes différents gIdea gFun g... 
-Il n'est pas dans les objectifs de GCompris de devenir un langage de programmation. GCompris est implémenté en C (pour le coeur et les activités). Les activités sont chargées dynamiquement (plugins) ce qui rend possible la création et distribution de l'activité indépendamment de GCompris. 
-
-L'implémentation de GCompris est basée sur le canvas Gnome (voir @uref{http://www.gnome.org} pour la documentation). Le canvas Gnome fournit un widget de haut niveau qui libère le programmeur de la manipulation des bitmaps lors de la réalisation d'applications graphiques. Dans l'implémentation actuelle, il n'est pas possible d'utiliser un autre ensemble de widgets. 
+Si vous avez une idée de tableau que vous aimeriez proposer aux enfants, vous pouvez faire un nouveau projet, appelons le gIdea. Si vous commencez à partir de zéro, il vous faudra tout implémenter, menu, barre de contrôle, gestion des retours utilisateur, mécanismes d'aides, gestion du projet sur le Web, ...
+Si gIdea n'est pas un gros programme, il peut être plus simple de l'implémenter sous la forme d'une activité de GCompris. De cette façon, vous bénéficiez de l'infrastructure de GCompris et de sa constante évolution.
+Pour l'utilisateur final, il est aussi plus simple et agréable d'avoir une interface unique et consistante pour un ensemble d'activités plutôt que d'avoir à installer des programmes différents gIdea gFun g...
+Il n'est pas dans les objectifs de GCompris de devenir un langage de programmation. GCompris est implémenté en C (pour le coeur et les activités). Les activités sont chargées dynamiquement (plugins) ce qui rend possible la création et distribution de l'activité indépendamment de GCompris.
 
 Certaines activités de GCompris sont conçues pour accepter de recevoir leurs jeux de données à partir d'un fichier XML. Dans ce cas, ces activités peuvent être réutilisées à condition de comprendre le format de leurs données. Pour rendre cette opération plus simple, et permettre à des non programmeurs d'utiliser ces fonctionnalités, GCompris fournira un éditeur d'activités. Il faut noter que l'activité 'shape' utilisée pour les tableaux de maîtres, par exemple, sait déjà lire et écrire ses données au format XML.
 
-@section Comment ajouter vos activités dans GCompris
-
-@subsection Vue d'ensemble
-
-@image{overview, 17cm, }
-
-@subsection GCompris API
-
-GCompris fournit différents services aux développeurs d'activités.
-Ces services sont décrits dans le fichier gcompris/gcompris.h
-
-@itemize @bullet
-
-@item
-@code{GnomeCanvasItem *gcompris_set_background(GnomeCanvasGroup *parent, gchar *file);}
-
-Définit l'image de fond de votre jeu. Vous pouvez trouver de l'aide dans gameutil.h pour charger l'image.
-
-@item
-@code{void gcompris_bar_set_level (GcomprisGame *gcomprisGame);}
-
-L'utilisateur a réussi et doit faire le niveau suivant. Avant de l'appeler, @code{gcomprisGame->level} doit être mis à jour par l'activité.
-
-@item
-@code{void gcompris_bar_set_timer (guint time);}
-
-Le 'timer' est une barre de progression qui est normalement utilisée pour informer l'utilisateur de sa progression dans l'activité. Cette valeur doit être comprise entre 0 et 'maxtimer' donnée par @code{bar_set_maxtimer()}
-
-@item
-@code{void bar_set_maxtimer (guint time);}
-
-Établit la valeur maximale de la barre de progression. Ainsi, quand vous créez une activité, vous devez y inclure gcompris/plugin.h pour avoir accès à ces méthodes (déjà inclus dans gcompris/gcompris.h). plugin.h définit également la structure 'BoardPlugin'. C'est le noyau de GCompris. Chaque activité crée son propre 'BoardPlugin' et le renvoie à GCompris quand il est appelé par le point d'entrée get_bplugin_info() @code{BoardPlugin* *get_bplugin_info ();} La structure 'BoardPlugin' renvoyée doit contenir des 'callbacks' vers vos méthodes d'implémentation. La structure 'BoardPlugin' doit fournir des 'callbacks' vers, au moins :
-
-@end itemize
-
-@itemize @bullet
-
-@item
-@code{void *GcomprisStartBoard     (GcomprisBoard *gcomprisBoard);}
-
-est appelé par GCompris quand cette activité a été demandée par l'utilisateur.
-
-@item
-@code{void *GcomprisEndBoard      (void);}
-
-est appelé par GCompris quand l'utilisateur a cliqué sur 'Fin' dans la barre de contrôlé.
-
-@end itemize
-
-Éventuellement, la structure d'une activité GCompris peut contenir des 'callbacks' vers :
-
-@itemize @bullet
-
-@item
-@code{gint *GcomprisKeyPress     (guint keyval);}
-
-Si l'activité a besoin que l'utilisateur appuie sur des touches, elle doit fournir une méthode de 'callback'. 'keyval' (la valeur des touches ?) n'est pas filtrée et est renvoyée telle que Gnome le fait. Consulter la documentation Gnome pour comprendre comment la manipuler.
-
-@item
-@code{void *GcomprisOK           (void);}
-
-Cette méthode est appelée quand l'utilisateur clique sur le bouton 'OK' dans la barre de contrôle. C'est une pratique censée que d'aligner le comportement des touches ENTRÉE et RETURN sur celui du bouton 'OK', mais cela ne conviendra peut-être pas à toutes les situations. Pour cette raison, la responsabilité en est laissée à l'implémentation de l'activité.
-
-@item
-@code{void *GcomprisSetLevel     (guint level);}
-
-Est appelé avec le niveau demandé par l'utilisateur. Fournir le nombre maximal de niveaux que vous proposez dans @code{gcomprisGame->maxlevel}.
- GCompris veillera à l'appeler uniquement avec une valeur correcte.
-
-@end itemize
-
-@subsection Exemple de duplication d'une activité existante pour créer la vôtre
-
-Ce qui suit décrit toutes les étapes nécessaires à l'adjonction de nouvelles activités à GCompris.
-
-Je décris ici, à titre d'exemple, comment j'ai créé le jeu d'apprentissage de l'heure.
-
-@enumerate
-@item
-Copier une activité existante (la plus proche de votre nouvelle activité).
-@code{cp algebra.c clockgame.c}
-
-@item
-Éditer src/boards/Makefile.am et ajouter le fichier à la liste des librairies LTLIBRARIES, puis ajouter à la fin les entrées pour libclockgame_la_LDFLAGS, libclockgame_la_LIBADD et libclockgame_la_SOURCES. Vous pouvez consulter les exemples dans src/boards/Makefile.am afin de voir comment procéder.
-
-@item
-Dans clockgame.c, remplacer les occurrences 'algebra' par 'clockgame'.
-
-@item
-Dans clockgame.c, indiquer les informations correctes pour le nouveau jeu : 
-
-@code{if(g_strcasecmp(gcomprisBoard->type, "clockgame")==0)}
-
-   vous devez alors créer ou copier la description de l'activité au bon endroit :
-
-@code{cp boards/algebra.xml boards/clockgame.xml}
-
-  puis éditer clockgame.xml afin d'y insérer les informations correctes concernant la description de l'activité et son icône. Enregistrer le fichier de l'icône à l'endroit indiqué par clockgame.xml.
-
-@item
-Dans boards/Makefile.am ajouter votre fichier à la liste en respectant l'ordre alphanumérique. Faire de même dans po/POTFILES.in
-
-@item
-make devrait compiler le tout sans problème.
-
-@item
-Il est indispensable de faire un make install, ou l'icône ne sera pas trouvée lors de l'exécution du programme.
-
-@item
-Au lancement de GCompris, vous devriez voir la nouvelle icône et pouvoir jouer au jeu que vous avez copié. Vous pouvez maintenant coder l'activité dans clockgame.c
-
-@item
-Mettre à jour le fichier po : 
-@code{cd gcompris/po}
-Éditer POTFILES.in et ajouter src/clockgame.c)
-
-@item
-Ajouter maintenant la traduction dans les fichers po.
-      
-@item
-'make' puis 'make install' compileront et installeront votre traduction.
-
-@end enumerate
 
 @node GNU Free Documentation License, Concept Index, Guide pour les développeurs, Top
 @appendix GNU Free Documentation License
@@ -311,7 +186,7 @@ Ajouter maintenant la traduction dans les fichers po.
 @center Version 1.1, March 2000
 
 @display
-Copyright @copyright{} 2000 Free Software Foundation, Inc.
+Copyright @copyright{} 2012 Free Software Foundation, Inc.
 59 Temple Place, Suite 330, Boston, MA  02111-1307, USA
 
 Everyone is permitted to copy and distribute verbatim copies
@@ -705,7 +580,7 @@ to permit their use in free software.
 @node     Concept Index,  , GNU Free Documentation License, Top
 @comment      node-name, next,       previous, up
 @unnumbered Concept Index
-     
+
 @printindex cp
 
 @contents

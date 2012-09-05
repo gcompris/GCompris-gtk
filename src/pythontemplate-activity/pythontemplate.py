@@ -27,7 +27,7 @@ import pango
 from gcompris import gcompris_gettext as _
 
 class Gcompris_pythontemplate:
-  """Empty gcompris python class"""
+  """Empty gcompris Python class"""
 
 
   def __init__(self, gcomprisBoard):
