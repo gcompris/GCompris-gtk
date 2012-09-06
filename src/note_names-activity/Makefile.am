@@ -1,6 +1,11 @@
 # Passthrough, do not break uplevel make rule
 install-activity:
 
+
+pythondir = $(PYTHON_PLUGIN_DIR)
+
+dist_python_DATA = note_names.py
+
 xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@
 
 xml_in_files = \
