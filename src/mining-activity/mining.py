@@ -114,6 +114,11 @@ class Gcompris_mining:
     assert(gcompris.BOARD_WIDTH == (rockwall_img.get_bounds().x2 / self.source_image_scale))
     assert(gcompris.BOARD_HEIGHT == (rockwall_img.get_bounds().y2 / self.source_image_scale))
 
+
+    self.placer = Placer(self)
+
+    self.decorations = Decorations(svghandle, self.viewport.get_gc_group(), self.placer)
+
     self.nugget = Nugget(svghandle, self.viewport.get_gc_group())
 
     # create sparkling last, so it is on above the nugget
@@ -143,51 +148,23 @@ class Gcompris_mining:
     self.need_new_nugget = False
 
     # TODO: set level-function:
-    #  generate nice level with random stones, bones, ...
-    #  and place gold nuggest according to no stone/bone bounding boxes
     #  perhaps different backgrounds?
 
     self.viewport.reset()
 
+    self.placer.add_blocker(self.gc_bar_blocker)
+    for blocking_area in self.viewport.get_nugget_blocker():
+      self.placer.add_blocker(blocking_area)
+
+    self.decorations.decorate_viewport(10)
+
     self.place_new_nugget()
-
-
-  def do_objects_collide(self, primary_object, *secondary_objects):
-    """ Tests whether any object of the tuple secondary_objects collides with the primary_object """
-
-    area_p = Area(primary_object.get_bounds())
-
-    for secondary_object in secondary_objects:
-      area_s = Area(secondary_object.get_bounds())
-
-      # collision on x-axis?
-      if math.fabs(area_p.center_x - area_s.center_x) <= (area_s.width + area_p.width) / 2.0:
-        # collision on y-axis?
-        if math.fabs(area_p.center_y - area_s.center_y) <= (area_s.height + area_p.height) / 2.0:
-          # collision!
-          return True
-
-    # no collision
-    return False
 
 
   def place_new_nugget(self):
     """ Place a new nugget to collect on the rockwall """
 
-    nugget_area = Area(self.nugget.get_bounds())
-    nugget_width_half = int(nugget_area.width / 2.0)
-    nugget_height_half = int(nugget_area.height / 2.0)
-
-    while True:
-      x = random.randrange(nugget_width_half, gcompris.BOARD_WIDTH - nugget_width_half) * self.source_image_scale
-      y = random.randrange(nugget_height_half, gcompris.BOARD_HEIGHT - nugget_height_half) * self.source_image_scale
-
-      self.nugget.reset(x, y)
-
-      # TODO: check for stones
-      if not self.do_objects_collide(self.nugget, self.gc_bar_blocker, *self.viewport.get_nugget_blocker()):
-        # we found a valid position without collisions
-        break
+    self.placer.place(self.nugget, self.nugget.reset)
 
     (x, y) = self.nugget.get_sparkling_coordinates()
     self.sparkling.reset(x, y)
@@ -249,6 +226,7 @@ class Gcompris_mining:
   def collect_nugget(self):
     """ The nugget was clicked, so collect it """
 
+    self.placer.remove_blocker(self.nugget)
     self.nugget_count += 1
     self.sparkling.animation_stop()
     self.nugget.hide()
@@ -301,6 +279,8 @@ class Gcompris_mining:
   def end_level(self):
     """ Terminate the current level """
     self.sparkling.end()
+    self.placer.remove_all_blocker()
+    self.decorations.cleanup_viewport()
 
 
   def end(self):
@@ -330,6 +310,89 @@ class Gcompris_mining:
 
   def repeat(self):
     print("repeat() not needed by mining-activity.")
+
+
+
+class Placer:
+  """ This class randomly places items on the screen and assures, that they do not overlap """
+
+  # the internal list of blocking areas
+  blocking_areas = []
+
+
+  def __init__(self, activity):
+    """
+    Constructor:
+      activity : the main activity class
+    """
+    self.activity = activity
+
+
+  def place(self, item, place_callback):
+    """
+    Place "item" on the screen.
+      item            : the item to place (needs to implement "get_bounds()")
+      place_callback  : The callback function to actually place the item (and modify, like rotate/scale).
+                        Is called with parameters (item, x, y).
+    """
+    area = Area(item.get_bounds())
+    width_half = int(area.width / 2.0)
+    height_half = int(area.height / 2.0)
+
+    while True:
+      # get new random position for the item
+      x = random.randrange(width_half, gcompris.BOARD_WIDTH - width_half) * self.activity.source_image_scale
+      y = random.randrange(height_half, gcompris.BOARD_HEIGHT - height_half) * self.activity.source_image_scale
+
+      # place the item to this position
+      place_callback(item, x, y)
+
+      # check for overlapping objects
+      if not self.__does_object_collide_with_registered_ones(item):
+        # we found a valid position without collisions
+        # lets remember the positioned item...
+        self.add_blocker(item);
+        # ... and end the search for a valid position
+        break
+
+
+  def add_blocker(self, blocking_area):
+    """ Add a new blocking area to the internal list of blocking areas """
+    self.blocking_areas.append(blocking_area)
+
+
+  def remove_blocker(self, blocking_area):
+    """ Removes the given blocking area from the internal list of blocking areas """
+    for i in range(len(self.blocking_areas)):
+      if self.blocking_areas[i] == blocking_area:
+        # this is the blocking_area, we are looking for, so remove it from the list
+        self.blocking_areas.pop(i)
+        return
+
+    print("Warning: blocking-area not in list: " + str(blocking_area))
+
+
+  def remove_all_blocker(self):
+    """ Removes all blocker from the internal list """
+    self.blocking_areas = []
+
+
+  def __does_object_collide_with_registered_ones(self, asked_object):
+    """ Tests whether any registered object collides with the asked_object """
+    area_a = Area(asked_object.get_bounds())
+
+    for blocking_area in self.blocking_areas:
+      area_r = Area(blocking_area.get_bounds())
+
+      # collision on x-axis?
+      if math.fabs(area_a.center_x - area_r.center_x) <= (area_r.width + area_a.width) / 2.0:
+        # collision on y-axis?
+        if math.fabs(area_a.center_y - area_r.center_y) <= (area_r.height + area_a.height) / 2.0:
+          # collision!
+          return True
+
+    # no collision
+    return False
 
 
 
@@ -518,6 +581,116 @@ class Viewport:
 
 
 
+class Decorations:
+  """
+  This class handles decorations, like stones. They have the meaning of:
+    - make every level look a bit different
+    - help orienting, while scrolling
+  """
+
+  # our decoration types in the svg file
+  decoration_types = (
+    {
+      'svg_id': '#STONE1',
+      'svg_x': 500,
+      'svg_y': 1300
+    },
+    {
+      'svg_id': '#STONE2',
+      'svg_x': 1000,
+      'svg_y': 1300
+    },
+    {
+      'svg_id': '#STONE3',
+      'svg_x': 1500,
+      'svg_y': 1300
+    },
+    {
+      'svg_id': '#STONE4',
+      'svg_x': 2000,
+      'svg_y': 1300
+    },
+  )
+
+  # A goocanvas group, that holds all our decoration, so we can easily
+  # remove them, by removing only this group.
+  decoration_group = None
+
+  # ID of the decoration type, currently being placed. (Used to overcome callback bounderies)
+  current_decoration_id = None
+
+
+  def __init__(self, svghandle, gc_group, placer):
+    """
+    Constructor:
+      - svghandle : handle to the svg file, to load the decoration pictures
+      - gc_group  : our viewport's gc_group, the decorations are attached to
+      - placer    : reference to the Placer object
+    """
+    self.svghandle = svghandle
+    self.viewport_gc_group = gc_group
+    self.placer = placer
+
+
+  def decorate_viewport(self, number_of_decorations):
+    """ Fill the viewport with some decorations """
+
+    assert(self.decoration_group == None)
+    self.decoration_group = goocanvas.Group(parent = self.viewport_gc_group)
+
+    for i in range(number_of_decorations):
+      # select random decoration
+      self.current_decoration_id = random.randrange(4)
+      svg_id = self.decoration_types[self.current_decoration_id]['svg_id']
+
+      # create decoration
+      decoration = goocanvas.Svg(
+        parent = self.decoration_group,
+        svg_handle = self.svghandle,
+        svg_id = svg_id,
+        )
+
+      self.placer.place(decoration, self.__place_decoration)
+
+
+  def __place_decoration(self, decoration, x, y):
+    """ Updates the transformation of the decoration to the new coordinates. Rotation and scale are varied. """
+
+    svg_x = self.decoration_types[self.current_decoration_id]['svg_x']
+    svg_y = self.decoration_types[self.current_decoration_id]['svg_y']
+
+
+    # scale between 0.5 and 2.0
+    scale = math.pow(1.2, random.randrange(-4, +4))
+
+    rot = random.randrange(-20, +20)
+
+
+    # we need those values more than once, so lets remember them
+    a = math.radians(rot)
+    cos_a = math.cos(a)
+    sin_a = math.sin(a)
+
+    # create the transformation matrices
+    m_center_to_origin = cairo.Matrix(1, 0, 0, 1, -svg_x, -svg_y)
+    m_scale = cairo.Matrix(scale, 0, 0, scale, 0, 0)
+    m_rotate = cairo.Matrix(cos_a, sin_a, -sin_a, cos_a, 0, 0)
+    m_to_destination = cairo.Matrix(1, 0, 0, 1, x, y)
+
+    # combine all transformation matrices to one
+    matrix = m_center_to_origin * m_scale * m_rotate * m_to_destination
+
+    decoration.set_transform(matrix)
+
+
+  def cleanup_viewport(self):
+    """ Remove all decorations from the viewport """
+    if self.decoration_group != None:
+      self.decoration_group.remove()
+      self.decoration_group = None
+
+
+
 class Nugget:
   """ The gold nugget """
 
@@ -550,8 +723,14 @@ class Nugget:
       )
 
 
-  def reset(self, x, y):
-    """ Move nugget to a new position. """
+  def reset(self, nugget, x, y):
+    """
+    Move nugget to a new position.
+      nugget : we don't need it in this case, since there is only one nugget image in this class, 
+                but the callback interface defines this parameter
+      x      : new x position for the nugget image
+      y      : new y position for the nugget image
+    """
     self.x = x
     self.y = y
     self.nugget_img.set_simple_transform(self.x - self.pivot_x, self.y - self.pivot_y, 1.0, 0)
