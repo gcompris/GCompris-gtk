@@ -40,7 +40,7 @@ class Gcompris_mining:
   # the number of nuggets, we need to collect in this level
   nuggets_to_collect = 0
 
-  # the number of nuggets, we already have colleced
+  # the number of nuggets, we already have collected
   nugget_count = 0
 
   # used to trigger the creation of a new nugget at next opportunity (only at max zoomed out)
@@ -94,7 +94,7 @@ class Gcompris_mining:
 
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains
-    # automaticaly.
+    # automatically.
     self.rootitem = goocanvas.Group(parent = self.gcomprisBoard.canvas.get_root_item())
     self.rootitem.connect("button_press_event", self.on_button_press)
 
