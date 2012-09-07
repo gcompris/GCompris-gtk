@@ -738,7 +738,7 @@ class Nugget:
   def reset(self, nugget, x, y):
     """
     Move nugget to a new position.
-      nugget : we don't need it in this case, since there is only one nugget image in this class, 
+      nugget : we don't need it in this case, since there is only one nugget image in this class,
                 but the callback interface defines this parameter
       x      : new x position for the nugget image
       y      : new y position for the nugget image
