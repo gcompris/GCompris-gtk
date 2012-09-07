@@ -262,11 +262,8 @@ class Gcompris_mining:
 
   def on_level_won(self):
     """ The user collected enough nuggets """
-
     self.is_game_won = True;
-
-    # display the lion bonus (I have no idea, why it has the GNU-label)
-    gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.GNU)
+    gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.LION)
 
 
   def pause(self, pause):
