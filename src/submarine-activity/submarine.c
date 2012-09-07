@@ -18,6 +18,7 @@
  */
 
 #include "gcompris/gcompris.h"
+#include <stdlib.h> // for abs
 
 #define DEG_TO_RAD(x) M_PI*(x)/180.0
 

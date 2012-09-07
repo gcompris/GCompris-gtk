@@ -17,6 +17,7 @@
  */
 
 #include "gcompris/gcompris.h"
+#include <stdlib.h> //for atoi
 
 #define SOUNDLISTFILE PACKAGE
 

@@ -16,6 +16,7 @@
  *   along with this program; if not, see <http://www.gnu.org/licenses/>.
  */
 #include <string.h>
+#include <stdlib.h> //for atoi
 
 #include "gcompris/gcompris.h"
 
