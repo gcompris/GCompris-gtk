@@ -91,6 +91,8 @@ class Gcompris_mining:
     # The bar is in the lower, left corner of the screen with dimensions: width = 196; height = 50
     self.gc_bar_blocker = BlockingArea(0, 470, 196, 520)
 
+    # TODO: draw lorry in the lower right corner, showing current collected nuggets and nuggets to collect
+
 
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains
