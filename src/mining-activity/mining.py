@@ -339,6 +339,8 @@ class Placer:
     width_half = int(area.width / 2.0)
     height_half = int(area.height / 2.0)
 
+    safety_counter = 0
+
     while True:
       # get new random position for the item
       x = random.randrange(width_half, gcompris.BOARD_WIDTH - width_half) * self.activity.source_image_scale
@@ -353,6 +355,16 @@ class Placer:
         # lets remember the positioned item...
         self.add_blocker(item);
         # ... and end the search for a valid position
+        break
+
+      safety_counter += 1
+      if safety_counter > 20:
+        # We tried to place this object many times, but could not find a valid position.
+        # Seems to be very difficult with this amount of objects.
+        # Since an invalid position (= overlapping objects) is way better than a frozen
+        # application, we exit this while loop with an "invalid" position.
+        print("Warning: safety_counter reached maximum!")
+        self.add_blocker(item);
         break
 
 
