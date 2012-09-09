@@ -114,20 +114,11 @@ class Gcompris_explore:
         if hasattr(self, 'SoundMatchingGameText'):
             self.gcomprisBoard.maxlevel = 3
 
-        # set x and y positions for the background image
-        if not hasattr(self, 'backgroundx'):
-            x = 10
-        else:
-            x = int(self.backgroundx)
-        if not hasattr(self, 'backgroundy'):
-            y = 10
-        else:
-            y = int(self.backgroundy)
-
         self.map = goocanvas.Image(
-            parent=self.rootitem,
-            x=x, y=y,
-            pixbuf=gcompris.utils.load_pixmap(self.activityDataFilePath + self.background)
+            parent = self.rootitem,
+            x = self.backgroundx,
+            y = self.backgroundy,
+            pixbuf = gcompris.utils.load_pixmap(self.activityDataFilePath + self.background)
             )
 
         if RECORD_LOCATIONS:
@@ -499,10 +490,14 @@ class Gcompris_explore:
                 except:pass
                 try: self.TextMatchingGameText = self.data.get('common', 'TextMatchingGameText')
                 except:pass
-                try: self.backgroundx = self.data.get('common', 'backgroundx')
-                except:pass
-                try: self.backgroundy = self.data.get('common', 'backgroundy')
-                except:pass
+                try: self.backgroundx = int(self.data.get('common', 'backgroundx'))
+                except:
+                    print "ERROR: missing 'backgroundx' in the data file"
+                    return
+                try: self.backgroundy = int(self.data.get('common', 'backgroundy'))
+                except:
+                    print "ERROR: missing 'backgroundy' in the data file"
+                    return
                 try: self.textBoxX = int(self.data.get('common', 'textBoxX'))
                 except:pass
                 try: self.textBoxY = int(self.data.get('common', 'textBoxY'))
