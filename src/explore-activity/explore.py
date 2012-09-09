@@ -73,6 +73,8 @@ class Gcompris_explore:
         self.textPromptsRemaining = []
         self.allTextPrompts = []
 
+        self.locationSeen = 0
+
     def start(self):
         '''
         method called to create 'home-page', the world map with all the locations.
@@ -107,7 +109,7 @@ class Gcompris_explore:
         gcompris.bar_set_level(self.gcomprisBoard)
         gcompris.bar_location(20, -1, 0.6)
 
-
+        self.locationSeen = 0
 
         # -------------------------------------------------------------
         # Load Background Image
@@ -279,9 +281,7 @@ class Gcompris_explore:
     def drawLocations(self):
         '''
         draw image on the map, one for each section in content.desktop.in at the
-        location specified in the file by 'x' and 'y'. If the student
-        has already visited the location and correctly answered the quetsion,
-        thellipse will be colored green. Otherwise, the ellipse is red.
+        location specified in the file by 'x' and 'y'.
         '''
         if self.gcomprisBoard.level == 1:
             method = self.goto_location
@@ -291,18 +291,31 @@ class Gcompris_explore:
             method = self.checkAnswerTextMatchingGame
 
         for section in self.sectionNames:
-            filename = self.locationPic
 
-            vars()[section] = goocanvas.Image(
-            parent=self.rootitem,
-            x=int(self.data.get(section, 'x')) - 20,
-            y=int(self.data.get(section, 'y')) - 20,
-            pixbuf=gcompris.utils.load_pixmap(filename)
-            )
+            item = goocanvas.Image(
+                parent = self.rootitem,
+                x = int(self.data.get(section, 'x')) - 20,
+                y = int(self.data.get(section, 'y')) - 20,
+                pixbuf = gcompris.utils.load_pixmap(self.locationPic)
+                )
+            gcompris.utils.item_focus_init(item, None)
+            item.set_data('sectionNum', section)
+            item.set_data('seen', False)
+            # Set the proper callback depending on the level
+            item.connect("button_press_event", method)
 
-            vars()[section].connect("button_press_event", method)
-            gcompris.utils.item_focus_init(vars()[section], None)
-            vars()[section].set_data('sectionNum', section)
+    def location_quit(self, widget=None, target=None, event=None, location_rootitem=None):
+            '''
+            called when the user click on end in the location panel display
+            the main display is just shown again and the location panel is removed.
+            '''
+            self.rootitem.props.visibility = goocanvas.ITEM_VISIBLE
+            location_rootitem.remove()
+
+            # All the items have been seen, let's start the level 2
+            if self.locationSeen == len(self.sectionNames):
+                self.set_level(2)
+
 
     def goto_location(self, widget=None, target=None, event=None):
             '''
@@ -310,18 +323,26 @@ class Gcompris_explore:
             method loads the location page, including the text, picture, music, and question.
             '''
 
-            self.rootitem.remove()
-            self.rootitem = goocanvas.Group(parent=
-                                            self.gcomprisBoard.canvas.get_root_item())
+            target.props.pixbuf = gcompris.utils.load_pixmap('explore/star.png')
+            seen = target.get_data('seen')
+            if not seen:
+                target.set_data('seen', True)
+                self.locationSeen += 1
+
+            gcompris.utils.item_focus_init(target, None)
+            self.rootitem.props.visibility = goocanvas.ITEM_INVISIBLE
+
+            rootitem = goocanvas.Group(parent=
+                                       self.gcomprisBoard.canvas.get_root_item())
             sectionNum = target.get_data('sectionNum')
 
-            goocanvas.Image(parent=self.rootitem, x=10, y=10,
+            goocanvas.Image(parent=rootitem, x=10, y=10,
                 pixbuf=gcompris.utils.load_pixmap('explore/border.png'))
 
             # draw back button
             txt = _('Back to Homepage')
             self.backButton = goocanvas.Text(
-              parent=self.rootitem,
+              parent=rootitem,
               x=260,
               y=490,
               text='<span font_family="century schoolbook L" size="medium" weight="bold">' + txt + '</span>',
@@ -330,7 +351,7 @@ class Gcompris_explore:
               use_markup=True
               )
 
-            self.backButton.connect("button_press_event", self.display_level)
+            self.backButton.connect("button_press_event", self.location_quit, rootitem)
             gcompris.utils.item_focus_init(self.backButton, None)
 
             # ---------------------------------------------------------------------
@@ -339,7 +360,7 @@ class Gcompris_explore:
 
             name = _(self.data.get(sectionNum, '_title'))
             goocanvas.Text(
-              parent=self.rootitem,
+              parent=rootitem,
               x=410,
               y=50,
               text='<span font_family="century schoolbook L" size="x-large" weight="bold">' + name + '</span>',
@@ -351,7 +372,7 @@ class Gcompris_explore:
 
             text = self.data.get(sectionNum, '_text')
             t = goocanvas.Text(
-              parent=self.rootitem,
+              parent=rootitem,
               x=120,
               y=190,
               width=150,
@@ -363,7 +384,7 @@ class Gcompris_explore:
             t.scale(1.4, 1.4)
             image = self.data.get(sectionNum, 'image')
             goocanvas.Image(
-                parent=self.rootitem,
+                parent=rootitem,
                 x=300,
                 y=120,
                 pixbuf=gcompris.utils.load_pixmap(self.activityDataFilePath + image)
@@ -565,7 +586,9 @@ class Gcompris_explore:
                 try: self.author = self.data.get('common', 'author')
                 except: self.author = ''
                 try: self.locationPic = self.activityDataFilePath + self.data.get('common', 'locationpic')
-                except: self.locationPic = 'explore/defaultLocationPic.png'
+                except:
+                    print "ERROR: missing 'locationpic' in the data file"
+                    return
                 try: self.generalText = self.data.get('common', 'GeneralText')
                 except:pass
                 try: self.SoundMatchingGameText = self.data.get('common', 'SoundMatchingGameText')
