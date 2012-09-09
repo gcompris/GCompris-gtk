@@ -45,7 +45,6 @@ RECORD_LOCATIONS = False
 # -----------------------------------------------------------------------------
 TEXT_BG_COLOR = 0xCCCCCC99L
 
-ExploreActivityResourcesFilepath = 'explore/'
 class Gcompris_explore:
 
     def __init__(self, gcomprisBoard):
@@ -154,7 +153,7 @@ class Gcompris_explore:
                     # PLAY BUTTON
                     self.playButton = goocanvas.Image(
                             parent=self.rootitem,
-                            pixbuf=gcompris.utils.load_pixmap(ExploreActivityResourcesFilepath + 'playbutton.png'),
+                            pixbuf=gcompris.utils.load_pixmap('explore/playbutton.png'),
                             x=65,
                             y=100,
                             )
@@ -247,7 +246,7 @@ class Gcompris_explore:
             parent=self.rootitem,
             x=x + (barwidth / 2.0) - 15,
             y=460,
-            pixbuf=gcompris.utils.load_pixmap(ExploreActivityResourcesFilepath + 'ribbon.png')
+            pixbuf=gcompris.utils.load_pixmap('explore/ribbon.png')
             )
             x += barwidth
 
@@ -317,7 +316,7 @@ class Gcompris_explore:
             sectionNum = target.get_data('sectionNum')
 
             goocanvas.Image(parent=self.rootitem, x=10, y=10,
-                pixbuf=gcompris.utils.load_pixmap(ExploreActivityResourcesFilepath + 'border.png'))
+                pixbuf=gcompris.utils.load_pixmap('explore/border.png'))
 
             # draw back button
             txt = _('Back to Homepage')
@@ -325,7 +324,7 @@ class Gcompris_explore:
               parent=self.rootitem,
               x=260,
               y=490,
-              text='<span font_family="purisa" size="medium" style="italic">' + txt + '</span>',
+              text='<span font_family="century schoolbook L" size="medium" weight="bold">' + txt + '</span>',
               anchor=gtk.ANCHOR_CENTER,
               alignment=pango.ALIGN_CENTER,
               use_markup=True
@@ -566,7 +565,7 @@ class Gcompris_explore:
                 try: self.author = self.data.get('common', 'author')
                 except: self.author = ''
                 try: self.locationPic = self.activityDataFilePath + self.data.get('common', 'locationpic')
-                except: self.locationPic = ExploreActivityResourcesFilepath + 'defaultLocationPic.png'
+                except: self.locationPic = 'explore/defaultLocationPic.png'
                 try: self.generalText = self.data.get('common', 'GeneralText')
                 except:pass
                 try: self.SoundMatchingGameText = self.data.get('common', 'SoundMatchingGameText')
@@ -597,21 +596,21 @@ class Gcompris_explore:
         write locations and common template to content.desktop.in
         '''
         if RECORD_LOCATIONS:
-            try: self.data.set('common', 'credits', _('enter a list of credits and links to resources you used here'))
+            try: self.data.set('common', 'credits', 'enter a list of credits and links to resources you used here')
             except: pass
-            try: self.data.set('common', 'creator', _('enter your name here!'))
+            try: self.data.set('common', 'creator', 'enter your name here!')
             except: pass
-            try: self.data.set('common', 'locationpic', _('enter the filename of the picture you would like to use to identify items to click on your background image'))
+            try: self.data.set('common', 'locationpic', 'enter the filename of the picture you would like to use to identify items to click on your background image')
             except: pass
-            try: self.data.set('common', 'generalText', _('enter the text to appear on your image for textMatchingGame'))
+            try: self.data.set('common', 'generalText', 'enter the text to appear on your image for textMatchingGame')
             except: pass
-            try: self.data.set('common', 'SoundMatchingGameText', _('enter the text to appear on your image for SoundMatchingGame'))
+            try: self.data.set('common', 'SoundMatchingGameText', 'enter the text to appear on your image for SoundMatchingGame')
             except: pass
-            try: self.data.set('common', 'TextMatchingGameText', _('enter the text to appear on your image for TextMatchingGame'))
+            try: self.data.set('common', 'TextMatchingGameText', 'enter the text to appear on your image for TextMatchingGame')
             except: pass
-            try: self.data.set('common', 'textBoxX', _('enter the x location for the text box to appear in the text matching game'))
+            try: self.data.set('common', 'textBoxX', 'enter the x location for the text box to appear in the text matching game')
             except: pass
-            try: self.data.set('common', 'textBoxY', _('enter the x location for the text box to appear in the text matching game'))
+            try: self.data.set('common', 'textBoxY', 'enter the x location for the text box to appear in the text matching game')
             except: pass
             with open(gcompris.DATA_DIR + '/' + self.gcomprisBoard.name + '/content.desktop.in', 'wb') as configfile:
                 self.data.write(configfile)
