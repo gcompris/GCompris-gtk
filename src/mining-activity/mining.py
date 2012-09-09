@@ -114,6 +114,7 @@ class Gcompris_mining:
     assert(gcompris.BOARD_WIDTH == (rockwall_img.get_bounds().x2 / self.source_image_scale))
     assert(gcompris.BOARD_HEIGHT == (rockwall_img.get_bounds().y2 / self.source_image_scale))
 
+    self.lorry = Lorry(svghandle, self.rootitem)
 
     self.placer = Placer(self)
 
@@ -150,9 +151,11 @@ class Gcompris_mining:
     # TODO: set level-function:
     #  perhaps different backgrounds?
 
+    self.update_lorry()
     self.viewport.reset()
 
     self.placer.add_blocker(self.gc_bar_blocker)
+    self.placer.add_blocker(self.lorry)
     for blocking_area in self.viewport.get_nugget_blocker():
       self.placer.add_blocker(blocking_area)
 
@@ -231,11 +234,18 @@ class Gcompris_mining:
     self.sparkling.animation_stop()
     self.nugget.hide()
 
+    self.update_lorry()
+
     if self.nugget_count >= self.nuggets_to_collect:
       self.on_level_won()
     else:
       # we need to collect more nuggets, so lets place a new one
       self.need_new_nugget = True
+
+
+  def update_lorry(self):
+    """ Updates the nugget-collect-counter of the lorry in the lower right corner """
+    self.lorry.update_text(str(self.nugget_count) + "/" + str(self.nuggets_to_collect))
 
 
   def on_level_won(self):
@@ -310,6 +320,74 @@ class Gcompris_mining:
 
   def repeat(self):
     print("repeat() not needed by mining-activity.")
+
+
+
+class Lorry:
+  """ The lorry in the lower right corner of the screen, showing the number of collected nuggets """
+
+  # position of the lorry (in screen coordinates (800/520))
+  x = 730.0
+  y = 470.0
+
+  # center of the lorry in the svg file (used for rotation and positioning)
+  pivot_x = 2220
+  pivot_y = 1432
+
+  # the svg file is scaled with a factor of 3 (to enable nice zoom in) so we
+  # have to correct this for the lorry, which is not affected by zooming.
+  # Plus: the lorry designed in the svg file is a little bit to small for the
+  # text in default font to fit in.
+  scale = 0.4
+
+
+  def __init__(self, svghandle, rootitem):
+    """
+    Constructor:
+      svghandle          : handle of the svg file, containing graphics data
+      rootitem           : the root item to attach goo-object to
+    """
+
+    self.lorry_img = goocanvas.Svg(
+      parent = rootitem,
+      svg_handle = svghandle,
+      svg_id = "#LORRY",
+      )
+
+    self.text = goocanvas.Text(
+      parent = rootitem,
+      font = gcompris.skin.get_font("gcompris/board/medium"),
+      x = self.x + 9,
+      y = self.y + 2,
+      anchor = gtk.ANCHOR_CENTER,
+      fill_color = "white",
+      text = "-/-"
+      )
+
+    self.__update_transformation()
+
+
+  def get_bounds(self):
+    """ Get the bounds of the lorry image on the canvas """
+    return self.lorry_img.get_bounds()
+
+
+  def update_text(self, text):
+    """ Set a new text for the lorry to display """
+    self.text.set_properties(text = text)
+
+
+  def __update_transformation(self):
+    """ Updates the transformation matrix of the lorry """
+
+    m_center_to_origin = cairo.Matrix(1, 0, 0, 1, -self.pivot_x, -self.pivot_y)
+    m_scale = cairo.Matrix(self.scale, 0, 0, self.scale, 0, 0)
+    m_to_destination = cairo.Matrix(1, 0, 0, 1, self.x, self.y)
+
+    # combine all transformation matrices to one
+    matrix = m_center_to_origin * m_scale * m_to_destination
+
+    self.lorry_img.set_transform(matrix)
 
 
 
