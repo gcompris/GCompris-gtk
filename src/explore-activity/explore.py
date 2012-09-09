@@ -251,14 +251,8 @@ class Gcompris_explore:
         # check to see if student has won game
         if s == (len(self.data.sections()) - 1) and s != 0:
 
+            # Force stopping the playing sound if any
             gcompris.sound.play_ogg('/boards/sounds/silence1s.ogg')
-
-            # show congratulations image!
-            goocanvas.Image(
-            parent=self.rootitem,
-            x=200, y=30,
-            pixbuf=gcompris.utils.load_pixmap(self.gameWonPic)
-            )
 
             # reset the game
             if self.gcomprisBoard.level == 2:
@@ -568,8 +562,6 @@ class Gcompris_explore:
                 except: self.author = ''
                 try: self.locationPic = self.activityDataFilePath + self.data.get('common', 'locationpic')
                 except: self.locationPic = ExploreActivityResourcesFilepath + 'defaultLocationPic.png'
-                try: self.gameWonPic = self.activityDataFilePath + self.data.get('common', 'gamewonpic')
-                except: self.gameWonPic = ExploreActivityResourcesFilepath + 'happyFace.png'
                 try: self.generalText = self.data.get('common', 'GeneralText')
                 except:pass
                 try: self.SoundMatchingGameText = self.data.get('common', 'SoundMatchingGameText')
@@ -605,8 +597,6 @@ class Gcompris_explore:
             try: self.data.set('common', 'creator', _('enter your name here!'))
             except: pass
             try: self.data.set('common', 'locationpic', _('enter the filename of the picture you would like to use to identify items to click on your background image'))
-            except: pass
-            try: self.data.set('common', 'gamewonpic', _('enter the filename of the picture to be shown when the player wins the entire game'))
             except: pass
             try: self.data.set('common', 'generalText', _('enter the text to appear on your image for textMatchingGame'))
             except: pass
