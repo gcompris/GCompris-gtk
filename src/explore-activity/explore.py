@@ -43,6 +43,7 @@ import random
 # BEWARE: setting this to true will delete all your previous records!
 RECORD_LOCATIONS = False
 # -----------------------------------------------------------------------------
+TEXT_BG_COLOR = 0xCCCCCC99L
 
 ExploreActivityResourcesFilepath = 'explore/'
 class Gcompris_explore:
@@ -194,9 +195,11 @@ class Gcompris_explore:
                               y=bounds.y1 - TG,
                               width=bounds.x2 - bounds.x1 + TG * 2,
                               height=bounds.y2 - bounds.y1 + TG * 2,
-                              line_width=3.0)
-        rect.props.fill_color = 'gray'
-        rect.props.stroke_color = 'black'
+                              line_width=2.0,
+                              radius_x = 3.0,
+                              radius_y = 3.0,
+                              fill_color_rgba = TEXT_BG_COLOR,
+                              stroke_color = "black")
         t.raise_(rect)
 
     def loadStatusBar(self):
@@ -441,9 +444,11 @@ class Gcompris_explore:
                               y=bounds.y1 - TG,
                               width=bounds.x2 - bounds.x1 + TG * 2,
                               height=bounds.y2 - bounds.y1 + TG * 2,
-                              line_width=3.0)
-        rect.props.fill_color = 'gray'
-        rect.props.stroke_color = 'blach'
+                              line_width=2.0,
+                              radius_x = 3.0,
+                              radius_y = 3.0,
+                              fill_color_rgba = TEXT_BG_COLOR,
+                              stroke_color = "black")
         self.text.raise_(rect)
 
 
