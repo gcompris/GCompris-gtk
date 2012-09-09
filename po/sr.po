@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompr"
 "is&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-08-03 12:47+0000\n"
-"PO-Revision-Date: 2012-08-07 09:17+0200\n"
+"POT-Creation-Date: 2012-08-22 00:13+0000\n"
+"PO-Revision-Date: 2012-09-09 20:58+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <gnom@prevod.org>\n"
 "Language: sr\n"
@@ -1546,7 +1546,7 @@ msgstr ""
 "је пронаћи логичку везу између ових објеката. Чеме се они допуњују? "
 "Превуците сваки објекат на одговарајући црвени простор на главној површини."
 
-#: ../src/babymatch-activity/shapegame.c:2017
+#: ../src/babymatch-activity/shapegame.c:2041
 #: ../src/click_on_letter-activity/click_on_letter.c:1317
 #, c-format
 msgid ""
@@ -3322,6 +3322,7 @@ msgid "Montenegrin"
 msgstr "Црногорски"
 
 #: ../src/gcompris/config.c:100
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:37
 msgid "Nepal"
 msgstr "Непалски"
 
@@ -3928,6 +3929,7 @@ msgid "Regions of France"
 msgstr "Области Француске"
 
 #: ../src/geo_country-activity/resources/geo_country/board12_0.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:40
 msgid "India"
 msgstr "Индија"
 
@@ -3978,6 +3980,7 @@ msgstr "Континенти"
 
 #: ../src/geography-activity/resources/geography/board1_0.xml.in.h:2
 #: ../src/geography-activity/resources/geography/board8_0.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:6
 msgid "Africa"
 msgstr "Африка"
 
@@ -3990,6 +3993,7 @@ msgid "Antarctica"
 msgstr "Антарктик"
 
 #: ../src/geography-activity/resources/geography/board1_0.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:1
 msgid "Asia"
 msgstr "Азија"
 
@@ -4235,6 +4239,7 @@ msgid "Romania"
 msgstr "Румунија"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:16
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:54
 msgid "Russia"
 msgstr "Русија"
 
@@ -4255,6 +4260,7 @@ msgid "Slovenia"
 msgstr "Словенија"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:21
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:24
 msgid "Turkey"
 msgstr "Турска"
 
@@ -4515,6 +4521,211 @@ msgstr "Замбија"
 #: ../src/geography-activity/resources/geography/board8_0.xml.in.h:39
 msgid "Zimbabwe"
 msgstr "Зимбабве"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:2
+msgid "Caspian Sea"
+msgstr "Каспијско море"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:3
+#| msgid "Black mates"
+msgid "Black Sea"
+msgstr "Црно море"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:4
+msgid "Mediteranean Sea"
+msgstr "Средоземно море"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:5
+#| msgid "Persian"
+msgid "Persian Gulf"
+msgstr "Персијски залив"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:7
+msgid "Red Sea"
+msgstr "Црвено море"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:8
+msgid "Palestine"
+msgstr "Палестина"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:9
+msgid "Israel"
+msgstr "Израел"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:10
+msgid "Brunei"
+msgstr "Брунеј"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:11
+msgid "Qatar"
+msgstr "Катар"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:12
+msgid "Bahrein"
+msgstr "Бахреин"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:13
+msgid "Lebanon"
+msgstr "Либан"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:14
+msgid "Chypre"
+msgstr "Кипар"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:15
+msgid "Koweit"
+msgstr "Кувајт"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:16
+msgid "Armenia"
+msgstr "Јерменија"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:17
+msgid "Oman"
+msgstr "Оман"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:18
+msgid "United Arab Emirates"
+msgstr "Уједињени Арапски Емирати"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:19
+msgid "Yemen"
+msgstr "Јемен"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:20
+msgid "Saudi Arabia"
+msgstr "Саудијска Арабија"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:21
+msgid "Jordan"
+msgstr "Јордан"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:22
+msgid "Irak"
+msgstr "Ирак"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:23
+msgid "Syria"
+msgstr "Сирија"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:25
+#| msgid "Georgian"
+msgid "Georgia"
+msgstr "Грузија"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:26
+#| msgid "Turkish (Azerbaijan)"
+msgid "Azerbaijan"
+msgstr "Азербејџан"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:27
+msgid "Iran"
+msgstr "Иран"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:28
+#| msgid "Turkish"
+msgid "Turkmenistan"
+msgstr "Туркменистан"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:29
+msgid "Kirghizstan"
+msgstr "Киргистан"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:30
+msgid "Tadjikistan"
+msgstr "Таџикистан"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:31
+msgid "Afghanistan"
+msgstr "Авганистан"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:32
+#| msgid "Malay"
+msgid "Malaysia"
+msgstr "Малезија"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:33
+#| msgid "Indonesian"
+msgid "Indonesia"
+msgstr "Индонезија"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:34
+msgid "Philippines"
+msgstr "Филипини"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:35
+msgid "Nyanmar"
+msgstr "Бурма"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:36
+msgid "Pakistan"
+msgstr "Пакистан"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:38
+msgid "Bhoutan"
+msgstr "Бутан"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:39
+msgid "Bangladesh"
+msgstr "Бангладеш"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:41
+msgid "China"
+msgstr "Кина"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:42
+msgid "Sri Lanka"
+msgstr "Шри Ланка"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:43
+#| msgid "Swaziland"
+msgid "Thailand"
+msgstr "Тајланд"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:44
+msgid "Laos"
+msgstr "Лаос"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:45
+msgid "Cambodia"
+msgstr "Камбоџа"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:46
+#| msgid "Vietnamese"
+msgid "Vietnam"
+msgstr "Вијетнам"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:47
+msgid "Taiwan"
+msgstr "Тајван"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:48
+msgid "Ouzbekistan"
+msgstr "Узбекистан"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:49
+msgid "Kazakhstan"
+msgstr "Казакистан"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:50
+#| msgid "South Africa"
+msgid "South Corea"
+msgstr "Јужна Кореја"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:51
+#| msgid "North America"
+msgid "North Corea"
+msgstr "Северна Кореја"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:52
+#| msgid "Japanese"
+msgid "Japan"
+msgstr "Јапан"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:53
+#| msgid "Angola"
+msgid "Mongolia"
+msgstr "Монголија"
 
 #: ../src/gletters-activity/gletters.c:132
 #: ../src/gletters-activity/gletters.xml.in.h:1
@@ -6535,41 +6746,41 @@ msgstr ""
 "Можете да видите неке карте, али не можете да видите шта је са њихове друге "
 "стране. Свака карта крије број написан цифром или словима."
 
-#: ../src/missing_letter-activity/missingletter_config.c:77
+#: ../src/missing_letter-activity/missingletter_config.c:79
 msgid "Please select an image."
 msgstr "Молим изаберите једну слику."
 
-#: ../src/missing_letter-activity/missingletter_config.c:83
+#: ../src/missing_letter-activity/missingletter_config.c:85
 msgid "Choice cannot be empty."
 msgstr "Избор не може бити празан."
 
-#: ../src/missing_letter-activity/missingletter_config.c:89
+#: ../src/missing_letter-activity/missingletter_config.c:91
 msgid "Question cannot be empty."
 msgstr "Питање не може бити празно."
 
-#: ../src/missing_letter-activity/missingletter_config.c:95
+#: ../src/missing_letter-activity/missingletter_config.c:97
 msgid ""
 "Question must include the character '_'. It represents the letter to search."
 msgstr ""
 "Питање мора да садржи знак „_“. Овај знак представља слово које недостаје."
 
-#: ../src/missing_letter-activity/missingletter_config.c:102
+#: ../src/missing_letter-activity/missingletter_config.c:104
 msgid "Pixmap cannot be empty"
 msgstr "Сличица не може бити празна"
 
-#: ../src/missing_letter-activity/missingletter_config.c:108
+#: ../src/missing_letter-activity/missingletter_config.c:110
 msgid "There must be at least 2 choices."
 msgstr "Мора бити најмање 2 избора."
 
-#: ../src/missing_letter-activity/missingletter_config.c:116
+#: ../src/missing_letter-activity/missingletter_config.c:118
 msgid "The answer and question must be the same except for the character '_'."
 msgstr "Одговор и питање морају да буду исти, осим знака „_“."
 
-#: ../src/missing_letter-activity/missingletter_config.c:125
+#: ../src/missing_letter-activity/missingletter_config.c:127
 msgid "The first choice must be the solution that replaces the character '_'."
 msgstr "Први избор мора бити решење које ће заменити знак „_“."
 
-#: ../src/missing_letter-activity/missingletter_config.c:140
+#: ../src/missing_letter-activity/missingletter_config.c:142
 #, c-format
 msgid ""
 "Invalid entry:\n"
