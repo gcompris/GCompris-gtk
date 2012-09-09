@@ -59,8 +59,6 @@ class Gcompris_explore:
 
         self.numLocations = 0 # the total number of locations in this activity
 
-        self.sectionsAnsweredCorrectly = []
-
         self.remainingItems = [] # list of all items still to be played during level 2 and 3
         self.allSoundClips = []  # list of sounds be played extracted from content.desktop.in
         self.allTextPrompts = [] # list of text be played extracted from content.desktop.in
@@ -134,8 +132,6 @@ class Gcompris_explore:
                 self.progressBar = ProgressBar( self.rootitem,
                                                 200, 480, 400, 25,
                                                 len(self.data.sections()) - 1 )
-
-                self.sectionsAnsweredCorrectly = []
 
                 if level == 2 and self.gcomprisBoard.maxlevel == 3:
 
@@ -295,7 +291,7 @@ class Gcompris_explore:
               use_markup=True
               )
 
-            text = self.data.get(sectionNum, '_text')
+            text = _(self.data.get(sectionNum, '_text'))
             t = goocanvas.Text(
               parent=rootitem,
               x=120,
@@ -328,7 +324,6 @@ class Gcompris_explore:
         '''
         if target.get_data('sectionNum') == self.currentSelection[1] and \
             self.currentSelection in self.remainingItems:
-            self.sectionsAnsweredCorrectly.append(target.get_data('sectionNum'))
             self.remainingItems.remove(self.currentSelection)
             self.progressBar.success()
             if len(self.remainingItems):
@@ -414,11 +409,11 @@ class Gcompris_explore:
         y = event.y
         self.data.set(str(self.numLocations), 'x', int(x))
         self.data.set(str(self.numLocations), 'y', int(y))
-        self.data.set(str(self.numLocations), '_title', _('Location Title Here'))
-        self.data.set(str(self.numLocations), '_text', _('location text here'))
-        self.data.set(str(self.numLocations), 'image', _('image filepath here, located in resources/name_of_activity/'))
-        self.data.set(str(self.numLocations), 'music', _('music file name here'))
-        self.data.set(str(self.numLocations), '_shortPrompt', _('enter text for child to match to the location'))
+        self.data.set(str(self.numLocations), '_title', 'Location Title Here')
+        self.data.set(str(self.numLocations), '_text', 'location text here')
+        self.data.set(str(self.numLocations), 'image', 'image filepath here, located in resources/name_of_activity/')
+        self.data.set(str(self.numLocations), 'music', 'music file name here')
+        self.data.set(str(self.numLocations), '_shortPrompt', 'enter text for child to match to the location')
 
         # draw small elipse on screen to show developer where they clicked
         goocanvas.Ellipse(parent=self.rootitem,
@@ -471,45 +466,42 @@ class Gcompris_explore:
         extract the data from the content file
         '''
         self.sectionNames = []
+        errors = []
         for section in self.data.sections():
             if section == 'common':
                 try: self.credits = self.data.get('common', 'credits')
                 except: self.credits = ''
                 try: self.background = self.data.get('common', 'background')
-                except:  gcompris.utils.dialog(_("Cannot find background in \
-                content.desktop.in"), None, None)
+                except: errors.append("Missing 'background' key")
                 try: self.author = self.data.get('common', 'author')
                 except: self.author = ''
                 try: self.locationPic = self.activityDataFilePath + self.data.get('common', 'locationpic')
-                except:
-                    print "ERROR: missing 'locationpic' in the data file"
-                    return
-                try: self.generalText = self.data.get('common', 'GeneralText')
+                except: errors.append("Missing 'locationpic' key")
+                try: self.generalText = _(self.data.get('common', '_GeneralText'))
+                except: errors.append("Missing '_GeneralText' key")
+                try: self.SoundMatchingGameText = _(self.data.get('common', '_SoundMatchingGameText'))
                 except:pass
-                try: self.SoundMatchingGameText = self.data.get('common', 'SoundMatchingGameText')
-                except:pass
-                try: self.TextMatchingGameText = self.data.get('common', 'TextMatchingGameText')
+                try: self.TextMatchingGameText = _(self.data.get('common', '_TextMatchingGameText'))
                 except:pass
                 try: self.backgroundx = int(self.data.get('common', 'backgroundx'))
-                except:
-                    print "ERROR: missing 'backgroundx' in the data file"
-                    return
+                except: errors.append("Missing 'backgroundx' key")
                 try: self.backgroundy = int(self.data.get('common', 'backgroundy'))
-                except:
-                    print "ERROR: missing 'backgroundy' in the data file"
-                    return
+                except: errors.append("Missing 'backgroundy' key")
                 try: self.textBoxX = int(self.data.get('common', 'textBoxX'))
                 except:pass
                 try: self.textBoxY = int(self.data.get('common', 'textBoxY'))
                 except:pass
             else:
                 try:
-                    self.allSoundClips.append((self.data.get(section, 'music'), section))
+                    self.allSoundClips.append( (self.data.get(section, 'music'), section))
                 except:
                     pass
-                self.allTextPrompts.append((self.data.get(section, '_shortPrompt'), section))
+                self.allTextPrompts.append( ( _(self.data.get(section, '_shortPrompt')), section))
 
                 self.sectionNames.append(section)
+
+            if len(errors):
+                gcompris.utils.dialog( "\n".join(errors), None)
 
     def end(self):
         '''
@@ -517,8 +509,6 @@ class Gcompris_explore:
         '''
         if RECORD_LOCATIONS:
             try: self.data.set('common', 'credits', 'enter a list of credits and links to resources you used here')
-            except: pass
-            try: self.data.set('common', 'creator', 'enter your name here!')
             except: pass
             try: self.data.set('common', 'locationpic', 'enter the filename of the picture you would like to use to identify items to click on your background image')
             except: pass
