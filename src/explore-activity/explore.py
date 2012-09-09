@@ -59,21 +59,14 @@ class Gcompris_explore:
 
         self.numLocations = 0 # the total number of locations in this activity
 
-        self.timers = []
+        self.sectionsAnsweredCorrectly = []
 
-        self.soundMatchingScore = 0
-        self.textMatchingScore = 0
-
-        self.sectionsAnsweredCorrectlySoundMatchingGame = []
-        self.sectionsAnsweredCorrectlyTextMatchingGame = []
-
-        self.soundClipsRemaining = [] # list of sound clips still to be played during level 2
-        self.allSoundClips = [] # list of sound clips extracted from content.desktop.in
-
-        self.textPromptsRemaining = []
-        self.allTextPrompts = []
+        self.remainingItems = [] # list of all items still to be played during level 2 and 3
+        self.allSoundClips = []  # list of sounds be played extracted from content.desktop.in
+        self.allTextPrompts = [] # list of text be played extracted from content.desktop.in
 
         self.locationSeen = 0
+        self.progressBar = None
 
     def start(self):
         '''
@@ -100,7 +93,7 @@ class Gcompris_explore:
                                         self.gcomprisBoard.canvas.get_root_item())
 
         # silence any currently playing music
-        gcompris.sound.play_ogg('//boards/sounds/silence1s.ogg')
+        gcompris.sound.play_ogg('/boards/sounds/silence1s.ogg')
 
         level = self.gcomprisBoard.level
 
@@ -147,10 +140,15 @@ class Gcompris_explore:
                 self.writeText(self.generalText)
             else:
                 # prepare game for play
-                if self.loadStatusBar() == False:
-                     return
+                self.progressBar = ProgressBar( self.rootitem,
+                                                200, 480, 400, 25,
+                                                len(self.data.sections()) - 1 )
+
+                self.sectionsAnsweredCorrectly = []
+
                 if level == 2 and self.gcomprisBoard.maxlevel == 3:
 
+                    self.remainingItems = self.allSoundClips[:]
                     self.writeText(self.SoundMatchingGameText)
                     # PLAY BUTTON
                     self.playButton = goocanvas.Image(
@@ -162,25 +160,34 @@ class Gcompris_explore:
                     self.playButton.connect("button_press_event", self.playCurrentMusicSelection)
                     self.writeText(_('Click to play sound'), 100, 70)
                     gcompris.utils.item_focus_init(self.playButton, None)
-                    self.playRandomSong()
+                    self.playRandom()
                 elif level == 3 or level == 2:
 
+                    self.remainingItems = self.allTextPrompts[:]
                     self.writeText(self.TextMatchingGameText)
-                    self.playRandomText()
+                    self.playRandom()
 
-    def writeText(self, txt, x=None, y=None):
+    def next_level(self):
+        if self.gcomprisBoard.level == self.gcomprisBoard.maxlevel:
+            self.set_level( 1 )
+        else:
+            self.set_level( self.gcomprisBoard.level + 1 )
+
+    def writeText(self, txt, x=100, y=250, width=150):
         '''
         write text box with background rectangle to game
+        the text is returned and must be removed by the caller
         '''
-        if x == None:
-            x = 100
-        if y == None:
-            y = 250
+
+        # A group that will hold the text description and the background
+        textrootitem = goocanvas.Group(parent=
+                                       self.rootitem)
+
         t = goocanvas.Text(
-          parent=self.rootitem,
+          parent = textrootitem,
           x=x,
           y=y,
-          width=150,
+          width=width,
           text='<span font_family="URW Gothic L" size="medium" \
           weight="bold" style="italic">' + txt + '</span>',
           anchor=gtk.ANCHOR_CENTER,
@@ -191,7 +198,7 @@ class Gcompris_explore:
         TG = 10
         bounds = t.get_bounds()
 
-        rect = goocanvas.Rect(parent=self.rootitem,
+        rect = goocanvas.Rect(parent = textrootitem,
                               x=bounds.x1 - TG,
                               y=bounds.y1 - TG,
                               width=bounds.x2 - bounds.x1 + TG * 2,
@@ -202,81 +209,7 @@ class Gcompris_explore:
                               fill_color_rgba = TEXT_BG_COLOR,
                               stroke_color = "black")
         t.raise_(rect)
-
-    def loadStatusBar(self):
-        '''
-        load the home page with the background image and locations with progress bar
-        '''
-        txt2 = _('Explore Status:')
-        goocanvas.Text(
-          parent=self.rootitem,
-          x=195,
-          y=490,
-          width=100,
-          text='<span font_family="URW Gothic L" size="medium" \
-          weight="bold" style="italic">' + txt2 + '</span>',
-          anchor=gtk.ANCHOR_CENTER,
-          alignment=pango.ALIGN_CENTER,
-          use_markup=True
-          )
-
-        x = 240 # starting x position of progress bar
-        self.progressBar = goocanvas.Rect(parent=self.rootitem,
-                x=x, y=480, width=500, height=25,
-                stroke_color="black",
-                line_width=3.0)
-
-        if self.gcomprisBoard.level == 3 or self.gcomprisBoard.maxlevel == 2:
-            s = self.textMatchingScore
-            sec = self.sectionsAnsweredCorrectlyTextMatchingGame
-        else:
-            s = self.soundMatchingScore
-            sec = self.sectionsAnsweredCorrectlySoundMatchingGame
-
-        # display the correct progress in the progress bar, according to the
-        # number of locations the student has correclty answered the question for
-        for num in range(0, s):
-            barwidth = 500.0 / (len(self.data.sections()) - 1)
-            goocanvas.Rect(parent=self.rootitem,
-            x=x, y=480, width=barwidth, height=25,
-            stroke_color="black",
-            fill_color="#32CD32",
-            line_width=3.0)
-
-            # add a little decoration
-            goocanvas.Image(
-            parent=self.rootitem,
-            x=x + (barwidth / 2.0) - 15,
-            y=460,
-            pixbuf=gcompris.utils.load_pixmap('explore/ribbon.png')
-            )
-            x += barwidth
-
-        # check to see if student has won game
-        if s == (len(self.data.sections()) - 1) and s != 0:
-
-            # Force stopping the playing sound if any
-            gcompris.sound.play_ogg('/boards/sounds/silence1s.ogg')
-
-            # reset the game
-            if self.gcomprisBoard.level == 2:
-
-                self.soundMatchingScore = 0
-                self.sectionsAnsweredCorrectlySoundMatchingGame = []
-                self.soundClipsRemaining = self.allSoundClips[:]
-                self.timers.append(gobject.timeout_add(3000, self.set_level, 3))
-            elif self.gcomprisBoard.level == 3:
-                self.textMatchingScore = 0
-                self.sectionsAnsweredCorrectlyTextMatchingGame = []
-                self.textPromptsRemaining = self.allTextPrompts[:]
-
-                self.timers.append(gobject.timeout_add(3000, self.set_level, 1))
-            self.timers = []
-
-
-            return False
-        return True
-
+        return textrootitem
 
     def drawLocations(self):
         '''
@@ -285,10 +218,8 @@ class Gcompris_explore:
         '''
         if self.gcomprisBoard.level == 1:
             method = self.goto_location
-        elif self.gcomprisBoard.level == 2 and self.gcomprisBoard.maxlevel == 3:
-            method = self.checkAnswerSoundMatchingGame
         else:
-            method = self.checkAnswerTextMatchingGame
+            method = self.checkAnswer
 
         for section in self.sectionNames:
 
@@ -311,6 +242,9 @@ class Gcompris_explore:
             '''
             self.rootitem.props.visibility = goocanvas.ITEM_VISIBLE
             location_rootitem.remove()
+
+            # silence any currently playing music
+            gcompris.sound.play_ogg('/boards/sounds/silence1s.ogg')
 
             # All the items have been seen, let's start the level 2
             if self.locationSeen == len(self.sectionNames):
@@ -397,92 +331,62 @@ class Gcompris_explore:
             except: pass
 
 
-    def checkAnswerTextMatchingGame(self, widget=None, target=None, event=None):
+    def checkAnswer(self, widget=None, target=None, event=None):
         '''
-        check to see if the student pressed the correct answer. If so, increment
-        textMatchingScore. Display appropriate face (happy or sad) for 800 ms.
+        check to see if the student pressed the correct answer.
         '''
-        if not ready(self, timeouttime=1000):
-            return
-        if target.get_data('sectionNum') == self.currentTextSelection[1] and \
-            self.currentTextSelection in self.textPromptsRemaining:
-            self.textMatchingScore += 1
-            self.sectionsAnsweredCorrectlyTextMatchingGame.append(target.get_data('sectionNum'))
-            gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.SMILEY)
-
-            self.textPromptsRemaining.remove(self.currentTextSelection)
-            self.timers.append(gobject.timeout_add(2000, self.display_level))
-
+        if target.get_data('sectionNum') == self.currentSelection[1] and \
+            self.currentSelection in self.remainingItems:
+            self.sectionsAnsweredCorrectly.append(target.get_data('sectionNum'))
+            self.remainingItems.remove(self.currentSelection)
+            self.progressBar.success()
+            if len(self.remainingItems):
+                gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.SMILEY)
+                self.playRandom()
+            else:
+                self.next_level()
         else:
             gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.SMILEY)
 
-    def checkAnswerSoundMatchingGame(self, widget=None, target=None, event=None):
-        '''
-        check to see if the location the student chose corresponds to the
-        currently playing sound clip. increment score accordingly
-        '''
-        if not ready(self, timeouttime=1000): # prevents kids from double clicking too quickly
-            return
-        if target.get_data('sectionNum') == self.currentMusicSelection[1] and \
-            self.currentMusicSelection in self.soundClipsRemaining:
-            self.soundMatchingScore += 1
-            self.sectionsAnsweredCorrectlySoundMatchingGame.append(target.get_data('sectionNum'))
-            self.soundClipsRemaining.remove(self.currentMusicSelection)
-            self.timers.append(gobject.timeout_add(2000, self.display_level))
-            gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.SMILEY)
-
-        else:
-            gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.SMILEY)
+    def playRandom(self):
+        ''' call playRandomSong or playRandomText depending on the current
+        level '''
+        level = self.gcomprisBoard.level
+        if level == 2 and self.gcomprisBoard.maxlevel == 3:
+            self.playRandomSong()
+        elif level == 3 or level == 2:
+            self.playRandomText()
 
     def playRandomSong(self):
         '''
         play a random sound clip for use in the second level
         '''
-        if self.soundClipsRemaining:
-            self.currentMusicSelection = \
-            self.soundClipsRemaining[randint(0, len(self.soundClipsRemaining) - 1)]
-            self.timers.append(gobject.timeout_add(800, self.playCurrentMusicSelection))
+        if self.remainingItems:
+            self.currentSelection = \
+                self.remainingItems[randint(0, len(self.remainingItems) - 1)]
+            self.playCurrentMusicSelection()
 
     def playRandomText(self):
 
-        if self.textPromptsRemaining:
-            self.currentTextSelection = \
-            self.textPromptsRemaining[randint(0, len(self.textPromptsRemaining) - 1)]
+        if self.remainingItems:
+            self.currentSelection = \
+                self.remainingItems[randint(0, len(self.remainingItems) - 1)]
 
-        self.text = goocanvas.Text(
-            parent=self.rootitem, x=self.textBoxX, y=self.textBoxY, width=200,
-            text=_(self.currentTextSelection[0]),
-            fill_color='black', anchor=gtk.ANCHOR_CENTER,
-            alignment=pango.ALIGN_CENTER,
-
-            )
-        TG = 10
-        bounds = self.text.get_bounds()
-
-        rect = goocanvas.Rect(parent=self.rootitem,
-                              x=bounds.x1 - TG,
-                              y=bounds.y1 - TG,
-                              width=bounds.x2 - bounds.x1 + TG * 2,
-                              height=bounds.y2 - bounds.y1 + TG * 2,
-                              line_width=2.0,
-                              radius_x = 3.0,
-                              radius_y = 3.0,
-                              fill_color_rgba = TEXT_BG_COLOR,
-                              stroke_color = "black")
-        self.text.raise_(rect)
+        if hasattr(self, 'randomtext'):
+            self.randomtext.remove()
+        self.randomtext = self.writeText(self.currentSelection[0],
+                                         self.textBoxX, self.textBoxY, 200)
 
 
     def playCurrentMusicSelection(self, x=None, y=None, z=None):
         gcompris.sound.play_ogg(self.activityDataFilePath +
-                                                    self.currentMusicSelection[0])
+                                self.currentSelection[0])
 
     def set_level(self, level):
         '''
         updates the level for the game when child clicks on bottom
         left navigation bar to increment level
         '''
-        if not ready(self, 500):
-            return
         self.gcomprisBoard.level = level
         gcompris.bar_set_level(self.gcomprisBoard)
         self.display_level(self.gcomprisBoard.level)
@@ -605,11 +509,9 @@ class Gcompris_explore:
                 except:pass
             else:
                 try:
-                    self.soundClipsRemaining.append((self.data.get(section, 'music'), section))
                     self.allSoundClips.append((self.data.get(section, 'music'), section))
                 except:
                     pass
-                self.textPromptsRemaining.append((self.data.get(section, '_shortPrompt'), section))
                 self.allTextPrompts.append((self.data.get(section, '_shortPrompt'), section))
 
                 self.sectionNames.append(section)
@@ -661,28 +563,65 @@ class Gcompris_explore:
     def pause(self, pause):
         pass
 
-def ready(self, timeouttime=200):
-    '''
-    copied from gcomprismusic.py because I didn't want to try to import this module
-    function to help prevent "double-clicks". If your function call is
-    suffering from accidental system double-clicks, import this module
-    and write these lines at the top of your method:
+class ProgressBar:
 
-        if not ready(self):
-            return False
-    '''
-    if not hasattr(self, 'clickTimers'):
-        self.clickTimers = []
-        self.readyForNextClick = True
-        return True
+    def __init__(self, rootitem, x, y, width, height, number_of_sections):
+        '''
+        display an empty progress bar
+        '''
+        self.rootitem = rootitem
+        self.x = x
+        self.y = y
+        self.width = width
+        self.height = height
+        self.number_of_sections = number_of_sections
 
-    def clearClick():
-        self.readyForNextClick = True
-        return False
+        txt2 = _('Explore Status:')
+        item = goocanvas.Text(
+          parent = self.rootitem,
+          x = self.x,
+          y = self.y,
+          text = '<span font_family="URW Gothic L" size="medium" \
+          weight="bold" style="italic">' + txt2 + '</span>',
+          use_markup = True
+          )
 
-    if self.readyForNextClick == False:
-        return
-    else:
-        self.clickTimers.append(gobject.timeout_add(timeouttime, clearClick))
-        self.readyForNextClick = False
-        return True
+        bounds = item.get_bounds()
+        # This is the start of the bar
+        self.x += bounds.x2 - bounds.x1 + 20
+        self.progressBar = goocanvas.Rect(
+            parent = self.rootitem,
+            x = self.x,
+            y = self.y,
+            width = self.width,
+            height = self.height,
+            stroke_color = "black",
+            fill_color_rgba = 0x666666AAL,
+            line_width = 2.0,
+            radius_x = 3,
+            radius_y = 3 )
+
+    def success(self):
+        ''' Add a success item in the progress bar '''
+        success_width = self.width * 1.0 / self.number_of_sections
+        goocanvas.Rect(
+            parent = self.rootitem,
+            x = self.x,
+            y = self.y,
+            width = success_width,
+            height = self.height,
+            stroke_color = "black",
+            fill_color = "#32CD32",
+            radius_x = 3,
+            radius_y = 3,
+            line_width = 2.0)
+
+        # add a little decoration
+        goocanvas.Image(
+            parent = self.rootitem,
+            x = self.x + (success_width / 2.0) - 15,
+            y = self.y - 20,
+            pixbuf = gcompris.utils.load_pixmap('explore/ribbon.png')
+            )
+        self.x += success_width
+
