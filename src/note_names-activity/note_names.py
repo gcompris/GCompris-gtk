@@ -95,10 +95,11 @@ class Gcompris_note_names:
         '''
         if hasattr(self, 'staff'):
             self.staff.eraseAllNotes()
-        if self.rootitem:
-            self.rootitem.remove()
         if hasattr(self, 'noteButtonsRootItem'):
             self.noteButtonsRootItem.remove()
+        if self.rootitem:
+            self.rootitem.remove()
+
 
         self.rootitem = goocanvas.Group(parent=
                                        self.gcomprisBoard.canvas.get_root_item())
@@ -324,7 +325,7 @@ They also form the C Major Scale. Notice that the note positions are different t
             self.noteButtonsRootItem.remove()
 
         self.noteButtonsRootItem = goocanvas.Group(parent=
-                                        self.gcomprisBoard.canvas.get_root_item(), x=0, y=0)
+                                        self.rootitem, x=0, y=0)
 
 
         def drawNoteButton(x, y, numID, play_sound_on_click):
@@ -337,7 +338,7 @@ They also form the C Major Scale. Notice that the note positions are different t
                 color = 'white'
             text = getKeyNameFromID(numID, self.sharpNotation)
             vars(self)[str(numID)] = goocanvas.Text(
-              parent=self.noteButtonsRootItem,
+              parent=self.rootitem,
               x=x,
               y=y,
               text=text,
@@ -354,7 +355,7 @@ They also form the C Major Scale. Notice that the note positions are different t
                               height=20,
                               line_width=.5,
                               fill_color=color)
-
+            vars(self)[str(numID)].raise_(None)
             vars(self)[str(numID)].scale(2.0, 2.0)
             vars(self)[str(numID)].translate(-250, -150)
             rect.scale(2, 2)
@@ -411,15 +412,17 @@ They also form the C Major Scale. Notice that the note positions are different t
         '''
 
         self.master_is_not_ready = True
-        self.timers.append(gobject.timeout_add(2000, self.readyToSoundAgain))
+        self.timers.append(gobject.timeout_add(1500, self.readyToSoundAgain))
         g = self.selectedNoteObject.get_data('numID')
         c = self.currentNote.numID
         if g == c or (c == 8 and g == 1):
             if not self.repeatThisNoteLaterPlease:
                 self.remainingNotesToIdentify.remove(c)
             if self.remainingNotesToIdentify == []:
+                #gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.NOTE)
                 displayHappyNote(self, lambda: self.set_level(self.gcomprisBoard.level + 1))
             else:
+               # gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.NOTE)
                 displayHappyNote(self, self.prepareGame)
             self.repeatThisNoteLaterPlease = False
         else:
