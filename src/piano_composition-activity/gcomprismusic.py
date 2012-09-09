@@ -1348,53 +1348,6 @@ def textBox(text, x, y , self, width=10000, fill_color=None, stroke_color=None, 
 def clearResponsePic(self):
     self.responsePic.remove()
 
-def displayHappyNote(self, nextMethod):
-    '''
-    displays the happy note for 900 milliseconds
-    '''
-
-    if hasattr(self, 'responsePic'):
-        self.responsePic.remove()
-    if not hasattr(self, 'timers'):
-        self.timers = []
-    gcompris.sound.play_ogg("/piano_composition/bonus.wav")
-    self.responsePic = goocanvas.Image(
-    parent=self.rootitem,
-    pixbuf=gcompris.utils.load_pixmap('piano_composition/happyNote.png'),
-    x=300,
-    y=100,
-    height=300,
-    width=150
-    )
-
-    #self.responsePic.raise_(None)
-    self.timers.append(gobject.timeout_add(900, clearResponsePic, self))
-    self.timers.append(gobject.timeout_add(910, nextMethod))
-
-
-def displaySadNote(self, nextMethod):
-    '''
-    displays the sad note for 900 milliseconds
-    '''
-
-    if hasattr(self, 'responsePic'):
-        self.responsePic.remove()
-    if not hasattr(self, 'timers'):
-        self.timers = []
-    self.responsePic = goocanvas.Image(
-    parent=self.rootitem,
-    pixbuf=gcompris.utils.load_pixmap('piano_composition/sadNote.png'),
-    x=300,
-    y=100,
-    height=300,
-    width=150
-    )
-    gcompris.sound.play_ogg("/piano_composition/bleep.wav")
-    self.responsePic.raise_(None)
-    self.timers.append(gobject.timeout_add(900, clearResponsePic, self))
-    self.timers.append(gobject.timeout_add(910, nextMethod))
-
-
 def pianokeyBindings(keyval, self):
     '''
     nice key bindings for the piano keys

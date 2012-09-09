@@ -47,6 +47,8 @@ class Gcompris_play_piano:
         self.metronomePlaying = False
 
         self.timers = []
+        self.afterBonus = None
+
     def start(self):
         self.recordedHits = []
         self.saved_policy = gcompris.sound.policy_get()
@@ -162,15 +164,17 @@ class Gcompris_play_piano:
 
     def ok_event(self, widget=None, target=None, event=None):
         if self.kidsNoteList == self.givenOption:
-            displayHappyNote(self, self.nextChallenge)
+            self.afterBonus = self.nextChallenge
+            gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.NOTE)
             self.score += 1
         else:
-            displaySadNote(self, self.tryagain)
-            self.timers.append(gobject.timeout_add(1500, self.staff.playComposition))
+            self.afterBonus = self.tryagain
+            gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.NOTE)
             self.score -= 1
 
     def tryagain(self):
         self.kidsNoteList = []
+        self.staff.playComposition
 
     def nextChallenge(self):
         self.kidsNoteList = []
@@ -221,8 +225,11 @@ class Gcompris_play_piano:
         else:
             pianokeyBindings(keyval, self)
         return True
+
     def pause(self, pause):
-        pass
+        if not pause and self.afterBonus:
+            self.afterBonus()
+            self.afterBonus = None
 
     def set_level(self, level):
         '''

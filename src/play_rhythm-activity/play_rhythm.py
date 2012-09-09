@@ -47,6 +47,7 @@ class Gcompris_play_rhythm:
         self.metronomePlaying = False
 
         self.timers = []
+        self.afterBonus = None
 
     def start(self):
 
@@ -226,31 +227,37 @@ class Gcompris_play_rhythm:
         correctedList = []
         if len(self.netOffsets) != len(self.givenOption):
             self.doNotRemoveFromList = True
-            displaySadNote(self, self.tryagain)
+            self.afterBonus = self.tryagain
+            gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.NOTE)
             return
         for rhythmItem, recordedHit in zip(self.givenOption[:-1], self.netOffsets[1:]):
             if rhythmItem == 8:
                 if not nearlyEqual(recordedHit, 0.25, 0.2):
                     self.doNotRemoveFromList = True
-                    displaySadNote(self, self.tryagain)
+                    self.afterBonus = self.tryagain
+                    gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.NOTE)
                     return
             if rhythmItem == 4:
                 if not nearlyEqual(recordedHit, 0.5, 0.2):
                     self.doNotRemoveFromList = True
-                    displaySadNote(self, self.tryagain)
+                    self.afterBonus = self.tryagain
+                    gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.NOTE)
                     return
             if rhythmItem == 2:
                 if not nearlyEqual(recordedHit, 1.0, 0.2):
                     self.doNotRemoveFromList = True
-                    displaySadNote(self, self.tryagain)
+                    self.afterBonus = self.tryagain
+                    gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.NOTE)
                     return
             if rhythmItem == 1:
                 if not nearlyEqual(recordedHit, 2.0, 0.2):
                     self.doNotRemoveFromList = True
-                    displaySadNote(self, self.tryagain)
+                    self.afterBonus = self.tryagain
+                    gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.NOTE)
                     return
 
-        displayHappyNote(self, self.nextChallenge)
+        self.afterBonus = self.nextChallenge
+        gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.NOTE)
         if self.doNotRemoveFromList == False:
             self.remainingOptions.remove(self.givenOption)
 
@@ -431,7 +438,10 @@ class Gcompris_play_rhythm:
                 self.staff.playComposition()
 
     def pause(self, pause):
-        pass
+        if not pause and self.afterBonus:
+            self.afterBonus()
+            self.afterBonus = None
+
 
     def set_level(self, level):
         '''

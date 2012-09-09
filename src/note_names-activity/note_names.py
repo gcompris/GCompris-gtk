@@ -58,6 +58,8 @@ class Gcompris_note_names:
 
         self.repeatThisNoteLaterPlease = False
 
+        self.afterBonus = None
+
     def start(self):
         # Set the buttons we want in the bar
         gcompris.bar_set(gcompris.BAR_LEVEL)
@@ -212,7 +214,6 @@ They also form the C Major Scale. Notice that the note positions are different t
           )
 
     def prepareGame(self):
-        self.clearPic()
         self.staff.eraseAllNotes()
         self.drawRandomNote(self.staff.staffName)
 
@@ -400,8 +401,7 @@ They also form the C Major Scale. Notice that the note positions are different t
     def ok_event(self, widget, target, event):
         '''
         called when the kid presses a notename. Checks to see if this is the correct
-        note name. displays the appropriate (happy or sad) note picture, and
-        resets the board if appropriate
+        note name. displays the appropriate bonus, and resets the board if appropriate
         '''
 
         self.master_is_not_ready = True
@@ -412,22 +412,16 @@ They also form the C Major Scale. Notice that the note positions are different t
             if not self.repeatThisNoteLaterPlease:
                 self.remainingNotesToIdentify.remove(c)
             if self.remainingNotesToIdentify == []:
-                #gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.NOTE)
-                displayHappyNote(self, lambda: self.set_level(self.gcomprisBoard.level + 1))
+                self.afterBonus = lambda: self.set_level(self.gcomprisBoard.level + 1)
+                gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.NOTE)
             else:
-               # gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.NOTE)
-                displayHappyNote(self, self.prepareGame)
+                self.afterBonus = self.prepareGame
+                gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.NOTE)
             self.repeatThisNoteLaterPlease = False
         else:
+            gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.NOTE)
             self.repeatThisNoteLaterPlease = True
-            displaySadNote(self, self.clearPic)
-        self.responsePic.raise_(None)
 
-
-
-    def clearPic(self):
-        if hasattr(self, 'responsePic'):
-            self.responsePic.remove()
 
     def end(self):
         # Remove the root item removes all the others inside it
@@ -467,7 +461,9 @@ They also form the C Major Scale. Notice that the note positions are different t
         strn = u'%c' % utf8char
 
     def pause(self, pause):
-        pass
+        if not pause and self.afterBonus:
+            self.afterBonus()
+            self.afterBonus = None
 
 def stop_board():
   pass
