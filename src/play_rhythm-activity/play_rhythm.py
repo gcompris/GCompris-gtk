@@ -216,8 +216,6 @@ class Gcompris_play_rhythm:
                                                self.updateBoard, 2))
 
     def ok_event(self, widget=None, target=None, event=None):
-        if not ready(self, 1000):
-            return False
 
         def nearlyEqual(inputNum, correctNum, amountOfError):
             return abs(inputNum - correctNum) <= amountOfError
@@ -368,9 +366,6 @@ class Gcompris_play_rhythm:
 
     def record_click(self, widget=None, target=None, event=None):
 
-        if not ready(self):
-            return
-
         if self.readyForFirstDrumBeat and self.playingLine:
             self.staff.playComposition(playingLineOnly=True)
 
@@ -424,17 +419,14 @@ class Gcompris_play_rhythm:
         utf8char = gtk.gdk.keyval_to_unicode(keyval)
 
         if keyval == gtk.keysyms.BackSpace:
-            if not ready(self, timeouttime=100): return False
             self.erase_entry()
         elif keyval == gtk.keysyms.Delete:
-            if not ready(self, timeouttime=100): return False
             self.erase_entry()
         elif keyval == gtk.keysyms.space:
             self.record_click()
         elif keyval == gtk.keysyms.Return:
             self.ok_event()
         elif keyval == gtk.keysyms.Tab:
-            if not ready(self, timeouttime=100): return False
             if self.gcomprisBoard.level in [1, 3, 5, 7, 9, 11]:
                 self.staff.playComposition()
 

@@ -569,8 +569,6 @@ dialogue to\nenable the sound."), stop_board)
         eraseUserPrompt(None, None, None,self)
 
     def change_accidental_type(self, widget, target, event):
-        if not ready(self):
-            return False
         self.keyboard.sharpNotation = not self.keyboard.sharpNotation
         self.keyboard.draw(300, 200, self.keyboard_click)
         if self.keyboard.sharpNotation:
@@ -586,9 +584,6 @@ dialogue to\nenable the sound."), stop_board)
         with a note name, text is output to canvas, the note sound is generated,
         and the note is drawn on the staff
         '''
-        if not ready(self):
-            return False
-
         if hasattr(self.staff, 'locked') and self.staff.locked:
             return
         if not numID:
@@ -735,15 +730,11 @@ dialogue to\nenable the sound."), stop_board)
     def key_press(self, keyval, commit_str, preedit_str):
 
         utf8char = gtk.gdk.keyval_to_unicode(keyval)
-        #if not ready(self, timeouttime=100): return False
         if keyval == gtk.keysyms.BackSpace:
-            if not ready(self, timeouttime=100): return False
             self.staff.eraseOneNote()
         elif keyval == gtk.keysyms.Delete:
-            if not ready(self, timeouttime=100): return False
             self.askAndEraseStaff()
         elif keyval == gtk.keysyms.space:
-            if not ready(self, timeouttime=100): return False
             self.staff.playComposition()
         else:
             pianokeyBindings(keyval, self)

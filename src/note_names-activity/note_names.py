@@ -50,11 +50,9 @@ class Gcompris_note_names:
 
         self.colorButtons = True # toggle to choose whether or not to make the text
         # note name buttons colored
-        self.pitchSoundEnabled = True # toggle to choose whether or not to 
+        self.pitchSoundEnabled = True # toggle to choose whether or not to
         # play the pitch sounds
         self.master_is_not_ready = False # boolean to prepare sound timing
-
-        self._okayToRepeat = False
 
         self.remainingNotesToIdentify = []
 
@@ -216,7 +214,6 @@ They also form the C Major Scale. Notice that the note positions are different t
     def prepareGame(self):
         self.clearPic()
         self.staff.eraseAllNotes()
-        self._okayToRepeat = True
         self.drawRandomNote(self.staff.staffName)
 
     def updateGameLevel(self, levelNum):
@@ -284,17 +281,15 @@ They also form the C Major Scale. Notice that the note positions are different t
         draw a random note, selected from the pitchPossibilities, and save as self.currentNote
         '''
 
-        if not self._okayToRepeat:
-            if not ready(self):
-                return
+        newNoteID = \
+            self.remainingNotesToIdentify[randint(0, len(self.pitchPossibilities) - 1)]
 
-        newNoteID = self.remainingNotesToIdentify[randint(0, len(self.pitchPossibilities) - 1)]
-
-        if hasattr(self, 'currentNote') and self.currentNote.numID == newNoteID and len(self.remainingNotesToIdentify) > 1: #don't repeat the same note twice
-            self._okayToRepeat = True
+        # don't repeat the same note twice
+        if hasattr(self, 'currentNote') \
+                and self.currentNote.numID == newNoteID \
+                and len(self.remainingNotesToIdentify) > 1:
             self.drawRandomNote(staffType)
             return
-        self._okayToRepeat = False
 
         note = QuarterNote(newNoteID, staffType, self.staff.rootitem, self.sharpNotation)
 
@@ -383,8 +378,6 @@ They also form the C Major Scale. Notice that the note positions are different t
         self.selectedNoteObject = widget
 
         if self.pitchSoundEnabled:
-            if not ready(self) or self.master_is_not_ready:
-                return
             if self.currentNote.numID == 8:
                 numID = 8
             HalfNote(numID, self.staff.staffName, self.staff.rootitem).play()

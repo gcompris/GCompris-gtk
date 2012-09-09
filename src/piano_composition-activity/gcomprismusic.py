@@ -400,17 +400,14 @@ class Staff():
             pass
 
         if len(self.noteList) > 1:
-            if not ready(self):
-              return
-            else:
-              self.currentNoteXCoordinate = self.noteList[-2].x
-              remainingNoteY = self.noteList[-2].y
-              self.currentLineNum = self.getLineNum(remainingNoteY)
-              if len(self.noteList) >= 2:
-                  if self.noteList[-1].noteType == 8 and self.noteList[-1].isTupleBound and self.noteList[-2].noteType == 8:
-                      self.drawTwoSingleEighthNotes(self.noteList[-2], self.noteList[-1])
-              self.noteList[-1].remove()
-              self.noteList.pop()
+            self.currentNoteXCoordinate = self.noteList[-2].x
+            remainingNoteY = self.noteList[-2].y
+            self.currentLineNum = self.getLineNum(remainingNoteY)
+            if len(self.noteList) >= 2:
+                if self.noteList[-1].noteType == 8 and self.noteList[-1].isTupleBound and self.noteList[-2].noteType == 8:
+                    self.drawTwoSingleEighthNotes(self.noteList[-2], self.noteList[-1])
+            self.noteList[-1].remove()
+            self.noteList.pop()
         else:
             self.eraseAllNotes()
 
@@ -422,9 +419,6 @@ class Staff():
 
         >>> self.newStaff.eraseAllNotes()
         '''
-        #if not ready(self):
-        #    return False
-
         for o in self._beatNumLabels:
             o.remove()
         for n in self.noteList:
@@ -510,8 +504,6 @@ class Staff():
         #if not self.noteList or self.notReadyToPlay:
         #    return
         self.notReadyToPlay = True
-        #if not ready(self):
-        #    return False
 
         self.timers = []
         self.currentNoteIndex = 0
@@ -856,8 +848,6 @@ class Note():
         plays the note pitch. Each pitch is stored in the resources
         folder as an .ogg file (these are not synthesized)
         '''
-        if not ready(self, 700) or self.silent:
-            return False
         # sometimes this method is called without actually having fa note
         # printed on the page (we just want to hear the pitch). Thus, only
         # highlight a note if it exists!
@@ -1354,31 +1344,6 @@ def textBox(text, x, y , self, width=10000, fill_color=None, stroke_color=None, 
         text.raise_(rect)
         return text, rect
     return text
-def ready(self, timeouttime=200):
-    '''
-    function to help prevent "double-clicks". If your function call is
-    suffering from accidental system double-clicks, import this module
-    and write these lines at the top of your method:
-
-        if not ready(self):
-            return False
-    '''
-
-    if not hasattr(self, 'clickTimers'):
-        self.clickTimers = []
-        self.readyForNextClick = True
-        return True
-
-    def clearClick():
-        self.readyForNextClick = True
-        return False
-
-    if self.readyForNextClick == False:
-        return
-    else:
-        self.clickTimers.append(gobject.timeout_add(timeouttime, clearClick))
-        self.readyForNextClick = False
-        return True
 
 def clearResponsePic(self):
     self.responsePic.remove()

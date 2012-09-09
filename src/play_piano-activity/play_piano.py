@@ -161,9 +161,6 @@ class Gcompris_play_piano:
         self.timers.append(gobject.timeout_add(500, self.staff.playComposition))
 
     def ok_event(self, widget=None, target=None, event=None):
-        if not ready(self, 1000):
-            return False
-
         if self.kidsNoteList == self.givenOption:
             displayHappyNote(self, self.nextChallenge)
             self.score += 1
@@ -216,15 +213,12 @@ class Gcompris_play_piano:
 
             self.erase_entry()
         elif keyval == gtk.keysyms.Delete:
-            if not ready(self, timeouttime=100): return False
             self.erase_entry()
         elif keyval == gtk.keysyms.Return:
             self.ok_event()
         elif keyval == gtk.keysyms.space:
-            if not ready(self, timeouttime=50): return False
             self.staff.playComposition()
         else:
-            if not ready(self, timeouttime=50): return False
             pianokeyBindings(keyval, self)
         return True
     def pause(self, pause):
@@ -241,8 +235,6 @@ class Gcompris_play_piano:
 
 
     def color_code_notes(self, widget, target, event):
-        if not ready(self):
-            return False
         if self.staff.colorCodeNotes:
             self.staff.colorCodeNotes = False
             self.staff.colorAllNotes('black')
