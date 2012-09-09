@@ -32,6 +32,7 @@ import goocanvas
 import pango
 import ConfigParser
 import gcompris.sound
+import gcompris.bonus
 from gcompris import gcompris_gettext as _
 
 from random import randint
@@ -250,7 +251,7 @@ class Gcompris_explore:
         # check to see if student has won game
         if s == (len(self.data.sections()) - 1) and s != 0:
 
-            gcompris.sound.play_ogg('//boards/sounds/silence1s.ogg')
+            gcompris.sound.play_ogg('/boards/sounds/silence1s.ogg')
 
             # show congratulations image!
             goocanvas.Image(
@@ -390,52 +391,31 @@ class Gcompris_explore:
             self.currentTextSelection in self.textPromptsRemaining:
             self.textMatchingScore += 1
             self.sectionsAnsweredCorrectlyTextMatchingGame.append(target.get_data('sectionNum'))
-            pic = ExploreActivityResourcesFilepath + 'happyFace.png'
+            gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.SMILEY)
+
             self.textPromptsRemaining.remove(self.currentTextSelection)
-            self.timers.append(gobject.timeout_add(810, self.display_level))
+            self.timers.append(gobject.timeout_add(2000, self.display_level))
 
         else:
-            pic = ExploreActivityResourcesFilepath + 'sadFace.png'
-
-        if hasattr(self, 'responsePic'):
-            self.responsePic.remove()
-
-        self.responsePic = goocanvas.Image(
-        parent=self.rootitem,
-        pixbuf=gcompris.utils.load_pixmap(pic),
-        x=200,
-        y=50
-        )
-        self.timers.append(gobject.timeout_add(800, self.clearPic))
+            gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.SMILEY)
 
     def checkAnswerSoundMatchingGame(self, widget=None, target=None, event=None):
         '''
         check to see if the location the student chose corresponds to the
         currently playing sound clip. increment score accordingly
         '''
-        if not ready(self, timeouttime=1000): # precents kids from double clicking too quickly
+        if not ready(self, timeouttime=1000): # prevents kids from double clicking too quickly
             return
         if target.get_data('sectionNum') == self.currentMusicSelection[1] and \
             self.currentMusicSelection in self.soundClipsRemaining:
             self.soundMatchingScore += 1
             self.sectionsAnsweredCorrectlySoundMatchingGame.append(target.get_data('sectionNum'))
-            pic = ExploreActivityResourcesFilepath + 'happyFace.png'
             self.soundClipsRemaining.remove(self.currentMusicSelection)
-            self.timers.append(gobject.timeout_add(810, self.display_level))
+            self.timers.append(gobject.timeout_add(2000, self.display_level))
+            gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.SMILEY)
 
         else:
-            pic = ExploreActivityResourcesFilepath + 'sadFace.png'
-
-        if hasattr(self, 'responsePic'):
-            self.responsePic.remove()
-
-        self.responsePic = goocanvas.Image(
-        parent=self.rootitem,
-        pixbuf=gcompris.utils.load_pixmap(pic),
-        x=200,
-        y=50
-        )
-        self.timers.append(gobject.timeout_add(800, self.clearPic))
+            gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.SMILEY)
 
     def playRandomSong(self):
         '''
@@ -476,12 +456,6 @@ class Gcompris_explore:
     def playCurrentMusicSelection(self, x=None, y=None, z=None):
         gcompris.sound.play_ogg(self.activityDataFilePath +
                                                     self.currentMusicSelection[0])
-    def clearPic(self):
-        '''
-        remove happy/sad face
-        '''
-        if hasattr(self, 'responsePic'):
-            self.responsePic.remove()
 
     def set_level(self, level):
         '''
