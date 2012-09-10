@@ -1142,7 +1142,7 @@ class PianoKeyboard():
         self.height = height
         self.key_callback = key_callback
         #piano keyboard image
-        self.image = goocanvas.Image(
+        image = goocanvas.Image(
           parent=self.rootitem,
           pixbuf=gcompris.utils.load_pixmap("piano_composition/keyboard.png"),
           x=self.x,
@@ -1385,30 +1385,6 @@ def pianokeyBindings(keyval, self):
     elif keyval == gtk.keysyms.F5:
         self.keyboard_click(None, None, None, -5)
 
-def askUser(x, y, self):
-    self.text = goocanvas.Text(
-            parent=self.rootitem, x=x, y=y, width=1000,
-            text='<span size="30000" > Erase All? </span>',
-            fill_color='black', anchor=gtk.ANCHOR_CENTER,
-            alignment=pango.ALIGN_CENTER,
-            use_markup=True)
-    TG = 10
-    bounds = self.text.get_bounds()
-
-    self.rect = goocanvas.Rect(parent=self.rootitem,
-                          x=bounds.x1 - TG,
-                          y=bounds.y1 - TG,
-                          width=bounds.x2 - bounds.x1 + TG * 2,
-                          height=bounds.y2 - bounds.y1 + TG * 2,
-                          line_width=3.0,
-                          fill_color='gray')
-    self.rect.raise_(None)
-    self.text.raise_(None)
-    self.yesButton, self.txt1 = textButton(x - 50, y + 80, _('Yes'), self, color='green', includeText=True)
-    self.noButton, self.txt2 = textButton(x + 50, y + 80, _('No'), self, color='red', includeText=True)
-
-    return self.yesButton, self.noButton
-
 def eraseUserPrompt(x,y,z,self):
     self.text.remove()
     self.yesButton.remove()
@@ -1416,7 +1392,6 @@ def eraseUserPrompt(x,y,z,self):
     self.text.remove()
     self.rect.remove()
     self.txt1.remove()
-    self.yesButton.remove()
     self.txt2.remove()
 
 def drawBasicPlayHomePagePart1(self):

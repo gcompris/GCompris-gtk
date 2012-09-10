@@ -554,15 +554,9 @@ dialogue to\nenable the sound."), stop_board)
         self.wholeNoteSelected.connect("button_press_event", self.staff.updateToWhole)
         gcompris.utils.item_focus_init(self.wholeNoteSelected, None)
 
-    def askAndEraseStaff(self,x=None,y=None,z=None):
-        ask_user=False
-        if ask_user:
-            if self.staff.noteList:
-                (self.y, self.n) = askUser(450,300,self)
-            self.y.connect("button_press_event", self.erase)
-            self.n.connect("button_press_event", eraseUserPrompt,self)
-        else:
-            self.staff.eraseAllNotes()
+    def askAndEraseStaff(self, unused1, unused2, unused3):
+        # @FIXME, should have a dialog asking for confirmation
+        self.staff.eraseAllNotes()
 
     def erase(self,x,y,z):
         #self.staff.eraseAllNotes()
