@@ -174,6 +174,9 @@ class Gcompris_mining:
     self.sparkling.animation_start()
     self.need_new_nugget = False
 
+    # The following sound was copied form "Tuxpaint" (GPL)
+    gcompris.sound.play_ogg("mining/realrainbow.ogg")
+
 
   def on_zoom_change(self, state):
     """ Do something according to specific zoom states (E.g. the nugget is only visible at maximum zoom.) """
@@ -239,6 +242,9 @@ class Gcompris_mining:
     if self.nugget_count >= self.nuggets_to_collect:
       self.on_level_won()
     else:
+      # The following sound is based on "metalpaint.wav" from "Tuxpaint" (GPL)
+      gcompris.sound.play_ogg("mining/pickaxe.ogg")
+
       # we need to collect more nuggets, so lets place a new one
       self.need_new_nugget = True
 
@@ -984,9 +990,6 @@ class Sparkling:
     # show the spark at the new state
     self.__update_transformation()
     self.__show_spark()
-
-    # make some noise ;)
-    #TODO: gcompris.sound.play_ogg("sounds/sparkle.ogg")
 
 
   def __calculate_new_state(self):
