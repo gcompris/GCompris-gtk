@@ -4,11 +4,8 @@ img_DATA = \
 	defaultCompletedLocationPic.png \
 	defaultLocationPic.png \
 	default.png \
-	happyFace.png \
 	playbutton.png \
 	ribbon.png \
-	sadFace.png \
-	star.png \
-	winner.png
+	star.png
 
 EXTRA_DIST = $(img_DATA)

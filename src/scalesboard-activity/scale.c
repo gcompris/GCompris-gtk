@@ -18,6 +18,7 @@
 
 #include "gcompris/gcompris.h"
 #include <string.h> // for strcmp
+#include <stdlib.h> // for abs
 
 #define SOUNDLISTFILE PACKAGE
 

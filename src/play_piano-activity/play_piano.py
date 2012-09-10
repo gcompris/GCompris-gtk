@@ -47,6 +47,8 @@ class Gcompris_play_piano:
         self.metronomePlaying = False
 
         self.timers = []
+        self.afterBonus = None
+
     def start(self):
         self.recordedHits = []
         self.saved_policy = gcompris.sound.policy_get()
@@ -161,19 +163,18 @@ class Gcompris_play_piano:
         self.timers.append(gobject.timeout_add(500, self.staff.playComposition))
 
     def ok_event(self, widget=None, target=None, event=None):
-        if not ready(self, 1000):
-            return False
-
         if self.kidsNoteList == self.givenOption:
-            displayHappyNote(self, self.nextChallenge)
+            self.afterBonus = self.nextChallenge
+            gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.NOTE)
             self.score += 1
         else:
-            displaySadNote(self, self.tryagain)
-            self.timers.append(gobject.timeout_add(1500, self.staff.playComposition))
+            self.afterBonus = self.tryagain
+            gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.NOTE)
             self.score -= 1
 
     def tryagain(self):
         self.kidsNoteList = []
+        self.staff.playComposition
 
     def nextChallenge(self):
         self.kidsNoteList = []
@@ -216,19 +217,19 @@ class Gcompris_play_piano:
 
             self.erase_entry()
         elif keyval == gtk.keysyms.Delete:
-            if not ready(self, timeouttime=100): return False
             self.erase_entry()
         elif keyval == gtk.keysyms.Return:
             self.ok_event()
         elif keyval == gtk.keysyms.space:
-            if not ready(self, timeouttime=50): return False
             self.staff.playComposition()
         else:
-            if not ready(self, timeouttime=50): return False
             pianokeyBindings(keyval, self)
         return True
+
     def pause(self, pause):
-        pass
+        if not pause and self.afterBonus:
+            self.afterBonus()
+            self.afterBonus = None
 
     def set_level(self, level):
         '''
@@ -241,8 +242,6 @@ class Gcompris_play_piano:
 
 
     def color_code_notes(self, widget, target, event):
-        if not ready(self):
-            return False
         if self.staff.colorCodeNotes:
             self.staff.colorCodeNotes = False
             self.staff.colorAllNotes('black')

@@ -56,6 +56,7 @@ class Gcompris_piano_composition:
 
         self.noClefDescription = False
 
+        self.melodyPageToDisplay = 0
     def start(self):
         # write the navigation bar to bottom left corner
         gcompris.bar_set(gcompris.BAR_LEVEL)
@@ -89,6 +90,9 @@ class Gcompris_piano_composition:
         6. load and save, only sharp notes, note duration choice, treble or bass choice
         (7. , loads melodies)
         '''
+        if hasattr(self,'staff'):
+            self.staff.eraseAllNotes()
+
         if self.rootitem:
             self.rootitem.remove()
 
@@ -141,7 +145,7 @@ class Gcompris_piano_composition:
 
         if (level > 2):
 
-            self.changeClefButton = textButton(100, 140, _("Change Staff Clef"), self, 'gray', 100)
+            self.changeClefButton = textButton(100, 140, _("Erase and Change Clef"), self, 'gray', 100)
 
         if (level >= 3):
             self.textbox = goocanvas.Text(
@@ -261,6 +265,7 @@ class Gcompris_piano_composition:
             self.staff = BassStaff(370, 185, self.rootitem, 3)
             self.staff.drawStaff()
             self.staff.dynamicNoteSpacing = True
+
         else:
             self.staff = TrebleStaff(370, 185, self.rootitem, 3)
             self.staff.drawStaff()
@@ -276,7 +281,7 @@ class Gcompris_piano_composition:
         self.eraseNotesButton.connect("button_press_event", self.staff.eraseOneNote)
         gcompris.utils.item_focus_init(self.eraseNotesButton, None)
 
-        self.eraseAllButton.connect("button_press_event", self.staff.eraseAllNotes)
+        self.eraseAllButton.connect("button_press_event", self.askAndEraseStaff)
         gcompris.utils.item_focus_init(self.eraseAllButton, None)
 
         self.playCompositionButton.connect("button_press_event", self.staff.playComposition)
@@ -318,6 +323,7 @@ class Gcompris_piano_composition:
         optionally specify to display the "black keys"
         '''
         self.keyboard = PianoKeyboard(50, 180, self.rootitem)
+
         if level == 5:
             self.keyboard.sharpNotation = False
             self.keyboard.blackKeys = True
@@ -326,12 +332,13 @@ class Gcompris_piano_composition:
             self.keyboard.sharpNotation = True
 
         self.keyboard.draw(300, 200, self.keyboard_click)
-
         Prop = gcompris.get_properties()
         if not (Prop.fx):
             gcompris.utils.dialog(_("Error: This activity cannot be \
 played with the\nsound effects disabled.\nGo to the configuration \
 dialogue to\nenable the sound."), stop_board)
+
+
 
     def displayMelodySelection(self):
         '''
@@ -351,45 +358,65 @@ dialogue to\nenable the sound."), stop_board)
          )
 
         self.read_data()
+        if self.melodyPageToDisplay==0:
+            txt = _("Next Page")
+        else:
+            txt = _("Previous Page")
+        self.nextMelodiesButton = textButton(700,475,txt, self)
+        self.nextMelodiesButton.connect("button_press_event", self.nextMelodyPage)
+        gcompris.utils.item_focus_init(self.nextMelodiesButton, None)
 
         self.writeDataToScreen()
 
+    def nextMelodyPage(self, x=None,y=None,z=None):
+        if self.melodyPageToDisplay == 0:
+            self.melodyPageToDisplay = 1
+
+        else:
+            self.melodyPageToDisplay = 0
+        self.display_level(8)
     def writeDataToScreen(self):
 
         def displayTitle(section, x, y):
-
+            newRoot = goocanvas.Group(parent=self.rootitem)
             self.text = goocanvas.Text(
-                parent=self.rootitem,
+                parent=newRoot,
                 x=x, y=y,
-                text='<span size="10000"> ' + self.data.get(section, 'title') + '</span>',
+                text='<span size="13000"> ' + self.data.get(section, 'title') + '</span>',
                 fill_color="black",
                 use_markup=True
                 )
 
-            goocanvas.Text(parent=self.rootitem,
+            self.origin = goocanvas.Text(parent=newRoot,
                  x=x + 30,
-                 y=y + 23,
-                 width=175,
-                 text='<span font_family="URW Gothic L" size="7000" \
+                 y=y + 18,
+                 width=250,
+                 text='<span font_family="URW Gothic L" size="10000" \
                  weight="bold">' + _(self.data.get(section, '_origin')) + '</span>',
                  fill_color="black",
-                 use_markup=True,
-                 pointer_events="GOO_CANVAS_EVENTS_NONE"
+                 use_markup=True
                  )
-            goocanvas.Group()
+
             self.text.connect("button_press_event", self.melodySelected, section)
-            gcompris.utils.item_focus_init(self.text, None)
+            self.origin.connect("button_press_event", self.melodySelected, section)
+            gcompris.utils.item_focus_init(newRoot, None)
 
-
-        x = 75
+        x = 55
         y = 75
-        for section in self.data.sections():
+
+        if self.melodyPageToDisplay == 0:
+            lower = 0
+            upper = (len(self.data.sections())) / 2 - 1
+        else:
+            lower = (len(self.data.sections())) / 2 - 1
+            upper = len(self.data.sections())
+        for section in self.data.sections()[lower:upper]:
             displayTitle(section, x, y)
             if y > 400:
                 y = 75
-                x += 250
+                x += 275
             else:
-                y += 45
+                y += 48
 
     def read_data(self):
             '''
@@ -422,6 +449,7 @@ dialogue to\nenable the sound."), stop_board)
         called once a melody has been selected
         writes the melody to the staff, and displayes the title and lyrics
         '''
+
         self.display_level(self.gcomprisBoard.level)
         self.staff.stringToNotation(self.data.get(section, 'melody'))
         self.staff.texts = []
@@ -491,6 +519,7 @@ dialogue to\nenable the sound."), stop_board)
         if desired, but could confuse children if more than one clef
         exists in the piece
         '''
+        current_note_type = self.staff.currentNoteType
         self.staff.clear()
         if hasattr(self.staff, 'newClef'):
             self.staff.newClef.clear()
@@ -502,12 +531,12 @@ dialogue to\nenable the sound."), stop_board)
             self.staff = TrebleStaff(370, 185, self.rootitem, 3)
             self.staff.drawStaff()
             self.staff.dynamicNoteSpacing = True
-
+        self.staff.currentNoteType = current_note_type
         #re-establish link to root
         self.eraseNotesButton.connect("button_press_event", self.staff.eraseOneNote)
         gcompris.utils.item_focus_init(self.eraseNotesButton, None)
 
-        self.eraseAllButton.connect("button_press_event", self.staff.eraseAllNotes)
+        self.eraseAllButton.connect("button_press_event", self.askAndEraseStaff)
         gcompris.utils.item_focus_init(self.eraseAllButton, None)
 
         self.playCompositionButton.connect("button_press_event", self.staff.playComposition)
@@ -525,9 +554,21 @@ dialogue to\nenable the sound."), stop_board)
         self.wholeNoteSelected.connect("button_press_event", self.staff.updateToWhole)
         gcompris.utils.item_focus_init(self.wholeNoteSelected, None)
 
+    def askAndEraseStaff(self,x=None,y=None,z=None):
+        ask_user=False
+        if ask_user:
+            if self.staff.noteList:
+                (self.y, self.n) = askUser(450,300,self)
+            self.y.connect("button_press_event", self.erase)
+            self.n.connect("button_press_event", eraseUserPrompt,self)
+        else:
+            self.staff.eraseAllNotes()
+
+    def erase(self,x,y,z):
+        #self.staff.eraseAllNotes()
+        eraseUserPrompt(None, None, None,self)
+
     def change_accidental_type(self, widget, target, event):
-        if not ready(self):
-            return False
         self.keyboard.sharpNotation = not self.keyboard.sharpNotation
         self.keyboard.draw(300, 200, self.keyboard_click)
         if self.keyboard.sharpNotation:
@@ -543,10 +584,8 @@ dialogue to\nenable the sound."), stop_board)
         with a note name, text is output to canvas, the note sound is generated,
         and the note is drawn on the staff
         '''
-        if not ready(self):
-            return False
-
-
+        if hasattr(self.staff, 'locked') and self.staff.locked:
+            return
         if not numID:
             numID = target.numID
         if numID < 0 and self.gcomprisBoard.level < 4:
@@ -691,19 +730,15 @@ dialogue to\nenable the sound."), stop_board)
     def key_press(self, keyval, commit_str, preedit_str):
 
         utf8char = gtk.gdk.keyval_to_unicode(keyval)
-        #if not ready(self, timeouttime=100): return False
         if keyval == gtk.keysyms.BackSpace:
-            if not ready(self, timeouttime=100): return False
             self.staff.eraseOneNote()
         elif keyval == gtk.keysyms.Delete:
-            if not ready(self, timeouttime=100): return False
-            self.staff.eraseAllNotes()
+            self.askAndEraseStaff()
         elif keyval == gtk.keysyms.space:
-            if not ready(self, timeouttime=100): return False
             self.staff.playComposition()
         else:
             pianokeyBindings(keyval, self)
-
+        return True
     def pause(self, x):
         pass
 
@@ -713,11 +748,9 @@ dialogue to\nenable the sound."), stop_board)
         left navigation bar to increment level
         '''
         self.noClefDescription = False
-        self.staff.eraseAllNotes()
         self.gcomprisBoard.level = level
         gcompris.bar_set_level(self.gcomprisBoard)
         self.display_level(self.gcomprisBoard.level)
-
 
 def general_save(filename, filetype, staffInstance):
     '''

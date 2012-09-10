@@ -50,15 +50,15 @@ class Gcompris_note_names:
 
         self.colorButtons = True # toggle to choose whether or not to make the text
         # note name buttons colored
-        self.pitchSoundEnabled = True # toggle to choose whether or not to 
+        self.pitchSoundEnabled = True # toggle to choose whether or not to
         # play the pitch sounds
         self.master_is_not_ready = False # boolean to prepare sound timing
-
-        self._okayToRepeat = False
 
         self.remainingNotesToIdentify = []
 
         self.repeatThisNoteLaterPlease = False
+
+        self.afterBonus = None
 
     def start(self):
         # Set the buttons we want in the bar
@@ -95,10 +95,11 @@ class Gcompris_note_names:
         '''
         if hasattr(self, 'staff'):
             self.staff.eraseAllNotes()
-        if self.rootitem:
-            self.rootitem.remove()
         if hasattr(self, 'noteButtonsRootItem'):
             self.noteButtonsRootItem.remove()
+        if self.rootitem:
+            self.rootitem.remove()
+
 
         self.rootitem = goocanvas.Group(parent=
                                        self.gcomprisBoard.canvas.get_root_item())
@@ -213,9 +214,7 @@ They also form the C Major Scale. Notice that the note positions are different t
           )
 
     def prepareGame(self):
-        self.clearPic()
         self.staff.eraseAllNotes()
-        self._okayToRepeat = True
         self.drawRandomNote(self.staff.staffName)
 
     def updateGameLevel(self, levelNum):
@@ -283,17 +282,15 @@ They also form the C Major Scale. Notice that the note positions are different t
         draw a random note, selected from the pitchPossibilities, and save as self.currentNote
         '''
 
-        if not self._okayToRepeat:
-            if not ready(self):
-                return
+        newNoteID = \
+            self.remainingNotesToIdentify[randint(0, len(self.pitchPossibilities) - 1)]
 
-        newNoteID = self.remainingNotesToIdentify[randint(0, len(self.pitchPossibilities) - 1)]
-
-        if hasattr(self, 'currentNote') and self.currentNote.numID == newNoteID and len(self.remainingNotesToIdentify) > 1: #don't repeat the same note twice
-            self._okayToRepeat = True
+        # don't repeat the same note twice
+        if hasattr(self, 'currentNote') \
+                and self.currentNote.numID == newNoteID \
+                and len(self.remainingNotesToIdentify) > 1:
             self.drawRandomNote(staffType)
             return
-        self._okayToRepeat = False
 
         note = QuarterNote(newNoteID, staffType, self.staff.rootitem, self.sharpNotation)
 
@@ -324,7 +321,7 @@ They also form the C Major Scale. Notice that the note positions are different t
             self.noteButtonsRootItem.remove()
 
         self.noteButtonsRootItem = goocanvas.Group(parent=
-                                        self.gcomprisBoard.canvas.get_root_item(), x=0, y=0)
+                                        self.rootitem, x=0, y=0)
 
 
         def drawNoteButton(x, y, numID, play_sound_on_click):
@@ -337,7 +334,7 @@ They also form the C Major Scale. Notice that the note positions are different t
                 color = 'white'
             text = getKeyNameFromID(numID, self.sharpNotation)
             vars(self)[str(numID)] = goocanvas.Text(
-              parent=self.noteButtonsRootItem,
+              parent=self.rootitem,
               x=x,
               y=y,
               text=text,
@@ -354,7 +351,7 @@ They also form the C Major Scale. Notice that the note positions are different t
                               height=20,
                               line_width=.5,
                               fill_color=color)
-
+            vars(self)[str(numID)].raise_(None)
             vars(self)[str(numID)].scale(2.0, 2.0)
             vars(self)[str(numID)].translate(-250, -150)
             rect.scale(2, 2)
@@ -382,8 +379,6 @@ They also form the C Major Scale. Notice that the note positions are different t
         self.selectedNoteObject = widget
 
         if self.pitchSoundEnabled:
-            if not ready(self) or self.master_is_not_ready:
-                return
             if self.currentNote.numID == 8:
                 numID = 8
             HalfNote(numID, self.staff.staffName, self.staff.rootitem).play()
@@ -406,32 +401,27 @@ They also form the C Major Scale. Notice that the note positions are different t
     def ok_event(self, widget, target, event):
         '''
         called when the kid presses a notename. Checks to see if this is the correct
-        note name. displays the appropriate (happy or sad) note picture, and
-        resets the board if appropriate
+        note name. displays the appropriate bonus, and resets the board if appropriate
         '''
 
         self.master_is_not_ready = True
-        self.timers.append(gobject.timeout_add(2000, self.readyToSoundAgain))
+        self.timers.append(gobject.timeout_add(1500, self.readyToSoundAgain))
         g = self.selectedNoteObject.get_data('numID')
         c = self.currentNote.numID
         if g == c or (c == 8 and g == 1):
             if not self.repeatThisNoteLaterPlease:
                 self.remainingNotesToIdentify.remove(c)
             if self.remainingNotesToIdentify == []:
-                displayHappyNote(self, lambda: self.set_level(self.gcomprisBoard.level + 1))
+                self.afterBonus = lambda: self.set_level(self.gcomprisBoard.level + 1)
+                gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.NOTE)
             else:
-                displayHappyNote(self, self.prepareGame)
+                self.afterBonus = self.prepareGame
+                gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.NOTE)
             self.repeatThisNoteLaterPlease = False
         else:
+            gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.NOTE)
             self.repeatThisNoteLaterPlease = True
-            displaySadNote(self, self.clearPic)
-        self.responsePic.raise_(None)
 
-
-
-    def clearPic(self):
-        if hasattr(self, 'responsePic'):
-            self.responsePic.remove()
 
     def end(self):
         # Remove the root item removes all the others inside it
@@ -471,7 +461,9 @@ They also form the C Major Scale. Notice that the note positions are different t
         strn = u'%c' % utf8char
 
     def pause(self, pause):
-        pass
+        if not pause and self.afterBonus:
+            self.afterBonus()
+            self.afterBonus = None
 
 def stop_board():
   pass
