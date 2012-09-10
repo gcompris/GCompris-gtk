@@ -148,7 +148,7 @@ class Gcompris_piano_composition:
             self.changeClefButton = textButton(100, 140, _("Erase and Change Clef"), self, 'gray', 100)
 
         if (level >= 3):
-            self.textbox = goocanvas.Text(
+            goocanvas.Text(
                 parent=self.rootitem,
                 x=210, y=140,
                 width=100,
@@ -664,37 +664,41 @@ dialogue to\nenable the sound."), stop_board)
             r += str(x.numID) + str(x.noteType)
 
         if not self._bachEasterEggDone and '-5617' in s:
-            self.responsePic = goocanvas.Image(
+            responsePic = goocanvas.Image(
                 parent=self.rootitem,
                 pixbuf=gcompris.utils.load_pixmap('piano_composition/bach.jpg'),
                 x=250,
                 y=50
                 )
-            self.timers.append(gobject.timeout_add(2000, clearResponsePic, self))
+            self.timers.append(gobject.timeout_add(2000,
+                                                   lambda: responsePic.remove() ) )
             self._bachEasterEggDone = True
         if not self._mozartEasterEggDone and '523248685848383244284428' in r:
-            self.responsePic = goocanvas.Image(
+            responsePic = goocanvas.Image(
                 parent=self.rootitem,
                 pixbuf=gcompris.utils.load_pixmap('piano_composition/mozart.jpg'),
                 x=160,
                 y=80
                 )
-            self.timers.append(gobject.timeout_add(2000, clearResponsePic, self))
+            self.timers.append(gobject.timeout_add(2000,
+                                                   lambda: responsePic.remove() ) )
             self._mozartEasterEggDone = True
         if not self._bananaEasterEggGone and '7464-4464-4464' in r:
-            self.responsePic = goocanvas.Image(
+            responsePic = goocanvas.Image(
                 parent=self.rootitem,
                 pixbuf=gcompris.utils.load_pixmap('piano_composition/banana.png'),
                 x=200,
                 y=10
                 )
-            self.responsePic.animate(5, 5, 3.0, 0.0, \
+            responsePic.animate(5, 5, 3.0, 0.0, \
                 absolute=False, duration=800, step_time=100, type=goocanvas.ANIMATE_FREEZE)
 
-            self.timers.append(gobject.timeout_add(800, clearResponsePic, self))
+            self.timers.append(gobject.timeout_add(800,
+                                                   lambda: responsePic.remove() ) )
+
             self._bananaEasterEggGone = True
         if not self._gsoc2012EasterEggGone and '14181814343838345458585481' in r:
-            self.responsePic = goocanvas.Image(
+            responsePic = goocanvas.Image(
                 parent=self.rootitem,
                 pixbuf=gcompris.utils.load_pixmap('piano_composition/gsoc2012.jpg'),
                 x= -20,
@@ -703,7 +707,8 @@ dialogue to\nenable the sound."), stop_board)
             self.responsePic.animate(0, 400, 1, 0, \
                 absolute=False, duration=1000, step_time=100, type=goocanvas.ANIMATE_FREEZE)
 
-            self.timers.append(gobject.timeout_add(1000, clearResponsePic, self))
+            self.timers.append(gobject.timeout_add(1000,
+                                                   lambda: responsePic.remove() ) )
             self._gsoc2012EasterEggGone = True
 
     def end(self):

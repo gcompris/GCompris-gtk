@@ -1269,7 +1269,7 @@ def textButton(x, y, text, self, color='gray', width=100000, includeText=False):
     textButton(350, 400, 'Nei Ho', self, color='red')
     textButton(500, 400, 'Zdravstvuyte', self, color='teal', width=70)
     '''
-    self.textbox = goocanvas.Text(
+    textbox = goocanvas.Text(
         parent=self.rootitem,
         x=x, y=y,
         width=width,
@@ -1279,7 +1279,7 @@ def textButton(x, y, text, self, color='gray', width=100000, includeText=False):
         pointer_events="GOO_CANVAS_EVENTS_NONE"
         )
     TG = 15
-    bounds = self.textbox.get_bounds()
+    bounds = textbox.get_bounds()
 
     img = goocanvas.Image(
             parent=self.rootitem,
@@ -1291,9 +1291,9 @@ def textButton(x, y, text, self, color='gray', width=100000, includeText=False):
             )
 
     gcompris.utils.item_focus_init(img, None)
-    self.textbox.raise_(img)
+    textbox.raise_(img)
     if includeText:
-        return img, self.textbox
+        return img, textbox
     else:
         return img
 
@@ -1346,9 +1346,6 @@ def textBox(text, x, y , rootitem, width=10000,
         text.raise_(rect)
         return text, rect
     return text
-
-def clearResponsePic(self):
-    self.responsePic.remove()
 
 def pianokeyBindings(keyval, self):
     '''
