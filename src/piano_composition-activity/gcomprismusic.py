@@ -1297,14 +1297,16 @@ def textButton(x, y, text, self, color='gray', width=100000, includeText=False):
     else:
         return img
 
-def textBox(text, x, y , self, width=10000, fill_color=None, stroke_color=None, noRect=False, text_color="black"):
+def textBox(text, x, y , rootitem, width=10000,
+            fill_color=None, stroke_color=None,
+            noRect=False, text_color="black"):
     '''
     write a textbox with text to the screen. By default the text is surrounded with a rectangle.
     Customize with the following parameters:
     text: the text to write
     x: the x position of the text
     y: the y position of the text
-    self: the self object this text is to be written to (just pass 'self')
+    rootitem: the rootitem do draw the textBox in
     width: the width limit of the text
     fill_color: the color to fill the rectangle
     stroke_color: the color to make the rectangle lines
@@ -1313,16 +1315,16 @@ def textBox(text, x, y , self, width=10000, fill_color=None, stroke_color=None, 
 
     accepted colors include string html color tags or english names
 
-    textBox('Hello World!', 200, 300, self)
-    textBox('Hola', 350, 300, self, fill_color='green')
-    textBox('Ciao', 500, 300, self, stroke_color='pink')
-    textBox('Bonjour', 650, 300, self, noRect=True)
-    textBox('Nei Ho', 350, 400, self, text_color='red')
-    textBox('Guten Tag', 200, 400, self, width=10)
-    textBox('Zdravstvuyte', 500, 400, self, fill_color='#FF00FF')
+    textBox('Hello World!', 200, 300, rootitem)
+    textBox('Hola', 350, 300, rootitem, fill_color='green')
+    textBox('Ciao', 500, 300, rootitem, stroke_color='pink')
+    textBox('Bonjour', 650, 300, rootitem, noRect=True)
+    textBox('Nei Ho', 350, 400, rootitem, text_color='red')
+    textBox('Guten Tag', 200, 400, rootitem, width=10)
+    textBox('Zdravstvuyte', 500, 400, rootitem, fill_color='#FF00FF')
     '''
     text = goocanvas.Text(
-        parent=self.rootitem, x=x, y=y, width=width,
+        parent = rootitem, x=x, y=y, width=width,
         text=text,
         fill_color=text_color, anchor=gtk.ANCHOR_CENTER,
         alignment=pango.ALIGN_CENTER,
@@ -1331,7 +1333,7 @@ def textBox(text, x, y , self, width=10000, fill_color=None, stroke_color=None, 
     TG = 10
     bounds = text.get_bounds()
     if not noRect:
-        rect = goocanvas.Rect(parent=self.rootitem,
+        rect = goocanvas.Rect(parent = rootitem,
                               x=bounds.x1 - TG,
                               y=bounds.y1 - TG,
                               width=bounds.x2 - bounds.x1 + TG * 2,
@@ -1441,9 +1443,9 @@ def drawBasicPlayHomePagePart1(self):
     if hasattr(self, 'staff'):
         self.staff.clear()
 
-    self.playText, self.playRect = textBox(_('Play'), 220, 30, self, fill_color='gray')
+    self.playText, self.playRect = textBox(_('Play'), 220, 30, self.rootitem, fill_color='gray')
 
-    self.okText, self.okRect = textBox(_('Okay'), 550, 30, self, fill_color='gray')
+    self.okText, self.okRect = textBox(_('Okay'), 550, 30, self.rootitem, fill_color='gray')
 
 # ---------------------
 # NOT DOCUMENTED ONLINE
@@ -1476,7 +1478,7 @@ def drawBasicPlayHomePagePart2(self):
     gcompris.utils.item_focus_init(self.okButton, None)
 
     # ERASE BUTTON
-    self.eraseText, self.eraseRect = textBox(_("Erase Attempt"), 700, 150, self, fill_color='gray')
+    self.eraseText, self.eraseRect = textBox(_("Erase Attempt"), 700, 150, self.rootitem, fill_color='gray')
 
     self.eraseButton = goocanvas.Image(
             parent=self.rootitem,

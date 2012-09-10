@@ -82,7 +82,7 @@ class Gcompris_play_rhythm:
             x=200, y=160, width=400, height=30,
             stroke_color="black", fill_color='white',
             line_width=3.0)
-        textBox(_("Beat Count:"), 260, 175, self, noRect=True)
+        textBox(_("Beat Count:"), 260, 175, self.rootitem, noRect=True)
         gcompris.bar_set(gcompris.BAR_LEVEL)
         gcompris.bar_set_level(self.gcomprisBoard)
         gcompris.bar_location(20, -1, 0.6)
@@ -100,7 +100,8 @@ class Gcompris_play_rhythm:
 
         self.givenOption = []
 
-        self.drumText, self.drumRect = textBox(_('Drum'), 390, 30, self, fill_color='gray')
+        self.drumText, self.drumRect = \
+            textBox(_('Drum'), 390, 30, self.rootitem, fill_color='gray')
 
         # RECORD BUTTON
         self.drum = goocanvas.Image(
@@ -113,7 +114,9 @@ class Gcompris_play_rhythm:
         gcompris.utils.item_focus_init(self.drum, None)
 
 
-        self.metronomeText, self.metronomeRect = textBox(_('For a little help, click the metronome to hear the tempo'), 90, 100, self, fill_color='gray', width=150)
+        self.metronomeText, self.metronomeRect = \
+            textBox( _('For a little help, click the metronome to hear the tempo'),
+                     90, 100, self.rootitem, fill_color='gray', width=150 )
         # METRONOME BUTTON
         self.metronomeButton = goocanvas.Image(
                 parent=self.rootitem,
@@ -311,7 +314,8 @@ class Gcompris_play_rhythm:
         if hasattr(self, 'text'):
             self.text.remove()
             self.rect.remove()
-        self.text, self.rect = textBox(text, 400, 400, self, fill_color='gray', width=200)
+        self.text, self.rect = \
+            textBox(text, 400, 400, self.rootitem, fill_color='gray', width=200)
 
     def convert(self, visible):
         if visible:

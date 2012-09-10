@@ -129,11 +129,11 @@ class Gcompris_piano_composition:
 
         # CLEF DESCRIPTION
         if clefDescription:
-            textBox(clefText, 550, 67, self, 240, stroke_color='purple')
+            textBox(clefText, 550, 67, self.rootitem, 240, stroke_color='purple')
 
         # KEYBOARD DESCRIPTION
         if keyboardDescription:
-            textBox(keyboardText, 200, 430, self, 225, stroke_color='purple')
+            textBox(keyboardText, 200, 430, self.rootitem, 225, stroke_color='purple')
 
         # ADD BUTTONS
 
@@ -235,7 +235,7 @@ class Gcompris_piano_composition:
             self.makeSharpButton.props.visibility = goocanvas.ITEM_INVISIBLE
 
             self.loadSongsButton = textButton(280, 430, _("Load Music"), self, 'red', 100)
-            textBox(_("Change Accidental Style:"), 100, 430, self, width=150, noRect=True)
+            textBox(_("Change Accidental Style:"), 100, 430, self.rootitem, width=150, noRect=True)
 
         if (level == 7):
             self.loadButton = goocanvas.Image(

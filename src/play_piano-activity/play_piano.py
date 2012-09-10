@@ -111,7 +111,8 @@ class Gcompris_play_piano:
 
         self.piano.draw(300, 175, self.keyboard_click)
 
-        textBox(_("Click the piano keys that match the written notes."), 388, 60, self, fill_color='gray', width=200)
+        textBox(_("Click the piano keys that match the written notes."),
+                388, 60, self.rootitem, fill_color='gray', width=200)
 
         drawBasicPlayHomePagePart2(self)
 
