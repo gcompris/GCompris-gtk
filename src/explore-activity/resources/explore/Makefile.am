@@ -1,9 +1,6 @@
 imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/explore
 img_DATA = \
 	border.png \
-	defaultCompletedLocationPic.png \
-	defaultLocationPic.png \
-	default.png \
 	playbutton.png \
 	ribbon.png \
 	star.png
