@@ -200,7 +200,7 @@ class Gcompris_guessnumber:
       # Select the number to find
       self.solution = random.randint(self.min, self.max)
 
-      text = _("Guess a number between %d and %d") %(self.min, self.max)
+      text = _("Guess a number between {0} and {1}").format(self.min, self.max)
 
       goocanvas.Text(
         parent = self.rootitem,
@@ -303,7 +303,8 @@ class Gcompris_guessnumber:
       try:
         number = int(text)
       except:
-        self.indicator.props.text = _("Please enter a number between %d and %d") %(self.min, self.max)
+        self.indicator.props.text = \
+            _("Please enter a number between {0} and {1}").format(self.min, self.max)
         widget.set_text('')
         return
 

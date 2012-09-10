@@ -797,9 +797,9 @@ config_start(GcomprisBoard *agcomprisBoard,
       _init(agcomprisBoard);
     }
 
-  gchar *label = g_strdup_printf(_("<b>%s</b> configuration\n for profile <b>%s</b>"),
+  gchar *label = g_strdup_printf(_("<b>%1$s</b> configuration\n for profile <b>%2$s</b>"),
 				 agcomprisBoard->name,
-				 aProfile ? aProfile->name : "");
+				 aProfile ? aProfile->name : _("Default"));
   GcomprisBoardConf *bconf;
   bconf = gc_board_config_window_display( label,
 				 conf_ok);
