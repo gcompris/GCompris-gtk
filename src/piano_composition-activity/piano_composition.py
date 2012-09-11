@@ -143,10 +143,10 @@ class Gcompris_piano_composition:
                                          self.rootitem, 0x9C2765FFL, 80)
 
         self.eraseNotesButton = textButton(220, 70, _("Erase Last Note"),
-                                           self.rootitem, 0x870047FFL, 100)
+                                           self.rootitem, 0xBF7D30FFL, 100)
 
         self.playCompositionButton = textButton(350, 70, _("Play Composition"),
-                                                self.rootitem, 0xE768ABFFL, 100)
+                                                self.rootitem, 0x104BA9FFL, 100)
 
         if (level > 2):
 
@@ -743,7 +743,7 @@ dialogue to\nenable the sound."), stop_board)
         elif keyval == gtk.keysyms.space:
             self.staff.playComposition()
         else:
-            pianokeyBindings(keyval, self)
+            pianokeyBindings(keyval, self.keyboard_click)
         return True
     def pause(self, x):
         pass

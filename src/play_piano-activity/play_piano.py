@@ -225,7 +225,7 @@ class Gcompris_play_piano:
         elif keyval == gtk.keysyms.space:
             self.staff.playComposition()
         else:
-            pianokeyBindings(keyval, self)
+            pianokeyBindings(keyval, self.keyboard_click)
         return True
 
     def pause(self, pause):

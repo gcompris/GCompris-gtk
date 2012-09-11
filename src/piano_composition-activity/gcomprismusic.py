@@ -1243,6 +1243,47 @@ class PianoKeyboard():
             x.remove()
         self.draw(self.width, self.height, self.key_callback)
 
+
+def pianokeyBindings(keyval, keyboard_click):
+    '''
+    nice key bindings for the piano keys
+    In your activity's key_press method, call this method and pass in
+    the keyval and your keyboard_click function
+
+    def key_press(self, keyval, commit_str, preedit_str):
+
+        utf8char = gtk.gdk.keyval_to_unicode(keyval)
+        self.keyboard.pianokeyBindings(keyval, self.keyboard_click)
+    '''
+
+    if keyval == 49:
+        keyboard_click(None, None, None, 1)
+    elif keyval == 50:
+        keyboard_click(None, None, None, 2)
+    elif keyval == 51:
+        keyboard_click(None, None, None, 3)
+    elif keyval == 52:
+        keyboard_click(None, None, None, 4)
+    elif keyval == 53:
+        keyboard_click(None, None, None, 5)
+    elif keyval == 54:
+        keyboard_click(None, None, None, 6)
+    elif keyval == 55:
+        keyboard_click(None, None, None, 7)
+    elif keyval == 56:
+        keyboard_click(None, None, None, 8)
+    elif keyval == gtk.keysyms.F1:
+        keyboard_click(None, None, None, -1)
+    elif keyval == gtk.keysyms.F2:
+        keyboard_click(None, None, None, -2)
+    elif keyval == gtk.keysyms.F3:
+        keyboard_click(None, None, None, -3)
+    elif keyval == gtk.keysyms.F4:
+        keyboard_click(None, None, None, -4)
+    elif keyval == gtk.keysyms.F5:
+        keyboard_click(None, None, None, -5)
+
+
 # ---------------------------------------------------------------------------
 #
 # General UTILITY FUNCTIONS
@@ -1352,44 +1393,6 @@ def textBox(text, x, y , rootitem, width=10000,
         text.raise_(rect)
         return text, rect
     return text
-
-def pianokeyBindings(keyval, self):
-    '''
-    nice key bindings for the piano keys
-    In your activity's key_press method, call this method and pass in the keyval and self
-
-    def key_press(self, keyval, commit_str, preedit_str):
-
-        utf8char = gtk.gdk.keyval_to_unicode(keyval)
-        pianokeyBindings(keyval, self)
-    '''
-
-    if keyval == 49:
-        self.keyboard_click(None, None, None, 1)
-    elif keyval == 50:
-        self.keyboard_click(None, None, None, 2)
-    elif keyval == 51:
-        self.keyboard_click(None, None, None, 3)
-    elif keyval == 52:
-        self.keyboard_click(None, None, None, 4)
-    elif keyval == 53:
-        self.keyboard_click(None, None, None, 5)
-    elif keyval == 54:
-        self.keyboard_click(None, None, None, 6)
-    elif keyval == 55:
-        self.keyboard_click(None, None, None, 7)
-    elif keyval == 56:
-        self.keyboard_click(None, None, None, 8)
-    elif keyval == gtk.keysyms.F1:
-        self.keyboard_click(None, None, None, -1)
-    elif keyval == gtk.keysyms.F2:
-        self.keyboard_click(None, None, None, -2)
-    elif keyval == gtk.keysyms.F3:
-        self.keyboard_click(None, None, None, -3)
-    elif keyval == gtk.keysyms.F4:
-        self.keyboard_click(None, None, None, -4)
-    elif keyval == gtk.keysyms.F5:
-        self.keyboard_click(None, None, None, -5)
 
 def eraseUserPrompt(x,y,z,self):
     self.text.remove()
