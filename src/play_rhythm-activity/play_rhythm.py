@@ -56,7 +56,6 @@ class Gcompris_play_rhythm:
         gcompris.sound.policy_set(gcompris.sound.PLAY_AND_INTERRUPT)
         gcompris.sound.pause()
 
-
         # Set the buttons we want in the bar
         gcompris.bar_set(gcompris.BAR_LEVEL)
 
@@ -77,11 +76,28 @@ class Gcompris_play_rhythm:
         if hasattr(self, 'staff'):
             self.staff.clear()
             self.staff.eraseAllNotes()
-        drawBasicPlayHomePagePart1(self)
+
+        if self.rootitem:
+            self.rootitem.remove()
+
+        self.rootitem = goocanvas.Group(parent=
+                                       self.gcomprisBoard.canvas.get_root_item())
+
+        # set background
+        goocanvas.Image(
+            parent=self.rootitem,
+            x=0, y=0,
+            pixbuf=gcompris.utils.load_pixmap('piano_composition/playActivities/background/' + str(randint(1, 6)) + '.jpg')
+            )
+
+        if hasattr(self, 'staff'):
+            self.staff.clear()
+
         goocanvas.Rect(parent=self.rootitem,
-            x=200, y=160, width=400, height=30,
-            stroke_color="black", fill_color='white',
-            line_width=3.0)
+                       x=200, y=160, width=400, height=30,
+                       stroke_color="black", fill_color='white',
+                       line_width=3.0,
+                       radius_x = 1.0, radius_y = 1.0)
         textBox(_("Beat Count:"), 260, 175, self.rootitem, noRect=True)
         gcompris.bar_set(gcompris.BAR_LEVEL)
         gcompris.bar_set_level(self.gcomprisBoard)
@@ -100,25 +116,16 @@ class Gcompris_play_rhythm:
 
         self.givenOption = []
 
-        self.drumText, self.drumRect = \
-            textBox(_('Drum'), 390, 30, self.rootitem,
-                    fill_color_rgba = 0x666666AAL)
-
         # RECORD BUTTON
         self.drum = goocanvas.Image(
                 parent=self.rootitem,
                 pixbuf=gcompris.utils.load_pixmap('play_rhythm/drumhead.png'),
                 x=300,
                 y=60,
+                tooltip = "\n\n\n" + _('Beat the rhythm on this drum.')
                 )
         self.drum.connect("button_press_event", self.record_click)
         gcompris.utils.item_focus_init(self.drum, None)
-
-
-        self.metronomeText, self.metronomeRect = \
-            textBox( _('For a little help, click the metronome to hear the tempo'),
-                     90, 100, self.rootitem, width=150,
-                    fill_color_rgba = 0x666666AAL)
 
         # METRONOME BUTTON
         self.metronomeButton = goocanvas.Image(
@@ -126,14 +133,48 @@ class Gcompris_play_rhythm:
                 pixbuf=gcompris.utils.load_pixmap('play_rhythm/metronome.png'),
                 x=40,
                 y=150,
+                tooltip = "\n\n\n" + _('For a little help, click the metronome to hear the tempo.')
                 )
         self.metronomeButton.connect("button_press_event", self.play_metronome)
         gcompris.utils.item_focus_init(self.metronomeButton, None)
-        drawBasicPlayHomePagePart2(self)
-        self.metronomePlaying = False
 
+        # PLAY BUTTON
+        self.playButton = goocanvas.Image(
+                parent=self.rootitem,
+                pixbuf=gcompris.utils.load_pixmap('piano_composition/playActivities/playbutton.png'),
+                x=170,
+                y=50,
+                tooltip = "\n\n\n" + _('Play')
+                )
+        self.playButton.connect("button_press_event", self.staff.playComposition)
         self.playButton.connect("button_press_event", self.stopMetronome)
+
+        gcompris.utils.item_focus_init(self.playButton, None)
+
+        # OK BUTTON
+        self.okButton = goocanvas.Svg(parent=self.rootitem,
+                                      svg_handle=gcompris.skin.svg_get(),
+                                      svg_id="#OK"
+                                      )
+        self.okButton.scale(1.4, 1.4)
+        self.okButton.translate(-170, -400)
+        self.okButton.connect("button_press_event", self.ok_event)
+        gcompris.utils.item_focus_init(self.okButton, None)
         self.okButton.connect("button_press_event", self.stopMetronome)
+
+
+        # ERASE BUTTON
+        self.eraseButton = goocanvas.Image(
+                parent=self.rootitem,
+                pixbuf=gcompris.utils.load_pixmap('piano_composition/playActivities/erase.png'),
+                x=650,
+                y=170,
+                tooltip = "\n\n\n" + _("Erase Attempt")
+                )
+        self.eraseButton.connect("button_press_event", self.erase_entry)
+        gcompris.utils.item_focus_init(self.eraseButton, None)
+
+        self.metronomePlaying = False
 
         if level in [1, 3, 5, 7, 9, 11]:
             # show playing line, but no metronome
@@ -330,33 +371,22 @@ class Gcompris_play_rhythm:
     def makeOkButtonVisible(self, visible):
         v = self.convert(visible)
         self.okButton.props.visibility = v
-        self.okText.props.visibility = v
-        self.okRect.props.visibility = v
 
     def makeEraseButtonVisible(self, visible):
         v = self.convert(visible)
         self.eraseButton.props.visibility = v
-        self.eraseText.props.visibility = v
-        self.eraseRect.props.visibility = v
 
     def makePlayButtonVisible(self, visible):
-
         v = self.convert(visible)
         self.playButton.props.visibility = v
-        self.playText.props.visibility = v
-        self.playRect.props.visibility = v
 
     def makeDrumButtonVisible(self, visible):
         v = self.convert(visible)
         self.drum.props.visibility = v
-        self.drumText.props.visibility = v
-        self.drumRect.props.visibility = v
 
     def makeMetronomeButtonVisible(self, visible):
         v = self.convert(visible)
         self.metronomeButton.props.visibility = v
-        self.metronomeText.props.visibility = v
-        self.metronomeRect.props.visibility = v
 
     def nextChallenge(self):
 

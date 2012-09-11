@@ -76,7 +76,22 @@ class Gcompris_play_piano:
         if hasattr(self, 'staff'):
             self.staff.clear()
             self.staff.eraseAllNotes()
-        drawBasicPlayHomePagePart1(self)
+
+        if self.rootitem:
+            self.rootitem.remove()
+
+        self.rootitem = goocanvas.Group(parent=
+                                       self.gcomprisBoard.canvas.get_root_item())
+
+        # set background
+        goocanvas.Image(
+            parent=self.rootitem,
+            x=0, y=0,
+            pixbuf=gcompris.utils.load_pixmap('piano_composition/playActivities/background/' + str(randint(1, 6)) + '.jpg')
+            )
+
+        if hasattr(self, 'staff'):
+            self.staff.clear()
 
         gcompris.bar_set(gcompris.BAR_LEVEL)
         gcompris.bar_set_level(self.gcomprisBoard)
@@ -115,7 +130,38 @@ class Gcompris_play_piano:
         textBox(_("Click the piano keys that match the written notes."),
                 388, 60, self.rootitem, fill_color_rgba = 0x666666AAL, width=200)
 
-        drawBasicPlayHomePagePart2(self)
+        # PLAY BUTTON
+        self.playButton = goocanvas.Image(
+                parent=self.rootitem,
+                pixbuf=gcompris.utils.load_pixmap('piano_composition/playActivities/playbutton.png'),
+                x=170,
+                y=50,
+                tooltip = "\n\n\n" + _('Play')
+                )
+        self.playButton.connect("button_press_event", self.staff.playComposition)
+
+        gcompris.utils.item_focus_init(self.playButton, None)
+
+        # OK BUTTON
+        self.okButton = goocanvas.Svg(parent=self.rootitem,
+                                      svg_handle=gcompris.skin.svg_get(),
+                                      svg_id="#OK"
+                                      )
+        self.okButton.scale(1.4, 1.4)
+        self.okButton.translate(-170, -400)
+        self.okButton.connect("button_press_event", self.ok_event)
+        gcompris.utils.item_focus_init(self.okButton, None)
+
+        # ERASE BUTTON
+        self.eraseButton = goocanvas.Image(
+                parent=self.rootitem,
+                pixbuf=gcompris.utils.load_pixmap('piano_composition/playActivities/erase.png'),
+                x=650,
+                y=170,
+                tooltip = "\n\n\n" + _("Erase Attempt")
+                )
+        self.eraseButton.connect("button_press_event", self.erase_entry)
+        gcompris.utils.item_focus_init(self.eraseButton, None)
 
     def keyboard_click(self, widget=None, target=None, event=None, numID=None):
 
