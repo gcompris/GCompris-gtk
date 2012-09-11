@@ -7,6 +7,7 @@ img_DATA = \
 	bassClef.png \
 	blackflat.png \
 	blacksharp.png \
+	button_front.svg \
 	eighthNote.png \
 	flag.png \
 	gsoc2012.jpg \
@@ -20,15 +21,5 @@ img_DATA = \
 	save.png \
 	trebleClef.png \
 	wholeNote.png
-
-img2dir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/piano_composition/buttons
-img2_DATA = \
-	buttons/brown.png \
-	buttons/darkpurple.png \
-	buttons/gray.png \
-	buttons/green.png \
-	buttons/purple.png \
-	buttons/red.png \
-	buttons/teal.png
 
 EXTRA_DIST = $(img_DATA) $(img2_DATA)

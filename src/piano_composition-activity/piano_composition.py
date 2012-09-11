@@ -130,28 +130,28 @@ class Gcompris_piano_composition:
         # CLEF DESCRIPTION
         if clefDescription:
             textBox(clefText, 550, 67, self.rootitem, 240,
-                    fill_color_rgba = 0xAA333366L)
+                    fill_color_rgba = 0x82B22CFFL)
 
         # KEYBOARD DESCRIPTION
         if keyboardDescription:
             textBox(keyboardText, 200, 430, self.rootitem, 225,
-                    fill_color_rgba = 0x3333AA66L)
+                    fill_color_rgba = 0x639A0066L)
 
         # ADD BUTTONS
 
         self.eraseAllButton = textButton(100, 70, _("Erase All Notes"),
-                                         self.rootitem, 'purple', 80)
+                                         self.rootitem, 0x9C2765FFL, 80)
 
         self.eraseNotesButton = textButton(220, 70, _("Erase Last Note"),
-                                           self.rootitem, 'teal', 100)
+                                           self.rootitem, 0x870047FFL, 100)
 
         self.playCompositionButton = textButton(350, 70, _("Play Composition"),
-                                                self.rootitem, 'green', 100)
+                                                self.rootitem, 0xE768ABFFL, 100)
 
         if (level > 2):
 
             self.changeClefButton = textButton(100, 140, _("Erase and Change Clef"),
-                                               self.rootitem, 'gray', 100)
+                                               self.rootitem, 0xE73A95FFL, 100)
 
         if (level >= 3):
             goocanvas.Text(
@@ -241,7 +241,7 @@ class Gcompris_piano_composition:
             self.makeSharpButton.props.visibility = goocanvas.ITEM_INVISIBLE
 
             self.loadSongsButton = textButton(280, 430, _("Load Music"),
-                                              self.rootitem, 'red', 100)
+                                              self.rootitem, 0xE768ABFFL, 100)
             textBox(_("Change Accidental Style:"), 100, 430, self.rootitem, width=150, noRect=True)
 
         if (level == 7):
@@ -369,7 +369,7 @@ dialogue to\nenable the sound."), stop_board)
             txt = _("Next Page")
         else:
             txt = _("Previous Page")
-        self.nextMelodiesButton = textButton(700,475,txt, self.rootitem)
+        self.nextMelodiesButton = textButton(700,475,txt, self.rootitem, 0xE768ABFFL)
         self.nextMelodiesButton.connect("button_press_event", self.nextMelodyPage)
         gcompris.utils.item_focus_init(self.nextMelodiesButton, None)
 

@@ -1249,25 +1249,18 @@ class PianoKeyboard():
 #
 # ---------------------------------------------------------------------------
 
-def textButton(x, y, text, rootitem, color='gray', width=100000, includeText=False):
+def textButton(x, y, text, rootitem, color_rgba=0x666666AAL,
+               width=100000, includeText=False):
     '''
     Add a text button to the screen with the following parameters:
     1. x: the x position of the button
     2. y: the y position of the button
     3. text: the text of the button
     4. rootitem: the item to draw the button in
-    5. color: the color of button you'd like to use. Unfortunately there
-    are limited button colors available. I am not a designer, so you are welcome
-    to improve this method, but the current colors available are listed below in the examples
+    5. color: the color of button background
     6. width: the width of the button
 
-    textButton(200, 300, 'Hello World!', self, color='brown')
-    textButton(350, 300, 'Hola', self, color='darkpurple')
-    textButton(500, 300, 'Ciao', self, color='gray')
-    textButton(650, 300, 'Bonjour', self, color='green')
-    textButton(200, 400, 'Guten Tag', self, color='purple')
-    textButton(350, 400, 'Nei Ho', self, color='red')
-    textButton(500, 400, 'Zdravstvuyte', self, color='teal', width=70)
+    textButton(200, 300, 'Hello World!', self, color_rgba=0x6600FFFFL)
     '''
     textbox = goocanvas.Text(
         parent = rootitem,
@@ -1281,13 +1274,23 @@ def textButton(x, y, text, rootitem, color='gray', width=100000, includeText=Fal
     TG = 15
     bounds = textbox.get_bounds()
 
+    goocanvas.Rect(parent = rootitem,
+                   x = bounds.x1 - TG,
+                   y = bounds.y1 - TG,
+                   height = bounds.y2 - bounds.y1 + TG * 2,
+                   width = bounds.x2 - bounds.x1 + TG * 2,
+                   stroke_color = "black",
+                   fill_color_rgba = color_rgba,
+                   radius_x = 3, radius_y = 3,
+                   line_width = 2.0)
+
     img = goocanvas.Image(
             parent = rootitem,
-            x=bounds.x1 - TG,
-            y=bounds.y1 - TG,
-            height=bounds.y2 - bounds.y1 + TG * 2,
-            width=bounds.x2 - bounds.x1 + TG * 2,
-            pixbuf=gcompris.utils.load_pixmap('piano_composition/buttons/' + color + '.png')
+            x = bounds.x1 - TG,
+            y = bounds.y1 - TG,
+            height = bounds.y2 - bounds.y1 + TG * 2,
+            width = bounds.x2 - bounds.x1 + TG * 2,
+            pixbuf = gcompris.utils.load_pixmap('piano_composition/button_front.svg')
             )
 
     gcompris.utils.item_focus_init(img, None)
