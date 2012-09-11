@@ -128,7 +128,7 @@ class Gcompris_play_piano:
         self.piano.draw(300, 175, self.keyboard_click)
 
         textBox(_("Click the piano keys that match the written notes."),
-                388, 60, self.rootitem, fill_color_rgba = 0x666666AAL, width=200)
+                388, 60, self.rootitem, fill_color_rgba = 0x999999AAL, width=200)
 
         # PLAY BUTTON
         self.playButton = goocanvas.Image(
@@ -162,8 +162,16 @@ class Gcompris_play_piano:
                 )
         self.eraseButton.connect("button_press_event", self.erase_entry)
         gcompris.utils.item_focus_init(self.eraseButton, None)
+        self.show_ok_erase(False)
+
+    def show_ok_erase(self, status):
+        goostatus = goocanvas.ITEM_VISIBLE if status else goocanvas.ITEM_INVISIBLE
+        self.okButton.props.visibility = goostatus
+        self.eraseButton.props.visibility = goostatus
+
 
     def keyboard_click(self, widget=None, target=None, event=None, numID=None):
+        self.show_ok_erase(True)
 
         if not numID:
             numID = target.numID
@@ -211,6 +219,7 @@ class Gcompris_play_piano:
         self.timers.append(gobject.timeout_add(500, self.staff.playComposition))
 
     def ok_event(self, widget=None, target=None, event=None):
+        self.show_ok_erase(False)
         if self.kidsNoteList == self.givenOption:
             self.afterBonus = self.nextChallenge
             gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.NOTE)
@@ -235,6 +244,7 @@ class Gcompris_play_piano:
 
     def erase_entry(self, widget, target, event):
         self.kidsNoteList = []
+        self.show_ok_erase(False)
 
     def end(self):
 
