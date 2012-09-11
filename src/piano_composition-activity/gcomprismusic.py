@@ -1394,13 +1394,4 @@ def textBox(text, x, y , rootitem, width=10000,
         return text, rect
     return text
 
-def eraseUserPrompt(x,y,z,self):
-    self.text.remove()
-    self.yesButton.remove()
-    self.noButton.remove()
-    self.text.remove()
-    self.rect.remove()
-    self.txt1.remove()
-    self.txt2.remove()
-
 
