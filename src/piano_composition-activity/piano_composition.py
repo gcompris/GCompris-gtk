@@ -471,16 +471,16 @@ dialogue to\nenable the sound."), stop_board)
          pointer_events="GOO_CANVAS_EVENTS_NONE"
          ))
 
-        self.staff.texts.append(goocanvas.Text(parent=self.rootitem,
-         x=405,
-         y=70,
-         width=280,
-         text='<span font_family="URW Gothic L" size="11000" >' + self.data.get(section, 'lyrics') + '</span>',
-         fill_color="black",
-         use_markup=True,
-         alignment=pango.ALIGN_CENTER,
-         pointer_events="GOO_CANVAS_EVENTS_NONE"
-         ))
+        lyrics = self.data.get(section, 'lyrics').replace('\\n', '\n')
+        self.staff.texts.append(
+            goocanvas.Text(parent=self.rootitem,
+                           x = 405,
+                           y = 70,
+                           width = 280,
+                           text = lyrics,
+                           fill_color = "black",
+                           pointer_events = "GOO_CANVAS_EVENTS_NONE"
+                           ) )
 
         self.staff.texts.append(goocanvas.Text(parent=self.rootitem,
          x=400,
