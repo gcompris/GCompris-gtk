@@ -92,7 +92,8 @@ class Gcompris_play_piano:
         self.staff.endx = 200
 
         if level not in [6, 12]:
-            self.colorCodeNotesButton = textButton(100, 215, _("Color code notes?"), self, 'green')
+            self.colorCodeNotesButton = textButton(100, 215, _("Color code notes?"),
+                                                   self.rootitem, 'green')
 
             self.colorCodeNotesButton.connect("button_press_event", self.color_code_notes)
             gcompris.utils.item_focus_init(self.colorCodeNotesButton, None)

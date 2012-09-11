@@ -1249,13 +1249,13 @@ class PianoKeyboard():
 #
 # ---------------------------------------------------------------------------
 
-def textButton(x, y, text, self, color='gray', width=100000, includeText=False):
+def textButton(x, y, text, rootitem, color='gray', width=100000, includeText=False):
     '''
     Add a text button to the screen with the following parameters:
     1. x: the x position of the button
     2. y: the y position of the button
     3. text: the text of the button
-    4. self: the self object this button is to be written to (just pass 'self')
+    4. rootitem: the item to draw the button in
     5. color: the color of button you'd like to use. Unfortunately there
     are limited button colors available. I am not a designer, so you are welcome
     to improve this method, but the current colors available are listed below in the examples
@@ -1270,7 +1270,7 @@ def textButton(x, y, text, self, color='gray', width=100000, includeText=False):
     textButton(500, 400, 'Zdravstvuyte', self, color='teal', width=70)
     '''
     textbox = goocanvas.Text(
-        parent=self.rootitem,
+        parent = rootitem,
         x=x, y=y,
         width=width,
         text=text,
@@ -1282,7 +1282,7 @@ def textButton(x, y, text, self, color='gray', width=100000, includeText=False):
     bounds = textbox.get_bounds()
 
     img = goocanvas.Image(
-            parent=self.rootitem,
+            parent = rootitem,
             x=bounds.x1 - TG,
             y=bounds.y1 - TG,
             height=bounds.y2 - bounds.y1 + TG * 2,

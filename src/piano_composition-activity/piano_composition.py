@@ -139,15 +139,19 @@ class Gcompris_piano_composition:
 
         # ADD BUTTONS
 
-        self.eraseAllButton = textButton(100, 70, _("Erase All Notes"), self, 'purple', 80)
+        self.eraseAllButton = textButton(100, 70, _("Erase All Notes"),
+                                         self.rootitem, 'purple', 80)
 
-        self.eraseNotesButton = textButton(220, 70, _("Erase Last Note"), self, 'teal', 100)
+        self.eraseNotesButton = textButton(220, 70, _("Erase Last Note"),
+                                           self.rootitem, 'teal', 100)
 
-        self.playCompositionButton = textButton(350, 70, _("Play Composition"), self, 'green', 100)
+        self.playCompositionButton = textButton(350, 70, _("Play Composition"),
+                                                self.rootitem, 'green', 100)
 
         if (level > 2):
 
-            self.changeClefButton = textButton(100, 140, _("Erase and Change Clef"), self, 'gray', 100)
+            self.changeClefButton = textButton(100, 140, _("Erase and Change Clef"),
+                                               self.rootitem, 'gray', 100)
 
         if (level >= 3):
             goocanvas.Text(
@@ -236,7 +240,8 @@ class Gcompris_piano_composition:
                 )
             self.makeSharpButton.props.visibility = goocanvas.ITEM_INVISIBLE
 
-            self.loadSongsButton = textButton(280, 430, _("Load Music"), self, 'red', 100)
+            self.loadSongsButton = textButton(280, 430, _("Load Music"),
+                                              self.rootitem, 'red', 100)
             textBox(_("Change Accidental Style:"), 100, 430, self.rootitem, width=150, noRect=True)
 
         if (level == 7):
@@ -364,7 +369,7 @@ dialogue to\nenable the sound."), stop_board)
             txt = _("Next Page")
         else:
             txt = _("Previous Page")
-        self.nextMelodiesButton = textButton(700,475,txt, self)
+        self.nextMelodiesButton = textButton(700,475,txt, self.rootitem)
         self.nextMelodiesButton.connect("button_press_event", self.nextMelodyPage)
         gcompris.utils.item_focus_init(self.nextMelodiesButton, None)
 
