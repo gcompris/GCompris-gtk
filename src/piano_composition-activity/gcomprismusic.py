@@ -1298,7 +1298,7 @@ def textButton(x, y, text, self, color='gray', width=100000, includeText=False):
         return img
 
 def textBox(text, x, y , rootitem, width=10000,
-            fill_color=None, stroke_color=None,
+            fill_color_rgba = None, stroke_color_rgba = None,
             noRect=False, text_color="black"):
     '''
     write a textbox with text to the screen. By default the text is surrounded with a rectangle.
@@ -1308,25 +1308,26 @@ def textBox(text, x, y , rootitem, width=10000,
     y: the y position of the text
     rootitem: the rootitem do draw the textBox in
     width: the width limit of the text
-    fill_color: the color to fill the rectangle
-    stroke_color: the color to make the rectangle lines
+    fill_color_rgba: the color to fill the rectangle
+    stroke_color_rgba: the color to make the rectangle lines
     noRect: set to true for no rectangle to be drawn
-    text_color: the color of the text
-
-    accepted colors include string html color tags or english names
+    text_color: the color of the text accepted colors include
+                string html color tags or english names
 
     textBox('Hello World!', 200, 300, rootitem)
-    textBox('Hola', 350, 300, rootitem, fill_color='green')
-    textBox('Ciao', 500, 300, rootitem, stroke_color='pink')
+    textBox('Hola', 350, 300, rootitem, fill_color_rgba=0xFF00FFFFL)
     textBox('Bonjour', 650, 300, rootitem, noRect=True)
     textBox('Nei Ho', 350, 400, rootitem, text_color='red')
     textBox('Guten Tag', 200, 400, rootitem, width=10)
-    textBox('Zdravstvuyte', 500, 400, rootitem, fill_color='#FF00FF')
     '''
     text = goocanvas.Text(
-        parent = rootitem, x=x, y=y, width=width,
+        parent = rootitem,
+        x=x,
+        y=y,
+        width=width,
         text=text,
-        fill_color=text_color, anchor=gtk.ANCHOR_CENTER,
+        fill_color=text_color,
+        anchor=gtk.ANCHOR_CENTER,
         alignment=pango.ALIGN_CENTER,
 
         )
@@ -1338,11 +1339,13 @@ def textBox(text, x, y , rootitem, width=10000,
                               y=bounds.y1 - TG,
                               width=bounds.x2 - bounds.x1 + TG * 2,
                               height=bounds.y2 - bounds.y1 + TG * 2,
-                              line_width=3.0)
-        if fill_color:
-            rect.props.fill_color = fill_color
-        if stroke_color:
-            rect.props.stroke_color = stroke_color
+                              line_width=3.0,
+                              radius_x = 5, radius_y = 5
+                              )
+        if fill_color_rgba:
+            rect.props.fill_color_rgba = fill_color_rgba
+        if stroke_color_rgba:
+            rect.props.stroke_color_rgba = stroke_color_rgba
         text.raise_(rect)
         return text, rect
     return text
@@ -1415,9 +1418,12 @@ def drawBasicPlayHomePagePart1(self):
     if hasattr(self, 'staff'):
         self.staff.clear()
 
-    self.playText, self.playRect = textBox(_('Play'), 220, 30, self.rootitem, fill_color='gray')
+    self.playText, self.playRect = textBox(_('Play'), 220, 30,
+                                           self.rootitem,
+                                           fill_color_rgba = 0x666666AAL)
 
-    self.okText, self.okRect = textBox(_('Okay'), 550, 30, self.rootitem, fill_color='gray')
+    self.okText, self.okRect = textBox(_('Okay'), 550, 30, self.rootitem,
+                                       fill_color_rgba = 0x666666AAL)
 
 # ---------------------
 # NOT DOCUMENTED ONLINE
@@ -1450,7 +1456,9 @@ def drawBasicPlayHomePagePart2(self):
     gcompris.utils.item_focus_init(self.okButton, None)
 
     # ERASE BUTTON
-    self.eraseText, self.eraseRect = textBox(_("Erase Attempt"), 700, 150, self.rootitem, fill_color='gray')
+    self.eraseText, self.eraseRect = textBox(_("Erase Attempt"), 700, 150,
+                                             self.rootitem,
+                                             fill_color_rgba = 0x666666AAL)
 
     self.eraseButton = goocanvas.Image(
             parent=self.rootitem,

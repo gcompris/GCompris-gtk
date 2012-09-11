@@ -129,11 +129,13 @@ class Gcompris_piano_composition:
 
         # CLEF DESCRIPTION
         if clefDescription:
-            textBox(clefText, 550, 67, self.rootitem, 240, stroke_color='purple')
+            textBox(clefText, 550, 67, self.rootitem, 240,
+                    fill_color_rgba = 0xAA333366L)
 
         # KEYBOARD DESCRIPTION
         if keyboardDescription:
-            textBox(keyboardText, 200, 430, self.rootitem, 225, stroke_color='purple')
+            textBox(keyboardText, 200, 430, self.rootitem, 225,
+                    fill_color_rgba = 0x3333AA66L)
 
         # ADD BUTTONS
 
