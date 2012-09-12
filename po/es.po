@@ -17,7 +17,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2012-09-10 22:07+0000\n"
-"PO-Revision-Date: 2012-09-11 13:41+0200\n"
+"PO-Revision-Date: 2012-09-12 11:53+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -1737,10 +1737,9 @@ msgid "Python Board"
 msgstr "Tablero de Python"
 
 #: ../src/boards/python.c:65 ../src/boards/python.c:89
-#, fuzzy
 #| msgid "Special board that embeds python into GCompris."
 msgid "Special board that embeds Python into GCompris."
-msgstr "Tablero especial que incrusta python dentro de GCompris."
+msgstr "Tablero especial que empotra Python dentro de GCompris."
 
 #: ../src/braille_alphabets-activity/braille_alphabets.py:176
 msgid "Braille : Unlocking the Code"
@@ -2015,7 +2014,6 @@ msgid "This chat activity only works on the local network"
 msgstr "Este chat sólo funciona en la red local"
 
 #: ../src/chat-activity/chat.xml.in.h:3
-#, fuzzy
 #| msgid ""
 #| "This chat activity will only work with other GCompris users on your local "
 #| "network, not on the Internet. To use it, just type in your message and "
@@ -2029,9 +2027,9 @@ msgid ""
 "program running the chat activity on that local network will receive and "
 "display your message."
 msgstr ""
-"Esta actividad de chat sólo funciona con otro usuario de GCompris en red "
+"Esta actividad de chat sólo funciona con otro usuario de GCompris en tu red "
 "local, no en Internet. Para usarlo, simplemente escribe tu mensaje y pulsa "
-"intro. Tu mensaje se distribuye en la red local y cualquier programa "
+"«Intro». Tu mensaje se distribuye en la red local y cualquier programa "
 "GCompris que esté ejecutando la actividad de chat recibirá y mostrará tu "
 "mensaje."
 
@@ -3024,14 +3022,13 @@ msgstr ""
 
 #: ../src/explore-activity/explore.py:148
 msgid "Click to play sound"
-msgstr ""
+msgstr "Pulsa para reproducir el sonido"
 
 #. draw back button
 #: ../src/explore-activity/explore.py:264
-#, fuzzy
 #| msgid "Back to default"
 msgid "Back to Homepage"
-msgstr "Restablecer predeterminados"
+msgstr "Volver a la página inicial"
 
 #: ../src/explore-activity/explore.py:455 ../src/findit-activity/findit.py:320
 #: ../src/louis_braille-activity/louis_braille.py:88
@@ -3045,11 +3042,11 @@ msgstr ""
 
 #: ../src/explore-activity/explore.py:564
 msgid "Explore Status:"
-msgstr ""
+msgstr "Explorar estado:"
 
 #: ../src/explore_farm_animals-activity/explore_farm_animals.xml.in.h:1
 msgid "Explore Farm Animals"
-msgstr ""
+msgstr "Explorar animales de granja"
 
 #: ../src/explore_farm_animals-activity/explore_farm_animals.xml.in.h:2
 msgid "Learn about farm animals, what sounds they make, and interesting facts."
@@ -3094,7 +3091,7 @@ msgstr ""
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:4
 msgid " Horse"
-msgstr ""
+msgstr " Caballo"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:5
 msgid " The horse goes \"neigh! neigh!\". Horses usually sleep standing up."
@@ -3106,7 +3103,7 @@ msgstr ""
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:7
 msgid " Chickens"
-msgstr ""
+msgstr "Gallinas"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:8
 msgid ""
@@ -3116,11 +3113,11 @@ msgstr ""
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:9
 msgid " This animal lays eggs."
-msgstr ""
+msgstr " Este animal pone huevos."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:10
 msgid " Cows"
-msgstr ""
+msgstr " Vacas"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:11
 msgid ""
@@ -3130,11 +3127,11 @@ msgstr ""
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:12
 msgid " You can drink the milk this animal produces."
-msgstr ""
+msgstr " Puedes beber la leche que este animal produce."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:13
 msgid " Cat"
-msgstr ""
+msgstr " Gato"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:14
 msgid ""
@@ -3144,11 +3141,11 @@ msgstr ""
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:15
 msgid " This pet likes to chase mice."
-msgstr ""
+msgstr " A esta mascota le gusta cazar ratones"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:16
 msgid " Pigs"
-msgstr ""
+msgstr " Cerdos"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:17
 msgid " The pig goes \"oink, oink\". Pigs are the 4th most intelligent animal."
@@ -3156,13 +3153,12 @@ msgstr ""
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:18
 msgid " This animal likes to lay in the mud."
-msgstr ""
+msgstr " A este animal le gusta tumbarse en el barro."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:19
-#, fuzzy
 #| msgid "White checks"
 msgid " White Duck"
-msgstr "Jaque de blancas"
+msgstr " Pato blanco"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:20
 msgid ""
@@ -3176,23 +3172,23 @@ msgstr ""
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:22
 msgid " Owl"
-msgstr ""
+msgstr " Búho"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:23
 msgid ""
 " The owl goes \"hoo. hoo.\" The owl has excellent vision and hearing at "
 "night."
 msgstr ""
+" El búho hace «hoo hoo». Tiene una visión y un oído excelentes en la noche."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:24
-#, fuzzy
 #| msgid "The aim is to switch off all the lights."
 msgid " This animal likes to come out at night."
-msgstr "El objetivo es apagar todas las luces."
+msgstr " A este animal le gusta salir por la noche."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:25
 msgid " Dogs"
-msgstr ""
+msgstr " Perros"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:26
 msgid ""
@@ -3218,11 +3214,11 @@ msgstr ""
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:30
 msgid " This animal wakes the farm up in the morning."
-msgstr ""
+msgstr " Este animal despierta a la granja por la mañana."
 
 #: ../src/explore_world_animals-activity/explore_world_animals.xml.in.h:1
 msgid "Explore World Animals"
-msgstr ""
+msgstr "Explorar los animales del mundo"
 
 #: ../src/explore_world_animals-activity/explore_world_animals.xml.in.h:2
 msgid ""
@@ -3245,17 +3241,16 @@ msgstr ""
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:1
 msgid " Explore exotic animals from around the world."
-msgstr ""
+msgstr " Explorar animales exóticos de todo el mundo."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:2
 msgid " Click on location where the given animal lives."
 msgstr ""
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:3
-#, fuzzy
 #| msgid "South America"
 msgid " Jaguars in South America"
-msgstr "América del Sur"
+msgstr " Jaguares en América del Sur"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:4
 msgid ""
@@ -3265,11 +3260,11 @@ msgstr ""
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:5
 msgid "  Jaguar"
-msgstr ""
+msgstr "  Jaguar"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:6
 msgid " Hedgehogs in Europe"
-msgstr ""
+msgstr " Erizos en Europa"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:7
 msgid ""
@@ -3280,11 +3275,11 @@ msgstr ""
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:8
 msgid " Hedgehog"
-msgstr ""
+msgstr " Erizo"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:9
 msgid " Giraffes in Africa"
-msgstr ""
+msgstr " Jirafas en África"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:10
 msgid ""
@@ -3294,13 +3289,12 @@ msgstr ""
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:11
 msgid " Giraffe"
-msgstr ""
+msgstr " Jirafa"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:12
-#, fuzzy
 #| msgid "North America"
 msgid " Bison in America"
-msgstr "Norte América"
+msgstr " Bisonte en América"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:13
 msgid ""
@@ -3310,7 +3304,7 @@ msgstr ""
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:14
 msgid " Bison"
-msgstr ""
+msgstr " Bisonte"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:15
 msgid " Narwhals in the Arctic"
@@ -3328,13 +3322,12 @@ msgstr ""
 
 #: ../src/explore_world_music-activity/explore_world_music.xml.in.h:1
 msgid "Explore World Music"
-msgstr ""
+msgstr "Explorar el mundo de la música"
 
 #: ../src/explore_world_music-activity/explore_world_music.xml.in.h:2
-#, fuzzy
 #| msgid "Learn about the water cycle"
 msgid "Learn about the music of the world."
-msgstr "Aprender el ciclo del agua"
+msgstr "Aprender sobre la música del mundo."
 
 #: ../src/explore_world_music-activity/explore_world_music.xml.in.h:3
 msgid ""
@@ -3377,10 +3370,9 @@ msgid " Click on the location that matches the text."
 msgstr ""
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:4
-#, fuzzy
 #| msgid "Australia"
 msgid " Australia"
-msgstr "Australia"
+msgstr " Australia"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:5
 msgid ""
@@ -3394,10 +3386,9 @@ msgid " Where is the didgeridoo played?"
 msgstr ""
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:7
-#, fuzzy
 #| msgid "Africa"
 msgid " Africa"
-msgstr "África"
+msgstr " África"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:8
 msgid ""
@@ -3406,14 +3397,13 @@ msgid ""
 msgstr ""
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:9
-#, fuzzy
 #| msgid "Learn to recognize musical instruments."
 msgid " Where is the drum considered a magical instrument?"
-msgstr "Aprende a reconocer instrumentos musicales."
+msgstr " ¿Dónde se considera el tambor un instrumento mágico?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:10
 msgid " Middle East"
-msgstr ""
+msgstr " Oriente Medio"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:11
 msgid ""
@@ -3427,10 +3417,9 @@ msgid " Where is music used to call people to prayer?"
 msgstr ""
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:13
-#, fuzzy
 #| msgid "Japan"
 msgid " Japan"
-msgstr "Japón"
+msgstr " Japón"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:14
 msgid ""
@@ -3445,7 +3434,7 @@ msgstr ""
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:16
 msgid " Scotland and Ireland"
-msgstr ""
+msgstr " Escocia e Irlanda"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:17
 msgid ""
@@ -3460,10 +3449,9 @@ msgstr ""
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:19
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:6
-#, fuzzy
 #| msgid "Italy"
 msgid " Italy"
-msgstr "Italia"
+msgstr " Italia"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:20
 msgid ""
@@ -3492,10 +3480,9 @@ msgstr ""
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:25
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:5
-#, fuzzy
 #| msgid "Mexico"
 msgid " Mexico"
-msgstr "México"
+msgstr " México"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:26
 msgid ""
@@ -3511,13 +3498,12 @@ msgstr ""
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:28
 msgid " Where is Mariachi music from?"
-msgstr ""
+msgstr " ¿De dónde es la música mariachi?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:29
-#, fuzzy
 #| msgid "America"
 msgid " America"
-msgstr "América"
+msgstr " América"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:30
 msgid ""
@@ -3528,7 +3514,7 @@ msgstr ""
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:31
 msgid " The 'king' of rock n' roll is"
-msgstr ""
+msgstr " El rey del rock n' roll es"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:32
 msgid ""
@@ -4125,7 +4111,6 @@ msgid "GCompris will find the activity plugins in this directory"
 msgstr "GCompris buscará los complementos de actividad en esta carpeta"
 
 #: ../src/gcompris/gcompris.c:195
-#, fuzzy
 #| msgid "GCompris will find the python activity in this directory"
 msgid "GCompris will find the Python activity in this directory"
 msgstr "GCompris buscará la actividad Python en esta carpeta"
@@ -5364,10 +5349,9 @@ msgid " and %d"
 msgstr " y %d"
 
 #: ../src/gnumch-equality-activity/gnumch.py:115
-#, fuzzy
 #| msgid "%d is divisible by %s."
 msgid "{0} is divisible by {1}."
-msgstr "%d es divisible por %s."
+msgstr "{0} es divisible por {1}."
 
 #: ../src/gnumch-equality-activity/gnumch.py:119
 msgid "1 is not a prime number."
@@ -5394,10 +5378,9 @@ msgid "Factors of %d"
 msgstr "Factores de %d"
 
 #: ../src/gnumch-equality-activity/gnumch.py:195
-#, fuzzy
 #| msgid "%s are the factors of %d."
 msgid "{0} are the factors of {1}."
-msgstr "%s son los factores de %d."
+msgstr "{0} son los factores de {1}."
 
 #: ../src/gnumch-equality-activity/gnumch.py:207
 #, python-format
@@ -5605,16 +5588,14 @@ msgstr ""
 "Trogles. Pulsa la tecla de espacio para comer un número."
 
 #: ../src/guessnumber-activity/guessnumber.py:203
-#, fuzzy
 #| msgid "Guess a number between %d and %d"
 msgid "Guess a number between {0} and {1}"
-msgstr "Adivina un número entre %d y %d"
+msgstr "Adivina un número entre {0} y {1}"
 
 #: ../src/guessnumber-activity/guessnumber.py:307
-#, fuzzy
 #| msgid "Please enter a number between %d and %d"
 msgid "Please enter a number between {0} and {1}"
-msgstr "Introduce un número entre %d y %d"
+msgstr "Introduce un número entre {0} y {1}"
 
 #: ../src/guessnumber-activity/guessnumber.py:312
 msgid "Out of range"
@@ -5841,7 +5822,6 @@ msgstr "Este es el medidor para la electricidad producida por una turbina. "
 #: ../src/hydroelectric-activity/hydroelectric.py:292
 #: ../src/hydroelectric-activity/hydroelectric.py:323
 #: ../src/hydroelectric-activity/hydroelectric.py:346
-#, fuzzy
 #| msgid "The electricity power is measured in Watt (W)."
 msgid "The electricity power is measured in watts (W)."
 msgstr "La potencia eléctrica se mide en Vatios (W)."
@@ -6494,7 +6474,6 @@ msgstr "Usuario: "
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
 #: ../src/login-activity/login.py:480
-#, fuzzy
 #| msgid ""
 #| "<b>%s</b> configuration\n"
 #| " for profile <b>%s</b>"
@@ -6502,8 +6481,8 @@ msgid ""
 "<b>{0}</b> configuration\n"
 " for profile <b>{1}</b>"
 msgstr ""
-"<b>%s</b> configuración\n"
-" para el perfil <b>%s</b>"
+"<b>{0}</b> configuración\n"
+" para el perfil <b>{1}</b>"
 
 #. toggle box
 #: ../src/login-activity/login.py:496
@@ -6644,7 +6623,6 @@ msgstr ""
 "puntuaciones y las notas musicales."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:10
-#, fuzzy
 #| msgid ""
 #| "He died of tuberculosis. He is burried in the Pantheon in Paris. A "
 #| "monument is erected to honor him."
@@ -8060,7 +8038,7 @@ msgstr ""
 
 #: ../src/piano_composition-activity/gcomprismusic.py:1418
 msgid "Play"
-msgstr ""
+msgstr "Reproducir"
 
 #: ../src/piano_composition-activity/gcomprismusic.py:1420
 msgid "Okay"
@@ -8131,7 +8109,7 @@ msgstr ""
 
 #: ../src/piano_composition-activity/piano_composition.py:144
 msgid "Play Composition"
-msgstr ""
+msgstr "Reproducir composición"
 
 #: ../src/piano_composition-activity/piano_composition.py:148
 msgid "Erase and Change Clef"
@@ -8153,24 +8131,22 @@ msgstr ""
 
 #: ../src/piano_composition-activity/piano_composition.py:204
 msgid "Half Note"
-msgstr ""
+msgstr "Media nota"
 
 #: ../src/piano_composition-activity/piano_composition.py:215
 msgid "Whole Note"
-msgstr ""
+msgstr "Nota completa"
 
 #: ../src/piano_composition-activity/piano_composition.py:237
-#, fuzzy
 #| msgid "Music"
 msgid "Load Music"
-msgstr "Música"
+msgstr "Cargar música"
 
 #: ../src/piano_composition-activity/piano_composition.py:238
 msgid "Change Accidental Style:"
 msgstr ""
 
 #: ../src/piano_composition-activity/piano_composition.py:337
-#, fuzzy
 #| msgid ""
 #| "Error: this activity cannot be played with the\n"
 #| "sound effects disabled.\n"
@@ -8182,14 +8158,14 @@ msgid ""
 "Go to the configuration dialogue to\n"
 "enable the sound."
 msgstr ""
-"Error: esta actividad no puede jugarse con los efectos\n"
-"de sonido desactivados.\n"
+"Error: esta actividad no puede jugarse con los \n"
+"efectos de sonido desactivados.\n"
 "Ve al diálogo de configuración para\n"
-"activar el sonido"
+"activar el sonido."
 
 #: ../src/piano_composition-activity/piano_composition.py:354
 msgid "Select A Melody to Load"
-msgstr ""
+msgstr "Seleccionar la melodía que cargar"
 
 #: ../src/piano_composition-activity/piano_composition.py:362
 #| msgid "Next level"
@@ -8291,10 +8267,9 @@ msgid " German Kid's Song"
 msgstr ""
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:9
-#, fuzzy
 #| msgid "Counties of Brazil"
 msgid " Children's Song from Brazil"
-msgstr "Condados de Brasil"
+msgstr " Canción infantil de Brasil"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:10
 #| msgid "German"
@@ -8459,10 +8434,9 @@ msgid "For a little help, click the metronome to hear the tempo"
 msgstr ""
 
 #: ../src/play_rhythm-activity/play_rhythm.py:304
-#, fuzzy
 #| msgid "Listen to the color and click on the matching duck."
 msgid "1. Listen to the rhythm and follow the moving line."
-msgstr "Escucha el color y pulsa en el pato que corresponda."
+msgstr "1. Escucha el ritmo y sigue la línea en movimiento."
 
 #: ../src/play_rhythm-activity/play_rhythm.py:306
 msgid "2. Click the drum to the tempo. Watch the vertical line when you start."
@@ -8480,11 +8454,11 @@ msgstr ""
 
 #: ../src/play_rhythm-activity/play_rhythm.xml.in.h:1
 msgid "Play Rhythm"
-msgstr ""
+msgstr "Reproducir ritmo"
 
 #: ../src/play_rhythm-activity/play_rhythm.xml.in.h:2
 msgid "Learn to listen to, read, and play musical rhythms."
-msgstr ""
+msgstr "Aprender a escuchar, leer y tocar ritmos musicales."
 
 #: ../src/play_rhythm-activity/play_rhythm.xml.in.h:3
 msgid "Simple understanding of musical rhythm and beat."
@@ -8527,10 +8501,9 @@ msgid "Python Template"
 msgstr "Plantilla de Python"
 
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:2
-#, fuzzy
 #| msgid "An empty python activity to use as a starting point"
 msgid "An empty Python activity to use as a starting point"
-msgstr "Una actividad en Python vacía para usar como punto de inicio"
+msgstr "Una actividad en Python vacía que usar como punto de inicio"
 
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:3
 #: ../src/pythontest-activity/pythontest.xml.in.h:3
@@ -8544,13 +8517,12 @@ msgstr "Añadir una vinculación de idioma a GCompris."
 
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:5
 #: ../src/pythontest-activity/pythontest.xml.in.h:5
-#, fuzzy
 #| msgid ""
 #| "Thanks to Guido van Rossum and the python team for this powerful language!"
 msgid ""
 "Thanks to Guido van Rossum and the Python team for this powerful language!"
 msgstr ""
-"¡Gracias a Guido van Rossum y al equipo de python por este potente lenguaje!"
+"Gracias a Guido van Rossum y al equipo de Python por este potente lenguaje."
 
 #: ../src/pythontest-activity/pythontest.py:192
 msgid ""
@@ -8593,7 +8565,6 @@ msgid "Python Test"
 msgstr "Prueba de Python"
 
 #: ../src/pythontest-activity/pythontest.xml.in.h:2
-#, fuzzy
 #| msgid "Test board for the python plugin"
 msgid "Test board for the Python plugin"
 msgstr "Banco de pruebas para el complemento de Python"
