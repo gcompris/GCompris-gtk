@@ -1142,7 +1142,7 @@ class PianoKeyboard():
         self.height = height
         self.key_callback = key_callback
         #piano keyboard image
-        self.image = goocanvas.Image(
+        image = goocanvas.Image(
           parent=self.rootitem,
           pixbuf=gcompris.utils.load_pixmap("piano_composition/keyboard.png"),
           x=self.x,
@@ -1243,34 +1243,68 @@ class PianoKeyboard():
             x.remove()
         self.draw(self.width, self.height, self.key_callback)
 
+
+def pianokeyBindings(keyval, keyboard_click):
+    '''
+    nice key bindings for the piano keys
+    In your activity's key_press method, call this method and pass in
+    the keyval and your keyboard_click function
+
+    def key_press(self, keyval, commit_str, preedit_str):
+
+        utf8char = gtk.gdk.keyval_to_unicode(keyval)
+        self.keyboard.pianokeyBindings(keyval, self.keyboard_click)
+    '''
+
+    if keyval == 49:
+        keyboard_click(None, None, None, 1)
+    elif keyval == 50:
+        keyboard_click(None, None, None, 2)
+    elif keyval == 51:
+        keyboard_click(None, None, None, 3)
+    elif keyval == 52:
+        keyboard_click(None, None, None, 4)
+    elif keyval == 53:
+        keyboard_click(None, None, None, 5)
+    elif keyval == 54:
+        keyboard_click(None, None, None, 6)
+    elif keyval == 55:
+        keyboard_click(None, None, None, 7)
+    elif keyval == 56:
+        keyboard_click(None, None, None, 8)
+    elif keyval == gtk.keysyms.F1:
+        keyboard_click(None, None, None, -1)
+    elif keyval == gtk.keysyms.F2:
+        keyboard_click(None, None, None, -2)
+    elif keyval == gtk.keysyms.F3:
+        keyboard_click(None, None, None, -3)
+    elif keyval == gtk.keysyms.F4:
+        keyboard_click(None, None, None, -4)
+    elif keyval == gtk.keysyms.F5:
+        keyboard_click(None, None, None, -5)
+
+
 # ---------------------------------------------------------------------------
 #
 # General UTILITY FUNCTIONS
 #
 # ---------------------------------------------------------------------------
 
-def textButton(x, y, text, self, color='gray', width=100000, includeText=False):
+def textButton(x, y, text, rootitem, color_rgba=0x666666AAL,
+               width=100000, includeText=False):
     '''
     Add a text button to the screen with the following parameters:
     1. x: the x position of the button
     2. y: the y position of the button
     3. text: the text of the button
-    4. self: the self object this button is to be written to (just pass 'self')
-    5. color: the color of button you'd like to use. Unfortunately there
-    are limited button colors available. I am not a designer, so you are welcome
-    to improve this method, but the current colors available are listed below in the examples
+    4. rootitem: the item to draw the button in
+    5. color: the color of button background
     6. width: the width of the button
 
-    textButton(200, 300, 'Hello World!', self, color='brown')
-    textButton(350, 300, 'Hola', self, color='darkpurple')
-    textButton(500, 300, 'Ciao', self, color='gray')
-    textButton(650, 300, 'Bonjour', self, color='green')
-    textButton(200, 400, 'Guten Tag', self, color='purple')
-    textButton(350, 400, 'Nei Ho', self, color='red')
-    textButton(500, 400, 'Zdravstvuyte', self, color='teal', width=70)
+    textButton(200, 300, 'Hello World!', self, color_rgba=0x6600FFFFL)
     '''
-    self.textbox = goocanvas.Text(
-        parent=self.rootitem,
+    textbox = goocanvas.Text(
+        parent = rootitem,
         x=x, y=y,
         width=width,
         text=text,
@@ -1279,212 +1313,85 @@ def textButton(x, y, text, self, color='gray', width=100000, includeText=False):
         pointer_events="GOO_CANVAS_EVENTS_NONE"
         )
     TG = 15
-    bounds = self.textbox.get_bounds()
+    bounds = textbox.get_bounds()
+
+    goocanvas.Rect(parent = rootitem,
+                   x = bounds.x1 - TG,
+                   y = bounds.y1 - TG,
+                   height = bounds.y2 - bounds.y1 + TG * 2,
+                   width = bounds.x2 - bounds.x1 + TG * 2,
+                   stroke_color = "black",
+                   fill_color_rgba = color_rgba,
+                   radius_x = 3, radius_y = 3,
+                   line_width = 2.0)
 
     img = goocanvas.Image(
-            parent=self.rootitem,
-            x=bounds.x1 - TG,
-            y=bounds.y1 - TG,
-            height=bounds.y2 - bounds.y1 + TG * 2,
-            width=bounds.x2 - bounds.x1 + TG * 2,
-            pixbuf=gcompris.utils.load_pixmap('piano_composition/buttons/' + color + '.png')
+            parent = rootitem,
+            x = bounds.x1 - TG,
+            y = bounds.y1 - TG,
+            height = bounds.y2 - bounds.y1 + TG * 2,
+            width = bounds.x2 - bounds.x1 + TG * 2,
+            pixbuf = gcompris.utils.load_pixmap('piano_composition/button_front.svg')
             )
 
     gcompris.utils.item_focus_init(img, None)
-    self.textbox.raise_(img)
+    textbox.raise_(img)
     if includeText:
-        return img, self.textbox
+        return img, textbox
     else:
         return img
 
-def textBox(text, x, y , self, width=10000, fill_color=None, stroke_color=None, noRect=False, text_color="black"):
+def textBox(text, x, y , rootitem, width=10000,
+            fill_color_rgba = None, stroke_color_rgba = None,
+            noRect=False, text_color="black"):
     '''
     write a textbox with text to the screen. By default the text is surrounded with a rectangle.
     Customize with the following parameters:
     text: the text to write
     x: the x position of the text
     y: the y position of the text
-    self: the self object this text is to be written to (just pass 'self')
+    rootitem: the rootitem do draw the textBox in
     width: the width limit of the text
-    fill_color: the color to fill the rectangle
-    stroke_color: the color to make the rectangle lines
+    fill_color_rgba: the color to fill the rectangle
+    stroke_color_rgba: the color to make the rectangle lines
     noRect: set to true for no rectangle to be drawn
-    text_color: the color of the text
+    text_color: the color of the text accepted colors include
+                string html color tags or english names
 
-    accepted colors include string html color tags or english names
-
-    textBox('Hello World!', 200, 300, self)
-    textBox('Hola', 350, 300, self, fill_color='green')
-    textBox('Ciao', 500, 300, self, stroke_color='pink')
-    textBox('Bonjour', 650, 300, self, noRect=True)
-    textBox('Nei Ho', 350, 400, self, text_color='red')
-    textBox('Guten Tag', 200, 400, self, width=10)
-    textBox('Zdravstvuyte', 500, 400, self, fill_color='#FF00FF')
+    textBox('Hello World!', 200, 300, rootitem)
+    textBox('Hola', 350, 300, rootitem, fill_color_rgba=0xFF00FFFFL)
+    textBox('Bonjour', 650, 300, rootitem, noRect=True)
+    textBox('Nei Ho', 350, 400, rootitem, text_color='red')
+    textBox('Guten Tag', 200, 400, rootitem, width=10)
     '''
     text = goocanvas.Text(
-        parent=self.rootitem, x=x, y=y, width=width,
+        parent = rootitem,
+        x=x,
+        y=y,
+        width=width,
         text=text,
-        fill_color=text_color, anchor=gtk.ANCHOR_CENTER,
+        fill_color=text_color,
+        anchor=gtk.ANCHOR_CENTER,
         alignment=pango.ALIGN_CENTER,
 
         )
     TG = 10
     bounds = text.get_bounds()
     if not noRect:
-        rect = goocanvas.Rect(parent=self.rootitem,
+        rect = goocanvas.Rect(parent = rootitem,
                               x=bounds.x1 - TG,
                               y=bounds.y1 - TG,
                               width=bounds.x2 - bounds.x1 + TG * 2,
                               height=bounds.y2 - bounds.y1 + TG * 2,
-                              line_width=3.0)
-        if fill_color:
-            rect.props.fill_color = fill_color
-        if stroke_color:
-            rect.props.stroke_color = stroke_color
+                              line_width=3.0,
+                              radius_x = 5, radius_y = 5
+                              )
+        if fill_color_rgba:
+            rect.props.fill_color_rgba = fill_color_rgba
+        if stroke_color_rgba:
+            rect.props.stroke_color_rgba = stroke_color_rgba
         text.raise_(rect)
         return text, rect
     return text
-
-def clearResponsePic(self):
-    self.responsePic.remove()
-
-def pianokeyBindings(keyval, self):
-    '''
-    nice key bindings for the piano keys
-    In your activity's key_press method, call this method and pass in the keyval and self
-
-    def key_press(self, keyval, commit_str, preedit_str):
-
-        utf8char = gtk.gdk.keyval_to_unicode(keyval)
-        pianokeyBindings(keyval, self)
-    '''
-
-    if keyval == 49:
-        self.keyboard_click(None, None, None, 1)
-    elif keyval == 50:
-        self.keyboard_click(None, None, None, 2)
-    elif keyval == 51:
-        self.keyboard_click(None, None, None, 3)
-    elif keyval == 52:
-        self.keyboard_click(None, None, None, 4)
-    elif keyval == 53:
-        self.keyboard_click(None, None, None, 5)
-    elif keyval == 54:
-        self.keyboard_click(None, None, None, 6)
-    elif keyval == 55:
-        self.keyboard_click(None, None, None, 7)
-    elif keyval == 56:
-        self.keyboard_click(None, None, None, 8)
-    elif keyval == gtk.keysyms.F1:
-        self.keyboard_click(None, None, None, -1)
-    elif keyval == gtk.keysyms.F2:
-        self.keyboard_click(None, None, None, -2)
-    elif keyval == gtk.keysyms.F3:
-        self.keyboard_click(None, None, None, -3)
-    elif keyval == gtk.keysyms.F4:
-        self.keyboard_click(None, None, None, -4)
-    elif keyval == gtk.keysyms.F5:
-        self.keyboard_click(None, None, None, -5)
-
-def askUser(x, y, self):
-    self.text = goocanvas.Text(
-            parent=self.rootitem, x=x, y=y, width=1000,
-            text='<span size="30000" > Erase All? </span>',
-            fill_color='black', anchor=gtk.ANCHOR_CENTER,
-            alignment=pango.ALIGN_CENTER,
-            use_markup=True)
-    TG = 10
-    bounds = self.text.get_bounds()
-
-    self.rect = goocanvas.Rect(parent=self.rootitem,
-                          x=bounds.x1 - TG,
-                          y=bounds.y1 - TG,
-                          width=bounds.x2 - bounds.x1 + TG * 2,
-                          height=bounds.y2 - bounds.y1 + TG * 2,
-                          line_width=3.0,
-                          fill_color='gray')
-    self.rect.raise_(None)
-    self.text.raise_(None)
-    self.yesButton, self.txt1 = textButton(x - 50, y + 80, _('Yes'), self, color='green', includeText=True)
-    self.noButton, self.txt2 = textButton(x + 50, y + 80, _('No'), self, color='red', includeText=True)
-
-    return self.yesButton, self.noButton
-
-def eraseUserPrompt(x,y,z,self):
-    self.text.remove()
-    self.yesButton.remove()
-    self.noButton.remove()
-    self.text.remove()
-    self.rect.remove()
-    self.txt1.remove()
-    self.yesButton.remove()
-    self.txt2.remove()
-
-def drawBasicPlayHomePagePart1(self):
-    '''
-    Method used in play activities (play-piano and play-rhythm)
-    because they have similar formats
-    '''
-    if self.rootitem:
-        self.rootitem.remove()
-
-    self.rootitem = goocanvas.Group(parent=
-                                   self.gcomprisBoard.canvas.get_root_item())
-
-    # set background
-    goocanvas.Image(
-        parent=self.rootitem,
-        x=0, y=0,
-        pixbuf=gcompris.utils.load_pixmap('piano_composition/playActivities/background/' + str(randint(1, 6)) + '.jpg')
-        )
-
-    if hasattr(self, 'staff'):
-        self.staff.clear()
-
-    self.playText, self.playRect = textBox(_('Play'), 220, 30, self, fill_color='gray')
-
-    self.okText, self.okRect = textBox(_('Okay'), 550, 30, self, fill_color='gray')
-
-# ---------------------
-# NOT DOCUMENTED ONLINE
-# ---------------------
-
-def drawBasicPlayHomePagePart2(self):
-    '''
-    Method used in play activities (play-piano and play-rhythm)
-    because they have similar formats
-    '''
-    # PLAY BUTTON
-    self.playButton = goocanvas.Image(
-            parent=self.rootitem,
-            pixbuf=gcompris.utils.load_pixmap('piano_composition/playActivities/playbutton.png'),
-            x=170,
-            y=50,
-            )
-    self.playButton.connect("button_press_event", self.staff.playComposition)
-
-    gcompris.utils.item_focus_init(self.playButton, None)
-
-    # OK BUTTON
-    self.okButton = goocanvas.Svg(parent=self.rootitem,
-                         svg_handle=gcompris.skin.svg_get(),
-                         svg_id="#OK"
-                         )
-    self.okButton.scale(1.4, 1.4)
-    self.okButton.translate(-170, -400)
-    self.okButton.connect("button_press_event", self.ok_event)
-    gcompris.utils.item_focus_init(self.okButton, None)
-
-    # ERASE BUTTON
-    self.eraseText, self.eraseRect = textBox(_("Erase Attempt"), 700, 150, self, fill_color='gray')
-
-    self.eraseButton = goocanvas.Image(
-            parent=self.rootitem,
-            pixbuf=gcompris.utils.load_pixmap('piano_composition/playActivities/erase.png'),
-            x=650,
-            y=170,
-            )
-    self.eraseButton.connect("button_press_event", self.erase_entry)
-    gcompris.utils.item_focus_init(self.eraseButton, None)
 
 

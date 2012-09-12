@@ -138,7 +138,8 @@ They also form the C Major Scale. Notice that the note positions are different t
               alignment=pango.ALIGN_CENTER
               )
 
-            self.playScaleButton = textButton(400, 136, _("Play Scale"), self, 'teal')
+            self.playScaleButton = textButton(400, 136, _("Play Scale"),
+                                              self.rootitem, 'teal')
 
             self.playScaleButton.connect("button_press_event", self.staff.playComposition)
             gcompris.utils.item_focus_init(self.playScaleButton, None)
@@ -148,7 +149,8 @@ They also form the C Major Scale. Notice that the note positions are different t
             elif level == 5:
                 text = _("Play Bass Clef Game")
             if level in [1, 5]:
-                self.playScaleGameButton = textButton(400, 410, text, self, 'green')
+                self.playScaleGameButton = textButton(400, 410, text,
+                                                      self.rootitem, 'green')
 
                 self.playScaleGameButton.connect("button_press_event", self.play_scale_game)
                 gcompris.utils.item_focus_init(self.playScaleGameButton, None)

@@ -112,7 +112,7 @@ class PrimeLevelset:
         self.cur_sublevel = 1
 
     def getError(self, num):
-        fmt = _('%d is divisible by %s.')
+        fmt = _('{0} is divisible by {1}.')
         n = int(num.text)
 
         if n == 1:
@@ -123,7 +123,7 @@ class PrimeLevelset:
             if n % i == 0:
                 factors.append(i)
         s = makeNumList(factors) % tuple(factors)
-        return fmt % (n,s)
+        return fmt.format(str(n), s)
 
     def getTitle(self):
         return _('Primes less than %d') % ( self.level_max[self.cur_sublevel-1] + 1 )
@@ -192,7 +192,7 @@ class MultipleLevelset:
         self.cur_sublevel = 1
 
     def getError(self, num):
-        fmt = _('%s are the factors of %d.')
+        fmt = _('{0} are the factors of {1}.')
         n = int(num.text)
 
         factors = []
@@ -201,7 +201,7 @@ class MultipleLevelset:
                 factors.append(i)
         factors.append(n)
         s = makeNumList(factors) % tuple(factors)
-        return fmt % (s, n)
+        return fmt.format(s, str(n))
 
     def getTitle(self):
         return _('Multiples of %d') % ( self.cur_sublevel+1 )
@@ -238,8 +238,8 @@ class ExpressionLevelset(object):
         self.cur_sublevel = 1
 
     def getError(self, num):
-        fmt = _('%s = %d')
-        return fmt % (num.text, num.value)
+        fmt = _('{0} = {1}')
+        return fmt.format(num.text, str(num.value))
 
     def getNumberWithAnswer(self, answer):
         fn = random.choice( self.levelops[self.curlevel-1] )
@@ -249,21 +249,21 @@ class ExpressionLevelset(object):
 
     def getPlus(self, answer):
         n = random.randint(0, answer)
-        num = Number( _(u'%d + %d') % (n, answer-n), 1 )
+        num = Number( _(u'{0} + {1}').format(str(n), str(answer-n)), 1 )
         return num
 
     def getMinus(self, answer):
         n = random.randint(answer, answer*2)
-        num = Number( _(u'%d \u2212 %d') % (n, n-answer), 1 )
+        num = Number( _(u'{0} \u2212 {1}').format(str(n), str(n-answer)), 1 )
         return num
 
     def getTimes(self, answer):
         n = random.choice( getFactors(answer) )
-        return Number( _(u'%d \u00d7 %d') % (n, answer/n), 1 )
+        return Number( _(u'{0} \u00d7 {1}').format(str(n), str(answer/n)), 1 )
 
     def getDivide(self, answer):
         n = random.randint(1, 5)
-        return Number( _(u'%d \u00f7 %d') % (answer*n, n), 1 )
+        return Number( _(u'{0} \u00f7 {1}').format(str(answer*n), str(n)), 1 )
 
 class EqualityLevelset(ExpressionLevelset):
     def __init__(self):

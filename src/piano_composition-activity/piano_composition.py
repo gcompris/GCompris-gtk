@@ -129,26 +129,32 @@ class Gcompris_piano_composition:
 
         # CLEF DESCRIPTION
         if clefDescription:
-            textBox(clefText, 550, 67, self, 240, stroke_color='purple')
+            textBox(clefText, 550, 67, self.rootitem, 240,
+                    fill_color_rgba = 0x82B22CFFL)
 
         # KEYBOARD DESCRIPTION
         if keyboardDescription:
-            textBox(keyboardText, 200, 430, self, 225, stroke_color='purple')
+            textBox(keyboardText, 200, 430, self.rootitem, 225,
+                    fill_color_rgba = 0x639A0066L)
 
         # ADD BUTTONS
 
-        self.eraseAllButton = textButton(100, 70, _("Erase All Notes"), self, 'purple', 80)
+        self.eraseAllButton = textButton(100, 70, _("Erase All Notes"),
+                                         self.rootitem, 0x9C2765FFL, 80)
 
-        self.eraseNotesButton = textButton(220, 70, _("Erase Last Note"), self, 'teal', 100)
+        self.eraseNotesButton = textButton(220, 70, _("Erase Last Note"),
+                                           self.rootitem, 0xBF7D30FFL, 100)
 
-        self.playCompositionButton = textButton(350, 70, _("Play Composition"), self, 'green', 100)
+        self.playCompositionButton = textButton(350, 70, _("Play Composition"),
+                                                self.rootitem, 0x104BA9FFL, 100)
 
         if (level > 2):
 
-            self.changeClefButton = textButton(100, 140, _("Erase and Change Clef"), self, 'gray', 100)
+            self.changeClefButton = textButton(100, 140, _("Erase and Change Clef"),
+                                               self.rootitem, 0xE73A95FFL, 100)
 
         if (level >= 3):
-            self.textbox = goocanvas.Text(
+            goocanvas.Text(
                 parent=self.rootitem,
                 x=210, y=140,
                 width=100,
@@ -234,8 +240,9 @@ class Gcompris_piano_composition:
                 )
             self.makeSharpButton.props.visibility = goocanvas.ITEM_INVISIBLE
 
-            self.loadSongsButton = textButton(280, 430, _("Load Music"), self, 'red', 100)
-            textBox(_("Change Accidental Style:"), 100, 430, self, width=150, noRect=True)
+            self.loadSongsButton = textButton(280, 430, _("Load Music"),
+                                              self.rootitem, 0xE768ABFFL, 100)
+            textBox(_("Change Accidental Style:"), 100, 430, self.rootitem, width=150, noRect=True)
 
         if (level == 7):
             self.loadButton = goocanvas.Image(
@@ -362,7 +369,7 @@ dialogue to\nenable the sound."), stop_board)
             txt = _("Next Page")
         else:
             txt = _("Previous Page")
-        self.nextMelodiesButton = textButton(700,475,txt, self)
+        self.nextMelodiesButton = textButton(700,475,txt, self.rootitem, 0xE768ABFFL)
         self.nextMelodiesButton.connect("button_press_event", self.nextMelodyPage)
         gcompris.utils.item_focus_init(self.nextMelodiesButton, None)
 
@@ -464,16 +471,16 @@ dialogue to\nenable the sound."), stop_board)
          pointer_events="GOO_CANVAS_EVENTS_NONE"
          ))
 
-        self.staff.texts.append(goocanvas.Text(parent=self.rootitem,
-         x=405,
-         y=70,
-         width=280,
-         text='<span font_family="URW Gothic L" size="11000" >' + self.data.get(section, 'lyrics') + '</span>',
-         fill_color="black",
-         use_markup=True,
-         alignment=pango.ALIGN_CENTER,
-         pointer_events="GOO_CANVAS_EVENTS_NONE"
-         ))
+        lyrics = self.data.get(section, 'lyrics').replace('\\n', '\n')
+        self.staff.texts.append(
+            goocanvas.Text(parent=self.rootitem,
+                           x = 405,
+                           y = 70,
+                           width = 280,
+                           text = lyrics,
+                           fill_color = "black",
+                           pointer_events = "GOO_CANVAS_EVENTS_NONE"
+                           ) )
 
         self.staff.texts.append(goocanvas.Text(parent=self.rootitem,
          x=400,
@@ -554,15 +561,9 @@ dialogue to\nenable the sound."), stop_board)
         self.wholeNoteSelected.connect("button_press_event", self.staff.updateToWhole)
         gcompris.utils.item_focus_init(self.wholeNoteSelected, None)
 
-    def askAndEraseStaff(self,x=None,y=None,z=None):
-        ask_user=False
-        if ask_user:
-            if self.staff.noteList:
-                (self.y, self.n) = askUser(450,300,self)
-            self.y.connect("button_press_event", self.erase)
-            self.n.connect("button_press_event", eraseUserPrompt,self)
-        else:
-            self.staff.eraseAllNotes()
+    def askAndEraseStaff(self, unused1, unused2, unused3):
+        # @FIXME, should have a dialog asking for confirmation
+        self.staff.eraseAllNotes()
 
     def erase(self,x,y,z):
         #self.staff.eraseAllNotes()
@@ -664,37 +665,41 @@ dialogue to\nenable the sound."), stop_board)
             r += str(x.numID) + str(x.noteType)
 
         if not self._bachEasterEggDone and '-5617' in s:
-            self.responsePic = goocanvas.Image(
+            responsePic = goocanvas.Image(
                 parent=self.rootitem,
                 pixbuf=gcompris.utils.load_pixmap('piano_composition/bach.jpg'),
                 x=250,
                 y=50
                 )
-            self.timers.append(gobject.timeout_add(2000, clearResponsePic, self))
+            self.timers.append(gobject.timeout_add(2000,
+                                                   lambda: responsePic.remove() ) )
             self._bachEasterEggDone = True
         if not self._mozartEasterEggDone and '523248685848383244284428' in r:
-            self.responsePic = goocanvas.Image(
+            responsePic = goocanvas.Image(
                 parent=self.rootitem,
                 pixbuf=gcompris.utils.load_pixmap('piano_composition/mozart.jpg'),
                 x=160,
                 y=80
                 )
-            self.timers.append(gobject.timeout_add(2000, clearResponsePic, self))
+            self.timers.append(gobject.timeout_add(2000,
+                                                   lambda: responsePic.remove() ) )
             self._mozartEasterEggDone = True
         if not self._bananaEasterEggGone and '7464-4464-4464' in r:
-            self.responsePic = goocanvas.Image(
+            responsePic = goocanvas.Image(
                 parent=self.rootitem,
                 pixbuf=gcompris.utils.load_pixmap('piano_composition/banana.png'),
                 x=200,
                 y=10
                 )
-            self.responsePic.animate(5, 5, 3.0, 0.0, \
+            responsePic.animate(5, 5, 3.0, 0.0, \
                 absolute=False, duration=800, step_time=100, type=goocanvas.ANIMATE_FREEZE)
 
-            self.timers.append(gobject.timeout_add(800, clearResponsePic, self))
+            self.timers.append(gobject.timeout_add(800,
+                                                   lambda: responsePic.remove() ) )
+
             self._bananaEasterEggGone = True
         if not self._gsoc2012EasterEggGone and '14181814343838345458585481' in r:
-            self.responsePic = goocanvas.Image(
+            responsePic = goocanvas.Image(
                 parent=self.rootitem,
                 pixbuf=gcompris.utils.load_pixmap('piano_composition/gsoc2012.jpg'),
                 x= -20,
@@ -703,7 +708,8 @@ dialogue to\nenable the sound."), stop_board)
             self.responsePic.animate(0, 400, 1, 0, \
                 absolute=False, duration=1000, step_time=100, type=goocanvas.ANIMATE_FREEZE)
 
-            self.timers.append(gobject.timeout_add(1000, clearResponsePic, self))
+            self.timers.append(gobject.timeout_add(1000,
+                                                   lambda: responsePic.remove() ) )
             self._gsoc2012EasterEggGone = True
 
     def end(self):
@@ -737,7 +743,7 @@ dialogue to\nenable the sound."), stop_board)
         elif keyval == gtk.keysyms.space:
             self.staff.playComposition()
         else:
-            pianokeyBindings(keyval, self)
+            pianokeyBindings(keyval, self.keyboard_click)
         return True
     def pause(self, x):
         pass
