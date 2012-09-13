@@ -38,7 +38,8 @@ class Gcompris_color_mix:
     self.game_complete = False
     self.gcomprisBoard.level = 1
     self.gcomprisBoard.maxlevel = 4
-
+    self.win = 0
+    self.lost = False
     # Needed to get key_press
     gcomprisBoard.disable_im_context = True
 
@@ -87,14 +88,18 @@ class Gcompris_color_mix:
   def game_over(self, result):
     self.game_complete = True
     if result == 1:
+      self.win +=1
+      self.lost = False
       self.next_level()
       gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.TUX)
     else:
+      self.lost = True
       gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.TUX)
 
   def next_level(self):
-    if self.gcomprisBoard.level < self.gcomprisBoard.maxlevel:
+    if self.gcomprisBoard.level < self.gcomprisBoard.maxlevel and self.win == 5:
       self.gcomprisBoard.level += 1
+      self.win = 0
 
   def end(self):
     self.rootitem.remove()
@@ -120,8 +125,9 @@ class Gcompris_color_mix:
     self.board_paused = pause
     if pause == False and self.game_complete:
       self.game_complete = False
-      self.end()
-      self.start()
+      if self.lost == False:
+        self.end()
+        self.start()
 
   def set_level(self, level):
     self.gcomprisBoard.level = level
@@ -285,6 +291,10 @@ class Colors:
     gcompris.utils.item_focus_init(ok, None)
 
   def ok_event(self, widget, target, event):
+    if self.game.lost == True:
+      self.message_rootitem.remove()
+    self.message_rootitem = goocanvas.Group(parent = self.rootitem)
+
     c_diff = self.color_cmy[0] - self.required_color_cmy[0]
     m_diff = self.color_cmy[1] - self.required_color_cmy[1]
     y_diff = self.color_cmy[2] - self.required_color_cmy[2]
@@ -314,7 +324,7 @@ class Colors:
 
   def message(self, msg, y):
     text = goocanvas.Text(
-      parent = self.rootitem,
+      parent = self.message_rootitem,
       x = 150,
       y = y,
       fill_color_rgba = 0x550000FFL,
@@ -325,7 +335,7 @@ class Colors:
     gap = 20
 
     back = goocanvas.Rect(
-      parent = self.rootitem,
+      parent = self.message_rootitem,
       radius_x = 6,
       radius_y = 6,
       x = bounds.x1 - gap,

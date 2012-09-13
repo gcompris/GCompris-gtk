@@ -30,3 +30,4 @@ icon_DATA = gnumch-factors.svg
 
 EXTRA_DIST = $(icon_DATA) ${xml_in_files} init_path.sh
 CLEANFILES = $(xml_DATA)
+
