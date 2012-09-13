@@ -65,6 +65,7 @@ class Gcompris_explore:
 
         self.locationSeen = 0
         self.progressBar = None
+        self.next_action = None
 
     def start(self):
         '''
@@ -327,10 +328,10 @@ class Gcompris_explore:
             self.remainingItems.remove(self.currentSelection)
             self.progressBar.success()
             if len(self.remainingItems):
-                gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.SMILEY)
-                self.playRandom()
+                self.next_action = self.playRandom
             else:
-                self.next_level()
+                self.next_action = self.next_level
+            gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.SMILEY)
         else:
             gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.SMILEY)
 
@@ -546,7 +547,9 @@ class Gcompris_explore:
         strn = u'%c' % utf8char
 
     def pause(self, pause):
-        pass
+        if self.next_action:
+            self.next_action()
+            self.next_action = None
 
 class ProgressBar:
 
