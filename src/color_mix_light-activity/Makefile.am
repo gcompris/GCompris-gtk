@@ -1,12 +1,10 @@
 include $(top_srcdir)/Makefile.activity
 
-SUBDIRS = resources
+SUBDIRS =
 
 pythondir = $(PYTHON_PLUGIN_DIR)
 
 dist_python_DATA= 	color_mix_light.py
-
-
 
 xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@
 

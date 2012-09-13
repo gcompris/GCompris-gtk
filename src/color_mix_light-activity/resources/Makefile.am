@@ -1,2 +1,0 @@
-SUBDIRS = color_mix_light
-
