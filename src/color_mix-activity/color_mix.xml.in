@@ -3,17 +3,17 @@
   <Board
         name="color_mix"
         type="python:color_mix"
-        section="/experimental"
+        section="/discovery/colors_group"
         icon="color_mix.svg"
-        difficulty="1"
+        difficulty="4"
         author="Matilda Bernard"
         boarddir=""
         >
-        <_title>Color Mix</_title>
-        <_description>To understand color mixing</_description>
+        <_title>Mixing color of paint</_title>
+        <_description>To understand color mixing.</_description>
         <_goal>Mix the primary colors to match to the given color</_goal>
         <_manual xml:space = 'preserve'>
-The activity deals with mixing primary colors of paint.
+The activity deals with mixing primary colors of paint (subtractive mixing).
 
 In case of paints the inks absorb different colors of light falling on it, subtracting it from what you see. The more ink you add, the more light is absorbed, and the darker the combined color gets. We can mix just three primary colors to make many new colors. The primary colors for paint/ink are Cyan (a special shade of blue), Magenta (a special shade of pink), and Yellow.
         </_manual>
