@@ -64,7 +64,7 @@ class Gcompris_note_names:
         # Set the buttons we want in the bar
         gcompris.bar_set(gcompris.BAR_LEVEL)
         gcompris.bar_set_level(self.gcomprisBoard)
-        gcompris.bar_location(275, -1, 1)
+        gcompris.bar_location(275, -1, 0.8)
 
         self.saved_policy = gcompris.sound.policy_get()
         gcompris.sound.policy_set(gcompris.sound.PLAY_AND_INTERRUPT)
@@ -139,7 +139,7 @@ They also form the C Major Scale. Notice that the note positions are different t
               )
 
             self.playScaleButton = textButton(400, 136, _("Play Scale"),
-                                              self.rootitem, 'teal')
+                                              self.rootitem, 0xCC0033FFL)
 
             self.playScaleButton.connect("button_press_event", self.staff.playComposition)
             gcompris.utils.item_focus_init(self.playScaleButton, None)
@@ -150,7 +150,7 @@ They also form the C Major Scale. Notice that the note positions are different t
                 text = _("Play Bass Clef Game")
             if level in [1, 5]:
                 self.playScaleGameButton = textButton(400, 410, text,
-                                                      self.rootitem, 'green')
+                                                      self.rootitem, 0x00AA33FFL)
 
                 self.playScaleGameButton.connect("button_press_event", self.play_scale_game)
                 gcompris.utils.item_focus_init(self.playScaleGameButton, None)
@@ -173,8 +173,7 @@ They also form the C Major Scale. Notice that the note positions are different t
                                  svg_handle=gcompris.skin.svg_get(),
                                  svg_id="#OK"
                                  )
-            zoom = 1
-            item.translate(110, -100)
+            item.translate(90, -120)
             item.connect("button_press_event", self.ok_event)
             gcompris.utils.item_focus_init(item, None)
             self.drawNoteButtons()
@@ -187,33 +186,12 @@ They also form the C Major Scale. Notice that the note positions are different t
             instructionText = _("Now there are flat notes. These pitches are lowered a half step.")
 
         if level not in [1, 11]:
-            goocanvas.Rect(parent=self.rootitem, x=550, y=140, width=240,
-                            height=180, stroke_color="purple", line_width=3.0)
+            textBox(instructionText, 650, 180, self.rootitem, 200,
+                    fill_color_rgba = 0x00AA33AAL)
 
-            self.instructions = goocanvas.Text(
-              parent=self.rootitem,
-              x=600,
-              y=100,
-              width=140,
-              text=instructionText,
-              fill_color="black",
-              anchor=gtk.ANCHOR_CENTER,
-              alignment=pango.ALIGN_CENTER
-              )
-
-            self.instructions.scale(1.6, 1.6)
-            self.instructions.translate(-180, 40)
-
-        self.replayRandomNote = goocanvas.Text(
-          parent=self.rootitem,
-          x=120,
-          y=100,
-          width=150,
-          text=_("Click the note to hear it played"),
-          fill_color="black",
-          anchor=gtk.ANCHOR_CENTER,
-          alignment=pango.ALIGN_CENTER
-          )
+            textBox(_("Click the note to hear it played"),
+                    160, 100, self.rootitem, 200,
+                    fill_color_rgba = 0xCC0033AAL)
 
     def prepareGame(self):
         self.staff.eraseAllNotes()
