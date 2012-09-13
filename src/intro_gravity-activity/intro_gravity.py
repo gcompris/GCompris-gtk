@@ -83,8 +83,8 @@ class Gcompris_intro_gravity:
     # Ready button
     self.ready_text = goocanvas.Text(
       parent = self.rootitem,
-      x = 384,
-      y = 203,
+      x = 395,
+      y = 100,
       fill_color = "white",
       anchor = gtk.ANCHOR_CENTER,
       alignment = pango.ALIGN_CENTER,
