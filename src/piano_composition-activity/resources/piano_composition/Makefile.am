@@ -9,6 +9,7 @@ img_DATA = \
 	blacksharp.png \
 	button_front.svg \
 	eighthNote.png \
+	failed.svg \
 	flag.png \
 	gsoc2012.jpg \
 	halfNote.png \
@@ -17,6 +18,7 @@ img_DATA = \
 	melodies.desktop.in \
 	mozart.jpg \
 	note_highlight.png \
+	passed.svg \
 	quarterNote.png \
 	save.png \
 	trebleClef.png \
