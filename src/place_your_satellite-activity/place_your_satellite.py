@@ -431,9 +431,10 @@ class Speed:
     self.set_speed(move)
 
   def set_speed(self, change):
-    print self.satellite_instance.speed
     if self.satellite_instance.speed > 0:
       self.satellite_instance.speed += change * 2
+      self.satellite_instance.distance += change * 200 * -1
     else:
       self.satellite_instance.speed += change * 2 * -1
+      self.satellite_instance.distance += change * 200 * -1
 

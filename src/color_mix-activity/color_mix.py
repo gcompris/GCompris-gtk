@@ -75,15 +75,18 @@ class Gcompris_color_mix:
     m_points = goocanvas.Points( [(390, 352), (390, 470)] )
     y_points = goocanvas.Points( [(548, 208), (665, 175)] )
 
-    colors = Colors(self, self.rootitem, self.gcomprisBoard.level)
+    colors = Colors(self, self.rootitem, self.gcomprisBoard.level, 255)
 
     # Pass the points of the buttons and slider for the color tubes
-    cyan_tube = Color_tubes(self.rootitem, colors, 'cyan_tube.png',
-                            1, 80, 120, c_points, 242, 210, 130, 175, self.gcomprisBoard.level)
-    magenta_tube = Color_tubes(self.rootitem, colors, 'magenta_tube.png',
-                               2, 350, 290, m_points, 390, 352, 390, 470, self.gcomprisBoard.level)
-    yellow_tube = Color_tubes(self.rootitem, colors, 'yellow_tube.png',
-                              3, 460, 120, y_points, 548, 208, 665, 175, self.gcomprisBoard.level)
+    color1_tube = Color_tubes(self.rootitem, colors, 'cyan_tube.png',
+                              1, 80, 120, c_points, 242, 210, 130, 175,
+                              self.gcomprisBoard.level, -1)
+    color2_tube = Color_tubes(self.rootitem, colors, 'magenta_tube.png',
+                              2, 350, 290, m_points, 390, 352, 390, 470,
+                              self.gcomprisBoard.level, -1)
+    color3_tube = Color_tubes(self.rootitem, colors, 'yellow_tube.png',
+                              3, 460, 120, y_points, 548, 208, 665, 175,
+                              self.gcomprisBoard.level, -1)
 
   def game_over(self, result):
     self.game_complete = True
@@ -140,10 +143,11 @@ class Color_tubes:
 
 
   def __init__(self, rootitem, color_instance, image, primary_color,
-               x, y, points, incr_x, incr_y, decr_x, decr_y, level):
+               x, y, points, incr_x, incr_y, decr_x, decr_y, level, color_incr):
     self.rootitem = rootitem
     self.primary_color = primary_color
     self.color_instance = color_instance
+    self.color_incr = color_incr
 
     # Load the tube image
     image = 'color_mix/' + image
@@ -224,36 +228,47 @@ class Color_tubes:
 
   def set_color(self, change):
     if self.primary_color == 1:
-      self.color_instance.cyan += int(change * -1)
+      self.color_instance.color1 += int(change * self.color_incr)
       self.color_instance.resultant_color(1, change/abs(change))
     elif self.primary_color == 2:
-      self.color_instance.magenta += int(change * -1)
+      self.color_instance.color2 += int(change * self.color_incr)
       self.color_instance.resultant_color(2, change/abs(change))
     if self.primary_color == 3:
-      self.color_instance.yellow += int(change * -1)
+      self.color_instance.color3 += int(change * self.color_incr)
       self.color_instance.resultant_color(3, change/abs(change))
 
 class Colors:
   """ Class containing all the colors"""
 
 
-  def __init__(self, game, rootitem, level):
+  def __init__(self, game, rootitem, level, initial_color):
     self.game = game
     self.rootitem = rootitem
+    self.initial_color = initial_color
 
-    self.color_rgb = [255, 255, 255]
-    self.cyan = self.magenta = self.yellow = 255
+    if initial_color == 0:
+      self.color_1 = 'red'
+      self.color_2 = 'green'
+      self.color_3 = 'blue'
+    else:
+      self.color_1 = 'cyan'
+      self.color_2 = 'magenta'
+      self.color_3 = 'yellow'
+
+    self.color_rgb = [initial_color, initial_color, initial_color]
+    self.color1 = self.color2 = self.color3 = self.initial_color
     self.color_cmy = [255 - self.color_rgb[0], 255 - self.color_rgb[1],
                  255 - self.color_rgb[2]]
 
+    init_color = self.hex_code(initial_color, initial_color, initial_color)
     self.color_image = goocanvas.Ellipse(
       parent = rootitem,
       center_x = 395,
       center_y = 230,
       radius_y = 60,
       radius_x = 75,
-      stroke_color_rgba = 0xFFFFFFFFL,
-      fill_color_rgba = 0xFFFFFFFFL,
+      stroke_color_rgba = long(init_color,16),
+      fill_color_rgba = long(init_color,16),
       line_width = 0.5)
 
     # Random color to be matched
@@ -295,32 +310,38 @@ class Colors:
       self.message_rootitem.remove()
     self.message_rootitem = goocanvas.Group(parent = self.rootitem)
 
-    c_diff = self.color_cmy[0] - self.required_color_cmy[0]
-    m_diff = self.color_cmy[1] - self.required_color_cmy[1]
-    y_diff = self.color_cmy[2] - self.required_color_cmy[2]
+    if self.initial_color == 0:
+      color1_diff = self.color_rgb[0] - self.r_random
+      color2_diff = self.color_rgb[1] - self.g_random
+      color3_diff = self.color_rgb[2] - self.b_random
+    else:
+      color1_diff = self.color_cmy[0] - self.required_color_cmy[0]
+      color2_diff = self.color_cmy[1] - self.required_color_cmy[1]
+      color3_diff = self.color_cmy[2] - self.required_color_cmy[2]
+
     if self.color_rgb[0] - self.increment <= self.r_random <= self.color_rgb[0] + self.increment and \
        self.color_rgb[1] - self.increment <= self.g_random <= self.color_rgb[1] + self.increment and \
        self.color_rgb[2] - self.increment <= self.b_random <= self.color_rgb[2] + self.increment:
       self.game.game_over(1)
     else:
-      self.show_message(c_diff, m_diff, y_diff)
+      self.show_message(color1_diff, color2_diff, color3_diff)
       self.game.game_over(2)
 
-  def show_message(self, cyan, magenta, yellow):
-    if cyan > 0 and abs(cyan) > self.increment:
-      self.message('Too much cyan', 300)
-    elif cyan < 0 and abs(cyan) > self.increment:
-      self.message('Not enough cyan', 300)
+  def show_message(self, color1_diff, color2_diff, color3_diff):
+    if color1_diff > 0:
+      self.message('Too much '+ self.color_1, 300)
+    elif color1_diff < 0:
+      self.message('Not enough ' + self.color_1, 300)
 
-    if magenta > 0 and abs(magenta) > self.increment:
-      self.message('Too much magenta', 375)
-    elif magenta < 0 and abs(magenta) > self.increment:
-      self.message('Not enough magenta', 375)
+    if color2_diff > 0:
+      self.message('Too much ' + self.color_2, 375)
+    elif color2_diff < 0:
+      self.message('Not enough ' + self.color_2, 375)
 
-    if yellow > 0 and abs(yellow) > self.increment:
-      self.message('Too much yellow', 450)
-    elif yellow < 0 and abs(yellow) > self.increment:
-      self.message('Not enough yellow', 450)
+    if color3_diff > 0 :
+      self.message('Too much ' + self.color_3, 450)
+    elif color3_diff < 0 :
+      self.message('Not enough ' + self.color_3, 450)
 
   def message(self, msg, y):
     text = goocanvas.Text(
@@ -346,34 +367,39 @@ class Colors:
       fill_color_rgba = 0xCCCCCC44L)
 
   def resultant_color(self, change, button):
-    cyan_cmy  = (255 - self.cyan, 0, 0)
-    magenta_cmy  = (0, 255 - self.magenta, 0)
-    yellow_cmy  = (0, 0, 255 - self.yellow)
+    color1_cmy  = (255 - self.color1, 0, 0)
+    color2_cmy  = (0, 255 - self.color2, 0)
+    color3_cmy  = (0, 0, 255 - self.color3)
 
     self.color_cmy = [255 - self.color_rgb[0], 255 - self.color_rgb[1],
                  255 - self.color_rgb[2]]
 
     if change == 1:
       if button < 0:
-        self.color_cmy[0] = min(self.color_cmy[0], cyan_cmy[0])
+        self.color_cmy[0] = min(self.color_cmy[0], color1_cmy[0])
       else:
-        self.color_cmy[0] = max(self.color_cmy[0], cyan_cmy[0])
+        self.color_cmy[0] = max(self.color_cmy[0], color1_cmy[0])
 
     elif change == 2:
       if button < 0:
-        self.color_cmy[1] = min(self.color_cmy[1], magenta_cmy[1])
+        self.color_cmy[1] = min(self.color_cmy[1], color2_cmy[1])
       else:
-        self.color_cmy[1] = max(self.color_cmy[1], magenta_cmy[1])
+        self.color_cmy[1] = max(self.color_cmy[1], color2_cmy[1])
 
     elif change == 3:
       if button < 0:
-        self.color_cmy[2] = min(self.color_cmy[2], yellow_cmy[2])
+        self.color_cmy[2] = min(self.color_cmy[2], color3_cmy[2])
       else:
-        self.color_cmy[2] = max(self.color_cmy[2], yellow_cmy[2])
+        self.color_cmy[2] = max(self.color_cmy[2], color3_cmy[2])
 
     self.color_rgb[0] = 255 - self.color_cmy[0]
     self.color_rgb[1] = 255 - self.color_cmy[1]
     self.color_rgb[2] = 255 - self.color_cmy[2]
+
+    if self.initial_color == 0:
+      self.color_rgb[0] = self.color1
+      self.color_rgb[1] = self.color2
+      self.color_rgb[2] = self.color3
 
     color_code = self.hex_code(self.color_rgb[0], self.color_rgb[1],
                                self.color_rgb[2])
