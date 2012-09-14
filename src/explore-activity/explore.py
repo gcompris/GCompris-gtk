@@ -547,7 +547,7 @@ class Gcompris_explore:
         strn = u'%c' % utf8char
 
     def pause(self, pause):
-        if self.next_action:
+        if not pause and self.next_action:
             self.next_action()
             self.next_action = None
 
