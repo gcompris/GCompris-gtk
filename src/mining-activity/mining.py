@@ -76,7 +76,7 @@ class Gcompris_mining:
 
     print "mining start"
 
-    self.gcomprisBoard.maxlevel = 9
+    self.gcomprisBoard.maxlevel = 3
     self.gcomprisBoard.sublevel = 1
     self.gcomprisBoard.number_of_sublevel = 1
 
@@ -138,18 +138,26 @@ class Gcompris_mining:
     gcompris.bar_set_level(self.gcomprisBoard);
 
     # load level specific values
-    self.nuggets_to_collect = 3
+    if level == 1:
+      self.nuggets_to_collect = 3
+
+    elif level == 2:
+      self.nuggets_to_collect = 6
+
+    elif level == 3:
+      self.nuggets_to_collect = 9
+
+    else:
+      print("Warning: No level specific values defined for level %i! Keeping current settings." % level)
+
 
     # prepare new game
     self.is_game_won = False
     self.nugget_count = 0
     self.need_new_nugget = False
 
-    # TODO: set level-function:
-    #  perhaps different backgrounds?
-
     self.update_lorry()
-    self.viewport.reset()
+    self.viewport.reset(level)
 
     self.placer.add_blocker(self.gc_bar_blocker)
     self.placer.add_blocker(self.lorry)
@@ -506,10 +514,12 @@ class Viewport:
 
   # The limit to max zoom in.
   # Try to keep scale_max reachable by  scale_min * zoom_factor ^ n  (with n in [1, 2, 3, 4, ...[)
-  scale_max = 0.9520
+  # This value is set up in reset()
+  scale_max = None
 
   # the factor to zoom on each zoom event
-  zoom_factor = 1.3
+  # This value is set up in reset()
+  zoom_factor = None
 
 
   # The GooCanvas group, which holds everything that is affected by zooming
@@ -541,8 +551,25 @@ class Viewport:
     )
 
 
-  def reset(self):
-    """ Reset the viewport """
+  def reset(self, level):
+    """ Reset the viewport and set zooming parameters according to current level """
+
+    # in general: higher level means more zooming
+    if level == 1:
+      self.scale_max = 0.6000
+      self.zoom_factor = 1.3417  # 2 zoom events from min to max
+
+    elif level == 2:
+      self.scale_max = 0.8000
+      self.zoom_factor = 1.2447  # 4 zoom events from min to max
+
+    elif level == 3:
+      self.scale_max = 1.0000
+      self.zoom_factor = 1.2010  # 6 zoom events from min to max
+
+    else:
+      print("Warning: No level specific zooming values defined for level %i! Keeping current settings." % level)
+
 
     # zoom out max
     self.scale = self.scale_min
