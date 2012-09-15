@@ -842,6 +842,7 @@ class Note():
         self.timers = []
         self.sharpNotation = sharpNotation # toggle to switch note between sharp notation
         # and flat notation, if applicable
+        self.success = None
 
     def play(self, widget=None, target=None, event=None):
         '''
@@ -967,6 +968,29 @@ class Note():
                   width=20,
                   height=20,
                   )
+
+    def statusPassed(self):
+        ''' Mark this note with a passed icon'''
+        self.success = goocanvas.Image(
+            parent = self.rootitem,
+            pixbuf = gcompris.utils.load_pixmap("piano_composition/passed.svg"),
+            x = self.x,
+            y = self.y,
+            )
+
+    def statusFailed(self):
+        ''' Mark this note with a failed icon'''
+        self.success = goocanvas.Image(
+            parent = self.rootitem,
+            pixbuf = gcompris.utils.load_pixmap("piano_composition/failed.svg"),
+            x = self.x,
+            y = self.y,
+            )
+
+    def statusNone(self):
+        ''' Mark this note with no status icon'''
+        if self.success:
+            self.success.remove()
 
 class EighthNote(Note):
     '''

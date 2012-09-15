@@ -46,7 +46,6 @@ class Gcompris_play_piano:
 
         self.metronomePlaying = False
 
-        self.timers = []
         self.afterBonus = None
 
     def start(self):
@@ -121,7 +120,7 @@ class Gcompris_play_piano:
         self.givenOption = []
         self.show_melody()
         self.kidsNoteList = []
-        self.piano = PianoKeyboard(250, 300, self.rootitem)
+        self.piano = PianoKeyboard(250, 305, self.rootitem)
         if level in [4, 5, 6, 12, 11, 10]:
             self.piano.blackKeys = True
 
@@ -142,16 +141,6 @@ class Gcompris_play_piano:
 
         gcompris.utils.item_focus_init(self.playButton, None)
 
-        # OK BUTTON
-        self.okButton = goocanvas.Svg(parent=self.rootitem,
-                                      svg_handle=gcompris.skin.svg_get(),
-                                      svg_id="#OK"
-                                      )
-        self.okButton.scale(1.4, 1.4)
-        self.okButton.translate(-170, -400)
-        self.okButton.connect("button_press_event", self.ok_event)
-        gcompris.utils.item_focus_init(self.okButton, None)
-
         # ERASE BUTTON
         self.eraseButton = goocanvas.Image(
                 parent=self.rootitem,
@@ -162,17 +151,32 @@ class Gcompris_play_piano:
                 )
         self.eraseButton.connect("button_press_event", self.erase_entry)
         gcompris.utils.item_focus_init(self.eraseButton, None)
-        self.show_ok_erase(False)
+        self.show_erase(False)
 
-    def show_ok_erase(self, status):
+    def show_erase(self, status):
         goostatus = goocanvas.ITEM_VISIBLE if status else goocanvas.ITEM_INVISIBLE
-        self.okButton.props.visibility = goostatus
         self.eraseButton.props.visibility = goostatus
 
+    def clear_pass_or_fail(self):
+        for note in self.staff.noteList:
+            note.statusNone()
+
+    def mark_pass_or_fail(self, note_played):
+        ''' Find the displayed note matching the current play '''
+        ''' and mark it as pass or fail '''
+        current_note_number = len(self.kidsNoteList) - 1
+        if len(self.staff.noteList) > current_note_number:
+            note_on_staff = self.staff.noteList[current_note_number]
+            if note_played.numID == note_on_staff.numID:
+                note_on_staff.statusPassed()
+            else:
+                note_on_staff.statusFailed()
+                self.show_erase(True)
+
+        if len(self.staff.noteList) - 1 == current_note_number:
+            gobject.timeout_add(500, self.display_bonus)
 
     def keyboard_click(self, widget=None, target=None, event=None, numID=None):
-        self.show_ok_erase(True)
-
         if not numID:
             numID = target.numID
         if self.gcomprisBoard.level <= 6:
@@ -181,6 +185,7 @@ class Gcompris_play_piano:
             n = QuarterNote(numID, 'bassClef', self.staff.rootitem)
         n.play()
         self.kidsNoteList.append(numID)
+        self.mark_pass_or_fail(n)
 
     def generateMelody(self):
         level = self.gcomprisBoard.level
@@ -216,10 +221,9 @@ class Gcompris_play_piano:
                 note = QuarterNote(item, 'bassClef', self.staff.rootitem)
             self.staff.drawNote(note)
 
-        self.timers.append(gobject.timeout_add(500, self.staff.playComposition))
+        gobject.timeout_add(500, self.staff.playComposition)
 
-    def ok_event(self, widget=None, target=None, event=None):
-        self.show_ok_erase(False)
+    def display_bonus(self):
         if self.kidsNoteList == self.givenOption:
             self.afterBonus = self.nextChallenge
             gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.NOTE)
@@ -230,7 +234,7 @@ class Gcompris_play_piano:
             self.score -= 1
 
     def tryagain(self):
-        self.kidsNoteList = []
+        self.erase_entry()
         self.staff.playComposition
 
     def nextChallenge(self):
@@ -242,9 +246,10 @@ class Gcompris_play_piano:
             return
         self.show_melody()
 
-    def erase_entry(self, widget, target, event):
+    def erase_entry(self, widget=None, target=None, event=None):
         self.kidsNoteList = []
-        self.show_ok_erase(False)
+        self.show_erase(False)
+        self.clear_pass_or_fail()
 
     def end(self):
 
@@ -276,8 +281,6 @@ class Gcompris_play_piano:
             self.erase_entry()
         elif keyval == gtk.keysyms.Delete:
             self.erase_entry()
-        elif keyval == gtk.keysyms.Return:
-            self.ok_event()
         elif keyval == gtk.keysyms.space:
             self.staff.playComposition()
         else:
