@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-08-07 10:02+0000\n"
-"PO-Revision-Date: 2012-08-07 12:23+0100\n"
+"POT-Creation-Date: 2012-09-15 09:36+0000\n"
+"PO-Revision-Date: 2012-09-15 20:35+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
@@ -397,7 +397,7 @@ msgstr ""
 
 #: ../src/administration-activity/admin/board_list.py:663
 #: ../src/pythontest-activity/pythontest.py:511
-#: ../src/smallnumbers-activity/smallnumbers.c:618
+#: ../src/smallnumbers-activity/smallnumbers.c:619
 msgid "Select sound locale"
 msgstr "Izberi jezik zvoka"
 
@@ -572,6 +572,8 @@ msgstr "Vsi uporabniki"
 #: ../src/administration-activity/admin/log_list.py:298
 #: ../src/administration-activity/admin/profile_list.py:117
 #: ../src/lang-activity/lang.py:166
+#: ../src/login-activity/login.py:481
+#: ../src/missing_letter-activity/missingletter.c:802
 msgid "Default"
 msgstr "Privzeto"
 
@@ -593,7 +595,7 @@ msgid "Board"
 msgstr "Tabla"
 
 #: ../src/administration-activity/admin/log_list.py:249
-#: ../src/click_on_letter-activity/click_on_letter.c:1249
+#: ../src/click_on_letter-activity/click_on_letter.c:1248
 #: ../src/redraw-activity/redraw.py:339
 msgid "Level"
 msgstr "Raven"
@@ -1341,8 +1343,9 @@ msgstr "Igre z miško: premakni, povleci in spusti."
 msgid "In the main board area, a set of objects is displayed. In the vertical box (at the left of the main board) another set of objects is shown, each object in the group on the left matching exactly one object in the main board area. This game challenges you to find the logical link between these objects. How do they fit together? Drag each object to the correct red space in the main area."
 msgstr "Na tabli je niz predmetov. V navpičnem okvirju, na levi strani je še en niz elementov. Vsak element na sredini ima povezavo z natanko enim predmetom iz navpičnega okvirčka. Predmete povežeš tako, da predmete z miško povlečeš na ustrezni rdeč prostor na sredini. Če želiš ugotoviti kateri predmeti spadajo skupaj, moraš poiskati logično povezavo med njimi. "
 
-#: ../src/babymatch-activity/shapegame.c:2017
-#: ../src/click_on_letter-activity/click_on_letter.c:1317
+#: ../src/babymatch-activity/shapegame.c:2041
+#: ../src/click_on_letter-activity/click_on_letter.c:1315
+#: ../src/missing_letter-activity/missingletter.c:800
 #, c-format
 msgid ""
 "<b>%1$s</b> configuration\n"
@@ -1495,12 +1498,9 @@ msgid "Python Board"
 msgstr "Python tabla"
 
 #: ../src/boards/python.c:65
-msgid "Special board that embeds python into GCompris."
-msgstr "Posebna tabla, ki vključi pyton v GCompris."
-
 #: ../src/boards/python.c:89
-msgid "Special board that embeds python into gcompris."
-msgstr "Posebna tabla, ki vključi v gcompris vključi pyton."
+msgid "Special board that embeds Python into GCompris."
+msgstr "Posebna tabla, ki vključi Python v GCompris."
 
 #: ../src/braille_alphabets-activity/braille_alphabets.py:176
 msgid "Braille : Unlocking the Code"
@@ -1720,8 +1720,8 @@ msgid "This chat activity only works on the local network"
 msgstr "Ta dejavnost klepeta deluje le na krajevnemu omrežju"
 
 #: ../src/chat-activity/chat.xml.in.h:3
-msgid "This chat activity will only work with other GCompris users on your local network, not on the Internet. To use it, just type in your message and hit Enter. Your message is then broadcasted on the local network, and any GCompris program running the chat activity on that local network will receive and display your message."
-msgstr "Dejavnost klepetanja bo delovala samo z drugimi uporabniki GCompris na tvojemu krajevnemu omrežju in ne na medmrežju. Za uporabo napiši svoje sporočilo in pritisni vnosno tipko. Tvoje sporočilo je oddano na tvojem krajevnem omrežju in katerikoli program GCompris, ki poganja dejavnost klepeta, bo prejel in prikazal tvoje sporočilo."
+msgid "This chat activity will only work with other GCompris users on your local network, not on the Internet. To use it, just type in your message and hit Enter. Your message is then broadcast on the local network, and any GCompris program running the chat activity on that local network will receive and display your message."
+msgstr "Dejavnost klepetanja bo delovala samo z drugimi uporabniki GCompris na krajevnemu omrežju in ne na medmrežju. Za uporabo napiši svoje sporočilo in pritisni vnašalko. Tvoje sporočilo je oddano na tvojem krajevnem omrežju in vsak program GCompris, ki poganja dejavnost klepeta, bo prejel in prikazal tvoje sporočilo."
 
 #: ../src/chess_computer-activity/chess.c:225
 msgid "Error: The external program gnuchess died unexpectedly"
@@ -1764,8 +1764,8 @@ msgstr "Beli matira"
 
 # Pad je izraz, ko je igra šaha izenačena
 #: ../src/chess_computer-activity/chess.c:1223
-#: ../src/gcompris/bonus.c:191
-#: ../src/gcompris/bonus.c:200
+#: ../src/gcompris/bonus.c:194
+#: ../src/gcompris/bonus.c:203
 msgid "Drawn game"
 msgstr "Pad"
 
@@ -2031,17 +2031,17 @@ msgstr "Ribe izvirajo iz Unix pripomočka xfishtank. Zasluge pripadajo Guillaume
 
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
-#: ../src/click_on_letter-activity/click_on_letter.c:367
+#: ../src/click_on_letter-activity/click_on_letter.c:368
 #: ../src/gletters-activity/gletters.c:229
 #: ../src/memory-activity/memory.c:935
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcčdefghijklmnoprsštuvzž"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:378
+#: ../src/click_on_letter-activity/click_on_letter.c:379
 msgid "This activity will be played with questions displayed as text instead of being spoken"
 msgstr "Ta dejavnost se bo igrala z vprašanji prikazanimi kot besedilo namesto govorjenja"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:383
+#: ../src/click_on_letter-activity/click_on_letter.c:384
 #: ../src/memory-activity/memory.c:906
 msgid ""
 "Error: this activity cannot be played with the\n"
@@ -2054,7 +2054,7 @@ msgstr ""
 "Pojdi v nastavitve in omogoči\n"
 "zvok"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:404
+#: ../src/click_on_letter-activity/click_on_letter.c:405
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -2092,20 +2092,20 @@ msgstr ""
 "%s"
 
 #. answer
-#: ../src/click_on_letter-activity/click_on_letter.c:1260
+#: ../src/click_on_letter-activity/click_on_letter.c:1259
 #: ../src/missing_letter-activity/missingletter_config.c:420
 #: ../src/missing_letter-activity/missingletter_config.c:548
 msgid "Answer"
 msgstr "Odgovor"
 
 #. question
-#: ../src/click_on_letter-activity/click_on_letter.c:1271
+#: ../src/click_on_letter-activity/click_on_letter.c:1270
 #: ../src/missing_letter-activity/missingletter_config.c:426
 #: ../src/missing_letter-activity/missingletter_config.c:571
 msgid "Question"
 msgstr "Vprašanje"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:1407
+#: ../src/click_on_letter-activity/click_on_letter.c:1405
 #: ../src/gcompris/board_config_wordlist.c:273
 msgid "Back to default"
 msgstr "Nazaj na privzeto"
@@ -2417,8 +2417,10 @@ msgid "Select a drawing tool on the left, and a color down the bottom, then clic
 msgstr "Na levi strani izberi orodje za risanje v spodnjem delu pa izberi barvo. Klikni na belo polje ter nariši novo obliko. Za hitrejše delo lahko uporabiš srednjim gumbom na miški. Z njo predmet izbrišeš."
 
 #: ../src/drawnumber-activity/drawnumber.py:238
+#: ../src/explore-activity/explore.py:451
 #: ../src/findit-activity/findit.py:315
 #: ../src/louis_braille-activity/louis_braille.py:84
+#: ../src/piano_composition-activity/piano_composition.py:439
 msgid "Cannot find the file '{filename}'"
 msgstr "Datoteke '{filename}' ni mogoče najti"
 
@@ -2561,6 +2563,426 @@ msgstr "Klikni na miško, izbriši polje in odkrij ozadje"
 msgid "Click the mouse on rectangles until all the blocks disappear."
 msgstr "Klikni miško na kvadratkih dokler vsa polja ne izginejo."
 
+#: ../src/explore-activity/explore.py:149
+#, fuzzy
+msgid "Click to play sound"
+msgstr "Treba je navesti zvok za predvajanje"
+
+#. draw back button
+#: ../src/explore-activity/explore.py:265
+msgid "Back to Homepage"
+msgstr "Nazaj na domačo stran"
+
+#: ../src/explore-activity/explore.py:456
+#: ../src/findit-activity/findit.py:320
+#: ../src/louis_braille-activity/louis_braille.py:88
+#: ../src/piano_composition-activity/piano_composition.py:444
+msgid ""
+"Failed to parse data set '{filename}' with error:\n"
+"{error}"
+msgstr ""
+"Razčlenjevanje niza podatkov '{filename}' je spodletelo z napako:\n"
+"{error}"
+
+#: ../src/explore-activity/explore.py:567
+#, fuzzy
+msgid "Explore Status:"
+msgstr "Stanje Anjute"
+
+#: ../src/explore_farm_animals-activity/explore_farm_animals.xml.in.h:1
+#, fuzzy
+msgid "Explore Farm Animals"
+msgstr "Dela z mrtvimi živalmi"
+
+#: ../src/explore_farm_animals-activity/explore_farm_animals.xml.in.h:2
+msgid "Learn about farm animals, what sounds they make, and interesting facts."
+msgstr ""
+
+#: ../src/explore_farm_animals-activity/explore_farm_animals.xml.in.h:3
+msgid "Learn to associate animal sounds with the animal name and what the animal looks like."
+msgstr ""
+
+#: ../src/explore_farm_animals-activity/explore_farm_animals.xml.in.h:4
+msgid ""
+"There are three levels in this game.\n"
+"\n"
+"In level one, players enjoy exploring each animal on the screen. Click on the question mark, and learn about the animal, what it's name is, what sound it makes, and what it looks like. Study well this information, because you will be tested in level 2 and 3!\n"
+"\n"
+"In level two, a random animal sound is played and you must choose which animal makes that sound. Click on the question mark that corresponds to the animal you hear. If you'd like to hear the animal sound repeated, click on the play button. When you have matched all animals correctly, you win!\n"
+"\n"
+"In level three, a random text prompt is displayed and you must click on the animal that matches the text. When you have matched all texts correctly, you win!\n"
+msgstr ""
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:1
+msgid " Click on the questions to explore each farm animal."
+msgstr ""
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:2
+msgid " Click on the farm animal that makes the sound you hear."
+msgstr ""
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:3
+msgid " Click the animal that matches the description."
+msgstr " Kliknite žival, ki se sklada z opisom."
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:4
+msgid " Horse"
+msgstr " Konj"
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:5
+msgid " The horse goes \"neigh! neigh!\". Horses usually sleep standing up."
+msgstr ""
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:6
+msgid " You can ride on the back of this animal!"
+msgstr ""
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:7
+msgid " Chickens"
+msgstr " Kokoši"
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:8
+msgid " The chichen goes \"cluck, cackle, cluck\". Chickens have over 200 different noises they can use to communicate."
+msgstr ""
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:9
+msgid " This animal lays eggs."
+msgstr " Ta žival vali jajca."
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:10
+msgid " Cows"
+msgstr " Krave"
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:11
+msgid " The cow goes \"moo. moo.\" Cows have a memory of about three years. Cows have many uses, including for milk and meat."
+msgstr ""
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:12
+msgid " You can drink the milk this animal produces."
+msgstr ""
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:13
+msgid " Cat"
+msgstr " Mačka"
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:14
+msgid " The cat goes \"meow, meow\". Cats usually hate water because their fur doesn't stay warm when it is wet."
+msgstr ""
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:15
+msgid " This pet likes to chase mice."
+msgstr ""
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:16
+msgid " Pigs"
+msgstr " Prašički"
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:17
+msgid " The pig goes \"oink, oink\". Pigs are the 4th most intelligent animal."
+msgstr ""
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:18
+msgid " This animal likes to lay in the mud."
+msgstr ""
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:19
+msgid " White Duck"
+msgstr " Bela raca"
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:20
+msgid " The duck goes \"quack, quack\". Ducks have special features like webbed feat and waterproof feathers."
+msgstr ""
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:21
+msgid " This animal has webbed feet so it can swim in the water."
+msgstr ""
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:22
+msgid " Owl"
+msgstr " Sova"
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:23
+msgid " The owl goes \"hoo. hoo.\" The owl has excellent vision and hearing at night."
+msgstr ""
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:24
+msgid " This animal likes to come out at night."
+msgstr " Ta žival se rada pokaže ponoči."
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:25
+msgid " Dogs"
+msgstr " Psi"
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:26
+msgid " The dog goes \"bark! bark!\". Dogs are great human companions and usually enjoy love and attention."
+msgstr ""
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:27
+msgid " This animal's ancesters were wolves."
+msgstr ""
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:28
+msgid " Rooster"
+msgstr " Petelin"
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:29
+msgid " The rooster goes \"coc-a-doodle-doo!\". Roosters have been on farms for about 5,000 years. Every morning it wakes the farm up with its noices."
+msgstr ""
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:30
+msgid " This animal wakes the farm up in the morning."
+msgstr ""
+
+#: ../src/explore_world_animals-activity/explore_world_animals.xml.in.h:1
+#, fuzzy
+msgid "Explore World Animals"
+msgstr "Svetovno ime (WWN):"
+
+#: ../src/explore_world_animals-activity/explore_world_animals.xml.in.h:2
+msgid "Learn about world animals, interesting facts and their location on a map."
+msgstr ""
+
+#: ../src/explore_world_animals-activity/explore_world_animals.xml.in.h:3
+msgid ""
+"There are two levels in this game.\n"
+"\n"
+"In level one, players enjoy exploring each animal on the screen. Click on the question mark, and learn about the animal, what it's name is, and what it looks like. Study well this information, because you will be tested in level 2!\n"
+"\n"
+"In level two, a random text prompt is displayed and you must click on the animal that matches the text. When you have matched all texts correctly, you win!\n"
+msgstr ""
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:1
+msgid " Explore exotic animals from around the world."
+msgstr ""
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:2
+msgid " Click on location where the given animal lives."
+msgstr ""
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:3
+msgid " Jaguars in South America"
+msgstr " Jaguarji v Južni Ameriki"
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:4
+msgid " Jaguars are named after the Native American word meaning 'he who kills with one leap'"
+msgstr ""
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:5
+msgid "  Jaguar"
+msgstr "  Jaguar"
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:6
+#, fuzzy
+msgid " Hedgehogs in Europe"
+msgstr "Zapis pogosto uporabljen v Evropi"
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:7
+msgid " Hedgehogs eat small animals, like frogs and insects, so many people keep them as useful pets. When in danger, they will curl up into a ball and stick up their coat of sharp spines."
+msgstr ""
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:8
+msgid " Hedgehog"
+msgstr ""
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:9
+msgid " Giraffes in Africa"
+msgstr " Žirafe v Afriki"
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:10
+msgid " The giraffe lives in Africa and is the tallest mammal in the world. Just their legs, which are usually 1.8 meters long, are taller than most humans!"
+msgstr ""
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:11
+msgid " Giraffe"
+msgstr " Žirafa"
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:12
+msgid " Bison in America"
+msgstr " Bizon v Ameriki"
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:13
+msgid " Bison live on the plains of North America and were hunted by the Native Americans for food."
+msgstr ""
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:14
+msgid " Bison"
+msgstr " Bizon"
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:15
+#, fuzzy
+msgid " Narwhals in the Arctic"
+msgstr "Uredi v XEmacs"
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:16
+msgid " Narwhals are whales that live in the Arctic Ocean and have long tusks. These tusks remind many people of the mythical unicorn's horn."
+msgstr ""
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:17
+msgid " Narwhal"
+msgstr ""
+
+#: ../src/explore_world_music-activity/explore_world_music.xml.in.h:1
+#, fuzzy
+msgid "Explore World Music"
+msgstr "Iskanje po zbirki posnetkov"
+
+#: ../src/explore_world_music-activity/explore_world_music.xml.in.h:2
+msgid "Learn about the music of the world."
+msgstr "Spoznajte glasbe sveta."
+
+#: ../src/explore_world_music-activity/explore_world_music.xml.in.h:3
+msgid "Develop a better understanding of the variety of music present in the world"
+msgstr ""
+
+#: ../src/explore_world_music-activity/explore_world_music.xml.in.h:4
+msgid ""
+"There are three levels in this activity.\n"
+"\n"
+"In the first level, enjoy exploring music from around the world. Click on each suitcase to learn about the music from that area, and listen to a short sample. Study well, because there will be two games related to this information next!\n"
+"\n"
+"The second level is a matching game. You will hear a clip of music, and you must select the location that corresponds to that music. Click the play button if you'd like to hear the music again. You win the level when you have correctly matched all sound clips.\n"
+"\n"
+"The third level is also a matching game. You must select the location that matches the text description on the screen. You win the level when you have correctly matched all text prompts.\n"
+msgstr ""
+
+#: ../src/explore_world_music-activity/explore_world_music.xml.in.h:12
+msgid "Images from http://commons.wikimedia.org/wiki, http://archive.org"
+msgstr "Slike s spletišč http://commons.wikimedia.org/wiki, http://archive.org"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:1
+msgid " Explore world music! Click on the suitcases."
+msgstr ""
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:2
+msgid " Click on the location that matches the music you hear."
+msgstr ""
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:3
+msgid " Click on the location that matches the text."
+msgstr ""
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:4
+msgid " Australia"
+msgstr " Avstralija"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:5
+msgid " Aboriginals were the first people to live in Australia. They sing and play instruments, like the didgeridoo. It is made from a log and can be up to five meters long!"
+msgstr ""
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:6
+#, fuzzy
+msgid " Where is the didgeridoo played?"
+msgstr "<b>Kje je vaša vsebina?</b>"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:7
+msgid " Africa"
+msgstr " Afrika"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:8
+msgid " Music is a part of everyday life in Africa. African music features a great variety of drums, and they believe it is a sacred and magical instrument."
+msgstr ""
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:9
+#, fuzzy
+msgid " Where is the drum considered a magical instrument?"
+msgstr " Kje velja boben za čarobno glasbilo?"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:10
+msgid " Middle East"
+msgstr " Srednji vzhod"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:11
+msgid " Music is a very important part of middle eastern culture. Specific songs are played to call worshipers to prayer. The lute is an instrument invented thousands of years ago and still in use today."
+msgstr ""
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:12
+msgid " Where is music used to call people to prayer?"
+msgstr ""
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:13
+msgid " Japan"
+msgstr " Japonska"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:14
+msgid " Taiko drumming comes from Japan. This type of drumming was originally used to scare enemies in battle. It is very loud, and performances are very exciting with crouds chearing and performers yelling!"
+msgstr ""
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:15
+msgid " Where do performers yelp as they play the drums?"
+msgstr ""
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:16
+#, fuzzy
+msgid " Scotland and Ireland"
+msgstr "Irska (en_IE)"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:17
+msgid " Folk music of this region is called celtic music, often incorporates a narrative poem or story. Typical instruments include bagpipes, fiddles, flutes, harps, and accordians."
+msgstr ""
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:18
+msgid " Bagpipers, who often wear kilts, are from this location."
+msgstr ""
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:19
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:6
+msgid " Italy"
+msgstr " Italija"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:20
+msgid " Italy is famous for its Opera. Opera is a musical theatre where actors tell a story by acting and singing. Opera sings, both male and female, learn special techniques to sing operas."
+msgstr ""
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:21
+msgid " This country is known for its opera music."
+msgstr " Ta država slovi po svoji operni glasbi."
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:22
+msgid " European Classical Music"
+msgstr " Evropska klasična glasba"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:23
+msgid " Europe is the home of classical music. Famous composers like Bach, Beethoven, and Mozart forevor changed music history."
+msgstr ""
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:24
+msgid " Bach, Beethoven, and Mozart composed music in this location."
+msgstr ""
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:25
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:5
+msgid " Mexico"
+msgstr " Mehika"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:26
+msgid " Mariachi is a famous type of Mexican music. It features guitars, trumpets, and violins. These bands play for many occasions, including weddings and parties."
+msgstr ""
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:27
+msgid " At parties, people often dance to the Mariachi music. A Famous dance is:"
+msgstr ""
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:28
+#, fuzzy
+msgid " Where is Mariachi music from?"
+msgstr " Odkod prihaja glasba mariači?"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:29
+msgid " America"
+msgstr " Amerika"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:30
+msgid " America also has a wide variety of musical genres, but perhaps it is most famous for rock n' roll music. This music features vocalists, guitars, and drums."
+msgstr ""
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:31
+msgid " The 'king' of rock n' roll is"
+msgstr " Kralj rokenrola je"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:32
+msgid " The 'kind' of rock n' roll, Elvis Presley, made his music famous in this country."
+msgstr " Nekakšen kralj rokenrola je Elvis Presley, saj je njegova glasba zaslovela povsod po ZDA."
+
 #: ../src/fifteen-activity/fifteen.xml.in.h:1
 msgid "The fifteen game"
 msgstr "Petnajstica"
@@ -2576,15 +2998,6 @@ msgstr "Klikni na katerikoli predmet, poleg katerega je prazen prostor. Predmet 
 #: ../src/fifteen-activity/fifteen.xml.in.h:5
 msgid "Original code taken from the libgnomecanvas demo"
 msgstr "Originalna koda vzeta iz libgnomecanvas demo"
-
-#: ../src/findit-activity/findit.py:320
-#: ../src/louis_braille-activity/louis_braille.py:88
-msgid ""
-"Failed to parse data set '{filename}' with error:\n"
-"{error}"
-msgstr ""
-"Razčlenjevanje niza podatkov '{filename}' je spodletelo z napako:\n"
-"{error}"
 
 #: ../src/followline-activity/followline.xml.in.h:1
 msgid "Control the hose-pipe"
@@ -2889,6 +3302,7 @@ msgid "Montenegrin"
 msgstr "Črna gora"
 
 #: ../src/gcompris/config.c:100
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:37
 msgid "Nepal"
 msgstr "nepalski"
 
@@ -3137,7 +3551,8 @@ msgid "GCompris will find the activity plugins in this directory"
 msgstr "GCompris bo v tej mapi našel vstavke dejavnosti"
 
 #: ../src/gcompris/gcompris.c:195
-msgid "GCompris will find the python activity in this directory"
+#, fuzzy
+msgid "GCompris will find the Python activity in this directory"
 msgstr "GCompris bo našel dejavnost python v tej mapi"
 
 #: ../src/gcompris/gcompris.c:198
@@ -3246,7 +3661,7 @@ msgstr "Nalaganje preobleke '%s' je spodletelo (Preverite, če datoteka obstaja 
 msgid "Retrieving remote data..."
 msgstr "Pridobivanje oddaljenih podatkov ..."
 
-#: ../src/gcompris/gcompris.c:1512
+#: ../src/gcompris/gcompris.c:1513
 #, c-format
 msgid "GCompris won't start because the lock file is less than %d second old.\n"
 msgid_plural "GCompris won't start because the lock file is less than %d seconds old.\n"
@@ -3255,12 +3670,12 @@ msgstr[1] "GCompris se ne zažene, ker je datoteka zaklepa stara manj kot %d sek
 msgstr[2] "GCompris se ne zažene, ker je datoteka zaklepa stara manj kot %d sekundi.\n"
 msgstr[3] "GCompris se ne zažene, ker je datoteka zaklepa stara manj kot %d sekunde.\n"
 
-#: ../src/gcompris/gcompris.c:1516
+#: ../src/gcompris/gcompris.c:1517
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Datoteka ključa je: %s\n"
 
-#: ../src/gcompris/gcompris.c:1694
+#: ../src/gcompris/gcompris.c:1638
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3274,32 +3689,32 @@ msgstr ""
 "Več podrobnosti je mogoče najti na http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1815
+#: ../src/gcompris/gcompris.c:1818
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Uporabi -l za neposreden dostop do dejavnosti.\n"
 
-#: ../src/gcompris/gcompris.c:1816
+#: ../src/gcompris/gcompris.c:1819
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Seznam dostopnih dejavnosti je:\n"
 
-#: ../src/gcompris/gcompris.c:1847
+#: ../src/gcompris/gcompris.c:1850
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Število dejavnosti: %d\n"
 
-#: ../src/gcompris/gcompris.c:1883
+#: ../src/gcompris/gcompris.c:1886
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s obstaja toda ni berljiv ali zapisljiv"
 
-#: ../src/gcompris/gcompris.c:1978
+#: ../src/gcompris/gcompris.c:1981
 #, c-format
 msgid "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list available ones\n"
 msgstr "NAPAKA: Profila '%s' ni mogoče najti. Poženi 'gcompris --profile-list' za seznam razpoložljivih profilov\n"
 
-#: ../src/gcompris/gcompris.c:1992
+#: ../src/gcompris/gcompris.c:1995
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Seznam dostopnih profilov je:\n"
@@ -3337,7 +3752,7 @@ msgstr "Navodila"
 msgid "Credit"
 msgstr "Zasluge"
 
-#: ../src/gcompris/menu.c:615
+#: ../src/gcompris/menu.c:620
 #, c-format
 msgid ""
 "Loading activity from file:\n"
@@ -3346,7 +3761,7 @@ msgstr ""
 "Nalaganje dejavnosti iz datoteke:\n"
 "%s"
 
-#: ../src/gcompris/menu.c:675
+#: ../src/gcompris/menu.c:680
 msgid "All the activities are disabled in this profile. Go in the GCompris administration module and activate at least one activity."
 msgstr "Vse dejavnosti so v tem profilu onemogočene. Odprite skrbniški modul GCompris in omogočite vsaj eno dejavnost."
 
@@ -3433,6 +3848,7 @@ msgid "Regions of France"
 msgstr "Francoske regije"
 
 #: ../src/geo_country-activity/resources/geo_country/board12_0.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:40
 msgid "India"
 msgstr "Indija"
 
@@ -3483,6 +3899,7 @@ msgstr "Celine"
 
 #: ../src/geography-activity/resources/geography/board1_0.xml.in.h:2
 #: ../src/geography-activity/resources/geography/board8_0.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:6
 msgid "Africa"
 msgstr "Afrika"
 
@@ -3495,6 +3912,7 @@ msgid "Antarctica"
 msgstr "Antarktika"
 
 #: ../src/geography-activity/resources/geography/board1_0.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:1
 msgid "Asia"
 msgstr "Azija"
 
@@ -3740,6 +4158,7 @@ msgid "Romania"
 msgstr "Romunija"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:16
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:54
 msgid "Russia"
 msgstr "Rusija"
 
@@ -3760,6 +4179,7 @@ msgid "Slovenia"
 msgstr "Slovenija"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:21
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:24
 msgid "Turkey"
 msgstr "Turčija"
 
@@ -4021,6 +4441,198 @@ msgstr "Zambija"
 msgid "Zimbabwe"
 msgstr "Zimbabve"
 
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:2
+msgid "Caspian Sea"
+msgstr "Kaspijsko morje"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:3
+msgid "Black Sea"
+msgstr " Črno morje"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:4
+msgid "Mediteranean Sea"
+msgstr "Sredozemsko morje"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:5
+msgid "Persian Gulf"
+msgstr "Perzijski zaliv"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:7
+msgid "Red Sea"
+msgstr "Rdeče morje"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:8
+msgid "Palestine"
+msgstr "Palestina"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:9
+msgid "Israel"
+msgstr "Izrael"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:10
+msgid "Brunei"
+msgstr "Brunej"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:11
+msgid "Qatar"
+msgstr "Katar"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:12
+msgid "Bahrein"
+msgstr "Bahrajn"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:13
+msgid "Lebanon"
+msgstr "Libanon"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:14
+msgid "Chypre"
+msgstr "Ciper"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:15
+msgid "Koweit"
+msgstr "Kuvajt"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:16
+msgid "Armenia"
+msgstr "Armenija"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:17
+msgid "Oman"
+msgstr "Oman"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:18
+msgid "United Arab Emirates"
+msgstr "Združeni arabski emirati"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:19
+msgid "Yemen"
+msgstr "Jemen"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:20
+msgid "Saudi Arabia"
+msgstr "Savdova Arabija"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:21
+msgid "Jordan"
+msgstr "Jordanija"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:22
+msgid "Irak"
+msgstr "Irak"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:23
+msgid "Syria"
+msgstr "Sirija"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:25
+msgid "Georgia"
+msgstr "Gruzija"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:26
+msgid "Azerbaijan"
+msgstr "Azerbajdžan"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:27
+msgid "Iran"
+msgstr "Iran"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:28
+msgid "Turkmenistan"
+msgstr "Turkmenistan"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:29
+msgid "Kirghizstan"
+msgstr "Kirgizstan"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:30
+msgid "Tadjikistan"
+msgstr "Tadžikistan"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:31
+msgid "Afghanistan"
+msgstr "Afganistan"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:32
+msgid "Malaysia"
+msgstr "Malezija"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:33
+msgid "Indonesia"
+msgstr "Indonezija"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:34
+msgid "Philippines"
+msgstr "Filipini"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:35
+msgid "Nyanmar"
+msgstr "Mjanmar"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:36
+msgid "Pakistan"
+msgstr "Pakistan"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:38
+msgid "Bhoutan"
+msgstr "Butan"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:39
+msgid "Bangladesh"
+msgstr "Bangladeš"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:41
+msgid "China"
+msgstr "Kitajska"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:42
+msgid "Sri Lanka"
+msgstr "Sri Lanka"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:43
+msgid "Thailand"
+msgstr "Tajska"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:44
+msgid "Laos"
+msgstr "Laos"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:45
+msgid "Cambodia"
+msgstr "Kambodža"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:46
+msgid "Vietnam"
+msgstr "Vietnam"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:47
+msgid "Taiwan"
+msgstr "Tajvan"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:48
+msgid "Ouzbekistan"
+msgstr "Uzbekistan"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:49
+msgid "Kazakhstan"
+msgstr "Kazahstan"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:50
+msgid "South Corea"
+msgstr "Južna Koreja"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:51
+msgid "North Corea"
+msgstr "Severna Koreja"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:52
+msgid "Japan"
+msgstr "Japonska"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:53
+msgid "Mongolia"
+msgstr "Mongolija"
+
 #: ../src/gletters-activity/gletters.c:132
 #: ../src/gletters-activity/gletters.xml.in.h:1
 msgid "Simple Letters"
@@ -4051,12 +4663,10 @@ msgstr "ABCČDEFGHIJKLMNOPRSŠTUVZŽ"
 #. we can add what you want in it.
 #: ../src/gletters-activity/gletters.c:850
 #: ../src/imageid-activity/imageid.c:716
-#: ../src/login-activity/login.py:480
-#: ../src/missing_letter-activity/missingletter.c:800
 #: ../src/pythontest-activity/pythontest.py:448
 #: ../src/readingh-activity/reading.c:905
-#: ../src/scalesboard-activity/scale.c:1190
-#: ../src/smallnumbers-activity/smallnumbers.c:597
+#: ../src/scalesboard-activity/scale.c:1191
+#: ../src/smallnumbers-activity/smallnumbers.c:598
 #: ../src/tuxpaint-activity/tuxpaint.py:185
 #: ../src/wordsgame-activity/wordsgame.c:904
 #, c-format, python-format
@@ -4068,7 +4678,7 @@ msgstr ""
 " za profil <b>%s</b>"
 
 #: ../src/gletters-activity/gletters.c:879
-#: ../src/smallnumbers-activity/smallnumbers.c:616
+#: ../src/smallnumbers-activity/smallnumbers.c:617
 msgid "Enable sounds"
 msgstr "Omogoči zvok"
 
@@ -4118,9 +4728,8 @@ msgid " and %d"
 msgstr " in %d"
 
 #: ../src/gnumch-equality-activity/gnumch.py:115
-#, python-format
-msgid "%d is divisible by %s."
-msgstr "%d je deljiv z %s."
+msgid "{0} is divisible by {1}."
+msgstr "{0} je deljivo z {1}."
 
 #: ../src/gnumch-equality-activity/gnumch.py:119
 msgid "1 is not a prime number."
@@ -4148,9 +4757,8 @@ msgstr "Faktorji %d"
 
 # faktor je sprejeto v šoli, saj razstavljajo na prafaktorje ...
 #: ../src/gnumch-equality-activity/gnumch.py:195
-#, python-format
-msgid "%s are the factors of %d."
-msgstr "%s sta faktorja %d."
+msgid "{0} are the factors of {1}."
+msgstr "{0} sta faktorja {1}."
 
 #: ../src/gnumch-equality-activity/gnumch.py:207
 #, python-format
@@ -4158,29 +4766,24 @@ msgid "Multiples of %d"
 msgstr "Večkratniki %d"
 
 #: ../src/gnumch-equality-activity/gnumch.py:241
-#, python-format
-msgid "%s = %d"
-msgstr "%s = %d"
+msgid "{0} = {1}"
+msgstr "{0} = {1}"
 
 #: ../src/gnumch-equality-activity/gnumch.py:252
-#, python-format
-msgid "%d + %d"
-msgstr "%d + %d"
+msgid "{0} + {1}"
+msgstr "{0} + {1}"
 
 #: ../src/gnumch-equality-activity/gnumch.py:257
-#, python-format
-msgid "%d − %d"
-msgstr "%d − %d"
+msgid "{0} − {1}"
+msgstr "{0} − {1}"
 
 #: ../src/gnumch-equality-activity/gnumch.py:262
-#, python-format
-msgid "%d × %d"
-msgstr "%d × %d"
+msgid "{0} × {1}"
+msgstr "{0} × {1}"
 
 #: ../src/gnumch-equality-activity/gnumch.py:266
-#, python-format
-msgid "%d ÷ %d"
-msgstr "%d ÷ %d"
+msgid "{0} ÷ {1}"
+msgstr "{0} ÷ {1}"
 
 #: ../src/gnumch-equality-activity/gnumch.py:274
 #, python-format
@@ -4289,24 +4892,22 @@ msgid "Prime numbers are numbers that are only divisible by themselves and 1. Fo
 msgstr "Praštevila so števila, ki so deljiva le sama s sabo in 1. Na primer, 3 je praštevilo, toda 4 ni (ker je 4 deljivo z 2). O praštevilih lahko razmišljaš kot o zelo majhnih družinah: vedno imajo samo dva člana! Samo same sebe in 1. V to družino ne moreš spraviti nobenih drugih števil. 5 je eno od teh osamljenih števil (samo 5 x 1 = 5), toda 6 ima v svoji družini tudi 2 in 3 (6 x 1 = 6, 2 x 3 = 6). Zato 6 ni praštevilo. Uporabi tipke s puščicami za premikanje po tabli in za izogibanje Poškam. Pritisni preslednico in pojej število."
 
 #: ../src/guessnumber-activity/guessnumber.py:203
-#, python-format
-msgid "Guess a number between %d and %d"
-msgstr "Ugani število med %d in %d"
+msgid "Guess a number between {0} and {1}"
+msgstr "Ugani število med {0} in {1}"
 
-#: ../src/guessnumber-activity/guessnumber.py:306
-#, python-format
-msgid "Please enter a number between %d and %d"
-msgstr "Vtipkaj število med %d in %d"
+#: ../src/guessnumber-activity/guessnumber.py:307
+msgid "Please enter a number between {0} and {1}"
+msgstr "Vtipkaj število med {0} in {1}"
 
-#: ../src/guessnumber-activity/guessnumber.py:311
+#: ../src/guessnumber-activity/guessnumber.py:312
 msgid "Out of range"
 msgstr "Izven obsega"
 
-#: ../src/guessnumber-activity/guessnumber.py:317
+#: ../src/guessnumber-activity/guessnumber.py:318
 msgid "Too high"
 msgstr "Previsoko"
 
-#: ../src/guessnumber-activity/guessnumber.py:319
+#: ../src/guessnumber-activity/guessnumber.py:320
 msgid "Too low"
 msgstr "Prenizko"
 
@@ -4463,7 +5064,7 @@ msgstr "To je merilo za elektriko, ki jo je proizvedla turbina."
 #: ../src/hydroelectric-activity/hydroelectric.py:292
 #: ../src/hydroelectric-activity/hydroelectric.py:323
 #: ../src/hydroelectric-activity/hydroelectric.py:346
-msgid "The electricity power is measured in Watt (W)."
+msgid "The electricity power is measured in watts (W)."
 msgstr "Električna moč se meri v Wattih (W)."
 
 #: ../src/hydroelectric-activity/hydroelectric.py:176
@@ -4980,6 +5581,7 @@ msgid "Distinguish right and left hands from different points of view. Spatial r
 msgstr "Razlikovanje leve in desne dlani iz različnih pogledov. Prostorska predstava"
 
 #: ../src/leftright-activity/leftright.xml.in.h:4
+#: ../src/note_names-activity/note_names.xml.in.h:3
 #: ../src/railroad-activity/railroad.xml.in.h:4
 msgid "None"
 msgstr "Nič"
@@ -5019,6 +5621,21 @@ msgstr "Profil:"
 #: ../src/login-activity/login.py:235
 msgid "Login: "
 msgstr "Prijava:"
+
+#. Init configuration window:
+#. all the configuration functions will use it
+#. all the configuration functions returns values for their key in
+#. the dict passed to the apply_callback
+#. the returned value is the main GtkVBox of the window,
+#. we can add what you want in it.
+#: ../src/login-activity/login.py:480
+#, fuzzy
+msgid ""
+"<b>{0}</b> configuration\n"
+" for profile <b>{1}</b>"
+msgstr ""
+"<b>%1$s</b> nastavitev\n"
+" za profil <b>%2$s</b>"
 
 #. toggle box
 #: ../src/login-activity/login.py:496
@@ -5112,7 +5729,8 @@ msgid "He revised and extended braille to include mathematics, symbols, punctuat
 msgstr "Braillovo pisavo je razširil, da vključuje tudi posebne znake za matematiko, simbole, ločila in glasbene zapise. "
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:10
-msgid "He died of tuberculosis. He is burried in the Pantheon in Paris. A monument is erected to honor him."
+#, fuzzy
+msgid "He died of tuberculosis. He is buried in the Pantheon in Paris. A monument is erected to honor him."
 msgstr "Umrl je zaradi tuberkuloze, pokopali pa so ga v Panteonu v Parizu. V čast njegovemu delu, so mu postavili tudi spomenik."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:11
@@ -5921,6 +6539,70 @@ msgstr "Izgradi enak mozaik na desnem delu"
 msgid "Rebuild the mosaic"
 msgstr "Ponovno izgradi mozaik"
 
+#: ../src/note_names-activity/note_names.py:117
+msgid "These are the eight basic notes in treble clef. They form the C Major Scale."
+msgstr ""
+
+#: ../src/note_names-activity/note_names.py:127
+msgid "These are the eight basic notes in bass clef. They also form the C Major Scale. Notice that the note positions are different than in treble clef."
+msgstr ""
+
+#: ../src/note_names-activity/note_names.py:141
+msgid "Play Scale"
+msgstr "Zaigraj lestvico"
+
+#: ../src/note_names-activity/note_names.py:148
+#, fuzzy
+msgid "Play Treble Clef Game"
+msgstr "Igraj miselno igro Hitori"
+
+#: ../src/note_names-activity/note_names.py:150
+#, fuzzy
+msgid "Play Bass Clef Game"
+msgstr "Igraj miselno igro Hitori"
+
+#: ../src/note_names-activity/note_names.py:182
+msgid "Click on the note name to match the pitch. Then click ok to check."
+msgstr ""
+
+#: ../src/note_names-activity/note_names.py:184
+msgid "Now there are sharp notes. These pitches are raised a half step."
+msgstr ""
+
+#: ../src/note_names-activity/note_names.py:186
+msgid "Now there are flat notes. These pitches are lowered a half step."
+msgstr ""
+
+#: ../src/note_names-activity/note_names.py:192
+msgid "Click the note to hear it played"
+msgstr ""
+
+#: ../src/note_names-activity/note_names.py:244
+msgid "Need a hint? Click here for color-coded note names."
+msgstr ""
+
+#: ../src/note_names-activity/note_names.py:247
+msgid "Ready for a challenge? Color all buttons black!"
+msgstr ""
+
+#: ../src/note_names-activity/note_names.xml.in.h:1
+msgid "Name that Note!"
+msgstr "Poimenuj to noto!"
+
+#: ../src/note_names-activity/note_names.xml.in.h:2
+msgid "Learn the names of the notes, in bass and treble clef, with the help of sounds and colors"
+msgstr ""
+
+#: ../src/note_names-activity/note_names.xml.in.h:4
+msgid "To develop a good understanding of note position and naming convention. To prepare for the piano player and composition activity"
+msgstr ""
+
+#: ../src/note_names-activity/note_names.xml.in.h:5
+msgid ""
+"The first level and the eleventh level introduce two different staffs with a C major scale. The following levels then quiz the player on note names. To help learn the names, the note pitches are played when the mouse is rolled over the note, and the pitch names can be color coded.\n"
+"        "
+msgstr ""
+
 #: ../src/paintings-activity/paintings.xml.in.h:1
 msgid "Assemble the puzzle"
 msgstr "Sestavi sestavljanko"
@@ -6113,6 +6795,333 @@ msgstr "Iskanje razlik"
 msgid "Observe the two pictures carefully. There are some slight differences. When you find a difference you must click on it."
 msgstr "Pozorno opazuj dve sliki. Obstaja nekaj majhnih razlik. Ko najdeš razliko, klikni nanjo."
 
+#. this is unique to the English notation system
+#. translators must modify this dictionary for each language
+#: ../src/piano_composition-activity/gcomprismusic.py:67
+msgid "C"
+msgstr "C"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:67
+msgid "D"
+msgstr "D"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:67
+msgid "E"
+msgstr "E"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:67
+msgid "F"
+msgstr "F"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:67
+msgid "G"
+msgstr "G"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:67
+msgid "A"
+msgstr "A"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:67
+msgid "B"
+msgstr "B"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:68
+msgid "C#"
+msgstr "C#"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:68
+msgid "D#"
+msgstr "D#"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:68
+msgid "F#"
+msgstr "F#"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:68
+msgid "G#"
+msgstr "G#"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:68
+msgid "A#"
+msgstr "A#"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:69
+msgid "Db"
+msgstr "Db"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:69
+msgid "Eb"
+msgstr "Eb"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:69
+msgid "Gb"
+msgstr "Gb"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:69
+msgid "Ab"
+msgstr "Ab"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:69
+msgid "Bb"
+msgstr "Bb"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:273
+msgid "The staff is full. Please erase some notes"
+msgstr ""
+
+#: ../src/piano_composition-activity/piano_composition.py:109
+msgid "This is the Treble clef staff, for high pitched notes"
+msgstr ""
+
+#: ../src/piano_composition-activity/piano_composition.py:110
+msgid "These are the 8 \"white\" keys in an octave"
+msgstr ""
+
+#: ../src/piano_composition-activity/piano_composition.py:112
+msgid "This is the Bass clef staff, for low pitched notes"
+msgstr ""
+
+#: ../src/piano_composition-activity/piano_composition.py:113
+msgid "These keys form the C Major scale"
+msgstr ""
+
+#: ../src/piano_composition-activity/piano_composition.py:115
+msgid "Click on the note symbols to write different length notes"
+msgstr ""
+
+#: ../src/piano_composition-activity/piano_composition.py:116
+msgid "Notes can be many types, such as quarter notes, half notes, and whole notes"
+msgstr ""
+
+#: ../src/piano_composition-activity/piano_composition.py:118
+#, fuzzy
+msgid "Sharp notes have a # sign"
+msgstr "Podpiši oznako"
+
+#: ../src/piano_composition-activity/piano_composition.py:119
+msgid "The black keys are sharp and flat keys"
+msgstr ""
+
+#: ../src/piano_composition-activity/piano_composition.py:121
+#, fuzzy
+msgid "Flat notes have a b sign"
+msgstr "Podpiši oznako"
+
+#: ../src/piano_composition-activity/piano_composition.py:122
+msgid "Each black key has two names, one with a flat and one with a sharp"
+msgstr ""
+
+#: ../src/piano_composition-activity/piano_composition.py:124
+msgid "Now you can load melodies from around the world"
+msgstr ""
+
+#: ../src/piano_composition-activity/piano_composition.py:127
+msgid "Compose music now! Click to load or save your work"
+msgstr ""
+
+#. ADD BUTTONS
+#: ../src/piano_composition-activity/piano_composition.py:142
+msgid "Erase All Notes"
+msgstr "Izbriši vse note"
+
+#: ../src/piano_composition-activity/piano_composition.py:145
+msgid "Erase Last Note"
+msgstr "Izbriši zadnjo noto"
+
+#: ../src/piano_composition-activity/piano_composition.py:148
+msgid "Play Composition"
+msgstr "Predvajaj skladbo"
+
+#: ../src/piano_composition-activity/piano_composition.py:153
+#, fuzzy
+msgid "Erase and Change Clef"
+msgstr "Datum in ura spremembe"
+
+#: ../src/piano_composition-activity/piano_composition.py:161
+msgid "Change Note Type:"
+msgstr "Spremeni vrsto note:"
+
+#: ../src/piano_composition-activity/piano_composition.py:181
+msgid "Eighth Note"
+msgstr "Osminka"
+
+#: ../src/piano_composition-activity/piano_composition.py:200
+msgid "Quarter Note"
+msgstr "Četrtinka"
+
+#: ../src/piano_composition-activity/piano_composition.py:210
+msgid "Half Note"
+msgstr "Polovinka"
+
+#: ../src/piano_composition-activity/piano_composition.py:221
+msgid "Whole Note"
+msgstr "Celinka"
+
+#: ../src/piano_composition-activity/piano_composition.py:243
+msgid "Load Music"
+msgstr "Naloži glasbo"
+
+#: ../src/piano_composition-activity/piano_composition.py:245
+#, fuzzy
+msgid "Change Accidental Style:"
+msgstr "Izberite slog nadzora"
+
+#: ../src/piano_composition-activity/piano_composition.py:344
+#, fuzzy
+msgid ""
+"Error: This activity cannot be played with the\n"
+"sound effects disabled.\n"
+"Go to the configuration dialogue to\n"
+"enable the sound."
+msgstr ""
+"Napaka: ta dejavnost ne deluje z izklopljenim\n"
+"zvokom .\n"
+"Pojdi v nastavitve za zvok in\n"
+"vključi zvok."
+
+#: ../src/piano_composition-activity/piano_composition.py:361
+#, fuzzy
+msgid "Select A Melody to Load"
+msgstr "Izberite datoteko za nalaganje"
+
+#: ../src/piano_composition-activity/piano_composition.py:369
+msgid "Next Page"
+msgstr "Naslednja stran"
+
+#: ../src/piano_composition-activity/piano_composition.py:371
+msgid "Previous Page"
+msgstr "Predhodna stran"
+
+#: ../src/piano_composition-activity/piano_composition.xml.in.h:1
+msgid "Piano Composition"
+msgstr "Klavirska skladba"
+
+#: ../src/piano_composition-activity/piano_composition.xml.in.h:2
+msgid "An activity to learn how the piano keyboard works, how notes are written on a musical staff and explore music composition by loading and saving your work."
+msgstr ""
+
+#: ../src/piano_composition-activity/piano_composition.xml.in.h:3
+msgid "Familiarity with note naming convensions, note-names activity useful to learn this notation."
+msgstr ""
+
+#: ../src/piano_composition-activity/piano_composition.xml.in.h:4
+msgid "Develop an understanding of music composition, and increase interest in making music with a piano keyboard. This activity covers many fundamental aspects of music, but there is much more to explore about music composition. If you enjoy this activity but want a more advanced tool, try downloading MuseScore (http://musescore.org/en/download), an open source music notation tool."
+msgstr ""
+
+#: ../src/piano_composition-activity/piano_composition.xml.in.h:5
+msgid ""
+"This activity has several levels, each level adds a new functionality to the previous level.\n"
+"Level 1: basic piano keyboard (white keys only) and students can experiment with clicking the colored rectangle keys to write music\n"
+"Level 2: the musical staff switches to bass clef, so pitches are lower than in previous level\n"
+"Level 3: option to choose between treble and bass clef, additional function includes option to select note duration (quarter, half, and whole notes)\n"
+"Level 4: addition of black keys (sharp keys)\n"
+"Level 5: flat notation used for black keys\n"
+"Level 6: load children's melodies from around the world\n"
+"Level 7: all features available, with the additional feature to load and save your composition\n"
+"\n"
+"The following keyboard bindings work in this activity:\n"
+"- backspace: erase one note\n"
+"- delete: erase all notes\n"
+"- space bar: play composition\n"
+"- number keys:\n"
+"  1: C\n"
+"  2: D\n"
+"  3: E\n"
+"  4: F\n"
+"  5: G\n"
+"  6: E\n"
+"  7: F\n"
+"  8: C (higher octave)\n"
+"  etc.\n"
+"  F1: C# / Db\n"
+"  F2: D# / Eb\n"
+"  F3: F# / Gb\n"
+"  F4: G# / Ab\n"
+"  F5: A# / Bb\n"
+msgstr ""
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:1
+msgid " America: English Lullaby"
+msgstr " Amerika, angleška uspavanka"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:2
+msgid " America: Patriotic"
+msgstr " Amerika, domoljubna pesem"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:3
+#, fuzzy
+msgid " America: Shaker Tune"
+msgstr "Združene države Amerike"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:4
+msgid " America: Nursery Rhyme"
+msgstr " Amerika, uspavanka"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:7
+msgid " Spain"
+msgstr " Španija"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:8
+msgid " German Kid's Song"
+msgstr " Nemška fantovska pesem"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:9
+msgid " Children's Song from Brazil"
+msgstr " Otroška pesmica iz Brazilije"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:10
+#, fuzzy
+msgid " German"
+msgstr "_Nemščina"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:11
+msgid " France"
+msgstr " Francija"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:12
+msgid " Germany"
+msgstr " Nemčija"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:13
+msgid " Brazil"
+msgstr " Brazilija"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:14
+msgid " Hungary, Nursery Rhyme"
+msgstr " Madžarska, uspavanka"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:15
+msgid " Hungary, Children's Song"
+msgstr " Madžarska, otroška pesem"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:16
+msgid " Serbia"
+msgstr " Srbija"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:17
+msgid " Britain"
+msgstr " Britanija"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:18
+msgid " Poland"
+msgstr " Poljska"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:19
+msgid " Greece"
+msgstr " Grčija"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:20
+msgid " Ukraine"
+msgstr " Ukrajina"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:21
+msgid " Mexican song to break a piñata"
+msgstr ""
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:22
+msgid " Finland"
+msgstr " Finska"
+
 #: ../src/planegame-activity/planegame.c:62
 #: ../src/planegame-activity/planegame.xml.in.h:1
 msgid "Numbers in Order"
@@ -6134,6 +7143,117 @@ msgstr "Poznavanje števil"
 msgid "Catch the numbers in increasing order, using the up, down, right and left arrows on the keyboard to move the helicopter."
 msgstr "Ujemi številke v povečujočem vrstnem redu. Uporabi tipke gor, dol, levo in desno za premikanje helikopterja."
 
+#: ../src/play_piano-activity/play_piano.py:109
+msgid "Color code notes?"
+msgstr "Želite obarvati note?"
+
+#: ../src/play_piano-activity/play_piano.py:129
+msgid "Click the piano keys that match the written notes."
+msgstr ""
+
+#: ../src/play_piano-activity/play_piano.py:138
+#: ../src/play_rhythm-activity/play_rhythm.py:147
+msgid "Play"
+msgstr "Igraj"
+
+#: ../src/play_piano-activity/play_piano.py:150
+#: ../src/play_rhythm-activity/play_rhythm.py:172
+msgid "Erase Attempt"
+msgstr "Izbriši poskus"
+
+#: ../src/play_piano-activity/play_piano.xml.in.h:1
+msgid "Play Piano!"
+msgstr "Igraj klavir!"
+
+#: ../src/play_piano-activity/play_piano.xml.in.h:2
+msgid "Learn to play melodies on the piano keyboard!"
+msgstr ""
+
+#: ../src/play_piano-activity/play_piano.xml.in.h:3
+msgid "knowledge of musical notation and musical staff. Play piano_composition first."
+msgstr ""
+
+#: ../src/play_piano-activity/play_piano.xml.in.h:4
+msgid "understand how the piano keyboard can play music as written on the musical staff"
+msgstr ""
+
+#: ../src/play_piano-activity/play_piano.xml.in.h:5
+msgid ""
+"The notes you see will be played to you. Click on the corresponding keys on the keyboard that match the notes you hear and see. All levels except for the last have the notes colored so you can match the notes to the keyboard colors. Each level increases in difficulty by adding more notes. Levels 1-6 test the treble clef, levels 7-12 test the bass clef. When you get five points, you move onto the next level (incorrect answers deduct points, correct answers add points).\n"
+"\n"
+"The following keyboard bindings work in this game:\n"
+"- backspace: erase attempt\n"
+"- delete: erase attempt\n"
+"- enter/return: ok button\n"
+"- space bar: play\n"
+"- number keys:\n"
+"  - 1: C\n"
+"  - 2: D\n"
+"  - 3: E\n"
+"  - 4: F\n"
+"  - 5: G\n"
+"  - 6: E\n"
+"  - 7: F\n"
+"  - 8: C (higher octave)\n"
+"  - etc.\n"
+"  - F1: C# / Db\n"
+"  - F2: D# / Eb\n"
+"  - F3: F# / Gb\n"
+"  - F4: G# / Ab\n"
+"  - F5: A# / Bb\n"
+msgstr ""
+
+#: ../src/play_rhythm-activity/play_rhythm.py:101
+#, fuzzy
+msgid "Beat Count:"
+msgstr "<b>Števec podrejenih procesov</b>"
+
+#: ../src/play_rhythm-activity/play_rhythm.py:125
+msgid "Beat the rhythm on this drum."
+msgstr ""
+
+#: ../src/play_rhythm-activity/play_rhythm.py:136
+msgid "For a little help, click the metronome to hear the tempo."
+msgstr ""
+
+#: ../src/play_rhythm-activity/play_rhythm.py:348
+#, fuzzy
+msgid "1. Listen to the rhythm and follow the moving line."
+msgstr "Poslušaj barve in klikni na pravo račko."
+
+#: ../src/play_rhythm-activity/play_rhythm.py:350
+msgid "2. Click the drum to the tempo. Watch the vertical line when you start."
+msgstr ""
+
+#: ../src/play_rhythm-activity/play_rhythm.py:353
+msgid "1. Now, read the rhythm. It won't be played for you. Then, beat the rhythm on the drum."
+msgstr ""
+
+#: ../src/play_rhythm-activity/play_rhythm.py:356
+msgid "3. Click ok to check your answer, or erase to try again."
+msgstr ""
+
+#: ../src/play_rhythm-activity/play_rhythm.xml.in.h:1
+#, fuzzy
+msgid "Play Rhythm"
+msgstr "Igraj “%s”"
+
+#: ../src/play_rhythm-activity/play_rhythm.xml.in.h:2
+msgid "Learn to listen to, read, and play musical rhythms."
+msgstr ""
+
+#: ../src/play_rhythm-activity/play_rhythm.xml.in.h:3
+msgid "Simple understanding of musical rhythm and beat."
+msgstr ""
+
+#: ../src/play_rhythm-activity/play_rhythm.xml.in.h:4
+msgid "Learn to beat rhythms precisely and accurately based on what you see and hear."
+msgstr ""
+
+#: ../src/play_rhythm-activity/play_rhythm.xml.in.h:5
+msgid "This is a relatively challenging game to master, so good luck. Listen to the rhythm played, and follow along with the music. If you would like to hear it again, click the play button. When you're ready to perform the identical rhythm, click the drum to the rhythm, then click the ok button. If you clicked correctly and in the right tempo, another rhythm is displayed. If not, you must try again. Even levels display a vertical playing line when you click the drum, which helps you see whene to click to follow the rhythm. Click on the drum when the line is in the middle of the notes. Odd levels are harder, because there is no vertical playing line. The rhythm will not be played for you. You must read the rhythm, and click it back in tempo. Click the metronome to hear the quarter note tempo. The following keyboard bindings work in this game: - backspace: erase attempt - delete: erase attempt - enter/return: ok button - space bar: play"
+msgstr ""
+
 #: ../src/pythontemplate-activity/pythontemplate.py:62
 #: ../src/pythontest-activity/pythontest.py:182
 msgid ""
@@ -6148,7 +7268,8 @@ msgid "Python Template"
 msgstr "Predloga Python"
 
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:2
-msgid "An empty python activity to use as a starting point"
+#, fuzzy
+msgid "An empty Python activity to use as a starting point"
 msgstr "Prazna dejavnost python za uporabo kot začetna točka"
 
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:3
@@ -6163,8 +7284,8 @@ msgstr "Dodaj jezikovno- vezavo v GCompris."
 
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:5
 #: ../src/pythontest-activity/pythontest.xml.in.h:5
-msgid "Thanks to Guido van Rossum and the python team for this powerful language!"
-msgstr "Hvala Guido van Rossum in python skupini za ta zmogljiv jezik!"
+msgid "Thanks to Guido van Rossum and the Python team for this powerful language!"
+msgstr "Zahvala velja Guidu van Rossumu in ekipi Python za ta zmogljiv jezik!"
 
 #: ../src/pythontest-activity/pythontest.py:192
 msgid ""
@@ -6207,8 +7328,8 @@ msgid "Python Test"
 msgstr "Preizkus Python"
 
 #: ../src/pythontest-activity/pythontest.xml.in.h:2
-msgid "Test board for the python plugin"
-msgstr "Testna tabla za vstavek python"
+msgid "Test board for the Python plugin"
+msgstr "Preizkusna tabla za vstavek Python"
 
 #: ../src/railroad-activity/railroad.c:97
 msgid "Memory game"
@@ -6353,17 +7474,17 @@ msgstr "Otrok lahko premika miško, bere števila in odšteva števila do 10 za 
 msgid "Click on the dice to show how many ice spots there are between Tux and the fish. Click the dice with the right mouse button to count backwards. When done, click on the OK button or hit the Enter key."
 msgstr "Najprej preštej koliko ledenik točk je med Pingom in ribo. Nato klikni na kocko, da izbereš pravo številko. Za štetje nazaj uporabi desnim gumbom miške. Ko končaš, pritisni gumb v redu ali vnosno tipko."
 
-#: ../src/scalesboard-activity/scale.c:294
+#: ../src/scalesboard-activity/scale.c:295
 #, c-format
 msgid "Weight in g = %s"
 msgstr "Teža v g = %s"
 
-#: ../src/scalesboard-activity/scale.c:296
+#: ../src/scalesboard-activity/scale.c:297
 #, c-format
 msgid "Weight = %s"
 msgstr "Teža = %s"
 
-#: ../src/scalesboard-activity/scale.c:1036
+#: ../src/scalesboard-activity/scale.c:1037
 msgid "Take care, you can drop weights on both sides of the scale."
 msgstr "Vedi, da lahko uteži spustiš na obe strani tehtnice."
 
@@ -6647,14 +7768,14 @@ msgstr "Izvorno kodo je napisal Philippe Banwarth leta 1999. Na GCompris jo je p
 
 #. Set the maximum text to calc the background
 #. Set the correct initial text
-#: ../src/target-activity/target.c:296
-#: ../src/target-activity/target.c:563
-#: ../src/target-activity/target.c:600
+#: ../src/target-activity/target.c:297
+#: ../src/target-activity/target.c:564
+#: ../src/target-activity/target.c:601
 #, c-format
 msgid "Points = %s"
 msgstr "Točke = %s"
 
-#: ../src/target-activity/target.c:415
+#: ../src/target-activity/target.c:416
 #, c-format
 msgid ""
 "Wind speed = %d\n"
@@ -6663,7 +7784,7 @@ msgstr ""
 "Hitrost vetra = %d\n"
 "kilometrov/uro"
 
-#: ../src/target-activity/target.c:483
+#: ../src/target-activity/target.c:484
 #, c-format
 msgid "Distance to target = %d meter"
 msgid_plural "Distance to target = %d meters"
@@ -6854,36 +7975,3 @@ msgstr "Učenje tipkanja"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Natipkaj celo besedo, preden doseže zemljo"
 
-#~ msgid ""
-#~ "GCompris will get images, sounds and activity data from this server if "
-#~ "not found locally."
-#~ msgstr ""
-#~ "GCompris bo dobil slike, zvoke in podatke dejavnost s tega strežnika, če "
-#~ "podatkov ne bo mogoče najti krajevno."
-
-#~ msgid ""
-#~ "Only when --server is provided, disable check for local resource first. "
-#~ "Data are always taken from the web server."
-#~ msgstr ""
-#~ "Ko je izbran --server, onemogoči preverjanje za krajevna sredstva. "
-#~ "Podatki so vedno preneseni s strežnik."
-
-#~ msgid ""
-#~ "In server mode, specify the cache directory used to avoid useless "
-#~ "downloads."
-#~ msgstr ""
-#~ "V strežniškem načinu je treba določiti mapo predpomnilnika za izogibanje "
-#~ "nepotrebnim prejemom."
-
-#~ msgid ""
-#~ "The --server option cannot be used because GCompris has been compiled "
-#~ "without network support!"
-#~ msgstr ""
-#~ "Možnosti --server ni mogoče uporabiti, ker GCompris ni bil preveden z "
-#~ "omrežno podporo!"
-
-#~ msgid "satchel/s_tchel/a/o/i"
-#~ msgstr "torba/t_rba/o/r/b"
-
-#~ msgid "Serbia Montenegro"
-#~ msgstr "Srbija in Črna gora"
