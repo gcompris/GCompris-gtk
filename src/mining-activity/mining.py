@@ -155,6 +155,7 @@ class Gcompris_mining:
     self.is_game_won = False
     self.nugget_count = 0
     self.need_new_nugget = False
+    self.nugget.hide()
 
     self.update_lorry()
     self.viewport.reset(level)
