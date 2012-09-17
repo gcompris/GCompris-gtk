@@ -466,9 +466,9 @@ class Staff():
         '''
 
         if noteIndexToPlay >= len(self.noteList):
+            self.notReadyToPlay = False
             if hasattr(self, 'verticalPlayLine'):
                  self.verticalPlayLine.remove()
-                 self.notReadyToPlay = False
             return
 
         note = self.noteList[noteIndexToPlay]
@@ -501,8 +501,9 @@ class Staff():
         >>> self.newStaff.playComposition()
         '''
 
-        #if not self.noteList or self.notReadyToPlay:
-        #    return
+        if not self.noteList or self.notReadyToPlay:
+            return
+
         self.notReadyToPlay = True
 
         self.timers = []
