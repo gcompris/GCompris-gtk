@@ -146,14 +146,13 @@ They also form the C Major Scale. Notice that the note positions are different t
 
             if level == 1:
                 text = _("Play Treble Clef Game")
-            elif level == 5:
+            elif level == 11:
                 text = _("Play Bass Clef Game")
-            if level in [1, 5]:
-                self.playScaleGameButton = textButton(400, 410, text,
-                                                      self.rootitem, 0x00AA33FFL)
 
-                self.playScaleGameButton.connect("button_press_event", self.play_scale_game)
-                gcompris.utils.item_focus_init(self.playScaleGameButton, None)
+            self.playScaleGameButton = textButton(400, 410, text,
+                                                  self.rootitem, 0x00AA33FFL)
+            self.playScaleGameButton.connect("button_press_event", self.play_scale_game)
+            gcompris.utils.item_focus_init(self.playScaleGameButton, None)
 
         if level != 1 and level != 11:
             if level in [2, 5, 8, 12, 15, 18]:
