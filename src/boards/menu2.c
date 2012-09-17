@@ -22,6 +22,7 @@
  * Seen from gcompris, the menu is a board like another.
  */
 #include <string.h>
+#include <stdlib.h> /* atoi */
 
 #include "gcompris/gcompris.h"
 #include "gcompris/gcompris_config.h"

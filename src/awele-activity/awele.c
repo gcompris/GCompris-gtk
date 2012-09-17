@@ -21,6 +21,7 @@
 #include <awele_utils.h>
 #include <awele.h>
 #include <string.h>
+#include <stdlib.h> /* exit realloc */
 
 static GcomprisBoard *gcomprisBoard = NULL;
 static gboolean board_paused = TRUE;
