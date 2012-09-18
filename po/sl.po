@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-09-15 09:36+0000\n"
-"PO-Revision-Date: 2012-09-15 20:35+0100\n"
+"POT-Creation-Date: 2012-09-18 00:19+0000\n"
+"PO-Revision-Date: 2012-09-18 08:51+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
@@ -174,7 +174,7 @@ msgid "GCompris Main Menu"
 msgstr "Glavni meni GCompris"
 
 #: ../boards/menu.xml.in.h:3
-#: ../src/boards/menu2.c:886
+#: ../src/boards/menu2.c:887
 msgid "GCompris is a collection of educational games that provides different activities for children aged 2 and up."
 msgstr "GCompris je zbirka izobraževalnih iger z različnimi dejavnostmi namenjena otrokom od 2. leta naprej."
 
@@ -1270,7 +1270,7 @@ msgstr "Barva polnila ..."
 msgid "Stroke color..."
 msgstr "Barva poteze ..."
 
-#: ../src/awele-activity/awele.c:158
+#: ../src/awele-activity/awele.c:159
 #, c-format
 msgid ""
 "File '%s' is not found.\n"
@@ -1279,23 +1279,23 @@ msgstr ""
 "Datoteke '%s' ni mogoče najti.\n"
 "Te dejavnosti ne moreš igrati."
 
-#: ../src/awele-activity/awele.c:359
+#: ../src/awele-activity/awele.c:360
 msgid "NORTH"
 msgstr "Sever"
 
-#: ../src/awele-activity/awele.c:371
+#: ../src/awele-activity/awele.c:372
 msgid "SOUTH"
 msgstr "Jug"
 
-#: ../src/awele-activity/awele.c:533
+#: ../src/awele-activity/awele.c:534
 msgid "Choose a house"
 msgstr "Izberi hišo"
 
-#: ../src/awele-activity/awele.c:648
+#: ../src/awele-activity/awele.c:649
 msgid "Your turn to play ..."
 msgstr "Tvoja poteza za igranje ..."
 
-#: ../src/awele-activity/awele.c:689
+#: ../src/awele-activity/awele.c:690
 msgid "Not allowed! Try again !"
 msgstr "Ni dovoljeno! Poskusi še enkrat!"
 
@@ -1479,15 +1479,15 @@ msgstr "Usmeri miško in klikni na žogo. S tem boš nastavil hitrost in smer ž
 msgid "Kick the ball into the black hole on the right"
 msgstr "Brcni žogo v črno luknjo na desni"
 
-#: ../src/boards/menu2.c:137
+#: ../src/boards/menu2.c:138
 msgid "Main Menu Second Version"
 msgstr "Druga različica glavnega menija"
 
-#: ../src/boards/menu2.c:138
+#: ../src/boards/menu2.c:139
 msgid "Select a Board"
 msgstr "Izberi tablo"
 
-#: ../src/boards/menu2.c:268
+#: ../src/boards/menu2.c:269
 #, c-format
 msgid "Number of activities: %d"
 msgstr "Število dejavnosti: %d"
@@ -2564,9 +2564,8 @@ msgid "Click the mouse on rectangles until all the blocks disappear."
 msgstr "Klikni miško na kvadratkih dokler vsa polja ne izginejo."
 
 #: ../src/explore-activity/explore.py:149
-#, fuzzy
 msgid "Click to play sound"
-msgstr "Treba je navesti zvok za predvajanje"
+msgstr "Klikni za predvajanje zvoka"
 
 #. draw back button
 #: ../src/explore-activity/explore.py:265
@@ -2667,11 +2666,11 @@ msgstr " Mačka"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:14
 msgid " The cat goes \"meow, meow\". Cats usually hate water because their fur doesn't stay warm when it is wet."
-msgstr ""
+msgstr " Mačke se oglašajo \"mjau, mjau\". Mačke v večini ne marajo vode, saj se njihovo telo hitro hladi, kadar so dlake mokre."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:15
 msgid " This pet likes to chase mice."
-msgstr ""
+msgstr "Ta hišni ljubljenček rad lovi miši."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:16
 msgid " Pigs"
@@ -2824,7 +2823,7 @@ msgstr ""
 #: ../src/explore_world_music-activity/explore_world_music.xml.in.h:1
 #, fuzzy
 msgid "Explore World Music"
-msgstr "Iskanje po zbirki posnetkov"
+msgstr "Spoznajte glasbe sveta."
 
 #: ../src/explore_world_music-activity/explore_world_music.xml.in.h:2
 msgid "Learn about the music of the world."
@@ -2912,9 +2911,8 @@ msgid " Where do performers yelp as they play the drums?"
 msgstr ""
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:16
-#, fuzzy
 msgid " Scotland and Ireland"
-msgstr "Irska (en_IE)"
+msgstr " Škotska in Irska"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:17
 msgid " Folk music of this region is called celtic music, often incorporates a narrative poem or story. Typical instruments include bagpipes, fiddles, flutes, harps, and accordians."
@@ -5629,13 +5627,12 @@ msgstr "Prijava:"
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
 #: ../src/login-activity/login.py:480
-#, fuzzy
 msgid ""
 "<b>{0}</b> configuration\n"
 " for profile <b>{1}</b>"
 msgstr ""
-"<b>%1$s</b> nastavitev\n"
-" za profil <b>%2$s</b>"
+"<b>{0}</b> nastavitev\n"
+" za profil <b>{1}</b>"
 
 #. toggle box
 #: ../src/login-activity/login.py:496
@@ -5729,9 +5726,8 @@ msgid "He revised and extended braille to include mathematics, symbols, punctuat
 msgstr "Braillovo pisavo je razširil, da vključuje tudi posebne znake za matematiko, simbole, ločila in glasbene zapise. "
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:10
-#, fuzzy
 msgid "He died of tuberculosis. He is buried in the Pantheon in Paris. A monument is erected to honor him."
-msgstr "Umrl je zaradi tuberkuloze, pokopali pa so ga v Panteonu v Parizu. V čast njegovemu delu, so mu postavili tudi spomenik."
+msgstr "Umrl je zaradi tuberkuloze, pokopali pa so ga v Panteonu v Parizu. V čast njegovemu delu, je postavljen tudi njegov spomenik."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:11
 msgid "After his Death"
@@ -6561,27 +6557,27 @@ msgstr "Igraj miselno igro Hitori"
 msgid "Play Bass Clef Game"
 msgstr "Igraj miselno igro Hitori"
 
-#: ../src/note_names-activity/note_names.py:182
+#: ../src/note_names-activity/note_names.py:181
 msgid "Click on the note name to match the pitch. Then click ok to check."
 msgstr ""
 
-#: ../src/note_names-activity/note_names.py:184
+#: ../src/note_names-activity/note_names.py:183
 msgid "Now there are sharp notes. These pitches are raised a half step."
 msgstr ""
 
-#: ../src/note_names-activity/note_names.py:186
+#: ../src/note_names-activity/note_names.py:185
 msgid "Now there are flat notes. These pitches are lowered a half step."
 msgstr ""
 
-#: ../src/note_names-activity/note_names.py:192
+#: ../src/note_names-activity/note_names.py:191
 msgid "Click the note to hear it played"
 msgstr ""
 
-#: ../src/note_names-activity/note_names.py:244
+#: ../src/note_names-activity/note_names.py:243
 msgid "Need a hint? Click here for color-coded note names."
 msgstr ""
 
-#: ../src/note_names-activity/note_names.py:247
+#: ../src/note_names-activity/note_names.py:246
 msgid "Ready for a challenge? Color all buttons black!"
 msgstr ""
 
@@ -6727,7 +6723,7 @@ msgstr "Cassat, Mary, Poletni čas - 1894"
 msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
 msgstr "Vincent Van Gogh, Vaška ulica v Auversu - 1890"
 
-#: ../src/paratrooper-activity/paratrooper.c:408
+#: ../src/paratrooper-activity/paratrooper.c:409
 msgid "Control fall speed with up and down arrow keys."
 msgstr "Hitrost padanja lahko spremeniš s puščicama gor in dol."
 
@@ -6894,18 +6890,16 @@ msgid "Notes can be many types, such as quarter notes, half notes, and whole not
 msgstr ""
 
 #: ../src/piano_composition-activity/piano_composition.py:118
-#, fuzzy
 msgid "Sharp notes have a # sign"
-msgstr "Podpiši oznako"
+msgstr "Zvišane note so označene z znakom #"
 
 #: ../src/piano_composition-activity/piano_composition.py:119
 msgid "The black keys are sharp and flat keys"
 msgstr ""
 
 #: ../src/piano_composition-activity/piano_composition.py:121
-#, fuzzy
 msgid "Flat notes have a b sign"
-msgstr "Podpiši oznako"
+msgstr "Znižane note so označene z znakom b"
 
 #: ../src/piano_composition-activity/piano_composition.py:122
 msgid "Each black key has two names, one with a flat and one with a sharp"
@@ -6967,22 +6961,20 @@ msgid "Change Accidental Style:"
 msgstr "Izberite slog nadzora"
 
 #: ../src/piano_composition-activity/piano_composition.py:344
-#, fuzzy
 msgid ""
 "Error: This activity cannot be played with the\n"
 "sound effects disabled.\n"
 "Go to the configuration dialogue to\n"
 "enable the sound."
 msgstr ""
-"Napaka: ta dejavnost ne deluje z izklopljenim\n"
-"zvokom .\n"
-"Pojdi v nastavitve za zvok in\n"
-"vključi zvok."
+"Napaka: ta dejavnost brez omogočenega zvoka\n"
+"ne deluje.\n"
+"Zvok omogočite med nastavitvami v pogovornem\n"
+"oknu nastavitev."
 
 #: ../src/piano_composition-activity/piano_composition.py:361
-#, fuzzy
 msgid "Select A Melody to Load"
-msgstr "Izberite datoteko za nalaganje"
+msgstr "Izberite glasbeno datoteko za nalaganje"
 
 #: ../src/piano_composition-activity/piano_composition.py:369
 msgid "Next Page"
