@@ -244,7 +244,6 @@ class Gcompris_explore:
             method called when student clicks on one of the ellipses.
             method loads the location page, including the text, picture, music, and question.
             '''
-
             target.props.pixbuf = gcompris.utils.load_pixmap('explore/star.png')
             seen = target.get_data('seen')
             if not seen:
@@ -254,17 +253,19 @@ class Gcompris_explore:
             gcompris.utils.item_focus_init(target, None)
             self.rootitem.props.visibility = goocanvas.ITEM_INVISIBLE
 
-            rootitem = goocanvas.Group(parent=
-                                       self.gcomprisBoard.canvas.get_root_item())
+            if hasattr(self, 'location_rootitem'):
+                self.location_rootitem.remove()
+            self.location_rootitem = goocanvas.Group(parent=
+                                                     self.gcomprisBoard.canvas.get_root_item())
             sectionNum = target.get_data('sectionNum')
 
-            goocanvas.Image(parent=rootitem, x=10, y=10,
+            goocanvas.Image(parent=self.location_rootitem, x=10, y=10,
                 pixbuf=gcompris.utils.load_pixmap('explore/border.png'))
 
             # draw back button
             txt = _('Back to Homepage')
             self.backButton = goocanvas.Text(
-              parent=rootitem,
+              parent=self.location_rootitem,
               x=260,
               y=490,
               text='<span font_family="century schoolbook L" size="medium" weight="bold">' + txt + '</span>',
@@ -273,7 +274,7 @@ class Gcompris_explore:
               use_markup=True
               )
 
-            self.backButton.connect("button_press_event", self.location_quit, rootitem)
+            self.backButton.connect("button_press_event", self.location_quit, self.location_rootitem)
             gcompris.utils.item_focus_init(self.backButton, None)
 
             # ---------------------------------------------------------------------
@@ -282,7 +283,7 @@ class Gcompris_explore:
 
             name = _(self.data.get(sectionNum, '_title'))
             goocanvas.Text(
-              parent=rootitem,
+              parent=self.location_rootitem,
               x=410,
               y=50,
               text='<span font_family="century schoolbook L" size="x-large" weight="bold">' + name + '</span>',
@@ -294,7 +295,7 @@ class Gcompris_explore:
 
             text = _(self.data.get(sectionNum, '_text'))
             t = goocanvas.Text(
-              parent=rootitem,
+              parent=self.location_rootitem,
               x=120,
               y=190,
               width=150,
@@ -306,7 +307,7 @@ class Gcompris_explore:
             t.scale(1.4, 1.4)
             image = self.data.get(sectionNum, 'image')
             goocanvas.Image(
-                parent=rootitem,
+                parent=self.location_rootitem,
                 x=300,
                 y=120,
                 pixbuf=gcompris.utils.load_pixmap(self.activityDataFilePath + image)
@@ -526,7 +527,11 @@ class Gcompris_explore:
             with open(gcompris.DATA_DIR + '/' + self.gcomprisBoard.name + '/content.desktop.in', 'wb') as configfile:
                 self.data.write(configfile)
 
+        # silence any currently playing music
+        gcompris.sound.play_ogg('/boards/sounds/silence1s.ogg')
         self.rootitem.remove()
+        if hasattr(self, 'location_rootitem'):
+            self.location_rootitem.remove()
         gcompris.sound.policy_set(self.saved_policy)
         gcompris.sound.resume()
 
