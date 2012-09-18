@@ -236,8 +236,8 @@ class Gcompris_explore:
 
             # All the items have been seen, let's start the level 2
             if self.locationSeen == len(self.sectionNames):
-                self.set_level(2)
-
+                self.next_action = self.next_level
+                gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.SMILEY)
 
     def goto_location(self, widget=None, target=None, event=None):
             '''

@@ -23,18 +23,16 @@ msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-08-24 16:03+0000\n"
-"PO-Revision-Date: 2012-08-25 10:58+0200\n"
-"Last-Translator: Yannis Kaskamanidis <kiolalis@gmail.com>\n"
+"POT-Creation-Date: 2012-09-14 06:18+0000\n"
+"PO-Revision-Date: 2012-09-15 12:32+0200\n"
+"Last-Translator: Tom Tryfonidis <tomtryf@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-doc@kde.org>\n"
-"Language: \n"
+"Language: el_GR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.2\n"
-"X-Poedit-Language: Greek\n"
-"X-Poedit-Country: GREECE\n"
 
 #: ../boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
@@ -74,7 +72,7 @@ msgstr "Εξάσκηση στο σκάκι"
 #: ../boards/chess.xml.in.h:2
 #: ../src/chess_computer-activity/chess_computer.xml.in.h:2
 msgid "Play chess against the computer in a learning mode"
-msgstr "Παίξε σκάκι  με τον υπολογιστή σε λειτουργία εκμάθησης"
+msgstr "Παίξε σκάκι με τον υπολογιστή σε λειτουργία εκμάθησης"
 
 #: ../boards/colors_group.xml.in.h:1
 msgid "Go to Color activities"
@@ -445,7 +443,7 @@ msgstr ""
 
 #: ../src/administration-activity/admin/board_list.py:663
 #: ../src/pythontest-activity/pythontest.py:511
-#: ../src/smallnumbers-activity/smallnumbers.c:618
+#: ../src/smallnumbers-activity/smallnumbers.c:619
 msgid "Select sound locale"
 msgstr "Διάλεξε τοπικοποιημένο σύνολο ήχων"
 
@@ -649,7 +647,8 @@ msgstr "Όλοι οι χρήστες"
 #: ../src/administration-activity/admin/log_list.py:108
 #: ../src/administration-activity/admin/log_list.py:298
 #: ../src/administration-activity/admin/profile_list.py:117
-#: ../src/lang-activity/lang.py:166
+#: ../src/lang-activity/lang.py:166 ../src/login-activity/login.py:481
+#: ../src/missing_letter-activity/missingletter.c:802
 msgid "Default"
 msgstr "Προεπιλεγμένο"
 
@@ -671,7 +670,7 @@ msgid "Board"
 msgstr "Πίνακας"
 
 #: ../src/administration-activity/admin/log_list.py:249
-#: ../src/click_on_letter-activity/click_on_letter.c:1249
+#: ../src/click_on_letter-activity/click_on_letter.c:1248
 #: ../src/redraw-activity/redraw.py:339
 msgid "Level"
 msgstr "Επίπεδο"
@@ -1585,7 +1584,8 @@ msgstr ""
 "κύρια περιοχή."
 
 #: ../src/babymatch-activity/shapegame.c:2041
-#: ../src/click_on_letter-activity/click_on_letter.c:1317
+#: ../src/click_on_letter-activity/click_on_letter.c:1315
+#: ../src/missing_letter-activity/missingletter.c:800
 #, c-format
 msgid ""
 "<b>%1$s</b> configuration\n"
@@ -1756,16 +1756,10 @@ msgstr "Αριθμός δραστηριοτήτων: %d"
 msgid "Python Board"
 msgstr "Python Board"
 
-#: ../src/boards/python.c:65
-msgid "Special board that embeds python into GCompris."
+#: ../src/boards/python.c:65 ../src/boards/python.c:89
+msgid "Special board that embeds Python into GCompris."
 msgstr ""
-"Ειδικός πίνακας που ενσωματώνει τη γλώσσα προγραμματισμού python στο "
-"GCompris."
-
-#: ../src/boards/python.c:89
-msgid "Special board that embeds python into gcompris."
-msgstr ""
-"Ειδικός πίνακας που ενσωματώνει τη γλώσσα προγραμματισμού python στο "
+"Ειδικός πίνακας που ενσωματώνει τη γλώσσα προγραμματισμού Python στο "
 "GCompris."
 
 #: ../src/braille_alphabets-activity/braille_alphabets.py:176
@@ -2054,9 +2048,9 @@ msgstr "Αυτή η δραστηριότητα συνομιλίας λειτου
 msgid ""
 "This chat activity will only work with other GCompris users on your local "
 "network, not on the Internet. To use it, just type in your message and hit "
-"Enter. Your message is then broadcasted on the local network, and any "
-"GCompris program running the chat activity on that local network will "
-"receive and display your message."
+"Enter. Your message is then broadcast on the local network, and any GCompris "
+"program running the chat activity on that local network will receive and "
+"display your message."
 msgstr ""
 "Αυτή η δραστηριότητα συνομιλίας μπορεί να λειτουργήσει μόνο με άλλους "
 "χρήστες του GCompris στο τοπικό δίκτυό σας, όχι όμως και στο διαδίκτυο. Για "
@@ -2116,8 +2110,8 @@ msgstr ""
 "Κίνηση ματ του παίκτη\n"
 "με τα άσπρα πιόνια"
 
-#: ../src/chess_computer-activity/chess.c:1223 ../src/gcompris/bonus.c:191
-#: ../src/gcompris/bonus.c:200
+#: ../src/chess_computer-activity/chess.c:1223 ../src/gcompris/bonus.c:194
+#: ../src/gcompris/bonus.c:203
 msgid "Drawn game"
 msgstr "Ισόπαλο παιχνίδι"
 
@@ -2411,12 +2405,12 @@ msgstr ""
 
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
-#: ../src/click_on_letter-activity/click_on_letter.c:367
+#: ../src/click_on_letter-activity/click_on_letter.c:368
 #: ../src/gletters-activity/gletters.c:229 ../src/memory-activity/memory.c:935
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "αβγδεζηθικλμνξοπρστυφχψω"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:378
+#: ../src/click_on_letter-activity/click_on_letter.c:379
 msgid ""
 "This activity will be played with questions displayed as text instead of "
 "being spoken"
@@ -2424,7 +2418,7 @@ msgstr ""
 "Αυτή η δραστηριότητα διεξάγεται με ερωτήσεις που εμφανίζονται ως κείμενο, "
 "αντί να εκφωνούνται. "
 
-#: ../src/click_on_letter-activity/click_on_letter.c:383
+#: ../src/click_on_letter-activity/click_on_letter.c:384
 #: ../src/memory-activity/memory.c:906
 msgid ""
 "Error: this activity cannot be played with the\n"
@@ -2437,7 +2431,7 @@ msgstr ""
 "Από τη Διαχείριση του Gcompris\n"
 "ενεργοποίησε τον ήχο"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:404
+#: ../src/click_on_letter-activity/click_on_letter.c:405
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -2477,20 +2471,20 @@ msgstr ""
 "%s"
 
 #. answer
-#: ../src/click_on_letter-activity/click_on_letter.c:1260
+#: ../src/click_on_letter-activity/click_on_letter.c:1259
 #: ../src/missing_letter-activity/missingletter_config.c:420
 #: ../src/missing_letter-activity/missingletter_config.c:548
 msgid "Answer"
 msgstr "Απάντηση"
 
 #. question
-#: ../src/click_on_letter-activity/click_on_letter.c:1271
+#: ../src/click_on_letter-activity/click_on_letter.c:1270
 #: ../src/missing_letter-activity/missingletter_config.c:426
 #: ../src/missing_letter-activity/missingletter_config.c:571
 msgid "Question"
 msgstr "Ερώτηση"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:1407
+#: ../src/click_on_letter-activity/click_on_letter.c:1405
 #: ../src/gcompris/board_config_wordlist.c:273
 msgid "Back to default"
 msgstr "Επιστροφή στο προκαθορισμένο"
@@ -2887,8 +2881,9 @@ msgstr ""
 "σβήσεις ένα σχέδιο."
 
 #: ../src/drawnumber-activity/drawnumber.py:238
-#: ../src/findit-activity/findit.py:315
+#: ../src/explore-activity/explore.py:451 ../src/findit-activity/findit.py:315
 #: ../src/louis_braille-activity/louis_braille.py:84
+#: ../src/piano_composition-activity/piano_composition.py:439
 msgid "Cannot find the file '{filename}'"
 msgstr "Αδυναμία εύρεσης του αρχείου '{filename}'"
 
@@ -3085,6 +3080,613 @@ msgstr ""
 msgid "Click the mouse on rectangles until all the blocks disappear."
 msgstr "Κάνε κλικ με το ποντίκι μέχρι να εξαφανιστούν όλα τα τετράγωνα."
 
+#: ../src/explore-activity/explore.py:149
+msgid "Click to play sound"
+msgstr "Κάντε κλικ για αναπαραγωγή του ήχου"
+
+#. draw back button
+#: ../src/explore-activity/explore.py:265
+msgid "Back to Homepage"
+msgstr "Επιστροφή στην Αρχική Σελίδα"
+
+#: ../src/explore-activity/explore.py:456 ../src/findit-activity/findit.py:320
+#: ../src/louis_braille-activity/louis_braille.py:88
+#: ../src/piano_composition-activity/piano_composition.py:444
+msgid ""
+"Failed to parse data set '{filename}' with error:\n"
+"{error}"
+msgstr ""
+"Αποτυχία ανάλυσης συνόλου δεδομένων '{filename}'  με σφάλμα:\n"
+"{error}"
+
+#: ../src/explore-activity/explore.py:567
+msgid "Explore Status:"
+msgstr "Εξερεύνηση κατάστασης:"
+
+#: ../src/explore_farm_animals-activity/explore_farm_animals.xml.in.h:1
+msgid "Explore Farm Animals"
+msgstr "Εξερευνήστε τη Φάρμα των Ζώων"
+
+#: ../src/explore_farm_animals-activity/explore_farm_animals.xml.in.h:2
+msgid "Learn about farm animals, what sounds they make, and interesting facts."
+msgstr ""
+"Μάθετε για τα ζώα που ζουν στη φάρμα, τους ήχους που βγάζουν και άλλες "
+"ενδιαφέρουσες πληροφορίες."
+
+#: ../src/explore_farm_animals-activity/explore_farm_animals.xml.in.h:3
+msgid ""
+"Learn to associate animal sounds with the animal name and what the animal "
+"looks like."
+msgstr ""
+"Συσχετίστε τον ήχο με το όνομα του ζώου από το οποίο προέρχεται, καθώς και "
+"με το πως μοιάζει το ζώο."
+
+#: ../src/explore_farm_animals-activity/explore_farm_animals.xml.in.h:4
+msgid ""
+"There are three levels in this game.\n"
+"\n"
+"In level one, players enjoy exploring each animal on the screen. Click on "
+"the question mark, and learn about the animal, what it's name is, what sound "
+"it makes, and what it looks like. Study well this information, because you "
+"will be tested in level 2 and 3!\n"
+"\n"
+"In level two, a random animal sound is played and you must choose which "
+"animal makes that sound. Click on the question mark that corresponds to the "
+"animal you hear. If you'd like to hear the animal sound repeated, click on "
+"the play button. When you have matched all animals correctly, you win!\n"
+"\n"
+"In level three, a random text prompt is displayed and you must click on the "
+"animal that matches the text. When you have matched all texts correctly, you "
+"win!\n"
+msgstr ""
+"Υπάρχουν τρία επίπεδα σε αυτό το παιχνίδι.\n"
+"\n"
+"Στο πρώτο επίπεδο, οι παίκτες μαθαίνουν για κάθε ζώο. Κάνοντας κλικ στο "
+"ερωτηματικό, λαμβάνουν πληροφορίες για το όνομά του, τον ήχο που βγάζει και "
+"πως μοιάζει. Μελετήστε προσεκτικά τις πληροφορίες, γιατί με βάση αυτές θα "
+"συμμετέχετε στα επίπεδα 2 και 3.\n"
+"\n"
+"Στο δεύτερο επίπεδο, θα αναπαραχθεί ένας τυχαίος ήχος ζώου και εσείς θα "
+"πρέπει να επιλέξετε το ζώο στο οποίο ανήκει. Κάντε κλικ στο ερωτηματικό που "
+"αντιστοιχεί στο ζώο που μόλις ακούσατε. Εάν θέλετε να ακούσετε πάλι τον ήχο, "
+"κάντε κλικ στο πλήκτρο της αναπαραγωγής. Σκοπός σας είναι να κάνετε σωστά "
+"όλες τις αντιστοιχίσεις.\n"
+"\n"
+"Στο τρίτο επίπεδο, ένα τυχαίο κείμενο θα εμφανίζεται στην οθόνη σας και "
+"εσείς θα πρέπει  να κάνετε κλικ στο ζώο που ταιριάζει στο κείμενο. Σκοπός "
+"σας είναι να κάνετε σωστά όλες τις αντιστοιχίσεις.\n"
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:1
+msgid " Click on the questions to explore each farm animal."
+msgstr ""
+"Κάντε κλικ στα ερωτηματικά για να πάρετε πληροφορίες για κάθε ζώο της φάρμας."
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:2
+msgid " Click on the farm animal that makes the sound you hear."
+msgstr "Κάντε κλικ στο ζώο της φάρμας που βγάζει τον ήχο που ακούσατε."
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:3
+msgid " Click the animal that matches the description."
+msgstr "Κάντε κλικ στο ζώο της φάρμας που ταιριάζει με την περιγραφή."
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:4
+msgid " Horse"
+msgstr "Άλογο"
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:5
+msgid " The horse goes \"neigh! neigh!\". Horses usually sleep standing up."
+msgstr ""
+"Το άλογο \"χλιμιντρίζει! χλιμιντρίζει!\". Τα άλογα συνήθως κοιμούνται όρθια."
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:6
+msgid " You can ride on the back of this animal!"
+msgstr "Μπορείτε να το καβαλικέψετε αν κάτσετε στην πλάτη του!"
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:7
+msgid " Chickens"
+msgstr "Κοτόπουλα"
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:8
+msgid ""
+" The chichen goes \"cluck, cackle, cluck\". Chickens have over 200 different "
+"noises they can use to communicate."
+msgstr ""
+"Το κοτόπουλο  \"κακαρίζει! κακαρίζει!\". Τα κοτόπουλα μπορούν να "
+"επικοινωνούν μεταξύ τους χρησιμοποιώντας περισσότερους από 200 διαφορετικούς "
+"ήχους."
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:9
+msgid " This animal lays eggs."
+msgstr "Αυτό το ζώο γεννά αυγά."
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:10
+msgid " Cows"
+msgstr "Αγελάδα"
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:11
+msgid ""
+" The cow goes \"moo. moo.\" Cows have a memory of about three years. Cows "
+"have many uses, including for milk and meat."
+msgstr ""
+"Η αγελάδα \"μουγκανίζει! μουγκανίζει!\" Η αγελάδα θυμάται ότι της συνέβει τα "
+"τελευταία τρία χρόνια. Ο άνθρωπος την εκτρέφει για το γάλα και το κρέας της. "
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:12
+msgid " You can drink the milk this animal produces."
+msgstr "Μπορείτε να πιείτε το γάλα που παράγει αυτό το ζώο."
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:13
+msgid " Cat"
+msgstr "Γάτα"
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:14
+msgid ""
+" The cat goes \"meow, meow\". Cats usually hate water because their fur "
+"doesn't stay warm when it is wet."
+msgstr ""
+"Η γάτα \"νιαουρίζει, νιαουρίζει\". Οι γάτες μισούν το νερό επειδή η γούνα "
+"τους δεν τις ζεσταίνει όταν είναι υγρή."
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:15
+msgid " This pet likes to chase mice."
+msgstr "Της αρέσει να κυνηγά ποντίκια."
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:16
+msgid " Pigs"
+msgstr "Γουρούνι"
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:17
+msgid " The pig goes \"oink, oink\". Pigs are the 4th most intelligent animal."
+msgstr ""
+"Το γουρούνι \"γρυλλίζει, γρυλλίζει\". Τα γουρούνια κατέχουν την 4η θέση όσον "
+"αφορά τη νοημοσύνη τους."
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:18
+msgid " This animal likes to lay in the mud."
+msgstr "Του αρέσει να κυλιέται στη λάσπη."
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:19
+msgid " White Duck"
+msgstr "Άσπρη πάπια"
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:20
+msgid ""
+" The duck goes \"quack, quack\". Ducks have special features like webbed "
+"feat and waterproof feathers."
+msgstr ""
+"Η πάπια \"παπάζει, παπάζει\". Οι πάπιες έχουν ειδικά χαρακτηριστικά, όπως "
+"μεμβράνες στα πόδια και αδιάβροχα πούπουλα."
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:21
+msgid " This animal has webbed feet so it can swim in the water."
+msgstr "Έχει μεμβράνες στα πόδια και μπορεί να κολυμπά."
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:22
+msgid " Owl"
+msgstr "Κουκουβάγια"
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:23
+msgid ""
+" The owl goes \"hoo. hoo.\" The owl has excellent vision and hearing at "
+"night."
+msgstr ""
+"Η κουκουβάγια \"ολολύζει, ολολύζει.\" Η κουκουβάγια τη νύχτα έχει εξαιρετική "
+"όραση και ακοή."
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:24
+msgid " This animal likes to come out at night."
+msgstr "Αυτό το ζώο συνηθίζει να βγαίνει έξω τη νύχτα."
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:25
+msgid " Dogs"
+msgstr "Σκύλος"
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:26
+msgid ""
+" The dog goes \"bark! bark!\". Dogs are great human companions and usually "
+"enjoy love and attention."
+msgstr ""
+"Ο σκύλος \"γαβγίζει! γαβγίζει!\". Ο σκύλος είναι πιστός σύντροφος του "
+"ανθρώπου και συχνά απολαμβάνει την αγάπη και την προσοχή του."
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:27
+msgid " This animal's ancesters were wolves."
+msgstr "Οι πρόγονοί του ήταν οι λύκοι."
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:28
+msgid " Rooster"
+msgstr "Κόκορας"
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:29
+msgid ""
+" The rooster goes \"coc-a-doodle-doo!\". Roosters have been on farms for "
+"about 5,000 years. Every morning it wakes the farm up with its noices."
+msgstr ""
+"Ο πετεινός \"λαλεί, λαλεί\". Ο κόκορας είναι κατοικίδιο ζώο εδώ και 5.000 "
+"χρόνια. Κάθε πρωί τους ξυπνά όλους με τα λαλήματά του."
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:30
+msgid " This animal wakes the farm up in the morning."
+msgstr "Κάθε πρωί τους ξυπνά όλους με τα λαλήματά του."
+
+#: ../src/explore_world_animals-activity/explore_world_animals.xml.in.h:1
+msgid "Explore World Animals"
+msgstr "Εξερεύνηση του κόσμου των ζώων"
+
+#: ../src/explore_world_animals-activity/explore_world_animals.xml.in.h:2
+msgid ""
+"Learn about world animals, interesting facts and their location on a map."
+msgstr ""
+"Μάθετε για τα ζώα του κόσμου ενδιαφέρουσες πληροφορίες και εντοπίστε στον "
+"χάρτη τον τόπο που κατοικούν."
+
+#: ../src/explore_world_animals-activity/explore_world_animals.xml.in.h:3
+msgid ""
+"There are two levels in this game.\n"
+"\n"
+"In level one, players enjoy exploring each animal on the screen. Click on "
+"the question mark, and learn about the animal, what it's name is, and what "
+"it looks like. Study well this information, because you will be tested in "
+"level 2!\n"
+"\n"
+"In level two, a random text prompt is displayed and you must click on the "
+"animal that matches the text. When you have matched all texts correctly, you "
+"win!\n"
+msgstr ""
+"Υπάρχουν δύο επίπεδα σε αυτό το παιχνίδι.\n"
+"\n"
+"Στο πρώτο επίπεδο οι παίκτες εξερευνούν κάθε ζώο και μαθαίνουν πληροφορίες "
+"γι' αυτό. Κάντε κλικ στο ερωτηματικό για να πάρετε πληροφορίες γι' αυτό το "
+"ζώο, το όνομά του και την εξωτερική του εμφάνιση. Μελετήστε προσεκτικά αυτές "
+"τις πληροφορίες γιατί θα σας χρειαστούν στο δεύτερο επίπεδο.\n"
+"\n"
+"Στο τρίτο επίπεδο ένα τυχαίο κείμενο θα εμφανίζεται στην οθόνη σας και εσείς "
+"θα πρέπει  να κάνετε κλικ στο ζώο που ταιριάζει στο κείμενο. Σκοπός σας "
+"είναι να κάνετε σωστά όλες τις αντιστοιχίσεις.\n"
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:1
+msgid " Explore exotic animals from around the world."
+msgstr "Εξερευνήστε εξωτικά ζώα από ολόκληρο τον κόσμο."
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:2
+msgid " Click on location where the given animal lives."
+msgstr "Κάντε κλικ στην τοποθεσία που ζει το συγκεκριμένο ζώο."
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:3
+msgid " Jaguars in South America"
+msgstr "Ιαγουάροι στη Νότια Αμερική"
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:4
+msgid ""
+" Jaguars are named after the Native American word meaning 'he who kills with "
+"one leap'"
+msgstr ""
+"Οι Ιαγουάροι ονομάστηκαν έτσι από τη φράση 'αυτός που σκοτώνει με ένα άλμα', "
+"την οποία χρησιμοποιούσαν οι ιθαγενείς αμερικανικοί πληθυσμοί όταν μιλούσαν "
+"γι' αυτό το ζώο."
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:5
+msgid "  Jaguar"
+msgstr "Ιαγουάρος"
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:6
+msgid " Hedgehogs in Europe"
+msgstr "Οι σκαντζόχοιροι στην Ευρώπη"
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:7
+msgid ""
+" Hedgehogs eat small animals, like frogs and insects, so many people keep "
+"them as useful pets. When in danger, they will curl up into a ball and stick "
+"up their coat of sharp spines."
+msgstr ""
+"Οι σκαντζόχοιροι τρώνε μικρά ζώα, όπως βατράχια και έντομα, ενώ πολλοί "
+"άνθρωποι τους θεωρούν κατοικίδια ζώα. Όταν βρίσκονται σε κίνδυνο, λυγίζουν "
+"το σώμα τους με τέτοιο τρόπο, ώστε σχηματίζεται μια μπάλα που εξωτερικά έχει "
+"τα μυτερά αγκάθια του δέρματός τους."
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:8
+msgid " Hedgehog"
+msgstr "Σκαντζόχοιρος"
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:9
+msgid " Giraffes in Africa"
+msgstr "Καμηλοπαρδάλεις στην Αφρική"
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:10
+msgid ""
+" The giraffe lives in Africa and is the tallest mammal in the world. Just "
+"their legs, which are usually 1.8 meters long, are taller than most humans!"
+msgstr ""
+"Η καμηλοπάρδαλη ζει στην Αφρική και είναι το ψηλότερο θηλαστικό του κόσμου. "
+"Μόνο τα πόδια της, που έχουν μήκος περίπου 1,8 μ., είναι ψηλότερα από τους "
+"περισσότερους ανθρώπους!"
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:11
+msgid " Giraffe"
+msgstr "Καμηλοπάρδαλη"
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:12
+msgid " Bison in America"
+msgstr "Βίσωνες στη Βόρεια Αμερική"
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:13
+msgid ""
+" Bison live on the plains of North America and were hunted by the Native "
+"Americans for food."
+msgstr ""
+"Ο βίσωνας ζει στις πεδιάδες της Βόρειας Αμερικής και αποτελούσε βασική τροφή "
+"για τους ιθαγενείς αμερικανικούς πληθυσμούς."
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:14
+msgid " Bison"
+msgstr "Βίσωνας"
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:15
+msgid " Narwhals in the Arctic"
+msgstr "Αρκτοφάλαινα στην Αρκτική"
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:16
+msgid ""
+" Narwhals are whales that live in the Arctic Ocean and have long tusks. "
+"These tusks remind many people of the mythical unicorn's horn."
+msgstr ""
+"Οι αρκτοφάλαινες είναι φάλαινες που ζούνε στον Αρκτικό Ωκεανό και έχουν έναν "
+"μεγάλο χαυλιόδοντα. Αυτός ο χαυλιόδοντας φέρνει στο νου των ανθρώπων το "
+"μυθικό κέρατο του μονόκερου."
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:17
+msgid " Narwhal"
+msgstr "Αρκτοφάλαινα"
+
+#: ../src/explore_world_music-activity/explore_world_music.xml.in.h:1
+msgid "Explore World Music"
+msgstr "Εξερευνήστε τη μουσική του κόσμου"
+
+#: ../src/explore_world_music-activity/explore_world_music.xml.in.h:2
+msgid "Learn about the music of the world."
+msgstr "Μάθε για τη μουσική του κόσμου."
+
+#: ../src/explore_world_music-activity/explore_world_music.xml.in.h:3
+msgid ""
+"Develop a better understanding of the variety of music present in the world"
+msgstr ""
+"Αναπτύξτε καλύτερη αντίληψη για την ποικιλία της μουσικής ανά τον κόσμο"
+
+#: ../src/explore_world_music-activity/explore_world_music.xml.in.h:4
+msgid ""
+"There are three levels in this activity.\n"
+"\n"
+"In the first level, enjoy exploring music from around the world. Click on "
+"each suitcase to learn about the music from that area, and listen to a short "
+"sample. Study well, because there will be two games related to this "
+"information next!\n"
+"\n"
+"The second level is a matching game. You will hear a clip of music, and you "
+"must select the location that corresponds to that music. Click the play "
+"button if you'd like to hear the music again. You win the level when you "
+"have correctly matched all sound clips.\n"
+"\n"
+"The third level is also a matching game. You must select the location that "
+"matches the text description on the screen. You win the level when you have "
+"correctly matched all text prompts.\n"
+msgstr ""
+"Υπάρχουν τρία επίπεδα σε αυτή τη δραστηριότητα.\n"
+"\n"
+"Στο πρώτο επίπεδο, εξερευνήστε μουσικές από ολόκληροτ τον κόσμο. Κάντε κλικ "
+"σε κάθε βαλίτσα για να μάθετε για τη μουσική της περιοχής αυτής και ακούστε "
+"ένα σύντομο ηχητικό δείγμα. Μελετήστε προσεκτικά τις πληροφορίες, γιατί "
+"υπάρχουν δύο παιχνίδια που σχετίζονται με τις πληροφορίες που θα μάθετε "
+"εδώ.\n"
+"\n"
+"Στο δεύτερο επίπεδο υπάρχει ένα παιχνίδι αντιστοίχισης. Θα ακούτε ένα "
+"μουσικό κομμάτι και θα πρέπει να επιλέγετε την τοποθεσία που αντιστοιχεί σε "
+"αυτό. Πατήστε το πλήκτρο αναπαραγωγής αν θέλετε να ξανακούσετε το κομμάτι. "
+"Σκοπός σας είναι να κάνετε σωστά όλες τις αντιστοιχίσεις.\n"
+"\n"
+"Στο τρίτο επίπεδο υπάρχει επίσης ένα ακόμη παιχνίδι αντιστοίχισης. Θα πρέπει "
+"να κάνετε αντιστοιχίσεις των τοποθεσιών και των κειμένων που εμφανίζονται "
+"στην οθόνη. Σκοπός σας είναι να κάνετε σωστά όλες τις αντιστοιχίσεις.\n"
+
+#: ../src/explore_world_music-activity/explore_world_music.xml.in.h:12
+msgid "Images from http://commons.wikimedia.org/wiki, http://archive.org"
+msgstr "Πηγή εικόνων: http://commons.wikimedia.org/wiki, http://archive.org"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:1
+msgid " Explore world music! Click on the suitcases."
+msgstr "Εξερευνήστε τη μουσική του κόσμου! Κάντε κλικ στις βαλίτσες"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:2
+msgid " Click on the location that matches the music you hear."
+msgstr "Κάντε κλικ στην τοποθεσία που αντιστοιχεί στη μουσική που ακούτε"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:3
+msgid " Click on the location that matches the text."
+msgstr "Κάντε κλικ στην τοποθεσία που αντιστοιχεί στο κείμενο που εμφανίζεται"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:4
+msgid " Australia"
+msgstr "Αυστραλία"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:5
+msgid ""
+" Aboriginals were the first people to live in Australia. They sing and play "
+"instruments, like the didgeridoo. It is made from a log and can be up to "
+"five meters long!"
+msgstr ""
+"Οι Αβοριγίνες είναι οι πρώτοι κάτοικοι της Αυστραλίας. Τραγουδούν και "
+"παίζουν μουσικά όργανα, όπως το ντιτζερίντου που είναι φτιαγμένο από κλαδί "
+"δέντρου και μπορεί να έχει μέχρι και πέντε μέτρα μήκος!"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:6
+msgid " Where is the didgeridoo played?"
+msgstr "Πού παίζεται το ντιτζερίντου;"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:7
+msgid " Africa"
+msgstr "Αφρική"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:8
+msgid ""
+" Music is a part of everyday life in Africa. African music features a great "
+"variety of drums, and they believe it is a sacred and magical instrument."
+msgstr ""
+"Η μουσική είναι κομμάτι της καθημερινής ζωής στην Αφρική. Στην αφρικάνικη "
+"μουσική τα τύμπανα έχουν ιδιαίτερη θέση, καθώς θεωρούνται ιερά και μαγικά "
+"όργανα."
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:9
+msgid " Where is the drum considered a magical instrument?"
+msgstr "Σε ποια περιοχή της Γης, το τύμπανο θεωρείται μαγικό όργανο;"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:10
+msgid " Middle East"
+msgstr "Μέση Ανατολή"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:11
+msgid ""
+" Music is a very important part of middle eastern culture. Specific songs "
+"are played to call worshipers to prayer. The lute is an instrument invented "
+"thousands of years ago and still in use today."
+msgstr ""
+"Η μουσική είναι ένα πολύ σημαντικό κομμάτι της μεσανατολικής κουλτούρας. "
+"Υπάρχουν τραγούδια που καλούν τους προσκηνυτές σε προσευχή. Το λαούτο είναι "
+"ένα όργανο που κατασκευάστηκε για πρώτη φορά πριν από χιλιάδες χρόνια και "
+"χρησιμοποιείται ακόμη και σήμερα."
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:12
+msgid " Where is music used to call people to prayer?"
+msgstr ""
+"Σε ποιο μέρος της γης η μουσική χρησιμοποιείται για να καλέσει τον κόσμο "
+"στην προσευχή;"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:13
+msgid " Japan"
+msgstr "Ιαπωνία"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:14
+msgid ""
+" Taiko drumming comes from Japan. This type of drumming was originally used "
+"to scare enemies in battle. It is very loud, and performances are very "
+"exciting with crouds chearing and performers yelling!"
+msgstr ""
+"Το τάικο προέρχεται από τον Ιαπωνία. Το χρησιμοποιούσαν για να φοβίσουν τους "
+"εχθρούς κατά τη διάρκεια των μαχών. Βγάζει πολύ έντονο ήχο που ξεσηκώνει τον "
+"κόσμο ο οποίος ζητωκραυγάζει, ενώ οι τυμπανιστές βγάζουν διαπεραστικές "
+"κραυγές."
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:15
+msgid " Where do performers yelp as they play the drums?"
+msgstr ""
+"Σε ποιο μέρος του κόσμου οι οργανοπαίχτες κραυγάζουν διαπεραστικά καθώς "
+"παίζουν τα τύμπανα;"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:16
+msgid " Scotland and Ireland"
+msgstr "Σκωτία και Ιρλανδία"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:17
+msgid ""
+" Folk music of this region is called celtic music, often incorporates a "
+"narrative poem or story. Typical instruments include bagpipes, fiddles, "
+"flutes, harps, and accordians."
+msgstr ""
+"Η παραδοσιακή λαϊκή μουσική αυτής της περιοχής ονομάζεται κελτική και συχνά "
+"περιέχει αφηγήσεις, ποιήματα ή και ιστορίες. Τυπικά όργανα αυτής της "
+"περιοχής είναι η γκάιντα, το βιολί, η φλογέρα, η άρπα και το ακκορντεόν."
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:18
+msgid " Bagpipers, who often wear kilts, are from this location."
+msgstr ""
+"Αυτοί που παίζουν γκάιντα, φορούν κιλτ και προέρχονται από αυτό το μέρος του "
+"κόσμου."
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:19
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:6
+msgid " Italy"
+msgstr "Ιταλία"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:20
+msgid ""
+" Italy is famous for its Opera. Opera is a musical theatre where actors tell "
+"a story by acting and singing. Opera sings, both male and female, learn "
+"special techniques to sing operas."
+msgstr ""
+"Η Ιταλία φημίζεται για την όπερα, η οποία είναι ένα μουσικό θέατρο με "
+"ηθοποιούς που τραγουδούν. Οι ηθοποιοί - τραγουδιστές της όπερας, άντρες και "
+"γυναίκες, εξασκούνται σε ειδικές τεχνικές για να συμμετέχουν σε αυτό το "
+"είδος του θεάτρου."
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:21
+msgid " This country is known for its opera music."
+msgstr "Αυτή η χώρα είναι γνωστή για την όπερα."
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:22
+msgid " European Classical Music"
+msgstr "Ευρωπαϊκή κλασική μουσική"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:23
+msgid ""
+" Europe is the home of classical music. Famous composers like Bach, "
+"Beethoven, and Mozart forevor changed music history."
+msgstr ""
+"Η κλασική μουσική κατάγεται από την Ευρώπη. Φημισμένοι συνθέτες, όπως ο "
+"Μπαχ, ο Μπετόβεν και ο Μότσαρτ άλλαξαν την ιστορία της μουσικής για πάντα."
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:24
+msgid " Bach, Beethoven, and Mozart composed music in this location."
+msgstr ""
+"Ο Μπαχ, ο Μπετόβεν και ο Μότσαρτ ήταν συνθέτες που κατάγονταν από αυτό το "
+"μέρος του κόσμου."
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:25
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:5
+msgid " Mexico"
+msgstr "Μεξικό"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:26
+msgid ""
+" Mariachi is a famous type of Mexican music. It features guitars, trumpets, "
+"and violins. These bands play for many occasions, including weddings and "
+"parties."
+msgstr "0"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:27
+msgid ""
+" At parties, people often dance to the Mariachi music. A Famous dance is:"
+msgstr ""
+"Στα πάρτι συχνά χορεύουν με τη μουσική του μαριάτσι. Ένας γνωστός χορός "
+"είναι ο:"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:28
+msgid " Where is Mariachi music from?"
+msgstr "Από ποια χώρα προέρχεται η μουσική μαριάτσι;"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:29
+msgid " America"
+msgstr "Αμερική"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:30
+msgid ""
+" America also has a wide variety of musical genres, but perhaps it is most "
+"famous for rock n' roll music. This music features vocalists, guitars, and "
+"drums."
+msgstr ""
+"Η Αμερική διαθέτει μια μεγάλη ποικιλία μουσικών ειδών, αλλά ίσως το πιο "
+"γνωστό είδος να είναι το ροκ εντ ρολ. Τα μουσικά σχήματα αποτελούνται από "
+"τραγουδιστές, κιθάρες και ντραμς."
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:31
+msgid " The 'king' of rock n' roll is"
+msgstr "Ο 'βασιλιάς' του ροκ εντ ρολ είναι ο "
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:32
+msgid ""
+" The 'kind' of rock n' roll, Elvis Presley, made his music famous in this "
+"country."
+msgstr ""
+"Ο 'βασιλιάς' του ροκ εντ ρολ, ο Έλβις Πρίσλεϊ, έκανε πασίγνωστη τη μουσική "
+"αυτή στη χώρα του."
+
 #: ../src/fifteen-activity/fifteen.xml.in.h:1
 msgid "The fifteen game"
 msgstr "Δεκαπέντε"
@@ -3107,15 +3709,6 @@ msgstr ""
 #: ../src/fifteen-activity/fifteen.xml.in.h:5
 msgid "Original code taken from the libgnomecanvas demo"
 msgstr "Ο αρχικός κώδικας προέρχεται από το libgnomecanvas"
-
-#: ../src/findit-activity/findit.py:320
-#: ../src/louis_braille-activity/louis_braille.py:88
-msgid ""
-"Failed to parse data set '{filename}' with error:\n"
-"{error}"
-msgstr ""
-"Αποτυχία ανάλυσης συνόλου δεδομένων '{filename}'  με σφάλμα:\n"
-"{error}"
 
 #: ../src/followline-activity/followline.xml.in.h:1
 msgid "Control the hose-pipe"
@@ -3684,8 +4277,8 @@ msgstr ""
 "Το GCompris θα βρει τα πρόσθετα των δραστηριοτήτων σε αυτόν τον κατάλογο."
 
 #: ../src/gcompris/gcompris.c:195
-msgid "GCompris will find the python activity in this directory"
-msgstr "Το GCompris θα βρει τη δραστηριότητα σε αυτόν τον κατάλογο."
+msgid "GCompris will find the Python activity in this directory"
+msgstr "Το GCompris θα βρει τη δραστηριότητα Python σε αυτόν τον κατάλογο"
 
 #: ../src/gcompris/gcompris.c:198
 msgid "GCompris will find the locale file (.mo translation) in this directory"
@@ -3833,7 +4426,7 @@ msgstr ""
 msgid "Retrieving remote data..."
 msgstr "Ανάκτηση απομακρυσμένων δεδομένων..."
 
-#: ../src/gcompris/gcompris.c:1512
+#: ../src/gcompris/gcompris.c:1513
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d second old.\n"
@@ -3846,12 +4439,12 @@ msgstr[1] ""
 "Δεν είναι δυνατή η εκκίνηση του gcompris επειδή το αρχείο κλειδώματος είναι "
 "ενεργό για λιγότερο από %d δευτερόλεπτα.\n"
 
-#: ../src/gcompris/gcompris.c:1516
+#: ../src/gcompris/gcompris.c:1517
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Το αρχείο κλειδώματος είναι: %s\n"
 
-#: ../src/gcompris/gcompris.c:1694
+#: ../src/gcompris/gcompris.c:1638
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3865,28 +4458,28 @@ msgstr ""
 "Πληροφορίες στο http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1815
+#: ../src/gcompris/gcompris.c:1818
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr ""
 "Χρησιμοποίησε το -l για να αποκτήσεις άμεση πρόσβαση σε μια δραστηριότητα.\n"
 
-#: ../src/gcompris/gcompris.c:1816
+#: ../src/gcompris/gcompris.c:1819
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Ο κατάλογος των διαθέσιμων δραστηριοτήτων είναι:\n"
 
-#: ../src/gcompris/gcompris.c:1847
+#: ../src/gcompris/gcompris.c:1850
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Αριθμός δραστηριοτήτων: %d\n"
 
-#: ../src/gcompris/gcompris.c:1883
+#: ../src/gcompris/gcompris.c:1886
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s υπάρχει αλλά δεν είναι αναγνώσιμο ή εγγράψιμο"
 
-#: ../src/gcompris/gcompris.c:1978
+#: ../src/gcompris/gcompris.c:1981
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3895,7 +4488,7 @@ msgstr ""
 "ΣΦΑΛΜΑ: Το προφίλ '%s' δεν βρέθηκε. Εκτελέστε την εντολή  'gcompris --"
 "profile-list' για να δείτε τα διαθέσιμα προφίλ\n"
 
-#: ../src/gcompris/gcompris.c:1992
+#: ../src/gcompris/gcompris.c:1995
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Ο κατάλογος των διαθέσιμων προφίλ είναι:\n"
@@ -3933,7 +4526,7 @@ msgstr "Οδηγός"
 msgid "Credit"
 msgstr "Μνεία"
 
-#: ../src/gcompris/menu.c:615
+#: ../src/gcompris/menu.c:620
 #, c-format
 msgid ""
 "Loading activity from file:\n"
@@ -3942,7 +4535,7 @@ msgstr ""
 "Φόρτωση δραστηριότητας από το αρχείο:\n"
 "%s"
 
-#: ../src/gcompris/menu.c:675
+#: ../src/gcompris/menu.c:680
 msgid ""
 "All the activities are disabled in this profile. Go in the GCompris "
 "administration module and activate at least one activity."
@@ -4859,12 +5452,11 @@ msgstr "ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ"
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
 #: ../src/gletters-activity/gletters.c:850
-#: ../src/imageid-activity/imageid.c:716 ../src/login-activity/login.py:480
-#: ../src/missing_letter-activity/missingletter.c:800
+#: ../src/imageid-activity/imageid.c:716
 #: ../src/pythontest-activity/pythontest.py:448
 #: ../src/readingh-activity/reading.c:905
-#: ../src/scalesboard-activity/scale.c:1190
-#: ../src/smallnumbers-activity/smallnumbers.c:597
+#: ../src/scalesboard-activity/scale.c:1191
+#: ../src/smallnumbers-activity/smallnumbers.c:598
 #: ../src/tuxpaint-activity/tuxpaint.py:185
 #: ../src/wordsgame-activity/wordsgame.c:904
 #, c-format, python-format
@@ -4876,7 +5468,7 @@ msgstr ""
 " για το προφίλ <b>%s</b>"
 
 #: ../src/gletters-activity/gletters.c:879
-#: ../src/smallnumbers-activity/smallnumbers.c:616
+#: ../src/smallnumbers-activity/smallnumbers.c:617
 msgid "Enable sounds"
 msgstr "Ενεργοποίηση ήχων"
 
@@ -4934,9 +5526,8 @@ msgid " and %d"
 msgstr "και %d"
 
 #: ../src/gnumch-equality-activity/gnumch.py:115
-#, python-format
-msgid "%d is divisible by %s."
-msgstr "%d διαιρείται από το %s."
+msgid "{0} is divisible by {1}."
+msgstr "{0} διαιρείται από το {1}."
 
 #: ../src/gnumch-equality-activity/gnumch.py:119
 msgid "1 is not a prime number."
@@ -4963,9 +5554,8 @@ msgid "Factors of %d"
 msgstr "Διαιρέτες του %d"
 
 #: ../src/gnumch-equality-activity/gnumch.py:195
-#, python-format
-msgid "%s are the factors of %d."
-msgstr "%s είναι διαιρέτες του %d."
+msgid "{0} are the factors of {1}."
+msgstr "{0} είναι διαιρέτες του {1}."
 
 #: ../src/gnumch-equality-activity/gnumch.py:207
 #, python-format
@@ -4973,29 +5563,24 @@ msgid "Multiples of %d"
 msgstr "Πολλαπλάσια του %d"
 
 #: ../src/gnumch-equality-activity/gnumch.py:241
-#, python-format
-msgid "%s = %d"
-msgstr "%s = %d"
+msgid "{0} = {1}"
+msgstr "{0} = {1}"
 
 #: ../src/gnumch-equality-activity/gnumch.py:252
-#, python-format
-msgid "%d + %d"
-msgstr "%d + %d"
+msgid "{0} + {1}"
+msgstr "{0} + {1}"
 
 #: ../src/gnumch-equality-activity/gnumch.py:257
-#, python-format
-msgid "%d − %d"
-msgstr "%d − %d"
+msgid "{0} − {1}"
+msgstr "{0} − {1}"
 
 #: ../src/gnumch-equality-activity/gnumch.py:262
-#, python-format
-msgid "%d × %d"
-msgstr "%d × %d"
+msgid "{0} × {1}"
+msgstr "{0} × {1}"
 
 #: ../src/gnumch-equality-activity/gnumch.py:266
-#, python-format
-msgid "%d ÷ %d"
-msgstr "%d ÷ %d"
+msgid "{0} ÷ {1}"
+msgstr "{0} ÷ {1}"
 
 #: ../src/gnumch-equality-activity/gnumch.py:274
 #, python-format
@@ -5183,24 +5768,23 @@ msgstr ""
 "έναν αριθμό."
 
 #: ../src/guessnumber-activity/guessnumber.py:203
-#, python-format
-msgid "Guess a number between %d and %d"
-msgstr "Μάντεψε έναν αριθμό μεταξύ %d και %d"
+msgid "Guess a number between {0} and {1}"
+msgstr "Μάντεψε έναν αριθμό μεταξύ του {0} και του {1}"
 
-#: ../src/guessnumber-activity/guessnumber.py:306
-#, python-format
-msgid "Please enter a number between %d and %d"
-msgstr "Παρακαλώ βάλε έναν αριθμό μεταξύ %d και %d"
+#: ../src/guessnumber-activity/guessnumber.py:307
+#| msgid "Please enter a number between %d and %d"
+msgid "Please enter a number between {0} and {1}"
+msgstr "Παρακαλώ βάλε έναν αριθμό μεταξύ {0} και {1}"
 
-#: ../src/guessnumber-activity/guessnumber.py:311
+#: ../src/guessnumber-activity/guessnumber.py:312
 msgid "Out of range"
 msgstr "Εκτός ορίων"
 
-#: ../src/guessnumber-activity/guessnumber.py:317
+#: ../src/guessnumber-activity/guessnumber.py:318
 msgid "Too high"
 msgstr "Πολύ μεγάλο"
 
-#: ../src/guessnumber-activity/guessnumber.py:319
+#: ../src/guessnumber-activity/guessnumber.py:320
 msgid "Too low"
 msgstr "Πολύ μικρό"
 
@@ -5427,7 +6011,8 @@ msgstr ""
 #: ../src/hydroelectric-activity/hydroelectric.py:292
 #: ../src/hydroelectric-activity/hydroelectric.py:323
 #: ../src/hydroelectric-activity/hydroelectric.py:346
-msgid "The electricity power is measured in Watt (W)."
+#| msgid "The electricity power is measured in Watt (W)."
+msgid "The electricity power is measured in watts (W)."
 msgstr "Η ηλεκτρική ενέργεια μετριέται σε Watt (W)."
 
 #: ../src/hydroelectric-activity/hydroelectric.py:176
@@ -6017,6 +6602,7 @@ msgstr ""
 "δεξί χέρι. Εικονίζεται από διάφορες πλευρές"
 
 #: ../src/leftright-activity/leftright.xml.in.h:4
+#: ../src/note_names-activity/note_names.xml.in.h:3
 #: ../src/railroad-activity/railroad.xml.in.h:4
 msgid "None"
 msgstr "Κανένα"
@@ -6074,6 +6660,23 @@ msgstr "Προφίλ: "
 #: ../src/login-activity/login.py:235
 msgid "Login: "
 msgstr "Σύνδεση:"
+
+#. Init configuration window:
+#. all the configuration functions will use it
+#. all the configuration functions returns values for their key in
+#. the dict passed to the apply_callback
+#. the returned value is the main GtkVBox of the window,
+#. we can add what you want in it.
+#: ../src/login-activity/login.py:480
+#| msgid ""
+#| "<b>%s</b> configuration\n"
+#| " for profile <b>%s</b>"
+msgid ""
+"<b>{0}</b> configuration\n"
+" for profile <b>{1}</b>"
+msgstr ""
+"<b>{0}</b> Ρυθμίσεις\n"
+" για το προφίλ <b>{1}</b>"
 
 #. toggle box
 #: ../src/login-activity/login.py:496
@@ -6215,8 +6818,12 @@ msgstr ""
 "σύμβολα, σημεία στίξης και τη μουσική σημειογραφία."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:10
+#, fuzzy
+#| msgid ""
+#| "He died of tuberculosis. He is burried in the Pantheon in Paris. A "
+#| "monument is erected to honor him."
 msgid ""
-"He died of tuberculosis. He is burried in the Pantheon in Paris. A monument "
+"He died of tuberculosis. He is buried in the Pantheon in Paris. A monument "
 "is erected to honor him."
 msgstr ""
 "Πέθανε από φυματίωση και τάφηκε στο Πάνθεον στο Παρίσι. Ένα μνημείο "
@@ -7281,6 +7888,79 @@ msgstr "Ξαναφτιάξε το ίδιο μωσαϊκό στη δεξιά πλ
 msgid "Rebuild the mosaic"
 msgstr "Μωσαϊκό"
 
+#: ../src/note_names-activity/note_names.py:117
+msgid ""
+"These are the eight basic notes in treble clef. They form the C Major Scale."
+msgstr ""
+
+#: ../src/note_names-activity/note_names.py:127
+msgid ""
+"These are the eight basic notes in bass clef. They also form the C Major "
+"Scale. Notice that the note positions are different than in treble clef."
+msgstr ""
+
+#: ../src/note_names-activity/note_names.py:141
+#, fuzzy
+msgid "Play Scale"
+msgstr "Αναπαραγωγή κλίμακας"
+
+#: ../src/note_names-activity/note_names.py:148
+msgid "Play Treble Clef Game"
+msgstr ""
+
+#: ../src/note_names-activity/note_names.py:150
+msgid "Play Bass Clef Game"
+msgstr ""
+
+#: ../src/note_names-activity/note_names.py:182
+msgid "Click on the note name to match the pitch. Then click ok to check."
+msgstr ""
+
+#: ../src/note_names-activity/note_names.py:184
+msgid "Now there are sharp notes. These pitches are raised a half step."
+msgstr ""
+
+#: ../src/note_names-activity/note_names.py:186
+msgid "Now there are flat notes. These pitches are lowered a half step."
+msgstr ""
+
+#: ../src/note_names-activity/note_names.py:192
+msgid "Click the note to hear it played"
+msgstr "Κάντε κλικ στη νότα για να την ακούσετε"
+
+#: ../src/note_names-activity/note_names.py:244
+msgid "Need a hint? Click here for color-coded note names."
+msgstr ""
+
+#: ../src/note_names-activity/note_names.py:247
+msgid "Ready for a challenge? Color all buttons black!"
+msgstr "Έτοιμοι για την πρόκληση; Χρωματίστε όλα τα πλήκτρα μαύρα!"
+
+#: ../src/note_names-activity/note_names.xml.in.h:1
+msgid "Name that Note!"
+msgstr ""
+
+#: ../src/note_names-activity/note_names.xml.in.h:2
+msgid ""
+"Learn the names of the notes, in bass and treble clef, with the help of "
+"sounds and colors"
+msgstr ""
+
+#: ../src/note_names-activity/note_names.xml.in.h:4
+msgid ""
+"To develop a good understanding of note position and naming convention. To "
+"prepare for the piano player and composition activity"
+msgstr ""
+
+#: ../src/note_names-activity/note_names.xml.in.h:5
+msgid ""
+"The first level and the eleventh level introduce two different staffs with a "
+"C major scale. The following levels then quiz the player on note names. To "
+"help learn the names, the note pitches are played when the mouse is rolled "
+"over the note, and the pitch names can be color coded.\n"
+"        "
+msgstr ""
+
 #: ../src/paintings-activity/paintings.xml.in.h:1
 msgid "Assemble the puzzle"
 msgstr "Συναρμολόγησε το παζλ"
@@ -7504,6 +8184,356 @@ msgstr ""
 "Παρατηρήστε τις δύο εικόνες προσεκτικά. Υπάρχουν μερικές μικρές διαφορές. "
 "Κάθε φορά που βρίσκετε μια διαφορά, κάντε κλικ σε αυτήν."
 
+#. this is unique to the English notation system
+#. translators must modify this dictionary for each language
+#: ../src/piano_composition-activity/gcomprismusic.py:67
+msgid "C"
+msgstr "Ντο"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:67
+msgid "D"
+msgstr "Ρε"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:67
+msgid "E"
+msgstr "Μι"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:67
+msgid "F"
+msgstr "Φα"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:67
+msgid "G"
+msgstr "Σολ"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:67
+msgid "A"
+msgstr "Λα"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:67
+msgid "B"
+msgstr "Σι"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:68
+msgid "C#"
+msgstr "Ντο#"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:68
+msgid "D#"
+msgstr "Ρε#"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:68
+msgid "F#"
+msgstr "Φα#"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:68
+msgid "G#"
+msgstr "Σολ#"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:68
+msgid "A#"
+msgstr "Λα#"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:69
+msgid "Db"
+msgstr "Ρεb"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:69
+msgid "Eb"
+msgstr "Μιb"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:69
+msgid "Gb"
+msgstr "Σολb"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:69
+msgid "Ab"
+msgstr "Λαb"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:69
+msgid "Bb"
+msgstr "Σιb"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:273
+msgid "The staff is full. Please erase some notes"
+msgstr "Η παρτιτούρα είναι γεμάτη. Παρακαλώ διαγράψτε μερικές νότες"
+
+#: ../src/piano_composition-activity/piano_composition.py:109
+msgid "This is the Treble clef staff, for high pitched notes"
+msgstr ""
+
+#: ../src/piano_composition-activity/piano_composition.py:110
+msgid "These are the 8 \"white\" keys in an octave"
+msgstr "Υπάρχουν 8 \"λευκά\" πλήκτρα σε μια οκτάβα"
+
+#: ../src/piano_composition-activity/piano_composition.py:112
+msgid "This is the Bass clef staff, for low pitched notes"
+msgstr ""
+
+#: ../src/piano_composition-activity/piano_composition.py:113
+msgid "These keys form the C Major scale"
+msgstr ""
+
+#: ../src/piano_composition-activity/piano_composition.py:115
+msgid "Click on the note symbols to write different length notes"
+msgstr ""
+
+#: ../src/piano_composition-activity/piano_composition.py:116
+msgid ""
+"Notes can be many types, such as quarter notes, half notes, and whole notes"
+msgstr ""
+
+#: ../src/piano_composition-activity/piano_composition.py:118
+msgid "Sharp notes have a # sign"
+msgstr ""
+
+#: ../src/piano_composition-activity/piano_composition.py:119
+msgid "The black keys are sharp and flat keys"
+msgstr ""
+
+#: ../src/piano_composition-activity/piano_composition.py:121
+msgid "Flat notes have a b sign"
+msgstr ""
+
+#: ../src/piano_composition-activity/piano_composition.py:122
+msgid "Each black key has two names, one with a flat and one with a sharp"
+msgstr ""
+
+#: ../src/piano_composition-activity/piano_composition.py:124
+msgid "Now you can load melodies from around the world"
+msgstr "Τώρα μπορείτε να φορτώσετε μελωδίες από ολόκληρο τον κόσμο"
+
+#: ../src/piano_composition-activity/piano_composition.py:127
+msgid "Compose music now! Click to load or save your work"
+msgstr ""
+"Συνθέστε μουσική τώρα! Κάντε κλικ για να φορτώσετε ή να αποθηκεύσετε τη "
+"δουλειά σας"
+
+#. ADD BUTTONS
+#: ../src/piano_composition-activity/piano_composition.py:142
+msgid "Erase All Notes"
+msgstr "Διαγράψτε όλες τις νότες"
+
+#: ../src/piano_composition-activity/piano_composition.py:145
+msgid "Erase Last Note"
+msgstr "Διαγράψτε την τελευταία νότα"
+
+#: ../src/piano_composition-activity/piano_composition.py:148
+msgid "Play Composition"
+msgstr "Αναπαραγωγή σύνθεσης"
+
+#: ../src/piano_composition-activity/piano_composition.py:153
+msgid "Erase and Change Clef"
+msgstr "Διαγραφή και αλλαγή μουσικού κλειδιού"
+
+#: ../src/piano_composition-activity/piano_composition.py:161
+msgid "Change Note Type:"
+msgstr "Αλλαγή τύπου νότας:"
+
+#: ../src/piano_composition-activity/piano_composition.py:181
+#, fuzzy
+#| msgid "light house"
+msgid "Eighth Note"
+msgstr "φάρος"
+
+#: ../src/piano_composition-activity/piano_composition.py:200
+msgid "Quarter Note"
+msgstr ""
+
+#: ../src/piano_composition-activity/piano_composition.py:210
+msgid "Half Note"
+msgstr ""
+
+#: ../src/piano_composition-activity/piano_composition.py:221
+msgid "Whole Note"
+msgstr ""
+
+#: ../src/piano_composition-activity/piano_composition.py:243
+#, fuzzy
+#| msgid "Music"
+msgid "Load Music"
+msgstr "Μουσική"
+
+#: ../src/piano_composition-activity/piano_composition.py:245
+msgid "Change Accidental Style:"
+msgstr ""
+
+#: ../src/piano_composition-activity/piano_composition.py:344
+#| msgid ""
+#| "Error: this activity cannot be played with the\n"
+#| "sound effects disabled.\n"
+#| "Go to the configuration dialogue to\n"
+#| "enable the sound"
+msgid ""
+"Error: This activity cannot be played with the\n"
+"sound effects disabled.\n"
+"Go to the configuration dialogue to\n"
+"enable the sound."
+msgstr ""
+"Σφάλμα: αυτή η δραστηριότητα δεν μπορεί να εκτελεστεί όταν\n"
+"τα εφέ των ήχων είναι απενεργοποιημένα.\n"
+"Πήγαινε στη Διαχείριση για \n"
+"να ενεργοποιήσεις τον ήχο."
+
+#: ../src/piano_composition-activity/piano_composition.py:361
+msgid "Select A Melody to Load"
+msgstr ""
+
+#: ../src/piano_composition-activity/piano_composition.py:369
+msgid "Next Page"
+msgstr "Επόμενη σελίδα"
+
+#: ../src/piano_composition-activity/piano_composition.py:371
+msgid "Previous Page"
+msgstr "Προηγούμενη σελίδα"
+
+#: ../src/piano_composition-activity/piano_composition.xml.in.h:1
+msgid "Piano Composition"
+msgstr "Σύνθεση πιάνο"
+
+#: ../src/piano_composition-activity/piano_composition.xml.in.h:2
+msgid ""
+"An activity to learn how the piano keyboard works, how notes are written on "
+"a musical staff and explore music composition by loading and saving your "
+"work."
+msgstr ""
+"Μια δραστηριότητα για να μάθετε πως δουλεύουν τα πλήκτρα του πιάννου, πώς "
+"είναι γραμμένες οι νότες σε μια παρτιτούρα, καθώς και να εξερευνήσετε τους "
+"τρόπους σύνθεσης μουσικής φορτώνοντας και αποθηκεύοντας τη δουλειά σας."
+
+#: ../src/piano_composition-activity/piano_composition.xml.in.h:3
+msgid ""
+"Familiarity with note naming convensions, note-names activity useful to "
+"learn this notation."
+msgstr ""
+
+#: ../src/piano_composition-activity/piano_composition.xml.in.h:4
+msgid ""
+"Develop an understanding of music composition, and increase interest in "
+"making music with a piano keyboard. This activity covers many fundamental "
+"aspects of music, but there is much more to explore about music composition. "
+"If you enjoy this activity but want a more advanced tool, try downloading "
+"MuseScore (http://musescore.org/en/download), an open source music notation "
+"tool."
+msgstr ""
+
+#: ../src/piano_composition-activity/piano_composition.xml.in.h:5
+msgid ""
+"This activity has several levels, each level adds a new functionality to the "
+"previous level.\n"
+"Level 1: basic piano keyboard (white keys only) and students can experiment "
+"with clicking the colored rectangle keys to write music\n"
+"Level 2: the musical staff switches to bass clef, so pitches are lower than "
+"in previous level\n"
+"Level 3: option to choose between treble and bass clef, additional function "
+"includes option to select note duration (quarter, half, and whole notes)\n"
+"Level 4: addition of black keys (sharp keys)\n"
+"Level 5: flat notation used for black keys\n"
+"Level 6: load children's melodies from around the world\n"
+"Level 7: all features available, with the additional feature to load and "
+"save your composition\n"
+"\n"
+"The following keyboard bindings work in this activity:\n"
+"- backspace: erase one note\n"
+"- delete: erase all notes\n"
+"- space bar: play composition\n"
+"- number keys:\n"
+"  1: C\n"
+"  2: D\n"
+"  3: E\n"
+"  4: F\n"
+"  5: G\n"
+"  6: E\n"
+"  7: F\n"
+"  8: C (higher octave)\n"
+"  etc.\n"
+"  F1: C# / Db\n"
+"  F2: D# / Eb\n"
+"  F3: F# / Gb\n"
+"  F4: G# / Ab\n"
+"  F5: A# / Bb\n"
+msgstr ""
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:1
+msgid " America: English Lullaby"
+msgstr ""
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:2
+msgid " America: Patriotic"
+msgstr ""
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:3
+msgid " America: Shaker Tune"
+msgstr ""
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:4
+msgid " America: Nursery Rhyme"
+msgstr ""
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:7
+msgid " Spain"
+msgstr "Ισπανία"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:8
+msgid " German Kid's Song"
+msgstr ""
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:9
+msgid " Children's Song from Brazil"
+msgstr "Το 'Τραγούδι του παιδιού' από τη Βραζιλία"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:10
+msgid " German"
+msgstr "Γερμανία"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:11
+msgid " France"
+msgstr "Γαλλία"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:12
+msgid " Germany"
+msgstr "Γερμανία"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:13
+msgid " Brazil"
+msgstr "Βραζιλία"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:14
+msgid " Hungary, Nursery Rhyme"
+msgstr ""
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:15
+msgid " Hungary, Children's Song"
+msgstr ""
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:16
+msgid " Serbia"
+msgstr "Σερβία"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:17
+msgid " Britain"
+msgstr ""
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:18
+msgid " Poland"
+msgstr "Πολωνία"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:19
+msgid " Greece"
+msgstr "Ελλάδα"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:20
+msgid " Ukraine"
+msgstr "Ουκρανία"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:21
+msgid " Mexican song to break a piñata"
+msgstr ""
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:22
+msgid " Finland"
+msgstr "Φινλανδία"
+
 #: ../src/planegame-activity/planegame.c:62
 #: ../src/planegame-activity/planegame.xml.in.h:1
 msgid "Numbers in Order"
@@ -7530,6 +8560,149 @@ msgstr ""
 "βελάκια (πάνω, κάτω, δεξιά, αριστερά) του πληκτρολογίου για να κινείς το "
 "ελικόπτερο."
 
+#: ../src/play_piano-activity/play_piano.py:109
+#, fuzzy
+#| msgid "Color of the line"
+msgid "Color code notes?"
+msgstr "Χρώμα γραμμής"
+
+#: ../src/play_piano-activity/play_piano.py:129
+msgid "Click the piano keys that match the written notes."
+msgstr ""
+
+#: ../src/play_piano-activity/play_piano.py:138
+#: ../src/play_rhythm-activity/play_rhythm.py:147
+msgid "Play"
+msgstr "Αναπαραγωγή"
+
+#: ../src/play_piano-activity/play_piano.py:150
+#: ../src/play_rhythm-activity/play_rhythm.py:172
+msgid "Erase Attempt"
+msgstr "Προσπάθεια διαγραφής"
+
+#: ../src/play_piano-activity/play_piano.xml.in.h:1
+msgid "Play Piano!"
+msgstr "Παίξε πιάνο!"
+
+#: ../src/play_piano-activity/play_piano.xml.in.h:2
+msgid "Learn to play melodies on the piano keyboard!"
+msgstr "Μάθετε να παίζετε μελωδίες στο πιάνο!"
+
+#: ../src/play_piano-activity/play_piano.xml.in.h:3
+msgid ""
+"knowledge of musical notation and musical staff. Play piano_composition "
+"first."
+msgstr ""
+
+#: ../src/play_piano-activity/play_piano.xml.in.h:4
+msgid ""
+"understand how the piano keyboard can play music as written on the musical "
+"staff"
+msgstr ""
+
+#: ../src/play_piano-activity/play_piano.xml.in.h:5
+msgid ""
+"The notes you see will be played to you. Click on the corresponding keys on "
+"the keyboard that match the notes you hear and see. All levels except for "
+"the last have the notes colored so you can match the notes to the keyboard "
+"colors. Each level increases in difficulty by adding more notes. Levels 1-6 "
+"test the treble clef, levels 7-12 test the bass clef. When you get five "
+"points, you move onto the next level (incorrect answers deduct points, "
+"correct answers add points).\n"
+"\n"
+"The following keyboard bindings work in this game:\n"
+"- backspace: erase attempt\n"
+"- delete: erase attempt\n"
+"- enter/return: ok button\n"
+"- space bar: play\n"
+"- number keys:\n"
+"  - 1: C\n"
+"  - 2: D\n"
+"  - 3: E\n"
+"  - 4: F\n"
+"  - 5: G\n"
+"  - 6: E\n"
+"  - 7: F\n"
+"  - 8: C (higher octave)\n"
+"  - etc.\n"
+"  - F1: C# / Db\n"
+"  - F2: D# / Eb\n"
+"  - F3: F# / Gb\n"
+"  - F4: G# / Ab\n"
+"  - F5: A# / Bb\n"
+msgstr ""
+
+#: ../src/play_rhythm-activity/play_rhythm.py:101
+#, fuzzy
+#| msgid "Can count"
+msgid "Beat Count:"
+msgstr "Δυνατότητα μέτρησης"
+
+#: ../src/play_rhythm-activity/play_rhythm.py:125
+msgid "Beat the rhythm on this drum."
+msgstr ""
+
+#: ../src/play_rhythm-activity/play_rhythm.py:136
+msgid "For a little help, click the metronome to hear the tempo."
+msgstr ""
+
+#: ../src/play_rhythm-activity/play_rhythm.py:348
+#, fuzzy
+#| msgid "Listen to the color and click on the matching duck."
+msgid "1. Listen to the rhythm and follow the moving line."
+msgstr ""
+"Όταν ακούσεις το όνομα ενός χρώματος, κάνε κλικ στη πάπια με το αντίστοιχο "
+"χρώμα. Στο κάτω μέρος εμφανίζεται μια βοηθητική φράση."
+
+#: ../src/play_rhythm-activity/play_rhythm.py:350
+msgid "2. Click the drum to the tempo. Watch the vertical line when you start."
+msgstr ""
+
+#: ../src/play_rhythm-activity/play_rhythm.py:353
+msgid ""
+"1. Now, read the rhythm. It won't be played for you. Then, beat the rhythm "
+"on the drum."
+msgstr ""
+
+#: ../src/play_rhythm-activity/play_rhythm.py:356
+msgid "3. Click ok to check your answer, or erase to try again."
+msgstr ""
+
+#: ../src/play_rhythm-activity/play_rhythm.xml.in.h:1
+msgid "Play Rhythm"
+msgstr ""
+
+#: ../src/play_rhythm-activity/play_rhythm.xml.in.h:2
+msgid "Learn to listen to, read, and play musical rhythms."
+msgstr ""
+
+#: ../src/play_rhythm-activity/play_rhythm.xml.in.h:3
+msgid "Simple understanding of musical rhythm and beat."
+msgstr ""
+
+#: ../src/play_rhythm-activity/play_rhythm.xml.in.h:4
+msgid ""
+"Learn to beat rhythms precisely and accurately based on what you see and "
+"hear."
+msgstr ""
+
+#: ../src/play_rhythm-activity/play_rhythm.xml.in.h:5
+msgid ""
+"This is a relatively challenging game to master, so good luck. Listen to the "
+"rhythm played, and follow along with the music. If you would like to hear it "
+"again, click the play button. When you're ready to perform the identical "
+"rhythm, click the drum to the rhythm, then click the ok button. If you "
+"clicked correctly and in the right tempo, another rhythm is displayed. If "
+"not, you must try again. Even levels display a vertical playing line when "
+"you click the drum, which helps you see whene to click to follow the rhythm. "
+"Click on the drum when the line is in the middle of the notes. Odd levels "
+"are harder, because there is no vertical playing line. The rhythm will not "
+"be played for you. You must read the rhythm, and click it back in tempo. "
+"Click the metronome to hear the quarter note tempo. The following keyboard "
+"bindings work in this game: - backspace: erase attempt - delete: erase "
+"attempt - enter/return: ok button - space bar: play"
+msgstr ""
+
 #: ../src/pythontemplate-activity/pythontemplate.py:62
 #: ../src/pythontest-activity/pythontest.py:182
 msgid ""
@@ -7544,9 +8717,9 @@ msgid "Python Template"
 msgstr "Πρότυπο Python"
 
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:2
-msgid "An empty python activity to use as a starting point"
+msgid "An empty Python activity to use as a starting point"
 msgstr ""
-"Μια κενή δραστηριότητα python ώστε να χρησιμοποιηθεί ως σημείο εκκίνησης"
+"Μια κενή δραστηριότητα python, ώστε να χρησιμοποιηθεί ως σημείο εκκίνησης"
 
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:3
 #: ../src/pythontest-activity/pythontest.xml.in.h:3
@@ -7561,7 +8734,7 @@ msgstr "Πρόσθεσε ένα γλωσσικό πακέτο στο GCompris."
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:5
 #: ../src/pythontest-activity/pythontest.xml.in.h:5
 msgid ""
-"Thanks to Guido van Rossum and the python team for this powerful language!"
+"Thanks to Guido van Rossum and the Python team for this powerful language!"
 msgstr ""
 "Ευχαριστίες προς τον Guido van Rossum και την ομάδα της Python γι' αυτή την "
 "ισχυρή γλώσσα προγραμματισμού!"
@@ -7610,8 +8783,8 @@ msgid "Python Test"
 msgstr "Δοκιμή Python"
 
 #: ../src/pythontest-activity/pythontest.xml.in.h:2
-msgid "Test board for the python plugin"
-msgstr "Πίνακας ελέγχου για αρθρώματα Python"
+msgid "Test board for the Python plugin"
+msgstr "Πίνακας ελέγχου για πρόσθετα Python"
 
 #: ../src/railroad-activity/railroad.c:97
 msgid "Memory game"
@@ -7809,17 +8982,17 @@ msgstr ""
 "Tux και του ψαριού. Κάνε δεξί κλικ στο ζάρι για να μετρήσεις αντίστροφα. "
 "Όταν ολοκληρώσεις, κάνε κλικ στο OK ή πάτα το πλήκτρο Enter."
 
-#: ../src/scalesboard-activity/scale.c:294
+#: ../src/scalesboard-activity/scale.c:295
 #, c-format
 msgid "Weight in g = %s"
 msgstr "Βάρος = %s"
 
-#: ../src/scalesboard-activity/scale.c:296
+#: ../src/scalesboard-activity/scale.c:297
 #, c-format
 msgid "Weight = %s"
 msgstr "Βάρος = %s"
 
-#: ../src/scalesboard-activity/scale.c:1036
+#: ../src/scalesboard-activity/scale.c:1037
 msgid "Take care, you can drop weights on both sides of the scale."
 msgstr ""
 "Πρόσεξε! Μπορείς να μετακινήσεις μάζες και στις δύο πλευρές της ζυγαριάς."
@@ -8249,13 +9422,13 @@ msgstr ""
 
 #. Set the maximum text to calc the background
 #. Set the correct initial text
-#: ../src/target-activity/target.c:296 ../src/target-activity/target.c:563
-#: ../src/target-activity/target.c:600
+#: ../src/target-activity/target.c:297 ../src/target-activity/target.c:564
+#: ../src/target-activity/target.c:601
 #, c-format
 msgid "Points = %s"
 msgstr "Πόντοι = %s"
 
-#: ../src/target-activity/target.c:415
+#: ../src/target-activity/target.c:416
 #, c-format
 msgid ""
 "Wind speed = %d\n"
@@ -8264,7 +9437,7 @@ msgstr ""
 "Ταχύτητα ανέμου = %d\n"
 "χιλιόμετρα/ώρα"
 
-#: ../src/target-activity/target.c:483
+#: ../src/target-activity/target.c:484
 #, c-format
 msgid "Distance to target = %d meter"
 msgid_plural "Distance to target = %d meters"
@@ -8515,6 +9688,29 @@ msgstr "Εξάσκηση στο πληκτρολόγιο"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Πληκτρολόγησε την λέξη πριν αυτή πέσει στο έδαφος"
+
+#~ msgid "Okay"
+#~ msgstr "Εντάξει"
+
+#~ msgid "Special board that embeds python into gcompris."
+#~ msgstr ""
+#~ "Ειδικός πίνακας που ενσωματώνει τη γλώσσα προγραμματισμού python στο "
+#~ "GCompris."
+
+#~ msgid "%s = %d"
+#~ msgstr "%s = %d"
+
+#~ msgid "%d + %d"
+#~ msgstr "%d + %d"
+
+#~ msgid "%d − %d"
+#~ msgstr "%d − %d"
+
+#~ msgid "%d × %d"
+#~ msgstr "%d × %d"
+
+#~ msgid "%d ÷ %d"
+#~ msgstr "%d ÷ %d"
 
 #~ msgid ""
 #~ "GCompris will get images, sounds and activity data from this server if "

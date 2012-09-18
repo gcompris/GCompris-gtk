@@ -146,14 +146,13 @@ They also form the C Major Scale. Notice that the note positions are different t
 
             if level == 1:
                 text = _("Play Treble Clef Game")
-            elif level == 5:
+            elif level == 11:
                 text = _("Play Bass Clef Game")
-            if level in [1, 5]:
-                self.playScaleGameButton = textButton(400, 410, text,
-                                                      self.rootitem, 0x00AA33FFL)
 
-                self.playScaleGameButton.connect("button_press_event", self.play_scale_game)
-                gcompris.utils.item_focus_init(self.playScaleGameButton, None)
+            self.playScaleGameButton = textButton(400, 410, text,
+                                                  self.rootitem, 0x00AA33FFL)
+            self.playScaleGameButton.connect("button_press_event", self.play_scale_game)
+            gcompris.utils.item_focus_init(self.playScaleGameButton, None)
 
         if level != 1 and level != 11:
             if level in [2, 5, 8, 12, 15, 18]:
@@ -345,12 +344,11 @@ They also form the C Major Scale. Notice that the note positions are different t
         y = 220
         random.shuffle(self.pitchPossibilities)
         for numID in self.pitchPossibilities:
-            if numID != 8:
-                drawNoteButton(x, y, numID, self.play_sound_on_click)
-                y += 30
-                if y > 320:
-                    y = 220
-                    x = x + 40
+            drawNoteButton(x, y, numID, self.play_sound_on_click)
+            y += 30
+            if y > 320:
+                y = 220
+                x = x + 40
 
     def play_sound_on_click(self, widget, target, event, numID):
         '''
@@ -359,8 +357,6 @@ They also form the C Major Scale. Notice that the note positions are different t
         self.selectedNoteObject = widget
 
         if self.pitchSoundEnabled:
-            if self.currentNote.numID == 8:
-                numID = 8
             HalfNote(numID, self.staff.staffName, self.staff.rootitem).play()
         if hasattr(self, 'focusRect'):
             self.focusRect.remove()
@@ -388,7 +384,7 @@ They also form the C Major Scale. Notice that the note positions are different t
         self.timers.append(gobject.timeout_add(1500, self.readyToSoundAgain))
         g = self.selectedNoteObject.get_data('numID')
         c = self.currentNote.numID
-        if g == c or (c == 8 and g == 1):
+        if g == c:
             if not self.repeatThisNoteLaterPlease:
                 self.remainingNotesToIdentify.remove(c)
             if self.remainingNotesToIdentify == []:
