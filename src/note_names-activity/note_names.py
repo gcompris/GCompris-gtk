@@ -344,11 +344,14 @@ They also form the C Major Scale. Notice that the note positions are different t
         y = 220
         random.shuffle(self.pitchPossibilities)
         for numID in self.pitchPossibilities:
-            drawNoteButton(x, y, numID, self.play_sound_on_click)
-            y += 30
-            if y > 320:
-                y = 220
-                x = x + 40
+            if numID != 8:
+                # do not draw another C-button, since this is ambiguous, because
+                # we have a c' and a c"
+                drawNoteButton(x, y, numID, self.play_sound_on_click)
+                y += 30
+                if y > 320:
+                    y = 220
+                    x = x + 40
 
     def play_sound_on_click(self, widget, target, event, numID):
         '''
@@ -357,6 +360,10 @@ They also form the C Major Scale. Notice that the note positions are different t
         self.selectedNoteObject = widget
 
         if self.pitchSoundEnabled:
+            # change the sound to be played to the c" sound, if we asked for a c"
+            # and the user clicked the c-button
+            if self.currentNote.numID == 8 and numID == 1:
+                numID = 8
             HalfNote(numID, self.staff.staffName, self.staff.rootitem).play()
         if hasattr(self, 'focusRect'):
             self.focusRect.remove()
@@ -384,7 +391,9 @@ They also form the C Major Scale. Notice that the note positions are different t
         self.timers.append(gobject.timeout_add(1500, self.readyToSoundAgain))
         g = self.selectedNoteObject.get_data('numID')
         c = self.currentNote.numID
-        if g == c:
+
+        # since we only have one c-button, the user has to click c' (=1) if c" (=8) is asked
+        if g == c or (c == 8 and g == 1):
             if not self.repeatThisNoteLaterPlease:
                 self.remainingNotesToIdentify.remove(c)
             if self.remainingNotesToIdentify == []:
