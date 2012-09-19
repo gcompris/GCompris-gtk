@@ -39,11 +39,11 @@ class Gcompris_color_mix:
     self.gcomprisBoard.level = 1
     self.gcomprisBoard.maxlevel = 4
     self.win = 0
-    self.lost = False
     # Needed to get key_press
     gcomprisBoard.disable_im_context = True
 
   def start(self):
+    self.lost = False
     gcompris.bar_set_level(self.gcomprisBoard)
 
     # Set the buttons we want in the bar
@@ -309,6 +309,7 @@ class Colors:
     if self.game.lost == True:
       self.message_rootitem.remove()
     self.message_rootitem = goocanvas.Group(parent = self.rootitem)
+    difference = 85 - self.increment
 
     if self.initial_color == 0:
       color1_diff = self.color_rgb[0] - self.r_random
@@ -319,28 +320,28 @@ class Colors:
       color2_diff = self.color_cmy[1] - self.required_color_cmy[1]
       color3_diff = self.color_cmy[2] - self.required_color_cmy[2]
 
-    if self.color_rgb[0] - self.increment <= self.r_random <= self.color_rgb[0] + self.increment and \
-       self.color_rgb[1] - self.increment <= self.g_random <= self.color_rgb[1] + self.increment and \
-       self.color_rgb[2] - self.increment <= self.b_random <= self.color_rgb[2] + self.increment:
+    if self.color_rgb[0] - 27 <= self.r_random <= self.color_rgb[0] + 27 and \
+       self.color_rgb[1] - 27 <= self.g_random <= self.color_rgb[1] + 27 and \
+       self.color_rgb[2] - 27 <= self.b_random <= self.color_rgb[2] + 27:
       self.game.game_over(1)
     else:
       self.show_message(color1_diff, color2_diff, color3_diff)
       self.game.game_over(2)
 
   def show_message(self, color1_diff, color2_diff, color3_diff):
-    if color1_diff > 0:
+    if color1_diff > 27:
       self.message('Too much '+ self.color_1, 300)
-    elif color1_diff < 0:
+    elif color1_diff < -27:
       self.message('Not enough ' + self.color_1, 300)
 
-    if color2_diff > 0:
+    if color2_diff > 27:
       self.message('Too much ' + self.color_2, 375)
-    elif color2_diff < 0:
+    elif color2_diff < -27:
       self.message('Not enough ' + self.color_2, 375)
 
-    if color3_diff > 0 :
+    if color3_diff > 27:
       self.message('Too much ' + self.color_3, 450)
-    elif color3_diff < 0 :
+    elif color3_diff < -27:
       self.message('Not enough ' + self.color_3, 450)
 
   def message(self, msg, y):
