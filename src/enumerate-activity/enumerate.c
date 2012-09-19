@@ -17,6 +17,7 @@
  */
 
 #include <string.h>
+#include <stdlib.h> /* atoi */
 
 #include "gcompris/gcompris.h"
 
