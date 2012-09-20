@@ -291,7 +291,7 @@ class Satellite:
       y = bounds.y1)
 
   def fly_off(self, x_center, y_center):
-    if self.distance < 500:
+    if self.distance < 480:
       self.step += self.speed
       radian = self.step * (math.pi / 180)
       x_circle = x_center + math.cos(radian) * self.distance
