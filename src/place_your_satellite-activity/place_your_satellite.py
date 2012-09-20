@@ -236,7 +236,7 @@ class Satellite:
       self.satellite = goocanvas.Image(
         parent = self.rootitem,
         pixbuf = gcompris.utils.load_pixmap(
-            "place_your_satellite/satellite.png"),
+          "place_your_satellite/satellite.png"),
         x = x,
         y = y)
       self.satellite_exists = True
@@ -444,8 +444,8 @@ class Speed:
   def set_speed(self, change):
     if self.satellite_instance.speed > 0:
       self.satellite_instance.speed += change * 2
-      self.satellite_instance.distance += change * 200 * -1
+      self.satellite_instance.distance += change * 100 * -1
     else:
       self.satellite_instance.speed += change * 2 * -1
-      self.satellite_instance.distance += change * 200 * -1
+      self.satellite_instance.distance += change * 100 * -1
 
