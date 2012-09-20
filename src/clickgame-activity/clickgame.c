@@ -20,6 +20,7 @@
 #   include <sys/types.h>
 #endif
 #include <string.h>
+#include <stdlib.h> /* rand */
 
 #include "gcompris/gcompris.h"
 #include "gcompris/pixbuf_util.h"

@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-09-15 09:36+0000\n"
-"PO-Revision-Date: 2012-09-15 20:35+0100\n"
+"POT-Creation-Date: 2012-09-18 07:21+0000\n"
+"PO-Revision-Date: 2012-09-19 01:04+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
@@ -174,7 +174,7 @@ msgid "GCompris Main Menu"
 msgstr "Glavni meni GCompris"
 
 #: ../boards/menu.xml.in.h:3
-#: ../src/boards/menu2.c:886
+#: ../src/boards/menu2.c:887
 msgid "GCompris is a collection of educational games that provides different activities for children aged 2 and up."
 msgstr "GCompris je zbirka izobraževalnih iger z različnimi dejavnostmi namenjena otrokom od 2. leta naprej."
 
@@ -1270,7 +1270,7 @@ msgstr "Barva polnila ..."
 msgid "Stroke color..."
 msgstr "Barva poteze ..."
 
-#: ../src/awele-activity/awele.c:158
+#: ../src/awele-activity/awele.c:159
 #, c-format
 msgid ""
 "File '%s' is not found.\n"
@@ -1279,23 +1279,23 @@ msgstr ""
 "Datoteke '%s' ni mogoče najti.\n"
 "Te dejavnosti ne moreš igrati."
 
-#: ../src/awele-activity/awele.c:359
+#: ../src/awele-activity/awele.c:360
 msgid "NORTH"
 msgstr "Sever"
 
-#: ../src/awele-activity/awele.c:371
+#: ../src/awele-activity/awele.c:372
 msgid "SOUTH"
 msgstr "Jug"
 
-#: ../src/awele-activity/awele.c:533
+#: ../src/awele-activity/awele.c:534
 msgid "Choose a house"
 msgstr "Izberi hišo"
 
-#: ../src/awele-activity/awele.c:648
+#: ../src/awele-activity/awele.c:649
 msgid "Your turn to play ..."
 msgstr "Tvoja poteza za igranje ..."
 
-#: ../src/awele-activity/awele.c:689
+#: ../src/awele-activity/awele.c:690
 msgid "Not allowed! Try again !"
 msgstr "Ni dovoljeno! Poskusi še enkrat!"
 
@@ -1479,15 +1479,15 @@ msgstr "Usmeri miško in klikni na žogo. S tem boš nastavil hitrost in smer ž
 msgid "Kick the ball into the black hole on the right"
 msgstr "Brcni žogo v črno luknjo na desni"
 
-#: ../src/boards/menu2.c:137
+#: ../src/boards/menu2.c:138
 msgid "Main Menu Second Version"
 msgstr "Druga različica glavnega menija"
 
-#: ../src/boards/menu2.c:138
+#: ../src/boards/menu2.c:139
 msgid "Select a Board"
 msgstr "Izberi tablo"
 
-#: ../src/boards/menu2.c:268
+#: ../src/boards/menu2.c:269
 #, c-format
 msgid "Number of activities: %d"
 msgstr "Število dejavnosti: %d"
@@ -2564,9 +2564,8 @@ msgid "Click the mouse on rectangles until all the blocks disappear."
 msgstr "Klikni miško na kvadratkih dokler vsa polja ne izginejo."
 
 #: ../src/explore-activity/explore.py:149
-#, fuzzy
 msgid "Click to play sound"
-msgstr "Treba je navesti zvok za predvajanje"
+msgstr "Klikni za predvajanje zvoka"
 
 #. draw back button
 #: ../src/explore-activity/explore.py:265
@@ -2585,22 +2584,20 @@ msgstr ""
 "{error}"
 
 #: ../src/explore-activity/explore.py:567
-#, fuzzy
 msgid "Explore Status:"
-msgstr "Stanje Anjute"
+msgstr "Stanje spoznavanja:"
 
 #: ../src/explore_farm_animals-activity/explore_farm_animals.xml.in.h:1
-#, fuzzy
 msgid "Explore Farm Animals"
-msgstr "Dela z mrtvimi živalmi"
+msgstr "Spoznaj živali s kmetije"
 
 #: ../src/explore_farm_animals-activity/explore_farm_animals.xml.in.h:2
 msgid "Learn about farm animals, what sounds they make, and interesting facts."
-msgstr ""
+msgstr "Spoznaj živali na kmetiji, kako se oglašajo in še kaj zanimivega o njih."
 
 #: ../src/explore_farm_animals-activity/explore_farm_animals.xml.in.h:3
 msgid "Learn to associate animal sounds with the animal name and what the animal looks like."
-msgstr ""
+msgstr "Nauči se povezati živalske glasove z imenom živali in njihovim videzom."
 
 #: ../src/explore_farm_animals-activity/explore_farm_animals.xml.in.h:4
 msgid ""
@@ -2615,11 +2612,11 @@ msgstr ""
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:1
 msgid " Click on the questions to explore each farm animal."
-msgstr ""
+msgstr " Klikni vprašanja, da izveš več o vsaki živali s kmetije."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:2
 msgid " Click on the farm animal that makes the sound you hear."
-msgstr ""
+msgstr " Klikni žival na kmetiji, ki se oglaša tako, kot slišiš."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:3
 msgid " Click the animal that matches the description."
@@ -2635,7 +2632,7 @@ msgstr ""
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:6
 msgid " You can ride on the back of this animal!"
-msgstr ""
+msgstr " Na hrbtu te živali lahko jahaš!"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:7
 msgid " Chickens"
@@ -2655,11 +2652,11 @@ msgstr " Krave"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:11
 msgid " The cow goes \"moo. moo.\" Cows have a memory of about three years. Cows have many uses, including for milk and meat."
-msgstr ""
+msgstr " Krava se oglaša \"muu, muu.\" Krave se spominjajo tri leta nazaj. Krave so zelo uporabne, človek jih goji zaradi mleka in mesa."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:12
 msgid " You can drink the milk this animal produces."
-msgstr ""
+msgstr " Mleko, ki ga daje ta žival, lahko piješ."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:13
 msgid " Cat"
@@ -2667,11 +2664,11 @@ msgstr " Mačka"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:14
 msgid " The cat goes \"meow, meow\". Cats usually hate water because their fur doesn't stay warm when it is wet."
-msgstr ""
+msgstr " Mačke se oglašajo \"mjau, mjau\". Mačke v večini ne marajo vode, saj se njihovo telo hitro hladi, kadar so dlake mokre."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:15
 msgid " This pet likes to chase mice."
-msgstr ""
+msgstr "Ta hišni ljubljenček rad lovi miši."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:16
 msgid " Pigs"
@@ -2679,11 +2676,11 @@ msgstr " Prašički"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:17
 msgid " The pig goes \"oink, oink\". Pigs are the 4th most intelligent animal."
-msgstr ""
+msgstr " Prašič se oglaša \"ojnk, ojnk\". Prašič je četrta najpametnejša živalska vrsta."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:18
 msgid " This animal likes to lay in the mud."
-msgstr ""
+msgstr " Ta žival rada leži v blatu."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:19
 msgid " White Duck"
@@ -2691,11 +2688,11 @@ msgstr " Bela raca"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:20
 msgid " The duck goes \"quack, quack\". Ducks have special features like webbed feat and waterproof feathers."
-msgstr ""
+msgstr " Raca se oglaša \"kvak, kvak\". Race imajo posebnosti, kot so omrežene tace in vodoodporno perje."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:21
 msgid " This animal has webbed feet so it can swim in the water."
-msgstr ""
+msgstr " Ta žival ima na nogah plavalno kožico, da lahko plava v vodi."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:22
 msgid " Owl"
@@ -2703,7 +2700,7 @@ msgstr " Sova"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:23
 msgid " The owl goes \"hoo. hoo.\" The owl has excellent vision and hearing at night."
-msgstr ""
+msgstr " Sova se oglaša \"huu, huu.\" Sova ponoči izjemno dobro vidi in sliši."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:24
 msgid " This animal likes to come out at night."
@@ -2719,7 +2716,7 @@ msgstr ""
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:27
 msgid " This animal's ancesters were wolves."
-msgstr ""
+msgstr " Predniki te živali so volkovi."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:28
 msgid " Rooster"
@@ -2731,16 +2728,15 @@ msgstr ""
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:30
 msgid " This animal wakes the farm up in the morning."
-msgstr ""
+msgstr " Ta žival zjutraj zbudi celo kmetijo."
 
 #: ../src/explore_world_animals-activity/explore_world_animals.xml.in.h:1
-#, fuzzy
 msgid "Explore World Animals"
-msgstr "Svetovno ime (WWN):"
+msgstr "Spoznaj živali s celega sveta"
 
 #: ../src/explore_world_animals-activity/explore_world_animals.xml.in.h:2
 msgid "Learn about world animals, interesting facts and their location on a map."
-msgstr ""
+msgstr "Spoznaj živali s celega sveta, njihove zanimivosti in mesto na zemljevidu, kjer živijo."
 
 #: ../src/explore_world_animals-activity/explore_world_animals.xml.in.h:3
 msgid ""
@@ -2753,11 +2749,11 @@ msgstr ""
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:1
 msgid " Explore exotic animals from around the world."
-msgstr ""
+msgstr " Spoznaj nenavadne živali s celega sveta."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:2
 msgid " Click on location where the given animal lives."
-msgstr ""
+msgstr " Kliknite mesto, kjer živi izbrana žival."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:3
 msgid " Jaguars in South America"
@@ -2772,17 +2768,16 @@ msgid "  Jaguar"
 msgstr "  Jaguar"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:6
-#, fuzzy
 msgid " Hedgehogs in Europe"
-msgstr "Zapis pogosto uporabljen v Evropi"
+msgstr " Ježi v Evropi"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:7
 msgid " Hedgehogs eat small animals, like frogs and insects, so many people keep them as useful pets. When in danger, they will curl up into a ball and stick up their coat of sharp spines."
-msgstr ""
+msgstr " Ježi se prehranjujejo z  malimi živalmi, kot so žabe in žuželke, zato jih ima veliko ljudi kot koristne hišne ljubljenčke. Ko se počutijo ogrožene, se zvijejo v klobčič in pokažejo z ostrimi bodicami obdano telo."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:8
 msgid " Hedgehog"
-msgstr ""
+msgstr " Jež"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:9
 msgid " Giraffes in Africa"
@@ -2822,9 +2817,8 @@ msgid " Narwhal"
 msgstr ""
 
 #: ../src/explore_world_music-activity/explore_world_music.xml.in.h:1
-#, fuzzy
 msgid "Explore World Music"
-msgstr "Iskanje po zbirki posnetkov"
+msgstr "Spoznaj glasbe sveta"
 
 #: ../src/explore_world_music-activity/explore_world_music.xml.in.h:2
 msgid "Learn about the music of the world."
@@ -2832,7 +2826,7 @@ msgstr "Spoznajte glasbe sveta."
 
 #: ../src/explore_world_music-activity/explore_world_music.xml.in.h:3
 msgid "Develop a better understanding of the variety of music present in the world"
-msgstr ""
+msgstr "Razvij boljše razumevanje raznolikosti glasbe s celega sveta."
 
 #: ../src/explore_world_music-activity/explore_world_music.xml.in.h:4
 msgid ""
@@ -2851,15 +2845,15 @@ msgstr "Slike s spletišč http://commons.wikimedia.org/wiki, http://archive.org
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:1
 msgid " Explore world music! Click on the suitcases."
-msgstr ""
+msgstr " Razišči glasbe sveta! Klikni na kovčke."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:2
 msgid " Click on the location that matches the music you hear."
-msgstr ""
+msgstr " Kliknite kraj, ki ustreza glasbi, ki jo slišite."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:3
 msgid " Click on the location that matches the text."
-msgstr ""
+msgstr " Kliknite kraj, ki ustreza besedilu."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:4
 msgid " Australia"
@@ -2870,9 +2864,8 @@ msgid " Aboriginals were the first people to live in Australia. They sing and pl
 msgstr ""
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:6
-#, fuzzy
 msgid " Where is the didgeridoo played?"
-msgstr "<b>Kje je vaša vsebina?</b>"
+msgstr "Kje igrajo na didžeridu?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:7
 msgid " Africa"
@@ -2883,7 +2876,6 @@ msgid " Music is a part of everyday life in Africa. African music features a gre
 msgstr ""
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:9
-#, fuzzy
 msgid " Where is the drum considered a magical instrument?"
 msgstr " Kje velja boben za čarobno glasbilo?"
 
@@ -2897,7 +2889,7 @@ msgstr ""
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:12
 msgid " Where is music used to call people to prayer?"
-msgstr ""
+msgstr " Kje z glasbo kličejo ljudi k molitvi?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:13
 msgid " Japan"
@@ -2912,9 +2904,8 @@ msgid " Where do performers yelp as they play the drums?"
 msgstr ""
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:16
-#, fuzzy
 msgid " Scotland and Ireland"
-msgstr "Irska (en_IE)"
+msgstr " Škotska in Irska"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:17
 msgid " Folk music of this region is called celtic music, often incorporates a narrative poem or story. Typical instruments include bagpipes, fiddles, flutes, harps, and accordians."
@@ -2947,7 +2938,7 @@ msgstr ""
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:24
 msgid " Bach, Beethoven, and Mozart composed music in this location."
-msgstr ""
+msgstr " Bach, Beethoven in Mozart so skladali tukaj."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:25
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:5
@@ -3551,9 +3542,8 @@ msgid "GCompris will find the activity plugins in this directory"
 msgstr "GCompris bo v tej mapi našel vstavke dejavnosti"
 
 #: ../src/gcompris/gcompris.c:195
-#, fuzzy
 msgid "GCompris will find the Python activity in this directory"
-msgstr "GCompris bo našel dejavnost python v tej mapi"
+msgstr "Program GCompris bo iskal dejavnosti python v tej mapi"
 
 #: ../src/gcompris/gcompris.c:198
 msgid "GCompris will find the locale file (.mo translation) in this directory"
@@ -5629,13 +5619,12 @@ msgstr "Prijava:"
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
 #: ../src/login-activity/login.py:480
-#, fuzzy
 msgid ""
 "<b>{0}</b> configuration\n"
 " for profile <b>{1}</b>"
 msgstr ""
-"<b>%1$s</b> nastavitev\n"
-" za profil <b>%2$s</b>"
+"<b>{0}</b> nastavitev\n"
+" za profil <b>{1}</b>"
 
 #. toggle box
 #: ../src/login-activity/login.py:496
@@ -5729,9 +5718,8 @@ msgid "He revised and extended braille to include mathematics, symbols, punctuat
 msgstr "Braillovo pisavo je razširil, da vključuje tudi posebne znake za matematiko, simbole, ločila in glasbene zapise. "
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:10
-#, fuzzy
 msgid "He died of tuberculosis. He is buried in the Pantheon in Paris. A monument is erected to honor him."
-msgstr "Umrl je zaradi tuberkuloze, pokopali pa so ga v Panteonu v Parizu. V čast njegovemu delu, so mu postavili tudi spomenik."
+msgstr "Umrl je zaradi tuberkuloze, pokopali pa so ga v Panteonu v Parizu. V čast njegovemu delu, je postavljen tudi njegov spomenik."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:11
 msgid "After his Death"
@@ -6552,38 +6540,36 @@ msgid "Play Scale"
 msgstr "Zaigraj lestvico"
 
 #: ../src/note_names-activity/note_names.py:148
-#, fuzzy
 msgid "Play Treble Clef Game"
-msgstr "Igraj miselno igro Hitori"
+msgstr "Igraj igro Violinski ključ"
 
 #: ../src/note_names-activity/note_names.py:150
-#, fuzzy
 msgid "Play Bass Clef Game"
-msgstr "Igraj miselno igro Hitori"
+msgstr "Igraj igro Basovski ključ"
 
-#: ../src/note_names-activity/note_names.py:182
+#: ../src/note_names-activity/note_names.py:181
 msgid "Click on the note name to match the pitch. Then click ok to check."
-msgstr ""
+msgstr "Klikni na oznako note, ki je skladna s tonom, narisanim na notnem črtovju. S klikom gumba v redu preveriš izbiro."
 
-#: ../src/note_names-activity/note_names.py:184
+#: ../src/note_names-activity/note_names.py:183
 msgid "Now there are sharp notes. These pitches are raised a half step."
-msgstr ""
+msgstr "Sedaj so narisane tudi zvišane note. Ti toni so zvišani za pol tona."
 
-#: ../src/note_names-activity/note_names.py:186
+#: ../src/note_names-activity/note_names.py:185
 msgid "Now there are flat notes. These pitches are lowered a half step."
-msgstr ""
+msgstr "Sedaj so narisane tudi znižane note. Ti toni so znižani za pol tona."
 
-#: ../src/note_names-activity/note_names.py:192
+#: ../src/note_names-activity/note_names.py:191
 msgid "Click the note to hear it played"
-msgstr ""
+msgstr "Klikni na noto, da slišiš ton, ki ga predstavlja"
 
-#: ../src/note_names-activity/note_names.py:244
+#: ../src/note_names-activity/note_names.py:243
 msgid "Need a hint? Click here for color-coded note names."
-msgstr ""
+msgstr "Ali potrebuješ namig? Klikni sem za prikaz obarvanih imen not."
 
-#: ../src/note_names-activity/note_names.py:247
+#: ../src/note_names-activity/note_names.py:246
 msgid "Ready for a challenge? Color all buttons black!"
-msgstr ""
+msgstr "Pripravljeni na izziv? Pobarvaj vse tipke črno!"
 
 #: ../src/note_names-activity/note_names.xml.in.h:1
 msgid "Name that Note!"
@@ -6591,7 +6577,7 @@ msgstr "Poimenuj to noto!"
 
 #: ../src/note_names-activity/note_names.xml.in.h:2
 msgid "Learn the names of the notes, in bass and treble clef, with the help of sounds and colors"
-msgstr ""
+msgstr "Nauči se imena not v basovskem in violinskem ključu, s pomočjo zvokov in barv"
 
 #: ../src/note_names-activity/note_names.xml.in.h:4
 msgid "To develop a good understanding of note position and naming convention. To prepare for the piano player and composition activity"
@@ -6727,7 +6713,7 @@ msgstr "Cassat, Mary, Poletni čas - 1894"
 msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
 msgstr "Vincent Van Gogh, Vaška ulica v Auversu - 1890"
 
-#: ../src/paratrooper-activity/paratrooper.c:408
+#: ../src/paratrooper-activity/paratrooper.c:409
 msgid "Control fall speed with up and down arrow keys."
 msgstr "Hitrost padanja lahko spremeniš s puščicama gor in dol."
 
@@ -6875,11 +6861,11 @@ msgstr ""
 
 #: ../src/piano_composition-activity/piano_composition.py:110
 msgid "These are the 8 \"white\" keys in an octave"
-msgstr ""
+msgstr "Oktava obsega 8 \"belih\" tipk"
 
 #: ../src/piano_composition-activity/piano_composition.py:112
 msgid "This is the Bass clef staff, for low pitched notes"
-msgstr ""
+msgstr "To je basovski ključ za note nizkih tonov."
 
 #: ../src/piano_composition-activity/piano_composition.py:113
 msgid "These keys form the C Major scale"
@@ -6887,37 +6873,35 @@ msgstr ""
 
 #: ../src/piano_composition-activity/piano_composition.py:115
 msgid "Click on the note symbols to write different length notes"
-msgstr ""
+msgstr "Klikni na note za zapis različnih dob trajanja"
 
 #: ../src/piano_composition-activity/piano_composition.py:116
 msgid "Notes can be many types, such as quarter notes, half notes, and whole notes"
-msgstr ""
+msgstr "Poznamo več vrst not, npr. četrtinke, polovinke in celinke"
 
 #: ../src/piano_composition-activity/piano_composition.py:118
-#, fuzzy
 msgid "Sharp notes have a # sign"
-msgstr "Podpiši oznako"
+msgstr "Zvišane note so označene z znakom #"
 
 #: ../src/piano_composition-activity/piano_composition.py:119
 msgid "The black keys are sharp and flat keys"
 msgstr ""
 
 #: ../src/piano_composition-activity/piano_composition.py:121
-#, fuzzy
 msgid "Flat notes have a b sign"
-msgstr "Podpiši oznako"
+msgstr "Znižane note so označene z znakom b"
 
 #: ../src/piano_composition-activity/piano_composition.py:122
 msgid "Each black key has two names, one with a flat and one with a sharp"
-msgstr ""
+msgstr "Vsaka črna tipka ima dve imeni, eno ime je znižan ton, drugo pa zvišan"
 
 #: ../src/piano_composition-activity/piano_composition.py:124
 msgid "Now you can load melodies from around the world"
-msgstr ""
+msgstr "Zdaj lahko naložite melodije s celega sveta"
 
 #: ../src/piano_composition-activity/piano_composition.py:127
 msgid "Compose music now! Click to load or save your work"
-msgstr ""
+msgstr "Sedaj lahko skladaš glasbo! Klikni za nalaganje ali shranjevanje svojega dela"
 
 #. ADD BUTTONS
 #: ../src/piano_composition-activity/piano_composition.py:142
@@ -6933,9 +6917,8 @@ msgid "Play Composition"
 msgstr "Predvajaj skladbo"
 
 #: ../src/piano_composition-activity/piano_composition.py:153
-#, fuzzy
 msgid "Erase and Change Clef"
-msgstr "Datum in ura spremembe"
+msgstr "Izbriši in spremeni ključ"
 
 #: ../src/piano_composition-activity/piano_composition.py:161
 msgid "Change Note Type:"
@@ -6964,25 +6947,23 @@ msgstr "Naloži glasbo"
 #: ../src/piano_composition-activity/piano_composition.py:245
 #, fuzzy
 msgid "Change Accidental Style:"
-msgstr "Izberite slog nadzora"
+msgstr ""
 
 #: ../src/piano_composition-activity/piano_composition.py:344
-#, fuzzy
 msgid ""
 "Error: This activity cannot be played with the\n"
 "sound effects disabled.\n"
 "Go to the configuration dialogue to\n"
 "enable the sound."
 msgstr ""
-"Napaka: ta dejavnost ne deluje z izklopljenim\n"
-"zvokom .\n"
-"Pojdi v nastavitve za zvok in\n"
-"vključi zvok."
+"Napaka: ta dejavnost brez omogočenega zvoka\n"
+"ne deluje.\n"
+"Zvok omogočite med nastavitvami v pogovornem\n"
+"oknu nastavitev."
 
 #: ../src/piano_composition-activity/piano_composition.py:361
-#, fuzzy
 msgid "Select A Melody to Load"
-msgstr "Izberite datoteko za nalaganje"
+msgstr "Izberite glasbeno datoteko za nalaganje"
 
 #: ../src/piano_composition-activity/piano_composition.py:369
 msgid "Next Page"
@@ -7049,9 +7030,8 @@ msgid " America: Patriotic"
 msgstr " Amerika, domoljubna pesem"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:3
-#, fuzzy
 msgid " America: Shaker Tune"
-msgstr "Združene države Amerike"
+msgstr ""
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:4
 msgid " America: Nursery Rhyme"
@@ -7072,7 +7052,7 @@ msgstr " Otroška pesmica iz Brazilije"
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:10
 #, fuzzy
 msgid " German"
-msgstr "_Nemščina"
+msgstr " Nemška"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:11
 msgid " France"
@@ -7149,7 +7129,7 @@ msgstr "Želite obarvati note?"
 
 #: ../src/play_piano-activity/play_piano.py:129
 msgid "Click the piano keys that match the written notes."
-msgstr ""
+msgstr "Klikni klavirske tipke, ki ustrezajo zapisanim notam."
 
 #: ../src/play_piano-activity/play_piano.py:138
 #: ../src/play_rhythm-activity/play_rhythm.py:147
@@ -7167,7 +7147,7 @@ msgstr "Igraj klavir!"
 
 #: ../src/play_piano-activity/play_piano.xml.in.h:2
 msgid "Learn to play melodies on the piano keyboard!"
-msgstr ""
+msgstr "Nauči se igranja melodij na klaviaturi!"
 
 #: ../src/play_piano-activity/play_piano.xml.in.h:3
 msgid "knowledge of musical notation and musical staff. Play piano_composition first."
@@ -7206,45 +7186,51 @@ msgstr ""
 #: ../src/play_rhythm-activity/play_rhythm.py:101
 #, fuzzy
 msgid "Beat Count:"
-msgstr "<b>Števec podrejenih procesov</b>"
+msgstr "Števec dob:"
 
 #: ../src/play_rhythm-activity/play_rhythm.py:125
+#, fuzzy
 msgid "Beat the rhythm on this drum."
-msgstr ""
+msgstr "Udarjaj ritem po tem bobnu."
 
 #: ../src/play_rhythm-activity/play_rhythm.py:136
+#, fuzzy
 msgid "For a little help, click the metronome to hear the tempo."
-msgstr ""
+msgstr "Za pomoč klikni metronom, da slišiš tempo."
 
 #: ../src/play_rhythm-activity/play_rhythm.py:348
 #, fuzzy
 msgid "1. Listen to the rhythm and follow the moving line."
-msgstr "Poslušaj barve in klikni na pravo račko."
+msgstr "1. Poslušaj ritem in sledi premikajoči se črti."
 
 #: ../src/play_rhythm-activity/play_rhythm.py:350
+#, fuzzy
 msgid "2. Click the drum to the tempo. Watch the vertical line when you start."
-msgstr ""
+msgstr "2. "
 
 #: ../src/play_rhythm-activity/play_rhythm.py:353
+#, fuzzy
 msgid "1. Now, read the rhythm. It won't be played for you. Then, beat the rhythm on the drum."
-msgstr ""
+msgstr "1."
 
 #: ../src/play_rhythm-activity/play_rhythm.py:356
+#, fuzzy
 msgid "3. Click ok to check your answer, or erase to try again."
-msgstr ""
+msgstr "3."
 
 #: ../src/play_rhythm-activity/play_rhythm.xml.in.h:1
 #, fuzzy
 msgid "Play Rhythm"
-msgstr "Igraj “%s”"
+msgstr "Zaigraj ritem"
 
 #: ../src/play_rhythm-activity/play_rhythm.xml.in.h:2
 msgid "Learn to listen to, read, and play musical rhythms."
 msgstr ""
 
 #: ../src/play_rhythm-activity/play_rhythm.xml.in.h:3
+#, fuzzy
 msgid "Simple understanding of musical rhythm and beat."
-msgstr ""
+msgstr "Osnovno razumevanje glasbenega ritma in tempa."
 
 #: ../src/play_rhythm-activity/play_rhythm.xml.in.h:4
 msgid "Learn to beat rhythms precisely and accurately based on what you see and hear."
@@ -7268,9 +7254,8 @@ msgid "Python Template"
 msgstr "Predloga Python"
 
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:2
-#, fuzzy
 msgid "An empty Python activity to use as a starting point"
-msgstr "Prazna dejavnost python za uporabo kot začetna točka"
+msgstr "Prazna dejavnost Python, uporabljena kot začetna točka"
 
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:3
 #: ../src/pythontest-activity/pythontest.xml.in.h:3
