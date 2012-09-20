@@ -52,11 +52,13 @@ class Gcompris_place_your_satellite:
 
     self.background = goocanvas.Image(
       parent = self.rootitem,
-      pixbuf = gcompris.utils.load_pixmap("place_your_satellite/background.jpg"),
+      pixbuf = gcompris.utils.load_pixmap(
+              "place_your_satellite/background.jpg"),
       x = 1,
       y = 1)
 
-    image = "place_your_satellite/planet" + str(self.gcomprisBoard.level) + ".png"
+    image = "place_your_satellite/planet" + str(self.gcomprisBoard.level) +\
+            ".png"
     self.planet = goocanvas.Image(
       parent = self.rootitem,
       pixbuf = gcompris.utils.load_pixmap(image),
@@ -188,21 +190,25 @@ class Satellite:
         sat_y = (sat_bounds.y1 + sat_bounds.y2)/2
 
         # Calc the distances from planet center to sat and to click
-        self.distance = math.sqrt(((self.planet_x - sat_x)**2) + ((self.planet_y - sat_y)**2))
-        click_dist = math.sqrt(((self.planet_x - event.x)**2) + ((self.planet_y - event.y)**2))
+        self.distance = math.sqrt(((self.planet_x - sat_x)**2) +
+                                  ((self.planet_y - sat_y)**2))
+        click_dist = math.sqrt(((self.planet_x - event.x)**2) +
+                               ((self.planet_y - event.y)**2))
 
         # Make the angle be linear in the range 0 -> 2*PI
         sat_add = 0 if sat_y > self.planet_y else math.pi
         if sat_y > self.planet_y:
           sat_angle = math.acos((sat_x - self.planet_x) / self.distance)
         else:
-          sat_angle = math.pi * 2 - math.acos((sat_x - self.planet_x) / self.distance)
+          sat_angle = math.pi * 2 - math.acos((sat_x - self.planet_x) /
+                                               self.distance)
 
         # Make the angle be linear in the range 0 -> 2*PI
         if event.y > self.planet_y:
           click_angle = math.acos((event.x - self.planet_x) / click_dist)
         else:
-          click_angle = math.pi * 2 - math.acos((event.x - self.planet_x) / click_dist)
+          click_angle = math.pi * 2 - math.acos((event.x - self.planet_x) /
+                                                 click_dist)
 
         # Fix the 0 angle case
         if sat_angle > click_angle + math.pi:
@@ -229,7 +235,8 @@ class Satellite:
       y = event.y - 12
       self.satellite = goocanvas.Image(
         parent = self.rootitem,
-        pixbuf = gcompris.utils.load_pixmap("place_your_satellite/satellite.png"),
+        pixbuf = gcompris.utils.load_pixmap(
+            "place_your_satellite/satellite.png"),
         x = x,
         y = y)
       self.satellite_exists = True
@@ -243,7 +250,8 @@ class Satellite:
     self.orbital_speed = math.sqrt(self.mass/self.distance)
     self.speed = speed / 20.0
     if self.game.game_complete == False:
-      gobject.timeout_add(30, self.calculate, self.planet_x - 20, self.planet_y - 20)
+      gobject.timeout_add(30, self.calculate, self.planet_x - 20,
+                          self.planet_y - 20)
 
   def calculate(self, x_center, y_center):
     # Check current speed against required orbital speed
@@ -265,7 +273,8 @@ class Satellite:
       radian = self.step * (math.pi/180)
       x_circle = (x_center + math.cos(radian) * self.distance) + height_change
       y_circle = (y_center + math.sin(radian) * self.distance) + height_change
-      gcompris.utils.item_absolute_move(self.satellite, int(x_circle), int(y_circle))
+      gcompris.utils.item_absolute_move(self.satellite, int(x_circle),
+                                        int(y_circle))
       return True
 
   def crash(self, x_center, y_center):
@@ -274,7 +283,8 @@ class Satellite:
       radian = self.step * (math.pi/180)
       x_circle = x_center + math.cos(radian) * self.distance
       y_circle = y_center + math.sin(radian) * self.distance
-      gcompris.utils.item_absolute_move(self.satellite, int(x_circle), int(y_circle))
+      gcompris.utils.item_absolute_move(self.satellite, int(x_circle),
+                                        int(y_circle))
       self.distance -= 1
       return True
 
@@ -296,7 +306,8 @@ class Satellite:
       radian = self.step * (math.pi / 180)
       x_circle = x_center + math.cos(radian) * self.distance
       y_circle = y_center + math.sin(radian) * self.distance
-      gcompris.utils.item_absolute_move(self.satellite, int(x_circle), int(y_circle))
+      gcompris.utils.item_absolute_move(self.satellite, int(x_circle),
+                                        int(y_circle))
       self.distance +=3
       return True
     else:
