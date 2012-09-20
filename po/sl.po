@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-09-18 07:21+0000\n"
-"PO-Revision-Date: 2012-09-19 01:04+0100\n"
+"POT-Creation-Date: 2012-09-19 22:16+0000\n"
+"PO-Revision-Date: 2012-09-20 14:04+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
@@ -765,7 +765,7 @@ msgstr "Branje"
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:4
 msgid "Learn to recognize unusual colors."
-msgstr "Nauči se prepoznavati nenavadne barve"
+msgstr "Nauči se prepoznavati nenavadne barve."
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:5
 msgid "Click on the correct colored box."
@@ -2417,7 +2417,7 @@ msgid "Select a drawing tool on the left, and a color down the bottom, then clic
 msgstr "Na levi strani izberi orodje za risanje v spodnjem delu pa izberi barvo. Klikni na belo polje ter nariši novo obliko. Za hitrejše delo lahko uporabiš srednjim gumbom na miški. Z njo predmet izbrišeš."
 
 #: ../src/drawnumber-activity/drawnumber.py:238
-#: ../src/explore-activity/explore.py:451
+#: ../src/explore-activity/explore.py:452
 #: ../src/findit-activity/findit.py:315
 #: ../src/louis_braille-activity/louis_braille.py:84
 #: ../src/piano_composition-activity/piano_composition.py:439
@@ -2481,13 +2481,13 @@ msgstr "GCompris uporablja kot zaledje tudi električni simulator Gnucap. Več p
 msgid "Drag electrical components from the selector and drop them in the working area. Create wires by clicking on a connection spot, dragging the mouse to the next connection spot, and letting go. You can also move components by dragging them. You can delete wires by clicking on them. To delete a component, select the deletion tool on top of the component selector. You can click on the switch to open and close it. You can change the rheostat value by dragging its wiper. In order to simulate what happens when a bulb is blown, you can blown it by right-clicking on it. The simulation is updated in real time by any user action."
 msgstr "Povleci električne sestavne dele iz levega stolpca in jih spusti na delovno področje. Žice ustvariš tako, da klikneš na točko povezave, miško povlečeš do naslednje točke povezave in jo spustiš. Sestavne dele lahko premikaš z vlečenjem. Žice izbrišeš tako, da klikneš nanje. Za izbris sestavnega dela izberi orodje izbrisa na vrhu stolpca s sestavnimi deli. Za odprtje in zaprtje stikala klikni nanj. Vrednost spremenljivega upora lahko spremeniš z vleko drsnika. Za simulacijo pregorele žarnice klikni nanjo z desnim gumbom miške. Simulacija se takoj samodejno posodablja. "
 
-#: ../src/enumerate-activity/enumerate.c:110
+#: ../src/enumerate-activity/enumerate.c:111
 #: ../src/enumerate-activity/enumerate.xml.in.h:3
 #: ../src/planegame-activity/planegame.xml.in.h:3
 msgid "Numeration training"
 msgstr "Učenje štetja"
 
-#: ../src/enumerate-activity/enumerate.c:111
+#: ../src/enumerate-activity/enumerate.c:112
 #: ../src/enumerate-activity/enumerate.xml.in.h:2
 msgid "Place the items in the best way to count them"
 msgstr "Postavi predmete tako, da jih boš lažje štel/a"
@@ -2568,11 +2568,11 @@ msgid "Click to play sound"
 msgstr "Klikni za predvajanje zvoka"
 
 #. draw back button
-#: ../src/explore-activity/explore.py:265
+#: ../src/explore-activity/explore.py:266
 msgid "Back to Homepage"
 msgstr "Nazaj na domačo stran"
 
-#: ../src/explore-activity/explore.py:456
+#: ../src/explore-activity/explore.py:457
 #: ../src/findit-activity/findit.py:320
 #: ../src/louis_braille-activity/louis_braille.py:88
 #: ../src/piano_composition-activity/piano_composition.py:444
@@ -2583,7 +2583,7 @@ msgstr ""
 "Razčlenjevanje niza podatkov '{filename}' je spodletelo z napako:\n"
 "{error}"
 
-#: ../src/explore-activity/explore.py:567
+#: ../src/explore-activity/explore.py:572
 msgid "Explore Status:"
 msgstr "Stanje spoznavanja:"
 
@@ -2804,9 +2804,8 @@ msgid " Bison"
 msgstr " Bizon"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:15
-#, fuzzy
 msgid " Narwhals in the Arctic"
-msgstr "Uredi v XEmacs"
+msgstr " Enorogi na Arktiki"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:16
 msgid " Narwhals are whales that live in the Arctic Ocean and have long tusks. These tusks remind many people of the mythical unicorn's horn."
@@ -2814,7 +2813,7 @@ msgstr ""
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:17
 msgid " Narwhal"
-msgstr ""
+msgstr " Enorog"
 
 #: ../src/explore_world_music-activity/explore_world_music.xml.in.h:1
 msgid "Explore World Music"
@@ -2954,9 +2953,8 @@ msgid " At parties, people often dance to the Mariachi music. A Famous dance is:
 msgstr ""
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:28
-#, fuzzy
 msgid " Where is Mariachi music from?"
-msgstr " Odkod prihaja glasba mariači?"
+msgstr " Odkod prihaja glasba mariachi?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:29
 msgid " America"
@@ -5107,7 +5105,7 @@ msgstr "To je transformator za zvišanje napetosti. Elektrika se prenaša pri vi
 
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:1
 msgid "Learn about an electrical system based on renewable energy"
-msgstr "Nauči se o električnem sistemu, ki je osnovan na obnovljivi energiji"
+msgstr "Nauči se nekaj o električnem sistemu, ki je zasnovan na obnovljivi energiji"
 
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:2
 msgid "Tux has come back from a long fishing party on his boat. Bring the electrical system back up so he can have light in his home."
@@ -6577,7 +6575,7 @@ msgstr "Poimenuj to noto!"
 
 #: ../src/note_names-activity/note_names.xml.in.h:2
 msgid "Learn the names of the notes, in bass and treble clef, with the help of sounds and colors"
-msgstr "Nauči se imena not v basovskem in violinskem ključu, s pomočjo zvokov in barv"
+msgstr "Nauči se imena not v basovskem in violinskem ključu. Pomagaj si z zvoki in barvami."
 
 #: ../src/note_names-activity/note_names.xml.in.h:4
 msgid "To develop a good understanding of note position and naming convention. To prepare for the piano player and composition activity"
@@ -6857,7 +6855,7 @@ msgstr ""
 
 #: ../src/piano_composition-activity/piano_composition.py:109
 msgid "This is the Treble clef staff, for high pitched notes"
-msgstr ""
+msgstr "To je violinski ključ, za note visokih tonov"
 
 #: ../src/piano_composition-activity/piano_composition.py:110
 msgid "These are the 8 \"white\" keys in an octave"
@@ -6947,7 +6945,7 @@ msgstr "Naloži glasbo"
 #: ../src/piano_composition-activity/piano_composition.py:245
 #, fuzzy
 msgid "Change Accidental Style:"
-msgstr ""
+msgstr "Izberite slog nadzora"
 
 #: ../src/piano_composition-activity/piano_composition.py:344
 msgid ""
@@ -7030,8 +7028,9 @@ msgid " America: Patriotic"
 msgstr " Amerika, domoljubna pesem"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:3
+#, fuzzy
 msgid " America: Shaker Tune"
-msgstr ""
+msgstr "Združene države Amerike"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:4
 msgid " America: Nursery Rhyme"
@@ -7050,9 +7049,8 @@ msgid " Children's Song from Brazil"
 msgstr " Otroška pesmica iz Brazilije"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:10
-#, fuzzy
 msgid " German"
-msgstr " Nemška"
+msgstr " Nemščina"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:11
 msgid " France"
@@ -7096,7 +7094,7 @@ msgstr " Ukrajina"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:21
 msgid " Mexican song to break a piñata"
-msgstr ""
+msgstr " Mehiška pesem, ki se igra med razbijanjem pinjate"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:22
 msgid " Finland"
@@ -7147,7 +7145,7 @@ msgstr "Igraj klavir!"
 
 #: ../src/play_piano-activity/play_piano.xml.in.h:2
 msgid "Learn to play melodies on the piano keyboard!"
-msgstr "Nauči se igranja melodij na klaviaturi!"
+msgstr "Nauči se igrati melodije na klaviaturi!"
 
 #: ../src/play_piano-activity/play_piano.xml.in.h:3
 msgid "knowledge of musical notation and musical staff. Play piano_composition first."
@@ -7186,7 +7184,7 @@ msgstr ""
 #: ../src/play_rhythm-activity/play_rhythm.py:101
 #, fuzzy
 msgid "Beat Count:"
-msgstr "Števec dob:"
+msgstr "<b>Števec podrejenih procesov</b>"
 
 #: ../src/play_rhythm-activity/play_rhythm.py:125
 #, fuzzy
@@ -7194,9 +7192,8 @@ msgid "Beat the rhythm on this drum."
 msgstr "Udarjaj ritem po tem bobnu."
 
 #: ../src/play_rhythm-activity/play_rhythm.py:136
-#, fuzzy
 msgid "For a little help, click the metronome to hear the tempo."
-msgstr "Za pomoč klikni metronom, da slišiš tempo."
+msgstr "Za pomoč klikni na metronom, da slišiš tempo."
 
 #: ../src/play_rhythm-activity/play_rhythm.py:348
 #, fuzzy
@@ -7221,7 +7218,7 @@ msgstr "3."
 #: ../src/play_rhythm-activity/play_rhythm.xml.in.h:1
 #, fuzzy
 msgid "Play Rhythm"
-msgstr "Zaigraj ritem"
+msgstr "Igraj “%s”"
 
 #: ../src/play_rhythm-activity/play_rhythm.xml.in.h:2
 msgid "Learn to listen to, read, and play musical rhythms."
