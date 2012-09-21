@@ -215,11 +215,11 @@ class Gcompris_mining:
 
     # ignore input while game paused
     if self.is_game_paused():
-      return
+      return True
 
     # don't react on double clicks
     if event.type != gtk.gdk.BUTTON_PRESS:
-      return
+      return False
 
     # coordinate space fix
     # Event-coordinates are in the coordinate space of that item, which lies direct under the cursor.
@@ -233,6 +233,9 @@ class Gcompris_mining:
       # But we don't have the nugget_img object here.
       if self.nugget.is_hit(x, y):
         self.collect_nugget()
+
+    # we processed this event
+    return True
 
 
   def collect_nugget(self):
@@ -599,7 +602,7 @@ class Viewport:
 
     # ignore input while game paused
     if self.is_game_paused():
-      return
+      return True
 
     assert(event.type == gtk.gdk.SCROLL)
 
@@ -693,6 +696,8 @@ class Viewport:
 
       # call the callback function of main class
       self.cb_zoom_change(state)
+
+    return True
 
 
   def __update_transformation(self):
