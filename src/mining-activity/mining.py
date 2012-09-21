@@ -594,11 +594,12 @@ class Viewport:
 
 
   def __on_scroll(self, item, target_item, event = None):
-    """ Called at scroll (= zoom) events """
-
-    # item - The element connected with this callback function
-    # target_item - The element under the cursor
-    # event  - gtk.gdk.Event
+    """
+    Called at scroll (= zoom) events
+      item - The element connected with this callback function
+      target_item - The element under the cursor
+      event  - gtk.gdk.Event
+    """
 
     # ignore input while game paused
     if self.is_game_paused():
