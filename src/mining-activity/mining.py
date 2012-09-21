@@ -31,6 +31,7 @@ import goocanvas
 import pango
 import random
 import cairo
+import mining_tutorial
 
 from mining_tools import Area, BlockingArea
 
@@ -58,6 +59,14 @@ class Gcompris_mining:
   # This has to be larger than 1 (= source image has higher resolution than screen),
   # so the image looks still nice, if we zoom in a bit.
   source_image_scale = 3.0
+
+  # handle to the tutorial object
+  tutorial = None
+  is_tutorial_enabled = False
+
+  # the distance, the mouse cursor has to approach the nugget, triggering the next tutorial step
+  # (in 800x520 coordinate space) (should be in sync with the graphics in tutorial.svgz)
+  min_nugget_approach = 50.0
 
 
   def __init__(self, gcomprisBoard):
@@ -98,6 +107,7 @@ class Gcompris_mining:
     # automatically.
     self.rootitem = goocanvas.Group(parent = self.gcomprisBoard.canvas.get_root_item())
     self.rootitem.connect("button_press_event", self.on_button_press)
+    self.rootitem.connect("motion_notify_event", self.on_mouse_move)
 
     svghandle = gcompris.utils.load_svg("mining/rockwall.svgz")
 
@@ -124,6 +134,9 @@ class Gcompris_mining:
     # create sparkling last, so it is on above the nugget
     self.sparkling = Sparkling(svghandle, self.viewport.get_gc_group())
 
+    # prepare the tutorial
+    self.tutorial = mining_tutorial.MiningTutorial(self.rootitem)
+
     # initialize the level, to start with
     self.set_level(1)
 
@@ -143,11 +156,20 @@ class Gcompris_mining:
     if level == 1:
       self.nuggets_to_collect = 3
 
+      # Enable the tutorial for level 1
+      self.is_tutorial_enabled = True
+
+      # add the tutorials blocking area, to avoid the nugget being placed behind
+      # the tutorial mouse or touchpad
+      self.placer.add_blocker(self.tutorial.get_blocking_area())
+
     elif level == 2:
       self.nuggets_to_collect = 6
+      self.is_tutorial_enabled = False
 
     elif level == 3:
       self.nuggets_to_collect = 9
+      self.is_tutorial_enabled = False
 
     else:
       print("Warning: No level specific values defined for level %i! Keeping current settings." % level)
@@ -182,8 +204,56 @@ class Gcompris_mining:
     self.sparkling.animation_start()
     self.need_new_nugget = False
 
+    if self.is_tutorial_enabled:
+      self.tutorial.start()
+      nuggetArea = Area(self.nugget.get_bounds())
+      self.tutorial.set_tutorial_state('move to', nuggetArea.center_x, nuggetArea.center_y)
+
+
     # The following sound was copied form "Tuxpaint" (GPL)
     gcompris.sound.play_ogg("mining/realrainbow.ogg")
+
+
+  def on_mouse_move(self, item, target_item, event):
+    """
+    The user moved the mouse
+      item - The element connected with this callback function
+      target_item - The element under the cursor
+      event  - gtk.gdk.Event
+    """
+
+    if not self.is_tutorial_enabled:
+      return True
+
+
+    ##
+    # if we the mouse cursor is close enough to the nugget, switch to next tutorial step
+
+    # event.x / .y are based on the target_item, which may be the rockwall or a stone, ...
+    # so we can't use those, since the stones have another coordinate space  :(
+
+    # get the coordinates relative to the root of the screen (800 x 520)
+    x = event.x_root
+    y = event.y_root
+
+    # get_bounds() also gives us coordinates relative to the root of the screen (800 x 520)
+    nuggetArea = Area(self.nugget.get_bounds())
+    nx = nuggetArea.center_x
+    ny = nuggetArea.center_y
+
+    #          a^2         +         b^2         <=                         c^2
+    if (x - nx) * (x - nx) + (y - ny) * (y - ny) <= self.min_nugget_approach * self.min_nugget_approach:
+      # the mouse cursor is close enough, go to next tutorial step
+      self.tutorial.set_tutorial_state('zoom in')
+
+    else:
+      # if we still want to show the user, where to move the mouse pointer to, we need to
+      # update this animation now
+      if self.tutorial.get_tutorial_state() == 'move to':
+        self.tutorial.restart_tutorial_step(x, y, nx, ny)
+
+    # we processed this event
+    return True
 
 
   def on_zoom_change(self, state):
@@ -195,12 +265,19 @@ class Gcompris_mining:
       self.nugget.hide()
 
       if self.need_new_nugget:
+        if self.is_tutorial_enabled:
+          self.tutorial.stop()
+
         self.place_new_nugget()
 
     elif state == 'mid':
       self.nugget.hide()
 
     elif state == 'max':
+      if self.is_tutorial_enabled:
+        # proceed to next tutorial step
+        self.tutorial.set_tutorial_state('click')
+
       self.nugget.show()
 
     else:
@@ -259,6 +336,9 @@ class Gcompris_mining:
       # we need to collect more nuggets, so lets place a new one
       self.need_new_nugget = True
 
+      if self.is_tutorial_enabled:
+        self.tutorial.set_tutorial_state('zoom out')
+
 
   def update_lorry(self):
     """ Updates the nugget-collect-counter of the lorry in the lower right corner """
@@ -267,6 +347,10 @@ class Gcompris_mining:
 
   def on_level_won(self):
     """ The user collected enough nuggets """
+
+    if self.is_tutorial_enabled:
+      self.tutorial.stop()
+
     self.is_game_won = True;
     gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.LION)
 
@@ -305,6 +389,7 @@ class Gcompris_mining:
 
   def end_level(self):
     """ Terminate the current level """
+    self.tutorial.stop()
     self.sparkling.end()
     self.placer.remove_all_blocker()
     self.decorations.cleanup_viewport()
@@ -315,6 +400,8 @@ class Gcompris_mining:
     print "mining end"
 
     self.end_level()
+
+    self.tutorial.end()
 
     # Remove the root item removes all the others inside it
     self.rootitem.remove()
@@ -464,7 +551,10 @@ class Placer:
 
 
   def add_blocker(self, blocking_area):
-    """ Add a new blocking area to the internal list of blocking areas """
+    """
+    Add a new blocking area to the internal list of blocking areas
+      blocking_area: Object that implement method get_bounds() (like goocanvas.Item.get_bounds())
+    """
     self.blocking_areas.append(blocking_area)
 
 

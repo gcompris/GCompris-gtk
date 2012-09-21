@@ -4,8 +4,10 @@ SUBDIRS = resources
 
 pythondir = $(PYTHON_PLUGIN_DIR)
 
-dist_python_DATA= 	mining.py
-
+dist_python_DATA = \
+	mining.py \
+	mining_tools.py \
+	mining_tutorial.py
 
 
 xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@
