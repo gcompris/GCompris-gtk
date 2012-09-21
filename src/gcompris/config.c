@@ -55,7 +55,7 @@ static gint y_flag_start;
 #define SOUNDLISTFILE PACKAGE
 
 static gchar *linguas[] = {
-  "",			N_("Your system default"),
+  "",			N_("Language: your system default"),
   "af_ZA.UTF-8",	N_("Afrikaans"),
   "sq_AL.UTF-8",	N_("Albanian"),
   "am_ET.UTF-8",	N_("Amharic"),
@@ -128,10 +128,10 @@ static gchar *linguas[] = {
 };
 
 static gchar *timername[] = {
-  N_("No time limit"),
-  N_("Slow timer"),
-  N_("Normal timer"),
-  N_("Fast timer")
+  N_("Timer: No time limit"),
+  N_("Timer: Slow timer"),
+  N_("Timer: Normal timer"),
+  N_("Timer: Fast timer")
 };
 
 static gchar *filtername =
