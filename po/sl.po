@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-09-20 12:16+0000\n"
-"PO-Revision-Date: 2012-09-21 22:36+0100\n"
+"POT-Creation-Date: 2012-09-22 17:57+0000\n"
+"PO-Revision-Date: 2012-09-22 22:09+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
@@ -3122,8 +3122,8 @@ msgid "Choice of the level"
 msgstr "Izberi raven"
 
 #: ../src/gcompris/config.c:58
-msgid "Your system default"
-msgstr "Privzete sistemske nastavitve"
+msgid "Language: your system default"
+msgstr "Jezik: privzet sistemski jezik"
 
 #: ../src/gcompris/config.c:59
 msgid "Afrikaans"
@@ -3400,20 +3400,20 @@ msgid "Zulu"
 msgstr "Zulujščina"
 
 #: ../src/gcompris/config.c:131
-msgid "No time limit"
-msgstr "Časovno neomejeno"
+msgid "Timer: No time limit"
+msgstr "Časomer: brez omejitev"
 
 #: ../src/gcompris/config.c:132
-msgid "Slow timer"
-msgstr "Počasneje"
+msgid "Timer: Slow timer"
+msgstr "Časomer: počasi"
 
 #: ../src/gcompris/config.c:133
-msgid "Normal timer"
-msgstr "Običajna hitrost"
+msgid "Timer: Normal timer"
+msgstr "Časomer: običajna hitrost"
 
 #: ../src/gcompris/config.c:134
-msgid "Fast timer"
-msgstr "Hitreje"
+msgid "Timer: Fast timer"
+msgstr "Časomer: hitro"
 
 #: ../src/gcompris/config.c:138
 msgid "Use Gcompris administration module to filter boards"
@@ -7180,51 +7180,42 @@ msgid ""
 msgstr ""
 
 #: ../src/play_rhythm-activity/play_rhythm.py:101
-#, fuzzy
 msgid "Beat Count:"
-msgstr "Števec/Število dob:"
+msgstr "Števec dob:"
 
 #: ../src/play_rhythm-activity/play_rhythm.py:125
-#, fuzzy
 msgid "Beat the rhythm on this drum."
-msgstr "Udarjaj v tem ritmu po bobnu."
+msgstr "Udarjaj v ritmu po bobnu."
 
 #: ../src/play_rhythm-activity/play_rhythm.py:136
 msgid "For a little help, click the metronome to hear the tempo."
 msgstr "Za pomoč klikni na metronom, da slišiš tempo."
 
 #: ../src/play_rhythm-activity/play_rhythm.py:348
-#, fuzzy
 msgid "1. Listen to the rhythm and follow the moving line."
 msgstr "1. Poslušaj ritem in sledi premikajoči se črti."
 
 #: ../src/play_rhythm-activity/play_rhythm.py:350
-#, fuzzy
 msgid "2. Click the drum to the tempo. Watch the vertical line when you start."
 msgstr "2. Klikni boben po tempu. Opazuj navpično črto, ko začneš."
 
 #: ../src/play_rhythm-activity/play_rhythm.py:353
-#, fuzzy
 msgid "1. Now, read the rhythm. It won't be played for you. Then, beat the rhythm on the drum."
 msgstr "1. Zdaj preberi ritem. Ne bo izvajan. Nato udarjaj v ritmu po bobnu."
 
 #: ../src/play_rhythm-activity/play_rhythm.py:356
-#, fuzzy
 msgid "3. Click ok to check your answer, or erase to try again."
 msgstr "3. Klikni za potrditev svojega odgovora ali ga izbriši, da poskusiš znova."
 
 #: ../src/play_rhythm-activity/play_rhythm.xml.in.h:1
-#, fuzzy
 msgid "Play Rhythm"
 msgstr "Igraj ritem"
 
 #: ../src/play_rhythm-activity/play_rhythm.xml.in.h:2
-#, fuzzy
 msgid "Learn to listen to, read, and play musical rhythms."
 msgstr "Nauči se poslušanja, branja in igranja glasbenih ritmov."
 
 #: ../src/play_rhythm-activity/play_rhythm.xml.in.h:3
-#, fuzzy
 msgid "Simple understanding of musical rhythm and beat."
 msgstr "Osnovno razumevanje glasbenega ritma in tempa."
 
