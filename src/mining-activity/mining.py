@@ -352,7 +352,15 @@ class Gcompris_mining:
       self.tutorial.stop()
 
     self.is_game_won = True;
-    gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.LION)
+
+    # In GCompris version up to and including 12.5, there is a bug with the LION bonus:
+    # The bonus-constant "LION" does not exist, but had to be called by "GNU"
+    try:
+      # try to display bonus with correct constant
+      gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.LION)
+    except AttributeError:
+      # fail back to GCompris version <= 12.5
+      gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.GNU)
 
 
   def pause(self, pause):
