@@ -313,7 +313,14 @@ class Gcompris_mining:
     #          a^2         +         b^2         <=                         c^2
     if (x - nx) * (x - nx) + (y - ny) * (y - ny) <= self.min_nugget_approach * self.min_nugget_approach:
       # the mouse cursor is close enough, go to next tutorial step
-      self.tutorial.set_tutorial_state('zoom in', False)
+
+      if self.nugget.is_visible():
+        # the nugget is already visible, so we can fast-forward to the "zoom in" tutorial
+        self.tutorial.set_tutorial_state('zoom in', False)
+        self.tutorial.set_tutorial_state('click', False)
+      else:
+        # go the default way: "move to", "zoom in", "click", ...
+        self.tutorial.set_tutorial_state('zoom in', False)
 
     else:
       # if we still want to show the user, where to move the mouse pointer to, we need to
