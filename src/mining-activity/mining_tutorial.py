@@ -86,12 +86,7 @@ class MiningTutorial:
     # advance to next state, if current state matches
     if state == 'move to':
       if self.current_state == 'start':
-        # we should send the real mouse position, but best, I could get is
-        # the mouse position in screen pixels:
-        #   x, y = self.rootitem.get_canvas().get_pointer()
-        # And the documented function goocanvas.Canvas.convert_from_pixel() does not exist. :(
-        # So we take the middle of the screen as starting point for the animation.
-        self.cursor.start(gcompris.BOARD_WIDTH / 2, gcompris.BOARD_HEIGHT / 2, *special_state_arguments)
+        self.cursor.start(*special_state_arguments)
 
         self.current_state = state
 

@@ -62,6 +62,11 @@ class Gcompris_mining:
 
   # handle to the tutorial object
   tutorial = None
+
+  # can the tutorial be started in this level?
+  is_tutorial_startable = False
+
+  # has the tutorial been started for this nugget?
   is_tutorial_enabled = False
 
   # the distance, the mouse cursor has to approach the nugget, triggering the next tutorial step
@@ -137,6 +142,18 @@ class Gcompris_mining:
     # prepare the tutorial
     self.tutorial = mining_tutorial.MiningTutorial(self.rootitem)
 
+    # prepare the teacher icon to start the tutorial with
+    self.teacher_img = goocanvas.Image(
+      parent = self.rootitem,
+      pixbuf = gcompris.utils.load_pixmap("mining/tux-teacher.png"),
+      x = 850,
+      y = 850,
+      visibility = goocanvas.ITEM_INVISIBLE
+      )
+    self.teacher_img.scale(0.5, 0.5)
+    self.teacher_img.connect("button_press_event", self.start_tutorial)
+    gcompris.utils.item_focus_init(self.teacher_img, None)
+
     # initialize the level, to start with
     self.set_level(1)
 
@@ -147,6 +164,7 @@ class Gcompris_mining:
     print("mining set level: %i" % level)
 
     self.end_level()
+    self.is_tutorial_enabled = False
 
     # store new level
     self.gcomprisBoard.level = level
@@ -155,9 +173,7 @@ class Gcompris_mining:
     # load level specific values
     if level == 1:
       self.nuggets_to_collect = 3
-
-      # Enable the tutorial for level 1
-      self.is_tutorial_enabled = True
+      self.is_tutorial_startable = True
 
       # add the tutorials blocking area, to avoid the nugget being placed behind
       # the tutorial mouse or touchpad
@@ -165,11 +181,11 @@ class Gcompris_mining:
 
     elif level == 2:
       self.nuggets_to_collect = 6
-      self.is_tutorial_enabled = False
+      self.is_tutorial_startable = False
 
     elif level == 3:
       self.nuggets_to_collect = 9
-      self.is_tutorial_enabled = False
+      self.is_tutorial_startable = False
 
     else:
       print("Warning: No level specific values defined for level %i! Keeping current settings." % level)
@@ -204,14 +220,40 @@ class Gcompris_mining:
     self.sparkling.animation_start()
     self.need_new_nugget = False
 
-    if self.is_tutorial_enabled:
-      self.tutorial.start()
-      nuggetArea = Area(self.nugget.get_bounds())
-      self.tutorial.set_tutorial_state('move to', nuggetArea.center_x, nuggetArea.center_y)
-
-
     # The following sound was copied form "Tuxpaint" (GPL)
     gcompris.sound.play_ogg("mining/realrainbow.ogg")
+
+    # tutorial stuff
+    self.is_tutorial_enabled = False
+    if self.is_tutorial_startable:
+      self.show_teacher_icon()
+    else:
+      self.hide_teacher_icon()
+
+
+  def start_tutorial(self, item, target_item, event):
+    """
+    Start the tutorial (teacher icon has been clicked)
+      item - The element connected with this callback function
+      target_item - The element under the cursor
+      event  - gtk.gdk.Event
+    """
+
+    self.hide_teacher_icon()
+    self.is_tutorial_enabled = True
+    self.tutorial.start()
+    nuggetArea = Area(self.nugget.get_bounds())
+    self.tutorial.set_tutorial_state('move to', event.x_root, event.y_root, nuggetArea.center_x, nuggetArea.center_y)
+
+
+  def show_teacher_icon(self):
+    """ Show the teacher icon (the icon to start the tutorial with """
+    self.teacher_img.props.visibility = goocanvas.ITEM_VISIBLE
+
+
+  def hide_teacher_icon(self):
+    """ Hide the teacher icon (the icon to start the tutorial with """
+    self.teacher_img.props.visibility = goocanvas.ITEM_INVISIBLE
 
 
   def on_mouse_move(self, item, target_item, event):
