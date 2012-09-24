@@ -57,8 +57,7 @@ class Gcompris_algorithm:
 
     # These are used to let us restart only after the bonus is displayed.
     # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
-    self.board_paused  = 0;
-    self.gamewon       = 0;
+    self.gamewon = False;
 
   def start(self):
     gcompris.bar_set (0)
@@ -100,9 +99,9 @@ class Gcompris_algorithm:
 
     # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
     # the game is won
-    if(pause == 0):
+    if(pause == 0 and self.gamewon):
       self.increment_level()
-      self.gamewon = 0
+      self.gamewon = False
 
     return
 
@@ -205,6 +204,7 @@ class Gcompris_algorithm:
       self.paint_image(index, self.place, 147)
       self.place +=1
       if self.place == self.anzahl:
+        self.gamewon = True
         gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.TUX)
         return
       self.paint_qm ()
