@@ -73,6 +73,10 @@ class Gcompris_mining:
   # (in 800x520 coordinate space) (should be in sync with the graphics in tutorial.svgz)
   min_nugget_approach = 50.0
 
+  # the position of the mouse pointer, the last time, we saw it (800x520)
+  last_mouse_pos_x = None
+  last_mouse_pos_y = None
+
 
   def __init__(self, gcomprisBoard):
     """ Constructor """
@@ -254,6 +258,11 @@ class Gcompris_mining:
       self.tutorial.set_tutorial_state('click', True)
     else:
       # we are at the beginning: 'move to' and then 'zoom in'
+
+      # remember them for potential "move to" tutorial animation restarts
+      self.last_mouse_pos_x = event.x_root
+      self.last_mouse_pos_y = event.y_root
+
       self.tutorial.set_tutorial_state('move to', True, event.x_root, event.y_root, nuggetArea.center_x, nuggetArea.center_y)
 
     # we processed this click event
@@ -292,6 +301,10 @@ class Gcompris_mining:
     x = event.x_root
     y = event.y_root
 
+    # remember them for potential "move to" tutorial animation restarts
+    self.last_mouse_pos_x = x
+    self.last_mouse_pos_y = y
+
     # get_bounds() also gives us coordinates relative to the root of the screen (800 x 520)
     nuggetArea = Area(self.nugget.get_bounds())
     nx = nuggetArea.center_x
@@ -306,10 +319,35 @@ class Gcompris_mining:
       # if we still want to show the user, where to move the mouse pointer to, we need to
       # update this animation now
       if self.tutorial.get_tutorial_state() == 'move to':
-        self.tutorial.restart_tutorial_step(x, y, nx, ny)
+        self.restart_tutorial_move_to(x, y)
 
     # we processed this event
     return True
+
+
+  def restart_tutorial_move_to(self, mouse_x, mouse_y):
+    """
+    Start a timer to restart the 'move to' tutorial animation
+      mouse_x, mouse_y: position of the mouse pointer relative to the root of the screen (800 x 520)
+    """
+    # Since event messages like "scroll_event" seem to have to be processed completely, until *.get_bounds()
+    # delivers us updated coordinates, we have to call the animation restart in another event, following
+    # the current one. So we set up a timer, waiting 1 millisecond, doing the job. ;)
+    gobject.timeout_add(1, self.__restart_tutorial_move_to_on_timer, mouse_x, mouse_y)
+
+
+  def __restart_tutorial_move_to_on_timer(self, mouse_x, mouse_y):
+    """
+    Restart the 'move to' tutorial animation (called by a timeout-event from restart_tutorial_move_to())
+      mouse_x, mouse_y: position of the mouse pointer relative to the root of the screen (800 x 520)
+    """
+    nuggetArea = Area(self.nugget.get_bounds())
+    nx = nuggetArea.center_x
+    ny = nuggetArea.center_y
+    self.tutorial.restart_tutorial_step(mouse_x, mouse_y, nx, ny)
+
+    # do not call this timer again
+    return False
 
 
   def on_zoom_change(self, state):
@@ -317,10 +355,16 @@ class Gcompris_mining:
     # As of 2012-08-11 there seems to be no "gcomrpis way" to change the mouse cursor to
     # a individual png. So we can't change to a pickaxe. :(
 
+    if self.is_tutorial_enabled:
+      if self.tutorial.get_tutorial_state() == 'move to':
+        self.restart_tutorial_move_to(self.last_mouse_pos_x, self.last_mouse_pos_y)
+
+
     if state == 'min':
       self.nugget.hide()
 
       if self.need_new_nugget:
+        # nugget has been collected
         if self.is_tutorial_enabled:
           self.tutorial.stop()
 
@@ -331,7 +375,7 @@ class Gcompris_mining:
 
     elif state == 'max':
       if self.is_tutorial_enabled:
-        # proceed to next tutorial step
+        # try to proceed to next tutorial step (from "zoom in")
         self.tutorial.set_tutorial_state('click', False)
 
       self.nugget.show()
