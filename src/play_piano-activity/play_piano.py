@@ -168,9 +168,9 @@ class Gcompris_play_piano:
         if len(self.staff.noteList) > current_note_number:
             note_on_staff = self.staff.noteList[current_note_number]
             if note_played.numID == note_on_staff.numID:
-                note_on_staff.statusPassed()
+                note_on_staff.statusPassed(self.rootitem)
             else:
-                note_on_staff.statusFailed()
+                note_on_staff.statusFailed(self.rootitem)
                 self.show_erase(True)
 
         if len(self.staff.noteList) - 1 == current_note_number:

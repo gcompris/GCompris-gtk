@@ -910,6 +910,7 @@ class Note():
         removes the note from the canvas
         '''
         self.rootitem.remove()
+        self.statusNone()
 
     def drawPictureFocus(self, x, y):
         '''
@@ -970,22 +971,29 @@ class Note():
                   height=20,
                   )
 
-    def statusPassed(self):
+    # statusPassed and statusFailed requires a non scaled
+    # rootitem. Since the staff maybe scaled by 2 our icon
+    # looks terribly bad.
+    def statusPassed(self, rootitem):
         ''' Mark this note with a passed icon'''
+        (x, y)= self.rootitem.get_canvas().\
+            convert_from_item_space(self.rootitem, self.x, self.y)
         self.success = goocanvas.Image(
-            parent = self.rootitem,
+            parent = rootitem,
             pixbuf = gcompris.utils.load_pixmap("piano_composition/passed.svg"),
-            x = self.x,
-            y = self.y,
+            x = x,
+            y = y,
             )
 
-    def statusFailed(self):
+    def statusFailed(self, rootitem):
         ''' Mark this note with a failed icon'''
+        (x, y)= self.rootitem.get_canvas().\
+            convert_from_item_space(self.rootitem, self.x, self.y)
         self.success = goocanvas.Image(
-            parent = self.rootitem,
+            parent = rootitem,
             pixbuf = gcompris.utils.load_pixmap("piano_composition/failed.svg"),
-            x = self.x,
-            y = self.y,
+            x = x,
+            y = y,
             )
 
     def statusNone(self):
