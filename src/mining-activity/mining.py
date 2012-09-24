@@ -243,7 +243,21 @@ class Gcompris_mining:
     self.is_tutorial_enabled = True
     self.tutorial.start()
     nuggetArea = Area(self.nugget.get_bounds())
-    self.tutorial.set_tutorial_state('move to', event.x_root, event.y_root, nuggetArea.center_x, nuggetArea.center_y)
+
+    # determine state, to start the tutorial from
+    if self.need_new_nugget:
+      # we have collected the nugget, and need to zoom out
+      self.tutorial.set_tutorial_state('zoom out', True)
+
+    elif self.nugget.is_visible():
+      # the nugget needs to be collected
+      self.tutorial.set_tutorial_state('click', True)
+    else:
+      # we are at the beginning: 'move to' and then 'zoom in'
+      self.tutorial.set_tutorial_state('move to', True, event.x_root, event.y_root, nuggetArea.center_x, nuggetArea.center_y)
+
+    # we processed this click event
+    return True
 
 
   def show_teacher_icon(self):
@@ -286,7 +300,7 @@ class Gcompris_mining:
     #          a^2         +         b^2         <=                         c^2
     if (x - nx) * (x - nx) + (y - ny) * (y - ny) <= self.min_nugget_approach * self.min_nugget_approach:
       # the mouse cursor is close enough, go to next tutorial step
-      self.tutorial.set_tutorial_state('zoom in')
+      self.tutorial.set_tutorial_state('zoom in', False)
 
     else:
       # if we still want to show the user, where to move the mouse pointer to, we need to
@@ -318,7 +332,7 @@ class Gcompris_mining:
     elif state == 'max':
       if self.is_tutorial_enabled:
         # proceed to next tutorial step
-        self.tutorial.set_tutorial_state('click')
+        self.tutorial.set_tutorial_state('click', False)
 
       self.nugget.show()
 
@@ -379,7 +393,7 @@ class Gcompris_mining:
       self.need_new_nugget = True
 
       if self.is_tutorial_enabled:
-        self.tutorial.set_tutorial_state('zoom out')
+        self.tutorial.set_tutorial_state('zoom out', False)
 
 
   def update_lorry(self):

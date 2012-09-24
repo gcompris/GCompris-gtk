@@ -68,7 +68,7 @@ class MiningTutorial:
     return self.current_state
 
 
-  def set_tutorial_state(self, state, *special_state_arguments):
+  def set_tutorial_state(self, state, dont_check_previous_state, *special_state_arguments):
     """
     Set the current state of the tutorial
       state: the state to set, valid values:
@@ -76,6 +76,7 @@ class MiningTutorial:
         - 'zoom in'
         - 'click'
         - 'zoom out'
+      dont_check_previous_state: should we check the previous state?
       special_state_arguments: special arguments for the particular state
     """
 
@@ -85,13 +86,13 @@ class MiningTutorial:
 
     # advance to next state, if current state matches
     if state == 'move to':
-      if self.current_state == 'start':
+      if dont_check_previous_state or self.current_state == 'start':
         self.cursor.start(*special_state_arguments)
 
         self.current_state = state
 
     elif state == 'zoom in':
-      if self.current_state == 'move to':
+      if dont_check_previous_state or self.current_state == 'move to':
         self.cursor.stop()
 
         self.mouse.start_zoom('in')
@@ -100,7 +101,7 @@ class MiningTutorial:
         self.current_state = state
 
     elif state == 'click':
-      if self.current_state == 'zoom in':
+      if dont_check_previous_state or self.current_state == 'zoom in':
         self.mouse.stop()
         self.touchpad.stop()
 
@@ -110,7 +111,7 @@ class MiningTutorial:
         self.current_state = state
 
     elif state == 'zoom out':
-      if self.current_state == 'click':
+      if dont_check_previous_state or self.current_state == 'click':
         self.mouse.stop()
         self.touchpad.stop()
 
