@@ -1,6 +1,6 @@
 #  gcompris - mining.py
 #
-# Copyright (C) 2012 Peter Albrecht 
+# Copyright (C) 2012 Peter Albrecht
 #   based on template by Bruno Coudoin
 #
 #   This program is free software; you can redistribute it and/or modify
@@ -53,8 +53,6 @@ class Gcompris_mining:
   def __init__(self, gcomprisBoard):
     """ Constructor """
 
-    print "mining init"
-
     # Save the gcomprisBoard, it defines everything we need
     # to know from the core
     self.gcomprisBoard = gcomprisBoard
@@ -99,8 +97,6 @@ class Gcompris_mining:
 
   def start(self):
     """ Load data and start the activity """
-
-    print "mining start"
 
     self.gcomprisBoard.maxlevel = 3
     self.gcomprisBoard.sublevel = 1
@@ -170,8 +166,6 @@ class Gcompris_mining:
 
   def set_level(self, level):
     """ Initialize new level and start it. """
-
-    print("mining set level: %i" % level)
 
     self.end_level()
     self.is_tutorial_enabled = False
@@ -518,7 +512,6 @@ class Gcompris_mining:
 
   def end(self):
     """ Terminate the activity """
-    print "mining end"
 
     self.end_level()
 
@@ -532,19 +525,19 @@ class Gcompris_mining:
   # GCompris interface functions, not needed by mining-activity
 
   def config_start(self, profile):
-    print("config_start() not needed by mining-activity.")
+    pass
 
   def config_stop(self):
-    print("config_stop() not needed by mining-activity.")
+    pass
 
   def key_press(self, keyval, commit_str, preedit_str):
-    print("key_press() not needed by mining-activity.")
+    pass
 
   def ok(self):
-    print("ok() not needed by mining-activity.")
+    pass
 
   def repeat(self):
-    print("repeat() not needed by mining-activity.")
+    pass
 
 
 
@@ -828,7 +821,7 @@ class Viewport:
     # coordinate space fix
 
     # Event-coordinates are in the coordinate space of that item, which lies direct under the cursor.
-    # So if the user scrolls over the spark, for example, we have to translate those coordinates to 
+    # So if the user scrolls over the spark, for example, we have to translate those coordinates to
     # the coordinate space of our gc_group.
     (x, y) = self.gcomprisBoard.canvas.convert_from_item_space(target_item, event.x, event.y)
     (x, y) = self.gcomprisBoard.canvas.convert_to_item_space(self.gc_group, x, y)
@@ -860,8 +853,8 @@ class Viewport:
 
 
     ###
-    # The pixel under the cursor shall be fixed, while everything else zooms in/out 
-    # (we zoom at the mouse position), so we have to calculate a new position for 
+    # The pixel under the cursor shall be fixed, while everything else zooms in/out
+    # (we zoom at the mouse position), so we have to calculate a new position for
     # gc_group (displaying primarily the rockwall image).
 
     new_x = old_x + x * (old_scale - self.scale)

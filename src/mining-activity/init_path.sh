@@ -3,6 +3,6 @@
 path=$1
 activity=mining
 plugindir=$path/../boards/.libs
-pythonplugindir=$path 
+pythonplugindir=$path
 resourcedir=$path/resources
-section="/experimental"
+section="/computer/mouse"
