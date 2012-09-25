@@ -28,10 +28,6 @@ from mining_tools import BlockingArea
 class MiningTutorial:
   """ This class provides tutorial information to the user """
 
-  # the current tutorial state
-  current_state = None
-
-
   def __init__(self, rootitem):
     """
     Constructor
@@ -48,6 +44,9 @@ class MiningTutorial:
     self.mouse = TutorialMouse(self.tutorial_rootitem, svghandle, 300, 440)
     self.cursor = TutorialCursor(self.tutorial_rootitem, svghandle)
     self.touchpad = TutorialTouchpad(self.tutorial_rootitem, svghandle, 500, 440)
+
+    self.current_state = None
+    """ the current tutorial state """
 
 
   def get_blocking_area(self):
@@ -160,14 +159,6 @@ class MiningTutorial:
 class TutorialCursor:
   """ This class demonstrates to move the cursor to a specific position """
 
-  # position of the center of the cursor target in screen coordinates (800 x 520)
-  circle_x = 0.0
-  circle_y = 0.0
-
-  # position of the center of the ghost mouse cursor in screen coordinates (800 x 520)
-  cursor_x = 0.0
-  cursor_y = 0.0
-
   # center of the cursor target in the svg file
   pivot_circle_x = 400.0
   pivot_circle_y = 370.0
@@ -205,6 +196,20 @@ class TutorialCursor:
       visibility = goocanvas.ITEM_INVISIBLE,
       pointer_events = goocanvas.EVENTS_NONE
       )
+
+    # initialize and document instance variables
+
+    self.circle_x = 0.0
+    """ x position of the center of the cursor target in screen coordinates (800 x 520) """
+
+    self.circle_y = 0.0
+    """ y position of the center of the cursor target in screen coordinates (800 x 520) """
+
+    self.cursor_x = 0.0
+    """ x position of the center of the ghost mouse cursor in screen coordinates (800 x 520) """
+
+    self.cursor_y = 0.0
+    """ y position of the center of the ghost mouse cursor in screen coordinates (800 x 520) """
 
 
   def start(self, cx, cy, tx, ty):
@@ -278,14 +283,6 @@ class TutorialMouse:
   timer_scroll_milliseconds = 300
   timer_click_milliseconds = 800
 
-  # timer
-  timer_scroll = None
-  timer_click = None
-
-  # position of the center of the mouse in screen coordinates (800 x 520)
-  x = 0.0
-  y = 0.0
-
   # center of the mouse in the svg file
   pivot_mouse_x = 200
   pivot_mouse_y = 220
@@ -318,19 +315,8 @@ class TutorialMouse:
   center_mouse_to_center_button_x = -16
   center_mouse_to_center_button_y = -12
 
-  # the current wheel displayed
-  current_wheel = None
-
-  # define the scroll direction:
-  #   +1: zoom in
-  #   -1: zoom out
-  scroll_direction = None
-
   # the number of different wheels
   number_of_wheels = 3
-
-  # list of mouse wheel images
-  wheel_imgs = []
 
 
   def __init__(self, rootitem, svghandle, x, y):
@@ -341,8 +327,27 @@ class TutorialMouse:
         x, y        : Position of the center of the mouse in screen coordinates (800 x 520)
     """
 
+    self.timer_scroll = None
+    """ timer for scroll animation """
+
+    self.timer_click = None
+    """ timer for click animation """
+
+    self.scroll_direction = None
+    """
+    defines the scroll direction:
+       +1: zoom in
+       -1: zoom out
+    """
+
+    self.wheel_imgs = []
+    """ list of mouse wheel images """
+
     self.x = x
+    """ x position of the center of the mouse in screen coordinates (800 x 520) """
+
     self.y = y
+    """ y position of the center of the mouse in screen coordinates (800 x 520) """
 
     self.mouse_img = goocanvas.Svg(
       parent = rootitem,
@@ -359,6 +364,7 @@ class TutorialMouse:
       visibility = goocanvas.ITEM_INVISIBLE,
       pointer_events = goocanvas.EVENTS_NONE
       )
+
 
     # GooCanvas does not support to add SVG-items to other SVG-items, so we have to add
     # the wheels to the rootitem.
@@ -388,6 +394,8 @@ class TutorialMouse:
       ))
 
     self.current_wheel = 0
+    """ the current wheel displayed """
+
     self.__update_transformation()
 
 
@@ -568,10 +576,6 @@ class TutorialMouse:
 class TutorialTouchpad:
   """ Displays a touchpad showing the zoom animation """
 
-  # position of the center of the touchpad in screen coordinates (800 x 520)
-  touchpad_x = 0.0
-  touchpad_y = 0.0
-
   # center of the touchpad in the svg file
   pivot_touchpad_x = 400
   pivot_touchpad_y = 220
@@ -594,21 +598,8 @@ class TutorialTouchpad:
   # the time between each zoom animation step, in milliseconds
   zoom_animation_time_step = 100
 
-  # 1: show "1"-finger animation
-  # 2: show "2"-finger animation
-  zoom_number_of_fingers = None
-
-  # zoom "in" or "out"
-  zoom_direction = None
-
   # the finger's movement on the y-axis during one finger animation
   zoom_finger_movement_y = 40
-
-  # one time timer to start the zoom animation again
-  zoom_animation_start_timer = None
-
-  # we remember the handler id to be able to disconnect it again
-  zoom_animation_finished_handler_id = None
 
   # the number of milliseconds one finger click animation lasts (only the lowering part)
   click_animation_time_total = 1000
@@ -622,12 +613,6 @@ class TutorialTouchpad:
   # the number of milliseconds, the touch-effect is shown during a click animation
   click_show_effect_milliseconds = 750
 
-  # one time timer to restart the click animation, after showing the touch effect
-  click_animation_show_effect_timer = None
-
-  # we remember the handler id to be able to disconnect it again
-  click_animation_finished_handler_id = None
-
 
   def __init__(self, rootitem, svghandle, x, y):
     """
@@ -638,7 +623,32 @@ class TutorialTouchpad:
     """
 
     self.touchpad_x = x
+    """ x position of the center of the touchpad in screen coordinates (800 x 520) """
+
     self.touchpad_y = y
+    """ y position of the center of the touchpad in screen coordinates (800 x 520) """
+
+    self.zoom_number_of_fingers = None
+    """
+    1: show "1"-finger animation
+    2: show "2"-finger animation
+    """
+
+    self.zoom_direction = None
+    """ zoom "in" or "out" """
+
+    self.zoom_animation_start_timer = None
+    """ one time timer to start the zoom animation again """
+
+    self.zoom_animation_finished_handler_id = None
+    """ we remember the handler id to be able to disconnect it again """
+
+    self.click_animation_show_effect_timer = None
+    """ one time timer to restart the click animation, after showing the touch effect """
+
+    self.click_animation_finished_handler_id = None
+    """ we remember the handler id to be able to disconnect it again """
+
 
     self.touchpad_img = goocanvas.Svg(
       parent = rootitem,
