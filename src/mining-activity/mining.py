@@ -40,42 +40,14 @@ from gcompris import gcompris_gettext as _
 class Gcompris_mining:
   """ GCompis Mining-Activity """
 
-  # the number of nuggets, we need to collect in this level
-  nuggets_to_collect = 0
-
-  # the number of nuggets, we already have collected
-  nugget_count = 0
-
-  # used to trigger the creation of a new nugget at next opportunity (only at max zoomed out)
-  need_new_nugget = False
-
-  # used to start new game, after game was won and bonus is displayed
-  is_game_won = False
-
-  # used to avoid input (like scrolling) during game pause
-  __is_game_paused = False
-
   # The factor to shrink the source image with, in order to make it fit on the screen.
   # This has to be larger than 1 (= source image has higher resolution than screen),
   # so the image looks still nice, if we zoom in a bit.
   source_image_scale = 3.0
 
-  # handle to the tutorial object
-  tutorial = None
-
-  # can the tutorial be started in this level?
-  is_tutorial_startable = False
-
-  # has the tutorial been started for this nugget?
-  is_tutorial_enabled = False
-
   # the distance, the mouse cursor has to approach the nugget, triggering the next tutorial step
   # (in 800x520 coordinate space) (should be in sync with the graphics in tutorial.svgz)
   min_nugget_approach = 50.0
-
-  # the position of the mouse pointer, the last time, we saw it (800x520)
-  last_mouse_pos_x = None
-  last_mouse_pos_y = None
 
 
   def __init__(self, gcomprisBoard):
@@ -89,6 +61,40 @@ class Gcompris_mining:
 
     # Needed to get key_press
     gcomprisBoard.disable_im_context = True
+
+
+    ##
+    # initialize and document instance variables
+
+    self.nuggets_to_collect = 0
+    """ the number of nuggets, we need to collect in this level """
+
+    self.nugget_count = 0
+    """ the number of nuggets, we already have collected """
+
+    self.need_new_nugget = False
+    """ used to trigger the creation of a new nugget at next opportunity (only at max zoomed out) """
+
+    self.is_game_won = False
+    """ used to start new game, after game was won and bonus is displayed """
+
+    self.__is_game_paused = False
+    """ used to avoid input (like scrolling) during game pause """
+
+    self.tutorial = None
+    """ handle to the tutorial object """
+
+    self.is_tutorial_startable = False
+    """ can the tutorial be started in this level? """
+
+    self.is_tutorial_enabled = False
+    """ has the tutorial been started for this nugget? """
+
+    self.last_mouse_pos_x = None
+    """ the x position of the mouse pointer, the last time, we saw it (800x520) """
+
+    self.last_mouse_pos_y = None
+    """ the y position of the mouse pointer, the last time, we saw it (800x520) """
 
 
   def start(self):
@@ -613,16 +619,18 @@ class Lorry:
 class Placer:
   """ This class randomly places items on the screen and assures, that they do not overlap """
 
-  # the internal list of blocking areas
-  blocking_areas = []
-
-
   def __init__(self, activity):
     """
     Constructor:
       activity : the main activity class
     """
     self.activity = activity
+
+
+    # initialize and document instance variables
+
+    self.blocking_areas = []
+    """ the internal list of blocking areas """
 
 
   def place(self, item, place_callback):
@@ -711,48 +719,49 @@ class Placer:
 class Viewport:
   """ The viewport handles zooming in and out with the appropriate translation """
 
-  # viewport transformation
-  x = 0
-  y = 0
-  scale = 1.0
-
-
-  # zooming
-
-  # The limit to max zoom out, while still filling all the screen with the rockwall.
-  # This value is set up in the constructor.
-  scale_min = None
-
-  # The limit to max zoom in.
-  # Try to keep scale_max reachable by  scale_min * zoom_factor ^ n  (with n in [1, 2, 3, 4, ...[)
-  # This value is set up in reset()
-  scale_max = None
-
-  # the factor to zoom on each zoom event
-  # This value is set up in reset()
-  zoom_factor = None
-
-
-  # The GooCanvas group, which holds everything that is affected by zooming
-  gc_group = None
-
-  # see documentation in Gcompris_mining
-  source_image_scale = None
-
-
   def __init__(self, activity, parent):
     """
     Constructor:
       activity           : the main activity object
       parent             : the parent GooCanvas item to add our gc_group
     """
-    self.gcomprisBoard = activity.gcomprisBoard
-    self.gc_group = goocanvas.Group(parent = parent)
-    self.gc_group.connect("scroll_event", self.__on_scroll)
-    self.cb_zoom_change = activity.on_zoom_change
+    # initialize and document instance variables
+
     self.source_image_scale = activity.source_image_scale
-    self.is_game_paused = activity.is_game_paused
+    """ see documentation in Gcompris_mining """
+
+    self.x = 0
+    """ viewport x translation """
+
+    self.y = 0
+    """ viewport y translation """
+
+    self.scale = 1.0
+    """ current viewport scale / zoom """
+
     self.scale_min = 1.0 / self.source_image_scale
+    """ The limit to max zoom out, while still filling all the screen with the rockwall. """
+
+    self.scale_max = None
+    """
+    The limit to max zoom in.
+    Try to keep scale_max reachable by  scale_min * zoom_factor ^ n  (with n in [1, 2, 3, 4, ...[)
+    This value is set up in reset()
+    """
+
+    self.zoom_factor = None
+    """ The factor to zoom on each zoom event. This value is set up in reset() """
+
+
+    self.gc_group = goocanvas.Group(parent = parent)
+    """ The GooCanvas group, which holds everything that is affected by zooming """
+
+
+    self.gcomprisBoard = activity.gcomprisBoard
+    self.cb_zoom_change = activity.on_zoom_change
+    self.is_game_paused = activity.is_game_paused
+
+    self.gc_group.connect("scroll_event", self.__on_scroll)
 
     self.nugget_blocker = (
       BlockingArea(0, 0, 800, 42), # top
@@ -946,13 +955,6 @@ class Decorations:
     },
   )
 
-  # A goocanvas group, that holds all our decoration, so we can easily
-  # remove them, by removing only this group.
-  decoration_group = None
-
-  # ID of the decoration type, currently being placed. (Used to overcome callback bounderies)
-  current_decoration_id = None
-
 
   def __init__(self, svghandle, gc_group, placer):
     """
@@ -962,8 +964,20 @@ class Decorations:
       - placer    : reference to the Placer object
     """
     self.svghandle = svghandle
-    self.viewport_gc_group = gc_group
     self.placer = placer
+
+
+    ##
+    # initialize and document instance variables
+
+    self.viewport_gc_group = gc_group
+    """ The viewport's GooCanvas Group to add our decoration_group to """
+
+    self.decoration_group = None
+    """ A goocanvas group, that holds all our decoration, so we can easily remove them, by removing only this group. """
+
+    self.current_decoration_id = None
+    """ ID of the decoration type, currently being placed. (Used to overcome callback bounderies) """
 
 
   def decorate_viewport(self, number_of_decorations):
@@ -1028,16 +1042,9 @@ class Decorations:
 class Nugget:
   """ The gold nugget """
 
-  # position of the nugget (in the rockwall/gc_group)
-  x = 0.0
-  y = 0.0
-
   # center of the spark in the svg file (used for rotation and positioning)
   pivot_x = 1000
   pivot_y = 800
-
-  # picture of the nugget
-  nugget_img = None
 
 
   def __init__(self, svghandle, parent):
@@ -1047,6 +1054,14 @@ class Nugget:
       parent         : GooCanvas parent item of the gold nugget
     """
 
+    # initialize and document instance variables
+
+    self.x = 0.0
+    """ x position of the nugget (in the rockwall/gc_group) """
+
+    self.y = 0.0
+    """ y position of the nugget (in the rockwall/gc_group) """
+
     self.nugget_img = goocanvas.Svg(
       parent = parent,
       svg_handle = svghandle,
@@ -1055,6 +1070,7 @@ class Nugget:
       # start invisible, since x/y are not set properly yet
       visibility = goocanvas.ITEM_INVISIBLE
       )
+    """ picture of the nugget """
 
 
   def reset(self, nugget, x, y):
@@ -1118,32 +1134,26 @@ class Sparkling:
   and pauses, the time when the spark is hidden.
   """
 
-  # position of the spark (in the rockwall/gc_group)
-  x = 0.0
-  y = 0.0
-
-  # rotation (in degrees)
-  angle = 0
-  rot_delta = 0
+  # value to initialize the rotation delta with
   rot_delta_init = 6
 
-  # size
-  scale = 0
+  # the factor, the spark shrinks every animation step
   scale_factor = 0.90
+
+  # minimum scale factor; if reached, the current spark-phase ends
   scale_min = 0.4
+
+  # the scale factor to start a spark-phase with
   scale_max = 1.0
 
-  # animation
-  timer = None
+  # the time (in milliseconds) between two sparkling animation steps
   timer_milliseconds = 30
 
   # the number of timer-events, a pause lasts
   pause_ticks_total = 25
-  pause_ticks_current = 0
-  pause_tick_variation = 10
 
-  # spark image
-  spark = None
+  # add some randomness to pause_ticks_total
+  pause_tick_variation = 10
 
   # center of the spark in the svg file (used for rotation and positioning)
   pivot_x = 600
@@ -1157,6 +1167,8 @@ class Sparkling:
       parent    : GooCanvas parent item of this spark
     """
 
+    # initialize and document instance variables
+
     self.spark = goocanvas.Svg(
       parent = parent,
       svg_handle = svghandle,
@@ -1165,6 +1177,28 @@ class Sparkling:
       # start invisible, since x/y are not set properly yet
       visibility = goocanvas.ITEM_INVISIBLE
       )
+    """ the spark image in the GooCanvas """
+
+    self.x = 0.0
+    """ x position of the spark (in the rockwall/gc_group) """
+
+    self.y = 0.0
+    """ y position of the spark (in the rockwall/gc_group) """
+
+    self.angle = 0
+    """ rotation (in degrees) """
+
+    self.rot_delta = 0
+    """ the amount to rotate at every animation step """
+
+    self.scale = 0
+    """ the sparks current scale factor """
+
+    self.timer = None
+    """ the timer object, firing timeout-events for our animation """
+
+    self.pause_ticks_current = 0
+    """ counts the number of elapsed pause ticks between two spark-phases """
 
 
   def end(self):
