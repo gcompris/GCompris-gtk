@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-09-22 17:57+0000\n"
-"PO-Revision-Date: 2012-09-22 22:09+0100\n"
+"POT-Creation-Date: 2012-09-25 22:11+0000\n"
+"PO-Revision-Date: 2012-09-26 08:36+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
@@ -6204,6 +6204,42 @@ msgstr "Branje števil, spomin."
 msgid "You can see some cards, but you can't see what's on the other side of them. Each card is hiding a number of number, or the word of the number."
 msgstr "Vidiš lahko nekaj kart, toda ne moreš videti kaj je na drugi strani. Vsaka karta skriva število zapisano s številko ali besedo."
 
+#: ../src/mining-activity/mining.xml.in.h:1
+msgid "Mining for gold"
+msgstr "Rudarjenje za zlatom"
+
+#: ../src/mining-activity/mining.xml.in.h:2
+msgid "Use the mousewheel to approach the rockwall an look for gold nuggets."
+msgstr ""
+
+#: ../src/mining-activity/mining.xml.in.h:3
+msgid "You should be familiar with moving the mouse and clicking."
+msgstr ""
+
+#: ../src/mining-activity/mining.xml.in.h:4
+msgid "Lern to use the mousewheel to zoom in and out."
+msgstr ""
+
+#: ../src/mining-activity/mining.xml.in.h:5
+msgid ""
+"Looking at the rockwall, you can see a sparkle somewhere. Move the mouse cursor next to this sparkle and use the mousewheel to zoom in. If you zoomed in at maximum, a gold nugget will appear at the position of the sparkle. Click on the gold nugget to collect it.\n"
+"\n"
+"Having collected the nugget, use the mousewheel to zoom out again. If you zoomed out at maximum, another sparkle will appear, showing the next gold nugget to collect. Collect enough nuggets to complete the level.\n"
+"\n"
+"The lorry in the lower, right corner of the screen will tell you the number of already collected nuggets and the total number of nuggets to collect in this level.\n"
+"\n"
+"To start the tutorial, click on professor tux (available at level 1) and let him show you, what to do next.\n"
+"\n"
+"Have fun! :)"
+msgstr ""
+
+#: ../src/mining-activity/mining.xml.in.h:14
+msgid ""
+"Thanks to the Tuxpaint team for providing the following sounds under GPL:\n"
+"- realrainbow.ogg - used when a new gold nugget appears\n"
+"- metalpaint.wav - remixed and used when a gold nugget is collected"
+msgstr ""
+
 #: ../src/missing_letter-activity/missingletter_config.c:79
 msgid "Please select an image."
 msgstr "Izberi sliko."
@@ -6883,7 +6919,7 @@ msgstr "Zvišane note so označene z znakom #"
 
 #: ../src/piano_composition-activity/piano_composition.py:119
 msgid "The black keys are sharp and flat keys"
-msgstr ""
+msgstr "Črne tipke so zvišane in znižane tipke"
 
 #: ../src/piano_composition-activity/piano_composition.py:121
 msgid "Flat notes have a b sign"
@@ -6944,7 +6980,7 @@ msgstr "Naloži glasbo"
 
 #: ../src/piano_composition-activity/piano_composition.py:245
 msgid "Change Accidental Style:"
-msgstr ""
+msgstr "Izbor naključnega sloga:"
 
 #: ../src/piano_composition-activity/piano_composition.py:344
 msgid ""
@@ -7147,11 +7183,11 @@ msgstr "Nauči se igrati melodije na klaviaturi!"
 
 #: ../src/play_piano-activity/play_piano.xml.in.h:3
 msgid "knowledge of musical notation and musical staff. Play piano_composition first."
-msgstr ""
+msgstr "poznavanje glasbenih oznak, notnega zapisa in notnega črtovja"
 
 #: ../src/play_piano-activity/play_piano.xml.in.h:4
 msgid "understand how the piano keyboard can play music as written on the musical staff"
-msgstr ""
+msgstr "razumeti, kako na klaviaturi igrati glasbo, ki je zapisana na notnem črtovju"
 
 #: ../src/play_piano-activity/play_piano.xml.in.h:5
 msgid ""
@@ -7221,7 +7257,7 @@ msgstr "Osnovno razumevanje glasbenega ritma in tempa."
 
 #: ../src/play_rhythm-activity/play_rhythm.xml.in.h:4
 msgid "Learn to beat rhythms precisely and accurately based on what you see and hear."
-msgstr ""
+msgstr "Nauči se natančno udarjati ritme po slišanem in videnem."
 
 #: ../src/play_rhythm-activity/play_rhythm.xml.in.h:5
 msgid "This is a relatively challenging game to master, so good luck. Listen to the rhythm played, and follow along with the music. If you would like to hear it again, click the play button. When you're ready to perform the identical rhythm, click the drum to the rhythm, then click the ok button. If you clicked correctly and in the right tempo, another rhythm is displayed. If not, you must try again. Even levels display a vertical playing line when you click the drum, which helps you see whene to click to follow the rhythm. Click on the drum when the line is in the middle of the notes. Odd levels are harder, because there is no vertical playing line. The rhythm will not be played for you. You must read the rhythm, and click it back in tempo. Click the metronome to hear the quarter note tempo. The following keyboard bindings work in this game: - backspace: erase attempt - delete: erase attempt - enter/return: ok button - space bar: play"
