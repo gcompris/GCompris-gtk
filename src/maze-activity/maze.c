@@ -53,6 +53,7 @@ static int board_border_x=20;
 static int board_border_y=3;
 static int thickness=2;
 static gboolean run_fast=FALSE;
+static gboolean run_fast_possible=FALSE;
 
 static gboolean modeIs2D=TRUE;
 static gboolean modeRelative=FALSE;
@@ -204,6 +205,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     /* Default mode is 2D */
     modeRelative=FALSE;
     modeIsInvisible=FALSE;
+    run_fast_possible=TRUE;
     if(!gcomprisBoard->mode)
       modeIs2D=TRUE;
     else if(g_ascii_strncasecmp(gcomprisBoard->mode, "2DR", 3)==0) {
@@ -217,6 +219,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
       modeIs2D=TRUE;
     } else if(g_ascii_strncasecmp(gcomprisBoard->mode, "3D", 2)==0) {
       modeIs2D=FALSE;
+      run_fast_possible=FALSE;
     }
 
     if(!modeIs2D || modeIsInvisible) {
@@ -310,23 +313,25 @@ static void maze_next_level() {
 		   "button_press_event",
 		   (GCallback) tux_event, NULL);
 
-  /* Load the tux shoes */
-  svg_handle = gc_rsvg_load("maze/tux_shoes_top_south.svgz");
-  tuxshoes = goo_canvas_svg_new (tuxgroup, svg_handle,
-		        "pointer-events", GOO_CANVAS_EVENTS_NONE, NULL);
-  g_object_unref (svg_handle);
+  if(run_fast_possible) {
+	  /* Load the tux shoes */
+	  svg_handle = gc_rsvg_load("maze/tux_shoes_top_south.svgz");
+	  tuxshoes = goo_canvas_svg_new (tuxgroup, svg_handle,
+					"pointer-events", GOO_CANVAS_EVENTS_NONE, NULL);
+	  g_object_unref (svg_handle);
 
-  /* Load fast-mode switch button */
-  svg_handle = gc_rsvg_load("maze/fast-mode-button.svgz");
-  fast_mode_button = goo_canvas_svg_new (boardRootItem, svg_handle,
-		        NULL);
-  g_object_unref (svg_handle);
-  goo_canvas_item_scale(fast_mode_button, 0.2, 0.2);
-  goo_canvas_item_translate(fast_mode_button, 100, 100);
-  g_signal_connect(fast_mode_button,
-		   "button_press_event",
-		   (GCallback) on_fast_mode_button_press, NULL);
-  gc_item_focus_init(fast_mode_button, NULL);
+	  /* Load fast-mode switch button */
+	  svg_handle = gc_rsvg_load("maze/fast-mode-button.svgz");
+	  fast_mode_button = goo_canvas_svg_new (boardRootItem, svg_handle,
+					NULL);
+	  g_object_unref (svg_handle);
+	  goo_canvas_item_scale(fast_mode_button, 0.2, 0.2);
+	  goo_canvas_item_translate(fast_mode_button, 100, 100);
+	  g_signal_connect(fast_mode_button,
+			   "button_press_event",
+			   (GCallback) on_fast_mode_button_press, NULL);
+	  gc_item_focus_init(fast_mode_button, NULL);
+  }
 
   /* Draw the target */
   pixmap = gc_pixmap_load("maze/door.png");
@@ -346,9 +351,11 @@ static void maze_next_level() {
   viewing_direction=EAST;
   threeDactive=FALSE;
 
-  // run_fast-mode should be initialized at every level, whether TRUE or FALSE
-  if (gcomprisBoard->level < 14) set_run_fast(FALSE);
-  if (gcomprisBoard->level >= 14) set_run_fast(TRUE);
+  if(run_fast_possible) {
+	  // run_fast-mode should be initialized at every level, whether TRUE or FALSE
+	  if (gcomprisBoard->level < 14) set_run_fast(FALSE);
+	  if (gcomprisBoard->level >= 14) set_run_fast(TRUE);
+  }
 
   update_tux(viewing_direction);
 
@@ -1152,6 +1159,10 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 }
 
 static void set_run_fast(gboolean new_run_fast) {
+	if(!run_fast_possible) {
+		return;
+	}
+
 	run_fast = new_run_fast;
 
 	if(run_fast) {
@@ -1186,6 +1197,10 @@ on_fast_mode_button_press (GooCanvasItem *item,
 static void
 toggle_fast_mode ()
 {
+	if(!run_fast_possible) {
+		return;
+	}
+
 	if(run_fast) {
 		  set_run_fast(FALSE);
 	} else {
@@ -1707,7 +1722,7 @@ update_tux(gint direction)
 
 
   // update the running shoes
-  if(run_fast) {
+  if(run_fast_possible && run_fast) {
 	  goo_canvas_item_set_transform(tuxshoes, NULL);
 
 	  scale = (gdouble) cellsize / (bounds.x2 - bounds.x1);
