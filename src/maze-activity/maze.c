@@ -1078,7 +1078,7 @@ static void one_step(guint richting)
 
 static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 {
-  guint richting=0,level=gcomprisBoard->level;
+  guint richting=0;
 
   if(board_paused)
     return FALSE;
@@ -1217,7 +1217,7 @@ toggle_fast_mode ()
 
 static gint key_press_2D_relative(guint keyval, gchar *commit_str, gchar *preedit_str)
 {
-  guint richting=0,level=gcomprisBoard->level;
+  guint richting=0;
 
   switch (keyval)
     {
