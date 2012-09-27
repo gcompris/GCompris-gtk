@@ -1149,8 +1149,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
   viewing_direction=richting;
 
   /* run until we come to a fork, (make sure to stop on next level!) */
-  while (run_fast && (richting=available_direction(richting))
-	 && gcomprisBoard->level==level)
+  while (run_fast && (richting=available_direction(richting)) && !gamewon)
     {
       one_step(richting);
       viewing_direction=richting;
@@ -1246,8 +1245,7 @@ static gint key_press_2D_relative(guint keyval, gchar *commit_str, gchar *preedi
   richting=viewing_direction;
 
   /* run until we come to a fork, (make sure to stop on next level!) */
-  while (run_fast && (richting=available_direction(richting))
-	 && gcomprisBoard->level==level)
+  while (run_fast && (richting=available_direction(richting)) && !gamewon)
     {
       one_step(richting);
       viewing_direction=richting;
