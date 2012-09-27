@@ -73,14 +73,15 @@ static void game_won(void);
 static void repeat(void);
 
 /* ================================================================ */
-static GooCanvasItem *boardRootItem = NULL;
-static GooCanvasItem *mazegroup     = NULL;
-static GooCanvasItem *tuxgroup      = NULL;
-static GooCanvasItem *wallgroup     = NULL;
+static GooCanvasItem *boardRootItem 	= NULL;
+static GooCanvasItem *mazegroup     	= NULL;
+static GooCanvasItem *tuxgroup      	= NULL;
+static GooCanvasItem *wallgroup     	= NULL;
 
-static GooCanvasItem *warning_item   = NULL;
-static GooCanvasItem *tuxitem        = NULL;
-static GooCanvasItem *tuxshoes       = NULL;
+static GooCanvasItem *warning_item   	= NULL;
+static GooCanvasItem *tuxitem        	= NULL;
+static GooCanvasItem *tuxshoes       	= NULL;
+static GooCanvasItem *fast_mode_button	= NULL;
 
 static GooCanvasItem *maze_create_item(GooCanvasItem *parent);
 static void maze_destroy_all_items(void);
@@ -106,7 +107,12 @@ static gboolean tux_event (GooCanvasItem *item,
 			   GooCanvasItem *target,
 			   GdkEventButton *event,
 			   gpointer data);
+static gboolean on_fast_mode_button_press (GooCanvasItem *item,
+			   GooCanvasItem *target,
+			   GdkEventButton *event,
+			   gpointer data);
 static void update_tux(gint direction);
+static void toggle_fast_mode();
 
 /*---------- 3D stuff ------------*/
 static GooCanvasItem *threedgroup = NULL;
@@ -309,6 +315,18 @@ static void maze_next_level() {
   tuxshoes = goo_canvas_svg_new (tuxgroup, svg_handle,
 		        "pointer-events", GOO_CANVAS_EVENTS_NONE, NULL);
   g_object_unref (svg_handle);
+
+  /* Load fast-mode switch button */
+  svg_handle = gc_rsvg_load("maze/fast-mode-button.svgz");
+  fast_mode_button = goo_canvas_svg_new (boardRootItem, svg_handle,
+		        NULL);
+  g_object_unref (svg_handle);
+  goo_canvas_item_scale(fast_mode_button, 0.2, 0.2);
+  goo_canvas_item_translate(fast_mode_button, 100, 100);
+  g_signal_connect(fast_mode_button,
+		   "button_press_event",
+		   (GCallback) on_fast_mode_button_press, NULL);
+  gc_item_focus_init(fast_mode_button, NULL);
 
   /* Draw the target */
   pixmap = gc_pixmap_load("maze/door.png");
@@ -1151,14 +1169,30 @@ tux_event (GooCanvasItem *item,
 	   GdkEventButton *event,
 	   gpointer data)
 {
-  // toggle
-  if(run_fast) {
-	  set_run_fast(FALSE);
-  } else {
-	  set_run_fast(TRUE);
-  }
-  return FALSE;
+	toggle_fast_mode();
+	return TRUE;
 }
+
+static gboolean
+on_fast_mode_button_press (GooCanvasItem *item,
+	   GooCanvasItem *target,
+	   GdkEventButton *event,
+	   gpointer data)
+{
+	toggle_fast_mode();
+	return TRUE;
+}
+
+static void
+toggle_fast_mode ()
+{
+	if(run_fast) {
+		  set_run_fast(FALSE);
+	} else {
+		  set_run_fast(TRUE);
+	}
+}
+
 
 /*---------- 3D stuff below --------------*/
 
