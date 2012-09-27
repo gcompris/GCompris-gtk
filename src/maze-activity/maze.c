@@ -80,12 +80,14 @@ static GooCanvasItem *wallgroup     = NULL;
 
 static GooCanvasItem *warning_item   = NULL;
 static GooCanvasItem *tuxitem        = NULL;
+static GooCanvasItem *tuxshoes       = NULL;
 
 static GooCanvasItem *maze_create_item(GooCanvasItem *parent);
 static void maze_destroy_all_items(void);
 static void maze_next_level(void);
 static void set_level (guint level);
 static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str);
+static void set_run_fast(gboolean new_run_fast);
 /*--------------------*/
 static void draw_a_rect(GooCanvasItem *group, int x1, int y1, int x2, int y2, char *color);
 static void draw_a_line(GooCanvasItem *group, int x1, int y1, int x2, int y2, guint32 color);
@@ -302,6 +304,12 @@ static void maze_next_level() {
 		   "button_press_event",
 		   (GCallback) tux_event, NULL);
 
+  /* Load the tux shoes */
+  svg_handle = gc_rsvg_load("maze/tux_shoes_top_south.svgz");
+  tuxshoes = goo_canvas_svg_new (tuxgroup, svg_handle,
+		        "pointer-events", GOO_CANVAS_EVENTS_NONE, NULL);
+  g_object_unref (svg_handle);
+
   /* Draw the target */
   pixmap = gc_pixmap_load("maze/door.png");
   if(pixmap)
@@ -320,8 +328,9 @@ static void maze_next_level() {
   viewing_direction=EAST;
   threeDactive=FALSE;
 
-  if (gcomprisBoard->level==1) run_fast=FALSE;
-  if (gcomprisBoard->level==14) run_fast=TRUE;
+  // run_fast-mode should be initialized at every level, whether TRUE or FALSE
+  if (gcomprisBoard->level < 14) set_run_fast(FALSE);
+  if (gcomprisBoard->level >= 14) set_run_fast(TRUE);
 
   update_tux(viewing_direction);
 
@@ -1124,14 +1133,30 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
   return TRUE;
 }
 
+static void set_run_fast(gboolean new_run_fast) {
+	run_fast = new_run_fast;
+
+	if(run_fast) {
+		// update the shoe graphics, since they might not be in the correct place
+		update_tux(viewing_direction);
+		g_object_set (tuxshoes, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+	} else {
+		g_object_set (tuxshoes, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+	}
+}
+
 static gboolean
 tux_event (GooCanvasItem *item,
 	   GooCanvasItem *target,
 	   GdkEventButton *event,
 	   gpointer data)
 {
-  printf("tux_event\n");
-  run_fast=!run_fast;
+  // toggle
+  if(run_fast) {
+	  set_run_fast(FALSE);
+  } else {
+	  set_run_fast(TRUE);
+  }
   return FALSE;
 }
 
@@ -1645,4 +1670,17 @@ update_tux(gint direction)
   goo_canvas_item_rotate( tuxitem, rotation,
 			  (bounds.x2-bounds.x1)/2,
 			  (bounds.y2-bounds.y1)/2);
+
+
+  // update the running shoes
+  if(run_fast) {
+	  goo_canvas_item_set_transform(tuxshoes, NULL);
+
+	  scale = (gdouble) cellsize / (bounds.x2 - bounds.x1);
+	  goo_canvas_item_scale(tuxshoes, scale, scale);
+
+	  goo_canvas_item_rotate( tuxshoes, rotation,
+				  (bounds.x2-bounds.x1)/2,
+				  (bounds.y2-bounds.y1)/2);
+  }
 }
