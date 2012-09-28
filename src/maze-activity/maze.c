@@ -42,7 +42,7 @@
 static int Maze[MAX_BREEDTE][MAX_HOOGTE];
 static int position[MAX_BREEDTE*MAX_HOOGTE][2];
 
-static int ind=0;
+static int ind;
 static int begin;
 static int end;
 static int breedte=10;
@@ -53,6 +53,7 @@ static int board_border_x=20;
 static int board_border_y=3;
 static int thickness=2;
 static gboolean run_fast=FALSE;
+static gboolean run_fast_possible=FALSE;
 
 static gboolean modeIs2D=TRUE;
 static gboolean modeRelative=FALSE;
@@ -73,19 +74,22 @@ static void game_won(void);
 static void repeat(void);
 
 /* ================================================================ */
-static GooCanvasItem *boardRootItem = NULL;
-static GooCanvasItem *mazegroup     = NULL;
-static GooCanvasItem *tuxgroup      = NULL;
-static GooCanvasItem *wallgroup     = NULL;
+static GooCanvasItem *boardRootItem 	= NULL;
+static GooCanvasItem *mazegroup     	= NULL;
+static GooCanvasItem *tuxgroup      	= NULL;
+static GooCanvasItem *wallgroup     	= NULL;
 
-static GooCanvasItem *warning_item   = NULL;
-static GooCanvasItem *tuxitem        = NULL;
+static GooCanvasItem *warning_item   	= NULL;
+static GooCanvasItem *tuxitem        	= NULL;
+static GooCanvasItem *tuxshoes       	= NULL;
+static GooCanvasItem *fast_mode_button	= NULL;
 
 static GooCanvasItem *maze_create_item(GooCanvasItem *parent);
 static void maze_destroy_all_items(void);
 static void maze_next_level(void);
 static void set_level (guint level);
 static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str);
+static void set_run_fast(gboolean new_run_fast);
 /*--------------------*/
 static void draw_a_rect(GooCanvasItem *group, int x1, int y1, int x2, int y2, char *color);
 static void draw_a_line(GooCanvasItem *group, int x1, int y1, int x2, int y2, guint32 color);
@@ -104,7 +108,12 @@ static gboolean tux_event (GooCanvasItem *item,
 			   GooCanvasItem *target,
 			   GdkEventButton *event,
 			   gpointer data);
+static gboolean on_fast_mode_button_press (GooCanvasItem *item,
+			   GooCanvasItem *target,
+			   GdkEventButton *event,
+			   gpointer data);
 static void update_tux(gint direction);
+static void toggle_fast_mode();
 
 /*---------- 3D stuff ------------*/
 static GooCanvasItem *threedgroup = NULL;
@@ -196,6 +205,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     /* Default mode is 2D */
     modeRelative=FALSE;
     modeIsInvisible=FALSE;
+    run_fast_possible=TRUE;
     if(!gcomprisBoard->mode)
       modeIs2D=TRUE;
     else if(g_ascii_strncasecmp(gcomprisBoard->mode, "2DR", 3)==0) {
@@ -209,6 +219,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
       modeIs2D=TRUE;
     } else if(g_ascii_strncasecmp(gcomprisBoard->mode, "3D", 2)==0) {
       modeIs2D=FALSE;
+      run_fast_possible=FALSE;
     }
 
     if(!modeIs2D || modeIsInvisible) {
@@ -272,6 +283,7 @@ static void maze_next_level() {
 
   mapActive = FALSE;
 
+  ind = 0;
   gamewon = FALSE;
   initMaze();
   generateMaze((g_random_int()%breedte),(g_random_int()%hoogte));
@@ -302,6 +314,26 @@ static void maze_next_level() {
 		   "button_press_event",
 		   (GCallback) tux_event, NULL);
 
+  if(run_fast_possible) {
+	  /* Load the tux shoes */
+	  svg_handle = gc_rsvg_load("maze/tux_shoes_top_south.svgz");
+	  tuxshoes = goo_canvas_svg_new (tuxgroup, svg_handle,
+					"pointer-events", GOO_CANVAS_EVENTS_NONE, NULL);
+	  g_object_unref (svg_handle);
+
+	  /* Load fast-mode switch button */
+	  svg_handle = gc_rsvg_load("maze/fast-mode-button.svgz");
+	  fast_mode_button = goo_canvas_svg_new (boardRootItem, svg_handle,
+					NULL);
+	  g_object_unref (svg_handle);
+	  goo_canvas_item_scale(fast_mode_button, 0.2, 0.2);
+	  goo_canvas_item_translate(fast_mode_button, 100, 100);
+	  g_signal_connect(fast_mode_button,
+			   "button_press_event",
+			   (GCallback) on_fast_mode_button_press, NULL);
+	  gc_item_focus_init(fast_mode_button, NULL);
+  }
+
   /* Draw the target */
   pixmap = gc_pixmap_load("maze/door.png");
   if(pixmap)
@@ -320,8 +352,11 @@ static void maze_next_level() {
   viewing_direction=EAST;
   threeDactive=FALSE;
 
-  if (gcomprisBoard->level==1) run_fast=FALSE;
-  if (gcomprisBoard->level==14) run_fast=TRUE;
+  if(run_fast_possible) {
+	  // run_fast-mode should be initialized at every level, whether TRUE or FALSE
+	  if (gcomprisBoard->level < 14) set_run_fast(FALSE);
+	  if (gcomprisBoard->level >= 14) set_run_fast(TRUE);
+  }
 
   update_tux(viewing_direction);
 
@@ -1044,7 +1079,7 @@ static void one_step(guint richting)
 
 static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 {
-  guint richting=0,level=gcomprisBoard->level;
+  guint richting=0;
 
   if(board_paused)
     return FALSE;
@@ -1115,13 +1150,28 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
   viewing_direction=richting;
 
   /* run until we come to a fork, (make sure to stop on next level!) */
-  while (run_fast && (richting=available_direction(richting))
-	 && gcomprisBoard->level==level)
+  while (run_fast && (richting=available_direction(richting)) && !gamewon)
     {
       one_step(richting);
       viewing_direction=richting;
     }
   return TRUE;
+}
+
+static void set_run_fast(gboolean new_run_fast) {
+	if(!run_fast_possible) {
+		return;
+	}
+
+	run_fast = new_run_fast;
+
+	if(run_fast) {
+		// update the shoe graphics, since they might not be in the correct place
+		update_tux(viewing_direction);
+		g_object_set (tuxshoes, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+	} else {
+		g_object_set (tuxshoes, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+	}
 }
 
 static gboolean
@@ -1130,10 +1180,34 @@ tux_event (GooCanvasItem *item,
 	   GdkEventButton *event,
 	   gpointer data)
 {
-  printf("tux_event\n");
-  run_fast=!run_fast;
-  return FALSE;
+	toggle_fast_mode();
+	return TRUE;
 }
+
+static gboolean
+on_fast_mode_button_press (GooCanvasItem *item,
+	   GooCanvasItem *target,
+	   GdkEventButton *event,
+	   gpointer data)
+{
+	toggle_fast_mode();
+	return TRUE;
+}
+
+static void
+toggle_fast_mode ()
+{
+	if(!run_fast_possible) {
+		return;
+	}
+
+	if(run_fast) {
+		  set_run_fast(FALSE);
+	} else {
+		  set_run_fast(TRUE);
+	}
+}
+
 
 /*---------- 3D stuff below --------------*/
 
@@ -1144,7 +1218,7 @@ tux_event (GooCanvasItem *item,
 
 static gint key_press_2D_relative(guint keyval, gchar *commit_str, gchar *preedit_str)
 {
-  guint richting=0,level=gcomprisBoard->level;
+  guint richting=0;
 
   switch (keyval)
     {
@@ -1172,8 +1246,7 @@ static gint key_press_2D_relative(guint keyval, gchar *commit_str, gchar *preedi
   richting=viewing_direction;
 
   /* run until we come to a fork, (make sure to stop on next level!) */
-  while (run_fast && (richting=available_direction(richting))
-	 && gcomprisBoard->level==level)
+  while (run_fast && (richting=available_direction(richting)) && !gamewon)
     {
       one_step(richting);
       viewing_direction=richting;
@@ -1645,4 +1718,17 @@ update_tux(gint direction)
   goo_canvas_item_rotate( tuxitem, rotation,
 			  (bounds.x2-bounds.x1)/2,
 			  (bounds.y2-bounds.y1)/2);
+
+
+  // update the running shoes
+  if(run_fast_possible && run_fast) {
+	  goo_canvas_item_set_transform(tuxshoes, NULL);
+
+	  scale = (gdouble) cellsize / (bounds.x2 - bounds.x1);
+	  goo_canvas_item_scale(tuxshoes, scale, scale);
+
+	  goo_canvas_item_rotate( tuxshoes, rotation,
+				  (bounds.x2-bounds.x1)/2,
+				  (bounds.y2-bounds.y1)/2);
+  }
 }
