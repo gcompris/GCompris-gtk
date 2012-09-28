@@ -42,7 +42,7 @@
 static int Maze[MAX_BREEDTE][MAX_HOOGTE];
 static int position[MAX_BREEDTE*MAX_HOOGTE][2];
 
-static int ind=0;
+static int ind;
 static int begin;
 static int end;
 static int breedte=10;
@@ -283,6 +283,7 @@ static void maze_next_level() {
 
   mapActive = FALSE;
 
+  ind = 0;
   gamewon = FALSE;
   initMaze();
   generateMaze((g_random_int()%breedte),(g_random_int()%hoogte));
