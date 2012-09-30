@@ -103,6 +103,19 @@ class Gcompris_piano_composition:
             return
 
 
+        '''
+        create staff instance to manage music data
+        treble clef image loaded by default; click button to switch to bass clef
+        '''
+
+        if level == 2:
+            self.staff = BassStaff(370, 185, self.rootitem, 3)
+        else:
+            self.staff = TrebleStaff(370, 185, self.rootitem, 3)
+
+        self.staff.drawStaff()
+        self.staff.dynamicNoteSpacing = True
+
         clefDescription = keyboardDescription = not self.noClefDescription
         if level == 1:
             clefText = _("This is the Treble clef staff, for high pitched notes")
@@ -160,6 +173,8 @@ class Gcompris_piano_composition:
             y = by,
             tooltip =  "\n\n" + _("Erase Last Notes")
             )
+        self.eraseNotesButton.connect("button_press_event", self.staff.eraseOneNote)
+        gcompris.utils.item_focus_init(self.eraseNotesButton, None)
 
         self.playCompositionButton = goocanvas.Image(
             parent=self.rootitem,
@@ -168,11 +183,16 @@ class Gcompris_piano_composition:
             y = by,
             tooltip =  "\n\n" + _("Play Composition")
             )
+        self.playCompositionButton.connect("button_press_event", self.staff.playComposition)
+        gcompris.utils.item_focus_init(self.playCompositionButton, None)
 
         if (level > 2):
 
             self.changeClefButton = textButton(100, 140, _("Erase and Change Clef"),
                                                self.rootitem, 0xE73A95FFL, 100)
+            self.changeClefButton.connect("button_press_event", self.change_clef_event)
+            gcompris.utils.item_focus_init(self.changeClefButton, None)
+
 
         if (level >= 3):
             goocanvas.Text(
@@ -210,6 +230,9 @@ class Gcompris_piano_composition:
               height=33,
               width=10
               )
+            self.eighthNoteSelectedButton.connect("button_press_event", self.staff.updateToEighth)
+            gcompris.utils.item_focus_init(self.eighthNoteSelectedButton, None)
+
 
             self.quarterNoteSelectedButton = goocanvas.Image(
                 parent=self.rootitem,
@@ -220,6 +243,8 @@ class Gcompris_piano_composition:
                 width=20,
                 tooltip=_("Quarter Note")
                 )
+            self.quarterNoteSelectedButton.connect("button_press_event", self.staff.updateToQuarter)
+            gcompris.utils.item_focus_init(self.quarterNoteSelectedButton, None)
 
             self.halfNoteSelected = goocanvas.Image(
                 parent=self.rootitem,
@@ -230,7 +255,8 @@ class Gcompris_piano_composition:
                 width=20,
                 tooltip=_("Half Note")
                 )
-
+            self.halfNoteSelected.connect("button_press_event", self.staff.updateToHalf)
+            gcompris.utils.item_focus_init(self.halfNoteSelected, None)
 
             self.wholeNoteSelected = goocanvas.Image(
                 parent=self.rootitem,
@@ -241,6 +267,11 @@ class Gcompris_piano_composition:
                 width=20,
                 tooltip=_("Whole Note")
                 )
+            self.wholeNoteSelected.connect("button_press_event", self.staff.updateToWhole)
+            gcompris.utils.item_focus_init(self.wholeNoteSelected, None)
+
+            # draw focus rectangle around quarter note duration, the default
+            self.staff.drawFocusRect(292, 112)
 
         if (level in [6, 7]):
             self.makeFlatButton = goocanvas.Image(
@@ -251,6 +282,9 @@ class Gcompris_piano_composition:
                 height=40,
                 width=30
                 )
+            self.makeFlatButton.connect("button_press_event", self.change_accidental_type)
+            gcompris.utils.item_focus_init(self.makeFlatButton, None)
+
             self.makeSharpButton = goocanvas.Image(
                 parent=self.rootitem,
                 pixbuf=gcompris.utils.load_pixmap('piano_composition/blacksharp.png'),
@@ -259,10 +293,15 @@ class Gcompris_piano_composition:
                 height=40,
                 width=30
                 )
+            self.makeSharpButton.connect("button_press_event", self.change_accidental_type)
+            gcompris.utils.item_focus_init(self.makeSharpButton, None)
             self.makeSharpButton.props.visibility = goocanvas.ITEM_INVISIBLE
 
             self.loadSongsButton = textButton(280, 430, _("Load Music"),
                                               self.rootitem, 0xE768ABFFL, 100)
+            self.loadSongsButton.connect("button_press_event", self.load_songs_event)
+            gcompris.utils.item_focus_init(self.loadSongsButton, None)
+
             textBox(_("Change Accidental Style:"), 100, 430, self.rootitem, width=150, noRect=True)
 
         if (level == 7):
@@ -273,6 +312,9 @@ class Gcompris_piano_composition:
                 y = by,
                 tooltip = "\n\n" + "Open Composition"
                 )
+            self.loadButton.connect("button_press_event", self.load_file_event)
+            gcompris.utils.item_focus_init(self.loadButton, None)
+
 
             self.saveButton = goocanvas.Image(
                 parent=self.rootitem,
@@ -281,66 +323,10 @@ class Gcompris_piano_composition:
                 y = by,
                 tooltip = "\n\n" + "Save Composition"
                 )
-
-        '''
-        create staff instance to manage music data
-        treble clef image loaded by default; click button to switch to bass clef
-        '''
-
-        if level == 2:
-            self.staff = BassStaff(370, 185, self.rootitem, 3)
-            self.staff.drawStaff()
-            self.staff.dynamicNoteSpacing = True
-
-        else:
-            self.staff = TrebleStaff(370, 185, self.rootitem, 3)
-            self.staff.drawStaff()
-            self.staff.dynamicNoteSpacing = True
-
-        '''
-        synchronize buttons with events
-        '''
-        if level > 2:
-            self.changeClefButton.connect("button_press_event", self.change_clef_event)
-            gcompris.utils.item_focus_init(self.changeClefButton, None)
-
-        self.eraseNotesButton.connect("button_press_event", self.staff.eraseOneNote)
-        gcompris.utils.item_focus_init(self.eraseNotesButton, None)
-
-        self.playCompositionButton.connect("button_press_event", self.staff.playComposition)
-        gcompris.utils.item_focus_init(self.playCompositionButton, None)
-
-        if level >= 3:
-            self.eighthNoteSelectedButton.connect("button_press_event", self.staff.updateToEighth)
-            gcompris.utils.item_focus_init(self.eighthNoteSelectedButton, None)
-
-            self.quarterNoteSelectedButton.connect("button_press_event", self.staff.updateToQuarter)
-            gcompris.utils.item_focus_init(self.quarterNoteSelectedButton, None)
-
-            self.halfNoteSelected.connect("button_press_event", self.staff.updateToHalf)
-            gcompris.utils.item_focus_init(self.halfNoteSelected, None)
-
-            self.wholeNoteSelected.connect("button_press_event", self.staff.updateToWhole)
-            gcompris.utils.item_focus_init(self.wholeNoteSelected, None)
-
-            # draw focus rectangle around quarter note duration, the default
-            self.staff.drawFocusRect(292, 112)
-
-        if level == 7:
             self.saveButton.connect("button_press_event", self.save_file_event)
             gcompris.utils.item_focus_init(self.saveButton, None)
 
-            self.loadButton.connect("button_press_event", self.load_file_event)
-            gcompris.utils.item_focus_init(self.loadButton, None)
 
-        if level >= 6:
-            self.loadSongsButton.connect("button_press_event", self.load_songs_event)
-            gcompris.utils.item_focus_init(self.loadSongsButton, None)
-
-            self.makeSharpButton.connect("button_press_event", self.change_accidental_type)
-            gcompris.utils.item_focus_init(self.makeSharpButton, None)
-            self.makeFlatButton.connect("button_press_event", self.change_accidental_type)
-            gcompris.utils.item_focus_init(self.makeFlatButton, None)
         '''
         create piano keyboard for use on every level
         optionally specify to display the "black keys"
