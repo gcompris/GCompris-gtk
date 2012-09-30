@@ -136,7 +136,7 @@ class Gcompris_piano_composition:
             clefText = _("Now you can load melodies from around the world")
             keyboardDescription = False
         elif level == 7:
-            clefText = _("Compose music now! Click to load or save your work")
+            clefText = _("Compose music now! You can now load and save your work")
             keyboardDescription = False
 
         # CLEF DESCRIPTION
@@ -199,8 +199,13 @@ class Gcompris_piano_composition:
 
         if (level > 2):
 
-            self.changeClefButton = textButton(100, 140, _("Erase and Change Clef"),
-                                               self.rootitem, 0xE73A95FFL, 100)
+            self.changeClefButton = goocanvas.Image(
+                parent = self.rootitem,
+                pixbuf = gcompris.utils.load_pixmap('piano_composition/bassclef_button.svg'),
+                x = 90,
+                y = 120,
+                tooltip =  "\n\n" + _("Erase and Change Clef"),
+            )
             self.changeClefButton.connect("button_press_event", self.change_clef_event)
             gcompris.utils.item_focus_init(self.changeClefButton, None)
 
@@ -545,10 +550,12 @@ dialogue to\nenable the sound."), None)
         if hasattr(self.staff, 'newClef'):
             self.staff.newClef.clear()
         if self.staff.staffName == "trebleClef":
+            self.changeClefButton.props.pixbuf = gcompris.utils.load_pixmap('piano_composition/trebbleclef_button.svg')
             self.staff = BassStaff(370, 185, self.rootitem, 3)
             self.staff.drawStaff()
             self.staff.dynamicNoteSpacing = True
         else:
+            self.changeClefButton.props.pixbuf = gcompris.utils.load_pixmap('piano_composition/bassclef_button.svg')
             self.staff = TrebleStaff(370, 185, self.rootitem, 3)
             self.staff.drawStaff()
             self.staff.dynamicNoteSpacing = True
