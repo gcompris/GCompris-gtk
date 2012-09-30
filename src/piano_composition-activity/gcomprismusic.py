@@ -23,7 +23,6 @@ Please see
 http://gcompris.net/wiki/Adding_a_music_activity_and_using_gcomprismusic.py_module
 for complete documentation (with examples!) of this module
 '''
-
 import gobject
 import gtk
 import gtk.gdk
@@ -133,6 +132,7 @@ class Staff():
       self.x = x        #master X position
       self.y = y        #master Y position
       self.rootitem = goocanvas.Group(parent=canvasRoot, x=0, y=0)
+      self.lyrics_rootitem = goocanvas.Group(parent=self.rootitem, x=0, y=0)
 
       # STAFF FORMATTING
       # ALL LOCATIONS BELOW ARE RELATIVE TO self.x and self.y
@@ -429,6 +429,10 @@ class Staff():
             self.alert.remove()
         except:
             pass
+
+        self.lyrics_rootitem.remove()
+        self.lyrics_rootitem = goocanvas.Group(parent=self.rootitem, x=0, y=0)
+
 
     def clear(self):
         '''

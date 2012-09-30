@@ -219,7 +219,7 @@ class Gcompris_piano_composition:
                 y=y,
                 height=45,
                 width=20,
-                tooltip=_("Eighth Note")
+                tooltip = "\n\n" + _("Eighth Note")
                 )
 
             goocanvas.Image(
@@ -241,7 +241,7 @@ class Gcompris_piano_composition:
                 y=y,
                 height=45,
                 width=20,
-                tooltip=_("Quarter Note")
+                tooltip = "\n\n" + _("Quarter Note")
                 )
             self.quarterNoteSelectedButton.connect("button_press_event", self.updateToQuarter)
             gcompris.utils.item_focus_init(self.quarterNoteSelectedButton, None)
@@ -253,7 +253,7 @@ class Gcompris_piano_composition:
                 y=y,
                 height=45,
                 width=20,
-                tooltip=_("Half Note")
+                tooltip = "\n\n" + _("Half Note")
                 )
             self.halfNoteSelected.connect("button_press_event", self.updateToHalf)
             gcompris.utils.item_focus_init(self.halfNoteSelected, None)
@@ -265,7 +265,7 @@ class Gcompris_piano_composition:
                 y=y,
                 height=45,
                 width=20,
-                tooltip=_("Whole Note")
+                tooltip = "\n\n" + _("Whole Note")
                 )
             self.wholeNoteSelected.connect("button_press_event", self.updateToWhole)
             gcompris.utils.item_focus_init(self.wholeNoteSelected, None)
@@ -457,10 +457,9 @@ dialogue to\nenable the sound."), None)
         called once a melody has been selected
         writes the melody to the staff, and displays the title and lyrics
         '''
-
         self.display_level(self.gcomprisBoard.level)
-        rootitem = self.staff.rootitem
         self.staff.stringToNotation(self.data.get(section, 'melody'))
+        rootitem = self.staff.lyrics_rootitem
         goocanvas.Text(parent = rootitem,
                        x=150,
                        y=15,
