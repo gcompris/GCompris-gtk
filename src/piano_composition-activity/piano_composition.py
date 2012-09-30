@@ -371,7 +371,7 @@ dialogue to\nenable the sound."), None)
 
         self.noClefDescription = True
 
-        goocanvas.Text(parent=self.rootitem,
+        item = goocanvas.Text(parent=self.rootitem,
          x=290,
          y=30,
          text='<span font_family="Arial" size="15000" \
@@ -380,28 +380,47 @@ dialogue to\nenable the sound."), None)
          use_markup=True,
          pointer_events="GOO_CANVAS_EVENTS_NONE"
          )
+        bg = self.createBgForItem(item, 0x33AA3366L)
+        bg.lower(None)
 
         self.read_data()
-        if self.melodyPageToDisplay==0:
-            txt = _("Next Page")
-        else:
-            txt = _("Previous Page")
-        self.nextMelodiesButton = textButton(700,475,txt, self.rootitem, 0xE768ABFFL)
-        self.nextMelodiesButton.connect("button_press_event", self.nextMelodyPage)
-        gcompris.utils.item_focus_init(self.nextMelodiesButton, None)
+
+        bx = 680
+        by = 470
+        item = goocanvas.Image(
+            parent=self.rootitem,
+            pixbuf=gcompris.utils.load_pixmap('piano_composition/previous.svg'),
+            x = bx,
+            y = by,
+            tooltip = "\n\n" + "Previous Page"
+            )
+        item.connect("button_press_event", self.previousMelodyPage)
+        gcompris.utils.item_focus_init(item, None)
+
+        item = goocanvas.Image(
+            parent=self.rootitem,
+            pixbuf=gcompris.utils.load_pixmap('piano_composition/next.svg'),
+            x = bx + 50,
+            y = by,
+            tooltip = "\n\n" + "Next Page"
+            )
+        item.connect("button_press_event", self.nextMelodyPage)
+        gcompris.utils.item_focus_init(item, None)
+
 
         self.writeDataToScreen()
 
-    def nextMelodyPage(self, x=None,y=None,z=None):
-        if self.melodyPageToDisplay == 0:
-            self.melodyPageToDisplay = 1
-
-        else:
-            self.melodyPageToDisplay = 0
+    def previousMelodyPage(self, x=None,y=None,z=None):
+        self.melodyPageToDisplay -= 1
         self.display_level(8)
+
+    def nextMelodyPage(self, x=None,y=None,z=None):
+        self.melodyPageToDisplay += 1
+        self.display_level(8)
+
     def writeDataToScreen(self):
 
-        def displayTitle(section, x, y):
+        def displayTitle(section, x, y, bgcolor):
             newRoot = goocanvas.Group(parent=self.rootitem)
             self.text = goocanvas.Text(
                 parent=newRoot,
@@ -420,25 +439,43 @@ dialogue to\nenable the sound."), None)
                  fill_color="black",
                  use_markup=True
                  )
+            bg = self.createBgForItem(newRoot, bgcolor, 380)
+            bg.lower(None)
 
             self.text.connect("button_press_event", self.melodySelected, section)
             self.origin.connect("button_press_event", self.melodySelected, section)
-            gcompris.utils.item_focus_init(newRoot, None)
+            bg.connect("button_press_event", self.melodySelected, section)
+            gcompris.utils.item_focus_init(self.text, bg)
+            gcompris.utils.item_focus_init(self.origin, bg)
+            gcompris.utils.item_focus_init(bg, None)
 
-        x = 55
+        x = 20
         y = 75
 
-        if self.melodyPageToDisplay == 0:
-            lower = 0
-            upper = (len(self.data.sections())) / 2 - 1
-        else:
-            lower = (len(self.data.sections())) / 2 - 1
-            upper = len(self.data.sections())
+        nb_title_by_page = 16
+        nb_title = len(self.data.sections())
+
+        # Manage page wrapping
+        if self.melodyPageToDisplay < 0:
+            self.melodyPageToDisplay = nb_title / nb_title_by_page
+        elif self.melodyPageToDisplay >  nb_title / nb_title_by_page:
+            self.melodyPageToDisplay = 0
+
+
+        lower = self.melodyPageToDisplay * nb_title_by_page
+        upper = self.melodyPageToDisplay * nb_title_by_page + nb_title_by_page
+        index = 0
+        bgcolor = None
         for section in self.data.sections()[lower:upper]:
-            displayTitle(section, x, y)
+            index += 1
+            if index % 2 == 0:
+                bgcolor = 0xAA333366L
+            else:
+                bgcolor = 0x33AAAA66L
+            displayTitle(section, x, y, bgcolor)
             if y > 400:
                 y = 75
-                x += 275
+                x += 390
             else:
                 y += 48
 
@@ -467,16 +504,20 @@ dialogue to\nenable the sound."), None)
             self.data = config
 
 
-    def createBgForItem(self, item, color):
+    def createBgForItem(self, item, color, width=None):
         '''
         Called with an item, get its bounds and create a grey rectangle around it
         '''
         bounds = item.get_bounds()
         gap = 5
+
+        if not width:
+            width = bounds.x2 - bounds.x1 + gap * 2
+
         return goocanvas.Rect(parent = self.rootitem,
                               x = bounds.x1 - gap,
                               y = bounds.y1 - gap,
-                              width = bounds.x2 - bounds.x1 + gap * 2,
+                              width = width,
                               height = bounds.y2 - bounds.y1 + gap * 2,
                               stroke_color = "black",
                               fill_color_rgba = color,
