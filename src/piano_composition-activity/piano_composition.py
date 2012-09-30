@@ -155,6 +155,17 @@ class Gcompris_piano_composition:
         if (level == 7):
             bx = 450
         by = 455
+
+        goocanvas.Rect(parent = self.rootitem,
+                       x = 430,
+                       y = by - 6,
+                       width = 280,
+                       height = 61,
+                       stroke_color = "black",
+                       fill_color_rgba = 0x33333366L,
+                       line_width = 2.0,
+                       radius_x = 3, radius_y = 3)
+
         self.eraseAllButton = goocanvas.Image(
             parent=self.rootitem,
             pixbuf=gcompris.utils.load_pixmap('piano_composition/edit-clear.svg'),
