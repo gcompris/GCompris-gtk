@@ -138,14 +138,36 @@ class Gcompris_piano_composition:
 
         # ADD BUTTONS
 
-        self.eraseAllButton = textButton(100, 70, _("Erase All Notes"),
-                                         self.rootitem, 0x9C2765FFL, 80)
+        bx = 500
+        if (level == 7):
+            bx = 450
+        by = 455
+        self.eraseAllButton = goocanvas.Image(
+            parent=self.rootitem,
+            pixbuf=gcompris.utils.load_pixmap('piano_composition/edit-clear.svg'),
+            x = bx,
+            y = by,
+            tooltip =  "\n\n" + _("Erase All Notes")
+            )
+        self.eraseAllButton.connect("button_press_event", self.askAndEraseStaff)
+        gcompris.utils.item_focus_init(self.eraseAllButton, None)
 
-        self.eraseNotesButton = textButton(220, 70, _("Erase Last Note"),
-                                           self.rootitem, 0xBF7D30FFL, 100)
 
-        self.playCompositionButton = textButton(350, 70, _("Play Composition"),
-                                                self.rootitem, 0x104BA9FFL, 100)
+        self.eraseNotesButton = goocanvas.Image(
+            parent=self.rootitem,
+            pixbuf=gcompris.utils.load_pixmap('piano_composition/edit-undo.svg'),
+            x = bx + 50,
+            y = by,
+            tooltip =  "\n\n" + _("Erase Last Notes")
+            )
+
+        self.playCompositionButton = goocanvas.Image(
+            parent=self.rootitem,
+            pixbuf=gcompris.utils.load_pixmap('piano_composition/play.svg'),
+            x = bx + 100,
+            y = by,
+            tooltip =  "\n\n" + _("Play Composition")
+            )
 
         if (level > 2):
 
@@ -246,20 +268,18 @@ class Gcompris_piano_composition:
         if (level == 7):
             self.loadButton = goocanvas.Image(
                 parent=self.rootitem,
-                pixbuf=gcompris.utils.load_pixmap('piano_composition/load.png'),
-                x=683,
-                y=45,
-                height=40,
-                width=40
+                pixbuf=gcompris.utils.load_pixmap('piano_composition/open.svg'),
+                x = bx + 150,
+                y = by,
+                tooltip = "\n\n" + "Open Composition"
                 )
 
             self.saveButton = goocanvas.Image(
                 parent=self.rootitem,
-                pixbuf=gcompris.utils.load_pixmap('piano_composition/save.png'),
-                x=735,
-                y=45,
-                height=40,
-                width=40
+                pixbuf=gcompris.utils.load_pixmap('piano_composition/save.svg'),
+                x = bx + 200,
+                y = by,
+                tooltip = "\n\n" + "Save Composition"
                 )
 
         '''
@@ -286,9 +306,6 @@ class Gcompris_piano_composition:
 
         self.eraseNotesButton.connect("button_press_event", self.staff.eraseOneNote)
         gcompris.utils.item_focus_init(self.eraseNotesButton, None)
-
-        self.eraseAllButton.connect("button_press_event", self.askAndEraseStaff)
-        gcompris.utils.item_focus_init(self.eraseAllButton, None)
 
         self.playCompositionButton.connect("button_press_event", self.staff.playComposition)
         gcompris.utils.item_focus_init(self.playCompositionButton, None)
@@ -540,9 +557,6 @@ dialogue to\nenable the sound."), None)
         #re-establish link to root
         self.eraseNotesButton.connect("button_press_event", self.staff.eraseOneNote)
         gcompris.utils.item_focus_init(self.eraseNotesButton, None)
-
-        self.eraseAllButton.connect("button_press_event", self.askAndEraseStaff)
-        gcompris.utils.item_focus_init(self.eraseAllButton, None)
 
         self.playCompositionButton.connect("button_press_event", self.staff.playComposition)
         gcompris.utils.item_focus_init(self.playCompositionButton, None)
