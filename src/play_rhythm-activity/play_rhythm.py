@@ -51,6 +51,7 @@ class Gcompris_play_rhythm:
 
     def start(self):
 
+        self.running = True
         self.recordedHits = []
         self.saved_policy = gcompris.sound.policy_get()
         gcompris.sound.policy_set(gcompris.sound.PLAY_AND_INTERRUPT)
@@ -319,6 +320,10 @@ class Gcompris_play_rhythm:
         self.updateBoard(2)
 
     def updateBoard(self, currentStep):
+
+        if not self.running:
+            return
+
         if self.gcomprisBoard.level in [2, 4, 6, 8, 10, 12] and currentStep == 1:
             currentStep = 2
         if currentStep == 1: # the rhythm is being played
@@ -442,6 +447,7 @@ class Gcompris_play_rhythm:
             self.recordedHits.append(time.time() - self.startTime)
 
     def end(self):
+        self.running = False
         self.staff.eraseAllNotes()
         # Remove the root item removes all the others inside it
         self.rootitem.remove()

@@ -163,8 +163,6 @@ class Staff():
 
       self.noteList = [] #list of note objects written to staff
 
-      self.timers = [] #list of timers to use for playing, running pictures, etc.
-
       # PRIVATE ATTRIBUTES
       self._beatNumLabels = []
       self._staffImages = [] # to keep references to all the staff clefs put onto the page so we can delete just these when needed
@@ -487,10 +485,8 @@ class Staff():
         if not playingLineOnly:
             note.play()
 
-        self.timers.append(
-                           gobject.timeout_add(
-                                               self.noteList[noteIndexToPlay].millisecs,
-                                               self.play_it, noteIndexToPlay + 1, playingLineOnly))
+        gobject.timeout_add(self.noteList[noteIndexToPlay].millisecs,
+                            self.play_it, noteIndexToPlay + 1, playingLineOnly)
 
 
     def playComposition(self, widget=None, target=None, event=None, playingLineOnly=False):
@@ -506,11 +502,10 @@ class Staff():
 
         self.notReadyToPlay = True
 
-        self.timers = []
         self.currentNoteIndex = 0
         self.play_it(0, playingLineOnly)
-        self.timers.append(gobject.timeout_add(self.noteList[self.currentNoteIndex].millisecs,
-                                            self.play_it, (self.currentNoteIndex + 1), playingLineOnly))
+        gobject.timeout_add(self.noteList[self.currentNoteIndex].millisecs,
+                            self.play_it, (self.currentNoteIndex + 1), playingLineOnly)
 
     def file_to_staff(self, filename):
         '''
@@ -840,7 +835,6 @@ class Note():
 
         self.pitchDir = self._getPitchDir()
 
-        self.timers = []
         self.sharpNotation = sharpNotation # toggle to switch note between sharp notation
         # and flat notation, if applicable
         self.success = None
@@ -900,7 +894,7 @@ class Note():
         highlight the note for 700 milliseconds, then revert
         '''
         self.playingLine.props.visibility = goocanvas.ITEM_VISIBLE
-        self.timers.append(gobject.timeout_add(self.millisecs, self.stopHighLight))
+        gobject.timeout_add(self.millisecs, self.stopHighLight)
 
     def stopHighLight(self): # not documented online
         self.playingLine.props.visibility = goocanvas.ITEM_INVISIBLE

@@ -46,8 +46,6 @@ class Gcompris_note_names:
         self.gcomprisBoard.level = 1
         self.gcomprisBoard.maxlevel = 20
 
-        self.timers = []
-
         self.colorButtons = True # toggle to choose whether or not to make the text
         # note name buttons colored
         self.pitchSoundEnabled = True # toggle to choose whether or not to
@@ -388,7 +386,7 @@ They also form the C Major Scale. Notice that the note positions are different t
         '''
 
         self.master_is_not_ready = True
-        self.timers.append(gobject.timeout_add(1500, self.readyToSoundAgain))
+        append(gobject.timeout_add(1500, self.readyToSoundAgain))
         g = self.selectedNoteObject.get_data('numID')
         c = self.currentNote.numID
 
