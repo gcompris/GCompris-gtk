@@ -326,8 +326,7 @@ static void maze_next_level() {
 	  fast_mode_button = goo_canvas_svg_new (boardRootItem, svg_handle,
 					NULL);
 	  g_object_unref (svg_handle);
-	  goo_canvas_item_scale(fast_mode_button, 0.2, 0.2);
-	  goo_canvas_item_translate(fast_mode_button, 100, 100);
+	  goo_canvas_item_translate(fast_mode_button, 10, 10);
 	  g_signal_connect(fast_mode_button,
 			   "button_press_event",
 			   (GCallback) on_fast_mode_button_press, NULL);
