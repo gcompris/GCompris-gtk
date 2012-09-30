@@ -467,6 +467,22 @@ dialogue to\nenable the sound."), None)
             self.data = config
 
 
+    def createBgForItem(self, item, color):
+        '''
+        Called with an item, get its bounds and create a grey rectangle around it
+        '''
+        bounds = item.get_bounds()
+        gap = 5
+        return goocanvas.Rect(parent = self.rootitem,
+                              x = bounds.x1 - gap,
+                              y = bounds.y1 - gap,
+                              width = bounds.x2 - bounds.x1 + gap * 2,
+                              height = bounds.y2 - bounds.y1 + gap * 2,
+                              stroke_color = "black",
+                              fill_color_rgba = color,
+                              line_width = 2.0,
+                              radius_x = 3, radius_y = 3)
+
 
     def melodySelected(self, widget, target, event, section):
         '''
@@ -476,7 +492,7 @@ dialogue to\nenable the sound."), None)
         self.display_level(self.gcomprisBoard.level)
         self.staff.stringToNotation(self.data.get(section, 'melody'))
         rootitem = self.staff.lyrics_rootitem
-        goocanvas.Text(parent = rootitem,
+        item = goocanvas.Text(parent = rootitem,
                        x=150,
                        y=15,
                        width=280,
@@ -488,9 +504,11 @@ dialogue to\nenable the sound."), None)
                        anchor = gtk.ANCHOR_N,
                        pointer_events="GOO_CANVAS_EVENTS_NONE"
                        )
+        bg = self.createBgForItem(item, 0xAA333366L)
+        bg.lower(None)
 
         lyrics = self.data.get(section, 'lyrics').replace('\\n', '\n')
-        goocanvas.Text(parent = rootitem,
+        item = goocanvas.Text(parent = rootitem,
                        x = 400,
                        y = 15,
                        width = 280,
@@ -498,10 +516,12 @@ dialogue to\nenable the sound."), None)
                        fill_color = "black",
                        pointer_events = "GOO_CANVAS_EVENTS_NONE"
                        )
+        bg = self.createBgForItem(item, 0x33AA3366L)
+        bg.lower(None)
 
-        goocanvas.Text(parent = rootitem,
+        item = goocanvas.Text(parent = rootitem,
                        x=150,
-                       y=70,
+                       y=75,
                        width=280,
                        text='<span weight="bold" >' + _(self.data.get(section, '_origin')) + '</span>',
                        fill_color="black",
@@ -511,6 +531,8 @@ dialogue to\nenable the sound."), None)
                        font = gcompris.skin.get_font("gcompris/board/small"),
                        pointer_events="GOO_CANVAS_EVENTS_NONE"
                        )
+        bg = self.createBgForItem(item, 0x3333AA66L)
+        bg.lower(None)
 
 
     def load_songs_event(self, widget, target, event):
