@@ -173,7 +173,7 @@ class Gcompris_piano_composition:
             y = by,
             tooltip =  "\n\n" + _("Erase Last Notes")
             )
-        self.eraseNotesButton.connect("button_press_event", self.staff.eraseOneNote)
+        self.eraseNotesButton.connect("button_press_event", self.eraseOneNote)
         gcompris.utils.item_focus_init(self.eraseNotesButton, None)
 
         self.playCompositionButton = goocanvas.Image(
@@ -183,7 +183,7 @@ class Gcompris_piano_composition:
             y = by,
             tooltip =  "\n\n" + _("Play Composition")
             )
-        self.playCompositionButton.connect("button_press_event", self.staff.playComposition)
+        self.playCompositionButton.connect("button_press_event", self.playComposition)
         gcompris.utils.item_focus_init(self.playCompositionButton, None)
 
         if (level > 2):
@@ -230,7 +230,7 @@ class Gcompris_piano_composition:
               height=33,
               width=10
               )
-            self.eighthNoteSelectedButton.connect("button_press_event", self.staff.updateToEighth)
+            self.eighthNoteSelectedButton.connect("button_press_event", self.updateToEighth)
             gcompris.utils.item_focus_init(self.eighthNoteSelectedButton, None)
 
 
@@ -243,7 +243,7 @@ class Gcompris_piano_composition:
                 width=20,
                 tooltip=_("Quarter Note")
                 )
-            self.quarterNoteSelectedButton.connect("button_press_event", self.staff.updateToQuarter)
+            self.quarterNoteSelectedButton.connect("button_press_event", self.updateToQuarter)
             gcompris.utils.item_focus_init(self.quarterNoteSelectedButton, None)
 
             self.halfNoteSelected = goocanvas.Image(
@@ -255,7 +255,7 @@ class Gcompris_piano_composition:
                 width=20,
                 tooltip=_("Half Note")
                 )
-            self.halfNoteSelected.connect("button_press_event", self.staff.updateToHalf)
+            self.halfNoteSelected.connect("button_press_event", self.updateToHalf)
             gcompris.utils.item_focus_init(self.halfNoteSelected, None)
 
             self.wholeNoteSelected = goocanvas.Image(
@@ -267,7 +267,7 @@ class Gcompris_piano_composition:
                 width=20,
                 tooltip=_("Whole Note")
                 )
-            self.wholeNoteSelected.connect("button_press_event", self.staff.updateToWhole)
+            self.wholeNoteSelected.connect("button_press_event", self.updateToWhole)
             gcompris.utils.item_focus_init(self.wholeNoteSelected, None)
 
             # draw focus rectangle around quarter note duration, the default
@@ -455,44 +455,47 @@ dialogue to\nenable the sound."), None)
     def melodySelected(self, widget, target, event, section):
         '''
         called once a melody has been selected
-        writes the melody to the staff, and displayes the title and lyrics
+        writes the melody to the staff, and displays the title and lyrics
         '''
 
         self.display_level(self.gcomprisBoard.level)
+        rootitem = self.staff.rootitem
         self.staff.stringToNotation(self.data.get(section, 'melody'))
-        self.staff.texts = []
-        self.staff.texts.append(goocanvas.Text(parent=self.rootitem,
-         x=300,
-         y=15,
-         width=500,
-         text='<span font_family="URW Gothic L" size="15000" weight="bold" >' + self.data.get(section, 'title') + '</span>',
-         fill_color="black",
-         use_markup=True,
-         alignment=pango.ALIGN_CENTER,
-         pointer_events="GOO_CANVAS_EVENTS_NONE"
-         ))
+        goocanvas.Text(parent = rootitem,
+                       x=150,
+                       y=15,
+                       width=280,
+                       font = gcompris.skin.get_font("gcompris/board/medium"),
+                       text = self.data.get(section, 'title'),
+                       fill_color="black",
+                       use_markup=True,
+                       alignment=pango.ALIGN_CENTER,
+                       anchor = gtk.ANCHOR_N,
+                       pointer_events="GOO_CANVAS_EVENTS_NONE"
+                       )
 
         lyrics = self.data.get(section, 'lyrics').replace('\\n', '\n')
-        self.staff.texts.append(
-            goocanvas.Text(parent=self.rootitem,
-                           x = 405,
-                           y = 70,
-                           width = 280,
-                           text = lyrics,
-                           fill_color = "black",
-                           pointer_events = "GOO_CANVAS_EVENTS_NONE"
-                           ) )
+        goocanvas.Text(parent = rootitem,
+                       x = 400,
+                       y = 15,
+                       width = 280,
+                       text = lyrics,
+                       fill_color = "black",
+                       pointer_events = "GOO_CANVAS_EVENTS_NONE"
+                       )
 
-        self.staff.texts.append(goocanvas.Text(parent=self.rootitem,
-         x=400,
-         y=45,
-         width=300,
-         text='<span font_family="URW Gothic L" size="12000" weight="bold" >' + _(self.data.get(section, '_origin')) + '</span>',
-         fill_color="black",
-         use_markup=True,
-         alignment=pango.ALIGN_CENTER,
-         pointer_events="GOO_CANVAS_EVENTS_NONE"
-         ))
+        goocanvas.Text(parent = rootitem,
+                       x=150,
+                       y=70,
+                       width=280,
+                       text='<span weight="bold" >' + _(self.data.get(section, '_origin')) + '</span>',
+                       fill_color="black",
+                       use_markup=True,
+                       alignment=pango.ALIGN_CENTER,
+                       anchor = gtk.ANCHOR_N,
+                       font = gcompris.skin.get_font("gcompris/board/small"),
+                       pointer_events="GOO_CANVAS_EVENTS_NONE"
+                       )
 
 
     def load_songs_event(self, widget, target, event):
@@ -540,24 +543,25 @@ dialogue to\nenable the sound."), None)
             self.staff.drawStaff()
             self.staff.dynamicNoteSpacing = True
         self.staff.currentNoteType = current_note_type
-        #re-establish link to root
-        self.eraseNotesButton.connect("button_press_event", self.staff.eraseOneNote)
-        gcompris.utils.item_focus_init(self.eraseNotesButton, None)
 
-        self.playCompositionButton.connect("button_press_event", self.staff.playComposition)
-        gcompris.utils.item_focus_init(self.playCompositionButton, None)
 
-        self.eighthNoteSelectedButton.connect("button_press_event", self.staff.updateToEighth)
-        gcompris.utils.item_focus_init(self.eighthNoteSelectedButton, None)
+    def eraseOneNote(self, unused1, unused2, unused3):
+        self.staff.eraseOneNote()
 
-        self.quarterNoteSelectedButton.connect("button_press_event", self.staff.updateToQuarter)
-        gcompris.utils.item_focus_init(self.quarterNoteSelectedButton, None)
+    def playComposition(self, unused1, unused2, unused3):
+        self.staff.playComposition()
 
-        self.halfNoteSelected.connect("button_press_event", self.staff.updateToHalf)
-        gcompris.utils.item_focus_init(self.halfNoteSelected, None)
+    def updateToEighth(self, unused1, unused2, unused3):
+        self.staff.updateToEighth()
 
-        self.wholeNoteSelected.connect("button_press_event", self.staff.updateToWhole)
-        gcompris.utils.item_focus_init(self.wholeNoteSelected, None)
+    def updateToQuarter(self, unused1, unused2, unused3):
+        self.staff.updateToQuarter()
+
+    def updateToHalf(self, unused1, unused2, unused3):
+        self.staff.updateToHalf()
+
+    def updateToWhole(self, unused1, unused2, unused3):
+        self.staff.updateToWhole()
 
     def askAndEraseStaff(self, unused1, unused2, unused3):
         # @FIXME, should have a dialog asking for confirmation

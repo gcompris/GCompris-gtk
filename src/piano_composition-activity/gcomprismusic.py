@@ -429,9 +429,6 @@ class Staff():
             self.alert.remove()
         except:
             pass
-        if hasattr(self, 'texts'):
-            for x in self.texts:
-                x.remove()
 
     def clear(self):
         '''
