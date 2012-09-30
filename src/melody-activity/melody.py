@@ -104,7 +104,7 @@ class Gcompris_melody:
     Prop = gcompris.get_properties()
 
     if(not Prop.fx):
-      gcompris.utils.dialog(_("Error: this activity cannot be played with the\nsound effects disabled.\nGo to the configuration dialogue to\nenable the sound"), stop_board)
+      gcompris.utils.dialog(_("Error: this activity cannot be played with the\nsound effects disabled.\nGo to the configuration dialogue to\nenable the sound"), None)
 
   def end(self):
     self.cleanup()
@@ -390,7 +390,4 @@ class Gcompris_melody:
   def intro_cb(self, file):
     #print "intro passed. go play"
     self.pause(0)
-
-def stop_board():
-  pass
 

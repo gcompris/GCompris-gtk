@@ -79,6 +79,11 @@ class Gcompris_note_names:
 
         self.display_level(self.gcomprisBoard.level)
 
+        if not (gcompris.get_properties().fx):
+            gcompris.utils.dialog(_("Error: This activity cannot be \
+played with the\nsound effects disabled.\nGo to the configuration \
+dialogue to\nenable the sound."), None)
+
     def display_level(self, level):
         '''
         display appropriate game level based on number. Game levels are:
@@ -448,5 +453,3 @@ They also form the C Major Scale. Notice that the note positions are different t
             self.afterBonus()
             self.afterBonus = None
 
-def stop_board():
-  pass

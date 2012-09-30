@@ -69,8 +69,12 @@ class Gcompris_play_rhythm:
         self.rootitem = goocanvas.Group(parent=
                                        self.gcomprisBoard.canvas.get_root_item())
 
-
         self.display_level(self.gcomprisBoard.level)
+
+        if not (gcompris.get_properties().fx):
+            gcompris.utils.dialog(_("Error: This activity cannot be \
+played with the\nsound effects disabled.\nGo to the configuration \
+dialogue to\nenable the sound."), None)
 
     def display_level(self, level):
 

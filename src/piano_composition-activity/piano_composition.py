@@ -338,12 +338,11 @@ class Gcompris_piano_composition:
             self.keyboard.sharpNotation = True
 
         self.keyboard.draw(300, 200, self.keyboard_click)
-        Prop = gcompris.get_properties()
-        if not (Prop.fx):
+
+        if not (gcompris.get_properties().fx):
             gcompris.utils.dialog(_("Error: This activity cannot be \
 played with the\nsound effects disabled.\nGo to the configuration \
-dialogue to\nenable the sound."), stop_board)
-
+dialogue to\nenable the sound."), None)
 
 
     def displayMelodySelection(self):
@@ -765,5 +764,3 @@ def general_load(filename, filetype, staffInstance):
     '''
     staffInstance.file_to_staff(filename)
 
-def stop_board():
-  pass
