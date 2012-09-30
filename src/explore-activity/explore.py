@@ -83,6 +83,12 @@ class Gcompris_explore:
 
         self.display_level(self.gcomprisBoard.level)
 
+        if self.gcomprisBoard.mode == "audio" \
+                and not (gcompris.get_properties().fx):
+            gcompris.utils.dialog(_("Error: This activity cannot be \
+played with the\nsound effects disabled.\nGo to the configuration \
+dialogue to\nenable the sound."), None)
+
     def display_level(self, x=None, y=None, z=None):
 
         # Create a rootitem.
