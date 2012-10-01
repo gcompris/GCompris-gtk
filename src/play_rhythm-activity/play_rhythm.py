@@ -283,40 +283,27 @@ dialogue to\nenable the sound."), None)
         def nearlyEqual(inputNum, correctNum, amountOfError):
             return abs(inputNum - correctNum) <= amountOfError
 
-        self.netOffsets = [0]
-        for index, x in enumerate(self.recordedHits[1:]):
-            self.netOffsets.append(x - self.recordedHits[index])
-        correctedList = []
-        if len(self.netOffsets) != len(self.givenOption):
+        if len(self.recordedHits) != len(self.givenOption):
             self.doNotRemoveFromList = True
             self.afterBonus = self.tryagain
             gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.NOTE)
             return
-        for rhythmItem, recordedHit in zip(self.givenOption[:-1], self.netOffsets[1:]):
-            if rhythmItem == 8:
-                if not nearlyEqual(recordedHit, 0.25, 0.2):
-                    self.doNotRemoveFromList = True
-                    self.afterBonus = self.tryagain
-                    gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.NOTE)
-                    return
-            if rhythmItem == 4:
-                if not nearlyEqual(recordedHit, 0.5, 0.2):
-                    self.doNotRemoveFromList = True
-                    self.afterBonus = self.tryagain
-                    gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.NOTE)
-                    return
-            if rhythmItem == 2:
-                if not nearlyEqual(recordedHit, 1.0, 0.2):
-                    self.doNotRemoveFromList = True
-                    self.afterBonus = self.tryagain
-                    gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.NOTE)
-                    return
-            if rhythmItem == 1:
-                if not nearlyEqual(recordedHit, 2.0, 0.2):
-                    self.doNotRemoveFromList = True
-                    self.afterBonus = self.tryagain
-                    gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.NOTE)
-                    return
+
+        for rhythmItem, recordedHit in zip(self.givenOption[:-1], self.recordedHits[1:]):
+            lost = False
+            if rhythmItem == 8 and not nearlyEqual(recordedHit, 0.25, 0.2):
+                lost = True
+            elif rhythmItem == 4 and not nearlyEqual(recordedHit, 0.5, 0.2):
+                lost = True
+            elif rhythmItem == 2 and not nearlyEqual(recordedHit, 1.0, 0.2):
+                lost = True
+            elif rhythmItem == 1 and not nearlyEqual(recordedHit, 2.0, 0.2):
+                lost = True
+            if lost:
+                self.doNotRemoveFromList = True
+                self.afterBonus = self.tryagain
+                gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.NOTE)
+                return
 
         self.afterBonus = self.nextChallenge
         gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.NOTE)
@@ -454,8 +441,8 @@ dialogue to\nenable the sound."), None)
             self.startTime = time.time()
             self.recordedHits.append(0.0)
         else:
-            netTime = time.time() - self.startTime
             self.recordedHits.append(time.time() - self.startTime)
+            self.startTime = time.time()
 
     def end(self):
         self.running = False
