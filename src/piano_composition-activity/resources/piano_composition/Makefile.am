@@ -20,10 +20,12 @@ img_DATA = \
 	keyboard.png \
 	melodies.desktop.in \
 	mozart.jpg \
+	next.svg \
 	note_highlight.png \
 	open.svg \
 	passed.svg \
 	play.svg \
+	previous.svg \
 	quarterNote.png \
 	save.svg \
 	trebbleclef_button.svg \
