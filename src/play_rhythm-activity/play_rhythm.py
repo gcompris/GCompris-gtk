@@ -46,7 +46,6 @@ class Gcompris_play_rhythm:
 
         self.metronomePlaying = False
 
-        self.timers = []
         self.afterBonus = None
 
     def start(self):
@@ -214,17 +213,16 @@ dialogue to\nenable the sound."), None)
 
     def play_metronome(self, widget=None, target=None, event=None):
         if not self.metronomePlaying:
-            self.timers.append(gobject.timeout_add(500, self.playClick))
+            gobject.timeout_add(500, self.playClick)
             self.metronomePlaying = True
         else:
-            self.timers = []
             self.metronomePlaying = False
             gcompris.sound.play_ogg('//boards/sounds/silence1s.ogg')
 
     def playClick(self):
         if self.metronomePlaying:
             gcompris.sound.play_ogg('play_rhythm/click.wav')
-            self.timers.append(gobject.timeout_add(500, self.playClick))
+            gobject.timeout_add(500, self.playClick)
 
     def getInitialRhythmOptions(self):
         level = self.gcomprisBoard.level
@@ -277,9 +275,8 @@ dialogue to\nenable the sound."), None)
 
     def compositionIsPlaying(self, x=None, y=None, z=None):
         self.updateBoard(1)
-        self.timers.append(
-                           gobject.timeout_add(self.songDuration,
-                                               self.updateBoard, 2))
+        gobject.timeout_add(self.songDuration,
+                            self.updateBoard, 2)
 
     def ok_event(self, widget=None, target=None, event=None):
 
@@ -331,7 +328,6 @@ dialogue to\nenable the sound."), None)
 
     def tryagain(self):
         self.readyForFirstDrumBeat = True
-        self.timers = []
         self.recordedHits = []
         self.remainingNotes = self.givenOption
         self.updateBoard(2)
@@ -420,7 +416,6 @@ dialogue to\nenable the sound."), None)
             return
 
         self.readyForFirstDrumBeat = True
-        self.timers = []
         self.recordedHits = []
         self.staff.eraseAllNotes()
         self.show_rhythm()
@@ -429,7 +424,7 @@ dialogue to\nenable the sound."), None)
     def erase_entry(self, widget=None, target=None, event=None):
         self.recordedHits = []
         self.readyForFirstDrumBeat = True
-        self.updateBoard(3)
+        self.updateBoard(2)
 
     def record_click(self, widget=None, target=None, event=None):
 
@@ -438,9 +433,8 @@ dialogue to\nenable the sound."), None)
 
         if self.readyForFirstDrumBeat:
             self.readyForFirstDrumBeat = False
-            self.timers.append(
-                   gobject.timeout_add(self.songDuration,
-                                       self.updateBoard, 3))
+            gobject.timeout_add(self.songDuration,
+                                self.updateBoard, 3)
             self.makePlayButtonVisible(False)
         if not self.metronomePlaying:
             if len(self.remainingNotes) >= 1:
