@@ -91,7 +91,7 @@ dialogue to\nenable the sound."), None)
         goocanvas.Image(
             parent=self.rootitem,
             x=0, y=0,
-            pixbuf=gcompris.utils.load_pixmap('piano_composition/playActivities/background/' + str(randint(1, 6)) + '.jpg')
+            pixbuf=gcompris.utils.load_pixmap('piano_composition/playActivities/background/' + str( level % 6 + 1) + '.jpg')
             )
 
         if hasattr(self, 'staff'):
