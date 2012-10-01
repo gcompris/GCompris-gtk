@@ -134,13 +134,26 @@ dialogue to\nenable the sound."), None)
         textBox(_("Click the piano keys that match the written notes."),
                 388, 60, self.rootitem, fill_color_rgba = 0x999999AAL, width=200)
 
+        bx = 600
+        by = 340
+
+        goocanvas.Rect(parent = self.rootitem,
+                       x = bx - 10,
+                       y = by - 8,
+                       width = 120,
+                       height = 63,
+                       stroke_color = "black",
+                       fill_color_rgba = 0x33333399L,
+                       line_width = 2.0,
+                       radius_x = 3, radius_y = 3)
+
         # PLAY BUTTON
         self.playButton = goocanvas.Image(
                 parent=self.rootitem,
-                pixbuf=gcompris.utils.load_pixmap('piano_composition/playActivities/playbutton.png'),
-                x=170,
-                y=50,
-                tooltip = "\n\n\n" + _('Play')
+                pixbuf = gcompris.utils.load_pixmap('piano_composition/play.svg'),
+                x = bx,
+                y = by,
+                tooltip = "\n\n" + _('Play')
                 )
         self.playButton.connect("button_press_event", self.staff.playComposition)
 
@@ -149,10 +162,10 @@ dialogue to\nenable the sound."), None)
         # ERASE BUTTON
         self.eraseButton = goocanvas.Image(
                 parent=self.rootitem,
-                pixbuf=gcompris.utils.load_pixmap('piano_composition/playActivities/erase.png'),
-                x=650,
-                y=170,
-                tooltip = "\n\n\n" + _("Erase Attempt")
+                pixbuf = gcompris.utils.load_pixmap('piano_composition/edit-clear.svg'),
+                x = bx + 50,
+                y = by,
+                tooltip = "\n\n" + _("Erase Attempt")
                 )
         self.eraseButton.connect("button_press_event", self.erase_entry)
         gcompris.utils.item_focus_init(self.eraseButton, None)
