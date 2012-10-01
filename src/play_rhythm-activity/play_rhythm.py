@@ -143,18 +143,41 @@ dialogue to\nenable the sound."), None)
         self.metronomeButton.connect("button_press_event", self.play_metronome)
         gcompris.utils.item_focus_init(self.metronomeButton, None)
 
+        bx = 650
+        by = 230
+
+        goocanvas.Rect(parent = self.rootitem,
+                       x = bx - 10,
+                       y = by - 8,
+                       width = 120,
+                       height = 63,
+                       stroke_color = "black",
+                       fill_color_rgba = 0x33333399L,
+                       line_width = 2.0,
+                       radius_x = 3, radius_y = 3)
         # PLAY BUTTON
         self.playButton = goocanvas.Image(
                 parent=self.rootitem,
-                pixbuf=gcompris.utils.load_pixmap('piano_composition/playActivities/playbutton.png'),
-                x=170,
-                y=50,
-                tooltip = "\n\n\n" + _('Play')
+                pixbuf = gcompris.utils.load_pixmap('piano_composition/play.svg'),
+                x = bx,
+                y = by,
+                tooltip = "\n\n" + _('Play')
                 )
         self.playButton.connect("button_press_event", self.staff.playComposition)
         self.playButton.connect("button_press_event", self.stopMetronome)
 
         gcompris.utils.item_focus_init(self.playButton, None)
+
+        # ERASE BUTTON
+        self.eraseButton = goocanvas.Image(
+                parent=self.rootitem,
+                pixbuf = gcompris.utils.load_pixmap('piano_composition/edit-clear.svg'),
+                x = bx + 50,
+                y = by,
+                tooltip = "\n\n" + _("Erase Attempt")
+                )
+        self.eraseButton.connect("button_press_event", self.erase_entry)
+        gcompris.utils.item_focus_init(self.eraseButton, None)
 
         # OK BUTTON
         self.okButton = goocanvas.Svg(parent=self.rootitem,
@@ -167,17 +190,6 @@ dialogue to\nenable the sound."), None)
         gcompris.utils.item_focus_init(self.okButton, None)
         self.okButton.connect("button_press_event", self.stopMetronome)
 
-
-        # ERASE BUTTON
-        self.eraseButton = goocanvas.Image(
-                parent=self.rootitem,
-                pixbuf=gcompris.utils.load_pixmap('piano_composition/playActivities/erase.png'),
-                x=650,
-                y=170,
-                tooltip = "\n\n\n" + _("Erase Attempt")
-                )
-        self.eraseButton.connect("button_press_event", self.erase_entry)
-        gcompris.utils.item_focus_init(self.eraseButton, None)
 
         self.metronomePlaying = False
 
