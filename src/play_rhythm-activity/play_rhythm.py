@@ -79,7 +79,6 @@ dialogue to\nenable the sound."), None)
 
         if hasattr(self, 'staff'):
             self.staff.clear()
-            self.staff.eraseAllNotes()
 
         if self.rootitem:
             self.rootitem.remove()
@@ -94,9 +93,6 @@ dialogue to\nenable the sound."), None)
             pixbuf = gcompris.utils.load_pixmap('piano_composition/playActivities/background/'
                                                 + str( level % 6 + 1) + '.jpg')
             )
-
-        if hasattr(self, 'staff'):
-            self.staff.clear()
 
         goocanvas.Rect(parent=self.rootitem,
                        x=200, y=160, width=400, height=30,
@@ -278,10 +274,23 @@ dialogue to\nenable the sound."), None)
         gobject.timeout_add(self.songDuration,
                             self.updateBoard, 2)
 
-    def ok_event(self, widget=None, target=None, event=None):
-
+    def checkTiming(self, rhythmItem, recordedHit):
+        ''' returns true if the it is within the range for a rhythmItem '''
         def nearlyEqual(inputNum, correctNum, amountOfError):
             return abs(inputNum - correctNum) <= amountOfError
+
+        print "checkTiming " + str(rhythmItem) + " " + str(recordedHit)
+        if rhythmItem == 8 and not nearlyEqual(recordedHit, 0.25, 0.2):
+            return False
+        elif rhythmItem == 4 and not nearlyEqual(recordedHit, 0.5, 0.2):
+            return False
+        elif rhythmItem == 2 and not nearlyEqual(recordedHit, 1.0, 0.2):
+            return False
+        elif rhythmItem == 1 and not nearlyEqual(recordedHit, 2.0, 0.2):
+            return False
+        return True
+
+    def ok_event(self, widget=None, target=None, event=None):
 
         if len(self.recordedHits) != len(self.givenOption):
             self.doNotRemoveFromList = True
@@ -289,17 +298,11 @@ dialogue to\nenable the sound."), None)
             gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.NOTE)
             return
 
-        for rhythmItem, recordedHit in zip(self.givenOption[:-1], self.recordedHits[1:]):
-            lost = False
-            if rhythmItem == 8 and not nearlyEqual(recordedHit, 0.25, 0.2):
-                lost = True
-            elif rhythmItem == 4 and not nearlyEqual(recordedHit, 0.5, 0.2):
-                lost = True
-            elif rhythmItem == 2 and not nearlyEqual(recordedHit, 1.0, 0.2):
-                lost = True
-            elif rhythmItem == 1 and not nearlyEqual(recordedHit, 2.0, 0.2):
-                lost = True
-            if lost:
+        print "ok_event"
+        print self.givenOption
+        print self.recordedHits
+        for rhythmItem, recordedHit in zip(self.givenOption[1:], self.recordedHits[1:]):
+            if not self.checkTiming(rhythmItem, recordedHit):
                 self.doNotRemoveFromList = True
                 self.afterBonus = self.tryagain
                 gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.NOTE)
@@ -318,6 +321,9 @@ dialogue to\nenable the sound."), None)
         self.recordedHits = []
         self.remainingNotes = self.givenOption
         self.updateBoard(2)
+
+        for note in self.staff.noteList:
+            note.statusNone()
 
     def updateBoard(self, currentStep):
 
@@ -413,7 +419,15 @@ dialogue to\nenable the sound."), None)
         self.readyForFirstDrumBeat = True
         self.updateBoard(2)
 
+        for note in self.staff.noteList:
+            note.statusNone()
+
     def record_click(self, widget=None, target=None, event=None):
+
+        # FIXME HOW TO SKIP DOUBLE CLICKS
+        print "===="
+        if event.type == gtk.gdk._2BUTTON_PRESS:
+            return True
 
         if self.readyForFirstDrumBeat and self.playingLine:
             self.staff.playComposition(playingLineOnly=True)
@@ -440,9 +454,20 @@ dialogue to\nenable the sound."), None)
         if self.recordedHits == []:
             self.startTime = time.time()
             self.recordedHits.append(0.0)
+            note_on_staff = self.staff.noteList[0]
+            note_on_staff.statusPassed(self.rootitem)
         else:
-            self.recordedHits.append(time.time() - self.startTime)
+            lap = time.time() - self.startTime
+            self.recordedHits.append(lap)
             self.startTime = time.time()
+
+            if len(self.recordedHits) <= len(self.staff.noteList):
+                note_on_staff = self.staff.noteList[ len(self.recordedHits) - 1 ]
+                rhythmItem = self.givenOption[len(self.recordedHits) - 1]
+                if self.checkTiming(rhythmItem, lap):
+                    note_on_staff.statusPassed(self.rootitem)
+                else:
+                    note_on_staff.statusFailed(self.rootitem)
 
     def end(self):
         self.running = False

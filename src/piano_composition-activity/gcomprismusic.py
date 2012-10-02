@@ -454,6 +454,7 @@ class Staff():
         else:
             for o in self._staffImages:
                 o.props.visibility = goocanvas.ITEM_INVISIBLE
+
     def play_it(self, noteIndexToPlay, playingLineOnly=False):
         '''
         NOT A PUBLIC METHOD
