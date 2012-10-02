@@ -67,8 +67,9 @@ class Gcompris_color_mix:
       fill_color = "black",
       font = gcompris.skin.get_font("gcompris/subtitle"),
       anchor = gtk.ANCHOR_CENTER,
+      width = 150,
       alignment = pango.ALIGN_CENTER,
-      text = _("Match the \n color "))
+      text = _("Match the color "))
 
     # Set the points for the sliders
     c_points = goocanvas.Points( [(242, 210), (130, 175)] )
@@ -191,7 +192,7 @@ class Color_tubes:
       height =  size,
       line_width = 1.0,
       stroke_color_rgba= 0xCECECEFFL,
-      fill_color_rgba = 0x333333FFL,
+      fill_color_rgba = 0x333333AAL,
       radius_x = 15.0,
       radius_y = 5.0,
       )
@@ -203,7 +204,7 @@ class Color_tubes:
       y = y,
       text = text,
       font = gcompris.skin.get_font("gcompris/subtitle"),
-      fill_color = "white",
+      fill_color = "black",
       anchor = gtk.ANCHOR_CENTER,
       alignment = pango.ALIGN_CENTER
       )
@@ -267,9 +268,9 @@ class Colors:
       center_y = 230,
       radius_y = 60,
       radius_x = 75,
-      stroke_color_rgba = long(init_color,16),
+      stroke_color = "black",
       fill_color_rgba = long(init_color,16),
-      line_width = 0.5)
+      line_width = 1)
 
     # Random color to be matched
     self.increment = int(255/ (level * 2 + 1))
@@ -292,7 +293,8 @@ class Colors:
       y = 50,
       width = 100,
       height = 70,
-      stroke_color_rgba = long(code, 16),
+      stroke_color = "black",
+      line_width = 1,
       fill_color_rgba = long(code, 16))
 
     # OK Button
@@ -330,29 +332,29 @@ class Colors:
 
   def show_message(self, color1_diff, color2_diff, color3_diff):
     if color1_diff > 27:
-      self.message('Too much '+ self.color_1, 300)
+      self.message( _("Too much {color}").format( color = self.color_1), 300)
     elif color1_diff < -27:
-      self.message('Not enough ' + self.color_1, 300)
+      self.message( _("Not enough {color}").format( color = self.color_1), 300)
 
     if color2_diff > 27:
-      self.message('Too much ' + self.color_2, 375)
+      self.message( _("Too much {color}").format( color = self.color_2), 375)
     elif color2_diff < -27:
-      self.message('Not enough ' + self.color_2, 375)
+      self.message( _("Not enough {color}").format( color = self.color_2), 375)
 
     if color3_diff > 27:
-      self.message('Too much ' + self.color_3, 450)
+      self.message( _("Too much {color}").format( color = self.color_3), 450)
     elif color3_diff < -27:
-      self.message('Not enough ' + self.color_3, 450)
+      self.message( _("Not enough {color}").format( color = self.color_3), 450)
 
   def message(self, msg, y):
     text = goocanvas.Text(
       parent = self.message_rootitem,
       x = 150,
       y = y,
-      fill_color_rgba = 0x550000FFL,
+      fill_color = "black",
       anchor = gtk.ANCHOR_CENTER,
       alignment = pango.ALIGN_CENTER,
-      text = _(msg))
+      text = msg)
     bounds = text.get_bounds()
     gap = 20
 
@@ -364,8 +366,9 @@ class Colors:
       y = bounds.y1 - gap,
       width = bounds.x2 - bounds.x1 + gap * 2,
       height = bounds.y2 - bounds.y1 + gap * 2,
-      stroke_color_rgba = 0xFFFFFFFFL,
-      fill_color_rgba = 0xCCCCCC44L)
+      stroke_color_rgba = 0x000000FFL,
+      fill_color_rgba = 0x666666AAL)
+    back.lower(None)
 
   def resultant_color(self, change, button):
     color1_cmy  = (255 - self.color1, 0, 0)
