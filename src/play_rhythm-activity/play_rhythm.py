@@ -48,10 +48,17 @@ class Gcompris_play_rhythm:
 
         self.afterBonus = None
 
+        # Used to skip double clicks
+        self.record_click_time = 0
+
+        # Keep the timers we create to delete it before they happen
+        # when no more needed.
+        self.metronomeTimer = 0
+        self.updateTimer = 0
+
     def start(self):
 
         self.running = True
-        self.recordedHits = []
         self.saved_policy = gcompris.sound.policy_get()
         gcompris.sound.policy_set(gcompris.sound.PLAY_AND_INTERRUPT)
         gcompris.sound.pause()
@@ -76,6 +83,12 @@ played with the\nsound effects disabled.\nGo to the configuration \
 dialogue to\nenable the sound."), None)
 
     def display_level(self, level):
+
+        self.recordedHits = []
+
+        if self.updateTimer :
+            gobject.source_remove(self.updateTimer)
+            self.updateTimer = 0
 
         if hasattr(self, 'staff'):
             self.staff.clear()
@@ -175,18 +188,6 @@ dialogue to\nenable the sound."), None)
         self.eraseButton.connect("button_press_event", self.erase_entry)
         gcompris.utils.item_focus_init(self.eraseButton, None)
 
-        # OK BUTTON
-        self.okButton = goocanvas.Svg(parent=self.rootitem,
-                                      svg_handle=gcompris.skin.svg_get(),
-                                      svg_id="#OK"
-                                      )
-        self.okButton.scale(1.4, 1.4)
-        self.okButton.translate(-170, -400)
-        self.okButton.connect("button_press_event", self.ok_event)
-        gcompris.utils.item_focus_init(self.okButton, None)
-        self.okButton.connect("button_press_event", self.stopMetronome)
-
-
         self.metronomePlaying = False
 
         if level in [1, 3, 5, 7, 9, 11]:
@@ -206,10 +207,13 @@ dialogue to\nenable the sound."), None)
 
     def stopMetronome(self, widget=None, target=None, event=None):
         self.metronomePlaying = False
+        if self.metronomeTimer :
+            gobject.source_remove(self.metronomeTimer)
+            self.metronomeTimer = 0
 
     def play_metronome(self, widget=None, target=None, event=None):
         if not self.metronomePlaying:
-            gobject.timeout_add(500, self.playClick)
+            self.metronomeTime = gobject.timeout_add(500, self.playClick)
             self.metronomePlaying = True
         else:
             self.metronomePlaying = False
@@ -218,7 +222,7 @@ dialogue to\nenable the sound."), None)
     def playClick(self):
         if self.metronomePlaying:
             gcompris.sound.play_ogg('play_rhythm/click.wav')
-            gobject.timeout_add(500, self.playClick)
+            self.metronomeTime = gobject.timeout_add(500, self.playClick)
 
     def getInitialRhythmOptions(self):
         level = self.gcomprisBoard.level
@@ -238,8 +242,6 @@ dialogue to\nenable the sound."), None)
         return options
 
     def generateRhythm(self):
-        self.doNotRemoveFromList = False
-        level = self.gcomprisBoard.level
         newrhythm = self.remainingOptions[randint(0, len(self.remainingOptions) - 1)]
         if newrhythm == self.givenOption and len(self.remainingOptions) > 1:
             return self.generateRhythm()
@@ -249,7 +251,6 @@ dialogue to\nenable the sound."), None)
 
     def show_rhythm(self):
         self.givenOption = self.generateRhythm()
-        self.remainingNotes = self.givenOption
         self.songDuration = 0
         for item in self.givenOption:
             if item == 8:
@@ -268,18 +269,16 @@ dialogue to\nenable the sound."), None)
         self.readyForFirstDrumBeat = True
 
 
-
     def compositionIsPlaying(self, x=None, y=None, z=None):
         self.updateBoard(1)
-        gobject.timeout_add(self.songDuration,
-                            self.updateBoard, 2)
+        self.updateTimer = gobject.timeout_add(self.songDuration,
+                                               self.updateBoard, 2)
 
     def checkTiming(self, rhythmItem, recordedHit):
         ''' returns true if the it is within the range for a rhythmItem '''
         def nearlyEqual(inputNum, correctNum, amountOfError):
             return abs(inputNum - correctNum) <= amountOfError
 
-        print "checkTiming " + str(rhythmItem) + " " + str(recordedHit)
         if rhythmItem == 8 and not nearlyEqual(recordedHit, 0.25, 0.2):
             return False
         elif rhythmItem == 4 and not nearlyEqual(recordedHit, 0.5, 0.2):
@@ -290,36 +289,22 @@ dialogue to\nenable the sound."), None)
             return False
         return True
 
-    def ok_event(self, widget=None, target=None, event=None):
 
-        if len(self.recordedHits) != len(self.givenOption):
-            self.doNotRemoveFromList = True
-            self.afterBonus = self.tryagain
-            gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.NOTE)
-            return
+    def check_and_win(self):
+        '''Check the answer is complete and if so display the bonus'''
 
-        print "ok_event"
-        print self.givenOption
-        print self.recordedHits
-        for rhythmItem, recordedHit in zip(self.givenOption[1:], self.recordedHits[1:]):
-            if not self.checkTiming(rhythmItem, recordedHit):
-                self.doNotRemoveFromList = True
-                self.afterBonus = self.tryagain
-                gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.NOTE)
-                return
+        if len(self.recordedHits) != len(self.givenOption) \
+                or not reduce(lambda x, y: x and y, self.recordedHits):
+            return False
 
         self.afterBonus = self.nextChallenge
         gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.NOTE)
-        if self.doNotRemoveFromList == False:
-            self.remainingOptions.remove(self.givenOption)
-
-        self.metronomePlaying = False
-        self.remainingNotes = self.givenOption
+        self.remainingOptions.remove(self.givenOption)
+        return True
 
     def tryagain(self):
         self.readyForFirstDrumBeat = True
         self.recordedHits = []
-        self.remainingNotes = self.givenOption
         self.updateBoard(2)
 
         for note in self.staff.noteList:
@@ -333,21 +318,19 @@ dialogue to\nenable the sound."), None)
         if self.gcomprisBoard.level in [2, 4, 6, 8, 10, 12] and currentStep == 1:
             currentStep = 2
         if currentStep == 1: # the rhythm is being played
-            self.makeOkButtonVisible(False)
             self.makePlayButtonVisible(False)
             self.makeDrumButtonVisible(False)
             self.makeEraseButtonVisible(False)
 
         elif currentStep == 2: # the student should enter the rhythm into the drum
             self.makeDrumButtonVisible(True)
-            self.makeOkButtonVisible(False)
             self.makePlayButtonVisible(True)
             self.makeEraseButtonVisible(False)
 
-        elif currentStep == 3: # the okay button and erase options should appear
-            self.makeOkButtonVisible(True)
+        elif currentStep == 3: # the erase options should appear
             self.makePlayButtonVisible(False)
-            self.makeEraseButtonVisible(True)
+            if not self.check_and_win():
+                self.makeEraseButtonVisible(True)
 
         if self.gcomprisBoard.level in [2, 4, 6, 8, 10, 12]:
             self.makeMetronomeButtonVisible(True)
@@ -356,21 +339,22 @@ dialogue to\nenable the sound."), None)
 
         if self.gcomprisBoard.level in [1, 3, 5, 7, 9, 11]:
             if currentStep == 1:
-                text = _("1. Listen to the rhythm and follow the moving line.")
+                text = _("Listen to the rhythm and follow the moving line.")
             elif currentStep == 2:
-                text = _("2. Click the drum to the tempo. Watch the vertical line when you start.")
+                text = _("Click the drum to the tempo. Watch the vertical line when you start.") \
+                    + "\n" + _("You can use the space bar to drum the tempo.")
 
         else:
-            text = _("1. Now, read the rhythm. It won't be played for you. Then, beat the rhythm on the drum.")
+            text = _("Now, read the rhythm. It won't be played for you. Then, beat the rhythm on the drum.")
 
         if currentStep == 3:
-            text = _("3. Click ok to check your answer, or erase to try again.")
+            text = _("Click erase to try again.")
 
         if hasattr(self, 'text'):
             self.text.remove()
             self.rect.remove()
         self.text, self.rect = \
-            textBox(text, 400, 400, self.rootitem, width=200,
+            textBox(text, 400, 400, self.rootitem, width=400,
                     fill_color_rgba = 0x666666AAL)
 
     def convert(self, visible):
@@ -379,9 +363,6 @@ dialogue to\nenable the sound."), None)
         else:
             return goocanvas.ITEM_INVISIBLE
 
-    def makeOkButtonVisible(self, visible):
-        v = self.convert(visible)
-        self.okButton.props.visibility = v
 
     def makeEraseButtonVisible(self, visible):
         v = self.convert(visible)
@@ -424,49 +405,47 @@ dialogue to\nenable the sound."), None)
 
     def record_click(self, widget=None, target=None, event=None):
 
-        # FIXME HOW TO SKIP DOUBLE CLICKS
-        print "===="
-        if event.type == gtk.gdk._2BUTTON_PRESS:
-            return True
+        # Skip Double clicks
+        if event:
+            if event.type == gtk.gdk._2BUTTON_PRESS:
+                return True
+            if event.time - self.record_click_time <= 200:
+                self.record_click_time = event.time
+                return True
+            self.record_click_time = event.time
 
         if self.readyForFirstDrumBeat and self.playingLine:
             self.staff.playComposition(playingLineOnly=True)
 
         if self.readyForFirstDrumBeat:
             self.readyForFirstDrumBeat = False
-            gobject.timeout_add(self.songDuration,
-                                self.updateBoard, 3)
+            self.updateTimer = gobject.timeout_add(self.songDuration,
+                                                   self.updateBoard, 3)
             self.makePlayButtonVisible(False)
-        if not self.metronomePlaying:
-            if len(self.remainingNotes) >= 1:
-                gcompris.sound.play_ogg(gcompris.DATA_DIR +
-                                        '/piano_composition/treble_pitches/'
-                                        + str(self.remainingNotes[0]) + '/1.wav')
-                if len(self.remainingNotes) > 1:
-                    self.remainingNotes = self.remainingNotes[1:]
-                else:
-                    self.remainingNotes = []
 
-            else:
-                gcompris.sound.play_ogg(gcompris.DATA_DIR +
-                                         '/piano_composition/treble_pitches/1/1.wav')
+        if not self.metronomePlaying:
+            gcompris.sound.play_ogg(gcompris.DATA_DIR +
+                                    '/piano_composition/treble_pitches/1/1.wav')
 
         if self.recordedHits == []:
             self.startTime = time.time()
-            self.recordedHits.append(0.0)
+            # By definition, the first hit is a success
+            self.recordedHits.append(True)
             note_on_staff = self.staff.noteList[0]
             note_on_staff.statusPassed(self.rootitem)
         else:
             lap = time.time() - self.startTime
-            self.recordedHits.append(lap)
             self.startTime = time.time()
 
-            if len(self.recordedHits) <= len(self.staff.noteList):
-                note_on_staff = self.staff.noteList[ len(self.recordedHits) - 1 ]
+            if len(self.recordedHits) + 1 <= len(self.staff.noteList):
+                note_on_staff = self.staff.noteList[ len(self.recordedHits) ]
                 rhythmItem = self.givenOption[len(self.recordedHits) - 1]
+
                 if self.checkTiming(rhythmItem, lap):
+                    self.recordedHits.append(True)
                     note_on_staff.statusPassed(self.rootitem)
                 else:
+                    self.recordedHits.append(False)
                     note_on_staff.statusFailed(self.rootitem)
 
     def end(self):
@@ -499,7 +478,7 @@ dialogue to\nenable the sound."), None)
         elif keyval == gtk.keysyms.space:
             self.record_click()
         elif keyval == gtk.keysyms.Return:
-            self.ok_event()
+            pass
         elif keyval == gtk.keysyms.Tab:
             if self.gcomprisBoard.level in [1, 3, 5, 7, 9, 11]:
                 self.staff.playComposition()
