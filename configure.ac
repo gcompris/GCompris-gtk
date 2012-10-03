@@ -627,6 +627,10 @@ src/clockgame-activity/resources/clockgame/Makefile
 src/colors-activity/Makefile
 src/colors-activity/resources/Makefile
 src/colors-activity/resources/colors/Makefile
+src/color_mix-activity/Makefile
+src/color_mix-activity/resources/Makefile
+src/color_mix-activity/resources/color_mix/Makefile
+src/color_mix_light-activity/Makefile
 src/connect4-2players-activity/Makefile
 src/connect4-activity/Makefile
 src/connect4-activity/connect4p/Makefile
@@ -742,6 +746,9 @@ src/imagename-activity/resources/imagename/Makefile
 src/instruments-activity/Makefile
 src/instruments-activity/resources/Makefile
 src/instruments-activity/resources/instruments/Makefile
+src/intro_gravity-activity/Makefile
+src/intro_gravity-activity/resources/Makefile
+src/intro_gravity-activity/resources/intro_gravity/Makefile
 src/land_safe-activity/Makefile
 src/land_safe-activity/resources/Makefile
 src/land_safe-activity/resources/land_safe/Makefile
@@ -829,6 +836,9 @@ src/piano_composition-activity/resources/piano_composition/Makefile
 src/piano_composition-activity/resources/piano_composition/playActivities/Makefile
 src/piano_composition-activity/resources/piano_composition/treble_pitches/Makefile
 src/piano_composition-activity/resources/piano_composition/bass_pitches/Makefile
+src/place_your_satellite-activity/Makefile
+src/place_your_satellite-activity/resources/Makefile
+src/place_your_satellite-activity/resources/place_your_satellite/Makefile
 src/planegame-activity/Makefile
 src/planegame-activity/resources/Makefile
 src/planegame-activity/resources/planegame/Makefile
