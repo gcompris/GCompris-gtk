@@ -1,14 +1,17 @@
 include $(top_srcdir)/Makefile.activity
 
-ACTIVITY_SUBDIRS = gnumch-equality-activity
-SUBDIRS =
+SUBDIRS = resources
+
+pythondir = $(PYTHON_PLUGIN_DIR)
+
+dist_python_DATA= 	land_safe.py
 
 
 
 xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@
 
 xml_in_files = \
-	gnumch-factors.xml.in
+	land_safe.xml.in
 
 
 xml_DATA = $(xml_in_files:.xml.in=.xml)
@@ -24,9 +27,8 @@ $(xml_DATA): %.xml: %.xml.in
 # in the xml files directly, this is needed for the tool gcompris2spip
 #@INTLTOOL_XML_RULE@
 
-
 icondir = $(pkgdatadir)/@PACKAGE_DATA_DIR@
-icon_DATA = gnumch-factors.svg
+icon_DATA = land_safe.svg
 
 EXTRA_DIST = $(icon_DATA) ${xml_in_files} init_path.sh
 CLEANFILES = $(xml_DATA)

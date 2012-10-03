@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GCompris>
+  <Board
+        name="land_safe"
+        type="python:land_safe"
+        section="/experience"
+        icon="land_safe.svg"
+        difficulty="4"
+        author="Matilda Bernard (serah4291@gmail.com)"
+        boarddir=""
+        >
+        <_title>Land Safe</_title>
+        <_description>Understanding acceleration due to gravity.</_description>
+        <_goal>Pilot the spaceship towards the green landing area.</_goal>
+        <_manual xml:space="preserve">
+Acceleration due to gravity experienced by the spaceship is directly proportional to the mass of the planet and inversely proportional to the square of the distance from the centre of the planet. Thus, with every planet the acceleration will differ and as the spaceship comes closer and closer to the planet the acceleration increases.
+
+Use the up/down keys to control the thrust and the right/left keys to control direction.
+
+The landing platform is green if your speed is fine for a safe landing.
+        </_manual>
+  </Board>
+  <Data directory=""/>
+</GCompris>
+

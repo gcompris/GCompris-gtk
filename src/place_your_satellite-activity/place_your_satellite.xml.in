@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GCompris>
+  <Board
+        name="place_your_satellite"
+        type="python:place_your_satellite"
+        section="/experience"
+        icon="place_your_satellite.svg"
+        difficulty="4"
+        author="Matilda Bernard (seah4291@gmail.com)"
+        boarddir=""
+        >
+        <_title>place_your_satellite</_title>
+        <_description>Understanding afeect of mass and distance on orbital velocity</_description>
+        <_goal>Make sure the satellite does not crash or fly away</_goal>
+        <_manual xml:space="preserve">
+A satellite revolves around the Earth because of the force between them. Orbital velocity of a satellite of Earth is directly proportional to the square root of the mass of Earth and inversely proportional to the square root of the distance from the center of Earth to the satellite.
+        
+In this activity, play with the speed of the satellite and mass of Earth to see what happens to the satellite. If the speed of the satellite is slower than the required orbital speed then the force applied by the Earth on the satellite is too much and thus the satellite gets pulled towards the Earth and burns in it's atmosphere. If the speed of the satellite is more than the required orbital speed then the Earth's force is not enough to keep it in orbit and thus the satellite flies away due to it's own inertia. 
+        </_manual>
+  </Board>
+  <Data directory=""/>
+</GCompris>
