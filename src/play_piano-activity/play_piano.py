@@ -275,6 +275,9 @@ dialogue to\nenable the sound."), None)
         # Remove the root item removes all the others inside it
         self.rootitem.remove()
 
+        gcompris.sound.policy_set(self.saved_policy)
+        gcompris.sound.resume()
+
 
     def ok(self):
         pass
