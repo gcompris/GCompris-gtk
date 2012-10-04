@@ -258,6 +258,7 @@ class Satellite:
     # Check current speed against required orbital speed
     self.orbital_speed = math.sqrt(abs(self.mass/self.distance))
     difference = abs(self.speed) - self.orbital_speed
+    self.distance += difference / 5
     if abs(difference) < 0.5:
       value = self.revolve(x_center, y_center, 0)
       return value
