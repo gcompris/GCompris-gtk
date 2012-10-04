@@ -69,6 +69,8 @@ class Gcompris_place_your_satellite:
                         'at a distance from the planet.') + "\n" +
                       _('Then click on the satellite and drag a line that sets '
                         'the speed of the satellite') )
+    self.message = Message(self.rootitem, 400, 50, 20)
+    self.distanceIndicator = Message(self.rootitem, 400, 480, 5)
     self.satellite = Satellite(self, self.rootitem, self.gcomprisBoard.level)
     self.speed = Speed(self.satellite, self.rootitem)
 
@@ -259,6 +261,17 @@ class Satellite:
     self.orbital_speed = math.sqrt(abs(self.mass/self.distance))
     difference = abs(self.speed) - self.orbital_speed
     self.distance += difference / 5
+
+    # Give user some hint on our orbital situation
+    if difference > 0.25:
+      self.game.message.show( _("Satellite goes too fast") )
+    elif difference < -0.25:
+      self.game.message.show( _("Satellite goes too slow") )
+    else:
+      self.game.message.hide()
+
+    self.game.distanceIndicator.show( 'Distance: {:.1f}'.format(self.distance) )
+
     if abs(difference) < 0.5:
       value = self.revolve(x_center, y_center, 0)
       return value
@@ -280,6 +293,7 @@ class Satellite:
       return True
 
   def crash(self, x_center, y_center):
+    self.game.message.show( _("Satellite is crashing") )
     if self.distance > 40 + (self.mass/self.mass) * 20:
       self.step += self.speed
       radian = self.step * (math.pi/180)
@@ -313,30 +327,47 @@ class Satellite:
       self.distance +=3
       return True
     else:
-      self.message()
+      self.game.message.show( _("Satellite not in orbit") )
 
-  def message(self):
-    text = goocanvas.Text(
+class Message:
+  """Create a message on screen"""
+
+  def __init__(self, rootitem, x, y, gap):
+    self.rootitem = goocanvas.Group(parent = rootitem)
+    self.gap = gap
+    self.text = goocanvas.Text(
       parent = self.rootitem,
-      x = 384,
-      y = 103,
+      x = x,
+      y = y,
       fill_color = "white",
       anchor = gtk.ANCHOR_CENTER,
       alignment = pango.ALIGN_CENTER,
-      text = _("Satellite not in orbit"))
-    bounds = text.get_bounds()
-    gap = 20
+      text = "")
 
-    back = goocanvas.Rect(
+    self.back = goocanvas.Rect(
       parent = self.rootitem,
       radius_x = 6,
       radius_y = 6,
-      x = bounds.x1 - gap,
-      y = bounds.y1 - gap,
-      width = bounds.x2 - bounds.x1 + gap * 2,
-      height = bounds.y2 - bounds.y1 + gap * 2,
       stroke_color_rgba = 0xFFFFFFFFL,
-      fill_color_rgba = 0xCCCCCC44L)
+      fill_color_rgba = 0x666666AAL)
+    self.back.lower(None)
+    self.hide()
+
+  def _refreshBack(self):
+    bounds = self.text.get_bounds()
+    self.back.set_properties(
+      x = bounds.x1 - self.gap,
+      y = bounds.y1 - self.gap,
+      width = bounds.x2 - bounds.x1 + self.gap * 2,
+      height = bounds.y2 - bounds.y1 + self.gap * 2)
+
+  def hide(self):
+    self.rootitem.props.visibility = goocanvas.ITEM_INVISIBLE
+
+  def show(self, msg):
+    self.text.props.text = msg
+    self._refreshBack()
+    self.rootitem.props.visibility = goocanvas.ITEM_VISIBLE
 
 class Speed:
   """ Class dealing with speed and it's display"""
