@@ -1,6 +1,6 @@
 imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/place_your_satellite
 img_DATA = \
-	background.png \
+	background.jpg \
 	crash.png \
 	planet1.png \
 	planet2.png \

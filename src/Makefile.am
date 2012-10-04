@@ -32,6 +32,8 @@ SUBDIRS = \
 	clickanddraw-activity \
 	clickgame-activity \
 	clockgame-activity \
+	color_mix-activity \
+	color_mix_light-activity \
 	colors-activity \
 	connect4-2players-activity \
 	connect4-activity \
@@ -70,6 +72,8 @@ SUBDIRS = \
 	imageid-activity \
 	imagename-activity \
 	instruments-activity \
+	intro_gravity-activity \
+	land_safe-activity \
 	lang-activity \
 	leftright-activity \
 	lightsoff-activity \
@@ -115,6 +119,7 @@ SUBDIRS = \
 	penalty-activity \
 	photohunter-activity \
 	piano_composition-activity \
+	place_your_satellite-activity \
 	planegame-activity \
 	play_piano-activity \
 	play_rhythm-activity \
