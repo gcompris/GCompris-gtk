@@ -61,10 +61,14 @@ NOTE_COLOR_SCHEME = {1:'#FF0000',
                      10:'#FFFF00',
                      11:'#32CD32'
                      }
-# this is unique to the English notation system
-# translators must modify this dictionary for each language
+# this is the English musical notation system
+# translators insert the name of the notes in your language
 WHITE_KEY_NOTATION = {1:_('C'), 2:_('D'), 3:_('E'), 4:_('F'), 5:_('G'), 6:_('A'), 7:_('B'), 8:_('C')}
+# this is the English musical notation system
+# translators insert the name of the notes in your language
 SHARP_NOTATION = {-1:_('C#'), -2:_('D#'), -3:_('F#'), -4:_('G#'), -5:_('A#')}
+# this is the English musical notation system
+# translators insert the name of the notes in your language
 FLAT_NOTATION = {-1:_('Db'), -2:_('Eb'), -3:_('Gb'), -4:_('Ab'), -5:_('Bb')}
 '''
 Translators: note that you must write the translated note name matching the
