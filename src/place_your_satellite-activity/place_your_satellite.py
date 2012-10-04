@@ -65,7 +65,10 @@ class Gcompris_place_your_satellite:
       x = gcompris.BOARD_WIDTH/2 - 50 - (self.gcomprisBoard.level * 10),
       y = gcompris.BOARD_HEIGHT/2 - 50 - (self.gcomprisBoard.level * 10))
 
-    self.instructions()
+    self.instructions(_('Click anywhere on the screen to place the satellite '
+                        'at a distance from the planet.') + "\n" +
+                      _('Then click on the satellite and drag a line that sets '
+                        'the speed of the satellite') )
     self.satellite = Satellite(self, self.rootitem, self.gcomprisBoard.level)
     self.speed = Speed(self.satellite, self.rootitem)
 
@@ -106,7 +109,7 @@ class Gcompris_place_your_satellite:
     self.end()
     self.start()
 
-  def instructions(self):
+  def instructions(self, message):
     # Instructions button to begin activity
     self.text = goocanvas.Text(
       parent = self.rootitem,
@@ -114,11 +117,9 @@ class Gcompris_place_your_satellite:
       y = 103,
       fill_color = "white",
       anchor = gtk.ANCHOR_CENTER,
-      alignment = pango.ALIGN_CENTER,
-      text = _('1. Click anywhere on the screen to place the satellite'
-               '\n at the required distance from the sun '
-               '\n 2. Click on the satellite and drag the line to set'
-               '\n the speed of the satellite'))
+      alignment = pango.ALIGN_LEFT,
+      width = 500,
+      text = message )
     self.text.connect('button_press_event', self.ready_event)
     bounds = self.text.get_bounds()
     gap = 20
