@@ -391,7 +391,7 @@ They also form the C Major Scale. Notice that the note positions are different t
         '''
 
         self.master_is_not_ready = True
-        append(gobject.timeout_add(1500, self.readyToSoundAgain))
+        gobject.timeout_add(1500, self.readyToSoundAgain)
         g = self.selectedNoteObject.get_data('numID')
         c = self.currentNote.numID
 
