@@ -192,8 +192,9 @@ They also form the C Major Scale. Notice that the note positions are different t
                     fill_color_rgba = 0x00AA33AAL)
 
             textBox(_("Click the note to hear it played"),
-                    160, 100, self.rootitem, 200,
+                    160, 340, self.rootitem, 200,
                     fill_color_rgba = 0xCC0033AAL)
+
 
     def prepareGame(self):
         self.staff.eraseAllNotes()
