@@ -331,20 +331,24 @@ class Colors:
       self.game.game_over(2)
 
   def show_message(self, color1_diff, color2_diff, color3_diff):
+    text = []
     if color1_diff > 27:
-      self.message( _("Too much {color}").format( color = self.color_1), 300)
+      text.append( _("Too much {color}").format( color = self.color_1) )
     elif color1_diff < -27:
-      self.message( _("Not enough {color}").format( color = self.color_1), 300)
+      text.append(_("Not enough {color}").format( color = self.color_1) )
 
     if color2_diff > 27:
-      self.message( _("Too much {color}").format( color = self.color_2), 375)
+      text.append(_("Too much {color}").format( color = self.color_2) )
     elif color2_diff < -27:
-      self.message( _("Not enough {color}").format( color = self.color_2), 375)
+      text.append(_("Not enough {color}").format( color = self.color_2) )
 
     if color3_diff > 27:
-      self.message( _("Too much {color}").format( color = self.color_3), 450)
+      text.append(_("Too much {color}").format( color = self.color_3) )
     elif color3_diff < -27:
-      self.message( _("Not enough {color}").format( color = self.color_3), 450)
+      text.append(_("Not enough {color}").format( color = self.color_3) )
+
+    if text:
+      self.message( "\n".join(text), 375)
 
   def message(self, msg, y):
     text = goocanvas.Text(
