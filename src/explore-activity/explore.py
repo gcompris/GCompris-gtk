@@ -149,7 +149,7 @@ dialogue to\nenable the sound."), None)
                             parent=self.rootitem,
                             pixbuf=gcompris.utils.load_pixmap('explore/playbutton.png'),
                             x=65,
-                            y=100,
+                            y=110,
                             )
                     self.playButton.connect("button_press_event", self.playCurrentMusicSelection)
                     self.writeText(_('Click to play sound'), 100, 70)
@@ -182,8 +182,8 @@ dialogue to\nenable the sound."), None)
           x=x,
           y=y,
           width=width,
-          text='<span font_family="URW Gothic L" size="medium" \
-          weight="bold" style="italic">' + txt + '</span>',
+          font = gcompris.skin.get_font("gcompris/board/medium"),
+          text = txt,
           anchor=gtk.ANCHOR_CENTER,
           alignment=pango.ALIGN_CENTER,
           use_markup=True

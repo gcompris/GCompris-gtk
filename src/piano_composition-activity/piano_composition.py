@@ -425,7 +425,8 @@ dialogue to\nenable the sound."), None)
             self.text = goocanvas.Text(
                 parent=newRoot,
                 x=x, y=y,
-                text='<span size="13000"> ' + self.data.get(section, 'title') + '</span>',
+                font = gcompris.skin.get_font("gcompris/board/small"),
+                text= self.data.get(section, 'title'),
                 fill_color="black",
                 use_markup=True
                 )
@@ -434,8 +435,8 @@ dialogue to\nenable the sound."), None)
                  x=x + 30,
                  y=y + 18,
                  width=250,
-                 text='<span font_family="URW Gothic L" size="10000" \
-                 weight="bold">' + _(self.data.get(section, '_origin')) + '</span>',
+                 font = gcompris.skin.get_font("gcompris/board/tiny"),
+                 text= _(self.data.get(section, '_origin')),
                  fill_color="black",
                  use_markup=True
                  )
