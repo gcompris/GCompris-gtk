@@ -1208,16 +1208,17 @@ class PianoKeyboard():
             y = self.y + 0.6 * height
             x = self.x + width * .089
             seperationWidth = w * 1.780
+            w2 = 8.0
 
-            self.drawKey(x, y, w, h, self.colors[-1], -1)
+            self.drawKey(x - w2/2, y, w + w2, h, self.colors[-1], -1)
             x += seperationWidth
-            self.drawKey(x, y, w, h, self.colors[-2], -2)
+            self.drawKey(x - w2/2, y, w + w2, h, self.colors[-2], -2)
             x += seperationWidth * 2
-            self.drawKey(x, y, w, h, self.colors[-3], -3)
+            self.drawKey(x - w2/2, y, w + w2, h, self.colors[-3], -3)
             x += seperationWidth
-            self.drawKey(x, y, w, h, self.colors[-4], -4)
+            self.drawKey(x - w2/2, y, w + w2, h, self.colors[-4], -4)
             x += seperationWidth
-            self.drawKey(x, y, w, h, self.colors[-5], -5)
+            self.drawKey(x - w2/2, y, w + w2, h, self.colors[-5], -5)
 
 
 
@@ -1233,18 +1234,10 @@ class PianoKeyboard():
                               line_width=1.0)
         item.numID = numID
 
-        if numID < 0:
-            size = "11000"
-            offset = 10
-        else:
-            size = "15000"
-            offset = 13
-
         keyText = goocanvas.Text(
          parent=self.rootitem,
-         x=x + offset,
-         y=y + 18,
-         width=10,
+         x=x + width / 2.0,
+         y=y + height / 2.0,
          font = gcompris.skin.get_font("gcompris/board/small"),
          text = getKeyNameFromID(numID, self.sharpNotation),
          fill_color="black",
