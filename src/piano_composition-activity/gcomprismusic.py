@@ -66,10 +66,10 @@ NOTE_COLOR_SCHEME = {1:'#FF0000',
 WHITE_KEY_NOTATION = {1:_('C'), 2:_('D'), 3:_('E'), 4:_('F'), 5:_('G'), 6:_('A'), 7:_('B'), 8:_('C')}
 # this is the English musical notation system
 # translators insert the name of the notes in your language
-SHARP_NOTATION = {-1:_('C♯'), -2:_('D♯'), -3:_('F♯'), -4:_('G♯'), -5:_('A♯')}
+SHARP_NOTATION = {-1:_('C#'), -2:_('D#'), -3:_('F#'), -4:_('G#'), -5:_('A#')}
 # this is the English musical notation system
 # translators insert the name of the notes in your language
-FLAT_NOTATION = {-1:_('D♭'), -2:_('E♭'), -3:_('G♭'), -4:_('A♭'), -5:_('B♭')}
+FLAT_NOTATION = {-1:_('Db'), -2:_('Eb'), -3:_('Gb'), -4:_('Ab'), -5:_('Bb')}
 '''
 Translators: note that you must write the translated note name matching the
 given note name in the English notation
@@ -105,7 +105,7 @@ def getIDFromKeyName(keyName):
     1
     >>> getIDFromKeyName('D#')
     -2
-    >>> getIDFromKeyName('E♭')
+    >>> getIDFromKeyName('Eb')
     -2
     '''
     for x, y in WHITE_KEY_NOTATION.items():
@@ -609,9 +609,9 @@ class Staff():
             else:
                 print 'ERROR: unable to parse note', exp
                 return
-            if '♯' in n:
+            if '#' in n:
                 note.sharpNotation = True
-            if '♭' in n:
+            if 'b' in n:
                 note.sharpNotation = False
             self.drawNote(note)
 
