@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-10-06 00:16+0000\n"
-"PO-Revision-Date: 2012-10-06 12:14+0100\n"
+"POT-Creation-Date: 2012-10-06 13:28+0000\n"
+"PO-Revision-Date: 2012-10-06 20:16+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
@@ -2163,37 +2163,32 @@ msgid "Set the clock to the time given, in the time-units shown (hours:minutes o
 msgstr "Nastavi uro na dani čas v prikazanih časovnih enotah (ure:minute ali ure:minute:sekunde). Klikni na različne puščice in premakni miško za povečanje ali zmanjšanje števil."
 
 #: ../src/color_mix-activity/color_mix.py:72
-#, fuzzy
 msgid "Match the color "
-msgstr "Barva zadetka"
+msgstr "Zadeni barvo"
 
 #: ../src/color_mix-activity/color_mix.py:336
 #: ../src/color_mix-activity/color_mix.py:341
 #: ../src/color_mix-activity/color_mix.py:346
-#, fuzzy
 msgid "Too much {color}"
-msgstr "Vrnjenih je preveč podatkov"
+msgstr "Preveč barve - {color}"
 
 #: ../src/color_mix-activity/color_mix.py:338
 #: ../src/color_mix-activity/color_mix.py:343
 #: ../src/color_mix-activity/color_mix.py:348
-#, fuzzy
 msgid "Not enough {color}"
-msgstr "Ni dovolj pomnilnika"
+msgstr "Premalo barve - {color}"
 
 #: ../src/color_mix-activity/color_mix.xml.in.h:1
-#, fuzzy
 msgid "Mixing color of paint"
-msgstr "Barva okvira poudarjanja"
+msgstr "Mešanje barv"
 
 #: ../src/color_mix-activity/color_mix.xml.in.h:2
-#, fuzzy
 msgid "To understand color mixing."
-msgstr "Pojdi na barvne dejavnosti"
+msgstr "Razumevanje mešanja barv."
 
 #: ../src/color_mix-activity/color_mix.xml.in.h:3
 msgid "Mix the primary colors to match to the given color"
-msgstr ""
+msgstr "Izbrano barvo zmešaj iz osnovnih barv"
 
 #: ../src/color_mix-activity/color_mix.xml.in.h:4
 msgid ""
@@ -2210,24 +2205,24 @@ msgid "Openclipart.org"
 msgstr "Openclipart.org"
 
 #: ../src/color_mix_light-activity/color_mix_light.py:72
-#, fuzzy
 msgid ""
 "Match the \n"
 " color "
-msgstr "Barva zadetka"
+msgstr ""
+"Zadeni \n"
+" barvo "
 
 #: ../src/color_mix_light-activity/color_mix_light.xml.in.h:1
-#, fuzzy
 msgid "Mixing colors of light"
-msgstr "Vrsta vira svetlobe."
+msgstr "Mešanje barv svetlobe"
 
 #: ../src/color_mix_light-activity/color_mix_light.xml.in.h:2
 msgid "Understanding mixing of colors of light."
-msgstr ""
+msgstr "Razumevanje mešanja svetlobnih barv."
 
 #: ../src/color_mix_light-activity/color_mix_light.xml.in.h:3
 msgid "Mix the primary colors to match to the given color."
-msgstr ""
+msgstr "Iz osnovnih barv poskusi zmešati podano barvo."
 
 #: ../src/color_mix_light-activity/color_mix_light.xml.in.h:4
 msgid ""
@@ -2976,7 +2971,7 @@ msgstr " Srednji vzhod"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:11
 msgid " Music is a very important part of middle eastern culture. Specific songs are played to call worshipers to prayer. The lute is an instrument invented thousands of years ago and still in use today."
-msgstr ""
+msgstr " Glasba je pomemben del bližnjevzhodne kulture. Določene pesmi se zaigrajo kot klic vernikom k molitvi. Lutnja je instrument, ki so ga iznašli pred tisoči leti in nanj igrajo še danes."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:12
 msgid " Where is music used to call people to prayer?"
@@ -3004,7 +2999,7 @@ msgstr ""
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:18
 msgid " Bagpipers, who often wear kilts, are from this location."
-msgstr ""
+msgstr "Odtod so igralci na dude, ki pogosto nosijo krilo."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:19
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:6
@@ -3013,7 +3008,7 @@ msgstr " Italija"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:20
 msgid " Italy is famous for its Opera. Opera is a musical theatre where actors tell a story by acting and singing. Opera sings, both male and female, learn special techniques to sing operas."
-msgstr ""
+msgstr " Italija slovi po svoji operi. Opera je oblika glasbenega gledališča, kjer igralci z igranjem in petjem podajajo dramsko zgodbo. Operni pevci, moški in ženske, se morajo naučiti posebnih pevskih tehnik."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:21
 msgid " This country is known for its opera music."
@@ -5610,21 +5605,19 @@ msgstr "Tuba"
 #: ../src/intro_gravity-activity/intro_gravity.py:91
 #, fuzzy
 msgid "I'm ready"
-msgstr "Pripravljeno"
+msgstr "Pripravljen(a) sem"
 
 #: ../src/intro_gravity-activity/intro_gravity.xml.in.h:1
-#, fuzzy
 msgid "Intro gravity"
-msgstr "Vrednost gravitacije"
+msgstr "Uvod v težnost"
 
 #: ../src/intro_gravity-activity/intro_gravity.xml.in.h:2
-#, fuzzy
 msgid "Introduction to the concept of gravity"
-msgstr "Uvod v Bralnik zaslona <app>Orka</app>"
+msgstr "Uvod v razumevanje težnosti"
 
 #: ../src/intro_gravity-activity/intro_gravity.xml.in.h:3
 msgid "Maintain the spaceship in the middle without crashing into the planets or the asteroids"
-msgstr ""
+msgstr "Obdrži vesoljsko ladjo na sredi, izogni se trku s planeti in asteroidi"
 
 #: ../src/intro_gravity-activity/intro_gravity.xml.in.h:4
 msgid ""
@@ -5641,9 +5634,8 @@ msgid ""
 msgstr ""
 
 #: ../src/intro_gravity-activity/intro_gravity.xml.in.h:14
-#, fuzzy
 msgid "www.openclipart.org"
-msgstr "www.gnome.org"
+msgstr "www.openclipart.org"
 
 #: ../src/land_safe-activity/land_safe.py:164
 msgid ""
@@ -5656,7 +5648,7 @@ msgstr ""
 #: ../src/land_safe-activity/land_safe.py:171
 #, fuzzy
 msgid "I am ready!"
-msgstr "Pripravljen sem"
+msgstr "Pripravljen(a) sem!"
 
 #: ../src/land_safe-activity/land_safe.py:453
 msgid "Height : "
@@ -5681,7 +5673,7 @@ msgstr "0"
 #: ../src/land_safe-activity/land_safe.xml.in.h:1
 #, fuzzy
 msgid "Land Safe"
-msgstr "Varni teleporti:"
+msgstr "Varno ozemlje"
 
 #: ../src/land_safe-activity/land_safe.xml.in.h:2
 msgid "Understanding acceleration due to gravity."
@@ -5689,7 +5681,7 @@ msgstr "Razumevanje pospeška zaradi učinka težnosti."
 
 #: ../src/land_safe-activity/land_safe.xml.in.h:3
 msgid "Pilot the spaceship towards the green landing area."
-msgstr ""
+msgstr "Krmarite vesoljsko ladjo proti zeleni pristajalni površini."
 
 #: ../src/land_safe-activity/land_safe.xml.in.h:4
 msgid ""
@@ -6429,11 +6421,11 @@ msgstr ""
 
 #: ../src/mining-activity/mining.xml.in.h:3
 msgid "You should be familiar with moving the mouse and clicking."
-msgstr ""
+msgstr "Znati moraš premikati miško in z njo klikati."
 
 #: ../src/mining-activity/mining.xml.in.h:4
 msgid "Lern to use the mousewheel to zoom in and out."
-msgstr ""
+msgstr "Nauči se uporabljati miškin kolešček za približanje in oddaljevanje pogleda."
 
 #: ../src/mining-activity/mining.xml.in.h:5
 msgid ""
@@ -7133,18 +7125,16 @@ msgid "Notes can be many types, such as quarter notes, half notes, and whole not
 msgstr "Poznamo več vrst not, npr. četrtinke, polovinke in celinke"
 
 #: ../src/piano_composition-activity/piano_composition.py:130
-#, fuzzy
 msgid "Sharp notes have a ♯ sign"
-msgstr "Zvišane note so označene z znakom #"
+msgstr "Zvišane note so označene z znakom ♯"
 
 #: ../src/piano_composition-activity/piano_composition.py:131
 msgid "The black keys are sharp and flat keys"
 msgstr "Črne tipke so zvišane in znižane tipke"
 
 #: ../src/piano_composition-activity/piano_composition.py:133
-#, fuzzy
 msgid "Flat notes have a ♭ sign"
-msgstr "Znižane note so označene z znakom b"
+msgstr "Znižane note so označene z znakom ♭"
 
 #: ../src/piano_composition-activity/piano_composition.py:134
 msgid "Each black key has two names, one with a flat and one with a sharp"
@@ -7155,7 +7145,6 @@ msgid "Now you can load melodies from around the world"
 msgstr "Zdaj lahko naložite melodije s celega sveta"
 
 #: ../src/piano_composition-activity/piano_composition.py:139
-#, fuzzy
 msgid "Compose music now! You can now load and save your work"
 msgstr "Sedaj lahko skladaš glasbo! Klikni za nalaganje ali shranjevanje svojega dela"
 
@@ -7164,9 +7153,8 @@ msgid "Erase All Notes"
 msgstr "Izbriši vse note"
 
 #: ../src/piano_composition-activity/piano_composition.py:185
-#, fuzzy
 msgid "Erase Last Notes"
-msgstr "Izbriši vse note"
+msgstr "Izbriši zadnje note"
 
 #: ../src/piano_composition-activity/piano_composition.py:195
 msgid "Play Composition"
@@ -7267,7 +7255,7 @@ msgstr " Amerika, domoljubna pesem"
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:3
 #, fuzzy
 msgid " America: Shaker Tune"
-msgstr "Združene države Amerike"
+msgstr " Amerka: napev za šejkanje"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:4
 msgid " America: Nursery Rhyme"
@@ -7339,11 +7327,11 @@ msgstr " Finska"
 
 #: ../src/place_your_satellite-activity/place_your_satellite.py:68
 msgid "Click anywhere on the screen to place the satellite at a distance from the planet."
-msgstr ""
+msgstr "Klikni kamorkoli na zaslonu, da postaviš satelit na pravo oddaljenost od planeta."
 
 #: ../src/place_your_satellite-activity/place_your_satellite.py:70
 msgid "Then click on the satellite and drag a line that sets the speed of the satellite"
-msgstr ""
+msgstr "Nato klikni satelit in povleci črto, ki določa hitrost satelita"
 
 #: ../src/place_your_satellite-activity/place_your_satellite.py:267
 msgid "Satellite goes too fast"
@@ -7354,23 +7342,20 @@ msgid "Satellite goes too slow"
 msgstr "Satelit se giblje prepočasi"
 
 #: ../src/place_your_satellite-activity/place_your_satellite.py:296
-#, fuzzy
 msgid "Satellite is crashing"
-msgstr "Doslednost je moč"
+msgstr "Satelit pada"
 
 #: ../src/place_your_satellite-activity/place_your_satellite.py:330
-#, fuzzy
 msgid "Satellite not in orbit"
-msgstr "ni v vaši mapi"
+msgstr "Satelit ni v orbiti"
 
 #: ../src/place_your_satellite-activity/place_your_satellite.py:394
 msgid "Speed"
 msgstr "Hitrost"
 
 #: ../src/place_your_satellite-activity/place_your_satellite.xml.in.h:1
-#, fuzzy
 msgid "Place your satellite"
-msgstr "Območna koda satelita"
+msgstr "Namesti svoj satelit"
 
 #: ../src/place_your_satellite-activity/place_your_satellite.xml.in.h:2
 msgid "Understanding effect of mass and distance on orbital velocity."
@@ -7483,28 +7468,24 @@ msgid "For a little help, click the metronome to hear the tempo."
 msgstr "Za pomoč klikni na metronom, da slišiš tempo."
 
 #: ../src/play_rhythm-activity/play_rhythm.py:342
-#, fuzzy
 msgid "Listen to the rhythm and follow the moving line."
-msgstr "1. Poslušaj ritem in sledi premikajoči se črti."
+msgstr "Poslušaj ritem in sledi premikajoči se črti."
 
 #: ../src/play_rhythm-activity/play_rhythm.py:344
-#, fuzzy
 msgid "Click the drum to the tempo. Watch the vertical line when you start."
-msgstr "2. Klikni boben po tempu. Opazuj navpično črto, ko začneš."
+msgstr "Klikni boben po tempu. Opazuj navpično črto, ko začneš."
 
 #: ../src/play_rhythm-activity/play_rhythm.py:345
 msgid "You can use the space bar to drum the tempo."
-msgstr ""
+msgstr "Za udarjanje tempa lahko uporabiš preslednico."
 
 #: ../src/play_rhythm-activity/play_rhythm.py:348
-#, fuzzy
 msgid "Now, read the rhythm. It won't be played for you. Then, beat the rhythm on the drum."
-msgstr "1. Zdaj preberi ritem. Ne bo izvajan. Nato udarjaj v ritmu po bobnu."
+msgstr "Zdaj preberi ritem. Ne bo izvajan. Nato udarjaj v ritmu po bobnu."
 
 #: ../src/play_rhythm-activity/play_rhythm.py:351
-#, fuzzy
 msgid "Click erase to try again."
-msgstr "Klikni na žogo za ponovno postavljanje."
+msgstr "Klikni izbriši za ponovno postavljanje."
 
 #: ../src/play_rhythm-activity/play_rhythm.xml.in.h:1
 msgid "Play Rhythm"
@@ -8246,64 +8227,3 @@ msgstr "Učenje tipkanja"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Natipkaj celo besedo, preden doseže zemljo"
 
-#~ msgid ""
-#~ "Use the keyboard arrows to move Tux up to the door. In this maze, the "
-#~ "move is relative (first person). Use the up arrow to go forward. The "
-#~ "other arrow let you turn Tux in another direction."
-#~ msgstr ""
-#~ "Uporabi tipkovnico za premikanje Pinga k vratom. V tem labirintu so "
-#~ "premiki relativni (prvo osebni). Uporabi puščico naprej za premik naprej. "
-#~ "Z drugimi puščicami lahko obrneš Pinga v drugo smer."
-
-#~ msgid "Use the keyboard arrows to move Tux up to the door."
-#~ msgstr "Uporabi tipke s puščicami na tipkovnici in premakni Pinga k vratom."
-
-#~ msgid ""
-#~ "Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
-#~ "switch between invisible and visible modes. Visible mode just gives you "
-#~ "an indication of your position, like a map. You cannot move Tux in "
-#~ "visible mode."
-#~ msgstr ""
-#~ "Uporabi puščice na tipkovnici in pripelji Pinga do vrat. S pritiskom na "
-#~ "preslednico preklopiš med vidnim in nevidnim načinom. Vidni način ti pove "
-#~ "kje si, tako kot zemljevid. V vidnem načinu Pinga ne moreš premikati."
-
-#~ msgid "C#"
-#~ msgstr "C#"
-
-#~ msgid "D#"
-#~ msgstr "D#"
-
-#~ msgid "F#"
-#~ msgstr "F#"
-
-#~ msgid "G#"
-#~ msgstr "G#"
-
-#~ msgid "A#"
-#~ msgstr "A#"
-
-#~ msgid "Db"
-#~ msgstr "Db"
-
-#~ msgid "Eb"
-#~ msgstr "Eb"
-
-#~ msgid "Gb"
-#~ msgstr "Gb"
-
-#~ msgid "Ab"
-#~ msgstr "Ab"
-
-#~ msgid "Bb"
-#~ msgstr "Bb"
-
-#~ msgid "Next Page"
-#~ msgstr "Naslednja stran"
-
-#~ msgid "Previous Page"
-#~ msgstr "Predhodna stran"
-
-#~ msgid "3. Click ok to check your answer, or erase to try again."
-#~ msgstr ""
-#~ "3. Klikni za potrditev svojega odgovora ali ga izbriši, da poskusiš znova."
