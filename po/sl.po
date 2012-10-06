@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-09-25 22:11+0000\n"
-"PO-Revision-Date: 2012-09-26 08:36+0100\n"
+"POT-Creation-Date: 2012-10-06 00:16+0000\n"
+"PO-Revision-Date: 2012-10-06 12:14+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
@@ -2162,6 +2162,82 @@ msgstr "Loči razliko med urami, minutami in sekundami. Nastavi in prikaži čas
 msgid "Set the clock to the time given, in the time-units shown (hours:minutes or hours:minutes:seconds). Click on the different arrows, and move the mouse, to make the numbers go up or down."
 msgstr "Nastavi uro na dani čas v prikazanih časovnih enotah (ure:minute ali ure:minute:sekunde). Klikni na različne puščice in premakni miško za povečanje ali zmanjšanje števil."
 
+#: ../src/color_mix-activity/color_mix.py:72
+#, fuzzy
+msgid "Match the color "
+msgstr "Barva zadetka"
+
+#: ../src/color_mix-activity/color_mix.py:336
+#: ../src/color_mix-activity/color_mix.py:341
+#: ../src/color_mix-activity/color_mix.py:346
+#, fuzzy
+msgid "Too much {color}"
+msgstr "Vrnjenih je preveč podatkov"
+
+#: ../src/color_mix-activity/color_mix.py:338
+#: ../src/color_mix-activity/color_mix.py:343
+#: ../src/color_mix-activity/color_mix.py:348
+#, fuzzy
+msgid "Not enough {color}"
+msgstr "Ni dovolj pomnilnika"
+
+#: ../src/color_mix-activity/color_mix.xml.in.h:1
+#, fuzzy
+msgid "Mixing color of paint"
+msgstr "Barva okvira poudarjanja"
+
+#: ../src/color_mix-activity/color_mix.xml.in.h:2
+#, fuzzy
+msgid "To understand color mixing."
+msgstr "Pojdi na barvne dejavnosti"
+
+#: ../src/color_mix-activity/color_mix.xml.in.h:3
+msgid "Mix the primary colors to match to the given color"
+msgstr ""
+
+#: ../src/color_mix-activity/color_mix.xml.in.h:4
+msgid ""
+"\n"
+"The activity deals with mixing primary colors of paint (subtractive mixing).\n"
+"\n"
+"In case of paints the inks absorb different colors of light falling on it, subtracting it from what you see. The more ink you add, the more light is absorbed, and the darker the combined color gets. We can mix just three primary colors to make many new colors. The primary colors for paint/ink are Cyan (a special shade of blue), Magenta (a special shade of pink), and Yellow.\n"
+"        "
+msgstr ""
+
+#: ../src/color_mix-activity/color_mix.xml.in.h:9
+#: ../src/color_mix_light-activity/color_mix_light.xml.in.h:9
+msgid "Openclipart.org"
+msgstr "Openclipart.org"
+
+#: ../src/color_mix_light-activity/color_mix_light.py:72
+#, fuzzy
+msgid ""
+"Match the \n"
+" color "
+msgstr "Barva zadetka"
+
+#: ../src/color_mix_light-activity/color_mix_light.xml.in.h:1
+#, fuzzy
+msgid "Mixing colors of light"
+msgstr "Vrsta vira svetlobe."
+
+#: ../src/color_mix_light-activity/color_mix_light.xml.in.h:2
+msgid "Understanding mixing of colors of light."
+msgstr ""
+
+#: ../src/color_mix_light-activity/color_mix_light.xml.in.h:3
+msgid "Mix the primary colors to match to the given color."
+msgstr ""
+
+#: ../src/color_mix_light-activity/color_mix_light.xml.in.h:4
+msgid ""
+"\n"
+"The activity deals with mixing primary colors of light (additive mixing).\n"
+"\n"
+"In case of light it is just the opposite of mixing color with paints! The more light you add the lighter the resultant color will get. Primary colors of light are red, green and blue.\n"
+"        "
+msgstr ""
+
 #: ../src/colors-activity/colors.xml.in.h:1
 msgid "Colors"
 msgstr "Barve"
@@ -2417,10 +2493,10 @@ msgid "Select a drawing tool on the left, and a color down the bottom, then clic
 msgstr "Na levi strani izberi orodje za risanje v spodnjem delu pa izberi barvo. Klikni na belo polje ter nariši novo obliko. Za hitrejše delo lahko uporabiš srednjim gumbom na miški. Z njo predmet izbrišeš."
 
 #: ../src/drawnumber-activity/drawnumber.py:238
-#: ../src/explore-activity/explore.py:452
+#: ../src/explore-activity/explore.py:458
 #: ../src/findit-activity/findit.py:315
 #: ../src/louis_braille-activity/louis_braille.py:84
-#: ../src/piano_composition-activity/piano_composition.py:439
+#: ../src/piano_composition-activity/piano_composition.py:494
 msgid "Cannot find the file '{filename}'"
 msgstr "Datoteke '{filename}' ni mogoče najti"
 
@@ -2563,19 +2639,35 @@ msgstr "Klikni na miško, izbriši polje in odkrij ozadje"
 msgid "Click the mouse on rectangles until all the blocks disappear."
 msgstr "Klikni miško na kvadratkih dokler vsa polja ne izginejo."
 
-#: ../src/explore-activity/explore.py:149
+#: ../src/explore-activity/explore.py:88
+#: ../src/note_names-activity/note_names.py:83
+#: ../src/piano_composition-activity/piano_composition.py:362
+#: ../src/play_piano-activity/play_piano.py:74
+#: ../src/play_rhythm-activity/play_rhythm.py:81
+msgid ""
+"Error: This activity cannot be played with the\n"
+"sound effects disabled.\n"
+"Go to the configuration dialogue to\n"
+"enable the sound."
+msgstr ""
+"Napaka: ta dejavnost brez omogočenega zvoka\n"
+"ne deluje.\n"
+"Zvok omogočite med nastavitvami v pogovornem\n"
+"oknu nastavitev."
+
+#: ../src/explore-activity/explore.py:155
 msgid "Click to play sound"
 msgstr "Klikni za predvajanje zvoka"
 
 #. draw back button
-#: ../src/explore-activity/explore.py:266
+#: ../src/explore-activity/explore.py:272
 msgid "Back to Homepage"
 msgstr "Nazaj na domačo stran"
 
-#: ../src/explore-activity/explore.py:457
+#: ../src/explore-activity/explore.py:463
 #: ../src/findit-activity/findit.py:320
 #: ../src/louis_braille-activity/louis_braille.py:88
-#: ../src/piano_composition-activity/piano_composition.py:444
+#: ../src/piano_composition-activity/piano_composition.py:499
 msgid ""
 "Failed to parse data set '{filename}' with error:\n"
 "{error}"
@@ -2583,7 +2675,7 @@ msgstr ""
 "Razčlenjevanje niza podatkov '{filename}' je spodletelo z napako:\n"
 "{error}"
 
-#: ../src/explore-activity/explore.py:572
+#: ../src/explore-activity/explore.py:578
 msgid "Explore Status:"
 msgstr "Stanje spoznavanja:"
 
@@ -5515,6 +5607,101 @@ msgstr "Tamburin"
 msgid "the tuba"
 msgstr "Tuba"
 
+#: ../src/intro_gravity-activity/intro_gravity.py:91
+#, fuzzy
+msgid "I'm ready"
+msgstr "Pripravljeno"
+
+#: ../src/intro_gravity-activity/intro_gravity.xml.in.h:1
+#, fuzzy
+msgid "Intro gravity"
+msgstr "Vrednost gravitacije"
+
+#: ../src/intro_gravity-activity/intro_gravity.xml.in.h:2
+#, fuzzy
+msgid "Introduction to the concept of gravity"
+msgstr "Uvod v Bralnik zaslona <app>Orka</app>"
+
+#: ../src/intro_gravity-activity/intro_gravity.xml.in.h:3
+msgid "Maintain the spaceship in the middle without crashing into the planets or the asteroids"
+msgstr ""
+
+#: ../src/intro_gravity-activity/intro_gravity.xml.in.h:4
+msgid ""
+"\n"
+"Gravity is universal and Newton's law of universal gravitation extends gravity beyond earth.This force of gravitational attraction is directly dependent upon the masses of both objects and inversely proportional to the square of the distance that separates their centers.\n"
+"\n"
+"Since the gravitational force is directly proportional to the mass of both interacting objects, more massive objects will attract each other with a greater gravitational force. So as the mass of either object increases, the force of gravitational attraction between them also increases but this force is inversely proportional to the square of the separation distance between the two interacting objects, more separation distance will result in weaker gravitational forces.\n"
+"\n"
+"Increase and decrease the size of the planets at the two ends to see how the force on the spaceship changes with changes in the size and distance. This force results in acceleration of the spaceship.\n"
+"The arrow indicates the direction of force.\n"
+"\n"
+"With every level the speed of the spaceship will increase.\n"
+"        "
+msgstr ""
+
+#: ../src/intro_gravity-activity/intro_gravity.xml.in.h:14
+#, fuzzy
+msgid "www.openclipart.org"
+msgstr "www.gnome.org"
+
+#: ../src/land_safe-activity/land_safe.py:164
+msgid ""
+"Use the up and down keys to control the thrust\n"
+"Use the right and left keys to control direction.\n"
+"You must drive Tux's ship towards the landing platform.\n"
+"The landing platform turns green when the velocity is safe to land"
+msgstr ""
+
+#: ../src/land_safe-activity/land_safe.py:171
+#, fuzzy
+msgid "I am ready!"
+msgstr "Pripravljen sem"
+
+#: ../src/land_safe-activity/land_safe.py:453
+msgid "Height : "
+msgstr "Višina :"
+
+#: ../src/land_safe-activity/land_safe.py:461
+msgid "354"
+msgstr "354"
+
+#: ../src/land_safe-activity/land_safe.py:469
+msgid "Fuel"
+msgstr "Gorivo"
+
+#: ../src/land_safe-activity/land_safe.py:501
+msgid "Velocity : "
+msgstr "Hitrost :"
+
+#: ../src/land_safe-activity/land_safe.py:509
+msgid "0"
+msgstr "0"
+
+#: ../src/land_safe-activity/land_safe.xml.in.h:1
+#, fuzzy
+msgid "Land Safe"
+msgstr "Varni teleporti:"
+
+#: ../src/land_safe-activity/land_safe.xml.in.h:2
+msgid "Understanding acceleration due to gravity."
+msgstr "Razumevanje pospeška zaradi učinka težnosti."
+
+#: ../src/land_safe-activity/land_safe.xml.in.h:3
+msgid "Pilot the spaceship towards the green landing area."
+msgstr ""
+
+#: ../src/land_safe-activity/land_safe.xml.in.h:4
+msgid ""
+"\n"
+"Acceleration due to gravity experienced by the spaceship is directly proportional to the mass of the planet and inversely proportional to the square of the distance from the centre of the planet. Thus, with every planet the acceleration will differ and as the spaceship comes closer and closer to the planet the acceleration increases.\n"
+"\n"
+"Use the up/down keys to control the thrust and the right/left keys to control direction.\n"
+"\n"
+"The landing platform is green if your speed is fine for a safe landing.\n"
+"        "
+msgstr ""
+
 #: ../src/lang-activity/lang.py:56
 msgid "Missing Image"
 msgstr "Manjkajoča slika"
@@ -5769,7 +5956,7 @@ msgid "Click on the hat to open or close it. Under the hat, how many stars can y
 msgstr "Klikni na klobuk za odprtje ali zaprtje klobuka. Koliko zvezdic se premika pod klobukom? Preštej previdno. :) Za odgovor klikni na področje spodaj desno."
 
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:1
-#: ../src/maze-activity/maze.c:132
+#: ../src/maze-activity/maze.c:141
 #: ../src/maze-activity/maze.xml.in.h:1
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:1
 msgid "Maze"
@@ -5794,8 +5981,17 @@ msgid "Help Tux get out of this maze."
 msgstr "Pomagaj Pingu ven iz labirinta."
 
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:5
-msgid "Use the keyboard arrows to move Tux up to the door. In this maze, the move is relative (first person). Use the up arrow to go forward. The other arrow let you turn Tux in another direction."
-msgstr "Uporabi tipkovnico za premikanje Pinga k vratom. V tem labirintu so premiki relativni (prvo osebni). Uporabi puščico naprej za premik naprej. Z drugimi puščicami lahko obrneš Pinga v drugo smer."
+msgid ""
+"Use the keyboard arrows to move Tux up to the door. In this maze, the move is relative (first person). Use the up arrow to go forward. The other arrow let you turn Tux in another direction.\n"
+"\n"
+"At the first levels, Tux walks comfortably, one step on each keypress, through the labyrinth.\n"
+"\n"
+"For larger labyrinths, there is a special walking mode, called \"run-fast-mode\". If this run-fast-mode is enabled, Tux will run all the way automatically until he reaches a fork and you have to decide which way to go further.\n"
+"\n"
+"You can see whether this mode is enabled or not, by looking at Tux's feet: If Tux is barefooted, \"run-fast-mode\" is disabled. And if he wears red sport shoes, \"run-fast-mode\" is enabled.\n"
+"\n"
+"From level 14 on, run-fast-mode will be enabled automatically. If you want to use this feature in earlier levels or want to disable it in advanced levels, click on Tux or the \"barefoot / sportshoe\"-icon in the upper left corner of the screen to toggle the run-fast-mode.\n"
+msgstr ""
 
 #: ../src/maze3D-activity/maze3D.xml.in.h:1
 msgid "3D Maze"
@@ -5809,30 +6005,49 @@ msgstr "Poišči izhod iz 3D labirinta"
 msgid "Use the keyboard arrows to move Tux up to the door. Use the spacebar to switch between 2D and 3D modes. 2D mode just gives you an indication of your position, like a map. You cannot move Tux in 2D mode."
 msgstr "Uporabi puščice na tipkovnici in pripelji Pinga do vrat. S pritiskom na preslednico preklopiš med 2D in 3D pogledom. 2D pogled ti pove kje si, tako kot zemljevid. Pinga v 2D pogledu ne moreš premikati."
 
-#: ../src/maze-activity/maze.c:133
+#: ../src/maze-activity/maze.c:142
 #: ../src/maze-activity/maze.xml.in.h:2
 msgid "Find your way out of the maze"
 msgstr "Poišči pot ven iz labirinta"
 
-#: ../src/maze-activity/maze.c:603
+#: ../src/maze-activity/maze.c:637
 msgid "Look at your position, then switch back to invisible mode to continue your moves"
 msgstr "Poglej si kje se nahajaš in nato preklopi v nevidni način za nadaljevanje premikanja"
 
-#: ../src/maze-activity/maze.c:605
+#: ../src/maze-activity/maze.c:639
 msgid "Look at your position, then switch back to 3D mode to continue your moves"
 msgstr "Poglej si kje se nahajaš in nato preklopi v 3D pogled za nadaljevanje premikanja"
 
 #: ../src/maze-activity/maze.xml.in.h:5
-msgid "Use the keyboard arrows to move Tux up to the door."
-msgstr "Uporabi tipke s puščicami na tipkovnici in premakni Pinga k vratom."
+msgid ""
+"Use the keyboard arrows to move Tux up to the door.\n"
+"\n"
+"At the first levels, Tux walks comfortably, one step on each keypress, through the labyrinth.\n"
+"\n"
+"For larger labyrinths, there is a special walking mode, called \"run-fast-mode\". If this run-fast-mode is enabled, Tux will run all the way automatically until he reaches a fork and you have to decide which way to go further.\n"
+"\n"
+"You can see whether this mode is enabled or not, by looking at Tux's feet: If Tux is barefooted, \"run-fast-mode\" is disabled. And if he wears red sport shoes, \"run-fast-mode\" is enabled.\n"
+"\n"
+"From level 14 on, run-fast-mode will be enabled automatically. If you want to use this feature in earlier levels or want to disable it in advanced levels, click on Tux or the \"barefoot / sportshoe\"-icon in the upper left corner of the screen to toggle the run-fast-mode.\n"
+"\t"
+msgstr ""
 
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:2
 msgid "Find your way out of the invisible maze"
 msgstr "Poišči pot iz nevidnega labirinta"
 
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:5
-msgid "Use the keyboard arrows to move Tux up to the door. Use the spacebar to switch between invisible and visible modes. Visible mode just gives you an indication of your position, like a map. You cannot move Tux in visible mode."
-msgstr "Uporabi puščice na tipkovnici in pripelji Pinga do vrat. S pritiskom na preslednico preklopiš med vidnim in nevidnim načinom. Vidni način ti pove kje si, tako kot zemljevid. V vidnem načinu Pinga ne moreš premikati."
+msgid ""
+"Use the keyboard arrows to move Tux up to the door. Use the spacebar to switch between invisible and visible modes. Visible mode just gives you an indication of your position, like a map. You cannot move Tux in visible mode.\n"
+"\n"
+"At the first levels, Tux walks comfortably, one step on each keypress, through the labyrinth.\n"
+"\n"
+"For larger labyrinths, there is a special walking mode, called \"run-fast-mode\". If this run-fast-mode is enabled, Tux will run all the way automatically until he reaches a fork and you have to decide which way to go further.\n"
+"\n"
+"You can see whether this mode is enabled or not, by looking at Tux's feet: If Tux is barefooted, \"run-fast-mode\" is disabled. And if he wears red sport shoes, \"run-fast-mode\" is enabled.\n"
+"\n"
+"From level 14 on, run-fast-mode will be enabled automatically. If you want to use this feature in earlier levels or want to disable it in advanced levels, click on Tux or the \"barefoot / sportshoe\"-icon in the upper left corner of the screen to toggle the run-fast-mode.\n"
+msgstr ""
 
 #: ../src/melody-activity/melody.py:107
 msgid ""
@@ -6250,7 +6465,7 @@ msgstr "Izbira ne sme biti prazna."
 
 #: ../src/missing_letter-activity/missingletter_config.c:91
 msgid "Question cannot be empty."
-msgstr "Vprašanje ne sme biti prazno."
+msgstr "Polje vprašanja ne more biti prazno."
 
 #: ../src/missing_letter-activity/missingletter_config.c:97
 msgid "Question must include the character '_'. It represents the letter to search."
@@ -6258,7 +6473,7 @@ msgstr "Vprašanje mora vključevati znak '_'. Predstavlja črko za iskanje."
 
 #: ../src/missing_letter-activity/missingletter_config.c:104
 msgid "Pixmap cannot be empty"
-msgstr "Večbitna sličica ne sme biti prazna"
+msgstr "Polje večbitne sličica ne more biti prazna"
 
 #: ../src/missing_letter-activity/missingletter_config.c:110
 msgid "There must be at least 2 choices."
@@ -6561,47 +6776,47 @@ msgstr "Izgradi enak mozaik na desnem delu"
 msgid "Rebuild the mosaic"
 msgstr "Ponovno izgradi mozaik"
 
-#: ../src/note_names-activity/note_names.py:117
+#: ../src/note_names-activity/note_names.py:120
 msgid "These are the eight basic notes in treble clef. They form the C Major Scale."
 msgstr ""
 
-#: ../src/note_names-activity/note_names.py:127
+#: ../src/note_names-activity/note_names.py:130
 msgid "These are the eight basic notes in bass clef. They also form the C Major Scale. Notice that the note positions are different than in treble clef."
 msgstr ""
 
-#: ../src/note_names-activity/note_names.py:141
+#: ../src/note_names-activity/note_names.py:144
 msgid "Play Scale"
 msgstr "Zaigraj lestvico"
 
-#: ../src/note_names-activity/note_names.py:148
+#: ../src/note_names-activity/note_names.py:151
 msgid "Play Treble Clef Game"
 msgstr "Igraj igro Violinski ključ"
 
-#: ../src/note_names-activity/note_names.py:150
+#: ../src/note_names-activity/note_names.py:153
 msgid "Play Bass Clef Game"
 msgstr "Igraj igro Basovski ključ"
 
-#: ../src/note_names-activity/note_names.py:181
+#: ../src/note_names-activity/note_names.py:184
 msgid "Click on the note name to match the pitch. Then click ok to check."
 msgstr "Klikni na oznako note, ki je skladna s tonom, narisanim na notnem črtovju. S klikom gumba v redu preveriš izbiro."
 
-#: ../src/note_names-activity/note_names.py:183
+#: ../src/note_names-activity/note_names.py:186
 msgid "Now there are sharp notes. These pitches are raised a half step."
 msgstr "Sedaj so narisane tudi zvišane note. Ti toni so zvišani za pol tona."
 
-#: ../src/note_names-activity/note_names.py:185
+#: ../src/note_names-activity/note_names.py:188
 msgid "Now there are flat notes. These pitches are lowered a half step."
 msgstr "Sedaj so narisane tudi znižane note. Ti toni so znižani za pol tona."
 
-#: ../src/note_names-activity/note_names.py:191
+#: ../src/note_names-activity/note_names.py:194
 msgid "Click the note to hear it played"
 msgstr "Klikni na noto, da slišiš ton, ki ga predstavlja"
 
-#: ../src/note_names-activity/note_names.py:243
+#: ../src/note_names-activity/note_names.py:247
 msgid "Need a hint? Click here for color-coded note names."
 msgstr "Ali potrebuješ namig? Klikni sem za prikaz obarvanih imen not."
 
-#: ../src/note_names-activity/note_names.py:246
+#: ../src/note_names-activity/note_names.py:250
 msgid "Ready for a challenge? Color all buttons black!"
 msgstr "Pripravljeni na izziv? Pobarvaj vse tipke črno!"
 
@@ -6815,196 +7030,183 @@ msgstr "Iskanje razlik"
 msgid "Observe the two pictures carefully. There are some slight differences. When you find a difference you must click on it."
 msgstr "Pozorno opazuj dve sliki. Obstaja nekaj majhnih razlik. Ko najdeš razliko, klikni nanjo."
 
-#. this is unique to the English notation system
-#. translators must modify this dictionary for each language
-#: ../src/piano_composition-activity/gcomprismusic.py:67
+#. this is the English musical notation system
+#. translators insert the name of the notes in your language
+#: ../src/piano_composition-activity/gcomprismusic.py:66
 msgid "C"
 msgstr "C"
 
-#: ../src/piano_composition-activity/gcomprismusic.py:67
+#: ../src/piano_composition-activity/gcomprismusic.py:66
 msgid "D"
 msgstr "D"
 
-#: ../src/piano_composition-activity/gcomprismusic.py:67
+#: ../src/piano_composition-activity/gcomprismusic.py:66
 msgid "E"
 msgstr "E"
 
-#: ../src/piano_composition-activity/gcomprismusic.py:67
+#: ../src/piano_composition-activity/gcomprismusic.py:66
 msgid "F"
 msgstr "F"
 
-#: ../src/piano_composition-activity/gcomprismusic.py:67
+#: ../src/piano_composition-activity/gcomprismusic.py:66
 msgid "G"
 msgstr "G"
 
-#: ../src/piano_composition-activity/gcomprismusic.py:67
+#: ../src/piano_composition-activity/gcomprismusic.py:66
 msgid "A"
 msgstr "A"
 
-#: ../src/piano_composition-activity/gcomprismusic.py:67
+#: ../src/piano_composition-activity/gcomprismusic.py:66
 msgid "B"
 msgstr "B"
 
-#: ../src/piano_composition-activity/gcomprismusic.py:68
-msgid "C#"
-msgstr "C#"
-
-#: ../src/piano_composition-activity/gcomprismusic.py:68
-msgid "D#"
-msgstr "D#"
-
-#: ../src/piano_composition-activity/gcomprismusic.py:68
-msgid "F#"
-msgstr "F#"
-
-#: ../src/piano_composition-activity/gcomprismusic.py:68
-msgid "G#"
-msgstr "G#"
-
-#: ../src/piano_composition-activity/gcomprismusic.py:68
-msgid "A#"
-msgstr "A#"
+#. this is the English musical notation system
+#. translators insert the name of the notes in your language
+#: ../src/piano_composition-activity/gcomprismusic.py:69
+msgid "C♯"
+msgstr "cis"
 
 #: ../src/piano_composition-activity/gcomprismusic.py:69
-msgid "Db"
-msgstr "Db"
+msgid "D♯"
+msgstr "dis"
 
 #: ../src/piano_composition-activity/gcomprismusic.py:69
-msgid "Eb"
-msgstr "Eb"
+msgid "F♯"
+msgstr "fis"
 
 #: ../src/piano_composition-activity/gcomprismusic.py:69
-msgid "Gb"
-msgstr "Gb"
+msgid "G♯"
+msgstr "gis"
 
 #: ../src/piano_composition-activity/gcomprismusic.py:69
-msgid "Ab"
-msgstr "Ab"
+msgid "A♯"
+msgstr "ais"
 
-#: ../src/piano_composition-activity/gcomprismusic.py:69
-msgid "Bb"
-msgstr "Bb"
+#. this is the English musical notation system
+#. translators insert the name of the notes in your language
+#: ../src/piano_composition-activity/gcomprismusic.py:72
+msgid "D♭"
+msgstr "des"
 
-#: ../src/piano_composition-activity/gcomprismusic.py:273
+#: ../src/piano_composition-activity/gcomprismusic.py:72
+msgid "E♭"
+msgstr "es"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:72
+msgid "G♭"
+msgstr "ges"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:72
+msgid "A♭"
+msgstr "as"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:72
+msgid "B♭"
+msgstr "hes"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:275
 msgid "The staff is full. Please erase some notes"
-msgstr ""
+msgstr "Notno črtovje je zapolnjeno. Izbrisati je treba nekaj not."
 
-#: ../src/piano_composition-activity/piano_composition.py:109
+#: ../src/piano_composition-activity/piano_composition.py:121
 msgid "This is the Treble clef staff, for high pitched notes"
 msgstr "To je violinski ključ, za note visokih tonov"
 
-#: ../src/piano_composition-activity/piano_composition.py:110
+#: ../src/piano_composition-activity/piano_composition.py:122
 msgid "These are the 8 \"white\" keys in an octave"
 msgstr "Oktava obsega 8 \"belih\" tipk"
 
-#: ../src/piano_composition-activity/piano_composition.py:112
+#: ../src/piano_composition-activity/piano_composition.py:124
 msgid "This is the Bass clef staff, for low pitched notes"
 msgstr "To je basovski ključ za note nizkih tonov."
 
-#: ../src/piano_composition-activity/piano_composition.py:113
+#: ../src/piano_composition-activity/piano_composition.py:125
 msgid "These keys form the C Major scale"
 msgstr ""
 
-#: ../src/piano_composition-activity/piano_composition.py:115
+#: ../src/piano_composition-activity/piano_composition.py:127
 msgid "Click on the note symbols to write different length notes"
 msgstr "Klikni na note za zapis različnih dob trajanja"
 
-#: ../src/piano_composition-activity/piano_composition.py:116
+#: ../src/piano_composition-activity/piano_composition.py:128
 msgid "Notes can be many types, such as quarter notes, half notes, and whole notes"
 msgstr "Poznamo več vrst not, npr. četrtinke, polovinke in celinke"
 
-#: ../src/piano_composition-activity/piano_composition.py:118
-msgid "Sharp notes have a # sign"
+#: ../src/piano_composition-activity/piano_composition.py:130
+#, fuzzy
+msgid "Sharp notes have a ♯ sign"
 msgstr "Zvišane note so označene z znakom #"
 
-#: ../src/piano_composition-activity/piano_composition.py:119
+#: ../src/piano_composition-activity/piano_composition.py:131
 msgid "The black keys are sharp and flat keys"
 msgstr "Črne tipke so zvišane in znižane tipke"
 
-#: ../src/piano_composition-activity/piano_composition.py:121
-msgid "Flat notes have a b sign"
+#: ../src/piano_composition-activity/piano_composition.py:133
+#, fuzzy
+msgid "Flat notes have a ♭ sign"
 msgstr "Znižane note so označene z znakom b"
 
-#: ../src/piano_composition-activity/piano_composition.py:122
+#: ../src/piano_composition-activity/piano_composition.py:134
 msgid "Each black key has two names, one with a flat and one with a sharp"
 msgstr "Vsaka črna tipka ima dve imeni, eno ime je znižan ton, drugo pa zvišan"
 
-#: ../src/piano_composition-activity/piano_composition.py:124
+#: ../src/piano_composition-activity/piano_composition.py:136
 msgid "Now you can load melodies from around the world"
 msgstr "Zdaj lahko naložite melodije s celega sveta"
 
-#: ../src/piano_composition-activity/piano_composition.py:127
-msgid "Compose music now! Click to load or save your work"
+#: ../src/piano_composition-activity/piano_composition.py:139
+#, fuzzy
+msgid "Compose music now! You can now load and save your work"
 msgstr "Sedaj lahko skladaš glasbo! Klikni za nalaganje ali shranjevanje svojega dela"
 
-#. ADD BUTTONS
-#: ../src/piano_composition-activity/piano_composition.py:142
+#: ../src/piano_composition-activity/piano_composition.py:174
 msgid "Erase All Notes"
 msgstr "Izbriši vse note"
 
-#: ../src/piano_composition-activity/piano_composition.py:145
-msgid "Erase Last Note"
-msgstr "Izbriši zadnjo noto"
+#: ../src/piano_composition-activity/piano_composition.py:185
+#, fuzzy
+msgid "Erase Last Notes"
+msgstr "Izbriši vse note"
 
-#: ../src/piano_composition-activity/piano_composition.py:148
+#: ../src/piano_composition-activity/piano_composition.py:195
 msgid "Play Composition"
 msgstr "Predvajaj skladbo"
 
-#: ../src/piano_composition-activity/piano_composition.py:153
+#: ../src/piano_composition-activity/piano_composition.py:207
 msgid "Erase and Change Clef"
 msgstr "Izbriši in spremeni ključ"
 
-#: ../src/piano_composition-activity/piano_composition.py:161
+#: ../src/piano_composition-activity/piano_composition.py:218
 msgid "Change Note Type:"
 msgstr "Spremeni vrsto note:"
 
-#: ../src/piano_composition-activity/piano_composition.py:181
+#: ../src/piano_composition-activity/piano_composition.py:238
 msgid "Eighth Note"
 msgstr "Osminka"
 
-#: ../src/piano_composition-activity/piano_composition.py:200
+#: ../src/piano_composition-activity/piano_composition.py:260
 msgid "Quarter Note"
 msgstr "Četrtinka"
 
-#: ../src/piano_composition-activity/piano_composition.py:210
+#: ../src/piano_composition-activity/piano_composition.py:272
 msgid "Half Note"
 msgstr "Polovinka"
 
-#: ../src/piano_composition-activity/piano_composition.py:221
+#: ../src/piano_composition-activity/piano_composition.py:284
 msgid "Whole Note"
 msgstr "Celinka"
 
-#: ../src/piano_composition-activity/piano_composition.py:243
+#: ../src/piano_composition-activity/piano_composition.py:316
 msgid "Load Music"
 msgstr "Naloži glasbo"
 
-#: ../src/piano_composition-activity/piano_composition.py:245
+#: ../src/piano_composition-activity/piano_composition.py:321
 msgid "Change Accidental Style:"
 msgstr "Izbor naključnega sloga:"
 
-#: ../src/piano_composition-activity/piano_composition.py:344
-msgid ""
-"Error: This activity cannot be played with the\n"
-"sound effects disabled.\n"
-"Go to the configuration dialogue to\n"
-"enable the sound."
-msgstr ""
-"Napaka: ta dejavnost brez omogočenega zvoka\n"
-"ne deluje.\n"
-"Zvok omogočite med nastavitvami v pogovornem\n"
-"oknu nastavitev."
-
-#: ../src/piano_composition-activity/piano_composition.py:361
+#: ../src/piano_composition-activity/piano_composition.py:378
 msgid "Select A Melody to Load"
 msgstr "Izberite glasbeno datoteko za nalaganje"
-
-#: ../src/piano_composition-activity/piano_composition.py:369
-msgid "Next Page"
-msgstr "Naslednja stran"
-
-#: ../src/piano_composition-activity/piano_composition.py:371
-msgid "Previous Page"
-msgstr "Predhodna stran"
 
 #: ../src/piano_composition-activity/piano_composition.xml.in.h:1
 msgid "Piano Composition"
@@ -7063,8 +7265,9 @@ msgid " America: Patriotic"
 msgstr " Amerika, domoljubna pesem"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:3
+#, fuzzy
 msgid " America: Shaker Tune"
-msgstr ""
+msgstr "Združene države Amerike"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:4
 msgid " America: Nursery Rhyme"
@@ -7134,6 +7337,58 @@ msgstr " Mehiška pesem, ki se igra med razbijanjem pinjate"
 msgid " Finland"
 msgstr " Finska"
 
+#: ../src/place_your_satellite-activity/place_your_satellite.py:68
+msgid "Click anywhere on the screen to place the satellite at a distance from the planet."
+msgstr ""
+
+#: ../src/place_your_satellite-activity/place_your_satellite.py:70
+msgid "Then click on the satellite and drag a line that sets the speed of the satellite"
+msgstr ""
+
+#: ../src/place_your_satellite-activity/place_your_satellite.py:267
+msgid "Satellite goes too fast"
+msgstr "Satelit se giblje prehitro"
+
+#: ../src/place_your_satellite-activity/place_your_satellite.py:269
+msgid "Satellite goes too slow"
+msgstr "Satelit se giblje prepočasi"
+
+#: ../src/place_your_satellite-activity/place_your_satellite.py:296
+#, fuzzy
+msgid "Satellite is crashing"
+msgstr "Doslednost je moč"
+
+#: ../src/place_your_satellite-activity/place_your_satellite.py:330
+#, fuzzy
+msgid "Satellite not in orbit"
+msgstr "ni v vaši mapi"
+
+#: ../src/place_your_satellite-activity/place_your_satellite.py:394
+msgid "Speed"
+msgstr "Hitrost"
+
+#: ../src/place_your_satellite-activity/place_your_satellite.xml.in.h:1
+#, fuzzy
+msgid "Place your satellite"
+msgstr "Območna koda satelita"
+
+#: ../src/place_your_satellite-activity/place_your_satellite.xml.in.h:2
+msgid "Understanding effect of mass and distance on orbital velocity."
+msgstr "Razumevanje učinka mase in razdalje na hitrost telesa v orbiti."
+
+#: ../src/place_your_satellite-activity/place_your_satellite.xml.in.h:3
+msgid "Make sure the satellite does not crash or fly away"
+msgstr "Treba je biti pozoren, da satelit ne strmoglavi oziroma odleti v vesolje."
+
+#: ../src/place_your_satellite-activity/place_your_satellite.xml.in.h:4
+msgid ""
+"\n"
+"A satellite revolves around the Earth because of the force between them. Orbital velocity of a satellite of Earth is directly proportional to the square root of the mass of Earth and inversely proportional to the square root of the distance from the center of Earth to the satellite.\n"
+"\n"
+"In this activity, play with the speed of the satellite and mass of Earth to see what happens to the satellite. If the speed of the satellite is slower than the required orbital speed then the force applied by the Earth on the satellite is too much and thus the satellite gets pulled towards the Earth and burns in it's atmosphere. If the speed of the satellite is more than the required orbital speed then the Earth's force is not enough to keep it in orbit and thus the satellite flies away due to it's own inertia.\n"
+"        "
+msgstr ""
+
 #: ../src/planegame-activity/planegame.c:62
 #: ../src/planegame-activity/planegame.xml.in.h:1
 msgid "Numbers in Order"
@@ -7155,21 +7410,21 @@ msgstr "Poznavanje števil"
 msgid "Catch the numbers in increasing order, using the up, down, right and left arrows on the keyboard to move the helicopter."
 msgstr "Ujemi številke v povečujočem vrstnem redu. Uporabi tipke gor, dol, levo in desno za premikanje helikopterja."
 
-#: ../src/play_piano-activity/play_piano.py:109
+#: ../src/play_piano-activity/play_piano.py:114
 msgid "Color code notes?"
 msgstr "Želite obarvati note?"
 
-#: ../src/play_piano-activity/play_piano.py:129
+#: ../src/play_piano-activity/play_piano.py:134
 msgid "Click the piano keys that match the written notes."
 msgstr "Klikni klavirske tipke, ki ustrezajo zapisanim notam."
 
-#: ../src/play_piano-activity/play_piano.py:138
-#: ../src/play_rhythm-activity/play_rhythm.py:147
+#: ../src/play_piano-activity/play_piano.py:156
+#: ../src/play_rhythm-activity/play_rhythm.py:173
 msgid "Play"
 msgstr "Igraj"
 
-#: ../src/play_piano-activity/play_piano.py:150
-#: ../src/play_rhythm-activity/play_rhythm.py:172
+#: ../src/play_piano-activity/play_piano.py:168
+#: ../src/play_rhythm-activity/play_rhythm.py:186
 msgid "Erase Attempt"
 msgstr "Izbriši poskus"
 
@@ -7215,33 +7470,41 @@ msgid ""
 "  - F5: A# / Bb\n"
 msgstr ""
 
-#: ../src/play_rhythm-activity/play_rhythm.py:101
+#: ../src/play_rhythm-activity/play_rhythm.py:115
 msgid "Beat Count:"
 msgstr "Števec dob:"
 
-#: ../src/play_rhythm-activity/play_rhythm.py:125
+#: ../src/play_rhythm-activity/play_rhythm.py:139
 msgid "Beat the rhythm on this drum."
 msgstr "Udarjaj v ritmu po bobnu."
 
-#: ../src/play_rhythm-activity/play_rhythm.py:136
+#: ../src/play_rhythm-activity/play_rhythm.py:150
 msgid "For a little help, click the metronome to hear the tempo."
 msgstr "Za pomoč klikni na metronom, da slišiš tempo."
 
-#: ../src/play_rhythm-activity/play_rhythm.py:348
-msgid "1. Listen to the rhythm and follow the moving line."
+#: ../src/play_rhythm-activity/play_rhythm.py:342
+#, fuzzy
+msgid "Listen to the rhythm and follow the moving line."
 msgstr "1. Poslušaj ritem in sledi premikajoči se črti."
 
-#: ../src/play_rhythm-activity/play_rhythm.py:350
-msgid "2. Click the drum to the tempo. Watch the vertical line when you start."
+#: ../src/play_rhythm-activity/play_rhythm.py:344
+#, fuzzy
+msgid "Click the drum to the tempo. Watch the vertical line when you start."
 msgstr "2. Klikni boben po tempu. Opazuj navpično črto, ko začneš."
 
-#: ../src/play_rhythm-activity/play_rhythm.py:353
-msgid "1. Now, read the rhythm. It won't be played for you. Then, beat the rhythm on the drum."
+#: ../src/play_rhythm-activity/play_rhythm.py:345
+msgid "You can use the space bar to drum the tempo."
+msgstr ""
+
+#: ../src/play_rhythm-activity/play_rhythm.py:348
+#, fuzzy
+msgid "Now, read the rhythm. It won't be played for you. Then, beat the rhythm on the drum."
 msgstr "1. Zdaj preberi ritem. Ne bo izvajan. Nato udarjaj v ritmu po bobnu."
 
-#: ../src/play_rhythm-activity/play_rhythm.py:356
-msgid "3. Click ok to check your answer, or erase to try again."
-msgstr "3. Klikni za potrditev svojega odgovora ali ga izbriši, da poskusiš znova."
+#: ../src/play_rhythm-activity/play_rhythm.py:351
+#, fuzzy
+msgid "Click erase to try again."
+msgstr "Klikni na žogo za ponovno postavljanje."
 
 #: ../src/play_rhythm-activity/play_rhythm.xml.in.h:1
 msgid "Play Rhythm"
@@ -7983,3 +8246,64 @@ msgstr "Učenje tipkanja"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Natipkaj celo besedo, preden doseže zemljo"
 
+#~ msgid ""
+#~ "Use the keyboard arrows to move Tux up to the door. In this maze, the "
+#~ "move is relative (first person). Use the up arrow to go forward. The "
+#~ "other arrow let you turn Tux in another direction."
+#~ msgstr ""
+#~ "Uporabi tipkovnico za premikanje Pinga k vratom. V tem labirintu so "
+#~ "premiki relativni (prvo osebni). Uporabi puščico naprej za premik naprej. "
+#~ "Z drugimi puščicami lahko obrneš Pinga v drugo smer."
+
+#~ msgid "Use the keyboard arrows to move Tux up to the door."
+#~ msgstr "Uporabi tipke s puščicami na tipkovnici in premakni Pinga k vratom."
+
+#~ msgid ""
+#~ "Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
+#~ "switch between invisible and visible modes. Visible mode just gives you "
+#~ "an indication of your position, like a map. You cannot move Tux in "
+#~ "visible mode."
+#~ msgstr ""
+#~ "Uporabi puščice na tipkovnici in pripelji Pinga do vrat. S pritiskom na "
+#~ "preslednico preklopiš med vidnim in nevidnim načinom. Vidni način ti pove "
+#~ "kje si, tako kot zemljevid. V vidnem načinu Pinga ne moreš premikati."
+
+#~ msgid "C#"
+#~ msgstr "C#"
+
+#~ msgid "D#"
+#~ msgstr "D#"
+
+#~ msgid "F#"
+#~ msgstr "F#"
+
+#~ msgid "G#"
+#~ msgstr "G#"
+
+#~ msgid "A#"
+#~ msgstr "A#"
+
+#~ msgid "Db"
+#~ msgstr "Db"
+
+#~ msgid "Eb"
+#~ msgstr "Eb"
+
+#~ msgid "Gb"
+#~ msgstr "Gb"
+
+#~ msgid "Ab"
+#~ msgstr "Ab"
+
+#~ msgid "Bb"
+#~ msgstr "Bb"
+
+#~ msgid "Next Page"
+#~ msgstr "Naslednja stran"
+
+#~ msgid "Previous Page"
+#~ msgstr "Predhodna stran"
+
+#~ msgid "3. Click ok to check your answer, or erase to try again."
+#~ msgstr ""
+#~ "3. Klikni za potrditev svojega odgovora ali ga izbriši, da poskusiš znova."
