@@ -127,10 +127,10 @@ class Gcompris_piano_composition:
             clefText = _("Click on the note symbols to write different length notes")
             keyboardText = _("Notes can be many types, such as quarter notes, half notes, and whole notes")
         elif level == 4:
-            clefText = _("Sharp notes have a # sign")
+            clefText = _("Sharp notes have a ♯ sign")
             keyboardText = _("The black keys are sharp and flat keys")
         elif level == 5:
-            clefText = _("Flat notes have a b sign")
+            clefText = _("Flat notes have a ♭ sign")
             keyboardText = _("Each black key has two names, one with a flat and one with a sharp")
         elif level == 6:
             clefText = _("Now you can load melodies from around the world")
