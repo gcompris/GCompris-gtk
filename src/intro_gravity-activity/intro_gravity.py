@@ -63,12 +63,12 @@ class Gcompris_intro_gravity:
     # Load planet on the left (saturn) and it's slider
     planet_left = Fixed_planet(self.rootitem,
                                     70, 200, "saturn.png")
-    Slider(self.rootitem, 20, 200, planet_left)
+    Slider(self.rootitem, self, 20, 200, planet_left)
 
     # Planet on right (neptune) and it's slider
     planet_right = Fixed_planet(self.rootitem,
                                      680, 200, "neptune.png")
-    Slider(self.rootitem, 780, 200, planet_right)
+    Slider(self.rootitem, self, 780, 200, planet_right)
 
     # Load the tux_ship
     self.ship_instance = Spaceship(self, self.rootitem,
@@ -80,39 +80,57 @@ class Gcompris_intro_gravity:
     gcompris.bar_set(0)
     gcompris.bar_location(2,-1,0.5)
 
-    # Ready button
-    self.ready_text = goocanvas.Text(
-      parent = self.rootitem,
-      x = 395,
-      y = 100,
-      fill_color = "white",
-      anchor = gtk.ANCHOR_CENTER,
-      alignment = pango.ALIGN_CENTER,
-      text = _("I'm ready") )
-    self.ready_text.connect('button_press_event', self.ready_event, False)
-    bounds = self.ready_text.get_bounds()
-    gap = 20
+    # Message button
+    self.message = Message(self.rootitem, 400, 320, 20, self.tuto_event)
 
-    self.ready_back = goocanvas.Rect(
-      parent = self.rootitem,
-      radius_x = 6,
-      radius_y = 6,
-      x = bounds.x1 - gap,
-      y = bounds.y1 - gap,
-      width = bounds.x2 - bounds.x1 + gap * 2,
-      height = bounds.y2 - bounds.y1 + gap * 2,
-      stroke_color_rgba = 0xFFFFFFFFL,
-      fill_color_rgba = 0xCCCCCC44L)
-    gcompris.utils.item_focus_init(self.ready_back, None)
-    gcompris.utils.item_focus_init(self.ready_text, self.ready_back)
-    self.ready_back.connect('button_press_event', self.ready_event)
+    self.tuto_step = 0
+    self.tutorial(self.tuto_step)
 
-  def ready_event(self, widget, target, event):
-    self.ready_back.props.visibility = goocanvas.ITEM_INVISIBLE
-    self.ready_text.props.visibility = goocanvas.ITEM_INVISIBLE
+  def tuto_event(self, widget = None, target = None, event = None):
+    self.tuto_step += 1
+    self.tutorial(self.tuto_step)
 
-    self.ship_instance.initiate()
-    asteroid_instance = Asteroids(self.ship_instance, self.rootitem)
+  def tutorial(self, step):
+    """Display a tutorial message for the given step"""
+    if step == 0:
+      self.board_paused = True
+      self.message.show(
+        _("Gravity is universal and Newton's law of universal gravitation extends gravity beyond earth."
+          " This force of gravitational attraction is directly dependent upon the masses of both objects"
+          " and inversely proportional to the square of the distance that separates their centers.")
+        )
+    elif step == 1:
+      self.board_paused = True
+      self.message.show(
+        _("Since the gravitational force is directly proportional to the"
+          " mass of both interacting objects, more massive objects will"
+          " attract each other with a greater gravitational force."
+          " So as the mass of either object increases, the force of"
+          " gravitational attraction between them also increases but"
+          " this force is inversely proportional to the square of the"
+          " separation distance between the two interacting objects,"
+          " more separation distance will result in weaker gravitational"
+          " forces.")
+        )
+    elif step == 2:
+      self.board_paused = True
+      self.message.show(
+        _("You goal is to let Tux's spaceship move by changing the mass"
+          " of its surrounding planets. Don't get too close to the planets"
+          " or you will crash on them."
+          " The arrow indicates the direction of the force on your ship.")
+        )
+    elif step == 3:
+      self.board_paused = False
+      self.message.hide()
+    elif step == 4:
+      self.board_paused = True
+      self.message.show( _("Take care you an in danger, avoid the asteroids.") )
+    elif step == 5:
+      self.board_paused = False
+      self.message.hide()
+      Asteroids(self.ship_instance, self.rootitem)
+
 
   def end(self):
     # Remove the root item removes all the others inside it
@@ -199,7 +217,6 @@ class Spaceship(Gcompris_intro_gravity):
     self.done = False
     self.move = 0
 
-  def initiate(self):
     gobject.timeout_add(30, self.calculate)
 
   def calculate(self):
@@ -248,9 +265,10 @@ class Spaceship(Gcompris_intro_gravity):
       self.crash()
     # Manage the success case
     self.trip_distance += abs(self.move)
-    if self.trip_distance > 500 * self.level:
-      self.done = True
-      self.game.win()
+
+    if self.trip_distance > 100:
+      # Let's move to the next step in the tutorial
+      self.game.tuto_event()
 
     return True
 
@@ -260,7 +278,6 @@ class Spaceship(Gcompris_intro_gravity):
 
 class Asteroids:
   """Class for the asteroids"""
-
 
   def __init__(self, ship_instance, rootitem):
     self.ship_instance = ship_instance
@@ -301,32 +318,36 @@ class Asteroids:
     self.asteroid_rootitem.lower(self.ship_instance.tux_spaceship)
     gobject.timeout_add(30, self.check_asteroid)
 
+  def get_real_bounds_center(self, item):
+    b = item.get_bounds()
+    return (b.x1 + (b.x2 - b.x1) / 2, b.y1 + (b.y2 - b.y1) / 2)
+
   def check_asteroid(self):
     if self.ship_instance.game.board_paused:
       return True
-
-    bound1 = self.asteroid1.get_bounds()
-    bound2 = self.asteroid2.get_bounds()
 
     # Move asteroids
     self.asteroid1.translate(0, -0.05)
     self.asteroid2.translate(0, 0.09)
 
     # Check whether ship and asteroid have collided
-    bound_ship = self.ship_instance.tux_spaceship.get_bounds()
+    (bound1_x, bound1_y) = self.get_real_bounds_center(self.asteroid1)
+    (bound2_x, bound2_y) = self.get_real_bounds_center(self.asteroid2)
+    (bound_ship_x, bound_ship_y) = self.get_real_bounds_center(self.ship_instance.tux_spaceship)
 
-    bound1_x = (bound1.x1 + bound1.x2) / 2
-    bound2_x = (bound2.x1 + bound2.x2) / 2
-    bound1_y = (bound1.y1 + bound1.y2) / 2
-    bound2_y = (bound2.y1 + bound2.y2) / 2
-    bound_ship_x = (bound_ship.x1 + bound_ship.x2) / 2
-    bound_ship_y = (bound_ship.y1 + bound_ship.y2) / 2
     if abs(bound1_x - bound_ship_x) < 40 and abs(bound1_y - bound_ship_y) < 40:
       self.crash_image(bound_ship_x, bound_ship_y)
+      return False
     elif abs(bound2_x - bound_ship_x) < 40 and abs(bound2_y - bound_ship_y) < 40:
       self.crash_image(bound_ship_x, bound_ship_y)
+      return False
     else:
-      return True
+      if bound2_y > 300:
+        self.ship_instance.done = True
+        self.ship_instance.game.win()
+        return False
+
+    return True
 
   def crash_image(self, x, y):
     image = goocanvas.Image(
@@ -370,7 +391,8 @@ class Slider:
   """ class for scale slider"""
 
 
-  def __init__(self, rootitem, x, y, planet_instance):
+  def __init__(self, rootitem, game, x, y, planet_instance):
+    self.game = game
     self.planet_instance = planet_instance
     self.height = 60
     self.button_width = 20
@@ -433,6 +455,9 @@ class Slider:
       line_width = 5.0)
 
   def move_bar(self, widget, target, event, move):
+    if self.game.board_paused:
+      return
+
     self.scale_value += move
     # Take care not to bypass bounds
     if self.scale_value > 1.0:
@@ -446,4 +471,49 @@ class Slider:
 
     # Change the planet mass
     self.planet_instance.set_scale(self.scale_value)
+
+class Message:
+  """Create a message on screen"""
+
+  def __init__(self, rootitem, x, y, gap, tuto_event):
+    self.rootitem = goocanvas.Group(parent = rootitem)
+    self.gap = gap
+    self.text = goocanvas.Text(
+      parent = self.rootitem,
+      x = x,
+      y = y,
+      width = 500,
+      fill_color = "white",
+      anchor = gtk.ANCHOR_CENTER,
+      alignment = pango.ALIGN_CENTER,
+      text = "")
+
+    self.back = goocanvas.Rect(
+      parent = self.rootitem,
+      radius_x = 6,
+      radius_y = 6,
+      stroke_color_rgba = 0xFFFFFFFFL,
+      fill_color_rgba = 0x666666AAL)
+    self.back.lower(None)
+    self.hide()
+    self.back.connect("button_press_event", tuto_event)
+    self.text.connect("button_press_event", tuto_event)
+
+  def _refreshBack(self):
+    bounds = self.text.get_bounds()
+    self.back.set_properties(
+      x = bounds.x1 - self.gap,
+      y = bounds.y1 - self.gap,
+      width = bounds.x2 - bounds.x1 + self.gap * 2,
+      height = bounds.y2 - bounds.y1 + self.gap * 2)
+    gcompris.utils.item_focus_init(self.back, None)
+    gcompris.utils.item_focus_init(self.text, self.back)
+
+  def hide(self):
+    self.rootitem.props.visibility = goocanvas.ITEM_INVISIBLE
+
+  def show(self, msg):
+    self.text.props.text = msg
+    self._refreshBack()
+    self.rootitem.props.visibility = goocanvas.ITEM_VISIBLE
 
