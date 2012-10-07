@@ -849,7 +849,8 @@ class Viewport:
       if self.scale > self.scale_max:
         self.scale = self.scale_max
     else:
-      assert(False)
+      # We don't accept SRCOLL_RIGHT and LEFT
+      return True
 
 
     ###
