@@ -5,10 +5,11 @@ img_DATA = \
 	asteroid2.jpg \
 	asteroid3.jpg \
 	asteroid4.jpg \
-	background.svg \
-    crash.png \
+	background.png \
+	crash.png \
 	neptune.png \
 	saturn.png \
+	space_shuttle.svg \
 	tux_spaceship.png
 
 

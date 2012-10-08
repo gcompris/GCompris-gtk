@@ -58,7 +58,7 @@ class Gcompris_intro_gravity:
 
     # Set a background image
     gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
-                           "intro_gravity/background.svg")
+                           "intro_gravity/background.png")
 
     # Load planet on the left (saturn) and it's slider
     planet_left = Fixed_planet(self.rootitem,
@@ -125,7 +125,8 @@ class Gcompris_intro_gravity:
       self.message.hide()
     elif step == 4:
       self.board_paused = True
-      self.message.show( _("Take care you an in danger, avoid the asteroids.") )
+      self.message.show( _("Avoid the asteroid and join the space"
+                           " shuttle to win.") )
     elif step == 5:
       self.board_paused = False
       self.message.hide()
@@ -277,7 +278,7 @@ class Spaceship(Gcompris_intro_gravity):
     self.game.crash()
 
 class Asteroids:
-  """Class for the asteroids"""
+  """Class for the asteroid and the space shuttle"""
 
   def __init__(self, ship_instance, rootitem):
     self.ship_instance = ship_instance
@@ -288,28 +289,22 @@ class Asteroids:
     self.count = 1
     self.asteroid_rootitem = goocanvas.Group(parent = self.rootitem)
 
-    # Make sure the asteroids are loaded between the planet and spaceship
-    bounds = self.ship_instance.tux_spaceship.get_bounds()
-    left_asteroid_x = random.uniform(150, bounds.x1 - 50)
-    right_asteroid_x = random.uniform(450, bounds.x2 + 20)
-    left_asteroid_y = 550
+    space_shuttle_x = 200.0
+    right_asteroid_x = 550.0
+    space_shuttle_y = 530
     right_asteroid_y = -20
 
-    # Pick a random asteroid and load image
-    asteroid_number = [0, 1, 2, 3, 4]
-    asteroid = random.choice(asteroid_number)
-    image = "intro_gravity/asteroid" + str(asteroid) + ".jpg"
-    self.asteroid1 = goocanvas.Image(
+    # Load the space shuttle
+    self.space_shuttle = goocanvas.Image(
       parent = self.asteroid_rootitem,
-      pixbuf = gcompris.utils.load_pixmap(image),
-      x = left_asteroid_x,
-      y = left_asteroid_y)
+      pixbuf = gcompris.utils.load_pixmap("intro_gravity/space_shuttle.svg"),
+      x = space_shuttle_x,
+      y = space_shuttle_y)
 
-    # Make sure same asteroid is not picked
-    asteroid_number.remove(asteroid)
-    asteroid = random.choice(asteroid_number)
+    # Pick a random asteroid and load image
+    asteroid = random.choice([0, 1, 2, 3, 4])
     image = "intro_gravity/asteroid" + str(asteroid) + ".jpg"
-    self.asteroid2 = goocanvas.Image(
+    self.asteroid = goocanvas.Image(
       parent = self.asteroid_rootitem,
       pixbuf = gcompris.utils.load_pixmap(image),
       x = right_asteroid_x,
@@ -327,24 +322,25 @@ class Asteroids:
       return True
 
     # Move asteroids
-    self.asteroid1.translate(0, -0.05)
-    self.asteroid2.translate(0, 0.09)
+    self.space_shuttle.translate(0, -0.07)
+    self.asteroid.translate(0, 0.09)
 
     # Check whether ship and asteroid have collided
-    (bound1_x, bound1_y) = self.get_real_bounds_center(self.asteroid1)
-    (bound2_x, bound2_y) = self.get_real_bounds_center(self.asteroid2)
+    (bound_ss_x, bound_ss_y) = self.get_real_bounds_center(self.space_shuttle)
+    (bound_ast_x, bound_ast_y) = self.get_real_bounds_center(self.asteroid)
     (bound_ship_x, bound_ship_y) = self.get_real_bounds_center(self.ship_instance.tux_spaceship)
 
-    if abs(bound1_x - bound_ship_x) < 40 and abs(bound1_y - bound_ship_y) < 40:
-      self.crash_image(bound_ship_x, bound_ship_y)
+    if abs(bound_ss_x - bound_ship_x) < 40 and abs(bound_ss_y - bound_ship_y) < 50:
+      self.ship_instance.done = True
+      self.ship_instance.game.win()
       return False
-    elif abs(bound2_x - bound_ship_x) < 40 and abs(bound2_y - bound_ship_y) < 40:
+    elif abs(bound_ast_x - bound_ship_x) < 40 and abs(bound_ast_y - bound_ship_y) < 40:
       self.crash_image(bound_ship_x, bound_ship_y)
       return False
     else:
-      if bound2_y > 300:
-        self.ship_instance.done = True
-        self.ship_instance.game.win()
+      if bound_ss_y < 100:
+        # The space shuttle was missed
+        self.crash_image(bound_ship_x, bound_ship_y)
         return False
 
     return True
