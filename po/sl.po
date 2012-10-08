@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-10-07 11:56+0000\n"
-"PO-Revision-Date: 2012-10-07 14:08+0100\n"
+"POT-Creation-Date: 2012-10-08 00:17+0000\n"
+"PO-Revision-Date: 2012-10-08 09:02+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
@@ -3033,7 +3033,7 @@ msgstr " Mehika"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:26
 msgid " Mariachi is a famous type of Mexican music. It features guitars, trumpets, and violins. These bands play for many occasions, including weddings and parties."
-msgstr ""
+msgstr " Mariachi je znana vrsta Mehiške glasbe. Pri tej se uporabljajo kitare, trobente in violine. Te glasbene skupine pogosto igrajo na različnih dogodkih, vključno s porokami in zabavami."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:27
 msgid " At parties, people often dance to the Mariachi music. A Famous dance is:"
@@ -5602,9 +5602,21 @@ msgstr "Tamburin"
 msgid "the tuba"
 msgstr "Tuba"
 
-#: ../src/intro_gravity-activity/intro_gravity.py:91
-msgid "I'm ready"
-msgstr "Sem na mestu"
+#: ../src/intro_gravity-activity/intro_gravity.py:98
+msgid "Gravity is universal and Newton's law of universal gravitation extends gravity beyond earth. This force of gravitational attraction is directly dependent upon the masses of both objects and inversely proportional to the square of the distance that separates their centers."
+msgstr ""
+
+#: ../src/intro_gravity-activity/intro_gravity.py:105
+msgid "Since the gravitational force is directly proportional to the mass of both interacting objects, more massive objects will attract each other with a greater gravitational force. So as the mass of either object increases, the force of gravitational attraction between them also increases but this force is inversely proportional to the square of the separation distance between the two interacting objects, more separation distance will result in weaker gravitational forces."
+msgstr ""
+
+#: ../src/intro_gravity-activity/intro_gravity.py:118
+msgid "You goal is to let Tux's spaceship move by changing the mass of its surrounding planets. Don't get too close to the planets or you will crash on them. The arrow indicates the direction of the force on your ship."
+msgstr ""
+
+#: ../src/intro_gravity-activity/intro_gravity.py:128
+msgid "Avoid the asteroid and join the space shuttle to win."
+msgstr "Izogni se astaroidom in se združi s raketoplanom Space Shuttle za zmago."
 
 #: ../src/intro_gravity-activity/intro_gravity.xml.in.h:1
 msgid "Intro gravity"
@@ -5619,22 +5631,8 @@ msgid "Maintain the spaceship in the middle without crashing into the planets or
 msgstr "Obdrži vesoljsko ladjo na sredi, izogni se trku s planeti in asteroidi"
 
 #: ../src/intro_gravity-activity/intro_gravity.xml.in.h:4
-msgid ""
-"\n"
-"Gravity is universal and Newton's law of universal gravitation extends gravity beyond earth.This force of gravitational attraction is directly dependent upon the masses of both objects and inversely proportional to the square of the distance that separates their centers.\n"
-"\n"
-"Since the gravitational force is directly proportional to the mass of both interacting objects, more massive objects will attract each other with a greater gravitational force. So as the mass of either object increases, the force of gravitational attraction between them also increases but this force is inversely proportional to the square of the separation distance between the two interacting objects, more separation distance will result in weaker gravitational forces.\n"
-"\n"
-"Increase and decrease the size of the planets at the two ends to see how the force on the spaceship changes with changes in the size and distance. This force results in acceleration of the spaceship.\n"
-"The arrow indicates the direction of force.\n"
-"\n"
-"With every level the speed of the spaceship will increase.\n"
-"        "
-msgstr ""
-
-#: ../src/intro_gravity-activity/intro_gravity.xml.in.h:14
-msgid "www.openclipart.org"
-msgstr "www.openclipart.org"
+msgid "Follow the instructions when you run the activity."
+msgstr "Sledi navodilom med izvajanjem dejavnosti."
 
 #: ../src/land_safe-activity/land_safe.py:164
 msgid ""
@@ -6767,11 +6765,11 @@ msgstr "Ponovno izgradi mozaik"
 
 #: ../src/note_names-activity/note_names.py:120
 msgid "These are the eight basic notes in treble clef. They form the C Major Scale."
-msgstr ""
+msgstr "To je osem osnovnih not v violinskem ključu. Te sestavljajo osnovno C-durovo lestvico."
 
 #: ../src/note_names-activity/note_names.py:130
 msgid "These are the eight basic notes in bass clef. They also form the C Major Scale. Notice that the note positions are different than in treble clef."
-msgstr ""
+msgstr "To je osem osnovnih not v basovskem ključu. Tudi te sestavljajo osnovno C-durovo lestvico. Mesta not so različna, kot pri violinskem ključu."
 
 #: ../src/note_names-activity/note_names.py:144
 msgid "Play Scale"
@@ -6819,13 +6817,13 @@ msgstr "Nauči se imena not v basovskem in violinskem ključu. Pomagaj si z zvok
 
 #: ../src/note_names-activity/note_names.xml.in.h:4
 msgid "To develop a good understanding of note position and naming convention. To prepare for the piano player and composition activity"
-msgstr ""
+msgstr "Za razvoj razumevanja položaja note in pravil poimenovanja. Predpriprava za dejavnosti igranja klaviature in skladanja glasbe."
 
 #: ../src/note_names-activity/note_names.xml.in.h:5
 msgid ""
 "The first level and the eleventh level introduce two different staffs with a C major scale. The following levels then quiz the player on note names. To help learn the names, the note pitches are played when the mouse is rolled over the note, and the pitch names can be color coded.\n"
 "        "
-msgstr ""
+msgstr "Prva in enajsta raven vključujeta različna notna črtovja z C-durovo lestvico. Nadaljnje revni so namenjene kvizu o imenih not. Za pomoč pri učenju imen not se predvajajo toni, ko je kazalka miške postavljena nad izbrano noto, imena pa je mogoče izpisati barvno."
 
 #: ../src/paintings-activity/paintings.xml.in.h:1
 msgid "Assemble the puzzle"
@@ -7111,7 +7109,7 @@ msgstr "To je basovski ključ za note nizkih tonov."
 
 #: ../src/piano_composition-activity/piano_composition.py:125
 msgid "These keys form the C Major scale"
-msgstr ""
+msgstr "Te tipke so del C-durove lestvice"
 
 #: ../src/piano_composition-activity/piano_composition.py:127
 msgid "Click on the note symbols to write different length notes"
@@ -8222,6 +8220,12 @@ msgstr "Učenje tipkanja"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Natipkaj celo besedo, preden doseže zemljo"
+
+#~ msgid "I'm ready"
+#~ msgstr "Sem na mestu"
+
+#~ msgid "www.openclipart.org"
+#~ msgstr "www.openclipart.org"
 
 #~ msgid "C♯"
 #~ msgstr "cis"
