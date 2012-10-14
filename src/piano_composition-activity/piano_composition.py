@@ -348,6 +348,7 @@ class Gcompris_piano_composition:
         optionally specify to display the "black keys"
         '''
         self.keyboard = PianoKeyboard(50, 180, self.rootitem)
+        self.staff.setPianoKeyboard(self.keyboard)
 
         if level == 5:
             self.keyboard.sharpNotation = False
@@ -674,6 +675,9 @@ dialogue to\nenable the sound."), None)
             numID = target.numID
         if numID < 0 and self.gcomprisBoard.level < 4:
             return
+
+        self.keyboard.highlightKey(numID)
+
         if self.staff.currentNoteType == 4:
             n = QuarterNote(numID, self.staff.staffName, self.staff.rootitem, self.keyboard.sharpNotation)
         elif self.staff.currentNoteType == 2:

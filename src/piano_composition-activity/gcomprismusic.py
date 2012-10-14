@@ -171,6 +171,15 @@ class Staff():
       self._beatNumLabels = []
       self._staffImages = [] # to keep references to all the staff clefs put onto the page so we can delete just these when needed
 
+      self.pianoKeyboard = None
+
+    def setPianoKeyboard(self, pianoKeyboard):
+        '''
+        If you associate a piano keyboard to the staff, its keys will
+        be highlighted when the composition is played
+        '''
+        self.pianoKeyboard = pianoKeyboard
+
     def drawStaff(self):
         '''
         draw the staff, including staff lines and staff clefs
@@ -477,6 +486,9 @@ class Staff():
 
         note = self.noteList[noteIndexToPlay]
 
+        if self.pianoKeyboard:
+            self.pianoKeyboard.highlightKey(note.numID)
+
         if hasattr(self, 'verticalPlayLine'):
             self.verticalPlayLine.remove()
 
@@ -495,7 +507,8 @@ class Staff():
                             self.play_it, noteIndexToPlay + 1, playingLineOnly)
 
 
-    def playComposition(self, widget=None, target=None, event=None, playingLineOnly=False):
+    def playComposition(self, widget=None, target=None, event=None,
+                        playingLineOnly=False):
         '''
         plays entire composition. establish timers, one per note, called after
         different durations according to noteType. Only way to stop playback after
@@ -511,7 +524,8 @@ class Staff():
         self.currentNoteIndex = 0
         self.play_it(0, playingLineOnly)
         gobject.timeout_add(self.noteList[self.currentNoteIndex].millisecs,
-                            self.play_it, (self.currentNoteIndex + 1), playingLineOnly)
+                            self.play_it, (self.currentNoteIndex + 1),
+                            playingLineOnly)
 
     def file_to_staff(self, filename):
         '''
@@ -1159,6 +1173,8 @@ class PianoKeyboard():
         # variable so future users may edit it
         self.sharpBlackKeyTexts = []
         self.flatBlackKeyTexts = []
+        # Keep a hash table of the key
+        self.keys = {}
 
     def draw(self, width, height, key_callback):
         '''
@@ -1233,6 +1249,7 @@ class PianoKeyboard():
                               stroke_color="black", fill_color=color,
                               line_width=1.0)
         item.numID = numID
+        self.keys[numID] = item
 
         keyText = goocanvas.Text(
          parent=self.rootitem,
@@ -1270,6 +1287,14 @@ class PianoKeyboard():
             x.remove()
         self.draw(self.width, self.height, self.key_callback)
 
+    def highlightKey(self, numID):
+        # Check we have the requested key
+        if numID in self.keys:
+            self.keys[numID].props.line_width = 5.0
+            gobject.timeout_add(250, self.normalKey, numID)
+
+    def normalKey(self, numID):
+        self.keys[numID].props.line_width = 1.0
 
 def pianokeyBindings(keyval, keyboard_click):
     '''
