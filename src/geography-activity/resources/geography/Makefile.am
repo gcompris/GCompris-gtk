@@ -25,7 +25,7 @@ asia_DATA = \
 	asia/background.png \
 	asia/bahrein.png \
 	asia/bangladesh.png \
-	asia/bhoutan.png \
+	asia/bhutan.png \
 	asia/black_sea.png \
 	asia/brunei.png \
 	asia/cambodia.png \
@@ -50,7 +50,7 @@ asia_DATA = \
 	asia/mongolia.png \
 	asia/nepal.png \
 	asia/north_corea.png \
-	asia/nyanmar.png \
+	asia/myanmar.png \
 	asia/oman.png \
 	asia/ouzbekistan.png \
 	asia/pakistan.png \
