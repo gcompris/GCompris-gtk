@@ -48,6 +48,9 @@ class Gcompris_play_piano:
 
         self.afterBonus = None
 
+        # Used to skip double clicks
+        self.record_click_time = 0
+
     def start(self):
         self.recordedHits = []
         self.saved_policy = gcompris.sound.policy_get()
@@ -195,6 +198,16 @@ dialogue to\nenable the sound."), None)
             gobject.timeout_add(500, self.display_bonus)
 
     def keyboard_click(self, widget=None, target=None, event=None, numID=None):
+
+        # Skip Double clicks
+        if event:
+            if event.type == gtk.gdk._2BUTTON_PRESS:
+                return True
+            if event.time - self.record_click_time <= 200:
+                self.record_click_time = event.time
+                return True
+            self.record_click_time = event.time
+
         if not numID:
             numID = target.numID
         if self.gcomprisBoard.level <= 6:
