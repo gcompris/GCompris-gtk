@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2012-10-08 17:40+0000\n"
-"PO-Revision-Date: 2012-10-12 14:20+0100\n"
+"PO-Revision-Date: 2012-10-14 16:13+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
@@ -2198,6 +2198,11 @@ msgid ""
 "In case of paints the inks absorb different colors of light falling on it, subtracting it from what you see. The more ink you add, the more light is absorbed, and the darker the combined color gets. We can mix just three primary colors to make many new colors. The primary colors for paint/ink are Cyan (a special shade of blue), Magenta (a special shade of pink), and Yellow.\n"
 "        "
 msgstr ""
+"\n"
+"Dejavnost je namenjena spoznavanju mešanja osnovnih barv (odštevalno mešanje).\n"
+"\n"
+"Barvila v barvah absorbirajo (na nek način vpijejo) različne barve svetlobe in s tem barvo izločijo iz spektra odbitih barv. Več barvila je dodanega, več svetlobe se absorbira, s tem pa barvna mešanica postaja bolj in bolj temna. Z mešanjem le treh osnovnih barv lahko pripravimo veliko novih. Med osnovne barve sodijo sinje-modra (posebni odtenek modre), ciklamno-rdeča (posebni odtenek roza) in rumena.\n"
+"        "
 
 #: ../src/color_mix-activity/color_mix.xml.in.h:9
 #: ../src/color_mix_light-activity/color_mix_light.xml.in.h:9
@@ -2232,6 +2237,10 @@ msgid ""
 "In case of light it is just the opposite of mixing color with paints! The more light you add the lighter the resultant color will get. Primary colors of light are red, green and blue.\n"
 "        "
 msgstr ""
+"\n"
+"Dejavnost je namenjena spoznavanju mešanja osnovnih barv svetlobe (seštevalno mešanje).\n"
+"\n"
+"Pri svetlobi je mešanje barv ravno obratno kot pri mešanju barv ali črnil! Več dodane barvne svetlobe pomeni svetlejšo barvo. Osnovne barve svetlobe so rdeča, zelena in modra.\n"
 
 #: ../src/colors-activity/colors.xml.in.h:1
 msgid "Colors"
@@ -2992,7 +3001,7 @@ msgstr " Bobnanje taiko je doma na Japonskem. S to vrsto igranja na bobne so spr
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:15
 msgid " Where do performers yelp as they play the drums?"
-msgstr ""
+msgstr " Pri kateri zvrsti glasbe bobnarji in drugi izvajalci med igranjem kričijo?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:16
 msgid " Scotland and Ireland"
@@ -8237,3 +8246,4 @@ msgstr "Učenje tipkanja"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Natipkaj celo besedo, preden doseže zemljo"
+
