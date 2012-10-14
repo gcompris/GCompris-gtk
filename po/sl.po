@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-10-08 00:17+0000\n"
-"PO-Revision-Date: 2012-10-08 19:39+0100\n"
+"POT-Creation-Date: 2012-10-08 17:40+0000\n"
+"PO-Revision-Date: 2012-10-12 14:20+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
@@ -2833,6 +2833,11 @@ msgid ""
 "\n"
 "In level two, a random text prompt is displayed and you must click on the animal that matches the text. When you have matched all texts correctly, you win!\n"
 msgstr ""
+"Ta igra ima dve ravni.\n"
+"\n"
+"Na prvi ravni igralci spoznavajo vse živali na zaslonu. S klikom na vprašaj dobijo več podatkov o živali - kako se imenuje, kako je videti. Te podatke si je treba dobro zapomniti, ker so na drugi ravni vprašanja povezana s temi podatki!\n"
+"\n"
+"Na drugi ravni se prikaže naključen opis neke živali. Klikniti je treba žival, ki ustreza opisu. Ko so vse točke besedila pravilno povezane z živalmi, igralec zmaga!\n"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:1
 msgid " Explore exotic animals from around the world."
@@ -2983,7 +2988,7 @@ msgstr " Japonska"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:14
 msgid " Taiko drumming comes from Japan. This type of drumming was originally used to scare enemies in battle. It is very loud, and performances are very exciting with crouds chearing and performers yelling!"
-msgstr ""
+msgstr " Bobnanje taiko je doma na Japonskem. S to vrsto igranja na bobne so sprva strašili sovražnike med boji. Je zelo glasno in nastopi so zelo razburljivi, saj obiskovalci ob tem glasno navijajo, izvajalci pa kričijo!"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:15
 msgid " Where do performers yelp as they play the drums?"
@@ -2995,7 +3000,7 @@ msgstr " Škotska in Irska"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:17
 msgid " Folk music of this region is called celtic music, often incorporates a narrative poem or story. Typical instruments include bagpipes, fiddles, flutes, harps, and accordians."
-msgstr ""
+msgstr " Ljudska glasba tega območja nosi ime keltska glasba, pogosto pa vključuje pripovedno pesem ali zgodbo. Značilni inštrumenti so dude, gosli, piščali, flavte, harfe in orglice."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:18
 msgid " Bagpipers, who often wear kilts, are from this location."
@@ -3049,7 +3054,7 @@ msgstr " Amerika"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:30
 msgid " America also has a wide variety of musical genres, but perhaps it is most famous for rock n' roll music. This music features vocalists, guitars, and drums."
-msgstr ""
+msgstr " Tudi Amerika pozna široko paleto glasbenih zvrsti, vendar je najbrž najbolj znana po glasbi rokenrol. Ta glasba vključuje pevce, kitare in bobne."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:31
 msgid " The 'king' of rock n' roll is"
@@ -6412,7 +6417,7 @@ msgstr "Rudarjenje za zlatom"
 
 #: ../src/mining-activity/mining.xml.in.h:2
 msgid "Use the mousewheel to approach the rockwall an look for gold nuggets."
-msgstr ""
+msgstr "Z miškinim koleščkom se približaj skalni steni in išči zlate kepe."
 
 #: ../src/mining-activity/mining.xml.in.h:3
 msgid "You should be familiar with moving the mouse and clicking."
@@ -6434,6 +6439,15 @@ msgid ""
 "\n"
 "Have fun! :)"
 msgstr ""
+"Če gledaš kamnito steno, lahko nekje zagledaš odblesk. Premakni kazalec miške k odblesku in uporabi miškin kolešček za primik. Če si skrajno blizu, se bo na mestu odbleska pojavila kepa zlata. Klikni zlato, da ga nabereš.\n"
+"\n"
+"Ko si pobral kepo zlata, se z miškinim koleščkom znova oddalji. Če si povsem daleč, se bo pojavil nov odblesk, ki nakazuje naslednjo zlato kepo za nabiranje. Zberi dovolj zlatih kep, da zaključiš raven.\n"
+"\n"
+"Tovornjak v desnem spodnjem kotu zaslona prikazuje število že nabranih zlatih kep in skupno število kep, ki jih moraš nabrati na tej ravni.\n"
+"\n"
+"Če želiš slediti navodilom, klikni profesorja pingvina (na voljo na prvi ravni), ki ti bo pokazal, kaj moraš storiti.\n"
+"\n"
+"Uživaj! :)"
 
 #: ../src/mining-activity/mining.xml.in.h:14
 msgid ""
@@ -6441,6 +6455,9 @@ msgid ""
 "- realrainbow.ogg - used when a new gold nugget appears\n"
 "- metalpaint.wav - remixed and used when a gold nugget is collected"
 msgstr ""
+"Zahvala gre ekipi Tuxpaint, ki je zagotovila naslednje zvoke z dovoljenjem GPL:\n"
+"- realrainbow.ogg - uporabljen, ko se pojavi nova zlata kepa in\n"
+"- metalpaint.wav - premešan in uporabljen, ko je zlata kepa nabrana."
 
 #: ../src/missing_letter-activity/missingletter_config.c:79
 msgid "Please select an image."
@@ -8220,39 +8237,3 @@ msgstr "Učenje tipkanja"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Natipkaj celo besedo, preden doseže zemljo"
-
-#~ msgid "I'm ready"
-#~ msgstr "Sem na mestu"
-
-#~ msgid "www.openclipart.org"
-#~ msgstr "www.openclipart.org"
-
-#~ msgid "C♯"
-#~ msgstr "cis"
-
-#~ msgid "D♯"
-#~ msgstr "dis"
-
-#~ msgid "F♯"
-#~ msgstr "fis"
-
-#~ msgid "G♯"
-#~ msgstr "gis"
-
-#~ msgid "A♯"
-#~ msgstr "ais"
-
-#~ msgid "D♭"
-#~ msgstr "des"
-
-#~ msgid "E♭"
-#~ msgstr "es"
-
-#~ msgid "G♭"
-#~ msgstr "ges"
-
-#~ msgid "A♭"
-#~ msgstr "as"
-
-#~ msgid "B♭"
-#~ msgstr "hes"
