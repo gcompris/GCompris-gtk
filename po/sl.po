@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2012-10-14 14:17+0000\n"
-"PO-Revision-Date: 2012-10-14 16:18+0100\n"
+"PO-Revision-Date: 2012-10-15 08:06+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
@@ -5619,15 +5619,15 @@ msgstr "Tuba"
 
 #: ../src/intro_gravity-activity/intro_gravity.py:98
 msgid "Gravity is universal and Newton's law of universal gravitation extends gravity beyond earth. This force of gravitational attraction is directly dependent upon the masses of both objects and inversely proportional to the square of the distance that separates their centers."
-msgstr ""
+msgstr "Pravimo, da je težnost univerzalna. Newtonovi zakoni opisujejo težnost na vsak predmet, ki ima maso. Sila težnosti deluje kot privlačnost dveh teles, ki je odvisna od njunih mas in je obratno sorazmerna s kvadratom razdalje med njunima središčema. Upoštevati pa je treba še posebno težnostno konstanto."
 
 #: ../src/intro_gravity-activity/intro_gravity.py:105
 msgid "Since the gravitational force is directly proportional to the mass of both interacting objects, more massive objects will attract each other with a greater gravitational force. So as the mass of either object increases, the force of gravitational attraction between them also increases but this force is inversely proportional to the square of the separation distance between the two interacting objects, more separation distance will result in weaker gravitational forces."
-msgstr ""
+msgstr "Sila težnosti je sorazmerna z maso obeh teles. To pomeni, da se bodo telesa z večjo maso bolj privlačila. Ko se masa teles poveča, se poveča tudi privlak med njima. Ta sila pa je tudi obratno sorazmerna s kvadratom razdalje med središčema teles. Daljša je razdalja, manjša je sila težnosti. Vpliv se zmanjšuje s kvadratom razdalje."
 
 #: ../src/intro_gravity-activity/intro_gravity.py:118
 msgid "You goal is to let Tux's spaceship move by changing the mass of its surrounding planets. Don't get too close to the planets or you will crash on them. The arrow indicates the direction of the force on your ship."
-msgstr ""
+msgstr "Cilj igre je premikati Tuxovo vesoljsko plovilo s spreminjanjem mase okoliških planetov. Plovilo se planetu ne sme preveč približati, saj lahko nanj strmoglavi. Puščica kaže smer in velikost sile na vesoljsko plovilo."
 
 #: ../src/intro_gravity-activity/intro_gravity.py:128
 msgid "Avoid the asteroid and join the space shuttle to win."
@@ -5656,6 +5656,10 @@ msgid ""
 "You must drive Tux's ship towards the landing platform.\n"
 "The landing platform turns green when the velocity is safe to land"
 msgstr ""
+"S tipkama gor in dol se pri plovilu upravlja pogon.\n"
+"S tipkama levo in desno se določa smer želenega gibanja.\n"
+"S Tuxovim plovilom želite pristati na pristajalni ploščadi.\n"
+"Ta se obarva zeleno, ko sta hitrost in smer varni za pristajanje."
 
 #: ../src/land_safe-activity/land_safe.py:171
 msgid "I am ready!"
@@ -5703,6 +5707,13 @@ msgid ""
 "The landing platform is green if your speed is fine for a safe landing.\n"
 "        "
 msgstr ""
+"\n"
+"Pospešek zaradi težnosti je sorazmeren z maso planeta in obratno sorazmeren s kvadratom razdalja od središča planeta. To pomeni, da se bo pospešek razlikoval pri potovanju mimo vsakega planeta in bo večji, ko bo plovilo bližje planetu.\n"
+"\n"
+"Uporabite tipki gor in dol za upravljanje pogona in tipki levo in desno za upravljanje smeri.\n"
+"\n"
+"Pristajalna ploščad postane zelena, če sta hitrost in smer ustrezni za pristajanje.\n"
+"        "
 
 #: ../src/lang-activity/lang.py:56
 msgid "Missing Image"
