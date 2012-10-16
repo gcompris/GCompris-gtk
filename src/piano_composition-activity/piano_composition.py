@@ -235,6 +235,7 @@ class Gcompris_piano_composition:
                 y=y,
                 height=45,
                 width=20,
+                # TRANSLATORS: http://en.wikipedia.org/wiki/Eighth_note
                 tooltip = "\n\n" + _("Eighth Note")
                 )
 
@@ -257,6 +258,7 @@ class Gcompris_piano_composition:
                 y=y,
                 height=45,
                 width=20,
+                # TRANSLATORS: http://en.wikipedia.org/wiki/Quarter_note
                 tooltip = "\n\n" + _("Quarter Note")
                 )
             self.quarterNoteSelectedButton.connect("button_press_event", self.updateToQuarter)
@@ -269,6 +271,7 @@ class Gcompris_piano_composition:
                 y=y,
                 height=45,
                 width=20,
+                # TRANSLATORS: http://en.wikipedia.org/wiki/Half_note
                 tooltip = "\n\n" + _("Half Note")
                 )
             self.halfNoteSelected.connect("button_press_event", self.updateToHalf)
@@ -281,6 +284,7 @@ class Gcompris_piano_composition:
                 y=y,
                 height=45,
                 width=20,
+                # TRANSLATORS: http://en.wikipedia.org/wiki/Whole_note
                 tooltip = "\n\n" + _("Whole Note")
                 )
             self.wholeNoteSelected.connect("button_press_event", self.updateToWhole)
