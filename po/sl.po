@@ -8,10 +8,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gcompris master\n"
+"Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-10-15 06:13+0000\n"
-"PO-Revision-Date: 2012-10-15 19:44+0100\n"
+"POT-Creation-Date: 2012-10-16 03:49+0000\n"
+"PO-Revision-Date: 2012-10-16 08:25+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
@@ -1087,6 +1087,7 @@ msgid "+-×÷"
 msgstr "+-×÷"
 
 #: ../src/algebra_by-activity/algebra.c:411
+#: ../src/findit-activity/findit.py:228
 #: ../src/readingh-activity/reading.c:630
 msgid "I am Ready"
 msgstr "Pripravljen sem"
@@ -1518,7 +1519,7 @@ msgstr "Vsak Braillov znak ali celica je sestavljen iz šestih položajev pik, k
 
 #: ../src/braille_alphabets-activity/braille_alphabets.py:200
 msgid "I am braille TUX"
-msgstr "Sem braillov TUX"
+msgstr "Sem braillov Pingo"
 
 #: ../src/braille_alphabets-activity/braille_alphabets.py:212
 msgid "When you are ready, click on me and try reproducing Braille characters."
@@ -2499,9 +2500,9 @@ msgstr "Na levi strani izberi orodje za risanje v spodnjem delu pa izberi barvo.
 
 #: ../src/drawnumber-activity/drawnumber.py:238
 #: ../src/explore-activity/explore.py:458
-#: ../src/findit-activity/findit.py:315
+#: ../src/findit-activity/findit.py:336
 #: ../src/louis_braille-activity/louis_braille.py:84
-#: ../src/piano_composition-activity/piano_composition.py:495
+#: ../src/piano_composition-activity/piano_composition.py:499
 msgid "Cannot find the file '{filename}'"
 msgstr "Datoteke '{filename}' ni mogoče najti"
 
@@ -2646,7 +2647,7 @@ msgstr "Klikni miško na kvadratkih dokler vsa polja ne izginejo."
 
 #: ../src/explore-activity/explore.py:88
 #: ../src/note_names-activity/note_names.py:83
-#: ../src/piano_composition-activity/piano_composition.py:363
+#: ../src/piano_composition-activity/piano_composition.py:367
 #: ../src/play_piano-activity/play_piano.py:77
 #: ../src/play_rhythm-activity/play_rhythm.py:81
 msgid ""
@@ -2670,9 +2671,9 @@ msgid "Back to Homepage"
 msgstr "Nazaj na domačo stran"
 
 #: ../src/explore-activity/explore.py:463
-#: ../src/findit-activity/findit.py:320
+#: ../src/findit-activity/findit.py:341
 #: ../src/louis_braille-activity/louis_braille.py:88
-#: ../src/piano_composition-activity/piano_composition.py:500
+#: ../src/piano_composition-activity/piano_composition.py:504
 msgid ""
 "Failed to parse data set '{filename}' with error:\n"
 "{error}"
@@ -2706,6 +2707,13 @@ msgid ""
 "\n"
 "In level three, a random text prompt is displayed and you must click on the animal that matches the text. When you have matched all texts correctly, you win!\n"
 msgstr ""
+"Igra poteka na treh ravneh.\n"
+"\n"
+"Prva raven omogoča spoznavanje in raziskovanje živali, ki so prikazane na zaslonu. S klikom na vprašaj se izpišejo dodatne podrobnosti, predvaja se oglašanje živali in številne druge značilnosti. Te podatke je treba dobro preučiti, saj so na ravneh 2 in 3 vprašanja, ki zahtevajo poznavanje živali.\n"
+"\n"
+"Na drugi ravni je predvajano oglašanje neke živali, igralec pa mora na slikah izbrati tisto, kateri oglašanje pripada. S klikom na vprašaj se prikaže žival, ki se oglaša, s klikom na gumb za predvajanje, pa se zvok predvaja znova. Ko so vse živali povezane z zvoki oglašanja, je igre konec!\n"
+"\n"
+"Na tretji ravni se izpiše besedilo, ki ga je treba povezati z živaljo. KO so vse živali povezane z besedili, je igre konec!\n"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:1
 msgid " Click on the questions to explore each farm animal."
@@ -2939,6 +2947,13 @@ msgid ""
 "\n"
 "The third level is also a matching game. You must select the location that matches the text description on the screen. You win the level when you have correctly matched all text prompts.\n"
 msgstr ""
+"Igra poteka na treh ravneh.\n"
+"\n"
+"Prva raven je namenjena raziskovanju glasbe sveta. S klikom na potovalne torbe je prikažejo podatki in se predvaja glasba, ki je  značilna za to področje. Glasbo je treba dobro proučiti, saj so na ravneh 2 in 3 naloge, ki so povezane z njo!\n"
+"\n"
+"Na drugi ravni je treba dobro prisluhniti glasbi in izbrati mesto, za katerega je ta glasba značilna. S klikom na predvajanje se glasba zaigra znova. Ko so vse zvrsti glasbe povezane s kraji, je igre konec!\n"
+"\n"
+"Na tretji ravni je treba izbrati mesto, ki je povezano z besedilom, prikazanim na zaslonu. Ko so vsi opisi zvrsti glasbe povezani s kraji, je igre konec!.\n"
 
 #: ../src/explore_world_music-activity/explore_world_music.xml.in.h:12
 msgid "Images from http://commons.wikimedia.org/wiki, http://archive.org"
@@ -3071,8 +3086,8 @@ msgid " The 'king' of rock n' roll is"
 msgstr " Kralj rokenrola je"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:32
-msgid " The 'kind' of rock n' roll, Elvis Presley, made his music famous in this country."
-msgstr " Nekakšen kralj rokenrola je Elvis Presley, saj je njegova glasba zaslovela povsod po ZDA."
+msgid " The 'king' of rock n' roll, Elvis Presley, made his music famous in this country."
+msgstr " Kralj rokenrola Elvis Presley se je proslavil s svojo glasbo povsod po ZDA in Evropi."
 
 #: ../src/fifteen-activity/fifteen.xml.in.h:1
 msgid "The fifteen game"
@@ -4755,7 +4770,7 @@ msgstr "ABCČDEFGHIJKLMNOPRSŠTUVZŽ"
 #: ../src/imageid-activity/imageid.c:716
 #: ../src/pythontest-activity/pythontest.py:448
 #: ../src/readingh-activity/reading.c:905
-#: ../src/scalesboard-activity/scale.c:1191
+#: ../src/scalesboard-activity/scale.c:1211
 #: ../src/smallnumbers-activity/smallnumbers.c:598
 #: ../src/tuxpaint-activity/tuxpaint.py:185
 #: ../src/wordsgame-activity/wordsgame.c:904
@@ -5627,7 +5642,7 @@ msgstr "Sila težnosti je sorazmerna z maso obeh teles. To pomeni, da se bodo te
 
 #: ../src/intro_gravity-activity/intro_gravity.py:118
 msgid "You goal is to let Tux's spaceship move by changing the mass of its surrounding planets. Don't get too close to the planets or you will crash on them. The arrow indicates the direction of the force on your ship."
-msgstr "Cilj igre je premikati Tuxovo vesoljsko plovilo s spreminjanjem mase okoliških planetov. Plovilo se planetu ne sme preveč približati, saj lahko nanj strmoglavi. Puščica kaže smer in velikost sile na vesoljsko plovilo."
+msgstr "Cilj igre je premikati Pingovo vesoljsko plovilo s spreminjanjem mase okoliških planetov. Plovilo se planetu ne sme preveč približati, saj lahko nanj strmoglavi. Puščica kaže smer in velikost sile na vesoljsko plovilo."
 
 #: ../src/intro_gravity-activity/intro_gravity.py:128
 msgid "Avoid the asteroid and join the space shuttle to win."
@@ -5658,7 +5673,7 @@ msgid ""
 msgstr ""
 "S tipkama gor in dol se pri plovilu upravlja pogon.\n"
 "S tipkama levo in desno se določa smer želenega gibanja.\n"
-"S Tuxovim plovilom želite pristati na pristajalni ploščadi.\n"
+"S Pingovim plovilom želite pristati na pristajalni ploščadi.\n"
 "Ta se obarva zeleno, ko sta hitrost in smer varni za pristajanje."
 
 #: ../src/land_safe-activity/land_safe.py:171
@@ -7201,31 +7216,35 @@ msgstr "Izbriši in spremeni ključ"
 msgid "Change Note Type:"
 msgstr "Spremeni vrsto note:"
 
-#: ../src/piano_composition-activity/piano_composition.py:238
+#. TRANSLATORS: http://en.wikipedia.org/wiki/Eighth_note
+#: ../src/piano_composition-activity/piano_composition.py:239
 msgid "Eighth Note"
 msgstr "Osminka"
 
-#: ../src/piano_composition-activity/piano_composition.py:260
+#. TRANSLATORS: http://en.wikipedia.org/wiki/Quarter_note
+#: ../src/piano_composition-activity/piano_composition.py:262
 msgid "Quarter Note"
 msgstr "Četrtinka"
 
-#: ../src/piano_composition-activity/piano_composition.py:272
+#. TRANSLATORS: http://en.wikipedia.org/wiki/Half_note
+#: ../src/piano_composition-activity/piano_composition.py:275
 msgid "Half Note"
 msgstr "Polovinka"
 
-#: ../src/piano_composition-activity/piano_composition.py:284
+#. TRANSLATORS: http://en.wikipedia.org/wiki/Whole_note
+#: ../src/piano_composition-activity/piano_composition.py:288
 msgid "Whole Note"
 msgstr "Celinka"
 
-#: ../src/piano_composition-activity/piano_composition.py:316
+#: ../src/piano_composition-activity/piano_composition.py:320
 msgid "Load Music"
 msgstr "Naloži glasbo"
 
-#: ../src/piano_composition-activity/piano_composition.py:321
+#: ../src/piano_composition-activity/piano_composition.py:325
 msgid "Change Accidental Style:"
 msgstr "Izbor naključnega sloga:"
 
-#: ../src/piano_composition-activity/piano_composition.py:379
+#: ../src/piano_composition-activity/piano_composition.py:383
 msgid "Select A Melody to Load"
 msgstr "Izberite glasbeno datoteko za nalaganje"
 
@@ -7773,7 +7792,7 @@ msgstr "Teža v g = %s"
 msgid "Weight = %s"
 msgstr "Teža = %s"
 
-#: ../src/scalesboard-activity/scale.c:1037
+#: ../src/scalesboard-activity/scale.c:1039
 msgid "Take care, you can drop weights on both sides of the scale."
 msgstr "Vedi, da lahko uteži spustiš na obe strani tehtnice."
 
@@ -8112,27 +8131,27 @@ msgstr "Odpelji rdeči avto iz parkirišča skozi vrata na desni"
 
 #: ../src/traffic-activity/traffic.xml.in.h:3
 msgid "Each car can only move either horizontally or vertically. You must make some room in order to let the red car move through the gate on the right."
-msgstr "Vsak avto se lahko premakne le vodoravno ali navpično. Narediti moraš nekaj prostora, da se lahko rdeči avto premakne skozi vrata na desni."
+msgstr "Avtomobili se lahko premikajo le vodoravno ali navpično. Narediti je treba nekaj prostora, da se rdeči avto lahko premakne skozi vrata na desni."
 
 #: ../src/tuxpaint-activity/tuxpaint.py:123
 msgid ""
 "Cannot find Tuxpaint.\n"
 "Install it to use this activity !"
 msgstr ""
-"Ni mogoče najti Tux slikarja.\n"
-"Namesti ga za uporabo te dejavnosti!"
+"Ni mogoče najti programa Tuxpaint.\n"
+"Za uporabo te dejavnosti ga je treba namestiti!"
 
 #: ../src/tuxpaint-activity/tuxpaint.py:135
 msgid "Waiting for Tuxpaint to finish"
-msgstr "Čakanje Tux slikarja, da konča"
+msgstr "V čakanju programa Tuxpaint, da konča"
 
 #: ../src/tuxpaint-activity/tuxpaint.py:189
 msgid "Inherit fullscreen setting from GCompris"
-msgstr "Prevzemi celozaslonsko nastavitev od GCompris"
+msgstr "Prevzemi celozaslonsko nastavitev GCompris"
 
 #: ../src/tuxpaint-activity/tuxpaint.py:193
 msgid "Inherit size setting from GCompris (800x600, 640x480)"
-msgstr "Prevzemi nastavitev velikosti od GCompris (800x600, 640x480)"
+msgstr "Prevzemi nastavitev velikosti GCompris (800x600, 640x480)"
 
 #: ../src/tuxpaint-activity/tuxpaint.py:197
 msgid "Disable shape rotation"
@@ -8148,11 +8167,11 @@ msgstr "Onemogoči žige"
 
 #: ../src/tuxpaint-activity/tuxpaint.xml.in.h:1
 msgid "Tuxpaint"
-msgstr "Tux slikar"
+msgstr "Tuxpaint"
 
 #: ../src/tuxpaint-activity/tuxpaint.xml.in.h:2
 msgid "Launch Tuxpaint"
-msgstr "Zaženi Tux slikarja"
+msgstr "Zaženi program Tuxpaint"
 
 #: ../src/tuxpaint-activity/tuxpaint.xml.in.h:3
 msgid "mouse and keyboard manipulation"
@@ -8164,7 +8183,7 @@ msgstr "Risanje (rastrsko)"
 
 #: ../src/tuxpaint-activity/tuxpaint.xml.in.h:5
 msgid "Use Tuxpaint to draw. When Tuxpaint is finished this board will end."
-msgstr "Uporabi Tux slikarja za risanje. Ko je Tux slikar končan, se bo ta tabla končala."
+msgstr "Uporabi program Tuxpaint za risanje. Ko je program končan, se okno zaprlo."
 
 #: ../src/watercycle-activity/watercycle.py:170
 msgid "This is a water pump station."
@@ -8172,15 +8191,15 @@ msgstr "Na tej postaji je vodna črpalka."
 
 #: ../src/watercycle-activity/watercycle.py:183
 msgid "This is a water cleanup station."
-msgstr "To je čistilna postaja."
+msgstr "To je čistilna postaja za vodo."
 
 #: ../src/watercycle-activity/watercycle.py:263
 msgid "A water tower or elevated water tower is a large elevated water storage container constructed to hold a water supply at a height sufficient to pressurize a water distribution system."
-msgstr "Vodni stolp je velik zabojnik shrambe vode, izgrajen tako, da drži zalogo vodo dovolj visoko, da vodovodni sistem drži pod prisitkom."
+msgstr "Vodni stolp je velik zabojnik za shranjevanje vode. Voda je v njem shranjena zelo visoko. Zaradi višinske razlike se vstvari visok tlak, ki potiska vodo po vodovodnem sistemu."
 
 #: ../src/watercycle-activity/watercycle.xml.in.h:1
 msgid "Learn about the water cycle"
-msgstr "Spoznaj vodni krog"
+msgstr "Spoznaj sistema kroženja vode"
 
 #: ../src/watercycle-activity/watercycle.xml.in.h:2
 msgid "Tux has come back from a long fishing party on his boat. Bring the water system back up so he can take a shower."
@@ -8188,11 +8207,11 @@ msgstr "Pingo je prišel domov z dolgega ribolova. Popravi vodni sistem, da se b
 
 #: ../src/watercycle-activity/watercycle.xml.in.h:3
 msgid "Learn the water cycle"
-msgstr "Spoznaj vodni krog"
+msgstr "Spoznaj sistema kroženja vode"
 
 #: ../src/watercycle-activity/watercycle.xml.in.h:4
 msgid "Click on different active elements : sun, cloud, water pump station, and water cleanup station, in order to reactivate the entire water system. When the system is back up and Tux is in the shower, push the shower button for him."
-msgstr "Za ponovno zaganjanje celotnega vodnega sistema, klikni na različne dejavne predmete: sonce, oblak, postaja za črpanje vode in postaja za čiščenje vode. Ko sistem ponovno deluje in je Pingo pod prho, pritisni gumb za tuširanje."
+msgstr "Za ponovno zaganjanje celotnega sistema kroženja vode, klikni na različne dejavne predmete: sonce, oblak, postaja za črpanje vode in postaja za čiščenje vode. Ko sistem ponovno deluje in je Pingo pod prho, pritisni gumb za tuširanje."
 
 #: ../src/wordprocessor-activity/wordprocessor.c:57
 msgid "Research"
@@ -8232,7 +8251,7 @@ msgstr "Tvoj urejevalnik besedila"
 
 #: ../src/wordprocessor-activity/wordprocessor.xml.in.h:2
 msgid "A simple word processor to enter and save any text"
-msgstr "Preprost urejevalnik besedila za pisanje in shranjevanje kateregakoli besedila"
+msgstr "Preprost urejevalnik za pisanje in shranjevanje kateregakoli besedila"
 
 #: ../src/wordprocessor-activity/wordprocessor.xml.in.h:3
 msgid "The children can type their own text or copy one given by the teacher."
@@ -8240,11 +8259,11 @@ msgstr "Otroci lahko napišejo svoje besedilo ali prekopirajo tistega, ki jim ga
 
 #: ../src/wordprocessor-activity/wordprocessor.xml.in.h:4
 msgid "Learn how to enter text in a wordprocessor. This wordprocessor is special in that it enforces the use of styles. This way, the children will understand their benefit when moving to more feature full wordprocessor like LibreOffice."
-msgstr "Učenje vnašanja besedila v urejevalnik besedila. Urejevalnik besedila vsili pravilno uporabo slogov. Na ta način bodo otroci razumeli prednosti uporabe slogov pri delu z zahtevnejšimi urejevalniki besedil, kot je LibreOffice."
+msgstr "Učenje vnašanja besedila v urejevalnik besedila. Urejevalnik besedila vsili pravilno uporabo slogov. Na ta način bodo otroci razumeli prednosti njihove uporabe pri delu z zahtevnejšimi urejevalniki besedil, kot je LibreOffice."
 
 #: ../src/wordprocessor-activity/wordprocessor.xml.in.h:5
 msgid "In this wordprocessor you can type the text you want, save and get it back later. You can add some style to your text by using the buttons on the left. The first 4 buttons let you select the style of the line on which your insert cursor is. The 2 others buttons with multiple choices let you select from a predefined document and color theme."
-msgstr "V tem urejevalniku besedila lahko napišeš besedilo, ki ga želiš, ga shraniš in ponovno uporabiš kasneje. Z gumbi na levi lahko svojemu besedilu dodaš slog. Prvi štirje gumbi ti omogočijo izbiro sloga vrstice na kateri je kazalec. Z dvema drugima izbirnima gumboma lahko izbereš vnaprej določen dokument ali barvno temo."
+msgstr "V tem urejevalniku besedila lahko napišeš besedilo, ki ga želiš, ga shraniš in ponovno uporabiš kasneje. Z gumbi na levi lahko svojemu besedilu dodaš oblikovanje. Prvi štirje gumbi so namenjeni izbiri sloga vrstice na kateri je kazalec. Z dvema drugima izbirnima gumboma lahko izbereš vnaprej določen dokument ali barvno temo."
 
 #: ../src/wordsgame-activity/wordsgame.c:115
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:1
@@ -8254,7 +8273,7 @@ msgstr "Padajoče besede"
 #: ../src/wordsgame-activity/wordsgame.c:116
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:2
 msgid "Type the falling words before they reach the ground"
-msgstr "Natipkaj padajoče besede preden se dotaknejo zemlje"
+msgstr "Natipkaj padajoče besede preden te dosežejo dno"
 
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:4
 msgid "Keyboard training"
@@ -8262,5 +8281,5 @@ msgstr "Učenje tipkanja"
 
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the complete word as it falls, before it reachs the ground"
-msgstr "Natipkaj celo besedo, preden doseže zemljo"
+msgstr "Natipkaj celotno besedo, preden ta doseže dno"
 
