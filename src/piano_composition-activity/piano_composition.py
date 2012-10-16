@@ -649,7 +649,7 @@ dialogue to\nenable the sound."), None)
     def updateToWhole(self, unused1, unused2, unused3):
         self.staff.updateToWhole()
 
-    def askAndEraseStaff(self, unused1, unused2, unused3):
+    def askAndEraseStaff(self, unused1=None, unused2=None, unused3=None):
         # @FIXME, should have a dialog asking for confirmation
         self.staff.eraseAllNotes()
 
