@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: gcompris.gcomprixogoo\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-10-16 06:35+0000\n"
-"PO-Revision-Date: 2012-10-16 14:09+0200\n"
+"POT-Creation-Date: 2012-10-16 12:10+0000\n"
+"PO-Revision-Date: 2012-10-16 17:38+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -302,7 +302,7 @@ msgstr "Juegos de estrategia"
 
 #: ../boards/strategy.xml.in.h:2
 msgid "Strategy games like chess, connect4, ..."
-msgstr "Juegos de estrategia como ajedrez, conecta4, ..."
+msgstr "Juegos de estrategia como ajedrez, conecta 4, ..."
 
 #: ../gcompris.desktop.in.h:1
 msgid "Educational suite GCompris"
@@ -2078,7 +2078,7 @@ msgstr "Error: El programa externo gnuchess finalizó inesperadamente"
 #: ../src/chess_movelearn-activity/chess_movelearn.xml.in.h:1
 #: ../src/chess_partyend-activity/chess_partyend.xml.in.h:1
 msgid "Learning chess"
-msgstr "Aprender el ajedrez"
+msgstr "Aprender ajedrez"
 
 #: ../src/chess_computer-activity/chess_computer.xml.in.h:4
 #: ../src/chess_movelearn-activity/chess_movelearn.xml.in.h:4
@@ -2708,7 +2708,7 @@ msgstr ""
 
 #: ../src/connect4-activity/connect4.xml.in.h:1
 msgid "Connect 4"
-msgstr "Conecta4"
+msgstr "Conecta 4"
 
 #: ../src/connect4-activity/connect4.xml.in.h:4
 msgid ""
@@ -3033,7 +3033,7 @@ msgstr ""
 "Primero, organice apropiadamente los elementos para que pueda contarlos. "
 "Luego seleccione el elemento que quiera contestar en el área inferior "
 "derecha. Introduzca la respuesta con el teclado y pulse Aceptar o la tecla "
-"«Retorno»."
+"«Intro»."
 
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:1
 msgid "Double click the mouse"
@@ -3715,9 +3715,6 @@ msgid " The 'king' of rock n' roll is"
 msgstr " El rey del rock n' roll es"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:32
-#| msgid ""
-#| " The 'kind' of rock n' roll, Elvis Presley, made his music famous in this "
-#| "country."
 msgid ""
 " The 'king' of rock n' roll, Elvis Presley, made his music famous in this "
 "country."
@@ -3787,6 +3784,7 @@ msgstr ""
 #: ../src/gcompris/about.c:57
 msgid "translator_credits"
 msgstr ""
+"Daniel Mustieles <daniel.mustieles@gmail.com>, 2011-2012\n"
 "Jorge González <jorgegonz@svn.gnome.org>, 2007-2010\n"
 "Susana González <sgonzalez@igalia.com>, 2007\n"
 "QA: Jorge González <jorgegonz@svn.gnome.org>, 2007\n"
@@ -3811,7 +3809,7 @@ msgid ""
 "License"
 msgstr ""
 "Este software es un paquete GNU y se distribuye bajo los términos de la "
-"Licencia Pública General GNU"
+"Licencia Pública General de GNU"
 
 #: ../src/gcompris/about.c:221 ../src/gcompris/config.c:460
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:358
@@ -4296,8 +4294,8 @@ msgid ""
 "descriptions."
 msgstr ""
 "Ejecuta gcompris con menú local (p. ej. -l /reading te permitirá jugar sólo "
-"a actividades en la carepta de lectura, -l /strategy/connect4 sólo a la "
-"actividad conecta4). Usa «-l list» para listar todas las actividades "
+"a actividades en la carpeta de lectura, -l /strategy/connect4 sólo a la "
+"actividad conecta 4). Usa «-l list» para listar todas las actividades "
 "disponibles y sus descripciones."
 
 #: ../src/gcompris/gcompris.c:186
@@ -5383,7 +5381,6 @@ msgid "Philippines"
 msgstr "Filipinas"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:35
-#| msgid "Nyanmar"
 msgid "Myanmar"
 msgstr "Myanmar"
 
@@ -5392,7 +5389,6 @@ msgid "Pakistan"
 msgstr "Pakistán"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:38
-#| msgid "Bhoutan"
 msgid "Bhutan"
 msgstr "Bután"
 
@@ -6572,6 +6568,13 @@ msgid ""
 "the two interacting objects, more separation distance will result in weaker "
 "gravitational forces."
 msgstr ""
+"Dado que la fuerza de gravedad es una fuerza directamente proporcional a la "
+"masa de los objetos que interaccionan, los objetos con más masa atraerán a "
+"otros con una fuerza de gravedad mayor. Por lo tanto, a medida que la masa "
+"de ambos objetos aumenta, la fuerza de gravedad entre ellos también aumenta, "
+"pero esta fuerza es inversamente proporcional al cuadrado de la distancia "
+"entre ambos objetos; una mayor distancia implica una menor fuerza de "
+"gravedad."
 
 #: ../src/intro_gravity-activity/intro_gravity.py:118
 msgid ""
@@ -6579,6 +6582,10 @@ msgid ""
 "surrounding planets. Don't get too close to the planets or you will crash on "
 "them. The arrow indicates the direction of the force on your ship."
 msgstr ""
+"Tu objetivo es dejar que la nave de Tux se mueva cambiando la masa de los "
+"planetas que la rodean. No dejes que se acerque demasiado a los planetas o "
+"se chocará contra ellos. La flecha indica la dirección de la fuerza de tu "
+"nave."
 
 #: ../src/intro_gravity-activity/intro_gravity.py:128
 msgid "Avoid the asteroid and join the space shuttle to win."
@@ -6611,6 +6618,11 @@ msgid ""
 "You must drive Tux's ship towards the landing platform.\n"
 "The landing platform turns green when the velocity is safe to land"
 msgstr ""
+"Usa las flechas arriba y abajo para controlar la velocidad.\n"
+"Usa las flechas derecha e izquierda para controla la dirección.\n"
+"Debes conducir la nave de Tux hasta la plataforma de aterrizaje.\n"
+"La plataforma de aterrizaje se pondrá verde cuando la velocidad para "
+"aterrizar sea adecuada."
 
 #: ../src/land_safe-activity/land_safe.py:171
 msgid "I am ready!"
@@ -6663,6 +6675,12 @@ msgid ""
 "The landing platform is green if your speed is fine for a safe landing.\n"
 "        "
 msgstr ""
+"\n"
+"La aceleración debida a la gravedad sufrida por la nave espacial es "
+"directamente proporcional a la masa del planeta e inversamente proporcional "
+"al cuadrado de la distancia al centro del planeta. Por lo tanto, la "
+"aceleración variará para cada planeta y, a medida que la nave se acerque a "
+"un planeta, aumentará la aceleración."
 
 #: ../src/lang-activity/lang.py:56
 msgid "Missing Image"
@@ -7018,7 +7036,7 @@ msgstr "Laberinto"
 
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:2
 msgid "Find your way out of the maze (Move is relative)"
-msgstr "Encuentra tu salida del laberinto (Movimiento relativo)"
+msgstr "Encuentra tu salida del laberinto (el movimiento es relativo)"
 
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:3
 #: ../src/maze3D-activity/maze3D.xml.in.h:3
@@ -7057,6 +7075,26 @@ msgid ""
 "levels, click on Tux or the \"barefoot / sportshoe\"-icon in the upper left "
 "corner of the screen to toggle the run-fast-mode.\n"
 msgstr ""
+"Usa las flechas del teclado para mover a Tux hasta la puerta. En este "
+"laberinto, el movimiento es relativo (primera persona). Usa la flecha hacia "
+"arriba para avanzar. La otra flecha permite mover a Tux en otra dirección.\n"
+"\n"
+"En los primeros niveles, Tux camina con comodidad, dando un paso por cada "
+"pulsación, a través del laberinto.\n"
+"\n"
+"Para laberintos más grandes, hay un modo especial de caminar llamado «modo "
+"rápido». Si está activado, Tux correrá automáticamente todo el rato, hasta "
+"que llegue a un cruce y tengas que decidir en qué dirección va.\n"
+"\n"
+"Puedes ver si este modo está activado mirando los pies de Tux: si Tux está "
+"descalzo, el modo rápido está desactivado, pero si lleva unas zapatillas de "
+"deporte rojas, estará activado.\n"
+"\n"
+"A partir del nivel 14, el modo rápido estará activado automáticamente. Si "
+"quieres usar esto en niveles inferiores, o quieres desactivarlo en niveles "
+"más avanzados, pulsa sobre el icono de Tux descalzo o con deportivas en la "
+"esquina superior izquierda de la pantalla para activar o desactivar el modo "
+"rápido.\n"
 
 #: ../src/maze3D-activity/maze3D.xml.in.h:1
 msgid "3D Maze"
@@ -7116,6 +7154,25 @@ msgid ""
 "corner of the screen to toggle the run-fast-mode.\n"
 "\t"
 msgstr ""
+"Usa las flechas del teclado para mover a Tux hasta la puerta.\n"
+"\n"
+"En los primeros niveles, Tux camina con comodidad, dando un paso por cada "
+"pulsación, a través del laberinto.\n"
+"\n"
+"Para laberintos más grandes, hay un modo especial de caminar llamado «modo "
+"rápido». Si está activado, Tux correrá automáticamente todo el rato, hasta "
+"que llegue a un cruce y tengas que decidir en qué dirección va.\n"
+"\n"
+"Puedes ver si este modo está activado mirando los pies de Tux: si Tux está "
+"descalzo, el modo rápido está desactivado, pero si lleva unas zapatillas de "
+"deporte rojas, estará activado.\n"
+"\n"
+"A partir del nivel 14, el modo rápido estará activado automáticamente. Si "
+"quieres usar esto en niveles inferiores, o quieres desactivarlo en niveles "
+"más avanzados, pulsa sobre el icono de Tux descalzo o con deportivas en la "
+"esquina superior izquierda de la pantalla para activar o desactivar el modo "
+"rápido.\n"
+"\t"
 
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:2
 msgid "Find your way out of the invisible maze"
@@ -7145,6 +7202,27 @@ msgid ""
 "levels, click on Tux or the \"barefoot / sportshoe\"-icon in the upper left "
 "corner of the screen to toggle the run-fast-mode.\n"
 msgstr ""
+"Usa las flechas del teclado para mover a Tux hasta la puerta. Usa la barra "
+"espaciadora para cambiar entre los modos visible e invisible. El modo "
+"visible muestra una indicación de tu posición, como un mapa. No puedes mover "
+"a Tux en el modo visible.\n"
+"\n"
+"En los primeros niveles, Tux camina con comodidad, dando un paso por cada "
+"pulsación, a través del laberinto.\n"
+"\n"
+"Para laberintos más grandes, hay un modo especial de caminar llamado «modo "
+"rápido». Si está activado, Tux correrá automáticamente todo el rato, hasta "
+"que llegue a un cruce y tengas que decidir en qué dirección va.\n"
+"\n"
+"Puedes ver si este modo está activado mirando los pies de Tux: si Tux está "
+"descalzo, el modo rápido está desactivado, pero si lleva unas zapatillas de "
+"deporte rojas, estará activado.\n"
+"\n"
+"A partir del nivel 14, el modo rápido estará activado automáticamente. Si "
+"quieres usar esto en niveles inferiores, o quieres desactivarlo en niveles "
+"más avanzados, pulsa sobre el icono de Tux descalzo o con deportivas en la "
+"esquina superior izquierda de la pantalla para activar o desactivar el modo "
+"rápido.\n"
 
 #: ../src/melody-activity/melody.py:107
 msgid ""
@@ -7175,8 +7253,8 @@ msgid ""
 "Listen to the sound sequence played, and repeat it by clicking on the "
 "elements. You can listen again by clicking on the repeat button."
 msgstr ""
-"Escuche la secuencia de sonido reproducida, e intente repetirla pulsando en "
-"los elementos. Puede escucharlo de nuevo pulsando en el botón repetir."
+"Escucha la secuencia de sonido reproducida, e intenta repetirla pulsando en "
+"los elementos. Puedes escucharlo de nuevo pulsando en el botón repetir."
 
 #: ../src/memory-activity/memory.c:280
 msgid "zero"
@@ -7685,6 +7763,8 @@ msgstr "Excavar para obtener oro"
 #: ../src/mining-activity/mining.xml.in.h:2
 msgid "Use the mousewheel to approach the rockwall an look for gold nuggets."
 msgstr ""
+"Usa la rueda del ratón para acercarte a la pared rocosa y buscar de pepitas "
+"de oro."
 
 #: ../src/mining-activity/mining.xml.in.h:3
 msgid "You should be familiar with moving the mouse and clicking."
@@ -7715,6 +7795,25 @@ msgid ""
 "\n"
 "Have fun! :)"
 msgstr ""
+"Mirando la pared rocosa, se puede ver un destello en alguna parte. Mueve el "
+"cursor del ratón al lado de este destello y usa la rueda del ratón para "
+"acercar la imagen Si la ampliación está al máximo, aparecerá una pepita de "
+"oro en la posición del destello. Pulsa sobre la pepita de oro para "
+"recogerla.\n"
+"\n"
+"Una vez recogida la pepita, usa la rueda del ratón para alejarte de nuevo. "
+"Si te has alejado lo máximo posible, aparecerá otro destello, indicando la "
+"siguiente pepita de oro que recoger. Recoge suficientes pepitas para "
+"completar el nivel.\n"
+"\n"
+"El camión en la esquina inferior derecha de la pantalla te indicará el "
+"número de pepitas ya recogidas y el número total de pepitas que hay que "
+"recoger en este nivel.\n"
+"\n"
+"Para iniciar el tutorial, pulsa en el Tux profesor (disponible en el nivel "
+"1) y dejar que te indique qué hacer a continuación.\n"
+"\n"
+"¡Diviértete! :)"
 
 #: ../src/mining-activity/mining.xml.in.h:14
 msgid ""
@@ -7722,6 +7821,10 @@ msgid ""
 "- realrainbow.ogg - used when a new gold nugget appears\n"
 "- metalpaint.wav - remixed and used when a gold nugget is collected"
 msgstr ""
+"Gracias al equipo de Tuxpaint por proporcionar los siguientes sonidos bajo "
+"GPL:\n"
+"- realrainbow.ogg: usado cuando aparece una pepita de oro nueva\n"
+"- metalpaint.wav: remezclado y usado cuando se recoge una pepita"
 
 #: ../src/missing_letter-activity/missingletter_config.c:79
 msgid "Please select an image."
@@ -7743,7 +7846,7 @@ msgstr ""
 
 #: ../src/missing_letter-activity/missingletter_config.c:104
 msgid "Pixmap cannot be empty"
-msgstr "El pixmap no puede estar vacío"
+msgstr "El mapa de píxeles no puede estar vacío"
 
 #: ../src/missing_letter-activity/missingletter_config.c:110
 msgid "There must be at least 2 choices."
@@ -7804,7 +7907,7 @@ msgid ""
 "Enter here the letter that will be proposed. The first letter here must be "
 "the solution."
 msgstr ""
-"Introducir aquí la letra que se propondrá. La primera letra debe ser la "
+"Introduce aquí la letra que se propondrá. La primera letra debe ser la "
 "solución."
 
 #: ../src/missing_letter-activity/missing_letter.xml.in.h:1
@@ -8075,12 +8178,17 @@ msgstr "Reconstruye el mosaico"
 msgid ""
 "These are the eight basic notes in treble clef. They form the C Major Scale."
 msgstr ""
+"Estas son las ocho notas básica en clave de Sol. Forman la escala mayor de "
+"Do."
 
 #: ../src/note_names-activity/note_names.py:130
 msgid ""
 "These are the eight basic notes in bass clef. They also form the C Major "
 "Scale. Notice that the note positions are different than in treble clef."
 msgstr ""
+"Estas son las ocho notas básica en clave de Fa. Forman la escala mayor de "
+"Do. Ten en cuenta que las posiciones de las notas son diferentes que las de "
+"la clave de Sol."
 
 #: ../src/note_names-activity/note_names.py:144
 msgid "Play Scale"
@@ -8088,35 +8196,38 @@ msgstr "Reproducir escala"
 
 #: ../src/note_names-activity/note_names.py:151
 msgid "Play Treble Clef Game"
-msgstr ""
+msgstr "Jugar a la clave de Sol"
 
 #: ../src/note_names-activity/note_names.py:153
 msgid "Play Bass Clef Game"
-msgstr ""
+msgstr "Jugar a la clave de Fa"
 
 #: ../src/note_names-activity/note_names.py:184
 msgid "Click on the note name to match the pitch. Then click ok to check."
 msgstr ""
+"Pulsa sobre el nombre de la nota para que coincida con el tono. Luego pulsa "
+"Aceptar para comprobar."
 
 #: ../src/note_names-activity/note_names.py:186
 msgid "Now there are sharp notes. These pitches are raised a half step."
-msgstr ""
+msgstr "Ahora vienen las notas sostenidas. Los tonos se han subido 1/2 tono."
 
 #: ../src/note_names-activity/note_names.py:188
 msgid "Now there are flat notes. These pitches are lowered a half step."
-msgstr ""
+msgstr "Ahora vienen las notas sostenidas. Los tonos se han bajado 1/2 tono."
 
 #: ../src/note_names-activity/note_names.py:194
 msgid "Click the note to hear it played"
-msgstr ""
+msgstr "Pulsa en una nota para escucharla"
 
 #: ../src/note_names-activity/note_names.py:247
 msgid "Need a hint? Click here for color-coded note names."
 msgstr ""
+"¿Necesitas una pista? Pulsa aquí para ver los códigos de color de las notas."
 
 #: ../src/note_names-activity/note_names.py:250
 msgid "Ready for a challenge? Color all buttons black!"
-msgstr ""
+msgstr "¿Listo para el desafío? ¡Pinta todos los botones de negro!"
 
 #: ../src/note_names-activity/note_names.xml.in.h:1
 msgid "Name that Note!"
@@ -8127,12 +8238,16 @@ msgid ""
 "Learn the names of the notes, in bass and treble clef, with the help of "
 "sounds and colors"
 msgstr ""
+"Aprende los nombres de las notas, en las claves de Sol y de Fa, con la ayuda "
+"de sonidos y colores"
 
 #: ../src/note_names-activity/note_names.xml.in.h:4
 msgid ""
 "To develop a good understanding of note position and naming convention. To "
 "prepare for the piano player and composition activity"
 msgstr ""
+"Desarrollar un buen conocimiento de la posición de la nota y de su nombre. "
+"Prepararse para el reproductor de piano y la actividad de composición"
 
 #: ../src/note_names-activity/note_names.xml.in.h:5
 msgid ""
@@ -8142,6 +8257,11 @@ msgid ""
 "over the note, and the pitch names can be color coded.\n"
 "        "
 msgstr ""
+"Los niveles 1 y 11 introducen dos pentagramas diferentes con la escala de Do "
+"mayor. En los siguientes niveles, se juega con los nombres de las notas. "
+"Para ayudar a aprender los nombres, se reproducen los tonos de las notas "
+"cuando se pasa el ratón por encima de la nota, y los nombres se pueden "
+"colorear."
 
 #: ../src/paintings-activity/paintings.xml.in.h:1
 msgid "Assemble the puzzle"
@@ -8436,32 +8556,34 @@ msgstr "Si♭"
 
 #: ../src/piano_composition-activity/gcomprismusic.py:284
 msgid "The staff is full. Please erase some notes"
-msgstr ""
+msgstr "El pentagrama está completo. Borra algunas notas"
 
 #: ../src/piano_composition-activity/piano_composition.py:121
 msgid "This is the Treble clef staff, for high pitched notes"
-msgstr ""
+msgstr "Este es el pentagrama de la clave de Sol, para notas agudas"
 
 #: ../src/piano_composition-activity/piano_composition.py:122
 msgid "These are the 8 \"white\" keys in an octave"
-msgstr ""
+msgstr "Estas son las 8 notas «blancas» en una octava"
 
 #: ../src/piano_composition-activity/piano_composition.py:124
 msgid "This is the Bass clef staff, for low pitched notes"
-msgstr ""
+msgstr "Este es el pentagrama de la clave de Fa, para notas graves"
 
 #: ../src/piano_composition-activity/piano_composition.py:125
 msgid "These keys form the C Major scale"
-msgstr ""
+msgstr "Estas notas forman la escala mayor de Do"
 
 #: ../src/piano_composition-activity/piano_composition.py:127
 msgid "Click on the note symbols to write different length notes"
 msgstr ""
+"Pulsa sobre los símbolos de las notas para escribir notas de diferente "
+"duración"
 
 #: ../src/piano_composition-activity/piano_composition.py:128
 msgid ""
 "Notes can be many types, such as quarter notes, half notes, and whole notes"
-msgstr ""
+msgstr "Las notas puede ser de varios tipos, como negras, blancas y redondas"
 
 #: ../src/piano_composition-activity/piano_composition.py:130
 msgid "Sharp notes have a # sign"
@@ -8469,23 +8591,23 @@ msgstr "Las notas sostenidas tienen el símbolo «#»"
 
 #: ../src/piano_composition-activity/piano_composition.py:131
 msgid "The black keys are sharp and flat keys"
-msgstr ""
+msgstr "Las notas negras tienen sostenidos y bemoles"
 
 #: ../src/piano_composition-activity/piano_composition.py:133
 msgid "Flat notes have a b sign"
-msgstr "Las notas bemoles tienen una «b»"
+msgstr "Las notas bemoles tienen una «♭»"
 
 #: ../src/piano_composition-activity/piano_composition.py:134
 msgid "Each black key has two names, one with a flat and one with a sharp"
-msgstr ""
+msgstr "Cada tecla negra tiene dos nombres, uno con bemol y otro con sostenido"
 
 #: ../src/piano_composition-activity/piano_composition.py:136
 msgid "Now you can load melodies from around the world"
-msgstr ""
+msgstr "Ahora puedes cargar melodías de todo el mundo"
 
 #: ../src/piano_composition-activity/piano_composition.py:139
 msgid "Compose music now! You can now load and save your work"
-msgstr ""
+msgstr "¡Compón música! Ahora puedes cargar y guardar tu trabajo"
 
 #: ../src/piano_composition-activity/piano_composition.py:174
 msgid "Erase All Notes"
@@ -8501,7 +8623,7 @@ msgstr "Reproducir composición"
 
 #: ../src/piano_composition-activity/piano_composition.py:207
 msgid "Erase and Change Clef"
-msgstr ""
+msgstr "Borrar y cambiar la clave"
 
 #: ../src/piano_composition-activity/piano_composition.py:218
 msgid "Change Note Type:"
@@ -8537,7 +8659,7 @@ msgstr "Cargar música"
 
 #: ../src/piano_composition-activity/piano_composition.py:325
 msgid "Change Accidental Style:"
-msgstr ""
+msgstr "Cambiar la tonalidad:"
 
 #: ../src/piano_composition-activity/piano_composition.py:383
 msgid "Select A Melody to Load"
@@ -8553,12 +8675,17 @@ msgid ""
 "a musical staff and explore music composition by loading and saving your "
 "work."
 msgstr ""
+"Una actividad para aprender cómo funciona el piano, cuántas notas hay "
+"escritas en un pentagrama y para explorar la composición musical cargando y "
+"guardando tu trabajo."
 
 #: ../src/piano_composition-activity/piano_composition.xml.in.h:3
 msgid ""
 "Familiarity with note naming convensions, note-names activity useful to "
 "learn this notation."
 msgstr ""
+"Familiaridad con los convenios de nombrado de notas, la actividad de "
+"nombrado de notas es útil para aprender esta notación."
 
 #: ../src/piano_composition-activity/piano_composition.xml.in.h:4
 msgid ""
@@ -8569,6 +8696,12 @@ msgid ""
 "MuseScore (http://musescore.org/en/download), an open source music notation "
 "tool."
 msgstr ""
+"Desarrolla y entender una composición musical y aumentar el interés en hacer "
+"música con un piano. Esta actividad cubre los principales aspectos de la "
+"música, pero hay mucho que explorar sobre la composición musical. Si te "
+"gusta esta actividad, pero quieres una herramienta más avanzada, prueba a "
+"descargar MuseScore (http://musescore.org/es/descarga), una herramienta "
+"libre de notación musical."
 
 #: ../src/piano_composition-activity/piano_composition.xml.in.h:5
 msgid ""
@@ -8606,22 +8739,56 @@ msgid ""
 "  F4: G# / Ab\n"
 "  F5: A# / Bb\n"
 msgstr ""
+"Esta actividad tiene varios niveles, y cada nivel añade una nueva "
+"funcionalidad respecto al nivel anterior.\n"
+"Nivel 1: piano básico (sólo teclas blancas). Los estudiantes puede "
+"experimentar pulsando las teclas coloreadas para escribir música\n"
+"Nivel 2: el pentagrama cambia a clave de Fa, por lo que las notas son más "
+"graves que en el nivel anterior\n"
+"Nivel 3: opción para elegir entre clave de Sol y clave de Fa. También se "
+"incluye la posibilidad de seleccionar la duración de la nota (negra, blanca "
+"o redonda)\n"
+"Nivel 4: se añaden notas negras (sostenidos)\n"
+"Nivel 5: notación de bemoles para notas negras\n"
+"Nivel 6: cargar melodías infantiles de todo el mundo\n"
+"Nivel 7: todas las características disponibles, permitiendo además cargar y "
+"guardar tu composición\n"
+"\n"
+"Están disponibles las siguientes combinaciones de teclas en esta actividad:\n"
+"- retroceso: borrar una nota\n"
+"- suprimir: borrar todas las notas\n"
+"- barra espaciadora: reproducir la composición\n"
+"- teclas de números:\n"
+"..1: Do\n"
+"  2: Re\n"
+"  3: Mi\n"
+"  4: Fa\n"
+"  5: Sol\n"
+"  6: La\n"
+"  7: Si\n"
+"  8: Do (una octava más arriba)\n"
+"  etc.\n"
+"  F1: Do# / Re♭\n"
+"  F2: Re# / Mi♭\n"
+"  F3: Fa# / Sol♭\n"
+"  F4: Sol# / La♭\n"
+"  F5: La# / Si♭\n"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:1
 msgid " America: English Lullaby"
-msgstr ""
+msgstr " Estados Unidos: canción de cuna inglesa"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:2
 msgid " America: Patriotic"
-msgstr ""
+msgstr " Estados Unidos: patriótica"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:3
 msgid " America: Shaker Tune"
-msgstr ""
+msgstr " Estados Unidos: melodía «shaker»"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:4
 msgid " America: Nursery Rhyme"
-msgstr ""
+msgstr " Estados Unidos: canción de cuna"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:7
 msgid " Spain"
@@ -8653,11 +8820,11 @@ msgstr " Brasil"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:14
 msgid " Hungary, Nursery Rhyme"
-msgstr ""
+msgstr " Hungría, canción de cuna"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:15
 msgid " Hungary, Children's Song"
-msgstr " Canción infantil húngara"
+msgstr " Hungría, canción infantil"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:16
 msgid " Serbia"
@@ -8692,28 +8859,32 @@ msgid ""
 "Click anywhere on the screen to place the satellite at a distance from the "
 "planet."
 msgstr ""
+"Pulsa en cualquier lugar de la pantalla para colocar el satélite a cierta "
+"distancia del planeta."
 
 #: ../src/place_your_satellite-activity/place_your_satellite.py:70
 msgid ""
 "Then click on the satellite and drag a line that sets the speed of the "
 "satellite"
 msgstr ""
+"Ahora pulsa sobre el satélite y arrastra una línea para establecer la "
+"velocidad del satélite"
 
 #: ../src/place_your_satellite-activity/place_your_satellite.py:267
 msgid "Satellite goes too fast"
-msgstr ""
+msgstr "El satélite va muy rápido"
 
 #: ../src/place_your_satellite-activity/place_your_satellite.py:269
 msgid "Satellite goes too slow"
-msgstr ""
+msgstr "El satélite va muy despacio"
 
 #: ../src/place_your_satellite-activity/place_your_satellite.py:296
 msgid "Satellite is crashing"
-msgstr ""
+msgstr "El satélite se estrella"
 
 #: ../src/place_your_satellite-activity/place_your_satellite.py:330
 msgid "Satellite not in orbit"
-msgstr ""
+msgstr "El satélite no está en órbita"
 
 #: ../src/place_your_satellite-activity/place_your_satellite.py:394
 msgid "Speed"
@@ -8725,11 +8896,11 @@ msgstr "Coloca tu satélite"
 
 #: ../src/place_your_satellite-activity/place_your_satellite.xml.in.h:2
 msgid "Understanding effect of mass and distance on orbital velocity."
-msgstr ""
+msgstr "Entender el efecto de la masa y la distancia en la velocidad orbital."
 
 #: ../src/place_your_satellite-activity/place_your_satellite.xml.in.h:3
 msgid "Make sure the satellite does not crash or fly away"
-msgstr ""
+msgstr "Asegúrate de que el satélite no se estrella ni sale volando"
 
 #: ../src/place_your_satellite-activity/place_your_satellite.xml.in.h:4
 msgid ""
@@ -8748,6 +8919,12 @@ msgid ""
 "orbit and thus the satellite flies away due to it's own inertia.\n"
 "        "
 msgstr ""
+"\n"
+"Un satélite gira alrededor de la Tierra a causa de la fuerza existente entre "
+"ellos. La velocidad orbital de un satélite de la Tierra es directamente "
+"proporcional a la raíz cuadrada de la masa de la Tierra e inversamente "
+"proporcional a la raíz cuadrada de la distancia desde el centro de la Tierra "
+"hasta el satélite.\n"
 
 #: ../src/planegame-activity/planegame.c:62
 #: ../src/planegame-activity/planegame.xml.in.h:1
@@ -8805,12 +8982,15 @@ msgid ""
 "knowledge of musical notation and musical staff. Play piano_composition "
 "first."
 msgstr ""
+"conocimiento de la notación musical y del pentagrama. Juega primero a "
+"componer con el piano."
 
 #: ../src/play_piano-activity/play_piano.xml.in.h:4
 msgid ""
 "understand how the piano keyboard can play music as written on the musical "
 "staff"
 msgstr ""
+"entender cómo el piano puede reproducir la música escrita en un pentragrama"
 
 #: ../src/play_piano-activity/play_piano.xml.in.h:5
 msgid ""
@@ -8843,43 +9023,74 @@ msgid ""
 "  - F4: G# / Ab\n"
 "  - F5: A# / Bb\n"
 msgstr ""
+"Las notas que ves se reproducirán. Pulsa sobre las teclas correspondientes "
+"en el teclado para que coincida la nota que escuchas con la que ves. Todos "
+"los niveles, excepto el último, tienen las notas coloreadas, por lo que "
+"puedes hacer coincidir las notas con los colores del teclado. Cada nivel "
+"aumenta la dificultad añadiendo más notas.- Los niveles 1-6 prueban la clave "
+"de Sol, y los niveles 7-12 la clave de Fa. Cuando consigues cinco puntos, "
+"pasas al siguiente nivel (las respuestas incorrectas restan puntos y las "
+"correctas los suman).\n"
+"\n"
+"Están disponibles las siguientes combinaciones de teclas en esta actividad:\n"
+"- retroceso: borrar intento\n"
+"- suprimir: borrar intento\n"
+"- intro: botón «Aceptar» \n"
+"- barra espaciadora: reproducir\n"
+"- teclas de números:\n"
+"..1: Do\n"
+"  2: Re\n"
+"  3: Mi\n"
+"  4: Fa\n"
+"  5: Sol\n"
+"  6: La\n"
+"  7: Si\n"
+"  8: Do (una octava más arriba)\n"
+"  etc.\n"
+"  F1: Do# / Re♭\n"
+"  F2: Re# / Mi♭\n"
+"  F3: Fa# / Sol♭\n"
+"  F4: Sol# / La♭\n"
+"  F5: La# / Si♭\n"
 
 #: ../src/play_rhythm-activity/play_rhythm.py:115
-#, fuzzy
 msgid "Beat Count:"
-msgstr "Puedes contar"
+msgstr "Seguir el ritmo:"
 
 #: ../src/play_rhythm-activity/play_rhythm.py:139
 msgid "Beat the rhythm on this drum."
-msgstr ""
+msgstr "Sigue el ritmo de esta batería."
 
 #: ../src/play_rhythm-activity/play_rhythm.py:150
 msgid "For a little help, click the metronome to hear the tempo."
 msgstr ""
+"Para obtener una pequeña ayuda, pulsa sobre el metrónomo para escuchar el "
+"tempo."
 
 #: ../src/play_rhythm-activity/play_rhythm.py:342
-#, fuzzy
 msgid "Listen to the rhythm and follow the moving line."
-msgstr "1. Escucha el ritmo y sigue la línea en movimiento."
+msgstr "Escucha el ritmo y sigue la línea en movimiento."
 
 #: ../src/play_rhythm-activity/play_rhythm.py:344
 msgid "Click the drum to the tempo. Watch the vertical line when you start."
 msgstr ""
+"Pulsa sobre la batería para ver el tempo. Observa la línea vertical cuando "
+"empieces."
 
 #: ../src/play_rhythm-activity/play_rhythm.py:345
 msgid "You can use the space bar to drum the tempo."
-msgstr ""
+msgstr "Puedes usar la barra espaciadora para reproducir el tempo."
 
 #: ../src/play_rhythm-activity/play_rhythm.py:348
 msgid ""
 "Now, read the rhythm. It won't be played for you. Then, beat the rhythm on "
 "the drum."
 msgstr ""
+"Ahora, lee el ritmo. No se reproducirá. Luego, toca el ritmo en la batería."
 
 #: ../src/play_rhythm-activity/play_rhythm.py:351
-#, fuzzy
 msgid "Click erase to try again."
-msgstr "Pulsa sobre el globo para volver a posicionarlo."
+msgstr "Pulsa «borrar» para intentarlo otra vez."
 
 #: ../src/play_rhythm-activity/play_rhythm.xml.in.h:1
 msgid "Play Rhythm"
@@ -8891,13 +9102,15 @@ msgstr "Aprender a escuchar, leer y tocar ritmos musicales."
 
 #: ../src/play_rhythm-activity/play_rhythm.xml.in.h:3
 msgid "Simple understanding of musical rhythm and beat."
-msgstr ""
+msgstr "Conocimiento sencillo del ritmo musical."
 
 #: ../src/play_rhythm-activity/play_rhythm.xml.in.h:4
 msgid ""
 "Learn to beat rhythms precisely and accurately based on what you see and "
 "hear."
 msgstr ""
+"Aprende a tocar ritmos de manera precisa y certera basándote en lo que ves y "
+"escuchas."
 
 #: ../src/play_rhythm-activity/play_rhythm.xml.in.h:5
 msgid ""
@@ -8915,6 +9128,20 @@ msgid ""
 "bindings work in this game: - backspace: erase attempt - delete: erase "
 "attempt - enter/return: ok button - space bar: play"
 msgstr ""
+"Es un juego relativamente difícil de dominar, así que buena suerte. Escucha "
+"el ritmo reproducido y síguelo durante la música. Si quieres volver a "
+"escucharlo, pulsa el botón de reproducción. Cuando estés preparado para "
+"repetir el ritmo idéntico, pulsa sobre la batería y luego pulsa el botón "
+"«Aceptar». Si has pulsado correctamente y en el tempo correcto, se mostrará "
+"otro ritmo. Si no, inténtalo otra vez. En cada nivel se muestra una línea "
+"vertical de reproducción cuando pulsas sobre la batería, para ayudarte a ver "
+"cuando debes pulsar el siguiente ritmo. Pulsa sobre la batería cuando la "
+"línea está en medio de las notas. Los niveles impares son más difíciles, ya "
+"que no tienen esta línea vertical. El ritmo no se reproducirá. Debes leer el "
+"ritmo y tocarlo a tempo. Pulsa sobre el metrónomo para escuchar el tempo de "
+"las negras. Durante el juego, están disponibles las siguientes asociaciones "
+"de teclas: retroceso: borrar intento; suprimir: borrar intento; intro: botón "
+"«Aceptar»: barra espaciadora: reproducir"
 
 #: ../src/pythontemplate-activity/pythontemplate.py:62
 #: ../src/pythontest-activity/pythontest.py:182
@@ -9185,7 +9412,7 @@ msgid ""
 msgstr ""
 "Pulsa en el dado para mostrar cuántos puntos de hielo hay entre Tux y el "
 "pescado. Pulsa en el dado con el botón derecho del ratón para contar hacia "
-"atrás. Cuando termines, pulsa sobre el botón Aceptar o la tecla Retorno del "
+"atrás. Cuando termines, pulsa sobre el botón Aceptar o la tecla Intro del "
 "teclado."
 
 #: ../src/scalesboard-activity/scale.c:295
@@ -9434,7 +9661,7 @@ msgstr "En un tiempo limitado, cuenta la cantidad de puntos"
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:5
 #: ../src/smallnumbers-activity/smallnumbers.xml.in.h:5
 msgid "With the keyboard, type the number of dots you see on the falling dice."
-msgstr "Con el teclado, teclea el número de puntos en el dado que cae."
+msgstr "Con el teclado, escribe el número de puntos en el dado que cae."
 
 #: ../src/smallnumbers-activity/smallnumbers.xml.in.h:1
 msgid "Numbers With Dice"
@@ -9507,7 +9734,7 @@ msgid ""
 msgstr ""
 "Para el primer nivel con símbolos de colores, selecciona un símbolo de la "
 "izquierda a su posición correspondiente. Para los niveles más altos, pulsa "
-"en una casilla vacía para darle el foco de teclado. Después introduce un "
+"en una casilla vacía para darle el foco del teclado. Después introduce un "
 "número o letra posible. GCompris no te dejará introducir datos no válidos."
 
 #: ../src/superbrain-activity/superbrain.c:110
@@ -9724,7 +9951,7 @@ msgstr "Lanzar Tuxpaint"
 
 #: ../src/tuxpaint-activity/tuxpaint.xml.in.h:3
 msgid "mouse and keyboard manipulation"
-msgstr "Manipulación del teclado y el ratón"
+msgstr "manipulación del teclado y el ratón"
 
 #: ../src/tuxpaint-activity/tuxpaint.xml.in.h:4
 msgid "Drawing activity (pixmap)"
