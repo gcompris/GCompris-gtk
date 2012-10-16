@@ -546,8 +546,8 @@ class Gcompris_sudoku:
             y = y_init + square_height * y,
             width = square_width,
             height = square_height,
-            line_width = 1.0,
-            stroke_color_rgba = 0x144B9DFFL
+            line_width = 2.0,
+            stroke_color_rgba = 0x000000FFL
             )
         line_square.append(item)
         if text == '':
