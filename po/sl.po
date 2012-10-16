@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2012-10-16 03:49+0000\n"
-"PO-Revision-Date: 2012-10-16 08:25+0100\n"
+"PO-Revision-Date: 2012-10-16 11:33+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
@@ -97,7 +97,7 @@ msgstr "Pojdi na poskusne dejavnosti"
 
 #: ../boards/experimental.xml.in.h:2
 msgid "Run gcompris --experimental to see this menu."
-msgstr "Za ogled tega menija poženite gcompris --experimental."
+msgstr "Za ogled tega menija je treba zagnati ukaz gcompris --experimental."
 
 #: ../boards/fun.xml.in.h:1
 msgid "Go to Amusement activities"
@@ -1182,7 +1182,7 @@ msgstr "Naloži ..."
 
 #: ../src/anim-activity/anim.py:115
 msgid "Run the animation"
-msgstr "Poženi animacijo"
+msgstr "Zaženi animacijo"
 
 #: ../src/anim-activity/anim.py:121
 msgid "Select"
@@ -1438,7 +1438,7 @@ msgstr "Dejavnost treninga logike"
 
 #: ../src/bargame-activity/bargame.xml.in.h:5
 msgid "Place balls in the holes. You win if the computer has to place the last ball. If you want Tux to begin, just click on him."
-msgstr "Postavi žoge v luknje. Zmagaš, če mora računalnik postaviti zadnjo žogo. Če želiš da začne Pigno, klikni nanj."
+msgstr "Postavi žoge v luknje. Zmagaš, če mora računalnik postaviti zadnjo žogo. Če želiš, da začne Pingo, klikni nanj."
 
 #: ../src/billard-activity/billard.c:89
 #: ../src/erase-activity/erase.c:85
@@ -1664,11 +1664,11 @@ msgstr "Upravljaj z zapornico kanala"
 
 #: ../src/canal_lock-activity/canal_lock.xml.in.h:2
 msgid "Tux is in trouble, and needs to take his boat through a lock. Help Tux and find out how a canal lock works."
-msgstr "Pingo je v težavah, ker ne ve, kako priti skozi zapornice. Ugotovi kako jih odpreti in mu pomagaj."
+msgstr "Pingo je v težavah, ker ne ve, kako priti skozi zapornice. Ugotovi, kako jih odpreti in mu pomagaj."
 
 #: ../src/canal_lock-activity/canal_lock.xml.in.h:3
 msgid "You are in charge of the canal lock. Open the gates and the locks in the right order, so Tux can travel through the gates in both directions."
-msgstr "Si vodja zapornice kanala. Odpri vrata in ključavnice v pravilnem vrstnem redu, da gre Pingo lahko skozi vrata v obse smeri."
+msgstr "Si vodja zapornice kanala. Odpri vrata in ključavnice v pravilnem vrstnem redu, da gre Pingo lahko skozi vrata v obe smeri."
 
 #: ../src/canal_lock-activity/canal_lock.xml.in.h:4
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:4
@@ -1816,7 +1816,7 @@ msgstr "Pripoved kratke zgodbe"
 
 #: ../src/chronos-activity/chronos.xml.in.h:6
 msgid "Moon photo is copyright NASA. The space sounds come from Tuxpaint and Vegastrike which are released under the GPL license. The transportation images are copyright Franck Doucet. Dates of Transportation are based on those found in &lt;http://www.wikipedia.org&gt;."
-msgstr "Fotografija lune je last agencije NASA. Zvoki vesolja so iz Tuxpaint in Vegastrike, ki sta izdana pod licenco GPL. Lastnik avtorskih pravic slik transporta je Franck Doucet. Datumi transporta so osnovani na datumih najdenih na &lt;http://www.wikipedia.org&gt;."
+msgstr "Fotografija lune je last agencije NASA. Zvoki vesolja so iz Tuxpaint in Vegastrike, ki sta izdana z dovoljenjem GPL. Lastnik avtorskih pravic slik transporta je Franck Doucet. Datumi transporta so osnovani na datumih najdenih na &lt;http://www.wikipedia.org&gt;."
 
 #: ../src/chronos-activity/resources/chronos/board1_0.xml.in.h:1
 msgid "Moonwalker"
@@ -3260,7 +3260,7 @@ msgstr "arabski"
 
 #: ../src/gcompris/config.c:63
 msgid "Asturian"
-msgstr "Asturščina"
+msgstr "asturski"
 
 #: ../src/gcompris/config.c:64
 msgid "Basque"
@@ -3293,7 +3293,7 @@ msgstr "hrvaški"
 #: ../src/gcompris/config.c:71
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:7
 msgid "Czech Republic"
-msgstr "Češka"
+msgstr "češki"
 
 #: ../src/gcompris/config.c:72
 msgid "Danish"
@@ -3305,7 +3305,7 @@ msgstr "nizozemski"
 
 #: ../src/gcompris/config.c:74
 msgid "Dzongkha"
-msgstr "Džonkha"
+msgstr "džonkška"
 
 #: ../src/gcompris/config.c:75
 msgid "English (Canada)"
@@ -3405,7 +3405,7 @@ msgstr "maratski"
 
 #: ../src/gcompris/config.c:99
 msgid "Montenegrin"
-msgstr "Črna gora"
+msgstr "črnogorski"
 
 #: ../src/gcompris/config.c:100
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:37
@@ -3414,11 +3414,11 @@ msgstr "nepalski"
 
 #: ../src/gcompris/config.c:101
 msgid "Norwegian Bokmal"
-msgstr "norveški bokmal"
+msgstr "norveški"
 
 #: ../src/gcompris/config.c:102
 msgid "Norwegian Nynorsk"
-msgstr "norveški norsk"
+msgstr "novonorveški"
 
 #: ../src/gcompris/config.c:103
 msgid "Occitan (languedocien)"
@@ -3490,7 +3490,7 @@ msgstr "tajski"
 
 #: ../src/gcompris/config.c:120
 msgid "Turkish (Azerbaijan)"
-msgstr "Azerbajdžanski"
+msgstr "azerbajdžanski"
 
 #: ../src/gcompris/config.c:121
 msgid "Turkish"
@@ -3514,7 +3514,7 @@ msgstr "valonski"
 
 #: ../src/gcompris/config.c:126
 msgid "Zulu"
-msgstr "Zulujščina"
+msgstr "zulujščina"
 
 #: ../src/gcompris/config.c:131
 msgid "Timer: No time limit"
@@ -3642,35 +3642,35 @@ msgstr "Natisni različico "
 
 #: ../src/gcompris/gcompris.c:181
 msgid "Run GCompris with local menu (e.g -l /reading will let you play only activities in the reading directory, -l /strategy/connect4 only the connect4 activity). Use '-l list' to list all the availaible activities and their descriptions."
-msgstr "Poženi GCompris s krajevnim menijem (na primer -l /reading dovoli le igranje delavnosti v mapi branje, -l /strategy/connect4 le dejavnost 4 v vrsto). Uporabi '-l list' za seznam vseh dostopnih dejavnosti in njihovih opisov."
+msgstr "Zaženi program GCompris s krajevnim menijem (na primer -l /reading dovoli le igranje delavnosti v mapi branje, -l /strategy/connect4 le dejavnost 4 v vrsto). Uporabi '-l list' za seznam vseh dostopnih dejavnosti in njihovih opisov."
 
 #: ../src/gcompris/gcompris.c:186
 msgid "GCompris will find the data dir in this directory"
-msgstr "GCompris bo v tej mapi našel mapo podatkov"
+msgstr "Program GCompris bo v tej mapi našel mapo podatkov"
 
 #: ../src/gcompris/gcompris.c:189
 msgid "GCompris will find the skins in this directory"
-msgstr "GCompris bo v tej mapi našel preobleke"
+msgstr "Program GCompris bo v tej mapi našel preobleke"
 
 #: ../src/gcompris/gcompris.c:192
 msgid "GCompris will find the activity plugins in this directory"
-msgstr "GCompris bo v tej mapi našel vstavke dejavnosti"
+msgstr "Program GCompris bo v tej mapi našel vstavke dejavnosti"
 
 #: ../src/gcompris/gcompris.c:195
 msgid "GCompris will find the Python activity in this directory"
-msgstr "Program GCompris bo iskal dejavnosti python v tej mapi"
+msgstr "Program GCompris bo iskal dejavnosti Python v tej mapi"
 
 #: ../src/gcompris/gcompris.c:198
 msgid "GCompris will find the locale file (.mo translation) in this directory"
-msgstr "GCompris bo v tej mapi našel datoteko jezikovne oznake (prevod .mo)"
+msgstr "Program GCompris bo v tej mapi našel datoteko jezikovne datoteke (prevodi .mo)"
 
 #: ../src/gcompris/gcompris.c:201
 msgid "GCompris will find the activities menu in this directory"
-msgstr "GCompris bo v tej mapi našel meni dejavnosti"
+msgstr "Program GCompris bo v tej mapi našel meni dejavnosti"
 
 #: ../src/gcompris/gcompris.c:204
 msgid "Run GCompris in administration and user-management mode"
-msgstr "Zaženi GCompris v načinu skrbništva in upravljanja uporabnikov "
+msgstr "Zaženi GCompris v skrbniškem načinu"
 
 #: ../src/gcompris/gcompris.c:207
 msgid "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite.db]"
@@ -3742,7 +3742,7 @@ msgstr "Kako čas zakasnitve dejavnosti rastejo za več igralcev. Uporabne vredn
 
 #: ../src/gcompris/gcompris.c:258
 msgid "For test purpose, run in a loop all the activities"
-msgstr "Za preizkusne namene. Požene vse dejavnosti v zanki"
+msgstr "Za preizkusne namene. Zažene vse dejavnosti v zanki"
 
 #: ../src/gcompris/gcompris.c:943
 #, c-format
@@ -3817,7 +3817,7 @@ msgstr "%s obstaja toda ni berljiv ali zapisljiv"
 #: ../src/gcompris/gcompris.c:1981
 #, c-format
 msgid "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list available ones\n"
-msgstr "NAPAKA: Profila '%s' ni mogoče najti. Poženi 'gcompris --profile-list' za seznam razpoložljivih profilov\n"
+msgstr "NAPAKA: Profila '%s' ni mogoče najti. Zaženi 'gcompris --profile-list' za seznam razpoložljivih profilov\n"
 
 #: ../src/gcompris/gcompris.c:1995
 #, c-format
@@ -5702,7 +5702,7 @@ msgstr "0"
 
 #: ../src/land_safe-activity/land_safe.xml.in.h:1
 msgid "Land Safe"
-msgstr "Varno pristani"
+msgstr "Varno pristajanje"
 
 #: ../src/land_safe-activity/land_safe.xml.in.h:2
 msgid "Understanding acceleration due to gravity."
@@ -6006,7 +6006,7 @@ msgstr "Znanje uporabe tipkovnice za premikanje predmetov."
 #: ../src/maze-activity/maze.xml.in.h:4
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:4
 msgid "Help Tux get out of this maze."
-msgstr "Pomagaj Pingu ven iz labirinta."
+msgstr "Pomagaj Pingu najti izhod iz labirinta."
 
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:5
 msgid ""
@@ -6475,7 +6475,7 @@ msgid ""
 "\n"
 "Have fun! :)"
 msgstr ""
-"Če gledaš kamnito steno, lahko nekje zagledaš odblesk. Premakni kazalec miške k odblesku in uporabi miškin kolešček za primik. Če si skrajno blizu, se bo na mestu odbleska pojavila kepa zlata. Klikni zlato, da ga nabereš.\n"
+"Če gledaš kamnito steno, lahko nekje zagledaš odblesk. Premakni kazalec miške k odblesku in uporabi miškin kolešček za približanje. Če si skrajno blizu, se bo na mestu odbleska pojavila kepa zlata. Klikni zlato, da ga nabereš.\n"
 "\n"
 "Ko si pobral kepo zlata, se z miškinim koleščkom znova oddalji. Če si povsem daleč, se bo pojavil nov odblesk, ki nakazuje naslednjo zlato kepo za nabiranje. Zberi dovolj zlatih kep, da zaključiš raven.\n"
 "\n"
@@ -6756,7 +6756,7 @@ msgid ""
 "He gives you $ %d, please give back his change."
 msgstr ""
 "Pingo je v tvoji trgovini pravkar kupil nekaj predmetov.\n"
-"Dal ti je %d €, vrni mu njegov drobiž."
+"Dal ti je %d €, vrni mu drobiž."
 
 #: ../src/money-activity/money.xml.in.h:1
 #: ../src/money_cents-activity/money_cents.xml.in.h:1
@@ -6788,7 +6788,7 @@ msgstr "Za plačilo klikni na bankovec ali kovanec na dnu zaslona. Če želiš k
 
 #: ../src/money_back-activity/money_back.xml.in.h:1
 msgid "Give tux his change"
-msgstr "Daj Pingu njegov drobiž"
+msgstr "Vrni Pingu drobiž"
 
 #: ../src/money_back-activity/money_back.xml.in.h:2
 #: ../src/money_back_cents-activity/money_back_cents.xml.in.h:2
@@ -6802,7 +6802,7 @@ msgstr "Pingo je kupil različne stvari in ti dal denar. Vrniti mu moraš drobi�
 
 #: ../src/money_back_cents-activity/money_back_cents.xml.in.h:1
 msgid "Give tux his change, including cents"
-msgstr "Daj Pingu njegov drobižm vključno s centi"
+msgstr "Vrni Pingu njegov drobiž, vključno s centi"
 
 #: ../src/money_cents-activity/money_cents.xml.in.h:2
 msgid "Practice money usage including cents"
@@ -7020,7 +7020,7 @@ msgstr "To je igralna deska. Ne potrebuješ posebne spretnosti za igranje."
 
 #: ../src/paratrooper-activity/paratrooper.xml.in.h:4
 msgid "In this game, Tux the parachutist needs help to land safely on the fishing boat. He needs to allow for the wind direction and speed."
-msgstr "V tej igri, otroci pomagajo pingu s padalom varno pristati na ribiškem čolnu. Paziti je treba na smer in hitrost vetra."
+msgstr "V tej igri je treba pomagati Pingu s padalom varno pristati na ribiškem čolnu. Paziti je treba na smer in hitrost vetra."
 
 #: ../src/paratrooper-activity/paratrooper.xml.in.h:5
 msgid "Hit any key or click on the plane to make Tux jump. Hit another key or click on Tux to open the parachute."
@@ -7561,7 +7561,7 @@ msgstr "Nauči se natančno udarjati ritme po slišanem in videnem."
 
 #: ../src/play_rhythm-activity/play_rhythm.xml.in.h:5
 msgid "This is a relatively challenging game to master, so good luck. Listen to the rhythm played, and follow along with the music. If you would like to hear it again, click the play button. When you're ready to perform the identical rhythm, click the drum to the rhythm, then click the ok button. If you clicked correctly and in the right tempo, another rhythm is displayed. If not, you must try again. Even levels display a vertical playing line when you click the drum, which helps you see whene to click to follow the rhythm. Click on the drum when the line is in the middle of the notes. Odd levels are harder, because there is no vertical playing line. The rhythm will not be played for you. You must read the rhythm, and click it back in tempo. Click the metronome to hear the quarter note tempo. The following keyboard bindings work in this game: - backspace: erase attempt - delete: erase attempt - enter/return: ok button - space bar: play"
-msgstr ""
+msgstr "Igra je precej zahtevna. Prisluhniti je treba predvajanemu ritmu in mu slediti ob glasbi. Ritem je s pritiskom na gumb za predvajanje mogoče večkrat poslušati. Ko si prepričan, da znaš ritem ponoviti, ga poskusi s klikanjem z miško zaigrati. Nato pritisniti gumb V redu. Če ti je uspelo ritem ponoviti dovolj natančno, se začne predvajati nov ritem. Če ti ni uspelo, moraš poskusiti  znova. Na vsaki sodi ravni je prikazana navpična črta, ki ponazarja ritem. S tem si je mogoče pomagati pri sledenju ritmu. Na boben je treba klikniti, ko je črta na sredini note. Pri lihih ravneh je ta naloga težja, saj ni pomoči navpične črte in ritem ni zaigran. Tega je treba prebrati iz zapisa in ga zaigrati. S klikom na metronom se začne predvajati četrtinski takt. Med igro so na voljo nekatere tipkoven bližnjice: - povratnica: izbriše poskus - brisalka: izbriše poskus - vnosna tipka: potrditev, v redu - preslednica: predvajanje ritma"
 
 #: ../src/pythontemplate-activity/pythontemplate.py:62
 #: ../src/pythontest-activity/pythontest.py:182
