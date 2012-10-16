@@ -6,9 +6,9 @@
 # Susana González <sgonzalez@igalia.com>, 2007.
 # Copyright © 2000-2003, 2006, 2007, 2008, 2010 the Free Software Foundation, Inc.
 # This file is distributed under the same license as the gcompris package.
+# Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008, 2009, 2010.
 # Sylvia Sánchez <LailahFSF@gmail.com>, 2011.
-# Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008, 2009, 2010, 2011.
-# miguel rodriguez nuñez <bokerones.fritos@gmail.com>, 2012.
+# Chris Leonard <cjlhomeaddress@gmail.com>, 2012.
 # Daniel Mustieles <daniel.mustieles@gmail.com>, 2011, 2012.
 #
 msgid ""
@@ -16,20 +16,21 @@ msgstr ""
 "Project-Id-Version: gcompris.gcomprixogoo\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-10-08 00:17+0000\n"
-"PO-Revision-Date: 2012-10-13 13:17+0200\n"
+"POT-Creation-Date: 2012-10-16 06:35+0000\n"
+"PO-Revision-Date: 2012-10-16 14:09+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
-"Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
+"Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Gtranslator 2.91.5\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Generator: Virtaal 0.7.1\n"
+"X-Project-Style: gnome\n"
 
 #: ../boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
-msgstr "Ir a actividades de álgebra"
+msgstr "Ir a las actividades de álgebra"
 
 #: ../boards/algebra_group.xml.in.h:2 ../boards/menu.xml.in.h:2
 #: ../boards/money_group.xml.in.h:2
@@ -301,7 +302,7 @@ msgstr "Juegos de estrategia"
 
 #: ../boards/strategy.xml.in.h:2
 msgid "Strategy games like chess, connect4, ..."
-msgstr "Juegos de estrategia como ajedrez, conecta4..."
+msgstr "Juegos de estrategia como ajedrez, conecta4, ..."
 
 #: ../gcompris.desktop.in.h:1
 msgid "Educational suite GCompris"
@@ -608,13 +609,13 @@ msgstr ""
 "usado para leerlas, por ejemplo, y después el idioma usado para decir los "
 "nombres de los colores. \n"
 "- Puedes guardar configuraciones múltiples, y cambiar fácilmente entre "
-"ellas. En la sección «Perfil» añade un perfil, después en la sección "
-"«Tablero» selecciona el perfil en la lista desplegable, y después elige los "
-"tableros que quieres que estén activos. Puedes añadir un montón de perfiles, "
-"con diferentes listas de tableros, y diferentes idiomas. Puedes establecer "
-"el perfil por omisión en la sección «Perfil», eligiendo el perfil que "
-"quieras, y después pulsando el botón «Predeterminado». También puedes elegir "
-"un perfil desde la línea de comandos.\n"
+"ellas. En la sección «Perfil» añade un perfil, después en la sección «Tablero» "
+"selecciona el perfil en la lista desplegable, y después elige los tableros "
+"que quieres que estén activos. Puedes añadir un montón de perfiles, con "
+"diferentes listas de tableros, y diferentes idiomas. Puedes establecer el "
+"perfil por omisión en la sección «Perfil», eligiendo el perfil que quieras, y "
+"después pulsando el botón «Predeterminado». También puedes elegir un perfil "
+"desde la línea de comandos.\n"
 "- Puedes añadir usuarios, clases y para cada clase, puedes crear grupos de "
 "usuarios. Ten en cuenta que puedes importar usuarios de un archivo separado "
 "por comas. Asigna uno o más grupos a un perfil, y los nuevos identificadores "
@@ -817,7 +818,7 @@ msgid ""
 "One or more logins are not unique !\n"
 "You need to change them: %s !"
 msgstr ""
-"Hay uno o más usuarios que no son únicos.\n"
+"Hay uno o más usuarios que no son únicos\n"
 "Es necesario cambiarlos: %s"
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:1
@@ -1163,7 +1164,7 @@ msgid "+-×÷"
 msgstr "+-×÷"
 
 #: ../src/algebra_by-activity/algebra.c:411
-#: ../src/readingh-activity/reading.c:630
+#: ../src/findit-activity/findit.py:228 ../src/readingh-activity/reading.c:630
 msgid "I am Ready"
 msgstr "Estoy listo/a"
 
@@ -1444,11 +1445,11 @@ msgstr "Escoge una casa"
 
 #: ../src/awele-activity/awele.c:649
 msgid "Your turn to play ..."
-msgstr "Tu turno para jugar..."
+msgstr "Tu turno para jugar ..."
 
 #: ../src/awele-activity/awele.c:690
 msgid "Not allowed! Try again !"
-msgstr "No está permitido. Inténtalo de nuevo."
+msgstr "¡No permitido! ¡Prueba otra vez!"
 
 #: ../src/awele-activity/awele.xml.in.h:1
 msgid "Oware"
@@ -1469,12 +1470,12 @@ msgid ""
 "endless cycle, each player captures the seeds on their side of the board."
 msgstr ""
 "El objetivo del juego es capturar más semillas que el oponente. Debido a que "
-"el juego sólo tiene 48 semillas, capturar 25 es suficiente para lograrlo. "
-"Debido a que hay un número par de semillas, es posible empatar si cada "
+"el juego sólo tiene 48 semillas, capturar 25 es suficiente para lograr esto. "
+"Debido a que hay un número par de semillas, es posible el empate, si cada "
 "jugador captura 24. El juego se acaba cuando un jugador ha capturado 25 o "
-"más semillas o ambos jugadores han capturado 24 semillas cada uno (empate). "
-"Si ambos jugadores están de acuerdo en que el juego puede reducirse a un "
-"ciclo sin fin, cada jugador captura las semillas en su lado del tablero."
+"más semillas, o ambos jugadores han capturado 24 semillas cada uno (empate). "
+"Si ambos jugadores están de acuerdo el juego puede reducirse a un ciclo sin "
+"fin, cada jugador captura las semillas en su lado del tablero."
 
 #: ../src/awele-activity/awele.xml.in.h:4
 msgid ""
@@ -1767,40 +1768,39 @@ msgstr ""
 
 #: ../src/braille_alphabets-activity/braille_alphabets.py:200
 msgid "I am braille TUX"
-msgstr "Yo soy un TUX en Braille"
+msgstr "Yo soy un TUX Braille"
 
 #: ../src/braille_alphabets-activity/braille_alphabets.py:212
 msgid "When you are ready, click on me and try reproducing Braille characters."
 msgstr ""
-"Cuando esté listo, pulse en mí y trate de reproducir los caracteres Braille."
+"Cuando esté listo, pulse en mí, y trate de reproducir los caracteres Braille."
 
 #. Translators : Do not translate the token {letter}
 #: ../src/braille_alphabets-activity/braille_alphabets.py:299
 msgid "Click on the dots in braille cell area to produce the letter {letter}."
 msgstr ""
-"Pulse con el ratón los puntos del área de la celda de Braille para "
-"reproducir la letra {letter}."
+"Pulsa con el ratón en los puntos del área de la celda de Braille para "
+"reproducir las letras {letter}."
 
 #: ../src/braille_alphabets-activity/braille_alphabets.py:304
 msgid ""
 "Look at the Braille character map and observe how similar the first and "
 "second line are."
 msgstr ""
-"Mire el mapa de caracteres de Braille y observe cómo de parecidas son la "
-"primera y segunda líneas."
+"Mira el mapa de caracteres de Braille y observa cómo de parecidas son las "
+"líneas primera y segunda."
 
 #: ../src/braille_alphabets-activity/braille_alphabets.py:307
 msgid ""
 "Again, similar as the first line but take care, the 'W' letter was added "
 "afterwards."
 msgstr ""
-"Una vez más, similar a la primera línea pero tenga cuidado, la letra «W» se "
+"Una vez más, similar a la primera línea, pero ten cuidado, la letra «W» se "
 "añadió luego."
 
 #: ../src/braille_alphabets-activity/braille_alphabets.py:310
 msgid "This is easy, numbers are the same as letters from A to J."
-msgstr ""
-"Esto es fácil, los números son iguales a las letras desde la A hasta la J."
+msgstr "Esto es fácil, los números son iguales a las letras desde A hasta J."
 
 #: ../src/braille_alphabets-activity/braille_alphabets.py:329
 msgid "Braille Cell"
@@ -1808,7 +1808,7 @@ msgstr "Celda Braille"
 
 #: ../src/braille_alphabets-activity/braille_alphabets.py:351
 msgid "Click to confirm your selection of dots"
-msgstr "Pulse el ratón para confirmar la selección de puntos"
+msgstr "Pulsa con el ratón para confirmar la selección de puntos"
 
 #: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:2
 msgid "Learn and memorize the Braille system."
@@ -1839,7 +1839,7 @@ msgstr "Diversión Braille"
 
 #: ../src/braille_fun-activity/braille_fun.xml.in.h:2
 msgid "Braille the falling letters"
-msgstr "Escriba en Braille las letras que caen"
+msgstr "Escribe en Braille las letras que caen"
 
 #: ../src/braille_fun-activity/braille_fun.xml.in.h:3
 msgid "Braille Alphabet Codes"
@@ -1863,12 +1863,12 @@ msgstr "JUGADOR 2"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:151
 msgid "Check Number"
-msgstr "Comprobar número"
+msgstr "Verificar número"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:168
 #: ../src/braille_lotto-activity/braille_lotto.py:180
 msgid "Click me to get some hint"
-msgstr "Pulse con el botón del ratón mí para obtener alguna pista"
+msgstr "Pulsa con el botón del ratón sobre mí para obtener alguna pista"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:193
 msgid "I don't have this number PLAYER {number}"
@@ -1886,12 +1886,12 @@ msgstr "Genera un número"
 #: ../src/braille_lotto-activity/braille_lotto.py:296
 #: ../src/braille_lotto-activity/braille_lotto.py:319
 msgid "Hey, you have it. It is there in your {column} column"
-msgstr "Lo tienes tú. Está allí, en su columna {column}"
+msgstr "Esto lo tienes. Está allí, en su columna {column}"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:298
 #: ../src/braille_lotto-activity/braille_lotto.py:321
 msgid "Oops, this number is not in your ticket!"
-msgstr "Ups, este número no está en su papeleta."
+msgstr "¡Ups, este número no está en tu papeleta!"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:335
 msgid "1st"
@@ -1919,7 +1919,7 @@ msgstr "Felicidades jugador {player_id}, has ganado"
 
 #: ../src/braille_lotto-activity/braille_lotto.xml.in.h:1
 msgid "Braille Lotto"
-msgstr "Lotería de Braille"
+msgstr "Lotería Braille"
 
 #: ../src/braille_lotto-activity/braille_lotto.xml.in.h:2
 msgid "Discover the Braille system for numbers."
@@ -1933,10 +1933,10 @@ msgid ""
 "table by clicking on the toggle button in the control bar."
 msgstr ""
 "Cada jugador debe encontrar si el número propuesto se encuentra en su "
-"tablero. Si el código está en la tabla, pulsa el botón del ratón sobre él "
-"con el fin de validarlo. El jugador que cruce correctamente todos los "
-"números en Braille gana el juego. Consulte la tabla de Braille pulsando el "
-"botón en la barra de control."
+"tablero. Si el código está en la tabla, pulsa el botón del ratón sobre él, "
+"con el fin de validarla. El jugador que cruce correctamente todos los "
+"números en Braille, gana el juego. Consulta la tabla de Braille pulsando el "
+"botón del ratón, en el botón de alternar en la barra de control."
 
 #: ../src/canal_lock-activity/canal_lock.xml.in.h:1
 msgid "Operate a canal lock"
@@ -2028,7 +2028,7 @@ msgstr ""
 
 #: ../src/chess_computer-activity/chess.c:225
 msgid "Error: The external program gnuchess died unexpectedly"
-msgstr "Error: El programa externo gnuchess finalizó inesperadamente"
+msgstr "Error: el programa externo gnuchess finalizó inesperadamente"
 
 #: ../src/chess_computer-activity/chess.c:265
 #: ../src/chess_computer-activity/chess.c:311
@@ -2037,7 +2037,7 @@ msgid ""
 "to play chess in gcompris.\n"
 "First install it, and check it is in "
 msgstr ""
-"Error: El programa externo gnuchess es indispensable\n"
+"Error: el programa externo gnuchess es indispensable\n"
 "para jugar al ajedrez en gcompris.\n"
 "Instálalo primero, y verifique que éste se encuentre "
 
@@ -2504,31 +2504,31 @@ msgstr ""
 
 #: ../src/color_mix-activity/color_mix.py:72
 msgid "Match the color "
-msgstr ""
+msgstr "Iguala el color "
 
 #: ../src/color_mix-activity/color_mix.py:336
 #: ../src/color_mix-activity/color_mix.py:341
 #: ../src/color_mix-activity/color_mix.py:346
 msgid "Too much {color}"
-msgstr ""
+msgstr "Demasiado {color}"
 
 #: ../src/color_mix-activity/color_mix.py:338
 #: ../src/color_mix-activity/color_mix.py:343
 #: ../src/color_mix-activity/color_mix.py:348
 msgid "Not enough {color}"
-msgstr ""
+msgstr "Poco {color}"
 
 #: ../src/color_mix-activity/color_mix.xml.in.h:1
 msgid "Mixing color of paint"
-msgstr ""
+msgstr "Mezclando colores de pintura"
 
 #: ../src/color_mix-activity/color_mix.xml.in.h:2
 msgid "To understand color mixing."
-msgstr ""
+msgstr "Para entender la mezcla de colores."
 
 #: ../src/color_mix-activity/color_mix.xml.in.h:3
 msgid "Mix the primary colors to match to the given color"
-msgstr ""
+msgstr "Mezcla los colores primarios para que coincidan con el color dado"
 
 #: ../src/color_mix-activity/color_mix.xml.in.h:4
 msgid ""
@@ -2544,29 +2544,42 @@ msgid ""
 "Yellow.\n"
 "        "
 msgstr ""
+"\n"
+"En esta actividad se mezclan colores primarios de pintura (mezcla "
+"sustractiva).\n"
+"\n"
+"En el caso de las pinturas, las tintas absorben los diferentes colores de "
+"luz que inciden sobre ellas, restándolo de los que ves. Cuanta más tinta "
+"añades, más luz se absorbe, y el color combinado se oscurece más. Podemos "
+"mezclar sólo tres colores primarios para hacer muchos nuevos colores. Los "
+"colores primarios de pintura/tinta son Cián (un tono especial de azul), "
+"Magenta (un tono especial de rosa), y Amarillo.\n"
+"        "
 
 #: ../src/color_mix-activity/color_mix.xml.in.h:9
 #: ../src/color_mix_light-activity/color_mix_light.xml.in.h:9
 msgid "Openclipart.org"
-msgstr ""
+msgstr "Openclipart.org"
 
 #: ../src/color_mix_light-activity/color_mix_light.py:72
 msgid ""
 "Match the \n"
 " color "
 msgstr ""
+"Iguala el \n"
+" color "
 
 #: ../src/color_mix_light-activity/color_mix_light.xml.in.h:1
 msgid "Mixing colors of light"
-msgstr ""
+msgstr "Mezclando colores de luz"
 
 #: ../src/color_mix_light-activity/color_mix_light.xml.in.h:2
 msgid "Understanding mixing of colors of light."
-msgstr ""
+msgstr "Entendiendo la mezcla de colores de luz"
 
 #: ../src/color_mix_light-activity/color_mix_light.xml.in.h:3
 msgid "Mix the primary colors to match to the given color."
-msgstr ""
+msgstr "Mezcla los colores primarios para que coincidan con el color dado."
 
 #: ../src/color_mix_light-activity/color_mix_light.xml.in.h:4
 msgid ""
@@ -2578,6 +2591,13 @@ msgid ""
 "of light are red, green and blue.\n"
 "        "
 msgstr ""
+"\n"
+"En esta actividad se mezclan colores primarios de luz (mezcla aditiva).\n"
+"\n"
+"En el caso de la luz es exactamente lo opuesto a la mezcla de colores con "
+"pintura. Cuanta más luz añadas, más claro será el color resultante que "
+"obtendrás. Los colores primarios de luz son: rojo, verde y azul.\n"
+"        "
 
 #: ../src/colors-activity/colors.xml.in.h:1
 msgid "Colors"
@@ -2896,9 +2916,9 @@ msgstr ""
 "borrar un objeto."
 
 #: ../src/drawnumber-activity/drawnumber.py:238
-#: ../src/explore-activity/explore.py:458 ../src/findit-activity/findit.py:315
+#: ../src/explore-activity/explore.py:458 ../src/findit-activity/findit.py:336
 #: ../src/louis_braille-activity/louis_braille.py:84
-#: ../src/piano_composition-activity/piano_composition.py:494
+#: ../src/piano_composition-activity/piano_composition.py:499
 msgid "Cannot find the file '{filename}'"
 msgstr "No se puede encontrar el archivo «{filename}»"
 
@@ -3092,8 +3112,8 @@ msgstr ""
 
 #: ../src/explore-activity/explore.py:88
 #: ../src/note_names-activity/note_names.py:83
-#: ../src/piano_composition-activity/piano_composition.py:362
-#: ../src/play_piano-activity/play_piano.py:74
+#: ../src/piano_composition-activity/piano_composition.py:367
+#: ../src/play_piano-activity/play_piano.py:77
 #: ../src/play_rhythm-activity/play_rhythm.py:81
 msgid ""
 "Error: This activity cannot be played with the\n"
@@ -3115,9 +3135,9 @@ msgstr "Pulsa para reproducir el sonido"
 msgid "Back to Homepage"
 msgstr "Volver a la página inicial"
 
-#: ../src/explore-activity/explore.py:463 ../src/findit-activity/findit.py:320
+#: ../src/explore-activity/explore.py:463 ../src/findit-activity/findit.py:341
 #: ../src/louis_braille-activity/louis_braille.py:88
-#: ../src/piano_composition-activity/piano_composition.py:499
+#: ../src/piano_composition-activity/piano_composition.py:504
 msgid ""
 "Failed to parse data set '{filename}' with error:\n"
 "{error}"
@@ -3136,12 +3156,15 @@ msgstr "Explorar animales de granja"
 #: ../src/explore_farm_animals-activity/explore_farm_animals.xml.in.h:2
 msgid "Learn about farm animals, what sounds they make, and interesting facts."
 msgstr ""
+"Aprende sobre los animales de granja, los sonidos que hacen y datos "
+"interesantes."
 
 #: ../src/explore_farm_animals-activity/explore_farm_animals.xml.in.h:3
 msgid ""
 "Learn to associate animal sounds with the animal name and what the animal "
 "looks like."
 msgstr ""
+"Aprende a asociar el sonido con el nombre de un animal y a que se parece."
 
 #: ../src/explore_farm_animals-activity/explore_farm_animals.xml.in.h:4
 msgid ""
@@ -3161,18 +3184,33 @@ msgid ""
 "animal that matches the text. When you have matched all texts correctly, you "
 "win!\n"
 msgstr ""
+"Hay tres niveles en este juego.\n"
+"\n"
+"En el nivel uno, los jugadores disfrutan explorando cada animal en la "
+"pantalla. Pulsa en el signo de interrogación, y aprende acerca de los "
+"animales, cual es su nombre, que sonido hace, y a que se parece. Estudia "
+"bien esta información, ya que te pondrás a prueba en el nivel 2 y 3.\n"
+"\n"
+"En el nivel dos, se reproduce el sonido de un animal al azar y deberás "
+"elegir que animal hace ese sonido. Pulsa en el signo de interrogación que se "
+"corresponde con el animal que escuchas. Si deseas escuchar el sonido de los "
+"animales repetido, pulsa en el botón de reproducción. Una vez que hayas "
+"encontrado todos los animales correctamente, ganas.\n"
+"En el nivel tres, se muestra un cartel con un texto aleatorio y debes pulsar "
+"en el animal que coincida con el texto. Cuando hayas encontrado todos los "
+"textos, ganas.\n"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:1
 msgid " Click on the questions to explore each farm animal."
-msgstr ""
+msgstr " Pulsa en las preguntas para explorar cada animal."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:2
 msgid " Click on the farm animal that makes the sound you hear."
-msgstr ""
+msgstr " Pulsa en el animal que hace el sonido que escuchas."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:3
 msgid " Click the animal that matches the description."
-msgstr ""
+msgstr " Pulsa en el animal que coincide con la descripción."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:4
 msgid " Horse"
@@ -3180,21 +3218,23 @@ msgstr " Caballo"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:5
 msgid " The horse goes \"neigh! neigh!\". Horses usually sleep standing up."
-msgstr ""
+msgstr " El caballo «relincha». Los caballos suelen dormir de pie."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:6
 msgid " You can ride on the back of this animal!"
-msgstr ""
+msgstr " Puedes montar en la espalda de este animal."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:7
 msgid " Chickens"
-msgstr "Gallinas"
+msgstr " Gallinas"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:8
 msgid ""
 " The chichen goes \"cluck, cackle, cluck\". Chickens have over 200 different "
 "noises they can use to communicate."
 msgstr ""
+" Las gallinas «cacarean». Las gallinas tienen más de 200 sonidos diferentes "
+"que pueden utilizar para comunicarse."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:9
 msgid " This animal lays eggs."
@@ -3209,6 +3249,8 @@ msgid ""
 " The cow goes \"moo. moo.\" Cows have a memory of about three years. Cows "
 "have many uses, including for milk and meat."
 msgstr ""
+" La vaca hace \"muu muu\". Las vacas tienen una memoria de unos tres años. "
+"Las vacas tienen muchos usos, incluyendo la leche y la carne."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:12
 msgid " You can drink the milk this animal produces."
@@ -3223,6 +3265,8 @@ msgid ""
 " The cat goes \"meow, meow\". Cats usually hate water because their fur "
 "doesn't stay warm when it is wet."
 msgstr ""
+" El gato hace «miau, miau». Los gatos odian el agua por lo general debido a "
+"que su piel no se mantiene caliente cuando está mojado."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:15
 msgid " This pet likes to chase mice."
@@ -3235,6 +3279,8 @@ msgstr " Cerdos"
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:17
 msgid " The pig goes \"oink, oink\". Pigs are the 4th most intelligent animal."
 msgstr ""
+" El cerdo hace «oink, oink». Los cerdos son los cuartos animales más "
+"inteligentes."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:18
 msgid " This animal likes to lay in the mud."
@@ -3249,10 +3295,12 @@ msgid ""
 " The duck goes \"quack, quack\". Ducks have special features like webbed "
 "feat and waterproof feathers."
 msgstr ""
+" El pato hace «cuac, cuac». Los patos tienen características especiales como "
+"patas palmeadas y plumas impermeables."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:21
 msgid " This animal has webbed feet so it can swim in the water."
-msgstr ""
+msgstr " Este animal tiene patas palmeadas para que pueda nadar en el agua."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:22
 msgid " Owl"
@@ -3278,22 +3326,24 @@ msgid ""
 " The dog goes \"bark! bark!\". Dogs are great human companions and usually "
 "enjoy love and attention."
 msgstr ""
+" El perro hace «guau, guau». Los perros son grandes compañeros del hombre y "
+"suelen gozar de cariño y atención."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:27
 msgid " This animal's ancesters were wolves."
-msgstr ""
+msgstr " Los antepasados de este animal ​​eran lobos."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:28
-#, fuzzy
-#| msgid "Lotto Master"
 msgid " Rooster"
-msgstr "Maestro de lotería"
+msgstr " Gallo"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:29
 msgid ""
 " The rooster goes \"coc-a-doodle-doo!\". Roosters have been on farms for "
 "about 5,000 years. Every morning it wakes the farm up with its noices."
 msgstr ""
+" El gallo hace «kikirikí, kikirikí». Los gallos han estado en las granjas "
+"durante unos 5.000 años. Cada mañana despierta a la granja con sus ruidos."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:30
 msgid " This animal wakes the farm up in the morning."
@@ -3307,6 +3357,8 @@ msgstr "Explorar los animales del mundo"
 msgid ""
 "Learn about world animals, interesting facts and their location on a map."
 msgstr ""
+"Aprende acerca de los animales del mundo, curiosidades y su ubicación en el "
+"mapa."
 
 #: ../src/explore_world_animals-activity/explore_world_animals.xml.in.h:3
 msgid ""
@@ -3321,6 +3373,16 @@ msgid ""
 "animal that matches the text. When you have matched all texts correctly, you "
 "win!\n"
 msgstr ""
+"Hay dos niveles en este juego.\n"
+"\n"
+"En el nivel uno, los jugadores disfrutan explorando cada animal en la "
+"pantalla. Pulsa en el signo de interrogación, y aprende acerca de los "
+"animales, que nombre tienen y a que se parecen. Estudia bien esta "
+"información, ya que te pondrás a prueba en el nivel 2.\n"
+"\n"
+"En el nivel dos, se muestra un cartel con texto al azar y se debe pulsar "
+"sobre el animal que coincide con el texto. Una vez que hayas encontrado "
+"todos los textos correctamente, ganas.\n"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:1
 msgid " Explore exotic animals from around the world."
@@ -3328,7 +3390,7 @@ msgstr " Explorar animales exóticos de todo el mundo."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:2
 msgid " Click on location where the given animal lives."
-msgstr ""
+msgstr " Pulsa en la ubicación dónde el animal dado vive."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:3
 msgid " Jaguars in South America"
@@ -3339,6 +3401,8 @@ msgid ""
 " Jaguars are named after the Native American word meaning 'he who kills with "
 "one leap'"
 msgstr ""
+" Los jaguares se llaman así por palabra que significa en americano nativo «el "
+"que mata de un salto»"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:5
 msgid "  Jaguar"
@@ -3354,6 +3418,10 @@ msgid ""
 "them as useful pets. When in danger, they will curl up into a ball and stick "
 "up their coat of sharp spines."
 msgstr ""
+" Los erizos comen pequeños animales, como ranas e insectos, por lo que "
+"muchas personas los mantienen como mascotas útiles. Cuando está en peligro, "
+"suele acurrucarse en una pelota y se adhieren a su escudo de espinas "
+"afiladas."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:8
 msgid " Hedgehog"
@@ -3368,6 +3436,9 @@ msgid ""
 " The giraffe lives in Africa and is the tallest mammal in the world. Just "
 "their legs, which are usually 1.8 meters long, are taller than most humans!"
 msgstr ""
+" La jirafa vive en África y es el mamífero más alto del mundo. ¡Sólo sus "
+"piernas, que suelen ser de 1,8 metros de largo, son más altas que la mayoría "
+"de los seres humanos!"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:11
 msgid " Giraffe"
@@ -3382,6 +3453,8 @@ msgid ""
 " Bison live on the plains of North America and were hunted by the Native "
 "Americans for food."
 msgstr ""
+" El bisonte viven en las llanuras de América del Norte y fueron perseguidos "
+"por los nativos americanos como alimento."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:14
 msgid " Bison"
@@ -3389,17 +3462,20 @@ msgstr " Bisonte"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:15
 msgid " Narwhals in the Arctic"
-msgstr ""
+msgstr " Narval en el Ártico"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:16
 msgid ""
 " Narwhals are whales that live in the Arctic Ocean and have long tusks. "
 "These tusks remind many people of the mythical unicorn's horn."
 msgstr ""
+" Los narvales son ballenas que viven en el Océano Ártico y tienen colmillos "
+"largos. Estos colmillos les recuerdan a muchas personas al mítico cuerno de "
+"unicornio."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:17
 msgid " Narwhal"
-msgstr ""
+msgstr " Narval"
 
 #: ../src/explore_world_music-activity/explore_world_music.xml.in.h:1
 msgid "Explore World Music"
@@ -3413,6 +3489,8 @@ msgstr "Aprender sobre la música del mundo."
 msgid ""
 "Develop a better understanding of the variety of music present in the world"
 msgstr ""
+"Desarrolla un mejor entendimiento de la variedad de música presente en el "
+"mundo"
 
 #: ../src/explore_world_music-activity/explore_world_music.xml.in.h:4
 msgid ""
@@ -3432,22 +3510,38 @@ msgid ""
 "matches the text description on the screen. You win the level when you have "
 "correctly matched all text prompts.\n"
 msgstr ""
+"En esta actividad hay tres niveles.\n"
+"\n"
+"En el primer nivel, disfruta explorando la música de todo el mundo. Pulsa en "
+"cada valija para aprender sobre la música de esa área, y escuchar una "
+"muestra corta. Estudia bien, porque luego habrá dos juegos relacionados con "
+"esta información.\n"
+"\n"
+"El segundo nivel es un juego de correspondencias. Oirás un clip de música, y "
+"deberás seleccionar la ubicación que corresponde a esa música. Pulsa en el "
+"botón de reproducción si quieres escuchar la música de nuevo. Ganas el nivel "
+"cuando hayas encontrado correctamente todos los clips de sonido.\n"
+"\n"
+"El tercer nivel es también un juego de correspondencias. Debes seleccionar "
+"la ubicación que coincida con la descripción del texto en la pantalla. Ganas "
+"el nivel cuando hayas encontrado correctamente todas las indicaciones del "
+"texto.\n"
 
 #: ../src/explore_world_music-activity/explore_world_music.xml.in.h:12
 msgid "Images from http://commons.wikimedia.org/wiki, http://archive.org"
-msgstr ""
+msgstr "Imágenes de http://commons.wikimedia.org/wiki, http://archive.org"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:1
 msgid " Explore world music! Click on the suitcases."
-msgstr ""
+msgstr " ¡Explora la música del mundo! Pulsa en las cajas."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:2
 msgid " Click on the location that matches the music you hear."
-msgstr ""
+msgstr " Pulsa en el lugar que coincida con la música que escuchas."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:3
 msgid " Click on the location that matches the text."
-msgstr ""
+msgstr " Pulsa en el lugar que coincida con el texto."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:4
 msgid " Australia"
@@ -3459,10 +3553,13 @@ msgid ""
 "instruments, like the didgeridoo. It is made from a log and can be up to "
 "five meters long!"
 msgstr ""
+" Los aborígenes fueron los primeros habitantes de Australia. Ellos cantan y "
+"tocan instrumentos, como el didgeridoo. Está hecho con un tronco y puede ser "
+"de hasta cinco metros de largo."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:6
 msgid " Where is the didgeridoo played?"
-msgstr ""
+msgstr " ¿Dónde se toca el didgeridoo?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:7
 msgid " Africa"
@@ -3473,6 +3570,9 @@ msgid ""
 " Music is a part of everyday life in Africa. African music features a great "
 "variety of drums, and they believe it is a sacred and magical instrument."
 msgstr ""
+" La música es parte de la vida cotidiana en África. La música africana "
+"cuenta con una gran variedad de tambores, y creen que es un instrumento "
+"sagrado y mágico."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:9
 msgid " Where is the drum considered a magical instrument?"
@@ -3488,10 +3588,14 @@ msgid ""
 "are played to call worshipers to prayer. The lute is an instrument invented "
 "thousands of years ago and still in use today."
 msgstr ""
+" La música es una parte muy importante de la cultura de Oriente Medio. "
+"Determinadas canciones se tocan para convocar a los fieles a la oración. El "
+"laúd es un instrumento inventado hace miles de años y todavía en uso hoy en "
+"día."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:12
 msgid " Where is music used to call people to prayer?"
-msgstr ""
+msgstr " ¿Dónde se usa la música para llamar a la gente a rezar?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:13
 msgid " Japan"
@@ -3503,10 +3607,14 @@ msgid ""
 "to scare enemies in battle. It is very loud, and performances are very "
 "exciting with crouds chearing and performers yelling!"
 msgstr ""
+" Los tambores taiko vienen de Japón. Este tipo de tambor se utilizó "
+"originalmente para asustar a los enemigos en la batalla. Es muy fuerte, y "
+"las actuaciones son muy emocionantes con multitudes animando y los artistas "
+"gritando."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:15
 msgid " Where do performers yelp as they play the drums?"
-msgstr ""
+msgstr " ¿Dónde gritan los artistas mientras tocan los tambores?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:16
 msgid " Scotland and Ireland"
@@ -3518,10 +3626,14 @@ msgid ""
 "narrative poem or story. Typical instruments include bagpipes, fiddles, "
 "flutes, harps, and accordians."
 msgstr ""
+" La música folclórica de esta región se llama música celta y a menudo "
+"incorpora un poema narrativo o cuento. Los instrumentos típicos incluyen: "
+"gaitas, flautas, violines, arpas y acordeones."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:18
 msgid " Bagpipers, who often wear kilts, are from this location."
 msgstr ""
+" Los gaiteros, que a menudo llevan faldas escocesas, son de este lugar."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:19
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:6
@@ -3534,24 +3646,29 @@ msgid ""
 "a story by acting and singing. Opera sings, both male and female, learn "
 "special techniques to sing operas."
 msgstr ""
+" Italia es famosa por su ópera. La ópera es un teatro musical donde los "
+"actores cuentan una historia, actuando y cantando. Los cantantes de ópera, "
+"tanto hombres como mujeres, aprenden técnicas especiales para cantar."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:21
 msgid " This country is known for its opera music."
-msgstr ""
+msgstr " Este país es conocido por su música de ópera."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:22
 msgid " European Classical Music"
-msgstr "Música clásica europea"
+msgstr " Música clásica europea"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:23
 msgid ""
 " Europe is the home of classical music. Famous composers like Bach, "
 "Beethoven, and Mozart forevor changed music history."
 msgstr ""
+" Europa es la cuna de la música clásica. Compositores famosos como Bach, "
+"Beethoven, Mozart cambiaron la historia de la música para siempre."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:24
 msgid " Bach, Beethoven, and Mozart composed music in this location."
-msgstr ""
+msgstr " Bach, Beethoven, y Mozart compusieron música en este lugar."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:25
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:5
@@ -3564,11 +3681,16 @@ msgid ""
 "and violins. These bands play for many occasions, including weddings and "
 "parties."
 msgstr ""
+" Mariachi es un tipo famoso de música mexicana. Cuenta con guitarras, "
+"trompetas y violines. Estas bandas tocan para muchas ocasiones, incluyendo "
+"bodas y fiestas."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:27
 msgid ""
 " At parties, people often dance to the Mariachi music. A Famous dance is:"
 msgstr ""
+" En las fiestas, la gente suele bailar con la música de Mariachi. Un baile "
+"famoso es:"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:28
 msgid " Where is Mariachi music from?"
@@ -3576,7 +3698,7 @@ msgstr " ¿De dónde es la música mariachi?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:29
 msgid " America"
-msgstr " América"
+msgstr " Estados Unidos"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:30
 msgid ""
@@ -3584,16 +3706,23 @@ msgid ""
 "famous for rock n' roll music. This music features vocalists, guitars, and "
 "drums."
 msgstr ""
+" Estados Unidos también tiene una amplia variedad de géneros musicales, pero "
+"quizás es más famoso por la música rock'n roll. En esta música aparecen "
+"vocalistas, guitarras y tambores."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:31
 msgid " The 'king' of rock n' roll is"
 msgstr " El rey del rock n' roll es"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:32
+#| msgid ""
+#| " The 'kind' of rock n' roll, Elvis Presley, made his music famous in this "
+#| "country."
 msgid ""
-" The 'kind' of rock n' roll, Elvis Presley, made his music famous in this "
+" The 'king' of rock n' roll, Elvis Presley, made his music famous in this "
 "country."
 msgstr ""
+" El «rey» del rock'n roll, Elvis Presley, hizo famosa la música de este país."
 
 #: ../src/fifteen-activity/fifteen.xml.in.h:1
 msgid "The fifteen game"
@@ -3700,7 +3829,7 @@ msgstr "¿Seguro que deseas salir?"
 
 #: ../src/gcompris/bar.c:696
 msgid "Yes, I am sure!"
-msgstr "Sí, estoy seguro."
+msgstr "¡Sí, estoy seguro!"
 
 #: ../src/gcompris/bar.c:697
 msgid "No, I want to keep going"
@@ -3763,10 +3892,8 @@ msgid "Choice of the level"
 msgstr "Elección de nivel"
 
 #: ../src/gcompris/config.c:58
-#, fuzzy
-#| msgid "Your system default"
 msgid "Language: your system default"
-msgstr "Lo predeterminado en su sistema"
+msgstr "Idioma: el predeterminado en su sistema"
 
 #: ../src/gcompris/config.c:59
 msgid "Afrikaans"
@@ -4043,28 +4170,20 @@ msgid "Zulu"
 msgstr "Zulú"
 
 #: ../src/gcompris/config.c:131
-#, fuzzy
-#| msgid "No time limit"
 msgid "Timer: No time limit"
-msgstr "Sin límite de tiempo"
+msgstr "Temporizador: sin límite de tiempo"
 
 #: ../src/gcompris/config.c:132
-#, fuzzy
-#| msgid "Slow timer"
 msgid "Timer: Slow timer"
-msgstr "Temporizador lento"
+msgstr "Temporizador: temporizador lento"
 
 #: ../src/gcompris/config.c:133
-#, fuzzy
-#| msgid "Normal timer"
 msgid "Timer: Normal timer"
-msgstr "Temporizador normal"
+msgstr "Temporizador: temporizador normal"
 
 #: ../src/gcompris/config.c:134
-#, fuzzy
-#| msgid "Fast timer"
 msgid "Timer: Fast timer"
-msgstr "Temporizador rápido"
+msgstr "Temporizador: temporizador rápido"
 
 #: ../src/gcompris/config.c:138
 msgid "Use Gcompris administration module to filter boards"
@@ -4289,7 +4408,7 @@ msgid ""
 "hardcoded value"
 msgstr ""
 "Incrementa el tiempo de espera de las actividades; valores útiles > 1.0; 1.0 "
-"para no cambiar el valor definido en el código de forma predeterminda"
+"para no cambiar el valor definido de manera predeterminada en el código"
 
 #: ../src/gcompris/gcompris.c:255
 msgid ""
@@ -4297,8 +4416,8 @@ msgid ""
 "< 1.0; 1.0 to not change hardcoded value"
 msgstr ""
 "Cómo aumenta el tiempo de espera de las actividades para varios actores; "
-"valores útiles < 1.0; 1.0 para no cambiar el valor definido en el código de "
-"forma predeterminda"
+"valores útiles < 1.0; 1.0 para no cambiar el valor definido de manera "
+"predeterminada en el código"
 
 #: ../src/gcompris/gcompris.c:258
 msgid "For test purpose, run in a loop all the activities"
@@ -4377,7 +4496,7 @@ msgstr "Usa -l actividad para acceder directamente a una actividad.\n"
 #: ../src/gcompris/gcompris.c:1819
 #, c-format
 msgid "The list of available activities is :\n"
-msgstr "Lista de actividades disponibles es:\n"
+msgstr "Lista de actividades disponibles es :\n"
 
 #: ../src/gcompris/gcompris.c:1850
 #, c-format
@@ -5264,16 +5383,18 @@ msgid "Philippines"
 msgstr "Filipinas"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:35
-msgid "Nyanmar"
-msgstr "Myanmar(Birmania)"
+#| msgid "Nyanmar"
+msgid "Myanmar"
+msgstr "Myanmar"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:36
 msgid "Pakistan"
 msgstr "Pakistán"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:38
-msgid "Bhoutan"
-msgstr "Bután"
+#| msgid "Bhoutan"
+msgid "Bhutan"
+msgstr "Bután"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:39
 msgid "Bangladesh"
@@ -5361,7 +5482,7 @@ msgstr "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
 #: ../src/imageid-activity/imageid.c:716
 #: ../src/pythontest-activity/pythontest.py:448
 #: ../src/readingh-activity/reading.c:905
-#: ../src/scalesboard-activity/scale.c:1191
+#: ../src/scalesboard-activity/scale.c:1211
 #: ../src/smallnumbers-activity/smallnumbers.c:598
 #: ../src/tuxpaint-activity/tuxpaint.py:185
 #: ../src/wordsgame-activity/wordsgame.c:904
@@ -5911,7 +6032,7 @@ msgid ""
 msgstr ""
 "La corriente de agua se dirige hacia las aspas de una turbina, generando una "
 "fuerza en las aspas. De esta manera, la energía es transferida desde el agua "
-"hacia la turbina."
+"hacia la turbina"
 
 #: ../src/hydroelectric-activity/hydroelectric.py:190
 msgid "This cloud simulates the wind, click on it to have wind."
@@ -5964,7 +6085,7 @@ msgid ""
 msgstr ""
 "El aerogenerador es un aparato que convierte la energía del movimiento del "
 "viento en generación eléctrica. Se le llama generador de viento o molino de "
-"viento."
+"viento. "
 
 #: ../src/hydroelectric-activity/hydroelectric.py:737
 msgid ""
@@ -6436,6 +6557,10 @@ msgid ""
 "dependent upon the masses of both objects and inversely proportional to the "
 "square of the distance that separates their centers."
 msgstr ""
+"La gravedad es universal y la ley de Newton de la gravitación universal se "
+"extiende más allá de la gravedad terrestre. Esta fuerza de atracción "
+"gravitatoria depende directamente de las masas de los dos objetos e "
+"inversamente proporcional al cuadrado de la distancia que separa sus centros."
 
 #: ../src/intro_gravity-activity/intro_gravity.py:105
 msgid ""
@@ -6457,25 +6582,27 @@ msgstr ""
 
 #: ../src/intro_gravity-activity/intro_gravity.py:128
 msgid "Avoid the asteroid and join the space shuttle to win."
-msgstr ""
+msgstr "Evita el asteroide y llega a la lanzadera espacial para ganar."
 
 #: ../src/intro_gravity-activity/intro_gravity.xml.in.h:1
 msgid "Intro gravity"
-msgstr ""
+msgstr "Introducción a la gravedad"
 
 #: ../src/intro_gravity-activity/intro_gravity.xml.in.h:2
 msgid "Introduction to the concept of gravity"
-msgstr ""
+msgstr "Introducción al concepto de gravedad"
 
 #: ../src/intro_gravity-activity/intro_gravity.xml.in.h:3
 msgid ""
 "Maintain the spaceship in the middle without crashing into the planets or "
 "the asteroids"
 msgstr ""
+"Mantiene la nave espacial en el centro sin chocar con los planetas o los "
+"asteroides."
 
 #: ../src/intro_gravity-activity/intro_gravity.xml.in.h:4
 msgid "Follow the instructions when you run the activity."
-msgstr ""
+msgstr "Sigue las instrucciones cuando ejecutas la actividad."
 
 #: ../src/land_safe-activity/land_safe.py:164
 msgid ""
@@ -6486,14 +6613,12 @@ msgid ""
 msgstr ""
 
 #: ../src/land_safe-activity/land_safe.py:171
-#| msgid "I am Ready"
 msgid "I am ready!"
 msgstr "Estoy listo/a"
 
 #: ../src/land_safe-activity/land_safe.py:453
-#| msgid "eight"
 msgid "Height : "
-msgstr "Altura:"
+msgstr "Altura: "
 
 #: ../src/land_safe-activity/land_safe.py:461
 msgid "354"
@@ -6501,7 +6626,7 @@ msgstr "354"
 
 #: ../src/land_safe-activity/land_safe.py:469
 msgid "Fuel"
-msgstr ""
+msgstr "Combustible"
 
 #: ../src/land_safe-activity/land_safe.py:501
 msgid "Velocity : "
@@ -6513,15 +6638,15 @@ msgstr "0"
 
 #: ../src/land_safe-activity/land_safe.xml.in.h:1
 msgid "Land Safe"
-msgstr ""
+msgstr "Aterrizaje seguro"
 
 #: ../src/land_safe-activity/land_safe.xml.in.h:2
 msgid "Understanding acceleration due to gravity."
-msgstr ""
+msgstr "Entender la aceleración debida a la gravedad."
 
 #: ../src/land_safe-activity/land_safe.xml.in.h:3
 msgid "Pilot the spaceship towards the green landing area."
-msgstr ""
+msgstr "Pilota la nave espacial a lo largo del área verde de aterrizaje."
 
 #: ../src/land_safe-activity/land_safe.xml.in.h:4
 msgid ""
@@ -6721,7 +6846,7 @@ msgstr "La historia de Louis Braille"
 
 #: ../src/louis_braille-activity/louis_braille.xml.in.h:2
 msgid "Review the major dates of the inventor of the Braille system."
-msgstr "Revisa las fechas más importantes del inventor del sistema Braille."
+msgstr "Repasa los fechas más importantes del inventor del sistema Braille."
 
 #: ../src/louis_braille-activity/louis_braille.xml.in.h:3
 msgid ""
@@ -6730,34 +6855,35 @@ msgid ""
 "respective story page. At the end, arrange the sequence in the chronological "
 "order."
 msgstr ""
-"Lee la historia de Louis Braille, su biografía y descubrimiento del sistema "
-"Braille. Pulsa los botones anterior y siguiente para moverte a las "
-"respectivas páginas de la historia. Al final, ordena la historia en orden "
+"Lee la historia de Louis Braille, su biografía y su invención del sistema "
+"Braille. Pulsa en el botón anterior y siguiente para mover a la página de la "
+"historia correspondiente. Al final, organiza la secuencia en el orden "
 "cronológico."
 
 #: ../src/louis_braille-activity/louis_braille.xml.in.h:4
 msgid ""
 "Louis Braille Video: &lt; http://www.youtube.com/watch?v=9bdfC2j_4x4 &gt;"
-msgstr "Vídeo de Louis Braille http://www.youtube.com/watch?v=9bdfC2j_4x4"
+msgstr ""
+"Vídeo de Louis Braille: &lt; http://www.youtube.com/watch?v=9bdfC2j_4x4 &gt;"
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:1
 msgid "Born on January 4th in Coupvary near Paris in France."
-msgstr "Nacido el 4 de enero en Coupvary cerca de París, Francia."
+msgstr "Nació el 4 de enero en Coupvary cerca de París en Francia."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:2
 msgid ""
 "Louis Braille injured his right eye with a stitching awl from his father's "
 "workshop."
 msgstr ""
-"Louis Braille se lesionó el ojo derecho con un punzón de costura del taller "
-"de su padre."
+"Louis Braille se lesionó el ojo derecho con un punzón de costura en el "
+"taller de su padre."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:3
 msgid ""
 "At the age of three, Louis became blind due to a severe infection that "
 "spread to his left eye."
 msgstr ""
-"A los 3 años, Louis se quedó ciego debido a una grave infección que se "
+"A la edad de 3 años, Luis quedó ciego debido a una grave infección que se "
 "extendió hasta su ojo izquierdo."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:4
@@ -6765,8 +6891,8 @@ msgid ""
 "At the age of 10, he was sent to Paris to study at the Royal Institute for "
 "Blind Youth."
 msgstr ""
-"A los 10 años fue enviado a París a estudiar en el Instituto Real para "
-"Jóvenes Ciegos."
+"A la edad de 10 años fue enviado a París a estudiar en el Instituto Real "
+"para Jóvenes Ciegos."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:5
 msgid "He impressed his classmates and began to play the piano and the organ."
@@ -6803,8 +6929,8 @@ msgid ""
 "He revised and extended braille to include mathematics, symbols, "
 "punctuations and music notations."
 msgstr ""
-"Corrigió y amplió el Braille para que incluyera matemáticas, símbolos, "
-"puntuaciones y las notas musicales."
+"Corrigió y extendió braille para que incluyera matemática, símbolos, "
+"puntuaciones y notación musical."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:10
 msgid ""
@@ -6823,8 +6949,8 @@ msgid ""
 "Braille got accepted as a world wide standard. Louis Braille proved that if "
 "you have motivation you can do incredible things."
 msgstr ""
-"Braille se aceptó como un estándar en todo el mundo. Louis Braille demostró "
-"que si tienes la motivación, puedes hacer cosas increíbles."
+"Braille se aceptó como un estándar mundial. Louis Braille probó que teniendo "
+"motivación uno puede lograr cosas increíbles."
 
 #: ../src/magic_hat_minus-activity/magic_hat_minus.xml.in.h:1
 #: ../src/magic_hat_plus-activity/magic_hat_plus.xml.in.h:1
@@ -7554,7 +7680,7 @@ msgstr ""
 
 #: ../src/mining-activity/mining.xml.in.h:1
 msgid "Mining for gold"
-msgstr ""
+msgstr "Excavar para obtener oro"
 
 #: ../src/mining-activity/mining.xml.in.h:2
 msgid "Use the mousewheel to approach the rockwall an look for gold nuggets."
@@ -7563,10 +7689,11 @@ msgstr ""
 #: ../src/mining-activity/mining.xml.in.h:3
 msgid "You should be familiar with moving the mouse and clicking."
 msgstr ""
+"Debes estar familiarizado con el movimiento y las pulsaciones del ratón."
 
 #: ../src/mining-activity/mining.xml.in.h:4
 msgid "Lern to use the mousewheel to zoom in and out."
-msgstr ""
+msgstr "Aprende a usar la rueda del ratón para acercar o alejar."
 
 #: ../src/mining-activity/mining.xml.in.h:5
 msgid ""
@@ -7993,7 +8120,7 @@ msgstr ""
 
 #: ../src/note_names-activity/note_names.xml.in.h:1
 msgid "Name that Note!"
-msgstr ""
+msgstr "¡Nombre la nota!"
 
 #: ../src/note_names-activity/note_names.xml.in.h:2
 msgid ""
@@ -8092,8 +8219,8 @@ msgstr "Katsushika Hokusai, La gran ola de Kanagawa (1823-29)"
 msgid ""
 "Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
 msgstr ""
-"Utagawa Hiroshige, El santuario de Benzaiten en Inokashira con nieve "
-"(1760-70)"
+"Utagawa Hiroshige, El santuario de Benzaiten en Inokashira con nieve (1760-"
+"70)"
 
 #: ../src/paintings-activity/resources/paintings/board1_9.xml.in.h:1
 msgid "Utagawa Hiroshige, Horse-mackerel and Prawn - 1840"
@@ -8203,7 +8330,7 @@ msgid ""
 msgstr ""
 "Pulsa dos veces con el ratón sobre el balón para golpearlo. Puedes pulsar "
 "dos veces con el botón izquierdo o el del medio del ratón. Si pierdes, Tux "
-"coge el balón. Debes pulsar sobre él para devolverlo a su posición anterior."
+"coge el balón. Debes pulsar sobre él para devolverlo a su posición anterior"
 
 #: ../src/photohunter-activity/photohunter.c:512
 msgid "Error: Absolutely no photo found in the data directory"
@@ -8307,7 +8434,7 @@ msgstr "La♭"
 msgid "Bb"
 msgstr "Si♭"
 
-#: ../src/piano_composition-activity/gcomprismusic.py:275
+#: ../src/piano_composition-activity/gcomprismusic.py:284
 msgid "The staff is full. Please erase some notes"
 msgstr ""
 
@@ -8338,7 +8465,7 @@ msgstr ""
 
 #: ../src/piano_composition-activity/piano_composition.py:130
 msgid "Sharp notes have a # sign"
-msgstr ""
+msgstr "Las notas sostenidas tienen el símbolo «#»"
 
 #: ../src/piano_composition-activity/piano_composition.py:131
 msgid "The black keys are sharp and flat keys"
@@ -8346,7 +8473,7 @@ msgstr ""
 
 #: ../src/piano_composition-activity/piano_composition.py:133
 msgid "Flat notes have a b sign"
-msgstr ""
+msgstr "Las notas bemoles tienen una «b»"
 
 #: ../src/piano_composition-activity/piano_composition.py:134
 msgid "Each black key has two names, one with a flat and one with a sharp"
@@ -8380,39 +8507,45 @@ msgstr ""
 msgid "Change Note Type:"
 msgstr "Cambiar el tipo de nota:"
 
-#: ../src/piano_composition-activity/piano_composition.py:238
-#, fuzzy
-#| msgid "light house"
+# http://es.wikipedia.org/wiki/Corchea
+#. TRANSLATORS: http://en.wikipedia.org/wiki/Eighth_note
+#: ../src/piano_composition-activity/piano_composition.py:239
 msgid "Eighth Note"
-msgstr "casa blanca"
+msgstr "Octava nota"
 
-#: ../src/piano_composition-activity/piano_composition.py:260
+# http://es.wikipedia.org/wiki/Negra
+#. TRANSLATORS: http://en.wikipedia.org/wiki/Quarter_note
+#: ../src/piano_composition-activity/piano_composition.py:262
 msgid "Quarter Note"
-msgstr ""
+msgstr "Negra"
 
-#: ../src/piano_composition-activity/piano_composition.py:272
+# http://es.wikipedia.org/wiki/Blanca_%28m%C3%BAsica%29
+#. TRANSLATORS: http://en.wikipedia.org/wiki/Half_note
+#: ../src/piano_composition-activity/piano_composition.py:275
 msgid "Half Note"
-msgstr "Media nota"
+msgstr "Blanca"
 
-#: ../src/piano_composition-activity/piano_composition.py:284
+# http://es.wikipedia.org/wiki/Redonda_%28figura%29
+#. TRANSLATORS: http://en.wikipedia.org/wiki/Whole_note
+#: ../src/piano_composition-activity/piano_composition.py:288
 msgid "Whole Note"
-msgstr "Nota completa"
+msgstr "Redonda"
 
-#: ../src/piano_composition-activity/piano_composition.py:316
+#: ../src/piano_composition-activity/piano_composition.py:320
 msgid "Load Music"
 msgstr "Cargar música"
 
-#: ../src/piano_composition-activity/piano_composition.py:321
+#: ../src/piano_composition-activity/piano_composition.py:325
 msgid "Change Accidental Style:"
 msgstr ""
 
-#: ../src/piano_composition-activity/piano_composition.py:378
+#: ../src/piano_composition-activity/piano_composition.py:383
 msgid "Select A Melody to Load"
 msgstr "Seleccionar la melodía que cargar"
 
 #: ../src/piano_composition-activity/piano_composition.xml.in.h:1
 msgid "Piano Composition"
-msgstr ""
+msgstr "Composición para piano"
 
 #: ../src/piano_composition-activity/piano_composition.xml.in.h:2
 msgid ""
@@ -8496,7 +8629,7 @@ msgstr " España"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:8
 msgid " German Kid's Song"
-msgstr ""
+msgstr " Canción infantil alemana"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:9
 msgid " Children's Song from Brazil"
@@ -8524,7 +8657,7 @@ msgstr ""
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:15
 msgid " Hungary, Children's Song"
-msgstr ""
+msgstr " Canción infantil húngara"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:16
 msgid " Serbia"
@@ -8548,7 +8681,7 @@ msgstr " Ucrania"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:21
 msgid " Mexican song to break a piñata"
-msgstr ""
+msgstr " Canción mexicana para romper una piñata"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:22
 msgid " Finland"
@@ -8588,7 +8721,7 @@ msgstr "Velocidad"
 
 #: ../src/place_your_satellite-activity/place_your_satellite.xml.in.h:1
 msgid "Place your satellite"
-msgstr ""
+msgstr "Coloca tu satélite"
 
 #: ../src/place_your_satellite-activity/place_your_satellite.xml.in.h:2
 msgid "Understanding effect of mass and distance on orbital velocity."
@@ -8641,33 +8774,31 @@ msgstr ""
 "Atrapa los números en orden creciente, usando las flechas de arriba, abajo, "
 "derecha e izquierda en el teclado para mover el helicóptero."
 
-#: ../src/play_piano-activity/play_piano.py:114
-#, fuzzy
-#| msgid "Color of the line"
+#: ../src/play_piano-activity/play_piano.py:117
 msgid "Color code notes?"
-msgstr "Color de la línea"
+msgstr "¿Colorear los códigos de las notas?"
 
-#: ../src/play_piano-activity/play_piano.py:134
+#: ../src/play_piano-activity/play_piano.py:137
 msgid "Click the piano keys that match the written notes."
-msgstr ""
+msgstr "Pulsa en las teclas del piano que coinciden con las notas escritas."
 
-#: ../src/play_piano-activity/play_piano.py:156
+#: ../src/play_piano-activity/play_piano.py:159
 #: ../src/play_rhythm-activity/play_rhythm.py:173
 msgid "Play"
 msgstr "Reproducir"
 
-#: ../src/play_piano-activity/play_piano.py:168
+#: ../src/play_piano-activity/play_piano.py:171
 #: ../src/play_rhythm-activity/play_rhythm.py:186
 msgid "Erase Attempt"
-msgstr ""
+msgstr "Borrar intento"
 
 #: ../src/play_piano-activity/play_piano.xml.in.h:1
 msgid "Play Piano!"
-msgstr ""
+msgstr "¡Toca el piano!"
 
 #: ../src/play_piano-activity/play_piano.xml.in.h:2
 msgid "Learn to play melodies on the piano keyboard!"
-msgstr ""
+msgstr "¡Aprende a tocar melodías de piano con el teclado!"
 
 #: ../src/play_piano-activity/play_piano.xml.in.h:3
 msgid ""
@@ -8715,7 +8846,6 @@ msgstr ""
 
 #: ../src/play_rhythm-activity/play_rhythm.py:115
 #, fuzzy
-#| msgid "Can count"
 msgid "Beat Count:"
 msgstr "Puedes contar"
 
@@ -8729,7 +8859,6 @@ msgstr ""
 
 #: ../src/play_rhythm-activity/play_rhythm.py:342
 #, fuzzy
-#| msgid "1. Listen to the rhythm and follow the moving line."
 msgid "Listen to the rhythm and follow the moving line."
 msgstr "1. Escucha el ritmo y sigue la línea en movimiento."
 
@@ -8749,7 +8878,6 @@ msgstr ""
 
 #: ../src/play_rhythm-activity/play_rhythm.py:351
 #, fuzzy
-#| msgid "Click on the ball to place it again."
 msgid "Click erase to try again."
 msgstr "Pulsa sobre el globo para volver a posicionarlo."
 
@@ -8918,7 +9046,7 @@ msgstr "está siendo mostrada"
 
 #: ../src/readingh-activity/reading.c:465
 msgid "We skip this level because there are not enough words in the list!"
-msgstr "Se salta este nivel porque no hay suficientes palabras en la lista."
+msgstr "¡Se salta este nivel porque no hay suficientes palabras en la lista!"
 
 #: ../src/readingh-activity/reading.c:668
 msgid "Yes, I saw it"
@@ -9070,9 +9198,9 @@ msgstr "Peso en g = %s"
 msgid "Weight = %s"
 msgstr "Peso = %s"
 
-#: ../src/scalesboard-activity/scale.c:1037
+#: ../src/scalesboard-activity/scale.c:1039
 msgid "Take care, you can drop weights on both sides of the scale."
-msgstr "Ten cuidado, puedes dejar caer masas en ambos lados de la balanza."
+msgstr "Ten cuidado, puedes dejar caer pesos en ambos lados de la balanza."
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:1
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:1
@@ -9092,8 +9220,8 @@ msgid ""
 "To balance the scales, move the weights on the left or the right side. The "
 "weights can be arranged in any order."
 msgstr ""
-"Para equilibrar los platillos mueve los pesos en su plato izquierdo. Los "
-"pesos se pueden colocar en cualquier orden."
+"Para equilibrar los platillos mueve los pesos del plato izquierdo al del "
+"lado derecho. Los pesos pueden colocarse en cualquier orden."
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:5
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:5
@@ -9123,7 +9251,7 @@ msgid ""
 msgstr ""
 "Para equilibrar los platillos mueve las masas a la izquierda o derecha. Ten "
 "cuidado con los pesos y la unidad de las masas, recuerda que un kilogramo "
-"(kg) son 1 000 gramos (g). Las masas pueden colocarse en cualquier orden."
+"(kg) son 1.000 gramos (g). Las masas pueden colocarse en cualquier orden."
 
 #: ../src/searace1player-activity/searace1player.xml.in.h:1
 msgid "Sea race (Single Player)"
@@ -9165,11 +9293,11 @@ msgid ""
 msgstr ""
 "En el campo de texto, introduce una orden por línea para controlar tu bote."
 "Las órdenes válidas se muestran entre las dos áreas de entrada. Las órdenes "
-"«izquierda» y «derecha» deben llevar como sufijo el ángulo en grados. Al "
-"valor del ángulo también se le llama «parámetro» de la orden izquierda o "
-"derecha. De forma predeterminada, se usan 45 grados. La orden «hacia "
-"adelante» acepta un parámetro con la distancia. De forma predeterminada se "
-"usa un valor de 1.\n"
+"«izquierda» y «derecha» deben llevar como sufijo el ángulo en grados. Al valor "
+"del ángulo también se le llama «parámetro» de la orden izquierda o derecha. "
+"De forma predeterminada, se usan 45 grados. La orden «hacia adelante» acepta "
+"un parámetro con la distancia. De forma predeterminada se usa un valor de "
+"1.\n"
 "Por ejemplo:\n"
 "- izquierda 90 => Hacer un giro perpendicular a la izquierda\n"
 "- hacia delante 10 => Ir hacia delante 10 unidades (como se muestran en la "
@@ -9268,11 +9396,11 @@ msgstr ""
 "En el campo de texto, introduce una orden por línea para controlar tu "
 "bote. \n"
 "Las órdenes válidas se muestran entre las dos áreas de entrada. Las órdenes "
-"«izquierda» y «derecha» deben llevar como sufijo el ángulo en grados. Al "
-"valor del ángulo también se le llama «parámetro» de la orden izquierda o "
-"derecha. De forma predeterminada, se usan 45 grados. La orden «hacia "
-"adelante» acepta un parámetro con la distancia. De forma predeterminada se "
-"usa un valor de 1.\n"
+"«izquierda» y «derecha» deben llevar como sufijo el ángulo en grados. Al valor "
+"del ángulo también se le llama «parámetro» de la orden izquierda o derecha. "
+"De forma predeterminada, se usan 45 grados. La orden «hacia adelante» acepta "
+"un parámetro con la distancia. De forma predeterminada se usa un valor de "
+"1.\n"
 "Por ejemplo:\n"
 "- izquierda 90 => Hacer un giro perpendicular a la izquierda\n"
 "- hacia delante 10 => Ir hacia delante 10 unidades (como se muestran en la "
@@ -9745,55 +9873,91 @@ msgstr "Entrenamiento con el teclado"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Teclea la palabra completa mientras cae, antes de que llegue al suelo"
 
-#~ msgid ""
-#~ "Use the keyboard arrows to move Tux up to the door. In this maze, the "
-#~ "move is relative (first person). Use the up arrow to go forward. The "
-#~ "other arrow let you turn Tux in another direction."
-#~ msgstr ""
-#~ "Usa las flechas del teclado para mover a Tux hasta la puerta. En este "
-#~ "laberinto, el movimiento es relativo (en primera persona). Usa la flecha "
-#~ "de arriba para ir hacia delante. Las otras flechas te permiten girar a "
-#~ "Tux en otra dirección."
-
-#~ msgid "Use the keyboard arrows to move Tux up to the door."
-#~ msgstr "Utiliza las flechas del teclado para mover a Tux hacia la puerta."
-
-#~ msgid ""
-#~ "Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
-#~ "switch between invisible and visible modes. Visible mode just gives you "
-#~ "an indication of your position, like a map. You cannot move Tux in "
-#~ "visible mode."
-#~ msgstr ""
-#~ "Usa las flechas del teclado para mover a Tux hacia la puerta. Usa la "
-#~ "tecla «espacio» para cambiar entre los modos visible e invisible. En el "
-#~ "modo visible sólo se te da una indicación de su posición, como un mapa. "
-#~ "No puedes mover a Tux en modo visible."
-
-#~| msgid "Next level"
-#~ msgid "Next Page"
-#~ msgstr "Siguiente página"
-
-#~| msgid "Previous level"
-#~ msgid "Previous Page"
-#~ msgstr "Página anterior"
+#~ msgid "Special board that embeds python into GCompris."
+#~ msgstr "Tablero especial que incrusta python dentro de GCompris."
 
 #~ msgid "Special board that embeds python into gcompris."
 #~ msgstr "Tablero especial que incrusta Python dentro de GCompris."
 
-#~ msgid "%s = %d"
-#~ msgstr "%s = %d"
+#~ msgid ""
+#~ "The screen has 3 sections: braille cell, alphabet name and lower board "
+#~ "containing 13 letters. Click on each letter in the lower board to know "
+#~ "its corresponding braille code in the braille cell section. Click on the "
+#~ "increment level button to jump to the next 13 letters of the English "
+#~ "alphabets."
+#~ msgstr ""
+#~ "La pantalla tiene tres secciones: la celda Braille, el nombre del "
+#~ "alfabeto y el menor tablero que contiene 13 letras. Presione con el botón "
+#~ "del ratón en cada letra del tablero inferior para conocer su "
+#~ "correspondiente código Braille en la sección de la celda Braille. "
+#~ "Presione con el botón del ratón, en el botón de nivel de incremento para "
+#~ "pasar a las siguientes 13 letras del alfabeto Inglés."
 
-#~ msgid "%d + %d"
-#~ msgstr "%d + %d"
+#~ msgid ""
+#~ "Braille code the tile for the corresponding falling letters. Check the "
+#~ "braille chart by clicking on the toggle button for help."
+#~ msgstr ""
+#~ "Los mosaicos del código Braille corresponden a letras con fallas. Revise "
+#~ "la tabla Braille presionando con el botón del ratón en el botón de "
+#~ "activación para obtener ayuda."
 
-#~ msgid "%d − %d"
-#~ msgstr "%d - %d"
+#~ msgid ""
+#~ "This chat activity will only work with other GCompris users on your local "
+#~ "network, not on the Internet. To use it, just type in your message and "
+#~ "hit Enter. Your message is then broadcasted on the local network, and any "
+#~ "GCompris program running the chat activity on that local network will "
+#~ "receive and display your message."
+#~ msgstr ""
+#~ "Esta actividad de chat sólo funciona con otro usuario de GCompris en red "
+#~ "local, no en Internet. Para usarlo, simplemente escribe tu mensaje y "
+#~ "pulsa intro. Tu mensaje se distribuye en la red local y cualquier "
+#~ "programa GCompris que esté ejecutando la actividad de chat recibirá y "
+#~ "mostrará tu mensaje."
 
-#~ msgid "%d × %d"
-#~ msgstr "%d x %d"
+#~ msgid "1955 Citroën ds 19"
+#~ msgstr "1955 Citroën ds 19"
 
-#~ msgid "%d ÷ %d"
-#~ msgstr "%d ÷ %d"
+#~ msgid ""
+#~ "Cannot find the 'gnucap' electric simulator.\n"
+#~ "You can download and install it from:\n"
+#~ "<http://geda.seul.org/tools/gnucap/>\n"
+#~ "To be detected, it must be installed in\n"
+#~ "/usr/bin/gnucap or /usr/local/bin/gnucap.\n"
+#~ "You can still use this activity to draw schematics without computer "
+#~ "simulation."
+#~ msgstr ""
+#~ "No se puede encontrar el simulador eléctrico «gnucap».\n"
+#~ "Puede descargarlo e instalarlo de:\n"
+#~ "<http://geda.seul.org/tools/gnucap/>\n"
+#~ "Para detectarlo, debe instalarse en\n"
+#~ "/usr/bin/gnucap o /usr/local/bin/gnucap.\n"
+#~ "Aún puede usar esta actividad para dibujar esquemas sin simulación por "
+#~ "equipo."
+
+#~ msgid ""
+#~ "GCompris uses the Gnucap electric simulator as a backend. You can get "
+#~ "more information on gnucap at &lt;http://geda.seul.org/tools/gnucap/&gt;."
+#~ msgstr ""
+#~ "GCompris usa el simulador eléctrico GNUcap como backend. Puede obtener "
+#~ "información sobre gnucap en &lt;http://geda.seul.org/tools/gnucap/&gt;."
+
+#~ msgid "Your system default"
+#~ msgstr "Lo predeterminado en su sistema"
+
+#~ msgid "No time limit"
+#~ msgstr "Sin límite de tiempo"
+
+#~ msgid "Slow timer"
+#~ msgstr "Temporizador lento"
+
+#~ msgid "Normal timer"
+#~ msgstr "Temporizador normal"
+
+#~ msgid "Fast timer"
+#~ msgstr "Temporizador rápido"
+
+#~ msgid "GCompris will find the python activity in this directory"
+#~ msgstr "GCompris buscará la actividad Python en esta carpeta"
 
 #~ msgid ""
 #~ "GCompris will get images, sounds and activity data from this server if "
@@ -9821,37 +9985,130 @@ msgstr "Teclea la palabra completa mientras cae, antes de que llegue al suelo"
 #~ "The --server option cannot be used because GCompris has been compiled "
 #~ "without network support!"
 #~ msgstr ""
-#~ "La opción «--server» no se puede usar porque GCompris se ha compilado sin "
-#~ "soporte de red."
+#~ "¡La opción --server no se puede usar porque GCompris se ha compilado sin "
+#~ "soporte de red!"
 
-#~ msgid "satchel/s_tchel/a/o/i"
-#~ msgstr "cartera/c_rtera/a/o/i"
+#~ msgid "Antartica"
+#~ msgstr "Antártida"
 
 #~ msgid "Serbia Montenegro"
 #~ msgstr "Serbia Montenegro"
 
-#~ msgid "Help"
-#~ msgstr "Ayuda"
+#~ msgid "%d is divisible by %s."
+#~ msgstr "%d es divisible por %s."
 
-#~ msgid "Stop"
-#~ msgstr "Parar"
+#~ msgid "%s are the factors of %d."
+#~ msgstr "%s son los factores de %d."
+
+#~ msgid "%s = %d"
+#~ msgstr "%s = %d"
+
+#~ msgid "%d + %d"
+#~ msgstr "%d + %d"
+
+#~ msgid "%d − %d"
+#~ msgstr "%d - %d"
+
+#~ msgid "%d × %d"
+#~ msgstr "%d x %d"
+
+#~ msgid "%d ÷ %d"
+#~ msgstr "%d ÷ %d"
+
+#~ msgid "Guess a number between %d and %d"
+#~ msgstr "Adivina un número entre %d y %d"
+
+#~ msgid "Please enter a number between %d and %d"
+#~ msgstr "Introduce un número entre %d y %d"
+
+#~ msgid "The electricity power is measured in Watt (W)."
+#~ msgstr "La potencia eléctrica se mide en Vatios (W)."
+
+#~ msgid "Click on the correct mucical instruments"
+#~ msgstr "Pulsa en los instrumentos musicales correctos"
+
+#~ msgid "the bass drum"
+#~ msgstr "el bombo"
 
 #~ msgid ""
-#~ "The screen has 3 sections: braille cell, alphabet name and lower board "
-#~ "containing 13 letters. Click on each letter in the lower board to know "
-#~ "its corresponding braille code in the braille cell section. Click on the "
-#~ "increment level button to jump to the next 13 letters of the English "
-#~ "alphabets."
+#~ "The solver algorithm described on haar.clara.co.uk is a valuable resource "
+#~ "to know more about the Lights Off game: &lt;http://www.haar.clara.co.uk/"
+#~ "Lights/solving.html&gt;"
 #~ msgstr ""
-#~ "La pantalla tiene tres secciones: la celda Braille, el nombre del "
-#~ "alfabeto y el tablero inferior que contiene 13 letras. Pulse con el botón "
-#~ "del ratón en cada letra del tablero inferior para conocer su "
-#~ "correspondiente código Braille en la sección de la celda Braille. Pulse "
-#~ "con el botón del ratón en el botón de nivel de incremento para pasar a "
-#~ "las siguientes 13 letras del alfabeto inglés."
+#~ "El algoritmo resolutor descrito en haar.clara.co.uk está disponible para "
+#~ "saber más acerca del juego Luces fuera: &lt;http://www.haar.clara.co.uk/"
+#~ "Lights/solving.html&gt;"
+
+#~ msgid "He became a teacher after graduating and secretly taught his method."
+#~ msgstr ""
+#~ " Se convirtió en maestro luego de graduarse y secretamente enseñó su "
+#~ "método."
+
+#~ msgid ""
+#~ "He died of tuberculosis. He is burried in the Pantheon in Paris. A "
+#~ "monument is erected to honor him."
+#~ msgstr ""
+#~ "Murió de tuberculosis. Está enterrado en el Panteón, en París. Un "
+#~ "monumento está ergido en su honor."
+
+#~ msgid ""
+#~ "Use the keyboard arrows to move Tux up to the door. In this maze, the "
+#~ "move is relative (first person). Use the up arrow to go forward. The "
+#~ "other arrow let you turn Tux in another direction."
+#~ msgstr ""
+#~ "Usa las flechas del teclado para mover a Tux hasta la puerta. En este "
+#~ "laberinto, el movimiento es relativo (en primera persona). Usa la flecha "
+#~ "de arriba para ir hacia delante. Las otras flechas te permiten girar a "
+#~ "Tux en otra dirección."
+
+#~ msgid "Use the keyboard arrows to move Tux up to the door."
+#~ msgstr "Utiliza las flechas del teclado para mover a Tux hacia la puerta."
+
+#~ msgid ""
+#~ "Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
+#~ "switch between invisible and visible modes. Visible mode just gives you "
+#~ "an indication of your position, like a map. You cannot move Tux in "
+#~ "visible mode."
+#~ msgstr ""
+#~ "Usa las flechas del teclado para mover a Tux hacia la puerta. Usa la "
+#~ "tecla «espacio» para cambiar entre los modos visible e invisible. En el "
+#~ "modo visible sólo se te da una indicación de su posición, como un mapa. "
+#~ "No puedes mover a Tux en modo visible."
+
+#~ msgid "satchel/s_tchel/a/o/i"
+#~ msgstr "cartera/c_rtera/a/o/i"
+
+#~ msgid "An empty python activity to use as a starting point"
+#~ msgstr "Una actividad en Python vacía para usar como punto de inicio"
+
+#~ msgid ""
+#~ "Thanks to Guido van Rossum and the python team for this powerful language!"
+#~ msgstr ""
+#~ "¡Gracias a Guido van Rossum y al equipo de python por este potente "
+#~ "lenguaje!"
+
+#~ msgid "Test board for the python plugin"
+#~ msgstr "Banco de pruebas para el complemento de Python"
+
+#~ msgid ""
+#~ "Learn how to enter text in a wordprocessor. This wordprocessor is special "
+#~ "in that it enforces the use of styles. This way, the children will "
+#~ "understand their benefit when moving to more feature full wordprocessor "
+#~ "like OpenOffice.org."
+#~ msgstr ""
+#~ "Aprende cómo introducir texto en un procesador de textos. Este procesador "
+#~ "de textos es especial ya que refuerza el uso de estilos. De esta manera, "
+#~ "los niños aprenderán su beneficio cuando trabajen con procesadores de "
+#~ "textos llenos de características como OpenOffice.org."
 
 #~ msgid "story"
 #~ msgstr "relato"
 
 #~ msgid "year"
 #~ msgstr "año"
+
+#~ msgid "Help"
+#~ msgstr "Ayuda"
+
+#~ msgid "Stop"
+#~ msgstr "Parar"
