@@ -42,41 +42,15 @@
             <lien_auteur>1</lien_auteur>
             <ps>__REMOVEME__</ps>
 
-            <surtitre>__REMOVEME__
-              <xsl:value-of select="@author"/>
-              (<xsl:value-of select="@name"/>.xml)
-            </surtitre>
+            <surtitre>__REMOVEME__<xsl:value-of select="@author"/>(<xsl:value-of select="@name"/>.xml)</surtitre>
 
-            <titre>__REMOVEME__
-	      <xsl:value-of select="$article_id"/>. <xsl:variable name="tmptext" select="title[@xml:lang=$language]"/>
-              <xsl:if test="not($tmptext)">
-                <xsl:value-of select="title"/>
-              </xsl:if>
-            </titre>
+            <titre>__REMOVEME__<xsl:value-of select="$article_id"/>. <xsl:variable name="tmptext" select="title[@xml:lang=$language]"/><xsl:if test="not($tmptext)"><xsl:value-of select="title"/></xsl:if><xsl:value-of select="$tmptext"/></titre>
 
-            <descriptif>__REMOVEME__
-              <xsl:variable name="tmptext" select="prerequisite[@xml:lang=$language]"/>
-              <xsl:if test="not($tmptext)">
-                <xsl:value-of select="prerequisite"/>
-              </xsl:if>
-              <xsl:value-of select="$tmptext"/>
-            </descriptif>
+            <descriptif>__REMOVEME__<xsl:variable name="tmptext" select="prerequisite[@xml:lang=$language]"/><xsl:if test="not($tmptext)"><xsl:value-of select="prerequisite"/></xsl:if><xsl:value-of select="$tmptext"/></descriptif>
 
-            <soustitre>__REMOVEME__
-              <xsl:variable name="tmptext" select="description[@xml:lang=$language]"/>
-              <xsl:if test="not($tmptext)">
-                <xsl:value-of select="description"/>
-              </xsl:if>
-              <xsl:value-of select="$tmptext"/>
-            </soustitre>
+            <soustitre>__REMOVEME__<xsl:variable name="tmptext" select="description[@xml:lang=$language]"/><xsl:if test="not($tmptext)"><xsl:value-of select="description"/></xsl:if><xsl:value-of select="$tmptext"/></soustitre>
 
-            <chapo>__REMOVEME__
-              <xsl:variable name="tmptext" select="goal[@xml:lang=$language]"/>
-              <xsl:if test="not($tmptext)">
-                <xsl:value-of select="goal"/>
-              </xsl:if>
-              <xsl:value-of select="$tmptext"/>
-            </chapo>
+            <chapo>__REMOVEME__<xsl:variable name="tmptext" select="goal[@xml:lang=$language]"/><xsl:if test="not($tmptext)"><xsl:value-of select="goal"/></xsl:if><xsl:value-of select="$tmptext"/></chapo>
 
             <texte>
               <HTML>
