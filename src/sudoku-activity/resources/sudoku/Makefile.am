@@ -1,5 +1,6 @@
 imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/sudoku
 img_DATA = \
+	background.jpg \
 	circle.png \
 	circle_grey.png \
 	rectangle.png \

@@ -25,6 +25,7 @@ import gobject
 import gtk
 import gtk.gdk
 import random
+import pango
 from gcompris import gcompris_gettext as _
 
 class Gcompris_sudoku:
@@ -51,15 +52,15 @@ class Gcompris_sudoku:
     # Holds the coordinate of the current square
     self.cursqre = None
 
-    self.normal_square_color = 0x33CCFFffL
-    self.highl_square_color  = 0xFFCC33ffL
-    self.focus_square_color  = 0xFF6633ffL
-    self.fixed_square_color  = 0x3366FFffL
-    self.error_square_color  = 0xFF3366ffL
+    self.normal_square_color = 0x33CCFFAAL
+    self.highl_square_color  = 0xFFCC33AAL
+    self.focus_square_color  = 0xFF6633AAL
+    self.fixed_square_color  = 0x3366FFAAL
+    self.error_square_color  = 0xFF3366AAL
     self.lines_color         = 0xFF3366ffL
 
-    self.fixed_number_color  = 0xFFFFFFFFL
-    self.user_number_color   = 0xFFFFFFFFL
+    self.fixed_number_color  = 0x000000FFL
+    self.user_number_color   = 0x000000FFL
 
     self.root_sudo = None
 
@@ -94,7 +95,8 @@ class Gcompris_sudoku:
 
     gcompris.bar_set(gcompris.BAR_LEVEL|gcompris.BAR_REPEAT)
 
-    gcompris.set_default_background(self.gcomprisBoard.canvas.get_root_item())
+    gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
+                            "sudoku/background.jpg")
     gcompris.bar_set_level(self.gcomprisBoard)
 
     # Create our rootitem. We put each canvas item in it so at the end we
@@ -591,11 +593,13 @@ class Gcompris_sudoku:
 
         item = goocanvas.Text(
           parent = self.root_sudo,
-          x= x_init + square_width * x + square_width/2 - 5,
-          y= y_init + square_height * y + square_height/2 - 5,
+          x= x_init + square_width * x + square_width/2,
+          y= y_init + square_height * y + square_height/2,
           text = text,
           fill_color_rgba= color,
-          font=gcompris.skin.get_font("gcompris/content"),
+          alignment=pango.ALIGN_CENTER,
+          anchor = gtk.ANCHOR_CENTER,
+          font=gcompris.skin.get_font("gcompris/board/big bold"),
           )
         if(self.gcomprisBoard.level<self.symbolize_level_max):
           item.props.visibility = goocanvas.ITEM_INVISIBLE
