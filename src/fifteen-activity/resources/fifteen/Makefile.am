@@ -1,5 +1,5 @@
 imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/fifteen
 img_DATA = \
-	fifteen_frame.png
+	background.jpg
 
 EXTRA_DIST = $(img_DATA)

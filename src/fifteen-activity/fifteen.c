@@ -111,6 +111,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
       gc_bar_set(GC_BAR_LEVEL);
 
+      gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
+			"fifteen/background.jpg");
+
       fifteen_next_level();
 
       gamewon = FALSE;
@@ -160,8 +163,6 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 /* set initial values for the next level */
 static void fifteen_next_level()
 {
-  gc_set_default_background(goo_canvas_get_root_item(gcomprisBoard->canvas));
-
   gc_bar_set_level(gcomprisBoard);
 
   fifteen_destroy_all_items();
@@ -193,7 +194,6 @@ static GooCanvasItem *fifteen_create_item(GooCanvasItem *parent)
   GooCanvasItem **board;
   GooCanvasItem *text;
   char buf[20];
-  GdkPixbuf *pixmap = NULL;
 
   boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
 				   NULL);
@@ -202,20 +202,17 @@ static GooCanvasItem *fifteen_create_item(GooCanvasItem *parent)
 			    (BOARDWIDTH-(4*PIECE_SIZE))/2,
 			    (BOARDHEIGHT-(4*PIECE_SIZE))/2);
 
-  /* Load the cute frame */
-  pixmap = gc_pixmap_load("fifteen/fifteen_frame.png");
-
-  goo_canvas_image_new (boardRootItem,
-			pixmap,
-			-1*((gdk_pixbuf_get_width(pixmap)-(4*PIECE_SIZE))/2),
-			-1*((gdk_pixbuf_get_height(pixmap)-(4*PIECE_SIZE))/2)-2,
-			NULL);
-#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
-  gdk_pixbuf_unref(pixmap);
-#else
-  g_object_unref(pixmap);
-#endif
-
+  goo_canvas_rect_new (boardRootItem,
+		       - 1.0,
+		       - 1.0,
+		       4*PIECE_SIZE + 2,
+		       4*PIECE_SIZE + 2,
+		       "fill-color-rgba", 0x666666AAL,
+		       "stroke-color-rgba", 0x000000FFL,
+		       "radius_x", 4.0,
+		       "radius_y", 4.0,
+		       "line-width", 4.0,
+		       NULL);
 
   board = g_new (GooCanvasItem *, 16);
   g_object_set_data (G_OBJECT (boardRootItem), "board", board);
