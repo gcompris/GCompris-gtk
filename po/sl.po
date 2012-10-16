@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2012-10-16 09:35+0000\n"
-"PO-Revision-Date: 2012-10-16 13:25+0100\n"
+"PO-Revision-Date: 2012-10-16 15:33+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
@@ -158,7 +158,7 @@ msgstr "Različne igre spomina (slike, črke, zvoki)"
 
 #: ../boards/memory_op_group_tux.xml.in.h:1
 msgid "Go to mathematics memory activities against Tux"
-msgstr "Tekmuj v matematičnemu spominu proti Pingu"
+msgstr "Pingov matematični spomin"
 
 #: ../boards/memory_op_group_tux.xml.in.h:2
 #: ../boards/memory_op_group.xml.in.h:2
@@ -369,7 +369,7 @@ msgstr "Dejavno"
 
 #: ../src/administration-activity/admin/board_list.py:311
 msgid "Board title"
-msgstr "Naslov table"
+msgstr "Naslov dejavnosti"
 
 #: ../src/administration-activity/admin/board_list.py:424
 #, python-format
@@ -382,8 +382,8 @@ msgid ""
 "<span size='x-large'> Select the difficulty range \n"
 "for profile <b>%s</b></span>"
 msgstr ""
-"<span size='x-large'> Izberi težavnostno raven\n"
-"profila<b>%s</b></span>"
+"<span size='x-large'> Izbor težavnostne ravni\n"
+"profila <b>%s</b></span>"
 
 #: ../src/administration-activity/admin/board_list.py:645
 #: ../src/administration-activity/admin/board_list.py:657
@@ -392,14 +392,14 @@ msgid ""
 "<b>{config}</b> configuration\n"
 " for profile <b>{profile}</b>"
 msgstr ""
-"<b>{config}</b> nastavitev\n"
+"Nastavitve <b>{config}</b>\n"
 " za profil <b>{profile}</b>"
 
 #: ../src/administration-activity/admin/board_list.py:663
 #: ../src/pythontest-activity/pythontest.py:511
 #: ../src/smallnumbers-activity/smallnumbers.c:619
 msgid "Select sound locale"
-msgstr "Izberi jezik zvoka"
+msgstr "Jezik zvočnih posnetkov: "
 
 #: ../src/administration-activity/admin/class_edit.py:56
 msgid "Editing a Class"
@@ -407,7 +407,7 @@ msgstr "Urejanje razreda"
 
 #: ../src/administration-activity/admin/class_edit.py:61
 msgid "Editing class: "
-msgstr "Urejanje razreda"
+msgstr "Urejanje razreda:"
 
 #: ../src/administration-activity/admin/class_edit.py:64
 msgid "Editing a new class"
@@ -535,20 +535,8 @@ msgstr "Z levim klikom miške izberi želeno igro"
 
 #: ../src/administration-activity/administration.xml.in.h:3
 msgid "If you want to fine tune GCompris to your needs, you can use the administration module here. The ultimate goal is to provide child-specific reporting for parents and teacher who want to monitor the progress, strengths and needs of their children."
-msgstr "Če želite GCompris fino prilagoditi za svoje potrebe, lahko uporabite skrbniški meni tukaj. Končni cilj je zagotavljanje poročanje za vsakega otroka njegovim staršem in učiteljem, ki želijo nadzirati napredek, moči in slabosti njihovega otroka."
+msgstr "Skrbniški meni omogoča podrobno prilagajanje programa GCompris. Cilj je zagotavljanje zbiranja podatkov in poročil dela za vsakega otroka posebej. Ti podatki so lahko v pomoč učiteljem in staršem, ki si želijo spremljati otrokov izbor priljubljenih dejavnosti in napredek pri njihovem izvajanju."
 
-# 1)
-# Za več podatkov o igri si oglej tole stran ...
-# http://gcompris.net/-On-one-page-
-# 2)
-# Uporabljal sem "če", ker menim da se "v primeru" otrokom sliši čudno..
-# 3)
-# Vedno sem uporabljal tikanje, ker se mi ne da razmišljat kateri del bo gledal otrok in katerega skrbnik.
-# Čisto mogoče je da bo kakšno napako tudi otroku ven vrglo, ali pa da si bo sam kaj nastavljal... Sem pa bil pri takih nizih bolj tehničen v izrazoslovju.
-# 4)
-# Tux sem prevajal kot Pingo, saj Tux ni slovensko ime, Pinga pa vsak pozna iz risank :P
-# 5)
-# Namesto poskusi ponovno uporabljam poskusi še enkrat
 #: ../src/administration-activity/administration.xml.in.h:4
 msgid ""
 "- In the 'Boards' section you can change the list of activities. Just untoggle them in the treeview. You can change the language used for reading, for example, then the language used for saying the names of colors.\n"
@@ -810,16 +798,16 @@ msgstr "mandeljne"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:11
 msgid "ruby"
-msgstr "rubinsko rdeče"
+msgstr "rubinsko-rdeče"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:12
 msgid "sapphire"
-msgstr "safirno zelene"
+msgstr "safir-zelene"
 
 # v bistvu je to tale barva - http://www.google.si/imgres?imgurl=http://www.ssmrocks.com/kimnovak/mt/pictures/archives/sage_flower_01.jpg&imgrefurl=http://www.ssmrocks.com/kimnovak/mt/pictures/archives/pages/001625.php&h=609&w=510&sz=75&tbnid=gDgikufRx0WDPM:&tbnh=245&tbnw=205&prev=/images%3Fq%3Dsage%2Bflower&hl=sl&usg=__LIOcOXfE6etaDkPKcAqG15xgt74=&ei=NhwCTP3JK4OCOIC1wNYE&sa=X&oi=image_result&resnum=1&ct=image&ved=0CBoQ9QEwAA
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:13
 msgid "sage"
-msgstr "zelene"
+msgstr "sivo-zelene"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:14
 msgid "salmon"
@@ -827,7 +815,7 @@ msgstr "lososove"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:15
 msgid "sepia"
-msgstr "rjavkasto črne"
+msgstr "rjavkasto-črne"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:16
 msgid "sulphur"
@@ -855,11 +843,11 @@ msgstr "mahagonijeve"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:22
 msgid "aquamarine"
-msgstr "morsko modre"
+msgstr "morsko-modre"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:23
 msgid "alabaster"
-msgstr "motno steklene"
+msgstr "motno-steklene"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:24
 msgid "amber"
@@ -875,11 +863,11 @@ msgstr "janeževe"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:27
 msgid "vermilion"
-msgstr "rumeno rdeče"
+msgstr "škrlatno-rdeče"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:28
 msgid "ceruse"
-msgstr "sinje"
+msgstr "temno-opečnate"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:29
 msgid "fawn"
@@ -887,7 +875,7 @@ msgstr "lanene"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:30
 msgid "chartreuse"
-msgstr "čartruško zelene"
+msgstr "zeliščno-zelene"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:31
 msgid "emerald"
@@ -1528,11 +1516,11 @@ msgstr "Ko boš pripravljen, klikni name in poskusi ponoviti znake brajice."
 #. Translators : Do not translate the token {letter}
 #: ../src/braille_alphabets-activity/braille_alphabets.py:299
 msgid "Click on the dots in braille cell area to produce the letter {letter}."
-msgstr "Klikni na pike v področju braillove celice, da proizvedeš črko {letter}."
+msgstr "Klikni na pike v področju brajeve celice, da proizvedeš črko {letter}."
 
 #: ../src/braille_alphabets-activity/braille_alphabets.py:304
 msgid "Look at the Braille character map and observe how similar the first and second line are."
-msgstr "Oglej si seznam Braillovih znakov in opazuj kako podobna sta si prva in druga vrstica."
+msgstr "Oglej si seznam znakov brajice znakov in opazuj kako podobna sta si prva in druga vrstica."
 
 #: ../src/braille_alphabets-activity/braille_alphabets.py:307
 msgid "Again, similar as the first line but take care, the 'W' letter was added afterwards."
@@ -1544,7 +1532,7 @@ msgstr "To je enostavno, števila so enaka kot črke kot A do J."
 
 #: ../src/braille_alphabets-activity/braille_alphabets.py:329
 msgid "Braille Cell"
-msgstr "Braillova celica"
+msgstr "Brajova celica"
 
 #: ../src/braille_alphabets-activity/braille_alphabets.py:351
 msgid "Click to confirm your selection of dots"
@@ -1552,15 +1540,15 @@ msgstr "Klikni za potrditev izbire pik"
 
 #: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:2
 msgid "Learn and memorize the Braille system."
-msgstr "Nauči in zapomni si Braillov sistem."
+msgstr "Nauči in zapomni si brajico."
 
 #: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:3
 msgid "Let kids discover the Braille system."
-msgstr "Naj se otroci naučijo Braillov sistem."
+msgstr "Spoznavanje in učenje brajice."
 
 #: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:4
 msgid "The screen has 3 sections: an interactive braille cell, an instruction telling you the letter to reproduce, and at the top the Braille letters to use as a reference. Each level teaches a set of 10 letters."
-msgstr "Zaslon je razdeljen na tri dele: polje za vpisovanje Braillovih znakov, navodila za vpisovanje črk in vrhnji del z Braillovimi črkami za pomoč. Na vsaki ravni je ponujenih deset znakov."
+msgstr "Zaslon je razdeljen na tri dele: polje za vpisovanje znakov brajice, navodila za vpisovanje črk in vrhnji del s črkami brajice za pomoč. Na vsaki ravni je ponujenih deset znakov."
 
 #: ../src/braille_alphabets-activity/BrailleMap.py:96
 msgid "Back to the activity"
@@ -1568,19 +1556,19 @@ msgstr "Nazaj na dejavnost"
 
 #: ../src/braille_fun-activity/braille_fun.xml.in.h:1
 msgid "Braille Fun"
-msgstr "Brailova zabava"
+msgstr "Brajova zabava"
 
 #: ../src/braille_fun-activity/braille_fun.xml.in.h:2
 msgid "Braille the falling letters"
-msgstr "Padajoče Braillove črke"
+msgstr "Padajoče črke brajice"
 
 #: ../src/braille_fun-activity/braille_fun.xml.in.h:3
 msgid "Braille Alphabet Codes"
-msgstr "Abecedne kode Braillove pisave"
+msgstr "Abecedne kode brajice"
 
 #: ../src/braille_fun-activity/braille_fun.xml.in.h:4
 msgid "Enter the braille code in the tile for the corresponding falling letters. Check the braille chart by clicking on the toggle button for help."
-msgstr "Vnesite Braillovo koda za ustrezne padajoče črke. Preveri seznam braillovih znakov s klikom na gumb za pomoč."
+msgstr "Vpisati je treba ustrezen znak brajice za padajoče črke. S klikom na gumb pomoči se pokaže seznam znakov."
 
 #: ../src/braille_lotto-activity/braille_lotto.py:120
 msgid "PLAYER 1"
@@ -1648,15 +1636,15 @@ msgstr "Čestitamo igralec {player_id}, zmagal si"
 
 #: ../src/braille_lotto-activity/braille_lotto.xml.in.h:1
 msgid "Braille Lotto"
-msgstr "Braillov loto"
+msgstr "Brajev loto"
 
 #: ../src/braille_lotto-activity/braille_lotto.xml.in.h:2
 msgid "Discover the Braille system for numbers."
-msgstr "Odkrij Braillov sistem za števila."
+msgstr "Odkrivanje Brajevega sistem za števila."
 
 #: ../src/braille_lotto-activity/braille_lotto.xml.in.h:3
 msgid "Each player must find if the proposed number is in their board. If the code is in the board, just click on it in order to validate it. The player who crosses all the Braille numbers correctly wins the game. Check the Braille table by clicking on the toggle button in the control bar."
-msgstr "Vsak igralec mora ugotoviti, če je predlagano število na plošči. V primeru, da je koda na plošči, kliknite nanjo za njeno preverjanje. Igralec, ki pravilno prečrta vsa Braillova števila, zmaga igro. Braillovo preglednico lahko vidi s klikom na gumb v nadzorni vrstici."
+msgstr "Vsak igralec mora ugotoviti, če je predlagano število na plošči. V primeru, da je koda na plošči, kliknite nanjo za njeno preverjanje. Igralec, ki pravilno prečrta vsa Brajeva števila, zmaga igro. Preglednico je mogoče videti s klikom na gumb v nadzorni vrstici."
 
 #: ../src/canal_lock-activity/canal_lock.xml.in.h:1
 msgid "Operate a canal lock"
@@ -2113,17 +2101,17 @@ msgstr "Nazaj na privzeto"
 
 #: ../src/click_on_letter-activity/click_on_letter.xml.in.h:1
 msgid "Click on a lowercase letter"
-msgstr "Klik na malo črko"
+msgstr "Klikanje malih črk"
 
 #: ../src/click_on_letter-activity/click_on_letter.xml.in.h:2
 #: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:2
 msgid "Listen to a letter and click on the right one"
-msgstr "Prisluhni črki in klikni na pravo"
+msgstr "Prisluhni izgovorjavi črke in klikni na pravo"
 
 #: ../src/click_on_letter-activity/click_on_letter.xml.in.h:3
 #: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:3
 msgid "Visual letter-recognition. Can move the mouse."
-msgstr "Vidno prepoznavanje črk. Premikanje miške."
+msgstr "Prepoznavanje črk."
 
 #: ../src/click_on_letter-activity/click_on_letter.xml.in.h:4
 #: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:4
@@ -2133,11 +2121,11 @@ msgstr "Prepoznavanje imen črk"
 #: ../src/click_on_letter-activity/click_on_letter.xml.in.h:5
 #: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:5
 msgid "A letter is spoken. Click on the matching letter in the main area. You can listen to the letter again, by clicking on the mouth icon in the bottom box."
-msgstr "Črka je bila izgovorjena. Klikni na pravo črko v glavnem oknu. Črko lahko slišiš še enkrat, če klikneš na usta spodaj."
+msgstr "Izgovorjena je bila črka. Klikni na pravo črko v glavnem oknu. Izgovorjavo črke lahko slišiš še enkrat, če klikneš na usta."
 
 #: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:1
 msgid "Click on an uppercase letter"
-msgstr "Klik na veliko črko"
+msgstr "Klikanje velikih črk"
 
 #: ../src/clockgame-activity/clockgame.c:535
 msgid "Set the watch to:"
@@ -2620,10 +2608,10 @@ msgid ""
 "The image must be in the 'jpeg' format and be suffixed with '.jpg' or '.jpeg'.\n"
 "For best results, they must have a size of 800x520 pixels.\n"
 msgstr ""
-"V to mapo postavi kolikor hočeš slik.\n"
-"Uporabljene bodo kot ozadje v dejavnosti 'radirka'.\n"
-"Slike morajo biti v vrsti 'jpeg' in morajo imeti pripono '.jpg' ali '.jpeg'.\n"
-"Za najboljše rezultate morajo imeti velikost 800x520 točk.\n"
+"V tej mapi je lahko poljubno število slik.\n"
+"Uporabljene bodo za ozadje v dejavnosti 'Radirka'.\n"
+"Slike morajo biti vrste 'jpeg' in morajo imeti pripono '.jpg' ali '.jpeg'.\n"
+"Najustreznejše so slike velikosti 800x520 točk.\n"
 
 #: ../src/erase-activity/erase.xml.in.h:5
 msgid "Move the mouse until all the blocks disappear. You can add you own images under the directory '~/My GCompris/erase'."
@@ -3191,9 +3179,7 @@ msgstr "Dinamično nalaganje modulov ni podprto. Program GCompris se ne more nal
 msgid ""
 "Select the language\n"
 " to use in the board"
-msgstr ""
-"Izbor jezika\n"
-" za uporabo na tabli"
+msgstr "Izbor jezika programa:\n"
 
 #: ../src/gcompris/board_config_combo.c:252
 msgid "Global GCompris mode"
@@ -3872,7 +3858,7 @@ msgstr "Vse dejavnosti so v tem profilu onemogočene. Odprite skrbniški modul G
 
 #: ../src/gcompris/properties.c:505
 msgid "This directory contains the files you create with the GCompris educational suite\n"
-msgstr "Ta mapa vsebuje datoteke, ki jih boš ustvaril s tem programom\n"
+msgstr "V tej mapi so datoteke, ki bodo ustvarjene s programom GCompris.\n"
 
 #: ../src/gcompris/properties.c:512
 msgid ""
@@ -5222,7 +5208,7 @@ msgstr "To je transformator za zvišanje napetosti. Elektrika se prenaša pri vi
 
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:1
 msgid "Learn about an electrical system based on renewable energy"
-msgstr "Nauči se nekaj o električnem sistemu, ki je zasnovan na obnovljivi energiji"
+msgstr "Električni sistem obnovljive energije"
 
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:2
 msgid "Tux has come back from a long fishing party on his boat. Bring the electrical system back up so he can have light in his home."
@@ -5642,7 +5628,7 @@ msgstr "Sila težnosti je sorazmerna z maso obeh teles. To pomeni, da se bodo te
 
 #: ../src/intro_gravity-activity/intro_gravity.py:118
 msgid "You goal is to let Tux's spaceship move by changing the mass of its surrounding planets. Don't get too close to the planets or you will crash on them. The arrow indicates the direction of the force on your ship."
-msgstr "Cilj igre je premikati Pingovo vesoljsko plovilo s spreminjanjem mase okoliških planetov. Plovilo se planetu ne sme preveč približati, saj lahko nanj strmoglavi. Puščica kaže smer in velikost sile na vesoljsko plovilo."
+msgstr "Cilj igre je premikati Pingovo vesoljsko ladjo s spreminjanjem mase okoliških planetov. Vesoljska ladja se planetu ne sme preveč približati, saj lahko nanj strmoglavi. Puščica kaže smer in velikost sile na vesoljsko ladjo."
 
 #: ../src/intro_gravity-activity/intro_gravity.py:128
 msgid "Avoid the asteroid and join the space shuttle to win."
@@ -5671,9 +5657,9 @@ msgid ""
 "You must drive Tux's ship towards the landing platform.\n"
 "The landing platform turns green when the velocity is safe to land"
 msgstr ""
-"S tipkama gor in dol se pri plovilu upravlja pogon.\n"
+"S tipkama gor in dol se pri ladji upravlja pogon.\n"
 "S tipkama levo in desno se določa smer želenega gibanja.\n"
-"S Pingovim plovilom želite pristati na pristajalni ploščadi.\n"
+"S Pingovo vesoljsko ladjo je treba pristati na pristajalni ploščadi.\n"
 "Ta se obarva zeleno, ko sta hitrost in smer varni za pristajanje."
 
 #: ../src/land_safe-activity/land_safe.py:171
@@ -5723,7 +5709,7 @@ msgid ""
 "        "
 msgstr ""
 "\n"
-"Pospešek zaradi težnosti je sorazmeren z maso planeta in obratno sorazmeren s kvadratom razdalja od središča planeta. To pomeni, da se bo pospešek razlikoval pri potovanju mimo vsakega planeta in bo večji, ko bo plovilo bližje planetu.\n"
+"Pospešek zaradi težnosti je sorazmeren z maso planeta in obratno sorazmeren s kvadratom razdalja od središča planeta. To pomeni, da se bo pospešek razlikoval pri potovanju mimo vsakega planeta in bo večji, ko bo vesoljska ladja bližje planetu.\n"
 "\n"
 "Uporabite tipki gor in dol za upravljanje pogona in tipki levo in desno za upravljanje smeri.\n"
 "\n"
@@ -5884,11 +5870,11 @@ msgstr "Zgodovina Louisa Brailla"
 
 #: ../src/louis_braille-activity/louis_braille.xml.in.h:2
 msgid "Review the major dates of the inventor of the Braille system."
-msgstr "Pregled pomembnejših datumov odkrivanja Braillovega sistema."
+msgstr "Pregled pomembnejših datumov odkrivanja Brajevega sistema."
 
 #: ../src/louis_braille-activity/louis_braille.xml.in.h:3
 msgid "Read the history of Louis Braille, his biography and discovery of the Braille system. Click on the previous and next buttons to move to the respective story page. At the end, arrange the sequence in the chronological order."
-msgstr "Preberite zgodovino Louisa Brailla, njegovo biografijo in odkritje sistema Braillove pisave. S klikom na gumbe za naprej in nazaj se je mogoče premikati med stranmi zgodbe, na koncu pa je treba urediti stavke v kronološkem vrstnem redu."
+msgstr "Preberite zgodovino Louisa Brailla, njegovo biografijo in odkritje sistema Brajeve pisave. S klikom na gumbe za naprej in nazaj se je mogoče premikati med stranmi zgodbe, na koncu pa je treba urediti stavke v kronološkem vrstnem redu."
 
 #: ../src/louis_braille-activity/louis_braille.xml.in.h:4
 msgid "Louis Braille Video: &lt; http://www.youtube.com/watch?v=9bdfC2j_4x4 &gt;"
@@ -5920,7 +5906,7 @@ msgstr "Francoski vojak Charles Barbier je obiskal njegovo šolo in mu pokazal s
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:7
 msgid "Louis trimmed Barbier's 12 dots into 6 and invented the Braille system."
-msgstr " Louis je skrčil Barbierjev sistem z dvanajstimi pikami v sistem s šestimi pik in izumil Braillov jezik."
+msgstr "Louis je skrčil Barbierjev sistem z dvanajstimi pikami v sistem s šestimi pik in izumil Brajov jezik."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:8
 msgid "He became a teacher after graduating and promoted his method while secretly teaching it at the Institute."
@@ -5928,7 +5914,7 @@ msgstr "Po diplomi je postal učitelj, hkrati pa je skrivaje poučeval svojo met
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:9
 msgid "He revised and extended braille to include mathematics, symbols, punctuations and music notations."
-msgstr "Braillovo pisavo je razširil, da vključuje tudi posebne znake za matematiko, simbole, ločila in glasbene zapise. "
+msgstr "Pisavo je razširil, da vključuje tudi posebne znake za matematiko, simbole, ločila in glasbene zapise. "
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:10
 msgid "He died of tuberculosis. He is buried in the Pantheon in Paris. A monument is erected to honor him."
@@ -5940,7 +5926,7 @@ msgstr "Po njegovi smrti"
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:12
 msgid "Braille got accepted as a world wide standard. Louis Braille proved that if you have motivation you can do incredible things."
-msgstr "Braillova pisava je postala svetovni standard. Louis Braille je dokazal, da lahko z veliko volje, doseže neverjetne stvari."
+msgstr "Pisava je postala svetovni standard. Louis Braille je dokazal, da lahko z veliko volje, doseže neverjetne stvari."
 
 #: ../src/magic_hat_minus-activity/magic_hat_minus.xml.in.h:1
 #: ../src/magic_hat_plus-activity/magic_hat_plus.xml.in.h:1
@@ -7020,7 +7006,7 @@ msgstr "To je igralna deska. Ne potrebuješ posebne spretnosti za igranje."
 
 #: ../src/paratrooper-activity/paratrooper.xml.in.h:4
 msgid "In this game, Tux the parachutist needs help to land safely on the fishing boat. He needs to allow for the wind direction and speed."
-msgstr "V tej igri je treba pomagati Pingu s padalom varno pristati na ribiškem čolnu. Paziti je treba na smer in hitrost vetra."
+msgstr "Pomagaj padalcu Pingu varno pristati na ribiškem čolnu. Treba je biti pozoren na smer in hitrost vetra."
 
 #: ../src/paratrooper-activity/paratrooper.xml.in.h:5
 msgid "Hit any key or click on the plane to make Tux jump. Hit another key or click on Tux to open the parachute."
@@ -7799,7 +7785,7 @@ msgstr "Vedi, da lahko uteži spustiš na obe strani tehtnice."
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:1
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:1
 msgid "Balance the scales properly"
-msgstr "Pravilno uravnoteži tehtnico"
+msgstr "Uravnoteženje tehtnice"
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:2
 msgid "Drag and Drop weights to balance the scales"
@@ -7970,11 +7956,11 @@ msgstr "Števila na kocki"
 
 #: ../src/submarine-activity/submarine.xml.in.h:1
 msgid "Pilot a submarine"
-msgstr "Vozi podmornico"
+msgstr "Vožnja s podmornico"
 
 #: ../src/submarine-activity/submarine.xml.in.h:2
 msgid "Pilot a submarine using air tanks and dive rudders"
-msgstr "Vozi podmornico s pomočjo zračnih komor in potapljaškega krmila"
+msgstr "Upravljaj s podmornico s pomočjo zračnih komor in potapljaškega krmila."
 
 #: ../src/submarine-activity/submarine.xml.in.h:3
 msgid "Physics basics"
@@ -8103,7 +8089,7 @@ msgstr[3] "Razdalja do tarče = %d metre"
 
 #: ../src/target-activity/target.xml.in.h:1
 msgid "Practice addition with a target game"
-msgstr "Vadi seštevanje z igro tarč"
+msgstr "Seštevanje z igro tarč"
 
 #: ../src/target-activity/target.xml.in.h:2
 msgid "Hit the target and count your points"
@@ -8199,7 +8185,7 @@ msgstr "Vodni stolp je velik zabojnik za shranjevanje vode. Voda je v njem shran
 
 #: ../src/watercycle-activity/watercycle.xml.in.h:1
 msgid "Learn about the water cycle"
-msgstr "Spoznaj sistema kroženja vode"
+msgstr "Spoznaj sistem kroženja vode"
 
 #: ../src/watercycle-activity/watercycle.xml.in.h:2
 msgid "Tux has come back from a long fishing party on his boat. Bring the water system back up so he can take a shower."
@@ -8207,7 +8193,7 @@ msgstr "Pingo je prišel domov z dolgega ribolova. Popravi vodni sistem, da se b
 
 #: ../src/watercycle-activity/watercycle.xml.in.h:3
 msgid "Learn the water cycle"
-msgstr "Spoznaj sistema kroženja vode"
+msgstr "Kroženje vode"
 
 #: ../src/watercycle-activity/watercycle.xml.in.h:4
 msgid "Click on different active elements : sun, cloud, water pump station, and water cleanup station, in order to reactivate the entire water system. When the system is back up and Tux is in the shower, push the shower button for him."
