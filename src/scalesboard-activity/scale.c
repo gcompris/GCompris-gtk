@@ -1033,15 +1033,35 @@ scale_next_level()
 
   /* display some hint */
   if(gcomprisBoard->level > 2 || board_mode == MODE_WEIGHT)
-    goo_canvas_text_new(boardRootItem,
-			_("Take care, you can drop weights on both sides of the scale."),
-			BOARDWIDTH/2,
-			ITEM_Y_MIN - 20,
-			-1,
-			GTK_ANCHOR_CENTER,
-			"font", gc_skin_font_board_medium,
-			"fill-color", "darkblue",
-			NULL);
+    {
+      GooCanvasItem *text_item =
+	goo_canvas_text_new(boardRootItem,
+			    _("Take care, you can drop weights on both sides of the scale."),
+			    BOARDWIDTH/2,
+			    30,
+			    BOARDWIDTH - 200,
+			    GTK_ANCHOR_N,
+			    "font", gc_skin_font_board_small,
+			    "fill-color", "black",
+			    "alignment", PANGO_ALIGN_CENTER,
+			    NULL);
+      GooCanvasBounds bounds;
+      goo_canvas_item_get_bounds (text_item, &bounds);
+      int gap = 15;
+      GooCanvasItem *rect_item =
+	goo_canvas_rect_new (boardRootItem,
+			     bounds.x1 - gap,
+			     bounds.y1 - gap,
+			     (bounds.x2 - bounds.x1) + gap*2,
+			     (bounds.y2 - bounds.y1) + gap*2,
+			     "stroke_color_rgba", 0x000000FFL,
+			     "fill_color_rgba", 0XE9B82399L,
+			     "line-width", (double) 2,
+			     "radius-x", (double) 10,
+			     "radius-y", (double) 10,
+			     NULL);
+      goo_canvas_item_raise(text_item, rect_item);
+    }
 
   if (board_mode == MODE_COUNT)
     scale_prepare_level();
