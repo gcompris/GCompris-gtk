@@ -76,8 +76,8 @@ class Gcompris_findit:
       gcompris.bar_set(gcompris.BAR_LEVEL|gcompris.BAR_REPEAT)
       gcompris.bar_set_level(self.gcomprisBoard)
       gcompris.sound.policy_set(gcompris.sound.PLAY_AND_INTERRUPT)
+      self.first_run = True
       self.play(data)
-
 
   def end(self):
     # Remove the root item removes all the others inside it
@@ -221,6 +221,21 @@ class Gcompris_findit:
 
     self.datasetlevel.sort_objects()
     self.object_target = self.get_next_question()
+
+    if not self.first_run:
+      self.display_question(self.datasetlevel, self.object_target)
+    else:
+      text, rect = textBox(_('I am Ready'), 400, 250, self.rootitem,
+                           fill_color_rgba = 0x666666CCL,
+                           stroke_color_rgba = 0x000000FFL)
+      gcompris.utils.item_focus_init(rect, None)
+      rect.connect("button_press_event", self.first_run_event, text, rect)
+
+  def first_run_event(self, widget, target, event, text, rect):
+    self.first_run = False
+    text.remove()
+    gcompris.utils.item_focus_remove(rect, None)
+    rect.remove()
     self.display_question(self.datasetlevel, self.object_target)
 
   def play_audio_question(self, question, object_):
@@ -283,6 +298,9 @@ class Gcompris_findit:
     self.play_audio_question(datasetlevel.question_audio, object_target)
 
   def ok_event(self, widget, target, event, dummy):
+    if self.first_run:
+      return
+
     if self.selected:
       if (self.selected.text == self.object_target.text):
         #print "WON " + self.selected.text
@@ -297,6 +315,9 @@ class Gcompris_findit:
 
   #
   def item_event(self, item, target, event, object_source):
+    if self.first_run:
+      return
+
     if self.selected:
       self.selected.select(False)
     self.selected = object_source
@@ -561,3 +582,39 @@ def load_common_prop(dataset, level, property_, default):
 
   return default
 
+def textBox(text, x, y , rootitem, width=10000,
+            fill_color_rgba = None, stroke_color_rgba = None,
+            noRect=False, text_color="black"):
+    '''
+    write a textbox with text to the screen.
+    '''
+    text = goocanvas.Text(
+        parent = rootitem,
+        x=x,
+        y=y,
+        width=width,
+        text=text,
+        font = gcompris.skin.get_font("gcompris/board/big bold"),
+        fill_color=text_color,
+        anchor=gtk.ANCHOR_CENTER,
+        alignment=pango.ALIGN_CENTER,
+        pointer_events="GOO_CANVAS_EVENTS_NONE"
+        )
+    TG = 50
+    bounds = text.get_bounds()
+    if not noRect:
+        rect = goocanvas.Rect(parent = rootitem,
+                              x=bounds.x1 - TG,
+                              y=bounds.y1 - TG,
+                              width=bounds.x2 - bounds.x1 + TG * 2,
+                              height=bounds.y2 - bounds.y1 + TG * 2,
+                              line_width=3.0,
+                              radius_x = 5, radius_y = 5
+                              )
+        if fill_color_rgba:
+            rect.props.fill_color_rgba = fill_color_rgba
+        if stroke_color_rgba:
+            rect.props.stroke_color_rgba = stroke_color_rgba
+        text.raise_(rect)
+        return text, rect
+    return text
