@@ -500,7 +500,7 @@ gc_locale_get_name(const gchar *locale_code)
   if ( !locale )
     return NULL;
 
-  if( !g_ascii_strncasecmp(locale, "C", 1) )
+  if( !g_ascii_strcasecmp(locale, "C") )
       locale = GC_DEFAULT_LOCALE;
 
   /*
