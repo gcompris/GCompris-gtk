@@ -31,7 +31,7 @@ asia_DATA = \
 	asia/cambodia.png \
 	asia/caspian_sea.png \
 	asia/china.png \
-	asia/chypre.png \
+	asia/cyprus.png \
 	asia/georgia.png \
 	asia/india.png \
 	asia/indonesia.png \
