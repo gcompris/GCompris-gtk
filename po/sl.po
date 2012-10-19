@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-10-16 09:35+0000\n"
-"PO-Revision-Date: 2012-10-18 10:34+0100\n"
+"POT-Creation-Date: 2012-10-19 21:10+0000\n"
+"PO-Revision-Date: 2012-10-19 23:34+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
@@ -5653,6 +5653,11 @@ msgstr "Obdrži vesoljsko ladjo na sredi, izogni se trku s planeti in asteroidi"
 msgid "Follow the instructions when you run the activity."
 msgstr "Sledi navodilom med izvajanjem dejavnosti."
 
+#: ../src/land_safe-activity/land_safe.py:77
+#, python-format
+msgid "Gravity: %s"
+msgstr "Težnost: %s"
+
 #: ../src/land_safe-activity/land_safe.py:164
 msgid ""
 "Use the up and down keys to control the thrust\n"
@@ -5665,29 +5670,25 @@ msgstr ""
 "S Pingovo vesoljsko ladjo je treba pristati na pristajalni ploščadi.\n"
 "Ta se obarva zeleno, ko sta hitrost in smer varni za pristajanje."
 
+#: ../src/land_safe-activity/land_safe.py:169
+msgid "Click on me or press the Return key when you are ready."
+msgstr "Klikni ali pa pritisni vnosno tipko za nadaljevanje."
+
 #: ../src/land_safe-activity/land_safe.py:171
 msgid "I am ready!"
 msgstr "Sem na mestu!"
 
 #: ../src/land_safe-activity/land_safe.py:453
-msgid "Height : "
-msgstr "Višina :"
-
-#: ../src/land_safe-activity/land_safe.py:461
-msgid "354"
-msgstr "354"
+msgid "Height: "
+msgstr "Višina: "
 
 #: ../src/land_safe-activity/land_safe.py:469
 msgid "Fuel"
 msgstr "Gorivo"
 
 #: ../src/land_safe-activity/land_safe.py:501
-msgid "Velocity : "
-msgstr "Hitrost :"
-
-#: ../src/land_safe-activity/land_safe.py:509
-msgid "0"
-msgstr "0"
+msgid "Velocity: "
+msgstr "Hitrost: "
 
 #: ../src/land_safe-activity/land_safe.xml.in.h:1
 msgid "Land Safe"
@@ -8349,3 +8350,8 @@ msgstr "Učenje tipkanja"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Natipkaj celotno besedo, preden ta doseže dno"
 
+#~ msgid "354"
+#~ msgstr "354"
+
+#~ msgid "0"
+#~ msgstr "0"
