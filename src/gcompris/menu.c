@@ -357,10 +357,19 @@ gc_menu_section_get(gchar *section)
   return NULL;
 }
 
+/**
+ * Sort by difficulty and then by name
+ */
 static int
 boardlist_compare_func(const void *a, const void *b)
 {
-  return strcasecmp(((GcomprisBoard *) a)->difficulty, ((GcomprisBoard *) b)->difficulty);
+  int diff_cmp = strcasecmp(((GcomprisBoard *) a)->difficulty,
+			    ((GcomprisBoard *) b)->difficulty);
+  if ( diff_cmp == 0 )
+    return strcasecmp(((GcomprisBoard *) a)->name,
+		      ((GcomprisBoard *) b)->name);
+  else
+    return diff_cmp;
 }
 
 /** Return true is there are at least one activity in the given section
