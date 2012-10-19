@@ -74,7 +74,7 @@ class Gcompris_land_safe:
 
     # Text for Gravity
     gravity = str(0.58 * self.gcomprisBoard.level)
-    text = 'Gravity : ' + gravity
+    text = _('Gravity: %s') % (gravity)
     gravity_text = goocanvas.Text(
       parent = self.rootitem,
       x = 700,
@@ -166,7 +166,7 @@ class Gcompris_land_safe:
                "\nYou must drive Tux's ship towards the landing platform."
                "\nThe landing platform turns green when the velocity is safe to land")
      intro += "\n\n"
-     intro += "Click on me or press the Return key when you are ready."
+     intro += _("Click on me or press the Return key when you are ready.")
     else:
       intro = _('I am ready!')
 
@@ -450,7 +450,7 @@ class Display:
       x = 20,
       y = 20,
       fill_color = "white",
-      text = _("Height : "))
+      text = _("Height: "))
 
     # initiate text for altitude
     self.alt_text = goocanvas.Text(
@@ -458,7 +458,7 @@ class Display:
       x = 100,
       y = 20,
       fill_color = "white",
-      text = _('354'))
+      text = '')
 
     # text for fuel display
     fuel_text = goocanvas.Text(
@@ -498,7 +498,7 @@ class Display:
       x = 20,
       y = 60,
       fill_color = "white",
-      text = _('Velocity : '))
+      text = _('Velocity: '))
 
     # display velocity
     self.velocity = goocanvas.Text(
@@ -506,7 +506,7 @@ class Display:
       x = 100,
       y = 60,
       fill_color = 'white',
-      text = _('0'))
+      text = '')
 
     self.ship_instance = ship_instance
     self.key = 0
