@@ -8,10 +8,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gcompris\n"
+"Project-Id-Version: gcompris master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2012-10-19 21:10+0000\n"
-"PO-Revision-Date: 2012-10-19 23:34+0100\n"
+"PO-Revision-Date: 2012-10-21 21:35+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
@@ -207,10 +207,10 @@ msgid ""
 msgstr ""
 "Za uporabo klikni na ikono in izberi dejavnost iz menija dejavnosti.\n"
 "Na dnu je nadzorna vrstica GCompris.\n"
-"Od leve proti desni so razvrščene sledeče ikone.\n"
+"Od leve proti desni so razvrščene naslednje ikone.\n"
 "(ikone so prikazane le, če so na voljo v trenutni dejavnosti)\n"
-"    Domov - Konča dejavnost, gre nazaj v meni\n"
-"    Palec - V redu. Potrdi odgovor\n"
+"    Hiša - Konča dejavnost, gre nazaj v meni\n"
+"    Palec - V redu, potrdi odgovor\n"
 "    Puščice - Prikaže trenutno raven. Klikni za drugo raven\n"
 "    Ustnice - Ponovni vprašanje\n"
 "    Vprašaj - Pomoč\n"
@@ -299,7 +299,7 @@ msgstr "Skrbništvo GCompris"
 
 #: ../gcompris-edit.desktop.in.h:2
 msgid "Administration for gcompris"
-msgstr "Skrbništvo za gcompris"
+msgstr "Skrbništvo za GCompris"
 
 #: ../nsis_translations.desktop.in.h:1
 msgid "The installer is already running."
@@ -307,7 +307,7 @@ msgstr "Namestilnik že teče."
 
 #: ../nsis_translations.desktop.in.h:2
 msgid "An instance of GCompris is currently running. Exit GCompris and then try again."
-msgstr "Primerek GCompris že teče. Končaj GCompris in poskusi še enkrat."
+msgstr "Primerek GCompris že teče. Končaj program in poskusi znova."
 
 #: ../nsis_translations.desktop.in.h:3
 msgid "Visit the GCompris Web Site"
@@ -315,7 +315,7 @@ msgstr "Obišči spletišče GCompris"
 
 #: ../nsis_translations.desktop.in.h:4
 msgid "Your old GCompris directory is about to be deleted. Would you like to continue?$\\r$\\rNote: Any non-standard plugins that you may have installed will be deleted.$\\rGCompris user settings will not be affected."
-msgstr "Stara mapa GCompris bo izbrisana. Ali želiš nadaljevati?$\\r$\\rVedi: Vsi neobičajni vstavki bodo izbrisani.$\\rNa uporabniške nastavitve GCompris to nima vpliva. "
+msgstr "Stara mapa GCompris bo izbrisana. Ali želiš nadaljevati?$\\r$\\rOpomba: vsi neobičajni vstavki bodo izbrisani.$\\rNa uporabniške nastavitve GCompris to nima vpliva. "
 
 #: ../nsis_translations.desktop.in.h:5
 msgid "the uninstaller could not find registry entries for GCompris.$\\rIt is likely that another user installed this application."
@@ -544,9 +544,9 @@ msgid ""
 "- You can save multiple configurations, and switch between them easily. In the 'Profile' section add a profile, then in the 'Board' section select the profile in the combobox, then select the boards you want to be active. You can add multiple profiles, with different lists of boards, and different languages. You set the default profile in the 'Profile' section, by choosing the profile you want, then clicking on the 'Default' button. You can also choose a profile from the command line.\n"
 "- You can add users, classes and for each class, you can create groups of users. Note that you can import users from a comma-separated file. Assign one or more groups to a profile, after which those new logins will appear after restarting GCompris. Being able to identify individual children in GCompris means we can provide individual reports. It also recognizes the children as individuals; they can learn to type in and recognize their own usernames (login is configurable)."
 msgstr ""
-"- V odseku 'dejavnosti' lahko spremenite seznam dejavnosti. Odstranite izbiro v drevesnemu pogledu. Spremenite lahko jezik uporabljen za branje, na primer jezik, uporabljen za pisanje imen barv.\n"
-"- Shranite lahko več nastavitev med katerimi lahko enostavno menjate. V odseku 'Profil' dodajte profil ter nato v odseku 'Dejavnosti' v spustnemu polju izberite profil, ter izberite tiste, ki naj bodo omogočene. Dodate lahko več profilov z različnimi seznami dejavnosti in različnimi jeziki. Privzeti profil lahko nastavite v odseku 'profil' z izbiro profila ter klikom na gumb 'Privzeto'. Profil lahko izberete tudi iz ukazne vrstice.\n"
-"- Dodate lahko uporabnike, razrede in za vsak razred lahko ustvarite skupino uporabnikov. Uporabnike lahko uvozite iz datoteke ločene z vejico. Profilu lahko dodelite eno ali več skupin, ki se bodo pojavile kot nove prijave po ponovnemu zagonu GCompris. Možnost določanje posameznih otrok v GCompris pomeni, da lahko zagotavljamo poročila za vsakega otroka. Poleg tega prepozna otroke kot posameznike; naučijo se lahko tipkati in prepoznati svoja lastna uporabniška imena (prijava je nastavljiva). "
+"- V odseku 'dejavnosti' je mogoče prilagajati izbor prikazanih dejavnosti. Spremeniti je mogoče jezik besedila, jezik govorjene besede in druge nastavitve.\n"
+"- Nastavitve je mogoče shraniti, določiti pa je mogoče tudi več profilov, med katerimi je mogoče v programu preklapljati. V odseku 'profil' se ta določi, v odseku 'dejavnosti' pa se nato omogočijo tiste dejavnosti, ki naj bodo vidne. Privzeti profil se lahko določi s klikom na gumb 'Privzeto'. Profil lahko izberete tudi iz ukazne vrstice.\n"
+"- Dodajati in prilagajati je mogoče uporabnike, razrede in skupine. Vsakemu razredu se določi skupina uporabnikov, ki jih je mogoče uvoziti iz besedilnih datotek s podatki, ločenimi z vejico. Profilu se dodeli ena ali več skupin, ki bodo prikazane kot nove prijave po ponovnemu zagonu programa GCompris. Možnost vpisovanja posameznih otrok v program GCompris omogoča poročila za vsakega otroka posebej. Otroci so obravnavani posamezno; naučijo se lahko vtipkati prijavne podatke in prepoznati svoja lastna uporabniška imena (prijava je nastavljiva). "
 
 #: ../src/administration-activity/admin/log_list.py:91
 msgid "Select a user:"
@@ -577,11 +577,11 @@ msgstr "Datum"
 
 #: ../src/administration-activity/admin/log_list.py:229
 msgid "User"
-msgstr "Uporabik"
+msgstr "Uporabnik"
 
 #: ../src/administration-activity/admin/log_list.py:239
 msgid "Board"
-msgstr "Tabla"
+msgstr "Dejavnost"
 
 #: ../src/administration-activity/admin/log_list.py:249
 #: ../src/click_on_letter-activity/click_on_letter.c:1248
@@ -591,7 +591,7 @@ msgstr "Raven"
 
 #: ../src/administration-activity/admin/log_list.py:259
 msgid "Sublevel"
-msgstr "Podraven"
+msgstr "Podrejena raven"
 
 #: ../src/administration-activity/admin/log_list.py:269
 msgid "Duration"
@@ -609,7 +609,7 @@ msgstr "Dejavnosti"
 #: ../src/administration-activity/admin/module_boards.py:49
 #: ../src/administration-activity/admin/module_boards.py:77
 msgid "Boards"
-msgstr "Table"
+msgstr "Dejavnosti"
 
 #: ../src/administration-activity/admin/module_groups.py:46
 #: ../src/administration-activity/admin/module_groups.py:69
@@ -1099,7 +1099,7 @@ msgstr "Najdi strategijo za razvrstitev matematičnih operacij tako, da se bodo 
 
 #: ../src/algebra_guesscount-activity/algebra_guesscount.xml.in.h:5
 msgid "At the top of the board area, choose the numbers and arithmetic operators that give the specified result. You can deselect a number or operator by clicking on it again."
-msgstr "Na vrhu table izberi števila in računske operacije, ki ti dobo dale rezultat na desni. Izbiro števila ali računske operacije lahko odstraniš tako, da še enkrat klikneš nanjo."
+msgstr "Na vrhu zaslona izberi števila in računske operacije, ki bodo podale rezultat na desni. Izbiro števila ali računske operacije je mogoče odstraniti s klikom nanje."
 
 #: ../src/algebra_guesscount-activity/algebra_guesscount.xml.in.h:6
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:6
@@ -1299,11 +1299,11 @@ msgstr "Igraj strateško igro Oware proti Pingu"
 
 #: ../src/awele-activity/awele.xml.in.h:3
 msgid "The object of the game is to capture more seeds than one's opponent. Since the game has only 48 seeds, capturing 25 is sufficient to accomplish this. Since there are an even number of seeds, it is possible for the game to end in a draw, where each player has captured 24. The game is over when one player has captured 25 or more seeds, or both players have taken 24 seeds each (draw). If both players agree that the game has been reduced to an endless cycle, each player captures the seeds on their side of the board."
-msgstr "Cilj igre je dobiti več semen kot nasprotnik. Ker ima igra samo 48 semen, je za zmago dovolj zbrati 25 semen. Ker je število semen sodo, se igra lahko konča tudi neodločeno. V tem primeru zbere vsak igralec 24 semen. Igra se konča, ko ima en igralec 25 semen ali ko imata vsak tekmovalec 24 semen (neodločeno). V primeru, da se oba igralca strinjata za igro neskončnega kroga, vsak igralec ujame semena na svoji strani table."
+msgstr "Cilj igre je ujeti več semen kot nasprotni igralec. V igri se prikaže le 48 semen, zato je za zmago dovolj zbrati 25 semen. Zaradi sodega števila semen, se igra lahko konča tudi neodločeno, če vsak igralec zbere 24 semen. Igra se konča, ko ima en igralec zbere 25 semen ali pa, ko imata oba tekmovalca enako število semen (neodločeno). Pri neskončni igri vsak igralec lovi semena na svoji strani zaslona."
 
 #: ../src/awele-activity/awele.xml.in.h:4
 msgid "At the beginning of the game four seeds are placed in each house. Players take turns moving the seeds. In each turn, a player chooses one of the six houses under his or her control. The player removes all seeds from this house, and distributes them, dropping one in each house counter-clockwise from the original house, in a process called sowing. Seeds are not distributed into the end scoring houses, nor into the house drawn from. That is, the starting house is left empty; if it contained 12 seeds, it is skipped, and the twelfth seed is placed in the next house. After a turn, if the last seed was placed into an opponent's house and brought its total to two or three, all the seeds in that house are captured and placed in the player's scoring house (or set aside if the board has no scoring houses). If the previous-to-last seed also brought the total seeds in an opponent's house to two or three, these are captured as well, and so on. However, if a move would capture all an opponent's seeds, the capture is forfeited, and the seeds are instead left on the board, since this would prevent the opponent from continuing the game. The proscription against capturing all an opponent's seeds is related to a more general idea, that one ought to make a move that allows the opponent to continue playing. If an opponent's houses are all empty, the current player must make a move that gives the opponent seeds. If no such move is possible, the current player captures all seeds in his/her own territory, ending the game. (Source Wikipedia &lt;http://en.wikipedia.org/wiki/Oware&gt;)"
-msgstr "Na začetku igre so v vsaki hiši štiri semena. Igralca se izmenjujeta in premikata semena. V vsakem krogu igralec izbere eno od šestih hiš pod njegovim nadzorom. Igralec odstrani vse semena iz te hiše in jih razdeli, ter spusti enega v vsako hišo v nasprotni smeri urinega kazalca od izvorne hiše v opravilu, ki se imenuje sejanje. Semen ni mogoče spustiti v hiše točk ali v hišo iz katere so bila povlečena. Začetna hiša je prazna, če bi vsebovala 12 semen, bi bila preskočena in dvanajsto seme bi bilo postavljeno v naslednjo hišo. Po koncu kroga so v primeru, da je bilo zadnje seme postavljeno v nasprotnikovo hišo in je sedaj skupno število semen dva ali tri, vsa semena ujeta in postavljena v igralčevo hišo točk (ali postavljena ob rob, če tabla nima hiš točk). V primeru da je tudi predzadnje seme povečalo skupno število semen v nasprotnikovi hiši na dva ali tri, so ujeta tudi ta, in tako naprej. Toda če bi poteza ujela vsa nasprotnikova semena, do ujema ne pride. Namesto tega so semena puščena na tabli, saj bi zajem semen nasprotniku preprečil nadaljevanje igre. Če so vse nasprotnikove hiše prazne, mora igralec narediti takšno potezo, ki nasprotniku da semena. Če takšna poteza ni mogoča, trenutni igralec ujame vsa semena v svojemu področju in konča igro. (Vir Wikipedija: &lt;http://en.wikipedia.org/wiki/Oware&gt;)"
+msgstr "Na začetku igre so v vsaki hiši štiri semena. Igralca se izmenjujeta in premikata semena. V vsakem krogu igralec izbere eno od šestih hiš pod njegovim nadzorom. Igralec odstrani vsa semena iz te hiše in jih razdeli, ter spusti enega v vsako hišo v nasprotni smeri urinega kazalca od izvorne hiše v opravilu, ki se imenuje sejanje. Semen ni mogoče spustiti v hiše točk ali v hišo iz katere so bila povlečena. Začetna hiša je prazna, če bi vsebovala 12 semen, bi bila preskočena in dvanajsto seme bi bilo postavljeno v naslednjo hišo. Po koncu kroga so v primeru, da je bilo zadnje seme postavljeno v nasprotnikovo hišo in je sedaj skupno število semen dva ali tri, vsa semena ujeta in postavljena v igralčevo hišo točk (ali postavljena ob rob, če tabla nima hiš točk). V primeru da je tudi predzadnje seme povečalo skupno število semen v nasprotnikovi hiši na dva ali tri, so ujeta tudi ta, in tako naprej. Toda če bi poteza ujela vsa nasprotnikova semena, do ujema ne pride. Namesto tega so semena puščena na tabli, saj bi zajem semen nasprotniku preprečil nadaljevanje igre. Če so vse nasprotnikove hiše prazne, mora igralec narediti takšno potezo, ki nasprotniku da semena. Če takšna poteza ni mogoča, trenutni igralec ujame vsa semena v svojemu področju in konča igro. (Vir Wikipedija: &lt;http://en.wikipedia.org/wiki/Oware&gt;)"
 
 #: ../src/babymatch-activity/babymatch.xml.in.h:1
 msgid "Matching Items"
@@ -1331,7 +1331,7 @@ msgstr "Igre z miško: premakni, povleci in spusti."
 
 #: ../src/babymatch-activity/babymatch.xml.in.h:5
 msgid "In the main board area, a set of objects is displayed. In the vertical box (at the left of the main board) another set of objects is shown, each object in the group on the left matching exactly one object in the main board area. This game challenges you to find the logical link between these objects. How do they fit together? Drag each object to the correct red space in the main area."
-msgstr "Na tabli je niz predmetov. V navpičnem okvirju, na levi strani je še en niz elementov. Vsak element na sredini ima povezavo z natanko enim predmetom iz navpičnega okvirčka. Predmete povežeš tako, da predmete z miško povlečeš na ustrezni rdeč prostor na sredini. Če želiš ugotoviti kateri predmeti spadajo skupaj, moraš poiskati logično povezavo med njimi. "
+msgstr "Na zaslonu je niz predmetov. V navpičnem pladnju na levi strani je še en niz predmetov. Vsak izmed teh na sredini ima povezavo z natanko enim predmetom iz navpičnega pladnja. Predmet povežeš tako, da jih z miško povlečeš na ustrezen rdeč prostor na sredini. Če želiš ugotoviti kateri predmeti spadajo skupaj, moraš poiskati logično povezavo med njimi. "
 
 #: ../src/babymatch-activity/shapegame.c:2041
 #: ../src/click_on_letter-activity/click_on_letter.c:1315
@@ -1369,7 +1369,7 @@ msgstr "Dokončaj sestavljanko z vlečenjem predmetov iz stolpca na levi na prav
 
 #: ../src/babyshapes-activity/resources/babyshapes/board5_0.xml.in.h:1
 msgid "Hello ! My name is Lock."
-msgstr "Zdravo ! Moje ime je Zaklepko."
+msgstr "Zdravo! Ime mi je Zaklepko."
 
 #: ../src/babyshapes-activity/resources/babyshapes/board6_0.xml.in.h:1
 msgid "Lock on the grass."
@@ -1463,7 +1463,7 @@ msgstr "Upravljanje z miško"
 
 #: ../src/billard-activity/billard.xml.in.h:4
 msgid "Point the mouse and click on the ball, to set the speed and direction of the ball. The closer you click to the centre, the slower the ball moves."
-msgstr "Usmeri miško in klikni na žogo. S tem boš nastavil hitrost in smer žoge. Če boš kliknil bližje sredini, se bo žoga premikala počasneje."
+msgstr "Usmeri miško in klikni na žogo. S tem se nastavi hitrost in smer žoge. Če boš kliknil bližje sredini, se bo žoga premikala počasneje."
 
 #: ../src/billard-activity/billard.xml.in.h:5
 msgid "Kick the ball into the black hole on the right"
@@ -2615,11 +2615,11 @@ msgstr ""
 
 #: ../src/erase-activity/erase.xml.in.h:5
 msgid "Move the mouse until all the blocks disappear. You can add you own images under the directory '~/My GCompris/erase'."
-msgstr "Premikaj miško dokler vsi bloki ne izginejo. Svoje lastne slike lahko dodaš v mapi '~/My GCompris/erase'."
+msgstr "Premikaj miško dokler vsi bloki ne izginejo. Uporabljene so slike iz mape '~/My GCompris/erase'."
 
 #: ../src/erase-activity/erase.xml.in.h:6
 msgid "Animal pictures are taken from the Animal Photography Page of Ralf Schmode (&lt;http://schmode.net/&gt;) and from LE BERRE Daniel. These people kindly gave GCompris the authorization to include their pictures. Thanks a lot, both of you."
-msgstr "Slike živali so vzete s spletne strani Fotografije živali Ralfa Schmode(&lt;http://schmode.net/&gt;) in Daniela Le Berre. Oba sta dovolila dovolil uporabo njunih slik v GCompris. Hvala vama obema."
+msgstr "Slike živali so vzete s spletne strani Fotografije živali Ralfa Schmode(&lt;http://schmode.net/&gt;) in Daniela Le Berre. Oba sta dovolila dovolil uporabo njunih slik v programu GCompris. Hvala obema."
 
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:1
 msgid "Click the mouse"
@@ -2965,7 +2965,7 @@ msgstr " Avstralija"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:5
 msgid " Aboriginals were the first people to live in Australia. They sing and play instruments, like the didgeridoo. It is made from a log and can be up to five meters long!"
-msgstr " Aboridžini so bili avstralski staroselci. Pojejo in igrajo na glasbila, kot je didžirido. Narejen je iz lesa in je lahko dolg do pet metrov!"
+msgstr " Aboridžini so bili avstralski staroselci. Pojejo in igrajo na glasbila, kot je didžieridu. Narejen je iz lesa in je lahko dolg do pet metrov!"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:6
 msgid " Where is the didgeridoo played?"
@@ -3687,7 +3687,7 @@ msgstr "Mesto nastavitvene mape: [$HOME/.config/gcompris] Dodatna možnost je na
 
 #: ../src/gcompris/gcompris.c:225
 msgid "The location of user directories: [$HOME/My GCompris]"
-msgstr "Mesto uporabniških map: [$HOME/Moj GCompris]"
+msgstr "Mesto uporabniških map: [$HOME/My GCompris]"
 
 #: ../src/gcompris/gcompris.c:228
 msgid "Run the experimental activities"
@@ -3741,7 +3741,7 @@ msgid ""
 "The GNU/Linux version does not have this restriction. If you also believe that we should teach freedom to children, please consider using GNU/Linux. Get more information at FSF:\n"
 "<http://www.fsf.org/philosophy>"
 msgstr ""
-"GCompris je prosto programje izdano pod licenco GPL. Za podpiranje njegovega razvoja ta različica vsebuje le %d od %d dejavnosti. Polno različico lahko dobite za majhen prispevek na\n"
+"Program GCompris je prosta programska oprema, izdana pod pogoji Splošnega Javnega dovoljenja GPL. Za podpiranje njegovega razvoja ta različica vsebuje le %d od %d dejavnosti. Polno različico lahko dobite za majhen prispevek na\n"
 "<http://gcompris.net>\n"
 "Različica GNU/Linux nima teh omejitev. Če verjamete, da je otroke treba naučiti svobodo, razmislite o uporabi GNU/Linux. Več podrobnosti na strani FSF:\n"
 "<http://www.fsf.org/philosophy>"
@@ -3749,7 +3749,7 @@ msgstr ""
 #: ../src/gcompris/gcompris.c:1236
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
-msgstr "Nalaganje preobleke '%s' je spodletelo (Preverite, če datoteka obstaja in je berljiva)"
+msgstr "Nalaganje preobleke '%s' je spodletelo (preverite, ali datoteka obstaja in je berljiva)"
 
 #: ../src/gcompris/gcompris.c:1252
 msgid "Retrieving remote data..."
@@ -3759,10 +3759,10 @@ msgstr "Pridobivanje oddaljenih podatkov ..."
 #, c-format
 msgid "GCompris won't start because the lock file is less than %d second old.\n"
 msgid_plural "GCompris won't start because the lock file is less than %d seconds old.\n"
-msgstr[0] "GCompris se ne zažene, ker je datoteka zaklepa stara manj kot %d sekund.\n"
-msgstr[1] "GCompris se ne zažene, ker je datoteka zaklepa stara manj kot %d sekundo.\n"
-msgstr[2] "GCompris se ne zažene, ker je datoteka zaklepa stara manj kot %d sekundi.\n"
-msgstr[3] "GCompris se ne zažene, ker je datoteka zaklepa stara manj kot %d sekunde.\n"
+msgstr[0] "Program GCompris se ne zažene, ker je datoteka zaklepa stara manj kot %d sekund.\n"
+msgstr[1] "Program GCompris se ne zažene, ker je datoteka zaklepa stara manj kot %d sekundo.\n"
+msgstr[2] "Program GCompris se ne zažene, ker je datoteka zaklepa stara manj kot %d sekundi.\n"
+msgstr[3] "Program GCompris se ne zažene, ker je datoteka zaklepa stara manj kot %d sekunde.\n"
 
 #: ../src/gcompris/gcompris.c:1517
 #, c-format
@@ -3935,7 +3935,7 @@ msgstr "Upravljanje z miško: premikanje, povleci in spusti"
 
 #: ../src/geo_country-activity/geo_country.xml.in.h:4
 msgid "The map of Germany comes from Wikipedia and is released under the GNU Free Documentation License. Olaf Ronneberger and his children Lina and Julia Ronneberger created the German level."
-msgstr "Zemljevid Nemčije je iz Wikipedije in je izdan pod GNU Free Documentation Licence. Raven za Nemčijo je ustvaril Olaf Ronneberger in njegova otroka Lina in Julia Ronneberger."
+msgstr "Zemljevid Nemčije je povzet iz Wikipedije in je izdan z dovoljenjem proste Dokumentacije GNU. Raven za Nemčijo je ustvaril Olaf Ronneberger in njegova otroka Lina in Julia Ronneberger."
 
 #: ../src/geo_country-activity/resources/geo_country/board1_0.xml.in.h:1
 msgid "Regions of France"
@@ -4735,7 +4735,7 @@ msgstr "Enostavne črke"
 #: ../src/gletters-activity/gletters.c:133
 #: ../src/gletters-activity/gletters.xml.in.h:2
 msgid "Type the falling letters before they reach the ground"
-msgstr "Natipkaj padajoče črke, preden te dosežejo tla."
+msgstr "Natipkaj padajoče črke preden dosežejo tla."
 
 #. TRANSLATORS: Put here the numbers in your language
 #: ../src/gletters-activity/gletters.c:225
@@ -5771,7 +5771,7 @@ msgstr "Določi, ali je roka desna ali leva."
 
 #: ../src/leftright-activity/leftright.xml.in.h:3
 msgid "Distinguish right and left hands from different points of view. Spatial representation"
-msgstr "Razlikovanje leve in desne dlani iz različnih pogledov. Prostorska predstava"
+msgstr "Razlikovanje leve in desne dlani iz različnih pogledov. Prostorska predstava."
 
 #: ../src/leftright-activity/leftright.xml.in.h:4
 #: ../src/note_names-activity/note_names.xml.in.h:3
@@ -5788,8 +5788,8 @@ msgid ""
 "Switch off all the lights, I have to go to sleep.\n"
 "If you need help, click on me."
 msgstr ""
-"Izklopi vse luči, iti moram spat.\n"
-"Če me potrebuješ, klikni name."
+"Izklopi luči, saj moram spati.\n"
+"Če me potrebuješ, me klikni."
 
 #: ../src/lightsoff-activity/lightsoff.xml.in.h:1
 msgid "Lights Off"
@@ -5805,7 +5805,7 @@ msgstr "Pritisk na gumb spremeni stanje gumba in vseh njegovih vodoravnih in nav
 
 #: ../src/lightsoff-activity/lightsoff.xml.in.h:4
 msgid "The solver algorithm is described on Wikipedia. To know more about the Lights Off game: &lt;http://en.wikipedia.org/wiki/Lights_Out_(game)&gt;"
-msgstr "Algoritem reševalnika je opisan na WIkipediji. Za več podrobnosti o igri Izklopi luči: &lt;http://en.wikipedia.org/wiki/Lights_Out_(game)&gt;"
+msgstr "Algoritem reševalnika je opisan na Wikipediji. Za več podrobnosti o igri Izklopi luči: &lt;http://en.wikipedia.org/wiki/Lights_Out_(game)&gt;"
 
 #: ../src/login-activity/login.py:102
 msgid "Profile: "
@@ -5836,7 +5836,7 @@ msgstr "Vnesi geslo za prijavo"
 
 #: ../src/login-activity/login.xml.in.h:1
 msgid "GCompris login screen"
-msgstr "GCompris prijavni zaslon"
+msgstr "Prijavni zaslon GCompris"
 
 #: ../src/login-activity/login.xml.in.h:2
 msgid "Select or enter your name to log in to GCompris"
@@ -5844,7 +5844,7 @@ msgstr "Izberi ali napiši svoje ime za prijavo v GCompris"
 
 #: ../src/login-activity/login.xml.in.h:3
 msgid "GCompris identifies each child, so we can provide child-specific reports."
-msgstr "GCompris identificira vsakega otroka tako da je mogoče zagotoviti poročila za vsakega otroka."
+msgstr "Program GCompris po prijavi razločuje med uporabniki, zato je mogoče zagotoviti poročila za vsakega otroka posebej."
 
 #: ../src/login-activity/login.xml.in.h:4
 msgid ""
@@ -5856,13 +5856,13 @@ msgid ""
 "To run GCompris for a specific profile, you use 'gcompris -p profile' where 'profile'\n"
 "is the name of a profile as you created it in Administration."
 msgstr ""
-"Za omogočitev prijavnega zaslona morate \n"
-"najprej dodati uporabnike v skrbniški del GCompris. \n"
-"Do skrbništva lahko dostopate z ukazom 'grompris -a'.\n"
-"V skrbništvu lahko ustvarite različne profile. V vsakemu profilu\n"
-"imate lahko različen niz uporabnikov z različnimi razpoložljivimi dejavnostmi.\n"
-"Za zagon programa GCompris z določenim profilom uporabite 'gcompris -p profil', kjer je 'profil\n"
-"ime profila, ki ste ga ustvarili v skrbništvu."
+"Prijavno okno se pokaže, ko so v skrbniškem delu\n"
+"programa v seznam dodani različni uporabniki.\n"
+"Skrbniški način se omogoči z ukazom 'gcompris -a'.\n"
+"Tam je mogoče ustvariti različne profile in temu\n"
+"pripisati različne uporabnike in različen nabor\n"
+"dejavnosti. Za zagon programa z izbranim profilom\n"
+"uporabite ukaz 'gcompris -p imeprofila'."
 
 #: ../src/louis_braille-activity/louis_braille.py:112
 msgid "Click to confirm your sequence"
@@ -7790,7 +7790,7 @@ msgstr "Vaja branja v omejenem času"
 #: ../src/readingh-activity/readingh.xml.in.h:5
 #: ../src/readingv-activity/readingv.xml.in.h:5
 msgid "A word is shown at the top right of the board. A list of words will appear and disappear on the left. Does the given word belong to the list?"
-msgstr "Beseda je prikazana v desnem zgornjem delu table. Na levi se bo pojavil in izginil seznam besed. Ali se je beseda z desnega dela table prikazala na seznamu?  "
+msgstr "Beseda je prikazana v desnem zgornjem delu zaslona. Na levi se bo pojavil in izginil seznam besed. Ali se je beseda z desnega dela prikazala tudi na seznamu?  "
 
 #: ../src/readingv-activity/readingv.xml.in.h:1
 msgid "Vertical-reading practice"
@@ -7798,7 +7798,7 @@ msgstr "Vaja navpičnega branja"
 
 #: ../src/readingv-activity/readingv.xml.in.h:2
 msgid "Read a vertical list of words and work out if a given word is in it"
-msgstr "Preberi stolpec besed in povej ali je izbrana beseda med njimi "
+msgstr "Branje stolpec besedila in iskanje izbrane besede"
 
 #: ../src/readingv-activity/readingv.xml.in.h:3
 msgid "Read training in a limited time"
@@ -7818,7 +7818,7 @@ msgstr "Risanje podvojene slike predmeta."
 
 #: ../src/redraw-activity/redraw.xml.in.h:3
 msgid "First, select the proper tool from the toolbar. Then drag the mouse to create objects. When you are done, click on the OK button. Errors will be marked with a little red cross. The order of objects (above/under) is not important but be careful not to end up with unwanted objects under others."
-msgstr "Na začetku moraš izbrati pravilno orodje v orodni vrstici. Nato povleci miško in ustvari predmet. Ko končaš, klikni na gumb v redu. Napake bodo označene z majhnim rdečim križcem. Vrstni red predmetov (zgoraj/spodaj) ni pomemben, toda pazi, da napačni predmeti ne ostanejo skriti pod pravilnimi. "
+msgstr "Najprej je treba izbrati ustrezno orodje v orodni vrstici. Nato z miško povleci in ustvari predmet. Po končanem risanju klikni na gumb v redu. Napake so označene z majhnim rdečim merkom. Vrstni red predmetov (zgoraj/spodaj) ni pomemben, paziti pa je treba, da napačni predmeti ne ostanejo skriti pod pravilnimi."
 
 #: ../src/redraw_symmetrical-activity/redraw_symmetrical.xml.in.h:1
 msgid "Mirror the given item"
@@ -7830,7 +7830,7 @@ msgstr "Risanje zrcalne slike predmeta."
 
 #: ../src/redraw_symmetrical-activity/redraw_symmetrical.xml.in.h:3
 msgid "First, select the proper tool from the toolbar. Then drag the mouse to create objects. When you are done, click on the OK button. A little red cross will show you where something isn't right yet. The order of objects (above/under) is not important but be careful not to end up with unwanted objects under others."
-msgstr "Na začetku moraš izbrati pravilno orodje v orodni vrstici. Nato povleci miško in ustvari predmet. Ko končaš, klikni na gumb v redu. Majhen rdeč križček ti bo pokazal, da nekaj še ni v redu. Vrstmi red predmetov (zgoraj/spodaj) ni pomemben, toda pazi da napačni predmeti ne ostanejo skriti pod pravilnimi."
+msgstr "Najprej je treba izbrati ustrezno orodje v orodni vrstici. Nato z miško povleci in ustvari predmet. Po končanem risanju klikni na gumb v redu. Napake so označene z majhnim rdečim merkom. Vrstni red predmetov (zgoraj/spodaj) ni pomemben, paziti pa je treba, da napačni predmeti ne ostanejo skriti pod pravilnimi."
 
 #: ../src/reversecount-activity/reversecount.xml.in.h:1
 msgid "Practice subtraction with a fun game"
@@ -7839,7 +7839,7 @@ msgstr "Vaja odštevanja z zabavno igro."
 # Ledena plošča je boljše kot ledena točka ..
 #: ../src/reversecount-activity/reversecount.xml.in.h:2
 msgid "Tux is hungry. Help him find fish by counting to the correct ice spot."
-msgstr "RIbarjenje s štetjem do prave ledene plošče."
+msgstr "Ribarjenje s štetjem do prave ledene plošče."
 
 #: ../src/reversecount-activity/reversecount.xml.in.h:3
 msgid "Can move the mouse, can read numbers and subtract numbers up to 10 for the first level"
@@ -7861,7 +7861,7 @@ msgstr "Teža = %s"
 
 #: ../src/scalesboard-activity/scale.c:1039
 msgid "Take care, you can drop weights on both sides of the scale."
-msgstr "Vedi, da lahko uteži spustiš na obe strani tehtnice."
+msgstr "Uteži je mogoče postaviti na obe strani tehtnice."
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:1
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:1
@@ -7874,16 +7874,16 @@ msgstr "Povleci in spusti uteži in uravnoteži tehtnico."
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:3
 msgid "Mental calculation, arithmetic equality"
-msgstr "Računaj na pamet, enakost"
+msgstr "Računanje na pamet, enakost"
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:4
 msgid "To balance the scales, move the weights on the left or the right side. The weights can be arranged in any order."
-msgstr "Premakni uteži na levo ali desno stran tako, da bo tehtnica uravnotežena. Uteži lahko prestaviš kakor želiš."
+msgstr "Premakni uteži na levo ali desno stran tako, da bo tehtnica uravnotežena. Uteži je dovoljeno poljubno prestavljati."
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:5
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:5
 msgid "The painting is an original painting created by Virginie MOREAU (virginie.moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is released under the GPL licence."
-msgstr "Slika je izvirno delo Virginie MOREAU (virginie.moreau@free.fr), ki je nastalo leta 2001. Ime ji je 'Prodajalec začimb v Egiptu'. Objavljena je pod licenco GPL."
+msgstr "Slika je izvirno delo Virginie MOREAU (virginie.moreau@free.fr), ki je nastalo leta 2001. Ime ji je 'Prodajalec začimb v Egiptu'. Objavljena je s Splošnim javnim dovoljenjem GPL."
 
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:2
 msgid "Drag and Drop masses to balance the scales and calculate the weight"
@@ -7895,7 +7895,7 @@ msgstr "Računanje na pamet, enakost, pretvarjanje enot"
 
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:4
 msgid "To balance the scales, move the masses on the left or the right side. Take care of the weight and the unit of the masses, remember that a kilogram (kg) is 1000 grams (g). They can be arranged in any order."
-msgstr "Premakni uteži na levo ali desno stran tako, da bo tehtnica uravnotežena. Pazi na težo in enoto uteži. Zapomni si da je kilogram (kg) enako 1000 gramov (g). Uteži so lahko urejene v kateremukoli vrstnemu redu."
+msgstr "Premakni uteži na levo ali desno stran tako, da bo tehtnica uravnotežena. Pazi na težo in enoto uteži. Zapomni si, da je 1 kilogram (kg) enako 1000 gramov (g). Uteži niso nujno postavljene v naraščajočem vrstnem redu."
 
 #: ../src/searace1player-activity/searace1player.xml.in.h:1
 msgid "Sea race (Single Player)"
@@ -7910,7 +7910,7 @@ msgstr "Natančno usmerjaj svoj čoln in zmagaj na dirki."
 msgid "In this activity, you will learn how to enter commands into a computer. Even if the language is extremely basic, you learn here how to think ahead and construct a program. This activity can be used to introduce the programming concept to children."
 msgstr "Dejavnost omogoča spoznavanje vnašanja ukazov v računalnik. Čeprav je programski jezik zelo enostaven, omogoča hitro učenje razmišljanja kako sestaviti program. Dejavnost je namenjena predstavitvi programiranja za otroke."
 
-# Treba je preveriti kaj se dejansko vtipka v polje 'left' ali 'levo'..
+# Treba je preveriti kaj se dejansko vtipka v polje 'left' ali 'levo'...
 #: ../src/searace1player-activity/searace1player.xml.in.h:4
 msgid ""
 "In the text entry, enter one command per line, to control your boat. Commands supported are displayed between the two entry areas. The 'left' and 'right' commands must be followed by an angle in degrees. The angle value is also called a 'parameter' to the left or right command. By default 45 degrees is used. The 'forward' command accepts a distance parameter. By default 1 is used.\n"
@@ -7919,10 +7919,11 @@ msgid ""
 "- forward 10: Go forward for 10 units (as displayed on the ruler).\n"
 "The goal is to reach the right of the screen (the red line). When done, you can try to improve your program and start a new race with the same weather conditions by using the retry button. You can click and drag your mouse anywhere on the map to get a measurement in distance and angle. Going to the next level will give you more complex weather conditions."
 msgstr ""
-"Za nadziranje ladje napiši v polje besedila en ukaz na vrstico. Podprte ukaze lahko vidiš med dvema poljema vnosov. Za ukaz 'levo' ali 'desno' moraš napisati kot v stopinjah. Kot se imenuje 'parameter' levega ali desnega ukaza. Če kota ne napišeš, bo uporabljena vrednost 45 stopinj. Za ukaz naprej moraš določiti parameter razdalje. Če ga na napišeš bo uporablja vrednost 1.\n"
+"V polje za vnos besedila je treba vnesti ukaze v vrsticah za upravljanje jadrnice. Podprti ukazi so prikazani med dvema področjema vnosov. Ukazoma 'levo' in 'desno' mora obvezno slediti kot izražen v stopinjah. Vrednost kota imenujemo 'parameter' ukaza levo ali desno. Privzeto je uporabljen kot 45 stopinj. Ukaz 'naprej' zahteva tudi parameter razdalje. Privzeto je uporabljena vrednost 1.\n"
 "Na primer:\n"
-"- levo 90: Naredi pravokoten 90 stopinjski obrat- naprej 10: Gre naprej 10 enot (kot je prikazano na ravnilu).\n"
-"Cilj je doseči desni del zaslona (rdeča črta). Ko boš končal, lahko poskušaš izboljšati svoj program in začneš novo igro z enakimi vremenskimi pogoji z gumbom poskusi ponovno. Na naslednji ravni boš imel težje vremenske pogoje."
+"- levo 90: ukaz za zavijanje pravokotno levo,\n"
+"- naprej 10: ukaz za pomik naprej  za 10 enot, ki so prikazane na ravnilu).\n"
+"Cilj je doseči desni del zaslona z rdečo črto. Napisan program je vedno mogoče popraviti in izboljšati, mogoče pa je tudi začeti znova. S klikom miške kamorkoli na zaslonu se izmeri razdalja to te točke in kot od izhodišča. Na višjih ravneh te čakajo tudi bolj zapleteni vremenski pogoji."
 
 #: ../src/searace-activity/searace.py:174
 msgid "The race is already being run"
@@ -8014,7 +8015,7 @@ msgstr "Številke parov kocke"
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:2
 #: ../src/smallnumbers-activity/smallnumbers.xml.in.h:2
 msgid "Count the number of dots on dice before they reach the ground"
-msgstr "Preštej pike na kockah, preden te dosežejo tla."
+msgstr "Preštej pike na kockah preden dosežejo tla."
 
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:3
 #: ../src/smallnumbers-activity/smallnumbers.xml.in.h:3
@@ -8037,11 +8038,11 @@ msgstr "Števila na kocki"
 
 #: ../src/submarine-activity/submarine.xml.in.h:1
 msgid "Pilot a submarine"
-msgstr "Vožnja s podmornico"
+msgstr "Upravljanje podmornice"
 
 #: ../src/submarine-activity/submarine.xml.in.h:2
 msgid "Pilot a submarine using air tanks and dive rudders"
-msgstr "Upravljaj s podmornico s pomočjo zračnih komor in potapljaškega krmila."
+msgstr "Upravljanje s podmornico s pomočjo zračnih komor in potapljaškega krmila."
 
 #: ../src/submarine-activity/submarine.xml.in.h:3
 msgid "Physics basics"
@@ -8049,19 +8050,19 @@ msgstr "Osnove fizike"
 
 #: ../src/submarine-activity/submarine.xml.in.h:4
 msgid "Learn how a submarine works"
-msgstr "Nauči se kako deluje podmornica"
+msgstr "Spoznavanje delovanja podmornice"
 
 #: ../src/submarine-activity/submarine.xml.in.h:5
 msgid "Click on different active elements : engine, rudders and air tanks, in order to navigate to the required depth. There is a close gate on the right. Catch the jewel to open it, then pass through it to reach the next level."
-msgstr "Klikni na različne predmete: motor, krmilo, zračno komoro tako, da boš dosegel želeno globino. Na desni so zaprta vrata. Odpri nakit in vrata se bodo odprla. Nato pojdi skozi vrata na naslednjo raven."
+msgstr "S klikanjem na različne strojne dele podmornice: motor, krmilo in zračne komore, je treba podmornico zagnati in jo potopiti na želeno globino. Na desni so zaprta vrata. Pobrati je treba potopljen nakit in vrata na naslednjo raven se bodo odprla."
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:1
 msgid "Sudoku, place unique symbols in a square."
-msgstr "Sudoku, postavi edinstvene simbole v kvadrat."
+msgstr "Sudoku, razpostavi posamezne simbole v mrežo polj."
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:2
 msgid "Symbols must be unique in a row, in a column, and (if defined) each region."
-msgstr "Postavljanje edinstvenih simbolov v razpredelnici."
+msgstr "Simboli morajo biti edinstveni v vsaki vrstici in v vsakem stolpcu razpredelnice."
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:3
 msgid "Completing the puzzle requires patience and logical ability"
@@ -8069,11 +8070,11 @@ msgstr "Dokončanje igre zahteva potrpežljivost in logično razmišljanje"
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:4
 msgid "The aim of the puzzle is to enter a symbol or numeral from 1 through 9 in each cell of a grid, most frequently a 9x9 grid made up of 3x3 subgrids (called 'regions'), starting with various symbols or numerals given in some cells (the 'givens'). Each row, column and region must contain only one instance of each symbol or numeral (Source &lt;http://en.wikipedia.org/wiki/Sudoku&gt;)."
-msgstr "Cilj igre je postaviti simbole ali številke od 1 do 9 v vsako polje mreže, ki je najbolj pogosto velikosti 9x9 iz 3x3 podmrež (te se imenujejo 'območja'). Začni s simboli ali številkami, ki so podane v nekaterih poljih ('znane številke'). Vsaka vrstica, stolpec in območje mora vsebovati natanko en primer vsakega simbola ali številke (Vir: &lt;http://en.wikipedia.org/wiki/Sudoku&gt;). "
+msgstr "Cilj igre je razpostaviti simbole ali številke od 1 do 9 v polja mreže. Mreža je običajno velikosti 9x9, oziroma natančneje 9 krat 3x3 podrejenimi mrežami (te se imenujejo 'območja'). Igra se  začne s preučevanjem simbolov ali števil, ki so podane v nekaterih poljih ('znane številke'). Vsaka vrstica, stolpec in območje mora vsebovati natanko en primer vsakega simbola ali številke (Vir: &lt;http://en.wikipedia.org/wiki/Sudoku&gt;). "
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:5
 msgid "For the first level with colored symbols, select a symbol on the left and click on its target position. For the higher levels, click on an empty square to give it the keyboard focus. Then enter a possible letter or number. GCompris will not let you enter invalid data."
-msgstr "Za prvo raven z obarvanimi simboli izberi simbol na levi in klikni tja, kamor ga želiš postaviti. Za višje ravni klikni na prazen kvadratek ter nato napiši možno črko ali številko. Program ti ne bo pustil napisati napačne vrednosti."
+msgstr "Na prvi ravni je treba izbrati simbol na levi in klikniti na posamezno ustrezno mesto postavitve. Na višjih ravneh igra pa je treba z miško izbrati kvadratek in vpisati pravilno črko ali številko. Napačnih vrednosti ni mogoče vpisati."
 
 #: ../src/superbrain-activity/superbrain.c:110
 #: ../src/superbrain-activity/superbrain.xml.in.h:1
@@ -8088,24 +8089,24 @@ msgstr "Igra iskanja skritih barv - Memo"
 #: ../src/superbrain-activity/superbrain.c:403
 #: ../src/superbrain-activity/superbrain.c:539
 msgid "This item is well placed"
-msgstr "Ta predmet je postavljen pravilno"
+msgstr "Ta predmet je postavljen prav"
 
 #: ../src/superbrain-activity/superbrain.c:416
 #: ../src/superbrain-activity/superbrain.c:569
 msgid "This item is misplaced"
-msgstr "Ta predmet je postavljen narobe"
+msgstr "Ta predmet je postavljen napak"
 
 #: ../src/superbrain-activity/superbrain.c:587
 msgid "One item is well placed"
-msgstr "En predmet je postavljen pravilno"
+msgstr "En predmet je postavljen prav"
 
 #: ../src/superbrain-activity/superbrain.c:601
 msgid "One item is misplaced"
-msgstr "En predmet je postavljen narobe"
+msgstr "En predmet je postavljen napak"
 
 #: ../src/superbrain-activity/superbrain.xml.in.h:3
 msgid "Click on the items until you find what you think is the correct answer. Then, click on the OK button in the control bar. In the lower levels, Tux gives you an indication if you found a hiding place by marking the item with a black box. You can use the right mouse button to flip the colors in the opposite order."
-msgstr "Klikaj na predmete tako dolgo, da ne dobiš tistega kar misliš, da je pravilen odgovor. Nato klikni gumb v redu. Na nižji ravni Pingo namigne ali si našel skrivališče na pravilnem položaju tako, da predmet označi s črno škatlico. Lahko uporabljaš desni klik miške za obrnjeni vrstni red barv."
+msgstr "S klikanjem na predmet se izbor krožno spreminja. Ko je prikazan predmet, ki naj bi bil pravi odgovor, pritisni na gumb V redu. Na nižji ravneh igre Pingo namigne ali je skrivališče na pravem mesto. To se označi s črno škatlico. Z desnim klikom miške se obrne zaporedje prikazanih barv."
 
 #: ../src/tangram-activity/tangram.xml.in.h:1
 msgid "The tangram puzzle game"
@@ -8125,7 +8126,7 @@ msgid ""
 "\t* 1 square (side of 1)\n"
 "\t* 1 parallelogram (sides of 1 and square root of 2)"
 msgstr ""
-"Iz Wikipedije, proste enciklopedije. Tangram (Kitajsko: dobesedno \"sedem tablic pretkanosti\") je kitajska sestavljanka. Čeprav za Tangram trdijo da je starodaven, je bil njegov obstoj potrjen le do leta 1800. Sestavljen je iz 7 kosov, tanov, ki se prilegajo skupaj tako, da tvorijo kvadrat; če je kvadrat enota dolžine:\n"
+"Besedilo je povzeto iz Wikipedije, proste enciklopedije. Tangram (Kitajsko: dobesedno \"sedem tablic pretkanosti\") je kitajska sestavljanka. Čeprav naj bi bila sestavljanka Tangram starodavna, je njen obstoj potrjen le do leta 1800. Sestavljenka vsebuje 7 kosov, tanov, ki se prilegajo skupaj tako, da tvorijo kvadrat; če je kvadrat enota dolžine:\n"
 "\t* 5 pravokotnih enakostraničnih trikotnikov\n"
 "\t\to 2 majhna (kraka dolžine 1)\n"
 "\t\to 1 srednje velikosti (kraka dolžine kvadratni koren z 2)\n"
@@ -8139,7 +8140,7 @@ msgstr "Izberi tangram, ki ga želiš oblikovati. Košček premakneš s klikom i
 
 #: ../src/tangram-activity/tangram.xml.in.h:12
 msgid "The original code was written by Philippe Banwarth in 1999. It was ported to GCompris by Yves Combe in 2005."
-msgstr "Izvorno kodo je napisal Philippe Banwarth leta 1999. Na GCompris jo je prenesel Yves Combe leta 2005."
+msgstr "Izvorno kodo je napisal Philippe Banwarth leta 1999. Za program GCompris jo je leta 2005 prevedel Yves Combe."
 
 #. Set the maximum text to calc the background
 #. Set the correct initial text
@@ -8198,7 +8199,7 @@ msgstr "Odpelji rdeči avto iz parkirišča."
 
 #: ../src/traffic-activity/traffic.xml.in.h:3
 msgid "Each car can only move either horizontally or vertically. You must make some room in order to let the red car move through the gate on the right."
-msgstr "Avtomobili se lahko premikajo le vodoravno ali navpično. Narediti je treba nekaj prostora, da se rdeči avto lahko premakne skozi vrata na desni."
+msgstr "Avtomobili se premikajo le vodoravno ali le navpično. Narediti je treba nekaj prostora, da se rdeči avto lahko premakne skozi vrata na desni."
 
 #: ../src/tuxpaint-activity/tuxpaint.py:123
 msgid ""
@@ -8210,7 +8211,7 @@ msgstr ""
 
 #: ../src/tuxpaint-activity/tuxpaint.py:135
 msgid "Waiting for Tuxpaint to finish"
-msgstr "V čakanju programa Tuxpaint, da konča"
+msgstr "V čakanju na končanje programa Tuxpaint"
 
 #: ../src/tuxpaint-activity/tuxpaint.py:189
 msgid "Inherit fullscreen setting from GCompris"
@@ -8322,15 +8323,15 @@ msgstr "Spoznavanje preprostega urejevalnika besedila."
 
 #: ../src/wordprocessor-activity/wordprocessor.xml.in.h:3
 msgid "The children can type their own text or copy one given by the teacher."
-msgstr "Otroci lahko napišejo svoje besedilo ali prekopirajo tistega, ki jim ga je dal učitelj."
+msgstr "Otroci lahko napišejo svoje besedilo ali pa kopirajo besedilo, ki jim ga je dal učitelj."
 
 #: ../src/wordprocessor-activity/wordprocessor.xml.in.h:4
 msgid "Learn how to enter text in a wordprocessor. This wordprocessor is special in that it enforces the use of styles. This way, the children will understand their benefit when moving to more feature full wordprocessor like LibreOffice."
-msgstr "Učenje vnašanja besedila v urejevalnik besedila. Urejevalnik besedila vsili pravilno uporabo slogov. Na ta način bodo otroci razumeli prednosti njihove uporabe pri delu z zahtevnejšimi urejevalniki besedil, kot je LibreOffice."
+msgstr "Dejavnost je namenjena učenju vnašanja besedila v urejevalnik besedila. Urejevalnik vsili pravilno uporabo slogov. Na ta način bodo otroci razumeli prednosti njihove uporabe pri delu z zahtevnejšimi urejevalniki besedil, kot je LibreOffice."
 
 #: ../src/wordprocessor-activity/wordprocessor.xml.in.h:5
 msgid "In this wordprocessor you can type the text you want, save and get it back later. You can add some style to your text by using the buttons on the left. The first 4 buttons let you select the style of the line on which your insert cursor is. The 2 others buttons with multiple choices let you select from a predefined document and color theme."
-msgstr "V tem urejevalniku besedila lahko napišeš besedilo, ki ga želiš, ga shraniš in ponovno uporabiš kasneje. Z gumbi na levi lahko svojemu besedilu dodaš oblikovanje. Prvi štirje gumbi so namenjeni izbiri sloga vrstice na kateri je kazalec. Z dvema drugima izbirnima gumboma lahko izbereš vnaprej določen dokument ali barvno temo."
+msgstr "V urejevalniku besedila je mogoče napisati besedilo, ga shraniti in kasneje ponovno uporabiti. Z uporabo gumbov na levi besedilu dodamo oblikovanje. Prvi štirje gumbi so namenjeni izbiri sloga vrstice na kateri je kazalka. Z izbirnima gumboma prilagodimo osnovno obliko dokumenta in barvno temo."
 
 #: ../src/wordsgame-activity/wordsgame.c:115
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:1
@@ -8340,7 +8341,7 @@ msgstr "Padajoče besede"
 #: ../src/wordsgame-activity/wordsgame.c:116
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:2
 msgid "Type the falling words before they reach the ground"
-msgstr "Natipkaj padajoče besede, preden te dosežejo tla."
+msgstr "Natipkaj padajoče besede preden dosežejo tla."
 
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:4
 msgid "Keyboard training"
