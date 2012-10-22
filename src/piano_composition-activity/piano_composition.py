@@ -56,6 +56,10 @@ class Gcompris_piano_composition:
         self.noClefDescription = False
 
         self.melodyPageToDisplay = 0
+
+        # Used to skip double clicks
+        self.record_click_time = 0
+
     def start(self):
         # write the navigation bar to bottom left corner
         gcompris.bar_set(gcompris.BAR_LEVEL)
@@ -673,6 +677,17 @@ dialogue to\nenable the sound."), None)
         with a note name, text is output to canvas, the note sound is generated,
         and the note is drawn on the staff
         '''
+        # Skip Double clicks
+        if event:
+            if event.type == gtk.gdk._2BUTTON_PRESS:
+                return True
+            if event.time - self.record_click_time <= 200:
+                self.record_click_time = event.time
+                return True
+            self.record_click_time = event.time
+
+
+
         if hasattr(self.staff, 'locked') and self.staff.locked:
             return
         if not numID:
