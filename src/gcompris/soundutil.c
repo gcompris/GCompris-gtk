@@ -228,7 +228,6 @@ gc_sound_play_ogg_list( GList* files )
     return;
 
   if (sound_policy == PLAY_AND_INTERRUPT ) {
-    gc_sound_fx_close();
     while ( g_list_length(pending_queue) > 0 )
     {
       tmpSound = g_list_nth_data( pending_queue, 0 );
@@ -236,6 +235,7 @@ gc_sound_play_ogg_list( GList* files )
       pending_queue = g_list_remove( pending_queue, tmpSound );
       gc_sound_callback(tmpSound);
     }
+    gc_sound_fx_close();
   }
 
   list = g_list_first( files );
