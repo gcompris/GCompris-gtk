@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: gcompris.gcomprixogoo\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-10-16 12:10+0000\n"
-"PO-Revision-Date: 2012-10-16 18:01+0200\n"
+"POT-Creation-Date: 2012-10-19 20:57+0000\n"
+"PO-Revision-Date: 2012-10-22 10:24+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -6611,6 +6611,11 @@ msgstr ""
 msgid "Follow the instructions when you run the activity."
 msgstr "Sigue las instrucciones cuando ejecutas la actividad."
 
+#: ../src/land_safe-activity/land_safe.py:77
+#, python-format
+msgid "Gravity: %s"
+msgstr "Gravedad: %s"
+
 #: ../src/land_safe-activity/land_safe.py:164
 msgid ""
 "Use the up and down keys to control the thrust\n"
@@ -6624,29 +6629,27 @@ msgstr ""
 "La plataforma de aterrizaje se pondrá verde cuando la velocidad para "
 "aterrizar sea adecuada."
 
+#: ../src/land_safe-activity/land_safe.py:169
+msgid "Click on me or press the Return key when you are ready."
+msgstr "Púlsame o pulsa la tecla «Intro» cuando estés listo"
+
 #: ../src/land_safe-activity/land_safe.py:171
 msgid "I am ready!"
 msgstr "Estoy listo/a"
 
 #: ../src/land_safe-activity/land_safe.py:453
-msgid "Height : "
+#| msgid "Height : "
+msgid "Height: "
 msgstr "Altura: "
-
-#: ../src/land_safe-activity/land_safe.py:461
-msgid "354"
-msgstr "354"
 
 #: ../src/land_safe-activity/land_safe.py:469
 msgid "Fuel"
 msgstr "Combustible"
 
 #: ../src/land_safe-activity/land_safe.py:501
-msgid "Velocity : "
+#| msgid "Velocity : "
+msgid "Velocity: "
 msgstr "Velocidad: "
-
-#: ../src/land_safe-activity/land_safe.py:509
-msgid "0"
-msgstr "0"
 
 #: ../src/land_safe-activity/land_safe.xml.in.h:1
 msgid "Land Safe"
@@ -10108,6 +10111,12 @@ msgstr "Entrenamiento con el teclado"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Teclea la palabra completa mientras cae, antes de que llegue al suelo"
+
+#~ msgid "354"
+#~ msgstr "354"
+
+#~ msgid "0"
+#~ msgstr "0"
 
 #~ msgid "Special board that embeds python into GCompris."
 #~ msgstr "Tablero especial que incrusta python dentro de GCompris."
