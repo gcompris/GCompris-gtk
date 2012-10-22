@@ -47,6 +47,7 @@ void	 sdlplayer_resume_music();
 void	 sdlplayer_halt_fx();
 void	 sdlplayer_resume_fx();
 int	 sdlplayer_fx(char *filename, int volume);
+void	 sdl_player_fx_cancel();
 
 gchar *gc_sound_alphabet(gchar *chars);
 

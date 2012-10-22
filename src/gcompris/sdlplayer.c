@@ -51,6 +51,7 @@ int len=4096, bits=0, which=0;
 #define AUDIO_BUFFERS 2048
 
 static gboolean sound_closed = FALSE;
+static int _channel_fx = -1;
 
 /******************************************************************************/
 /* some simple exit and error routines                                        */
@@ -139,10 +140,14 @@ int sdlplayer_music(char *filename, int volume)
   return(0);
 }
 
+void sdl_player_fx_cancel() {
+  if ( _channel_fx != -1)
+    Mix_HaltChannel(_channel_fx);
+}
+
 int sdlplayer_fx(char *filename, int volume)
 {
   Mix_Chunk *sample;
-  static int channel;
 
   g_warning("sdlplayer %s\n", filename);
 
@@ -154,11 +159,11 @@ int sdlplayer_fx(char *filename, int volume)
 
   Mix_VolumeChunk(sample, MIX_MAX_VOLUME);
 
-  if((channel=Mix_PlayChannel(-1, sample, 0))==-1) {
-    return(cleanExit("Mix_LoadChannel(0x%p,1)",channel));
+  if((_channel_fx = Mix_PlayChannel(-1, sample, 0))==-1) {
+    return(cleanExit("Mix_LoadChannel(0x%p,1)", _channel_fx));
   }
 
-  while(Mix_Playing(channel))
+  while( Mix_Playing( _channel_fx ) )
     {
       SDL_Delay(50);
     }
@@ -166,6 +171,7 @@ int sdlplayer_fx(char *filename, int volume)
   // free the sample
   // Mix_Chunk *sample;
   Mix_FreeChunk(sample);
+  _channel_fx = -1;
 
   g_warning("sdlplayer complete playing of %s\n", filename);
 

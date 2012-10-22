@@ -116,6 +116,7 @@ gc_sound_bg_close()
 void
 gc_sound_fx_close()
 {
+   sdl_player_fx_cancel();
 }
 
 void
