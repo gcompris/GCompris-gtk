@@ -482,7 +482,7 @@ class Staff():
             self.notReadyToPlay = False
             if hasattr(self, 'verticalPlayLine'):
                  self.verticalPlayLine.remove()
-            return
+            return False
 
         note = self.noteList[noteIndexToPlay]
 
@@ -505,7 +505,7 @@ class Staff():
 
         gobject.timeout_add(self.noteList[noteIndexToPlay].millisecs,
                             self.play_it, noteIndexToPlay + 1, playingLineOnly)
-
+        return False
 
     def playComposition(self, widget=None, target=None, event=None,
                         playingLineOnly=False):
@@ -523,9 +523,6 @@ class Staff():
 
         self.currentNoteIndex = 0
         self.play_it(0, playingLineOnly)
-        gobject.timeout_add(self.noteList[self.currentNoteIndex].millisecs,
-                            self.play_it, (self.currentNoteIndex + 1),
-                            playingLineOnly)
 
     def file_to_staff(self, filename):
         '''
