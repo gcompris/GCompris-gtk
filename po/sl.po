@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: gcompris master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2012-10-19 21:10+0000\n"
-"PO-Revision-Date: 2012-10-21 21:35+0100\n"
+"PO-Revision-Date: 2012-10-23 22:28+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
@@ -53,12 +53,12 @@ msgstr "Brajica je pisava, ki jo slepi pogosto uporabljajo za branje in pisanje.
 
 #: ../boards/chess.xml.in.h:1
 msgid "Practice chess"
-msgstr "Trening šaha"
+msgstr "Učenje šaha"
 
 #: ../boards/chess.xml.in.h:2
 #: ../src/chess_computer-activity/chess_computer.xml.in.h:2
 msgid "Play chess against the computer in a learning mode"
-msgstr "Igraj šah proti računalniku v načinu za učenje."
+msgstr "Igranje šaha proti računalniku v načinu za učenje."
 
 #: ../boards/colors_group.xml.in.h:1
 msgid "Go to Color activities"
@@ -738,7 +738,7 @@ msgid ""
 "You need to change them: %s !"
 msgstr ""
 "Ena ali več prijav nista edinstveni!\n"
-"Moraš ju spremeniti: %s!"
+"Treba jih je spremeniti: %s!"
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:1
 msgid "Advanced colors"
@@ -1246,7 +1246,7 @@ msgstr "Otrok mora znati z lahkoto premikati in klikati na miško."
 
 #: ../src/anim-activity/anim.xml.in.h:4
 msgid "In this game, children can draw freely. The goal is to discover how to create attractive drawings based on basic shapes: rectangles, ellipses and lines. To give children a wider range of choices, a set of images can also be used."
-msgstr "V tej igri lahko otroci prosto rišejo. Cilj je odkriti načine risanja privlačnih risb z osnovnimi oblikami: pravokotniki, elipsami in črtami. Za večjo možnost izbire je mogoče uporabiti tudi niz slik."
+msgstr "Igra je namenjena enostavnemu prostemu risanju. Cilj je raziskati načine risanja z osnovnimi oblikami: pravokotniki, elipsami in črtami. Pri risanju je mogoče uporabljati tudi različne slike."
 
 #: ../src/anim-activity/anim.xml.in.h:5
 msgid "Select a drawing tool on the left, and a color down the bottom. Then click and drag in the white area to create a new shape. Once you've completed a drawing, you can select a new frame to work on by selecting one of the small rectangles on the bottom. Each frame contains the same content as its previous one. You can then edit it by moving objects a little bit or adding/deleting objects. When you create several frames and then click on the 'film' button, you will see all your images in a continuous slide-show (an infinite loop pattern). You can change the last image in your film by right clicking on a time frame. You can also change the viewing speed in this mode. In viewing mode, click on the 'drawing' button to return to drawing mode. You can also save and reload your animations with the 'floppy disk' and 'folder' buttons."
@@ -1267,7 +1267,7 @@ msgid ""
 "You cannot play this activity."
 msgstr ""
 "Datoteke '%s' ni mogoče najti.\n"
-"Te dejavnosti ne moreš igrati."
+"Te dejavnosti ni mogoče igrati."
 
 #: ../src/awele-activity/awele.c:360
 msgid "NORTH"
@@ -1299,11 +1299,11 @@ msgstr "Igraj strateško igro Oware proti Pingu"
 
 #: ../src/awele-activity/awele.xml.in.h:3
 msgid "The object of the game is to capture more seeds than one's opponent. Since the game has only 48 seeds, capturing 25 is sufficient to accomplish this. Since there are an even number of seeds, it is possible for the game to end in a draw, where each player has captured 24. The game is over when one player has captured 25 or more seeds, or both players have taken 24 seeds each (draw). If both players agree that the game has been reduced to an endless cycle, each player captures the seeds on their side of the board."
-msgstr "Cilj igre je ujeti več semen kot nasprotni igralec. V igri se prikaže le 48 semen, zato je za zmago dovolj zbrati 25 semen. Zaradi sodega števila semen, se igra lahko konča tudi neodločeno, če vsak igralec zbere 24 semen. Igra se konča, ko ima en igralec zbere 25 semen ali pa, ko imata oba tekmovalca enako število semen (neodločeno). Pri neskončni igri vsak igralec lovi semena na svoji strani zaslona."
+msgstr "Cilj igre je zbrati več semen kot nasprotni igralec. Igra se igra z 48 semeni. Za zmago jih je treba zbrati 25. Pri neskončni igri vsak igralec lovi semena na svoji strani zaslona."
 
 #: ../src/awele-activity/awele.xml.in.h:4
 msgid "At the beginning of the game four seeds are placed in each house. Players take turns moving the seeds. In each turn, a player chooses one of the six houses under his or her control. The player removes all seeds from this house, and distributes them, dropping one in each house counter-clockwise from the original house, in a process called sowing. Seeds are not distributed into the end scoring houses, nor into the house drawn from. That is, the starting house is left empty; if it contained 12 seeds, it is skipped, and the twelfth seed is placed in the next house. After a turn, if the last seed was placed into an opponent's house and brought its total to two or three, all the seeds in that house are captured and placed in the player's scoring house (or set aside if the board has no scoring houses). If the previous-to-last seed also brought the total seeds in an opponent's house to two or three, these are captured as well, and so on. However, if a move would capture all an opponent's seeds, the capture is forfeited, and the seeds are instead left on the board, since this would prevent the opponent from continuing the game. The proscription against capturing all an opponent's seeds is related to a more general idea, that one ought to make a move that allows the opponent to continue playing. If an opponent's houses are all empty, the current player must make a move that gives the opponent seeds. If no such move is possible, the current player captures all seeds in his/her own territory, ending the game. (Source Wikipedia &lt;http://en.wikipedia.org/wiki/Oware&gt;)"
-msgstr "Na začetku igre so v vsaki hiši štiri semena. Igralca se izmenjujeta in premikata semena. V vsakem krogu igralec izbere eno od šestih hiš pod njegovim nadzorom. Igralec odstrani vsa semena iz te hiše in jih razdeli, ter spusti enega v vsako hišo v nasprotni smeri urinega kazalca od izvorne hiše v opravilu, ki se imenuje sejanje. Semen ni mogoče spustiti v hiše točk ali v hišo iz katere so bila povlečena. Začetna hiša je prazna, če bi vsebovala 12 semen, bi bila preskočena in dvanajsto seme bi bilo postavljeno v naslednjo hišo. Po koncu kroga so v primeru, da je bilo zadnje seme postavljeno v nasprotnikovo hišo in je sedaj skupno število semen dva ali tri, vsa semena ujeta in postavljena v igralčevo hišo točk (ali postavljena ob rob, če tabla nima hiš točk). V primeru da je tudi predzadnje seme povečalo skupno število semen v nasprotnikovi hiši na dva ali tri, so ujeta tudi ta, in tako naprej. Toda če bi poteza ujela vsa nasprotnikova semena, do ujema ne pride. Namesto tega so semena puščena na tabli, saj bi zajem semen nasprotniku preprečil nadaljevanje igre. Če so vse nasprotnikove hiše prazne, mora igralec narediti takšno potezo, ki nasprotniku da semena. Če takšna poteza ni mogoča, trenutni igralec ujame vsa semena v svojemu področju in konča igro. (Vir Wikipedija: &lt;http://en.wikipedia.org/wiki/Oware&gt;)"
+msgstr "Igra se začne s štirimi semeni na vsakem polju, ki ga poimenujemo hiša. Igralca se izmenjujeta pri premikanju semen. V vsakem krogu izbere igralec eno od šestih hiš pod njegovim nadzorom. Igralec odstrani vsa semena s tega polja, jih razdeli in pusti enega v vsako hišo v nasprotni smeri urinega kazalca od izvorne hiše. Temu opravilo pravimo sejanje. Semen ni mogoče spustiti v končne hiše za točkovanje, prav tako ne v hišo, iz katere so bila semena pobrana. Začetna hiša je prazna, če bi vsebovala 12 semen, bi bila preskočena in dvanajsto seme bi bilo postavljeno v naslednjo hišo. Po koncu kroga so v primeru, da je bilo zadnje seme postavljeno v nasprotnikovo hišo in je sedaj skupno število semen dva ali tri, vsa semena ujeta in postavljena v igralčevo hišo točk (ali postavljena ob rob, če tabla nima hiš točk). V primeru da je tudi predzadnje seme povečalo skupno število semen v nasprotnikovi hiši na dva ali tri, so ujeta tudi ta, in tako naprej. Toda če bi poteza ujela vsa nasprotnikova semena, do ujema ne pride. Namesto tega so semena puščena na tabli, saj bi zajem semen nasprotniku preprečil nadaljevanje igre. Če so vse nasprotnikove hiše prazne, mora igralec narediti takšno potezo, ki nasprotniku da semena. Če takšna poteza ni mogoča, trenutni igralec ujame vsa semena v svojemu področju in konča igro. (Vir Wikipedija: &lt;http://en.wikipedia.org/wiki/Oware&gt;)"
 
 #: ../src/babymatch-activity/babymatch.xml.in.h:1
 msgid "Matching Items"
@@ -1687,11 +1687,11 @@ msgstr " barva"
 
 #: ../src/chat-activity/chat.py:323
 msgid "ERROR: Failed to initialize the network interface. You cannot communicate."
-msgstr "NAPAKA: Zaganjanje omrežnega vmesnika je spodletelo. Ne moreš se sporazumevati."
+msgstr "NAPAKA: zaganjanje omrežnega vmesnika je spodletelo. Sporazumevanje ni mogoče."
 
 #: ../src/chat-activity/chat.py:433
 msgid "Has left the chat."
-msgstr "Je zapustil klepetalnico."
+msgstr "Zapustil je klepetalnico."
 
 #: ../src/chat-activity/chat.py:512
 msgid "You must set a channel in your channel entry box first.\n"
@@ -1715,7 +1715,7 @@ msgstr "Klepet bo deloval le z drugimi uporabniki programa GCompris na krajevnem
 
 #: ../src/chess_computer-activity/chess.c:225
 msgid "Error: The external program gnuchess died unexpectedly"
-msgstr "Napaka: Zunanji program gnuchess se je nepričakovano zaprl"
+msgstr "Napaka: zunanji program gnuchess se je nepričakovano zaprl"
 
 #: ../src/chess_computer-activity/chess.c:265
 #: ../src/chess_computer-activity/chess.c:311
@@ -1725,7 +1725,7 @@ msgid ""
 "First install it, and check it is in "
 msgstr ""
 "Napaka: zunanji program gnuchess je obvezen\n"
-"za igranje šaha v gcompris.\n"
+"za igranje šaha v programu GCompris.\n"
 "Najprej ga namestite in nato preverite da je v"
 
 #: ../src/chess_computer-activity/chess.c:656
@@ -2423,7 +2423,7 @@ msgstr "Panorama of Château de Chenonceau, Indre-et-Loire, Francija."
 
 #: ../src/details-activity/resources/details/board2_4.xml.in.h:1
 msgid "Notre Dame de Paris cathedral on the Île de la Cité island in Paris, France."
-msgstr "Katedrala Notre Dame de Paris,  Pariz, France."
+msgstr "Katedrala Notre Dame de Paris, Pariz, France."
 
 #: ../src/details-activity/resources/details/board2_5.xml.in.h:1
 msgid "Nagoya Castle, Aichi Prefecture, Japan."
@@ -2480,7 +2480,7 @@ msgstr "Ustvarjalna tabla za prosto risanje."
 
 #: ../src/draw-activity/draw.xml.in.h:4
 msgid "In this game, children can draw freely. The goal is to discover how to create attractive drawings based on basic shapes: rectangles, ellipses and lines."
-msgstr "V tej igri lahko otroci prosto rišejo. Cilj je raziskati načine risanja z osnovnimi oblikami: pravokotnikom, elipso in črtami."
+msgstr "Igra je namenjena enostavnemu prostemu risanju. Cilj je raziskati načine risanja z osnovnimi oblikami: pravokotniki, elipsami in črtami."
 
 #: ../src/draw-activity/draw.xml.in.h:5
 msgid "Select a drawing tool on the left, and a color down the bottom, then click and drag in the white area to create a new shape. To save time, you can click with the middle mouse button to delete an object."
@@ -2544,7 +2544,7 @@ msgstr "Ustvari električno shemo s pravo časovno simulacijo."
 
 #: ../src/electric-activity/electric.xml.in.h:5
 msgid "GCompris uses the Gnucap electric simulator as a backend. You can get more information on gnucap at &lt;http://www.gnu.org/software/gnucap/&gt;."
-msgstr "GCompris uporablja kot zaledje tudi električni simulator Gnucap. Več podrobnosti o programu je mogoče najti na &lt;http://www.gnu.org/software/gnucap/&gt;."
+msgstr "Program GCompris uporablja kot zaledje tudi električni simulator Gnucap. Več podrobnosti o programu je mogoče najti na &lt;http://www.gnu.org/software/gnucap/&gt;."
 
 # tukaj je lahko levi stolpec, ker je povsod levi stolpec, samo tukaj so mu angleško rekli selector namesto left box
 #: ../src/electric-activity/electric.xml.in.h:6
@@ -2839,7 +2839,7 @@ msgid ""
 "\n"
 "In level two, a random text prompt is displayed and you must click on the animal that matches the text. When you have matched all texts correctly, you win!\n"
 msgstr ""
-"Ta igra ima dve ravni.\n"
+"Igra poteka na dveh ravneh.\n"
 "\n"
 "Na prvi ravni igralci spoznavajo vse živali na zaslonu. S klikom na vprašaj dobijo več podatkov o živali - kako se imenuje, kako je videti. Te podatke si je treba dobro zapomniti, ker so na drugi ravni vprašanja povezana s temi podatki!\n"
 "\n"
@@ -2847,7 +2847,7 @@ msgstr ""
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:1
 msgid " Explore exotic animals from around the world."
-msgstr " Spoznaj nenavadne živali s celega sveta."
+msgstr "Spoznaj nenavadne živali s celega sveta."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:2
 msgid " Click on location where the given animal lives."
@@ -2863,7 +2863,7 @@ msgstr " Jaguarji so dobili ime po indijanski besedi, ki pomeni 'tisti, ki ubije
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:5
 msgid "  Jaguar"
-msgstr "  Jaguar"
+msgstr " Jaguar"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:6
 msgid " Hedgehogs in Europe"
@@ -2871,7 +2871,7 @@ msgstr " Ježi v Evropi"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:7
 msgid " Hedgehogs eat small animals, like frogs and insects, so many people keep them as useful pets. When in danger, they will curl up into a ball and stick up their coat of sharp spines."
-msgstr " Ježi se prehranjujejo z  malimi živalmi, kot so žabe in žuželke, zato jih ima veliko ljudi kot koristne hišne ljubljenčke. Ko se počutijo ogrožene, se zvijejo v klobčič in pokažejo z ostrimi bodicami obdano telo."
+msgstr " Ježi se prehranjujejo z malimi živalmi, kot so žabe in žuželke, zato jih ima veliko ljudi kot koristne hišne ljubljenčke. Ko se počutijo ogrožene, se zvijejo v klobčič in pokažejo z ostrimi bodicami obdano telo."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:8
 msgid " Hedgehog"
@@ -2937,7 +2937,7 @@ msgid ""
 msgstr ""
 "Igra poteka na treh ravneh.\n"
 "\n"
-"Prva raven je namenjena raziskovanju glasbe sveta. S klikom na potovalne torbe je prikažejo podatki in se predvaja glasba, ki je  značilna za to področje. Glasbo je treba dobro proučiti, saj so na ravneh 2 in 3 naloge, ki so povezane z njo!\n"
+"Prva raven je namenjena raziskovanju glasbe sveta. S klikom na potovalne torbe je prikažejo podatki in se predvaja glasba, ki je značilna za to področje. Glasbo je treba dobro proučiti, saj so na ravneh 2 in 3 naloge, ki so povezane z njo!\n"
 "\n"
 "Na drugi ravni je treba dobro prisluhniti glasbi in izbrati mesto, za katerega je ta glasba značilna. S klikom na predvajanje se glasba zaigra znova. Ko so vse zvrsti glasbe povezane s kraji, je igre konec!\n"
 "\n"
@@ -3174,7 +3174,7 @@ msgstr "Ne, želim nadaljevati."
 
 #: ../src/gcompris/board.c:149
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
-msgstr "Dinamično nalaganje modulov ni podprto. Program GCompris se ne more naložiti.\n"
+msgstr "Dinamično nalaganje modulov ni podprto. Programa GCompris ni mogoče naložiti.\n"
 
 #: ../src/gcompris/board_config_combo.c:182
 msgid ""
@@ -3723,7 +3723,7 @@ msgstr "Onemogoči približanje razpetja"
 
 #: ../src/gcompris/gcompris.c:252
 msgid "Increase activities' timeout delays; useful values > 1.0; 1.0 to not change hardcoded value"
-msgstr "Poveča  zakasnitve dejavnosti, uporabne vrednosti > 1,0. 1,0 ne spremeni trenutne vrednosti"
+msgstr "Poveča zakasnitve dejavnosti, uporabne vrednosti > 1,0. 1,0 ne spremeni trenutne vrednosti"
 
 #: ../src/gcompris/gcompris.c:255
 msgid "How activities' timeout delays are growing for several actors; useful values < 1.0; 1.0 to not change hardcoded value"
@@ -3806,7 +3806,7 @@ msgstr "%s obstaja toda ni berljiv ali zapisljiv"
 #: ../src/gcompris/gcompris.c:1981
 #, c-format
 msgid "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list available ones\n"
-msgstr "NAPAKA: Profila '%s' ni mogoče najti. Zaženi 'gcompris --profile-list' za seznam razpoložljivih profilov\n"
+msgstr "NAPAKA: Profila '%s' ni mogoče najti. Z ukazom 'gcompris --profile-list' se izpiše seznam razpoložljivih profilov.\n"
 
 #: ../src/gcompris/gcompris.c:1995
 #, c-format
@@ -3861,7 +3861,7 @@ msgstr "Vse dejavnosti so v tem profilu onemogočene. Odprite skrbniški modul G
 
 #: ../src/gcompris/properties.c:505
 msgid "This directory contains the files you create with the GCompris educational suite\n"
-msgstr "V tej mapi so datoteke, ki bodo ustvarjene s programom GCompris.\n"
+msgstr "V tej mapi so datoteke, ki so bile ustvarjene s programom GCompris.\n"
 
 #: ../src/gcompris/properties.c:512
 msgid ""
@@ -3869,9 +3869,9 @@ msgid ""
 "You can include these images in your drawings and animations.\n"
 "The image formats supported are jpeg, png and svg.\n"
 msgstr ""
-"V to mapo lahko daš slik, kolikor jih želiš.\n"
-"Te slike lahko vključiš v svoje risbe in animacije.\n"
-"Podprti zapisi slik so jpeg, png in svg.\n"
+"V tej mapi so shranjene slike, ki jih uporablja program\n"
+"GCompris. Te slike je mogoče uporabljati pri risanju in\n"
+"pri izdelavi animacij. Podprti zapisi so: jpeg, png in svg.\n"
 
 #: ../src/gcompris/sugar_cli.c:222
 #: ../src/gcompris/sugar_srv.c:156
@@ -4841,7 +4841,7 @@ msgid ""
 "Multiples of %(d1)d include %(s)s,\n"
 "but %(d2)d is not a multiple of %(d3)d."
 msgstr ""
-"Večkratniki %(d1)d  vključujejo %(s)s,\n"
+"Večkratniki %(d1)d vključujejo %(s)s,\n"
 "toda %(d2)d ni večkratnik %(d3)d."
 
 #: ../src/gnumch-equality-activity/gnumch.py:162
@@ -4967,7 +4967,7 @@ msgstr "Nauči se o večkratnikih in faktorjih."
 
 #: ../src/gnumch-multiples-activity/gnumch-multiples.xml.in.h:4
 msgid "The multiples of a number are all the numbers that are equal to the original number times another number. For example, 24, 36, 48 and 60 are all multiples of 12. 25 is not a multiple of 12 because there isn't any number that can be multiplied by 12 to get 25. If one number is a factor of a second number, then the second number is a multiple of the first number. Again, you can think of multiples as families, and factors are the people who belong to those families. The factor 5, has parents 10, grandparents 15, great-grandparents 20, great-great-grandparents 25, and every extra step of 5 is another great- in front! But the number 5 does not belong in the 8 or 23 families. You can't fit any number of 5s into 8 or 23 with nothing left over. So '8 isn't a multiple of 5, nor is 23. Only 5, 10, 15, 20, 25 ... are multiples (or families or steps) of 5. Use the arrow keys to navigate around the board and to avoid the Troggles. Press the spacebar to eat a number."
-msgstr "Večkratniki števila so števila, ki so enaka izvorni številki krat drugo število. Na primer, 24, 36, 48 in 60 so večkratniki števila 12. 25 ni večkratnik števila 12, ker ni števila s katerim lahko pomnožiš 12 in dobiš 25. Če je prvo število faktor drugega števila, je drugo število večkratnik prvega števila. O večkratnikih lahko razmišljaš kot o družinah. Faktorji so ljudje, ki živijo v teh družinah. Faktor 5 ima starše 10, stare starše 15, stare stare starše 20, stare stare starše 25 in za vsak korak 5 je spredaj še en stare! Toda število 5 ne spada v družini 8 ali 23. V število 8 ali 23 ne moreš spraviti nobenega števila petic brez ostanka. Zato 8 ni večkratnik števila 5, tako kot ni 23. Samo 5, 10, 15, 20, 25 ... so večkratniki (ali družine ali koraki) števila 5. Uporabi tipke s puščicami za premikanje po tabli in za izogibanje poškam. Pritisni preslednico in pojej število.  "
+msgstr "Večkratnik nekega števila je to število, ki pa je pomnoženo s katerimkoli naravnim številom. Na primer, 24, 36, 48 in 60 so večkratniki števila 12. Število 25 ni večkratnik števila 12, ker ni naravnega števila s katerim lahko pomnožiš 12, da dobiš 25. Če je prvo število faktor drugega števila, je drugo število večkratnik prvega števila. O večkratnikih lahko razmišljaš kot o družinah. Faktorji so ljudje, ki živijo v teh družinah. Faktor 5 ima starše 10, stare starše 15, stare stare starše 20, stare stare starše 25 in za vsak korak 5, je spredaj še en stare! Toda število 5 ne spada v družini 8 in 23. V število 8 ali 23 ni mogoče spraviti nobenega števila petic brez ostanka. Zato 8 ni večkratnik števila 5, tako kot ni 23. Samo 5, 10, 15, 20, 25 ... so večkratniki (ali družine ali koraki) števila 5. Uporabi tipke s puščicami za premikanje po tabli in za izogibanje poškam. Pritisni preslednico in pojej število."
 
 #: ../src/gnumch-primes-activity/gnumch-primes.xml.in.h:1
 msgid "Prime Number Munchers"
@@ -6215,7 +6215,7 @@ msgstr ""
 "Seštevanje je videti takole: 2 + 2 =4\n"
 "Števila na levi strani enačaja (=) morajo biti enaka številu na drugi strani. Tako je 2 (1, 2) in 2 (3, 4) enako 4. Med računanjem je dovoljeno šteti naglas in s prsti. Uporabiš lahko tudi kocke, gumbe ali karkoli drugega, kar pomaga pri štetju. Lahko prešteješ družinske člane, sošolce, prijatelje, avtomobile. Hitro štejejo tisti, ki veliko štejejo!\n"
 "\n"
-"V tej igri karte skrivajo dva para seštevanja. Najti je treba dva dela seštevanja in ju ponovno pripeljati skupaj. Klikni na karto, da vidiš številko, ki se skriva na drugi strani in nato poskusi najti drugo karto, ki spada zraven. Obrniti je dovoljeno le dve karti naenkrat, zato si je treba številke dobro zapomniti. Ko najdeš pravilni par kart, ti izgineta. Ko izginejo vse, je igre konec!"
+"Pri tej igri karte skrivajo dva para seštevanja. Najti je treba dva dela seštevanja in ju ponovno pripeljati skupaj. Klikni na karto, da vidiš številko, ki se skriva na drugi strani in nato poskusi najti drugo karto, ki spada zraven. Obrniti je dovoljeno le dve karti naenkrat, zato si je treba številke dobro zapomniti. Ko najdeš pravilni par kart, ti izgineta. Ko izginejo vse, je igre konec!"
 
 #: ../src/memory_add_minus-activity/memory_add_minus.xml.in.h:1
 msgid "Addition and subtraction memory game"
@@ -6253,7 +6253,7 @@ msgid ""
 msgstr ""
 "Postavljenih je nekaj kart, ki jih z druge strani ni mogoče videti. Vsaka karta skriva računsko operacijo ali odgovor nanjo.\n"
 "\n"
-"V tej igri karte skrivajo dva dela računske operacije. Najti je treba dva dela seštevanja in ju ponovno pripeljati skupaj. Klikni na karto, da vidiš številko, ki se skriva na drugi strani in nato poskusi najti drugo karto, ki spada zraven ter dopolni računsko operacijo. Obrniti je dovoljeno le dve karti naenkrat, zato si je treba številke dobro zapomniti. Ko najdeš pravilni par kart, ti izgineta. Ko izginejo vse, je igre konec!"
+"Pri tej igri karte skrivajo dva dela računske operacije. Najti je treba dva dela seštevanja in ju ponovno pripeljati skupaj. Klikni na karto, da vidiš številko, ki se skriva na drugi strani in nato poskusi najti drugo karto, ki spada zraven ter dopolni računsko operacijo. Obrniti je dovoljeno le dve karti naenkrat, zato si je treba številke dobro zapomniti. Ko najdeš pravilni par kart, ti izgineta. Ko izginejo vse, je igre konec!"
 
 #: ../src/memory_add_minus_mult_div-activity/memory_add_minus_mult_div.xml.in.h:1
 msgid "All operations memory game"
@@ -6357,7 +6357,7 @@ msgstr ""
 "Odštevanje je videti takole: 3 - 1 = 2\n"
 "Števila na levi strani enačaja (=) morajo biti enaka številu na drugi strani. Tako je 3 (1,2,3) minus 1 (1) enako 2. Med računanjem je dovoljeno šteti naglas in s prsti. Uporabiš lahko tudi kocke, gumbe ali karkoli drugega, kar pomaga pri štetju. Lahko prešteješ družinske člane, sošolce, prijatelje, avtomobile. Hitro štejejo tisti, ki veliko štejejo!\n"
 "\n"
-"V tej igri karte skrivajo dva dela računske operacije. Najti je treba dva dela seštevanja in ju ponovno pripeljati skupaj. Klikni na karto, da vidiš številko, ki se skriva na drugi strani in nato poskusi najti drugo karto, ki spada zraven ter dopolni računsko operacijo. Obrniti je dovoljeno le dve karti naenkrat, zato si je treba številke dobro zapomniti. Ko najdeš pravilni par kart, ti izgineta. Ko izginejo vse, je igre konec!"
+"Pri tej igri karte skrivajo dva dela računske operacije. Najti je treba dva dela seštevanja in ju ponovno pripeljati skupaj. Klikni na karto, da vidiš številko, ki se skriva na drugi strani in nato poskusi najti drugo karto, ki spada zraven ter dopolni računsko operacijo. Obrniti je dovoljeno le dve karti naenkrat, zato si je treba številke dobro zapomniti. Ko najdeš pravilni par kart, ti izgineta. Ko izginejo vse, je igre konec!"
 
 #: ../src/memory_minus_tux-activity/memory_minus_tux.xml.in.h:1
 msgid "Subtraction memory game against Tux"
@@ -6958,7 +6958,7 @@ msgstr "Katsushika Hokusai, Ženska, ki drži pahljačo"
 
 #: ../src/paintings-activity/resources/paintings/board1_6.xml.in.h:1
 msgid "Katsushika Hokusai, Ejiri in Suruga Province - 1830-1833"
-msgstr "Katsushika Hokusai, Ejiri v pokrajini Suruga  - 1830-1833"
+msgstr "Katsushika Hokusai, Ejiri v pokrajini Suruga - 1830-1833"
 
 #: ../src/paintings-activity/resources/paintings/board1_7.xml.in.h:1
 msgid "Katsushika Hokusai, The Great Wave off Kanagawa - 1823-1829"
@@ -7473,7 +7473,7 @@ msgstr ""
 "\n"
 "Satelit kroži okoli zemlje zaradi privlačnih sil med njima. Tirna hitrost satelita je sorazmerno s kvadratnim korenom mase zemlje in obratno sorazmerno s kvadratnim korenom razdalje od središča zemlje do satelita.\n"
 "\n"
-"Pri tej dejavnosti spreminjamo hitrost satelita in maso Zemlje in pri tem opazujemo, kaj se zgodi, če spreminjamo hitrost satelita. Če je hitrost manjša od zahtevane tirne hitrosti, potem začne satelit padati proti Zemlji zaradi prevelike privlačnosti in ob vstopu v atmosfero zgori. Nasprotno pa, če je hitrost prevelika, satelit lahko odnese v vesolje zaradi lastne vstrajnosti.\n"
+"Pri tej dejavnosti spreminjamo hitrost satelita in maso Zemlje in pri tem opazujemo, kaj se zgodi, če spreminjamo hitrost satelita. Če je hitrost manjša od zahtevane tirne hitrosti, potem začne satelit padati proti Zemlji zaradi prevelike privlačnosti in ob vstopu v atmosfero zgori. Nasprotno pa, če je hitrost prevelika, satelit lahko odnese v vesolje zaradi lastne vztrajnosti.\n"
 "        "
 
 #: ../src/planegame-activity/planegame.c:62
@@ -7628,7 +7628,7 @@ msgstr "Nauči se natančno udarjati ritme po slišanem in videnem."
 
 #: ../src/play_rhythm-activity/play_rhythm.xml.in.h:5
 msgid "This is a relatively challenging game to master, so good luck. Listen to the rhythm played, and follow along with the music. If you would like to hear it again, click the play button. When you're ready to perform the identical rhythm, click the drum to the rhythm, then click the ok button. If you clicked correctly and in the right tempo, another rhythm is displayed. If not, you must try again. Even levels display a vertical playing line when you click the drum, which helps you see whene to click to follow the rhythm. Click on the drum when the line is in the middle of the notes. Odd levels are harder, because there is no vertical playing line. The rhythm will not be played for you. You must read the rhythm, and click it back in tempo. Click the metronome to hear the quarter note tempo. The following keyboard bindings work in this game: - backspace: erase attempt - delete: erase attempt - enter/return: ok button - space bar: play"
-msgstr "Igra je precej zahtevna. Prisluhniti je treba predvajanemu ritmu in mu slediti ob glasbi. Ritem je s pritiskom na gumb za predvajanje mogoče večkrat poslušati. Ko si prepričan, da znaš ritem ponoviti, ga poskusi s klikanjem z miško zaigrati. Nato pritisniti gumb V redu. Če ti je uspelo ritem ponoviti dovolj natančno, se začne predvajati nov ritem. Če ti ni uspelo, moraš poskusiti  znova. Na vsaki sodi ravni je prikazana navpična črta, ki ponazarja ritem. S tem si je mogoče pomagati pri sledenju ritmu. Na boben je treba klikniti, ko je črta na sredini note. Pri lihih ravneh je ta naloga težja, saj ni pomoči navpične črte in ritem ni zaigran. Tega je treba prebrati iz zapisa in ga zaigrati. S klikom na metronom se začne predvajati četrtinski takt. Med igro so na voljo nekatere tipkoven bližnjice: - povratnica: izbriše poskus - brisalka: izbriše poskus - vnosna tipka: potrditev, v redu - preslednica: predvajanje ritma"
+msgstr "Igra je precej zahtevna. Prisluhniti je treba predvajanemu ritmu in mu slediti ob glasbi. Ritem je s pritiskom na gumb za predvajanje mogoče večkrat poslušati. Ko si prepričan, da znaš ritem ponoviti, ga poskusi s klikanjem z miško zaigrati. Nato pritisniti gumb V redu. Če ti je uspelo ritem ponoviti dovolj natančno, se začne predvajati nov ritem. Če ti ni uspelo, moraš poskusiti znova. Na vsaki sodi ravni je prikazana navpična črta, ki ponazarja ritem. S tem si je mogoče pomagati pri sledenju ritmu. Na boben je treba klikniti, ko je črta na sredini note. Pri lihih ravneh je ta naloga težja, saj ni pomoči navpične črte in ritem ni zaigran. Tega je treba prebrati iz zapisa in ga zaigrati. S klikom na metronom se začne predvajati četrtinski takt. Med igro so na voljo nekatere tipkoven bližnjice: - povratnica: izbriše poskus - brisalka: izbriše poskus - vnosna tipka: potrditev, v redu - preslednica: predvajanje ritma"
 
 #: ../src/pythontemplate-activity/pythontemplate.py:62
 #: ../src/pythontest-activity/pythontest.py:182
@@ -7650,7 +7650,7 @@ msgstr "Prazna dejavnost Python, uporabljena kot začetna točka"
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:3
 #: ../src/pythontest-activity/pythontest.xml.in.h:3
 msgid "Advanced Python Programmer :)"
-msgstr "Napredni programer v jeziku Python  :)"
+msgstr "Napredni programer v jeziku Python :)"
 
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:4
 #: ../src/pythontest-activity/pythontest.xml.in.h:4
@@ -7790,7 +7790,7 @@ msgstr "Vaja branja v omejenem času"
 #: ../src/readingh-activity/readingh.xml.in.h:5
 #: ../src/readingv-activity/readingv.xml.in.h:5
 msgid "A word is shown at the top right of the board. A list of words will appear and disappear on the left. Does the given word belong to the list?"
-msgstr "Beseda je prikazana v desnem zgornjem delu zaslona. Na levi se bo pojavil in izginil seznam besed. Ali se je beseda z desnega dela prikazala tudi na seznamu?  "
+msgstr "Beseda je prikazana v desnem zgornjem delu zaslona. Na levi se bo pojavil in izginil seznam besed. Ali se je beseda z desnega dela prikazala tudi na seznamu?"
 
 #: ../src/readingv-activity/readingv.xml.in.h:1
 msgid "Vertical-reading practice"
@@ -7922,7 +7922,7 @@ msgstr ""
 "V polje za vnos besedila je treba vnesti ukaze v vrsticah za upravljanje jadrnice. Podprti ukazi so prikazani med dvema področjema vnosov. Ukazoma 'levo' in 'desno' mora obvezno slediti kot izražen v stopinjah. Vrednost kota imenujemo 'parameter' ukaza levo ali desno. Privzeto je uporabljen kot 45 stopinj. Ukaz 'naprej' zahteva tudi parameter razdalje. Privzeto je uporabljena vrednost 1.\n"
 "Na primer:\n"
 "- levo 90: ukaz za zavijanje pravokotno levo,\n"
-"- naprej 10: ukaz za pomik naprej  za 10 enot, ki so prikazane na ravnilu).\n"
+"- naprej 10: ukaz za pomik naprej za 10 enot, ki so prikazane na ravnilu).\n"
 "Cilj je doseči desni del zaslona z rdečo črto. Napisan program je vedno mogoče popraviti in izboljšati, mogoče pa je tudi začeti znova. S klikom miške kamorkoli na zaslonu se izmeri razdalja to te točke in kot od izhodišča. Na višjih ravneh te čakajo tudi bolj zapleteni vremenski pogoji."
 
 #: ../src/searace-activity/searace.py:174
@@ -8005,7 +8005,7 @@ msgstr ""
 "Podprti ukazi so prikazani med dvema področjema vnosov. Ukazoma 'levo' in 'desno' mora obvezno slediti kot izražen v stopinjah. Vrednost kota imenujemo 'parameter' ukaza levo ali desno. Privzeto je uporabljen kot 45 stopinj. Ukaz 'naprej' zahteva tudi parameter razdalje. Privzeto je uporabljena vrednost 1.\n"
 "Na primer:\n"
 "- levo 90: ukaz za zavijanje pravokotno levo,\n"
-"- naprej 10: ukaz za pomik naprej  za 10 enot, ki so prikazane na ravnilu).\n"
+"- naprej 10: ukaz za pomik naprej za 10 enot, ki so prikazane na ravnilu).\n"
 "Cilj je doseči desni del zaslona z rdečo črto. Napisan program je vedno mogoče popraviti in izboljšati, mogoče pa je tudi začeti znova. S klikom miške kamorkoli na zaslonu se izmeri razdalja to te točke in kot od izhodišča. Na višjih ravneh te čakajo tudi bolj zapleteni vremenski pogoji."
 
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:1
@@ -8070,7 +8070,7 @@ msgstr "Dokončanje igre zahteva potrpežljivost in logično razmišljanje"
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:4
 msgid "The aim of the puzzle is to enter a symbol or numeral from 1 through 9 in each cell of a grid, most frequently a 9x9 grid made up of 3x3 subgrids (called 'regions'), starting with various symbols or numerals given in some cells (the 'givens'). Each row, column and region must contain only one instance of each symbol or numeral (Source &lt;http://en.wikipedia.org/wiki/Sudoku&gt;)."
-msgstr "Cilj igre je razpostaviti simbole ali številke od 1 do 9 v polja mreže. Mreža je običajno velikosti 9x9, oziroma natančneje 9 krat 3x3 podrejenimi mrežami (te se imenujejo 'območja'). Igra se  začne s preučevanjem simbolov ali števil, ki so podane v nekaterih poljih ('znane številke'). Vsaka vrstica, stolpec in območje mora vsebovati natanko en primer vsakega simbola ali številke (Vir: &lt;http://en.wikipedia.org/wiki/Sudoku&gt;). "
+msgstr "Cilj igre je razpostaviti simbole ali številke od 1 do 9 v polja mreže. Mreža je običajno velikosti 9x9, oziroma natančneje 9 krat 3x3 podrejenimi mrežami (te se imenujejo 'območja'). Igra se začne s preučevanjem simbolov ali števil, ki so podane v nekaterih poljih ('znane številke'). Vsaka vrstica, stolpec in območje mora vsebovati natanko en primer vsakega simbola ali številke (Vir: &lt;http://en.wikipedia.org/wiki/Sudoku&gt;). "
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:5
 msgid "For the first level with colored symbols, select a symbol on the left and click on its target position. For the higher levels, click on an empty square to give it the keyboard focus. Then enter a possible letter or number. GCompris will not let you enter invalid data."
