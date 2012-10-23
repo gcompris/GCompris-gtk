@@ -197,6 +197,5 @@ prep: Makefile.mingw
 	rm -f $(GCOMPRIS_INSTALL_DIR)/share/$(pkgdatadir)/boards/tuxpaint.xml
 	rm -f $(GCOMPRIS_INSTALL_DIR)/share/gcompris/python/tuxpaint.py
 	find $(GCOMPRIS_INSTALL_DIR) -name "Makefile*" -exec rm -f {} \;
-	find $(GCOMPRIS_INSTALL_DIR) -name "*.in" -exec rm -f {} \;
 	find $(GCOMPRIS_INSTALL_DIR) -name "*~" -exec rm -f {} \;
 
