@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-10-19 21:10+0000\n"
-"PO-Revision-Date: 2012-10-23 22:28+0100\n"
+"POT-Creation-Date: 2012-10-24 20:53+0000\n"
+"PO-Revision-Date: 2012-10-25 09:46+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
@@ -1155,7 +1155,7 @@ msgstr "Premikanje in klikanje miške"
 
 #: ../src/algorithm-activity/algorithm.xml.in.h:4
 msgid "Logic training activity"
-msgstr "Dejavnosti logičnega treninga"
+msgstr "Dejavnosti spodbujanja logičnega razmišljanja"
 
 #: ../src/algorithm-activity/algorithm.xml.in.h:5
 msgid "Find the next symbol in a list."
@@ -1287,7 +1287,7 @@ msgstr "Ti si na potezi ..."
 
 #: ../src/awele-activity/awele.c:690
 msgid "Not allowed! Try again !"
-msgstr "Ni dovoljeno! Poskusi še enkrat!"
+msgstr "Dejanje ni dovoljeno! Poskusi še enkrat!"
 
 #: ../src/awele-activity/awele.xml.in.h:1
 msgid "Oware"
@@ -1418,16 +1418,16 @@ msgstr "Ne uporabi zadnje žoge!"
 
 #: ../src/bargame-activity/bargame.xml.in.h:3
 msgid "Brain"
-msgstr "Možgani"
+msgstr "Osnovno logično razmišljanje"
 
 #: ../src/bargame-activity/bargame.xml.in.h:4
 #: ../src/hexagon-activity/hexagon.xml.in.h:4
 msgid "Logic-training activity"
-msgstr "Dejavnost treninga logike"
+msgstr "Spodbujanje logičnega razmišljanja."
 
 #: ../src/bargame-activity/bargame.xml.in.h:5
 msgid "Place balls in the holes. You win if the computer has to place the last ball. If you want Tux to begin, just click on him."
-msgstr "Postavi žoge v luknje. Zmagaš, če mora računalnik postaviti zadnjo žogo. Če želiš, da začne Pingo, klikni nanj."
+msgstr "Cilj igre je postaviti kroglice v luknje. Pri igri zgubi tisti, ki mora v rdečo luknjo na skrajnem desnem delu nosila, postaviti zadnjo žogo. Pingo začne s prvo potezo, če nanj kliknemo."
 
 #: ../src/billard-activity/billard.c:89
 #: ../src/erase-activity/erase.c:85
@@ -1776,7 +1776,7 @@ msgstr "Pogon šaha je iz programa gnuchess."
 
 #: ../src/chess_movelearn-activity/chess_movelearn.xml.in.h:2
 msgid "Chess training. Catch the computer's pawns."
-msgstr "Trening šaha. Računalniku vzemi kmeta."
+msgstr "Igra na šahovnici. Računalniku vzemi kmeta."
 
 #: ../src/chess_partyend-activity/chess_partyend.xml.in.h:2
 msgid "Play the end of the chess game against the computer"
@@ -2490,7 +2490,7 @@ msgstr "Na levi strani izberi orodje za risanje v spodnjem delu pa izberi barvo.
 #: ../src/explore-activity/explore.py:458
 #: ../src/findit-activity/findit.py:336
 #: ../src/louis_braille-activity/louis_braille.py:84
-#: ../src/piano_composition-activity/piano_composition.py:499
+#: ../src/piano_composition-activity/piano_composition.py:503
 msgid "Cannot find the file '{filename}'"
 msgstr "Datoteke '{filename}' ni mogoče najti"
 
@@ -2635,7 +2635,7 @@ msgstr "Z miško klikni na vsak kvadratek, dokler zaslon ni čist."
 
 #: ../src/explore-activity/explore.py:88
 #: ../src/note_names-activity/note_names.py:83
-#: ../src/piano_composition-activity/piano_composition.py:367
+#: ../src/piano_composition-activity/piano_composition.py:371
 #: ../src/play_piano-activity/play_piano.py:77
 #: ../src/play_rhythm-activity/play_rhythm.py:81
 msgid ""
@@ -2661,7 +2661,7 @@ msgstr "Nazaj na domačo stran"
 #: ../src/explore-activity/explore.py:463
 #: ../src/findit-activity/findit.py:341
 #: ../src/louis_braille-activity/louis_braille.py:88
-#: ../src/piano_composition-activity/piano_composition.py:504
+#: ../src/piano_composition-activity/piano_composition.py:508
 msgid ""
 "Failed to parse data set '{filename}' with error:\n"
 "{error}"
@@ -2780,8 +2780,8 @@ msgid " White Duck"
 msgstr " Bela raca"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:20
-msgid " The duck goes \"quack, quack\". Ducks have special features like webbed feat and waterproof feathers."
-msgstr " Raca se oglaša \"kvak, kvak\". Race imajo posebnosti, kot so omrežene tace in vodoodporno perje."
+msgid " The duck goes \"quack, quack\". Ducks have special features like webbed feet and waterproof feathers."
+msgstr " Raca se oglaša \"kvak! kvak!\". Race imajo med prsti na nogah plavalno kožico, njihovo perje pa je vodotesno."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:21
 msgid " This animal has webbed feet so it can swim in the water."
@@ -2816,8 +2816,8 @@ msgid " Rooster"
 msgstr " Petelin"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:29
-msgid " The rooster goes \"coc-a-doodle-doo!\". Roosters have been on farms for about 5,000 years. Every morning it wakes the farm up with its noices."
-msgstr " Petelin se oglaša \"kikiriki!\". Petelini so na kmetijah že okoli 5.000 let. Vsako jutro s svojimi glasovi zbudijo celo kmetijo."
+msgid " The rooster goes \"coc-a-doodle-doo!\". Roosters have been on farms for about 5,000 years. Every morning it wakes the farm up with its noises."
+msgstr " Petelin se oglaša \"kikiriki! kikiriki!\". Petelini so na farmah že 5000 let. Vsako jutro se zbudijo s petjem."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:30
 msgid " This animal wakes the farm up in the morning."
@@ -3846,7 +3846,7 @@ msgstr "Navodila"
 msgid "Credit"
 msgstr "Zasluge"
 
-#: ../src/gcompris/menu.c:620
+#: ../src/gcompris/menu.c:629
 #, c-format
 msgid ""
 "Loading activity from file:\n"
@@ -3855,7 +3855,7 @@ msgstr ""
 "Nalaganje dejavnosti iz datoteke:\n"
 "%s"
 
-#: ../src/gcompris/menu.c:680
+#: ../src/gcompris/menu.c:689
 msgid "All the activities are disabled in this profile. Go in the GCompris administration module and activate at least one activity."
 msgstr "Vse dejavnosti so v tem profilu onemogočene. Odprite skrbniški modul GCompris in omogočite vsaj eno dejavnost."
 
@@ -6324,7 +6324,7 @@ msgstr "Obrni karte tako, da se bo številka ujemala z narisano sliko. "
 
 #: ../src/memory_enumerate-activity/memory_enumerate.xml.in.h:4
 msgid "Numeration training, memory."
-msgstr "Trening štetja, spomin"
+msgstr "Ponavljanje štetja in bistrenje spomina."
 
 #: ../src/memory_enumerate-activity/memory_enumerate.xml.in.h:5
 msgid "You can see some cards, but you can't see what's on the other side of them. Each card is hiding a number of pictures, or the written number."
@@ -6417,7 +6417,7 @@ msgstr "Iskanje za iskanje ujemajočih zvokov Pinga - violinista."
 #: ../src/memory_sound_tux-activity/memory_sound_tux.xml.in.h:3
 #: ../src/memory_tux-activity/memory_tux.xml.in.h:3
 msgid "Mouse manipulation, Brain."
-msgstr "lUpravljanje z miško, možgani."
+msgstr "Upravljanje z miško, logično razmišljanje."
 
 #: ../src/memory_sound-activity/memory_sound.xml.in.h:4
 #: ../src/memory_sound_tux-activity/memory_sound_tux.xml.in.h:4
@@ -6604,7 +6604,7 @@ msgstr "Branje besed"
 
 #: ../src/missing_letter-activity/missing_letter.xml.in.h:4
 msgid "Training reading skills"
-msgstr "Trening branja"
+msgstr "Vaja branja"
 
 #: ../src/missing_letter-activity/missing_letter.xml.in.h:5
 msgid "An object is displayed in the main area, and an incomplete word is printed under the picture. Select the missing letter to complete the word."
@@ -7166,103 +7166,103 @@ msgstr "hes"
 msgid "The staff is full. Please erase some notes"
 msgstr "Notno črtovje je zapolnjeno. Izbrisati je treba nekaj not."
 
-#: ../src/piano_composition-activity/piano_composition.py:121
+#: ../src/piano_composition-activity/piano_composition.py:125
 msgid "This is the Treble clef staff, for high pitched notes"
 msgstr "To je violinski ključ, za note visokih tonov"
 
-#: ../src/piano_composition-activity/piano_composition.py:122
+#: ../src/piano_composition-activity/piano_composition.py:126
 msgid "These are the 8 \"white\" keys in an octave"
 msgstr "Oktava obsega 8 \"belih\" tipk"
 
-#: ../src/piano_composition-activity/piano_composition.py:124
+#: ../src/piano_composition-activity/piano_composition.py:128
 msgid "This is the Bass clef staff, for low pitched notes"
 msgstr "To je basovski ključ za note nizkih tonov."
 
-#: ../src/piano_composition-activity/piano_composition.py:125
+#: ../src/piano_composition-activity/piano_composition.py:129
 msgid "These keys form the C Major scale"
 msgstr "Te tipke so del C-durove lestvice"
 
-#: ../src/piano_composition-activity/piano_composition.py:127
+#: ../src/piano_composition-activity/piano_composition.py:131
 msgid "Click on the note symbols to write different length notes"
 msgstr "Klikni na note za zapis različnih dob trajanja"
 
-#: ../src/piano_composition-activity/piano_composition.py:128
+#: ../src/piano_composition-activity/piano_composition.py:132
 msgid "Notes can be many types, such as quarter notes, half notes, and whole notes"
 msgstr "Poznamo več vrst not, npr. četrtinke, polovinke in celinke"
 
-#: ../src/piano_composition-activity/piano_composition.py:130
+#: ../src/piano_composition-activity/piano_composition.py:134
 msgid "Sharp notes have a # sign"
 msgstr "Zvišane note so označene z znakom #"
 
-#: ../src/piano_composition-activity/piano_composition.py:131
+#: ../src/piano_composition-activity/piano_composition.py:135
 msgid "The black keys are sharp and flat keys"
 msgstr "Črne tipke so zvišane in znižane tipke"
 
-#: ../src/piano_composition-activity/piano_composition.py:133
+#: ../src/piano_composition-activity/piano_composition.py:137
 msgid "Flat notes have a b sign"
 msgstr "Znižane note so označene z znakom b"
 
-#: ../src/piano_composition-activity/piano_composition.py:134
+#: ../src/piano_composition-activity/piano_composition.py:138
 msgid "Each black key has two names, one with a flat and one with a sharp"
 msgstr "Vsaka črna tipka ima dve imeni, eno ime je znižan ton, drugo pa zvišan"
 
-#: ../src/piano_composition-activity/piano_composition.py:136
+#: ../src/piano_composition-activity/piano_composition.py:140
 msgid "Now you can load melodies from around the world"
 msgstr "Zdaj lahko naložite melodije s celega sveta"
 
-#: ../src/piano_composition-activity/piano_composition.py:139
+#: ../src/piano_composition-activity/piano_composition.py:143
 msgid "Compose music now! You can now load and save your work"
 msgstr "Sedaj lahko skladaš glasbo! Klikni za nalaganje ali shranjevanje svojega dela"
 
-#: ../src/piano_composition-activity/piano_composition.py:174
+#: ../src/piano_composition-activity/piano_composition.py:178
 msgid "Erase All Notes"
 msgstr "Izbriši vse note"
 
-#: ../src/piano_composition-activity/piano_composition.py:185
+#: ../src/piano_composition-activity/piano_composition.py:189
 msgid "Erase Last Notes"
 msgstr "Izbriši zadnje note"
 
-#: ../src/piano_composition-activity/piano_composition.py:195
+#: ../src/piano_composition-activity/piano_composition.py:199
 msgid "Play Composition"
 msgstr "Predvajaj skladbo"
 
-#: ../src/piano_composition-activity/piano_composition.py:207
+#: ../src/piano_composition-activity/piano_composition.py:211
 msgid "Erase and Change Clef"
 msgstr "Izbriši in spremeni ključ"
 
-#: ../src/piano_composition-activity/piano_composition.py:218
+#: ../src/piano_composition-activity/piano_composition.py:222
 msgid "Change Note Type:"
 msgstr "Spremeni vrsto note:"
 
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Eighth_note
-#: ../src/piano_composition-activity/piano_composition.py:239
+#: ../src/piano_composition-activity/piano_composition.py:243
 msgid "Eighth Note"
 msgstr "Osminka"
 
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Quarter_note
-#: ../src/piano_composition-activity/piano_composition.py:262
+#: ../src/piano_composition-activity/piano_composition.py:266
 msgid "Quarter Note"
 msgstr "Četrtinka"
 
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Half_note
-#: ../src/piano_composition-activity/piano_composition.py:275
+#: ../src/piano_composition-activity/piano_composition.py:279
 msgid "Half Note"
 msgstr "Polovinka"
 
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Whole_note
-#: ../src/piano_composition-activity/piano_composition.py:288
+#: ../src/piano_composition-activity/piano_composition.py:292
 msgid "Whole Note"
 msgstr "Celinka"
 
-#: ../src/piano_composition-activity/piano_composition.py:320
+#: ../src/piano_composition-activity/piano_composition.py:324
 msgid "Load Music"
 msgstr "Naloži glasbo"
 
-#: ../src/piano_composition-activity/piano_composition.py:325
+#: ../src/piano_composition-activity/piano_composition.py:329
 msgid "Change Accidental Style:"
 msgstr "Izbor naključnega sloga:"
 
-#: ../src/piano_composition-activity/piano_composition.py:383
+#: ../src/piano_composition-activity/piano_composition.py:387
 msgid "Select A Melody to Load"
 msgstr "Izberite glasbeno datoteko za nalaganje"
 
@@ -7724,7 +7724,7 @@ msgstr "Spominska igra z vlaki."
 
 #: ../src/railroad-activity/railroad.xml.in.h:3
 msgid "Memory-training"
-msgstr "Trening spomina"
+msgstr "Vaje spomina"
 
 #: ../src/railroad-activity/railroad.xml.in.h:5
 msgid "A train - a locomotive and carriage(s) - is displayed at the top of the main area for a few seconds. Rebuild it at the top of the screen by selecting the appropriate carriages and locomotive. Deselect an item by clicking on it again. Check your construction by clicking on the hand at the bottom."
@@ -7749,7 +7749,7 @@ msgstr "prikazana"
 
 #: ../src/readingh-activity/reading.c:465
 msgid "We skip this level because there are not enough words in the list!"
-msgstr "To raven bomo preskočili, ker na seznamu ni dovolj besed!"
+msgstr "Ta raven bo izpuščena, ker na seznamu ni zadostnega števila besed!"
 
 #: ../src/readingh-activity/reading.c:668
 msgid "Yes, I saw it"
@@ -7802,7 +7802,7 @@ msgstr "Branje stolpec besedila in iskanje izbrane besede"
 
 #: ../src/readingv-activity/readingv.xml.in.h:3
 msgid "Read training in a limited time"
-msgstr "Trening branja v omejenem času"
+msgstr "Vaje branja v omejenem času"
 
 #: ../src/redraw-activity/redraw.py:881
 msgid "Coordinate"
