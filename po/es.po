@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: gcompris.gcomprixogoo\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-10-19 20:57+0000\n"
-"PO-Revision-Date: 2012-10-22 10:24+0200\n"
+"POT-Creation-Date: 2012-10-24 20:53+0000\n"
+"PO-Revision-Date: 2012-10-25 11:35+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -2918,7 +2918,7 @@ msgstr ""
 #: ../src/drawnumber-activity/drawnumber.py:238
 #: ../src/explore-activity/explore.py:458 ../src/findit-activity/findit.py:336
 #: ../src/louis_braille-activity/louis_braille.py:84
-#: ../src/piano_composition-activity/piano_composition.py:499
+#: ../src/piano_composition-activity/piano_composition.py:503
 msgid "Cannot find the file '{filename}'"
 msgstr "No se puede encontrar el archivo «{filename}»"
 
@@ -3112,7 +3112,7 @@ msgstr ""
 
 #: ../src/explore-activity/explore.py:88
 #: ../src/note_names-activity/note_names.py:83
-#: ../src/piano_composition-activity/piano_composition.py:367
+#: ../src/piano_composition-activity/piano_composition.py:371
 #: ../src/play_piano-activity/play_piano.py:77
 #: ../src/play_rhythm-activity/play_rhythm.py:81
 msgid ""
@@ -3137,7 +3137,7 @@ msgstr "Volver a la página inicial"
 
 #: ../src/explore-activity/explore.py:463 ../src/findit-activity/findit.py:341
 #: ../src/louis_braille-activity/louis_braille.py:88
-#: ../src/piano_composition-activity/piano_composition.py:504
+#: ../src/piano_composition-activity/piano_composition.py:508
 msgid ""
 "Failed to parse data set '{filename}' with error:\n"
 "{error}"
@@ -3291,9 +3291,12 @@ msgid " White Duck"
 msgstr " Pato blanco"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:20
+#| msgid ""
+#| " The duck goes \"quack, quack\". Ducks have special features like webbed "
+#| "feat and waterproof feathers."
 msgid ""
 " The duck goes \"quack, quack\". Ducks have special features like webbed "
-"feat and waterproof feathers."
+"feet and waterproof feathers."
 msgstr ""
 " El pato hace «cuac, cuac». Los patos tienen características especiales como "
 "patas palmeadas y plumas impermeables."
@@ -3338,9 +3341,12 @@ msgid " Rooster"
 msgstr " Gallo"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:29
+#| msgid ""
+#| " The rooster goes \"coc-a-doodle-doo!\". Roosters have been on farms for "
+#| "about 5,000 years. Every morning it wakes the farm up with its noices."
 msgid ""
 " The rooster goes \"coc-a-doodle-doo!\". Roosters have been on farms for "
-"about 5,000 years. Every morning it wakes the farm up with its noices."
+"about 5,000 years. Every morning it wakes the farm up with its noises."
 msgstr ""
 " El gallo hace «kikirikí, kikirikí». Los gallos han estado en las granjas "
 "durante unos 5.000 años. Cada mañana despierta a la granja con sus ruidos."
@@ -4553,7 +4559,7 @@ msgstr "Manual"
 msgid "Credit"
 msgstr "Crédito"
 
-#: ../src/gcompris/menu.c:620
+#: ../src/gcompris/menu.c:629
 #, c-format
 msgid ""
 "Loading activity from file:\n"
@@ -4562,7 +4568,7 @@ msgstr ""
 "Cargando actividad desde archivo:\n"
 "%s"
 
-#: ../src/gcompris/menu.c:680
+#: ../src/gcompris/menu.c:689
 msgid ""
 "All the activities are disabled in this profile. Go in the GCompris "
 "administration module and activate at least one activity."
@@ -6638,7 +6644,6 @@ msgid "I am ready!"
 msgstr "Estoy listo/a"
 
 #: ../src/land_safe-activity/land_safe.py:453
-#| msgid "Height : "
 msgid "Height: "
 msgstr "Altura: "
 
@@ -6647,7 +6652,6 @@ msgid "Fuel"
 msgstr "Combustible"
 
 #: ../src/land_safe-activity/land_safe.py:501
-#| msgid "Velocity : "
 msgid "Velocity: "
 msgstr "Velocidad: "
 
@@ -8561,110 +8565,110 @@ msgstr "Si♭"
 msgid "The staff is full. Please erase some notes"
 msgstr "El pentagrama está completo. Borra algunas notas"
 
-#: ../src/piano_composition-activity/piano_composition.py:121
+#: ../src/piano_composition-activity/piano_composition.py:125
 msgid "This is the Treble clef staff, for high pitched notes"
 msgstr "Este es el pentagrama de la clave de Sol, para notas agudas"
 
-#: ../src/piano_composition-activity/piano_composition.py:122
+#: ../src/piano_composition-activity/piano_composition.py:126
 msgid "These are the 8 \"white\" keys in an octave"
 msgstr "Estas son las 8 notas «blancas» en una octava"
 
-#: ../src/piano_composition-activity/piano_composition.py:124
+#: ../src/piano_composition-activity/piano_composition.py:128
 msgid "This is the Bass clef staff, for low pitched notes"
 msgstr "Este es el pentagrama de la clave de Fa, para notas graves"
 
-#: ../src/piano_composition-activity/piano_composition.py:125
+#: ../src/piano_composition-activity/piano_composition.py:129
 msgid "These keys form the C Major scale"
 msgstr "Estas notas forman la escala mayor de Do"
 
-#: ../src/piano_composition-activity/piano_composition.py:127
+#: ../src/piano_composition-activity/piano_composition.py:131
 msgid "Click on the note symbols to write different length notes"
 msgstr ""
 "Pulsa sobre los símbolos de las notas para escribir notas de diferente "
 "duración"
 
-#: ../src/piano_composition-activity/piano_composition.py:128
+#: ../src/piano_composition-activity/piano_composition.py:132
 msgid ""
 "Notes can be many types, such as quarter notes, half notes, and whole notes"
 msgstr "Las notas puede ser de varios tipos, como negras, blancas y redondas"
 
-#: ../src/piano_composition-activity/piano_composition.py:130
+#: ../src/piano_composition-activity/piano_composition.py:134
 msgid "Sharp notes have a # sign"
 msgstr "Las notas sostenidas tienen el símbolo «#»"
 
-#: ../src/piano_composition-activity/piano_composition.py:131
+#: ../src/piano_composition-activity/piano_composition.py:135
 msgid "The black keys are sharp and flat keys"
 msgstr "Las notas negras tienen sostenidos y bemoles"
 
-#: ../src/piano_composition-activity/piano_composition.py:133
+#: ../src/piano_composition-activity/piano_composition.py:137
 msgid "Flat notes have a b sign"
 msgstr "Las notas bemoles tienen una «♭»"
 
-#: ../src/piano_composition-activity/piano_composition.py:134
+#: ../src/piano_composition-activity/piano_composition.py:138
 msgid "Each black key has two names, one with a flat and one with a sharp"
 msgstr "Cada tecla negra tiene dos nombres, uno con bemol y otro con sostenido"
 
-#: ../src/piano_composition-activity/piano_composition.py:136
+#: ../src/piano_composition-activity/piano_composition.py:140
 msgid "Now you can load melodies from around the world"
 msgstr "Ahora puedes cargar melodías de todo el mundo"
 
-#: ../src/piano_composition-activity/piano_composition.py:139
+#: ../src/piano_composition-activity/piano_composition.py:143
 msgid "Compose music now! You can now load and save your work"
 msgstr "¡Compón música! Ahora puedes cargar y guardar tu trabajo"
 
-#: ../src/piano_composition-activity/piano_composition.py:174
+#: ../src/piano_composition-activity/piano_composition.py:178
 msgid "Erase All Notes"
 msgstr "Borrar todas las notas"
 
-#: ../src/piano_composition-activity/piano_composition.py:185
+#: ../src/piano_composition-activity/piano_composition.py:189
 msgid "Erase Last Notes"
 msgstr "Borrar las últimas notas"
 
-#: ../src/piano_composition-activity/piano_composition.py:195
+#: ../src/piano_composition-activity/piano_composition.py:199
 msgid "Play Composition"
 msgstr "Reproducir composición"
 
-#: ../src/piano_composition-activity/piano_composition.py:207
+#: ../src/piano_composition-activity/piano_composition.py:211
 msgid "Erase and Change Clef"
 msgstr "Borrar y cambiar la clave"
 
-#: ../src/piano_composition-activity/piano_composition.py:218
+#: ../src/piano_composition-activity/piano_composition.py:222
 msgid "Change Note Type:"
 msgstr "Cambiar el tipo de nota:"
 
 # http://es.wikipedia.org/wiki/Corchea
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Eighth_note
-#: ../src/piano_composition-activity/piano_composition.py:239
+#: ../src/piano_composition-activity/piano_composition.py:243
 msgid "Eighth Note"
 msgstr "Octava nota"
 
 # http://es.wikipedia.org/wiki/Negra
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Quarter_note
-#: ../src/piano_composition-activity/piano_composition.py:262
+#: ../src/piano_composition-activity/piano_composition.py:266
 msgid "Quarter Note"
 msgstr "Negra"
 
 # http://es.wikipedia.org/wiki/Blanca_%28m%C3%BAsica%29
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Half_note
-#: ../src/piano_composition-activity/piano_composition.py:275
+#: ../src/piano_composition-activity/piano_composition.py:279
 msgid "Half Note"
 msgstr "Blanca"
 
 # http://es.wikipedia.org/wiki/Redonda_%28figura%29
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Whole_note
-#: ../src/piano_composition-activity/piano_composition.py:288
+#: ../src/piano_composition-activity/piano_composition.py:292
 msgid "Whole Note"
 msgstr "Redonda"
 
-#: ../src/piano_composition-activity/piano_composition.py:320
+#: ../src/piano_composition-activity/piano_composition.py:324
 msgid "Load Music"
 msgstr "Cargar música"
 
-#: ../src/piano_composition-activity/piano_composition.py:325
+#: ../src/piano_composition-activity/piano_composition.py:329
 msgid "Change Accidental Style:"
 msgstr "Cambiar la tonalidad:"
 
-#: ../src/piano_composition-activity/piano_composition.py:383
+#: ../src/piano_composition-activity/piano_composition.py:387
 msgid "Select A Melody to Load"
 msgstr "Seleccionar la melodía que cargar"
 
