@@ -115,7 +115,7 @@ class Gcompris_intro_gravity:
     elif step == 2:
       self.board_paused = True
       self.message.show(
-        _("You goal is to let Tux's spaceship move by changing the mass"
+        _("Your goal is to let Tux's spaceship move by changing the mass"
           " of its surrounding planets. Don't get too close to the planets"
           " or you will crash on them."
           " The arrow indicates the direction of the force on your ship.")
