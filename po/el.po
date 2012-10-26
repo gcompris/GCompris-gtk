@@ -23,8 +23,8 @@ msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-09-14 06:18+0000\n"
-"PO-Revision-Date: 2012-09-15 12:32+0200\n"
+"POT-Creation-Date: 2012-10-25 09:36+0000\n"
+"PO-Revision-Date: 2012-10-26 13:21+0200\n"
 "Last-Translator: Tom Tryfonidis <tomtryf@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-doc@kde.org>\n"
 "Language: el_GR\n"
@@ -189,7 +189,7 @@ msgstr "Δραστηριότητες μαθηματικών"
 msgid "GCompris Main Menu"
 msgstr "Κύριο μενού του GCompris "
 
-#: ../boards/menu.xml.in.h:3 ../src/boards/menu2.c:886
+#: ../boards/menu.xml.in.h:3 ../src/boards/menu2.c:887
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -615,7 +615,7 @@ msgstr ""
 "- Στο μενού \"Πίνακες\" μπορείτε να αλλάξετε τον κατάλογο δραστηριοτήτων. "
 "Απλά αποεπιλέξτε τις από το δενδροειδές διάγραμμα. Μπορείτε να αλλάξετε τη "
 "γλώσσα που χρησιμοποιείται για την ανάγνωση, παραδείγματος χάριν αυτή που "
-"χρησιμοποιείται για την ανάγνωση των χρωμάτων .\n"
+"χρησιμοποιείται για την ανάγνωση των χρωμάτων.\n"
 "- Μπορείτε να αποθηκεύσετε πολλές διαφορετικές διαμορφώσεις και να επιλέγετε "
 "εύκολα όποια από αυτές επιθυμείτε. Στο μενού \"Προφίλ\" προσθέστε ένα προφίλ "
 "και μετά από το μενού \"Πίνακες\" επιλέξτε το από το πλαίσιο συνδυασμών, "
@@ -1172,7 +1172,7 @@ msgid "+-×÷"
 msgstr "+-*/"
 
 #: ../src/algebra_by-activity/algebra.c:411
-#: ../src/readingh-activity/reading.c:630
+#: ../src/findit-activity/findit.py:228 ../src/readingh-activity/reading.c:630
 msgid "I am Ready"
 msgstr "Είμαι Έτοιμος"
 
@@ -1432,7 +1432,7 @@ msgstr "Γέμισμα χρώματος..."
 msgid "Stroke color..."
 msgstr "Χρώμα πινελιάς..."
 
-#: ../src/awele-activity/awele.c:158
+#: ../src/awele-activity/awele.c:159
 #, c-format
 msgid ""
 "File '%s' is not found.\n"
@@ -1441,23 +1441,23 @@ msgstr ""
 "Το αρχείο '%s' δεν βρέθηκε.\n"
 "Δεν μπορείτε να παίξετε αυτή τη δραστηριότητα."
 
-#: ../src/awele-activity/awele.c:359
+#: ../src/awele-activity/awele.c:360
 msgid "NORTH"
 msgstr "ΒΟΡΡΑΣ"
 
-#: ../src/awele-activity/awele.c:371
+#: ../src/awele-activity/awele.c:372
 msgid "SOUTH"
 msgstr "ΝΟΤΟΣ"
 
-#: ../src/awele-activity/awele.c:533
+#: ../src/awele-activity/awele.c:534
 msgid "Choose a house"
 msgstr "Διάλεξε ένα σπίτι"
 
-#: ../src/awele-activity/awele.c:648
+#: ../src/awele-activity/awele.c:649
 msgid "Your turn to play ..."
 msgstr "Η σειρά σου να παίξεις ..."
 
-#: ../src/awele-activity/awele.c:689
+#: ../src/awele-activity/awele.c:690
 msgid "Not allowed! Try again !"
 msgstr "Δεν επιτρέπεται! Προσπάθησε ξανά!"
 
@@ -1739,15 +1739,15 @@ msgstr ""
 msgid "Kick the ball into the black hole on the right"
 msgstr "Κλώτσησε τη μπάλα για να μπει στη μαύρη τρύπα στα δεξιά"
 
-#: ../src/boards/menu2.c:137
+#: ../src/boards/menu2.c:138
 msgid "Main Menu Second Version"
 msgstr "Κυρίως Μενού Δεύτερη Έκδοση"
 
-#: ../src/boards/menu2.c:138
+#: ../src/boards/menu2.c:139
 msgid "Select a Board"
 msgstr "Διάλεξε πίνακα"
 
-#: ../src/boards/menu2.c:268
+#: ../src/boards/menu2.c:269
 #, c-format
 msgid "Number of activities: %d"
 msgstr "Αριθμός δραστηριοτήτων: %d"
@@ -2557,6 +2557,106 @@ msgstr ""
 "μέτρησης του χρόνου (ώρες:λεπτά ή ώρες:λεπτά:δευτερόλεπτα). Κάνε κλικ και "
 "σύρε τους δείκτες στη σωστή θέση."
 
+#: ../src/color_mix-activity/color_mix.py:72
+msgid "Match the color "
+msgstr "Ταιριάξτε τα χρώματα"
+
+#: ../src/color_mix-activity/color_mix.py:336
+#: ../src/color_mix-activity/color_mix.py:341
+#: ../src/color_mix-activity/color_mix.py:346
+msgid "Too much {color}"
+msgstr "Πάρα πολύ {color}"
+
+#: ../src/color_mix-activity/color_mix.py:338
+#: ../src/color_mix-activity/color_mix.py:343
+#: ../src/color_mix-activity/color_mix.py:348
+msgid "Not enough {color}"
+msgstr "Όχι αρκετό {color}"
+
+#: ../src/color_mix-activity/color_mix.xml.in.h:1
+msgid "Mixing color of paint"
+msgstr "Ανάμειξη χρωμάτων ζωγραφικής"
+
+#: ../src/color_mix-activity/color_mix.xml.in.h:2
+msgid "To understand color mixing."
+msgstr "Για την κατανόηση της μείξης των χρωμάτων."
+
+#: ../src/color_mix-activity/color_mix.xml.in.h:3
+msgid "Mix the primary colors to match to the given color"
+msgstr "Αναμείξτε τα βασικά χρώματα για να δημιουργήσετε το δοσμένο χρώμα."
+
+#: ../src/color_mix-activity/color_mix.xml.in.h:4
+msgid ""
+"\n"
+"The activity deals with mixing primary colors of paint (subtractive "
+"mixing).\n"
+"\n"
+"In case of paints the inks absorb different colors of light falling on it, "
+"subtracting it from what you see. The more ink you add, the more light is "
+"absorbed, and the darker the combined color gets. We can mix just three "
+"primary colors to make many new colors. The primary colors for paint/ink are "
+"Cyan (a special shade of blue), Magenta (a special shade of pink), and "
+"Yellow.\n"
+"        "
+msgstr ""
+"\n"
+"Η δραστηριότητα σχετίζεται με την ανάμειξη των βασικών χρωμάτων στη "
+"ζωγραφική (αφαιρετική ανάμειξη).\n"
+"\n"
+"Στην περίπτωση των χρωμάτων, οι ουσίες απορροφούν διαφορετικά χρώματα του "
+"φωτός που πέφτει επάνω τους, αφαιρώντας τα από αυτό που τελικά εσείς "
+"βλέπετε. Όσο περισσότερο χρώμα προσθέτετε, τόσο περισσότερο φως απορροφάται "
+"και ο συνδυασμός των χρωμάτων γίνεται ολοένα και πιο σκούρος. Με την  "
+"ανάμειξη μόνο τριών βασικών χρωμάτων, μπορούμε να δημιουργήσουμε πολλά νέα "
+"χρώματα. Τα βασικά χρώματα είναι το Κυανό (μια ιδιαίτερη απόχρωση του μπλε), "
+"το Ματζέντα (μια ιδιαίτερη απόχρωση του ροζ) και το Κίτρινο.\n"
+"        "
+
+#: ../src/color_mix-activity/color_mix.xml.in.h:9
+#: ../src/color_mix_light-activity/color_mix_light.xml.in.h:9
+msgid "Openclipart.org"
+msgstr "Openclipart.org"
+
+#: ../src/color_mix_light-activity/color_mix_light.py:72
+msgid ""
+"Match the \n"
+" color "
+msgstr ""
+"Φτιάξτε αυτό \n"
+"  το χρώμα "
+
+#: ../src/color_mix_light-activity/color_mix_light.xml.in.h:1
+msgid "Mixing colors of light"
+msgstr "Ανάμειξη χρωμάτων φωτός"
+
+#: ../src/color_mix_light-activity/color_mix_light.xml.in.h:2
+msgid "Understanding mixing of colors of light."
+msgstr "Κατανοώντας την ανάμειξη των χρωμάτων του φωτός."
+
+#: ../src/color_mix_light-activity/color_mix_light.xml.in.h:3
+msgid "Mix the primary colors to match to the given color."
+msgstr "Αναμείξτε τα βασικά χρώματα για να δημιουργήσετε το δοσμένο χρώμα."
+
+#: ../src/color_mix_light-activity/color_mix_light.xml.in.h:4
+msgid ""
+"\n"
+"The activity deals with mixing primary colors of light (additive mixing).\n"
+"\n"
+"In case of light it is just the opposite of mixing color with paints! The "
+"more light you add the lighter the resultant color will get. Primary colors "
+"of light are red, green and blue.\n"
+"        "
+msgstr ""
+"\n"
+"Η δραστηριότητα σχετίζεται με την ανάμειξη βασικών χρωμάτων φωτός "
+"(προσθετική ανάμειξη).\n"
+"\n"
+"Στην περίπτωση του φωτός η ανάμειξη των χρωμάτων είναι αντίστροφη από αυτή "
+"της ανάμειξης των χρωμάτων ζωγραφικής. Όσο περισσότερο φως προστίθεται, τόσο "
+"πιο λαμπερό θα είναι το χρώμα που θα προκύψει. Τα βασικά χρώματα του φωτός "
+"είναι το Κόκκινο, το Πράσινο και το Μπλε.\n"
+"        "
+
 #: ../src/colors-activity/colors.xml.in.h:1
 msgid "Colors"
 msgstr "Χρώματα"
@@ -2881,9 +2981,9 @@ msgstr ""
 "σβήσεις ένα σχέδιο."
 
 #: ../src/drawnumber-activity/drawnumber.py:238
-#: ../src/explore-activity/explore.py:451 ../src/findit-activity/findit.py:315
+#: ../src/explore-activity/explore.py:458 ../src/findit-activity/findit.py:336
 #: ../src/louis_braille-activity/louis_braille.py:84
-#: ../src/piano_composition-activity/piano_composition.py:439
+#: ../src/piano_composition-activity/piano_composition.py:503
 msgid "Cannot find the file '{filename}'"
 msgstr "Αδυναμία εύρεσης του αρχείου '{filename}'"
 
@@ -2972,13 +3072,13 @@ msgstr ""
 "προσομοίωση ενημερώνεται σε πραγματικό χρόνο από οποιαδήποτε κίνηση του "
 "χρήστη."
 
-#: ../src/enumerate-activity/enumerate.c:110
+#: ../src/enumerate-activity/enumerate.c:111
 #: ../src/enumerate-activity/enumerate.xml.in.h:3
 #: ../src/planegame-activity/planegame.xml.in.h:3
 msgid "Numeration training"
 msgstr "Εξάσκηση αρίθμησης κατ' αύξουσα σειρά"
 
-#: ../src/enumerate-activity/enumerate.c:111
+#: ../src/enumerate-activity/enumerate.c:112
 #: ../src/enumerate-activity/enumerate.xml.in.h:2
 msgid "Place the items in the best way to count them"
 msgstr ""
@@ -3080,18 +3180,34 @@ msgstr ""
 msgid "Click the mouse on rectangles until all the blocks disappear."
 msgstr "Κάνε κλικ με το ποντίκι μέχρι να εξαφανιστούν όλα τα τετράγωνα."
 
-#: ../src/explore-activity/explore.py:149
+#: ../src/explore-activity/explore.py:88
+#: ../src/note_names-activity/note_names.py:83
+#: ../src/piano_composition-activity/piano_composition.py:371
+#: ../src/play_piano-activity/play_piano.py:77
+#: ../src/play_rhythm-activity/play_rhythm.py:81
+msgid ""
+"Error: This activity cannot be played with the\n"
+"sound effects disabled.\n"
+"Go to the configuration dialogue to\n"
+"enable the sound."
+msgstr ""
+"Σφάλμα: αυτή η δραστηριότητα δεν μπορεί να εκτελεστεί όταν\n"
+"τα εφέ των ήχων είναι απενεργοποιημένα.\n"
+"Πήγαινε στη Διαχείριση για \n"
+"να ενεργοποιήσεις τον ήχο."
+
+#: ../src/explore-activity/explore.py:155
 msgid "Click to play sound"
 msgstr "Κάντε κλικ για αναπαραγωγή του ήχου"
 
 #. draw back button
-#: ../src/explore-activity/explore.py:265
+#: ../src/explore-activity/explore.py:272
 msgid "Back to Homepage"
-msgstr "Επιστροφή στην Αρχική Σελίδα"
+msgstr "Επιστροφή στην αρχική σελίδα"
 
-#: ../src/explore-activity/explore.py:456 ../src/findit-activity/findit.py:320
+#: ../src/explore-activity/explore.py:463 ../src/findit-activity/findit.py:341
 #: ../src/louis_braille-activity/louis_braille.py:88
-#: ../src/piano_composition-activity/piano_composition.py:444
+#: ../src/piano_composition-activity/piano_composition.py:508
 msgid ""
 "Failed to parse data set '{filename}' with error:\n"
 "{error}"
@@ -3099,7 +3215,7 @@ msgstr ""
 "Αποτυχία ανάλυσης συνόλου δεδομένων '{filename}'  με σφάλμα:\n"
 "{error}"
 
-#: ../src/explore-activity/explore.py:567
+#: ../src/explore-activity/explore.py:578
 msgid "Explore Status:"
 msgstr "Εξερεύνηση κατάστασης:"
 
@@ -3176,7 +3292,8 @@ msgstr "Άλογο"
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:5
 msgid " The horse goes \"neigh! neigh!\". Horses usually sleep standing up."
 msgstr ""
-"Το άλογο \"χλιμιντρίζει! χλιμιντρίζει!\". Τα άλογα συνήθως κοιμούνται όρθια."
+"Το άλογο χλιμιντρίζει \"ιιιιιιιιιι, ιιιιιιιιιι\". Τα άλογα συνήθως "
+"κοιμούνται όρθια."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:6
 msgid " You can ride on the back of this animal!"
@@ -3191,9 +3308,8 @@ msgid ""
 " The chichen goes \"cluck, cackle, cluck\". Chickens have over 200 different "
 "noises they can use to communicate."
 msgstr ""
-"Το κοτόπουλο  \"κακαρίζει! κακαρίζει!\". Τα κοτόπουλα μπορούν να "
-"επικοινωνούν μεταξύ τους χρησιμοποιώντας περισσότερους από 200 διαφορετικούς "
-"ήχους."
+"Η κότα κακαρίζει \"κοκοκο, κοκοκο\". Οι κότες μπορούν να επικοινωνούν μεταξύ "
+"τους χρησιμοποιώντας περισσότερους από 200 διαφορετικούς ήχους."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:9
 msgid " This animal lays eggs."
@@ -3208,8 +3324,9 @@ msgid ""
 " The cow goes \"moo. moo.\" Cows have a memory of about three years. Cows "
 "have many uses, including for milk and meat."
 msgstr ""
-"Η αγελάδα \"μουγκανίζει! μουγκανίζει!\" Η αγελάδα θυμάται ότι της συνέβει τα "
-"τελευταία τρία χρόνια. Ο άνθρωπος την εκτρέφει για το γάλα και το κρέας της. "
+"Η αγελάδα μουγκανίζει \"μουουου, μουουου\". Η αγελάδα θυμάται ότι της "
+"συνέβει τα τελευταία τρία χρόνια. Ο άνθρωπος την εκτρέφει για το γάλα και το "
+"κρέας της. "
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:12
 msgid " You can drink the milk this animal produces."
@@ -3224,7 +3341,7 @@ msgid ""
 " The cat goes \"meow, meow\". Cats usually hate water because their fur "
 "doesn't stay warm when it is wet."
 msgstr ""
-"Η γάτα \"νιαουρίζει, νιαουρίζει\". Οι γάτες μισούν το νερό επειδή η γούνα "
+"Η γάτα νιαουρίζει \"μιάου, μιάου\". Οι γάτες μισούν το νερό επειδή η γούνα "
 "τους δεν τις ζεσταίνει όταν είναι υγρή."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:15
@@ -3238,8 +3355,8 @@ msgstr "Γουρούνι"
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:17
 msgid " The pig goes \"oink, oink\". Pigs are the 4th most intelligent animal."
 msgstr ""
-"Το γουρούνι \"γρυλλίζει, γρυλλίζει\". Τα γουρούνια κατέχουν την 4η θέση όσον "
-"αφορά τη νοημοσύνη τους."
+"Το γουρούνι γρυλλίζει \"γρουγρου, γρουγρου\". Τα γουρούνια κατέχουν την 4η "
+"θέση όσον αφορά τη νοημοσύνη τους."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:18
 msgid " This animal likes to lay in the mud."
@@ -3252,9 +3369,9 @@ msgstr "Άσπρη πάπια"
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:20
 msgid ""
 " The duck goes \"quack, quack\". Ducks have special features like webbed "
-"feat and waterproof feathers."
+"feet and waterproof feathers."
 msgstr ""
-"Η πάπια \"παπάζει, παπάζει\". Οι πάπιες έχουν ειδικά χαρακτηριστικά, όπως "
+"Η πάπια παπάζει \"πα, πα\". Οι πάπιες έχουν ειδικά χαρακτηριστικά, όπως "
 "μεμβράνες στα πόδια και αδιάβροχα πούπουλα."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:21
@@ -3270,8 +3387,8 @@ msgid ""
 " The owl goes \"hoo. hoo.\" The owl has excellent vision and hearing at "
 "night."
 msgstr ""
-"Η κουκουβάγια \"ολολύζει, ολολύζει.\" Η κουκουβάγια τη νύχτα έχει εξαιρετική "
-"όραση και ακοή."
+"Η κουκουβάγια ολολύζει \"κουκουβάου, κουκουβάου\". Η κουκουβάγια τη νύχτα "
+"έχει εξαιρετική όραση και ακοή."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:24
 msgid " This animal likes to come out at night."
@@ -3286,8 +3403,8 @@ msgid ""
 " The dog goes \"bark! bark!\". Dogs are great human companions and usually "
 "enjoy love and attention."
 msgstr ""
-"Ο σκύλος \"γαβγίζει! γαβγίζει!\". Ο σκύλος είναι πιστός σύντροφος του "
-"ανθρώπου και συχνά απολαμβάνει την αγάπη και την προσοχή του."
+"Ο σκύλος γαβγίζει \"γαβ, γαβ\". Ο σκύλος είναι πιστός σύντροφος του ανθρώπου "
+"και συχνά απολαμβάνει την αγάπη και την προσοχή του."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:27
 msgid " This animal's ancesters were wolves."
@@ -3300,10 +3417,10 @@ msgstr "Κόκορας"
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:29
 msgid ""
 " The rooster goes \"coc-a-doodle-doo!\". Roosters have been on farms for "
-"about 5,000 years. Every morning it wakes the farm up with its noices."
+"about 5,000 years. Every morning it wakes the farm up with its noises."
 msgstr ""
-"Ο πετεινός \"λαλεί, λαλεί\". Ο κόκορας είναι κατοικίδιο ζώο εδώ και 5.000 "
-"χρόνια. Κάθε πρωί τους ξυπνά όλους με τα λαλήματά του."
+"Ο πετεινός λαλεί \"κικιρίκου, κικιρίκου\". Ο κόκορας είναι κατοικίδιο ζώο "
+"εδώ και 5.000 χρόνια. Κάθε πρωί τους ξυπνά όλους με τα λαλήματά του."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:30
 msgid " This animal wakes the farm up in the morning."
@@ -3681,11 +3798,11 @@ msgstr "Ο 'βασιλιάς' του ροκ εντ ρολ είναι ο "
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:32
 msgid ""
-" The 'kind' of rock n' roll, Elvis Presley, made his music famous in this "
+" The 'king' of rock n' roll, Elvis Presley, made his music famous in this "
 "country."
 msgstr ""
 "Ο 'βασιλιάς' του ροκ εντ ρολ, ο Έλβις Πρίσλεϊ, έκανε πασίγνωστη τη μουσική "
-"αυτή στη χώρα του."
+"σε αυτή τη χώρα."
 
 #: ../src/fifteen-activity/fifteen.xml.in.h:1
 msgid "The fifteen game"
@@ -3855,8 +3972,8 @@ msgid "Choice of the level"
 msgstr "Επιλογή επιπέδου"
 
 #: ../src/gcompris/config.c:58
-msgid "Your system default"
-msgstr "Χρήση προεπιλεγμένων από το σύστημα"
+msgid "Language: your system default"
+msgstr "Γλώσσα: η γλώσσα του λειτουργικού σας συστήματος"
 
 #: ../src/gcompris/config.c:59
 msgid "Afrikaans"
@@ -4133,20 +4250,20 @@ msgid "Zulu"
 msgstr "Ζουλού"
 
 #: ../src/gcompris/config.c:131
-msgid "No time limit"
-msgstr "Χωρίς όριο χρόνου"
+msgid "Timer: No time limit"
+msgstr "Χρονόμετρο: Χωρίς όριο χρόνου"
 
 #: ../src/gcompris/config.c:132
-msgid "Slow timer"
-msgstr "Αργό χρονόμετρο"
+msgid "Timer: Slow timer"
+msgstr "Χρονόμετρο: Αργό χρονόμετρο"
 
 #: ../src/gcompris/config.c:133
-msgid "Normal timer"
-msgstr "Κανονικό χρονόμετρο"
+msgid "Timer: Normal timer"
+msgstr "Χρονόμετρο: Κανονικό χρονόμετρο"
 
 #: ../src/gcompris/config.c:134
-msgid "Fast timer"
-msgstr "Γρήγορο χρονόμετρο"
+msgid "Timer: Fast timer"
+msgstr "Χρονόμετρο: Γρήγορο χρονόμετρο"
 
 #: ../src/gcompris/config.c:138
 msgid "Use Gcompris administration module to filter boards"
@@ -4526,7 +4643,7 @@ msgstr "Οδηγός"
 msgid "Credit"
 msgstr "Μνεία"
 
-#: ../src/gcompris/menu.c:620
+#: ../src/gcompris/menu.c:629
 #, c-format
 msgid ""
 "Loading activity from file:\n"
@@ -4535,7 +4652,7 @@ msgstr ""
 "Φόρτωση δραστηριότητας από το αρχείο:\n"
 "%s"
 
-#: ../src/gcompris/menu.c:680
+#: ../src/gcompris/menu.c:689
 msgid ""
 "All the activities are disabled in this profile. Go in the GCompris "
 "administration module and activate at least one activity."
@@ -5358,7 +5475,7 @@ msgid "Philippines"
 msgstr "Φιλιππίνες"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:35
-msgid "Nyanmar"
+msgid "Myanmar"
 msgstr "Μιανμάρ"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:36
@@ -5366,7 +5483,7 @@ msgid "Pakistan"
 msgstr "Πακιστάν"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:38
-msgid "Bhoutan"
+msgid "Bhutan"
 msgstr "Μπουτάν"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:39
@@ -5455,7 +5572,7 @@ msgstr "ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ"
 #: ../src/imageid-activity/imageid.c:716
 #: ../src/pythontest-activity/pythontest.py:448
 #: ../src/readingh-activity/reading.c:905
-#: ../src/scalesboard-activity/scale.c:1191
+#: ../src/scalesboard-activity/scale.c:1211
 #: ../src/smallnumbers-activity/smallnumbers.c:598
 #: ../src/tuxpaint-activity/tuxpaint.py:185
 #: ../src/wordsgame-activity/wordsgame.c:904
@@ -5598,7 +5715,7 @@ msgid ""
 "Press <Return> to continue."
 msgstr ""
 "Καταβροχθίστηκες από τον Τρωγλοδύτη.\n"
-"Πάτησε <Επιστροφή> για να συνεχίσεις."
+"Πάτησε <Enter> για να συνεχίσεις."
 
 #: ../src/gnumch-equality-activity/gnumch.py:488
 msgid "You ate a wrong number.\n"
@@ -5772,7 +5889,6 @@ msgid "Guess a number between {0} and {1}"
 msgstr "Μάντεψε έναν αριθμό μεταξύ του {0} και του {1}"
 
 #: ../src/guessnumber-activity/guessnumber.py:307
-#| msgid "Please enter a number between %d and %d"
 msgid "Please enter a number between {0} and {1}"
 msgstr "Παρακαλώ βάλε έναν αριθμό μεταξύ {0} και {1}"
 
@@ -6011,7 +6127,6 @@ msgstr ""
 #: ../src/hydroelectric-activity/hydroelectric.py:292
 #: ../src/hydroelectric-activity/hydroelectric.py:323
 #: ../src/hydroelectric-activity/hydroelectric.py:346
-#| msgid "The electricity power is measured in Watt (W)."
 msgid "The electricity power is measured in watts (W)."
 msgstr "Η ηλεκτρική ενέργεια μετριέται σε Watt (W)."
 
@@ -6544,6 +6659,154 @@ msgstr "το ταμπουρίνο"
 msgid "the tuba"
 msgstr "η τούμπα"
 
+#: ../src/intro_gravity-activity/intro_gravity.py:98
+msgid ""
+"Gravity is universal and Newton's law of universal gravitation extends "
+"gravity beyond earth. This force of gravitational attraction is directly "
+"dependent upon the masses of both objects and inversely proportional to the "
+"square of the distance that separates their centers."
+msgstr ""
+"Η βαρύτητα είναι ένα καθολικό φαινόμενο και ο παγκόσμιος βαρυτικός Νόμος του "
+"Νεύτωνα, σύμφωνα με τον οποίο κάθε σώμα στο σύμπαν έλκει κάθε άλλο σώμα με "
+"δύναμη ανάλογη του γινομένου των μαζών τους και αντιστρόφως ανάλογη του "
+"τετραγώνου της απόστασης του κέντρου μάζας τους."
+
+#: ../src/intro_gravity-activity/intro_gravity.py:105
+msgid ""
+"Since the gravitational force is directly proportional to the mass of both "
+"interacting objects, more massive objects will attract each other with a "
+"greater gravitational force. So as the mass of either object increases, the "
+"force of gravitational attraction between them also increases but this force "
+"is inversely proportional to the square of the separation distance between "
+"the two interacting objects, more separation distance will result in weaker "
+"gravitational forces."
+msgstr ""
+"Από τη στιγμή που η βαρυτική δύναμη είναι ανάλογη  με τη μάζα των σωμάτων "
+"που αλληλεπιδρούν, σώματα με μεγαλύτερη μάζα έλκονται και με μεγαλύτερη "
+"βαρυτική δύναμη. Έτσι, καθώς αυξάνει η μάζα των σωμάτων, αυξάνεται και η "
+"βαρυτική δύναμη της μεταξύ τους έλξης. Η δύναμη αυτή είναι αντιστρόφως "
+"ανάλογη του τετραγώνου της απόστασης του κέντρου μάζας των σωμάτων που "
+"αλληλεπιδρούν κι έτσι όσο μεγαλώνει η απόσταση αυτή, τόσο εξασθενεί η "
+"βαρυτική δύναμη έλξης."
+
+#: ../src/intro_gravity-activity/intro_gravity.py:118
+msgid ""
+"You goal is to let Tux's spaceship move by changing the mass of its "
+"surrounding planets. Don't get too close to the planets or you will crash on "
+"them. The arrow indicates the direction of the force on your ship."
+msgstr ""
+"Στόχος σας είναι να επιτρέψετε στο διαστημόπλοιο του Tux να κινηθεί "
+"αλλάζοντας τη μάζα των σωμάτων που βρίσκονται τριγύρω του. Το βελάκι "
+"υποδεικνύει την κατεύθυνση στην οποία κινείται το διαστημόπλοιο."
+
+#: ../src/intro_gravity-activity/intro_gravity.py:128
+msgid "Avoid the asteroid and join the space shuttle to win."
+msgstr ""
+"Πρέπει να αποφύγετε τον αστεροειδή και να συνδεθείτε με το διαστημικό "
+"λεωφορείο για να κερδίσετε"
+
+#: ../src/intro_gravity-activity/intro_gravity.xml.in.h:1
+msgid "Intro gravity"
+msgstr "Βαρύτητα! Τι είναι;"
+
+#: ../src/intro_gravity-activity/intro_gravity.xml.in.h:2
+msgid "Introduction to the concept of gravity"
+msgstr "Εισαγωγή στην έννοια της βαρύτητας"
+
+#: ../src/intro_gravity-activity/intro_gravity.xml.in.h:3
+msgid ""
+"Maintain the spaceship in the middle without crashing into the planets or "
+"the asteroids"
+msgstr ""
+"Διατηρήστε το διαστημόπλοιο στο μέσο της απόστασης μεταξύ των πλανητών, "
+"χωρίς να συντριβεί επάνω τους ή σε αστεροειδείς."
+
+#: ../src/intro_gravity-activity/intro_gravity.xml.in.h:4
+msgid "Follow the instructions when you run the activity."
+msgstr "Ακολουθήστε τις οδηγίες καθώς εκτελείτε τη δραστηριότητα"
+
+#: ../src/land_safe-activity/land_safe.py:77
+#, python-format
+msgid "Gravity: %s"
+msgstr "Βαρύτητα: %s"
+
+#: ../src/land_safe-activity/land_safe.py:164
+msgid ""
+"Use the up and down keys to control the thrust\n"
+"Use the right and left keys to control direction.\n"
+"You must drive Tux's ship towards the landing platform.\n"
+"The landing platform turns green when the velocity is safe to land"
+msgstr ""
+"Χρησιμοποιήστε το επάνω και το κάτω βελάκι για να ελέγξετε την ώθηση.\n"
+"Χρησιμοποιήστε το αριστερό και το δεξιό βελάκι για να ελέγξετε την οριζόντια "
+"κατεύθυνση.\n"
+"Οδηγήστε το διαστημόπλοιο του Tux στην πλατφόρμα προσγείωσης.\n"
+"H πλατφόρμα προσγείωσης είναι πράσινη όταν το σκάφος πρόκειται να "
+"προσγειωθεί με ασφάλεια και κόκκινη όταν το σκάφος έχει μεγάλη ταχύτητα και "
+"άρα δεν θα προσγειωθεί με ασφάλεια."
+
+#: ../src/land_safe-activity/land_safe.py:169
+msgid "Click on me or press the Return key when you are ready."
+msgstr "Κάντε κλικ επάνω μου ή πατήστε το πλήκτρο Enter όταν είστε έτοιμοι"
+
+#: ../src/land_safe-activity/land_safe.py:171
+msgid "I am ready!"
+msgstr "Είμαι έτοιμος!"
+
+#: ../src/land_safe-activity/land_safe.py:453
+msgid "Height: "
+msgstr "Ύψος:"
+
+#: ../src/land_safe-activity/land_safe.py:469
+msgid "Fuel"
+msgstr "Καύσιμα"
+
+#: ../src/land_safe-activity/land_safe.py:501
+msgid "Velocity: "
+msgstr "Ταχύτητα κίνησης:"
+
+#: ../src/land_safe-activity/land_safe.xml.in.h:1
+msgid "Land Safe"
+msgstr "Ασφαλής προσεδάφιση"
+
+#: ../src/land_safe-activity/land_safe.xml.in.h:2
+msgid "Understanding acceleration due to gravity."
+msgstr "Κατανοώντας την επιτάχυνση σε σχέση με τη βαρύτητα"
+
+#: ../src/land_safe-activity/land_safe.xml.in.h:3
+msgid "Pilot the spaceship towards the green landing area."
+msgstr "Πιλοτάρετε το διαστημόπλοιο προς την πράσινη περιοχή προσγείωσης"
+
+#: ../src/land_safe-activity/land_safe.xml.in.h:4
+msgid ""
+"\n"
+"Acceleration due to gravity experienced by the spaceship is directly "
+"proportional to the mass of the planet and inversely proportional to the "
+"square of the distance from the centre of the planet. Thus, with every "
+"planet the acceleration will differ and as the spaceship comes closer and "
+"closer to the planet the acceleration increases.\n"
+"\n"
+"Use the up/down keys to control the thrust and the right/left keys to "
+"control direction.\n"
+"\n"
+"The landing platform is green if your speed is fine for a safe landing.\n"
+"        "
+msgstr ""
+"\n"
+"Η επιτάχυνση του διαστημοπλοίου που οφείλεται στη βαρύτητα είναι ανάλογη με "
+"τη μάζα του πλανήτη και αντιστρόφως ανάλογη με το τετράγωνο της απόστασης "
+"από το κέντρο του πλανήτη. Η επιτάχυνση διαφέρει από πλανήτη σε πλανήτη και "
+"καθώς το διαστημόπλοιο πλησιάζει ολοένα και πιο πολύ σε έναν πλανήτη η "
+"επιτάχυνση αυξάνεται.\n"
+"\n"
+"Χρησιμοποιήστε τα πλήκτρα επάνω και κάτω για να ελέγξετε την ώθηση των "
+"μηχανών του διαστημοπλοίου και τα πλήκτρα αριστερά και δεξιά για να ελέγξετε "
+"την οριζόντια κατεύθυνση.\n"
+"\n"
+"Η πλατφόρμα προσγείωσης είναι πράσινη όταν η ταχύτητα επιτρέπει ασφαλή "
+"προσγείωση.\n"
+"        "
+
 #: ../src/lang-activity/lang.py:56
 msgid "Missing Image"
 msgstr "Εικόνα που λείπει"
@@ -6668,9 +6931,6 @@ msgstr "Σύνδεση:"
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
 #: ../src/login-activity/login.py:480
-#| msgid ""
-#| "<b>%s</b> configuration\n"
-#| " for profile <b>%s</b>"
 msgid ""
 "<b>{0}</b> configuration\n"
 " for profile <b>{1}</b>"
@@ -6818,10 +7078,6 @@ msgstr ""
 "σύμβολα, σημεία στίξης και τη μουσική σημειογραφία."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:10
-#, fuzzy
-#| msgid ""
-#| "He died of tuberculosis. He is burried in the Pantheon in Paris. A "
-#| "monument is erected to honor him."
 msgid ""
 "He died of tuberculosis. He is buried in the Pantheon in Paris. A monument "
 "is erected to honor him."
@@ -6902,7 +7158,7 @@ msgstr ""
 "επιλέξεις από κάθε χρώμα, όσα αστεράκια μπήκαν κάτω από το καπέλο."
 
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:1
-#: ../src/maze-activity/maze.c:132 ../src/maze-activity/maze.xml.in.h:1
+#: ../src/maze-activity/maze.c:141 ../src/maze-activity/maze.xml.in.h:1
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:1
 msgid "Maze"
 msgstr "Λαβύρινθος"
@@ -6930,12 +7186,45 @@ msgstr "Βοήθησε τον Tux να βγει έξω από τον λαβύρ�
 msgid ""
 "Use the keyboard arrows to move Tux up to the door. In this maze, the move "
 "is relative (first person). Use the up arrow to go forward. The other arrow "
-"let you turn Tux in another direction."
+"let you turn Tux in another direction.\n"
+"\n"
+"At the first levels, Tux walks comfortably, one step on each keypress, "
+"through the labyrinth.\n"
+"\n"
+"For larger labyrinths, there is a special walking mode, called \"run-fast-"
+"mode\". If this run-fast-mode is enabled, Tux will run all the way "
+"automatically until he reaches a fork and you have to decide which way to go "
+"further.\n"
+"\n"
+"You can see whether this mode is enabled or not, by looking at Tux's feet: "
+"If Tux is barefooted, \"run-fast-mode\" is disabled. And if he wears red "
+"sport shoes, \"run-fast-mode\" is enabled.\n"
+"\n"
+"From level 14 on, run-fast-mode will be enabled automatically. If you want "
+"to use this feature in earlier levels or want to disable it in advanced "
+"levels, click on Tux or the \"barefoot / sportshoe\"-icon in the upper left "
+"corner of the screen to toggle the run-fast-mode.\n"
 msgstr ""
-"Χρησιμοποίησε τα πλήκτρα με τα βέλη για να βοηθήσεις τον Tux να βγει από την "
-"πόρτα. Χρησιμοποίησε το επάνω βέλος για να κινήσεις τον Tux εμπρός. Τα "
-"υπόλοιπα βέλη σου επιτρέπουν να περιστρέψεις τον Tux σε όποια κατεύθυνση "
-"επιθυμείς."
+"Χρησιμοποιήστε τα πλήκτρα με τα βελάκια του πληκτρολογίου σας για να βγάλετε "
+"τον Tux από την πόρτα. Με το πάνω βελάκι ο Tux κινείται εμπρός, ενώ τα άλλα "
+"βελάκια δίνουν άλλες κατευθύνσεις.\n"
+"\n"
+"Στα πρώτα επίπεδα, ο Tux περπατά άνετα, ένα βήμα σε κάθε πάτημα του "
+"πλήκτρου\n"
+"\n"
+"Σε μεγαλύτερους λαβύρινθους υπάρχει μια ειδική λειτουργία για την κίνηση του "
+"Tux που λέγεται \"λειτουργία γρήγορου περπατήματος\", η οποία όταν είναι "
+"ενεργοποιημένη ο Tux περπατά γρήγορα μέχρι να συναντήσει κάποια "
+"διασταύρωση.\n"
+"\n"
+"Για να δείτε αν αυτή η λειτουργία είναι ενεργοποιημένη, κοιτάξτε τα πόδια "
+"του Tux: εάν είναι ξυπόλυτος, τότε η λειτουργία αυτή είναι απενεργοποιημένη, "
+"ενώ αν φοράει αθλητικά παπούτσια, τότε η λειτουργία είναι ενεργοποιημένη.\n"
+"\n"
+"Από το 14ο επίπεδο και μετά, η λειτουργία αυτή ενεργοποιείται αυτόματα, ενώ "
+"αν θέλετε να την απενεργοποιήσετε ή να την ενεργοποιήσετε σε προηγούμενα "
+"επίπεδα, κάντε κλικ στον ίδιο τον Tux ή στο εικονίδιο πάνω αριστερά που "
+"εμφανίζει τα πόδια του Tux γυμνά ή με παπούτσια.\n"
 
 #: ../src/maze3D-activity/maze3D.xml.in.h:1
 msgid "3D Maze"
@@ -6957,11 +7246,11 @@ msgstr ""
 "δείχνει απλά τη θέση σου όπως σε έναν χάρτη. Δεν μπορείς να μετακινήσεις τον "
 "Tux σε αυτή τη διάσταση."
 
-#: ../src/maze-activity/maze.c:133 ../src/maze-activity/maze.xml.in.h:2
+#: ../src/maze-activity/maze.c:142 ../src/maze-activity/maze.xml.in.h:2
 msgid "Find your way out of the maze"
 msgstr "Βρες το δρόμο που θα σε οδηγήσει έξω από το λαβύρινθο"
 
-#: ../src/maze-activity/maze.c:603
+#: ../src/maze-activity/maze.c:637
 msgid ""
 "Look at your position, then switch back to invisible mode to continue your "
 "moves"
@@ -6969,7 +7258,7 @@ msgstr ""
 "Κοίταξε σε ποια θέση βρίσκεσαι αυτή τη στιγμή  και ξαναγύρνα\n"
 "στην τρισδιάστατη λειτουργία για να συνεχίσεις τις κινήσεις σου"
 
-#: ../src/maze-activity/maze.c:605
+#: ../src/maze-activity/maze.c:639
 msgid ""
 "Look at your position, then switch back to 3D mode to continue your moves"
 msgstr ""
@@ -6977,10 +7266,47 @@ msgstr ""
 "συνεχίσεις τις κινήσεις σου"
 
 #: ../src/maze-activity/maze.xml.in.h:5
-msgid "Use the keyboard arrows to move Tux up to the door."
+msgid ""
+"Use the keyboard arrows to move Tux up to the door.\n"
+"\n"
+"At the first levels, Tux walks comfortably, one step on each keypress, "
+"through the labyrinth.\n"
+"\n"
+"For larger labyrinths, there is a special walking mode, called \"run-fast-"
+"mode\". If this run-fast-mode is enabled, Tux will run all the way "
+"automatically until he reaches a fork and you have to decide which way to go "
+"further.\n"
+"\n"
+"You can see whether this mode is enabled or not, by looking at Tux's feet: "
+"If Tux is barefooted, \"run-fast-mode\" is disabled. And if he wears red "
+"sport shoes, \"run-fast-mode\" is enabled.\n"
+"\n"
+"From level 14 on, run-fast-mode will be enabled automatically. If you want "
+"to use this feature in earlier levels or want to disable it in advanced "
+"levels, click on Tux or the \"barefoot / sportshoe\"-icon in the upper left "
+"corner of the screen to toggle the run-fast-mode.\n"
+"\t"
 msgstr ""
-"Χρησιμοποίησε τα βέλη του πληκτρολόγιου για να οδηγήσεις τον Tux έξω από την "
-"πόρτα."
+"Χρησιμοποιήστε τα πλήκτρα με τα βελάκια του πληκτρολογίου σας για να βγάλετε "
+"τον Tux από την πόρτα.\n"
+"\n"
+"Στα πρώτα επίπεδα, ο Tux περπατά άνετα, ένα βήμα σε κάθε πάτημα του "
+"πλήκτρου\n"
+"\n"
+"Σε μεγαλύτερους λαβύρινθους υπάρχει μια ειδική λειτουργία για την κίνηση του "
+"Tux που λέγεται \"λειτουργία γρήγορου περπατήματος\", η οποία όταν είναι "
+"ενεργοποιημένη ο Tux περπατά γρήγορα μέχρι να συναντήσει κάποια "
+"διασταύρωση.\n"
+"\n"
+"Για να δείτε αν αυτή η λειτουργία είναι ενεργοποιημένη, κοιτάξτε τα πόδια "
+"του Tux: εάν είναι ξυπόλυτος, τότε η λειτουργία αυτή είναι απενεργοποιημένη, "
+"ενώ αν φοράει αθλητικά παπούτσια, τότε η λειτουργία είναι ενεργοποιημένη.\n"
+"\n"
+"Από το 14ο επίπεδο και μετά, η λειτουργία αυτή ενεργοποιείται αυτόματα, ενώ "
+"αν θέλετε να την απενεργοποιήσετε ή να την ενεργοποιήσετε σε προηγούμενα "
+"επίπεδα, κάντε κλικ στον ίδιο τον Tux ή στο εικονίδιο πάνω αριστερά που "
+"εμφανίζει τα πόδια του Tux γυμνά ή με παπούτσια.\n"
+"\t"
 
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:2
 msgid "Find your way out of the invisible maze"
@@ -6990,12 +7316,47 @@ msgstr "Βρες το δρόμο που θα σε οδηγήσει έξω από
 msgid ""
 "Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
 "switch between invisible and visible modes. Visible mode just gives you an "
-"indication of your position, like a map. You cannot move Tux in visible mode."
+"indication of your position, like a map. You cannot move Tux in visible "
+"mode.\n"
+"\n"
+"At the first levels, Tux walks comfortably, one step on each keypress, "
+"through the labyrinth.\n"
+"\n"
+"For larger labyrinths, there is a special walking mode, called \"run-fast-"
+"mode\". If this run-fast-mode is enabled, Tux will run all the way "
+"automatically until he reaches a fork and you have to decide which way to go "
+"further.\n"
+"\n"
+"You can see whether this mode is enabled or not, by looking at Tux's feet: "
+"If Tux is barefooted, \"run-fast-mode\" is disabled. And if he wears red "
+"sport shoes, \"run-fast-mode\" is enabled.\n"
+"\n"
+"From level 14 on, run-fast-mode will be enabled automatically. If you want "
+"to use this feature in earlier levels or want to disable it in advanced "
+"levels, click on Tux or the \"barefoot / sportshoe\"-icon in the upper left "
+"corner of the screen to toggle the run-fast-mode.\n"
 msgstr ""
-"Χρησιμοποίησε τα βέλη του πληκτρολογίου για να οδηγήσεις τον Tux έξω από την "
-"πόρτα. Χρησιμοποίησε το πλήκτρο διαστήματος (spacebar) για να αλλάξεις από "
-"αόρατη σε ορατή λειτουργία. Η ορατή λειτουργία δείχνει απλά τη θέση σου όπως "
-"σε έναν χάρτη. Δεν μπορείς να μετακινήσεις τον Tux στην ορατή λειτουργία."
+"Χρησιμοποιήστε τα πλήκτρα με τα βελάκια του πληκτρολογίου σας για να βγάλετε "
+"τον Tux από την πόρτα και τη μπάρα διαστήματος για εναλλαγή μεταξύ ορατής "
+"και αόρατης λειτουργίας. Η ορατή λειτουργία σας δείχνει τη θέση του Tux μέσα "
+"στον λαβύρινθο και τις διαδρομές, ενώ δεν σας επιτρέπει να τον μετακινήσετε\n"
+"\n"
+"Στα πρώτα επίπεδα, ο Tux περπατά άνετα, ένα βήμα σε κάθε πάτημα του "
+"πλήκτρου\n"
+"\n"
+"Σε μεγαλύτερους λαβύρινθους υπάρχει μια ειδική λειτουργία για την κίνηση του "
+"Tux που λέγεται \"λειτουργία γρήγορου περπατήματος\", η οποία όταν είναι "
+"ενεργοποιημένη ο Tux περπατά γρήγορα μέχρι να συναντήσει κάποια "
+"διασταύρωση.\n"
+"\n"
+"Για να δείτε αν αυτή η λειτουργία είναι ενεργοποιημένη, κοιτάξτε τα πόδια "
+"του Tux: εάν είναι ξυπόλυτος, τότε η λειτουργία αυτή είναι απενεργοποιημένη, "
+"ενώ αν φοράει αθλητικά παπούτσια, τότε η λειτουργία είναι ενεργοποιημένη.\n"
+"\n"
+"Από το 14ο επίπεδο και μετά, η λειτουργία αυτή ενεργοποιείται αυτόματα, ενώ "
+"αν θέλετε να την απενεργοποιήσετε ή να την ενεργοποιήσετε σε προηγούμενα "
+"επίπεδα, κάντε κλικ στον ίδιο τον Tux ή στο εικονίδιο πάνω αριστερά που "
+"εμφανίζει τα πόδια του Tux γυμνά ή με παπούτσια.\n"
 
 #: ../src/melody-activity/melody.py:107
 msgid ""
@@ -7537,6 +7898,82 @@ msgstr ""
 "Μπορείτε να δείτε μερικές κάρτες, όχι όμως τι υπάρχει στην άλλη πλευρά τους. "
 "Κάθε κάρτα κρύβει έναν αριθμό, ή τον αριθμό ολογράφως."
 
+#: ../src/mining-activity/mining.xml.in.h:1
+msgid "Mining for gold"
+msgstr "Εξόρυξη χρυσού"
+
+#: ../src/mining-activity/mining.xml.in.h:2
+msgid "Use the mousewheel to approach the rockwall an look for gold nuggets."
+msgstr ""
+"Χρησιμοποιήστε τον τροχό του ποντικιού για να πλησιάσετε τα πετρώματα και να "
+"ψάξετε για ψήγματα χρυσού."
+
+#: ../src/mining-activity/mining.xml.in.h:3
+msgid "You should be familiar with moving the mouse and clicking."
+msgstr ""
+"Θα πρέπει να είστε εξοικειωμένοι με τη χρήση του ποντικιού (κύλιση, "
+"μετακίνηση και κλικ)."
+
+#: ../src/mining-activity/mining.xml.in.h:4
+msgid "Lern to use the mousewheel to zoom in and out."
+msgstr ""
+"Μάθετε τη χρήση του τροχού του ποντικιού για να εστιάζετε ή να απομακρύνεστε "
+"από τα πετρώματα."
+
+#: ../src/mining-activity/mining.xml.in.h:5
+msgid ""
+"Looking at the rockwall, you can see a sparkle somewhere. Move the mouse "
+"cursor next to this sparkle and use the mousewheel to zoom in. If you zoomed "
+"in at maximum, a gold nugget will appear at the position of the sparkle. "
+"Click on the gold nugget to collect it.\n"
+"\n"
+"Having collected the nugget, use the mousewheel to zoom out again. If you "
+"zoomed out at maximum, another sparkle will appear, showing the next gold "
+"nugget to collect. Collect enough nuggets to complete the level.\n"
+"\n"
+"The lorry in the lower, right corner of the screen will tell you the number "
+"of already collected nuggets and the total number of nuggets to collect in "
+"this level.\n"
+"\n"
+"To start the tutorial, click on professor tux (available at level 1) and let "
+"him show you, what to do next.\n"
+"\n"
+"Have fun! :)"
+msgstr ""
+"Κοιτώντας τα πετρώματα θα παρατηρήσετε ότι κάποια σημεία λαμποκοπούν. "
+"Μετακινηθείτε με το ποντίκι στην περιοχή αυτή και χρησιμοποιήστε τον τροχό "
+"του για να μεγεθύνετε την εικόνα και να εστιάσετε καλύτερα στο σημείο που "
+"λαμποκοπά. Εάν πετύχετε τη μέγιστη εστίαση, ένα ψήγμα χρυσού θα εμφανιστεί "
+"στη θέση του λαμποκοπήματος. Κάντε κλικ επάνω στο ψήγμα για να το "
+"συλλέξετε.\n"
+"\n"
+"Αφού έχετε συλλέξει ένα ψήγμα χρυσού, απομακρυνθείτε από την περιοχή με τη "
+"χρήση του τροχού του ποντικιού. Μόλις αντικρύσετε ολόκληρο το τοπίο, θα "
+"παρατηρήσετε ότι ένα άλλο σημείο λαμποκοπά, πράγμα που σημαίνει ότι και εκεί "
+"υπάρχει ψήγμα χρυσού το οποίο μπορείτε να συλλέξετε. Θα πρέπει να συλλέξετε "
+"αρκετά ψήγματα χρυσού για να περάσετε στο επόμενο επίπεδο.\n"
+"\n"
+"Το βαγονάκι στην κάτω δεξιά γωνία της οθόνης του παιχνιδιού, σας πληροφορεί "
+"πόσα ψήγματα θα πρέπει να συλλέξετε (αριθμός μετά την πλαγιοκάθετο) και τον "
+"αριθμό των ψηγμάτων που έχετε ήδη συλλέξει (αριθμός πριν την πλαγιοκάθετο).\n"
+"\n"
+"Για να δείτε ένα βοήθημα για τη λειτουργία του παιχνιδιού, κάντε κλικ στον "
+"καθηγητή Tux (διαθέσιμο μόνο στο επίπεδο  1) και επιτρέψτε του να σας δείξει "
+"τι πρέπει να κάνετε.\n"
+"\n"
+"Καλή διασκέδαση! :)"
+
+#: ../src/mining-activity/mining.xml.in.h:14
+msgid ""
+"Thanks to the Tuxpaint team for providing the following sounds under GPL:\n"
+"- realrainbow.ogg - used when a new gold nugget appears\n"
+"- metalpaint.wav - remixed and used when a gold nugget is collected"
+msgstr ""
+"Ευχαριστίες προς την ομάδα του Tuxpaint για την προμήθεια των παρακάτω ήχων "
+"με την άδεια GPL:\n"
+"- realrainbow.ogg - που ακούγεται όταν ένα νέο ψήγμα χρυσού εμφανίζεται\n"
+"- metalpaint.wav - που ακούγεται όταν ένα ψήγμα χρυσού συλλέγεται."
+
 #: ../src/missing_letter-activity/missingletter_config.c:79
 msgid "Please select an image."
 msgstr "Παρακαλώ επίλεξε μια εικόνα."
@@ -7888,69 +8325,83 @@ msgstr "Ξαναφτιάξε το ίδιο μωσαϊκό στη δεξιά πλ
 msgid "Rebuild the mosaic"
 msgstr "Μωσαϊκό"
 
-#: ../src/note_names-activity/note_names.py:117
+#: ../src/note_names-activity/note_names.py:120
 msgid ""
 "These are the eight basic notes in treble clef. They form the C Major Scale."
 msgstr ""
+"Αυτές είναι οι οκτώ βασικές νότες στο κλειδί για τα πρίμα. Σχηματίζουν την "
+"κλίμακα Σι ματζόρε."
 
-#: ../src/note_names-activity/note_names.py:127
+#: ../src/note_names-activity/note_names.py:130
 msgid ""
 "These are the eight basic notes in bass clef. They also form the C Major "
 "Scale. Notice that the note positions are different than in treble clef."
 msgstr ""
+"Αυτές είναι οι οκτώ βασικές νότες στο κλειδί για τα μπάσα. Σχηματίζουν, "
+"επίσης, την κλίμακα Σι ματζόρε. Σημειώστε ότι η θέση κάθε νότας είναι "
+"διαφορετική απ' ότι στο κλειδί για τα πρίμα."
 
-#: ../src/note_names-activity/note_names.py:141
-#, fuzzy
+#: ../src/note_names-activity/note_names.py:144
 msgid "Play Scale"
 msgstr "Αναπαραγωγή κλίμακας"
 
-#: ../src/note_names-activity/note_names.py:148
+#: ../src/note_names-activity/note_names.py:151
 msgid "Play Treble Clef Game"
-msgstr ""
+msgstr "Παίξτε με το κλειδί για τα πρίμα"
 
-#: ../src/note_names-activity/note_names.py:150
+#: ../src/note_names-activity/note_names.py:153
 msgid "Play Bass Clef Game"
-msgstr ""
-
-#: ../src/note_names-activity/note_names.py:182
-msgid "Click on the note name to match the pitch. Then click ok to check."
-msgstr ""
+msgstr "Παίξτε με το κλειδί για τα μπάσα"
 
 #: ../src/note_names-activity/note_names.py:184
-msgid "Now there are sharp notes. These pitches are raised a half step."
+msgid "Click on the note name to match the pitch. Then click ok to check."
 msgstr ""
+"Κάντε κλικ στο όνομα της νότας για να αντιστοιχίσετε τον ήχο που ακούσατε. "
+"Κατόπιν κάντε κλικ στο ΟΚ για έλεγχο."
 
 #: ../src/note_names-activity/note_names.py:186
+msgid "Now there are sharp notes. These pitches are raised a half step."
+msgstr "Τώρα υπάρχουν διέσεις. Αυτοί οι τόνοι είναι υψηλότεροι κατά μισό βήμα."
+
+#: ../src/note_names-activity/note_names.py:188
 msgid "Now there are flat notes. These pitches are lowered a half step."
 msgstr ""
+"Τώρα υπάρχουν υφέσεις. Αυτοί οι τόνοι είναι χαμηλότεροι κατά μισό βήμα."
 
-#: ../src/note_names-activity/note_names.py:192
+#: ../src/note_names-activity/note_names.py:194
 msgid "Click the note to hear it played"
 msgstr "Κάντε κλικ στη νότα για να την ακούσετε"
 
-#: ../src/note_names-activity/note_names.py:244
+#: ../src/note_names-activity/note_names.py:247
 msgid "Need a hint? Click here for color-coded note names."
 msgstr ""
+"Χρειάζεστε μια υπόδειξη; Κάντε κλικ εδώ για να δείτε το όνομα κάθε νότας με "
+"χρώμα."
 
-#: ../src/note_names-activity/note_names.py:247
+#: ../src/note_names-activity/note_names.py:250
 msgid "Ready for a challenge? Color all buttons black!"
 msgstr "Έτοιμοι για την πρόκληση; Χρωματίστε όλα τα πλήκτρα μαύρα!"
 
 #: ../src/note_names-activity/note_names.xml.in.h:1
 msgid "Name that Note!"
-msgstr ""
+msgstr "Ονομάστε αυτή τη νότα!"
 
 #: ../src/note_names-activity/note_names.xml.in.h:2
 msgid ""
 "Learn the names of the notes, in bass and treble clef, with the help of "
 "sounds and colors"
 msgstr ""
+"Μάθετε το όνομα κάθε νότας στο κλειδί για τα μπάσα και τα πρίμα, με τη "
+"βοήθεια των ήχων και των χρωμάτων."
 
 #: ../src/note_names-activity/note_names.xml.in.h:4
 msgid ""
 "To develop a good understanding of note position and naming convention. To "
 "prepare for the piano player and composition activity"
 msgstr ""
+"Για να αναπτύξετε μια καλύτερη κατανόηση για τη θέση κάθε νότας και τις "
+"συμβάσεις ονοματοδοσίας. Επίσης, αυτό είναι μια προετοιμασία για τους "
+"πιανίστες, αλλά και μια δραστηριότητα μουσικών συνθέσεων."
 
 #: ../src/note_names-activity/note_names.xml.in.h:5
 msgid ""
@@ -7960,6 +8411,12 @@ msgid ""
 "over the note, and the pitch names can be color coded.\n"
 "        "
 msgstr ""
+"Το  πρώτο και το ενδέκατο επίπεδο εισάγουν δύο διαφορετικά πεντάγραμμα με "
+"την κλίμακα Σι ματζόρε. Τα επόμενα επίπεδα εξασκούν τον παίκτη στα ονόματα "
+"των νοτών. Για να βοηθηθεί ο παίκτης κατά την εκμάθηση, ο ήχος κάθε νότας "
+"αναπαράγεται όταν γίνεται κλικ με το το ποντίκι επάνω σε αυτήν. Τα ονόματα "
+"των νοτών μπορεί να είναι χρωματισμένα.\n"
+"        "
 
 #: ../src/paintings-activity/paintings.xml.in.h:1
 msgid "Assemble the puzzle"
@@ -8091,7 +8548,7 @@ msgstr "Mary Cassatt, Καλοκαίρι - 1894"
 msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
 msgstr "Vincent Van Gogh, Επαρχιακός δρόμος στο Auvers - 1890"
 
-#: ../src/paratrooper-activity/paratrooper.c:408
+#: ../src/paratrooper-activity/paratrooper.c:409
 msgid "Control fall speed with up and down arrow keys."
 msgstr "Ρύθμισε την ταχύτητα πτώσης με τα βέλη των πλήκτρων (πάνω και κάτω)."
 
@@ -8184,208 +8641,192 @@ msgstr ""
 "Παρατηρήστε τις δύο εικόνες προσεκτικά. Υπάρχουν μερικές μικρές διαφορές. "
 "Κάθε φορά που βρίσκετε μια διαφορά, κάντε κλικ σε αυτήν."
 
-#. this is unique to the English notation system
-#. translators must modify this dictionary for each language
-#: ../src/piano_composition-activity/gcomprismusic.py:67
+#. this is the English musical notation system
+#. translators insert the name of the notes in your language
+#: ../src/piano_composition-activity/gcomprismusic.py:66
 msgid "C"
 msgstr "Ντο"
 
-#: ../src/piano_composition-activity/gcomprismusic.py:67
+#: ../src/piano_composition-activity/gcomprismusic.py:66
 msgid "D"
 msgstr "Ρε"
 
-#: ../src/piano_composition-activity/gcomprismusic.py:67
+#: ../src/piano_composition-activity/gcomprismusic.py:66
 msgid "E"
 msgstr "Μι"
 
-#: ../src/piano_composition-activity/gcomprismusic.py:67
+#: ../src/piano_composition-activity/gcomprismusic.py:66
 msgid "F"
 msgstr "Φα"
 
-#: ../src/piano_composition-activity/gcomprismusic.py:67
+#: ../src/piano_composition-activity/gcomprismusic.py:66
 msgid "G"
 msgstr "Σολ"
 
-#: ../src/piano_composition-activity/gcomprismusic.py:67
+#: ../src/piano_composition-activity/gcomprismusic.py:66
 msgid "A"
 msgstr "Λα"
 
-#: ../src/piano_composition-activity/gcomprismusic.py:67
+#: ../src/piano_composition-activity/gcomprismusic.py:66
 msgid "B"
 msgstr "Σι"
 
-#: ../src/piano_composition-activity/gcomprismusic.py:68
+#. this is the English musical notation system
+#. translators insert the name of the notes in your language
+#: ../src/piano_composition-activity/gcomprismusic.py:69
 msgid "C#"
 msgstr "Ντο#"
 
-#: ../src/piano_composition-activity/gcomprismusic.py:68
+#: ../src/piano_composition-activity/gcomprismusic.py:69
 msgid "D#"
 msgstr "Ρε#"
 
-#: ../src/piano_composition-activity/gcomprismusic.py:68
+#: ../src/piano_composition-activity/gcomprismusic.py:69
 msgid "F#"
 msgstr "Φα#"
 
-#: ../src/piano_composition-activity/gcomprismusic.py:68
+#: ../src/piano_composition-activity/gcomprismusic.py:69
 msgid "G#"
 msgstr "Σολ#"
 
-#: ../src/piano_composition-activity/gcomprismusic.py:68
+#: ../src/piano_composition-activity/gcomprismusic.py:69
 msgid "A#"
 msgstr "Λα#"
 
-#: ../src/piano_composition-activity/gcomprismusic.py:69
+#. this is the English musical notation system
+#. translators insert the name of the notes in your language
+#: ../src/piano_composition-activity/gcomprismusic.py:72
 msgid "Db"
 msgstr "Ρεb"
 
-#: ../src/piano_composition-activity/gcomprismusic.py:69
+#: ../src/piano_composition-activity/gcomprismusic.py:72
 msgid "Eb"
 msgstr "Μιb"
 
-#: ../src/piano_composition-activity/gcomprismusic.py:69
+#: ../src/piano_composition-activity/gcomprismusic.py:72
 msgid "Gb"
 msgstr "Σολb"
 
-#: ../src/piano_composition-activity/gcomprismusic.py:69
+#: ../src/piano_composition-activity/gcomprismusic.py:72
 msgid "Ab"
 msgstr "Λαb"
 
-#: ../src/piano_composition-activity/gcomprismusic.py:69
+#: ../src/piano_composition-activity/gcomprismusic.py:72
 msgid "Bb"
 msgstr "Σιb"
 
-#: ../src/piano_composition-activity/gcomprismusic.py:273
+#: ../src/piano_composition-activity/gcomprismusic.py:284
 msgid "The staff is full. Please erase some notes"
 msgstr "Η παρτιτούρα είναι γεμάτη. Παρακαλώ διαγράψτε μερικές νότες"
 
-#: ../src/piano_composition-activity/piano_composition.py:109
+#: ../src/piano_composition-activity/piano_composition.py:125
 msgid "This is the Treble clef staff, for high pitched notes"
 msgstr ""
+"Αυτό είναι το πεντάγραμμο με την κλίμακα των πρίμων, για νότες με υψηλή "
+"ένταση."
 
-#: ../src/piano_composition-activity/piano_composition.py:110
+#: ../src/piano_composition-activity/piano_composition.py:126
 msgid "These are the 8 \"white\" keys in an octave"
-msgstr "Υπάρχουν 8 \"λευκά\" πλήκτρα σε μια οκτάβα"
+msgstr "Υπάρχουν 8 λευκά πλήκτρα σε μια οκτάβα"
 
-#: ../src/piano_composition-activity/piano_composition.py:112
+#: ../src/piano_composition-activity/piano_composition.py:128
 msgid "This is the Bass clef staff, for low pitched notes"
 msgstr ""
+"Αυτό είναι το πεντάγραμμο με την κλίμακα των μπάσων, για νότες με χαμηλή "
+"ένταση."
 
-#: ../src/piano_composition-activity/piano_composition.py:113
+#: ../src/piano_composition-activity/piano_composition.py:129
 msgid "These keys form the C Major scale"
-msgstr ""
+msgstr "Αυτά τα κλειδιά σχηματίζουν την κλίμακα Σι μαντζόρε"
 
-#: ../src/piano_composition-activity/piano_composition.py:115
+#: ../src/piano_composition-activity/piano_composition.py:131
 msgid "Click on the note symbols to write different length notes"
 msgstr ""
+"Κάντε κλικ στο σύμβολο κάθε νότας για να γράψετε νότες με διαφορετική "
+"διάρκεια."
 
-#: ../src/piano_composition-activity/piano_composition.py:116
+#: ../src/piano_composition-activity/piano_composition.py:132
 msgid ""
 "Notes can be many types, such as quarter notes, half notes, and whole notes"
-msgstr ""
+msgstr "Οι νότες μπορεί να είναι πολλών ειδών: τέταρτα, μισά, ολόκληρα."
 
-#: ../src/piano_composition-activity/piano_composition.py:118
+#: ../src/piano_composition-activity/piano_composition.py:134
 msgid "Sharp notes have a # sign"
-msgstr ""
+msgstr "Οι διέσεις έχουν το σύμβολο #"
 
-#: ../src/piano_composition-activity/piano_composition.py:119
+#: ../src/piano_composition-activity/piano_composition.py:135
 msgid "The black keys are sharp and flat keys"
-msgstr ""
+msgstr "Τα μαύρα πλήκτρα είναι οι διέσεις"
 
-#: ../src/piano_composition-activity/piano_composition.py:121
+#: ../src/piano_composition-activity/piano_composition.py:137
 msgid "Flat notes have a b sign"
-msgstr ""
+msgstr "Οι υφέσεις έχουν το σύμβολο  b"
 
-#: ../src/piano_composition-activity/piano_composition.py:122
+#: ../src/piano_composition-activity/piano_composition.py:138
 msgid "Each black key has two names, one with a flat and one with a sharp"
-msgstr ""
+msgstr "Κάθε μαύρο πλήκτρο έχει δύο ονόματα, ένα με ύφεση και ένα με δίεση."
 
-#: ../src/piano_composition-activity/piano_composition.py:124
+#: ../src/piano_composition-activity/piano_composition.py:140
 msgid "Now you can load melodies from around the world"
 msgstr "Τώρα μπορείτε να φορτώσετε μελωδίες από ολόκληρο τον κόσμο"
 
-#: ../src/piano_composition-activity/piano_composition.py:127
-msgid "Compose music now! Click to load or save your work"
+#: ../src/piano_composition-activity/piano_composition.py:143
+msgid "Compose music now! You can now load and save your work"
 msgstr ""
 "Συνθέστε μουσική τώρα! Κάντε κλικ για να φορτώσετε ή να αποθηκεύσετε τη "
 "δουλειά σας"
 
-#. ADD BUTTONS
-#: ../src/piano_composition-activity/piano_composition.py:142
+#: ../src/piano_composition-activity/piano_composition.py:178
 msgid "Erase All Notes"
 msgstr "Διαγράψτε όλες τις νότες"
 
-#: ../src/piano_composition-activity/piano_composition.py:145
-msgid "Erase Last Note"
-msgstr "Διαγράψτε την τελευταία νότα"
+#: ../src/piano_composition-activity/piano_composition.py:189
+msgid "Erase Last Notes"
+msgstr "Διαγράψτε τις τελευταίες νότες"
 
-#: ../src/piano_composition-activity/piano_composition.py:148
+#: ../src/piano_composition-activity/piano_composition.py:199
 msgid "Play Composition"
 msgstr "Αναπαραγωγή σύνθεσης"
 
-#: ../src/piano_composition-activity/piano_composition.py:153
+#: ../src/piano_composition-activity/piano_composition.py:211
 msgid "Erase and Change Clef"
 msgstr "Διαγραφή και αλλαγή μουσικού κλειδιού"
 
-#: ../src/piano_composition-activity/piano_composition.py:161
+#: ../src/piano_composition-activity/piano_composition.py:222
 msgid "Change Note Type:"
 msgstr "Αλλαγή τύπου νότας:"
 
-#: ../src/piano_composition-activity/piano_composition.py:181
-#, fuzzy
-#| msgid "light house"
-msgid "Eighth Note"
-msgstr "φάρος"
-
-#: ../src/piano_composition-activity/piano_composition.py:200
-msgid "Quarter Note"
-msgstr ""
-
-#: ../src/piano_composition-activity/piano_composition.py:210
-msgid "Half Note"
-msgstr ""
-
-#: ../src/piano_composition-activity/piano_composition.py:221
-msgid "Whole Note"
-msgstr ""
-
+#. TRANSLATORS: http://en.wikipedia.org/wiki/Eighth_note
 #: ../src/piano_composition-activity/piano_composition.py:243
-#, fuzzy
-#| msgid "Music"
+msgid "Eighth Note"
+msgstr "Όγδοο"
+
+#. TRANSLATORS: http://en.wikipedia.org/wiki/Quarter_note
+#: ../src/piano_composition-activity/piano_composition.py:266
+msgid "Quarter Note"
+msgstr "Τέταρτο"
+
+#. TRANSLATORS: http://en.wikipedia.org/wiki/Half_note
+#: ../src/piano_composition-activity/piano_composition.py:279
+msgid "Half Note"
+msgstr "Μισό"
+
+#. TRANSLATORS: http://en.wikipedia.org/wiki/Whole_note
+#: ../src/piano_composition-activity/piano_composition.py:292
+msgid "Whole Note"
+msgstr "Ολόκληρο"
+
+#: ../src/piano_composition-activity/piano_composition.py:324
 msgid "Load Music"
-msgstr "Μουσική"
+msgstr "Φόρτωση μουσικής"
 
-#: ../src/piano_composition-activity/piano_composition.py:245
+#: ../src/piano_composition-activity/piano_composition.py:329
 msgid "Change Accidental Style:"
-msgstr ""
+msgstr "Αλλαγή τυχαίου στιλ:"
 
-#: ../src/piano_composition-activity/piano_composition.py:344
-#| msgid ""
-#| "Error: this activity cannot be played with the\n"
-#| "sound effects disabled.\n"
-#| "Go to the configuration dialogue to\n"
-#| "enable the sound"
-msgid ""
-"Error: This activity cannot be played with the\n"
-"sound effects disabled.\n"
-"Go to the configuration dialogue to\n"
-"enable the sound."
-msgstr ""
-"Σφάλμα: αυτή η δραστηριότητα δεν μπορεί να εκτελεστεί όταν\n"
-"τα εφέ των ήχων είναι απενεργοποιημένα.\n"
-"Πήγαινε στη Διαχείριση για \n"
-"να ενεργοποιήσεις τον ήχο."
-
-#: ../src/piano_composition-activity/piano_composition.py:361
+#: ../src/piano_composition-activity/piano_composition.py:387
 msgid "Select A Melody to Load"
-msgstr ""
-
-#: ../src/piano_composition-activity/piano_composition.py:369
-msgid "Next Page"
-msgstr "Επόμενη σελίδα"
-
-#: ../src/piano_composition-activity/piano_composition.py:371
-msgid "Previous Page"
-msgstr "Προηγούμενη σελίδα"
+msgstr "Επιλέξτε μια μελωδία για φόρτωση"
 
 #: ../src/piano_composition-activity/piano_composition.xml.in.h:1
 msgid "Piano Composition"
@@ -8397,15 +8838,18 @@ msgid ""
 "a musical staff and explore music composition by loading and saving your "
 "work."
 msgstr ""
-"Μια δραστηριότητα για να μάθετε πως δουλεύουν τα πλήκτρα του πιάννου, πώς "
-"είναι γραμμένες οι νότες σε μια παρτιτούρα, καθώς και να εξερευνήσετε τους "
-"τρόπους σύνθεσης μουσικής φορτώνοντας και αποθηκεύοντας τη δουλειά σας."
+"Μάθετε πώς δουλεύουν τα πλήκτρα του πιάνου, πώς είναι γραμμένες οι νότες σε "
+"μια παρτιτούρα, και εξερευνήσετε τους τρόπους σύνθεσης μουσικής φορτώνοντας "
+"και αποθηκεύοντας τη δουλειά σας"
 
 #: ../src/piano_composition-activity/piano_composition.xml.in.h:3
 msgid ""
 "Familiarity with note naming convensions, note-names activity useful to "
 "learn this notation."
 msgstr ""
+"Η εξοικείωση με τις συμβάσεις ονοματοδοσίας κάθε νότας, καθώς και η "
+"δραστηριότητα αυτή για τις νότες είναι χρήσιμες για την εκμάθηση της "
+"μουσικής σημειογραφίας."
 
 #: ../src/piano_composition-activity/piano_composition.xml.in.h:4
 msgid ""
@@ -8416,6 +8860,12 @@ msgid ""
 "MuseScore (http://musescore.org/en/download), an open source music notation "
 "tool."
 msgstr ""
+"Ανάπτυξη κατανόησης για τη μουσική σύνθεση και αύξηση του ενδιαφέροντος για "
+"τη δημιουργία μουσικής με τα πλήκτρα ενός πιάνου. Αυτή η δραστηριότητα "
+"καλύπτει πολλές θεμελιώδεις διαστάσεις της μουσικής, ωστόσο εστιάζει "
+"περισσότερο στη σύνθεση μουσικής. Εάν σας αρέσει αυτή η δραστηριότητα, αλλά "
+"θέλετε κάτι περισσότερο, τότε δοκιμάστε το MuseScore (http://musescore.org/"
+"en/download), ένα εργαλείο ανοιχτού κώδικα για τη μουσική σημειογραφία."
 
 #: ../src/piano_composition-activity/piano_composition.xml.in.h:5
 msgid ""
@@ -8453,22 +8903,56 @@ msgid ""
 "  F4: G# / Ab\n"
 "  F5: A# / Bb\n"
 msgstr ""
+"Αυτή η δραστηριότητα έχει πολλά επίπεδα, καθένα από τα οποία προσθέτει νέες "
+"λειτουργίες στο προηγούμενο επίπεδο.\n"
+"Επίπεδο 1: βασικά πλήκτρα του πιάνου (μόνο λευκά) και οι μαθητές μπορούν να "
+"δοκιμάσουν κάνοντας κλικ στα χρωματιστά ορθογώνια πλήκτρα για να γράψουν "
+"μουσική\n"
+"Επίπεδο 2: το πεντάγραμμο αλλάζει σε κλίμακα με μπάσα κι έτσι η ένταση κάθε "
+"νότας είναι χαμηλότερη απ' ότι στο προηγούμενο επίπεδο\n"
+"Επίπεδο 3: δυνατότητα επιλογής μεταξύ κλιμάκων (με πρίμα ή μπάσα), ενώ μια "
+"πρόσθετη λειτουργία επιτρέπει την επιλογή της διάρκειας κάθε νότας (τέταρτο, "
+"μισό ή ολόκληρο)\n"
+"Επίπεδο 4: προσθήκη μαύρων πλήκτρων (διέσεις)\n"
+"Επίπεδο 5: προσθήκη ύφεσης στα μαύρα πλήκτρα\n"
+"Επίπεδο 6: φόρτωση παιδικής μουσικής απ' όλο τον κόσμο\n"
+"Επίπεδο 7: όλες οι λειτουργίες είναι διαθέσιμες και επιπροσθέτως η φόρτωση "
+"και αποθήκευση της δικής σας σύνθεσης\n"
+"Στη δραστηριότητα αυτή υπάρχουν οι εξής λειτουργίες πλήκτρων:\n"
+"- backspace: διαγραφή μιας νότας\n"
+"- delete: διαγραφή όλων των νοτών\n"
+"- μπάρα διαστήματος: αναπαραγωγή σύνθεσης\n"
+"- αριθμητικά πλήκτρα:\n"
+"  1: Ντο\n"
+"  2: Ρε\n"
+"  3: Μι\n"
+"  4: Φα\n"
+"  5: Σολ\n"
+"  6: Λα\n"
+"  7: Σι\n"
+"  8: Ντο (υψηλότερη οκτάβα)\n"
+"  κλπ.\n"
+"  F1: Ντο# / Ρεb\n"
+"  F2: Ρε# / Μιb\n"
+"  F3: Φα# / Σολb\n"
+"  F4: Σολ# / Λαb\n"
+"  F5: Λα# / Σιb\n"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:1
 msgid " America: English Lullaby"
-msgstr ""
+msgstr "Αμερική: Αγγλικό νανούρισμα"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:2
 msgid " America: Patriotic"
-msgstr ""
+msgstr "Αμερική: Πατριωτικό"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:3
 msgid " America: Shaker Tune"
-msgstr ""
+msgstr "Αμερική: Ανάμεικτη μελωδία"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:4
 msgid " America: Nursery Rhyme"
-msgstr ""
+msgstr "Αμερική: Ρίμα νηπιαγωγείου"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:7
 msgid " Spain"
@@ -8476,7 +8960,7 @@ msgstr "Ισπανία"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:8
 msgid " German Kid's Song"
-msgstr ""
+msgstr "Γερμανικό παιδικό τραγούδι"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:9
 msgid " Children's Song from Brazil"
@@ -8500,11 +8984,11 @@ msgstr "Βραζιλία"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:14
 msgid " Hungary, Nursery Rhyme"
-msgstr ""
+msgstr "Ουγγαρία, Ρίμα νηπιαγωγείου"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:15
 msgid " Hungary, Children's Song"
-msgstr ""
+msgstr "Ουγγαρία, παιδικό τραγούδι"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:16
 msgid " Serbia"
@@ -8512,7 +8996,7 @@ msgstr "Σερβία"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:17
 msgid " Britain"
-msgstr ""
+msgstr "Βρετανία"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:18
 msgid " Poland"
@@ -8528,11 +9012,97 @@ msgstr "Ουκρανία"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:21
 msgid " Mexican song to break a piñata"
-msgstr ""
+msgstr "Μεξικάνικο τραγούδι για το σπάσιμο της piñata"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:22
 msgid " Finland"
 msgstr "Φινλανδία"
+
+#: ../src/place_your_satellite-activity/place_your_satellite.py:68
+msgid ""
+"Click anywhere on the screen to place the satellite at a distance from the "
+"planet."
+msgstr ""
+"Κάντε κλικ οπουδήποτε στην οθόνη για να τοποθετήσετε τον δορυφόρο σε "
+"απόσταση από τον πλανήτη."
+
+#: ../src/place_your_satellite-activity/place_your_satellite.py:70
+msgid ""
+"Then click on the satellite and drag a line that sets the speed of the "
+"satellite"
+msgstr ""
+"Κατόπιν κάντε κλικ στον δορυφόρο και σύρετε μια γραμμή που ορίζει την "
+"ταχύτητα του δορυφόρου"
+
+#: ../src/place_your_satellite-activity/place_your_satellite.py:267
+msgid "Satellite goes too fast"
+msgstr "Ο δορυφόρος κινείται πολύ γρήγορα"
+
+#: ../src/place_your_satellite-activity/place_your_satellite.py:269
+msgid "Satellite goes too slow"
+msgstr "Ο δορυφόρος κινείται πολύ αργά"
+
+#: ../src/place_your_satellite-activity/place_your_satellite.py:296
+msgid "Satellite is crashing"
+msgstr "Ο δορυφόρος συντρίβεται"
+
+#: ../src/place_your_satellite-activity/place_your_satellite.py:330
+msgid "Satellite not in orbit"
+msgstr "Ο δορυφόρος δεν βρίσκεται σε τροχιά"
+
+#: ../src/place_your_satellite-activity/place_your_satellite.py:394
+msgid "Speed"
+msgstr "Ταχύτητα"
+
+#: ../src/place_your_satellite-activity/place_your_satellite.xml.in.h:1
+msgid "Place your satellite"
+msgstr "Τοποθετήστε τον δορυφόρο σας"
+
+#: ../src/place_your_satellite-activity/place_your_satellite.xml.in.h:2
+msgid "Understanding effect of mass and distance on orbital velocity."
+msgstr ""
+"Κατανόηση της επίδρασης της μάζας και της απόστασης στην ταχύτητα κίνησης "
+"της τροχιάς."
+
+#: ../src/place_your_satellite-activity/place_your_satellite.xml.in.h:3
+msgid "Make sure the satellite does not crash or fly away"
+msgstr ""
+"Βεβαιωθείτε ότι ο δορυφόρος δεν πρόκειται να συντριβεί ή ότι δεν πετάει "
+"ακανόνιστα."
+
+#: ../src/place_your_satellite-activity/place_your_satellite.xml.in.h:4
+msgid ""
+"\n"
+"A satellite revolves around the Earth because of the force between them. "
+"Orbital velocity of a satellite of Earth is directly proportional to the "
+"square root of the mass of Earth and inversely proportional to the square "
+"root of the distance from the center of Earth to the satellite.\n"
+"\n"
+"In this activity, play with the speed of the satellite and mass of Earth to "
+"see what happens to the satellite. If the speed of the satellite is slower "
+"than the required orbital speed then the force applied by the Earth on the "
+"satellite is too much and thus the satellite gets pulled towards the Earth "
+"and burns in it's atmosphere. If the speed of the satellite is more than the "
+"required orbital speed then the Earth's force is not enough to keep it in "
+"orbit and thus the satellite flies away due to it's own inertia.\n"
+"        "
+msgstr ""
+"\n"
+"Ένας δορυφόρος περιστρέφεται γύρω από τη Γη επειδή ασκούνται δυνάμεις μεταξύ "
+"τους. Η ταχύτητα κίνησης σε τροχιά ενός δορυφόρου της Γης είναι ανάλογη με "
+"το τετράγωνο της μάζας της Γης και αντιστρόφως ανάλογη με το τετράγωνο της "
+"απόστασης από το κέντρο της Γης μέχρι το κέντρο του δορυφόρου.\n"
+"\n"
+"Σε αυτή τη δραστηριότητα παίζοντας με την ταχύτητα του δορυφόρου και τη μάζα "
+"της Γης θα δείτε τι συμβαίνει στον δορυφόρο. Εάν η ταχύτητα του δορυφόρου "
+"είναι μικρότερη από αυτή που απαιτείται όταν βρίσκεται σε τροχιά, τότε η "
+"δύναμη που ασκείται από τη Γη στον δορυφόρο είναι μεγάλη. Ο δορυφόρος "
+"βγαίνει από την τροχιά του και κατευθύνεται προς τη Γη. Καθώς όμως μπαίνει "
+"στην ατμόσφαιρα καίγεται. Όταν η ταχύτητα του δορυφόρου είναι μεγαλύτερη από "
+"αυτή που απαιτείται όταν είναι σε τροχιά, η δύναμη της Γης είναι μικρότερη "
+"και δεν μπορεί να τον συγκρατήσει σε τροχιά. Ο δορυφόρος ξεφεύγει από την "
+"τροχιά και κινείται με τη δύναμη της δικής του αδράνειας.\n"
+"        "
 
 #: ../src/planegame-activity/planegame.c:62
 #: ../src/planegame-activity/planegame.xml.in.h:1
@@ -8560,23 +9130,21 @@ msgstr ""
 "βελάκια (πάνω, κάτω, δεξιά, αριστερά) του πληκτρολογίου για να κινείς το "
 "ελικόπτερο."
 
-#: ../src/play_piano-activity/play_piano.py:109
-#, fuzzy
-#| msgid "Color of the line"
+#: ../src/play_piano-activity/play_piano.py:117
 msgid "Color code notes?"
-msgstr "Χρώμα γραμμής"
+msgstr "Χρωματισμός νοτών;"
 
-#: ../src/play_piano-activity/play_piano.py:129
+#: ../src/play_piano-activity/play_piano.py:137
 msgid "Click the piano keys that match the written notes."
-msgstr ""
+msgstr "Κάντε κλικ στα πλήκτρα του πιάνο που ταιριάζουν με τις νότες"
 
-#: ../src/play_piano-activity/play_piano.py:138
-#: ../src/play_rhythm-activity/play_rhythm.py:147
+#: ../src/play_piano-activity/play_piano.py:159
+#: ../src/play_rhythm-activity/play_rhythm.py:173
 msgid "Play"
 msgstr "Αναπαραγωγή"
 
-#: ../src/play_piano-activity/play_piano.py:150
-#: ../src/play_rhythm-activity/play_rhythm.py:172
+#: ../src/play_piano-activity/play_piano.py:171
+#: ../src/play_rhythm-activity/play_rhythm.py:186
 msgid "Erase Attempt"
 msgstr "Προσπάθεια διαγραφής"
 
@@ -8593,12 +9161,16 @@ msgid ""
 "knowledge of musical notation and musical staff. Play piano_composition "
 "first."
 msgstr ""
+"Γνώση της μουσικής σημειογραφίας και του μουσικού πενταγράμμου. Αρχικά "
+"αναπαράγετε τη μουσική σύνθεση."
 
 #: ../src/play_piano-activity/play_piano.xml.in.h:4
 msgid ""
 "understand how the piano keyboard can play music as written on the musical "
 "staff"
 msgstr ""
+"Κατανόηση του τρόπου με τον οποίο τα πλήκτρα ενός πιάνου μπορούν να "
+"αναπαράγουν τη μουσική που είναι γραμμένη σε ένα μουσικό πεντάγραμμο."
 
 #: ../src/play_piano-activity/play_piano.xml.in.h:5
 msgid ""
@@ -8631,60 +9203,95 @@ msgid ""
 "  - F4: G# / Ab\n"
 "  - F5: A# / Bb\n"
 msgstr ""
+"Οι νότες που βλέπετε θα αναπαραχθούν για σας. Κάντε κλικ στο πλήκτρο που "
+"ταιριάζει με τη νότα που ακούτε και βλέπετε. Όλα τα επίπεδα, εκτός από το "
+"τελευταίο, έχουν χρωματισμένες τις νότες, ώστε να μπορείτε εύκολα να τις "
+"ταιριάξετε με τα χρώματα του πληκτρολογίου. Σε κάθε επόμενο επίπεδο "
+"αυξάνεται η δυσκολία με την προσθήκη περισσότερων νοτών. Τα επίπεδα 1 - 6 "
+"εξασκούν στην κλίμακα με τα πρίμα, τα επίπεδα 7 - 12 στην κλίμακα με τα "
+"μπάσα. Όταν μαζέψετε 5 πόντους, θα περάσετε στο επόμενο επίπεδο (οι σωστές "
+"απαντήσεις προσθέτουν πόντους, οι λανθασμένες αφαιρούν).\n"
+"\n"
+"Στη δραστηριότητα αυτή υπάρχουν οι εξής λειτουργίες πλήκτρων:\n"
+"- backspace: διαγραφή προσπάθειας\n"
+"- delete: διαγραφή προσπάθειας\n"
+"- enter: πλήκτρο για το OK\n"
+"- μπάρα διαστήματος: αναπαραγωγή\n"
+"- αριθμητικά πλήκτρα:\n"
+"  - 1: Ντο\n"
+"  - 2: Ρε\n"
+"  - 3: Μι\n"
+"  - 4: Φα\n"
+"  - 5: Σολ\n"
+"  - 6: Μι\n"
+"  - 7: Φα\n"
+"  - 8: Ντο (υψηλότερη οκτάβα)\n"
+"  - κλπ.\n"
+"  - F1: Ντο# / Ρεb\n"
+"  - F2: Ρε# / Μιb\n"
+"  - F3: Φα# / Σολb\n"
+"  - F4: Σολ# / Λαb\n"
+"  - F5: Λα# / Σιb\n"
 
-#: ../src/play_rhythm-activity/play_rhythm.py:101
-#, fuzzy
-#| msgid "Can count"
+#: ../src/play_rhythm-activity/play_rhythm.py:115
 msgid "Beat Count:"
-msgstr "Δυνατότητα μέτρησης"
+msgstr "Μέτρηση ρυθμού:"
 
-#: ../src/play_rhythm-activity/play_rhythm.py:125
+#: ../src/play_rhythm-activity/play_rhythm.py:139
 msgid "Beat the rhythm on this drum."
-msgstr ""
+msgstr "Χρησιμοποιήστε αυτό το τύμπανο για να χτυπήσετε τον ρυθμό"
 
-#: ../src/play_rhythm-activity/play_rhythm.py:136
+#: ../src/play_rhythm-activity/play_rhythm.py:150
 msgid "For a little help, click the metronome to hear the tempo."
+msgstr "Για μια μικρή βοήθεια κάντε κλικ στον μετρονόμο να ακούσετε τον ρυθμό"
+
+#: ../src/play_rhythm-activity/play_rhythm.py:342
+msgid "Listen to the rhythm and follow the moving line."
+msgstr "Ακούστε το ρυθμό και παρακολουθήστε τις νότες που κινούνται."
+
+#: ../src/play_rhythm-activity/play_rhythm.py:344
+msgid "Click the drum to the tempo. Watch the vertical line when you start."
 msgstr ""
+"Κάντε κλικ στο τύμπανο για να απαραγάγετε το ρυθμό. Παρακολουθήστε την "
+"κάθετη γραμμή όταν αρχίσετε."
+
+#: ../src/play_rhythm-activity/play_rhythm.py:345
+msgid "You can use the space bar to drum the tempo."
+msgstr ""
+"Μπορείτε να χρησιμοποιήσετε τη μπάρα διαστήματος για να αναπαράγετε τον ρυθμό"
 
 #: ../src/play_rhythm-activity/play_rhythm.py:348
-#, fuzzy
-#| msgid "Listen to the color and click on the matching duck."
-msgid "1. Listen to the rhythm and follow the moving line."
-msgstr ""
-"Όταν ακούσεις το όνομα ενός χρώματος, κάνε κλικ στη πάπια με το αντίστοιχο "
-"χρώμα. Στο κάτω μέρος εμφανίζεται μια βοηθητική φράση."
-
-#: ../src/play_rhythm-activity/play_rhythm.py:350
-msgid "2. Click the drum to the tempo. Watch the vertical line when you start."
-msgstr ""
-
-#: ../src/play_rhythm-activity/play_rhythm.py:353
 msgid ""
-"1. Now, read the rhythm. It won't be played for you. Then, beat the rhythm "
-"on the drum."
+"Now, read the rhythm. It won't be played for you. Then, beat the rhythm on "
+"the drum."
 msgstr ""
+"Τώρα, διαβάστε τον ρυθμό. Δεν θα αναπαραχθεί αυτόματα. Κατόπιν, χτυπήστε τον "
+"ρυθμό στο τύμπανο."
 
-#: ../src/play_rhythm-activity/play_rhythm.py:356
-msgid "3. Click ok to check your answer, or erase to try again."
+#: ../src/play_rhythm-activity/play_rhythm.py:351
+msgid "Click erase to try again."
 msgstr ""
+"Κάνε κλικ στη σκούπα για να καθαριστεί το πεντάγραμμο και προσπάθησε πάλι"
 
 #: ../src/play_rhythm-activity/play_rhythm.xml.in.h:1
 msgid "Play Rhythm"
-msgstr ""
+msgstr "Αναπαραγωγή ρυθμού"
 
 #: ../src/play_rhythm-activity/play_rhythm.xml.in.h:2
 msgid "Learn to listen to, read, and play musical rhythms."
-msgstr ""
+msgstr "Μάθετε να ακούτε, να διαβάζετε και να παίζετε μουσικούς ρυθμούς"
 
 #: ../src/play_rhythm-activity/play_rhythm.xml.in.h:3
 msgid "Simple understanding of musical rhythm and beat."
-msgstr ""
+msgstr "Απλή κατανόηση του μουσικού ρυθμού."
 
 #: ../src/play_rhythm-activity/play_rhythm.xml.in.h:4
 msgid ""
 "Learn to beat rhythms precisely and accurately based on what you see and "
 "hear."
 msgstr ""
+"Μάθετε να χτυπάτε τον ρυθμό με ακρίβεια, βασιζόμενοι σε αυτά που βλέπεται "
+"και ακούτε."
 
 #: ../src/play_rhythm-activity/play_rhythm.xml.in.h:5
 msgid ""
@@ -8702,6 +9309,24 @@ msgid ""
 "bindings work in this game: - backspace: erase attempt - delete: erase "
 "attempt - enter/return: ok button - space bar: play"
 msgstr ""
+"Ακούστε το ρυθμό που αναπαράγεται και ακολουθήστε τη μουσική. Εάν θέλετε να "
+"την ακούσετε πάλι, κάντε λικ στο πλήκτρο αναπαραγωγής. Όταν είστε έτοιμοι να "
+"εκτελέσετε τον ρυθμό, κάντε κλικ στο τύμπανο και κατόπιν στο πλήκτρο ΟΚ. Εάν "
+"κάνετε τα σωστά χτυπήματα και στο σωστό ρυθμό, τότε ένας άλλος ρυθμός "
+"αναπαράγεται. Εάν όχι, πρέπει να προσπαθήσετε και πάλι. Ακόμη, στα ζυγά "
+"επίπεδα εμφανίζεται μια κάθετη γραμμή αναπαραγωγής όταν χτυπάτε το τύμπανο, "
+"η οποία σας βοηθάει να κάνετε κλικ στον κατάλληλο χρόνο. Κάντε κλικ στο "
+"τύμπανο όταν η γραμμή βρίσκεται στο μέσο των νοτών. Τα μονά επίπεδα είναι "
+"δυσκολότερα, επειδή δεν υπάρχει αυτή η κάθετη γραμμή και ο ρυθμός δεν "
+"αναπαράγεται αυτόματα. Θα πρέπει να τον διαβάσετε και να τον χτυπήσετε στο "
+"τύμπανο. Κάντε κλικ στον μετρονόμο για να ακούσετε τον ρυθμό του ενός "
+"τετάρτου.\n"
+"\n"
+"Στη δραστηριότητα αυτή υπάρχουν οι εξής λειτουργίες πλήκτρων:\n"
+"- backspace: διαγραφή προσπάθειας\n"
+"- delete: διαγραφή προσπάθειας\n"
+"- enter: πλήκτρο για το OK\n"
+"- μπάρα διαστήματος: αναπαραγωγή"
 
 #: ../src/pythontemplate-activity/pythontemplate.py:62
 #: ../src/pythontest-activity/pythontest.py:182
@@ -8992,7 +9617,7 @@ msgstr "Βάρος = %s"
 msgid "Weight = %s"
 msgstr "Βάρος = %s"
 
-#: ../src/scalesboard-activity/scale.c:1037
+#: ../src/scalesboard-activity/scale.c:1039
 msgid "Take care, you can drop weights on both sides of the scale."
 msgstr ""
 "Πρόσεξε! Μπορείς να μετακινήσεις μάζες και στις δύο πλευρές της ζυγαριάς."
@@ -9688,6 +10313,39 @@ msgstr "Εξάσκηση στο πληκτρολόγιο"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Πληκτρολόγησε την λέξη πριν αυτή πέσει στο έδαφος"
+
+#~ msgid ""
+#~ "Use the keyboard arrows to move Tux up to the door. In this maze, the "
+#~ "move is relative (first person). Use the up arrow to go forward. The "
+#~ "other arrow let you turn Tux in another direction."
+#~ msgstr ""
+#~ "Χρησιμοποίησε τα πλήκτρα με τα βέλη για να βοηθήσεις τον Tux να βγει από "
+#~ "την πόρτα. Χρησιμοποίησε το επάνω βέλος για να κινήσεις τον Tux εμπρός. "
+#~ "Τα υπόλοιπα βέλη σου επιτρέπουν να περιστρέψεις τον Tux σε όποια "
+#~ "κατεύθυνση επιθυμείς."
+
+#~ msgid "Use the keyboard arrows to move Tux up to the door."
+#~ msgstr ""
+#~ "Χρησιμοποίησε τα βέλη του πληκτρολόγιου για να οδηγήσεις τον Tux έξω από "
+#~ "την πόρτα."
+
+#~ msgid ""
+#~ "Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
+#~ "switch between invisible and visible modes. Visible mode just gives you "
+#~ "an indication of your position, like a map. You cannot move Tux in "
+#~ "visible mode."
+#~ msgstr ""
+#~ "Χρησιμοποίησε τα βέλη του πληκτρολογίου για να οδηγήσεις τον Tux έξω από "
+#~ "την πόρτα. Χρησιμοποίησε το πλήκτρο διαστήματος (spacebar) για να "
+#~ "αλλάξεις από αόρατη σε ορατή λειτουργία. Η ορατή λειτουργία δείχνει απλά "
+#~ "τη θέση σου όπως σε έναν χάρτη. Δεν μπορείς να μετακινήσεις τον Tux στην "
+#~ "ορατή λειτουργία."
+
+#~ msgid "Next Page"
+#~ msgstr "Επόμενη σελίδα"
+
+#~ msgid "Previous Page"
+#~ msgstr "Προηγούμενη σελίδα"
 
 #~ msgid "Okay"
 #~ msgstr "Εντάξει"
