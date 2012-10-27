@@ -180,7 +180,7 @@ static GOptionEntry options[] = {
   {"root-menu", 'l', 0, G_OPTION_ARG_STRING, &popt_root_menu,
    N_("Run GCompris with local menu"
       " (e.g -l /reading will let you play only activities in the reading directory, -l /strategy/connect4 only the connect4 activity)."
-      " Use '-l list' to list all the availaible activities and their descriptions."), NULL},
+      " Use '-l list' to list all the available activities and their descriptions."), NULL},
 
   {"package_data_dir", 'A', 0, G_OPTION_ARG_STRING, &popt_package_data_dir,
    N_("GCompris will find the data dir in this directory"), NULL},
@@ -1635,7 +1635,7 @@ main (int argc, char *argv[])
 
   if (popt_version)
     {
-      printf (_("GCompris\nVersion: %s\nLicence: GPL\n"
+      printf (_("GCompris\nVersion: %s\nLicense: GPL\n"
 		"More info at http://gcompris.net\n"),
 	      VERSION);
       exit (0);

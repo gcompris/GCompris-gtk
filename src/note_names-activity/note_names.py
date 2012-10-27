@@ -181,7 +181,7 @@ They also form the C Major Scale. Notice that the note positions are different t
             self.drawNoteButtons()
 
         if level in [2, 3, 4, 12, 13, 14]:
-            instructionText = _("Click on the note name to match the pitch. Then click ok to check.")
+            instructionText = _("Click on the note name to match the pitch. Then click OK to check.")
         elif level in [5, 6, 7, 15, 16, 17]:
             instructionText = _("Now there are sharp notes. These pitches are raised a half step.")
         elif level in [8, 9, 10, 18, 19, 20]:

@@ -23,7 +23,7 @@ asia_DATA = \
 	asia/armenia.png \
 	asia/azerbaijan.png \
 	asia/background.png \
-	asia/bahrein.png \
+	asia/bahrain.png \
 	asia/bangladesh.png \
 	asia/bhutan.png \
 	asia/black_sea.png \
@@ -35,24 +35,24 @@ asia_DATA = \
 	asia/georgia.png \
 	asia/india.png \
 	asia/indonesia.png \
-	asia/irak.png \
+	asia/iraq.png \
 	asia/iran.png \
 	asia/israel.png \
 	asia/japan.png \
 	asia/jordan.png \
 	asia/kazakhstan.png \
-	asia/kirghizstan.png \
-	asia/koweit.png \
+	asia/kyrgyzstan.png \
+	asia/kuwait.png \
 	asia/laos.png \
 	asia/lebanon.png \
 	asia/malaysia.png \
 	asia/mediteranean_sea.png \
 	asia/mongolia.png \
 	asia/nepal.png \
-	asia/north_corea.png \
+	asia/north_korea.png \
 	asia/myanmar.png \
 	asia/oman.png \
-	asia/ouzbekistan.png \
+	asia/uzbekistan.png \
 	asia/pakistan.png \
 	asia/palestine.png \
 	asia/persian_gulf.png \
@@ -61,10 +61,10 @@ asia_DATA = \
 	asia/red_sea.png \
 	asia/russia.png \
 	asia/saudi_arabia.png \
-	asia/south_corea.png \
+	asia/south_korea.png \
 	asia/sri_lanka.png \
 	asia/syria.png \
-	asia/tadjikistan.png \
+	asia/tajikistan.png \
 	asia/taiwan.png \
 	asia/thailand.png \
 	asia/turkey.png \
