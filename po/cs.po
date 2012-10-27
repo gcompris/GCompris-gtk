@@ -15,14 +15,14 @@ msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-05-10 17:40+0000\n"
-"PO-Revision-Date: 2012-05-12 07:30+0200\n"
+"POT-Creation-Date: 2012-10-27 00:22+0000\n"
+"PO-Revision-Date: 2012-10-27 22:09+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: ../boards/algebra_group.xml.in.h:1
@@ -177,7 +177,7 @@ msgstr "Jít na matematické paměťové aktivity"
 msgid "GCompris Main Menu"
 msgstr "Hlavní nabídka GCompris"
 
-#: ../boards/menu.xml.in.h:3 ../src/boards/menu2.c:886
+#: ../boards/menu.xml.in.h:3 ../src/boards/menu2.c:887
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -228,7 +228,7 @@ msgstr ""
 "    Rty – Zopakuje otázku\n"
 "    Otazník – Nápověda\n"
 "    Nářadí – Zobrazí nabídku nastavení\n"
-"    Tučňákovo letadlo – Informace o aplikaci GCompris\n"
+"    Tuxovo letadlo – Informace o aplikaci GCompris\n"
 "    Noc – Ukončí GCompris\n"
 "Hvězdy ukazují doporučený věk každé hry:\n"
 "    1, 2 nebo 3 jednoduché hvězdy – pro děti od 2 do 6 let\n"
@@ -357,37 +357,37 @@ msgstr ""
 msgid "You do not have permission to uninstall this application."
 msgstr "Nemáte oprávnění tuto aplikaci odinstalovat."
 
-#: ../src/administration-activity/admin/board_list.py:88
+#: ../src/administration-activity/admin/board_list.py:86
 msgid "Select a profile:"
 msgstr "Vyber si profil:"
 
-#: ../src/administration-activity/admin/board_list.py:145
+#: ../src/administration-activity/admin/board_list.py:147
 msgid "Filter"
 msgstr "Filtr"
 
-#: ../src/administration-activity/admin/board_list.py:150
+#: ../src/administration-activity/admin/board_list.py:152
 msgid "Select all"
 msgstr "Vybrat vše"
 
-#: ../src/administration-activity/admin/board_list.py:155
+#: ../src/administration-activity/admin/board_list.py:157
 msgid "Unselect all"
 msgstr "Zrušit výběr"
 
-#: ../src/administration-activity/admin/board_list.py:160
+#: ../src/administration-activity/admin/board_list.py:162
 msgid "Locales"
 msgstr "Nastavení jazyka"
 
-#: ../src/administration-activity/admin/board_list.py:165
+#: ../src/administration-activity/admin/board_list.py:167
 msgid "Locales sound"
 msgstr "Nastavení jazyka -- zvuky"
 
-#: ../src/administration-activity/admin/board_list.py:170
+#: ../src/administration-activity/admin/board_list.py:172
 #: ../src/administration-activity/admin/group_user_list.py:140
 #: ../src/administration-activity/admin/user_list.py:181
 msgid "Login"
 msgstr "Přihlášení"
 
-#: ../src/administration-activity/admin/board_list.py:242
+#: ../src/administration-activity/admin/board_list.py:244
 msgid "Main menu"
 msgstr "Hlavní nabídka"
 
@@ -396,20 +396,20 @@ msgstr "Hlavní nabídka"
 #. image = gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, gtk.ICON_SIZE_MENU)
 #. image.show()
 #. column_pref.set_widget(image)
-#: ../src/administration-activity/admin/board_list.py:308
+#: ../src/administration-activity/admin/board_list.py:310
 msgid "Active"
 msgstr "Aktivní"
 
-#: ../src/administration-activity/admin/board_list.py:309
+#: ../src/administration-activity/admin/board_list.py:311
 msgid "Board title"
 msgstr "Název desky"
 
-#: ../src/administration-activity/admin/board_list.py:422
+#: ../src/administration-activity/admin/board_list.py:424
 #, python-format
 msgid "Filter Boards difficulty for profile %s"
 msgstr "Filtr obtížnosti Desek pro profil %s"
 
-#: ../src/administration-activity/admin/board_list.py:453
+#: ../src/administration-activity/admin/board_list.py:455
 #, python-format
 msgid ""
 "<span size='x-large'> Select the difficulty range \n"
@@ -418,8 +418,8 @@ msgstr ""
 "<span size='x-large'> Vyberte obtížnost \n"
 "pro profil <b>%s</b></span>"
 
-#: ../src/administration-activity/admin/board_list.py:643
-#: ../src/administration-activity/admin/board_list.py:655
+#: ../src/administration-activity/admin/board_list.py:645
+#: ../src/administration-activity/admin/board_list.py:657
 #: ../src/administration-activity/admin/wordlist.py:45
 msgid ""
 "<b>{config}</b> configuration\n"
@@ -428,9 +428,9 @@ msgstr ""
 "Nastavení <b>{config}</b>\n"
 " pro profil <b>{profile}</b>"
 
-#: ../src/administration-activity/admin/board_list.py:661
+#: ../src/administration-activity/admin/board_list.py:663
 #: ../src/pythontest-activity/pythontest.py:511
-#: ../src/smallnumbers-activity/smallnumbers.c:618
+#: ../src/smallnumbers-activity/smallnumbers.c:619
 msgid "Select sound locale"
 msgstr "Vyber si nastavení zvuků"
 
@@ -483,8 +483,8 @@ msgid "There is already a class with this name"
 msgstr "Třída s tímto jménem již existuje"
 
 #: ../src/administration-activity/admin/class_list.py:165
-#: ../src/administration-activity/admin/profile_edit.py:263
 #: ../src/administration-activity/admin/profile_group_list.py:140
+#: ../src/administration-activity/admin/profile_widget.py:180
 msgid "Class"
 msgstr "Třída"
 
@@ -515,7 +515,7 @@ msgstr "Skupina:"
 #. FIXME: How to remove the selection
 #. Label and Entry for the first name
 #: ../src/administration-activity/admin/group_edit.py:98
-#: ../src/administration-activity/admin/profile_edit.py:95
+#: ../src/administration-activity/admin/profile_edit.py:76
 msgid "Description:"
 msgstr "Popis:"
 
@@ -537,15 +537,15 @@ msgid "Select a class:"
 msgstr "Zvolte třídu:"
 
 #: ../src/administration-activity/admin/group_list.py:210
-#: ../src/administration-activity/admin/profile_edit.py:273
 #: ../src/administration-activity/admin/profile_group_list.py:150
+#: ../src/administration-activity/admin/profile_widget.py:190
 msgid "Group"
 msgstr "Skupina"
 
 #: ../src/administration-activity/admin/group_list.py:221
-#: ../src/administration-activity/admin/profile_edit.py:283
 #: ../src/administration-activity/admin/profile_group_list.py:160
 #: ../src/administration-activity/admin/profile_list.py:194
+#: ../src/administration-activity/admin/profile_widget.py:200
 msgid "Description"
 msgstr "Popis"
 
@@ -626,9 +626,10 @@ msgid "All users"
 msgstr "Všichni uživatelé"
 
 #: ../src/administration-activity/admin/log_list.py:108
-#: ../src/administration-activity/admin/log_list.py:295
+#: ../src/administration-activity/admin/log_list.py:298
 #: ../src/administration-activity/admin/profile_list.py:117
-#: ../src/lang-activity/lang.py:166
+#: ../src/lang-activity/lang.py:166 ../src/login-activity/login.py:481
+#: ../src/missing_letter-activity/missingletter.c:802
 msgid "Default"
 msgstr "Výchozí"
 
@@ -637,35 +638,40 @@ msgstr "Výchozí"
 msgid "Reset"
 msgstr "Vynulovat"
 
-#: ../src/administration-activity/admin/log_list.py:216
+#: ../src/administration-activity/admin/log_list.py:219
 msgid "Date"
 msgstr "Datum"
 
-#: ../src/administration-activity/admin/log_list.py:226
+#: ../src/administration-activity/admin/log_list.py:229
 msgid "User"
 msgstr "Uživatel"
 
-#: ../src/administration-activity/admin/log_list.py:236
+#: ../src/administration-activity/admin/log_list.py:239
 msgid "Board"
 msgstr "Hrací deska"
 
-#: ../src/administration-activity/admin/log_list.py:246
+#: ../src/administration-activity/admin/log_list.py:249
 #: ../src/click_on_letter-activity/click_on_letter.c:1248
 #: ../src/redraw-activity/redraw.py:339
 msgid "Level"
 msgstr "Úroveň"
 
-#: ../src/administration-activity/admin/log_list.py:256
+#: ../src/administration-activity/admin/log_list.py:259
 msgid "Sublevel"
 msgstr "Podřízená úroveň"
 
-#: ../src/administration-activity/admin/log_list.py:266
+#: ../src/administration-activity/admin/log_list.py:269
 msgid "Duration"
 msgstr "Délka trvání"
 
-#: ../src/administration-activity/admin/log_list.py:276
+#: ../src/administration-activity/admin/log_list.py:279
 msgid "Status"
 msgstr "Stav"
+
+#: ../src/administration-activity/admin/module_activities.py:50
+#: ../src/administration-activity/admin/module_activities.py:78
+msgid "Activities"
+msgstr "Aktivity"
 
 #: ../src/administration-activity/admin/module_boards.py:49
 #: ../src/administration-activity/admin/module_boards.py:77
@@ -676,6 +682,11 @@ msgstr "Desky"
 #: ../src/administration-activity/admin/module_groups.py:69
 msgid "Groups"
 msgstr "Skupiny"
+
+#: ../src/administration-activity/admin/module_logins.py:48
+#: ../src/administration-activity/admin/module_logins.py:69
+msgid "Logins"
+msgstr "Přihlášení"
 
 #: ../src/administration-activity/admin/module_profiles.py:47
 #: ../src/administration-activity/admin/module_profiles.py:68
@@ -698,34 +709,30 @@ msgstr "Uživatelé"
 msgid "Classes"
 msgstr "Třídy"
 
-#: ../src/administration-activity/admin/profile_edit.py:56
+#: ../src/administration-activity/admin/profile_edit.py:37
 msgid "Editing a Profile"
 msgstr "Úprava profilu"
 
-#: ../src/administration-activity/admin/profile_edit.py:61
+#: ../src/administration-activity/admin/profile_edit.py:42
 msgid "Editing profile: "
 msgstr "Úprava profilu: "
 
-#: ../src/administration-activity/admin/profile_edit.py:64
+#: ../src/administration-activity/admin/profile_edit.py:45
 msgid "Editing a new profile"
 msgstr "Úprava nového profilu"
 
-#: ../src/administration-activity/admin/profile_edit.py:83
+#: ../src/administration-activity/admin/profile_edit.py:64
 msgid "Profile:"
 msgstr "Profil:"
 
 #. Top message gives instructions
-#: ../src/administration-activity/admin/profile_edit.py:106
+#: ../src/administration-activity/admin/profile_edit.py:87
 msgid "Assign all the groups belonging to this profile"
 msgstr "Přiřaď všechny skupiny příslušející tomuto profilu"
 
-#: ../src/administration-activity/admin/profile_edit.py:371
+#: ../src/administration-activity/admin/profile_edit.py:130
 msgid "You need to provide at least a name for your profile"
 msgstr "Je nutné zadat alespoň jméno vašeho profilu"
-
-#: ../src/administration-activity/admin/profile_edit.py:393
-msgid "There is already a profile with this name"
-msgstr "Profil s tímto jménem již existuje"
 
 #: ../src/administration-activity/admin/profile_list.py:184
 msgid "Profile"
@@ -734,6 +741,10 @@ msgstr "Profil"
 #: ../src/administration-activity/admin/profile_list.py:311
 msgid "[Default]"
 msgstr "[Výchozí]"
+
+#: ../src/administration-activity/admin/profile_widget.py:291
+msgid "There is already a profile with this name"
+msgstr "Profil s tímto jménem již existuje"
 
 #: ../src/administration-activity/admin/user_edit.py:47
 msgid "Editing a User"
@@ -877,8 +888,8 @@ msgid "sepia"
 msgstr "sépiová"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:16
-msgid "sulphur"
-msgstr "sírová"
+msgid "sulfur"
+msgstr "sírově žlutá"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:17
 msgid "tea"
@@ -961,7 +972,7 @@ msgid "azure"
 msgstr "azurová"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:37
-msgid "greyish brown"
+msgid "grayish brown"
 msgstr "šedavě hnědá"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:38
@@ -1057,7 +1068,7 @@ msgid "mauve"
 msgstr "světle fialová"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:61
-msgid "greyish blue"
+msgid "grayish blue"
 msgstr "šedomodrá"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:62
@@ -1141,7 +1152,7 @@ msgid "+-×÷"
 msgstr "+-.:"
 
 #: ../src/algebra_by-activity/algebra.c:411
-#: ../src/readingh-activity/reading.c:630
+#: ../src/findit-activity/findit.py:228 ../src/readingh-activity/reading.c:630
 msgid "I am Ready"
 msgstr "Jsem připraven"
 
@@ -1297,8 +1308,8 @@ msgid "Line"
 msgstr "Čára"
 
 #: ../src/anim-activity/anim.py:157
-#: ../src/wordprocessor-activity/wordprocessor.c:91
-#: ../src/wordprocessor-activity/wordprocessor.c:450
+#: ../src/wordprocessor-activity/wordprocessor.c:93
+#: ../src/wordprocessor-activity/wordprocessor.c:481
 msgid "Text"
 msgstr "Text"
 
@@ -1326,7 +1337,7 @@ msgstr "Dopředu"
 msgid "Lower"
 msgstr "Dozadu"
 
-#: ../src/anim-activity/anim.py:753
+#: ../src/anim-activity/anim.py:769
 msgid "Current frame"
 msgstr "Současné políčko"
 
@@ -1388,7 +1399,7 @@ msgstr "Barva výplně…"
 msgid "Stroke color..."
 msgstr "Barva obrysu…"
 
-#: ../src/awele-activity/awele.c:158
+#: ../src/awele-activity/awele.c:159
 #, c-format
 msgid ""
 "File '%s' is not found.\n"
@@ -1397,23 +1408,23 @@ msgstr ""
 "Soubor „%s“ nebyl nalezen.\n"
 "Tuto aktivitu nemůžeš hrát."
 
-#: ../src/awele-activity/awele.c:359
+#: ../src/awele-activity/awele.c:360
 msgid "NORTH"
 msgstr "SEVER"
 
-#: ../src/awele-activity/awele.c:371
+#: ../src/awele-activity/awele.c:372
 msgid "SOUTH"
 msgstr "JIH"
 
-#: ../src/awele-activity/awele.c:533
+#: ../src/awele-activity/awele.c:534
 msgid "Choose a house"
 msgstr "Zvol dům"
 
-#: ../src/awele-activity/awele.c:648
+#: ../src/awele-activity/awele.c:649
 msgid "Your turn to play ..."
 msgstr "Tvůj tah…"
 
-#: ../src/awele-activity/awele.c:689
+#: ../src/awele-activity/awele.c:690
 msgid "Not allowed! Try again !"
 msgstr "Není dovoleno! Zkus to znovu!"
 
@@ -1526,8 +1537,9 @@ msgstr ""
 "objektu na hlavní desce. Musíš nalézt logické spojení mezi těmito objekty. "
 "Přetáhni objekty na správná červená místa v hlavní oblasti."
 
-#: ../src/babymatch-activity/shapegame.c:2017
-#: ../src/click_on_letter-activity/click_on_letter.c:1316
+#: ../src/babymatch-activity/shapegame.c:2041
+#: ../src/click_on_letter-activity/click_on_letter.c:1315
+#: ../src/missing_letter-activity/missingletter.c:800
 #, c-format
 msgid ""
 "<b>%1$s</b> configuration\n"
@@ -1666,24 +1678,24 @@ msgstr "Manipulace s myší"
 #: ../src/billard-activity/billard.xml.in.h:4
 msgid ""
 "Point the mouse and click on the ball, to set the speed and direction of the "
-"ball. The closer you click to the centre, the slower the ball moves."
+"ball. The closer you click to the center, the slower the ball moves."
 msgstr ""
 "Nastav rychlost a směr koule ukázáním a kliknutím na kouli. Čím blíž ke "
-"středu koule klikneš, tím je pohyb pomalejší."
+"středu koule klikneš, tím se pohybuje koule pomaleji."
 
 #: ../src/billard-activity/billard.xml.in.h:5
 msgid "Kick the ball into the black hole on the right"
 msgstr "Pošli míč do díry vpravo"
 
-#: ../src/boards/menu2.c:137
+#: ../src/boards/menu2.c:138
 msgid "Main Menu Second Version"
 msgstr "Hlavní nabídka druhé verze"
 
-#: ../src/boards/menu2.c:138
+#: ../src/boards/menu2.c:139
 msgid "Select a Board"
 msgstr "Vyber si desku"
 
-#: ../src/boards/menu2.c:268
+#: ../src/boards/menu2.c:269
 #, c-format
 msgid "Number of activities: %d"
 msgstr "Počet aktivit: %d"
@@ -1692,13 +1704,9 @@ msgstr "Počet aktivit: %d"
 msgid "Python Board"
 msgstr "Deska Python"
 
-#: ../src/boards/python.c:65
-msgid "Special board that embeds python into GCompris."
-msgstr "Speciální deska, která vkládá python do GCompris."
-
-#: ../src/boards/python.c:89
-msgid "Special board that embeds python into gcompris."
-msgstr "Speciální deska, která vkládá python do gcompris."
+#: ../src/boards/python.c:65 ../src/boards/python.c:89
+msgid "Special board that embeds Python into GCompris."
+msgstr "Speciální deska, která vkládá Python do GCompris."
 
 #: ../src/braille_alphabets-activity/braille_alphabets.py:176
 msgid "Braille : Unlocking the Code"
@@ -1724,7 +1732,7 @@ msgstr ""
 
 #: ../src/braille_alphabets-activity/braille_alphabets.py:200
 msgid "I am braille TUX"
-msgstr "Jsem Braillův tučňák"
+msgstr "Jsem Braillův Tux"
 
 #: ../src/braille_alphabets-activity/braille_alphabets.py:212
 msgid "When you are ready, click on me and try reproducing Braille characters."
@@ -1800,11 +1808,11 @@ msgstr "Kódy Braillova písma"
 
 #: ../src/braille_fun-activity/braille_fun.xml.in.h:4
 msgid ""
-"Braille code the tile for the corresponding falling letters. Check the "
-"braille chart by clicking on the toggle button for help."
+"Enter the braille code in the tile for the corresponding falling letters. "
+"Check the braille chart by clicking on the toggle button for help."
 msgstr ""
-"Braillský kód pro příslušná padající písmenka. Braillskou tabulku si můžeš "
-"zobrazit kliknutím na přepínací tlačítko nápovědy."
+"Zadávej braillský kód pro příslušná padající písmenka. Braillskou tabulku si "
+"můžeš zobrazit kliknutím na přepínací tlačítko nápovědy."
 
 #: ../src/braille_lotto-activity/braille_lotto.py:120
 msgid "PLAYER 1"
@@ -1971,9 +1979,9 @@ msgstr "Tento rozhovor funguje pouze na lokální síti"
 msgid ""
 "This chat activity will only work with other GCompris users on your local "
 "network, not on the Internet. To use it, just type in your message and hit "
-"Enter. Your message is then broadcasted on the local network, and any "
-"GCompris program running the chat activity on that local network will "
-"receive and display your message."
+"Enter. Your message is then broadcast on the local network, and any GCompris "
+"program running the chat activity on that local network will receive and "
+"display your message."
 msgstr ""
 "Tento rozhovor s ostatními uživateli aplikace GCompris bude fungovat pouze "
 "na tvé místní síti, ne na Internetu. Používá se tak, že jednoduše budeš psát "
@@ -1981,12 +1989,12 @@ msgstr ""
 "síti a kterýkoliv spuštěný GCompris s aktivním rozhovorem na místní síti "
 "tuto zprávu přijme a zobrazí."
 
-#: ../src/chess_computer-activity/chess.c:222
+#: ../src/chess_computer-activity/chess.c:225
 msgid "Error: The external program gnuchess died unexpectedly"
 msgstr "Chyba: Externí program gnuchess neočekávaně skončil"
 
-#: ../src/chess_computer-activity/chess.c:262
-#: ../src/chess_computer-activity/chess.c:308
+#: ../src/chess_computer-activity/chess.c:265
+#: ../src/chess_computer-activity/chess.c:311
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -1996,36 +2004,36 @@ msgstr ""
 "externí program gnuchess.\n"
 "Nejdříve jej nainstaluj a zkontroluj, jestli je v "
 
-#: ../src/chess_computer-activity/chess.c:652
+#: ../src/chess_computer-activity/chess.c:656
 msgid "White's Turn"
 msgstr "Bílý na tahu"
 
-#: ../src/chess_computer-activity/chess.c:652
+#: ../src/chess_computer-activity/chess.c:656
 msgid "Black's Turn"
 msgstr "Černý na tahu"
 
-#: ../src/chess_computer-activity/chess.c:793
+#: ../src/chess_computer-activity/chess.c:797
 msgid "White checks"
 msgstr "Bílý dává šach"
 
-#: ../src/chess_computer-activity/chess.c:795
+#: ../src/chess_computer-activity/chess.c:799
 msgid "Black checks"
 msgstr "Černý dává šach"
 
-#: ../src/chess_computer-activity/chess.c:1201
+#: ../src/chess_computer-activity/chess.c:1209
 msgid "Black mates"
 msgstr "Černý dává mat"
 
-#: ../src/chess_computer-activity/chess.c:1208
+#: ../src/chess_computer-activity/chess.c:1216
 msgid "White mates"
 msgstr "Bílý dává mat"
 
-#: ../src/chess_computer-activity/chess.c:1215 ../src/gcompris/bonus.c:191
-#: ../src/gcompris/bonus.c:200
+#: ../src/chess_computer-activity/chess.c:1223 ../src/gcompris/bonus.c:194
+#: ../src/gcompris/bonus.c:203
 msgid "Drawn game"
 msgstr "Remíza"
 
-#: ../src/chess_computer-activity/chess.c:1243
+#: ../src/chess_computer-activity/chess.c:1251
 msgid "Error: The external program gnuchess died unexpectingly"
 msgstr "Chyba: Externí program gnuchess neočekávaně skončil"
 
@@ -2090,22 +2098,22 @@ msgid "The 4 Seasons"
 msgstr "4 roční období"
 
 #: ../src/chronos-activity/resources/chronos/board1_1.xml.in.h:2
-#: ../src/wordprocessor-activity/wordprocessor.c:122
+#: ../src/wordprocessor-activity/wordprocessor.c:124
 msgid "Spring"
 msgstr "Jaro"
 
 #: ../src/chronos-activity/resources/chronos/board1_1.xml.in.h:3
-#: ../src/wordprocessor-activity/wordprocessor.c:123
+#: ../src/wordprocessor-activity/wordprocessor.c:125
 msgid "Summer"
 msgstr "Léto"
 
 #: ../src/chronos-activity/resources/chronos/board1_1.xml.in.h:4
-#: ../src/wordprocessor-activity/wordprocessor.c:124
+#: ../src/wordprocessor-activity/wordprocessor.c:126
 msgid "Autumn"
 msgstr "Podzim"
 
 #: ../src/chronos-activity/resources/chronos/board1_1.xml.in.h:5
-#: ../src/wordprocessor-activity/wordprocessor.c:125
+#: ../src/wordprocessor-activity/wordprocessor.c:127
 msgid "Winter"
 msgstr "Zima"
 
@@ -2257,8 +2265,8 @@ msgid "1923 Lancia Lambda"
 msgstr "1923 Lancia Lambda"
 
 #: ../src/chronos-activity/resources/chronos/board4_3.xml.in.h:4
-msgid "1955 Citroën ds 19"
-msgstr "1955 Citroën ds 19"
+msgid "1955 Citroën DS 19"
+msgstr "1955 Citroën DS 19"
 
 #: ../src/clickanddraw-activity/clickanddraw.xml.in.h:1
 msgid "Click and draw"
@@ -2305,12 +2313,12 @@ msgstr ""
 
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
-#: ../src/click_on_letter-activity/click_on_letter.c:367
+#: ../src/click_on_letter-activity/click_on_letter.c:368
 #: ../src/gletters-activity/gletters.c:229 ../src/memory-activity/memory.c:935
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "aábcčdďeéěfghiíjklmnňoópqrřsštťuúůvwxyýzž"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:378
+#: ../src/click_on_letter-activity/click_on_letter.c:379
 msgid ""
 "This activity will be played with questions displayed as text instead of "
 "being spoken"
@@ -2318,7 +2326,7 @@ msgstr ""
 "Tato aktivita bude hrána s otázkami zobrazenými v textové podobě, místo aby "
 "byly čteny."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:383
+#: ../src/click_on_letter-activity/click_on_letter.c:384
 #: ../src/memory-activity/memory.c:906
 msgid ""
 "Error: this activity cannot be played with the\n"
@@ -2331,7 +2339,7 @@ msgstr ""
 "Zvuk zapni v dialogovém okně\n"
 "nastavení"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:404
+#: ../src/click_on_letter-activity/click_on_letter.c:405
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -2340,24 +2348,24 @@ msgstr ""
 "Chyba: tato aktivita vyžaduje, abys nejdříve nainstaloval\n"
 "balíčky s hlasovým doprovodem GCompris pro národní prostředí %s"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:907
+#: ../src/click_on_letter-activity/click_on_letter.c:908
 msgid "Questions cannot be empty."
 msgstr "Otázky nemohou být prázdné."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:917
+#: ../src/click_on_letter-activity/click_on_letter.c:918
 msgid "Answers cannot be empty."
 msgstr "Odpovědi nemohou být prázdné."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:923
+#: ../src/click_on_letter-activity/click_on_letter.c:924
 #, c-format
 msgid "Too many characters in the Answer (maximum is %d)."
 msgstr "Příliš mnoho znaků v odpovědi (maximum je %d)."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:947
+#: ../src/click_on_letter-activity/click_on_letter.c:948
 msgid "All the characters in Questions must also be in the Answers."
 msgstr "Všechny znaky v otázce se musí rovněž objevit v odpovědi."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:964
+#: ../src/click_on_letter-activity/click_on_letter.c:965
 #, c-format
 msgid ""
 "Invalid entry:\n"
@@ -2382,8 +2390,8 @@ msgstr "Odpověď"
 msgid "Question"
 msgstr "Otázka"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:1406
-#: ../src/gcompris/board_config_wordlist.c:274
+#: ../src/click_on_letter-activity/click_on_letter.c:1405
+#: ../src/gcompris/board_config_wordlist.c:273
 msgid "Back to default"
 msgstr "Zpět na výchozí"
 
@@ -2452,6 +2460,105 @@ msgstr ""
 "Nastav hodiny na určený čas, podle zobrazených časových jednotek (hodiny:"
 "minuty nebo hodiny:minuty:sekundy). Hodiny nastavíš kliknutím na hodinové "
 "ručičky a pohybem myši nahoru či dolů."
+
+#: ../src/color_mix-activity/color_mix.py:72
+msgid "Match the color "
+msgstr "Slaďte s barvou"
+
+#: ../src/color_mix-activity/color_mix.py:336
+#: ../src/color_mix-activity/color_mix.py:341
+#: ../src/color_mix-activity/color_mix.py:346
+msgid "Too much {color}"
+msgstr "Příliš barvy {color}"
+
+#: ../src/color_mix-activity/color_mix.py:338
+#: ../src/color_mix-activity/color_mix.py:343
+#: ../src/color_mix-activity/color_mix.py:348
+msgid "Not enough {color}"
+msgstr "Málo barvy {color}"
+
+#: ../src/color_mix-activity/color_mix.xml.in.h:1
+msgid "Mixing color of paint"
+msgstr "Míchání tiskařských barev"
+
+#: ../src/color_mix-activity/color_mix.xml.in.h:2
+msgid "To understand color mixing."
+msgstr "Pochopit, jak se míchají barvy."
+
+#: ../src/color_mix-activity/color_mix.xml.in.h:3
+msgid "Mix the primary colors to match to the given color"
+msgstr "Smíchat základní barvy tak, abys dosáhl zadané barvy."
+
+#: ../src/color_mix-activity/color_mix.xml.in.h:4
+msgid ""
+"\n"
+"The activity deals with mixing primary colors of paint (subtractive "
+"mixing).\n"
+"\n"
+"In case of paints the inks absorb different colors of light falling on it, "
+"subtracting it from what you see. The more ink you add, the more light is "
+"absorbed, and the darker the combined color gets. We can mix just three "
+"primary colors to make many new colors. The primary colors for paint/ink are "
+"Cyan (a special shade of blue), Magenta (a special shade of pink), and "
+"Yellow.\n"
+"        "
+msgstr ""
+"\n"
+"Aktivita se zabývá mícháním základních tiskařských barev (tzv. subtraktivní "
+"míchání).\n"
+"\n"
+"U tisknutého (nebo i malovaného) obrázku inkoust (tempera, vodovka…) "
+"pohlcuje různé barevné složky světla, které na něj dopadá a odečte je tak od "
+"toho, co vidíte. Čím víc inkoustu přidáte, tím více světla je pohlceno a "
+"tmavší kombinaci barev získáte. Abyste získali mnoho nových barev stačí "
+"míchat jen tři základní barvy. Tyto základní tiskařské barvy jsou azurová "
+"(speciální odstín modré, anglicky Cyan), purpurová (speciální odstín "
+"růžovofialové, anglicky Magenta) a žlutá (anglicky Yellow).\n"
+"        "
+
+#: ../src/color_mix-activity/color_mix.xml.in.h:9
+#: ../src/color_mix_light-activity/color_mix_light.xml.in.h:9
+msgid "Openclipart.org"
+msgstr "Openclipart.org"
+
+#: ../src/color_mix_light-activity/color_mix_light.py:72
+msgid ""
+"Match the \n"
+" color "
+msgstr ""
+" Slaďte \n"
+"s barvou"
+
+#: ../src/color_mix_light-activity/color_mix_light.xml.in.h:1
+msgid "Mixing colors of light"
+msgstr "Míchání barevných světel"
+
+#: ../src/color_mix_light-activity/color_mix_light.xml.in.h:2
+msgid "Understanding mixing of colors of light."
+msgstr "Pochopit, jak se míchají barevná světla."
+
+#: ../src/color_mix_light-activity/color_mix_light.xml.in.h:3
+msgid "Mix the primary colors to match to the given color."
+msgstr "Smíchat základní barvy tak, abys dosáhl zadané barvy."
+
+#: ../src/color_mix_light-activity/color_mix_light.xml.in.h:4
+msgid ""
+"\n"
+"The activity deals with mixing primary colors of light (additive mixing).\n"
+"\n"
+"In case of light it is just the opposite of mixing color with paints! The "
+"more light you add the lighter the resultant color will get. Primary colors "
+"of light are red, green and blue.\n"
+"        "
+msgstr ""
+"\n"
+"Aktivita se zabývá mícháním základních barev světla (tzv. aditivní "
+"míchání).\n"
+"\n"
+"Míchání světel funguje jako opak míchání tiskařských barev. Čím více světla "
+"přidáte, tím světlejší je výsledek. Základními barvami jsou červená "
+"(anglicky Red), zelená (anglický Green) a modrá (anglicky Blue).\n"
+"        "
 
 #: ../src/colors-activity/colors.xml.in.h:1
 msgid "Colors"
@@ -2771,8 +2878,9 @@ msgstr ""
 "prostřední tlačítko myši – odstraní objekt."
 
 #: ../src/drawnumber-activity/drawnumber.py:238
-#: ../src/findit-activity/findit.py:315
+#: ../src/explore-activity/explore.py:458 ../src/findit-activity/findit.py:336
 #: ../src/louis_braille-activity/louis_braille.py:84
+#: ../src/piano_composition-activity/piano_composition.py:503
 msgid "Cannot find the file '{filename}'"
 msgstr "Nelze nalézt soubor „{filename}“"
 
@@ -2796,18 +2904,18 @@ msgstr "Nakresli obrázek klikáním na všechna čísla ve správném pořadí.
 msgid ""
 "Cannot find the 'gnucap' electric simulator.\n"
 "You can download and install it from:\n"
-"<http://geda.seul.org/tools/gnucap/>\n"
+"<http://www.gnu.org/software/gnucap/>\n"
 "To be detected, it must be installed in\n"
 "/usr/bin/gnucap or /usr/local/bin/gnucap.\n"
 "You can still use this activity to draw schematics without computer "
 "simulation."
 msgstr ""
-"Nelze nalézt elektrický simulátor „gnucap“.\n"
+"Nelze najít elektrický simulátor „gnucap“.\n"
 "Můžeš ho stáhnout a nainstalovat z:\n"
-"<http://geda.seul.org/tools/gnucap/>\n"
-"Aby ho bylo možné detekovat, musíš ho nainstalovat do\n"
+"<http://www.gnu.org/software/gnucap/>\n"
+"Aby ho bylo možné najít, musíš ho nainstalovat do\n"
 "/usr/bin/gnucap nebo /usr/local/bin/gnucap.\n"
-"Tento nástroj můžeš používat i bez něj, ale bude fungovat pouze kreslení "
+"Tuto aktivitu můžeš používat i bez něj, ale bude fungovat pouze kreslení "
 "schématu bez počítačové simulace."
 
 #: ../src/electric-activity/electric.xml.in.h:1
@@ -2829,10 +2937,10 @@ msgstr "Vytvoření elektrického schématu a reálná simulace zapojení."
 #: ../src/electric-activity/electric.xml.in.h:5
 msgid ""
 "GCompris uses the Gnucap electric simulator as a backend. You can get more "
-"information on gnucap at &lt;http://geda.seul.org/tools/gnucap/&gt;."
+"information on gnucap at &lt;http://www.gnu.org/software/gnucap/&gt;."
 msgstr ""
-"GCompris používá elektrický simulátor Gnucap. Více informací o gnucap "
-"naleznete na &lt;http://geda.seul.org/tools/gnucap/&gt;."
+"GCompris využívá elektrický simulátor Gnucap. Více informací o gnucap "
+"nalezneš na &lt;http://www.gnu.org/software/gnucap/&gt;."
 
 #: ../src/electric-activity/electric.xml.in.h:6
 msgid ""
@@ -2855,13 +2963,13 @@ msgstr ""
 "žárovka, ji můžeš rozbít pravým tlačítkem myši. Simulace se aktualizuje "
 "automaticky v závislosti na příslušné akci."
 
-#: ../src/enumerate-activity/enumerate.c:110
+#: ../src/enumerate-activity/enumerate.c:111
 #: ../src/enumerate-activity/enumerate.xml.in.h:3
 #: ../src/planegame-activity/planegame.xml.in.h:3
 msgid "Numeration training"
 msgstr "Trénování počítání"
 
-#: ../src/enumerate-activity/enumerate.c:111
+#: ../src/enumerate-activity/enumerate.c:112
 #: ../src/enumerate-activity/enumerate.xml.in.h:2
 msgid "Place the items in the best way to count them"
 msgstr "Umísti položky tak, aby šly co nejjednodušeji spočítat"
@@ -2904,8 +3012,8 @@ msgstr "Hýbáním myší vymažeš oblast a objeví se pozadí"
 msgid "Error: No images found\n"
 msgstr "Chyba: nenalezen žádný obrázek\n"
 
-#: ../src/erase-activity/erase.c:582 ../src/gcompris/properties.c:504
-#: ../src/gcompris/properties.c:511
+#: ../src/erase-activity/erase.c:582 ../src/gcompris/properties.c:503
+#: ../src/gcompris/properties.c:510
 msgid "readme"
 msgstr "čtěte"
 
@@ -2953,6 +3061,602 @@ msgstr "Klikáním myší vymažeš oblast a objeví se pozadí"
 msgid "Click the mouse on rectangles until all the blocks disappear."
 msgstr "Klikej myší na obdélníky, dokud všechny bloky nezmizí."
 
+#: ../src/explore-activity/explore.py:88
+#: ../src/note_names-activity/note_names.py:83
+#: ../src/piano_composition-activity/piano_composition.py:371
+#: ../src/play_piano-activity/play_piano.py:77
+#: ../src/play_rhythm-activity/play_rhythm.py:81
+msgid ""
+"Error: This activity cannot be played with the\n"
+"sound effects disabled.\n"
+"Go to the configuration dialogue to\n"
+"enable the sound."
+msgstr ""
+"Chyba: tuto aktivitu nelze hrát s vypnutými\n"
+"zvukovými efekty.\n"
+"Zvuk zapni v dialogovém okně nastavení."
+
+#: ../src/explore-activity/explore.py:155
+msgid "Click to play sound"
+msgstr "Kliknutím přehraješ zvuk"
+
+#. draw back button
+#: ../src/explore-activity/explore.py:272
+msgid "Back to Homepage"
+msgstr "Zpět na hlavní stránku"
+
+#: ../src/explore-activity/explore.py:463 ../src/findit-activity/findit.py:341
+#: ../src/louis_braille-activity/louis_braille.py:88
+#: ../src/piano_composition-activity/piano_composition.py:508
+msgid ""
+"Failed to parse data set '{filename}' with error:\n"
+"{error}"
+msgstr ""
+"Selhalo zpracování dat „{filename}“ s chybou:\n"
+"{error}"
+
+#: ../src/explore-activity/explore.py:578
+msgid "Explore Status:"
+msgstr "Stav objevování:"
+
+#: ../src/explore_farm_animals-activity/explore_farm_animals.xml.in.h:1
+msgid "Explore Farm Animals"
+msgstr "Objevovat domácí zvířata"
+
+#: ../src/explore_farm_animals-activity/explore_farm_animals.xml.in.h:2
+msgid "Learn about farm animals, what sounds they make, and interesting facts."
+msgstr ""
+"Nauč se něco o domácích zvířatech na farmě, jaké vydávají zvuky a zajímavá "
+"fakta."
+
+#: ../src/explore_farm_animals-activity/explore_farm_animals.xml.in.h:3
+msgid ""
+"Learn to associate animal sounds with the animal name and what the animal "
+"looks like."
+msgstr ""
+"Naučit se přiřadit zvířecí zvuky k názvům zvířat a naučit se, jak zvířata "
+"vypadají."
+
+#: ../src/explore_farm_animals-activity/explore_farm_animals.xml.in.h:4
+msgid ""
+"There are three levels in this game.\n"
+"\n"
+"In level one, players enjoy exploring each animal on the screen. Click on "
+"the question mark, and learn about the animal, what it's name is, what sound "
+"it makes, and what it looks like. Study well this information, because you "
+"will be tested in level 2 and 3!\n"
+"\n"
+"In level two, a random animal sound is played and you must choose which "
+"animal makes that sound. Click on the question mark that corresponds to the "
+"animal you hear. If you'd like to hear the animal sound repeated, click on "
+"the play button. When you have matched all animals correctly, you win!\n"
+"\n"
+"In level three, a random text prompt is displayed and you must click on the "
+"animal that matches the text. When you have matched all texts correctly, you "
+"win!\n"
+msgstr ""
+"Tato hra má tři úrovně.\n"
+"\n"
+"V první úrovni si hráči užívají objevování zvířat na obrazovce. Klikej na "
+"otazníky a uč se o zvířatech, jak se nazývají, jaké zvuky vydávají a jak "
+"vypadají. Vše si dobře zapamatuj, protože to budeš potřebovat v úrovních 2 a "
+"3.\n"
+"\n"
+"V druhé úrovni se náhodně přehrávají zvuky zvířat a ty musíš vybrat zvíře, "
+"které daný zvuk vydává. Kliknutí na otazník označíš zvíře, které zvuku "
+"odpovídá. Pokud si potřebuješ zvuk poslechnout znovu, klikni na tlačítko s "
+"přehrávací šipkou. Když všechna zvířata přiřadíš správně, vyhrál jsi.\n"
+"\n"
+"Ve třetí úrovni se zobrazuje náhodně popis a ty musíš kliknout na zvíře, "
+"které popisu odpovídá. Když všechna zvířata přiřadíš správně, vyhrál jsi.\n"
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:1
+msgid " Click on the questions to explore each farm animal."
+msgstr " Klikáním na otazníky objevuj jednotlivá zvířata na farmě."
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:2
+msgid " Click on the farm animal that makes the sound you hear."
+msgstr " Klikni na domácí zvíře, které vydává stejný zvuk, jako jsi slyšel."
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:3
+msgid " Click the animal that matches the description."
+msgstr " Klikni na zvíře, které odpovídá popisu."
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:4
+msgid " Horse"
+msgstr "Kůň"
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:5
+msgid " The horse goes \"neigh! neigh!\". Horses usually sleep standing up."
+msgstr " Kůň dělá „ihaha“. Koně spí obvykle ve stoje."
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:6
+msgid " You can ride on the back of this animal!"
+msgstr " Na zádech tohoto zvířete se můžeš povozit!"
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:7
+msgid " Chickens"
+msgstr "Slepice"
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:8
+msgid ""
+" The chicken goes \"cluck, cackle, cluck\". Chickens have over 200 different "
+"noises they can use to communicate."
+msgstr ""
+" Slepice dělá „kokodák, kokodák“. Slepice umí přes 200 různých zvuků, které "
+"používají ke komunikaci."
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:9
+msgid " This animal lays eggs."
+msgstr " Toto zvíře snáší vejce."
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:10
+msgid " Cows"
+msgstr "Kráva"
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:11
+msgid ""
+" The cow goes \"moo. moo.\" Cows have a memory of about three years. Cows "
+"have many uses, including for milk and meat."
+msgstr ""
+" Kráva dělá „bůůů“. Krávy si pamatují zhruba tři roky. Mají mnoho využití, "
+"včetně mléka a masa."
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:12
+msgid " You can drink the milk this animal produces."
+msgstr " Můžeš pít mléko, které toto zvíře dává."
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:13
+msgid " Cat"
+msgstr "Kočka"
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:14
+msgid ""
+" The cat goes \"meow, meow\". Cats usually hate water because their fur "
+"doesn't stay warm when it is wet."
+msgstr ""
+" Kočka dělá „mňau, mňau“. Kočky obvykle nenávidí vodu, protože jejich srst "
+"nedokáže uchovávat teplo, když je mokrá."
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:15
+msgid " This pet likes to chase mice."
+msgstr " Toto zvíře rádo loví myši."
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:16
+msgid " Pigs"
+msgstr "Prase"
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:17
+msgid " The pig goes \"oink, oink\". Pigs are the 4th most intelligent animal."
+msgstr ""
+" Prase dělá „chrocht, chrocht“. Prasata jsou čtvrtá nejinteligentnější "
+"zvířata."
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:18
+msgid " This animal likes to lay in the mud."
+msgstr " Toto zvíře se rádo válí v blátě."
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:19
+msgid " White Duck"
+msgstr "Kachna"
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:20
+msgid ""
+" The duck goes \"quack, quack\". Ducks have special features like webbed "
+"feet and waterproof feathers."
+msgstr ""
+" Kachna dělá „ga, ga, ga“. Kachny mají speciální výbavu, jako plovací blány "
+"nebo vodě odolné peří."
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:21
+msgid " This animal has webbed feet so it can swim in the water."
+msgstr " Toto zvíře má na nohou plovací blány, takže může plavat ve vodě."
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:22
+msgid " Owl"
+msgstr "Sova"
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:23
+msgid ""
+" The owl goes \"hoo. hoo.\" The owl has excellent vision and hearing at "
+"night."
+msgstr " Sova dělá „hůůů, hůůů“. I po tmě dobře vidí a má výborný sluch."
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:24
+msgid " This animal likes to come out at night."
+msgstr " Toto zvíře je aktivní hlavně v noci."
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:25
+msgid " Dogs"
+msgstr "Pes"
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:26
+msgid ""
+" The dog goes \"bark! bark!\". Dogs are great human companions and usually "
+"enjoy love and attention."
+msgstr ""
+" Toto zvíře dělá „haf, haf“. Psi jsou skvělí společníci lidí a oplácejí "
+"láskou a pozorností."
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:27
+msgid " This animal's ancestors were wolves."
+msgstr " Předky tohoto zvířete byli vlci."
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:28
+msgid " Rooster"
+msgstr "Kohout"
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:29
+msgid ""
+" The rooster goes \"coc-a-doodle-doo!\". Roosters have been on farms for "
+"about 5,000 years. Every morning it wakes the farm up with its noises."
+msgstr ""
+" Kohout dělá „kykyryký“. Kohouti se na farmách chovají již okolo 5 000 let. "
+"Každé ráno svým kokrháním farmu probouzejí."
+
+#: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:30
+msgid " This animal wakes the farm up in the morning."
+msgstr " Toto zvíře ráno celou farmu budí."
+
+#: ../src/explore_world_animals-activity/explore_world_animals.xml.in.h:1
+msgid "Explore World Animals"
+msgstr "Objevovat zvířata z celého světa"
+
+#: ../src/explore_world_animals-activity/explore_world_animals.xml.in.h:2
+msgid ""
+"Learn about world animals, interesting facts and their location on a map."
+msgstr ""
+"Nauč se něco o zvířatech z celého světa, zajímavé fakta o nich a kde na zemi "
+"žijí."
+
+#: ../src/explore_world_animals-activity/explore_world_animals.xml.in.h:3
+msgid ""
+"There are two levels in this game.\n"
+"\n"
+"In level one, players enjoy exploring each animal on the screen. Click on "
+"the question mark, and learn about the animal, what it's name is, and what "
+"it looks like. Study well this information, because you will be tested in "
+"level 2!\n"
+"\n"
+"In level two, a random text prompt is displayed and you must click on the "
+"animal that matches the text. When you have matched all texts correctly, you "
+"win!\n"
+msgstr ""
+"Tato hra má dvě úrovně.\n"
+"\n"
+"V první úrovni si hráči užívají objevování jednotlivých zvířat na obrazovce. "
+"Kliknutím na otazník se o zvířeti dozvíš, jak se nazývá, jak vypadá apod. "
+"Dobře si informace nastuduj, protože v úrovni 2 z nich budeš vyzkoušen!\n"
+"\n"
+"V úrovni dva se náhodně zobrazuje text a ty musíš kliknout na zvíře, které "
+"textu vyhovuje. Když všechny texty přiřadíš správně, vyhráváš!\n"
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:1
+msgid " Explore exotic animals from around the world."
+msgstr "Poznávej exotická zvířata z celého světa."
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:2
+msgid " Click on location where the given animal lives."
+msgstr "Klikni na místo, kde uvedené zvíře žije."
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:3
+msgid " Jaguars in South America"
+msgstr " Jaguár v Jižní Americe"
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:4
+msgid ""
+" Jaguars are named after the Native American word meaning 'he who kills with "
+"one leap'"
+msgstr ""
+" Jaguár má název podle slova původních obyvatel Ameriky, které znamená „ten, "
+"jenž zabíjí jedním skokem“."
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:5
+msgid "  Jaguar"
+msgstr "  Jaguár"
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:6
+msgid " Hedgehogs in Europe"
+msgstr " Ježek v Evropě"
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:7
+msgid ""
+" Hedgehogs eat small animals, like frogs and insects, so many people keep "
+"them as useful pets. When in danger, they will curl up into a ball and stick "
+"up their coat of sharp spines."
+msgstr ""
+" Ježek jí drobné živočichy, jako žáby a hmyz, proto jej lidé považují za "
+"užitečné zvíře. Když je v nebezpečí, stočí se do kuličky a naježí svůj "
+"kožíšek z ostrých ostnů."
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:8
+msgid " Hedgehog"
+msgstr " Ježek"
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:9
+msgid " Giraffes in Africa"
+msgstr " Žirafa v Africe"
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:10
+msgid ""
+" The giraffe lives in Africa and is the tallest mammal in the world. Just "
+"their legs, which are usually 1.8 meters long, are taller than most humans!"
+msgstr ""
+" Žirafa žije v Africe a je nejvyšším savcem na světě. Jen jejich nohy, které "
+"jsou běžně 1,8 m dlouhé, jsou vyšší než většina lidí."
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:11
+msgid " Giraffe"
+msgstr " Žirafa"
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:12
+msgid " Bison in America"
+msgstr " Bizon v Americe"
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:13
+msgid ""
+" Bison live on the plains of North America and were hunted by the Native "
+"Americans for food."
+msgstr ""
+" Bizon žije na planinách Severní Ameriky a původní obyvatelé jej lovili na "
+"jídlo."
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:14
+msgid " Bison"
+msgstr " Bizon"
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:15
+msgid " Narwhals in the Arctic"
+msgstr " Narval v Arktidě"
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:16
+msgid ""
+" Narwhals are whales that live in the Arctic Ocean and have long tusks. "
+"These tusks remind many people of the mythical unicorn's horn."
+msgstr ""
+" Narvalové jsou kytovci, kteří žijí v Arktickém oceánu a mají dlouhý kel. "
+"Tímto klem mnoha lidem připomínají bájného jednorožce."
+
+#: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:17
+msgid " Narwhal"
+msgstr " Narval"
+
+#: ../src/explore_world_music-activity/explore_world_music.xml.in.h:1
+msgid "Explore World Music"
+msgstr "Objevuj hudbu ve světě"
+
+#: ../src/explore_world_music-activity/explore_world_music.xml.in.h:2
+msgid "Learn about the music of the world."
+msgstr "Pouč se o hudbě z celého světa."
+
+#: ../src/explore_world_music-activity/explore_world_music.xml.in.h:3
+msgid ""
+"Develop a better understanding of the variety of music present in the world"
+msgstr "Lépe porozumět hudbě představující různé hudební styly ve světě."
+
+#: ../src/explore_world_music-activity/explore_world_music.xml.in.h:4
+msgid ""
+"There are three levels in this activity.\n"
+"\n"
+"In the first level, enjoy exploring music from around the world. Click on "
+"each suitcase to learn about the music from that area, and listen to a short "
+"sample. Study well, because there will be two games related to this "
+"information next!\n"
+"\n"
+"The second level is a matching game. You will hear a clip of music, and you "
+"must select the location that corresponds to that music. Click the play "
+"button if you'd like to hear the music again. You win the level when you "
+"have correctly matched all sound clips.\n"
+"\n"
+"The third level is also a matching game. You must select the location that "
+"matches the text description on the screen. You win the level when you have "
+"correctly matched all text prompts.\n"
+msgstr ""
+"V této aktivitě jsou tři úrovně.\n"
+"\n"
+"V první úrovni si užívej zkoumání hudby z celého světa. Klikáním na brašny "
+"se dozvíš o hudbě v daném místě a můžeš si poslechnout krátkou ukázku. "
+"Sleduj to pozorně, protože v dalších dvou úrovních hry budeš tyto informace "
+"potřebovat.\n"
+"\n"
+"V druhé úrovni se hledá správná odpověď. Budeš poslouchat ukázky hudby a "
+"musíš vybrat místo, které hudbě odpovídá. Pokud si potřebuješ hudbu "
+"poslechnout znovu, klikni na přehrávací tlačítko. Vyhráváš, když všechny "
+"hudební ukázky správně přiřadíš.\n"
+"\n"
+"Ve třetí úrovní se rovněž hledá správná odpověď. Musíš vybrat místo, které "
+"odpovídá popisu na obrazovce. Vyhráváš, když všechny texty správně "
+"přiřadíš.\n"
+
+#: ../src/explore_world_music-activity/explore_world_music.xml.in.h:12
+msgid "Images from http://commons.wikimedia.org/wiki, http://archive.org"
+msgstr "Obrázky z http://commons.wikimedia.org/wiki, http://archive.org"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:1
+msgid " Explore world music! Click on the suitcases."
+msgstr "Objevuj hudbu z celého světa. Klikej na tašky."
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:2
+msgid " Click on the location that matches the music you hear."
+msgstr "Klikni na místo, které odpovídá hudbě, co slyšíš."
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:3
+msgid " Click on the location that matches the text."
+msgstr "Klikni na místo, které odpovídá textu."
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:4
+msgid " Australia"
+msgstr "Austrálie"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:5
+msgid ""
+" Aboriginals were the first people to live in Australia. They sing and play "
+"instruments, like the didgeridoo. It is made from a log and can be up to "
+"five meters long!"
+msgstr ""
+" Prvními obyvateli Austrálie byli australští domorodci. Zpívali a hráli na "
+"nástroje jako je didgeridoo. Je vyroben z kmene stromu a může být dlouhý až "
+"pět metrů!"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:6
+msgid " Where is the didgeridoo played?"
+msgstr " Kde se hraje na didgeridoo?"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:7
+msgid " Africa"
+msgstr " Afrika"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:8
+msgid ""
+" Music is a part of everyday life in Africa. African music features a great "
+"variety of drums, and they believe it is a sacred and magical instrument."
+msgstr ""
+" Hudba je v Africe součástí každodenního života. Africká hudba je z velké "
+"části založena na bubnech a místní věří, že to jsou posvátné a magické "
+"nástroje."
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:9
+msgid " Where is the drum considered a magical instrument?"
+msgstr " Kde je buben považován za magický nástroj?"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:10
+msgid " Middle East"
+msgstr " Střední východ"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:11
+msgid ""
+" Music is a very important part of middle eastern culture. Specific songs "
+"are played to call worshipers to prayer. The lute is an instrument invented "
+"thousands of years ago and still in use today."
+msgstr ""
+" Hudba je důležitou součásti kultury středního východu. Speciální písně se "
+"hrají, aby svolaly pracující k modlitbám. Loutna je nástroj vynalezený před "
+"tisícovkami let a používá se dodnes."
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:12
+msgid " Where is music used to call people to prayer?"
+msgstr " Kde se hudba používá k svolávání lidí k modlitbám?"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:13
+msgid " Japan"
+msgstr " Japonsko"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:14
+msgid ""
+" Taiko drumming comes from Japan. This type of drumming was originally used "
+"to scare enemies in battle. It is very loud, and performances are very "
+"exciting with crowds cheering and performers yelling!"
+msgstr ""
+" Bubnování Taiko pochází z Japonska. Tento typ bubnování byl původně "
+"používán k zastrašování nepřátel v bitvě. Je velmi hlasitý a představení "
+"jsou velmi procítěná, umělci diváky povzbuzují a vydávají pokřiky!"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:15
+msgid " Where do performers yelp as they play the drums?"
+msgstr " Kde umělci při hraní na bubny vydávají pokřiky?"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:16
+msgid " Scotland and Ireland"
+msgstr " Skotsko a Irsko"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:17
+msgid ""
+" Folk music of this region is called celtic music, often incorporates a "
+"narrative poem or story. Typical instruments include bagpipes, fiddles, "
+"flutes, harps, and accordions."
+msgstr ""
+" Hudba v tomto regionu se nazývá keltská hudba a jejím obsahem je často "
+"báseň nebo příběh. Typickými nástroji jsou dudy, housle, flétny, harfy a "
+"akordeony."
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:18
+msgid " Bagpipers, who often wear kilts, are from this location."
+msgstr " Dudáci, kteří často chodí v sukních (kiltech), jsou právě odtud."
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:19
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:6
+msgid " Italy"
+msgstr " Itálie"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:20
+msgid ""
+" Italy is famous for its Opera. Opera is a musical theater where actors tell "
+"a story by acting and singing. Opera singers, both male and female, learn "
+"special techniques to sing operas."
+msgstr ""
+" Itálie je známá díky své opeře. Opera je hudební divadlo, ve kterém herci "
+"sdělují příběh hraním a zároveň zpěvem. Operní zpěváci, muži i ženy, se učí "
+"speciální techniky zpěvu."
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:21
+msgid " This country is known for its opera music."
+msgstr " Tato země je známá díky své operní hudbě."
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:22
+msgid " European Classical Music"
+msgstr " Klasická evropská hudba"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:23
+msgid ""
+" Europe is the home of classical music. Famous composers like Bach, "
+"Beethoven, and Mozart forever changed music history."
+msgstr ""
+" Evropa je domovem klasické hudby. Známí skladatelé jako Bach, Beethoven "
+"nebo Mozart se navždy zapsali do historie hudby."
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:24
+msgid " Bach, Beethoven, and Mozart composed music in this location."
+msgstr " Na tomto místě skládali hudbu Bach, Beethoven a Mozart."
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:25
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:5
+msgid " Mexico"
+msgstr " Mexiko"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:26
+msgid ""
+" Mariachi is a famous type of Mexican music. It features guitars, trumpets, "
+"and violins. These bands play for many occasions, including weddings and "
+"parties."
+msgstr ""
+" Mariachi je známý typ mexické hudby. Jsou pro ni typické kytary, trumpety a "
+"housle. Tyto kapely hrají při všemožných příležitostech, včetně svateb a "
+"večírků."
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:27
+msgid ""
+" At parties, people often dance to the Mariachi music. A Famous dance is:"
+msgstr " Na večírcích lidé často tančí na hudbu Mariachi. Známým tancem je:"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:28
+msgid " Where is Mariachi music from?"
+msgstr " Odkud pochází hudba Mariachi?"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:29
+msgid " America"
+msgstr " Amerika"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:30
+msgid ""
+" America also has a wide variety of musical genres, but perhaps it is most "
+"famous for rock n' roll music. This music features vocalists, guitars, and "
+"drums."
+msgstr ""
+" Amerika má mnoho druhů hudebních žánrů, ale asi nejznámějším je rock n' "
+"roll. Tato hudba je založena na zpěvácích, kytarách a bubnech."
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:31
+msgid " The 'king' of rock n' roll is"
+msgstr " „Králem“ rock n' rollu je"
+
+#: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:32
+msgid ""
+" The 'king' of rock n' roll, Elvis Presley, made his music famous in this "
+"country."
+msgstr ""
+" „Králem“ rock n' rollu je Elvis Presley, který svoji hudbu v této zemi "
+"proslavil."
+
 #: ../src/fifteen-activity/fifteen.xml.in.h:1
 msgid "The fifteen game"
 msgstr "Hra patnáct"
@@ -2976,15 +3680,6 @@ msgstr ""
 msgid "Original code taken from the libgnomecanvas demo"
 msgstr "Původní kód převzat z dema libgnomecanvas"
 
-#: ../src/findit-activity/findit.py:320
-#: ../src/louis_braille-activity/louis_braille.py:88
-msgid ""
-"Failed to parse data set '{filename}' with error:\n"
-"{error}"
-msgstr ""
-"Selhalo zpracování dat „{filename}“ s chybou:\n"
-"{error}"
-
 #: ../src/followline-activity/followline.xml.in.h:1
 msgid "Control the hose-pipe"
 msgstr "Ovládej hadici"
@@ -3006,7 +3701,7 @@ msgstr ""
 "Přesuň myš na červenou část hadice. To ji postupně vytáhne až ke květinám. "
 "Opatrně, pokud uhneš z hadice, červená část se vrátí zpět."
 
-#: ../src/gcompris/about.c:48
+#: ../src/gcompris/about.c:49
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge, Yves Combe\n"
@@ -3021,7 +3716,7 @@ msgstr ""
 "Hudba na pozadí: Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:56
+#: ../src/gcompris/about.c:57
 msgid "translator_credits"
 msgstr ""
 "Miloslav Trmač\n"
@@ -3032,19 +3727,19 @@ msgstr ""
 "Petr Kovář\n"
 "Marek Černocký <marek@manet.cz>"
 
-#: ../src/gcompris/about.c:82
+#: ../src/gcompris/about.c:86
 msgid "About GCompris"
 msgstr "O aplikaci GCompris"
 
-#: ../src/gcompris/about.c:92
+#: ../src/gcompris/about.c:96
 msgid "GCompris Home Page: http://gcompris.net"
 msgstr "Domovská stránka GCompris http://gcompris.net"
 
-#: ../src/gcompris/about.c:103
+#: ../src/gcompris/about.c:107
 msgid "Translators:"
 msgstr "Překladatelé:"
 
-#: ../src/gcompris/about.c:212
+#: ../src/gcompris/about.c:207
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
@@ -3052,25 +3747,25 @@ msgstr ""
 "Tento software je balíček GNU a je uvolněn za podmínek GNU General Public "
 "Licence"
 
-#: ../src/gcompris/about.c:226 ../src/gcompris/config.c:456
-#: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:355
-#: ../src/gcompris/images_selector.c:306
+#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:460
+#: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:358
+#: ../src/gcompris/images_selector.c:313
 msgid "OK"
 msgstr "Budiž"
 
-#: ../src/gcompris/bar.c:690
+#: ../src/gcompris/bar.c:694
 msgid "GCompris confirmation"
 msgstr "Potvrzení GCompris"
 
-#: ../src/gcompris/bar.c:691
+#: ../src/gcompris/bar.c:695
 msgid "Are you sure you want to quit?"
 msgstr "Opravdu chceš skončit?"
 
-#: ../src/gcompris/bar.c:692
+#: ../src/gcompris/bar.c:696
 msgid "Yes, I am sure!"
 msgstr "Ano, chci!"
 
-#: ../src/gcompris/bar.c:693
+#: ../src/gcompris/bar.c:697
 msgid "No, I want to keep going"
 msgstr "Ne, zůstanu"
 
@@ -3118,21 +3813,21 @@ msgid "%d (New level)"
 msgstr "%d (Nová úroveň)"
 
 #. frame
-#: ../src/gcompris/board_config_wordlist.c:226
+#: ../src/gcompris/board_config_wordlist.c:225
 msgid "Configure the list of words"
 msgstr "Nastavit seznam slov"
 
-#: ../src/gcompris/board_config_wordlist.c:237
+#: ../src/gcompris/board_config_wordlist.c:236
 msgid "Choice of the language"
 msgstr "Volba jazyka"
 
-#: ../src/gcompris/board_config_wordlist.c:249
+#: ../src/gcompris/board_config_wordlist.c:248
 msgid "Choice of the level"
 msgstr "Volba úrovně"
 
 #: ../src/gcompris/config.c:58
-msgid "Your system default"
-msgstr "Výchozí nastavení vašeho systému"
+msgid "Language: your system default"
+msgstr "Jazyk: váš výchozí systémový"
 
 #: ../src/gcompris/config.c:59
 msgid "Afrikaans"
@@ -3183,7 +3878,7 @@ msgid "Croatian"
 msgstr "Chorvatština"
 
 #: ../src/gcompris/config.c:71
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:7
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:7
 msgid "Czech Republic"
 msgstr "Česká republika"
 
@@ -3272,189 +3967,194 @@ msgid "Korean"
 msgstr "Korejština"
 
 #: ../src/gcompris/config.c:93
+msgid "Latvian"
+msgstr "Lotyština"
+
+#: ../src/gcompris/config.c:94
 msgid "Lithuanian"
 msgstr "Litevština"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:95
 msgid "Macedonian"
 msgstr "Makedonština"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:96
 msgid "Malay"
 msgstr "Malajština"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:97
 msgid "Malayalam"
 msgstr "Malajálamština"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:98
 msgid "Marathi"
 msgstr "Marathi"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:99
 msgid "Montenegrin"
 msgstr "Černohorština"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:100
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:37
 msgid "Nepal"
 msgstr "Nepálština"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:101
 msgid "Norwegian Bokmal"
 msgstr "Norština Bokmal"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:102
 msgid "Norwegian Nynorsk"
 msgstr "Norština Nynorsk"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:103
 msgid "Occitan (languedocien)"
 msgstr "Okcitánština (languedocien)"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:104
 msgid "Persian"
 msgstr "Perština"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:105
 msgid "Polish"
 msgstr "Polština"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:106
 msgid "Portuguese (Brazil)"
 msgstr "Portugalština (Brazílie)"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:107
 msgid "Portuguese"
 msgstr "Portugalština"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:108
 msgid "Punjabi"
 msgstr "Paňdžábština"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:109
 msgid "Romanian"
 msgstr "Rumunština"
 
-#: ../src/gcompris/config.c:109
+#: ../src/gcompris/config.c:110
 msgid "Russian"
 msgstr "Ruština"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:111
 msgid "Serbian (Latin)"
 msgstr "Srbština (latinka)"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:112
 msgid "Serbian"
 msgstr "Srbština"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:113
 msgid "Slovak"
 msgstr "Slovenština"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:114
 msgid "Slovenian"
 msgstr "Slovinština"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:115
 msgid "Somali"
 msgstr "Somálština"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:116
 msgid "Spanish"
 msgstr "Španělština"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:117
 msgid "Swedish"
 msgstr "Švédština"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:118
 msgid "Tamil"
 msgstr "Tamilština"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:119
 msgid "Thai"
 msgstr "Thajština"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:120
 msgid "Turkish (Azerbaijan)"
 msgstr "Turečtina (Ázerbájdžán)"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:121
 msgid "Turkish"
 msgstr "Turečtina"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:122
 msgid "Ukrainian"
 msgstr "Ukrajinština"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:123
 msgid "Urdu"
 msgstr "Urdština"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:124
 msgid "Vietnamese"
 msgstr "Vitnamština"
 
-#: ../src/gcompris/config.c:124
+#: ../src/gcompris/config.c:125
 msgid "Walloon"
 msgstr "Valonština"
 
-#: ../src/gcompris/config.c:125
+#: ../src/gcompris/config.c:126
 msgid "Zulu"
 msgstr "Zulu"
 
-#: ../src/gcompris/config.c:130
-msgid "No time limit"
-msgstr "Žádný časový limit"
-
 #: ../src/gcompris/config.c:131
-msgid "Slow timer"
-msgstr "Pomalý časovač"
+msgid "Timer: No time limit"
+msgstr "Stopky: Žádný časový limit"
 
 #: ../src/gcompris/config.c:132
-msgid "Normal timer"
-msgstr "Normální časovač"
+msgid "Timer: Slow timer"
+msgstr "Stopky: Pomalé stopky"
 
 #: ../src/gcompris/config.c:133
-msgid "Fast timer"
-msgstr "Rychlý časovač"
+msgid "Timer: Normal timer"
+msgstr "Stopky: Normální stopky"
 
-#: ../src/gcompris/config.c:137
+#: ../src/gcompris/config.c:134
+msgid "Timer: Fast timer"
+msgstr "Stopky: Rychlé stopky"
+
+#: ../src/gcompris/config.c:138
 msgid "Use Gcompris administration module to filter boards"
 msgstr "Použít modul správy Gcompris pro filtrování hracích desek"
 
-#: ../src/gcompris/config.c:188
+#: ../src/gcompris/config.c:192
 msgid "GCompris Configuration"
 msgstr "Nastavení GCompris"
 
-#: ../src/gcompris/config.c:271
+#: ../src/gcompris/config.c:275
 msgid "Fullscreen"
 msgstr "Přes celou obrazovku"
 
-#: ../src/gcompris/config.c:296
+#: ../src/gcompris/config.c:300
 msgid "Music"
 msgstr "Hudba"
 
-#: ../src/gcompris/config.c:321
+#: ../src/gcompris/config.c:325
 msgid "Effect"
 msgstr "Efekty"
 
-#: ../src/gcompris/config.c:345 ../src/gcompris/sugar.c:83
+#: ../src/gcompris/config.c:349 ../src/gcompris/sugar_gc.c:93
 msgid "Zoom"
 msgstr "Přiblížení"
 
-#: ../src/gcompris/config.c:382
+#: ../src/gcompris/config.c:386
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Nelze otevřít složku s maskami vzhledu: %s"
 
-#: ../src/gcompris/config.c:413 ../src/gcompris/config.c:873
-#: ../src/gcompris/config.c:887
+#: ../src/gcompris/config.c:417 ../src/gcompris/config.c:877
+#: ../src/gcompris/config.c:891
 #, c-format
 msgid "Skin : %s"
 msgstr "Vzhled: %s"
 
-#: ../src/gcompris/config.c:415
+#: ../src/gcompris/config.c:419
 msgid "SKINS NOT FOUND"
 msgstr "MASKY VZHLEDU NENALEZENY"
 
@@ -3470,15 +4170,15 @@ msgstr "NAČÍST"
 msgid "SAVE"
 msgstr "ULOŽIT"
 
-#: ../src/gcompris/gameutil.c:138 ../src/gcompris/gameutil.c:196
+#: ../src/gcompris/gameutil.c:141 ../src/gcompris/gameutil.c:199
 msgid "Couldn't find or load the file"
 msgstr "Nelze najít nebo načíst soubor"
 
-#: ../src/gcompris/gameutil.c:140 ../src/gcompris/gameutil.c:198
+#: ../src/gcompris/gameutil.c:143 ../src/gcompris/gameutil.c:201
 msgid "This activity is incomplete."
 msgstr "Tato aktivita není dokončena."
 
-#: ../src/gcompris/gameutil.c:141 ../src/gcompris/gameutil.c:199
+#: ../src/gcompris/gameutil.c:144 ../src/gcompris/gameutil.c:202
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -3486,107 +4186,107 @@ msgstr ""
 "Ukonči ji a nahlas\n"
 "problém autorům"
 
-#: ../src/gcompris/gcompris.c:156
+#: ../src/gcompris/gcompris.c:154
 msgid "run GCompris in fullscreen mode."
 msgstr "spustit GCompris v režimu celé obrazovky."
 
-#: ../src/gcompris/gcompris.c:159
+#: ../src/gcompris/gcompris.c:157
 msgid "run GCompris in window mode."
 msgstr "spustit GCompris v režimu okna."
 
-#: ../src/gcompris/gcompris.c:162
+#: ../src/gcompris/gcompris.c:160
 msgid "run GCompris with sound enabled."
 msgstr "spustit GCompris se zapnutými zvuky."
 
-#: ../src/gcompris/gcompris.c:165
+#: ../src/gcompris/gcompris.c:163
 msgid "run GCompris without sound."
 msgstr "spustit GCompris bez zvuku."
 
-#: ../src/gcompris/gcompris.c:168
+#: ../src/gcompris/gcompris.c:166
 msgid "run GCompris with the default system cursor."
 msgstr "spustit GCompris s výchozím systémovým kurzorem."
 
-#: ../src/gcompris/gcompris.c:171
+#: ../src/gcompris/gcompris.c:169
 msgid "run GCompris without cursor (touch screen mode)."
 msgstr "spustit GCompris bez kurzoru (režim dotykových obrazovek)."
 
-#: ../src/gcompris/gcompris.c:174
+#: ../src/gcompris/gcompris.c:172
 msgid "display only activities with this difficulty level."
 msgstr "zobrazovat jen aktivity s touto úrovní obtížnosti."
 
-#: ../src/gcompris/gcompris.c:177
+#: ../src/gcompris/gcompris.c:175
 msgid "display debug informations on the console."
 msgstr "zobrazovat ladicí informace na konzoli."
 
-#: ../src/gcompris/gcompris.c:180
+#: ../src/gcompris/gcompris.c:178
 msgid "Print the version of "
 msgstr "Vytiskne verzi "
 
-#: ../src/gcompris/gcompris.c:183
+#: ../src/gcompris/gcompris.c:181
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
-"activity). Use '-l list' to list all the availaible activities and their "
+"activity). Use '-l list' to list all the available activities and their "
 "descriptions."
 msgstr ""
 "Spustit GCompris s místní nabídkou (např. -l /reading – když chceš hrát "
-"pouze aktivity ve složce, reading, -l /strategy/connect4 – aktivity z "
+"pouze aktivity ve složce, reading, -l /strategy/connect4 – aktivity pouze z "
 "connect4). Použij „-l list“ pro seznam všech dostupných aktivit a jejich "
 "popisů."
 
-#: ../src/gcompris/gcompris.c:188
+#: ../src/gcompris/gcompris.c:186
 msgid "GCompris will find the data dir in this directory"
 msgstr "Aplikace GCompris bude hledat datovou složku v této složce"
 
-#: ../src/gcompris/gcompris.c:191
+#: ../src/gcompris/gcompris.c:189
 msgid "GCompris will find the skins in this directory"
 msgstr "Aplikace GCompris bude hledat masky vzhledu v této složce"
 
-#: ../src/gcompris/gcompris.c:194
+#: ../src/gcompris/gcompris.c:192
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "Aplikace GCompris bude hledat zásuvné moduly aktivit v této složce"
 
-#: ../src/gcompris/gcompris.c:197
-msgid "GCompris will find the python activity in this directory"
-msgstr "Aplikace GCompris bude hledat aktivity python v této složce"
+#: ../src/gcompris/gcompris.c:195
+msgid "GCompris will find the Python activity in this directory"
+msgstr "Aplikace GCompris bude hledat aktivity Python v této složce"
 
-#: ../src/gcompris/gcompris.c:200
+#: ../src/gcompris/gcompris.c:198
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr "Aplikace GCompris bude hledat soubory s překlady (.mo) v této složce"
 
-#: ../src/gcompris/gcompris.c:203
+#: ../src/gcompris/gcompris.c:201
 msgid "GCompris will find the activities menu in this directory"
 msgstr "Aplikace GCompris bude hledat nabídku aktivit v této složce"
 
-#: ../src/gcompris/gcompris.c:206
+#: ../src/gcompris/gcompris.c:204
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Spustit GCompris v administračním a řídícím módu"
 
-#: ../src/gcompris/gcompris.c:209
+#: ../src/gcompris/gcompris.c:207
 msgid ""
 "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
 msgstr ""
 "Použít náhradní databázi profilů [$HOME/.config/gcompris/gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:212
+#: ../src/gcompris/gcompris.c:210
 msgid "Create the alternate database for profiles"
 msgstr "Vytvořit alternativní databázi pro profily"
 
-#: ../src/gcompris/gcompris.c:215
+#: ../src/gcompris/gcompris.c:213
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Znovu načíst nabídku XML a uložit ji do databáze"
 
-#: ../src/gcompris/gcompris.c:218
+#: ../src/gcompris/gcompris.c:216
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Vybrat profil. Pro vytvoření profilu použijte „gcompris -a“"
 
-#: ../src/gcompris/gcompris.c:221
+#: ../src/gcompris/gcompris.c:219
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Seznam všech dostupných profilů. Pro vytvoření profilu použijte „gcompris -a“"
 
-#: ../src/gcompris/gcompris.c:224
+#: ../src/gcompris/gcompris.c:222
 msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
@@ -3594,69 +4294,46 @@ msgstr ""
 "Složka s nastavením: [$HOME/.config/gcompris]. Alternativou je nastavení "
 "$XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:227
+#: ../src/gcompris/gcompris.c:225
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "Složka uživatele: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:230
+#: ../src/gcompris/gcompris.c:228
 msgid "Run the experimental activities"
 msgstr "Jít na pokusné aktivity"
 
-#: ../src/gcompris/gcompris.c:233
+#: ../src/gcompris/gcompris.c:231
 msgid "Disable the quit button"
 msgstr "Vypnout tlačítko konec"
 
-#: ../src/gcompris/gcompris.c:236
+#: ../src/gcompris/gcompris.c:234
 msgid "Disable the config button"
 msgstr "Vypnout tlačítko nastavení"
 
-#: ../src/gcompris/gcompris.c:239
+#: ../src/gcompris/gcompris.c:237
 msgid "Disable the level button"
 msgstr "Vypnout tlačítko úroveň"
 
-#: ../src/gcompris/gcompris.c:242
+#: ../src/gcompris/gcompris.c:240
 msgid "Disable the database (slower start and no user log)"
 msgstr "Zakázat databázi (pomalejší spuštění a bez záznamu)"
 
-#: ../src/gcompris/gcompris.c:245
-msgid ""
-"GCompris will get images, sounds and activity data from this server if not "
-"found locally."
-msgstr ""
-"Z tohoto serveru GCompris získá obrázky, zvuky a data aktivit, pokud nejsou "
-"k dispozici místní."
-
-#: ../src/gcompris/gcompris.c:248
-msgid ""
-"Only when --server is provided, disable check for local resource first. Data "
-"are always taken from the web server."
-msgstr ""
-"Pouze když je zadáno --server, vypne úvodní kontrolu pro místní zdroje. Data "
-"jsou vždy brána z webového serveru."
-
-#: ../src/gcompris/gcompris.c:252
-msgid ""
-"In server mode, specify the cache directory used to avoid useless downloads."
-msgstr ""
-"U serverového režimu určete složku mezipaměti pro omezení zbytečných "
-"stahování."
-
-#: ../src/gcompris/gcompris.c:255
+#: ../src/gcompris/gcompris.c:243
 msgid ""
 "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr ""
 "Obecný režim táhni a pusť: normální, dvojklik, oboje. Výchozí režim je "
 "normální."
 
-#: ../src/gcompris/gcompris.c:258
+#: ../src/gcompris/gcompris.c:246
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Povolit spuštění více GComprisů najednou."
 
-#: ../src/gcompris/gcompris.c:264
+#: ../src/gcompris/gcompris.c:249
 msgid "Disable maximization zoom"
 msgstr "Zakázat maximalizaci"
 
-#: ../src/gcompris/gcompris.c:267
+#: ../src/gcompris/gcompris.c:252
 msgid ""
 "Increase activities' timeout delays; useful values > 1.0; 1.0 to not change "
 "hardcoded value"
@@ -3664,7 +4341,7 @@ msgstr ""
 "Zvýšit časový limit aktivit; použitelné hodnoty jsou > 1,0; 1,0 zachová "
 "vestavěnou hodnotu"
 
-#: ../src/gcompris/gcompris.c:270
+#: ../src/gcompris/gcompris.c:255
 msgid ""
 "How activities' timeout delays are growing for several actors; useful values "
 "< 1.0; 1.0 to not change hardcoded value"
@@ -3672,11 +4349,11 @@ msgstr ""
 "Jak se má časový limit zvyšovat pro více účastníků; použitelné hodnoty jsou "
 "> 1,0; 1,0 zachová vestavěnou hodnotu"
 
-#: ../src/gcompris/gcompris.c:273
+#: ../src/gcompris/gcompris.c:258
 msgid "For test purpose, run in a loop all the activities"
 msgstr "Pro testovací účely, spustí ve smyčce všechny aktivity"
 
-#: ../src/gcompris/gcompris.c:956
+#: ../src/gcompris/gcompris.c:943
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -3697,14 +4374,18 @@ msgstr ""
 "na FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1250
+#: ../src/gcompris/gcompris.c:1236
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
 msgstr ""
 "Nelze načíst vzhled „%s“ (Zkontrolujte, zda soubor existuje a zda jej lze "
 "číst)"
 
-#: ../src/gcompris/gcompris.c:1520
+#: ../src/gcompris/gcompris.c:1252
+msgid "Retrieving remote data..."
+msgstr "Získávají se vzdálená data…"
+
+#: ../src/gcompris/gcompris.c:1513
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d second old.\n"
@@ -3720,17 +4401,17 @@ msgstr[2] ""
 "GCompris se nemůže spustit, protože soubor zámku je méně než %d sekund "
 "starý.\n"
 
-#: ../src/gcompris/gcompris.c:1524
+#: ../src/gcompris/gcompris.c:1517
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Soubor zámku je: %s\n"
 
-#: ../src/gcompris/gcompris.c:1697
+#: ../src/gcompris/gcompris.c:1638
 #, c-format
 msgid ""
 "GCompris\n"
 "Version: %s\n"
-"Licence: GPL\n"
+"License: GPL\n"
 "More info at http://gcompris.net\n"
 msgstr ""
 "GCompris\n"
@@ -3759,16 +4440,7 @@ msgstr "Počet aktivit: %d\n"
 msgid "%s exists but is not readable or writable"
 msgstr "%s existuje, ale nelze jej číst nebo do něj zapisovat"
 
-#: ../src/gcompris/gcompris.c:1949
-#, c-format
-msgid ""
-"The --server option cannot be used because GCompris has been compiled "
-"without network support!"
-msgstr ""
-"Přepínač --server nelze použít, protože GCompris byl přeložen bez podpory "
-"sítě."
-
-#: ../src/gcompris/gcompris.c:2005
+#: ../src/gcompris/gcompris.c:1981
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -3777,20 +4449,20 @@ msgstr ""
 "CHYBA: Profil „%s“ nebyl nalezen. Dostupné profily si vypíšete spuštěním "
 "„gcompris --profile-list“\n"
 
-#: ../src/gcompris/gcompris.c:2019
+#: ../src/gcompris/gcompris.c:1995
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Seznam dostupných profilů:\n"
 
-#: ../src/gcompris/gcompris_db.c:309
+#: ../src/gcompris/gcompris_db.c:310
 msgid "Unaffected"
 msgstr "Neovlivněný"
 
-#: ../src/gcompris/gcompris_db.c:310
+#: ../src/gcompris/gcompris_db.c:311
 msgid "Users without a class"
 msgstr "Uživatelé bez třídy"
 
-#: ../src/gcompris/gcompris_db.c:896
+#: ../src/gcompris/gcompris_db.c:897
 #, c-format
 msgid ""
 "Loading activity from database:\n"
@@ -3799,23 +4471,23 @@ msgstr ""
 "Načítá se aktivita z databáze:\n"
 "%s"
 
-#: ../src/gcompris/help.c:180
+#: ../src/gcompris/help.c:183
 msgid "Prerequisite"
 msgstr "Předpoklad"
 
-#: ../src/gcompris/help.c:210
+#: ../src/gcompris/help.c:213
 msgid "Goal"
 msgstr "Cíl"
 
-#: ../src/gcompris/help.c:240
+#: ../src/gcompris/help.c:243
 msgid "Manual"
 msgstr "Příručka"
 
-#: ../src/gcompris/help.c:270
+#: ../src/gcompris/help.c:273
 msgid "Credit"
 msgstr "Zásluhy"
 
-#: ../src/gcompris/menu.c:587
+#: ../src/gcompris/menu.c:629
 #, c-format
 msgid ""
 "Loading activity from file:\n"
@@ -3824,7 +4496,7 @@ msgstr ""
 "Načítá se aktivita ze souboru:\n"
 "%s"
 
-#: ../src/gcompris/menu.c:649
+#: ../src/gcompris/menu.c:689
 msgid ""
 "All the activities are disabled in this profile. Go in the GCompris "
 "administration module and activate at least one activity."
@@ -3832,13 +4504,13 @@ msgstr ""
 "V tomto profilu byly zakázány všechny aktivity. Jděte do modulu pro správu "
 "GCompris a alespoň jednu aktivitu povolte."
 
-#: ../src/gcompris/properties.c:506
+#: ../src/gcompris/properties.c:505
 msgid ""
 "This directory contains the files you create with the GCompris educational "
 "suite\n"
 msgstr "Tato složka obsahuje soubory, které jsi vytvořil v sadě GCompris\n"
 
-#: ../src/gcompris/properties.c:513
+#: ../src/gcompris/properties.c:512
 msgid ""
 "Put any number of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
@@ -3848,38 +4520,42 @@ msgstr ""
 "Tyto obrazy pak můžete vkládat do svých kreseb a animací.\n"
 "Podporované formáty jsou jpeg, png a svg.\n"
 
-#: ../src/gcompris/sugar.c:71
-msgid "Help"
-msgstr "Nápověda"
+#: ../src/gcompris/sugar_cli.c:222 ../src/gcompris/sugar_srv.c:156
+msgid "Sharing Error"
+msgstr "Chyba sdílení"
 
-#: ../src/gcompris/sugar.c:72
+#: ../src/gcompris/sugar_cli.c:223
+msgid "Cannot retrieve remote data"
+msgstr "Nelze získat vzdálená data"
+
+#: ../src/gcompris/sugar_gc.c:82
 msgid "About"
 msgstr "O aplikaci"
 
-#: ../src/gcompris/sugar.c:73
-msgid "Previous level"
-msgstr "Předchozí úroveň"
-
-#: ../src/gcompris/sugar.c:76
-msgid "Next level"
-msgstr "Následující úroveň"
-
-#: ../src/gcompris/sugar.c:78
+#: ../src/gcompris/sugar_gc.c:83
 msgid "Refresh"
 msgstr "Obnovit"
 
-#: ../src/gcompris/sugar.c:79
+#: ../src/gcompris/sugar_gc.c:84
 msgid "Settings"
 msgstr "Nastavení"
 
+#: ../src/gcompris/sugar_gc.c:85
+msgid "Previous level"
+msgstr "Předchozí úroveň"
+
+#: ../src/gcompris/sugar_gc.c:88
+msgid "Next level"
+msgstr "Následující úroveň"
+
 #. TRANSLATORS: Back as in previous
-#: ../src/gcompris/sugar.c:87
+#: ../src/gcompris/sugar_gc.c:97
 msgid "Back"
 msgstr "Zpět"
 
-#: ../src/gcompris/sugar.c:88
-msgid "Stop"
-msgstr "Zastavit"
+#: ../src/gcompris/sugar_srv.c:157
+msgid "Cannot initiate sharing session"
+msgstr "Nelze inicializovat sdílení"
 
 #: ../src/gcompris/timer.c:257
 msgid "Time Elapsed"
@@ -3918,6 +4594,7 @@ msgid "Regions of France"
 msgstr "Regiony Francie"
 
 #: ../src/geo_country-activity/resources/geo_country/board12_0.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:40
 msgid "India"
 msgstr "Indie"
 
@@ -3967,7 +4644,8 @@ msgid "Continents"
 msgstr "Kontinenty"
 
 #: ../src/geography-activity/resources/geography/board1_0.xml.in.h:2
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:6
 msgid "Africa"
 msgstr "Afrika"
 
@@ -3980,6 +4658,7 @@ msgid "Antarctica"
 msgstr "Antarktida"
 
 #: ../src/geography-activity/resources/geography/board1_0.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:1
 msgid "Asia"
 msgstr "Asie"
 
@@ -4020,7 +4699,7 @@ msgid "Haiti"
 msgstr "Haiti"
 
 #: ../src/geography-activity/resources/geography/board2_0.xml.in.h:8
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:8
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:8
 msgid "Iceland"
 msgstr "Island"
 
@@ -4041,467 +4720,665 @@ msgstr "Spojené státy Americké"
 msgid "Alaska"
 msgstr "Aljaška"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:1
 msgid "South America"
 msgstr "Jižní Amerika"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:2
 msgid "Argentina"
 msgstr "Argentina"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:3
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:3
 msgid "Bolivia"
 msgstr "Bolívie"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:4
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:4
 msgid "Brazil"
 msgstr "Brazílie"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:5
 msgid "Chile"
 msgstr "Chile"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:6
 msgid "Colombia"
 msgstr "Kolumbie"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:7
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:7
 msgid "Ecuador"
 msgstr "Ekvádor"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:8
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:8
 msgid "French Guiana"
 msgstr "Francouzská Guyana"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:9
 msgid "Guyana"
 msgstr "Guyana"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:10
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:10
 msgid "Panama"
 msgstr "Panama"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:11
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:11
 msgid "Paraguay"
 msgstr "Paraguay"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:12
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:12
 msgid "Peru"
 msgstr "Peru"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:13
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:13
 msgid "Suriname"
 msgstr "Surinam"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:14
 msgid "Uruguay"
 msgstr "Uruguay"
 
-#: ../src/geography-activity/resources/geography/board2_1.xml.in.h:15
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:15
 msgid "Venezuela"
 msgstr "Venezuela"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:1
 msgid "Western Europe"
 msgstr "Západní Evropa"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:2
 msgid "Austria"
 msgstr "Rakousko"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:3
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:3
 msgid "Belgium"
 msgstr "Belgie"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:4
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:4
 msgid "Denmark"
 msgstr "Dánsko"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:5
 msgid "Finland"
 msgstr "Finsko"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:6
 msgid "France"
 msgstr "Francie"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:7
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:7
 msgid "Germany"
 msgstr "Německo"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:9
 msgid "Ireland"
 msgstr "Irsko"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:10
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:10
 msgid "Italy"
 msgstr "Itálie"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:11
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:11
 msgid "Luxembourg"
 msgstr "Lucembursko"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:12
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:12
 msgid "The Netherlands"
 msgstr "Nizozemsko"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:13
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:13
 msgid "Norway"
 msgstr "Norsko"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:14
 msgid "Portugal"
 msgstr "Portugalsko"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:15
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:15
 msgid "Spain"
 msgstr "Španělsko"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:16
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:16
 msgid "Sweden"
 msgstr "Švédsko"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:17
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:17
 msgid "Switzerland"
 msgstr "Švýcarsko"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:18
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:18
 msgid "United Kingdom"
 msgstr "Spojené království"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:1
 msgid "Eastern Europe"
 msgstr "Východní Evropa"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:2
 msgid "Albania"
 msgstr "Albánie"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:3
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:3
 msgid "Belarus"
 msgstr "Bělorusko"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:4
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:4
 msgid "Bosnia Herzegovina"
 msgstr "Bosna a Hercegovina"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:5
 msgid "Bulgaria"
 msgstr "Bulharsko"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:6
 msgid "Croatia"
 msgstr "Chorvatsko"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:8
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:8
 msgid "Estonia"
 msgstr "Estonsko"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:9
 msgid "Hungary"
 msgstr "Maďarsko"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:10
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:10
 msgid "Latvia"
 msgstr "Lotyšsko"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:11
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:11
 msgid "Lithuania"
 msgstr "Litva"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:12
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:12
 msgid "Macedonia"
 msgstr "Makedonie"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:13
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:13
 msgid "Moldova"
 msgstr "Moldavsko"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:14
 msgid "Poland"
 msgstr "Polsko"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:15
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:15
 msgid "Romania"
 msgstr "Rumunsko"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:16
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:16
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:54
 msgid "Russia"
 msgstr "Rusko"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:17
-msgid "Serbia Montenegro"
-msgstr "Srbsko a Černá Hora"
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:17
+msgid "Serbia"
+msgstr "Srbsko"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:18
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:18
+msgid "Montenegro"
+msgstr "Černá Hora"
+
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:19
 msgid "Slovak Republic"
 msgstr "Slovenská republika"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:19
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:20
 msgid "Slovenia"
 msgstr "Slovinsko"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:20
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:21
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:24
 msgid "Turkey"
 msgstr "Turecko"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:21
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:22
 msgid "Ukraine"
 msgstr "Ukrajina"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:22
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:23
 msgid "Greece"
 msgstr "Řecko"
 
-#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:23
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:24
 msgid "Cyprus"
 msgstr "Kypr"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:1
 msgid "Northern Africa"
 msgstr "Severní Afrika"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:2
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:3
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:3
 msgid "Algeria"
 msgstr "Alžírsko"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:3
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:3
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:5
 msgid "Benin"
 msgstr "Benin"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:4
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:7
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:4
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:7
 msgid "Burkina Faso"
 msgstr "Burkina Faso"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:5
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:8
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:8
 msgid "Cameroon"
 msgstr "Kamerun"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:6
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:30
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:30
 msgid "Central African Republic"
 msgstr "Středoafrická republika"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:7
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:35
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:7
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:35
 msgid "Chad"
 msgstr "Čad"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:8
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:8
 msgid "Djibouti"
 msgstr "Eritrea"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:9
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:11
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:11
 msgid "Egypt"
 msgstr "Egypt"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:10
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:10
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:6
 msgid "Equatorial Guinea"
 msgstr "Rovníková Guinea"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:11
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:13
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:11
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:13
 msgid "Ethiopia"
 msgstr "Etiopie"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:12
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:12
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:12
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:12
 msgid "Eritrea"
 msgstr "Eritrea"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:13
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:7
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:13
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:7
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:14
 msgid "Gabon"
 msgstr "Gabun"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:14
 msgid "Gambia"
 msgstr "Gambie"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:15
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:15
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:15
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:15
 msgid "Ghana"
 msgstr "Ghana"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:16
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:16
 msgid "Guinea Bissau"
 msgstr "Guinea Bissau"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:17
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:16
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:17
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:16
 msgid "Guinea"
 msgstr "Guinea"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:18
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:10
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:18
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:10
 msgid "Ivory Coast"
 msgstr "Pobřeží slonoviny"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:19
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:18
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:19
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:18
 msgid "Liberia"
 msgstr "Libérie"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:20
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:19
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:20
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:19
 msgid "Libya"
 msgstr "Libye"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:21
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:22
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:21
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:22
 msgid "Mali"
 msgstr "Mali"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:22
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:24
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:22
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:24
 msgid "Mauritania"
 msgstr "Mauritánie"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:23
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:23
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:23
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:23
 msgid "Morocco"
 msgstr "Maroko"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:24
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:28
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:24
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:28
 msgid "Nigeria"
 msgstr "Nigérie"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:25
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:27
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:25
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:27
 msgid "Niger"
 msgstr "Niger"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:26
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:15
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:26
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:15
 msgid "Rwanda"
 msgstr "Rwanda"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:27
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:31
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:27
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:31
 msgid "Senegal"
 msgstr "Senegal"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:28
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:28
 msgid "Sierra Leone"
 msgstr "Sierra Leone"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:29
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:32
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:29
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:32
 msgid "Somalia"
 msgstr "Somálsko"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:30
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:33
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:30
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:33
 msgid "Sudan"
 msgstr "Súdán"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:31
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:36
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:31
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:36
 msgid "Togo"
 msgstr "Togo"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:32
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:37
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:32
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:37
 msgid "Tunisia"
 msgstr "Tunisko"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:33
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:19
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:29
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:33
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:19
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:29
 msgid "Uganda"
 msgstr "Uganda"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:34
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:34
 msgid "Western Sahara"
 msgstr "Západní Sahara"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:1
 msgid "Southern Africa"
 msgstr "Jižní Afrika"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:2
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:4
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:4
 msgid "Angola"
 msgstr "Angola"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:3
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:3
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:6
 msgid "Botswana"
 msgstr "Botswana"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:4
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:4
 msgid "Burundi"
 msgstr "Burundi"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:5
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:9
 msgid "Democratic Republic of Congo"
 msgstr "Demokratická republika Kongo"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:8
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:17
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:8
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:17
 msgid "Kenya"
 msgstr "Keňa"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:9
 msgid "Lesotho"
 msgstr "Lesotho"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:10
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:20
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:10
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:20
 msgid "Madagascar"
 msgstr "Madagaskar"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:11
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:21
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:11
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:21
 msgid "Malawi"
 msgstr "Malawi"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:12
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:25
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:12
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:25
 msgid "Mozambique"
 msgstr "Mosambik"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:13
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:26
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:13
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:26
 msgid "Namibia"
 msgstr "Namibie"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:14
 msgid "Republic of Congo"
 msgstr "Republika Kongo"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:16
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:16
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:2
 msgid "South Africa"
 msgstr "Jižní Afrika"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:17
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:17
 msgid "Swaziland"
 msgstr "Svazijsko"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:18
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:34
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:18
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:34
 msgid "Tanzania"
 msgstr "Tanzanie"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:20
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:38
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:20
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:38
 msgid "Zambia"
 msgstr "Zambie"
 
-#: ../src/geography-activity/resources/geography/board4_1.xml.in.h:21
-#: ../src/geography-activity/resources/geography/board4_2.xml.in.h:39
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:21
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:39
 msgid "Zimbabwe"
 msgstr "Zimbabwe"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:2
+msgid "Caspian Sea"
+msgstr "Kaspické moře"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:3
+msgid "Black Sea"
+msgstr "Černé moře"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:4
+msgid "Mediteranean Sea"
+msgstr "Středozemní moře"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:5
+msgid "Persian Gulf"
+msgstr "Perský záliv"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:7
+msgid "Red Sea"
+msgstr "Rudé moře"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:8
+msgid "Palestine"
+msgstr "Palestina"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:9
+msgid "Israel"
+msgstr "Izrael"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:10
+msgid "Brunei"
+msgstr "Brunej"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:11
+msgid "Qatar"
+msgstr "Katar"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:12
+msgid "Bahrain"
+msgstr "Bahrajn"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:13
+msgid "Lebanon"
+msgstr "Libanon"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:14
+msgid "Chypre"
+msgstr "Kypr"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:15
+msgid "Kuwait"
+msgstr "Kuvajt"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:16
+msgid "Armenia"
+msgstr "Arménie"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:17
+msgid "Oman"
+msgstr "Omán"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:18
+msgid "United Arab Emirates"
+msgstr "Spojené Arabské Emiráty"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:19
+msgid "Yemen"
+msgstr "Jemen"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:20
+msgid "Saudi Arabia"
+msgstr "Saudská Arábie"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:21
+msgid "Jordan"
+msgstr "Jordánsko"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:22
+msgid "Iraq"
+msgstr "Irák"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:23
+msgid "Syria"
+msgstr "Sýrie"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:25
+msgid "Georgia"
+msgstr "Gruzie"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:26
+msgid "Azerbaijan"
+msgstr "Ázerbájdžán"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:27
+msgid "Iran"
+msgstr "Írán"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:28
+msgid "Turkmenistan"
+msgstr "Turkmenistán"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:29
+msgid "Kyrgyzstan"
+msgstr "Kyrgyzstán"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:30
+msgid "Tajikistan"
+msgstr "Tádžikistán"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:31
+msgid "Afghanistan"
+msgstr "Afghánistán"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:32
+msgid "Malaysia"
+msgstr "Malajsie"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:33
+msgid "Indonesia"
+msgstr "Indonésie"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:34
+msgid "Philippines"
+msgstr "Filipíny"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:35
+msgid "Myanmar"
+msgstr "Myanmar (Barma)"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:36
+msgid "Pakistan"
+msgstr "Pákistán"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:38
+msgid "Bhutan"
+msgstr "Bhútán"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:39
+msgid "Bangladesh"
+msgstr "Bangladéš"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:41
+msgid "China"
+msgstr "Čína"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:42
+msgid "Sri Lanka"
+msgstr "Srí Lanka"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:43
+msgid "Thailand"
+msgstr "Thajsko"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:44
+msgid "Laos"
+msgstr "Laos"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:45
+msgid "Cambodia"
+msgstr "Kambodža"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:46
+msgid "Vietnam"
+msgstr "Vitnam"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:47
+msgid "Taiwan"
+msgstr "Tchaj-wan"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:48
+msgid "Uzbekistan"
+msgstr "Uzbekistán"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:49
+msgid "Kazakhstan"
+msgstr "Kazachstán"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:50
+msgid "South Korea"
+msgstr "Jižní Korea"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:51
+msgid "North Korea"
+msgstr "Severní Korea"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:52
+msgid "Japan"
+msgstr "Japonsko"
+
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:53
+msgid "Mongolia"
+msgstr "Mongolsko"
 
 #: ../src/gletters-activity/gletters.c:132
 #: ../src/gletters-activity/gletters.xml.in.h:1
@@ -4530,12 +5407,11 @@ msgstr "AÁBCČDĎEÉĚFGHIÍJKLMNŇOÓPQRŘSŠTŤUÚŮVWXYÝZŽ"
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
 #: ../src/gletters-activity/gletters.c:850
-#: ../src/imageid-activity/imageid.c:716 ../src/login-activity/login.py:480
-#: ../src/missing_letter-activity/missingletter.c:800
+#: ../src/imageid-activity/imageid.c:716
 #: ../src/pythontest-activity/pythontest.py:448
 #: ../src/readingh-activity/reading.c:905
-#: ../src/scalesboard-activity/scale.c:1190
-#: ../src/smallnumbers-activity/smallnumbers.c:597
+#: ../src/scalesboard-activity/scale.c:1211
+#: ../src/smallnumbers-activity/smallnumbers.c:598
 #: ../src/tuxpaint-activity/tuxpaint.py:185
 #: ../src/wordsgame-activity/wordsgame.c:904
 #, c-format, python-format
@@ -4547,7 +5423,7 @@ msgstr ""
 " pro profil <b>%s</b>"
 
 #: ../src/gletters-activity/gletters.c:879
-#: ../src/smallnumbers-activity/smallnumbers.c:616
+#: ../src/smallnumbers-activity/smallnumbers.c:617
 msgid "Enable sounds"
 msgstr "Povolit zvuky"
 
@@ -4604,9 +5480,8 @@ msgid " and %d"
 msgstr " a %d"
 
 #: ../src/gnumch-equality-activity/gnumch.py:115
-#, python-format
-msgid "%d is divisible by %s."
-msgstr "%d je dělitelné %s."
+msgid "{0} is divisible by {1}."
+msgstr "{0} je dělitelné {1}."
 
 #: ../src/gnumch-equality-activity/gnumch.py:119
 msgid "1 is not a prime number."
@@ -4633,9 +5508,8 @@ msgid "Factors of %d"
 msgstr "Dělitelé %d"
 
 #: ../src/gnumch-equality-activity/gnumch.py:195
-#, python-format
-msgid "%s are the factors of %d."
-msgstr "%s jsou dělitelé %d."
+msgid "{0} are the factors of {1}."
+msgstr "{0} jsou dělitelé {1}."
 
 #: ../src/gnumch-equality-activity/gnumch.py:207
 #, python-format
@@ -4643,29 +5517,24 @@ msgid "Multiples of %d"
 msgstr "Násobky %d"
 
 #: ../src/gnumch-equality-activity/gnumch.py:241
-#, python-format
-msgid "%s = %d"
-msgstr "%s = %d"
+msgid "{0} = {1}"
+msgstr "{0} = {1}"
 
 #: ../src/gnumch-equality-activity/gnumch.py:252
-#, python-format
-msgid "%d + %d"
-msgstr "%d + %d"
+msgid "{0} + {1}"
+msgstr "{0} + {1}"
 
 #: ../src/gnumch-equality-activity/gnumch.py:257
-#, python-format
-msgid "%d − %d"
-msgstr "%d − %d"
+msgid "{0} − {1}"
+msgstr "{0} − {1}"
 
 #: ../src/gnumch-equality-activity/gnumch.py:262
-#, python-format
-msgid "%d × %d"
-msgstr "%d . %d"
+msgid "{0} × {1}"
+msgstr "{0} . {1}"
 
 #: ../src/gnumch-equality-activity/gnumch.py:266
-#, python-format
-msgid "%d ÷ %d"
-msgstr "%d : %d"
+msgid "{0} ÷ {1}"
+msgstr "{0} : {1}"
 
 #: ../src/gnumch-equality-activity/gnumch.py:274
 #, python-format
@@ -4795,15 +5664,15 @@ msgid ""
 "the board and to avoid the Troggles. Press the spacebar to eat a number."
 msgstr ""
 "Násobky čísla jsou taková čísla, která se rovnají původnímu číslu "
-"vynásobenému dalším číslem. Např.: 24, 35, 48 a 60 jsou násobky 12ti. 25 "
-"není násobek 12ti, protože neexistuje číslo, které když vynásobeno 12ti dává "
-"25. Pokud je jedno číslo dělitel druhého, pak druhé je násobkem prvního. "
-"Tato čísla si opět můžeš představit jako rodiny a dělitele jako členy, které "
-"do nich patří. Dělitel 5 má rodiče 10, prarodiče 15 a praprarodiče 20, "
+"vynásobenému dalším číslem. Např.: 24, 35, 48 a 60 jsou násobky 12. 25 není "
+"násobek 12, protože neexistuje číslo, které vynásobeno 12 dává 25. Pokud je "
+"jedno číslo dělitel druhého, pak druhé je násobkem prvního. Tato čísla si "
+"opět můžeš představit jako rodiny a dělitele jako členy, které do nich "
+"patří. Dělitel 5 má rodiče 10, prarodiče 15 a praprarodiče 20, "
 "prapraprarodiče 25 atd. Číslo 5 ale nenáleží do rodiny 8 nebo 23. Neexistuje "
-"žádné číslo, které ti po vynásobení 5ti dá 8 nebo 23. Takže 8 není násobkem "
-"5ti, ani 23. Pouze  5, 10, 15, 20, 25 … jsou násobky 5ti. Pro pohyb na desce "
-"použij šipky na klávesnici. Pro snězení čísla použij mezerník."
+"žádné číslo, které ti po vynásobení 5 dá 8 nebo 23. Takže 8 není násobkem 5, "
+"ani 23. Pouze  5, 10, 15, 20, 25… jsou násobky 5. Pro pohyb na desce použij "
+"šipky na klávesnici. Pro snědení čísla použij mezerník."
 
 #: ../src/gnumch-primes-activity/gnumch-primes.xml.in.h:1
 msgid "Prime Number Munchers"
@@ -4838,24 +5707,22 @@ msgstr ""
 "klávesnici. Pro snězení čísla použij mezerník."
 
 #: ../src/guessnumber-activity/guessnumber.py:203
-#, python-format
-msgid "Guess a number between %d and %d"
-msgstr "Uhádni číslo mezi %d a %d"
+msgid "Guess a number between {0} and {1}"
+msgstr "Uhádni číslo mezi {0} a {1}"
 
-#: ../src/guessnumber-activity/guessnumber.py:306
-#, python-format
-msgid "Please enter a number between %d and %d"
-msgstr "Zadej prosím číslo mezi %d a %d"
+#: ../src/guessnumber-activity/guessnumber.py:307
+msgid "Please enter a number between {0} and {1}"
+msgstr "Zadej prosím číslo mezi {0} a {1}"
 
-#: ../src/guessnumber-activity/guessnumber.py:311
+#: ../src/guessnumber-activity/guessnumber.py:312
 msgid "Out of range"
 msgstr "Mimo rozsah"
 
-#: ../src/guessnumber-activity/guessnumber.py:317
+#: ../src/guessnumber-activity/guessnumber.py:318
 msgid "Too high"
 msgstr "Příliš velké"
 
-#: ../src/guessnumber-activity/guessnumber.py:319
+#: ../src/guessnumber-activity/guessnumber.py:320
 msgid "Too low"
 msgstr "Příliš malé"
 
@@ -5064,7 +5931,7 @@ msgstr "Toto je elektroměr pro elektřinu produkovanou turbínou."
 #: ../src/hydroelectric-activity/hydroelectric.py:292
 #: ../src/hydroelectric-activity/hydroelectric.py:323
 #: ../src/hydroelectric-activity/hydroelectric.py:346
-msgid "The electricity power is measured in Watt (W)."
+msgid "The electricity power is measured in watts (W)."
 msgstr "Elektrický výkon se měří ve wattech (W)."
 
 #: ../src/hydroelectric-activity/hydroelectric.py:176
@@ -5486,7 +6353,7 @@ msgid "the clarinet"
 msgstr "klarinet"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:4
-msgid "the flute traversiere"
+msgid "the transverse flute"
 msgstr "příčná flétna"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:5
@@ -5518,72 +6385,213 @@ msgid "the violin"
 msgstr "housle"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
+msgid "the flute traversiere"
+msgstr "příčná flétna"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
 msgid "the drum kit"
 msgstr "bicí souprava"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
 msgid "the accordion"
 msgstr "tahací harmoniku"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
 msgid "the banjo"
 msgstr "bendžo"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
 msgid "the bongo"
 msgstr "bonga"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
 msgid "the electric guitar"
 msgstr "elektrickou kytaru"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
 msgid "the castanets"
 msgstr "kastaněty"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
 msgid "the cymbal"
 msgstr "činely"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
 msgid "the cello"
 msgstr "violončelo"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
 msgid "the harmonica"
 msgstr "foukací harmoniku"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
 msgid "the horn"
 msgstr "lesní roh"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
 msgid "the maracas"
 msgstr "rumba koule"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
 msgid "the organ"
 msgstr "varhany"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
 msgid "the snare drum"
 msgstr "vířivý buben"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
 msgid "the timpani"
 msgstr "tympány"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:27
 msgid "the triangle"
 msgstr "triangl"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:27
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:28
 msgid "the tambourine"
 msgstr "tamburinu"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:28
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:29
 msgid "the tuba"
 msgstr "tubu"
+
+#: ../src/intro_gravity-activity/intro_gravity.py:98
+msgid ""
+"Gravity is universal and Newton's law of universal gravitation extends "
+"gravity beyond earth. This force of gravitational attraction is directly "
+"dependent upon the masses of both objects and inversely proportional to the "
+"square of the distance that separates their centers."
+msgstr ""
+"Gravitace působí univerzálně a Newtonův obecný gravitační zákon rozšířil "
+"působnost gravitace i mimo Zemi. Gravitační přitažlivost je přímo úměrná "
+"hmotnosti obou objektů a nepřímo úměrná druhé mocnině vzdálenosti jejich "
+"středů."
+
+#: ../src/intro_gravity-activity/intro_gravity.py:105
+msgid ""
+"Since the gravitational force is directly proportional to the mass of both "
+"interacting objects, more massive objects will attract each other with a "
+"greater gravitational force. So as the mass of either object increases, the "
+"force of gravitational attraction between them also increases but this force "
+"is inversely proportional to the square of the separation distance between "
+"the two interacting objects, more separation distance will result in weaker "
+"gravitational forces."
+msgstr ""
+"Vzhledem k tomu, že gravitační síla je přímo úměrná hmotnosti obou "
+"působících těles, bude těžší objekt přitahovat ten druhý větší gravitační "
+"silou. Podobně, jak síla roste s hmotností působících objektů, roste "
+"přítažlivá síla, ale nepřímo úměrně, se čtvercem vzdálenosti obou působících "
+"objektů. Čím jsou od sebe dále, tím je gravitační síla slabší."
+
+#: ../src/intro_gravity-activity/intro_gravity.py:118
+msgid ""
+"Your goal is to let Tux's spaceship move by changing the mass of its "
+"surrounding planets. Don't get too close to the planets or you will crash on "
+"them. The arrow indicates the direction of the force on your ship."
+msgstr ""
+"Tvým cílem je pohybovat Tuxovou vesmírnou lodí tak, že měníš hmotnost "
+"okolních planet. Nedovol mu se k planetám příliš přiblížit, jinak do nich "
+"narazí. Šipka ti ukazuje směr síly působící na jeho loď."
+
+#: ../src/intro_gravity-activity/intro_gravity.py:128
+msgid "Avoid the asteroid and join the space shuttle to win."
+msgstr "Vyhni se asteroidům a připoj se k raketoplánu, aby jsi vyhrál."
+
+#: ../src/intro_gravity-activity/intro_gravity.xml.in.h:1
+msgid "Intro gravity"
+msgstr "Úvod do gravitace"
+
+#: ../src/intro_gravity-activity/intro_gravity.xml.in.h:2
+msgid "Introduction to the concept of gravity"
+msgstr "Seznámení s pojetím gravitace"
+
+#: ../src/intro_gravity-activity/intro_gravity.xml.in.h:3
+msgid ""
+"Maintain the spaceship in the middle without crashing into the planets or "
+"the asteroids"
+msgstr ""
+"Udržovat vesmírnou loď na středu, aniž bys narazil do planet nebo asteroidů."
+
+#: ../src/intro_gravity-activity/intro_gravity.xml.in.h:4
+msgid "Follow the instructions when you run the activity."
+msgstr "Řiď se instrukcemi po spuštění aktivity."
+
+#: ../src/land_safe-activity/land_safe.py:77
+#, python-format
+msgid "Gravity: %s"
+msgstr "Gravitace: %s"
+
+#: ../src/land_safe-activity/land_safe.py:164
+msgid ""
+"Use the up and down keys to control the thrust\n"
+"Use the right and left keys to control direction.\n"
+"You must drive Tux's ship towards the landing platform.\n"
+"The landing platform turns green when the velocity is safe to land"
+msgstr ""
+"Pomocí tlačítek se šipkami nahoru a dolů ovládej tah.\n"
+"Pomocí tlačítek se šipkami vlevo a vpravo ovládej směr.\n"
+"Musíš Tuxovu loď řídit směrem k přistávací plošině.\n"
+"Když máš bezpečnou rychlost pro přistání, plošina se zeleně rozsvítí."
+
+#: ../src/land_safe-activity/land_safe.py:169
+msgid "Click on me or press the Return key when you are ready."
+msgstr "Až budeš připravený, klikni na mě nebo zmáčkni klávesu Enter."
+
+#: ../src/land_safe-activity/land_safe.py:171
+msgid "I am ready!"
+msgstr "Jsem připraven!"
+
+#: ../src/land_safe-activity/land_safe.py:453
+msgid "Height: "
+msgstr "Výška: "
+
+#: ../src/land_safe-activity/land_safe.py:469
+msgid "Fuel"
+msgstr "Palivo: "
+
+#: ../src/land_safe-activity/land_safe.py:501
+msgid "Velocity: "
+msgstr "Rychlost: "
+
+#: ../src/land_safe-activity/land_safe.xml.in.h:1
+msgid "Land Safe"
+msgstr "Bezpečné přistání"
+
+#: ../src/land_safe-activity/land_safe.xml.in.h:2
+msgid "Understanding acceleration due to gravity."
+msgstr "Pochopení zrychlení v důsledku gravitace."
+
+#: ../src/land_safe-activity/land_safe.xml.in.h:3
+msgid "Pilot the spaceship towards the green landing area."
+msgstr "Pilotovat vesmírnou loď na cestě k přistávací dráze."
+
+#: ../src/land_safe-activity/land_safe.xml.in.h:4
+msgid ""
+"\n"
+"Acceleration due to gravity experienced by the spaceship is directly "
+"proportional to the mass of the planet and inversely proportional to the "
+"square of the distance from the center of the planet. Thus, with every "
+"planet the acceleration will differ and as the spaceship comes closer and "
+"closer to the planet the acceleration increases.\n"
+"\n"
+"Use the up/down keys to control the thrust and the right/left keys to "
+"control direction.\n"
+"\n"
+"The landing platform is green if your speed is fine for a safe landing.\n"
+"        "
+msgstr ""
+"\n"
+"Gravitační zrychlení působící na vesmírnou loď je přímo úměrné hmotnosti "
+"planety a nepřímo úměrné druhé mocnině vzdálenosti od středu planety. Proto "
+"se u každé planety bude přitažlivost lišit a jak se bude loď k planetě víc "
+"přibližovat, přitažlivost poroste.\n"
+"\n"
+"Použij klávesy se šipkami nahoru/dolů k ovládání tahu a šipkami vlevo/vpravo "
+"k ovládání směru.\n"
+"\n"
+"Pokud je tvá rychlost bezpečná pro přistání, je přistávací plošina zelená.\n"
+"        "
 
 #: ../src/lang-activity/lang.py:56
 msgid "Missing Image"
@@ -5642,6 +6650,7 @@ msgstr ""
 "Rozpoznání levé ruky od pravé z různých pohledů. Prostorová reprezentace"
 
 #: ../src/leftright-activity/leftright.xml.in.h:4
+#: ../src/note_names-activity/note_names.xml.in.h:3
 #: ../src/railroad-activity/railroad.xml.in.h:4
 msgid "None"
 msgstr "Žádný"
@@ -5673,24 +6682,23 @@ msgstr "Cílem je vypnout všechna světla."
 #: ../src/lightsoff-activity/lightsoff.xml.in.h:3
 msgid ""
 "The effect of pressing a button is to toggle the state of that button, and "
-"of its immediate vertical and horizontal neighbours. The sun and the color "
-"of the sky depend on the number of clicks needed to solve the puzzle. If you "
+"of its immediate vertical and horizontal neighbors. The sun and the color of "
+"the sky depend on the number of clicks needed to solve the puzzle. If you "
 "click on Tux, the solution is shown."
 msgstr ""
 "Zmáčknutí tlačítka se projeví přepnutím jeho stavu a současně i stavu jeho "
 "přímo svisle a vodorovně sousedících tlačítek. Slunce a barva oblohy závisí "
-"na počtu kliknutí potřebných k vyřešení hlavolamu. Když klikneš na tučňáka, "
+"na počtu kliknutí potřebných k vyřešení hlavolamu. Když klikneš na Tuxe, "
 "ukáže ti řešení."
 
 #: ../src/lightsoff-activity/lightsoff.xml.in.h:4
 msgid ""
-"The solver algorithm described on haar.clara.co.uk is a valuable resource to "
-"know more about the Lights Off game: &lt;http://www.haar.clara.co.uk/Lights/"
-"solving.html&gt;"
+"The solver algorithm is described on Wikipedia. To know more about the "
+"Lights Off game: &lt;http://en.wikipedia.org/wiki/Lights_Out_(game)&gt;"
 msgstr ""
-"Postup řešení popsaný na haar.clara.co.uk je pro hru „Vypínání světel“ "
-"cenným zdrojem znalostí: &lt;http://www.haar.clara.co.uk/Lights/solving."
-"html&gt;"
+"Postup řešení je popsaný na Wikipedii. Pokud se chcete dozvědět více o hře "
+"„Vypínání světel“, navštivte &lt;http://en.wikipedia.org/wiki/Lights_Out_"
+"(game)&gt;"
 
 #: ../src/login-activity/login.py:102
 msgid "Profile: "
@@ -5699,6 +6707,20 @@ msgstr "Profil: "
 #: ../src/login-activity/login.py:235
 msgid "Login: "
 msgstr "Přihlášení: "
+
+#. Init configuration window:
+#. all the configuration functions will use it
+#. all the configuration functions returns values for their key in
+#. the dict passed to the apply_callback
+#. the returned value is the main GtkVBox of the window,
+#. we can add what you want in it.
+#: ../src/login-activity/login.py:480
+msgid ""
+"<b>{0}</b> configuration\n"
+" for profile <b>{1}</b>"
+msgstr ""
+"Nastavení <b>{0}</b>\n"
+" pro profil <b>{1}</b>"
 
 #. toggle box
 #: ../src/login-activity/login.py:496
@@ -5836,7 +6858,7 @@ msgstr ""
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:10
 msgid ""
-"He died of tuberculosis. He is burried in the Pantheon in Paris. A monument "
+"He died of tuberculosis. He is buried in the Pantheon in Paris. A monument "
 "is erected to honor him."
 msgstr ""
 "Zemřel na tuberkulózu. Je pochována v Pantheonu v Paříži. Na jeho počest byl "
@@ -5912,7 +6934,7 @@ msgstr ""
 "odpověď."
 
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:1
-#: ../src/maze-activity/maze.c:132 ../src/maze-activity/maze.xml.in.h:1
+#: ../src/maze-activity/maze.c:141 ../src/maze-activity/maze.xml.in.h:1
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:1
 msgid "Maze"
 msgstr "Bludiště"
@@ -5938,12 +6960,46 @@ msgstr "Pomoz Tuxovi dostat se z tohoto bludiště."
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:5
 msgid ""
 "Use the keyboard arrows to move Tux up to the door. In this maze, the move "
-"is relative (first person). Use the up arrow to go forward. The other arrow "
-"let you turn Tux in another direction."
+"is relative (first person). Use the up arrow to go forward. The other arrows "
+"let you turn Tux in another direction.\n"
+"\n"
+"At the first levels, Tux walks comfortably, one step on each keypress, "
+"through the labyrinth.\n"
+"\n"
+"For larger labyrinths, there is a special walking mode, called \"run-fast-"
+"mode\". If this run-fast-mode is enabled, Tux will run all the way "
+"automatically until he reaches a fork and you have to decide which way to go "
+"further.\n"
+"\n"
+"You can see whether this mode is enabled or not, by looking at Tux's feet: "
+"If Tux is barefooted, \"run-fast-mode\" is disabled. And if he wears red "
+"sport shoes, \"run-fast-mode\" is enabled.\n"
+"\n"
+"From level 14 on, run-fast-mode will be enabled automatically. If you want "
+"to use this feature in earlier levels or want to disable it in advanced "
+"levels, click on Tux or the \"barefoot / sportshoe\"-icon in the upper left "
+"corner of the screen to toggle the run-fast-mode.\n"
 msgstr ""
-"Použij šipky na klávesnici pro přesun Tuxe ke dveřím. Pohyb v bludišti je "
-"relativní (pohled z první osoby). Použij šipku nahoru pro pohyb dopředu. "
-"Další šipky ti umožní otočit Tuxe jiným směrem."
+"Použij šipky na klávesnici k přesunu Tuxe ke dveřím. Pohyb v tomto bludišti "
+"je relativní (vztahuje se k první osobě). Šipku nahoru použij pro chůzi "
+"vpřed. Ostatní šipky ti umožní otáčet Tuxe do ostatních směrů.\n"
+"\n"
+"V první úrovni jde Tux bludištěm pohodově vycházkovým krokem, co stisk "
+"klávesy, to jeden krok.\n"
+"\n"
+"Pro větší labyrinty je zde speciální režim chůze nazývaný „režim-rychlého-"
+"běhu“. Když je tento režim-rychlého-běhu zapnutý, poběží Tux celou cestu "
+"automaticky, dokud nedosáhne křižovatky a ty musíš rozhodnout, kudy má "
+"pokračovat.\n"
+"\n"
+"Jestli chceš vidět, zda je tento režim zapnutý nebo ne, podívej se na Tuxovy "
+"nohy. Pokud je Tux bosý, je „režim-rychlého-běhu“ vypnutý. A když si obuje "
+"červené sportovní boty, je „režim-rychlého-běhu“ zapnutý.\n"
+"\n"
+"Od úrovně 14 bude režim-rychlého-běhu zapnutý automaticky. Pokud chceš tuto "
+"funkci použít v nižších úrovních nebo ji naopak vypnout v pokročilejších "
+"úrovních, klikni na Tuxe nebo ikonu „bosé nohy“/„sportovní obuv“ v levém "
+"horním rohu obrazovky a tím režim-rychlého-běhu přepneš.\n"
 
 #: ../src/maze3D-activity/maze3D.xml.in.h:1
 msgid "3D Maze"
@@ -5963,25 +7019,63 @@ msgstr ""
 "mezi režimy 2D a 3D použij mezerník. Režim 2D ti dává informaci o tvé pozici "
 "na mapě. V režimu 2D nemůžeš Tuxem pohybovat."
 
-#: ../src/maze-activity/maze.c:133 ../src/maze-activity/maze.xml.in.h:2
+#: ../src/maze-activity/maze.c:142 ../src/maze-activity/maze.xml.in.h:2
 msgid "Find your way out of the maze"
 msgstr "Najdi cestu z bludiště"
 
-#: ../src/maze-activity/maze.c:603
+#: ../src/maze-activity/maze.c:637
 msgid ""
 "Look at your position, then switch back to invisible mode to continue your "
 "moves"
 msgstr ""
 "Podívej se na svou pozici a pro pohyb se přepni zpět do neviditelného režimu"
 
-#: ../src/maze-activity/maze.c:605
+#: ../src/maze-activity/maze.c:639
 msgid ""
 "Look at your position, then switch back to 3D mode to continue your moves"
 msgstr "Podívej se na svou pozici a pro pohyb se přepni zpět do režimu 3D"
 
 #: ../src/maze-activity/maze.xml.in.h:5
-msgid "Use the keyboard arrows to move Tux up to the door."
-msgstr "Použij šipky na klávesnici pro přesunutí Tuxe nahoru ke dveřím."
+msgid ""
+"Use the keyboard arrows to move Tux up to the door.\n"
+"\n"
+"At the first levels, Tux walks comfortably, one step on each keypress, "
+"through the labyrinth.\n"
+"\n"
+"For larger labyrinths, there is a special walking mode, called \"run-fast-"
+"mode\". If this run-fast-mode is enabled, Tux will run all the way "
+"automatically until he reaches a fork and you have to decide which way to go "
+"further.\n"
+"\n"
+"You can see whether this mode is enabled or not, by looking at Tux's feet: "
+"If Tux is barefooted, \"run-fast-mode\" is disabled. And if he wears red "
+"sport shoes, \"run-fast-mode\" is enabled.\n"
+"\n"
+"From level 14 on, run-fast-mode will be enabled automatically. If you want "
+"to use this feature in earlier levels or want to disable it in advanced "
+"levels, click on Tux or the \"barefoot / sportshoe\"-icon in the upper left "
+"corner of the screen to toggle the run-fast-mode.\n"
+"\t"
+msgstr ""
+"Použij šipky na klávesnici k přesunu Tuxe ke dveřím.\n"
+"\n"
+"V první úrovni jde Tux bludištěm pohodově vycházkovým krokem, co stisk "
+"klávesy, to jeden krok.\n"
+"\n"
+"Pro větší labyrinty je zde speciální režim chůze nazývaný „režim-rychlého-"
+"běhu“. Když je tento režim-rychlého-běhu zapnutý, poběží Tux celou cestu "
+"automaticky, dokud nedosáhne křižovatky a ty musíš rozhodnout, kudy má "
+"pokračovat.\n"
+"\n"
+"Jestli chceš vidět, zda je tento režim zapnutý nebo ne, podívej se na Tuxovy "
+"nohy. Pokud je Tux bosý, je „režim-rychlého-běhu“ vypnutý. A když si obuje "
+"červené sportovní boty, je „režim-rychlého-běhu“ zapnutý.\n"
+"\n"
+"Od úrovně 14 bude režim-rychlého-běhu zapnutý automaticky. Pokud chceš tuto "
+"funkci použít v nižších úrovních nebo ji naopak vypnout v pokročilejších "
+"úrovních, klikni na Tuxe nebo ikonu „bosé nohy“/„sportovní obuv“ v levém "
+"horním rohu obrazovky a tím režim-rychlého-běhu přepneš.\n"
+"\t"
 
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:2
 msgid "Find your way out of the invisible maze"
@@ -5991,12 +7085,47 @@ msgstr "Najdi cestu z neviditelného bludiště"
 msgid ""
 "Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
 "switch between invisible and visible modes. Visible mode just gives you an "
-"indication of your position, like a map. You cannot move Tux in visible mode."
+"indication of your position, like a map. You cannot move Tux in visible "
+"mode.\n"
+"\n"
+"At the first levels, Tux walks comfortably, one step on each keypress, "
+"through the labyrinth.\n"
+"\n"
+"For larger labyrinths, there is a special walking mode, called \"run-fast-"
+"mode\". If this run-fast-mode is enabled, Tux will run all the way "
+"automatically until he reaches a fork and you have to decide which way to go "
+"further.\n"
+"\n"
+"You can see whether this mode is enabled or not, by looking at Tux's feet: "
+"If Tux is barefooted, \"run-fast-mode\" is disabled. And if he wears red "
+"sport shoes, \"run-fast-mode\" is enabled.\n"
+"\n"
+"From level 14 on, run-fast-mode will be enabled automatically. If you want "
+"to use this feature in earlier levels or want to disable it in advanced "
+"levels, click on Tux or the \"barefoot / sportshoe\"-icon in the upper left "
+"corner of the screen to toggle the run-fast-mode.\n"
 msgstr ""
-"Použij šipky na klávesnici pro přesun Tuxe nahoru ke dveřím. Pro přepínání "
-"mezi viditelným a neviditelným režimem použij mezerník. Viditelný režim ti "
-"dává informaci o tvé pozici na mapě. Ve viditelném režimu nemůžeš Tuxem "
-"pohybovat."
+"Použij šipky na klávesnici k přesunu Tuxe ke dveřím. Použij mezerník k "
+"přepínání mezi neviditelným a viditelným režimem. Viditelný režim ti udává "
+"tvou polohu v podobě mapy. Ve viditelném režimu nemůžeš ale pohybovat "
+"Tuxem.\n"
+"\n"
+"V první úrovni jde Tux bludištěm pohodově vycházkovým krokem, co stisk "
+"klávesy, to jeden krok.\n"
+"\n"
+"Pro větší labyrinty je zde speciální režim chůze nazývaný „režim-rychlého-"
+"běhu“. Když je tento režim-rychlého-běhu zapnutý, poběží Tux celou cestu "
+"automaticky, dokud nedosáhne křižovatky a ty musíš rozhodnout, kudy má "
+"pokračovat.\n"
+"\n"
+"Jestli chceš vidět, zda je tento režim zapnutý nebo ne, podívej se na Tuxovy "
+"nohy. Pokud je Tux bosý, je „režim-rychlého-běhu“ vypnutý. A když si obuje "
+"sportovní boty, je „režim-rychlého-běhu“ zapnutý.\n"
+"\n"
+"Od úrovně 14 bude režim-rychlého-běhu zapnutý automaticky. Pokud chceš tuto "
+"funkci použít v nižších úrovních nebo ji naopak vypnout v pokročilejších "
+"úrovních, klikni na Tuxe nebo ikonu „bosé nohy“/„sportovní obuv“ v levém "
+"horním rohu obrazovky a tím režim-rychlého-běhu přepneš.\n"
 
 #: ../src/melody-activity/melody.py:107
 msgid ""
@@ -6347,12 +7476,12 @@ msgid ""
 "at adding-up!\n"
 "\n"
 "In this game, these cards are hiding the two parts of a subtraction. You "
-"need to find the two parts of the subraction, and bring them together again. "
-"Click on a card to see what number it's hiding, then try to find the other "
-"card that goes with it, to make a whole sum. You can only turn over two "
-"cards in one go, so you need to remember where the numbers are hiding, then "
-"you can match them when you find their other half. You're doing the job of "
-"the equals sign, and the numbers need you to put them together and make a "
+"need to find the two parts of the subtraction, and bring them together "
+"again. Click on a card to see what number it's hiding, then try to find the "
+"other card that goes with it, to make a whole sum. You can only turn over "
+"two cards in one go, so you need to remember where the numbers are hiding, "
+"then you can match them when you find their other half. You're doing the job "
+"of the equals sign, and the numbers need you to put them together and make a "
 "proper sum. When you do that, both those cards disappear! When you've made "
 "them all disappear, found all the subtracts, you've won the game! :)"
 msgstr ""
@@ -6363,7 +7492,7 @@ msgstr ""
 "straně druhé. Takže 3 (1, 2, 3) méně 1 (1) dávají 2. Počítej si hlasitě a "
 "také na prstech, protože pokud něco uděláš více způsoby, pak si to lépe "
 "zapamatuješ. Také můžeš používat kostky nebo knoflíky, nebo cokoliv co se dá "
-"počítat. Pokud máš hodně bratrů a sester, můžeš je spočítat! Nebo spočítej "
+"počítat. Pokud máš hodně bratrů a sester, můžeš spočítat je! Nebo spočítej "
 "děti ve třídě. Zpívej si písně s čísly. Počítej věci kolem sebe, jedině tak "
 "se z tebe staneš velmi dobrým počtářem.\n"
 "\n"
@@ -6442,8 +7571,8 @@ msgstr "Manipulace s myší, mozek."
 
 #: ../src/memory_sound-activity/memory_sound.xml.in.h:4
 #: ../src/memory_sound_tux-activity/memory_sound_tux.xml.in.h:4
-msgid "Train your audio memory and remove all the violonists Tux."
-msgstr "Trénuj svoji zvukovou paměť a odstraň všechny houslisty Tux."
+msgid "Train your audio memory and remove all the violinists Tux."
+msgstr "Trénuj svoji zvukovou paměť a odstraň všechny houslisty Tuxe."
 
 #: ../src/memory_sound-activity/memory_sound.xml.in.h:5
 #: ../src/memory_sound_tux-activity/memory_sound_tux.xml.in.h:5
@@ -6512,41 +7641,105 @@ msgstr ""
 "Můžete vidět několik karet, ale nemůžete vidět, co je na nich z druhé "
 "strany. Každá karta skrývá několik čísel nebo slovně uvedené číslo."
 
-#: ../src/missing_letter-activity/missingletter_config.c:77
+#: ../src/mining-activity/mining.xml.in.h:1
+msgid "Mining for gold"
+msgstr "Dolování zlata"
+
+#: ../src/mining-activity/mining.xml.in.h:2
+msgid "Use the mousewheel to approach the rockwall an look for gold nuggets."
+msgstr ""
+"Používat kolečko myši k přibližování skalní sluje a hledání nugetů zlata."
+
+#: ../src/mining-activity/mining.xml.in.h:3
+msgid "You should be familiar with moving the mouse and clicking."
+msgstr "Měl bys zvládat pohyb myší a klikání."
+
+#: ../src/mining-activity/mining.xml.in.h:4
+msgid "Learn to use the mousewheel to zoom in and out."
+msgstr "Naučit se používat kolečko myši k přibližování a oddalování."
+
+#: ../src/mining-activity/mining.xml.in.h:5
+msgid ""
+"Looking at the rockwall, you can see a sparkle somewhere. Move the mouse "
+"cursor next to this sparkle and use the mousewheel to zoom in. If you zoomed "
+"in at maximum, a gold nugget will appear at the position of the sparkle. "
+"Click on the gold nugget to collect it.\n"
+"\n"
+"Having collected the nugget, use the mousewheel to zoom out again. If you "
+"zoomed out at maximum, another sparkle will appear, showing the next gold "
+"nugget to collect. Collect enough nuggets to complete the level.\n"
+"\n"
+"The truck in the lower, right corner of the screen will tell you the number "
+"of already collected nuggets and the total number of nuggets to collect in "
+"this level.\n"
+"\n"
+"To start the tutorial, click on professor Tux (available at level 1) and let "
+"him show you, what to do next.\n"
+"\n"
+"Have fun! :)"
+msgstr ""
+"Při pohledu na skálu můžeš občas někde zahlédnout záblesk. Přesuň na něj "
+"ukazatel myši a použij její kolečko k přiblížení. Až ji přiblížíš na "
+"maximum, objeví se na místě záblesku zlatý nuget. Kliknutím na něj jej "
+"sebereš.\n"
+"\n"
+"Až máš nuget sebraný, použij kolečko myši k oddálení. Až ji oddálíš na "
+"maximum, objeví se další záblesk, v jehož místě najdeš další nuget do "
+"sbírky. Pro dokončení úrovně musíš posbírat všechny nugety.\n"
+"\n"
+"Nákladní vozík v pravém dolním rohu obrazovky ti ukazuje, kolek nugetů jsi "
+"už sesbíral a kolik celkem se jich má v této úrovni sesbírat.\n"
+"\n"
+"Kliknutím na profesora Tuxe (k dispozici v úrovni 1) začneš výuku, ve které "
+"ti ukáže, co máš dál dělat.\n"
+"\n"
+"Užij si zábavu :)"
+
+#: ../src/mining-activity/mining.xml.in.h:14
+msgid ""
+"Thanks to the Tuxpaint team for providing the following sounds under GPL:\n"
+"- realrainbow.ogg - used when a new gold nugget appears\n"
+"- metalpaint.wav - remixed and used when a gold nugget is collected"
+msgstr ""
+"Děkujeme týmu Tuxpaint za poskytnutí následujících zvuků pod GPL:\n"
+"- realrainbow.ogg – použit, když se objeví nový nuget\n"
+"- metalpaint.wav – remixován a použit, když je zlatý nuget sebrán"
+
+#: ../src/missing_letter-activity/missingletter_config.c:79
 msgid "Please select an image."
 msgstr "Vyberte prosím obrázek."
 
-#: ../src/missing_letter-activity/missingletter_config.c:83
+#: ../src/missing_letter-activity/missingletter_config.c:85
 msgid "Choice cannot be empty."
 msgstr "Volba nemůže být prázdná."
 
-#: ../src/missing_letter-activity/missingletter_config.c:89
+#: ../src/missing_letter-activity/missingletter_config.c:91
 msgid "Question cannot be empty."
 msgstr "Otázka nemůže být prázdná."
 
-#: ../src/missing_letter-activity/missingletter_config.c:95
+#: ../src/missing_letter-activity/missingletter_config.c:97
 msgid ""
 "Question must include the character '_'. It represents the letter to search."
 msgstr ""
 "Otázka musí obsahovat znak „_“. Ten představuje písmeno, které se má hledat."
 
-#: ../src/missing_letter-activity/missingletter_config.c:102
+#: ../src/missing_letter-activity/missingletter_config.c:104
 msgid "Pixmap cannot be empty"
 msgstr "Pixelová mapa nemůže být prázdná"
 
-#: ../src/missing_letter-activity/missingletter_config.c:108
+#: ../src/missing_letter-activity/missingletter_config.c:110
 msgid "There must be at least 2 choices."
 msgstr "Volby musí být nejméně dvě."
 
-#: ../src/missing_letter-activity/missingletter_config.c:116
+#: ../src/missing_letter-activity/missingletter_config.c:118
 msgid "The answer and question must be the same except for the character '_'."
 msgstr "Odpověď a otázka musí být stejné, až na znak „_“."
 
-#: ../src/missing_letter-activity/missingletter_config.c:125
+#: ../src/missing_letter-activity/missingletter_config.c:127
 msgid "The first choice must be the solution that replaces the character '_'."
 msgstr "První volba musí být řešením, které nahradí znak „_“."
 
-#: ../src/missing_letter-activity/missingletter_config.c:140
+#: ../src/missing_letter-activity/missingletter_config.c:142
 #, c-format
 msgid ""
 "Invalid entry:\n"
@@ -6635,8 +7828,8 @@ msgid "car/c_r/a/k/o"
 msgstr "auto/au_o/t/d/k"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board2.xml.in.h:1
-msgid "satchel/s_tchel/a/o/i"
-msgstr "aktovka/ak_ovka/t/d/p"
+msgid "bag/b_g/a/o/i"
+msgstr "bagr/b_gr/a/o/u"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board2.xml.in.h:2
 msgid "banana/b_nana/a/o/i"
@@ -6857,6 +8050,90 @@ msgstr "Vpravo sestav stejnou mozaiku"
 msgid "Rebuild the mosaic"
 msgstr "Sestav mozaiku"
 
+#: ../src/note_names-activity/note_names.py:120
+msgid ""
+"These are the eight basic notes in treble clef. They form the C Major Scale."
+msgstr ""
+"Jedná se o osm základních not na stupnici s houslovým klíčem. Tvoří stupnici "
+"C dur."
+
+#: ../src/note_names-activity/note_names.py:130
+msgid ""
+"These are the eight basic notes in bass clef. They also form the C Major "
+"Scale. Notice that the note positions are different than in treble clef."
+msgstr ""
+"Jedná se o osm základních not na stupnici s basovým klíčem. Tvoří také "
+"stupnici C dur. Všimni si, že poloha not je jiná než v houslovém klíči."
+
+#: ../src/note_names-activity/note_names.py:144
+msgid "Play Scale"
+msgstr "Přehrát stupnici"
+
+#: ../src/note_names-activity/note_names.py:151
+msgid "Play Treble Clef Game"
+msgstr "Hrát hru s houslovým klíčem"
+
+#: ../src/note_names-activity/note_names.py:153
+msgid "Play Bass Clef Game"
+msgstr "Hrát hru s basovým klíčem"
+
+#: ../src/note_names-activity/note_names.py:184
+msgid "Click on the note name to match the pitch. Then click OK to check."
+msgstr ""
+"Klikni na název noty odpovídajícího tónu. Kliknutím na Budiž si to pak "
+"zkontroluj."
+
+#: ../src/note_names-activity/note_names.py:186
+msgid "Now there are sharp notes. These pitches are raised a half step."
+msgstr "Teď jsou tam zvýšené noty. Jejich tóny jsou o půl stupně zvýšené."
+
+#: ../src/note_names-activity/note_names.py:188
+msgid "Now there are flat notes. These pitches are lowered a half step."
+msgstr "Teď jsou tam snížené noty. Jejich tóny jsou o půl stupně snížené."
+
+#: ../src/note_names-activity/note_names.py:194
+msgid "Click the note to hear it played"
+msgstr "Klikni na notu, abys ji slyšel přehrát"
+
+#: ../src/note_names-activity/note_names.py:247
+msgid "Need a hint? Click here for color-coded note names."
+msgstr "Potřebuješ radu? Klikni zde pro barevně rozlišené názvy not."
+
+#: ../src/note_names-activity/note_names.py:250
+msgid "Ready for a challenge? Color all buttons black!"
+msgstr "Připraven přijmout výzvu? Ať jsou všechny noty černé!"
+
+#: ../src/note_names-activity/note_names.xml.in.h:1
+msgid "Name that Note!"
+msgstr "Nazvi tuto notu!"
+
+#: ../src/note_names-activity/note_names.xml.in.h:2
+msgid ""
+"Learn the names of the notes, in bass and treble clef, with the help of "
+"sounds and colors"
+msgstr ""
+"Nauč se názvy not, v basovém a houslovém klíči, za pomocí zvuků a barev"
+
+#: ../src/note_names-activity/note_names.xml.in.h:4
+msgid ""
+"To develop a good understanding of note position and naming convention. To "
+"prepare for the piano player and composition activity"
+msgstr ""
+"Dosáhnout dobré znalosti polohy not a způsobu pojmenování. Připravit se k "
+"hraní na klavír a skládání hudby."
+
+#: ../src/note_names-activity/note_names.xml.in.h:5
+msgid ""
+"The first level and the eleventh level introduce two different staffs with a "
+"C major scale. The following levels then quiz the player on note names. To "
+"help learn the names, the note pitches are played when the mouse is rolled "
+"over the note, and the pitch names can be color coded.\n"
+"        "
+msgstr ""
+"První a jedenáctá úroveň zavádí dva různé notové osnovy se stupnicí C dur. "
+"Následující úrovně pak hráče zkouší z názvů not. Pro usnadnění učení názvů "
+"jsou tóny přehrávány při najetí myši a názvy not mohou být barevně rozlišeny."
+
 #: ../src/paintings-activity/paintings.xml.in.h:1
 msgid "Assemble the puzzle"
 msgstr "Sestav skládačku"
@@ -6990,7 +8267,7 @@ msgstr "Mary Cassatt, Letní den (Summertime) – 1894"
 msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
 msgstr "Vincent Van Gogh, Vesnická ulice v Auvers (Auvers-sur-Oise) – 1890"
 
-#: ../src/paratrooper-activity/paratrooper.c:408
+#: ../src/paratrooper-activity/paratrooper.c:409
 msgid "Control fall speed with up and down arrow keys."
 msgstr "Rychlost pádu se ovládá klávesovými šipkami nahoru a dolů."
 
@@ -7045,7 +8322,7 @@ msgid ""
 "click on it to bring it back to its former position"
 msgstr ""
 "Dvojitým kliknutím na balón jej vykopneš. Kliknout dvakrát můžeš levým, "
-"pravým nebo prostředním tlačítkem myši. Pokud chybíš, tučňák balón chytí. Ty "
+"pravým nebo prostředním tlačítkem myši. Pokud chybíš, Tux balón chytí. Ty "
 "jej potom kliknutím musíš vrátit zpět na pozici pro střílení."
 
 #: ../src/photohunter-activity/photohunter.c:512
@@ -7076,6 +8353,452 @@ msgstr ""
 "Pečlivě si oba obrázky prohlédněte. Jsou mezi nimi nepatrné rozdíly. Když "
 "nějaký rozdíl najdete, musíte na něj kliknout."
 
+#. this is the English musical notation system
+#. translators insert the name of the notes in your language
+#: ../src/piano_composition-activity/gcomprismusic.py:66
+msgid "C"
+msgstr "C"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:66
+msgid "D"
+msgstr "D"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:66
+msgid "E"
+msgstr "E"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:66
+msgid "F"
+msgstr "F"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:66
+msgid "G"
+msgstr "G"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:66
+msgid "A"
+msgstr "A"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:66
+msgid "B"
+msgstr "H"
+
+#. this is the English musical notation system
+#. translators insert the name of the notes in your language
+#: ../src/piano_composition-activity/gcomprismusic.py:69
+msgid "C#"
+msgstr "C#"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:69
+msgid "D#"
+msgstr "D#"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:69
+msgid "F#"
+msgstr "F#"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:69
+msgid "G#"
+msgstr "G#"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:69
+msgid "A#"
+msgstr "A#"
+
+#. this is the English musical notation system
+#. translators insert the name of the notes in your language
+#: ../src/piano_composition-activity/gcomprismusic.py:72
+msgid "Db"
+msgstr "Db"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:72
+msgid "Eb"
+msgstr "Eb"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:72
+msgid "Gb"
+msgstr "Gb"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:72
+msgid "Ab"
+msgstr "Ab"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:72
+msgid "Bb"
+msgstr "Hb"
+
+#: ../src/piano_composition-activity/gcomprismusic.py:284
+msgid "The staff is full. Please erase some notes"
+msgstr "Notová osnova je plná. Vymaž prosím nějaké noty."
+
+#: ../src/piano_composition-activity/piano_composition.py:125
+msgid "This is the Treble clef staff, for high pitched notes"
+msgstr "Toto je notová osnova s houslovým klíčem pro noty vysokých tónů"
+
+#: ../src/piano_composition-activity/piano_composition.py:126
+msgid "These are the 8 \"white\" keys in an octave"
+msgstr "V oktávě je 8 „bílých“ kláves"
+
+#: ../src/piano_composition-activity/piano_composition.py:128
+msgid "This is the Bass clef staff, for low pitched notes"
+msgstr "Toto je notová osnova s basovým klíčem pro noty nízkých tónů"
+
+#: ../src/piano_composition-activity/piano_composition.py:129
+msgid "These keys form the C Major scale"
+msgstr "Tyto klávesy jsou ze stupnice C dur"
+
+#: ../src/piano_composition-activity/piano_composition.py:131
+msgid "Click on the note symbols to write different length notes"
+msgstr "Klikáním na symboly not zapisuješ různé délky not"
+
+#: ../src/piano_composition-activity/piano_composition.py:132
+msgid ""
+"Notes can be many types, such as quarter notes, half notes, and whole notes"
+msgstr ""
+"Noty mohou být různých druhů, jako čtvrťové noty, půlové noty a celé noty"
+
+#: ../src/piano_composition-activity/piano_composition.py:134
+msgid "Sharp notes have a # sign"
+msgstr "Zvýšené noty mají značku #"
+
+#: ../src/piano_composition-activity/piano_composition.py:135
+msgid "The black keys are sharp and flat keys"
+msgstr "Černé klávesy jsou zvýšené a snížené klávesy"
+
+#: ../src/piano_composition-activity/piano_composition.py:137
+msgid "Flat notes have a b sign"
+msgstr "Snížené noty mají značku b"
+
+#: ../src/piano_composition-activity/piano_composition.py:138
+msgid "Each black key has two names, one with a flat and one with a sharp"
+msgstr ""
+"Každá černá klávesa má dva názvy, jeden se sníženým tónem a jeden se "
+"zvýšeným tónem"
+
+#: ../src/piano_composition-activity/piano_composition.py:140
+msgid "Now you can load melodies from around the world"
+msgstr "Nyní můžeš načíst melodie z celého světa"
+
+#: ../src/piano_composition-activity/piano_composition.py:143
+msgid "Compose music now! You can now load and save your work"
+msgstr "Nyní skládej hudbu! Svoji práci můžeš ukládat a načítat"
+
+#: ../src/piano_composition-activity/piano_composition.py:178
+msgid "Erase All Notes"
+msgstr "Vymazat všechny noty"
+
+#: ../src/piano_composition-activity/piano_composition.py:189
+msgid "Erase Last Notes"
+msgstr "Vymazat poslední noty"
+
+#: ../src/piano_composition-activity/piano_composition.py:199
+msgid "Play Composition"
+msgstr "Přehrát skladbu"
+
+#: ../src/piano_composition-activity/piano_composition.py:211
+msgid "Erase and Change Clef"
+msgstr "Vymazat a změnit notový klíč"
+
+#: ../src/piano_composition-activity/piano_composition.py:222
+msgid "Change Note Type:"
+msgstr "Změnit typ noty:"
+
+#. TRANSLATORS: http://en.wikipedia.org/wiki/Eighth_note
+#: ../src/piano_composition-activity/piano_composition.py:243
+msgid "Eighth Note"
+msgstr "Osminová nota"
+
+#. TRANSLATORS: http://en.wikipedia.org/wiki/Quarter_note
+#: ../src/piano_composition-activity/piano_composition.py:266
+msgid "Quarter Note"
+msgstr "Čtvrťová nota"
+
+#. TRANSLATORS: http://en.wikipedia.org/wiki/Half_note
+#: ../src/piano_composition-activity/piano_composition.py:279
+msgid "Half Note"
+msgstr "Půlová nota"
+
+#. TRANSLATORS: http://en.wikipedia.org/wiki/Whole_note
+#: ../src/piano_composition-activity/piano_composition.py:292
+msgid "Whole Note"
+msgstr "Celá nota"
+
+#: ../src/piano_composition-activity/piano_composition.py:324
+msgid "Load Music"
+msgstr "Načíst hudbu"
+
+#: ../src/piano_composition-activity/piano_composition.py:329
+msgid "Change Accidental Style:"
+msgstr "Změnit zápis půltónů:"
+
+#: ../src/piano_composition-activity/piano_composition.py:387
+msgid "Select A Melody to Load"
+msgstr "Výběr melodie k načtení"
+
+#: ../src/piano_composition-activity/piano_composition.xml.in.h:1
+msgid "Piano Composition"
+msgstr "Skládání na klavíru"
+
+#: ../src/piano_composition-activity/piano_composition.xml.in.h:2
+msgid ""
+"An activity to learn how the piano keyboard works, how notes are written on "
+"a musical staff and explore music composition by loading and saving your "
+"work."
+msgstr ""
+"Aktivita, která naučí, jak pracuje klaviatura klavíru, jak se do notové "
+"osnovy zapisují noty a umožní zkoumat skládání hudby načítáním a ukládáním "
+"tvé práce."
+
+#: ../src/piano_composition-activity/piano_composition.xml.in.h:3
+msgid ""
+"Familiarity with note naming conventions, note-names activity useful to "
+"learn this notation."
+msgstr ""
+"Znalost zvyklostí v pojmenování not. Pro naučení je vhodná aktivita „Nazvi "
+"tuto notu!“."
+
+#: ../src/piano_composition-activity/piano_composition.xml.in.h:4
+msgid ""
+"Develop an understanding of music composition, and increase interest in "
+"making music with a piano keyboard. This activity covers many fundamental "
+"aspects of music, but there is much more to explore about music composition. "
+"If you enjoy this activity but want a more advanced tool, try downloading "
+"MuseScore (http://musescore.org/en/download), an open source music notation "
+"tool."
+msgstr ""
+"Rozvíjet znalost skládání hudby, povzbudit zájem o muzicírování s klavírem. "
+"Tato aktivita zahrnuje mnoho základních věcí ohledně hudby, ale o skládání "
+"hudby je toho potřeba se naučit mnohem víc. Jestli tě tato aktivita bavila a "
+"chceš zkusit něco náročnějšího, zkus si stáhnout MuseScore (http://musescore."
+"org/en/download), což je nástroj s otevřeným zdrojovým kódem pro zápis not."
+
+#: ../src/piano_composition-activity/piano_composition.xml.in.h:5
+msgid ""
+"This activity has several levels, each level adds a new functionality to the "
+"previous level.\n"
+"Level 1: basic piano keyboard (white keys only) and students can experiment "
+"with clicking the colored rectangle keys to write music\n"
+"Level 2: the musical staff switches to bass clef, so pitches are lower than "
+"in previous level\n"
+"Level 3: option to choose between treble and bass clef, additional function "
+"includes option to select note duration (quarter, half, and whole notes)\n"
+"Level 4: addition of black keys (sharp keys)\n"
+"Level 5: flat notation used for black keys\n"
+"Level 6: load children's melodies from around the world\n"
+"Level 7: all features available, with the additional feature to load and "
+"save your composition\n"
+"\n"
+"The following keyboard bindings work in this activity:\n"
+"- backspace: erase one note\n"
+"- delete: erase all notes\n"
+"- space bar: play composition\n"
+"- number keys:\n"
+"  1: C\n"
+"  2: D\n"
+"  3: E\n"
+"  4: F\n"
+"  5: G\n"
+"  6: A\n"
+"  7: B\n"
+"  8: C (higher octave)\n"
+"  etc.\n"
+"  F1: C# / Db\n"
+"  F2: D# / Eb\n"
+"  F3: F# / Gb\n"
+"  F4: G# / Ab\n"
+"  F5: A# / Bb\n"
+msgstr ""
+"Tato aktivita má několik úrovní a každá vyšší úroveň přidává k předchozí "
+"úrovni nové věci.\n"
+"Úroveň 1: základní klaviatura (jen bílé klávesy), student může "
+"experimentovat se psaním hudby pomocí klikání na barevná tlačítka\n"
+"Úroveň 2: notová osnova se přepne na basový klíč, takže tóny jsou posazeny "
+"níž, než v předchozí úrovni\n"
+"Úroveň 3: možnost volit mezi houslovým a basovým klíčem, novou funkcí je "
+"také možnost vybírat délku noty (čtvrťová, půlová, celá)\n"
+"Úroveň 4: přidává černé klávesy (zvýšené tóny)\n"
+"Úroveň 5: pro černé klávesy použity snížené tóny\n"
+"Úroveň 6: načítání dětských melodií z různých koutů světa\n"
+"Úroveň 7: k dispozici všechny funkce, navíc můžeš načítat a ukládat své "
+"vlastní skladby\n"
+"\n"
+"V této aktivitě fungují následující klávesové zkratky:\n"
+"  Backspace: vymazat notu\n"
+"  Delete: vymazat všechny noty\n"
+"  Mezerník: přehrát skladbu\n"
+"  Číselné klávesy:\n"
+"    1: C\n"
+"    2: D\n"
+"    3: E\n"
+"    4: F\n"
+"    5: G\n"
+"    6: A\n"
+"    7: B\n"
+"    8: C (horní oktáva)\n"
+"    atd.\n"
+"    F1: C#/Db\n"
+"    F2: D#/Eb\n"
+"    F3: F#/Gb\n"
+"    F4: G#/Ab\n"
+"    F5: A#/Bb\n"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:1
+msgid " America: English Lullaby"
+msgstr " Amerika: anglická ukolébavka"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:2
+msgid " America: Patriotic"
+msgstr " Amerika: vlastenecká"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:3
+msgid " America: Shaker Tune"
+msgstr " Amerika: Shaker Tune"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:4
+msgid " America: Nursery Rhyme"
+msgstr " Amerika: dětská říkanka"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:7
+msgid " Spain"
+msgstr " Španělsko"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:8
+msgid " German Kid's Song"
+msgstr " Německá dětská písnička"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:9
+msgid " Children's Song from Brazil"
+msgstr " Dětská písnička z Brazílie"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:10
+msgid " German"
+msgstr " Německo"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:11
+msgid " France"
+msgstr " Francie"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:12
+msgid " Germany"
+msgstr " Německo"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:13
+msgid " Brazil"
+msgstr " Brazílie"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:14
+msgid " Hungary, Nursery Rhyme"
+msgstr " Madarsko: dětská říkanka"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:15
+msgid " Hungary, Children's Song"
+msgstr "Maďarsko, dětská písnička"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:16
+msgid " Serbia"
+msgstr " Srbsko"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:17
+msgid " Britain"
+msgstr " Británie"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:18
+msgid " Poland"
+msgstr " Polsko"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:19
+msgid " Greece"
+msgstr " Řecko"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:20
+msgid " Ukraine"
+msgstr " Ukrajina"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:21
+msgid " Mexican song to break a piñata"
+msgstr " Mexická skladba k rozbíjení piñaty"
+
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:22
+msgid " Finland"
+msgstr " Finsko"
+
+#: ../src/place_your_satellite-activity/place_your_satellite.py:68
+msgid ""
+"Click anywhere on the screen to place the satellite at a distance from the "
+"planet."
+msgstr ""
+"Klikni kdekoliv na obrazovce, abys umístil družici do vzdálenosti od země."
+
+#: ../src/place_your_satellite-activity/place_your_satellite.py:70
+msgid ""
+"Then click on the satellite and drag a line that sets the speed of the "
+"satellite"
+msgstr ""
+"Pak klikni na družici a táhni po přímce, která nastaví rychlost družice"
+
+#: ../src/place_your_satellite-activity/place_your_satellite.py:267
+msgid "Satellite goes too fast"
+msgstr "Družice se pohybuje příliš rychle"
+
+#: ../src/place_your_satellite-activity/place_your_satellite.py:269
+msgid "Satellite goes too slow"
+msgstr "Družice se pohybuje příliš pomalu"
+
+#: ../src/place_your_satellite-activity/place_your_satellite.py:296
+msgid "Satellite is crashing"
+msgstr "Družice padá"
+
+#: ../src/place_your_satellite-activity/place_your_satellite.py:330
+msgid "Satellite not in orbit"
+msgstr "Družice není na orbitě"
+
+#: ../src/place_your_satellite-activity/place_your_satellite.py:394
+msgid "Speed"
+msgstr "Rychlost"
+
+#: ../src/place_your_satellite-activity/place_your_satellite.xml.in.h:1
+msgid "Place your satellite"
+msgstr "Umísti svoji družici"
+
+#: ../src/place_your_satellite-activity/place_your_satellite.xml.in.h:2
+msgid "Understanding effect of mass and distance on orbital velocity."
+msgstr "Pochopení působení hmotnosti a vzdálenosti na oběžné rychlosti."
+
+#: ../src/place_your_satellite-activity/place_your_satellite.xml.in.h:3
+msgid "Make sure the satellite does not crash or fly away"
+msgstr "Zajistit, aby družice nespadla nebo neuletěla"
+
+#: ../src/place_your_satellite-activity/place_your_satellite.xml.in.h:4
+msgid ""
+"\n"
+"A satellite revolves around the Earth because of the force between them. "
+"Orbital velocity of a satellite of Earth is directly proportional to the "
+"square root of the mass of Earth and inversely proportional to the square "
+"root of the distance from the center of Earth to the satellite.\n"
+"\n"
+"In this activity, play with the speed of the satellite and mass of Earth to "
+"see what happens to the satellite. If the speed of the satellite is slower "
+"than the required orbital speed then the force applied by the Earth on the "
+"satellite is too much and thus the satellite gets pulled towards the Earth "
+"and burns in it's atmosphere. If the speed of the satellite is more than the "
+"required orbital speed then the Earth's force is not enough to keep it in "
+"orbit and thus the satellite flies away due to it's own inertia.\n"
+"        "
+msgstr ""
+"\n"
+"Družice obíhá okolo Země, protože je mezi nimi přitažlivá síla. Orbitální "
+"rychlost družice planety Země je přímo úměrná druhé mocnině hmotnosti Země a "
+"nepřímo úměrná druhé mocnině vzdálenosti od středu Země k družici.\n"
+"\n"
+"V této aktivitě si hraješ s rychlostí družice a hmotností Země, abys viděl, "
+"co se s družicí stane. Když je rychlost družice menší, než požadovaná "
+"orbitální rychlost, pak je síla působení Země na družici příliš velká a "
+"takováto družice se propadne zpátky k Zemi a shoří v atmosféře. Když je "
+"rychlost větší, než požadovaná orbitální rychlost, není síla Země dostatečná "
+"k udržení družice na orbitě a takováto družice kvůli vlastní setrvačnosti "
+"poletí pryč.\n"
+"        "
+
 #: ../src/planegame-activity/planegame.c:62
 #: ../src/planegame-activity/planegame.xml.in.h:1
 msgid "Numbers in Order"
@@ -7101,6 +8824,209 @@ msgstr ""
 "Chytni čísla v vzestupném pořadí, pro pohyb helikoptéry použij šipky nahoru, "
 "dolů, doprava a doleva."
 
+#: ../src/play_piano-activity/play_piano.py:117
+msgid "Color code notes?"
+msgstr "Obarvit noty?"
+
+#: ../src/play_piano-activity/play_piano.py:137
+msgid "Click the piano keys that match the written notes."
+msgstr "Klikej na klávesy klavíru, které odpovídají zapsaným notám."
+
+#: ../src/play_piano-activity/play_piano.py:159
+#: ../src/play_rhythm-activity/play_rhythm.py:173
+msgid "Play"
+msgstr "Přehrát"
+
+#: ../src/play_piano-activity/play_piano.py:171
+#: ../src/play_rhythm-activity/play_rhythm.py:186
+msgid "Erase Attempt"
+msgstr "Smazat pokus"
+
+#: ../src/play_piano-activity/play_piano.xml.in.h:1
+msgid "Play Piano!"
+msgstr "Hrej klavíre!"
+
+#: ../src/play_piano-activity/play_piano.xml.in.h:2
+msgid "Learn to play melodies on the piano keyboard!"
+msgstr "Naučit se, jak hrát melodie na klavíru."
+
+#: ../src/play_piano-activity/play_piano.xml.in.h:3
+msgid ""
+"Knowledge of musical notation and musical staff. Play the activity named "
+"'Piano Composition' first."
+msgstr ""
+"Znalost zápisu not a notové osnovy. Nejdříve si zahraj aktivitu „Skládání na "
+"klavíru“."
+
+#: ../src/play_piano-activity/play_piano.xml.in.h:4
+msgid ""
+"understand how the piano keyboard can play music as written on the musical "
+"staff"
+msgstr ""
+"Porozumět, jak se pomocí kláves na klavíru může zahrát hudba zapsaná v "
+"notové osnově."
+
+#: ../src/play_piano-activity/play_piano.xml.in.h:5
+msgid ""
+"The notes you see will be played to you. Click on the corresponding keys on "
+"the keyboard that match the notes you hear and see. All levels except for "
+"the last have the notes colored so you can match the notes to the keyboard "
+"colors. Each level increases in difficulty by adding more notes. Levels 1-6 "
+"test the treble clef, levels 7-12 test the bass clef. When you get five "
+"points, you move onto the next level (incorrect answers deduct points, "
+"correct answers add points).\n"
+"\n"
+"The following keyboard bindings work in this game:\n"
+"- backspace: erase attempt\n"
+"- delete: erase attempt\n"
+"- enter/return: OK button\n"
+"- space bar: play\n"
+"- number keys:\n"
+"  - 1: C\n"
+"  - 2: D\n"
+"  - 3: E\n"
+"  - 4: F\n"
+"  - 5: G\n"
+"  - 6: E\n"
+"  - 7: F\n"
+"  - 8: C (higher octave)\n"
+"  - etc.\n"
+"  - F1: C# / Db\n"
+"  - F2: D# / Eb\n"
+"  - F3: F# / Gb\n"
+"  - F4: G# / Ab\n"
+"  - F5: A# / Bb\n"
+msgstr ""
+"Noty, které vidíš, se ti přehrají. Klikej na klaviatuře na správné klávesy "
+"odpovídající notám, které slyšíš a vidíš. Vyjma poslední úrovně jsou noty "
+"barevné, takže je můžeš snáze přiřadit barevným klávesám. Každá vyšší úroveň "
+"je obtížnější, protože přidává více not. Úrovně 1 až 6 zkouší v houslovém "
+"klíči, úrovně 7 až 12 v basovém klíči. Když získáš pět bodů, postupuješ do "
+"následující úrovně (nesprávně odpovědi ubírají body, správné přidávají).\n"
+"\n"
+"V této aktivitě fungují následující klávesové zkratky:\n"
+"  Backspace: vymazat pokus\n"
+"  Delete: vymazat pokus\n"
+"  Enter: tlačítko Budiž\n"
+"  Mezerník: přehrát\n"
+"  Číselné klávesy:\n"
+"    1: C\n"
+"    2: D\n"
+"    3: E\n"
+"    4: F\n"
+"    5: G\n"
+"    6: A\n"
+"    7: B\n"
+"    8: C (horní oktáva)\n"
+"    atd.\n"
+"    F1: C#/Db\n"
+"    F2: D#/Eb\n"
+"    F3: F#/Gb\n"
+"    F4: G#/Ab\n"
+"    F5: A#/Bb\n"
+
+#: ../src/play_rhythm-activity/play_rhythm.py:115
+msgid "Beat Count:"
+msgstr "Počet taktů:"
+
+#: ../src/play_rhythm-activity/play_rhythm.py:139
+msgid "Beat the rhythm on this drum."
+msgstr "Zabubnuj rytmus na tomto bubnu."
+
+#: ../src/play_rhythm-activity/play_rhythm.py:150
+msgid "For a little help, click the metronome to hear the tempo."
+msgstr ""
+"Můžeš si trochu pomoct, když klikneš na metronom a budeš poslouchat tempo."
+
+#: ../src/play_rhythm-activity/play_rhythm.py:342
+msgid "Listen to the rhythm and follow the moving line."
+msgstr "Poslouchej rytmus a sleduj pohybující se čáru."
+
+#: ../src/play_rhythm-activity/play_rhythm.py:344
+msgid "Click the drum to the tempo. Watch the vertical line when you start."
+msgstr "Klikej na buben v daném tempu. Až začneš, sleduj svislou čáru."
+
+#: ../src/play_rhythm-activity/play_rhythm.py:345
+msgid "You can use the space bar to drum the tempo."
+msgstr "K bubnování rytmu můžeš použít mezerník."
+
+#: ../src/play_rhythm-activity/play_rhythm.py:348
+msgid ""
+"Now, read the rhythm. It won't be played for you. Then, beat the rhythm on "
+"the drum."
+msgstr ""
+"Nyní si rytmus přečti. Když budeš chtít, můžeš si ho přehrát. Pakr rytmus "
+"zabubnuj na bubnu."
+
+#: ../src/play_rhythm-activity/play_rhythm.py:351
+msgid "Click erase to try again."
+msgstr "Kliknutím vymaž a zkus znovu."
+
+#: ../src/play_rhythm-activity/play_rhythm.xml.in.h:1
+msgid "Play Rhythm"
+msgstr "Vyťukávej rytmus"
+
+#: ../src/play_rhythm-activity/play_rhythm.xml.in.h:2
+msgid "Learn to listen to, read, and play musical rhythms."
+msgstr "Nauč se poslouchat, číst a hrát hudební rytmy."
+
+#: ../src/play_rhythm-activity/play_rhythm.xml.in.h:3
+msgid "Simple understanding of musical rhythm and beat."
+msgstr "Prosté chápání hudebního rytmu a bubnování."
+
+#: ../src/play_rhythm-activity/play_rhythm.xml.in.h:4
+msgid ""
+"Learn to beat rhythms precisely and accurately based on what you see and "
+"hear."
+msgstr ""
+"Naučit se vyťukávat rytmus přesně a správně podle toho, jak jej vidíš a "
+"slyšíš."
+
+#: ../src/play_rhythm-activity/play_rhythm.xml.in.h:5
+msgid ""
+"This is a relatively challenging game to master, so good luck.\n"
+"\n"
+"Listen to the rhythm played, and follow along with the music. If you would "
+"like to hear it again, click the play button. When you're ready to perform "
+"the identical rhythm, click the drum to the rhythm, then click the OK "
+"button. If you clicked correctly and in the right tempo, another rhythm is "
+"displayed. If not, you must try again.\n"
+"\n"
+"Even levels display a vertical playing line when you click the drum, which "
+"helps you see when to click to follow the rhythm. Click on the drum when the "
+"line is in the middle of the notes.\n"
+"\n"
+"Odd levels are harder, because there is no vertical playing line. The rhythm "
+"will not be played for you. You must read the rhythm, and click it back in "
+"tempo. Click the metronome to hear the quarter note tempo.\n"
+"\n"
+"The following keyboard bindings work in this game:\n"
+"- backspace: erase attempt\n"
+"- delete: erase attempt\n"
+"- enter/return: OK button\n"
+"- space bar: play\n"
+msgstr ""
+"Jde o relativně náročnou hru na zvládnutí, tak hodně štěstí.\n"
+"\n"
+"Poslouchej hraný rytmus a sleduj jej zároveň s hudbou. Jestli jej chceš "
+"slyšet znovu, klikni na přehrávací tlačítko. Až jsi připraven vyťukat stejný "
+"rytmus, klikej do rytmu na buben a pak klikni na tlačítko Budiž. Pokud jsi "
+"dobře a ve správném rytmu, zobrazí se další rytmus. Pokud ne, musíš to "
+"zkusit znovu.\n"
+"\n"
+"U lichých úrovní se při přehrávání zobrazuje svislá čára, která ti vizuálně "
+"pomáhá, jak máš bubnovat. Klikej ve chvíli, kdy se nachází uprostřed noty.\n"
+"\n"
+"Sudé úrovně jsou těžší, protože u nich tato svislá čára není. A rytmus se ti "
+"nepřehraje. Musíš si jej přečíst a podle toho jej zabubnovat. Kliknutím na "
+"metronom si můžeš poslechnout čtvrťové tempo.\n"
+"\n"
+"V této hře fungují následující klávesové zkratky:\n"
+"  Backspace: smazat pokus\n"
+"  Delete: smazat pokus\n"
+"  Enter: tlačítko Budiž\n"
+"  Mezerník: přehrát\n"
+
 #: ../src/pythontemplate-activity/pythontemplate.py:62
 #: ../src/pythontest-activity/pythontest.py:182
 msgid ""
@@ -7115,13 +9041,13 @@ msgid "Python Template"
 msgstr "Pythonovská šablona"
 
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:2
-msgid "An empty python activity to use as a starting point"
-msgstr "Prázdná pythonovská aktivita, která slouží jako výchozí bod"
+msgid "An empty Python activity to use as a starting point"
+msgstr "Prázdná aktivita v jazyce Python, která slouží jako výchozí bod"
 
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:3
 #: ../src/pythontest-activity/pythontest.xml.in.h:3
 msgid "Advanced Python Programmer :)"
-msgstr "Pokročilý programátor v Pythonu :)"
+msgstr "Pokročilý programátor v jazyce Python :)"
 
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:4
 #: ../src/pythontest-activity/pythontest.xml.in.h:4
@@ -7131,16 +9057,16 @@ msgstr "Přidat k GComprisu jazykovou vazbu."
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:5
 #: ../src/pythontest-activity/pythontest.xml.in.h:5
 msgid ""
-"Thanks to Guido van Rossum and the python team for this powerful language!"
-msgstr "Díky Guido van Rossum a python týmu za tento mocný jazyk!"
+"Thanks to Guido van Rossum and the Python team for this powerful language!"
+msgstr "Díky Guido van Rossumovi a týmu Python za tento mocný jazyk!"
 
 #: ../src/pythontest-activity/pythontest.py:192
 msgid ""
 "It is now possible to develop GCompris activities in C or in Python.\n"
 "Thanks to Olivier Samys who makes this possible."
 msgstr ""
-"Nyní je možné vyvíjet GCompris aktivity v C nebo Pythonu.\n"
-" Zásluhy za tuto možnost připadají Olivieru Samys."
+"Nyní je možné vyvíjet GCompris aktivity v jazycích C nebo Python.\n"
+"Zásluhy za tuto možnost připadají Olivieru Samysovi."
 
 #: ../src/pythontest-activity/pythontest.py:202
 msgid "This activity is not playable, just a test"
@@ -7175,8 +9101,8 @@ msgid "Python Test"
 msgstr "Test Pythonu"
 
 #: ../src/pythontest-activity/pythontest.xml.in.h:2
-msgid "Test board for the python plugin"
-msgstr "Testovací deska pro zásuvný modul pythonu"
+msgid "Test board for the Python plugin"
+msgstr "Testovací deska pro zásuvný modul Python"
 
 #: ../src/railroad-activity/railroad.c:97
 msgid "Memory game"
@@ -7359,17 +9285,17 @@ msgstr ""
 "můžeš počítat pozpátku. Až budeš hotov, klikni na tlačítko Budiž, nebo "
 "stiskni klávesu Enter."
 
-#: ../src/scalesboard-activity/scale.c:294
+#: ../src/scalesboard-activity/scale.c:295
 #, c-format
 msgid "Weight in g = %s"
 msgstr "Hmotnost v g = %s"
 
-#: ../src/scalesboard-activity/scale.c:296
+#: ../src/scalesboard-activity/scale.c:297
 #, c-format
 msgid "Weight = %s"
 msgstr "Hmotnost = %s"
 
-#: ../src/scalesboard-activity/scale.c:1036
+#: ../src/scalesboard-activity/scale.c:1039
 msgid "Take care, you can drop weights on both sides of the scale."
 msgstr "Věnuj pozornost tomu, že závaží můžeš pokládat na obě strany váhy."
 
@@ -7399,9 +9325,9 @@ msgstr ""
 msgid ""
 "The painting is an original painting created by Virginie MOREAU (virginie."
 "moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is "
-"released under the GPL licence."
+"released under the GPL license."
 msgstr ""
-"Kresba je originál, nakreslený Virginie MOREAU (virginie.moreau@free.fr) "
+"Kresba je originál, nakreslený Virginií MOREAU (virginie.moreau@free.fr) "
 "roku 2001. Jmenuje se „Prodavač koření v Egyptě“. Je uvolněna pod podmínkami "
 "licence GPL."
 
@@ -7767,13 +9693,13 @@ msgstr ""
 
 #. Set the maximum text to calc the background
 #. Set the correct initial text
-#: ../src/target-activity/target.c:296 ../src/target-activity/target.c:563
-#: ../src/target-activity/target.c:600
+#: ../src/target-activity/target.c:297 ../src/target-activity/target.c:564
+#: ../src/target-activity/target.c:601
 #, c-format
 msgid "Points = %s"
 msgstr "Body = %s"
 
-#: ../src/target-activity/target.c:415
+#: ../src/target-activity/target.c:416
 #, c-format
 msgid ""
 "Wind speed = %d\n"
@@ -7782,7 +9708,7 @@ msgstr ""
 "Rychlost větru = %d\n"
 "kilometrů/hodinu"
 
-#: ../src/target-activity/target.c:483
+#: ../src/target-activity/target.c:484
 #, c-format
 msgid "Distance to target = %d meter"
 msgid_plural "Distance to target = %d meters"
@@ -7935,35 +9861,35 @@ msgstr ""
 "celý vodní systém. Až to bude hotovo a Tux bude ve sprše, stiskni pro něj "
 "tlačítko sprchy."
 
-#: ../src/wordprocessor-activity/wordprocessor.c:55
+#: ../src/wordprocessor-activity/wordprocessor.c:57
 msgid "Research"
 msgstr "Prozkoumat"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:67
+#: ../src/wordprocessor-activity/wordprocessor.c:69
 msgid "Sentimental"
 msgstr "Sentimentální"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:79
+#: ../src/wordprocessor-activity/wordprocessor.c:81
 msgid "Official"
 msgstr "Oficiální"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:103
+#: ../src/wordprocessor-activity/wordprocessor.c:105
 msgid "Flyer"
 msgstr "Leták"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:447
+#: ../src/wordprocessor-activity/wordprocessor.c:478
 msgid "Title"
 msgstr "Název"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:448
+#: ../src/wordprocessor-activity/wordprocessor.c:479
 msgid "Heading 1"
 msgstr "Nadpis 1"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:449
+#: ../src/wordprocessor-activity/wordprocessor.c:480
 msgid "Heading 2"
 msgstr "Nadpis 2"
 
-#: ../src/wordprocessor-activity/wordprocessor.c:451
+#: ../src/wordprocessor-activity/wordprocessor.c:482
 msgid "Hyperlink"
 msgstr "Hypertextový odkaz"
 
@@ -7984,13 +9910,13 @@ msgstr ""
 msgid ""
 "Learn how to enter text in a wordprocessor. This wordprocessor is special in "
 "that it enforces the use of styles. This way, the children will understand "
-"their benefit when moving to more feature full wordprocessor like OpenOffice."
-"org."
+"their benefit when moving to more feature full wordprocessor like "
+"LibreOffice."
 msgstr ""
 "Učí, jak napsat text v textovém editoru. Tento textový editor je speciální v "
 "tom, že klade důraz na používání stylů. Touto cestou děti pochopí jejich "
 "výhodu, až přejdou na mnohem výkonnější textový editor, jako je třeba "
-"OpenOffice.org."
+"LibreOffice."
 
 #: ../src/wordprocessor-activity/wordprocessor.xml.in.h:5
 msgid ""
@@ -8021,5 +9947,5 @@ msgid "Keyboard training"
 msgstr "Procvičení klávesnice"
 
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
-msgid "Type the complete word as it falls, before it reachs the ground"
-msgstr "Napiš celé padající slovo, než spadnou na zem"
+msgid "Type the complete word as it falls, before it reaches the ground"
+msgstr "Napiš celé padající slovo dřív, než spadnou na zem"
