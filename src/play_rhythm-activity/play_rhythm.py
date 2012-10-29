@@ -450,6 +450,7 @@ dialogue to\nenable the sound."), None)
 
     def end(self):
         self.running = False
+        self.stopMetronome()
         self.staff.eraseAllNotes()
         # Remove the root item removes all the others inside it
         self.rootitem.remove()
