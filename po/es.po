@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: gcompris.gcomprixogoo\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-10-24 20:53+0000\n"
-"PO-Revision-Date: 2012-10-25 11:35+0200\n"
+"POT-Creation-Date: 2012-10-27 18:06+0000\n"
+"PO-Revision-Date: 2012-10-29 17:27+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -899,7 +899,7 @@ msgid "sepia"
 msgstr "sepia"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:16
-msgid "sulphur"
+msgid "sulfur"
 msgstr "azufre"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:17
@@ -983,7 +983,8 @@ msgid "azure"
 msgstr "azul celeste"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:37
-msgid "greyish brown"
+#| msgid "greyish brown"
+msgid "grayish brown"
 msgstr "marrón grisáceo"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:38
@@ -1079,7 +1080,8 @@ msgid "mauve"
 msgstr "malva"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:61
-msgid "greyish blue"
+#| msgid "greyish blue"
+msgid "grayish blue"
 msgstr "azul grisáceo"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:62
@@ -1709,9 +1711,12 @@ msgid "Mouse-manipulation"
 msgstr "Manipulación del ratón"
 
 #: ../src/billard-activity/billard.xml.in.h:4
+#| msgid ""
+#| "Point the mouse and click on the ball, to set the speed and direction of "
+#| "the ball. The closer you click to the centre, the slower the ball moves."
 msgid ""
 "Point the mouse and click on the ball, to set the speed and direction of the "
-"ball. The closer you click to the centre, the slower the ball moves."
+"ball. The closer you click to the center, the slower the ball moves."
 msgstr ""
 "Apunta y pulsa en la bola para establecer su velocidad y dirección. Cuanto "
 "más cerca del centro pulses, más lenta se moverá la bola."
@@ -3229,11 +3234,14 @@ msgid " Chickens"
 msgstr " Gallinas"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:8
+#| msgid ""
+#| " The chichen goes \"cluck, cackle, cluck\". Chickens have over 200 "
+#| "different noises they can use to communicate."
 msgid ""
-" The chichen goes \"cluck, cackle, cluck\". Chickens have over 200 different "
+" The chicken goes \"cluck, cackle, cluck\". Chickens have over 200 different "
 "noises they can use to communicate."
 msgstr ""
-" Las gallinas «cacarean». Las gallinas tienen más de 200 sonidos diferentes "
+" Las gallinas cacarean. Las gallinas tienen más de 200 sonidos diferentes "
 "que pueden utilizar para comunicarse."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:9
@@ -3291,9 +3299,6 @@ msgid " White Duck"
 msgstr " Pato blanco"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:20
-#| msgid ""
-#| " The duck goes \"quack, quack\". Ducks have special features like webbed "
-#| "feat and waterproof feathers."
 msgid ""
 " The duck goes \"quack, quack\". Ducks have special features like webbed "
 "feet and waterproof feathers."
@@ -3333,7 +3338,8 @@ msgstr ""
 "suelen gozar de cariño y atención."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:27
-msgid " This animal's ancesters were wolves."
+#| msgid " This animal's ancesters were wolves."
+msgid " This animal's ancestors were wolves."
 msgstr " Los antepasados de este animal ​​eran lobos."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:28
@@ -3341,9 +3347,6 @@ msgid " Rooster"
 msgstr " Gallo"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:29
-#| msgid ""
-#| " The rooster goes \"coc-a-doodle-doo!\". Roosters have been on farms for "
-#| "about 5,000 years. Every morning it wakes the farm up with its noices."
 msgid ""
 " The rooster goes \"coc-a-doodle-doo!\". Roosters have been on farms for "
 "about 5,000 years. Every morning it wakes the farm up with its noises."
@@ -3608,10 +3611,14 @@ msgid " Japan"
 msgstr " Japón"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:14
+#| msgid ""
+#| " Taiko drumming comes from Japan. This type of drumming was originally "
+#| "used to scare enemies in battle. It is very loud, and performances are "
+#| "very exciting with crouds chearing and performers yelling!"
 msgid ""
 " Taiko drumming comes from Japan. This type of drumming was originally used "
 "to scare enemies in battle. It is very loud, and performances are very "
-"exciting with crouds chearing and performers yelling!"
+"exciting with crowds cheering and performers yelling!"
 msgstr ""
 " Los tambores taiko vienen de Japón. Este tipo de tambor se utilizó "
 "originalmente para asustar a los enemigos en la batalla. Es muy fuerte, y "
@@ -3627,10 +3634,14 @@ msgid " Scotland and Ireland"
 msgstr " Escocia e Irlanda"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:17
+#| msgid ""
+#| " Folk music of this region is called celtic music, often incorporates a "
+#| "narrative poem or story. Typical instruments include bagpipes, fiddles, "
+#| "flutes, harps, and accordians."
 msgid ""
 " Folk music of this region is called celtic music, often incorporates a "
 "narrative poem or story. Typical instruments include bagpipes, fiddles, "
-"flutes, harps, and accordians."
+"flutes, harps, and accordions."
 msgstr ""
 " La música folclórica de esta región se llama música celta y a menudo "
 "incorpora un poema narrativo o cuento. Los instrumentos típicos incluyen: "
@@ -3647,9 +3658,13 @@ msgid " Italy"
 msgstr " Italia"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:20
+#| msgid ""
+#| " Italy is famous for its Opera. Opera is a musical theatre where actors "
+#| "tell a story by acting and singing. Opera sings, both male and female, "
+#| "learn special techniques to sing operas."
 msgid ""
-" Italy is famous for its Opera. Opera is a musical theatre where actors tell "
-"a story by acting and singing. Opera sings, both male and female, learn "
+" Italy is famous for its Opera. Opera is a musical theater where actors tell "
+"a story by acting and singing. Opera singers, both male and female, learn "
 "special techniques to sing operas."
 msgstr ""
 " Italia es famosa por su ópera. La ópera es un teatro musical donde los "
@@ -3665,9 +3680,12 @@ msgid " European Classical Music"
 msgstr " Música clásica europea"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:23
+#| msgid ""
+#| " Europe is the home of classical music. Famous composers like Bach, "
+#| "Beethoven, and Mozart forevor changed music history."
 msgid ""
 " Europe is the home of classical music. Famous composers like Bach, "
-"Beethoven, and Mozart forevor changed music history."
+"Beethoven, and Mozart forever changed music history."
 msgstr ""
 " Europa es la cuna de la música clásica. Compositores famosos como Bach, "
 "Beethoven, Mozart cambiaron la historia de la música para siempre."
@@ -4293,14 +4311,19 @@ msgid "Print the version of "
 msgstr "Imprime la versión de "
 
 #: ../src/gcompris/gcompris.c:181
+#| msgid ""
+#| "Run GCompris with local menu (e.g -l /reading will let you play only "
+#| "activities in the reading directory, -l /strategy/connect4 only the "
+#| "connect4 activity). Use '-l list' to list all the availaible activities "
+#| "and their descriptions."
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
-"activity). Use '-l list' to list all the availaible activities and their "
+"activity). Use '-l list' to list all the available activities and their "
 "descriptions."
 msgstr ""
-"Ejecuta gcompris con menú local (p. ej. -l /reading te permitirá jugar sólo "
-"a actividades en la carpeta de lectura, -l /strategy/connect4 sólo a la "
+"Ejecuta gcompris con menú local (ej. -l /reading te permitirá jugar sólo a "
+"actividades en la carpeta de lectura, -l /strategy/connect4 sólo a la "
 "actividad conecta 4). Usa «-l list» para listar todas las actividades "
 "disponibles y sus descripciones."
 
@@ -4480,10 +4503,15 @@ msgstr "El archivo de bloqueo es: %s\n"
 
 #: ../src/gcompris/gcompris.c:1638
 #, c-format
+#| msgid ""
+#| "GCompris\n"
+#| "Version: %s\n"
+#| "Licence: GPL\n"
+#| "More info at http://gcompris.net\n"
 msgid ""
 "GCompris\n"
 "Version: %s\n"
-"Licence: GPL\n"
+"License: GPL\n"
 "More info at http://gcompris.net\n"
 msgstr ""
 "GCompris\n"
@@ -5298,7 +5326,8 @@ msgid "Qatar"
 msgstr "Catar"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:12
-msgid "Bahrein"
+#| msgid "Bahrein"
+msgid "Bahrain"
 msgstr "Bahrein"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:13
@@ -5309,9 +5338,8 @@ msgstr "Líbano"
 msgid "Chypre"
 msgstr "Chipre"
 
-# está en Francés....
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:15
-msgid "Koweit"
+msgid "Kuwait"
 msgstr "Kuwait"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:16
@@ -5339,8 +5367,8 @@ msgid "Jordan"
 msgstr "Jordania"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:22
-msgid "Irak"
-msgstr "Irak"
+msgid "Iraq"
+msgstr "Iraq"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:23
 msgid "Syria"
@@ -5363,11 +5391,13 @@ msgid "Turkmenistan"
 msgstr "Turkmenistán"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:29
-msgid "Kirghizstan"
+#| msgid "Kirghizstan"
+msgid "Kyrgyzstan"
 msgstr "Kirguistán"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:30
-msgid "Tadjikistan"
+#| msgid "Tadjikistan"
+msgid "Tajikistan"
 msgstr "Tayikistán"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:31
@@ -5431,7 +5461,8 @@ msgid "Taiwan"
 msgstr "Taiwan"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:48
-msgid "Ouzbekistan"
+#| msgid "Ouzbekistan"
+msgid "Uzbekistan"
 msgstr "Uzbekistán"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:49
@@ -5439,11 +5470,13 @@ msgid "Kazakhstan"
 msgstr "Kazajistán"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:50
-msgid "South Corea"
+#| msgid "South Corea"
+msgid "South Korea"
 msgstr "Corea del Sur"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:51
-msgid "North Corea"
+#| msgid "North Corea"
+msgid "North Korea"
 msgstr "Corea del Norte"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:52
@@ -6453,7 +6486,8 @@ msgid "the clarinet"
 msgstr "el clarinete"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:4
-msgid "the flute traversiere"
+#| msgid "the flute traversiere"
+msgid "the transverse flute"
 msgstr "la flauta travesera"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:5
@@ -6485,70 +6519,74 @@ msgid "the violin"
 msgstr "el violín"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
+msgid "the flute traversiere"
+msgstr "la flauta travesera"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
 msgid "the drum kit"
 msgstr "la batería"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
 msgid "the accordion"
 msgstr "el acordeón"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
 msgid "the banjo"
 msgstr "el banjo"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
 msgid "the bongo"
 msgstr "el bongo"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
 msgid "the electric guitar"
 msgstr "la guitarra eléctrica"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
 msgid "the castanets"
 msgstr "las castañuelas"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
 msgid "the cymbal"
 msgstr "el platillo"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
 msgid "the cello"
 msgstr "el violonchelo"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
 msgid "the harmonica"
 msgstr "la armónica"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
 msgid "the horn"
 msgstr "la trompa"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
 msgid "the maracas"
 msgstr "las maracas"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
 msgid "the organ"
 msgstr "el órgano"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
 msgid "the snare drum"
 msgstr "el tambor"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
 msgid "the timpani"
 msgstr "los timbales"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:27
 msgid "the triangle"
 msgstr "el triángulo"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:27
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:28
 msgid "the tambourine"
 msgstr "el tambor"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:28
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:29
 msgid "the tuba"
 msgstr "la tuba"
 
@@ -6583,8 +6621,12 @@ msgstr ""
 "gravedad."
 
 #: ../src/intro_gravity-activity/intro_gravity.py:118
+#| msgid ""
+#| "You goal is to let Tux's spaceship move by changing the mass of its "
+#| "surrounding planets. Don't get too close to the planets or you will crash "
+#| "on them. The arrow indicates the direction of the force on your ship."
 msgid ""
-"You goal is to let Tux's spaceship move by changing the mass of its "
+"Your goal is to let Tux's spaceship move by changing the mass of its "
 "surrounding planets. Don't get too close to the planets or you will crash on "
 "them. The arrow indicates the direction of the force on your ship."
 msgstr ""
@@ -6668,11 +6710,24 @@ msgid "Pilot the spaceship towards the green landing area."
 msgstr "Pilota la nave espacial a lo largo del área verde de aterrizaje."
 
 #: ../src/land_safe-activity/land_safe.xml.in.h:4
+#| msgid ""
+#| "\n"
+#| "Acceleration due to gravity experienced by the spaceship is directly "
+#| "proportional to the mass of the planet and inversely proportional to the "
+#| "square of the distance from the centre of the planet. Thus, with every "
+#| "planet the acceleration will differ and as the spaceship comes closer and "
+#| "closer to the planet the acceleration increases.\n"
+#| "\n"
+#| "Use the up/down keys to control the thrust and the right/left keys to "
+#| "control direction.\n"
+#| "\n"
+#| "The landing platform is green if your speed is fine for a safe landing.\n"
+#| "        "
 msgid ""
 "\n"
 "Acceleration due to gravity experienced by the spaceship is directly "
 "proportional to the mass of the planet and inversely proportional to the "
-"square of the distance from the centre of the planet. Thus, with every "
+"square of the distance from the center of the planet. Thus, with every "
 "planet the acceleration will differ and as the spaceship comes closer and "
 "closer to the planet the acceleration increases.\n"
 "\n"
@@ -6777,10 +6832,15 @@ msgid "The aim is to switch off all the lights."
 msgstr "El objetivo es apagar todas las luces."
 
 #: ../src/lightsoff-activity/lightsoff.xml.in.h:3
+#| msgid ""
+#| "The effect of pressing a button is to toggle the state of that button, "
+#| "and of its immediate vertical and horizontal neighbours. The sun and the "
+#| "color of the sky depend on the number of clicks needed to solve the "
+#| "puzzle. If you click on Tux, the solution is shown."
 msgid ""
 "The effect of pressing a button is to toggle the state of that button, and "
-"of its immediate vertical and horizontal neighbours. The sun and the color "
-"of the sky depend on the number of clicks needed to solve the puzzle. If you "
+"of its immediate vertical and horizontal neighbors. The sun and the color of "
+"the sky depend on the number of clicks needed to solve the puzzle. If you "
 "click on Tux, the solution is shown."
 msgstr ""
 "El efecto de pulsar un botón es conmutar el estado de ese botón y sus "
@@ -7060,9 +7120,30 @@ msgid "Help Tux get out of this maze."
 msgstr "Ayuda a Tux a salir de este laberinto."
 
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:5
+#| msgid ""
+#| "Use the keyboard arrows to move Tux up to the door. In this maze, the "
+#| "move is relative (first person). Use the up arrow to go forward. The "
+#| "other arrow let you turn Tux in another direction.\n"
+#| "\n"
+#| "At the first levels, Tux walks comfortably, one step on each keypress, "
+#| "through the labyrinth.\n"
+#| "\n"
+#| "For larger labyrinths, there is a special walking mode, called \"run-fast-"
+#| "mode\". If this run-fast-mode is enabled, Tux will run all the way "
+#| "automatically until he reaches a fork and you have to decide which way to "
+#| "go further.\n"
+#| "\n"
+#| "You can see whether this mode is enabled or not, by looking at Tux's "
+#| "feet: If Tux is barefooted, \"run-fast-mode\" is disabled. And if he "
+#| "wears red sport shoes, \"run-fast-mode\" is enabled.\n"
+#| "\n"
+#| "From level 14 on, run-fast-mode will be enabled automatically. If you "
+#| "want to use this feature in earlier levels or want to disable it in "
+#| "advanced levels, click on Tux or the \"barefoot / sportshoe\"-icon in the "
+#| "upper left corner of the screen to toggle the run-fast-mode.\n"
 msgid ""
 "Use the keyboard arrows to move Tux up to the door. In this maze, the move "
-"is relative (first person). Use the up arrow to go forward. The other arrow "
+"is relative (first person). Use the up arrow to go forward. The other arrows "
 "let you turn Tux in another direction.\n"
 "\n"
 "At the first levels, Tux walks comfortably, one step on each keypress, "
@@ -7574,6 +7655,29 @@ msgstr "Practica la resta hasta que todas las cartas desaparezcan."
 
 #: ../src/memory_minus-activity/memory_minus.xml.in.h:5
 #: ../src/memory_minus_tux-activity/memory_minus_tux.xml.in.h:5
+#| msgid ""
+#| "You can see some cards, but you can't see what's on the other side of "
+#| "them. Each card is hiding a subtraction, or the answer to it.\n"
+#| "A subtraction looks like this: 3 - 1 = 2\n"
+#| "The numbers on one side of the equals sign (=) have to be the same as the "
+#| "number on the other side. So 3 (1, 2, 3) less 1 (1) makes 2. Count aloud "
+#| "when you work this out, and count on your fingers, because the more ways "
+#| "you do something, the better you remember it. You can also use blocks, or "
+#| "buttons, or anything you can count. If you have lots of brothers and "
+#| "sisters, you can count them! Or the kids in your class at school. Sing "
+#| "counting songs. Count lots of things, for practice, and you'll be very "
+#| "good at adding-up!\n"
+#| "\n"
+#| "In this game, these cards are hiding the two parts of a subtraction. You "
+#| "need to find the two parts of the subraction, and bring them together "
+#| "again. Click on a card to see what number it's hiding, then try to find "
+#| "the other card that goes with it, to make a whole sum. You can only turn "
+#| "over two cards in one go, so you need to remember where the numbers are "
+#| "hiding, then you can match them when you find their other half. You're "
+#| "doing the job of the equals sign, and the numbers need you to put them "
+#| "together and make a proper sum. When you do that, both those cards "
+#| "disappear! When you've made them all disappear, found all the subtracts, "
+#| "you've won the game! :)"
 msgid ""
 "You can see some cards, but you can't see what's on the other side of them. "
 "Each card is hiding a subtraction, or the answer to it.\n"
@@ -7588,12 +7692,12 @@ msgid ""
 "at adding-up!\n"
 "\n"
 "In this game, these cards are hiding the two parts of a subtraction. You "
-"need to find the two parts of the subraction, and bring them together again. "
-"Click on a card to see what number it's hiding, then try to find the other "
-"card that goes with it, to make a whole sum. You can only turn over two "
-"cards in one go, so you need to remember where the numbers are hiding, then "
-"you can match them when you find their other half. You're doing the job of "
-"the equals sign, and the numbers need you to put them together and make a "
+"need to find the two parts of the subtraction, and bring them together "
+"again. Click on a card to see what number it's hiding, then try to find the "
+"other card that goes with it, to make a whole sum. You can only turn over "
+"two cards in one go, so you need to remember where the numbers are hiding, "
+"then you can match them when you find their other half. You're doing the job "
+"of the equals sign, and the numbers need you to put them together and make a "
 "proper sum. When you do that, both those cards disappear! When you've made "
 "them all disappear, found all the subtracts, you've won the game! :)"
 msgstr ""
@@ -7689,8 +7793,9 @@ msgstr "Manipulación del ratón, Cerebro."
 
 #: ../src/memory_sound-activity/memory_sound.xml.in.h:4
 #: ../src/memory_sound_tux-activity/memory_sound_tux.xml.in.h:4
-msgid "Train your audio memory and remove all the violonists Tux."
-msgstr "Entrena tu memoria de sonidos y quita todos los violinuxtas Tux."
+#| msgid "Train your audio memory and remove all the violonists Tux."
+msgid "Train your audio memory and remove all the violinists Tux."
+msgstr "Entrena tu memoria de sonidos y quita todos los Tux violinistas."
 
 #: ../src/memory_sound-activity/memory_sound.xml.in.h:5
 #: ../src/memory_sound_tux-activity/memory_sound_tux.xml.in.h:5
@@ -7779,10 +7884,29 @@ msgstr ""
 "Debes estar familiarizado con el movimiento y las pulsaciones del ratón."
 
 #: ../src/mining-activity/mining.xml.in.h:4
-msgid "Lern to use the mousewheel to zoom in and out."
+#| msgid "Lern to use the mousewheel to zoom in and out."
+msgid "Learn to use the mousewheel to zoom in and out."
 msgstr "Aprende a usar la rueda del ratón para acercar o alejar."
 
 #: ../src/mining-activity/mining.xml.in.h:5
+#| msgid ""
+#| "Looking at the rockwall, you can see a sparkle somewhere. Move the mouse "
+#| "cursor next to this sparkle and use the mousewheel to zoom in. If you "
+#| "zoomed in at maximum, a gold nugget will appear at the position of the "
+#| "sparkle. Click on the gold nugget to collect it.\n"
+#| "\n"
+#| "Having collected the nugget, use the mousewheel to zoom out again. If you "
+#| "zoomed out at maximum, another sparkle will appear, showing the next gold "
+#| "nugget to collect. Collect enough nuggets to complete the level.\n"
+#| "\n"
+#| "The lorry in the lower, right corner of the screen will tell you the "
+#| "number of already collected nuggets and the total number of nuggets to "
+#| "collect in this level.\n"
+#| "\n"
+#| "To start the tutorial, click on professor tux (available at level 1) and "
+#| "let him show you, what to do next.\n"
+#| "\n"
+#| "Have fun! :)"
 msgid ""
 "Looking at the rockwall, you can see a sparkle somewhere. Move the mouse "
 "cursor next to this sparkle and use the mousewheel to zoom in. If you zoomed "
@@ -7793,11 +7917,11 @@ msgid ""
 "zoomed out at maximum, another sparkle will appear, showing the next gold "
 "nugget to collect. Collect enough nuggets to complete the level.\n"
 "\n"
-"The lorry in the lower, right corner of the screen will tell you the number "
+"The truck in the lower, right corner of the screen will tell you the number "
 "of already collected nuggets and the total number of nuggets to collect in "
 "this level.\n"
 "\n"
-"To start the tutorial, click on professor tux (available at level 1) and let "
+"To start the tutorial, click on professor Tux (available at level 1) and let "
 "him show you, what to do next.\n"
 "\n"
 "Have fun! :)"
@@ -8210,7 +8334,8 @@ msgid "Play Bass Clef Game"
 msgstr "Jugar a la clave de Fa"
 
 #: ../src/note_names-activity/note_names.py:184
-msgid "Click on the note name to match the pitch. Then click ok to check."
+#| msgid "Click on the note name to match the pitch. Then click ok to check."
+msgid "Click on the note name to match the pitch. Then click OK to check."
 msgstr ""
 "Pulsa sobre el nombre de la nota para que coincida con el tono. Luego pulsa "
 "Aceptar para comprobar."
@@ -8687,8 +8812,11 @@ msgstr ""
 "guardando tu trabajo."
 
 #: ../src/piano_composition-activity/piano_composition.xml.in.h:3
+#| msgid ""
+#| "Familiarity with note naming convensions, note-names activity useful to "
+#| "learn this notation."
 msgid ""
-"Familiarity with note naming convensions, note-names activity useful to "
+"Familiarity with note naming conventions, note-names activity useful to "
 "learn this notation."
 msgstr ""
 "Familiaridad con los convenios de nombrado de notas, la actividad de "
@@ -8711,6 +8839,41 @@ msgstr ""
 "libre de notación musical."
 
 #: ../src/piano_composition-activity/piano_composition.xml.in.h:5
+#| msgid ""
+#| "This activity has several levels, each level adds a new functionality to "
+#| "the previous level.\n"
+#| "Level 1: basic piano keyboard (white keys only) and students can "
+#| "experiment with clicking the colored rectangle keys to write music\n"
+#| "Level 2: the musical staff switches to bass clef, so pitches are lower "
+#| "than in previous level\n"
+#| "Level 3: option to choose between treble and bass clef, additional "
+#| "function includes option to select note duration (quarter, half, and "
+#| "whole notes)\n"
+#| "Level 4: addition of black keys (sharp keys)\n"
+#| "Level 5: flat notation used for black keys\n"
+#| "Level 6: load children's melodies from around the world\n"
+#| "Level 7: all features available, with the additional feature to load and "
+#| "save your composition\n"
+#| "\n"
+#| "The following keyboard bindings work in this activity:\n"
+#| "- backspace: erase one note\n"
+#| "- delete: erase all notes\n"
+#| "- space bar: play composition\n"
+#| "- number keys:\n"
+#| "  1: C\n"
+#| "  2: D\n"
+#| "  3: E\n"
+#| "  4: F\n"
+#| "  5: G\n"
+#| "  6: E\n"
+#| "  7: F\n"
+#| "  8: C (higher octave)\n"
+#| "  etc.\n"
+#| "  F1: C# / Db\n"
+#| "  F2: D# / Eb\n"
+#| "  F3: F# / Gb\n"
+#| "  F4: G# / Ab\n"
+#| "  F5: A# / Bb\n"
 msgid ""
 "This activity has several levels, each level adds a new functionality to the "
 "previous level.\n"
@@ -8736,8 +8899,8 @@ msgid ""
 "  3: E\n"
 "  4: F\n"
 "  5: G\n"
-"  6: E\n"
-"  7: F\n"
+"  6: A\n"
+"  7: B\n"
 "  8: C (higher octave)\n"
 "  etc.\n"
 "  F1: C# / Db\n"
@@ -8994,21 +9157,56 @@ msgid "Learn to play melodies on the piano keyboard!"
 msgstr "¡Aprende a tocar melodías de piano con el teclado!"
 
 #: ../src/play_piano-activity/play_piano.xml.in.h:3
+#| msgid ""
+#| "knowledge of musical notation and musical staff. Play piano_composition "
+#| "first."
 msgid ""
-"knowledge of musical notation and musical staff. Play piano_composition "
-"first."
+"Knowledge of musical notation and musical staff. Play the activity named "
+"'Piano Composition' first."
 msgstr ""
-"conocimiento de la notación musical y del pentagrama. Juega primero a "
+"Conocimiento de la notación musical y del pentagrama. Juega primero a "
 "componer con el piano."
 
 #: ../src/play_piano-activity/play_piano.xml.in.h:4
+#| msgid ""
+#| "understand how the piano keyboard can play music as written on the "
+#| "musical staff"
 msgid ""
-"understand how the piano keyboard can play music as written on the musical "
-"staff"
+"Understand how the piano keyboard can play music as written on the musical "
+"staff."
 msgstr ""
-"entender cómo el piano puede reproducir la música escrita en un pentragrama"
+"Entender cómo el piano puede reproducir la música escrita en un pentragrama"
 
 #: ../src/play_piano-activity/play_piano.xml.in.h:5
+#| msgid ""
+#| "The notes you see will be played to you. Click on the corresponding keys "
+#| "on the keyboard that match the notes you hear and see. All levels except "
+#| "for the last have the notes colored so you can match the notes to the "
+#| "keyboard colors. Each level increases in difficulty by adding more notes. "
+#| "Levels 1-6 test the treble clef, levels 7-12 test the bass clef. When you "
+#| "get five points, you move onto the next level (incorrect answers deduct "
+#| "points, correct answers add points).\n"
+#| "\n"
+#| "The following keyboard bindings work in this game:\n"
+#| "- backspace: erase attempt\n"
+#| "- delete: erase attempt\n"
+#| "- enter/return: ok button\n"
+#| "- space bar: play\n"
+#| "- number keys:\n"
+#| "  - 1: C\n"
+#| "  - 2: D\n"
+#| "  - 3: E\n"
+#| "  - 4: F\n"
+#| "  - 5: G\n"
+#| "  - 6: E\n"
+#| "  - 7: F\n"
+#| "  - 8: C (higher octave)\n"
+#| "  - etc.\n"
+#| "  - F1: C# / Db\n"
+#| "  - F2: D# / Eb\n"
+#| "  - F3: F# / Gb\n"
+#| "  - F4: G# / Ab\n"
+#| "  - F5: A# / Bb\n"
 msgid ""
 "The notes you see will be played to you. Click on the corresponding keys on "
 "the keyboard that match the notes you hear and see. All levels except for "
@@ -9021,7 +9219,7 @@ msgid ""
 "The following keyboard bindings work in this game:\n"
 "- backspace: erase attempt\n"
 "- delete: erase attempt\n"
-"- enter/return: ok button\n"
+"- enter/return: OK button\n"
 "- space bar: play\n"
 "- number keys:\n"
 "  - 1: C\n"
@@ -9129,35 +9327,65 @@ msgstr ""
 "escuchas."
 
 #: ../src/play_rhythm-activity/play_rhythm.xml.in.h:5
+#| msgid ""
+#| "This is a relatively challenging game to master, so good luck. Listen to "
+#| "the rhythm played, and follow along with the music. If you would like to "
+#| "hear it again, click the play button. When you're ready to perform the "
+#| "identical rhythm, click the drum to the rhythm, then click the ok button. "
+#| "If you clicked correctly and in the right tempo, another rhythm is "
+#| "displayed. If not, you must try again. Even levels display a vertical "
+#| "playing line when you click the drum, which helps you see whene to click "
+#| "to follow the rhythm. Click on the drum when the line is in the middle of "
+#| "the notes. Odd levels are harder, because there is no vertical playing "
+#| "line. The rhythm will not be played for you. You must read the rhythm, "
+#| "and click it back in tempo. Click the metronome to hear the quarter note "
+#| "tempo. The following keyboard bindings work in this game: - backspace: "
+#| "erase attempt - delete: erase attempt - enter/return: ok button - space "
+#| "bar: play"
 msgid ""
-"This is a relatively challenging game to master, so good luck. Listen to the "
-"rhythm played, and follow along with the music. If you would like to hear it "
-"again, click the play button. When you're ready to perform the identical "
-"rhythm, click the drum to the rhythm, then click the ok button. If you "
-"clicked correctly and in the right tempo, another rhythm is displayed. If "
-"not, you must try again. Even levels display a vertical playing line when "
-"you click the drum, which helps you see whene to click to follow the rhythm. "
-"Click on the drum when the line is in the middle of the notes. Odd levels "
-"are harder, because there is no vertical playing line. The rhythm will not "
-"be played for you. You must read the rhythm, and click it back in tempo. "
-"Click the metronome to hear the quarter note tempo. The following keyboard "
-"bindings work in this game: - backspace: erase attempt - delete: erase "
-"attempt - enter/return: ok button - space bar: play"
+"This is a relatively challenging game to master, so good luck.\n"
+"\n"
+"Listen to the rhythm played, and follow along with the music. If you would "
+"like to hear it again, click the play button. When you're ready to perform "
+"the identical rhythm, click the drum to the rhythm, then click the OK "
+"button. If you clicked correctly and in the right tempo, another rhythm is "
+"displayed. If not, you must try again.\n"
+"\n"
+"Even levels display a vertical playing line when you click the drum, which "
+"helps you see when to click to follow the rhythm. Click on the drum when the "
+"line is in the middle of the notes.\n"
+"\n"
+"Odd levels are harder, because there is no vertical playing line. The rhythm "
+"will not be played for you. You must read the rhythm, and click it back in "
+"tempo. Click the metronome to hear the quarter note tempo.\n"
+"\n"
+"The following keyboard bindings work in this game:\n"
+"- backspace: erase attempt\n"
+"- delete: erase attempt\n"
+"- enter/return: OK button\n"
+"- space bar: play\n"
 msgstr ""
-"Es un juego relativamente difícil de dominar, así que buena suerte. Escucha "
-"el ritmo reproducido y síguelo durante la música. Si quieres volver a "
-"escucharlo, pulsa el botón de reproducción. Cuando estés preparado para "
+"Es un juego relativamente difícil de dominar, así que buena suerte.\n"
+"\n"
+"Escucha el ritmo reproducido y síguelo durante la música. Si quieres volver "
+"a escucharlo, pulsa el botón de reproducción. Cuando estés preparado para "
 "repetir el ritmo idéntico, pulsa sobre la batería y luego pulsa el botón "
 "«Aceptar». Si has pulsado correctamente y en el tempo correcto, se mostrará "
-"otro ritmo. Si no, inténtalo otra vez. En cada nivel se muestra una línea "
-"vertical de reproducción cuando pulsas sobre la batería, para ayudarte a ver "
-"cuando debes pulsar el siguiente ritmo. Pulsa sobre la batería cuando la "
-"línea está en medio de las notas. Los niveles impares son más difíciles, ya "
-"que no tienen esta línea vertical. El ritmo no se reproducirá. Debes leer el "
-"ritmo y tocarlo a tempo. Pulsa sobre el metrónomo para escuchar el tempo de "
-"las negras. Durante el juego, están disponibles las siguientes asociaciones "
-"de teclas: retroceso: borrar intento; suprimir: borrar intento; intro: botón "
-"«Aceptar»: barra espaciadora: reproducir"
+"otro ritmo. Si no, inténtalo otra vez.\n"
+"\n"
+"En cada nivel se muestra una línea vertical de reproducción cuando pulsas "
+"sobre la batería, para ayudarte a ver cuando debes pulsar el siguiente "
+"ritmo. Pulsa sobre la batería cuando la línea está en medio de las notas.\n"
+"\n"
+"Los niveles impares son más difíciles, ya que no tienen esta línea vertical. "
+"El ritmo no se reproducirá. Debes leer el ritmo y tocarlo a tempo. Pulsa "
+"sobre el metrónomo para escuchar el tempo de las negras.\n"
+"\n"
+"Durante el juego, están disponibles las siguientes asociaciones de teclas:\n"
+"- retroceso: borrar intento\n"
+"- suprimir: borrar intento\n"
+"- intro: botón «Aceptar»\n"
+"- barra espaciadora: reproducir\n"
 
 #: ../src/pythontemplate-activity/pythontemplate.py:62
 #: ../src/pythontest-activity/pythontest.py:182
@@ -9468,10 +9696,14 @@ msgstr ""
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:5
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:5
+#| msgid ""
+#| "The painting is an original painting created by Virginie MOREAU (virginie."
+#| "moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is "
+#| "released under the GPL licence."
 msgid ""
 "The painting is an original painting created by Virginie MOREAU (virginie."
 "moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is "
-"released under the GPL licence."
+"released under the GPL license."
 msgstr ""
 "La pintura es un trabajo original creado por Virginie MOREAU (virginie."
 "moreau@free.fr) en 2001. Su nombre es «Vendedor de Especias en Egipto». Está "
@@ -10113,8 +10345,19 @@ msgid "Keyboard training"
 msgstr "Entrenamiento con el teclado"
 
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
-msgid "Type the complete word as it falls, before it reachs the ground"
+#| msgid "Type the complete word as it falls, before it reachs the ground"
+msgid "Type the complete word as it falls, before it reaches the ground"
 msgstr "Teclea la palabra completa mientras cae, antes de que llegue al suelo"
+
+#~ msgid "sulphur"
+#~ msgstr "azufre"
+
+# está en Francés....
+#~ msgid "Koweit"
+#~ msgstr "Kuwait"
+
+#~ msgid "Irak"
+#~ msgstr "Irak"
 
 #~ msgid "354"
 #~ msgstr "354"
