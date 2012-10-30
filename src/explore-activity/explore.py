@@ -98,7 +98,7 @@ dialogue to\nenable the sound."), None)
                                         self.gcomprisBoard.canvas.get_root_item())
 
         # silence any currently playing music
-        gcompris.sound.play_ogg('/boards/sounds/silence1s.ogg')
+        gcompris.sound.play_ogg('boards/sounds/silence1s.ogg')
 
         level = self.gcomprisBoard.level
 
@@ -238,7 +238,7 @@ dialogue to\nenable the sound."), None)
             location_rootitem.remove()
 
             # silence any currently playing music
-            gcompris.sound.play_ogg('/boards/sounds/silence1s.ogg')
+            gcompris.sound.play_ogg('boards/sounds/silence1s.ogg')
 
             # All the items have been seen, let's start the level 2
             if self.locationSeen == len(self.sectionNames):
@@ -534,7 +534,7 @@ dialogue to\nenable the sound."), None)
                 self.data.write(configfile)
 
         # silence any currently playing music
-        gcompris.sound.play_ogg('/boards/sounds/silence1s.ogg')
+        gcompris.sound.play_ogg('boards/sounds/silence1s.ogg')
         self.rootitem.remove()
         if hasattr(self, 'location_rootitem'):
             self.location_rootitem.remove()

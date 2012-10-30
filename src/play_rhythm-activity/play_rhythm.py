@@ -217,7 +217,7 @@ dialogue to\nenable the sound."), None)
             self.metronomePlaying = True
         else:
             self.metronomePlaying = False
-            gcompris.sound.play_ogg('//boards/sounds/silence1s.ogg')
+            gcompris.sound.play_ogg('boards/sounds/silence1s.ogg')
 
     def playClick(self):
         if self.metronomePlaying:

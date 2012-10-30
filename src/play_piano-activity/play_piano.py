@@ -56,7 +56,7 @@ class Gcompris_play_piano:
         self.saved_policy = gcompris.sound.policy_get()
         gcompris.sound.policy_set(gcompris.sound.PLAY_AND_INTERRUPT)
         gcompris.sound.pause()
-        gcompris.sound.play_ogg('//boards/sounds/silence1s.ogg')
+        gcompris.sound.play_ogg('boards/sounds/silence1s.ogg')
 
         # Set the buttons we want in the bar
         gcompris.bar_set(gcompris.BAR_LEVEL)

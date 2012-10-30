@@ -67,7 +67,7 @@ class Gcompris_note_names:
         self.saved_policy = gcompris.sound.policy_get()
         gcompris.sound.policy_set(gcompris.sound.PLAY_AND_INTERRUPT)
         gcompris.sound.pause()
-        gcompris.sound.play_ogg('//boards/sounds/silence1s.ogg')
+        gcompris.sound.play_ogg('boards/sounds/silence1s.ogg')
         # Set a background image
         gcompris.set_default_background(self.gcomprisBoard.canvas.get_root_item())
 
