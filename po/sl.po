@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: gcompris master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2012-10-30 16:58+0000\n"
-"PO-Revision-Date: 2012-10-30 21:47+0100\n"
+"PO-Revision-Date: 2012-10-30 23:05+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
@@ -74,7 +74,7 @@ msgstr "Razišči računalnik"
 
 #: ../boards/computer.xml.in.h:2
 msgid "Play with computer peripherals."
-msgstr "Igraj se s tipkovnico in miško."
+msgstr "Igre s tipkovnico in miško."
 
 #: ../boards/discovery.xml.in.h:1
 msgid "Go to discovery activities"
@@ -147,7 +147,7 @@ msgstr "Blodnjaki"
 
 #: ../boards/mazeMenu.xml.in.h:2
 msgid "Find your way out of different types of mazes"
-msgstr "Poišči pot iz različnih vrst blodnjakov."
+msgstr "Iskanje poti iz različnih vrst blodnjakov."
 
 #: ../boards/memory_group.xml.in.h:1
 msgid "Go to Memory activities"
@@ -319,7 +319,7 @@ msgstr "Stara mapa GCompris bo izbrisana. Ali želiš nadaljevati?$\\r$\\rOpomba
 
 #: ../nsis_translations.desktop.in.h:5
 msgid "the uninstaller could not find registry entries for GCompris.$\\rIt is likely that another user installed this application."
-msgstr "ni mogoče najti vnosov registra za GCompris.$\\rNajverjetneje je ta program namestil drug uporabnik. "
+msgstr "ni mogoče najti vnosov vpisnika za GCompris.$\\rNajverjetneje je program namestil drug uporabnik. "
 
 #: ../nsis_translations.desktop.in.h:6
 msgid "You do not have permission to uninstall this application."
@@ -426,7 +426,7 @@ msgstr "Učitelj:"
 
 #: ../src/administration-activity/admin/class_edit.py:109
 msgid "Assign all the users belonging to this class"
-msgstr "Dodeli vse uporabnike, ki spadajo v ta razred"
+msgstr "Dodeli uporabnike, ki so del tega razreda"
 
 #: ../src/administration-activity/admin/class_edit.py:246
 #: ../src/administration-activity/admin/group_edit.py:258
@@ -490,7 +490,7 @@ msgstr "Opis:"
 #. Top message gives instructions
 #: ../src/administration-activity/admin/group_edit.py:109
 msgid "Assign all the users belonging to this group"
-msgstr "Dodeli vsem uporabnikom, ki spadajo v to skupino"
+msgstr "Dodeli uporabnike, ki so del te skupine"
 
 #: ../src/administration-activity/admin/group_edit.py:352
 msgid "You need to provide at least a name for your group"
@@ -713,11 +713,11 @@ msgstr "Rojstni datum:"
 
 #: ../src/administration-activity/admin/user_edit.py:153
 msgid "You need to provide at least a login, first name and last name for your users"
-msgstr "Za uporabnike je treba navesti vsaj prijavo, ime in priimek"
+msgstr "Za uporabnike je treba navesti vsaj prijavne podatke, ime in priimek"
 
 #: ../src/administration-activity/admin/user_edit.py:170
 msgid "There is already a user with this login"
-msgstr "Uporabnik s to prijavo že obstaja"
+msgstr "Uporabnik s temi prijavnimi podatki že obstaja"
 
 #: ../src/administration-activity/admin/user_list.py:285
 msgid ""
@@ -726,9 +726,9 @@ msgid ""
 "login;First name;Last name;Date of birth\n"
 "The separator is autodetected and can be one of ',', ';' or ':'"
 msgstr ""
-"Za uvažanje seznam uporabnikov iz datoteke, najprej izberi razred.\n"
-"OBLIKA DATOTEKE: Datoteka mora biti oblikovana takole:\n"
-"prijava;Ime;Priimek;Datum rojstva\n"
+"Za uvoz seznama uporabnikov iz datoteke je treba najprej izbrati razred.\n"
+"OBLIKA DATOTEKE: datoteka mora biti oblikovana kot:\n"
+"prijava;ime;priimek;datum rojstva.\n"
 "Ločilnik je samodejno zaznan in je lahko ',', ';' ali ':'"
 
 #: ../src/administration-activity/admin/user_list.py:363
@@ -737,12 +737,12 @@ msgid ""
 "One or more logins are not unique !\n"
 "You need to change them: %s !"
 msgstr ""
-"Ena ali več prijav nista edinstveni!\n"
+"Ena ali več prijav ni edinstvenih!\n"
 "Treba jih je spremeniti: %s!"
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:1
 msgid "Advanced colors"
-msgstr "Zahtevnejše barve"
+msgstr "Zahtevnejša imena barv"
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:2
 msgid "Click on the correct color"
@@ -1095,7 +1095,7 @@ msgstr "Štiri aritmetične operacije. Združi več aritmetičnih operacij."
 
 #: ../src/algebra_guesscount-activity/algebra_guesscount.xml.in.h:4
 msgid "Deploy a strategy to arrange a set of arithmetic operations to match a given value."
-msgstr "Najdi strategijo za razvrstitev matematičnih operacij tako, da se bodo ujemale z vrednostjo na desni."
+msgstr "Razvrsti matematične operacije tako, da se bo enačba ujemala z vrednostjo na desni."
 
 #: ../src/algebra_guesscount-activity/algebra_guesscount.xml.in.h:5
 msgid "At the top of the board area, choose the numbers and arithmetic operators that give the specified result. You can deselect a number or operator by clicking on it again."
@@ -1141,7 +1141,7 @@ msgstr "Prikazan je račun seštevanja dveh števil. Na desno stran znaka je ena
 
 #: ../src/algorithm-activity/algorithm.xml.in.h:1
 msgid "algorithm"
-msgstr "Poišči vrsto"
+msgstr "Iskanje vrste"
 
 #: ../src/algorithm-activity/algorithm.xml.in.h:2
 msgid "Complete a list of symbols"
@@ -2106,7 +2106,7 @@ msgstr "Klikanje malih črk"
 #: ../src/click_on_letter-activity/click_on_letter.xml.in.h:2
 #: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:2
 msgid "Listen to a letter and click on the right one"
-msgstr "Prisluhni izgovorjavi črke in klikni na pravo"
+msgstr "Povezovanje izgovorjene in napisane črke"
 
 #: ../src/click_on_letter-activity/click_on_letter.xml.in.h:3
 #: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:3
@@ -3922,7 +3922,7 @@ msgstr "Preostali čas = %d"
 
 #: ../src/geo_country-activity/geo_country.xml.in.h:1
 msgid "Locate the region"
-msgstr "Najdi regijo"
+msgstr "Najdi območje"
 
 #: ../src/geo_country-activity/geo_country.xml.in.h:2
 msgid "Drag and Drop the regions to redraw the whole country"
@@ -5767,7 +5767,7 @@ msgstr "desna"
 
 #: ../src/leftright-activity/leftright.xml.in.h:1
 msgid "Find your left and right hands"
-msgstr "Poišči levo in desno dlan"
+msgstr "Iskanje leve in desne dlani"
 
 #: ../src/leftright-activity/leftright.xml.in.h:2
 msgid "Determine if a hand is a right or a left hand"
@@ -6030,7 +6030,7 @@ msgstr "Prostorski blodnjak"
 
 #: ../src/maze3D-activity/maze3D.xml.in.h:2
 msgid "Find your way out of the 3D maze"
-msgstr "Poišči izhod iz prostorskega blodnjaka."
+msgstr "Iskanje izhoda iz prostorskega blodnjaka."
 
 #: ../src/maze3D-activity/maze3D.xml.in.h:5
 msgid "Use the keyboard arrows to move Tux up to the door. Use the spacebar to switch between 2D and 3D modes. 2D mode just gives you an indication of your position, like a map. You cannot move Tux in 2D mode."
@@ -6039,7 +6039,7 @@ msgstr "Uporabi puščice na tipkovnici in pripelji Pinga do vrat. S pritiskom n
 #: ../src/maze-activity/maze.c:142
 #: ../src/maze-activity/maze.xml.in.h:2
 msgid "Find your way out of the maze"
-msgstr "Poišči pot iz blodnjaka."
+msgstr "Iskanje izhoda iz blodnjaka."
 
 #: ../src/maze-activity/maze.c:637
 msgid "Look at your position, then switch back to invisible mode to continue your moves"
@@ -6075,7 +6075,7 @@ msgstr ""
 
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:2
 msgid "Find your way out of the invisible maze"
-msgstr "Poišči pot iz nevidnega blodnjaka."
+msgstr "Iskanje izhoda iz nevidnega blodnjaka."
 
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:5
 msgid ""
@@ -6173,7 +6173,7 @@ msgstr "Spomin"
 
 #: ../src/memory-activity/memory.c:302
 msgid "Find the matching pair"
-msgstr "Poišči ujemajoči se par"
+msgstr "Iskanje ujemajočega se para"
 
 #: ../src/memory-activity/memory.xml.in.h:1
 msgid "Memory Game with images"
@@ -6460,7 +6460,7 @@ msgstr "Spominska igra števil in besed"
 
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:2
 msgid "Turn the cards over to match the number with the word matching it."
-msgstr "Obrni karte tako, da se bodo števila in besede ujemala."
+msgstr "Iskanje para številke in besede"
 
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:4
 msgid "Reading numbers, memory."
@@ -8089,11 +8089,11 @@ msgstr "S klikanjem na različne strojne dele podmornice: motor, krmilo in zrač
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:1
 msgid "Sudoku, place unique symbols in a square."
-msgstr "Sudoku, razpostavi posamezne simbole v mrežo polj."
+msgstr "Sudoku  z liki."
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:2
 msgid "Symbols must be unique in a row, in a column, and (if defined) each region."
-msgstr "Simboli morajo biti edinstveni v vsaki vrstici in v vsakem stolpcu razpredelnice."
+msgstr "Enostaven sudoku z liki in znaki."
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:3
 msgid "Completing the puzzle requires patience and logical ability"
