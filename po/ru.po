@@ -1,6 +1,5 @@
 # translation of gcompris.po to Russian
 # Copyright (C) 2001-2002,2003, 2005, 2006, 2010 Free Software Foundation, Inc.
-#
 # Anna Polesskaya and Kirill Polesski <rami at kaires.org>, 2003.
 # AVL <avl.altlinux.ru>, 2004-2004.
 # Valek Filippov <frob@df.ru>, 2001-2002.
@@ -8,25 +7,24 @@
 # Andrey Cherepanov <skull@kde.ru>, 2007, 2010.
 # Yuri Kozlov <yuray@komyakino.ru>, 2011.
 # Yuri Myasoedov <omerta13@yandex.ru>, 2012.
-#
+# Chris Leonard <cjlhomeaddress@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-10-02 21:28+0000\n"
-"PO-Revision-Date: 2012-10-04 19:06+0400\n"
-"Last-Translator: Yuri Myasoedov <omerta13@yandex.ru>\n"
-"Language-Team: русский <gnome-cyr@gnome.org>\n"
+"POT-Creation-Date: 2012-10-30 16:58+0000\n"
+"PO-Revision-Date: 2012-10-16 00:08-0400\n"
+"Last-Translator: Chris Leonard <cjlhomeaddress@gmail.com>\n"
+"Language-Team: Sugar Labs\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.0\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
-"X-Poedit-Language: Russian\n"
-"X-Poedit-Country: RUSSIAN FEDERATION\n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Virtaal 0.7.1\n"
+"X-Project-Style: gnome\n"
 
 #: ../boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
@@ -499,7 +497,7 @@ msgstr "Редактирование группы"
 
 #: ../src/administration-activity/admin/group_edit.py:62
 msgid "Editing group: "
-msgstr "Редактирование группы"
+msgstr "Редактирование группы: "
 
 #: ../src/administration-activity/admin/group_edit.py:63
 msgid " for class: "
@@ -754,7 +752,7 @@ msgstr "Редактирование пользователя"
 
 #: ../src/administration-activity/admin/user_edit.py:52
 msgid "Editing a User "
-msgstr "Редактирование пользователя"
+msgstr "Редактирование пользователя "
 
 #: ../src/administration-activity/admin/user_edit.py:58
 msgid "Editing a new user"
@@ -888,8 +886,8 @@ msgid "sepia"
 msgstr "сепия"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:16
-msgid "sulphur"
-msgstr "сера"
+msgid "sulfur"
+msgstr ""
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:17
 msgid "tea"
@@ -972,7 +970,9 @@ msgid "azure"
 msgstr "лазурный"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:37
-msgid "greyish brown"
+#, fuzzy
+#| msgid "greyish brown"
+msgid "grayish brown"
 msgstr "серо-коричневый"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:38
@@ -1068,7 +1068,9 @@ msgid "mauve"
 msgstr "лиловый"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:61
-msgid "greyish blue"
+#, fuzzy
+#| msgid "greyish blue"
+msgid "grayish blue"
 msgstr "голубовато-синий"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:62
@@ -1152,7 +1154,7 @@ msgid "+-×÷"
 msgstr "+-×÷"
 
 #: ../src/algebra_by-activity/algebra.c:411
-#: ../src/readingh-activity/reading.c:630
+#: ../src/findit-activity/findit.py:228 ../src/readingh-activity/reading.c:630
 msgid "I am Ready"
 msgstr "Я готов"
 
@@ -1677,9 +1679,13 @@ msgid "Mouse-manipulation"
 msgstr "Работа с мышью"
 
 #: ../src/billard-activity/billard.xml.in.h:4
+#, fuzzy
+#| msgid ""
+#| "Point the mouse and click on the ball, to set the speed and direction of "
+#| "the ball. The closer you click to the centre, the slower the ball moves."
 msgid ""
 "Point the mouse and click on the ball, to set the speed and direction of the "
-"ball. The closer you click to the centre, the slower the ball moves."
+"ball. The closer you click to the center, the slower the ball moves."
 msgstr ""
 "Укажите и щёлкните по мячу, чтобы придать ему скорость и направление. Чем "
 "ближе к центру мяча пришёлся щелчок, тем медленнее будет его скорость "
@@ -1707,7 +1713,6 @@ msgid "Python Board"
 msgstr "Компонент Python"
 
 #: ../src/boards/python.c:65 ../src/boards/python.c:89
-#| msgid "Special board that embeds python into GCompris."
 msgid "Special board that embeds Python into GCompris."
 msgstr "Специальный компонент, который встраивает Python в GCompris."
 
@@ -2015,7 +2020,7 @@ msgstr ""
 "необходимо установить внешнюю программу gnuchess.\n"
 "Программу можно найти на http://www.rpmfind.net или в вашем\n"
 "дистрибутиве GNU/Linux.\n"
-"Проверьте, что эта программа установлена"
+"Проверьте, что эта программа установлена "
 
 #: ../src/chess_computer-activity/chess.c:656
 msgid "White's Turn"
@@ -2279,7 +2284,6 @@ msgid "1923 Lancia Lambda"
 msgstr "1923 «Ланча Лямбда»"
 
 #: ../src/chronos-activity/resources/chronos/board4_3.xml.in.h:4
-#| msgid "1955 Citroën ds 19"
 msgid "1955 Citroën DS 19"
 msgstr "1955 Ситроен «DS 19»"
 
@@ -2476,6 +2480,83 @@ msgstr ""
 "Установите часы в данное время, в показанных единицах времени (часы:минуты "
 "или часы:минуты:секунды). Нажимайте на различные стрелки и перемещайте мышь, "
 "чтобы установить время раньше или позднее."
+
+#: ../src/color_mix-activity/color_mix.py:72
+msgid "Match the color "
+msgstr ""
+
+#: ../src/color_mix-activity/color_mix.py:336
+#: ../src/color_mix-activity/color_mix.py:341
+#: ../src/color_mix-activity/color_mix.py:346
+msgid "Too much {color}"
+msgstr ""
+
+#: ../src/color_mix-activity/color_mix.py:338
+#: ../src/color_mix-activity/color_mix.py:343
+#: ../src/color_mix-activity/color_mix.py:348
+msgid "Not enough {color}"
+msgstr ""
+
+#: ../src/color_mix-activity/color_mix.xml.in.h:1
+msgid "Mixing color of paint"
+msgstr ""
+
+#: ../src/color_mix-activity/color_mix.xml.in.h:2
+msgid "To understand color mixing."
+msgstr ""
+
+#: ../src/color_mix-activity/color_mix.xml.in.h:3
+msgid "Mix the primary colors to match to the given color"
+msgstr ""
+
+#: ../src/color_mix-activity/color_mix.xml.in.h:4
+msgid ""
+"\n"
+"The activity deals with mixing primary colors of paint (subtractive "
+"mixing).\n"
+"\n"
+"In case of paints the inks absorb different colors of light falling on it, "
+"subtracting it from what you see. The more ink you add, the more light is "
+"absorbed, and the darker the combined color gets. We can mix just three "
+"primary colors to make many new colors. The primary colors for paint/ink are "
+"Cyan (a special shade of blue), Magenta (a special shade of pink), and "
+"Yellow.\n"
+"        "
+msgstr ""
+
+#: ../src/color_mix-activity/color_mix.xml.in.h:9
+#: ../src/color_mix_light-activity/color_mix_light.xml.in.h:9
+msgid "Openclipart.org"
+msgstr ""
+
+#: ../src/color_mix_light-activity/color_mix_light.py:72
+msgid ""
+"Match the \n"
+" color "
+msgstr ""
+
+#: ../src/color_mix_light-activity/color_mix_light.xml.in.h:1
+msgid "Mixing colors of light"
+msgstr ""
+
+#: ../src/color_mix_light-activity/color_mix_light.xml.in.h:2
+msgid "Understanding mixing of colors of light."
+msgstr ""
+
+#: ../src/color_mix_light-activity/color_mix_light.xml.in.h:3
+msgid "Mix the primary colors to match to the given color."
+msgstr ""
+
+#: ../src/color_mix_light-activity/color_mix_light.xml.in.h:4
+msgid ""
+"\n"
+"The activity deals with mixing primary colors of light (additive mixing).\n"
+"\n"
+"In case of light it is just the opposite of mixing color with paints! The "
+"more light you add the lighter the resultant color will get. Primary colors "
+"of light are red, green and blue.\n"
+"        "
+msgstr ""
 
 #: ../src/colors-activity/colors.xml.in.h:1
 msgid "Colors"
@@ -2789,9 +2870,9 @@ msgstr ""
 "использовать среднюю кнопку мыши для быстрого удаления фигуры."
 
 #: ../src/drawnumber-activity/drawnumber.py:238
-#: ../src/explore-activity/explore.py:458 ../src/findit-activity/findit.py:315
+#: ../src/explore-activity/explore.py:458 ../src/findit-activity/findit.py:336
 #: ../src/louis_braille-activity/louis_braille.py:84
-#: ../src/piano_composition-activity/piano_composition.py:493
+#: ../src/piano_composition-activity/piano_composition.py:503
 msgid "Cannot find the file '{filename}'"
 msgstr "Не удалось найти файл '{filename}'"
 
@@ -2852,9 +2933,6 @@ msgid "Freely create an electric schema with a real time simulation of it."
 msgstr "Создайте электрическую схему в реальном времени по своему желанию."
 
 #: ../src/electric-activity/electric.xml.in.h:5
-#| msgid ""
-#| "GCompris uses the Gnucap electric simulator as a backend. You can get "
-#| "more information on gnucap at &lt;http://geda.seul.org/tools/gnucap/&gt;."
 msgid ""
 "GCompris uses the Gnucap electric simulator as a backend. You can get more "
 "information on gnucap at &lt;http://www.gnu.org/software/gnucap/&gt;."
@@ -2984,8 +3062,8 @@ msgstr "Щёлкайте кнопкой мыши на частых, пока в�
 
 #: ../src/explore-activity/explore.py:88
 #: ../src/note_names-activity/note_names.py:83
-#: ../src/piano_composition-activity/piano_composition.py:362
-#: ../src/play_piano-activity/play_piano.py:74
+#: ../src/piano_composition-activity/piano_composition.py:371
+#: ../src/play_piano-activity/play_piano.py:77
 #: ../src/play_rhythm-activity/play_rhythm.py:81
 #, fuzzy
 #| msgid ""
@@ -3009,13 +3087,12 @@ msgstr "Щёлкните, чтобы воспроизвести звук"
 
 #. draw back button
 #: ../src/explore-activity/explore.py:272
-#| msgid "Back to default"
 msgid "Back to Homepage"
 msgstr "Домой"
 
-#: ../src/explore-activity/explore.py:463 ../src/findit-activity/findit.py:320
+#: ../src/explore-activity/explore.py:463 ../src/findit-activity/findit.py:341
 #: ../src/louis_braille-activity/louis_braille.py:88
-#: ../src/piano_composition-activity/piano_composition.py:498
+#: ../src/piano_composition-activity/piano_composition.py:508
 msgid ""
 "Failed to parse data set '{filename}' with error:\n"
 "{error}"
@@ -3090,7 +3167,7 @@ msgstr ""
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:8
 msgid ""
-" The chichen goes \"cluck, cackle, cluck\". Chickens have over 200 different "
+" The chicken goes \"cluck, cackle, cluck\". Chickens have over 200 different "
 "noises they can use to communicate."
 msgstr ""
 
@@ -3142,12 +3219,12 @@ msgstr ""
 #, fuzzy
 #| msgid "White checks"
 msgid " White Duck"
-msgstr "Шах чёрным"
+msgstr " Шах чёрным"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:20
 msgid ""
 " The duck goes \"quack, quack\". Ducks have special features like webbed "
-"feat and waterproof feathers."
+"feet and waterproof feathers."
 msgstr ""
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:21
@@ -3168,7 +3245,7 @@ msgstr ""
 #, fuzzy
 #| msgid "The aim is to switch off all the lights."
 msgid " This animal likes to come out at night."
-msgstr "Задача — погасить все огоньки."
+msgstr " Задача — погасить все огоньки."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:25
 msgid " Dogs"
@@ -3181,19 +3258,19 @@ msgid ""
 msgstr ""
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:27
-msgid " This animal's ancesters were wolves."
+msgid " This animal's ancestors were wolves."
 msgstr ""
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:28
 #, fuzzy
 #| msgid "Lotto Master"
 msgid " Rooster"
-msgstr "Мастер лото"
+msgstr " Мастер лото"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:29
 msgid ""
 " The rooster goes \"coc-a-doodle-doo!\". Roosters have been on farms for "
-"about 5,000 years. Every morning it wakes the farm up with its noices."
+"about 5,000 years. Every morning it wakes the farm up with its noises."
 msgstr ""
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:30
@@ -3235,7 +3312,7 @@ msgstr ""
 #, fuzzy
 #| msgid "South America"
 msgid " Jaguars in South America"
-msgstr "Южная Америка"
+msgstr " Южная Америка"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:4
 msgid ""
@@ -3280,7 +3357,7 @@ msgstr ""
 #, fuzzy
 #| msgid "North America"
 msgid " Bison in America"
-msgstr "Северная Америка"
+msgstr " Северная Америка"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:13
 msgid ""
@@ -3357,9 +3434,8 @@ msgid " Click on the location that matches the text."
 msgstr ""
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:4
-#| msgid "Australia"
 msgid " Australia"
-msgstr "Австралия"
+msgstr " Австралия"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:5
 msgid ""
@@ -3373,9 +3449,8 @@ msgid " Where is the didgeridoo played?"
 msgstr ""
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:7
-#| msgid "Africa"
 msgid " Africa"
-msgstr "Африка"
+msgstr " Африка"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:8
 msgid ""
@@ -3387,7 +3462,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Learn to recognize musical instruments."
 msgid " Where is the drum considered a magical instrument?"
-msgstr "Обучение распознаванию музыкальных инструментов."
+msgstr " Обучение распознаванию музыкальных инструментов."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:10
 msgid " Middle East"
@@ -3405,15 +3480,14 @@ msgid " Where is music used to call people to prayer?"
 msgstr ""
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:13
-#| msgid "Japanese"
 msgid " Japan"
-msgstr "Япония"
+msgstr " Япония"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:14
 msgid ""
 " Taiko drumming comes from Japan. This type of drumming was originally used "
 "to scare enemies in battle. It is very loud, and performances are very "
-"exciting with crouds chearing and performers yelling!"
+"exciting with crowds cheering and performers yelling!"
 msgstr ""
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:15
@@ -3428,7 +3502,7 @@ msgstr ""
 msgid ""
 " Folk music of this region is called celtic music, often incorporates a "
 "narrative poem or story. Typical instruments include bagpipes, fiddles, "
-"flutes, harps, and accordians."
+"flutes, harps, and accordions."
 msgstr ""
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:18
@@ -3437,14 +3511,13 @@ msgstr ""
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:19
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:6
-#| msgid "Italy"
 msgid " Italy"
-msgstr "Италия"
+msgstr " Италия"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:20
 msgid ""
-" Italy is famous for its Opera. Opera is a musical theatre where actors tell "
-"a story by acting and singing. Opera sings, both male and female, learn "
+" Italy is famous for its Opera. Opera is a musical theater where actors tell "
+"a story by acting and singing. Opera singers, both male and female, learn "
 "special techniques to sing operas."
 msgstr ""
 
@@ -3459,7 +3532,7 @@ msgstr ""
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:23
 msgid ""
 " Europe is the home of classical music. Famous composers like Bach, "
-"Beethoven, and Mozart forevor changed music history."
+"Beethoven, and Mozart forever changed music history."
 msgstr ""
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:24
@@ -3468,9 +3541,8 @@ msgstr ""
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:25
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:5
-#| msgid "Mexico"
 msgid " Mexico"
-msgstr "Мексика"
+msgstr " Мексика"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:26
 msgid ""
@@ -3489,9 +3561,8 @@ msgid " Where is Mariachi music from?"
 msgstr ""
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:29
-#| msgid "America"
 msgid " America"
-msgstr "Америка"
+msgstr " Америка"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:30
 msgid ""
@@ -3506,7 +3577,7 @@ msgstr ""
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:32
 msgid ""
-" The 'kind' of rock n' roll, Elvis Presley, made his music famous in this "
+" The 'king' of rock n' roll, Elvis Presley, made his music famous in this "
 "country."
 msgstr ""
 
@@ -3676,7 +3747,6 @@ msgid "Choice of the level"
 msgstr "Выберите уровень"
 
 #: ../src/gcompris/config.c:58
-#| msgid "Your system default"
 msgid "Language: your system default"
 msgstr "Язык: системный по умолчанию"
 
@@ -3818,7 +3888,6 @@ msgid "Korean"
 msgstr "Корейский"
 
 #: ../src/gcompris/config.c:93
-#| msgid "Latvia"
 msgid "Latvian"
 msgstr "Латвийский"
 
@@ -3956,22 +4025,18 @@ msgid "Zulu"
 msgstr "Зулусский"
 
 #: ../src/gcompris/config.c:131
-#| msgid "No time limit"
 msgid "Timer: No time limit"
 msgstr "Таймер: без ограничения времени"
 
 #: ../src/gcompris/config.c:132
-#| msgid "Slow timer"
 msgid "Timer: Slow timer"
 msgstr "Таймер: медленный таймер"
 
 #: ../src/gcompris/config.c:133
-#| msgid "Normal timer"
 msgid "Timer: Normal timer"
 msgstr "Таймер: обычный таймер"
 
 #: ../src/gcompris/config.c:134
-#| msgid "Fast timer"
 msgid "Timer: Fast timer"
 msgstr "Таймер: быстрый таймер"
 
@@ -4079,10 +4144,16 @@ msgid "Print the version of "
 msgstr "Вывод версии "
 
 #: ../src/gcompris/gcompris.c:181
+#, fuzzy
+#| msgid ""
+#| "Run GCompris with local menu (e.g -l /reading will let you play only "
+#| "activities in the reading directory, -l /strategy/connect4 only the "
+#| "connect4 activity). Use '-l list' to list all the availaible activities "
+#| "and their descriptions."
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
-"activity). Use '-l list' to list all the availaible activities and their "
+"activity). Use '-l list' to list all the available activities and their "
 "descriptions."
 msgstr ""
 "Запустить GCompris с ограниченным меню (то есть «-l /reading» позволит "
@@ -4103,7 +4174,6 @@ msgid "GCompris will find the activity plugins in this directory"
 msgstr "Каталог с модулями упражнений"
 
 #: ../src/gcompris/gcompris.c:195
-#| msgid "GCompris will find the python activity in this directory"
 msgid "GCompris will find the Python activity in this directory"
 msgstr "Каталог с упражнениями на Python"
 
@@ -4268,11 +4338,16 @@ msgid "The lock file is: %s\n"
 msgstr "Файл блокировки: %s\n"
 
 #: ../src/gcompris/gcompris.c:1638
-#, c-format
+#, fuzzy, c-format
+#| msgid ""
+#| "GCompris\n"
+#| "Version: %s\n"
+#| "Licence: GPL\n"
+#| "More info at http://gcompris.net\n"
 msgid ""
 "GCompris\n"
 "Version: %s\n"
-"Licence: GPL\n"
+"License: GPL\n"
 "More info at http://gcompris.net\n"
 msgstr ""
 "GCompris\n"
@@ -4348,7 +4423,7 @@ msgstr "Руководство"
 msgid "Credit"
 msgstr "Информация"
 
-#: ../src/gcompris/menu.c:620
+#: ../src/gcompris/menu.c:629
 #, c-format
 msgid ""
 "Loading activity from file:\n"
@@ -4357,7 +4432,7 @@ msgstr ""
 "Загрузка упражнения из файла:\n"
 "%s"
 
-#: ../src/gcompris/menu.c:680
+#: ../src/gcompris/menu.c:689
 msgid ""
 "All the activities are disabled in this profile. Go in the GCompris "
 "administration module and activate at least one activity."
@@ -4770,12 +4845,10 @@ msgid "Russia"
 msgstr "Россия"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:17
-#| msgid "Serbian"
 msgid "Serbia"
 msgstr "Сербия"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:18
-#| msgid "Montenegrin"
 msgid "Montenegro"
 msgstr "Черногория"
 
@@ -5055,7 +5128,6 @@ msgid "Caspian Sea"
 msgstr "Каспийское моря"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:3
-#| msgid "Black mates"
 msgid "Black Sea"
 msgstr "Чёрное море"
 
@@ -5064,7 +5136,6 @@ msgid "Mediteranean Sea"
 msgstr "Средиземное море"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:5
-#| msgid "Persian"
 msgid "Persian Gulf"
 msgstr "Персидский залив"
 
@@ -5089,7 +5160,9 @@ msgid "Qatar"
 msgstr "Катар"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:12
-msgid "Bahrein"
+#, fuzzy
+#| msgid "Bahrein"
+msgid "Bahrain"
 msgstr "Бахрейн"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:13
@@ -5101,7 +5174,7 @@ msgid "Chypre"
 msgstr ""
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:15
-msgid "Koweit"
+msgid "Kuwait"
 msgstr ""
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:16
@@ -5129,7 +5202,7 @@ msgid "Jordan"
 msgstr ""
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:22
-msgid "Irak"
+msgid "Iraq"
 msgstr ""
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:23
@@ -5159,12 +5232,14 @@ msgid "Turkmenistan"
 msgstr "Турецкий"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:29
-msgid "Kirghizstan"
+msgid "Kyrgyzstan"
 msgstr ""
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:30
-msgid "Tadjikistan"
-msgstr ""
+#, fuzzy
+#| msgid "Turkish"
+msgid "Tajikistan"
+msgstr "Турецкий"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:31
 msgid "Afghanistan"
@@ -5187,7 +5262,7 @@ msgid "Philippines"
 msgstr ""
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:35
-msgid "Nyanmar"
+msgid "Myanmar"
 msgstr ""
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:36
@@ -5195,7 +5270,7 @@ msgid "Pakistan"
 msgstr ""
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:38
-msgid "Bhoutan"
+msgid "Bhutan"
 msgstr ""
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:39
@@ -5235,7 +5310,7 @@ msgid "Taiwan"
 msgstr ""
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:48
-msgid "Ouzbekistan"
+msgid "Uzbekistan"
 msgstr ""
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:49
@@ -5245,13 +5320,13 @@ msgstr ""
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:50
 #, fuzzy
 #| msgid "South Africa"
-msgid "South Corea"
+msgid "South Korea"
 msgstr "Южная Африка"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:51
 #, fuzzy
 #| msgid "North America"
-msgid "North Corea"
+msgid "North Korea"
 msgstr "Северная Америка"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:52
@@ -5296,7 +5371,7 @@ msgstr "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЭЮЯ"
 #: ../src/imageid-activity/imageid.c:716
 #: ../src/pythontest-activity/pythontest.py:448
 #: ../src/readingh-activity/reading.c:905
-#: ../src/scalesboard-activity/scale.c:1191
+#: ../src/scalesboard-activity/scale.c:1211
 #: ../src/smallnumbers-activity/smallnumbers.c:598
 #: ../src/tuxpaint-activity/tuxpaint.py:185
 #: ../src/wordsgame-activity/wordsgame.c:904
@@ -5369,7 +5444,7 @@ msgstr " и %d"
 #, fuzzy
 #| msgid "%d is divisible by %s."
 msgid "{0} is divisible by {1}."
-msgstr "%d делится на %s."
+msgstr "{0} делится на {1}."
 
 #: ../src/gnumch-equality-activity/gnumch.py:119
 msgid "1 is not a prime number."
@@ -5399,7 +5474,7 @@ msgstr "Множитель %d"
 #, fuzzy
 #| msgid "%s are the factors of %d."
 msgid "{0} are the factors of {1}."
-msgstr "%s множитель %d."
+msgstr "{0} множитель {1}."
 
 #: ../src/gnumch-equality-activity/gnumch.py:207
 #, python-format
@@ -5589,12 +5664,10 @@ msgstr ""
 "пробел, чтобы съесть число."
 
 #: ../src/guessnumber-activity/guessnumber.py:203
-#| msgid "Guess a number between %d and %d"
 msgid "Guess a number between {0} and {1}"
 msgstr "Угадайте число между {0} и {1}"
 
 #: ../src/guessnumber-activity/guessnumber.py:307
-#| msgid "Please enter a number between %d and %d"
 msgid "Please enter a number between {0} and {1}"
 msgstr "Введите число между {0} и {1}"
 
@@ -5807,7 +5880,7 @@ msgstr ""
 #. Translator : "meter" here means a measuring device
 #: ../src/hydroelectric-activity/hydroelectric.py:170
 msgid "This is the meter for electricity produced by the turbine. "
-msgstr "Это — измеритель электричества, полученного с помощью турбины."
+msgstr "Это — измеритель электричества, полученного с помощью турбины. "
 
 #: ../src/hydroelectric-activity/hydroelectric.py:171
 #: ../src/hydroelectric-activity/hydroelectric.py:284
@@ -5843,18 +5916,18 @@ msgstr ""
 #. Translator : "meter" here means a measuring device
 #: ../src/hydroelectric-activity/hydroelectric.py:283
 msgid "This is the meter for all the electricity produced. "
-msgstr "Это — измеритель общего количества полученного электричества."
+msgstr "Это — измеритель общего количества полученного электричества. "
 
 #. Translator : "meter" here means a measuring device
 #: ../src/hydroelectric-activity/hydroelectric.py:291
 msgid "This is the meter for electricity consumed by the users. "
-msgstr "Это — измеритель электричества, потреблённого пользователями."
+msgstr "Это — измеритель электричества, потреблённого пользователями. "
 
 #. Translator : "meter" here means a measuring device
 #: ../src/hydroelectric-activity/hydroelectric.py:322
 msgid "This is the meter for electricity produced by the solar panels. "
 msgstr ""
-"Это — измеритель электричества, полученного с помощью солнечных панелей."
+"Это — измеритель электричества, полученного с помощью солнечных панелей. "
 
 #: ../src/hydroelectric-activity/hydroelectric.py:328
 msgid ""
@@ -5867,14 +5940,16 @@ msgstr ""
 #. Translator : "meter" here means a measuring device
 #: ../src/hydroelectric-activity/hydroelectric.py:345
 msgid "This is the meter for electricity produced by the wind turbines. "
-msgstr "Это — измеритель электричества, полученного с помощью ветрогенератора."
+msgstr ""
+"Это — измеритель электричества, полученного с помощью ветрогенератора. "
 
 #: ../src/hydroelectric-activity/hydroelectric.py:351
 msgid ""
 "A wind turbine is a device that converts wind motion energy into electricity "
 "generation. It is called a wind generator or wind charger. "
 msgstr ""
-"Ветрогенератор — это устройство, преобразующее энергию ветра в электричество."
+"Ветрогенератор — это устройство, преобразующее энергию ветра в "
+"электричество. "
 
 #: ../src/hydroelectric-activity/hydroelectric.py:737
 msgid ""
@@ -6240,7 +6315,9 @@ msgid "the clarinet"
 msgstr "кларнет"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:4
-msgid "the flute traversiere"
+#, fuzzy
+#| msgid "the flute traversiere"
+msgid "the transverse flute"
 msgstr "поперечная флейта"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:5
@@ -6272,72 +6349,189 @@ msgid "the violin"
 msgstr "скрипка"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
+msgid "the flute traversiere"
+msgstr "поперечная флейта"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
 msgid "the drum kit"
 msgstr "набор ударных инструментов"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
 msgid "the accordion"
 msgstr "аккордеон"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
 msgid "the banjo"
 msgstr "банджо"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
 msgid "the bongo"
 msgstr "бонго"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
 msgid "the electric guitar"
 msgstr "электрогитара"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
 msgid "the castanets"
 msgstr "кастаньеты"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
 msgid "the cymbal"
 msgstr "тарелки"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
 msgid "the cello"
 msgstr "виолончель"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
 msgid "the harmonica"
 msgstr "губная гармошка"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
 msgid "the horn"
 msgstr "валторна"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
 msgid "the maracas"
 msgstr "маракас"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
 msgid "the organ"
 msgstr "орган"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
 msgid "the snare drum"
 msgstr "малый барабан"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
 msgid "the timpani"
 msgstr "литавры"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:27
 msgid "the triangle"
 msgstr "треугольник"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:27
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:28
 msgid "the tambourine"
 msgstr "тамбурин"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:28
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:29
 msgid "the tuba"
 msgstr "туба"
+
+#: ../src/intro_gravity-activity/intro_gravity.py:98
+msgid ""
+"Gravity is universal and Newton's law of universal gravitation extends "
+"gravity beyond earth. This force of gravitational attraction is directly "
+"dependent upon the masses of both objects and inversely proportional to the "
+"square of the distance that separates their centers."
+msgstr ""
+
+#: ../src/intro_gravity-activity/intro_gravity.py:105
+msgid ""
+"Since the gravitational force is directly proportional to the mass of both "
+"interacting objects, more massive objects will attract each other with a "
+"greater gravitational force. So as the mass of either object increases, the "
+"force of gravitational attraction between them also increases but this force "
+"is inversely proportional to the square of the separation distance between "
+"the two interacting objects, more separation distance will result in weaker "
+"gravitational forces."
+msgstr ""
+
+#: ../src/intro_gravity-activity/intro_gravity.py:118
+msgid ""
+"Your goal is to let Tux's spaceship move by changing the mass of its "
+"surrounding planets. Don't get too close to the planets or you will crash on "
+"them. The arrow indicates the direction of the force on your ship."
+msgstr ""
+
+#: ../src/intro_gravity-activity/intro_gravity.py:128
+msgid "Avoid the asteroid and join the space shuttle to win."
+msgstr ""
+
+#: ../src/intro_gravity-activity/intro_gravity.xml.in.h:1
+msgid "Intro gravity"
+msgstr ""
+
+#: ../src/intro_gravity-activity/intro_gravity.xml.in.h:2
+msgid "Introduction to the concept of gravity"
+msgstr ""
+
+#: ../src/intro_gravity-activity/intro_gravity.xml.in.h:3
+msgid ""
+"Maintain the spaceship in the middle without crashing into the planets or "
+"the asteroids"
+msgstr ""
+
+#: ../src/intro_gravity-activity/intro_gravity.xml.in.h:4
+msgid "Follow the instructions when you run the activity."
+msgstr ""
+
+#: ../src/land_safe-activity/land_safe.py:77
+#, python-format
+msgid "Gravity: %s"
+msgstr ""
+
+#: ../src/land_safe-activity/land_safe.py:164
+msgid ""
+"Use the up and down keys to control the thrust\n"
+"Use the right and left keys to control direction.\n"
+"You must drive Tux's ship towards the landing platform.\n"
+"The landing platform turns green when the velocity is safe to land"
+msgstr ""
+
+#: ../src/land_safe-activity/land_safe.py:169
+msgid "Click on me or press the Return key when you are ready."
+msgstr ""
+
+#: ../src/land_safe-activity/land_safe.py:171
+#, fuzzy
+#| msgid "I am Ready"
+msgid "I am ready!"
+msgstr "Я готов"
+
+#: ../src/land_safe-activity/land_safe.py:453
+#, fuzzy
+#| msgid "eight"
+msgid "Height: "
+msgstr "восемь"
+
+#: ../src/land_safe-activity/land_safe.py:469
+msgid "Fuel"
+msgstr ""
+
+#: ../src/land_safe-activity/land_safe.py:501
+msgid "Velocity: "
+msgstr ""
+
+#: ../src/land_safe-activity/land_safe.xml.in.h:1
+msgid "Land Safe"
+msgstr ""
+
+#: ../src/land_safe-activity/land_safe.xml.in.h:2
+msgid "Understanding acceleration due to gravity."
+msgstr ""
+
+#: ../src/land_safe-activity/land_safe.xml.in.h:3
+msgid "Pilot the spaceship towards the green landing area."
+msgstr ""
+
+#: ../src/land_safe-activity/land_safe.xml.in.h:4
+msgid ""
+"\n"
+"Acceleration due to gravity experienced by the spaceship is directly "
+"proportional to the mass of the planet and inversely proportional to the "
+"square of the distance from the center of the planet. Thus, with every "
+"planet the acceleration will differ and as the spaceship comes closer and "
+"closer to the planet the acceleration increases.\n"
+"\n"
+"Use the up/down keys to control the thrust and the right/left keys to "
+"control direction.\n"
+"\n"
+"The landing platform is green if your speed is fine for a safe landing.\n"
+"        "
+msgstr ""
 
 #: ../src/lang-activity/lang.py:56
 msgid "Missing Image"
@@ -6430,10 +6624,16 @@ msgid "The aim is to switch off all the lights."
 msgstr "Задача — погасить все огоньки."
 
 #: ../src/lightsoff-activity/lightsoff.xml.in.h:3
+#, fuzzy
+#| msgid ""
+#| "The effect of pressing a button is to toggle the state of that button, "
+#| "and of its immediate vertical and horizontal neighbours. The sun and the "
+#| "color of the sky depend on the number of clicks needed to solve the "
+#| "puzzle. If you click on Tux, the solution is shown."
 msgid ""
 "The effect of pressing a button is to toggle the state of that button, and "
-"of its immediate vertical and horizontal neighbours. The sun and the color "
-"of the sky depend on the number of clicks needed to solve the puzzle. If you "
+"of its immediate vertical and horizontal neighbors. The sun and the color of "
+"the sky depend on the number of clicks needed to solve the puzzle. If you "
 "click on Tux, the solution is shown."
 msgstr ""
 "Нажатие кнопки переключает состояния этой кнопки и две соседние кнопки по "
@@ -6477,8 +6677,8 @@ msgid ""
 "<b>{0}</b> configuration\n"
 " for profile <b>{1}</b>"
 msgstr ""
-"<b>%s</b> Настройка \n"
-" профиля <b>%s</b>"
+"<b>{0}</b> Настройка \n"
+" профиля <b>{1}</b>"
 
 #. toggle box
 #: ../src/login-activity/login.py:496
@@ -6723,7 +6923,7 @@ msgstr "Помогите пингвинёнку Туксу выйти из ла�
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:5
 msgid ""
 "Use the keyboard arrows to move Tux up to the door. In this maze, the move "
-"is relative (first person). Use the up arrow to go forward. The other arrow "
+"is relative (first person). Use the up arrow to go forward. The other arrows "
 "let you turn Tux in another direction.\n"
 "\n"
 "At the first levels, Tux walks comfortably, one step on each keypress, "
@@ -7172,6 +7372,30 @@ msgstr "Практикуйтесь в вычитании до тех пор, п�
 
 #: ../src/memory_minus-activity/memory_minus.xml.in.h:5
 #: ../src/memory_minus_tux-activity/memory_minus_tux.xml.in.h:5
+#, fuzzy
+#| msgid ""
+#| "You can see some cards, but you can't see what's on the other side of "
+#| "them. Each card is hiding a subtraction, or the answer to it.\n"
+#| "A subtraction looks like this: 3 - 1 = 2\n"
+#| "The numbers on one side of the equals sign (=) have to be the same as the "
+#| "number on the other side. So 3 (1, 2, 3) less 1 (1) makes 2. Count aloud "
+#| "when you work this out, and count on your fingers, because the more ways "
+#| "you do something, the better you remember it. You can also use blocks, or "
+#| "buttons, or anything you can count. If you have lots of brothers and "
+#| "sisters, you can count them! Or the kids in your class at school. Sing "
+#| "counting songs. Count lots of things, for practice, and you'll be very "
+#| "good at adding-up!\n"
+#| "\n"
+#| "In this game, these cards are hiding the two parts of a subtraction. You "
+#| "need to find the two parts of the subraction, and bring them together "
+#| "again. Click on a card to see what number it's hiding, then try to find "
+#| "the other card that goes with it, to make a whole sum. You can only turn "
+#| "over two cards in one go, so you need to remember where the numbers are "
+#| "hiding, then you can match them when you find their other half. You're "
+#| "doing the job of the equals sign, and the numbers need you to put them "
+#| "together and make a proper sum. When you do that, both those cards "
+#| "disappear! When you've made them all disappear, found all the subtracts, "
+#| "you've won the game! :)"
 msgid ""
 "You can see some cards, but you can't see what's on the other side of them. "
 "Each card is hiding a subtraction, or the answer to it.\n"
@@ -7186,12 +7410,12 @@ msgid ""
 "at adding-up!\n"
 "\n"
 "In this game, these cards are hiding the two parts of a subtraction. You "
-"need to find the two parts of the subraction, and bring them together again. "
-"Click on a card to see what number it's hiding, then try to find the other "
-"card that goes with it, to make a whole sum. You can only turn over two "
-"cards in one go, so you need to remember where the numbers are hiding, then "
-"you can match them when you find their other half. You're doing the job of "
-"the equals sign, and the numbers need you to put them together and make a "
+"need to find the two parts of the subtraction, and bring them together "
+"again. Click on a card to see what number it's hiding, then try to find the "
+"other card that goes with it, to make a whole sum. You can only turn over "
+"two cards in one go, so you need to remember where the numbers are hiding, "
+"then you can match them when you find their other half. You're doing the job "
+"of the equals sign, and the numbers need you to put them together and make a "
 "proper sum. When you do that, both those cards disappear! When you've made "
 "them all disappear, found all the subtracts, you've won the game! :)"
 msgstr ""
@@ -7281,7 +7505,9 @@ msgstr "Управление мышью, задействование мозга
 
 #: ../src/memory_sound-activity/memory_sound.xml.in.h:4
 #: ../src/memory_sound_tux-activity/memory_sound_tux.xml.in.h:4
-msgid "Train your audio memory and remove all the violonists Tux."
+#, fuzzy
+#| msgid "Train your audio memory and remove all the violonists Tux."
+msgid "Train your audio memory and remove all the violinists Tux."
 msgstr "Тренируйте свой слух и удалите всех скрипачей Туксов."
 
 #: ../src/memory_sound-activity/memory_sound.xml.in.h:5
@@ -7366,7 +7592,7 @@ msgid "You should be familiar with moving the mouse and clicking."
 msgstr ""
 
 #: ../src/mining-activity/mining.xml.in.h:4
-msgid "Lern to use the mousewheel to zoom in and out."
+msgid "Learn to use the mousewheel to zoom in and out."
 msgstr ""
 
 #: ../src/mining-activity/mining.xml.in.h:5
@@ -7380,11 +7606,11 @@ msgid ""
 "zoomed out at maximum, another sparkle will appear, showing the next gold "
 "nugget to collect. Collect enough nuggets to complete the level.\n"
 "\n"
-"The lorry in the lower, right corner of the screen will tell you the number "
+"The truck in the lower, right corner of the screen will tell you the number "
 "of already collected nuggets and the total number of nuggets to collect in "
 "this level.\n"
 "\n"
-"To start the tutorial, click on professor tux (available at level 1) and let "
+"To start the tutorial, click on professor Tux (available at level 1) and let "
 "him show you, what to do next.\n"
 "\n"
 "Have fun! :)"
@@ -7770,7 +7996,7 @@ msgid "Play Bass Clef Game"
 msgstr ""
 
 #: ../src/note_names-activity/note_names.py:184
-msgid "Click on the note name to match the pitch. Then click ok to check."
+msgid "Click on the note name to match the pitch. Then click OK to check."
 msgstr ""
 
 #: ../src/note_names-activity/note_names.py:186
@@ -7785,11 +8011,11 @@ msgstr ""
 msgid "Click the note to hear it played"
 msgstr ""
 
-#: ../src/note_names-activity/note_names.py:246
+#: ../src/note_names-activity/note_names.py:247
 msgid "Need a hint? Click here for color-coded note names."
 msgstr ""
 
-#: ../src/note_names-activity/note_names.py:249
+#: ../src/note_names-activity/note_names.py:250
 msgid "Ready for a challenge? Color all buttons black!"
 msgstr ""
 
@@ -8031,8 +8257,8 @@ msgstr ""
 "Рассмотрите тщательно две картинки. Между ними есть небольшие различия. "
 "Когда вы найдете различие вы должны щёлкнуть на нём."
 
-#. this is unique to the English notation system
-#. translators must modify this dictionary for each language
+#. this is the English musical notation system
+#. translators insert the name of the notes in your language
 #: ../src/piano_composition-activity/gcomprismusic.py:66
 msgid "C"
 msgstr ""
@@ -8061,148 +8287,155 @@ msgstr ""
 msgid "B"
 msgstr ""
 
-#: ../src/piano_composition-activity/gcomprismusic.py:67
+#. this is the English musical notation system
+#. translators insert the name of the notes in your language
+#: ../src/piano_composition-activity/gcomprismusic.py:69
 msgid "C#"
 msgstr ""
 
-#: ../src/piano_composition-activity/gcomprismusic.py:67
+#: ../src/piano_composition-activity/gcomprismusic.py:69
 msgid "D#"
 msgstr ""
 
-#: ../src/piano_composition-activity/gcomprismusic.py:67
+#: ../src/piano_composition-activity/gcomprismusic.py:69
 msgid "F#"
 msgstr ""
 
-#: ../src/piano_composition-activity/gcomprismusic.py:67
+#: ../src/piano_composition-activity/gcomprismusic.py:69
 msgid "G#"
 msgstr ""
 
-#: ../src/piano_composition-activity/gcomprismusic.py:67
+#: ../src/piano_composition-activity/gcomprismusic.py:69
 msgid "A#"
 msgstr ""
 
-#: ../src/piano_composition-activity/gcomprismusic.py:68
+#. this is the English musical notation system
+#. translators insert the name of the notes in your language
+#: ../src/piano_composition-activity/gcomprismusic.py:72
 msgid "Db"
 msgstr ""
 
-#: ../src/piano_composition-activity/gcomprismusic.py:68
+#: ../src/piano_composition-activity/gcomprismusic.py:72
 msgid "Eb"
 msgstr ""
 
-#: ../src/piano_composition-activity/gcomprismusic.py:68
+#: ../src/piano_composition-activity/gcomprismusic.py:72
 msgid "Gb"
 msgstr ""
 
-#: ../src/piano_composition-activity/gcomprismusic.py:68
+#: ../src/piano_composition-activity/gcomprismusic.py:72
 msgid "Ab"
 msgstr ""
 
-#: ../src/piano_composition-activity/gcomprismusic.py:68
+#: ../src/piano_composition-activity/gcomprismusic.py:72
 msgid "Bb"
 msgstr ""
 
-#: ../src/piano_composition-activity/gcomprismusic.py:271
+#: ../src/piano_composition-activity/gcomprismusic.py:284
 msgid "The staff is full. Please erase some notes"
 msgstr ""
 
-#: ../src/piano_composition-activity/piano_composition.py:121
+#: ../src/piano_composition-activity/piano_composition.py:125
 msgid "This is the Treble clef staff, for high pitched notes"
 msgstr ""
 
-#: ../src/piano_composition-activity/piano_composition.py:122
+#: ../src/piano_composition-activity/piano_composition.py:126
 msgid "These are the 8 \"white\" keys in an octave"
 msgstr ""
 
-#: ../src/piano_composition-activity/piano_composition.py:124
+#: ../src/piano_composition-activity/piano_composition.py:128
 msgid "This is the Bass clef staff, for low pitched notes"
 msgstr ""
 
-#: ../src/piano_composition-activity/piano_composition.py:125
+#: ../src/piano_composition-activity/piano_composition.py:129
 msgid "These keys form the C Major scale"
 msgstr ""
 
-#: ../src/piano_composition-activity/piano_composition.py:127
+#: ../src/piano_composition-activity/piano_composition.py:131
 msgid "Click on the note symbols to write different length notes"
 msgstr ""
 
-#: ../src/piano_composition-activity/piano_composition.py:128
+#: ../src/piano_composition-activity/piano_composition.py:132
 msgid ""
 "Notes can be many types, such as quarter notes, half notes, and whole notes"
 msgstr ""
 
-#: ../src/piano_composition-activity/piano_composition.py:130
+#: ../src/piano_composition-activity/piano_composition.py:134
 msgid "Sharp notes have a # sign"
 msgstr ""
 
-#: ../src/piano_composition-activity/piano_composition.py:131
+#: ../src/piano_composition-activity/piano_composition.py:135
 msgid "The black keys are sharp and flat keys"
 msgstr ""
 
-#: ../src/piano_composition-activity/piano_composition.py:133
+#: ../src/piano_composition-activity/piano_composition.py:137
 msgid "Flat notes have a b sign"
 msgstr ""
 
-#: ../src/piano_composition-activity/piano_composition.py:134
+#: ../src/piano_composition-activity/piano_composition.py:138
 msgid "Each black key has two names, one with a flat and one with a sharp"
 msgstr ""
 
-#: ../src/piano_composition-activity/piano_composition.py:136
+#: ../src/piano_composition-activity/piano_composition.py:140
 msgid "Now you can load melodies from around the world"
 msgstr ""
 
-#: ../src/piano_composition-activity/piano_composition.py:139
+#: ../src/piano_composition-activity/piano_composition.py:143
 msgid "Compose music now! You can now load and save your work"
 msgstr ""
 
-#: ../src/piano_composition-activity/piano_composition.py:174
+#: ../src/piano_composition-activity/piano_composition.py:178
 msgid "Erase All Notes"
 msgstr ""
 
-#: ../src/piano_composition-activity/piano_composition.py:185
+#: ../src/piano_composition-activity/piano_composition.py:189
 msgid "Erase Last Notes"
 msgstr ""
 
-#: ../src/piano_composition-activity/piano_composition.py:195
+#: ../src/piano_composition-activity/piano_composition.py:199
 msgid "Play Composition"
 msgstr ""
 
-#: ../src/piano_composition-activity/piano_composition.py:207
+#: ../src/piano_composition-activity/piano_composition.py:211
 msgid "Erase and Change Clef"
 msgstr ""
 
-#: ../src/piano_composition-activity/piano_composition.py:218
+#: ../src/piano_composition-activity/piano_composition.py:222
 msgid "Change Note Type:"
 msgstr ""
 
-#: ../src/piano_composition-activity/piano_composition.py:238
-#, fuzzy
-#| msgid "light house"
+#. TRANSLATORS: http://en.wikipedia.org/wiki/Eighth_note
+#: ../src/piano_composition-activity/piano_composition.py:243
 msgid "Eighth Note"
-msgstr "маяк"
+msgstr "Восьмая нота"
 
-#: ../src/piano_composition-activity/piano_composition.py:260
+#. TRANSLATORS: http://en.wikipedia.org/wiki/Quarter_note
+#: ../src/piano_composition-activity/piano_composition.py:266
 msgid "Quarter Note"
-msgstr ""
+msgstr "Четвертная нота"
 
-#: ../src/piano_composition-activity/piano_composition.py:272
+#. TRANSLATORS: http://en.wikipedia.org/wiki/Half_note
+#: ../src/piano_composition-activity/piano_composition.py:279
+#, fuzzy
 msgid "Half Note"
-msgstr ""
+msgstr "половинная нота"
 
-#: ../src/piano_composition-activity/piano_composition.py:284
+#. TRANSLATORS: http://en.wikipedia.org/wiki/Whole_note
+#: ../src/piano_composition-activity/piano_composition.py:292
 msgid "Whole Note"
-msgstr ""
+msgstr "Целая нота"
 
-#: ../src/piano_composition-activity/piano_composition.py:316
+#: ../src/piano_composition-activity/piano_composition.py:324
 #, fuzzy
 #| msgid "Music"
 msgid "Load Music"
 msgstr "Музыка"
 
-#: ../src/piano_composition-activity/piano_composition.py:321
+#: ../src/piano_composition-activity/piano_composition.py:329
 msgid "Change Accidental Style:"
 msgstr ""
 
-#: ../src/piano_composition-activity/piano_composition.py:378
+#: ../src/piano_composition-activity/piano_composition.py:387
 msgid "Select A Melody to Load"
 msgstr ""
 
@@ -8219,7 +8452,7 @@ msgstr ""
 
 #: ../src/piano_composition-activity/piano_composition.xml.in.h:3
 msgid ""
-"Familiarity with note naming convensions, note-names activity useful to "
+"Familiarity with note naming conventions, note-names activity useful to "
 "learn this notation."
 msgstr ""
 
@@ -8259,8 +8492,8 @@ msgid ""
 "  3: E\n"
 "  4: F\n"
 "  5: G\n"
-"  6: E\n"
-"  7: F\n"
+"  6: A\n"
+"  7: B\n"
 "  8: C (higher octave)\n"
 "  etc.\n"
 "  F1: C# / Db\n"
@@ -8287,9 +8520,8 @@ msgid " America: Nursery Rhyme"
 msgstr ""
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:7
-#| msgid "Spain"
 msgid " Spain"
-msgstr "Испания"
+msgstr " Испания"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:8
 msgid " German Kid's Song"
@@ -8299,28 +8531,25 @@ msgstr ""
 #, fuzzy
 #| msgid "Counties of Brazil"
 msgid " Children's Song from Brazil"
-msgstr "Штаты Бразилии"
+msgstr " Штаты Бразилии"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:10
 #, fuzzy
 #| msgid "German"
 msgid " German"
-msgstr "Немецкий"
+msgstr " Немецкий"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:11
-#| msgid "France"
 msgid " France"
-msgstr "Франция"
+msgstr " Франция"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:12
-#| msgid "Germany"
 msgid " Germany"
-msgstr "Германия"
+msgstr " Германия"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:13
-#| msgid "Brazil"
 msgid " Brazil"
-msgstr "Бразилия"
+msgstr " Бразилия"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:14
 msgid " Hungary, Nursery Rhyme"
@@ -8331,37 +8560,94 @@ msgid " Hungary, Children's Song"
 msgstr ""
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:16
-#| msgid "Serbian"
 msgid " Serbia"
-msgstr "Сербия"
+msgstr " Сербия"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:17
 msgid " Britain"
 msgstr ""
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:18
-#| msgid "Poland"
 msgid " Poland"
-msgstr "Польша"
+msgstr " Польша"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:19
-#| msgid "Greece"
 msgid " Greece"
-msgstr "Греция"
+msgstr " Греция"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:20
-#| msgid "Ukraine"
 msgid " Ukraine"
-msgstr "Украина"
+msgstr " Украина"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:21
 msgid " Mexican song to break a piñata"
 msgstr ""
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:22
-#| msgid "Finland"
 msgid " Finland"
-msgstr "Финляндия"
+msgstr " Финляндия"
+
+#: ../src/place_your_satellite-activity/place_your_satellite.py:68
+msgid ""
+"Click anywhere on the screen to place the satellite at a distance from the "
+"planet."
+msgstr ""
+
+#: ../src/place_your_satellite-activity/place_your_satellite.py:70
+msgid ""
+"Then click on the satellite and drag a line that sets the speed of the "
+"satellite"
+msgstr ""
+
+#: ../src/place_your_satellite-activity/place_your_satellite.py:267
+msgid "Satellite goes too fast"
+msgstr ""
+
+#: ../src/place_your_satellite-activity/place_your_satellite.py:269
+msgid "Satellite goes too slow"
+msgstr ""
+
+#: ../src/place_your_satellite-activity/place_your_satellite.py:296
+msgid "Satellite is crashing"
+msgstr ""
+
+#: ../src/place_your_satellite-activity/place_your_satellite.py:330
+msgid "Satellite not in orbit"
+msgstr ""
+
+#: ../src/place_your_satellite-activity/place_your_satellite.py:394
+msgid "Speed"
+msgstr ""
+
+#: ../src/place_your_satellite-activity/place_your_satellite.xml.in.h:1
+msgid "Place your satellite"
+msgstr ""
+
+#: ../src/place_your_satellite-activity/place_your_satellite.xml.in.h:2
+msgid "Understanding effect of mass and distance on orbital velocity."
+msgstr ""
+
+#: ../src/place_your_satellite-activity/place_your_satellite.xml.in.h:3
+msgid "Make sure the satellite does not crash or fly away"
+msgstr ""
+
+#: ../src/place_your_satellite-activity/place_your_satellite.xml.in.h:4
+msgid ""
+"\n"
+"A satellite revolves around the Earth because of the force between them. "
+"Orbital velocity of a satellite of Earth is directly proportional to the "
+"square root of the mass of Earth and inversely proportional to the square "
+"root of the distance from the center of Earth to the satellite.\n"
+"\n"
+"In this activity, play with the speed of the satellite and mass of Earth to "
+"see what happens to the satellite. If the speed of the satellite is slower "
+"than the required orbital speed then the force applied by the Earth on the "
+"satellite is too much and thus the satellite gets pulled towards the Earth "
+"and burns in it's atmosphere. If the speed of the satellite is more than the "
+"required orbital speed then the Earth's force is not enough to keep it in "
+"orbit and thus the satellite flies away due to it's own inertia.\n"
+"        "
+msgstr ""
 
 #: ../src/planegame-activity/planegame.c:62
 #: ../src/planegame-activity/planegame.xml.in.h:1
@@ -8390,22 +8676,22 @@ msgstr ""
 "Поймайте числа в увеличивающемся порядке, используя стрелки вниз, вправо и "
 "влево на клавиатуре, чтобы переместить вертолёт."
 
-#: ../src/play_piano-activity/play_piano.py:114
+#: ../src/play_piano-activity/play_piano.py:117
 #, fuzzy
 #| msgid "Color of the line"
 msgid "Color code notes?"
 msgstr "Цвет линии"
 
-#: ../src/play_piano-activity/play_piano.py:134
+#: ../src/play_piano-activity/play_piano.py:137
 msgid "Click the piano keys that match the written notes."
 msgstr ""
 
-#: ../src/play_piano-activity/play_piano.py:156
+#: ../src/play_piano-activity/play_piano.py:159
 #: ../src/play_rhythm-activity/play_rhythm.py:173
 msgid "Play"
 msgstr ""
 
-#: ../src/play_piano-activity/play_piano.py:168
+#: ../src/play_piano-activity/play_piano.py:171
 #: ../src/play_rhythm-activity/play_rhythm.py:186
 msgid "Erase Attempt"
 msgstr ""
@@ -8420,14 +8706,14 @@ msgstr ""
 
 #: ../src/play_piano-activity/play_piano.xml.in.h:3
 msgid ""
-"knowledge of musical notation and musical staff. Play piano_composition "
-"first."
+"Knowledge of musical notation and musical staff. Play the activity named "
+"'Piano Composition' first."
 msgstr ""
 
 #: ../src/play_piano-activity/play_piano.xml.in.h:4
 msgid ""
-"understand how the piano keyboard can play music as written on the musical "
-"staff"
+"Understand how the piano keyboard can play music as written on the musical "
+"staff."
 msgstr ""
 
 #: ../src/play_piano-activity/play_piano.xml.in.h:5
@@ -8443,7 +8729,7 @@ msgid ""
 "The following keyboard bindings work in this game:\n"
 "- backspace: erase attempt\n"
 "- delete: erase attempt\n"
-"- enter/return: ok button\n"
+"- enter/return: OK button\n"
 "- space bar: play\n"
 "- number keys:\n"
 "  - 1: C\n"
@@ -8451,8 +8737,8 @@ msgid ""
 "  - 3: E\n"
 "  - 4: F\n"
 "  - 5: G\n"
-"  - 6: E\n"
-"  - 7: F\n"
+"  - 6: A\n"
+"  - 7: B\n"
 "  - 8: C (higher octave)\n"
 "  - etc.\n"
 "  - F1: C# / Db\n"
@@ -8522,19 +8808,27 @@ msgstr ""
 
 #: ../src/play_rhythm-activity/play_rhythm.xml.in.h:5
 msgid ""
-"This is a relatively challenging game to master, so good luck. Listen to the "
-"rhythm played, and follow along with the music. If you would like to hear it "
-"again, click the play button. When you're ready to perform the identical "
-"rhythm, click the drum to the rhythm, then click the ok button. If you "
-"clicked correctly and in the right tempo, another rhythm is displayed. If "
-"not, you must try again. Even levels display a vertical playing line when "
-"you click the drum, which helps you see whene to click to follow the rhythm. "
-"Click on the drum when the line is in the middle of the notes. Odd levels "
-"are harder, because there is no vertical playing line. The rhythm will not "
-"be played for you. You must read the rhythm, and click it back in tempo. "
-"Click the metronome to hear the quarter note tempo. The following keyboard "
-"bindings work in this game: - backspace: erase attempt - delete: erase "
-"attempt - enter/return: ok button - space bar: play"
+"This is a relatively challenging game to master, so good luck.\n"
+"\n"
+"Listen to the rhythm played, and follow along with the music. If you would "
+"like to hear it again, click the play button. When you're ready to perform "
+"the identical rhythm, click the drum to the rhythm, then click the OK "
+"button. If you clicked correctly and in the right tempo, another rhythm is "
+"displayed. If not, you must try again.\n"
+"\n"
+"Even levels display a vertical playing line when you click the drum, which "
+"helps you see when to click to follow the rhythm. Click on the drum when the "
+"line is in the middle of the notes.\n"
+"\n"
+"Odd levels are harder, because there is no vertical playing line. The rhythm "
+"will not be played for you. You must read the rhythm, and click it back in "
+"tempo. Click the metronome to hear the quarter note tempo.\n"
+"\n"
+"The following keyboard bindings work in this game:\n"
+"- backspace: erase attempt\n"
+"- delete: erase attempt\n"
+"- enter/return: OK button\n"
+"- space bar: play\n"
 msgstr ""
 
 #: ../src/pythontemplate-activity/pythontemplate.py:62
@@ -8823,7 +9117,7 @@ msgstr "Вес в граммах = %s"
 msgid "Weight = %s"
 msgstr "Вес: %s"
 
-#: ../src/scalesboard-activity/scale.c:1037
+#: ../src/scalesboard-activity/scale.c:1039
 msgid "Take care, you can drop weights on both sides of the scale."
 msgstr "Вы можете перемещать гири на обе стороны весов."
 
@@ -8850,10 +9144,15 @@ msgstr ""
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:5
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:5
+#, fuzzy
+#| msgid ""
+#| "The painting is an original painting created by Virginie MOREAU (virginie."
+#| "moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is "
+#| "released under the GPL licence."
 msgid ""
 "The painting is an original painting created by Virginie MOREAU (virginie."
 "moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is "
-"released under the GPL licence."
+"released under the GPL license."
 msgstr ""
 "Картина изначально была нарисована Вирджинией МОРЕА (virginie.moreau@free."
 "fr) в 2001 году.Она называется «Продавец специй в Египте» и выпущена под "
@@ -9489,8 +9788,13 @@ msgid "Keyboard training"
 msgstr "Тренировка навыков работы с клавиатурой"
 
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
-msgid "Type the complete word as it falls, before it reachs the ground"
+#, fuzzy
+#| msgid "Type the complete word as it falls, before it reachs the ground"
+msgid "Type the complete word as it falls, before it reaches the ground"
 msgstr "Наберите слово полностью, пока оно падает на землю"
+
+#~ msgid "sulphur"
+#~ msgstr "сера"
 
 #~ msgid "Special board that embeds python into gcompris."
 #~ msgstr "Специальный компонент, который встраивает Python в GCompris."
