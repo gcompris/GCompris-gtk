@@ -67,7 +67,6 @@ class Gcompris_note_names:
         self.saved_policy = gcompris.sound.policy_get()
         gcompris.sound.policy_set(gcompris.sound.PLAY_AND_INTERRUPT)
         gcompris.sound.pause()
-        gcompris.sound.play_ogg('boards/sounds/silence1s.ogg')
         # Set a background image
         gcompris.set_default_background(self.gcomprisBoard.canvas.get_root_item())
 
@@ -141,21 +140,21 @@ They also form the C Major Scale. Notice that the note positions are different t
               alignment=pango.ALIGN_CENTER
               )
 
-            self.playScaleButton = textButton(400, 136, _("Play Scale"),
+            playScaleButton = TextButton(400, 136, _("Play Scale"),
                                               self.rootitem, 0xCC0033FFL)
 
-            self.playScaleButton.connect("button_press_event", self.staff.playComposition)
-            gcompris.utils.item_focus_init(self.playScaleButton, None)
+            playScaleButton.getBackground().connect("button_press_event", 
+                                                    self.staff.playComposition)
 
             if level == 1:
                 text = _("Play Treble Clef Game")
             elif level == 11:
                 text = _("Play Bass Clef Game")
 
-            self.playScaleGameButton = textButton(400, 410, text,
+            playScaleGameButton = TextButton(400, 410, text,
                                                   self.rootitem, 0x00AA33FFL)
-            self.playScaleGameButton.connect("button_press_event", self.play_scale_game)
-            gcompris.utils.item_focus_init(self.playScaleGameButton, None)
+            playScaleGameButton.getBackground().connect("button_press_event",
+                                                        self.play_scale_game)
 
         if level != 1 and level != 11:
             if level in [2, 5, 8, 12, 15, 18]:

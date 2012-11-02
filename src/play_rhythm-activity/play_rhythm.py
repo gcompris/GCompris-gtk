@@ -56,6 +56,8 @@ class Gcompris_play_rhythm:
         self.metronomeTimer = 0
         self.updateTimer = 0
 
+        self.first_run = True 
+
     def start(self):
 
         self.running = True
@@ -81,6 +83,11 @@ class Gcompris_play_rhythm:
             gcompris.utils.dialog(_("Error: This activity cannot be \
 played with the\nsound effects disabled.\nGo to the configuration \
 dialogue to\nenable the sound."), None)
+
+        readyButton = TextButton(400, 455, ' ' * 20 + _('I am Ready') + ' ' * 20,
+                                 self.rootitem, 0x11AA11FFL)
+        readyButton.getBackground().connect("button_press_event",
+                                            self.ready_event, readyButton)
 
     def display_level(self, level):
 
@@ -200,7 +207,8 @@ dialogue to\nenable the sound."), None)
 
         self.readyForFirstDrumBeat = True
 
-        self.show_rhythm()
+        if not self.first_run:
+            self.show_rhythm()
         self.updateBoard(1)
 
         self.playButton.connect("button_press_event", self.compositionIsPlaying)
@@ -501,3 +509,8 @@ dialogue to\nenable the sound."), None)
         self.gcomprisBoard.level = level
         gcompris.bar_set_level(self.gcomprisBoard)
         self.display_level(self.gcomprisBoard.level)
+
+    def ready_event(self, widget, target, event, button):
+        button.destroy()
+        self.show_rhythm()
+        self.first_run = False

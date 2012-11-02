@@ -67,6 +67,8 @@ class Gcompris_explore:
         self.progressBar = None
         self.next_action = None
 
+        self.first_run = True
+
     def start(self):
         '''
         method called to create 'home-page', the world map with all the locations.
@@ -98,7 +100,9 @@ dialogue to\nenable the sound."), None)
                                         self.gcomprisBoard.canvas.get_root_item())
 
         # silence any currently playing music
-        gcompris.sound.play_ogg('boards/sounds/silence1s.ogg')
+        if not self.first_run:
+            gcompris.sound.play_ogg('boards/sounds/silence1s.ogg')
+            self.first_run = False
 
         level = self.gcomprisBoard.level
 

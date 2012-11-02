@@ -51,12 +51,13 @@ class Gcompris_play_piano:
         # Used to skip double clicks
         self.record_click_time = 0
 
+        self.first_run = True
+
     def start(self):
         self.recordedHits = []
         self.saved_policy = gcompris.sound.policy_get()
         gcompris.sound.policy_set(gcompris.sound.PLAY_AND_INTERRUPT)
         gcompris.sound.pause()
-        gcompris.sound.play_ogg('boards/sounds/silence1s.ogg')
 
         # Set the buttons we want in the bar
         gcompris.bar_set(gcompris.BAR_LEVEL)
@@ -77,6 +78,11 @@ class Gcompris_play_piano:
             gcompris.utils.dialog(_("Error: This activity cannot be \
 played with the\nsound effects disabled.\nGo to the configuration \
 dialogue to\nenable the sound."), None)
+
+        readyButton = TextButton(400, 455, ' ' * 20 + _('I am Ready') + ' ' * 20,
+                                 self.rootitem, 0x11AA11FFL)
+        readyButton.getBackground().connect("button_press_event",
+                                            self.ready_event, readyButton)
 
     def display_level(self, level):
         self.score = 0
@@ -114,11 +120,11 @@ dialogue to\nenable the sound."), None)
         self.staff.endx = 200
 
         if level not in [6, 12]:
-            self.colorCodeNotesButton = textButton(100, 215, _("Color code notes?"),
+            colorCodeNotesButton = TextButton(100, 215, _("Color code notes?"),
                                                    self.rootitem, 0x990011FFL)
 
-            self.colorCodeNotesButton.connect("button_press_event", self.color_code_notes)
-            gcompris.utils.item_focus_init(self.colorCodeNotesButton, None)
+            colorCodeNotesButton.getBackground().connect("button_press_event",
+                                                        self.color_code_notes)
         else:
             self.staff.colorCodeNotes = False
 
@@ -126,7 +132,8 @@ dialogue to\nenable the sound."), None)
         self.staff.rootitem.scale(2.0, 2.0)
 
         self.givenOption = []
-        self.show_melody()
+        if not self.first_run:
+            self.show_melody()
         self.kidsNoteList = []
         self.piano = PianoKeyboard(250, 305, self.rootitem)
         if level in [4, 5, 6, 12, 11, 10]:
@@ -343,3 +350,8 @@ dialogue to\nenable the sound."), None)
         else:
             self.staff.colorCodeNotes = True
             self.staff.colorCodeAllNotes()
+
+    def ready_event(self, widget, target, event, button):
+        button.destroy()
+        self.show_melody()
+        self.first_run = False

@@ -1338,57 +1338,60 @@ def pianokeyBindings(keyval, keyboard_click):
 # General UTILITY FUNCTIONS
 #
 # ---------------------------------------------------------------------------
+class TextButton:
 
-def textButton(x, y, text, rootitem, color_rgba=0x666666AAL,
-               width=100000, includeText=False):
-    '''
-    Add a text button to the screen with the following parameters:
-    1. x: the x position of the button
-    2. y: the y position of the button
-    3. text: the text of the button
-    4. rootitem: the item to draw the button in
-    5. color: the color of button background
-    6. width: the width of the button
+    def __init__(self, x, y, text, rootitem, color_rgba=0x666666AAL):
+        '''
+        Add a text button to the screen with the following parameters:
+        1. x: the x position of the button
+        2. y: the y position of the button
+        3. text: the text of the button
+        4. rootitem: the item to draw the button in
+        5. color: the color of button background
 
-    textButton(200, 300, 'Hello World!', self, color_rgba=0x6600FFFFL)
-    '''
-    textbox = goocanvas.Text(
-        parent = rootitem,
-        x=x, y=y,
-        width=width,
-        text=text,
-        fill_color="white", anchor=gtk.ANCHOR_CENTER,
-        alignment=pango.ALIGN_CENTER,
-        pointer_events="GOO_CANVAS_EVENTS_NONE"
-        )
-    TG = 15
-    bounds = textbox.get_bounds()
-
-    goocanvas.Rect(parent = rootitem,
-                   x = bounds.x1 - TG,
-                   y = bounds.y1 - TG,
-                   height = bounds.y2 - bounds.y1 + TG * 2,
-                   width = bounds.x2 - bounds.x1 + TG * 2,
-                   stroke_color = "black",
-                   fill_color_rgba = color_rgba,
-                   radius_x = 3, radius_y = 3,
-                   line_width = 2.0)
-
-    img = goocanvas.Image(
-            parent = rootitem,
-            x = bounds.x1 - TG,
-            y = bounds.y1 - TG,
-            height = bounds.y2 - bounds.y1 + TG * 2,
-            width = bounds.x2 - bounds.x1 + TG * 2,
-            pixbuf = gcompris.utils.load_pixmap('piano_composition/button_front.svg')
+        TextButton(200, 300, 'Hello World!', self, color_rgba=0x6600FFFFL)
+        '''
+        width = -1
+        self.rootitem = goocanvas.Group(parent=rootitem, x=0, y=0)
+        textbox = goocanvas.Text(
+            parent = self.rootitem,
+            x=x, y=y,
+            width=width,
+            text=text,
+            fill_color="white", anchor=gtk.ANCHOR_CENTER,
+            alignment=pango.ALIGN_CENTER,
+            pointer_events="GOO_CANVAS_EVENTS_NONE"
             )
+        TG = 15
+        bounds = textbox.get_bounds()
 
-    gcompris.utils.item_focus_init(img, None)
-    textbox.raise_(img)
-    if includeText:
-        return img, textbox
-    else:
-        return img
+        self.back = goocanvas.Rect(parent = self.rootitem,
+                       x = bounds.x1 - TG,
+                       y = bounds.y1 - TG,
+                       height = bounds.y2 - bounds.y1 + TG * 2,
+                       width = bounds.x2 - bounds.x1 + TG * 2,
+                       stroke_color = "black",
+                       fill_color_rgba = color_rgba,
+                       radius_x = 3, radius_y = 3,
+                       line_width = 2.0)
+
+        self.img = goocanvas.Image(
+                parent = self.rootitem,
+                x = bounds.x1 - TG,
+                y = bounds.y1 - TG,
+                height = bounds.y2 - bounds.y1 + TG * 2,
+                width = bounds.x2 - bounds.x1 + TG * 2,
+                pixbuf = gcompris.utils.load_pixmap('piano_composition/button_front.svg')
+                )
+
+        gcompris.utils.item_focus_init(self.img, None)
+        textbox.raise_(self.img)
+
+    def getBackground(self):
+        return self.img
+
+    def destroy(self):
+        return self.rootitem.remove()
 
 def textBox(text, x, y , rootitem, width=10000,
             fill_color_rgba = None, stroke_color_rgba = None,
