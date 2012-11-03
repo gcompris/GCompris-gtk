@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: gcompris master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2012-11-02 18:57+0000\n"
-"PO-Revision-Date: 2012-11-02 22:06+0100\n"
+"PO-Revision-Date: 2012-11-03 19:55+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
@@ -400,7 +400,7 @@ msgstr ""
 #: ../src/pythontest-activity/pythontest.py:511
 #: ../src/smallnumbers-activity/smallnumbers.c:619
 msgid "Select sound locale"
-msgstr "Jezik zvočnih posnetkov: "
+msgstr "Jezik zvočnih posnetkov"
 
 #: ../src/administration-activity/admin/class_edit.py:56
 msgid "Editing a Class"
@@ -502,7 +502,7 @@ msgstr "Skupina s tem imenom že obstaja"
 
 #: ../src/administration-activity/admin/group_list.py:82
 msgid "Select a class:"
-msgstr "Izberi razred:"
+msgstr "Izbor razreda:"
 
 #: ../src/administration-activity/admin/group_list.py:210
 #: ../src/administration-activity/admin/profile_group_list.py:150
@@ -550,7 +550,7 @@ msgstr ""
 
 #: ../src/administration-activity/admin/log_list.py:91
 msgid "Select a user:"
-msgstr "Izberi uporabnika:"
+msgstr "Izbor uporabnika:"
 
 #. Insert the ALL option (HACK, use the user_id -2 to indicate ALL)
 #: ../src/administration-activity/admin/log_list.py:102
@@ -1762,7 +1762,7 @@ msgstr "Pat"
 
 #: ../src/chess_computer-activity/chess.c:1251
 msgid "Error: The external program gnuchess died unexpectingly"
-msgstr "Napaka: Zunanji program gnuchess se je nepričakovano zaprl"
+msgstr "Napaka: zunanji program gnuchess se je nepričakovano končal"
 
 #: ../src/chess_computer-activity/chess_computer.xml.in.h:1
 #: ../src/chess_movelearn-activity/chess_movelearn.xml.in.h:1
@@ -1859,9 +1859,9 @@ msgid ""
 "If not sure, research online at wikipedia:\n"
 "http://www.wikipedia.org"
 msgstr ""
-"Postavi slike in vrsti red\n"
-"in na datum iznajde.\n"
-"Če nisi prepričan, raziskuj na wikipediji:\n"
+"Postavi slike in ustrezen vrstni red\n"
+"glede na datum iznajdbe. Kadar nisi\n"
+"prepričan, odgovore poišči na Wikipediji:\n"
 "http://www.wikipedia.org"
 
 # http://t1.gstatic.com/images?q=tbn:N6wB1ryOJrOtRM:http://flatruck.fladby.com/pictures/fardier.jpg
@@ -2040,10 +2040,10 @@ msgid ""
 "Go to the configuration dialog to\n"
 "enable the sound"
 msgstr ""
-"Napaka: dejavnosti ni mogoče igrati, kadar je\n"
-"onemogočen zvok.\n"
-"Pojdi v nastavitve in omogoči\n"
-"zvok"
+"Napaka: dejavnosti ni mogoče igrati,\n"
+"kadar je zvok onemogočen.\n"
+"Predvajanje zvoka je mogoče spreminjati\n"
+"med nastavitvami."
 
 #: ../src/click_on_letter-activity/click_on_letter.c:405
 #, c-format
@@ -2052,7 +2052,7 @@ msgid ""
 "the packages with GCompris voices for the %s locale."
 msgstr ""
 "Napaka: ta dejavnost zahteva namestitev\n"
-"paketov z glasovi GCompris za jezikovno oznako %s."
+"paketov z glasovi GCompris za jezikovni nabor %s."
 
 #: ../src/click_on_letter-activity/click_on_letter.c:908
 msgid "Questions cannot be empty."
@@ -2079,7 +2079,7 @@ msgid ""
 "%s"
 msgstr ""
 "Neveljaven vnos:\n"
-"Na stopnji %d, Vprašanja '%s' / Odgovori '%s'\n"
+"na stopnji %d, vprašanja '%s' / odgovori '%s'\n"
 "%s"
 
 #. answer
@@ -2486,7 +2486,7 @@ msgstr "Igra je namenjena enostavnemu prostemu risanju. Cilj je raziskati način
 
 #: ../src/draw-activity/draw.xml.in.h:5
 msgid "Select a drawing tool on the left, and a color down the bottom, then click and drag in the white area to create a new shape. To save time, you can click with the middle mouse button to delete an object."
-msgstr "Na levi strani izberi orodje za risanje v spodnjem delu pa izberi barvo. Klikni na belo polje ter nariši novo obliko. Za hitrejše delo lahko uporabiš srednjim gumbom na miški. Z njo predmet izbrišeš."
+msgstr "Na levi strani izberi orodje za risanje, v spodnjem delu pa izberi barvo. Klikni na belo polje in nariši novo obliko. Za hitrejši izris lahko uporabiš tudi srednji gumb miške."
 
 #: ../src/drawnumber-activity/drawnumber.py:238
 #: ../src/explore-activity/explore.py:462
@@ -2502,7 +2502,7 @@ msgstr "Nariši število"
 
 #: ../src/drawnumber-activity/drawnumber.xml.in.h:2
 msgid "Draw the picture by following numbers"
-msgstr "Nariši sliko s sledenjem številom."
+msgstr "Risanje slike s sledenjem številom."
 
 #: ../src/drawnumber-activity/drawnumber.xml.in.h:3
 msgid "Can count from 1 to 50."
@@ -2510,7 +2510,7 @@ msgstr "Znanje štetja od 1 do 50."
 
 #: ../src/drawnumber-activity/drawnumber.xml.in.h:4
 msgid "Draw the picture by clicking on each numbers in the right order."
-msgstr "Nariši sliko s klikom na številke v pravilnem vrstnem redu."
+msgstr "Risanje slike s klikanjem na številke."
 
 #: ../src/electric-activity/electric.py:99
 msgid ""
@@ -2526,7 +2526,7 @@ msgstr ""
 "<http://geda.seul.org/tools/gnucap/>\n"
 "Da bo program zaznan, mora biti nameščen v\n"
 "/usr/bin/gnucap ali /usr/local/bin/gnucap.\n"
-"To igro lahko uporabiš za risanje shem brez računalniške simulacije."
+"Igra sicer omogoča tudi risanje shem brez računalniške simulacije."
 
 #: ../src/electric-activity/electric.xml.in.h:1
 msgid "Electricity"
@@ -2538,11 +2538,11 @@ msgstr "Ustvari in simuliraj električno shemo"
 
 #: ../src/electric-activity/electric.xml.in.h:3
 msgid "Requires some basic understanding of the concept of electricity."
-msgstr "Zahteva nekaj osnovnega razumevanja koncepta elektrike."
+msgstr "Zahteva osnovno razumevanje elektrike."
 
 #: ../src/electric-activity/electric.xml.in.h:4
 msgid "Freely create an electric schema with a real time simulation of it."
-msgstr "Ustvari električno shemo s pravo časovno simulacijo."
+msgstr "Ustvari električno shemo s simulacijo delovanja."
 
 #: ../src/electric-activity/electric.xml.in.h:5
 msgid "GCompris uses the Gnucap electric simulator as a backend. You can get more information on gnucap at &lt;http://www.gnu.org/software/gnucap/&gt;."
@@ -2551,7 +2551,7 @@ msgstr "Program GCompris uporablja kot zaledje tudi električni simulator Gnucap
 # tukaj je lahko levi stolpec, ker je povsod levi stolpec, samo tukaj so mu angleško rekli selector namesto left box
 #: ../src/electric-activity/electric.xml.in.h:6
 msgid "Drag electrical components from the selector and drop them in the working area. Create wires by clicking on a connection spot, dragging the mouse to the next connection spot, and letting go. You can also move components by dragging them. You can delete wires by clicking on them. To delete a component, select the deletion tool on top of the component selector. You can click on the switch to open and close it. You can change the rheostat value by dragging its wiper. In order to simulate what happens when a bulb is blown, you can blown it by right-clicking on it. The simulation is updated in real time by any user action."
-msgstr "Povleci električne sestavne dele iz levega stolpca in jih spusti na delovno področje. Žice ustvariš tako, da klikneš na točko povezave, miško povlečeš do naslednje točke povezave in jo spustiš. Sestavne dele lahko premikaš z vlečenjem. Žice izbrišeš tako, da klikneš nanje. Za izbris sestavnega dela izberi orodje izbrisa na vrhu stolpca s sestavnimi deli. Za odprtje in zaprtje stikala klikni nanj. Vrednost spremenljivega upora lahko spremeniš z vleko drsnika. Za simulacijo pregorele žarnice klikni nanjo z desnim gumbom miške. Simulacija se takoj samodejno posodablja. "
+msgstr "Povleci električne sestavne dele iz levega stolpca in jih spusti na delovno površino. Žice ustvariš tako, da klikneš na prvo točko, povlečeš miško do naslednje točke in ob stiku gumb miške spustiš. Sestavne dele električne vezave lahko premikaš z vlečenjem. Žice izbrišeš tako, da klikneš nanje. Za izbris sestavnega dela izberi orodje izbrisa na vrhu stolpca s sestavnimi deli. Za odprtje in zaprtje stikala klikni nanj. Vrednost spremenljivega upora lahko spremeniš z vleko drsnika. Za simulacijo pregorele žarnice klikni nanjo z desnim gumbom miške. Simulacija se takoj samodejno posodablja. "
 
 #: ../src/enumerate-activity/enumerate.c:111
 #: ../src/enumerate-activity/enumerate.xml.in.h:3
@@ -2595,7 +2595,7 @@ msgstr "Premikaj miško in s tem odkrij ozadje."
 
 #: ../src/erase-activity/erase.c:180
 msgid "Error: No images found\n"
-msgstr "Napaka: Ni najdenih slik\n"
+msgstr "Napaka: ni najdenih slik\n"
 
 #: ../src/erase-activity/erase.c:582
 #: ../src/gcompris/properties.c:503
