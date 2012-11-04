@@ -275,6 +275,9 @@ class Spaceship(Gcompris_intro_gravity):
 
   def crash(self):
     self.done = True
+    bounds = self.tux_spaceship.get_bounds()
+    self.force_line.props.visibility = goocanvas.ITEM_INVISIBLE
+    self.tux_spaceship.props.pixbuf = gcompris.utils.load_pixmap("intro_gravity/crash.png")
     self.game.crash()
 
 class Asteroids:
@@ -335,23 +338,17 @@ class Asteroids:
       self.ship_instance.game.win()
       return False
     elif abs(bound_ast_x - bound_ship_x) < 40 and abs(bound_ast_y - bound_ship_y) < 40:
-      self.crash_image(bound_ship_x, bound_ship_y)
+      self.lost(bound_ship_x, bound_ship_y)
       return False
     else:
       if bound_ss_y < 100:
         # The space shuttle was missed
-        self.crash_image(bound_ship_x, bound_ship_y)
+        self.lost(bound_ship_x, bound_ship_y)
         return False
 
     return True
 
-  def crash_image(self, x, y):
-    image = goocanvas.Image(
-      parent = self.rootitem,
-      pixbuf = gcompris.utils.load_pixmap('/intro_gravity/crash.png'),
-      x = x - 50,
-      y = y - 50)
-
+  def lost(self, x, y):
     self.ship_instance.crash()
 
 class Fixed_planet:
