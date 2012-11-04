@@ -88,7 +88,7 @@ while (<SPIP>){
     {
       # We are in an article, track the date fields
       # If all 3 dates are the same, then it's a generated article.
-      for my $field qw/date date_redac date_modif/
+      for my $field (qw/date date_redac date_modif/)
 	{
 	 if($line =~ /<$field>/)
 	 {

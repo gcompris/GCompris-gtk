@@ -12,5 +12,6 @@ sed -i "s:</SPIP>::" dump2.xml
 cat all_article.spip >> dump2.xml
 echo -e "\n</SPIP>" >> dump2.xml
 # Check no screenshots are missing
-./checkScreenshots.sh
+# (pass the directory above the screenshot dir on the website)
+./checkScreenshots.sh ../../../gcompris_spip/
 # Updload dump2.xml to gcompris.net/ecrire/data and import it.
