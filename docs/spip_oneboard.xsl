@@ -62,7 +62,7 @@
 
                     <DIV class="flottante">
                       <IMG border="0" alt="" align="right">
-                        <xsl:attribute name="src"><xsl:value-of select="concat('boardicons/',@icon)"/></xsl:attribute>
+                        <xsl:attribute name="src"><xsl:value-of select="concat('boardicons/',translate(@icon,'.svg','.png'))"/></xsl:attribute>
                       </IMG>
 
                       <xsl:if test="@difficulty">
