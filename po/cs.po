@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-10-27 20:12+0000\n"
+"POT-Creation-Date: 2012-11-01 13:17+0000\n"
 "PO-Revision-Date: 2012-10-27 22:09+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
@@ -3196,11 +3196,9 @@ msgstr "Kráva"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:11
 msgid ""
-" The cow goes \"moo. moo.\" Cows have a memory of about three years. Cows "
-"have many uses, including for milk and meat."
+" The cow goes \"moo. moo.\". Cows are herbivorous mammals. They graze all "
+"day in the meadow."
 msgstr ""
-" Kráva dělá „bůůů“. Krávy si pamatují zhruba tři roky. Mají mnoho využití, "
-"včetně mléka a masa."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:12
 msgid " You can drink the milk this animal produces."
@@ -3219,7 +3217,7 @@ msgstr ""
 "nedokáže uchovávat teplo, když je mokrá."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:15
-msgid " This pet likes to chase mice."
+msgid " This pet likes chasing mice."
 msgstr " Toto zvíře rádo loví myši."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:16
@@ -3243,10 +3241,10 @@ msgstr "Kachna"
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:20
 msgid ""
 " The duck goes \"quack, quack\". Ducks have special features like webbed "
-"feet and waterproof feathers."
+"feet and produce an oil to make their feathers \"waterproof\"."
 msgstr ""
-" Kachna dělá „ga, ga, ga“. Kachny mají speciální výbavu, jako plovací blány "
-"nebo vodě odolné peří."
+" Kachna dělá „ga, ga, ga“. Kachny mají speciální výbavu, jako plovací blány a "
+" mazové žlázy produkující tuk k ochraně pěří před vodou."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:21
 msgid " This animal has webbed feet so it can swim in the water."
@@ -3632,18 +3630,19 @@ msgstr " Na večírcích lidé často tančí na hudbu Mariachi. Známým tancem
 msgid " Where is Mariachi music from?"
 msgstr " Odkud pochází hudba Mariachi?"
 
+# FIMXE: s/state/states/?
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:29
-msgid " America"
-msgstr " Amerika"
+msgid " United State of America"
+msgstr "Spojené státy Americké"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:30
 msgid ""
-" America also has a wide variety of musical genres, but perhaps it is most "
+" USA also has a wide variety of musical genres, but perhaps it is most "
 "famous for rock n' roll music. This music features vocalists, guitars, and "
 "drums."
 msgstr ""
-" Amerika má mnoho druhů hudebních žánrů, ale asi nejznámějším je rock n' "
-"roll. Tato hudba je založena na zpěvácích, kytarách a bubnech."
+" Amerika má mnoho druhů hudebních žánrů, ale nejproslavenější je asi rock n' "
+"rollem. Tato hudba je založena na zpěvácích, kytarách a bubnech."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:31
 msgid " The 'king' of rock n' roll is"
@@ -8887,8 +8886,8 @@ msgid ""
 "  - 3: E\n"
 "  - 4: F\n"
 "  - 5: G\n"
-"  - 6: E\n"
-"  - 7: F\n"
+"  - 6: A\n"
+"  - 7: B\n"
 "  - 8: C (higher octave)\n"
 "  - etc.\n"
 "  - F1: C# / Db\n"
@@ -8916,14 +8915,14 @@ msgstr ""
 "    4: F\n"
 "    5: G\n"
 "    6: A\n"
-"    7: B\n"
+"    7: H\n"
 "    8: C (horní oktáva)\n"
 "    atd.\n"
 "    F1: C#/Db\n"
 "    F2: D#/Eb\n"
 "    F3: F#/Gb\n"
 "    F4: G#/Ab\n"
-"    F5: A#/Bb\n"
+"    F5: A#/Fb\n"
 
 #: ../src/play_rhythm-activity/play_rhythm.py:115
 msgid "Beat Count:"
