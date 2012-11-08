@@ -20,7 +20,7 @@ img_DATA = \
 	middleeast.jpg \
 	middleeast.ogg \
 	orchestra.jpg \
-	suitcase.png \
+	suitcase.svg \
 	worldmap.jpg
 
 EXTRA_DIST = $(img_DATA)

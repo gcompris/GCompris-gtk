@@ -221,11 +221,13 @@ dialogue to\nenable the sound."), None)
 
         for section in self.sectionNames:
 
+
+            pixmap = gcompris.utils.load_pixmap(self.locationPic)
             item = goocanvas.Image(
                 parent = self.rootitem,
-                x = int(self.data.get(section, 'x')) - 20,
-                y = int(self.data.get(section, 'y')) - 20,
-                pixbuf = gcompris.utils.load_pixmap(self.locationPic)
+                x = int(self.data.get(section, 'x')) - pixmap.get_width() / 2.0,
+                y = int(self.data.get(section, 'y')) - pixmap.get_height() / 2.0,
+                pixbuf = pixmap
                 )
             gcompris.utils.item_focus_init(item, None)
             item.set_data('sectionNum', section)
