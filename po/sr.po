@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompr"
 "is&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-10-19 20:57+0000\n"
-"PO-Revision-Date: 2012-10-23 10:28+0200\n"
+"POT-Creation-Date: 2012-11-01 13:17+0000\n"
+"PO-Revision-Date: 2012-11-09 09:42+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <gnom@prevod.org>\n"
 "Language: sr\n"
@@ -886,10 +886,9 @@ msgstr "лососна"
 msgid "sepia"
 msgstr "црвеносмеђа"
 
-# или врста лептира, па онда „сулфурна“?
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:16
-msgid "sulphur"
-msgstr "сумпорна"
+msgid "sulfur"
+msgstr "сулфурна"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:17
 msgid "tea"
@@ -972,7 +971,8 @@ msgid "azure"
 msgstr "азурна"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:37
-msgid "greyish brown"
+#| msgid "greyish brown"
+msgid "grayish brown"
 msgstr "сивкасто-браон"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:38
@@ -1068,7 +1068,8 @@ msgid "mauve"
 msgstr "боја слеза"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:61
-msgid "greyish blue"
+#| msgid "greyish blue"
+msgid "grayish blue"
 msgstr "сивкасто-плава"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:62
@@ -1686,9 +1687,12 @@ msgid "Mouse-manipulation"
 msgstr "Баратање мишем"
 
 #: ../src/billard-activity/billard.xml.in.h:4
+#| msgid ""
+#| "Point the mouse and click on the ball, to set the speed and direction of "
+#| "the ball. The closer you click to the centre, the slower the ball moves."
 msgid ""
 "Point the mouse and click on the ball, to set the speed and direction of the "
-"ball. The closer you click to the centre, the slower the ball moves."
+"ball. The closer you click to the center, the slower the ball moves."
 msgstr ""
 "Поставите миша и кликните на лопту да подесите брзину и правац лопте. Што "
 "ближе кликнете центру, лопта ће бити спорија."
@@ -2887,7 +2891,7 @@ msgstr ""
 #: ../src/drawnumber-activity/drawnumber.py:238
 #: ../src/explore-activity/explore.py:458 ../src/findit-activity/findit.py:336
 #: ../src/louis_braille-activity/louis_braille.py:84
-#: ../src/piano_composition-activity/piano_composition.py:499
+#: ../src/piano_composition-activity/piano_composition.py:503
 msgid "Cannot find the file '{filename}'"
 msgstr "Не могу да пронађем датотеку „{filename}“"
 
@@ -3075,7 +3079,7 @@ msgstr "Кликните мишем на правоугаонике све до�
 
 #: ../src/explore-activity/explore.py:88
 #: ../src/note_names-activity/note_names.py:83
-#: ../src/piano_composition-activity/piano_composition.py:367
+#: ../src/piano_composition-activity/piano_composition.py:371
 #: ../src/play_piano-activity/play_piano.py:77
 #: ../src/play_rhythm-activity/play_rhythm.py:81
 msgid ""
@@ -3100,7 +3104,7 @@ msgstr "Назад на почетну страницу"
 
 #: ../src/explore-activity/explore.py:463 ../src/findit-activity/findit.py:341
 #: ../src/louis_braille-activity/louis_braille.py:88
-#: ../src/piano_composition-activity/piano_composition.py:504
+#: ../src/piano_composition-activity/piano_composition.py:508
 msgid ""
 "Failed to parse data set '{filename}' with error:\n"
 "{error}"
@@ -3193,8 +3197,11 @@ msgid " Chickens"
 msgstr " Кокош"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:8
+#| msgid ""
+#| " The chichen goes \"cluck, cackle, cluck\". Chickens have over 200 "
+#| "different noises they can use to communicate."
 msgid ""
-" The chichen goes \"cluck, cackle, cluck\". Chickens have over 200 different "
+" The chicken goes \"cluck, cackle, cluck\". Chickens have over 200 different "
 "noises they can use to communicate."
 msgstr ""
 " Кокошка квоца „коо, кокоо, кококооо“. Кокошке користе преко 200 различитих "
@@ -3210,11 +3217,11 @@ msgstr " Краве"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:11
 msgid ""
-" The cow goes \"moo. moo.\" Cows have a memory of about three years. Cows "
-"have many uses, including for milk and meat."
+" The cow goes \"moo. moo.\". Cows are herbivorous mammals. They graze all "
+"day in the meadow."
 msgstr ""
-" Крава муче „муууу, муууу“. Краве имају разноврсну примену, укључујући "
-"давање млека а и меса."
+" Крава муче „муу. муу.“. Краве су сисари биљоједи. По цели дан пасу на "
+"ливади."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:12
 msgid " You can drink the milk this animal produces."
@@ -3233,7 +3240,8 @@ msgstr ""
 "није топло када је мокро."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:15
-msgid " This pet likes to chase mice."
+#| msgid " This pet likes to chase mice."
+msgid " This pet likes chasing mice."
 msgstr " Ова животињка обожава да лови мишеве."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:16
@@ -3255,12 +3263,16 @@ msgid " White Duck"
 msgstr " Бела патка"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:20
+#| msgid ""
+#| " The duck goes \"quack, quack\". Ducks have special features like webbed "
+#| "feat and waterproof feathers."
 msgid ""
 " The duck goes \"quack, quack\". Ducks have special features like webbed "
-"feat and waterproof feathers."
+"feet and produce an oil to make their feathers \"waterproof\"."
 msgstr ""
-" Патка кваче „ква, ква, ква“. Патке имају посебну одлику као што је кожица "
-"за пливање на прстима ногу и перја отпорна на воду."
+" Патка кваче „ква, ква, ква“. Патке имају посебне одлике као што је кожица "
+"за пливање на прстима ногу и лучење уља које њихова перја чини „отпорним на "
+"воду“."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:21
 msgid " This animal has webbed feet so it can swim in the water."
@@ -3293,7 +3305,8 @@ msgstr ""
 "пажњу."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:27
-msgid " This animal's ancesters were wolves."
+#| msgid " This animal's ancesters were wolves."
+msgid " This animal's ancestors were wolves."
 msgstr " Ове животиње воде порекло од вукова."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:28
@@ -3301,9 +3314,12 @@ msgid " Rooster"
 msgstr " Петао"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:29
+#| msgid ""
+#| " The rooster goes \"coc-a-doodle-doo!\". Roosters have been on farms for "
+#| "about 5,000 years. Every morning it wakes the farm up with its noices."
 msgid ""
 " The rooster goes \"coc-a-doodle-doo!\". Roosters have been on farms for "
-"about 5,000 years. Every morning it wakes the farm up with its noices."
+"about 5,000 years. Every morning it wakes the farm up with its noises."
 msgstr ""
 " Петао кукуриче „куукуурииикууу“. Петлови живе у сеоским домаћинствима око "
 "5000 година. Сваког јутра својим кукурикањем позивају житеље домаћинства на "
@@ -3558,14 +3574,18 @@ msgid " Japan"
 msgstr " Јапан"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:14
+#| msgid ""
+#| " Taiko drumming comes from Japan. This type of drumming was originally "
+#| "used to scare enemies in battle. It is very loud, and performances are "
+#| "very exciting with crouds chearing and performers yelling!"
 msgid ""
 " Taiko drumming comes from Japan. This type of drumming was originally used "
 "to scare enemies in battle. It is very loud, and performances are very "
-"exciting with crouds chearing and performers yelling!"
+"exciting with crowds cheering and performers yelling!"
 msgstr ""
 " Таико добош је пореклом из Јапана. Ова врста добоша је првобитно била "
-"коришћена за плашење непријатеља у борби. Врло је гласан, а делотворност је "
-"врло узбудљива уз урлање масе и вику извођача!"
+"коришћена за плашење непријатеља у борби. Врло је бучан, а делотворност је "
+"врло узбудљива уз урлање навијача и вику извођача!"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:15
 msgid " Where do performers yelp as they play the drums?"
@@ -3576,10 +3596,14 @@ msgid " Scotland and Ireland"
 msgstr " Шкотска и Ирска"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:17
+#| msgid ""
+#| " Folk music of this region is called celtic music, often incorporates a "
+#| "narrative poem or story. Typical instruments include bagpipes, fiddles, "
+#| "flutes, harps, and accordians."
 msgid ""
 " Folk music of this region is called celtic music, often incorporates a "
 "narrative poem or story. Typical instruments include bagpipes, fiddles, "
-"flutes, harps, and accordians."
+"flutes, harps, and accordions."
 msgstr ""
 " Народна музика ове регије се зове келтска музика, често садржи поему или "
 "причу за рецитовање. У типичне инструменте спадају гајде, гусле, флауте, "
@@ -3595,9 +3619,13 @@ msgid " Italy"
 msgstr " Италија"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:20
+#| msgid ""
+#| " Italy is famous for its Opera. Opera is a musical theatre where actors "
+#| "tell a story by acting and singing. Opera sings, both male and female, "
+#| "learn special techniques to sing operas."
 msgid ""
-" Italy is famous for its Opera. Opera is a musical theatre where actors tell "
-"a story by acting and singing. Opera sings, both male and female, learn "
+" Italy is famous for its Opera. Opera is a musical theater where actors tell "
+"a story by acting and singing. Opera singers, both male and female, learn "
 "special techniques to sing operas."
 msgstr ""
 " Италија је позната по Опери. Опера је музичко позориште у коме глумци "
@@ -3613,9 +3641,12 @@ msgid " European Classical Music"
 msgstr " Ецропска класична музика"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:23
+#| msgid ""
+#| " Europe is the home of classical music. Famous composers like Bach, "
+#| "Beethoven, and Mozart forevor changed music history."
 msgid ""
 " Europe is the home of classical music. Famous composers like Bach, "
-"Beethoven, and Mozart forevor changed music history."
+"Beethoven, and Mozart forever changed music history."
 msgstr ""
 " Европа је колевка класичне музике. Познати композитори Бах, Бетовен и "
 "Моцарт су заувек изменили музичку историју."
@@ -3649,32 +3680,33 @@ msgid " Where is Mariachi music from?"
 msgstr " Одакле потиче Мариаки музика?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:29
-msgid " America"
-msgstr " Америка"
+#| msgid "United States of America"
+msgid " United State of America"
+msgstr " Сједињене Америчке Државе"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:30
+#| msgid ""
+#| " America also has a wide variety of musical genres, but perhaps it is "
+#| "most famous for rock n' roll music. This music features vocalists, "
+#| "guitars, and drums."
 msgid ""
-" America also has a wide variety of musical genres, but perhaps it is most "
+" USA also has a wide variety of musical genres, but perhaps it is most "
 "famous for rock n' roll music. This music features vocalists, guitars, and "
 "drums."
 msgstr ""
-" Америка такође има велики број музичких жанрова, али је можда најпознатија "
-"по рокенрол музици. Ову музику одликују певачи, гитаре, и бубњеви."
+" САД такође има велики број музичких жанрова, али је можда најпознатија по "
+"рокенрол музици. Ову музику одликују певачи, гитаре, и бубњеви."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:31
 msgid " The 'king' of rock n' roll is"
 msgstr " „Краљ“ рокенрола је"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:32
-#| msgid ""
-#| " The 'kind' of rock n' roll, Elvis Presley, made his music famous in this "
-#| "country."
 msgid ""
 " The 'king' of rock n' roll, Elvis Presley, made his music famous in this "
 "country."
 msgstr ""
-"„Краљ“ рокенрола, Елвис Присли, је учинио своју музику познатом у овој "
-"земљи."
+"„Краљ“ рокенрола, Елвис Присли, је учинио своју музику познатом у овој земљи."
 
 # bug: unclear: "15th game" or "game of fifteen"
 #: ../src/fifteen-activity/fifteen.xml.in.h:1
@@ -4239,13 +4271,18 @@ msgid "Print the version of "
 msgstr "Испиши издање за "
 
 #: ../src/gcompris/gcompris.c:181
+#| msgid ""
+#| "Run GCompris with local menu (e.g -l /reading will let you play only "
+#| "activities in the reading directory, -l /strategy/connect4 only the "
+#| "connect4 activity). Use '-l list' to list all the availaible activities "
+#| "and their descriptions."
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
-"activity). Use '-l list' to list all the availaible activities and their "
+"activity). Use '-l list' to list all the available activities and their "
 "descriptions."
 msgstr ""
-"Покрените ГКомприс са локалним изборником (нпр. „-l /reading“ ће вам дати "
+"Покрените Гкомприс са локалним изборником (нпр. „-l /reading“ ће вам дати "
 "само вежбе из тог директоријума, „-l /strategy/connect4“ само игру повежи4). "
 "Користите „-l list“ да излистате све доступне активности и њихове описе."
 
@@ -4410,13 +4447,17 @@ msgid ""
 "GCompris won't start because the lock file is less than %d second old.\n"
 msgid_plural ""
 "GCompris won't start because the lock file is less than %d seconds old.\n"
-msgstr[0] "ГКомприс се неће покренути зато што је датотека закључавања млађа од %d "
+msgstr[0] ""
+"ГКомприс се неће покренути зато што је датотека закључавања млађа од %d "
 "секунде.\n"
-msgstr[1] "ГКомприс се неће покренути зато што је датотека закључавања млађа од %d "
+msgstr[1] ""
+"ГКомприс се неће покренути зато што је датотека закључавања млађа од %d "
 "секунде.\n"
-msgstr[2] "ГКомприс се неће покренути зато што је датотека закључавања млађа од %d "
+msgstr[2] ""
+"ГКомприс се неће покренути зато што је датотека закључавања млађа од %d "
 "секунди.\n"
-msgstr[3] "ГКомприс се неће покренути зато што је датотека закључавања млађа од једне "
+msgstr[3] ""
+"ГКомприс се неће покренути зато што је датотека закључавања млађа од једне "
 "секунде.\n"
 
 #: ../src/gcompris/gcompris.c:1517
@@ -4426,16 +4467,21 @@ msgstr "Датотека закључавања: %s\n"
 
 #: ../src/gcompris/gcompris.c:1638
 #, c-format
+#| msgid ""
+#| "GCompris\n"
+#| "Version: %s\n"
+#| "Licence: GPL\n"
+#| "More info at http://gcompris.net\n"
 msgid ""
 "GCompris\n"
 "Version: %s\n"
-"Licence: GPL\n"
+"License: GPL\n"
 "More info at http://gcompris.net\n"
 msgstr ""
-"ГКомприс\n"
+"Гкомприс\n"
 "Издање: %s\n"
-"Лиценца: ОЈЛ (GPL)\n"
-"Више на http://gcompris.net\n"
+"Лиценца: ОЈЛ\n"
+"Више на „http://gcompris.net“\n"
 
 #. check the list of possible values for -l, then exit
 #: ../src/gcompris/gcompris.c:1818
@@ -4505,7 +4551,7 @@ msgstr "Упутство"
 msgid "Credit"
 msgstr "Заслуге"
 
-#: ../src/gcompris/menu.c:620
+#: ../src/gcompris/menu.c:629
 #, c-format
 msgid ""
 "Loading activity from file:\n"
@@ -4514,7 +4560,7 @@ msgstr ""
 "Учитавам вежбу из датотеке:\n"
 "%s"
 
-#: ../src/gcompris/menu.c:680
+#: ../src/gcompris/menu.c:689
 msgid ""
 "All the activities are disabled in this profile. Go in the GCompris "
 "administration module and activate at least one activity."
@@ -5244,7 +5290,8 @@ msgid "Qatar"
 msgstr "Катар"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:12
-msgid "Bahrein"
+#| msgid "Bahrein"
+msgid "Bahrain"
 msgstr "Бахреин"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:13
@@ -5256,7 +5303,7 @@ msgid "Chypre"
 msgstr "Кипар"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:15
-msgid "Koweit"
+msgid "Kuwait"
 msgstr "Кувајт"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:16
@@ -5284,7 +5331,7 @@ msgid "Jordan"
 msgstr "Јордан"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:22
-msgid "Irak"
+msgid "Iraq"
 msgstr "Ирак"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:23
@@ -5308,11 +5355,13 @@ msgid "Turkmenistan"
 msgstr "Туркменистан"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:29
-msgid "Kirghizstan"
+#| msgid "Kirghizstan"
+msgid "Kyrgyzstan"
 msgstr "Киргистан"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:30
-msgid "Tadjikistan"
+#| msgid "Tadjikistan"
+msgid "Tajikistan"
 msgstr "Таџикистан"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:31
@@ -5332,7 +5381,6 @@ msgid "Philippines"
 msgstr "Филипини"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:35
-#| msgid "Nyanmar"
 msgid "Myanmar"
 msgstr "Бурма"
 
@@ -5341,7 +5389,6 @@ msgid "Pakistan"
 msgstr "Пакистан"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:38
-#| msgid "Bhoutan"
 msgid "Bhutan"
 msgstr "Бутан"
 
@@ -5378,7 +5425,8 @@ msgid "Taiwan"
 msgstr "Тајван"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:48
-msgid "Ouzbekistan"
+#| msgid "Ouzbekistan"
+msgid "Uzbekistan"
 msgstr "Узбекистан"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:49
@@ -5386,11 +5434,13 @@ msgid "Kazakhstan"
 msgstr "Казакистан"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:50
-msgid "South Corea"
+#| msgid "South Corea"
+msgid "South Korea"
 msgstr "Јужна Кореја"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:51
-msgid "North Corea"
+#| msgid "North Corea"
+msgid "North Korea"
 msgstr "Северна Кореја"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:52
@@ -6383,8 +6433,9 @@ msgid "the clarinet"
 msgstr "кларинет"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:4
-msgid "the flute traversiere"
-msgstr "флауту"
+#| msgid "the flute traversiere"
+msgid "the transverse flute"
+msgstr "попречну флауту"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:5
 msgid "the guitar"
@@ -6415,70 +6466,74 @@ msgid "the violin"
 msgstr "виолину"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
+msgid "the flute traversiere"
+msgstr "флауту"
+
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
 msgid "the drum kit"
 msgstr "бубњеве"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
 msgid "the accordion"
 msgstr "хармонику"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
 msgid "the banjo"
 msgstr "бенџо"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
 msgid "the bongo"
 msgstr "бонго"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
 msgid "the electric guitar"
 msgstr "електричну гитару"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
 msgid "the castanets"
 msgstr "кастањете"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
 msgid "the cymbal"
 msgstr "цимбал"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
 msgid "the cello"
 msgstr "виолончело"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
 msgid "the harmonica"
 msgstr "усну хармонику"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
 msgid "the horn"
 msgstr "рог"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
 msgid "the maracas"
 msgstr "маракас"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
 msgid "the organ"
 msgstr "оргуље"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
 msgid "the snare drum"
 msgstr "добош"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
 msgid "the timpani"
 msgstr "тимпане"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:27
 msgid "the triangle"
 msgstr "троугао"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:27
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:28
 msgid "the tambourine"
 msgstr "даире"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:28
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:29
 msgid "the tuba"
 msgstr "тубу"
 
@@ -6511,18 +6566,23 @@ msgstr ""
 "слабијом силом гравитације."
 
 #: ../src/intro_gravity-activity/intro_gravity.py:118
+#| msgid ""
+#| "You goal is to let Tux's spaceship move by changing the mass of its "
+#| "surrounding planets. Don't get too close to the planets or you will crash "
+#| "on them. The arrow indicates the direction of the force on your ship."
 msgid ""
-"You goal is to let Tux's spaceship move by changing the mass of its "
+"Your goal is to let Tux's spaceship move by changing the mass of its "
 "surrounding planets. Don't get too close to the planets or you will crash on "
 "them. The arrow indicates the direction of the force on your ship."
 msgstr ""
-"Ваш циљ је да омогућите кретње Пингославовог свемирског брода тако што ћете "
+"Ваш циљ је да омогућите кретање Пингославовог свемирског брода тако што ћете "
 "мењати масе околних планета. Немојте се превише приближити планетама или "
 "ћете се срушити на њих. Стрелица показује смер силе на вашем броду."
 
 #: ../src/intro_gravity-activity/intro_gravity.py:128
 msgid "Avoid the asteroid and join the space shuttle to win."
-msgstr "Избегавајте астероиде и стигните до свемирског брода да бисте победили."
+msgstr ""
+"Избегавајте астероиде и стигните до свемирског брода да бисте победили."
 
 #: ../src/intro_gravity-activity/intro_gravity.xml.in.h:1
 msgid "Intro gravity"
@@ -6565,12 +6625,10 @@ msgid "Click on me or press the Return key when you are ready."
 msgstr "Када сте спремни кликните на мене или притисните тастер уноса."
 
 #: ../src/land_safe-activity/land_safe.py:171
-#| msgid "I am Ready"
 msgid "I am ready!"
 msgstr "Спреман сам!"
 
 #: ../src/land_safe-activity/land_safe.py:453
-#| msgid "eight"
 msgid "Height: "
 msgstr "Висина: "
 
@@ -6595,11 +6653,24 @@ msgid "Pilot the spaceship towards the green landing area."
 msgstr "Управљајте свемирским бродом до зелене области за слетање."
 
 #: ../src/land_safe-activity/land_safe.xml.in.h:4
+#| msgid ""
+#| "\n"
+#| "Acceleration due to gravity experienced by the spaceship is directly "
+#| "proportional to the mass of the planet and inversely proportional to the "
+#| "square of the distance from the centre of the planet. Thus, with every "
+#| "planet the acceleration will differ and as the spaceship comes closer and "
+#| "closer to the planet the acceleration increases.\n"
+#| "\n"
+#| "Use the up/down keys to control the thrust and the right/left keys to "
+#| "control direction.\n"
+#| "\n"
+#| "The landing platform is green if your speed is fine for a safe landing.\n"
+#| "        "
 msgid ""
 "\n"
 "Acceleration due to gravity experienced by the spaceship is directly "
 "proportional to the mass of the planet and inversely proportional to the "
-"square of the distance from the centre of the planet. Thus, with every "
+"square of the distance from the center of the planet. Thus, with every "
 "planet the acceleration will differ and as the spaceship comes closer and "
 "closer to the planet the acceleration increases.\n"
 "\n"
@@ -6710,10 +6781,15 @@ msgid "The aim is to switch off all the lights."
 msgstr "Циљ је гашење свих светла."
 
 #: ../src/lightsoff-activity/lightsoff.xml.in.h:3
+#| msgid ""
+#| "The effect of pressing a button is to toggle the state of that button, "
+#| "and of its immediate vertical and horizontal neighbours. The sun and the "
+#| "color of the sky depend on the number of clicks needed to solve the "
+#| "puzzle. If you click on Tux, the solution is shown."
 msgid ""
 "The effect of pressing a button is to toggle the state of that button, and "
-"of its immediate vertical and horizontal neighbours. The sun and the color "
-"of the sky depend on the number of clicks needed to solve the puzzle. If you "
+"of its immediate vertical and horizontal neighbors. The sun and the color of "
+"the sky depend on the number of clicks needed to solve the puzzle. If you "
 "click on Tux, the solution is shown."
 msgstr ""
 "Ефекат притиска на дугме је промена стања тог дугмета, као и његових "
@@ -6984,9 +7060,30 @@ msgid "Help Tux get out of this maze."
 msgstr "Помозите Пингославу да изађе из лавиринта."
 
 #: ../src/maze2DRelative-activity/maze2DRelative.xml.in.h:5
+#| msgid ""
+#| "Use the keyboard arrows to move Tux up to the door. In this maze, the "
+#| "move is relative (first person). Use the up arrow to go forward. The "
+#| "other arrow let you turn Tux in another direction.\n"
+#| "\n"
+#| "At the first levels, Tux walks comfortably, one step on each keypress, "
+#| "through the labyrinth.\n"
+#| "\n"
+#| "For larger labyrinths, there is a special walking mode, called \"run-fast-"
+#| "mode\". If this run-fast-mode is enabled, Tux will run all the way "
+#| "automatically until he reaches a fork and you have to decide which way to "
+#| "go further.\n"
+#| "\n"
+#| "You can see whether this mode is enabled or not, by looking at Tux's "
+#| "feet: If Tux is barefooted, \"run-fast-mode\" is disabled. And if he "
+#| "wears red sport shoes, \"run-fast-mode\" is enabled.\n"
+#| "\n"
+#| "From level 14 on, run-fast-mode will be enabled automatically. If you "
+#| "want to use this feature in earlier levels or want to disable it in "
+#| "advanced levels, click on Tux or the \"barefoot / sportshoe\"-icon in the "
+#| "upper left corner of the screen to toggle the run-fast-mode.\n"
 msgid ""
 "Use the keyboard arrows to move Tux up to the door. In this maze, the move "
-"is relative (first person). Use the up arrow to go forward. The other arrow "
+"is relative (first person). Use the up arrow to go forward. The other arrows "
 "let you turn Tux in another direction.\n"
 "\n"
 "At the first levels, Tux walks comfortably, one step on each keypress, "
@@ -7491,6 +7588,29 @@ msgstr "Вежбајте одузимање, док све карте не не�
 
 #: ../src/memory_minus-activity/memory_minus.xml.in.h:5
 #: ../src/memory_minus_tux-activity/memory_minus_tux.xml.in.h:5
+#| msgid ""
+#| "You can see some cards, but you can't see what's on the other side of "
+#| "them. Each card is hiding a subtraction, or the answer to it.\n"
+#| "A subtraction looks like this: 3 - 1 = 2\n"
+#| "The numbers on one side of the equals sign (=) have to be the same as the "
+#| "number on the other side. So 3 (1, 2, 3) less 1 (1) makes 2. Count aloud "
+#| "when you work this out, and count on your fingers, because the more ways "
+#| "you do something, the better you remember it. You can also use blocks, or "
+#| "buttons, or anything you can count. If you have lots of brothers and "
+#| "sisters, you can count them! Or the kids in your class at school. Sing "
+#| "counting songs. Count lots of things, for practice, and you'll be very "
+#| "good at adding-up!\n"
+#| "\n"
+#| "In this game, these cards are hiding the two parts of a subtraction. You "
+#| "need to find the two parts of the subraction, and bring them together "
+#| "again. Click on a card to see what number it's hiding, then try to find "
+#| "the other card that goes with it, to make a whole sum. You can only turn "
+#| "over two cards in one go, so you need to remember where the numbers are "
+#| "hiding, then you can match them when you find their other half. You're "
+#| "doing the job of the equals sign, and the numbers need you to put them "
+#| "together and make a proper sum. When you do that, both those cards "
+#| "disappear! When you've made them all disappear, found all the subtracts, "
+#| "you've won the game! :)"
 msgid ""
 "You can see some cards, but you can't see what's on the other side of them. "
 "Each card is hiding a subtraction, or the answer to it.\n"
@@ -7505,12 +7625,12 @@ msgid ""
 "at adding-up!\n"
 "\n"
 "In this game, these cards are hiding the two parts of a subtraction. You "
-"need to find the two parts of the subraction, and bring them together again. "
-"Click on a card to see what number it's hiding, then try to find the other "
-"card that goes with it, to make a whole sum. You can only turn over two "
-"cards in one go, so you need to remember where the numbers are hiding, then "
-"you can match them when you find their other half. You're doing the job of "
-"the equals sign, and the numbers need you to put them together and make a "
+"need to find the two parts of the subtraction, and bring them together "
+"again. Click on a card to see what number it's hiding, then try to find the "
+"other card that goes with it, to make a whole sum. You can only turn over "
+"two cards in one go, so you need to remember where the numbers are hiding, "
+"then you can match them when you find their other half. You're doing the job "
+"of the equals sign, and the numbers need you to put them together and make a "
 "proper sum. When you do that, both those cards disappear! When you've made "
 "them all disappear, found all the subtracts, you've won the game! :)"
 msgstr ""
@@ -7531,8 +7651,8 @@ msgstr ""
 "окренути само по две карте у сваком потезу, па морате да запамтите где се "
 "бројеви крију, и онда их упарите када нађете други део. Ви сте сада у улози "
 "знака једнакости, и потребни сте бројевима да би их саставили и добили прави "
-"израз. Када то учините, обе ове карте ће нестати! Када све нестану, тако што "
-"ћете наћи све разлике, добили сте игру! :)"
+"израз. Када то учините, обе ове карте ће нестати! Када све нестану, тако "
+"што ћете наћи све разлике, добили сте игру! :)"
 
 #: ../src/memory_minus_tux-activity/memory_minus_tux.xml.in.h:1
 msgid "Subtraction memory game against Tux"
@@ -7601,7 +7721,8 @@ msgstr "Баратање мишем. Мозак."
 
 #: ../src/memory_sound-activity/memory_sound.xml.in.h:4
 #: ../src/memory_sound_tux-activity/memory_sound_tux.xml.in.h:4
-msgid "Train your audio memory and remove all the violonists Tux."
+#| msgid "Train your audio memory and remove all the violonists Tux."
+msgid "Train your audio memory and remove all the violinists Tux."
 msgstr "Вежбајте памћење звука и уклоните све пингвине виолинисте."
 
 #: ../src/memory_sound-activity/memory_sound.xml.in.h:5
@@ -7687,10 +7808,29 @@ msgid "You should be familiar with moving the mouse and clicking."
 msgstr "Треба да будете искусни у померању миша и кликању."
 
 #: ../src/mining-activity/mining.xml.in.h:4
-msgid "Lern to use the mousewheel to zoom in and out."
+#| msgid "Lern to use the mousewheel to zoom in and out."
+msgid "Learn to use the mousewheel to zoom in and out."
 msgstr "Научите да користите точкић миша да увећате и да умањите."
 
 #: ../src/mining-activity/mining.xml.in.h:5
+#| msgid ""
+#| "Looking at the rockwall, you can see a sparkle somewhere. Move the mouse "
+#| "cursor next to this sparkle and use the mousewheel to zoom in. If you "
+#| "zoomed in at maximum, a gold nugget will appear at the position of the "
+#| "sparkle. Click on the gold nugget to collect it.\n"
+#| "\n"
+#| "Having collected the nugget, use the mousewheel to zoom out again. If you "
+#| "zoomed out at maximum, another sparkle will appear, showing the next gold "
+#| "nugget to collect. Collect enough nuggets to complete the level.\n"
+#| "\n"
+#| "The lorry in the lower, right corner of the screen will tell you the "
+#| "number of already collected nuggets and the total number of nuggets to "
+#| "collect in this level.\n"
+#| "\n"
+#| "To start the tutorial, click on professor tux (available at level 1) and "
+#| "let him show you, what to do next.\n"
+#| "\n"
+#| "Have fun! :)"
 msgid ""
 "Looking at the rockwall, you can see a sparkle somewhere. Move the mouse "
 "cursor next to this sparkle and use the mousewheel to zoom in. If you zoomed "
@@ -7701,11 +7841,11 @@ msgid ""
 "zoomed out at maximum, another sparkle will appear, showing the next gold "
 "nugget to collect. Collect enough nuggets to complete the level.\n"
 "\n"
-"The lorry in the lower, right corner of the screen will tell you the number "
+"The truck in the lower, right corner of the screen will tell you the number "
 "of already collected nuggets and the total number of nuggets to collect in "
 "this level.\n"
 "\n"
-"To start the tutorial, click on professor tux (available at level 1) and let "
+"To start the tutorial, click on professor Tux (available at level 1) and let "
 "him show you, what to do next.\n"
 "\n"
 "Have fun! :)"
@@ -7719,11 +7859,11 @@ msgstr ""
 "умањили до крајности, појавиће се други одсјај, приказујући следећи златни "
 "грумен за прикупљање. Сакупите довољно грумена да завршите ниво.\n"
 "\n"
-"Колица у доњем, десном углу екрана ће вам рећи број већ прикупљених грумена "
+"Камион у доњем, десном углу екрана ће вам рећи број већ прикупљених грумена "
 "и укупан број грумена за прикупљање на овом нивоу.\n"
 "\n"
 "Да покренете водич, кликните на професора Тукса (доступан је на нивоу 1) да "
-"вам покаже, шта следеће да урадите.\n"
+"вам покаже, шта треба следеће да урадите.\n"
 "\n"
 "Уживајте! :)"
 
@@ -8109,9 +8249,11 @@ msgid "Play Bass Clef Game"
 msgstr "Пусти игру бас кључа"
 
 #: ../src/note_names-activity/note_names.py:184
-msgid "Click on the note name to match the pitch. Then click ok to check."
+#| msgid "Click on the note name to match the pitch. Then click ok to check."
+msgid "Click on the note name to match the pitch. Then click OK to check."
 msgstr ""
-"Кликните на назив ноте да поредите тон. Затим кликните „у реду“ да проверите."
+"Кликните на назив ноте да поредите тон. Затим кликните „У реду“ да "
+"проверите."
 
 #: ../src/note_names-activity/note_names.py:186
 msgid "Now there are sharp notes. These pitches are raised a half step."
@@ -8455,106 +8597,104 @@ msgstr "Bb"
 msgid "The staff is full. Please erase some notes"
 msgstr "Нотни систем је пун. Молим обришите неке ноте"
 
-#: ../src/piano_composition-activity/piano_composition.py:121
+#: ../src/piano_composition-activity/piano_composition.py:125
 msgid "This is the Treble clef staff, for high pitched notes"
 msgstr "Ово је нотни систем виолинског кључа, за ноте повишеног тона"
 
-#: ../src/piano_composition-activity/piano_composition.py:122
+#: ../src/piano_composition-activity/piano_composition.py:126
 msgid "These are the 8 \"white\" keys in an octave"
 msgstr "Ово су 8 „белих“ кључева у једној октави"
 
-#: ../src/piano_composition-activity/piano_composition.py:124
+#: ../src/piano_composition-activity/piano_composition.py:128
 msgid "This is the Bass clef staff, for low pitched notes"
 msgstr "Ово је нотни систем бас кључа, за ноте сниженог тона"
 
-#: ../src/piano_composition-activity/piano_composition.py:125
+#: ../src/piano_composition-activity/piano_composition.py:129
 msgid "These keys form the C Major scale"
 msgstr "Ови кључеви сачињавају Це-дур лествицу"
 
-#: ../src/piano_composition-activity/piano_composition.py:127
+#: ../src/piano_composition-activity/piano_composition.py:131
 msgid "Click on the note symbols to write different length notes"
 msgstr "Кликните на симболе ноте да упишете ноте различите дужине"
 
-#: ../src/piano_composition-activity/piano_composition.py:128
+#: ../src/piano_composition-activity/piano_composition.py:132
 msgid ""
 "Notes can be many types, such as quarter notes, half notes, and whole notes"
 msgstr "Има више врста нота, као што је четврт ноте, половина ноте и цела нота"
 
-#: ../src/piano_composition-activity/piano_composition.py:130
+#: ../src/piano_composition-activity/piano_composition.py:134
 msgid "Sharp notes have a # sign"
 msgstr "Високе ноте имају знак #"
 
-#: ../src/piano_composition-activity/piano_composition.py:131
+#: ../src/piano_composition-activity/piano_composition.py:135
 msgid "The black keys are sharp and flat keys"
 msgstr "Црни кључеви су високи и ниски кључеви"
 
-#: ../src/piano_composition-activity/piano_composition.py:133
+#: ../src/piano_composition-activity/piano_composition.py:137
 msgid "Flat notes have a b sign"
 msgstr "Ниске ноте имају знак b"
 
-#: ../src/piano_composition-activity/piano_composition.py:134
+#: ../src/piano_composition-activity/piano_composition.py:138
 msgid "Each black key has two names, one with a flat and one with a sharp"
 msgstr "Сваки црни кључ има два назива, један са ниском а један са високом"
 
-#: ../src/piano_composition-activity/piano_composition.py:136
+#: ../src/piano_composition-activity/piano_composition.py:140
 msgid "Now you can load melodies from around the world"
 msgstr "Сада можете да учитате мелодије из целог света"
 
-#: ../src/piano_composition-activity/piano_composition.py:139
-#| msgid "Compose music now! Click to load or save your work"
+#: ../src/piano_composition-activity/piano_composition.py:143
 msgid "Compose music now! You can now load and save your work"
 msgstr "Компонујте музику сада! Сада можете да учитате или да сачувате ваш рад"
 
-#: ../src/piano_composition-activity/piano_composition.py:174
+#: ../src/piano_composition-activity/piano_composition.py:178
 msgid "Erase All Notes"
 msgstr "Обриши све ноте"
 
-#: ../src/piano_composition-activity/piano_composition.py:185
-#| msgid "Erase Last Note"
+#: ../src/piano_composition-activity/piano_composition.py:189
 msgid "Erase Last Notes"
 msgstr "Обриши последње ноте"
 
-#: ../src/piano_composition-activity/piano_composition.py:195
+#: ../src/piano_composition-activity/piano_composition.py:199
 msgid "Play Composition"
 msgstr "Одсвирај композицију"
 
-#: ../src/piano_composition-activity/piano_composition.py:207
+#: ../src/piano_composition-activity/piano_composition.py:211
 msgid "Erase and Change Clef"
 msgstr "Обриши и измени кључ"
 
-#: ../src/piano_composition-activity/piano_composition.py:218
+#: ../src/piano_composition-activity/piano_composition.py:222
 msgid "Change Note Type:"
 msgstr "Промени врсту ноте:"
 
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Eighth_note
-#: ../src/piano_composition-activity/piano_composition.py:239
+#: ../src/piano_composition-activity/piano_composition.py:243
 msgid "Eighth Note"
 msgstr "Осмина ноте"
 
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Quarter_note
-#: ../src/piano_composition-activity/piano_composition.py:262
+#: ../src/piano_composition-activity/piano_composition.py:266
 msgid "Quarter Note"
 msgstr "Четвртина ноте"
 
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Half_note
-#: ../src/piano_composition-activity/piano_composition.py:275
+#: ../src/piano_composition-activity/piano_composition.py:279
 msgid "Half Note"
 msgstr "Половина ноте"
 
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Whole_note
-#: ../src/piano_composition-activity/piano_composition.py:288
+#: ../src/piano_composition-activity/piano_composition.py:292
 msgid "Whole Note"
 msgstr "Цела нота"
 
-#: ../src/piano_composition-activity/piano_composition.py:320
+#: ../src/piano_composition-activity/piano_composition.py:324
 msgid "Load Music"
 msgstr "Учитај музику"
 
-#: ../src/piano_composition-activity/piano_composition.py:325
+#: ../src/piano_composition-activity/piano_composition.py:329
 msgid "Change Accidental Style:"
 msgstr "Промени случајан стил:"
 
-#: ../src/piano_composition-activity/piano_composition.py:383
+#: ../src/piano_composition-activity/piano_composition.py:387
 msgid "Select A Melody to Load"
 msgstr "Изабери мелодију за учитавање"
 
@@ -8573,8 +8713,11 @@ msgstr ""
 "чувајући ваш рад."
 
 #: ../src/piano_composition-activity/piano_composition.xml.in.h:3
+#| msgid ""
+#| "Familiarity with note naming convensions, note-names activity useful to "
+#| "learn this notation."
 msgid ""
-"Familiarity with note naming convensions, note-names activity useful to "
+"Familiarity with note naming conventions, note-names activity useful to "
 "learn this notation."
 msgstr ""
 "Упознатост са договорима о називима нота, вежба нотних назива је корисна за "
@@ -8597,6 +8740,41 @@ msgstr ""
 "музике отвореног кода."
 
 #: ../src/piano_composition-activity/piano_composition.xml.in.h:5
+#| msgid ""
+#| "This activity has several levels, each level adds a new functionality to "
+#| "the previous level.\n"
+#| "Level 1: basic piano keyboard (white keys only) and students can "
+#| "experiment with clicking the colored rectangle keys to write music\n"
+#| "Level 2: the musical staff switches to bass clef, so pitches are lower "
+#| "than in previous level\n"
+#| "Level 3: option to choose between treble and bass clef, additional "
+#| "function includes option to select note duration (quarter, half, and "
+#| "whole notes)\n"
+#| "Level 4: addition of black keys (sharp keys)\n"
+#| "Level 5: flat notation used for black keys\n"
+#| "Level 6: load children's melodies from around the world\n"
+#| "Level 7: all features available, with the additional feature to load and "
+#| "save your composition\n"
+#| "\n"
+#| "The following keyboard bindings work in this activity:\n"
+#| "- backspace: erase one note\n"
+#| "- delete: erase all notes\n"
+#| "- space bar: play composition\n"
+#| "- number keys:\n"
+#| "  1: C\n"
+#| "  2: D\n"
+#| "  3: E\n"
+#| "  4: F\n"
+#| "  5: G\n"
+#| "  6: E\n"
+#| "  7: F\n"
+#| "  8: C (higher octave)\n"
+#| "  etc.\n"
+#| "  F1: C# / Db\n"
+#| "  F2: D# / Eb\n"
+#| "  F3: F# / Gb\n"
+#| "  F4: G# / Ab\n"
+#| "  F5: A# / Bb\n"
 msgid ""
 "This activity has several levels, each level adds a new functionality to the "
 "previous level.\n"
@@ -8622,8 +8800,8 @@ msgid ""
 "  3: E\n"
 "  4: F\n"
 "  5: G\n"
-"  6: E\n"
-"  7: F\n"
+"  6: A\n"
+"  7: B\n"
 "  8: C (higher octave)\n"
 "  etc.\n"
 "  F1: C# / Db\n"
@@ -8639,8 +8817,7 @@ msgstr ""
 "2. ниво: музички нотни систем се пребацује на бас кључ, тако да су тонови "
 "нижи него на претходном нивоу\n"
 "3. ниво: могућност бирања између виолинског и бас кључа, додатна функција "
-"укључује могућност за бирање трајања ноте (четвртина, половина, и цела "
-"нота)\n"
+"укључује могућност за бирање трајања ноте (четвртина, половина, и цела нота)\n"
 "4. ниво: додавање црних тастера (виши тастери)\n"
 "5. ниво: ниже бележење коришћено за црне тастере\n"
 "6. ниво: учитава дечије песме из целог света\n"
@@ -8657,8 +8834,8 @@ msgstr ""
 "  3: E\n"
 "  4: F\n"
 "  5: G\n"
-"  6: E\n"
-"  7: F\n"
+"  6: A\n"
+"  7: B\n"
 "  8: C (виша октава)\n"
 "  итд.\n"
 "  Ф1: C# / Db\n"
@@ -8877,22 +9054,57 @@ msgid "Learn to play melodies on the piano keyboard!"
 msgstr "Научите да свирате песме на тастатури клавира!"
 
 #: ../src/play_piano-activity/play_piano.xml.in.h:3
+#| msgid ""
+#| "knowledge of musical notation and musical staff. Play piano_composition "
+#| "first."
 msgid ""
-"knowledge of musical notation and musical staff. Play piano_composition "
-"first."
+"Knowledge of musical notation and musical staff. Play the activity named "
+"'Piano Composition' first."
 msgstr ""
-"познавање музичког обележавања и музичког нотног система. Прво играјте "
-"клавирске композиције."
+"Познавање музичког обележавања и музичког нотног система. Прво играјте вежбу "
+"„Композиције за клавир“."
 
 #: ../src/play_piano-activity/play_piano.xml.in.h:4
+#| msgid ""
+#| "understand how the piano keyboard can play music as written on the "
+#| "musical staff"
 msgid ""
-"understand how the piano keyboard can play music as written on the musical "
-"staff"
+"Understand how the piano keyboard can play music as written on the musical "
+"staff."
 msgstr ""
-"схватите на који начин тастатура клавира може да свира музику као што је "
-"написана на музичком нотном систему"
+"Схватите на који начин тастатура клавира може да свира музику као што је "
+"написана на музичком нотном систему."
 
 #: ../src/play_piano-activity/play_piano.xml.in.h:5
+#| msgid ""
+#| "The notes you see will be played to you. Click on the corresponding keys "
+#| "on the keyboard that match the notes you hear and see. All levels except "
+#| "for the last have the notes colored so you can match the notes to the "
+#| "keyboard colors. Each level increases in difficulty by adding more notes. "
+#| "Levels 1-6 test the treble clef, levels 7-12 test the bass clef. When you "
+#| "get five points, you move onto the next level (incorrect answers deduct "
+#| "points, correct answers add points).\n"
+#| "\n"
+#| "The following keyboard bindings work in this game:\n"
+#| "- backspace: erase attempt\n"
+#| "- delete: erase attempt\n"
+#| "- enter/return: ok button\n"
+#| "- space bar: play\n"
+#| "- number keys:\n"
+#| "  - 1: C\n"
+#| "  - 2: D\n"
+#| "  - 3: E\n"
+#| "  - 4: F\n"
+#| "  - 5: G\n"
+#| "  - 6: E\n"
+#| "  - 7: F\n"
+#| "  - 8: C (higher octave)\n"
+#| "  - etc.\n"
+#| "  - F1: C# / Db\n"
+#| "  - F2: D# / Eb\n"
+#| "  - F3: F# / Gb\n"
+#| "  - F4: G# / Ab\n"
+#| "  - F5: A# / Bb\n"
 msgid ""
 "The notes you see will be played to you. Click on the corresponding keys on "
 "the keyboard that match the notes you hear and see. All levels except for "
@@ -8905,7 +9117,7 @@ msgid ""
 "The following keyboard bindings work in this game:\n"
 "- backspace: erase attempt\n"
 "- delete: erase attempt\n"
-"- enter/return: ok button\n"
+"- enter/return: OK button\n"
 "- space bar: play\n"
 "- number keys:\n"
 "  - 1: C\n"
@@ -8913,8 +9125,8 @@ msgid ""
 "  - 3: E\n"
 "  - 4: F\n"
 "  - 5: G\n"
-"  - 6: E\n"
-"  - 7: F\n"
+"  - 6: A\n"
+"  - 7: B\n"
 "  - 8: C (higher octave)\n"
 "  - etc.\n"
 "  - F1: C# / Db\n"
@@ -8944,7 +9156,7 @@ msgstr ""
 "  — 5: G\n"
 "  — 6: A\n"
 "  — 7: B\n"
-"  — 8: H\n"
+"  — 8: C (виша октава)\n"
 "  — итд. \n"
 "  - Ф1: C# / Db\n"
 "  - Ф2: D# / Eb\n"
@@ -8965,13 +9177,10 @@ msgid "For a little help, click the metronome to hear the tempo."
 msgstr "За мало помоћи, кликните на метроном да чујете темпо."
 
 #: ../src/play_rhythm-activity/play_rhythm.py:342
-#| msgid "1. Listen to the rhythm and follow the moving line."
 msgid "Listen to the rhythm and follow the moving line."
 msgstr "Слушајте такт и пратите покретну линију."
 
 #: ../src/play_rhythm-activity/play_rhythm.py:344
-#| msgid ""
-#| "2. Click the drum to the tempo. Watch the vertical line when you start."
 msgid "Click the drum to the tempo. Watch the vertical line when you start."
 msgstr "Кликните на добош до темпа. Гледајте усправну линију када почнете."
 
@@ -8980,18 +9189,13 @@ msgid "You can use the space bar to drum the tempo."
 msgstr "Можете да користите размакницу да ударате темпо."
 
 #: ../src/play_rhythm-activity/play_rhythm.py:348
-#| msgid ""
-#| "1. Now, read the rhythm. It won't be played for you. Then, beat the "
-#| "rhythm on the drum."
 msgid ""
 "Now, read the rhythm. It won't be played for you. Then, beat the rhythm on "
 "the drum."
 msgstr ""
-"Сада, прочитајте такт. Неће вам бити одсвиран. Затим, ударите такт на "
-"добошу."
+"Сада, прочитајте такт. Неће вам бити одсвиран. Затим, ударите такт на добошу."
 
 #: ../src/play_rhythm-activity/play_rhythm.py:351
-#| msgid "Click on the ball to place it again."
 msgid "Click erase to try again."
 msgstr "Кликните на „обриши“ да покушате опет."
 
@@ -9015,34 +9219,64 @@ msgstr ""
 "Научите да ударате такт тачно и исправно на основу онога што видите и чујете."
 
 #: ../src/play_rhythm-activity/play_rhythm.xml.in.h:5
+#| msgid ""
+#| "This is a relatively challenging game to master, so good luck. Listen to "
+#| "the rhythm played, and follow along with the music. If you would like to "
+#| "hear it again, click the play button. When you're ready to perform the "
+#| "identical rhythm, click the drum to the rhythm, then click the ok button. "
+#| "If you clicked correctly and in the right tempo, another rhythm is "
+#| "displayed. If not, you must try again. Even levels display a vertical "
+#| "playing line when you click the drum, which helps you see whene to click "
+#| "to follow the rhythm. Click on the drum when the line is in the middle of "
+#| "the notes. Odd levels are harder, because there is no vertical playing "
+#| "line. The rhythm will not be played for you. You must read the rhythm, "
+#| "and click it back in tempo. Click the metronome to hear the quarter note "
+#| "tempo. The following keyboard bindings work in this game: - backspace: "
+#| "erase attempt - delete: erase attempt - enter/return: ok button - space "
+#| "bar: play"
 msgid ""
-"This is a relatively challenging game to master, so good luck. Listen to the "
-"rhythm played, and follow along with the music. If you would like to hear it "
-"again, click the play button. When you're ready to perform the identical "
-"rhythm, click the drum to the rhythm, then click the ok button. If you "
-"clicked correctly and in the right tempo, another rhythm is displayed. If "
-"not, you must try again. Even levels display a vertical playing line when "
-"you click the drum, which helps you see whene to click to follow the rhythm. "
-"Click on the drum when the line is in the middle of the notes. Odd levels "
-"are harder, because there is no vertical playing line. The rhythm will not "
-"be played for you. You must read the rhythm, and click it back in tempo. "
-"Click the metronome to hear the quarter note tempo. The following keyboard "
-"bindings work in this game: - backspace: erase attempt - delete: erase "
-"attempt - enter/return: ok button - space bar: play"
+"This is a relatively challenging game to master, so good luck.\n"
+"\n"
+"Listen to the rhythm played, and follow along with the music. If you would "
+"like to hear it again, click the play button. When you're ready to perform "
+"the identical rhythm, click the drum to the rhythm, then click the OK "
+"button. If you clicked correctly and in the right tempo, another rhythm is "
+"displayed. If not, you must try again.\n"
+"\n"
+"Even levels display a vertical playing line when you click the drum, which "
+"helps you see when to click to follow the rhythm. Click on the drum when the "
+"line is in the middle of the notes.\n"
+"\n"
+"Odd levels are harder, because there is no vertical playing line. The rhythm "
+"will not be played for you. You must read the rhythm, and click it back in "
+"tempo. Click the metronome to hear the quarter note tempo.\n"
+"\n"
+"The following keyboard bindings work in this game:\n"
+"- backspace: erase attempt\n"
+"- delete: erase attempt\n"
+"- enter/return: OK button\n"
+"- space bar: play\n"
 msgstr ""
-"Ово је сразмерно изазовна игра за мајстора, зато срећно. Слушајте одсвирани "
-"такт, и пратите га уз музику. Ако желите поново да га чујете, кликните на "
-"дугме пусти. Када сте спремни да извршите истоветан такт, кликните на добош "
-"за такт, а затим кликните на дугме у реду. Ако сте исправно кликнули и у "
-"правом темпу, бива приказан други такт. Ако нисте, морате да покушате "
-"поново. Парни нивои приказују усправну линију за свирање када кликнете на "
-"добош, што вам помаже да видите када да кликнете да пратите такт. Кликните "
-"на добош када је линија на средини нота. Непарни нивои су тежи, јер у њима "
-"нема усправне линије за свирање. Такт вам неће бити одсвиран. Морате да "
-"прочитате такт, и да га кликнете у темпу. Кликните на метроном да чујете "
-"темпо четвртине ноте. У овој игри можете да користите следеће пречице са "
-"тастатуре: — повратница: брише покушај — обриши: брише покушај — унеси/"
-"врати: дугме у реду — размакница: свирај"
+"Ово је сразмерно изазовна игра за мајстора, зато срећно.\n"
+"\n"
+"Слушајте одсвирани такт, и пратите га уз музику. Ако желите поново "
+"да га чујете, кликните на дугме пусти. Када сте спремни да извршите "
+"истоветан такт, кликните на добош за такт, а затим кликните у реду. "
+"Ако сте исправно кликнули и у правом темпу, бива приказан други такт. "
+"Ако нисте, морате да покушате поново.\n"
+"\n"
+"Парни нивои приказују усправну линију за свирање када кликнете на добош, "
+"што вам помаже да видите када да кликнете да пратите такт. Кликните на "
+"добош када је линија на средини нота.\n"
+"\n"
+"Непарни нивои су тежи, јер у њима нема усправне линије за свирање. Такт "
+"вам неће бити одсвиран. Морате да прочитате такт, и да га кликнете у темпу. "
+"Кликните на метроном да чујете темпо четвртине ноте.\n"
+"У овој игри можете да користите следеће пречице са тастатуре:\n"
+"— повратница: брише покушај\n"
+"— обриши: брише покушај\n"
+"— унеси/врати: дугме у реду\n"
+"— размакница: свирај\n"
 
 #: ../src/pythontemplate-activity/pythontemplate.py:62
 #: ../src/pythontest-activity/pythontest.py:182
@@ -9342,10 +9576,14 @@ msgstr ""
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:5
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:5
+#| msgid ""
+#| "The painting is an original painting created by Virginie MOREAU (virginie."
+#| "moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is "
+#| "released under the GPL licence."
 msgid ""
 "The painting is an original painting created by Virginie MOREAU (virginie."
 "moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is "
-"released under the GPL licence."
+"released under the GPL license."
 msgstr ""
 "Слика је оригинално дело Вирџиније Моро (virginie.moreau@free.fr) из 2001. "
 "године. Назив јој је „Продавац зачина у Египту“. Објављена је под ОЈЛ."
@@ -9972,60 +10210,6 @@ msgid "Keyboard training"
 msgstr "Вежба куцања"
 
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
-msgid "Type the complete word as it falls, before it reachs the ground"
+#| msgid "Type the complete word as it falls, before it reachs the ground"
+msgid "Type the complete word as it falls, before it reaches the ground"
 msgstr "Укуцајте целу реч док пада, пре него што стигне до земље"
-
-#~ msgid ""
-#~ "Use the keyboard arrows to move Tux up to the door. In this maze, the "
-#~ "move is relative (first person). Use the up arrow to go forward. The "
-#~ "other arrow let you turn Tux in another direction."
-#~ msgstr ""
-#~ "Користите стрелице на тастатури да померате Пингослава до врата. У овом "
-#~ "лавиринту, покрети су у односу на положај (као у првом лицу). Користите "
-#~ "стрелицу на горе да идете напред а остале да окренете Пингослава у другом "
-#~ "правцу."
-
-#~ msgid "Use the keyboard arrows to move Tux up to the door."
-#~ msgstr "Користите стрелице на тастатури да довучете Пингослава до врата."
-
-#~ msgid ""
-#~ "Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
-#~ "switch between invisible and visible modes. Visible mode just gives you "
-#~ "an indication of your position, like a map. You cannot move Tux in "
-#~ "visible mode."
-#~ msgstr ""
-#~ "Користите стрелице на тастатури да померите Пингослава до врата. "
-#~ "Користите тастер за размак да се пребаците у видљиви или невидљиви режим. "
-#~ "Видљиви режим вам једино даје ваш положај (налик мапи). Пингослава не "
-#~ "можете да померате у видљивом режиму."
-
-#~| msgid "Next level"
-#~ msgid "Next Page"
-#~ msgstr "Следећа страница"
-
-#~| msgid "Previous level"
-#~ msgid "Previous Page"
-#~ msgstr "Претходна страница"
-
-#~ msgid "3. Click ok to check your answer, or erase to try again."
-#~ msgstr ""
-#~ "3. Кликните на у реду да проверите одговор, или обришите да покушате "
-#~ "поново."
-
-#~ msgid "Special board that embeds python into gcompris."
-#~ msgstr "Посебна табла која уграђује Питона у гкомприс."
-
-#~ msgid "%s = %d"
-#~ msgstr "%s = %d"
-
-#~ msgid "%d + %d"
-#~ msgstr "%d + %d"
-
-#~ msgid "%d − %d"
-#~ msgstr "%d − %d"
-
-#~ msgid "%d × %d"
-#~ msgstr "%d × %d"
-
-#~ msgid "%d ÷ %d"
-#~ msgstr "%d ÷ %d"
