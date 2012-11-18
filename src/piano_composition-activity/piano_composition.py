@@ -321,7 +321,7 @@ class Gcompris_piano_composition:
             gcompris.utils.item_focus_init(self.makeSharpButton, None)
             self.makeSharpButton.props.visibility = goocanvas.ITEM_INVISIBLE
 
-            loadSongsButton = TextButton(280, 430, _("Load Music"),
+            loadSongsButton = TextButton(290, 480, _("Load Music"),
                                               self.rootitem, 0xE768ABFFL)
             loadSongsButton.getBackground().connect("button_press_event",
                                                     self.load_songs_event)
