@@ -70,6 +70,12 @@ SHARP_NOTATION = {-1:_('C#'), -2:_('D#'), -3:_('F#'), -4:_('G#'), -5:_('A#')}
 # this is the English musical notation system
 # translators insert the name of the notes in your language
 FLAT_NOTATION = {-1:_('Db'), -2:_('Eb'), -3:_('Gb'), -4:_('Ab'), -5:_('Bb')}
+
+# The same without translations
+WHITE_KEY_NOTATION_US = {1:'C', 2:'D', 3:'E', 4:'F', 5:'G', 6:'A', 7:'B', 8:'C'}
+SHARP_NOTATION_US = {-1:'C#', -2:'D#', -3:'F#', -4:'G#', -5:'A#'}
+FLAT_NOTATION_US = {-1:'Db', -2:'Eb', -3:'Gb', -4:'Ab', -5:'Bb'}
+
 '''
 Translators: note that you must write the translated note name matching the
 given note name in the English notation
@@ -108,13 +114,13 @@ def getIDFromKeyName(keyName):
     >>> getIDFromKeyName('Eb')
     -2
     '''
-    for x, y in WHITE_KEY_NOTATION.items():
+    for x, y in WHITE_KEY_NOTATION_US.items():
         if y == keyName or y.upper() == keyName.upper():
             return x
-    for x, y in SHARP_NOTATION.items():
+    for x, y in SHARP_NOTATION_US.items():
         if y == keyName or y.upper() == keyName.upper():
             return x
-    for x, y in FLAT_NOTATION.items():
+    for x, y in FLAT_NOTATION_US.items():
         if y == keyName or y.upper() == keyName.upper():
             return x
 
