@@ -115,7 +115,7 @@ class Gcompris_place_your_satellite:
     # Instructions button to begin activity
     self.text = goocanvas.Text(
       parent = self.rootitem,
-      x = 384,
+      x = 400,
       y = 103,
       fill_color = "white",
       anchor = gtk.ANCHOR_CENTER,
