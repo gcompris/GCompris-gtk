@@ -4,20 +4,21 @@
 # Ignacio Casal Quinteiro <icq@cvs.gnome.org>, 2007.
 # Paula Iglesias <localizacion@tagenata.com>, 2009.
 # Gonçalo Cordeiro <gzcordeiro@gmail.com>, 2009, 2010, 2011, 2012.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: GCompris - master\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-31 10:48+0100\n"
-"PO-Revision-Date: 2012-10-30 20:46+0200\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=gcompris&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2012-11-01 13:17+0000\n"
+"PO-Revision-Date: 2012-11-13 09:38+0100\n"
 "Last-Translator: Gonçalo Cordeiro <gzcordeiro@gmail.com>\n"
-"Language-Team: Galician\n"
+"Language-Team: Galego <gzcordeiro@gmail.com>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bits\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: WordForge 0.8 RC2\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
 "X-Language: gl\n"
 
 #: ../boards/algebra_group.xml.in.h:1
@@ -3239,11 +3240,11 @@ msgstr " Vacas"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:11
 msgid ""
-" The cow goes \"moo. moo.\" Cows have a memory of about three years. Cows "
-"have many uses, including for milk and meat."
+" The cow goes \"moo. moo.\". Cows are herbivorous mammals. They graze all "
+"day in the meadow."
 msgstr ""
-" A vaca fai «muuuu, muuuu». As vacas teñen unha memoria de case tres anos. "
-"As vacas teñen moitos usos, incluído o leite e a carne."
+" A vaca fai «muu, muu». As vacas son mamíferos herbívoros que pastan todo o "
+"día no prado."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:12
 msgid " You can drink the milk this animal produces."
@@ -3262,7 +3263,8 @@ msgstr ""
 "o seu pelo non se mantén quente cando se molla."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:15
-msgid " This pet likes to chase mice."
+#| msgid " This pet likes to chase mice."
+msgid " This pet likes chasing mice."
 msgstr " A esta mascota gústalle comer ratos."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:16
@@ -3284,12 +3286,15 @@ msgid " White Duck"
 msgstr " Pato branco"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:20
+#| msgid ""
+#| " The duck goes \"quack, quack\". Ducks have special features like webbed "
+#| "feet and waterproof feathers."
 msgid ""
 " The duck goes \"quack, quack\". Ducks have special features like webbed "
-"feet and waterproof feathers."
+"feet and produce an oil to make their feathers \"waterproof\"."
 msgstr ""
 " O pato fai «cuac, cuac». Os patos teñen características especiais como pés "
-"palmados e plumas impermeábeis."
+"palmados e producen un aceite que fai que as plumas sexan impermeábeis."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:21
 msgid " This animal has webbed feet so it can swim in the water."
@@ -3688,18 +3693,23 @@ msgid " Where is Mariachi music from?"
 msgstr " De onde provén a música dos mariachis?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:29
-msgid " America"
-msgstr " América"
+#| msgid "United States of America"
+msgid " United State of America"
+msgstr " Estados Unidos de América"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:30
+#| msgid ""
+#| " America also has a wide variety of musical genres, but perhaps it is "
+#| "most famous for rock n' roll music. This music features vocalists, "
+#| "guitars, and drums."
 msgid ""
-" America also has a wide variety of musical genres, but perhaps it is most "
+" USA also has a wide variety of musical genres, but perhaps it is most "
 "famous for rock n' roll music. This music features vocalists, guitars, and "
 "drums."
 msgstr ""
-" América do Norte tamén ten unha ampla variedade de xéneros musicais, mais "
-"tal vez é máis coñecida polo rock n' roll. Esta música é interpretada por "
-"vocalistas, guitarras e baterías."
+" Os Estados Unidos de América tamén teñen unha ampla variedade de xéneros "
+"musicais, mais tal vez é máis coñecida polo rock n' roll. Esta música é "
+"interpretada por vocalistas, guitarras e baterías."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:31
 msgid " The 'king' of rock n' roll is"
@@ -10095,6 +10105,16 @@ msgstr "Adestramento co teclado"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the complete word as it falls, before it reaches the ground"
 msgstr "Escribe a palabra completa mentres cae e antes de que chegue ao chan"
+
+#~ msgid ""
+#~ " The cow goes \"moo. moo.\" Cows have a memory of about three years. Cows "
+#~ "have many uses, including for milk and meat."
+#~ msgstr ""
+#~ " A vaca fai «muuuu, muuuu». As vacas teñen unha memoria de case tres "
+#~ "anos. As vacas teñen moitos usos, incluído o leite e a carne."
+
+#~ msgid " America"
+#~ msgstr " América"
 
 #~ msgid "sulphur"
 #~ msgstr "xofre"
