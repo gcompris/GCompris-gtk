@@ -77,10 +77,10 @@ class Gcompris_land_safe:
     text = _('Gravity: %s') % (gravity)
     gravity_text = goocanvas.Text(
       parent = self.rootitem,
-      x = 700,
+      x = 760,
       y = 50,
       fill_color = "white",
-      anchor = gtk.ANCHOR_CENTER,
+      anchor = gtk.ANCHOR_E,
       alignment = pango.ALIGN_CENTER,
       text = _(text))
     bounds = gravity_text.get_bounds()
