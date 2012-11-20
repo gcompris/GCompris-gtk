@@ -445,7 +445,8 @@ dialogue to\nenable the sound."), None)
                  y=y + 18,
                  width=250,
                  font = gcompris.skin.get_font("gcompris/board/tiny"),
-                 text= _(self.data.get(section, '_origin')),
+                 # FIXME Should remove the space in the data file instead
+                 text= _(" " + self.data.get(section, '_origin')),
                  fill_color="black",
                  use_markup=True
                  )
@@ -574,7 +575,7 @@ dialogue to\nenable the sound."), None)
                        x=150,
                        y=75,
                        width=280,
-                       text='<span weight="bold" >' + _(self.data.get(section, '_origin')) + '</span>',
+                       text='<span weight="bold" >' + _(" " + self.data.get(section, '_origin')) + '</span>',
                        fill_color="black",
                        use_markup=True,
                        alignment=pango.ALIGN_CENTER,

@@ -293,7 +293,8 @@ dialogue to\nenable the sound."), None)
             # WRITE LOCATION-SPECIFIC CONTENT TO PAGE
             # ---------------------------------------------------------------------
 
-            name = _(self.data.get(sectionNum, '_title'))
+            # FIXME Should remove the space in the data file instead
+            name = _(" " + self.data.get(sectionNum, '_title'))
             goocanvas.Text(
               parent=self.location_rootitem,
               x=410,
@@ -305,7 +306,8 @@ dialogue to\nenable the sound."), None)
               use_markup=True
               )
 
-            text = _(self.data.get(sectionNum, '_text'))
+            # FIXME Should remove the space in the data file instead
+            text = _(" " + self.data.get(sectionNum, '_text'))
             t = goocanvas.Text(
               parent=self.location_rootitem,
               x=120,
@@ -491,11 +493,14 @@ dialogue to\nenable the sound."), None)
                 except: self.author = ''
                 try: self.locationPic = self.activityDataFilePath + self.data.get('common', 'locationpic')
                 except: errors.append("Missing 'locationpic' key")
-                try: self.generalText = _(self.data.get('common', '_GeneralText'))
+                # FIXME Should remove the space in the data file instead
+                try: self.generalText = _(" " + self.data.get('common', '_GeneralText'))
                 except: errors.append("Missing '_GeneralText' key")
-                try: self.SoundMatchingGameText = _(self.data.get('common', '_SoundMatchingGameText'))
+                # FIXME Should remove the space in the data file instead
+                try: self.SoundMatchingGameText = _(" " + self.data.get('common', '_SoundMatchingGameText'))
                 except:pass
-                try: self.TextMatchingGameText = _(self.data.get('common', '_TextMatchingGameText'))
+                # FIXME Should remove the space in the data file instead
+                try: self.TextMatchingGameText = _(" " + self.data.get('common', '_TextMatchingGameText'))
                 except:pass
                 try: self.backgroundx = int(self.data.get('common', 'backgroundx'))
                 except: errors.append("Missing 'backgroundx' key")
@@ -510,7 +515,8 @@ dialogue to\nenable the sound."), None)
                     self.allSoundClips.append( (self.data.get(section, 'music'), section))
                 except:
                     pass
-                self.allTextPrompts.append( ( _(self.data.get(section, '_shortPrompt')), section))
+                # FIXME Should remove the space in the data file instead
+                self.allTextPrompts.append( ( _(" " + self.data.get(section, '_shortPrompt')), section))
 
                 self.sectionNames.append(section)
 
