@@ -6,7 +6,7 @@
 # Create the board menus
 ./create_boards_menu.sh
 # Create the screenshots articles all_article.spip
-./gcompris2spip.pl
+./gcompris2spip.pl `get_last_article_id.sh dump2.xml`
 # Include all_article.spip in dump2.xml
 sed -i "s:</SPIP>::" dump2.xml
 cat all_article.spip >> dump2.xml

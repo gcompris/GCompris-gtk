@@ -290,6 +290,13 @@ sub spip_cleanup {
   return $output;
 }
 
+# Read the last article id from the command line
+my $num_args = $#ARGV + 1;
+if ($num_args != 1) {
+  print "\nUsage: gcompris2spip.pl last_article_id\n";
+  exit;
+}
+my $first_article = $ARGV[0] + 1;
 
 #-------------------------------------------------------------------------------
 # Initialisation
@@ -328,8 +335,7 @@ my $output_file = "all_article.spip";
 unlink $tmp_file;
 unlink $output_file;
 
-my $first_article = 999;
-my $article_id    = $first_article;
+my $article_id    = $first_article + 1;
 
 
 
