@@ -11,7 +11,7 @@ img_DATA = \
 	dog.ogg \
 	duck.jpg \
 	duck.ogg \
-	farm-animals.jpg \
+	farm-animals.svg \
 	horse.jpg \
 	horse.ogg \
 	owl.jpg \
