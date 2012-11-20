@@ -278,8 +278,8 @@ dialogue to\nenable the sound."), None)
             txt = _('Back to Homepage')
             self.backButton = goocanvas.Text(
               parent=self.location_rootitem,
-              x=260,
-              y=490,
+              x=400,
+              y=495,
               text='<span font_family="century schoolbook L" size="medium" weight="bold">' + txt + '</span>',
               anchor=gtk.ANCHOR_CENTER,
               alignment=pango.ALIGN_CENTER,
