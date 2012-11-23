@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-11-01 13:17+0000\n"
-"PO-Revision-Date: 2012-10-27 22:09+0200\n"
+"POT-Creation-Date: 2012-11-20 23:37+0000\n"
+"PO-Revision-Date: 2012-11-23 17:25+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -1152,7 +1152,10 @@ msgid "+-×÷"
 msgstr "+-.:"
 
 #: ../src/algebra_by-activity/algebra.c:411
-#: ../src/findit-activity/findit.py:228 ../src/readingh-activity/reading.c:630
+#: ../src/findit-activity/findit.py:228
+#: ../src/play_piano-activity/play_piano.py:82
+#: ../src/play_rhythm-activity/play_rhythm.py:87
+#: ../src/readingh-activity/reading.c:630
 msgid "I am Ready"
 msgstr "Jsem připraven"
 
@@ -2878,9 +2881,9 @@ msgstr ""
 "prostřední tlačítko myši – odstraní objekt."
 
 #: ../src/drawnumber-activity/drawnumber.py:238
-#: ../src/explore-activity/explore.py:458 ../src/findit-activity/findit.py:336
+#: ../src/explore-activity/explore.py:466 ../src/findit-activity/findit.py:336
 #: ../src/louis_braille-activity/louis_braille.py:84
-#: ../src/piano_composition-activity/piano_composition.py:503
+#: ../src/piano_composition-activity/piano_composition.py:504
 msgid "Cannot find the file '{filename}'"
 msgstr "Nelze nalézt soubor „{filename}“"
 
@@ -3061,11 +3064,11 @@ msgstr "Klikáním myší vymažeš oblast a objeví se pozadí"
 msgid "Click the mouse on rectangles until all the blocks disappear."
 msgstr "Klikej myší na obdélníky, dokud všechny bloky nezmizí."
 
-#: ../src/explore-activity/explore.py:88
-#: ../src/note_names-activity/note_names.py:83
+#: ../src/explore-activity/explore.py:90
+#: ../src/note_names-activity/note_names.py:82
 #: ../src/piano_composition-activity/piano_composition.py:371
-#: ../src/play_piano-activity/play_piano.py:77
-#: ../src/play_rhythm-activity/play_rhythm.py:81
+#: ../src/play_piano-activity/play_piano.py:78
+#: ../src/play_rhythm-activity/play_rhythm.py:83
 msgid ""
 "Error: This activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -3076,18 +3079,33 @@ msgstr ""
 "zvukovými efekty.\n"
 "Zvuk zapni v dialogovém okně nastavení."
 
-#: ../src/explore-activity/explore.py:155
+#: ../src/explore-activity/explore.py:159
 msgid "Click to play sound"
 msgstr "Kliknutím přehraješ zvuk"
 
 #. draw back button
-#: ../src/explore-activity/explore.py:272
+#: ../src/explore-activity/explore.py:278
 msgid "Back to Homepage"
 msgstr "Zpět na hlavní stránku"
 
-#: ../src/explore-activity/explore.py:463 ../src/findit-activity/findit.py:341
+#. ---------------------------------------------------------------------
+#. WRITE LOCATION-SPECIFIC CONTENT TO PAGE
+#. ---------------------------------------------------------------------
+#. FIXME Should remove the space in the data file instead
+#: ../src/explore-activity/explore.py:297
+#: ../src/explore-activity/explore.py:310
+#: ../src/explore-activity/explore.py:497
+#: ../src/explore-activity/explore.py:500
+#: ../src/explore-activity/explore.py:503
+#: ../src/explore-activity/explore.py:519
+#: ../src/piano_composition-activity/piano_composition.py:449
+#: ../src/piano_composition-activity/piano_composition.py:578
+msgid " "
+msgstr " "
+
+#: ../src/explore-activity/explore.py:471 ../src/findit-activity/findit.py:341
 #: ../src/louis_braille-activity/louis_braille.py:88
-#: ../src/piano_composition-activity/piano_composition.py:508
+#: ../src/piano_composition-activity/piano_composition.py:509
 msgid ""
 "Failed to parse data set '{filename}' with error:\n"
 "{error}"
@@ -3095,7 +3113,7 @@ msgstr ""
 "Selhalo zpracování dat „{filename}“ s chybou:\n"
 "{error}"
 
-#: ../src/explore-activity/explore.py:578
+#: ../src/explore-activity/explore.py:590
 msgid "Explore Status:"
 msgstr "Stav objevování:"
 
@@ -3244,8 +3262,8 @@ msgid ""
 " The duck goes \"quack, quack\". Ducks have special features like webbed "
 "feet and produce an oil to make their feathers \"waterproof\"."
 msgstr ""
-" Kachna dělá „ga, ga, ga“. Kachny mají speciální výbavu, jako plovací blány a "
-" mazové žlázy produkující tuk k ochraně pěří před vodou."
+" Kachna dělá „ga, ga, ga“. Kachny mají speciální výbavu, jako plovací blány "
+"a  mazové žlázy produkující tuk k ochraně pěří před vodou."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:21
 msgid " This animal has webbed feet so it can swim in the water."
@@ -8050,14 +8068,14 @@ msgstr "Vpravo sestav stejnou mozaiku"
 msgid "Rebuild the mosaic"
 msgstr "Sestav mozaiku"
 
-#: ../src/note_names-activity/note_names.py:120
+#: ../src/note_names-activity/note_names.py:119
 msgid ""
 "These are the eight basic notes in treble clef. They form the C Major Scale."
 msgstr ""
 "Jedná se o osm základních not na stupnici s houslovým klíčem. Tvoří stupnici "
 "C dur."
 
-#: ../src/note_names-activity/note_names.py:130
+#: ../src/note_names-activity/note_names.py:129
 msgid ""
 "These are the eight basic notes in bass clef. They also form the C Major "
 "Scale. Notice that the note positions are different than in treble clef."
@@ -8065,41 +8083,41 @@ msgstr ""
 "Jedná se o osm základních not na stupnici s basovým klíčem. Tvoří také "
 "stupnici C dur. Všimni si, že poloha not je jiná než v houslovém klíči."
 
-#: ../src/note_names-activity/note_names.py:144
+#: ../src/note_names-activity/note_names.py:143
 msgid "Play Scale"
 msgstr "Přehrát stupnici"
 
-#: ../src/note_names-activity/note_names.py:151
+#: ../src/note_names-activity/note_names.py:150
 msgid "Play Treble Clef Game"
 msgstr "Hrát hru s houslovým klíčem"
 
-#: ../src/note_names-activity/note_names.py:153
+#: ../src/note_names-activity/note_names.py:152
 msgid "Play Bass Clef Game"
 msgstr "Hrát hru s basovým klíčem"
 
-#: ../src/note_names-activity/note_names.py:184
+#: ../src/note_names-activity/note_names.py:183
 msgid "Click on the note name to match the pitch. Then click OK to check."
 msgstr ""
 "Klikni na název noty odpovídajícího tónu. Kliknutím na Budiž si to pak "
 "zkontroluj."
 
-#: ../src/note_names-activity/note_names.py:186
+#: ../src/note_names-activity/note_names.py:185
 msgid "Now there are sharp notes. These pitches are raised a half step."
 msgstr "Teď jsou tam zvýšené noty. Jejich tóny jsou o půl stupně zvýšené."
 
-#: ../src/note_names-activity/note_names.py:188
+#: ../src/note_names-activity/note_names.py:187
 msgid "Now there are flat notes. These pitches are lowered a half step."
 msgstr "Teď jsou tam snížené noty. Jejich tóny jsou o půl stupně snížené."
 
-#: ../src/note_names-activity/note_names.py:194
+#: ../src/note_names-activity/note_names.py:193
 msgid "Click the note to hear it played"
 msgstr "Klikni na notu, abys ji slyšel přehrát"
 
-#: ../src/note_names-activity/note_names.py:247
+#: ../src/note_names-activity/note_names.py:246
 msgid "Need a hint? Click here for color-coded note names."
 msgstr "Potřebuješ radu? Klikni zde pro barevně rozlišené názvy not."
 
-#: ../src/note_names-activity/note_names.py:250
+#: ../src/note_names-activity/note_names.py:249
 msgid "Ready for a challenge? Color all buttons black!"
 msgstr "Připraven přijmout výzvu? Ať jsou všechny noty černé!"
 
@@ -8427,7 +8445,7 @@ msgstr "Ab"
 msgid "Bb"
 msgstr "Hb"
 
-#: ../src/piano_composition-activity/gcomprismusic.py:284
+#: ../src/piano_composition-activity/gcomprismusic.py:290
 msgid "The staff is full. Please erase some notes"
 msgstr "Notová osnova je plná. Vymaž prosím nějaké noty."
 
@@ -8824,21 +8842,21 @@ msgstr ""
 "Chytni čísla v vzestupném pořadí, pro pohyb helikoptéry použij šipky nahoru, "
 "dolů, doprava a doleva."
 
-#: ../src/play_piano-activity/play_piano.py:117
+#: ../src/play_piano-activity/play_piano.py:123
 msgid "Color code notes?"
 msgstr "Obarvit noty?"
 
-#: ../src/play_piano-activity/play_piano.py:137
+#: ../src/play_piano-activity/play_piano.py:144
 msgid "Click the piano keys that match the written notes."
 msgstr "Klikej na klávesy klavíru, které odpovídají zapsaným notám."
 
-#: ../src/play_piano-activity/play_piano.py:159
-#: ../src/play_rhythm-activity/play_rhythm.py:173
+#: ../src/play_piano-activity/play_piano.py:166
+#: ../src/play_rhythm-activity/play_rhythm.py:180
 msgid "Play"
 msgstr "Přehrát"
 
-#: ../src/play_piano-activity/play_piano.py:171
-#: ../src/play_rhythm-activity/play_rhythm.py:186
+#: ../src/play_piano-activity/play_piano.py:178
+#: ../src/play_rhythm-activity/play_rhythm.py:193
 msgid "Erase Attempt"
 msgstr "Smazat pokus"
 
@@ -8925,32 +8943,32 @@ msgstr ""
 "    F4: G#/Ab\n"
 "    F5: A#/Fb\n"
 
-#: ../src/play_rhythm-activity/play_rhythm.py:115
+#: ../src/play_rhythm-activity/play_rhythm.py:122
 msgid "Beat Count:"
 msgstr "Počet taktů:"
 
-#: ../src/play_rhythm-activity/play_rhythm.py:139
+#: ../src/play_rhythm-activity/play_rhythm.py:146
 msgid "Beat the rhythm on this drum."
 msgstr "Zabubnuj rytmus na tomto bubnu."
 
-#: ../src/play_rhythm-activity/play_rhythm.py:150
+#: ../src/play_rhythm-activity/play_rhythm.py:157
 msgid "For a little help, click the metronome to hear the tempo."
 msgstr ""
 "Můžeš si trochu pomoct, když klikneš na metronom a budeš poslouchat tempo."
 
-#: ../src/play_rhythm-activity/play_rhythm.py:342
+#: ../src/play_rhythm-activity/play_rhythm.py:350
 msgid "Listen to the rhythm and follow the moving line."
 msgstr "Poslouchej rytmus a sleduj pohybující se čáru."
 
-#: ../src/play_rhythm-activity/play_rhythm.py:344
+#: ../src/play_rhythm-activity/play_rhythm.py:352
 msgid "Click the drum to the tempo. Watch the vertical line when you start."
 msgstr "Klikej na buben v daném tempu. Až začneš, sleduj svislou čáru."
 
-#: ../src/play_rhythm-activity/play_rhythm.py:345
+#: ../src/play_rhythm-activity/play_rhythm.py:353
 msgid "You can use the space bar to drum the tempo."
 msgstr "K bubnování rytmu můžeš použít mezerník."
 
-#: ../src/play_rhythm-activity/play_rhythm.py:348
+#: ../src/play_rhythm-activity/play_rhythm.py:356
 msgid ""
 "Now, read the rhythm. It won't be played for you. Then, beat the rhythm on "
 "the drum."
@@ -8958,7 +8976,7 @@ msgstr ""
 "Nyní si rytmus přečti. Když budeš chtít, můžeš si ho přehrát. Pakr rytmus "
 "zabubnuj na bubnu."
 
-#: ../src/play_rhythm-activity/play_rhythm.py:351
+#: ../src/play_rhythm-activity/play_rhythm.py:359
 msgid "Click erase to try again."
 msgstr "Kliknutím vymaž a zkus znovu."
 
