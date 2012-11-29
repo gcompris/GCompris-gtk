@@ -1,16 +1,16 @@
 # Hungarian translation of gcompris.
+# Copyright (C) 2002, 2004, 2005, 2006, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+# This file is distributed under the same license as the gcompris package.
 # Hilzinger Marcel <hili at suselinux dot hu>, 2002.
 # Gabor Kelemen <kelemeng at gnome dot hu>, 2004, 2005, 2006, 2008, 2009, 2010, 2011, 2012.
 # Miklos Merenyi <mermik at freemail dot hu>, 2008.
 # Somlai Istvan <somlai at bg-bp dot sulinet dot hu>, 2012.
-# Copyright (C) 2002, 2004, 2005, 2006, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
-# This file is distributed under the same license as the gcompris package.
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-11-01 13:17+0000\n"
-"PO-Revision-Date: 2012-11-14 12:11+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-11-29 02:43+0100\n"
+"PO-Revision-Date: 2012-11-29 02:42+0100\n"
 "Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
 "Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
 "Language: hu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Generator: Lokalize 1.4\n"
 "X-Project-Style: gnome\n"
 
 #: ../boards/algebra_group.xml.in.h:1
@@ -98,7 +98,8 @@ msgstr "A kísérletező játékokhoz"
 
 #: ../boards/experimental.xml.in.h:2
 msgid "Run gcompris --experimental to see this menu."
-msgstr "Ez a menü a gcompris --experimental parancs kiadásával jeleníthető meg."
+msgstr ""
+"Ez a menü a gcompris --experimental parancs kiadásával jeleníthető meg."
 
 #: ../boards/fun.xml.in.h:1
 msgid "Go to Amusement activities"
@@ -668,7 +669,6 @@ msgstr "Állapot"
 
 #: ../src/administration-activity/admin/module_activities.py:50
 #: ../src/administration-activity/admin/module_activities.py:78
-#| msgid "Active"
 msgid "Activities"
 msgstr "Tevékenységek"
 
@@ -684,7 +684,6 @@ msgstr "Csoportok"
 
 #: ../src/administration-activity/admin/module_logins.py:48
 #: ../src/administration-activity/admin/module_logins.py:69
-#| msgid "Login"
 msgid "Logins"
 msgstr "Bejelentkezések"
 
@@ -779,7 +778,8 @@ msgid "Birth date:"
 msgstr "Születési dátum:"
 
 #: ../src/administration-activity/admin/user_edit.py:153
-msgid "You need to provide at least a login, first name and last name for your users"
+msgid ""
+"You need to provide at least a login, first name and last name for your users"
 msgstr ""
 "Legalább egy bejelentkezési nevet, valamint egy utó- és vezetéknevet meg "
 "kell adnia a felhasználóinak"
@@ -972,7 +972,6 @@ msgid "azure"
 msgstr "azúrkék"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:37
-#| msgid "greyish brown"
 msgid "grayish brown"
 msgstr "szürkésbarna"
 
@@ -1069,7 +1068,6 @@ msgid "mauve"
 msgstr "mályvalila"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:61
-#| msgid "greyish blue"
 msgid "grayish blue"
 msgstr "szürkéskék"
 
@@ -1155,7 +1153,10 @@ msgid "+-×÷"
 msgstr "+-×:"
 
 #: ../src/algebra_by-activity/algebra.c:411
-#: ../src/findit-activity/findit.py:228 ../src/readingh-activity/reading.c:630
+#: ../src/findit-activity/findit.py:228
+#: ../src/play_piano-activity/play_piano.py:82
+#: ../src/play_rhythm-activity/play_rhythm.py:87
+#: ../src/readingh-activity/reading.c:630
 msgid "I am Ready"
 msgstr "Rajta!"
 
@@ -1533,7 +1534,8 @@ msgstr "Mozgáskoordináció. Fogalmak összekapcsolása."
 
 #: ../src/babymatch-activity/babymatch.xml.in.h:4
 msgid "Mouse manipulation: movement, drag and drop. Cultural references."
-msgstr "Egérkezelés: mozgatás, húzd és ejtsd ismerete. Kulturális vonatkozások."
+msgstr ""
+"Egérkezelés: mozgatás, húzd és ejtsd ismerete. Kulturális vonatkozások."
 
 #: ../src/babymatch-activity/babymatch.xml.in.h:5
 msgid ""
@@ -1691,9 +1693,6 @@ msgid "Mouse-manipulation"
 msgstr "Egérkezelés"
 
 #: ../src/billard-activity/billard.xml.in.h:4
-#| msgid ""
-#| "Point the mouse and click on the ball, to set the speed and direction of "
-#| "the ball. The closer you click to the centre, the slower the ball moves."
 msgid ""
 "Point the mouse and click on the ball, to set the speed and direction of the "
 "ball. The closer you click to the center, the slower the ball moves."
@@ -1723,7 +1722,6 @@ msgid "Python Board"
 msgstr "Python tábla"
 
 #: ../src/boards/python.c:65 ../src/boards/python.c:89
-#| msgid "Special board that embeds python into GCompris."
 msgid "Special board that embeds Python into GCompris."
 msgstr "Különleges tábla ami beágyazza a GCompris-ba a Python-t."
 
@@ -1736,7 +1734,8 @@ msgstr "Braille : A kód megfejtése"
 msgid ""
 "The Braille system is a method that is used by blind people to read and "
 "write."
-msgstr "A Braille írás egy vak emberek által írásra és olvasásra használt módszer."
+msgstr ""
+"A Braille írás egy vak emberek által írásra és olvasásra használt módszer."
 
 #. Braille Description
 #: ../src/braille_alphabets-activity/braille_alphabets.py:181
@@ -1755,7 +1754,8 @@ msgstr "Én Braille TUX vagyok"
 
 #: ../src/braille_alphabets-activity/braille_alphabets.py:212
 msgid "When you are ready, click on me and try reproducing Braille characters."
-msgstr "Ha elkészültél, kattints rám, és próbáld meg létrehozni a Braille betűket."
+msgstr ""
+"Ha elkészültél, kattints rám, és próbáld meg létrehozni a Braille betűket."
 
 #. Translators : Do not translate the token {letter}
 #: ../src/braille_alphabets-activity/braille_alphabets.py:299
@@ -1776,7 +1776,8 @@ msgstr ""
 msgid ""
 "Again, similar as the first line but take care, the 'W' letter was added "
 "afterwards."
-msgstr "Ismét hasonló, mint az első sor, de vigyázz: a „W” betűt később adták hozzá."
+msgstr ""
+"Ismét hasonló, mint az első sor, de vigyázz: a „W” betűt később adták hozzá."
 
 #: ../src/braille_alphabets-activity/braille_alphabets.py:310
 msgid "This is easy, numbers are the same as letters from A to J."
@@ -1825,9 +1826,6 @@ msgid "Braille Alphabet Codes"
 msgstr "Braille betűkódok ismerete"
 
 #: ../src/braille_fun-activity/braille_fun.xml.in.h:4
-#| msgid ""
-#| "Braille code the tile for the corresponding falling letters. Check the "
-#| "braille chart by clicking on the toggle button for help."
 msgid ""
 "Enter the braille code in the tile for the corresponding falling letters. "
 "Check the braille chart by clicking on the toggle button for help."
@@ -1970,7 +1968,8 @@ msgid "color"
 msgstr "szín"
 
 #: ../src/chat-activity/chat.py:323
-msgid "ERROR: Failed to initialize the network interface. You cannot communicate."
+msgid ""
+"ERROR: Failed to initialize the network interface. You cannot communicate."
 msgstr ""
 "HIBA: a hálózati csatoló előkészítése meghiúsult. Nem fogsz tudni "
 "beszélgetni."
@@ -1998,12 +1997,6 @@ msgid "This chat activity only works on the local network"
 msgstr "A beszélgetés funkció csak a helyi hálózaton belül működik"
 
 #: ../src/chat-activity/chat.xml.in.h:3
-#| msgid ""
-#| "This chat activity will only work with other GCompris users on your local "
-#| "network, not on the Internet. To use it, just type in your message and "
-#| "hit Enter. Your message is then broadcasted on the local network, and any "
-#| "GCompris program running the chat activity on that local network will "
-#| "receive and display your message."
 msgid ""
 "This chat activity will only work with other GCompris users on your local "
 "network, not on the Internet. To use it, just type in your message and hit "
@@ -2295,7 +2288,6 @@ msgid "1923 Lancia Lambda"
 msgstr "1923 Lancia Lambda"
 
 #: ../src/chronos-activity/resources/chronos/board4_3.xml.in.h:4
-#| msgid "1955 Citroën ds 19"
 msgid "1955 Citroën DS 19"
 msgstr "1955 Citroën DS 19"
 
@@ -2319,7 +2311,8 @@ msgstr "Kattints rám"
 msgid ""
 "Left-Click with the mouse on all the swimming fish before they leave the "
 "fishtank"
-msgstr "Kattints a bal egérgombbal a halakra, mielőtt kiúsznának az akváriumból"
+msgstr ""
+"Kattints a bal egérgombbal a halakra, mielőtt kiúsznának az akváriumból"
 
 #: ../src/clickgame-activity/clickgame.xml.in.h:4
 msgid "Motor coordination: moving and clicking the mouse."
@@ -2539,9 +2532,10 @@ msgstr ""
 "\n"
 "Festékek esetén a tinta elnyeli a ráeső különböző színű fénysugarakat, "
 "kivonva azokat a látott képből. Minél több festéket adsz a képhez, annál "
-"sötétebb lesz az egyesített szín. Három szín keverésével előállítható bármely "
-"új szín. A festék alapszínei a cián (a kék egyik árnyalata), magenta (a "
-"rózsaszín egyik árnyalata) és sárga.\n "
+"sötétebb lesz az egyesített szín. Három szín keverésével előállítható "
+"bármely új szín. A festék alapszínei a cián (a kék egyik árnyalata), magenta "
+"(a rózsaszín egyik árnyalata) és sárga.\n"
+" "
 
 #: ../src/color_mix-activity/color_mix.xml.in.h:9
 #: ../src/color_mix_light-activity/color_mix_light.xml.in.h:9
@@ -2583,8 +2577,9 @@ msgstr ""
 "foglalkozik.\n"
 "\n"
 "A fény esete a festékekkel való színkeverés ellentéte! Minél több fényt adsz "
-"hozzá, a kapott szín annál világosabb lesz. A fény elsődleges színei a piros, "
-"zöld és kék.\n "
+"hozzá, a kapott szín annál világosabb lesz. A fény elsődleges színei a "
+"piros, zöld és kék.\n"
+" "
 
 #: ../src/colors-activity/colors.xml.in.h:1
 msgid "Colors"
@@ -2821,8 +2816,10 @@ msgid "Panorama of Château de Chenonceau, Indre-et-Loire, France."
 msgstr "A Château de Chenonceau panorámája, Indre-et-Loire, Franciaország."
 
 #: ../src/details-activity/resources/details/board2_4.xml.in.h:1
-msgid "Notre Dame de Paris cathedral on the Île de la Cité island in Paris, France."
-msgstr "A Notre Dame katedrális az Île de la Cité szigeten, Párizs, Franciaország."
+msgid ""
+"Notre Dame de Paris cathedral on the Île de la Cité island in Paris, France."
+msgstr ""
+"A Notre Dame katedrális az Île de la Cité szigeten, Párizs, Franciaország."
 
 #: ../src/details-activity/resources/details/board2_5.xml.in.h:1
 msgid "Nagoya Castle, Aichi Prefecture, Japan."
@@ -2901,7 +2898,7 @@ msgstr ""
 "alakzatot. Egy objektumot gyorsan törölni a középső egérgombbal lehet."
 
 #: ../src/drawnumber-activity/drawnumber.py:238
-#: ../src/explore-activity/explore.py:458 ../src/findit-activity/findit.py:336
+#: ../src/explore-activity/explore.py:464 ../src/findit-activity/findit.py:336
 #: ../src/louis_braille-activity/louis_braille.py:84
 #: ../src/piano_composition-activity/piano_composition.py:503
 msgid "Cannot find the file '{filename}'"
@@ -2924,14 +2921,6 @@ msgid "Draw the picture by clicking on each numbers in the right order."
 msgstr "A számokra sorrendben kattintva rajzold meg a képet."
 
 #: ../src/electric-activity/electric.py:99
-#| msgid ""
-#| "Cannot find the 'gnucap' electric simulator.\n"
-#| "You can download and install it from:\n"
-#| "<http://geda.seul.org/tools/gnucap/>\n"
-#| "To be detected, it must be installed in\n"
-#| "/usr/bin/gnucap or /usr/local/bin/gnucap.\n"
-#| "You can still use this activity to draw schematics without computer "
-#| "simulation."
 msgid ""
 "Cannot find the 'gnucap' electric simulator.\n"
 "You can download and install it from:\n"
@@ -2965,9 +2954,6 @@ msgid "Freely create an electric schema with a real time simulation of it."
 msgstr "Elektronikus séma szabad létrehozása és valós idejű szimulálása."
 
 #: ../src/electric-activity/electric.xml.in.h:5
-#| msgid ""
-#| "GCompris uses the Gnucap electric simulator as a backend. You can get "
-#| "more information on gnucap at &lt;http://geda.seul.org/tools/gnucap/&gt;."
 msgid ""
 "GCompris uses the Gnucap electric simulator as a backend. You can get more "
 "information on gnucap at &lt;http://www.gnu.org/software/gnucap/&gt;."
@@ -3032,7 +3018,8 @@ msgstr "Kattints duplán az egérrel"
 
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
 msgid "Double click the mouse to erase the area and discover the background"
-msgstr "Kattints duplán az egérrel, hogy kitöröld a területet és felfedezd a hátteret"
+msgstr ""
+"Kattints duplán az egérrel, hogy kitöröld a területet és felfedezd a hátteret"
 
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:5
 msgid "Double click the mouse on rectangles until all the blocks disappear."
@@ -3096,16 +3083,11 @@ msgstr "Kattints az egérrel, hogy kitöröld a területet és felfedezd a hátt
 msgid "Click the mouse on rectangles until all the blocks disappear."
 msgstr "Kattints a téglalapokra az egérrel, amíg mind el nem tűnik."
 
-#: ../src/explore-activity/explore.py:88
-#: ../src/note_names-activity/note_names.py:83
+#: ../src/explore-activity/explore.py:90
+#: ../src/note_names-activity/note_names.py:82
 #: ../src/piano_composition-activity/piano_composition.py:371
-#: ../src/play_piano-activity/play_piano.py:77
-#: ../src/play_rhythm-activity/play_rhythm.py:81
-#| msgid ""
-#| "Error: this activity cannot be played with the\n"
-#| "sound effects disabled.\n"
-#| "Go to the configuration dialogue to\n"
-#| "enable the sound"
+#: ../src/play_piano-activity/play_piano.py:78
+#: ../src/play_rhythm-activity/play_rhythm.py:83
 msgid ""
 "Error: This activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -3117,17 +3099,16 @@ msgstr ""
 "A beállítási párbeszédablakban\n"
 "kapcsolható be a hang."
 
-#: ../src/explore-activity/explore.py:155
+#: ../src/explore-activity/explore.py:159
 msgid "Click to play sound"
 msgstr "Kattints a hang lejátszásához"
 
 #. draw back button
-#: ../src/explore-activity/explore.py:272
-#| msgid "Back to default"
+#: ../src/explore-activity/explore.py:278
 msgid "Back to Homepage"
 msgstr "Vissza a kezdőoldalra"
 
-#: ../src/explore-activity/explore.py:463 ../src/findit-activity/findit.py:341
+#: ../src/explore-activity/explore.py:469 ../src/findit-activity/findit.py:341
 #: ../src/louis_braille-activity/louis_braille.py:88
 #: ../src/piano_composition-activity/piano_composition.py:508
 msgid ""
@@ -3137,7 +3118,7 @@ msgstr ""
 "A(z) „{filename}” adathalmaz feldolgozása az alábbi hibával hiúsult meg:\n"
 "{error}"
 
-#: ../src/explore-activity/explore.py:578
+#: ../src/explore-activity/explore.py:584
 msgid "Explore Status:"
 msgstr "Felfedezés állapota:"
 
@@ -3147,7 +3128,8 @@ msgstr "Haszonállatok felfedezése"
 
 #: ../src/explore_farm_animals-activity/explore_farm_animals.xml.in.h:2
 msgid "Learn about farm animals, what sounds they make, and interesting facts."
-msgstr "Ismerd meg a haszonállatokat, milyen hangot adnak és más érdekes adatokat."
+msgstr ""
+"Ismerd meg a haszonállatokat, milyen hangot adnak és más érdekes adatokat."
 
 #: ../src/explore_farm_animals-activity/explore_farm_animals.xml.in.h:3
 msgid ""
@@ -3181,8 +3163,9 @@ msgstr ""
 "\n"
 "A második szinten egy véletlen állathangot hallasz, és ki kell választanod, "
 "hogy melyik állat hangját hallottad. Kattints arra a kérdőjelre, amelyik "
-"megfelel a hallott állatnak. Ha szeretnéd ismét hallani az állathangot, akkor "
-"kattints a lejátszás gombra. Ha minden állat hangját eltaláltad, nyertél!\n"
+"megfelel a hallott állatnak. Ha szeretnéd ismét hallani az állathangot, "
+"akkor kattints a lejátszás gombra. Ha minden állat hangját eltaláltad, "
+"nyertél!\n"
 "\n"
 "A harmadik szinten egy véletlen leírás jelenik meg, és arra az állatra kell "
 "kattintanod, amely megfelel a leírásnak. Ha minden leíráshoz tartozó állatot "
@@ -3273,7 +3256,6 @@ msgid " This animal likes to lay in the mud."
 msgstr "Ez az állat szeret a sárban feküdni."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:19
-#| msgid "White checks"
 msgid " White Duck"
 msgstr "Fehér kacsa"
 
@@ -3297,10 +3279,10 @@ msgstr "Bagoly"
 msgid ""
 " The owl goes \"hoo. hoo.\" The owl has excellent vision and hearing at "
 "night."
-msgstr "A bagoly hangja: „hú-hú”. A bagoly látása és hallása éjszaka is kitűnő."
+msgstr ""
+"A bagoly hangja: „hú-hú”. A bagoly látása és hallása éjszaka is kitűnő."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:24
-#| msgid "The aim is to switch off all the lights."
 msgid " This animal likes to come out at night."
 msgstr "Ez az állat éjjel szeret előjönni."
 
@@ -3321,7 +3303,6 @@ msgid " This animal's ancestors were wolves."
 msgstr "Ez az állat a farkasoktól származik."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:28
-#| msgid "Lotto Master"
 msgid " Rooster"
 msgstr "Kakas"
 
@@ -3343,8 +3324,10 @@ msgid "Explore World Animals"
 msgstr "Vadállatok felfedezése"
 
 #: ../src/explore_world_animals-activity/explore_world_animals.xml.in.h:2
-msgid "Learn about world animals, interesting facts and their location on a map."
-msgstr "Ismerd meg a vadállatokat, érdekes adatokat róluk, és élőhelyüket a térképen."
+msgid ""
+"Learn about world animals, interesting facts and their location on a map."
+msgstr ""
+"Ismerd meg a vadállatokat, érdekes adatokat róluk, és élőhelyüket a térképen."
 
 #: ../src/explore_world_animals-activity/explore_world_animals.xml.in.h:3
 msgid ""
@@ -3378,7 +3361,6 @@ msgid " Click on location where the given animal lives."
 msgstr "Kattints arra a helyre, ahol az adott állat él."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:3
-#| msgid "South America"
 msgid " Jaguars in South America"
 msgstr "Jaguárok Dél-Amerikában"
 
@@ -3402,8 +3384,8 @@ msgid ""
 "them as useful pets. When in danger, they will curl up into a ball and stick "
 "up their coat of sharp spines."
 msgstr ""
-"A sündisznók kisebb állatokat, például békákat és rovarokat esznek, így sokan "
-"hasznos háziállatként tartják őket. Ha veszélyt érez, akkor labdává "
+"A sündisznók kisebb állatokat, például békákat és rovarokat esznek, így "
+"sokan hasznos háziállatként tartják őket. Ha veszélyt érez, akkor labdává "
 "gömbölyödik, és kimereszti hegyes tüskéit."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:8
@@ -3427,7 +3409,6 @@ msgid " Giraffe"
 msgstr "Zsiráf"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:12
-#| msgid "North America"
 msgid " Bison in America"
 msgstr "Bölény Észak-Amerikában"
 
@@ -3450,8 +3431,8 @@ msgid ""
 " Narwhals are whales that live in the Arctic Ocean and have long tusks. "
 "These tusks remind many people of the mythical unicorn's horn."
 msgstr ""
-"A narválok az északi tengerben élő bálnák, amelyeknek hosszú agyaraik vannak. "
-"Ezek az agyarak sokakat a mesebeli egyszarvú szarvára emlékeztetnek."
+"A narválok az északi tengerben élő bálnák, amelyeknek hosszú agyaraik "
+"vannak. Ezek az agyarak sokakat a mesebeli egyszarvú szarvára emlékeztetnek."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:17
 msgid " Narwhal"
@@ -3462,12 +3443,12 @@ msgid "Explore World Music"
 msgstr "Világ zenéinek felfedezése"
 
 #: ../src/explore_world_music-activity/explore_world_music.xml.in.h:2
-#| msgid "Learn about the water cycle"
 msgid "Learn about the music of the world."
 msgstr "Tanulj a világ zenei stílusairól."
 
 #: ../src/explore_world_music-activity/explore_world_music.xml.in.h:3
-msgid "Develop a better understanding of the variety of music present in the world"
+msgid ""
+"Develop a better understanding of the variety of music present in the world"
 msgstr "A világban előforduló változatos zenei stílusok jobb megértése"
 
 #: ../src/explore_world_music-activity/explore_world_music.xml.in.h:4
@@ -3520,7 +3501,6 @@ msgid " Click on the location that matches the text."
 msgstr "Kattints arra a helyre, amely megfelel a szövegnek."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:4
-#| msgid "Australia"
 msgid " Australia"
 msgstr "Ausztrália"
 
@@ -3531,15 +3511,14 @@ msgid ""
 "five meters long!"
 msgstr ""
 "Az ausztrál őslakosokat más szóval aborigináloknak is nevezik. Számos "
-"hangszert használnak, mint például a didzseridu. Ez egy fatörzsből készül, és "
-"akár öt méter hosszú is lehet."
+"hangszert használnak, mint például a didzseridu. Ez egy fatörzsből készül, "
+"és akár öt méter hosszú is lehet."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:6
 msgid " Where is the didgeridoo played?"
 msgstr "Hol játszanak a didzseridun?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:7
-#| msgid "Africa"
 msgid " Africa"
 msgstr "Afrika"
 
@@ -3552,7 +3531,6 @@ msgstr ""
 "használ, amit szent és mágikus hangszernek tekintenek."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:9
-#| msgid "Learn to recognize musical instruments."
 msgid " Where is the drum considered a magical instrument?"
 msgstr "Hol számít a dob mágikus hangszernek?"
 
@@ -3575,7 +3553,6 @@ msgid " Where is music used to call people to prayer?"
 msgstr "Hol hívják imára zenével a hívőket?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:13
-#| msgid "Japanese"
 msgid " Japan"
 msgstr "Japán"
 
@@ -3613,7 +3590,6 @@ msgstr "Innen származnak a kiltet viselő dudások."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:19
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:6
-#| msgid "Italy"
 msgid " Italy"
 msgstr "Olaszország"
 
@@ -3623,8 +3599,8 @@ msgid ""
 "a story by acting and singing. Opera singers, both male and female, learn "
 "special techniques to sing operas."
 msgstr ""
-"Olaszország az operáról híres. Az opera egy zenei színház, ahol a színészek a "
-"történetet játékkal és énekléssel mesélik el. Az operaénekesek, férfiak és "
+"Olaszország az operáról híres. Az opera egy zenei színház, ahol a színészek "
+"a történetet játékkal és énekléssel mesélik el. Az operaénekesek, férfiak és "
 "nők egyaránt, speciális technikákat tanulnak az operák énekléséhez."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:21
@@ -3649,7 +3625,6 @@ msgstr "Bach, Beethoven és Mozart ezen a helyen szerzett zenét."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:25
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:5
-#| msgid "Mexico"
 msgid " Mexico"
 msgstr "Mexikó"
 
@@ -3664,8 +3639,8 @@ msgstr ""
 "esküvőket és bálokat."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:27
-#, fuzzy
-msgid " At parties, people often dance to the Mariachi music. A Famous dance is:"
+msgid ""
+" At parties, people often dance to the Mariachi music. A Famous dance is:"
 msgstr "Bálokon sokszor táncolnak Mariachi zenére. Egy híres tánc:"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:28
@@ -3673,7 +3648,6 @@ msgid " Where is Mariachi music from?"
 msgstr "Honnan származik a mariachi zene?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:29
-#| msgid "United States of America"
 msgid " United State of America"
 msgstr "Amerikai Egyesült Államok"
 
@@ -3704,7 +3678,8 @@ msgid "The fifteen game"
 msgstr "A tizenötös játék"
 
 #: ../src/fifteen-activity/fifteen.xml.in.h:2
-msgid "Move each item to make an increasing series: from the smallest to the largest"
+msgid ""
+"Move each item to make an increasing series: from the smallest to the largest"
 msgstr ""
 "Mozgasd úgy az egyes elemeket, hogy növekvő számsort kapj: a legkisebbtől a "
 "legnagyobbig"
@@ -3782,7 +3757,8 @@ msgstr "Fordítók:"
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
-msgstr "Ez a program GNU szoftver és a GNU General Public License alatt van kiadva"
+msgstr ""
+"Ez a program GNU szoftver és a GNU General Public License alatt van kiadva"
 
 #: ../src/gcompris/about.c:221 ../src/gcompris/config.c:460
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:358
@@ -3808,7 +3784,8 @@ msgstr "Nem, folytatni szeretném"
 
 #: ../src/gcompris/board.c:149
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
-msgstr "Modulok dinamikus betöltése nem támogatott. A GCompris nem tölthető be.\n"
+msgstr ""
+"Modulok dinamikus betöltése nem támogatott. A GCompris nem tölthető be.\n"
 
 #: ../src/gcompris/board_config_combo.c:182
 msgid ""
@@ -3862,7 +3839,6 @@ msgid "Choice of the level"
 msgstr "Válassz szintet"
 
 #: ../src/gcompris/config.c:58
-#| msgid "Your system default"
 msgid "Language: your system default"
 msgstr "Nyelv: A rendszer alapértelmezése"
 
@@ -4004,7 +3980,6 @@ msgid "Korean"
 msgstr "Koreai"
 
 #: ../src/gcompris/config.c:93
-#| msgid "Latvia"
 msgid "Latvian"
 msgstr "Lett"
 
@@ -4142,22 +4117,18 @@ msgid "Zulu"
 msgstr "Zulu"
 
 #: ../src/gcompris/config.c:131
-#| msgid "No time limit"
 msgid "Timer: No time limit"
 msgstr "Időzítő: Nincs időkorlátozás"
 
 #: ../src/gcompris/config.c:132
-#| msgid "Slow timer"
 msgid "Timer: Slow timer"
 msgstr "Időzítő: Sok idő"
 
 #: ../src/gcompris/config.c:133
-#| msgid "Normal timer"
 msgid "Timer: Normal timer"
 msgstr "Időzítő: Átlagos idő"
 
 #: ../src/gcompris/config.c:134
-#| msgid "Fast timer"
 msgid "Timer: Fast timer"
 msgstr "Időzítő: Kevés idő"
 
@@ -4265,11 +4236,6 @@ msgid "Print the version of "
 msgstr "Verziószám megtekintése: "
 
 #: ../src/gcompris/gcompris.c:181
-#| msgid ""
-#| "Run GCompris with local menu (e.g -l /reading will let you play only "
-#| "activities in the reading directory, -l /strategy/connect4 only the "
-#| "connect4 activity). Use '-l list' to list all the availaible activities "
-#| "and their descriptions."
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
@@ -4293,13 +4259,13 @@ msgid "GCompris will find the activity plugins in this directory"
 msgstr "A GCompris ebben a könyvtárban keresi a tevékenységbővítményeket"
 
 #: ../src/gcompris/gcompris.c:195
-#| msgid "GCompris will find the python activity in this directory"
 msgid "GCompris will find the Python activity in this directory"
 msgstr "A GCompris ebben a könyvtárban keresi a Python tevékenységeket"
 
 #: ../src/gcompris/gcompris.c:198
 msgid "GCompris will find the locale file (.mo translation) in this directory"
-msgstr "A GCompris ebben a könyvtárban keresi a lokalizációs fájlt (.mo fordítás)"
+msgstr ""
+"A GCompris ebben a könyvtárban keresi a lokalizációs fájlt (.mo fordítás)"
 
 #: ../src/gcompris/gcompris.c:201
 msgid "GCompris will find the activities menu in this directory"
@@ -4370,7 +4336,8 @@ msgid "Disable the database (slower start and no user log)"
 msgstr "Adatbázis letiltása (lassabb indítás, és nincs felhasználói napló)"
 
 #: ../src/gcompris/gcompris.c:243
-msgid "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
+msgid ""
+"Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr ""
 "Globális fogd-és-ejtsd mód: normál, dupla kattintás, mindkettő. Az "
 "alapértelmezett a normál mód."
@@ -4438,8 +4405,10 @@ msgstr "Távoli adatok letöltése…"
 
 #: ../src/gcompris/gcompris.c:1513
 #, c-format
-msgid "GCompris won't start because the lock file is less than %d second old.\n"
-msgid_plural "GCompris won't start because the lock file is less than %d seconds old.\n"
+msgid ""
+"GCompris won't start because the lock file is less than %d second old.\n"
+msgid_plural ""
+"GCompris won't start because the lock file is less than %d seconds old.\n"
 msgstr[0] ""
 "A GCompris nem indul el, mert a zárolási fájl kevesebb, mint %d másodperc "
 "korú.\n"
@@ -4454,11 +4423,6 @@ msgstr "A zárolási fájl: %s\n"
 
 #: ../src/gcompris/gcompris.c:1638
 #, c-format
-#| msgid ""
-#| "GCompris\n"
-#| "Version: %s\n"
-#| "Licence: GPL\n"
-#| "More info at http://gcompris.net\n"
 msgid ""
 "GCompris\n"
 "Version: %s\n"
@@ -4962,12 +4926,10 @@ msgid "Russia"
 msgstr "Oroszország"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:17
-#| msgid "Serbian"
 msgid "Serbia"
 msgstr "Szerbia"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:18
-#| msgid "Montenegrin"
 msgid "Montenegro"
 msgstr "Montenegró"
 
@@ -5247,7 +5209,6 @@ msgid "Caspian Sea"
 msgstr "Kaszpi-tenger"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:3
-#| msgid "Black mates"
 msgid "Black Sea"
 msgstr "Fekete-tenger"
 
@@ -5256,7 +5217,6 @@ msgid "Mediteranean Sea"
 msgstr "Földközi-tenger"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:5
-#| msgid "Persian"
 msgid "Persian Gulf"
 msgstr "Perzsa-öböl"
 
@@ -5281,7 +5241,6 @@ msgid "Qatar"
 msgstr "Katar"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:12
-#| msgid "Brain"
 msgid "Bahrain"
 msgstr "Bahrein"
 
@@ -5330,12 +5289,10 @@ msgid "Syria"
 msgstr "Szíria"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:25
-#| msgid "Georgian"
 msgid "Georgia"
 msgstr "Grúzia"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:26
-#| msgid "Turkish (Azerbaijan)"
 msgid "Azerbaijan"
 msgstr "Azerbajdzsán"
 
@@ -5344,7 +5301,6 @@ msgid "Iran"
 msgstr "Irán"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:28
-#| msgid "Turkish"
 msgid "Turkmenistan"
 msgstr "Türkmenisztán"
 
@@ -5361,12 +5317,10 @@ msgid "Afghanistan"
 msgstr "Afganisztán"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:32
-#| msgid "Malay"
 msgid "Malaysia"
 msgstr "Malajzia"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:33
-#| msgid "Indonesian"
 msgid "Indonesia"
 msgstr "Indonézia"
 
@@ -5399,7 +5353,6 @@ msgid "Sri Lanka"
 msgstr "Sri Lanka"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:43
-#| msgid "Swaziland"
 msgid "Thailand"
 msgstr "Thaiföld"
 
@@ -5412,7 +5365,6 @@ msgid "Cambodia"
 msgstr "Kambodzsa"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:46
-#| msgid "Vietnamese"
 msgid "Vietnam"
 msgstr "Vietnam"
 
@@ -5429,22 +5381,18 @@ msgid "Kazakhstan"
 msgstr "Kazahsztán"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:50
-#| msgid "South Africa"
 msgid "South Korea"
 msgstr "Dél-Korea"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:51
-#| msgid "North America"
 msgid "North Korea"
 msgstr "Észak-Korea"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:52
-#| msgid "Japanese"
 msgid "Japan"
 msgstr "Japán"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:53
-#| msgid "Angola"
 msgid "Mongolia"
 msgstr "Mongólia"
 
@@ -5548,7 +5496,6 @@ msgid " and %d"
 msgstr " és %d"
 
 #: ../src/gnumch-equality-activity/gnumch.py:115
-#| msgid "%d is divisible by %s."
 msgid "{0} is divisible by {1}."
 msgstr "{0} osztható ezzel: {1}."
 
@@ -5577,7 +5524,6 @@ msgid "Factors of %d"
 msgstr "%d osztói"
 
 #: ../src/gnumch-equality-activity/gnumch.py:195
-#| msgid "%s are the factors of %d."
 msgid "{0} are the factors of {1}."
 msgstr "{0} osztói ennek: {1}."
 
@@ -5661,7 +5607,8 @@ msgstr "Számfaló - osztók"
 msgid ""
 "Guide the Number Muncher to all the factors of the number at the top of the "
 "screen."
-msgstr "Irányítsd a Számfalót a képernyő tetején látható szám összes osztójára."
+msgstr ""
+"Irányítsd a Számfalót a képernyő tetején látható szám összes osztójára."
 
 #: ../src/gnumch-factors-activity/gnumch-factors.xml.in.h:3
 msgid "Learn about factors and multiples."
@@ -5779,12 +5726,10 @@ msgstr ""
 "óvakodj a szörnyektől!"
 
 #: ../src/guessnumber-activity/guessnumber.py:203
-#| msgid "Guess a number between %d and %d"
 msgid "Guess a number between {0} and {1}"
 msgstr "Írj be egy számot {0} és {1} között"
 
 #: ../src/guessnumber-activity/guessnumber.py:307
-#| msgid "Please enter a number between %d and %d"
 msgid "Please enter a number between {0} and {1}"
 msgstr "Egy számot adj meg {0} és {1} között"
 
@@ -5869,7 +5814,8 @@ msgstr "Olvasási képesség"
 
 #: ../src/hangman-activity/hangman.xml.in.h:4
 msgid "This is a good exercise to improve reading and spelling skills."
-msgstr "Ez egy remek gyakorlat az olvasási és betűzési képességek fejlesztésére."
+msgstr ""
+"Ez egy remek gyakorlat az olvasási és betűzési képességek fejlesztésére."
 
 #: ../src/hangman-activity/hangman.xml.in.h:5
 msgid ""
@@ -5916,7 +5862,8 @@ msgstr "Hanoi torony"
 
 #: ../src/hanoi_real-activity/hanoi_real.c:267
 msgid "Move the entire stack to the right peg, one disc at a time"
-msgstr "Mozgasd egyesével az összes korongot a bal oldali a cölöpről a jobb oldalira."
+msgstr ""
+"Mozgasd egyesével az összes korongot a bal oldali a cölöpről a jobb oldalira."
 
 #: ../src/hanoi_real-activity/hanoi_real.xml.in.h:1
 msgid "The Tower of Hanoi"
@@ -6009,7 +5956,6 @@ msgstr "Ez a turbina által előállított elektromosságot méri."
 #: ../src/hydroelectric-activity/hydroelectric.py:292
 #: ../src/hydroelectric-activity/hydroelectric.py:323
 #: ../src/hydroelectric-activity/hydroelectric.py:346
-#| msgid "The electricity power is measured in Watt (W)."
 msgid "The electricity power is measured in watts (W)."
 msgstr "Az elektromos teljesítményt Wattban (W) mérjük."
 
@@ -6024,7 +5970,8 @@ msgstr ""
 
 #: ../src/hydroelectric-activity/hydroelectric.py:190
 msgid "This cloud simulates the wind, click on it to have wind."
-msgstr "Ez a felhő a szelet szimulálja, kattints rá a szélfúvás megindításához."
+msgstr ""
+"Ez a felhő a szelet szimulálja, kattints rá a szélfúvás megindításához."
 
 #: ../src/hydroelectric-activity/hydroelectric.py:228
 msgid ""
@@ -6433,7 +6380,6 @@ msgid "the clarinet"
 msgstr "a klarinétot"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:4
-#| msgid "the flute traversiere"
 msgid "the transverse flute"
 msgstr "a fuvolát"
 
@@ -6559,11 +6505,12 @@ msgid ""
 "the two interacting objects, more separation distance will result in weaker "
 "gravitational forces."
 msgstr ""
-"Mivel a gravitációs erő közvetlenül arányos a két kölcsönható test tömegével, "
-"a nagyobb testek nagyobb gravitációs erővel fogják egymást vonzani. Így ahogy "
-"az egyik test tömege nő, úgy nő köztük a gravitációs vonzás ereje. Ugyanakkor "
-"ez az erő fordítottan arányos a két kölcsönható test közötti távolság "
-"négyzetével, a távolság növelése gyengébb gravitációs erőt fog eredményezni."
+"Mivel a gravitációs erő közvetlenül arányos a két kölcsönható test "
+"tömegével, a nagyobb testek nagyobb gravitációs erővel fogják egymást "
+"vonzani. Így ahogy az egyik test tömege nő, úgy nő köztük a gravitációs "
+"vonzás ereje. Ugyanakkor ez az erő fordítottan arányos a két kölcsönható "
+"test közötti távolság négyzetével, a távolság növelése gyengébb gravitációs "
+"erőt fog eredményezni."
 
 #: ../src/intro_gravity-activity/intro_gravity.py:118
 msgid ""
@@ -6591,7 +6538,8 @@ msgstr "A gravitáció fogalmának bemutatása"
 msgid ""
 "Maintain the spaceship in the middle without crashing into the planets or "
 "the asteroids"
-msgstr "Tartsd középen az űrhajót a bolygókba vagy aszteroidákba ütközés nélkül."
+msgstr ""
+"Tartsd középen az űrhajót a bolygókba vagy aszteroidákba ütközés nélkül."
 
 #: ../src/intro_gravity-activity/intro_gravity.xml.in.h:4
 msgid "Follow the instructions when you run the activity."
@@ -6619,12 +6567,10 @@ msgid "Click on me or press the Return key when you are ready."
 msgstr "Kattints ide vagy nyomd meg az Entert, ha kész vagy."
 
 #: ../src/land_safe-activity/land_safe.py:171
-#| msgid "I am Ready"
 msgid "I am ready!"
 msgstr "Rajta!"
 
 #: ../src/land_safe-activity/land_safe.py:453
-#| msgid "eight"
 msgid "Height: "
 msgstr "Magasság:"
 
@@ -6664,16 +6610,17 @@ msgid ""
 "        "
 msgstr ""
 "\n"
-"Az űrhajó által tapasztalt gravitációs gyorsulás közvetlenül arányos a bolygó "
-"tömegével, és fordítottan arányos a bolygó középpontjának távolságának "
-"négyzetével. Így minden bolygón eltér a gyorsulás, és ahogy az űrhajó egyre "
-"közelebb és közelebb ér a bolygóhoz, a gyorsulás úgy nő.\n"
+"Az űrhajó által tapasztalt gravitációs gyorsulás közvetlenül arányos a "
+"bolygó tömegével, és fordítottan arányos a bolygó középpontjának "
+"távolságának négyzetével. Így minden bolygón eltér a gyorsulás, és ahogy az "
+"űrhajó egyre közelebb és közelebb ér a bolygóhoz, a gyorsulás úgy nő.\n"
 "\n"
 "Használd a fel és le billentyűket a tolóerő szabályozásához, a jobbra/balra "
 "billentyűket pedig az irányításhoz.\n"
 "\n"
 "A leszállópálya zöldre vált, ha a sebességed megfelelő a biztonságos "
-"leszálláshoz.\n "
+"leszálláshoz.\n"
+" "
 
 #: ../src/lang-activity/lang.py:56
 msgid "Missing Image"
@@ -6763,11 +6710,6 @@ msgid "The aim is to switch off all the lights."
 msgstr "A cél az összes fény lekapcsolása."
 
 #: ../src/lightsoff-activity/lightsoff.xml.in.h:3
-#| msgid ""
-#| "The effect of pressing a button is to toggle the state of that button, "
-#| "and of its immediate vertical and horizontal neighbours. The sun and the "
-#| "color of the sky depend on the number of clicks needed to solve the "
-#| "puzzle. If you click on Tux, the solution is shown."
 msgid ""
 "The effect of pressing a button is to toggle the state of that button, and "
 "of its immediate vertical and horizontal neighbors. The sun and the color of "
@@ -6780,17 +6722,13 @@ msgstr ""
 "megjelenik a megoldás."
 
 #: ../src/lightsoff-activity/lightsoff.xml.in.h:4
-#| msgid ""
-#| "The solver algorithm described on haar.clara.co.uk is a valuable resource "
-#| "to know more about the Lights Off game: &lt;http://www.haar.clara.co.uk/"
-#| "Lights/solving.html&gt;"
 msgid ""
 "The solver algorithm is described on Wikipedia. To know more about the "
 "Lights Off game: &lt;http://en.wikipedia.org/wiki/Lights_Out_(game)&gt;"
 msgstr ""
 "A megoldó algoritmust a Wikipédia ismerteti. A Fények le játék alaposabb "
-"megismeréséhez keresd fel a &lt;http://en.wikipedia.org/wiki/Lights_Out_(game)"
-"&gt; oldalt."
+"megismeréséhez keresd fel a &lt;http://en.wikipedia.org/wiki/Lights_Out_"
+"(game)&gt; oldalt."
 
 #: ../src/login-activity/login.py:102
 msgid "Profile: "
@@ -6807,9 +6745,6 @@ msgstr "Bejelentkezési név: "
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
 #: ../src/login-activity/login.py:480
-#| msgid ""
-#| "<b>%s</b> configuration\n"
-#| " for profile <b>%s</b>"
 msgid ""
 "<b>{0}</b> configuration\n"
 " for profile <b>{1}</b>"
@@ -6831,7 +6766,8 @@ msgid "Select or enter your name to log in to GCompris"
 msgstr "Válaszd ki, vagy add meg a neved a bejelentkezéshez a GCompris-ba"
 
 #: ../src/login-activity/login.xml.in.h:3
-msgid "GCompris identifies each child, so we can provide child-specific reports."
+msgid ""
+"GCompris identifies each child, so we can provide child-specific reports."
 msgstr ""
 "A GCompris minden egyes gyereket azonosít, így a gyerekekre jellemző "
 "jelentéseket készíthetünk."
@@ -6869,7 +6805,8 @@ msgstr "Louis Braille története"
 
 #: ../src/louis_braille-activity/louis_braille.xml.in.h:2
 msgid "Review the major dates of the inventor of the Braille system."
-msgstr "Vegyük át a Braille-írásrendszer feltalálója életének jelentős dátumait."
+msgstr ""
+"Vegyük át a Braille-írásrendszer feltalálója életének jelentős dátumait."
 
 #: ../src/louis_braille-activity/louis_braille.xml.in.h:3
 msgid ""
@@ -6883,18 +6820,22 @@ msgstr ""
 "megfelelő oldalára lépj. A végén rendezd a cimkéket időrendi sorrendbe."
 
 #: ../src/louis_braille-activity/louis_braille.xml.in.h:4
-msgid "Louis Braille Video: &lt; http://www.youtube.com/watch?v=9bdfC2j_4x4 &gt;"
-msgstr "Louis Braille videó: &lt; http://www.youtube.com/watch?v=9bdfC2j_4x4 &gt;"
+msgid ""
+"Louis Braille Video: &lt; http://www.youtube.com/watch?v=9bdfC2j_4x4 &gt;"
+msgstr ""
+"Louis Braille videó: &lt; http://www.youtube.com/watch?v=9bdfC2j_4x4 &gt;"
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:1
 msgid "Born on January 4th in Coupvary near Paris in France."
-msgstr "Január 4-én született Franciaországban, a Párizshoz közeli Coupvary-ben."
+msgstr ""
+"Január 4-én született Franciaországban, a Párizshoz közeli Coupvary-ben."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:2
 msgid ""
 "Louis Braille injured his right eye with a stitching awl from his father's "
 "workshop."
-msgstr "Louis Braille az apja műhelyében megsértette a jobb szemét egy varrótűvel."
+msgstr ""
+"Louis Braille az apja műhelyében megsértette a jobb szemét egy varrótűvel."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:3
 msgid ""
@@ -6951,9 +6892,6 @@ msgstr ""
 "jeleket, szimbólumokat, írásjeleket és zenei jelöléseket."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:10
-#| msgid ""
-#| "He died of tuberculosis. He is burried in the Pantheon in Paris. A "
-#| "monument is erected to honor him."
 msgid ""
 "He died of tuberculosis. He is buried in the Pantheon in Paris. A monument "
 "is erected to honor him."
@@ -6980,7 +6918,8 @@ msgstr "Bűvös kalap"
 
 #: ../src/magic_hat_minus-activity/magic_hat_minus.xml.in.h:2
 msgid "Count how many items are under the magic hat after some have got away"
-msgstr "Számold meg, hány elem marad a bűvös kalap alatt, miután néhány eltűnik"
+msgstr ""
+"Számold meg, hány elem marad a bűvös kalap alatt, miután néhány eltűnik"
 
 #: ../src/magic_hat_minus-activity/magic_hat_minus.xml.in.h:3
 #: ../src/memory_minus-activity/memory_minus.xml.in.h:3
@@ -7076,14 +7015,14 @@ msgid ""
 "corner of the screen to toggle the run-fast-mode.\n"
 msgstr ""
 "A nyílbillentyűk használatával irányítsd el Tuxot az ajtóig. Ebben a "
-"labirintusban a mozgás relatív (mintha első személyben lennél ott). A felfelé "
-"nyíllal mehetsz előre, a többivel másik irányba fordíthatod Tuxot.\n"
+"labirintusban a mozgás relatív (mintha első személyben lennél ott). A "
+"felfelé nyíllal mehetsz előre, a többivel másik irányba fordíthatod Tuxot.\n"
 "\n"
-"Az első szinteken Tux kényelmesen sétál, minden billentyűlenyomásra egyet lép "
-"a labirintusban.\n"
+"Az első szinteken Tux kényelmesen sétál, minden billentyűlenyomásra egyet "
+"lép a labirintusban.\n"
 "\n"
-"Nagyobb labirintusok esetén van egy speciális, „futás” mód. Ha ez a futás mód "
-"be van kapcsolva, akkor Tux automatikusan fog futni egészen addig, amíg "
+"Nagyobb labirintusok esetén van egy speciális, „futás” mód. Ha ez a futás "
+"mód be van kapcsolva, akkor Tux automatikusan fog futni egészen addig, amíg "
 "elágazáshoz nem ér és el kell döntened, hogy merre menjen tovább.\n"
 "\n"
 "Tux lábára nézve láthatod, hogy ez a mód be van-e kapcsolva: ha Tux mezítláb "
@@ -7121,10 +7060,12 @@ msgstr "Találd meg a kijáratot a labirintusból"
 msgid ""
 "Look at your position, then switch back to invisible mode to continue your "
 "moves"
-msgstr "Nézd meg, hol állsz majd kapcsolj vissza láthatatlan módba a továbbhaladáshoz"
+msgstr ""
+"Nézd meg, hol állsz majd kapcsolj vissza láthatatlan módba a továbbhaladáshoz"
 
 #: ../src/maze-activity/maze.c:639
-msgid "Look at your position, then switch back to 3D mode to continue your moves"
+msgid ""
+"Look at your position, then switch back to 3D mode to continue your moves"
 msgstr "Nézd meg, hol állsz majd kapcsolj vissza 3D módba a továbbhaladáshoz"
 
 #: ../src/maze-activity/maze.xml.in.h:5
@@ -7151,11 +7092,11 @@ msgid ""
 msgstr ""
 "A nyílbillentyűk használatával irányítsd el Tuxot az ajtóig.\n"
 "\n"
-"Az első szinteken Tux kényelmesen sétál, minden billentyűlenyomásra egyet lép "
-"a labirintusban.\n"
+"Az első szinteken Tux kényelmesen sétál, minden billentyűlenyomásra egyet "
+"lép a labirintusban.\n"
 "\n"
-"Nagyobb labirintusok esetén van egy speciális, „futás” mód. Ha ez a futás mód "
-"be van kapcsolva, akkor Tux automatikusan fog futni egészen addig, amíg "
+"Nagyobb labirintusok esetén van egy speciális, „futás” mód. Ha ez a futás "
+"mód be van kapcsolva, akkor Tux automatikusan fog futni egészen addig, amíg "
 "elágazáshoz nem ér és el kell döntened, hogy merre menjen tovább.\n"
 "\n"
 "Tux lábára nézve láthatod, hogy ez a mód be van-e kapcsolva: ha Tux mezítláb "
@@ -7200,11 +7141,11 @@ msgstr ""
 "válthatsz a láthatatlan és a látható módok között. A látható mód kijelzi a "
 "helyzetedet, mint egy térkép. Látható módban nem mozgathatod Tuxot.\n"
 "\n"
-"Az első szinteken Tux kényelmesen sétál, minden billentyűlenyomásra egyet lép "
-"a labirintusban.\n"
+"Az első szinteken Tux kényelmesen sétál, minden billentyűlenyomásra egyet "
+"lép a labirintusban.\n"
 "\n"
-"Nagyobb labirintusok esetén van egy speciális, „futás” mód. Ha ez a futás mód "
-"be van kapcsolva, akkor Tux automatikusan fog futni egészen addig, amíg "
+"Nagyobb labirintusok esetén van egy speciális, „futás” mód. Ha ez a futás "
+"mód be van kapcsolva, akkor Tux automatikusan fog futni egészen addig, amíg "
 "elágazáshoz nem ér és el kell döntened, hogy merre menjen tovább.\n"
 "\n"
 "Tux lábára nézve láthatod, hogy ez a mód be van-e kapcsolva: ha Tux mezítláb "
@@ -7520,7 +7461,8 @@ msgstr "Felsorolásos memóriajáték"
 
 #: ../src/memory_enumerate-activity/memory_enumerate.xml.in.h:2
 msgid "Turn the cards over to match the number with the drawn picture."
-msgstr "Párosítsd azokat a kártyákat, amelyeken a szám megegyezik a képen láthatóval."
+msgstr ""
+"Párosítsd azokat a kártyákat, amelyeken a szám megegyezik a képen láthatóval."
 
 #: ../src/memory_enumerate-activity/memory_enumerate.xml.in.h:4
 msgid "Numeration training, memory."
@@ -7554,29 +7496,6 @@ msgstr "Gyakorold a kivonást, amíg az összes kártya el nem tűnik."
 
 #: ../src/memory_minus-activity/memory_minus.xml.in.h:5
 #: ../src/memory_minus_tux-activity/memory_minus_tux.xml.in.h:5
-#| msgid ""
-#| "You can see some cards, but you can't see what's on the other side of "
-#| "them. Each card is hiding a subtraction, or the answer to it.\n"
-#| "A subtraction looks like this: 3 - 1 = 2\n"
-#| "The numbers on one side of the equals sign (=) have to be the same as the "
-#| "number on the other side. So 3 (1, 2, 3) less 1 (1) makes 2. Count aloud "
-#| "when you work this out, and count on your fingers, because the more ways "
-#| "you do something, the better you remember it. You can also use blocks, or "
-#| "buttons, or anything you can count. If you have lots of brothers and "
-#| "sisters, you can count them! Or the kids in your class at school. Sing "
-#| "counting songs. Count lots of things, for practice, and you'll be very "
-#| "good at adding-up!\n"
-#| "\n"
-#| "In this game, these cards are hiding the two parts of a subtraction. You "
-#| "need to find the two parts of the subraction, and bring them together "
-#| "again. Click on a card to see what number it's hiding, then try to find "
-#| "the other card that goes with it, to make a whole sum. You can only turn "
-#| "over two cards in one go, so you need to remember where the numbers are "
-#| "hiding, then you can match them when you find their other half. You're "
-#| "doing the job of the equals sign, and the numbers need you to put them "
-#| "together and make a proper sum. When you do that, both those cards "
-#| "disappear! When you've made them all disappear, found all the subtracts, "
-#| "you've won the game! :)"
 msgid ""
 "You can see some cards, but you can't see what's on the other side of them. "
 "Each card is hiding a subtraction, or the answer to it.\n"
@@ -7686,7 +7605,6 @@ msgstr "Egérkezelés, gondolkodás."
 
 #: ../src/memory_sound-activity/memory_sound.xml.in.h:4
 #: ../src/memory_sound_tux-activity/memory_sound_tux.xml.in.h:4
-#| msgid "Train your audio memory and remove all the violonists Tux."
 msgid "Train your audio memory and remove all the violinists Tux."
 msgstr "Edzd a hangmemóriád, és távolítsd el az összes hegedűművész Tuxot."
 
@@ -7742,7 +7660,8 @@ msgstr "Szám és a szám neve - párosítós memóriajáték"
 
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:2
 msgid "Turn the cards over to match the number with the word matching it."
-msgstr "Párosítsd azokat a kártyákat, amelyeken a szám megfelel a leírt nevének."
+msgstr ""
+"Párosítsd azokat a kártyákat, amelyeken a szám megfelel a leírt nevének."
 
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:4
 msgid "Reading numbers, memory."
@@ -7797,13 +7716,13 @@ msgstr ""
 "megjelenik egy aranyrög a csillogás helyén. Kattints az aranyrögre a "
 "begyűjtéséhez.\n"
 "\n"
-"Ha begyűjtötted az aranyrögöt, akkor az egérgörgővel távolodj el a faltól. Ha "
-"teljesen eltávolodtál, akkor újabb csillogás jelenik meg, amely a következő "
-"aranyrögöt jelzi. Gyűjtsd be a szint befejezéséhez szükséges mennyiségű "
-"aranyrögöt.\n"
+"Ha begyűjtötted az aranyrögöt, akkor az egérgörgővel távolodj el a faltól. "
+"Ha teljesen eltávolodtál, akkor újabb csillogás jelenik meg, amely a "
+"következő aranyrögöt jelzi. Gyűjtsd be a szint befejezéséhez szükséges "
+"mennyiségű aranyrögöt.\n"
 "\n"
-"A képernyő jobb alsó sarkában lévő kamion megadja a szinten már begyűjtött és "
-"még begyűjtendő aranyrögök számát.\n"
+"A képernyő jobb alsó sarkában lévő kamion megadja a szinten már begyűjtött "
+"és még begyűjtendő aranyrögök számát.\n"
 "\n"
 "Az ismertető indításához kattints Tux professzorra az első szinten, és "
 "figyelj az utasításaira.\n"
@@ -7833,7 +7752,8 @@ msgid "Question cannot be empty."
 msgstr "A kérdés nem lehet üres."
 
 #: ../src/missing_letter-activity/missingletter_config.c:97
-msgid "Question must include the character '_'. It represents the letter to search."
+msgid ""
+"Question must include the character '_'. It represents the letter to search."
 msgstr ""
 "A kérdésnek tartalmaznia kell az „_” karaktert. Ez képviseli a keresett "
 "betűt."
@@ -7848,7 +7768,8 @@ msgstr "Legalább két lehetőség kell legyen."
 
 #: ../src/missing_letter-activity/missingletter_config.c:118
 msgid "The answer and question must be the same except for the character '_'."
-msgstr "A válasznak és a kérdésnek azonosnak kell lennie, kivéve az „_” karaktert."
+msgstr ""
+"A válasznak és a kérdésnek azonosnak kell lennie, kivéve az „_” karaktert."
 
 #: ../src/missing_letter-activity/missingletter_config.c:127
 msgid "The first choice must be the solution that replaces the character '_'."
@@ -7901,7 +7822,8 @@ msgstr "Cseréld ki a betűt az „_” karakter kitalálásához."
 msgid ""
 "Enter here the letter that will be proposed. The first letter here must be "
 "the solution."
-msgstr "Add meg itt a felajánlott betűt. Az első betűnek a megoldásnak kell lennie."
+msgstr ""
+"Add meg itt a felajánlott betűt. Az első betűnek a megoldásnak kell lennie."
 
 #: ../src/missing_letter-activity/missing_letter.xml.in.h:1
 msgid "Missing Letter"
@@ -7944,7 +7866,6 @@ msgid "car/c_r/a/k/o"
 msgstr "autó/a_tó/u/j/v"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board2.xml.in.h:1
-#| msgid "banana/b_nana/a/o/i"
 msgid "bag/b_g/a/o/i"
 msgstr "zsák/zs_k/á/o/u"
 
@@ -8168,54 +8089,59 @@ msgstr "Rakd ki ugyanezt a mozaikot a jobb oldalon"
 msgid "Rebuild the mosaic"
 msgstr "Rakd ki a mozaikot"
 
-#: ../src/note_names-activity/note_names.py:120
-msgid "These are the eight basic notes in treble clef. They form the C Major Scale."
-msgstr "Ez a violinkulcs nyolc alapvető hangjegye. Ezek alkotják a felső C skálát."
+#: ../src/note_names-activity/note_names.py:119
+msgid ""
+"These are the eight basic notes in treble clef. They form the C Major Scale."
+msgstr ""
+"Ez a felső szólam nyolc alapvető hangjegye. Ezek alkotják a felső C skálát."
 
-#: ../src/note_names-activity/note_names.py:130
+#: ../src/note_names-activity/note_names.py:129
 msgid ""
 "These are the eight basic notes in bass clef. They also form the C Major "
 "Scale. Notice that the note positions are different than in treble clef."
 msgstr ""
-"Ez a basszuskulcs nyolc alapvető hangjegye. Ezek is a felső C skálát "
+"Ez az alsó szólam nyolc alapvető hangjegye. Ezek is a felső C skálát "
 "alkotják. Vedd észre, hogy a hangjegyek pozíciói eltérnek a violinkulcsban "
 "látottaktól."
 
-#: ../src/note_names-activity/note_names.py:144
+#: ../src/note_names-activity/note_names.py:143
 msgid "Play Scale"
 msgstr "Játssz a hangsorral"
 
-#: ../src/note_names-activity/note_names.py:151
+#: ../src/note_names-activity/note_names.py:150
 msgid "Play Treble Clef Game"
-msgstr "Játssz a violinkulccsal"
+msgstr "Játssz a felső szólammal"
 
-#: ../src/note_names-activity/note_names.py:153
+#: ../src/note_names-activity/note_names.py:152
 msgid "Play Bass Clef Game"
-msgstr "Játssz a basszuskulccsal"
+msgstr "Játssz az alsó szólammal"
 
-#: ../src/note_names-activity/note_names.py:184
+#: ../src/note_names-activity/note_names.py:183
 msgid "Click on the note name to match the pitch. Then click OK to check."
 msgstr ""
 "Kattints a hangnak megfelelő hangjegy nevére. Kattints az OK gombra az "
 "ellenőrzéséhez."
 
-#: ../src/note_names-activity/note_names.py:186
+#: ../src/note_names-activity/note_names.py:185
 msgid "Now there are sharp notes. These pitches are raised a half step."
-msgstr "Ezek most éles hangjegyek. Ezek a hangok fél lépéssel meg vannak emelve."
+msgstr ""
+"Ezek most éles hangjegyek. Ezek a hangok fél lépéssel meg vannak emelve."
 
-#: ../src/note_names-activity/note_names.py:188
+#: ../src/note_names-activity/note_names.py:187
 msgid "Now there are flat notes. These pitches are lowered a half step."
-msgstr "Ezek most lapos hangjegyek. Ezek a hangok fél lépéssel le vannak süllyesztve."
+msgstr ""
+"Ezek most lapos hangjegyek. Ezek a hangok fél lépéssel le vannak süllyesztve."
 
-#: ../src/note_names-activity/note_names.py:194
+#: ../src/note_names-activity/note_names.py:193
 msgid "Click the note to hear it played"
 msgstr "Kattints a hangjegyre a lejátszásához"
 
-#: ../src/note_names-activity/note_names.py:247
+#: ../src/note_names-activity/note_names.py:246
 msgid "Need a hint? Click here for color-coded note names."
-msgstr "Segítségre van szükséged? Kattints ide a színekkel kódolt hangjegynevekért."
+msgstr ""
+"Segítségre van szükséged? Kattints ide a színekkel kódolt hangjegynevekért."
 
-#: ../src/note_names-activity/note_names.py:250
+#: ../src/note_names-activity/note_names.py:249
 msgid "Ready for a challenge? Color all buttons black!"
 msgstr "Készen állsz a kihívásra? Színezd az összes gombot feketére!"
 
@@ -8228,8 +8154,8 @@ msgid ""
 "Learn the names of the notes, in bass and treble clef, with the help of "
 "sounds and colors"
 msgstr ""
-"Hangok és színek segítségével tanuld meg a hangjegyek neveit a basszus- és "
-"violinkulcsban"
+"Hangok és színek segítségével tanuld meg a hangjegyek neveit az alsó és "
+"felső szólamban"
 
 #: ../src/note_names-activity/note_names.xml.in.h:4
 msgid ""
@@ -8250,7 +8176,8 @@ msgstr ""
 "Az első és a tizenegyedik szint két eltérő vonalas kottát mutat be c-DÚR "
 "skálával. A következő szintek kikérdezik a játékostól a hangjegyek neveit. A "
 "nevek megtanulását segíti, hogy azok lejátszásra kerülnek az egérrel rájuk "
-"mutatva, illetve a nevek színekkel is kódolhatók.\n "
+"mutatva, illetve a nevek színekkel is kódolhatók.\n"
+" "
 
 #: ../src/paintings-activity/paintings.xml.in.h:1
 msgid "Assemble the puzzle"
@@ -8325,8 +8252,10 @@ msgid "Katsushika Hokusai, The Great Wave off Kanagawa - 1823-1829"
 msgstr "Katsushika Hokusai, The Great Wave off Kanagawa - 1823-1829"
 
 #: ../src/paintings-activity/resources/paintings/board1_8.xml.in.h:1
-msgid "Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
-msgstr "Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
+msgid ""
+"Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
+msgstr ""
+"Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
 
 #: ../src/paintings-activity/resources/paintings/board1_9.xml.in.h:1
 msgid "Utagawa Hiroshige, Horse-mackerel and Prawn - 1840"
@@ -8362,7 +8291,8 @@ msgstr "Wassily Kandinsky, Composition VIII - 1923"
 
 #: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:2
 msgid "Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
-msgstr "Olajfestmény vásznon, 140 x 201 cm; Solomon R. Guggenheim Múzeum, New York"
+msgstr ""
+"Olajfestmény vásznon, 140 x 201 cm; Solomon R. Guggenheim Múzeum, New York"
 
 #: ../src/paintings-activity/resources/paintings/board4_0.xml.in.h:1
 msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
@@ -8390,7 +8320,8 @@ msgstr "Segíts Tuxnak, az ejtőernyősnek biztonságosan landolni"
 
 #: ../src/paratrooper-activity/paratrooper.xml.in.h:3
 msgid "This board is game-oriented. No specific skills are needed to play."
-msgstr "Ez a tábla játékközpontú. A játékhoz nem szükségesek különleges képességek."
+msgstr ""
+"Ez a tábla játékközpontú. A játékhoz nem szükségesek különleges képességek."
 
 #: ../src/paratrooper-activity/paratrooper.xml.in.h:4
 msgid ""
@@ -8463,6 +8394,7 @@ msgstr ""
 "Vizsgáld meg alaposan a két képet. Apró különbségeket fedezhetsz fel köztük. "
 "Ha különbséget találtál, kattints rá."
 
+# FIXME: Ezeket valaki nagyon nézze át!
 #. this is the English musical notation system
 #. translators insert the name of the notes in your language
 #: ../src/piano_composition-activity/gcomprismusic.py:66
@@ -8537,13 +8469,13 @@ msgstr "Asz"
 msgid "Bb"
 msgstr "B"
 
-#: ../src/piano_composition-activity/gcomprismusic.py:284
+#: ../src/piano_composition-activity/gcomprismusic.py:290
 msgid "The staff is full. Please erase some notes"
 msgstr "A kotta megtelt. Törölj néhány hangjegyet"
 
 #: ../src/piano_composition-activity/piano_composition.py:125
 msgid "This is the Treble clef staff, for high pitched notes"
-msgstr "Ez a violinkulcs, a magas hangjegyekhez"
+msgstr "Ez a felső szólam, a magas hangjegyekhez"
 
 #: ../src/piano_composition-activity/piano_composition.py:126
 msgid "These are the 8 \"white\" keys in an octave"
@@ -8551,103 +8483,104 @@ msgstr "Ezek az oktáv 8 „fehér” billentyűi"
 
 #: ../src/piano_composition-activity/piano_composition.py:128
 msgid "This is the Bass clef staff, for low pitched notes"
-msgstr "Ez a basszuskulcs, a mély hangjegyekhez"
+msgstr "Ez az alsó szólam, a mély hangjegyekhez"
 
 #: ../src/piano_composition-activity/piano_composition.py:129
 msgid "These keys form the C Major scale"
-msgstr ""
+msgstr "Ezek a hangok alkotják a c-DÚR skálát"
 
 #: ../src/piano_composition-activity/piano_composition.py:131
 msgid "Click on the note symbols to write different length notes"
 msgstr ""
+"Kattints a hangjegy szimbólumokra különböző hosszúságú hangjegyek írásához"
 
 #: ../src/piano_composition-activity/piano_composition.py:132
-msgid "Notes can be many types, such as quarter notes, half notes, and whole notes"
+msgid ""
+"Notes can be many types, such as quarter notes, half notes, and whole notes"
 msgstr ""
+"A hangjegyek számos típusúak lehetnek, vannak például negyed, fél és egész "
+"hangjegyek"
 
 #: ../src/piano_composition-activity/piano_composition.py:134
 msgid "Sharp notes have a # sign"
-msgstr ""
+msgstr "A felemelt hangjegyek előtt # jel van"
 
 #: ../src/piano_composition-activity/piano_composition.py:135
 msgid "The black keys are sharp and flat keys"
-msgstr ""
+msgstr "A fekete billentyűk felemelt és leszállított billentyűk"
 
 #: ../src/piano_composition-activity/piano_composition.py:137
 msgid "Flat notes have a b sign"
-msgstr ""
+msgstr "A leszállított hangjegyek előtt b jel van"
 
 #: ../src/piano_composition-activity/piano_composition.py:138
 msgid "Each black key has two names, one with a flat and one with a sharp"
 msgstr ""
+"Minden fekete billentyűnek két neve van, egy leszállított és egy felemelt"
 
 #: ../src/piano_composition-activity/piano_composition.py:140
 msgid "Now you can load melodies from around the world"
-msgstr ""
+msgstr "Most betölthetsz a világ minden tájáról származó dallamokat"
 
 #: ../src/piano_composition-activity/piano_composition.py:143
 msgid "Compose music now! You can now load and save your work"
-msgstr ""
+msgstr "Kezdheted a zeneszerzést! Betöltheted és elmentheted munkád"
 
 #: ../src/piano_composition-activity/piano_composition.py:178
 msgid "Erase All Notes"
-msgstr ""
+msgstr "Minden hangjegy törlése"
 
 #: ../src/piano_composition-activity/piano_composition.py:189
 msgid "Erase Last Notes"
-msgstr ""
+msgstr "Utolsó hangjegyek törlése"
 
 #: ../src/piano_composition-activity/piano_composition.py:199
 msgid "Play Composition"
-msgstr ""
+msgstr "Szerzemény lejátszása"
 
 #: ../src/piano_composition-activity/piano_composition.py:211
 msgid "Erase and Change Clef"
-msgstr ""
+msgstr "Törlés és hangjegykulcs váltása"
 
 #: ../src/piano_composition-activity/piano_composition.py:222
 msgid "Change Note Type:"
-msgstr ""
+msgstr "Hangjegytípus módosítása:"
 
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Eighth_note
 #: ../src/piano_composition-activity/piano_composition.py:243
-#, fuzzy
-#| msgid "light house"
 msgid "Eighth Note"
-msgstr "világítótorony"
+msgstr "Nyolcad hangjegy"
 
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Quarter_note
 #: ../src/piano_composition-activity/piano_composition.py:266
 msgid "Quarter Note"
-msgstr ""
+msgstr "Negyed hangjegy"
 
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Half_note
 #: ../src/piano_composition-activity/piano_composition.py:279
 msgid "Half Note"
-msgstr ""
+msgstr "Fél hangjegy"
 
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Whole_note
 #: ../src/piano_composition-activity/piano_composition.py:292
 msgid "Whole Note"
-msgstr ""
+msgstr "Egész hangjegy"
 
 #: ../src/piano_composition-activity/piano_composition.py:324
-#, fuzzy
-#| msgid "Music"
 msgid "Load Music"
-msgstr "Zene"
+msgstr "Zene betöltése"
 
 #: ../src/piano_composition-activity/piano_composition.py:329
 msgid "Change Accidental Style:"
-msgstr ""
+msgstr "Véletlen stílus megváltoztatása"
 
 #: ../src/piano_composition-activity/piano_composition.py:387
 msgid "Select A Melody to Load"
-msgstr ""
+msgstr "Válassz egy betöltendő dallamot"
 
 #: ../src/piano_composition-activity/piano_composition.xml.in.h:1
 msgid "Piano Composition"
-msgstr ""
+msgstr "Zeneszerzés zongorával"
 
 #: ../src/piano_composition-activity/piano_composition.xml.in.h:2
 msgid ""
@@ -8655,12 +8588,16 @@ msgid ""
 "a musical staff and explore music composition by loading and saving your "
 "work."
 msgstr ""
+"A zongorabillentyűk működésének, a hangjegyek kottába írásának megtanulása, "
+"és a zeneszerzés felfedezése munkád betöltésével és mentésével."
 
 #: ../src/piano_composition-activity/piano_composition.xml.in.h:3
 msgid ""
 "Familiarity with note naming conventions, note-names activity useful to "
 "learn this notation."
 msgstr ""
+"Hangjegy-elnevezési megállapodások ismerete, a hangjegyek nevei játék "
+"hasznos lehet ennek megtanulásához."
 
 #: ../src/piano_composition-activity/piano_composition.xml.in.h:4
 msgid ""
@@ -8671,6 +8608,11 @@ msgid ""
 "MuseScore (http://musescore.org/en/download), an open source music notation "
 "tool."
 msgstr ""
+"A zeneszerzés megértése, a zongorabillentyűkkel való zeneszerzés iránti "
+"érdeklődés felkeltése. Ez a játék a zene számos alapvető vonását bemutatja, "
+"de sokkal többet tesz a zeneszerzés megismertetéséért. Ha tetszik ez a "
+"játék, de fejlettebb eszközre van szüksége, akkor próbálja ki a MuseScore "
+"(http://musescore.org/en/download) nevű, nyílt forrású kottaíró programot."
 
 #: ../src/piano_composition-activity/piano_composition.xml.in.h:5
 msgid ""
@@ -8708,106 +8650,117 @@ msgid ""
 "  F4: G# / Ab\n"
 "  F5: A# / Bb\n"
 msgstr ""
+"Ez a játék több szintet tartalmaz, és mindegyik új funkciót ad a "
+"korábbihoz.\n"
+"1. szint: alapvető zongorabillentyűzet (csak fehér billentyűk), a diákok a "
+"színes billentyűkre kattintva kísérletezhetnek a zeneírással\n"
+"2. szint: a kotta átvált az alsó szólamra, így a hangmagasság alacsonyabb az "
+"előző szinten lévőnél\n"
+"3. szint: váltás a felső és alsó szólam között, továbbá ki lehet választani "
+"a hangjegy hosszát (negyed, fél és egész)\n"
+"4. szint: megjelennek a fekete (felemelt) billentyűk\n"
+"5. szint: a fekete billentyűkhöz megjelenik a külön jelölés\n"
+"6. szint: gyermekdalok dallamainak betöltése\n"
+"7. szint: minden lehetőség elérhető, immár a szerzemények betöltése és "
+"mentése is\n"
+"\n"
+"Ebben a játékban a következő gyorsbillentyűk használhatók:\n"
+"- backspace: egy hangjegy törlése\n"
+"- delete: minden hangjegy törlése\n"
+"- szóköz: szerzemény lejátszása\n"
+"- számbillentyűk:\n"
+"  1: C\n"
+"  2: D\n"
+"  3: E\n"
+"  4: F\n"
+"  5: G\n"
+"  6: A\n"
+"  7: H\n"
+"  8: C (magasabb oktáv)\n"
+"  stb.\n"
+"  F1: Cisz / Desz\n"
+"  F2: Disz / Esz\n"
+"  F3: Fisz / Gesz\n"
+"  F4: Gisz / Asz\n"
+"  F5: Aisz / B\n"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:1
 msgid " America: English Lullaby"
-msgstr ""
+msgstr "Amerika: angol altató"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:2
 msgid " America: Patriotic"
-msgstr ""
+msgstr "Amerika: hazafias"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:3
 msgid " America: Shaker Tune"
-msgstr ""
+msgstr " Amerika: Shaker Tune"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:4
 msgid " America: Nursery Rhyme"
-msgstr ""
+msgstr "Amerika: gyermekvers"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:7
-#, fuzzy
-#| msgid "Spain"
 msgid " Spain"
 msgstr "Spanyolország"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:8
 msgid " German Kid's Song"
-msgstr ""
+msgstr "Német gyermekdal"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:9
-#, fuzzy
-#| msgid "Counties of Brazil"
 msgid " Children's Song from Brazil"
-msgstr "Brazília megyéi"
+msgstr "Brazil gyermekdalok"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:10
-#, fuzzy
-#| msgid "German"
 msgid " German"
 msgstr "Német"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:11
-#, fuzzy
-#| msgid "France"
 msgid " France"
 msgstr "Franciaország"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:12
-#, fuzzy
-#| msgid "Germany"
 msgid " Germany"
 msgstr "Németország"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:13
-#, fuzzy
-#| msgid "Brazil"
 msgid " Brazil"
 msgstr "Brazília"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:14
 msgid " Hungary, Nursery Rhyme"
-msgstr ""
+msgstr "Magyarország, gyermekvers"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:15
 msgid " Hungary, Children's Song"
-msgstr ""
+msgstr "Magyarország, gyermekdal"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:16
-#, fuzzy
-#| msgid "Serbian"
 msgid " Serbia"
 msgstr "Szerbia"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:17
 msgid " Britain"
-msgstr ""
+msgstr "Nagy-Britannia"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:18
-#, fuzzy
-#| msgid "Poland"
 msgid " Poland"
 msgstr "Lengyelország"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:19
-#, fuzzy
-#| msgid "Greece"
 msgid " Greece"
 msgstr "Görögország"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:20
-#, fuzzy
-#| msgid "Ukraine"
 msgid " Ukraine"
 msgstr "Ukrajna"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:21
 msgid " Mexican song to break a piñata"
-msgstr ""
+msgstr "Mexikói dal piñata feltöréséhez"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:22
-#, fuzzy
-#| msgid "Finland"
 msgid " Finland"
 msgstr "Finnország"
 
@@ -8816,45 +8769,48 @@ msgid ""
 "Click anywhere on the screen to place the satellite at a distance from the "
 "planet."
 msgstr ""
+"Kattints bárhová a képernyőn a műhold elhelyezéséhez adott távolságra a "
+"bolygótól."
 
 #: ../src/place_your_satellite-activity/place_your_satellite.py:70
 msgid ""
 "Then click on the satellite and drag a line that sets the speed of the "
 "satellite"
 msgstr ""
+"Ezután kattints a műholdra, és húzz egy vonalat, amely beállítja a műhold "
+"sebességét"
 
 #: ../src/place_your_satellite-activity/place_your_satellite.py:267
 msgid "Satellite goes too fast"
-msgstr ""
+msgstr "A műhold túl gyors"
 
 #: ../src/place_your_satellite-activity/place_your_satellite.py:269
 msgid "Satellite goes too slow"
-msgstr ""
+msgstr "A műhold túl lassú"
 
 #: ../src/place_your_satellite-activity/place_your_satellite.py:296
 msgid "Satellite is crashing"
-msgstr ""
+msgstr "A műhold lezuhan"
 
 #: ../src/place_your_satellite-activity/place_your_satellite.py:330
 msgid "Satellite not in orbit"
-msgstr ""
+msgstr "A műhold nem kering"
 
 #: ../src/place_your_satellite-activity/place_your_satellite.py:394
-#, fuzzy
 msgid "Speed"
 msgstr "Sebesség"
 
 #: ../src/place_your_satellite-activity/place_your_satellite.xml.in.h:1
 msgid "Place your satellite"
-msgstr ""
+msgstr "Helyezd el a műholdat"
 
 #: ../src/place_your_satellite-activity/place_your_satellite.xml.in.h:2
 msgid "Understanding effect of mass and distance on orbital velocity."
-msgstr ""
+msgstr "A tömeg és távolság hatásának megértése a pályamenti sebességre."
 
 #: ../src/place_your_satellite-activity/place_your_satellite.xml.in.h:3
 msgid "Make sure the satellite does not crash or fly away"
-msgstr ""
+msgstr "Figyelj, hogy a műhold ne zuhanjon le vagy ne szálljon el"
 
 #: ../src/place_your_satellite-activity/place_your_satellite.xml.in.h:4
 msgid ""
@@ -8873,6 +8829,18 @@ msgid ""
 "orbit and thus the satellite flies away due to it's own inertia.\n"
 "        "
 msgstr ""
+"\n"
+"A Föld körül keringő műholdakat a Föld által rájuk kifejtett erő tartja "
+"pályán. A Föld műholdjának pályamenti sebessége közvetlenül arányos a Föld "
+"tömegének négyzetgyökével és fordítottan arányos a műhold Föld "
+"középpontjától mért távolságával.\n"
+"\n"
+"Ebben a játékban a műhold sebességével és a Föld tömegével játszhatsz, és "
+"megláthatod, mi történik a műholddal. Ha a műhold sebessége kisebb a "
+"szükséges pályamenti sebességnél, akkor a Föld által a műholdra kifejtett "
+"erő túl nagy lesz, és a Föld behúzza az atmoszférába, ahol elég. Ha a műhold "
+"sebessége nagyobb a szükséges pályamenti sebességnél, akkor a Föld ereje nem "
+"lesz elég a pályán tartáshoz, így a műhold a saját lendülete miatt elrepül."
 
 #: ../src/planegame-activity/planegame.c:62
 #: ../src/planegame-activity/planegame.xml.in.h:1
@@ -8885,7 +8853,8 @@ msgstr "Mozgasd a helikoptert, hogy helyes sorrendben repülhess át a felhőkö
 
 #: ../src/planegame-activity/planegame.xml.in.h:2
 msgid "Move the helicopter to catch the clouds in the correct order"
-msgstr "Mozgasd a helikoptert, hogy a helyes sorrendben repülhess át a felhőkön"
+msgstr ""
+"Mozgasd a helikoptert, hogy a helyes sorrendben repülhess át a felhőkön"
 
 #: ../src/planegame-activity/planegame.xml.in.h:4
 msgid "Number"
@@ -8899,46 +8868,46 @@ msgstr ""
 "Fogd el a számokat növekvő sorrendben a fel, le, jobbra és balra nyilak "
 "használatával a helikopter mozgatásához."
 
-#: ../src/play_piano-activity/play_piano.py:117
-#, fuzzy
-#| msgid "Color of the line"
+#: ../src/play_piano-activity/play_piano.py:123
 msgid "Color code notes?"
-msgstr "A vonal színe"
+msgstr "Hangjegyek kódolása színekkel"
 
-#: ../src/play_piano-activity/play_piano.py:137
+#: ../src/play_piano-activity/play_piano.py:144
 msgid "Click the piano keys that match the written notes."
 msgstr ""
+"Kattints a zongora billentyűire, amelyek megfelelnek az írott hangjegyeknek."
 
-#: ../src/play_piano-activity/play_piano.py:159
-#, fuzzy
-#: ../src/play_rhythm-activity/play_rhythm.py:173
+#: ../src/play_piano-activity/play_piano.py:166
+#: ../src/play_rhythm-activity/play_rhythm.py:180
 msgid "Play"
 msgstr "Lejátszás"
 
-#: ../src/play_piano-activity/play_piano.py:171
-#: ../src/play_rhythm-activity/play_rhythm.py:186
+#: ../src/play_piano-activity/play_piano.py:178
+#: ../src/play_rhythm-activity/play_rhythm.py:193
 msgid "Erase Attempt"
-msgstr ""
+msgstr "Kísérlet törlése"
 
 #: ../src/play_piano-activity/play_piano.xml.in.h:1
 msgid "Play Piano!"
-msgstr ""
+msgstr "Zongorázz!"
 
 #: ../src/play_piano-activity/play_piano.xml.in.h:2
 msgid "Learn to play melodies on the piano keyboard!"
-msgstr ""
+msgstr "Tanulj meg dallamokat lejátszani a zongora billentyűin!"
 
 #: ../src/play_piano-activity/play_piano.xml.in.h:3
 msgid ""
 "Knowledge of musical notation and musical staff. Play the activity named "
 "'Piano Composition' first."
 msgstr ""
+"A hangjegyek és kotta ismerete. Javasolt előbb a „Zeneszerzés zongorával” "
+"játékkal játszani."
 
 #: ../src/play_piano-activity/play_piano.xml.in.h:4
 msgid ""
 "Understand how the piano keyboard can play music as written on the musical "
 "staff."
-msgstr ""
+msgstr "A kottába írt zene zongorabillentyűkön való lejátszásának megértése."
 
 #: ../src/play_piano-activity/play_piano.xml.in.h:5
 msgid ""
@@ -8971,64 +8940,91 @@ msgid ""
 "  - F4: G# / Ab\n"
 "  - F5: A# / Bb\n"
 msgstr ""
+"A megjelenített hangjegyek lejátszásra kerülnek. Kattints a billentyűzet "
+"megfelelő billentyűire a hallott és látott hangjegyek megfeleltetéséhez. Az "
+"utolsó kivételével minden szinten a hangjegyek színesek, így a hangjegyeket "
+"a billentyűzet színeihez lehet párosítani. Minden szint egyre nehezebb, több "
+"hangjegyet tartalmaz. Az 1-6 szintek a felső, a 7-12 szintek az alsó "
+"szólamot tesztelik. Öt pont elérése után lehet továbblépni a következő "
+"szintre (a helyes válaszokért pontot kapsz, de a helytelen válaszokért "
+"levonás jár).\n"
+"\n"
+"Ebben a játékban a következő gyorsbillentyűk használhatók:\n"
+"- backspace: kísérlet törlése\n"
+"- delete: kísérlet törlése\n"
+"- enter: OK gomb\n"
+"- szóköz: lejátszás\n"
+"- számbillentyűk:\n"
+"  1: C\n"
+"  2: D\n"
+"  3: E\n"
+"  4: F\n"
+"  5: G\n"
+"  6: A\n"
+"  7: H\n"
+"  8: C (magasabb oktáv)\n"
+"  stb.\n"
+"  F1: Cisz / Desz\n"
+"  F2: Disz / Esz\n"
+"  F3: Fisz / Gesz\n"
+"  F4: Gisz / Asz\n"
+"  F5: Aisz / B\n"
 
-#: ../src/play_rhythm-activity/play_rhythm.py:115
-#, fuzzy
-#| msgid "Can count"
+#: ../src/play_rhythm-activity/play_rhythm.py:122
 msgid "Beat Count:"
-msgstr "Tud számolni"
+msgstr "Ütésszám:"
 
-#: ../src/play_rhythm-activity/play_rhythm.py:139
+#: ../src/play_rhythm-activity/play_rhythm.py:146
 msgid "Beat the rhythm on this drum."
-msgstr ""
+msgstr "Kövesd a ritmust ezen a dobon."
 
-#: ../src/play_rhythm-activity/play_rhythm.py:150
+#: ../src/play_rhythm-activity/play_rhythm.py:157
 msgid "For a little help, click the metronome to hear the tempo."
-msgstr ""
+msgstr "Kis segítség: a metronómra kattintva hallhatod a tempót."
 
-#: ../src/play_rhythm-activity/play_rhythm.py:342
-#, fuzzy
-#| msgid "Listen to the color and click on the matching duck."
+#: ../src/play_rhythm-activity/play_rhythm.py:350
 msgid "Listen to the rhythm and follow the moving line."
-msgstr "Hallgasd meg a szín nevét, majd kattints a megfelelő kacsára."
+msgstr "Hallgasd meg a ritmust, majd kövesd a mozgó vonalat."
 
-#: ../src/play_rhythm-activity/play_rhythm.py:344
+#: ../src/play_rhythm-activity/play_rhythm.py:352
 msgid "Click the drum to the tempo. Watch the vertical line when you start."
 msgstr ""
+"Kattints a dobra a tempónak megfelelően. Figyeld a függőleges vonalat a "
+"kezdéskor."
 
-#: ../src/play_rhythm-activity/play_rhythm.py:345
+#: ../src/play_rhythm-activity/play_rhythm.py:353
 msgid "You can use the space bar to drum the tempo."
-msgstr ""
+msgstr "A szóközzel is dobolhatsz a tempóra."
 
-#: ../src/play_rhythm-activity/play_rhythm.py:348
+#: ../src/play_rhythm-activity/play_rhythm.py:356
 msgid ""
 "Now, read the rhythm. It won't be played for you. Then, beat the rhythm on "
 "the drum."
 msgstr ""
+"Most olvasd el a ritmust, az nem kerül lejátszásra. Ezután játszd le a dobon."
 
-#: ../src/play_rhythm-activity/play_rhythm.py:351
-#, fuzzy
-#| msgid "Click on the ball to place it again."
+#: ../src/play_rhythm-activity/play_rhythm.py:359
 msgid "Click erase to try again."
-msgstr "Kattints a labdára az ismételt elhelyezéséhez."
+msgstr "Kattints a törlésre az újrapróbálkozáshoz."
 
 #: ../src/play_rhythm-activity/play_rhythm.xml.in.h:1
 msgid "Play Rhythm"
-msgstr ""
+msgstr "Ritmus lejátszása"
 
 #: ../src/play_rhythm-activity/play_rhythm.xml.in.h:2
 msgid "Learn to listen to, read, and play musical rhythms."
-msgstr ""
+msgstr "Tanulj meg zenei ritmusokat hallgatni, olvasni és lejátszani."
 
 #: ../src/play_rhythm-activity/play_rhythm.xml.in.h:3
 msgid "Simple understanding of musical rhythm and beat."
-msgstr ""
+msgstr "A zenei ritmus és ütem egyszerű megértése."
 
 #: ../src/play_rhythm-activity/play_rhythm.xml.in.h:4
 msgid ""
 "Learn to beat rhythms precisely and accurately based on what you see and "
 "hear."
 msgstr ""
+"Tanuld meg a ritmus pontos eltalálását a látottak és hallottak alapján."
 
 #: ../src/play_rhythm-activity/play_rhythm.xml.in.h:5
 msgid ""
@@ -9054,6 +9050,28 @@ msgid ""
 "- enter/return: OK button\n"
 "- space bar: play\n"
 msgstr ""
+"Ez egy viszonylag nehéz játék, úgyhogy sok szerencsét :).\n"
+"\n"
+"Hallgasd meg a lejátszott ritmust, és kövesd a zenével együtt. Ha újra meg "
+"szeretnéd hallgatni, akkor kattints a lejátszás gombra. Ha készen állsz a "
+"ritmus utánzására, akkor kattints a dobra a ritmusnak megfelelően, majd "
+"kattints az OK gombra. Ha a megfelelő tempóban és jól kattintottál, akkor "
+"megjelenik egy újabb ritmus. Egyébként újra próbálkozhatsz.\n"
+"\n"
+"A páros szintek megjelenítenek egy függőleges lejátszási vonalat a dobra "
+"kattintás közben, ez segít a ritmust követő kattintásban. Kattints a dobra, "
+"amikor a vonal a hangjegyek közepén van.\n"
+"\n"
+"A páratlan szintek nehezebbek, mert nincs ilyen függőleges lejátszási vonal. "
+"A ritmus nem kerül lejátszásra. El kell olvasnod, és a tempónak megfelelően "
+"kell visszakattintgatnod. Kattints a metronómra a negyedhangnak megfelelő "
+"tempó meghallgatásához.\n"
+"\n"
+"Ebben a játékban a következő billentyűk működnek:\n"
+" - backspace: törli a próbálkozást\n"
+" - delete: törli a próbálkozást\n"
+" - enter: OK gomb\n"
+" - szóköz: lejátszás\n"
 
 #: ../src/pythontemplate-activity/pythontemplate.py:62
 #: ../src/pythontest-activity/pythontest.py:182
@@ -9067,10 +9085,8 @@ msgid "Python Template"
 msgstr "Python sablon"
 
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:2
-#, fuzzy
-#| msgid "An empty python activity to use as a starting point"
 msgid "An empty Python activity to use as a starting point"
-msgstr "Egy kiindulásként használható üres python alkalmazás"
+msgstr "Egy kiindulásként használható üres Python alkalmazás"
 
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:3
 #: ../src/pythontest-activity/pythontest.xml.in.h:3
@@ -9084,11 +9100,10 @@ msgstr "Nyelvi kapcsolat hozzáadása a GCompris-hoz."
 
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:5
 #: ../src/pythontest-activity/pythontest.xml.in.h:5
-#, fuzzy
-#| msgid ""
-#| "Thanks to Guido van Rossum and the python team for this powerful language!"
-msgid "Thanks to Guido van Rossum and the Python team for this powerful language!"
-msgstr "Köszönet Guido van Rossumnak és a Python csapatnak ezért a hatékony nyelvért!"
+msgid ""
+"Thanks to Guido van Rossum and the Python team for this powerful language!"
+msgstr ""
+"Köszönet Guido van Rossumnak és a Python csapatnak ezért a hatékony nyelvért!"
 
 #: ../src/pythontest-activity/pythontest.py:192
 msgid ""
@@ -9131,8 +9146,6 @@ msgid "Python Test"
 msgstr "Python teszt"
 
 #: ../src/pythontest-activity/pythontest.xml.in.h:2
-#, fuzzy
-#| msgid "Test board for the python plugin"
 msgid "Test board for the Python plugin"
 msgstr "Teszttábla a Python bővítményhez"
 
@@ -9280,7 +9293,8 @@ msgstr "Tükrözd az adott tárgyat"
 msgid ""
 "Copy the mirror image of an object from the box on the right into the box on "
 "the left."
-msgstr "Másold át a jobb oldali dobozban lévő tárgy tükörképét a bal oldali dobozba."
+msgstr ""
+"Másold át a jobb oldali dobozban lévő tárgy tükörképét a bal oldali dobozba."
 
 #: ../src/redraw_symmetrical-activity/redraw_symmetrical.xml.in.h:3
 msgid ""
@@ -9301,7 +9315,8 @@ msgstr "Gyakorold a kivonást egy vidám játékkal"
 
 #: ../src/reversecount-activity/reversecount.xml.in.h:2
 msgid "Tux is hungry. Help him find fish by counting to the correct ice spot."
-msgstr "Tux éhes. A megfelelő jégkockáig számolva segíthetsz neki halakat találni."
+msgstr ""
+"Tux éhes. A megfelelő jégkockáig számolva segíthetsz neki halakat találni."
 
 #: ../src/reversecount-activity/reversecount.xml.in.h:3
 msgid ""
@@ -9358,11 +9373,6 @@ msgstr ""
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:5
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:5
-#, fuzzy
-#| msgid ""
-#| "The painting is an original painting created by Virginie MOREAU (virginie."
-#| "moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is "
-#| "released under the GPL licence."
 msgid ""
 "The painting is an original painting created by Virginie MOREAU (virginie."
 "moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is "
@@ -9602,7 +9612,8 @@ msgid "Sudoku, place unique symbols in a square."
 msgstr "Sudoku, helyezz el egyedi számokat egy négyzetben."
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:2
-msgid "Symbols must be unique in a row, in a column, and (if defined) each region."
+msgid ""
+"Symbols must be unique in a row, in a column, and (if defined) each region."
 msgstr ""
 "Minden szimbólumnak egyedinek kell lennie a soron, az oszlopon és (ha meg "
 "van adva) minden területen belül."
@@ -9693,7 +9704,8 @@ msgstr "A tangram kirakójáték"
 
 #: ../src/tangram-activity/tangram.xml.in.h:2
 msgid "The objective is to form a given shape with seven pieces"
-msgstr "A cél egy megadott alakzat megformálása mind a hét darab felhasználásával"
+msgstr ""
+"A cél egy megadott alakzat megformálása mind a hét darab felhasználásával"
 
 #: ../src/tangram-activity/tangram.xml.in.h:4
 msgid ""
@@ -9778,7 +9790,8 @@ msgid "Hit the target and count your points"
 msgstr "Találd el a táblát és számold össze a pontjaid"
 
 #: ../src/target-activity/target.xml.in.h:3
-msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
+msgid ""
+"Can move the mouse, can read numbers and count up to 15 for the first level"
 msgstr "Kezelni tudja az egeret, számolni tud 15-ig (az első szinthez)"
 
 #: ../src/target-activity/target.xml.in.h:4
@@ -9959,12 +9972,6 @@ msgstr ""
 "szöveget."
 
 #: ../src/wordprocessor-activity/wordprocessor.xml.in.h:4
-#, fuzzy
-#| msgid ""
-#| "Learn how to enter text in a wordprocessor. This wordprocessor is special "
-#| "in that it enforces the use of styles. This way, the children will "
-#| "understand their benefit when moving to more feature full wordprocessor "
-#| "like OpenOffice.org."
 msgid ""
 "Learn how to enter text in a wordprocessor. This wordprocessor is special in "
 "that it enforces the use of styles. This way, the children will understand "
@@ -9973,8 +9980,8 @@ msgid ""
 msgstr ""
 "Tanuld meg a szövegszerkesztő kezelését. Ebben a szövegszerkesztőben "
 "kötelező a stílusok használata. Így a gyerekek megértik az általuk nyújtott "
-"előnyöket, amikor majd komolyabb szövegszerkesztővel (mint az OpenOffice."
-"org) kezdenek ismerkedni."
+"előnyöket, amikor majd komolyabb szövegszerkesztővel (mint a LibreOffice) "
+"kezdenek ismerkedni."
 
 #: ../src/wordprocessor-activity/wordprocessor.xml.in.h:5
 msgid ""
@@ -10006,8 +10013,162 @@ msgid "Keyboard training"
 msgstr "Billentyűzetkezelés gyakorlása"
 
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
-#, fuzzy
-#| msgid "Type the complete word as it falls, before it reachs the ground"
 msgid "Type the complete word as it falls, before it reaches the ground"
 msgstr "Gépeld be a leeső teljes szót, mielőtt az leérne a földre"
 
+#~ msgid "sulphur"
+#~ msgstr "kénsárga"
+
+#~ msgid "Special board that embeds python into gcompris."
+#~ msgstr "Különleges tábla ami beágyazza a GCompris-ba a Python-t."
+
+#~ msgid ""
+#~ "GCompris will get images, sounds and activity data from this server if "
+#~ "not found locally."
+#~ msgstr ""
+#~ "A GCompris erről a kiszolgálóról próbálja meg letölteni a helyben nem "
+#~ "található képeket, hangokat és egyéb adatokat."
+
+#~ msgid ""
+#~ "Only when --server is provided, disable check for local resource first. "
+#~ "Data are always taken from the web server."
+#~ msgstr ""
+#~ "A --server kapcsoló használatakor letiltja a helyi kép, hang stb. fájlok "
+#~ "használatát - minden adat a webkiszolgálóról töltődik le. "
+
+#~ msgid ""
+#~ "In server mode, specify the cache directory used to avoid useless "
+#~ "downloads."
+#~ msgstr ""
+#~ "Kiszolgáló módban adja meg a gyorsítótár-könyvtárat a felesleges "
+#~ "letöltések kiküszöböléséhez."
+
+#~ msgid ""
+#~ "The --server option cannot be used because GCompris has been compiled "
+#~ "without network support!"
+#~ msgstr ""
+#~ "A --server kapcsoló nem használható, mert a GCompris hálózati támogatás "
+#~ "nélkül lett fordítva!"
+
+#~ msgid "Help"
+#~ msgstr "Súgó"
+
+#~ msgid "Stop"
+#~ msgstr "Leállítás"
+
+#~ msgid "Serbia Montenegro"
+#~ msgstr "Szerbia és Montenegró"
+
+#~ msgid "%s = %d"
+#~ msgstr "%s = %d"
+
+#~ msgid "%d + %d"
+#~ msgstr "%d + %d"
+
+#~ msgid "%d − %d"
+#~ msgstr "%d − %d"
+
+#~ msgid "%d × %d"
+#~ msgstr "%d × %d"
+
+#~ msgid "%d ÷ %d"
+#~ msgstr "%d : %d"
+
+#~ msgid ""
+#~ "Use the keyboard arrows to move Tux up to the door. In this maze, the "
+#~ "move is relative (first person). Use the up arrow to go forward. The "
+#~ "other arrow let you turn Tux in another direction."
+#~ msgstr ""
+#~ "A nyílbillentyűk segítségével vezesd Tuxot az ajtóhoz. Ebben a "
+#~ "labirintusban a mozgás Tuxhoz képest relatív. A fel nyíllal mozoghatsz "
+#~ "előre, a többi nyíllal másik irányba fordíthatod Tuxot."
+
+#~ msgid "Use the keyboard arrows to move Tux up to the door."
+#~ msgstr "Használd a nyílbillentyűket, és mozgasd Tuxot az ajtóig."
+
+#~ msgid ""
+#~ "Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
+#~ "switch between invisible and visible modes. Visible mode just gives you "
+#~ "an indication of your position, like a map. You cannot move Tux in "
+#~ "visible mode."
+#~ msgstr ""
+#~ "Használd a nyílbillentyűket, és mozgasd Tuxot az ajtóig. Használd a "
+#~ "szóközt a látható és a láthatatlan módok közti váltáshoz. A látható mód "
+#~ "csak a helyzeted jelzésére szolgál, mint egy térkép. Nem mozgathatod "
+#~ "Tuxot a látható módban."
+
+#~ msgid "satchel/s_tchel/a/o/i"
+#~ msgstr "táska/tás_a/k/h/z"
+
+#~ msgid ""
+#~ "The screen has 3 sections: braille cell, alphabet name and lower board "
+#~ "containing 13 letters. Click on each letter in the lower board to know "
+#~ "its corresponding braille code in the braille cell section. Click on the "
+#~ "increment level button to jump to the next 13 letters of the English "
+#~ "alphabets."
+#~ msgstr ""
+#~ "A képernyő 3 részből áll: a Braille cella, a betű megnevezése és az alsó "
+#~ "rész, amely 13 betűt tartalmaz. Kattints az egyes betűkre az alsó részen "
+#~ "a megfelelő Braille-kód megjelenítéséhez a Braille-cella részben. "
+#~ "Kattints a szintlépés gombra az angol ábécé következő 13 betűjére "
+#~ "ugráshoz."
+
+#~ msgid ""
+#~ "Error: this activity requires that you first install\n"
+#~ "the packages with GCompris voices for the locale '%s' ! Fallback to "
+#~ "english, sorry!"
+#~ msgstr ""
+#~ "Hiba: Ehhez a tevékenységhez telepítve kell \n"
+#~ "lennie az assetml-voices-alphabet-%s csomagnak! Mivel a csomag hiányzik, "
+#~ "az angolt fogom használni, elnézést."
+
+#~ msgid "Click on the blue duck"
+#~ msgstr "Kattints a kék színű kacsára"
+
+#~ msgid "Click on the brown duck"
+#~ msgstr "Kattints a barna színű kacsára"
+
+#~ msgid "Click on the green duck"
+#~ msgstr "Kattints a zöld színű kacsára"
+
+#~ msgid "Click on the grey duck"
+#~ msgstr "Kattints a szürke színű kacsára"
+
+#~ msgid "Click on the orange duck"
+#~ msgstr "Kattints a narancsszínű kacsára"
+
+#~ msgid "Click on the purple duck"
+#~ msgstr "Kattints a bíbor színű kacsára"
+
+#~ msgid "Click on the red duck"
+#~ msgstr "Kattints a piros színű kacsára"
+
+#~ msgid "Click on the yellow duck"
+#~ msgstr "Kattints a sárga színű kacsára"
+
+#~ msgid "Click on the black duck"
+#~ msgstr "Kattints a fekete színű kacsára"
+
+#~ msgid "Click on the white duck"
+#~ msgstr "Kattints a fehér színű kacsára"
+
+#~ msgid "English (United State)"
+#~ msgstr "Angol (Egyesült Államok)"
+
+#~ msgid "Choice of pattern"
+#~ msgstr "Minta választása"
+
+#~ msgid "violet"
+#~ msgstr "viola"
+
+#~ msgid "Click on the correct colored object."
+#~ msgstr "Kattints a megfelelő színű objektumra."
+
+#~ msgid "Click on the matching color"
+#~ msgstr "Kattints a megfelelő színre"
+
+#~ msgid "Read the names of colors"
+#~ msgstr "Színek olvasása"
+
+#~ msgid "This board teaches basic colors."
+#~ msgstr "Ez a tábla az alapvető színeket tanítja meg."
