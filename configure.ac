@@ -216,13 +216,6 @@ AC_ARG_ENABLE(disable-activation-code,
           [For Windows or MacOSX version, disable the activation code]),
           disable_activation_code="$enableval", disable_activation_code="no")
 
-dnl internal GnuChess
-AC_ARG_ENABLE(build-gnuchess,
-          AC_HELP_STRING(
-          [--enable-build-gnuchess],
-          [For Gnu/Linux, compile our version of GnuChess]),
-          build_gnuchess="$enableval", build_gnuchess="no")
-
 dnl WIN32 Specifics
 AC_MSG_CHECKING([for Win32 platform in general])
 case "$host" in
@@ -307,7 +300,6 @@ if test "x$platform_win32" = "xyes" ; then
 
   dnl Test for gnuchess
   AC_DEFINE_UNQUOTED(GNUCHESS, "gnuchess.exe", Defines where GNU Chess resides on the system)
-  build_gnuchess=yes
 
   if test x$disable_activation_code = xno; then
     AC_DEFINE([ACTIVATION_CODE], 1,[Activation code is enabled])
@@ -338,7 +330,6 @@ elif test "x$nsbundle" = "xyes" ; then
 
   dnl Test for gnuchess
   AC_DEFINE_UNQUOTED(GNUCHESS, "../Resources/bin/gcompris-gnuchess", Defines where GNU Chess resides on the system)
-  build_gnuchess=yes
 
   if test x$disable_activation_code = xno; then
     AC_DEFINE([ACTIVATION_CODE], 1,[Activation code is enabled])
@@ -366,19 +357,11 @@ else
   AC_DEFINE_UNQUOTED(SYSTEM_CONFIG_DIR, "/etc", [System GCompris config directory])
 
   dnl Test for gnuchess
-  if test x$build_gnuchess = xno; then
-    AC_PATH_PROGS(GNUCHESS, gnuchess gnome-gnuchess, no, [/usr/bin:/usr/games:/usr/local/bin:$PATH])
-  else
-    GNUCHESS="gcompris-gnuchess"
-  fi
-
   if test x$GNUCHESS = xno; then
-    AC_MSG_ERROR([Couldn't find gnuchess, please install the gnuchess package version]
-		 [ 5 or above or define the environment variable GNUCHESS.])
+    GNUCHESS="gcompris-gnuchess"
   fi
   AC_DEFINE_UNQUOTED(GNUCHESS, "$GNUCHESS", Defines where GNU Chess resides on the system)
 fi
-AM_CONDITIONAL(BUILD_GNUCHESS, test x$build_gnuchess != xno)
 
 AC_PATH_PROG(TEXINFO, makeinfo,no)
 if test x$TEXINFO = xno; then
@@ -927,8 +910,6 @@ echo "Force python (--enable-py-build-only)    = $py_build_only"
 echo "Python plugin                            = $build_python_plugin"
 
 echo "SQLITE database (--enable-sqlite)        = $with_sqlite (profiles depend on this)"
-
-echo "Internal GnuChess                        = $build_gnuchess (--enable-build-gnuchess)"
 
 echo "Sugar DE Support                         = $with_sugar"
 echo "BINRELOC (--enable-binreloc)             = $br_cv_binreloc"
