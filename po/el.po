@@ -7,7 +7,6 @@
 # simos: review - 89 messages.
 # panayotis: review - 80 messages.
 # petros: 13Apr04 updated translation - 149 messages.
-#
 # AARG! Anonymous <remailer@aarg.net>, 2001.
 # Simos Xenitellis <simos@hellug.gr>, 2001.
 # Panayotis Pakos <aeikineton@yahoo.com>, 2001.
@@ -18,21 +17,23 @@
 # kiolalis <ttnfy17@yahoo.gr>, 2008, 2010.
 # Yannis Kaskamanidis <kiolalis@gmail.com>, 2010.
 # Γιάννης Κασκαμανίδης, 2011.
+# Dimitris Spingos (Δημήτρης Σπίγγος) <dmtrs32@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-11-11 00:25+0000\n"
-"PO-Revision-Date: 2012-11-03 19:19+0200\n"
-"Last-Translator: Yannis Kaskamanidis <kiolalis@gmail.com>\n"
-"Language-Team: Greek <kde-i18n-doc@kde.org>\n"
-"Language: el_GR\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompr"
+"is&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2012-11-20 23:37+0000\n"
+"PO-Revision-Date: 2012-12-04 00:28+0300\n"
+"Last-Translator: Dimitris Spingos (Δημήτρης Σπίγγος) <dmtrs32@gmail.com>\n"
+"Language-Team: team@gnome.gr\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.2\n"
+"X-Generator: Virtaal 0.7.1\n"
+"X-Project-Style: gnome\n"
 
 #: ../boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
@@ -2984,9 +2985,9 @@ msgstr ""
 "σβήσεις ένα σχέδιο."
 
 #: ../src/drawnumber-activity/drawnumber.py:238
-#: ../src/explore-activity/explore.py:464 ../src/findit-activity/findit.py:336
+#: ../src/explore-activity/explore.py:466 ../src/findit-activity/findit.py:336
 #: ../src/louis_braille-activity/louis_braille.py:84
-#: ../src/piano_composition-activity/piano_composition.py:503
+#: ../src/piano_composition-activity/piano_composition.py:504
 msgid "Cannot find the file '{filename}'"
 msgstr "Αδυναμία εύρεσης του αρχείου '{filename}'"
 
@@ -3208,9 +3209,24 @@ msgstr "Κάντε κλικ για αναπαραγωγή του ήχου"
 msgid "Back to Homepage"
 msgstr "Επιστροφή στην αρχική σελίδα"
 
-#: ../src/explore-activity/explore.py:469 ../src/findit-activity/findit.py:341
+#. ---------------------------------------------------------------------
+#. WRITE LOCATION-SPECIFIC CONTENT TO PAGE
+#. ---------------------------------------------------------------------
+#. FIXME Should remove the space in the data file instead
+#: ../src/explore-activity/explore.py:297
+#: ../src/explore-activity/explore.py:310
+#: ../src/explore-activity/explore.py:497
+#: ../src/explore-activity/explore.py:500
+#: ../src/explore-activity/explore.py:503
+#: ../src/explore-activity/explore.py:519
+#: ../src/piano_composition-activity/piano_composition.py:449
+#: ../src/piano_composition-activity/piano_composition.py:578
+msgid " "
+msgstr ""
+
+#: ../src/explore-activity/explore.py:471 ../src/findit-activity/findit.py:341
 #: ../src/louis_braille-activity/louis_braille.py:88
-#: ../src/piano_composition-activity/piano_composition.py:508
+#: ../src/piano_composition-activity/piano_composition.py:509
 msgid ""
 "Failed to parse data set '{filename}' with error:\n"
 "{error}"
@@ -3218,7 +3234,7 @@ msgstr ""
 "Αποτυχία ανάλυσης συνόλου δεδομένων '{filename}'  με σφάλμα:\n"
 "{error}"
 
-#: ../src/explore-activity/explore.py:584
+#: ../src/explore-activity/explore.py:590
 msgid "Explore Status:"
 msgstr "Εξερεύνηση κατάστασης:"
 
@@ -8724,7 +8740,7 @@ msgstr "Λαb"
 msgid "Bb"
 msgstr "Σιb"
 
-#: ../src/piano_composition-activity/gcomprismusic.py:284
+#: ../src/piano_composition-activity/gcomprismusic.py:290
 msgid "The staff is full. Please erase some notes"
 msgstr "Η παρτιτούρα είναι γεμάτη. Παρακαλώ διαγράψτε μερικές νότες"
 
