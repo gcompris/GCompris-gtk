@@ -38,11 +38,6 @@ from gcompris import gcompris_gettext as _
 from random import randint
 import random
 
-# -----------------------------------------------------------------------------
-# set to True if you'd like to record selected locations to make a new activity
-# BEWARE: setting this to true will delete all your previous records!
-RECORD_LOCATIONS = False
-# -----------------------------------------------------------------------------
 TEXT_BG_COLOR = 0xCCCCCC99L
 
 class Gcompris_explore:
@@ -123,47 +118,45 @@ dialogue to\nenable the sound."), None)
         if hasattr(self, 'SoundMatchingGameText'):
             self.gcomprisBoard.maxlevel = 3
 
-        self.map = goocanvas.Image(
+        self.svghandle = gcompris.utils.load_svg(self.activityDataFilePath + self.background)
+        goocanvas.Svg(
             parent = self.rootitem,
-            x = self.backgroundx,
-            y = self.backgroundy,
-            pixbuf = gcompris.utils.load_pixmap(self.activityDataFilePath + self.background)
+            svg_handle = self.svghandle,
+            svg_id = self.backSvgId,
+            pointer_events = goocanvas.EVENTS_NONE
             )
 
-        if RECORD_LOCATIONS:
-            self.recordLocationsForDeveloper()
+
+        self.drawLocations()
+
+        if level == 1:
+            self.writeText(self.generalText)
         else:
+            # prepare game for play
+            self.progressBar = ProgressBar( self.rootitem,
+                                            200, 480, 400, 25,
+                                            len(self.data.sections()) - 1 )
 
-            self.drawLocations()
+            if level == 2 and self.gcomprisBoard.maxlevel == 3:
 
-            if level == 1:
-                self.writeText(self.generalText)
-            else:
-                # prepare game for play
-                self.progressBar = ProgressBar( self.rootitem,
-                                                200, 480, 400, 25,
-                                                len(self.data.sections()) - 1 )
+                self.remainingItems = self.allSoundClips[:]
+                self.writeText(self.SoundMatchingGameText)
+                # PLAY BUTTON
+                self.playButton = goocanvas.Image(
+                        parent=self.rootitem,
+                        pixbuf=gcompris.utils.load_pixmap('explore/playbutton.png'),
+                        x=65,
+                        y=110,
+                        )
+                self.playButton.connect("button_press_event", self.playCurrentMusicSelection)
+                self.writeText(_('Click to play sound'), 100, 70)
+                gcompris.utils.item_focus_init(self.playButton, None)
+                self.playRandom()
+            elif level == 3 or level == 2:
 
-                if level == 2 and self.gcomprisBoard.maxlevel == 3:
-
-                    self.remainingItems = self.allSoundClips[:]
-                    self.writeText(self.SoundMatchingGameText)
-                    # PLAY BUTTON
-                    self.playButton = goocanvas.Image(
-                            parent=self.rootitem,
-                            pixbuf=gcompris.utils.load_pixmap('explore/playbutton.png'),
-                            x=65,
-                            y=110,
-                            )
-                    self.playButton.connect("button_press_event", self.playCurrentMusicSelection)
-                    self.writeText(_('Click to play sound'), 100, 70)
-                    gcompris.utils.item_focus_init(self.playButton, None)
-                    self.playRandom()
-                elif level == 3 or level == 2:
-
-                    self.remainingItems = self.allTextPrompts[:]
-                    self.writeText(self.TextMatchingGameText)
-                    self.playRandom()
+                self.remainingItems = self.allTextPrompts[:]
+                self.writeText(self.TextMatchingGameText)
+                self.playRandom()
 
     def next_level(self):
         if self.gcomprisBoard.level == self.gcomprisBoard.maxlevel:
@@ -221,14 +214,12 @@ dialogue to\nenable the sound."), None)
 
         for section in self.sectionNames:
 
-
-            pixmap = gcompris.utils.load_pixmap(self.locationPic)
-            item = goocanvas.Image(
+            item = goocanvas.Svg(
                 parent = self.rootitem,
-                x = int(self.data.get(section, 'x')) - pixmap.get_width() / 2.0,
-                y = int(self.data.get(section, 'y')) - pixmap.get_height() / 2.0,
-                pixbuf = pixmap
+                svg_handle = self.svghandle,
+                svg_id = self.data.get(section, 'svgId'),
                 )
+
             gcompris.utils.item_focus_init(item, None)
             item.set_data('sectionNum', section)
             item.set_data('seen', False)
@@ -256,13 +247,20 @@ dialogue to\nenable the sound."), None)
             method called when student clicks on one of the ellipses.
             method loads the location page, including the text, picture, music, and question.
             '''
-            target.props.pixbuf = gcompris.utils.load_pixmap('explore/star.png')
+            bounds = target.get_bounds()
             seen = target.get_data('seen')
             if not seen:
                 target.set_data('seen', True)
                 self.locationSeen += 1
+            pixmap = gcompris.utils.load_pixmap('explore/star.png')
+            goocanvas.Image(parent = self.rootitem,
+                            x = bounds.x1 + \
+                                (bounds.x2 - bounds.x1) / 2.0 - \
+                                pixmap.get_width() / 2.0,
+                            y = bounds.y2 - pixmap.get_height() / 2.0,
+                            pixbuf = pixmap
+                            )
 
-            gcompris.utils.item_focus_init(target, None)
             self.rootitem.props.visibility = goocanvas.ITEM_INVISIBLE
 
             if hasattr(self, 'location_rootitem'):
@@ -312,7 +310,7 @@ dialogue to\nenable the sound."), None)
               parent=self.location_rootitem,
               x=120,
               y=190,
-              width=150,
+              width=180,
               text=_(text),
               fill_color="black",
               anchor=gtk.ANCHOR_CENTER,
@@ -400,58 +398,6 @@ dialogue to\nenable the sound."), None)
 # FYI: at first I didn't see any need to make a class to handle the data, but in
 # retrospect having a data object would have been much cleaner.
 
-    def recordLocationsForDeveloper(self):
-        '''
-        prepare to record the locations by connecting the entire
-        background image with the record_location method
-        '''
-        for section in self.data.sections():
-            if section != 'common':
-                self.data.remove_section(section)
-
-        self.map.connect("button_press_event", self.record_location)
-        gcompris.utils.item_focus_init(self.map, None)
-
-    def record_location(self, widget=None, target=None, event=None):
-        '''
-        method generates output to content.desktop.in according to the specified format.
-        Method called if RECORD_LOCATIONS = True and developer clicks map. Merhod
-        record the location of the click, and writes a template of the section
-        to content.desktop.in to be filled in later by the developer.
-        '''
-        self.numLocations += 1
-        self.data.add_section(str(self.numLocations))
-        x = event.x
-        y = event.y
-        self.data.set(str(self.numLocations), 'x', int(x))
-        self.data.set(str(self.numLocations), 'y', int(y))
-        self.data.set(str(self.numLocations), '_title', 'Location Title Here')
-        self.data.set(str(self.numLocations), '_text', 'location text here')
-        self.data.set(str(self.numLocations), 'image', 'image filepath here, located in resources/name_of_activity/')
-        self.data.set(str(self.numLocations), 'music', 'music file name here')
-        self.data.set(str(self.numLocations), '_shortPrompt', 'enter text for child to match to the location')
-
-        # draw small elipse on screen to show developer where they clicked
-        goocanvas.Ellipse(parent=self.rootitem,
-        center_x=x,
-        center_y=y,
-        radius_x=5,
-        radius_y=5,
-        fill_color='white',
-        stroke_color='white',
-        line_width=1.0)
-
-        # write a small number ontop of the ellipse so developer can record
-        # which numbers (sections) correspond to which locations
-        goocanvas.Text(
-        parent=self.rootitem,
-        x=x,
-        y=y,
-        text=str(self.numLocations),
-        anchor=gtk.ANCHOR_CENTER,
-        alignment=pango.ALIGN_CENTER,
-        )
-
     def read_data(self):
         '''
         method to read in the data from content.desktop.in. Saves this data as
@@ -489,10 +435,10 @@ dialogue to\nenable the sound."), None)
                 except: self.credits = ''
                 try: self.background = self.data.get('common', 'background')
                 except: errors.append("Missing 'background' key")
+                try: self.backSvgId = self.data.get('common', 'backSvgId')
+                except: errors.append("Missing 'background' key")
                 try: self.author = self.data.get('common', 'author')
                 except: self.author = ''
-                try: self.locationPic = self.activityDataFilePath + self.data.get('common', 'locationpic')
-                except: errors.append("Missing 'locationpic' key")
                 # FIXME Should remove the space in the data file instead
                 try: self.generalText = _(" " + self.data.get('common', '_GeneralText'))
                 except: errors.append("Missing '_GeneralText' key")
@@ -502,10 +448,6 @@ dialogue to\nenable the sound."), None)
                 # FIXME Should remove the space in the data file instead
                 try: self.TextMatchingGameText = _(" " + self.data.get('common', '_TextMatchingGameText'))
                 except:pass
-                try: self.backgroundx = int(self.data.get('common', 'backgroundx'))
-                except: errors.append("Missing 'backgroundx' key")
-                try: self.backgroundy = int(self.data.get('common', 'backgroundy'))
-                except: errors.append("Missing 'backgroundy' key")
                 try: self.textBoxX = int(self.data.get('common', 'textBoxX'))
                 except:pass
                 try: self.textBoxY = int(self.data.get('common', 'textBoxY'))
@@ -524,27 +466,6 @@ dialogue to\nenable the sound."), None)
                 gcompris.utils.dialog( "\n".join(errors), None)
 
     def end(self):
-        '''
-        write locations and common template to content.desktop.in
-        '''
-        if RECORD_LOCATIONS:
-            try: self.data.set('common', 'credits', 'enter a list of credits and links to resources you used here')
-            except: pass
-            try: self.data.set('common', 'locationpic', 'enter the filename of the picture you would like to use to identify items to click on your background image')
-            except: pass
-            try: self.data.set('common', 'generalText', 'enter the text to appear on your image for textMatchingGame')
-            except: pass
-            try: self.data.set('common', 'SoundMatchingGameText', 'enter the text to appear on your image for SoundMatchingGame')
-            except: pass
-            try: self.data.set('common', 'TextMatchingGameText', 'enter the text to appear on your image for TextMatchingGame')
-            except: pass
-            try: self.data.set('common', 'textBoxX', 'enter the x location for the text box to appear in the text matching game')
-            except: pass
-            try: self.data.set('common', 'textBoxY', 'enter the x location for the text box to appear in the text matching game')
-            except: pass
-            with open(gcompris.DATA_DIR + '/' + self.gcomprisBoard.name + '/content.desktop.in', 'wb') as configfile:
-                self.data.write(configfile)
-
         # silence any currently playing music
         gcompris.sound.play_ogg('boards/sounds/silence1s.ogg')
         self.rootitem.remove()

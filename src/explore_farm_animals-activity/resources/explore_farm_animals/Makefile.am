@@ -11,14 +11,13 @@ img_DATA = \
 	dog.ogg \
 	duck.jpg \
 	duck.ogg \
-	farm-animals.svg \
+	farm-animals.svgz \
 	horse.jpg \
 	horse.ogg \
 	owl.jpg \
 	owl.ogg \
 	pig.jpg \
 	pig.ogg \
-	questionpic.png \
 	rooster.jpg \
 	rooster.ogg
 

@@ -3,6 +3,7 @@ img_DATA = \
 	border.png \
 	playbutton.png \
 	ribbon.png \
-	star.png
+	star.png \
+	world.png
 
 EXTRA_DIST = $(img_DATA)

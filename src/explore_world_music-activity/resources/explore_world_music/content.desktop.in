@@ -1,61 +1,53 @@
 # Created by Beth Hadley
 [common]
-background = worldmap.jpg
-backgroundx = 10
-backgroundy = 10
+background = content.svgz
+backSvgId = #BACKGROUND
 credits =  http://commons.wikimedia.org/wiki, http://archive.org
-locationpic = suitcase.svg
 _generalText = Explore world music! Click on the suitcases.
 _SoundMatchingGameText = Click on the location that matches the music you hear.
 _TextMatchingGameText = Click on the location that matches the text.
-textBoxX = 300
-textBoxY = 350
+textBoxX = 400
+textBoxY = 370
 
 [1]
-x = 678
-y = 260
 _title = Australia
 _text = Aboriginals were the first people to live in Australia. They sing and play instruments, like the didgeridoo. It is made from a log and can be up to five meters long!
 image = australia.jpg
 music = australia.ogg
 _shortPrompt = Where is the didgeridoo played?
-
+svgId = #AUSTRALIA
 
 [2]
-x = 449
-y = 200
 _title = Africa
 _text = Music is a part of everyday life in Africa. African music features a great variety of drums, and they believe it is a sacred and magical instrument.
 image = africa.jpg
 music = africa.ogg
 _shortPrompt = Where is the drum considered a magical instrument?
+svgId = #AFRICA
 
 [3]
-x = 500
-y = 134
 _title = Middle East
 _text = Music is a very important part of middle eastern culture. Specific songs are played to call worshipers to prayer. The lute is an instrument invented thousands of years ago and still in use today.
 image= middleeast.jpg
 music= middleeast.ogg
 _shortPrompt = Where is music used to call people to prayer?
+svgId = #MIDDLE_EAST
 
 [4]
-x = 691
-y = 133
 _title = Japan
 _text = Taiko drumming comes from Japan. This type of drumming was originally used to scare enemies in battle. It is very loud, and performances are very exciting with crowds cheering and performers yelling!
 image = japan.jpg
 music = japan.ogg
 _shortPrompt = Where do performers yelp as they play the drums?
+svgId = #JAPAN
 
 [5]
-x = 382
-y = 90
 _title = Scotland and Ireland
 _text = Folk music of this region is called celtic music, often incorporates a narrative poem or story. Typical instruments include bagpipes, fiddles, flutes, harps, and accordions.
 _shortPrompt = Bagpipers, who often wear kilts, are from this location.
 image = ireland.jpg
 music = ireland.ogg
+svgId = #IRELAND
 
 [6]
 x=421
@@ -65,25 +57,24 @@ _text = Italy is famous for its Opera. Opera is a musical theater where actors t
 _shortPrompt = This country is known for its opera music.
 image = italy.jpg
 music = italy.ogg
+svgId = #ITALY
 
 [7]
-x = 425
-y = 90
 _title = European Classical Music
 _text = Europe is the home of classical music. Famous composers like Bach, Beethoven, and Mozart forever changed music history.
 _shortPrompt = Bach, Beethoven, and Mozart composed music in this location.
 image = orchestra.jpg
 music = beethoven.ogg
+svgId = #ORCHESTRA
 
 [8]
-x = 185
-y = 170
 _title = Mexico
 _text = Mariachi is a famous type of Mexican music. It features guitars, trumpets, and violins. These bands play for many occasions, including weddings and parties.
 _question = At parties, people often dance to the Mariachi music. A Famous dance is:
 _shortPrompt = Where is Mariachi music from?
 music = mexico.ogg
 image = mexico.jpg
+svgId = #MEXICO
 
 [9]
 x=184
@@ -94,3 +85,4 @@ _question = The 'king' of rock n' roll is
 _shortPrompt = The 'king' of rock n' roll, Elvis Presley, made his music famous in this country.
 music = america.ogg
 image = america.jpg
+svgId = #USA

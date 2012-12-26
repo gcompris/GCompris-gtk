@@ -8,6 +8,7 @@ img_DATA = \
 	australia.ogg \
 	beethoven.ogg \
 	content.desktop.in \
+	content.svgz \
 	dancingWorld.png \
 	ireland.jpg \
 	ireland.ogg \
@@ -19,8 +20,6 @@ img_DATA = \
 	mexico.ogg \
 	middleeast.jpg \
 	middleeast.ogg \
-	orchestra.jpg \
-	suitcase.svg \
-	worldmap.jpg
+	orchestra.jpg
 
 EXTRA_DIST = $(img_DATA)
