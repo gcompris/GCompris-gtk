@@ -26,6 +26,13 @@ import pango
 
 from gcompris import gcompris_gettext as _
 
+#
+# The name of the class is important. It must start with the prefix
+# 'Gcompris_' and the last part 'pythontemplate' here is the name of
+# the activity and of the file in which you put this code. The name of
+# the activity must be used in your menu.xml file to reference this
+# class like this: type="python:pythontemplate"
+#
 class Gcompris_pythontemplate:
   """Empty gcompris Python class"""
 
