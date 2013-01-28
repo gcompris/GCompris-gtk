@@ -469,11 +469,12 @@ class Display:
       text = _('Fuel'))
 
     # fuel tank
+    bounds = fuel_text.get_bounds()
     rectangle = goocanvas.Rect(
       parent = rootitem,
-      radius_x = 10,
-      radius_y = 10,
-      x = 65.0,
+      radius_x = 5,
+      radius_y = 5,
+      x = bounds.x2 + 5,
       y = 40.0,
       width = 100,
       height = 20,
@@ -483,9 +484,9 @@ class Display:
     self.fuel_amt = 96
     self.fuel_tank = goocanvas.Rect(
       parent = rootitem,
-      radius_x = 10,
-      radius_y = 10,
-      x = 66.5,
+      radius_x = 5,
+      radius_y = 5,
+      x = bounds.x2 + 6,
       y = 41.3,
       width = self.fuel_amt,
       height = 16.5,
