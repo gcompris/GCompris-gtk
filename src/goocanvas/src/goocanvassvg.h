@@ -10,7 +10,6 @@
 #include <gtk/gtk.h>
 #include "goocanvasitemsimple.h"
 #include <librsvg/rsvg.h>
-#include <librsvg/rsvg-cairo.h>
 
 G_BEGIN_DECLS
 
