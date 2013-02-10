@@ -208,13 +208,14 @@ init_config_boards()
       return;
     }
 
+    /* Load the gcompris modules */
+    python_gcompris_module_init();
+
     /* Add the python plugins dir to the python's search path */
     boarddir = get_pythonpath();
     PyRun_SimpleString(boarddir);
     g_free(boarddir);
 
-    /* Load the gcompris modules */
-    python_gcompris_module_init();
   }
   else {
     main_module = PyImport_AddModule("__main__"); /* Borrowed reference */

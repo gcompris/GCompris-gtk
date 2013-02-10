@@ -31,7 +31,7 @@ fi
 sed -e "s/\(<\{1\}\/*\)_/\1/g" $1/${activity}.xml.in > $1/${activity}.xml
 
 $gcompris -L $plugindir \
-    -P $pythonplugindir \
+    -P boards/python:$pythonplugindir \
     -A $resourcedir \
     -S $menudir/../../boards/skins \
     -M $menudir \
