@@ -55,14 +55,14 @@ static void game_won();
 #define BALLAST_AV_AIR_TEXT_Y 50
 #define BALLAST_AV_AIR_X1 393
 #define BALLAST_AV_AIR_Y1 20
-#define BALLAST_AV_AIR_W 90
+#define BALLAST_AV_AIR_W 94
 #define BALLAST_AV_AIR_H 60
 
 #define BALLAST_AR_AIR_TEXT_X 220
 #define BALLAST_AR_AIR_TEXT_Y 50
 #define BALLAST_AR_AIR_X1 180
 #define BALLAST_AR_AIR_Y1 20
-#define BALLAST_AR_AIR_W 90
+#define BALLAST_AR_AIR_W 94
 #define BALLAST_AR_AIR_H 60
 
 #define SURFACE_IN_BACKGROUND 40
@@ -72,8 +72,7 @@ static void game_won();
 #define MAX_DEPTH 250.0
 #define SPEED_MAX 10
 #define SPEED_STEP 1
-#define AIR_INITIAL 30000
-#define BATTERY_INITIAL 3000
+#define AIR_INITIAL 60000
 #define MAX_BALLAST 10000
 #define MAX_REGLEUR 800
 #define REGLEUR_INITIAL 500.0
@@ -91,24 +90,16 @@ static void game_won();
 #define ENGINE_DOWN_Y 94
 #define ENGINE_UP_X 114
 #define ENGINE_UP_Y 94
-#define AIR_X 328
-#define AIR_Y 109
-#define BATTERY_X 330
-#define BATTERY_Y 156
+#define AIR_X 331
+#define AIR_Y 115
 
 #define REGLEUR_TEXT_X 330
 #define REGLEUR_TEXT_Y 37
 #define REGLEUR_X1 325
-#define REGLEUR_Y1 18
-#define REGLEUR_W  12
-#define REGLEUR_H  34
+#define REGLEUR_Y1 20
+#define REGLEUR_W  13
+#define REGLEUR_H  39
 
-#define AIR_TRIGGER_X 154
-#define AIR_TRIGGER_Y 108
-#define BATTERY_TRIGGER_X 184
-#define BATTERY_TRIGGER_Y 108
-#define TRIGGER_CENTER_X 7
-#define TRIGGER_CENTER_Y 23
 #define ALERT_SUBMARINE_X 719
 #define ALERT_SUBMARINE_Y 368
 
@@ -134,31 +125,32 @@ static GooCanvasItem *submarine_item,
 static GooCanvasItem *regleur_chasse_item;
 gboolean ballast_av_purge_open, ballast_ar_purge_open, regleur_purge_open;
 gboolean ballast_av_chasse_open, ballast_ar_chasse_open, regleur_chasse_open;
-gboolean air_charging, battery_charging;
 gboolean submarine_destroyed;
 gboolean treasure_captured;
 
 static GooCanvasItem *barre_av_item, *barre_ar_item,
-  *speed_item_back, *speed_item_front,
-  *air_item_back, *air_item_front,
-  *regleur_item_back, *regleur_item_front,
+  *speed_item_front,
+  *air_item_front,
+  *regleur_item_front,
   *regleur_item_rect,
-  *battery_item_back, *battery_item_front,
-  *ballast_av_air_item_back, *ballast_av_air_item_front,
-  *ballast_ar_air_item_back, *ballast_ar_air_item_front,
+  *ballast_av_air_item_front,
+  *ballast_ar_air_item_front,
   *ballast_av_air_item_rect, *ballast_ar_air_item_rect,
-  *air_compressor_item, *battery_charger_item, *alert_submarine,
+  *alert_submarine,
   *bubbling[3], *big_explosion, *whale, *treasure, *top_gate_item;
 
+static gboolean with_frigate;
 static GooCanvasItem *frigate_item = NULL;
 /* submarine parameters */
 static gdouble barre_av_angle, barre_ar_angle, depth, weight, resulting_weight;
-static gdouble submarine_x, air, battery, regleur;
+static gdouble submarine_x, air, regleur;
 static gdouble submarine_horizontal_speed, submarine_vertical_speed;
 static gdouble speed_ordered, assiette;
 static gdouble ballast_av_air, ballast_ar_air;
 
+static gboolean with_whale;
 static gdouble whale_x, whale_y;
+static gboolean with_treasure;
 static gdouble treasure_x, treasure_y;
 static guint schema_x, schema_y;
 
@@ -193,15 +185,10 @@ static gboolean barre_ar_event(GooCanvasItem *item, GooCanvas *target,
 			   GdkEventButton *event, gpointer data);
 static gboolean engine_event(GooCanvasItem *item, GooCanvas *target,
 			 GdkEventButton *event, gpointer data);
-static gboolean air_compressor_event(GooCanvasItem *item, GooCanvas *target,
-				 GdkEventButton *event, gpointer data);
-static gboolean battery_charger_event(GooCanvasItem *item, GooCanvas *target,
-				  GdkEventButton *event, gpointer data);
 
 static void start_frigate_anim(void);
 static void stop_frigate_anim(void);
 static void setSpeed(gdouble value);
-static void setBattery(gdouble value);
 static void setAir(gdouble value);
 static void setRegleur(gdouble value);
 static void setBallastAV(gdouble value);
@@ -334,7 +321,6 @@ static void submarine_next_level()
   gamewon = FALSE;
   ballast_av_purge_open = ballast_ar_purge_open = regleur_purge_open = FALSE;
   ballast_av_chasse_open = ballast_ar_chasse_open = regleur_chasse_open = FALSE;
-  air_charging = battery_charging = FALSE;
   barre_av_angle = barre_ar_angle = 0.0;
   depth = SUBMARINE_INITIAL_DEPTH;
   submarine_horizontal_speed = speed_ordered = 0.0;
@@ -342,7 +328,6 @@ static void submarine_next_level()
   weight = WEIGHT_INITIAL;
   regleur = REGLEUR_INITIAL;
   air = AIR_INITIAL;
-  battery = BATTERY_INITIAL;
   ballast_av_air = ballast_ar_air = MAX_BALLAST/10.0;
   assiette = 0.0;
   submarine_destroyed = FALSE;
@@ -403,6 +388,38 @@ static GooCanvasItem *submarine_drawbackground(GooCanvasItem *parent) {
 #else
   g_object_unref(pixmap);
 #endif
+
+  gchar *engine_str = \
+    g_strconcat( "\n\n",
+		 _("Engine control, use the buttons to select your speed."), NULL );
+  goo_canvas_rect_new (backgroundRootItem,
+		       schema_x + 30,
+		       schema_y + 80,
+		       113,
+		       48,
+		       "fill-color-rgba", 0xEBB87CFFL,
+		       "line-width", 1.0,
+		       "radius-x", 20.0,
+		       "radius-y", 20.0,
+		       "tooltip", engine_str,
+		       NULL);
+  g_free(engine_str);
+
+  gchar *air_str = \
+    g_strconcat( "\n\n",
+		 _("Compressed air tank is used to flush water out of the ballasts."), NULL );
+  goo_canvas_rect_new (backgroundRootItem,
+		       schema_x + 273,
+		       schema_y + 100,
+		       120,
+		       33,
+		       "fill-color-rgba", 0xFFFFFFFFL,
+		       "line-width", 1.0,
+		       "radius-x", 7.0,
+		       "radius-y", 7.0,
+		       "tooltip", air_str,
+		       NULL);
+  g_free(air_str);
 
 #define COMMAND_OFFSET 20.0
   pixmap = gc_pixmap_load("submarine/up.png");
@@ -483,6 +500,9 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 
   GooCanvasItem *rootItem = goo_canvas_group_new (parent, NULL);
 
+  with_frigate = (gcomprisBoard->level > 2 ? TRUE : FALSE);
+
+
   pixmap = gc_pixmap_load("submarine/submarine.png");
   submarine_width = gdk_pixbuf_get_width(pixmap);
   submarine_height = gdk_pixbuf_get_height(pixmap);
@@ -499,11 +519,19 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 #endif
 
 
+  gchar *ballast_open_str =			\
+    g_strconcat( "\n\n",
+		 _("Open or close the the ballast tank."), "\n",
+		 _("It allows the water, to get in the tank."), "\n",
+ 		 _("Increase the water level to dive."), "\n",
+		 _("Lower the water level to rise to the surface."), NULL );
+
   pixmap = gc_pixmap_load("submarine/vanne.svg");
   ballast_ar_purge_item = goo_canvas_image_new (rootItem,
 						pixmap,
 						PURGE_AR + schema_x,
 						schema_y -1.0,
+						"tooltip", ballast_open_str,
 						 NULL);
   g_signal_connect(ballast_ar_purge_item, "button-press-event",
 		   (GCallback) ballast_ar_purge_event, NULL);
@@ -512,6 +540,7 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 						pixmap,
 						PURGE_AV + schema_x,
 						schema_y -1.0,
+						"tooltip", ballast_open_str,
 						NULL);
   g_signal_connect(ballast_av_purge_item, "button-press-event",
 		   (GCallback) ballast_av_purge_event, NULL);
@@ -520,14 +549,25 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 					     pixmap,
 					     REGLEUR + schema_x,
 					     schema_y -2.0,
+					     "tooltip", ballast_open_str,
 					     NULL);
   g_signal_connect(regleur_purge_item, "button-press-event",
 		   (GCallback) regleur_purge_event, NULL);
+  g_free(ballast_open_str);
+
+
+  gchar *ballast_flush_str = \
+    g_strconcat( "\n\n",
+		 _("Open or close the the ballast flush."), "\n",
+		 _("It flushes the water out of the tank."), "\n",
+		 _("Increase the water level to dive."), "\n",
+		 _("Lower the water level to surface."), NULL );
 
   item = goo_canvas_image_new (rootItem,
 			       pixmap,
 			       schema_x + CHASSE_BALLAST_AV_X,
 			       schema_y +  CHASSE_BALLAST_AV_Y,
+			       "tooltip", ballast_flush_str,
 			       NULL);
   g_signal_connect(item, "button-press-event",
 		   (GCallback) ballast_av_chasse_event, NULL);
@@ -536,6 +576,7 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 			       pixmap,
 			       schema_x + CHASSE_BALLAST_AR_X,
 			       schema_y +  CHASSE_BALLAST_AR_Y,
+			       "tooltip", ballast_flush_str,
 			       NULL);
   g_signal_connect(item, "button-press-event",
 		   (GCallback) ballast_ar_chasse_event, NULL);
@@ -544,9 +585,11 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 					      pixmap,
 					      schema_x + CHASSE_REGLEUR_X,
 					      schema_y + CHASSE_REGLEUR_Y,
+					      "tooltip", ballast_flush_str,
 					      NULL);
   g_signal_connect(regleur_chasse_item, "button-press-event",
 		   (GCallback) regleur_chasse_event, NULL);
+  g_free(ballast_flush_str);
 
 #if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(pixmap);
@@ -555,17 +598,33 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 #endif
 
   // DEPTH RUDDERS
+  gchar *depth_rudders_str = \
+    g_strconcat( "\n\n",
+		 _("Horizontal rudders also called tailplanes."), "\n",
+		 _("It controls the up and down orientation."), "\n",
+		 _("It needs water to flow around them to be effective."), NULL );
+
   pixmap = gc_pixmap_load("submarine/rudder.png");
   barre_av_item = goo_canvas_image_new (rootItem,
 					pixmap,
 					schema_x + BARRE_AV_X,
 					schema_y + BARRE_AV_Y,
+					"tooltip", depth_rudders_str,
 					 NULL);
+  g_free(depth_rudders_str);
+
+  depth_rudders_str = \
+    g_strconcat( "\n\n",
+		 _("Horizontal rudders also called foreplanes."), "\n",
+		 _("It controls the up and down orientation."), "\n",
+		 _("It needs water to flow around them to be effective."), NULL );
   barre_ar_item = goo_canvas_image_new (rootItem,
 					pixmap,
 					schema_x + BARRE_AR_X,
 					schema_y + BARRE_AR_Y,
+					"tooltip", depth_rudders_str,
 					 NULL);
+  g_free(depth_rudders_str);
 #if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
   gdk_pixbuf_unref(pixmap);
 #else
@@ -573,17 +632,10 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 #endif
 
   // displays the speed on the engine
+  gchar *engine_str = \
+    g_strconcat( "\n\n",
+		 _("Engine control, use the buttons to select your speed."), NULL );
   sprintf(s12,"%d",(int)submarine_horizontal_speed);
-  speed_item_back = goo_canvas_text_new (rootItem,
-					 s12,
-					 (gdouble) schema_x + ENGINE_UP_X - ENGINE_DOWN_X +1,
-					 (gdouble) schema_y + ENGINE_UP_Y + 10 + 1,
-					 -1,
-					 GTK_ANCHOR_CENTER,
-					 "font", gc_skin_font_board_title_bold,
-					 "alignment", PANGO_ALIGN_CENTER,
-					 "fill-color", TEXT_COLOR_BACK,
-					 NULL);
   speed_item_front = goo_canvas_text_new (rootItem,
 					  s12,
 					  (gdouble) schema_x + ENGINE_UP_X - ENGINE_DOWN_X,
@@ -593,9 +645,14 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 					  "font", gc_skin_font_board_title_bold,
 					  "alignment", PANGO_ALIGN_CENTER,
 					  "fill-color", TEXT_COLOR_FRONT,
+					  "tooltip", engine_str,
 					  NULL);
+  g_free(engine_str);
 
   // displays the ballast_av_air value
+  gchar *ballast_air_str = \
+    g_strconcat( "\n\n",
+		 _("Water level in the ballast."), NULL );
   ballast_av_air_item_rect = goo_canvas_rect_new (rootItem,
 						  schema_x + BALLAST_AV_AIR_X1,
 						  schema_y + BALLAST_AV_AIR_Y1
@@ -604,18 +661,10 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 						  BALLAST_AV_AIR_H,
 						  "fill-color", "blue",
 						  "line-width", 0.0,
+						  "tooltip", ballast_air_str,
 						  NULL);
 
   sprintf(s12,"%d",(int)ballast_av_air);
-  ballast_av_air_item_back = goo_canvas_text_new (rootItem,
-						  s12,
-						  (gdouble) schema_x + BALLAST_AV_AIR_TEXT_X + 1,
-						  (gdouble) schema_y + BALLAST_AV_AIR_TEXT_Y + 1,
-						  -1,
-						  GTK_ANCHOR_CENTER,
-						  "font", gc_skin_font_board_title_bold,
-						  "fill-color", TEXT_COLOR_BACK,
-						  NULL);
   ballast_av_air_item_front = goo_canvas_text_new (rootItem,
 						   s12,
 						   (gdouble) schema_x + BALLAST_AV_AIR_TEXT_X,
@@ -624,6 +673,7 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 						   GTK_ANCHOR_CENTER,
 						   "font", gc_skin_font_board_title_bold,
 						   "fill-color", TEXT_COLOR_FRONT,
+						   "tooltip", ballast_air_str,
 						   NULL);
   setBallastAV(ballast_av_air);
 
@@ -636,18 +686,10 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 						  BALLAST_AR_AIR_H,
 						  "fill-color", "blue",
 						  "line-width", 0.0,
+						  "tooltip", ballast_air_str,
 						  NULL);
 
   sprintf(s12,"%d",(int)ballast_ar_air);
-  ballast_ar_air_item_back = goo_canvas_text_new (rootItem,
-						  s12,
-						  (gdouble) schema_x + BALLAST_AR_AIR_TEXT_X + 1,
-						  (gdouble) schema_y + BALLAST_AR_AIR_TEXT_Y + 1,
-						  -1,
-						  GTK_ANCHOR_CENTER,
-						  "font", gc_skin_font_board_title_bold,
-						  "fill-color", TEXT_COLOR_BACK,
-						  NULL);
   ballast_ar_air_item_front = goo_canvas_text_new (rootItem,
 						   s12,
 						   (gdouble) schema_x + BALLAST_AR_AIR_TEXT_X,
@@ -656,20 +698,12 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 						   GTK_ANCHOR_CENTER,
 						   "font", gc_skin_font_board_title_bold,
 						   "fill-color", TEXT_COLOR_FRONT,
+						   "tooltip", ballast_air_str,
 						   NULL);
   setBallastAR(ballast_ar_air);
 
   // displays the remaining air value
   sprintf(s12,"%d", (int)air);
-  air_item_back = goo_canvas_text_new (rootItem,
-				       s12,
-				       (gdouble) schema_x + AIR_X +1,
-				       (gdouble) schema_y + AIR_Y + 1,
-				       -1,
-				       GTK_ANCHOR_CENTER,
-				       "font", gc_skin_font_board_title_bold,
-				       "fill-color", TEXT_COLOR_BACK,
-				       NULL);
   air_item_front = goo_canvas_text_new (rootItem,
 					s12,
 					(gdouble) schema_x + AIR_X,
@@ -678,30 +712,8 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 					GTK_ANCHOR_CENTER,
 					"font", gc_skin_font_board_title_bold,
 					"fill-color", TEXT_COLOR_FRONT,
+					"tooltip", ballast_air_str,
 					NULL);
-
-  // displays the remaining battery value
-  sprintf(s12,"%d", (int)battery);
-  battery_item_back = goo_canvas_text_new (rootItem,
-					   s12,
-					   (gdouble) schema_x + BATTERY_X +1,
-					   (gdouble) schema_y + BATTERY_Y + 1,
-					   -1,
-					   GTK_ANCHOR_CENTER,
-					   "font", gc_skin_font_board_title_bold,
-					   "alignment", PANGO_ALIGN_CENTER,
-					   "fill-color", TEXT_COLOR_BACK,
-					   NULL);
-  battery_item_front = goo_canvas_text_new (rootItem,
-					    s12,
-					    (gdouble) schema_x + BATTERY_X,
-					    (gdouble) schema_y + BATTERY_Y,
-					    -1,
-					    GTK_ANCHOR_CENTER,
-					    "font", gc_skin_font_board_title_bold,
-					    "alignment", PANGO_ALIGN_CENTER,
-					    "fill-color", TEXT_COLOR_FRONT,
-					    NULL);
 
   // displays the remaining regleur value
   regleur_item_rect = goo_canvas_rect_new (rootItem,
@@ -711,18 +723,10 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 					   REGLEUR_H,
 					   "fill-color", "blue",
 					   "line-width", 0.0,
+					   "tooltip", ballast_air_str,
 					   NULL);
 
   sprintf(s12,"%d", (int)regleur);
-  regleur_item_back = goo_canvas_text_new (rootItem,
-					   s12,
-					   (gdouble) schema_x + REGLEUR_TEXT_X +1,
-					   (gdouble) schema_y + REGLEUR_TEXT_Y + 1,
-					   -1,
-					   GTK_ANCHOR_CENTER,
-					   "font", gc_skin_font_board_title_bold,
-					   "fill-color", TEXT_COLOR_BACK,
-					   NULL);
   regleur_item_front = goo_canvas_text_new (rootItem,
 					    s12,
 					    (gdouble) schema_x + REGLEUR_TEXT_X,
@@ -731,7 +735,9 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 					    GTK_ANCHOR_CENTER,
 					    "font", gc_skin_font_board_title_bold,
 					    "fill-color", TEXT_COLOR_FRONT,
+					    "tooltip", ballast_air_str,
 					    NULL);
+  g_free(ballast_air_str);
   setRegleur(regleur);
 
   // displays an alert when some parameters are bad
@@ -770,11 +776,11 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 #endif
 
   // whale item
+  with_whale = TRUE;
   switch(gcomprisBoard->level)
     {
     case 1:
-      whale_x = 50;
-      whale_y = MAX_DEPTH - 100;
+      with_whale = FALSE;
       break;
     case 2:
       whale_x = 150;
@@ -790,82 +796,67 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
       break;
     }
 
-  pixmap = gc_pixmap_load("submarine/whale.png");
-  whale = goo_canvas_image_new (rootItem,
-				pixmap,
-				whale_x,
-				whale_y,
-				NULL);
+  if(with_whale)
+    {
+      pixmap = gc_pixmap_load("submarine/whale.png");
+      whale = goo_canvas_image_new (rootItem,
+				    pixmap,
+				    whale_x,
+				    whale_y,
+				    NULL);
 #if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
-  gdk_pixbuf_unref(pixmap);
+      gdk_pixbuf_unref(pixmap);
 #else
-  g_object_unref(pixmap);
+      g_object_unref(pixmap);
 #endif
 
-  //  whale being hit
-  pixmap = gc_pixmap_load("submarine/whale_hit.png");
-  big_explosion = goo_canvas_image_new (rootItem,
-					pixmap,
-					whale_x,
-					whale_y,
-					NULL);
-  g_object_set (big_explosion,
-		"visibility", GOO_CANVAS_ITEM_INVISIBLE,
-		NULL);
+      //  whale being hit
+      pixmap = gc_pixmap_load("submarine/whale_hit.png");
+      big_explosion = goo_canvas_image_new (rootItem,
+					    pixmap,
+					    whale_x,
+					    whale_y,
+					    NULL);
+      g_object_set (big_explosion,
+		    "visibility", GOO_CANVAS_ITEM_INVISIBLE,
+		    NULL);
 
 #if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
-  gdk_pixbuf_unref(pixmap);
+      gdk_pixbuf_unref(pixmap);
 #else
-  g_object_unref(pixmap);
+      g_object_unref(pixmap);
 #endif
+    }
 
-  // treasure item
-  pixmap = gc_pixmap_load("submarine/crown.png");
-  treasure_x = (BOARDWIDTH*3)/4;
-  treasure_y = MAX_DEPTH;
-  treasure = goo_canvas_image_new (rootItem,
-				   pixmap,
-				   0,
-				   0,
-				   NULL);
-  goo_canvas_item_translate(treasure, treasure_x, 0);
-  goo_canvas_item_animate(treasure,
-			  treasure_x,
-			  treasure_y,
-			  0.6,
-			  0,
-			  TRUE,
-			  6*1000,
-			  40,
-			  GOO_CANVAS_ANIMATE_FREEZE);
+  with_treasure = FALSE;
+  if(gcomprisBoard->level > 1)
+    {
+      with_treasure = TRUE;
+      // treasure item
+      pixmap = gc_pixmap_load("submarine/crown.png");
+      treasure_x = (BOARDWIDTH*3)/4;
+      treasure_y = MAX_DEPTH;
+      treasure = goo_canvas_image_new (rootItem,
+				       pixmap,
+				       0,
+				       0,
+				       NULL);
+      goo_canvas_item_translate(treasure, treasure_x, 0);
+      goo_canvas_item_animate(treasure,
+			      treasure_x,
+			      treasure_y,
+			      0.6,
+			      0,
+			      TRUE,
+			      6*1000,
+			      40,
+			      GOO_CANVAS_ANIMATE_FREEZE);
 #if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
-  gdk_pixbuf_unref(pixmap);
+      gdk_pixbuf_unref(pixmap);
 #else
-  g_object_unref(pixmap);
+      g_object_unref(pixmap);
 #endif
-
-  // the triggers for air compressor and battery charger
-  pixmap = gc_pixmap_load("submarine/manette.png");
-  air_compressor_item = goo_canvas_image_new (rootItem,
-					      pixmap,
-					      schema_x + AIR_TRIGGER_X,
-					      schema_y + AIR_TRIGGER_Y,
-					      NULL);
-  battery_charger_item = goo_canvas_image_new (rootItem,
-					       pixmap,
-					       schema_x + BATTERY_TRIGGER_X,
-					       schema_y + BATTERY_TRIGGER_Y,
-					       NULL);
-#if GDK_PIXBUF_MAJOR <= 2 && GDK_PIXBUF_MINOR <= 24
-  gdk_pixbuf_unref(pixmap);
-#else
-  g_object_unref(pixmap);
-#endif
-
-  g_signal_connect(air_compressor_item, "button-press-event",
-		   (GCallback) air_compressor_event, NULL);
-  g_signal_connect(battery_charger_item, "button-press-event",
-		   (GCallback) battery_charger_event, NULL);
+    }
 
   /*
    * Set the right wall
@@ -876,7 +867,7 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
     {
     case 1:
       gate_top_y = 80;
-      gate_bottom_y = schema_y - 100;
+      gate_bottom_y = schema_y - 40;
       break;
     case 2:
       gate_top_y = 100;
@@ -922,6 +913,10 @@ static void start_frigate_anim()
 {
   GdkPixbuf *pixmap;
   int w;
+
+  if(!with_frigate)
+    return;
+
   if (frigate_item)
     stop_frigate_anim();
 
@@ -953,6 +948,9 @@ static void start_frigate_anim()
 
 static void stop_frigate_anim()
 {
+  if(!with_frigate)
+    return;
+
   if (frigate_item)
     {
       goo_canvas_item_stop_animation (frigate_item);
@@ -1100,7 +1098,7 @@ static gboolean update_timeout_slow() {
 
   // show an alert if some parameters reach the limit
   if (depth >= MAX_DEPTH-20.0 || assiette == -30.0
-      || assiette == 30.0 || air == 0.0 || battery == 0.0)
+      || assiette == 30.0 || air == 0.0)
     g_object_set (alert_submarine,
 		  "visibility", GOO_CANVAS_ITEM_VISIBLE,
 		  NULL);
@@ -1108,20 +1106,6 @@ static gboolean update_timeout_slow() {
     g_object_set (alert_submarine,
 		  "visibility", GOO_CANVAS_ITEM_INVISIBLE,
 		  NULL);
-
-  /* if the submarine dives, stop charging air tanks and batteries */
-  if ( depth >= SURFACE_DEPTH+10.0 ) {
-    if (air_charging) {
-      air_charging = FALSE;
-      gc_item_rotate_with_center(air_compressor_item, 0,
-				 TRIGGER_CENTER_X, TRIGGER_CENTER_Y );
-    }
-    if (battery_charging) {
-      battery_charging = FALSE;
-      gc_item_rotate_with_center(battery_charger_item, 0,
-				 TRIGGER_CENTER_X, TRIGGER_CENTER_Y );
-    }
-  }
 
   /* Check the submarine passed the right door */
   if ( submarine_x > WRAP_X && !gamewon )
@@ -1146,7 +1130,8 @@ static gboolean update_timeout_slow() {
     }
 
   /* Open the door */
-  if(treasure_captured && gate_top_current_y > gate_top_y)
+  if( (gate_top_current_y > gate_top_y) &&
+      (gcomprisBoard->level == 1 || treasure_captured) )
     open_door();
 
   /* display the submarine */
@@ -1170,6 +1155,7 @@ static gboolean update_timeout_slow() {
   }
 
   /* whale detection */
+  if(with_whale)
   {
     gdouble dist1 = hypot( submarine_x - whale_x,  depth - whale_y);
     if ( ( dist1 < WHALE_DETECTION_RADIUS ) && !submarine_destroyed ) {
@@ -1181,6 +1167,7 @@ static gboolean update_timeout_slow() {
   }
 
   /* treasure detection */
+  if(with_treasure)
   {
     gdouble dist1 = hypot( submarine_x - treasure_x, depth - treasure_y);
     if ( (dist1 < TREASURE_DETECTION_RADIUS)
@@ -1205,36 +1192,6 @@ static gboolean update_timeout_very_slow() {
 
   if(board_paused)
     return TRUE;
-
-  if (air_charging && depth < SURFACE_DEPTH+5.0) {
-    air += 100.0*UPDATE_DELAY_VERY_SLOW/1000.0;
-    setAir(air);
-  }
-
-  if (battery_charging && depth < SURFACE_DEPTH+5.0) {
-    if (battery < 0.3*battery)
-      battery += 500.0*UPDATE_DELAY_VERY_SLOW/1000.0;
-    else
-      if (battery < 0.6*battery)
-	battery += 200.0*UPDATE_DELAY_VERY_SLOW/1000.0;
-      else
-	if (battery < 0.8*battery)
-	  battery += 100.0*UPDATE_DELAY_VERY_SLOW/1000.0;
-	else
-	  battery += 50.0*UPDATE_DELAY_VERY_SLOW/1000.0;
-  }
-
-  /* battery */
-  battery -= submarine_horizontal_speed * submarine_horizontal_speed/3.0
-    * UPDATE_DELAY_VERY_SLOW/1000.0;
-
-  if (battery < 0.0) {
-    battery = 0.0;
-    speed_ordered = 0;
-    setSpeed(speed_ordered);
-  }
-
-  setBattery( battery );
 
   /* bubbling */
   if ( (ballast_av_purge_open && ballast_av_air > 0.0) ||
@@ -1546,69 +1503,17 @@ engine_event(GooCanvasItem *item, GooCanvas *target,
   return FALSE;
 }
 /* =====================================================================
- *		air_compressor_event
- * =====================================================================*/
-static gboolean
-air_compressor_event(GooCanvasItem *item, GooCanvas *target,
-		     GdkEventButton *event, gpointer data)
-{
-
-  if(board_paused || !boardRootItem)
-    return FALSE;
-
-  gc_sound_play_ogg ("sounds/bleep.wav", NULL);
-  if (air_charging)
-    air_charging = FALSE;
-  else
-    air_charging = TRUE;
-
-  gc_item_rotate_relative_with_center(item, air_charging ? 180 : 0 ,
-				      TRIGGER_CENTER_X, TRIGGER_CENTER_Y );
-
-  return FALSE;
-}
-/* =====================================================================
- *		battery_charger_event
- * =====================================================================*/
-static gboolean
-battery_charger_event(GooCanvasItem *item, GooCanvas *target,
-		      GdkEventButton *event, gpointer data)
-{
-
-  if(board_paused || !boardRootItem)
-    return FALSE;
-
-  gc_sound_play_ogg ("sounds/bleep.wav", NULL);
-  if (battery_charging)
-    battery_charging = FALSE;
-  else
-    battery_charging = TRUE;
-
-  gc_item_rotate_with_center(item, battery_charging ? 180 : 0 , TRIGGER_CENTER_X, TRIGGER_CENTER_Y );
-
-  return FALSE;
-}
-/* =====================================================================
  * Helper functions to update the graphical display
  * =====================================================================*/
 static void setSpeed(gdouble value) {
   char s12[12];
   sprintf(s12,"%d",(int)value);
-  g_object_set(speed_item_back, "text", s12, NULL);
   g_object_set(speed_item_front, "text", s12, NULL);
-}
-
-static void setBattery(gdouble value) {
-  char s12[12];
-  sprintf(s12,"%d",(int)value);
-  g_object_set(battery_item_back, "text", s12, NULL);
-  g_object_set(battery_item_front, "text", s12, NULL);
 }
 
 static void setAir(gdouble value) {
   char s12[12];
   sprintf(s12,"%d",(int)value);
-  g_object_set(air_item_back, "text", s12, NULL);
   g_object_set(air_item_front, "text", s12, NULL);
 }
 
@@ -1618,7 +1523,6 @@ static void setRegleur(gdouble value) {
   gdouble height, y_new;
 
   sprintf(s12,"%d", (int)value);
-  g_object_set(regleur_item_back, "text", s12, NULL);
   g_object_set(regleur_item_front, "text", s12, NULL);
 
   y_new = \
@@ -1639,7 +1543,6 @@ static void setBallastAV(gdouble value) {
   gdouble height, y_new;
 
   sprintf(s12,"%d", MAX_BALLAST - (int)value);
-  g_object_set(ballast_av_air_item_back, "text", s12, NULL);
   g_object_set(ballast_av_air_item_front, "text", s12, NULL);
 
   y_new = \
@@ -1660,7 +1563,6 @@ static void setBallastAR(gdouble value) {
   gdouble height, y_new;
 
   sprintf(s12,"%d", MAX_BALLAST - (int)value);
-  g_object_set(ballast_ar_air_item_back, "text", s12, NULL);
   g_object_set(ballast_ar_air_item_front, "text", s12, NULL);
 
   y_new = \
@@ -1703,8 +1605,6 @@ static void submarine_explosion()
 
   /* make the submarine die */
   setSpeed(speed_ordered = submarine_horizontal_speed = 0.0);
-  setBattery(battery = 0.0);
-  setAir(air = 0.0);
   regleur = MAX_REGLEUR;
   weight = 2000.0;
 

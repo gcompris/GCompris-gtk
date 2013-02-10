@@ -5,7 +5,6 @@ img_DATA = \
 	bubbling.png \
 	crown.png \
 	down.png \
-	manette.png \
 	rudder.png \
 	sub_bg.svgz \
 	submarine-broken.png \
