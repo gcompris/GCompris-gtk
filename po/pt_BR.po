@@ -6,21 +6,22 @@
 # Welther José O. Esteves <weltherjoe@yahoo.com.br>, 2004.
 # Leonardo Ferreira Fontenelle <leo.fontenelle@gmail.com>, 2007.
 # Frederico <frederico@teia.bio.br>, 2006, 2011, 2012.
+# Rafael Ferreira <rafael.f.f1@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-12-26 02:08+0000\n"
-"PO-Revision-Date: 2012-11-14 08:55-0300\n"
-"Last-Translator: Frederico Goncalves Guimaraes <frederico@teia.bio.br>\n"
+"POT-Creation-Date: 2013-02-16 12:51+0000\n"
+"PO-Revision-Date: 2013-02-16 23:21-0300\n"
+"Last-Translator: Rafael Ferreira <rafael.f.f1@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 1.4\n"
+"X-Generator: Poedit 1.5.4\n"
 
 #: ../boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
@@ -6633,7 +6634,7 @@ msgstr "Altura: "
 msgid "Fuel"
 msgstr "Combustível"
 
-#: ../src/land_safe-activity/land_safe.py:501
+#: ../src/land_safe-activity/land_safe.py:502
 msgid "Velocity: "
 msgstr "Velocidade: "
 
@@ -9138,7 +9139,7 @@ msgstr ""
 "- delete: apaga todas as notas e também reinicia a atividade\n"
 "- barra de espaço: toca a batida do ritmo\n"
 
-#: ../src/pythontemplate-activity/pythontemplate.py:62
+#: ../src/pythontemplate-activity/pythontemplate.py:69
 #: ../src/pythontest-activity/pythontest.py:182
 msgid ""
 "This is the first plugin in GCompris coded in the Python\n"
@@ -9659,6 +9660,70 @@ msgstr "Digite o número de pontos do dado que está caindo."
 msgid "Numbers With Dice"
 msgstr "Números com dados"
 
+#: ../src/submarine-activity/submarine.c:394
+#: ../src/submarine-activity/submarine.c:637
+msgid "Engine control, use the buttons to select your speed."
+msgstr "Controle do motor, use os botões para selecionar sua velocidade."
+
+#: ../src/submarine-activity/submarine.c:410
+msgid "Compressed air tank is used to flush water out of the ballasts."
+msgstr "Tanque de ar comprimido é usado para esvaziar a água dos lastros."
+
+#: ../src/submarine-activity/submarine.c:524
+msgid "Open or close the the ballast tank."
+msgstr "Abrir e fechar o tanque de lastro."
+
+#: ../src/submarine-activity/submarine.c:525
+msgid "It allows the water, to get in the tank."
+msgstr "Isso permite que a água entre no tanque."
+
+#: ../src/submarine-activity/submarine.c:526
+#: ../src/submarine-activity/submarine.c:563
+msgid "Increase the water level to dive."
+msgstr "Aumente o nível da água para mergulhar."
+
+#: ../src/submarine-activity/submarine.c:527
+msgid "Lower the water level to rise to the surface."
+msgstr "Diminua o nível da água para subir para a superfície."
+
+#: ../src/submarine-activity/submarine.c:561
+msgid "Open or close the the ballast flush."
+msgstr "Abrir e fechar a descarga do lastro."
+
+#: ../src/submarine-activity/submarine.c:562
+msgid "It flushes the water out of the tank."
+msgstr "Isso esvazia a água do tanque."
+
+#: ../src/submarine-activity/submarine.c:564
+msgid "Lower the water level to surface."
+msgstr "Diminui o nível da água para a superfície."
+
+# popa ou "stern" é a traseira do submarino
+# https://pt.wikipedia.org/wiki/Submarino
+#: ../src/submarine-activity/submarine.c:603
+msgid "Horizontal rudders also called tailplanes."
+msgstr "Lemes horizontais também chamados de estabilizadores da popa."
+
+#: ../src/submarine-activity/submarine.c:604
+#: ../src/submarine-activity/submarine.c:619
+msgid "It controls the up and down orientation."
+msgstr "Controla a orientação para cima e para baixo."
+
+#: ../src/submarine-activity/submarine.c:605
+#: ../src/submarine-activity/submarine.c:620
+msgid "It needs water to flow around them to be effective."
+msgstr "Precisa de água fluindo em volta deles para funcionar."
+
+# proa ou "bow" é a frente do submarino
+# https://pt.wikipedia.org/wiki/Submarino
+#: ../src/submarine-activity/submarine.c:618
+msgid "Horizontal rudders also called foreplanes."
+msgstr "Lemes horizontais também chamado de estabilizadores da proa."
+
+#: ../src/submarine-activity/submarine.c:655
+msgid "Water level in the ballast."
+msgstr "Nível da água no lastro."
+
 #: ../src/submarine-activity/submarine.xml.in.h:1
 msgid "Pilot a submarine"
 msgstr "Pilote um submarino"
@@ -9678,12 +9743,14 @@ msgstr "Aprender como um submarino funciona"
 #: ../src/submarine-activity/submarine.xml.in.h:5
 msgid ""
 "Click on different active elements : engine, rudders and air tanks, in order "
-"to navigate to the required depth. There is a close gate on the right. Catch "
-"the jewel to open it, then pass through it to reach the next level."
+"to navigate to the required depth. There is a close gate on the right. After "
+"the first level, your have to catch the jewel to open it. Pass through it to "
+"reach the next level."
 msgstr ""
-"Clique nos diferentes elementos ativos: motor, leme e tanques de ar, a fim "
-"de navegar até a profundidade solicitada. Existe um portão à direita. Passe "
-"pela joia para abri-lo e, então passe por ele para chegar ao próximo nível."
+"Clique nos diferentes elementos ativos: motor, lemes e tanques de ar, a fim "
+"de navegar até a profundidade solicitada. Existe um portão fechado à "
+"direita. Após o primeiro nível, passe pela joia para abri-lo e, então, passe "
+"por ele para chegar ao próximo nível."
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:1
 msgid "Sudoku, place unique symbols in a square."
