@@ -8,15 +8,15 @@
 # Kamil Páral <ripper42@gmail.com>, 2008.
 # Petr Kovar <pknbe@volny.cz>, 2008.
 # Vladimír Burian <vladimir.burian@email.cz>, 2010.
-# Marek Černocký <marek@manet.cz>, 2009, 2010, 2011, 2012.
+# Marek Černocký <marek@manet.cz>, 2009, 2010, 2011, 2012, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-11-20 23:37+0000\n"
-"PO-Revision-Date: 2012-11-23 17:25+0200\n"
+"POT-Creation-Date: 2013-02-10 23:17+0000\n"
+"PO-Revision-Date: 2013-02-17 18:31+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -24,6 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Gtranslator 2.91.6\n"
 
 #: ../boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
@@ -2881,7 +2882,7 @@ msgstr ""
 "prostřední tlačítko myši – odstraní objekt."
 
 #: ../src/drawnumber-activity/drawnumber.py:238
-#: ../src/explore-activity/explore.py:466 ../src/findit-activity/findit.py:336
+#: ../src/explore-activity/explore.py:412 ../src/findit-activity/findit.py:336
 #: ../src/louis_braille-activity/louis_braille.py:84
 #: ../src/piano_composition-activity/piano_composition.py:504
 msgid "Cannot find the file '{filename}'"
@@ -3064,7 +3065,7 @@ msgstr "Klikáním myší vymažeš oblast a objeví se pozadí"
 msgid "Click the mouse on rectangles until all the blocks disappear."
 msgstr "Klikej myší na obdélníky, dokud všechny bloky nezmizí."
 
-#: ../src/explore-activity/explore.py:90
+#: ../src/explore-activity/explore.py:85
 #: ../src/note_names-activity/note_names.py:82
 #: ../src/piano_composition-activity/piano_composition.py:371
 #: ../src/play_piano-activity/play_piano.py:78
@@ -3079,12 +3080,12 @@ msgstr ""
 "zvukovými efekty.\n"
 "Zvuk zapni v dialogovém okně nastavení."
 
-#: ../src/explore-activity/explore.py:159
+#: ../src/explore-activity/explore.py:152
 msgid "Click to play sound"
 msgstr "Kliknutím přehraješ zvuk"
 
 #. draw back button
-#: ../src/explore-activity/explore.py:278
+#: ../src/explore-activity/explore.py:276
 msgid "Back to Homepage"
 msgstr "Zpět na hlavní stránku"
 
@@ -3092,18 +3093,18 @@ msgstr "Zpět na hlavní stránku"
 #. WRITE LOCATION-SPECIFIC CONTENT TO PAGE
 #. ---------------------------------------------------------------------
 #. FIXME Should remove the space in the data file instead
-#: ../src/explore-activity/explore.py:297
-#: ../src/explore-activity/explore.py:310
-#: ../src/explore-activity/explore.py:497
-#: ../src/explore-activity/explore.py:500
-#: ../src/explore-activity/explore.py:503
-#: ../src/explore-activity/explore.py:519
+#: ../src/explore-activity/explore.py:295
+#: ../src/explore-activity/explore.py:308
+#: ../src/explore-activity/explore.py:443
+#: ../src/explore-activity/explore.py:446
+#: ../src/explore-activity/explore.py:449
+#: ../src/explore-activity/explore.py:461
 #: ../src/piano_composition-activity/piano_composition.py:449
 #: ../src/piano_composition-activity/piano_composition.py:578
 msgid " "
 msgstr " "
 
-#: ../src/explore-activity/explore.py:471 ../src/findit-activity/findit.py:341
+#: ../src/explore-activity/explore.py:417 ../src/findit-activity/findit.py:341
 #: ../src/louis_braille-activity/louis_braille.py:88
 #: ../src/piano_composition-activity/piano_composition.py:509
 msgid ""
@@ -3113,7 +3114,7 @@ msgstr ""
 "Selhalo zpracování dat „{filename}“ s chybou:\n"
 "{error}"
 
-#: ../src/explore-activity/explore.py:590
+#: ../src/explore-activity/explore.py:511
 msgid "Explore Status:"
 msgstr "Stav objevování:"
 
@@ -6568,7 +6569,7 @@ msgstr "Výška: "
 msgid "Fuel"
 msgstr "Palivo: "
 
-#: ../src/land_safe-activity/land_safe.py:501
+#: ../src/land_safe-activity/land_safe.py:502
 msgid "Velocity: "
 msgstr "Rychlost: "
 
@@ -9045,7 +9046,7 @@ msgstr ""
 "  Enter: tlačítko Budiž\n"
 "  Mezerník: přehrát\n"
 
-#: ../src/pythontemplate-activity/pythontemplate.py:62
+#: ../src/pythontemplate-activity/pythontemplate.py:69
 #: ../src/pythontest-activity/pythontest.py:182
 msgid ""
 "This is the first plugin in GCompris coded in the Python\n"
@@ -9544,13 +9545,74 @@ msgstr "Na klávesnici napiš číslo odpovídající počtu teček na padajíc�
 msgid "Numbers With Dice"
 msgstr "Čísla na kostce"
 
+#: ../src/submarine-activity/submarine.c:394
+#: ../src/submarine-activity/submarine.c:637
+msgid "Engine control, use the buttons to select your speed."
+msgstr "Ovládání motoru, použijte tlačítka k nastavení rychlosti."
+
+#: ../src/submarine-activity/submarine.c:410
+msgid "Compressed air tank is used to flush water out of the ballasts."
+msgstr ""
+"Nádrž se stlačeným vzduchem se používá k vytlačení vody z balastních nádrží."
+
+#: ../src/submarine-activity/submarine.c:524
+msgid "Open or close the the ballast tank."
+msgstr "Otevřít nebo zavřít balastní nádrž."
+
+#: ../src/submarine-activity/submarine.c:525
+msgid "It allows the water, to get in the tank."
+msgstr "Tím se umožní vodě natéct do nádrže."
+
+#: ../src/submarine-activity/submarine.c:526
+#: ../src/submarine-activity/submarine.c:563
+msgid "Increase the water level to dive."
+msgstr "Zvyš množství vody, abys se potopil."
+
+#: ../src/submarine-activity/submarine.c:527
+msgid "Lower the water level to rise to the surface."
+msgstr "Sniž množství vody, abys se vynořil na hladinu."
+
+#: ../src/submarine-activity/submarine.c:561
+msgid "Open or close the the ballast flush."
+msgstr "Otevřít nebo zavřít vyprazdňovací ventil."
+
+#: ../src/submarine-activity/submarine.c:562
+msgid "It flushes the water out of the tank."
+msgstr "Tím se vyprazdňuje voda z nádrže."
+
+#: ../src/submarine-activity/submarine.c:564
+msgid "Lower the water level to surface."
+msgstr "Sniž množství vody, abys se dostal na hladinu."
+
+#: ../src/submarine-activity/submarine.c:603
+msgid "Horizontal rudders also called tailplanes."
+msgstr "Vodorovná kormidla nazývaná ocasní."
+
+#: ../src/submarine-activity/submarine.c:604
+#: ../src/submarine-activity/submarine.c:619
+msgid "It controls the up and down orientation."
+msgstr "Řídí náklon směrem nahoru a dolů."
+
+#: ../src/submarine-activity/submarine.c:605
+#: ../src/submarine-activity/submarine.c:620
+msgid "It needs water to flow around them to be effective."
+msgstr "Aby fungovala, musí kolem nich proudit voda."
+
+#: ../src/submarine-activity/submarine.c:618
+msgid "Horizontal rudders also called foreplanes."
+msgstr "Vodorovná kormidla nazývaná příďová."
+
+#: ../src/submarine-activity/submarine.c:655
+msgid "Water level in the ballast."
+msgstr "Množství vody v balastní nádrži."
+
 #: ../src/submarine-activity/submarine.xml.in.h:1
 msgid "Pilot a submarine"
 msgstr "Řiď ponorku"
 
 #: ../src/submarine-activity/submarine.xml.in.h:2
 msgid "Pilot a submarine using air tanks and dive rudders"
-msgstr "Řiď ponorku pomocí vzduchových nádrží a výškových kormidel"
+msgstr "Řiď ponorku pomocí vzduchových nádrží a hloubkových kormidel"
 
 #: ../src/submarine-activity/submarine.xml.in.h:3
 msgid "Physics basics"
@@ -9563,12 +9625,13 @@ msgstr "Nauč se, jak funguje ponorka"
 #: ../src/submarine-activity/submarine.xml.in.h:5
 msgid ""
 "Click on different active elements : engine, rudders and air tanks, in order "
-"to navigate to the required depth. There is a close gate on the right. Catch "
-"the jewel to open it, then pass through it to reach the next level."
+"to navigate to the required depth. There is a close gate on the right. After "
+"the first level, your have to catch the jewel to open it. Pass through it to "
+"reach the next level."
 msgstr ""
-"Klikej na různé aktivní prvky: motor, kormidla a zásobníky vzduchu v takovém "
-"pořadí, abys dosáhl požadované hloubky. Napravo je zavřená brána. Abys ji "
-"otevřel, chyť drahokam, a pak propluj skrz ni do další úrovně."
+"Klikej na různé aktivní prvky: motor, kormidla a vzduchové nádrže v takovém "
+"pořadí, abys dosáhl požadované hloubky. Napravo je zavřená brána. Po první "
+"úrovni chyť drahokam, abys ji otevřel. Propluj skrz ni do další úrovně."
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:1
 msgid "Sudoku, place unique symbols in a square."
