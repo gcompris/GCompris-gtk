@@ -9,15 +9,15 @@
 # Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008, 2009, 2010.
 # Sylvia Sánchez <LailahFSF@gmail.com>, 2011.
 # Chris Leonard <cjlhomeaddress@gmail.com>, 2012.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011, 2012.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011, 2012, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.gcomprixogoo\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-11-20 23:37+0000\n"
-"PO-Revision-Date: 2012-11-27 17:45+0100\n"
+"POT-Creation-Date: 2013-02-10 23:17+0000\n"
+"PO-Revision-Date: 2013-02-26 10:51+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -2919,7 +2919,7 @@ msgstr ""
 "borrar un objeto."
 
 #: ../src/drawnumber-activity/drawnumber.py:238
-#: ../src/explore-activity/explore.py:466 ../src/findit-activity/findit.py:336
+#: ../src/explore-activity/explore.py:412 ../src/findit-activity/findit.py:336
 #: ../src/louis_braille-activity/louis_braille.py:84
 #: ../src/piano_composition-activity/piano_composition.py:504
 msgid "Cannot find the file '{filename}'"
@@ -3113,7 +3113,7 @@ msgstr ""
 "Pulsa en los rectángulos con el ratón hasta que desaparezcan todos los "
 "bloques."
 
-#: ../src/explore-activity/explore.py:90
+#: ../src/explore-activity/explore.py:85
 #: ../src/note_names-activity/note_names.py:82
 #: ../src/piano_composition-activity/piano_composition.py:371
 #: ../src/play_piano-activity/play_piano.py:78
@@ -3129,12 +3129,12 @@ msgstr ""
 "Ve al diálogo de configuración para\n"
 "activar el sonido."
 
-#: ../src/explore-activity/explore.py:159
+#: ../src/explore-activity/explore.py:152
 msgid "Click to play sound"
 msgstr "Pulsa para reproducir el sonido"
 
 #. draw back button
-#: ../src/explore-activity/explore.py:278
+#: ../src/explore-activity/explore.py:276
 msgid "Back to Homepage"
 msgstr "Volver a la página inicial"
 
@@ -3142,18 +3142,18 @@ msgstr "Volver a la página inicial"
 #. WRITE LOCATION-SPECIFIC CONTENT TO PAGE
 #. ---------------------------------------------------------------------
 #. FIXME Should remove the space in the data file instead
-#: ../src/explore-activity/explore.py:297
-#: ../src/explore-activity/explore.py:310
-#: ../src/explore-activity/explore.py:497
-#: ../src/explore-activity/explore.py:500
-#: ../src/explore-activity/explore.py:503
-#: ../src/explore-activity/explore.py:519
+#: ../src/explore-activity/explore.py:295
+#: ../src/explore-activity/explore.py:308
+#: ../src/explore-activity/explore.py:443
+#: ../src/explore-activity/explore.py:446
+#: ../src/explore-activity/explore.py:449
+#: ../src/explore-activity/explore.py:461
 #: ../src/piano_composition-activity/piano_composition.py:449
 #: ../src/piano_composition-activity/piano_composition.py:578
 msgid " "
 msgstr " "
 
-#: ../src/explore-activity/explore.py:471 ../src/findit-activity/findit.py:341
+#: ../src/explore-activity/explore.py:417 ../src/findit-activity/findit.py:341
 #: ../src/louis_braille-activity/louis_braille.py:88
 #: ../src/piano_composition-activity/piano_composition.py:509
 msgid ""
@@ -3163,7 +3163,7 @@ msgstr ""
 "Falló al analizar el conjunto de datos «{filename}» con el error:\n"
 "{error}"
 
-#: ../src/explore-activity/explore.py:590
+#: ../src/explore-activity/explore.py:511
 msgid "Explore Status:"
 msgstr "Explorar estado:"
 
@@ -6667,7 +6667,7 @@ msgstr "Altura: "
 msgid "Fuel"
 msgstr "Combustible"
 
-#: ../src/land_safe-activity/land_safe.py:501
+#: ../src/land_safe-activity/land_safe.py:502
 msgid "Velocity: "
 msgstr "Velocidad: "
 
@@ -9190,7 +9190,7 @@ msgstr ""
 "- intro: botón «Aceptar»\n"
 "- barra espaciadora: reproducir\n"
 
-#: ../src/pythontemplate-activity/pythontemplate.py:62
+#: ../src/pythontemplate-activity/pythontemplate.py:69
 #: ../src/pythontest-activity/pythontest.py:182
 msgid ""
 "This is the first plugin in GCompris coded in the Python\n"
@@ -9714,6 +9714,66 @@ msgstr "Con el teclado, escribe el número de puntos en el dado que cae."
 msgid "Numbers With Dice"
 msgstr "Números con dados"
 
+#: ../src/submarine-activity/submarine.c:394
+#: ../src/submarine-activity/submarine.c:637
+msgid "Engine control, use the buttons to select your speed."
+msgstr "Control del motor, usa los botones para seleccionar tu velocidad."
+
+#: ../src/submarine-activity/submarine.c:410
+msgid "Compressed air tank is used to flush water out of the ballasts."
+msgstr "El tanque de aire comprimido se usa para vaciar de agua los lastres."
+
+#: ../src/submarine-activity/submarine.c:524
+msgid "Open or close the the ballast tank."
+msgstr "Abrir o cerrar el tanque de lastre."
+
+#: ../src/submarine-activity/submarine.c:525
+msgid "It allows the water, to get in the tank."
+msgstr "Permite que el agua entre en el tanque."
+
+#: ../src/submarine-activity/submarine.c:526
+#: ../src/submarine-activity/submarine.c:563
+msgid "Increase the water level to dive."
+msgstr "Aumentar el nivel de agua para sumergirse."
+
+#: ../src/submarine-activity/submarine.c:527
+msgid "Lower the water level to rise to the surface."
+msgstr "Bajar el nivel de agua para subir a la superficie."
+
+#: ../src/submarine-activity/submarine.c:561
+msgid "Open or close the the ballast flush."
+msgstr "Abrir o cerrar el vaciado del lastre."
+
+#: ../src/submarine-activity/submarine.c:562
+msgid "It flushes the water out of the tank."
+msgstr "Vacía el tanque de agua."
+
+#: ../src/submarine-activity/submarine.c:564
+msgid "Lower the water level to surface."
+msgstr "Bajar el nivel de agua a la superficie."
+
+#: ../src/submarine-activity/submarine.c:603
+msgid "Horizontal rudders also called tailplanes."
+msgstr "Timones horizontales, también llamados planos de cola."
+
+#: ../src/submarine-activity/submarine.c:604
+#: ../src/submarine-activity/submarine.c:619
+msgid "It controls the up and down orientation."
+msgstr "Controla la orientación arriba y abajo."
+
+#: ../src/submarine-activity/submarine.c:605
+#: ../src/submarine-activity/submarine.c:620
+msgid "It needs water to flow around them to be effective."
+msgstr "Necesitan que el agua fluya a su alrededor para ser efectivos."
+
+#: ../src/submarine-activity/submarine.c:618
+msgid "Horizontal rudders also called foreplanes."
+msgstr "Timones horizontales, también llamados planos principales."
+
+#: ../src/submarine-activity/submarine.c:655
+msgid "Water level in the ballast."
+msgstr "Nivel de agua en el lastre"
+
 #: ../src/submarine-activity/submarine.xml.in.h:1
 msgid "Pilot a submarine"
 msgstr "Pilote un submarino"
@@ -9731,15 +9791,21 @@ msgid "Learn how a submarine works"
 msgstr "Aprenda cómo funciona un submarino"
 
 #: ../src/submarine-activity/submarine.xml.in.h:5
+#| msgid ""
+#| "Click on different active elements : engine, rudders and air tanks, in "
+#| "order to navigate to the required depth. There is a close gate on the "
+#| "right. Catch the jewel to open it, then pass through it to reach the next "
+#| "level."
 msgid ""
 "Click on different active elements : engine, rudders and air tanks, in order "
-"to navigate to the required depth. There is a close gate on the right. Catch "
-"the jewel to open it, then pass through it to reach the next level."
+"to navigate to the required depth. There is a close gate on the right. After "
+"the first level, your have to catch the jewel to open it. Pass through it to "
+"reach the next level."
 msgstr ""
 "Pulsa en los diferentes elementos activos: motor, timones y tanques de aire "
 "para navegar a la profundidad requerida. Hay una puerta a la derecha. "
-"Captura la joya para abrirla, después atraviésala para llegar al siguiente "
-"nivel."
+"Después del primer nivel, debes capturar la joya para abrirla. Luego "
+"atraviésala para llegar al siguiente nivel."
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:1
 msgid "Sudoku, place unique symbols in a square."
