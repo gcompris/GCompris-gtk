@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: gcompris master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-11-26 20:06+0000\n"
-"PO-Revision-Date: 2012-11-27 08:16+0100\n"
+"POT-Creation-Date: 2013-02-10 23:17+0000\n"
+"PO-Revision-Date: 2013-03-14 20:54+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
@@ -2858,7 +2858,7 @@ msgstr ""
 "tudi srednji gumb miške."
 
 #: ../src/drawnumber-activity/drawnumber.py:238
-#: ../src/explore-activity/explore.py:466 ../src/findit-activity/findit.py:336
+#: ../src/explore-activity/explore.py:412 ../src/findit-activity/findit.py:336
 #: ../src/louis_braille-activity/louis_braille.py:84
 #: ../src/piano_composition-activity/piano_composition.py:504
 msgid "Cannot find the file '{filename}'"
@@ -3043,7 +3043,7 @@ msgstr "S klikom na miško počisti umazano polje in odkrij ozadje."
 msgid "Click the mouse on rectangles until all the blocks disappear."
 msgstr "Z miško klikni na vsak kvadratek, dokler zaslon ni čist."
 
-#: ../src/explore-activity/explore.py:90
+#: ../src/explore-activity/explore.py:85
 #: ../src/note_names-activity/note_names.py:82
 #: ../src/piano_composition-activity/piano_composition.py:371
 #: ../src/play_piano-activity/play_piano.py:78
@@ -3059,12 +3059,12 @@ msgstr ""
 "Zvok omogočite med nastavitvami v pogovornem\n"
 "oknu nastavitev."
 
-#: ../src/explore-activity/explore.py:159
+#: ../src/explore-activity/explore.py:152
 msgid "Click to play sound"
 msgstr "Klikni za predvajanje zvoka"
 
 #. draw back button
-#: ../src/explore-activity/explore.py:278
+#: ../src/explore-activity/explore.py:276
 msgid "Back to Homepage"
 msgstr "Nazaj na domačo stran"
 
@@ -3072,18 +3072,18 @@ msgstr "Nazaj na domačo stran"
 #. WRITE LOCATION-SPECIFIC CONTENT TO PAGE
 #. ---------------------------------------------------------------------
 #. FIXME Should remove the space in the data file instead
-#: ../src/explore-activity/explore.py:297
-#: ../src/explore-activity/explore.py:310
-#: ../src/explore-activity/explore.py:497
-#: ../src/explore-activity/explore.py:500
-#: ../src/explore-activity/explore.py:503
-#: ../src/explore-activity/explore.py:519
+#: ../src/explore-activity/explore.py:295
+#: ../src/explore-activity/explore.py:308
+#: ../src/explore-activity/explore.py:443
+#: ../src/explore-activity/explore.py:446
+#: ../src/explore-activity/explore.py:449
+#: ../src/explore-activity/explore.py:461
 #: ../src/piano_composition-activity/piano_composition.py:449
 #: ../src/piano_composition-activity/piano_composition.py:578
 msgid " "
 msgstr " "
 
-#: ../src/explore-activity/explore.py:471 ../src/findit-activity/findit.py:341
+#: ../src/explore-activity/explore.py:417 ../src/findit-activity/findit.py:341
 #: ../src/louis_braille-activity/louis_braille.py:88
 #: ../src/piano_composition-activity/piano_composition.py:509
 msgid ""
@@ -3093,7 +3093,7 @@ msgstr ""
 "Razčlenjevanje niza podatkov '{filename}' je spodletelo z napako:\n"
 "{error}"
 
-#: ../src/explore-activity/explore.py:590
+#: ../src/explore-activity/explore.py:511
 msgid "Explore Status:"
 msgstr "Stanje spoznavanja:"
 
@@ -6559,7 +6559,7 @@ msgstr "Višina: "
 msgid "Fuel"
 msgstr "Gorivo"
 
-#: ../src/land_safe-activity/land_safe.py:501
+#: ../src/land_safe-activity/land_safe.py:502
 msgid "Velocity: "
 msgstr "Hitrost: "
 
@@ -8997,7 +8997,7 @@ msgstr ""
 "- vnosna tipka: potrditev, v redu\n"
 "- preslednica: predvajanje ritma\n"
 
-#: ../src/pythontemplate-activity/pythontemplate.py:62
+#: ../src/pythontemplate-activity/pythontemplate.py:69
 #: ../src/pythontest-activity/pythontest.py:182
 msgid ""
 "This is the first plugin in GCompris coded in the Python\n"
@@ -9507,6 +9507,75 @@ msgstr ""
 msgid "Numbers With Dice"
 msgstr "Števila na kocki"
 
+#: ../src/submarine-activity/submarine.c:394
+#: ../src/submarine-activity/submarine.c:637
+msgid "Engine control, use the buttons to select your speed."
+msgstr ""
+
+#: ../src/submarine-activity/submarine.c:410
+msgid "Compressed air tank is used to flush water out of the ballasts."
+msgstr ""
+
+#: ../src/submarine-activity/submarine.c:524
+#, fuzzy
+msgid "Open or close the the ballast tank."
+msgstr "Odprite ali zaprite balastni tank."
+
+#: ../src/submarine-activity/submarine.c:525
+#, fuzzy
+msgid "It allows the water, to get in the tank."
+msgstr "Omogoča, da voda vstopa v tank."
+
+#: ../src/submarine-activity/submarine.c:526
+#: ../src/submarine-activity/submarine.c:563
+#, fuzzy
+msgid "Increase the water level to dive."
+msgstr "Povišajte gladino vode za potop."
+
+#: ../src/submarine-activity/submarine.c:527
+#, fuzzy
+msgid "Lower the water level to rise to the surface."
+msgstr "Znižajte raven vode za dvig na vodno gladino."
+
+#: ../src/submarine-activity/submarine.c:561
+#, fuzzy
+msgid "Open or close the the ballast flush."
+msgstr "Odprite ali zaprite odplako balasta."
+
+#: ../src/submarine-activity/submarine.c:562
+#, fuzzy
+msgid "It flushes the water out of the tank."
+msgstr "Izplakne vodo iz tanka."
+
+#: ../src/submarine-activity/submarine.c:564
+#, fuzzy
+msgid "Lower the water level to surface."
+msgstr "Znižajte raven vode za dvig na gladino."
+
+#: ../src/submarine-activity/submarine.c:603
+msgid "Horizontal rudders also called tailplanes."
+msgstr ""
+
+#: ../src/submarine-activity/submarine.c:604
+#: ../src/submarine-activity/submarine.c:619
+msgid "It controls the up and down orientation."
+msgstr ""
+
+#: ../src/submarine-activity/submarine.c:605
+#: ../src/submarine-activity/submarine.c:620
+#, fuzzy
+msgid "It needs water to flow around them to be effective."
+msgstr "Za njihovo učinkovitost je potreben pretok vode okoli njih."
+
+#: ../src/submarine-activity/submarine.c:618
+msgid "Horizontal rudders also called foreplanes."
+msgstr ""
+
+#: ../src/submarine-activity/submarine.c:655
+#, fuzzy
+msgid "Water level in the ballast."
+msgstr "Raven vode v balastu."
+
 #: ../src/submarine-activity/submarine.xml.in.h:1
 msgid "Pilot a submarine"
 msgstr "Upravljanje podmornice"
@@ -9525,10 +9594,17 @@ msgid "Learn how a submarine works"
 msgstr "Spoznavanje delovanja podmornice"
 
 #: ../src/submarine-activity/submarine.xml.in.h:5
+#, fuzzy
+#| msgid ""
+#| "Click on different active elements : engine, rudders and air tanks, in "
+#| "order to navigate to the required depth. There is a close gate on the "
+#| "right. Catch the jewel to open it, then pass through it to reach the next "
+#| "level."
 msgid ""
 "Click on different active elements : engine, rudders and air tanks, in order "
-"to navigate to the required depth. There is a close gate on the right. Catch "
-"the jewel to open it, then pass through it to reach the next level."
+"to navigate to the required depth. There is a close gate on the right. After "
+"the first level, your have to catch the jewel to open it. Pass through it to "
+"reach the next level."
 msgstr ""
 "S klikanjem na različne strojne dele podmornice: motor, krmilo in zračne "
 "komore, je treba podmornico zagnati in jo potopiti na želeno globino. Na "
@@ -9930,28 +10006,3 @@ msgstr "Učenje tipkanja"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the complete word as it falls, before it reaches the ground"
 msgstr "Natipkaj celo besedo, preden pade na tla"
-
-#~ msgid ""
-#~ " The cow goes \"moo. moo.\" Cows have a memory of about three years. Cows "
-#~ "have many uses, including for milk and meat."
-#~ msgstr ""
-#~ " Krava se oglaša \"muu, muu.\" Krave se spominjajo tri leta nazaj. Krave "
-#~ "so zelo uporabne, človek jih goji zaradi mleka in mesa."
-
-#~ msgid " America"
-#~ msgstr " Amerika"
-
-#~ msgid "sulphur"
-#~ msgstr "žveplene"
-
-#~ msgid "Koweit"
-#~ msgstr "Kuvajt"
-
-#~ msgid "Irak"
-#~ msgstr "Irak"
-
-#~ msgid "354"
-#~ msgstr "354"
-
-#~ msgid "0"
-#~ msgstr "0"
