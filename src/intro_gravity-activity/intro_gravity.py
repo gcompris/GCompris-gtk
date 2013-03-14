@@ -44,6 +44,8 @@ class Gcompris_intro_gravity:
     # Needed to get key_press
     gcomprisBoard.disable_im_context = True
 
+    self.asteroids = None
+
   def start(self):
     self.board_paused = False
 
@@ -130,12 +132,15 @@ class Gcompris_intro_gravity:
     elif step == 5:
       self.board_paused = False
       self.message.hide()
-      Asteroids(self.ship_instance, self.rootitem)
+      self.asteroids = Asteroids(self.ship_instance, self.rootitem)
 
 
   def end(self):
     # Remove the root item removes all the others inside it
     self.rootitem.remove()
+    self.ship_instance.done = True
+    if self.asteroids:
+      self.asteroids.done = True
 
   def ok(self):
     pass
@@ -214,7 +219,7 @@ class Spaceship(Gcompris_intro_gravity):
       end_arrow = True,
       line_width = 0.5)
 
-    # Set to true to stop the calculation
+    # Set to true to stop the calculation and the timeout
     self.done = False
     self.move = 0
 
@@ -287,6 +292,8 @@ class Asteroids:
     self.ship_instance = ship_instance
     self.rootitem = rootitem
     self.load_asteroid()
+    # Set to true to stop the timeout
+    self.done = False
 
   def load_asteroid(self):
     self.count = 1
@@ -321,6 +328,9 @@ class Asteroids:
     return (b.x1 + (b.x2 - b.x1) / 2, b.y1 + (b.y2 - b.y1) / 2)
 
   def check_asteroid(self):
+    if self.done:
+      return False
+
     if self.ship_instance.game.board_paused:
       return True
 

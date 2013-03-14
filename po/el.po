@@ -21,18 +21,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompr"
-"is&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-11-20 23:37+0000\n"
-"PO-Revision-Date: 2012-12-04 00:28+0300\n"
-"Last-Translator: Dimitris Spingos (Δημήτρης Σπίγγος) <dmtrs32@gmail.com>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=gcompris&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2013-02-10 23:17+0000\n"
+"PO-Revision-Date: 2013-02-16 14:37+0200\n"
+"Last-Translator: Yannis Kaskamanidis <kiolalis@gmail.com>\n"
 "Language-Team: team@gnome.gr\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.7.1\n"
+"X-Generator: Poedit 1.5.5\n"
 "X-Project-Style: gnome\n"
 
 #: ../boards/algebra_group.xml.in.h:1
@@ -2985,7 +2985,7 @@ msgstr ""
 "σβήσεις ένα σχέδιο."
 
 #: ../src/drawnumber-activity/drawnumber.py:238
-#: ../src/explore-activity/explore.py:466 ../src/findit-activity/findit.py:336
+#: ../src/explore-activity/explore.py:412 ../src/findit-activity/findit.py:336
 #: ../src/louis_braille-activity/louis_braille.py:84
 #: ../src/piano_composition-activity/piano_composition.py:504
 msgid "Cannot find the file '{filename}'"
@@ -3184,7 +3184,7 @@ msgstr ""
 msgid "Click the mouse on rectangles until all the blocks disappear."
 msgstr "Κάνε κλικ με το ποντίκι μέχρι να εξαφανιστούν όλα τα τετράγωνα."
 
-#: ../src/explore-activity/explore.py:90
+#: ../src/explore-activity/explore.py:85
 #: ../src/note_names-activity/note_names.py:82
 #: ../src/piano_composition-activity/piano_composition.py:371
 #: ../src/play_piano-activity/play_piano.py:78
@@ -3200,12 +3200,12 @@ msgstr ""
 "Πήγαινε στη Διαχείριση για \n"
 "να ενεργοποιήσεις τον ήχο."
 
-#: ../src/explore-activity/explore.py:159
+#: ../src/explore-activity/explore.py:152
 msgid "Click to play sound"
 msgstr "Κάντε κλικ για αναπαραγωγή του ήχου"
 
 #. draw back button
-#: ../src/explore-activity/explore.py:278
+#: ../src/explore-activity/explore.py:276
 msgid "Back to Homepage"
 msgstr "Επιστροφή στην αρχική σελίδα"
 
@@ -3213,18 +3213,18 @@ msgstr "Επιστροφή στην αρχική σελίδα"
 #. WRITE LOCATION-SPECIFIC CONTENT TO PAGE
 #. ---------------------------------------------------------------------
 #. FIXME Should remove the space in the data file instead
-#: ../src/explore-activity/explore.py:297
-#: ../src/explore-activity/explore.py:310
-#: ../src/explore-activity/explore.py:497
-#: ../src/explore-activity/explore.py:500
-#: ../src/explore-activity/explore.py:503
-#: ../src/explore-activity/explore.py:519
+#: ../src/explore-activity/explore.py:295
+#: ../src/explore-activity/explore.py:308
+#: ../src/explore-activity/explore.py:443
+#: ../src/explore-activity/explore.py:446
+#: ../src/explore-activity/explore.py:449
+#: ../src/explore-activity/explore.py:461
 #: ../src/piano_composition-activity/piano_composition.py:449
 #: ../src/piano_composition-activity/piano_composition.py:578
 msgid " "
-msgstr ""
+msgstr "Κενό"
 
-#: ../src/explore-activity/explore.py:471 ../src/findit-activity/findit.py:341
+#: ../src/explore-activity/explore.py:417 ../src/findit-activity/findit.py:341
 #: ../src/louis_braille-activity/louis_braille.py:88
 #: ../src/piano_composition-activity/piano_composition.py:509
 msgid ""
@@ -3234,7 +3234,7 @@ msgstr ""
 "Αποτυχία ανάλυσης συνόλου δεδομένων '{filename}'  με σφάλμα:\n"
 "{error}"
 
-#: ../src/explore-activity/explore.py:590
+#: ../src/explore-activity/explore.py:511
 msgid "Explore Status:"
 msgstr "Εξερεύνηση κατάστασης:"
 
@@ -6786,7 +6786,7 @@ msgstr "Ύψος:"
 msgid "Fuel"
 msgstr "Καύσιμα"
 
-#: ../src/land_safe-activity/land_safe.py:501
+#: ../src/land_safe-activity/land_safe.py:502
 msgid "Velocity: "
 msgstr "Ταχύτητα κίνησης:"
 
@@ -9366,7 +9366,7 @@ msgstr ""
 "- enter: πλήκτρο για το OK\n"
 "- μπάρα διαστήματος: αναπαραγωγή\n"
 
-#: ../src/pythontemplate-activity/pythontemplate.py:62
+#: ../src/pythontemplate-activity/pythontemplate.py:69
 #: ../src/pythontest-activity/pythontest.py:182
 msgid ""
 "This is the first plugin in GCompris coded in the Python\n"
@@ -9906,6 +9906,74 @@ msgstr ""
 msgid "Numbers With Dice"
 msgstr "Ζάρια με αριθμούς"
 
+#: ../src/submarine-activity/submarine.c:394
+#: ../src/submarine-activity/submarine.c:637
+msgid "Engine control, use the buttons to select your speed."
+msgstr ""
+"Έλεγχος μηχανής: χρησιμοποιήστε τα πλήκτρα για να επιλέξετε την ταχύτητά σας."
+
+#: ../src/submarine-activity/submarine.c:410
+msgid "Compressed air tank is used to flush water out of the ballasts."
+msgstr ""
+"Το δοχείο πεπιεσμένου αέρα χρησιμοποιείται για να ρέει το νερό έξω από τη "
+"συσκευή ελέγχου της άνωσης και της σταθερότητας."
+
+#: ../src/submarine-activity/submarine.c:524
+msgid "Open or close the the ballast tank."
+msgstr ""
+"Άνοιγμα ή κλείσιμο του δοχείου ελέγχου της άνωσης και της σταθερότητας."
+
+#: ../src/submarine-activity/submarine.c:525
+msgid "It allows the water, to get in the tank."
+msgstr "Επιτρέπει στο νερό να μπαίνει στο δοχείο."
+
+#: ../src/submarine-activity/submarine.c:526
+#: ../src/submarine-activity/submarine.c:563
+msgid "Increase the water level to dive."
+msgstr "Αύξηση του επιπέδου του νερού για κατάδυση."
+
+#: ../src/submarine-activity/submarine.c:527
+msgid "Lower the water level to rise to the surface."
+msgstr "Μείωση του επιπέδου του νερού για άνοδο στην επιφάνεια."
+
+#: ../src/submarine-activity/submarine.c:561
+msgid "Open or close the the ballast flush."
+msgstr ""
+"Άνοιγμα ή κλείσιμο της ροής της συσκευής ελέγχου της άνωσης και της "
+"σταθερότητας."
+
+#: ../src/submarine-activity/submarine.c:562
+msgid "It flushes the water out of the tank."
+msgstr "Το νερό ρέει εκτός του δοχείου."
+
+#: ../src/submarine-activity/submarine.c:564
+msgid "Lower the water level to surface."
+msgstr "Μείωση του επιπέδου του νερού στην επιφάνεια."
+
+#: ../src/submarine-activity/submarine.c:603
+msgid "Horizontal rudders also called tailplanes."
+msgstr ""
+"Τα οριζόντια πηδάλια είναι τα τμήματα της ουράς που περιέχουν τον "
+"σταθεροποιητή και τη συσκευή ελέγχου του ύψους ενός αεροσκάφους."
+
+#: ../src/submarine-activity/submarine.c:604
+#: ../src/submarine-activity/submarine.c:619
+msgid "It controls the up and down orientation."
+msgstr "Ελέγχει τον προσανατολισμό κατά την άνοδο και την κάθοδο."
+
+#: ../src/submarine-activity/submarine.c:605
+#: ../src/submarine-activity/submarine.c:620
+msgid "It needs water to flow around them to be effective."
+msgstr "Απαιτεί νερό που ρέει ολόγυρα από αυτά, ώστε να είναι αποτελεσματικά."
+
+#: ../src/submarine-activity/submarine.c:618
+msgid "Horizontal rudders also called foreplanes."
+msgstr "Τα οριζόντια πηδάλια λέγονται επίσης και πλάνες."
+
+#: ../src/submarine-activity/submarine.c:655
+msgid "Water level in the ballast."
+msgstr "Επίπεδο νερού στη συσκευή ελέγχου άνωσης και σταθερότητας."
+
 #: ../src/submarine-activity/submarine.xml.in.h:1
 msgid "Pilot a submarine"
 msgstr "Πιλοτάρισε ένα υποβρύχιο"
@@ -9926,13 +9994,15 @@ msgstr "Εκμάθηση λειτουργίας υποβρυχίου"
 #: ../src/submarine-activity/submarine.xml.in.h:5
 msgid ""
 "Click on different active elements : engine, rudders and air tanks, in order "
-"to navigate to the required depth. There is a close gate on the right. Catch "
-"the jewel to open it, then pass through it to reach the next level."
+"to navigate to the required depth. There is a close gate on the right. After "
+"the first level, your have to catch the jewel to open it. Pass through it to "
+"reach the next level."
 msgstr ""
 "Κάνε κλικ στα διαφορετικά μηχανικά μέρη (κινητήρας, τιμόνι και δεξαμενή "
 "αέρα) με σκοπό να πλοηγηθείς στο απαιτούμενο βάθος. Υπάρχει μια κλειστή πύλη "
-"στα δεξιά. Πιάσε την πολύτιμη πέτρα για να την ανοίξεις και πέρνα για να "
-"φθάσεις στο επόμενο επίπεδο."
+"στα δεξιά. Μετά το πρώτο επίπεδο, θα πρέπει να πιάσετε τον πολύτιμο λίθο για "
+"να την ανοίξετε και κατόπιν μπορείτε να την περάσετε για να φτάσετε στο "
+"επόμενο επίπεδο."
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:1
 msgid "Sudoku, place unique symbols in a square."

@@ -114,6 +114,7 @@ class Gcompris_land_safe:
   def end(self):
     # Remove the root item removes all the others inside it
     self.rootitem.remove()
+    self.space_ship.set_done()
 
   def ok(self):
     gcompris.utils.dialog_close()
@@ -261,6 +262,13 @@ class Spaceship:
     # Load fuel, altitude and landing area
     self.info = Display(self, rootitem)
 
+    # Set to true to stop the timeout
+    self.done = False
+
+  def set_done(self):
+    self.done = True
+    self.info.done = True
+
   def initiate(self):
     # incase of landing return false
     gobject.timeout_add(30, self.spaceship_movement)
@@ -291,12 +299,18 @@ class Spaceship:
         self.key_vertical += 1
 
   def remove_flame(self,side):
+    if self.done:
+      return False
+
     if side == 1:
       self.flame_left.props.visibility = goocanvas.ITEM_INVISIBLE
     else:
       self.flame_right.props.visibility = goocanvas.ITEM_INVISIBLE
 
   def spaceship_movement(self):
+    if self.done:
+      return False
+
     if self.game.board_paused:
       return True
 
@@ -443,6 +457,9 @@ class Display:
 
 
   def __init__(self, ship_instance, rootitem):
+    # Set to true to stop the timeout
+    self.done = False
+
     # text for altitude
     self.rootitem = rootitem
     text = goocanvas.Text(
@@ -526,6 +543,9 @@ class Display:
     self.vel = self.ship_instance.y
 
   def set_fuel_time(self):
+    if self.done:
+      return False
+
     if self.stop_consumtion == True:
       return False
 
@@ -542,6 +562,9 @@ class Display:
       gobject.timeout_add(30, self.set_fuel_time)
 
   def fuel(self):
+    if self.done:
+      return False
+
     if self.ship_instance.level == 1:
       self.fuel_amt -= 1 * 0.5
     else:
