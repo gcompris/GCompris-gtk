@@ -21,7 +21,7 @@
 
 #include "gcompris.h"
 #include "gc_core.h"
-
+#include "profile.h"
 
 static struct BoardPluginData *bp_data;
 
@@ -324,6 +324,26 @@ gc_board_play(GcomprisBoard *gcomprisBoard)
       gc_activity_intro_play(gcomprisBoard);
 
       bp->start_board(gcomprisBoard);
+
+     /*also set the level to the last played level if the plugin exposes a method for that*/
+      if(bp->set_level)
+      {
+        GcomprisUser *gcomprisUser = gc_profile_get_current_user();
+        int user_id;      
+        if (gcomprisUser) {
+          user_id = gcomprisUser->user_id;
+        } else {
+          user_id = -1;
+        }
+
+        int level_id = get_last_played_level(user_id, gcomprisBoard->board_id);
+
+        if(level_id > 0)
+        {
+          bp->set_level(level_id);
+        }
+      }
+
       bp_data->playing = TRUE;
 
       /* Force the bar to go on top of the activities canvas items */
