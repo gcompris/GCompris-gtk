@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-02-10 23:17+0000\n"
-"PO-Revision-Date: 2013-02-17 18:31+0100\n"
+"POT-Creation-Date: 2013-03-24 21:25+0000\n"
+"PO-Revision-Date: 2013-03-26 22:19+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -4958,6 +4958,7 @@ msgid "Greece"
 msgstr "Řecko"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:24
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:14
 msgid "Cyprus"
 msgstr "Kypr"
 
@@ -5216,7 +5217,7 @@ msgid "Black Sea"
 msgstr "Černé moře"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:4
-msgid "Mediteranean Sea"
+msgid "Mediterranean Sea"
 msgstr "Středozemní moře"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:5
@@ -5250,10 +5251,6 @@ msgstr "Bahrajn"
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:13
 msgid "Lebanon"
 msgstr "Libanon"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:14
-msgid "Chypre"
-msgstr "Kypr"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:15
 msgid "Kuwait"
@@ -6475,7 +6472,7 @@ msgstr "tamburinu"
 msgid "the tuba"
 msgstr "tubu"
 
-#: ../src/intro_gravity-activity/intro_gravity.py:98
+#: ../src/intro_gravity-activity/intro_gravity.py:100
 msgid ""
 "Gravity is universal and Newton's law of universal gravitation extends "
 "gravity beyond earth. This force of gravitational attraction is directly "
@@ -6487,7 +6484,7 @@ msgstr ""
 "hmotnosti obou objektů a nepřímo úměrná druhé mocnině vzdálenosti jejich "
 "středů."
 
-#: ../src/intro_gravity-activity/intro_gravity.py:105
+#: ../src/intro_gravity-activity/intro_gravity.py:107
 msgid ""
 "Since the gravitational force is directly proportional to the mass of both "
 "interacting objects, more massive objects will attract each other with a "
@@ -6503,7 +6500,7 @@ msgstr ""
 "přítažlivá síla, ale nepřímo úměrně, se čtvercem vzdálenosti obou působících "
 "objektů. Čím jsou od sebe dále, tím je gravitační síla slabší."
 
-#: ../src/intro_gravity-activity/intro_gravity.py:118
+#: ../src/intro_gravity-activity/intro_gravity.py:120
 msgid ""
 "Your goal is to let Tux's spaceship move by changing the mass of its "
 "surrounding planets. Don't get too close to the planets or you will crash on "
@@ -6513,7 +6510,7 @@ msgstr ""
 "okolních planet. Nedovol mu se k planetám příliš přiblížit, jinak do nich "
 "narazí. Šipka ti ukazuje směr síly působící na jeho loď."
 
-#: ../src/intro_gravity-activity/intro_gravity.py:128
+#: ../src/intro_gravity-activity/intro_gravity.py:130
 msgid "Avoid the asteroid and join the space shuttle to win."
 msgstr "Vyhni se asteroidům a připoj se k raketoplánu, aby jsi vyhrál."
 
@@ -6541,7 +6538,7 @@ msgstr "Řiď se instrukcemi po spuštění aktivity."
 msgid "Gravity: %s"
 msgstr "Gravitace: %s"
 
-#: ../src/land_safe-activity/land_safe.py:164
+#: ../src/land_safe-activity/land_safe.py:165
 msgid ""
 "Use the up and down keys to control the thrust\n"
 "Use the right and left keys to control direction.\n"
@@ -6553,23 +6550,23 @@ msgstr ""
 "Musíš Tuxovu loď řídit směrem k přistávací plošině.\n"
 "Když máš bezpečnou rychlost pro přistání, plošina se zeleně rozsvítí."
 
-#: ../src/land_safe-activity/land_safe.py:169
+#: ../src/land_safe-activity/land_safe.py:170
 msgid "Click on me or press the Return key when you are ready."
 msgstr "Až budeš připravený, klikni na mě nebo zmáčkni klávesu Enter."
 
-#: ../src/land_safe-activity/land_safe.py:171
+#: ../src/land_safe-activity/land_safe.py:172
 msgid "I am ready!"
 msgstr "Jsem připraven!"
 
-#: ../src/land_safe-activity/land_safe.py:453
+#: ../src/land_safe-activity/land_safe.py:470
 msgid "Height: "
 msgstr "Výška: "
 
-#: ../src/land_safe-activity/land_safe.py:469
+#: ../src/land_safe-activity/land_safe.py:486
 msgid "Fuel"
 msgstr "Palivo: "
 
-#: ../src/land_safe-activity/land_safe.py:502
+#: ../src/land_safe-activity/land_safe.py:519
 msgid "Velocity: "
 msgstr "Rychlost: "
 
