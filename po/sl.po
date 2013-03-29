@@ -4,14 +4,14 @@
 #
 # Damjan Kovač <damjan@o-bakovci.ms.edus.si>, 2003 - 2004.
 # Andrej Žnidaršič <andrej.znidarsic@gmail.com>, 2010.
-# Matej Urbančič <mateju@svn.gnome.org>, 2006 - 2012.
+# Matej Urbančič <mateju@svn.gnome.org>, 2006 - 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-03-14 19:57+0000\n"
-"PO-Revision-Date: 2013-03-15 17:39+0100\n"
+"POT-Creation-Date: 2013-03-24 21:25+0000\n"
+"PO-Revision-Date: 2013-03-28 08:53+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
@@ -27,7 +27,7 @@ msgstr ""
 # http://gcompris.net/-On-one-page-
 #: ../boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
-msgstr "Matematične naloge"
+msgstr "Naloge iz algebre"
 
 #: ../boards/algebra_group.xml.in.h:2
 #: ../boards/menu.xml.in.h:2
@@ -4304,6 +4304,7 @@ msgid "Greece"
 msgstr "Grčija"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:24
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:14
 msgid "Cyprus"
 msgstr "Ciper"
 
@@ -4562,7 +4563,8 @@ msgid "Black Sea"
 msgstr " Črno morje"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:4
-msgid "Mediteranean Sea"
+#| msgid "Mediteranean Sea"
+msgid "Mediterranean Sea"
 msgstr "Sredozemsko morje"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:5
@@ -4596,10 +4598,6 @@ msgstr "Bahrajn"
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:13
 msgid "Lebanon"
 msgstr "Libanon"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:14
-msgid "Chypre"
-msgstr "Ciper"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:15
 msgid "Kuwait"
@@ -8162,11 +8160,6 @@ msgid "Learn how a submarine works"
 msgstr "Spoznavanje delovanja podmornice"
 
 #: ../src/submarine-activity/submarine.xml.in.h:5
-#| msgid ""
-#| "Click on different active elements : engine, rudders and air tanks, in "
-#| "order to navigate to the required depth. There is a close gate on the "
-#| "right. Catch the jewel to open it, then pass through it to reach the next "
-#| "level."
 msgid "Click on different active elements : engine, rudders and air tanks, in order to navigate to the required depth. There is a close gate on the right. After the first level, your have to catch the jewel to open it. Pass through it to reach the next level."
 msgstr "S klikanjem na različne strojne dele podmornice: motor, krmila in zračni zbiralniki, je treba podmornico zagnati in jo potopiti na želeno globino. Na desni so zaprta vrata. Pobrati je treba potopljen nakit in vrata na naslednjo raven se bodo odprla."
 
@@ -8464,4 +8457,3 @@ msgstr "Učenje tipkanja"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the complete word as it falls, before it reaches the ground"
 msgstr "Natipkaj celo besedo, preden pade na tla"
-
