@@ -391,6 +391,9 @@ gc_prop_load (GcomprisProperties *props, GCPropSourceConf source_conf)
 	} else if(!strcmp(value.v_identifier, "fx")) {
 	  if(!scan_get_int(scanner, &props->fx))
 	    g_warning("Config file parsing error on token %s", token);
+	} else if(!strcmp(value.v_identifier, "autolevel")) {
+	  if(!scan_get_int(scanner, &props->autolevel))
+	    g_warning("Config file parsing error on token %s", token);
 	} else if(!strcmp(value.v_identifier, "fullscreen")) {
 	  if(!scan_get_int(scanner, &props->fullscreen))
 	    g_warning("Config file parsing error on token %s", token);
@@ -570,6 +573,7 @@ gc_prop_save (GcomprisProperties *props)
   fprintf(filefd, "%s=\"%s\"\n", "key",			props->key);
 
   fprintf(filefd, "%s=%d\n", "zoom",			props->zoom);
+  fprintf(filefd, "%s=%d\n", "autolevel",		props->autolevel);
 
   fclose(filefd);
 
