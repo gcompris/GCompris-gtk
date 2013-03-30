@@ -161,7 +161,11 @@ gc_prop_new ()
   tmp->disable_quit      = 0;				/* Used to remove the quit button from the bar. Use it for kiosk mode */
   tmp->disable_config    = 0;				/* Used to remove the config button from the bar. Use it for kiosk mode */
   tmp->disable_level     = 0;				/* Used to remove the level button from the bar */
-  tmp->display_resource  = 0;
+  tmp->display_resource  = 0;                           /* Used to check whether 
+                                                          autolevel should be 
+                                                          enabled for non-signed 
+                                                          in user*/
+  tmp->autolevel         = 0;
   tmp->root_menu         = g_strdup("/");
   tmp->profile           = NULL;
   tmp->logged_user       = NULL;
