@@ -304,8 +304,7 @@ dialogue to\nenable the sound."), None)
               use_markup=True
               )
 
-            # FIXME Should remove the space in the data file instead
-            text = _(" " + self.data.get(sectionNum, '_text'))
+            text = _(self.data.get(sectionNum, '_text'))
             t = goocanvas.Text(
               parent=self.location_rootitem,
               x=120,
