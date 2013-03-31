@@ -36,8 +36,12 @@ xml_in_files = \
 	board11_2.xml.in \
 	board11_3.xml.in \
 	board12_0.xml.in \
-	board13_0.xml.in  \
-	board14_0.xml.in 
+	board13_0.xml.in \
+	board14_0.xml.in \
+	board15_0.xml.in \
+	board15_1.xml.in \
+	board15_2.xml.in \
+	board15_3.xml.in
 
 xml_DATA = $(xml_in_files:.xml.in=.xml)
 
