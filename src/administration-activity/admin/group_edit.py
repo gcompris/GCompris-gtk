@@ -59,8 +59,8 @@ class GroupEdit(gtk.Window):
 
         self.group_name = group_name
         if(self.group_name):
-            frame = gtk.Frame(_("Editing group: ") + self.group_name +
-                              _(" for class: ") + class_name)
+            frame = gtk.Frame(_("Editing group '{group}' for class '{aclass}'").\
+                                  format(group=self.group_name, aclass=class_name))
             self.new_group = False
         else:
             frame = gtk.Frame(_("Editing a new group"))
