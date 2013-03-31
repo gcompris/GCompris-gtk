@@ -291,8 +291,7 @@ dialogue to\nenable the sound."), None)
             # WRITE LOCATION-SPECIFIC CONTENT TO PAGE
             # ---------------------------------------------------------------------
 
-            # FIXME Should remove the space in the data file instead
-            name = _(" " + self.data.get(sectionNum, '_title'))
+            name = _(self.data.get(sectionNum, '_title'))
             goocanvas.Text(
               parent=self.location_rootitem,
               x=410,
@@ -438,14 +437,11 @@ dialogue to\nenable the sound."), None)
                 except: errors.append("Missing 'background' key")
                 try: self.author = self.data.get('common', 'author')
                 except: self.author = ''
-                # FIXME Should remove the space in the data file instead
-                try: self.generalText = _(" " + self.data.get('common', '_GeneralText'))
+                try: self.generalText = _(self.data.get('common', '_GeneralText'))
                 except: errors.append("Missing '_GeneralText' key")
-                # FIXME Should remove the space in the data file instead
-                try: self.SoundMatchingGameText = _(" " + self.data.get('common', '_SoundMatchingGameText'))
+                try: self.SoundMatchingGameText = _(self.data.get('common', '_SoundMatchingGameText'))
                 except:pass
-                # FIXME Should remove the space in the data file instead
-                try: self.TextMatchingGameText = _(" " + self.data.get('common', '_TextMatchingGameText'))
+                try: self.TextMatchingGameText = _(self.data.get('common', '_TextMatchingGameText'))
                 except:pass
                 try: self.textBoxX = int(self.data.get('common', 'textBoxX'))
                 except:pass
@@ -456,8 +452,7 @@ dialogue to\nenable the sound."), None)
                     self.allSoundClips.append( (self.data.get(section, 'music'), section))
                 except:
                     pass
-                # FIXME Should remove the space in the data file instead
-                self.allTextPrompts.append( ( _(" " + self.data.get(section, '_shortPrompt')), section))
+                self.allTextPrompts.append( ( _(self.data.get(section, '_shortPrompt')), section))
 
                 self.sectionNames.append(section)
 
