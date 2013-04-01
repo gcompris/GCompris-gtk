@@ -306,15 +306,15 @@ dialogue to\nenable the sound."), None)
             text = _(self.data.get(sectionNum, '_text'))
             t = goocanvas.Text(
               parent=self.location_rootitem,
-              x=120,
-              y=190,
-              width=180,
+              x=170,
+              y=120,
+              width=240,
               text=_(text),
+              font = gcompris.skin.get_font("gcompris/board/medium"),
               fill_color="black",
-              anchor=gtk.ANCHOR_CENTER,
+              anchor=gtk.ANCHOR_N,
               alignment=pango.ALIGN_CENTER
               )
-            t.scale(1.4, 1.4)
             image = self.data.get(sectionNum, 'image')
             goocanvas.Image(
                 parent=self.location_rootitem,
