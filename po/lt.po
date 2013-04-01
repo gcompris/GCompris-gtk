@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: lt\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-02-10 23:17+0000\n"
-"PO-Revision-Date: 2013-02-27 23:04+0200\n"
+"POT-Creation-Date: 2013-04-01 08:58+0000\n"
+"PO-Revision-Date: 2013-04-01 20:06+0300\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
@@ -420,13 +420,25 @@ msgstr ""
 "profiliui <b>%s</b></span>"
 
 #: ../src/administration-activity/admin/board_list.py:645
-#: ../src/administration-activity/admin/board_list.py:657
-#: ../src/administration-activity/admin/wordlist.py:45
+#| msgid ""
+#| "<b>{config}</b> configuration\n"
+#| " for profile <b>{profile}</b>"
 msgid ""
-"<b>{config}</b> configuration\n"
+"<b>Locale</b> configuration\n"
 " for profile <b>{profile}</b>"
 msgstr ""
-"<b>{config}</b> nustatymai\n"
+"<b>Lokalės</b> nustatymai\n"
+" profiliui <b>{profile}</b>"
+
+#: ../src/administration-activity/admin/board_list.py:657
+#| msgid ""
+#| "<b>{config}</b> configuration\n"
+#| " for profile <b>{profile}</b>"
+msgid ""
+"<b>Locale sound</b> configuration\n"
+" for profile <b>{profile}</b>"
+msgstr ""
+"<b>Lokalės garso</b> nustatymai\n"
 " profiliui <b>{profile}</b>"
 
 #: ../src/administration-activity/admin/board_list.py:663
@@ -498,12 +510,8 @@ msgid "Editing a Group"
 msgstr "Grupės tvarkymas"
 
 #: ../src/administration-activity/admin/group_edit.py:62
-msgid "Editing group: "
-msgstr "Tvarkoma grupė: "
-
-#: ../src/administration-activity/admin/group_edit.py:63
-msgid " for class: "
-msgstr " klasei: "
+msgid "Editing group '{group}' for class '{aclass}'"
+msgstr "Keičiama grupė „{group]“ klasei „{aclass}“"
 
 #: ../src/administration-activity/admin/group_edit.py:66
 msgid "Editing a new group"
@@ -806,6 +814,14 @@ msgid ""
 msgstr ""
 "Vienas ar daugiau prisijungimo vardų neunikalūs !\n"
 "Pakeiskite juos: %s !"
+
+#: ../src/administration-activity/admin/wordlist.py:45
+msgid ""
+"<b>{config}</b> configuration\n"
+" for profile <b>{profile}</b>"
+msgstr ""
+"<b>{config}</b> nustatymai\n"
+" profiliui <b>{profile}</b>"
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:1
 msgid "Advanced colors"
@@ -2860,7 +2876,7 @@ msgstr ""
 "ištrinti galima naudoti vidurinį pelytės mygtuką."
 
 #: ../src/drawnumber-activity/drawnumber.py:238
-#: ../src/explore-activity/explore.py:412 ../src/findit-activity/findit.py:336
+#: ../src/explore-activity/explore.py:410 ../src/findit-activity/findit.py:336
 #: ../src/louis_braille-activity/louis_braille.py:84
 #: ../src/piano_composition-activity/piano_composition.py:504
 msgid "Cannot find the file '{filename}'"
@@ -3070,22 +3086,7 @@ msgstr "Spauskite garsui groti"
 msgid "Back to Homepage"
 msgstr "Atgal į namų puslapį"
 
-#. ---------------------------------------------------------------------
-#. WRITE LOCATION-SPECIFIC CONTENT TO PAGE
-#. ---------------------------------------------------------------------
-#. FIXME Should remove the space in the data file instead
-#: ../src/explore-activity/explore.py:295
-#: ../src/explore-activity/explore.py:308
-#: ../src/explore-activity/explore.py:443
-#: ../src/explore-activity/explore.py:446
-#: ../src/explore-activity/explore.py:449
-#: ../src/explore-activity/explore.py:461
-#: ../src/piano_composition-activity/piano_composition.py:449
-#: ../src/piano_composition-activity/piano_composition.py:578
-msgid " "
-msgstr " "
-
-#: ../src/explore-activity/explore.py:417 ../src/findit-activity/findit.py:341
+#: ../src/explore-activity/explore.py:415 ../src/findit-activity/findit.py:341
 #: ../src/louis_braille-activity/louis_braille.py:88
 #: ../src/piano_composition-activity/piano_composition.py:509
 msgid ""
@@ -3095,7 +3096,7 @@ msgstr ""
 "Nepavyko perskaityti duomenų „{filename}“ su klaida:\n"
 "{error}"
 
-#: ../src/explore-activity/explore.py:511
+#: ../src/explore-activity/explore.py:505
 msgid "Explore Status:"
 msgstr "Tyrinėkite būseną:"
 
@@ -3151,151 +3152,194 @@ msgstr ""
 "ant tą tekstą atitinkančio gyvulio. Laimite, kai teisingai nurodote visus!\n"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:1
-msgid " Click on the questions to explore each farm animal."
-msgstr " Spauskite ant klausimų kiekvienam fermos gyvuliui tytinėti."
+#| msgid " Click on the questions to explore each farm animal."
+msgid "Click on the questions to explore each farm animal."
+msgstr "Spauskite ant klausimų kiekvienam fermos gyvuliui tytinėti."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:2
-msgid " Click on the farm animal that makes the sound you hear."
-msgstr " Spauskite ant fermos gyvulio, kuris skleidžia girdimą garsą."
+#| msgid " Click on the farm animal that makes the sound you hear."
+msgid "Click on the farm animal that makes the sound you hear."
+msgstr "Spauskite ant fermos gyvulio, kuris skleidžia girdimą garsą."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:3
-msgid " Click the animal that matches the description."
-msgstr " Spauskite ant gyvulio, kuris atitinka aprašymą."
+#| msgid " Click the animal that matches the description."
+msgid "Click the animal that matches the description."
+msgstr "Spauskite ant gyvulio, kuris atitinka aprašymą."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:4
-msgid " Horse"
-msgstr " Arklys"
+#| msgid " Horse"
+msgid "Horse"
+msgstr "Arklys"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:5
-msgid " The horse goes \"neigh! neigh!\". Horses usually sleep standing up."
-msgstr " Arklys daro „neig! neig!“. Arkliai paprastai miega stovėdami."
+#| msgid " The horse goes \"neigh! neigh!\". Horses usually sleep standing up."
+msgid "The horse goes \"neigh! neigh!\". Horses usually sleep standing up."
+msgstr "Arklys daro „neig! neig!“. Arkliai paprastai miega stovėdami."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:6
-msgid " You can ride on the back of this animal!"
-msgstr " Galima joti ant šio gyvulio nugaros!"
+#| msgid " You can ride on the back of this animal!"
+msgid "You can ride on the back of this animal!"
+msgstr "Galima joti ant šio gyvulio nugaros!"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:7
-msgid " Chickens"
-msgstr " Vištos"
+#| msgid " Chickens"
+msgid "Chickens"
+msgstr "Vištos"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:8
+#| msgid ""
+#| " The chicken goes \"cluck, cackle, cluck\". Chickens have over 200 "
+#| "different noises they can use to communicate."
 msgid ""
-" The chicken goes \"cluck, cackle, cluck\". Chickens have over 200 different "
+"The chicken goes \"cluck, cackle, cluck\". Chickens have over 200 different "
 "noises they can use to communicate."
 msgstr ""
-" Vištos daro „kluk, kakle, kluk“. Vištos turi virš 200 skirtingų garsų, "
+"Vištos daro „kluk, kakle, kluk“. Vištos turi virš 200 skirtingų garsų, "
 "kuriuos naudoja bendravimui."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:9
-msgid " This animal lays eggs."
-msgstr " Šis gyvulys deda kiaušinius."
+#| msgid " This animal lays eggs."
+msgid "This animal lays eggs."
+msgstr "Šis gyvulys deda kiaušinius."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:10
-msgid " Cows"
-msgstr " Karvės"
+#| msgid " Cows"
+msgid "Cows"
+msgstr "Karvės"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:11
+#| msgid ""
+#| " The cow goes \"moo. moo.\". Cows are herbivorous mammals. They graze all "
+#| "day in the meadow."
 msgid ""
-" The cow goes \"moo. moo.\". Cows are herbivorous mammals. They graze all "
-"day in the meadow."
+"The cow goes \"moo. moo.\". Cows are herbivorous mammals. They graze all day "
+"in the meadow."
 msgstr ""
-" Karvė daro „mū. mū.“. Karvės yra žolėdžiai žinduoliai. Jos visą dieną "
-"ganosi pievoje."
+"Karvė daro „mū. mū.“. Karvės yra žolėdžiai žinduoliai. Jos visą dieną ganosi "
+"pievoje."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:12
-msgid " You can drink the milk this animal produces."
-msgstr " Galite geri šio gyvulio pieną."
+#| msgid " You can drink the milk this animal produces."
+msgid "You can drink the milk this animal produces."
+msgstr "Galite geri šio gyvulio pieną."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:13
-msgid " Cat"
-msgstr " Katė"
+#| msgid " Cat"
+msgid "Cat"
+msgstr "Katė"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:14
+#| msgid ""
+#| " The cat goes \"meow, meow\". Cats usually hate water because their fur "
+#| "doesn't stay warm when it is wet."
 msgid ""
-" The cat goes \"meow, meow\". Cats usually hate water because their fur "
+"The cat goes \"meow, meow\". Cats usually hate water because their fur "
 "doesn't stay warm when it is wet."
 msgstr ""
-" Katinas daro „miau, miau“. Katinai paprastai nemėgsta vandens, nes jų "
-"kailis nelieka šiltas, kai sušlampa."
+"Katinas daro „miau, miau“. Katinai paprastai nemėgsta vandens, nes jų kailis "
+"nelieka šiltas, kai sušlampa."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:15
-msgid " This pet likes chasing mice."
-msgstr " Šis augintinis mėgsta gaudyti peles."
+#| msgid " This pet likes chasing mice."
+msgid "This pet likes chasing mice."
+msgstr "Šis augintinis mėgsta gaudyti peles."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:16
-msgid " Pigs"
-msgstr " Kiaulės"
+#| msgid " Pigs"
+msgid "Pigs"
+msgstr "Kiaulės"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:17
-msgid " The pig goes \"oink, oink\". Pigs are the 4th most intelligent animal."
-msgstr ""
-" Kiaulė daro „oink, oink“. Kiaulė yra ketvirtas protingiausias gyvūnas."
+#| msgid ""
+#| " The pig goes \"oink, oink\". Pigs are the 4th most intelligent animal."
+msgid "The pig goes \"oink, oink\". Pigs are the 4th most intelligent animal."
+msgstr "Kiaulė daro „oink, oink“. Kiaulė yra ketvirtas protingiausias gyvūnas."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:18
-msgid " This animal likes to lay in the mud."
-msgstr " Šis gyvulys mėgsta gulėti purve."
+#| msgid " This animal likes to lay in the mud."
+msgid "This animal likes to lay in the mud."
+msgstr "Šis gyvulys mėgsta gulėti purve."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:19
-msgid " White Duck"
+#| msgid " White Duck"
+msgid "White Duck"
 msgstr "Baltas antinas"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:20
+#| msgid ""
+#| " The duck goes \"quack, quack\". Ducks have special features like webbed "
+#| "feet and produce an oil to make their feathers \"waterproof\"."
 msgid ""
-" The duck goes \"quack, quack\". Ducks have special features like webbed "
-"feet and produce an oil to make their feathers \"waterproof\"."
+"The duck goes \"quack, quack\". Ducks have special features like webbed feet "
+"and produce an oil to make their feathers \"waterproof\"."
 msgstr ""
-" Antis daro „kva, kva“. Antys turi specialių savybių, kaip plėvėtos pėdos, "
-"ir gamina aliejų, kad padarytų savo plunksnas „neperšlampančias“."
+"Antis daro „kva, kva“. Antys turi specialių savybių, kaip plėvėtos pėdos, ir "
+"gamina aliejų, kad padarytų savo plunksnas „neperšlampančias“."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:21
-msgid " This animal has webbed feet so it can swim in the water."
-msgstr " Šis gyvulys turi plėvėtas pėdas, todėl gali plaukti vandenyje."
+#| msgid " This animal has webbed feet so it can swim in the water."
+msgid "This animal has webbed feet so it can swim in the water."
+msgstr "Šis gyvulys turi plėvėtas pėdas, todėl gali plaukti vandenyje."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:22
-msgid " Owl"
-msgstr " Pelėda"
+#| msgid " Owl"
+msgid "Owl"
+msgstr "Pelėda"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:23
+#| msgid ""
+#| " The owl goes \"hoo. hoo.\" The owl has excellent vision and hearing at "
+#| "night."
 msgid ""
-" The owl goes \"hoo. hoo.\" The owl has excellent vision and hearing at "
-"night."
-msgstr " Pelėda daro „Ūūū. Ūūū.“. Pelėda turi puikų regėjimą ir klausą naktį."
+"The owl goes \"hoo. hoo.\" The owl has excellent vision and hearing at night."
+msgstr "Pelėda daro „Ūūū. Ūūū.“. Pelėda turi puikų regėjimą ir klausą naktį."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:24
-msgid " This animal likes to come out at night."
-msgstr " Šis gyvūnas mėgsta išeiti naktį."
+#| msgid " This animal likes to come out at night."
+msgid "This animal likes to come out at night."
+msgstr "Šis gyvūnas mėgsta išeiti naktį."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:25
-msgid " Dogs"
-msgstr " Šunys"
+#| msgid " Dogs"
+msgid "Dogs"
+msgstr "Šunys"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:26
+#| msgid ""
+#| " The dog goes \"bark! bark!\". Dogs are great human companions and "
+#| "usually enjoy love and attention."
 msgid ""
-" The dog goes \"bark! bark!\". Dogs are great human companions and usually "
+"The dog goes \"bark! bark!\". Dogs are great human companions and usually "
 "enjoy love and attention."
 msgstr ""
 "Šunys daro „au! au!“. Šunys yra puikūs žmonių draugai ir paprastai mėgsta "
 "meilę ir dėmesį."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:27
-msgid " This animal's ancestors were wolves."
-msgstr " Šio gyvulio protėviai yra vilkai."
+#| msgid " This animal's ancestors were wolves."
+msgid "This animal's ancestors were wolves."
+msgstr "Šio gyvulio protėviai yra vilkai."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:28
-msgid " Rooster"
-msgstr " Gaidys"
+#| msgid " Rooster"
+msgid "Rooster"
+msgstr "Gaidys"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:29
+#| msgid ""
+#| " The rooster goes \"coc-a-doodle-doo!\". Roosters have been on farms for "
+#| "about 5,000 years. Every morning it wakes the farm up with its noises."
 msgid ""
-" The rooster goes \"coc-a-doodle-doo!\". Roosters have been on farms for "
+"The rooster goes \"coc-a-doodle-doo!\". Roosters have been on farms for "
 "about 5,000 years. Every morning it wakes the farm up with its noises."
 msgstr ""
-" Gaidys daro „ka-ka-rie-kūū!“. Gaidžiai buvo fermose jau apie 5 000 metų. "
+"Gaidys daro „ka-ka-rie-kūū!“. Gaidžiai buvo fermose jau apie 5 000 metų. "
 "Kiekvieną rytą jis prikelia fermą savo giedojimu."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:30
-msgid " This animal wakes the farm up in the morning."
-msgstr " Šis gyvulys prikelia fermą rytais."
+#| msgid " This animal wakes the farm up in the morning."
+msgid "This animal wakes the farm up in the morning."
+msgstr "Šis gyvulys prikelia fermą rytais."
 
 #: ../src/explore_world_animals-activity/explore_world_animals.xml.in.h:1
 msgid "Explore World Animals"
@@ -3332,95 +3376,125 @@ msgstr ""
 "tekstus!\n"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:1
-msgid " Explore exotic animals from around the world."
-msgstr " Tyrinėkite egzotinius gyvūnus iš viso pasaulio."
+#| msgid " Explore exotic animals from around the world."
+msgid "Explore exotic animals from around the world."
+msgstr "Tyrinėkite egzotinius gyvūnus iš viso pasaulio."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:2
-msgid " Click on location where the given animal lives."
-msgstr " Spauskite ant vietos, kur gyvena pateiktas gyvūnas."
+#| msgid " Click on location where the given animal lives."
+msgid "Click on location where the given animal lives."
+msgstr "Spauskite ant vietos, kur gyvena pateiktas gyvūnas."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:3
-msgid " Jaguars in South America"
-msgstr " Jaguarai Pietų Amerikoje"
+#| msgid " Jaguars in South America"
+msgid "Jaguars in South America"
+msgstr "Jaguarai Pietų Amerikoje"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:4
+#| msgid ""
+#| " Jaguars are named after the Native American word meaning 'he who kills "
+#| "with one leap'"
 msgid ""
-" Jaguars are named after the Native American word meaning 'he who kills with "
-"one leap'"
+"Jaguars are named after the Native American word meaning 'he who kills with "
+"one leap' because they like to climb trees to attack their prey."
 msgstr ""
-" Jaguarai yra vadinami pagal vietinių amarikiečių žodį, reiškiantį „tas, "
-"kuris nužudo vienu šuoliu“"
+"Jaguarai yra vadinami pagal vietinių amerikiečių žodį, reiškiantį „tas, "
+"kuris nužudo vienu šuoliu“, kadangi jie mėgsta užlipti į medžius ir pulti "
+"savo aukas."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:5
-msgid " Jaguar"
-msgstr "  Jaguaras"
+#| msgid " Jaguar"
+msgid "Jaguar"
+msgstr "Jaguaras"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:6
-msgid " Hedgehogs in Europe"
-msgstr " Ežiai Europoje"
+#| msgid " Hedgehogs in Europe"
+msgid "Hedgehogs in Europe"
+msgstr "Ežiai Europoje"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:7
+#| msgid ""
+#| " Hedgehogs eat small animals, like frogs and insects, so many people keep "
+#| "them as useful pets. When in danger, they will curl up into a ball and "
+#| "stick up their coat of sharp spines."
 msgid ""
-" Hedgehogs eat small animals, like frogs and insects, so many people keep "
+"Hedgehogs eat small animals, like frogs and insects, so many people keep "
 "them as useful pets. When in danger, they will curl up into a ball and stick "
 "up their coat of sharp spines."
 msgstr ""
-" Ežiai valgo mažus gyvūnus, tokius kaip varles ir vabzdžius, todėl daug "
+"Ežiai valgo mažus gyvūnus, tokius kaip varles ir vabzdžius, todėl daug "
 "žmonių juos laiko kaip naudingus naminius gyvūnus. Kilus pavojui jie "
 "susisuka į kamuolį išskleidžia aštrius spyglius."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:8
-msgid " Hedgehog"
-msgstr " Ežys"
+#| msgid " Hedgehog"
+msgid "Hedgehog"
+msgstr "Ežys"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:9
-msgid " Giraffes in Africa"
+#| msgid " Giraffes in Africa"
+msgid "Giraffes in Africa"
 msgstr "Žirafos Afrikoje"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:10
+#| msgid ""
+#| " The giraffe lives in Africa and is the tallest mammal in the world. Just "
+#| "their legs, which are usually 1.8 meters long, are taller than most "
+#| "humans!"
 msgid ""
-" The giraffe lives in Africa and is the tallest mammal in the world. Just "
+"The giraffe lives in Africa and is the tallest mammal in the world. Just "
 "their legs, which are usually 1.8 meters long, are taller than most humans!"
 msgstr ""
-" Žirafa gyvena Afrikoje ir yra aukščiausias žinduolis pasaulyje. Vien jos "
+"Žirafa gyvena Afrikoje ir yra aukščiausias žinduolis pasaulyje. Vien jos "
 "kojos, kurios paprastai yra 1.8 metro ilgio, yra aukštesnės nei dauguma "
 "žmonių!"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:11
-msgid " Giraffe"
-msgstr " Žirafa"
+#| msgid " Giraffe"
+msgid "Giraffe"
+msgstr "Žirafa"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:12
-msgid " Bison in America"
-msgstr " Bizonas Šiaurės Amerikoje"
+#| msgid " Bison in America"
+msgid "Bison in America"
+msgstr "Bizonas Šiaurės Amerikoje"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:13
+#| msgid ""
+#| " Bison live on the plains of North America and were hunted by the Native "
+#| "Americans for food."
 msgid ""
-" Bison live on the plains of North America and were hunted by the Native "
+"Bison live on the plains of North America and were hunted by the Native "
 "Americans for food."
 msgstr ""
-" Bizonas gyvena Šiaurės Amerikos lygumose ir buvo vietinių amerikiečių "
+"Bizonas gyvena Šiaurės Amerikos lygumose ir buvo vietinių amerikiečių "
 "medžiojami maistui."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:14
-msgid " Bison"
-msgstr " Bizonas"
+#| msgid " Bison"
+msgid "Bison"
+msgstr "Bizonas"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:15
-msgid " Narwhals in the Arctic"
-msgstr " Vienaragiai arktyje"
+#| msgid " Narwhals in the Arctic"
+msgid "Narwhals in the Arctic"
+msgstr "Vienaragiai arktyje"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:16
+#| msgid ""
+#| " Narwhals are whales that live in the Arctic Ocean and have long tusks. "
+#| "These tusks remind many people of the mythical unicorn's horn."
 msgid ""
-" Narwhals are whales that live in the Arctic Ocean and have long tusks. "
-"These tusks remind many people of the mythical unicorn's horn."
+"Narwhals are whales that live in the Arctic Ocean and have long tusks. These "
+"tusks remind many people of the mythical unicorn's horn."
 msgstr ""
-" Vienaragiai yra banginiai, kurie gyvena arkties vandenyne ir turi ilgas "
+"Vienaragiai yra banginiai, kurie gyvena arkties vandenyne ir turi ilgas "
 "iltis. Šios iltys daugeliui žmonių primena mitinio vienaragio ragą."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:17
-msgid " Narwhal"
-msgstr " Vienaragis"
+#| msgid " Narwhal"
+msgid "Narwhal"
+msgstr "Vienaragis"
 
 #: ../src/explore_world_music-activity/explore_world_music.xml.in.h:1
 msgid "Explore World Music"
@@ -3474,188 +3548,249 @@ msgid "Images from http://commons.wikimedia.org/wiki, http://archive.org"
 msgstr "Paveikslėliai iš http://commons.wikimedia.org/wiki, http://archive.org"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:1
-msgid " Explore world music! Click on the suitcases."
-msgstr " Tyrinėkite pasaulio muziką! Spauskite ant lagaminų."
+#| msgid " Explore world music! Click on the suitcases."
+msgid "Explore world music! Click on the suitcases."
+msgstr "Tyrinėkite pasaulio muziką! Spauskite ant lagaminų."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:2
-msgid " Click on the location that matches the music you hear."
-msgstr " Spauskite ant vietovės, kuri atitinka girdimą muziką."
+#| msgid " Click on the location that matches the music you hear."
+msgid "Click on the location that matches the music you hear."
+msgstr "Spauskite ant vietovės, kuri atitinka girdimą muziką."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:3
-msgid " Click on the location that matches the text."
-msgstr " Spauskite ant vietovės, atitinkančios tekstą."
+#| msgid " Click on the location that matches the text."
+msgid "Click on the location that matches the text."
+msgstr "Spauskite ant vietovės, atitinkančios tekstą."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:4
-msgid " Australia"
-msgstr " Australija"
+#: ../src/geo_country-activity/resources/geo_country/board13_0.xml.in.h:1
+msgid "Australia"
+msgstr "Australija"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:5
+#| msgid ""
+#| " Aboriginals were the first people to live in Australia. They sing and "
+#| "play instruments, like the didgeridoo. It is made from a log and can be "
+#| "up to five meters long!"
 msgid ""
-" Aboriginals were the first people to live in Australia. They sing and play "
+"Aboriginals were the first people to live in Australia. They sing and play "
 "instruments, like the didgeridoo. It is made from a log and can be up to "
 "five meters long!"
 msgstr ""
-" Aborigenai buvo pirmieji žmonės, kurie gyveno Australijoje. Jie dainuoja ir "
+"Aborigenai buvo pirmieji žmonės, kurie gyveno Australijoje. Jie dainuoja ir "
 "groja instrumentais, tokiais kaip didgeridu. Jis padarytas iš rasto ir gali "
 "būti iki penkių metrų ilgio!"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:6
-msgid " Where is the didgeridoo played?"
-msgstr " Kur grojama didgeridu?"
+#| msgid " Where is the didgeridoo played?"
+msgid "Where is the didgeridoo played?"
+msgstr "Kur grojama didgeridu?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:7
-msgid " Africa"
-msgstr " Afrika"
+#: ../src/geography-activity/resources/geography/board1_0.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:6
+msgid "Africa"
+msgstr "Afrika"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:8
+#| msgid ""
+#| " Music is a part of everyday life in Africa. African music features a "
+#| "great variety of drums, and they believe it is a sacred and magical "
+#| "instrument."
 msgid ""
-" Music is a part of everyday life in Africa. African music features a great "
+"Music is a part of everyday life in Africa. African music features a great "
 "variety of drums, and they believe it is a sacred and magical instrument."
 msgstr ""
-" Muzika yra kasdienio gyvenimo Afrikoje dalis. Afrikietiška muzika turi daug "
+"Muzika yra kasdienio gyvenimo Afrikoje dalis. Afrikietiška muzika turi daug "
 "būgnų tipų ir jie tiki, kad tai yra šventas ir magiškas instrumentas."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:9
-msgid " Where is the drum considered a magical instrument?"
-msgstr " Kur būgnas laikomas magišku instrumentu?"
+#| msgid " Where is the drum considered a magical instrument?"
+msgid "Where is the drum considered a magical instrument?"
+msgstr "Kur būgnas laikomas magišku instrumentu?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:10
-msgid " Middle East"
-msgstr " Vidurio Rytai"
+#| msgid " Middle East"
+msgid "Middle East"
+msgstr "Vidurio Rytai"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:11
+#| msgid ""
+#| " Music is a very important part of middle eastern culture. Specific songs "
+#| "are played to call worshipers to prayer. The lute is an instrument "
+#| "invented thousands of years ago and still in use today."
 msgid ""
-" Music is a very important part of middle eastern culture. Specific songs "
-"are played to call worshipers to prayer. The lute is an instrument invented "
+"Music is a very important part of middle eastern culture. Specific songs are "
+"played to call worshipers to prayer. The lute is an instrument invented "
 "thousands of years ago and still in use today."
 msgstr ""
-" Muzika yra labai svarbi vidurio rytų kultūros dalis. Specifinės dainos yra "
+"Muzika yra labai svarbi vidurio rytų kultūros dalis. Specifinės dainos yra "
 "grojamos garbintojams pakviesti melstis. Liuta yra prieš tūkstančius metų "
 "išrastas instrumentas ir vis dar naudojamas šiandien."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:12
-msgid " Where is music used to call people to prayer?"
-msgstr " Kur muzika yra naudojamas pakviesti žmones melstis?"
+#| msgid " Where is music used to call people to prayer?"
+msgid "Where is music used to call people to prayer?"
+msgstr "Kur muzika yra naudojamas pakviesti žmones melstis?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:13
-msgid " Japan"
-msgstr " Japonija"
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:52
+msgid "Japan"
+msgstr "Japonija"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:14
+#| msgid ""
+#| " Taiko drumming comes from Japan. This type of drumming was originally "
+#| "used to scare enemies in battle. It is very loud, and performances are "
+#| "very exciting with crowds cheering and performers yelling!"
 msgid ""
-" Taiko drumming comes from Japan. This type of drumming was originally used "
+"Taiko drumming comes from Japan. This type of drumming was originally used "
 "to scare enemies in battle. It is very loud, and performances are very "
 "exciting with crowds cheering and performers yelling!"
 msgstr ""
-" Taiko būgnai yra iš Japonijos. Šio tipo būgnai iš pradžių buvo naudojami "
+"Taiko būgnai yra iš Japonijos. Šio tipo būgnai iš pradžių buvo naudojami "
 "gąsdinti priešus mūšyje. Ši muzika yra labai garsi ir atlikimai yra labai "
 "įdomūs su besišypsančiomis miniomis ir rėkiančiais atlikėjais!"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:15
-msgid " Where do performers yelp as they play the drums?"
-msgstr " Kur atlikėjai rėkia grodami būgnais?"
+#| msgid " Where do performers yelp as they play the drums?"
+msgid "Where do performers yelp as they play the drums?"
+msgstr "Kur atlikėjai rėkia grodami būgnais?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:16
-msgid " Scotland and Ireland"
+#| msgid " Scotland and Ireland"
+msgid "Scotland and Ireland"
 msgstr "Škotija ir Airija"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:17
+#| msgid ""
+#| " Folk music of this region is called celtic music, often incorporates a "
+#| "narrative poem or story. Typical instruments include bagpipes, fiddles, "
+#| "flutes, harps, and accordions."
 msgid ""
-" Folk music of this region is called celtic music, often incorporates a "
+"Folk music of this region is called celtic music, often incorporates a "
 "narrative poem or story. Typical instruments include bagpipes, fiddles, "
 "flutes, harps, and accordions."
 msgstr ""
-" Tautinė muzika šiame regione yra vadinama keltų muzika, dažnai įtraukia "
+"Tautinė muzika šiame regione yra vadinama keltų muzika, dažnai įtraukia "
 "susijusią poemą ar istoriją. Tipiniai instrumentai yra dūdmaišiai, smuikai, "
 "fleitos, arfos ir akordeonai."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:18
-msgid " Bagpipers, who often wear kilts, are from this location."
-msgstr " Dūdmaišininkai, kurie dažnai dėvi kiltus, yra iš šios vietovės."
+#| msgid " Bagpipers, who often wear kilts, are from this location."
+msgid "Bagpipers, who often wear kilts, are from this location."
+msgstr "Dūdmaišininkai, kurie dažnai dėvi kiltus, yra iš šios vietovės."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:19
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:10
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:6
-msgid " Italy"
-msgstr " Italija"
+msgid "Italy"
+msgstr "Italija"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:20
+#| msgid ""
+#| " Italy is famous for its Opera. Opera is a musical theater where actors "
+#| "tell a story by acting and singing. Opera singers, both male and female, "
+#| "learn special techniques to sing operas."
 msgid ""
-" Italy is famous for its Opera. Opera is a musical theater where actors tell "
+"Italy is famous for its Opera. Opera is a musical theater where actors tell "
 "a story by acting and singing. Opera singers, both male and female, learn "
 "special techniques to sing operas."
 msgstr ""
-" Italija garsi savo Opera. Opera yra muzikos teatras, kurioje aktoriai "
+"Italija garsi savo Opera. Opera yra muzikos teatras, kurioje aktoriai "
 "pasakoja istoriją vaidindami ir dainuodami. Operos dainininkai, tiek vyrai, "
 "tiek moterys, mokosi specialios technikos operai atlikti."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:21
-msgid " This country is known for its opera music."
-msgstr " Ši šalis žinoma savo operos muzika."
+#| msgid " This country is known for its opera music."
+msgid "This country is known for its opera music."
+msgstr "Ši šalis žinoma savo operos muzika."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:22
-msgid " European Classical Music"
-msgstr " Europos klasikinė muzika"
+#| msgid " European Classical Music"
+msgid "European Classical Music"
+msgstr "Europos klasikinė muzika"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:23
+#| msgid ""
+#| " Europe is the home of classical music. Famous composers like Bach, "
+#| "Beethoven, and Mozart forever changed music history."
 msgid ""
-" Europe is the home of classical music. Famous composers like Bach, "
+"Europe is the home of classical music. Famous composers like Bach, "
 "Beethoven, and Mozart forever changed music history."
 msgstr ""
-" Europa yra klasikinės muzikos namai. Žymūs kompozitoriai, tokie kaip "
-"Bachas, Bethovenas ir Mocartas visiems laikams pakeitė muzikos istoriją."
+"Europa yra klasikinės muzikos namai. Žymūs kompozitoriai, tokie kaip Bachas, "
+"Bethovenas ir Mocartas visiems laikams pakeitė muzikos istoriją."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:24
-msgid " Bach, Beethoven, and Mozart composed music in this location."
-msgstr " Bachas, Bethovenas ir Mocartas kūrė muziką šioje vietovėje."
+#| msgid " Bach, Beethoven, and Mozart composed music in this location."
+msgid "Bach, Beethoven, and Mozart composed music in this location."
+msgstr "Bachas, Bethovenas ir Mocartas kūrė muziką šioje vietovėje."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:25
+#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:10
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:5
-msgid " Mexico"
-msgstr " Meksika"
+msgid "Mexico"
+msgstr "Meksika"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:26
+#| msgid ""
+#| " Mariachi is a famous type of Mexican music. It features guitars, "
+#| "trumpets, and violins. These bands play for many occasions, including "
+#| "weddings and parties."
 msgid ""
-" Mariachi is a famous type of Mexican music. It features guitars, trumpets, "
+"Mariachi is a famous type of Mexican music. It features guitars, trumpets, "
 "and violins. These bands play for many occasions, including weddings and "
 "parties."
 msgstr ""
-" Mariači yra garsus Meksikos muzikos tipas. Jame naudojamos gitaros, "
-"trimitai ir smuikai. Šios grupės groja daugeliu progų, pvz. vestuvėse ir "
-"vakarėliuose."
+"Mariači yra garsus Meksikos muzikos tipas. Jame naudojamos gitaros, trimitai "
+"ir smuikai. Šios grupės groja daugeliu progų, pvz. vestuvėse ir vakarėliuose."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:27
+#| msgid ""
+#| " At parties, people often dance to the Mariachi music. A Famous dance is:"
 msgid ""
-" At parties, people often dance to the Mariachi music. A Famous dance is:"
+"At parties, people often dance to the Mariachi music. A Famous dance is:"
 msgstr ""
-" Vakarėliuose žmonės dažnai groja pagal Mariači muziką. Garsus šokis yra:"
+"Vakarėliuose žmonės dažnai groja pagal Mariači muziką. Garsus šokis yra:"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:28
-msgid " Where is Mariachi music from?"
-msgstr " Iš kur kilusi Mariači muzika?"
+#| msgid " Where is Mariachi music from?"
+msgid "Where is Mariachi music from?"
+msgstr "Iš kur kilusi Mariači muzika?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:29
-msgid " United State of America"
-msgstr " Jungtinės Amerikos Valstijos"
+#| msgid " United State of America"
+msgid "United State of America"
+msgstr "Jungtinės Amerikos Valstijos"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:30
+#| msgid ""
+#| " USA also has a wide variety of musical genres, but perhaps it is most "
+#| "famous for rock n' roll music. This music features vocalists, guitars, "
+#| "and drums."
 msgid ""
-" USA also has a wide variety of musical genres, but perhaps it is most "
-"famous for rock n' roll music. This music features vocalists, guitars, and "
-"drums."
+"USA also has a wide variety of musical genres, but perhaps it is most famous "
+"for rock n' roll music. This music features vocalists, guitars, and drums."
 msgstr ""
-" JAV taip pat turi daug įvairių muzikos žanrų, bet turbūt žinomiausia dėl "
+"JAV taip pat turi daug įvairių muzikos žanrų, bet turbūt žinomiausia dėl "
 "rock n' roll muzikos. Šis muzika susideda iš vokalistų, gitarų ir būgnų."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:31
-msgid " The 'king' of rock n' roll is"
-msgstr " Rock n' roll „karalius“ yra"
+#| msgid " The 'king' of rock n' roll is"
+msgid "The 'king' of rock n' roll is"
+msgstr "Rock n' roll „karalius“ yra"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:32
+#| msgid ""
+#| " The 'king' of rock n' roll, Elvis Presley, made his music famous in this "
+#| "country."
 msgid ""
-" The 'king' of rock n' roll, Elvis Presley, made his music famous in this "
+"The 'king' of rock n' roll, Elvis Presley, made his music famous in this "
 "country."
 msgstr ""
-" Rock n' roll „karalius“ Elvis Presley padarė šią muziką garsią šioje šalyje."
+"Rock n' roll „karalius“ Elvis Presley padarė šią muziką garsią šioje šalyje."
 
 #: ../src/fifteen-activity/fifteen.xml.in.h:1
 msgid "The fifteen game"
@@ -3745,7 +3880,7 @@ msgstr ""
 "Ši programinė įranga yra GNU paketas ir yra išleista pagal GNU Benrąją Viešą "
 "Licenciją"
 
-#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:460
+#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:461
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:358
 #: ../src/gcompris/images_selector.c:313
 msgid "OK"
@@ -3913,6 +4048,7 @@ msgid "Georgian"
 msgstr "Gruzinų"
 
 #: ../src/gcompris/config.c:81
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:10
 msgid "German"
 msgstr "Vokiečių"
 
@@ -3921,234 +4057,239 @@ msgid "Greek"
 msgstr "Graikų"
 
 #: ../src/gcompris/config.c:83
+#| msgid "Irish (Gaelic)"
+msgid "Scottish Gaelic"
+msgstr "Airių (galų)"
+
+#: ../src/gcompris/config.c:84
 msgid "Gujarati"
 msgstr "Gudžaratų"
 
-#: ../src/gcompris/config.c:84
+#: ../src/gcompris/config.c:85
 msgid "Hebrew"
 msgstr "Hebrajų"
 
-#: ../src/gcompris/config.c:85
+#: ../src/gcompris/config.c:86
 msgid "Hindi"
 msgstr "Indų"
 
-#: ../src/gcompris/config.c:86
+#: ../src/gcompris/config.c:87
 msgid "Hungarian"
 msgstr "Vengrų"
 
-#: ../src/gcompris/config.c:87
+#: ../src/gcompris/config.c:88
 msgid "Indonesian"
 msgstr "Indoneziečių"
 
-#: ../src/gcompris/config.c:88
+#: ../src/gcompris/config.c:89
 msgid "Irish (Gaelic)"
 msgstr "Airių (galų)"
 
-#: ../src/gcompris/config.c:89
+#: ../src/gcompris/config.c:90
 msgid "Italian"
 msgstr "Italų"
 
-#: ../src/gcompris/config.c:90
+#: ../src/gcompris/config.c:91
 msgid "Japanese"
 msgstr "Japonų"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:92
 msgid "Kinyarwanda"
 msgstr "Kinyarwanda"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:93
 msgid "Korean"
 msgstr "Korėjiečių"
 
-#: ../src/gcompris/config.c:93
+#: ../src/gcompris/config.c:94
 msgid "Latvian"
 msgstr "Latvių"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:95
 msgid "Lithuanian"
 msgstr "Lietuvių"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:96
 msgid "Macedonian"
 msgstr "Makedoniečių"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:97
 msgid "Malay"
 msgstr "Malajų"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:98
 msgid "Malayalam"
 msgstr "Malajalių"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:99
 msgid "Marathi"
 msgstr "Marathi"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:100
 msgid "Montenegrin"
 msgstr "Juodkalniečių"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:101
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:37
 msgid "Nepal"
 msgstr "Nepaliečių"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:102
 msgid "Norwegian Bokmal"
 msgstr "Norvegų Bokmal"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:103
 msgid "Norwegian Nynorsk"
 msgstr "Norvegų Nynorsk"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:104
 msgid "Occitan (languedocien)"
 msgstr "Očitanų"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:105
 msgid "Persian"
 msgstr "Persų"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:106
 msgid "Polish"
 msgstr "Lenkų"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:107
 msgid "Portuguese (Brazil)"
 msgstr "Portugalų (Brazilų)"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:108
 msgid "Portuguese"
 msgstr "Portugalų"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:109
 msgid "Punjabi"
 msgstr "Pandžabų"
 
-#: ../src/gcompris/config.c:109
+#: ../src/gcompris/config.c:110
 msgid "Romanian"
 msgstr "Rumunų"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:111
 msgid "Russian"
 msgstr "Rusų"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:112
 msgid "Serbian (Latin)"
 msgstr "Serbų (Lotynų)"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:113
 msgid "Serbian"
 msgstr "Serbų"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:114
 msgid "Slovak"
 msgstr "Slovakų"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:115
 msgid "Slovenian"
 msgstr "Slovėnų"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:116
 msgid "Somali"
 msgstr "Somaliečių"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:117
 msgid "Spanish"
 msgstr "Ispanų"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:118
 msgid "Swedish"
 msgstr "Švedų"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:119
 msgid "Tamil"
 msgstr "Tamilų"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:120
 msgid "Thai"
 msgstr "Tajų"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:121
 msgid "Turkish (Azerbaijan)"
 msgstr "Turkų (Azerbaidžano)"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:122
 msgid "Turkish"
 msgstr "Turkų"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:123
 msgid "Ukrainian"
 msgstr "Ukrainiečių"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:124
 msgid "Urdu"
 msgstr "Urdu"
 
-#: ../src/gcompris/config.c:124
+#: ../src/gcompris/config.c:125
 msgid "Vietnamese"
 msgstr "Vietnamiečių"
 
-#: ../src/gcompris/config.c:125
+#: ../src/gcompris/config.c:126
 msgid "Walloon"
 msgstr "Valonų"
 
-#: ../src/gcompris/config.c:126
+#: ../src/gcompris/config.c:127
 msgid "Zulu"
 msgstr "Zulu"
 
-#: ../src/gcompris/config.c:131
+#: ../src/gcompris/config.c:132
 msgid "Timer: No time limit"
 msgstr "Laikmatis: nėra laiko limito"
 
-#: ../src/gcompris/config.c:132
+#: ../src/gcompris/config.c:133
 msgid "Timer: Slow timer"
 msgstr "Laikmatis: daugiau laiko"
 
-#: ../src/gcompris/config.c:133
+#: ../src/gcompris/config.c:134
 msgid "Timer: Normal timer"
 msgstr "Laikmatis: normalus tempas"
 
-#: ../src/gcompris/config.c:134
+#: ../src/gcompris/config.c:135
 msgid "Timer: Fast timer"
 msgstr "Laikmatis: mažiau laiko"
 
-#: ../src/gcompris/config.c:138
+#: ../src/gcompris/config.c:139
 msgid "Use Gcompris administration module to filter boards"
 msgstr "Pamokėles galite paslėpti naudodami Gcompris administravimo programą"
 
-#: ../src/gcompris/config.c:192
+#: ../src/gcompris/config.c:193
 msgid "GCompris Configuration"
 msgstr "GCompris nustatymai"
 
-#: ../src/gcompris/config.c:275
+#: ../src/gcompris/config.c:276
 msgid "Fullscreen"
 msgstr "Visame ekrane"
 
-#: ../src/gcompris/config.c:300
+#: ../src/gcompris/config.c:301
 msgid "Music"
 msgstr "Muzika"
 
-#: ../src/gcompris/config.c:325
+#: ../src/gcompris/config.c:326
 msgid "Effect"
 msgstr "Efektas"
 
-#: ../src/gcompris/config.c:349 ../src/gcompris/sugar_gc.c:93
+#: ../src/gcompris/config.c:350 ../src/gcompris/sugar_gc.c:93
 msgid "Zoom"
 msgstr "Vaizdo dydis"
 
-#: ../src/gcompris/config.c:386
+#: ../src/gcompris/config.c:387
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Nepavyko atverti temų katalogo: %s"
 
-#: ../src/gcompris/config.c:417 ../src/gcompris/config.c:877
-#: ../src/gcompris/config.c:891
+#: ../src/gcompris/config.c:418 ../src/gcompris/config.c:878
+#: ../src/gcompris/config.c:892
 #, c-format
 msgid "Skin : %s"
 msgstr "Tema: %s"
 
-#: ../src/gcompris/config.c:419
+#: ../src/gcompris/config.c:420
 msgid "SKINS NOT FOUND"
 msgstr "TEMOS NERASTOS"
 
@@ -4591,9 +4732,17 @@ msgstr "Prancūzijos regionai"
 msgid "India"
 msgstr "Indija"
 
-#: ../src/geo_country-activity/resources/geo_country/board13_0.xml.in.h:1
-msgid "Australia"
-msgstr "Australija"
+#: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:1
+#: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:1
+#| msgid "Northern Africa"
+msgid "Northern Scotland"
+msgstr "Šiaurės Afrika"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:1
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:1
+#| msgid "Southern Africa"
+msgid "Southern Scotland"
+msgstr "Pietinė Afrika"
 
 #: ../src/geo_country-activity/resources/geo_country/board2_0.xml.in.h:1
 msgid "Deutschland Bundesländer"
@@ -4635,12 +4784,6 @@ msgstr "Sudėliok šalis į atitinkamas vietas, kad gautum visą žemėlapį"
 #: ../src/geography-activity/resources/geography/board1_0.xml.in.h:1
 msgid "Continents"
 msgstr "Žemynai"
-
-#: ../src/geography-activity/resources/geography/board1_0.xml.in.h:2
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:1
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:6
-msgid "Africa"
-msgstr "Afrika"
 
 #: ../src/geography-activity/resources/geography/board1_0.xml.in.h:3
 msgid "America"
@@ -4700,10 +4843,6 @@ msgstr "Islandija"
 msgid "Jamaica"
 msgstr "Jamaika"
 
-#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:10
-msgid "Mexico"
-msgstr "Meksika"
-
 #: ../src/geography-activity/resources/geography/board2_0.xml.in.h:11
 msgid "United States of America"
 msgstr "jungtinės Amerikos Valstijos"
@@ -4725,6 +4864,7 @@ msgid "Bolivia"
 msgstr "Bolivija"
 
 #: ../src/geography-activity/resources/geography/board3_0.xml.in.h:4
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:13
 msgid "Brazil"
 msgstr "Brazilija"
 
@@ -4789,24 +4929,23 @@ msgid "Denmark"
 msgstr "Danija"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:5
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:22
 msgid "Finland"
 msgstr "Suomija"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:6
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:11
 msgid "France"
 msgstr "Prancūzija"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:7
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:12
 msgid "Germany"
 msgstr "Vokietija"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:9
 msgid "Ireland"
 msgstr "Airija"
-
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:10
-msgid "Italy"
-msgstr "Italija"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:11
 msgid "Luxembourg"
@@ -4825,6 +4964,7 @@ msgid "Portugal"
 msgstr "Portugalija"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:15
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:7
 msgid "Spain"
 msgstr "Ispanija"
 
@@ -4889,6 +5029,7 @@ msgid "Moldova"
 msgstr "Moldavija"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:14
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:18
 msgid "Poland"
 msgstr "Lenkija"
 
@@ -4902,6 +5043,7 @@ msgid "Russia"
 msgstr "Rusija"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:17
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:16
 msgid "Serbia"
 msgstr "Serbų"
 
@@ -4923,14 +5065,17 @@ msgid "Turkey"
 msgstr "Turkija"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:22
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:20
 msgid "Ukraine"
 msgstr "Ukraina"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:23
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:19
 msgid "Greece"
 msgstr "Graikija"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:24
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:14
 msgid "Cyprus"
 msgstr "Kipras"
 
@@ -5189,7 +5334,8 @@ msgid "Black Sea"
 msgstr "Juodoji jūra"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:4
-msgid "Mediteranean Sea"
+#| msgid "Mediteranean Sea"
+msgid "Mediterranean Sea"
 msgstr "Viduržemio jūra"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:5
@@ -5223,10 +5369,6 @@ msgstr "Bahreinas"
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:13
 msgid "Lebanon"
 msgstr "Libanas"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:14
-msgid "Chypre"
-msgstr "Kipras"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:15
 msgid "Kuwait"
@@ -5363,10 +5505,6 @@ msgstr "Pietų Korėja"
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:51
 msgid "North Korea"
 msgstr "Šiaurės Korėja"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:52
-msgid "Japan"
-msgstr "Japonija"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:53
 msgid "Mongolia"
@@ -6450,7 +6588,7 @@ msgstr "tamburinas"
 msgid "the tuba"
 msgstr "tūba"
 
-#: ../src/intro_gravity-activity/intro_gravity.py:98
+#: ../src/intro_gravity-activity/intro_gravity.py:100
 msgid ""
 "Gravity is universal and Newton's law of universal gravitation extends "
 "gravity beyond earth. This force of gravitational attraction is directly "
@@ -6461,7 +6599,7 @@ msgstr ""
 "už žemės ribų. Ši gravitacinė trauka yra tiesiogiai susijusi su abiejų "
 "objektų masėmis ir atvirkščiai proporcinga atstumo tarp jų centrų kvadratui."
 
-#: ../src/intro_gravity-activity/intro_gravity.py:105
+#: ../src/intro_gravity-activity/intro_gravity.py:107
 msgid ""
 "Since the gravitational force is directly proportional to the mass of both "
 "interacting objects, more massive objects will attract each other with a "
@@ -6477,7 +6615,7 @@ msgstr ""
 "padidėja, bet ši jėga yra atvirkščiai proporcinga atstumo tarp abiejų "
 "objektų kvadratui, didesnis atstumas reiškia mažesnes gravitacines jėgas."
 
-#: ../src/intro_gravity-activity/intro_gravity.py:118
+#: ../src/intro_gravity-activity/intro_gravity.py:120
 msgid ""
 "Your goal is to let Tux's spaceship move by changing the mass of its "
 "surrounding planets. Don't get too close to the planets or you will crash on "
@@ -6487,7 +6625,7 @@ msgstr ""
 "keičiant masę. Per daug nepriartėkite prie planetų, nes jose sudušite. "
 "Rodyklė nurodo jėgos kryptį jūsų laive."
 
-#: ../src/intro_gravity-activity/intro_gravity.py:128
+#: ../src/intro_gravity-activity/intro_gravity.py:130
 msgid "Avoid the asteroid and join the space shuttle to win."
 msgstr ""
 "Išvenkite asteroidų ir prisijunkite prie kosminio šatlu, kad laimėtumėt."
@@ -6516,7 +6654,7 @@ msgstr "Sekite instrukcijas vykdydami veiklą."
 msgid "Gravity: %s"
 msgstr "Gravitacija: %s"
 
-#: ../src/land_safe-activity/land_safe.py:164
+#: ../src/land_safe-activity/land_safe.py:165
 msgid ""
 "Use the up and down keys to control the thrust\n"
 "Use the right and left keys to control direction.\n"
@@ -6528,24 +6666,24 @@ msgstr ""
 "Turite nuvairuoti Tuxo laivą iki nusileidimo platformos.\n"
 "Nusileidimo platforma tampa žalia, kai greitis yra saugus nusileidimui"
 
-#: ../src/land_safe-activity/land_safe.py:169
+#: ../src/land_safe-activity/land_safe.py:170
 msgid "Click on me or press the Return key when you are ready."
 msgstr ""
 "Spauskite ant manęs arba spauskite klavišą Grįžti, kai esate pasiruošęs."
 
-#: ../src/land_safe-activity/land_safe.py:171
+#: ../src/land_safe-activity/land_safe.py:172
 msgid "I am ready!"
 msgstr "Aš pasirengęs!"
 
-#: ../src/land_safe-activity/land_safe.py:453
+#: ../src/land_safe-activity/land_safe.py:470
 msgid "Height: "
 msgstr "Aukštis:"
 
-#: ../src/land_safe-activity/land_safe.py:469
+#: ../src/land_safe-activity/land_safe.py:486
 msgid "Fuel"
 msgstr "Kuras"
 
-#: ../src/land_safe-activity/land_safe.py:502
+#: ../src/land_safe-activity/land_safe.py:519
 msgid "Velocity: "
 msgstr "Greitis:"
 
@@ -7462,6 +7600,29 @@ msgstr "Mokykis atimties veiksmų, kol dings kortos."
 
 #: ../src/memory_minus-activity/memory_minus.xml.in.h:5
 #: ../src/memory_minus_tux-activity/memory_minus_tux.xml.in.h:5
+#| msgid ""
+#| "You can see some cards, but you can't see what's on the other side of "
+#| "them. Each card is hiding a subtraction, or the answer to it.\n"
+#| "A subtraction looks like this: 3 - 1 = 2\n"
+#| "The numbers on one side of the equals sign (=) have to be the same as the "
+#| "number on the other side. So 3 (1, 2, 3) less 1 (1) makes 2. Count aloud "
+#| "when you work this out, and count on your fingers, because the more ways "
+#| "you do something, the better you remember it. You can also use blocks, or "
+#| "buttons, or anything you can count. If you have lots of brothers and "
+#| "sisters, you can count them! Or the kids in your class at school. Sing "
+#| "counting songs. Count lots of things, for practice, and you'll be very "
+#| "good at adding-up!\n"
+#| "\n"
+#| "In this game, these cards are hiding the two parts of a subtraction. You "
+#| "need to find the two parts of the subtraction, and bring them together "
+#| "again. Click on a card to see what number it's hiding, then try to find "
+#| "the other card that goes with it, to make a whole sum. You can only turn "
+#| "over two cards in one go, so you need to remember where the numbers are "
+#| "hiding, then you can match them when you find their other half. You're "
+#| "doing the job of the equals sign, and the numbers need you to put them "
+#| "together and make a proper sum. When you do that, both those cards "
+#| "disappear! When you've made them all disappear, found all the subtracts, "
+#| "you've won the game! :)"
 msgid ""
 "You can see some cards, but you can't see what's on the other side of them. "
 "Each card is hiding a subtraction, or the answer to it.\n"
@@ -7473,38 +7634,38 @@ msgid ""
 "buttons, or anything you can count. If you have lots of brothers and "
 "sisters, you can count them! Or the kids in your class at school. Sing "
 "counting songs. Count lots of things, for practice, and you'll be very good "
-"at adding-up!\n"
+"at subtracting numbers!\n"
 "\n"
 "In this game, these cards are hiding the two parts of a subtraction. You "
 "need to find the two parts of the subtraction, and bring them together "
 "again. Click on a card to see what number it's hiding, then try to find the "
-"other card that goes with it, to make a whole sum. You can only turn over "
-"two cards in one go, so you need to remember where the numbers are hiding, "
-"then you can match them when you find their other half. You're doing the job "
-"of the equals sign, and the numbers need you to put them together and make a "
-"proper sum. When you do that, both those cards disappear! When you've made "
-"them all disappear, found all the subtracts, you've won the game! :)"
+"other card that goes with it, to make a whole difference. You can only turn "
+"over two cards in one go, so you need to remember where the numbers are "
+"hiding, then you can match them when you find their other half. You're doing "
+"the job of the equals sign, and the numbers need you to put them together "
+"and make a proper difference. When you do that, both those cards disappear! "
+"When you've made them all disappear, found all the subtracts, you've won the "
+"game! :)"
 msgstr ""
 "Gali matyti kai kurias kortas, bet jų antros pusės nematomos. Kiekviena "
 "korta slepia du atimamus skaičius arba tokių skaičių skirtumą. \n"
 "Dviejų skaičių skirtumas atrodo šitaip: 3 - 1 = 2\n"
 "Skaičių suma į kairę nuo lygybės ženklo (=) turi būti tokia pat kaip ir "
-"atsakymas kitoje lygybės ženklo pusėje. Šitaip, trys (viens, du, trys) minus "
-"vienas (viens) sudaro du (viens, du). Spręsdamas skaičiuoki garsiai, "
-"skaičiuoki pirštais nes kuo daugiau būdų naudosi skaičiavimui, tuo geriau "
-"įsiminsi kaip reikia skaičiuoti. Gali perskaičiuoti blokelius, sagas ar "
-"kokius nors kitus turimus daiktus. Jei turi daugiau brolių ar seserų, gali "
-"suskaičiuoti ir juos. Arba suskaičiuoki kiek tavo grupėje ar klasėje yra "
-"vaikų. Mokykis skaičiuotes. Skaičiuok daug įvairių dalykų, pratinkis, ir "
-"labai gerai išmoksi sudėti!\n"
+"atsakymas kitoje lygybės ženklo pusėje. Šitaip, 3 (1, 2, 3) minus 1 (1) "
+"sudaro 2. Spręsdamas skaičiuok garsiai, skaičiuok pirštais nes kuo daugiau "
+"būdų naudosi skaičiavimui, tuo geriau įsiminsi kaip reikia skaičiuoti. Gali "
+"perskaičiuoti blokelius, sagas ar kokius nors kitus turimus daiktus. Jei "
+"turi daugiau brolių ar seserų, gali suskaičiuoti ir juos. Arba suskaičiuok, "
+"kiek tavo grupėje ar klasėje yra vaikų. Mokykis skaičiuotes. Skaičiuok daug "
+"įvairių dalykų, pratinkis, ir labai gerai išmoksi sudėti!\n"
 "\n"
 "Šiame žaidime kortos slepia atimties lygybių kairiąsias ir dešiniąsias "
 "puses. Tau reikia rasti atitinkamas kortas ir atversti jas vienu metu. "
 "Spausk pele ant kortos kad pamatytum kokius skaičius ji slepia, tada ieškok "
-"kitos kortos kuri turi teisingą atsakymą. Vienu ėjimu galima atversti dvi "
-"skirtingas kortas, ir jei vienoje jų atsakymas bus teisingas kitos kortos "
-"lygybės sprendimas, abi kortos dings. Tu laimėsi, kai visos kortos bus "
-"teisingai atverstos ir dings."
+"kitos kortos, kuri turi teisingą atsakymą. Vienu ėjimu galima atversti dvi "
+"skirtingas kortas, todėl reikia atsiminti, kur slepiasi skaičiai, tuomet "
+"atversti juo, kai rasi kitą pusę. Tą padarius abi kortos dings! Tu laimėsi, "
+"kai visos kortos bus teisingai atverstos ir dings! :)"
 
 #: ../src/memory_minus_tux-activity/memory_minus_tux.xml.in.h:1
 msgid "Subtraction memory game against Tux"
@@ -8169,11 +8330,15 @@ msgid "Edgar Degas, The Dancing Class - 1873-75"
 msgstr "Edgar Degas, Šokių pamoka - 1873-75"
 
 #: ../src/paintings-activity/resources/paintings/board1_10.xml.in.h:1
+#| msgid ""
+#| "Katsushika Hokusai,\\nViewing Sunset over the Ryogoku Bridge from the "
+#| "Ommaya Embankment - 1830"
 msgid ""
-"Katsushika Hokusai,\\nViewing Sunset over the Ryogoku Bridge from the Ommaya "
-"Embankment - 1830"
+"Katsushika Hokusai,\n"
+"Viewing Sunset over the Ryogoku Bridge from the Ommaya Embankment - 1830"
 msgstr ""
-"Katsushika Hokusai,\\nSaulėlydis nuo Ryogoku tilto, Ommaya pakrantė - 1830"
+"Katsushika Hokusai,\n"
+"Saulėlydis nuo Ryogoku tilto, Ommaya pakrantė - 1830"
 
 #: ../src/paintings-activity/resources/paintings/board1_11.xml.in.h:1
 msgid "Katsushika Hokusa, Poppies - 1833-1834"
@@ -8212,10 +8377,14 @@ msgid "Katsushika Hokusai, The Great Wave off Kanagawa - 1823-1829"
 msgstr "Katsushika Hokusai, Didžioji Kanagawa banga - 1823-1829"
 
 #: ../src/paintings-activity/resources/paintings/board1_8.xml.in.h:1
+#| msgid ""
+#| "Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
 msgid ""
-"Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
+"Utagawa Hiroshige,\n"
+"The Benzaiten Shrine at Inokashira in Snow - 1760-70"
 msgstr ""
-"Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
+"Utagawa Hiroshige,\n"
+"The Benzaiten Shrine at Inokashira in Snow - 1760-70"
 
 #: ../src/paintings-activity/resources/paintings/board1_9.xml.in.h:1
 msgid "Utagawa Hiroshige, Horse-mackerel and Prawn - 1840"
@@ -8536,6 +8705,12 @@ msgstr "Keisti atsitiktinumo stilių:"
 msgid "Select A Melody to Load"
 msgstr "Pasirinkite melodiją įkėlimui"
 
+#. FIXME Should remove the space in the data file instead
+#: ../src/piano_composition-activity/piano_composition.py:449
+#: ../src/piano_composition-activity/piano_composition.py:578
+msgid " "
+msgstr " "
+
 #: ../src/piano_composition-activity/piano_composition.xml.in.h:1
 msgid "Piano Composition"
 msgstr "Pianino kompozicija"
@@ -8646,84 +8821,54 @@ msgstr ""
 "  F5: A# / Bb\n"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:1
-msgid " America: English Lullaby"
-msgstr " Amerika: angliška lopšinė"
+#| msgid " America: English Lullaby"
+msgid "America: English Lullaby"
+msgstr "Amerika: angliška lopšinė"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:2
-msgid " America: Patriotic"
-msgstr " Amerika: patriotinė"
+#| msgid " America: Patriotic"
+msgid "America: Patriotic"
+msgstr "Amerika: patriotinė"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:3
-msgid " America: Shaker Tune"
-msgstr " Amerika: drebantis derinimas"
+#| msgid " America: Shaker Tune"
+msgid "America: Shaker Tune"
+msgstr "Amerika: drebantis derinimas"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:4
-msgid " America: Nursery Rhyme"
-msgstr " Amerika: slaugės rimas"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:7
-msgid " Spain"
-msgstr " Ispanija"
+#| msgid " America: Nursery Rhyme"
+msgid "America: Nursery Rhyme"
+msgstr "Amerika: slaugės rimas"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:8
-msgid " German Kid's Song"
-msgstr " Vokiečio vaiko daina"
+#| msgid " German Kid's Song"
+msgid "German Kid's Song"
+msgstr "Vokiečio vaiko daina"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:9
-msgid " Children's Song from Brazil"
-msgstr " Vaikų daina iš Brazilijos"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:10
-msgid " German"
-msgstr " Vokiečių"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:11
-msgid " France"
-msgstr " Prancūzija"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:12
-msgid " Germany"
-msgstr " Vokietija"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:13
-msgid " Brazil"
-msgstr " Brazilija"
+#| msgid " Children's Song from Brazil"
+msgid "Children's Song from Brazil"
+msgstr "Vaikų daina iš Brazilijos"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:14
-msgid " Hungary, Nursery Rhyme"
-msgstr " Vengrija, slaugės rimas"
+#| msgid " Hungary, Nursery Rhyme"
+msgid "Hungary, Nursery Rhyme"
+msgstr "Vengrija, slaugės rimas"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:15
-msgid " Hungary, Children's Song"
-msgstr " Vengrija, vaiko daina"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:16
-msgid " Serbia"
-msgstr " Serbija"
+#| msgid " Hungary, Children's Song"
+msgid "Hungary, Children's Song"
+msgstr "Vengrija, vaiko daina"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:17
-msgid " Britain"
-msgstr " Britanija"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:18
-msgid " Poland"
-msgstr " Lenkija"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:19
-msgid " Greece"
-msgstr " Graikija"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:20
-msgid " Ukraine"
-msgstr " Ukraina"
+#| msgid " Britain"
+msgid "Britain"
+msgstr "Britanija"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:21
-msgid " Mexican song to break a piñata"
-msgstr " Meksikietiška daina nutraukti  piñata"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:22
-msgid " Finland"
-msgstr " Suomija"
+#| msgid " Mexican song to break a piñata"
+msgid "Mexican song to break a piñata"
+msgstr "Meksikietiška daina nutraukti  piñata"
 
 #: ../src/place_your_satellite-activity/place_your_satellite.py:68
 msgid ""
@@ -9630,11 +9775,6 @@ msgid "Learn how a submarine works"
 msgstr "Suprasti kaip valdomas povandeninis laivas"
 
 #: ../src/submarine-activity/submarine.xml.in.h:5
-#| msgid ""
-#| "Click on different active elements : engine, rudders and air tanks, in "
-#| "order to navigate to the required depth. There is a close gate on the "
-#| "right. Catch the jewel to open it, then pass through it to reach the next "
-#| "level."
 msgid ""
 "Click on different active elements : engine, rudders and air tanks, in order "
 "to navigate to the required depth. There is a close gate on the right. After "
@@ -10043,3 +10183,4 @@ msgstr "Treniruotis dirbti klaviatūra"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the complete word as it falls, before it reaches the ground"
 msgstr "Surink klaviatūroje krintančius žodžius, kol jie nenukrito."
+
