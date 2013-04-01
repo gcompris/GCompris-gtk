@@ -231,11 +231,11 @@ gc_config_start ()
 			     "svg-id", "#REPEAT",
 			     NULL);
     goo_canvas_item_get_bounds(item, &bounds);
-    double zoom = 0.65;
+    double zoom = 0.50;
     goo_canvas_item_scale(item, zoom, zoom);
     goo_canvas_item_translate(item,
-			      (-1 * bounds.x1 + x_flag_start - 340) * zoom,
-			      (-1 * bounds.y1 + y_start - 120) * zoom);
+			      (-1 * bounds.x1 + x_flag_start - 380) * zoom,
+			      (-1 * bounds.y1 + y_start - 145) * zoom);
   g_signal_connect(item, "button_press_event",
 		   (GCallback) item_event_ok,
 		   "locale_reset");
@@ -253,7 +253,7 @@ gc_config_start ()
 					  (gdouble) y_start,
 					  -1,
 					  GTK_ANCHOR_WEST,
-					  "font", gc_skin_font_subtitle,
+					  "font", gc_skin_font_content,
 					  "fill-color-rgba", gc_skin_color_content,
 					  NULL);
 
@@ -303,7 +303,7 @@ gc_config_start ()
 		       (gdouble) y_start,
 		       -1,
 		       GTK_ANCHOR_WEST,
-		       "font", gc_skin_font_subtitle,
+		       "font", gc_skin_font_content,
 		       "fill-color-rgba", gc_skin_color_content,
 		       NULL);
 
@@ -328,7 +328,7 @@ gc_config_start ()
 		       (gdouble) y_start,
 		       -1,
 		       GTK_ANCHOR_WEST,
-		       "font", gc_skin_font_subtitle,
+		       "font", gc_skin_font_content,
 		       "fill-color-rgba", gc_skin_color_content,
 		       NULL);
 
@@ -352,7 +352,7 @@ gc_config_start ()
 		       (gdouble) y_start,
 		       -1,
 		       GTK_ANCHOR_WEST,
-		       "font", gc_skin_font_subtitle,
+		       "font", gc_skin_font_content,
 		       "fill-color-rgba", gc_skin_color_content,
 		       NULL);
 
@@ -367,7 +367,7 @@ gc_config_start ()
 					 (gdouble) y_start,
 					 -1,
 					 GTK_ANCHOR_WEST,
-					 "font", gc_skin_font_subtitle,
+					 "font", gc_skin_font_content,
 					 "fill-color-rgba", gc_skin_color_content,
 					 NULL);
 
@@ -426,7 +426,7 @@ gc_config_start ()
 					  (gdouble) y_start,
 					  -1,
 					  GTK_ANCHOR_WEST,
-					  "font", gc_skin_font_subtitle,
+					  "font", gc_skin_font_content,
 					  "fill-color-rgba", gc_skin_color_content,
 					  NULL);
     g_free(first_skin_name);
@@ -447,7 +447,7 @@ gc_config_start ()
 					  400,
 					  GTK_ANCHOR_WEST,
 					  "use-markup", TRUE,
-					  "font", gc_skin_font_subtitle,
+					  "font", gc_skin_font_content,
 					  "fill-color-rgba", gc_skin_color_content,
 					  NULL);
   g_free(text);
