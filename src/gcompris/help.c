@@ -155,7 +155,7 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
 		       y_start,
 		       -1,
 		       GTK_ANCHOR_CENTER,
-		       "font", gc_skin_font_title,
+		       "font", gc_skin_font_subtitle,
 		       "fill-color-rgba", gc_skin_color_title,
 		       NULL);
 
