@@ -760,7 +760,7 @@ class Gcompris_gnumch:
             parent = self.rootitem,
             text = "",
             font = gcompris.skin.get_font("gcompris/board/title bold"),
-            x = self.scrw/2,
+            x = self.sw + 10,
             y = self.top/2)
 
         # the message
