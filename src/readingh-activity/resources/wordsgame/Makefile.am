@@ -11,6 +11,7 @@ img_DATA = \
 	default-eu.xml \
 	default-fi.xml \
 	default-fr.xml \
+	default-gd.xml \
 	default-gl.xml \
 	default-he.xml \
 	default-hu.xml \
