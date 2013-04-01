@@ -45,7 +45,7 @@ static GooCanvasGroup	*stars_group		= NULL;
 static double           stars_group_x;
 static double           stars_group_y;
 
-#define Y_GAP	45
+#define Y_GAP	38
 
 static gboolean is_displayed			= FALSE;
 static gint x_flag_start;
@@ -281,6 +281,32 @@ gc_config_start ()
 		       "font", gc_skin_font_subtitle,
 		       "fill-color-rgba", gc_skin_color_content,
 		       NULL);
+
+  // Autolevel
+  y_start += Y_GAP;
+
+  item = goo_canvas_svg_new (rootitem,
+			     gc_skin_rsvg_get(),
+			     "svg-id", (properties->autolevel ? pixmap_checked : pixmap_unchecked),
+			     NULL);
+  SET_ITEM_LOCATION(item, x_start, y_start - pixmap_width/2);
+
+  g_signal_connect(item, "button_press_event",
+		   (GCallback) item_event_ok,
+		   "autolevel");
+  gc_item_focus_init(item, NULL);
+
+
+  goo_canvas_text_new (rootitem,
+		       _("Autolevel For Default User"),
+		       (gdouble) x_text_start,
+		       (gdouble) y_start,
+		       -1,
+		       GTK_ANCHOR_WEST,
+		       "font", gc_skin_font_subtitle,
+		       "fill-color-rgba", gc_skin_color_content,
+		       NULL);
+
 
   // Music
   y_start += Y_GAP;
@@ -776,6 +802,14 @@ item_event_ok(GooCanvasItem *item,
 	    gc_sound_fx_close();
 	}
       gc_prop_save(properties);
+    }
+  else if(!strcmp((char *)data, "autolevel"))
+    {
+      properties->autolevel = (properties->autolevel ? 0 : 1);
+      g_object_set(item,
+                   "svg-id", (properties->autolevel ? pixmap_checked : pixmap_unchecked),
+                   NULL);
+      gc_item_focus_init(item, NULL);
     }
   else if(!strcmp((char *)data, "fullscreen"))
     {

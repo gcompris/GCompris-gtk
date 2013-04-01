@@ -115,6 +115,7 @@ static gboolean		gc_debug = FALSE;
 /*** gcompris-popttable */
 static gint popt_fullscreen	   = FALSE;
 static gint popt_window		   = FALSE;
+static gint popt_autolevel        = FALSE;
 static gint popt_sound		   = FALSE;
 static gint popt_mute		   = FALSE;
 static gint popt_cursor		   = FALSE;
@@ -256,6 +257,9 @@ static GOptionEntry options[] = {
 
   {"test",'\0', 0, G_OPTION_ARG_NONE, &popt_test,
    N_("For test purpose, run in a loop all the activities"), NULL},
+
+  {"autolevel", 'r', '0', G_OPTION_ARG_NONE, &popt_autolevel,
+   N_("For ensuring that even for non-signed in users, last level is remembered"), NULL},
 
   { NULL }
 };
@@ -1708,6 +1712,11 @@ main (int argc, char *argv[])
   if (popt_window)
     {
       properties->fullscreen = FALSE;
+    }
+
+  if(popt_autolevel)
+    {
+      properties->autolevel = TRUE;
     }
 
   if (popt_mute)

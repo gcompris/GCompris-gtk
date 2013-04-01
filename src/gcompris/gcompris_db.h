@@ -123,4 +123,7 @@ gboolean gc_db_log(gchar *date, int duration,
 	       int level, int sublevel,
 	       int status, gchar *comment);
 
+/*Use mainly for getting last played level for a particular board and user*/
+int get_last_played_level(int user_id, int board_id);
+
 #endif
