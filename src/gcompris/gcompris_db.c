@@ -2197,3 +2197,42 @@ escape_quote(const char *input)
   return result;
 }
 #endif
+
+
+#define GET_LAST_PLAYED_LEVEL							\
+	"select level from logs louter where user_id = %d and board_id = %d and not exists (select 1 from logs linner where linner.user_id = louter.user_id and linner.board_id = louter.board_id and linner.date > louter.date) ;"
+
+int get_last_played_level(int user_id, int board_id)
+{
+  char **result;
+  int nrow;
+  int ncolumn;
+  char *zErrMsg;
+  int rc;
+  gchar *request;
+
+  request = sqlite3_mprintf( GET_LAST_PLAYED_LEVEL,
+			     user_id,
+                             board_id
+			     );
+
+  rc = sqlite3_get_table(gcompris_db,
+			 request,
+			 &result,
+			 &nrow,
+			 &ncolumn,
+			 &zErrMsg
+			 );
+
+  if(nrow == 0)
+  {
+    sqlite3_free_table(result);
+    return -1;
+  }
+
+  int level = atoi(result[1]);  //expect only one row and one column
+
+  sqlite3_free_table(result);
+
+  return level;
+}
