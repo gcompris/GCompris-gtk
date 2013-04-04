@@ -17,22 +17,22 @@
 # kiolalis <ttnfy17@yahoo.gr>, 2008, 2010.
 # Yannis Kaskamanidis <kiolalis@gmail.com>, 2010.
 # Γιάννης Κασκαμανίδης, 2011.
-# Dimitris Spingos (Δημήτρης Σπίγγος) <dmtrs32@gmail.com>, 2012.
+# Dimitris Spingos (Δημήτρης Σπίγγος) <dmtrs32@gmail.com>, 2012, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-02-10 23:17+0000\n"
-"PO-Revision-Date: 2013-02-16 14:37+0200\n"
-"Last-Translator: Yannis Kaskamanidis <kiolalis@gmail.com>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompr"
+"is&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2013-04-01 17:20+0000\n"
+"PO-Revision-Date: 2013-04-04 23:32+0300\n"
+"Last-Translator: Dimitris Spingos (Δημήτρης Σπίγγος) <dmtrs32@gmail.com>\n"
 "Language-Team: team@gnome.gr\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.5.5\n"
+"X-Generator: Virtaal 0.7.1\n"
 "X-Project-Style: gnome\n"
 
 #: ../boards/algebra_group.xml.in.h:1
@@ -433,10 +433,16 @@ msgstr ""
 "για το προφίλ <b>%s</b></span>"
 
 #: ../src/administration-activity/admin/board_list.py:645
-#: ../src/administration-activity/admin/board_list.py:657
-#: ../src/administration-activity/admin/wordlist.py:45
 msgid ""
-"<b>{config}</b> configuration\n"
+"<b>Locale</b> configuration\n"
+" for profile <b>{profile}</b>"
+msgstr ""
+"<b>{config}</b> Ρυθμίσεις\n"
+" για το προφίλ <b>{profile}</b>"
+
+#: ../src/administration-activity/admin/board_list.py:657
+msgid ""
+"<b>Locale sound</b> configuration\n"
 " for profile <b>{profile}</b>"
 msgstr ""
 "<b>{config}</b> Ρυθμίσεις\n"
@@ -511,12 +517,8 @@ msgid "Editing a Group"
 msgstr "Επεξεργασία μιας ομάδας"
 
 #: ../src/administration-activity/admin/group_edit.py:62
-msgid "Editing group: "
-msgstr "Επεξεργασία ομάδας:"
-
-#: ../src/administration-activity/admin/group_edit.py:63
-msgid " for class: "
-msgstr "για την τάξη:"
+msgid "Editing group '{group}' for class '{aclass}'"
+msgstr "Επεξεργασία ομα΄δας '{group}' για την τάξη '{aclass}'"
 
 #: ../src/administration-activity/admin/group_edit.py:66
 msgid "Editing a new group"
@@ -829,6 +831,14 @@ msgid ""
 msgstr ""
 "Μία ή περισσότερες συνδέσεις δεν είναι μοναδικές !\n"
 "Πρέπει να τις τροποποιήσεις: %s !"
+
+#: ../src/administration-activity/admin/wordlist.py:45
+msgid ""
+"<b>{config}</b> configuration\n"
+" for profile <b>{profile}</b>"
+msgstr ""
+"<b>{config}</b> Ρυθμίσεις\n"
+" για το προφίλ <b>{profile}</b>"
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:1
 msgid "Advanced colors"
@@ -2985,7 +2995,7 @@ msgstr ""
 "σβήσεις ένα σχέδιο."
 
 #: ../src/drawnumber-activity/drawnumber.py:238
-#: ../src/explore-activity/explore.py:412 ../src/findit-activity/findit.py:336
+#: ../src/explore-activity/explore.py:410 ../src/findit-activity/findit.py:336
 #: ../src/louis_braille-activity/louis_braille.py:84
 #: ../src/piano_composition-activity/piano_composition.py:504
 msgid "Cannot find the file '{filename}'"
@@ -3134,8 +3144,8 @@ msgstr ""
 msgid "Error: No images found\n"
 msgstr "Σφάλμα: Δεν βρέθηκαν εικόνες\n"
 
-#: ../src/erase-activity/erase.c:582 ../src/gcompris/properties.c:503
-#: ../src/gcompris/properties.c:510
+#: ../src/erase-activity/erase.c:582 ../src/gcompris/properties.c:510
+#: ../src/gcompris/properties.c:517
 msgid "readme"
 msgstr "αρχείο ανάγνωσης"
 
@@ -3209,22 +3219,7 @@ msgstr "Κάντε κλικ για αναπαραγωγή του ήχου"
 msgid "Back to Homepage"
 msgstr "Επιστροφή στην αρχική σελίδα"
 
-#. ---------------------------------------------------------------------
-#. WRITE LOCATION-SPECIFIC CONTENT TO PAGE
-#. ---------------------------------------------------------------------
-#. FIXME Should remove the space in the data file instead
-#: ../src/explore-activity/explore.py:295
-#: ../src/explore-activity/explore.py:308
-#: ../src/explore-activity/explore.py:443
-#: ../src/explore-activity/explore.py:446
-#: ../src/explore-activity/explore.py:449
-#: ../src/explore-activity/explore.py:461
-#: ../src/piano_composition-activity/piano_composition.py:449
-#: ../src/piano_composition-activity/piano_composition.py:578
-msgid " "
-msgstr "Κενό"
-
-#: ../src/explore-activity/explore.py:417 ../src/findit-activity/findit.py:341
+#: ../src/explore-activity/explore.py:415 ../src/findit-activity/findit.py:341
 #: ../src/louis_braille-activity/louis_braille.py:88
 #: ../src/piano_composition-activity/piano_composition.py:509
 msgid ""
@@ -3234,7 +3229,7 @@ msgstr ""
 "Αποτυχία ανάλυσης συνόλου δεδομένων '{filename}'  με σφάλμα:\n"
 "{error}"
 
-#: ../src/explore-activity/explore.py:511
+#: ../src/explore-activity/explore.py:505
 msgid "Explore Status:"
 msgstr "Εξερεύνηση κατάστασης:"
 
@@ -3292,157 +3287,156 @@ msgstr ""
 "σας είναι να κάνετε σωστά όλες τις αντιστοιχίσεις.\n"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:1
-msgid " Click on the questions to explore each farm animal."
+msgid "Click on the questions to explore each farm animal."
 msgstr ""
 "Κάντε κλικ στα ερωτηματικά για να πάρετε πληροφορίες για κάθε ζώο της φάρμας."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:2
-msgid " Click on the farm animal that makes the sound you hear."
+msgid "Click on the farm animal that makes the sound you hear."
 msgstr "Κάντε κλικ στο ζώο της φάρμας που βγάζει τον ήχο που ακούσατε."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:3
-msgid " Click the animal that matches the description."
+msgid "Click the animal that matches the description."
 msgstr "Κάντε κλικ στο ζώο της φάρμας που ταιριάζει με την περιγραφή."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:4
-msgid " Horse"
+msgid "Horse"
 msgstr "Άλογο"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:5
-msgid " The horse goes \"neigh! neigh!\". Horses usually sleep standing up."
+msgid "The horse goes \"neigh! neigh!\". Horses usually sleep standing up."
 msgstr ""
 "Το άλογο χλιμιντρίζει \"ιιιιιιιιιι, ιιιιιιιιιι\". Τα άλογα συνήθως "
 "κοιμούνται όρθια."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:6
-msgid " You can ride on the back of this animal!"
+msgid "You can ride on the back of this animal!"
 msgstr "Μπορείτε να το καβαλικέψετε αν κάτσετε στην πλάτη του!"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:7
-msgid " Chickens"
+msgid "Chickens"
 msgstr "Κοτόπουλα"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:8
 msgid ""
-" The chicken goes \"cluck, cackle, cluck\". Chickens have over 200 different "
+"The chicken goes \"cluck, cackle, cluck\". Chickens have over 200 different "
 "noises they can use to communicate."
 msgstr ""
 "Η κότα κακαρίζει \"κοκοκο, κοκοκο\". Οι κότες μπορούν να επικοινωνούν μεταξύ "
 "τους χρησιμοποιώντας περισσότερους από 200 διαφορετικούς ήχους."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:9
-msgid " This animal lays eggs."
+msgid "This animal lays eggs."
 msgstr "Αυτό το ζώο γεννά αυγά."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:10
-msgid " Cows"
+msgid "Cows"
 msgstr "Αγελάδα"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:11
 msgid ""
-" The cow goes \"moo. moo.\". Cows are herbivorous mammals. They graze all "
-"day in the meadow."
+"The cow goes \"moo. moo.\". Cows are herbivorous mammals. They graze all day "
+"in the meadow."
 msgstr ""
 "Η αγελάδα μουγκανίζει  \"μουου. μουου.\". Οι αγελάδες είναι φυτοφάγα "
 "θηλαστικά. Βόσκουν όλη μέρα στα λειβάδια."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:12
-msgid " You can drink the milk this animal produces."
+msgid "You can drink the milk this animal produces."
 msgstr "Μπορείτε να πιείτε το γάλα που παράγει αυτό το ζώο."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:13
-msgid " Cat"
+msgid "Cat"
 msgstr "Γάτα"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:14
 msgid ""
-" The cat goes \"meow, meow\". Cats usually hate water because their fur "
+"The cat goes \"meow, meow\". Cats usually hate water because their fur "
 "doesn't stay warm when it is wet."
 msgstr ""
 "Η γάτα νιαουρίζει \"μιάου, μιάου\". Οι γάτες μισούν το νερό επειδή η γούνα "
 "τους δεν τις ζεσταίνει όταν είναι υγρή."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:15
-msgid " This pet likes chasing mice."
+msgid "This pet likes chasing mice."
 msgstr "Της αρέσει να κυνηγά ποντίκια."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:16
-msgid " Pigs"
+msgid "Pigs"
 msgstr "Γουρούνι"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:17
-msgid " The pig goes \"oink, oink\". Pigs are the 4th most intelligent animal."
+msgid "The pig goes \"oink, oink\". Pigs are the 4th most intelligent animal."
 msgstr ""
 "Το γουρούνι γρυλλίζει \"γρουγρου, γρουγρου\". Τα γουρούνια κατέχουν την 4η "
 "θέση όσον αφορά τη νοημοσύνη τους."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:18
-msgid " This animal likes to lay in the mud."
+msgid "This animal likes to lay in the mud."
 msgstr "Του αρέσει να κυλιέται στη λάσπη."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:19
-msgid " White Duck"
+msgid "White Duck"
 msgstr "Άσπρη πάπια"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:20
 msgid ""
-" The duck goes \"quack, quack\". Ducks have special features like webbed "
-"feet and produce an oil to make their feathers \"waterproof\"."
+"The duck goes \"quack, quack\". Ducks have special features like webbed feet "
+"and produce an oil to make their feathers \"waterproof\"."
 msgstr ""
 "Η πάπια παπάζει \"πα, πα\". Οι πάπιες έχουν ειδικά χαρακτηριστικά, όπως "
 "μεμβράνες, ενώ παράγουν ένα είδος λαδιού που κάνει τα πούπουλά τους "
 "\"αδιάβροχα\"."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:21
-msgid " This animal has webbed feet so it can swim in the water."
+msgid "This animal has webbed feet so it can swim in the water."
 msgstr "Έχει μεμβράνες στα πόδια και μπορεί να κολυμπά."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:22
-msgid " Owl"
+msgid "Owl"
 msgstr "Κουκουβάγια"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:23
 msgid ""
-" The owl goes \"hoo. hoo.\" The owl has excellent vision and hearing at "
-"night."
+"The owl goes \"hoo. hoo.\" The owl has excellent vision and hearing at night."
 msgstr ""
 "Η κουκουβάγια ολολύζει \"κουκουβάου, κουκουβάου\". Η κουκουβάγια τη νύχτα "
 "έχει εξαιρετική όραση και ακοή."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:24
-msgid " This animal likes to come out at night."
+msgid "This animal likes to come out at night."
 msgstr "Αυτό το ζώο συνηθίζει να βγαίνει έξω τη νύχτα."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:25
-msgid " Dogs"
+msgid "Dogs"
 msgstr "Σκύλος"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:26
 msgid ""
-" The dog goes \"bark! bark!\". Dogs are great human companions and usually "
+"The dog goes \"bark! bark!\". Dogs are great human companions and usually "
 "enjoy love and attention."
 msgstr ""
 "Ο σκύλος γαβγίζει \"γαβ, γαβ\". Ο σκύλος είναι πιστός σύντροφος του ανθρώπου "
 "και συχνά απολαμβάνει την αγάπη και την προσοχή του."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:27
-msgid " This animal's ancestors were wolves."
+msgid "This animal's ancestors were wolves."
 msgstr "Οι πρόγονοι αυτού του ζώου ήταν οι λύκοι."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:28
-msgid " Rooster"
+msgid "Rooster"
 msgstr "Κόκορας"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:29
 msgid ""
-" The rooster goes \"coc-a-doodle-doo!\". Roosters have been on farms for "
+"The rooster goes \"coc-a-doodle-doo!\". Roosters have been on farms for "
 "about 5,000 years. Every morning it wakes the farm up with its noises."
 msgstr ""
 "Ο πετεινός λαλεί \"κικιρίκου, κικιρίκου\". Ο κόκορας είναι κατοικίδιο ζώο "
 "εδώ και 5.000 χρόνια. Κάθε πρωί τους ξυπνά όλους με τα λαλήματά του."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:30
-msgid " This animal wakes the farm up in the morning."
+msgid "This animal wakes the farm up in the morning."
 msgstr "Κάθε πρωί τους ξυπνά όλους με τα λαλήματά του."
 
 #: ../src/explore_world_animals-activity/explore_world_animals.xml.in.h:1
@@ -3481,37 +3475,37 @@ msgstr ""
 "είναι να κάνετε σωστά όλες τις αντιστοιχίσεις.\n"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:1
-msgid " Explore exotic animals from around the world."
+msgid "Explore exotic animals from around the world."
 msgstr "Εξερευνήστε εξωτικά ζώα από ολόκληρο τον κόσμο."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:2
-msgid " Click on location where the given animal lives."
+msgid "Click on location where the given animal lives."
 msgstr "Κάντε κλικ στην τοποθεσία που ζει το συγκεκριμένο ζώο."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:3
-msgid " Jaguars in South America"
+msgid "Jaguars in South America"
 msgstr "Ιαγουάροι στη Νότια Αμερική"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:4
 msgid ""
-" Jaguars are named after the Native American word meaning 'he who kills with "
-"one leap'"
+"Jaguars are named after the Native American word meaning 'he who kills with "
+"one leap' because they like to climb trees to attack their prey."
 msgstr ""
 "Οι Ιαγουάροι ονομάστηκαν έτσι από τη φράση 'αυτός που σκοτώνει με ένα άλμα', "
 "την οποία χρησιμοποιούσαν οι ιθαγενείς αμερικανικοί πληθυσμοί όταν μιλούσαν "
 "γι' αυτό το ζώο."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:5
-msgid " Jaguar"
+msgid "Jaguar"
 msgstr "Ιαγουάρος"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:6
-msgid " Hedgehogs in Europe"
+msgid "Hedgehogs in Europe"
 msgstr "Οι σκαντζόχοιροι στην Ευρώπη"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:7
 msgid ""
-" Hedgehogs eat small animals, like frogs and insects, so many people keep "
+"Hedgehogs eat small animals, like frogs and insects, so many people keep "
 "them as useful pets. When in danger, they will curl up into a ball and stick "
 "up their coat of sharp spines."
 msgstr ""
@@ -3521,16 +3515,16 @@ msgstr ""
 "τα μυτερά αγκάθια του δέρματός τους."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:8
-msgid " Hedgehog"
+msgid "Hedgehog"
 msgstr "Σκαντζόχοιρος"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:9
-msgid " Giraffes in Africa"
+msgid "Giraffes in Africa"
 msgstr "Καμηλοπαρδάλεις στην Αφρική"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:10
 msgid ""
-" The giraffe lives in Africa and is the tallest mammal in the world. Just "
+"The giraffe lives in Africa and is the tallest mammal in the world. Just "
 "their legs, which are usually 1.8 meters long, are taller than most humans!"
 msgstr ""
 "Η καμηλοπάρδαλη ζει στην Αφρική και είναι το ψηλότερο θηλαστικό του κόσμου. "
@@ -3538,40 +3532,40 @@ msgstr ""
 "περισσότερους ανθρώπους!"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:11
-msgid " Giraffe"
+msgid "Giraffe"
 msgstr "Καμηλοπάρδαλη"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:12
-msgid " Bison in America"
+msgid "Bison in America"
 msgstr "Βίσωνες στη Βόρεια Αμερική"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:13
 msgid ""
-" Bison live on the plains of North America and were hunted by the Native "
+"Bison live on the plains of North America and were hunted by the Native "
 "Americans for food."
 msgstr ""
 "Ο βίσωνας ζει στις πεδιάδες της Βόρειας Αμερικής και αποτελούσε βασική τροφή "
 "για τους ιθαγενείς αμερικανικούς πληθυσμούς."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:14
-msgid " Bison"
+msgid "Bison"
 msgstr "Βίσωνας"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:15
-msgid " Narwhals in the Arctic"
+msgid "Narwhals in the Arctic"
 msgstr "Αρκτοφάλαινα στην Αρκτική"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:16
 msgid ""
-" Narwhals are whales that live in the Arctic Ocean and have long tusks. "
-"These tusks remind many people of the mythical unicorn's horn."
+"Narwhals are whales that live in the Arctic Ocean and have long tusks. These "
+"tusks remind many people of the mythical unicorn's horn."
 msgstr ""
 "Οι αρκτοφάλαινες είναι φάλαινες που ζούνε στον Αρκτικό Ωκεανό και έχουν έναν "
 "μεγάλο χαυλιόδοντα. Αυτός ο χαυλιόδοντας φέρνει στο νου των ανθρώπων το "
 "μυθικό κέρατο του μονόκερου."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:17
-msgid " Narwhal"
+msgid "Narwhal"
 msgstr "Αρκτοφάλαινα"
 
 #: ../src/explore_world_music-activity/explore_world_music.xml.in.h:1
@@ -3628,24 +3622,25 @@ msgid "Images from http://commons.wikimedia.org/wiki, http://archive.org"
 msgstr "Πηγή εικόνων: http://commons.wikimedia.org/wiki, http://archive.org"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:1
-msgid " Explore world music! Click on the suitcases."
+msgid "Explore world music! Click on the suitcases."
 msgstr "Εξερευνήστε τη μουσική του κόσμου! Κάντε κλικ στις βαλίτσες"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:2
-msgid " Click on the location that matches the music you hear."
+msgid "Click on the location that matches the music you hear."
 msgstr "Κάντε κλικ στην τοποθεσία που αντιστοιχεί στη μουσική που ακούτε"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:3
-msgid " Click on the location that matches the text."
+msgid "Click on the location that matches the text."
 msgstr "Κάντε κλικ στην τοποθεσία που αντιστοιχεί στο κείμενο που εμφανίζεται"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:4
-msgid " Australia"
+#: ../src/geo_country-activity/resources/geo_country/board13_0.xml.in.h:1
+msgid "Australia"
 msgstr "Αυστραλία"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:5
 msgid ""
-" Aboriginals were the first people to live in Australia. They sing and play "
+"Aboriginals were the first people to live in Australia. They sing and play "
 "instruments, like the didgeridoo. It is made from a log and can be up to "
 "five meters long!"
 msgstr ""
@@ -3654,16 +3649,19 @@ msgstr ""
 "δέντρου και μπορεί να έχει μέχρι και πέντε μέτρα μήκος!"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:6
-msgid " Where is the didgeridoo played?"
+msgid "Where is the didgeridoo played?"
 msgstr "Πού παίζεται το ντιτζερίντου;"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:7
-msgid " Africa"
+#: ../src/geography-activity/resources/geography/board1_0.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:6
+msgid "Africa"
 msgstr "Αφρική"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:8
 msgid ""
-" Music is a part of everyday life in Africa. African music features a great "
+"Music is a part of everyday life in Africa. African music features a great "
 "variety of drums, and they believe it is a sacred and magical instrument."
 msgstr ""
 "Η μουσική είναι κομμάτι της καθημερινής ζωής στην Αφρική. Στην αφρικάνικη "
@@ -3671,17 +3669,17 @@ msgstr ""
 "όργανα."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:9
-msgid " Where is the drum considered a magical instrument?"
+msgid "Where is the drum considered a magical instrument?"
 msgstr "Σε ποια περιοχή της Γης, το τύμπανο θεωρείται μαγικό όργανο;"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:10
-msgid " Middle East"
+msgid "Middle East"
 msgstr "Μέση Ανατολή"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:11
 msgid ""
-" Music is a very important part of middle eastern culture. Specific songs "
-"are played to call worshipers to prayer. The lute is an instrument invented "
+"Music is a very important part of middle eastern culture. Specific songs are "
+"played to call worshipers to prayer. The lute is an instrument invented "
 "thousands of years ago and still in use today."
 msgstr ""
 "Η μουσική είναι ένα πολύ σημαντικό κομμάτι της μεσανατολικής κουλτούρας. "
@@ -3690,18 +3688,19 @@ msgstr ""
 "χρησιμοποιείται ακόμη και σήμερα."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:12
-msgid " Where is music used to call people to prayer?"
+msgid "Where is music used to call people to prayer?"
 msgstr ""
 "Σε ποιο μέρος της γης η μουσική χρησιμοποιείται για να καλέσει τον κόσμο "
 "στην προσευχή;"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:13
-msgid " Japan"
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:52
+msgid "Japan"
 msgstr "Ιαπωνία"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:14
 msgid ""
-" Taiko drumming comes from Japan. This type of drumming was originally used "
+"Taiko drumming comes from Japan. This type of drumming was originally used "
 "to scare enemies in battle. It is very loud, and performances are very "
 "exciting with crowds cheering and performers yelling!"
 msgstr ""
@@ -3711,18 +3710,18 @@ msgstr ""
 "κραυγές."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:15
-msgid " Where do performers yelp as they play the drums?"
+msgid "Where do performers yelp as they play the drums?"
 msgstr ""
 "Σε ποιο μέρος του κόσμου οι οργανοπαίχτες κραυγάζουν διαπεραστικά καθώς "
 "παίζουν τα τύμπανα;"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:16
-msgid " Scotland and Ireland"
+msgid "Scotland and Ireland"
 msgstr "Σκωτία και Ιρλανδία"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:17
 msgid ""
-" Folk music of this region is called celtic music, often incorporates a "
+"Folk music of this region is called celtic music, often incorporates a "
 "narrative poem or story. Typical instruments include bagpipes, fiddles, "
 "flutes, harps, and accordions."
 msgstr ""
@@ -3731,19 +3730,20 @@ msgstr ""
 "περιοχής είναι η γκάιντα, το βιολί, η φλογέρα, η άρπα και το ακκορντεόν."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:18
-msgid " Bagpipers, who often wear kilts, are from this location."
+msgid "Bagpipers, who often wear kilts, are from this location."
 msgstr ""
 "Αυτοί που παίζουν γκάιντα, φορούν κιλτ και προέρχονται από αυτό το μέρος του "
 "κόσμου."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:19
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:10
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:6
-msgid " Italy"
+msgid "Italy"
 msgstr "Ιταλία"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:20
 msgid ""
-" Italy is famous for its Opera. Opera is a musical theater where actors tell "
+"Italy is famous for its Opera. Opera is a musical theater where actors tell "
 "a story by acting and singing. Opera singers, both male and female, learn "
 "special techniques to sing operas."
 msgstr ""
@@ -3753,71 +3753,74 @@ msgstr ""
 "είδος του θεάτρου."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:21
-msgid " This country is known for its opera music."
+msgid "This country is known for its opera music."
 msgstr "Αυτή η χώρα είναι γνωστή για την όπερα."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:22
-msgid " European Classical Music"
+msgid "European Classical Music"
 msgstr "Ευρωπαϊκή κλασική μουσική"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:23
 msgid ""
-" Europe is the home of classical music. Famous composers like Bach, "
+"Europe is the home of classical music. Famous composers like Bach, "
 "Beethoven, and Mozart forever changed music history."
 msgstr ""
 "Η κλασική μουσική κατάγεται από την Ευρώπη. Φημισμένοι συνθέτες, όπως ο "
 "Μπαχ, ο Μπετόβεν και ο Μότσαρτ άλλαξαν την ιστορία της μουσικής για πάντα."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:24
-msgid " Bach, Beethoven, and Mozart composed music in this location."
+msgid "Bach, Beethoven, and Mozart composed music in this location."
 msgstr ""
 "Ο Μπαχ, ο Μπετόβεν και ο Μότσαρτ ήταν συνθέτες που κατάγονταν από αυτό το "
 "μέρος του κόσμου."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:25
+#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:10
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:5
-msgid " Mexico"
+msgid "Mexico"
 msgstr "Μεξικό"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:26
 msgid ""
-" Mariachi is a famous type of Mexican music. It features guitars, trumpets, "
+"Mariachi is a famous type of Mexican music. It features guitars, trumpets, "
 "and violins. These bands play for many occasions, including weddings and "
 "parties."
-msgstr "0"
+msgstr ""
+"Το Μαριάτσι είναι ένα φημισμένο είδος μεξικάνικης μουσικής με κιθάρες, "
+"τρομπέτες και βιολιά. Αυτές οι ορχήστρες παίζουν σε πολλές περιστάσεις, όπως "
+"σε γάμους και άλλες γιορτινές συγκεντρώσεις."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:27
 msgid ""
-" At parties, people often dance to the Mariachi music. A Famous dance is:"
+"At parties, people often dance to the Mariachi music. A Famous dance is:"
 msgstr ""
 "Στα πάρτι συχνά χορεύουν με τη μουσική του μαριάτσι. Ένας γνωστός χορός "
 "είναι ο:"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:28
-msgid " Where is Mariachi music from?"
+msgid "Where is Mariachi music from?"
 msgstr "Από ποια χώρα προέρχεται η μουσική μαριάτσι;"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:29
-msgid " United State of America"
+msgid "United State of America"
 msgstr "Ηνωμένες Πολιτείες της Αμερικής"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:30
 msgid ""
-" USA also has a wide variety of musical genres, but perhaps it is most "
-"famous for rock n' roll music. This music features vocalists, guitars, and "
-"drums."
+"USA also has a wide variety of musical genres, but perhaps it is most famous "
+"for rock n' roll music. This music features vocalists, guitars, and drums."
 msgstr ""
 "Η Αμερική διαθέτει μια μεγάλη ποικιλία μουσικών ειδών, αλλά ίσως το πιο "
 "γνωστό είδος να είναι το ροκ εντ ρολ. Τα μουσικά σχήματα αποτελούνται από "
 "τραγουδιστές, κιθάρες και ντραμς."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:31
-msgid " The 'king' of rock n' roll is"
+msgid "The 'king' of rock n' roll is"
 msgstr "Ο 'βασιλιάς' του ροκ εντ ρολ είναι ο "
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:32
 msgid ""
-" The 'king' of rock n' roll, Elvis Presley, made his music famous in this "
+"The 'king' of rock n' roll, Elvis Presley, made his music famous in this "
 "country."
 msgstr ""
 "Ο 'βασιλιάς' του ροκ εντ ρολ, ο Έλβις Πρίσλεϊ, έκανε πασίγνωστη τη μουσική "
@@ -3911,7 +3914,7 @@ msgid ""
 msgstr ""
 "Το GCompris είναι ένα πακέτο GNU και διέπεται από τους όρους της GNU/GPL"
 
-#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:460
+#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:487
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:358
 #: ../src/gcompris/images_selector.c:313
 msgid "OK"
@@ -4084,6 +4087,7 @@ msgid "Georgian"
 msgstr "Γεωργιανικά"
 
 #: ../src/gcompris/config.c:81
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:10
 msgid "German"
 msgstr "Γερμανικά"
 
@@ -4092,235 +4096,243 @@ msgid "Greek"
 msgstr "Ελληνικά"
 
 #: ../src/gcompris/config.c:83
+msgid "Scottish Gaelic"
+msgstr "Ιρλανδική (Γαελική)"
+
+#: ../src/gcompris/config.c:84
 msgid "Gujarati"
 msgstr "Γκουτζαράτι"
 
-#: ../src/gcompris/config.c:84
+#: ../src/gcompris/config.c:85
 msgid "Hebrew"
 msgstr "Εβραϊκά"
 
-#: ../src/gcompris/config.c:85
+#: ../src/gcompris/config.c:86
 msgid "Hindi"
 msgstr "Χίντι"
 
-#: ../src/gcompris/config.c:86
+#: ../src/gcompris/config.c:87
 msgid "Hungarian"
 msgstr "Ουγγρικό"
 
-#: ../src/gcompris/config.c:87
+#: ../src/gcompris/config.c:88
 msgid "Indonesian"
 msgstr "Ινδονησιακή"
 
-#: ../src/gcompris/config.c:88
+#: ../src/gcompris/config.c:89
 msgid "Irish (Gaelic)"
 msgstr "Ιρλανδική (Γαελική)"
 
-#: ../src/gcompris/config.c:89
+#: ../src/gcompris/config.c:90
 msgid "Italian"
 msgstr "Italian"
 
-#: ../src/gcompris/config.c:90
+#: ../src/gcompris/config.c:91
 msgid "Japanese"
 msgstr "Ιαπωνικά"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:92
 msgid "Kinyarwanda"
 msgstr "Kinyarwanda"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:93
 msgid "Korean"
 msgstr "Κορεάτικα"
 
-#: ../src/gcompris/config.c:93
+#: ../src/gcompris/config.c:94
 msgid "Latvian"
 msgstr "Λετονία"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:95
 msgid "Lithuanian"
 msgstr "Λιθουανική"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:96
 msgid "Macedonian"
 msgstr "ΠΓΔΜ"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:97
 msgid "Malay"
 msgstr "Μαλαισιακή"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:98
 msgid "Malayalam"
 msgstr "Μαλαγιάλαμ"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:99
 msgid "Marathi"
 msgstr "Μαράθι"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:100
 msgid "Montenegrin"
 msgstr "Μαυροβούνιο"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:101
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:37
 msgid "Nepal"
 msgstr "Νεπάλ"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:102
 msgid "Norwegian Bokmal"
 msgstr "Norwegian Bokmal"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:103
 msgid "Norwegian Nynorsk"
 msgstr "Norwegian Nynorsk"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:104
 msgid "Occitan (languedocien)"
 msgstr "Οξιτανικά (Νότια Γαλλία)"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:105
 msgid "Persian"
 msgstr "Περσικά"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:106
 msgid "Polish"
 msgstr "Polish"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:107
 msgid "Portuguese (Brazil)"
 msgstr "Πορτογαλικά (Βραζιλίας)"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:108
 msgid "Portuguese"
 msgstr "Πορτογαλικό"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:109
 msgid "Punjabi"
 msgstr "Πουντζάμπι"
 
-#: ../src/gcompris/config.c:109
+#: ../src/gcompris/config.c:110
 msgid "Romanian"
 msgstr "Ρουμάνικα"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:111
 msgid "Russian"
 msgstr "Ρωσικά"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:112
 msgid "Serbian (Latin)"
 msgstr "Σερβικά/Λατινικά"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:113
 msgid "Serbian"
 msgstr "Σερβική"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:114
 msgid "Slovak"
 msgstr "Σλοβακική"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:115
 msgid "Slovenian"
 msgstr "Σλοβενικό"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:116
 msgid "Somali"
 msgstr "Σομαλικά"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:117
 msgid "Spanish"
 msgstr "Ισπανικά"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:118
 msgid "Swedish"
 msgstr "Σουηδικά"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:119
 msgid "Tamil"
 msgstr "Ταμίλ"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:120
 msgid "Thai"
 msgstr "Τάι"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:121
 msgid "Turkish (Azerbaijan)"
 msgstr "Τουρκικά (Αζερμπαϊτζάν)"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:122
 msgid "Turkish"
 msgstr "Τουρκικά"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:123
 msgid "Ukrainian"
 msgstr "Ουκρανικά"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:124
 msgid "Urdu"
 msgstr "Ούρντου"
 
-#: ../src/gcompris/config.c:124
+#: ../src/gcompris/config.c:125
 msgid "Vietnamese"
 msgstr "Βιετναμέζικα"
 
-#: ../src/gcompris/config.c:125
+#: ../src/gcompris/config.c:126
 msgid "Walloon"
 msgstr "Walloon"
 
-#: ../src/gcompris/config.c:126
+#: ../src/gcompris/config.c:127
 msgid "Zulu"
 msgstr "Ζουλού"
 
-#: ../src/gcompris/config.c:131
+#: ../src/gcompris/config.c:132
 msgid "Timer: No time limit"
 msgstr "Χρονόμετρο: Χωρίς όριο χρόνου"
 
-#: ../src/gcompris/config.c:132
+#: ../src/gcompris/config.c:133
 msgid "Timer: Slow timer"
 msgstr "Χρονόμετρο: Αργό χρονόμετρο"
 
-#: ../src/gcompris/config.c:133
+#: ../src/gcompris/config.c:134
 msgid "Timer: Normal timer"
 msgstr "Χρονόμετρο: Κανονικό χρονόμετρο"
 
-#: ../src/gcompris/config.c:134
+#: ../src/gcompris/config.c:135
 msgid "Timer: Fast timer"
 msgstr "Χρονόμετρο: Γρήγορο χρονόμετρο"
 
-#: ../src/gcompris/config.c:138
+#: ../src/gcompris/config.c:139
 msgid "Use Gcompris administration module to filter boards"
 msgstr ""
 "Χρησιμοποιήστε τη διαχείριση του GCompris για να φιλτράρετε τους πίνακες."
 
-#: ../src/gcompris/config.c:192
+#: ../src/gcompris/config.c:193
 msgid "GCompris Configuration"
 msgstr "Ρύθμιση GCompris"
 
-#: ../src/gcompris/config.c:275
+#: ../src/gcompris/config.c:276
 msgid "Fullscreen"
 msgstr "Πλήρης οθόνη"
 
-#: ../src/gcompris/config.c:300
+#: ../src/gcompris/config.c:301
+msgid "Remember level for default user"
+msgstr "Απομνημόνευση επιπέδου για τον προκαθορισμένο χρήστη"
+
+#: ../src/gcompris/config.c:327
 msgid "Music"
 msgstr "Μουσική"
 
-#: ../src/gcompris/config.c:325
+#: ../src/gcompris/config.c:352
 msgid "Effect"
 msgstr "Εφέ"
 
-#: ../src/gcompris/config.c:349 ../src/gcompris/sugar_gc.c:93
+#: ../src/gcompris/config.c:376 ../src/gcompris/sugar_gc.c:93
 msgid "Zoom"
 msgstr "Εστίαση"
 
-#: ../src/gcompris/config.c:386
+#: ../src/gcompris/config.c:413
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Αδυναμία ανοίγματος καταλόγου skin: %s"
 
-#: ../src/gcompris/config.c:417 ../src/gcompris/config.c:877
-#: ../src/gcompris/config.c:891
+#: ../src/gcompris/config.c:444 ../src/gcompris/config.c:912
+#: ../src/gcompris/config.c:926
 #, c-format
 msgid "Skin : %s"
 msgstr "Θέμα: %s"
 
-#: ../src/gcompris/config.c:419
+#: ../src/gcompris/config.c:446
 msgid "SKINS NOT FOUND"
 msgstr "ΔΕΝ ΒΡΕΘΗΚΑΝ ΤΑ ΘΕΜΑΤΑ"
 
@@ -4352,43 +4364,41 @@ msgstr ""
 "Έξοδος και αναφορά\n"
 "του προβλήματος στους συγγραφείς."
 
-#: ../src/gcompris/gcompris.c:154
+#: ../src/gcompris/gcompris.c:155
 msgid "run GCompris in fullscreen mode."
 msgstr "εκτέλεση gcompris σε λειτουργία πλήρους οθόνης."
 
-#: ../src/gcompris/gcompris.c:157
+#: ../src/gcompris/gcompris.c:158
 msgid "run GCompris in window mode."
 msgstr "εκτέλεση gcompris σε λειτουργία παραθύρου "
 
-#: ../src/gcompris/gcompris.c:160
+#: ../src/gcompris/gcompris.c:161
 msgid "run GCompris with sound enabled."
 msgstr "εκτέλεση gcompris με ενεργοποιημένο τον ήχο. "
 
-#: ../src/gcompris/gcompris.c:163
+#: ../src/gcompris/gcompris.c:164
 msgid "run GCompris without sound."
 msgstr "εκτέλεση gcompris χωρίς ήχο."
 
-#: ../src/gcompris/gcompris.c:166
+#: ../src/gcompris/gcompris.c:167
 msgid "run GCompris with the default system cursor."
 msgstr "Εκτέλεση του Gcompris με τον προεπιλεγμένο δρομέα του συστήματος."
 
-#: ../src/gcompris/gcompris.c:169
+#: ../src/gcompris/gcompris.c:170
 msgid "run GCompris without cursor (touch screen mode)."
 msgstr "Εκτέλεση του Gcompris χωρίς τον δρομέα (λειτουργία οθόνης αφής)."
 
-#: ../src/gcompris/gcompris.c:172
+#: ../src/gcompris/gcompris.c:173
 msgid "display only activities with this difficulty level."
 msgstr "εμφάνιση των δραστηριοτήτων με αυτό το επίπεδο δυσκολίας μόνο."
 
-#: ../src/gcompris/gcompris.c:175
-msgid "display debug informations on the console."
-msgstr "εμφάνιση πληροφοριών αποσφαλμάτωσης στην κονσόλα."
+#: ../src/gcompris/gcompris.c:176
+msgid "Return to last passed level even when no user is selected"
+msgstr ""
+"Επιστροφή στο προηγούμενο επίπεδο ακόμη και όταν δεν έχει επιλεγεί κανένας "
+"χρήστης"
 
-#: ../src/gcompris/gcompris.c:178
-msgid "Print the version of "
-msgstr "Εκτύπωση της έκδοσης του"
-
-#: ../src/gcompris/gcompris.c:181
+#: ../src/gcompris/gcompris.c:179
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
@@ -4401,38 +4411,38 @@ msgstr ""
 "παιχνίδι connect 4). Με την εντολή '-l list' θα δείτε όλες τις διαθέσιμες "
 "δραστηριότητες και τις περιγραφές τους."
 
-#: ../src/gcompris/gcompris.c:186
+#: ../src/gcompris/gcompris.c:184
 msgid "GCompris will find the data dir in this directory"
 msgstr "Το GCompris θα βρει τα δεδομένα σε αυτόν τον κατάλογο."
 
-#: ../src/gcompris/gcompris.c:189
+#: ../src/gcompris/gcompris.c:187
 msgid "GCompris will find the skins in this directory"
 msgstr "Το GCompris θα βρει τα θέματα σε αυτόν τον κατάλογο."
 
-#: ../src/gcompris/gcompris.c:192
+#: ../src/gcompris/gcompris.c:190
 msgid "GCompris will find the activity plugins in this directory"
 msgstr ""
 "Το GCompris θα βρει τα πρόσθετα των δραστηριοτήτων σε αυτόν τον κατάλογο."
 
-#: ../src/gcompris/gcompris.c:195
+#: ../src/gcompris/gcompris.c:193
 msgid "GCompris will find the Python activity in this directory"
 msgstr "Το GCompris θα βρει τη δραστηριότητα Python σε αυτόν τον κατάλογο"
 
-#: ../src/gcompris/gcompris.c:198
+#: ../src/gcompris/gcompris.c:196
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr "plugins "
 
-#: ../src/gcompris/gcompris.c:201
+#: ../src/gcompris/gcompris.c:199
 msgid "GCompris will find the activities menu in this directory"
 msgstr "Το GCompris θα βρει το μενού των δραστηριοτήτων σε αυτόν τον κατάλογο."
 
-#: ../src/gcompris/gcompris.c:204
+#: ../src/gcompris/gcompris.c:202
 msgid "Run GCompris in administration and user-management mode"
 msgstr ""
 "Άνοιξε το GCompris σε κατάσταση λειτουργίας διαχειριστή και διαχείρισης "
 "χρηστών"
 
-#: ../src/gcompris/gcompris.c:207
+#: ../src/gcompris/gcompris.c:205
 msgid ""
 "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
@@ -4440,27 +4450,27 @@ msgstr ""
 "Χρησιμοποίησε εναλλακτική βάση δεδομένων για τα προφίλ [$HOME/.config/"
 "gcompris/gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:210
+#: ../src/gcompris/gcompris.c:208
 msgid "Create the alternate database for profiles"
 msgstr "Κατασκεύασε εναλλακτική βάση δεδομένων για τα προφίλ"
 
-#: ../src/gcompris/gcompris.c:213
+#: ../src/gcompris/gcompris.c:211
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Ξαναδιάβασε τα μενού XML και αποθήκευσέ τα στη βάση δεδομένων"
 
-#: ../src/gcompris/gcompris.c:216
+#: ../src/gcompris/gcompris.c:214
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Καθόρισε το προφίλ που θα χρησιμοποιηθεί. Χρησιμοποίησε την εντολή 'gcompris "
 "-a' για να φτιάξεις καινούρια προφίλ"
 
-#: ../src/gcompris/gcompris.c:219
+#: ../src/gcompris/gcompris.c:217
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Κατάλογος όλων των διαθέσιμων προφιλ. Χρησιμοποίησε την εντολή 'gcompris -a' "
 "για να φτιάξεις καινούρια προφίλ"
 
-#: ../src/gcompris/gcompris.c:222
+#: ../src/gcompris/gcompris.c:220
 msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
@@ -4468,47 +4478,47 @@ msgstr ""
 "Τοποθεσία καταλόγου Config [$HOME/.config/gcompris]. Εναλλακτικά μπορεί να "
 "καθοριστεί στο $XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:225
+#: ../src/gcompris/gcompris.c:223
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "Τοποθεσία των καταλόγων του χρήστη: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:228
+#: ../src/gcompris/gcompris.c:226
 msgid "Run the experimental activities"
 msgstr "Εκτέλεσε τις δραστηριότητες πειραματισμού"
 
-#: ../src/gcompris/gcompris.c:231
+#: ../src/gcompris/gcompris.c:229
 msgid "Disable the quit button"
 msgstr "Απενεργοποίησε το κουμπί της εξόδου"
 
-#: ../src/gcompris/gcompris.c:234
+#: ../src/gcompris/gcompris.c:232
 msgid "Disable the config button"
 msgstr "Απενεργοποίηση του κουμπιού config"
 
-#: ../src/gcompris/gcompris.c:237
+#: ../src/gcompris/gcompris.c:235
 msgid "Disable the level button"
 msgstr "Απενεργοποίηση του πλήκτρου των επιπέδων"
 
-#: ../src/gcompris/gcompris.c:240
+#: ../src/gcompris/gcompris.c:238
 msgid "Disable the database (slower start and no user log)"
 msgstr ""
 "Απενεργοποίηση βάσης δεδομένων (πιο αργή έναρξη και χωρίς σύνδεση χρήστη)"
 
-#: ../src/gcompris/gcompris.c:243
+#: ../src/gcompris/gcompris.c:241
 msgid ""
 "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr ""
 "Καθολική λειτουργία μετακίνησης και απόθεσης: κανονικά, 2 κλικ, αμφότερα. Η "
 "προκαθορισμένη λειτουργία είναι ομαλή."
 
-#: ../src/gcompris/gcompris.c:246
+#: ../src/gcompris/gcompris.c:244
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Να αποφεύγετε την εκτέλεση πολλαπλών στιγμιότυπων του GCompris."
 
-#: ../src/gcompris/gcompris.c:249
+#: ../src/gcompris/gcompris.c:247
 msgid "Disable maximization zoom"
 msgstr "Απενεργοποίηση εστίασης μεγιστοποίησης"
 
-#: ../src/gcompris/gcompris.c:252
+#: ../src/gcompris/gcompris.c:250
 msgid ""
 "Increase activities' timeout delays; useful values > 1.0; 1.0 to not change "
 "hardcoded value"
@@ -4516,7 +4526,7 @@ msgstr ""
 "Αύξηση καθυστέρησης χρόνου προσωρινής διακοπής δραστηριοτήτων; χρήσιμες "
 "τιμές > 1.0; 1.0 για να μην αλλάξει η προκαθορισμένη τιμή."
 
-#: ../src/gcompris/gcompris.c:255
+#: ../src/gcompris/gcompris.c:253
 msgid ""
 "How activities' timeout delays are growing for several actors; useful values "
 "< 1.0; 1.0 to not change hardcoded value"
@@ -4524,11 +4534,19 @@ msgstr ""
 "Μέθοδος αύξησης χρόνου προσωρινής διακοπής δραστηριοτήτων; χρήσιμες τιμές > "
 "1.0; 1.0 για να μην αλλάξει η προκαθορισμένη τιμή."
 
-#: ../src/gcompris/gcompris.c:258
+#: ../src/gcompris/gcompris.c:256
 msgid "For test purpose, run in a loop all the activities"
 msgstr "Για δοκιμαστικούς λόγους, εκτελέστε σε βρόχο όλες τις δραστηριότητες"
 
-#: ../src/gcompris/gcompris.c:943
+#: ../src/gcompris/gcompris.c:259
+msgid "display debug informations on the console."
+msgstr "εμφάνιση πληροφοριών αποσφαλμάτωσης στην κονσόλα."
+
+#: ../src/gcompris/gcompris.c:262
+msgid "Print the version of "
+msgstr "Εκτύπωση της έκδοσης του"
+
+#: ../src/gcompris/gcompris.c:947
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -4553,18 +4571,18 @@ msgstr ""
 "Περισσότερες πληροφορίες στο FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1236
+#: ../src/gcompris/gcompris.c:1240
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
 msgstr ""
 "Αποτυχία φόρτωσης του θέματος '%s' (Ελέγξτε αν το αρχείο υπάρχει και είναι "
 "αναγνώσιμο)"
 
-#: ../src/gcompris/gcompris.c:1252
+#: ../src/gcompris/gcompris.c:1256
 msgid "Retrieving remote data..."
 msgstr "Ανάκτηση απομακρυσμένων δεδομένων..."
 
-#: ../src/gcompris/gcompris.c:1513
+#: ../src/gcompris/gcompris.c:1517
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d second old.\n"
@@ -4577,12 +4595,12 @@ msgstr[1] ""
 "Δεν είναι δυνατή η εκκίνηση του gcompris επειδή το αρχείο κλειδώματος είναι "
 "ενεργό για λιγότερο από %d δευτερόλεπτα.\n"
 
-#: ../src/gcompris/gcompris.c:1517
+#: ../src/gcompris/gcompris.c:1521
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Το αρχείο κλειδώματος είναι: %s\n"
 
-#: ../src/gcompris/gcompris.c:1638
+#: ../src/gcompris/gcompris.c:1642
 #, c-format
 msgid ""
 "GCompris\n"
@@ -4596,28 +4614,28 @@ msgstr ""
 "Πληροφορίες στο http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1818
+#: ../src/gcompris/gcompris.c:1827
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr ""
 "Χρησιμοποίησε το -l για να αποκτήσεις άμεση πρόσβαση σε μια δραστηριότητα.\n"
 
-#: ../src/gcompris/gcompris.c:1819
+#: ../src/gcompris/gcompris.c:1828
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Ο κατάλογος των διαθέσιμων δραστηριοτήτων είναι:\n"
 
-#: ../src/gcompris/gcompris.c:1850
+#: ../src/gcompris/gcompris.c:1859
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Αριθμός δραστηριοτήτων: %d\n"
 
-#: ../src/gcompris/gcompris.c:1886
+#: ../src/gcompris/gcompris.c:1895
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s υπάρχει αλλά δεν είναι αναγνώσιμο ή εγγράψιμο"
 
-#: ../src/gcompris/gcompris.c:1981
+#: ../src/gcompris/gcompris.c:1990
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -4626,7 +4644,7 @@ msgstr ""
 "ΣΦΑΛΜΑ: Το προφίλ '%s' δεν βρέθηκε. Εκτελέστε την εντολή  'gcompris --"
 "profile-list' για να δείτε τα διαθέσιμα προφίλ\n"
 
-#: ../src/gcompris/gcompris.c:1995
+#: ../src/gcompris/gcompris.c:2004
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Ο κατάλογος των διαθέσιμων προφίλ είναι:\n"
@@ -4681,7 +4699,7 @@ msgstr ""
 "Σε αυτό το προφίλ όλες οι δραστηριότητες είναι απενεργοποιημένες. Ανοίξτε τη "
 "Διαχείριση του GCompris και ενεργοποιήστε τουλάχιστον μία δραστηριότητα."
 
-#: ../src/gcompris/properties.c:505
+#: ../src/gcompris/properties.c:512
 msgid ""
 "This directory contains the files you create with the GCompris educational "
 "suite\n"
@@ -4689,7 +4707,7 @@ msgstr ""
 "Ο φάκελος περιέχει τα αρχεία που δημιούργησες με το εκπαιδευτικό πακέτο "
 "GCompris\n"
 
-#: ../src/gcompris/properties.c:512
+#: ../src/gcompris/properties.c:519
 msgid ""
 "Put any number of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
@@ -4781,9 +4799,15 @@ msgstr "Περιοχές της Γαλλίας"
 msgid "India"
 msgstr "Ινδία"
 
-#: ../src/geo_country-activity/resources/geo_country/board13_0.xml.in.h:1
-msgid "Australia"
-msgstr "Αυστραλία"
+#: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:1
+#: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:1
+msgid "Northern Scotland"
+msgstr "Βόρεια Σκωτία"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:1
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:1
+msgid "Southern Scotland"
+msgstr "Νότια Σκωτία"
 
 #: ../src/geo_country-activity/resources/geo_country/board2_0.xml.in.h:1
 msgid "Deutschland Bundesländer"
@@ -4826,12 +4850,6 @@ msgstr ""
 #: ../src/geography-activity/resources/geography/board1_0.xml.in.h:1
 msgid "Continents"
 msgstr "Ήπειροι"
-
-#: ../src/geography-activity/resources/geography/board1_0.xml.in.h:2
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:1
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:6
-msgid "Africa"
-msgstr "Αφρική"
 
 #: ../src/geography-activity/resources/geography/board1_0.xml.in.h:3
 msgid "America"
@@ -4891,10 +4909,6 @@ msgstr "Ισλανδία"
 msgid "Jamaica"
 msgstr "Τζαμάϊκα"
 
-#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:10
-msgid "Mexico"
-msgstr "Μεξικό"
-
 #: ../src/geography-activity/resources/geography/board2_0.xml.in.h:11
 msgid "United States of America"
 msgstr "Ηνωμένες Πολιτείες της Αμερικής"
@@ -4916,6 +4930,7 @@ msgid "Bolivia"
 msgstr "Βολιβία"
 
 #: ../src/geography-activity/resources/geography/board3_0.xml.in.h:4
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:13
 msgid "Brazil"
 msgstr "Βραζιλία"
 
@@ -4980,24 +4995,23 @@ msgid "Denmark"
 msgstr "Δανία"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:5
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:22
 msgid "Finland"
 msgstr "Φιλανδία"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:6
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:11
 msgid "France"
 msgstr "Γαλλία"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:7
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:12
 msgid "Germany"
 msgstr "Γερμανία"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:9
 msgid "Ireland"
 msgstr "Ιρλανδία"
-
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:10
-msgid "Italy"
-msgstr "Ιταλία"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:11
 msgid "Luxembourg"
@@ -5016,6 +5030,7 @@ msgid "Portugal"
 msgstr "Πορτογαλία"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:15
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:7
 msgid "Spain"
 msgstr "Ισπανία"
 
@@ -5080,6 +5095,7 @@ msgid "Moldova"
 msgstr "Μολδαβία"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:14
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:18
 msgid "Poland"
 msgstr "Πολωνία"
 
@@ -5093,6 +5109,7 @@ msgid "Russia"
 msgstr "Ρωσία"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:17
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:16
 msgid "Serbia"
 msgstr "Σερβία"
 
@@ -5114,14 +5131,17 @@ msgid "Turkey"
 msgstr "Τουρκία"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:22
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:20
 msgid "Ukraine"
 msgstr "Ουκρανία"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:23
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:19
 msgid "Greece"
 msgstr "Ελλάδα"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:24
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:14
 msgid "Cyprus"
 msgstr "Κύπρος"
 
@@ -5380,7 +5400,7 @@ msgid "Black Sea"
 msgstr "Μαύρη Θάλασσα"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:4
-msgid "Mediteranean Sea"
+msgid "Mediterranean Sea"
 msgstr "Μεσόγειος Θάλασσα"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:5
@@ -5414,10 +5434,6 @@ msgstr "Μπαχρέιν"
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:13
 msgid "Lebanon"
 msgstr "Λίβανος"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:14
-msgid "Chypre"
-msgstr "Κύπρος"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:15
 msgid "Kuwait"
@@ -5554,10 +5570,6 @@ msgstr "Νότια Κορέα"
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:51
 msgid "North Korea"
 msgstr "Βόρεια Κορέα"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:52
-msgid "Japan"
-msgstr "Ιαπωνία"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:53
 msgid "Mongolia"
@@ -6684,7 +6696,7 @@ msgstr "το ταμπουρίνο"
 msgid "the tuba"
 msgstr "η τούμπα"
 
-#: ../src/intro_gravity-activity/intro_gravity.py:98
+#: ../src/intro_gravity-activity/intro_gravity.py:100
 msgid ""
 "Gravity is universal and Newton's law of universal gravitation extends "
 "gravity beyond earth. This force of gravitational attraction is directly "
@@ -6696,7 +6708,7 @@ msgstr ""
 "δύναμη ανάλογη του γινομένου των μαζών τους και αντιστρόφως ανάλογη του "
 "τετραγώνου της απόστασης του κέντρου μάζας τους."
 
-#: ../src/intro_gravity-activity/intro_gravity.py:105
+#: ../src/intro_gravity-activity/intro_gravity.py:107
 msgid ""
 "Since the gravitational force is directly proportional to the mass of both "
 "interacting objects, more massive objects will attract each other with a "
@@ -6714,7 +6726,7 @@ msgstr ""
 "αλληλεπιδρούν κι έτσι όσο μεγαλώνει η απόσταση αυτή, τόσο εξασθενεί η "
 "βαρυτική δύναμη έλξης."
 
-#: ../src/intro_gravity-activity/intro_gravity.py:118
+#: ../src/intro_gravity-activity/intro_gravity.py:120
 msgid ""
 "Your goal is to let Tux's spaceship move by changing the mass of its "
 "surrounding planets. Don't get too close to the planets or you will crash on "
@@ -6724,7 +6736,7 @@ msgstr ""
 "αλλάζοντας τη μάζα των σωμάτων που βρίσκονται τριγύρω του. Το βελάκι "
 "υποδεικνύει την κατεύθυνση στην οποία κινείται το διαστημόπλοιο."
 
-#: ../src/intro_gravity-activity/intro_gravity.py:128
+#: ../src/intro_gravity-activity/intro_gravity.py:130
 msgid "Avoid the asteroid and join the space shuttle to win."
 msgstr ""
 "Πρέπει να αποφύγετε τον αστεροειδή και να συνδεθείτε με το διαστημικό "
@@ -6755,7 +6767,7 @@ msgstr "Ακολουθήστε τις οδηγίες καθώς εκτελείτ
 msgid "Gravity: %s"
 msgstr "Βαρύτητα: %s"
 
-#: ../src/land_safe-activity/land_safe.py:164
+#: ../src/land_safe-activity/land_safe.py:165
 msgid ""
 "Use the up and down keys to control the thrust\n"
 "Use the right and left keys to control direction.\n"
@@ -6770,23 +6782,23 @@ msgstr ""
 "προσγειωθεί με ασφάλεια και κόκκινη όταν το σκάφος έχει μεγάλη ταχύτητα και "
 "άρα δεν θα προσγειωθεί με ασφάλεια."
 
-#: ../src/land_safe-activity/land_safe.py:169
+#: ../src/land_safe-activity/land_safe.py:170
 msgid "Click on me or press the Return key when you are ready."
 msgstr "Κάντε κλικ επάνω μου ή πατήστε το πλήκτρο Enter όταν είστε έτοιμοι"
 
-#: ../src/land_safe-activity/land_safe.py:171
+#: ../src/land_safe-activity/land_safe.py:172
 msgid "I am ready!"
 msgstr "Είμαι έτοιμος!"
 
-#: ../src/land_safe-activity/land_safe.py:453
+#: ../src/land_safe-activity/land_safe.py:470
 msgid "Height: "
 msgstr "Ύψος:"
 
-#: ../src/land_safe-activity/land_safe.py:469
+#: ../src/land_safe-activity/land_safe.py:486
 msgid "Fuel"
 msgstr "Καύσιμα"
 
-#: ../src/land_safe-activity/land_safe.py:502
+#: ../src/land_safe-activity/land_safe.py:519
 msgid "Velocity: "
 msgstr "Ταχύτητα κίνησης:"
 
@@ -7744,17 +7756,18 @@ msgid ""
 "buttons, or anything you can count. If you have lots of brothers and "
 "sisters, you can count them! Or the kids in your class at school. Sing "
 "counting songs. Count lots of things, for practice, and you'll be very good "
-"at adding-up!\n"
+"at subtracting numbers!\n"
 "\n"
 "In this game, these cards are hiding the two parts of a subtraction. You "
 "need to find the two parts of the subtraction, and bring them together "
 "again. Click on a card to see what number it's hiding, then try to find the "
-"other card that goes with it, to make a whole sum. You can only turn over "
-"two cards in one go, so you need to remember where the numbers are hiding, "
-"then you can match them when you find their other half. You're doing the job "
-"of the equals sign, and the numbers need you to put them together and make a "
-"proper sum. When you do that, both those cards disappear! When you've made "
-"them all disappear, found all the subtracts, you've won the game! :)"
+"other card that goes with it, to make a whole difference. You can only turn "
+"over two cards in one go, so you need to remember where the numbers are "
+"hiding, then you can match them when you find their other half. You're doing "
+"the job of the equals sign, and the numbers need you to put them together "
+"and make a proper difference. When you do that, both those cards disappear! "
+"When you've made them all disappear, found all the subtracts, you've won the "
+"game! :)"
 msgstr ""
 "Μπορείς να δεις ορισμένες κάρτες, αλλά δεν γνωρίζεις τι υπάρχει στην άλλη "
 "τους πλευρά. Κάθε κάρτα κρύβει μια αφαίρεση ή την απάντησή της.\n"
@@ -8476,8 +8489,8 @@ msgstr "Edgar Degas, Η τάξη του χορού - 1873-75"
 
 #: ../src/paintings-activity/resources/paintings/board1_10.xml.in.h:1
 msgid ""
-"Katsushika Hokusai,\\nViewing Sunset over the Ryogoku Bridge from the Ommaya "
-"Embankment - 1830"
+"Katsushika Hokusai,\n"
+"Viewing Sunset over the Ryogoku Bridge from the Ommaya Embankment - 1830"
 msgstr ""
 "Katsushika Hokusai,\\nΚοιτάζοντας το ηλιοβασίλεμα πάνω από τη γέφυρα "
 "Ryogoku, όπως φαίνεται από το ανάχωμα Ommaya - 1830"
@@ -8520,7 +8533,8 @@ msgstr "Katsushika Hokusai, Το μεγάλο κύμα της Kanagawa - 1823-18
 
 #: ../src/paintings-activity/resources/paintings/board1_8.xml.in.h:1
 msgid ""
-"Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
+"Utagawa Hiroshige,\n"
+"The Benzaiten Shrine at Inokashira in Snow - 1760-70"
 msgstr ""
 "Utagawa Hiroshige,\\nΤο μαυσωλείο Benzaiten στην Inokashira χιονισμένο - "
 "1760-70"
@@ -8853,6 +8867,12 @@ msgstr "Αλλαγή τυχαίου στιλ:"
 msgid "Select A Melody to Load"
 msgstr "Επιλέξτε μια μελωδία για φόρτωση"
 
+#. FIXME Should remove the space in the data file instead
+#: ../src/piano_composition-activity/piano_composition.py:449
+#: ../src/piano_composition-activity/piano_composition.py:578
+msgid " "
+msgstr "Κενό"
+
 #: ../src/piano_composition-activity/piano_composition.xml.in.h:1
 msgid "Piano Composition"
 msgstr "Σύνθεση πιάνο"
@@ -8965,84 +8985,44 @@ msgstr ""
 "  F5: A# / Bb\n"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:1
-msgid " America: English Lullaby"
+msgid "America: English Lullaby"
 msgstr "Αμερική: Αγγλικό νανούρισμα"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:2
-msgid " America: Patriotic"
+msgid "America: Patriotic"
 msgstr "Αμερική: Πατριωτικό"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:3
-msgid " America: Shaker Tune"
+msgid "America: Shaker Tune"
 msgstr "Αμερική: Ανάμεικτη μελωδία"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:4
-msgid " America: Nursery Rhyme"
+msgid "America: Nursery Rhyme"
 msgstr "Αμερική: Ρίμα νηπιαγωγείου"
 
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:7
-msgid " Spain"
-msgstr "Ισπανία"
-
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:8
-msgid " German Kid's Song"
+msgid "German Kid's Song"
 msgstr "Γερμανικό παιδικό τραγούδι"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:9
-msgid " Children's Song from Brazil"
+msgid "Children's Song from Brazil"
 msgstr "Το 'Τραγούδι του παιδιού' από τη Βραζιλία"
 
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:10
-msgid " German"
-msgstr "Γερμανία"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:11
-msgid " France"
-msgstr "Γαλλία"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:12
-msgid " Germany"
-msgstr "Γερμανία"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:13
-msgid " Brazil"
-msgstr "Βραζιλία"
-
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:14
-msgid " Hungary, Nursery Rhyme"
+msgid "Hungary, Nursery Rhyme"
 msgstr "Ουγγαρία, Ρίμα νηπιαγωγείου"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:15
-msgid " Hungary, Children's Song"
+msgid "Hungary, Children's Song"
 msgstr "Ουγγαρία, παιδικό τραγούδι"
 
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:16
-msgid " Serbia"
-msgstr "Σερβία"
-
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:17
-msgid " Britain"
+msgid "Britain"
 msgstr "Βρετανία"
 
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:18
-msgid " Poland"
-msgstr "Πολωνία"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:19
-msgid " Greece"
-msgstr "Ελλάδα"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:20
-msgid " Ukraine"
-msgstr "Ουκρανία"
-
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:21
-msgid " Mexican song to break a piñata"
+msgid "Mexican song to break a piñata"
 msgstr "Μεξικάνικο τραγούδι για το σπάσιμο της piñata"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:22
-msgid " Finland"
-msgstr "Φινλανδία"
 
 #: ../src/place_your_satellite-activity/place_your_satellite.py:68
 msgid ""
@@ -10421,6 +10401,60 @@ msgstr "Εξάσκηση στο πληκτρολόγιο"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the complete word as it falls, before it reaches the ground"
 msgstr "Πληκτρολόγησε την λέξη πριν αυτή πέσει στο έδαφος"
+
+#~ msgid "Editing group: "
+#~ msgstr "Επεξεργασία ομάδας:"
+
+#~ msgid " for class: "
+#~ msgstr "για την τάξη:"
+
+#~ msgid " Australia"
+#~ msgstr "Αυστραλία"
+
+#~ msgid " Africa"
+#~ msgstr "Αφρική"
+
+#~ msgid " Japan"
+#~ msgstr "Ιαπωνία"
+
+#~ msgid " Italy"
+#~ msgstr "Ιταλία"
+
+#~ msgid " Mexico"
+#~ msgstr "Μεξικό"
+
+#~ msgid "Chypre"
+#~ msgstr "Κύπρος"
+
+#~ msgid " Spain"
+#~ msgstr "Ισπανία"
+
+#~ msgid " German"
+#~ msgstr "Γερμανία"
+
+#~ msgid " France"
+#~ msgstr "Γαλλία"
+
+#~ msgid " Germany"
+#~ msgstr "Γερμανία"
+
+#~ msgid " Brazil"
+#~ msgstr "Βραζιλία"
+
+#~ msgid " Serbia"
+#~ msgstr "Σερβία"
+
+#~ msgid " Poland"
+#~ msgstr "Πολωνία"
+
+#~ msgid " Greece"
+#~ msgstr "Ελλάδα"
+
+#~ msgid " Ukraine"
+#~ msgstr "Ουκρανία"
+
+#~ msgid " Finland"
+#~ msgstr "Φινλανδία"
 
 #~ msgid ""
 #~ " The cow goes \"moo. moo.\" Cows have a memory of about three years. Cows "
