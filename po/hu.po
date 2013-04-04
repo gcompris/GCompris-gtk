@@ -1,29 +1,32 @@
 # Hungarian translation of gcompris.
 # Copyright (C) 2002, 2004, 2005, 2006, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gcompris package.
+#
 # Hilzinger Marcel <hili at suselinux dot hu>, 2002.
 # Gabor Kelemen <kelemeng at gnome dot hu>, 2004, 2005, 2006, 2008, 2009, 2010, 2011, 2012.
 # Miklos Merenyi <mermik at freemail dot hu>, 2008.
 # Somlai Istvan <somlai at bg-bp dot sulinet dot hu>, 2012.
+# Balázs Úr <urbalazs at gmail dot com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris master\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-29 02:43+0100\n"
-"PO-Revision-Date: 2012-11-29 02:42+0100\n"
-"Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=gcompris&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2013-04-01 17:20+0000\n"
+"PO-Revision-Date: 2013-04-04 22:55+0200\n"
+"Last-Translator: Balázs Úr <urbalazs at gmail dot com>\n"
 "Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.4\n"
+"X-Generator: Lokalize 1.2\n"
 "X-Project-Style: gnome\n"
 
 #: ../boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
-msgstr "A matematikai táblákhoz"
+msgstr "Ugrás a matematikai táblákhoz"
 
 #: ../boards/algebra_group.xml.in.h:2 ../boards/menu.xml.in.h:2
 #: ../boards/money_group.xml.in.h:2
@@ -417,13 +420,25 @@ msgstr ""
 "tartományt <b>%s</b> profilhoz </span>"
 
 #: ../src/administration-activity/admin/board_list.py:645
-#: ../src/administration-activity/admin/board_list.py:657
-#: ../src/administration-activity/admin/wordlist.py:45
+#| msgid ""
+#| "<b>{config}</b> configuration\n"
+#| " for profile <b>{profile}</b>"
 msgid ""
-"<b>{config}</b> configuration\n"
+"<b>Locale</b> configuration\n"
 " for profile <b>{profile}</b>"
 msgstr ""
-"<b>{config}</b> beállítása\n"
+"<b>Területi</b> beállítások\n"
+"<b>{profile}</b> profilhoz"
+
+#: ../src/administration-activity/admin/board_list.py:657
+#| msgid ""
+#| "<b>{config}</b> configuration\n"
+#| " for profile <b>{profile}</b>"
+msgid ""
+"<b>Locale sound</b> configuration\n"
+" for profile <b>{profile}</b>"
+msgstr ""
+"<b>Területi hang</b> beállítások\n"
 "<b>{profile}</b> profilhoz"
 
 #: ../src/administration-activity/admin/board_list.py:663
@@ -495,12 +510,8 @@ msgid "Editing a Group"
 msgstr "Csoport szerkesztése"
 
 #: ../src/administration-activity/admin/group_edit.py:62
-msgid "Editing group: "
-msgstr "Csoport szerkesztése: "
-
-#: ../src/administration-activity/admin/group_edit.py:63
-msgid " for class: "
-msgstr " a következő osztályhoz: "
+msgid "Editing group '{group}' for class '{aclass}'"
+msgstr "„{group}” csoport szerkesztése „{aclass}” osztályhoz"
 
 #: ../src/administration-activity/admin/group_edit.py:66
 msgid "Editing a new group"
@@ -809,6 +820,14 @@ msgid ""
 msgstr ""
 "Néhány bejelentkezési név nem egyedi!\n"
 "Módosítsa ezeket: %s."
+
+#: ../src/administration-activity/admin/wordlist.py:45
+msgid ""
+"<b>{config}</b> configuration\n"
+" for profile <b>{profile}</b>"
+msgstr ""
+"<b>{config}</b> beállítása\n"
+"<b>{profile}</b> profilhoz"
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:1
 msgid "Advanced colors"
@@ -2898,9 +2917,9 @@ msgstr ""
 "alakzatot. Egy objektumot gyorsan törölni a középső egérgombbal lehet."
 
 #: ../src/drawnumber-activity/drawnumber.py:238
-#: ../src/explore-activity/explore.py:464 ../src/findit-activity/findit.py:336
+#: ../src/explore-activity/explore.py:410 ../src/findit-activity/findit.py:336
 #: ../src/louis_braille-activity/louis_braille.py:84
-#: ../src/piano_composition-activity/piano_composition.py:503
+#: ../src/piano_composition-activity/piano_composition.py:504
 msgid "Cannot find the file '{filename}'"
 msgstr "A fájl („{filename}”) nem található"
 
@@ -3033,8 +3052,8 @@ msgstr "Mozgasd az egeret, hogy kiradírozd a mezőket és felfedezd a hátteret
 msgid "Error: No images found\n"
 msgstr "Hiba: nem találhatók képek\n"
 
-#: ../src/erase-activity/erase.c:582 ../src/gcompris/properties.c:503
-#: ../src/gcompris/properties.c:510
+#: ../src/erase-activity/erase.c:582 ../src/gcompris/properties.c:510
+#: ../src/gcompris/properties.c:517
 msgid "readme"
 msgstr "leírás"
 
@@ -3083,7 +3102,7 @@ msgstr "Kattints az egérrel, hogy kitöröld a területet és felfedezd a hátt
 msgid "Click the mouse on rectangles until all the blocks disappear."
 msgstr "Kattints a téglalapokra az egérrel, amíg mind el nem tűnik."
 
-#: ../src/explore-activity/explore.py:90
+#: ../src/explore-activity/explore.py:85
 #: ../src/note_names-activity/note_names.py:82
 #: ../src/piano_composition-activity/piano_composition.py:371
 #: ../src/play_piano-activity/play_piano.py:78
@@ -3099,18 +3118,18 @@ msgstr ""
 "A beállítási párbeszédablakban\n"
 "kapcsolható be a hang."
 
-#: ../src/explore-activity/explore.py:159
+#: ../src/explore-activity/explore.py:152
 msgid "Click to play sound"
 msgstr "Kattints a hang lejátszásához"
 
 #. draw back button
-#: ../src/explore-activity/explore.py:278
+#: ../src/explore-activity/explore.py:276
 msgid "Back to Homepage"
 msgstr "Vissza a kezdőoldalra"
 
-#: ../src/explore-activity/explore.py:469 ../src/findit-activity/findit.py:341
+#: ../src/explore-activity/explore.py:415 ../src/findit-activity/findit.py:341
 #: ../src/louis_braille-activity/louis_braille.py:88
-#: ../src/piano_composition-activity/piano_composition.py:508
+#: ../src/piano_composition-activity/piano_composition.py:509
 msgid ""
 "Failed to parse data set '{filename}' with error:\n"
 "{error}"
@@ -3118,7 +3137,7 @@ msgstr ""
 "A(z) „{filename}” adathalmaz feldolgozása az alábbi hibával hiúsult meg:\n"
 "{error}"
 
-#: ../src/explore-activity/explore.py:584
+#: ../src/explore-activity/explore.py:505
 msgid "Explore Status:"
 msgstr "Felfedezés állapota:"
 
@@ -3172,143 +3191,186 @@ msgstr ""
 "eltaláltad, nyertél!\n"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:1
-msgid " Click on the questions to explore each farm animal."
+#| msgid " Click on the questions to explore each farm animal."
+msgid "Click on the questions to explore each farm animal."
 msgstr "Kattints a kérdésekre az egyes haszonállatok felfedezéséhez."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:2
-msgid " Click on the farm animal that makes the sound you hear."
+#| msgid " Click on the farm animal that makes the sound you hear."
+msgid "Click on the farm animal that makes the sound you hear."
 msgstr "Kattints arra az állatra, amelynek a hangját hallod."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:3
-msgid " Click the animal that matches the description."
+#| msgid " Click the animal that matches the description."
+msgid "Click the animal that matches the description."
 msgstr "Kattints arra az állatra, amely megfelel a leírásnak."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:4
-msgid " Horse"
+#| msgid " Horse"
+msgid "Horse"
 msgstr "Ló"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:5
-msgid " The horse goes \"neigh! neigh!\". Horses usually sleep standing up."
+#| msgid " The horse goes \"neigh! neigh!\". Horses usually sleep standing up."
+msgid "The horse goes \"neigh! neigh!\". Horses usually sleep standing up."
 msgstr "A ló hangja: „nyihaha”. A lovak általában állva alszanak."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:6
-msgid " You can ride on the back of this animal!"
+#| msgid " You can ride on the back of this animal!"
+msgid "You can ride on the back of this animal!"
 msgstr "Ennek az állatnak felülhetsz a hátára!"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:7
-msgid " Chickens"
+#| msgid " Chickens"
+msgid "Chickens"
 msgstr "Tyúkok"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:8
+#| msgid ""
+#| " The chicken goes \"cluck, cackle, cluck\". Chickens have over 200 "
+#| "different noises they can use to communicate."
 msgid ""
-" The chicken goes \"cluck, cackle, cluck\". Chickens have over 200 different "
+"The chicken goes \"cluck, cackle, cluck\". Chickens have over 200 different "
 "noises they can use to communicate."
 msgstr ""
 "A tyúkok hangja: „kot-kot-kot”. A tyúkok több, mint 200 hangot használnak "
 "kommunikációra."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:9
-msgid " This animal lays eggs."
+#| msgid " This animal lays eggs."
+msgid "This animal lays eggs."
 msgstr "Ez az állat tojásokat rak."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:10
-msgid " Cows"
+#| msgid " Cows"
+msgid "Cows"
 msgstr "Tehenek"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:11
+#| msgid ""
+#| " The cow goes \"moo. moo.\". Cows are herbivorous mammals. They graze all "
+#| "day in the meadow."
 msgid ""
-" The cow goes \"moo. moo.\". Cows are herbivorous mammals. They graze all "
-"day in the meadow."
+"The cow goes \"moo. moo.\". Cows are herbivorous mammals. They graze all day "
+"in the meadow."
 msgstr ""
 "A tehenek hangja: „mú-mú”. A tehenek növényevő állatok. Egész nap a réten "
 "legelésznek."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:12
-msgid " You can drink the milk this animal produces."
+#| msgid " You can drink the milk this animal produces."
+msgid "You can drink the milk this animal produces."
 msgstr "Ennek az állatnak megihatod a tejét."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:13
-msgid " Cat"
+#| msgid " Cat"
+msgid "Cat"
 msgstr "Macska"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:14
+#| msgid ""
+#| " The cat goes \"meow, meow\". Cats usually hate water because their fur "
+#| "doesn't stay warm when it is wet."
 msgid ""
-" The cat goes \"meow, meow\". Cats usually hate water because their fur "
+"The cat goes \"meow, meow\". Cats usually hate water because their fur "
 "doesn't stay warm when it is wet."
 msgstr ""
 "A macska hangja: „miaú-miaú”. A macskák általában nem szeretik a vizet, mert "
 "bundájuk nem marad meleg, ha átázik."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:15
-msgid " This pet likes chasing mice."
+#| msgid " This pet likes chasing mice."
+msgid "This pet likes chasing mice."
 msgstr "Ez az állat szeret egeret fogni."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:16
-msgid " Pigs"
+#| msgid " Pigs"
+msgid "Pigs"
 msgstr "Disznók"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:17
-msgid " The pig goes \"oink, oink\". Pigs are the 4th most intelligent animal."
+#| msgid ""
+#| " The pig goes \"oink, oink\". Pigs are the 4th most intelligent animal."
+msgid "The pig goes \"oink, oink\". Pigs are the 4th most intelligent animal."
 msgstr "A disznó hangja: „ui-ui”. A disznók a 4. legintelligensebb állatok."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:18
-msgid " This animal likes to lay in the mud."
+#| msgid " This animal likes to lay in the mud."
+msgid "This animal likes to lay in the mud."
 msgstr "Ez az állat szeret a sárban feküdni."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:19
-msgid " White Duck"
+#| msgid " White Duck"
+msgid "White Duck"
 msgstr "Fehér kacsa"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:20
+#| msgid ""
+#| " The duck goes \"quack, quack\". Ducks have special features like webbed "
+#| "feet and produce an oil to make their feathers \"waterproof\"."
 msgid ""
-" The duck goes \"quack, quack\". Ducks have special features like webbed "
-"feet and produce an oil to make their feathers \"waterproof\"."
+"The duck goes \"quack, quack\". Ducks have special features like webbed feet "
+"and produce an oil to make their feathers \"waterproof\"."
 msgstr ""
 "A kacsák hangja: „kvák-kvák”. A kacsák lába úszóhártyás, és olyan olajat "
 "termelnek, ami a tollaikat „vízállóvá” teszi."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:21
-msgid " This animal has webbed feet so it can swim in the water."
+#| msgid " This animal has webbed feet so it can swim in the water."
+msgid "This animal has webbed feet so it can swim in the water."
 msgstr "Ez az állat úszóhártyás lábaival úszik a vízen."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:22
-msgid " Owl"
+#| msgid " Owl"
+msgid "Owl"
 msgstr "Bagoly"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:23
+#| msgid ""
+#| " The owl goes \"hoo. hoo.\" The owl has excellent vision and hearing at "
+#| "night."
 msgid ""
-" The owl goes \"hoo. hoo.\" The owl has excellent vision and hearing at "
-"night."
+"The owl goes \"hoo. hoo.\" The owl has excellent vision and hearing at night."
 msgstr ""
 "A bagoly hangja: „hú-hú”. A bagoly látása és hallása éjszaka is kitűnő."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:24
-msgid " This animal likes to come out at night."
+#| msgid " This animal likes to come out at night."
+msgid "This animal likes to come out at night."
 msgstr "Ez az állat éjjel szeret előjönni."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:25
-msgid " Dogs"
+#| msgid " Dogs"
+msgid "Dogs"
 msgstr "Kutyák"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:26
+#| msgid ""
+#| " The dog goes \"bark! bark!\". Dogs are great human companions and "
+#| "usually enjoy love and attention."
 msgid ""
-" The dog goes \"bark! bark!\". Dogs are great human companions and usually "
+"The dog goes \"bark! bark!\". Dogs are great human companions and usually "
 "enjoy love and attention."
 msgstr ""
 "A kutya hangja: „vau-vau”. A kutyák remek társai az embernek, és általában "
 "élvezik a szeretetet és figyelmet."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:27
-msgid " This animal's ancestors were wolves."
+#| msgid " This animal's ancestors were wolves."
+msgid "This animal's ancestors were wolves."
 msgstr "Ez az állat a farkasoktól származik."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:28
-msgid " Rooster"
+#| msgid " Rooster"
+msgid "Rooster"
 msgstr "Kakas"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:29
+#| msgid ""
+#| " The rooster goes \"coc-a-doodle-doo!\". Roosters have been on farms for "
+#| "about 5,000 years. Every morning it wakes the farm up with its noises."
 msgid ""
-" The rooster goes \"coc-a-doodle-doo!\". Roosters have been on farms for "
+"The rooster goes \"coc-a-doodle-doo!\". Roosters have been on farms for "
 "about 5,000 years. Every morning it wakes the farm up with its noises."
 msgstr ""
 "A kakas hangja: „kukuríkú”. A kakasok 5000 éve részei a farmok "
@@ -3316,7 +3378,8 @@ msgstr ""
 "gazdát."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:30
-msgid " This animal wakes the farm up in the morning."
+#| msgid " This animal wakes the farm up in the morning."
+msgid "This animal wakes the farm up in the morning."
 msgstr "Ez az állat ébreszti reggelente a többieket."
 
 #: ../src/explore_world_animals-activity/explore_world_animals.xml.in.h:1
@@ -3353,34 +3416,48 @@ msgstr ""
 "eltaláltad, nyertél!\n"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:1
-msgid " Explore exotic animals from around the world."
+#| msgid " Explore exotic animals from around the world."
+msgid "Explore exotic animals from around the world."
 msgstr "Fedezd fel a világ egzotikus állatait."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:2
-msgid " Click on location where the given animal lives."
+#| msgid " Click on location where the given animal lives."
+msgid "Click on location where the given animal lives."
 msgstr "Kattints arra a helyre, ahol az adott állat él."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:3
-msgid " Jaguars in South America"
+#| msgid " Jaguars in South America"
+msgid "Jaguars in South America"
 msgstr "Jaguárok Dél-Amerikában"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:4
+#| msgid ""
+#| " Jaguars are named after the Native American word meaning 'he who kills "
+#| "with one leap'"
 msgid ""
-" Jaguars are named after the Native American word meaning 'he who kills with "
-"one leap'"
-msgstr "A jaguár neve az őslakosok nyelvén azt jelenti: „aki egy ugrással öl”."
+"Jaguars are named after the Native American word meaning 'he who kills with "
+"one leap' because they like to climb trees to attack their prey."
+msgstr ""
+"A jaguár neve az őslakosok nyelvén azt jelenti: „aki egy ugrással öl”, mert "
+"szeretnek fára mászva támadni a zsákmányukra."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:5
-msgid " Jaguar"
+#| msgid " Jaguar"
+msgid "Jaguar"
 msgstr "Jaguár"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:6
-msgid " Hedgehogs in Europe"
+#| msgid " Hedgehogs in Europe"
+msgid "Hedgehogs in Europe"
 msgstr "Sündisznók Európában"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:7
+#| msgid ""
+#| " Hedgehogs eat small animals, like frogs and insects, so many people keep "
+#| "them as useful pets. When in danger, they will curl up into a ball and "
+#| "stick up their coat of sharp spines."
 msgid ""
-" Hedgehogs eat small animals, like frogs and insects, so many people keep "
+"Hedgehogs eat small animals, like frogs and insects, so many people keep "
 "them as useful pets. When in danger, they will curl up into a ball and stick "
 "up their coat of sharp spines."
 msgstr ""
@@ -3389,53 +3466,70 @@ msgstr ""
 "gömbölyödik, és kimereszti hegyes tüskéit."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:8
-msgid " Hedgehog"
+#| msgid " Hedgehog"
+msgid "Hedgehog"
 msgstr "Sündisznó"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:9
-msgid " Giraffes in Africa"
+#| msgid " Giraffes in Africa"
+msgid "Giraffes in Africa"
 msgstr "Zsiráfok Afrikában"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:10
+#| msgid ""
+#| " The giraffe lives in Africa and is the tallest mammal in the world. Just "
+#| "their legs, which are usually 1.8 meters long, are taller than most "
+#| "humans!"
 msgid ""
-" The giraffe lives in Africa and is the tallest mammal in the world. Just "
+"The giraffe lives in Africa and is the tallest mammal in the world. Just "
 "their legs, which are usually 1.8 meters long, are taller than most humans!"
 msgstr ""
 "A zsiráf Afrikában él, és a világ legmagasabb emlősállata. Csak a lábai, "
 "amelyek általában 1,8 méter hosszúak, magasabbak a legtöbb embernél!"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:11
-msgid " Giraffe"
+#| msgid " Giraffe"
+msgid "Giraffe"
 msgstr "Zsiráf"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:12
-msgid " Bison in America"
+#| msgid " Bison in America"
+msgid "Bison in America"
 msgstr "Bölény Észak-Amerikában"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:13
+#| msgid ""
+#| " Bison live on the plains of North America and were hunted by the Native "
+#| "Americans for food."
 msgid ""
-" Bison live on the plains of North America and were hunted by the Native "
+"Bison live on the plains of North America and were hunted by the Native "
 "Americans for food."
 msgstr "A bölény Észak-Amerika síkságain él, és az őslakosok vadásztak rájuk."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:14
-msgid " Bison"
+#| msgid " Bison"
+msgid "Bison"
 msgstr "Bölény"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:15
-msgid " Narwhals in the Arctic"
+#| msgid " Narwhals in the Arctic"
+msgid "Narwhals in the Arctic"
 msgstr "Narválok az Északi-sarkon"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:16
+#| msgid ""
+#| " Narwhals are whales that live in the Arctic Ocean and have long tusks. "
+#| "These tusks remind many people of the mythical unicorn's horn."
 msgid ""
-" Narwhals are whales that live in the Arctic Ocean and have long tusks. "
-"These tusks remind many people of the mythical unicorn's horn."
+"Narwhals are whales that live in the Arctic Ocean and have long tusks. These "
+"tusks remind many people of the mythical unicorn's horn."
 msgstr ""
 "A narválok az északi tengerben élő bálnák, amelyeknek hosszú agyaraik "
 "vannak. Ezek az agyarak sokakat a mesebeli egyszarvú szarvára emlékeztetnek."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:17
-msgid " Narwhal"
+#| msgid " Narwhal"
+msgid "Narwhal"
 msgstr "Narvál"
 
 #: ../src/explore_world_music-activity/explore_world_music.xml.in.h:1
@@ -3489,24 +3583,32 @@ msgid "Images from http://commons.wikimedia.org/wiki, http://archive.org"
 msgstr "Képek forrása: http://commons.wikimedia.org/wiki, http://archive.org"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:1
-msgid " Explore world music! Click on the suitcases."
+#| msgid " Explore world music! Click on the suitcases."
+msgid "Explore world music! Click on the suitcases."
 msgstr "Fedezd fel a világ zenéit! Kattints a bőröndökre."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:2
-msgid " Click on the location that matches the music you hear."
+#| msgid " Click on the location that matches the music you hear."
+msgid "Click on the location that matches the music you hear."
 msgstr "Kattints arra a helyre, amely megfelel a hallott zenének."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:3
-msgid " Click on the location that matches the text."
+#| msgid " Click on the location that matches the text."
+msgid "Click on the location that matches the text."
 msgstr "Kattints arra a helyre, amely megfelel a szövegnek."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:4
-msgid " Australia"
+#: ../src/geo_country-activity/resources/geo_country/board13_0.xml.in.h:1
+msgid "Australia"
 msgstr "Ausztrália"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:5
+#| msgid ""
+#| " Aboriginals were the first people to live in Australia. They sing and "
+#| "play instruments, like the didgeridoo. It is made from a log and can be "
+#| "up to five meters long!"
 msgid ""
-" Aboriginals were the first people to live in Australia. They sing and play "
+"Aboriginals were the first people to live in Australia. They sing and play "
 "instruments, like the didgeridoo. It is made from a log and can be up to "
 "five meters long!"
 msgstr ""
@@ -3515,33 +3617,47 @@ msgstr ""
 "és akár öt méter hosszú is lehet."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:6
-msgid " Where is the didgeridoo played?"
+#| msgid " Where is the didgeridoo played?"
+msgid "Where is the didgeridoo played?"
 msgstr "Hol játszanak a didzseridun?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:7
-msgid " Africa"
+#: ../src/geography-activity/resources/geography/board1_0.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:6
+msgid "Africa"
 msgstr "Afrika"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:8
+#| msgid ""
+#| " Music is a part of everyday life in Africa. African music features a "
+#| "great variety of drums, and they believe it is a sacred and magical "
+#| "instrument."
 msgid ""
-" Music is a part of everyday life in Africa. African music features a great "
+"Music is a part of everyday life in Africa. African music features a great "
 "variety of drums, and they believe it is a sacred and magical instrument."
 msgstr ""
 "A zene Afrikában része a mindennapi életnek. Az afrikai zene sokféle dobot "
 "használ, amit szent és mágikus hangszernek tekintenek."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:9
-msgid " Where is the drum considered a magical instrument?"
+#| msgid " Where is the drum considered a magical instrument?"
+msgid "Where is the drum considered a magical instrument?"
 msgstr "Hol számít a dob mágikus hangszernek?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:10
-msgid " Middle East"
+#| msgid " Middle East"
+msgid "Middle East"
 msgstr "Közel-kelet"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:11
+#| msgid ""
+#| " Music is a very important part of middle eastern culture. Specific songs "
+#| "are played to call worshipers to prayer. The lute is an instrument "
+#| "invented thousands of years ago and still in use today."
 msgid ""
-" Music is a very important part of middle eastern culture. Specific songs "
-"are played to call worshipers to prayer. The lute is an instrument invented "
+"Music is a very important part of middle eastern culture. Specific songs are "
+"played to call worshipers to prayer. The lute is an instrument invented "
 "thousands of years ago and still in use today."
 msgstr ""
 "A zene a közel-keleti kultúra nagyon fontos része. A hívőket bizonyos dalok "
@@ -3549,16 +3665,22 @@ msgstr ""
 "ma is használják."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:12
-msgid " Where is music used to call people to prayer?"
+#| msgid " Where is music used to call people to prayer?"
+msgid "Where is music used to call people to prayer?"
 msgstr "Hol hívják imára zenével a hívőket?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:13
-msgid " Japan"
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:52
+msgid "Japan"
 msgstr "Japán"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:14
+#| msgid ""
+#| " Taiko drumming comes from Japan. This type of drumming was originally "
+#| "used to scare enemies in battle. It is very loud, and performances are "
+#| "very exciting with crowds cheering and performers yelling!"
 msgid ""
-" Taiko drumming comes from Japan. This type of drumming was originally used "
+"Taiko drumming comes from Japan. This type of drumming was originally used "
 "to scare enemies in battle. It is very loud, and performances are very "
 "exciting with crowds cheering and performers yelling!"
 msgstr ""
@@ -3567,16 +3689,22 @@ msgstr ""
 "nagyon izgalmasak, a tömeg ujjong, az előadók pedig kiabálnak!"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:15
-msgid " Where do performers yelp as they play the drums?"
+#| msgid " Where do performers yelp as they play the drums?"
+msgid "Where do performers yelp as they play the drums?"
 msgstr "Hol kiabálnak az előadók dobolás közben?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:16
-msgid " Scotland and Ireland"
+#| msgid " Scotland and Ireland"
+msgid "Scotland and Ireland"
 msgstr "Skócia és Írország"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:17
+#| msgid ""
+#| " Folk music of this region is called celtic music, often incorporates a "
+#| "narrative poem or story. Typical instruments include bagpipes, fiddles, "
+#| "flutes, harps, and accordions."
 msgid ""
-" Folk music of this region is called celtic music, often incorporates a "
+"Folk music of this region is called celtic music, often incorporates a "
 "narrative poem or story. Typical instruments include bagpipes, fiddles, "
 "flutes, harps, and accordions."
 msgstr ""
@@ -3585,17 +3713,23 @@ msgstr ""
 "dudák, hegedűk, furulyák, szájharmonikák és harmonikák."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:18
-msgid " Bagpipers, who often wear kilts, are from this location."
+#| msgid " Bagpipers, who often wear kilts, are from this location."
+msgid "Bagpipers, who often wear kilts, are from this location."
 msgstr "Innen származnak a kiltet viselő dudások."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:19
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:10
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:6
-msgid " Italy"
+msgid "Italy"
 msgstr "Olaszország"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:20
+#| msgid ""
+#| " Italy is famous for its Opera. Opera is a musical theater where actors "
+#| "tell a story by acting and singing. Opera singers, both male and female, "
+#| "learn special techniques to sing operas."
 msgid ""
-" Italy is famous for its Opera. Opera is a musical theater where actors tell "
+"Italy is famous for its Opera. Opera is a musical theater where actors tell "
 "a story by acting and singing. Opera singers, both male and female, learn "
 "special techniques to sing operas."
 msgstr ""
@@ -3604,33 +3738,44 @@ msgstr ""
 "nők egyaránt, speciális technikákat tanulnak az operák énekléséhez."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:21
-msgid " This country is known for its opera music."
+#| msgid " This country is known for its opera music."
+msgid "This country is known for its opera music."
 msgstr "Ez az ország az operáról ismert."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:22
-msgid " European Classical Music"
+#| msgid " European Classical Music"
+msgid "European Classical Music"
 msgstr "Európai klasszikus zene"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:23
+#| msgid ""
+#| " Europe is the home of classical music. Famous composers like Bach, "
+#| "Beethoven, and Mozart forever changed music history."
 msgid ""
-" Europe is the home of classical music. Famous composers like Bach, "
+"Europe is the home of classical music. Famous composers like Bach, "
 "Beethoven, and Mozart forever changed music history."
 msgstr ""
 "Európa a klasszikus zene otthona. Az olyan híres zeneszerzők, mint Bach, "
 "Beethoven és Mozart örökre megváltoztatták a zene történetét."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:24
-msgid " Bach, Beethoven, and Mozart composed music in this location."
+#| msgid " Bach, Beethoven, and Mozart composed music in this location."
+msgid "Bach, Beethoven, and Mozart composed music in this location."
 msgstr "Bach, Beethoven és Mozart ezen a helyen szerzett zenét."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:25
+#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:10
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:5
-msgid " Mexico"
+msgid "Mexico"
 msgstr "Mexikó"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:26
+#| msgid ""
+#| " Mariachi is a famous type of Mexican music. It features guitars, "
+#| "trumpets, and violins. These bands play for many occasions, including "
+#| "weddings and parties."
 msgid ""
-" Mariachi is a famous type of Mexican music. It features guitars, trumpets, "
+"Mariachi is a famous type of Mexican music. It features guitars, trumpets, "
 "and violins. These bands play for many occasions, including weddings and "
 "parties."
 msgstr ""
@@ -3639,38 +3784,49 @@ msgstr ""
 "esküvőket és bálokat."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:27
+#| msgid ""
+#| " At parties, people often dance to the Mariachi music. A Famous dance is:"
 msgid ""
-" At parties, people often dance to the Mariachi music. A Famous dance is:"
+"At parties, people often dance to the Mariachi music. A Famous dance is:"
 msgstr "Bálokon sokszor táncolnak Mariachi zenére. Egy híres tánc:"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:28
-msgid " Where is Mariachi music from?"
+#| msgid " Where is Mariachi music from?"
+msgid "Where is Mariachi music from?"
 msgstr "Honnan származik a mariachi zene?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:29
-msgid " United State of America"
+#| msgid " United State of America"
+msgid "United State of America"
 msgstr "Amerikai Egyesült Államok"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:30
+#| msgid ""
+#| " USA also has a wide variety of musical genres, but perhaps it is most "
+#| "famous for rock n' roll music. This music features vocalists, guitars, "
+#| "and drums."
 msgid ""
-" USA also has a wide variety of musical genres, but perhaps it is most "
-"famous for rock n' roll music. This music features vocalists, guitars, and "
-"drums."
+"USA also has a wide variety of musical genres, but perhaps it is most famous "
+"for rock n' roll music. This music features vocalists, guitars, and drums."
 msgstr ""
 "Az Egyesült Államokat zenei stílusok széles választéka jellemzi, de talán a "
-"rock'n'roll zene a leghíresebb. Ez a zene énekeseket, gitárokat és dobokat "
+"rock 'n' roll zene a leghíresebb. Ez a zene énekeseket, gitárokat és dobokat "
 "vonultat fel."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:31
-msgid " The 'king' of rock n' roll is"
-msgstr "A rock'n'roll királya…"
+#| msgid " The 'king' of rock n' roll is"
+msgid "The 'king' of rock n' roll is"
+msgstr "A rock 'n' roll „királya”…"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:32
+#| msgid ""
+#| " The 'king' of rock n' roll, Elvis Presley, made his music famous in this "
+#| "country."
 msgid ""
-" The 'king' of rock n' roll, Elvis Presley, made his music famous in this "
+"The 'king' of rock n' roll, Elvis Presley, made his music famous in this "
 "country."
 msgstr ""
-"A rock'n'roll királya, Elvis Presley ebben az országban készítette híres "
+"A rock 'n' roll „királya”, Elvis Presley ebben az országban készítette híres "
 "zenéjét."
 
 #: ../src/fifteen-activity/fifteen.xml.in.h:1
@@ -3760,7 +3916,7 @@ msgid ""
 msgstr ""
 "Ez a program GNU szoftver és a GNU General Public License alatt van kiadva"
 
-#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:460
+#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:487
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:358
 #: ../src/gcompris/images_selector.c:313
 msgid "OK"
@@ -3932,6 +4088,7 @@ msgid "Georgian"
 msgstr "Grúz"
 
 #: ../src/gcompris/config.c:81
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:10
 msgid "German"
 msgstr "Német"
 
@@ -3940,234 +4097,243 @@ msgid "Greek"
 msgstr "Görög"
 
 #: ../src/gcompris/config.c:83
+#| msgid "Irish (Gaelic)"
+msgid "Scottish Gaelic"
+msgstr "Skót kelta"
+
+#: ../src/gcompris/config.c:84
 msgid "Gujarati"
 msgstr "Gudzsaráti"
 
-#: ../src/gcompris/config.c:84
+#: ../src/gcompris/config.c:85
 msgid "Hebrew"
 msgstr "Héber"
 
-#: ../src/gcompris/config.c:85
+#: ../src/gcompris/config.c:86
 msgid "Hindi"
 msgstr "Hindi"
 
-#: ../src/gcompris/config.c:86
+#: ../src/gcompris/config.c:87
 msgid "Hungarian"
 msgstr "Magyar"
 
-#: ../src/gcompris/config.c:87
+#: ../src/gcompris/config.c:88
 msgid "Indonesian"
 msgstr "Indonéz"
 
-#: ../src/gcompris/config.c:88
+#: ../src/gcompris/config.c:89
 msgid "Irish (Gaelic)"
 msgstr "Ír (Kelta)"
 
-#: ../src/gcompris/config.c:89
+#: ../src/gcompris/config.c:90
 msgid "Italian"
 msgstr "Olasz"
 
-#: ../src/gcompris/config.c:90
+#: ../src/gcompris/config.c:91
 msgid "Japanese"
 msgstr "Japán"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:92
 msgid "Kinyarwanda"
 msgstr "Kinyarvanda"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:93
 msgid "Korean"
 msgstr "Koreai"
 
-#: ../src/gcompris/config.c:93
+#: ../src/gcompris/config.c:94
 msgid "Latvian"
 msgstr "Lett"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:95
 msgid "Lithuanian"
 msgstr "Litván"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:96
 msgid "Macedonian"
 msgstr "Macedón"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:97
 msgid "Malay"
 msgstr "Maláj"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:98
 msgid "Malayalam"
 msgstr "Malajálam"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:99
 msgid "Marathi"
 msgstr "Maráthi"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:100
 msgid "Montenegrin"
 msgstr "Montenegrói"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:101
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:37
 msgid "Nepal"
 msgstr "Nepáli"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:102
 msgid "Norwegian Bokmal"
 msgstr "Norvég Bokmal"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:103
 msgid "Norwegian Nynorsk"
 msgstr "Norvég Nynorsk"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:104
 msgid "Occitan (languedocien)"
 msgstr "Okcitán (lengadocián)"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:105
 msgid "Persian"
 msgstr "Perzsa"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:106
 msgid "Polish"
 msgstr "Lengyel"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:107
 msgid "Portuguese (Brazil)"
 msgstr "Portugál (Brazil)"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:108
 msgid "Portuguese"
 msgstr "Portugál"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:109
 msgid "Punjabi"
 msgstr "Pandzsábi"
 
-#: ../src/gcompris/config.c:109
+#: ../src/gcompris/config.c:110
 msgid "Romanian"
 msgstr "Román"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:111
 msgid "Russian"
 msgstr "Orosz"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:112
 msgid "Serbian (Latin)"
 msgstr "Szerb (latin)"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:113
 msgid "Serbian"
 msgstr "Szerb"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:114
 msgid "Slovak"
 msgstr "Szlovák"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:115
 msgid "Slovenian"
 msgstr "Szlovén"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:116
 msgid "Somali"
 msgstr "Szomáli"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:117
 msgid "Spanish"
 msgstr "Spanyol"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:118
 msgid "Swedish"
 msgstr "Svéd"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:119
 msgid "Tamil"
 msgstr "Tamil"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:120
 msgid "Thai"
 msgstr "Thai"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:121
 msgid "Turkish (Azerbaijan)"
 msgstr "Török (Azerbajdzsáni)"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:122
 msgid "Turkish"
 msgstr "Török"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:123
 msgid "Ukrainian"
 msgstr "Ukrán"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:124
 msgid "Urdu"
 msgstr "Urdu"
 
-#: ../src/gcompris/config.c:124
+#: ../src/gcompris/config.c:125
 msgid "Vietnamese"
 msgstr "Vietnami"
 
-#: ../src/gcompris/config.c:125
+#: ../src/gcompris/config.c:126
 msgid "Walloon"
 msgstr "Vallon"
 
-#: ../src/gcompris/config.c:126
+#: ../src/gcompris/config.c:127
 msgid "Zulu"
 msgstr "Zulu"
 
-#: ../src/gcompris/config.c:131
+#: ../src/gcompris/config.c:132
 msgid "Timer: No time limit"
 msgstr "Időzítő: Nincs időkorlátozás"
 
-#: ../src/gcompris/config.c:132
+#: ../src/gcompris/config.c:133
 msgid "Timer: Slow timer"
 msgstr "Időzítő: Sok idő"
 
-#: ../src/gcompris/config.c:133
+#: ../src/gcompris/config.c:134
 msgid "Timer: Normal timer"
 msgstr "Időzítő: Átlagos idő"
 
-#: ../src/gcompris/config.c:134
+#: ../src/gcompris/config.c:135
 msgid "Timer: Fast timer"
 msgstr "Időzítő: Kevés idő"
 
-#: ../src/gcompris/config.c:138
+#: ../src/gcompris/config.c:139
 msgid "Use Gcompris administration module to filter boards"
 msgstr "Táblák szűréséhez használja a Gcompris adminisztrációs modulját"
 
-#: ../src/gcompris/config.c:192
+#: ../src/gcompris/config.c:193
 msgid "GCompris Configuration"
 msgstr "A GCompris beállítása"
 
-#: ../src/gcompris/config.c:275
+#: ../src/gcompris/config.c:276
 msgid "Fullscreen"
 msgstr "Teljes képernyő"
 
-#: ../src/gcompris/config.c:300
+#: ../src/gcompris/config.c:301
+msgid "Remember level for default user"
+msgstr "Emlékezzen az alapértelmezett felhasználó szintjére"
+
+#: ../src/gcompris/config.c:327
 msgid "Music"
 msgstr "Zene"
 
-#: ../src/gcompris/config.c:325
+#: ../src/gcompris/config.c:352
 msgid "Effect"
 msgstr "Effektusok"
 
-#: ../src/gcompris/config.c:349 ../src/gcompris/sugar_gc.c:93
+#: ../src/gcompris/config.c:376 ../src/gcompris/sugar_gc.c:93
 msgid "Zoom"
 msgstr "Nagyítás"
 
-#: ../src/gcompris/config.c:386
+#: ../src/gcompris/config.c:413
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Nem sikerült megnyitni a(z) %s témakönyvtárat"
 
-#: ../src/gcompris/config.c:417 ../src/gcompris/config.c:877
-#: ../src/gcompris/config.c:891
+#: ../src/gcompris/config.c:444 ../src/gcompris/config.c:912
+#: ../src/gcompris/config.c:926
 #, c-format
 msgid "Skin : %s"
 msgstr "Téma: %s"
 
-#: ../src/gcompris/config.c:419
+#: ../src/gcompris/config.c:446
 msgid "SKINS NOT FOUND"
 msgstr "NEM TALÁLHATÓK TÉMÁK"
 
@@ -4199,43 +4365,41 @@ msgstr ""
 "Lépj ki és jelentsd a \n"
 "hibát a szerzőknek."
 
-#: ../src/gcompris/gcompris.c:154
+#: ../src/gcompris/gcompris.c:155
 msgid "run GCompris in fullscreen mode."
 msgstr "a GCompris indítása teljes képernyőn."
 
-#: ../src/gcompris/gcompris.c:157
+#: ../src/gcompris/gcompris.c:158
 msgid "run GCompris in window mode."
 msgstr "a GCompris indítása ablakban."
 
-#: ../src/gcompris/gcompris.c:160
+#: ../src/gcompris/gcompris.c:161
 msgid "run GCompris with sound enabled."
 msgstr "a GCompris indítása a hangok engedélyezésével."
 
-#: ../src/gcompris/gcompris.c:163
+#: ../src/gcompris/gcompris.c:164
 msgid "run GCompris without sound."
 msgstr "a GCompris indítása hangok nélkül."
 
-#: ../src/gcompris/gcompris.c:166
+#: ../src/gcompris/gcompris.c:167
 msgid "run GCompris with the default system cursor."
 msgstr "a GCompris az alapértelmezett egérmutatóval fusson."
 
-#: ../src/gcompris/gcompris.c:169
+#: ../src/gcompris/gcompris.c:170
 msgid "run GCompris without cursor (touch screen mode)."
 msgstr "a GCompris indítása kurzor nélkül (érintőképernyős mód)."
 
-#: ../src/gcompris/gcompris.c:172
+#: ../src/gcompris/gcompris.c:173
 msgid "display only activities with this difficulty level."
 msgstr "Csak az ilyen nehézségi szintű tevékenységek mutatása."
 
-#: ../src/gcompris/gcompris.c:175
-msgid "display debug informations on the console."
-msgstr "hibakereső információk megjelenítése a konzolon."
+#: ../src/gcompris/gcompris.c:176
+msgid "Return to last passed level even when no user is selected"
+msgstr ""
+"Visszatérés az utoljára elvégzett szinthez akkor is, ha nincs felhasználó "
+"kiválasztva"
 
-#: ../src/gcompris/gcompris.c:178
-msgid "Print the version of "
-msgstr "Verziószám megtekintése: "
-
-#: ../src/gcompris/gcompris.c:181
+#: ../src/gcompris/gcompris.c:179
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
@@ -4246,36 +4410,36 @@ msgstr ""
 "táblákat indítja, a -l /boards/connect4 csak a connect4 tevékenységet). A „-"
 "l list” kapcsolóval kiíratható az elérhető tevékenységek listája és leírásuk."
 
-#: ../src/gcompris/gcompris.c:186
+#: ../src/gcompris/gcompris.c:184
 msgid "GCompris will find the data dir in this directory"
 msgstr "A GCompris ebben a könyvtárban keresi az adatkönyvtárat"
 
-#: ../src/gcompris/gcompris.c:189
+#: ../src/gcompris/gcompris.c:187
 msgid "GCompris will find the skins in this directory"
 msgstr "A GCompris ebben a könyvtárban keresi a témákat"
 
-#: ../src/gcompris/gcompris.c:192
+#: ../src/gcompris/gcompris.c:190
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "A GCompris ebben a könyvtárban keresi a tevékenységbővítményeket"
 
-#: ../src/gcompris/gcompris.c:195
+#: ../src/gcompris/gcompris.c:193
 msgid "GCompris will find the Python activity in this directory"
 msgstr "A GCompris ebben a könyvtárban keresi a Python tevékenységeket"
 
-#: ../src/gcompris/gcompris.c:198
+#: ../src/gcompris/gcompris.c:196
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr ""
 "A GCompris ebben a könyvtárban keresi a lokalizációs fájlt (.mo fordítás)"
 
-#: ../src/gcompris/gcompris.c:201
+#: ../src/gcompris/gcompris.c:199
 msgid "GCompris will find the activities menu in this directory"
 msgstr "A GCompris ebben a könyvtárban keresi a tevékenységmenüt"
 
-#: ../src/gcompris/gcompris.c:204
+#: ../src/gcompris/gcompris.c:202
 msgid "Run GCompris in administration and user-management mode"
 msgstr "A GCompris futtatása adminisztrációs és felhasználókezelési módban"
 
-#: ../src/gcompris/gcompris.c:207
+#: ../src/gcompris/gcompris.c:205
 msgid ""
 "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
@@ -4283,27 +4447,27 @@ msgstr ""
 "Alternatív profiladatbázis [$HOME/.config/gcompris/gcompris_sqlite.db] "
 "használata"
 
-#: ../src/gcompris/gcompris.c:210
+#: ../src/gcompris/gcompris.c:208
 msgid "Create the alternate database for profiles"
 msgstr "Az alternatív profiladatbázis létrehozása"
 
-#: ../src/gcompris/gcompris.c:213
+#: ../src/gcompris/gcompris.c:211
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Az XML menük újraolvasása és tárolása az adatbázisban"
 
-#: ../src/gcompris/gcompris.c:216
+#: ../src/gcompris/gcompris.c:214
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr ""
 "A használandó profil beállítása. Használja a „gcompris -a” parancsot "
 "profilok létrehozásához."
 
-#: ../src/gcompris/gcompris.c:219
+#: ../src/gcompris/gcompris.c:217
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Az összes elérhető profil listázása. Használja a „gcompris -a” parancsot "
 "profilok létrehozásához."
 
-#: ../src/gcompris/gcompris.c:222
+#: ../src/gcompris/gcompris.c:220
 msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
@@ -4311,46 +4475,46 @@ msgstr ""
 "Konfigurációs könyvtár: [$HOME/.config/gcompris]. Másik lehetőség az "
 "$XDG_CONFIG_HOME beállítása."
 
-#: ../src/gcompris/gcompris.c:225
+#: ../src/gcompris/gcompris.c:223
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "A felhasználók könyvtárának helye: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:228
+#: ../src/gcompris/gcompris.c:226
 msgid "Run the experimental activities"
 msgstr "A kísérletező játékokhoz"
 
-#: ../src/gcompris/gcompris.c:231
+#: ../src/gcompris/gcompris.c:229
 msgid "Disable the quit button"
 msgstr "A „Kilépés” gomb letiltása"
 
-#: ../src/gcompris/gcompris.c:234
+#: ../src/gcompris/gcompris.c:232
 msgid "Disable the config button"
 msgstr "A „Beállítások” gomb letiltása"
 
-#: ../src/gcompris/gcompris.c:237
+#: ../src/gcompris/gcompris.c:235
 msgid "Disable the level button"
 msgstr "A „Szint” gomb letiltása"
 
-#: ../src/gcompris/gcompris.c:240
+#: ../src/gcompris/gcompris.c:238
 msgid "Disable the database (slower start and no user log)"
 msgstr "Adatbázis letiltása (lassabb indítás, és nincs felhasználói napló)"
 
-#: ../src/gcompris/gcompris.c:243
+#: ../src/gcompris/gcompris.c:241
 msgid ""
 "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr ""
 "Globális fogd-és-ejtsd mód: normál, dupla kattintás, mindkettő. Az "
 "alapértelmezett a normál mód."
 
-#: ../src/gcompris/gcompris.c:246
+#: ../src/gcompris/gcompris.c:244
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Ne akadályozza meg a GCompris több példányban való elindítását."
 
-#: ../src/gcompris/gcompris.c:249
+#: ../src/gcompris/gcompris.c:247
 msgid "Disable maximization zoom"
 msgstr "Maximalizálási nagyítás letiltása"
 
-#: ../src/gcompris/gcompris.c:252
+#: ../src/gcompris/gcompris.c:250
 msgid ""
 "Increase activities' timeout delays; useful values > 1.0; 1.0 to not change "
 "hardcoded value"
@@ -4358,7 +4522,7 @@ msgstr ""
 "A tevékenységek időkorlátjának növelése; a hasznos értékek > 1.0; az 1.0 nem "
 "változtatja meg az alapértelmezett értéket"
 
-#: ../src/gcompris/gcompris.c:255
+#: ../src/gcompris/gcompris.c:253
 msgid ""
 "How activities' timeout delays are growing for several actors; useful values "
 "< 1.0; 1.0 to not change hardcoded value"
@@ -4366,11 +4530,19 @@ msgstr ""
 "A tevékenységek időkorlátja hogyan nő több szereplőnél; a hasznos értékek < "
 "1.0; az 1.0 nem változtatja meg az alapértelmezett értéket"
 
-#: ../src/gcompris/gcompris.c:258
+#: ../src/gcompris/gcompris.c:256
 msgid "For test purpose, run in a loop all the activities"
 msgstr "Tesztelési céllal az összes tevékenység futtatása ciklusban"
 
-#: ../src/gcompris/gcompris.c:943
+#: ../src/gcompris/gcompris.c:259
+msgid "display debug informations on the console."
+msgstr "hibakereső információk megjelenítése a konzolon."
+
+#: ../src/gcompris/gcompris.c:262
+msgid "Print the version of "
+msgstr "Verziószám megtekintése: "
+
+#: ../src/gcompris/gcompris.c:947
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -4392,18 +4564,18 @@ msgstr ""
 "oldalt:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1236
+#: ../src/gcompris/gcompris.c:1240
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
 msgstr ""
 "A téma („%s”) betöltése meghiúsult (ellenőrizze, hogy a fájl létezik és "
 "olvasható)"
 
-#: ../src/gcompris/gcompris.c:1252
+#: ../src/gcompris/gcompris.c:1256
 msgid "Retrieving remote data..."
 msgstr "Távoli adatok letöltése…"
 
-#: ../src/gcompris/gcompris.c:1513
+#: ../src/gcompris/gcompris.c:1517
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d second old.\n"
@@ -4416,12 +4588,12 @@ msgstr[1] ""
 "A GCompris nem indul el, mert a zárolási fájl kevesebb, mint %d másodperc "
 "korú.\n"
 
-#: ../src/gcompris/gcompris.c:1517
+#: ../src/gcompris/gcompris.c:1521
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "A zárolási fájl: %s\n"
 
-#: ../src/gcompris/gcompris.c:1638
+#: ../src/gcompris/gcompris.c:1642
 #, c-format
 msgid ""
 "GCompris\n"
@@ -4435,27 +4607,27 @@ msgstr ""
 "További információ: http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1818
+#: ../src/gcompris/gcompris.c:1827
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Használja a -l kapcsolót egy tevékenység közvetlen eléréséhez.\n"
 
-#: ../src/gcompris/gcompris.c:1819
+#: ../src/gcompris/gcompris.c:1828
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Az elérhető tevékenységek listája:\n"
 
-#: ../src/gcompris/gcompris.c:1850
+#: ../src/gcompris/gcompris.c:1859
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Tevékenységek száma: %d\n"
 
-#: ../src/gcompris/gcompris.c:1886
+#: ../src/gcompris/gcompris.c:1895
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s létezik, de nem olvasható vagy írható"
 
-#: ../src/gcompris/gcompris.c:1981
+#: ../src/gcompris/gcompris.c:1990
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -4464,7 +4636,7 @@ msgstr ""
 "HIBA: A profil („%s”) nem található. Futtassa a „gcompris --profile-list” "
 "parancsot az elérhető profilok felsorolásához\n"
 
-#: ../src/gcompris/gcompris.c:1995
+#: ../src/gcompris/gcompris.c:2004
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "A rendelkezésre álló profilok listája:\n"
@@ -4519,7 +4691,7 @@ msgstr ""
 "Minden tevékenység le van tiltva ebben a profilban. Nyissa meg a GCompris "
 "adminisztrációs modulját, és aktiváljon legalább egy tevékenységet."
 
-#: ../src/gcompris/properties.c:505
+#: ../src/gcompris/properties.c:512
 msgid ""
 "This directory contains the files you create with the GCompris educational "
 "suite\n"
@@ -4527,7 +4699,7 @@ msgstr ""
 "Ebben a könyvtárban találhatók a GCompris oktatóprogram-gyűjtemény "
 "segítségével létrehozott fájlok\n"
 
-#: ../src/gcompris/properties.c:512
+#: ../src/gcompris/properties.c:519
 msgid ""
 "Put any number of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
@@ -4615,9 +4787,17 @@ msgstr "Franciaország régiói"
 msgid "India"
 msgstr "India"
 
-#: ../src/geo_country-activity/resources/geo_country/board13_0.xml.in.h:1
-msgid "Australia"
-msgstr "Ausztrália"
+#: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:1
+#: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:1
+#| msgid "Northern Africa"
+msgid "Northern Scotland"
+msgstr "Észak-Skócia"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:1
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:1
+#| msgid "Southern Africa"
+msgid "Southern Scotland"
+msgstr "Dél-Skócia"
 
 #: ../src/geo_country-activity/resources/geo_country/board2_0.xml.in.h:1
 msgid "Deutschland Bundesländer"
@@ -4659,12 +4839,6 @@ msgstr "Fogd és ejtsd az elemeket, hogy újrarajzold a teljes térképet"
 #: ../src/geography-activity/resources/geography/board1_0.xml.in.h:1
 msgid "Continents"
 msgstr "Kontinensek"
-
-#: ../src/geography-activity/resources/geography/board1_0.xml.in.h:2
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:1
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:6
-msgid "Africa"
-msgstr "Afrika"
 
 #: ../src/geography-activity/resources/geography/board1_0.xml.in.h:3
 msgid "America"
@@ -4724,10 +4898,6 @@ msgstr "Izland"
 msgid "Jamaica"
 msgstr "Jamaica"
 
-#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:10
-msgid "Mexico"
-msgstr "Mexikó"
-
 #: ../src/geography-activity/resources/geography/board2_0.xml.in.h:11
 msgid "United States of America"
 msgstr "Amerikai Egyesült Államok"
@@ -4749,6 +4919,7 @@ msgid "Bolivia"
 msgstr "Bolívia"
 
 #: ../src/geography-activity/resources/geography/board3_0.xml.in.h:4
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:13
 msgid "Brazil"
 msgstr "Brazília"
 
@@ -4813,24 +4984,23 @@ msgid "Denmark"
 msgstr "Dánia"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:5
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:22
 msgid "Finland"
 msgstr "Finnország"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:6
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:11
 msgid "France"
 msgstr "Franciaország"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:7
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:12
 msgid "Germany"
 msgstr "Németország"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:9
 msgid "Ireland"
 msgstr "Írország"
-
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:10
-msgid "Italy"
-msgstr "Olaszország"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:11
 msgid "Luxembourg"
@@ -4849,6 +5019,7 @@ msgid "Portugal"
 msgstr "Portugália"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:15
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:7
 msgid "Spain"
 msgstr "Spanyolország"
 
@@ -4913,6 +5084,7 @@ msgid "Moldova"
 msgstr "Moldova"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:14
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:18
 msgid "Poland"
 msgstr "Lengyelország"
 
@@ -4926,6 +5098,7 @@ msgid "Russia"
 msgstr "Oroszország"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:17
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:16
 msgid "Serbia"
 msgstr "Szerbia"
 
@@ -4947,14 +5120,17 @@ msgid "Turkey"
 msgstr "Törökország"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:22
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:20
 msgid "Ukraine"
 msgstr "Ukrajna"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:23
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:19
 msgid "Greece"
 msgstr "Görögország"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:24
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:14
 msgid "Cyprus"
 msgstr "Ciprus"
 
@@ -5213,7 +5389,8 @@ msgid "Black Sea"
 msgstr "Fekete-tenger"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:4
-msgid "Mediteranean Sea"
+#| msgid "Mediteranean Sea"
+msgid "Mediterranean Sea"
 msgstr "Földközi-tenger"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:5
@@ -5247,10 +5424,6 @@ msgstr "Bahrein"
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:13
 msgid "Lebanon"
 msgstr "Libanon"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:14
-msgid "Chypre"
-msgstr "Ciprus"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:15
 msgid "Kuwait"
@@ -5387,10 +5560,6 @@ msgstr "Dél-Korea"
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:51
 msgid "North Korea"
 msgstr "Észak-Korea"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:52
-msgid "Japan"
-msgstr "Japán"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:53
 msgid "Mongolia"
@@ -6483,7 +6652,7 @@ msgstr "a csörgődobot"
 msgid "the tuba"
 msgstr "a tubát"
 
-#: ../src/intro_gravity-activity/intro_gravity.py:98
+#: ../src/intro_gravity-activity/intro_gravity.py:100
 msgid ""
 "Gravity is universal and Newton's law of universal gravitation extends "
 "gravity beyond earth. This force of gravitational attraction is directly "
@@ -6495,7 +6664,7 @@ msgstr ""
 "vonzóerő közvetlenül a két test tömegétől függ, és fordítottan arányos a "
 "középpontjaik távolságának négyzetével."
 
-#: ../src/intro_gravity-activity/intro_gravity.py:105
+#: ../src/intro_gravity-activity/intro_gravity.py:107
 msgid ""
 "Since the gravitational force is directly proportional to the mass of both "
 "interacting objects, more massive objects will attract each other with a "
@@ -6512,7 +6681,7 @@ msgstr ""
 "test közötti távolság négyzetével, a távolság növelése gyengébb gravitációs "
 "erőt fog eredményezni."
 
-#: ../src/intro_gravity-activity/intro_gravity.py:118
+#: ../src/intro_gravity-activity/intro_gravity.py:120
 msgid ""
 "Your goal is to let Tux's spaceship move by changing the mass of its "
 "surrounding planets. Don't get too close to the planets or you will crash on "
@@ -6522,7 +6691,7 @@ msgstr ""
 "módosításával. Ne engedd túl közel Tuxot a bolygókhoz, mert lezuhan! A nyíl "
 "jelzi a hajóra ható erők irányát."
 
-#: ../src/intro_gravity-activity/intro_gravity.py:128
+#: ../src/intro_gravity-activity/intro_gravity.py:130
 msgid "Avoid the asteroid and join the space shuttle to win."
 msgstr "Kerüld el az aszteroidát, és szállj fel az űrhajóra."
 
@@ -6550,7 +6719,7 @@ msgstr "Kövesd a játék közben megjelenő utasításokat."
 msgid "Gravity: %s"
 msgstr "Gravitáció: %s"
 
-#: ../src/land_safe-activity/land_safe.py:164
+#: ../src/land_safe-activity/land_safe.py:165
 msgid ""
 "Use the up and down keys to control the thrust\n"
 "Use the right and left keys to control direction.\n"
@@ -6562,23 +6731,23 @@ msgstr ""
 "Tux hajóját irányítsd a leszállópálya felé.\n"
 "A leszállópálya zöldre vált, ha a sebesség már biztonságos a leszálláshoz."
 
-#: ../src/land_safe-activity/land_safe.py:169
+#: ../src/land_safe-activity/land_safe.py:170
 msgid "Click on me or press the Return key when you are ready."
 msgstr "Kattints ide vagy nyomd meg az Entert, ha kész vagy."
 
-#: ../src/land_safe-activity/land_safe.py:171
+#: ../src/land_safe-activity/land_safe.py:172
 msgid "I am ready!"
 msgstr "Rajta!"
 
-#: ../src/land_safe-activity/land_safe.py:453
+#: ../src/land_safe-activity/land_safe.py:470
 msgid "Height: "
 msgstr "Magasság:"
 
-#: ../src/land_safe-activity/land_safe.py:469
+#: ../src/land_safe-activity/land_safe.py:486
 msgid "Fuel"
 msgstr "Üzemanyag"
 
-#: ../src/land_safe-activity/land_safe.py:501
+#: ../src/land_safe-activity/land_safe.py:519
 msgid "Velocity: "
 msgstr "Sebesség: "
 
@@ -7496,6 +7665,29 @@ msgstr "Gyakorold a kivonást, amíg az összes kártya el nem tűnik."
 
 #: ../src/memory_minus-activity/memory_minus.xml.in.h:5
 #: ../src/memory_minus_tux-activity/memory_minus_tux.xml.in.h:5
+#| msgid ""
+#| "You can see some cards, but you can't see what's on the other side of "
+#| "them. Each card is hiding a subtraction, or the answer to it.\n"
+#| "A subtraction looks like this: 3 - 1 = 2\n"
+#| "The numbers on one side of the equals sign (=) have to be the same as the "
+#| "number on the other side. So 3 (1, 2, 3) less 1 (1) makes 2. Count aloud "
+#| "when you work this out, and count on your fingers, because the more ways "
+#| "you do something, the better you remember it. You can also use blocks, or "
+#| "buttons, or anything you can count. If you have lots of brothers and "
+#| "sisters, you can count them! Or the kids in your class at school. Sing "
+#| "counting songs. Count lots of things, for practice, and you'll be very "
+#| "good at adding-up!\n"
+#| "\n"
+#| "In this game, these cards are hiding the two parts of a subtraction. You "
+#| "need to find the two parts of the subtraction, and bring them together "
+#| "again. Click on a card to see what number it's hiding, then try to find "
+#| "the other card that goes with it, to make a whole sum. You can only turn "
+#| "over two cards in one go, so you need to remember where the numbers are "
+#| "hiding, then you can match them when you find their other half. You're "
+#| "doing the job of the equals sign, and the numbers need you to put them "
+#| "together and make a proper sum. When you do that, both those cards "
+#| "disappear! When you've made them all disappear, found all the subtracts, "
+#| "you've won the game! :)"
 msgid ""
 "You can see some cards, but you can't see what's on the other side of them. "
 "Each card is hiding a subtraction, or the answer to it.\n"
@@ -7507,32 +7699,35 @@ msgid ""
 "buttons, or anything you can count. If you have lots of brothers and "
 "sisters, you can count them! Or the kids in your class at school. Sing "
 "counting songs. Count lots of things, for practice, and you'll be very good "
-"at adding-up!\n"
+"at subtracting numbers!\n"
 "\n"
 "In this game, these cards are hiding the two parts of a subtraction. You "
 "need to find the two parts of the subtraction, and bring them together "
 "again. Click on a card to see what number it's hiding, then try to find the "
-"other card that goes with it, to make a whole sum. You can only turn over "
-"two cards in one go, so you need to remember where the numbers are hiding, "
-"then you can match them when you find their other half. You're doing the job "
-"of the equals sign, and the numbers need you to put them together and make a "
-"proper sum. When you do that, both those cards disappear! When you've made "
-"them all disappear, found all the subtracts, you've won the game! :)"
+"other card that goes with it, to make a whole difference. You can only turn "
+"over two cards in one go, so you need to remember where the numbers are "
+"hiding, then you can match them when you find their other half. You're doing "
+"the job of the equals sign, and the numbers need you to put them together "
+"and make a proper difference. When you do that, both those cards disappear! "
+"When you've made them all disappear, found all the subtracts, you've won the "
+"game! :)"
 msgstr ""
 "Néhány lefordított kártyát látsz. Minden kártya másik oldalán egy kivonás, "
 "vagy egy kivonás eredménye rejtőzik.\n"
 "Egy kivonás például így nézhet ki: 3 - 1 = 2\n"
-"Az egyenlőségjel (=) két oldalán levő számnak meg kell egyezni. Hangosan is "
-"számolhatsz és az ujjaidat is használhatod, mert minél többféleképpen "
-"csinálsz valamit, annál könnyebben jegyzed meg. Használhatsz akár "
-"számolópálcikát, babszemeket, vagy bármi mást, amit meg tudsz számolni. "
-"Énekelj gyakran számolós énekeket, számolj meg amit csak tudsz – gyakorlat "
-"teszi a mestert!\n"
+"Az egyenlőségjel (=) két oldalán levő számnak meg kell egyezni. Vagyis 3 (1, "
+"2, 3) mínusz 1 (1) egyenlő 2. Hangosan is számolhatsz és az ujjaidat is "
+"használhatod, mert minél többféleképpen csinálsz valamit, annál könnyebben "
+"jegyzed meg. Használhatsz akár számolópálcikát, babszemeket, vagy bármi mást, "
+"amit meg tudsz számolni. Ha több fiútestvéred vagy lánytestvéred van, "
+"megszámolhatod őket is. Vagy a gyerekeket az iskolai osztályodban. Énekelj "
+"számolós énekeket. Gyakorlásképpen számolj meg amit csak tudsz és nagyon jó "
+"leszel a számok kivonásában!\n"
 "\n"
-" Ebben a játékban a kártyák egy kivonás eredményének két részét "
+"Ebben a játékban a kártyák egy kivonás eredményének két részét "
 "tartalmazzák. Keresd meg az összeg két részét és párosítsd őket. Kattints a "
 "kártyára a rajta levő szám megnézéséhez, majd próbáld megkeresni a hozzá "
-"illő kártyát, amivel összeadva kiadja az összeget. Egyszerre csak két "
+"illő kártyát, amivel kiadja a teljes különbséget. Egyszerre csak két "
 "kártyát fordíthatsz meg, így meg kell jegyezned a számok helyét, hogy "
 "párosítani tudd a másik felével, ha megtalálod azt. Az egyenlőségjel "
 "feladatát végzed, össze kell párosítanod a megfelelő különbséget adó "
@@ -8208,12 +8403,15 @@ msgid "Edgar Degas, The Dancing Class - 1873-75"
 msgstr "Edgar Degas, The Dancing Class - 1873-75"
 
 #: ../src/paintings-activity/resources/paintings/board1_10.xml.in.h:1
+#| msgid ""
+#| "Katsushika Hokusai,\\nViewing Sunset over the Ryogoku Bridge from the "
+#| "Ommaya Embankment - 1830"
 msgid ""
-"Katsushika Hokusai,\\nViewing Sunset over the Ryogoku Bridge from the Ommaya "
-"Embankment - 1830"
+"Katsushika Hokusai,\n"
+"Viewing Sunset over the Ryogoku Bridge from the Ommaya Embankment - 1830"
 msgstr ""
-"Katsushika Hokusai,\\nViewing Sunset over the Ryogoku Bridge from the Ommaya "
-"Embankment - 1830"
+"Katsushika Hokusai,\n"
+"Viewing Sunset over the Ryogoku Bridge from the Ommaya Embankment - 1830"
 
 #: ../src/paintings-activity/resources/paintings/board1_11.xml.in.h:1
 msgid "Katsushika Hokusa, Poppies - 1833-1834"
@@ -8252,10 +8450,14 @@ msgid "Katsushika Hokusai, The Great Wave off Kanagawa - 1823-1829"
 msgstr "Katsushika Hokusai, The Great Wave off Kanagawa - 1823-1829"
 
 #: ../src/paintings-activity/resources/paintings/board1_8.xml.in.h:1
+#| msgid ""
+#| "Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
 msgid ""
-"Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
+"Utagawa Hiroshige,\n"
+"The Benzaiten Shrine at Inokashira in Snow - 1760-70"
 msgstr ""
-"Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
+"Utagawa Hiroshige,\n"
+"The Benzaiten Shrine at Inokashira in Snow - 1760-70"
 
 #: ../src/paintings-activity/resources/paintings/board1_9.xml.in.h:1
 msgid "Utagawa Hiroshige, Horse-mackerel and Prawn - 1840"
@@ -8578,6 +8780,12 @@ msgstr "Véletlen stílus megváltoztatása"
 msgid "Select A Melody to Load"
 msgstr "Válassz egy betöltendő dallamot"
 
+#. FIXME Should remove the space in the data file instead
+#: ../src/piano_composition-activity/piano_composition.py:449
+#: ../src/piano_composition-activity/piano_composition.py:578
+msgid " "
+msgstr " "
+
 #: ../src/piano_composition-activity/piano_composition.xml.in.h:1
 msgid "Piano Composition"
 msgstr "Zeneszerzés zongorával"
@@ -8685,84 +8893,54 @@ msgstr ""
 "  F5: Aisz / B\n"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:1
-msgid " America: English Lullaby"
+#| msgid " America: English Lullaby"
+msgid "America: English Lullaby"
 msgstr "Amerika: angol altató"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:2
-msgid " America: Patriotic"
+#| msgid " America: Patriotic"
+msgid "America: Patriotic"
 msgstr "Amerika: hazafias"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:3
-msgid " America: Shaker Tune"
-msgstr " Amerika: Shaker Tune"
+#| msgid " America: Shaker Tune"
+msgid "America: Shaker Tune"
+msgstr "Amerika: Shaker Tune"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:4
-msgid " America: Nursery Rhyme"
+#| msgid " America: Nursery Rhyme"
+msgid "America: Nursery Rhyme"
 msgstr "Amerika: gyermekvers"
 
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:7
-msgid " Spain"
-msgstr "Spanyolország"
-
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:8
-msgid " German Kid's Song"
+#| msgid " German Kid's Song"
+msgid "German Kid's Song"
 msgstr "Német gyermekdal"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:9
-msgid " Children's Song from Brazil"
+#| msgid " Children's Song from Brazil"
+msgid "Children's Song from Brazil"
 msgstr "Brazil gyermekdalok"
 
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:10
-msgid " German"
-msgstr "Német"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:11
-msgid " France"
-msgstr "Franciaország"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:12
-msgid " Germany"
-msgstr "Németország"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:13
-msgid " Brazil"
-msgstr "Brazília"
-
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:14
-msgid " Hungary, Nursery Rhyme"
+#| msgid " Hungary, Nursery Rhyme"
+msgid "Hungary, Nursery Rhyme"
 msgstr "Magyarország, gyermekvers"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:15
-msgid " Hungary, Children's Song"
+#| msgid " Hungary, Children's Song"
+msgid "Hungary, Children's Song"
 msgstr "Magyarország, gyermekdal"
 
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:16
-msgid " Serbia"
-msgstr "Szerbia"
-
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:17
-msgid " Britain"
-msgstr "Nagy-Britannia"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:18
-msgid " Poland"
-msgstr "Lengyelország"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:19
-msgid " Greece"
-msgstr "Görögország"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:20
-msgid " Ukraine"
-msgstr "Ukrajna"
+#| msgid " Britain"
+msgid "Britain"
+msgstr "Britannia"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:21
-msgid " Mexican song to break a piñata"
+#| msgid " Mexican song to break a piñata"
+msgid "Mexican song to break a piñata"
 msgstr "Mexikói dal piñata feltöréséhez"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:22
-msgid " Finland"
-msgstr "Finnország"
 
 #: ../src/place_your_satellite-activity/place_your_satellite.py:68
 msgid ""
@@ -9073,7 +9251,7 @@ msgstr ""
 " - enter: OK gomb\n"
 " - szóköz: lejátszás\n"
 
-#: ../src/pythontemplate-activity/pythontemplate.py:62
+#: ../src/pythontemplate-activity/pythontemplate.py:69
 #: ../src/pythontest-activity/pythontest.py:182
 msgid ""
 "This is the first plugin in GCompris coded in the Python\n"
@@ -9580,6 +9758,68 @@ msgstr "A billentyűzeten írd be a leeső kockán lévő pontok számát."
 msgid "Numbers With Dice"
 msgstr "Kockák és számok"
 
+#: ../src/submarine-activity/submarine.c:394
+#: ../src/submarine-activity/submarine.c:637
+msgid "Engine control, use the buttons to select your speed."
+msgstr "Motorvezérlés, használd a gombokat a sebességed kiválasztásához."
+
+#: ../src/submarine-activity/submarine.c:410
+msgid "Compressed air tank is used to flush water out of the ballasts."
+msgstr ""
+"A sűrített levegő tartály arra használható, hogy kiengedje a vizet a "
+"ballasztból."
+
+#: ../src/submarine-activity/submarine.c:524
+msgid "Open or close the the ballast tank."
+msgstr "Nyisd ki vagy zárd be a ballaszt tartályát."
+
+#: ../src/submarine-activity/submarine.c:525
+msgid "It allows the water, to get in the tank."
+msgstr "Lehetővé teszi, hogy a víz bejusson a tartályba."
+
+#: ../src/submarine-activity/submarine.c:526
+#: ../src/submarine-activity/submarine.c:563
+msgid "Increase the water level to dive."
+msgstr "Növeld a vízszintet a merüléshez."
+
+#: ../src/submarine-activity/submarine.c:527
+msgid "Lower the water level to rise to the surface."
+msgstr "Csökkentsd a vízszintet, hogy elérd a felszínt."
+
+#: ../src/submarine-activity/submarine.c:561
+msgid "Open or close the the ballast flush."
+msgstr "Nyisd ki vagy zárd be a ballaszt kifolyóját."
+
+#: ../src/submarine-activity/submarine.c:562
+msgid "It flushes the water out of the tank."
+msgstr "Kiereszti a vizet a tartályból."
+
+#: ../src/submarine-activity/submarine.c:564
+msgid "Lower the water level to surface."
+msgstr "Csökkentsd a vízszintet a felszínre."
+
+#: ../src/submarine-activity/submarine.c:603
+msgid "Horizontal rudders also called tailplanes."
+msgstr "A vízszintes kormánylapátokat faroksíkoknak is hívják."
+
+#: ../src/submarine-activity/submarine.c:604
+#: ../src/submarine-activity/submarine.c:619
+msgid "It controls the up and down orientation."
+msgstr "Ez vezérli a felfelé és lefelé irányokat."
+
+#: ../src/submarine-activity/submarine.c:605
+#: ../src/submarine-activity/submarine.c:620
+msgid "It needs water to flow around them to be effective."
+msgstr "Szüksége van víz körbeáramlására, hogy hatékony legyen."
+
+#: ../src/submarine-activity/submarine.c:618
+msgid "Horizontal rudders also called foreplanes."
+msgstr "A vízszintes kormánylapátokat vezérsíkoknak is hívják."
+
+#: ../src/submarine-activity/submarine.c:655
+msgid "Water level in the ballast."
+msgstr "Vízszint a ballasztban."
+
 #: ../src/submarine-activity/submarine.xml.in.h:1
 msgid "Pilot a submarine"
 msgstr "Vezess tengeralattjárót"
@@ -9597,15 +9837,21 @@ msgid "Learn how a submarine works"
 msgstr "Tanuld meg, hogyan működik egy tengeralattjáró"
 
 #: ../src/submarine-activity/submarine.xml.in.h:5
+#| msgid ""
+#| "Click on different active elements : engine, rudders and air tanks, in "
+#| "order to navigate to the required depth. There is a close gate on the "
+#| "right. Catch the jewel to open it, then pass through it to reach the next "
+#| "level."
 msgid ""
 "Click on different active elements : engine, rudders and air tanks, in order "
-"to navigate to the required depth. There is a close gate on the right. Catch "
-"the jewel to open it, then pass through it to reach the next level."
+"to navigate to the required depth. There is a close gate on the right. After "
+"the first level, your have to catch the jewel to open it. Pass through it to "
+"reach the next level."
 msgstr ""
 "Kattints a különböző aktív elemeken: a motoron, a kormánylapátokon és a "
 "levegőtartályokon, hogy a kívánt mélységbe vezesd a tengeralattjárót. Jobb "
-"oldalon van egy szűk kijárat. Szedd fel az ékkövet, hogy ki tudd nyitni a "
-"kaput, majd manőverezz át rajta a következő szintre."
+"oldalon van egy szűk kijárat. Az első szint után fel kell szedned az ékkövet, "
+"hogy ki tudd nyitni a kaput. Manőverezz át rajta a következő szintre."
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:1
 msgid "Sudoku, place unique symbols in a square."
@@ -10015,6 +10261,60 @@ msgstr "Billentyűzetkezelés gyakorlása"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the complete word as it falls, before it reaches the ground"
 msgstr "Gépeld be a leeső teljes szót, mielőtt az leérne a földre"
+
+#~ msgid "Editing group: "
+#~ msgstr "Csoport szerkesztése: "
+
+#~ msgid " for class: "
+#~ msgstr " a következő osztályhoz: "
+
+#~ msgid " Australia"
+#~ msgstr "Ausztrália"
+
+#~ msgid " Africa"
+#~ msgstr "Afrika"
+
+#~ msgid " Japan"
+#~ msgstr "Japán"
+
+#~ msgid " Italy"
+#~ msgstr "Olaszország"
+
+#~ msgid " Mexico"
+#~ msgstr "Mexikó"
+
+#~ msgid "Chypre"
+#~ msgstr "Ciprus"
+
+#~ msgid " Spain"
+#~ msgstr "Spanyolország"
+
+#~ msgid " German"
+#~ msgstr "Német"
+
+#~ msgid " France"
+#~ msgstr "Franciaország"
+
+#~ msgid " Germany"
+#~ msgstr "Németország"
+
+#~ msgid " Brazil"
+#~ msgstr "Brazília"
+
+#~ msgid " Serbia"
+#~ msgstr "Szerbia"
+
+#~ msgid " Poland"
+#~ msgstr "Lengyelország"
+
+#~ msgid " Greece"
+#~ msgstr "Görögország"
+
+#~ msgid " Ukraine"
+#~ msgstr "Ukrajna"
+
+#~ msgid " Finland"
+#~ msgstr "Finnország"
 
 #~ msgid "sulphur"
 #~ msgstr "kénsárga"
