@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: gcompris master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-03-31 17:44+0000\n"
-"PO-Revision-Date: 2013-03-31 20:07+0100\n"
+"POT-Creation-Date: 2013-04-01 17:20+0000\n"
+"PO-Revision-Date: 2013-04-04 20:53+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
@@ -416,13 +416,19 @@ msgstr ""
 "profila <b>%s</b></span>"
 
 #: ../src/administration-activity/admin/board_list.py:645
-#: ../src/administration-activity/admin/board_list.py:657
-#: ../src/administration-activity/admin/wordlist.py:45
 msgid ""
-"<b>{config}</b> configuration\n"
+"<b>Locale</b> configuration\n"
 " for profile <b>{profile}</b>"
 msgstr ""
-"Nastavitve <b>{config}</b>\n"
+"<b>Krajevne</b> nastavitve\n"
+" za profil <b>{profile}</b>"
+
+#: ../src/administration-activity/admin/board_list.py:657
+msgid ""
+"<b>Locale sound</b> configuration\n"
+" for profile <b>{profile}</b>"
+msgstr ""
+"Nastavitve <b>Zvok jezikovnih prilagoditev</b>\n"
 " za profil <b>{profile}</b>"
 
 #: ../src/administration-activity/admin/board_list.py:663
@@ -494,12 +500,8 @@ msgid "Editing a Group"
 msgstr "Urejanje skupine"
 
 #: ../src/administration-activity/admin/group_edit.py:62
-msgid "Editing group: "
-msgstr "Urejanje skupine:"
-
-#: ../src/administration-activity/admin/group_edit.py:63
-msgid " for class: "
-msgstr " za razred:"
+msgid "Editing group '{group}' for class '{aclass}'"
+msgstr "Urejanje skupine '{group}' za razred '{aclass}'"
 
 #: ../src/administration-activity/admin/group_edit.py:66
 msgid "Editing a new group"
@@ -803,6 +805,14 @@ msgid ""
 msgstr ""
 "Ena ali več prijav ni edinstvenih!\n"
 "Treba jih je spremeniti: %s!"
+
+#: ../src/administration-activity/admin/wordlist.py:45
+msgid ""
+"<b>{config}</b> configuration\n"
+" for profile <b>{profile}</b>"
+msgstr ""
+"Nastavitve <b>{config}</b>\n"
+" za profil <b>{profile}</b>"
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:1
 msgid "Advanced colors"
@@ -2858,7 +2868,7 @@ msgstr ""
 "tudi srednji gumb miške."
 
 #: ../src/drawnumber-activity/drawnumber.py:238
-#: ../src/explore-activity/explore.py:412 ../src/findit-activity/findit.py:336
+#: ../src/explore-activity/explore.py:410 ../src/findit-activity/findit.py:336
 #: ../src/louis_braille-activity/louis_braille.py:84
 #: ../src/piano_composition-activity/piano_composition.py:504
 msgid "Cannot find the file '{filename}'"
@@ -2994,8 +3004,8 @@ msgstr "Premikaj miško in s tem odkrij ozadje."
 msgid "Error: No images found\n"
 msgstr "Napaka: ni najdenih slik\n"
 
-#: ../src/erase-activity/erase.c:582 ../src/gcompris/properties.c:503
-#: ../src/gcompris/properties.c:510
+#: ../src/erase-activity/erase.c:582 ../src/gcompris/properties.c:510
+#: ../src/gcompris/properties.c:517
 msgid "readme"
 msgstr "preberime"
 
@@ -3068,22 +3078,7 @@ msgstr "Klikni za predvajanje zvoka"
 msgid "Back to Homepage"
 msgstr "Nazaj na domačo stran"
 
-#. ---------------------------------------------------------------------
-#. WRITE LOCATION-SPECIFIC CONTENT TO PAGE
-#. ---------------------------------------------------------------------
-#. FIXME Should remove the space in the data file instead
-#: ../src/explore-activity/explore.py:295
-#: ../src/explore-activity/explore.py:308
-#: ../src/explore-activity/explore.py:443
-#: ../src/explore-activity/explore.py:446
-#: ../src/explore-activity/explore.py:449
-#: ../src/explore-activity/explore.py:461
-#: ../src/piano_composition-activity/piano_composition.py:449
-#: ../src/piano_composition-activity/piano_composition.py:578
-msgid " "
-msgstr " "
-
-#: ../src/explore-activity/explore.py:417 ../src/findit-activity/findit.py:341
+#: ../src/explore-activity/explore.py:415 ../src/findit-activity/findit.py:341
 #: ../src/louis_braille-activity/louis_braille.py:88
 #: ../src/piano_composition-activity/piano_composition.py:509
 msgid ""
@@ -3093,7 +3088,7 @@ msgstr ""
 "Razčlenjevanje niza podatkov '{filename}' je spodletelo z napako:\n"
 "{error}"
 
-#: ../src/explore-activity/explore.py:511
+#: ../src/explore-activity/explore.py:505
 msgid "Explore Status:"
 msgstr "Stanje spoznavanja:"
 
@@ -3148,152 +3143,150 @@ msgstr ""
 "vse živali povezane z besedili, je igre konec!\n"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:1
-msgid " Click on the questions to explore each farm animal."
-msgstr " Klikni vprašanja, da izveš več o vsaki živali s kmetije."
+msgid "Click on the questions to explore each farm animal."
+msgstr "Klikni vprašanja, da izveš več o posamezni živali s kmetije."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:2
-msgid " Click on the farm animal that makes the sound you hear."
-msgstr " Klikni žival na kmetiji, ki se oglaša tako, kot slišiš."
+msgid "Click on the farm animal that makes the sound you hear."
+msgstr "Klikni žival na kmetiji, ki se oglaša tako, kot slišiš."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:3
-msgid " Click the animal that matches the description."
-msgstr " Kliknite žival, ki se sklada z opisom."
+msgid "Click the animal that matches the description."
+msgstr "Klikni žival, ki se sklada z navedenim opisom."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:4
-msgid " Horse"
-msgstr " Konj"
+msgid "Horse"
+msgstr "Konj"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:5
-msgid " The horse goes \"neigh! neigh!\". Horses usually sleep standing up."
-msgstr " Konj se oglaša \"iha! iha!\". Konji običajno spijo stoje."
+msgid "The horse goes \"neigh! neigh!\". Horses usually sleep standing up."
+msgstr "Konj se oglaša \"iha! iha!\". Konji običajno spijo stoje."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:6
-msgid " You can ride on the back of this animal!"
-msgstr " Na hrbtu te živali lahko jahaš!"
+msgid "You can ride on the back of this animal!"
+msgstr "Na hrbtu te živali lahko jahaš!"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:7
-msgid " Chickens"
-msgstr " Kokoši"
+msgid "Chickens"
+msgstr "Kokoši"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:8
 msgid ""
-" The chicken goes \"cluck, cackle, cluck\". Chickens have over 200 different "
+"The chicken goes \"cluck, cackle, cluck\". Chickens have over 200 different "
 "noises they can use to communicate."
 msgstr ""
-" Kokoš se oglaša \"kokoko! kokokodak!\". Kokoši se oglašajo z več kot 200 "
-"različnimi zvoki. Na tak način se med seboj sporazumevajo."
+"Kokoš se oglaša \"kokoko! kokokodak!\". Kokoši se oglašajo z več"
+"kot 200 različnimi zvoki. Na tak način se med seboj sporazumevajo."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:9
-msgid " This animal lays eggs."
-msgstr " Ta žival vali jajca."
+msgid "This animal lays eggs."
+msgstr "Ta žival vali jajca."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:10
-msgid " Cows"
-msgstr " Krave"
+msgid "Cows"
+msgstr "Krave"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:11
 msgid ""
-" The cow goes \"moo. moo.\". Cows are herbivorous mammals. They graze all "
-"day in the meadow."
+"The cow goes \"moo. moo.\". Cows are herbivorous mammals. They graze all day "
+"in the meadow."
 msgstr ""
-" Krava se oglaša \"muuuu, muuuu\". Krave so rastlinojedi sesalci in se "
+"Krava se oglaša \"muuuu, muuuu\". Krave so rastlinojedi sesalci in se "
 "neprestano pasejo na travnikih."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:12
-msgid " You can drink the milk this animal produces."
-msgstr " Mleko, ki ga daje ta žival, lahko piješ."
+msgid "You can drink the milk this animal produces."
+msgstr "Mleko, ki ga daje ta žival, lahko piješ."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:13
-msgid " Cat"
-msgstr " Mačka"
+msgid "Cat"
+msgstr "Mačka"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:14
 msgid ""
-" The cat goes \"meow, meow\". Cats usually hate water because their fur "
+"The cat goes \"meow, meow\". Cats usually hate water because their fur "
 "doesn't stay warm when it is wet."
 msgstr ""
-" Mačke se oglašajo \"mjau, mjau\". Mačke v večini ne marajo vode, saj se "
+"Mačke se oglašajo \"mijau, mijau\". Mačke v večini ne marajo vode, saj se "
 "njihovo telo hitro hladi, kadar so dlake mokre."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:15
-msgid " This pet likes chasing mice."
-msgstr " Ta hišni ljubljenček rad lovi miši."
+msgid "This pet likes chasing mice."
+msgstr "Ta hišni ljubljenček rad lovi miši."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:16
-msgid " Pigs"
-msgstr " Prašički"
+msgid "Pigs"
+msgstr "Prašički"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:17
-msgid " The pig goes \"oink, oink\". Pigs are the 4th most intelligent animal."
+msgid "The pig goes \"oink, oink\". Pigs are the 4th most intelligent animal."
 msgstr ""
-" Prašič se oglaša \"ojnk, ojnk\". Prašič je četrta najpametnejša živalska "
-"vrsta."
+"Prašič se oglaša \"ojnk, ojnk\". Prašič je četrta najpametnejša živalska vrsta."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:18
-msgid " This animal likes to lay in the mud."
-msgstr " Ta žival rada leži v blatu."
+msgid "This animal likes to lay in the mud."
+msgstr "Ta žival rada leži v blatu."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:19
-msgid " White Duck"
-msgstr " Bela raca"
+msgid "White Duck"
+msgstr "Bela raca"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:20
 msgid ""
-" The duck goes \"quack, quack\". Ducks have special features like webbed "
-"feet and produce an oil to make their feathers \"waterproof\"."
+"The duck goes \"quack, quack\". Ducks have special features like webbed feet "
+"and produce an oil to make their feathers \"waterproof\"."
 msgstr ""
-" Raca se oglaša \"kvak! kvak!\". Race imajo med prsti na nogah plavalno "
+"Raca se oglaša \"kvak! kvak!\". Race imajo med prsti na nogah plavalno "
 "kožico, koža pa izloča olja, ki njihovo perje naredijo vodotesno."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:21
-msgid " This animal has webbed feet so it can swim in the water."
-msgstr " Ta žival ima na nogah plavalno kožico, da lahko plava v vodi."
+msgid "This animal has webbed feet so it can swim in the water."
+msgstr "Ta žival ima na nogah plavalno kožico, da lahko plava v vodi."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:22
-msgid " Owl"
-msgstr " Sova"
+msgid "Owl"
+msgstr "Sova"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:23
 msgid ""
-" The owl goes \"hoo. hoo.\" The owl has excellent vision and hearing at "
-"night."
-msgstr " Sova se oglaša \"huu, huu.\" Sova ponoči izjemno dobro vidi in sliši."
+"The owl goes \"hoo. hoo.\" The owl has excellent vision and hearing at night."
+msgstr "Sova se oglaša \"huu, huu.\" Sova ponoči izjemno dobro vidi in sliši."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:24
-msgid " This animal likes to come out at night."
-msgstr " Ta žival se rada pokaže ponoči."
+msgid "This animal likes to come out at night."
+msgstr "Ta žival se rada pokaže ponoči."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:25
-msgid " Dogs"
-msgstr " Psi"
+msgid "Dogs"
+msgstr "Psi"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:26
 msgid ""
-" The dog goes \"bark! bark!\". Dogs are great human companions and usually "
+"The dog goes \"bark! bark!\". Dogs are great human companions and usually "
 "enjoy love and attention."
 msgstr ""
-" Pes se oglaša \"hov! hov!\". Psi so človekovi najboljši prijatelji in "
+"Pes se oglaša \"hov! hov!\". Psi so človekovi najboljši prijatelji in "
 "običajno uživajo veliko ljubezni in pozornosti."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:27
-msgid " This animal's ancestors were wolves."
-msgstr " Predniki te živali so bili volkovi."
+msgid "This animal's ancestors were wolves."
+msgstr "Predniki te živali so bili volkovi."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:28
-msgid " Rooster"
-msgstr " Petelin"
+msgid "Rooster"
+msgstr "Petelin"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:29
 msgid ""
-" The rooster goes \"coc-a-doodle-doo!\". Roosters have been on farms for "
+"The rooster goes \"coc-a-doodle-doo!\". Roosters have been on farms for "
 "about 5,000 years. Every morning it wakes the farm up with its noises."
 msgstr ""
-" Petelin se oglaša \"kikiriki! kikiriki!\". Petelini so na farmah že 5000 "
+"Petelin se oglaša \"kikiriki! kikiriki!\". Petelini so na farmah že 5000 "
 "let. Vsako jutro se zbudijo s petjem."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:30
-msgid " This animal wakes the farm up in the morning."
-msgstr " Ta žival zjutraj zbudi celo kmetijo."
+msgid "This animal wakes the farm up in the morning."
+msgstr "Ta žival zjutraj zbudi celo kmetijo."
 
 #: ../src/explore_world_animals-activity/explore_world_animals.xml.in.h:1
 msgid "Explore World Animals"
@@ -3331,96 +3324,96 @@ msgstr ""
 "živalmi, igralec zmaga!\n"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:1
-msgid " Explore exotic animals from around the world."
+msgid "Explore exotic animals from around the world."
 msgstr "Spoznaj nenavadne živali s celega sveta."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:2
-msgid " Click on location where the given animal lives."
-msgstr " Kliknite mesto, kjer živi izbrana žival."
+msgid "Click on location where the given animal lives."
+msgstr "Klikni mesto, kjer živi izbrana žival."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:3
-msgid " Jaguars in South America"
-msgstr " Jaguarji v Južni Ameriki"
+msgid "Jaguars in South America"
+msgstr "Jaguarji v Južni Ameriki"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:4
 msgid ""
-" Jaguars are named after the Native American word meaning 'he who kills with "
-"one leap'"
+"Jaguars are named after the Native American word meaning 'he who kills with "
+"one leap' because they like to climb trees to attack their prey."
 msgstr ""
-" Jaguarji so dobili ime po indijanski besedi, ki pomeni 'tisti, ki ubije z "
-"enim skokom'."
+"Jaguarji so dobili ime po indijanski besedi, ki pomeni 'tisti, ki ubije z "
+"enim skokom', ker radi plezajo po drevesih, da lahko napadejo svoj plen."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:5
-msgid " Jaguar"
-msgstr " Jaguar"
+msgid "Jaguar"
+msgstr "Jaguar"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:6
-msgid " Hedgehogs in Europe"
-msgstr " Ježi v Evropi"
+msgid "Hedgehogs in Europe"
+msgstr "Ježi v Evropi"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:7
 msgid ""
-" Hedgehogs eat small animals, like frogs and insects, so many people keep "
+"Hedgehogs eat small animals, like frogs and insects, so many people keep "
 "them as useful pets. When in danger, they will curl up into a ball and stick "
 "up their coat of sharp spines."
 msgstr ""
-" Ježi se prehranjujejo z malimi živalmi, kot so žabe in žuželke, zato jih "
-"ima veliko ljudi kot koristne hišne ljubljenčke. Ko se počutijo ogrožene, se "
+"Ježi se prehranjujejo z malimi živalmi, kot so žabe in žuželke, zato jih ima "
+"veliko ljudi kot koristne hišne ljubljenčke. Ko se počutijo ogrožene, se "
 "zvijejo v klobčič in pokažejo z ostrimi bodicami obdano telo."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:8
-msgid " Hedgehog"
-msgstr " Jež"
+msgid "Hedgehog"
+msgstr "Jež"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:9
-msgid " Giraffes in Africa"
-msgstr " Žirafe v Afriki"
+msgid "Giraffes in Africa"
+msgstr "Žirafe v Afriki"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:10
 msgid ""
-" The giraffe lives in Africa and is the tallest mammal in the world. Just "
+"The giraffe lives in Africa and is the tallest mammal in the world. Just "
 "their legs, which are usually 1.8 meters long, are taller than most humans!"
 msgstr ""
-" Žirafa živi v Afriki in je najvišji sesalec na svetu. Že njihove noge, ki "
-"so običajno dolge 1,8 metra, so daljše od večine ljudi!"
+"Žirafa živi v Afriki in je najvišji sesalec na svetu. Že njihove noge, ki so "
+"običajno dolge 1,8 metra, so daljše od večine ljudi!"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:11
-msgid " Giraffe"
-msgstr " Žirafa"
+msgid "Giraffe"
+msgstr "Žirafa"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:12
-msgid " Bison in America"
-msgstr " Bizon v Ameriki"
+msgid "Bison in America"
+msgstr "Bizon v Ameriki"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:13
 msgid ""
-" Bison live on the plains of North America and were hunted by the Native "
+"Bison live on the plains of North America and were hunted by the Native "
 "Americans for food."
 msgstr ""
-" Bizoni živijo na ravnicah Severne Amerike in Indijanci so jih lovili za "
+"Bizoni živijo na ravnicah Severne Amerike in Indijanci so jih lovili za "
 "hrano."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:14
-msgid " Bison"
-msgstr " Bizon"
+msgid "Bison"
+msgstr "Bizon"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:15
-msgid " Narwhals in the Arctic"
-msgstr " Enorogi na Arktiki"
+msgid "Narwhals in the Arctic"
+msgstr "Enorogi na Arktiki"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:16
 msgid ""
-" Narwhals are whales that live in the Arctic Ocean and have long tusks. "
-"These tusks remind many people of the mythical unicorn's horn."
+"Narwhals are whales that live in the Arctic Ocean and have long tusks. These "
+"tusks remind many people of the mythical unicorn's horn."
 msgstr ""
-" Enorogi so kiti, ki živijo v hladnem arktičnem oceanu. Na glavi imajo "
+"Enorogi so kiti, ki živijo v hladnem arktičnem oceanu. Na glavi imajo "
 "značilen dolg rog, ki je pravzaprav podaljšan zob sekalec. Rog ljudi "
 "spominja na samoroga, mitološko bitje podobno konju, ki ima tudi podobno "
 "izrastlino. Odtod podobno ime."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:17
-msgid " Narwhal"
-msgstr " Enorog"
+msgid "Narwhal"
+msgstr "Enorog"
 
 #: ../src/explore_world_music-activity/explore_world_music.xml.in.h:1
 msgid "Explore World Music"
@@ -3473,189 +3466,195 @@ msgid "Images from http://commons.wikimedia.org/wiki, http://archive.org"
 msgstr "Slike s spletišč http://commons.wikimedia.org/wiki, http://archive.org"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:1
-msgid " Explore world music! Click on the suitcases."
-msgstr " Razišči glasbe sveta! Klikni na kovčke."
+msgid "Explore world music! Click on the suitcases."
+msgstr "Razišči glasbe sveta! Klikni na kovčke."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:2
-msgid " Click on the location that matches the music you hear."
-msgstr " Kliknite kraj, ki ustreza glasbi, ki jo slišite."
+msgid "Click on the location that matches the music you hear."
+msgstr "Klikni kraj, ki ustreza glasbi, ki jo slišiš."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:3
-msgid " Click on the location that matches the text."
-msgstr " Kliknite kraj, ki ustreza besedilu."
+msgid "Click on the location that matches the text."
+msgstr "Klikni kraj, ki ustreza besedilu."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:4
-msgid " Australia"
-msgstr " Avstralija"
+#: ../src/geo_country-activity/resources/geo_country/board13_0.xml.in.h:1
+msgid "Australia"
+msgstr "Avstralija"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:5
 msgid ""
-" Aboriginals were the first people to live in Australia. They sing and play "
+"Aboriginals were the first people to live in Australia. They sing and play "
 "instruments, like the didgeridoo. It is made from a log and can be up to "
 "five meters long!"
 msgstr ""
-" Aboridžini so bili avstralski staroselci. Pojejo in igrajo na glasbila, kot "
-"je didžieridu. Narejen je iz lesa in je lahko dolg do pet metrov!"
+"Aboridžini so avstralski staroselci. Pojejo in igrajo na glasbila, kot je "
+"didžieridu. Narejen je iz lesa in je lahko dolg do pet metrov!"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:6
-msgid " Where is the didgeridoo played?"
+msgid "Where is the didgeridoo played?"
 msgstr "Kje igrajo na didžeridu?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:7
-msgid " Africa"
-msgstr " Afrika"
+#: ../src/geography-activity/resources/geography/board1_0.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:6
+msgid "Africa"
+msgstr "Afrika"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:8
 msgid ""
-" Music is a part of everyday life in Africa. African music features a great "
+"Music is a part of everyday life in Africa. African music features a great "
 "variety of drums, and they believe it is a sacred and magical instrument."
 msgstr ""
-" Glasba je del vsakodnevnega življenja v Afriki. Afriško glasbo zaznamuje "
+"Glasba je del vsakodnevnega življenja v Afriki. Afriško glasbo zaznamuje "
 "velika raznolikost bobnov, za katere verjamejo, da so sveta in magična "
 "glasbila."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:9
-msgid " Where is the drum considered a magical instrument?"
-msgstr " Kje velja boben za čarobno glasbilo?"
+msgid "Where is the drum considered a magical instrument?"
+msgstr "Kje velja boben za čarobno glasbilo?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:10
-msgid " Middle East"
-msgstr " Srednji vzhod"
+msgid "Middle East"
+msgstr "Srednji vzhod"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:11
 msgid ""
-" Music is a very important part of middle eastern culture. Specific songs "
-"are played to call worshipers to prayer. The lute is an instrument invented "
+"Music is a very important part of middle eastern culture. Specific songs are "
+"played to call worshipers to prayer. The lute is an instrument invented "
 "thousands of years ago and still in use today."
 msgstr ""
-" Glasba je pomemben del bližnjevzhodne kulture. Določene pesmi se zaigrajo "
+"Glasba je pomemben del bližnjevzhodne kulture. Določene pesmi se zaigrajo "
 "kot klic vernikom k molitvi. Lutnja je instrument, ki so ga iznašli pred "
 "tisoči leti in nanj igrajo še danes."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:12
-msgid " Where is music used to call people to prayer?"
-msgstr " Kje z glasbo kličejo ljudi k molitvi?"
+msgid "Where is music used to call people to prayer?"
+msgstr "Kje z glasbo kličejo ljudi k molitvi?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:13
-msgid " Japan"
-msgstr " Japonska"
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:52
+msgid "Japan"
+msgstr "Japonska"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:14
 msgid ""
-" Taiko drumming comes from Japan. This type of drumming was originally used "
+"Taiko drumming comes from Japan. This type of drumming was originally used "
 "to scare enemies in battle. It is very loud, and performances are very "
 "exciting with crowds cheering and performers yelling!"
 msgstr ""
-" Bobnanje taiko izvira iz Japonske. S to vrsto igranja na bobne so sprva "
+"Bobnanje taiko izvira iz Japonske. S to vrsto igranja na bobne so sprva "
 "strašili sovražnike med boji. Bobnanje je zelo glasno in nastopi so zelo "
 "razburljivi, saj obiskovalci ob tem glasno navijajo, izvajalci pa kričijo!"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:15
-msgid " Where do performers yelp as they play the drums?"
+msgid "Where do performers yelp as they play the drums?"
 msgstr ""
-" Pri kateri zvrsti glasbe bobnarji in drugi izvajalci med igranjem kričijo?"
+"Pri kateri zvrsti glasbe bobnarji in drugi izvajalci med igranjem kričijo?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:16
-msgid " Scotland and Ireland"
-msgstr " Škotska in Irska"
+msgid "Scotland and Ireland"
+msgstr "Škotska in Irska"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:17
 msgid ""
-" Folk music of this region is called celtic music, often incorporates a "
+"Folk music of this region is called celtic music, often incorporates a "
 "narrative poem or story. Typical instruments include bagpipes, fiddles, "
 "flutes, harps, and accordions."
 msgstr ""
-" Ljudska glasba tega območja nosi ime keltska glasba, pogosto pa vključuje "
+"Ljudska glasba tega območja nosi ime keltska glasba, pogosto pa vključuje "
 "pripovedno pesem ali zgodbo. Značilni inštrumenti so dude, gosli, piščali, "
 "flavte, harfe in orglice."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:18
-msgid " Bagpipers, who often wear kilts, are from this location."
+msgid "Bagpipers, who often wear kilts, are from this location."
 msgstr "Odtod so igralci na dude, ki pogosto nosijo krilo."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:19
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:10
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:6
-msgid " Italy"
-msgstr " Italija"
+msgid "Italy"
+msgstr "Italija"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:20
 msgid ""
-" Italy is famous for its Opera. Opera is a musical theater where actors tell "
+"Italy is famous for its Opera. Opera is a musical theater where actors tell "
 "a story by acting and singing. Opera singers, both male and female, learn "
 "special techniques to sing operas."
 msgstr ""
-" Italija slovi po svoji operi. Opera je oblika glasbenega gledališča, kjer "
+"Italija slovi po svoji operi. Opera je oblika glasbenega gledališča, kjer "
 "igralci z igranjem in petjem podajajo dramsko zgodbo. Operni pevci, moški in "
 "ženske, se morajo naučiti posebnih pevskih tehnik."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:21
-msgid " This country is known for its opera music."
-msgstr " Ta država slovi po svoji operni glasbi."
+msgid "This country is known for its opera music."
+msgstr "Ta država slovi po svoji operni glasbi."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:22
-msgid " European Classical Music"
-msgstr " Evropska klasična glasba"
+msgid "European Classical Music"
+msgstr "Evropska klasična glasba"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:23
 msgid ""
-" Europe is the home of classical music. Famous composers like Bach, "
+"Europe is the home of classical music. Famous composers like Bach, "
 "Beethoven, and Mozart forever changed music history."
 msgstr ""
-" Evropa je dom klasične glasbe. Znani skladatelji kot so Bach, Beethoven in "
-"Mozart so za vedno spremenili  zgodovino glasbe."
+"Evropa je dom klasične glasbe. Znani skladatelji kot so Bach, Beethoven in "
+"Mozart so za vedno spremenili zgodovino glasbe."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:24
-msgid " Bach, Beethoven, and Mozart composed music in this location."
-msgstr " Bach, Beethoven in Mozart so skladali tukaj."
+msgid "Bach, Beethoven, and Mozart composed music in this location."
+msgstr "Bach, Beethoven in Mozart so skladali tukaj."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:25
+#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:10
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:5
-msgid " Mexico"
-msgstr " Mehika"
+msgid "Mexico"
+msgstr "Mehika"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:26
 msgid ""
-" Mariachi is a famous type of Mexican music. It features guitars, trumpets, "
+"Mariachi is a famous type of Mexican music. It features guitars, trumpets, "
 "and violins. These bands play for many occasions, including weddings and "
 "parties."
 msgstr ""
-" Mariachi je znana vrsta Mehiške glasbe. Pri tej se uporabljajo kitare, "
+"Mariachi je znana vrsta Mehiške glasbe. Pri tej se uporabljajo kitare, "
 "trobente in violine. Te glasbene skupine pogosto igrajo na različnih "
 "dogodkih, vključno s porokami in zabavami."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:27
 msgid ""
-" At parties, people often dance to the Mariachi music. A Famous dance is:"
-msgstr " Na zabavah ljudje pogosto plešejo na glasbo mariachi. Znan ples je:"
+"At parties, people often dance to the Mariachi music. A Famous dance is:"
+msgstr "Na zabavah ljudje pogosto plešejo na glasbo mariachi. Znan ples je:"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:28
-msgid " Where is Mariachi music from?"
-msgstr " Odkod prihaja glasba mariachi?"
+msgid "Where is Mariachi music from?"
+msgstr "Odkod prihaja glasba mariachi?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:29
-msgid " United State of America"
+msgid "United State of America"
 msgstr "Združene države Amerike"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:30
 msgid ""
-" USA also has a wide variety of musical genres, but perhaps it is most "
-"famous for rock n' roll music. This music features vocalists, guitars, and "
-"drums."
+"USA also has a wide variety of musical genres, but perhaps it is most famous "
+"for rock n' roll music. This music features vocalists, guitars, and drums."
 msgstr ""
-" Tudi Združene države Amerike so izvor široke palete glasbenih zvrsti, "
-"vendar je najbrž najbolj znana po glasbi rokenrol. Ta glasba vključuje "
-"pevce, kitare in bobne."
+"Tudi Združene države Amerike so izvor široke palete glasbenih zvrsti, vendar "
+"je najbrž najbolj znana po glasbi rokenrol. Ta glasba vključuje pevce, "
+"kitare in bobne."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:31
-msgid " The 'king' of rock n' roll is"
-msgstr " Kralj rokenrola je"
+msgid "The 'king' of rock n' roll is"
+msgstr "Kralj rokenrola je"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:32
 msgid ""
-" The 'king' of rock n' roll, Elvis Presley, made his music famous in this "
+"The 'king' of rock n' roll, Elvis Presley, made his music famous in this "
 "country."
 msgstr ""
-" Kralj rokenrola Elvis Presley se je proslavil s svojo glasbo povsod po ZDA "
+"Kralj rokenrola Elvis Presley se je proslavil s svojo glasbo povsod po ZDA "
 "in Evropi."
 
 #: ../src/fifteen-activity/fifteen.xml.in.h:1
@@ -3742,7 +3741,7 @@ msgid ""
 "License"
 msgstr "Ta program je izdan s Splošnim javnim dovoljenjem GNU."
 
-#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:460
+#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:487
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:358
 #: ../src/gcompris/images_selector.c:313
 msgid "OK"
@@ -3915,6 +3914,7 @@ msgid "Georgian"
 msgstr "gruzijski"
 
 #: ../src/gcompris/config.c:81
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:10
 msgid "German"
 msgstr "nemški"
 
@@ -3923,234 +3923,244 @@ msgid "Greek"
 msgstr "grški"
 
 #: ../src/gcompris/config.c:83
+#, fuzzy
+msgid "Scottish Gaelic"
+msgstr "galščina, škotska"
+
+#: ../src/gcompris/config.c:84
 msgid "Gujarati"
 msgstr "gudžaratski"
 
-#: ../src/gcompris/config.c:84
+#: ../src/gcompris/config.c:85
 msgid "Hebrew"
 msgstr "hebrejski"
 
-#: ../src/gcompris/config.c:85
+#: ../src/gcompris/config.c:86
 msgid "Hindi"
 msgstr "hindujski"
 
-#: ../src/gcompris/config.c:86
+#: ../src/gcompris/config.c:87
 msgid "Hungarian"
 msgstr "madžarski"
 
-#: ../src/gcompris/config.c:87
+#: ../src/gcompris/config.c:88
 msgid "Indonesian"
 msgstr "indonezijski"
 
-#: ../src/gcompris/config.c:88
+#: ../src/gcompris/config.c:89
 msgid "Irish (Gaelic)"
 msgstr "Irski (Galski)"
 
-#: ../src/gcompris/config.c:89
+#: ../src/gcompris/config.c:90
 msgid "Italian"
 msgstr "italijanski"
 
-#: ../src/gcompris/config.c:90
+#: ../src/gcompris/config.c:91
 msgid "Japanese"
 msgstr "japonski"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:92
 msgid "Kinyarwanda"
 msgstr "kinjarvandlski"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:93
 msgid "Korean"
 msgstr "korejski"
 
-#: ../src/gcompris/config.c:93
+#: ../src/gcompris/config.c:94
 msgid "Latvian"
 msgstr "latvijski"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:95
 msgid "Lithuanian"
 msgstr "litvanski"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:96
 msgid "Macedonian"
 msgstr "makedonski"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:97
 msgid "Malay"
 msgstr "malajski"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:98
 msgid "Malayalam"
 msgstr "malajalščina"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:99
 msgid "Marathi"
 msgstr "maratski"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:100
 msgid "Montenegrin"
 msgstr "črnogorski"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:101
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:37
 msgid "Nepal"
 msgstr "nepalski"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:102
 msgid "Norwegian Bokmal"
 msgstr "norveški"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:103
 msgid "Norwegian Nynorsk"
 msgstr "novonorveški"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:104
 msgid "Occitan (languedocien)"
 msgstr "okcitanski"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:105
 msgid "Persian"
 msgstr "perzijski"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:106
 msgid "Polish"
 msgstr "poljski"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:107
 msgid "Portuguese (Brazil)"
 msgstr "brazilsko portugalski"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:108
 msgid "Portuguese"
 msgstr "portugalski"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:109
 msgid "Punjabi"
 msgstr "pandžabski"
 
-#: ../src/gcompris/config.c:109
+#: ../src/gcompris/config.c:110
 msgid "Romanian"
 msgstr "romunski"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:111
 msgid "Russian"
 msgstr "ruski"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:112
 msgid "Serbian (Latin)"
 msgstr "srbski (latinica)"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:113
 msgid "Serbian"
 msgstr "srbski (cirilica)"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:114
 msgid "Slovak"
 msgstr "slovaški"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:115
 msgid "Slovenian"
 msgstr "slovenski"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:116
 msgid "Somali"
 msgstr "somalski"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:117
 msgid "Spanish"
 msgstr "španski"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:118
 msgid "Swedish"
 msgstr "švedski"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:119
 msgid "Tamil"
 msgstr "tamilski"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:120
 msgid "Thai"
 msgstr "tajski"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:121
 msgid "Turkish (Azerbaijan)"
 msgstr "azerbajdžanski"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:122
 msgid "Turkish"
 msgstr "turški"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:123
 msgid "Ukrainian"
 msgstr "ukrajinski"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:124
 msgid "Urdu"
 msgstr "urdujski"
 
-#: ../src/gcompris/config.c:124
+#: ../src/gcompris/config.c:125
 msgid "Vietnamese"
 msgstr "vietnamski"
 
-#: ../src/gcompris/config.c:125
+#: ../src/gcompris/config.c:126
 msgid "Walloon"
 msgstr "valonski"
 
-#: ../src/gcompris/config.c:126
+#: ../src/gcompris/config.c:127
 msgid "Zulu"
 msgstr "zulujščina"
 
-#: ../src/gcompris/config.c:131
+#: ../src/gcompris/config.c:132
 msgid "Timer: No time limit"
 msgstr "Časomer: brez omejitev"
 
-#: ../src/gcompris/config.c:132
+#: ../src/gcompris/config.c:133
 msgid "Timer: Slow timer"
 msgstr "Časomer: počasi"
 
-#: ../src/gcompris/config.c:133
+#: ../src/gcompris/config.c:134
 msgid "Timer: Normal timer"
 msgstr "Časomer: običajna hitrost"
 
-#: ../src/gcompris/config.c:134
+#: ../src/gcompris/config.c:135
 msgid "Timer: Fast timer"
 msgstr "Časomer: hitro"
 
-#: ../src/gcompris/config.c:138
+#: ../src/gcompris/config.c:139
 msgid "Use Gcompris administration module to filter boards"
 msgstr "Za filtriranje dejavnosti uporabite skrbniški modul programa Gcompris."
 
-#: ../src/gcompris/config.c:192
+#: ../src/gcompris/config.c:193
 msgid "GCompris Configuration"
 msgstr "GCompris nastavitve"
 
-#: ../src/gcompris/config.c:275
+#: ../src/gcompris/config.c:276
 msgid "Fullscreen"
 msgstr "Celozaslonski način"
 
-#: ../src/gcompris/config.c:300
+#: ../src/gcompris/config.c:301
+#, fuzzy
+msgid "Remember level for default user"
+msgstr "Privzeto sodelovalno ime"
+
+#: ../src/gcompris/config.c:327
 msgid "Music"
 msgstr "Glasba"
 
-#: ../src/gcompris/config.c:325
+#: ../src/gcompris/config.c:352
 msgid "Effect"
 msgstr "Učinki"
 
-#: ../src/gcompris/config.c:349 ../src/gcompris/sugar_gc.c:93
+#: ../src/gcompris/config.c:376 ../src/gcompris/sugar_gc.c:93
 msgid "Zoom"
 msgstr "Približanje"
 
-#: ../src/gcompris/config.c:386
+#: ../src/gcompris/config.c:413
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Ni mogoče odpreti mape preoblek: %s"
 
-#: ../src/gcompris/config.c:417 ../src/gcompris/config.c:877
-#: ../src/gcompris/config.c:891
+#: ../src/gcompris/config.c:444 ../src/gcompris/config.c:912
+#: ../src/gcompris/config.c:926
 #, c-format
 msgid "Skin : %s"
 msgstr "Preobleka : %s"
 
-#: ../src/gcompris/config.c:419
+#: ../src/gcompris/config.c:446
 msgid "SKINS NOT FOUND"
 msgstr "PREOBLEKE NI MOGOČE NAJTI"
 
@@ -4182,43 +4192,39 @@ msgstr ""
 "Končajte program in poročajte\n"
 "napako avtorjem."
 
-#: ../src/gcompris/gcompris.c:154
+#: ../src/gcompris/gcompris.c:155
 msgid "run GCompris in fullscreen mode."
 msgstr "Zagon GCompris v celozaslonskem načinu."
 
-#: ../src/gcompris/gcompris.c:157
+#: ../src/gcompris/gcompris.c:158
 msgid "run GCompris in window mode."
 msgstr "Zagon GCompris v okenskem načinu."
 
-#: ../src/gcompris/gcompris.c:160
+#: ../src/gcompris/gcompris.c:161
 msgid "run GCompris with sound enabled."
 msgstr "Zagon GCompris z omogočenim zvokom."
 
-#: ../src/gcompris/gcompris.c:163
+#: ../src/gcompris/gcompris.c:164
 msgid "run GCompris without sound."
 msgstr "Zagon Gcompris brez zvoka."
 
-#: ../src/gcompris/gcompris.c:166
+#: ../src/gcompris/gcompris.c:167
 msgid "run GCompris with the default system cursor."
 msgstr "zaženi GCompris s privzeto sistemsko kazalko."
 
-#: ../src/gcompris/gcompris.c:169
+#: ../src/gcompris/gcompris.c:170
 msgid "run GCompris without cursor (touch screen mode)."
 msgstr "zaženi GCompris brez kazalke (način zaslona na dotik)."
 
-#: ../src/gcompris/gcompris.c:172
+#: ../src/gcompris/gcompris.c:173
 msgid "display only activities with this difficulty level."
 msgstr "Pokaži le dejavnosti te težavnostne ravni."
 
-#: ../src/gcompris/gcompris.c:175
-msgid "display debug informations on the console."
-msgstr "Prikaži podrobnosti razhroščevanja na konzoli."
+#: ../src/gcompris/gcompris.c:176
+msgid "Return to last passed level even when no user is selected"
+msgstr ""
 
-#: ../src/gcompris/gcompris.c:178
-msgid "Print the version of "
-msgstr "Natisni različico "
-
-#: ../src/gcompris/gcompris.c:181
+#: ../src/gcompris/gcompris.c:179
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
@@ -4229,37 +4235,37 @@ msgstr ""
 "delavnosti v mapi branje, -l /strategy/connect4 le dejavnost 4 v vrsto). "
 "Uporabi '-l list' za seznam vseh dostopnih dejavnosti in njihovih opisov."
 
-#: ../src/gcompris/gcompris.c:186
+#: ../src/gcompris/gcompris.c:184
 msgid "GCompris will find the data dir in this directory"
 msgstr "Program GCompris bo v tej mapi našel mapo podatkov"
 
-#: ../src/gcompris/gcompris.c:189
+#: ../src/gcompris/gcompris.c:187
 msgid "GCompris will find the skins in this directory"
 msgstr "Program GCompris bo v tej mapi našel preobleke"
 
-#: ../src/gcompris/gcompris.c:192
+#: ../src/gcompris/gcompris.c:190
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "Program GCompris bo v tej mapi našel vstavke dejavnosti"
 
-#: ../src/gcompris/gcompris.c:195
+#: ../src/gcompris/gcompris.c:193
 msgid "GCompris will find the Python activity in this directory"
 msgstr "Program GCompris bo iskal dejavnosti Python v tej mapi"
 
-#: ../src/gcompris/gcompris.c:198
+#: ../src/gcompris/gcompris.c:196
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr ""
 "Program GCompris bo v tej mapi našel datoteko jezikovne datoteke (prevodi ."
 "mo)"
 
-#: ../src/gcompris/gcompris.c:201
+#: ../src/gcompris/gcompris.c:199
 msgid "GCompris will find the activities menu in this directory"
 msgstr "Program GCompris bo v tej mapi našel meni dejavnosti"
 
-#: ../src/gcompris/gcompris.c:204
+#: ../src/gcompris/gcompris.c:202
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Zaženi GCompris v skrbniškem načinu"
 
-#: ../src/gcompris/gcompris.c:207
+#: ../src/gcompris/gcompris.c:205
 msgid ""
 "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
@@ -4267,26 +4273,26 @@ msgstr ""
 "Uporabi dodatno podatkovno zbirko za profile [$HOME/.config/gcompris/"
 "gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:210
+#: ../src/gcompris/gcompris.c:208
 msgid "Create the alternate database for profiles"
 msgstr "Ustvari dodatno podatkovno zbirko za profile"
 
-#: ../src/gcompris/gcompris.c:213
+#: ../src/gcompris/gcompris.c:211
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Ponovno preberi menije XML in jih shrani v podatkovni zbirki"
 
-#: ../src/gcompris/gcompris.c:216
+#: ../src/gcompris/gcompris.c:214
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Nastavi profil za uporabo. Uporabi 'gcompris -a' za ustvarjanje profilov"
 
-#: ../src/gcompris/gcompris.c:219
+#: ../src/gcompris/gcompris.c:217
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Naštej vse razpoložljive profile. Za ustvarjanje profilov uporabi 'gcompris -"
 "a'"
 
-#: ../src/gcompris/gcompris.c:222
+#: ../src/gcompris/gcompris.c:220
 msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
@@ -4294,46 +4300,46 @@ msgstr ""
 "Mesto nastavitvene mape: [$HOME/.config/gcompris] Dodatna možnost je "
 "nastviti $XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:225
+#: ../src/gcompris/gcompris.c:223
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "Mesto uporabniških map: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:228
+#: ../src/gcompris/gcompris.c:226
 msgid "Run the experimental activities"
 msgstr "Zagon preizkusnih dejavnosti"
 
-#: ../src/gcompris/gcompris.c:231
+#: ../src/gcompris/gcompris.c:229
 msgid "Disable the quit button"
 msgstr "Onemogoči gumb končaj"
 
-#: ../src/gcompris/gcompris.c:234
+#: ../src/gcompris/gcompris.c:232
 msgid "Disable the config button"
 msgstr "Onemogoči gumb nastavitve"
 
-#: ../src/gcompris/gcompris.c:237
+#: ../src/gcompris/gcompris.c:235
 msgid "Disable the level button"
 msgstr "Onemogoči gumb ravni"
 
-#: ../src/gcompris/gcompris.c:240
+#: ../src/gcompris/gcompris.c:238
 msgid "Disable the database (slower start and no user log)"
 msgstr "Onemogoči zbirko podatkov (počasneje in brez uporabniškega dnevnika)"
 
-#: ../src/gcompris/gcompris.c:243
+#: ../src/gcompris/gcompris.c:241
 msgid ""
 "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr ""
 "Splošni način povleci in spusti: običajen, 2klika, oboje. Privzeti način je "
 "običajen."
 
-#: ../src/gcompris/gcompris.c:246
+#: ../src/gcompris/gcompris.c:244
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Ne izogni se izvajanju več primerkov GCompris."
 
-#: ../src/gcompris/gcompris.c:249
+#: ../src/gcompris/gcompris.c:247
 msgid "Disable maximization zoom"
 msgstr "Onemogoči približanje razpetja"
 
-#: ../src/gcompris/gcompris.c:252
+#: ../src/gcompris/gcompris.c:250
 msgid ""
 "Increase activities' timeout delays; useful values > 1.0; 1.0 to not change "
 "hardcoded value"
@@ -4341,7 +4347,7 @@ msgstr ""
 "Poveča zakasnitve dejavnosti, uporabne vrednosti > 1,0. 1,0 ne spremeni "
 "trenutne vrednosti"
 
-#: ../src/gcompris/gcompris.c:255
+#: ../src/gcompris/gcompris.c:253
 msgid ""
 "How activities' timeout delays are growing for several actors; useful values "
 "< 1.0; 1.0 to not change hardcoded value"
@@ -4349,11 +4355,19 @@ msgstr ""
 "Kako čas zakasnitve dejavnosti rastejo za več igralcev. Uporabne vrednosti "
 "<1,0. 1,0 ne spremeni trdno vnesene vrednosti."
 
-#: ../src/gcompris/gcompris.c:258
+#: ../src/gcompris/gcompris.c:256
 msgid "For test purpose, run in a loop all the activities"
 msgstr "Za preizkusne namene. Zažene vse dejavnosti v zanki"
 
-#: ../src/gcompris/gcompris.c:943
+#: ../src/gcompris/gcompris.c:259
+msgid "display debug informations on the console."
+msgstr "Prikaži podrobnosti razhroščevanja na konzoli."
+
+#: ../src/gcompris/gcompris.c:262
+msgid "Print the version of "
+msgstr "Natisni različico "
+
+#: ../src/gcompris/gcompris.c:947
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -4374,18 +4388,18 @@ msgstr ""
 "FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1236
+#: ../src/gcompris/gcompris.c:1240
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
 msgstr ""
 "Nalaganje preobleke '%s' je spodletelo (preverite, ali datoteka obstaja in "
 "je berljiva)"
 
-#: ../src/gcompris/gcompris.c:1252
+#: ../src/gcompris/gcompris.c:1256
 msgid "Retrieving remote data..."
 msgstr "Pridobivanje oddaljenih podatkov ..."
 
-#: ../src/gcompris/gcompris.c:1513
+#: ../src/gcompris/gcompris.c:1517
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d second old.\n"
@@ -4404,12 +4418,12 @@ msgstr[3] ""
 "Program GCompris se ne zažene, ker je datoteka zaklepa stara manj kot %d "
 "sekunde.\n"
 
-#: ../src/gcompris/gcompris.c:1517
+#: ../src/gcompris/gcompris.c:1521
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Datoteka ključa je: %s\n"
 
-#: ../src/gcompris/gcompris.c:1638
+#: ../src/gcompris/gcompris.c:1642
 #, c-format
 msgid ""
 "GCompris\n"
@@ -4423,27 +4437,27 @@ msgstr ""
 "Več podrobnosti je mogoče najti na http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1818
+#: ../src/gcompris/gcompris.c:1827
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Uporabi -l za neposreden dostop do dejavnosti.\n"
 
-#: ../src/gcompris/gcompris.c:1819
+#: ../src/gcompris/gcompris.c:1828
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Seznam dostopnih dejavnosti je:\n"
 
-#: ../src/gcompris/gcompris.c:1850
+#: ../src/gcompris/gcompris.c:1859
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Število dejavnosti: %d\n"
 
-#: ../src/gcompris/gcompris.c:1886
+#: ../src/gcompris/gcompris.c:1895
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s obstaja toda ni berljiv ali zapisljiv"
 
-#: ../src/gcompris/gcompris.c:1981
+#: ../src/gcompris/gcompris.c:1990
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -4452,7 +4466,7 @@ msgstr ""
 "NAPAKA: Profila '%s' ni mogoče najti. Z ukazom 'gcompris --profile-list' se "
 "izpiše seznam razpoložljivih profilov.\n"
 
-#: ../src/gcompris/gcompris.c:1995
+#: ../src/gcompris/gcompris.c:2004
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Seznam dostopnih profilov je:\n"
@@ -4507,13 +4521,13 @@ msgstr ""
 "Vse dejavnosti so v tem profilu onemogočene. Odprite skrbniški modul "
 "GCompris in omogočite vsaj eno dejavnost."
 
-#: ../src/gcompris/properties.c:505
+#: ../src/gcompris/properties.c:512
 msgid ""
 "This directory contains the files you create with the GCompris educational "
 "suite\n"
 msgstr "V tej mapi so datoteke, ki so bile ustvarjene s programom GCompris.\n"
 
-#: ../src/gcompris/properties.c:512
+#: ../src/gcompris/properties.c:519
 msgid ""
 "Put any number of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
@@ -4601,9 +4615,15 @@ msgstr "Francoske regije"
 msgid "India"
 msgstr "Indija"
 
-#: ../src/geo_country-activity/resources/geo_country/board13_0.xml.in.h:1
-msgid "Australia"
-msgstr "Avstralija"
+#: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:1
+#: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:1
+msgid "Northern Scotland"
+msgstr "Severna Škotska"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:1
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:1
+msgid "Southern Scotland"
+msgstr "Južna Škotska"
 
 #: ../src/geo_country-activity/resources/geo_country/board2_0.xml.in.h:1
 msgid "Deutschland Bundesländer"
@@ -4645,12 +4665,6 @@ msgstr "Povleci in spusti predmete in izriši zemljevid."
 #: ../src/geography-activity/resources/geography/board1_0.xml.in.h:1
 msgid "Continents"
 msgstr "Celine"
-
-#: ../src/geography-activity/resources/geography/board1_0.xml.in.h:2
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:1
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:6
-msgid "Africa"
-msgstr "Afrika"
 
 #: ../src/geography-activity/resources/geography/board1_0.xml.in.h:3
 msgid "America"
@@ -4710,10 +4724,6 @@ msgstr "Islandija"
 msgid "Jamaica"
 msgstr "Jamajka"
 
-#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:10
-msgid "Mexico"
-msgstr "Mehika"
-
 #: ../src/geography-activity/resources/geography/board2_0.xml.in.h:11
 msgid "United States of America"
 msgstr "Združene države Amerike"
@@ -4735,6 +4745,7 @@ msgid "Bolivia"
 msgstr "Bolivija"
 
 #: ../src/geography-activity/resources/geography/board3_0.xml.in.h:4
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:13
 msgid "Brazil"
 msgstr "Brazilija"
 
@@ -4799,24 +4810,23 @@ msgid "Denmark"
 msgstr "Danska"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:5
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:22
 msgid "Finland"
 msgstr "Finska"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:6
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:11
 msgid "France"
 msgstr "Francija"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:7
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:12
 msgid "Germany"
 msgstr "Nemčija"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:9
 msgid "Ireland"
 msgstr "Irska"
-
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:10
-msgid "Italy"
-msgstr "Italija"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:11
 msgid "Luxembourg"
@@ -4835,6 +4845,7 @@ msgid "Portugal"
 msgstr "Portugalska"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:15
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:7
 msgid "Spain"
 msgstr "Španija"
 
@@ -4899,6 +4910,7 @@ msgid "Moldova"
 msgstr "Moldavija"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:14
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:18
 msgid "Poland"
 msgstr "Poljska"
 
@@ -4912,6 +4924,7 @@ msgid "Russia"
 msgstr "Rusija"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:17
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:16
 msgid "Serbia"
 msgstr "Srbija"
 
@@ -4933,10 +4946,12 @@ msgid "Turkey"
 msgstr "Turčija"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:22
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:20
 msgid "Ukraine"
 msgstr "Ukrajina"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:23
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:19
 msgid "Greece"
 msgstr "Grčija"
 
@@ -5370,10 +5385,6 @@ msgstr "Južna Koreja"
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:51
 msgid "North Korea"
 msgstr "Severna Koreja"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:52
-msgid "Japan"
-msgstr "Japonska"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:53
 msgid "Mongolia"
@@ -8144,9 +8155,10 @@ msgid "Edgar Degas, The Dancing Class - 1873-75"
 msgstr "Edgar Degas, Plešoči razred - 1873-75"
 
 #: ../src/paintings-activity/resources/paintings/board1_10.xml.in.h:1
+#, fuzzy
 msgid ""
-"Katsushika Hokusai,\\nViewing Sunset over the Ryogoku Bridge from the Ommaya "
-"Embankment - 1830"
+"Katsushika Hokusai,\n"
+"Viewing Sunset over the Ryogoku Bridge from the Ommaya Embankment - 1830"
 msgstr ""
 "Katsushika Hokusai,\\nSončni zahod nad mostom Ryogoku iz nabrežja reke "
 "Sumida v Onmayagashi - 1830Gledanje sončnega zahoda čez most Ryogoku iz "
@@ -8189,8 +8201,10 @@ msgid "Katsushika Hokusai, The Great Wave off Kanagawa - 1823-1829"
 msgstr "Katsushika Hokusai, Veliki val Kanagawe - 1823-1829"
 
 #: ../src/paintings-activity/resources/paintings/board1_8.xml.in.h:1
+#, fuzzy
 msgid ""
-"Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
+"Utagawa Hiroshige,\n"
+"The Benzaiten Shrine at Inokashira in Snow - 1760-70"
 msgstr ""
 "Utagawa Hiroshige,\\nTempelj Benten pri ribniku Inokashira v snegu - 1760-70"
 
@@ -8508,6 +8522,12 @@ msgstr "Izbor naključnega sloga:"
 msgid "Select A Melody to Load"
 msgstr "Izberite glasbeno datoteko za nalaganje"
 
+#. FIXME Should remove the space in the data file instead
+#: ../src/piano_composition-activity/piano_composition.py:449
+#: ../src/piano_composition-activity/piano_composition.py:578
+msgid " "
+msgstr " "
+
 #: ../src/piano_composition-activity/piano_composition.xml.in.h:1
 msgid "Piano Composition"
 msgstr "Klavirska skladba"
@@ -8615,84 +8635,44 @@ msgstr ""
 "  F5: A# / Hb\n"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:1
-msgid " America: English Lullaby"
-msgstr " Amerika, angleška uspavanka"
+msgid "America: English Lullaby"
+msgstr "Amerika, angleška uspavanka"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:2
-msgid " America: Patriotic"
-msgstr " Amerika, domoljubna pesem"
+msgid "America: Patriotic"
+msgstr "Amerika, domoljubna pesem"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:3
-msgid " America: Shaker Tune"
-msgstr " Amerika: verski napev"
+msgid "America: Shaker Tune"
+msgstr "Amerika, verski napev"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:4
-msgid " America: Nursery Rhyme"
-msgstr " Amerika, uspavanka"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:7
-msgid " Spain"
-msgstr " Španija"
+msgid "America: Nursery Rhyme"
+msgstr "Amerika, uspavanka"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:8
-msgid " German Kid's Song"
-msgstr " Nemška fantovska pesem"
+msgid "German Kid's Song"
+msgstr "Nemška fantovska pesem"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:9
-msgid " Children's Song from Brazil"
-msgstr " Otroška pesmica iz Brazilije"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:10
-msgid " German"
-msgstr " Nemščina"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:11
-msgid " France"
-msgstr " Francija"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:12
-msgid " Germany"
-msgstr " Nemčija"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:13
-msgid " Brazil"
-msgstr " Brazilija"
+msgid "Children's Song from Brazil"
+msgstr "Otroška pesmica iz Brazilije"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:14
-msgid " Hungary, Nursery Rhyme"
-msgstr " Madžarska, uspavanka"
+msgid "Hungary, Nursery Rhyme"
+msgstr "Madžarska, uspavanka"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:15
-msgid " Hungary, Children's Song"
-msgstr " Madžarska, otroška pesem"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:16
-msgid " Serbia"
-msgstr " Srbija"
+msgid "Hungary, Children's Song"
+msgstr "Madžarska, otroška pesem"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:17
-msgid " Britain"
-msgstr " Britanija"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:18
-msgid " Poland"
-msgstr " Poljska"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:19
-msgid " Greece"
-msgstr " Grčija"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:20
-msgid " Ukraine"
-msgstr " Ukrajina"
+msgid "Britain"
+msgstr "Britanija"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:21
-msgid " Mexican song to break a piñata"
-msgstr " Mehiška pesem, ki se igra med razbijanjem pinjate"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:22
-msgid " Finland"
-msgstr " Finska"
+msgid "Mexican song to break a piñata"
+msgstr "Mehiška pesem, ki se igra med razbijanjem pinjate"
 
 #: ../src/place_your_satellite-activity/place_your_satellite.py:68
 msgid ""
