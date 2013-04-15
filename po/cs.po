@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-03-24 21:25+0000\n"
-"PO-Revision-Date: 2013-03-26 22:19+0100\n"
+"POT-Creation-Date: 2013-04-01 17:20+0000\n"
+"PO-Revision-Date: 2013-04-14 22:35+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -376,11 +376,11 @@ msgstr "Zrušit výběr"
 
 #: ../src/administration-activity/admin/board_list.py:162
 msgid "Locales"
-msgstr "Nastavení jazyka"
+msgstr "Národní prostředí"
 
 #: ../src/administration-activity/admin/board_list.py:167
 msgid "Locales sound"
-msgstr "Nastavení jazyka -- zvuky"
+msgstr "Národní ozvučení"
 
 #: ../src/administration-activity/admin/board_list.py:172
 #: ../src/administration-activity/admin/group_user_list.py:140
@@ -420,13 +420,19 @@ msgstr ""
 "pro profil <b>%s</b></span>"
 
 #: ../src/administration-activity/admin/board_list.py:645
-#: ../src/administration-activity/admin/board_list.py:657
-#: ../src/administration-activity/admin/wordlist.py:45
 msgid ""
-"<b>{config}</b> configuration\n"
+"<b>Locale</b> configuration\n"
 " for profile <b>{profile}</b>"
 msgstr ""
-"Nastavení <b>{config}</b>\n"
+"Nastavení <b>národního prostředí</b>\n"
+" pro profil <b>{profile}</b>"
+
+#: ../src/administration-activity/admin/board_list.py:657
+msgid ""
+"<b>Locale sound</b> configuration\n"
+" for profile <b>{profile}</b>"
+msgstr ""
+"Nastavení <b>národního ozvučení</b>\n"
 " pro profil <b>{profile}</b>"
 
 #: ../src/administration-activity/admin/board_list.py:663
@@ -498,12 +504,8 @@ msgid "Editing a Group"
 msgstr "Úprava skupiny"
 
 #: ../src/administration-activity/admin/group_edit.py:62
-msgid "Editing group: "
-msgstr "Úprava skupiny: "
-
-#: ../src/administration-activity/admin/group_edit.py:63
-msgid " for class: "
-msgstr " pro třídu: "
+msgid "Editing group '{group}' for class '{aclass}'"
+msgstr "Úprava skupiny „{group}“ pro třídu „{aclass}“"
 
 #: ../src/administration-activity/admin/group_edit.py:66
 msgid "Editing a new group"
@@ -810,6 +812,14 @@ msgid ""
 msgstr ""
 "Jedno nebo více přihlašovacích jmen nejsou jedinečné !\n"
 "Je potřeba změnit následující: %s !"
+
+#: ../src/administration-activity/admin/wordlist.py:45
+msgid ""
+"<b>{config}</b> configuration\n"
+" for profile <b>{profile}</b>"
+msgstr ""
+"Nastavení <b>{config}</b>\n"
+" pro profil <b>{profile}</b>"
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:1
 msgid "Advanced colors"
@@ -2882,7 +2892,7 @@ msgstr ""
 "prostřední tlačítko myši – odstraní objekt."
 
 #: ../src/drawnumber-activity/drawnumber.py:238
-#: ../src/explore-activity/explore.py:412 ../src/findit-activity/findit.py:336
+#: ../src/explore-activity/explore.py:410 ../src/findit-activity/findit.py:336
 #: ../src/louis_braille-activity/louis_braille.py:84
 #: ../src/piano_composition-activity/piano_composition.py:504
 msgid "Cannot find the file '{filename}'"
@@ -3016,8 +3026,8 @@ msgstr "Hýbáním myší vymažeš oblast a objeví se pozadí"
 msgid "Error: No images found\n"
 msgstr "Chyba: nenalezen žádný obrázek\n"
 
-#: ../src/erase-activity/erase.c:582 ../src/gcompris/properties.c:503
-#: ../src/gcompris/properties.c:510
+#: ../src/erase-activity/erase.c:582 ../src/gcompris/properties.c:510
+#: ../src/gcompris/properties.c:517
 msgid "readme"
 msgstr "čtěte"
 
@@ -3089,22 +3099,7 @@ msgstr "Kliknutím přehraješ zvuk"
 msgid "Back to Homepage"
 msgstr "Zpět na hlavní stránku"
 
-#. ---------------------------------------------------------------------
-#. WRITE LOCATION-SPECIFIC CONTENT TO PAGE
-#. ---------------------------------------------------------------------
-#. FIXME Should remove the space in the data file instead
-#: ../src/explore-activity/explore.py:295
-#: ../src/explore-activity/explore.py:308
-#: ../src/explore-activity/explore.py:443
-#: ../src/explore-activity/explore.py:446
-#: ../src/explore-activity/explore.py:449
-#: ../src/explore-activity/explore.py:461
-#: ../src/piano_composition-activity/piano_composition.py:449
-#: ../src/piano_composition-activity/piano_composition.py:578
-msgid " "
-msgstr " "
-
-#: ../src/explore-activity/explore.py:417 ../src/findit-activity/findit.py:341
+#: ../src/explore-activity/explore.py:415 ../src/findit-activity/findit.py:341
 #: ../src/louis_braille-activity/louis_braille.py:88
 #: ../src/piano_composition-activity/piano_composition.py:509
 msgid ""
@@ -3114,7 +3109,7 @@ msgstr ""
 "Selhalo zpracování dat „{filename}“ s chybou:\n"
 "{error}"
 
-#: ../src/explore-activity/explore.py:511
+#: ../src/explore-activity/explore.py:505
 msgid "Explore Status:"
 msgstr "Stav objevování:"
 
@@ -3170,151 +3165,150 @@ msgstr ""
 "které popisu odpovídá. Když všechna zvířata přiřadíš správně, vyhrál jsi.\n"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:1
-msgid " Click on the questions to explore each farm animal."
-msgstr " Klikáním na otazníky objevuj jednotlivá zvířata na farmě."
+msgid "Click on the questions to explore each farm animal."
+msgstr "Klikáním na otazníky objevuj jednotlivá zvířata na farmě."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:2
-msgid " Click on the farm animal that makes the sound you hear."
-msgstr " Klikni na domácí zvíře, které vydává stejný zvuk, jako jsi slyšel."
+msgid "Click on the farm animal that makes the sound you hear."
+msgstr "Klikni na domácí zvíře, které vydává stejný zvuk, jako jsi slyšel."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:3
-msgid " Click the animal that matches the description."
-msgstr " Klikni na zvíře, které odpovídá popisu."
+msgid "Click the animal that matches the description."
+msgstr "Klikni na zvíře, které odpovídá popisu."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:4
-msgid " Horse"
+msgid "Horse"
 msgstr "Kůň"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:5
-msgid " The horse goes \"neigh! neigh!\". Horses usually sleep standing up."
-msgstr " Kůň dělá „ihaha“. Koně spí obvykle ve stoje."
+msgid "The horse goes \"neigh! neigh!\". Horses usually sleep standing up."
+msgstr "Kůň dělá „ihaha“. Koně spí obvykle ve stoje."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:6
-msgid " You can ride on the back of this animal!"
-msgstr " Na zádech tohoto zvířete se můžeš povozit!"
+msgid "You can ride on the back of this animal!"
+msgstr "Na zádech tohoto zvířete se můžeš povozit!"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:7
-msgid " Chickens"
+msgid "Chickens"
 msgstr "Slepice"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:8
 msgid ""
-" The chicken goes \"cluck, cackle, cluck\". Chickens have over 200 different "
+"The chicken goes \"cluck, cackle, cluck\". Chickens have over 200 different "
 "noises they can use to communicate."
 msgstr ""
-" Slepice dělá „kokodák, kokodák“. Slepice umí přes 200 různých zvuků, které "
+"Slepice dělá „kokodák, kokodák“. Slepice umí přes 200 různých zvuků, které "
 "používají ke komunikaci."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:9
-msgid " This animal lays eggs."
-msgstr " Toto zvíře snáší vejce."
+msgid "This animal lays eggs."
+msgstr "Toto zvíře snáší vejce."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:10
-msgid " Cows"
+msgid "Cows"
 msgstr "Kráva"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:11
 msgid ""
-" The cow goes \"moo. moo.\". Cows are herbivorous mammals. They graze all "
-"day in the meadow."
+"The cow goes \"moo. moo.\". Cows are herbivorous mammals. They graze all day "
+"in the meadow."
 msgstr ""
-" Kráva dělá „Bůůů“. Krávy jsou býložraví savci. Celý den se pasou na louce."
+"Kráva dělá „Bůůů“. Krávy jsou býložraví savci. Celý den se pasou na louce."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:12
-msgid " You can drink the milk this animal produces."
-msgstr " Můžeš pít mléko, které toto zvíře dává."
+msgid "You can drink the milk this animal produces."
+msgstr "Můžeš pít mléko, které toto zvíře dává."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:13
-msgid " Cat"
+msgid "Cat"
 msgstr "Kočka"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:14
 msgid ""
-" The cat goes \"meow, meow\". Cats usually hate water because their fur "
+"The cat goes \"meow, meow\". Cats usually hate water because their fur "
 "doesn't stay warm when it is wet."
 msgstr ""
-" Kočka dělá „mňau, mňau“. Kočky obvykle nenávidí vodu, protože jejich srst "
+"Kočka dělá „mňau, mňau“. Kočky obvykle nenávidí vodu, protože jejich srst "
 "nedokáže uchovávat teplo, když je mokrá."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:15
-msgid " This pet likes chasing mice."
-msgstr " Toto zvíře rádo loví myši."
+msgid "This pet likes chasing mice."
+msgstr "Toto zvíře rádo loví myši."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:16
-msgid " Pigs"
+msgid "Pigs"
 msgstr "Prase"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:17
-msgid " The pig goes \"oink, oink\". Pigs are the 4th most intelligent animal."
+msgid "The pig goes \"oink, oink\". Pigs are the 4th most intelligent animal."
 msgstr ""
-" Prase dělá „chrocht, chrocht“. Prasata jsou čtvrtá nejinteligentnější "
+"Prase dělá „chrocht, chrocht“. Prasata jsou čtvrtá nejinteligentnější "
 "zvířata."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:18
-msgid " This animal likes to lay in the mud."
-msgstr " Toto zvíře se rádo válí v blátě."
+msgid "This animal likes to lay in the mud."
+msgstr "Toto zvíře se rádo válí v blátě."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:19
-msgid " White Duck"
+msgid "White Duck"
 msgstr "Kachna"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:20
 msgid ""
-" The duck goes \"quack, quack\". Ducks have special features like webbed "
-"feet and produce an oil to make their feathers \"waterproof\"."
+"The duck goes \"quack, quack\". Ducks have special features like webbed feet "
+"and produce an oil to make their feathers \"waterproof\"."
 msgstr ""
-" Kachna dělá „ga, ga, ga“. Kachny mají speciální výbavu, jako plovací blány "
-"a  mazové žlázy produkující tuk k ochraně pěří před vodou."
+"Kachna dělá „ga, ga, ga“. Kachny mají speciální výbavu, jako plovací blány a "
+"mazové žlázy produkující tuk k ochraně pěří před vodou."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:21
-msgid " This animal has webbed feet so it can swim in the water."
-msgstr " Toto zvíře má na nohou plovací blány, takže může plavat ve vodě."
+msgid "This animal has webbed feet so it can swim in the water."
+msgstr "Toto zvíře má na nohou plovací blány, takže může plavat ve vodě."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:22
-msgid " Owl"
+msgid "Owl"
 msgstr "Sova"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:23
 msgid ""
-" The owl goes \"hoo. hoo.\" The owl has excellent vision and hearing at "
-"night."
-msgstr " Sova dělá „hůůů, hůůů“. I po tmě dobře vidí a má výborný sluch."
+"The owl goes \"hoo. hoo.\" The owl has excellent vision and hearing at night."
+msgstr "Sova dělá „hůůů, hůůů“. I po tmě dobře vidí a má výborný sluch."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:24
-msgid " This animal likes to come out at night."
-msgstr " Toto zvíře je aktivní hlavně v noci."
+msgid "This animal likes to come out at night."
+msgstr "Toto zvíře je aktivní hlavně v noci."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:25
-msgid " Dogs"
+msgid "Dogs"
 msgstr "Pes"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:26
 msgid ""
-" The dog goes \"bark! bark!\". Dogs are great human companions and usually "
+"The dog goes \"bark! bark!\". Dogs are great human companions and usually "
 "enjoy love and attention."
 msgstr ""
-" Toto zvíře dělá „haf, haf“. Psi jsou skvělí společníci lidí a oplácejí "
+"Toto zvíře dělá „haf, haf“. Psi jsou skvělí společníci lidí a oplácejí "
 "láskou a pozorností."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:27
-msgid " This animal's ancestors were wolves."
-msgstr " Předky tohoto zvířete byli vlci."
+msgid "This animal's ancestors were wolves."
+msgstr "Předky tohoto zvířete byli vlci."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:28
-msgid " Rooster"
+msgid "Rooster"
 msgstr "Kohout"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:29
 msgid ""
-" The rooster goes \"coc-a-doodle-doo!\". Roosters have been on farms for "
+"The rooster goes \"coc-a-doodle-doo!\". Roosters have been on farms for "
 "about 5,000 years. Every morning it wakes the farm up with its noises."
 msgstr ""
-" Kohout dělá „kykyryký“. Kohouti se na farmách chovají již okolo 5 000 let. "
+"Kohout dělá „kykyryký“. Kohouti se na farmách chovají již okolo 5 000 let. "
 "Každé ráno svým kokrháním farmu probouzejí."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:30
-msgid " This animal wakes the farm up in the morning."
-msgstr " Toto zvíře ráno celou farmu budí."
+msgid "This animal wakes the farm up in the morning."
+msgstr "Toto zvíře ráno celou farmu budí."
 
 #: ../src/explore_world_animals-activity/explore_world_animals.xml.in.h:1
 msgid "Explore World Animals"
@@ -3350,94 +3344,95 @@ msgstr ""
 "textu vyhovuje. Když všechny texty přiřadíš správně, vyhráváš!\n"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:1
-msgid " Explore exotic animals from around the world."
+msgid "Explore exotic animals from around the world."
 msgstr "Poznávej exotická zvířata z celého světa."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:2
-msgid " Click on location where the given animal lives."
+msgid "Click on location where the given animal lives."
 msgstr "Klikni na místo, kde uvedené zvíře žije."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:3
-msgid " Jaguars in South America"
-msgstr " Jaguár v Jižní Americe"
+msgid "Jaguars in South America"
+msgstr "Jaguár v Jižní Americe"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:4
 msgid ""
-" Jaguars are named after the Native American word meaning 'he who kills with "
-"one leap'"
+"Jaguars are named after the Native American word meaning 'he who kills with "
+"one leap' because they like to climb trees to attack their prey."
 msgstr ""
 " Jaguár má název podle slova původních obyvatel Ameriky, které znamená „ten, "
-"jenž zabíjí jedním skokem“."
+"jenž zabíjí jedním skokem“, protože má v oblibě vyšplhat na strom a z něj na "
+"kořist zaůtočit."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:5
-msgid " Jaguar"
-msgstr "  Jaguár"
+msgid "Jaguar"
+msgstr "Jaguár"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:6
-msgid " Hedgehogs in Europe"
-msgstr " Ježek v Evropě"
+msgid "Hedgehogs in Europe"
+msgstr "Ježek v Evropě"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:7
 msgid ""
-" Hedgehogs eat small animals, like frogs and insects, so many people keep "
+"Hedgehogs eat small animals, like frogs and insects, so many people keep "
 "them as useful pets. When in danger, they will curl up into a ball and stick "
 "up their coat of sharp spines."
 msgstr ""
-" Ježek jí drobné živočichy, jako žáby a hmyz, proto jej lidé považují za "
+"Ježek jí drobné živočichy, jako žáby a hmyz, proto jej lidé považují za "
 "užitečné zvíře. Když je v nebezpečí, stočí se do kuličky a naježí svůj "
 "kožíšek z ostrých ostnů."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:8
-msgid " Hedgehog"
-msgstr " Ježek"
+msgid "Hedgehog"
+msgstr "Ježek"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:9
-msgid " Giraffes in Africa"
-msgstr " Žirafa v Africe"
+msgid "Giraffes in Africa"
+msgstr "Žirafa v Africe"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:10
 msgid ""
-" The giraffe lives in Africa and is the tallest mammal in the world. Just "
+"The giraffe lives in Africa and is the tallest mammal in the world. Just "
 "their legs, which are usually 1.8 meters long, are taller than most humans!"
 msgstr ""
-" Žirafa žije v Africe a je nejvyšším savcem na světě. Jen jejich nohy, které "
+"Žirafa žije v Africe a je nejvyšším savcem na světě. Jen jejich nohy, které "
 "jsou běžně 1,8 m dlouhé, jsou vyšší než většina lidí."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:11
-msgid " Giraffe"
-msgstr " Žirafa"
+msgid "Giraffe"
+msgstr "Žirafa"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:12
-msgid " Bison in America"
-msgstr " Bizon v Americe"
+msgid "Bison in America"
+msgstr "Bizon v Americe"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:13
 msgid ""
-" Bison live on the plains of North America and were hunted by the Native "
+"Bison live on the plains of North America and were hunted by the Native "
 "Americans for food."
 msgstr ""
-" Bizon žije na planinách Severní Ameriky a původní obyvatelé jej lovili na "
+"Bizon žije na planinách Severní Ameriky a původní obyvatelé jej lovili na "
 "jídlo."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:14
-msgid " Bison"
-msgstr " Bizon"
+msgid "Bison"
+msgstr "Bizon"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:15
-msgid " Narwhals in the Arctic"
-msgstr " Narval v Arktidě"
+msgid "Narwhals in the Arctic"
+msgstr "Narval v Arktidě"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:16
 msgid ""
-" Narwhals are whales that live in the Arctic Ocean and have long tusks. "
-"These tusks remind many people of the mythical unicorn's horn."
+"Narwhals are whales that live in the Arctic Ocean and have long tusks. These "
+"tusks remind many people of the mythical unicorn's horn."
 msgstr ""
-" Narvalové jsou kytovci, kteří žijí v Arktickém oceánu a mají dlouhý kel. "
+"Narvalové jsou kytovci, kteří žijí v Arktickém oceánu a mají dlouhý kel. "
 "Tímto klem mnoha lidem připomínají bájného jednorožce."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:17
-msgid " Narwhal"
-msgstr " Narval"
+msgid "Narwhal"
+msgstr "Narval"
 
 #: ../src/explore_world_music-activity/explore_world_music.xml.in.h:1
 msgid "Explore World Music"
@@ -3491,189 +3486,194 @@ msgid "Images from http://commons.wikimedia.org/wiki, http://archive.org"
 msgstr "Obrázky z http://commons.wikimedia.org/wiki, http://archive.org"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:1
-msgid " Explore world music! Click on the suitcases."
+msgid "Explore world music! Click on the suitcases."
 msgstr "Objevuj hudbu z celého světa. Klikej na tašky."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:2
-msgid " Click on the location that matches the music you hear."
+msgid "Click on the location that matches the music you hear."
 msgstr "Klikni na místo, které odpovídá hudbě, co slyšíš."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:3
-msgid " Click on the location that matches the text."
+msgid "Click on the location that matches the text."
 msgstr "Klikni na místo, které odpovídá textu."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:4
-msgid " Australia"
+#: ../src/geo_country-activity/resources/geo_country/board13_0.xml.in.h:1
+msgid "Australia"
 msgstr "Austrálie"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:5
 msgid ""
-" Aboriginals were the first people to live in Australia. They sing and play "
+"Aboriginals were the first people to live in Australia. They sing and play "
 "instruments, like the didgeridoo. It is made from a log and can be up to "
 "five meters long!"
 msgstr ""
-" Prvními obyvateli Austrálie byli australští domorodci. Zpívali a hráli na "
+"Prvními obyvateli Austrálie byli australští domorodci. Zpívali a hráli na "
 "nástroje jako je didgeridoo. Je vyroben z kmene stromu a může být dlouhý až "
 "pět metrů!"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:6
-msgid " Where is the didgeridoo played?"
-msgstr " Kde se hraje na didgeridoo?"
+msgid "Where is the didgeridoo played?"
+msgstr "Kde se hraje na didgeridoo?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:7
-msgid " Africa"
-msgstr " Afrika"
+#: ../src/geography-activity/resources/geography/board1_0.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:6
+msgid "Africa"
+msgstr "Afrika"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:8
 msgid ""
-" Music is a part of everyday life in Africa. African music features a great "
+"Music is a part of everyday life in Africa. African music features a great "
 "variety of drums, and they believe it is a sacred and magical instrument."
 msgstr ""
-" Hudba je v Africe součástí každodenního života. Africká hudba je z velké "
+"Hudba je v Africe součástí každodenního života. Africká hudba je z velké "
 "části založena na bubnech a místní věří, že to jsou posvátné a magické "
 "nástroje."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:9
-msgid " Where is the drum considered a magical instrument?"
-msgstr " Kde je buben považován za magický nástroj?"
+msgid "Where is the drum considered a magical instrument?"
+msgstr "Kde je buben považován za magický nástroj?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:10
-msgid " Middle East"
-msgstr " Střední východ"
+msgid "Middle East"
+msgstr "Střední východ"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:11
 msgid ""
-" Music is a very important part of middle eastern culture. Specific songs "
-"are played to call worshipers to prayer. The lute is an instrument invented "
+"Music is a very important part of middle eastern culture. Specific songs are "
+"played to call worshipers to prayer. The lute is an instrument invented "
 "thousands of years ago and still in use today."
 msgstr ""
-" Hudba je důležitou součásti kultury středního východu. Speciální písně se "
+"Hudba je důležitou součásti kultury středního východu. Speciální písně se "
 "hrají, aby svolaly pracující k modlitbám. Loutna je nástroj vynalezený před "
 "tisícovkami let a používá se dodnes."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:12
-msgid " Where is music used to call people to prayer?"
-msgstr " Kde se hudba používá k svolávání lidí k modlitbám?"
+msgid "Where is music used to call people to prayer?"
+msgstr "Kde se hudba používá ke svolávání lidí k modlitbám?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:13
-msgid " Japan"
-msgstr " Japonsko"
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:52
+msgid "Japan"
+msgstr "Japonsko"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:14
 msgid ""
-" Taiko drumming comes from Japan. This type of drumming was originally used "
+"Taiko drumming comes from Japan. This type of drumming was originally used "
 "to scare enemies in battle. It is very loud, and performances are very "
 "exciting with crowds cheering and performers yelling!"
 msgstr ""
-" Bubnování Taiko pochází z Japonska. Tento typ bubnování byl původně "
-"používán k zastrašování nepřátel v bitvě. Je velmi hlasitý a představení "
-"jsou velmi procítěná, umělci diváky povzbuzují a vydávají pokřiky!"
+"Bubnování Taiko pochází z Japonska. Tento typ bubnování byl původně používán "
+"k zastrašování nepřátel v bitvě. Je velmi hlasitý a představení jsou velmi "
+"procítěná, diváci umělce povzbuzují a umělci vydávají pokřiky!"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:15
-msgid " Where do performers yelp as they play the drums?"
-msgstr " Kde umělci při hraní na bubny vydávají pokřiky?"
+msgid "Where do performers yelp as they play the drums?"
+msgstr "Kde umělci při hraní na bubny vydávají pokřiky?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:16
-msgid " Scotland and Ireland"
-msgstr " Skotsko a Irsko"
+msgid "Scotland and Ireland"
+msgstr "Skotsko a Irsko"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:17
 msgid ""
-" Folk music of this region is called celtic music, often incorporates a "
+"Folk music of this region is called celtic music, often incorporates a "
 "narrative poem or story. Typical instruments include bagpipes, fiddles, "
 "flutes, harps, and accordions."
 msgstr ""
-" Hudba v tomto regionu se nazývá keltská hudba a jejím obsahem je často "
-"báseň nebo příběh. Typickými nástroji jsou dudy, housle, flétny, harfy a "
-"akordeony."
+"Hudba v tomto regionu se nazývá keltská hudba a jejím obsahem je často báseň "
+"nebo příběh. Typickými nástroji jsou dudy, housle, flétny, harfy a akordeony."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:18
-msgid " Bagpipers, who often wear kilts, are from this location."
-msgstr " Dudáci, kteří často chodí v sukních (kiltech), jsou právě odtud."
+msgid "Bagpipers, who often wear kilts, are from this location."
+msgstr "Dudáci, kteří často chodí v sukních (kiltech), jsou právě odtud."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:19
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:10
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:6
-msgid " Italy"
-msgstr " Itálie"
+msgid "Italy"
+msgstr "Itálie"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:20
 msgid ""
-" Italy is famous for its Opera. Opera is a musical theater where actors tell "
+"Italy is famous for its Opera. Opera is a musical theater where actors tell "
 "a story by acting and singing. Opera singers, both male and female, learn "
 "special techniques to sing operas."
 msgstr ""
-" Itálie je známá díky své opeře. Opera je hudební divadlo, ve kterém herci "
+"Itálie je známá díky své opeře. Opera je hudební divadlo, ve kterém herci "
 "sdělují příběh hraním a zároveň zpěvem. Operní zpěváci, muži i ženy, se učí "
 "speciální techniky zpěvu."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:21
-msgid " This country is known for its opera music."
-msgstr " Tato země je známá díky své operní hudbě."
+msgid "This country is known for its opera music."
+msgstr "Tato země je známá díky své operní hudbě."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:22
-msgid " European Classical Music"
-msgstr " Klasická evropská hudba"
+msgid "European Classical Music"
+msgstr "Klasická evropská hudba"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:23
 msgid ""
-" Europe is the home of classical music. Famous composers like Bach, "
+"Europe is the home of classical music. Famous composers like Bach, "
 "Beethoven, and Mozart forever changed music history."
 msgstr ""
-" Evropa je domovem klasické hudby. Známí skladatelé jako Bach, Beethoven "
-"nebo Mozart se navždy zapsali do historie hudby."
+"Evropa je domovem klasické hudby. Známí skladatelé jako Bach, Beethoven nebo "
+"Mozart se navždy zapsali do historie hudby."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:24
-msgid " Bach, Beethoven, and Mozart composed music in this location."
-msgstr " Na tomto místě skládali hudbu Bach, Beethoven a Mozart."
+msgid "Bach, Beethoven, and Mozart composed music in this location."
+msgstr "Na tomto místě skládali hudbu Bach, Beethoven a Mozart."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:25
+#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:10
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:5
-msgid " Mexico"
-msgstr " Mexiko"
+msgid "Mexico"
+msgstr "Mexiko"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:26
 msgid ""
-" Mariachi is a famous type of Mexican music. It features guitars, trumpets, "
+"Mariachi is a famous type of Mexican music. It features guitars, trumpets, "
 "and violins. These bands play for many occasions, including weddings and "
 "parties."
 msgstr ""
-" Mariachi je známý typ mexické hudby. Jsou pro ni typické kytary, trumpety a "
+"Mariachi je známý typ mexické hudby. Jsou pro ni typické kytary, trumpety a "
 "housle. Tyto kapely hrají při všemožných příležitostech, včetně svateb a "
 "večírků."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:27
 msgid ""
-" At parties, people often dance to the Mariachi music. A Famous dance is:"
-msgstr " Na večírcích lidé často tančí na hudbu Mariachi. Známým tancem je:"
+"At parties, people often dance to the Mariachi music. A Famous dance is:"
+msgstr "Na večírcích lidé často tančí na hudbu Mariachi. Známým tancem je:"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:28
-msgid " Where is Mariachi music from?"
-msgstr " Odkud pochází hudba Mariachi?"
+msgid "Where is Mariachi music from?"
+msgstr "Odkud pochází hudba Mariachi?"
 
 # FIMXE: s/state/states/?
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:29
-msgid " United State of America"
+msgid "United State of America"
 msgstr "Spojené státy Americké"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:30
 msgid ""
-" USA also has a wide variety of musical genres, but perhaps it is most "
-"famous for rock n' roll music. This music features vocalists, guitars, and "
-"drums."
+"USA also has a wide variety of musical genres, but perhaps it is most famous "
+"for rock n' roll music. This music features vocalists, guitars, and drums."
 msgstr ""
-" Amerika má mnoho druhů hudebních žánrů, ale nejproslavenější je asi rock n' "
+"Amerika má mnoho druhů hudebních žánrů, ale nejproslavenější je asi rock n' "
 "rollem. Tato hudba je založena na zpěvácích, kytarách a bubnech."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:31
-msgid " The 'king' of rock n' roll is"
-msgstr " „Králem“ rock n' rollu je"
+msgid "The 'king' of rock n' roll is"
+msgstr "„Králem“ rock n' rollu je"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:32
 msgid ""
-" The 'king' of rock n' roll, Elvis Presley, made his music famous in this "
+"The 'king' of rock n' roll, Elvis Presley, made his music famous in this "
 "country."
 msgstr ""
-" „Králem“ rock n' rollu je Elvis Presley, který svoji hudbu v této zemi "
+"„Králem“ rock n' rollu je Elvis Presley, který svoji hudbu v této zemi "
 "proslavil."
 
 #: ../src/fifteen-activity/fifteen.xml.in.h:1
@@ -3766,7 +3766,7 @@ msgstr ""
 "Tento software je balíček GNU a je uvolněn za podmínek GNU General Public "
 "Licence"
 
-#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:460
+#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:487
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:358
 #: ../src/gcompris/images_selector.c:313
 msgid "OK"
@@ -3938,6 +3938,7 @@ msgid "Georgian"
 msgstr "Gruzínština"
 
 #: ../src/gcompris/config.c:81
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:10
 msgid "German"
 msgstr "Němčina"
 
@@ -3946,234 +3947,242 @@ msgid "Greek"
 msgstr "Řečtina"
 
 #: ../src/gcompris/config.c:83
+msgid "Scottish Gaelic"
+msgstr "Skotská gaelština"
+
+#: ../src/gcompris/config.c:84
 msgid "Gujarati"
 msgstr "Gudžarátština"
 
-#: ../src/gcompris/config.c:84
+#: ../src/gcompris/config.c:85
 msgid "Hebrew"
 msgstr "Hebrejština"
 
-#: ../src/gcompris/config.c:85
+#: ../src/gcompris/config.c:86
 msgid "Hindi"
 msgstr "Hindština"
 
-#: ../src/gcompris/config.c:86
+#: ../src/gcompris/config.c:87
 msgid "Hungarian"
 msgstr "Maďarština"
 
-#: ../src/gcompris/config.c:87
+#: ../src/gcompris/config.c:88
 msgid "Indonesian"
 msgstr "Indonéština"
 
-#: ../src/gcompris/config.c:88
+#: ../src/gcompris/config.c:89
 msgid "Irish (Gaelic)"
 msgstr "Irština (gaelská)"
 
-#: ../src/gcompris/config.c:89
+#: ../src/gcompris/config.c:90
 msgid "Italian"
 msgstr "Italština"
 
-#: ../src/gcompris/config.c:90
+#: ../src/gcompris/config.c:91
 msgid "Japanese"
 msgstr "Japonština"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:92
 msgid "Kinyarwanda"
 msgstr "Rwandština"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:93
 msgid "Korean"
 msgstr "Korejština"
 
-#: ../src/gcompris/config.c:93
+#: ../src/gcompris/config.c:94
 msgid "Latvian"
 msgstr "Lotyština"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:95
 msgid "Lithuanian"
 msgstr "Litevština"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:96
 msgid "Macedonian"
 msgstr "Makedonština"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:97
 msgid "Malay"
 msgstr "Malajština"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:98
 msgid "Malayalam"
 msgstr "Malajálamština"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:99
 msgid "Marathi"
 msgstr "Marathi"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:100
 msgid "Montenegrin"
 msgstr "Černohorština"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:101
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:37
 msgid "Nepal"
 msgstr "Nepálština"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:102
 msgid "Norwegian Bokmal"
 msgstr "Norština Bokmal"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:103
 msgid "Norwegian Nynorsk"
 msgstr "Norština Nynorsk"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:104
 msgid "Occitan (languedocien)"
 msgstr "Okcitánština (languedocien)"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:105
 msgid "Persian"
 msgstr "Perština"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:106
 msgid "Polish"
 msgstr "Polština"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:107
 msgid "Portuguese (Brazil)"
 msgstr "Portugalština (Brazílie)"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:108
 msgid "Portuguese"
 msgstr "Portugalština"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:109
 msgid "Punjabi"
 msgstr "Paňdžábština"
 
-#: ../src/gcompris/config.c:109
+#: ../src/gcompris/config.c:110
 msgid "Romanian"
 msgstr "Rumunština"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:111
 msgid "Russian"
 msgstr "Ruština"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:112
 msgid "Serbian (Latin)"
 msgstr "Srbština (latinka)"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:113
 msgid "Serbian"
 msgstr "Srbština"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:114
 msgid "Slovak"
 msgstr "Slovenština"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:115
 msgid "Slovenian"
 msgstr "Slovinština"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:116
 msgid "Somali"
 msgstr "Somálština"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:117
 msgid "Spanish"
 msgstr "Španělština"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:118
 msgid "Swedish"
 msgstr "Švédština"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:119
 msgid "Tamil"
 msgstr "Tamilština"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:120
 msgid "Thai"
 msgstr "Thajština"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:121
 msgid "Turkish (Azerbaijan)"
 msgstr "Turečtina (Ázerbájdžán)"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:122
 msgid "Turkish"
 msgstr "Turečtina"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:123
 msgid "Ukrainian"
 msgstr "Ukrajinština"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:124
 msgid "Urdu"
 msgstr "Urdština"
 
-#: ../src/gcompris/config.c:124
+#: ../src/gcompris/config.c:125
 msgid "Vietnamese"
 msgstr "Vitnamština"
 
-#: ../src/gcompris/config.c:125
+#: ../src/gcompris/config.c:126
 msgid "Walloon"
 msgstr "Valonština"
 
-#: ../src/gcompris/config.c:126
+#: ../src/gcompris/config.c:127
 msgid "Zulu"
 msgstr "Zulu"
 
-#: ../src/gcompris/config.c:131
+#: ../src/gcompris/config.c:132
 msgid "Timer: No time limit"
 msgstr "Stopky: Žádný časový limit"
 
-#: ../src/gcompris/config.c:132
+#: ../src/gcompris/config.c:133
 msgid "Timer: Slow timer"
 msgstr "Stopky: Pomalé stopky"
 
-#: ../src/gcompris/config.c:133
+#: ../src/gcompris/config.c:134
 msgid "Timer: Normal timer"
 msgstr "Stopky: Normální stopky"
 
-#: ../src/gcompris/config.c:134
+#: ../src/gcompris/config.c:135
 msgid "Timer: Fast timer"
 msgstr "Stopky: Rychlé stopky"
 
-#: ../src/gcompris/config.c:138
+#: ../src/gcompris/config.c:139
 msgid "Use Gcompris administration module to filter boards"
 msgstr "Použít modul správy Gcompris pro filtrování hracích desek"
 
-#: ../src/gcompris/config.c:192
+#: ../src/gcompris/config.c:193
 msgid "GCompris Configuration"
 msgstr "Nastavení GCompris"
 
-#: ../src/gcompris/config.c:275
+#: ../src/gcompris/config.c:276
 msgid "Fullscreen"
 msgstr "Přes celou obrazovku"
 
-#: ../src/gcompris/config.c:300
+#: ../src/gcompris/config.c:301
+msgid "Remember level for default user"
+msgstr "Pamatovat si úroveň pro výchozího uživatele"
+
+#: ../src/gcompris/config.c:327
 msgid "Music"
 msgstr "Hudba"
 
-#: ../src/gcompris/config.c:325
+#: ../src/gcompris/config.c:352
 msgid "Effect"
 msgstr "Efekty"
 
-#: ../src/gcompris/config.c:349 ../src/gcompris/sugar_gc.c:93
+#: ../src/gcompris/config.c:376 ../src/gcompris/sugar_gc.c:93
 msgid "Zoom"
 msgstr "Přiblížení"
 
-#: ../src/gcompris/config.c:386
+#: ../src/gcompris/config.c:413
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Nelze otevřít složku s maskami vzhledu: %s"
 
-#: ../src/gcompris/config.c:417 ../src/gcompris/config.c:877
-#: ../src/gcompris/config.c:891
+#: ../src/gcompris/config.c:444 ../src/gcompris/config.c:912
+#: ../src/gcompris/config.c:926
 #, c-format
 msgid "Skin : %s"
 msgstr "Vzhled: %s"
 
-#: ../src/gcompris/config.c:419
+#: ../src/gcompris/config.c:446
 msgid "SKINS NOT FOUND"
 msgstr "MASKY VZHLEDU NENALEZENY"
 
@@ -4205,43 +4214,39 @@ msgstr ""
 "Ukonči ji a nahlas\n"
 "problém autorům"
 
-#: ../src/gcompris/gcompris.c:154
+#: ../src/gcompris/gcompris.c:155
 msgid "run GCompris in fullscreen mode."
 msgstr "spustit GCompris v režimu celé obrazovky."
 
-#: ../src/gcompris/gcompris.c:157
+#: ../src/gcompris/gcompris.c:158
 msgid "run GCompris in window mode."
 msgstr "spustit GCompris v režimu okna."
 
-#: ../src/gcompris/gcompris.c:160
+#: ../src/gcompris/gcompris.c:161
 msgid "run GCompris with sound enabled."
 msgstr "spustit GCompris se zapnutými zvuky."
 
-#: ../src/gcompris/gcompris.c:163
+#: ../src/gcompris/gcompris.c:164
 msgid "run GCompris without sound."
 msgstr "spustit GCompris bez zvuku."
 
-#: ../src/gcompris/gcompris.c:166
+#: ../src/gcompris/gcompris.c:167
 msgid "run GCompris with the default system cursor."
 msgstr "spustit GCompris s výchozím systémovým kurzorem."
 
-#: ../src/gcompris/gcompris.c:169
+#: ../src/gcompris/gcompris.c:170
 msgid "run GCompris without cursor (touch screen mode)."
 msgstr "spustit GCompris bez kurzoru (režim dotykových obrazovek)."
 
-#: ../src/gcompris/gcompris.c:172
+#: ../src/gcompris/gcompris.c:173
 msgid "display only activities with this difficulty level."
 msgstr "zobrazovat jen aktivity s touto úrovní obtížnosti."
 
-#: ../src/gcompris/gcompris.c:175
-msgid "display debug informations on the console."
-msgstr "zobrazovat ladicí informace na konzoli."
+#: ../src/gcompris/gcompris.c:176
+msgid "Return to last passed level even when no user is selected"
+msgstr "Vrátit se do poslední prošlé úrovně, i když není vybrán žádný uživatel"
 
-#: ../src/gcompris/gcompris.c:178
-msgid "Print the version of "
-msgstr "Vytiskne verzi "
-
-#: ../src/gcompris/gcompris.c:181
+#: ../src/gcompris/gcompris.c:179
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
@@ -4253,59 +4258,59 @@ msgstr ""
 "connect4). Použij „-l list“ pro seznam všech dostupných aktivit a jejich "
 "popisů."
 
-#: ../src/gcompris/gcompris.c:186
+#: ../src/gcompris/gcompris.c:184
 msgid "GCompris will find the data dir in this directory"
 msgstr "Aplikace GCompris bude hledat datovou složku v této složce"
 
-#: ../src/gcompris/gcompris.c:189
+#: ../src/gcompris/gcompris.c:187
 msgid "GCompris will find the skins in this directory"
 msgstr "Aplikace GCompris bude hledat masky vzhledu v této složce"
 
-#: ../src/gcompris/gcompris.c:192
+#: ../src/gcompris/gcompris.c:190
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "Aplikace GCompris bude hledat zásuvné moduly aktivit v této složce"
 
-#: ../src/gcompris/gcompris.c:195
+#: ../src/gcompris/gcompris.c:193
 msgid "GCompris will find the Python activity in this directory"
 msgstr "Aplikace GCompris bude hledat aktivity Python v této složce"
 
-#: ../src/gcompris/gcompris.c:198
+#: ../src/gcompris/gcompris.c:196
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr "Aplikace GCompris bude hledat soubory s překlady (.mo) v této složce"
 
-#: ../src/gcompris/gcompris.c:201
+#: ../src/gcompris/gcompris.c:199
 msgid "GCompris will find the activities menu in this directory"
 msgstr "Aplikace GCompris bude hledat nabídku aktivit v této složce"
 
-#: ../src/gcompris/gcompris.c:204
+#: ../src/gcompris/gcompris.c:202
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Spustit GCompris v administračním a řídícím módu"
 
-#: ../src/gcompris/gcompris.c:207
+#: ../src/gcompris/gcompris.c:205
 msgid ""
 "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
 msgstr ""
 "Použít náhradní databázi profilů [$HOME/.config/gcompris/gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:210
+#: ../src/gcompris/gcompris.c:208
 msgid "Create the alternate database for profiles"
 msgstr "Vytvořit alternativní databázi pro profily"
 
-#: ../src/gcompris/gcompris.c:213
+#: ../src/gcompris/gcompris.c:211
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Znovu načíst nabídku XML a uložit ji do databáze"
 
-#: ../src/gcompris/gcompris.c:216
+#: ../src/gcompris/gcompris.c:214
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Vybrat profil. Pro vytvoření profilu použijte „gcompris -a“"
 
-#: ../src/gcompris/gcompris.c:219
+#: ../src/gcompris/gcompris.c:217
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Seznam všech dostupných profilů. Pro vytvoření profilu použijte „gcompris -a“"
 
-#: ../src/gcompris/gcompris.c:222
+#: ../src/gcompris/gcompris.c:220
 msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
@@ -4313,46 +4318,46 @@ msgstr ""
 "Složka s nastavením: [$HOME/.config/gcompris]. Alternativou je nastavení "
 "$XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:225
+#: ../src/gcompris/gcompris.c:223
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "Složka uživatele: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:228
+#: ../src/gcompris/gcompris.c:226
 msgid "Run the experimental activities"
 msgstr "Jít na pokusné aktivity"
 
-#: ../src/gcompris/gcompris.c:231
+#: ../src/gcompris/gcompris.c:229
 msgid "Disable the quit button"
 msgstr "Vypnout tlačítko konec"
 
-#: ../src/gcompris/gcompris.c:234
+#: ../src/gcompris/gcompris.c:232
 msgid "Disable the config button"
 msgstr "Vypnout tlačítko nastavení"
 
-#: ../src/gcompris/gcompris.c:237
+#: ../src/gcompris/gcompris.c:235
 msgid "Disable the level button"
 msgstr "Vypnout tlačítko úroveň"
 
-#: ../src/gcompris/gcompris.c:240
+#: ../src/gcompris/gcompris.c:238
 msgid "Disable the database (slower start and no user log)"
 msgstr "Zakázat databázi (pomalejší spuštění a bez záznamu)"
 
-#: ../src/gcompris/gcompris.c:243
+#: ../src/gcompris/gcompris.c:241
 msgid ""
 "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr ""
 "Obecný režim táhni a pusť: normální, dvojklik, oboje. Výchozí režim je "
 "normální."
 
-#: ../src/gcompris/gcompris.c:246
+#: ../src/gcompris/gcompris.c:244
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Povolit spuštění více GComprisů najednou."
 
-#: ../src/gcompris/gcompris.c:249
+#: ../src/gcompris/gcompris.c:247
 msgid "Disable maximization zoom"
 msgstr "Zakázat maximalizaci"
 
-#: ../src/gcompris/gcompris.c:252
+#: ../src/gcompris/gcompris.c:250
 msgid ""
 "Increase activities' timeout delays; useful values > 1.0; 1.0 to not change "
 "hardcoded value"
@@ -4360,7 +4365,7 @@ msgstr ""
 "Zvýšit časový limit aktivit; použitelné hodnoty jsou > 1,0; 1,0 zachová "
 "vestavěnou hodnotu"
 
-#: ../src/gcompris/gcompris.c:255
+#: ../src/gcompris/gcompris.c:253
 msgid ""
 "How activities' timeout delays are growing for several actors; useful values "
 "< 1.0; 1.0 to not change hardcoded value"
@@ -4368,11 +4373,19 @@ msgstr ""
 "Jak se má časový limit zvyšovat pro více účastníků; použitelné hodnoty jsou "
 "> 1,0; 1,0 zachová vestavěnou hodnotu"
 
-#: ../src/gcompris/gcompris.c:258
+#: ../src/gcompris/gcompris.c:256
 msgid "For test purpose, run in a loop all the activities"
 msgstr "Pro testovací účely, spustí ve smyčce všechny aktivity"
 
-#: ../src/gcompris/gcompris.c:943
+#: ../src/gcompris/gcompris.c:259
+msgid "display debug informations on the console."
+msgstr "zobrazovat ladicí informace na konzoli."
+
+#: ../src/gcompris/gcompris.c:262
+msgid "Print the version of "
+msgstr "Vytiskne verzi "
+
+#: ../src/gcompris/gcompris.c:947
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -4393,18 +4406,18 @@ msgstr ""
 "na FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1236
+#: ../src/gcompris/gcompris.c:1240
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
 msgstr ""
 "Nelze načíst vzhled „%s“ (Zkontrolujte, zda soubor existuje a zda jej lze "
 "číst)"
 
-#: ../src/gcompris/gcompris.c:1252
+#: ../src/gcompris/gcompris.c:1256
 msgid "Retrieving remote data..."
 msgstr "Získávají se vzdálená data…"
 
-#: ../src/gcompris/gcompris.c:1513
+#: ../src/gcompris/gcompris.c:1517
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d second old.\n"
@@ -4420,12 +4433,12 @@ msgstr[2] ""
 "GCompris se nemůže spustit, protože soubor zámku je méně než %d sekund "
 "starý.\n"
 
-#: ../src/gcompris/gcompris.c:1517
+#: ../src/gcompris/gcompris.c:1521
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Soubor zámku je: %s\n"
 
-#: ../src/gcompris/gcompris.c:1638
+#: ../src/gcompris/gcompris.c:1642
 #, c-format
 msgid ""
 "GCompris\n"
@@ -4439,27 +4452,27 @@ msgstr ""
 "Více informací na http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1818
+#: ../src/gcompris/gcompris.c:1827
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Pro přímý přístup k aktivitě použijte -l.\n"
 
-#: ../src/gcompris/gcompris.c:1819
+#: ../src/gcompris/gcompris.c:1828
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Seznam dostupných aktivit:\n"
 
-#: ../src/gcompris/gcompris.c:1850
+#: ../src/gcompris/gcompris.c:1859
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Počet aktivit: %d\n"
 
-#: ../src/gcompris/gcompris.c:1886
+#: ../src/gcompris/gcompris.c:1895
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s existuje, ale nelze jej číst nebo do něj zapisovat"
 
-#: ../src/gcompris/gcompris.c:1981
+#: ../src/gcompris/gcompris.c:1990
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -4468,7 +4481,7 @@ msgstr ""
 "CHYBA: Profil „%s“ nebyl nalezen. Dostupné profily si vypíšete spuštěním "
 "„gcompris --profile-list“\n"
 
-#: ../src/gcompris/gcompris.c:1995
+#: ../src/gcompris/gcompris.c:2004
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Seznam dostupných profilů:\n"
@@ -4523,13 +4536,13 @@ msgstr ""
 "V tomto profilu byly zakázány všechny aktivity. Jděte do modulu pro správu "
 "GCompris a alespoň jednu aktivitu povolte."
 
-#: ../src/gcompris/properties.c:505
+#: ../src/gcompris/properties.c:512
 msgid ""
 "This directory contains the files you create with the GCompris educational "
 "suite\n"
 msgstr "Tato složka obsahuje soubory, které jsi vytvořil v sadě GCompris\n"
 
-#: ../src/gcompris/properties.c:512
+#: ../src/gcompris/properties.c:519
 msgid ""
 "Put any number of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
@@ -4617,9 +4630,15 @@ msgstr "Regiony Francie"
 msgid "India"
 msgstr "Indie"
 
-#: ../src/geo_country-activity/resources/geo_country/board13_0.xml.in.h:1
-msgid "Australia"
-msgstr "Austrálie"
+#: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:1
+#: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:1
+msgid "Northern Scotland"
+msgstr "Severní Skotsko"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:1
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:1
+msgid "Southern Scotland"
+msgstr "Jižní Skotsko"
 
 #: ../src/geo_country-activity/resources/geo_country/board2_0.xml.in.h:1
 msgid "Deutschland Bundesländer"
@@ -4661,12 +4680,6 @@ msgstr "Celou mapu překreslíš přetažením položek"
 #: ../src/geography-activity/resources/geography/board1_0.xml.in.h:1
 msgid "Continents"
 msgstr "Kontinenty"
-
-#: ../src/geography-activity/resources/geography/board1_0.xml.in.h:2
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:1
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:6
-msgid "Africa"
-msgstr "Afrika"
 
 #: ../src/geography-activity/resources/geography/board1_0.xml.in.h:3
 msgid "America"
@@ -4726,10 +4739,6 @@ msgstr "Island"
 msgid "Jamaica"
 msgstr "Jamajka"
 
-#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:10
-msgid "Mexico"
-msgstr "Mexiko"
-
 # FIMXE: s/state/states/?
 #: ../src/geography-activity/resources/geography/board2_0.xml.in.h:11
 msgid "United States of America"
@@ -4752,6 +4761,7 @@ msgid "Bolivia"
 msgstr "Bolívie"
 
 #: ../src/geography-activity/resources/geography/board3_0.xml.in.h:4
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:13
 msgid "Brazil"
 msgstr "Brazílie"
 
@@ -4816,24 +4826,23 @@ msgid "Denmark"
 msgstr "Dánsko"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:5
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:22
 msgid "Finland"
 msgstr "Finsko"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:6
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:11
 msgid "France"
 msgstr "Francie"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:7
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:12
 msgid "Germany"
 msgstr "Německo"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:9
 msgid "Ireland"
 msgstr "Irsko"
-
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:10
-msgid "Italy"
-msgstr "Itálie"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:11
 msgid "Luxembourg"
@@ -4852,6 +4861,7 @@ msgid "Portugal"
 msgstr "Portugalsko"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:15
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:7
 msgid "Spain"
 msgstr "Španělsko"
 
@@ -4916,6 +4926,7 @@ msgid "Moldova"
 msgstr "Moldavsko"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:14
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:18
 msgid "Poland"
 msgstr "Polsko"
 
@@ -4929,6 +4940,7 @@ msgid "Russia"
 msgstr "Rusko"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:17
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:16
 msgid "Serbia"
 msgstr "Srbsko"
 
@@ -4950,10 +4962,12 @@ msgid "Turkey"
 msgstr "Turecko"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:22
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:20
 msgid "Ukraine"
 msgstr "Ukrajina"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:23
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:19
 msgid "Greece"
 msgstr "Řecko"
 
@@ -5387,10 +5401,6 @@ msgstr "Jižní Korea"
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:51
 msgid "North Korea"
 msgstr "Severní Korea"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:52
-msgid "Japan"
-msgstr "Japonsko"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:53
 msgid "Mongolia"
@@ -7474,7 +7484,7 @@ msgstr ""
 #: ../src/memory_minus-activity/memory_minus.xml.in.h:4
 #: ../src/memory_minus_tux-activity/memory_minus_tux.xml.in.h:4
 msgid "Practise subtraction, until all the cards are gone."
-msgstr "Procvič si sčítání, dokud nezmizí všechny karty."
+msgstr "Procvič si odčítání, dokud nezmizí všechny karty."
 
 #: ../src/memory_minus-activity/memory_minus.xml.in.h:5
 #: ../src/memory_minus_tux-activity/memory_minus_tux.xml.in.h:5
@@ -7489,17 +7499,18 @@ msgid ""
 "buttons, or anything you can count. If you have lots of brothers and "
 "sisters, you can count them! Or the kids in your class at school. Sing "
 "counting songs. Count lots of things, for practice, and you'll be very good "
-"at adding-up!\n"
+"at subtracting numbers!\n"
 "\n"
 "In this game, these cards are hiding the two parts of a subtraction. You "
 "need to find the two parts of the subtraction, and bring them together "
 "again. Click on a card to see what number it's hiding, then try to find the "
-"other card that goes with it, to make a whole sum. You can only turn over "
-"two cards in one go, so you need to remember where the numbers are hiding, "
-"then you can match them when you find their other half. You're doing the job "
-"of the equals sign, and the numbers need you to put them together and make a "
-"proper sum. When you do that, both those cards disappear! When you've made "
-"them all disappear, found all the subtracts, you've won the game! :)"
+"other card that goes with it, to make a whole difference. You can only turn "
+"over two cards in one go, so you need to remember where the numbers are "
+"hiding, then you can match them when you find their other half. You're doing "
+"the job of the equals sign, and the numbers need you to put them together "
+"and make a proper difference. When you do that, both those cards disappear! "
+"When you've made them all disappear, found all the subtracts, you've won the "
+"game! :)"
 msgstr ""
 "Vidíš karty, ale nevidíš co se skrývá na jejich opačné straně. Každá karta "
 "skrývá odčítání, nebo odpověď na něj.\n"
@@ -7507,19 +7518,19 @@ msgstr ""
 "Čísla na jedné straně znaménka rovná se (=) musí být stejná jako číslo na "
 "straně druhé. Takže 3 (1, 2, 3) méně 1 (1) dávají 2. Počítej si hlasitě a "
 "také na prstech, protože pokud něco uděláš více způsoby, pak si to lépe "
-"zapamatuješ. Také můžeš používat kostky nebo knoflíky, nebo cokoliv co se dá "
+"zapamatuješ. Také můžeš používat kostky nebo kuličky, nebo cokoliv co se dá "
 "počítat. Pokud máš hodně bratrů a sester, můžeš spočítat je! Nebo spočítej "
 "děti ve třídě. Zpívej si písně s čísly. Počítej věci kolem sebe, jedině tak "
-"se z tebe staneš velmi dobrým počtářem.\n"
+"se z tebe stane velmi dobrý počtář.\n"
 "\n"
 "V této hře karty ukrývají dvě části rozdílu. Je potřeba najít obě části "
 "rozdílu a tak je spojit dohromady. Klikni na kartu a podívej se, které číslo "
 "skrývá, pak zkus nalézt další kartu, která s ní souvisí a tak získat celý "
-"součet. V jednom kroku můžeš otočit pouze dvě karty, takže si musíš "
+"rozdíl. V jednom kroku můžeš otočit pouze dvě karty, takže si musíš "
 "pamatovat, kde se čísla skrývají. Jedině tak je můžeš dát dohromady. "
 "Pracuješ se znaménkem rovná se a čísla tě potřebují, abys je dal dohromady a "
-"vytvořil tak ten správný součet. Pokud se ti to povede, obě karty zmizí! "
-"Jakmile zmizí všechny, nalezl jsi všechny součty a vyhrál jsi hru! :)"
+"vytvořil tak ten správný rozdíl. Pokud se ti to povede, obě karty zmizí! "
+"Jakmile zmizí všechny, nalezl jsi všechny rozdíly a vyhrál jsi hru! :)"
 
 #: ../src/memory_minus_tux-activity/memory_minus_tux.xml.in.h:1
 msgid "Subtraction memory game against Tux"
@@ -8178,12 +8189,12 @@ msgstr "Edgar Degas, Taneční třída (La Classe de Danse) – 1873-75"
 
 #: ../src/paintings-activity/resources/paintings/board1_10.xml.in.h:1
 msgid ""
-"Katsushika Hokusai,\\nViewing Sunset over the Ryogoku Bridge from the Ommaya "
-"Embankment - 1830"
+"Katsushika Hokusai,\n"
+"Viewing Sunset over the Ryogoku Bridge from the Ommaya Embankment - 1830"
 msgstr ""
 "Katsushika Hokusai, Pohled na západ slunce pře most Ryogoku z Ommaya "
-"Embankment\\n(Viewing Sunset over the Ryogoku Bridge from the Ommaya "
-"Embankment) – 1830"
+"Embankment\n"
+"(Viewing Sunset over the Ryogoku Bridge from the Ommaya Embankment) – 1830"
 
 #: ../src/paintings-activity/resources/paintings/board1_11.xml.in.h:1
 msgid "Katsushika Hokusa, Poppies - 1833-1834"
@@ -8229,10 +8240,11 @@ msgstr ""
 
 #: ../src/paintings-activity/resources/paintings/board1_8.xml.in.h:1
 msgid ""
-"Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
+"Utagawa Hiroshige,\n"
+"The Benzaiten Shrine at Inokashira in Snow - 1760-70"
 msgstr ""
-"Utagawa Hiroshige, Benzaiten Shrine v Inokashiře pod sněhem\\n(「名所雪月花 "
-"- 井の頭の池 弁財天の社雪の景」) – 1760-70"
+"Utagawa Hiroshige, Benzaiten Shrine v Inokashiře pod sněhem\n"
+"(「名所雪月花 - 井の頭の池 弁財天の社雪の景」) – 1760-70"
 
 #: ../src/paintings-activity/resources/paintings/board1_9.xml.in.h:1
 msgid "Utagawa Hiroshige, Horse-mackerel and Prawn - 1840"
@@ -8551,6 +8563,12 @@ msgstr "Změnit zápis půltónů:"
 msgid "Select A Melody to Load"
 msgstr "Výběr melodie k načtení"
 
+#. FIXME Should remove the space in the data file instead
+#: ../src/piano_composition-activity/piano_composition.py:449
+#: ../src/piano_composition-activity/piano_composition.py:578
+msgid " "
+msgstr " "
+
 #: ../src/piano_composition-activity/piano_composition.xml.in.h:1
 msgid "Piano Composition"
 msgstr "Skládání na klavíru"
@@ -8659,84 +8677,44 @@ msgstr ""
 "    F5: A#/Bb\n"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:1
-msgid " America: English Lullaby"
-msgstr " Amerika: anglická ukolébavka"
+msgid "America: English Lullaby"
+msgstr "Amerika: anglická ukolébavka"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:2
-msgid " America: Patriotic"
-msgstr " Amerika: vlastenecká"
+msgid "America: Patriotic"
+msgstr "Amerika: vlastenecká"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:3
-msgid " America: Shaker Tune"
-msgstr " Amerika: Shaker Tune"
+msgid "America: Shaker Tune"
+msgstr "Amerika: Shaker Tune"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:4
-msgid " America: Nursery Rhyme"
-msgstr " Amerika: dětská říkanka"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:7
-msgid " Spain"
-msgstr " Španělsko"
+msgid "America: Nursery Rhyme"
+msgstr "Amerika: dětská říkanka"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:8
-msgid " German Kid's Song"
-msgstr " Německá dětská písnička"
+msgid "German Kid's Song"
+msgstr "Německá dětská písnička"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:9
-msgid " Children's Song from Brazil"
-msgstr " Dětská písnička z Brazílie"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:10
-msgid " German"
-msgstr " Německo"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:11
-msgid " France"
-msgstr " Francie"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:12
-msgid " Germany"
-msgstr " Německo"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:13
-msgid " Brazil"
-msgstr " Brazílie"
+msgid "Children's Song from Brazil"
+msgstr "Dětská písnička z Brazílie"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:14
-msgid " Hungary, Nursery Rhyme"
-msgstr " Madarsko: dětská říkanka"
+msgid "Hungary, Nursery Rhyme"
+msgstr "Madarsko: dětská říkanka"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:15
-msgid " Hungary, Children's Song"
+msgid "Hungary, Children's Song"
 msgstr "Maďarsko, dětská písnička"
 
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:16
-msgid " Serbia"
-msgstr " Srbsko"
-
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:17
-msgid " Britain"
-msgstr " Británie"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:18
-msgid " Poland"
-msgstr " Polsko"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:19
-msgid " Greece"
-msgstr " Řecko"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:20
-msgid " Ukraine"
-msgstr " Ukrajina"
+msgid "Britain"
+msgstr "Británie"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:21
-msgid " Mexican song to break a piñata"
-msgstr " Mexická skladba k rozbíjení piñaty"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:22
-msgid " Finland"
-msgstr " Finsko"
+msgid "Mexican song to break a piñata"
+msgstr "Mexická skladba k rozbíjení piñaty"
 
 #: ../src/place_your_satellite-activity/place_your_satellite.py:68
 msgid ""
