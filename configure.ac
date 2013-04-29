@@ -692,7 +692,6 @@ src/geo_country-activity/resources/geo_country/italy/south/Makefile
 src/geo_country-activity/resources/geo_country/mexico/Makefile
 src/geo_country-activity/resources/geo_country/norway/Makefile
 src/geo_country-activity/resources/geo_country/poland/Makefile
-src/geo_country-activity/resources/geo_country/scotland/Makefile
 src/geo_country-activity/resources/geo_country/turkey/Makefile
 src/geo_country-activity/resources/geo_country/usa/Makefile
 src/geography-activity/Makefile
@@ -703,9 +702,7 @@ src/geography-activity/resources/geography/afrique/Makefile
 src/geography-activity/resources/geography/continents/Makefile
 src/geography-activity/resources/geography/europe/Makefile
 src/geography-activity/resources/geography/northamerica/Makefile
-src/geography-activity/resources/geography/centralamerica/Makefile
 src/geography-activity/resources/geography/southamerica/Makefile
-src/geography-activity/resources/geography/oceania/Makefile
 src/gletters-activity/Makefile
 src/gletters-activity/resources/Makefile
 src/gletters-activity/resources/gletters/Makefile
