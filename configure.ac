@@ -692,6 +692,7 @@ src/geo_country-activity/resources/geo_country/italy/south/Makefile
 src/geo_country-activity/resources/geo_country/mexico/Makefile
 src/geo_country-activity/resources/geo_country/norway/Makefile
 src/geo_country-activity/resources/geo_country/poland/Makefile
+src/geo_country-activity/resources/geo_country/scotland/Makefile
 src/geo_country-activity/resources/geo_country/turkey/Makefile
 src/geo_country-activity/resources/geo_country/usa/Makefile
 src/geography-activity/Makefile
