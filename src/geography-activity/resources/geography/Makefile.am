@@ -1,4 +1,5 @@
-SUBDIRS = africa afrique continents europe northamerica southamerica
+SUBDIRS = africa afrique centralamerica \
+	continents europe northamerica oceania southamerica
 
 xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/geography
 
@@ -6,12 +7,15 @@ xml_in_files = \
 	board1_0.xml.in \
 	board2_0.xml.in \
 	board3_0.xml.in \
+	board3_1.xml.in \
 	board4_0.xml.in \
 	board5_0.xml.in \
 	board6_0.xml.in \
 	board7_0.xml.in \
 	board8_0.xml.in \
-	board9_0.xml.in
+	board9_0.xml.in \
+	board10_0.xml.in \
+	board11_0.xml.in
 
 xml_DATA = $(xml_in_files:.xml.in=.xml)
 

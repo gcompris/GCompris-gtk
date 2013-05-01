@@ -699,9 +699,11 @@ src/geography-activity/resources/Makefile
 src/geography-activity/resources/geography/Makefile
 src/geography-activity/resources/geography/africa/Makefile
 src/geography-activity/resources/geography/afrique/Makefile
+src/geography-activity/resources/geography/centralamerica/Makefile
 src/geography-activity/resources/geography/continents/Makefile
 src/geography-activity/resources/geography/europe/Makefile
 src/geography-activity/resources/geography/northamerica/Makefile
+src/geography-activity/resources/geography/oceania/Makefile
 src/geography-activity/resources/geography/southamerica/Makefile
 src/gletters-activity/Makefile
 src/gletters-activity/resources/Makefile
