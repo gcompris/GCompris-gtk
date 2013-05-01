@@ -12,6 +12,7 @@ SUBDIRS = \
 	mexico \
 	norway \
 	poland \
+	scotland \
 	turkey \
 	usa
 
