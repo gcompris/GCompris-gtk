@@ -44,7 +44,6 @@ static GooCanvasItem *sign;
 static GooCanvasItem *bras;
 static GooCanvasItem *answer_item;
 static GString *answer_string = NULL;
-
 static void scale_destroy_all_items(void);
 static void scale_next_level(void);
 
@@ -284,21 +283,15 @@ key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 
   if(answer_string)
     {
-      gchar *tmpstr;
       gchar c = commit_str ? commit_str[0] : 0;
 
       /* Limit the user entry to 5 digits */
       if(c>='0' && c<='9' && answer_string->len < 5)
 	answer_string = g_string_append_c(answer_string, c);
 
-      if (board_mode == MODE_WEIGHT)
-        tmpstr = g_strdup_printf(_("Weight in g = %s"), answer_string->str);
-      else
-        tmpstr = g_strdup_printf(_("Weight = %s"), answer_string->str);
       g_object_set(answer_item,
-		   "text", tmpstr,
+		   "text", answer_string->str,
 		   NULL);
-      g_free(tmpstr);
     }
 
   return TRUE;
@@ -372,29 +365,84 @@ scale_anim_plate(void)
     {
 
       double x_offset = BOARDWIDTH/2;
-      double y_offset = BOARDHEIGHT*0.7;
+      double y_offset = BOARDHEIGHT*0.6;
+      double y_offset2 = y_offset + 60;
+      gchar *answer_label_string;
+      GooCanvasItem *text_item;
 
-      GooCanvasItem *item = goo_canvas_svg_new (boardRootItem,
-						gc_skin_rsvg_get(),
-						"svg-id", "#BUTTON_TEXT",
-						NULL);
-      SET_ITEM_LOCATION_CENTER(item,
-			       x_offset / 2,
-			       y_offset);
-      goo_canvas_item_scale(item, 2, 1);
+      if(board_mode == MODE_WEIGHT) {
+	answer_label_string = "Enter the weight in g";
+      } else {
+	answer_label_string = "Enter the weight of the object";
+      }
 
-      answer_item = goo_canvas_text_new(boardRootItem,
-					"",
-					x_offset,
-					y_offset,
-					-1,
-					GTK_ANCHOR_CENTER,
-					"font", gc_skin_font_board_title_bold,
-					"fill-color", "white",
-					NULL);
+      text_item = \
+	goo_canvas_text_new( boardRootItem,
+			     answer_label_string,
+			     x_offset,
+			     y_offset,
+			     -1,
+			     GTK_ANCHOR_CENTER,
+			     "font", gc_skin_font_board_title_bold,
+			     "fill-color", "white",
+			     NULL);
+      answer_item = \
+	goo_canvas_text_new(boardRootItem,
+			    "00000",
+			    x_offset,
+			    y_offset2,
+			    -1,
+			    GTK_ANCHOR_CENTER,
+			    "font", gc_skin_font_board_title_bold,
+			    "fill-color", "white",
+			    NULL);
 
       answer_string = g_string_new(NULL);
+
+      GooCanvasBounds bounds;
+      int gap = 8;
+      goo_canvas_item_get_bounds (text_item, &bounds);
+      goo_canvas_rect_new (boardRootItem,
+			   bounds.x1 - gap,
+			   bounds.y1 - gap,
+			   (bounds.x2 - bounds.x1) + gap*2,
+			   (bounds.y2 - bounds.y1) + gap*2,
+			   "stroke_color_rgba", 0x000000FFL,
+			   "fill_color_rgba", 0XE9B82399L,
+			   "line-width", (double) 2,
+			   "radius-x", (double) 10,
+			   "radius-y", (double) 10,
+			   NULL);
+
+      goo_canvas_item_get_bounds (answer_item, &bounds);
+      goo_canvas_rect_new (boardRootItem,
+			   bounds.x1 - gap,
+			   bounds.y1 - gap,
+			   (bounds.x2 - bounds.x1) + gap*2,
+			   (bounds.y2 - bounds.y1) + gap*2,
+			   "stroke_color_rgba", 0x000000FFL,
+			   "fill_color_rgba", 0XE9B82399L,
+			   "line-width", (double) 2,
+			   "radius-x", (double) 10,
+			   "radius-y", (double) 10,
+			   NULL);
+
+      goo_canvas_item_raise(text_item, NULL);
+      goo_canvas_item_raise(answer_item, NULL);
+
+      /* The OK Button */
+      GooCanvasItem *item = \
+	goo_canvas_svg_new (boardRootItem,
+			    gc_skin_rsvg_get(),
+			    "svg-id", "#OK",
+			    NULL);
+      SET_ITEM_LOCATION(item, 480, 340);
+      g_signal_connect(item, "button_press_event",
+		       (GCallback) process_ok, NULL);
+      gc_item_focus_init(item, NULL);
+
       key_press(0, NULL, NULL);
+
     }
   else if(diff == 0)
     process_ok();
@@ -613,10 +661,9 @@ scale_list_add_weight(GooCanvasItem *group,
   if (show_weight < 1000) {
     	weight_text = g_strdup_printf("%d%s", weight, show_weight ? "\n  g" : "");
   } else {
-  	int thousand = weight / 1000;
-  	int hundred = (weight % 1000) / 100;
-    	weight_text = g_strdup_printf("%c %c\n  kg", '0' + thousand, '0' + hundred);
+    	weight_text = g_strdup_printf("%.1f\n  kg", (double)weight / 1000);
   }
+
   pixmap = gc_pixmap_load("scale/masse.png");
 
   new_item->item = goo_canvas_group_new(group, NULL);
@@ -630,8 +677,8 @@ scale_list_add_weight(GooCanvasItem *group,
 		      35,
 		      -1,
 		      GTK_ANCHOR_CENTER,
-		      "font", "sans 10",
-		      "fill_color_rgba", 0x000000FFL,
+		      "font", "sans 11",
+		      "fill_color_rgba", 0xFFFFFFFFL,
 		      NULL);
 
   goo_canvas_item_translate(new_item->item,

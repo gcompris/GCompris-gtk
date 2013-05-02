@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 SUBDIRS = africa afrique continents europe northamerica southamerica centralamerica oceania
+=======
+SUBDIRS = africa afrique centralamerica \
+	continents europe northamerica oceania southamerica
+>>>>>>> upstream/master
 
 xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/geography
 
