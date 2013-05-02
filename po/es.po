@@ -9,6 +9,7 @@
 # Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008, 2009, 2010.
 # Sylvia Sánchez <LailahFSF@gmail.com>, 2011.
 # Chris Leonard <cjlhomeaddress@gmail.com>, 2012.
+# Milagros Alessandra Infante Montero <maim92@gmail.com>, 2013.
 # Daniel Mustieles <daniel.mustieles@gmail.com>, 2011, 2012, 2013.
 #
 msgid ""
@@ -16,15 +17,15 @@ msgstr ""
 "Project-Id-Version: gcompris.gcomprixogoo\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-03-24 21:25+0000\n"
-"PO-Revision-Date: 2013-03-28 17:31+0100\n"
+"POT-Creation-Date: 2013-04-27 20:32+0000\n"
+"PO-Revision-Date: 2013-04-29 10:43+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
-"Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
+"Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
 "X-Generator: Gtranslator 2.91.5\n"
 "X-Project-Style: gnome\n"
 
@@ -424,14 +425,20 @@ msgstr ""
 "dificultad para cada perfil <b>%s</b></span>"
 
 #: ../src/administration-activity/admin/board_list.py:645
-#: ../src/administration-activity/admin/board_list.py:657
-#: ../src/administration-activity/admin/wordlist.py:45
 msgid ""
-"<b>{config}</b> configuration\n"
+"<b>Locale</b> configuration\n"
 " for profile <b>{profile}</b>"
 msgstr ""
-"<b>{config}</b> configuración\n"
-" para el perfil <b>{profile}</b>"
+"Configuración <b>regional</b>\n"
+" para el perfil <b>{perfil}</b>"
+
+#: ../src/administration-activity/admin/board_list.py:657
+msgid ""
+"<b>Locale sound</b> configuration\n"
+" for profile <b>{profile}</b>"
+msgstr ""
+"Configuración <b>regional de sonido</b>\n"
+" para el perfil <b>{perfil}</b>"
 
 #: ../src/administration-activity/admin/board_list.py:663
 #: ../src/pythontest-activity/pythontest.py:511
@@ -502,12 +509,8 @@ msgid "Editing a Group"
 msgstr "Editar un grupo"
 
 #: ../src/administration-activity/admin/group_edit.py:62
-msgid "Editing group: "
-msgstr "Editando grupo: "
-
-#: ../src/administration-activity/admin/group_edit.py:63
-msgid " for class: "
-msgstr " para la clase: "
+msgid "Editing group '{group}' for class '{aclass}'"
+msgstr "Edición de grupo «{grupo}» para la clase «{aclase}»"
 
 #: ../src/administration-activity/admin/group_edit.py:66
 msgid "Editing a new group"
@@ -609,13 +612,13 @@ msgstr ""
 "usado para leerlas, por ejemplo, y después el idioma usado para decir los "
 "nombres de los colores. \n"
 "- Puedes guardar configuraciones múltiples, y cambiar fácilmente entre "
-"ellas. En la sección «Perfil» añade un perfil, después en la sección "
-"«Tablero» selecciona el perfil en la lista desplegable, y después elige los "
-"tableros que quieres que estén activos. Puedes añadir un montón de perfiles, "
-"con diferentes listas de tableros, y diferentes idiomas. Puedes establecer "
-"el perfil por omisión en la sección «Perfil», eligiendo el perfil que "
-"quieras, y después pulsando el botón «Predeterminado». También puedes elegir "
-"un perfil desde la línea de comandos.\n"
+"ellas. En la sección «Perfil» añade un perfil, después en la sección «Tablero» "
+"selecciona el perfil en la lista desplegable, y después elige los tableros "
+"que quieres que estén activos. Puedes añadir un montón de perfiles, con "
+"diferentes listas de tableros, y diferentes idiomas. Puedes establecer el "
+"perfil por omisión en la sección «Perfil», eligiendo el perfil que quieras, y "
+"después pulsando el botón «Predeterminado». También puedes elegir un perfil "
+"desde la línea de comandos.\n"
 "- Puedes añadir usuarios, clases y para cada clase, puedes crear grupos de "
 "usuarios. Ten en cuenta que puedes importar usuarios de un archivo separado "
 "por comas. Asigna uno o más grupos a un perfil, y los nuevos identificadores "
@@ -820,6 +823,14 @@ msgid ""
 msgstr ""
 "Hay uno o más usuarios que no son únicos\n"
 "Es necesario cambiarlos: %s"
+
+#: ../src/administration-activity/admin/wordlist.py:45
+msgid ""
+"<b>{config}</b> configuration\n"
+" for profile <b>{profile}</b>"
+msgstr ""
+"<b>{config}</b> configuración\n"
+" para el perfil <b>{profile}</b>"
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:1
 msgid "Advanced colors"
@@ -2919,7 +2930,7 @@ msgstr ""
 "borrar un objeto."
 
 #: ../src/drawnumber-activity/drawnumber.py:238
-#: ../src/explore-activity/explore.py:412 ../src/findit-activity/findit.py:336
+#: ../src/explore-activity/explore.py:410 ../src/findit-activity/findit.py:336
 #: ../src/louis_braille-activity/louis_braille.py:84
 #: ../src/piano_composition-activity/piano_composition.py:504
 msgid "Cannot find the file '{filename}'"
@@ -3060,8 +3071,8 @@ msgstr "Mueve el ratón para aclarar la zona y descubre el dibujo escondido"
 msgid "Error: No images found\n"
 msgstr "Error: no se encontró ninguna imagen\n"
 
-#: ../src/erase-activity/erase.c:582 ../src/gcompris/properties.c:503
-#: ../src/gcompris/properties.c:510
+#: ../src/erase-activity/erase.c:582 ../src/gcompris/properties.c:510
+#: ../src/gcompris/properties.c:517
 msgid "readme"
 msgstr "léeme"
 
@@ -3138,22 +3149,7 @@ msgstr "Pulsa para reproducir el sonido"
 msgid "Back to Homepage"
 msgstr "Volver a la página inicial"
 
-#. ---------------------------------------------------------------------
-#. WRITE LOCATION-SPECIFIC CONTENT TO PAGE
-#. ---------------------------------------------------------------------
-#. FIXME Should remove the space in the data file instead
-#: ../src/explore-activity/explore.py:295
-#: ../src/explore-activity/explore.py:308
-#: ../src/explore-activity/explore.py:443
-#: ../src/explore-activity/explore.py:446
-#: ../src/explore-activity/explore.py:449
-#: ../src/explore-activity/explore.py:461
-#: ../src/piano_composition-activity/piano_composition.py:449
-#: ../src/piano_composition-activity/piano_composition.py:578
-msgid " "
-msgstr " "
-
-#: ../src/explore-activity/explore.py:417 ../src/findit-activity/findit.py:341
+#: ../src/explore-activity/explore.py:415 ../src/findit-activity/findit.py:341
 #: ../src/louis_braille-activity/louis_braille.py:88
 #: ../src/piano_composition-activity/piano_composition.py:509
 msgid ""
@@ -3163,7 +3159,7 @@ msgstr ""
 "Falló al analizar el conjunto de datos «{filename}» con el error:\n"
 "{error}"
 
-#: ../src/explore-activity/explore.py:511
+#: ../src/explore-activity/explore.py:505
 msgid "Explore Status:"
 msgstr "Explorar estado:"
 
@@ -3219,154 +3215,153 @@ msgstr ""
 "textos, ganas.\n"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:1
-msgid " Click on the questions to explore each farm animal."
-msgstr " Pulsa en las preguntas para explorar cada animal."
+msgid "Click on the questions to explore each farm animal."
+msgstr "Pulsa en las preguntas para explorar cada animal de la granja."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:2
-msgid " Click on the farm animal that makes the sound you hear."
-msgstr " Pulsa en el animal que hace el sonido que escuchas."
+msgid "Click on the farm animal that makes the sound you hear."
+msgstr "Pulsa en el animal de la granja que hace el sonido que escuchas."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:3
-msgid " Click the animal that matches the description."
-msgstr " Pulsa en el animal que coincide con la descripción."
+msgid "Click the animal that matches the description."
+msgstr "Pulsa en el animal que coincide con la descripción."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:4
-msgid " Horse"
-msgstr " Caballo"
+msgid "Horse"
+msgstr "Caballo"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:5
-msgid " The horse goes \"neigh! neigh!\". Horses usually sleep standing up."
-msgstr " El caballo «relincha». Los caballos suelen dormir de pie."
+msgid "The horse goes \"neigh! neigh!\". Horses usually sleep standing up."
+msgstr "El caballo hace «¡neigh! ¡neigh!». Los caballos suelen dormir de pie."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:6
-msgid " You can ride on the back of this animal!"
-msgstr " Puedes montar en la espalda de este animal."
+msgid "You can ride on the back of this animal!"
+msgstr "¡Puedes montar en la espalda de este animal!"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:7
-msgid " Chickens"
-msgstr " Gallinas"
+msgid "Chickens"
+msgstr "Gallinas"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:8
 msgid ""
-" The chicken goes \"cluck, cackle, cluck\". Chickens have over 200 different "
+"The chicken goes \"cluck, cackle, cluck\". Chickens have over 200 different "
 "noises they can use to communicate."
 msgstr ""
-" Las gallinas cacarean. Las gallinas tienen más de 200 sonidos diferentes "
-"que pueden utilizar para comunicarse."
+"La gallina hace «cluck, cackle, cluck». Las gallinas tienen más de 200 "
+"sonidos diferentes que pueden utilizar para comunicarse."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:9
-msgid " This animal lays eggs."
-msgstr " Este animal pone huevos."
+msgid "This animal lays eggs."
+msgstr "Este animal pone huevos."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:10
-msgid " Cows"
-msgstr " Vacas"
+msgid "Cows"
+msgstr "Vacas"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:11
 msgid ""
-" The cow goes \"moo. moo.\". Cows are herbivorous mammals. They graze all "
-"day in the meadow."
+"The cow goes \"moo. moo.\". Cows are herbivorous mammals. They graze all day "
+"in the meadow."
 msgstr ""
-" La vaca hace «muu, muu». Las vacas son animales hervíboros. Pastan todo el "
+"La vaca hace «muu, muu». Las vacas son animales hervíboros. Pastan todo el "
 "día en la pradera."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:12
-msgid " You can drink the milk this animal produces."
-msgstr " Puedes beber la leche que este animal produce."
+msgid "You can drink the milk this animal produces."
+msgstr "Puedes beber la leche que este animal produce."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:13
-msgid " Cat"
-msgstr " Gato"
+msgid "Cat"
+msgstr "Gato"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:14
 msgid ""
-" The cat goes \"meow, meow\". Cats usually hate water because their fur "
+"The cat goes \"meow, meow\". Cats usually hate water because their fur "
 "doesn't stay warm when it is wet."
 msgstr ""
-" El gato hace «miau, miau». Los gatos odian el agua por lo general debido a "
-"que su piel no se mantiene caliente cuando está mojado."
+"El gato hace «miau, miau». Los gatos por lo general odian el agua debido a "
+"que su piel no se mantiene caliente cuando están mojados."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:15
-msgid " This pet likes chasing mice."
-msgstr " A esta mascota le gusta cazar ratones."
+msgid "This pet likes chasing mice."
+msgstr "A esta mascota le gusta cazar ratones."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:16
-msgid " Pigs"
-msgstr " Cerdos"
+msgid "Pigs"
+msgstr "Cerdos"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:17
-msgid " The pig goes \"oink, oink\". Pigs are the 4th most intelligent animal."
+msgid "The pig goes \"oink, oink\". Pigs are the 4th most intelligent animal."
 msgstr ""
-" El cerdo hace «oink, oink». Los cerdos son los cuartos animales más "
+"El cerdo hace «oink, oink». Los cerdos son los cuartos animales más "
 "inteligentes."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:18
-msgid " This animal likes to lay in the mud."
-msgstr " A este animal le gusta tumbarse en el barro."
+msgid "This animal likes to lay in the mud."
+msgstr "A este animal le gusta echarse en el barro."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:19
-msgid " White Duck"
-msgstr " Pato blanco"
+msgid "White Duck"
+msgstr "Pato blanco"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:20
 msgid ""
-" The duck goes \"quack, quack\". Ducks have special features like webbed "
-"feet and produce an oil to make their feathers \"waterproof\"."
+"The duck goes \"quack, quack\". Ducks have special features like webbed feet "
+"and produce an oil to make their feathers \"waterproof\"."
 msgstr ""
-" El pato hace «cuac, cuac». Los patos tienen características especiales como "
-"patas palmeadas y plumas impermeables y producen grasa para hacer sus plumas "
-"impermeables."
+"El pato hace «cuac, cuac». Los patos tienen características especiales como "
+"patas palmeadas y producen un aceite para hacer sus plumas «impermeables»."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:21
-msgid " This animal has webbed feet so it can swim in the water."
-msgstr " Este animal tiene patas palmeadas para que pueda nadar en el agua."
+msgid "This animal has webbed feet so it can swim in the water."
+msgstr "Este animal tiene patas palmeadas para que pueda nadar en el agua."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:22
-msgid " Owl"
-msgstr " Búho"
+msgid "Owl"
+msgstr "Búho"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:23
 msgid ""
-" The owl goes \"hoo. hoo.\" The owl has excellent vision and hearing at "
-"night."
+"The owl goes \"hoo. hoo.\" The owl has excellent vision and hearing at night."
 msgstr ""
-" El búho hace «hoo hoo». Tiene una visión y un oído excelentes en la noche."
+"El búho hace «hoo. hoo». El búho tiene una visión y un oído excelentes en la "
+"noche."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:24
-msgid " This animal likes to come out at night."
-msgstr " A este animal le gusta salir por la noche."
+msgid "This animal likes to come out at night."
+msgstr "A este animal le gusta salir por la noche."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:25
-msgid " Dogs"
-msgstr " Perros"
+msgid "Dogs"
+msgstr "Perros"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:26
 msgid ""
-" The dog goes \"bark! bark!\". Dogs are great human companions and usually "
+"The dog goes \"bark! bark!\". Dogs are great human companions and usually "
 "enjoy love and attention."
 msgstr ""
-" El perro hace «guau, guau». Los perros son grandes compañeros del hombre y "
+"El perro hace «¡guau! ¡guau!». Los perros son grandes compañeros del hombre y "
 "suelen gozar de cariño y atención."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:27
-msgid " This animal's ancestors were wolves."
-msgstr " Los antepasados de este animal ​​eran lobos."
+msgid "This animal's ancestors were wolves."
+msgstr "Los antepasados de este animal ​​eran lobos."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:28
-msgid " Rooster"
-msgstr " Gallo"
+msgid "Rooster"
+msgstr "Gallo"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:29
 msgid ""
-" The rooster goes \"coc-a-doodle-doo!\". Roosters have been on farms for "
+"The rooster goes \"coc-a-doodle-doo!\". Roosters have been on farms for "
 "about 5,000 years. Every morning it wakes the farm up with its noises."
 msgstr ""
-" El gallo hace «kikirikí, kikirikí». Los gallos han estado en las granjas "
-"durante unos 5.000 años. Cada mañana despierta a la granja con sus ruidos."
+"El gallo hace «¡kikirikiii!». Los gallos han estado en granjas durante 5000 "
+"años. Cada mañana despierta a la granja con sus ruidos."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:30
-msgid " This animal wakes the farm up in the morning."
-msgstr " Este animal despierta a la granja por la mañana."
+msgid "This animal wakes the farm up in the morning."
+msgstr "Este animal despierta a la granja por la mañana."
 
 #: ../src/explore_world_animals-activity/explore_world_animals.xml.in.h:1
 msgid "Explore World Animals"
@@ -3404,97 +3399,97 @@ msgstr ""
 "todos los textos correctamente, ganas.\n"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:1
-msgid " Explore exotic animals from around the world."
-msgstr " Explorar animales exóticos de todo el mundo."
+msgid "Explore exotic animals from around the world."
+msgstr "Explorar animales exóticos de todo el mundo."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:2
-msgid " Click on location where the given animal lives."
-msgstr " Pulsa en la ubicación dónde el animal dado vive."
+msgid "Click on location where the given animal lives."
+msgstr "Pulsa en la ubicación dónde el animal dado vive."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:3
-msgid " Jaguars in South America"
-msgstr " Jaguares en América del Sur"
+msgid "Jaguars in South America"
+msgstr "Jaguares en América del sur"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:4
 msgid ""
-" Jaguars are named after the Native American word meaning 'he who kills with "
-"one leap'"
+"Jaguars are named after the Native American word meaning 'he who kills with "
+"one leap' because they like to climb trees to attack their prey."
 msgstr ""
-" Los jaguares se llaman así por palabra que significa en americano nativo "
-"«el que mata de un salto»"
+"Los jaguares se nombran después de la palabra nativa americana que significa "
+"«el que mata de un salto» porque les gusta escalar árboles para atacar a su "
+"presa."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:5
-msgid " Jaguar"
-msgstr "  Jaguar"
+msgid "Jaguar"
+msgstr "Jaguar"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:6
-msgid " Hedgehogs in Europe"
-msgstr " Erizos en Europa"
+msgid "Hedgehogs in Europe"
+msgstr "Erizos en europa"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:7
 msgid ""
-" Hedgehogs eat small animals, like frogs and insects, so many people keep "
+"Hedgehogs eat small animals, like frogs and insects, so many people keep "
 "them as useful pets. When in danger, they will curl up into a ball and stick "
 "up their coat of sharp spines."
 msgstr ""
-" Los erizos comen pequeños animales, como ranas e insectos, por lo que "
-"muchas personas los mantienen como mascotas útiles. Cuando está en peligro, "
-"suele acurrucarse en una pelota y se adhieren a su escudo de espinas "
-"afiladas."
+"Los erizos comen animales pequeños, como ranas e insectos, por lo que muchas "
+"personas los mantienen como mascotas útiles. Cuando están en peligro, suelen "
+"acurrucarse en una pelota y se adhieren a su capa de espinas afiladas."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:8
-msgid " Hedgehog"
-msgstr " Erizo"
+msgid "Hedgehog"
+msgstr "Erizo"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:9
-msgid " Giraffes in Africa"
-msgstr " Jirafas en África"
+msgid "Giraffes in Africa"
+msgstr "Jirafas en África"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:10
 msgid ""
-" The giraffe lives in Africa and is the tallest mammal in the world. Just "
+"The giraffe lives in Africa and is the tallest mammal in the world. Just "
 "their legs, which are usually 1.8 meters long, are taller than most humans!"
 msgstr ""
-" La jirafa vive en África y es el mamífero más alto del mundo. ¡Sólo sus "
+"La jirafa vive en África y es el mamífero más alto del mundo. ¡Sólo sus "
 "piernas, que suelen ser de 1,8 metros de largo, son más altas que la mayoría "
 "de los seres humanos!"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:11
-msgid " Giraffe"
-msgstr " Jirafa"
+msgid "Giraffe"
+msgstr "Jirafa"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:12
-msgid " Bison in America"
-msgstr " Bisonte en América"
+msgid "Bison in America"
+msgstr "Bisonte en América"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:13
 msgid ""
-" Bison live on the plains of North America and were hunted by the Native "
+"Bison live on the plains of North America and were hunted by the Native "
 "Americans for food."
 msgstr ""
-" El bisonte viven en las llanuras de América del Norte y fueron perseguidos "
+"El bisonte vive en las llanuras de América del norte y fueron perseguidos "
 "por los nativos americanos como alimento."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:14
-msgid " Bison"
-msgstr " Bisonte"
+msgid "Bison"
+msgstr "Bisonte"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:15
-msgid " Narwhals in the Arctic"
-msgstr " Narval en el Ártico"
+msgid "Narwhals in the Arctic"
+msgstr "Narvales en el Ártico"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:16
 msgid ""
-" Narwhals are whales that live in the Arctic Ocean and have long tusks. "
-"These tusks remind many people of the mythical unicorn's horn."
+"Narwhals are whales that live in the Arctic Ocean and have long tusks. These "
+"tusks remind many people of the mythical unicorn's horn."
 msgstr ""
-" Los narvales son ballenas que viven en el Océano Ártico y tienen colmillos "
+"Los narvales son ballenas que viven en el océano Ártico y tienen colmillos "
 "largos. Estos colmillos les recuerdan a muchas personas al mítico cuerno de "
 "unicornio."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:17
-msgid " Narwhal"
-msgstr " Narval"
+msgid "Narwhal"
+msgstr "Narval"
 
 #: ../src/explore_world_music-activity/explore_world_music.xml.in.h:1
 msgid "Explore World Music"
@@ -3551,194 +3546,199 @@ msgid "Images from http://commons.wikimedia.org/wiki, http://archive.org"
 msgstr "Imágenes de http://commons.wikimedia.org/wiki, http://archive.org"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:1
-msgid " Explore world music! Click on the suitcases."
-msgstr " ¡Explora la música del mundo! Pulsa en las cajas."
+msgid "Explore world music! Click on the suitcases."
+msgstr " ¡Explora la música del mundo! Pulsa en las maletas."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:2
-msgid " Click on the location that matches the music you hear."
-msgstr " Pulsa en el lugar que coincida con la música que escuchas."
+msgid "Click on the location that matches the music you hear."
+msgstr "Pulsa en el lugar que coincida con la música que escuchas."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:3
-msgid " Click on the location that matches the text."
-msgstr " Pulsa en el lugar que coincida con el texto."
+msgid "Click on the location that matches the text."
+msgstr "Pulsa en el lugar que coincida con el texto."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:4
-msgid " Australia"
-msgstr " Australia"
+#: ../src/geo_country-activity/resources/geo_country/board13_0.xml.in.h:1
+msgid "Australia"
+msgstr "Australia"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:5
 msgid ""
-" Aboriginals were the first people to live in Australia. They sing and play "
+"Aboriginals were the first people to live in Australia. They sing and play "
 "instruments, like the didgeridoo. It is made from a log and can be up to "
 "five meters long!"
 msgstr ""
-" Los aborígenes fueron los primeros habitantes de Australia. Ellos cantan y "
-"tocan instrumentos, como el didgeridoo. Está hecho con un tronco y puede ser "
-"de hasta cinco metros de largo."
+"Los aborígenes fueron los primeros habitantes de Australia. Ellos cantan y "
+"tocan instrumentos, como el didgeridoo. ¡Está hecho con un tronco y puede "
+"ser de hasta cinco metros de largo!."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:6
-msgid " Where is the didgeridoo played?"
-msgstr " ¿Dónde se toca el didgeridoo?"
+msgid "Where is the didgeridoo played?"
+msgstr "¿Dónde se toca el didgeridoo?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:7
-msgid " Africa"
-msgstr " África"
+#: ../src/geography-activity/resources/geography/board1_0.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:6
+msgid "Africa"
+msgstr "África"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:8
 msgid ""
-" Music is a part of everyday life in Africa. African music features a great "
+"Music is a part of everyday life in Africa. African music features a great "
 "variety of drums, and they believe it is a sacred and magical instrument."
 msgstr ""
-" La música es parte de la vida cotidiana en África. La música africana "
-"cuenta con una gran variedad de tambores, y creen que es un instrumento "
-"sagrado y mágico."
+"La música es parte de la vida cotidiana en África. La música africana cuenta "
+"con una gran variedad de tambores, y creen que es un instrumento sagrado y "
+"mágico."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:9
-msgid " Where is the drum considered a magical instrument?"
-msgstr " ¿Dónde se considera el tambor un instrumento mágico?"
+msgid "Where is the drum considered a magical instrument?"
+msgstr "¿Dónde se considera el tambor un instrumento mágico?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:10
-msgid " Middle East"
-msgstr " Oriente Medio"
+msgid "Middle East"
+msgstr "Oriente medio"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:11
 msgid ""
-" Music is a very important part of middle eastern culture. Specific songs "
-"are played to call worshipers to prayer. The lute is an instrument invented "
+"Music is a very important part of middle eastern culture. Specific songs are "
+"played to call worshipers to prayer. The lute is an instrument invented "
 "thousands of years ago and still in use today."
 msgstr ""
-" La música es una parte muy importante de la cultura de Oriente Medio. "
-"Determinadas canciones se tocan para convocar a los fieles a la oración. El "
-"laúd es un instrumento inventado hace miles de años y todavía en uso hoy en "
-"día."
+"La música es una parte muy importante de la cultura de oriente medio. "
+"Determinadas canciones se tocan para llamar a los fieles a la oración. El "
+"laúd es un instrumento inventado hace miles de años atrás y todavía se usa "
+"hoy en día."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:12
-msgid " Where is music used to call people to prayer?"
-msgstr " ¿Dónde se usa la música para llamar a la gente a rezar?"
+msgid "Where is music used to call people to prayer?"
+msgstr "¿Dónde se usa la música para llamar a la gente a rezar?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:13
-msgid " Japan"
-msgstr " Japón"
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:52
+msgid "Japan"
+msgstr "Japón"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:14
 msgid ""
-" Taiko drumming comes from Japan. This type of drumming was originally used "
+"Taiko drumming comes from Japan. This type of drumming was originally used "
 "to scare enemies in battle. It is very loud, and performances are very "
 "exciting with crowds cheering and performers yelling!"
 msgstr ""
-" Los tambores taiko vienen de Japón. Este tipo de tambor se utilizó "
-"originalmente para asustar a los enemigos en la batalla. Es muy fuerte, y "
-"las actuaciones son muy emocionantes con multitudes animando y los artistas "
+"Los tambores taiko vienen de Japón. Este tipo de tambor se utilizó "
+"originalmente para asustar a los enemigos en batalla. Es muy fuerte, y las "
+"actuaciones son muy emocionantes con multitudes animando y los artistas "
 "gritando."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:15
-msgid " Where do performers yelp as they play the drums?"
-msgstr " ¿Dónde gritan los artistas mientras tocan los tambores?"
+msgid "Where do performers yelp as they play the drums?"
+msgstr "¿Dónde gritan los artistas mientras tocan los tambores?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:16
-msgid " Scotland and Ireland"
-msgstr " Escocia e Irlanda"
+msgid "Scotland and Ireland"
+msgstr "Escocia e Irlanda"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:17
 msgid ""
-" Folk music of this region is called celtic music, often incorporates a "
+"Folk music of this region is called celtic music, often incorporates a "
 "narrative poem or story. Typical instruments include bagpipes, fiddles, "
 "flutes, harps, and accordions."
 msgstr ""
-" La música folclórica de esta región se llama música celta y a menudo "
-"incorpora un poema narrativo o cuento. Los instrumentos típicos incluyen: "
-"gaitas, flautas, violines, arpas y acordeones."
+"La música folclórica de esta región se llama música celta y a menudo "
+"incorpora un poema narrativo o cuento. Los instrumentos típicos incluyen "
+"gaitas, violines, flautas, arpas y acordeones."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:18
-msgid " Bagpipers, who often wear kilts, are from this location."
-msgstr ""
-" Los gaiteros, que a menudo llevan faldas escocesas, son de este lugar."
+msgid "Bagpipers, who often wear kilts, are from this location."
+msgstr "Los gaiteros, que a menudo llevan faldas escocesas, son de este lugar."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:19
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:10
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:6
-msgid " Italy"
-msgstr " Italia"
+msgid "Italy"
+msgstr "Italia"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:20
 msgid ""
-" Italy is famous for its Opera. Opera is a musical theater where actors tell "
+"Italy is famous for its Opera. Opera is a musical theater where actors tell "
 "a story by acting and singing. Opera singers, both male and female, learn "
 "special techniques to sing operas."
 msgstr ""
-" Italia es famosa por su ópera. La ópera es un teatro musical donde los "
+"Italia es famosa por su ópera. La ópera es un teatro musical donde los "
 "actores cuentan una historia, actuando y cantando. Los cantantes de ópera, "
-"tanto hombres como mujeres, aprenden técnicas especiales para cantar."
+"tanto hombres como mujeres, aprenden técnicas especiales para cantar óperas."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:21
-msgid " This country is known for its opera music."
-msgstr " Este país es conocido por su música de ópera."
+msgid "This country is known for its opera music."
+msgstr "Este país es conocido por su música ópera."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:22
-msgid " European Classical Music"
-msgstr " Música clásica europea"
+msgid "European Classical Music"
+msgstr "Música clásica europea"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:23
 msgid ""
-" Europe is the home of classical music. Famous composers like Bach, "
+"Europe is the home of classical music. Famous composers like Bach, "
 "Beethoven, and Mozart forever changed music history."
 msgstr ""
-" Europa es la cuna de la música clásica. Compositores famosos como Bach, "
-"Beethoven, Mozart cambiaron la historia de la música para siempre."
+"Europa es la cuna de la música clásica. Compositores famosos como Bach, "
+"Beethoven y Mozart cambiaron la historia de la música para siempre."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:24
-msgid " Bach, Beethoven, and Mozart composed music in this location."
-msgstr " Bach, Beethoven, y Mozart compusieron música en este lugar."
+msgid "Bach, Beethoven, and Mozart composed music in this location."
+msgstr "Bach, Beethoven, y Mozart compusieron música en este lugar."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:25
+#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:10
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:5
-msgid " Mexico"
-msgstr " México"
+msgid "Mexico"
+msgstr "México"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:26
 msgid ""
-" Mariachi is a famous type of Mexican music. It features guitars, trumpets, "
+"Mariachi is a famous type of Mexican music. It features guitars, trumpets, "
 "and violins. These bands play for many occasions, including weddings and "
 "parties."
 msgstr ""
-" Mariachi es un tipo famoso de música mexicana. Cuenta con guitarras, "
+"Mariachi es un tipo famoso de música mexicana. Cuenta con guitarras, "
 "trompetas y violines. Estas bandas tocan para muchas ocasiones, incluyendo "
 "bodas y fiestas."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:27
 msgid ""
-" At parties, people often dance to the Mariachi music. A Famous dance is:"
+"At parties, people often dance to the Mariachi music. A Famous dance is:"
 msgstr ""
-" En las fiestas, la gente suele bailar con la música de Mariachi. Un baile "
+"En las fiestas, la gente suele bailar con la música mariachi. Un baile "
 "famoso es:"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:28
-msgid " Where is Mariachi music from?"
+msgid "Where is Mariachi music from?"
 msgstr " ¿De dónde es la música mariachi?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:29
-msgid " United State of America"
+msgid "United State of America"
 msgstr "Estados Unidos de América"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:30
 msgid ""
-" USA also has a wide variety of musical genres, but perhaps it is most "
-"famous for rock n' roll music. This music features vocalists, guitars, and "
-"drums."
+"USA also has a wide variety of musical genres, but perhaps it is most famous "
+"for rock n' roll music. This music features vocalists, guitars, and drums."
 msgstr ""
-" Estados Unidos también tiene una amplia variedad de géneros musicales, pero "
-"quizás es más famoso por la música rock'n roll. En esta música aparecen "
+"Estados Unidos también tiene una amplia variedad de géneros musicales, pero "
+"quizás es más famoso por la música rock'n roll. Esta música cuenta con "
 "vocalistas, guitarras y tambores."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:31
-msgid " The 'king' of rock n' roll is"
-msgstr " El rey del rock n' roll es"
+msgid "The 'king' of rock n' roll is"
+msgstr " El «rey» del rock n' roll es"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:32
 msgid ""
-" The 'king' of rock n' roll, Elvis Presley, made his music famous in this "
+"The 'king' of rock n' roll, Elvis Presley, made his music famous in this "
 "country."
 msgstr ""
-" El «rey» del rock'n roll, Elvis Presley, hizo famosa la música de este país."
+" El «rey» del rock'n roll, Elvis Presley, hizo famosa su música en este país."
 
 #: ../src/fifteen-activity/fifteen.xml.in.h:1
 msgid "The fifteen game"
@@ -3830,7 +3830,7 @@ msgstr ""
 "Este software es un paquete GNU y se distribuye bajo los términos de la "
 "Licencia Pública General de GNU"
 
-#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:460
+#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:487
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:358
 #: ../src/gcompris/images_selector.c:313
 msgid "OK"
@@ -4002,6 +4002,7 @@ msgid "Georgian"
 msgstr "Georgiano"
 
 #: ../src/gcompris/config.c:81
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:10
 msgid "German"
 msgstr "Alemán"
 
@@ -4010,234 +4011,242 @@ msgid "Greek"
 msgstr "Griego"
 
 #: ../src/gcompris/config.c:83
+msgid "Scottish Gaelic"
+msgstr "Gaélico escocés"
+
+#: ../src/gcompris/config.c:84
 msgid "Gujarati"
 msgstr "Gujarati"
 
-#: ../src/gcompris/config.c:84
+#: ../src/gcompris/config.c:85
 msgid "Hebrew"
 msgstr "Hebreo"
 
-#: ../src/gcompris/config.c:85
+#: ../src/gcompris/config.c:86
 msgid "Hindi"
 msgstr "Hindi"
 
-#: ../src/gcompris/config.c:86
+#: ../src/gcompris/config.c:87
 msgid "Hungarian"
 msgstr "Húngaro"
 
-#: ../src/gcompris/config.c:87
+#: ../src/gcompris/config.c:88
 msgid "Indonesian"
 msgstr "Indonesio"
 
-#: ../src/gcompris/config.c:88
+#: ../src/gcompris/config.c:89
 msgid "Irish (Gaelic)"
 msgstr "Irlandés (Galés)"
 
-#: ../src/gcompris/config.c:89
+#: ../src/gcompris/config.c:90
 msgid "Italian"
 msgstr "Italiano"
 
-#: ../src/gcompris/config.c:90
+#: ../src/gcompris/config.c:91
 msgid "Japanese"
 msgstr "Japonés"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:92
 msgid "Kinyarwanda"
 msgstr "Kinyarwanda"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:93
 msgid "Korean"
 msgstr "Coreano"
 
-#: ../src/gcompris/config.c:93
+#: ../src/gcompris/config.c:94
 msgid "Latvian"
 msgstr "Letón"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:95
 msgid "Lithuanian"
 msgstr "Lituano"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:96
 msgid "Macedonian"
 msgstr "Macedonio"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:97
 msgid "Malay"
 msgstr "Malayo"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:98
 msgid "Malayalam"
 msgstr "Malayo"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:99
 msgid "Marathi"
 msgstr "Marathi"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:100
 msgid "Montenegrin"
 msgstr "Montenegrin"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:101
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:37
 msgid "Nepal"
 msgstr "Nepal"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:102
 msgid "Norwegian Bokmal"
 msgstr "Noruego Bokmal"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:103
 msgid "Norwegian Nynorsk"
 msgstr "Noruego Nynorsk"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:104
 msgid "Occitan (languedocien)"
 msgstr "Occitano (languedoc)"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:105
 msgid "Persian"
 msgstr "Persa"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:106
 msgid "Polish"
 msgstr "Polaco"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:107
 msgid "Portuguese (Brazil)"
 msgstr "Portugués (Brasil)"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:108
 msgid "Portuguese"
 msgstr "Portugués"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:109
 msgid "Punjabi"
 msgstr "Punjabi"
 
-#: ../src/gcompris/config.c:109
+#: ../src/gcompris/config.c:110
 msgid "Romanian"
 msgstr "Rumano"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:111
 msgid "Russian"
 msgstr "Ruso"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:112
 msgid "Serbian (Latin)"
 msgstr "Servio (latino)"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:113
 msgid "Serbian"
 msgstr "Servio"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:114
 msgid "Slovak"
 msgstr "Eslovaco"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:115
 msgid "Slovenian"
 msgstr "Esloveno"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:116
 msgid "Somali"
 msgstr "Somalí"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:117
 msgid "Spanish"
 msgstr "Español"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:118
 msgid "Swedish"
 msgstr "Sueco"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:119
 msgid "Tamil"
 msgstr "Tamil"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:120
 msgid "Thai"
 msgstr "Tailandés"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:121
 msgid "Turkish (Azerbaijan)"
 msgstr "Turco (Azerbaiyaní)"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:122
 msgid "Turkish"
 msgstr "Turco"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:123
 msgid "Ukrainian"
 msgstr "Ucraniano"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:124
 msgid "Urdu"
 msgstr "Urdu"
 
-#: ../src/gcompris/config.c:124
+#: ../src/gcompris/config.c:125
 msgid "Vietnamese"
 msgstr "Vietnamita"
 
-#: ../src/gcompris/config.c:125
+#: ../src/gcompris/config.c:126
 msgid "Walloon"
 msgstr "Valón"
 
-#: ../src/gcompris/config.c:126
+#: ../src/gcompris/config.c:127
 msgid "Zulu"
 msgstr "Zulú"
 
-#: ../src/gcompris/config.c:131
+#: ../src/gcompris/config.c:132
 msgid "Timer: No time limit"
 msgstr "Temporizador: sin límite de tiempo"
 
-#: ../src/gcompris/config.c:132
+#: ../src/gcompris/config.c:133
 msgid "Timer: Slow timer"
 msgstr "Temporizador: temporizador lento"
 
-#: ../src/gcompris/config.c:133
+#: ../src/gcompris/config.c:134
 msgid "Timer: Normal timer"
 msgstr "Temporizador: temporizador normal"
 
-#: ../src/gcompris/config.c:134
+#: ../src/gcompris/config.c:135
 msgid "Timer: Fast timer"
 msgstr "Temporizador: temporizador rápido"
 
-#: ../src/gcompris/config.c:138
+#: ../src/gcompris/config.c:139
 msgid "Use Gcompris administration module to filter boards"
 msgstr "Usa el módulo de administración de GCompris para filtrar tableros"
 
-#: ../src/gcompris/config.c:192
+#: ../src/gcompris/config.c:193
 msgid "GCompris Configuration"
 msgstr "Configuración de GCompris"
 
-#: ../src/gcompris/config.c:275
+#: ../src/gcompris/config.c:276
 msgid "Fullscreen"
 msgstr "Pantalla completa"
 
-#: ../src/gcompris/config.c:300
+#: ../src/gcompris/config.c:301
+msgid "Remember level for default user"
+msgstr "Recordar el nivel para usuario predeterminado"
+
+#: ../src/gcompris/config.c:327
 msgid "Music"
 msgstr "Música"
 
-#: ../src/gcompris/config.c:325
+#: ../src/gcompris/config.c:352
 msgid "Effect"
 msgstr "Efecto"
 
-#: ../src/gcompris/config.c:349 ../src/gcompris/sugar_gc.c:93
+#: ../src/gcompris/config.c:376 ../src/gcompris/sugar_gc.c:93
 msgid "Zoom"
 msgstr "Ampliación"
 
-#: ../src/gcompris/config.c:386
+#: ../src/gcompris/config.c:413
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "No se pudo abrir la carpeta de apariencias: %s"
 
-#: ../src/gcompris/config.c:417 ../src/gcompris/config.c:877
-#: ../src/gcompris/config.c:891
+#: ../src/gcompris/config.c:444 ../src/gcompris/config.c:912
+#: ../src/gcompris/config.c:926
 #, c-format
 msgid "Skin : %s"
 msgstr "Apariencia : %s"
 
-#: ../src/gcompris/config.c:419
+#: ../src/gcompris/config.c:446
 msgid "SKINS NOT FOUND"
 msgstr "APARIENCIAS NO ENCONTRADAS"
 
@@ -4269,43 +4278,40 @@ msgstr ""
 "Salga e infórmanos\n"
 "del problema."
 
-#: ../src/gcompris/gcompris.c:154
+#: ../src/gcompris/gcompris.c:155
 msgid "run GCompris in fullscreen mode."
 msgstr "ejecutar GCompris a pantalla completa."
 
-#: ../src/gcompris/gcompris.c:157
+#: ../src/gcompris/gcompris.c:158
 msgid "run GCompris in window mode."
 msgstr "ejecutar GCompris en una ventana."
 
-#: ../src/gcompris/gcompris.c:160
+#: ../src/gcompris/gcompris.c:161
 msgid "run GCompris with sound enabled."
 msgstr "ejecutar GCompris con el sonido activado."
 
-#: ../src/gcompris/gcompris.c:163
+#: ../src/gcompris/gcompris.c:164
 msgid "run GCompris without sound."
 msgstr "ejecutar GCompris sin sonido."
 
-#: ../src/gcompris/gcompris.c:166
+#: ../src/gcompris/gcompris.c:167
 msgid "run GCompris with the default system cursor."
 msgstr "ejecutar GCompris con el cursor predeterminado del sistema."
 
-#: ../src/gcompris/gcompris.c:169
+#: ../src/gcompris/gcompris.c:170
 msgid "run GCompris without cursor (touch screen mode)."
 msgstr "ejecutar GCompris sin cursor (modo pantalla táctil)."
 
-#: ../src/gcompris/gcompris.c:172
+#: ../src/gcompris/gcompris.c:173
 msgid "display only activities with this difficulty level."
 msgstr "mostrar sólo actividades con este nivel de dificultad."
 
-#: ../src/gcompris/gcompris.c:175
-msgid "display debug informations on the console."
-msgstr "mostrar información de depuración en la consola."
+#: ../src/gcompris/gcompris.c:176
+msgid "Return to last passed level even when no user is selected"
+msgstr ""
+"Volver al último nivel pasado, incluso cuando no se seleccione un usuario"
 
-#: ../src/gcompris/gcompris.c:178
-msgid "Print the version of "
-msgstr "Imprime la versión de "
-
-#: ../src/gcompris/gcompris.c:181
+#: ../src/gcompris/gcompris.c:179
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
@@ -4317,36 +4323,36 @@ msgstr ""
 "actividad conecta 4). Usa «-l list» para listar todas las actividades "
 "disponibles y sus descripciones."
 
-#: ../src/gcompris/gcompris.c:186
+#: ../src/gcompris/gcompris.c:184
 msgid "GCompris will find the data dir in this directory"
 msgstr "GCompris buscará la carpeta de datos en esta carpeta"
 
-#: ../src/gcompris/gcompris.c:189
+#: ../src/gcompris/gcompris.c:187
 msgid "GCompris will find the skins in this directory"
 msgstr "GCompris buscará las apariencias en esta carpeta"
 
-#: ../src/gcompris/gcompris.c:192
+#: ../src/gcompris/gcompris.c:190
 msgid "GCompris will find the activity plugins in this directory"
 msgstr "GCompris buscará los complementos de actividad en esta carpeta"
 
-#: ../src/gcompris/gcompris.c:195
+#: ../src/gcompris/gcompris.c:193
 msgid "GCompris will find the Python activity in this directory"
 msgstr "GCompris buscará la actividad Python en esta carpeta"
 
-#: ../src/gcompris/gcompris.c:198
+#: ../src/gcompris/gcompris.c:196
 msgid "GCompris will find the locale file (.mo translation) in this directory"
 msgstr ""
 "GCompros buscará el archivo de localización (traducción .mo) en esta carpeta"
 
-#: ../src/gcompris/gcompris.c:201
+#: ../src/gcompris/gcompris.c:199
 msgid "GCompris will find the activities menu in this directory"
 msgstr "GCompris buscará el menú de actividades en esta carpeta"
 
-#: ../src/gcompris/gcompris.c:204
+#: ../src/gcompris/gcompris.c:202
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Ejecutar GCompris en modo administración y gestión de usuarios"
 
-#: ../src/gcompris/gcompris.c:207
+#: ../src/gcompris/gcompris.c:205
 msgid ""
 "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
@@ -4354,24 +4360,24 @@ msgstr ""
 "Usa una base de datos alternativa para los perfiles [$HOME/.config/gcompris/"
 "gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:210
+#: ../src/gcompris/gcompris.c:208
 msgid "Create the alternate database for profiles"
 msgstr "Crea la base de datos alternativa para los perfiles"
 
-#: ../src/gcompris/gcompris.c:213
+#: ../src/gcompris/gcompris.c:211
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Volver a leer los menús XML y almacenarlos en la base de datos"
 
-#: ../src/gcompris/gcompris.c:216
+#: ../src/gcompris/gcompris.c:214
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Establece el perfil a usar. Usa «gcompris -a» para crear perfiles"
 
-#: ../src/gcompris/gcompris.c:219
+#: ../src/gcompris/gcompris.c:217
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Lista todos los perfiles disponibles. Usa «gcompris -a» para crear perfiles"
 
-#: ../src/gcompris/gcompris.c:222
+#: ../src/gcompris/gcompris.c:220
 msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
@@ -4379,47 +4385,47 @@ msgstr ""
 "Ubicación de la carpeta de configuración: [$HOME/.config/gcompris]. Lo "
 "alternativo es establecer $XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:225
+#: ../src/gcompris/gcompris.c:223
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "La ubicación de las carpetas de usuario: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:228
+#: ../src/gcompris/gcompris.c:226
 msgid "Run the experimental activities"
 msgstr "Ejecutar las actividades experimentales"
 
-#: ../src/gcompris/gcompris.c:231
+#: ../src/gcompris/gcompris.c:229
 msgid "Disable the quit button"
 msgstr "Desactivar el botón de salida"
 
-#: ../src/gcompris/gcompris.c:234
+#: ../src/gcompris/gcompris.c:232
 msgid "Disable the config button"
 msgstr "Desactivar el botón de configuración"
 
-#: ../src/gcompris/gcompris.c:237
+#: ../src/gcompris/gcompris.c:235
 msgid "Disable the level button"
 msgstr "Desactivar el botón de nivel"
 
-#: ../src/gcompris/gcompris.c:240
+#: ../src/gcompris/gcompris.c:238
 msgid "Disable the database (slower start and no user log)"
 msgstr ""
 "Desactivar la base de datos (inicio más lento y sin registro del usuario)"
 
-#: ../src/gcompris/gcompris.c:243
+#: ../src/gcompris/gcompris.c:241
 msgid ""
 "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr ""
 "Modo global de arrastrar y soltar: normal, 2 pulsaciones, ambos. Lo "
 "predeterminado es normal."
 
-#: ../src/gcompris/gcompris.c:246
+#: ../src/gcompris/gcompris.c:244
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Permitir la ejecución de instancias múltiples de GCompris."
 
-#: ../src/gcompris/gcompris.c:249
+#: ../src/gcompris/gcompris.c:247
 msgid "Disable maximization zoom"
 msgstr "Desactivar la maximización de la ampliación"
 
-#: ../src/gcompris/gcompris.c:252
+#: ../src/gcompris/gcompris.c:250
 msgid ""
 "Increase activities' timeout delays; useful values > 1.0; 1.0 to not change "
 "hardcoded value"
@@ -4427,7 +4433,7 @@ msgstr ""
 "Incrementa el tiempo de espera de las actividades; valores útiles > 1.0; 1.0 "
 "para no cambiar el valor definido de manera predeterminada en el código"
 
-#: ../src/gcompris/gcompris.c:255
+#: ../src/gcompris/gcompris.c:253
 msgid ""
 "How activities' timeout delays are growing for several actors; useful values "
 "< 1.0; 1.0 to not change hardcoded value"
@@ -4436,11 +4442,19 @@ msgstr ""
 "valores útiles < 1.0; 1.0 para no cambiar el valor definido de manera "
 "predeterminada en el código"
 
-#: ../src/gcompris/gcompris.c:258
+#: ../src/gcompris/gcompris.c:256
 msgid "For test purpose, run in a loop all the activities"
 msgstr "Para pruebas, ejecutar en un bucle todas las actividades"
 
-#: ../src/gcompris/gcompris.c:943
+#: ../src/gcompris/gcompris.c:259
+msgid "display debug informations on the console."
+msgstr "mostrar información de depuración en la consola."
+
+#: ../src/gcompris/gcompris.c:262
+msgid "Print the version of "
+msgstr "Imprime la versión de "
+
+#: ../src/gcompris/gcompris.c:947
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -4462,18 +4476,18 @@ msgstr ""
 "considera usar GNU/Linux. Obtén más información acerca de esto en la FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1236
+#: ../src/gcompris/gcompris.c:1240
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
 msgstr ""
 "Falló al cargar la apariencia «%s» (comprueba que el archivo existe y se "
 "puede leer)"
 
-#: ../src/gcompris/gcompris.c:1252
+#: ../src/gcompris/gcompris.c:1256
 msgid "Retrieving remote data..."
 msgstr "Recuperando datos remotos..."
 
-#: ../src/gcompris/gcompris.c:1513
+#: ../src/gcompris/gcompris.c:1517
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d second old.\n"
@@ -4486,12 +4500,12 @@ msgstr[1] ""
 "No se iniciará GCompris porque el archivo de bloqueo es menos antiguo de %d "
 "segundos.\n"
 
-#: ../src/gcompris/gcompris.c:1517
+#: ../src/gcompris/gcompris.c:1521
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "El archivo de bloqueo es: %s\n"
 
-#: ../src/gcompris/gcompris.c:1638
+#: ../src/gcompris/gcompris.c:1642
 #, c-format
 msgid ""
 "GCompris\n"
@@ -4505,27 +4519,27 @@ msgstr ""
 "Más información en http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1818
+#: ../src/gcompris/gcompris.c:1827
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Usa -l actividad para acceder directamente a una actividad.\n"
 
-#: ../src/gcompris/gcompris.c:1819
+#: ../src/gcompris/gcompris.c:1828
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Lista de actividades disponibles es :\n"
 
-#: ../src/gcompris/gcompris.c:1850
+#: ../src/gcompris/gcompris.c:1859
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Número de actividades: %d\n"
 
-#: ../src/gcompris/gcompris.c:1886
+#: ../src/gcompris/gcompris.c:1895
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s existe pero no se puede leer o escribir"
 
-#: ../src/gcompris/gcompris.c:1981
+#: ../src/gcompris/gcompris.c:1990
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -4534,7 +4548,7 @@ msgstr ""
 "ERROR: No se encontró el perfil «%s». Ejecute «gcompris --profile list» para "
 "listar los disponibles\n"
 
-#: ../src/gcompris/gcompris.c:1995
+#: ../src/gcompris/gcompris.c:2004
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "La lista de perfiles disponibles es:\n"
@@ -4589,7 +4603,7 @@ msgstr ""
 "Se han desactivado todas las actividades en este perfil. Vaya al módulo de "
 "administración de Gcompris y active al menos una actividad."
 
-#: ../src/gcompris/properties.c:505
+#: ../src/gcompris/properties.c:512
 msgid ""
 "This directory contains the files you create with the GCompris educational "
 "suite\n"
@@ -4597,7 +4611,7 @@ msgstr ""
 "Esta carpeta contiene los archivos que creas con la suit educacional "
 "GCompris\n"
 
-#: ../src/gcompris/properties.c:512
+#: ../src/gcompris/properties.c:519
 msgid ""
 "Put any number of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
@@ -4685,9 +4699,15 @@ msgstr "Regiones de Francia"
 msgid "India"
 msgstr "India"
 
-#: ../src/geo_country-activity/resources/geo_country/board13_0.xml.in.h:1
-msgid "Australia"
-msgstr "Australia"
+#: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:1
+#: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:1
+msgid "Northern Scotland"
+msgstr "Norte de Escocia"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:1
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:1
+msgid "Southern Scotland"
+msgstr "Sur de Escocia"
 
 #: ../src/geo_country-activity/resources/geo_country/board2_0.xml.in.h:1
 msgid "Deutschland Bundesländer"
@@ -4729,12 +4749,6 @@ msgstr "Arrastra y suelta los elementos para redibujar el mapa completo"
 #: ../src/geography-activity/resources/geography/board1_0.xml.in.h:1
 msgid "Continents"
 msgstr "Continentes"
-
-#: ../src/geography-activity/resources/geography/board1_0.xml.in.h:2
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:1
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:6
-msgid "Africa"
-msgstr "África"
 
 #: ../src/geography-activity/resources/geography/board1_0.xml.in.h:3
 msgid "America"
@@ -4794,10 +4808,6 @@ msgstr "Islandia"
 msgid "Jamaica"
 msgstr "Jamaica"
 
-#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:10
-msgid "Mexico"
-msgstr "México"
-
 #: ../src/geography-activity/resources/geography/board2_0.xml.in.h:11
 msgid "United States of America"
 msgstr "Estados Unidos de América"
@@ -4819,6 +4829,7 @@ msgid "Bolivia"
 msgstr "Bolivia"
 
 #: ../src/geography-activity/resources/geography/board3_0.xml.in.h:4
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:13
 msgid "Brazil"
 msgstr "Brasil"
 
@@ -4883,24 +4894,23 @@ msgid "Denmark"
 msgstr "Dinamarca"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:5
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:22
 msgid "Finland"
 msgstr "Finlandia"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:6
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:11
 msgid "France"
 msgstr "Francia"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:7
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:12
 msgid "Germany"
 msgstr "Alemania"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:9
 msgid "Ireland"
 msgstr "Irlanda"
-
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:10
-msgid "Italy"
-msgstr "Italia"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:11
 msgid "Luxembourg"
@@ -4919,6 +4929,7 @@ msgid "Portugal"
 msgstr "Portugal"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:15
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:7
 msgid "Spain"
 msgstr "España"
 
@@ -4983,6 +4994,7 @@ msgid "Moldova"
 msgstr "Moldavia"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:14
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:18
 msgid "Poland"
 msgstr "Polonia"
 
@@ -4996,6 +5008,7 @@ msgid "Russia"
 msgstr "Rusia"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:17
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:16
 msgid "Serbia"
 msgstr "Serbia"
 
@@ -5017,10 +5030,12 @@ msgid "Turkey"
 msgstr "Turquía"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:22
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:20
 msgid "Ukraine"
 msgstr "Ucrania"
 
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:23
+#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:19
 msgid "Greece"
 msgstr "Grecia"
 
@@ -5284,7 +5299,6 @@ msgid "Black Sea"
 msgstr "Mar Negro"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:4
-#| msgid "Mediteranean Sea"
 msgid "Mediterranean Sea"
 msgstr "Mar Mediterráneo"
 
@@ -5455,10 +5469,6 @@ msgstr "Corea del Sur"
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:51
 msgid "North Korea"
 msgstr "Corea del Norte"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:52
-msgid "Japan"
-msgstr "Japón"
 
 #: ../src/geography-activity/resources/geography/board9_0.xml.in.h:53
 msgid "Mongolia"
@@ -7599,39 +7609,40 @@ msgid ""
 "buttons, or anything you can count. If you have lots of brothers and "
 "sisters, you can count them! Or the kids in your class at school. Sing "
 "counting songs. Count lots of things, for practice, and you'll be very good "
-"at adding-up!\n"
+"at subtracting numbers!\n"
 "\n"
 "In this game, these cards are hiding the two parts of a subtraction. You "
 "need to find the two parts of the subtraction, and bring them together "
 "again. Click on a card to see what number it's hiding, then try to find the "
-"other card that goes with it, to make a whole sum. You can only turn over "
-"two cards in one go, so you need to remember where the numbers are hiding, "
-"then you can match them when you find their other half. You're doing the job "
-"of the equals sign, and the numbers need you to put them together and make a "
-"proper sum. When you do that, both those cards disappear! When you've made "
-"them all disappear, found all the subtracts, you've won the game! :)"
+"other card that goes with it, to make a whole difference. You can only turn "
+"over two cards in one go, so you need to remember where the numbers are "
+"hiding, then you can match them when you find their other half. You're doing "
+"the job of the equals sign, and the numbers need you to put them together "
+"and make a proper difference. When you do that, both those cards disappear! "
+"When you've made them all disappear, found all the subtracts, you've won the "
+"game! :)"
 msgstr ""
 "Puedes ver algunas cartas, pero no puedes ver lo que hay al otro lado de "
 "ellas. Cada carta esconde una resta, o la respuesta a ella.\n"
 "Una resta es como esto: 3 - 1 = 2\n"
-"Los números un lado del signo igual (=) tienen que ser iguales que los "
-"números del otro lado. Así 3 (1, ,2, 3) menos 1 (1) da 2. Cuenta en voz alta "
+"Los números en un lado del signo igual (=) tienen que ser iguales que los "
+"números del otro lado. Así 3 (1, 2, 3) menos 1 (1) da 2. Cuenta en voz alta "
 "cuando lo estés calculando, y cuenta con tus dedos, porque de cuantas más "
 "formas hagas algo, mejor lo recordarás. También puedes usar bloques, o "
 "botones, o cualquier cosa que puedas contar. Si tienes muchos hermanos y "
-"hermanas, ¡puedes contarlos a ellos! O los niños que hay tu clase en el "
+"hermanas, ¡puedes contarlos a ellos! O los niños que hay en tu clase en el "
 "colegio. Canta contando canciones. Cuenta muchas cosas, para practicar, y "
-"¡serás muy bueno sumando!.\n"
+"¡serás muy bueno restando números!.\n"
 "\n"
 "En este juego, estas cartas están escondiendo las dos partes de una resta. "
 "Necesitas encontrar las dos partes de la resta, y juntarlas otra vez. Pulsa "
-"sobre una carta para ver el número que esconde, entonces intenta encontrar "
-"la otra carta que va con ella, para hacer una suma total. Sólo puedes dar la "
-"vuelta a dos cartas a la vez, por lo que necesitas recordar dónde se "
-"esconden los números, entonces puedes emparejarlos cuando encuentres su otra "
+"sobre una carta para ver el número que esconde, luego intenta encontrar la "
+"otra carta que va con ella, para hacer una diferencia total. Sólo puedes dar "
+"la vuelta a dos cartas a la vez, por lo que necesitas recordar dónde se "
+"esconden los números, luego puedes emparejarlos cuando encuentres su otra "
 "mitad. Estás haciendo el trabajo del signo igual, y los números necesitan "
-"que tú los juntes y hagas una suma correcta. Cuando lo hagas, ¡ambas cartas "
-"desaparecerán! Cuando las hagas desaparecer a todas, hayas encontrado todas "
+"que los juntes y hagas una diferencia apropiada. Cuando lo hagas, ¡ambas "
+"cartas desaparecerán! Cuando hagas desaparecer a todas, encontrando todas "
 "las restas, ¡habrás ganado el juego! :)"
 
 #: ../src/memory_minus_tux-activity/memory_minus_tux.xml.in.h:1
@@ -8314,11 +8325,12 @@ msgstr "Edgar Degas, La clase de danza - 1873-75"
 
 #: ../src/paintings-activity/resources/paintings/board1_10.xml.in.h:1
 msgid ""
-"Katsushika Hokusai,\\nViewing Sunset over the Ryogoku Bridge from the Ommaya "
-"Embankment - 1830"
+"Katsushika Hokusai,\n"
+"Viewing Sunset over the Ryogoku Bridge from the Ommaya Embankment - 1830"
 msgstr ""
-"Katsushika Hokusai, Viendo la puesta de sol sobre el puente Ryogoku desde el "
-"dique de Ommaya (1830)"
+"Katsushika Hokusai,\n"
+"Viendo la puesta de sol sobre el puente Ryogoku desde el terraplén de Ommaya "
+"- 1830"
 
 #: ../src/paintings-activity/resources/paintings/board1_11.xml.in.h:1
 msgid "Katsushika Hokusa, Poppies - 1833-1834"
@@ -8358,10 +8370,11 @@ msgstr "Katsushika Hokusai, La gran ola de Kanagawa (1823-29)"
 
 #: ../src/paintings-activity/resources/paintings/board1_8.xml.in.h:1
 msgid ""
-"Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
+"Utagawa Hiroshige,\n"
+"The Benzaiten Shrine at Inokashira in Snow - 1760-70"
 msgstr ""
-"Utagawa Hiroshige, El santuario de Benzaiten en Inokashira con nieve "
-"(1760-70)"
+"Utagawa Hiroshige,\n"
+"El santuario de Benzaiten en Inokashira en nieve - 1760-70"
 
 #: ../src/paintings-activity/resources/paintings/board1_9.xml.in.h:1
 msgid "Utagawa Hiroshige, Horse-mackerel and Prawn - 1840"
@@ -8686,6 +8699,12 @@ msgstr "Cambiar la tonalidad:"
 msgid "Select A Melody to Load"
 msgstr "Seleccionar la melodía que cargar"
 
+#. FIXME Should remove the space in the data file instead
+#: ../src/piano_composition-activity/piano_composition.py:449
+#: ../src/piano_composition-activity/piano_composition.py:578
+msgid " "
+msgstr " "
+
 #: ../src/piano_composition-activity/piano_composition.xml.in.h:1
 msgid "Piano Composition"
 msgstr "Composición para piano"
@@ -8796,84 +8815,44 @@ msgstr ""
 "  F5: La# / Si♭\n"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:1
-msgid " America: English Lullaby"
-msgstr " Estados Unidos: canción de cuna inglesa"
+msgid "America: English Lullaby"
+msgstr "América: canción de cuna inglesa"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:2
-msgid " America: Patriotic"
-msgstr " Estados Unidos: patriótica"
+msgid "America: Patriotic"
+msgstr "América: patriótica"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:3
-msgid " America: Shaker Tune"
-msgstr " Estados Unidos: melodía «shaker»"
+msgid "America: Shaker Tune"
+msgstr "América: melodía agitadora"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:4
-msgid " America: Nursery Rhyme"
-msgstr " Estados Unidos: canción de cuna"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:7
-msgid " Spain"
-msgstr " España"
+msgid "America: Nursery Rhyme"
+msgstr "América: poesía infantil"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:8
-msgid " German Kid's Song"
-msgstr " Canción infantil alemana"
+msgid "German Kid's Song"
+msgstr "Canción infantil alemana"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:9
-msgid " Children's Song from Brazil"
-msgstr " Canción infantil de Brasil"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:10
-msgid " German"
-msgstr " Alemán"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:11
-msgid " France"
-msgstr " Francia"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:12
-msgid " Germany"
-msgstr " Alemania"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:13
-msgid " Brazil"
-msgstr " Brasil"
+msgid "Children's Song from Brazil"
+msgstr "Canción infantil de Brasil"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:14
-msgid " Hungary, Nursery Rhyme"
-msgstr " Hungría, canción de cuna"
+msgid "Hungary, Nursery Rhyme"
+msgstr "Hungría, poesía infantil"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:15
-msgid " Hungary, Children's Song"
-msgstr " Hungría, canción infantil"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:16
-msgid " Serbia"
-msgstr " Serbia"
+msgid "Hungary, Children's Song"
+msgstr "Hungría, canción infantil"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:17
-msgid " Britain"
-msgstr " Gran Bretaña"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:18
-msgid " Poland"
-msgstr " Polonia"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:19
-msgid " Greece"
-msgstr " Grecia"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:20
-msgid " Ukraine"
-msgstr " Ucrania"
+msgid "Britain"
+msgstr "Gran Bretaña"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:21
-msgid " Mexican song to break a piñata"
-msgstr " Canción mexicana para romper una piñata"
-
-#: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:22
-msgid " Finland"
-msgstr " Finlandia"
+msgid "Mexican song to break a piñata"
+msgstr "Canción mexicana para romper una piñata"
 
 #: ../src/place_your_satellite-activity/place_your_satellite.py:68
 msgid ""
@@ -9565,11 +9544,11 @@ msgid ""
 msgstr ""
 "En el campo de texto, introduce una orden por línea para controlar tu bote."
 "Las órdenes válidas se muestran entre las dos áreas de entrada. Las órdenes "
-"«izquierda» y «derecha» deben llevar como sufijo el ángulo en grados. Al "
-"valor del ángulo también se le llama «parámetro» de la orden izquierda o "
-"derecha. De forma predeterminada, se usan 45 grados. La orden «hacia "
-"adelante» acepta un parámetro con la distancia. De forma predeterminada se "
-"usa un valor de 1.\n"
+"«izquierda» y «derecha» deben llevar como sufijo el ángulo en grados. Al valor "
+"del ángulo también se le llama «parámetro» de la orden izquierda o derecha. "
+"De forma predeterminada, se usan 45 grados. La orden «hacia adelante» acepta "
+"un parámetro con la distancia. De forma predeterminada se usa un valor de "
+"1.\n"
 "Por ejemplo:\n"
 "- izquierda 90 => Hacer un giro perpendicular a la izquierda\n"
 "- hacia delante 10 => Ir hacia delante 10 unidades (como se muestran en la "
@@ -9668,11 +9647,11 @@ msgstr ""
 "En el campo de texto, introduce una orden por línea para controlar tu "
 "bote. \n"
 "Las órdenes válidas se muestran entre las dos áreas de entrada. Las órdenes "
-"«izquierda» y «derecha» deben llevar como sufijo el ángulo en grados. Al "
-"valor del ángulo también se le llama «parámetro» de la orden izquierda o "
-"derecha. De forma predeterminada, se usan 45 grados. La orden «hacia "
-"adelante» acepta un parámetro con la distancia. De forma predeterminada se "
-"usa un valor de 1.\n"
+"«izquierda» y «derecha» deben llevar como sufijo el ángulo en grados. Al valor "
+"del ángulo también se le llama «parámetro» de la orden izquierda o derecha. "
+"De forma predeterminada, se usan 45 grados. La orden «hacia adelante» acepta "
+"un parámetro con la distancia. De forma predeterminada se usa un valor de "
+"1.\n"
 "Por ejemplo:\n"
 "- izquierda 90 => Hacer un giro perpendicular a la izquierda\n"
 "- hacia delante 10 => Ir hacia delante 10 unidades (como se muestran en la "
@@ -10206,6 +10185,57 @@ msgstr "Entrenamiento con el teclado"
 msgid "Type the complete word as it falls, before it reaches the ground"
 msgstr "Teclea la palabra completa mientras cae, antes de que llegue al suelo"
 
+#~ msgid "Editing group: "
+#~ msgstr "Editando grupo: "
+
+#~ msgid " for class: "
+#~ msgstr " para la clase: "
+
+#~ msgid " Australia"
+#~ msgstr " Australia"
+
+#~ msgid " Africa"
+#~ msgstr " África"
+
+#~ msgid " Japan"
+#~ msgstr " Japón"
+
+#~ msgid " Italy"
+#~ msgstr " Italia"
+
+#~ msgid " Mexico"
+#~ msgstr " México"
+
+#~ msgid " Spain"
+#~ msgstr " España"
+
+#~ msgid " German"
+#~ msgstr " Alemán"
+
+#~ msgid " France"
+#~ msgstr " Francia"
+
+#~ msgid " Germany"
+#~ msgstr " Alemania"
+
+#~ msgid " Brazil"
+#~ msgstr " Brasil"
+
+#~ msgid " Serbia"
+#~ msgstr " Serbia"
+
+#~ msgid " Poland"
+#~ msgstr " Polonia"
+
+#~ msgid " Greece"
+#~ msgstr " Grecia"
+
+#~ msgid " Ukraine"
+#~ msgstr " Ucrania"
+
+#~ msgid " Finland"
+#~ msgstr " Finlandia"
+
 #~ msgid "Chypre"
 #~ msgstr "Chipre"
 
@@ -10221,256 +10251,3 @@ msgstr "Teclea la palabra completa mientras cae, antes de que llegue al suelo"
 
 #~ msgid "sulphur"
 #~ msgstr "azufre"
-
-# está en Francés....
-#~ msgid "Koweit"
-#~ msgstr "Kuwait"
-
-#~ msgid "Irak"
-#~ msgstr "Irak"
-
-#~ msgid "354"
-#~ msgstr "354"
-
-#~ msgid "0"
-#~ msgstr "0"
-
-#~ msgid "Special board that embeds python into GCompris."
-#~ msgstr "Tablero especial que incrusta python dentro de GCompris."
-
-#~ msgid "Special board that embeds python into gcompris."
-#~ msgstr "Tablero especial que incrusta Python dentro de GCompris."
-
-#~ msgid ""
-#~ "The screen has 3 sections: braille cell, alphabet name and lower board "
-#~ "containing 13 letters. Click on each letter in the lower board to know "
-#~ "its corresponding braille code in the braille cell section. Click on the "
-#~ "increment level button to jump to the next 13 letters of the English "
-#~ "alphabets."
-#~ msgstr ""
-#~ "La pantalla tiene tres secciones: la celda Braille, el nombre del "
-#~ "alfabeto y el menor tablero que contiene 13 letras. Presione con el botón "
-#~ "del ratón en cada letra del tablero inferior para conocer su "
-#~ "correspondiente código Braille en la sección de la celda Braille. "
-#~ "Presione con el botón del ratón, en el botón de nivel de incremento para "
-#~ "pasar a las siguientes 13 letras del alfabeto Inglés."
-
-#~ msgid ""
-#~ "Braille code the tile for the corresponding falling letters. Check the "
-#~ "braille chart by clicking on the toggle button for help."
-#~ msgstr ""
-#~ "Los mosaicos del código Braille corresponden a letras con fallas. Revise "
-#~ "la tabla Braille presionando con el botón del ratón en el botón de "
-#~ "activación para obtener ayuda."
-
-#~ msgid ""
-#~ "This chat activity will only work with other GCompris users on your local "
-#~ "network, not on the Internet. To use it, just type in your message and "
-#~ "hit Enter. Your message is then broadcasted on the local network, and any "
-#~ "GCompris program running the chat activity on that local network will "
-#~ "receive and display your message."
-#~ msgstr ""
-#~ "Esta actividad de chat sólo funciona con otro usuario de GCompris en red "
-#~ "local, no en Internet. Para usarlo, simplemente escribe tu mensaje y "
-#~ "pulsa intro. Tu mensaje se distribuye en la red local y cualquier "
-#~ "programa GCompris que esté ejecutando la actividad de chat recibirá y "
-#~ "mostrará tu mensaje."
-
-#~ msgid "1955 Citroën ds 19"
-#~ msgstr "1955 Citroën ds 19"
-
-#~ msgid ""
-#~ "Cannot find the 'gnucap' electric simulator.\n"
-#~ "You can download and install it from:\n"
-#~ "<http://geda.seul.org/tools/gnucap/>\n"
-#~ "To be detected, it must be installed in\n"
-#~ "/usr/bin/gnucap or /usr/local/bin/gnucap.\n"
-#~ "You can still use this activity to draw schematics without computer "
-#~ "simulation."
-#~ msgstr ""
-#~ "No se puede encontrar el simulador eléctrico «gnucap».\n"
-#~ "Puede descargarlo e instalarlo de:\n"
-#~ "<http://geda.seul.org/tools/gnucap/>\n"
-#~ "Para detectarlo, debe instalarse en\n"
-#~ "/usr/bin/gnucap o /usr/local/bin/gnucap.\n"
-#~ "Aún puede usar esta actividad para dibujar esquemas sin simulación por "
-#~ "equipo."
-
-#~ msgid ""
-#~ "GCompris uses the Gnucap electric simulator as a backend. You can get "
-#~ "more information on gnucap at &lt;http://geda.seul.org/tools/gnucap/&gt;."
-#~ msgstr ""
-#~ "GCompris usa el simulador eléctrico GNUcap como backend. Puede obtener "
-#~ "información sobre gnucap en &lt;http://geda.seul.org/tools/gnucap/&gt;."
-
-#~ msgid "Your system default"
-#~ msgstr "Lo predeterminado en su sistema"
-
-#~ msgid "No time limit"
-#~ msgstr "Sin límite de tiempo"
-
-#~ msgid "Slow timer"
-#~ msgstr "Temporizador lento"
-
-#~ msgid "Normal timer"
-#~ msgstr "Temporizador normal"
-
-#~ msgid "Fast timer"
-#~ msgstr "Temporizador rápido"
-
-#~ msgid "GCompris will find the python activity in this directory"
-#~ msgstr "GCompris buscará la actividad Python en esta carpeta"
-
-#~ msgid ""
-#~ "GCompris will get images, sounds and activity data from this server if "
-#~ "not found locally."
-#~ msgstr ""
-#~ "GCompris cogerá imágenes, sonidos y datos de las actividades de este "
-#~ "servidor si no se encuentran localmente."
-
-#~ msgid ""
-#~ "Only when --server is provided, disable check for local resource first. "
-#~ "Data are always taken from the web server."
-#~ msgstr ""
-#~ "Sólo cuando se especifica --server, desactivar la comprobación de "
-#~ "recursos locales en primer lugar. Los datos siempre se obtienen del "
-#~ "servidor web."
-
-#~ msgid ""
-#~ "In server mode, specify the cache directory used to avoid useless "
-#~ "downloads."
-#~ msgstr ""
-#~ "En modo servidor, especifica donde está la carpeta caché para evitar "
-#~ "descargas innecesarias."
-
-#~ msgid ""
-#~ "The --server option cannot be used because GCompris has been compiled "
-#~ "without network support!"
-#~ msgstr ""
-#~ "¡La opción --server no se puede usar porque GCompris se ha compilado sin "
-#~ "soporte de red!"
-
-#~ msgid "Antartica"
-#~ msgstr "Antártida"
-
-#~ msgid "Serbia Montenegro"
-#~ msgstr "Serbia Montenegro"
-
-#~ msgid "%d is divisible by %s."
-#~ msgstr "%d es divisible por %s."
-
-#~ msgid "%s are the factors of %d."
-#~ msgstr "%s son los factores de %d."
-
-#~ msgid "%s = %d"
-#~ msgstr "%s = %d"
-
-#~ msgid "%d + %d"
-#~ msgstr "%d + %d"
-
-#~ msgid "%d − %d"
-#~ msgstr "%d - %d"
-
-#~ msgid "%d × %d"
-#~ msgstr "%d x %d"
-
-#~ msgid "%d ÷ %d"
-#~ msgstr "%d ÷ %d"
-
-#~ msgid "Guess a number between %d and %d"
-#~ msgstr "Adivina un número entre %d y %d"
-
-#~ msgid "Please enter a number between %d and %d"
-#~ msgstr "Introduce un número entre %d y %d"
-
-#~ msgid "The electricity power is measured in Watt (W)."
-#~ msgstr "La potencia eléctrica se mide en Vatios (W)."
-
-#~ msgid "Click on the correct mucical instruments"
-#~ msgstr "Pulsa en los instrumentos musicales correctos"
-
-#~ msgid "the bass drum"
-#~ msgstr "el bombo"
-
-#~ msgid ""
-#~ "The solver algorithm described on haar.clara.co.uk is a valuable resource "
-#~ "to know more about the Lights Off game: &lt;http://www.haar.clara.co.uk/"
-#~ "Lights/solving.html&gt;"
-#~ msgstr ""
-#~ "El algoritmo resolutor descrito en haar.clara.co.uk está disponible para "
-#~ "saber más acerca del juego Luces fuera: &lt;http://www.haar.clara.co.uk/"
-#~ "Lights/solving.html&gt;"
-
-#~ msgid "He became a teacher after graduating and secretly taught his method."
-#~ msgstr ""
-#~ " Se convirtió en maestro luego de graduarse y secretamente enseñó su "
-#~ "método."
-
-#~ msgid ""
-#~ "He died of tuberculosis. He is burried in the Pantheon in Paris. A "
-#~ "monument is erected to honor him."
-#~ msgstr ""
-#~ "Murió de tuberculosis. Está enterrado en el Panteón, en París. Un "
-#~ "monumento está ergido en su honor."
-
-#~ msgid ""
-#~ "Use the keyboard arrows to move Tux up to the door. In this maze, the "
-#~ "move is relative (first person). Use the up arrow to go forward. The "
-#~ "other arrow let you turn Tux in another direction."
-#~ msgstr ""
-#~ "Usa las flechas del teclado para mover a Tux hasta la puerta. En este "
-#~ "laberinto, el movimiento es relativo (en primera persona). Usa la flecha "
-#~ "de arriba para ir hacia delante. Las otras flechas te permiten girar a "
-#~ "Tux en otra dirección."
-
-#~ msgid "Use the keyboard arrows to move Tux up to the door."
-#~ msgstr "Utiliza las flechas del teclado para mover a Tux hacia la puerta."
-
-#~ msgid ""
-#~ "Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
-#~ "switch between invisible and visible modes. Visible mode just gives you "
-#~ "an indication of your position, like a map. You cannot move Tux in "
-#~ "visible mode."
-#~ msgstr ""
-#~ "Usa las flechas del teclado para mover a Tux hacia la puerta. Usa la "
-#~ "tecla «espacio» para cambiar entre los modos visible e invisible. En el "
-#~ "modo visible sólo se te da una indicación de su posición, como un mapa. "
-#~ "No puedes mover a Tux en modo visible."
-
-#~ msgid "satchel/s_tchel/a/o/i"
-#~ msgstr "cartera/c_rtera/a/o/i"
-
-#~ msgid "An empty python activity to use as a starting point"
-#~ msgstr "Una actividad en Python vacía para usar como punto de inicio"
-
-#~ msgid ""
-#~ "Thanks to Guido van Rossum and the python team for this powerful language!"
-#~ msgstr ""
-#~ "¡Gracias a Guido van Rossum y al equipo de python por este potente "
-#~ "lenguaje!"
-
-#~ msgid "Test board for the python plugin"
-#~ msgstr "Banco de pruebas para el complemento de Python"
-
-#~ msgid ""
-#~ "Learn how to enter text in a wordprocessor. This wordprocessor is special "
-#~ "in that it enforces the use of styles. This way, the children will "
-#~ "understand their benefit when moving to more feature full wordprocessor "
-#~ "like OpenOffice.org."
-#~ msgstr ""
-#~ "Aprende cómo introducir texto en un procesador de textos. Este procesador "
-#~ "de textos es especial ya que refuerza el uso de estilos. De esta manera, "
-#~ "los niños aprenderán su beneficio cuando trabajen con procesadores de "
-#~ "textos llenos de características como OpenOffice.org."
-
-#~ msgid "story"
-#~ msgstr "relato"
-
-#~ msgid "year"
-#~ msgstr "año"
-
-#~ msgid "Help"
-#~ msgstr "Ayuda"
-
-#~ msgid "Stop"
-#~ msgstr "Parar"

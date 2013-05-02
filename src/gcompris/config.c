@@ -546,6 +546,18 @@ gc_locale_get_name(const gchar *locale_code)
 
       i=i+2;
     }
+
+  dot_char = g_strrstr ( locale, "_");
+  i = 0;
+  while(linguas[i] != NULL)
+    {
+
+      if( !g_ascii_strncasecmp(locale, linguas[i],
+			       (dot_char ? dot_char - locale : strlen(locale)) ) )
+	return(gettext(linguas[i+1]));
+
+      i=i+2;
+    }
   // Oups this locale is not in the table.
   return( NULL );
 }
