@@ -216,20 +216,33 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       g_warning ("Font to display words have size %d  ascent : %d, descent : %d.\n Set inerline to %d",
 		 font_size, ascent, descent, interline);
 
-      gc_wordlist = gc_wordlist_get_from_file("wordsgame/default-$LOCALE.xml");
+      gc_wordlist = gc_wordlist_get_from_file("readingh/default-$LOCALE.xml");
 
       if(!gc_wordlist)
-	{
-	  /* Fallback to english */
-	  gc_wordlist = gc_wordlist_get_from_file("wordsgame/default-en.xml");
+	  {
+    	  /* Fallback to wordsgame list */
+    	  gc_wordlist = gc_wordlist_get_from_file("wordsgame/default-$LOCALE.xml");
 
-	  if(!gc_wordlist)
-	    {
-	      gcomprisBoard = NULL;
-	      gc_dialog(_("Error: We can't find\na list of words to play this game.\n"), gc_board_end);
-	      return;
-	    }
-	}
+          if(!gc_wordlist)
+    	  {
+        	  /* Fallback to English */
+        	  gc_wordlist = gc_wordlist_get_from_file("readingh/default-$LOCALE.xml");
+
+    	      if(!gc_wordlist)
+    	  	  {
+
+				  /* Fallback to English wordsgame list*/
+				  gc_wordlist = gc_wordlist_get_from_file("wordsgame/default-en.xml");
+
+				  if(!gc_wordlist)
+				  {
+					  gcomprisBoard = NULL;
+					  gc_dialog(_("Error: We can't find\na list of words to play this game.\n"), gc_board_end);
+					  return;
+				  }
+    	  	  }
+    	  }
+	  }
 
 
       currentMode=MODE_VERTICAL; // Default mode

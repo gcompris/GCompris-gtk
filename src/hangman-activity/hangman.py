@@ -58,10 +58,36 @@ class Gcompris_hangman:
     # the number of trials left to the user
     self.trial = 0
     # All the vowel of your language (keep empty if non applicable)
-    self.vowels = unicode(_("aeiouy"), encoding="utf8")
+    # Separate with /. You can use digraphs, trigraphs etc.
+    tempvowels = unicode(_("a/e/i/o/u/y"), encoding="utf8")
+    #tempvowels = "a/e/i/o/u/y"
+    self.vowels = tempvowels.split("/")
     # All the consonants of your language (keep empty if non applicable)
-    self.consonants = unicode(_("bcdfghjklmnpqrstvwxz"), encoding="utf8")
-    # Letters equivallence for the hangman activity. It has the
+    # Separate with /. You can use digraphs, trigraphs etc. For example, both 's' and 'sch' could be in the list for German
+    tempconsonants = unicode(_("b/c/d/f/g/h/j/k/l/m/n/p/q/r/s/t/v/w/x/z"), encoding="utf8")
+    self.consonants = tempconsonants.split("/")
+    
+    # Keys to letters equivalence for the hangman activity. It has the
+    # form of a space separated list like: "é=e/E è=e/E sch=S"
+    # Letters on the left of the = can be multigraphs and represent the letters on the buttons.
+    # Letters on the right are single letters pressed on the keyboard.
+    # If you wish to allow different key presses for the same letter, separate the letters on the right with /
+    # Keep the word NONE if not available in your language
+    self.keyequivs = unicode(_("a=a"), encoding="utf8")
+    if self.keyequivs == "a=a":
+      self.keyequivs = ""
+    
+    # Create equivs list
+    self.keyequivList = {}
+    for keyequiv in self.keyequivs.split(' '):
+      try:
+          (k, v) = keyequiv.split('=')
+          self.keyequivList[k]=v
+      except:
+        print ("ERROR: Bad key equivalence list '%s' for hangman: " %(self.keyequivs, ))
+
+
+    # Letters equivalence for the hangman activity. It has the
     # form of a space separated list like: "e=éè a=àâ"
     # Keep the word NONE if not available in your language
     self.equivs = unicode(_("NONE"), encoding="utf8")
@@ -75,7 +101,8 @@ class Gcompris_hangman:
         (k, v) = equiv.split('=')
         self.equivList.append(k + v)
       except:
-        print ("ERROR: Bad equivalence liste '%s'" %(self.equivs, ))
+        print ("ERROR: Bad equivalence list '%s'" %(self.equivs, ))
+
 
   def start(self):
     # Create our rootitem. We put each canvas item in it so at the end we
@@ -99,14 +126,27 @@ class Gcompris_hangman:
     self.wordlist = None
     try:
       self.language = gcompris.gcompris_gettext( gcompris.get_locale_name(gcompris.get_locale()) )
-      self.wordlist = gcompris.get_wordlist("wordsgame/default-$LOCALE.xml")
+      self.wordlist = gcompris.get_wordlist("hangman/default-$LOCALE.xml")
     except:
       pass
-
+    # Fallback to wordsgame list
     if not self.wordlist:
-      # Fallback to english
-      self.wordlist = gcompris.get_wordlist("wordsgame/default-en.xml")
-      self.language = _("English")
+        try:
+            self.language = gcompris.gcompris_gettext( gcompris.get_locale_name(gcompris.get_locale()) )
+            self.wordlist = gcompris.get_wordlist("wordsgame/default-$LOCALE.xml")
+        except:
+            pass
+    # Fallback to english
+    if not self.wordlist:
+        try:
+            self.wordlist = gcompris.get_wordlist("hangman/default-en.xml")
+            self.language = _("English")
+        except:
+            pass
+    # Fallback to English wordsgame list
+    if not self.wordlist:
+        self.wordlist = gcompris.get_wordlist("wordsgame/default-en.xml")
+        self.language = _("English")
 
     if not self.wordlist:
       gcompris.utils.dialog(_("Could not find the list of words."),
@@ -198,16 +238,19 @@ class Gcompris_hangman:
                          fill_color, stroke_color):
     group = goocanvas.Group(parent = self.rootitem)
 
-    w = 40
+    w = 60
     max_per_line =gcompris.BOARD_WIDTH / w - 2
     x = (gcompris.BOARD_WIDTH - (max_per_line * w)) / 2
     wc = 0
     line = 0
+    #shifting the virtual keyboard down
+    # - tested with 2 or 3 rows of consonants + 1 row of vowels
+    yshift=60
     for line in range(0, len(letter_set) / max_per_line + 1):
       for i in range(0, max_per_line):
         if wc < len(letter_set):
           self.keys.append(
-            Key(self, group, x + i*w, y + line*w, letter_set[wc],
+            Key(self, group, x + i*w, y +yshift + line*w/3*2, letter_set[wc],
                 self.get_equiv(letter_set[wc]),
                 fill_color, stroke_color) )
           wc += 1
@@ -227,12 +270,58 @@ class Gcompris_hangman:
     self.word = self.get_next_word()
     self.letters = []
     self.keys= []
+    # get letters from letter list and parse according to multigraphs:
+    # append consonants and vowels into a new list for easy reference
+    multigraphlist = set(self.vowels+self.consonants)
 
-    x = (gcompris.BOARD_WIDTH - (len(self.word) * w)) / 2
-    for i in range(0, len(self.word)):
-      self.letters.append(Letter(self, x + i*w, 70,
-                                 self.word[i],
-                                 self.get_equiv(self.word[i])))
+    # find out the length of the longest multigraph and store in constant
+    longestmultigraph=1;
+    for i,v in enumerate(multigraphlist):
+        if longestmultigraph < len(v):
+            longestmultigraph =  len(v)
+    # chop up the word according to multigraphs, so the length of the word can be calculated
+    parsedword=[]
+    graphlength=longestmultigraph
+    wordlength=len(self.word)
+    i=0
+    while i < wordlength:
+        graphlength=longestmultigraph
+        # make sure the end of the multigraph does not get out of bounds
+        while (i+graphlength) > wordlength:
+           graphlength = graphlength-1
+        #  compare substring with list of multigraphs and reduce length if not found
+        found = False
+        while (found == False):
+            # check if multigrasph is valid
+            if (self.word[i:i+graphlength] in multigraphlist):
+                parsedword.append(self.word[i:i+graphlength])
+                found = True
+            else:
+                # make sure we don't get an endless loop or empty letters
+                if (graphlength<= 1):
+                    found = True
+                    parsedword.append(self.word[i])
+                    graphlength=1
+            # the next time, look for a shorter multigraph
+            graphlength = graphlength - 1
+        # skip to the next multigraph in the word
+        i = i+1+graphlength
+    # end parsing the word with multigraphs
+
+    # now construct and display the word for the game    
+    x = (gcompris.BOARD_WIDTH - (len(parsedword) * w)) / 2
+  
+    for i in range(0, len(parsedword)):
+        # dynamic width of last multigraph in the word
+        if(i>0):
+            if(len(parsedword[i-1])>1):
+                xshift=(len(parsedword[i-1])-1)*0.75/len(parsedword[i-1]) #todo factor
+        else:
+            xshift=0
+    
+        self.letters.append(Letter(self, x + (i+xshift)*w, 70,
+                                 parsedword[i],
+                                 self.get_equiv(parsedword[i])))
 
     # Display the language
     goocanvas.Text(
@@ -248,7 +337,7 @@ class Gcompris_hangman:
     # Display the virtual keyboard
     (group_vowels, y_vowels) = self.display_letter_set(self.vowels, 0,
                                                        0xFF6633AAL, 0xFF33CCBBL)
-    (group_cons, y_cons) = self.display_letter_set(self.consonants, y_vowels + 20,
+    (group_cons, y_cons) = self.display_letter_set(self.consonants, y_vowels,
                                                    0x66FF33AAL, 0xFF33CCBBL)
 
     group_vowels.translate(0, gcompris.BOARD_HEIGHT - y_cons - 40)
@@ -270,8 +359,8 @@ class Gcompris_hangman:
   def check_letters(self, targetLetter):
     retval = False
     for letter in self.letters:
-      if letter.check(targetLetter):
-        retval = True
+        if letter.check(targetLetter):
+            retval = True
     return retval
 
   def hide_letters(self, status):
@@ -279,11 +368,23 @@ class Gcompris_hangman:
       letter.hide(status)
 
   def get_equiv(self, letter):
-    """ Return equivallence for the given letter """
-    letters = letter
-    for v in self.equivList:
-      if v.count(letter):
-        letters += v
+    """ Get key equivalence for the given letter/multigraph """
+    letters = [letter]
+    if letter in self.keyequivList:
+        try:
+            tempequivs=self.keyequivList[letter].split('/')
+            for v in tempequivs:
+                letters.append(v)
+        except:
+            print("Error parsing multigraphs in equivalence list: "+letter)
+
+    """ Get equivalence for the given letter """
+    #print("----- getting equivalence for: "+letter)
+    if(len(letter)==1):
+        #print("grabbing from list")
+        for v in self.equivList:
+          if v.count(letter):
+            letters.append(v)
     return letters
 
   def ok_event(self, widget, target, event=None):
@@ -317,7 +418,18 @@ class Letter:
 
       fill_color = 0xFF3366AAL
       stroke_color = 0xFF33CCAAL
-      w = 30
+      # dynamic display width for multigraphs
+      if(len(letter)==1):
+          xshift=1
+      else:
+          if(len(letter)==2):
+              xshift=len(letter)*0.75
+          else:
+              if(len(letter)==3):
+                  xshift=len(letter)*0.5
+              else:
+                  xshift=len(letter)*0.25
+      w = 30*xshift
       h = 30
 
       self.letters = letters
@@ -369,7 +481,8 @@ class Key:
       self.letters = letters
       self.disabled = False
 
-      w = 30
+      # wide enough to fit "mmm". If there should be a need for longer multigraphs in the future, some dynamic programming will be required
+      w = 55
       h = 30
 
       self.rect = goocanvas.Rect(
