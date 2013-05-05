@@ -248,13 +248,13 @@ class Colors:
     self.initial_color = initial_color
 
     if initial_color == 0:
-      self.color_1 = 'red'
-      self.color_2 = 'green'
-      self.color_3 = 'blue'
+      self.color_1 = _('red')
+      self.color_2 = _('green')
+      self.color_3 = _('blue')
     else:
-      self.color_1 = 'cyan'
-      self.color_2 = 'magenta'
-      self.color_3 = 'yellow'
+      self.color_1 = _('cyan')
+      self.color_2 = _('magenta')
+      self.color_3 = _('yellow')
 
     self.color_rgb = [initial_color, initial_color, initial_color]
     self.color1 = self.color2 = self.color3 = self.initial_color
