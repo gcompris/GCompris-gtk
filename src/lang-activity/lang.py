@@ -19,7 +19,7 @@
 import gtk
 import gtk.gdk
 import gcompris
-import gcompris.utils
+import gcompris.bonus
 import gcompris.skin
 import gcompris.sound
 import goocanvas
@@ -29,47 +29,14 @@ from gcompris import gcompris_gettext as _
 from langLib import *
 from langFindit import *
 
-class MissingImage:
-  """This is used to display a missing image"""
-
-  def __init__(self, rootitem, langActivity):
-    self.missingroot = goocanvas.Group( parent = rootitem )
-    width = 280
-    height = 240
-    item = goocanvas.Rect( parent = self.missingroot,
-                           x = gcompris.BOARD_WIDTH  / 2 - width / 2,
-                           y = gcompris.BOARD_HEIGHT / 2 - height / 2,
-                           width = width,
-                           height = height,
-                           radius_x = 5,
-                           radius_y = 5,
-                           stroke_color_rgba = 0x666666FFL,
-                           fill_color_rgba = 0x33333366L,
-                           line_width = 2.0 )
-    item.connect("button_press_event", langActivity.next_event, None)
-    self.missingtext = goocanvas.Text(
-      parent = self.missingroot,
-      x = gcompris.BOARD_WIDTH / 2,
-      y = gcompris.BOARD_HEIGHT / 2,
-      fill_color = "black",
-      font = gcompris.skin.get_font("gcompris/subtitle"),
-      text = _("Missing Image"),
-      anchor = gtk.ANCHOR_CENTER,
-      alignment = pango.ALIGN_CENTER
-      )
-
-  def hide(self):
-    self.missingroot.props.visibility = goocanvas.ITEM_INVISIBLE
-
-  def show(self, triplet):
-    self.missingroot.props.visibility = goocanvas.ITEM_VISIBLE
-
-
 class Gcompris_lang:
   """Empty gcompris python class"""
 
   def __init__(self, gcomprisBoard):
-    print "lang init"
+    # These are used to let us restart only after the bonus is displayed.
+    # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
+    self.board_paused  = 0;
+    self.gamewon       = 0;
 
     # Save the gcomprisBoard, it defines everything we need
     # to know from the core
@@ -79,26 +46,22 @@ class Gcompris_lang:
     gcomprisBoard.disable_im_context = True
 
   def start(self):
-    print "lang start"
     self.saved_policy = gcompris.sound.policy_get()
     gcompris.sound.policy_set(gcompris.sound.PLAY_AND_INTERRUPT)
 
     # init config to default values
     self.config_dict = self.init_config()
 
-    print "init self.config_dict :", self.config_dict
-
     # change configured values
-    print "gcompris.get_board_conf() : ", gcompris.get_board_conf()
     self.config_dict.update(gcompris.get_board_conf())
-
-    print "self.config_dict final :", self.config_dict
 
     if self.config_dict.has_key('locale_sound'):
       gcompris.set_locale(self.config_dict['locale_sound'])
 
     # Set the buttons we want in the bar
-    gcompris.bar_set(gcompris.BAR_LEVEL|gcompris.BAR_REPEAT|gcompris.BAR_CONFIG)
+    handle = gcompris.utils.load_svg("lang/repeat.svg")
+    gcompris.bar_set_repeat_icon(handle)
+    gcompris.bar_set(gcompris.BAR_LEVEL|gcompris.BAR_REPEAT_ICON|gcompris.BAR_CONFIG)
     gcompris.bar_location(gcompris.BOARD_WIDTH / 2 - 100, -1, 0.6)
 
     # Set a background image
@@ -112,19 +75,30 @@ class Gcompris_lang:
 
     self.langLib = LangLib(gcompris.DATA_DIR + "/lang/lang.xml")
     self.chapters = self.langLib.getChapters()
-    # FIXME Do not manage Chapter yet
-    self.currentChapterId = 0
+
+    if self.gcomprisBoard.mode == "":
+      gcompris.utils.dialog("ERROR, missing 'mode' in the xml menu to specify the chapter",
+                            None)
+      return
+    self.currentChapterName = self.gcomprisBoard.mode
 
     # Manage levels (a level is a lesson in the lang model)
     self.gcomprisBoard.level = 1
-    self.gcomprisBoard.maxlevel = \
-        len ( self.chapters.getChapters()[self.currentChapterId].getLessons() )
+    try:
+      self.gcomprisBoard.maxlevel = \
+          len ( self.chapters.getChapters()[self.currentChapterName].getLessons() )
+    except:
+      gcompris.utils.dialog("ERROR, missing chapter '" + self.currentChapterName + "'",
+                            None)
+      return
     gcompris.bar_set_level(self.gcomprisBoard)
 
+    self.currentExerciseModes = []
     self.currentExercise = None
-    self.currentLesson = self.langLib.getLesson(self.currentChapterId,
+    self.currentLesson = self.langLib.getLesson(self.currentChapterName,
                                                 self.gcomprisBoard.level - 1)
     self.displayLesson( self.currentLesson )
+    self.pause(0);
 
   def end(self):
     gcompris.sound.policy_set(self.saved_policy)
@@ -135,11 +109,14 @@ class Gcompris_lang:
 
 
   def ok(self):
-    print("lang ok.")
+    pass
 
 
   def repeat(self):
-    self.playVoice( self.currentLesson.getTriplets()[self.currentTripletId] )
+    if self.currentExercise:
+      self.currentExercise.repeat()
+    else:
+      self.playVoice( self.currentLesson.getTriplets()[self.currentTripletId] )
 
   def init_config(self):
     default_config = { 'locale_sound' : 'NULL' }
@@ -169,7 +146,7 @@ class Gcompris_lang:
 
     gcompris.combo_locales_asset(bconf, _("Select locale"),
                                  self.config_dict['locale_sound'],
-                                 "voices/$LOCALE/colors/red.ogg")
+                                 "lang/abcdarium/audio/$LOCALE/red.ogg")
 
   # Callback when the "OK" button is clicked in configuration window
   # this get all the _changed_ values
@@ -186,16 +163,33 @@ class Gcompris_lang:
 
 
   def key_press(self, keyval, commit_str, preedit_str):
-    utf8char = gtk.gdk.keyval_to_unicode(keyval)
-    strn = u'%c' % utf8char
+    if self.currentExercise:
+      return
 
-    print("Gcompris_lang key press keyval=%i %s" % (keyval, strn))
+    if keyval == gtk.keysyms.Left or keyval == gtk.keysyms.Up:
+      self.previous_event(keyval)
+    elif keyval == gtk.keysyms.Right or keyval == gtk.keysyms.Down:
+      self.next_event(keyval)
 
   def pause(self, pause):
-    print("lang pause. %i" % pause)
+    self.board_paused = pause
+
+    # When the bonus is displayed, it call us first
+    # with pause(1) and then with pause(0)
+    # the game is won
+    if(self.gamewon == 1 and pause == 0):
+      self.gamewon = 0
+      self.next_level()
+
+    return
+
 
 
   def next_level(self):
+    if self.currentExercise:
+      self.currentExercise.stop()
+      self.currentExercise = None
+
     if self.gcomprisBoard.level < self.gcomprisBoard.maxlevel:
       self.set_level(self.gcomprisBoard.level + 1)
     else:
@@ -208,8 +202,9 @@ class Gcompris_lang:
 
     if self.currentExercise:
       self.currentExercise.stop()
+      self.currentExercise = None
 
-    self.currentLesson = self.langLib.getLesson(self.currentChapterId,
+    self.currentLesson = self.langLib.getLesson(self.currentChapterName,
                                                 self.gcomprisBoard.level - 1)
     self.displayLesson( self.currentLesson )
 
@@ -290,7 +285,6 @@ class Gcompris_lang:
       )
 
     # The triplet area
-    self.missingImage = MissingImage(self.lessonroot, self)
     self.imageitem = goocanvas.Image( parent = self.lessonroot )
     self.imageitem.connect("button_press_event", self.next_event, None)
     self.descriptionitem = goocanvas.Text(
@@ -307,16 +301,28 @@ class Gcompris_lang:
 
   def playVoice(self, triplet):
     if triplet.voice:
-      gcompris.sound.play_ogg("voices/$LOCALE/" + triplet.voice)
+      gcompris.sound.play_ogg(triplet.voice)
+
+  def runExercise(self):
+    if len(self.currentExerciseModes):
+      self.currentExercise = Findit(self, self.rootitem, self.currentLesson,
+                                    self.currentExerciseModes.pop())
+      self.currentExercise.start()
+      return True
+    return False
 
   def displayImage(self, triplet):
 
     if len(self.tripletSeen) == len(self.currentLesson.getTriplets()):
       self.clearLesson()
-      self.currentExercise = Findit(self, self.rootitem, self.currentLesson)
-      self.currentExercise.start()
+      # We will run the exercise 3 times in different modes
+      self.currentExerciseModes = [Findit.WITH_IMAGE,
+                                   Findit.WITH_QUESTION|Findit.WITH_IMAGE,
+                                   Findit.WITH_QUESTION|Findit.WITH_TEXT|Findit.WITH_IMAGE]
+      self.runExercise()
       return
 
+    # Display the next triplet
     self.tripletSeen.add(triplet)
     self.playVoice( triplet )
     self.descriptionitem.set_properties (
@@ -326,31 +332,35 @@ class Gcompris_lang:
       text = str(self.currentTripletId + 1) + "/" \
         + str( len( self.currentLesson.getTriplets() ) ),
       )
-    if triplet.image:
-      self.missingImage.hide()
-      self.imageitem.props.visibility = goocanvas.ITEM_VISIBLE
-      pixbuf = gcompris.utils.load_pixmap(gcompris.DATA_DIR + "/lang/" +
-                                          triplet.image)
-      center_x =  pixbuf.get_width()/2
-      center_y =  pixbuf.get_height()/2
-      self.imageitem.set_properties(pixbuf = pixbuf,
-                                    x = gcompris.BOARD_WIDTH  / 2 - center_x,
-                                    y = gcompris.BOARD_HEIGHT / 2 - center_y )
-    else:
-      self.imageitem.props.visibility = goocanvas.ITEM_INVISIBLE
-      self.missingImage.show(triplet)
+    self.imageitem.props.visibility = goocanvas.ITEM_VISIBLE
+    pixbuf = gcompris.utils.load_pixmap(gcompris.DATA_DIR + "/" +
+                                        triplet.image)
+    center_x =  pixbuf.get_width()/2
+    center_y =  pixbuf.get_height()/2
+    self.imageitem.set_properties(pixbuf = pixbuf,
+                                  x = gcompris.BOARD_WIDTH  / 2 - center_x,
+                                  y = gcompris.BOARD_HEIGHT / 2 - center_y )
 
-  def previous_event(self, event, target,item, dummy):
+  def previous_event(self, event=None, target=None, item=None, dummy=None):
     self.currentTripletId -= 1
     if self.currentTripletId < 0:
       self.currentTripletId = len( self.currentLesson.getTriplets() ) - 1
     self.displayImage( self.currentLesson.getTriplets()[self.currentTripletId] )
 
-  def next_event(self, event, target, item, dummy):
+  def next_event(self, event=None, target=None, item=None, dummy=None):
     self.currentTripletId += 1
     if self.currentTripletId >= len( self.currentLesson.getTriplets() ):
       self.currentTripletId = 0
     self.displayImage( self.currentLesson.getTriplets()[self.currentTripletId] )
+
+  def win(self):
+    if not self.runExercise():
+      self.gamewon = 1
+      gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.FLOWER)
+
+  def loose(self):
+    self.gamewon = 0
+    gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.FLOWER)
 
 
 

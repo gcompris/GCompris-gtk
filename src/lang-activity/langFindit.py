@@ -32,7 +32,7 @@ from langLib import *
 class SpotTarget:
   """Display a triplet"""
 
-  def __init__(self, parentitem, x, y, triplet, callback):
+  def __init__(self, parentitem, x, y, triplet, callback, mode):
       rootitem = goocanvas.Group( parent = parentitem )
       self.width = 380
       self.height = 100
@@ -60,7 +60,8 @@ class SpotTarget:
 
       # The text description
       textx = 120
-      item = goocanvas.Text(
+      if mode & Findit.WITH_TEXT:
+        item = goocanvas.Text(
           parent = rootitem,
           x = x + textx,
           y = y + 10,
@@ -71,16 +72,17 @@ class SpotTarget:
           alignment = pango.ALIGN_LEFT,
           width = self.width - textx - 10
           )
-      item.connect("button_press_event", callback, triplet)
-      item.connect("enter_notify_event",
-                   (lambda s,e,t,i: i.set_properties(fill_color_rgba = fill_color_on)),
-                   itembg )
-      item.connect("leave_notify_event",
-                   (lambda s,e,t,i: i.set_properties(fill_color_rgba = fill_color_off)),
-                   itembg )
+        item.connect("button_press_event", callback, triplet)
+        item.connect("enter_notify_event",
+                     (lambda s,e,t,i: i.set_properties(fill_color_rgba = fill_color_on)),
+                     itembg )
+        item.connect("leave_notify_event",
+                     (lambda s,e,t,i: i.set_properties(fill_color_rgba = fill_color_off)),
+                     itembg )
+
       # The image
-      if triplet.image:
-          pixbuf = gcompris.utils.load_pixmap(gcompris.DATA_DIR + "/lang/" +
+      if triplet.image and (mode & Findit.WITH_IMAGE):
+          pixbuf = gcompris.utils.load_pixmap(gcompris.DATA_DIR + "/" +
                                               triplet.image)
           item = goocanvas.Image( parent = rootitem,
                                   pixbuf = pixbuf,
@@ -102,9 +104,14 @@ class Findit:
     """An exercice that given a lesson asks the children to find"""
     """the good anwer from a source text, a target text or a voice"""
 
-    def __init__(self, lang, parentitem, lesson):
+    WITH_QUESTION = 0x4
+    WITH_TEXT = 0x2
+    WITH_IMAGE = 0x1
+
+    def __init__(self, lang, parentitem, lesson, mode):
         self.lang = lang
         self.lesson = lesson
+        self.mode = mode
         self.triplets = list(lesson.getTriplets())
         random.shuffle(self.triplets)
         self.rootitem = goocanvas.Group( parent = parentitem )
@@ -116,7 +123,7 @@ class Findit:
 
         if self.currentIndex >= len(self.triplets):
             self.stop()
-            self.lang.next_level()
+            self.lang.win()
             return
 
         self.gameroot = goocanvas.Group( parent = self.rootitem )
@@ -125,7 +132,8 @@ class Findit:
         self.lang.playVoice(self.tripletToFind)
         self.currentIndex += 1
         # Display the triplet to find
-        goocanvas.Text(
+        if self.mode & Findit.WITH_QUESTION:
+          goocanvas.Text(
             parent = self.gameroot,
             x = gcompris.BOARD_WIDTH / 2,
             y = 100,
@@ -149,7 +157,9 @@ class Findit:
         triplets2.insert(random.randint(0, numberOfItem-1),
                          self.tripletToFind)
         for i in range(0, numberOfItem):
-            spot = SpotTarget(self.gameroot, x, y, triplets2[i], self.ok)
+            spot = SpotTarget(self.gameroot, x, y,
+                              triplets2[i], self.ok,
+                              self.mode)
             y += spot.height + 20
             if (i+1) % 2 == 0:
                 y = y_start
@@ -164,4 +174,8 @@ class Findit:
             self.start()
         else:
             self.triplets.append(self.tripletToFind)
+            self.lang.loose()
 
+    def repeat(self):
+      self.lang.playVoice(self.tripletToFind)
+  

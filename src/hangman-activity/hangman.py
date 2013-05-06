@@ -71,21 +71,21 @@ class Gcompris_hangman:
     # form of a space separated list like: "é=e/E è=e/E sch=S"
     # Letters on the left of the = can be multigraphs and represent the letters on the buttons.
     # Letters on the right are single letters pressed on the keyboard.
-    # If you wish to allow different key presses for the same letter, separate the letters on the right with /
-    # Keep the word NONE if not available in your language
-    self.keyequivs = unicode(_("a=a"), encoding="utf8")
-    if self.keyequivs == "a=a":
-      self.keyequivs = ""
+    # If you wish to allow different key presses for the same letter, separate the letters
+    # on the right with /
+    keyequivs = unicode(_("a=a"), encoding="utf8")
+    if keyequivs == "a=a":
+      keyequivs = None
     
     # Create equivs list
     self.keyequivList = {}
-    for keyequiv in self.keyequivs.split(' '):
-      try:
+    if keyequivs:
+      for keyequiv in keyequivs.split(' '):
+        try:
           (k, v) = keyequiv.split('=')
           self.keyequivList[k]=v
-      except:
-        print ("ERROR: Bad key equivalence list '%s' for hangman: " %(self.keyequivs, ))
-
+        except:
+          print ("ERROR: Bad key equivalence list '%s' for hangman: " %(keyequivs, ))
 
     # Letters equivalence for the hangman activity. It has the
     # form of a space separated list like: "e=éè a=àâ"

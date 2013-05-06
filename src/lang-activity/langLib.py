@@ -17,6 +17,7 @@
 #
 # lang activity.
 
+import gcompris.utils
 import xml.dom.minidom
 
 def isNode(e, name):
@@ -29,18 +30,34 @@ class Triplet:
         self.image = None
         self.voice = None
         self.type = None
+        self.valid = True
         self.parse(elem)
 
     def parse(self, elem):
         for e in elem.childNodes:
             if isNode(e, "image"):
-                self.image = e.firstChild.nodeValue if e.firstChild else None
+                if e.firstChild:
+                    self.image = e.firstChild.nodeValue
+                else:
+                    self.valid = False
             elif isNode(e, "description"):
                 self.description = e.firstChild.nodeValue if e.firstChild else None
             elif isNode(e, "voice"):
-                self.voice = e.firstChild.nodeValue if e.firstChild else None
+                if e.firstChild:
+                    self.voice = e.firstChild.nodeValue
+                else:
+                    self.valid = False
             elif isNode(e, "type"):
                 self.type = e.firstChild.nodeValue if e.firstChild else None
+
+        if self.valid:
+            if not gcompris.utils.find_file_absolute(self.image):
+                self.valid = False
+            elif not gcompris.utils.find_file_absolute(self.voice):
+                self.valid = False
+
+    def isValid(self):
+        return self.valid
 
     def dump(self):
         print "    Triplet "+ self.description + " / " \
@@ -61,7 +78,9 @@ class Lesson:
             elif isNode(e, "description"):
                 self.description = e.firstChild.nodeValue if e.firstChild else None
             elif isNode(e, "Triplet"):
-                self.triplets.append( Triplet(e) )
+                triplet = Triplet(e)
+                if triplet.isValid():
+                    self.triplets.append( triplet )
 
     def getTriplets(self):
         return self.triplets
@@ -82,7 +101,7 @@ class Chapter:
     def parse(self, elem):
         for e in elem.childNodes:
             if isNode(e, "name"):
-                self.name = e.firstChild.nodeValue
+                self.name = e.firstChild.nodeValue if e.firstChild else None
             elif isNode(e, "description"):
                 self.description = e.firstChild.nodeValue if e.firstChild else None
             elif isNode(e, "Lesson"):
@@ -98,12 +117,13 @@ class Chapter:
 
 class Chapters:
     def __init__(self, doc):
-        self.chapters = []
+        self.chapters = {}
         self.parse(doc)
 
     def parse(self, doc):
         for elem in doc:
-            self.chapters.append( Chapter(elem) )
+            chapter = Chapter(elem)
+            self.chapters[chapter.name] = chapter
 
     def getChapters(self):
         return self.chapters
@@ -125,5 +145,5 @@ class LangLib:
     def getChapters(self):
         return self.chapters
 
-    def getLesson(self, chapterIndex, lessonIndex):
-        return self.chapters.getChapters()[chapterIndex].getLessons()[lessonIndex]
+    def getLesson(self, chapterName, lessonIndex):
+        return self.chapters.getChapters()[chapterName].getLessons()[lessonIndex]
