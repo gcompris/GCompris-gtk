@@ -65,22 +65,14 @@ class Triplet:
             + " / " + str(self.type)
 
 class Lesson:
-    def __init__(self, elem):
+
+    def __init__(self, lesson):
         self.name = None
         self.description = None
         self.triplets = []
-        self.parse(elem)
-
-    def parse(self, elem):
-        for e in elem.childNodes:
-            if isNode(e, "name"):
-                self.name = e.firstChild.nodeValue
-            elif isNode(e, "description"):
-                self.description = e.firstChild.nodeValue if e.firstChild else None
-            elif isNode(e, "Triplet"):
-                triplet = Triplet(e)
-                if triplet.isValid():
-                    self.triplets.append( triplet )
+        if lesson:
+            self.name = lesson.name
+            self.description = lesson.description
 
     def getTriplets(self):
         return self.triplets
@@ -89,6 +81,44 @@ class Lesson:
         print "  Lesson "+ self.name + " / " + str(self.description)
         for triplet in self.triplets:
             triplet.dump()
+
+
+class LessonCreator:
+
+    MAX_TRIPLETS = 12
+
+    def __init__(self, elem):
+        self.lessons = []
+        self.parse(elem)
+
+    def parse(self, elem):
+        lesson = Lesson(None)
+        for e in elem.childNodes:
+            if isNode(e, "name"):
+                lesson.name = e.firstChild.nodeValue
+            elif isNode(e, "description"):
+                lesson.description = e.firstChild.nodeValue if e.firstChild else None
+            elif isNode(e, "Triplet"):
+                triplet = Triplet(e)
+                if triplet.isValid():
+                    if len(lesson.triplets) < self.MAX_TRIPLETS:
+                        lesson.triplets.append( triplet )
+                    else:
+                        self.lessons.append(lesson)
+                        lesson = Lesson(lesson)
+
+                        
+        if len(lesson.triplets) < self.MAX_TRIPLETS:
+            # There is no enough triplet for this level, add the first
+            # of the first lesson
+            if len(self.lessons):
+                for triplet in self.lessons[0].getTriplets()[0:self.MAX_TRIPLETS-len(lesson.triplets)]:
+                    lesson.triplets.append(triplet)
+            self.lessons.append(lesson)
+
+
+    def getLessons(self):
+        return self.lessons
 
 
 class Chapter:
@@ -105,7 +135,9 @@ class Chapter:
             elif isNode(e, "description"):
                 self.description = e.firstChild.nodeValue if e.firstChild else None
             elif isNode(e, "Lesson"):
-                self.lessons.append( Lesson(e) )
+                lessonCreator = LessonCreator(e)
+                for lesson in lessonCreator.getLessons():
+                    self.lessons.append( lesson )
 
     def getLessons(self):
         return self.lessons
@@ -130,7 +162,7 @@ class Chapters:
 
     def dump(self):
         print "Dump"
-        for chapter in self.chapters:
+        for k, chapter in self.chapters.iteritems():
             chapter.dump()
 
 
