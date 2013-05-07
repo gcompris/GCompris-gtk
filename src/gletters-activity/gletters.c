@@ -19,18 +19,49 @@
 #include <string.h>
 
 #include "gcompris/gcompris.h"
+#include "gcompris/gameutil.h"
+
 
 #define SOUNDLISTFILE PACKAGE
-#define MAX_RAND_ATTEMPTS 5
+#define MAXWORDSLENGTH 50
+static GcomprisWordlist *gc_wordlist = NULL;
 
-static GList *item_list = NULL;
-static GList *item2del_list = NULL;
-static guint actors_count = 0;
+#if GLIB_CHECK_VERSION(2, 31, 0)
+static GMutex items_lock; /* No init needed for static GMutexes */
+#else
+GStaticMutex items_lock = G_STATIC_MUTEX_INIT;
+#endif
+
+/*
+  word - letters/multigraph to type
+  overword - part of word already typed
+  count - number of already typed letters in word
+  pos - pointer to current position in word
+  letter - current expected letter to type
+*/
+typedef struct {
+  GooCanvasItem *rootitem;
+  GooCanvasItem *overwriteItem;
+  gchar *word;
+  gchar *overword;
+  gint  count;
+  gchar *pos;
+  gchar *letter;
+} LettersItem;
+
+/*
+  items - array of displayed items
+  items2del - array of items where moved offscreen
+  item_on_focus -  item on focus in array items. NULL - not set.
+*/
+
+static GPtrArray 	*items=NULL;
+static GPtrArray 	*items2del=NULL;
+static LettersItem 	*item_on_focus=NULL;
+
 
 static GcomprisBoard *gcomprisBoard = NULL;
 
-static gint dummy_id = 0;
-static gint drop_items_id = 0;
 
 /* Sublevels are now allocated dynamically
  * based on the number of chars at that level
@@ -47,9 +78,7 @@ static gint drop_items_id = 0;
  */
 
 #define FALL_RATE_BASE 40
-static float fallRateBase = FALL_RATE_BASE;
 #define FALL_RATE_MULT 100
-static float fallRateMult = FALL_RATE_MULT;
 
 /* these constants control how often letters are dropped
  * the base rate is fixed
@@ -57,72 +86,45 @@ static float fallRateMult = FALL_RATE_MULT;
  */
 
 #define DROP_RATE_BASE 1000
-static float dropRateBase = DROP_RATE_BASE;
 #define DROP_RATE_MULT 8000
-static float dropRateMult = DROP_RATE_MULT;
 
-/* both letters_array and keymap are read in
- * dynamically at run-time from files based on
- * user locale
- */
+static gint dummy_id = 0;
+static gint drop_items_id = 0;
+static gboolean uppercase_only;
 
-/* letters_array contains letters you want shown
- * on each play level
- * there can be an arbitrary number of levels,
- * but there are only graphics to level 9
- * so that's where we stop
- */
 
-#define MAXLEVEL 10
-static int maxLevel;
-static char *letters_array[MAXLEVEL];
-
-/* keymap contains pairs of chars. The first char is
- * on the keyboard map, the second is the unichar that
- * is also represented by that key.  That way, if there is more
- * than one character represented by a key, the user doesn't
- * have to use alternate input methods.
- * It turns out that some keyboards generate long unichars,
- * so keymap has to be big enough for 2 unichars
- * both chars are packed into the same string; this makes it
- * easier to deal with.
- */
-
-static int keyMapSize;
-static char **keyMap;
-
-/* Hash table of all displayed letters  */
+/* Hash table of all displayed letters, so each letter will be chosen at least once
+ * before uplicate letters are used  */
 static GHashTable *letters_table= NULL;
 
-static void start_board (GcomprisBoard *agcomprisBoard);
-static void pause_board (gboolean pause);
-static void end_board (void);
-static gboolean is_our_board (GcomprisBoard *gcomprisBoard);
-static void set_level (guint level);
-static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str);
-static void gletter_config_start(GcomprisBoard *agcomprisBoard,
+static void		 start_board (GcomprisBoard *agcomprisBoard);
+static void		 pause_board (gboolean pause);
+static void 		 end_board (void);
+static gboolean		 is_our_board (GcomprisBoard *gcomprisBoard);
+static void		 set_level (guint level);
+static gint		 key_press(guint keyval, gchar *commit_str, gchar *preedit_str);
+
+static GooCanvasItem	 *gletters_create_item(GooCanvasItem *parent);
+static gint		 gletters_drop_items (gpointer data);
+static gint		 gletters_move_items (gpointer data);
+static void		 gletters_destroy_item(LettersItem *item);
+static gboolean		 gletters_delete_items(gpointer user_data);
+static void		 gletters_destroy_all_items(void);
+static void		 gletters_next_level(void);
+static void		 gletters_add_new_item(void);
+static void		 gletters_config_start(GcomprisBoard *agcomprisBoard,
 					     GcomprisProfile *aProfile);
-static void gletter_config_stop(void);
+static void		 gletters_config_stop(void);
 
-static GooCanvasItem *gletters_create_item(GooCanvasItem *parent);
-static gboolean gletters_drop_items (gpointer data);
-static gboolean gletters_move_items (gpointer data);
-static void gletters_destroy_item(GooCanvasItem *item);
-static void gletters_destroy_items(void);
-static void gletters_destroy_all_items(void);
-static void gletters_next_level(void);
-static void gletters_add_new_item(void);
 
-static void player_win(GooCanvasItem *item);
-static void player_loose(void);
-static GooCanvasItem *item_find_by_title (const gunichar *title);
-static gunichar *key_find_by_item (const GooCanvasItem *item);
+static void		 player_win(LettersItem *item);
+static void		 player_lose(void);
+
 
 static  guint32              fallSpeed = 0;
 static  double               speed = 0.0;
-static  int		     gamewon;
 
-static gboolean with_sound = FALSE;
+static GooCanvasItem *preedit_text = NULL;
 
 /* Description of this plugin */
 static BoardPlugin menu_bp =
@@ -145,8 +147,8 @@ static BoardPlugin menu_bp =
     set_level,
     NULL,
     NULL,
-    gletter_config_start,
-    gletter_config_stop
+    gletters_config_start,
+    gletters_config_stop
   };
 
 /*
@@ -161,25 +163,9 @@ GET_BPLUGIN_INFO(gletters)
  * in : boolean TRUE = PAUSE : FALSE = UNPAUSE
  *
  */
-
-static void level_set_score() {
-  int l;
-
-  g_message("letters_array length for level %d is %ld\n",
-	    gcomprisBoard->level,
-	    g_utf8_strlen(letters_array[gcomprisBoard->level-1],-1));
-  l = g_utf8_strlen(letters_array[gcomprisBoard->level-1],-1)/3;
-  gcomprisBoard->number_of_sublevel = (DEFAULT_SUBLEVEL>l?DEFAULT_SUBLEVEL:l);
-
-  gc_score_start(SCORESTYLE_NOTE,
-		       BOARDWIDTH - 195,
-		       BOARDHEIGHT - 30,
-		       gcomprisBoard->number_of_sublevel);
-  gc_bar_set(GC_BAR_CONFIG|GC_BAR_LEVEL);
-}
-
 static void pause_board (gboolean pause)
 {
+
   if(gcomprisBoard==NULL)
     return;
 
@@ -196,156 +182,106 @@ static void pause_board (gboolean pause)
     }
   else
     {
-      if(gamewon == TRUE) /* the game is won */
-	{
-	  level_set_score();
-	  gletters_next_level();
-	}
-
       if(!drop_items_id) {
-	drop_items_id = g_timeout_add (1000,
-				       gletters_drop_items, NULL);
+	drop_items_id = g_timeout_add (0,
+				       (GSourceFunc) gletters_drop_items, NULL);
       }
       if(!dummy_id) {
-	dummy_id = g_timeout_add (1000, gletters_move_items, NULL);
+	dummy_id = g_timeout_add (10, (GSourceFunc) gletters_move_items, NULL);
       }
     }
-}
-
-static gboolean uppercase_only;
-
-int load_default_charset() {
-  g_message("in load_default_charset\n");
-
-  gchar *numbers;
-  gchar *alphabet_lowercase;
-  gchar *alphabet_uppercase;
-
-  /* TRANSLATORS: Put here the numbers in your language */
-  numbers=_("0123456789");
-  g_assert(g_utf8_validate(numbers,-1,NULL)); // require by all utf8-functions
-
-  /* TRANSLATORS: Put here the alphabet lowercase in your language */
-  alphabet_lowercase=_("abcdefghijklmnopqrstuvwxyz");
-  g_assert(g_utf8_validate(alphabet_lowercase,-1,NULL)); // require by all utf8-functions
-
-  g_warning("Using lowercase %s", alphabet_lowercase);
-
-  /* TRANSLATORS: Put here the alphabet uppercase in your language */
-  alphabet_uppercase=_("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
-  g_assert(g_utf8_validate(alphabet_uppercase,-1,NULL)); // require by all utf8-functions
-  g_warning("Using uppercase %s", alphabet_uppercase);
-
-  letters_array[0] = g_strdup(alphabet_uppercase);
-  letters_array[1] = g_strdup_printf("%s%s",
-				     alphabet_uppercase,
-				     numbers);
-  if (!uppercase_only){
-  letters_array[2] = g_strdup(alphabet_lowercase);
-  letters_array[3] = g_strdup_printf("%s%s",
-				     alphabet_lowercase,
-				     numbers);
-  letters_array[4] = g_strdup_printf("%s%s",
-				     alphabet_lowercase,
-				     alphabet_uppercase);
-  letters_array[5] = g_strdup_printf("%s%s%s",
-				     alphabet_lowercase,
-				     alphabet_uppercase,
-				     numbers);
-  } else{
-    g_warning("Uppercase only is set");
-      letters_array[2] = g_strdup(alphabet_uppercase);
-    letters_array[3] = g_strdup_printf("%s%s",
-				       alphabet_uppercase,
-				       numbers);
-    letters_array[4] = g_strdup_printf("%s%s",
-				       alphabet_uppercase,
-				       numbers);
-    letters_array[5] = g_strdup_printf("%s%s",
-				       alphabet_uppercase,
-				       numbers);
-  }
-
-
-  keyMapSize = 0;
-  maxLevel = 6;
-  return TRUE;
-}
-
-int whitespace(char *buffer) {
-  int i;
-  i = 0;
-  while(buffer[i] != '\0') {
-    if(buffer[i] == ' ' || buffer[i] == '\t' || buffer[i++] == '\n')
-      continue;
-    else return FALSE;
-  }
-  return TRUE;
 }
 
 /*
  */
 static void start_board (GcomprisBoard *agcomprisBoard)
 {
-  GHashTable *config = gc_db_get_board_conf();
-
-  gc_locale_set(g_hash_table_lookup( config, "locale"));
-
-  gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
-
-  if (up_init_str && (strcmp(up_init_str, "True")==0))
-    uppercase_only = TRUE;
-  else
-    uppercase_only = FALSE;
-
-  gchar *control_sound = g_hash_table_lookup( config, "with_sound");
-
-  if (control_sound && strcmp(g_hash_table_lookup( config, "with_sound"),"True")==0)
-    with_sound = TRUE;
-  else
-    with_sound = FALSE;
-
-  g_hash_table_destroy(config);
 
   if(agcomprisBoard!=NULL)
     {
       gcomprisBoard=agcomprisBoard;
-      load_default_charset();
+
+      GHashTable *config = gc_db_get_board_conf();
+      gc_locale_set(g_hash_table_lookup( config, "locale"));
+
+      gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
+      if (up_init_str && (strcmp(up_init_str, "True")==0))
+	uppercase_only = TRUE;
+      else
+	uppercase_only = FALSE;
+
+      g_hash_table_destroy(config);
+
+      /* disable im_context */
+      //gcomprisBoard->disable_im_context = TRUE;
+
       gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			"gletters/scenery_background.png");
-      gcomprisBoard->maxlevel=maxLevel;
+
+
       gcomprisBoard->level = 1;
-      level_set_score();
+      gcomprisBoard->maxlevel = 6;
+      gcomprisBoard->sublevel = 0;
+      gc_bar_set(GC_BAR_LEVEL|GC_BAR_CONFIG);
+
+      gchar *filename = (uppercase_only) ? "gletters/upper-$LOCALE.xml" : "gletters/default-$LOCALE.xml";
+
+      gc_wordlist = gc_wordlist_get_from_file(filename);
+
+      if(!gc_wordlist)
+        {
+          /* Fallback to english */
+          filename = (uppercase_only) ? "gletters/upper-en.xml" : "gletters/default-en.xml";
+          gc_wordlist = gc_wordlist_get_from_file(filename);
+
+          if(!gc_wordlist)
+            {
+              gcomprisBoard = NULL;
+              gc_dialog(_("Error: We can't find\na list of letters to play this game.\n"), gc_board_end);
+              return;
+            }
+        }
+      if(gc_wordlist)
+      {
+        gcomprisBoard->maxlevel = gc_wordlist->number_of_level;
+      }
       gletters_next_level();
-      gamewon = FALSE;
-      pause_board(FALSE);
     }
 }
-
-
 
 static void
 end_board ()
 {
-  int i;
+
   if(gcomprisBoard!=NULL)
     {
       pause_board(TRUE);
       gc_score_end();
+#if GLIB_CHECK_VERSION(2, 31, 0)
+      g_mutex_lock (&items_lock);
+#else
+      g_static_mutex_lock (&items_lock);
+#endif
       gletters_destroy_all_items();
-      g_message("freeing memory");
-      for (i = 0; i < maxLevel; i++)
-	g_free(letters_array[i]);
+#if GLIB_CHECK_VERSION(2, 31, 0)
+      g_mutex_unlock (&items_lock);
+#else
+      g_static_mutex_unlock (&items_lock);
+#endif
+      if (preedit_text){
+	goo_canvas_item_remove(preedit_text);
+	preedit_text=NULL;
+      }
+      gc_im_reset();
+      gcomprisBoard = NULL;
 
-      for (i = 0; i < keyMapSize; i++)
-	g_free(keyMap[i]);
-
-      g_free(keyMap);
+      if (gc_wordlist != NULL){
+	gc_wordlist_free(gc_wordlist);
+	gc_wordlist = NULL;
+      }
     }
 
   gc_locale_set( NULL );
-
-  gcomprisBoard = NULL;
 }
 
 static void
@@ -355,102 +291,186 @@ set_level (guint level)
   if(gcomprisBoard!=NULL)
     {
       gcomprisBoard->level=level;
-      level_set_score();
       gletters_next_level();
     }
 }
 
-/* Append in char_list one of the falling letter */
-static void add_char(char *key, char *value, char *char_list)
+
+static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 {
-  strcat(char_list, key);
-}
-
-gboolean unichar_comp(gpointer key,
-		      gpointer value,
-		      gpointer user_data)
-{
-  gunichar *target = (gunichar *) user_data;
-  if (*((gunichar *)key) == *target)
-    return TRUE;
-
-  return FALSE;
-}
-
-gint is_falling_letter(gunichar  unichar)
-{
-  GooCanvasItem *item;
-
-  if ((item = g_hash_table_find(letters_table,
-			       unichar_comp,
-				&unichar)))
-    {
-      player_win(item);
-      return TRUE;
-    }
-  return FALSE;
-}
-
-static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str) {
-  gint length_passed, i;
-  gunichar c;
-  gchar  list_of_letters[255];
+  gchar *letter;
+  gint i;
+  LettersItem *item;
   gchar *str;
+  gunichar unichar_letter;
+  gint retval = TRUE;
 
   if(!gcomprisBoard)
     return FALSE;
 
-  /* i suppose even numbers are passed through IM_context */
-  if ((commit_str == NULL) && (preedit_str == NULL))
-    return FALSE;
-
-  gchar *string_passed;
-  if (commit_str)
-    string_passed = commit_str;
-  else
-    string_passed = preedit_str;
-
-  str = g_strdup(string_passed);
-
-  length_passed = g_utf8_strlen(string_passed, -1);
-
-  for (i=0; i < length_passed; i++){
-    c = g_utf8_get_char (string_passed);
-    if (is_falling_letter(c)){
-      gc_im_reset();
-      return TRUE;
-    }
-
-    /* if uppercase_only is set we do not care about upper or lower case at all */
-    gint level_uppercase;
-    if (uppercase_only)
-      level_uppercase = 10;
-    else
-      level_uppercase = 3;
-
-    /* for 2 (or all) first level don't care abour uppercase/lowercase */
-    if ((gcomprisBoard->level < level_uppercase) &&
-	(is_falling_letter(g_unichar_toupper(c)))){
-      gc_im_reset();
-      return TRUE;
-    }
-
-    string_passed = g_utf8_next_char (string_passed);
+  if (keyval){
+    g_warning("keyval %d", keyval);
+    return TRUE;
   }
 
-  list_of_letters[0] = '\0';
 
-  /* We have to loop to concat the letters */
-  g_hash_table_foreach (letters_table,
-			(GHFunc) add_char,
-			list_of_letters);
+  if (preedit_str){
+    g_warning("preedit_str %s", preedit_str);
+    /* show the preedit string on bottom of the window */
+    GcomprisProperties	*properties = gc_prop_get ();
+    gchar *text;
+    PangoAttrList *attrs;
+    gint cursor_pos;
+    gtk_im_context_get_preedit_string (properties->context,
+				       &text,
+				       &attrs,
+				       &cursor_pos);
 
-  /* Log what happened, what was expected, what we got */
+    if (!preedit_text)
+      preedit_text = \
+	goo_canvas_text_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+			     "",
+			     BOARDWIDTH/2,
+			     BOARDHEIGHT - 100,
+			     -1,
+			     GTK_ANCHOR_N,
+			     "font", gc_skin_font_board_huge_bold,
+			     //"fill_color_rgba", 0xba00ffff,
+			     NULL);
 
-  gc_log_set_comment(gcomprisBoard, list_of_letters, str);
-  g_free(str);
 
-  return TRUE;
+    g_object_set (preedit_text,
+		  "text", text,
+		  "attributes", attrs,
+		  NULL);
+
+    return TRUE;
+
+  }
+
+  /* commit str */
+  g_warning("commit_str %s", commit_str);
+
+  str = commit_str;
+
+#if GLIB_CHECK_VERSION(2, 31, 0)
+  g_mutex_lock (&items_lock);
+#else
+  g_static_mutex_lock (&items_lock);
+#endif
+  for (i=0; i < g_utf8_strlen(commit_str,-1); i++){
+    unichar_letter = g_utf8_get_char(str);
+    str = g_utf8_next_char(str);
+    if(!g_unichar_isalnum (unichar_letter)){
+      player_lose();
+      retval = FALSE;
+      break;
+    }
+
+    letter = g_new0(gchar,6);
+    g_unichar_to_utf8 (unichar_letter, letter);
+    
+    if(item_on_focus==NULL)
+      {
+	for (i=0;i<items->len;i++)
+	  {
+	    item=g_ptr_array_index(items,i);
+	    g_assert (item!=NULL);
+                
+            /* Force entered letter to the casing we expect
+             * Children is to small to manage the caps lock key for now
+             */
+            int success=FALSE;
+            if (uppercase_only)
+            {
+                gchar *old = letter;
+                letter = g_utf8_strup(old, -1);
+                g_free(old);
+                success = strcmp(item->letter,g_utf8_strdown(letter,-1))==0;
+                success = success || strcmp(item->letter,g_utf8_strup(letter,-1))==0;
+            }
+            else
+            {
+                success = strcmp(item->letter,letter)==0;
+            }
+            if (success)
+	      {
+		item_on_focus=item;
+		break;
+	      }
+	  }
+      }
+
+
+    if(item_on_focus!=NULL)
+      {
+
+	if(strcmp(item_on_focus->letter, letter)==0)
+	  {
+	    gchar *tmpstr;
+	    item_on_focus->count++;
+	    g_free(item_on_focus->overword);
+	    tmpstr = g_utf8_strndup(item_on_focus->word,
+				    item_on_focus->count);
+	    /* Add the ZERO WIDTH JOINER to force joined char in Arabic and Hangul
+	     *  http://en.wikipedia.org/wiki/Zero-width_joiner
+	     */
+	    item_on_focus->overword = g_strdup_printf("%s%lc", tmpstr, 0x200D);
+	    g_free(tmpstr);
+	    g_object_set (item_on_focus->overwriteItem,
+			  "text", item_on_focus->overword,
+			  NULL);
+
+
+	    if (item_on_focus->count<g_utf8_strlen(item_on_focus->word,-1))
+	      {
+		g_free(item_on_focus->letter);
+		item_on_focus->letter=g_utf8_strndup(item_on_focus->pos,1);
+		item_on_focus->pos=g_utf8_find_next_char(item_on_focus->pos,NULL);
+	      }
+	    else
+	      {
+		player_win(item_on_focus);
+		item_on_focus=NULL;
+	      }
+	  }
+	else
+	  {
+	    /* It is a lose : unselect the word and defocus */
+	    g_free(item_on_focus->overword);
+	    item_on_focus->overword=g_strdup(" ");
+	    item_on_focus->count=0;
+	    g_free(item_on_focus->letter);
+	    item_on_focus->letter=g_utf8_strndup(item_on_focus->word,1);
+
+	    item_on_focus->pos=g_utf8_find_next_char(item_on_focus->word,NULL);
+
+	    g_object_set (item_on_focus->overwriteItem,
+			  "text", item_on_focus->overword,
+			  NULL);
+	    item_on_focus=NULL;
+	    g_free(letter);
+	    player_lose();
+	    break;
+	  }
+      }
+    else
+      {
+	/* Anyway kid you clicked on the wrong key */
+	player_lose();
+	g_free(letter);
+	break;
+      }
+
+    g_free(letter);
+  }
+#if GLIB_CHECK_VERSION(2, 31, 0)
+  g_mutex_unlock (&items_lock);
+#else
+  g_static_mutex_unlock (&items_lock);
+#endif
+
+  return retval;
 }
 
 static gboolean
@@ -475,85 +495,88 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 /*-------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------*/
 
-/* set initial values for the next level */
-static void gletters_next_level()
+/* Called with items_lock locked */
+static void gletters_next_level_unlocked()
 {
+  int l;
 
-  gamewon = FALSE;
+  // get number of letters available
+  l=g_slist_length(gc_wordlist_get_levelwordlist(gc_wordlist, gcomprisBoard->level)->words);
+
+  g_message("wordlist length for level %d is %d\n",
+	    gcomprisBoard->level,
+	    l);
+  l = l/3; // make sure the level doesn't get too long
+  // set sublevels
+  gcomprisBoard->number_of_sublevel = (DEFAULT_SUBLEVEL>l?DEFAULT_SUBLEVEL:l);
+
+  gc_score_start(SCORESTYLE_NOTE,
+		 BOARDWIDTH - 195,
+		 BOARDHEIGHT - 30,
+		 gcomprisBoard->number_of_sublevel);
+
   gc_bar_set_level(gcomprisBoard);
+  gc_score_set(gcomprisBoard->sublevel);
 
   gletters_destroy_all_items();
 
-  /* Try the next level */
-  speed=fallRateBase+(fallRateMult/gcomprisBoard->level);
-  fallSpeed=dropRateBase+(dropRateMult/gcomprisBoard->level);
-
-  gcomprisBoard->sublevel=1;
-  gc_score_set(gcomprisBoard->sublevel);
-}
-
-
-static void gletters_move_item(GooCanvasItem *item)
-{
-  GooCanvasBounds bounds;
-
-  goo_canvas_item_translate(item, 0, 2.0);
-
-  goo_canvas_item_get_bounds (item,
-			      &bounds);
-
-  if(bounds.y1>BOARDHEIGHT) {
-    item2del_list = g_list_append (item2del_list, item);
-    player_loose();
+  if (preedit_text){
+    goo_canvas_item_remove(preedit_text);
+    preedit_text=NULL;
   }
-}
+  gc_im_reset();
 
-static void gletters_destroy_item(GooCanvasItem *item)
-{
-  gunichar *key;
-
-  key = key_find_by_item(item);
-
-  item_list = g_list_remove (item_list, item);
-  --actors_count;
-
-  item2del_list = g_list_remove (item2del_list, item);
-
-  /* Remove old letter; this destroy the canvas item  */
-  g_hash_table_remove (letters_table, key);
-
-}
-
-/* Destroy items that falls out of the canvas */
-static void gletters_destroy_items()
-{
-  GooCanvasItem *item;
-
-  while(g_list_length(item2del_list)>0)
-    {
-      item = g_list_nth_data(item2del_list, 0);
-      gletters_destroy_item(item);
-    }
-}
-
-/* Destroy all the items */
-static void gletters_destroy_all_items()
-{
-  GooCanvasItem *item;
-
-  if(item_list)
-    while(g_list_length(item_list)>0)
-      {
-	item = g_list_nth_data(item_list, 0);
-	gletters_destroy_item(item);
-      }
-
-   actors_count= 0;
-
+  items=g_ptr_array_new();
+  items2del=g_ptr_array_new();
+  
   /* Delete the letters_table */
   if(letters_table) {
     g_hash_table_destroy (letters_table);
     letters_table=NULL;
+  }
+
+  pause_board(FALSE);
+}
+
+/* set initial values for the next level */
+static void gletters_next_level()
+{
+#if GLIB_CHECK_VERSION(2, 31, 0)
+  g_mutex_lock (&items_lock);
+#else
+  g_static_mutex_lock (&items_lock);
+#endif
+  gletters_next_level_unlocked();
+#if GLIB_CHECK_VERSION(2, 31, 0)
+  g_mutex_unlock (&items_lock);
+#else
+  g_static_mutex_unlock (&items_lock);
+#endif
+  speed= ((double) FALL_RATE_BASE)+(((double) FALL_RATE_MULT)/gcomprisBoard->level);
+  fallSpeed= (guint32) DROP_RATE_BASE+(DROP_RATE_MULT/gcomprisBoard->level);
+}
+
+/* Called with items_lock locked */
+static void gletters_move_item(LettersItem *item)
+{
+  GooCanvasBounds bounds;
+
+
+  goo_canvas_item_translate(item->rootitem, 0, 2.0);
+
+  goo_canvas_item_get_bounds (item->rootitem,
+			      &bounds);
+
+  if(bounds.y1>BOARDHEIGHT) {
+
+    if (item == item_on_focus)
+      item_on_focus = NULL;
+
+    g_ptr_array_remove (items, item);
+    g_ptr_array_add (items2del, item);
+    g_timeout_add (100,(GSourceFunc) gletters_delete_items, NULL);
+
+    player_lose();
   }
 }
 
@@ -561,209 +584,318 @@ static void gletters_destroy_all_items()
  * This does the moves of the game items on the play canvas
  *
  */
-static gboolean gletters_move_items (gpointer data)
+static gint gletters_move_items (gpointer data)
 {
-  g_list_foreach (item_list, (GFunc) gletters_move_item, NULL);
+  g_assert (items!=NULL);
+  gint i;
+  LettersItem *item;
 
-  /* Destroy items that falls out of the canvas */
-  gletters_destroy_items();
-
-  dummy_id = g_timeout_add (gc_timing (speed, actors_count),
-			    gletters_move_items, NULL);
-
-  return(FALSE);
+#if GLIB_CHECK_VERSION(2, 31, 0)
+  g_mutex_lock (&items_lock);
+#else
+  g_static_mutex_lock (&items_lock);
+#endif
+  for (i=items->len-1;i>=0;i--)
+    {
+      item=g_ptr_array_index(items,i);
+      gletters_move_item(item);
+    }
+#if GLIB_CHECK_VERSION(2, 31, 0)
+  g_mutex_unlock (&items_lock);
+#else
+  g_static_mutex_unlock (&items_lock);
+#endif
+  dummy_id = g_timeout_add (gc_timing (speed, items->len),
+          (GSourceFunc) gletters_move_items, NULL);
+  return (FALSE);
 }
 
 
-void destroy_canvas_item(gpointer item)
+
+static void gletters_destroy_item(LettersItem *item)
 {
-  //g_free(g_object_get_data (G_OBJECT(item),"unichar_key"));
-  //g_free(g_object_get_data (G_OBJECT(item),"utf8_key"));
-  goo_canvas_item_remove(item);
+
+  /* The items are freed by player_win */
+  goo_canvas_item_remove(item->rootitem);
+  g_free(item->word);
+  g_free(item->overword);
+  g_free(item->letter);
+  g_free(item);
 }
+
+/* Destroy items that falls out of the canvas */
+static gboolean gletters_delete_items(gpointer user_data)
+{
+  LettersItem *item;
+
+#if GLIB_CHECK_VERSION(2, 31, 0)
+  g_mutex_lock (&items_lock);
+#else
+  g_static_mutex_lock (&items_lock);
+#endif
+  /* items2del may be NULL, as we can get called after
+     gletters_destroy_all_items() has been called (since we get called
+     as a timeout handler). */
+  if (items2del!=NULL){
+    while (items2del->len>0)
+      {
+        item = g_ptr_array_index(items2del,0);
+        g_ptr_array_remove_index_fast(items2del,0);
+        gletters_destroy_item(item);
+      }
+  }
+#if GLIB_CHECK_VERSION(2, 31, 0)
+  g_mutex_unlock (&items_lock);
+#else
+  g_static_mutex_unlock (&items_lock);
+#endif
+
+  return (FALSE);
+}
+
+/* Destroy all the items, called with items_lock locked */
+static void gletters_destroy_all_items()
+{
+  LettersItem *item;
+
+  if (items!=NULL){
+    while (items->len>0)
+      {
+        item = g_ptr_array_index(items,0);
+        g_ptr_array_remove_index_fast(items,0);
+        gletters_destroy_item(item);
+      }
+    g_ptr_array_free (items, TRUE);
+    items=NULL;
+  }
+
+  if (items2del!=NULL){
+    while (items2del->len>0)
+      {
+        item = g_ptr_array_index(items2del,0);
+        g_ptr_array_remove_index_fast(items2del,0);
+        gletters_destroy_item(item);
+      }
+    g_ptr_array_free (items2del, TRUE);
+    items2del=NULL;
+  }
+  
+  /* Delete the letters_table */
+  if(letters_table) {
+    g_hash_table_destroy (letters_table);
+    letters_table=NULL;
+  }
+
+}
+
+/*
+ * Comparison function to see if a letter has already been used in the current level
+ */
+static gboolean comp_gchar_for_hash(gpointer key, gpointer value, gpointer user_data)
+{
+  gchar *target = (gchar *) user_data;
+  const gchar *compvalue = (gchar *) key;
+  
+  return (g_strcmp0(compvalue, target)==0);
+}
+
 
 static GooCanvasItem *gletters_create_item(GooCanvasItem *parent)
 {
-  GooCanvasItem *item;
-  gint i,j,k;
-  guint x;
-  gunichar *lettersItem;
-  gchar *str_p, *letter;
-
+  g_message("Createing new item");
+  LettersItem *item;
+  gchar *word = gc_wordlist_random_word_get(gc_wordlist, gcomprisBoard->level);
+  GtkAnchorType direction_anchor = GTK_ANCHOR_NW;
+  
   if (!letters_table)
     {
-      letters_table = g_hash_table_new_full (g_int_hash, g_int_equal, g_free, destroy_canvas_item);
+      letters_table = g_hash_table_new(g_int_hash, g_str_equal);
+    }
+  
+  guint i;
+  if(word)
+  {
+      // Can't get hashtable lookup to work, so I have to use thee less efficient find
+      for (i=0;i<6 && word && g_hash_table_find(letters_table,comp_gchar_for_hash,word);++i)
+      {
+          word = gc_wordlist_random_word_get(gc_wordlist, gcomprisBoard->level);
+      }
+        /* Add letter to hash table of all falling letters. */
+        gchar *temp = word;
+        word = g_strdup(temp);
+        g_hash_table_insert (letters_table, word, word);
+        g_free(temp);
+  }
+  
+  else
+    /* Should display the dialog box here */
+    return NULL;
+    
+  // create and init item
+  item = g_new(LettersItem,1);
+  
+  if (uppercase_only)
+    {
+      gchar *old = word;
+      word = g_utf8_strup(old, -1);
+      g_free(old);
     }
 
-  /* Beware, since we put the letters in a hash table, we do not allow the same
-   * letter to be displayed two times
-   */
+  item->word = word;
+  item->overword=g_strdup("");
+  item->count=0;
+  item->letter=g_utf8_strndup(item->word,1);
+  item->pos=g_utf8_find_next_char(item->word,NULL);
 
-  g_warning("dump: %d, %s\n",gcomprisBoard->level,letters_array[gcomprisBoard->level-1]);
+  if (pango_unichar_direction(g_utf8_get_char(item->word)))
+    direction_anchor = GTK_ANCHOR_NE;
 
-  k = g_utf8_strlen(letters_array[gcomprisBoard->level-1],-1);
+  item->rootitem = goo_canvas_group_new (parent, NULL);
+  goo_canvas_item_translate(item->rootitem, 0, -12);
 
-  lettersItem = g_new(gunichar,1);
-  gint attempt=0;
-  do
-    {
-      attempt++;
-      str_p = letters_array[gcomprisBoard->level-1];
-      i = g_random_int_range(0,k);
 
-      for(j = 0; j < i; j++)
-	{
-	  str_p=g_utf8_next_char(str_p);
-	}
+  /* To 'erase' words, I create 2 times the text item. One is empty now */
+  /* It will be filled each time the user enters the right key         */
+  goo_canvas_text_new (item->rootitem,
+			 item->word,
+			 (double) 0,
+			 (double) 0,
+			 -1,
+			 direction_anchor,
+			 "font", gc_skin_font_board_huge_bold,
+			 "fill_color_rgba", 0x3e2587FF,
+			 NULL);
 
-      *lettersItem = g_utf8_get_char (str_p);
+  item->overwriteItem = \
+    goo_canvas_text_new (item->rootitem,
+			 item->overword,
+			 (double) 0,
+			 (double) 0,
+			 -1,
+			 direction_anchor,
+			 "font", gc_skin_font_board_huge_bold,
+			 "fill-color_rgba", 0xff0000ff,
+			 NULL);
 
-    } while((attempt<MAX_RAND_ATTEMPTS) && (item_find_by_title(lettersItem)!=NULL));
+  /*set right x position */
 
-  if (item_find_by_title(lettersItem)!=NULL)
-    {
-      g_free(lettersItem);
-      return NULL;
-    }
+  GooCanvasBounds bounds;
 
-  letter = g_new0(gchar, 6);
-  g_unichar_to_utf8 ( *lettersItem, letter);
+  goo_canvas_item_get_bounds    (item->rootitem,
+				 &bounds);
 
-  if (with_sound)
-    {
-      gchar *str2 = NULL;
-      gchar *letter_unichar_name = gc_sound_alphabet(letter);
+ if(direction_anchor == GTK_ANCHOR_NW)
+   goo_canvas_item_translate (item->rootitem,
+			      (g_random_int()%(BOARDWIDTH-(gint)(bounds.x2))),
+			      0);
+  else
+   {
+      double new_x = (double)( g_random_int()%BOARDWIDTH);
+      if ( new_x < -bounds.x1 )
+	new_x -=  bounds.x1;
+      goo_canvas_item_translate (item->rootitem,
+				 new_x ,(double) 0);
+   }
 
-      str2 = g_strdup_printf("voices/$LOCALE/alphabet/%s", letter_unichar_name);
 
-      gc_sound_play_ogg(str2, NULL);
+    #if GLIB_CHECK_VERSION(2, 31, 0)
+      g_mutex_lock (&items_lock);
+    #else
+      g_static_mutex_lock (&items_lock);
+    #endif
+      g_ptr_array_add(items, item);
+    #if GLIB_CHECK_VERSION(2, 31, 0)
+      g_mutex_unlock (&items_lock);
+    #else
+      g_static_mutex_unlock (&items_lock);
+    #endif
 
-      g_free(letter_unichar_name);
-      g_free(str2);
-    }
-
-  item = \
-    goo_canvas_group_new (parent,
-			  NULL);
-  goo_canvas_item_translate(item, 0, -12);
-
-  x = g_random_int_range( 80, BOARDWIDTH-160);
-  goo_canvas_text_new (item,
-		       letter,
-		       x,
-		       -20,
-		       -1,
-		       GTK_ANCHOR_CENTER,
-		       "font", gc_skin_font_board_huge_bold,
-		       "fill_color_rgba", 0x8c8cFFFF,
-		       NULL);
-  x -= 2;
-  goo_canvas_text_new (item,
-		       letter,
-		       x,
-		       -22,
-		       -1,
-		       GTK_ANCHOR_CENTER,
-		       "font", gc_skin_font_board_huge_bold,
-		       "fill_color_rgba", 0x254c87FF,
-		       NULL);
-
-  g_object_set_data (G_OBJECT(item), "unichar_key", lettersItem);
-  g_object_set_data (G_OBJECT(item), "utf8_key", letter);
-
-  item_list = g_list_append (item_list, item);
-  ++actors_count;
-
-  /* Add letter to hash table of all falling letters. */
-  g_hash_table_insert (letters_table, lettersItem, item);
-
-  g_free(letter);
-
-  return (item);
+  return (item->rootitem);
 }
 
 static void gletters_add_new_item()
 {
+
+  g_assert(gcomprisBoard->canvas!=NULL);
   gletters_create_item(goo_canvas_get_root_item(gcomprisBoard->canvas));
+
 }
 
 /*
  * This is called on a low frequency and is used to drop new items
  *
  */
-static gboolean gletters_drop_items (gpointer data)
+static gint gletters_drop_items (gpointer data)
 {
   gc_sound_play_ogg ("sounds/level.wav", NULL);
   gletters_add_new_item();
+  g_source_remove(drop_items_id);
+  drop_items_id = g_timeout_add (fallSpeed,(GSourceFunc) gletters_drop_items, NULL);
 
-  drop_items_id = g_timeout_add (fallSpeed,
-				 gletters_drop_items, NULL);
   return (FALSE);
 }
 
-static void player_win(GooCanvasItem *item)
+/* Called with items_lock locked */
+static void player_win(LettersItem *item)
 {
-  gletters_destroy_item(item);
+
   gc_sound_play_ogg ("sounds/flip.wav", NULL);
 
+  g_assert(gcomprisBoard!=NULL);
+
   gcomprisBoard->sublevel++;
+  gc_score_set(gcomprisBoard->sublevel);
+
+  g_ptr_array_remove(items,item);
+  g_ptr_array_add(items2del,item);
+
+  g_object_set (item->rootitem, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+  g_timeout_add (500,(GSourceFunc) gletters_delete_items, NULL);
 
   if(gcomprisBoard->sublevel > gcomprisBoard->number_of_sublevel)
     {
+
       /* Try the next level */
       gcomprisBoard->level++;
+      gcomprisBoard->sublevel = 0;
       if(gcomprisBoard->level>gcomprisBoard->maxlevel)
 	gcomprisBoard->level = gcomprisBoard->maxlevel;
 
-      gamewon = TRUE;
-      gletters_destroy_all_items();
-      gc_bonus_display(gamewon, GC_BONUS_SMILEY);
+      gletters_next_level_unlocked();
+      gc_sound_play_ogg ("sounds/bonus.wav", NULL);
     }
   else
     {
-      gc_score_set(gcomprisBoard->sublevel);
 
       /* Drop a new item now to speed up the game */
-      if(g_list_length(item_list)==0)
-	{
-	  if (drop_items_id) {
-	    /* Remove pending new item creation to sync the falls */
-	    g_source_remove (drop_items_id);
-	    drop_items_id = 0;
-	  }
-	  if(!drop_items_id) {
-	    drop_items_id = g_timeout_add (0,
-					   gletters_drop_items, NULL);
-	  }
-	}
+      if(items->len==0)
+        {
+          if (drop_items_id) {
+            /* Remove pending new item creation to sync the falls */
+            g_source_remove (drop_items_id);
+            drop_items_id = 0;
+          }
+
+          if(!drop_items_id) {
+            drop_items_id = g_timeout_add (0,
+					   (GSourceFunc) gletters_drop_items,
+					   NULL);
+          }
+
+        }
     }
+
 }
 
-static void player_loose()
+static void player_lose()
 {
   gc_sound_play_ogg ("sounds/crash.wav", NULL);
 }
 
-static gunichar *
-key_find_by_item (const GooCanvasItem *item)
-{
-  return g_object_get_data (G_OBJECT(item), "unichar_key");
-}
+/* ************************************* */
+/* *            Configuration          * */
+/* ************************************* */
 
-static GooCanvasItem *
-item_find_by_title (const gunichar *title)
-{
-  if (!letters_table)
-    return NULL;
-
-  return g_hash_table_lookup (letters_table, title);
-}
-
-
-/***********************************
-************************************
-    Config
-************************************/
 
 /* ======================= */
 /* = config_start        = */
@@ -771,7 +903,6 @@ item_find_by_title (const gunichar *title)
 
 static GcomprisProfile *profile_conf;
 static GcomprisBoard   *board_conf;
-
 static void save_table (gpointer key,
 			gpointer value,
 			gpointer user_data)
@@ -782,9 +913,8 @@ static void save_table (gpointer key,
 			    (gchar *) value);
 }
 
-/* a GcomprisConfCallback
- */
-static gboolean conf_ok(GHashTable *table)
+static gboolean
+conf_ok(GHashTable *table)
 {
   if (!table){
     if (gcomprisBoard)
@@ -792,7 +922,7 @@ static gboolean conf_ok(GHashTable *table)
     return TRUE;
   }
 
-  g_hash_table_foreach(table, save_table, NULL);
+  g_hash_table_foreach(table, (GHFunc) save_table, NULL);
 
   if (gcomprisBoard){
     GHashTable *config;
@@ -805,29 +935,20 @@ static gboolean conf_ok(GHashTable *table)
     gc_locale_set(g_hash_table_lookup( config, "locale"));
 
     gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
-
-    if (up_init_str && (strcmp(up_init_str, "True")==0))
-      uppercase_only = TRUE;
-    else
-      uppercase_only = FALSE;
-
-    gchar *control_sound = g_hash_table_lookup( config, "with_sound");
-
-    if (control_sound && strcmp(g_hash_table_lookup( config, "with_sound"),"True")==0)
-      with_sound = TRUE;
-    else
-      with_sound = FALSE;
+    if (up_init_str)
+      {
+	if(strcmp(up_init_str, "True")==0)
+	  uppercase_only = TRUE;
+	else
+	  uppercase_only = FALSE;
+      }
 
     if (profile_conf)
       g_hash_table_destroy(config);
 
-    load_default_charset();
-
-    level_set_score();
     gletters_next_level();
 
     pause_board(FALSE);
-
   }
 
   board_conf = NULL;
@@ -836,21 +957,22 @@ static gboolean conf_ok(GHashTable *table)
 }
 
 static void
-gletter_config_start(GcomprisBoard *agcomprisBoard,
-		    GcomprisProfile *aProfile)
+gletters_config_start(GcomprisBoard *agcomprisBoard,
+		       GcomprisProfile *aProfile)
 {
+  GcomprisBoardConf *conf;
   board_conf = agcomprisBoard;
   profile_conf = aProfile;
-
-  gchar *label;
 
   if (gcomprisBoard)
     pause_board(TRUE);
 
-  label = g_strdup_printf(_("<b>%s</b> configuration\n for profile <b>%s</b>"),
-			  agcomprisBoard->name, aProfile ? aProfile->name : "");
+  gchar *label = g_strdup_printf(_("<b>%s</b> configuration\n for profile <b>%s</b>"),
+				 agcomprisBoard->name,
+				 aProfile? aProfile->name: "");
 
-  GcomprisBoardConf *bconf = gc_board_config_window_display(label, (GcomprisConfCallback )conf_ok);
+  conf = gc_board_config_window_display( label,
+					 conf_ok);
 
   g_free(label);
 
@@ -859,38 +981,21 @@ gletter_config_start(GcomprisBoard *agcomprisBoard,
 
   gchar *locale = g_hash_table_lookup( config, "locale");
 
-  gc_board_config_combo_locales( bconf, locale);
-
+  gc_board_config_combo_locales(conf, locale);
+  gc_board_config_wordlist(conf, "gletters/default-$LOCALE.xml");
+  /* upper case */
   gboolean up_init = FALSE;
-
   gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
 
   if (up_init_str && (strcmp(up_init_str, "True")==0))
     up_init = TRUE;
 
-  gc_board_conf_separator(bconf);
-
-  gchar *control_sound = g_hash_table_lookup( config, "with_sound");
-  if (control_sound && strcmp(g_hash_table_lookup( config, "with_sound"),"True")==0)
-    with_sound = TRUE;
-  else
-    with_sound = FALSE;
-
-  gc_board_config_boolean_box(bconf, _("Enable sounds"), "with_sound", with_sound);
-
-  gc_board_conf_separator(bconf);
-
-  gc_board_config_boolean_box(bconf, _("Uppercase only text"),
-		       "uppercase_only",
-		       up_init);
-
+  gc_board_config_boolean_box(conf, _("Uppercase only text"),
+			      "uppercase_only",
+			      up_init);
 }
 
-
-/* ======================= */
-/* = config_stop        = */
-/* ======================= */
-static void
-gletter_config_stop()
+static void gletters_config_stop(void)
 {
 }
+
