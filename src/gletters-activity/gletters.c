@@ -198,7 +198,11 @@ static void load_letters(int uppercase_only)
       gchar *filename = (uppercase_only) ? "gletters/upper-$LOCALE.xml" : "gletters/default-$LOCALE.xml";
 
       gc_wordlist = gc_wordlist_get_from_file(filename);
-
+      if(!gc_wordlist && uppercase_only)
+      {
+          filename = "gletters/default-$LOCALE.xml";
+          gc_wordlist = gc_wordlist_get_from_file(filename);
+      }
       if(!gc_wordlist)
         {
           /* Fallback to english */
