@@ -92,9 +92,10 @@ static gint dummy_id = 0;
 static gint drop_items_id = 0;
 static gboolean uppercase_only;
 
+static gboolean with_sound = FALSE;
 
 /* Hash table of all displayed letters, so each letter will be chosen at least once
- * before uplicate letters are used  */
+ * before uplicate letters are used. */
 static GHashTable *letters_table= NULL;
 
 static void		 start_board (GcomprisBoard *agcomprisBoard);
@@ -192,38 +193,8 @@ static void pause_board (gboolean pause)
     }
 }
 
-/*
- */
-static void start_board (GcomprisBoard *agcomprisBoard)
+static void load_letters(int uppercase_only)
 {
-
-  if(agcomprisBoard!=NULL)
-    {
-      gcomprisBoard=agcomprisBoard;
-
-      GHashTable *config = gc_db_get_board_conf();
-      gc_locale_set(g_hash_table_lookup( config, "locale"));
-
-      gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
-      if (up_init_str && (strcmp(up_init_str, "True")==0))
-	uppercase_only = TRUE;
-      else
-	uppercase_only = FALSE;
-
-      g_hash_table_destroy(config);
-
-      /* disable im_context */
-      //gcomprisBoard->disable_im_context = TRUE;
-
-      gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
-			"gletters/scenery_background.png");
-
-
-      gcomprisBoard->level = 1;
-      gcomprisBoard->maxlevel = 6;
-      gcomprisBoard->sublevel = 0;
-      gc_bar_set(GC_BAR_LEVEL|GC_BAR_CONFIG);
-
       gchar *filename = (uppercase_only) ? "gletters/upper-$LOCALE.xml" : "gletters/default-$LOCALE.xml";
 
       gc_wordlist = gc_wordlist_get_from_file(filename);
@@ -243,8 +214,47 @@ static void start_board (GcomprisBoard *agcomprisBoard)
         }
       if(gc_wordlist)
       {
-        gcomprisBoard->maxlevel = gc_wordlist->number_of_level;
+        gcomprisBoard->maxlevel = (gc_wordlist->number_of_level < 6) ? 6: gc_wordlist->number_of_level;
       }
+}
+
+/*
+ */
+static void start_board (GcomprisBoard *agcomprisBoard)
+{
+
+  if(agcomprisBoard!=NULL)
+    {
+      gcomprisBoard=agcomprisBoard;
+
+      GHashTable *config = gc_db_get_board_conf();
+      gc_locale_set(g_hash_table_lookup( config, "locale"));
+      
+      gchar *control_sound = g_hash_table_lookup( config, "with_sound");
+
+      if (control_sound && strcmp(g_hash_table_lookup( config, "with_sound"),"True")==0)
+        with_sound = TRUE;
+      else
+        with_sound = FALSE;
+
+      gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
+      if (up_init_str && (strcmp(up_init_str, "True")==0))
+	uppercase_only = TRUE;
+      else
+	uppercase_only = FALSE;
+ 
+      load_letters(uppercase_only);
+      g_hash_table_destroy(config);
+
+      /* disable im_context */
+      //gcomprisBoard->disable_im_context = TRUE;
+
+      gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
+			"gletters/scenery_background.png");
+
+
+      gcomprisBoard->level = 1;
+      gc_bar_set(GC_BAR_LEVEL|GC_BAR_CONFIG);
       gletters_next_level();
     }
 }
@@ -293,6 +303,27 @@ set_level (guint level)
       gcomprisBoard->level=level;
       gletters_next_level();
     }
+}
+
+/* 
+ * For uppercase mode, both upper- or lowercase can be typed
+ */
+static int is_letter_equal(gchar *letter1, gchar *letter2)
+{
+    int success=FALSE;
+    if (uppercase_only)
+    {
+        gchar *old = letter1;
+        letter1 = g_utf8_strup(old, -1);
+        g_free(old);
+        success = strcmp(letter2,g_utf8_strdown(letter1,-1))==0;
+        success = success || strcmp(letter2,g_utf8_strup(letter1,-1))==0;
+    }
+    else
+    {
+        success = strcmp(letter2,letter1)==0;
+    }
+    return success;
 }
 
 
@@ -377,23 +408,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 	    item=g_ptr_array_index(items,i);
 	    g_assert (item!=NULL);
                 
-            /* Force entered letter to the casing we expect
-             * Children is to small to manage the caps lock key for now
-             */
-            int success=FALSE;
-            if (uppercase_only)
-            {
-                gchar *old = letter;
-                letter = g_utf8_strup(old, -1);
-                g_free(old);
-                success = strcmp(item->letter,g_utf8_strdown(letter,-1))==0;
-                success = success || strcmp(item->letter,g_utf8_strup(letter,-1))==0;
-            }
-            else
-            {
-                success = strcmp(item->letter,letter)==0;
-            }
-            if (success)
+            if (is_letter_equal(letter, item->letter))
 	      {
 		item_on_focus=item;
 		break;
@@ -404,8 +419,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 
     if(item_on_focus!=NULL)
       {
-
-	if(strcmp(item_on_focus->letter, letter)==0)
+	if(is_letter_equal(letter, item_on_focus->letter))
 	  {
 	    gchar *tmpstr;
 	    item_on_focus->count++;
@@ -506,7 +520,7 @@ static void gletters_next_level_unlocked()
   g_message("wordlist length for level %d is %d\n",
 	    gcomprisBoard->level,
 	    l);
-  l = l/3; // make sure the level doesn't get too long
+  l = l/3 + (gcomprisBoard->level)/3; // make sure the level doesn't get too long
   // set sublevels
   gcomprisBoard->number_of_sublevel = (DEFAULT_SUBLEVEL>l?DEFAULT_SUBLEVEL:l);
 
@@ -541,6 +555,7 @@ static void gletters_next_level_unlocked()
 /* set initial values for the next level */
 static void gletters_next_level()
 {
+  gcomprisBoard->sublevel = 0;
 #if GLIB_CHECK_VERSION(2, 31, 0)
   g_mutex_lock (&items_lock);
 #else
@@ -685,18 +700,6 @@ static void gletters_destroy_all_items()
     g_hash_table_destroy (letters_table);
     letters_table=NULL;
   }
-
-}
-
-/*
- * Comparison function to see if a letter has already been used in the current level
- */
-static gboolean comp_gchar_for_hash(gpointer key, gpointer value, gpointer user_data)
-{
-  gchar *target = (gchar *) user_data;
-  const gchar *compvalue = (gchar *) key;
-  
-  return (g_strcmp0(compvalue, target)==0);
 }
 
 
@@ -706,34 +709,53 @@ static GooCanvasItem *gletters_create_item(GooCanvasItem *parent)
   LettersItem *item;
   gchar *word = gc_wordlist_random_word_get(gc_wordlist, gcomprisBoard->level);
   GtkAnchorType direction_anchor = GTK_ANCHOR_NW;
-  
+
+  /* Keep track of letters already used */
   if (!letters_table)
-    {
-      letters_table = g_hash_table_new(g_int_hash, g_str_equal);
-    }
+  {
+      letters_table = g_hash_table_new(g_str_hash, g_str_equal);
+  }
   
   guint i;
   if(word)
   {
-      // Can't get hashtable lookup to work, so I have to use thee less efficient find
-      for (i=0;i<6 && word && g_hash_table_find(letters_table,comp_gchar_for_hash,word);++i)
+      /* Check if letter has already been used. Cap at 6 tries, because there 
+       * might not be enough letters for all the sublevels */
+      for (i=0;i<6 && word && g_hash_table_lookup(letters_table,word)!=NULL;++i)
       {
           word = gc_wordlist_random_word_get(gc_wordlist, gcomprisBoard->level);
       }
-        /* Add letter to hash table of all falling letters. */
-        gchar *temp = word;
-        word = g_strdup(temp);
-        g_hash_table_insert (letters_table, word, word);
-        g_free(temp);
+
+      /* Add letter to hash table of all falling letters. */
+      g_hash_table_add (letters_table, g_strdup(word));
+      g_debug("Dropping %s\n",word);
+    
+    /* Play sound for the letter */  
+    if (with_sound)
+    {
+      gchar *str2 = NULL;
+      gchar *letter_unichar_name = gc_sound_alphabet(word);
+
+      str2 = g_strdup_printf("voices/$LOCALE/alphabet/%s", letter_unichar_name);
+
+      gc_sound_play_ogg(str2, NULL);
+
+      g_free(letter_unichar_name);
+      g_free(str2);
+    }
   }
   
   else
+  {
     /* Should display the dialog box here */
+      gc_dialog(_("ERROR: Unable to get letter from wordlist"),gletters_next_level);
+      g_error("ERROR: Unable to get letter from wordlist");
     return NULL;
-    
+  } 
   // create and init item
   item = g_new(LettersItem,1);
   
+  /* Now set and display the letter */
   if (uppercase_only)
     {
       gchar *old = word;
@@ -942,10 +964,11 @@ conf_ok(GHashTable *table)
 	else
 	  uppercase_only = FALSE;
       }
-
+    
     if (profile_conf)
       g_hash_table_destroy(config);
 
+    load_letters(uppercase_only);
     gletters_next_level();
 
     pause_board(FALSE);
@@ -960,19 +983,18 @@ static void
 gletters_config_start(GcomprisBoard *agcomprisBoard,
 		       GcomprisProfile *aProfile)
 {
-  GcomprisBoardConf *conf;
   board_conf = agcomprisBoard;
   profile_conf = aProfile;
+
+  gchar *label;
 
   if (gcomprisBoard)
     pause_board(TRUE);
 
-  gchar *label = g_strdup_printf(_("<b>%s</b> configuration\n for profile <b>%s</b>"),
-				 agcomprisBoard->name,
-				 aProfile? aProfile->name: "");
+  label = g_strdup_printf(_("<b>%s</b> configuration\n for profile <b>%s</b>"),
+			  agcomprisBoard->name, aProfile ? aProfile->name : "");
 
-  conf = gc_board_config_window_display( label,
-					 conf_ok);
+  GcomprisBoardConf *bconf = gc_board_config_window_display(label, (GcomprisConfCallback )conf_ok);
 
   g_free(label);
 
@@ -981,18 +1003,30 @@ gletters_config_start(GcomprisBoard *agcomprisBoard,
 
   gchar *locale = g_hash_table_lookup( config, "locale");
 
-  gc_board_config_combo_locales(conf, locale);
-  gc_board_config_wordlist(conf, "gletters/default-$LOCALE.xml");
-  /* upper case */
+  gc_board_config_combo_locales( bconf, locale);
+
   gboolean up_init = FALSE;
+
   gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
 
   if (up_init_str && (strcmp(up_init_str, "True")==0))
     up_init = TRUE;
 
-  gc_board_config_boolean_box(conf, _("Uppercase only text"),
-			      "uppercase_only",
-			      up_init);
+  gc_board_conf_separator(bconf);
+
+  gchar *control_sound = g_hash_table_lookup( config, "with_sound");
+  if (control_sound && strcmp(g_hash_table_lookup( config, "with_sound"),"True")==0)
+    with_sound = TRUE;
+  else
+    with_sound = FALSE;
+
+  gc_board_config_boolean_box(bconf, _("Enable sounds"), "with_sound", with_sound);
+
+  gc_board_conf_separator(bconf);
+
+  gc_board_config_boolean_box(bconf, _("Show letters in UPPERCASE\nType in lowercase or UPPERCASE as you wish"),
+		       "uppercase_only",
+		       up_init);
 }
 
 static void gletters_config_stop(void)
