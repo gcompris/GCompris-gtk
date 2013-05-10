@@ -67,7 +67,7 @@ class SpotTarget:
           y = y + 10,
           fill_color = "black",
           font = gcompris.skin.get_font("gcompris/subtitle"),
-          text = triplet.description,
+          text = triplet.descriptionTranslated,
           anchor = gtk.ANCHOR_NW,
           alignment = pango.ALIGN_LEFT,
           width = self.width - textx - 10
@@ -139,7 +139,7 @@ class Findit:
             y = 100,
             fill_color = "black",
             font = gcompris.skin.get_font("gcompris/subtitle"),
-            text = self.tripletToFind.description,
+            text = self.tripletToFind.descriptionTranslated,
             anchor = gtk.ANCHOR_CENTER,
             alignment = pango.ALIGN_CENTER,
             width = 300

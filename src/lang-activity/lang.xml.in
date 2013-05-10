@@ -2,19 +2,12 @@
 <GCompris>
   <Board
         name="lang"
-        type="python:lang"
-        section="/experimental"
+        type="menu"
+        section="/reading"
         icon="lang.svg"
-        difficulty="3"
         author="Bruno Coudoin (bruno.coudoin@gcompris.net)"
-        boarddir=""
         >
-        <_title>Practice a foreign language</_title>
-        <_description>Practice a foreign language</_description>
-        <_prerequisite></_prerequisite>
-        <_goal></_goal>
-        <_manual></_manual>
-        <_credit></_credit>
+        <_title>Go to the language learning activities</_title>
+        <_description>Left-click the mouse on an activity to select it.</_description>
   </Board>
-  <Data directory=""/>
 </GCompris>

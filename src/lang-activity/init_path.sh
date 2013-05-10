@@ -1,8 +1,8 @@
 # Set the different path for this activity
 # This is sourced by runit.sh
 path=$1
-activity=lang
+activity=lang-people
 plugindir=$path/../boards/.libs
 pythonplugindir=$path 
 resourcedir=$path/resources
-section="/experimental"
+section="/reading/lang"
