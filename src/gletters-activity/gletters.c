@@ -78,7 +78,7 @@ static GcomprisBoard *gcomprisBoard = NULL;
  */
 
 #define FALL_RATE_BASE 40
-#define FALL_RATE_MULT 100
+#define FALL_RATE_MULT 10
 
 /* these constants control how often letters are dropped
  * the base rate is fixed
@@ -86,7 +86,7 @@ static GcomprisBoard *gcomprisBoard = NULL;
  */
 
 #define DROP_RATE_BASE 1000
-#define DROP_RATE_MULT 8000
+#define DROP_RATE_MULT 1000
 
 static gint dummy_id = 0;
 static gint drop_items_id = 0;
@@ -122,8 +122,8 @@ static void		 player_win(LettersItem *item);
 static void		 player_lose(void);
 
 
-static  guint32              fallSpeed = 0;
-static  double               speed = 0.0;
+static  gint              fallSpeed = 0;
+static  gint               speed = 0;
 
 static GooCanvasItem *preedit_text = NULL;
 
@@ -552,8 +552,16 @@ static void gletters_next_level_unlocked()
     g_hash_table_destroy (letters_table);
     letters_table=NULL;
   }
-
   pause_board(FALSE);
+}
+
+/*
+ * Set how often and how fast items drop
+ */
+static void setSpeed(guint level)
+{
+  speed= ((gint) FALL_RATE_BASE)+(((gint) FALL_RATE_MULT)*level);
+  fallSpeed= (gint) DROP_RATE_BASE+(DROP_RATE_MULT*level);
 }
 
 /* set initial values for the next level */
@@ -571,8 +579,7 @@ static void gletters_next_level()
 #else
   g_static_mutex_unlock (&items_lock);
 #endif
-  speed= ((double) FALL_RATE_BASE)+(((double) FALL_RATE_MULT)/gcomprisBoard->level);
-  fallSpeed= (guint32) DROP_RATE_BASE+(DROP_RATE_MULT/gcomprisBoard->level);
+  setSpeed(gcomprisBoard->level);
 }
 
 /* Called with items_lock locked */
@@ -709,7 +716,7 @@ static void gletters_destroy_all_items()
 
 static GooCanvasItem *gletters_create_item(GooCanvasItem *parent)
 {
-  g_message("Createing new item");
+  g_message("Creating new item");
   LettersItem *item;
   gchar *word = gc_wordlist_random_word_get(gc_wordlist, gcomprisBoard->level);
   GtkAnchorType direction_anchor = GTK_ANCHOR_NW;
@@ -877,6 +884,7 @@ static void player_win(LettersItem *item)
 
   g_object_set (item->rootitem, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
   g_timeout_add (500,(GSourceFunc) gletters_delete_items, NULL);
+  
 
   if(gcomprisBoard->sublevel > gcomprisBoard->number_of_sublevel)
     {
@@ -886,7 +894,8 @@ static void player_win(LettersItem *item)
       gcomprisBoard->sublevel = 0;
       if(gcomprisBoard->level>gcomprisBoard->maxlevel)
 	gcomprisBoard->level = gcomprisBoard->maxlevel;
-
+    
+      setSpeed(gcomprisBoard->level);
       gletters_next_level_unlocked();
       gc_sound_play_ogg ("sounds/bonus.wav", NULL);
     }
