@@ -87,7 +87,6 @@ class Gcompris_hangman:
         except:
           print ("ERROR: Bad key equivalence list '%s' for hangman: " %(keyequivs, ))
 
-
     # Letters equivalence for the hangman activity. It has the
     # form of a space separated list like: "e=éè a=àâ"
     # Keep the word NONE if not available in your language
