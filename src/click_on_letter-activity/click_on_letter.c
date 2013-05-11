@@ -572,8 +572,10 @@ static GooCanvasItem *click_on_letter_create_item(GooCanvasItem *parent)
 
   RsvgHandle *svg_handle= carriage_svg_handle;
   RsvgDimensionData svg_dimension = carriage_svg_dimension;
+  
+  GSList *answerpointer = level->answers;
 
-  for (i = 0; i< g_slist_length(level->answers); i++) {
+  for (i = 0; answerpointer; i++) {
 
     if ( i > 0 && i % N_LETTER_PER_LINE == 0 )
       {
@@ -594,8 +596,8 @@ static GooCanvasItem *click_on_letter_create_item(GooCanvasItem *parent)
     goo_canvas_item_translate( button_item,
 			       xOffset,
 			       yOffset);
-
-    gchar *answer = g_slist_nth_data(level->answers,i);
+    
+    gchar *answer = (gchar *) answerpointer->data;
     /* Display in uppercase? */
     if(uppercase_only) answer=g_utf8_strup(answer,-1);
 
@@ -620,8 +622,11 @@ static GooCanvasItem *click_on_letter_create_item(GooCanvasItem *parent)
     gc_item_focus_init(button_item, NULL);
     g_object_set_data(G_OBJECT(button_item), "button_item", button_item);
     g_object_set_data(G_OBJECT(text_item), "button_item", button_item);
+    
+    /* Move to next letter */
+    answerpointer = g_slist_next(answerpointer);
   }
-
+  g_slist_free (answerpointer);
   return NULL;
 }
 /* ==================================== */
@@ -847,14 +852,23 @@ static gchar *levels_to_desktop() {
       // todo this has not been tested
       g_key_file_set_integer(keyfile, group, "NoofQuestions", g_slist_length(level.questions));
       g_key_file_set_integer(keyfile, group, "NoofAnswers", g_slist_length(level.answers));
-      int j;
-      for (j = 0; j < g_slist_length(level.questions); j++)
-          g_key_file_set_string(keyfile, group, g_strdup_printf("Questions%d", j), (gchar *) g_slist_nth_data(level.questions,j));
+      
+      GSList *temppointer = level.answers;
+      int j =0;
+      do {
+          g_key_file_set_string(keyfile, group, g_strdup_printf("Answers%d", j), (gchar *) temppointer->data);
+          ++j;
+      } while ((temppointer = g_slist_next(temppointer)));
 
-      for (j = 0; j < g_slist_length(level.answers); j++)
-          g_key_file_set_string(keyfile, group, g_strdup_printf("Answers%d", j), (gchar *) g_slist_nth_data(level.answers,j));
-
+      temppointer = level.questions;
+      j =0;
+      do {
+          g_key_file_set_string(keyfile, group, g_strdup_printf("Questions%d", j), (gchar *) temppointer->data);
+          ++j;
+      } while ((temppointer = g_slist_next(temppointer)));
+      g_slist_free (temppointer);
       g_free(group);
+      // todo free GSList?
     }
 
   gchar *buffer = g_key_file_to_data(keyfile, NULL, NULL);
@@ -918,16 +932,15 @@ static void create_levels_from_config_model()
  */
 static gchar *list_to_string(GSList *list)
 {
-  guint i;
   gchar *result ="";
-  for ( i = 0; i < g_slist_length(list); i++)
-  {
-      result = g_strdup_printf("%s %s",result, (gchar *) g_slist_nth_data(list,i));
-  }
+  GSList *temppointer = list;
+  do {
+      result = g_strdup_printf("%s %s",result, (gchar *) temppointer->data);
+  } while ((temppointer = g_slist_next(temppointer)));
+  g_slist_free (temppointer);
   /* Display in uppercase? */
   if(uppercase_only) result=g_utf8_strup(result,-1);
   return result;
-
 }
 
 void
@@ -997,28 +1010,25 @@ valid_entry(Level *level)
       goto error;
     }
 
-  guint a;
-  guint q;
-  for ( q = 0; q < n_questions; q++)
-    {
-      gchar *question = (gchar *) g_slist_nth_data(level->questions,q);
+  GSList *questionpointer = level->questions;
+  do {
+      gchar *question = (gchar *) questionpointer->data;
       gboolean found = FALSE;
-      for ( a = 0; a < n_answers; a++)
-	{
-          gchar *answer = (gchar *) g_slist_nth_data(level->answers,a);
+      GSList *answerpointer = level->answers;
+      do {
+          gchar *answer = (gchar *) answerpointer->data;
 	  if ( strcmp( answer, question ) == 0 )
-	    {
 	      found = TRUE;
-	      break;
-	    }
-	}
-      if ( ! found )
-	{
+      } while (!found && (answerpointer = g_slist_next(answerpointer)));
+      g_slist_free (answerpointer);
+      if (! found )
+      {
 	  error = g_strdup ( _("All the characters in Questions must also be in the Answers.") );
+          g_slist_free (questionpointer);
 	  goto error;
-	}
-    }
-
+      }
+  } while ((questionpointer = g_slist_next(questionpointer)));
+  g_slist_free (questionpointer);
   return TRUE;
 
  error:
