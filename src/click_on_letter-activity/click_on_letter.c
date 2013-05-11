@@ -1,3 +1,10 @@
+/*
+ * todos:
+ * -- config bug
+ * -- keyboard input for multigraphs
+ * -- remove debugging text output
+ */
+
 /* gcompris - click_on_letter.c
  *
  * Copyright (C) 2001, 2010 Pascal Georges
@@ -48,16 +55,12 @@ static void		 config_start(GcomprisBoard *agcomprisBoard,
 				      GcomprisProfile *aProfile);
 static void		 config_stop(void);
 
-/* The data structure of a level */
-typedef struct
-{
-  guint  level;
-  gchar *questions;
-  gchar *answers;
-} Level;
-static GArray *levels = NULL;
-static gchar **questions;
-static gchar **answers;
+static gchar *levels_to_desktop(void);
+
+/* length of the alphabet*/
+static guint alphlen;
+/* alphabet storage*/
+static gchar **letterlist=NULL; 
 
 static void		 load_datafile();
 static void		 clear_levels();
@@ -79,6 +82,17 @@ enum
 #define N_LETTER_PER_LINE 6
 #define MAX_N_LETTER_LINE 4
 #define MAX_N_ANSWER      (N_LETTER_PER_LINE * MAX_N_LETTER_LINE)
+  
+
+/* The data structure of a level */
+typedef struct
+{
+  guint  level;
+  GSList *questions;
+  GSList *answers;
+} Level;
+
+static GArray *levels = NULL;
 
 #define NOT_OK		0
 #define OK		1
@@ -103,14 +117,34 @@ static gint item_event(GooCanvasItem *item, GooCanvasItem *target,
 		       GdkEvent *event, gpointer data);
 static guint sounds_are_fine();
 
-static int n_answer;
 static gchar *right_letter = NULL;
-
-static gchar *alphabet;
 
 static void sound_played(gchar *file);
 
 static gboolean uppercase_only;
+
+/*
+ * Reads multigraph characters from PO file into array.
+ * Maximum multigraph + alphabet lengths defined on top of this file
+ */
+static void
+get_alphabet()
+{
+  g_message("Getting alphabet");
+  gchar *alphabet = _("a/b/c/d/e/f/g/h/i/j/k/l/m/n/o/p/q/r/s/t/u/v/w/x/y/z");
+  /* TRANSLATORS: Put here the alphabet in your language, letters separated by: /
+   * Supports multigraphs, e.g. /sh/ or /sch/ gets treated as one letter */
+  g_assert(g_utf8_validate(alphabet, -1, NULL)); // require by all utf8-functions
+
+  /* fill letter storage */
+  letterlist = g_strsplit (alphabet,"/",-1);
+  guint i =-1;
+  while (letterlist[++i])
+  {
+      ;
+  }
+  alphlen=i;
+}
 
 /* Description of this plugin */
 static BoardPlugin menu_bp =
@@ -149,7 +183,7 @@ GET_BPLUGIN_INFO(click_on_letter)
  * in : boolean TRUE = PAUSE : FALSE = CONTINUE
  *
  */
-     static void pause_board (gboolean pause)
+static void pause_board (gboolean pause)
 {
   if(gcomprisBoard==NULL)
     return;
@@ -170,7 +204,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
   guint ready;
 
   board_paused = TRUE;
-
+  
+  get_alphabet(); /* read and init letters */
+  
   gc_locale_set(g_hash_table_lookup( config, "locale_sound"));
 
   g_hash_table_destroy(config);
@@ -183,10 +219,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     {
       gcomprisBoard=agcomprisBoard;
 
-      if ( gcomprisBoard->mode && g_ascii_strcasecmp(gcomprisBoard->mode, "uppercase")==0 )
-	uppercase_only = TRUE;
-      else
-	uppercase_only = FALSE;
+      uppercase_only =  ( gcomprisBoard->mode && g_ascii_strcasecmp(gcomprisBoard->mode, "uppercase")==0 );
 
       gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			      "click_on_letter/background.svgz");
@@ -233,6 +266,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
 static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str) {
   gint length_passed, i;
+  
+  printf("Keypress\n");
 
   if(!gcomprisBoard)
     return FALSE;
@@ -246,6 +281,8 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str) {
     string_passed = commit_str;
   else
     string_passed = preedit_str;
+  
+  printf("String passed: %s\n",string_passed);
 
   length_passed = g_utf8_strlen(string_passed, -1);
 
@@ -261,10 +298,8 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str) {
       gc_im_reset();
       return TRUE;
     }
-
     string_passed = g_utf8_next_char (string_passed);
   }
-
   return TRUE;
 }
 
@@ -276,8 +311,7 @@ static void end_board ()
       pause_board(TRUE);
       gc_score_end();
       click_on_letter_destroy_all_items();
-      g_strfreev(answers);
-      g_strfreev(questions);
+      // todo free memory?
 
       g_object_unref(carriage_svg_handle);
       g_object_unref(cloud_svg_handle);
@@ -286,12 +320,14 @@ static void end_board ()
   gc_locale_set( NULL );
   gcomprisBoard = NULL;
   gc_sound_bg_resume();
+  printf("Todo: applied configuration crashes after this. Can't test desktop file creation.\n");
+  g_strfreev(letterlist);
+  printf("Freed letterlist\n");
 }
 
 /* ======================================= */
 static void set_level (guint level)
 {
-
   if(gcomprisBoard!=NULL)
     {
       gcomprisBoard->level=level;
@@ -322,6 +358,7 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
  */
 static gboolean _repeat ()
 {
+    printf("Start repeat\n");
   gboolean retval = FALSE;
 
   gchar *str1 = NULL;
@@ -339,7 +376,7 @@ static gboolean _repeat ()
 
   if(right_letter_ogg) {
 
-    /* Let's check the file exist to be abble to return FALSE */
+    /* Let's check the file exist to be able to return FALSE */
     gchar *absolute_file = gc_file_find_absolute(right_letter_ogg, NULL);
     if (absolute_file)
       {
@@ -362,17 +399,9 @@ static void repeat ()
     }
 }
 
-static gchar *
-get_alphabet()
-{
-  gchar *alphabet = gettext( _("abcdefghijklmnopqrstuvwxyz") );
-  /* TRANSLATORS: Put here the alphabet in your language */
-  g_assert(g_utf8_validate(alphabet, -1, NULL)); // require by all utf8-functions
-  return alphabet;
-}
-
 static guint sounds_are_fine()
 {
+    printf("Start sounds are fine\n");
   char *letter_str;
   char *str2;
   GcomprisProperties *properties = gc_prop_get();
@@ -390,10 +419,8 @@ static guint sounds_are_fine()
       return(OK_NO_INIT);
     }
 
-  alphabet = get_alphabet();
-
   gchar *letter = g_new0(gchar, 8);
-  g_unichar_to_utf8(g_utf8_get_char(alphabet), letter);
+  g_unichar_to_utf8(g_utf8_get_char(letterlist[1]), letter); // todo
   letter_str = gc_sound_alphabet(letter);
   g_free(letter);
 
@@ -436,86 +463,78 @@ click_on_letter_next_level()
 /* Destroy all the items */
 static void click_on_letter_destroy_all_items()
 {
+    printf("Start destroy all\n");
   if(boardRootItem!=NULL)
     goo_canvas_item_remove(boardRootItem);
 
   boardRootItem = NULL;
-
-  g_free (right_letter);
+  // todo free alphabet and everything?
   right_letter = NULL;
 }
 
 /*
- * given an utf8 string, return an array of pointers to string
- * where each string is a char from the original string.
- * All the char in the returned array are shuffled
- * free the result with g_strfreev()
+ * Helper function for randomising letter list and answers
  */
-static gchar
-**shuffle_utf8(gchar *string)
+static void make_random_indices(guint *indices, guint length)
 {
-  guint n_letters = g_utf8_strlen (string, -1);
-  gchar **result = (gchar **) g_new( gpointer, n_letters + 1);
   /* Randomize the list, create a random index first */
-  int random[n_letters];
-  int i;
-  for ( i = 0 ; i < n_letters ; i++) {
-    random[i] = i;
+  guint i;
+  for ( i = 0 ; i < length ; i++) {
+    indices[i] = i;
   }
 
-  for ( i = 0 ; i < n_letters ; i++) {
-    int swap_index = g_random_int_range(0, n_letters);
-    int save = random[i];
-    random[i] = random[swap_index];
-    random[swap_index] = save;
-  }
-
-  /* Now use the index to swap letter */
-  for ( i = 0 ; i < n_letters ; i++) {
-    gchar *copy_from = g_utf8_offset_to_pointer(string, random[i]);
-    gchar *copy_to = g_utf8_offset_to_pointer(string, random[i] + 1);
-    result[i] = g_strndup(copy_from, copy_to - copy_from);
-  }
-  result[i] = NULL;
-  return result;
+  for ( i = 0 ; i < length ; i++) {
+    int swap_index = g_random_int_range(0, length);
+    int save = indices[i];
+    indices[i] = indices[swap_index];
+    indices[swap_index] = save;
+  } 
 }
+
+
+/* Helper function for creating levels.
+ * For selecting questions and randomizing the order of the answers,
+ * only pointers to elements in the letterlist will be manipulated.
+ * Avoids having to copy array elements
+ */
+static void
+shuffle_pointers(gchar **pointers, guint length)
+{
+  /* Randomize the list, create a random index first */
+  guint random[length];
+  make_random_indices(random,length);
+  guint i;  
+  /* Now use the index to swap pointer */
+  for ( i = 0 ; i < length-1; i++) {
+    char *savearray = pointers[random[i]];
+    pointers[random[i]] = pointers[random[i+1]];
+    pointers[random[i+1]] = savearray;
+  }
+}
+
 
 /* ==================================== */
 static GooCanvasItem *click_on_letter_create_item(GooCanvasItem *parent)
 {
-
   int xOffset, yOffset, i;
+  Level *level = &g_array_index (levels, Level, gcomprisBoard->level - 1);
 
   if (gcomprisBoard->sublevel == 1)
     {
-      Level *level = &g_array_index (levels, Level, gcomprisBoard->level - 1);
-      n_answer = g_utf8_strlen (level->answers, -1);
-      g_assert( n_answer <= MAX_N_ANSWER );
-
-      if ( uppercase_only )
-	{
-	  gchar *answers_up = g_utf8_strup( level->answers, -1 );
-	  gchar *questions_up = g_utf8_strup( level->questions, -1 );
-	  answers = shuffle_utf8(answers_up);
-	  questions = shuffle_utf8(questions_up);
-	  g_free(answers_up);
-	  g_free(questions_up);
-	}
-      else
-	{
-	  answers = shuffle_utf8(level->answers);
-	  questions = shuffle_utf8(level->questions);
-	}
-
+      guint n_answer = g_slist_length(level->answers);
+      g_assert(0 < n_answer && n_answer <= MAX_N_ANSWER );
+      g_assert( n_answer ==  g_slist_length(level->questions));
+      g_message("New level: %d, Sublevels: %d",gcomprisBoard->level - 1,n_answer);
+      
       /* Go to next level after this number of 'play' */
-      gcomprisBoard->number_of_sublevel = g_utf8_strlen (level->questions, -1);
+          gcomprisBoard->number_of_sublevel = n_answer;
     }
-  right_letter = g_utf8_strdown(questions[gcomprisBoard->sublevel - 1], -1);
-
-
+  right_letter =  g_slist_nth_data(level->questions,gcomprisBoard->sublevel - 1);
+  /* Display in uppercase? */
+  if(uppercase_only) right_letter=g_utf8_strup(right_letter,-1);
+  
   boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
 					NULL);
-
   if ( ! _repeat() )
   {
     /* Sound was not played, display the letter to find instead */
@@ -535,7 +554,7 @@ static GooCanvasItem *click_on_letter_create_item(GooCanvasItem *parent)
 			 "radius-y", (double) 10,
 			 NULL);
     goo_canvas_text_new (boardRootItem,
-			 questions[gcomprisBoard->sublevel - 1],
+			 right_letter,
 			 (double) x + width / 2,
 			 (double) y + height / 2,
 			 -1,
@@ -554,7 +573,7 @@ static GooCanvasItem *click_on_letter_create_item(GooCanvasItem *parent)
   RsvgHandle *svg_handle= carriage_svg_handle;
   RsvgDimensionData svg_dimension = carriage_svg_dimension;
 
-  for (i = 0; i< n_answer; i++) {
+  for (i = 0; i< g_slist_length(level->answers); i++) {
 
     if ( i > 0 && i % N_LETTER_PER_LINE == 0 )
       {
@@ -576,10 +595,13 @@ static GooCanvasItem *click_on_letter_create_item(GooCanvasItem *parent)
 			       xOffset,
 			       yOffset);
 
+    gchar *answer = g_slist_nth_data(level->answers,i);
+    /* Display in uppercase? */
+    if(uppercase_only) answer=g_utf8_strup(answer,-1);
 
     GooCanvasItem *text_item = \
       goo_canvas_text_new (boardRootItem,
-			   answers[i],
+			   answer,
 			   (double) xOffset + svg_dimension.width / 2 + text_gap_x,
 			   (double) yOffset + svg_dimension.height / 2 + text_gap_y,
 			   -1,
@@ -591,9 +613,9 @@ static GooCanvasItem *click_on_letter_create_item(GooCanvasItem *parent)
     xOffset += HORIZONTAL_SEPARATION + svg_dimension.width;
 
     g_signal_connect(text_item, "button_press_event",
-		     (GCallback) item_event, answers[i]);
+		     (GCallback) item_event, answer);
     g_signal_connect(button_item, "button_press_event",
-		     (GCallback) item_event, answers[i]);
+		     (GCallback) item_event, answer);
     gc_item_focus_init(text_item, button_item);
     gc_item_focus_init(button_item, NULL);
     g_object_set_data(G_OBJECT(button_item), "button_item", button_item);
@@ -635,7 +657,8 @@ item_event(GooCanvasItem *item, GooCanvasItem *target,
   if(board_paused)
     return FALSE;
 
-  gchar *answer = g_utf8_strdown ( (gchar*)data , -1 );
+  /// todo force lowercase when reading alphabet
+  gchar *answer = (gchar*)data;
 
   switch (event->type)
     {
@@ -655,8 +678,6 @@ item_event(GooCanvasItem *item, GooCanvasItem *target,
     default:
       break;
     }
-
-  g_free(answer);
   return FALSE;
 }
 /* ==================================== */
@@ -679,7 +700,6 @@ static void highlight_selected(GooCanvasItem * item) {
 /*
  * Management of Data File (Desktop style)
  */
-
 static void load_desktop_datafile(gchar *filename)
 {
   GKeyFile *keyfile = g_key_file_new ();
@@ -696,75 +716,101 @@ static void load_desktop_datafile(gchar *filename)
   gsize n_level;
   gchar **groups = g_key_file_get_groups (keyfile, &n_level);
   int i;
+  
   for (i=0; i<n_level; i++)
     {
       Level level;
       level.level = i + 1;
-      level.questions = g_key_file_get_string (keyfile, groups[i],
-					      "Questions", NULL);
-      level.answers = g_key_file_get_string (keyfile, groups[i],
-					    "Answers", NULL);
+      GSList *levelquestions=NULL;
+      GSList *levelanswers=NULL;
+      // todo this has not been tested
+      gint noofquestions = g_key_file_get_integer(keyfile, groups[i], "NoofQuestions", NULL);
+      gint noofanswers = g_key_file_get_integer(keyfile, groups[i], "NoofAnswers", NULL);
+
+      guint j;
+      for(j=0; j<noofquestions; j++)
+      {
+          
+          levelquestions=g_slist_append(levelquestions,g_key_file_get_string(keyfile, groups[i], g_strdup_printf("Questions%d", j), NULL));
+      }
+      for(j=0; j<noofanswers; j++)
+      {
+          levelanswers=g_slist_append(levelanswers,g_key_file_get_string(keyfile, groups[i], g_strdup_printf("Answers%d", j), NULL));
+      }
       g_array_append_vals (levels, &level, 1);
     }
-
   g_strfreev(groups);
   gcomprisBoard->maxlevel = n_level;
 }
 
-static void create_level_from_alphabet(gchar *alphabet)
+/*
+ * Read random letters from letterlist and create the levels 
+ */
+static void create_levels_from_alphabet()
 {
-  guint alphabet_len = g_utf8_strlen (alphabet, -1);
-
   guint level_i = 0;
-  guint i = 0;
-  while ( TRUE )
-    {
+  guint n_questions = 0;
+  while ( n_questions < alphlen && n_questions < MAX_N_ANSWER)
+  {
       Level level;
       level.level = ++level_i;
+      n_questions = level_i + 5;
+      
+      /* Make sure levels fit on screen */
+      n_questions = (n_questions > MAX_N_ANSWER) ? MAX_N_ANSWER : n_questions;
+      n_questions = (n_questions > alphlen) ? alphlen : n_questions;
 
-      guint n_questions = level_i + 3;
-
-      if ( i + n_questions > alphabet_len)
-	{
-	  n_questions = MAX_N_ANSWER;
-	  i = alphabet_len - n_questions;
-	}
-      gchar *copy_from = g_utf8_offset_to_pointer(alphabet, i);
-      gchar *copy_to = g_utf8_offset_to_pointer(alphabet, i + n_questions);
-
-      i += n_questions;
-
-      level.questions = g_strndup(copy_from, copy_to - copy_from);
-      level.answers = g_strdup(level.questions);
+      /* get random pointers to multigraphs */
+      guint j;
+      gchar *randomlist[alphlen];
+      for (j=0; j<alphlen ; ++j)
+      {
+            randomlist[j]=letterlist[j];
+      }
+      shuffle_pointers(randomlist, alphlen);
+      
+      level.questions=NULL;
+      level.answers=NULL;
+      
+      /* randomize order of answers */
+      guint randomindices[n_questions];
+      make_random_indices(randomindices, n_questions);
+            
+      for(j=0;j<n_questions;++j)
+      {
+        level.questions=g_slist_append (level.questions,randomlist[j]);
+        level.answers=g_slist_append (level.answers,randomlist[randomindices[j]]);
+      }
+      /* add the new level to the game */
       g_array_append_vals (levels, &level, 1);
-
-      if ( i >= alphabet_len)
-	break;
-    }
-
+      printf("Click_on_letter: Created %d questions for level %d\n",n_questions,level_i);
+  }
   gcomprisBoard->maxlevel = level_i;
-
 }
 
 /*
  * Load a desktop style data file and create the levels array
  */
 static void load_datafile() {
+    printf("Start load datafile\n");
   gchar *filename = gc_file_find_absolute("click_on_letter/default-$LOCALE.desktop");
 
   clear_levels();
 
-  // Reset the alphabet to match the current locale
-  alphabet = get_alphabet();
+  /* Reset the alphabet to match the current locale */
+  get_alphabet();
 
   /* create level array */
   levels = g_array_sized_new (FALSE, FALSE, sizeof (Level), 10);
-
+  
+  create_levels_from_alphabet();
+  return; // todo this is temp loading from datafile still crashes
+  
   if ( filename )
     {
       load_desktop_datafile(filename);
     }
-  else if ( ! filename && alphabet[0] == 'a')
+  else if ( ! filename && letterlist[0][0] == 'a') // todo
     {
       /* This is a LATIN based language, let's fallback to english */
       filename = gc_file_find_absolute("click_on_letter/default-en.desktop");
@@ -772,13 +818,13 @@ static void load_datafile() {
       if( filename )
 	load_desktop_datafile(filename);
       else
-	// Should not happens but in case let's create the level for LATIN
-	create_level_from_alphabet(alphabet);
+	// Should not happen but in case let's create the level for LATIN
+          create_levels_from_alphabet();
     }
   else
     {
       // No data file and no latin character set
-      create_level_from_alphabet(alphabet);
+      create_levels_from_alphabet();
     }
 
   g_free(filename);
@@ -789,6 +835,7 @@ static void load_datafile() {
  * free the returned value with g_free()
  */
 static gchar *levels_to_desktop() {
+
   GKeyFile *keyfile = g_key_file_new ();
 
   int i;
@@ -796,8 +843,17 @@ static gchar *levels_to_desktop() {
     {
       Level level = g_array_index (levels, Level, i);
       gchar *group = g_strdup_printf("%d", level.level);
-      g_key_file_set_string(keyfile, group, "Questions", level.questions);
-      g_key_file_set_string(keyfile, group, "Answers", level.answers);
+      
+      // todo this has not been tested
+      g_key_file_set_integer(keyfile, group, "NoofQuestions", g_slist_length(level.questions));
+      g_key_file_set_integer(keyfile, group, "NoofAnswers", g_slist_length(level.answers));
+      int j;
+      for (j = 0; j < g_slist_length(level.questions); j++)
+          g_key_file_set_string(keyfile, group, g_strdup_printf("Questions%d", j), (gchar *) g_slist_nth_data(level.questions,j));
+
+      for (j = 0; j < g_slist_length(level.answers); j++)
+          g_key_file_set_string(keyfile, group, g_strdup_printf("Answers%d", j), (gchar *) g_slist_nth_data(level.answers,j));
+
       g_free(group);
     }
 
@@ -849,11 +905,29 @@ static gboolean _save_level_from_model(GtkTreeModel *model, GtkTreePath *path,
 static void create_levels_from_config_model()
 {
   GtkTreeIter iter;
+  printf("Creating levels from config model\n");
   gtk_tree_model_get_iter_first (GTK_TREE_MODEL(model), &iter );
 
   clear_levels();
   levels = g_array_sized_new (FALSE, FALSE, sizeof (Level), 10);
   gtk_tree_model_foreach(GTK_TREE_MODEL(model), _save_level_from_model, NULL);
+}
+
+/*
+ * Helper function do display contents of questions/answers
+ */
+static gchar *list_to_string(GSList *list)
+{
+  guint i;
+  gchar *result ="";
+  for ( i = 0; i < g_slist_length(list); i++)
+  {
+      result = g_strdup_printf("%s %s",result, (gchar *) g_slist_nth_data(list,i));
+  }
+  /* Display in uppercase? */
+  if(uppercase_only) result=g_utf8_strup(result,-1);
+  return result;
+
 }
 
 void
@@ -863,14 +937,15 @@ load_model_from_levels(GtkListStore *model)
 
   gtk_list_store_clear(model);
   guint i;
+  
   for ( i = 0; i < levels->len; i++)
     {
       Level level = g_array_index (levels, Level, i);
       gtk_list_store_append(model, &iter);
       gtk_list_store_set(model, &iter,
 			 LEVEL_COLUMN, level.level,
-			 ANSWER_COLUMN, level.answers,
-			 QUESTION_COLUMN, level.questions,
+			 ANSWER_COLUMN, list_to_string(level.answers),
+			 QUESTION_COLUMN, list_to_string(level.questions),
 			 -1);
     }
 }
@@ -878,42 +953,38 @@ load_model_from_levels(GtkListStore *model)
 void
 clear_levels()
 {
+    printf("Start clear levels\n");
   if ( ! levels )
     return;
-
-  gint i = 0;
-  for (i = 0; i < levels->len; i++)
-    {
-      Level level = g_array_index (levels, Level, i);
-      g_free(level.answers);
-      g_free(level.questions);
-    }
-
+  
+  // todo free level questions & answers?
   g_array_free(levels, TRUE);
   levels = NULL;
 }
 
+
 static gboolean
 valid_entry(Level *level)
 {
+    printf("Start valid entry\n");
   gboolean result=FALSE;
   gchar *error;
   GtkWidget *dialog;
 
   g_assert(level->questions);
   g_assert(level->answers);
-
-  if ( strlen(level->questions) == 0 )
+  int n_questions = g_slist_length(level->questions);
+  
+  if (!n_questions)
     {
       error = g_strdup (_("Questions cannot be empty.") );
       goto error;
     }
 
   /* Now check all chars in questions are in answers */
-  guint n_answers = g_utf8_strlen (level->answers, -1);
-  guint n_questions = g_utf8_strlen (level->questions, -1);
+  int n_answers = g_slist_length(level->answers);
 
-  if ( n_answers == 0 )
+  if (!n_answers)
     {
       error = g_strdup( _("Answers cannot be empty.") );
       goto error;
@@ -926,18 +997,16 @@ valid_entry(Level *level)
       goto error;
     }
 
-  /* The shuffle is not important, we are using it to get an array of chars */
-  gchar **answers = shuffle_utf8(level->answers);
-  gchar **questions = shuffle_utf8(level->questions);
-
   guint a;
   guint q;
   for ( q = 0; q < n_questions; q++)
     {
+      gchar *question = (gchar *) g_slist_nth_data(level->questions,q);
       gboolean found = FALSE;
       for ( a = 0; a < n_answers; a++)
 	{
-	  if ( strcmp( answers[a], questions[q] ) == 0 )
+          gchar *answer = (gchar *) g_slist_nth_data(level->answers,a);
+	  if ( strcmp( answer, question ) == 0 )
 	    {
 	      found = TRUE;
 	      break;
@@ -946,14 +1015,10 @@ valid_entry(Level *level)
       if ( ! found )
 	{
 	  error = g_strdup ( _("All the characters in Questions must also be in the Answers.") );
-	  g_strfreev(questions);
-	  g_strfreev(answers);
 	  goto error;
 	}
     }
 
-  g_strfreev(questions);
-  g_strfreev(answers);
   return TRUE;
 
  error:
@@ -964,8 +1029,8 @@ valid_entry(Level *level)
 			    GTK_BUTTONS_CLOSE,
 			    _("Invalid entry:\n"
 			      "At level %d, Questions '%s' / Answers '%s'\n%s"),
-			    level->level, level->questions, level->answers,
-			    error);
+			    level->level, list_to_string(level->questions), list_to_string(level->answers),
+			    error); // todo concat array
   gtk_dialog_run (GTK_DIALOG (dialog));
   gtk_widget_destroy (dialog);
   g_free(error);
@@ -1004,6 +1069,7 @@ _check_errors(GtkTreeModel *model, GtkTreePath *path,
  */
 gchar *get_user_desktop_file()
 {
+    printf("Start get user desktopfile\n");
   gchar **locale = g_strsplit_set(gc_locale_get(), ".", 2);
   gchar *filename =
     gc_file_find_absolute_writeable("%s/default-%s.desktop",
@@ -1016,6 +1082,7 @@ gchar *get_user_desktop_file()
 static gboolean
 conf_ok(GHashTable *table)
 {
+    printf("Start conf ok\n");
   if (!table){
     if (gcomprisBoard)
       pause_board(FALSE);
@@ -1029,6 +1096,7 @@ conf_ok(GHashTable *table)
   profile_conf = NULL;
 
   if (gcomprisBoard){
+      
     GHashTable *config;
     if (profile_conf)
       config = gc_db_get_board_conf();
