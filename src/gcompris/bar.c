@@ -660,6 +660,7 @@ item_event_bar (GooCanvasItem  *item,
       break;
     case GC_BAR_HELP:
       {
+	gc_activity_intro_play(gcomprisBoard);
         gc_help_start(gcomprisBoard);
       }
       break;
