@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <GCompris>
 <Wordlist name="default-gd" description="Gàidhlig" locale="gd">
-<level value="1">
+<level value="1" sublevels="5">
 a
 e
 i
 o
 u
 </level>
-<level value="2">
-a
-e
-i
-o
-u
-0
+<level value="2" sublevels="10">
 1
 2
 3
@@ -26,32 +20,11 @@ u
 9
 </level>
 <level value="3">
-b
-c
-d
-f
-g
-l
-m
-n
-p
-r
-s
-t
-</level>
-<level value="4">
-b
-c
-d
-f
-g
-l
-m
-n
-p
-r
-s
-t
+a
+e
+i
+o
+u
 0
 1
 2
@@ -62,6 +35,20 @@ t
 7
 8
 9
+</level>
+<level value="4" sublevels="12">
+b
+c
+d
+f
+g
+l
+m
+n
+p
+r
+s
+t
 </level>
 <level value="5">
 b
@@ -76,39 +63,44 @@ p
 r
 s
 t
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+</level>
+<level value="6">
+b
+c
+d
+f
+g
+l
+m
+n
+p
+r
+s
+t
 a
 e
 i
 o
 u
 </level>
-<level value="6">
+<level value="7" sublevels="5">
 à
 è
 ì
 ò
 ù
 </level>
-<level value="7">
-bh
-ch
-dh
-fh
-gh
-mh
-ph
-sh
-th
-ll
-nn
-rr
-</level>
-<level value="8">
-à
-è
-ì
-ò
-ù
+<level value="8" sublevels="12">
 bh
 ch
 dh
@@ -123,6 +115,25 @@ nn
 rr
 </level>
 <level value="9">
+à
+è
+ì
+ò
+ù
+bh
+ch
+dh
+fh
+gh
+mh
+ph
+sh
+th
+ll
+nn
+rr
+</level>
+<level value="10">
 b
 c
 d
