@@ -88,8 +88,12 @@ typedef enum
 } CardStatus;
 
 static gchar *numbers;
-static gchar *alphabet_lowercase;
-static gchar *alphabet_uppercase;
+
+/* length of the alphabet*/
+static guint alphlen;
+/* alphabet storage*/
+static gchar **letterlist=NULL; 
+
 static gchar *operators;
 static gchar *op_add = NULL;
 static gchar *op_minus = NULL;
@@ -416,7 +420,7 @@ static guint div_levelDescription[10][2] =
 
 
 /*
- * random without repeted token
+ * random without repeated token
  * ------------------------
  *
  */
@@ -479,7 +483,7 @@ void get_random_token(int token_type, gint *returned_type, gchar **string, gchar
   }
 
   if (token_type & TYPE_UPPERCASE){
-    max_token += g_utf8_strlen (alphabet_uppercase, -1);
+    max_token  += alphlen;
     DATUM *dat = g_malloc0(sizeof(DATUM));
     dat->bound = max_token;
     dat->type =   TYPE_UPPERCASE;
@@ -487,7 +491,7 @@ void get_random_token(int token_type, gint *returned_type, gchar **string, gchar
   }
 
   if (token_type & TYPE_LOWERCASE){
-    max_token += g_utf8_strlen (alphabet_lowercase, -1);;
+    max_token += alphlen;
     DATUM *dat = g_malloc0(sizeof(DATUM));
     dat->bound = max_token;
     dat->type =   TYPE_LOWERCASE;
@@ -593,12 +597,12 @@ void get_random_token(int token_type, gint *returned_type, gchar **string, gchar
       g_utf8_strncpy(result, g_utf8_offset_to_pointer (numbers,k),1);
       break;
     case TYPE_UPPERCASE:
-      result = g_malloc0(2*sizeof(gunichar));
-      g_utf8_strncpy(result, g_utf8_offset_to_pointer (alphabet_uppercase,k),1);
+      //result = g_malloc0(2*sizeof(gunichar));
+      result = g_strdup(g_utf8_strup(letterlist[k],-1));
       break;
     case TYPE_LOWERCASE:
-      result = g_malloc0(2*sizeof(gunichar));
-      g_utf8_strncpy(result, g_utf8_offset_to_pointer (alphabet_lowercase,k),1);
+      //result = g_malloc0(2*sizeof(gunichar));
+      result = g_strdup(g_utf8_strdown(letterlist[k],-1));
       break;
     case TYPE_SOUND:
       result = g_strdup(soundList[k]);
@@ -729,6 +733,32 @@ static void pause_board (gboolean pause)
 
   }
 }
+
+
+/*
+ * Reads multigraph characters from PO file into array.
+ */
+static void
+get_alphabet()
+{
+  g_message("Getting alphabet");
+  gchar *alphabet = _("a/b/c/d/e/f/g/h/i/j/k/l/m/n/o/p/q/r/s/t/u/v/w/x/y/z");
+  /* TRANSLATORS: Put here the alphabet in your language, letters separated by: /
+   * Supports multigraphs, e.g. /sh/ or /sch/ gets treated as one letter
+   * This is used in reading/click_on_letter and discovery/memory-group */
+  g_assert(g_utf8_validate(alphabet, -1, NULL)); // require by all utf8-functions
+
+  /* fill letter storage */
+  letterlist = g_strsplit (alphabet,"/",-1);
+  guint i =-1;
+  while (letterlist[++i])
+  {
+      ;
+  }
+  alphlen=i;
+}
+
+
 /*
  */
 static void start_board (GcomprisBoard *agcomprisBoard)
@@ -926,21 +956,12 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	  base_x1_tux = BASE_CARD_X1_TUX;
 	}
 
-
+      /* getting alphabet with multigraphs */
+      get_alphabet();
+      
       /* TRANSLATORS: Put here the numbers in your language */
       numbers=_("0123456789");
       g_assert(g_utf8_validate(numbers,-1,NULL)); // require by all utf8-functions
-
-      /* TRANSLATORS: Put here the alphabet lowercase in your language */
-      alphabet_lowercase=_("abcdefghijklmnopqrstuvwxyz");
-      g_assert(g_utf8_validate(alphabet_lowercase,-1,NULL)); // require by all utf8-functions
-
-      g_warning("Using lowercase %s", alphabet_lowercase);
-
-      /* TRANSLATORS: Put here the alphabet uppercase in your language */
-      alphabet_uppercase=_("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
-      g_assert(g_utf8_validate(alphabet_uppercase,-1,NULL)); // require by all utf8-functions
-      g_warning("Using uppercase %s", alphabet_uppercase);
 
       /* TRANSLATORS: Put here the mathematical operators '+-x/' for  your language. */
       operators=_("+-×÷");
