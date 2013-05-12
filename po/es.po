@@ -17,15 +17,15 @@ msgstr ""
 "Project-Id-Version: gcompris.gcomprixogoo\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-04-27 20:32+0000\n"
-"PO-Revision-Date: 2013-04-29 10:43+0200\n"
+"POT-Creation-Date: 2013-05-12 17:47+0000\n"
+"PO-Revision-Date: 2013-05-12 19:53+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
-"Language-Team: Español <gnome-es-list@gnome.org>\n"
+"Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Gtranslator 2.91.5\n"
 "X-Project-Style: gnome\n"
 
@@ -34,7 +34,7 @@ msgid "Go to Algebra activities"
 msgstr "Ir a las actividades de álgebra"
 
 #: ../boards/algebra_group.xml.in.h:2 ../boards/menu.xml.in.h:2
-#: ../boards/money_group.xml.in.h:2
+#: ../boards/money_group.xml.in.h:2 ../src/lang-activity/lang.xml.in.h:2
 msgid "Left-click the mouse on an activity to select it."
 msgstr ""
 "Pulsa con el botón izquierdo del ratón en una actividad para seleccionarla."
@@ -612,13 +612,13 @@ msgstr ""
 "usado para leerlas, por ejemplo, y después el idioma usado para decir los "
 "nombres de los colores. \n"
 "- Puedes guardar configuraciones múltiples, y cambiar fácilmente entre "
-"ellas. En la sección «Perfil» añade un perfil, después en la sección «Tablero» "
-"selecciona el perfil en la lista desplegable, y después elige los tableros "
-"que quieres que estén activos. Puedes añadir un montón de perfiles, con "
-"diferentes listas de tableros, y diferentes idiomas. Puedes establecer el "
-"perfil por omisión en la sección «Perfil», eligiendo el perfil que quieras, y "
-"después pulsando el botón «Predeterminado». También puedes elegir un perfil "
-"desde la línea de comandos.\n"
+"ellas. En la sección «Perfil» añade un perfil, después en la sección "
+"«Tablero» selecciona el perfil en la lista desplegable, y después elige los "
+"tableros que quieres que estén activos. Puedes añadir un montón de perfiles, "
+"con diferentes listas de tableros, y diferentes idiomas. Puedes establecer "
+"el perfil por omisión en la sección «Perfil», eligiendo el perfil que "
+"quieras, y después pulsando el botón «Predeterminado». También puedes elegir "
+"un perfil desde la línea de comandos.\n"
 "- Puedes añadir usuarios, clases y para cada clase, puedes crear grupos de "
 "usuarios. Ten en cuenta que puedes importar usuarios de un archivo separado "
 "por comas. Asigna uno o más grupos a un perfil, y los nuevos identificadores "
@@ -640,7 +640,7 @@ msgstr "Todos los usuarios"
 #: ../src/administration-activity/admin/log_list.py:108
 #: ../src/administration-activity/admin/log_list.py:298
 #: ../src/administration-activity/admin/profile_list.py:117
-#: ../src/lang-activity/lang.py:166 ../src/login-activity/login.py:481
+#: ../src/lang-activity/lang.py:153 ../src/login-activity/login.py:481
 #: ../src/missing_letter-activity/missingletter.c:802
 msgid "Default"
 msgstr "Predeterminado"
@@ -878,6 +878,7 @@ msgid "cobalt"
 msgstr "cobalto"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:8
+#: ../src/color_mix-activity/color_mix.py:255
 msgid "cyan"
 msgstr "cían"
 
@@ -1050,6 +1051,7 @@ msgid "lilac"
 msgstr "lila"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:51
+#: ../src/color_mix-activity/color_mix.py:256
 msgid "magenta"
 msgstr "magenta"
 
@@ -1178,7 +1180,7 @@ msgstr "+-×÷"
 #: ../src/findit-activity/findit.py:228
 #: ../src/play_piano-activity/play_piano.py:82
 #: ../src/play_rhythm-activity/play_rhythm.py:87
-#: ../src/readingh-activity/reading.c:630
+#: ../src/readingh-activity/reading.c:643
 msgid "I am Ready"
 msgstr "Estoy listo/a"
 
@@ -1997,6 +1999,7 @@ msgid ""
 msgstr "Escribe aquí tu mensaje a los usuarios de GCompris en tu red local."
 
 #: ../src/chat-activity/chat.py:244
+#: ../src/lang-activity/resources/lang/words.xml.in.h:4
 msgid "color"
 msgstr "color"
 
@@ -2367,7 +2370,7 @@ msgstr ""
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
 #: ../src/click_on_letter-activity/click_on_letter.c:368
-#: ../src/gletters-activity/gletters.c:229 ../src/memory-activity/memory.c:935
+#: ../src/memory-activity/memory.c:935
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcdefghijklmnñopqrstuvwxyz"
 
@@ -2520,6 +2523,26 @@ msgstr ""
 msgid "Match the color "
 msgstr "Iguala el color "
 
+#: ../src/color_mix-activity/color_mix.py:251
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:6
+msgid "red"
+msgstr "rojo"
+
+#: ../src/color_mix-activity/color_mix.py:252
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:5
+msgid "green"
+msgstr "verde"
+
+#: ../src/color_mix-activity/color_mix.py:253
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:8
+msgid "blue"
+msgstr "azul"
+
+#: ../src/color_mix-activity/color_mix.py:257
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:3
+msgid "yellow"
+msgstr "amarillo"
+
 #: ../src/color_mix-activity/color_mix.py:336
 #: ../src/color_mix-activity/color_mix.py:341
 #: ../src/color_mix-activity/color_mix.py:346
@@ -2642,29 +2665,13 @@ msgstr "Escucha el color y pulsa en el pato que corresponda."
 msgid "Find the {text} duck"
 msgstr "Busca el pato {text}"
 
-#: ../src/colors-activity/resources/colors/activity.desktop.in.h:3
-msgid "yellow"
-msgstr "amarillo"
-
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:4
 msgid "black"
 msgstr "negro"
 
-#: ../src/colors-activity/resources/colors/activity.desktop.in.h:5
-msgid "green"
-msgstr "verde"
-
-#: ../src/colors-activity/resources/colors/activity.desktop.in.h:6
-msgid "red"
-msgstr "rojo"
-
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:7
 msgid "white"
 msgstr "blanco"
-
-#: ../src/colors-activity/resources/colors/activity.desktop.in.h:8
-msgid "blue"
-msgstr "azul"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:9
 msgid "brown"
@@ -3340,8 +3347,8 @@ msgid ""
 "The dog goes \"bark! bark!\". Dogs are great human companions and usually "
 "enjoy love and attention."
 msgstr ""
-"El perro hace «¡guau! ¡guau!». Los perros son grandes compañeros del hombre y "
-"suelen gozar de cariño y atención."
+"El perro hace «¡guau! ¡guau!». Los perros son grandes compañeros del hombre "
+"y suelen gozar de cariño y atención."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:27
 msgid "This animal's ancestors were wolves."
@@ -3559,6 +3566,7 @@ msgstr "Pulsa en el lugar que coincida con el texto."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:4
 #: ../src/geo_country-activity/resources/geo_country/board13_0.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:4
 msgid "Australia"
 msgstr "Australia"
 
@@ -3577,9 +3585,9 @@ msgid "Where is the didgeridoo played?"
 msgstr "¿Dónde se toca el didgeridoo?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:7
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:6
 #: ../src/geography-activity/resources/geography/board1_0.xml.in.h:2
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:1
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:1
 msgid "Africa"
 msgstr "África"
 
@@ -3616,7 +3624,7 @@ msgid "Where is music used to call people to prayer?"
 msgstr "¿Dónde se usa la música para llamar a la gente a rezar?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:13
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:52
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:52
 msgid "Japan"
 msgstr "Japón"
 
@@ -3654,7 +3662,7 @@ msgid "Bagpipers, who often wear kilts, are from this location."
 msgstr "Los gaiteros, que a menudo llevan faldas escocesas, son de este lugar."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:19
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:10
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:10
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:6
 msgid "Italy"
 msgstr "Italia"
@@ -3690,7 +3698,9 @@ msgid "Bach, Beethoven, and Mozart composed music in this location."
 msgstr "Bach, Beethoven, y Mozart compusieron música en este lugar."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:25
-#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:10
+#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:12
+#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:12
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:5
 msgid "Mexico"
 msgstr "México"
@@ -3836,19 +3846,19 @@ msgstr ""
 msgid "OK"
 msgstr "Aceptar"
 
-#: ../src/gcompris/bar.c:694
+#: ../src/gcompris/bar.c:695
 msgid "GCompris confirmation"
 msgstr "Confirmación de GCompris"
 
-#: ../src/gcompris/bar.c:695
+#: ../src/gcompris/bar.c:696
 msgid "Are you sure you want to quit?"
 msgstr "¿Seguro que deseas salir?"
 
-#: ../src/gcompris/bar.c:696
+#: ../src/gcompris/bar.c:697
 msgid "Yes, I am sure!"
 msgstr "¡Sí, estoy seguro!"
 
-#: ../src/gcompris/bar.c:697
+#: ../src/gcompris/bar.c:698
 msgid "No, I want to keep going"
 msgstr "No, quiero continuar"
 
@@ -3961,7 +3971,7 @@ msgid "Croatian"
 msgstr "Croata"
 
 #: ../src/gcompris/config.c:71
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:7
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:7
 msgid "Czech Republic"
 msgstr "República Checa"
 
@@ -4083,7 +4093,7 @@ msgid "Montenegrin"
 msgstr "Montenegrin"
 
 #: ../src/gcompris/config.c:101
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:37
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:37
 msgid "Nepal"
 msgstr "Nepal"
 
@@ -4240,8 +4250,8 @@ msgstr "Ampliación"
 msgid "Couldn't open skin dir: %s"
 msgstr "No se pudo abrir la carpeta de apariencias: %s"
 
-#: ../src/gcompris/config.c:444 ../src/gcompris/config.c:912
-#: ../src/gcompris/config.c:926
+#: ../src/gcompris/config.c:444 ../src/gcompris/config.c:924
+#: ../src/gcompris/config.c:938
 #, c-format
 msgid "Skin : %s"
 msgstr "Apariencia : %s"
@@ -4545,7 +4555,7 @@ msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
 "available ones\n"
 msgstr ""
-"ERROR: No se encontró el perfil «%s». Ejecute «gcompris --profile list» para "
+"ERROR: no se encontró el perfil «%s». Ejecute «gcompris --profile list» para "
 "listar los disponibles\n"
 
 #: ../src/gcompris/gcompris.c:2004
@@ -4695,7 +4705,7 @@ msgid "Regions of France"
 msgstr "Regiones de Francia"
 
 #: ../src/geo_country-activity/resources/geo_country/board12_0.xml.in.h:1
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:40
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:40
 msgid "India"
 msgstr "India"
 
@@ -4704,10 +4714,200 @@ msgstr "India"
 msgid "Northern Scotland"
 msgstr "Norte de Escocia"
 
+#: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:2
+#: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:2
+msgid "Skye"
+msgstr "Skye"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:3
+#: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:3
+msgid "Lochaber"
+msgstr "Lochaber"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:4
+#: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:4
+msgid "Lochalsh, Badenoch, Cromarty and Strathspey"
+msgstr "Lochalsh, Badenoch, Cromarty y Strathspey"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:5
+#: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:5
+msgid "Inverness and Nairn"
+msgstr "Inverness y Nairn"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:6
+#: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:6
+msgid "Ross"
+msgstr "Ross"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:7
+#: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:7
+msgid "Sutherland"
+msgstr "Sutherland"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:8
+#: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:8
+msgid "Caithness"
+msgstr "Caithness"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:9
+#: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:9
+msgid "Shetland"
+msgstr "Islas Shetland"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:10
+#: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:10
+msgid "Orkney"
+msgstr "Orcadas"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:11
+#: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:11
+msgid "Na h-Eileanan Siar"
+msgstr "Na h-Eileanan Siar"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:12
+#: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:12
+msgid "Moray"
+msgstr "Moray"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:13
+#: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:13
+msgid "Aberdeen"
+msgstr "Aberdeen"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:14
+#: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:14
+msgid "Aberdeenshire"
+msgstr "Aberdeenshire"
+
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:1
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:1
 msgid "Southern Scotland"
 msgstr "Sur de Escocia"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:2
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:2
+msgid "Argyll and Bute"
+msgstr "Argyll y Bute"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:3
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:3
+msgid "Stirling"
+msgstr "Stirling"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:4
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:4
+msgid "Perth and Kinross"
+msgstr "Perth y Kinross"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:5
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:5
+msgid "Angus"
+msgstr "Angus"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:6
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:6
+msgid "Dundee"
+msgstr "Dundee"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:7
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:7
+msgid "Fife"
+msgstr "Fife"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:8
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:8
+msgid "Clackmannanshire"
+msgstr "Clackmannanshire"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:9
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:9
+msgid "North Ayrshire"
+msgstr "Ayrshire del Norte"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:10
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:10
+msgid "Inverclyde"
+msgstr "Inverclyde"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:11
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:11
+msgid "Renfrewshire"
+msgstr "Renfrewshire"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:12
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:12
+msgid "East Renfrewshire"
+msgstr "Renfrewshire Este"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:13
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:13
+msgid "West Dunbartonshire"
+msgstr "Dunbartonshire Oeste"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:14
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:14
+msgid "East Dunbartonshire"
+msgstr "Dunbartonshire Este"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:15
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:15
+msgid "Glasgow"
+msgstr "Glasgow"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:16
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:16
+msgid "East Ayrshire"
+msgstr "Ayrshire del Este"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:17
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:17
+msgid "South Ayrshire"
+msgstr "Ayrshire del Sur"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:18
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:18
+msgid "Dumfries and Galloway"
+msgstr "Dumfries y Galloway"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:19
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:19
+msgid "North Lanarkshire"
+msgstr "Lanarkshire del Norte"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:20
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:20
+msgid "South Lanarkshire"
+msgstr "Lanarkshire del Sur"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:21
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:21
+msgid "Falkirk"
+msgstr "Falkirk"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:22
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:22
+msgid "Edinburgh"
+msgstr "Edimburgo"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:23
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:23
+msgid "West Lothian"
+msgstr "West Lothian"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:24
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:24
+msgid "Midlothian"
+msgstr "Midlothian"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:25
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:25
+msgid "East Lothian"
+msgstr "East Lothian"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:26
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:26
+msgid "Scottish Borders"
+msgstr "Scottish Borders"
 
 #: ../src/geo_country-activity/resources/geo_country/board2_0.xml.in.h:1
 msgid "Deutschland Bundesländer"
@@ -4746,6 +4946,211 @@ msgstr "Coloque los países"
 msgid "Drag and Drop the items to redraw the whole map"
 msgstr "Arrastra y suelta los elementos para redibujar el mapa completo"
 
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board1_0.xml.in.h:5
+msgid "Asia"
+msgstr "Asia"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:2
+msgid "Caspian Sea"
+msgstr "Mar Caspio"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:3
+msgid "Black Sea"
+msgstr "Mar Negro"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:4
+msgid "Mediterranean Sea"
+msgstr "Mar Mediterráneo"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:5
+msgid "Persian Gulf"
+msgstr "Golfo Pérsico"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:7
+msgid "Red Sea"
+msgstr "Mar Rojo"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:8
+msgid "Palestine"
+msgstr "Palestina"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:9
+msgid "Israel"
+msgstr "Israel"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:10
+msgid "Brunei"
+msgstr "Brunei"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:11
+msgid "Qatar"
+msgstr "Catar"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:12
+msgid "Bahrain"
+msgstr "Bahrein"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:13
+msgid "Lebanon"
+msgstr "Líbano"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:24
+msgid "Cyprus"
+msgstr "Chipre"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:15
+msgid "Kuwait"
+msgstr "Kuwait"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:16
+msgid "Armenia"
+msgstr "Armenia"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:17
+msgid "Oman"
+msgstr "Omán"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:18
+msgid "United Arab Emirates"
+msgstr "Emiratos Árabes Unidos"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:19
+msgid "Yemen"
+msgstr "Yemen"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:20
+msgid "Saudi Arabia"
+msgstr "Arabia Saudí"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:21
+msgid "Jordan"
+msgstr "Jordania"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:22
+msgid "Iraq"
+msgstr "Iraq"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:23
+msgid "Syria"
+msgstr "Siria"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:24
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:21
+msgid "Turkey"
+msgstr "Turquía"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:25
+msgid "Georgia"
+msgstr "Georgia"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:26
+msgid "Azerbaijan"
+msgstr "Azerbaiyán"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:27
+msgid "Iran"
+msgstr "Irán"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:28
+msgid "Turkmenistan"
+msgstr "Turkmenistán"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:29
+msgid "Kyrgyzstan"
+msgstr "Kirguistán"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:30
+msgid "Tajikistan"
+msgstr "Tayikistán"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:31
+msgid "Afghanistan"
+msgstr "Agfanistán"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:32
+msgid "Malaysia"
+msgstr "Malasia"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:33
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:19
+msgid "Indonesia"
+msgstr "Indonesia"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:34
+msgid "Philippines"
+msgstr "Filipinas"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:35
+msgid "Myanmar"
+msgstr "Myanmar"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:36
+msgid "Pakistan"
+msgstr "Pakistán"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:38
+msgid "Bhutan"
+msgstr "Bután"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:39
+msgid "Bangladesh"
+msgstr "Bangladesh"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:41
+msgid "China"
+msgstr "China"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:42
+msgid "Sri Lanka"
+msgstr "Sri Lanka"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:43
+msgid "Thailand"
+msgstr "Tailandia"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:44
+msgid "Laos"
+msgstr "Laos"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:45
+msgid "Cambodia"
+msgstr "Camboya"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:46
+msgid "Vietnam"
+msgstr "Vietnam"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:47
+msgid "Taiwan"
+msgstr "Taiwan"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:48
+msgid "Uzbekistan"
+msgstr "Uzbekistán"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:49
+msgid "Kazakhstan"
+msgstr "Kazajistán"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:50
+msgid "South Korea"
+msgstr "Corea del Sur"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:51
+msgid "North Korea"
+msgstr "Corea del Norte"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:53
+msgid "Mongolia"
+msgstr "Mongolia"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:54
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:16
+msgid "Russia"
+msgstr "Rusia"
+
 #: ../src/geography-activity/resources/geography/board1_0.xml.in.h:1
 msgid "Continents"
 msgstr "Continentes"
@@ -4758,741 +5163,668 @@ msgstr "América"
 msgid "Antarctica"
 msgstr "Antártida"
 
-#: ../src/geography-activity/resources/geography/board1_0.xml.in.h:5
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:1
-msgid "Asia"
-msgstr "Asia"
-
 #: ../src/geography-activity/resources/geography/board1_0.xml.in.h:6
 msgid "Europe"
 msgstr "Europa"
 
 #: ../src/geography-activity/resources/geography/board1_0.xml.in.h:7
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:1
 msgid "Oceania"
 msgstr "Oceanía"
+
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:2
+msgid "Hawaii"
+msgstr "Hawái"
+
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:3
+msgid "United States Minor Outlying Islands"
+msgstr "Islas Ultramarinas Menores de Estados Unidos"
+
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:5
+msgid "American Samoa"
+msgstr "Samoa Americana"
+
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:6
+msgid "Cook Islands"
+msgstr "Islas Cook"
+
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:7
+msgid "New Zealand"
+msgstr "Nueva Zelanda"
+
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:8
+msgid "Solomon Islands"
+msgstr "Islas Solomón"
+
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:9
+msgid "Fiji"
+msgstr "Fiyi"
+
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:10
+msgid "Kiribati"
+msgstr "Kiribati"
+
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:11
+msgid "Marshall Islands"
+msgstr "Islas Marshall"
+
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:12
+msgid "New Caledonia"
+msgstr "Nueva Caledonia"
+
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:13
+msgid "Tonga"
+msgstr "Tonga"
+
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:14
+msgid "Tuvalu"
+msgstr "Tuvalu"
+
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:15
+msgid "Vanuatu"
+msgstr "Vanuatu"
+
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:16
+msgid "Micronesia"
+msgstr "Micronesia"
+
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:17
+msgid "Northern Mariana Islands"
+msgstr "Islas Marianas del Norte"
+
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:18
+msgid "Palau"
+msgstr "Palau"
+
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:20
+msgid "East Timor"
+msgstr "Timor Oriental"
+
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:21
+msgid "Papua New Guinea"
+msgstr "Papúa Nueva Guinea"
+
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:22
+msgid "French Polynesia"
+msgstr "Polinesia Francesa"
+
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:23
+msgid "Pitcairn Islands"
+msgstr "Islas Pitcairn"
 
 #: ../src/geography-activity/resources/geography/board2_0.xml.in.h:1
 msgid "North America"
 msgstr "Norte América"
 
 #: ../src/geography-activity/resources/geography/board2_0.xml.in.h:2
-msgid "Bahamas"
-msgstr "Bahamas"
-
-#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:3
 msgid "Canada"
 msgstr "Canadá"
 
-#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:4
-msgid "Cuba"
-msgstr "Cuba"
-
-#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:5
-msgid "Dominican Republic"
-msgstr "República Dominicana"
-
-#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:3
 msgid "Greenland"
 msgstr "Groenlandia"
 
-#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:7
-msgid "Haiti"
-msgstr "Haití"
-
-#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:8
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:8
+#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:4
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:8
 msgid "Iceland"
 msgstr "Islandia"
 
-#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:9
-msgid "Jamaica"
-msgstr "Jamaica"
-
-#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:11
+#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:6
 msgid "United States of America"
 msgstr "Estados Unidos de América"
 
-#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:12
+#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:7
 msgid "Alaska"
 msgstr "Alaska"
 
 #: ../src/geography-activity/resources/geography/board3_0.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:1
+msgid "Central America"
+msgstr "América Central"
+
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:2
+msgid "Bahamas"
+msgstr "Bahamas"
+
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:3
+#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:3
+msgid "Belize"
+msgstr "Belice"
+
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:4
+#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:4
+msgid "Costa Rica"
+msgstr "Costa Rica"
+
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:5
+msgid "Cuba"
+msgstr "Cuba"
+
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:6
+msgid "Dominican Republic"
+msgstr "República Dominicana"
+
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:7
+#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:7
+msgid "El Salvador"
+msgstr "El Salvador"
+
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:8
+#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:8
+msgid "Guatemala"
+msgstr "Guatemala"
+
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:9
+msgid "Haiti"
+msgstr "Haití"
+
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:10
+#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:10
+msgid "Honduras"
+msgstr "Honduras"
+
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:11
+#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:11
+msgid "Jamaica"
+msgstr "Jamaica"
+
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:13
+#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:13
+msgid "Nicaragua"
+msgstr "Nicaragua"
+
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:10
+msgid "Panama"
+msgstr "Panamá"
+
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:15
+#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:15
+msgid "Puerto Rico"
+msgstr "Puerto Rico"
+
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:1
 msgid "South America"
 msgstr "América del Sur"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:2
 msgid "Argentina"
 msgstr "Argentina"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:3
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:3
 msgid "Bolivia"
 msgstr "Bolivia"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:4
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:4
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:13
 msgid "Brazil"
 msgstr "Brasil"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:5
 msgid "Chile"
 msgstr "Chile"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:6
 msgid "Colombia"
 msgstr "Colombia"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:7
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:7
 msgid "Ecuador"
 msgstr "Ecuador"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:8
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:8
 msgid "French Guiana"
 msgstr "Guayana Francesa"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:9
 msgid "Guyana"
 msgstr "Guayana"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:10
-msgid "Panama"
-msgstr "Panamá"
-
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:11
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:11
 msgid "Paraguay"
 msgstr "Paraguay"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:12
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:12
 msgid "Peru"
 msgstr "Perú"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:13
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:13
 msgid "Suriname"
 msgstr "Surinam"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:14
 msgid "Uruguay"
 msgstr "Uruguay"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:15
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:15
 msgid "Venezuela"
 msgstr "Venezuela"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:1
 msgid "Western Europe"
 msgstr "Europa Occidental"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:2
 msgid "Austria"
 msgstr "Austria"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:3
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:3
 msgid "Belgium"
 msgstr "Bélgica"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:4
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:4
 msgid "Denmark"
 msgstr "Dinamarca"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:5
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:22
 msgid "Finland"
 msgstr "Finlandia"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:6
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:11
 msgid "France"
 msgstr "Francia"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:7
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:7
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:12
 msgid "Germany"
 msgstr "Alemania"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:9
 msgid "Ireland"
 msgstr "Irlanda"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:11
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:11
 msgid "Luxembourg"
 msgstr "Luxemburgo"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:12
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:12
 msgid "The Netherlands"
 msgstr "Holanda"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:13
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:13
 msgid "Norway"
 msgstr "Noruega"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:14
 msgid "Portugal"
 msgstr "Portugal"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:15
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:15
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:7
 msgid "Spain"
 msgstr "España"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:16
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:16
 msgid "Sweden"
 msgstr "Suecia"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:17
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:17
 msgid "Switzerland"
 msgstr "Suiza"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:18
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:18
 msgid "United Kingdom"
 msgstr "Reino Unido"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:1
 msgid "Eastern Europe"
 msgstr "Europa Oriental"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:2
 msgid "Albania"
 msgstr "Albania"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:3
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:3
 msgid "Belarus"
 msgstr "Bielorrusia"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:4
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:4
 msgid "Bosnia Herzegovina"
 msgstr "Bosnia Herzegovina"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:5
 msgid "Bulgaria"
 msgstr "Bulgaria"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:6
 msgid "Croatia"
 msgstr "Croacia"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:8
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:8
 msgid "Estonia"
 msgstr "Estonia"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:9
 msgid "Hungary"
 msgstr "Hungría"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:10
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:10
 msgid "Latvia"
 msgstr "Letonia"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:11
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:11
 msgid "Lithuania"
 msgstr "Lituania"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:12
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:12
 msgid "Macedonia"
 msgstr "Macedonia"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:13
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:13
 msgid "Moldova"
 msgstr "Moldavia"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:14
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:18
 msgid "Poland"
 msgstr "Polonia"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:15
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:15
 msgid "Romania"
 msgstr "Rumanía"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:16
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:54
-msgid "Russia"
-msgstr "Rusia"
-
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:17
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:17
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:16
 msgid "Serbia"
 msgstr "Serbia"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:18
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:18
 msgid "Montenegro"
 msgstr "Montenegro"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:19
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:19
 msgid "Slovak Republic"
 msgstr "República Eslovaca"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:20
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:20
 msgid "Slovenia"
 msgstr "Eslovenia"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:21
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:24
-msgid "Turkey"
-msgstr "Turquía"
-
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:22
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:22
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:20
 msgid "Ukraine"
 msgstr "Ucrania"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:23
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:23
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:19
 msgid "Greece"
 msgstr "Grecia"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:24
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:14
-msgid "Cyprus"
-msgstr "Chipre"
-
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:1
 msgid "Northern Africa"
 msgstr "África del Norte"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:2
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:3
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:3
 msgid "Algeria"
 msgstr "Argelia"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:3
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:3
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:5
 msgid "Benin"
 msgstr "Benin"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:4
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:7
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:4
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:7
 msgid "Burkina Faso"
 msgstr "Burkina Faso"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:5
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:8
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:8
 msgid "Cameroon"
 msgstr "Camerún"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:6
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:30
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:30
 msgid "Central African Republic"
 msgstr "República de África Central"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:7
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:35
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:7
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:35
 msgid "Chad"
 msgstr "Chad"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:8
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:8
 msgid "Djibouti"
 msgstr "Djibouti"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:9
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:11
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:11
 msgid "Egypt"
 msgstr "Egipto"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:10
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:10
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:6
 msgid "Equatorial Guinea"
 msgstr "Guinea Ecuatorial"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:11
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:13
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:11
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:13
 msgid "Ethiopia"
 msgstr "Etiopía"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:12
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:12
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:12
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:12
 msgid "Eritrea"
 msgstr "Eritrea"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:13
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:7
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:13
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:7
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:14
 msgid "Gabon"
 msgstr "Gabón"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:14
 msgid "Gambia"
 msgstr "Gambia"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:15
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:15
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:15
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:15
 msgid "Ghana"
 msgstr "Ghana"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:16
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:16
 msgid "Guinea Bissau"
 msgstr "Guinea Bissau"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:17
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:16
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:17
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:16
 msgid "Guinea"
 msgstr "Guinea"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:18
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:10
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:18
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:10
 msgid "Ivory Coast"
 msgstr "Costa de Marfil"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:19
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:18
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:19
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:18
 msgid "Liberia"
 msgstr "Liberia"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:20
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:19
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:20
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:19
 msgid "Libya"
 msgstr "Libia"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:21
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:22
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:21
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:22
 msgid "Mali"
 msgstr "Mali"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:22
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:24
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:22
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:24
 msgid "Mauritania"
 msgstr "Mauritania"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:23
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:23
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:23
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:23
 msgid "Morocco"
 msgstr "Marruecos"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:24
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:28
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:24
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:28
 msgid "Nigeria"
 msgstr "Nigeria"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:25
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:27
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:25
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:27
 msgid "Niger"
 msgstr "Níger"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:26
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:15
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:26
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:15
 msgid "Rwanda"
 msgstr "Ruanda"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:27
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:31
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:27
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:31
 msgid "Senegal"
 msgstr "Senegal"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:28
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:28
 msgid "Sierra Leone"
 msgstr "Sierra Leona"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:29
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:32
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:29
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:32
 msgid "Somalia"
 msgstr "Somalia"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:30
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:33
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:30
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:33
 msgid "Sudan"
 msgstr "Sudán"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:31
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:36
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:31
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:36
 msgid "Togo"
 msgstr "Togo"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:32
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:37
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:32
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:37
 msgid "Tunisia"
 msgstr "Túnez"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:33
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:19
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:29
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:33
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:19
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:29
 msgid "Uganda"
 msgstr "Uganda"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:34
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:34
 msgid "Western Sahara"
 msgstr "Sáhara occidental"
 
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:1
 msgid "Southern Africa"
 msgstr "Sudáfrica"
 
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:2
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:4
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:4
 msgid "Angola"
 msgstr "Angola"
 
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:3
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:3
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:6
 msgid "Botswana"
 msgstr "Botswana"
 
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:4
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:4
 msgid "Burundi"
 msgstr "Burundi"
 
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:5
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:9
 msgid "Democratic Republic of Congo"
 msgstr "República Democrática del Congo"
 
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:8
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:17
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:8
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:17
 msgid "Kenya"
 msgstr "Kenia"
 
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:9
 msgid "Lesotho"
 msgstr "Lesotho"
 
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:10
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:20
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:10
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:20
 msgid "Madagascar"
 msgstr "Madagascar"
 
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:11
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:21
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:11
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:21
 msgid "Malawi"
 msgstr "Malawi"
 
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:12
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:25
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:12
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:25
 msgid "Mozambique"
 msgstr "Mozambique"
 
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:13
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:26
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:13
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:26
 msgid "Namibia"
 msgstr "Namibia"
 
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:14
 msgid "Republic of Congo"
 msgstr "República del Congo"
 
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:16
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:16
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:2
 msgid "South Africa"
 msgstr "Sudáfrica"
 
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:17
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:17
 msgid "Swaziland"
 msgstr "Swaziland"
 
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:18
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:34
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:18
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:34
 msgid "Tanzania"
 msgstr "Tanzania"
 
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:20
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:38
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:20
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:38
 msgid "Zambia"
 msgstr "Zambia"
 
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:21
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:39
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:21
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:39
 msgid "Zimbabwe"
 msgstr "Zimbabwe"
 
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:2
-msgid "Caspian Sea"
-msgstr "Mar Caspio"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:3
-msgid "Black Sea"
-msgstr "Mar Negro"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:4
-msgid "Mediterranean Sea"
-msgstr "Mar Mediterráneo"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:5
-msgid "Persian Gulf"
-msgstr "Golfo Pérsico"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:7
-msgid "Red Sea"
-msgstr "Mar Rojo"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:8
-msgid "Palestine"
-msgstr "Palestina"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:9
-msgid "Israel"
-msgstr "Israel"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:10
-msgid "Brunei"
-msgstr "Brunei"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:11
-msgid "Qatar"
-msgstr "Catar"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:12
-msgid "Bahrain"
-msgstr "Bahrein"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:13
-msgid "Lebanon"
-msgstr "Líbano"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:15
-msgid "Kuwait"
-msgstr "Kuwait"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:16
-msgid "Armenia"
-msgstr "Armenia"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:17
-msgid "Oman"
-msgstr "Omán"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:18
-msgid "United Arab Emirates"
-msgstr "Emiratos Árabes Unidos"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:19
-msgid "Yemen"
-msgstr "Yemen"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:20
-msgid "Saudi Arabia"
-msgstr "Arabia Saudí"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:21
-msgid "Jordan"
-msgstr "Jordania"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:22
-msgid "Iraq"
-msgstr "Iraq"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:23
-msgid "Syria"
-msgstr "Siria"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:25
-msgid "Georgia"
-msgstr "Georgia"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:26
-msgid "Azerbaijan"
-msgstr "Azerbaiyán"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:27
-msgid "Iran"
-msgstr "Irán"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:28
-msgid "Turkmenistan"
-msgstr "Turkmenistán"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:29
-msgid "Kyrgyzstan"
-msgstr "Kirguistán"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:30
-msgid "Tajikistan"
-msgstr "Tayikistán"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:31
-msgid "Afghanistan"
-msgstr "Agfanistán"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:32
-msgid "Malaysia"
-msgstr "Malasia"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:33
-msgid "Indonesia"
-msgstr "Indonesia"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:34
-msgid "Philippines"
-msgstr "Filipinas"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:35
-msgid "Myanmar"
-msgstr "Myanmar"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:36
-msgid "Pakistan"
-msgstr "Pakistán"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:38
-msgid "Bhutan"
-msgstr "Bután"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:39
-msgid "Bangladesh"
-msgstr "Bangladesh"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:41
-msgid "China"
-msgstr "China"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:42
-msgid "Sri Lanka"
-msgstr "Sri Lanka"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:43
-msgid "Thailand"
-msgstr "Tailandia"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:44
-msgid "Laos"
-msgstr "Laos"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:45
-msgid "Cambodia"
-msgstr "Camboya"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:46
-msgid "Vietnam"
-msgstr "Vietnam"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:47
-msgid "Taiwan"
-msgstr "Taiwan"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:48
-msgid "Uzbekistan"
-msgstr "Uzbekistán"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:49
-msgid "Kazakhstan"
-msgstr "Kazajistán"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:50
-msgid "South Korea"
-msgstr "Corea del Sur"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:51
-msgid "North Korea"
-msgstr "Corea del Norte"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:53
-msgid "Mongolia"
-msgstr "Mongolia"
-
-#: ../src/gletters-activity/gletters.c:132
+#: ../src/gletters-activity/gletters.c:135
 #: ../src/gletters-activity/gletters.xml.in.h:1
 msgid "Simple Letters"
 msgstr "Letras sencillas"
 
-#: ../src/gletters-activity/gletters.c:133
+#: ../src/gletters-activity/gletters.c:136
 #: ../src/gletters-activity/gletters.xml.in.h:2
 msgid "Type the falling letters before they reach the ground"
 msgstr "Presiona las letras que caen antes de que lleguen al suelo"
 
-#. TRANSLATORS: Put here the numbers in your language
-#: ../src/gletters-activity/gletters.c:225 ../src/memory-activity/memory.c:931
-msgid "0123456789"
-msgstr "0123456789"
+#: ../src/gletters-activity/gletters.c:215
+msgid ""
+"Error: We can't find\n"
+"a list of letters to play this game.\n"
+msgstr ""
+"Error: no se puede encontrar\n"
+"una lista de palabras para jugar este juego.\n"
 
-#. TRANSLATORS: Put here the alphabet uppercase in your language
-#: ../src/gletters-activity/gletters.c:235 ../src/memory-activity/memory.c:941
-msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-msgstr "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
+#. Should display the dialog box here
+#: ../src/gletters-activity/gletters.c:755
+msgid "ERROR: Unable to get letter from wordlist"
+msgstr "ERROR: no se puede obtener letras de la lista de palabras"
 
 #. Init configuration window:
 #. all the configuration functions will use it
@@ -5500,14 +5832,14 @@ msgstr "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
 #. the dict passed to the apply_callback
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
-#: ../src/gletters-activity/gletters.c:850
+#: ../src/gletters-activity/gletters.c:998
 #: ../src/imageid-activity/imageid.c:716
 #: ../src/pythontest-activity/pythontest.py:448
-#: ../src/readingh-activity/reading.c:905
-#: ../src/scalesboard-activity/scale.c:1211
+#: ../src/readingh-activity/reading.c:918
+#: ../src/scalesboard-activity/scale.c:1258
 #: ../src/smallnumbers-activity/smallnumbers.c:598
 #: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:904
+#: ../src/wordsgame-activity/wordsgame.c:907
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -5516,18 +5848,18 @@ msgstr ""
 "<b>%s</b> configuración\n"
 " para el perfil <b>%s</b>"
 
-#: ../src/gletters-activity/gletters.c:879
+#: ../src/gletters-activity/gletters.c:1027
 #: ../src/smallnumbers-activity/smallnumbers.c:617
 msgid "Enable sounds"
 msgstr "Activar sonidos"
 
-#. toggle box
-#: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:486
-#: ../src/missing_letter-activity/missingletter_config.c:492
-#: ../src/readingh-activity/reading.c:929
-#: ../src/wordsgame-activity/wordsgame.c:927
-msgid "Uppercase only text"
-msgstr "Texto sólo en mayúsculas"
+#: ../src/gletters-activity/gletters.c:1031
+msgid ""
+"Show letters in UPPERCASE\n"
+"Type in lowercase or UPPERCASE as you wish"
+msgstr ""
+"Mostrar letras en MAYÚSCULA\n"
+"Escriba en minúscula o MAYÚSCULA como desee"
 
 #: ../src/gletters-activity/gletters.xml.in.h:3
 msgid "Letter association between the screen and the keyboard"
@@ -5860,27 +6192,40 @@ msgstr ""
 "significa que tu número es mayor o menor que el número correcto."
 
 #. All the vowel of your language (keep empty if non applicable)
-#: ../src/hangman-activity/hangman.py:61
-msgid "aeiouy"
-msgstr "aeiou"
+#. Separate with /. You can use digraphs, trigraphs etc.
+#: ../src/hangman-activity/hangman.py:62
+msgid "a/e/i/o/u/y"
+msgstr "a/e/i/o/u/y"
 
 #. All the consonants of your language (keep empty if non applicable)
-#: ../src/hangman-activity/hangman.py:63
-msgid "bcdfghjklmnpqrstvwxz"
-msgstr "bcdfghjklmnñpqrstvwxyz"
+#. Separate with /. You can use digraphs, trigraphs etc. For example, both 's' and 'sch' could be in the list for German
+#: ../src/hangman-activity/hangman.py:67
+msgid "b/c/d/f/g/h/j/k/l/m/n/p/q/r/s/t/v/w/x/z"
+msgstr "b/c/d/f/g/h/j/k/l/m/n/p/q/r/s/t/v/w/x/z"
 
-#. Letters equivallence for the hangman activity. It has the
+#. Keys to letters equivalence for the hangman activity. It has the
+#. form of a space separated list like: "é=e/E è=e/E sch=S"
+#. Letters on the left of the = can be multigraphs and represent the letters on the buttons.
+#. Letters on the right are single letters pressed on the keyboard.
+#. If you wish to allow different key presses for the same letter, separate the letters
+#. on the right with /
+#: ../src/hangman-activity/hangman.py:76
+msgid "a=a"
+msgstr "a=a"
+
+#. Letters equivalence for the hangman activity. It has the
 #. form of a space separated list like: "e=éè a=àâ"
 #. Keep the word NONE if not available in your language
-#: ../src/hangman-activity/hangman.py:67
+#: ../src/hangman-activity/hangman.py:94
 msgid "NONE"
 msgstr "a=á e=é i=Í o=ó u=ú"
 
-#: ../src/hangman-activity/hangman.py:109
+#: ../src/hangman-activity/hangman.py:144
+#: ../src/hangman-activity/hangman.py:150
 msgid "English"
 msgstr "Inglés"
 
-#: ../src/hangman-activity/hangman.py:112
+#: ../src/hangman-activity/hangman.py:153
 msgid "Could not find the list of words."
 msgstr "No se pudo encontrar la lista de palabras."
 
@@ -6166,6 +6511,10 @@ msgstr ""
 #: ../src/imageid-activity/imageid.c:94
 #: ../src/imageid-activity/imageid.xml.in.h:3
 #: ../src/imagename-activity/imagename.xml.in.h:3
+#: ../src/lang-activity/lang-nature.xml.in.h:3
+#: ../src/lang-activity/lang-object.xml.in.h:3
+#: ../src/lang-activity/lang-other.xml.in.h:3
+#: ../src/lang-activity/lang-people.xml.in.h:3
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:3
 #: ../src/missing_letter-activity/missingletter.c:84
 #: ../src/readingh-activity/readingh.xml.in.h:4
@@ -6713,11 +7062,15 @@ msgstr ""
 "aceleración variará para cada planeta y, a medida que la nave se acerque a "
 "un planeta, aumentará la aceleración."
 
-#: ../src/lang-activity/lang.py:56
-msgid "Missing Image"
-msgstr "Imagen no encontrada"
+#: ../src/lang-activity/lang.py:98
+msgid "ERROR, we found no words in this language."
+msgstr "ERROR, no encontramos palabras en este idioma."
 
-#: ../src/lang-activity/lang.py:165
+#: ../src/lang-activity/lang.py:99
+msgid "Please consider contributing a voice set."
+msgstr "Considere contribuyendo un conjunto de voces."
+
+#: ../src/lang-activity/lang.py:152
 #, python-format
 msgid ""
 "Configuration\n"
@@ -6726,13 +7079,164 @@ msgstr ""
 "Configuración\n"
 " para el perfil <b>%s</b>"
 
-#: ../src/lang-activity/lang.py:170
+#: ../src/lang-activity/lang.py:157
 msgid "Select locale"
 msgstr "Seleccionar idioma"
 
+#: ../src/lang-activity/langLib.py:69
+msgid "Missing translation for '{word}'"
+msgstr "Traducciones faltantes para «{palabra}»"
+
+#: ../src/lang-activity/lang-nature.xml.in.h:1
+#: ../src/lang-activity/lang-object.xml.in.h:1
+#: ../src/lang-activity/lang-other.xml.in.h:1
+#: ../src/lang-activity/lang-people.xml.in.h:1
+msgid "Enrich your vocabulary"
+msgstr "Enriquece tu vocabulario"
+
+#: ../src/lang-activity/lang-nature.xml.in.h:2
+msgid "List of words in the 'nature' category."
+msgstr "Lista de palabras en la categoría «naturaleza»."
+
+#: ../src/lang-activity/lang-nature.xml.in.h:4
+#: ../src/lang-activity/lang-object.xml.in.h:4
+#: ../src/lang-activity/lang-other.xml.in.h:4
+#: ../src/lang-activity/lang-people.xml.in.h:4
+msgid "Enrich your vocabulary in your native language or in a foreign one."
+msgstr "Enriquece tu vocabulario en un idioma materno o en uno extranjero."
+
+#: ../src/lang-activity/lang-nature.xml.in.h:5
+#: ../src/lang-activity/lang-object.xml.in.h:5
+#: ../src/lang-activity/lang-other.xml.in.h:5
+#: ../src/lang-activity/lang-people.xml.in.h:5
+#| msgid ""
+#| "Review a set of words. Each word is shown with a voice a text and an "
+#| "image. When done you are suggested an exercice in which, given the voice, "
+#| "you must find the right word."
+msgid ""
+"Review a set of words. Each word is shown with a voice a text and an image. "
+"When done you are suggested an exercice in which, given the voice, you must "
+"find the right word. In the configuration you can select the language you "
+"want to learn."
+msgstr ""
+"Revisa un conjunto de palabras. Cada palabra se muestra con una voz, un "
+"texto y una imagen. Cuando termines se te sugiere un ejercicio en el cual se "
+"da la voz y puede encontrar la palabra correcta. En la configuración puedes "
+"seleccionar el idioma que quieres aprender."
+
+#: ../src/lang-activity/lang-nature.xml.in.h:6
+#: ../src/lang-activity/lang-object.xml.in.h:6
+#: ../src/lang-activity/lang-other.xml.in.h:6
+#: ../src/lang-activity/lang-people.xml.in.h:6
+msgid ""
+"The images and voices comes from the Art4Apps project: http://www.art4apps."
+"org/. You can also access this activity online on http://laske.fr/"
+"abecedarium/."
+msgstr ""
+"Las imágenes y voces vienen del proyecto Art4App: http://www.art4apps.org/. "
+"También puedes acceder a esta actividad en línea en http://laske.fr/"
+"abecedarium/."
+
+#: ../src/lang-activity/lang-object.xml.in.h:2
+msgid "List of words in the 'object' category."
+msgstr "Lista de palabras en la categoría «objeto»."
+
+#: ../src/lang-activity/lang-other.xml.in.h:2
+msgid "List of words in the 'other' category."
+msgstr "Lista de palabras en la categoría «otro»."
+
+#: ../src/lang-activity/lang-people.xml.in.h:2
+msgid "List of words in the 'people' category."
+msgstr "Lista de palabras en la categoría «personas»."
+
 #: ../src/lang-activity/lang.xml.in.h:1
-msgid "Practice a foreign language"
-msgstr "Practica un idioma extranjero"
+msgid "Go to the language learning activities"
+msgstr "Ir a las actividades de aprendizaje del lenguaje"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:1
+msgid "other"
+msgstr "otro"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:2
+msgid "action"
+msgstr "acción"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:3
+msgid "adjective"
+msgstr "adjetivo"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:5
+msgid "number"
+msgstr "número"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:6
+msgid "bodyparts"
+msgstr "partes del cuerpo"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:7
+msgid "clothes"
+msgstr "ropa"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:8
+msgid "emotion"
+msgstr "emoción"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:9
+msgid "job"
+msgstr "trabajo"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:10
+msgid "people"
+msgstr "personas"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:11
+msgid "sport"
+msgstr "deporte"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:12
+msgid "food"
+msgstr "comida"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:13
+msgid "animal"
+msgstr "animal"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:14
+msgid "fruit"
+msgstr "fruta"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:15
+msgid "nature"
+msgstr "naturaleza"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:16
+msgid "plant"
+msgstr "planta"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:17
+msgid "vegetables"
+msgstr "verduras"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:18
+msgid "construction"
+msgstr "construcción"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:19
+msgid "furniture"
+msgstr "muebles"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:20
+msgid "houseware"
+msgstr "hogar"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:21
+#| msgid "objet"
+msgid "object"
+msgstr "objeto"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:22
+msgid "tool"
+msgstr "herramienta"
 
 #: ../src/leftright-activity/leftright.c:230
 #: ../src/searace-activity/searace.py:415
@@ -6841,6 +7345,14 @@ msgid ""
 msgstr ""
 "<b>{0}</b> configuración\n"
 " para el perfil <b>{1}</b>"
+
+#. toggle box
+#: ../src/login-activity/login.py:486
+#: ../src/missing_letter-activity/missingletter_config.c:492
+#: ../src/readingh-activity/reading.c:942
+#: ../src/wordsgame-activity/wordsgame.c:930
+msgid "Uppercase only text"
+msgstr "Texto sólo en mayúsculas"
 
 #. toggle box
 #: ../src/login-activity/login.py:496
@@ -7334,6 +7846,16 @@ msgstr "Memoria"
 #: ../src/memory-activity/memory.c:302
 msgid "Find the matching pair"
 msgstr "Encuentra el par que corresponde"
+
+#. TRANSLATORS: Put here the numbers in your language
+#: ../src/memory-activity/memory.c:931
+msgid "0123456789"
+msgstr "0123456789"
+
+#. TRANSLATORS: Put here the alphabet uppercase in your language
+#: ../src/memory-activity/memory.c:941
+msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+msgstr "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
 
 #: ../src/memory-activity/memory.xml.in.h:1
 msgid "Memory Game with images"
@@ -9278,47 +9800,47 @@ msgstr ""
 "locomotora. Deselecciona un elemento volviendo a pulsar sobre él. Comprueba "
 "tu construcción pulsando en la mano que aparece abajo."
 
-#: ../src/readingh-activity/reading.c:229
+#: ../src/readingh-activity/reading.c:240
 #: ../src/wordsgame-activity/wordsgame.c:222
 msgid ""
 "Error: We can't find\n"
 "a list of words to play this game.\n"
 msgstr ""
-"Error: No se puede encontrar\n"
+"Error: no se puede encontrar\n"
 "una lista de palabras para jugar a este juego.\n"
 
-#: ../src/readingh-activity/reading.c:389
+#: ../src/readingh-activity/reading.c:402
 msgid "Please, check if the word"
 msgstr "Por favor, comprueba si la palabra"
 
-#: ../src/readingh-activity/reading.c:409
+#: ../src/readingh-activity/reading.c:422
 msgid "is being displayed"
 msgstr "está siendo mostrada"
 
-#: ../src/readingh-activity/reading.c:465
+#: ../src/readingh-activity/reading.c:478
 msgid "We skip this level because there are not enough words in the list!"
 msgstr "¡Se salta este nivel porque no hay suficientes palabras en la lista!"
 
-#: ../src/readingh-activity/reading.c:668
+#: ../src/readingh-activity/reading.c:681
 msgid "Yes, I saw it"
 msgstr "Sí, lo ví"
 
-#: ../src/readingh-activity/reading.c:695
+#: ../src/readingh-activity/reading.c:708
 msgid "No, it was not there"
 msgstr "No, no estaba allí"
 
 #. Report what was wrong in the log
-#: ../src/readingh-activity/reading.c:742
+#: ../src/readingh-activity/reading.c:755
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "La palabra que se busca era «%s»"
 
-#: ../src/readingh-activity/reading.c:745
+#: ../src/readingh-activity/reading.c:758
 #, c-format
 msgid "But it was not displayed"
 msgstr "Pero no se muestra"
 
-#: ../src/readingh-activity/reading.c:747
+#: ../src/readingh-activity/reading.c:760
 #, c-format
 msgid "And it was displayed"
 msgstr "Y se muestra"
@@ -9439,17 +9961,7 @@ msgstr ""
 "atrás. Cuando termines, pulsa sobre el botón Aceptar o la tecla Intro del "
 "teclado."
 
-#: ../src/scalesboard-activity/scale.c:295
-#, c-format
-msgid "Weight in g = %s"
-msgstr "Peso en g = %s"
-
-#: ../src/scalesboard-activity/scale.c:297
-#, c-format
-msgid "Weight = %s"
-msgstr "Peso = %s"
-
-#: ../src/scalesboard-activity/scale.c:1039
+#: ../src/scalesboard-activity/scale.c:1086
 msgid "Take care, you can drop weights on both sides of the scale."
 msgstr "Ten cuidado, puedes dejar caer pesos en ambos lados de la balanza."
 
@@ -9544,11 +10056,11 @@ msgid ""
 msgstr ""
 "En el campo de texto, introduce una orden por línea para controlar tu bote."
 "Las órdenes válidas se muestran entre las dos áreas de entrada. Las órdenes "
-"«izquierda» y «derecha» deben llevar como sufijo el ángulo en grados. Al valor "
-"del ángulo también se le llama «parámetro» de la orden izquierda o derecha. "
-"De forma predeterminada, se usan 45 grados. La orden «hacia adelante» acepta "
-"un parámetro con la distancia. De forma predeterminada se usa un valor de "
-"1.\n"
+"«izquierda» y «derecha» deben llevar como sufijo el ángulo en grados. Al "
+"valor del ángulo también se le llama «parámetro» de la orden izquierda o "
+"derecha. De forma predeterminada, se usan 45 grados. La orden «hacia "
+"adelante» acepta un parámetro con la distancia. De forma predeterminada se "
+"usa un valor de 1.\n"
 "Por ejemplo:\n"
 "- izquierda 90 => Hacer un giro perpendicular a la izquierda\n"
 "- hacia delante 10 => Ir hacia delante 10 unidades (como se muestran en la "
@@ -9647,11 +10159,11 @@ msgstr ""
 "En el campo de texto, introduce una orden por línea para controlar tu "
 "bote. \n"
 "Las órdenes válidas se muestran entre las dos áreas de entrada. Las órdenes "
-"«izquierda» y «derecha» deben llevar como sufijo el ángulo en grados. Al valor "
-"del ángulo también se le llama «parámetro» de la orden izquierda o derecha. "
-"De forma predeterminada, se usan 45 grados. La orden «hacia adelante» acepta "
-"un parámetro con la distancia. De forma predeterminada se usa un valor de "
-"1.\n"
+"«izquierda» y «derecha» deben llevar como sufijo el ángulo en grados. Al "
+"valor del ángulo también se le llama «parámetro» de la orden izquierda o "
+"derecha. De forma predeterminada, se usan 45 grados. La orden «hacia "
+"adelante» acepta un parámetro con la distancia. De forma predeterminada se "
+"usa un valor de 1.\n"
 "Por ejemplo:\n"
 "- izquierda 90 => Hacer un giro perpendicular a la izquierda\n"
 "- hacia delante 10 => Ir hacia delante 10 unidades (como se muestran en la "
@@ -10185,6 +10697,24 @@ msgstr "Entrenamiento con el teclado"
 msgid "Type the complete word as it falls, before it reaches the ground"
 msgstr "Teclea la palabra completa mientras cae, antes de que llegue al suelo"
 
+#~ msgid "aeiouy"
+#~ msgstr "aeiou"
+
+#~ msgid "bcdfghjklmnpqrstvwxz"
+#~ msgstr "bcdfghjklmnñpqrstvwxyz"
+
+#~ msgid "Missing Image"
+#~ msgstr "Imagen no encontrada"
+
+#~ msgid "Practice a foreign language"
+#~ msgstr "Practica un idioma extranjero"
+
+#~ msgid "Weight in g = %s"
+#~ msgstr "Peso en g = %s"
+
+#~ msgid "Weight = %s"
+#~ msgstr "Peso = %s"
+
 #~ msgid "Editing group: "
 #~ msgstr "Editando grupo: "
 
@@ -10245,9 +10775,6 @@ msgstr "Teclea la palabra completa mientras cae, antes de que llegue al suelo"
 #~ msgstr ""
 #~ " La vaca hace \"muu muu\". Las vacas tienen una memoria de unos tres "
 #~ "años. Las vacas tienen muchos usos, incluyendo la leche y la carne."
-
-#~ msgid " America"
-#~ msgstr " Estados Unidos"
 
 #~ msgid "sulphur"
 #~ msgstr "azufre"
