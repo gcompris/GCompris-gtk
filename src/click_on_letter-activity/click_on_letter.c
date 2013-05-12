@@ -1,8 +1,8 @@
 /*
- * todos:
- * -- config bug
- * -- keyboard input for multigraphs
- * -- remove debugging text output
+ * Todos:
+ * -- BUG: When going to config and hitting "Apply", there's a silent crash
+ *    When done, remove debugging text output
+ * -- Nice to have: Color for keyboard input for multigraphs
  */
 
 /* gcompris - click_on_letter.c
@@ -30,8 +30,6 @@
 #include <stdlib.h> /* atoi */
 #include "gcompris/gcompris.h"
 
-
-
 #define SOUNDLISTFILE PACKAGE
 
 static GcomprisBoard *gcomprisBoard = NULL;
@@ -51,17 +49,11 @@ static void		 process_ok(void);
 static void		 highlight_selected(GooCanvasItem *);
 static void		 game_won(void);
 static void		 repeat(void);
+
 static void		 config_start(GcomprisBoard *agcomprisBoard,
 				      GcomprisProfile *aProfile);
 static void		 config_stop(void);
-
-static gchar *levels_to_desktop(void);
-
-/* length of the alphabet*/
-static guint alphlen;
-/* alphabet storage*/
-static gchar **letterlist=NULL; 
-
+static gchar             *levels_to_desktop(void);
 static void		 load_datafile();
 static void		 clear_levels();
 
@@ -84,6 +76,13 @@ enum
 #define MAX_N_ANSWER      (N_LETTER_PER_LINE * MAX_N_LETTER_LINE)
   
 
+static gboolean uppercase_only;
+
+/* length of the alphabet*/
+static guint alphlen;
+/* alphabet storage*/
+static gchar **letterlist=NULL; 
+
 /* The data structure of a level */
 typedef struct
 {
@@ -93,6 +92,17 @@ typedef struct
 } Level;
 
 static GArray *levels = NULL;
+static gchar *right_letter = NULL;
+
+/* For multigraph keyboard input*/
+static gchar *answerletter = "";
+
+static void              create_levels_from_alphabet(void);
+static void              get_alphabet(void);
+
+static GooCanvasItem    *click_on_letter_create_item(GooCanvasItem *parent);
+static void             click_on_letter_destroy_all_items(void);
+static void             click_on_letter_next_level(void);
 
 #define NOT_OK		0
 #define OK		1
@@ -109,42 +119,10 @@ static RsvgDimensionData carriage_svg_dimension;
 static RsvgHandle *cloud_svg_handle;
 static RsvgDimensionData cloud_svg_dimension;
 
-static GooCanvasItem *click_on_letter_create_item(GooCanvasItem *parent);
-
-static void click_on_letter_destroy_all_items(void);
-static void click_on_letter_next_level(void);
-static gint item_event(GooCanvasItem *item, GooCanvasItem *target,
-		       GdkEvent *event, gpointer data);
-static guint sounds_are_fine();
-
-static gchar *right_letter = NULL;
-
-static void sound_played(gchar *file);
-
-static gboolean uppercase_only;
-
-/*
- * Reads multigraph characters from PO file into array.
- * Maximum multigraph + alphabet lengths defined on top of this file
- */
-static void
-get_alphabet()
-{
-  g_message("Getting alphabet");
-  gchar *alphabet = _("a/b/c/d/e/f/g/h/i/j/k/l/m/n/o/p/q/r/s/t/u/v/w/x/y/z");
-  /* TRANSLATORS: Put here the alphabet in your language, letters separated by: /
-   * Supports multigraphs, e.g. /sh/ or /sch/ gets treated as one letter */
-  g_assert(g_utf8_validate(alphabet, -1, NULL)); // require by all utf8-functions
-
-  /* fill letter storage */
-  letterlist = g_strsplit (alphabet,"/",-1);
-  guint i =-1;
-  while (letterlist[++i])
-  {
-      ;
-  }
-  alphlen=i;
-}
+static gint             item_event(GooCanvasItem *item, GooCanvasItem *target,
+                                   GdkEvent *event, gpointer data);
+static guint            sounds_are_fine();
+static void             sound_played(gchar *file);
 
 /* Description of this plugin */
 static BoardPlugin menu_bp =
@@ -185,6 +163,7 @@ GET_BPLUGIN_INFO(click_on_letter)
  */
 static void pause_board (gboolean pause)
 {
+    printf("Start pauseboard\n");
   if(gcomprisBoard==NULL)
     return;
 
@@ -200,6 +179,7 @@ static void pause_board (gboolean pause)
  */
 static void start_board (GcomprisBoard *agcomprisBoard)
 {
+    printf("Start startboard\n");
   GHashTable *config = gc_db_get_board_conf();
   guint ready;
 
@@ -265,9 +245,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 }
 
 static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str) {
-  gint length_passed, i;
-  
-  printf("Keypress\n");
+    printf("Start keypress\n");
+  gint length_passed, length_right, i;
 
   if(!gcomprisBoard)
     return FALSE;
@@ -282,21 +261,31 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str) {
   else
     string_passed = preedit_str;
   
-  printf("String passed: %s\n",string_passed);
-
   length_passed = g_utf8_strlen(string_passed, -1);
+  length_right = g_utf8_strlen(answerletter, -1);
 
   for (i=0; i < length_passed; i++){
     gunichar ckey = \
       g_unichar_tolower( g_utf8_get_char (string_passed) );
     gunichar cright = \
-      g_unichar_tolower( g_utf8_get_char (right_letter) );
+      g_unichar_tolower( g_utf8_get_char (answerletter) );
 
-    if (ckey == cright){
+    if (ckey == cright && length_passed == length_right){
+      gc_sound_play_ogg ("sounds/flip.wav", NULL);
       gamewon = TRUE;
       process_ok();
       gc_im_reset();
       return TRUE;
+    }
+    else if(ckey != cright)
+    {
+        gc_sound_play_ogg ("sounds/crash.wav", NULL);
+        return FALSE;
+    }
+    else
+    {
+        gc_sound_play_ogg ("sounds/flip.wav", NULL);
+        ++answerletter;
     }
     string_passed = g_utf8_next_char (string_passed);
   }
@@ -306,6 +295,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str) {
 /* ======================================= */
 static void end_board ()
 {
+    printf("Start endboard\n");
   if(gcomprisBoard!=NULL)
     {
       pause_board(TRUE);
@@ -320,14 +310,14 @@ static void end_board ()
   gc_locale_set( NULL );
   gcomprisBoard = NULL;
   gc_sound_bg_resume();
-  printf("Todo: applied configuration crashes after this. Can't test desktop file creation.\n");
   g_strfreev(letterlist);
-  printf("Freed letterlist\n");
+  printf("Todo: If I go to configuration and hit 'Apply', I get a crash after this. Can't test desktop file creation. Where does the control flow go next?\n");
 }
 
 /* ======================================= */
 static void set_level (guint level)
 {
+    printf("Start setlevel\n");
   if(gcomprisBoard!=NULL)
     {
       gcomprisBoard->level=level;
@@ -338,6 +328,7 @@ static void set_level (guint level)
 /* ======================================= */
 static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 {
+    printf("Start isourboard\n");
   if (gcomprisBoard)
     {
       if(g_ascii_strcasecmp(gcomprisBoard->type, "click_on_letter")==0)
@@ -393,6 +384,7 @@ static gboolean _repeat ()
 
 static void repeat ()
 {
+    printf("Start repeat2\n");
   if(gcomprisBoard!=NULL)
     {
       _repeat();
@@ -447,6 +439,7 @@ static guint sounds_are_fine()
 static void
 click_on_letter_next_level()
 {
+    printf("Start next level\n");
   gc_bar_set_level(gcomprisBoard);
 
   click_on_letter_destroy_all_items();
@@ -477,6 +470,7 @@ static void click_on_letter_destroy_all_items()
  */
 static void make_random_indices(guint *indices, guint length)
 {
+    printf("Start random indices\n");
   /* Randomize the list, create a random index first */
   guint i;
   for ( i = 0 ; i < length ; i++) {
@@ -500,6 +494,7 @@ static void make_random_indices(guint *indices, guint length)
 static void
 shuffle_pointers(gchar **pointers, guint length)
 {
+    printf("Start shuffle pointers\n");
   /* Randomize the list, create a random index first */
   guint random[length];
   make_random_indices(random,length);
@@ -516,6 +511,7 @@ shuffle_pointers(gchar **pointers, guint length)
 /* ==================================== */
 static GooCanvasItem *click_on_letter_create_item(GooCanvasItem *parent)
 {
+    printf("Start create item\n");
   int xOffset, yOffset, i;
   Level *level = &g_array_index (levels, Level, gcomprisBoard->level - 1);
 
@@ -532,6 +528,7 @@ static GooCanvasItem *click_on_letter_create_item(GooCanvasItem *parent)
   right_letter =  g_slist_nth_data(level->questions,gcomprisBoard->sublevel - 1);
   /* Display in uppercase? */
   if(uppercase_only) right_letter=g_utf8_strup(right_letter,-1);
+  answerletter = right_letter;
   
   boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
 					NULL);
@@ -632,6 +629,7 @@ static GooCanvasItem *click_on_letter_create_item(GooCanvasItem *parent)
 /* ==================================== */
 static void game_won()
 {
+    printf("Start game won\n");
   gcomprisBoard->sublevel++;
 
   if(gcomprisBoard->sublevel > gcomprisBoard->number_of_sublevel) {
@@ -639,18 +637,23 @@ static void game_won()
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
     if(gcomprisBoard->level > gcomprisBoard->maxlevel)
+    {
+      create_levels_from_alphabet();
       gcomprisBoard->level = gcomprisBoard->maxlevel;
+    }
   }
   click_on_letter_next_level();
 }
 
 /* ==================================== */
 static gboolean process_ok_timeout() {
+    printf("Start ok timeout\n");
   gc_bonus_display(gamewon, GC_BONUS_FLOWER);
   return FALSE;
 }
 
 static void process_ok() {
+    printf("Start process ok\n");
   // leave time to display the right answer
   g_timeout_add(TIME_CLICK_TO_BONUS, process_ok_timeout, NULL);
 }
@@ -659,10 +662,10 @@ static gint
 item_event(GooCanvasItem *item, GooCanvasItem *target,
 	   GdkEvent *event, gpointer data)
 {
+    printf("Start item event\n");
   if(board_paused)
     return FALSE;
 
-  /// todo force lowercase when reading alphabet
   gchar *answer = (gchar*)data;
 
   switch (event->type)
@@ -687,6 +690,7 @@ item_event(GooCanvasItem *item, GooCanvasItem *target,
 }
 /* ==================================== */
 static void highlight_selected(GooCanvasItem * item) {
+    printf("Start highlight selected\n");
   GooCanvasItem *button;
 
   button = (GooCanvasItem*)g_object_get_data(G_OBJECT(item), "button_item");
@@ -707,6 +711,7 @@ static void highlight_selected(GooCanvasItem * item) {
  */
 static void load_desktop_datafile(gchar *filename)
 {
+    printf("Start load desktop datafile\n");
   GKeyFile *keyfile = g_key_file_new ();
   GError *error = NULL;
   if ( ! g_key_file_load_from_file (keyfile,
@@ -749,10 +754,36 @@ static void load_desktop_datafile(gchar *filename)
 }
 
 /*
+ * Reads multigraph characters from PO file into array.
+ * Maximum multigraph + alphabet lengths defined on top of this file
+ */
+static void
+get_alphabet()
+{
+  g_message("Getting alphabet");
+  printf("Start getalphabet\n");
+  gchar *alphabet = _("a/b/c/d/e/f/g/h/i/j/k/l/m/n/o/p/q/r/s/t/u/v/w/x/y/z");
+  /* TRANSLATORS: Put here the alphabet in your language, letters separated by: /
+   * Supports multigraphs, e.g. /sh/ or /sch/ gets treated as one letter */
+  g_assert(g_utf8_validate(alphabet, -1, NULL)); // require by all utf8-functions
+
+  /* fill letter storage */
+  letterlist = g_strsplit (alphabet,"/",-1);
+  guint i =-1;
+  while (letterlist[++i])
+  {
+      ;
+  }
+  alphlen=i;
+}
+
+
+/*
  * Read random letters from letterlist and create the levels 
  */
 static void create_levels_from_alphabet()
 {
+    printf("Start levels from alphabet\n");
   guint level_i = 0;
   guint n_questions = 0;
   while ( n_questions < alphlen && n_questions < MAX_N_ANSWER)
@@ -840,7 +871,7 @@ static void load_datafile() {
  * free the returned value with g_free()
  */
 static gchar *levels_to_desktop() {
-
+printf("Start levels to desktop\n");
   GKeyFile *keyfile = g_key_file_new ();
 
   int i;
@@ -868,7 +899,6 @@ static gchar *levels_to_desktop() {
       } while ((temppointer = g_slist_next(temppointer)));
       g_slist_free (temppointer);
       g_free(group);
-      // todo free GSList?
     }
 
   gchar *buffer = g_key_file_to_data(keyfile, NULL, NULL);
@@ -891,6 +921,7 @@ static GHFunc save_table (gpointer key,
 			  gpointer value,
 			  gpointer user_data)
 {
+    printf("Start save table\n");
   gc_db_set_board_conf ( profile_conf,
 			    board_conf,
 			    (gchar *) key,
@@ -902,6 +933,7 @@ static GHFunc save_table (gpointer key,
 static gboolean _save_level_from_model(GtkTreeModel *model, GtkTreePath *path,
 				       GtkTreeIter *iter, gpointer data)
 {
+    printf("Start save table from model\n");
   Level level;
 
   gtk_tree_model_get (GTK_TREE_MODEL (model), iter,
@@ -932,6 +964,7 @@ static void create_levels_from_config_model()
  */
 static gchar *list_to_string(GSList *list)
 {
+    printf("Start list to string\n");
   gchar *result ="";
   GSList *temppointer = list;
   do {
@@ -946,6 +979,7 @@ static gchar *list_to_string(GSList *list)
 void
 load_model_from_levels(GtkListStore *model)
 {
+    printf("Start load model from levels\n");
   GtkTreeIter iter;
 
   gtk_list_store_clear(model);
@@ -970,7 +1004,12 @@ clear_levels()
   if ( ! levels )
     return;
   
-  // todo free level questions & answers?
+  guint i;
+  for (i=0;i<gcomprisBoard->maxlevel && &g_array_index (levels, Level, i);i++)
+  {
+    g_slist_free((&g_array_index (levels, Level, i))->answers);
+    g_slist_free((&g_array_index (levels, Level, i))->questions);
+  }
   g_array_free(levels, TRUE);
   levels = NULL;
 }
@@ -1052,6 +1091,7 @@ static gboolean
 _check_errors(GtkTreeModel *model, GtkTreePath *path,
 	      GtkTreeIter *iter, gpointer data)
 {
+    printf("Start check errors\n");
   Level level;
   gboolean *has_error = (gboolean*)data;
 
@@ -1169,6 +1209,7 @@ static gboolean
 resequence_level_in_model(GtkTreeModel *model, GtkTreePath *path,
 			  GtkTreeIter *iter, gpointer data)
 {
+    printf("Start resequence level in model\n");
   guint *level = (guint*)data;
 
   gtk_list_store_set (GTK_LIST_STORE(model), iter,
@@ -1181,6 +1222,7 @@ resequence_level_in_model(GtkTreeModel *model, GtkTreePath *path,
 static gboolean next_level_in_model(GtkTreeModel *model, GtkTreePath *path,
 				    GtkTreeIter *iter, gpointer data)
 {
+    printf("Start next level in model\n");
   guint *level = (guint*)data;
   guint level_in_tree;
 
@@ -1197,6 +1239,7 @@ static gboolean next_level_in_model(GtkTreeModel *model, GtkTreePath *path,
 static void
 add_item (GtkWidget *button, gpointer data)
 {
+    printf("Start add item\n");
   GtkTreeIter iter;
   GtkTreeModel *model = (GtkTreeModel *)data;
 
@@ -1214,6 +1257,7 @@ add_item (GtkWidget *button, gpointer data)
 static void
 remove_item (GtkWidget *widget, gpointer data)
 {
+    printf("Start remove item\n");
   GtkTreeIter iter;
   GtkTreeView *treeview = (GtkTreeView *)data;
   GtkTreeModel *model = gtk_tree_view_get_model (treeview);
@@ -1232,6 +1276,7 @@ remove_item (GtkWidget *widget, gpointer data)
 static void
 move_item (GtkWidget *widget, gpointer data, gboolean up)
 {
+    printf("Start move item\n");
   GtkTreeIter iter;
   GtkTreeView *treeview = (GtkTreeView *)data;
   GtkTreeModel *model = gtk_tree_view_get_model (treeview);
@@ -1275,18 +1320,21 @@ move_item (GtkWidget *widget, gpointer data, gboolean up)
 static void
 up_item (GtkWidget *widget, gpointer data)
 {
+    printf("Start up item\n");
   move_item(widget, data, TRUE);
 }
 
 static void
 down_item (GtkWidget *widget, gpointer data)
 {
+    printf("Start down item\n");
   move_item(widget, data, FALSE);
 }
 
 static void
 return_to_default(GtkWidget *widget, gpointer data)
 {
+    printf("Start return to default\n");
   GtkListStore *model = (GtkListStore *)data;
   gchar *filename = get_user_desktop_file();
   /* Erase the user desktop file */
@@ -1303,6 +1351,7 @@ static void cell_edited_callback (GtkCellRendererText *cell,
 			   gchar               *path,
 			   gchar               *new_text,
 			   GtkTreeView         *tree_view) {
+    printf("Start cell edited callback\n");
   guint column_number = GPOINTER_TO_UINT(g_object_get_data(G_OBJECT(cell), "my_column_num"));
 
   GtkTreeIter iter;
@@ -1316,6 +1365,7 @@ static void cell_edited_callback (GtkCellRendererText *cell,
 
 static void configure_colummns(GtkTreeView *treeview)
 {
+    printf("Start configure columns\n");
   GtkCellRenderer *renderer;
   GtkTreeViewColumn *column;
 
@@ -1357,6 +1407,7 @@ static void configure_colummns(GtkTreeView *treeview)
 static void
 locale_changed (GtkComboBox *combobox, gpointer data)
 {
+    printf("Start locale changed\n");
   const gchar *locale;
   GtkTreeIter iter;
   gchar *text = NULL;
@@ -1382,6 +1433,7 @@ static void
 config_start(GcomprisBoard *agcomprisBoard,
 	     GcomprisProfile *aProfile)
 {
+    printf("Start config start\n");
   board_conf = agcomprisBoard;
   profile_conf = aProfile;
 
@@ -1497,6 +1549,7 @@ config_start(GcomprisBoard *agcomprisBoard,
 static void
 config_stop()
 {
+    printf("Start config stop\n");
 }
 
 static void
