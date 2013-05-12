@@ -1,4 +1,4 @@
-#  gcompris - findit.py
+#  gcompris - langFindit.py
 #
 # Copyright (C) 2010 Bruno Coudoin
 #
@@ -15,7 +15,7 @@
 #   You should have received a copy of the GNU General Public License
 #   along with this program; if not, see <http://www.gnu.org/licenses/>.
 #
-# lang activity.
+# lang activity exercice.
 import gtk
 import gtk.gdk
 import gcompris
@@ -179,3 +179,5 @@ class Findit:
     def repeat(self):
       self.lang.playVoice(self.tripletToFind)
   
+    def key_press(self, keyval, commit_str, preedit_str):
+      pass

@@ -28,6 +28,7 @@ import pango
 from gcompris import gcompris_gettext as _
 from langLib import *
 from langFindit import *
+from langEnterText import *
 
 class Gcompris_lang:
   """Empty gcompris python class"""
@@ -43,7 +44,7 @@ class Gcompris_lang:
     self.gcomprisBoard = gcomprisBoard
 
     # Needed to get key_press
-    gcomprisBoard.disable_im_context = True
+    gcomprisBoard.disable_im_context = False
 
   def start(self):
     self.saved_policy = gcompris.sound.policy_get()
@@ -173,12 +174,15 @@ class Gcompris_lang:
 
   def key_press(self, keyval, commit_str, preedit_str):
     if self.currentExercise:
-      return
+      return self.currentExercise.key_press(keyval, commit_str, preedit_str)
 
     if keyval == gtk.keysyms.Left or keyval == gtk.keysyms.Up:
       self.previous_event(keyval)
-    elif keyval == gtk.keysyms.Right or keyval == gtk.keysyms.Down:
+    elif commit_str == " " or \
+          keyval == gtk.keysyms.Right or keyval == gtk.keysyms.Down:
       self.next_event(keyval)
+    elif keyval == gtk.keysyms.End:
+      self.startExercise()
 
   def pause(self, pause):
     self.board_paused = pause
@@ -246,8 +250,8 @@ class Gcompris_lang:
       fill_color_rgba = 0x6666FF33L,
       stroke_color_rgba = 0x1111FFAAL,
       line_width = 2.0,
-      radius_x = 0.9,
-      radius_y = 0.9)
+      radius_x = 3,
+      radius_y = 3)
 
     goocanvas.Text(
       parent = self.lessonroot,
@@ -314,21 +318,32 @@ class Gcompris_lang:
 
   def runExercise(self):
     if len(self.currentExerciseModes):
-      self.currentExercise = Findit(self, self.rootitem, self.currentLesson,
-                                    self.currentExerciseModes.pop())
+      currentMode = self.currentExerciseModes.pop()
+      if currentMode[0] == "findit":
+        self.currentExercise = Findit(self, self.rootitem, self.currentLesson,
+                                      currentMode[1])
+      else:
+        self.currentExercise = EnterText(self, self.rootitem, self.currentLesson,
+                                         currentMode[1])
       self.currentExercise.start()
       return True
     return False
 
+  def startExercise(self):
+    self.clearLesson()
+    # We will run the exercise 3 times in different modes
+    self.currentExerciseModes = [ ["findit",Findit.WITH_QUESTION|Findit.WITH_TEXT|Findit.WITH_IMAGE],
+                                  ["findit", Findit.WITH_QUESTION|Findit.WITH_IMAGE],
+                                  ["findit", Findit.WITH_IMAGE],                                  
+                                  ["text", EnterText.WITH_TEXT|EnterText.WITH_IMAGE]
+                                  ]
+    self.currentExerciseModes.reverse()
+    self.runExercise()
+
   def displayImage(self, triplet):
 
     if len(self.tripletSeen) == len(self.currentLesson.getTriplets()):
-      self.clearLesson()
-      # We will run the exercise 3 times in different modes
-      self.currentExerciseModes = [Findit.WITH_IMAGE,
-                                   Findit.WITH_QUESTION|Findit.WITH_IMAGE,
-                                   Findit.WITH_QUESTION|Findit.WITH_TEXT|Findit.WITH_IMAGE]
-      self.runExercise()
+      self.startExercise()
       return
 
     # Display the next triplet

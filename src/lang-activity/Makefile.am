@@ -7,6 +7,7 @@ pythondir = $(PYTHON_PLUGIN_DIR)
 
 dist_python_DATA= \
 	lang.py \
+	langEnterText.py \
 	langLib.py \
 	langFindit.py
 
