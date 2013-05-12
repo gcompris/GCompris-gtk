@@ -65,6 +65,9 @@ GcomprisWordlist
   xmlNodePtr node;
   xmlNodePtr wordsNode;
   guint level;
+  guint speed;
+  guint fallspeed;
+  guint sublevels;
 
   GcomprisWordlist     *wordlist;
   xmlChar              *text;
@@ -85,8 +88,7 @@ GcomprisWordlist
       g_free(filename);
       return NULL;
     }
-
-  g_warning("Wordlist found %s\n", xmlfilename);
+  g_message("Wordlist found %s\n", xmlfilename);
 
   xmldoc = xmlParseFile(xmlfilename);
 
@@ -176,14 +178,36 @@ GcomprisWordlist
     }
 
     level=-1;
+    speed=-1;
+    fallspeed=-1;
+    sublevels=-1;
     text = xmlGetProp ( node,
 		    (const xmlChar *) "value");
     if (text) {
 	    level = atoi((gchar *) text);
 	    xmlFree (text);
     }
+    // todo
+    text = xmlGetProp ( node,
+		    (const xmlChar *) "speed");
+    if (text) {
+	    speed = atoi((gchar *) text);
+	    xmlFree (text);
+    }
+    text = xmlGetProp ( node,
+		    (const xmlChar *) "fallspeed");
+    if (text) {
+	    fallspeed = atoi((gchar *) text);
+	    xmlFree (text);
+    }
+    text = xmlGetProp ( node,
+		    (const xmlChar *) "sublevels");
+    if (text) {
+	    sublevels = atoi((gchar *) text);
+	    xmlFree (text);
+    }
     text = xmlNodeGetContent ( wordsNode);
-    gc_wordlist_set_wordlist(wordlist, level, (const gchar*)text);
+    gc_wordlist_set_wordlist(wordlist, level, speed, fallspeed, sublevels, (const gchar*)text);
     xmlFree(text);
 
     node = node->next;
@@ -300,7 +324,7 @@ gc_wordlist_free(GcomprisWordlist *wordlist)
   g_free (wordlist);
 }
 
-void gc_wordlist_set_wordlist(GcomprisWordlist *wordlist, guint level, const gchar*text)
+void gc_wordlist_set_wordlist(GcomprisWordlist *wordlist, guint level, gint speed, gint fallspeed, gint sublevels, const gchar*text)
 {
 	LevelWordlist *lw;
 	GSList *words=NULL;
@@ -336,6 +360,9 @@ void gc_wordlist_set_wordlist(GcomprisWordlist *wordlist, guint level, const gch
 
 	level_words->words = words;
 	level_words->level = level;
+        level_words->speed = speed;
+        level_words->fallspeed = fallspeed;
+        level_words->sublevels = sublevels;
 
 	wordlist->number_of_level++;
 	wordlist->levels_words = g_slist_append( wordlist->levels_words, level_words);

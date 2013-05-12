@@ -95,15 +95,20 @@ static void		 player_loose(void);
 #define MAX_SPEED  150
 #define MIN_FALLSPEED  3000
 #define MIN_SPEED  50
-#define DEFAULT_FALLSPEED  7000
-#define DEFAULT_SPEED  150
+#define DEFAULT_FALLSPEED  8000
+#define DEFAULT_SPEED  170
 
+/* Within a level, make faster */
 #define INCREMENT_FALLSPEED  1000
 #define INCREMENT_SPEED  10
 
+/* At start of level, make faster */
+#define ADD_SPEED 20
+#define ADD_FALLSPEED 1000
 
-static  guint32              fallSpeed = 0;
-static  double               speed = 0.0;
+
+static  gint              fallSpeed = 0;
+static  gint              speed = 0;
 
 static GooCanvasItem *preedit_text = NULL;
 
@@ -475,11 +480,40 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 /*-------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------*/
 
+
+
+/*
+ * Set how often and how fast items drop
+ */
+static void setSpeed(guint level)
+{
+    LevelWordlist *levellist = gc_wordlist_get_levelwordlist(gc_wordlist, level);
+    fallSpeed = (levellist->fallspeed >= 0) ? (gint) levellist->fallspeed : DEFAULT_FALLSPEED - level*ADD_FALLSPEED;
+    speed = (levellist->speed >= 0) ? (gint) levellist->speed : DEFAULT_SPEED - level*ADD_SPEED;
+
+    if(speed < MIN_SPEED ) speed = MIN_SPEED;
+    if(speed > MAX_SPEED ) speed = MAX_SPEED;
+    if(fallSpeed < MIN_FALLSPEED ) fallSpeed = MIN_FALLSPEED;
+    if(fallSpeed > MAX_FALLSPEED ) fallSpeed = MAX_FALLSPEED;
+}
+
+
 /* Called with items_lock locked */
 static void wordsgame_next_level_unlocked()
 {
-  gcomprisBoard->number_of_sublevel = 10 +
-    ((gcomprisBoard->level-1) * 5);
+    gcomprisBoard->sublevel = 1;
+    setSpeed(gcomprisBoard->level);
+    
+    /* set sublevels */
+    LevelWordlist *levellist = gc_wordlist_get_levelwordlist(gc_wordlist, gcomprisBoard->level);
+    if (levellist->sublevels > 0)
+    {
+      gcomprisBoard->number_of_sublevel = levellist->sublevels;
+    }
+    else
+    {
+        gcomprisBoard->number_of_sublevel = 10 + ((gcomprisBoard->level-1) * 5);
+    }
   gc_score_start(SCORESTYLE_NOTE,
 		 BOARDWIDTH - 195,
 		 BOARDHEIGHT - 30,
@@ -498,14 +532,6 @@ static void wordsgame_next_level_unlocked()
 
   items=g_ptr_array_new();
   items2del=g_ptr_array_new();
-
-
-  /* Increase speed only after 5 levels */
-  if(gcomprisBoard->level > 5)
-    {
-      gint temp = fallSpeed-gcomprisBoard->level*200;
-      if (temp > MIN_FALLSPEED)	fallSpeed=temp;
-    }
 
   pause_board(FALSE);
 }
@@ -786,15 +812,20 @@ static void player_win(LettersItem *item)
 
   if(gcomprisBoard->sublevel > gcomprisBoard->number_of_sublevel)
     {
+      
+      /* Give feedback about completed level */
+      //gc_sound_play_ogg ("sounds/bonus.wav", NULL);
+      gc_bonus_display(TRUE, GC_BONUS_LION);
+      drop_items_id = g_timeout_add (3000,
+				       (GSourceFunc) wordsgame_drop_items, NULL);
 
       /* Try the next level */
       gcomprisBoard->level++;
-      gcomprisBoard->sublevel = 0;
+      gcomprisBoard->sublevel = 1;
       if(gcomprisBoard->level>gcomprisBoard->maxlevel)
 	gcomprisBoard->level = gcomprisBoard->maxlevel;
 
       wordsgame_next_level_unlocked();
-      gc_sound_play_ogg ("sounds/bonus.wav", NULL);
     }
   else
     {
@@ -802,9 +833,7 @@ static void player_win(LettersItem *item)
       /* Drop a new item now to speed up the game */
       if(items->len==0)
         {
-
 	  if ((fallSpeed-=INCREMENT_FALLSPEED) < MIN_FALLSPEED) fallSpeed+=INCREMENT_FALLSPEED;
-
 	  if ((speed-=INCREMENT_SPEED) < MIN_SPEED) speed+=INCREMENT_SPEED;
 
           if (drop_items_id) {

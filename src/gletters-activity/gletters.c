@@ -78,15 +78,15 @@ static GcomprisBoard *gcomprisBoard = NULL;
  */
 
 #define FALL_RATE_BASE 40
-#define FALL_RATE_MULT 10
+#define FALL_RATE_MULT 80
 
 /* these constants control how often letters are dropped
  * the base rate is fixed
  * the increment governs increase per level
  */
 
-#define DROP_RATE_BASE 1000
-#define DROP_RATE_MULT 1000
+#define DROP_RATE_BASE 5000
+#define DROP_RATE_MULT 100
 
 static gint dummy_id = 0;
 static gint drop_items_id = 0;
@@ -122,8 +122,8 @@ static void		 player_win(LettersItem *item);
 static void		 player_lose(void);
 
 
-static  gint              fallSpeed = 0;
-static  gint               speed = 0;
+static  gint             fallSpeed = 0;
+static  gint             speed = 0;
 
 static GooCanvasItem *preedit_text = NULL;
 
@@ -517,17 +517,26 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 static void gletters_next_level_unlocked()
 {
   int l;
-
+  
+  LevelWordlist *levellist = gc_wordlist_get_levelwordlist(gc_wordlist, gcomprisBoard->level);
   // get number of letters available
-  l=g_slist_length(gc_wordlist_get_levelwordlist(gc_wordlist, gcomprisBoard->level)->words);
+  l=g_slist_length(levellist->words);
 
   g_message("wordlist length for level %d is %d\n",
 	    gcomprisBoard->level,
 	    l);
-  l = l/3 + (gcomprisBoard->level)/3; // make sure the level doesn't get too long
-  // set sublevels
-  gcomprisBoard->number_of_sublevel = (DEFAULT_SUBLEVEL>l?DEFAULT_SUBLEVEL:l);
 
+  /* set sublevels */
+  if (levellist->sublevels > 0)
+  {
+      gcomprisBoard->number_of_sublevel = levellist->sublevels;
+  }
+  else
+  {
+        /* If level length is not set in XML, make sure the level doesn't get too long */
+        l = l/3 + (gcomprisBoard->level)/3;
+        gcomprisBoard->number_of_sublevel = (DEFAULT_SUBLEVEL>l?DEFAULT_SUBLEVEL:l);
+  }
   gc_score_start(SCORESTYLE_NOTE,
 		 BOARDWIDTH - 195,
 		 BOARDHEIGHT - 30,
@@ -560,14 +569,15 @@ static void gletters_next_level_unlocked()
  */
 static void setSpeed(guint level)
 {
-  speed= ((gint) FALL_RATE_BASE)+(((gint) FALL_RATE_MULT)*level);
-  fallSpeed= (gint) DROP_RATE_BASE+(DROP_RATE_MULT*level);
+    LevelWordlist *levellist = gc_wordlist_get_levelwordlist(gc_wordlist, level);
+    speed = (levellist->speed >= 0) ? (gint) levellist->speed : ((gint) FALL_RATE_BASE)+(((gint) FALL_RATE_MULT)/level);
+    fallSpeed = (levellist->fallspeed >= 0) ? (gint) levellist->fallspeed : (gint) DROP_RATE_BASE+(DROP_RATE_MULT*level);
 }
 
 /* set initial values for the next level */
 static void gletters_next_level()
 {
-  gcomprisBoard->sublevel = 0;
+  gcomprisBoard->sublevel = 1;
 #if GLIB_CHECK_VERSION(2, 31, 0)
   g_mutex_lock (&items_lock);
 #else
@@ -730,9 +740,9 @@ static GooCanvasItem *gletters_create_item(GooCanvasItem *parent)
   guint i;
   if(word)
   {
-      /* Check if letter has already been used. Cap at 6 tries, because there 
+      /* Check if letter has already been used. Cap at 20 tries, because there 
        * might not be enough letters for all the sublevels */
-      for (i=0;i<6 && word && g_hash_table_lookup(letters_table,word)!=NULL;++i)
+      for (i=0;i<20 && word && g_hash_table_lookup(letters_table,word)!=NULL;++i)
       {
           word = gc_wordlist_random_word_get(gc_wordlist, gcomprisBoard->level);
       }
@@ -888,16 +898,19 @@ static void player_win(LettersItem *item)
 
   if(gcomprisBoard->sublevel > gcomprisBoard->number_of_sublevel)
     {
-
+      /* Give feedback about completed level */
+      gc_bonus_display(TRUE, GC_BONUS_LION);
+      drop_items_id = g_timeout_add (3000,
+				       (GSourceFunc) gletters_drop_items, NULL);
       /* Try the next level */
       gcomprisBoard->level++;
-      gcomprisBoard->sublevel = 0;
+      gcomprisBoard->sublevel = 1;
       if(gcomprisBoard->level>gcomprisBoard->maxlevel)
 	gcomprisBoard->level = gcomprisBoard->maxlevel;
     
       setSpeed(gcomprisBoard->level);
       gletters_next_level_unlocked();
-      gc_sound_play_ogg ("sounds/bonus.wav", NULL);
+      //gc_sound_play_ogg ("sounds/bonus.wav", NULL);
     }
   else
     {

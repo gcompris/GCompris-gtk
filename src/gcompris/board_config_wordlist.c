@@ -164,7 +164,7 @@ static void _button_clicked(GtkWidget *w, gpointer data)
 	gtk_text_buffer_get_start_iter(buffer, &start_iter);
 	gtk_text_buffer_get_end_iter(buffer, &end_iter);
 	text = gtk_text_buffer_get_slice(buffer, &start_iter, &end_iter, TRUE);
-	gc_wordlist_set_wordlist(u->wordlist, level, text);
+	gc_wordlist_set_wordlist(u->wordlist, level, -1,-1,-1, text);
 	g_free(text);
 	gc_wordlist_save(u->wordlist);
 	_combo_lang_changed(u->combo_lang, u);

@@ -21,6 +21,9 @@
 
 typedef struct {
   gint level;
+  gint speed;
+  gint fallspeed;
+  gint sublevels;
   GSList *words;
 } LevelWordlist;
 
@@ -38,6 +41,6 @@ GcomprisWordlist *gc_wordlist_get_from_file(const gchar *fileformat, ...);
 LevelWordlist	 *gc_wordlist_get_levelwordlist(GcomprisWordlist *wordlist, guint level);
 void              gc_wordlist_free(GcomprisWordlist *wordlist);
 gchar		 *gc_wordlist_random_word_get(GcomprisWordlist *wordlist, guint level);
-void		  gc_wordlist_set_wordlist(GcomprisWordlist *wordlist, guint level, const gchar*words);
+void		  gc_wordlist_set_wordlist(GcomprisWordlist *wordlist, guint level, gint speed, gint fallspeed, gint sublevels, const gchar*text);
 void 		  gc_wordlist_save(GcomprisWordlist *wordlist);
 #endif
