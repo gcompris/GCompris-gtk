@@ -380,7 +380,8 @@ class Player(object):
             self.stop()
 
     def startMunching(self):
-        gcompris.sound.play_ogg("sounds/eat.wav")
+        gcompris.sound.play_ogg("voices/$LOCALE/misc/eat.wav")
+        
         self.anim.setState(2)
         self.munch_timer = game.timeout_add(game.munch_time, self.stopMunching)
         return False
