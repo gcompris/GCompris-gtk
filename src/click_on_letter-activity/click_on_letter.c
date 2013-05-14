@@ -1,8 +1,6 @@
 /*
  * Todos:
- * -- BUG: When going to config and hitting "Apply", there's a silent crash
- *    When done, remove debugging text output
- * -- Nice to have: Color for keyboard input for multigraphs
+ * -- Color for keyboard input for multigraphs
  */
 
 /* gcompris - click_on_letter.c
@@ -163,7 +161,6 @@ GET_BPLUGIN_INFO(click_on_letter)
  */
 static void pause_board (gboolean pause)
 {
-    printf("Start pauseboard\n");
   if(gcomprisBoard==NULL)
     return;
 
@@ -179,7 +176,6 @@ static void pause_board (gboolean pause)
  */
 static void start_board (GcomprisBoard *agcomprisBoard)
 {
-    printf("Start startboard\n");
   GHashTable *config = gc_db_get_board_conf();
   guint ready;
 
@@ -245,7 +241,6 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 }
 
 static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str) {
-    printf("Start keypress\n");
   gint length_passed, length_right, i;
 
   if(!gcomprisBoard)
@@ -280,6 +275,9 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str) {
     else if(ckey != cright)
     {
         gc_sound_play_ogg ("sounds/crash.wav", NULL);
+        if(g_utf8_strlen(answerletter, -1) != g_utf8_strlen(right_letter, -1))
+            // todo add some color!
+            printf("Some more help!\n");
         return FALSE;
     }
     else
@@ -295,14 +293,11 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str) {
 /* ======================================= */
 static void end_board ()
 {
-    printf("Start endboard\n");
   if(gcomprisBoard!=NULL)
     {
       pause_board(TRUE);
       gc_score_end();
       click_on_letter_destroy_all_items();
-      // todo free memory?
-
       g_object_unref(carriage_svg_handle);
       g_object_unref(cloud_svg_handle);
       clear_levels();
@@ -311,13 +306,11 @@ static void end_board ()
   gcomprisBoard = NULL;
   gc_sound_bg_resume();
   g_strfreev(letterlist);
-  printf("Todo: If I go to configuration and hit 'Apply', I get a crash after this. Can't test desktop file creation. Where does the control flow go next?\n");
 }
 
 /* ======================================= */
 static void set_level (guint level)
 {
-    printf("Start setlevel\n");
   if(gcomprisBoard!=NULL)
     {
       gcomprisBoard->level=level;
@@ -328,7 +321,6 @@ static void set_level (guint level)
 /* ======================================= */
 static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 {
-    printf("Start isourboard\n");
   if (gcomprisBoard)
     {
       if(g_ascii_strcasecmp(gcomprisBoard->type, "click_on_letter")==0)
@@ -349,7 +341,6 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
  */
 static gboolean _repeat ()
 {
-    printf("Start repeat\n");
   gboolean retval = FALSE;
 
   gchar *str1 = NULL;
@@ -384,7 +375,6 @@ static gboolean _repeat ()
 
 static void repeat ()
 {
-    printf("Start repeat2\n");
   if(gcomprisBoard!=NULL)
     {
       _repeat();
@@ -393,7 +383,6 @@ static void repeat ()
 
 static guint sounds_are_fine()
 {
-    printf("Start sounds are fine\n");
   char *letter_str;
   char *str2;
   GcomprisProperties *properties = gc_prop_get();
@@ -412,7 +401,7 @@ static guint sounds_are_fine()
     }
 
   gchar *letter = g_new0(gchar, 8);
-  g_unichar_to_utf8(g_utf8_get_char(letterlist[1]), letter); // todo
+  g_unichar_to_utf8(g_utf8_get_char(letterlist[1]), letter);
   letter_str = gc_sound_alphabet(letter);
   g_free(letter);
 
@@ -439,7 +428,6 @@ static guint sounds_are_fine()
 static void
 click_on_letter_next_level()
 {
-    printf("Start next level\n");
   gc_bar_set_level(gcomprisBoard);
 
   click_on_letter_destroy_all_items();
@@ -456,7 +444,6 @@ click_on_letter_next_level()
 /* Destroy all the items */
 static void click_on_letter_destroy_all_items()
 {
-    printf("Start destroy all\n");
   if(boardRootItem!=NULL)
     goo_canvas_item_remove(boardRootItem);
 
@@ -470,7 +457,6 @@ static void click_on_letter_destroy_all_items()
  */
 static void make_random_indices(guint *indices, guint length)
 {
-    printf("Start random indices\n");
   /* Randomize the list, create a random index first */
   guint i;
   for ( i = 0 ; i < length ; i++) {
@@ -494,7 +480,6 @@ static void make_random_indices(guint *indices, guint length)
 static void
 shuffle_pointers(gchar **pointers, guint length)
 {
-    printf("Start shuffle pointers\n");
   /* Randomize the list, create a random index first */
   guint random[length];
   make_random_indices(random,length);
@@ -511,7 +496,6 @@ shuffle_pointers(gchar **pointers, guint length)
 /* ==================================== */
 static GooCanvasItem *click_on_letter_create_item(GooCanvasItem *parent)
 {
-    printf("Start create item\n");
   int xOffset, yOffset, i;
   Level *level = &g_array_index (levels, Level, gcomprisBoard->level - 1);
 
@@ -519,7 +503,7 @@ static GooCanvasItem *click_on_letter_create_item(GooCanvasItem *parent)
     {
       guint n_answer = g_slist_length(level->answers);
       g_assert(0 < n_answer && n_answer <= MAX_N_ANSWER );
-      g_assert( n_answer ==  g_slist_length(level->questions));
+      g_assert( n_answer >=  g_slist_length(level->questions));
       g_message("New level: %d, Sublevels: %d",gcomprisBoard->level - 1,n_answer);
       
       /* Go to next level after this number of 'play' */
@@ -629,7 +613,6 @@ static GooCanvasItem *click_on_letter_create_item(GooCanvasItem *parent)
 /* ==================================== */
 static void game_won()
 {
-    printf("Start game won\n");
   gcomprisBoard->sublevel++;
 
   if(gcomprisBoard->sublevel > gcomprisBoard->number_of_sublevel) {
@@ -647,13 +630,11 @@ static void game_won()
 
 /* ==================================== */
 static gboolean process_ok_timeout() {
-    printf("Start ok timeout\n");
   gc_bonus_display(gamewon, GC_BONUS_FLOWER);
   return FALSE;
 }
 
 static void process_ok() {
-    printf("Start process ok\n");
   // leave time to display the right answer
   g_timeout_add(TIME_CLICK_TO_BONUS, process_ok_timeout, NULL);
 }
@@ -662,7 +643,6 @@ static gint
 item_event(GooCanvasItem *item, GooCanvasItem *target,
 	   GdkEvent *event, gpointer data)
 {
-    printf("Start item event\n");
   if(board_paused)
     return FALSE;
 
@@ -690,7 +670,6 @@ item_event(GooCanvasItem *item, GooCanvasItem *target,
 }
 /* ==================================== */
 static void highlight_selected(GooCanvasItem * item) {
-    printf("Start highlight selected\n");
   GooCanvasItem *button;
 
   button = (GooCanvasItem*)g_object_get_data(G_OBJECT(item), "button_item");
@@ -706,12 +685,53 @@ static void highlight_selected(GooCanvasItem * item) {
 
 }
 
+
+/*
+ * Helper function to display contents of questions/answers
+ * in tree model and desktop file
+ */
+static gchar *list_to_string(GSList *list)
+{
+  gchar *result ="";
+  if(list != NULL)
+  {
+      GSList *temppointer = (GSList *)list;
+      result = g_strdup_printf("%s", (gchar *) temppointer->data);
+      while ((temppointer = g_slist_next(temppointer)))
+      {
+          result = g_strdup_printf("%s %s",result, (gchar *) temppointer->data);
+      }
+      g_slist_free (temppointer);
+
+      /* Display in uppercase? */
+      if(uppercase_only) result=g_utf8_strup(result,-1);
+  }
+  return result;
+}
+
+/*
+ * Helper function to get contents of questions/answers
+ * from tree model or desktop file
+ */
+static GSList *string_to_list(gchar *string)
+{
+  gchar **strings = g_strsplit (string," ",-1);
+  GSList *result = NULL;
+  guint i = -1;
+  while (strings[++i])
+  {
+      g_strstrip(strings[i]);
+      if(g_utf8_strlen(strings[i],-1) > 0 && g_utf8_validate(strings[i], -1, NULL))
+        result = g_slist_append (result, strings[i]);
+  }
+  return result;
+}
+
 /*
  * Management of Data File (Desktop style)
  */
-static void load_desktop_datafile(gchar *filename)
+static gboolean load_desktop_datafile(gchar *filename)
 {
-    printf("Start load desktop datafile\n");
   GKeyFile *keyfile = g_key_file_new ();
   GError *error = NULL;
   if ( ! g_key_file_load_from_file (keyfile,
@@ -720,48 +740,74 @@ static void load_desktop_datafile(gchar *filename)
 				    &error)  ) {
     if (error)
       g_error ("%s", error->message);
-    return;
+    return FALSE;
   }
 
   gsize n_level;
   gchar **groups = g_key_file_get_groups (keyfile, &n_level);
-  int i;
   
+  if (!groups[0])
+  {
+      g_warning ("Desktop file contains no levels");
+      return FALSE;
+  }
+  
+  gchar *questions ="";
+  gchar *answers ="";
+  int i;
   for (i=0; i<n_level; i++)
-    {
+  {
       Level level;
       level.level = i + 1;
-      GSList *levelquestions=NULL;
-      GSList *levelanswers=NULL;
-      // todo this has not been tested
-      gint noofquestions = g_key_file_get_integer(keyfile, groups[i], "NoofQuestions", NULL);
-      gint noofanswers = g_key_file_get_integer(keyfile, groups[i], "NoofAnswers", NULL);
-
-      guint j;
-      for(j=0; j<noofquestions; j++)
+      level.questions=NULL;
+      level.answers=NULL;
+      error = NULL;
+      questions = g_key_file_get_string(keyfile, groups[i], "Questions", &error);
+      if (error)
       {
-          
-          levelquestions=g_slist_append(levelquestions,g_key_file_get_string(keyfile, groups[i], g_strdup_printf("Questions%d", j), NULL));
+        g_warning ("%s", error->message);
+        break;
       }
-      for(j=0; j<noofanswers; j++)
+      error = NULL;
+      answers = g_key_file_get_string(keyfile, groups[i], "Answers", &error);
+      if (error)
       {
-          levelanswers=g_slist_append(levelanswers,g_key_file_get_string(keyfile, groups[i], g_strdup_printf("Answers%d", j), NULL));
+        g_warning ("%s", error->message);
+        break;
       }
-      g_array_append_vals (levels, &level, 1);
-    }
+      if(!g_utf8_validate(questions, -1, NULL) || !g_utf8_validate(answers, -1, NULL))
+      {
+          g_warning ("Level %d contains garbage. Q: %s - A: %s",i+1,questions, answers);
+          break;
+      }
+      
+      if(questions && answers)
+      {
+        level.questions=string_to_list(questions);
+        level.answers=string_to_list(answers);
+        g_array_append_vals (levels, &level, 1);
+      }
+      else
+      {
+          g_warning ("Error qetting questions and answers for level %d",i+1);
+          break;
+      }
+  }
+    
+  g_free(questions);
+  g_free(answers);
   g_strfreev(groups);
   gcomprisBoard->maxlevel = n_level;
+  return (i>0);
 }
 
 /*
  * Reads multigraph characters from PO file into array.
- * Maximum multigraph + alphabet lengths defined on top of this file
  */
 static void
 get_alphabet()
 {
   g_message("Getting alphabet");
-  printf("Start getalphabet\n");
   gchar *alphabet = _("a/b/c/d/e/f/g/h/i/j/k/l/m/n/o/p/q/r/s/t/u/v/w/x/y/z");
   /* TRANSLATORS: Put here the alphabet in your language, letters separated by: /
    * Supports multigraphs, e.g. /sh/ or /sch/ gets treated as one letter */
@@ -783,7 +829,6 @@ get_alphabet()
  */
 static void create_levels_from_alphabet()
 {
-    printf("Start levels from alphabet\n");
   guint level_i = 0;
   guint n_questions = 0;
   while ( n_questions < alphlen && n_questions < MAX_N_ANSWER)
@@ -819,7 +864,7 @@ static void create_levels_from_alphabet()
       }
       /* add the new level to the game */
       g_array_append_vals (levels, &level, 1);
-      printf("Click_on_letter: Created %d questions for level %d\n",n_questions,level_i);
+      g_message("Click_on_letter: Created %d questions for level %d\n",n_questions,level_i);
   }
   gcomprisBoard->maxlevel = level_i;
 }
@@ -828,7 +873,6 @@ static void create_levels_from_alphabet()
  * Load a desktop style data file and create the levels array
  */
 static void load_datafile() {
-    printf("Start load datafile\n");
   gchar *filename = gc_file_find_absolute("click_on_letter/default-$LOCALE.desktop");
 
   clear_levels();
@@ -839,30 +883,18 @@ static void load_datafile() {
   /* create level array */
   levels = g_array_sized_new (FALSE, FALSE, sizeof (Level), 10);
   
-  create_levels_from_alphabet();
-  return; // todo this is temp loading from datafile still crashes
+  gboolean fileloaded = FALSE;
   
   if ( filename )
-    {
-      load_desktop_datafile(filename);
-    }
-  else if ( ! filename && letterlist[0][0] == 'a') // todo
-    {
-      /* This is a LATIN based language, let's fallback to english */
-      filename = gc_file_find_absolute("click_on_letter/default-en.desktop");
-
-      if( filename )
-	load_desktop_datafile(filename);
-      else
-	// Should not happen but in case let's create the level for LATIN
-          create_levels_from_alphabet();
-    }
-  else
-    {
-      // No data file and no latin character set
+  {
+      fileloaded = load_desktop_datafile(filename);
+  }
+  if (!fileloaded)
+  {
+      /* No valid data file for the locale:
+       * create random levels from alphabet in PO file */
       create_levels_from_alphabet();
-    }
-
+  }
   g_free(filename);
 }
 
@@ -871,7 +903,6 @@ static void load_datafile() {
  * free the returned value with g_free()
  */
 static gchar *levels_to_desktop() {
-printf("Start levels to desktop\n");
   GKeyFile *keyfile = g_key_file_new ();
 
   int i;
@@ -879,25 +910,8 @@ printf("Start levels to desktop\n");
     {
       Level level = g_array_index (levels, Level, i);
       gchar *group = g_strdup_printf("%d", level.level);
-      
-      // todo this has not been tested
-      g_key_file_set_integer(keyfile, group, "NoofQuestions", g_slist_length(level.questions));
-      g_key_file_set_integer(keyfile, group, "NoofAnswers", g_slist_length(level.answers));
-      
-      GSList *temppointer = level.answers;
-      int j =0;
-      do {
-          g_key_file_set_string(keyfile, group, g_strdup_printf("Answers%d", j), (gchar *) temppointer->data);
-          ++j;
-      } while ((temppointer = g_slist_next(temppointer)));
-
-      temppointer = level.questions;
-      j =0;
-      do {
-          g_key_file_set_string(keyfile, group, g_strdup_printf("Questions%d", j), (gchar *) temppointer->data);
-          ++j;
-      } while ((temppointer = g_slist_next(temppointer)));
-      g_slist_free (temppointer);
+      g_key_file_set_string(keyfile, group, "Questions", list_to_string(level.questions));
+      g_key_file_set_string(keyfile, group, "Answers", list_to_string(level.answers));
       g_free(group);
     }
 
@@ -921,7 +935,6 @@ static GHFunc save_table (gpointer key,
 			  gpointer value,
 			  gpointer user_data)
 {
-    printf("Start save table\n");
   gc_db_set_board_conf ( profile_conf,
 			    board_conf,
 			    (gchar *) key,
@@ -930,20 +943,26 @@ static GHFunc save_table (gpointer key,
   return NULL;
 }
 
+
+
 static gboolean _save_level_from_model(GtkTreeModel *model, GtkTreePath *path,
 				       GtkTreeIter *iter, gpointer data)
 {
-    printf("Start save table from model\n");
   Level level;
+  gchar *answers = "";
+  gchar *questions = "";
 
   gtk_tree_model_get (GTK_TREE_MODEL (model), iter,
                       LEVEL_COLUMN, &level.level,
-                      ANSWER_COLUMN, &level.answers,
-                      QUESTION_COLUMN, &level.questions,
+                      ANSWER_COLUMN, &answers,
+                      QUESTION_COLUMN, &questions,
                       -1);
+  level.answers = string_to_list(answers);
+  level.questions = string_to_list(questions);
   g_array_append_vals (levels, &level, 1);
   gcomprisBoard->maxlevel = level.level;
-
+  g_free(questions);
+  g_free(answers);
   return FALSE;
 }
 
@@ -951,7 +970,6 @@ static gboolean _save_level_from_model(GtkTreeModel *model, GtkTreePath *path,
 static void create_levels_from_config_model()
 {
   GtkTreeIter iter;
-  printf("Creating levels from config model\n");
   gtk_tree_model_get_iter_first (GTK_TREE_MODEL(model), &iter );
 
   clear_levels();
@@ -959,27 +977,9 @@ static void create_levels_from_config_model()
   gtk_tree_model_foreach(GTK_TREE_MODEL(model), _save_level_from_model, NULL);
 }
 
-/*
- * Helper function do display contents of questions/answers
- */
-static gchar *list_to_string(GSList *list)
-{
-    printf("Start list to string\n");
-  gchar *result ="";
-  GSList *temppointer = list;
-  do {
-      result = g_strdup_printf("%s %s",result, (gchar *) temppointer->data);
-  } while ((temppointer = g_slist_next(temppointer)));
-  g_slist_free (temppointer);
-  /* Display in uppercase? */
-  if(uppercase_only) result=g_utf8_strup(result,-1);
-  return result;
-}
-
 void
 load_model_from_levels(GtkListStore *model)
 {
-    printf("Start load model from levels\n");
   GtkTreeIter iter;
 
   gtk_list_store_clear(model);
@@ -1000,7 +1000,6 @@ load_model_from_levels(GtkListStore *model)
 void
 clear_levels()
 {
-    printf("Start clear levels\n");
   if ( ! levels )
     return;
   
@@ -1018,59 +1017,71 @@ clear_levels()
 static gboolean
 valid_entry(Level *level)
 {
-    printf("Start valid entry\n");
   gboolean result=FALSE;
   gchar *error;
   GtkWidget *dialog;
-
-  g_assert(level->questions);
-  g_assert(level->answers);
-  int n_questions = g_slist_length(level->questions);
   
-  if (!n_questions)
-    {
+  GSList *questionpointer = NULL;
+  GSList *answerpointer = NULL;
+
+  if ((level->questions == NULL) 
+          || ((level->questions)->data == NULL)
+          || g_strcmp0 ("",(level->questions)->data)==0
+          || g_slist_length(level->questions) < 1)
+  {
       error = g_strdup (_("Questions cannot be empty.") );
       goto error;
-    }
-
-  /* Now check all chars in questions are in answers */
-  int n_answers = g_slist_length(level->answers);
-
-  if (!n_answers)
-    {
-      error = g_strdup( _("Answers cannot be empty.") );
+  }
+  
+  if (((level->answers) == NULL)
+          || ((level->answers)->data == NULL)
+          || g_strcmp0 ("",(level->answers)->data)==0
+          || g_slist_length(level->answers) < 1)
+  {
+      error = g_strdup (_("Answers cannot be empty.") );
       goto error;
-    }
-
-  if ( n_answers > MAX_N_ANSWER )
-    {
+  }
+  
+  if ( g_slist_length(level->answers) > MAX_N_ANSWER )
+  {
       error = g_strdup_printf( _("Too many characters in the Answer (maximum is %d)."),
 				 MAX_N_ANSWER );
       goto error;
-    }
-
-  GSList *questionpointer = level->questions;
+  }
+  
+  /* Now check all chars in questions are in answers */
+  questionpointer = level->questions;
   do {
       gchar *question = (gchar *) questionpointer->data;
       gboolean found = FALSE;
-      GSList *answerpointer = level->answers;
+      answerpointer = level->answers;
       do {
           gchar *answer = (gchar *) answerpointer->data;
 	  if ( strcmp( answer, question ) == 0 )
 	      found = TRUE;
       } while (!found && (answerpointer = g_slist_next(answerpointer)));
-      g_slist_free (answerpointer);
       if (! found )
       {
 	  error = g_strdup ( _("All the characters in Questions must also be in the Answers.") );
-          g_slist_free (questionpointer);
 	  goto error;
       }
   } while ((questionpointer = g_slist_next(questionpointer)));
   g_slist_free (questionpointer);
+  g_slist_free (answerpointer);
   return TRUE;
 
  error:
+  ;
+ gchar *questions = "";
+ gchar *answers = "";
+ if(((level->questions != NULL) && ((level->questions)->data != NULL)))
+ {
+     questions = list_to_string(level->questions);
+ }
+ if(((level->answers != NULL) && ((level->answers)->data != NULL)))
+ {
+     answers = list_to_string(level->answers);
+ }
   dialog = \
     gtk_message_dialog_new (NULL,
 			    GTK_DIALOG_DESTROY_WITH_PARENT,
@@ -1078,37 +1089,62 @@ valid_entry(Level *level)
 			    GTK_BUTTONS_CLOSE,
 			    _("Invalid entry:\n"
 			      "At level %d, Questions '%s' / Answers '%s'\n%s"),
-			    level->level, list_to_string(level->questions), list_to_string(level->answers),
-			    error); // todo concat array
+			    level->level, questions, answers,
+			    error);
   gtk_dialog_run (GTK_DIALOG (dialog));
   gtk_widget_destroy (dialog);
   g_free(error);
-
+  if(questionpointer)
+        g_slist_free (questionpointer);
+  if(answerpointer)
+        g_slist_free (answerpointer);
   return result;
 }
 
+/*
+ * Used to check questions and answers before applying new config.
+ * Todo: bug with apply: if cell is still in edit mode, new value is ignored.
+ * Can this be fixed or is it a GTK Model thing?
+ */
 static gboolean
 _check_errors(GtkTreeModel *model, GtkTreePath *path,
 	      GtkTreeIter *iter, gpointer data)
 {
-    printf("Start check errors\n");
   Level level;
   gboolean *has_error = (gboolean*)data;
+  
+  gchar *answers = "";
+  gchar *questions = "";
 
-  gtk_tree_model_get (model, iter,
+  gtk_tree_model_get (GTK_TREE_MODEL (model), iter,
                       LEVEL_COLUMN, &level.level,
-                      QUESTION_COLUMN, &level.questions,
-                      ANSWER_COLUMN, &level.answers,
+                      ANSWER_COLUMN, &answers,
+                      QUESTION_COLUMN, &questions,
                       -1);
 
-  if( ! valid_entry( &level ) )
-    {
+  if(g_utf8_strlen(questions,-1))
+      level.questions = string_to_list(questions);
+  else
+  {
+      level.questions = NULL;
+      level.questions = g_slist_append(level.questions,"");
+  }
+  if(g_utf8_strlen(answers,-1) )
+      level.answers = string_to_list(answers);
+  else
+  {
+      level.answers = NULL;
+      level.answers = g_slist_append(level.answers,"");
+  }
+  
+  if(!valid_entry( &level ) )
+  {
       *has_error = TRUE;
-      /* Don't check more errors */
-      return TRUE;
-    }
-
-  return FALSE;
+      // Don't check more errors 
+  }
+  g_free(answers);
+  g_free(questions);
+  return *has_error;
 }
 
 
@@ -1119,7 +1155,6 @@ _check_errors(GtkTreeModel *model, GtkTreePath *path,
  */
 gchar *get_user_desktop_file()
 {
-    printf("Start get user desktopfile\n");
   gchar **locale = g_strsplit_set(gc_locale_get(), ".", 2);
   gchar *filename =
     gc_file_find_absolute_writeable("%s/default-%s.desktop",
@@ -1132,7 +1167,6 @@ gchar *get_user_desktop_file()
 static gboolean
 conf_ok(GHashTable *table)
 {
-    printf("Start conf ok\n");
   if (!table){
     if (gcomprisBoard)
       pause_board(FALSE);
@@ -1154,12 +1188,12 @@ conf_ok(GHashTable *table)
       config = table;
 
     gboolean has_error = FALSE;
+
     gtk_tree_model_foreach(GTK_TREE_MODEL(model), _check_errors, &has_error);
 
     /* Tell the config not to close the dialog to let the user fix the issues */
     if (has_error)
       return FALSE;
-
 
     gc_locale_set(g_hash_table_lookup(config, "locale_sound"));
 
@@ -1209,7 +1243,6 @@ static gboolean
 resequence_level_in_model(GtkTreeModel *model, GtkTreePath *path,
 			  GtkTreeIter *iter, gpointer data)
 {
-    printf("Start resequence level in model\n");
   guint *level = (guint*)data;
 
   gtk_list_store_set (GTK_LIST_STORE(model), iter,
@@ -1222,7 +1255,6 @@ resequence_level_in_model(GtkTreeModel *model, GtkTreePath *path,
 static gboolean next_level_in_model(GtkTreeModel *model, GtkTreePath *path,
 				    GtkTreeIter *iter, gpointer data)
 {
-    printf("Start next level in model\n");
   guint *level = (guint*)data;
   guint level_in_tree;
 
@@ -1239,7 +1271,6 @@ static gboolean next_level_in_model(GtkTreeModel *model, GtkTreePath *path,
 static void
 add_item (GtkWidget *button, gpointer data)
 {
-    printf("Start add item\n");
   GtkTreeIter iter;
   GtkTreeModel *model = (GtkTreeModel *)data;
 
@@ -1257,7 +1288,6 @@ add_item (GtkWidget *button, gpointer data)
 static void
 remove_item (GtkWidget *widget, gpointer data)
 {
-    printf("Start remove item\n");
   GtkTreeIter iter;
   GtkTreeView *treeview = (GtkTreeView *)data;
   GtkTreeModel *model = gtk_tree_view_get_model (treeview);
@@ -1276,7 +1306,6 @@ remove_item (GtkWidget *widget, gpointer data)
 static void
 move_item (GtkWidget *widget, gpointer data, gboolean up)
 {
-    printf("Start move item\n");
   GtkTreeIter iter;
   GtkTreeView *treeview = (GtkTreeView *)data;
   GtkTreeModel *model = gtk_tree_view_get_model (treeview);
@@ -1320,21 +1349,18 @@ move_item (GtkWidget *widget, gpointer data, gboolean up)
 static void
 up_item (GtkWidget *widget, gpointer data)
 {
-    printf("Start up item\n");
   move_item(widget, data, TRUE);
 }
 
 static void
 down_item (GtkWidget *widget, gpointer data)
 {
-    printf("Start down item\n");
   move_item(widget, data, FALSE);
 }
 
 static void
 return_to_default(GtkWidget *widget, gpointer data)
 {
-    printf("Start return to default\n");
   GtkListStore *model = (GtkListStore *)data;
   gchar *filename = get_user_desktop_file();
   /* Erase the user desktop file */
@@ -1346,12 +1372,10 @@ return_to_default(GtkWidget *widget, gpointer data)
 
 }
 
-
 static void cell_edited_callback (GtkCellRendererText *cell,
 			   gchar               *path,
 			   gchar               *new_text,
 			   GtkTreeView         *tree_view) {
-    printf("Start cell edited callback\n");
   guint column_number = GPOINTER_TO_UINT(g_object_get_data(G_OBJECT(cell), "my_column_num"));
 
   GtkTreeIter iter;
@@ -1365,7 +1389,6 @@ static void cell_edited_callback (GtkCellRendererText *cell,
 
 static void configure_colummns(GtkTreeView *treeview)
 {
-    printf("Start configure columns\n");
   GtkCellRenderer *renderer;
   GtkTreeViewColumn *column;
 
@@ -1379,17 +1402,7 @@ static void configure_colummns(GtkTreeView *treeview)
 						    NULL);
   gtk_tree_view_append_column(treeview, column);
 
-  /* Answer column */
-  renderer = gtk_cell_renderer_text_new();
-  g_object_set(renderer, "editable", TRUE, NULL);
-  g_object_set_data(G_OBJECT(renderer), "my_column_num",  GUINT_TO_POINTER(ANSWER_COLUMN) );
-  g_signal_connect(renderer, "edited", (GCallback) cell_edited_callback, treeview);
-  column = gtk_tree_view_column_new_with_attributes(_("Answer"),
-                                                    renderer,
-						    "text", ANSWER_COLUMN,
-						    NULL);
-  gtk_tree_view_append_column(treeview, column);
-
+  
   /* Question column */
   renderer = gtk_cell_renderer_text_new();
   g_object_set(renderer, "editable", TRUE, NULL);
@@ -1401,13 +1414,24 @@ static void configure_colummns(GtkTreeView *treeview)
 						    NULL);
   gtk_tree_view_append_column(treeview, column);
 
+  
+  /* Answer column */
+  renderer = gtk_cell_renderer_text_new();
+  g_object_set(renderer, "editable", TRUE, NULL);
+  g_object_set_data(G_OBJECT(renderer), "my_column_num",  GUINT_TO_POINTER(ANSWER_COLUMN) );
+  g_signal_connect(renderer, "edited", (GCallback) cell_edited_callback, treeview);
+  column = gtk_tree_view_column_new_with_attributes(_("Answer"),
+                                                    renderer,
+						    "text", ANSWER_COLUMN,
+						    NULL);
+  gtk_tree_view_append_column(treeview, column);
+
 }
 
 
 static void
 locale_changed (GtkComboBox *combobox, gpointer data)
 {
-    printf("Start locale changed\n");
   const gchar *locale;
   GtkTreeIter iter;
   gchar *text = NULL;
@@ -1433,7 +1457,6 @@ static void
 config_start(GcomprisBoard *agcomprisBoard,
 	     GcomprisProfile *aProfile)
 {
-    printf("Start config start\n");
   board_conf = agcomprisBoard;
   profile_conf = aProfile;
 
@@ -1496,7 +1519,6 @@ config_start(GcomprisBoard *agcomprisBoard,
   gtk_tree_selection_set_mode(selection, GTK_SELECTION_SINGLE);
 
   model = GTK_LIST_STORE(gtk_tree_view_get_model(GTK_TREE_VIEW(treeview)));
-
   load_model_from_levels(model);
 
   /* some buttons */
@@ -1549,11 +1571,10 @@ config_start(GcomprisBoard *agcomprisBoard,
 static void
 config_stop()
 {
-    printf("Start config stop\n");
 }
 
 static void
 sound_played (gchar *file)
 {
-  g_warning ("Sound_played %s\n", file);
+  g_message ("Sound_played %s\n", file);
 }
