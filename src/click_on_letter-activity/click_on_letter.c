@@ -873,29 +873,43 @@ static void create_levels_from_alphabet()
  * Load a desktop style data file and create the levels array
  */
 static void load_datafile() {
-  gchar *filename = gc_file_find_absolute("click_on_letter/default-$LOCALE.desktop");
 
-  clear_levels();
+    clear_levels();
 
-  /* Reset the alphabet to match the current locale */
-  get_alphabet();
+    /* Reset the alphabet to match the current locale */
+    get_alphabet();
 
-  /* create level array */
-  levels = g_array_sized_new (FALSE, FALSE, sizeof (Level), 10);
+    /* create level array */
+    levels = g_array_sized_new (FALSE, FALSE, sizeof (Level), 10);
   
-  gboolean fileloaded = FALSE;
-  
-  if ( filename )
-  {
-      fileloaded = load_desktop_datafile(filename);
-  }
-  if (!fileloaded)
-  {
+    gboolean fileloaded = FALSE;
+    gchar *filename = "";
+    /* Try to get special file for uppercase mode */
+    if(uppercase_only)
+    {
+        filename = gc_file_find_absolute("click_on_letter/upper-$LOCALE.desktop");
+        if ( filename )
+        {
+          fileloaded = load_desktop_datafile(filename);
+        }
+    }
+    /* If no uppercase file, not not in uppercase mode: try to get normal file */
+    if(!fileloaded)
+    {
+      filename = gc_file_find_absolute("click_on_letter/default-$LOCALE.desktop");
+
+      if ( filename )
+      {
+          fileloaded = load_desktop_datafile(filename);
+      }
+    }
+    if (!fileloaded)
+    {
       /* No valid data file for the locale:
        * create random levels from alphabet in PO file */
       create_levels_from_alphabet();
-  }
-  g_free(filename);
+    }
+    g_free(filename);
 }
 
 /**
@@ -1156,10 +1170,21 @@ _check_errors(GtkTreeModel *model, GtkTreePath *path,
 gchar *get_user_desktop_file()
 {
   gchar **locale = g_strsplit_set(gc_locale_get(), ".", 2);
-  gchar *filename =
-    gc_file_find_absolute_writeable("%s/default-%s.desktop",
-				    gcomprisBoard->boarddir,
-				    locale[0]);
+  gchar *filename = "";
+  if(uppercase_only)
+  {
+      filename =
+            gc_file_find_absolute_writeable("%s/upper-%s.desktop",
+                                            gcomprisBoard->boarddir,
+                                            locale[0]);
+  }
+  else
+  {
+        filename =
+            gc_file_find_absolute_writeable("%s/default-%s.desktop",
+                                            gcomprisBoard->boarddir,
+                                            locale[0]);
+  }
   g_strfreev(locale);
   return filename;
 }
@@ -1216,6 +1241,7 @@ conf_ok(GHashTable *table)
     if (strcmp(old_levels, new_levels) != 0)
       {
 	/* The level has changed, save the new desktop file in the user's dir */
+        // todo upper
 	gchar *filename = get_user_desktop_file();
 	g_file_set_contents(filename, new_levels, -1, NULL);
 	g_free(filename);
