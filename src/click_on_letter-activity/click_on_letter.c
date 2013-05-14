@@ -1,8 +1,3 @@
-/*
- * Todos:
- * -- Color for keyboard input for multigraphs
- */
-
 /* gcompris - click_on_letter.c
  *
  * Copyright (C) 2001, 2010 Pascal Georges
@@ -275,9 +270,12 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str) {
     else if(ckey != cright)
     {
         gc_sound_play_ogg ("sounds/crash.wav", NULL);
+        
+        /*
+         * Todo: It would be nice to add some color here to help the child
         if(g_utf8_strlen(answerletter, -1) != g_utf8_strlen(right_letter, -1))
-            // todo add some color!
             printf("Some more help!\n");
+         */
         return FALSE;
     }
     else
@@ -448,7 +446,6 @@ static void click_on_letter_destroy_all_items()
     goo_canvas_item_remove(boardRootItem);
 
   boardRootItem = NULL;
-  // todo free alphabet and everything?
   right_letter = NULL;
 }
 
@@ -494,7 +491,9 @@ shuffle_pointers(gchar **pointers, guint length)
 
 
 /*
- * Same as string_to_list, but adds the strings to the list in random order
+ * Helper function to randomize a level
+ * Todo - it would be nice to change to change to a more efficient
+ * data structure.  GPtrArray?
  */
 static GSList *randomize_list(GSList *list)
 {
@@ -520,16 +519,17 @@ static GooCanvasItem *click_on_letter_create_item(GooCanvasItem *parent)
   if (gcomprisBoard->sublevel == 1)
     {
       guint n_answer = g_slist_length(level->answers);
+      guint n_questions = g_slist_length(level->questions);
       g_assert(0 < n_answer && n_answer <= MAX_N_ANSWER );
-      g_assert( n_answer >=  g_slist_length(level->questions));
-      g_message("New level: %d, Sublevels: %d",gcomprisBoard->level - 1,n_answer);
+      g_assert( n_answer >=  n_questions);
+      g_message("New level: %d, Sublevels: %d",gcomprisBoard->level - 1,n_questions);
       
       /* Randomize questions and answers each time a level is called*/
       level->questions = randomize_list(level->questions);
       level->answers = randomize_list(level->answers);
       
       /* Go to next level after this number of 'play' */
-          gcomprisBoard->number_of_sublevel = n_answer;
+          gcomprisBoard->number_of_sublevel = n_questions;
     }
   right_letter =  g_slist_nth_data(level->questions,gcomprisBoard->sublevel - 1);
   /* Display in uppercase? */
@@ -1258,7 +1258,6 @@ conf_ok(GHashTable *table)
     if (strcmp(old_levels, new_levels) != 0)
       {
 	/* The level has changed, save the new desktop file in the user's dir */
-        // todo upper
 	gchar *filename = get_user_desktop_file();
 	g_file_set_contents(filename, new_levels, -1, NULL);
 	g_free(filename);
