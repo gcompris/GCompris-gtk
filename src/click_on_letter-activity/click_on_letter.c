@@ -493,6 +493,24 @@ shuffle_pointers(gchar **pointers, guint length)
 }
 
 
+/*
+ * Same as string_to_list, but adds the strings to the list in random order
+ */
+static GSList *randomize_list(GSList *list)
+{
+  guint length = g_slist_length (list);
+  guint indices[length];
+  make_random_indices(indices, length);
+  GSList *result = NULL;
+  guint i;
+  for (i=0; i<length;++i)
+  {
+      result = g_slist_append (result, g_slist_nth_data(list,indices[i]));
+  }
+  return result;
+}
+
+
 /* ==================================== */
 static GooCanvasItem *click_on_letter_create_item(GooCanvasItem *parent)
 {
@@ -505,6 +523,10 @@ static GooCanvasItem *click_on_letter_create_item(GooCanvasItem *parent)
       g_assert(0 < n_answer && n_answer <= MAX_N_ANSWER );
       g_assert( n_answer >=  g_slist_length(level->questions));
       g_message("New level: %d, Sublevels: %d",gcomprisBoard->level - 1,n_answer);
+      
+      /* Randomize questions and answers each time a level is called*/
+      level->questions = randomize_list(level->questions);
+      level->answers = randomize_list(level->answers);
       
       /* Go to next level after this number of 'play' */
           gcomprisBoard->number_of_sublevel = n_answer;
@@ -621,7 +643,6 @@ static void game_won()
     gcomprisBoard->level++;
     if(gcomprisBoard->level > gcomprisBoard->maxlevel)
     {
-      create_levels_from_alphabet();
       gcomprisBoard->level = gcomprisBoard->maxlevel;
     }
   }
@@ -852,15 +873,11 @@ static void create_levels_from_alphabet()
       
       level.questions=NULL;
       level.answers=NULL;
-      
-      /* randomize order of answers */
-      guint randomindices[n_questions];
-      make_random_indices(randomindices, n_questions);
             
       for(j=0;j<n_questions;++j)
       {
         level.questions=g_slist_append (level.questions,randomlist[j]);
-        level.answers=g_slist_append (level.answers,randomlist[randomindices[j]]);
+        level.answers=g_slist_append (level.answers,randomlist[j]);
       }
       /* add the new level to the game */
       g_array_append_vals (levels, &level, 1);
