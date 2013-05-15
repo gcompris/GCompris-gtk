@@ -31,6 +31,8 @@ import gtk
 import gtk.gdk
 import random
 import math
+import os.path
+
 from gcompris import gcompris_gettext as _
 
 class Number:
@@ -380,7 +382,11 @@ class Player(object):
             self.stop()
 
     def startMunching(self):
-        gcompris.sound.play_ogg("voices/$LOCALE/misc/eat.wav")
+        eatfile = gcompris.utils.file_find_absolute("voices/$LOCALE/misc/eat.wav")
+        if(os.path.isfile(eatfile)) :
+            gcompris.sound.play_ogg("voices/$LOCALE/misc/eat.wav")
+        else :
+            gcompris.sound.play_ogg("sounds/eat.wav")
         
         self.anim.setState(2)
         self.munch_timer = game.timeout_add(game.munch_time, self.stopMunching)
