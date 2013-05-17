@@ -73,7 +73,10 @@ class Gcompris_connect4:
 
         board_bar = board_bar | gcompris.BAR_REPEAT
         gcompris.bar_set(board_bar)
-        gcompris.bar_location(gcompris.BOARD_WIDTH - 230, -1, 0.7)
+        if self.mode == 1:
+            gcompris.bar_location(gcompris.BOARD_WIDTH - 250, -1, 0.7)
+        else:
+            gcompris.bar_location(gcompris.BOARD_WIDTH - 200, -1, 0.7)
 
         selector = \
             goocanvas.Image(
@@ -113,10 +116,19 @@ class Gcompris_connect4:
                 parent = self.rootitem,
                 font=gcompris.skin.get_font("gcompris/board/huge bold"),
                 x=60,
-                y=250,
+                y=211,
                 anchor = gtk.ANCHOR_CENTER,
                 fill_color_rgba=0xFF0000FFL)
 
+        self.score_item2 = \
+            goocanvas.Text(
+                parent = self.rootitem,
+                font=gcompris.skin.get_font("gcompris/board/huge bold"),
+                x=60,
+                y=284,
+                anchor = gtk.ANCHOR_CENTER,
+                fill_color_rgba=0xFF0000FFL)
+            
         self.update_scores((0, 0))
 
         self.newGame()
@@ -152,8 +164,8 @@ class Gcompris_connect4:
         pass
     def update_scores(self, scores=None):
         if scores: self.scores = list(scores)
-        txt = str(self.scores[0]) + "\n\n" + str(self.scores[1])
-        self.score_item.props.text = txt
+        self.score_item.props.text = str(self.scores[0])
+        self.score_item2.props.text = str(self.scores[1])
 
     def stone_init(self):
         if self.player_stone:
