@@ -31,6 +31,10 @@ extern guint32 gc_skin_color_shadow;
 extern gchar* gc_skin_font_title;
 extern gchar* gc_skin_font_subtitle;
 extern gchar* gc_skin_font_content;
+extern gchar* gc_skin_font_helptext;
+
+extern gchar* gc_skin_font_menu_title;
+extern gchar* gc_skin_font_menu_description;
 
 extern gchar* gc_skin_font_board_tiny;
 extern gchar* gc_skin_font_board_small;

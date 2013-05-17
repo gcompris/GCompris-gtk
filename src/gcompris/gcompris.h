@@ -257,6 +257,10 @@ gint gc_timing (gint timeout, gint actors_number);
 #define FONT_SUBTITLE_FALLBACK	"sans 12"
 #define FONT_CONTENT		"sans 12"
 #define FONT_CONTENT_FALLBACK	"sans 12"
+#define FONT_HELPTEXT           "sans 10"
+
+#define FONT_MENU_TITLE         "sans 16"
+#define FONT_MENU_DESCRIPTION   "sans 10"
 
 #define FONT_BOARD_TINY         "sans 10"
 #define FONT_BOARD_SMALL        "sans 12"

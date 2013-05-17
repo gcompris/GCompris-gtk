@@ -35,6 +35,10 @@ guint32 gc_skin_color_shadow;
 gchar* gc_skin_font_title;
 gchar* gc_skin_font_subtitle;
 gchar* gc_skin_font_content;
+gchar* gc_skin_font_helptext;
+
+gchar* gc_skin_font_menu_title;
+gchar* gc_skin_font_menu_description;
 
 gchar* gc_skin_font_board_tiny;
 gchar* gc_skin_font_board_small;
@@ -198,6 +202,13 @@ gc_skin_setup_vars(void)
     gc_skin_get_font_default("gcompris/subtitle", FONT_SUBTITLE);
   gc_skin_font_content =
     gc_skin_get_font_default("gcompris/content", FONT_CONTENT);
+  gc_skin_font_helptext =
+    gc_skin_get_font_default("gcompris/helptext", FONT_HELPTEXT);
+
+  gc_skin_font_menu_title =
+    gc_skin_get_font_default("gcompris/menu/title", FONT_MENU_TITLE);
+  gc_skin_font_menu_description =
+    gc_skin_get_font_default("gcompris/menu/description", FONT_MENU_DESCRIPTION);
 
   gc_skin_font_board_tiny =
     gc_skin_get_font_default("gcompris/board/tiny", FONT_BOARD_TINY);

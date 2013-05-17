@@ -322,7 +322,7 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
 		   (GCallback) event_disable_right_click_popup, NULL);
 
   PangoFontDescription *font_desc;
-  font_desc = pango_font_description_from_string (gc_skin_font_content);
+  font_desc = pango_font_description_from_string (gc_skin_font_helptext);
   gtk_widget_modify_font (view, font_desc);
   pango_font_description_free (font_desc);
 

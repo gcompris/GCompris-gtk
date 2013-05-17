@@ -209,7 +209,7 @@ display_confirm(gchar *title,
 			      text_zone_y,
 			      500,
 			      GTK_JUSTIFY_CENTER,
-			      "font", gc_skin_font_title,
+			      "font", gc_skin_font_subtitle,
 			      "fill-color-rgba",  gc_skin_color_title,
 			      NULL);
 
@@ -258,7 +258,7 @@ display_confirm(gchar *title,
 		       (gdouble)  button_y + 2*button_h/3,
 		       -1,
 		       GTK_ANCHOR_WEST,
-		       "font", gc_skin_font_subtitle,
+		       "font", gc_skin_font_content,
 		       "fill-color-rgba", gc_skin_get_color("gcompris/helpfg"),
 		       NULL);
 
@@ -299,7 +299,7 @@ display_confirm(gchar *title,
 		       (gdouble)  button_y + button_h/3,
 		       -1,
 		       GTK_ANCHOR_WEST,
-		       "font", gc_skin_font_subtitle,
+		       "font", gc_skin_font_content,
 		       "fill-color-rgba", gc_skin_get_color("gcompris/helpfg"),
 		       NULL);
 
