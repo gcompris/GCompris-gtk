@@ -595,6 +595,12 @@ gc_bar_play_level_voice(int level)
       g_free(number_str);
       number_str = level_str;
     }
+  else
+    {
+      gchar *old_str = number_str;
+      number_str = g_strdup_printf("%s.ogg", old_str);
+      g_free(old_str);
+    }
 
   gchar *audio_str = g_strdup_printf("voices/$LOCALE/alphabet/%s", number_str);
 
