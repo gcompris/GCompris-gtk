@@ -27,22 +27,10 @@
 #define MAX_MEMORY_WIDTH  8
 #define MAX_MEMORY_HEIGHT 4
 
-//#define TEXT_FONT gc_skin_font_board_huge_bold
-#define TEXT_FONT "sans bold 28"
-
-static gchar *op_fonts[10] =
-  {
-    "",
-    "sans bold 28",
-    "sans bold 24",
-    "sans bold 20",
-    "sans bold 20",
-    "sans bold 17",
-    "sans bold 13",
-    "sans bold 13",
-    "sans bold 13",
-    "sans bold 11",
-  };
+#define TEXT_FONT_HUGE gc_skin_font_board_huge_bold
+#define TEXT_FONT_BIG gc_skin_font_board_big_bold
+#define TEXT_FONT_MEDIUM gc_skin_font_board_medium
+#define TEXT_FONT_SMALL gc_skin_font_board_small
 
 static GcomprisBoard *gcomprisBoard = NULL;
 
@@ -1498,9 +1486,30 @@ static void create_item(GooCanvasItem *parent)
 	    } else {
 	      gchar *font;
 	      if (memoryItem->type & (TYPE_ADD|TYPE_MINUS|TYPE_MULT|TYPE_DIV))
-		font = op_fonts[gcomprisBoard->level];
+              {
+                  if(gcomprisBoard->level <= 3)
+                      font = TEXT_FONT_HUGE;
+                  else if(gcomprisBoard->level <=5)
+                      font = TEXT_FONT_BIG;
+                  else
+                      font = TEXT_FONT_MEDIUM;
+              }
+              else if(memoryItem->type & TYPE_WORDNUMBER)
+              {
+                  if(gcomprisBoard->level <= 3)
+                      font = TEXT_FONT_BIG;
+                  else if(gcomprisBoard->level <= 5)
+                        font = TEXT_FONT_MEDIUM;
+                  else
+                        font = TEXT_FONT_SMALL;
+              }
 	      else
-		font = TEXT_FONT;
+              {
+                  if(gcomprisBoard->level <= 5)
+                        font = TEXT_FONT_HUGE;
+                  else
+                      font = TEXT_FONT_BIG;
+              }
 	      /* It's a letter */
 	      memoryItem->frontcardItem =	 \
 		goo_canvas_text_new (memoryItem->rootItem,
