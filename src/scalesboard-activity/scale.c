@@ -659,9 +659,9 @@ scale_list_add_weight(GooCanvasItem *group,
   }
 
   if (show_weight < 1000) {
-    	weight_text = g_strdup_printf("%d%s", weight, show_weight ? "\n  g" : "");
+    	weight_text = g_strdup_printf("%d%s", weight, show_weight ? "\ng" : "");
   } else {
-    	weight_text = g_strdup_printf("%.1f\n  kg", (double)weight / 1000);
+    	weight_text = g_strdup_printf("%.1f\nkg", (double)weight / 1000);
   }
 
   pixmap = gc_pixmap_load("scale/masse.png");
@@ -677,7 +677,8 @@ scale_list_add_weight(GooCanvasItem *group,
 		      35,
 		      -1,
 		      GTK_ANCHOR_CENTER,
-		      "font", "sans 11",
+                      "alignment", PANGO_ALIGN_CENTER,
+		      "font", gc_skin_font_board_tiny,
 		      "fill_color_rgba", 0xFFFFFFFFL,
 		      NULL);
 
