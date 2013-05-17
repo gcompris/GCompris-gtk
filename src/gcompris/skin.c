@@ -1,6 +1,6 @@
 /* gcompris - skin.c
  *
- * Copyright (C) 2003, 2008 GCompris Developpement Team
+ * Copyright (C) 2003, 2008 GCompris Development Team
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -377,16 +377,6 @@ skin_xml_load (gchar* skin)
 	}
 	if(data!=NULL) g_free(data);
       }
-      else if(g_ascii_strcasecmp((gchar *)node->name, "font")==0){
-	key = (gchar *)xmlGetProp(node,  BAD_CAST "id");
-	data = (gchar *)xmlGetProp(node,  BAD_CAST "name");
-	if((key!=NULL)&&(data!=NULL)){
-	  g_hash_table_insert(gc_skin_fonts, key, data);
-	} else {
-	  if(key!=NULL) g_free(key);
-	  if(data!=NULL) g_free(data);
-	}
-      }
       else if(g_ascii_strcasecmp((gchar *)node->name, "number")==0){
 	key = (gchar *)xmlGetProp(node, BAD_CAST "id");
 	data = (gchar *)xmlGetProp(node, BAD_CAST "value");
@@ -403,6 +393,106 @@ skin_xml_load (gchar* skin)
     }
 
   xmlFreeDoc(xmldoc);
+  return TRUE;
+}
+
+
+/*
+ * Load fontset for the language
+ * Parse a fonts.xml file located in the fontset directory
+ * and load the fontset properties into memory
+ * @return TRUE if load suceeded
+ */
+static gboolean
+fontset_xml_load ()
+{
+  gchar* xmlfilename = NULL;
+  xmlDocPtr xmldoc;
+  xmlNodePtr fontNode;
+  xmlNodePtr node;
+  gchar* key;
+  gchar* data;
+
+  
+  /*
+   * TRANSLATORS: Enter the name of the fontset that will be used for your
+   * language here, e.g. "sans" or "ruluko". We recommend Ruluko for western 
+   * Latin languages. You can find the available fontsets in boards/fontsets
+   */
+  gchar* fontset = _("sans");
+  if(strlen(fontset) > 0 )
+      xmlfilename = \
+        gc_file_find_absolute("boards/fontsets/%s/fonts.xml",
+                              fontset,
+                              NULL);
+  
+  /* if the file doesn't exist */
+  if(!xmlfilename)
+    {
+      g_warning("Couldn't find fontset file '%s' !", fontset);
+      fontset = "sans";
+      xmlfilename = \
+                gc_file_find_absolute("boards/fontsets/%s/fonts.xml",
+                                      fontset,
+                                      NULL);
+      if(!xmlfilename)
+      {
+            g_warning("Couldn't find default fontset file '%s' !", fontset);
+            return FALSE;
+      }
+    }
+
+  xmldoc = xmlParseFile(xmlfilename);
+  g_free(xmlfilename);
+
+  if(!xmldoc)
+    {
+      g_warning("Parsing of fontset file failed '%s' !", fontset);
+      return FALSE;
+    }
+
+  if(/* if there is no root element */
+     !xmldoc->children ||
+     /* if it doesn't have a name */
+     !xmldoc->children->name ||
+     /* if it isn't a GCompris node */
+     g_ascii_strcasecmp((gchar *)xmldoc->children->name, "GCompris")!=0) {
+    xmlFreeDoc(xmldoc);
+    g_warning("Fontset file is not properly formatted (no GCompris node) '%s' !",
+	      fontset);
+    return FALSE;
+  }
+
+  fontNode = xmldoc->children->children;
+  while((fontNode!=NULL)&&(fontNode->type!=XML_ELEMENT_NODE))
+    fontNode = fontNode->next;
+
+  if((fontNode==NULL)||
+     g_ascii_strcasecmp((gchar *)fontNode->name, "Fontset")!=0) {
+    g_warning("In fontset file '%s' there is no Fontset node %s", fontset,
+	      xmldoc->children->children->name);
+    xmlFreeDoc(xmldoc);
+    return FALSE;
+  }
+
+  node = fontNode->children;
+  while(node !=NULL)
+    {
+      if(g_ascii_strcasecmp((gchar *)node->name, "font")==0){
+	key = (gchar *)xmlGetProp(node,  BAD_CAST "id");
+	data = (gchar *)xmlGetProp(node,  BAD_CAST "name");
+	if((key!=NULL)&&(data!=NULL)){
+	  g_hash_table_insert(gc_skin_fonts, key, data);
+	} else {
+	  if(key!=NULL) g_free(key);
+	  if(data!=NULL) g_free(data);
+	}
+      }
+      node = node->next;
+    }
+
+  xmlFreeDoc(xmldoc);
+    
   return TRUE;
 }
 
@@ -433,6 +523,8 @@ gc_skin_load (gchar* skin)
     return FALSE;
   if(strcmp(skin,DEFAULT_SKIN)!=0)
     if (! skin_xml_load(skin) )
+      return FALSE;
+  if(!fontset_xml_load ())
       return FALSE;
 
   gc_skin_setup_vars();
