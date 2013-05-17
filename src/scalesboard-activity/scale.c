@@ -659,9 +659,9 @@ scale_list_add_weight(GooCanvasItem *group,
   }
 
   if (show_weight < 1000) {
-    	weight_text = g_strdup_printf("%d%s", weight, show_weight ? "\ng" : "");
+    weight_text = g_strdup_printf("%d%s", weight, show_weight ? "\ng" : "");
   } else {
-    	weight_text = g_strdup_printf("%.1f\nkg", (double)weight / 1000);
+    weight_text = g_strdup_printf("%.1f\nkg", (double)weight / 1000);
   }
 
   pixmap = gc_pixmap_load("scale/masse.png");

@@ -537,7 +537,7 @@ hanoi_create_item(GooCanvasItem *parent)
 				   0,
 				   -1,
 				   GTK_ANCHOR_NORTH,
-				   "font", "sans bold 14",
+				   "font", gc_skin_font_board_medium_bold,
 				   "fill-color", "white",
 				   NULL);
 

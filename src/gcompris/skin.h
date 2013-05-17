@@ -32,9 +32,11 @@ extern gchar* gc_skin_font_title;
 extern gchar* gc_skin_font_subtitle;
 extern gchar* gc_skin_font_content;
 
+extern gchar* gc_skin_font_board_minuscule;
 extern gchar* gc_skin_font_board_tiny;
 extern gchar* gc_skin_font_board_small;
 extern gchar* gc_skin_font_board_medium;
+extern gchar* gc_skin_font_board_medium_bold;
 extern gchar* gc_skin_font_board_big;
 extern gchar* gc_skin_font_board_big_bold;
 extern gchar* gc_skin_font_board_fixed;

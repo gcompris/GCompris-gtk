@@ -36,9 +36,11 @@ gchar* gc_skin_font_title;
 gchar* gc_skin_font_subtitle;
 gchar* gc_skin_font_content;
 
+gchar* gc_skin_font_board_minuscule;
 gchar* gc_skin_font_board_tiny;
 gchar* gc_skin_font_board_small;
 gchar* gc_skin_font_board_medium;
+gchar* gc_skin_font_board_medium_bold;
 gchar* gc_skin_font_board_big;
 gchar* gc_skin_font_board_big_bold;
 gchar* gc_skin_font_board_fixed;
@@ -198,12 +200,16 @@ gc_skin_setup_vars(void)
   gc_skin_font_content =
     gc_skin_get_font_default("gcompris/content", FONT_CONTENT);
 
+  gc_skin_font_board_minuscule =
+    gc_skin_get_font_default("gcompris/board/minuscule", FONT_BOARD_MINUSCULE);
   gc_skin_font_board_tiny =
     gc_skin_get_font_default("gcompris/board/tiny", FONT_BOARD_TINY);
   gc_skin_font_board_small =
     gc_skin_get_font_default("gcompris/board/small", FONT_BOARD_SMALL);
   gc_skin_font_board_medium =
     gc_skin_get_font_default("gcompris/board/medium", FONT_BOARD_MEDIUM);
+  gc_skin_font_board_medium_bold =
+    gc_skin_get_font_default("gcompris/board/medium bold", FONT_BOARD_MEDIUM_BOLD);
   gc_skin_font_board_big =
     gc_skin_get_font_default("gcompris/board/big", FONT_BOARD_BIG);
   gc_skin_font_board_big_bold =
