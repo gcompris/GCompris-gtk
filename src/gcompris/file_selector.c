@@ -374,7 +374,7 @@ display_files(GooCanvasItem *root_item, gchar *rootdir)
 			      (gdouble)directory_label_y,
 			      -1,
 			      GTK_ANCHOR_NW,
-			      "font", "Sans 7",
+			      "font", gc_skin_font_board_minuscule,
 			      "fill-color-rgba",
 			      gc_skin_get_color("gcompris/fileselectcol"),
 			      NULL);
@@ -464,7 +464,7 @@ display_files(GooCanvasItem *root_item, gchar *rootdir)
 				 iy + 10,
 				 -1,
 				 GTK_ANCHOR_CENTER,
-				 "font", "Sans 6",
+				 "font", gc_skin_font_board_minuscule,
 				 "fill-color-rgba",
 				 gc_skin_get_color("gcompris/fileselectcol"),
 				 NULL);
@@ -482,7 +482,7 @@ display_files(GooCanvasItem *root_item, gchar *rootdir)
 			     iy + IMAGE_HEIGHT - 30,
 			     -1,
 			     GTK_ANCHOR_CENTER,
-			     "font", "Sans 7",
+			     "font", gc_skin_font_board_minuscule,
 			     "fill-color-rgba", gc_skin_get_color("gcompris/fileselectcol"),
 			     NULL);
       g_free(file_wo_ext);

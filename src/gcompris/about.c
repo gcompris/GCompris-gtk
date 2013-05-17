@@ -209,7 +209,7 @@ void gc_about_start ()
 			      (gdouble)  y - 40,
 			      -1,
 			      GTK_ANCHOR_CENTER,
-			      "font", "sans 8",
+			      "font", gc_skin_font_board_minuscule,
 			      "fill-color-rgba", gc_skin_color_content,
 			      NULL);
 

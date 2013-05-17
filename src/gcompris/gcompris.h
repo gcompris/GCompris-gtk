@@ -262,9 +262,11 @@ gint gc_timing (gint timeout, gint actors_number);
 #define FONT_MENU_TITLE         "sans 16"
 #define FONT_MENU_DESCRIPTION   "sans 10"
 
+#define FONT_BOARD_MINUSCULE    "sans 6"
 #define FONT_BOARD_TINY         "sans 10"
 #define FONT_BOARD_SMALL        "sans 12"
 #define FONT_BOARD_MEDIUM       "sans 14"
+#define FONT_BOARD_MEDIUM_BOLD  "sans bold 14"
 #define FONT_BOARD_BIG          "sans 16"
 #define FONT_BOARD_BIG_BOLD     "sans bold 16"
 #define FONT_BOARD_FIXED        "fixed 12"
