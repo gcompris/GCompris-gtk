@@ -44,6 +44,7 @@ gchar* gc_skin_font_board_big_bold;
 gchar* gc_skin_font_board_fixed;
 gchar* gc_skin_font_board_title;
 gchar* gc_skin_font_board_title_bold;
+gchar* gc_skin_font_board_levelmenu;
 gchar* gc_skin_font_board_huge;
 gchar* gc_skin_font_board_huge_bold;
 
@@ -214,6 +215,8 @@ gc_skin_setup_vars(void)
     gc_skin_get_font_default("gcompris/board/title", FONT_BOARD_TITLE);
   gc_skin_font_board_title_bold =
     gc_skin_get_font_default("gcompris/board/title bold", FONT_BOARD_TITLE_BOLD);
+  gc_skin_font_board_levelmenu =
+    gc_skin_get_font_default("gcompris/board/levelmenu", FONT_BOARD_LEVELMENU);
   gc_skin_font_board_huge =
     gc_skin_get_font_default("gcompris/board/huge", FONT_BOARD_HUGE);
   gc_skin_font_board_huge_bold =

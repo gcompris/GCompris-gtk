@@ -112,7 +112,7 @@ score_set(guint value)
       tmp = g_strdup_printf("%d/%d", value, max);
       display_number(boardRootItem,
 		     x + (bounds.x2 - bounds.x1)/2,
-		     y - (bounds.y2 - bounds.y1)/2,
+		     y,
 		     tmp);
       g_free(tmp);
     }
@@ -140,9 +140,9 @@ display_number(GooCanvasItem *parent,
 		       x+2,
 		       y+2,
 		       -1,
-		       GTK_ANCHOR_NORTH,
+		       GTK_ANCHOR_CENTER,
 		       "alignment", PANGO_ALIGN_CENTER,
-		       "font", gc_skin_font_board_huge_bold,
+		       "font", gc_skin_font_board_levelmenu,
 		       "fill-color-rgba", 0x696969FF,
 		       NULL);
 
@@ -151,9 +151,9 @@ display_number(GooCanvasItem *parent,
 		       x,
 		       y,
 		       -1,
-		       GTK_ANCHOR_NORTH,
+		       GTK_ANCHOR_CENTER,
 		       "alignment", PANGO_ALIGN_CENTER,
-		       "font", gc_skin_font_board_huge_bold,
+		       "font", gc_skin_font_board_levelmenu,
 		       "fill-color-rgba", 0xFFFFFFFF,
 		       NULL);
 }

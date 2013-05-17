@@ -258,16 +258,17 @@ gint gc_timing (gint timeout, gint actors_number);
 #define FONT_CONTENT		"sans 12"
 #define FONT_CONTENT_FALLBACK	"sans 12"
 
-#define FONT_BOARD_TINY		"sans 10"
-#define FONT_BOARD_SMALL	"sans 12"
-#define FONT_BOARD_MEDIUM	"sans 14"
-#define FONT_BOARD_BIG		"sans 16"
-#define FONT_BOARD_BIG_BOLD	"sans bold 16"
-#define FONT_BOARD_FIXED	"fixed 12"
-#define FONT_BOARD_TITLE	"sans 20"
-#define FONT_BOARD_TITLE_BOLD	"sans bold 20"
-#define FONT_BOARD_HUGE		"sans 28"
-#define FONT_BOARD_HUGE_BOLD	"sans bold 28"
+#define FONT_BOARD_TINY         "sans 10"
+#define FONT_BOARD_SMALL        "sans 12"
+#define FONT_BOARD_MEDIUM       "sans 14"
+#define FONT_BOARD_BIG          "sans 16"
+#define FONT_BOARD_BIG_BOLD     "sans bold 16"
+#define FONT_BOARD_FIXED        "fixed 12"
+#define FONT_BOARD_TITLE        "sans 20"
+#define FONT_BOARD_TITLE_BOLD   "sans bold 20"
+#define FONT_BOARD_LEVELMENU	"sans bold 28"
+#define FONT_BOARD_HUGE         "sans 28"
+#define FONT_BOARD_HUGE_BOLD    "sans bold 28"
 
 /*=========================================================*/
 // These are gcompris defined cursors

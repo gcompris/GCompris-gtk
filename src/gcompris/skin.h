@@ -40,6 +40,7 @@ extern gchar* gc_skin_font_board_big_bold;
 extern gchar* gc_skin_font_board_fixed;
 extern gchar* gc_skin_font_board_title;
 extern gchar* gc_skin_font_board_title_bold;
+extern gchar* gc_skin_font_board_levelmenu;
 extern gchar* gc_skin_font_board_huge;
 extern gchar* gc_skin_font_board_huge_bold;
 

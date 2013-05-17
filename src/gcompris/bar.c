@@ -228,7 +228,7 @@ bar_start (GooCanvas *theCanvas)
 		    svg_handle,
 		    GC_BAR_LEVEL,
 		    "#LEVEL_UP");
-  goo_canvas_item_translate(item, 50, 0);
+  goo_canvas_item_translate(item, 90, 0);
   g_object_set (item,
 		"visibility", (properties->disable_level ?
 			       GOO_CANVAS_ITEM_INVISIBLE :
@@ -240,11 +240,11 @@ bar_start (GooCanvas *theCanvas)
   level_item =
     goo_canvas_text_new (rootitem_level,
 			 "",
-			 bounds.x1 - 10,
+			 bounds.x1 -29,
 			 (bounds.y2 - bounds.y1) / 2 + 8,
 			 -1,
 			 GTK_ANCHOR_CENTER,
-			 "font", gc_skin_font_board_title_bold,
+			 "font", gc_skin_font_board_levelmenu,
 			 "fill-color-rgba", gc_skin_color_text_button,
 			 NULL);
   current_level = 1;
