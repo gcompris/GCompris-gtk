@@ -32,6 +32,7 @@ guint32 gc_skin_color_content;
 guint32 gc_skin_color_subtitle;
 guint32 gc_skin_color_shadow;
 
+gchar* gc_skin_font_fontface;
 gchar* gc_skin_font_title;
 gchar* gc_skin_font_subtitle;
 gchar* gc_skin_font_content;
@@ -198,6 +199,8 @@ gc_skin_setup_vars(void)
   gc_skin_color_shadow =
     gc_skin_get_color_default("gcompris/shadow", COLOR_SHADOW);
 
+  gc_skin_font_fontface =
+    gc_skin_get_font_default("gcompris/fontface", FONT_FONTFACE);
   gc_skin_font_title =
     gc_skin_get_font_default("gcompris/title", FONT_TITLE);
   gc_skin_font_subtitle =

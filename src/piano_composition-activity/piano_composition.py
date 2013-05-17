@@ -219,6 +219,7 @@ class Gcompris_piano_composition:
                 parent=self.rootitem,
                 x=210, y=140,
                 width=100,
+                font = gcompris.skin.get_font("gcompris/board/small"),
                 text=_("Change Note Type:"),
                 fill_color="black", anchor=gtk.ANCHOR_CENTER,
                 alignment=pango.ALIGN_CENTER
@@ -383,8 +384,8 @@ dialogue to\nenable the sound."), None)
         item = goocanvas.Text(parent=self.rootitem,
          x=290,
          y=30,
-         text='<span font_family="Arial" size="15000" \
-         weight="bold">' + _('Select A Melody to Load') + '</span>',
+         text= _('Select A Melody to Load'),
+         font = gcompris.skin.get_font("gcompris/fontface") + " bold 15000",
          fill_color="black",
          use_markup=True,
          pointer_events="GOO_CANVAS_EVENTS_NONE"
@@ -401,7 +402,7 @@ dialogue to\nenable the sound."), None)
             pixbuf=gcompris.utils.load_pixmap('piano_composition/previous.svg'),
             x = bx,
             y = by,
-            tooltip = "\n\n" + "Previous Page"
+            tooltip = "\n\n" + _("Previous Page")
             )
         item.connect("button_press_event", self.previousMelodyPage)
         gcompris.utils.item_focus_init(item, None)
@@ -411,7 +412,7 @@ dialogue to\nenable the sound."), None)
             pixbuf=gcompris.utils.load_pixmap('piano_composition/next.svg'),
             x = bx + 50,
             y = by,
-            tooltip = "\n\n" + "Next Page"
+            tooltip = "\n\n" + _("Next Page")
             )
         item.connect("button_press_event", self.nextMelodyPage)
         gcompris.utils.item_focus_init(item, None)
@@ -565,6 +566,7 @@ dialogue to\nenable the sound."), None)
                        y = 15,
                        width = 280,
                        text = lyrics,
+                       font = gcompris.skin.get_font("gcompris/board/small"),
                        fill_color = "black",
                        pointer_events = "GOO_CANVAS_EVENTS_NONE"
                        )
@@ -575,7 +577,7 @@ dialogue to\nenable the sound."), None)
                        x=150,
                        y=75,
                        width=280,
-                       text='<span weight="bold" >' + _(" " + self.data.get(section, '_origin')) + '</span>',
+                       text= _(" " + self.data.get(section, '_origin')),
                        fill_color="black",
                        use_markup=True,
                        alignment=pango.ALIGN_CENTER,

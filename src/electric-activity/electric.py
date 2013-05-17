@@ -781,7 +781,7 @@ class Component(object):
           parent = self.comp_rootitem,
         x = self.item_values_x,
         y = self.item_values_y,
-        font = "Sans 7",
+        font = gcompris.skin.get_font("gcompris/board/minuscule"),
         text = "",
         fill_color = "white",
         anchor = gtk.ANCHOR_CENTER

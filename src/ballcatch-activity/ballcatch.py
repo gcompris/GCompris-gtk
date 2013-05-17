@@ -75,6 +75,7 @@ class Gcompris_ballcatch:
       text = _("Press the two shift keys at the same time,"
                " to make the ball go in a straight line."),
       fill_color = "black",
+      font = gcompris.skin.get_font("gcompris/board/medium"),
       anchor = gtk.ANCHOR_CENTER,
       alignment = pango.ALIGN_CENTER
       )

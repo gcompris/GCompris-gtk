@@ -131,13 +131,13 @@ class Gcompris_searace:
     item.translate( (item.get_bounds().x1 * -1)
                      + ( gcompris.BOARD_WIDTH / 2 + 25 ) / zoom,
                     (item.get_bounds().y1 * -1)
-                     + (gcompris.BOARD_HEIGHT - 125) / zoom )
+                     + (gcompris.BOARD_HEIGHT - 135) / zoom )
     item.scale(zoom, zoom)
     item.connect("button_press_event", self.ok_event)
     gcompris.utils.item_focus_init(item, None)
 
     gcompris.bar_set_level(self.gcomprisBoard)
-    gcompris.bar_location(gcompris.BOARD_WIDTH/2 - 90, -1, 0.6)
+    gcompris.bar_location(gcompris.BOARD_WIDTH/2 - 105, -1, 0.6)
 
   def end(self):
 
@@ -402,7 +402,7 @@ class Gcompris_searace:
     self.left_boat.sw.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_ALWAYS)
     self.left_boat.sw.set_shadow_type(gtk.SHADOW_ETCHED_OUT)
 
-    w = 250.0
+    w = 200.0
     h = 160.0
     y = 355.0 # The upper limit of the text boxes
     x_left  = gcompris.BOARD_WIDTH/4 - 30
@@ -507,7 +507,7 @@ class Gcompris_searace:
     goocanvas.Text(
       parent = self.rootitem,
       text=_("COMMANDS ARE"),
-      font=gcompris.skin.get_font("gcompris/content"),
+      font=gcompris.skin.get_font("gcompris/small"),
       x=gcompris.BOARD_WIDTH/2,
       y=y,
       fill_color_rgba=text_color,
@@ -517,7 +517,7 @@ class Gcompris_searace:
     goocanvas.Text(
       parent = self.rootitem,
       text=_("forward"),
-      font=gcompris.skin.get_font("gcompris/content"),
+      font=gcompris.skin.get_font("gcompris/tiny"),
       x=gcompris.BOARD_WIDTH/2,
       y=y+hl,
       fill_color_rgba= text_color,
@@ -527,7 +527,7 @@ class Gcompris_searace:
     goocanvas.Text(
       parent = self.rootitem,
       text=_("left"),
-      font=gcompris.skin.get_font("gcompris/content"),
+      font=gcompris.skin.get_font("gcompris/tiny"),
       x=gcompris.BOARD_WIDTH/2,
       y=y+hl*2,
       fill_color_rgba= text_color,
@@ -537,7 +537,7 @@ class Gcompris_searace:
     goocanvas.Text(
       parent = self.rootitem,
       text=_("right"),
-      font=gcompris.skin.get_font("gcompris/content"),
+      font=gcompris.skin.get_font("gcompris/tiny"),
       x=gcompris.BOARD_WIDTH/2,
       y=y+hl*3,
       fill_color_rgba=text_color,

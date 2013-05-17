@@ -330,6 +330,7 @@ class Gcompris_hangman:
       y = gcompris.BOARD_HEIGHT / 2 - 30,
       text = self.language,
       fill_color = "white",
+      font = gcompris.skin.get_font("gcompris/board/medium"),
       anchor = gtk.ANCHOR_CENTER,
       alignment = pango.ALIGN_CENTER
       )
@@ -450,6 +451,7 @@ class Letter:
         y = y + h/2,
         text = letter,
         fill_color = "black",
+        font = gcompris.skin.get_font("gcompris/board/medium"),
         anchor = gtk.ANCHOR_CENTER,
         alignment = pango.ALIGN_CENTER
         )
@@ -501,6 +503,7 @@ class Key:
         y = y + h/2,
         text = letter,
         fill_color = "black",
+        font = gcompris.skin.get_font("gcompris/board/medium"),
         anchor = gtk.ANCHOR_CENTER,
         alignment = pango.ALIGN_CENTER
         )

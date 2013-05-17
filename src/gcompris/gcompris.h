@@ -251,6 +251,7 @@ gint gc_timing (gint timeout, gint actors_number);
 #define COLOR_SUBTITLE		0xB00400FF
 #define COLOR_SHADOW		0x000000FF
 
+#define FONT_FONTFACE		"sans"
 #define FONT_TITLE		"sans 20"
 #define FONT_TITLE_FALLBACK	"sans 12"
 #define FONT_SUBTITLE		"sans 16"

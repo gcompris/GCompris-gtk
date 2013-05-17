@@ -171,7 +171,7 @@ class Gcompris_braille_fun:
             fill_color="black",
             anchor = gtk.ANCHOR_CENTER,
             alignment = pango.ALIGN_CENTER,
-            font = 'SANS 50'
+            font = gcompris.skin.get_font("gcompris/board/huge")
             )
           self.alphabet_vertical = goocanvas.Text(
                          parent = self.verticalTextRoot,
@@ -181,7 +181,7 @@ class Gcompris_braille_fun:
                          fill_color = "black",
                          anchor = gtk.ANCHOR_CENTER,
                          alignment = pango.ALIGN_CENTER,
-                         font = 'SANS 50'
+                         font = gcompris.skin.get_font("gcompris/board/huge")
                          )
           self.alphabet_array.append(self.alphabet_vertical)
 

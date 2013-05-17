@@ -81,7 +81,7 @@ class BrailleChar:
                                fill_color = self.stroke_color,
                                alignment = pango.ALIGN_CENTER,
                                anchor = gtk.ANCHOR_CENTER,
-                               font = 'Sans BOLD')
+                               font = gcompris.skin.get_font("gcompris/board/medium bold"))
     if not display_letter:
         self.text.props.visibility = goocanvas.ITEM_INVISIBLE
 

@@ -28,6 +28,7 @@ extern guint32 gc_skin_color_content;
 extern guint32 gc_skin_color_subtitle;
 extern guint32 gc_skin_color_shadow;
 
+extern gchar* gc_skin_font_fontface;
 extern gchar* gc_skin_font_title;
 extern gchar* gc_skin_font_subtitle;
 extern gchar* gc_skin_font_content;

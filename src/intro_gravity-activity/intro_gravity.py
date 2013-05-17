@@ -486,6 +486,7 @@ class Message:
       x = x,
       y = y,
       width = 500,
+      font = gcompris.skin.get_font("gcompris/board/small"),
       fill_color = "white",
       anchor = gtk.ANCHOR_CENTER,
       alignment = pango.ALIGN_CENTER,

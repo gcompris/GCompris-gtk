@@ -2,6 +2,10 @@
 
 <GCompris>
   <Fontset>
+
+    <!-- Defines the main font face -->
+    <font id="gcompris/fontface"          name="Ruluko"/>
+
     <!-- Defines the main gcompris fonts -->
     <font id="gcompris/title"             name="Ruluko 24"/>
     <font id="gcompris/subtitle"          name="Ruluko 18"/>
@@ -25,6 +29,7 @@
     <font id="gcompris/board/levelmenu"   name="Ruluko 26"/>
     <font id="gcompris/board/huge"        name="Ruluko 36"/>
     <font id="gcompris/board/huge bold"   name="Ruluko 38"/>
+    <font id="gcompris/board/gigantic"    name="Ruluko 78"/>
   </Fontset>
 </GCompris>
 
