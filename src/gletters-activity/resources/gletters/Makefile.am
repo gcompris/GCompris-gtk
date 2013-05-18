@@ -16,6 +16,7 @@ img_DATA = \
 	default-et.xml \
 	default-fa.xml \
 	default-fi.xml \
+	default-fr.xml \
 	default-gd.xml \
 	upper-gd.xml \
 	default-gl.xml \

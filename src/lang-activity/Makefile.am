@@ -5,7 +5,9 @@ SUBDIRS = resources
 
 pythondir = $(PYTHON_PLUGIN_DIR)
 
-dist_python_DATA= 	lang.py \
+dist_python_DATA= \
+	lang.py \
+	langEnterText.py \
 	langLib.py \
 	langFindit.py
 
@@ -14,8 +16,11 @@ dist_python_DATA= 	lang.py \
 xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@
 
 xml_in_files = \
-	lang.xml.in
-
+	lang.xml.in \
+	lang-nature.xml.in \
+	 lang-object.xml.in \
+	 lang-other.xml.in \
+	 lang-people.xml.in
 
 xml_DATA = $(xml_in_files:.xml.in=.xml)
 
@@ -31,7 +36,13 @@ $(xml_DATA): %.xml: %.xml.in
 #@INTLTOOL_XML_RULE@
 
 icondir = $(pkgdatadir)/@PACKAGE_DATA_DIR@
-icon_DATA = lang.svg
+icon_DATA = \
+	lang.svg \
+	lang-nature.svg \
+	lang-object.svg \
+	lang-other.svg \
+	lang-people.svg
+
 
 EXTRA_DIST = $(icon_DATA) ${xml_in_files} init_path.sh
 CLEANFILES = $(xml_DATA)

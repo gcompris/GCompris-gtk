@@ -435,7 +435,6 @@ item_event_help (GooCanvasItem  *item,
 		 gchar *data)
 {
 
-  gc_sound_play_ogg ("sounds/bleep.wav", NULL);
   if(!strcmp((char *)data, "ok"))
     {
       gc_help_stop();

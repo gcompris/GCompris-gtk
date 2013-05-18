@@ -28,6 +28,7 @@ import pango
 from gcompris import gcompris_gettext as _
 from langLib import *
 from langFindit import *
+from langEnterText import *
 
 class Gcompris_lang:
   """Empty gcompris python class"""
@@ -43,11 +44,12 @@ class Gcompris_lang:
     self.gcomprisBoard = gcomprisBoard
 
     # Needed to get key_press
-    gcomprisBoard.disable_im_context = True
+    gcomprisBoard.disable_im_context = False
 
   def start(self):
     self.saved_policy = gcompris.sound.policy_get()
     gcompris.sound.policy_set(gcompris.sound.PLAY_AND_INTERRUPT)
+    gcompris.sound.pause()
 
     # init config to default values
     self.config_dict = self.init_config()
@@ -73,7 +75,7 @@ class Gcompris_lang:
     self.rootitem = goocanvas.Group(parent =
                                     self.gcomprisBoard.canvas.get_root_item())
 
-    self.langLib = LangLib(gcompris.DATA_DIR + "/lang/lang.xml")
+    self.langLib = LangLib(gcompris.DATA_DIR + "/lang/words.xml")
     self.chapters = self.langLib.getChapters()
 
     if self.gcomprisBoard.mode == "":
@@ -91,6 +93,13 @@ class Gcompris_lang:
       gcompris.utils.dialog("ERROR, missing chapter '" + self.currentChapterName + "'",
                             None)
       return
+
+    if self.gcomprisBoard.maxlevel == 0:
+      gcompris.utils.dialog(_("ERROR, we found no words in this language.") + " " +
+                            _("Please consider contributing a voice set."),
+                            None)
+      return
+
     gcompris.bar_set_level(self.gcomprisBoard)
 
     self.currentExerciseModes = []
@@ -102,6 +111,7 @@ class Gcompris_lang:
 
   def end(self):
     gcompris.sound.policy_set(self.saved_policy)
+    gcompris.sound.resume()
     if self.currentExercise:
       self.currentExercise.stop()
     # Remove the root item removes all the others inside it
@@ -148,7 +158,7 @@ class Gcompris_lang:
 
     gcompris.combo_locales_asset(bconf, _("Select locale"),
                                  self.config_dict['locale_sound'],
-                                 "lang/abcdarium/audio/$LOCALE/red.ogg")
+                                 "voices/$LOCALE/words/red.ogg")
 
   # Callback when the "OK" button is clicked in configuration window
   # this get all the _changed_ values
@@ -159,19 +169,22 @@ class Gcompris_lang:
     for key,value in table.iteritems():
       gcompris.set_board_conf(self.configuring_profile,
                               self.gcomprisBoard, key, value)
-
+    
     return True;
 
 
 
   def key_press(self, keyval, commit_str, preedit_str):
     if self.currentExercise:
-      return
+      return self.currentExercise.key_press(keyval, commit_str, preedit_str)
 
     if keyval == gtk.keysyms.Left or keyval == gtk.keysyms.Up:
       self.previous_event(keyval)
-    elif keyval == gtk.keysyms.Right or keyval == gtk.keysyms.Down:
+    elif commit_str == " " or \
+          keyval == gtk.keysyms.Right or keyval == gtk.keysyms.Down:
       self.next_event(keyval)
+    elif keyval == gtk.keysyms.End:
+      self.startExercise()
 
   def pause(self, pause):
     self.board_paused = pause
@@ -239,14 +252,14 @@ class Gcompris_lang:
       fill_color_rgba = 0x6666FF33L,
       stroke_color_rgba = 0x1111FFAAL,
       line_width = 2.0,
-      radius_x = 0.9,
-      radius_y = 0.9)
+      radius_x = 3,
+      radius_y = 3)
 
     goocanvas.Text(
       parent = self.lessonroot,
       x = gcompris.BOARD_WIDTH / 2,
       y = 40.0,
-      text = lesson.name,
+      text = gcompris.gcompris_gettext(lesson.name),
       fill_color = "black",
       font = gcompris.skin.get_font("gcompris/title"),
       anchor = gtk.ANCHOR_CENTER,
@@ -307,28 +320,39 @@ class Gcompris_lang:
 
   def runExercise(self):
     if len(self.currentExerciseModes):
-      self.currentExercise = Findit(self, self.rootitem, self.currentLesson,
-                                    self.currentExerciseModes.pop())
+      currentMode = self.currentExerciseModes.pop()
+      if currentMode[0] == "findit":
+        self.currentExercise = Findit(self, self.rootitem, self.currentLesson,
+                                      currentMode[1])
+      else:
+        self.currentExercise = EnterText(self, self.rootitem, self.currentLesson,
+                                         currentMode[1])
       self.currentExercise.start()
       return True
     return False
 
+  def startExercise(self):
+    self.clearLesson()
+    # We will run the exercise 3 times in different modes
+    self.currentExerciseModes = [ ["findit",Findit.WITH_QUESTION|Findit.WITH_TEXT|Findit.WITH_IMAGE],
+                                  ["findit", Findit.WITH_QUESTION|Findit.WITH_IMAGE],
+                                  ["findit", Findit.WITH_IMAGE],                                  
+                                  ["text", EnterText.WITH_TEXT|EnterText.WITH_IMAGE]
+                                  ]
+    self.currentExerciseModes.reverse()
+    self.runExercise()
+
   def displayImage(self, triplet):
 
     if len(self.tripletSeen) == len(self.currentLesson.getTriplets()):
-      self.clearLesson()
-      # We will run the exercise 3 times in different modes
-      self.currentExerciseModes = [Findit.WITH_IMAGE,
-                                   Findit.WITH_QUESTION|Findit.WITH_IMAGE,
-                                   Findit.WITH_QUESTION|Findit.WITH_TEXT|Findit.WITH_IMAGE]
-      self.runExercise()
+      self.startExercise()
       return
 
     # Display the next triplet
     self.tripletSeen.add(triplet)
     self.playVoice( triplet )
     self.descriptionitem.set_properties (
-      text = triplet.description,
+      text = triplet.descriptionTranslated,
       )
     self.counteritem.set_properties (
       text = str(self.currentTripletId + 1) + "/" \

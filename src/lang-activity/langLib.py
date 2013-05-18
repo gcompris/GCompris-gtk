@@ -17,6 +17,7 @@
 #
 # lang activity.
 
+from gcompris import gcompris_gettext as _
 import gcompris.utils
 import xml.dom.minidom
 
@@ -25,15 +26,16 @@ def isNode(e, name):
 
 
 class Triplet:
-    def __init__(self, elem):
+    def __init__(self, elem, translations):
         self.description = None
+        self.descriptionTranslated = None
         self.image = None
         self.voice = None
         self.type = None
         self.valid = True
-        self.parse(elem)
+        self.parse(elem, translations)
 
-    def parse(self, elem):
+    def parse(self, elem, translations):
         for e in elem.childNodes:
             if isNode(e, "image"):
                 if e.firstChild:
@@ -56,6 +58,17 @@ class Triplet:
             elif not gcompris.utils.find_file_absolute(self.voice):
                 self.valid = False
 
+        # Get the translation
+        if self.valid:
+            try:
+                # The file name
+                fileName = self.voice.rsplit("/", 1)[1]
+                self.descriptionTranslated = translations[fileName]
+            except:
+                self.descriptionTranslated = \
+                    _("Missing translation for '{word}'".format(word = self.description))
+
+
     def isValid(self):
         return self.valid
 
@@ -65,22 +78,14 @@ class Triplet:
             + " / " + str(self.type)
 
 class Lesson:
-    def __init__(self, elem):
+
+    def __init__(self, lesson):
         self.name = None
         self.description = None
         self.triplets = []
-        self.parse(elem)
-
-    def parse(self, elem):
-        for e in elem.childNodes:
-            if isNode(e, "name"):
-                self.name = e.firstChild.nodeValue
-            elif isNode(e, "description"):
-                self.description = e.firstChild.nodeValue if e.firstChild else None
-            elif isNode(e, "Triplet"):
-                triplet = Triplet(e)
-                if triplet.isValid():
-                    self.triplets.append( triplet )
+        if lesson:
+            self.name = lesson.name
+            self.description = lesson.description
 
     def getTriplets(self):
         return self.triplets
@@ -91,21 +96,61 @@ class Lesson:
             triplet.dump()
 
 
+class LessonCreator:
+
+    MAX_TRIPLETS = 12
+
+    def __init__(self, elem, translations):
+        self.lessons = []
+        self.parse(elem, translations)
+
+    def parse(self, elem, translations):
+        lesson = Lesson(None)
+        for e in elem.childNodes:
+            if isNode(e, "name"):
+                lesson.name = e.firstChild.nodeValue
+            elif isNode(e, "description"):
+                lesson.description = e.firstChild.nodeValue if e.firstChild else None
+            elif isNode(e, "Triplet"):
+                triplet = Triplet(e, translations)
+                if triplet.isValid():
+                    if len(lesson.triplets) < self.MAX_TRIPLETS:
+                        lesson.triplets.append( triplet )
+                    else:
+                        self.lessons.append(lesson)
+                        lesson = Lesson(lesson)
+
+                        
+        if len(lesson.triplets) and len(lesson.triplets) < self.MAX_TRIPLETS:
+            # There is no enough triplet for this level, add the first
+            # of the first lesson
+            if len(self.lessons):
+                for triplet in self.lessons[0].getTriplets()[0:self.MAX_TRIPLETS-len(lesson.triplets)]:
+                    lesson.triplets.append(triplet)
+            self.lessons.append(lesson)
+
+
+    def getLessons(self):
+        return self.lessons
+
+
 class Chapter:
-    def __init__(self, elem):
+    def __init__(self, elem, translations):
         self.name = None
         self.description = None
         self.lessons = []
-        self.parse(elem)
+        self.parse(elem, translations)
 
-    def parse(self, elem):
+    def parse(self, elem, translations):
         for e in elem.childNodes:
             if isNode(e, "name"):
                 self.name = e.firstChild.nodeValue if e.firstChild else None
             elif isNode(e, "description"):
                 self.description = e.firstChild.nodeValue if e.firstChild else None
             elif isNode(e, "Lesson"):
-                self.lessons.append( Lesson(e) )
+                lessonCreator = LessonCreator(e, translations)
+                for lesson in lessonCreator.getLessons():
+                    self.lessons.append( lesson )
 
     def getLessons(self):
         return self.lessons
@@ -116,13 +161,13 @@ class Chapter:
             lesson.dump()
 
 class Chapters:
-    def __init__(self, doc):
+    def __init__(self, doc, translations):
         self.chapters = {}
-        self.parse(doc)
+        self.parse(doc, translations)
 
-    def parse(self, doc):
+    def parse(self, doc, translations):
         for elem in doc:
-            chapter = Chapter(elem)
+            chapter = Chapter(elem, translations)
             self.chapters[chapter.name] = chapter
 
     def getChapters(self):
@@ -130,14 +175,23 @@ class Chapters:
 
     def dump(self):
         print "Dump"
-        for chapter in self.chapters:
+        for k, chapter in self.chapters.iteritems():
             chapter.dump()
 
 
 class LangLib:
     def __init__(self, fileName):
+        self.translationsFile = gcompris.utils.find_file_absolute("voices/$LOCALE/words/content.txt")
+        self.translations = {}
+
+        if self.translationsFile:
+            for line in open(self.translationsFile, 'r'):
+                lineSplitted = line.rstrip('\r\n').split(":")
+                if line[0] == '#' or len(lineSplitted) < 2: continue
+                self.translations[lineSplitted[0]] = lineSplitted[1]
+
         doc = xml.dom.minidom.parse(fileName)
-        self.chapters = Chapters( doc.getElementsByTagName('Chapter') )
+        self.chapters = Chapters( doc.getElementsByTagName('Chapter'), self.translations )
 
     def dump(self):
         self.chapters.dump()
@@ -146,4 +200,7 @@ class LangLib:
         return self.chapters
 
     def getLesson(self, chapterName, lessonIndex):
-        return self.chapters.getChapters()[chapterName].getLessons()[lessonIndex]
+        try:
+            return self.chapters.getChapters()[chapterName].getLessons()[lessonIndex]
+        except:
+            return None

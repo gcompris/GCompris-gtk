@@ -1,4 +1,4 @@
-#  gcompris - findit.py
+#  gcompris - langFindit.py
 #
 # Copyright (C) 2010 Bruno Coudoin
 #
@@ -15,7 +15,7 @@
 #   You should have received a copy of the GNU General Public License
 #   along with this program; if not, see <http://www.gnu.org/licenses/>.
 #
-# lang activity.
+# lang activity exercice.
 import gtk
 import gtk.gdk
 import gcompris
@@ -67,7 +67,7 @@ class SpotTarget:
           y = y + 10,
           fill_color = "black",
           font = gcompris.skin.get_font("gcompris/subtitle"),
-          text = triplet.description,
+          text = triplet.descriptionTranslated,
           anchor = gtk.ANCHOR_NW,
           alignment = pango.ALIGN_LEFT,
           width = self.width - textx - 10
@@ -139,7 +139,7 @@ class Findit:
             y = 100,
             fill_color = "black",
             font = gcompris.skin.get_font("gcompris/subtitle"),
-            text = self.tripletToFind.description,
+            text = self.tripletToFind.descriptionTranslated,
             anchor = gtk.ANCHOR_CENTER,
             alignment = pango.ALIGN_CENTER,
             width = 300
@@ -179,3 +179,5 @@ class Findit:
     def repeat(self):
       self.lang.playVoice(self.tripletToFind)
   
+    def key_press(self, keyval, commit_str, preedit_str):
+      pass
