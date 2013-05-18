@@ -139,8 +139,10 @@ class Gcompris_lang:
     self.config_dict.update(gcompris.get_conf(profile, self.gcomprisBoard))
 
     bconf = gcompris.configuration_window ( \
-      _('Configuration\n for profile <b>%s</b>')
-      % ( (profile.name if profile else _("Default") ) ),
+      _('<b>{config}</b> configuration\n for profile <b>{profile}</b>').format( \
+                        config='Lang',
+                        # This is the name of the Default user profile
+                        profile=profile.name if profile else _("Default")),
       self.ok_callback
       )
 
