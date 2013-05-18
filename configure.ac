@@ -4,7 +4,7 @@ AC_INIT(gcompris, 12.11, http://gcompris.net)
 
 AM_INIT_AUTOMAKE([tar-ustar no-dist-gzip dist-bzip2 -Wno-portability])
 
-AM_CONFIG_HEADER(config.h)
+AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIR([m4])
 
 if test -z "$enable_maintainer_mode"; then
@@ -22,7 +22,7 @@ dnl libtool versioning from libgnome
 
 AC_ISC_POSIX
 AC_PROG_CC
-AM_PROG_CC_STDC
+AC_PROG_CC
 AC_HEADER_STDC
 AM_DISABLE_STATIC
 AC_LIBTOOL_WIN32_DLL
