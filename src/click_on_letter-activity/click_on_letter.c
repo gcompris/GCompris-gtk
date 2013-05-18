@@ -19,6 +19,7 @@
 
 #include <glib.h>
 #include <glib/gstdio.h>
+#include <glib/gi18n.h>
 #include <string.h>
 #include <stdlib.h> /* atoi */
 #include "gcompris/gcompris.h"
@@ -1002,7 +1003,6 @@ static void create_levels_from_config_model()
 {
   GtkTreeIter iter;
   gtk_tree_model_get_iter_first (GTK_TREE_MODEL(model), &iter );
-
   clear_levels();
   levels = g_array_sized_new (FALSE, FALSE, sizeof (Level), 10);
   gtk_tree_model_foreach(GTK_TREE_MODEL(model), _save_level_from_model, NULL);
@@ -1034,12 +1034,6 @@ clear_levels()
   if ( ! levels )
     return;
   
-  guint i;
-  for (i=0;i<gcomprisBoard->maxlevel && &g_array_index (levels, Level, i);i++)
-  {
-    g_slist_free((&g_array_index (levels, Level, i))->answers);
-    g_slist_free((&g_array_index (levels, Level, i))->questions);
-  }
   g_array_free(levels, TRUE);
   levels = NULL;
 }
@@ -1507,8 +1501,12 @@ config_start(GcomprisBoard *agcomprisBoard,
 
   gc_locale_set( NULL );
 
-  gchar *label = g_strdup_printf(_("<b>%1$s</b> configuration\n for profile <b>%2$s</b>"),
-				 agcomprisBoard->name,
+  /*
+   * TRANSLATORS: %1$s is the board name (click_on_letter),
+   * 2$s is the name of the current user profile
+   */
+  gchar *label = g_strdup_printf(C_("click_on_letter_config","<b>%1$s</b> configuration\n for profile <b>%2$s</b>"),
+				 _(agcomprisBoard->name),
 				 aProfile ? aProfile->name : "");
   GcomprisBoardConf *bconf;
   bconf = gc_board_config_window_display(label, conf_ok);
