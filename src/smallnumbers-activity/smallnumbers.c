@@ -17,6 +17,7 @@
  */
 #include <string.h>
 #include <stdlib.h> //for atoi
+#include <glib/gi18n.h>
 
 #include "gcompris/gcompris.h"
 
@@ -593,10 +594,12 @@ smallnumber_config_start(GcomprisBoard *agcomprisBoard,
   if (gcomprisBoard)
     pause_board(TRUE);
 
-  gchar *label;
-
-  label = g_strdup_printf(_("<b>%s</b> configuration\n for profile <b>%s</b>"),
-			  agcomprisBoard->name, aProfile ? aProfile->name : "");
+  /*
+   * TRANSLATORS: %1$s is the board name (smallnumbers),
+   * 2$s is the name of the current user profile
+   */
+  gchar *label = g_strdup_printf(C_("smallnumbers_config","<b>%1$s</b> configuration\n for profile <b>%2$s</b>"),
+			  _(agcomprisBoard->name), aProfile ? aProfile->name : "");
 
   GcomprisBoardConf *bconf;
   bconf = gc_board_config_window_display(label, conf_ok);

@@ -19,6 +19,7 @@
 /* libxml includes */
 #include <libxml/tree.h>
 #include <libxml/parser.h>
+#include <glib/gi18n.h>
 
 #include <math.h>
 #include <string.h>
@@ -2038,8 +2039,12 @@ config_start(GcomprisBoard *agcomprisBoard,
   if (gcomprisBoard)
     pause_board(TRUE);
 
-  gchar * label = g_strdup_printf(_("<b>%1$s</b> configuration\n for profile <b>%2$s</b>"),
-				  agcomprisBoard->name,
+  /*
+   * TRANSLATORS: %1$s is the board name (shapegame),
+   * 2$s is the name of the current user profile
+   */
+  gchar * label = g_strdup_printf(C_("shapegame_config","<b>%1$s</b> configuration\n for profile <b>%2$s</b>"),
+				  _(agcomprisBoard->name),
 				  aProfile? aProfile->name : "");
 
   GcomprisBoardConf *bconf;

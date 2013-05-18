@@ -17,6 +17,7 @@
  */
 
 #include <string.h>
+#include <glib/gi18n.h>
 
 #include "gcompris/gcompris.h"
 #include "gcompris/gameutil.h"
@@ -1012,13 +1013,16 @@ gletters_config_start(GcomprisBoard *agcomprisBoard,
   board_conf = agcomprisBoard;
   profile_conf = aProfile;
 
-  gchar *label;
+  
 
   if (gcomprisBoard)
     pause_board(TRUE);
-
-  label = g_strdup_printf(_("<b>%s</b> configuration\n for profile <b>%s</b>"),
-			  agcomprisBoard->name, aProfile ? aProfile->name : "");
+  /*
+   * TRANSLATORS: %1$s is the board name (gletters),
+   * 2$s is the name of the current user profile
+   */
+  gchar *label = g_strdup_printf(C_("gletters_config","<b>%1$s</b> configuration\n for profile <b>%2$s</b>"),
+			  _(agcomprisBoard->name), aProfile ? aProfile->name : "");
 
   GcomprisBoardConf *bconf = gc_board_config_window_display(label, (GcomprisConfCallback )conf_ok);
 

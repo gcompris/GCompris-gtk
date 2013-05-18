@@ -17,6 +17,7 @@
  */
 
 #include <string.h>
+#include <glib/gi18n.h>
 
 #include "gcompris/gcompris.h"
 #include "gcompris/gameutil.h"
@@ -933,8 +934,12 @@ wordsgame_config_start(GcomprisBoard *agcomprisBoard,
   if (gcomprisBoard)
     pause_board(TRUE);
 
-  gchar *label = g_strdup_printf(_("<b>%s</b> configuration\n for profile <b>%s</b>"),
-				 agcomprisBoard->name,
+  /*
+   * TRANSLATORS: %1$s is the board name (wordsgame),
+   * 2$s is the name of the current user profile
+   */
+  gchar *label = g_strdup_printf(C_("wordsgame_config","<b>%1$s</b> configuration\n for profile <b>%2$s</b>"),
+				 _(agcomprisBoard->name),
 				 aProfile? aProfile->name: "");
 
   conf = gc_board_config_window_display( label,
