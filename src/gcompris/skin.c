@@ -547,8 +547,8 @@ gc_skin_load (gchar* skin)
   if(strcmp(skin,DEFAULT_SKIN)!=0)
     if (! skin_xml_load(skin) )
       return FALSE;
-  if(!fontset_xml_load ())
-      return FALSE;
+  
+  fontset_xml_load ();
 
   gc_skin_setup_vars();
   return TRUE;
