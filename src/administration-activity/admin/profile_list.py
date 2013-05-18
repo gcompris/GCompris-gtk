@@ -114,6 +114,7 @@ class Profile_list:
       self.button_remove.show()
       self.button_remove.set_sensitive(False)
 
+      # This is the name of the Default user profile
       self.button_default = gtk.Button(_("Default"))
       self.button_default.connect("clicked", self.on_default_profile_clicked, treeview_profile)
       vbox_button.pack_start(self.button_default, False, False, 0)

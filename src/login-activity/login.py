@@ -477,8 +477,10 @@ class Gcompris_login:
     #we can add what you want in it.
 
     bconf = gcompris.configuration_window ( \
-      _('<b>{0}</b> configuration\n for profile <b>{1}</b>')\
-        .format('Login', ( profile.name if profile else _("Default") ) ),
+      _('<b>{config}</b> configuration\n for profile <b>{profile}</b>').format( \
+                        config='Login',
+                        # This is the name of the Default user profile
+                        profile=profile.name if profile else _("Default")),
       self.ok_callback
       )
 
