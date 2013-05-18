@@ -445,8 +445,9 @@ class Gcompris_pythontest:
     #we can add what you want in it.
 
     bconf = gcompris.configuration_window ( \
-      _('<b>%s</b> configuration\n for profile <b>%s</b>')
-      % ('Pythontest', (profile.name if profile else "") ),
+      _('<b>{config}</b> configuration\n for profile <b>{profile}</b>').format( \
+                        config='Pythontest',
+                        profile=profile.name if profile else _("Default")),
       self.ok_callback
       )
 

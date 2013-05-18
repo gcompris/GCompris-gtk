@@ -410,7 +410,7 @@ class Gcompris_login:
   def entry_text(self):
     self.entry = gtk.Entry()
 
-    self.entry.modify_font(pango.FontDescription("sans bold 36"))
+    self.entry.modify_font(pango.FontDescription(gcompris.skin.get_font("gcompris/board/huge bold")))
     text_color = gtk.gdk.color_parse("black")
     text_color_selected = gtk.gdk.color_parse("black")
     bg_color = gtk.gdk.color_parse("white")
@@ -477,8 +477,9 @@ class Gcompris_login:
     #we can add what you want in it.
 
     bconf = gcompris.configuration_window ( \
-      _('<b>{0}</b> configuration\n for profile <b>{1}</b>')\
-        .format('Login', ( profile.name if profile else _("Default") ) ),
+      _('<b>{config}</b> configuration\n for profile <b>{profile}</b>').format( \
+                        config='Login',
+                        profile=profile.name if profile else _("Default")),
       self.ok_callback
       )
 

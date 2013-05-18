@@ -42,8 +42,9 @@ class Words_list:
     files = glob.glob('wordlist_*.xml')
 
     self.main_vbox = gcompris.configuration_window ( \
-      _('<b>{config}</b> configuration\n for profile <b>{profile}</b>').format(config='Wordlist',
-                                                                               profile=self.active_profile.name),
+      _('<b>{config}</b> configuration\n for profile <b>{profile}</b>').format( \
+                        config='Wordlist',
+                        profile=profile.name if profile else _("Default")),
       self.wordlist_callback
       )
 

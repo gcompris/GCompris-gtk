@@ -89,7 +89,7 @@ class Module:
         item = goocanvas.Text(
             parent = self.root_select_item,
             text=_(self.module_label),
-            font = "Sans 8",
+            font = gcompris.skin.get_font("gcompris/board/minuscule"),
             x = centered_x,
             y = y1,
             fill_color="black"

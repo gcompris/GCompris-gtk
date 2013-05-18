@@ -182,8 +182,12 @@ class Gcompris_tuxpaint:
     #set already configured values
     self.config_dict.update(gcompris.get_conf(profile, self.gcomprisBoard))
 
-    bconfig = gcompris.configuration_window(_('<b>%s</b> configuration\n for profile <b>%s</b>') % ('Tuxpaint', profile.name ),
-                                                   self.apply_callback)
+    bconfig = gcompris.configuration_window( \
+      _('<b>{config}</b> configuration\n for profile <b>{profile}</b>').format( \
+                        config='Tuspaint',
+                        profile=profile.name if profile else _("Default")),
+      self.apply_callback
+      )
 
 
     gcompris.boolean_box(bconfig, _('Inherit fullscreen setting from GCompris'), 'fullscreen', eval(self.config_dict['fullscreen']))
