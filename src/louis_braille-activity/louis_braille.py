@@ -364,7 +364,7 @@ class Reordering:
                    fill_color = "black",
                    anchor = gtk.ANCHOR_CENTER,
                    alignment = pango.ALIGN_CENTER,
-                   font = 'SANS 9',
+                   font = gcompris.skin.get_font("gcompris/board/tiny"),
                    width = 635,
                    )
 
