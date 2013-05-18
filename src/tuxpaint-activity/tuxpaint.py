@@ -184,7 +184,8 @@ class Gcompris_tuxpaint:
 
     bconfig = gcompris.configuration_window( \
       _('<b>{config}</b> configuration\n for profile <b>{profile}</b>').format( \
-                        config='Tuspaint',
+                        config='Tuxpaint',
+                        # This is the name of the Default user profile
                         profile=profile.name if profile else _("Default")),
       self.apply_callback
       )

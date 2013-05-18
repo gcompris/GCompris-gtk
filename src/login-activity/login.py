@@ -479,6 +479,7 @@ class Gcompris_login:
     bconf = gcompris.configuration_window ( \
       _('<b>{config}</b> configuration\n for profile <b>{profile}</b>').format( \
                         config='Login',
+                        # This is the name of the Default user profile
                         profile=profile.name if profile else _("Default")),
       self.ok_callback
       )
