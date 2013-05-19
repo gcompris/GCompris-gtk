@@ -566,8 +566,6 @@ void gc_menu_load_dir(char *dirname, gboolean db){
 	if ( ! board->board_id )
 	  // If there is no datadase, let's give an id here
 	  board->board_id = new_board_id++;
-
-	if ( ! IS_ADMIN(board) )
 	  list_old_boards_id = suppress_int_from_list(list_old_boards_id, board->board_id);
       }
     }
@@ -589,51 +587,37 @@ void gc_menu_load_dir(char *dirname, gboolean db){
 static GcomprisBoard *gc_menu_load_board(const gchar *dirname,
         const gchar *one_dirent, gboolean db)
 {
-      GcomprisProperties	*properties = gc_prop_get();
-      GcomprisBoard *board_read = NULL;
-      GcomprisBoard *gcomprisBoard = NULL;
-      gchar *filename;
+  GcomprisBoard *board_read = NULL;
+  GcomprisBoard *gcomprisBoard = NULL;
+  gchar *filename;
 
-      filename = g_strdup_printf("%s/%s",
-				 dirname, one_dirent);
+  filename = g_strdup_printf("%s/%s",
+			     dirname, one_dirent);
 
-      if(!g_file_test(filename, G_FILE_TEST_IS_REGULAR)) {
-	g_free(filename);
-	return NULL;
-      }
+  if(!g_file_test(filename, G_FILE_TEST_IS_REGULAR)) {
+    g_free(filename);
+    return NULL;
+  }
 
-      if(file_end_with_xml(one_dirent)) {
-	gcomprisBoard = g_malloc0 (sizeof (GcomprisBoard));
+  if(file_end_with_xml(one_dirent)) {
+    gcomprisBoard = g_malloc0 (sizeof (GcomprisBoard));
 
-	/* Need to be initialized here because _read_xml_file is used also to reread 	*/
-	/* the locale data									*/
-	/* And we don't want in this case to loose the current plugin				*/
-	gcomprisBoard->plugin=NULL;
-	gcomprisBoard->previous_board=NULL;
+    /* Need to be initialized here because _read_xml_file is used also to reread 	*/
+    /* the locale data									*/
+    /* And we don't want in this case to loose the current plugin			*/
+    gcomprisBoard->plugin=NULL;
+    gcomprisBoard->previous_board=NULL;
 
-	board_read = _read_xml_file(gcomprisBoard, filename, db);
-	if (board_read) {
-	  if (properties->administration)
-	    boards_list = g_list_append(boards_list, board_read);
-	  else {
-	    if ( ! IS_ADMIN(board_read) ) {
-	      boards_list = g_list_append(boards_list, board_read);
-	    }
-	    else
-	      {
-		gc_menu_board_free(board_read);
-		board_read = NULL;
-	      }
-	  }
-	  if (board_read) {
-	    gc_status_set_msg( _("Loading activity from file:\n%s"),
-			       board_read->title );
-	  }
-	}
+    board_read = _read_xml_file(gcomprisBoard, filename, db);
+    if (board_read) {
+      boards_list = g_list_append(boards_list, board_read);
+      gc_status_set_msg( _("Loading activity from file:\n%s"),
+			 board_read->title );
+    }
     else
-        gc_menu_board_free(gcomprisBoard);
-	}
-      g_free(filename);
+      gc_menu_board_free(gcomprisBoard);
+  }
+  g_free(filename);
 
   return board_read;
 }
