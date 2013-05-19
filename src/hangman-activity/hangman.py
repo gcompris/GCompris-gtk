@@ -26,8 +26,9 @@ import gcompris.bonus
 import gcompris.score
 import goocanvas
 import pango
-
+import gettext
 from gcompris import gcompris_gettext as _
+from gettext import dgettext as D_
 
 fles = None
 
@@ -125,14 +126,14 @@ class Gcompris_hangman:
     # Get the name of the language for the current locale
     self.wordlist = None
     try:
-      self.language = gcompris.gcompris_gettext( gcompris.get_locale_name(gcompris.get_locale()) )
+      self.language = D_(gcompris.GETTEXT_GUI,gcompris.get_locale_name(gcompris.get_locale()) )
       self.wordlist = gcompris.get_wordlist("hangman/default-$LOCALE.xml")
     except:
       pass
     # Fallback to wordsgame list
     if not self.wordlist:
         try:
-            self.language = gcompris.gcompris_gettext( gcompris.get_locale_name(gcompris.get_locale()) )
+            self.language = D_(gcompris.GETTEXT_GUI,gcompris.get_locale_name(gcompris.get_locale()) )
             self.wordlist = gcompris.get_wordlist("wordsgame/default-$LOCALE.xml")
         except:
             pass
@@ -140,16 +141,16 @@ class Gcompris_hangman:
     if not self.wordlist:
         try:
             self.wordlist = gcompris.get_wordlist("hangman/default-en.xml")
-            self.language = _("English")
+            self.language = D_(gcompris.GETTEXT_GUI,"English")
         except:
             pass
     # Fallback to English wordsgame list
     if not self.wordlist:
         self.wordlist = gcompris.get_wordlist("wordsgame/default-en.xml")
-        self.language = _("English")
+        self.language = D_(gcompris.GETTEXT_GUI,"English")
 
     if not self.wordlist:
-      gcompris.utils.dialog(_("Could not find the list of words."),
+      gcompris.utils.dialog(D_(gcompris.GETTEXT_ERROR,"Could not find the list of words."),
                             stop_board)
       return;
 

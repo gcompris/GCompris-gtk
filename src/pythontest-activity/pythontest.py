@@ -27,8 +27,10 @@ import gtk.gdk
 import random
 import cairo
 import pango
+import gettext
 
 from gcompris import gcompris_gettext as _
+from gettext import dgettext as D_
 
 class Gcompris_pythontest:
   """Testing gcompris python class"""
@@ -445,15 +447,17 @@ class Gcompris_pythontest:
     #we can add what you want in it.
 
     bconf = gcompris.configuration_window ( \
-      _('<b>{config}</b> configuration\n for profile <b>{profile}</b>').format( \
-                        config='Pythontest',
+      D_(gcompris.GETTEXT_GUI, \
+        '<b>{activity}</b> configuration\n for profile <b>{profile}</b>'.format( \
+                        activity=_('Pythontest'),
                         # This is the name of the Default user profile
-                        profile=profile.name if profile else _("Default")),
-      self.ok_callback
+                        profile=profile.name if profile else D_(gcompris.GETTEXT_GUI,"Default")),
+        ),
+        self.ok_callback
       )
 
     # toggle box
-    control_line = gcompris.boolean_box(bconf, _('Disable line drawing in circle'),
+    control_line = gcompris.boolean_box(bconf, D_(gcompris.GETTEXT_GUI,'Disable line drawing in circle'),
                                         'disable_line',
                                         eval(self.config_dict['disable_line'])
                                         )
@@ -462,7 +466,7 @@ class Gcompris_pythontest:
 
     # combo box
     self.color_choice = \
-       gcompris.combo_box(bconf, _('Color of the line'),
+       gcompris.combo_box(bconf, D_(gcompris.GETTEXT_GUI,'Color of the line'),
                           self.config_colors_list,
                           'color_line',
                           self.config_dict['color_line']
@@ -473,7 +477,7 @@ class Gcompris_pythontest:
 
     #spin button for int
     self.distance_box = \
-       gcompris.spin_int(bconf, _('Distance between circles'),
+       gcompris.spin_int(bconf, D_(gcompris.GETTEXT_GUI,'Distance between circles'),
                          'distance_circle',
                          20,
                          200,
@@ -484,8 +488,8 @@ class Gcompris_pythontest:
     gcompris.separator(bconf)
 
     #radio buttons for circle or rectangle
-    patterns = { 'circle': _('Use circles'),
-                 'rectangle': _('Use rectangles')
+    patterns = { 'circle': D_(gcompris.GETTEXT_GUI,'Use circles'),
+                 'rectangle': D_(gcompris.GETTEXT_GUI,'Use rectangles')
                  }
 
     # FIXME radio button makes the configuration unstable
@@ -510,7 +514,7 @@ class Gcompris_pythontest:
     locales_purple = gcompris.get_locales_asset_list( "purple.ogg" )
     print locales_purple
 
-    gcompris.combo_locales_asset(bconf, _("Select sound locale"),
+    gcompris.combo_locales_asset(bconf, D_(gcompris.GETTEXT_GUI,"Choose a language"),
                                  self.config_dict['locale_sound'],
                                  "voices/$LOCALE/colors/red.ogg")
 

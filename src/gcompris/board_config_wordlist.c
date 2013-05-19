@@ -120,7 +120,7 @@ _combo_lang_changed(GtkComboBox *combo_lang, gpointer user_data)
 	}
 
 	/* add a new level*/
-	if((temp = g_strdup_printf(_("%d (New level)"), i)))
+	if((temp = g_strdup_printf(D_(GETTEXT_GUI,"%d (New level)"), i)))
 	{
 		gtk_combo_box_append_text(w->combo_level,temp);
 		g_free(temp);
@@ -222,7 +222,7 @@ GtkWidget *gc_board_config_wordlist(GcomprisBoardConf *config, const gchar *file
 	user_param_type_wordlist *user_data;
 
 	/* frame */
-	frame = gtk_frame_new(_("Configure the list of words"));
+	frame = gtk_frame_new(D_(GETTEXT_GUI,"Configure the list of words"));
 	gtk_widget_show(frame);
 	gtk_box_pack_start(GTK_BOX(config->main_conf_box), frame, FALSE, FALSE, 8);
 
@@ -233,7 +233,7 @@ GtkWidget *gc_board_config_wordlist(GcomprisBoardConf *config, const gchar *file
 	/* Combo_box lang */
 	combo_lang = _create_lang_combo(files);
 	hbox = gtk_hbox_new(FALSE, 8);
-	label = gtk_label_new(_("Choice of the language"));
+	label = gtk_label_new(D_(GETTEXT_GUI,"Choose a language"));
 	gtk_widget_show(label);
 	gtk_widget_show(hbox);
 	gtk_box_pack_start(GTK_BOX(hbox), label, FALSE, FALSE, 8);
@@ -245,7 +245,7 @@ GtkWidget *gc_board_config_wordlist(GcomprisBoardConf *config, const gchar *file
 
 	gtk_widget_show(combo_level);
 	hbox = gtk_hbox_new(FALSE, 8);
-	label = gtk_label_new(_("Choice of the level"));
+	label = gtk_label_new(D_(GETTEXT_GUI,"Choice of the level"));
 	gtk_widget_show(label);
 	gtk_widget_show(hbox);
 	gtk_box_pack_start(GTK_BOX(hbox), label, FALSE, FALSE, 8);
@@ -270,7 +270,7 @@ GtkWidget *gc_board_config_wordlist(GcomprisBoardConf *config, const gchar *file
 	gtk_widget_show(hbox);
 	gtk_box_pack_start(GTK_BOX(vbox), hbox, FALSE, FALSE, 8);
 
-	GtkWidget * b_default = gtk_button_new_with_label(_("Back to default"));
+	GtkWidget * b_default = gtk_button_new_with_label(D_(GETTEXT_GUI,"Back to default"));
 	gtk_widget_show(b_default);
 	gtk_box_pack_start(GTK_BOX(hbox), b_default, FALSE, FALSE, 8);
 

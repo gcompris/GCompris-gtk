@@ -17,7 +17,9 @@
 #
 # lang activity.
 
+import gettext
 from gcompris import gcompris_gettext as _
+from gettext import dgettext as D_
 import gcompris.utils
 import xml.dom.minidom
 
@@ -66,7 +68,7 @@ class Triplet:
                 self.descriptionTranslated = translations[fileName]
             except:
                 self.descriptionTranslated = \
-                    _("Missing translation for '{word}'".format(word = self.description))
+                    D_(gcompris.GETTEXT_ERROR,"Missing translation for '{word}'".format(word = self.description))
 
 
     def isValid(self):

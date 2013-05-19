@@ -96,7 +96,7 @@ void gc_dialog(gchar *str, DialogBoxCallBack dbcb)
 			  BOARDWIDTH * 0.5,
 			  bounds.y2 - 30,
 			  "#BUTTON_TEXT",
-			  _("OK"),
+                          D_(GETTEXT_GUI,"OK"),
 			  (GCallback) item_event_ok,
 			  dbcb);
 }

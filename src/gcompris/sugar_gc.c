@@ -160,7 +160,7 @@ set_button(gint number, gboolean visible)
     else {
       SugarToolButton *tool_button = sugar_tool_button_new();
       sugar_tool_button_set_icon_name(tool_button, button->icon);
-      sugar_tool_button_set_tooltip(tool_button, _(button->label));
+      sugar_tool_button_set_tooltip(tool_button, D_(GETTEXT_GUI,button->label));
       item = GTK_TOOL_ITEM(tool_button);
       g_signal_connect(item, "clicked", G_CALLBACK(button->cb),
                 button->user_data);

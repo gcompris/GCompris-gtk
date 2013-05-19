@@ -76,6 +76,11 @@
 #define N_(String) gettext_noop (String)
 #endif
 
+
+#ifndef D_
+#define D_(Domain,String) dgettext (Domain,String)
+#endif
+
 #define GC_DEFAULT_LOCALE "en_US.UTF-8"
 
 /*****************************************************************************/

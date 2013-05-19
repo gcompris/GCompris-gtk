@@ -191,7 +191,7 @@ gc_config_start ()
   y = bounds.y2 - 26;
 
   goo_canvas_text_new (rootitem,
-		       _("GCompris Configuration"),
+		       D_(GETTEXT_GUI,"GCompris Configuration"),
 		       (gdouble) BOARDWIDTH/2,
 		       (gdouble) y_start + 40,
 		       -1,
@@ -274,7 +274,7 @@ gc_config_start ()
 
 
   goo_canvas_text_new (rootitem,
-		       _("Fullscreen"),
+		       D_(GETTEXT_GUI,"Fullscreen"),
 		       (gdouble) x_text_start,
 		       (gdouble) y_start,
 		       -1,
@@ -299,7 +299,7 @@ gc_config_start ()
 
 
   goo_canvas_text_new (rootitem,
-		       _("Remember level for default user"),
+		       D_(GETTEXT_GUI,"Remember level for default user"),
 		       (gdouble) x_text_start,
 		       (gdouble) y_start,
 		       -1,
@@ -325,7 +325,7 @@ gc_config_start ()
 
 
   goo_canvas_text_new (rootitem,
-		       _("Music"),
+		       D_(GETTEXT_GUI,"Music"),
 		       (gdouble) x_text_start,
 		       (gdouble) y_start,
 		       -1,
@@ -350,7 +350,7 @@ gc_config_start ()
 
 
   goo_canvas_text_new (rootitem,
-		       _("Effect"),
+		       D_(GETTEXT_GUI,"Effect"),
 		       (gdouble) x_text_start,
 		       (gdouble) y_start,
 		       -1,
@@ -374,7 +374,7 @@ gc_config_start ()
   gc_item_focus_init(item, NULL);
 
   goo_canvas_text_new (rootitem,
-		       _("Zoom"),
+		       D_(GETTEXT_GUI,"Zoom"),
 		       (gdouble) x_text_start,
 		       (gdouble) y_start,
 		       -1,
@@ -389,7 +389,7 @@ gc_config_start ()
   display_previous_next(x_start, y_start, "timer_previous", "timer_next");
 
   item_timer_text = goo_canvas_text_new (rootitem,
-					 gettext(timername[properties->timer]),
+					 D_(GETTEXT_GUI,timername[properties->timer]),
 					 (gdouble) x_text_start,
 					 (gdouble) y_start,
 					 -1,
@@ -411,7 +411,7 @@ gc_config_start ()
     dir = g_dir_open(skin_dir, 0, NULL);
 
     if (!dir)
-      g_warning (_("Couldn't open skin dir: %s"), skin_dir);
+      g_warning (D_(GETTEXT_ERRORS,"Couldn't open skin dir: %s"), skin_dir);
 
     /* Fill up the skin list */
     while((one_dirent = g_dir_read_name(dir)) != NULL) {
@@ -442,9 +442,9 @@ gc_config_start ()
     if(g_list_length(skinlist) > 0) {
       g_warning("No skin found in %s\n", skin_dir);
       display_previous_next(x_start, y_start, "skin_previous", "skin_next");
-      first_skin_name = g_strdup_printf(_("Skin : %s"), (char *)g_list_nth_data(skinlist, skin_index));
+      first_skin_name = g_strdup_printf(D_(GETTEXT_GUI,"Skin : %s"), (char *)g_list_nth_data(skinlist, skin_index));
     } else {
-      first_skin_name = g_strdup(_("SKINS NOT FOUND"));
+      first_skin_name = g_strdup(D_(GETTEXT_ERRORS,"SKINS NOT FOUND"));
     }
 
     item_skin_text = goo_canvas_text_new (rootitem,
@@ -466,7 +466,7 @@ gc_config_start ()
 
   stars_group_x = x_start + 45;
   stars_group_y = y_start - 25;
-  gchar *text = g_strdup_printf("<i>%s</i>", gettext(filtername));
+  gchar *text = g_strdup_printf("<i>%s</i>", D_(GETTEXT_GUI,filtername));
   item_filter_text = goo_canvas_text_new (rootitem,
 					  text,
 					  x_text_start,
@@ -485,7 +485,7 @@ gc_config_start ()
 			  BOARDWIDTH * 0.5,
 			  y,
 			  "#BUTTON_TEXT",
-			  _("OK"),
+			  D_(GETTEXT_GUI,"OK"),
 			  (GCallback) item_event_ok,
 			  "ok");
 
@@ -543,7 +543,7 @@ gc_locale_get_name(const gchar *locale_code)
 
       if( !g_ascii_strncasecmp(locale, linguas[i],
 			       (dot_char ? dot_char - locale : strlen(locale)) ) )
-	return(gettext(linguas[i+1]));
+	return(D_(GETTEXT_GUI,linguas[i+1]));
 
       i=i+2;
     }
@@ -555,7 +555,7 @@ gc_locale_get_name(const gchar *locale_code)
 
       if( !g_ascii_strncasecmp(locale, linguas[i],
 			       (dot_char ? dot_char - locale : strlen(locale)) ) )
-	return(gettext(linguas[i+1]));
+	return(D_(GETTEXT_GUI,linguas[i+1]));
 
       i=i+2;
     }
@@ -635,7 +635,7 @@ gc_locale_get_locale(const gchar *name)
 
   while(linguas[i] != NULL)
     {
-      if( !strncmp(name, gettext(linguas[i+1]), strlen(name)) )
+      if( !strncmp(name, D_(GETTEXT_GUI,linguas[i+1]), strlen(name)) )
 	 return( linguas[i] );
 
       i=i+2;
@@ -904,7 +904,7 @@ item_event_ok(GooCanvasItem *item,
 	properties->timer--;
 
       g_object_set (G_OBJECT(item_timer_text),
-		    "text", gettext(timername[properties->timer]),
+		    "text", D_(GETTEXT_GUI,timername[properties->timer]),
 		    NULL);
     }
   else if(!strcmp((char *)data, "timer_next"))
@@ -913,7 +913,7 @@ item_event_ok(GooCanvasItem *item,
 	properties->timer++;
 
       g_object_set (G_OBJECT(item_timer_text),
-		    "text", gettext(timername[properties->timer]),
+		    "text", D_(GETTEXT_GUI,timername[properties->timer]),
 		    NULL);
     }
   else if(!strcmp((char *)data, "skin_previous"))
@@ -922,7 +922,7 @@ item_event_ok(GooCanvasItem *item,
       if(skin_index-- < 1)
 	skin_index = g_list_length(skinlist)-1;
 
-      skin_str = g_strdup_printf(_("Skin : %s"),
+      skin_str = g_strdup_printf(D_(GETTEXT_GUI,"Skin : %s"),
 				 (char *)g_list_nth_data(skinlist, skin_index));
 
       g_object_set (G_OBJECT(item_skin_text),
@@ -936,7 +936,7 @@ item_event_ok(GooCanvasItem *item,
       if(skin_index++ >= g_list_length(skinlist)-1)
 	skin_index = 0;
 
-      skin_str = g_strdup_printf(_("Skin : %s"),
+      skin_str = g_strdup_printf(D_(GETTEXT_GUI,"Skin : %s"),
 				 (char *)g_list_nth_data(skinlist, skin_index));
       g_object_set (G_OBJECT(item_skin_text),
 		    "text", skin_str,

@@ -25,7 +25,9 @@ import gcompris.skin
 import goocanvas
 import pango
 import time
+import gettext
 from gcompris import gcompris_gettext as _
+from gettext import dgettext as D_
 from gcomprismusic import *
 from random import randint
 import random
@@ -75,7 +77,7 @@ class Gcompris_play_piano:
         self.display_level(self.gcomprisBoard.level)
 
         if not (gcompris.get_properties().fx):
-            gcompris.utils.dialog(_("Error: This activity cannot be \
+            gcompris.utils.dialog(D_(gcompris.GETTEXT_ERROR,"Error: This activity cannot be \
 played with the\nsound effects disabled.\nGo to the configuration \
 dialogue to\nenable the sound."), None)
 

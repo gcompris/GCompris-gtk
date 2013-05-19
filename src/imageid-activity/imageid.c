@@ -524,7 +524,7 @@ add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode *child)
 
       if(text_index > MAX_PROPOSAL)
 	{
-	  gc_dialog(_("Data file for this level is not properly formatted. Too many choices are proposed."),
+	  gc_dialog(D_(GETTEXT_ERRORS,"Data file for this level is not properly formatted. Too many choices are proposed."),
 		    gc_board_stop);
 	  g_free(board);
 	  return;
@@ -536,7 +536,7 @@ add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode *child)
        || board->text[0] == NULL
        || board->text[1] == NULL )
     {
-      gc_dialog(_("Data file for this level is not properly formatted."),
+      gc_dialog(D_(GETTEXT_ERRORS,"Data file for this level is not properly formatted."),
 		gc_board_stop);
       g_free(board);
       return;
@@ -718,7 +718,7 @@ config_start(GcomprisBoard *agcomprisBoard,
    * TRANSLATORS: %1$s is the board name (imageid),
    * 2$s is the name of the current user profile
    */
-  gchar *label = g_strdup_printf(C_("imageid_config","<b>%1$s</b> configuration\n for profile <b>%2$s</b>"),
+  gchar *label = g_strdup_printf(g_dpgettext2(GETTEXT_GUI,"imageid_config","<b>%1$s</b> configuration\n for profile <b>%2$s</b>"),
 				 _(agcomprisBoard->name),
 				 aProfile ? aProfile->name : "");
   GcomprisBoardConf *bconf;

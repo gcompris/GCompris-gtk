@@ -25,9 +25,9 @@ import gcompris.bonus
 import gcompris.sound
 import goocanvas
 import pango
-
+import gettext
 from gcompris import gcompris_gettext as _
-
+from gettext import dgettext as D_
 import ConfigParser
 import random
 
@@ -333,12 +333,12 @@ class Gcompris_findit:
     try:
       gotit = config.read(filename)
       if not gotit:
-        gcompris.utils.dialog(_("Cannot find the file '{filename}'").\
+        gcompris.utils.dialog(D_(gcompris.GETTEXT_ERROR,"Cannot find the file '{filename}'").\
                                 format(filename=filename),
                               None)
         return False
     except ConfigParser.Error, error:
-      gcompris.utils.dialog(_("Failed to parse data set '{filename}'"
+      gcompris.utils.dialog(D_(gcompris.GETTEXT_ERROR,"Failed to parse data set '{filename}'"
                               " with error:\n{error}").\
                               format(filename=filename, error=error),
                             None)

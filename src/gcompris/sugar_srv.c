@@ -153,8 +153,8 @@ report_cb (const char *date, gint duration, const char *user, const char *board,
 static void
 offer_failed_cb(SugarConnection *conn, const gchar *bus_name)
 {
-  SugarAlert *alert = SUGAR_ALERT(sugar_notify_alert_new(_("Sharing Error"),
-            _("Cannot initiate sharing session"), "emblem-warning", 7));
+  SugarAlert *alert = SUGAR_ALERT(sugar_notify_alert_new(D_(GETTEXT_ERRORS,"Sharing Error"),
+            D_(GETTEXT_ERRORS,"Cannot initiate sharing session"), "emblem-warning", 7));
   sugar_alert_bin_push(alert);
   sugar_connection_set_scope(conn, SUGAR_SHARE_SCOPE_PRIVATE);
 }

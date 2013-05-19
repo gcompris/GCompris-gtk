@@ -1789,6 +1789,11 @@ void python_gcompris_module_init(void)
 
   /* GetText constants. */
   PyModule_AddStringConstant(gcomprisModule, "GETTEXT_PACKAGE", GETTEXT_PACKAGE);
+  PyModule_AddStringConstant(gcomprisModule, "GETTEXT_GUI", GETTEXT_GUI);
+  PyModule_AddStringConstant(gcomprisModule, "GETTEXT_ADMIN", GETTEXT_ADMIN);
+  PyModule_AddStringConstant(gcomprisModule, "GETTEXT_MANUAL", GETTEXT_MANUAL);
+  PyModule_AddStringConstant(gcomprisModule, "GETTEXT_HELP", GETTEXT_HELP);
+  PyModule_AddStringConstant(gcomprisModule, "GETTEXT_ERRORS", GETTEXT_ERRORS);
   PyModule_AddStringConstant(gcomprisModule, "PACKAGE_LOCALE_DIR",  PACKAGE_LOCALE_DIR);
 
 

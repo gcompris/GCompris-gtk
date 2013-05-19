@@ -1261,7 +1261,7 @@ config_start(GcomprisBoard *agcomprisBoard,
    * TRANSLATORS: %1$s is the board name (scale_config),
    * 2$s is the name of the current user profile
    */
-  gchar * label = g_strdup_printf(C_("scale_config","<b>%1$s</b> configuration\n for profile <b>%2$s</b>"),
+  gchar * label = g_strdup_printf(g_dpgettext2(GETTEXT_GUI,"scale_config","<b>%1$s</b> configuration\n for profile <b>%2$s</b>"),
 				  _(agcomprisBoard->name),
 				  aProfile? aProfile->name : "");
 

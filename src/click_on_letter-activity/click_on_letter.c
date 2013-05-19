@@ -385,12 +385,12 @@ static guint sounds_are_fine()
   char *letter_str;
   char *str2;
   GcomprisProperties *properties = gc_prop_get();
-  gchar *text_mode_str = _("This activity will be played with questions displayed as text"
+  gchar *text_mode_str = D_(GETTEXT_GUI,"This activity will be played with questions displayed as text"
 			   " instead of being spoken");
 
   if(!properties->fx)
     {
-      gchar *msg = g_strconcat( _("Error: this activity cannot be played with the\n"
+      gchar *msg = g_strconcat( D_(GETTEXT_ERRORS,"Error: this activity cannot be played with the\n"
 				  "sound effects disabled.\nGo to the configuration"
 				  " dialog to\nenable the sound"),
 			       "\n", text_mode_str, NULL);
@@ -409,7 +409,7 @@ static guint sounds_are_fine()
 
   if (!str2)
     {
-      gchar *msg2 = g_strdup_printf( _("Error: this activity requires that you first install\nthe packages with GCompris voices for the %s locale."),
+      gchar *msg2 = g_strdup_printf( D_(GETTEXT_ERRORS,"Error: this activity requires that you first install\nthe packages with GCompris voices for the %s locale."),
 				     gc_locale_get_name( gc_locale_get() ) );
       gchar *msg = g_strconcat(msg2, "\n", text_mode_str, NULL);
       g_free(msg2);
@@ -1054,7 +1054,7 @@ valid_entry(Level *level)
           || g_strcmp0 ("",(level->questions)->data)==0
           || g_slist_length(level->questions) < 1)
   {
-      error = g_strdup (_("Questions cannot be empty.") );
+      error = g_strdup (D_(GETTEXT_ERRORS,"Questions cannot be empty.") );
       goto error;
   }
   
@@ -1063,13 +1063,13 @@ valid_entry(Level *level)
           || g_strcmp0 ("",(level->answers)->data)==0
           || g_slist_length(level->answers) < 1)
   {
-      error = g_strdup (_("Answers cannot be empty.") );
+      error = g_strdup (D_(GETTEXT_ERRORS,"Answers cannot be empty.") );
       goto error;
   }
   
   if ( g_slist_length(level->answers) > MAX_N_ANSWER )
   {
-      error = g_strdup_printf( _("Too many characters in the Answer (maximum is %d)."),
+      error = g_strdup_printf( D_(GETTEXT_ERRORS,"Too many characters in the Answer (maximum is %d)."),
 				 MAX_N_ANSWER );
       goto error;
   }
@@ -1087,7 +1087,7 @@ valid_entry(Level *level)
       } while (!found && (answerpointer = g_slist_next(answerpointer)));
       if (! found )
       {
-	  error = g_strdup ( _("All the characters in Questions must also be in the Answers.") );
+	  error = g_strdup ( D_(GETTEXT_ERRORS,"All the characters in Questions must also be in the Answers.") );
 	  goto error;
       }
   } while ((questionpointer = g_slist_next(questionpointer)));
@@ -1112,7 +1112,7 @@ valid_entry(Level *level)
 			    GTK_DIALOG_DESTROY_WITH_PARENT,
 			    GTK_MESSAGE_ERROR,
 			    GTK_BUTTONS_CLOSE,
-			    _("Invalid entry:\n"
+			    D_(GETTEXT_ERRORS,"Invalid entry:\n"
 			      "At level %d, Questions '%s' / Answers '%s'\n%s"),
 			    level->level, questions, answers,
 			    error);
@@ -1432,7 +1432,7 @@ static void configure_colummns(GtkTreeView *treeview)
   renderer = gtk_cell_renderer_text_new();
   g_object_set_data(G_OBJECT(renderer), "my_column_num",  GUINT_TO_POINTER(LEVEL_COLUMN) );
 
-  column = gtk_tree_view_column_new_with_attributes(_("Level"),
+  column = gtk_tree_view_column_new_with_attributes(D_(GETTEXT_GUI,"Level"),
                                                     renderer,
 						    "text", LEVEL_COLUMN,
 						    NULL);
@@ -1444,7 +1444,7 @@ static void configure_colummns(GtkTreeView *treeview)
   g_object_set(renderer, "editable", TRUE, NULL);
   g_object_set_data(G_OBJECT(renderer), "my_column_num",  GUINT_TO_POINTER(QUESTION_COLUMN) );
   g_signal_connect(renderer, "edited", (GCallback) cell_edited_callback, treeview);
-  column = gtk_tree_view_column_new_with_attributes(_("Question"),
+  column = gtk_tree_view_column_new_with_attributes(D_(GETTEXT_GUI,"Question"),
                                                     renderer,
 						    "text", QUESTION_COLUMN,
 						    NULL);
@@ -1456,7 +1456,7 @@ static void configure_colummns(GtkTreeView *treeview)
   g_object_set(renderer, "editable", TRUE, NULL);
   g_object_set_data(G_OBJECT(renderer), "my_column_num",  GUINT_TO_POINTER(ANSWER_COLUMN) );
   g_signal_connect(renderer, "edited", (GCallback) cell_edited_callback, treeview);
-  column = gtk_tree_view_column_new_with_attributes(_("Answer"),
+  column = gtk_tree_view_column_new_with_attributes(D_(GETTEXT_GUI,"Answer"),
                                                     renderer,
 						    "text", ANSWER_COLUMN,
 						    NULL);
@@ -1505,7 +1505,7 @@ config_start(GcomprisBoard *agcomprisBoard,
    * TRANSLATORS: %1$s is the board name (click_on_letter),
    * 2$s is the name of the current user profile
    */
-  gchar *label = g_strdup_printf(C_("click_on_letter_config","<b>%1$s</b> configuration\n for profile <b>%2$s</b>"),
+  gchar *label = g_strdup_printf(g_dpgettext2(GETTEXT_GUI,"click_on_letter_config","<b>%1$s</b> configuration\n for profile <b>%2$s</b>"),
 				 _(agcomprisBoard->name),
 				 aProfile ? aProfile->name : "");
   GcomprisBoardConf *bconf;
@@ -1518,7 +1518,7 @@ config_start(GcomprisBoard *agcomprisBoard,
 
   gchar *saved_locale_sound = g_hash_table_lookup( config, "locale_sound");
 
-  gc_board_config_combo_locales_asset(bconf, "Select sound locale", saved_locale_sound,
+  gc_board_config_combo_locales_asset(bconf, D_(GETTEXT_GUI,"Choose a language"), saved_locale_sound,
 				      "voices/$LOCALE/colors/purple.ogg",
 				      G_CALLBACK (locale_changed));
 
@@ -1594,7 +1594,7 @@ config_start(GcomprisBoard *agcomprisBoard,
   gtk_widget_show(hbox);
   gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, FALSE, 0);
 
-  button = gtk_button_new_with_label(_("Back to default"));
+  button = gtk_button_new_with_label(D_(GETTEXT_GUI,"Back to default"));
   gtk_widget_show(button);
   g_signal_connect (button, "clicked",
 		    G_CALLBACK (return_to_default), model);

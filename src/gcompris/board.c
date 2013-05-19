@@ -146,7 +146,7 @@ void gc_board_init(void)
 
   /* First make sure the module loading is supported on this platform */
   if (!g_module_supported())
-    g_error( _("Dynamic module loading is not supported. GCompris cannot load.\n") );
+    g_error( D_(GETTEXT_ERRORS,"Dynamic module loading is not supported. GCompris cannot load.\n") );
 
   bp_data = g_malloc0(sizeof (struct BoardPluginData));
 

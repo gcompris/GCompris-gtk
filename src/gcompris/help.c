@@ -180,7 +180,7 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
 
       item_prerequisite_text = \
 	goo_canvas_text_new (rootitem,
-			     _("Prerequisite"),
+			     D_(GETTEXT_GUI,"Prerequisite"),
 			     BOARDWIDTH*0.20,
 			     y_start   + GAP_TO_BUTTON,
 			     -1,
@@ -210,7 +210,7 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
       gc_item_focus_init(item_goal, NULL);
 
       item_goal_text = goo_canvas_text_new (rootitem,
-					    _("Goal"),
+					    D_(GETTEXT_GUI,"Goal"),
 					    BOARDWIDTH*0.4,
 					    y_start   + GAP_TO_BUTTON,
 					    -1,
@@ -240,7 +240,7 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
       gc_item_focus_init(item_manual, NULL);
 
       item_manual_text = goo_canvas_text_new (rootitem,
-					      _("Manual"),
+					      D_(GETTEXT_GUI,"Manual"),
 					      BOARDWIDTH*0.6,
 					      y_start   + GAP_TO_BUTTON,
 					      -1,
@@ -270,7 +270,7 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
       gc_item_focus_init(item_credit, NULL);
 
       item_credit_text = goo_canvas_text_new (rootitem,
-					      _("Credit"),
+					      D_(GETTEXT_GUI,"Credit"),
 					      BOARDWIDTH*0.8,
 					      y_start   + GAP_TO_BUTTON,
 					      -1,
@@ -355,7 +355,7 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
 			  BOARDWIDTH * 0.5,
 			  y,
 			  "#BUTTON_TEXT",
-			  _("OK"),
+			  D_(GETTEXT_GUI,"OK"),
 			  (GCallback) item_event_help,
 			  "ok");
 

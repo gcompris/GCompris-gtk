@@ -219,8 +219,8 @@ get_profile_from_server_cb(const char* profile_data, void* user_data)
 
   if (profile_data == NULL)
   {
-    SugarAlert *alert = SUGAR_ALERT(sugar_notify_alert_new(_("Sharing Error"),
-              _("Cannot retrieve remote data"), "emblem-warning", 7));
+    SugarAlert *alert = SUGAR_ALERT(sugar_notify_alert_new(D_(GETTEXT_ERRORS,"Sharing Error"),
+              D_(GETTEXT_MANUAL,"Cannot retrieve remote data"), "emblem-warning", 7));
     sugar_alert_bin_push(alert);
 
     SugarConnection *conn = sugar_activity_get_connection(activity);

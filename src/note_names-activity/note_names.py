@@ -27,8 +27,9 @@ import pango
 from random import randint
 import random
 
+import gettext
 from gcompris import gcompris_gettext as _
-
+from gettext import dgettext as D_
 from gcomprismusic import *
 
 
@@ -79,7 +80,7 @@ class Gcompris_note_names:
         self.display_level(self.gcomprisBoard.level)
 
         if not (gcompris.get_properties().fx):
-            gcompris.utils.dialog(_("Error: This activity cannot be \
+            gcompris.utils.dialog(D_(gcompris.GETTEXT_ERROR,"Error: This activity cannot be \
 played with the\nsound effects disabled.\nGo to the configuration \
 dialogue to\nenable the sound."), None)
 

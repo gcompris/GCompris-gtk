@@ -29,9 +29,9 @@ import goocanvas
 import pango
 import gcompris.sound
 import ConfigParser
-
+import gettext
 from gcompris import gcompris_gettext as _
-
+from gettext import dgettext as D_
 from gcomprismusic import *
 
 class Gcompris_piano_composition:
@@ -369,7 +369,7 @@ class Gcompris_piano_composition:
         self.keyboard.draw(300, 200, self.keyboard_click)
 
         if not (gcompris.get_properties().fx):
-            gcompris.utils.dialog(_("Error: This activity cannot be \
+            gcompris.utils.dialog(D_(gcompris.GETTEXT_ERROR,"Error: This activity cannot be \
 played with the\nsound effects disabled.\nGo to the configuration \
 dialogue to\nenable the sound."), None)
 
@@ -502,12 +502,12 @@ dialogue to\nenable the sound."), None)
             try:
                 gotit = config.read(filename)
                 if not gotit:
-                    gcompris.utils.dialog(_("Cannot find the file '{filename}'").\
+                    gcompris.utils.dialog(D_(gcompris.GETTEXT_ERROR,"Cannot find the file '{filename}'").\
                                         format(filename=filename),
                                     None)
                     return False
             except ConfigParser.Error, error:
-                    gcompris.utils.dialog(_("Failed to parse data set '{filename}'"
+                    gcompris.utils.dialog(D_(gcompris.GETTEXT_ERROR,"Failed to parse data set '{filename}'"
                                       " with error:\n{error}").\
                                       format(filename=filename, error=error),
                                     None)

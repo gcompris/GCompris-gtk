@@ -27,8 +27,9 @@ import pango
 import random
 import ConfigParser
 from BrailleChar import *
-
+import gettext
 from gcompris import gcompris_gettext as _
+from gettext import dgettext as D_
 
 COLOR_ON = 0XFF0000FFL
 COLOR_OFF= 0XFFFFFFFFL
@@ -81,11 +82,11 @@ class Gcompris_louis_braille:
     try:
       gotit = config.read(filename)
       if not gotit:
-         gcompris.utils.dialog(_("Cannot find the file '{filename}'").format(filename=filename),None)
+         gcompris.utils.dialog(D_(gcompris.GETTEXT_ERROR,"Cannot find the file '{filename}'").format(filename=filename),None)
          return False
 
     except ConfigParser.Error, error:
-      gcompris.utils.dialog(_("Failed to parse data set '{filename}' with error:\n{error}").
+      gcompris.utils.dialog(D_(gcompris.GETTEXT_ERROR,"Failed to parse data set '{filename}' with error:\n{error}").
                               format(filename=filename, error=error), None)
       return False
 

@@ -54,7 +54,7 @@ void gc_about_start ()
        );
 
   /* TRANSLATORS: Replace this string with your names, one name per line. */
-  gchar *translators = _("translator_credits");
+  gchar *translators = D_(GETTEXT_GUI,"translator_credits");
 
   /* Pause the board */
   gc_board_pause(TRUE);
@@ -83,7 +83,7 @@ void gc_about_start ()
   y = bounds.y2 - 26;
 
   goo_canvas_text_new (rootitem,
-		       _("About GCompris"),
+		       D_(GETTEXT_GUI,"About GCompris"),
 		       (gdouble) BOARDWIDTH/2,
 		       (gdouble) y_start + 35,
 		       -1,
@@ -93,7 +93,7 @@ void gc_about_start ()
 		       NULL);
 
   goo_canvas_text_new (rootitem,
-		       _("GCompris Home Page: http://gcompris.net"),
+		       D_(GETTEXT_GUI,"GCompris Home Page: http://gcompris.net"),
 		       (gdouble) BOARDWIDTH/2,
 		       (gdouble)  y_start + 58,
 		       -1,
@@ -103,8 +103,8 @@ void gc_about_start ()
 		       NULL);
 
   gchar *text = g_strdup_printf("%s\n%s\n%s",
-				_(content),
-				_("Translators:"),
+				D_(GETTEXT_GUI,content),
+				D_(GETTEXT_GUI,"Translators:"),
 				translators);
 
   y_start += 100;
@@ -204,7 +204,7 @@ void gc_about_start ()
 
   // License
   item = goo_canvas_text_new (rootitem,
-			      _("This software is a GNU Package and is released under the GNU General Public License"),
+			      D_(GETTEXT_GUI,"This software is a GNU Package and is released under the GNU General Public License"),
 			      (gdouble)  BOARDWIDTH/2,
 			      (gdouble)  y - 40,
 			      -1,
@@ -218,7 +218,7 @@ void gc_about_start ()
 			  BOARDWIDTH * 0.5,
 			  y,
 			  "#BUTTON_TEXT",
-			  _("OK"),
+			  D_(GETTEXT_GUI,"OK"),
 			  (GCallback) item_event_ok,
 			  "ok");
 

@@ -213,7 +213,7 @@ static void load_letters(int uppercase_only)
           if(!gc_wordlist)
             {
               gcomprisBoard = NULL;
-              gc_dialog(_("Error: We can't find\na list of letters to play this game.\n"), gc_board_end);
+              gc_dialog(D_(GETTEXT_ERRORS,"Error: We can't find\na list of letters to play this game.\n"), gc_board_end);
               return;
             }
         }
@@ -770,7 +770,7 @@ static GooCanvasItem *gletters_create_item(GooCanvasItem *parent)
   else
   {
     /* Should display the dialog box here */
-      gc_dialog(_("ERROR: Unable to get letter from wordlist"),gletters_next_level);
+      gc_dialog(D_(GETTEXT_ERRORS,"ERROR: Unable to get letter from wordlist"),gletters_next_level);
       g_error("ERROR: Unable to get letter from wordlist");
     return NULL;
   } 
@@ -1021,7 +1021,7 @@ gletters_config_start(GcomprisBoard *agcomprisBoard,
    * TRANSLATORS: %1$s is the board name (gletters),
    * 2$s is the name of the current user profile
    */
-  gchar *label = g_strdup_printf(C_("gletters_config","<b>%1$s</b> configuration\n for profile <b>%2$s</b>"),
+  gchar *label = g_strdup_printf(g_dpgettext2(GETTEXT_GUI,"gletters_config","<b>%1$s</b> configuration\n for profile <b>%2$s</b>"),
 			  _(agcomprisBoard->name), aProfile ? aProfile->name : "");
 
   GcomprisBoardConf *bconf = gc_board_config_window_display(label, (GcomprisConfCallback )conf_ok);
@@ -1050,11 +1050,11 @@ gletters_config_start(GcomprisBoard *agcomprisBoard,
   else
     with_sound = FALSE;
 
-  gc_board_config_boolean_box(bconf, _("Enable sounds"), "with_sound", with_sound);
+  gc_board_config_boolean_box(bconf, D_(GETTEXT_GUI,"Enable sounds"), "with_sound", with_sound);
 
   gc_board_conf_separator(bconf);
 
-  gc_board_config_boolean_box(bconf, _("Show letters in UPPERCASE\nType in lowercase or UPPERCASE as you wish"),
+  gc_board_config_boolean_box(bconf, D_(GETTEXT_GUI,"Show letters in UPPERCASE\nType in lowercase or UPPERCASE as you wish"),
 		       "uppercase_only",
 		       up_init);
 }

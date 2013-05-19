@@ -138,10 +138,10 @@ GdkPixbuf *gc_pixmap_load(const gchar *format, ...)
 	g_warning ("Couldn't find file %s !", pixmapfile);
 
       str = g_strdup_printf("%s\n%s\n%s\n%s",
-			    _("Couldn't find or load the file"),
+			    D_(GETTEXT_ERRORS,"Couldn't find or load the file"),
 			    pixmapfile,
-			    _("This activity is incomplete."),
-			    _("Exit it and report\nthe problem to the authors."));
+			    D_(GETTEXT_ERRORS,"This activity is incomplete."),
+			    D_(GETTEXT_ERRORS,"Exit it and report\nthe problem to the authors."));
       gc_dialog (str, NULL);
       g_free(pixmapfile);
       g_free(str);
@@ -196,10 +196,10 @@ RsvgHandle *gc_rsvg_load(const gchar *format, ...)
 	g_warning ("Couldn't find file %s !", rsvghandlefile);
 
       str = g_strdup_printf("%s\n%s\n%s\n%s",
-			    _("Couldn't find or load the file"),
+			    D_(GETTEXT_ERRORS,"Couldn't find or load the file"),
 			    rsvghandlefile,
-			    _("This activity is incomplete."),
-			    _("Exit it and report\nthe problem to the authors."));
+			    D_(GETTEXT_ERRORS,"This activity is incomplete."),
+			    D_(GETTEXT_ERRORS,"Exit it and report\nthe problem to the authors."));
       gc_dialog (str, NULL);
       g_free(rsvghandlefile);
       g_free(str);

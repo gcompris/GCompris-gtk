@@ -30,8 +30,9 @@ import gobject
 import cairo
 
 import random
-
+import gettext
 from gcompris import gcompris_gettext as _
+from gettext import dgettext as D_
 
 class Gcompris_drawnumber :
 
@@ -235,7 +236,7 @@ class Gcompris_drawnumber :
     try:
       f = open( filename, 'r')
     except:
-      gcompris.utils.dialog(_("Cannot find the file '{filename}'").format(filename=filename),
+      gcompris.utils.dialog(D_(gcompris.GETTEXT_ERROR,"Cannot find the file '{filename}'").format(filename=filename),
                             None)
       return
 

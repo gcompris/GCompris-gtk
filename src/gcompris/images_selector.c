@@ -310,7 +310,7 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
 			  (BOARDWIDTH*0.5),
 			  BOARDHEIGHT - 32,
 			  "#BUTTON_TEXT",
-			  _("OK"),
+			  D_(GETTEXT_GUI,"OK"),
 			  (GCallback) item_event_images_selector,
 			  "/ok/");
 }

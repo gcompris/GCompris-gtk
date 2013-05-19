@@ -76,38 +76,38 @@ static gboolean valid_entry(const gchar *question, const gchar *answer,
 
   if(pixmap == NULL)
     {
-      error = _("Please select an image.");
+      error = D_(GETTEXT_ERRORS,"Please select an image.");
       goto error;
     }
 
   if ( strlen(choice) == 0 )
     {
-      error = _("Choice cannot be empty.");
+      error = D_(GETTEXT_ERRORS,"Choice cannot be empty.");
       goto error;
     }
 
   if ( strlen(question) == 0 )
     {
-      error = _("Question cannot be empty.");
+      error = D_(GETTEXT_ERRORS,"Question cannot be empty.");
       goto error;
     }
 
   if ( strchr(question, '_') == NULL )
     {
-      error = _("Question must include the character '_'. "
+      error = D_(GETTEXT_ERRORS,"Question must include the character '_'. "
 		"It represents the letter to search.");
       goto error;
     }
 
   if ( strlen(pixmap) == 0 )
     {
-      error = _("Pixmap cannot be empty");
+      error = D_(GETTEXT_ERRORS,"Pixmap cannot be empty");
       goto error;
     }
 
   if ( g_utf8_strlen(choice, -1) < 2 )
     {
-      error = _("There must be at least 2 choices.");
+      error = D_(GETTEXT_ERRORS,"There must be at least 2 choices.");
       goto error;
     }
 
@@ -115,7 +115,7 @@ static gboolean valid_entry(const gchar *question, const gchar *answer,
   if ( ! g_str_has_prefix(answer, split[0]) ||
        ! g_str_has_suffix(answer, split[1]) )
     {
-      error = _("The answer and question must be the same "
+      error = D_(GETTEXT_ERRORS,"The answer and question must be the same "
 		"except for the character '_'.");
       g_strfreev(split);
       goto error;
@@ -124,7 +124,7 @@ static gboolean valid_entry(const gchar *question, const gchar *answer,
   /* FIXME: Should manage UTF8 here */
   if ( choice[0] != answer[strlen(split[0])] )
     {
-      error = _("The first choice must be the solution "
+      error = D_(GETTEXT_ERRORS,"The first choice must be the solution "
 		"that replaces the character '_'.");
       g_strfreev(split);
       goto error;
@@ -139,7 +139,7 @@ static gboolean valid_entry(const gchar *question, const gchar *answer,
 			    GTK_DIALOG_DESTROY_WITH_PARENT,
 			    GTK_MESSAGE_ERROR,
 			    GTK_BUTTONS_CLOSE,
-			    _("Invalid entry:\n"
+			    D_(GETTEXT_ERRORS,"Invalid entry:\n"
 			      "Question '%s' / Answer '%s'\n%s"),
 			    question, answer,
 			    error);
@@ -411,25 +411,25 @@ static void configure_colummns(GtkTreeView *treeview)
 
   /* pixbuf column */
   renderer = gtk_cell_renderer_pixbuf_new();
-  column = gtk_tree_view_column_new_with_attributes(_("Picture"),
+  column = gtk_tree_view_column_new_with_attributes(D_(GETTEXT_GUI,"Picture"),
                                                     renderer, "pixbuf", PIXBUF_COLUMN, NULL);
   gtk_tree_view_append_column(treeview, column);
 
   /* Answer column */
   renderer = gtk_cell_renderer_text_new();
-  column = gtk_tree_view_column_new_with_attributes(_("Answer"),
+  column = gtk_tree_view_column_new_with_attributes(D_(GETTEXT_GUI,"Answer"),
                                                     renderer, "text", ANSWER_COLUMN, NULL);
   gtk_tree_view_append_column(treeview, column);
 
   /* Question column */
   renderer = gtk_cell_renderer_text_new();
-  column = gtk_tree_view_column_new_with_attributes(_("Question"),
+  column = gtk_tree_view_column_new_with_attributes(D_(GETTEXT_GUI,"Question"),
                                                     renderer, "text", QUESTION_COLUMN, NULL);
   gtk_tree_view_append_column(treeview, column);
 
   /* Choice column */
   renderer = gtk_cell_renderer_text_new();
-  column = gtk_tree_view_column_new_with_attributes(_("Choice"),
+  column = gtk_tree_view_column_new_with_attributes(D_(GETTEXT_GUI,"Choice"),
                                                     renderer, "text", CHOICE_COLUMN, NULL);
   gtk_tree_view_append_column(treeview, column);
 #if 0
@@ -467,7 +467,7 @@ void config_missing_letter(GcomprisBoardConf *bconf, GHashTable *config)
     gtk_box_pack_start(GTK_BOX(vbox), hbox, FALSE, FALSE, 8);
 
     /* combo level */
-    label = gtk_label_new(_("Level:"));
+    label = gtk_label_new(D_(GETTEXT_GUI,"Level:"));
     gtk_widget_show(label);
     gtk_box_pack_start(GTK_BOX(hbox), label, FALSE, FALSE, 8);
 
@@ -475,7 +475,7 @@ void config_missing_letter(GcomprisBoardConf *bconf, GHashTable *config)
     for(i=1; i< gcomprisBoard_missing->maxlevel; i++)
       {
         gchar *tmp;
-        tmp = g_strdup_printf(_("Level %d"), i);
+        tmp = g_strdup_printf(D_(GETTEXT_GUI,"Level %d"), i);
         gtk_combo_box_append_text(GTK_COMBO_BOX(level), tmp);
         g_free(tmp);
       }
@@ -489,7 +489,7 @@ void config_missing_letter(GcomprisBoardConf *bconf, GHashTable *config)
     if (up_init_str && (strcmp(up_init_str, "True")==0))
       up_init = TRUE;
 
-    gc_board_config_boolean_box(bconf, _("Uppercase only text"),
+    gc_board_config_boolean_box(bconf, D_(GETTEXT_GUI,"Uppercase only text"),
 				"uppercase_only",
 				up_init);
 
@@ -545,7 +545,7 @@ void config_missing_letter(GcomprisBoardConf *bconf, GHashTable *config)
     gtk_box_pack_start(GTK_BOX(vbox), table, FALSE, FALSE, 8);
 
     /* answer */
-    label = gtk_label_new(_("Answer"));
+    label = gtk_label_new(D_(GETTEXT_GUI,"Answer"));
     gtk_widget_show(label);
     gtk_table_attach_defaults(GTK_TABLE(table), label, 0, 1, 0, 1);
 
@@ -554,11 +554,11 @@ void config_missing_letter(GcomprisBoardConf *bconf, GHashTable *config)
     gtk_table_attach_defaults(GTK_TABLE(table), answer, 1, 2, 0, 1);
 
     /* pixmap */
-    label = gtk_label_new(_("Picture"));
+    label = gtk_label_new(D_(GETTEXT_GUI,"Picture"));
     gtk_widget_show(label);
     gtk_table_attach_defaults(GTK_TABLE(table), label, 2, 3, 0, 1);
 
-    pixmap = gtk_file_chooser_button_new(_("Filename:"),
+    pixmap = gtk_file_chooser_button_new(D_(GETTEXT_GUI,"Filename:"),
                                          GTK_FILE_CHOOSER_ACTION_OPEN);
 
     file_filter = gtk_file_filter_new();
@@ -568,7 +568,7 @@ void config_missing_letter(GcomprisBoardConf *bconf, GHashTable *config)
     gtk_table_attach_defaults(GTK_TABLE(table), pixmap, 3, 4, 0, 1);
 
     /* question */
-    label = gtk_label_new(_("Question"));
+    label = gtk_label_new(D_(GETTEXT_GUI,"Question"));
     gtk_widget_show(label);
     gtk_table_attach_defaults(GTK_TABLE(table), label, 0, 1, 1, 2);
 
@@ -580,7 +580,7 @@ void config_missing_letter(GcomprisBoardConf *bconf, GHashTable *config)
 				  "by the character '_'.") );
 
     /* choice */
-    label = gtk_label_new(_("Choice"));
+    label = gtk_label_new(D_(GETTEXT_GUI,"Choice"));
     gtk_widget_show(label);
     gtk_table_attach_defaults(GTK_TABLE(table), label, 2, 3, 1, 2);
 

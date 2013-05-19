@@ -254,7 +254,7 @@ display_time_ellapsed()
       /* Display the value for this timer */
       if(gc_timer_item)
 	g_object_set(gc_timer_item,
-		     _("Time Elapsed"),
+		     D_(GETTEXT_GUI,"Time Elapsed"),
 		     NULL);
       break;
     default:
@@ -336,7 +336,7 @@ timer_increment(GooCanvasItem *item)
       /* Display the value for this timer */
       if(item)
 	{
-	  char *tmpstr = g_strdup_printf(_("Remaining Time = %d"), timer);
+	  char *tmpstr = g_strdup_printf(D_(GETTEXT_GUI,"Remaining Time = %d"), timer);
 	  g_object_set (item,
 			"text", tmpstr,
 			NULL);

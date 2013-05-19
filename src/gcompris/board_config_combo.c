@@ -179,7 +179,7 @@ gc_board_config_combo_locales(GcomprisBoardConf *config, gchar *init)
 			 GTK_JUSTIFY_RIGHT);
 
   gtk_label_set_markup (GTK_LABEL(label_combo),
-                        _("Select the language\n to use in the board"));
+                        D_(GETTEXT_GUI,"Choose a language"));
 
   combobox = GTK_WIDGET(gtk_combo_box_new_text());
 
@@ -249,10 +249,10 @@ gc_board_config_combo_drag(GcomprisBoardConf *config, gint init)
 
   strings = NULL;
 
-  strings = g_list_prepend( strings, _("Global GCompris mode"));
-  strings = g_list_append( strings, _("Normal"));
-  strings = g_list_append( strings, _("2 clicks"));
-  strings = g_list_append( strings, _("both modes"));
+  strings = g_list_prepend( strings, D_(GETTEXT_GUI,"Global GCompris mode"));
+  strings = g_list_append( strings, D_(GETTEXT_GUI,"Normal"));
+  strings = g_list_append( strings, D_(GETTEXT_GUI,"2 clicks"));
+  strings = g_list_append( strings, D_(GETTEXT_GUI,"both modes"));
 
   if (init < 0)
     init_index =0;
@@ -280,7 +280,7 @@ gc_board_config_combo_drag(GcomprisBoardConf *config, gint init)
 			 GTK_JUSTIFY_RIGHT);
 
   gtk_label_set_markup (GTK_LABEL(label_combo),
-                        _("Select the drag and drop mode\n to use in the board"));
+                        D_(GETTEXT_GUI,"Select the drag and drop mode\n to use in the board"));
 
   combobox = GTK_WIDGET(gtk_combo_box_new_text());
 

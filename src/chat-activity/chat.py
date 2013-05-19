@@ -22,7 +22,9 @@
 
 import goocanvas
 import gcompris
+import gettext
 from gcompris import gcompris_gettext as _
+from gettext import dgettext as D_
 import gcompris.utils
 import gcompris.bonus
 import gcompris.skin
@@ -320,7 +322,7 @@ class Gcompris_chat:
       self.mcast_timer = gobject.timeout_add(self.timer_interval, self.mcast_read)
     except:
       self.display_message("GCompris",
-                           _("ERROR: Failed to initialize the network interface. You cannot communicate."))
+                           D_(gcompris.GETTEXT_ERROR,"ERROR: Failed to initialize the network interface. You cannot communicate."))
 
 
   def end(self):

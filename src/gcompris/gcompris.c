@@ -944,7 +944,7 @@ display_activation_dialog()
 		   NULL);
 
   char *msg = g_strdup_printf( \
-      _("GCompris is free software released under the GPL License. "
+      D_(GETTEXT_GUI,"GCompris is free software released under the GPL License. "
 	"In order to support its development, this version "
 	"provides only %d of the %d activities. You can get the "
 	"full version for a small fee at\n<http://gcompris.net>\n"
@@ -1237,7 +1237,7 @@ static void map_cb (GtkWidget *widget, gpointer data)
 			    properties->package_skin_dir,
 			    properties->skin);
 
-	  gc_status_set_msg(_("Failed to load the skin '%s'"
+	  gc_status_set_msg(D_(GETTEXT_ERRORS,"Failed to load the skin '%s'"
 			      " (Check the file exists and is readable)"),
 			    filename);
 	  g_free(filename);
@@ -1253,7 +1253,7 @@ static void map_cb (GtkWidget *widget, gpointer data)
       gc_board_init();
 
       if (sugar_delayed_start())
-        gc_status_init(_("Retrieving remote data..."));
+        gc_status_init(D_(GETTEXT_GUI,"Retrieving remote data..."));
       else
       {
       gc_status_init("");
@@ -1397,6 +1397,28 @@ char *gc_locale_get_user_default()
   return gc_user_default_locale;
 }
 
+static void bind_text_domains()
+{
+  // TODO THIS NEEDS A PROPER SUBDIR
+  bindtextdomain (GETTEXT_PACKAGE,properties->package_locale_dir);
+  bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+  
+  bindtextdomain (GETTEXT_GUI, g_strdup_printf ("%s/%s",properties->package_locale_dir, GETTEXT_GUI));
+  bind_textdomain_codeset (GETTEXT_GUI, "UTF-8");
+  
+  bindtextdomain (GETTEXT_ADMIN, g_strdup_printf ("%s/%s",properties->package_locale_dir, GETTEXT_ADMIN));
+  bind_textdomain_codeset (GETTEXT_ADMIN, "UTF-8");
+  
+  bindtextdomain (GETTEXT_MANUAL, g_strdup_printf ("%s/%s",properties->package_locale_dir, GETTEXT_MANUAL));
+  bind_textdomain_codeset (GETTEXT_MANUAL, "UTF-8");
+  
+  bindtextdomain (GETTEXT_HELP, g_strdup_printf ("%s/%s",properties->package_locale_dir, GETTEXT_HELP));
+  bind_textdomain_codeset (GETTEXT_HELP, "UTF-8");
+  
+  bindtextdomain (GETTEXT_ERRORS, g_strdup_printf ("%s/%s",properties->package_locale_dir, GETTEXT_ERRORS));
+  bind_textdomain_codeset (GETTEXT_ERRORS, "UTF-8");
+}
+
 /*
  * This set the locale for which text must be displayed
  * If locale is NULL, "" or "NULL" then locale is set to the user's default locale
@@ -1445,8 +1467,7 @@ gc_locale_set(const gchar *locale)
 
   /* This does update gettext translation uppon next gettext call */
   /* Call for localization startup */
-  bindtextdomain (GETTEXT_PACKAGE, properties->package_locale_dir);
-  bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+  bind_text_domains();
   textdomain (GETTEXT_PACKAGE);
 
 #ifndef WIN32
@@ -1514,11 +1535,11 @@ single_instance_check()
 
 	  if(current_time.tv_sec - seconds < GC_LOCK_LIMIT)
 	    {
-	      printf(ngettext("GCompris won't start because the lock file is less than %d second old.\n",
+	      printf(dngettext(GETTEXT_MANUAL,"GCompris won't start because the lock file is less than %d second old.\n",
 			      "GCompris won't start because the lock file is less than %d seconds old.\n",
 			      GC_LOCK_LIMIT),
 		     GC_LOCK_LIMIT);
-	      printf(_("The lock file is: %s\n"),
+	      printf(D_(GETTEXT_MANUAL,"The lock file is: %s\n"),
 		     lock_file);
 	      exit(0);
 	    }
@@ -1616,9 +1637,8 @@ main (int argc, char *argv[])
   signal(SIGINT, gc_terminate);
 
   load_properties();
-
-  bindtextdomain (GETTEXT_PACKAGE, properties->package_locale_dir);
-  bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+  
+  bind_text_domains();
   textdomain (GETTEXT_PACKAGE);
 
   /* To have some real random behaviour */
@@ -1632,6 +1652,7 @@ main (int argc, char *argv[])
 
   /* Argument parsing */
   context = g_option_context_new(" - An educational software for chilren 2 to 10");
+  g_option_context_set_translation_domain(context,GETTEXT_MANUAL);
   g_option_context_add_main_entries (context, options, GETTEXT_PACKAGE);
   g_option_context_add_group (context, gtk_get_option_group (TRUE));
   g_option_context_parse (context, &argc, &argv, &error);
@@ -1639,7 +1660,7 @@ main (int argc, char *argv[])
 
   if (popt_version)
     {
-      printf (_("GCompris\nVersion: %s\nLicense: GPL\n"
+      printf (D_(GETTEXT_MANUAL,"GCompris\nVersion: %s\nLicense: GPL\n"
 		"More info at http://gcompris.net\n"),
 	      VERSION);
       exit (0);
@@ -1824,8 +1845,8 @@ main (int argc, char *argv[])
   if (popt_root_menu){
     if (strcmp(popt_root_menu,"list")==0){
       /* check the list of possible values for -l, then exit */
-      printf(_("Use -l to access an activity directly.\n"));
-      printf(_("The list of available activities is :\n"));
+      printf(D_(GETTEXT_MANUAL,"Use -l to access an activity directly.\n"));
+      printf(D_(GETTEXT_MANUAL,"The list of available activities is :\n"));
 
       gc_db_init(FALSE /* ENABLE DATABASE */);
       gc_board_init();
@@ -1856,7 +1877,7 @@ main (int argc, char *argv[])
 	  }
 	}
       }
-      printf(_("Number of activities: %d\n"), board_count);
+      printf(D_(GETTEXT_GUI,"Number of activities: %d\n"), board_count);
 
       exit(0);
     }
@@ -1892,7 +1913,7 @@ main (int argc, char *argv[])
 	{
 	  if (g_access(properties->database, R_OK)==-1)
 	    {
-	      printf(_("%s exists but is not readable or writable"), properties->database);
+	      printf(D_(GETTEXT_ERRORS,"%s exists but is not readable or writable"), properties->database);
 	      exit(0);
 	    }
 	}
@@ -1987,7 +2008,7 @@ main (int argc, char *argv[])
 
     if(properties->profile == NULL)
       {
-	printf(_("ERROR: Profile '%s' is not found."
+	printf(D_(GETTEXT_MANUAL,"ERROR: Profile '%s' is not found."
 		 " Run 'gcompris --profile-list' to list available ones\n"),
 	       popt_profile);
 	exit(1);
@@ -2001,7 +2022,7 @@ main (int argc, char *argv[])
 
     profile_list = gc_db_profiles_list_get();
 
-    printf(_("The list of available profiles is:\n"));
+    printf(D_(GETTEXT_MANUAL,"The list of available profiles is:\n"));
     for(i=0; i< g_list_length(profile_list); i++)
       {
 	GcomprisProfile *profile = g_list_nth_data(profile_list, i);

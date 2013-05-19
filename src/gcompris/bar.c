@@ -694,10 +694,10 @@ item_event_bar (GooCanvasItem  *item,
         GcomprisProperties *properties = gc_prop_get();
 
         if(strlen(properties->root_menu) == 1)
-          gc_confirm_box( _("GCompris confirmation"),
-                          _("Are you sure you want to quit?"),
-                          _("Yes, I am sure!"),
-                          _("No, I want to keep going"),
+          gc_confirm_box( D_(GETTEXT_GUI,"GCompris confirmation"),
+                          D_(GETTEXT_GUI,"Are you sure you want to quit?"),
+                          D_(GETTEXT_GUI,"Yes, I am sure!"),
+                          D_(GETTEXT_GUI,"No, I want to keep going"),
                           (ConfirmCallBack) confirm_quit);
         else
           confirm_quit(TRUE);

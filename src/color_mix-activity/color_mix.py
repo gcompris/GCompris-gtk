@@ -248,13 +248,15 @@ class Colors:
     self.initial_color = initial_color
 
     if initial_color == 0:
-      self.color_1 = _('red')
-      self.color_2 = _('green')
-      self.color_3 = _('blue')
+        # TRANSLATORS: Translate the bit after 'colormix^' only,
+        # e.g. translate as 'rouge', NOT as 'colormix^rouge'.
+      self.color_1 = _('colormix^red')
+      self.color_2 = _('colormix^green')
+      self.color_3 = _('colormix^blue')
     else:
-      self.color_1 = _('cyan')
-      self.color_2 = _('magenta')
-      self.color_3 = _('yellow')
+      self.color_1 = _('colormix^cyan')
+      self.color_2 = _('colormix^magenta')
+      self.color_3 = _('colormix^yellow')
 
     self.color_rgb = [initial_color, initial_color, initial_color]
     self.color1 = self.color2 = self.color3 = self.initial_color

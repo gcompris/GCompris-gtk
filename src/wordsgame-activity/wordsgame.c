@@ -225,7 +225,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	  if(!gc_wordlist)
 	    {
 	      gcomprisBoard = NULL;
-	      gc_dialog(_("Error: We can't find\na list of words to play this game.\n"), gc_board_end);
+	      gc_dialog(D_(GETTEXT_ERRORS,"Error: We can't find\na list of words to play this game.\n"), gc_board_end);
 	      return;
 	    }
 	}
@@ -938,7 +938,7 @@ wordsgame_config_start(GcomprisBoard *agcomprisBoard,
    * TRANSLATORS: %1$s is the board name (wordsgame),
    * 2$s is the name of the current user profile
    */
-  gchar *label = g_strdup_printf(C_("wordsgame_config","<b>%1$s</b> configuration\n for profile <b>%2$s</b>"),
+  gchar *label = g_strdup_printf(g_dpgettext2(GETTEXT_GUI,"wordsgame_config","<b>%1$s</b> configuration\n for profile <b>%2$s</b>"),
 				 _(agcomprisBoard->name),
 				 aProfile? aProfile->name: "");
 
@@ -961,7 +961,7 @@ wordsgame_config_start(GcomprisBoard *agcomprisBoard,
   if (up_init_str && (strcmp(up_init_str, "True")==0))
     up_init = TRUE;
 
-  gc_board_config_boolean_box(conf, _("Uppercase only text"),
+  gc_board_config_boolean_box(conf, D_(GETTEXT_GUI,"Uppercase only text"),
 			      "uppercase_only",
 			      up_init);
 }

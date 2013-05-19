@@ -266,7 +266,7 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
 	display_welcome(menuitems);
 
       {
-	gchar *text = g_strdup_printf(_("Number of activities: %d"),
+	gchar *text = g_strdup_printf(D_(GETTEXT_GUI,"Number of activities: %d"),
 				      gc_board_get_number_of_activity());
 	goo_canvas_text_new (boardRootItem,
 			     text,
@@ -884,7 +884,7 @@ display_welcome_event (GooCanvasItem  *item,
   if(G_IS_OBJECT(menuitems->description_item))
     g_object_set(menuitems->description_item,
 		 "text",
-		 _("GCompris is a collection of educational games that provides different activities for children aged 2 and up."),
+		 D_(GETTEXT_GUI,"GCompris is a collection of educational games that provides different activities for children aged 2 and up."),
 		 NULL);
 
   if(G_IS_OBJECT(menuitems->author_item))

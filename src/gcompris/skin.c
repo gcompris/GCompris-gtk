@@ -442,7 +442,7 @@ fontset_xml_load ()
    * language here, e.g. "sans" or "ruluko". We recommend Ruluko for western 
    * Latin languages. You can find the available fontsets in boards/fontsets
    */
-  gchar* fontset = _("sans");
+  gchar* fontset = D_(GETTEXT_GUI,"sans");
   if(strlen(fontset) > 0 )
       xmlfilename = \
         gc_file_find_absolute("boards/fontsets/%s/fonts.xml",

@@ -191,7 +191,7 @@ bonus_image(char *image, GCBonusStatusList gamewon)
 
   if(gamewon==GC_BOARD_DRAW) {
     goo_canvas_text_new (bonus_group,
-			 _("Drawn game"),
+			 D_(GETTEXT_GUI,"Drawn game"),
 			 (gdouble) BOARDWIDTH/2 + 1.0,
 			 (gdouble) gdk_pixbuf_get_height(pixmap) + 1.0,
 			 -1,
@@ -200,7 +200,7 @@ bonus_image(char *image, GCBonusStatusList gamewon)
 			 "fill_color", "black",
 			 NULL);
     goo_canvas_text_new (bonus_group,
-			 _("Drawn game"),
+			 D_(GETTEXT_GUI,"Drawn game"),
 			 (gdouble) BOARDWIDTH/2,
 			 (gdouble) gdk_pixbuf_get_height(pixmap),
 			 -1,
