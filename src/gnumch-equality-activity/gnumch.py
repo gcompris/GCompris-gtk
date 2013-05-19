@@ -382,7 +382,7 @@ class Player(object):
             self.stop()
 
     def startMunching(self):
-        eatfile = gcompris.utils.file_find_absolute("voices/$LOCALE/misc/eat.wav")
+        eatfile = gcompris.utils.find_file_absolute("voices/$LOCALE/misc/eat.wav")
         if(os.path.isfile(eatfile)) :
             gcompris.sound.play_ogg("voices/$LOCALE/misc/eat.wav")
         else :

@@ -68,7 +68,7 @@ class Triplet:
                 self.descriptionTranslated = translations[fileName]
             except:
                 self.descriptionTranslated = \
-                    D_(gcompris.GETTEXT_ERROR,"Missing translation for '{word}'".format(word = self.description))
+                    D_(gcompris.GETTEXT_ERRORS,"Missing translation for '{word}'".format(word = self.description))
 
 
     def isValid(self):
