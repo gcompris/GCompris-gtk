@@ -20,8 +20,9 @@
 import gtk
 import gobject
 import gcompris
+import gettext
 from gcompris import gcompris_gettext as _
-
+from gettext import dgettext as D_
 import user_list
 
 import constants
@@ -44,18 +45,18 @@ class UserEdit(gtk.Window):
         # Will be called to refresh the list when edit is done
         self.list_user = list_user
 
-        self.set_title(_("Editing a User"))
+        self.set_title(D_(gcompris.GETTEXT_ADMIN,"Editing a User"))
         self.set_border_width(8)
         self.set_default_size(320, 250)
 
         if(firstname and lastname):
-            frame = gtk.Frame(_("Editing a User ") +
+            frame = gtk.Frame(D_(gcompris.GETTEXT_ADMIN,"Editing a User ") +
                               lastname + " " +
                               firstname)
             self.new_user = False
             self.old_login = login
         else:
-            frame = gtk.Frame(_("Editing a new user"))
+            frame = gtk.Frame(D_(gcompris.GETTEXT_ADMIN,"Editing a new user"))
             self.new_user = True
 
         self.add(frame)
@@ -72,7 +73,7 @@ class UserEdit(gtk.Window):
         table.set_col_spacings(20)
         vbox.pack_start(table, True, True, 0)
 
-        label = gtk.Label(_('Login:'))
+        label = gtk.Label(D_(gcompris.GETTEXT_ADMIN,'Login:'))
         label.set_alignment(0, 0)
         table.attach(label, 0, 1, 0, 1, xoptions=gtk.SHRINK, yoptions=gtk.EXPAND)
         self.entry_login = gtk.Entry()
@@ -83,7 +84,7 @@ class UserEdit(gtk.Window):
         # FIXME: How to remove the selection
 
         # Label and Entry for the first name
-        label = gtk.Label(_('First name:'))
+        label = gtk.Label(D_(gcompris.GETTEXT_ADMIN,'First name:'))
         label.set_alignment(0, 0)
         table.attach(label, 0, 1, 1, 2, xoptions=gtk.SHRINK, yoptions=gtk.EXPAND)
         self.entry_firstname = gtk.Entry()
@@ -92,7 +93,7 @@ class UserEdit(gtk.Window):
         table.attach(self.entry_firstname, 1, 2, 1, 2, xoptions=gtk.SHRINK, yoptions=gtk.EXPAND)
 
         # Label and Entry for the last name
-        label = gtk.Label(_('Last name:'))
+        label = gtk.Label(D_(gcompris.GETTEXT_ADMIN,'Last name:'))
         label.set_alignment(0, 0)
         table.attach(label, 0, 1, 2, 3, xoptions=gtk.SHRINK, yoptions=gtk.EXPAND)
         self.entry_lastname = gtk.Entry()
@@ -101,7 +102,7 @@ class UserEdit(gtk.Window):
         table.attach(self.entry_lastname, 1, 2, 2, 3, xoptions=gtk.SHRINK, yoptions=gtk.EXPAND)
 
         # Label and Entry for the birth date
-        label = gtk.Label(_('Birth date:'))
+        label = gtk.Label(D_(gcompris.GETTEXT_ADMIN,'Birth date:'))
         label.set_alignment(0, 0)
         table.attach(label, 0, 1, 3, 4, xoptions=gtk.SHRINK, yoptions=gtk.EXPAND)
         self.entry_birthdate = gtk.Entry()
@@ -150,7 +151,7 @@ class UserEdit(gtk.Window):
             dialog = gtk.MessageDialog(None,
                                        gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
                                        gtk.MESSAGE_INFO, gtk.BUTTONS_OK,
-                                       _("You need to provide at least a login, first name and last name for your users"))
+                                       D_(gcompris.GETTEXT_ADMIN,"You need to provide at least a login, first name and last name for your users"))
             dialog.run()
             dialog.destroy()
             return
@@ -167,7 +168,7 @@ class UserEdit(gtk.Window):
             dialog = gtk.MessageDialog(None,
                                        gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
                                        gtk.MESSAGE_INFO, gtk.BUTTONS_OK,
-                                       _("There is already a user with this login"))
+                                       D_(gcompris.GETTEXT_ADMIN,"There is already a user with this login"))
             dialog.run()
             dialog.destroy()
             return

@@ -24,7 +24,9 @@ import gcompris.admin
 import gtk
 import gtk.gdk
 import gobject
+import gettext
 from gcompris import gcompris_gettext as _
+from gettext import dgettext as D_
 
 # Board Management
 (
@@ -83,7 +85,7 @@ class Board_list:
 
       box2.pack_end(box3, False, False, 0)
 
-      label = gtk.Label(_('Select a profile:'))
+      label = gtk.Label(D_(gcompris.GETTEXT_ADMIN,'Select a profile:'))
       label.show()
       box1.pack_start(label,False, False, 0)
 
@@ -144,32 +146,32 @@ class Board_list:
       box3.pack_start(self.button_configure, False, False, 0)
       self.button_configure.set_sensitive(False)
 
-      self.button_filter = gtk.Button(_('Filter'))
+      self.button_filter = gtk.Button(D_(gcompris.GETTEXT_ADMIN,'Filter'))
       self.button_filter.connect("clicked", self.filter_boards)
       self.button_filter.show()
       box3.pack_start(self.button_filter, False, False, 0)
 
-      self.button_select_all = gtk.Button(_('Select all'))
+      self.button_select_all = gtk.Button(D_(gcompris.GETTEXT_ADMIN,'Select all'))
       self.button_select_all.connect("clicked", self.select_all_boards, True)
       self.button_select_all.show()
       box3.pack_start(self.button_select_all, False, False, 0)
 
-      self.button_unselect_all = gtk.Button(_('Unselect all'))
+      self.button_unselect_all = gtk.Button(D_(gcompris.GETTEXT_ADMIN,'Unselect all'))
       self.button_unselect_all.connect("clicked", self.select_all_boards, False)
       self.button_unselect_all.show()
       box3.pack_start(self.button_unselect_all, False, False, 0)
 
-      self.button_locales = gtk.Button(_('Locales'))
+      self.button_locales = gtk.Button(D_(gcompris.GETTEXT_ADMIN,'Locales'))
       self.button_locales.connect("clicked", self.locales)
       self.button_locales.show()
       box3.pack_end(self.button_locales, False, False, 0)
 
-      self.button_locales_sound = gtk.Button(_('Locales sound'))
+      self.button_locales_sound = gtk.Button(D_(gcompris.GETTEXT_ADMIN,'Locales sound'))
       self.button_locales_sound.connect("clicked", self.locales_sound)
       self.button_locales_sound.show()
       box3.pack_end(self.button_locales_sound, False, False, 0)
 
-      self.button_login = gtk.Button(_('Login'))
+      self.button_login = gtk.Button(D_(gcompris.GETTEXT_ADMIN,'Login'))
       self.button_login.connect("clicked", self.login_configure)
       self.button_login.show()
       box3.pack_end(self.button_login, False, False, 0)
@@ -241,7 +243,7 @@ class Board_list:
         row_dict[''] =  \
                      model.append(None,
                                   [self.pixbuf_admin_at_height('administration/tuxplane.svg', height),
-                                   _('Main menu') + '\n' + '/',
+                                   D_(gcompris.GETTEXT_ADMIN,'Main menu') + '\n' + '/',
                                    not board_cell[1].board_id in self.out_dict[self.active_profile.profile_id],
                                    '%s/%s' % (board_cell[1].section,board_cell[1].name), self.pixbuf_configurable(board_cell[1])])
 
@@ -249,7 +251,7 @@ class Board_list:
         row_dict['%s/%s' % (board_cell[1].section,board_cell[1].name)] = \
                          model.append(row_dict[board_cell[1].section],
                                       [self.pixbuf_at_height(board_cell[1].icon_name, height),
-                                       _(board_cell[1].title) + '\n' + '%s/%s' % (board_cell[1].section,board_cell[1].name),
+                                       D_(gcompris.GETTEXT_ADMIN,board_cell[1].title) + '\n' + '%s/%s' % (board_cell[1].section,board_cell[1].name),
                                        not board_cell[1].board_id in self.out_dict[self.active_profile.profile_id],
                                        '%s/%s' % (board_cell[1].section,board_cell[1].name), self.pixbuf_configurable(board_cell[1])])
     self.progressbar_box.hide()
@@ -302,13 +304,13 @@ class Board_list:
     cell_board_configure = gtk.CellRendererPixbuf()
 
 #    columns for Board name
-#    column_pref = gtk.TreeViewColumn(_('Conf'))
+#    column_pref = gtk.TreeViewColumn(D_(gcompris.GETTEXT_ADMIN,'Conf'))
 #    image = gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, gtk.ICON_SIZE_MENU)
 #    image.show()
 #    column_pref.set_widget(image)
 
-    column_active = gtk.TreeViewColumn(_('Active'))
-    column_title = gtk.TreeViewColumn(_('Board title'))
+    column_active = gtk.TreeViewColumn(D_(gcompris.GETTEXT_ADMIN,'Active'))
+    column_title = gtk.TreeViewColumn(D_(gcompris.GETTEXT_ADMIN,'Board title'))
     column_title.pack_start(cell_board_icon, False)
     column_active.pack_start(cell_board_configure, False)
     column_title.pack_start(cell_board_title, True)
@@ -421,7 +423,7 @@ class Board_list:
 
   def filter_boards(self, button):
     window = gtk.Window()
-    window.set_title(_("Filter Boards difficulty for profile %s") % (self.active_profile.name))
+    window.set_title(D_(gcompris.GETTEXT_ADMIN,"Filter Boards difficulty for profile %s") % (self.active_profile.name))
     window.set_border_width(8)
     window.set_default_size(320, 350)
     window.set_transient_for(self.frame.get_toplevel())
@@ -452,7 +454,7 @@ class Board_list:
     box_bottom.pack_start(button_apply, False, False, 0)
 
     label = gtk.Label()
-    label.set_markup(_("<span size='x-large'> Select the difficulty range \nfor profile <b>%s</b></span>") % self.active_profile.name)
+    label.set_markup("<span size='x-large'>" + D_(gcompris.GETTEXT_ADMIN,"Select the difficulty range \nfor profile <b>%s</b>") % self.active_profile.name + "</span>")
     label.show()
     label.set_line_wrap(True)
     label.set_justify(gtk.JUSTIFY_CENTER)
@@ -642,7 +644,7 @@ class Board_list:
   def locales(self, button):
     conf_locales = self.get_configured(self.active_profile, 'locale', 'NULL')
     bconf = gcompris.configuration_window ( \
-      _('<b>Locale</b> configuration\n for profile <b>{profile}</b>').\
+      D_(gcompris.GETTEXT_ADMIN,'<b>Locale</b> configuration\n for profile <b>{profile}</b>').\
         format(profile=self.active_profile.name),
       self.ok_callback
       )
@@ -654,13 +656,13 @@ class Board_list:
     conf_locales = self.get_configured(self.active_profile,
                                        'locale_sound', 'NULL')
     bconf = gcompris.configuration_window ( \
-      _('<b>Locale sound</b> configuration\n for profile <b>{profile}</b>').\
+      D_(gcompris.GETTEXT_ADMIN,'<b>Locale sound</b> configuration\n for profile <b>{profile}</b>').\
         format(profile=self.active_profile.name),
       self.ok_callback
       )
 
     gcompris.combo_locales_asset( bconf,
-                                  _("Select sound locale"),
+                                  D_(gcompris.GETTEXT_ADMIN,"Select sound locale"),
                                   conf_locales,
                                   "voices/$LOCALE/colors/red.ogg" )
 

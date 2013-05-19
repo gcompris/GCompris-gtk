@@ -22,8 +22,9 @@ import gcompris.utils
 import gcompris.skin
 import gtk
 import gtk.gdk
+import gettext
 from gcompris import gcompris_gettext as _
-
+from gettext import dgettext as D_
 import module
 import profile_list
 import profile_edit
@@ -45,7 +46,7 @@ class Logins(module.Module):
 
 
   def __init__(self, canvas):
-    module.Module.__init__(self, canvas, "logins", _("Logins"))
+    module.Module.__init__(self, canvas, "logins", D_(gcompris.GETTEXT_ADMIN,"Logins"))
 
   # Return the position it must have in the administration menu
   # The smaller number is the highest.
@@ -66,7 +67,7 @@ class Logins(module.Module):
 
     module.Module.start(self)
 
-    frame = gtk.Frame(_("Logins"))
+    frame = gtk.Frame(D_(gcompris.GETTEXT_ADMIN,"Logins"))
 
     goocanvas.Widget(
       parent = self.rootitem,

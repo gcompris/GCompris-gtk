@@ -24,7 +24,9 @@ import gcompris.skin
 import gcompris.admin
 import gtk
 import gtk.gdk
+import gettext
 from gcompris import gcompris_gettext as _
+from gettext import dgettext as D_
 import sys;
 
 # Database
@@ -47,7 +49,7 @@ class Activities(module.Module):
   already_loaded = False
 
   def __init__(self, canvas):
-    module.Module.__init__(self, canvas, "activities", _("Activities"))
+    module.Module.__init__(self, canvas, "activities", D_(gcompris.GETTEXT_ADMIN,"Activities"))
 
   # Return the position it must have in the administration menu
   # The smaller number is the highest.
@@ -75,7 +77,7 @@ class Activities(module.Module):
 
     module.Module.start(self)
 
-    self.frame = gtk.Frame(_("Activities"))
+    self.frame = gtk.Frame(D_(gcompris.GETTEXT_ADMIN,"Activities"))
     self.frame.show()
 
     goocanvas.Widget(

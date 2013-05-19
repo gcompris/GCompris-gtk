@@ -20,8 +20,9 @@
 import gtk
 import gobject
 import gcompris
+import gettext
 from gcompris import gcompris_gettext as _
-
+from gettext import dgettext as D_
 import profile_group_list
 
 import constants
@@ -177,7 +178,7 @@ class ProfileWidget(gtk.HBox):
         # columns for class name
         renderer = gtk.CellRendererText()
         renderer.set_data("column", COLUMN_CLASSNAME)
-        column = gtk.TreeViewColumn(_('Class'), renderer,
+        column = gtk.TreeViewColumn(D_(gcompris.GETTEXT_ADMIN,'Class'), renderer,
                                     text=COLUMN_CLASSNAME)
         column.set_sort_column_id(COLUMN_CLASSNAME)
         column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
@@ -187,7 +188,7 @@ class ProfileWidget(gtk.HBox):
         # columns for group name
         renderer = gtk.CellRendererText()
         renderer.set_data("column", COLUMN_GROUPNAME)
-        column = gtk.TreeViewColumn(_('Group'), renderer,
+        column = gtk.TreeViewColumn(D_(gcompris.GETTEXT_ADMIN,'Group'), renderer,
                                     text=COLUMN_GROUPNAME)
         column.set_sort_column_id(COLUMN_GROUPNAME)
         column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
@@ -197,7 +198,7 @@ class ProfileWidget(gtk.HBox):
         # column for description
         renderer = gtk.CellRendererText()
         renderer.set_data("column", COLUMN_DESCRIPTION)
-        column = gtk.TreeViewColumn(_('Description'), renderer,
+        column = gtk.TreeViewColumn(D_(gcompris.GETTEXT_ADMIN,'Description'), renderer,
                                     text=COLUMN_DESCRIPTION)
         column.set_sort_column_id(COLUMN_DESCRIPTION)
         column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
@@ -288,7 +289,7 @@ class ProfileWidget(gtk.HBox):
                 dialog = gtk.MessageDialog(None,
                                            gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
                                            gtk.MESSAGE_INFO, gtk.BUTTONS_OK,
-                                           _("There is already a profile with this name"))
+                                           D_(gcompris.GETTEXT_ADMIN,"There is already a profile with this name"))
                 dialog.run()
                 dialog.destroy()
                 return

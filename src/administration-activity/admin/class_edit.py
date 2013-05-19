@@ -19,7 +19,9 @@
 
 import gtk
 import gobject
+import gettext
 from gcompris import gcompris_gettext as _
+from gettext import dgettext as D_
 
 import user_list
 
@@ -53,15 +55,15 @@ class ClassEdit(gtk.Window):
         # Will be called to refresh the list when edit is done
         self.list_class = list_class
 
-        self.set_title(_("Editing a Class"))
+        self.set_title(D_(gcompris.GETTEXT_ADMIN,"Editing a Class"))
         self.set_border_width(8)
         self.set_default_size(320, 350)
 
         if(self.class_name):
-            frame = gtk.Frame(_("Editing class: ") + self.class_name)
+            frame = gtk.Frame(D_(gcompris.GETTEXT_ADMIN,"Editing class: ") + self.class_name)
             self.new_class = False
         else:
-            frame = gtk.Frame(_("Editing a new class"))
+            frame = gtk.Frame(D_(gcompris.GETTEXT_ADMIN,"Editing a new class"))
             self.new_class = True
 
         # Connect the "destroy" event to close
@@ -83,7 +85,7 @@ class ClassEdit(gtk.Window):
         table.set_col_spacings(20)
         vbox.pack_start(table, True, True, 0)
 
-        label = gtk.Label(_('Class:'))
+        label = gtk.Label(D_(gcompris.GETTEXT_ADMIN,'Class:'))
         label.set_alignment(0, 0)
         table.attach(label, 0, 1, 0, 1, xoptions=gtk.SHRINK,
                      yoptions=gtk.EXPAND)
@@ -96,7 +98,7 @@ class ClassEdit(gtk.Window):
         # FIXME: How to remove the default selection
 
         # Label and Entry for the teacher name
-        label = gtk.Label(_('Teacher:'))
+        label = gtk.Label(D_(gcompris.GETTEXT_ADMIN,'Teacher:'))
         label.set_alignment(0, 0)
         table.attach(label, 0, 1, 1, 2, xoptions=gtk.SHRINK, yoptions=gtk.EXPAND)
         self.entry_teacher = gtk.Entry()
@@ -106,7 +108,7 @@ class ClassEdit(gtk.Window):
 
         # Top message gives instructions
         vbox.pack_start(gtk.HSeparator(), False, False, 0)
-        label = gtk.Label(_('Assign all the users belonging to this class'))
+        label = gtk.Label(D_(gcompris.GETTEXT_ADMIN,'Assign all the users belonging to this class'))
         vbox.pack_start(label, False, False, 0)
         vbox.pack_start(gtk.HSeparator(), False, False, 0)
 
@@ -243,7 +245,7 @@ class ClassEdit(gtk.Window):
         # columns for first name
         renderer = gtk.CellRendererText()
         renderer.set_data("column", COLUMN_FIRSTNAME)
-        column = gtk.TreeViewColumn(_('First Name'), renderer,
+        column = gtk.TreeViewColumn(D_(gcompris.GETTEXT_ADMIN,'First Name'), renderer,
                                     text=COLUMN_FIRSTNAME,
                                     editable=COLUMN_USER_EDITABLE)
         column.set_sort_column_id(COLUMN_FIRSTNAME)
@@ -254,7 +256,7 @@ class ClassEdit(gtk.Window):
         # column for last name
         renderer = gtk.CellRendererText()
         renderer.set_data("column", COLUMN_LASTNAME)
-        column = gtk.TreeViewColumn(_('Last Name'), renderer,
+        column = gtk.TreeViewColumn(D_(gcompris.GETTEXT_ADMIN,'Last Name'), renderer,
                                     text=COLUMN_LASTNAME,
                                     editable=COLUMN_USER_EDITABLE)
         column.set_sort_column_id(COLUMN_LASTNAME)
@@ -329,7 +331,7 @@ class ClassEdit(gtk.Window):
             dialog = gtk.MessageDialog(None,
                                        gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
                                        gtk.MESSAGE_INFO, gtk.BUTTONS_OK,
-                                       _("You need to provide at least a name for your class"))
+                                       D_(gcompris.GETTEXT_ADMIN,"You need to provide at least a name for your class"))
             dialog.run()
             dialog.destroy()
             return
@@ -374,7 +376,7 @@ class ClassEdit(gtk.Window):
             dialog = gtk.MessageDialog(None,
                                        gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
                                        gtk.MESSAGE_INFO, gtk.BUTTONS_OK,
-                                       _("There is already a class with this name"))
+                                       D_(gcompris.GETTEXT_ADMIN,"There is already a class with this name"))
             dialog.run()
             dialog.destroy()
             return

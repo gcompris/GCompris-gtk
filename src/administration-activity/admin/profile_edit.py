@@ -18,8 +18,9 @@
 
 
 import gtk
+import gettext
 from gcompris import gcompris_gettext as _
-
+from gettext import dgettext as D_
 import profile_widget
 
 
@@ -34,15 +35,15 @@ class ProfileEdit(gtk.Window):
 
         self.profile_list = profile_list;
 
-        self.set_title(_("Editing a Profile"))
+        self.set_title(D_(gcompris.GETTEXT_ADMIN,"Editing a Profile"))
         self.set_border_width(8)
         self.set_default_size(320, 350)
 
         if(profile_name):
-            frame = gtk.Frame(_("Editing profile: ") + profile_name)
+            frame = gtk.Frame(D_(gcompris.GETTEXT_ADMIN,"Editing profile: ") + profile_name)
             new_profile = False
         else:
-            frame = gtk.Frame(_("Editing a new profile"))
+            frame = gtk.Frame(D_(gcompris.GETTEXT_ADMIN,"Editing a new profile"))
             new_profile = True
             profile_name =""
             profile_description = ""
@@ -61,7 +62,7 @@ class ProfileEdit(gtk.Window):
         table.set_col_spacings(20)
         vbox.pack_start(table, True, True, 0)
 
-        label = gtk.Label(_('Profile:'))
+        label = gtk.Label(D_(gcompris.GETTEXT_ADMIN,'Profile:'))
         label.set_alignment(0, 0)
         table.attach(label, 0, 1, 0, 1, xoptions=gtk.SHRINK, yoptions=gtk.EXPAND)
         self.entry_profile = gtk.Entry()
@@ -73,7 +74,7 @@ class ProfileEdit(gtk.Window):
         # FIXME: How to remove the selection
 
         # Label and Entry for the first name
-        label = gtk.Label(_('Description:'))
+        label = gtk.Label(D_(gcompris.GETTEXT_ADMIN,'Description:'))
         label.set_alignment(0, 0)
         table.attach(label, 0, 1, 1, 2, xoptions=gtk.SHRINK, yoptions=gtk.EXPAND)
         self.entry_description = gtk.Entry()
@@ -84,7 +85,7 @@ class ProfileEdit(gtk.Window):
 
 
         # Top message gives instructions
-        label = gtk.Label(_('Assign all the groups belonging to this profile'))
+        label = gtk.Label(D_(gcompris.GETTEXT_ADMIN,'Assign all the groups belonging to this profile'))
         vbox.pack_start(label, False, False, 0)
         vbox.pack_start(gtk.HSeparator(), False, False, 0)
 
@@ -127,7 +128,7 @@ class ProfileEdit(gtk.Window):
             dialog = gtk.MessageDialog(None,
                                        gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
                                        gtk.MESSAGE_INFO, gtk.BUTTONS_OK,
-                                       _("You need to provide at least a name for your profile"))
+                                       D_(gcompris.GETTEXT_ADMIN,"You need to provide at least a name for your profile"))
             dialog.run()
             dialog.destroy()
             return

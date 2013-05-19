@@ -19,7 +19,9 @@
 
 import gtk
 import gobject
+import gettext
 from gcompris import gcompris_gettext as _
+from gettext import dgettext as D_
 
 import group_user_list
 
@@ -53,17 +55,17 @@ class GroupEdit(gtk.Window):
         # Will be called to refresh the list when edit is done
         self.group_user = group_user
 
-        self.set_title(_("Editing a Group"))
+        self.set_title(D_(gcompris.GETTEXT_ADMIN,"Editing a Group"))
         self.set_border_width(8)
         self.set_default_size(320, 350)
 
         self.group_name = group_name
         if(self.group_name):
-            frame = gtk.Frame(_("Editing group '{group}' for class '{aclass}'").\
+            frame = gtk.Frame(D_(gcompris.GETTEXT_ADMIN,"Editing group '{group}' for class '{aclass}'").\
                                   format(group=self.group_name, aclass=class_name))
             self.new_group = False
         else:
-            frame = gtk.Frame(_("Editing a new group"))
+            frame = gtk.Frame(D_(gcompris.GETTEXT_ADMIN,"Editing a new group"))
             self.new_group = True
             self.group_name =""
             group_description = ""
@@ -83,7 +85,7 @@ class GroupEdit(gtk.Window):
         table.set_col_spacings(20)
         vbox.pack_start(table, True, True, 0)
 
-        label = gtk.Label(_('Group:'))
+        label = gtk.Label(D_(gcompris.GETTEXT_ADMIN,'Group:'))
         label.set_alignment(0, 0)
         table.attach(label, 0, 1, 0, 1, xoptions=gtk.SHRINK, yoptions=gtk.EXPAND)
         self.entry_group = gtk.Entry()
@@ -95,7 +97,7 @@ class GroupEdit(gtk.Window):
         # FIXME: How to remove the selection
 
         # Label and Entry for the first name
-        label = gtk.Label(_('Description:'))
+        label = gtk.Label(D_(gcompris.GETTEXT_ADMIN,'Description:'))
         label.set_alignment(0, 0)
         table.attach(label, 0, 1, 1, 2, xoptions=gtk.SHRINK, yoptions=gtk.EXPAND)
         self.entry_description = gtk.Entry()
@@ -106,7 +108,7 @@ class GroupEdit(gtk.Window):
 
 
         # Top message gives instructions
-        label = gtk.Label(_('Assign all the users belonging to this group'))
+        label = gtk.Label(D_(gcompris.GETTEXT_ADMIN,'Assign all the users belonging to this group'))
         vbox.pack_start(label, False, False, 0)
         vbox.pack_start(gtk.HSeparator(), False, False, 0)
 
@@ -255,7 +257,7 @@ class GroupEdit(gtk.Window):
         # columns for first name
         renderer = gtk.CellRendererText()
         renderer.set_data("column", COLUMN_FIRSTNAME)
-        column = gtk.TreeViewColumn(_('First Name'), renderer,
+        column = gtk.TreeViewColumn(D_(gcompris.GETTEXT_ADMIN,'First Name'), renderer,
                                     text=COLUMN_FIRSTNAME,
                                     editable=COLUMN_USER_EDITABLE)
         column.set_sort_column_id(COLUMN_FIRSTNAME)
@@ -266,7 +268,7 @@ class GroupEdit(gtk.Window):
         # column for last name
         renderer = gtk.CellRendererText()
         renderer.set_data("column", COLUMN_LASTNAME)
-        column = gtk.TreeViewColumn(_('Last Name'), renderer,
+        column = gtk.TreeViewColumn(D_(gcompris.GETTEXT_ADMIN,'Last Name'), renderer,
                                     text=COLUMN_LASTNAME,
                                     editable=COLUMN_USER_EDITABLE)
         column.set_sort_column_id(COLUMN_LASTNAME)
@@ -349,7 +351,7 @@ class GroupEdit(gtk.Window):
             dialog = gtk.MessageDialog(None,
                                        gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
                                        gtk.MESSAGE_INFO, gtk.BUTTONS_OK,
-                                       _("You need to provide at least a name for your group"))
+                                       D_(gcompris.GETTEXT_ADMIN,"You need to provide at least a name for your group"))
             dialog.run()
             dialog.destroy()
             return
@@ -363,7 +365,7 @@ class GroupEdit(gtk.Window):
                 dialog = gtk.MessageDialog(None,
                                            gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
                                            gtk.MESSAGE_INFO, gtk.BUTTONS_OK,
-                                           _("There is already a group with this name"))
+                                           D_(gcompris.GETTEXT_ADMIN,"There is already a group with this name"))
                 dialog.run()
                 dialog.destroy()
                 return
