@@ -1399,23 +1399,23 @@ char *gc_locale_get_user_default()
 
 static void bind_text_domains()
 {
-  // TODO THESE NEEDS A PROPER SUBDIRS in the source
+  // TODO THIS NEEDS A PROPER SUBDIR
   bindtextdomain (GETTEXT_PACKAGE,properties->package_locale_dir);
   bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
   
-  bindtextdomain (GETTEXT_GUI,properties->package_locale_dir);
+  bindtextdomain (GETTEXT_GUI, g_strdup_printf ("%s/%s",properties->package_locale_dir, GETTEXT_GUI));
   bind_textdomain_codeset (GETTEXT_GUI, "UTF-8");
   
-  bindtextdomain (GETTEXT_ADMIN,properties->package_locale_dir);
+  bindtextdomain (GETTEXT_ADMIN, g_strdup_printf ("%s/%s",properties->package_locale_dir, GETTEXT_ADMIN));
   bind_textdomain_codeset (GETTEXT_ADMIN, "UTF-8");
   
-  bindtextdomain (GETTEXT_MANUAL,properties->package_locale_dir);
+  bindtextdomain (GETTEXT_MANUAL, g_strdup_printf ("%s/%s",properties->package_locale_dir, GETTEXT_MANUAL));
   bind_textdomain_codeset (GETTEXT_MANUAL, "UTF-8");
   
-  bindtextdomain (GETTEXT_HELP,properties->package_locale_dir);
+  bindtextdomain (GETTEXT_HELP, g_strdup_printf ("%s/%s",properties->package_locale_dir, GETTEXT_HELP));
   bind_textdomain_codeset (GETTEXT_HELP, "UTF-8");
   
-  bindtextdomain (GETTEXT_ERRORS,properties->package_locale_dir);
+  bindtextdomain (GETTEXT_ERRORS, g_strdup_printf ("%s/%s",properties->package_locale_dir, GETTEXT_ERRORS));
   bind_textdomain_codeset (GETTEXT_ERRORS, "UTF-8");
 }
 

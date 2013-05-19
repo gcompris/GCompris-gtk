@@ -1,15 +1,3 @@
-2013-05-19  gettextize  <bug-gnu-gettext@gnu.org>
-
-	* m4/gettext.m4: New file, from gettext-0.18.1.
-	* m4/iconv.m4: New file, from gettext-0.18.1.
-	* m4/lib-ld.m4: New file, from gettext-0.18.1.
-	* m4/lib-link.m4: New file, from gettext-0.18.1.
-	* m4/lib-prefix.m4: New file, from gettext-0.18.1.
-	* m4/nls.m4: New file, from gettext-0.18.1.
-	* m4/po.m4: New file, from gettext-0.18.1.
-	* m4/progtest.m4: New file, from gettext-0.18.1.
-	* Makefile.am (EXTRA_DIST): Add config.rpath.
-
 2009-07-12  Bruno Coudoin <bruno.coudoin@free.fr>
 
 	* *: The ChangeLog is auto-generated when releasing. If you

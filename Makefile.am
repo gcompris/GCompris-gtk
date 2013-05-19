@@ -32,7 +32,7 @@ endif
 
 @INTLTOOL_DESKTOP_RULE@
 
-EXTRA_DIST = config.rpath  \
+EXTRA_DIST = \
 	$(Applications_in_files) \
 	$(icon_DATA) \
 	intltool-extract.in \
