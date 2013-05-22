@@ -1167,8 +1167,14 @@ item_event(GooCanvasItem *item, GooCanvasItem *target,
     {
     case GDK_ENTER_NOTIFY:
       if(shape->tooltip) {
-	g_object_set(tooltip_text_item,
-		     "text", gettext(shape->tooltip),
+        /* Disambiguation between countries and regions (Georgia != Georgien (de), A' Chairtbheil (gd) etc.) */
+        char *displaytooltip = _(shape->tooltip);
+        char **splittooltip = g_strsplit (displaytooltip,"^",-1);
+        if(g_strcmp0(splittooltip[0],"country")==0 && splittooltip[1] != NULL)
+                displaytooltip = g_strdup(splittooltip[1]);
+        g_strfreev(splittooltip);
+        g_object_set(tooltip_text_item,
+		     "text", displaytooltip,
 		     NULL);
 	g_object_set (tooltip_root_item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
 
