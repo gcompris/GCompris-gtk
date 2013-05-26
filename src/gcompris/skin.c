@@ -439,10 +439,9 @@ fontset_xml_load ()
   
   /*
    * TRANSLATORS: Enter the name of the fontset that will be used for your
-   * language here, e.g. "sans" or "ruluko". We recommend Ruluko for western 
-   * Latin languages. You can find the available fontsets in boards/fontsets
+   * language here. Documentation: http://gcompris.net/wiki/Fontsets
    */
-  gchar* fontset = D_(GETTEXT_GUI,"sans");
+  gchar* fontset = _("sans");
   if(strlen(fontset) > 0 )
       xmlfilename = \
         gc_file_find_absolute("boards/fontsets/%s/fonts.xml",
