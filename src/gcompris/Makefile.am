@@ -28,7 +28,7 @@ endif
 
 bin_PROGRAMS = gcompris
 
-INCLUDES = \
+AM_CPPFLAGS = \
 	-I$(top_srcdir)/intl \
 	-DDATADIR=\""$(datadir)"\" \
 	-I$(top_srcdir)/src \
@@ -139,7 +139,7 @@ EXTRA_DIST = \
 DONT_DIST_SOURCE = $(marshal_sources)
 
 if SUGAR
-INCLUDES += $(SUGAR_CFLAGS)
+AM_CPPFLAGS += $(SUGAR_CFLAGS)
 gcompris_SOURCES += \
 	sugar.c sugar.h \
 	sugar_gc.c sugar_gc.h \

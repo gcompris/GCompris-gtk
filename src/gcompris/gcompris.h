@@ -81,6 +81,23 @@
 #define D_(Domain,String) dgettext (Domain,String)
 #endif
 
+#ifndef _errors
+#define _errors(String) dgettext (GETTEXT_ERRORS,String)
+#endif
+
+#ifndef _gui
+#define _gui(String) dgettext (GETTEXT_GUI,String)
+#endif
+
+#ifndef _manual
+#define _manual(String) dgettext (GETTEXT_MANUAL,String)
+#endif
+
+
+#ifndef _nmanual
+#define _nmanual(String, Pluralstring, Number) dngettext (GETTEXT_MANUAL,String, Pluralstring, Number)
+#endif
+
 #define GC_DEFAULT_LOCALE "en_US.UTF-8"
 
 /*****************************************************************************/

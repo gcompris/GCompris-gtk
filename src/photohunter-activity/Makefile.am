@@ -18,7 +18,7 @@ lib_LTLIBRARIES = \
 	libphotohunter.la
 
 libdir = $(plugindir)
-INCLUDES = 	-I$(top_srcdir)/src \
+AM_CPPFLAGS = 	-I$(top_srcdir)/src \
 	-I$(top_srcdir)/intl \
 	-I$(top_srcdir)/src/goocanvas/src \
 	$(GCOMPRIS_CFLAGS) \

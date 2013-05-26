@@ -37,7 +37,7 @@ lib_LTLIBRARIES = \
 	$(python_plugin)
 
 libdir = $(plugindir)
-INCLUDES = \
+AM_CPPFLAGS = \
 	-I$(top_srcdir)/src \
 	-I$(top_srcdir)/intl \
 	-I$(top_srcdir)/src/goocanvas/src \

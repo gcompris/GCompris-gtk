@@ -79,15 +79,15 @@ static GcomprisBoard *gcomprisBoard = NULL;
  */
 
 #define FALL_RATE_BASE 40
-#define FALL_RATE_MULT 80
+#define FALL_RATE_MULT 10
 
 /* these constants control how often letters are dropped
  * the base rate is fixed
  * the increment governs increase per level
  */
 
-#define DROP_RATE_BASE 5000
-#define DROP_RATE_MULT 100
+#define DROP_RATE_BASE 1000
+#define DROP_RATE_MULT 1000
 
 static gint dummy_id = 0;
 static gint drop_items_id = 0;
@@ -123,8 +123,8 @@ static void		 player_win(LettersItem *item);
 static void		 player_lose(void);
 
 
-static  gint             fallSpeed = 0;
-static  gint             speed = 0;
+static  gint              fallSpeed = 0;
+static  gint               speed = 0;
 
 static GooCanvasItem *preedit_text = NULL;
 
@@ -571,7 +571,7 @@ static void gletters_next_level_unlocked()
 static void setSpeed(guint level)
 {
     LevelWordlist *levellist = gc_wordlist_get_levelwordlist(gc_wordlist, level);
-    speed = (levellist->speed >= 0) ? (gint) levellist->speed : ((gint) FALL_RATE_BASE)+(((gint) FALL_RATE_MULT)/level);
+    speed = (levellist->speed >= 0) ? (gint) levellist->speed : ((gint) FALL_RATE_BASE)+(((gint) FALL_RATE_MULT)*level);
     fallSpeed = (levellist->fallspeed >= 0) ? (gint) levellist->fallspeed : (gint) DROP_RATE_BASE+(DROP_RATE_MULT*level);
 }
 

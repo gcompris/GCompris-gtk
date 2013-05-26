@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Copyright (C) 2000, 2012 Bruno Coudoin
+ * Copyright (C) 2000, 2013 Bruno Coudoin
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -172,7 +172,7 @@ static GOptionEntry options[] = {
   {"difficulty", 'd', 0, G_OPTION_ARG_INT, &popt_difficulty_filter,
    N_("display only activities with this difficulty level."), NULL},
 
-  {"rememberlevel", 'r', '0', G_OPTION_ARG_NONE, &popt_rememberlevel,
+  {"rememberlevel", 'r', 0, G_OPTION_ARG_NONE, &popt_rememberlevel,
    N_("Return to last passed level even when no user is selected"), NULL},
 
   {"root-menu", 'l', 0, G_OPTION_ARG_STRING, &popt_root_menu,

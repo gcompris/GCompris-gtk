@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <GCompris>
 <Wordlist name="default-gd" description="Gàidhlig" locale="gd">
-<level value="1" sublevels="5">
+<level value="1" sublevels="5" speed="120" fallspeed="5100">
 a
 e
 i
 o
 u
 </level>
-<level value="2" sublevels="10">
+<level value="2" sublevels="10" speed="80" fallspeed="5200">
 1
 2
 3
@@ -19,7 +19,7 @@ u
 8
 9
 </level>
-<level value="3">
+<level value="3" speed="66" fallspeed="5300">
 a
 e
 i
@@ -36,7 +36,7 @@ u
 8
 9
 </level>
-<level value="4" sublevels="12">
+<level value="4" sublevels="12" speed="60" fallspeed="5400">
 b
 c
 d
@@ -50,7 +50,7 @@ r
 s
 t
 </level>
-<level value="5">
+<level value="5" speed="56" fallspeed="5500">
 b
 c
 d
@@ -74,7 +74,7 @@ t
 8
 9
 </level>
-<level value="6">
+<level value="6" speed="53" fallspeed="5600">
 b
 c
 d
@@ -93,14 +93,14 @@ i
 o
 u
 </level>
-<level value="7" sublevels="5">
+<level value="7" sublevels="5" speed="51" fallspeed="5700">
 à
 è
 ì
 ò
 ù
 </level>
-<level value="8" sublevels="12">
+<level value="8" sublevels="12" speed="50" fallspeed="5800">
 bh
 ch
 dh
@@ -114,7 +114,7 @@ ll
 nn
 rr
 </level>
-<level value="9">
+<level value="9" speed="48" fallspeed="5900">
 à
 è
 ì
@@ -133,7 +133,7 @@ ll
 nn
 rr
 </level>
-<level value="10">
+<level value="10" speed="48" fallspeed="6000">
 b
 c
 d
