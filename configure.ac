@@ -7,6 +7,8 @@ AM_INIT_AUTOMAKE([tar-ustar no-dist-gzip dist-bzip2 -Wno-portability])
 AM_CONFIG_HEADER(config.h)
 AC_CONFIG_MACRO_DIR([m4])
 
+AM_GNU_GETTEXT([external]) 
+
 if test -z "$enable_maintainer_mode"; then
   enable_maintainer_mode=yes
 fi
@@ -40,7 +42,7 @@ AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [GETTEXT package name])
 
 GETTEXT_GUI=gcompris-gui
 AC_SUBST(GETTEXT_GUI)
-AC_DEFINE_UNQUOTED(GETTEXT_GUI,"$GETTEXT_GUI", [GETTEXT package name])
+AC_DEFINE_UNQUOTED(GETTEXT_GUI,"$GETTEXT_GUI", gcompris-gui)
 
 GETTEXT_ADMIN=gcompris-admin
 AC_SUBST(GETTEXT_ADMIN)

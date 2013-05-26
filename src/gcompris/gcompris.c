@@ -1237,7 +1237,7 @@ static void map_cb (GtkWidget *widget, gpointer data)
 			    properties->package_skin_dir,
 			    properties->skin);
 
-	  gc_status_set_msg(D_(GETTEXT_ERRORS,"Failed to load the skin '%s'"
+	  gc_status_set_msg(_errors("Failed to load the skin '%s'"
 			      " (Check the file exists and is readable)"),
 			    filename);
 	  g_free(filename);
@@ -1399,23 +1399,23 @@ char *gc_locale_get_user_default()
 
 static void bind_text_domains()
 {
-  // TODO THIS NEEDS A PROPER SUBDIR
+  // TODO THESE NEEDS A PROPER SUBDIRS in the source
   bindtextdomain (GETTEXT_PACKAGE,properties->package_locale_dir);
   bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
   
-  bindtextdomain (GETTEXT_GUI, g_strdup_printf ("%s/%s",properties->package_locale_dir, GETTEXT_GUI));
+  bindtextdomain (GETTEXT_GUI,properties->package_locale_dir);
   bind_textdomain_codeset (GETTEXT_GUI, "UTF-8");
   
-  bindtextdomain (GETTEXT_ADMIN, g_strdup_printf ("%s/%s",properties->package_locale_dir, GETTEXT_ADMIN));
+  bindtextdomain (GETTEXT_ADMIN,properties->package_locale_dir);
   bind_textdomain_codeset (GETTEXT_ADMIN, "UTF-8");
   
-  bindtextdomain (GETTEXT_MANUAL, g_strdup_printf ("%s/%s",properties->package_locale_dir, GETTEXT_MANUAL));
+  bindtextdomain (GETTEXT_MANUAL,properties->package_locale_dir);
   bind_textdomain_codeset (GETTEXT_MANUAL, "UTF-8");
   
-  bindtextdomain (GETTEXT_HELP, g_strdup_printf ("%s/%s",properties->package_locale_dir, GETTEXT_HELP));
+  bindtextdomain (GETTEXT_HELP,properties->package_locale_dir);
   bind_textdomain_codeset (GETTEXT_HELP, "UTF-8");
   
-  bindtextdomain (GETTEXT_ERRORS, g_strdup_printf ("%s/%s",properties->package_locale_dir, GETTEXT_ERRORS));
+  bindtextdomain (GETTEXT_ERRORS,properties->package_locale_dir);
   bind_textdomain_codeset (GETTEXT_ERRORS, "UTF-8");
 }
 
@@ -1535,7 +1535,7 @@ single_instance_check()
 
 	  if(current_time.tv_sec - seconds < GC_LOCK_LIMIT)
 	    {
-	      printf(dngettext(GETTEXT_MANUAL,"GCompris won't start because the lock file is less than %d second old.\n",
+	      printf(_nmanual("GCompris won't start because the lock file is less than %d second old.\n",
 			      "GCompris won't start because the lock file is less than %d seconds old.\n",
 			      GC_LOCK_LIMIT),
 		     GC_LOCK_LIMIT);
