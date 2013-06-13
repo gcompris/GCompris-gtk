@@ -25,7 +25,6 @@ import gtk.gdk
 import gobject
 import gettext
 from gcompris import gcompris_gettext as _
-from gettext import dgettext as D_
 
 import group_user_list
 import group_edit
@@ -81,7 +80,7 @@ class Group_list:
       class_box.show()
       label_box.pack_start(class_box, False, False, 0)
 
-      class_label = gtk.Label(D_(gcompris.GETTEXT_ADMIN,'Select a class:'))
+      class_label = gtk.Label(_('Select a class:'))
       class_label.show()
       label_box.pack_start(class_label, False, False, 0)
 
@@ -209,7 +208,7 @@ class Group_list:
     renderer = gtk.CellRendererText()
     renderer.connect("edited", self.on_cell_group_edited, model)
     renderer.set_data("column", COLUMN_NAME)
-    column = gtk.TreeViewColumn(D_(gcompris.GETTEXT_ADMIN,'Group'), renderer,
+    column = gtk.TreeViewColumn(_('Group'), renderer,
                                 text=COLUMN_NAME)
     column.set_sort_column_id(COLUMN_NAME)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
@@ -220,7 +219,7 @@ class Group_list:
     renderer = gtk.CellRendererText()
     renderer.connect("edited", self.on_cell_group_edited, model)
     renderer.set_data("column", COLUMN_DESCRIPTION)
-    column = gtk.TreeViewColumn(D_(gcompris.GETTEXT_ADMIN,'Description'), renderer,
+    column = gtk.TreeViewColumn(_('Description'), renderer,
                                 text=COLUMN_DESCRIPTION)
     column.set_sort_column_id(COLUMN_DESCRIPTION)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
@@ -317,7 +316,7 @@ class Group_list:
       dialog = gtk.MessageDialog(None,
                                  gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
                                  gtk.MESSAGE_INFO, gtk.BUTTONS_OK,
-                                 D_(gcompris.GETTEXT_ADMIN,"You must first select a group in the list"))
+                                 _("You must first select a group in the list"))
       dialog.run()
       dialog.destroy()
 

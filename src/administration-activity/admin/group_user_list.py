@@ -25,7 +25,6 @@ import gtk.gdk
 import gobject
 import gettext
 from gcompris import gcompris_gettext as _
-from gettext import dgettext as D_
 
 import constants
 
@@ -139,7 +138,7 @@ class Group_user_list:
     # columns for login
     renderer = gtk.CellRendererText()
     renderer.set_data("column", COLUMN_LOGIN)
-    column = gtk.TreeViewColumn(D_(gcompris.GETTEXT_ADMIN,'Login'), renderer,
+    column = gtk.TreeViewColumn(_('Login'), renderer,
                                 text=COLUMN_LOGIN)
     column.set_sort_column_id(COLUMN_LOGIN)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
@@ -149,7 +148,7 @@ class Group_user_list:
     # columns for first name
     renderer = gtk.CellRendererText()
     renderer.set_data("column", COLUMN_FIRSTNAME)
-    column = gtk.TreeViewColumn(D_(gcompris.GETTEXT_ADMIN,'First Name'), renderer,
+    column = gtk.TreeViewColumn(_('First Name'), renderer,
                                 text=COLUMN_FIRSTNAME)
     column.set_sort_column_id(COLUMN_FIRSTNAME)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
@@ -159,7 +158,7 @@ class Group_user_list:
     # column for last name
     renderer = gtk.CellRendererText()
     renderer.set_data("column", COLUMN_LASTNAME)
-    column = gtk.TreeViewColumn(D_(gcompris.GETTEXT_ADMIN,'Last Name'), renderer,
+    column = gtk.TreeViewColumn(_('Last Name'), renderer,
                                 text=COLUMN_LASTNAME)
     column.set_sort_column_id(COLUMN_LASTNAME)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
@@ -169,7 +168,7 @@ class Group_user_list:
     # column for birth date
     renderer = gtk.CellRendererText()
     renderer.set_data("column", COLUMN_BIRTHDATE)
-    column = gtk.TreeViewColumn(D_(gcompris.GETTEXT_ADMIN,'Birth Date'), renderer,
+    column = gtk.TreeViewColumn(_('Birth Date'), renderer,
                                 text=COLUMN_BIRTHDATE)
     column.set_sort_column_id(COLUMN_BIRTHDATE)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)

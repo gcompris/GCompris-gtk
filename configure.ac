@@ -40,26 +40,6 @@ GETTEXT_PACKAGE=gcompris
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [GETTEXT package name])
 
-GETTEXT_GUI=gcompris-gui
-AC_SUBST(GETTEXT_GUI)
-AC_DEFINE_UNQUOTED(GETTEXT_GUI,"$GETTEXT_GUI", gcompris-gui)
-
-GETTEXT_ADMIN=gcompris-admin
-AC_SUBST(GETTEXT_ADMIN)
-AC_DEFINE_UNQUOTED(GETTEXT_ADMIN,"$GETTEXT_ADMIN", [GETTEXT package name])
-
-GETTEXT_MANUAL=gcompris-manual
-AC_SUBST(GETTEXT_MANUAL)
-AC_DEFINE_UNQUOTED(GETTEXT_MANUAL,"$GETTEXT_MANUAL", [GETTEXT package name])
-
-GETTEXT_HELP=gcompris-help
-AC_SUBST(GETTEXT_HELP)
-AC_DEFINE_UNQUOTED(GETTEXT_HELP,"$GETTEXT_HELP", [GETTEXT package name])
-
-GETTEXT_ERRORS=gcompris-errors
-AC_SUBST(GETTEXT_ERRORS)
-AC_DEFINE_UNQUOTED(GETTEXT_ERRORS,"$GETTEXT_ERRORS", [GETTEXT package name])
-
 IT_PROG_INTLTOOL([0.35.0])
 AM_GLIB_GNU_GETTEXT
 
@@ -549,11 +529,6 @@ gcompris-installer.nsi
 macosx/Info.plist
 macosx/InfoAdmin.plist
 po/Makefile.in
-po/gcompris-gui/Makefile.in
-po/gcompris-admin/Makefile.in
-po/gcompris-manual/Makefile.in
-po/gcompris-help/Makefile.in
-po/gcompris-errors/Makefile.in
 src/Makefile
 src/administration-activity/Makefile
 src/administration-activity/admin/Makefile

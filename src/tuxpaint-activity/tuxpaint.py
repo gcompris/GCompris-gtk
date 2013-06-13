@@ -31,7 +31,6 @@ import platform
 #gettext support
 import gettext
 from gcompris import gcompris_gettext as _
-from gettext import dgettext as D_
 
 pid = None
 fles = None
@@ -121,7 +120,7 @@ class Gcompris_tuxpaint:
             flags=flags)
 
     except:
-       gcompris.utils.dialog(D_(gcompris.GETTEXT_ERRORS,"Cannot find Tuxpaint.\nInstall it to use this activity !"),stop_board)
+       gcompris.utils.dialog(_("Cannot find Tuxpaint.\nInstall it to use this activity !"),stop_board)
        return
 
     gobject.child_watch_add(pid, child_callback, data=self, priority=gobject.PRIORITY_HIGH)
@@ -184,36 +183,36 @@ class Gcompris_tuxpaint:
     self.config_dict.update(gcompris.get_conf(profile, self.gcomprisBoard))
 
     bconfig = gcompris.configuration_window ( \
-      D_(gcompris.GETTEXT_GUI, \
+      _( \
         '<b>{activity}</b> configuration\n for profile <b>{profile}</b>'.format( \
                         activity=_('Tuxpaint'),
                         # This is the name of the Default user profile
-                        profile=profile.name if profile else D_(gcompris.GETTEXT_GUI,"Default")),
+                        profile=profile.name if profile else _("Default")),
         ),
         self.apply_callback
       )
 
 
-    gcompris.boolean_box(bconfig, D_(gcompris.GETTEXT_GUI,'Inherit fullscreen setting from GCompris'), 'fullscreen', eval(self.config_dict['fullscreen']))
+    gcompris.boolean_box(bconfig, _('Inherit fullscreen setting from GCompris'), 'fullscreen', eval(self.config_dict['fullscreen']))
 
     gcompris.separator(bconfig)
 
-    gcompris.boolean_box(bconfig, D_(gcompris.GETTEXT_GUI,'Inherit size setting from GCompris (800x600, 640x480)'), 'size', eval(self.config_dict['size']))
+    gcompris.boolean_box(bconfig, _('Inherit size setting from GCompris (800x600, 640x480)'), 'size', eval(self.config_dict['size']))
 
     gcompris.separator(bconfig)
 
-    gcompris.boolean_box(bconfig, D_(gcompris.GETTEXT_GUI,'Disable shape rotation'), 'disable_shape_rotation', eval(self.config_dict['disable_shape_rotation']))
+    gcompris.boolean_box(bconfig, _('Disable shape rotation'), 'disable_shape_rotation', eval(self.config_dict['disable_shape_rotation']))
 
     gcompris.separator(bconfig)
 
-    gcompris.boolean_box(bconfig, D_(gcompris.GETTEXT_GUI,'Show Uppercase text only'), 'uppercase_text', eval(self.config_dict['uppercase_text']))
+    gcompris.boolean_box(bconfig, _('Show Uppercase text only'), 'uppercase_text', eval(self.config_dict['uppercase_text']))
 
     gcompris.separator(bconfig)
 
-    stamps = gcompris.boolean_box(bconfig, D_(gcompris.GETTEXT_GUI,'Disable stamps'), 'disable_stamps', eval(self.config_dict['disable_stamps']))
+    stamps = gcompris.boolean_box(bconfig, _('Disable stamps'), 'disable_stamps', eval(self.config_dict['disable_stamps']))
     stamps.connect("toggled", self.stamps_changed)
 
-    self.stamps_control = gcompris.boolean_box(bconfig, D_(gcompris.GETTEXT_GUI,'Disable stamps control'), 'disable_stamps_control', eval(self.config_dict['disable_stamps_control']))
+    self.stamps_control = gcompris.boolean_box(bconfig, _('Disable stamps control'), 'disable_stamps_control', eval(self.config_dict['disable_stamps_control']))
     self.stamps_control.set_sensitive(not eval(self.config_dict['disable_stamps']))
 
   def stamps_changed(self, button):

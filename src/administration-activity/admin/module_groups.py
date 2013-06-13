@@ -24,7 +24,6 @@ import gtk
 import gtk.gdk
 import gettext
 from gcompris import gcompris_gettext as _
-from gettext import dgettext as D_
 
 # Database
 try:
@@ -45,7 +44,7 @@ class Groups(module.Module):
 
 
   def __init__(self, canvas):
-    module.Module.__init__(self, canvas, "groups", D_(gcompris.GETTEXT_ADMIN,"Groups"))
+    module.Module.__init__(self, canvas, "groups", _("Groups"))
 
   # Return the position it must have in the administration menu
   # The smaller number is the highest.
@@ -68,7 +67,7 @@ class Groups(module.Module):
     # Call our parent start
     module.Module.start(self)
 
-    frame = gtk.Frame(D_(gcompris.GETTEXT_ADMIN,"Groups"))
+    frame = gtk.Frame(_("Groups"))
     frame.show()
 
     goocanvas.Widget(

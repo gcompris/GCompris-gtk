@@ -248,7 +248,7 @@ display_file_selector(int the_mode,
 			  BOARDWIDTH * 1/3,
 			  BOARDHEIGHT - 32,
 			  "#BUTTON_TEXT",
-			  D_(GETTEXT_GUI,"CANCEL"),
+			  _("CANCEL"),
 			  (GCallback) item_event_file_selector,
 			  "/cancel/");
   // OK
@@ -256,7 +256,7 @@ display_file_selector(int the_mode,
 			  BOARDWIDTH * 2/3,
 			  BOARDHEIGHT - 32,
 			  "#BUTTON_TEXT",
-			  (mode==MODE_LOAD ? D_(GETTEXT_GUI,"LOAD") : D_(GETTEXT_GUI,"SAVE")),
+			  (mode==MODE_LOAD ? _("LOAD") : _("SAVE")),
 			  (GCallback) item_event_file_selector,
 			  "/ok/");
 

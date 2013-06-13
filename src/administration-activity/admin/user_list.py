@@ -24,7 +24,6 @@ import gtk.gdk
 import gobject
 import gettext
 from gcompris import gcompris_gettext as _
-from gettext import dgettext as D_
 import constants
 import user_edit
 
@@ -179,7 +178,7 @@ class User_list:
     # columns for login
     renderer = gtk.CellRendererText()
     renderer.set_data("column", COLUMN_LOGIN)
-    column = gtk.TreeViewColumn(D_(gcompris.GETTEXT_ADMIN,'Login'), renderer,
+    column = gtk.TreeViewColumn(_('Login'), renderer,
                                 text=COLUMN_LOGIN)
     column.set_sort_column_id(COLUMN_LOGIN)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
@@ -189,7 +188,7 @@ class User_list:
     # columns for first name
     renderer = gtk.CellRendererText()
     renderer.set_data("column", COLUMN_FIRSTNAME)
-    column = gtk.TreeViewColumn(D_(gcompris.GETTEXT_ADMIN,'First Name'), renderer,
+    column = gtk.TreeViewColumn(_('First Name'), renderer,
                                 text=COLUMN_FIRSTNAME)
     column.set_sort_column_id(COLUMN_FIRSTNAME)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
@@ -199,7 +198,7 @@ class User_list:
     # column for last name
     renderer = gtk.CellRendererText()
     renderer.set_data("column", COLUMN_LASTNAME)
-    column = gtk.TreeViewColumn(D_(gcompris.GETTEXT_ADMIN,'Last Name'), renderer,
+    column = gtk.TreeViewColumn(_('Last Name'), renderer,
                                 text=COLUMN_LASTNAME)
     column.set_sort_column_id(COLUMN_LASTNAME)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
@@ -209,7 +208,7 @@ class User_list:
     # column for birth date
     renderer = gtk.CellRendererText()
     renderer.set_data("column", COLUMN_BIRTHDATE)
-    column = gtk.TreeViewColumn(D_(gcompris.GETTEXT_ADMIN,'Birth Date'), renderer,
+    column = gtk.TreeViewColumn(_('Birth Date'), renderer,
                                 text=COLUMN_BIRTHDATE)
     column.set_sort_column_id(COLUMN_BIRTHDATE)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
@@ -283,7 +282,7 @@ class User_list:
     dialog = gtk.MessageDialog(None,
                                gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
                                gtk.MESSAGE_INFO, gtk.BUTTONS_OK,
-                               D_(gcompris.GETTEXT_ADMIN,"To import a user list from a file, first select a class.\nFILE FORMAT: Your file must be formatted like this:\nlogin;First name;Last name;Date of birth\nThe separator is autodetected and can be one of ',', ';' or ':'"))
+                               _("To import a user list from a file, first select a class.\nFILE FORMAT: Your file must be formatted like this:\nlogin;First name;Last name;Date of birth\nThe separator is autodetected and can be one of ',', ';' or ':'"))
     dialog.run()
     dialog.destroy()
 
@@ -361,7 +360,7 @@ class User_list:
       dialog = gtk.MessageDialog(None,
                                gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
                                gtk.MESSAGE_INFO, gtk.BUTTONS_OK,
-                               D_(gcompris.GETTEXT_ADMIN,"One or more logins are not unique !\nYou need to change them: %s !") % p)
+                               _("One or more logins are not unique !\nYou need to change them: %s !") % p)
       dialog.run()
       dialog.destroy()
 

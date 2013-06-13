@@ -27,7 +27,6 @@ import gtk.gdk
 import random
 import gettext
 from gcompris import gcompris_gettext as _
-from gettext import dgettext as D_
 
 class Gcompris_melody:
   """The melody activity"""
@@ -105,7 +104,7 @@ class Gcompris_melody:
     Prop = gcompris.get_properties()
 
     if(not Prop.fx):
-      gcompris.utils.dialog(D_(gcompris.GETTEXT_ERROR,"Error: this activity cannot be played with the\nsound effects disabled.\nGo to the configuration dialogue to\nenable the sound"), None)
+      gcompris.utils.dialog(_("Error: this activity cannot be played with the\nsound effects disabled.\nGo to the configuration dialogue to\nenable the sound"), None)
 
   def end(self):
     self.cleanup()
