@@ -189,7 +189,7 @@ class LangLib:
             for line in open(self.translationsFile, 'r'):
                 lineSplitted = line.rstrip('\r\n').split(":")
                 if line[0] == '#' or len(lineSplitted) < 2: continue
-                self.translations[lineSplitted[0]] = lineSplitted[1]
+                self.translations[lineSplitted[0]] = unicode(lineSplitted[1])
 
         doc = xml.dom.minidom.parse(fileName)
         self.chapters = Chapters( doc.getElementsByTagName('Chapter'), self.translations )

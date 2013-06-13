@@ -23,8 +23,8 @@ msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompr"
 "is&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-05-12 21:06+0000\n"
-"PO-Revision-Date: 2013-05-13 07:49+0300\n"
+"POT-Creation-Date: 2013-05-27 09:16+0000\n"
+"PO-Revision-Date: 2013-06-05 07:20+0300\n"
 "Last-Translator: Dimitris Spingos (Δημήτρης Σπίγγος) <dmtrs32@gmail.com>\n"
 "Language-Team: team@gnome.gr\n"
 "Language: el\n"
@@ -857,8 +857,9 @@ msgid "Learn to recognize unusual colors."
 msgstr "Μάθε να αναγνωρίζεις σπάνια χρώματα."
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:5
-msgid "Click on the correct colored box."
-msgstr "Κάντε κλικ στο σωστό χρωματιστό κουτί."
+#| msgid "Click on the correct colored box."
+msgid "Click on the correct colored butterfly."
+msgstr "Πατήστε στη σωστή χρωματιστή πεταλούδα."
 
 #. Translator: Do not translate {text}.
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:2
@@ -4692,7 +4693,7 @@ msgstr "Οδηγός"
 msgid "Credit"
 msgstr "Μνεία"
 
-#: ../src/gcompris/menu.c:629
+#: ../src/gcompris/menu.c:614
 #, c-format
 msgid ""
 "Loading activity from file:\n"
@@ -4701,7 +4702,7 @@ msgstr ""
 "Φόρτωση δραστηριότητας από το αρχείο:\n"
 "%s"
 
-#: ../src/gcompris/menu.c:689
+#: ../src/gcompris/menu.c:673
 msgid ""
 "All the activities are disabled in this profile. Go in the GCompris "
 "administration module and activate at least one activity."
@@ -4817,71 +4818,67 @@ msgstr "Βόρεια Σκωτία"
 #: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:2
 #: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:2
 msgid "Skye"
-msgstr ""
+msgstr "Σκάι"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:3
 #: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:3
 msgid "Lochaber"
-msgstr ""
+msgstr "Λόχαμπερ"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:4
 #: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:4
 msgid "Lochalsh, Badenoch, Cromarty and Strathspey"
-msgstr ""
+msgstr "Λόκαλς, Μπαντενόχ, Κρομαρτί και Στράθσπρεϊ"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:5
 #: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:5
 msgid "Inverness and Nairn"
-msgstr ""
+msgstr "Ινβερνές και Νέρν"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:6
 #: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:6
 msgid "Ross"
-msgstr ""
+msgstr "Ρος"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:7
 #: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:7
-#, fuzzy
-#| msgid "Switzerland"
 msgid "Sutherland"
-msgstr "Ελβετία"
+msgstr "Σάδερλαντ"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:8
 #: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:8
 msgid "Caithness"
-msgstr ""
+msgstr "Κάιτνες"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:9
 #: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:9
-#, fuzzy
-#| msgid "Iceland"
 msgid "Shetland"
-msgstr "Ισλανδία"
+msgstr "Σέτλαντ"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:10
 #: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:10
 msgid "Orkney"
-msgstr ""
+msgstr "Όρκνεϊ"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:11
 #: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:11
 msgid "Na h-Eileanan Siar"
-msgstr ""
+msgstr "Na h-Eileanan Siar"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:12
 #: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:12
 msgid "Moray"
-msgstr ""
+msgstr "Μόρεϊ"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:13
 #: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:13
 msgid "Aberdeen"
-msgstr ""
+msgstr "Αμπερντίν"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:14
 #: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:14
 msgid "Aberdeenshire"
-msgstr ""
+msgstr "Αμπερντινσάιρ"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:1
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:1
@@ -4891,133 +4888,127 @@ msgstr "Νότια Σκωτία"
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:2
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:2
 msgid "Argyll and Bute"
-msgstr ""
+msgstr "Άργκιλ και Μπιουτ"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:3
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:3
 msgid "Stirling"
-msgstr ""
+msgstr "Στίρλινγκ"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:4
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:4
 msgid "Perth and Kinross"
-msgstr ""
+msgstr "Περθ και Κίνρος"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:5
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:5
 msgid "Angus"
-msgstr ""
+msgstr "Άνγκους"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:6
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:6
 msgid "Dundee"
-msgstr ""
+msgstr "Νταντί"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:7
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:7
 msgid "Fife"
-msgstr ""
+msgstr "Φάιφ"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:8
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:8
 msgid "Clackmannanshire"
-msgstr ""
+msgstr "Κλακμανσάιρ"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:9
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:9
-#, fuzzy
-#| msgid "North America"
 msgid "North Ayrshire"
-msgstr "Βόρεια Αμερική"
+msgstr "Βόρειο Άιρσαϊρ"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:10
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:10
 msgid "Inverclyde"
-msgstr ""
+msgstr "Ινβερκλάιντ"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:11
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:11
 msgid "Renfrewshire"
-msgstr ""
+msgstr "Ρενφριουσάιρ"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:12
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:12
 msgid "East Renfrewshire"
-msgstr ""
+msgstr "Ανατολικό Ρενφριουσάιρ"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:13
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:13
 msgid "West Dunbartonshire"
-msgstr ""
+msgstr "Δυτικό Ντανμπαρτονσάιρ"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:14
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:14
 msgid "East Dunbartonshire"
-msgstr ""
+msgstr "Ανατολικό Ντανμπαρτονσάιρ"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:15
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:15
 msgid "Glasgow"
-msgstr ""
+msgstr "Γκλασκόβη"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:16
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:16
 msgid "East Ayrshire"
-msgstr ""
+msgstr "Ανατολικό Αϊρσάιρ"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:17
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:17
-#, fuzzy
-#| msgid "South Africa"
 msgid "South Ayrshire"
-msgstr "Νότια Αφρική"
+msgstr "Νότιο Άιρσαϊρ"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:18
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:18
 msgid "Dumfries and Galloway"
-msgstr ""
+msgstr "Ντάμφρις και Γκάλογουεϊ"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:19
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:19
 msgid "North Lanarkshire"
-msgstr ""
+msgstr "Βόρειο Λαναρκσάιρ"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:20
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:20
 msgid "South Lanarkshire"
-msgstr ""
+msgstr "Νότιο Λαναρκσάιρ"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:21
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:21
 msgid "Falkirk"
-msgstr ""
+msgstr "Φαλκίρκ"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:22
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:22
 msgid "Edinburgh"
-msgstr ""
+msgstr "Εδιμβούργο"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:23
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:23
 msgid "West Lothian"
-msgstr ""
+msgstr "Δυτικό Λόθιαν"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:24
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:24
 msgid "Midlothian"
-msgstr ""
+msgstr "Μέσο Λόθιαν"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:25
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:25
 msgid "East Lothian"
-msgstr ""
+msgstr "Ανατολικό Λόθιαν"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:26
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:26
-#, fuzzy
-#| msgid "Scottish Gaelic"
 msgid "Scottish Borders"
-msgstr "Ιρλανδική (Γαελική)"
+msgstr "Σκωτζέζικα σύνορα"
 
 #: ../src/geo_country-activity/resources/geo_country/board2_0.xml.in.h:1
 msgid "Deutschland Bundesländer"
@@ -5285,99 +5276,83 @@ msgstr "Ωκεανία"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:2
 msgid "Hawaii"
-msgstr ""
+msgstr "Χαβάι"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:3
-#, fuzzy
-#| msgid "United States of America"
 msgid "United States Minor Outlying Islands"
-msgstr "Ηνωμένες Πολιτείες της Αμερικής"
+msgstr "Μικρά εξωτερικά νησία των Η.Π.Α."
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:5
-#, fuzzy
-#| msgid "America"
 msgid "American Samoa"
-msgstr "Αμερική"
+msgstr "Αμερικανική Σαμόα"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:6
 msgid "Cook Islands"
-msgstr ""
+msgstr "Νήσοι Κουκ"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:7
-#, fuzzy
-#| msgid "Greenland"
 msgid "New Zealand"
-msgstr "Γριλανδία"
+msgstr "Νέα Ζηλανδία"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:8
 msgid "Solomon Islands"
-msgstr ""
+msgstr "Νησιά του Σολομώντα"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:9
 msgid "Fiji"
-msgstr ""
+msgstr "Φίτζι"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:10
 msgid "Kiribati"
-msgstr ""
+msgstr "Κιριμπάτι"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:11
 msgid "Marshall Islands"
-msgstr ""
+msgstr "Νήσοι Μάρσαλ"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:12
-#, fuzzy
-#| msgid "Macedonia"
 msgid "New Caledonia"
-msgstr "ΠΓΔΜ"
+msgstr "Νέα Καληδονία"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:13
 msgid "Tonga"
-msgstr ""
+msgstr "Τόνγκα"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:14
 msgid "Tuvalu"
-msgstr ""
+msgstr "Τουβαλού"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:15
-#, fuzzy
-#| msgid "Manual"
 msgid "Vanuatu"
-msgstr "Οδηγός"
+msgstr "Βανουάτου"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:16
-#, fuzzy
-#| msgid "Indonesia"
 msgid "Micronesia"
-msgstr "Ινδονησία"
+msgstr "Μικρονησία"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:17
-#, fuzzy
-#| msgid "Northern Scotland"
 msgid "Northern Mariana Islands"
-msgstr "Βόρεια Σκωτία"
+msgstr "Βόρειες Μαριάνες Νήσοι"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:18
 msgid "Palau"
-msgstr ""
+msgstr "Παλάου"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:20
 msgid "East Timor"
-msgstr ""
+msgstr "Ανατολικό Τιμόρ"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:21
 msgid "Papua New Guinea"
-msgstr ""
+msgstr "Παπούα Νέα Γουϊνέα"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:22
-#, fuzzy
-#| msgid "French Guiana"
 msgid "French Polynesia"
-msgstr "Γαλλική Γουϊάνα"
+msgstr "Γαλλική Πολυνησία"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:23
 msgid "Pitcairn Islands"
-msgstr ""
+msgstr "Νήσοι Πίτσερν"
 
 #: ../src/geography-activity/resources/geography/board2_0.xml.in.h:1
 msgid "North America"
@@ -5406,10 +5381,8 @@ msgstr "Αλάσκα"
 
 #: ../src/geography-activity/resources/geography/board3_0.xml.in.h:1
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:1
-#, fuzzy
-#| msgid " America"
 msgid "Central America"
-msgstr "Αμερική"
+msgstr "Κεντρική Αμερική"
 
 #: ../src/geography-activity/resources/geography/board3_0.xml.in.h:2
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:2
@@ -5419,12 +5392,12 @@ msgstr "Μπαχάμες"
 #: ../src/geography-activity/resources/geography/board3_0.xml.in.h:3
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:3
 msgid "Belize"
-msgstr ""
+msgstr "Μπελίζ"
 
 #: ../src/geography-activity/resources/geography/board3_0.xml.in.h:4
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:4
 msgid "Costa Rica"
-msgstr ""
+msgstr "Κόστα Ρίκα"
 
 #: ../src/geography-activity/resources/geography/board3_0.xml.in.h:5
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:5
@@ -5439,12 +5412,12 @@ msgstr "Δομινικάνικη δημοκρατία"
 #: ../src/geography-activity/resources/geography/board3_0.xml.in.h:7
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:7
 msgid "El Salvador"
-msgstr ""
+msgstr "Ελ Σαλβαδόρ"
 
 #: ../src/geography-activity/resources/geography/board3_0.xml.in.h:8
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:8
 msgid "Guatemala"
-msgstr ""
+msgstr "Γουατεμάλα"
 
 #: ../src/geography-activity/resources/geography/board3_0.xml.in.h:9
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:9
@@ -5454,7 +5427,7 @@ msgstr "Αϊτή"
 #: ../src/geography-activity/resources/geography/board3_0.xml.in.h:10
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:10
 msgid "Honduras"
-msgstr ""
+msgstr "Ονδούρα"
 
 #: ../src/geography-activity/resources/geography/board3_0.xml.in.h:11
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:11
@@ -5463,10 +5436,8 @@ msgstr "Τζαμάϊκα"
 
 #: ../src/geography-activity/resources/geography/board3_0.xml.in.h:13
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:13
-#, fuzzy
-#| msgid "Paraguay"
 msgid "Nicaragua"
-msgstr "Παραγουάη"
+msgstr "Νικαράγουα"
 
 #: ../src/geography-activity/resources/geography/board3_0.xml.in.h:14
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:14
@@ -5477,7 +5448,7 @@ msgstr "Παναμάς"
 #: ../src/geography-activity/resources/geography/board3_0.xml.in.h:15
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:15
 msgid "Puerto Rico"
-msgstr ""
+msgstr "Πουέρτο Ρίκο"
 
 #: ../src/geography-activity/resources/geography/board4_0.xml.in.h:1
 msgid "South America"
@@ -5945,10 +5916,6 @@ msgid "Type the falling letters before they reach the ground"
 msgstr "Πληκτρολογήστε τα γράμματα που πέφτουν πριν φτάσουν στο έδαφος"
 
 #: ../src/gletters-activity/gletters.c:215
-#, fuzzy
-#| msgid ""
-#| "Error: We can't find\n"
-#| "a list of words to play this game.\n"
 msgid ""
 "Error: We can't find\n"
 "a list of letters to play this game.\n"
@@ -5957,9 +5924,9 @@ msgstr ""
 "κατάλογο λέξεων για να παίξουμε αυτό το παιχνίδι.\n"
 
 #. Should display the dialog box here
-#: ../src/gletters-activity/gletters.c:755
+#: ../src/gletters-activity/gletters.c:762
 msgid "ERROR: Unable to get letter from wordlist"
-msgstr ""
+msgstr "ΣΦΑΛΜΑ: Αδυναμία λήψης γράμματος από τη λίστα"
 
 #. Init configuration window:
 #. all the configuration functions will use it
@@ -5967,7 +5934,7 @@ msgstr ""
 #. the dict passed to the apply_callback
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
-#: ../src/gletters-activity/gletters.c:998
+#: ../src/gletters-activity/gletters.c:1007
 #: ../src/imageid-activity/imageid.c:716
 #: ../src/pythontest-activity/pythontest.py:448
 #: ../src/readingh-activity/reading.c:918
@@ -5983,16 +5950,18 @@ msgstr ""
 "<b>%s</b> Ρυθμίσεις\n"
 " για το προφίλ <b>%s</b>"
 
-#: ../src/gletters-activity/gletters.c:1027
+#: ../src/gletters-activity/gletters.c:1036
 #: ../src/smallnumbers-activity/smallnumbers.c:617
 msgid "Enable sounds"
 msgstr "Ενεργοποίηση ήχων"
 
-#: ../src/gletters-activity/gletters.c:1031
+#: ../src/gletters-activity/gletters.c:1040
 msgid ""
 "Show letters in UPPERCASE\n"
 "Type in lowercase or UPPERCASE as you wish"
 msgstr ""
+"Εμφάνιση ΚΕΦΑΛΑΙΩΝ γραμμάτων\n"
+"Πληκτρολόγηση πεζών ή ΚΕΦΑΛΑΙΩΝ γραμμάτων, ανάλογα με την επιθυμία σας."
 
 #: ../src/gletters-activity/gletters.xml.in.h:3
 msgid "Letter association between the screen and the keyboard"
@@ -6112,7 +6081,7 @@ msgid ""
 "Press <Return> to continue."
 msgstr ""
 "Καταβροχθίστηκες από τον Τρωγλοδύτη.\n"
-"Πάτησε <Return> για να συνεχίσεις."
+"Πάτησε <Enter> για να συνεχίσεις."
 
 #: ../src/gnumch-equality-activity/gnumch.py:488
 msgid "You ate a wrong number.\n"
@@ -6339,16 +6308,14 @@ msgstr ""
 #. All the vowel of your language (keep empty if non applicable)
 #. Separate with /. You can use digraphs, trigraphs etc.
 #: ../src/hangman-activity/hangman.py:62
-#, fuzzy
-#| msgid "cake/c_ke/a/o/e/i/u/y"
 msgid "a/e/i/o/u/y"
-msgstr "τούρτα/τ_ύρτα/ο/ω/α"
+msgstr "α/ε/ι/ο/ου/υ"
 
 #. All the consonants of your language (keep empty if non applicable)
 #. Separate with /. You can use digraphs, trigraphs etc. For example, both 's' and 'sch' could be in the list for German
 #: ../src/hangman-activity/hangman.py:67
 msgid "b/c/d/f/g/h/j/k/l/m/n/p/q/r/s/t/v/w/x/z"
-msgstr ""
+msgstr "β/γ/δ/ζ/θ/κ/λ/μ/ν/ξ/π/ρ/σ/τ/φ/χ/ψ"
 
 #. Keys to letters equivalence for the hangman activity. It has the
 #. form of a space separated list like: "é=e/E è=e/E sch=S"
@@ -6358,7 +6325,7 @@ msgstr ""
 #. on the right with /
 #: ../src/hangman-activity/hangman.py:76
 msgid "a=a"
-msgstr ""
+msgstr "α=α"
 
 #. Letters equivalence for the hangman activity. It has the
 #. form of a space separated list like: "e=éè a=àâ"
@@ -7229,11 +7196,11 @@ msgstr ""
 
 #: ../src/lang-activity/lang.py:98
 msgid "ERROR, we found no words in this language."
-msgstr ""
+msgstr "ΣΦΑΛΜΑ, δεν βρήκαμε λέξεις σε αυτή τη γλώσσα."
 
 #: ../src/lang-activity/lang.py:99
 msgid "Please consider contributing a voice set."
-msgstr ""
+msgstr "Παρακαλώ, σκεφτείτε να συνεισφέρετε μια συλλογή ήχων."
 
 #: ../src/lang-activity/lang.py:152
 #, python-format
@@ -7250,40 +7217,48 @@ msgstr "Επιλογή γλώσσας"
 
 #: ../src/lang-activity/langEnterText.py:136
 msgid "Enter the text you hear:"
-msgstr ""
+msgstr "Εισάγετε το κείμενο που ακούτε:"
 
 #: ../src/lang-activity/langLib.py:69
 msgid "Missing translation for '{word}'"
-msgstr ""
+msgstr "Λείπει η μετάφραση της λέξης '{word}'"
 
 #: ../src/lang-activity/lang-nature.xml.in.h:1
 #: ../src/lang-activity/lang-object.xml.in.h:1
 #: ../src/lang-activity/lang-other.xml.in.h:1
 #: ../src/lang-activity/lang-people.xml.in.h:1
 msgid "Enrich your vocabulary"
-msgstr ""
+msgstr "Εμπλουτίστε το λεξιλόγιό σας"
 
 #: ../src/lang-activity/lang-nature.xml.in.h:2
 msgid "List of words in the 'nature' category."
-msgstr ""
+msgstr "Λίστα λέξεων στην κατηγορία 'φύση'."
 
 #: ../src/lang-activity/lang-nature.xml.in.h:4
 #: ../src/lang-activity/lang-object.xml.in.h:4
 #: ../src/lang-activity/lang-other.xml.in.h:4
 #: ../src/lang-activity/lang-people.xml.in.h:4
 msgid "Enrich your vocabulary in your native language or in a foreign one."
-msgstr ""
+msgstr "Εμπλουτισμός του λεξικού σας στην μητρική σας γλώσσα ή σε μια ξένη."
 
 #: ../src/lang-activity/lang-nature.xml.in.h:5
 #: ../src/lang-activity/lang-object.xml.in.h:5
 #: ../src/lang-activity/lang-other.xml.in.h:5
 #: ../src/lang-activity/lang-people.xml.in.h:5
+#| msgid ""
+#| "Review a set of words. Each word is shown with a voice a text and an "
+#| "image. When done you are suggested an exercice in which, given the voice, "
+#| "you must find the right word."
 msgid ""
 "Review a set of words. Each word is shown with a voice a text and an image. "
 "When done you are suggested an exercice in which, given the voice, you must "
 "find the right word. In the configuration you can select the language you "
 "want to learn."
 msgstr ""
+"Επισκόπηση ενός συνόλου λέξεων. Κάθε λέξη εμφανίζεται με ήχο, κείμενο και "
+"εικόνα. Όταν τελειώσετε, θα σας προταθεί μια άσκηση στην οποία θα ακούτε "
+"έναν ήχο και θα πρέπει να βρείτε τη σωστή λέξη. Στη διαμόρφωση μπορείτε να "
+"επιλέξετε τη γλώσσα που θέλετε να μάθετε."
 
 #: ../src/lang-activity/lang-nature.xml.in.h:6
 #: ../src/lang-activity/lang-object.xml.in.h:6
@@ -7294,128 +7269,110 @@ msgid ""
 "org/. You can also access this activity online on http://laske.fr/"
 "abecedarium/."
 msgstr ""
+"Οι εικόνες και οι ήχοι προέρχονται από το Art4Apps έργο: http://www.art4apps."
+"org/. Μπορείτε επίσης να έχετε online πρόσβαση σε αυτή τη δραστηριότητα από "
+"τη διεύθυνση: http://laske.fr/abecedarium/."
 
 #: ../src/lang-activity/lang-object.xml.in.h:2
 msgid "List of words in the 'object' category."
-msgstr ""
+msgstr "Λίστα λέξεων στην κατηγορία 'αντικείμενο'."
 
 #: ../src/lang-activity/lang-other.xml.in.h:2
 msgid "List of words in the 'other' category."
-msgstr ""
+msgstr "Λίστα λέξεων στην κατηγορία 'άλλο'."
 
 #: ../src/lang-activity/lang-people.xml.in.h:2
 msgid "List of words in the 'people' category."
-msgstr ""
+msgstr "Λίστα λέξεων στην κατηγορία 'άνθρωποι'."
 
 #: ../src/lang-activity/lang.xml.in.h:1
-#, fuzzy
-#| msgid "Go to the Reading activities"
 msgid "Go to the language learning activities"
-msgstr "Ανάγνωση"
+msgstr "Μετάβαση στις δραστηριότητες εκμάθησης γλώσσας"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:1
 msgid "other"
-msgstr ""
+msgstr "άλλο"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:2
-#, fuzzy
-#| msgid "Duration"
 msgid "action"
-msgstr "Διάρκεια"
+msgstr "ενέργεια"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:3
-#, fuzzy
-#| msgid "Active"
 msgid "adjective"
-msgstr "Ενεργό"
+msgstr "επίθετο"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:5
-#, fuzzy
-#| msgid "Number"
 msgid "number"
-msgstr "Αριθμοί κατά αύξουσα σειρά"
+msgstr "αριθμός"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:6
 msgid "bodyparts"
-msgstr ""
+msgstr "μέλη του σώματος"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:7
 msgid "clothes"
-msgstr ""
+msgstr "ενδύματα"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:8
-#, fuzzy
-#| msgid "Question"
 msgid "emotion"
-msgstr "Ερώτηση"
+msgstr "συναίσθημα"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:9
 msgid "job"
-msgstr ""
+msgstr "δουλειά"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:10
 msgid "people"
-msgstr ""
+msgstr "άνθρωποι"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:11
-#, fuzzy
-#| msgid "Reports"
 msgid "sport"
-msgstr "Αναφορές"
+msgstr "άθλημα"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:12
 msgid "food"
-msgstr ""
+msgstr "φαγητό"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:13
 msgid "animal"
-msgstr ""
+msgstr "ζώο"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:14
 msgid "fruit"
-msgstr ""
+msgstr "φρούτο"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:15
-#, fuzzy
-#| msgid "Picture"
 msgid "nature"
-msgstr "Εικόνα"
+msgstr "φύση"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:16
-#, fuzzy
-#| msgid "plane"
 msgid "plant"
-msgstr "αεροπλάνο"
+msgstr "φυτό"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:17
 msgid "vegetables"
-msgstr ""
+msgstr "λαχανικά"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:18
-#, fuzzy
-#| msgid "Learn subtraction"
 msgid "construction"
-msgstr "Μαθαίνω αφαίρεση"
+msgstr "κατασκευή"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:19
-#, fuzzy
-#| msgid "Picture"
 msgid "furniture"
-msgstr "Εικόνα"
+msgstr "έπιπλα"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:20
-#, fuzzy
-#| msgid "house"
 msgid "houseware"
-msgstr "σπίτι"
+msgstr "οικιακό είδος"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:21
+#| msgid "objet"
 msgid "object"
-msgstr ""
+msgstr "αντικείμενο"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:22
 msgid "tool"
-msgstr ""
+msgstr "εργαλείο"
 
 #: ../src/leftright-activity/leftright.c:230
 #: ../src/searace-activity/searace.py:415
