@@ -104,6 +104,17 @@ class EnterText:
         if self.mode & EnterText.WITH_IMAGE:
           pixbuf = gcompris.utils.load_pixmap(gcompris.DATA_DIR + "/" +
                                               self.tripletToFind.image)
+          goocanvas.Rect(
+              parent = self.gameroot,
+              x = gcompris.BOARD_WIDTH / 2 - pixbuf.get_width() / 2,
+              y = 10,
+              width = pixbuf.get_width(),
+              height = pixbuf.get_height() + 50,
+              fill_color_rgba = 0xCECECECCL,
+              stroke_color_rgba = 0x111111CCL,
+              line_width = 2.0,
+              radius_x = 3,
+              radius_y = 3)
           item = goocanvas.Image( parent = self.gameroot,
                                   pixbuf = pixbuf,
                                   x = gcompris.BOARD_WIDTH / 2 - pixbuf.get_width() / 2,
@@ -144,8 +155,8 @@ class EnterText:
           y = y + 20,
           width = width,
           height = 40,
-          fill_color_rgba = 0x6666FF33L,
-          stroke_color_rgba = 0x1111FFAAL,
+          fill_color_rgba = 0xEEEEEECCL,
+          stroke_color_rgba = 0x111111CCL,
           line_width = 2.0,
           radius_x = 5,
           radius_y = 10)
@@ -214,7 +225,7 @@ class EnterText:
 
     def repeat(self):
       self.lang.playVoice(self.tripletToFind)
-  
+
     def key_press(self, keyval, commit_str, preedit_str):
 
       if keyval == gtk.keysyms.KP_Enter or keyval == gtk.keysyms.Return:

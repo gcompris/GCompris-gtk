@@ -16,6 +16,7 @@ $(xml_DATA): %.xml: %.xml.in
 
 imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/lang
 img_DATA = \
+	background.svgz \
 	repeat.svg
 
 wordsimgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/lang/words

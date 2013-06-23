@@ -37,8 +37,8 @@ class SpotTarget:
       self.width = 380
       self.height = 100
       # The background
-      fill_color_off = 0x33333366L
-      fill_color_on  = 0x99999966L
+      fill_color_off = 0xCCCCCCEEL
+      fill_color_on  = 0xEEEFFEEEL
       itembg = \
           goocanvas.Rect( parent = rootitem,
                           x = x,
@@ -47,7 +47,7 @@ class SpotTarget:
                           height = self.height,
                           radius_x = 5,
                           radius_y = 5,
-                          stroke_color_rgba = 0x666666FFL,
+                          stroke_color_rgba = 0x111111EEL,
                           fill_color_rgba = fill_color_off,
                           line_width = 2.0 )
       itembg.connect("button_press_event", callback, triplet)
