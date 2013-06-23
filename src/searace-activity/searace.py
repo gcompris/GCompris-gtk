@@ -137,7 +137,7 @@ class Gcompris_searace:
     gcompris.utils.item_focus_init(item, None)
 
     gcompris.bar_set_level(self.gcomprisBoard)
-    gcompris.bar_location(gcompris.BOARD_WIDTH/2 - 90, -1, 0.6)
+    gcompris.bar_location(gcompris.BOARD_WIDTH/2 - 100, -1, 0.6)
 
   def end(self):
 

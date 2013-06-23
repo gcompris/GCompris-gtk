@@ -54,7 +54,7 @@ class Gcompris_drawnumber :
     #Display and configuration of menu bar
     gcompris.bar_set(gcompris.BAR_LEVEL)
     gcompris.bar_set_level(self.gcomprisBoard)
-    gcompris.bar_location(gcompris.BOARD_WIDTH - 160, -1, 0.7)
+    gcompris.bar_location(gcompris.BOARD_WIDTH - 190, -1, 0.7)
 
     #Start of level 1
     self.set_level()

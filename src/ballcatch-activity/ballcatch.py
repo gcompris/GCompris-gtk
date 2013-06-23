@@ -56,7 +56,7 @@ class Gcompris_ballcatch:
     gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                             "ballcatch/beach1.svgz")
     gcompris.bar_set_level(self.gcomprisBoard)
-    gcompris.bar_location(gcompris.BOARD_WIDTH - 160, -1, 0.7)
+    gcompris.bar_location(gcompris.BOARD_WIDTH - 190, -1, 0.7)
 
 
     self.ballinc    = 20        # Event loop timer for the ball move

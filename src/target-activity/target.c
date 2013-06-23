@@ -207,7 +207,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 			"target/target_background.svgz");
 
       gc_bar_set(GC_BAR_LEVEL);
-      gc_bar_location(BOARDWIDTH-200, -1, 0.8);
+      gc_bar_location(BOARDWIDTH-220, -1, 0.8);
 
       target_next_level();
 

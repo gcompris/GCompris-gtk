@@ -74,7 +74,7 @@ class Gcompris_electric:
 
     gcompris.bar_set_level(self.gcomprisBoard)
 
-    gcompris.bar_location(gcompris.BOARD_WIDTH - 160, -1, 0.7)
+    gcompris.bar_location(gcompris.BOARD_WIDTH - 190, -1, 0.7)
 
     gcompris.set_default_background(self.gcomprisBoard.canvas.get_root_item())
 
