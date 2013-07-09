@@ -151,7 +151,7 @@ class Gcompris_hangman:
         self.language = _("English")
 
     if not self.wordlist:
-      gcompris.utils.dialog(D_(gcompris.GETTEXT_ERROR,"Could not find the list of words."),
+      gcompris.utils.dialog(_("Could not find the list of words."),
                             stop_board)
       return;
 

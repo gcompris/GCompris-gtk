@@ -26,7 +26,6 @@ import goocanvas
 import pango
 import gettext
 from gcompris import gcompris_gettext as _
-from gettext import dgettext as D_
 from langLib import *
 from langFindit import *
 from langEnterText import *
@@ -96,8 +95,8 @@ class Gcompris_lang:
       return
 
     if self.gcomprisBoard.maxlevel == 0:
-      gcompris.utils.dialog(D_(gcompris.GETTEXT_ERRORS,"ERROR, we found no words in this language.") + " " +
-                            D_(gcompris.GETTEXT_ERRORS,"Please consider contributing a voice set."),
+      gcompris.utils.dialog(_("ERROR, we found no words in this language.") + " " +
+                            _("Please consider contributing a voice set."),
                             None)
       return
 
@@ -150,16 +149,16 @@ class Gcompris_lang:
     self.config_dict.update(gcompris.get_conf(profile, self.gcomprisBoard))
 
     bconf = gcompris.configuration_window ( \
-      D_(gcompris.GETTEXT_GUI, \
+      _( \
         '<b>{activity}</b> configuration\n for profile <b>{profile}</b>'.format( \
                         activity=_('Language learning'),
                         # This is the name of the Default user profile
-                        profile=profile.name if profile else D_(gcompris.GETTEXT_GUI,"Default")),
+                        profile=profile.name if profile else _("Default")),
         ),
         self.ok_callback
       )
 
-    gcompris.combo_locales_asset(bconf, D_(gcompris.GETTEXT_GUI,"Choose a language"),
+    gcompris.combo_locales_asset(bconf, _("Choose a language"),
                                  self.config_dict['locale_sound'],
                                  "voices/$LOCALE/words/red.ogg")
 

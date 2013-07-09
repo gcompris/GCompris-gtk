@@ -19,7 +19,6 @@
 
 import gettext
 from gcompris import gcompris_gettext as _
-from gettext import dgettext as D_
 import gcompris.utils
 import xml.dom.minidom
 
@@ -68,7 +67,7 @@ class Triplet:
                 self.descriptionTranslated = translations[fileName]
             except:
                 self.descriptionTranslated = \
-                    D_(gcompris.GETTEXT_ERRORS,"Missing translation for '{word}'".format(word = self.description))
+                    _("Missing translation for '{word}'".format(word = self.description))
 
 
     def isValid(self):
@@ -190,7 +189,7 @@ class LangLib:
             for line in open(self.translationsFile, 'r'):
                 lineSplitted = line.rstrip('\r\n').split(":")
                 if line[0] == '#' or len(lineSplitted) < 2: continue
-                self.translations[lineSplitted[0]] = lineSplitted[1]
+                self.translations[lineSplitted[0]] = unicode(lineSplitted[1])
 
         doc = xml.dom.minidom.parse(fileName)
         self.chapters = Chapters( doc.getElementsByTagName('Chapter'), self.translations )

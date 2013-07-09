@@ -25,7 +25,6 @@ import gtk.gdk
 import pango
 import gettext
 from gcompris import gcompris_gettext as _
-from gettext import dgettext as D_
 import math
 
 # Background screens
@@ -100,7 +99,7 @@ class Gcompris_login:
     # Display the profile name
     x = gcompris.BOARD_WIDTH-100
     y = 20.0
-    text = D_(gcompris.GETTEXT_GUI,"Profile: ") + (Prop.profile.name if Prop.profile else "")
+    text = _("Profile: ") + (Prop.profile.name if Prop.profile else "")
 
     # Profile name
     goocanvas.Text(
@@ -233,7 +232,7 @@ class Gcompris_login:
       parent = self.letter_rootitem,
       x= x,
       y= y,
-      text= D_(gcompris.GETTEXT_GUI,"Login: ") + start_filter + "...",
+      text= _("Login: ") + start_filter + "...",
       fill_color="white",
       font=gcompris.skin.get_font("gcompris/board/huge"),
       )
@@ -478,17 +477,17 @@ class Gcompris_login:
     #we can add what you want in it.
 
     bconf = gcompris.configuration_window ( \
-      D_(gcompris.GETTEXT_GUI, \
+      _( \
         '<b>{activity}</b> configuration\n for profile <b>{profile}</b>'.format( \
-                        activity=D_(gcompris.GETTEXT_GUI,'Login'),
+                        activity=_('Login'),
                         # This is the name of the Default user profile
-                        profile=profile.name if profile else D_(gcompris.GETTEXT_GUI,"Default")),
+                        profile=profile.name if profile else _("Default")),
         ),
         self.ok_callback
       )
 
     # toggle box
-    uppercase = gcompris.boolean_box(bconf, D_(gcompris.GETTEXT_GUI,'Uppercase only text'),
+    uppercase = gcompris.boolean_box(bconf, _('Uppercase only text'),
                                         'uppercase_only',
                                         eval(self.config_dict['uppercase_only'])
                                         )
@@ -498,7 +497,7 @@ class Gcompris_login:
     gcompris.separator(bconf)
 
     # toggle box
-    entry_text = gcompris.boolean_box(bconf, D_(gcompris.GETTEXT_GUI,'Enter login to log in'),
+    entry_text = gcompris.boolean_box(bconf, _('Enter login to log in'),
                                         'entry_text',
                                         eval(self.config_dict['entry_text'])
                                         )

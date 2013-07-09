@@ -307,8 +307,8 @@ static void _create_db()
 
 
   request = g_strdup_printf("INSERT INTO class (class_id, name, teacher, wholegroup_id) VALUES ( 1, \"%s\", \"(%s)\", 1);",
-			    D_(GETTEXT_ERRORS,"Unaffected"),
-			    D_(GETTEXT_ERRORS,"Users without a class"));
+			    _("Unaffected"),
+			    _("Users without a class"));
 
   rc = sqlite3_exec(gcompris_db, request, NULL,  0, &zErrMsg);
   if( rc!=SQLITE_OK ){
@@ -886,15 +886,15 @@ GList *gc_menu_load_db(GList *boards_list)
     gcomprisBoard->mandatory_sound_dataset = g_strdup(result[i++]);
     gcomprisBoard->filename = g_strdup(result[i++]);
     gcomprisBoard->title =  reactivate_newline(_(result[i++]));
-    gcomprisBoard->description  = reactivate_newline(gettext(result[i++]));
-    gcomprisBoard->prerequisite = reactivate_newline(D_(GETTEXT_HELP,result[i++]));
-    gcomprisBoard->goal = reactivate_newline(D_(GETTEXT_HELP,result[i++]));
-    gcomprisBoard->manual = reactivate_newline(D_(GETTEXT_HELP,result[i++]));
-    gcomprisBoard->credit = reactivate_newline(D_(GETTEXT_HELP,result[i++]));
+    gcomprisBoard->description  = reactivate_newline(_(result[i++]));
+    gcomprisBoard->prerequisite = reactivate_newline(_(result[i++]));
+    gcomprisBoard->goal = reactivate_newline(_(result[i++]));
+    gcomprisBoard->manual = reactivate_newline(_(result[i++]));
+    gcomprisBoard->credit = reactivate_newline(_(result[i++]));
     gcomprisBoard->demo = atoi(result[i++]);
 
     boards = g_list_append(boards, gcomprisBoard);
-    gchar *msg = g_strdup_printf(D_(GETTEXT_GUI,"Loading activity from database:\n%s"),
+    gchar *msg = g_strdup_printf(_("Loading activity from database:\n%s"),
 				 gcomprisBoard->title);
     gc_status_set_msg(msg);
     g_free(msg);
@@ -1968,11 +1968,11 @@ GcomprisBoard *gc_db_get_board_from_id(int board_id)
   gcomprisBoard->mandatory_sound_dataset = g_strdup(result[i++]);
   gcomprisBoard->filename = g_strdup(result[i++]);
   gcomprisBoard->title =  reactivate_newline(_(result[i++]));
-  gcomprisBoard->description  = reactivate_newline(gettext(result[i++]));
-  gcomprisBoard->prerequisite = reactivate_newline(D_(GETTEXT_HELP,result[i++]));
-  gcomprisBoard->goal = reactivate_newline(D_(GETTEXT_HELP,result[i++]));
-  gcomprisBoard->manual = reactivate_newline(D_(GETTEXT_HELP,result[i++]));
-  gcomprisBoard->credit = reactivate_newline(D_(GETTEXT_HELP,result[i++]));
+  gcomprisBoard->description  = reactivate_newline(_(result[i++]));
+  gcomprisBoard->prerequisite = reactivate_newline(_(result[i++]));
+  gcomprisBoard->goal = reactivate_newline(_(result[i++]));
+  gcomprisBoard->manual = reactivate_newline(_(result[i++]));
+  gcomprisBoard->credit = reactivate_newline(_(result[i++]));
   gcomprisBoard->demo = atoi(result[i++]);
 
   sqlite3_free_table(result);

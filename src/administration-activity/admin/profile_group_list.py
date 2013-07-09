@@ -25,7 +25,6 @@ import gtk.gdk
 import gobject
 import gettext
 from gcompris import gcompris_gettext as _
-from gettext import dgettext as D_
 import constants
 
 #import group_edit
@@ -138,7 +137,7 @@ class Profile_group_list:
     # columns for class name
     renderer = gtk.CellRendererText()
     renderer.set_data("column", COLUMN_CLASSNAME)
-    column = gtk.TreeViewColumn(D_(gcompris.GETTEXT_ADMIN,'Class'), renderer,
+    column = gtk.TreeViewColumn(_('Class'), renderer,
                                 text=COLUMN_CLASSNAME)
     column.set_sort_column_id(COLUMN_CLASSNAME)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
@@ -148,7 +147,7 @@ class Profile_group_list:
     # columns for name
     renderer = gtk.CellRendererText()
     renderer.set_data("column", COLUMN_GROUPNAME)
-    column = gtk.TreeViewColumn(D_(gcompris.GETTEXT_ADMIN,'Group'), renderer,
+    column = gtk.TreeViewColumn(_('Group'), renderer,
                                 text=COLUMN_GROUPNAME)
     column.set_sort_column_id(COLUMN_GROUPNAME)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
@@ -158,7 +157,7 @@ class Profile_group_list:
     # columns for description
     renderer = gtk.CellRendererText()
     renderer.set_data("column", COLUMN_DESCRIPTION)
-    column = gtk.TreeViewColumn(D_(gcompris.GETTEXT_ADMIN,'Description'), renderer,
+    column = gtk.TreeViewColumn(_('Description'), renderer,
                                 text=COLUMN_DESCRIPTION)
     column.set_sort_column_id(COLUMN_DESCRIPTION)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)

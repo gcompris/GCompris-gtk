@@ -141,7 +141,7 @@ _add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child,
 	  g_free(gcomprisBoard->prerequisite);
 
 	prerequisite = (char *)xmlNodeListGetString(doc,  xmlnode->xmlChildrenNode, 0);
-	gcomprisBoard->prerequisite = reactivate_newline(D_(GETTEXT_HELP,prerequisite));
+	gcomprisBoard->prerequisite = reactivate_newline(_(prerequisite));
       }
 
     /* get the help goal of the board */
@@ -151,7 +151,7 @@ _add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child,
 	  g_free(gcomprisBoard->goal);
 
 	goal = (char *)xmlNodeListGetString(doc,  xmlnode->xmlChildrenNode, 0);
-	gcomprisBoard->goal = reactivate_newline(D_(GETTEXT_HELP,goal));
+	gcomprisBoard->goal = reactivate_newline(_(goal));
       }
 
     /* get the help user manual of the board */
@@ -161,7 +161,7 @@ _add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child,
 	  g_free(gcomprisBoard->manual);
 
 	manual = (char *)xmlNodeListGetString(doc,  xmlnode->xmlChildrenNode, 0);
-	gcomprisBoard->manual = reactivate_newline(D_(GETTEXT_HELP,manual));
+	gcomprisBoard->manual = reactivate_newline(_(manual));
       }
 
     /* get the help user credit of the board */
@@ -171,7 +171,7 @@ _add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child,
 	  g_free(gcomprisBoard->credit);
 
 	credit =(char *) xmlNodeListGetString(doc,  xmlnode->xmlChildrenNode, 0);
-	gcomprisBoard->credit = reactivate_newline(D_(GETTEXT_HELP,credit));
+	gcomprisBoard->credit = reactivate_newline(_(credit));
       }
 
     /* Display the resource on stdout */
@@ -670,7 +670,7 @@ void gc_menu_load()
 	  // 2 because there is always the administration
 	  // and the login activities
 	  if ( g_list_length(boards_list) <= 2 )
-	    gc_dialog( D_(GETTEXT_ERRORS,"All the activities are disabled in this profile."
+	    gc_dialog(_("All the activities are disabled in this profile."
 			 " Go in the GCompris administration module and"
 			 " activate at least one activity."),
 		      NULL);

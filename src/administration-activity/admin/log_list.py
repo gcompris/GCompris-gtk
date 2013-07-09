@@ -26,7 +26,6 @@ import gtk.gdk
 import gobject
 import gettext
 from gcompris import gcompris_gettext as _
-from gettext import dgettext as D_
 
 import constants
 
@@ -90,7 +89,7 @@ class Log_list:
       class_box.show()
       label_box.pack_start(class_box, False, False, 0)
 
-      user_label = gtk.Label(D_(gcompris.GETTEXT_ADMIN,'Select a user:'))
+      user_label = gtk.Label(_('Select a user:'))
       user_label.show()
       label_box.pack_start(user_label, False, False, 0)
 
@@ -101,14 +100,14 @@ class Log_list:
       self.combo_user.show()
 
       # Insert the ALL option (HACK, use the user_id -2 to indicate ALL)
-      self.combo_user.append_text(D_(gcompris.GETTEXT_ADMIN,"All users"))
+      self.combo_user.append_text(_("All users"))
       self.user_list.append(-2)
 
       for auser in user_list:
 
         if(auser[0] == -1 or not auser[0]):
           # This is the name of the Default user profile
-          self.combo_user.append_text(D_(gcompris.GETTEXT_GUI,"Default"))
+          self.combo_user.append_text(_("Default"))
           self.user_list.append(-1)
           continue
 
@@ -162,7 +161,7 @@ class Log_list:
       self.__add_columns_log(treeview_log)
 
       # Reset buttons
-      self.button_remove = gtk.Button(D_(gcompris.GETTEXT_ADMIN,'Reset'))
+      self.button_remove = gtk.Button(_('Reset'))
       self.button_remove.connect("clicked", self.on_remove_log_clicked, treeview_log)
       vbox_button.pack_start(self.button_remove, False, False, 0)
       self.button_remove.show()
@@ -219,7 +218,7 @@ class Log_list:
     # columns for date
     renderer = gtk.CellRendererText()
     renderer.set_data("column", COLUMN_DATE)
-    column = gtk.TreeViewColumn(D_(gcompris.GETTEXT_ADMIN,'Date'), renderer,
+    column = gtk.TreeViewColumn(_('Date'), renderer,
                                 text=COLUMN_DATE)
     column.set_sort_column_id(COLUMN_DATE)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
@@ -229,7 +228,7 @@ class Log_list:
     # columns for USER
     renderer = gtk.CellRendererText()
     renderer.set_data("column", COLUMN_USER)
-    column = gtk.TreeViewColumn(D_(gcompris.GETTEXT_ADMIN,'User'), renderer,
+    column = gtk.TreeViewColumn(_('User'), renderer,
                                 text=COLUMN_USER)
     column.set_sort_column_id(COLUMN_USER)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
@@ -239,7 +238,7 @@ class Log_list:
     # columns for BOARD
     renderer = gtk.CellRendererText()
     renderer.set_data("column", COLUMN_BOARD)
-    column = gtk.TreeViewColumn(D_(gcompris.GETTEXT_ADMIN,'Board'), renderer,
+    column = gtk.TreeViewColumn(_('Board'), renderer,
                                 text=COLUMN_BOARD)
     column.set_sort_column_id(COLUMN_BOARD)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
@@ -249,7 +248,7 @@ class Log_list:
     # columns for LEVEL
     renderer = gtk.CellRendererText()
     renderer.set_data("column", COLUMN_LEVEL)
-    column = gtk.TreeViewColumn(D_(gcompris.GETTEXT_ADMIN,'Level'), renderer,
+    column = gtk.TreeViewColumn(_('Level'), renderer,
                                 text=COLUMN_LEVEL)
     column.set_sort_column_id(COLUMN_LEVEL)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
@@ -259,7 +258,7 @@ class Log_list:
     # columns for SUBLEVEL
     renderer = gtk.CellRendererText()
     renderer.set_data("column", COLUMN_SUBLEVEL)
-    column = gtk.TreeViewColumn(D_(gcompris.GETTEXT_ADMIN,'Sublevel'), renderer,
+    column = gtk.TreeViewColumn(_('Sublevel'), renderer,
                                 text=COLUMN_SUBLEVEL)
     column.set_sort_column_id(COLUMN_SUBLEVEL)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
@@ -269,7 +268,7 @@ class Log_list:
     # columns for duration
     renderer = gtk.CellRendererText()
     renderer.set_data("column", COLUMN_DURATION)
-    column = gtk.TreeViewColumn(D_(gcompris.GETTEXT_ADMIN,'Duration'), renderer,
+    column = gtk.TreeViewColumn(_('Duration'), renderer,
                                 text=COLUMN_DURATION)
     column.set_sort_column_id(COLUMN_DURATION)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
@@ -279,7 +278,7 @@ class Log_list:
     # columns for STATUS
     renderer = gtk.CellRendererText()
     renderer.set_data("column", COLUMN_STATUS)
-    column = gtk.TreeViewColumn(D_(gcompris.GETTEXT_ADMIN,'Status'), renderer,
+    column = gtk.TreeViewColumn(_('Status'), renderer,
                                 text=COLUMN_STATUS)
     column.set_sort_column_id(COLUMN_STATUS)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
@@ -299,7 +298,7 @@ class Log_list:
         status = "Compl."
 
     # This is the name of the Default user profile
-    login = D_(gcompris.GETTEXT_GUI,"Default")
+    login = _("Default")
     self.cur.execute('SELECT login FROM users WHERE user_id=?', (alog[COLUMN_USER],))
     result = self.cur.fetchall()
     if(result):

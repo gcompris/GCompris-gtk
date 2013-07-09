@@ -507,16 +507,16 @@ void gc_prop_activate(GcomprisProperties *props)
     gc_util_create_rootdir(tmp);
   g_free(tmp);
 
-  tmp = g_strconcat(props->user_dir, "/", D_(GETTEXT_MANUAL,"readme"), ".txt", NULL);
+  tmp = g_strconcat(props->user_dir, "/", _("readme"), ".txt", NULL);
   g_file_set_contents(tmp,
-		      D_(GETTEXT_MANUAL,"This directory contains the files you create with the GCompris educational suite\n"),
+		      _("This directory contains the files you create with the GCompris educational suite\n"),
 		      -1,
 		      NULL);
   g_free(tmp);
 
-  tmp = g_strconcat(props->user_dir, "/Images/", D_(GETTEXT_MANUAL,"readme"), ".txt", NULL);
+  tmp = g_strconcat(props->user_dir, "/Images/", _("readme"), ".txt", NULL);
   g_file_set_contents(tmp,
-		      D_(GETTEXT_MANUAL,"Put any number of images in this directory.\n"
+		      _("Put any number of images in this directory.\n"
 			"You can include these images in your drawings and animations.\n"
 			"The image formats supported are jpeg, png and svg.\n"),
 		      -1,

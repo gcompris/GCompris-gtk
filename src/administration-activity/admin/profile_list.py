@@ -25,7 +25,6 @@ import gtk.gdk
 import gobject
 import gettext
 from gcompris import gcompris_gettext as _
-from gettext import dgettext as D_
 import profile_group_list
 import profile_edit
 
@@ -116,7 +115,7 @@ class Profile_list:
       self.button_remove.set_sensitive(False)
 
       # This is the name of the Default user profile
-      self.button_default = gtk.Button(D_(gcompris.GETTEXT_ADMIN,"Default"))
+      self.button_default = gtk.Button(_("Default"))
       self.button_default.connect("clicked", self.on_default_profile_clicked, treeview_profile)
       vbox_button.pack_start(self.button_default, False, False, 0)
       self.button_default.show()
@@ -183,7 +182,7 @@ class Profile_list:
     # columns for name
     renderer = gtk.CellRendererText()
     renderer.set_data("column", COLUMN_NAME)
-    column = gtk.TreeViewColumn(D_(gcompris.GETTEXT_ADMIN,'Profile'), renderer,
+    column = gtk.TreeViewColumn(_('Profile'), renderer,
                                 text=COLUMN_NAME)
     column.set_sort_column_id(COLUMN_NAME)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
@@ -193,7 +192,7 @@ class Profile_list:
     # columns for description
     renderer = gtk.CellRendererText()
     renderer.set_data("column", COLUMN_DESCRIPTION)
-    column = gtk.TreeViewColumn(D_(gcompris.GETTEXT_ADMIN,'Description'), renderer,
+    column = gtk.TreeViewColumn(_('Description'), renderer,
                                 text=COLUMN_DESCRIPTION)
     column.set_sort_column_id(COLUMN_DESCRIPTION)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
@@ -310,7 +309,7 @@ class Profile_list:
       description  = self.profile_model.get_value(iter, COLUMN_DESCRIPTION)
 
       self.profile_model.set (iter,
-                              COLUMN_DESCRIPTION, description + D_(gcompris.GETTEXT_GUI,"[Default]"),
+                              COLUMN_DESCRIPTION, description + _("[Default]"),
                               )
 
       # There was a previous default TAG, erase it

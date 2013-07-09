@@ -25,7 +25,6 @@ import gtk.gdk
 import gobject
 import gettext
 from gcompris import gcompris_gettext as _
-from gettext import dgettext as D_
 
 import constants
 
@@ -164,7 +163,7 @@ class Class_list:
     # columns for name
     renderer = gtk.CellRendererText()
     renderer.set_data("column", COLUMN_NAME)
-    column = gtk.TreeViewColumn(D_(gcompris.GETTEXT_ADMIN,'Class'), renderer,
+    column = gtk.TreeViewColumn(_('Class'), renderer,
                                 text=COLUMN_NAME)
     column.set_sort_column_id(COLUMN_NAME)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
@@ -174,7 +173,7 @@ class Class_list:
     # columns for teacher
     renderer = gtk.CellRendererText()
     renderer.set_data("column", COLUMN_TEACHER)
-    column = gtk.TreeViewColumn(D_(gcompris.GETTEXT_ADMIN,'Teacher'), renderer,
+    column = gtk.TreeViewColumn(_('Teacher'), renderer,
                                 text=COLUMN_TEACHER)
     column.set_sort_column_id(COLUMN_TEACHER)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
