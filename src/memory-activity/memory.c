@@ -1492,7 +1492,7 @@ static void create_item(GooCanvasItem *parent)
                   else if(gcomprisBoard->level <=5)
                       font = TEXT_FONT_BIG;
                   else
-                      font = TEXT_FONT_MEDIUM;
+                      font = TEXT_FONT_SMALL;
               }
               else if(memoryItem->type & TYPE_WORDNUMBER)
               {
