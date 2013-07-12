@@ -67,7 +67,8 @@ class Gcompris_lang:
     gcompris.bar_location(gcompris.BOARD_WIDTH / 2 - 100, -1, 0.6)
 
     # Set a background image
-    gcompris.set_default_background(self.gcomprisBoard.canvas.get_root_item())
+    gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
+                            "lang/background.svgz")
 
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains
@@ -251,8 +252,8 @@ class Gcompris_lang:
       y = 10,
       width = gcompris.BOARD_WIDTH - 40,
       height = 65,
-      fill_color_rgba = 0x6666FF33L,
-      stroke_color_rgba = 0x1111FFAAL,
+      fill_color_rgba = 0xAAAAAA99L,
+      stroke_color_rgba = 0x111111AAL,
       line_width = 2.0,
       radius_x = 3,
       radius_y = 3)
@@ -302,6 +303,19 @@ class Gcompris_lang:
       )
 
     # The triplet area
+    w = 400
+    h = 300
+    goocanvas.Rect(
+      parent = self.lessonroot,
+      x = (gcompris.BOARD_WIDTH - w) / 2,
+      y = (gcompris.BOARD_HEIGHT - h) / 2,
+      width = w,
+      height = h + 50,
+      fill_color_rgba = 0xCECECECCL,
+      stroke_color_rgba = 0x111111CCL,
+      line_width = 2.0,
+      radius_x = 3,
+      radius_y = 3)
     self.imageitem = goocanvas.Image( parent = self.lessonroot )
     self.imageitem.connect("button_press_event", self.next_event, None)
     self.descriptionitem = goocanvas.Text(
@@ -338,7 +352,7 @@ class Gcompris_lang:
     # We will run the exercise 3 times in different modes
     self.currentExerciseModes = [ ["findit",Findit.WITH_QUESTION|Findit.WITH_TEXT|Findit.WITH_IMAGE],
                                   ["findit", Findit.WITH_QUESTION|Findit.WITH_IMAGE],
-                                  ["findit", Findit.WITH_IMAGE],                                  
+                                  ["findit", Findit.WITH_IMAGE],
                                   ["text", EnterText.WITH_TEXT|EnterText.WITH_IMAGE]
                                   ]
     self.currentExerciseModes.reverse()

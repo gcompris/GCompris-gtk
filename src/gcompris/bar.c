@@ -228,7 +228,7 @@ bar_start (GooCanvas *theCanvas)
 		    svg_handle,
 		    GC_BAR_LEVEL,
 		    "#LEVEL_UP");
-  goo_canvas_item_translate(item, 90, 0);
+  goo_canvas_item_translate(item, 70, 0);
   g_object_set (item,
 		"visibility", (properties->disable_level ?
 			       GOO_CANVAS_ITEM_INVISIBLE :
@@ -240,7 +240,7 @@ bar_start (GooCanvas *theCanvas)
   level_item =
     goo_canvas_text_new (rootitem_level,
 			 "",
-			 bounds.x1 -29,
+			 bounds.x1 - 18,
 			 (bounds.y2 - bounds.y1) / 2 + 8,
 			 -1,
 			 GTK_ANCHOR_CENTER,
@@ -596,8 +596,11 @@ gc_bar_play_level_voice(int level)
       number_str = level_str;
     }
   else
-      number_str = g_strdup_printf("%s.ogg", number_str);
-  
+    {
+      gchar *old_str = number_str;
+      number_str = g_strdup_printf("%s.ogg", old_str);
+      g_free(old_str);
+    }
   gchar *audio_str = g_strdup_printf("voices/$LOCALE/alphabet/%s", number_str);
   
   int policy = gc_sound_policy_get();
