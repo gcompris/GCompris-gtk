@@ -1021,7 +1021,7 @@ gletters_config_start(GcomprisBoard *agcomprisBoard,
    * TRANSLATORS: %1$s is the board name (gletters),
    * 2$s is the name of the current user profile
    */
-  gchar *label = g_strdup_printf(pgettext("gletters_config","<b>%1$s</b> configuration\n for profile <b>%2$s</b>"),
+  gchar *label = g_strdup_printf(C_("gletters_config","<b>%1$s</b> configuration\n for profile <b>%2$s</b>"),
 			  _(agcomprisBoard->name), aProfile ? aProfile->name : "");
 
   GcomprisBoardConf *bconf = gc_board_config_window_display(label, (GcomprisConfCallback )conf_ok);

@@ -938,7 +938,7 @@ wordsgame_config_start(GcomprisBoard *agcomprisBoard,
    * TRANSLATORS: %1$s is the board name (wordsgame),
    * 2$s is the name of the current user profile
    */
-  gchar *label = g_strdup_printf(pgettext("wordsgame_config","<b>%1$s</b> configuration\n for profile <b>%2$s</b>"),
+  gchar *label = g_strdup_printf(C_("wordsgame_config","<b>%1$s</b> configuration\n for profile <b>%2$s</b>"),
 				 _(agcomprisBoard->name),
 				 aProfile? aProfile->name: "");
 
